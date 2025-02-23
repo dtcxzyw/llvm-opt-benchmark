@@ -142,7 +142,7 @@ sub_175:                                          ; preds = %sub_0
 .split.us:                                        ; preds = %.split.us.preheader, %.critedge2.us
   %26 = phi ptr [ %37, %.critedge2.us ], [ %.pre115, %.split.us.preheader ]
   %27 = phi ptr [ %38, %.critedge2.us ], [ %.pre115, %.split.us.preheader ]
-  %.059.us = phi i64 [ %.0.lcssa.us128, %.critedge2.us ], [ 4294967295, %.split.us.preheader ]
+  %.059.us = phi i64 [ %.0.lcssa.us.ph, %.critedge2.us ], [ 4294967295, %.split.us.preheader ]
   %.not69.us = icmp eq ptr %27, null
   br i1 %.not69.us, label %.split94.us, label %.lr.ph.us
 
@@ -163,13 +163,13 @@ sub_175:                                          ; preds = %sub_0
   br i1 %exitcond110.not, label %.lr.ph88.us.preheader, label %28
 
 .lr.ph88.us.preheader:                            ; preds = %28, %.lr.ph.us
-  %.0.lcssa.us128 = phi i64 [ 0, %.lr.ph.us ], [ %.1.us90, %28 ]
+  %.0.lcssa.us.ph = phi i64 [ 0, %.lr.ph.us ], [ %.1.us90, %28 ]
   br label %.lr.ph88.us
 
 .critedge2.us:                                    ; preds = %70, %.lr.ph88.us
   %37 = phi ptr [ %42, %.lr.ph88.us ], [ null, %70 ]
   %38 = phi ptr [ %43, %.lr.ph88.us ], [ null, %70 ]
-  %.not71.us = icmp eq i64 %.0.lcssa.us128, 0
+  %.not71.us = icmp eq i64 %.0.lcssa.us.ph, 0
   br i1 %.not71.us, label %.split94.us, label %.split.us, !llvm.loop !7
 
 .lr.ph.us:                                        ; preds = %.split.us
@@ -201,7 +201,7 @@ sub_175:                                          ; preds = %sub_0
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %52
-  %56 = icmp eq i64 %55, %.0.lcssa.us128
+  %56 = icmp eq i64 %55, %.0.lcssa.us.ph
   br i1 %56, label %57, label %70
 
 57:                                               ; preds = %48
@@ -231,7 +231,7 @@ sub_175:                                          ; preds = %sub_0
 .split:                                           ; preds = %.split.preheader, %.critedge2
   %72 = phi ptr [ %115, %.critedge2 ], [ %.pre, %.split.preheader ]
   %73 = phi ptr [ %116, %.critedge2 ], [ %.pre, %.split.preheader ]
-  %.059 = phi i64 [ %.0.lcssa137, %.critedge2 ], [ 4294967295, %.split.preheader ]
+  %.059 = phi i64 [ %.0.lcssa.ph, %.critedge2 ], [ 4294967295, %.split.preheader ]
   %.not69 = icmp eq ptr %73, null
   br i1 %.not69, label %.split94.us, label %.lr.ph
 
@@ -263,7 +263,7 @@ sub_175:                                          ; preds = %sub_0
   br i1 %exitcond.not, label %.lr.ph88.preheader, label %77
 
 .lr.ph88.preheader:                               ; preds = %77, %.lr.ph
-  %.0.lcssa137 = phi i64 [ 0, %.lr.ph ], [ %.1, %77 ]
+  %.0.lcssa.ph = phi i64 [ 0, %.lr.ph ], [ %.1, %77 ]
   br label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %113
@@ -284,7 +284,7 @@ sub_175:                                          ; preds = %sub_0
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 48
   %98 = load i64, ptr %97, align 8
   %99 = add i64 %98, %96
-  %100 = icmp eq i64 %99, %.0.lcssa137
+  %100 = icmp eq i64 %99, %.0.lcssa.ph
   br i1 %100, label %101, label %113
 
 101:                                              ; preds = %92
@@ -312,7 +312,7 @@ sub_175:                                          ; preds = %sub_0
 .critedge2:                                       ; preds = %.lr.ph88, %113
   %115 = phi ptr [ null, %113 ], [ %86, %.lr.ph88 ]
   %116 = phi ptr [ null, %113 ], [ %87, %.lr.ph88 ]
-  %.not71 = icmp eq i64 %.0.lcssa137, 0
+  %.not71 = icmp eq i64 %.0.lcssa.ph, 0
   br i1 %.not71, label %.split94.us, label %.split, !llvm.loop !7
 
 .split94.us:                                      ; preds = %.split, %.critedge2, %.split.us, %.critedge2.us

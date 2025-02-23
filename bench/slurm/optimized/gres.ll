@@ -15501,7 +15501,7 @@ define dso_local noundef i32 @gres_prep_pack_legacy(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %15 = phi ptr [ %17, %.lr.ph ], [ %14, %12 ]
   %.02327 = phi i16 [ %16, %.lr.ph ], [ 0, %12 ]
-  tail call void @gres_prep_pack(ptr noundef nonnull %15, i16 noundef zeroext %2, ptr noundef %1)
+  tail call void @gres_prep_pack(ptr noundef nonnull %15, i16 noundef zeroext %2, ptr noundef nonnull %1)
   %16 = add i16 %.02327, 1
   %17 = tail call ptr @list_next(ptr noundef %13) #28
   %.not = icmp eq ptr %17, null
@@ -15512,7 +15512,7 @@ define dso_local noundef i32 @gres_prep_pack_legacy(ptr noundef %0, ptr noundef 
   tail call void @list_iterator_destroy(ptr noundef %13) #28
   %18 = load i32, ptr %4, align 4
   store i32 %5, ptr %4, align 4
-  tail call void @pack16(i16 noundef zeroext %.023.lcssa, ptr noundef %1) #28
+  tail call void @pack16(i16 noundef zeroext %.023.lcssa, ptr noundef nonnull %1) #28
   store i32 %18, ptr %4, align 4
   br label %19
 
@@ -25481,7 +25481,7 @@ define internal noundef i32 @_merge_gres(ptr noundef readonly captures(none) %0,
   %24 = load ptr, ptr %16, align 8
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
-  tail call fastcc void @_merge_gres2(ptr noundef %1, i64 noundef %23, ptr noundef %26)
+  tail call fastcc void @_merge_gres2(ptr noundef nonnull %1, i64 noundef %23, ptr noundef %26)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = load i16, ptr %12, align 8
   %28 = zext i16 %27 to i64

@@ -2774,7 +2774,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   %72 = zext i32 %.1 to i64
   %73 = getelementptr [79 x i8], ptr %7, i64 0, i64 %72
   store i8 %narrow, ptr %73, align 1
-  %74 = add i32 %.05171, 1
+  %74 = add nuw i32 %.05171, 1
   %75 = and i32 %74, 15
   %76 = icmp eq i32 %75, 0
   %77 = icmp eq i32 %74, %3
@@ -2782,7 +2782,7 @@ define noundef zeroext i1 @hex_dump_buffer(ptr noundef readonly captures(none) %
   br i1 %or.cond62, label %82, label %93
 
 .thread:                                          ; preds = %47
-  %78 = add i32 %.05171, 1
+  %78 = add nuw i32 %.05171, 1
   %79 = and i32 %78, 15
   %80 = icmp eq i32 %79, 0
   %81 = icmp eq i32 %78, %3

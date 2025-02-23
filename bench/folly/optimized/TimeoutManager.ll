@@ -1123,7 +1123,7 @@ _ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3: ; preds = %.lr.ph.i,
   br i1 %.not.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !66
 
 _ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN5folly14TimeoutManager16clearCobTimeoutsEv.exit.thread3
-  tail call void @_ZdlPvm(ptr noundef %17, i64 noundef 16) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef 16) #29
   br label %_ZNSt10unique_ptrIN5folly14TimeoutManager11CobTimeoutsESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5folly14TimeoutManager11CobTimeoutsESt14default_deleteIS2_EED2Ev.exit: ; preds = %1, %_ZNKSt14default_deleteIN5folly14TimeoutManager11CobTimeoutsEEclEPS2_.exit.i

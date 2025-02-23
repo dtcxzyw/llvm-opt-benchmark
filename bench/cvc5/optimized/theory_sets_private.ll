@@ -40358,7 +40358,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %324, %319
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %329, %332, %338
   %spec.select = select i1 %328, i1 true, i1 %.034
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %246, !llvm.loop !1137
 
 342:                                              ; preds = %267

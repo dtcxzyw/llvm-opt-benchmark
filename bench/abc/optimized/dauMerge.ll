@@ -139,7 +139,7 @@ define i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr noundef captures(none) %1
 .lr.ph88:                                         ; preds = %59, %.lr.ph88
   %.06987 = phi i32 [ %72, %.lr.ph88 ], [ 0, %59 ]
   %.07086 = phi i32 [ %71, %.lr.ph88 ], [ 0, %59 ]
-  %68 = tail call i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr noundef %4)
+  %68 = tail call i32 @Dau_DsdMergeStatus_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
   %69 = icmp eq i32 %68, 3
   %70 = zext i1 %69 to i32
   %71 = add nuw nsw i32 %.07086, %70
@@ -490,7 +490,7 @@ Dau_DsdMergeGetStatus.exit:                       ; preds = %.critedge2.i, %125
   %136 = load i32, ptr %135, align 4, !tbaa !9
   %137 = icmp ne i32 %136, 3
   %138 = zext i1 %137 to i32
-  tail call void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i32 noundef %138)
+  tail call void @Dau_DsdMergeSubstitute_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %138)
   %139 = icmp eq i32 %136, 3
   br i1 %139, label %140, label %159
 

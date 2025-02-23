@@ -1611,7 +1611,7 @@ rb_gc_impl_objspace_free.exit:                    ; preds = %.lr.ph.i.i27.i, %fr
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 2208
   %47 = load ptr, ptr %46, align 8, !tbaa !185
   tail call void @free(ptr noundef %47) #7
-  tail call void @free(ptr noundef %0) #7
+  tail call void @free(ptr noundef nonnull %0) #7
   ret void
 }
 
@@ -11252,7 +11252,7 @@ rb_darray_size.exit204.thread:                    ; preds = %200, %rb_darray_siz
 257:                                              ; preds = %234
   %258 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 56), align 8, !tbaa !93
   %259 = icmp eq i64 %.0, %258
-  br i1 %259, label %263, label %.thread
+  br i1 %259, label %263, label %285
 
 .thread380:                                       ; preds = %255, %252
   %.0.i213 = phi i64 [ %254, %252 ], [ %256, %255 ]
@@ -11311,25 +11311,25 @@ objspace_available_slots.exit223:                 ; preds = %275
 280:                                              ; preds = %objspace_available_slots.exit223
   %281 = shl nuw nsw i64 %278, 1
   %282 = or disjoint i64 %281, 1
-  br label %285
+  br label %.thread382
 
 283:                                              ; preds = %objspace_available_slots.exit223
   %284 = tail call i64 @rb_ull2inum(i64 noundef %278) #7
-  br label %285
+  br label %.thread382
 
-285:                                              ; preds = %283, %280
+285:                                              ; preds = %257
+  %286 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 64), align 16, !tbaa !93
+  %287 = icmp eq i64 %.0, %286
+  br i1 %287, label %291, label %307
+
+.thread382:                                       ; preds = %283, %280
   %.0.i224 = phi i64 [ %282, %280 ], [ %284, %283 ]
-  %286 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %261, i64 noundef %.0.i224) #7
-  %287 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 64), align 16, !tbaa !93
-  %288 = icmp eq i64 %.0, %287
-  br i1 %288, label %291, label %299
-
-.thread:                                          ; preds = %257
+  %288 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %261, i64 noundef %.0.i224) #7
   %289 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 64), align 16, !tbaa !93
   %290 = icmp eq i64 %.0, %289
-  br i1 %290, label %291, label %.thread436
+  br i1 %290, label %291, label %299
 
-291:                                              ; preds = %.thread, %285
+291:                                              ; preds = %.thread382, %285
   %292 = tail call fastcc i64 @objspace_live_slots(ptr noundef %0)
   %293 = icmp ult i64 %292, 4611686018427387904
   br i1 %293, label %294, label %297
@@ -11343,7 +11343,7 @@ objspace_available_slots.exit223:                 ; preds = %275
   %298 = tail call i64 @rb_ull2inum(i64 noundef %292) #7
   br label %rb_ull2num_inline.exit
 
-299:                                              ; preds = %285
+299:                                              ; preds = %.thread382
   %300 = tail call fastcc i64 @objspace_live_slots(ptr noundef nonnull %0)
   %301 = icmp ult i64 %300, 4611686018427387904
   br i1 %301, label %302, label %305
@@ -11351,65 +11351,65 @@ objspace_available_slots.exit223:                 ; preds = %275
 302:                                              ; preds = %299
   %303 = shl nuw nsw i64 %300, 1
   %304 = or disjoint i64 %303, 1
-  br label %.thread382
+  br label %.thread384
 
 305:                                              ; preds = %299
   %306 = tail call i64 @rb_ull2inum(i64 noundef %300) #7
-  br label %.thread382
+  br label %.thread384
 
-.thread436:                                       ; preds = %.thread
-  %307 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 72), align 8, !tbaa !93
-  %308 = icmp eq i64 %.0, %307
-  br i1 %308, label %312, label %328
+307:                                              ; preds = %285
+  %308 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 72), align 8, !tbaa !93
+  %309 = icmp eq i64 %.0, %308
+  br i1 %309, label %313, label %328
 
-.thread382:                                       ; preds = %305, %302
+.thread384:                                       ; preds = %305, %302
   %.0.i228 = phi i64 [ %304, %302 ], [ %306, %305 ]
-  %309 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %287, i64 noundef %.0.i228) #7
-  %310 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 72), align 8, !tbaa !93
-  %311 = icmp eq i64 %.0, %310
-  br i1 %311, label %312, label %320
+  %310 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %289, i64 noundef %.0.i228) #7
+  %311 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 72), align 8, !tbaa !93
+  %312 = icmp eq i64 %.0, %311
+  br i1 %312, label %313, label %.thread385
 
-312:                                              ; preds = %.thread382, %.thread436
-  %313 = tail call fastcc i64 @objspace_free_slots(ptr noundef %0)
-  %314 = icmp ult i64 %313, 4611686018427387904
-  br i1 %314, label %315, label %318
+313:                                              ; preds = %.thread384, %307
+  %314 = tail call fastcc i64 @objspace_free_slots(ptr noundef %0)
+  %315 = icmp ult i64 %314, 4611686018427387904
+  br i1 %315, label %316, label %319
 
-315:                                              ; preds = %312
-  %316 = shl nuw nsw i64 %313, 1
-  %317 = or disjoint i64 %316, 1
+316:                                              ; preds = %313
+  %317 = shl nuw nsw i64 %314, 1
+  %318 = or disjoint i64 %317, 1
   br label %rb_ull2num_inline.exit
 
-318:                                              ; preds = %312
-  %319 = tail call i64 @rb_ull2inum(i64 noundef %313) #7
+319:                                              ; preds = %313
+  %320 = tail call i64 @rb_ull2inum(i64 noundef %314) #7
   br label %rb_ull2num_inline.exit
 
-320:                                              ; preds = %.thread382
+.thread385:                                       ; preds = %.thread384
   %321 = tail call fastcc i64 @objspace_free_slots(ptr noundef nonnull %0)
   %322 = icmp ult i64 %321, 4611686018427387904
   br i1 %322, label %323, label %326
 
-323:                                              ; preds = %320
+323:                                              ; preds = %.thread385
   %324 = shl nuw nsw i64 %321, 1
   %325 = or disjoint i64 %324, 1
-  br label %.thread384
+  br label %.thread386
 
-326:                                              ; preds = %320
+326:                                              ; preds = %.thread385
   %327 = tail call i64 @rb_ull2inum(i64 noundef %321) #7
-  br label %.thread384
+  br label %.thread386
 
-328:                                              ; preds = %.thread436
+328:                                              ; preds = %307
   %329 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 80), align 16, !tbaa !93
   %330 = icmp eq i64 %.0, %329
-  br i1 %330, label %334, label %.thread437
+  br i1 %330, label %334, label %356
 
-.thread384:                                       ; preds = %326, %323
+.thread386:                                       ; preds = %326, %323
   %.0.i232 = phi i64 [ %325, %323 ], [ %327, %326 ]
-  %331 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %310, i64 noundef %.0.i232) #7
+  %331 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %311, i64 noundef %.0.i232) #7
   %332 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 80), align 16, !tbaa !93
   %333 = icmp eq i64 %.0, %332
   br i1 %333, label %334, label %345
 
-334:                                              ; preds = %.thread384, %328
+334:                                              ; preds = %.thread386, %328
   %invariant.gep.i234 = getelementptr i8, ptr %0, i64 88
   br label %335
 
@@ -11437,7 +11437,7 @@ total_final_slots_count.exit:                     ; preds = %335
   %344 = tail call i64 @rb_ull2inum(i64 noundef %338) #7
   br label %rb_ull2num_inline.exit
 
-345:                                              ; preds = %.thread384
+345:                                              ; preds = %.thread386
   %invariant.gep.i242 = getelementptr i8, ptr %0, i64 88
   br label %346
 
@@ -11459,25 +11459,25 @@ total_final_slots_count.exit248:                  ; preds = %346
 351:                                              ; preds = %total_final_slots_count.exit248
   %352 = shl nuw nsw i64 %349, 1
   %353 = or disjoint i64 %352, 1
-  br label %356
+  br label %.thread388
 
 354:                                              ; preds = %total_final_slots_count.exit248
   %355 = tail call i64 @rb_ull2inum(i64 noundef %349) #7
-  br label %356
+  br label %.thread388
 
-356:                                              ; preds = %354, %351
+356:                                              ; preds = %328
+  %357 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 88), align 8, !tbaa !93
+  %358 = icmp eq i64 %.0, %357
+  br i1 %358, label %362, label %380
+
+.thread388:                                       ; preds = %354, %351
   %.0.i249 = phi i64 [ %353, %351 ], [ %355, %354 ]
-  %357 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %332, i64 noundef %.0.i249) #7
-  %358 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 88), align 8, !tbaa !93
-  %359 = icmp eq i64 %.0, %358
-  br i1 %359, label %362, label %371
-
-.thread437:                                       ; preds = %328
+  %359 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %332, i64 noundef %.0.i249) #7
   %360 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 88), align 8, !tbaa !93
   %361 = icmp eq i64 %.0, %360
-  br i1 %361, label %362, label %.thread438
+  br i1 %361, label %362, label %371
 
-362:                                              ; preds = %.thread437, %356
+362:                                              ; preds = %.thread388, %356
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %364 = load i64, ptr %363, align 8, !tbaa !397
   %365 = icmp ult i64 %364, 4611686018427387904
@@ -11492,7 +11492,7 @@ total_final_slots_count.exit248:                  ; preds = %346
   %370 = tail call i64 @rb_ull2inum(i64 noundef %364) #7
   br label %rb_ull2num_inline.exit
 
-371:                                              ; preds = %356
+371:                                              ; preds = %.thread388
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %373 = load i64, ptr %372, align 8, !tbaa !397
   %374 = icmp ult i64 %373, 4611686018427387904
@@ -11501,59 +11501,59 @@ total_final_slots_count.exit248:                  ; preds = %346
 375:                                              ; preds = %371
   %376 = shl nuw nsw i64 %373, 1
   %377 = or disjoint i64 %376, 1
-  br label %.thread386
+  br label %.thread390
 
 378:                                              ; preds = %371
   %379 = tail call i64 @rb_ull2inum(i64 noundef %373) #7
-  br label %.thread386
+  br label %.thread390
 
-.thread438:                                       ; preds = %.thread437
-  %380 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 96), align 16, !tbaa !93
-  %381 = icmp eq i64 %.0, %380
-  br i1 %381, label %385, label %.thread439
+380:                                              ; preds = %356
+  %381 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 96), align 16, !tbaa !93
+  %382 = icmp eq i64 %.0, %381
+  br i1 %382, label %386, label %407
 
-.thread386:                                       ; preds = %378, %375
+.thread390:                                       ; preds = %378, %375
   %.0.i253 = phi i64 [ %377, %375 ], [ %379, %378 ]
-  %382 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %358, i64 noundef %.0.i253) #7
-  %383 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 96), align 16, !tbaa !93
-  %384 = icmp eq i64 %.0, %383
-  br i1 %384, label %385, label %396
+  %383 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %360, i64 noundef %.0.i253) #7
+  %384 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 96), align 16, !tbaa !93
+  %385 = icmp eq i64 %.0, %384
+  br i1 %385, label %386, label %.thread391
 
-385:                                              ; preds = %.thread386, %.thread438
+386:                                              ; preds = %.thread390, %380
   %invariant.gep.i255 = getelementptr i8, ptr %0, i64 168
-  br label %386
+  br label %387
 
-386:                                              ; preds = %386, %385
-  %indvars.iv.i256 = phi i64 [ 0, %385 ], [ %indvars.iv.next.i258, %386 ]
-  %.057.i = phi i64 [ 0, %385 ], [ %389, %386 ]
-  %387 = mul nuw nsw i64 %indvars.iv.i256, 144
-  %gep.i257 = getelementptr i8, ptr %invariant.gep.i255, i64 %387
-  %388 = load i64, ptr %gep.i257, align 8, !tbaa !398
-  %389 = add i64 %388, %.057.i
+387:                                              ; preds = %387, %386
+  %indvars.iv.i256 = phi i64 [ 0, %386 ], [ %indvars.iv.next.i258, %387 ]
+  %.057.i = phi i64 [ 0, %386 ], [ %390, %387 ]
+  %388 = mul nuw nsw i64 %indvars.iv.i256, 144
+  %gep.i257 = getelementptr i8, ptr %invariant.gep.i255, i64 %388
+  %389 = load i64, ptr %gep.i257, align 8, !tbaa !398
+  %390 = add i64 %389, %.057.i
   %indvars.iv.next.i258 = add nuw nsw i64 %indvars.iv.i256, 1
   %exitcond.not.i259 = icmp eq i64 %indvars.iv.next.i258, 5
-  br i1 %exitcond.not.i259, label %heap_eden_total_pages.exit, label %386, !llvm.loop !399
+  br i1 %exitcond.not.i259, label %heap_eden_total_pages.exit, label %387, !llvm.loop !399
 
-heap_eden_total_pages.exit:                       ; preds = %386
-  %390 = icmp ult i64 %389, 4611686018427387904
-  br i1 %390, label %391, label %394
+heap_eden_total_pages.exit:                       ; preds = %387
+  %391 = icmp ult i64 %390, 4611686018427387904
+  br i1 %391, label %392, label %395
 
-391:                                              ; preds = %heap_eden_total_pages.exit
-  %392 = shl nuw nsw i64 %389, 1
-  %393 = or disjoint i64 %392, 1
+392:                                              ; preds = %heap_eden_total_pages.exit
+  %393 = shl nuw nsw i64 %390, 1
+  %394 = or disjoint i64 %393, 1
   br label %rb_ull2num_inline.exit
 
-394:                                              ; preds = %heap_eden_total_pages.exit
-  %395 = tail call i64 @rb_ull2inum(i64 noundef %389) #7
+395:                                              ; preds = %heap_eden_total_pages.exit
+  %396 = tail call i64 @rb_ull2inum(i64 noundef %390) #7
   br label %rb_ull2num_inline.exit
 
-396:                                              ; preds = %.thread386
+.thread391:                                       ; preds = %.thread390
   %invariant.gep.i262 = getelementptr i8, ptr %0, i64 168
   br label %397
 
-397:                                              ; preds = %397, %396
-  %indvars.iv.i263 = phi i64 [ 0, %396 ], [ %indvars.iv.next.i266, %397 ]
-  %.057.i264 = phi i64 [ 0, %396 ], [ %400, %397 ]
+397:                                              ; preds = %397, %.thread391
+  %indvars.iv.i263 = phi i64 [ 0, %.thread391 ], [ %indvars.iv.next.i266, %397 ]
+  %.057.i264 = phi i64 [ 0, %.thread391 ], [ %400, %397 ]
   %398 = mul nuw nsw i64 %indvars.iv.i263, 144
   %gep.i265 = getelementptr i8, ptr %invariant.gep.i262, i64 %398
   %399 = load i64, ptr %gep.i265, align 8, !tbaa !398
@@ -11569,25 +11569,25 @@ heap_eden_total_pages.exit268:                    ; preds = %397
 402:                                              ; preds = %heap_eden_total_pages.exit268
   %403 = shl nuw nsw i64 %400, 1
   %404 = or disjoint i64 %403, 1
-  br label %407
+  br label %.thread392
 
 405:                                              ; preds = %heap_eden_total_pages.exit268
   %406 = tail call i64 @rb_ull2inum(i64 noundef %400) #7
-  br label %407
+  br label %.thread392
 
-407:                                              ; preds = %405, %402
+407:                                              ; preds = %380
+  %408 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 104), align 8, !tbaa !93
+  %409 = icmp eq i64 %.0, %408
+  br i1 %409, label %413, label %431
+
+.thread392:                                       ; preds = %405, %402
   %.0.i269 = phi i64 [ %404, %402 ], [ %406, %405 ]
-  %408 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %383, i64 noundef %.0.i269) #7
-  %409 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 104), align 8, !tbaa !93
-  %410 = icmp eq i64 %.0, %409
-  br i1 %410, label %413, label %422
-
-.thread439:                                       ; preds = %.thread438
+  %410 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %384, i64 noundef %.0.i269) #7
   %411 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 104), align 8, !tbaa !93
   %412 = icmp eq i64 %.0, %411
-  br i1 %412, label %413, label %.thread440
+  br i1 %412, label %413, label %422
 
-413:                                              ; preds = %.thread439, %407
+413:                                              ; preds = %.thread392, %407
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %415 = load i64, ptr %414, align 8, !tbaa !400
   %416 = icmp ult i64 %415, 4611686018427387904
@@ -11602,7 +11602,7 @@ heap_eden_total_pages.exit268:                    ; preds = %397
   %421 = tail call i64 @rb_ull2inum(i64 noundef %415) #7
   br label %rb_ull2num_inline.exit
 
-422:                                              ; preds = %407
+422:                                              ; preds = %.thread392
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %424 = load i64, ptr %423, align 8, !tbaa !400
   %425 = icmp ult i64 %424, 4611686018427387904
@@ -11611,101 +11611,101 @@ heap_eden_total_pages.exit268:                    ; preds = %397
 426:                                              ; preds = %422
   %427 = shl nuw nsw i64 %424, 1
   %428 = or disjoint i64 %427, 1
-  br label %.thread388
+  br label %.thread394
 
 429:                                              ; preds = %422
   %430 = tail call i64 @rb_ull2inum(i64 noundef %424) #7
-  br label %.thread388
+  br label %.thread394
 
-.thread440:                                       ; preds = %.thread439
-  %431 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 112), align 16, !tbaa !93
-  %432 = icmp eq i64 %.0, %431
-  br i1 %432, label %436, label %454
+431:                                              ; preds = %407
+  %432 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 112), align 16, !tbaa !93
+  %433 = icmp eq i64 %.0, %432
+  br i1 %433, label %437, label %455
 
-.thread388:                                       ; preds = %429, %426
+.thread394:                                       ; preds = %429, %426
   %.0.i273 = phi i64 [ %428, %426 ], [ %430, %429 ]
-  %433 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %409, i64 noundef %.0.i273) #7
-  %434 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 112), align 16, !tbaa !93
-  %435 = icmp eq i64 %.0, %434
-  br i1 %435, label %436, label %445
+  %434 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %411, i64 noundef %.0.i273) #7
+  %435 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 112), align 16, !tbaa !93
+  %436 = icmp eq i64 %.0, %435
+  br i1 %436, label %437, label %446
 
-436:                                              ; preds = %.thread388, %.thread440
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %438 = load i64, ptr %437, align 8, !tbaa !174
-  %439 = icmp ult i64 %438, 4611686018427387904
-  br i1 %439, label %440, label %443
+437:                                              ; preds = %.thread394, %431
+  %438 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %439 = load i64, ptr %438, align 8, !tbaa !174
+  %440 = icmp ult i64 %439, 4611686018427387904
+  br i1 %440, label %441, label %444
 
-440:                                              ; preds = %436
-  %441 = shl nuw nsw i64 %438, 1
-  %442 = or disjoint i64 %441, 1
+441:                                              ; preds = %437
+  %442 = shl nuw nsw i64 %439, 1
+  %443 = or disjoint i64 %442, 1
   br label %rb_ull2num_inline.exit
 
-443:                                              ; preds = %436
-  %444 = tail call i64 @rb_ull2inum(i64 noundef %438) #7
+444:                                              ; preds = %437
+  %445 = tail call i64 @rb_ull2inum(i64 noundef %439) #7
   br label %rb_ull2num_inline.exit
 
-445:                                              ; preds = %.thread388
-  %446 = getelementptr inbounds nuw i8, ptr %0, i64 848
-  %447 = load i64, ptr %446, align 8, !tbaa !174
-  %448 = icmp ult i64 %447, 4611686018427387904
-  br i1 %448, label %449, label %452
+446:                                              ; preds = %.thread394
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 848
+  %448 = load i64, ptr %447, align 8, !tbaa !174
+  %449 = icmp ult i64 %448, 4611686018427387904
+  br i1 %449, label %450, label %453
 
-449:                                              ; preds = %445
-  %450 = shl nuw nsw i64 %447, 1
-  %451 = or disjoint i64 %450, 1
-  br label %.thread390
+450:                                              ; preds = %446
+  %451 = shl nuw nsw i64 %448, 1
+  %452 = or disjoint i64 %451, 1
+  br label %.thread396
 
-452:                                              ; preds = %445
-  %453 = tail call i64 @rb_ull2inum(i64 noundef %447) #7
-  br label %.thread390
+453:                                              ; preds = %446
+  %454 = tail call i64 @rb_ull2inum(i64 noundef %448) #7
+  br label %.thread396
 
-454:                                              ; preds = %.thread440
-  %455 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 120), align 8, !tbaa !93
-  %456 = icmp eq i64 %.0, %455
-  br i1 %456, label %460, label %.thread441
+455:                                              ; preds = %431
+  %456 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 120), align 8, !tbaa !93
+  %457 = icmp eq i64 %.0, %456
+  br i1 %457, label %461, label %482
 
-.thread390:                                       ; preds = %452, %449
-  %.0.i277 = phi i64 [ %451, %449 ], [ %453, %452 ]
-  %457 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %434, i64 noundef %.0.i277) #7
-  %458 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 120), align 8, !tbaa !93
-  %459 = icmp eq i64 %.0, %458
-  br i1 %459, label %460, label %471
+.thread396:                                       ; preds = %453, %450
+  %.0.i277 = phi i64 [ %452, %450 ], [ %454, %453 ]
+  %458 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %435, i64 noundef %.0.i277) #7
+  %459 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 120), align 8, !tbaa !93
+  %460 = icmp eq i64 %.0, %459
+  br i1 %460, label %461, label %.thread397
 
-460:                                              ; preds = %.thread390, %454
+461:                                              ; preds = %.thread396, %455
   %invariant.gep.i279 = getelementptr i8, ptr %0, i64 72
-  br label %461
+  br label %462
 
-461:                                              ; preds = %461, %460
-  %indvars.iv.i280 = phi i64 [ 0, %460 ], [ %indvars.iv.next.i283, %461 ]
-  %.09.i281 = phi i64 [ 0, %460 ], [ %464, %461 ]
-  %462 = mul nuw nsw i64 %indvars.iv.i280, 144
-  %gep.i282 = getelementptr i8, ptr %invariant.gep.i279, i64 %462
-  %463 = load i64, ptr %gep.i282, align 8, !tbaa !200
-  %464 = add i64 %463, %.09.i281
+462:                                              ; preds = %462, %461
+  %indvars.iv.i280 = phi i64 [ 0, %461 ], [ %indvars.iv.next.i283, %462 ]
+  %.09.i281 = phi i64 [ 0, %461 ], [ %465, %462 ]
+  %463 = mul nuw nsw i64 %indvars.iv.i280, 144
+  %gep.i282 = getelementptr i8, ptr %invariant.gep.i279, i64 %463
+  %464 = load i64, ptr %gep.i282, align 8, !tbaa !200
+  %465 = add i64 %464, %.09.i281
   %indvars.iv.next.i283 = add nuw nsw i64 %indvars.iv.i280, 1
   %exitcond.not.i284 = icmp eq i64 %indvars.iv.next.i283, 5
-  br i1 %exitcond.not.i284, label %total_allocated_objects.exit, label %461, !llvm.loop !401
+  br i1 %exitcond.not.i284, label %total_allocated_objects.exit, label %462, !llvm.loop !401
 
-total_allocated_objects.exit:                     ; preds = %461
-  %465 = icmp ult i64 %464, 4611686018427387904
-  br i1 %465, label %466, label %469
+total_allocated_objects.exit:                     ; preds = %462
+  %466 = icmp ult i64 %465, 4611686018427387904
+  br i1 %466, label %467, label %470
 
-466:                                              ; preds = %total_allocated_objects.exit
-  %467 = shl nuw nsw i64 %464, 1
-  %468 = or disjoint i64 %467, 1
+467:                                              ; preds = %total_allocated_objects.exit
+  %468 = shl nuw nsw i64 %465, 1
+  %469 = or disjoint i64 %468, 1
   br label %rb_ull2num_inline.exit
 
-469:                                              ; preds = %total_allocated_objects.exit
-  %470 = tail call i64 @rb_ull2inum(i64 noundef %464) #7
+470:                                              ; preds = %total_allocated_objects.exit
+  %471 = tail call i64 @rb_ull2inum(i64 noundef %465) #7
   br label %rb_ull2num_inline.exit
 
-471:                                              ; preds = %.thread390
+.thread397:                                       ; preds = %.thread396
   %invariant.gep.i287 = getelementptr i8, ptr %0, i64 72
   br label %472
 
-472:                                              ; preds = %472, %471
-  %indvars.iv.i288 = phi i64 [ 0, %471 ], [ %indvars.iv.next.i291, %472 ]
-  %.09.i289 = phi i64 [ 0, %471 ], [ %475, %472 ]
+472:                                              ; preds = %472, %.thread397
+  %indvars.iv.i288 = phi i64 [ 0, %.thread397 ], [ %indvars.iv.next.i291, %472 ]
+  %.09.i289 = phi i64 [ 0, %.thread397 ], [ %475, %472 ]
   %473 = mul nuw nsw i64 %indvars.iv.i288, 144
   %gep.i290 = getelementptr i8, ptr %invariant.gep.i287, i64 %473
   %474 = load i64, ptr %gep.i290, align 8, !tbaa !200
@@ -11721,25 +11721,25 @@ total_allocated_objects.exit293:                  ; preds = %472
 477:                                              ; preds = %total_allocated_objects.exit293
   %478 = shl nuw nsw i64 %475, 1
   %479 = or disjoint i64 %478, 1
-  br label %482
+  br label %.thread398
 
 480:                                              ; preds = %total_allocated_objects.exit293
   %481 = tail call i64 @rb_ull2inum(i64 noundef %475) #7
-  br label %482
+  br label %.thread398
 
-482:                                              ; preds = %480, %477
+482:                                              ; preds = %455
+  %483 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 128), align 16, !tbaa !93
+  %484 = icmp eq i64 %.0, %483
+  br i1 %484, label %488, label %510
+
+.thread398:                                       ; preds = %480, %477
   %.0.i294 = phi i64 [ %479, %477 ], [ %481, %480 ]
-  %483 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %458, i64 noundef %.0.i294) #7
-  %484 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 128), align 16, !tbaa !93
-  %485 = icmp eq i64 %.0, %484
-  br i1 %485, label %488, label %499
-
-.thread441:                                       ; preds = %454
+  %485 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %459, i64 noundef %.0.i294) #7
   %486 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 128), align 16, !tbaa !93
   %487 = icmp eq i64 %.0, %486
-  br i1 %487, label %488, label %.thread392
+  br i1 %487, label %488, label %499
 
-488:                                              ; preds = %.thread441, %482
+488:                                              ; preds = %.thread398, %482
   %invariant.gep.i296 = getelementptr i8, ptr %0, i64 80
   br label %489
 
@@ -11767,7 +11767,7 @@ total_freed_objects.exit:                         ; preds = %489
   %498 = tail call i64 @rb_ull2inum(i64 noundef %492) #7
   br label %rb_ull2num_inline.exit
 
-499:                                              ; preds = %482
+499:                                              ; preds = %.thread398
   %invariant.gep.i304 = getelementptr i8, ptr %0, i64 80
   br label %500
 
@@ -11789,25 +11789,25 @@ total_freed_objects.exit310:                      ; preds = %500
 505:                                              ; preds = %total_freed_objects.exit310
   %506 = shl nuw nsw i64 %503, 1
   %507 = or disjoint i64 %506, 1
-  br label %510
+  br label %.thread400
 
 508:                                              ; preds = %total_freed_objects.exit310
   %509 = tail call i64 @rb_ull2inum(i64 noundef %503) #7
-  br label %510
+  br label %.thread400
 
-510:                                              ; preds = %508, %505
+510:                                              ; preds = %482
+  %511 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 136), align 8, !tbaa !93
+  %512 = icmp eq i64 %.0, %511
+  br i1 %512, label %516, label %534
+
+.thread400:                                       ; preds = %508, %505
   %.0.i311 = phi i64 [ %507, %505 ], [ %509, %508 ]
-  %511 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %484, i64 noundef %.0.i311) #7
-  %512 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 136), align 8, !tbaa !93
-  %513 = icmp eq i64 %.0, %512
-  br i1 %513, label %516, label %525
-
-.thread392:                                       ; preds = %.thread441
+  %513 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %486, i64 noundef %.0.i311) #7
   %514 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 136), align 8, !tbaa !93
   %515 = icmp eq i64 %.0, %514
-  br i1 %515, label %516, label %.thread393
+  br i1 %515, label %516, label %525
 
-516:                                              ; preds = %.thread392, %510
+516:                                              ; preds = %.thread400, %510
   %517 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %518 = load i64, ptr %517, align 8, !tbaa !404
   %519 = icmp ult i64 %518, 4611686018427387904
@@ -11822,7 +11822,7 @@ total_freed_objects.exit310:                      ; preds = %500
   %524 = tail call i64 @rb_ull2inum(i64 noundef %518) #7
   br label %rb_ull2num_inline.exit
 
-525:                                              ; preds = %510
+525:                                              ; preds = %.thread400
   %526 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %527 = load i64, ptr %526, align 8, !tbaa !404
   %528 = icmp ult i64 %527, 4611686018427387904
@@ -11831,526 +11831,526 @@ total_freed_objects.exit310:                      ; preds = %500
 529:                                              ; preds = %525
   %530 = shl nuw nsw i64 %527, 1
   %531 = or disjoint i64 %530, 1
-  br label %.thread394
+  br label %.thread402
 
 532:                                              ; preds = %525
   %533 = tail call i64 @rb_ull2inum(i64 noundef %527) #7
-  br label %.thread394
+  br label %.thread402
 
-.thread393:                                       ; preds = %.thread392
-  %534 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 144), align 16, !tbaa !93
-  %535 = icmp eq i64 %.0, %534
-  br i1 %535, label %539, label %554
+534:                                              ; preds = %510
+  %535 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 144), align 16, !tbaa !93
+  %536 = icmp eq i64 %.0, %535
+  br i1 %536, label %540, label %555
 
-.thread394:                                       ; preds = %532, %529
+.thread402:                                       ; preds = %532, %529
   %.0.i315 = phi i64 [ %531, %529 ], [ %533, %532 ]
-  %536 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %512, i64 noundef %.0.i315) #7
-  %537 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 144), align 16, !tbaa !93
-  %538 = icmp eq i64 %.0, %537
-  br i1 %538, label %539, label %.thread395
+  %537 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %514, i64 noundef %.0.i315) #7
+  %538 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 144), align 16, !tbaa !93
+  %539 = icmp eq i64 %.0, %538
+  br i1 %539, label %540, label %.thread403
 
-539:                                              ; preds = %.thread394, %.thread393
-  %540 = load i64, ptr %0, align 8, !tbaa !138
-  %541 = icmp ult i64 %540, 4611686018427387904
-  br i1 %541, label %542, label %545
+540:                                              ; preds = %.thread402, %534
+  %541 = load i64, ptr %0, align 8, !tbaa !138
+  %542 = icmp ult i64 %541, 4611686018427387904
+  br i1 %542, label %543, label %546
 
-542:                                              ; preds = %539
-  %543 = shl nuw nsw i64 %540, 1
-  %544 = or disjoint i64 %543, 1
+543:                                              ; preds = %540
+  %544 = shl nuw nsw i64 %541, 1
+  %545 = or disjoint i64 %544, 1
   br label %rb_ull2num_inline.exit
 
-545:                                              ; preds = %539
-  %546 = tail call i64 @rb_ull2inum(i64 noundef %540) #7
+546:                                              ; preds = %540
+  %547 = tail call i64 @rb_ull2inum(i64 noundef %541) #7
   br label %rb_ull2num_inline.exit
 
-.thread395:                                       ; preds = %.thread394
-  %547 = load i64, ptr %0, align 8, !tbaa !138
-  %548 = icmp ult i64 %547, 4611686018427387904
-  br i1 %548, label %549, label %552
+.thread403:                                       ; preds = %.thread402
+  %548 = load i64, ptr %0, align 8, !tbaa !138
+  %549 = icmp ult i64 %548, 4611686018427387904
+  br i1 %549, label %550, label %553
 
-549:                                              ; preds = %.thread395
-  %550 = shl nuw nsw i64 %547, 1
-  %551 = or disjoint i64 %550, 1
-  br label %.thread396
-
-552:                                              ; preds = %.thread395
-  %553 = tail call i64 @rb_ull2inum(i64 noundef %547) #7
-  br label %.thread396
-
-554:                                              ; preds = %.thread393
-  %555 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 152), align 8, !tbaa !93
-  %556 = icmp eq i64 %.0, %555
-  br i1 %556, label %560, label %578
-
-.thread396:                                       ; preds = %552, %549
-  %.0.i319 = phi i64 [ %551, %549 ], [ %553, %552 ]
-  %557 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %537, i64 noundef %.0.i319) #7
-  %558 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 152), align 8, !tbaa !93
-  %559 = icmp eq i64 %.0, %558
-  br i1 %559, label %560, label %569
-
-560:                                              ; preds = %.thread396, %554
-  %561 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %562 = load i64, ptr %561, align 8, !tbaa !405
-  %563 = icmp ult i64 %562, 4611686018427387904
-  br i1 %563, label %564, label %567
-
-564:                                              ; preds = %560
-  %565 = shl nuw nsw i64 %562, 1
-  %566 = or disjoint i64 %565, 1
-  br label %rb_ull2num_inline.exit
-
-567:                                              ; preds = %560
-  %568 = tail call i64 @rb_ull2inum(i64 noundef %562) #7
-  br label %rb_ull2num_inline.exit
-
-569:                                              ; preds = %.thread396
-  %570 = getelementptr inbounds nuw i8, ptr %0, i64 952
-  %571 = load i64, ptr %570, align 8, !tbaa !405
-  %572 = icmp ult i64 %571, 4611686018427387904
-  br i1 %572, label %573, label %576
-
-573:                                              ; preds = %569
-  %574 = shl nuw nsw i64 %571, 1
-  %575 = or disjoint i64 %574, 1
-  br label %.thread398
-
-576:                                              ; preds = %569
-  %577 = tail call i64 @rb_ull2inum(i64 noundef %571) #7
-  br label %.thread398
-
-578:                                              ; preds = %554
-  %579 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 160), align 16, !tbaa !93
-  %580 = icmp eq i64 %.0, %579
-  br i1 %580, label %584, label %602
-
-.thread398:                                       ; preds = %576, %573
-  %.0.i323 = phi i64 [ %575, %573 ], [ %577, %576 ]
-  %581 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %558, i64 noundef %.0.i323) #7
-  %582 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 160), align 16, !tbaa !93
-  %583 = icmp eq i64 %.0, %582
-  br i1 %583, label %584, label %593
-
-584:                                              ; preds = %.thread398, %578
-  %585 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %586 = load i64, ptr %585, align 8, !tbaa !406
-  %587 = icmp ult i64 %586, 4611686018427387904
-  br i1 %587, label %588, label %591
-
-588:                                              ; preds = %584
-  %589 = shl nuw nsw i64 %586, 1
-  %590 = or disjoint i64 %589, 1
-  br label %rb_ull2num_inline.exit
-
-591:                                              ; preds = %584
-  %592 = tail call i64 @rb_ull2inum(i64 noundef %586) #7
-  br label %rb_ull2num_inline.exit
-
-593:                                              ; preds = %.thread398
-  %594 = getelementptr inbounds nuw i8, ptr %0, i64 960
-  %595 = load i64, ptr %594, align 8, !tbaa !406
-  %596 = icmp ult i64 %595, 4611686018427387904
-  br i1 %596, label %597, label %600
-
-597:                                              ; preds = %593
-  %598 = shl nuw nsw i64 %595, 1
-  %599 = or disjoint i64 %598, 1
-  br label %.thread400
-
-600:                                              ; preds = %593
-  %601 = tail call i64 @rb_ull2inum(i64 noundef %595) #7
-  br label %.thread400
-
-602:                                              ; preds = %578
-  %603 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 168), align 8, !tbaa !93
-  %604 = icmp eq i64 %.0, %603
-  br i1 %604, label %608, label %625
-
-.thread400:                                       ; preds = %600, %597
-  %.0.i327 = phi i64 [ %599, %597 ], [ %601, %600 ]
-  %605 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %582, i64 noundef %.0.i327) #7
-  %606 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 168), align 8, !tbaa !93
-  %607 = icmp eq i64 %.0, %606
-  br i1 %607, label %608, label %.thread401
-
-608:                                              ; preds = %.thread400, %602
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %610 = load i64, ptr %609, align 8, !tbaa !407
-  %611 = icmp ult i64 %610, 4611686018427387904
-  br i1 %611, label %612, label %615
-
-612:                                              ; preds = %608
-  %613 = shl nuw nsw i64 %610, 1
-  %614 = or disjoint i64 %613, 1
-  br label %rb_ull2num_inline.exit
-
-615:                                              ; preds = %608
-  %616 = tail call i64 @rb_ull2inum(i64 noundef %610) #7
-  br label %rb_ull2num_inline.exit
-
-.thread401:                                       ; preds = %.thread400
-  %617 = getelementptr inbounds nuw i8, ptr %0, i64 968
-  %618 = load i64, ptr %617, align 8, !tbaa !407
-  %619 = icmp ult i64 %618, 4611686018427387904
-  br i1 %619, label %620, label %623
-
-620:                                              ; preds = %.thread401
-  %621 = shl nuw nsw i64 %618, 1
-  %622 = or disjoint i64 %621, 1
-  br label %.thread402
-
-623:                                              ; preds = %.thread401
-  %624 = tail call i64 @rb_ull2inum(i64 noundef %618) #7
-  br label %.thread402
-
-625:                                              ; preds = %602
-  %626 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 176), align 16, !tbaa !93
-  %627 = icmp eq i64 %.0, %626
-  br i1 %627, label %631, label %649
-
-.thread402:                                       ; preds = %623, %620
-  %.0.i331 = phi i64 [ %622, %620 ], [ %624, %623 ]
-  %628 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %606, i64 noundef %.0.i331) #7
-  %629 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 176), align 16, !tbaa !93
-  %630 = icmp eq i64 %.0, %629
-  br i1 %630, label %631, label %640
-
-631:                                              ; preds = %.thread402, %625
-  %632 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %633 = load i64, ptr %632, align 8, !tbaa !408
-  %634 = icmp ult i64 %633, 4611686018427387904
-  br i1 %634, label %635, label %638
-
-635:                                              ; preds = %631
-  %636 = shl nuw nsw i64 %633, 1
-  %637 = or disjoint i64 %636, 1
-  br label %rb_ull2num_inline.exit
-
-638:                                              ; preds = %631
-  %639 = tail call i64 @rb_ull2inum(i64 noundef %633) #7
-  br label %rb_ull2num_inline.exit
-
-640:                                              ; preds = %.thread402
-  %641 = getelementptr inbounds nuw i8, ptr %0, i64 976
-  %642 = load i64, ptr %641, align 8, !tbaa !408
-  %643 = icmp ult i64 %642, 4611686018427387904
-  br i1 %643, label %644, label %647
-
-644:                                              ; preds = %640
-  %645 = shl nuw nsw i64 %642, 1
-  %646 = or disjoint i64 %645, 1
+550:                                              ; preds = %.thread403
+  %551 = shl nuw nsw i64 %548, 1
+  %552 = or disjoint i64 %551, 1
   br label %.thread404
 
-647:                                              ; preds = %640
-  %648 = tail call i64 @rb_ull2inum(i64 noundef %642) #7
+553:                                              ; preds = %.thread403
+  %554 = tail call i64 @rb_ull2inum(i64 noundef %548) #7
   br label %.thread404
 
-649:                                              ; preds = %625
-  %650 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 184), align 8, !tbaa !93
-  %651 = icmp eq i64 %.0, %650
-  br i1 %651, label %655, label %673
+555:                                              ; preds = %534
+  %556 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 152), align 8, !tbaa !93
+  %557 = icmp eq i64 %.0, %556
+  br i1 %557, label %561, label %579
 
-.thread404:                                       ; preds = %647, %644
-  %.0.i335 = phi i64 [ %646, %644 ], [ %648, %647 ]
-  %652 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %629, i64 noundef %.0.i335) #7
-  %653 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 184), align 8, !tbaa !93
-  %654 = icmp eq i64 %.0, %653
-  br i1 %654, label %655, label %664
+.thread404:                                       ; preds = %553, %550
+  %.0.i319 = phi i64 [ %552, %550 ], [ %554, %553 ]
+  %558 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %538, i64 noundef %.0.i319) #7
+  %559 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 152), align 8, !tbaa !93
+  %560 = icmp eq i64 %.0, %559
+  br i1 %560, label %561, label %570
 
-655:                                              ; preds = %.thread404, %649
-  %656 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %657 = load i64, ptr %656, align 8, !tbaa !409
-  %658 = icmp ult i64 %657, 4611686018427387904
-  br i1 %658, label %659, label %662
+561:                                              ; preds = %.thread404, %555
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %563 = load i64, ptr %562, align 8, !tbaa !405
+  %564 = icmp ult i64 %563, 4611686018427387904
+  br i1 %564, label %565, label %568
 
-659:                                              ; preds = %655
-  %660 = shl nuw nsw i64 %657, 1
-  %661 = or disjoint i64 %660, 1
+565:                                              ; preds = %561
+  %566 = shl nuw nsw i64 %563, 1
+  %567 = or disjoint i64 %566, 1
   br label %rb_ull2num_inline.exit
 
-662:                                              ; preds = %655
-  %663 = tail call i64 @rb_ull2inum(i64 noundef %657) #7
+568:                                              ; preds = %561
+  %569 = tail call i64 @rb_ull2inum(i64 noundef %563) #7
   br label %rb_ull2num_inline.exit
 
-664:                                              ; preds = %.thread404
-  %665 = getelementptr inbounds nuw i8, ptr %0, i64 2152
-  %666 = load i64, ptr %665, align 8, !tbaa !409
-  %667 = icmp ult i64 %666, 4611686018427387904
-  br i1 %667, label %668, label %671
+570:                                              ; preds = %.thread404
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 952
+  %572 = load i64, ptr %571, align 8, !tbaa !405
+  %573 = icmp ult i64 %572, 4611686018427387904
+  br i1 %573, label %574, label %577
 
-668:                                              ; preds = %664
-  %669 = shl nuw nsw i64 %666, 1
-  %670 = or disjoint i64 %669, 1
+574:                                              ; preds = %570
+  %575 = shl nuw nsw i64 %572, 1
+  %576 = or disjoint i64 %575, 1
   br label %.thread406
 
-671:                                              ; preds = %664
-  %672 = tail call i64 @rb_ull2inum(i64 noundef %666) #7
+577:                                              ; preds = %570
+  %578 = tail call i64 @rb_ull2inum(i64 noundef %572) #7
   br label %.thread406
 
-673:                                              ; preds = %649
-  %674 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 192), align 16, !tbaa !93
-  %675 = icmp eq i64 %.0, %674
-  br i1 %675, label %679, label %696
+579:                                              ; preds = %555
+  %580 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 160), align 16, !tbaa !93
+  %581 = icmp eq i64 %.0, %580
+  br i1 %581, label %585, label %603
 
-.thread406:                                       ; preds = %671, %668
-  %.0.i339 = phi i64 [ %670, %668 ], [ %672, %671 ]
-  %676 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %653, i64 noundef %.0.i339) #7
-  %677 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 192), align 16, !tbaa !93
-  %678 = icmp eq i64 %.0, %677
-  br i1 %678, label %679, label %.thread407
+.thread406:                                       ; preds = %577, %574
+  %.0.i323 = phi i64 [ %576, %574 ], [ %578, %577 ]
+  %582 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %559, i64 noundef %.0.i323) #7
+  %583 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 160), align 16, !tbaa !93
+  %584 = icmp eq i64 %.0, %583
+  br i1 %584, label %585, label %594
 
-679:                                              ; preds = %.thread406, %673
-  %680 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %681 = load i64, ptr %680, align 8, !tbaa !342
-  %682 = icmp ult i64 %681, 4611686018427387904
-  br i1 %682, label %683, label %686
+585:                                              ; preds = %.thread406, %579
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %587 = load i64, ptr %586, align 8, !tbaa !406
+  %588 = icmp ult i64 %587, 4611686018427387904
+  br i1 %588, label %589, label %592
 
-683:                                              ; preds = %679
-  %684 = shl nuw nsw i64 %681, 1
-  %685 = or disjoint i64 %684, 1
+589:                                              ; preds = %585
+  %590 = shl nuw nsw i64 %587, 1
+  %591 = or disjoint i64 %590, 1
   br label %rb_ull2num_inline.exit
 
-686:                                              ; preds = %679
-  %687 = tail call i64 @rb_ull2inum(i64 noundef %681) #7
+592:                                              ; preds = %585
+  %593 = tail call i64 @rb_ull2inum(i64 noundef %587) #7
   br label %rb_ull2num_inline.exit
 
-.thread407:                                       ; preds = %.thread406
-  %688 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %689 = load i64, ptr %688, align 8, !tbaa !342
-  %690 = icmp ult i64 %689, 4611686018427387904
-  br i1 %690, label %691, label %694
+594:                                              ; preds = %.thread406
+  %595 = getelementptr inbounds nuw i8, ptr %0, i64 960
+  %596 = load i64, ptr %595, align 8, !tbaa !406
+  %597 = icmp ult i64 %596, 4611686018427387904
+  br i1 %597, label %598, label %601
 
-691:                                              ; preds = %.thread407
-  %692 = shl nuw nsw i64 %689, 1
-  %693 = or disjoint i64 %692, 1
+598:                                              ; preds = %594
+  %599 = shl nuw nsw i64 %596, 1
+  %600 = or disjoint i64 %599, 1
   br label %.thread408
 
-694:                                              ; preds = %.thread407
-  %695 = tail call i64 @rb_ull2inum(i64 noundef %689) #7
+601:                                              ; preds = %594
+  %602 = tail call i64 @rb_ull2inum(i64 noundef %596) #7
   br label %.thread408
 
-696:                                              ; preds = %673
-  %697 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 200), align 8, !tbaa !93
-  %698 = icmp eq i64 %.0, %697
-  br i1 %698, label %702, label %720
+603:                                              ; preds = %579
+  %604 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 168), align 8, !tbaa !93
+  %605 = icmp eq i64 %.0, %604
+  br i1 %605, label %609, label %626
 
-.thread408:                                       ; preds = %694, %691
-  %.0.i343 = phi i64 [ %693, %691 ], [ %695, %694 ]
-  %699 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %677, i64 noundef %.0.i343) #7
-  %700 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 200), align 8, !tbaa !93
-  %701 = icmp eq i64 %.0, %700
-  br i1 %701, label %702, label %711
+.thread408:                                       ; preds = %601, %598
+  %.0.i327 = phi i64 [ %600, %598 ], [ %602, %601 ]
+  %606 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %583, i64 noundef %.0.i327) #7
+  %607 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 168), align 8, !tbaa !93
+  %608 = icmp eq i64 %.0, %607
+  br i1 %608, label %609, label %.thread409
 
-702:                                              ; preds = %.thread408, %696
-  %703 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %704 = load i64, ptr %703, align 8, !tbaa !410
-  %705 = icmp ult i64 %704, 4611686018427387904
-  br i1 %705, label %706, label %709
+609:                                              ; preds = %.thread408, %603
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %611 = load i64, ptr %610, align 8, !tbaa !407
+  %612 = icmp ult i64 %611, 4611686018427387904
+  br i1 %612, label %613, label %616
 
-706:                                              ; preds = %702
-  %707 = shl nuw nsw i64 %704, 1
-  %708 = or disjoint i64 %707, 1
+613:                                              ; preds = %609
+  %614 = shl nuw nsw i64 %611, 1
+  %615 = or disjoint i64 %614, 1
   br label %rb_ull2num_inline.exit
 
-709:                                              ; preds = %702
-  %710 = tail call i64 @rb_ull2inum(i64 noundef %704) #7
+616:                                              ; preds = %609
+  %617 = tail call i64 @rb_ull2inum(i64 noundef %611) #7
   br label %rb_ull2num_inline.exit
 
-711:                                              ; preds = %.thread408
-  %712 = getelementptr inbounds nuw i8, ptr %0, i64 1120
-  %713 = load i64, ptr %712, align 8, !tbaa !410
-  %714 = icmp ult i64 %713, 4611686018427387904
-  br i1 %714, label %715, label %718
+.thread409:                                       ; preds = %.thread408
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 968
+  %619 = load i64, ptr %618, align 8, !tbaa !407
+  %620 = icmp ult i64 %619, 4611686018427387904
+  br i1 %620, label %621, label %624
 
-715:                                              ; preds = %711
-  %716 = shl nuw nsw i64 %713, 1
-  %717 = or disjoint i64 %716, 1
+621:                                              ; preds = %.thread409
+  %622 = shl nuw nsw i64 %619, 1
+  %623 = or disjoint i64 %622, 1
   br label %.thread410
 
-718:                                              ; preds = %711
-  %719 = tail call i64 @rb_ull2inum(i64 noundef %713) #7
+624:                                              ; preds = %.thread409
+  %625 = tail call i64 @rb_ull2inum(i64 noundef %619) #7
   br label %.thread410
 
-720:                                              ; preds = %696
-  %721 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 208), align 16, !tbaa !93
-  %722 = icmp eq i64 %.0, %721
-  br i1 %722, label %726, label %744
+626:                                              ; preds = %603
+  %627 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 176), align 16, !tbaa !93
+  %628 = icmp eq i64 %.0, %627
+  br i1 %628, label %632, label %650
 
-.thread410:                                       ; preds = %718, %715
-  %.0.i347 = phi i64 [ %717, %715 ], [ %719, %718 ]
-  %723 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %700, i64 noundef %.0.i347) #7
-  %724 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 208), align 16, !tbaa !93
-  %725 = icmp eq i64 %.0, %724
-  br i1 %725, label %726, label %735
+.thread410:                                       ; preds = %624, %621
+  %.0.i331 = phi i64 [ %623, %621 ], [ %625, %624 ]
+  %629 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %607, i64 noundef %.0.i331) #7
+  %630 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 176), align 16, !tbaa !93
+  %631 = icmp eq i64 %.0, %630
+  br i1 %631, label %632, label %641
 
-726:                                              ; preds = %.thread410, %720
-  %727 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %728 = load i64, ptr %727, align 8, !tbaa !341
-  %729 = icmp ult i64 %728, 4611686018427387904
-  br i1 %729, label %730, label %733
+632:                                              ; preds = %.thread410, %626
+  %633 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %634 = load i64, ptr %633, align 8, !tbaa !408
+  %635 = icmp ult i64 %634, 4611686018427387904
+  br i1 %635, label %636, label %639
 
-730:                                              ; preds = %726
-  %731 = shl nuw nsw i64 %728, 1
-  %732 = or disjoint i64 %731, 1
+636:                                              ; preds = %632
+  %637 = shl nuw nsw i64 %634, 1
+  %638 = or disjoint i64 %637, 1
   br label %rb_ull2num_inline.exit
 
-733:                                              ; preds = %726
-  %734 = tail call i64 @rb_ull2inum(i64 noundef %728) #7
+639:                                              ; preds = %632
+  %640 = tail call i64 @rb_ull2inum(i64 noundef %634) #7
   br label %rb_ull2num_inline.exit
 
-735:                                              ; preds = %.thread410
-  %736 = getelementptr inbounds nuw i8, ptr %0, i64 1128
-  %737 = load i64, ptr %736, align 8, !tbaa !341
-  %738 = icmp ult i64 %737, 4611686018427387904
-  br i1 %738, label %739, label %742
+641:                                              ; preds = %.thread410
+  %642 = getelementptr inbounds nuw i8, ptr %0, i64 976
+  %643 = load i64, ptr %642, align 8, !tbaa !408
+  %644 = icmp ult i64 %643, 4611686018427387904
+  br i1 %644, label %645, label %648
 
-739:                                              ; preds = %735
-  %740 = shl nuw nsw i64 %737, 1
-  %741 = or disjoint i64 %740, 1
+645:                                              ; preds = %641
+  %646 = shl nuw nsw i64 %643, 1
+  %647 = or disjoint i64 %646, 1
   br label %.thread412
 
-742:                                              ; preds = %735
-  %743 = tail call i64 @rb_ull2inum(i64 noundef %737) #7
+648:                                              ; preds = %641
+  %649 = tail call i64 @rb_ull2inum(i64 noundef %643) #7
   br label %.thread412
 
-744:                                              ; preds = %720
-  %745 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 216), align 8, !tbaa !93
-  %746 = icmp eq i64 %.0, %745
-  br i1 %746, label %750, label %767
+650:                                              ; preds = %626
+  %651 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 184), align 8, !tbaa !93
+  %652 = icmp eq i64 %.0, %651
+  br i1 %652, label %656, label %674
 
-.thread412:                                       ; preds = %742, %739
-  %.0.i351 = phi i64 [ %741, %739 ], [ %743, %742 ]
-  %747 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %724, i64 noundef %.0.i351) #7
-  %748 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 216), align 8, !tbaa !93
-  %749 = icmp eq i64 %.0, %748
-  br i1 %749, label %750, label %.thread413
+.thread412:                                       ; preds = %648, %645
+  %.0.i335 = phi i64 [ %647, %645 ], [ %649, %648 ]
+  %653 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %630, i64 noundef %.0.i335) #7
+  %654 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 184), align 8, !tbaa !93
+  %655 = icmp eq i64 %.0, %654
+  br i1 %655, label %656, label %665
 
-750:                                              ; preds = %.thread412, %744
-  %751 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %752 = load i64, ptr %751, align 8, !tbaa !411
-  %753 = icmp ult i64 %752, 4611686018427387904
-  br i1 %753, label %754, label %757
+656:                                              ; preds = %.thread412, %650
+  %657 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %658 = load i64, ptr %657, align 8, !tbaa !409
+  %659 = icmp ult i64 %658, 4611686018427387904
+  br i1 %659, label %660, label %663
 
-754:                                              ; preds = %750
-  %755 = shl nuw nsw i64 %752, 1
-  %756 = or disjoint i64 %755, 1
+660:                                              ; preds = %656
+  %661 = shl nuw nsw i64 %658, 1
+  %662 = or disjoint i64 %661, 1
   br label %rb_ull2num_inline.exit
 
-757:                                              ; preds = %750
-  %758 = tail call i64 @rb_ull2inum(i64 noundef %752) #7
+663:                                              ; preds = %656
+  %664 = tail call i64 @rb_ull2inum(i64 noundef %658) #7
   br label %rb_ull2num_inline.exit
 
-.thread413:                                       ; preds = %.thread412
-  %759 = getelementptr inbounds nuw i8, ptr %0, i64 1136
-  %760 = load i64, ptr %759, align 8, !tbaa !411
-  %761 = icmp ult i64 %760, 4611686018427387904
-  br i1 %761, label %762, label %765
+665:                                              ; preds = %.thread412
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 2152
+  %667 = load i64, ptr %666, align 8, !tbaa !409
+  %668 = icmp ult i64 %667, 4611686018427387904
+  br i1 %668, label %669, label %672
 
-762:                                              ; preds = %.thread413
-  %763 = shl nuw nsw i64 %760, 1
-  %764 = or disjoint i64 %763, 1
+669:                                              ; preds = %665
+  %670 = shl nuw nsw i64 %667, 1
+  %671 = or disjoint i64 %670, 1
   br label %.thread414
 
-765:                                              ; preds = %.thread413
-  %766 = tail call i64 @rb_ull2inum(i64 noundef %760) #7
+672:                                              ; preds = %665
+  %673 = tail call i64 @rb_ull2inum(i64 noundef %667) #7
   br label %.thread414
 
-767:                                              ; preds = %744
-  %768 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 224), align 16, !tbaa !93
-  %769 = icmp eq i64 %.0, %768
-  br i1 %769, label %773, label %791
+674:                                              ; preds = %650
+  %675 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 192), align 16, !tbaa !93
+  %676 = icmp eq i64 %.0, %675
+  br i1 %676, label %680, label %697
 
-.thread414:                                       ; preds = %765, %762
-  %.0.i355 = phi i64 [ %764, %762 ], [ %766, %765 ]
-  %770 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %748, i64 noundef %.0.i355) #7
-  %771 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 224), align 16, !tbaa !93
-  %772 = icmp eq i64 %.0, %771
-  br i1 %772, label %773, label %782
+.thread414:                                       ; preds = %672, %669
+  %.0.i339 = phi i64 [ %671, %669 ], [ %673, %672 ]
+  %677 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %654, i64 noundef %.0.i339) #7
+  %678 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 192), align 16, !tbaa !93
+  %679 = icmp eq i64 %.0, %678
+  br i1 %679, label %680, label %.thread415
 
-773:                                              ; preds = %.thread414, %767
-  %774 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %775 = load i64, ptr %774, align 8, !tbaa !412
-  %776 = icmp ult i64 %775, 4611686018427387904
-  br i1 %776, label %777, label %780
+680:                                              ; preds = %.thread414, %674
+  %681 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %682 = load i64, ptr %681, align 8, !tbaa !342
+  %683 = icmp ult i64 %682, 4611686018427387904
+  br i1 %683, label %684, label %687
 
-777:                                              ; preds = %773
-  %778 = shl nuw nsw i64 %775, 1
-  %779 = or disjoint i64 %778, 1
+684:                                              ; preds = %680
+  %685 = shl nuw nsw i64 %682, 1
+  %686 = or disjoint i64 %685, 1
   br label %rb_ull2num_inline.exit
 
-780:                                              ; preds = %773
-  %781 = tail call i64 @rb_ull2inum(i64 noundef %775) #7
+687:                                              ; preds = %680
+  %688 = tail call i64 @rb_ull2inum(i64 noundef %682) #7
   br label %rb_ull2num_inline.exit
 
-782:                                              ; preds = %.thread414
-  %783 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %784 = load i64, ptr %783, align 8, !tbaa !412
-  %785 = icmp ult i64 %784, 4611686018427387904
-  br i1 %785, label %786, label %789
+.thread415:                                       ; preds = %.thread414
+  %689 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %690 = load i64, ptr %689, align 8, !tbaa !342
+  %691 = icmp ult i64 %690, 4611686018427387904
+  br i1 %691, label %692, label %695
 
-786:                                              ; preds = %782
-  %787 = shl nuw nsw i64 %784, 1
-  %788 = or disjoint i64 %787, 1
+692:                                              ; preds = %.thread415
+  %693 = shl nuw nsw i64 %690, 1
+  %694 = or disjoint i64 %693, 1
   br label %.thread416
 
-789:                                              ; preds = %782
-  %790 = tail call i64 @rb_ull2inum(i64 noundef %784) #7
+695:                                              ; preds = %.thread415
+  %696 = tail call i64 @rb_ull2inum(i64 noundef %690) #7
   br label %.thread416
 
-791:                                              ; preds = %767
-  %792 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 232), align 8, !tbaa !93
-  %793 = icmp eq i64 %.0, %792
-  br i1 %793, label %797, label %816
+697:                                              ; preds = %674
+  %698 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 200), align 8, !tbaa !93
+  %699 = icmp eq i64 %.0, %698
+  br i1 %699, label %703, label %721
 
-.thread416:                                       ; preds = %789, %786
-  %.0.i359 = phi i64 [ %788, %786 ], [ %790, %789 ]
-  %794 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %771, i64 noundef %.0.i359) #7
-  %795 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 232), align 8, !tbaa !93
-  %796 = icmp eq i64 %.0, %795
-  br i1 %796, label %797, label %806
+.thread416:                                       ; preds = %695, %692
+  %.0.i343 = phi i64 [ %694, %692 ], [ %696, %695 ]
+  %700 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %678, i64 noundef %.0.i343) #7
+  %701 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 200), align 8, !tbaa !93
+  %702 = icmp eq i64 %.0, %701
+  br i1 %702, label %703, label %712
 
-797:                                              ; preds = %.thread416, %791
-  %798 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %799 = load i64, ptr %798, align 8, !tbaa !146
-  %800 = icmp ult i64 %799, 4611686018427387904
-  br i1 %800, label %801, label %804
+703:                                              ; preds = %.thread416, %697
+  %704 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %705 = load i64, ptr %704, align 8, !tbaa !410
+  %706 = icmp ult i64 %705, 4611686018427387904
+  br i1 %706, label %707, label %710
 
-801:                                              ; preds = %797
-  %802 = shl nuw nsw i64 %799, 1
-  %803 = or disjoint i64 %802, 1
+707:                                              ; preds = %703
+  %708 = shl nuw nsw i64 %705, 1
+  %709 = or disjoint i64 %708, 1
   br label %rb_ull2num_inline.exit
 
-804:                                              ; preds = %797
-  %805 = tail call i64 @rb_ull2inum(i64 noundef %799) #7
+710:                                              ; preds = %703
+  %711 = tail call i64 @rb_ull2inum(i64 noundef %705) #7
   br label %rb_ull2num_inline.exit
 
-806:                                              ; preds = %.thread416
-  %807 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %808 = load i64, ptr %807, align 8, !tbaa !146
-  %809 = icmp ult i64 %808, 4611686018427387904
-  br i1 %809, label %810, label %813
+712:                                              ; preds = %.thread416
+  %713 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+  %714 = load i64, ptr %713, align 8, !tbaa !410
+  %715 = icmp ult i64 %714, 4611686018427387904
+  br i1 %715, label %716, label %719
 
-810:                                              ; preds = %806
-  %811 = shl nuw nsw i64 %808, 1
-  %812 = or disjoint i64 %811, 1
+716:                                              ; preds = %712
+  %717 = shl nuw nsw i64 %714, 1
+  %718 = or disjoint i64 %717, 1
+  br label %.thread418
+
+719:                                              ; preds = %712
+  %720 = tail call i64 @rb_ull2inum(i64 noundef %714) #7
+  br label %.thread418
+
+721:                                              ; preds = %697
+  %722 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 208), align 16, !tbaa !93
+  %723 = icmp eq i64 %.0, %722
+  br i1 %723, label %727, label %745
+
+.thread418:                                       ; preds = %719, %716
+  %.0.i347 = phi i64 [ %718, %716 ], [ %720, %719 ]
+  %724 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %701, i64 noundef %.0.i347) #7
+  %725 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 208), align 16, !tbaa !93
+  %726 = icmp eq i64 %.0, %725
+  br i1 %726, label %727, label %736
+
+727:                                              ; preds = %.thread418, %721
+  %728 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %729 = load i64, ptr %728, align 8, !tbaa !341
+  %730 = icmp ult i64 %729, 4611686018427387904
+  br i1 %730, label %731, label %734
+
+731:                                              ; preds = %727
+  %732 = shl nuw nsw i64 %729, 1
+  %733 = or disjoint i64 %732, 1
+  br label %rb_ull2num_inline.exit
+
+734:                                              ; preds = %727
+  %735 = tail call i64 @rb_ull2inum(i64 noundef %729) #7
+  br label %rb_ull2num_inline.exit
+
+736:                                              ; preds = %.thread418
+  %737 = getelementptr inbounds nuw i8, ptr %0, i64 1128
+  %738 = load i64, ptr %737, align 8, !tbaa !341
+  %739 = icmp ult i64 %738, 4611686018427387904
+  br i1 %739, label %740, label %743
+
+740:                                              ; preds = %736
+  %741 = shl nuw nsw i64 %738, 1
+  %742 = or disjoint i64 %741, 1
+  br label %.thread420
+
+743:                                              ; preds = %736
+  %744 = tail call i64 @rb_ull2inum(i64 noundef %738) #7
+  br label %.thread420
+
+745:                                              ; preds = %721
+  %746 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 216), align 8, !tbaa !93
+  %747 = icmp eq i64 %.0, %746
+  br i1 %747, label %751, label %768
+
+.thread420:                                       ; preds = %743, %740
+  %.0.i351 = phi i64 [ %742, %740 ], [ %744, %743 ]
+  %748 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %725, i64 noundef %.0.i351) #7
+  %749 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 216), align 8, !tbaa !93
+  %750 = icmp eq i64 %.0, %749
+  br i1 %750, label %751, label %.thread421
+
+751:                                              ; preds = %.thread420, %745
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 1136
+  %753 = load i64, ptr %752, align 8, !tbaa !411
+  %754 = icmp ult i64 %753, 4611686018427387904
+  br i1 %754, label %755, label %758
+
+755:                                              ; preds = %751
+  %756 = shl nuw nsw i64 %753, 1
+  %757 = or disjoint i64 %756, 1
+  br label %rb_ull2num_inline.exit
+
+758:                                              ; preds = %751
+  %759 = tail call i64 @rb_ull2inum(i64 noundef %753) #7
+  br label %rb_ull2num_inline.exit
+
+.thread421:                                       ; preds = %.thread420
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 1136
+  %761 = load i64, ptr %760, align 8, !tbaa !411
+  %762 = icmp ult i64 %761, 4611686018427387904
+  br i1 %762, label %763, label %766
+
+763:                                              ; preds = %.thread421
+  %764 = shl nuw nsw i64 %761, 1
+  %765 = or disjoint i64 %764, 1
+  br label %.thread422
+
+766:                                              ; preds = %.thread421
+  %767 = tail call i64 @rb_ull2inum(i64 noundef %761) #7
+  br label %.thread422
+
+768:                                              ; preds = %745
+  %769 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 224), align 16, !tbaa !93
+  %770 = icmp eq i64 %.0, %769
+  br i1 %770, label %774, label %792
+
+.thread422:                                       ; preds = %766, %763
+  %.0.i355 = phi i64 [ %765, %763 ], [ %767, %766 ]
+  %771 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %749, i64 noundef %.0.i355) #7
+  %772 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 224), align 16, !tbaa !93
+  %773 = icmp eq i64 %.0, %772
+  br i1 %773, label %774, label %783
+
+774:                                              ; preds = %.thread422, %768
+  %775 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %776 = load i64, ptr %775, align 8, !tbaa !412
+  %777 = icmp ult i64 %776, 4611686018427387904
+  br i1 %777, label %778, label %781
+
+778:                                              ; preds = %774
+  %779 = shl nuw nsw i64 %776, 1
+  %780 = or disjoint i64 %779, 1
+  br label %rb_ull2num_inline.exit
+
+781:                                              ; preds = %774
+  %782 = tail call i64 @rb_ull2inum(i64 noundef %776) #7
+  br label %rb_ull2num_inline.exit
+
+783:                                              ; preds = %.thread422
+  %784 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %785 = load i64, ptr %784, align 8, !tbaa !412
+  %786 = icmp ult i64 %785, 4611686018427387904
+  br i1 %786, label %787, label %790
+
+787:                                              ; preds = %783
+  %788 = shl nuw nsw i64 %785, 1
+  %789 = or disjoint i64 %788, 1
+  br label %.thread424
+
+790:                                              ; preds = %783
+  %791 = tail call i64 @rb_ull2inum(i64 noundef %785) #7
+  br label %.thread424
+
+792:                                              ; preds = %768
+  %793 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 232), align 8, !tbaa !93
+  %794 = icmp eq i64 %.0, %793
+  br i1 %794, label %798, label %817
+
+.thread424:                                       ; preds = %790, %787
+  %.0.i359 = phi i64 [ %789, %787 ], [ %791, %790 ]
+  %795 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %772, i64 noundef %.0.i359) #7
+  %796 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_stat_symbols, i64 232), align 8, !tbaa !93
+  %797 = icmp eq i64 %.0, %796
+  br i1 %797, label %798, label %807
+
+798:                                              ; preds = %.thread424, %792
+  %799 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %800 = load i64, ptr %799, align 8, !tbaa !146
+  %801 = icmp ult i64 %800, 4611686018427387904
+  br i1 %801, label %802, label %805
+
+802:                                              ; preds = %798
+  %803 = shl nuw nsw i64 %800, 1
+  %804 = or disjoint i64 %803, 1
+  br label %rb_ull2num_inline.exit
+
+805:                                              ; preds = %798
+  %806 = tail call i64 @rb_ull2inum(i64 noundef %800) #7
+  br label %rb_ull2num_inline.exit
+
+807:                                              ; preds = %.thread424
+  %808 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %809 = load i64, ptr %808, align 8, !tbaa !146
+  %810 = icmp ult i64 %809, 4611686018427387904
+  br i1 %810, label %811, label %814
+
+811:                                              ; preds = %807
+  %812 = shl nuw nsw i64 %809, 1
+  %813 = or disjoint i64 %812, 1
   br label %rb_ull2num_inline.exit364
 
-813:                                              ; preds = %806
-  %814 = tail call i64 @rb_ull2inum(i64 noundef %808) #7
+814:                                              ; preds = %807
+  %815 = tail call i64 @rb_ull2inum(i64 noundef %809) #7
   br label %rb_ull2num_inline.exit364
 
-rb_ull2num_inline.exit364:                        ; preds = %810, %813
-  %.0.i363 = phi i64 [ %812, %810 ], [ %814, %813 ]
-  %815 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %795, i64 noundef %.0.i363) #7
-  br label %816
+rb_ull2num_inline.exit364:                        ; preds = %811, %814
+  %.0.i363 = phi i64 [ %813, %811 ], [ %815, %814 ]
+  %816 = tail call i64 @rb_hash_aset(i64 noundef %.0159, i64 noundef %796, i64 noundef %.0.i363) #7
+  br label %817
 
-816:                                              ; preds = %791, %rb_ull2num_inline.exit364
-  %817 = icmp eq i64 %.0, 4
-  %.0159. = select i1 %817, i64 %.0159, i64 36
+817:                                              ; preds = %792, %rb_ull2num_inline.exit364
+  %818 = icmp eq i64 %.0, 4
+  %.0159. = select i1 %818, i64 %.0159, i64 36
   br label %rb_ull2num_inline.exit
 
-rb_ull2num_inline.exit:                           ; preds = %804, %801, %780, %777, %757, %754, %733, %730, %709, %706, %686, %683, %662, %659, %638, %635, %615, %612, %591, %588, %567, %564, %545, %542, %523, %520, %497, %494, %469, %466, %443, %440, %420, %417, %394, %391, %369, %366, %343, %340, %318, %315, %297, %294, %272, %269, %247, %244, %223, %220, %198, %rb_darray_size.exit.thread, %117, %114, %816, %174, %158, %135
-  %.0160 = phi i64 [ %143, %135 ], [ %163, %158 ], [ %179, %174 ], [ %.0159., %816 ], [ %116, %114 ], [ %118, %117 ], [ %197, %rb_darray_size.exit.thread ], [ %199, %198 ], [ %222, %220 ], [ %224, %223 ], [ %246, %244 ], [ %248, %247 ], [ %271, %269 ], [ %273, %272 ], [ %296, %294 ], [ %298, %297 ], [ %317, %315 ], [ %319, %318 ], [ %342, %340 ], [ %344, %343 ], [ %368, %366 ], [ %370, %369 ], [ %393, %391 ], [ %395, %394 ], [ %419, %417 ], [ %421, %420 ], [ %442, %440 ], [ %444, %443 ], [ %468, %466 ], [ %470, %469 ], [ %496, %494 ], [ %498, %497 ], [ %522, %520 ], [ %524, %523 ], [ %544, %542 ], [ %546, %545 ], [ %566, %564 ], [ %568, %567 ], [ %590, %588 ], [ %592, %591 ], [ %614, %612 ], [ %616, %615 ], [ %637, %635 ], [ %639, %638 ], [ %661, %659 ], [ %663, %662 ], [ %685, %683 ], [ %687, %686 ], [ %708, %706 ], [ %710, %709 ], [ %732, %730 ], [ %734, %733 ], [ %756, %754 ], [ %758, %757 ], [ %779, %777 ], [ %781, %780 ], [ %803, %801 ], [ %805, %804 ]
+rb_ull2num_inline.exit:                           ; preds = %805, %802, %781, %778, %758, %755, %734, %731, %710, %707, %687, %684, %663, %660, %639, %636, %616, %613, %592, %589, %568, %565, %546, %543, %523, %520, %497, %494, %470, %467, %444, %441, %420, %417, %395, %392, %369, %366, %343, %340, %319, %316, %297, %294, %272, %269, %247, %244, %223, %220, %198, %rb_darray_size.exit.thread, %117, %114, %817, %174, %158, %135
+  %.0160 = phi i64 [ %143, %135 ], [ %163, %158 ], [ %179, %174 ], [ %.0159., %817 ], [ %116, %114 ], [ %118, %117 ], [ %197, %rb_darray_size.exit.thread ], [ %199, %198 ], [ %222, %220 ], [ %224, %223 ], [ %246, %244 ], [ %248, %247 ], [ %271, %269 ], [ %273, %272 ], [ %296, %294 ], [ %298, %297 ], [ %318, %316 ], [ %320, %319 ], [ %342, %340 ], [ %344, %343 ], [ %368, %366 ], [ %370, %369 ], [ %394, %392 ], [ %396, %395 ], [ %419, %417 ], [ %421, %420 ], [ %443, %441 ], [ %445, %444 ], [ %469, %467 ], [ %471, %470 ], [ %496, %494 ], [ %498, %497 ], [ %522, %520 ], [ %524, %523 ], [ %545, %543 ], [ %547, %546 ], [ %567, %565 ], [ %569, %568 ], [ %591, %589 ], [ %593, %592 ], [ %615, %613 ], [ %617, %616 ], [ %638, %636 ], [ %640, %639 ], [ %662, %660 ], [ %664, %663 ], [ %686, %684 ], [ %688, %687 ], [ %709, %707 ], [ %711, %710 ], [ %733, %731 ], [ %735, %734 ], [ %757, %755 ], [ %759, %758 ], [ %780, %778 ], [ %782, %781 ], [ %804, %802 ], [ %806, %805 ]
   ret i64 %.0160
 }
 
@@ -18602,7 +18602,7 @@ gc_compact_finish.exit:                           ; preds = %385, %391, %394
 .preheader:                                       ; preds = %402, %.preheader
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %.preheader ], [ 0, %402 ]
   %409 = getelementptr [5 x %struct.rb_heap_struct], ptr %62, i64 0, i64 %indvars.iv103
-  %410 = call fastcc i32 @gc_sweep_step(ptr noundef %0, ptr noundef %409)
+  %410 = call fastcc i32 @gc_sweep_step(ptr noundef nonnull %0, ptr noundef %409)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next104, 5
   br i1 %exitcond106.not, label %gc_sweep_rest.exit, label %.preheader, !llvm.loop !527
@@ -18713,7 +18713,7 @@ define internal fastcc void @gc_marks_rest(ptr noundef %0) unnamed_addr #0 {
   br i1 %exitcond.not, label %2, label %6, !llvm.loop !528
 
 .preheader:                                       ; preds = %2, %.preheader
-  %8 = tail call fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef %0, i32 noundef 1, i64 noundef 2147483647)
+  %8 = tail call fastcc range(i32 0, 2) i32 @gc_mark_stacked_objects(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 2147483647)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.preheader, label %.loopexit, !llvm.loop !529
 
@@ -18804,7 +18804,7 @@ gc_mark_stacked_objects_all.exit:                 ; preds = %pop_mark_stack.exit
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %gc_mark_stacked_objects_all.exit
-  tail call fastcc void @gc_marks_finish(ptr noundef %0)
+  tail call fastcc void @gc_marks_finish(ptr noundef nonnull %0)
   ret void
 }
 
@@ -21039,7 +21039,7 @@ unlock_page_body.exit.i:                          ; preds = %rb_gc_vm_lock.exit.
   %57 = load i64, ptr %56, align 8, !tbaa !93
   %58 = xor i64 %57, -1
   %59 = and i64 %55, %58
-  call fastcc void @invalidate_moved_plane(ptr noundef readonly %21, ptr noundef nonnull readonly %38, i64 noundef %.025.i.i, i64 noundef %59)
+  call fastcc void @invalidate_moved_plane(ptr noundef nonnull readonly %21, ptr noundef nonnull readonly %38, i64 noundef %.025.i.i, i64 noundef %59)
   %60 = add i64 %.025.i.i, 2560
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 26
@@ -30698,7 +30698,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %11
   %16 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #7
   %17 = tail call i64 @rb_hash_new() #7
   %18 = load i32, ptr %13, align 8, !tbaa !588
-  %19 = tail call fastcc i64 @gc_info_decode(ptr noundef %5, i64 noundef %17, i32 noundef %18)
+  %19 = tail call fastcc i64 @gc_info_decode(ptr noundef nonnull %5, i64 noundef %17, i32 noundef %18)
   %20 = tail call i64 @rb_hash_aset(i64 noundef %14, i64 noundef %16, i64 noundef %19) #7
   %.pr.i42 = load i64, ptr @gc_profile_record_get.rbimpl_id.445, align 8, !tbaa !93
   %.not4.i43 = icmp eq i64 %.pr.i42, 0

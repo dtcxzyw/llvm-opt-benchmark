@@ -808,7 +808,7 @@ define range(i32 -2, 1) i32 @JLI_ManifestIterate(ptr noundef readonly captures(n
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %.lcssa = phi i32 [ %20, %19 ], [ %24, %.lr.ph ]
-  tail call void @free(ptr noundef %15) #14
+  tail call void @free(ptr noundef nonnull %15) #14
   %26 = tail call i32 @close(i32 noundef %8) #14
   %27 = icmp eq i32 %.lcssa, 0
   %28 = select i1 %27, i32 0, i32 -2

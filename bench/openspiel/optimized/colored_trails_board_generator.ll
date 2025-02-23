@@ -947,7 +947,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 333:                                              ; preds = %.noexc40.i.i
   %334 = and i64 %327, 4294967295
   %335 = zext i32 %328 to i64
-  %336 = mul nuw i64 %334, %335
+  %336 = mul nuw nsw i64 %334, %335
   %337 = trunc i64 %336 to i32
   %.not172.i.i = icmp ult i32 %264, %337
   br i1 %.not172.i.i, label %.loopexit.i.i.i.i.i.i.i.i, label %338
@@ -955,7 +955,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 338:                                              ; preds = %333
   %339 = xor i32 %264, -1
   %340 = urem i32 %339, %328
-  %341 = icmp ugt i32 %340, %337
+  %341 = icmp samesign ugt i32 %340, %337
   br i1 %341, label %.lr.ph.i.i.i.i.i.i39.i.i, label %.loopexit.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i39.i.i:                         ; preds = %338, %.noexc41.i.i
@@ -1231,7 +1231,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 508:                                              ; preds = %.noexc52.i.i
   %509 = and i64 %502, 4294967295
   %510 = zext i32 %503 to i64
-  %511 = mul nuw i64 %509, %510
+  %511 = mul nuw nsw i64 %509, %510
   %512 = trunc i64 %511 to i32
   %.not171.i.i = icmp ult i32 %439, %512
   br i1 %.not171.i.i, label %.loopexit.i.i.i.i.i.i44.i.i, label %513
@@ -1239,7 +1239,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 513:                                              ; preds = %508
   %514 = xor i32 %439, -1
   %515 = urem i32 %514, %503
-  %516 = icmp ugt i32 %515, %512
+  %516 = icmp samesign ugt i32 %515, %512
   br i1 %516, label %.lr.ph.i.i.i.i.i.i50.i.i, label %.loopexit.i.i.i.i.i.i44.i.i
 
 .lr.ph.i.i.i.i.i.i50.i.i:                         ; preds = %513, %.noexc53.i.i
@@ -1390,7 +1390,7 @@ _ZN4absl7debian27UniformIiRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %606 = icmp samesign ult i32 %605, 2
   %607 = zext nneg i32 %603 to i64
   %608 = sub nsw i32 0, %603
-  %.sroa.2.0.insert.ext.i.i.i63.i.i = zext i32 %604 to i64
+  %.sroa.2.0.insert.ext.i.i.i63.i.i = zext nneg i32 %604 to i64
   br i1 %.not.i55.i.i, label %.preheader.split.us.i.i, label %.preheader.split.i.i
 
 .preheader.split.us.i.i:                          ; preds = %.preheader.i.i
@@ -1718,7 +1718,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 
 756:                                              ; preds = %751
   %757 = urem i32 %608, %603
-  %758 = icmp ugt i32 %757, %754
+  %758 = icmp samesign ugt i32 %757, %754
   br i1 %758, label %.lr.ph.i.i.i.i.i.i62.i.i, label %.loopexit.i.i.i.i.i.i56.i.i
 
 .lr.ph.i.i.i.i.i.i62.i.i:                         ; preds = %756, %.noexc65.i.i

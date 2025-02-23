@@ -4494,7 +4494,7 @@ define hidden void @_ZN7nmethod20finalize_relocationsEv(ptr noundef nonnull alig
   %.sroa.16.2 = phi ptr [ %3, %.lr.ph ], [ %.sroa.16.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
   %.sroa.9.2 = phi i32 [ 2, %.lr.ph ], [ %.sroa.9.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
   %.sroa.0.2 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
-  %19 = phi ptr [ %11, %.lr.ph ], [ %102, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
+  %19 = phi ptr [ %11, %.lr.ph ], [ %103, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ]
   store i16 0, ptr %9, align 8
   %20 = load i16, ptr %19, align 2
   %.mask.i.i = and i16 %20, -2048
@@ -4526,7 +4526,7 @@ define hidden void @_ZN7nmethod20finalize_relocationsEv(ptr noundef nonnull alig
   %33 = lshr i16 %32, 11
   switch i16 %33, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit [
     i16 2, label %34
-    i16 16, label %70
+    i16 16, label %71
   ]
 
 34:                                               ; preds = %31
@@ -4589,21 +4589,21 @@ _ZN13GrowableArrayIP17NativeMovConstRegE8allocateEv.exit.i: ; preds = %_ZN13Relo
   %57 = shl nuw nsw i64 %56, 3
   %scevgep = getelementptr i8, ptr %52, i64 %57
   %58 = add nuw nsw i32 %.0.lcssa.i, 1
-  %smax37 = call i32 @llvm.smax.i32(i32 %.0.i.i.i.i, i32 %58)
-  %59 = xor i32 %.0.lcssa.i, -1
-  %60 = add nsw i32 %smax37, %59
-  %61 = zext i32 %60 to i64
-  %62 = shl nuw nsw i64 %61, 3
-  %63 = add nuw nsw i64 %62, 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %63, i1 false)
+  %59 = call i32 @llvm.umax.i32(i32 %.0.i.i.i.i, i32 %58)
+  %60 = xor i32 %.0.lcssa.i, -1
+  %61 = add nsw i32 %59, %60
+  %62 = zext i32 %61 to i64
+  %63 = shl nuw nsw i64 %62, 3
+  %64 = add nuw nsw i64 %63, 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %64, i1 false)
   br label %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %64 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
-  %65 = getelementptr inbounds nuw ptr, ptr %.sroa.16.2, i64 %indvars.iv.i
-  %66 = load ptr, ptr %65, align 8
-  store ptr %66, ptr %64, align 8
+  %65 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw ptr, ptr %.sroa.16.2, i64 %indvars.iv.i
+  %67 = load ptr, ptr %66, align 8
+  store ptr %67, ptr %65, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %54
   br i1 %exitcond.not, label %.preheader16.i, label %.lr.ph.i, !llvm.loop !53
@@ -4612,129 +4612,129 @@ _ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6append
   %.pre-phi = phi i32 [ %.pre, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %45, %.lr.ph19.preheader.i ], [ %45, %.preheader16.i ]
   %.sroa.16.3 = phi ptr [ %.sroa.16.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %52, %.lr.ph19.preheader.i ], [ %52, %.preheader16.i ]
   %.sroa.9.3 = phi i32 [ %.sroa.9.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.0.i.i.i.i, %.lr.ph19.preheader.i ], [ %.0.i.i.i.i, %.preheader16.i ]
-  %67 = phi i32 [ %.sroa.0.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.sroa.9.2, %.lr.ph19.preheader.i ], [ %.sroa.9.2, %.preheader16.i ]
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %.sroa.16.3, i64 %68
-  store ptr %43, ptr %69, align 8
+  %68 = phi i32 [ %.sroa.0.2, %_ZN13RelocIterator18virtual_call_relocEv.exit._ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit_crit_edge ], [ %.sroa.9.2, %.lr.ph19.preheader.i ], [ %.sroa.9.2, %.preheader16.i ]
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds ptr, ptr %.sroa.16.3, i64 %69
+  store ptr %43, ptr %70, align 8
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
-70:                                               ; preds = %31
-  %71 = load atomic i8, ptr @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto acquire, align 8
-  %72 = icmp eq i8 %71, 0
-  br i1 %72, label %73, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, !prof !22
+71:                                               ; preds = %31
+  %72 = load atomic i8, ptr @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto acquire, align 8
+  %73 = icmp eq i8 %72, 0
+  br i1 %73, label %74, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, !prof !22
 
-73:                                               ; preds = %70
-  %74 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #23
-  %.not.i14 = icmp eq i32 %74, 0
-  br i1 %.not.i14, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, label %75
+74:                                               ; preds = %71
+  %75 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #23
+  %.not.i14 = icmp eq i32 %75, 0
+  br i1 %.not.i14, label %_ZN13RelocIterator19post_call_nop_relocEv.exit, label %76
 
-75:                                               ; preds = %73
+76:                                               ; preds = %74
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 8), align 8, !alias.scope !54
   store i32 16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, i64 16), align 8, !alias.scope !54
   store ptr getelementptr inbounds nuw inrange(-16, 72) (i8, ptr @_ZTV24post_call_nop_Relocation, i64 16), ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8, !alias.scope !54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN13RelocIterator19post_call_nop_relocEvE5proto) #23
   br label %_ZN13RelocIterator19post_call_nop_relocEv.exit
 
-_ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %70, %73, %75
-  %76 = load ptr, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  call void %78(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %4) #23
+_ZN13RelocIterator19post_call_nop_relocEv.exit:   ; preds = %71, %74, %76
+  %77 = load ptr, ptr @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(20) @_ZZN13RelocIterator19post_call_nop_relocEvE5proto, ptr noundef nonnull align 8 dereferenceable(40) %4) #23
   store ptr %2, ptr %5, align 8
-  %79 = load ptr, ptr %14, align 8
-  %80 = ptrtoint ptr %79 to i64
-  %81 = sub nsw i64 %80, %15
-  %82 = load ptr, ptr %16, align 8
-  %83 = load i32, ptr %17, align 4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %0, i64 %84
-  %86 = ptrtoint ptr %85 to i64
-  %87 = sub nsw i64 %80, %86
-  %88 = trunc i64 %87 to i32
-  %89 = call noundef i32 @_ZNK18ImmutableOopMapSet20find_slot_for_offsetEi(ptr noundef nonnull align 4 dereferenceable(8) %82, i32 noundef %88) #23
-  %90 = icmp slt i32 %89, 0
-  br i1 %90, label %91, label %95
+  %80 = load ptr, ptr %14, align 8
+  %81 = ptrtoint ptr %80 to i64
+  %82 = sub nsw i64 %81, %15
+  %83 = load ptr, ptr %16, align 8
+  %84 = load i32, ptr %17, align 4
+  %85 = sext i32 %84 to i64
+  %86 = getelementptr inbounds i8, ptr %0, i64 %85
+  %87 = ptrtoint ptr %86 to i64
+  %88 = sub nsw i64 %81, %87
+  %89 = trunc i64 %88 to i32
+  %90 = call noundef i32 @_ZNK18ImmutableOopMapSet20find_slot_for_offsetEi(ptr noundef nonnull align 4 dereferenceable(8) %83, i32 noundef %89) #23
+  %91 = icmp slt i32 %90, 0
+  br i1 %91, label %92, label %96
 
-91:                                               ; preds = %_ZN13RelocIterator19post_call_nop_relocEv.exit
-  %92 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not14.i = icmp eq ptr %92, null
-  br i1 %.not14.i, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %93
+92:                                               ; preds = %_ZN13RelocIterator19post_call_nop_relocEv.exit
+  %93 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not14.i = icmp eq ptr %93, null
+  br i1 %.not14.i, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %94
 
-93:                                               ; preds = %91
-  %94 = trunc i64 %81 to i32
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.166, i64 noundef %15, i32 noundef %94)
+94:                                               ; preds = %92
+  %95 = trunc i64 %82 to i32
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.166, i64 noundef %15, i32 noundef %95)
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
-95:                                               ; preds = %_ZN13RelocIterator19post_call_nop_relocEv.exit
-  %96 = trunc i64 %81 to i32
-  %97 = call noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr noundef nonnull align 1 dereferenceable(1) %79, i32 noundef %89, i32 noundef %96) #23
-  br i1 %97, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %98
+96:                                               ; preds = %_ZN13RelocIterator19post_call_nop_relocEv.exit
+  %97 = trunc i64 %82 to i32
+  %98 = call noundef zeroext i1 @_ZN17NativePostCallNop5patchEii(ptr noundef nonnull align 1 dereferenceable(1) %80, i32 noundef %90, i32 noundef %97) #23
+  br i1 %98, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %99
 
-98:                                               ; preds = %95
-  %99 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i15 = icmp eq ptr %99, null
-  br i1 %.not.i15, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %100
+99:                                               ; preds = %96
+  %100 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i15 = icmp eq ptr %100, null
+  br i1 %.not.i15, label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, label %101
 
-100:                                              ; preds = %98
-  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.167, i32 noundef %89, i32 noundef %96)
+101:                                              ; preds = %99
+  call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.167, i32 noundef %90, i32 noundef %97)
   br label %_ZL34install_post_call_nop_displacementP7nmethodPh.exit
 
-_ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %100, %98, %95, %93, %91, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
-  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %31 ], [ %.sroa.16.2, %91 ], [ %.sroa.16.2, %93 ], [ %.sroa.16.2, %95 ], [ %.sroa.16.2, %98 ], [ %.sroa.16.2, %100 ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %31 ], [ %.sroa.9.2, %91 ], [ %.sroa.9.2, %93 ], [ %.sroa.9.2, %95 ], [ %.sroa.9.2, %98 ], [ %.sroa.9.2, %100 ], [ %.sroa.9.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %31 ], [ %.sroa.0.2, %91 ], [ %.sroa.0.2, %93 ], [ %.sroa.0.2, %95 ], [ %.sroa.0.2, %98 ], [ %.sroa.0.2, %100 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
-  %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
-  store ptr %102, ptr %7, align 8
-  %103 = load ptr, ptr %8, align 8
-  %104 = icmp eq ptr %102, %103
-  br i1 %104, label %._crit_edge, label %18, !llvm.loop !57
+_ZL34install_post_call_nop_displacementP7nmethodPh.exit: ; preds = %31, %101, %99, %96, %94, %92, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit
+  %.sroa.16.1 = phi ptr [ %.sroa.16.2, %31 ], [ %.sroa.16.2, %92 ], [ %.sroa.16.2, %94 ], [ %.sroa.16.2, %96 ], [ %.sroa.16.2, %99 ], [ %.sroa.16.2, %101 ], [ %.sroa.16.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.9.1 = phi i32 [ %.sroa.9.2, %31 ], [ %.sroa.9.2, %92 ], [ %.sroa.9.2, %94 ], [ %.sroa.9.2, %96 ], [ %.sroa.9.2, %99 ], [ %.sroa.9.2, %101 ], [ %.sroa.9.3, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %31 ], [ %.sroa.0.2, %92 ], [ %.sroa.0.2, %94 ], [ %.sroa.0.2, %96 ], [ %.sroa.0.2, %99 ], [ %.sroa.0.2, %101 ], [ %.pre-phi, %_ZN26GrowableArrayWithAllocatorIP17NativeMovConstReg13GrowableArrayIS1_EE6appendERKS1_.exit ]
+  %102 = load ptr, ptr %7, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 2
+  store ptr %103, ptr %7, align 8
+  %104 = load ptr, ptr %8, align 8
+  %105 = icmp eq ptr %103, %104
+  br i1 %105, label %._crit_edge, label %18, !llvm.loop !57
 
 ._crit_edge:                                      ; preds = %_ZL34install_post_call_nop_displacementP7nmethodPh.exit, %23
   %.sroa.16.0 = phi ptr [ %.sroa.16.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.16.2, %23 ]
   %.sroa.0.0 = phi i32 [ %.sroa.0.1, %_ZL34install_post_call_nop_displacementP7nmethodPh.exit ], [ %.sroa.0.2, %23 ]
   store i16 -1, ptr %9, align 8
-  %105 = icmp sgt i32 %.sroa.0.0, 0
-  br i1 %105, label %106, label %_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit
+  %106 = icmp sgt i32 %.sroa.0.0, 0
+  br i1 %106, label %107, label %_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit
 
-106:                                              ; preds = %._crit_edge
-  %107 = zext nneg i32 %.sroa.0.0 to i64
-  %108 = mul nuw nsw i64 %107, 40
-  %109 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %108, i8 noundef zeroext 4, i32 noundef 0) #23
-  %110 = getelementptr inbounds nuw %class.CompiledICData, ptr %109, i64 %107
-  br label %111
+107:                                              ; preds = %._crit_edge
+  %108 = zext nneg i32 %.sroa.0.0 to i64
+  %109 = mul nuw nsw i64 %108, 40
+  %110 = call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %109, i8 noundef zeroext 4, i32 noundef 0) #23
+  %111 = getelementptr inbounds nuw %class.CompiledICData, ptr %110, i64 %108
+  br label %112
 
-111:                                              ; preds = %111, %106
-  %112 = phi ptr [ %109, %106 ], [ %113, %111 ]
-  call void @_ZN14CompiledICDataC1Ev(ptr noundef nonnull align 8 dereferenceable(33) %112) #23
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 40
-  %114 = icmp eq ptr %113, %110
-  br i1 %114, label %.lr.ph36, label %111
+112:                                              ; preds = %112, %107
+  %113 = phi ptr [ %110, %107 ], [ %114, %112 ]
+  call void @_ZN14CompiledICDataC1Ev(ptr noundef nonnull align 8 dereferenceable(33) %113) #23
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %115 = icmp eq ptr %114, %111
+  br i1 %115, label %.lr.ph36, label %112
 
-.lr.ph36:                                         ; preds = %111
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr %109, ptr %115, align 8
-  br label %116
+.lr.ph36:                                         ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr %110, ptr %116, align 8
+  br label %117
 
-116:                                              ; preds = %.lr.ph36, %116
-  %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %116 ]
-  %.034 = phi ptr [ %109, %.lr.ph36 ], [ %125, %116 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %.sroa.16.0, i64 %indvars.iv
-  %118 = load ptr, ptr %117, align 8
-  %119 = ptrtoint ptr %.034 to i64
-  %120 = load i8, ptr %118, align 1
-  %121 = icmp eq i8 %120, -43
-  %122 = select i1 %121, i32 3, i32 2
-  %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i8, ptr %118, i64 %123
-  store i64 %119, ptr %124, align 8
-  call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %118, i32 noundef %122) #23
-  %125 = getelementptr inbounds nuw i8, ptr %.034, i64 40
+117:                                              ; preds = %.lr.ph36, %117
+  %indvars.iv = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next, %117 ]
+  %.034 = phi ptr [ %110, %.lr.ph36 ], [ %126, %117 ]
+  %118 = getelementptr inbounds nuw ptr, ptr %.sroa.16.0, i64 %indvars.iv
+  %119 = load ptr, ptr %118, align 8
+  %120 = ptrtoint ptr %.034 to i64
+  %121 = load i8, ptr %119, align 1
+  %122 = icmp eq i8 %121, -43
+  %123 = select i1 %122, i32 3, i32 2
+  %124 = zext nneg i32 %123 to i64
+  %125 = getelementptr inbounds nuw i8, ptr %119, i64 %124
+  store i64 %120, ptr %125, align 8
+  call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %119, i32 noundef %123) #23
+  %126 = getelementptr inbounds nuw i8, ptr %.034, i64 40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %107
-  br i1 %.not, label %_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit, label %116
+  %.not = icmp eq i64 %indvars.iv.next, %108
+  br i1 %.not, label %_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit, label %117
 
-_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit: ; preds = %116, %1, %._crit_edge
+_ZN13GrowableArrayIP17NativeMovConstRegED2Ev.exit: ; preds = %117, %1, %._crit_edge
   ret void
 }
 
@@ -14267,7 +14267,7 @@ declare i32 @llvm.ctpop.i32(i32) #20
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22

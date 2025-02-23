@@ -403,23 +403,23 @@ _ZL10stack_initP9lua_StateS0_.exit:               ; preds = %17
   %34 = load ptr, ptr %9, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %33, ptr %35, align 8
-  %36 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef 2)
+  %36 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %36, ptr %37, align 8
   %38 = load ptr, ptr %3, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 3216
-  %40 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef 2)
+  %40 = tail call noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2)
   store ptr %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 3228
   store i32 6, ptr %41, align 4
-  tail call void @_Z11luaS_resizeP9lua_Statei(ptr noundef %0, i32 noundef 32)
-  tail call void @_Z9luaT_initP9lua_State(ptr noundef %0)
-  %42 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull @.str, i64 noundef 17)
+  tail call void @_Z11luaS_resizeP9lua_Statei(ptr noundef nonnull %0, i32 noundef 32)
+  tail call void @_Z9luaT_initP9lua_State(ptr noundef nonnull %0)
+  %42 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str, i64 noundef 17)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %44 = load i8, ptr %43, align 1
   %45 = or i8 %44, 8
   store i8 %45, ptr %43, align 1
-  %46 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull @.str.1, i64 noundef 23)
+  %46 = tail call noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i64 noundef 23)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = or i8 %48, 8

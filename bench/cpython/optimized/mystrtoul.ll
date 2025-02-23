@@ -260,7 +260,7 @@ define dso_local i64 @PyOS_strtoul(ptr noundef %0, ptr noundef writeonly %1, i32
   %105 = getelementptr [256 x i8], ptr @_PyLong_DigitValue, i64 0, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !4
   %107 = zext i8 %106 to i32
-  %108 = icmp sgt i32 %.0105162, %107
+  %108 = icmp samesign ugt i32 %.0105162, %107
   br i1 %108, label %.lr.ph153, label %._crit_edge
 
 .lr.ph153:                                        ; preds = %102

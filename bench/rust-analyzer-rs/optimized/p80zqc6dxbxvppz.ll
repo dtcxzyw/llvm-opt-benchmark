@@ -111835,13 +111835,13 @@ _ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1
   %.0.i.i = select i1 %44, ptr null, ptr %45
   br label %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split
 
-_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split: ; preds = %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader, %.loopexit.i.loopexit21
-  %.sroa.44.0 = phi ptr [ %71, %.loopexit.i.loopexit21 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
-  %.sroa.35.0 = phi ptr [ %.sroa.35.1, %.loopexit.i.loopexit21 ], [ %.0.i.i, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
-  %.sroa.21.0 = phi ptr [ %.sroa.21.5.ph22, %.loopexit.i.loopexit21 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
-  %.sroa.12.0 = phi ptr [ %.sroa.12.5.ph23, %.loopexit.i.loopexit21 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.5.ph24, %.loopexit.i.loopexit21 ], [ 2, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
-  %46 = phi ptr [ %68, %.loopexit.i.loopexit21 ], [ null, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split: ; preds = %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader, %.loopexit.i.loopexit15
+  %.sroa.44.0 = phi ptr [ %71, %.loopexit.i.loopexit15 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+  %.sroa.35.0 = phi ptr [ %.sroa.35.1, %.loopexit.i.loopexit15 ], [ %.0.i.i, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+  %.sroa.21.0 = phi ptr [ %.sroa.21.5.ph16, %.loopexit.i.loopexit15 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+  %.sroa.12.0 = phi ptr [ %.sroa.12.5.ph17, %.loopexit.i.loopexit15 ], [ undef, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.5.ph18, %.loopexit.i.loopexit15 ], [ 2, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
+  %46 = phi ptr [ %68, %.loopexit.i.loopexit15 ], [ null, %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split.preheader ]
   %47 = icmp eq ptr %46, null
   br i1 %47, label %.split.split.i.i.i.i.i.preheader, label %48
 
@@ -111868,12 +111868,12 @@ _ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1
 
 53:                                               ; preds = %52
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sroa.12.1, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %54, label %.loopexit.i.loopexit21
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %54, label %.loopexit.i.loopexit15
 
 54:                                               ; preds = %53, %52
   %.sroa.12.2 = phi ptr [ %.sroa.12.1, %52 ], [ null, %53 ]
   %.not.i.i.i.i.i.i = icmp eq ptr %.sroa.21.1, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h46770d4c162debb1E.exit.thread.i.i.i.i.i.i, label %.loopexit.i.loopexit21
+  br i1 %.not.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h46770d4c162debb1E.exit.thread.i.i.i.i.i.i, label %.loopexit.i.loopexit15
 
 _ZN4core3ops8function6FnOnce9call_once17h46770d4c162debb1E.exit.thread.i.i.i.i.i.i: ; preds = %54, %.split.split.i.i.i.i.i
   %55 = icmp eq ptr %.sroa.35.1, null
@@ -111912,13 +111912,13 @@ _ZN4core3ops8function6FnOnce9call_once17h46770d4c162debb1E.exit.thread.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !22589
   br label %.split.split.i.i.i.i.i
 
-.loopexit.i.loopexit21:                           ; preds = %53, %54
-  %.sroa.21.5.ph22 = phi ptr [ null, %54 ], [ %.sroa.21.1, %53 ]
-  %.sroa.12.5.ph23 = phi ptr [ %.sroa.12.2, %54 ], [ null, %53 ]
-  %.sroa.0.5.ph24 = phi i64 [ 0, %54 ], [ 1, %53 ]
-  %.0.i.i.ph.i.i.i.ph25 = phi ptr [ %.sroa.21.1, %54 ], [ %.sroa.12.1, %53 ]
-  %68 = load ptr, ptr %.0.i.i.ph.i.i.i.ph25, align 8, !alias.scope !22636, !noalias !22641, !nonnull !26, !align !562, !noundef !26
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.ph.i.i.i.ph25, i64 8
+.loopexit.i.loopexit15:                           ; preds = %53, %54
+  %.sroa.21.5.ph16 = phi ptr [ null, %54 ], [ %.sroa.21.1, %53 ]
+  %.sroa.12.5.ph17 = phi ptr [ %.sroa.12.2, %54 ], [ null, %53 ]
+  %.sroa.0.5.ph18 = phi i64 [ 0, %54 ], [ 1, %53 ]
+  %.0.i.i.ph.i.i.i.ph19 = phi ptr [ %.sroa.21.1, %54 ], [ %.sroa.12.1, %53 ]
+  %68 = load ptr, ptr %.0.i.i.ph.i.i.i.ph19, align 8, !alias.scope !22636, !noalias !22641, !nonnull !26, !align !562, !noundef !26
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.ph.i.i.i.ph19, i64 8
   %70 = load i64, ptr %69, align 8, !alias.scope !22636, !noalias !22641, !noundef !26
   %71 = getelementptr inbounds i32, ptr %68, i64 %70
   br label %_ZN6hir_ty17method_resolution10TraitImpls21for_trait_and_self_ty17h926cfe2f715f1204E.exit.split.split

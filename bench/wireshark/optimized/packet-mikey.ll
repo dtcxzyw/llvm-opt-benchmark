@@ -1022,20 +1022,20 @@ define internal range(i32 5, 65541) i32 @dissect_payload_sp(ptr readnone capture
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph, %._crit_edge.i.us
   %.03743.us = phi i32 [ %27, %._crit_edge.i.us ], [ 0, %.lr.ph ]
-  %21 = add i32 %.03743.us, 5
+  %21 = add nsw i32 %.03743.us, 5
   %22 = sub i32 %20, %.03743.us
   %23 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %21, i32 noundef %22)
   %24 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 0)
   %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %23, i32 noundef 1)
   %.pre.i.us = zext i8 %25 to i32
-  %26 = add i32 %.03743.us, 2
-  %27 = add i32 %26, %.pre.i.us
+  %26 = add nsw i32 %.03743.us, 2
+  %27 = add nsw i32 %26, %.pre.i.us
   %28 = icmp slt i32 %27, %20
   br i1 %28, label %._crit_edge.i.us, label %._crit_edge
 
 dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_payload_sp_param.exit
   %.03743 = phi i32 [ %48, %dissect_payload_sp_param.exit ], [ 0, %.lr.ph ]
-  %29 = add i32 %.03743, 5
+  %29 = add nsw i32 %.03743, 5
   %30 = sub i32 %20, %.03743
   %31 = tail call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %29, i32 noundef %30)
   %32 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %31, i32 noundef 0)
@@ -1056,8 +1056,8 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
   %44 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %31, i32 noundef 1, i32 noundef 1, i32 noundef 0)
   %45 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 172), align 4
   %46 = tail call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %45, ptr noundef %31, i32 noundef 2, i32 noundef %37, i32 noundef 0)
-  %47 = add i32 %.03743, 2
-  %48 = add i32 %47, %37
+  %47 = add nsw i32 %.03743, 2
+  %48 = add nsw i32 %47, %37
   %49 = icmp slt i32 %48, %20
   br i1 %49, label %dissect_payload_sp_param.exit, label %._crit_edge
 

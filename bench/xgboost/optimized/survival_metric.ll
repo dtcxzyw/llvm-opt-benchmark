@@ -4462,7 +4462,7 @@ _ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.ex
   resume { ptr, i32 } %lpad.phi
 
 28:                                               ; preds = %_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit, %_ZNSt3setIPN4dmlc9parameter16FieldAccessEntryESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread
-  %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.032.046) #34
+  %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.032.046) #34
   %.not = icmp eq ptr %29, %16
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
@@ -4515,7 +4515,7 @@ _ZNKSt8_Rb_treeIPN4dmlc9parameter16FieldAccessEntryES3_St9_IdentityIS3_ESt4lessI
           to label %42 unwind label %.loopexit
 
 42:                                               ; preds = %37, %.thread
-  %43 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.025.048) #34
+  %43 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.025.048) #34
   %.not37 = icmp eq ptr %43, %16
   br i1 %.not37, label %._crit_edge51, label %.lr.ph50, !llvm.loop !47
 
@@ -6497,41 +6497,41 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread, label %.noexc35
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42, label %.noexc35
 
 .noexc35:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %49 = shl nuw nsw i64 %46, 3
-  %50 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
-  store ptr %50, ptr %12, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %52 = getelementptr inbounds nuw double, ptr %50, i64 %46
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %52, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %49, i1 false)
-  store ptr %52, ptr %51, align 8
+  %48 = shl nuw nsw i64 %46, 3
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
+  store ptr %49, ptr %12, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw double, ptr %49, i64 %46
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %51, ptr %52, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false)
+  store ptr %51, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
           to label %.noexc44 unwind label %87
 
-.noexc44:                                         ; preds = %.noexc35
-  store ptr %54, ptr %13, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %46
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %56, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %49, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc44, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread
-  %58 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %55, %.noexc44 ]
-  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %56, %.noexc44 ]
+.noexc44:                                         ; preds = %.noexc35
+  store ptr %53, ptr %13, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw double, ptr %53, i64 %46
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %56, ptr %57, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %53, i8 0, i64 %48, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc44, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42
+  %58 = phi ptr [ %54, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %55, %.noexc44 ]
+  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %56, %.noexc44 ]
   store ptr %.0.i.i.i.i.i.i.i41, ptr %58, align 8
   %59 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
@@ -8276,41 +8276,41 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread, label %.noexc35
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42, label %.noexc35
 
 .noexc35:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %49 = shl nuw nsw i64 %46, 3
-  %50 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
-  store ptr %50, ptr %12, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %52 = getelementptr inbounds nuw double, ptr %50, i64 %46
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %52, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %49, i1 false)
-  store ptr %52, ptr %51, align 8
+  %48 = shl nuw nsw i64 %46, 3
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
+  store ptr %49, ptr %12, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw double, ptr %49, i64 %46
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %51, ptr %52, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false)
+  store ptr %51, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
           to label %.noexc44 unwind label %87
 
-.noexc44:                                         ; preds = %.noexc35
-  store ptr %54, ptr %13, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %46
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %56, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %49, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc44, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread
-  %58 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %55, %.noexc44 ]
-  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %56, %.noexc44 ]
+.noexc44:                                         ; preds = %.noexc35
+  store ptr %53, ptr %13, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw double, ptr %53, i64 %46
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %56, ptr %57, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %53, i8 0, i64 %48, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc44, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42
+  %58 = phi ptr [ %54, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %55, %.noexc44 ]
+  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %56, %.noexc44 ]
   store ptr %.0.i.i.i.i.i.i.i41, ptr %58, align 8
   %59 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
@@ -9672,41 +9672,41 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread, label %.noexc35
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42, label %.noexc35
 
 .noexc35:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %49 = shl nuw nsw i64 %46, 3
-  %50 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
-  store ptr %50, ptr %12, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %52 = getelementptr inbounds nuw double, ptr %50, i64 %46
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %52, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %49, i1 false)
-  store ptr %52, ptr %51, align 8
+  %48 = shl nuw nsw i64 %46, 3
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
+  store ptr %49, ptr %12, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw double, ptr %49, i64 %46
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %51, ptr %52, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false)
+  store ptr %51, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
           to label %.noexc44 unwind label %87
 
-.noexc44:                                         ; preds = %.noexc35
-  store ptr %54, ptr %13, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %46
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %56, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %49, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc44, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread
-  %58 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %55, %.noexc44 ]
-  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %56, %.noexc44 ]
+.noexc44:                                         ; preds = %.noexc35
+  store ptr %53, ptr %13, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw double, ptr %53, i64 %46
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %56, ptr %57, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %53, i8 0, i64 %48, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc44, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42
+  %58 = phi ptr [ %54, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %55, %.noexc44 ]
+  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %56, %.noexc44 ]
   store ptr %.0.i.i.i.i.i.i.i41, ptr %58, align 8
   %59 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
@@ -12062,41 +12062,41 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread, label %.noexc35
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42, label %.noexc35
 
 .noexc35:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %49 = shl nuw nsw i64 %46, 3
-  %50 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
-  store ptr %50, ptr %12, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %52 = getelementptr inbounds nuw double, ptr %50, i64 %46
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %52, ptr %53, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %50, i8 0, i64 %49, i1 false)
-  store ptr %52, ptr %51, align 8
+  %48 = shl nuw nsw i64 %46, 3
+  %49 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
+  store ptr %49, ptr %12, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %51 = getelementptr inbounds nuw double, ptr %49, i64 %46
+  %52 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %51, ptr %52, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %49, i8 0, i64 %48, i1 false)
+  store ptr %51, ptr %50, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %54 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #32
+  %53 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %48) #32
           to label %.noexc44 unwind label %87
 
-.noexc44:                                         ; preds = %.noexc35
-  store ptr %54, ptr %13, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds nuw double, ptr %54, i64 %46
-  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %56, ptr %57, align 8
-  call void @llvm.memset.p0.i64(ptr nonnull align 8 %54, i8 0, i64 %49, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc44, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread
-  %58 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %55, %.noexc44 ]
-  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i36.thread ], [ %56, %.noexc44 ]
+.noexc44:                                         ; preds = %.noexc35
+  store ptr %53, ptr %13, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr %53, ptr %55, align 8
+  %56 = getelementptr inbounds nuw double, ptr %53, i64 %46
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %56, ptr %57, align 8
+  call void @llvm.memset.p0.i64(ptr nonnull align 8 %53, i8 0, i64 %48, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc44, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42
+  %58 = phi ptr [ %54, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %55, %.noexc44 ]
+  %.0.i.i.i.i.i.i.i41 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i42 ], [ %56, %.noexc44 ]
   store ptr %.0.i.i.i.i.i.i.i41, ptr %58, align 8
   %59 = load i64, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)

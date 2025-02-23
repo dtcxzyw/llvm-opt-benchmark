@@ -2268,11 +2268,11 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %53
 
-53:                                               ; preds = %20, %.backedge
+53:                                               ; preds = %.backedge, %20
   %.0196213 = phi i32 [ %13, %20 ], [ %.0196.be, %.backedge ]
   %54 = add i32 %.0196213, 1
   %55 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.0196213)
-  switch i8 %55, label %165 [
+  switch i8 %55, label %163 [
     i8 2, label %56
     i8 3, label %59
     i8 4, label %62
@@ -2289,7 +2289,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
     i8 15, label %145
     i8 16, label %149
     i8 17, label %153
-    i8 1, label %.backedge.thread
+    i8 1, label %174
   ]
 
 56:                                               ; preds = %53
@@ -2503,40 +2503,35 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.backedge, label %.lr.ph, !llvm.loop !6
 
-.backedge.thread:                                 ; preds = %53
-  %163 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %54)
-  %164 = trunc i32 %163 to i16
-  store i16 %164, ptr %21, align 2
-  br label %.loopexit
-
 .backedge:                                        ; preds = %.lr.ph, %56, %59, %62, %68, %73, %76, %80, %81, %86, %137, %139, %140, %141, %145, %149, %152
   %.0196.be = phi i32 [ %151, %152 ], [ %151, %149 ], [ %148, %145 ], [ %144, %141 ], [ %54, %140 ], [ %54, %139 ], [ %138, %137 ], [ %89, %86 ], [ %85, %81 ], [ %54, %80 ], [ %79, %76 ], [ %75, %73 ], [ %72, %68 ], [ %67, %62 ], [ %61, %59 ], [ %58, %56 ], [ %162, %.lr.ph ]
-  %.not = icmp eq i8 %55, 1
-  br i1 %.not, label %.loopexit, label %53, !llvm.loop !8
+  br label %53, !llvm.loop !8
 
-165:                                              ; preds = %53
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %167 = load ptr, ptr %166, align 8
-  tail call void @col_set_str(ptr noundef %167, i32 noundef 35, ptr noundef nonnull @.str)
-  %168 = load ptr, ptr %166, align 8
-  tail call void @col_clear(ptr noundef %168, i32 noundef 25)
-  %169 = load i32, ptr @proto_mac_lte, align 4
-  %170 = tail call i32 @tvb_reported_length(ptr noundef %1)
-  %171 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %169, ptr noundef %1, i32 noundef %54, i32 noundef %170, i32 noundef 0)
-  %172 = load i32, ptr @ett_mac_lte, align 4
-  %173 = tail call ptr @proto_item_add_subtree(ptr noundef %171, i32 noundef %172)
-  %174 = tail call ptr @proto_tree_add_expert(ptr noundef %173, ptr noundef %2, ptr noundef nonnull @ei_mac_lte_unknown_udp_framing_tag, ptr noundef %1, i32 noundef %.0196213, i32 noundef 1)
-  %175 = tail call ptr @wmem_file_scope()
-  tail call void @wmem_free(ptr noundef %175, ptr noundef %0)
+163:                                              ; preds = %53
+  %164 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %165 = load ptr, ptr %164, align 8
+  tail call void @col_set_str(ptr noundef %165, i32 noundef 35, ptr noundef nonnull @.str)
+  %166 = load ptr, ptr %164, align 8
+  tail call void @col_clear(ptr noundef %166, i32 noundef 25)
+  %167 = load i32, ptr @proto_mac_lte, align 4
+  %168 = tail call i32 @tvb_reported_length(ptr noundef %1)
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %167, ptr noundef %1, i32 noundef %54, i32 noundef %168, i32 noundef 0)
+  %170 = load i32, ptr @ett_mac_lte, align 4
+  %171 = tail call ptr @proto_item_add_subtree(ptr noundef %169, i32 noundef %170)
+  %172 = tail call ptr @proto_tree_add_expert(ptr noundef %171, ptr noundef %2, ptr noundef nonnull @ei_mac_lte_unknown_udp_framing_tag, ptr noundef %1, i32 noundef %.0196213, i32 noundef 1)
+  %173 = tail call ptr @wmem_file_scope()
+  tail call void @wmem_free(ptr noundef %173, ptr noundef %0)
   br label %.thread
 
-.loopexit:                                        ; preds = %.backedge, %.backedge.thread
-  %.0196.be224 = phi i32 [ %54, %.backedge.thread ], [ %.0196.be, %.backedge ]
-  store i32 %.0196.be224, ptr %4, align 4
+174:                                              ; preds = %53
+  %175 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %54)
+  %176 = trunc i32 %175 to i16
+  store i16 %176, ptr %21, align 2
+  store i32 %54, ptr %4, align 4
   br label %.thread
 
-.thread:                                          ; preds = %153, %.loopexit, %165
-  %.not207 = phi i1 [ true, %.loopexit ], [ false, %165 ], [ false, %153 ]
+.thread:                                          ; preds = %153, %174, %163
+  %.not207 = phi i1 [ true, %174 ], [ false, %163 ], [ false, %153 ]
   ret i1 %.not207
 }
 

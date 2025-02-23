@@ -13874,7 +13874,7 @@ define internal noundef i32 @blk_mq_hctx_notify_dead(i32 noundef %0, ptr noundef
   %6 = getelementptr i8, ptr %1, i64 -368
   %7 = select i1 %5, ptr null, ptr %6
   %8 = zext i32 %0 to i64
-  %9 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %9 = getelementptr i8, ptr %1, i64 -216
   %10 = call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9, i64 %8) #22, !srcloc !46
   %11 = icmp ult i8 %10, 2
   call void @llvm.assume(i1 %11)
@@ -13979,23 +13979,23 @@ define internal noundef i32 @blk_mq_hctx_notify_dead(i32 noundef %0, ptr noundef
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @blk_mq_hctx_notify_online(i32 noundef %0, ptr noundef %1) #0 align 16 {
-  %3 = icmp eq ptr %1, null
-  %4 = getelementptr i8, ptr %1, i64 -352
-  %5 = select i1 %3, ptr null, ptr %4
-  %6 = zext i32 %0 to i64
-  %7 = getelementptr inbounds nuw i8, ptr %5, i64 152
-  %8 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %7, i64 %6) #22, !srcloc !46
-  %9 = icmp ult i8 %8, 2
-  tail call void @llvm.assume(i1 %9)
-  %10 = icmp eq i8 %8, 0
-  br i1 %10, label %13, label %11
+  %3 = zext i32 %0 to i64
+  %4 = getelementptr i8, ptr %1, i64 -200
+  %5 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %4, i64 %3) #22, !srcloc !46
+  %6 = icmp ult i8 %5, 2
+  tail call void @llvm.assume(i1 %6)
+  %7 = icmp eq i8 %5, 0
+  br i1 %7, label %13, label %8
 
-11:                                               ; preds = %2
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+8:                                                ; preds = %2
+  %9 = getelementptr i8, ptr %1, i64 -352
+  %10 = icmp eq ptr %1, null
+  %11 = select i1 %10, ptr null, ptr %9
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %12, i32 -9, ptr nonnull elementtype(i8) %12) #22, !srcloc !149
   br label %13
 
-13:                                               ; preds = %11, %2
+13:                                               ; preds = %8, %2
   ret i32 0
 }
 

@@ -442,7 +442,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
 
 _ZN13duckdb_brotli34BrotliCompareAndPushToQueueLiteralEPKNS_16HistogramLiteralEPS0_PKjjjmPNS_13HistogramPairEPm.exit: ; preds = %23, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %_ZN13duckdb_brotliL28HistogramAddHistogramLiteralEPNS_16HistogramLiteralEPKS0_.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !24
 
@@ -1737,7 +1737,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
 
 _ZN13duckdb_brotli34BrotliCompareAndPushToQueueCommandEPKNS_16HistogramCommandEPS0_PKjjjmPNS_13HistogramPairEPm.exit: ; preds = %23, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %_ZN13duckdb_brotliL28HistogramAddHistogramCommandEPNS_16HistogramCommandEPKS0_.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !51
 
@@ -3025,7 +3025,7 @@ _ZL19HistogramPairIsLessPKN13duckdb_brotli13HistogramPairES2_.exit.i: ; preds = 
 
 _ZN13duckdb_brotli35BrotliCompareAndPushToQueueDistanceEPKNS_17HistogramDistanceEPS0_PKjjjmPNS_13HistogramPairEPm.exit: ; preds = %23, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %_ZN13duckdb_brotliL29HistogramAddHistogramDistanceEPNS_17HistogramDistanceEPKS0_.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !76
 

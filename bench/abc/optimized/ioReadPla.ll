@@ -1888,7 +1888,7 @@ Abc_Base10Log.exit.i:                             ; preds = %.lr.ph.i.i, %125
 132:                                              ; preds = %132, %.lr.ph457.i
   %.2456.i = phi i32 [ 0, %.lr.ph457.i ], [ %135, %132 ]
   %133 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %131, i32 noundef %.2456.i) #16
-  %134 = call ptr @Io_ReadCreatePi(ptr noundef %12, ptr noundef nonnull %7) #16
+  %134 = call ptr @Io_ReadCreatePi(ptr noundef nonnull %12, ptr noundef nonnull %7) #16
   %135 = add nuw nsw i32 %.2456.i, 1
   %exitcond.not.i = icmp eq i32 %135, %.0219.ph487.i
   br i1 %exitcond.not.i, label %.loopexit399.i, label %132, !llvm.loop !72
@@ -1940,7 +1940,7 @@ Abc_Base10Log.exit267.i:                          ; preds = %.lr.ph.i262.i, %143
 150:                                              ; preds = %150, %.lr.ph459.i
   %.3458.i = phi i32 [ 0, %.lr.ph459.i ], [ %153, %150 ]
   %151 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %149, i32 noundef %.3458.i) #16
-  %152 = call ptr @Io_ReadCreatePo(ptr noundef %12, ptr noundef nonnull %7) #16
+  %152 = call ptr @Io_ReadCreatePo(ptr noundef nonnull %12, ptr noundef nonnull %7) #16
   %153 = add nuw nsw i32 %.3458.i, 1
   %exitcond570.not.i = icmp eq i32 %153, %.0217.ph488.i
   br i1 %exitcond570.not.i, label %.loopexit398.i, label %150, !llvm.loop !74

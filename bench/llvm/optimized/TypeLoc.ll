@@ -6869,8 +6869,8 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_17NextLoc27VisitFunctionNoP
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = icmp eq i8 %5, 26
-  %.not.not6.i.i.i.i.i.i = icmp ne ptr %0, null
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i, %6
+  %.not6.i.i.i.i.i.i = icmp ne ptr %0, null
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i, %6
   br i1 %.not.not.not.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds = %2
@@ -6940,8 +6940,8 @@ define internal fastcc { ptr, ptr } @_ZN12_GLOBAL__N_17NextLoc25VisitFunctionPro
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = icmp eq i8 %5, 26
-  %.not.not6.i.i.i.i.i.i = icmp ne ptr %0, null
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i, %6
+  %.not6.i.i.i.i.i.i = icmp ne ptr %0, null
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i, %6
   br i1 %.not.not.not.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds = %2
@@ -7897,8 +7897,8 @@ define internal fastcc { ptr, ptr } @_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_130
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = icmp eq i8 %5, 26
-  %.not.not6.i.i.i.i.i.i = icmp ne ptr %0, null
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i, %6
+  %.not6.i.i.i.i.i.i = icmp ne ptr %0, null
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i, %6
   br i1 %.not.not.not.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds = %2
@@ -7967,8 +7967,8 @@ define internal fastcc { ptr, ptr } @_ZN5clang14TypeLocVisitorIN12_GLOBAL__N_130
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 16
   %6 = icmp eq i8 %5, 26
-  %.not.not6.i.i.i.i.i.i = icmp ne ptr %0, null
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i, %6
+  %.not6.i.i.i.i.i.i = icmp ne ptr %0, null
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i, %6
   br i1 %.not.not.not.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds = %2

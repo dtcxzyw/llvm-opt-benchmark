@@ -918,8 +918,8 @@ gv_calloc.exit531:                                ; preds = %.thread.i530, %325
   %wide.trip.count846 = zext i32 %210 to i64
   %wide.trip.count825 = zext nneg i32 %4 to i64
   %wide.trip.count855 = zext nneg i32 %.0409 to i64
-  %wide.trip.count860 = zext nneg i32 %4 to i64
   %341 = fadd double %334, 0.000000e+00
+  %wide.trip.count860 = zext nneg i32 %4 to i64
   %wide.trip.count865 = zext nneg i32 %4 to i64
   %wide.trip.count870 = zext nneg i32 %4 to i64
   br label %342
@@ -1079,16 +1079,16 @@ gv_calloc.exit531:                                ; preds = %.thread.i530, %325
   %390 = fadd double %.1428672, %389
   %indvars.iv.next863 = add nuw nsw i64 %indvars.iv862, 1
   %exitcond866.not = icmp eq i64 %indvars.iv.next863, %wide.trip.count865
-  br i1 %exitcond866.not, label %._crit_edge674, label %.lr.ph673, !llvm.loop !53
+  br i1 %exitcond866.not, label %.lr.ph679.preheader, label %.lr.ph673, !llvm.loop !53
 
-._crit_edge674:                                   ; preds = %.lr.ph673
+.lr.ph679.preheader:                              ; preds = %.lr.ph673
   %391 = fmul double %390, 2.000000e+00
   %392 = fadd double %391, %334
   br label %.lr.ph679
 
-.lr.ph679:                                        ; preds = %._crit_edge674, %.lr.ph679
-  %indvars.iv867 = phi i64 [ %indvars.iv.next868, %.lr.ph679 ], [ 0, %._crit_edge674 ]
-  %.2429677 = phi double [ %397, %.lr.ph679 ], [ %392, %._crit_edge674 ]
+.lr.ph679:                                        ; preds = %.lr.ph679.preheader, %.lr.ph679
+  %indvars.iv867 = phi i64 [ 0, %.lr.ph679.preheader ], [ %indvars.iv.next868, %.lr.ph679 ]
+  %.2429677 = phi double [ %392, %.lr.ph679.preheader ], [ %397, %.lr.ph679 ]
   %393 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv867
   %394 = load ptr, ptr %393, align 8, !tbaa !42
   tail call void @right_mult_with_vector_ff(ptr noundef %.0452, i32 noundef %.0409, ptr noundef %394, ptr noundef %310) #10
@@ -1293,7 +1293,7 @@ gv_calloc.exit531:                                ; preds = %.thread.i530, %325
 ._crit_edge693:                                   ; preds = %._crit_edge691.us, %.preheader538
   %484 = load ptr, ptr %225, align 8, !tbaa !42
   tail call void @free(ptr noundef %484) #10
-  tail call void @free(ptr noundef %225) #10
+  tail call void @free(ptr noundef nonnull %225) #10
   br label %485
 
 485:                                              ; preds = %.loopexit, %._crit_edge693

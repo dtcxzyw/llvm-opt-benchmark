@@ -73,7 +73,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %11 = trunc nuw i8 %10 to i1
   %12 = xor i1 %11, true
   %13 = select i1 %9, i1 true, i1 %12
-  br i1 %13, label %14, label %157, !prof !14
+  br i1 %13, label %14, label %156, !prof !14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 699
@@ -285,7 +285,7 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %131 = sub nsw i64 0, %1
   %132 = call i32 @H5HF__hdr_adj_free(ptr noundef nonnull %0, i64 noundef %131) #5
   %133 = icmp slt i32 %132, 0
-  br i1 %133, label %134, label %.thread
+  br i1 %133, label %134, label %.thread.thread
 
 134:                                              ; preds = %._crit_edge93
   %135 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !8
@@ -310,28 +310,28 @@ define range(i32 -1, 1) i32 @H5HF__man_insert(ptr noundef %0, i64 noundef %1, pt
   %146 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__man_insert, i32 noundef 191, i64 noundef %144, i64 noundef %145, ptr noundef nonnull @.str.10) #5
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge93, %140, %143, %138
-  %.07183 = phi ptr [ %.071, %143 ], [ %.071, %140 ], [ %.071, %138 ], [ %84, %._crit_edge93 ]
-  %.2 = phi i32 [ -1, %143 ], [ -1, %140 ], [ -1, %138 ], [ 0, %._crit_edge93 ]
-  %.not79 = icmp eq ptr %.07183, null
-  br i1 %.not79, label %157, label %147
+.thread:                                          ; preds = %140, %143, %138
+  %.not79 = icmp eq ptr %.071, null
+  br i1 %.not79, label %156, label %.thread.thread
 
-147:                                              ; preds = %.thread
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %149 = load ptr, ptr %148, align 8, !tbaa !54
-  %150 = load i64, ptr %6, align 8, !tbaa !8
-  %151 = call i32 @H5AC_unprotect(ptr noundef %149, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %150, ptr noundef nonnull %.07183, i32 noundef 2) #5
-  %152 = icmp slt i32 %151, 0
-  br i1 %152, label %153, label %157
+.thread.thread:                                   ; preds = %._crit_edge93, %.thread
+  %.2104 = phi i32 [ -1, %.thread ], [ 0, %._crit_edge93 ]
+  %.07183103 = phi ptr [ %.071, %.thread ], [ %84, %._crit_edge93 ]
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %148 = load ptr, ptr %147, align 8, !tbaa !54
+  %149 = load i64, ptr %6, align 8, !tbaa !8
+  %150 = call i32 @H5AC_unprotect(ptr noundef %148, ptr noundef nonnull @H5AC_FHEAP_DBLOCK, i64 noundef %149, ptr noundef nonnull %.07183103, i32 noundef 2) #5
+  %151 = icmp slt i32 %150, 0
+  br i1 %151, label %152, label %156
 
-153:                                              ; preds = %147
-  %154 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !8
-  %155 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !8
-  %156 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__man_insert, i32 noundef 195, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.11) #5
-  br label %157
+152:                                              ; preds = %.thread.thread
+  %153 = load i64, ptr @H5E_HEAP_g, align 8, !tbaa !8
+  %154 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !8
+  %155 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5HF__man_insert, i32 noundef 195, i64 noundef %153, i64 noundef %154, ptr noundef nonnull @.str.11) #5
+  br label %156
 
-157:                                              ; preds = %.thread, %147, %153, %4
-  %.072 = phi i32 [ -1, %153 ], [ %.2, %147 ], [ %.2, %.thread ], [ 0, %4 ]
+156:                                              ; preds = %.thread, %.thread.thread, %152, %4
+  %.072 = phi i32 [ -1, %152 ], [ %.2104, %.thread.thread ], [ -1, %.thread ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5

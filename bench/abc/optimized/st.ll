@@ -1155,7 +1155,7 @@ define noalias noundef ptr @st__copy(ptr noundef readonly captures(none) %0) loc
   br i1 %exitcond75.not, label %26, label %21, !llvm.loop !46
 
 26:                                               ; preds = %._crit_edge64
-  tail call void @free(ptr noundef %9) #14
+  tail call void @free(ptr noundef nonnull %9) #14
   br label %.loopexit.sink.split
 
 27:                                               ; preds = %.lr.ph

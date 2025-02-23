@@ -745,12 +745,12 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.18295.us = phi i32 [ %52, %.lr.ph.split.us ], [ %.081, %.lr.ph ]
   %.18494.us = phi ptr [ %54, %.lr.ph.split.us ], [ %.083, %.lr.ph ]
-  %52 = shl i32 %.18295.us, 1
-  %53 = zext i32 %52 to i64
+  %52 = shl nuw nsw i32 %.18295.us, 1
+  %53 = zext nneg i32 %52 to i64
   %54 = tail call ptr @g_realloc(ptr noundef %.18494.us, i64 noundef %53)
   store ptr %54, ptr %7, align 8
   store i32 %52, ptr %10, align 8
-  %55 = icmp ugt i32 %44, %52
+  %55 = icmp samesign ugt i32 %44, %52
   br i1 %55, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !9
 
 56:                                               ; preds = %49
@@ -762,12 +762,12 @@ define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr nounde
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.18295 = phi i32 [ %58, %.lr.ph.split ], [ %.081, %.lr.ph ]
   %.18494 = phi ptr [ %60, %.lr.ph.split ], [ %.083, %.lr.ph ]
-  %58 = shl i32 %.18295, 1
-  %59 = zext i32 %58 to i64
+  %58 = shl nuw nsw i32 %.18295, 1
+  %59 = zext nneg i32 %58 to i64
   %60 = tail call ptr @g_realloc(ptr noundef %.18494, i64 noundef %59)
   store ptr %60, ptr %8, align 8
   store i32 %58, ptr %11, align 8
-  %61 = icmp ugt i32 %44, %58
+  %61 = icmp samesign ugt i32 %44, %58
   br i1 %61, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader

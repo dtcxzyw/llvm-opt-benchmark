@@ -3334,9 +3334,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %36
   %70 = fdiv double %67, %69
   %71 = tail call noundef double @llvm.floor.f64(double %70)
   %72 = fptosi double %71 to i32
-  %73 = getelementptr inbounds i32, ptr %43, i64 %.07.i
+  %73 = getelementptr inbounds nuw i32, ptr %43, i64 %.07.i
   store i32 %72, ptr %73, align 4, !noalias !23
-  %74 = add nuw i64 %.07.i, 1
+  %74 = add nuw nsw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %74, %40
   br i1 %exitcond.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit.loopexit, label %49, !llvm.loop !24
 
@@ -4306,9 +4306,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i237: ; preds = %445
   %475 = fdiv double %472, %474
   %476 = call noundef double @llvm.floor.f64(double %475)
   %477 = fptosi double %476 to i32
-  %478 = getelementptr inbounds i32, ptr %450, i64 %.07.i244
+  %478 = getelementptr inbounds nuw i32, ptr %450, i64 %.07.i244
   store i32 %477, ptr %478, align 4, !noalias !43
-  %479 = add nuw i64 %.07.i244, 1
+  %479 = add nuw nsw i64 %.07.i244, 1
   %exitcond412.not = icmp eq i64 %479, %447
   br i1 %exitcond412.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit255, label %454, !llvm.loop !24
 
@@ -4531,9 +4531,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %46
   %79 = fdiv double %76, %78
   %80 = tail call noundef double @llvm.floor.f64(double %79)
   %81 = fptosi double %80 to i32
-  %82 = getelementptr inbounds i32, ptr %53, i64 %.07.i
+  %82 = getelementptr inbounds nuw i32, ptr %53, i64 %.07.i
   store i32 %81, ptr %82, align 4, !noalias !49
-  %83 = add nuw i64 %.07.i, 1
+  %83 = add nuw nsw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %83, %50
   br i1 %exitcond.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit, label %58, !llvm.loop !24
 
@@ -4670,9 +4670,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i97: ; preds = %123
   %156 = fdiv double %153, %155
   %157 = tail call noundef double @llvm.floor.f64(double %156)
   %158 = fptosi double %157 to i32
-  %159 = getelementptr inbounds i32, ptr %130, i64 %.07.i104
+  %159 = getelementptr inbounds nuw i32, ptr %130, i64 %.07.i104
   store i32 %158, ptr %159, align 4, !noalias !56
-  %160 = add nuw i64 %.07.i104, 1
+  %160 = add nuw nsw i64 %.07.i104, 1
   %exitcond179.not = icmp eq i64 %160, %127
   br i1 %exitcond179.not, label %_ZNK11colvar_gridIdE17get_colvars_indexEv.exit113, label %135, !llvm.loop !24
 
@@ -5215,7 +5215,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %30
 
 35:                                               ; preds = %35, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %35 ]
-  %36 = getelementptr inbounds %class.colvarvalue, ptr %.pre.i, i64 %.07.i, i32 1
+  %36 = getelementptr inbounds nuw %class.colvarvalue, ptr %.pre.i, i64 %.07.i, i32 1
   %37 = load double, ptr %36, align 8, !noalias !65
   %sext.i = shl i64 %.07.i, 32
   %38 = ashr exact i64 %sext.i, 32
@@ -5227,9 +5227,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %30
   %44 = fdiv double %41, %43
   %45 = tail call noundef double @llvm.floor.f64(double %44)
   %46 = fptosi double %45 to i32
-  %47 = getelementptr inbounds i32, ptr %32, i64 %.07.i
+  %47 = getelementptr inbounds nuw i32, ptr %32, i64 %.07.i
   store i32 %46, ptr %47, align 4, !noalias !65
-  %48 = add nuw i64 %.07.i, 1
+  %48 = add nuw nsw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %48, %28
   br i1 %exitcond.not, label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit, label %35, !llvm.loop !66
 
@@ -5289,9 +5289,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i68: ; preds = %49
   %77 = fdiv double %74, %76
   %78 = tail call noundef double @llvm.floor.f64(double %77)
   %79 = fptosi double %78 to i32
-  %80 = getelementptr inbounds i32, ptr %51, i64 %.07.i74
+  %80 = getelementptr inbounds nuw i32, ptr %51, i64 %.07.i74
   store i32 %79, ptr %80, align 4, !noalias !72
-  %81 = add nuw i64 %.07.i74, 1
+  %81 = add nuw nsw i64 %.07.i74, 1
   %exitcond128.not = icmp eq i64 %81, %28
   br i1 %exitcond128.not, label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit, label %56, !llvm.loop !24
 
@@ -5599,7 +5599,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %58
 
 63:                                               ; preds = %63, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %76, %63 ]
-  %64 = getelementptr inbounds %class.colvarvalue, ptr %.pre.i, i64 %.07.i, i32 1
+  %64 = getelementptr inbounds nuw %class.colvarvalue, ptr %.pre.i, i64 %.07.i, i32 1
   %65 = load double, ptr %64, align 8, !noalias !84
   %sext.i = shl i64 %.07.i, 32
   %66 = ashr exact i64 %sext.i, 32
@@ -5611,9 +5611,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %58
   %72 = fdiv double %69, %71
   %73 = tail call noundef double @llvm.floor.f64(double %72)
   %74 = fptosi double %73 to i32
-  %75 = getelementptr inbounds i32, ptr %60, i64 %.07.i
+  %75 = getelementptr inbounds nuw i32, ptr %60, i64 %.07.i
   store i32 %74, ptr %75, align 4, !noalias !84
-  %76 = add nuw i64 %.07.i, 1
+  %76 = add nuw nsw i64 %.07.i, 1
   %exitcond.not = icmp eq i64 %76, %56
   br i1 %exitcond.not, label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit, label %63, !llvm.loop !66
 
@@ -5673,9 +5673,9 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i62: ; preds = %77
   %105 = fdiv double %102, %104
   %106 = tail call noundef double @llvm.floor.f64(double %105)
   %107 = fptosi double %106 to i32
-  %108 = getelementptr inbounds i32, ptr %79, i64 %.07.i68
+  %108 = getelementptr inbounds nuw i32, ptr %79, i64 %.07.i68
   store i32 %107, ptr %108, align 4, !noalias !90
-  %109 = add nuw i64 %.07.i68, 1
+  %109 = add nuw nsw i64 %.07.i68, 1
   %exitcond124.not = icmp eq i64 %109, %56
   br i1 %exitcond124.not, label %_ZNK11colvar_gridIdE17get_colvars_indexERKSt6vectorI11colvarvalueSaIS2_EE.exit, label %84, !llvm.loop !24
 

@@ -95697,7 +95697,7 @@ for.body.i.i.i67.prol:                            ; preds = %for.body.i.i.i67.pr
 for.body.i.i.i67.prol.loopexit:                   ; preds = %for.body.i.i.i67.prol, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %__cur.011.i.i.i68.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i72.prol, %for.body.i.i.i67.prol ]
   %__n.addr.010.i.i.i69.unr = phi i64 [ %__n, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ], [ %11, %for.body.i.i.i67.prol ]
-  %13 = icmp ult i64 %__n, 4
+  %13 = icmp samesign ult i64 %__n, 4
   br i1 %13, label %try.cont, label %for.body.i.i.i67
 
 for.body.i.i.i67:                                 ; preds = %for.body.i.i.i67.prol.loopexit, %for.body.i.i.i67

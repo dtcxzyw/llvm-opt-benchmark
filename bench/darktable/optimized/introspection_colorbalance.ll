@@ -2231,7 +2231,7 @@ dt_XYZ_to_prophotorgb.exit.preheader.i:           ; preds = %115
   %188 = add nsw i32 %187, -1
   store i32 %188, ptr %186, align 8, !tbaa !102
   %189 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %189, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %189, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %50) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %49) #23
   br label %apply_lift_neutralize.exit
@@ -2487,7 +2487,7 @@ dt_XYZ_to_prophotorgb.exit43.preheader.i:         ; preds = %.preheader.i44
   %356 = add nsw i32 %355, -1
   store i32 %356, ptr %354, align 8, !tbaa !102
   %357 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %357, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %357, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %45) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %44) #23
   br label %apply_lift_neutralize.exit
@@ -2718,7 +2718,7 @@ dt_XYZ_to_prophotorgb.exit.preheader.i56:         ; preds = %432
   %502 = add nsw i32 %501, -1
   store i32 %502, ptr %500, align 8, !tbaa !102
   %503 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %503, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %503, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %40) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %39) #23
   br label %apply_lift_neutralize.exit
@@ -2862,7 +2862,7 @@ dt_Lab_to_XYZ.exit.i69:                           ; preds = %.preheader.i.i66
   %590 = add nsw i32 %589, -1
   store i32 %590, ptr %588, align 8, !tbaa !102
   %591 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %591, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %591, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35) #23
   br label %apply_lift_neutralize.exit
 
@@ -2992,7 +2992,7 @@ dt_Lab_to_XYZ.exit.i78:                           ; preds = %.preheader.i.i75
   %672 = add nsw i32 %671, -1
   store i32 %672, ptr %670, align 8, !tbaa !102
   %673 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %673, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %673, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %31) #23
   br label %apply_lift_neutralize.exit
 
@@ -3113,7 +3113,7 @@ dt_Lab_to_XYZ.exit.i87:                           ; preds = %.preheader.i.i84
   %745 = add nsw i32 %744, -1
   store i32 %745, ptr %743, align 8, !tbaa !102
   %746 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %746, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %746, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27) #23
   br label %apply_lift_neutralize.exit
 
@@ -3975,7 +3975,7 @@ dt_Lab_to_XYZ.exit76:                             ; preds = %.preheader.i73
   br label %182
 
 182:                                              ; preds = %dt_Lab_to_XYZ.exit76, %127
-  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #23
   %183 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %184 = getelementptr inbounds nuw i8, ptr %17, i64 312
   %185 = getelementptr inbounds nuw i8, ptr %17, i64 320
@@ -4008,7 +4008,7 @@ dt_Lab_to_XYZ.exit76:                             ; preds = %.preheader.i73
   %205 = add nsw i32 %204, -1
   store i32 %205, ptr %203, align 8, !tbaa !102
   %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %206, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %206, ptr noundef nonnull %0, i32 noundef 1) #23
   ret void
 
 207:                                              ; preds = %182, %239
@@ -4254,7 +4254,7 @@ dt_XYZ_to_prophotorgb.exit:                       ; preds = %82
   br label %107
 
 107:                                              ; preds = %106, %26
-  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #23
@@ -4532,7 +4532,7 @@ dt_prophotorgb_to_XYZ.exit185:                    ; preds = %166
   %294 = add nsw i32 %293, -1
   store i32 %294, ptr %292, align 8, !tbaa !102
   %295 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !112
-  tail call void @dt_dev_add_history_item(ptr noundef %295, ptr noundef %0, i32 noundef 1) #23
+  tail call void @dt_dev_add_history_item(ptr noundef %295, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
@@ -5407,7 +5407,7 @@ define internal void @_configure_slider_blocks(ptr readnone captures(none) %0, p
   %19 = tail call ptr @g_object_ref(ptr noundef %18) #23
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 3
-  br i1 %exitcond92.not, label %.split80.us, label %.split.us
+  br i1 %exitcond92.not, label %.split80.us.thread, label %.split.us
 
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
@@ -5421,13 +5421,13 @@ define internal void @_configure_slider_blocks(ptr readnone captures(none) %0, p
   tail call void @gtk_container_remove(ptr noundef %25, ptr noundef %26) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.split80.us.thread, label %.split
+  br i1 %exitcond.not, label %.split80.us, label %.split
 
-.split80.us.thread:                               ; preds = %.split
+.split80.us:                                      ; preds = %.split
   tail call void @gtk_widget_destroy(ptr noundef nonnull %.fr) #23
-  br label %.split80.us
+  br label %.split80.us.thread
 
-.split80.us:                                      ; preds = %.split.us, %.split80.us.thread
+.split80.us.thread:                               ; preds = %.split.us, %.split80.us
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23
   %27 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.94, i64 noundef 6) #23
   store ptr %27, ptr %3, align 16, !tbaa !149
@@ -5454,7 +5454,7 @@ define internal void @_configure_slider_blocks(ptr readnone captures(none) %0, p
   %.not73 = icmp eq i32 %41, 0
   br i1 %.not73, label %42, label %67
 
-42:                                               ; preds = %.split80.us
+42:                                               ; preds = %.split80.us.thread
   %43 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #23
   %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br label %45
@@ -5504,7 +5504,7 @@ define internal void @_configure_slider_blocks(ptr readnone captures(none) %0, p
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, 3
   br i1 %exitcond108.not, label %.loopexit, label %45
 
-67:                                               ; preds = %.split80.us
+67:                                               ; preds = %.split80.us.thread
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !150
   %70 = tail call i64 @gtk_label_get_type() #29

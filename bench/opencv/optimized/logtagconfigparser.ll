@@ -753,7 +753,7 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #16
   %.not = icmp eq i64 %14, 0
-  br i1 %.not, label %.thread130, label %15
+  br i1 %.not, label %.thread143, label %15
 
 15:                                               ; preds = %1
   %16 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0) #16
@@ -762,29 +762,29 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %19 = tail call i32 @toupper(i32 noundef %18) #20
   %sext = shl i32 %19, 24
   %20 = ashr exact i32 %sext, 24
-  switch i32 %20, label %.thread130 [
+  switch i32 %20, label %.thread143 [
     i32 48, label %21
     i32 68, label %23
     i32 69, label %41
     i32 70, label %54
     i32 73, label %67
     i32 79, label %80
-    i32 83, label %98
-    i32 86, label %111
-    i32 87, label %124
+    i32 83, label %94
+    i32 86, label %107
+    i32 87, label %120
   ]
 
 21:                                               ; preds = %15
   %22 = icmp eq i64 %14, 1
   %spec.select = select i1 %22, i64 4294967296, i64 6
-  br label %.thread130
+  br label %.thread143
 
 23:                                               ; preds = %15
-  switch i64 %14, label %.thread130.fold.split [
-    i64 1, label %.thread130
+  switch i64 %14, label %.thread138 [
+    i64 1, label %.thread143
     i64 5, label %24
     i64 7, label %36
-    i64 8, label %.thread123
+    i64 8, label %.thread126
   ]
 
 24:                                               ; preds = %23
@@ -812,29 +812,31 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %34 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.4) #16
   %35 = icmp eq i32 %34, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
-  %spec.select210 = select i1 %35, i64 4294967301, i64 6
-  br label %.thread130
+  br i1 %35, label %.thread143, label %.thread138
 
 36:                                               ; preds = %23
   call fastcc void @_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %37 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.5) #16
   %38 = icmp eq i32 %37, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #16
-  br i1 %38, label %.thread131, label %.thread130
+  br i1 %38, label %.thread139, label %.thread143
 
-.thread123:                                       ; preds = %23
+.thread126:                                       ; preds = %23
   call fastcc void @_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0)
   %39 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.6) #16
   %40 = icmp eq i32 %39, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #16
-  br i1 %40, label %.thread131, label %.thread130
+  br i1 %40, label %.thread139, label %.thread143
 
-.thread131:                                       ; preds = %36, %.thread123
-  br label %.thread130
+.thread138:                                       ; preds = %23, %.loopexit
+  br label %.thread143
+
+.thread139:                                       ; preds = %36, %.thread126
+  br label %.thread143
 
 41:                                               ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread135.thread
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread143.thread
     i64 5, label %42
   ]
 
@@ -844,7 +846,7 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %44 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %45 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %.not6.i.i78 = icmp eq ptr %43, %44
-  br i1 %.not6.i.i78, label %.loopexit205, label %.lr.ph.i.i79
+  br i1 %.not6.i.i78, label %.loopexit213, label %.lr.ph.i.i79
 
 .lr.ph.i.i79:                                     ; preds = %42, %.lr.ph.i.i79
   %.sroa.0.08.i.i80 = phi ptr [ %51, %.lr.ph.i.i79 ], [ %45, %42 ]
@@ -857,20 +859,20 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i81, i64 1
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i80, i64 1
   %.not.i.i82 = icmp eq ptr %50, %44
-  br i1 %.not.i.i82, label %.loopexit205, label %.lr.ph.i.i79, !llvm.loop !13
+  br i1 %.not.i.i82, label %.loopexit213, label %.lr.ph.i.i79, !llvm.loop !13
 
-.loopexit205:                                     ; preds = %.lr.ph.i.i79, %42
+.loopexit213:                                     ; preds = %.lr.ph.i.i79, %42
   %52 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.7) #16
   %53 = icmp eq i32 %52, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
-  br i1 %53, label %.thread135.thread, label %.thread130
+  br i1 %53, label %.thread143.thread, label %.thread143
 
-.thread135.thread:                                ; preds = %41, %.loopexit205
-  br label %.thread130
+.thread143.thread:                                ; preds = %41, %.loopexit213
+  br label %.thread143
 
 54:                                               ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread139.thread
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread147.thread
     i64 5, label %55
   ]
 
@@ -880,7 +882,7 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %57 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %58 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   %.not6.i.i84 = icmp eq ptr %56, %57
-  br i1 %.not6.i.i84, label %.loopexit206, label %.lr.ph.i.i85
+  br i1 %.not6.i.i84, label %.loopexit214, label %.lr.ph.i.i85
 
 .lr.ph.i.i85:                                     ; preds = %55, %.lr.ph.i.i85
   %.sroa.0.08.i.i86 = phi ptr [ %64, %.lr.ph.i.i85 ], [ %58, %55 ]
@@ -893,20 +895,20 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i87, i64 1
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i86, i64 1
   %.not.i.i88 = icmp eq ptr %63, %57
-  br i1 %.not.i.i88, label %.loopexit206, label %.lr.ph.i.i85, !llvm.loop !13
+  br i1 %.not.i.i88, label %.loopexit214, label %.lr.ph.i.i85, !llvm.loop !13
 
-.loopexit206:                                     ; preds = %.lr.ph.i.i85, %55
+.loopexit214:                                     ; preds = %.lr.ph.i.i85, %55
   %65 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.8) #16
   %66 = icmp eq i32 %65, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
-  br i1 %66, label %.thread139.thread, label %.thread130
+  br i1 %66, label %.thread147.thread, label %.thread143
 
-.thread139.thread:                                ; preds = %54, %.loopexit206
-  br label %.thread130
+.thread147.thread:                                ; preds = %54, %.loopexit214
+  br label %.thread143
 
 67:                                               ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread143.thread
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread151.thread
     i64 4, label %68
   ]
 
@@ -916,7 +918,7 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %70 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   %71 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   %.not6.i.i90 = icmp eq ptr %69, %70
-  br i1 %.not6.i.i90, label %.loopexit207, label %.lr.ph.i.i91
+  br i1 %.not6.i.i90, label %.loopexit215, label %.lr.ph.i.i91
 
 .lr.ph.i.i91:                                     ; preds = %68, %.lr.ph.i.i91
   %.sroa.0.08.i.i92 = phi ptr [ %77, %.lr.ph.i.i91 ], [ %71, %68 ]
@@ -929,20 +931,20 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i93, i64 1
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i92, i64 1
   %.not.i.i94 = icmp eq ptr %76, %70
-  br i1 %.not.i.i94, label %.loopexit207, label %.lr.ph.i.i91, !llvm.loop !13
+  br i1 %.not.i.i94, label %.loopexit215, label %.lr.ph.i.i91, !llvm.loop !13
 
-.loopexit207:                                     ; preds = %.lr.ph.i.i91, %68
+.loopexit215:                                     ; preds = %.lr.ph.i.i91, %68
   %78 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.9) #16
   %79 = icmp eq i32 %78, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  br i1 %79, label %.thread143.thread, label %.thread130
+  br i1 %79, label %.thread151.thread, label %.thread143
 
-.thread143.thread:                                ; preds = %67, %.loopexit207
-  br label %.thread130
+.thread151.thread:                                ; preds = %67, %.loopexit215
+  br label %.thread143
 
 80:                                               ; preds = %15
   %81 = icmp eq i64 %14, 3
-  br i1 %81, label %82, label %.thread130
+  br i1 %81, label %82, label %.thread143
 
 82:                                               ; preds = %80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -950,145 +952,134 @@ define hidden range(i64 6, 4294967303) i64 @_ZN2cv5utils7logging18LogTagConfigPa
   %84 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %85 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
   %.not6.i.i96 = icmp eq ptr %83, %84
-  br i1 %.not6.i.i96, label %.thread146, label %.lr.ph.i.i97
-
-.thread146:                                       ; preds = %82
-  %86 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.10) #16
-  %87 = icmp eq i32 %86, 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  br i1 %87, label %97, label %.thread130
+  br i1 %.not6.i.i96, label %.loopexit216, label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %82, %.lr.ph.i.i97
-  %.sroa.0.08.i.i98 = phi ptr [ %93, %.lr.ph.i.i97 ], [ %85, %82 ]
-  %.sroa.03.07.i.i99 = phi ptr [ %92, %.lr.ph.i.i97 ], [ %83, %82 ]
-  %88 = load i8, ptr %.sroa.03.07.i.i99, align 1
-  %89 = sext i8 %88 to i32
-  %90 = call i32 @toupper(i32 noundef %89) #20
-  %91 = trunc i32 %90 to i8
-  store i8 %91, ptr %.sroa.0.08.i.i98, align 1
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i99, i64 1
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i98, i64 1
-  %.not.i.i100 = icmp eq ptr %92, %84
-  br i1 %.not.i.i100, label %94, label %.lr.ph.i.i97, !llvm.loop !13
+  %.sroa.0.08.i.i98 = phi ptr [ %91, %.lr.ph.i.i97 ], [ %85, %82 ]
+  %.sroa.03.07.i.i99 = phi ptr [ %90, %.lr.ph.i.i97 ], [ %83, %82 ]
+  %86 = load i8, ptr %.sroa.03.07.i.i99, align 1
+  %87 = sext i8 %86 to i32
+  %88 = call i32 @toupper(i32 noundef %87) #20
+  %89 = trunc i32 %88 to i8
+  store i8 %89, ptr %.sroa.0.08.i.i98, align 1
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i99, i64 1
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i98, i64 1
+  %.not.i.i100 = icmp eq ptr %90, %84
+  br i1 %.not.i.i100, label %.loopexit216, label %.lr.ph.i.i97, !llvm.loop !13
 
-94:                                               ; preds = %.lr.ph.i.i97
-  %95 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.10) #16
-  %96 = icmp eq i32 %95, 0
+.loopexit216:                                     ; preds = %.lr.ph.i.i97, %82
+  %92 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull @.str.10) #16
+  %93 = icmp eq i32 %92, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
-  br i1 %96, label %97, label %.thread130
+  %spec.select212 = select i1 %93, i64 4294967296, i64 6
+  br label %.thread143
 
-97:                                               ; preds = %.thread146, %94
-  br label %.thread130
-
-98:                                               ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread150.thread
-    i64 6, label %99
+94:                                               ; preds = %15
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread157.thread
+    i64 6, label %95
   ]
 
-99:                                               ; preds = %98
+95:                                               ; preds = %94
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %100 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  %101 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  %102 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  %.not6.i.i102 = icmp eq ptr %100, %101
-  br i1 %.not6.i.i102, label %.loopexit208, label %.lr.ph.i.i103
+  %96 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
+  %97 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
+  %98 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
+  %.not6.i.i102 = icmp eq ptr %96, %97
+  br i1 %.not6.i.i102, label %.loopexit217, label %.lr.ph.i.i103
 
-.lr.ph.i.i103:                                    ; preds = %99, %.lr.ph.i.i103
-  %.sroa.0.08.i.i104 = phi ptr [ %108, %.lr.ph.i.i103 ], [ %102, %99 ]
-  %.sroa.03.07.i.i105 = phi ptr [ %107, %.lr.ph.i.i103 ], [ %100, %99 ]
-  %103 = load i8, ptr %.sroa.03.07.i.i105, align 1
-  %104 = sext i8 %103 to i32
-  %105 = call i32 @toupper(i32 noundef %104) #20
-  %106 = trunc i32 %105 to i8
-  store i8 %106, ptr %.sroa.0.08.i.i104, align 1
-  %107 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i105, i64 1
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i104, i64 1
-  %.not.i.i106 = icmp eq ptr %107, %101
-  br i1 %.not.i.i106, label %.loopexit208, label %.lr.ph.i.i103, !llvm.loop !13
+.lr.ph.i.i103:                                    ; preds = %95, %.lr.ph.i.i103
+  %.sroa.0.08.i.i104 = phi ptr [ %104, %.lr.ph.i.i103 ], [ %98, %95 ]
+  %.sroa.03.07.i.i105 = phi ptr [ %103, %.lr.ph.i.i103 ], [ %96, %95 ]
+  %99 = load i8, ptr %.sroa.03.07.i.i105, align 1
+  %100 = sext i8 %99 to i32
+  %101 = call i32 @toupper(i32 noundef %100) #20
+  %102 = trunc i32 %101 to i8
+  store i8 %102, ptr %.sroa.0.08.i.i104, align 1
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i105, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i104, i64 1
+  %.not.i.i106 = icmp eq ptr %103, %97
+  br i1 %.not.i.i106, label %.loopexit217, label %.lr.ph.i.i103, !llvm.loop !13
 
-.loopexit208:                                     ; preds = %.lr.ph.i.i103, %99
-  %109 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.11) #16
-  %110 = icmp eq i32 %109, 0
+.loopexit217:                                     ; preds = %.lr.ph.i.i103, %95
+  %105 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.11) #16
+  %106 = icmp eq i32 %105, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
-  br i1 %110, label %.thread150.thread, label %.thread130
+  br i1 %106, label %.thread157.thread, label %.thread143
 
-.thread150.thread:                                ; preds = %98, %.loopexit208
-  br label %.thread130
+.thread157.thread:                                ; preds = %94, %.loopexit217
+  br label %.thread143
 
-111:                                              ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread154.thread
-    i64 7, label %112
+107:                                              ; preds = %15
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread161.thread
+    i64 7, label %108
   ]
 
-112:                                              ; preds = %111
+108:                                              ; preds = %107
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %113 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %114 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %115 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  %.not6.i.i108 = icmp eq ptr %113, %114
-  br i1 %.not6.i.i108, label %.loopexit209, label %.lr.ph.i.i109
+  %109 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %110 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %111 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
+  %.not6.i.i108 = icmp eq ptr %109, %110
+  br i1 %.not6.i.i108, label %.loopexit218, label %.lr.ph.i.i109
 
-.lr.ph.i.i109:                                    ; preds = %112, %.lr.ph.i.i109
-  %.sroa.0.08.i.i110 = phi ptr [ %121, %.lr.ph.i.i109 ], [ %115, %112 ]
-  %.sroa.03.07.i.i111 = phi ptr [ %120, %.lr.ph.i.i109 ], [ %113, %112 ]
-  %116 = load i8, ptr %.sroa.03.07.i.i111, align 1
-  %117 = sext i8 %116 to i32
-  %118 = call i32 @toupper(i32 noundef %117) #20
-  %119 = trunc i32 %118 to i8
-  store i8 %119, ptr %.sroa.0.08.i.i110, align 1
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i111, i64 1
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i110, i64 1
-  %.not.i.i112 = icmp eq ptr %120, %114
-  br i1 %.not.i.i112, label %.loopexit209, label %.lr.ph.i.i109, !llvm.loop !13
+.lr.ph.i.i109:                                    ; preds = %108, %.lr.ph.i.i109
+  %.sroa.0.08.i.i110 = phi ptr [ %117, %.lr.ph.i.i109 ], [ %111, %108 ]
+  %.sroa.03.07.i.i111 = phi ptr [ %116, %.lr.ph.i.i109 ], [ %109, %108 ]
+  %112 = load i8, ptr %.sroa.03.07.i.i111, align 1
+  %113 = sext i8 %112 to i32
+  %114 = call i32 @toupper(i32 noundef %113) #20
+  %115 = trunc i32 %114 to i8
+  store i8 %115, ptr %.sroa.0.08.i.i110, align 1
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.03.07.i.i111, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i110, i64 1
+  %.not.i.i112 = icmp eq ptr %116, %110
+  br i1 %.not.i.i112, label %.loopexit218, label %.lr.ph.i.i109, !llvm.loop !13
 
-.loopexit209:                                     ; preds = %.lr.ph.i.i109, %112
-  %122 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.12) #16
-  %123 = icmp eq i32 %122, 0
+.loopexit218:                                     ; preds = %.lr.ph.i.i109, %108
+  %118 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull @.str.12) #16
+  %119 = icmp eq i32 %118, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #16
-  br i1 %123, label %.thread154.thread, label %.thread130
+  br i1 %119, label %.thread161.thread, label %.thread143
 
-.thread154.thread:                                ; preds = %111, %.loopexit209
-  br label %.thread130
+.thread161.thread:                                ; preds = %107, %.loopexit218
+  br label %.thread143
 
-124:                                              ; preds = %15
-  switch i64 %14, label %.thread130 [
-    i64 1, label %.thread195
-    i64 4, label %125
-    i64 7, label %128
-    i64 8, label %.thread187
+120:                                              ; preds = %15
+  switch i64 %14, label %.thread143 [
+    i64 1, label %.thread202
+    i64 4, label %121
+    i64 7, label %124
+    i64 8, label %.thread194
   ]
 
-125:                                              ; preds = %124
+121:                                              ; preds = %120
   call fastcc void @_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %11, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %126 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.13) #16
-  %127 = icmp eq i32 %126, 0
+  %122 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.13) #16
+  %123 = icmp eq i32 %122, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  br i1 %127, label %.thread195, label %.thread130
+  br i1 %123, label %.thread202, label %.thread143
 
-128:                                              ; preds = %124
+124:                                              ; preds = %120
   call fastcc void @_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %129 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.14) #16
-  %130 = icmp eq i32 %129, 0
+  %125 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.14) #16
+  %126 = icmp eq i32 %125, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
-  br i1 %130, label %.thread195, label %.thread130
+  br i1 %126, label %.thread202, label %.thread143
 
-.thread187:                                       ; preds = %124
+.thread194:                                       ; preds = %120
   call fastcc void @_ZN2cvL11toUpperCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %13, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %131 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.15) #16
-  %132 = icmp eq i32 %131, 0
+  %127 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.15) #16
+  %128 = icmp eq i32 %127, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
-  br i1 %132, label %.thread195, label %.thread130
+  br i1 %128, label %.thread202, label %.thread143
 
-.thread195:                                       ; preds = %128, %125, %124, %.thread187
-  br label %.thread130
+.thread202:                                       ; preds = %124, %121, %120, %.thread194
+  br label %.thread143
 
-.thread130.fold.split:                            ; preds = %23
-  br label %.thread130
-
-.thread130:                                       ; preds = %.loopexit, %125, %128, %36, %21, %124, %23, %.thread130.fold.split, %111, %98, %.thread146, %80, %67, %54, %41, %.thread187, %94, %.thread123, %1, %15, %.loopexit209, %.loopexit208, %.loopexit207, %.loopexit206, %.loopexit205, %.thread195, %.thread154.thread, %.thread150.thread, %97, %.thread143.thread, %.thread139.thread, %.thread135.thread, %.thread131
-  %.sroa.052.0 = phi i64 [ 4294967299, %.thread195 ], [ 4294967302, %.thread154.thread ], [ 4294967296, %.thread150.thread ], [ 4294967296, %97 ], [ 4294967300, %.thread143.thread ], [ 4294967297, %.thread139.thread ], [ 4294967298, %.thread135.thread ], [ 4294967296, %.thread131 ], [ 6, %.loopexit205 ], [ 6, %.loopexit206 ], [ 6, %.loopexit207 ], [ 6, %.loopexit208 ], [ 6, %.loopexit209 ], [ 6, %15 ], [ 6, %1 ], [ 6, %.thread123 ], [ 6, %94 ], [ 6, %.thread187 ], [ 6, %41 ], [ 6, %54 ], [ 6, %67 ], [ 6, %80 ], [ 6, %.thread146 ], [ 6, %98 ], [ 6, %111 ], [ 4294967301, %23 ], [ %spec.select, %21 ], [ 6, %.thread130.fold.split ], [ 6, %124 ], [ %spec.select210, %.loopexit ], [ 6, %36 ], [ 6, %128 ], [ 6, %125 ]
+.thread143:                                       ; preds = %121, %124, %36, %.loopexit216, %21, %120, %23, %107, %94, %80, %67, %54, %41, %.thread194, %.thread126, %.thread138, %.loopexit, %1, %15, %.loopexit218, %.loopexit217, %.loopexit215, %.loopexit214, %.loopexit213, %.thread202, %.thread161.thread, %.thread157.thread, %.thread151.thread, %.thread147.thread, %.thread143.thread, %.thread139
+  %.sroa.052.0 = phi i64 [ 4294967299, %.thread202 ], [ 4294967302, %.thread161.thread ], [ 4294967296, %.thread157.thread ], [ 4294967300, %.thread151.thread ], [ 4294967297, %.thread147.thread ], [ 4294967298, %.thread143.thread ], [ 4294967296, %.thread139 ], [ 6, %.loopexit213 ], [ 6, %.loopexit214 ], [ 6, %.loopexit215 ], [ 6, %.loopexit217 ], [ 6, %.loopexit218 ], [ 6, %15 ], [ 6, %1 ], [ 4294967301, %.loopexit ], [ 6, %.thread138 ], [ 6, %.thread126 ], [ 6, %.thread194 ], [ 6, %41 ], [ 6, %54 ], [ 6, %67 ], [ 6, %80 ], [ 6, %94 ], [ 6, %107 ], [ 4294967301, %23 ], [ %spec.select, %21 ], [ %spec.select212, %.loopexit216 ], [ 6, %120 ], [ 6, %36 ], [ 6, %124 ], [ 6, %121 ]
   ret i64 %.sroa.052.0
 }
 

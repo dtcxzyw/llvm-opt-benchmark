@@ -1248,7 +1248,7 @@ b2DestroyIsland.exit:                             ; preds = %b2IslandSimArray_Re
   br label %148
 
 148:                                              ; preds = %28, %b2DestroyIsland.exit
-  %149 = icmp sgt i64 %indvars.iv61, 1
+  %149 = icmp samesign ugt i64 %indvars.iv61, 1
   br i1 %149, label %28, label %._crit_edge58, !llvm.loop !129
 }
 

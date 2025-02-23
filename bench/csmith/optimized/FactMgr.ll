@@ -1591,7 +1591,7 @@ _ZNSt6vectorIP4FactSaIS1_EEaSEOS3_.exit:          ; preds = %42
 _ZNSt6vectorIP4FactSaIS1_EED2Ev.exit:             ; preds = %42, %_ZNSt6vectorIP4FactSaIS1_EEaSEOS3_.exit, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #22
-  %59 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.078.098) #25
+  %59 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.078.098) #25
   %.not88 = icmp eq ptr %59, %20
   br i1 %.not88, label %._crit_edge101, label %26, !llvm.loop !160
 
@@ -1720,7 +1720,7 @@ _ZNSt6vectorIP4FactSaIS1_EEaSEOS3_.exit30:        ; preds = %92
 _ZNSt6vectorIP4FactSaIS1_EED2Ev.exit32:           ; preds = %92, %_ZNSt6vectorIP4FactSaIS1_EEaSEOS3_.exit30, %104
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
-  %109 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.078.1103) #25
+  %109 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.078.1103) #25
   %.not89 = icmp eq ptr %109, %70
   br i1 %.not89, label %.loopexit, label %76, !llvm.loop !161
 
@@ -1809,7 +1809,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i44, i64 40
   call void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %139)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
-  %140 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.062.092) #25
+  %140 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.062.092) #25
   %.not = icmp eq ptr %140, %122
   br i1 %.not, label %._crit_edge, label %125, !llvm.loop !162
 
@@ -1875,7 +1875,7 @@ _ZNSt3mapIPK9StatementSt6vectorIPK4FactSaIS6_EESt4lessIS2_ESaISt4pairIKS2_S8_EEE
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i57, i64 40
   call void @_Z13combine_factsRSt6vectorIP4FactSaIS1_EERKS_IPKS0_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(24) %150, ptr noundef nonnull align 8 dereferenceable(24) %161)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #22
-  %162 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.062.194) #25
+  %162 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.062.194) #25
   %.not87 = icmp eq ptr %162, %143
   br i1 %.not87, label %.loopexit, label %147, !llvm.loop !163
 

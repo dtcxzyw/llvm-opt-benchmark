@@ -1952,7 +1952,7 @@ Vec_PtrPush.exit:                                 ; preds = %1
   br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !99
 
 .critedge:                                        ; preds = %15, %9
-  tail call void @Abc_NtkCollectHie_rec(ptr noundef %0, ptr noundef nonnull %2)
+  tail call void @Abc_NtkCollectHie_rec(ptr noundef nonnull %0, ptr noundef nonnull %2)
   br label %19
 
 19:                                               ; preds = %.critedge, %Vec_PtrPush.exit
@@ -2071,7 +2071,7 @@ define void @Abc_NtkCountInst(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %13, !llvm.loop !101
 
 .critedge:                                        ; preds = %13, %7
-  %17 = tail call i32 @Abc_NtkCountInst_rec(ptr noundef %0)
+  %17 = tail call i32 @Abc_NtkCountInst_rec(ptr noundef nonnull %0)
   br label %18
 
 18:                                               ; preds = %.critedge, %5
@@ -2197,7 +2197,7 @@ define void @Abc_NtkCountNodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %14, !llvm.loop !104
 
 .critedge:                                        ; preds = %14, %8
-  %18 = tail call double @Abc_NtkCountNodes_rec(ptr noundef %0)
+  %18 = tail call double @Abc_NtkCountNodes_rec(ptr noundef nonnull %0)
   br label %19
 
 19:                                               ; preds = %.critedge, %5

@@ -1216,7 +1216,7 @@ select.unfold.i:                                  ; preds = %75, %dom_seek_utf8_
 dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._crit_edge97.i, %.thread63.i
   %.0.i = phi i1 [ false, %.thread63.i ], [ true, %._crit_edge97.i ], [ true, %.thread66.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
-  br label %156
+  br label %153
 
 87:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #10
@@ -1233,7 +1233,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %98
 
-98:                                               ; preds = %154, %87
+98:                                               ; preds = %150, %87
   %99 = load ptr, ptr %89, align 8, !tbaa !87
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8, !tbaa !147
@@ -1244,7 +1244,7 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   %103 = getelementptr inbounds nuw i32, ptr %90, i64 %.val.i
   br label %104
 
-104:                                              ; preds = %152, %98
+104:                                              ; preds = %144, %98
   %105 = load ptr, ptr %92, align 8, !tbaa !82
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !125
@@ -1257,128 +1257,114 @@ dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._cri
   store i64 %.val.i, ptr %111, align 8, !tbaa !134
   %112 = call i32 @lxb_html_document_parse_chunk(ptr noundef nonnull %1, ptr noundef nonnull %95, i64 noundef %.val28.i) #10
   %.not.i.i18 = icmp eq i32 %112, 0
-  br i1 %.not.i.i18, label %113, label %dom_process_parse_chunk.exit.thread.i, !prof !101
+  br i1 %.not.i.i18, label %113, label %152, !prof !101
 
 113:                                              ; preds = %104
   %114 = load ptr, ptr %0, align 8, !tbaa !148
   %.not22.i.i = icmp eq ptr %114, null
-  br i1 %.not22.i.i, label %115, label %121
+  br i1 %.not22.i.i, label %115, label %117
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %97, align 8, !tbaa !149
   %.not23.i.i = icmp eq ptr %116, null
-  br i1 %.not23.i.i, label %dom_process_parse_chunk.exit.thread29.i, label %121
+  br i1 %.not23.i.i, label %144, label %117
 
-dom_process_parse_chunk.exit.thread29.i:          ; preds = %115
-  %117 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %118 = load i64, ptr %117, align 8, !tbaa !72
-  %119 = add i64 %118, %.val.i
-  store i64 %119, ptr %117, align 8, !tbaa !72
-  %120 = getelementptr inbounds nuw i8, ptr %110, i64 56
-  store i64 0, ptr %120, align 8, !tbaa !150
-  br label %152
-
-121:                                              ; preds = %115, %113
-  %122 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  %123 = load i64, ptr %122, align 8, !tbaa !72
-  call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %95, i64 noundef %123, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
-  %124 = getelementptr inbounds nuw i8, ptr %110, i64 40
-  %125 = load i64, ptr %111, align 8, !tbaa !134
-  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %.val.i, i64 %125)
-  %126 = getelementptr inbounds nuw i8, ptr %110, i64 48
-  %127 = load i64, ptr %126, align 8, !tbaa !75
-  %128 = load i64, ptr %124, align 8, !tbaa !74
-  %129 = getelementptr inbounds nuw i8, ptr %110, i64 56
-  %130 = load i64, ptr %129, align 8, !tbaa !76
-  %131 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %132 = load ptr, ptr %131, align 8, !tbaa !99
-  %.not.i.i.i = icmp eq ptr %132, null
-  %133 = icmp ult i64 %130, %spec.select.i.i.i
+117:                                              ; preds = %115, %113
+  %118 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %119 = load i64, ptr %118, align 8, !tbaa !72
+  call void @lexbor_libxml2_bridge_report_errors(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %95, i64 noundef %119, ptr noundef nonnull %6, ptr noundef nonnull %7) #10
+  %120 = getelementptr inbounds nuw i8, ptr %110, i64 40
+  %121 = load i64, ptr %111, align 8, !tbaa !134
+  %spec.select.i.i.i = call i64 @llvm.umin.i64(i64 %.val.i, i64 %121)
+  %122 = getelementptr inbounds nuw i8, ptr %110, i64 48
+  %123 = load i64, ptr %122, align 8, !tbaa !75
+  %124 = load i64, ptr %120, align 8, !tbaa !74
+  %125 = getelementptr inbounds nuw i8, ptr %110, i64 56
+  %126 = load i64, ptr %125, align 8, !tbaa !76
+  %127 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %128 = load ptr, ptr %127, align 8, !tbaa !99
+  %.not.i.i.i = icmp eq ptr %128, null
+  %129 = icmp ult i64 %126, %spec.select.i.i.i
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %.preheader46.i.i.i
 
-.preheader46.i.i.i:                               ; preds = %121
-  br i1 %133, label %.lr.ph.i.i.i, label %dom_process_parse_chunk.exit.thread30.i
+.preheader46.i.i.i:                               ; preds = %117
+  br i1 %129, label %.lr.ph.i.i.i, label %dom_find_line_and_column_using_cache.exit.i.i
 
-.preheader.i.i.i:                                 ; preds = %121
-  br i1 %133, label %.lr.ph56.i.i.i, label %dom_process_parse_chunk.exit.thread30.i
+.preheader.i.i.i:                                 ; preds = %117
+  br i1 %129, label %.lr.ph56.i.i.i, label %dom_find_line_and_column_using_cache.exit.i.i
 
 .lr.ph56.i.i.i:                                   ; preds = %.preheader.i.i.i
-  %134 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !100
-  br label %142
+  %130 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %131 = load ptr, ptr %130, align 8, !tbaa !100
+  br label %138
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader46.i.i.i, %.lr.ph.i.i.i
-  %.03150.i.i.i = phi i64 [ %141, %.lr.ph.i.i.i ], [ %130, %.preheader46.i.i.i ]
-  %.03249.i.i.i = phi i64 [ %.133.i.i.i, %.lr.ph.i.i.i ], [ %128, %.preheader46.i.i.i ]
-  %.03648.i.i.i = phi i64 [ %.137.i.i.i, %.lr.ph.i.i.i ], [ %127, %.preheader46.i.i.i ]
-  %136 = getelementptr inbounds nuw i32, ptr %132, i64 %.03150.i.i.i
-  %137 = load i32, ptr %136, align 4, !tbaa !135
-  %138 = icmp eq i32 %137, 10
-  %139 = add i64 %.03648.i.i.i, 1
-  %.137.i.i.i = select i1 %138, i64 1, i64 %139
-  %140 = zext i1 %138 to i64
-  %.133.i.i.i = add i64 %.03249.i.i.i, %140
-  %141 = add nuw i64 %.03150.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %141, %spec.select.i.i.i
-  br i1 %exitcond.not.i.i.i, label %dom_process_parse_chunk.exit.i, label %.lr.ph.i.i.i
+  %.03150.i.i.i = phi i64 [ %137, %.lr.ph.i.i.i ], [ %126, %.preheader46.i.i.i ]
+  %.03249.i.i.i = phi i64 [ %.133.i.i.i, %.lr.ph.i.i.i ], [ %124, %.preheader46.i.i.i ]
+  %.03648.i.i.i = phi i64 [ %.137.i.i.i, %.lr.ph.i.i.i ], [ %123, %.preheader46.i.i.i ]
+  %132 = getelementptr inbounds nuw i32, ptr %128, i64 %.03150.i.i.i
+  %133 = load i32, ptr %132, align 4, !tbaa !135
+  %134 = icmp eq i32 %133, 10
+  %135 = add i64 %.03648.i.i.i, 1
+  %.137.i.i.i = select i1 %134, i64 1, i64 %135
+  %136 = zext i1 %134 to i64
+  %.133.i.i.i = add i64 %.03249.i.i.i, %136
+  %137 = add nuw i64 %.03150.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %137, %spec.select.i.i.i
+  br i1 %exitcond.not.i.i.i, label %dom_find_line_and_column_using_cache.exit.i.i, label %.lr.ph.i.i.i
 
-142:                                              ; preds = %142, %.lr.ph56.i.i.i
-  %.255.i.i.i = phi i64 [ %130, %.lr.ph56.i.i.i ], [ %.3.i.i.i, %142 ]
-  %.33554.i.i.i = phi i64 [ %128, %.lr.ph56.i.i.i ], [ %.4.i.i.i, %142 ]
-  %.33953.i.i.i = phi i64 [ %127, %.lr.ph56.i.i.i ], [ %.440.i.i.i, %142 ]
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 %.255.i.i.i
-  %144 = load i8, ptr %143, align 1, !tbaa !4
-  %145 = icmp eq i8 %144, 10
-  %.not44.i.i.i = icmp sgt i8 %144, -65
-  %146 = zext i1 %.not44.i.i.i to i64
-  %spec.select45.i.i.i = add i64 %.33953.i.i.i, %146
-  %.440.i.i.i = select i1 %145, i64 1, i64 %spec.select45.i.i.i
-  %147 = zext i1 %145 to i64
-  %.4.i.i.i = add i64 %.33554.i.i.i, %147
+138:                                              ; preds = %138, %.lr.ph56.i.i.i
+  %.255.i.i.i = phi i64 [ %126, %.lr.ph56.i.i.i ], [ %.3.i.i.i, %138 ]
+  %.33554.i.i.i = phi i64 [ %124, %.lr.ph56.i.i.i ], [ %.4.i.i.i, %138 ]
+  %.33953.i.i.i = phi i64 [ %123, %.lr.ph56.i.i.i ], [ %.440.i.i.i, %138 ]
+  %139 = getelementptr inbounds nuw i8, ptr %131, i64 %.255.i.i.i
+  %140 = load i8, ptr %139, align 1, !tbaa !4
+  %141 = icmp eq i8 %140, 10
+  %.not44.i.i.i = icmp sgt i8 %140, -65
+  %142 = zext i1 %.not44.i.i.i to i64
+  %spec.select45.i.i.i = add i64 %.33953.i.i.i, %142
+  %.440.i.i.i = select i1 %141, i64 1, i64 %spec.select45.i.i.i
+  %143 = zext i1 %141 to i64
+  %.4.i.i.i = add i64 %.33554.i.i.i, %143
   %.3.i.i.i = add nuw i64 %.255.i.i.i, 1
   %exitcond61.not.i.i.i = icmp eq i64 %.3.i.i.i, %spec.select.i.i.i
-  br i1 %exitcond61.not.i.i.i, label %dom_process_parse_chunk.exit.i, label %142
+  br i1 %exitcond61.not.i.i.i, label %dom_find_line_and_column_using_cache.exit.i.i, label %138
 
-dom_process_parse_chunk.exit.thread30.i:          ; preds = %.preheader.i.i.i, %.preheader46.i.i.i
-  %148 = load i64, ptr %122, align 8, !tbaa !72
-  %149 = add i64 %148, %.val.i
-  store i64 %149, ptr %122, align 8, !tbaa !72
-  store i64 0, ptr %129, align 8, !tbaa !150
-  br label %152
+dom_find_line_and_column_using_cache.exit.i.i:    ; preds = %.lr.ph.i.i.i, %138, %.preheader.i.i.i, %.preheader46.i.i.i
+  %.238.i.i.i = phi i64 [ %123, %.preheader.i.i.i ], [ %123, %.preheader46.i.i.i ], [ %.440.i.i.i, %138 ], [ %.137.i.i.i, %.lr.ph.i.i.i ]
+  %.234.i.i.i = phi i64 [ %124, %.preheader.i.i.i ], [ %124, %.preheader46.i.i.i ], [ %.4.i.i.i, %138 ], [ %.133.i.i.i, %.lr.ph.i.i.i ]
+  store i64 %.238.i.i.i, ptr %122, align 8, !tbaa !75
+  store i64 %.234.i.i.i, ptr %120, align 8, !tbaa !74
+  br label %144
 
-dom_process_parse_chunk.exit.i:                   ; preds = %.lr.ph.i.i.i, %142
-  %.238.i.i.i = phi i64 [ %.440.i.i.i, %142 ], [ %.137.i.i.i, %.lr.ph.i.i.i ]
-  %.234.i.i.i = phi i64 [ %.4.i.i.i, %142 ], [ %.133.i.i.i, %.lr.ph.i.i.i ]
-  store i64 %.238.i.i.i, ptr %126, align 8, !tbaa !75
-  store i64 %.234.i.i.i, ptr %124, align 8, !tbaa !74
-  %150 = load i64, ptr %122, align 8, !tbaa !72
-  %151 = add i64 %150, %.val.i
-  store i64 %151, ptr %122, align 8, !tbaa !72
-  store i64 0, ptr %129, align 8, !tbaa !150
-  br label %152
-
-152:                                              ; preds = %dom_process_parse_chunk.exit.i, %dom_process_parse_chunk.exit.thread30.i, %dom_process_parse_chunk.exit.thread29.i
+144:                                              ; preds = %dom_find_line_and_column_using_cache.exit.i.i, %115
+  %145 = getelementptr inbounds nuw i8, ptr %110, i64 32
+  %146 = load i64, ptr %145, align 8, !tbaa !72
+  %147 = add i64 %146, %.val.i
+  store i64 %147, ptr %145, align 8, !tbaa !72
+  %148 = getelementptr inbounds nuw i8, ptr %110, i64 56
+  store i64 0, ptr %148, align 8, !tbaa !150
   store i64 0, ptr %94, align 8, !tbaa !126
-  %153 = icmp eq i32 %108, 15
-  br i1 %153, label %104, label %154
+  %149 = icmp eq i32 %108, 15
+  br i1 %149, label %104, label %150
 
-154:                                              ; preds = %152
+150:                                              ; preds = %144
   store i64 0, ptr %91, align 8, !tbaa !123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
-  %155 = icmp eq i32 %102, 15
-  br i1 %155, label %98, label %dom_decode_encode_slow_path.exit
+  %151 = icmp eq i32 %102, 15
+  br i1 %151, label %98, label %dom_decode_encode_slow_path.exit
 
-dom_process_parse_chunk.exit.thread.i:            ; preds = %104
+152:                                              ; preds = %104
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
   br label %dom_decode_encode_slow_path.exit
 
-dom_decode_encode_slow_path.exit:                 ; preds = %154, %dom_process_parse_chunk.exit.thread.i
+dom_decode_encode_slow_path.exit:                 ; preds = %150, %152
   %storemerge.i = load ptr, ptr %9, align 8, !tbaa !10
   store ptr %storemerge.i, ptr %3, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
-  br label %156
+  br label %153
 
-156:                                              ; preds = %dom_decode_encode_slow_path.exit, %dom_decode_encode_fast_path.exit
+153:                                              ; preds = %dom_decode_encode_slow_path.exit, %dom_decode_encode_fast_path.exit
   %.0 = phi i1 [ %.0.i, %dom_decode_encode_fast_path.exit ], [ %.not.i.i18, %dom_decode_encode_slow_path.exit ]
   ret i1 %.0
 }

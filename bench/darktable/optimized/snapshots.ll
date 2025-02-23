@@ -1029,7 +1029,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   call void @gtk_box_pack_start(ptr noundef %34, ptr noundef %35, i32 noundef 0, i32 noundef 1, i32 noundef 0) #14
   %36 = load ptr, ptr %33, align 8, !tbaa !164
   %37 = call ptr @g_type_check_instance_cast(ptr noundef %36, i64 noundef 80) #14
-  %38 = call i64 @g_signal_connect_data(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef nonnull @_sidebyside_button_clicked, ptr noundef %0, ptr noundef null, i32 noundef 0) #14
+  %38 = call i64 @g_signal_connect_data(ptr noundef %37, ptr noundef nonnull @.str.5, ptr noundef nonnull @_sidebyside_button_clicked, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #14
   %39 = load ptr, ptr %33, align 8, !tbaa !164
   %40 = tail call i64 @gtk_widget_get_type() #15
   %41 = call ptr @g_type_check_instance_cast(ptr noundef %39, i64 noundef %40) #14
@@ -1038,7 +1038,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %43 = load ptr, ptr %18, align 8, !tbaa !162
   %44 = call ptr @g_type_check_instance_cast(ptr noundef %43, i64 noundef %57) #14
   call void @gtk_box_pack_start(ptr noundef %44, ptr noundef %29, i32 noundef 1, i32 noundef 1, i32 noundef 0) #14
-  %45 = call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @_lib_snapshots_toggle_last, i32 noundef 0, i32 noundef 0) #14
+  %45 = call ptr @dt_action_register(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @_lib_snapshots_toggle_last, i32 noundef 0, i32 noundef 0) #14
   %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !165
   %47 = and i32 %46, 2
   %48 = icmp ne i32 %47, 0
@@ -1055,7 +1055,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %55 = or i32 %54, -256
   store i32 %55, ptr %53, align 8, !tbaa !71
   call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %52)
-  call fastcc void @_init_snapshot_entry(ptr noundef %0, ptr noundef nonnull %52)
+  call fastcc void @_init_snapshot_entry(ptr noundef nonnull %0, ptr noundef nonnull %52)
   %56 = call ptr @gtk_box_new(i32 noundef 0, i32 noundef 0) #14
   %57 = tail call i64 @gtk_box_get_type() #15
   %58 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #14
@@ -1666,7 +1666,7 @@ define internal void @_signal_image_removed(ptr readnone captures(none) %0, i32 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 1248
   tail call fastcc void @_clear_snapshot_entry(ptr noundef nonnull %15)
-  tail call fastcc void @_init_snapshot_entry(ptr noundef %2, ptr noundef nonnull %15)
+  tail call fastcc void @_init_snapshot_entry(ptr noundef nonnull %2, ptr noundef nonnull %15)
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %17 = load i32, ptr %16, align 4, !tbaa !159
   %18 = add i32 %17, -1

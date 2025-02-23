@@ -394,7 +394,7 @@ define range(i32 0, 2) i32 @ENGINE_add(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 343, ptr noundef nonnull @__func__.ENGINE_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 786690, ptr noundef null) #4
-  br label %52
+  br label %54
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !29
@@ -411,118 +411,118 @@ define range(i32 0, 2) i32 @ENGINE_add(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 347, ptr noundef nonnull @__func__.ENGINE_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 108, ptr noundef null) #4
-  br label %52
+  br label %54
 
 12:                                               ; preds = %7
   %13 = load ptr, ptr @global_engine_lock, align 8, !tbaa !21
   %14 = tail call i32 @CRYPTO_THREAD_write_lock(ptr noundef %13) #4
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %52, label %15
+  br i1 %.not, label %54, label %15
 
 15:                                               ; preds = %12
   %.025.i = load ptr, ptr @engine_list_head, align 8, !tbaa !22
   %.not27.i = icmp eq ptr %.025.i, null
-  br i1 %.not27.i, label %.critedge.thread.i, label %.lr.ph.i
-
-.critedge.thread.i:                               ; preds = %15
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %17 = atomicrmw add ptr %16, i32 1 monotonic, align 4
-  %18 = load ptr, ptr @engine_list_tail, align 8, !tbaa !22
-  %.not21.i = icmp eq ptr %18, null
-  br i1 %.not21.i, label %34, label %31
+  br i1 %.not27.i, label %24, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15
-  %19 = load ptr, ptr %0, align 8, !tbaa !29
-  br label %20
+  %16 = load ptr, ptr %0, align 8, !tbaa !29
+  br label %17
 
-20:                                               ; preds = %20, %.lr.ph.i
-  %.026.i = phi ptr [ %.025.i, %.lr.ph.i ], [ %.0.i, %20 ]
-  %21 = load ptr, ptr %.026.i, align 8, !tbaa !29
-  %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %19) #5
-  %23 = icmp ne i32 %22, 0
-  %24 = getelementptr inbounds nuw i8, ptr %.026.i, i64 192
-  %.0.i = load ptr, ptr %24, align 8, !tbaa !22
-  %25 = icmp ne ptr %.0.i, null
-  %26 = select i1 %25, i1 %23, i1 false
-  br i1 %26, label %20, label %._crit_edge.i, !llvm.loop !31
+17:                                               ; preds = %17, %.lr.ph.i
+  %.026.i = phi ptr [ %.025.i, %.lr.ph.i ], [ %.0.i, %17 ]
+  %18 = load ptr, ptr %.026.i, align 8, !tbaa !29
+  %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(1) %16) #5
+  %20 = icmp ne i32 %19, 0
+  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 192
+  %.0.i = load ptr, ptr %21, align 8, !tbaa !22
+  %22 = icmp ne ptr %.0.i, null
+  %23 = select i1 %22, i1 %20, i1 false
+  br i1 %23, label %17, label %._crit_edge.i, !llvm.loop !31
 
-._crit_edge.i:                                    ; preds = %20
-  br i1 %23, label %.critedge.i, label %CRYPTO_DOWN_REF.exit.i
+._crit_edge.i:                                    ; preds = %17
+  br i1 %20, label %37, label %CRYPTO_DOWN_REF.exit.i
 
-.critedge.i:                                      ; preds = %._crit_edge.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %28 = atomicrmw add ptr %27, i32 1 monotonic, align 4
-  %29 = load ptr, ptr @engine_list_tail, align 8, !tbaa !22
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %43, label %40
+24:                                               ; preds = %15
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %26 = atomicrmw add ptr %25, i32 1 monotonic, align 4
+  %27 = load ptr, ptr @engine_list_tail, align 8, !tbaa !22
+  %.not21.i = icmp eq ptr %27, null
+  br i1 %.not21.i, label %31, label %28
 
-31:                                               ; preds = %.critedge.thread.i
-  %32 = atomicrmw sub ptr %16, i32 1 release, align 4
-  %33 = icmp eq i32 %32, 1
-  br i1 %33, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
+28:                                               ; preds = %24
+  %29 = atomicrmw sub ptr %25, i32 1 release, align 4
+  %30 = icmp eq i32 %29, 1
+  br i1 %30, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
 
-34:                                               ; preds = %.critedge.thread.i
-  %35 = tail call i32 @engine_cleanup_add_last(ptr noundef nonnull @engine_list_cleanup) #4
-  %.not22.i = icmp eq i32 %35, 0
-  br i1 %.not22.i, label %36, label %39
+31:                                               ; preds = %24
+  %32 = tail call i32 @engine_cleanup_add_last(ptr noundef nonnull @engine_list_cleanup) #4
+  %.not22.i = icmp eq i32 %32, 0
+  br i1 %.not22.i, label %33, label %36
 
-36:                                               ; preds = %34
-  %37 = atomicrmw sub ptr %16, i32 1 release, align 4
-  %38 = icmp eq i32 %37, 1
-  br i1 %38, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
+33:                                               ; preds = %31
+  %34 = atomicrmw sub ptr %25, i32 1 release, align 4
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
 
-39:                                               ; preds = %34
+36:                                               ; preds = %31
   store ptr %0, ptr @engine_list_head, align 8, !tbaa !22
   br label %engine_list_add.exit
 
-40:                                               ; preds = %.critedge.i
-  %41 = getelementptr inbounds nuw i8, ptr %29, i64 192
-  %42 = load ptr, ptr %41, align 8, !tbaa !27
-  %.not.i = icmp eq ptr %42, null
-  br i1 %.not.i, label %46, label %43
+37:                                               ; preds = %._crit_edge.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %39 = atomicrmw add ptr %38, i32 1 monotonic, align 4
+  %40 = load ptr, ptr @engine_list_tail, align 8, !tbaa !22
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %45, label %42
 
-43:                                               ; preds = %40, %.critedge.i
-  %44 = atomicrmw sub ptr %27, i32 1 release, align 4
-  %45 = icmp eq i32 %44, 1
-  br i1 %45, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 192
+  %44 = load ptr, ptr %43, align 8, !tbaa !27
+  %.not.i = icmp eq ptr %44, null
+  br i1 %.not.i, label %48, label %45
 
-46:                                               ; preds = %40
-  store ptr %0, ptr %41, align 8, !tbaa !27
+45:                                               ; preds = %42, %37
+  %46 = atomicrmw sub ptr %38, i32 1 release, align 4
+  %47 = icmp eq i32 %46, 1
+  br i1 %47, label %CRYPTO_DOWN_REF.exit.i.sink.split, label %CRYPTO_DOWN_REF.exit.i
+
+48:                                               ; preds = %42
+  store ptr %0, ptr %43, align 8, !tbaa !27
   br label %engine_list_add.exit
 
-engine_list_add.exit:                             ; preds = %39, %46
-  %.sink.i = phi ptr [ %29, %46 ], [ null, %39 ]
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %.sink.i, ptr %47, align 8, !tbaa !28
+engine_list_add.exit:                             ; preds = %36, %48
+  %.sink.i = phi ptr [ %40, %48 ], [ null, %36 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %.sink.i, ptr %49, align 8, !tbaa !28
   store ptr %0, ptr @engine_list_tail, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store ptr null, ptr %48, align 8, !tbaa !27
-  br label %49
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store ptr null, ptr %50, align 8, !tbaa !27
+  br label %51
 
-CRYPTO_DOWN_REF.exit.i.sink.split:                ; preds = %43, %36, %31
-  %.sink10.ph = phi i32 [ 89, %31 ], [ 97, %36 ], [ 106, %43 ]
+CRYPTO_DOWN_REF.exit.i.sink.split:                ; preds = %45, %33, %28
+  %.sink10.ph = phi i32 [ 89, %28 ], [ 97, %33 ], [ 106, %45 ]
   fence acquire
   br label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %CRYPTO_DOWN_REF.exit.i.sink.split, %43, %36, %31, %._crit_edge.i
-  %.sink10 = phi i32 [ 73, %._crit_edge.i ], [ 89, %31 ], [ 97, %36 ], [ 106, %43 ], [ %.sink10.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
-  %.sink = phi i32 [ 103, %._crit_edge.i ], [ 110, %31 ], [ 110, %36 ], [ 110, %43 ], [ 110, %CRYPTO_DOWN_REF.exit.i.sink.split ]
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %CRYPTO_DOWN_REF.exit.i.sink.split, %45, %33, %28, %._crit_edge.i
+  %.sink10 = phi i32 [ 73, %._crit_edge.i ], [ 89, %28 ], [ 97, %33 ], [ 106, %45 ], [ %.sink10.ph, %CRYPTO_DOWN_REF.exit.i.sink.split ]
+  %.sink = phi i32 [ 103, %._crit_edge.i ], [ 110, %28 ], [ 110, %33 ], [ 110, %45 ], [ 110, %CRYPTO_DOWN_REF.exit.i.sink.split ]
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink10, ptr noundef nonnull @__func__.engine_list_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef %.sink, ptr noundef null) #4
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 353, ptr noundef nonnull @__func__.ENGINE_add) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 38, i32 noundef 110, ptr noundef null) #4
-  br label %49
+  br label %51
 
-49:                                               ; preds = %engine_list_add.exit, %CRYPTO_DOWN_REF.exit.i
+51:                                               ; preds = %engine_list_add.exit, %CRYPTO_DOWN_REF.exit.i
   %.0 = phi i32 [ 1, %engine_list_add.exit ], [ 0, %CRYPTO_DOWN_REF.exit.i ]
-  %50 = load ptr, ptr @global_engine_lock, align 8, !tbaa !21
-  %51 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %50) #4
-  br label %52
+  %52 = load ptr, ptr @global_engine_lock, align 8, !tbaa !21
+  %53 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %52) #4
+  br label %54
 
-52:                                               ; preds = %12, %49, %11, %3
-  %.05 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %.0, %49 ], [ 0, %12 ]
+54:                                               ; preds = %12, %51, %11, %3
+  %.05 = phi i32 [ 0, %3 ], [ 0, %11 ], [ %.0, %51 ], [ 0, %12 ]
   ret i32 %.05
 }
 

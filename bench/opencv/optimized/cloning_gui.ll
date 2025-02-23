@@ -398,7 +398,7 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %121
   %.not = icmp eq i32 %122, 0
-  br i1 %.not, label %._crit_edge138.thread, label %131
+  br i1 %.not, label %._crit_edge138, label %131
 
 131:                                              ; preds = %._crit_edge
   %132 = load ptr, ptr @pts, align 8
@@ -412,65 +412,65 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
   call void @_ZN2cv9polylinesERKNS_17_InputOutputArrayEPKPKNS_6Point_IiEEPKiibRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull %18, ptr noundef nonnull @numpts, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef 2, i32 noundef 8, i32 noundef 0)
   %.pre = load i32, ptr @var, align 4
   %135 = icmp sgt i32 %.pre, 0
-  br i1 %135, label %.lr.ph137, label %._crit_edge138.thread
-
-._crit_edge138.thread:                            ; preds = %131, %._crit_edge
-  %.pre160 = load i32, ptr @maxx, align 4
-  %.pre161 = load i32, ptr @minx, align 4
-  %.pre162 = load i32, ptr @maxy, align 4
-  %.pre163 = load i32, ptr @miny, align 4
-  %136 = sub nsw i32 %.pre160, %.pre161
-  store i32 %136, ptr @lenx, align 4
-  %137 = sub nsw i32 %.pre162, %.pre163
-  store i32 %137, ptr @leny, align 4
-  br label %._crit_edge142
+  br i1 %135, label %.lr.ph137, label %._crit_edge138
 
 .lr.ph137:                                        ; preds = %131
   %maxy.promoted = load i32, ptr @maxy, align 4
   %miny.promoted = load i32, ptr @miny, align 4
   %maxx.promoted = load i32, ptr @maxx, align 4
   %minx.promoted = load i32, ptr @minx, align 4
-  %138 = load ptr, ptr @pts, align 8
+  %136 = load ptr, ptr @pts, align 8
   %wide.trip.count152 = zext nneg i32 %.pre to i64
-  br label %139
+  br label %137
 
-139:                                              ; preds = %.lr.ph137, %139
-  %indvars.iv149 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next150, %139 ]
-  %140 = phi i32 [ %minx.promoted, %.lr.ph137 ], [ %146, %139 ]
-  %141 = phi i32 [ %maxx.promoted, %.lr.ph137 ], [ %148, %139 ]
-  %142 = phi i32 [ %miny.promoted, %.lr.ph137 ], [ %151, %139 ]
-  %143 = phi i32 [ %maxy.promoted, %.lr.ph137 ], [ %153, %139 ]
-  %144 = getelementptr inbounds nuw %"class.cv::Point_", ptr %138, i64 %indvars.iv149
-  %145 = load i32, ptr %144, align 4
-  %146 = call i32 @llvm.smin.i32(i32 %145, i32 %140)
-  store i32 %146, ptr @minx, align 4
-  %147 = load i32, ptr %144, align 4
-  %148 = call i32 @llvm.smax.i32(i32 %141, i32 %147)
-  store i32 %148, ptr @maxx, align 4
-  %149 = getelementptr inbounds nuw %"class.cv::Point_", ptr %138, i64 %indvars.iv149, i32 1
-  %150 = load i32, ptr %149, align 4
-  %151 = call i32 @llvm.smin.i32(i32 %150, i32 %142)
-  store i32 %151, ptr @miny, align 4
-  %152 = load i32, ptr %149, align 4
-  %153 = call i32 @llvm.smax.i32(i32 %143, i32 %152)
-  store i32 %153, ptr @maxy, align 4
+137:                                              ; preds = %.lr.ph137, %137
+  %indvars.iv149 = phi i64 [ 0, %.lr.ph137 ], [ %indvars.iv.next150, %137 ]
+  %138 = phi i32 [ %minx.promoted, %.lr.ph137 ], [ %144, %137 ]
+  %139 = phi i32 [ %maxx.promoted, %.lr.ph137 ], [ %146, %137 ]
+  %140 = phi i32 [ %miny.promoted, %.lr.ph137 ], [ %149, %137 ]
+  %141 = phi i32 [ %maxy.promoted, %.lr.ph137 ], [ %151, %137 ]
+  %142 = getelementptr inbounds nuw %"class.cv::Point_", ptr %136, i64 %indvars.iv149
+  %143 = load i32, ptr %142, align 4
+  %144 = call i32 @llvm.smin.i32(i32 %143, i32 %138)
+  store i32 %144, ptr @minx, align 4
+  %145 = load i32, ptr %142, align 4
+  %146 = call i32 @llvm.smax.i32(i32 %139, i32 %145)
+  store i32 %146, ptr @maxx, align 4
+  %147 = getelementptr inbounds nuw %"class.cv::Point_", ptr %136, i64 %indvars.iv149, i32 1
+  %148 = load i32, ptr %147, align 4
+  %149 = call i32 @llvm.smin.i32(i32 %148, i32 %140)
+  store i32 %149, ptr @miny, align 4
+  %150 = load i32, ptr %147, align 4
+  %151 = call i32 @llvm.smax.i32(i32 %141, i32 %150)
+  store i32 %151, ptr @maxy, align 4
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %._crit_edge138, label %139, !llvm.loop !7
+  br i1 %exitcond153.not, label %.lr.ph141, label %137, !llvm.loop !7
 
-._crit_edge138:                                   ; preds = %139
-  %154 = sub nsw i32 %148, %146
+._crit_edge138:                                   ; preds = %._crit_edge, %131
+  %.pre160 = load i32, ptr @maxx, align 4
+  %.pre161 = load i32, ptr @minx, align 4
+  %.pre162 = load i32, ptr @maxy, align 4
+  %.pre163 = load i32, ptr @miny, align 4
+  %152 = sub nsw i32 %.pre160, %.pre161
+  store i32 %152, ptr @lenx, align 4
+  %153 = sub nsw i32 %.pre162, %.pre163
+  store i32 %153, ptr @leny, align 4
+  br label %._crit_edge142
+
+.lr.ph141:                                        ; preds = %137
+  %154 = sub nsw i32 %146, %144
   store i32 %154, ptr @lenx, align 4
-  %155 = sub nsw i32 %153, %151
+  %155 = sub nsw i32 %151, %149
   store i32 %155, ptr @leny, align 4
   %.neg = sdiv i32 %155, -2
   %.neg147 = sdiv i32 %154, -2
-  %.neg130 = sub i32 %.neg147, %146
-  %.neg133 = sub i32 %.neg, %151
+  %.neg130 = sub i32 %.neg147, %144
+  %.neg133 = sub i32 %.neg, %149
   br label %156
 
-156:                                              ; preds = %._crit_edge138, %156
-  %indvars.iv154 = phi i64 [ 0, %._crit_edge138 ], [ %indvars.iv.next155, %156 ]
+156:                                              ; preds = %.lr.ph141, %156
+  %indvars.iv154 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next155, %156 ]
   %157 = load ptr, ptr @pts, align 8
   %158 = getelementptr inbounds nuw %"class.cv::Point_", ptr %157, i64 %indvars.iv154
   %159 = load i32, ptr %158, align 4
@@ -491,7 +491,7 @@ define hidden void @_Z6sourceiiiiPv(i32 noundef %0, i32 noundef %1, i32 noundef 
   %171 = icmp slt i64 %indvars.iv.next155, %170
   br i1 %171, label %156, label %._crit_edge142, !llvm.loop !8
 
-._crit_edge142:                                   ; preds = %156, %._crit_edge138.thread
+._crit_edge142:                                   ; preds = %156, %._crit_edge138
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #12
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %22)
           to label %172 unwind label %177
@@ -3182,7 +3182,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
 
 ._crit_edge334:                                   ; preds = %.lr.ph333, %697
   %.not = icmp eq i32 %698, 0
-  br i1 %.not, label %._crit_edge338.thread, label %707
+  br i1 %.not, label %._crit_edge338, label %707
 
 707:                                              ; preds = %._crit_edge334
   %708 = load ptr, ptr @pts, align 8
@@ -3194,66 +3194,66 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
   call void @_ZN2cv9polylinesERKNS_17_InputOutputArrayEPKPKNS_6Point_IiEEPKiibRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull %62, ptr noundef nonnull @numpts, i32 noundef 1, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %64, i32 noundef 2, i32 noundef 8, i32 noundef 0)
   %.pre = load i32, ptr @var, align 4
   %709 = icmp sgt i32 %.pre, 0
-  br i1 %709, label %.lr.ph337, label %._crit_edge338.thread
-
-._crit_edge338.thread:                            ; preds = %707, %._crit_edge334
-  %710 = phi i32 [ %.pre, %707 ], [ 0, %._crit_edge334 ]
-  %.pre357 = load i32, ptr @maxx, align 4
-  %.pre358 = load i32, ptr @minx, align 4
-  %.pre359 = load i32, ptr @maxy, align 4
-  %.pre360 = load i32, ptr @miny, align 4
-  %711 = sub nsw i32 %.pre357, %.pre358
-  store i32 %711, ptr @lenx, align 4
-  %712 = sub nsw i32 %.pre359, %.pre360
-  store i32 %712, ptr @leny, align 4
-  br label %._crit_edge342
+  br i1 %709, label %.lr.ph337, label %._crit_edge338
 
 .lr.ph337:                                        ; preds = %707
   %maxy.promoted = load i32, ptr @maxy, align 4
   %miny.promoted = load i32, ptr @miny, align 4
   %maxx.promoted = load i32, ptr @maxx, align 4
   %minx.promoted = load i32, ptr @minx, align 4
-  %713 = load ptr, ptr @pts, align 8
+  %710 = load ptr, ptr @pts, align 8
   %wide.trip.count352 = zext nneg i32 %.pre to i64
-  br label %714
+  br label %711
 
-714:                                              ; preds = %.lr.ph337, %714
-  %indvars.iv349 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next350, %714 ]
-  %715 = phi i32 [ %minx.promoted, %.lr.ph337 ], [ %721, %714 ]
-  %716 = phi i32 [ %maxx.promoted, %.lr.ph337 ], [ %723, %714 ]
-  %717 = phi i32 [ %miny.promoted, %.lr.ph337 ], [ %726, %714 ]
-  %718 = phi i32 [ %maxy.promoted, %.lr.ph337 ], [ %728, %714 ]
-  %719 = getelementptr inbounds nuw %"class.cv::Point_", ptr %713, i64 %indvars.iv349
-  %720 = load i32, ptr %719, align 4
-  %721 = call i32 @llvm.smin.i32(i32 %720, i32 %715)
-  store i32 %721, ptr @minx, align 4
-  %722 = load i32, ptr %719, align 4
-  %723 = call i32 @llvm.smax.i32(i32 %716, i32 %722)
-  store i32 %723, ptr @maxx, align 4
-  %724 = getelementptr inbounds nuw %"class.cv::Point_", ptr %713, i64 %indvars.iv349, i32 1
-  %725 = load i32, ptr %724, align 4
-  %726 = call i32 @llvm.smin.i32(i32 %725, i32 %717)
-  store i32 %726, ptr @miny, align 4
-  %727 = load i32, ptr %724, align 4
-  %728 = call i32 @llvm.smax.i32(i32 %718, i32 %727)
-  store i32 %728, ptr @maxy, align 4
+711:                                              ; preds = %.lr.ph337, %711
+  %indvars.iv349 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next350, %711 ]
+  %712 = phi i32 [ %minx.promoted, %.lr.ph337 ], [ %718, %711 ]
+  %713 = phi i32 [ %maxx.promoted, %.lr.ph337 ], [ %720, %711 ]
+  %714 = phi i32 [ %miny.promoted, %.lr.ph337 ], [ %723, %711 ]
+  %715 = phi i32 [ %maxy.promoted, %.lr.ph337 ], [ %725, %711 ]
+  %716 = getelementptr inbounds nuw %"class.cv::Point_", ptr %710, i64 %indvars.iv349
+  %717 = load i32, ptr %716, align 4
+  %718 = call i32 @llvm.smin.i32(i32 %717, i32 %712)
+  store i32 %718, ptr @minx, align 4
+  %719 = load i32, ptr %716, align 4
+  %720 = call i32 @llvm.smax.i32(i32 %713, i32 %719)
+  store i32 %720, ptr @maxx, align 4
+  %721 = getelementptr inbounds nuw %"class.cv::Point_", ptr %710, i64 %indvars.iv349, i32 1
+  %722 = load i32, ptr %721, align 4
+  %723 = call i32 @llvm.smin.i32(i32 %722, i32 %714)
+  store i32 %723, ptr @miny, align 4
+  %724 = load i32, ptr %721, align 4
+  %725 = call i32 @llvm.smax.i32(i32 %715, i32 %724)
+  store i32 %725, ptr @maxy, align 4
   %indvars.iv.next350 = add nuw nsw i64 %indvars.iv349, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next350, %wide.trip.count352
-  br i1 %exitcond353.not, label %._crit_edge338, label %714, !llvm.loop !19
+  br i1 %exitcond353.not, label %.lr.ph341, label %711, !llvm.loop !19
 
-._crit_edge338:                                   ; preds = %714
-  %729 = sub nsw i32 %723, %721
+._crit_edge338:                                   ; preds = %._crit_edge334, %707
+  %726 = phi i32 [ %.pre, %707 ], [ 0, %._crit_edge334 ]
+  %.pre357 = load i32, ptr @maxx, align 4
+  %.pre358 = load i32, ptr @minx, align 4
+  %.pre359 = load i32, ptr @maxy, align 4
+  %.pre360 = load i32, ptr @miny, align 4
+  %727 = sub nsw i32 %.pre357, %.pre358
+  store i32 %727, ptr @lenx, align 4
+  %728 = sub nsw i32 %.pre359, %.pre360
+  store i32 %728, ptr @leny, align 4
+  br label %._crit_edge342
+
+.lr.ph341:                                        ; preds = %711
+  %729 = sub nsw i32 %720, %718
   store i32 %729, ptr @lenx, align 4
-  %730 = sub nsw i32 %728, %726
+  %730 = sub nsw i32 %725, %723
   store i32 %730, ptr @leny, align 4
   %.neg = sdiv i32 %730, -2
   %.neg343 = sdiv i32 %729, -2
-  %.neg326 = sub i32 %.neg343, %721
-  %.neg329 = sub i32 %.neg, %726
+  %.neg326 = sub i32 %.neg343, %718
+  %.neg329 = sub i32 %.neg, %723
   br label %731
 
-731:                                              ; preds = %._crit_edge338, %731
-  %indvars.iv354 = phi i64 [ 0, %._crit_edge338 ], [ %indvars.iv.next355, %731 ]
+731:                                              ; preds = %.lr.ph341, %731
+  %indvars.iv354 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next355, %731 ]
   %732 = load ptr, ptr @pts, align 8
   %733 = getelementptr inbounds nuw %"class.cv::Point_", ptr %732, i64 %indvars.iv354
   %734 = load i32, ptr %733, align 4
@@ -3274,8 +3274,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit297:              ; preds = %558
   %746 = icmp slt i64 %indvars.iv.next355, %745
   br i1 %746, label %731, label %._crit_edge342, !llvm.loop !20
 
-._crit_edge342:                                   ; preds = %731, %._crit_edge338.thread
-  %.lcssa = phi i32 [ %710, %._crit_edge338.thread ], [ %744, %731 ]
+._crit_edge342:                                   ; preds = %731, %._crit_edge338
+  %.lcssa = phi i32 [ %726, %._crit_edge338 ], [ %744, %731 ]
   store i32 %.lcssa, ptr @flag, align 4
   %747 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @img0, i64 64), align 8
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 4

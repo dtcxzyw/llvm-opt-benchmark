@@ -5935,7 +5935,7 @@ search_nonascii.exit122.thread:                   ; preds = %158, %._crit_edge.i
 rb_enc_asciicompat.exit:                          ; preds = %rb_enc_asciicompat.exit.preheader, %rb_enc_asciicompat.exit
   %.7153 = phi ptr [ %176, %rb_enc_asciicompat.exit ], [ %0, %rb_enc_asciicompat.exit.preheader ]
   %.591152 = phi i64 [ %177, %rb_enc_asciicompat.exit ], [ 0, %rb_enc_asciicompat.exit.preheader ]
-  %174 = tail call i32 @rb_enc_mbclen(ptr noundef %.7153, ptr noundef nonnull %1, ptr noundef %2) #29
+  %174 = tail call i32 @rb_enc_mbclen(ptr noundef %.7153, ptr noundef nonnull %1, ptr noundef nonnull %2) #29
   %175 = sext i32 %174 to i64
   %176 = getelementptr i8, ptr %.7153, i64 %175
   %177 = add i64 %.591152, 1
@@ -15093,7 +15093,7 @@ rb_enc_asciicompat.exit:                          ; preds = %rb_str_buf_new.exit
 37:                                               ; preds = %.lr.ph104, %.loopexit
   %.072103 = phi ptr [ %.sroa.5.0.i, %.lr.ph104 ], [ %.2, %.loopexit ]
   %.074102 = phi ptr [ %.sroa.5.0.i, %.lr.ph104 ], [ %.276, %.loopexit ]
-  %38 = call i32 @rb_enc_precise_mbclen(ptr noundef %.072103, ptr noundef nonnull %17, ptr noundef %12) #29
+  %38 = call i32 @rb_enc_precise_mbclen(ptr noundef %.072103, ptr noundef nonnull %17, ptr noundef nonnull %12) #29
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %59, label %40
 
@@ -15134,7 +15134,7 @@ rb_enc_asciicompat.exit:                          ; preds = %rb_str_buf_new.exit
 
 59:                                               ; preds = %37
   %60 = load ptr, ptr %36, align 8, !tbaa !316
-  %61 = call i32 %60(ptr noundef %.072103, ptr noundef nonnull %17, ptr noundef %12) #29
+  %61 = call i32 %60(ptr noundef %.072103, ptr noundef nonnull %17, ptr noundef nonnull %12) #29
   %62 = zext nneg i32 %38 to i64
   %63 = getelementptr i8, ptr %.072103, i64 %62
   switch i32 %61, label %ruby_escaped_char.exit [
@@ -15410,7 +15410,7 @@ RSTRING_END.exit:                                 ; preds = %37, %43
 52:                                               ; preds = %.lr.ph176, %.loopexit
   %.0121167 = phi ptr [ %.sroa.5.0.i, %.lr.ph176 ], [ %.2, %.loopexit ]
   %.0123166 = phi ptr [ %.sroa.5.0.i, %.lr.ph176 ], [ %.2125, %.loopexit ]
-  %53 = call i32 @rb_enc_precise_mbclen(ptr noundef %.0121167, ptr noundef nonnull %44, ptr noundef %12) #29
+  %53 = call i32 @rb_enc_precise_mbclen(ptr noundef %.0121167, ptr noundef nonnull %44, ptr noundef nonnull %12) #29
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %74, label %55
 
@@ -15451,7 +15451,7 @@ RSTRING_END.exit:                                 ; preds = %37, %43
 
 74:                                               ; preds = %52
   %75 = load ptr, ptr %47, align 8, !tbaa !316
-  %76 = call i32 %75(ptr noundef %.0121167, ptr noundef nonnull %44, ptr noundef %12) #29
+  %76 = call i32 %75(ptr noundef %.0121167, ptr noundef nonnull %44, ptr noundef nonnull %12) #29
   %77 = zext nneg i32 %53 to i64
   %78 = getelementptr i8, ptr %.0121167, i64 %77
   br i1 %or.cond, label %79, label %95

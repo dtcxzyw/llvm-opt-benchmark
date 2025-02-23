@@ -3018,7 +3018,7 @@ for.body.i.i:                                     ; preds = %if.end.i.i.i.i.i, %
 for.end.i.i:                                      ; preds = %for.body.i.i, %if.end.i.i.i.i.i
   %6 = load ptr, ptr %ptr.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %6, null
-  br i1 %tobool.not.i.i.i.i.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i, label %if.end.i.i.i9.i.i
+  br i1 %tobool.not.i.i.i.i.i, label %for.body.preheader.i, label %if.end.i.i.i9.i.i
 
 if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
   %7 = load i64, ptr %nAlloc.i, align 8
@@ -3028,16 +3028,16 @@ if.end.i.i.i9.i.i:                                ; preds = %for.end.i.i
   %vfn.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i11.i.i, i64 24
   %9 = load ptr, ptr %vfn.i.i.i12.i.i, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %6, i64 noundef %mul.i10.i.i, i64 noundef 4)
-  br label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i
+  br label %for.body.preheader.i
 
-_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i: ; preds = %if.end.i.i.i9.i.i, %for.end.i.i
+for.body.preheader.i:                             ; preds = %if.end.i.i.i9.i.i, %for.end.i.i
   store i64 %f.coerce1, ptr %nAlloc.i, align 8
   store ptr %call.i.i.i.i.i, ptr %ptr.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i
-  %iter.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %f.coerce0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ]
-  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i ]
+for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
+  %iter.08.i = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %f.coerce0, %for.body.preheader.i ]
+  %i.07.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %for.body.preheader.i ]
   %10 = load ptr, ptr %ptr.i, align 8
   %add.ptr.i25 = getelementptr inbounds nuw float, ptr %10, i64 %i.07.i
   %11 = load float, ptr %iter.08.i, align 4
@@ -3063,7 +3063,7 @@ if.end.i.i.i:                                     ; preds = %_ZN4pstd6vectorIfNS
   %nAlloc.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %mul.i.i.i.i = shl i64 %add, 2
   %cmp.i.i.i.i.i.i = icmp eq i64 %mul.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i.i.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i
+  br i1 %cmp.i.i.i.i.i.i, label %for.body.preheader.i.i, label %_ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i
 
 _ZN4pstd3pmr21polymorphic_allocatorIfE15allocate_objectIfEEPT_m.exit.i.i.i: ; preds = %if.end.i.i.i.thread, %if.end.i.i.i
   %mul.i.i.i.i98 = phi i64 [ 4, %if.end.i.i.i.thread ], [ %mul.i.i.i.i, %if.end.i.i.i ]
@@ -3098,7 +3098,7 @@ for.body.i.i.i:                                   ; preds = %call.i.i.i.i.i.i.no
 for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %call.i.i.i.i.i.i.noexc
   %.pr.i = load ptr, ptr %ptr.i.i7692, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i, label %if.end.i.i.i9.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i, label %for.body.preheader.i.i, label %if.end.i.i.i9.i.i.i
 
 if.end.i.i.i9.i.i.i:                              ; preds = %for.end.i.i.i
   %16 = load i64, ptr %nAlloc.i.i7890, align 8
@@ -3108,9 +3108,9 @@ if.end.i.i.i9.i.i.i:                              ; preds = %for.end.i.i.i
   %vfn.i.i.i12.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i11.i.i.i, i64 24
   %18 = load ptr, ptr %vfn.i.i.i12.i.i.i, align 8
   invoke void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %.pr.i, i64 noundef %mul.i10.i.i.i, i64 noundef 4)
-          to label %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i unwind label %lpad
+          to label %for.body.preheader.i.i unwind label %lpad
 
-_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i: ; preds = %if.end.i.i.i9.i.i.i, %for.end.i.i.i, %if.end.i.i.i
+for.body.preheader.i.i:                           ; preds = %if.end.i.i.i9.i.i.i, %for.end.i.i.i, %if.end.i.i.i
   %cdf7297 = phi ptr [ %cdf7296, %for.end.i.i.i ], [ %cdf, %if.end.i.i.i ], [ %cdf7296, %if.end.i.i.i9.i.i.i ]
   %add7495 = phi i64 [ %add7494, %for.end.i.i.i ], [ %add, %if.end.i.i.i ], [ %add7494, %if.end.i.i.i9.i.i.i ]
   %ptr.i.i7693 = phi ptr [ %ptr.i.i7692, %for.end.i.i.i ], [ %ptr.i.i, %if.end.i.i.i ], [ %ptr.i.i7692, %if.end.i.i.i9.i.i.i ]
@@ -3121,8 +3121,8 @@ _ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i: ; preds
   store ptr %retval.0.i.i.i.i7.i3.i, ptr %ptr.i.i7693, align 8
   br label %for.body.i.i27
 
-for.body.i.i27:                                   ; preds = %for.body.i.i27, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i
-  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i27 ], [ 0, %_ZN4pstd6vectorIfNS_3pmr21polymorphic_allocatorIfEEE7reserveEm.exit.i.i ]
+for.body.i.i27:                                   ; preds = %for.body.i.i27, %for.body.preheader.i.i
+  %i.09.i.i = phi i64 [ %inc.i.i, %for.body.i.i27 ], [ 0, %for.body.preheader.i.i ]
   %19 = load ptr, ptr %ptr.i.i7693, align 8
   %add.ptr.i.i28 = getelementptr inbounds float, ptr %19, i64 %i.09.i.i
   store float 0.000000e+00, ptr %add.ptr.i.i28, align 4

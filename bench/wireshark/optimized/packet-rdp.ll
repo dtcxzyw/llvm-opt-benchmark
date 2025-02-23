@@ -3143,21 +3143,21 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   %119 = getelementptr inbounds nuw i8, ptr %.0.i, i64 64
   br label %120
 
-120:                                              ; preds = %.lr.ph, %233
-  %.0107 = phi i32 [ 0, %.lr.ph ], [ %235, %233 ]
+120:                                              ; preds = %.lr.ph, %231
+  %.0107 = phi i32 [ 0, %.lr.ph ], [ %233, %231 ]
   %121 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.0107)
   %122 = add i32 %.0107, 2
   %123 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %122)
   %124 = zext i16 %123 to i32
-  switch i16 %121, label %227 [
+  switch i16 %121, label %225 [
     i16 -16383, label %125
     i16 -16382, label %131
     i16 -16381, label %137
-    i16 -16380, label %188
-    i16 -16379, label %194
-    i16 -16376, label %209
-    i16 -16378, label %215
-    i16 -16374, label %221
+    i16 -16380, label %186
+    i16 -16379, label %192
+    i16 -16376, label %207
+    i16 -16378, label %213
+    i16 -16374, label %219
   ]
 
 125:                                              ; preds = %120
@@ -3166,7 +3166,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   %128 = load i32, ptr @ett_rdp_clientCoreData, align 4
   %129 = call ptr @proto_item_add_subtree(ptr noundef %127, i32 noundef %128)
   %130 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %129, ptr noundef nonnull @__const.dissect_rdp_ClientData.core_fields, i32 noundef %124)
-  br label %233
+  br label %231
 
 131:                                              ; preds = %120
   %132 = load i32, ptr @hf_rdp_clientSecurityData, align 4
@@ -3174,7 +3174,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   %134 = load i32, ptr @ett_rdp_clientSecurityData, align 4
   %135 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %134)
   %136 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %135, ptr noundef nonnull @__const.dissect_rdp_ClientData.security_fields, i32 noundef 0)
-  br label %233
+  br label %231
 
 137:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
@@ -3255,7 +3255,7 @@ copy_address_wmem.exit:                           ; preds = %rdp_get_conversatio
   %157 = load i32, ptr %7, align 4
   %158 = call i32 @llvm.umin.i32(i32 %157, i32 31)
   %159 = icmp samesign ult i32 %156, %158
-  br i1 %159, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !13
+  br i1 %159, label %.lr.ph.split.us.i, label %dissect_rdp_clientNetworkData.exit, !llvm.loop !13
 
 .lr.ph.split.i:                                   ; preds = %.thread.i, %find_known_channel_by_name.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ], [ 0, %.thread.i ]
@@ -3301,46 +3301,37 @@ find_known_channel_by_name.exit.i:                ; preds = %175, %172, %169, %1
   %181 = call i32 @llvm.umin.i32(i32 %180, i32 31)
   %182 = zext nneg i32 %181 to i64
   %183 = icmp samesign ult i64 %indvars.iv.next.i, %182
-  br i1 %183, label %.lr.ph.split.i, label %._crit_edge.loopexit45.i, !llvm.loop !13
+  br i1 %183, label %.lr.ph.split.i, label %._crit_edge.thread.i, !llvm.loop !13
 
-._crit_edge.loopexit45.i:                         ; preds = %find_known_channel_by_name.exit.i
-  %184 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  br label %._crit_edge.i
-
-._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %._crit_edge.loopexit45.i
-  %.035.lcssa.i = phi i32 [ %184, %._crit_edge.loopexit45.i ], [ %156, %.lr.ph.split.us.i ]
-  br i1 %.not39.i, label %dissect_rdp_clientNetworkData.exit, label %._crit_edge.thread.i
-
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.thread.i
-  %.035.lcssa53.i = phi i32 [ %.035.lcssa.i, %._crit_edge.i ], [ 0, %.thread.i ]
-  %185 = zext nneg i32 %.035.lcssa53.i to i64
-  %186 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %185
-  store i32 0, ptr %186, align 8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  store ptr null, ptr %187, align 8
+._crit_edge.thread.i:                             ; preds = %find_known_channel_by_name.exit.i, %.thread.i
+  %.035.lcssa53.i = phi i64 [ 0, %.thread.i ], [ %indvars.iv.next.i, %find_known_channel_by_name.exit.i ]
+  %184 = getelementptr [32 x %struct._rdp_channel_def], ptr %119, i64 0, i64 %.035.lcssa53.i
+  store i32 0, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store ptr null, ptr %185, align 8
   br label %dissect_rdp_clientNetworkData.exit
 
-dissect_rdp_clientNetworkData.exit:               ; preds = %152, %137, %._crit_edge.i, %._crit_edge.thread.i
+dissect_rdp_clientNetworkData.exit:               ; preds = %.lr.ph.split.us.i, %152, %137, %._crit_edge.thread.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 480, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14
-  br label %233
+  br label %231
 
-188:                                              ; preds = %120
-  %189 = load i32, ptr @hf_rdp_clientClusterData, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %189, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %191 = load i32, ptr @ett_rdp_clientClusterData, align 4
-  %192 = call ptr @proto_item_add_subtree(ptr noundef %190, i32 noundef %191)
-  %193 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %192, ptr noundef nonnull %13, i32 noundef 0)
-  br label %233
+186:                                              ; preds = %120
+  %187 = load i32, ptr @hf_rdp_clientClusterData, align 4
+  %188 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %187, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %189 = load i32, ptr @ett_rdp_clientClusterData, align 4
+  %190 = call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189)
+  %191 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %190, ptr noundef nonnull %13, i32 noundef 0)
+  br label %231
 
-194:                                              ; preds = %120
-  %195 = load i32, ptr @hf_rdp_clientMonitorData, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %195, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %197 = load i32, ptr @ett_rdp_clientMonitorData, align 4
-  %198 = call ptr @proto_item_add_subtree(ptr noundef %196, i32 noundef %197)
+192:                                              ; preds = %120
+  %193 = load i32, ptr @hf_rdp_clientMonitorData, align 4
+  %194 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %193, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %195 = load i32, ptr @ett_rdp_clientMonitorData, align 4
+  %196 = call ptr @proto_item_add_subtree(ptr noundef %194, i32 noundef %195)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #14
   store ptr @hf_rdp_headerType, ptr %6, align 16
@@ -3357,73 +3348,73 @@ dissect_rdp_clientNetworkData.exit:               ; preds = %152, %137, %._crit_
   store i32 0, ptr %86, align 4
   store ptr %5, ptr %87, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %88, i8 0, i64 56, i1 false)
-  %199 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %198, ptr noundef nonnull %6, i32 noundef 0)
-  %200 = load i32, ptr %5, align 4
-  %.not.i103 = icmp eq i32 %200, 0
+  %197 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %196, ptr noundef nonnull %6, i32 noundef 0)
+  %198 = load i32, ptr %5, align 4
+  %.not.i103 = icmp eq i32 %198, 0
   br i1 %.not.i103, label %dissect_rdp_monitor.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %194, %.lr.ph.i
-  %.016.i = phi i32 [ %205, %.lr.ph.i ], [ %199, %194 ]
-  %.01415.i = phi i32 [ %206, %.lr.ph.i ], [ 0, %194 ]
-  %201 = load i32, ptr @hf_rdp_clientMonitorDefData, align 4
-  %202 = call ptr @proto_tree_add_item(ptr noundef %198, i32 noundef %201, ptr noundef %0, i32 noundef %.016.i, i32 noundef 20, i32 noundef 0)
-  %203 = load i32, ptr @ett_rdp_clientMonitorDefData, align 4
-  %204 = call ptr @proto_item_add_subtree(ptr noundef %202, i32 noundef %203)
-  %205 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.016.i, ptr noundef %1, ptr noundef %204, ptr noundef nonnull @__const.dissect_rdp_monitor.monitorDef_fields, i32 noundef 0)
-  %206 = add nuw i32 %.01415.i, 1
-  %207 = load i32, ptr %5, align 4
-  %208 = icmp ult i32 %206, %207
-  br i1 %208, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !14
+.lr.ph.i:                                         ; preds = %192, %.lr.ph.i
+  %.016.i = phi i32 [ %203, %.lr.ph.i ], [ %197, %192 ]
+  %.01415.i = phi i32 [ %204, %.lr.ph.i ], [ 0, %192 ]
+  %199 = load i32, ptr @hf_rdp_clientMonitorDefData, align 4
+  %200 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %199, ptr noundef %0, i32 noundef %.016.i, i32 noundef 20, i32 noundef 0)
+  %201 = load i32, ptr @ett_rdp_clientMonitorDefData, align 4
+  %202 = call ptr @proto_item_add_subtree(ptr noundef %200, i32 noundef %201)
+  %203 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.016.i, ptr noundef %1, ptr noundef %202, ptr noundef nonnull @__const.dissect_rdp_monitor.monitorDef_fields, i32 noundef 0)
+  %204 = add nuw i32 %.01415.i, 1
+  %205 = load i32, ptr %5, align 4
+  %206 = icmp ult i32 %204, %205
+  br i1 %206, label %.lr.ph.i, label %dissect_rdp_monitor.exit, !llvm.loop !14
 
-dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %194
+dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %192
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  br label %233
+  br label %231
 
-209:                                              ; preds = %120
-  %210 = load i32, ptr @hf_rdp_clientMonitorExData, align 4
-  %211 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %210, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %212 = load i32, ptr @ett_rdp_clientMonitorExData, align 4
-  %213 = call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %212)
-  %214 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %213, ptr noundef nonnull @__const.dissect_rdp_ClientData.monitorex_fields, i32 noundef 0)
-  br label %233
+207:                                              ; preds = %120
+  %208 = load i32, ptr @hf_rdp_clientMonitorExData, align 4
+  %209 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %208, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %210 = load i32, ptr @ett_rdp_clientMonitorExData, align 4
+  %211 = call ptr @proto_item_add_subtree(ptr noundef %209, i32 noundef %210)
+  %212 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %211, ptr noundef nonnull @__const.dissect_rdp_ClientData.monitorex_fields, i32 noundef 0)
+  br label %231
 
-215:                                              ; preds = %120
-  %216 = load i32, ptr @hf_rdp_clientMsgChannelData, align 4
-  %217 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %216, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %218 = load i32, ptr @ett_rdp_clientMsgChannelData, align 4
-  %219 = call ptr @proto_item_add_subtree(ptr noundef %217, i32 noundef %218)
-  %220 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %219, ptr noundef nonnull @__const.dissect_rdp_ClientData.msgchannel_fields, i32 noundef 0)
-  br label %233
+213:                                              ; preds = %120
+  %214 = load i32, ptr @hf_rdp_clientMsgChannelData, align 4
+  %215 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %214, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %216 = load i32, ptr @ett_rdp_clientMsgChannelData, align 4
+  %217 = call ptr @proto_item_add_subtree(ptr noundef %215, i32 noundef %216)
+  %218 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %217, ptr noundef nonnull @__const.dissect_rdp_ClientData.msgchannel_fields, i32 noundef 0)
+  br label %231
 
-221:                                              ; preds = %120
-  %222 = load i32, ptr @hf_rdp_clientMultiTransportData, align 4
-  %223 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %222, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %224 = load i32, ptr @ett_rdp_clientMultiTransportData, align 4
-  %225 = call ptr @proto_item_add_subtree(ptr noundef %223, i32 noundef %224)
-  %226 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %225, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef 0)
-  br label %233
+219:                                              ; preds = %120
+  %220 = load i32, ptr @hf_rdp_clientMultiTransportData, align 4
+  %221 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %220, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %222 = load i32, ptr @ett_rdp_clientMultiTransportData, align 4
+  %223 = call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %222)
+  %224 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %223, ptr noundef nonnull @__const.dissect_rdp_ServerData.multitransport_fields, i32 noundef 0)
+  br label %231
 
-227:                                              ; preds = %120
-  %228 = load i32, ptr @hf_rdp_clientUnknownData, align 4
-  %229 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %228, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
-  %230 = load i32, ptr @ett_rdp_clientUnknownData, align 4
-  %231 = call ptr @proto_item_add_subtree(ptr noundef %229, i32 noundef %230)
-  %232 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %231, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
-  br label %233
+225:                                              ; preds = %120
+  %226 = load i32, ptr @hf_rdp_clientUnknownData, align 4
+  %227 = call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %226, ptr noundef %0, i32 noundef %.0107, i32 noundef %124, i32 noundef 0)
+  %228 = load i32, ptr @ett_rdp_clientUnknownData, align 4
+  %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228)
+  %230 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %.0107, ptr noundef %1, ptr noundef %229, ptr noundef nonnull @__const.dissect_rdp_ServerData.header_fields, i32 noundef 0)
+  br label %231
 
-233:                                              ; preds = %227, %221, %215, %209, %dissect_rdp_monitor.exit, %188, %dissect_rdp_clientNetworkData.exit, %131, %125
-  %234 = call i32 @llvm.umax.i32(i32 %124, i32 4)
-  %235 = add i32 %234, %.0107
-  %236 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %235)
-  %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %120, label %._crit_edge, !llvm.loop !15
+231:                                              ; preds = %225, %219, %213, %207, %dissect_rdp_monitor.exit, %186, %dissect_rdp_clientNetworkData.exit, %131, %125
+  %232 = call i32 @llvm.umax.i32(i32 %124, i32 4)
+  %233 = add i32 %232, %.0107
+  %234 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %233)
+  %235 = icmp sgt i32 %234, 0
+  br i1 %235, label %120, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %233, %copy_address_wmem.exit
-  %238 = call i32 @tvb_captured_length(ptr noundef %0)
+._crit_edge:                                      ; preds = %231, %copy_address_wmem.exit
+  %236 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %12) #14
-  ret i32 %238
+  ret i32 %236
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

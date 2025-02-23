@@ -1077,7 +1077,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBone
   br label %168
 
 168:                                              ; preds = %8, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_ComputePointsForSingleBoneEPNS_7GfVec3fERKNS_10GfMatrix4dES5_.exit
-  %169 = add nuw i64 %.017, 1
+  %169 = add i64 %.017, 1
   %exitcond.not = icmp eq i64 %169, %2
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !26
 

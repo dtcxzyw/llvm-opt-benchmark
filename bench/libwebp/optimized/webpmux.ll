@@ -258,7 +258,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 54:                                               ; preds = %2
   %55 = load i32, ptr %50, align 8, !tbaa !4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph.i.i.i, label %.thread142.i.i
+  br i1 %56, label %.lr.ph.i.i.i, label %.thread148.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %54
   %57 = getelementptr inbounds nuw i8, ptr %50, i64 8
@@ -366,8 +366,8 @@ sub_0.i.i:                                        ; preds = %CountOccurrences.ex
 sub_1.i.i:                                        ; preds = %sub_0.i.i
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 1
   %96 = load i8, ptr %95, align 1
-  %.not155.i.i = icmp eq i8 %96, 111
-  br i1 %.not155.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not157.i.i = icmp eq i8 %96, 111
+  br i1 %.not157.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %97 = getelementptr inbounds nuw i8, ptr %93, i64 2
@@ -455,32 +455,32 @@ CountOccurrences.exit112.i.i:                     ; preds = %.lr.ph.i104.i.i
 
 125:                                              ; preds = %CountOccurrences.exit112.i.i
   %126 = icmp samesign ugt i32 %spec.select.i99.i.i, 1
-  br i1 %126, label %127, label %.thread142.i.i
+  br i1 %126, label %127, label %.thread148.i.i
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr @stderr, align 8, !tbaa !18
   %129 = call i64 @fwrite(ptr nonnull @.str.17, i64 45, i64 1, ptr %128) #14
   br label %148
 
-.thread142.i.i:                                   ; preds = %125, %54
-  %.0.lcssa.i93133138150.i.i = phi i32 [ %spec.select.i99.i.i, %125 ], [ 0, %54 ]
-  %.0.lcssa.i73123126132139149.i.i = phi i32 [ %spec.select.i79.i.i, %125 ], [ 0, %54 ]
-  %.0.lcssa.i83127131140148.i.i = phi i32 [ %spec.select.i89.i.i, %125 ], [ 0, %54 ]
-  %.0.lcssa.i103141147.i.i = phi i32 [ %spec.select.i109.i.i, %125 ], [ 0, %54 ]
-  %130 = icmp eq i32 %.0.lcssa.i73123126132139149.i.i, 0
-  %131 = add nuw nsw i32 %.0.lcssa.i83127131140148.i.i, %.0.lcssa.i93133138150.i.i
+.thread148.i.i:                                   ; preds = %125, %54
+  %.0.lcssa.i93138144156.i.i = phi i32 [ %spec.select.i99.i.i, %125 ], [ 0, %54 ]
+  %.0.lcssa.i73123127136145155.i.i = phi i32 [ %spec.select.i79.i.i, %125 ], [ 0, %54 ]
+  %.0.lcssa.i83129134146154.i.i = phi i32 [ %spec.select.i89.i.i, %125 ], [ 0, %54 ]
+  %.0.lcssa.i103147153.i.i = phi i32 [ %spec.select.i109.i.i, %125 ], [ 0, %54 ]
+  %130 = icmp eq i32 %.0.lcssa.i73123127136145155.i.i, 0
+  %131 = add nuw nsw i32 %.0.lcssa.i83129134146154.i.i, %.0.lcssa.i93138144156.i.i
   %132 = icmp ne i32 %131, 0
   %or.cond32.i.i = select i1 %130, i1 %132, i1 false
   br i1 %or.cond32.i.i, label %133, label %136
 
-133:                                              ; preds = %.thread142.i.i
+133:                                              ; preds = %.thread148.i.i
   %134 = load ptr, ptr @stderr, align 8, !tbaa !18
   %135 = call i64 @fwrite(ptr nonnull @.str.18, i64 79, i64 1, ptr %134) #14
   br label %148
 
-136:                                              ; preds = %.thread142.i.i
-  %137 = icmp sgt i32 %.0.lcssa.i103141147.i.i, 0
-  %138 = icmp ne i32 %.0.lcssa.i73123126132139149.i.i, 0
+136:                                              ; preds = %.thread148.i.i
+  %137 = icmp sgt i32 %.0.lcssa.i103147153.i.i, 0
+  %138 = icmp ne i32 %.0.lcssa.i73123127136145155.i.i, 0
   %or.cond.i.i = and i1 %138, %137
   br i1 %or.cond.i.i, label %139, label %ValidateCommandLine.exit.i
 
@@ -490,9 +490,9 @@ CountOccurrences.exit112.i.i:                     ; preds = %.lr.ph.i104.i.i
   br label %148
 
 ValidateCommandLine.exit.i:                       ; preds = %136
-  %142 = add i32 %131, %.0.lcssa.i73123126132139149.i.i
+  %142 = add i32 %131, %.0.lcssa.i73123127136145155.i.i
   %spec.select.i = select i1 %130, i32 1, i32 %142
-  %.0.i = select i1 %137, i32 %.0.lcssa.i103141147.i.i, i32 %spec.select.i
+  %.0.i = select i1 %137, i32 %.0.lcssa.i103147153.i.i, i32 %spec.select.i
   %143 = getelementptr inbounds nuw i8, ptr %50, i64 80
   store i32 %.0.i, ptr %143, align 8, !tbaa !20
   %144 = sext i32 %.0.i to i64

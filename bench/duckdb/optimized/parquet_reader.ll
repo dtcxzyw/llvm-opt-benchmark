@@ -20493,7 +20493,7 @@ _ZNSt6vectorIN6duckdb17ParquetScanFilterESaIS1_EE17_M_realloc_insertIJRKmRNS0_11
   br label %_ZNSt6vectorIN6duckdb17ParquetScanFilterESaIS1_EE12emplace_backIJRKmRNS0_11TableFilterEEEEvDpOT_.exit
 
 _ZNSt6vectorIN6duckdb17ParquetScanFilterESaIS1_EE12emplace_backIJRKmRNS0_11TableFilterEEEEvDpOT_.exit: ; preds = %_ZNSt6vectorIN6duckdb17ParquetScanFilterESaIS1_EE17_M_realloc_insertIJRKmRNS0_11TableFilterEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %395
-  %421 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0273.0350) #32
+  %421 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0273.0350) #32
   %.not316 = icmp eq ptr %421, %382
   br i1 %.not316, label %.loopexit325, label %388
 

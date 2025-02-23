@@ -23237,7 +23237,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
   %.val = load ptr, ptr %318, align 8, !tbaa !186
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %.val23 = load ptr, ptr %319, align 8, !tbaa !165, !noalias !2092
-  %320 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.val, ptr %.val23, i32 %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef null)
+  %320 = call fastcc noundef zeroext i1 @_ZL25readASTAfterCompileModuleRN5clang16CompilerInstanceENS_14SourceLocationES2_PNS_6ModuleEN4llvm9StringRefEPb(ptr %.val, ptr %.val23, i32 %1, i32 %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr noundef null)
   br label %321
 
 321:                                              ; preds = %317, %_ZN5clang17DiagnosticBuilderD2Ev.exit

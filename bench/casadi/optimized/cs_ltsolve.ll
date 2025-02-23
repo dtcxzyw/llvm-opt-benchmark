@@ -76,7 +76,7 @@ define range(i32 0, 2) i32 @cs_ltsolve(ptr noundef readonly %0, ptr noundef %1) 
   %40 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.next42
   %41 = fdiv double %37, %39
   store double %41, ptr %40, align 8, !tbaa !16
-  %42 = icmp sgt i64 %indvars.iv41, 1
+  %42 = icmp samesign ugt i64 %indvars.iv41, 1
   br i1 %42, label %.lr.ph39, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %._crit_edge, %8, %2, %3

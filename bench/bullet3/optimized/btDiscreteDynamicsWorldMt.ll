@@ -197,26 +197,26 @@ _ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %.not.i5.i.i = icmp eq ptr %25, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.exit.i, label %26
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE10deallocateEv.exit.i.i, label %26
 
 26:                                               ; preds = %_ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS1_.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i8, ptr %27, align 8, !tbaa !26, !range !27, !noundef !28
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.exit.i
+  br i1 %29, label %30, label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE10deallocateEv.exit.i.i
 
 30:                                               ; preds = %26
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %25)
-  br label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.exit.i: ; preds = %30, %26, %_ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE10deallocateEv.exit.i.i: ; preds = %30, %26, %_ZNK20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE4copyEiiPS1_.exit.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %31, align 8, !tbaa !26
   store ptr %.0.i.i.i, ptr %24, align 8, !tbaa !4
   store i32 %2, ptr %9, align 8, !tbaa !18
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.exit.i, %8
+.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE10deallocateEv.exit.i.i, %8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = sext i32 %6 to i64
   %wide.trip.count.i = sext i32 %2 to i64
@@ -234,7 +234,7 @@ _ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE7reserveEi.
 _ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit: ; preds = %34, %3
   store i32 %2, ptr %5, align 4, !tbaa !13
   %37 = icmp sgt i32 %2, 0
-  br i1 %37, label %.lr.ph, label %._crit_edge.thread
+  br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -250,18 +250,18 @@ _ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRK
   store ptr %42, ptr %43, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %40, !llvm.loop !33
+  br i1 %exitcond.not, label %._crit_edge.thread, label %40, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %40
+._crit_edge.thread:                               ; preds = %40
   %44 = load ptr, ptr %1, align 8, !tbaa !20
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef i32 %47(ptr noundef nonnull align 8 dereferenceable(8) %44)
   store i32 %48, ptr %4, align 8, !tbaa !14
-  br label %._crit_edge.thread
+  br label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit, %._crit_edge
+._crit_edge:                                      ; preds = %_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEE6resizeEiRKS1_.exit, %._crit_edge.thread
   ret void
 }
 

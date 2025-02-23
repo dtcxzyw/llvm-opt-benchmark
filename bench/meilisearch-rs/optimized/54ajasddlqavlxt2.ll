@@ -570,7 +570,7 @@ _ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit.i.i: ; preds = %_ZN3f
   store i64 %196, ptr %15, align 8, !alias.scope !68, !noalias !15
   %197 = load i8, ptr %20, align 1, !range !71, !noalias !72, !noundef !4
   %198 = trunc nuw i8 %197 to i1
-  %199 = add i64 %.sroa.0.sroa.0.0.copyload.i.i, 1
+  %199 = add nuw i64 %.sroa.0.sroa.0.0.copyload.i.i, 1
   %200 = load i64, ptr %12, align 8, !alias.scope !73, !noalias !76, !noundef !4
   %201 = load i64, ptr %11, align 8, !alias.scope !73, !noalias !76, !noundef !4
   %202 = icmp eq i64 %200, %201
@@ -1825,7 +1825,7 @@ _ZN3fst3raw4node13StateOneTrans6output17h2d8a21dd8d1c2de1E.exit.i.i.i: ; preds =
   %418 = icmp eq i64 %416, 0
   %419 = sub i64 %404, %416
   %.sroa.0.0.i189.i = select i1 %418, i64 0, i64 %419
-  %420 = add i64 %.sroa.7.0.i340838.i, 1
+  %420 = add nuw i64 %.sroa.7.0.i340838.i, 1
   br label %_ZN3fst3raw4node4Node10transition17hebd1ab1d7bb177ddE.exit51.i
 
 .thread839.i:                                     ; preds = %_ZN3fst3raw4node17StateOneTransNext5input17h22ff1dd201924e96E.exit.i.i

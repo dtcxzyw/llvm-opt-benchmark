@@ -1103,7 +1103,7 @@ define dso_local void @rb_parser_string_free(ptr readnone captures(none) %0, ptr
 declare void @ruby_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef i32 @ruby_yyparse(ptr noundef %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @ruby_yyparse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %union.YYSTYPE, align 8
   %3 = alloca %struct.rb_code_location_struct, align 8
   %4 = alloca [200 x i16], align 16
@@ -1269,13 +1269,13 @@ define hidden noundef i32 @ruby_yyparse(ptr noundef %0) local_unnamed_addr #0 {
   %.08.i = phi ptr [ %107, %.lr.ph.i ], [ %.02805, %104 ]
   %105 = load i16, ptr %.08.i, align 2, !tbaa !61
   %106 = sext i16 %105 to i32
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.82, i32 noundef %106)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, i32 noundef %106)
   %107 = getelementptr i8, ptr %.08.i, i64 2
   %.not.i = icmp ugt ptr %107, %.02813
   br i1 %.not.i, label %yy_stack_print.exit, label %.lr.ph.i, !llvm.loop !63
 
 yy_stack_print.exit:                              ; preds = %.lr.ph.i, %104
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.7)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   br label %108
 
 108:                                              ; preds = %yy_stack_print.exit, %100
@@ -1589,7 +1589,7 @@ yylex.exit.thread:                                ; preds = %166, %yylex.exit
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i3109 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %261 = trunc nuw nsw i64 %indvars.iv.next.i to i32
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.559, i32 noundef %261)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.559, i32 noundef %261)
   %262 = sub nsw i64 %indvars.iv.next.i, %260
   %263 = getelementptr i16, ptr %.22815, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !61
@@ -1604,7 +1604,7 @@ yylex.exit.thread:                                ; preds = %166, %yylex.exit
   %273 = sext i16 %267 to i64
   %274 = getelementptr [463 x ptr], ptr @yytname, i64 0, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !68
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.83, ptr noundef nonnull %272, ptr noundef %275)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, ptr noundef nonnull %272, ptr noundef %275)
   %276 = load i32, ptr %270, align 4, !tbaa !53
   %277 = getelementptr inbounds nuw i8, ptr %270, i64 4
   %278 = load i32, ptr %277, align 4, !tbaa !56
@@ -1612,11 +1612,11 @@ yylex.exit.thread:                                ; preds = %166, %yylex.exit
   %280 = load i32, ptr %279, align 4, !tbaa !57
   %281 = getelementptr inbounds nuw i8, ptr %270, i64 12
   %282 = load i32, ptr %281, align 4, !tbaa !58
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.86, i32 noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef %282)
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.87)
-  call fastcc void @yy_symbol_value_print(i32 noundef range(i32 -32768, 32768) %268, ptr noundef %269, ptr noundef %0)
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.88)
-  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef %0, ptr noundef nonnull @.str.7)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.86, i32 noundef %276, i32 noundef %278, i32 noundef %280, i32 noundef %282)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.87)
+  call fastcc void @yy_symbol_value_print(i32 noundef range(i32 -32768, 32768) %268, ptr noundef %269, ptr noundef nonnull %0)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.88)
+  call void (ptr, ptr, ...) @rb_parser_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.7)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %260
   br i1 %exitcond.not.i, label %yy_reduce_print.exit, label %.lr.ph.i3109, !llvm.loop !69
 
@@ -2242,7 +2242,7 @@ parser_set_lex_state.exit:                        ; preds = %283, %286
   %294 = getelementptr i8, ptr %.22829, i64 -8
   %295 = load ptr, ptr %294, align 8, !tbaa !25
   store ptr %295, ptr %7, align 8, !tbaa !25
-  %296 = call fastcc ptr @void_stmts(ptr noundef %0, ptr noundef %295)
+  %296 = call fastcc ptr @void_stmts(ptr noundef nonnull %0, ptr noundef %295)
   br label %fixpos.exit
 
 297:                                              ; preds = %yy_reduce_print.exit
@@ -2309,7 +2309,7 @@ remove_begin.exit:                                ; preds = %309, %310, %313
   br label %fixpos.exit
 
 321:                                              ; preds = %yy_reduce_print.exit
-  %322 = call fastcc ptr @rb_node_begin_new(ptr noundef %0, ptr noundef null, ptr noundef %8)
+  %322 = call fastcc ptr @rb_node_begin_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8)
   store ptr %322, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2373,7 +2373,7 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   br label %fixpos.exit
 
 342:                                              ; preds = %yy_reduce_print.exit
-  call fastcc void @clear_block_exit(ptr noundef %0, i1 noundef zeroext true)
+  call fastcc void @clear_block_exit(ptr noundef nonnull %0, i1 noundef zeroext true)
   %343 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %343, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
@@ -2384,7 +2384,7 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   br label %fixpos.exit
 
 346:                                              ; preds = %yy_reduce_print.exit
-  %347 = call fastcc ptr @init_block_exit(ptr noundef %0)
+  %347 = call fastcc ptr @init_block_exit(ptr noundef nonnull %0)
   store ptr %347, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2395,10 +2395,10 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   %351 = load ptr, ptr %89, align 8, !tbaa !83
   %352 = getelementptr i8, ptr %.22829, i64 -8
   %353 = load ptr, ptr %352, align 8, !tbaa !25
-  %354 = call fastcc ptr @rb_node_begin_new(ptr noundef %0, ptr noundef %353, ptr noundef %8)
-  %355 = call fastcc ptr @block_append(ptr noundef %0, ptr noundef %351, ptr noundef %354)
+  %354 = call fastcc ptr @rb_node_begin_new(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %8)
+  %355 = call fastcc ptr @block_append(ptr noundef nonnull %0, ptr noundef %351, ptr noundef %354)
   store ptr %355, ptr %89, align 8, !tbaa !83
-  %356 = call fastcc ptr @rb_node_begin_new(ptr noundef %0, ptr noundef null, ptr noundef %8)
+  %356 = call fastcc ptr @rb_node_begin_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8)
   store ptr %356, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2406,7 +2406,7 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   %358 = getelementptr i8, ptr %.22829, i64 -8
   %359 = load ptr, ptr %358, align 8, !tbaa !25
   store ptr %359, ptr %7, align 8, !tbaa !25
-  %360 = call fastcc ptr @void_stmts(ptr noundef %0, ptr noundef %359)
+  %360 = call fastcc ptr @void_stmts(ptr noundef nonnull %0, ptr noundef %359)
   br label %fixpos.exit
 
 361:                                              ; preds = %yy_reduce_print.exit
@@ -2451,7 +2451,7 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   %386 = getelementptr i8, ptr %.22829, i64 -16
   %387 = load ptr, ptr %386, align 8, !tbaa !25
   %388 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %389 = call fastcc ptr @new_bodystmt(ptr noundef %0, ptr noundef %383, ptr noundef %385, ptr noundef %387, ptr noundef %388, ptr noundef %8)
+  %389 = call fastcc ptr @new_bodystmt(ptr noundef nonnull %0, ptr noundef %383, ptr noundef %385, ptr noundef %387, ptr noundef %388, ptr noundef %8)
   store ptr %389, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2473,12 +2473,12 @@ newline_node.exit3121:                            ; preds = %331, %remove_begin.
   %401 = getelementptr i8, ptr %.22829, i64 -16
   %402 = load ptr, ptr %401, align 8, !tbaa !25
   %403 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %404 = call fastcc ptr @new_bodystmt(ptr noundef %0, ptr noundef %400, ptr noundef %402, ptr noundef null, ptr noundef %403, ptr noundef %8)
+  %404 = call fastcc ptr @new_bodystmt(ptr noundef nonnull %0, ptr noundef %400, ptr noundef %402, ptr noundef null, ptr noundef %403, ptr noundef %8)
   store ptr %404, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 405:                                              ; preds = %yy_reduce_print.exit
-  %406 = call fastcc ptr @rb_node_begin_new(ptr noundef %0, ptr noundef null, ptr noundef %8)
+  %406 = call fastcc ptr @rb_node_begin_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8)
   store ptr %406, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2584,7 +2584,7 @@ parser_set_lex_state.exit3139:                    ; preds = %435, %438
   %443 = load ptr, ptr %442, align 8, !tbaa !25
   %444 = load ptr, ptr %.22829, align 8, !tbaa !25
   %445 = getelementptr i8, ptr %.22842, i64 -48
-  %446 = call fastcc ptr @rb_node_alias_new(ptr noundef %0, ptr noundef %443, ptr noundef %444, ptr noundef %8, ptr noundef %445)
+  %446 = call fastcc ptr @rb_node_alias_new(ptr noundef nonnull %0, ptr noundef %443, ptr noundef %444, ptr noundef %8, ptr noundef %445)
   store ptr %446, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2593,7 +2593,7 @@ parser_set_lex_state.exit3139:                    ; preds = %435, %438
   %449 = load i64, ptr %448, align 8, !tbaa !25
   %450 = load i64, ptr %.22829, align 8, !tbaa !25
   %451 = getelementptr i8, ptr %.22842, i64 -32
-  %452 = call fastcc ptr @rb_node_valias_new(ptr noundef %0, i64 noundef %449, i64 noundef %450, ptr noundef %8, ptr noundef %451)
+  %452 = call fastcc ptr @rb_node_valias_new(ptr noundef nonnull %0, i64 noundef %449, i64 noundef %450, ptr noundef %8, ptr noundef %451)
   store ptr %452, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2609,14 +2609,14 @@ parser_set_lex_state.exit3139:                    ; preds = %435, %438
   %459 = load i64, ptr %458, align 8, !tbaa !25
   %460 = call i64 @rb_intern2(ptr noundef nonnull %11, i64 noundef 2) #35
   %461 = getelementptr i8, ptr %.22842, i64 -32
-  %462 = call fastcc ptr @rb_node_valias_new(ptr noundef %0, i64 noundef %459, i64 noundef %460, ptr noundef %8, ptr noundef %461)
+  %462 = call fastcc ptr @rb_node_valias_new(ptr noundef nonnull %0, i64 noundef %459, i64 noundef %460, ptr noundef %8, ptr noundef %461)
   store ptr %462, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11) #35
   br label %fixpos.exit
 
 463:                                              ; preds = %yy_reduce_print.exit
   call fastcc void @parser_yyerror(ptr noundef %0, ptr noundef %.22842, ptr noundef @ruby_yyparse.mesg)
-  %464 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %464 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %464, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2939,7 +2939,7 @@ remove_begin.exit3172:                            ; preds = %595, %596, %599
   %619 = getelementptr i8, ptr %.22829, i64 -24
   %620 = load ptr, ptr %619, align 8, !tbaa !25
   %621 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %622 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %620, ptr noundef %621, ptr noundef nonnull %8)
+  %622 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %620, ptr noundef %621, ptr noundef nonnull %8)
   store ptr %620, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -2947,7 +2947,7 @@ remove_begin.exit3172:                            ; preds = %595, %596, %599
   %624 = getelementptr i8, ptr %.22829, i64 -24
   %625 = load ptr, ptr %624, align 8, !tbaa !25
   %626 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %627 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %625, ptr noundef %626, ptr noundef nonnull %8)
+  %627 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %625, ptr noundef %626, ptr noundef nonnull %8)
   store ptr %625, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3008,12 +3008,12 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %656 = getelementptr i8, ptr %.22829, i64 -24
   %657 = load ptr, ptr %656, align 8, !tbaa !25
   %658 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %659 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %657, ptr noundef %658, ptr noundef nonnull %8)
+  %659 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %657, ptr noundef %658, ptr noundef nonnull %8)
   store ptr %657, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 660:                                              ; preds = %yy_reduce_print.exit
-  %661 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %661 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %661, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3021,7 +3021,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %663 = getelementptr i8, ptr %.22829, i64 -24
   %664 = load ptr, ptr %663, align 8, !tbaa !25
   %665 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %666 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %664, ptr noundef %665, ptr noundef nonnull %8)
+  %666 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %664, ptr noundef %665, ptr noundef nonnull %8)
   store ptr %664, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3031,7 +3031,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %670 = getelementptr i8, ptr %.22829, i64 -16
   %671 = load i64, ptr %670, align 8, !tbaa !25
   %672 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %673 = call fastcc ptr @new_op_assign(ptr noundef %0, ptr noundef %669, i64 noundef %671, ptr noundef %672, ptr noundef %8)
+  %673 = call fastcc ptr @new_op_assign(ptr noundef nonnull %0, ptr noundef %669, i64 noundef %671, ptr noundef %672, ptr noundef %8)
   store ptr %673, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3047,7 +3047,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %683 = getelementptr i8, ptr %.22842, i64 -80
   %684 = getelementptr i8, ptr %.22842, i64 -48
   %685 = getelementptr i8, ptr %.22842, i64 -32
-  %686 = call fastcc ptr @new_ary_op_assign(ptr noundef %0, ptr noundef %676, ptr noundef %678, i64 noundef %680, ptr noundef %681, ptr noundef %682, ptr noundef %8, ptr noundef %683, ptr noundef %684, ptr noundef %685)
+  %686 = call fastcc ptr @new_ary_op_assign(ptr noundef nonnull %0, ptr noundef %676, ptr noundef %678, i64 noundef %680, ptr noundef %681, ptr noundef %682, ptr noundef %8, ptr noundef %683, ptr noundef %684, ptr noundef %685)
   store ptr %686, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3064,7 +3064,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %697 = getelementptr i8, ptr %.22842, i64 -64
   %698 = getelementptr i8, ptr %.22842, i64 -48
   %699 = getelementptr i8, ptr %.22842, i64 -32
-  %700 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %689, i64 noundef %691, i64 noundef %693, i64 noundef %695, ptr noundef %696, ptr noundef %8, ptr noundef %697, ptr noundef %698, ptr noundef %699)
+  %700 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %689, i64 noundef %691, i64 noundef %693, i64 noundef %695, ptr noundef %696, ptr noundef %8, ptr noundef %697, ptr noundef %698, ptr noundef %699)
   store ptr %700, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3081,7 +3081,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %711 = getelementptr i8, ptr %.22842, i64 -64
   %712 = getelementptr i8, ptr %.22842, i64 -48
   %713 = getelementptr i8, ptr %.22842, i64 -32
-  %714 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %703, i64 noundef %705, i64 noundef %707, i64 noundef %709, ptr noundef %710, ptr noundef %8, ptr noundef %711, ptr noundef %712, ptr noundef %713)
+  %714 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %703, i64 noundef %705, i64 noundef %707, i64 noundef %709, ptr noundef %710, ptr noundef %8, ptr noundef %711, ptr noundef %712, ptr noundef %713)
   store ptr %714, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3096,7 +3096,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %723 = getelementptr i8, ptr %.22842, i64 -64
   %724 = getelementptr i8, ptr %.22842, i64 -48
   %725 = getelementptr i8, ptr %.22842, i64 -32
-  %726 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %717, i64 noundef 147, i64 noundef %719, i64 noundef %721, ptr noundef %722, ptr noundef %8, ptr noundef %723, ptr noundef %724, ptr noundef %725)
+  %726 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %717, i64 noundef 147, i64 noundef %719, i64 noundef %721, ptr noundef %722, ptr noundef %8, ptr noundef %723, ptr noundef %724, ptr noundef %725)
   store ptr %726, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3112,13 +3112,13 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %731 = load ptr, ptr %730, align 8, !tbaa !25
   %732 = getelementptr i8, ptr %.22829, i64 -24
   %733 = load i64, ptr %732, align 8, !tbaa !25
-  %734 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %731, i64 noundef %733, ptr noundef %14)
+  %734 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %731, i64 noundef %733, ptr noundef %14)
   %735 = getelementptr i8, ptr %.22829, i64 -16
   %736 = load i64, ptr %735, align 8, !tbaa !25
   %737 = load ptr, ptr %.22829, align 8, !tbaa !25
   %738 = getelementptr i8, ptr %.22829, i64 -8
   %739 = load i32, ptr %738, align 8
-  %740 = call fastcc ptr @new_const_op_assign(ptr noundef %0, ptr noundef %734, i64 noundef %736, ptr noundef %737, i32 %739, ptr noundef %8)
+  %740 = call fastcc ptr @new_const_op_assign(ptr noundef nonnull %0, ptr noundef %734, i64 noundef %736, ptr noundef %737, i32 %739, ptr noundef %8)
   store ptr %740, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #35
   br label %fixpos.exit
@@ -3126,8 +3126,8 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
 741:                                              ; preds = %yy_reduce_print.exit
   %742 = getelementptr i8, ptr %.22829, i64 -24
   %743 = load ptr, ptr %742, align 8, !tbaa !25
-  call fastcc void @rb_backref_error(ptr noundef %0, ptr noundef %743)
-  %744 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @rb_backref_error(ptr noundef nonnull %0, ptr noundef %743)
+  %744 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %744, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3137,13 +3137,13 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 40
   %749 = load i64, ptr %748, align 8, !tbaa !90
   %750 = getelementptr i8, ptr %.22842, i64 -48
-  call fastcc void @endless_method_name(ptr noundef %0, i64 noundef %749, ptr noundef %750)
+  call fastcc void @endless_method_name(ptr noundef nonnull %0, i64 noundef %749, ptr noundef %750)
   %751 = load ptr, ptr %746, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %751)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %751)
   %752 = getelementptr i8, ptr %.22829, i64 -16
   %753 = load ptr, ptr %752, align 8, !tbaa !25
   %754 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %755 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %753, ptr noundef %754, ptr noundef %8)
+  %755 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %753, ptr noundef %754, ptr noundef %8)
   store ptr %755, ptr %.22829, align 8, !tbaa !25
   %756 = load ptr, ptr %746, align 8, !tbaa !25
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 32
@@ -3154,7 +3154,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %760 = load ptr, ptr %.22829, align 8, !tbaa !25
   %761 = getelementptr inbounds nuw i8, ptr %758, i64 40
   store ptr %760, ptr %761, align 8, !tbaa !94
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 762:                                              ; preds = %yy_reduce_print.exit
@@ -3163,13 +3163,13 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 40
   %766 = load i64, ptr %765, align 8, !tbaa !90
   %767 = getelementptr i8, ptr %.22842, i64 -48
-  call fastcc void @endless_method_name(ptr noundef %0, i64 noundef %766, ptr noundef %767)
+  call fastcc void @endless_method_name(ptr noundef nonnull %0, i64 noundef %766, ptr noundef %767)
   %768 = load ptr, ptr %763, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %768)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %768)
   %769 = getelementptr i8, ptr %.22829, i64 -16
   %770 = load ptr, ptr %769, align 8, !tbaa !25
   %771 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %772 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %770, ptr noundef %771, ptr noundef %8)
+  %772 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %770, ptr noundef %771, ptr noundef %8)
   store ptr %772, ptr %.22829, align 8, !tbaa !25
   %773 = load ptr, ptr %763, align 8, !tbaa !25
   %774 = getelementptr inbounds nuw i8, ptr %773, i64 32
@@ -3180,7 +3180,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %777 = load ptr, ptr %.22829, align 8, !tbaa !25
   %778 = getelementptr inbounds nuw i8, ptr %775, i64 48
   store ptr %777, ptr %778, align 8, !tbaa !96
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 779:                                              ; preds = %yy_reduce_print.exit
@@ -3199,7 +3199,7 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   %.val3079 = load i64, ptr %790, align 4
   %791 = getelementptr i8, ptr %.22842, i64 8
   %.22842.val3080 = load i64, ptr %791, align 4
-  %792 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %787, ptr noundef %788, ptr noundef %789, i64 %.val3079, i64 %.22842.val3080)
+  %792 = call fastcc ptr @rescued_expr(ptr noundef nonnull %0, ptr noundef %787, ptr noundef %788, ptr noundef %789, i64 %.val3079, i64 %.22842.val3080)
   store ptr %792, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3209,13 +3209,13 @@ remove_begin.exit3179:                            ; preds = %638, %639, %642
   br i1 %795, label %method_cond.exit, label %796
 
 796:                                              ; preds = %793
-  %797 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %794, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
+  %797 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %794, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
   br label %method_cond.exit
 
 method_cond.exit:                                 ; preds = %793, %796
   %.0.i3182 = phi ptr [ %797, %796 ], [ null, %793 ]
   %798 = getelementptr i8, ptr %.22842, i64 -32
-  %799 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3182, i64 noundef 33, ptr noundef %798, ptr noundef %8)
+  %799 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3182, i64 noundef 33, ptr noundef %798, ptr noundef %8)
   store ptr %799, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3268,7 +3268,7 @@ remove_begin.exit3189:                            ; preds = %812, %813, %816
   %823 = load ptr, ptr %822, align 8, !tbaa !25
   %824 = load ptr, ptr %.22829, align 8, !tbaa !25
   %825 = getelementptr i8, ptr %.22842, i64 -16
-  %826 = call fastcc ptr @logop(ptr noundef %0, i64 noundef 3537, ptr noundef %823, ptr noundef %824, ptr noundef %825, ptr noundef %8)
+  %826 = call fastcc ptr @logop(ptr noundef nonnull %0, i64 noundef 3537, ptr noundef %823, ptr noundef %824, ptr noundef %825, ptr noundef %8)
   store ptr %826, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3277,7 +3277,7 @@ remove_begin.exit3189:                            ; preds = %812, %813, %816
   %829 = load ptr, ptr %828, align 8, !tbaa !25
   %830 = load ptr, ptr %.22829, align 8, !tbaa !25
   %831 = getelementptr i8, ptr %.22842, i64 -16
-  %832 = call fastcc ptr @logop(ptr noundef %0, i64 noundef 3553, ptr noundef %829, ptr noundef %830, ptr noundef %831, ptr noundef %8)
+  %832 = call fastcc ptr @logop(ptr noundef nonnull %0, i64 noundef 3553, ptr noundef %829, ptr noundef %830, ptr noundef %831, ptr noundef %8)
   store ptr %832, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3287,13 +3287,13 @@ remove_begin.exit3189:                            ; preds = %812, %813, %816
   br i1 %835, label %method_cond.exit3191, label %836
 
 836:                                              ; preds = %833
-  %837 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %834, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
+  %837 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %834, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
   br label %method_cond.exit3191
 
 method_cond.exit3191:                             ; preds = %833, %836
   %.0.i3190 = phi ptr [ %837, %836 ], [ null, %833 ]
   %838 = getelementptr i8, ptr %.22842, i64 -32
-  %839 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3190, i64 noundef 33, ptr noundef %838, ptr noundef %8)
+  %839 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3190, i64 noundef 33, ptr noundef %838, ptr noundef %8)
   store ptr %839, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3303,20 +3303,20 @@ method_cond.exit3191:                             ; preds = %833, %836
   br i1 %842, label %method_cond.exit3193, label %843
 
 843:                                              ; preds = %840
-  %844 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %841, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
+  %844 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %841, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
   br label %method_cond.exit3193
 
 method_cond.exit3193:                             ; preds = %840, %843
   %.0.i3192 = phi ptr [ %844, %843 ], [ null, %840 ]
   %845 = getelementptr i8, ptr %.22842, i64 -16
-  %846 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3192, i64 noundef 33, ptr noundef %845, ptr noundef %8)
+  %846 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3192, i64 noundef 33, ptr noundef %845, ptr noundef %8)
   store ptr %846, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 847:                                              ; preds = %yy_reduce_print.exit
   %848 = getelementptr i8, ptr %.22829, i64 -8
   %849 = load ptr, ptr %848, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %849)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %849)
   br label %fixpos.exit
 
 850:                                              ; preds = %yy_reduce_print.exit
@@ -3355,7 +3355,7 @@ pop_pktbl.exit:                                   ; preds = %850, %854
 869:                                              ; preds = %yy_reduce_print.exit
   %870 = getelementptr i8, ptr %.22829, i64 -8
   %871 = load ptr, ptr %870, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %871)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %871)
   br label %fixpos.exit
 
 872:                                              ; preds = %yy_reduce_print.exit
@@ -3395,8 +3395,8 @@ pop_pktbl.exit3196:                               ; preds = %872, %876
 
 893:                                              ; preds = %yy_reduce_print.exit
   %894 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @numparam_name(ptr noundef %0, i64 noundef %894)
-  call fastcc void @local_push(ptr noundef %0, i32 noundef 0)
+  call fastcc void @numparam_name(ptr noundef nonnull %0, i64 noundef %894)
+  call fastcc void @local_push(ptr noundef nonnull %0, i32 noundef 0)
   %895 = load i16, ptr %50, align 8
   %896 = and i16 %895, -905
   %897 = or disjoint i16 %896, 8
@@ -3504,13 +3504,13 @@ def_head_save.exit3203:                           ; preds = %parser_set_lex_stat
 
 948:                                              ; preds = %yy_reduce_print.exit
   %949 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %949)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %949)
   %950 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %950, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 951:                                              ; preds = %yy_reduce_print.exit
-  %952 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %952 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %952, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3549,7 +3549,7 @@ def_head_save.exit3203:                           ; preds = %parser_set_lex_stat
 
 969:                                              ; preds = %yy_reduce_print.exit
   %970 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %970)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %970)
   %971 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %971, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
@@ -3563,7 +3563,7 @@ def_head_save.exit3203:                           ; preds = %parser_set_lex_stat
   %978 = load i64, ptr %977, align 8, !tbaa !25
   %979 = load ptr, ptr %.22829, align 8, !tbaa !25
   %980 = getelementptr i8, ptr %.22842, i64 -16
-  %981 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef %974, ptr noundef %976, i64 noundef %978, ptr noundef %979, ptr noundef %980, ptr noundef %8)
+  %981 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef %974, ptr noundef %976, i64 noundef %978, ptr noundef %979, ptr noundef %980, ptr noundef %8)
   store ptr %981, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3593,7 +3593,7 @@ def_head_save.exit3203:                           ; preds = %parser_set_lex_stat
 
 997:                                              ; preds = %yy_reduce_print.exit
   %998 = load i64, ptr %.22829, align 8, !tbaa !25
-  %999 = call fastcc ptr @rb_node_fcall_new(ptr noundef %0, i64 noundef %998, ptr noundef null, ptr noundef nonnull %8)
+  %999 = call fastcc ptr @rb_node_fcall_new(ptr noundef nonnull %0, i64 noundef %998, ptr noundef null, ptr noundef nonnull %8)
   store ptr %999, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3628,7 +3628,7 @@ def_head_save.exit3203:                           ; preds = %parser_set_lex_stat
   br i1 %1018, label %1019, label %block_dup_check.exit
 
 1019:                                             ; preds = %1016
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.896)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.896)
   %.pre3664 = load ptr, ptr %1011, align 8, !tbaa !25
   br label %block_dup_check.exit
 
@@ -3680,7 +3680,7 @@ fixpos.exit3209:                                  ; preds = %block_dup_check.exi
   %1048 = load i64, ptr %1047, align 8, !tbaa !25
   %1049 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1050 = getelementptr i8, ptr %.22842, i64 -16
-  %1051 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef %1044, ptr noundef %1046, i64 noundef %1048, ptr noundef %1049, ptr noundef null, ptr noundef %1050, ptr noundef %8)
+  %1051 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef %1044, ptr noundef %1046, i64 noundef %1048, ptr noundef %1049, ptr noundef null, ptr noundef %1050, ptr noundef %8)
   store ptr %1051, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3695,7 +3695,7 @@ fixpos.exit3209:                                  ; preds = %block_dup_check.exi
   %1060 = load ptr, ptr %1059, align 8, !tbaa !25
   %1061 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1062 = getelementptr i8, ptr %.22842, i64 -32
-  %1063 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef %1054, ptr noundef %1056, i64 noundef %1058, ptr noundef %1060, ptr noundef %1061, ptr noundef %1062, ptr noundef %8)
+  %1063 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef %1054, ptr noundef %1056, i64 noundef %1058, ptr noundef %1060, ptr noundef %1061, ptr noundef %1062, ptr noundef %8)
   store ptr %1063, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3706,7 +3706,7 @@ fixpos.exit3209:                                  ; preds = %block_dup_check.exi
   %1068 = load i64, ptr %1067, align 8, !tbaa !25
   %1069 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1070 = getelementptr i8, ptr %.22842, i64 -16
-  %1071 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %1066, i64 noundef %1068, ptr noundef %1069, ptr noundef null, ptr noundef %1070, ptr noundef %8)
+  %1071 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %1066, i64 noundef %1068, ptr noundef %1069, ptr noundef null, ptr noundef %1070, ptr noundef %8)
   store ptr %1071, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3719,7 +3719,7 @@ fixpos.exit3209:                                  ; preds = %block_dup_check.exi
   %1078 = load ptr, ptr %1077, align 8, !tbaa !25
   %1079 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1080 = getelementptr i8, ptr %.22842, i64 -32
-  %1081 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %1074, i64 noundef %1076, ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, ptr noundef %8)
+  %1081 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %1074, i64 noundef %1076, ptr noundef %1078, ptr noundef %1079, ptr noundef %1080, ptr noundef %8)
   store ptr %1081, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3750,14 +3750,14 @@ fixpos.exit3209:                                  ; preds = %block_dup_check.exi
   %1100 = load i64, ptr %1099, align 8, !tbaa !25
   %1101 = load ptr, ptr %1083, align 8, !tbaa !25
   %1102 = getelementptr i8, ptr %.22842, i64 -48
-  %1103 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %1098, i64 noundef %1100, ptr noundef null, ptr noundef %1101, ptr noundef %1102, ptr noundef %8)
+  %1103 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %1098, i64 noundef %1100, ptr noundef null, ptr noundef %1101, ptr noundef %1102, ptr noundef %8)
   store ptr %1103, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1104:                                             ; preds = %yy_reduce_print.exit
   %1105 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1106 = getelementptr i8, ptr %.22842, i64 -16
-  %1107 = call fastcc ptr @rb_node_super_new(ptr noundef %0, ptr noundef %1105, ptr noundef %8, ptr noundef %1106, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
+  %1107 = call fastcc ptr @rb_node_super_new(ptr noundef nonnull %0, ptr noundef %1105, ptr noundef %8, ptr noundef %1106, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
   store ptr %1107, ptr %7, align 8, !tbaa !25
   %1108 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1109 = icmp ne ptr %1107, null
@@ -3779,7 +3779,7 @@ nd_line.exit.i3213:                               ; preds = %1104
 1118:                                             ; preds = %yy_reduce_print.exit
   %1119 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1120 = getelementptr i8, ptr %.22842, i64 -16
-  %1121 = call fastcc ptr @new_yield(ptr noundef %0, ptr noundef %1119, ptr noundef %8, ptr noundef %1120, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
+  %1121 = call fastcc ptr @new_yield(ptr noundef nonnull %0, ptr noundef %1119, ptr noundef %8, ptr noundef %1120, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
   store ptr %1121, ptr %7, align 8, !tbaa !25
   %1122 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1123 = icmp ne ptr %1121, null
@@ -3800,27 +3800,27 @@ nd_line.exit.i3216:                               ; preds = %1118
 
 1132:                                             ; preds = %yy_reduce_print.exit
   %1133 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1134 = call fastcc ptr @ret_args(ptr noundef %0, ptr noundef %1133)
+  %1134 = call fastcc ptr @ret_args(ptr noundef nonnull %0, ptr noundef %1133)
   %1135 = getelementptr i8, ptr %.22842, i64 -16
-  %1136 = call fastcc ptr @rb_node_return_new(ptr noundef %0, ptr noundef %1134, ptr noundef %8, ptr noundef %1135)
+  %1136 = call fastcc ptr @rb_node_return_new(ptr noundef nonnull %0, ptr noundef %1134, ptr noundef %8, ptr noundef %1135)
   store ptr %1136, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1137:                                             ; preds = %yy_reduce_print.exit
   %1138 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1139 = call fastcc ptr @ret_args(ptr noundef %0, ptr noundef %1138)
+  %1139 = call fastcc ptr @ret_args(ptr noundef nonnull %0, ptr noundef %1138)
   %1140 = getelementptr i8, ptr %.22842, i64 -16
-  %1141 = call fastcc ptr @rb_node_break_new(ptr noundef %0, ptr noundef %1139, ptr noundef %8, ptr noundef %1140)
-  %1142 = call fastcc ptr @add_block_exit(ptr noundef %0, ptr noundef %1141)
+  %1141 = call fastcc ptr @rb_node_break_new(ptr noundef nonnull %0, ptr noundef %1139, ptr noundef %8, ptr noundef %1140)
+  %1142 = call fastcc ptr @add_block_exit(ptr noundef nonnull %0, ptr noundef %1141)
   store ptr %1141, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1143:                                             ; preds = %yy_reduce_print.exit
   %1144 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1145 = call fastcc ptr @ret_args(ptr noundef %0, ptr noundef %1144)
+  %1145 = call fastcc ptr @ret_args(ptr noundef nonnull %0, ptr noundef %1144)
   %1146 = getelementptr i8, ptr %.22842, i64 -16
-  %1147 = call fastcc ptr @rb_node_next_new(ptr noundef %0, ptr noundef %1145, ptr noundef %8, ptr noundef %1146)
-  %1148 = call fastcc ptr @add_block_exit(ptr noundef %0, ptr noundef %1147)
+  %1147 = call fastcc ptr @rb_node_next_new(ptr noundef nonnull %0, ptr noundef %1145, ptr noundef %8, ptr noundef %1146)
+  %1148 = call fastcc ptr @add_block_exit(ptr noundef nonnull %0, ptr noundef %1147)
   store ptr %1147, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3833,14 +3833,14 @@ nd_line.exit.i3216:                               ; preds = %1118
 1152:                                             ; preds = %yy_reduce_print.exit
   %1153 = getelementptr i8, ptr %.22829, i64 -8
   %1154 = load ptr, ptr %1153, align 8, !tbaa !25
-  %1155 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1154, ptr noundef nonnull %8)
-  %1156 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1155, ptr noundef null, ptr noundef nonnull %8)
+  %1155 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1154, ptr noundef nonnull %8)
+  %1156 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1155, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1156, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1157:                                             ; preds = %yy_reduce_print.exit
   %1158 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1159 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1158, ptr noundef null, ptr noundef nonnull %8)
+  %1159 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1158, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1159, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3848,8 +3848,8 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1161 = getelementptr i8, ptr %.22829, i64 -8
   %1162 = load ptr, ptr %1161, align 8, !tbaa !25
   %1163 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1164 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %1162, ptr noundef %1163)
-  %1165 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1164, ptr noundef null, ptr noundef nonnull %8)
+  %1164 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %1162, ptr noundef %1163)
+  %1165 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1164, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1165, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3857,7 +3857,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1167 = getelementptr i8, ptr %.22829, i64 -16
   %1168 = load ptr, ptr %1167, align 8, !tbaa !25
   %1169 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1170 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1168, ptr noundef %1169, ptr noundef nonnull %8)
+  %1170 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1168, ptr noundef %1169, ptr noundef nonnull %8)
   store ptr %1170, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3867,15 +3867,15 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1174 = getelementptr i8, ptr %.22829, i64 -16
   %1175 = load ptr, ptr %1174, align 8, !tbaa !25
   %1176 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1177 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef %1175, ptr noundef %1176, ptr noundef %8)
-  %1178 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1173, ptr noundef %1177, ptr noundef nonnull %8)
+  %1177 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef %1175, ptr noundef %1176, ptr noundef %8)
+  %1178 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1173, ptr noundef %1177, ptr noundef nonnull %8)
   store ptr %1178, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1179:                                             ; preds = %yy_reduce_print.exit
   %1180 = getelementptr i8, ptr %.22829, i64 -8
   %1181 = load ptr, ptr %1180, align 8, !tbaa !25
-  %1182 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1181, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
+  %1182 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1181, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
   store ptr %1182, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3883,14 +3883,14 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1184 = getelementptr i8, ptr %.22829, i64 -24
   %1185 = load ptr, ptr %1184, align 8, !tbaa !25
   %1186 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1187 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %1186, ptr noundef %8)
-  %1188 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %1185, ptr noundef %1187, ptr noundef nonnull %8)
+  %1187 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %1186, ptr noundef %8)
+  %1188 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %1185, ptr noundef %1187, ptr noundef nonnull %8)
   store ptr %1188, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1189:                                             ; preds = %yy_reduce_print.exit
   %1190 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1191 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef %1190, ptr noundef nonnull %8)
+  %1191 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1190, ptr noundef nonnull %8)
   store ptr %1191, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3898,20 +3898,20 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1193 = getelementptr i8, ptr %.22829, i64 -16
   %1194 = load ptr, ptr %1193, align 8, !tbaa !25
   %1195 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1196 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef %1194, ptr noundef %1195, ptr noundef %8)
-  %1197 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef %1196, ptr noundef nonnull %8)
+  %1196 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef %1194, ptr noundef %1195, ptr noundef %8)
+  %1197 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1196, ptr noundef nonnull %8)
   store ptr %1197, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1198:                                             ; preds = %yy_reduce_print.exit
-  %1199 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
+  %1199 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
   store ptr %1199, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1200:                                             ; preds = %yy_reduce_print.exit
   %1201 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1202 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %1201, ptr noundef %8)
-  %1203 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef %1202, ptr noundef nonnull %8)
+  %1202 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef %1201, ptr noundef %8)
+  %1203 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1202, ptr noundef nonnull %8)
   store ptr %1203, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3925,7 +3925,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1208 = getelementptr i8, ptr %.22829, i64 -8
   %1209 = load ptr, ptr %1208, align 8, !tbaa !25
   %1210 = getelementptr i8, ptr %.22842, i64 -16
-  %1211 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1209, ptr noundef %1210)
+  %1211 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1209, ptr noundef %1210)
   store ptr %1211, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3934,13 +3934,13 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1214 = load ptr, ptr %1213, align 8, !tbaa !25
   %1215 = getelementptr i8, ptr %.22829, i64 -8
   %1216 = load ptr, ptr %1215, align 8, !tbaa !25
-  %1217 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %1214, ptr noundef %1216)
+  %1217 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %1214, ptr noundef %1216)
   store ptr %1217, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1218:                                             ; preds = %yy_reduce_print.exit
   %1219 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1220 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1219, ptr noundef nonnull %8)
+  %1220 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1219, ptr noundef nonnull %8)
   store ptr %1220, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3948,19 +3948,19 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1222 = getelementptr i8, ptr %.22829, i64 -16
   %1223 = load ptr, ptr %1222, align 8, !tbaa !25
   %1224 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1225 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %1223, ptr noundef %1224)
+  %1225 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %1223, ptr noundef %1224)
   store ptr %1225, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1226:                                             ; preds = %yy_reduce_print.exit
   %1227 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1228 = call ptr @assignable(ptr noundef %0, i64 noundef %1227, ptr noundef null, ptr noundef nonnull %8)
+  %1228 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %1227, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1228, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1229:                                             ; preds = %yy_reduce_print.exit
   %1230 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1231 = call ptr @assignable(ptr noundef %0, i64 noundef %1230, ptr noundef null, ptr noundef nonnull %8)
+  %1231 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %1230, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1231, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3969,7 +3969,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1234 = load ptr, ptr %1233, align 8, !tbaa !25
   %1235 = getelementptr i8, ptr %.22829, i64 -8
   %1236 = load ptr, ptr %1235, align 8, !tbaa !25
-  %1237 = call fastcc ptr @aryset(ptr noundef %0, ptr noundef %1234, ptr noundef %1236, ptr noundef %8)
+  %1237 = call fastcc ptr @aryset(ptr noundef nonnull %0, ptr noundef %1234, ptr noundef %1236, ptr noundef %8)
   store ptr %1237, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3977,12 +3977,12 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1239 = getelementptr i8, ptr %.22842, i64 -16
   %1240 = getelementptr i8, ptr %.22829, i64 -8
   %1241 = load i64, ptr %1240, align 8, !tbaa !25
-  call fastcc void @anddot_multiple_assignment_check(ptr noundef %0, ptr noundef %1239, i64 noundef %1241)
+  call fastcc void @anddot_multiple_assignment_check(ptr noundef nonnull %0, ptr noundef %1239, i64 noundef %1241)
   %1242 = getelementptr i8, ptr %.22829, i64 -16
   %1243 = load ptr, ptr %1242, align 8, !tbaa !25
   %1244 = load i64, ptr %1240, align 8, !tbaa !25
   %1245 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1246 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1243, i64 noundef %1244, i64 noundef %1245, ptr noundef %8)
+  %1246 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1243, i64 noundef %1244, i64 noundef %1245, ptr noundef %8)
   store ptr %1246, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -3990,12 +3990,12 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1248 = getelementptr i8, ptr %.22842, i64 -16
   %1249 = getelementptr i8, ptr %.22829, i64 -8
   %1250 = load i64, ptr %1249, align 8, !tbaa !25
-  call fastcc void @anddot_multiple_assignment_check(ptr noundef %0, ptr noundef %1248, i64 noundef %1250)
+  call fastcc void @anddot_multiple_assignment_check(ptr noundef nonnull %0, ptr noundef %1248, i64 noundef %1250)
   %1251 = getelementptr i8, ptr %.22829, i64 -16
   %1252 = load ptr, ptr %1251, align 8, !tbaa !25
   %1253 = load i64, ptr %1249, align 8, !tbaa !25
   %1254 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1255 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1252, i64 noundef %1253, i64 noundef %1254, ptr noundef %8)
+  %1255 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1252, i64 noundef %1253, i64 noundef %1254, ptr noundef %8)
   store ptr %1255, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4003,7 +4003,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1257 = getelementptr i8, ptr %.22829, i64 -16
   %1258 = load ptr, ptr %1257, align 8, !tbaa !25
   %1259 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1260 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1258, i64 noundef 147, i64 noundef %1259, ptr noundef %8)
+  %1260 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1258, i64 noundef 147, i64 noundef %1259, ptr noundef %8)
   store ptr %1260, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4011,34 +4011,34 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1262 = getelementptr i8, ptr %.22829, i64 -16
   %1263 = load ptr, ptr %1262, align 8, !tbaa !25
   %1264 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1265 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %1263, i64 noundef %1264, ptr noundef %8)
-  %1266 = call fastcc ptr @const_decl(ptr noundef %0, ptr noundef %1265, ptr noundef %8)
+  %1265 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %1263, i64 noundef %1264, ptr noundef %8)
+  %1266 = call fastcc ptr @const_decl(ptr noundef nonnull %0, ptr noundef %1265, ptr noundef %8)
   store ptr %1266, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1267:                                             ; preds = %yy_reduce_print.exit
   %1268 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1269 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %1268, ptr noundef %8)
-  %1270 = call fastcc ptr @const_decl(ptr noundef %0, ptr noundef %1269, ptr noundef %8)
+  %1269 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %1268, ptr noundef %8)
+  %1270 = call fastcc ptr @const_decl(ptr noundef nonnull %0, ptr noundef %1269, ptr noundef %8)
   store ptr %1270, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1271:                                             ; preds = %yy_reduce_print.exit
   %1272 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @rb_backref_error(ptr noundef %0, ptr noundef %1272)
-  %1273 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @rb_backref_error(ptr noundef nonnull %0, ptr noundef %1272)
+  %1273 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %1273, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1274:                                             ; preds = %yy_reduce_print.exit
   %1275 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1276 = call ptr @assignable(ptr noundef %0, i64 noundef %1275, ptr noundef null, ptr noundef nonnull %8)
+  %1276 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %1275, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1276, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1277:                                             ; preds = %yy_reduce_print.exit
   %1278 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1279 = call ptr @assignable(ptr noundef %0, i64 noundef %1278, ptr noundef null, ptr noundef nonnull %8)
+  %1279 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %1278, ptr noundef null, ptr noundef nonnull %8)
   store ptr %1279, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4047,7 +4047,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1282 = load ptr, ptr %1281, align 8, !tbaa !25
   %1283 = getelementptr i8, ptr %.22829, i64 -8
   %1284 = load ptr, ptr %1283, align 8, !tbaa !25
-  %1285 = call fastcc ptr @aryset(ptr noundef %0, ptr noundef %1282, ptr noundef %1284, ptr noundef %8)
+  %1285 = call fastcc ptr @aryset(ptr noundef nonnull %0, ptr noundef %1282, ptr noundef %1284, ptr noundef %8)
   store ptr %1285, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4057,7 +4057,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1289 = getelementptr i8, ptr %.22829, i64 -8
   %1290 = load i64, ptr %1289, align 8, !tbaa !25
   %1291 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1292 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1288, i64 noundef %1290, i64 noundef %1291, ptr noundef %8)
+  %1292 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1288, i64 noundef %1290, i64 noundef %1291, ptr noundef %8)
   store ptr %1292, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4065,7 +4065,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1294 = getelementptr i8, ptr %.22829, i64 -16
   %1295 = load ptr, ptr %1294, align 8, !tbaa !25
   %1296 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1297 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1295, i64 noundef 147, i64 noundef %1296, ptr noundef %8)
+  %1297 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1295, i64 noundef 147, i64 noundef %1296, ptr noundef %8)
   store ptr %1297, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4075,7 +4075,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1301 = getelementptr i8, ptr %.22829, i64 -8
   %1302 = load i64, ptr %1301, align 8, !tbaa !25
   %1303 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1304 = call fastcc ptr @attrset(ptr noundef %0, ptr noundef %1300, i64 noundef %1302, i64 noundef %1303, ptr noundef %8)
+  %1304 = call fastcc ptr @attrset(ptr noundef nonnull %0, ptr noundef %1300, i64 noundef %1302, i64 noundef %1303, ptr noundef %8)
   store ptr %1304, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4083,22 +4083,22 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1306 = getelementptr i8, ptr %.22829, i64 -16
   %1307 = load ptr, ptr %1306, align 8, !tbaa !25
   %1308 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1309 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %1307, i64 noundef %1308, ptr noundef %8)
-  %1310 = call fastcc ptr @const_decl(ptr noundef %0, ptr noundef %1309, ptr noundef %8)
+  %1309 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %1307, i64 noundef %1308, ptr noundef %8)
+  %1310 = call fastcc ptr @const_decl(ptr noundef nonnull %0, ptr noundef %1309, ptr noundef %8)
   store ptr %1310, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1311:                                             ; preds = %yy_reduce_print.exit
   %1312 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1313 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %1312, ptr noundef %8)
-  %1314 = call fastcc ptr @const_decl(ptr noundef %0, ptr noundef %1313, ptr noundef %8)
+  %1313 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %1312, ptr noundef %8)
+  %1314 = call fastcc ptr @const_decl(ptr noundef nonnull %0, ptr noundef %1313, ptr noundef %8)
   store ptr %1314, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1315:                                             ; preds = %yy_reduce_print.exit
   %1316 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @rb_backref_error(ptr noundef %0, ptr noundef %1316)
-  %1317 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @rb_backref_error(ptr noundef nonnull %0, ptr noundef %1316)
+  %1317 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %1317, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4108,13 +4108,13 @@ nd_line.exit.i3216:                               ; preds = %1118
 
 1319:                                             ; preds = %yy_reduce_print.exit
   %1320 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1321 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %1320, ptr noundef %8)
+  %1321 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %1320, ptr noundef %8)
   store ptr %1321, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1322:                                             ; preds = %yy_reduce_print.exit
   %1323 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1324 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef null, i64 noundef %1323, ptr noundef %8)
+  %1324 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef null, i64 noundef %1323, ptr noundef %8)
   store ptr %1324, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4122,7 +4122,7 @@ nd_line.exit.i3216:                               ; preds = %1118
   %1326 = getelementptr i8, ptr %.22829, i64 -16
   %1327 = load ptr, ptr %1326, align 8, !tbaa !25
   %1328 = load i64, ptr %.22829, align 8, !tbaa !25
-  %1329 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %1327, i64 noundef %1328, ptr noundef %8)
+  %1329 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %1327, i64 noundef %1328, ptr noundef %8)
   store ptr %1329, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4146,13 +4146,13 @@ parser_set_lex_state.exit3219:                    ; preds = %1330, %1333
 1337:                                             ; preds = %yy_reduce_print.exit
   %1338 = load i64, ptr %.22829, align 8, !tbaa !25
   %1339 = call i64 @rb_id2str(i64 noundef %1338) #35
-  %1340 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %1339, ptr noundef nonnull %8)
+  %1340 = call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %0, i64 noundef %1339, ptr noundef nonnull %8)
   store ptr %1340, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1341:                                             ; preds = %yy_reduce_print.exit
   %1342 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1343 = call fastcc ptr @rb_node_undef_new(ptr noundef %0, ptr noundef %1342, ptr noundef %8)
+  %1343 = call fastcc ptr @rb_node_undef_new(ptr noundef nonnull %0, ptr noundef %1342, ptr noundef %8)
   store ptr %1343, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4309,7 +4309,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1392 = getelementptr i8, ptr %.22829, i64 -24
   %1393 = load ptr, ptr %1392, align 8, !tbaa !25
   %1394 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1395 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %1393, ptr noundef %1394, ptr noundef nonnull %8)
+  %1395 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %1393, ptr noundef %1394, ptr noundef nonnull %8)
   store ptr %1393, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4319,7 +4319,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1399 = getelementptr i8, ptr %.22829, i64 -16
   %1400 = load i64, ptr %1399, align 8, !tbaa !25
   %1401 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1402 = call fastcc ptr @new_op_assign(ptr noundef %0, ptr noundef %1398, i64 noundef %1400, ptr noundef %1401, ptr noundef %8)
+  %1402 = call fastcc ptr @new_op_assign(ptr noundef nonnull %0, ptr noundef %1398, i64 noundef %1400, ptr noundef %1401, ptr noundef %8)
   store ptr %1402, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4335,7 +4335,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1412 = getelementptr i8, ptr %.22842, i64 -80
   %1413 = getelementptr i8, ptr %.22842, i64 -48
   %1414 = getelementptr i8, ptr %.22842, i64 -32
-  %1415 = call fastcc ptr @new_ary_op_assign(ptr noundef %0, ptr noundef %1405, ptr noundef %1407, i64 noundef %1409, ptr noundef %1410, ptr noundef %1411, ptr noundef %8, ptr noundef %1412, ptr noundef %1413, ptr noundef %1414)
+  %1415 = call fastcc ptr @new_ary_op_assign(ptr noundef nonnull %0, ptr noundef %1405, ptr noundef %1407, i64 noundef %1409, ptr noundef %1410, ptr noundef %1411, ptr noundef %8, ptr noundef %1412, ptr noundef %1413, ptr noundef %1414)
   store ptr %1415, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4352,7 +4352,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1426 = getelementptr i8, ptr %.22842, i64 -64
   %1427 = getelementptr i8, ptr %.22842, i64 -48
   %1428 = getelementptr i8, ptr %.22842, i64 -32
-  %1429 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %1418, i64 noundef %1420, i64 noundef %1422, i64 noundef %1424, ptr noundef %1425, ptr noundef %8, ptr noundef %1426, ptr noundef %1427, ptr noundef %1428)
+  %1429 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %1418, i64 noundef %1420, i64 noundef %1422, i64 noundef %1424, ptr noundef %1425, ptr noundef %8, ptr noundef %1426, ptr noundef %1427, ptr noundef %1428)
   store ptr %1429, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4369,7 +4369,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1440 = getelementptr i8, ptr %.22842, i64 -64
   %1441 = getelementptr i8, ptr %.22842, i64 -48
   %1442 = getelementptr i8, ptr %.22842, i64 -32
-  %1443 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %1432, i64 noundef %1434, i64 noundef %1436, i64 noundef %1438, ptr noundef %1439, ptr noundef %8, ptr noundef %1440, ptr noundef %1441, ptr noundef %1442)
+  %1443 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %1432, i64 noundef %1434, i64 noundef %1436, i64 noundef %1438, ptr noundef %1439, ptr noundef %8, ptr noundef %1440, ptr noundef %1441, ptr noundef %1442)
   store ptr %1443, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4384,7 +4384,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1452 = getelementptr i8, ptr %.22842, i64 -64
   %1453 = getelementptr i8, ptr %.22842, i64 -48
   %1454 = getelementptr i8, ptr %.22842, i64 -32
-  %1455 = call fastcc ptr @new_attr_op_assign(ptr noundef %0, ptr noundef %1446, i64 noundef 147, i64 noundef %1448, i64 noundef %1450, ptr noundef %1451, ptr noundef %8, ptr noundef %1452, ptr noundef %1453, ptr noundef %1454)
+  %1455 = call fastcc ptr @new_attr_op_assign(ptr noundef nonnull %0, ptr noundef %1446, i64 noundef 147, i64 noundef %1448, i64 noundef %1450, ptr noundef %1451, ptr noundef %8, ptr noundef %1452, ptr noundef %1453, ptr noundef %1454)
   store ptr %1455, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4400,13 +4400,13 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1460 = load ptr, ptr %1459, align 8, !tbaa !25
   %1461 = getelementptr i8, ptr %.22829, i64 -24
   %1462 = load i64, ptr %1461, align 8, !tbaa !25
-  %1463 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %1460, i64 noundef %1462, ptr noundef %16)
+  %1463 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %1460, i64 noundef %1462, ptr noundef %16)
   %1464 = getelementptr i8, ptr %.22829, i64 -16
   %1465 = load i64, ptr %1464, align 8, !tbaa !25
   %1466 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1467 = getelementptr i8, ptr %.22829, i64 -8
   %1468 = load i32, ptr %1467, align 8
-  %1469 = call fastcc ptr @new_const_op_assign(ptr noundef %0, ptr noundef %1463, i64 noundef %1465, ptr noundef %1466, i32 %1468, ptr noundef %8)
+  %1469 = call fastcc ptr @new_const_op_assign(ptr noundef nonnull %0, ptr noundef %1463, i64 noundef %1465, ptr noundef %1466, i32 %1468, ptr noundef %8)
   store ptr %1469, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #35
   br label %fixpos.exit
@@ -4414,8 +4414,8 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
 1470:                                             ; preds = %yy_reduce_print.exit
   %1471 = getelementptr i8, ptr %.22829, i64 -24
   %1472 = load ptr, ptr %1471, align 8, !tbaa !25
-  call fastcc void @rb_backref_error(ptr noundef %0, ptr noundef %1472)
-  %1473 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  call fastcc void @rb_backref_error(ptr noundef nonnull %0, ptr noundef %1472)
+  %1473 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %1473, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4429,13 +4429,13 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   store i64 %.val3068, ptr %82, align 8
   %1477 = getelementptr i8, ptr %.22829, i64 -24
   %1478 = load i64, ptr %1477, align 8, !tbaa !25
-  %1479 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %1478, ptr noundef %17)
+  %1479 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %1478, ptr noundef %17)
   %1480 = getelementptr i8, ptr %.22829, i64 -16
   %1481 = load i64, ptr %1480, align 8, !tbaa !25
   %1482 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1483 = getelementptr i8, ptr %.22829, i64 -8
   %1484 = load i32, ptr %1483, align 8
-  %1485 = call fastcc ptr @new_const_op_assign(ptr noundef %0, ptr noundef %1479, i64 noundef %1481, ptr noundef %1482, i32 %1484, ptr noundef %8)
+  %1485 = call fastcc ptr @new_const_op_assign(ptr noundef nonnull %0, ptr noundef %1479, i64 noundef %1481, ptr noundef %1482, i32 %1484, ptr noundef %8)
   store ptr %1485, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #35
   br label %fixpos.exit
@@ -4443,72 +4443,72 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
 1486:                                             ; preds = %yy_reduce_print.exit
   %1487 = getelementptr i8, ptr %.22829, i64 -16
   %1488 = load ptr, ptr %1487, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1488)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1488)
   %1489 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1489)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1489)
   %1490 = load ptr, ptr %1487, align 8, !tbaa !25
   %1491 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1492 = getelementptr i8, ptr %.22842, i64 -16
-  %1493 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1490, ptr noundef %1491, ptr noundef %8, ptr noundef %1492)
+  %1493 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %1490, ptr noundef %1491, ptr noundef %8, ptr noundef %1492)
   store ptr %1493, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1494:                                             ; preds = %yy_reduce_print.exit
   %1495 = getelementptr i8, ptr %.22829, i64 -16
   %1496 = load ptr, ptr %1495, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1496)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1496)
   %1497 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1497)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1497)
   %1498 = load ptr, ptr %1495, align 8, !tbaa !25
   %1499 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1500 = getelementptr i8, ptr %.22842, i64 -16
-  %1501 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1498, ptr noundef %1499, ptr noundef %8, ptr noundef %1500)
+  %1501 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %1498, ptr noundef %1499, ptr noundef %8, ptr noundef %1500)
   store ptr %1501, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1502:                                             ; preds = %yy_reduce_print.exit
   %1503 = getelementptr i8, ptr %.22829, i64 -8
   %1504 = load ptr, ptr %1503, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1504)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1504)
   %1505 = load ptr, ptr %1503, align 8, !tbaa !25
   %1506 = getelementptr inbounds nuw i8, ptr %.22842, i64 8
   %.val3091 = load i64, ptr %1506, align 4
-  %1507 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3091)
-  %1508 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1505, ptr noundef %1507, ptr noundef %8, ptr noundef nonnull %.22842)
+  %1507 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3091)
+  %1508 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %1505, ptr noundef %1507, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %1508, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1509:                                             ; preds = %yy_reduce_print.exit
   %1510 = getelementptr i8, ptr %.22829, i64 -8
   %1511 = load ptr, ptr %1510, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1511)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1511)
   %1512 = load ptr, ptr %1510, align 8, !tbaa !25
   %1513 = getelementptr inbounds nuw i8, ptr %.22842, i64 8
   %.val3092 = load i64, ptr %1513, align 4
-  %1514 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3092)
-  %1515 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1512, ptr noundef %1514, ptr noundef %8, ptr noundef nonnull %.22842)
+  %1514 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3092)
+  %1515 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %1512, ptr noundef %1514, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %1515, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1516:                                             ; preds = %yy_reduce_print.exit
   %1517 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1517)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1517)
   %1518 = getelementptr i8, ptr %.22842, i64 -16
   %.val3093 = load i64, ptr %1518, align 4
-  %1519 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3093)
+  %1519 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3093)
   %1520 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1521 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %1519, ptr noundef %1520, ptr noundef %8, ptr noundef nonnull %1518)
+  %1521 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %1519, ptr noundef %1520, ptr noundef %8, ptr noundef nonnull %1518)
   store ptr %1521, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1522:                                             ; preds = %yy_reduce_print.exit
   %1523 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1523)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1523)
   %1524 = getelementptr i8, ptr %.22842, i64 -16
   %.val3094 = load i64, ptr %1524, align 4
-  %1525 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3094)
+  %1525 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3094)
   %1526 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1527 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %1525, ptr noundef %1526, ptr noundef %8, ptr noundef nonnull %1524)
+  %1527 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %1525, ptr noundef %1526, ptr noundef %8, ptr noundef nonnull %1524)
   store ptr %1527, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4517,7 +4517,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1530 = load ptr, ptr %1529, align 8, !tbaa !25
   %1531 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1532 = getelementptr i8, ptr %.22842, i64 -16
-  %1533 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1530, i64 noundef 43, ptr noundef %1531, ptr noundef %1532, ptr noundef %8)
+  %1533 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1530, i64 noundef 43, ptr noundef %1531, ptr noundef %1532, ptr noundef %8)
   store ptr %1533, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4526,7 +4526,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1536 = load ptr, ptr %1535, align 8, !tbaa !25
   %1537 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1538 = getelementptr i8, ptr %.22842, i64 -16
-  %1539 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1536, i64 noundef 45, ptr noundef %1537, ptr noundef %1538, ptr noundef %8)
+  %1539 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1536, i64 noundef 45, ptr noundef %1537, ptr noundef %1538, ptr noundef %8)
   store ptr %1539, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4535,7 +4535,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1542 = load ptr, ptr %1541, align 8, !tbaa !25
   %1543 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1544 = getelementptr i8, ptr %.22842, i64 -16
-  %1545 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1542, i64 noundef 42, ptr noundef %1543, ptr noundef %1544, ptr noundef %8)
+  %1545 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1542, i64 noundef 42, ptr noundef %1543, ptr noundef %1544, ptr noundef %8)
   store ptr %1545, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4544,7 +4544,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1548 = load ptr, ptr %1547, align 8, !tbaa !25
   %1549 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1550 = getelementptr i8, ptr %.22842, i64 -16
-  %1551 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1548, i64 noundef 47, ptr noundef %1549, ptr noundef %1550, ptr noundef %8)
+  %1551 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1548, i64 noundef 47, ptr noundef %1549, ptr noundef %1550, ptr noundef %8)
   store ptr %1551, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4553,7 +4553,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1554 = load ptr, ptr %1553, align 8, !tbaa !25
   %1555 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1556 = getelementptr i8, ptr %.22842, i64 -16
-  %1557 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1554, i64 noundef 37, ptr noundef %1555, ptr noundef %1556, ptr noundef %8)
+  %1557 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1554, i64 noundef 37, ptr noundef %1555, ptr noundef %1556, ptr noundef %8)
   store ptr %1557, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4562,7 +4562,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1560 = load ptr, ptr %1559, align 8, !tbaa !25
   %1561 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1562 = getelementptr i8, ptr %.22842, i64 -16
-  %1563 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1560, i64 noundef 134, ptr noundef %1561, ptr noundef %1562, ptr noundef %8)
+  %1563 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1560, i64 noundef 134, ptr noundef %1561, ptr noundef %1562, ptr noundef %8)
   store ptr %1563, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4571,23 +4571,23 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1566 = load ptr, ptr %1565, align 8, !tbaa !25
   %1567 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1568 = getelementptr i8, ptr %.22842, i64 -32
-  %1569 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1566, i64 noundef 134, ptr noundef %1567, ptr noundef %1568, ptr noundef %8)
+  %1569 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1566, i64 noundef 134, ptr noundef %1567, ptr noundef %1568, ptr noundef %8)
   %1570 = getelementptr i8, ptr %.22842, i64 -48
-  %1571 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %1569, i64 noundef 133, ptr noundef %1570, ptr noundef %8)
+  %1571 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %1569, i64 noundef 133, ptr noundef %1570, ptr noundef %8)
   store ptr %1571, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1572:                                             ; preds = %yy_reduce_print.exit
   %1573 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1574 = getelementptr i8, ptr %.22842, i64 -16
-  %1575 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %1573, i64 noundef 132, ptr noundef %1574, ptr noundef %8)
+  %1575 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %1573, i64 noundef 132, ptr noundef %1574, ptr noundef %8)
   store ptr %1575, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1576:                                             ; preds = %yy_reduce_print.exit
   %1577 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1578 = getelementptr i8, ptr %.22842, i64 -16
-  %1579 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %1577, i64 noundef 133, ptr noundef %1578, ptr noundef %8)
+  %1579 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %1577, i64 noundef 133, ptr noundef %1578, ptr noundef %8)
   store ptr %1579, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4596,7 +4596,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1582 = load ptr, ptr %1581, align 8, !tbaa !25
   %1583 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1584 = getelementptr i8, ptr %.22842, i64 -16
-  %1585 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1582, i64 noundef 124, ptr noundef %1583, ptr noundef %1584, ptr noundef %8)
+  %1585 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1582, i64 noundef 124, ptr noundef %1583, ptr noundef %1584, ptr noundef %8)
   store ptr %1585, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4605,7 +4605,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1588 = load ptr, ptr %1587, align 8, !tbaa !25
   %1589 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1590 = getelementptr i8, ptr %.22842, i64 -16
-  %1591 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1588, i64 noundef 94, ptr noundef %1589, ptr noundef %1590, ptr noundef %8)
+  %1591 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1588, i64 noundef 94, ptr noundef %1589, ptr noundef %1590, ptr noundef %8)
   store ptr %1591, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4614,7 +4614,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1594 = load ptr, ptr %1593, align 8, !tbaa !25
   %1595 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1596 = getelementptr i8, ptr %.22842, i64 -16
-  %1597 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1594, i64 noundef 38, ptr noundef %1595, ptr noundef %1596, ptr noundef %8)
+  %1597 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1594, i64 noundef 38, ptr noundef %1595, ptr noundef %1596, ptr noundef %8)
   store ptr %1597, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4623,7 +4623,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1600 = load ptr, ptr %1599, align 8, !tbaa !25
   %1601 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1602 = getelementptr i8, ptr %.22842, i64 -16
-  %1603 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1600, i64 noundef 135, ptr noundef %1601, ptr noundef %1602, ptr noundef %8)
+  %1603 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1600, i64 noundef 135, ptr noundef %1601, ptr noundef %1602, ptr noundef %8)
   store ptr %1603, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4632,7 +4632,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1606 = load ptr, ptr %1605, align 8, !tbaa !25
   %1607 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1608 = getelementptr i8, ptr %.22842, i64 -16
-  %1609 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1606, i64 noundef 140, ptr noundef %1607, ptr noundef %1608, ptr noundef %8)
+  %1609 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1606, i64 noundef 140, ptr noundef %1607, ptr noundef %1608, ptr noundef %8)
   store ptr %1609, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4641,7 +4641,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1612 = load ptr, ptr %1611, align 8, !tbaa !25
   %1613 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1614 = getelementptr i8, ptr %.22842, i64 -16
-  %1615 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1612, i64 noundef 141, ptr noundef %1613, ptr noundef %1614, ptr noundef %8)
+  %1615 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1612, i64 noundef 141, ptr noundef %1613, ptr noundef %1614, ptr noundef %8)
   store ptr %1615, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4650,7 +4650,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1618 = load ptr, ptr %1617, align 8, !tbaa !25
   %1619 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1620 = getelementptr i8, ptr %.22842, i64 -16
-  %1621 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1618, i64 noundef 142, ptr noundef %1619, ptr noundef %1620, ptr noundef %8)
+  %1621 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1618, i64 noundef 142, ptr noundef %1619, ptr noundef %1620, ptr noundef %8)
   store ptr %1621, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4660,7 +4660,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1625 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1626 = getelementptr i8, ptr %.22842, i64 -16
   %.val3099 = load i32, ptr %1626, align 4, !tbaa !53
-  %1627 = call fastcc ptr @match_op(ptr noundef %0, ptr noundef %1624, ptr noundef %1625, i32 %.val3099, ptr noundef %8)
+  %1627 = call fastcc ptr @match_op(ptr noundef nonnull %0, ptr noundef %1624, ptr noundef %1625, i32 %.val3099, ptr noundef %8)
   store ptr %1627, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4669,7 +4669,7 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   %1630 = load ptr, ptr %1629, align 8, !tbaa !25
   %1631 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1632 = getelementptr i8, ptr %.22842, i64 -16
-  %1633 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1630, i64 noundef 144, ptr noundef %1631, ptr noundef %1632, ptr noundef %8)
+  %1633 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1630, i64 noundef 144, ptr noundef %1631, ptr noundef %1632, ptr noundef %8)
   store ptr %1633, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4679,20 +4679,20 @@ parser_set_lex_state.exit3221:                    ; preds = %1344, %1347
   br i1 %1636, label %method_cond.exit3227, label %1637
 
 1637:                                             ; preds = %1634
-  %1638 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1635, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
+  %1638 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %1635, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
   br label %method_cond.exit3227
 
 method_cond.exit3227:                             ; preds = %1634, %1637
   %.0.i3226 = phi ptr [ %1638, %1637 ], [ null, %1634 ]
   %1639 = getelementptr i8, ptr %.22842, i64 -16
-  %1640 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3226, i64 noundef 33, ptr noundef %1639, ptr noundef %8)
+  %1640 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3226, i64 noundef 33, ptr noundef %1639, ptr noundef %8)
   store ptr %1640, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1641:                                             ; preds = %yy_reduce_print.exit
   %1642 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1643 = getelementptr i8, ptr %.22842, i64 -16
-  %1644 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %1642, i64 noundef 126, ptr noundef %1643, ptr noundef %8)
+  %1644 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %1642, i64 noundef 126, ptr noundef %1643, ptr noundef %8)
   store ptr %1644, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4701,7 +4701,7 @@ method_cond.exit3227:                             ; preds = %1634, %1637
   %1647 = load ptr, ptr %1646, align 8, !tbaa !25
   %1648 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1649 = getelementptr i8, ptr %.22842, i64 -16
-  %1650 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1647, i64 noundef 136, ptr noundef %1648, ptr noundef %1649, ptr noundef %8)
+  %1650 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1647, i64 noundef 136, ptr noundef %1648, ptr noundef %1649, ptr noundef %8)
   store ptr %1650, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4710,7 +4710,7 @@ method_cond.exit3227:                             ; preds = %1634, %1637
   %1653 = load ptr, ptr %1652, align 8, !tbaa !25
   %1654 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1655 = getelementptr i8, ptr %.22842, i64 -16
-  %1656 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1653, i64 noundef 137, ptr noundef %1654, ptr noundef %1655, ptr noundef %8)
+  %1656 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1653, i64 noundef 137, ptr noundef %1654, ptr noundef %1655, ptr noundef %8)
   store ptr %1656, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4719,7 +4719,7 @@ method_cond.exit3227:                             ; preds = %1634, %1637
   %1659 = load ptr, ptr %1658, align 8, !tbaa !25
   %1660 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1661 = getelementptr i8, ptr %.22842, i64 -16
-  %1662 = call fastcc ptr @logop(ptr noundef %0, i64 noundef 148, ptr noundef %1659, ptr noundef %1660, ptr noundef %1661, ptr noundef %8)
+  %1662 = call fastcc ptr @logop(ptr noundef nonnull %0, i64 noundef 148, ptr noundef %1659, ptr noundef %1660, ptr noundef %1661, ptr noundef %8)
   store ptr %1662, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4728,7 +4728,7 @@ method_cond.exit3227:                             ; preds = %1634, %1637
   %1665 = load ptr, ptr %1664, align 8, !tbaa !25
   %1666 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1667 = getelementptr i8, ptr %.22842, i64 -16
-  %1668 = call fastcc ptr @logop(ptr noundef %0, i64 noundef 149, ptr noundef %1665, ptr noundef %1666, ptr noundef %1667, ptr noundef %8)
+  %1668 = call fastcc ptr @logop(ptr noundef nonnull %0, i64 noundef 149, ptr noundef %1665, ptr noundef %1666, ptr noundef %1667, ptr noundef %8)
   store ptr %1668, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4741,20 +4741,20 @@ method_cond.exit3227:                             ; preds = %1634, %1637
   %1675 = or disjoint i16 %1674, %1672
   store i16 %1675, ptr %50, align 8
   %1676 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1677 = call fastcc ptr @new_defined(ptr noundef %0, ptr noundef %1676, ptr noundef %8)
+  %1677 = call fastcc ptr @new_defined(ptr noundef nonnull %0, ptr noundef %1676, ptr noundef %8)
   store ptr %1677, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1678:                                             ; preds = %yy_reduce_print.exit
   %1679 = getelementptr i8, ptr %.22829, i64 -40
   %1680 = load ptr, ptr %1679, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1680)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1680)
   %1681 = load ptr, ptr %1679, align 8, !tbaa !25
   %1682 = getelementptr i8, ptr %.22829, i64 -24
   %1683 = load ptr, ptr %1682, align 8, !tbaa !25
   %1684 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1685 = getelementptr i8, ptr %.22842, i64 -16
-  %1686 = call fastcc ptr @new_if(ptr noundef %0, ptr noundef %1681, ptr noundef %1683, ptr noundef %1684, ptr noundef %8, ptr noundef nonnull @NULL_LOC, ptr noundef %1685, ptr noundef nonnull @NULL_LOC)
+  %1686 = call fastcc ptr @new_if(ptr noundef nonnull %0, ptr noundef %1681, ptr noundef %1683, ptr noundef %1684, ptr noundef %8, ptr noundef nonnull @NULL_LOC, ptr noundef %1685, ptr noundef nonnull @NULL_LOC)
   store ptr %1686, ptr %7, align 8, !tbaa !25
   %1687 = load ptr, ptr %1679, align 8, !tbaa !25
   %1688 = icmp ne ptr %1686, null
@@ -4779,13 +4779,13 @@ nd_line.exit.i3229:                               ; preds = %1678
   %1700 = getelementptr inbounds nuw i8, ptr %1699, i64 40
   %1701 = load i64, ptr %1700, align 8, !tbaa !90
   %1702 = getelementptr i8, ptr %.22842, i64 -48
-  call fastcc void @endless_method_name(ptr noundef %0, i64 noundef %1701, ptr noundef %1702)
+  call fastcc void @endless_method_name(ptr noundef nonnull %0, i64 noundef %1701, ptr noundef %1702)
   %1703 = load ptr, ptr %1698, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %1703)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %1703)
   %1704 = getelementptr i8, ptr %.22829, i64 -16
   %1705 = load ptr, ptr %1704, align 8, !tbaa !25
   %1706 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1707 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %1705, ptr noundef %1706, ptr noundef %8)
+  %1707 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %1705, ptr noundef %1706, ptr noundef %8)
   store ptr %1707, ptr %.22829, align 8, !tbaa !25
   %1708 = load ptr, ptr %1698, align 8, !tbaa !25
   %1709 = getelementptr inbounds nuw i8, ptr %1708, i64 32
@@ -4796,7 +4796,7 @@ nd_line.exit.i3229:                               ; preds = %1678
   %1712 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1713 = getelementptr inbounds nuw i8, ptr %1710, i64 40
   store ptr %1712, ptr %1713, align 8, !tbaa !94
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 1714:                                             ; preds = %yy_reduce_print.exit
@@ -4805,13 +4805,13 @@ nd_line.exit.i3229:                               ; preds = %1678
   %1717 = getelementptr inbounds nuw i8, ptr %1716, i64 40
   %1718 = load i64, ptr %1717, align 8, !tbaa !90
   %1719 = getelementptr i8, ptr %.22842, i64 -48
-  call fastcc void @endless_method_name(ptr noundef %0, i64 noundef %1718, ptr noundef %1719)
+  call fastcc void @endless_method_name(ptr noundef nonnull %0, i64 noundef %1718, ptr noundef %1719)
   %1720 = load ptr, ptr %1715, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %1720)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %1720)
   %1721 = getelementptr i8, ptr %.22829, i64 -16
   %1722 = load ptr, ptr %1721, align 8, !tbaa !25
   %1723 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1724 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %1722, ptr noundef %1723, ptr noundef %8)
+  %1724 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %1722, ptr noundef %1723, ptr noundef %8)
   store ptr %1724, ptr %.22829, align 8, !tbaa !25
   %1725 = load ptr, ptr %1715, align 8, !tbaa !25
   %1726 = getelementptr inbounds nuw i8, ptr %1725, i64 32
@@ -4822,7 +4822,7 @@ nd_line.exit.i3229:                               ; preds = %1678
   %1729 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1730 = getelementptr inbounds nuw i8, ptr %1727, i64 48
   store ptr %1729, ptr %1730, align 8, !tbaa !96
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 1731:                                             ; preds = %yy_reduce_print.exit
@@ -4841,7 +4841,7 @@ nd_line.exit.i3229:                               ; preds = %1678
   %.val3081 = load i64, ptr %1742, align 4
   %1743 = getelementptr i8, ptr %.22842, i64 8
   %.22842.val3082 = load i64, ptr %1743, align 4
-  %1744 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %1739, ptr noundef %1740, ptr noundef %1741, i64 %.val3081, i64 %.22842.val3082)
+  %1744 = call fastcc ptr @rescued_expr(ptr noundef nonnull %0, ptr noundef %1739, ptr noundef %1740, ptr noundef %1741, i64 %.val3081, i64 %.22842.val3082)
   store ptr %1744, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4851,13 +4851,13 @@ nd_line.exit.i3229:                               ; preds = %1678
   br i1 %1747, label %method_cond.exit3232, label %1748
 
 1748:                                             ; preds = %1745
-  %1749 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %1746, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
+  %1749 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %1746, i32 noundef 0, ptr noundef nonnull readonly %.22842, i1 noundef zeroext true)
   br label %method_cond.exit3232
 
 method_cond.exit3232:                             ; preds = %1745, %1748
   %.0.i3231 = phi ptr [ %1749, %1748 ], [ null, %1745 ]
   %1750 = getelementptr i8, ptr %.22842, i64 -32
-  %1751 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3231, i64 noundef 33, ptr noundef %1750, ptr noundef %8)
+  %1751 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3231, i64 noundef 33, ptr noundef %1750, ptr noundef %8)
   store ptr %1751, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4884,7 +4884,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   %1760 = load i64, ptr %1759, align 8, !tbaa !25
   %1761 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1762 = getelementptr i8, ptr %.22842, i64 -16
-  %1763 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1758, i64 noundef %1760, ptr noundef %1761, ptr noundef %1762, ptr noundef %8)
+  %1763 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1758, i64 noundef %1760, ptr noundef %1761, ptr noundef %1762, ptr noundef %8)
   store ptr %1763, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4900,7 +4900,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   %1772 = load i64, ptr %1767, align 8, !tbaa !25
   %1773 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1774 = getelementptr i8, ptr %.22842, i64 -16
-  %1775 = call fastcc ptr @call_bin_op(ptr noundef %0, ptr noundef %1771, i64 noundef %1772, ptr noundef %1773, ptr noundef %1774, ptr noundef %8)
+  %1775 = call fastcc ptr @call_bin_op(ptr noundef nonnull %0, ptr noundef %1771, i64 noundef %1772, ptr noundef %1773, ptr noundef %1774, ptr noundef %8)
   store ptr %1775, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -4928,7 +4928,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1787:                                             ; preds = %yy_reduce_print.exit
   %1788 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1788)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1788)
   %1789 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %1789, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
@@ -4943,8 +4943,8 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1795:                                             ; preds = %1790
   %1796 = getelementptr i8, ptr %.22842, i64 -16
-  %1797 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1792, ptr noundef %1796)
-  %1798 = call fastcc ptr @arg_append(ptr noundef %0, ptr noundef %1794, ptr noundef %1797, ptr noundef nonnull %8)
+  %1797 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1792, ptr noundef %1796)
+  %1798 = call fastcc ptr @arg_append(ptr noundef nonnull %0, ptr noundef %1794, ptr noundef %1797, ptr noundef nonnull %8)
   br label %1799
 
 1799:                                             ; preds = %1790, %1795
@@ -4960,8 +4960,8 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1804:                                             ; preds = %1801
   %1805 = getelementptr i8, ptr %.22842, i64 -16
-  %1806 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1803, ptr noundef %1805)
-  %1807 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1806, ptr noundef nonnull %8)
+  %1806 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1803, ptr noundef %1805)
+  %1807 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1806, ptr noundef nonnull %8)
   br label %1808
 
 1808:                                             ; preds = %1801, %1804
@@ -4971,7 +4971,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1810:                                             ; preds = %yy_reduce_print.exit
   %1811 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1811)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1811)
   %1812 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %1812, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
@@ -4986,7 +4986,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   store i16 %1819, ptr %50, align 8
   %1820 = getelementptr i8, ptr %.22829, i64 -24
   %1821 = load ptr, ptr %1820, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1821)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1821)
   %1822 = load ptr, ptr %1820, align 8, !tbaa !25
   %1823 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1824 = getelementptr i8, ptr %.22842, i64 -48
@@ -4994,7 +4994,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   %.val3083 = load i64, ptr %1825, align 4
   %1826 = getelementptr i8, ptr %.22842, i64 8
   %.22842.val3084 = load i64, ptr %1826, align 4
-  %1827 = call fastcc ptr @rescued_expr(ptr noundef %0, ptr noundef %1822, ptr noundef %1823, ptr noundef %1824, i64 %.val3083, i64 %.22842.val3084)
+  %1827 = call fastcc ptr @rescued_expr(ptr noundef nonnull %0, ptr noundef %1822, ptr noundef %1823, ptr noundef %1824, i64 %.val3083, i64 %.22842.val3084)
   store ptr %1827, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5005,7 +5005,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   br label %fixpos.exit
 
 1831:                                             ; preds = %yy_reduce_print.exit
-  %1832 = call fastcc i32 @check_forwarding_args(ptr noundef %0)
+  %1832 = call fastcc i32 @check_forwarding_args(ptr noundef nonnull %0)
   %.not3011 = icmp eq i32 %1832, 0
   br i1 %.not3011, label %1833, label %1834
 
@@ -5017,12 +5017,12 @@ method_cond.exit3232:                             ; preds = %1745, %1748
   %1835 = getelementptr i8, ptr %.22829, i64 -24
   %1836 = load ptr, ptr %1835, align 8, !tbaa !25
   %1837 = getelementptr i8, ptr %.22842, i64 -16
-  %1838 = call fastcc ptr @new_args_forward_call(ptr noundef %0, ptr noundef %1836, ptr noundef %1837, ptr noundef %8)
+  %1838 = call fastcc ptr @new_args_forward_call(ptr noundef nonnull %0, ptr noundef %1836, ptr noundef %1837, ptr noundef %8)
   store ptr %1838, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1839:                                             ; preds = %yy_reduce_print.exit
-  %1840 = call fastcc i32 @check_forwarding_args(ptr noundef %0)
+  %1840 = call fastcc i32 @check_forwarding_args(ptr noundef nonnull %0)
   %.not3010 = icmp eq i32 %1840, 0
   br i1 %.not3010, label %1841, label %1842
 
@@ -5032,7 +5032,7 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1842:                                             ; preds = %1839
   %1843 = getelementptr i8, ptr %.22842, i64 -16
-  %1844 = call fastcc ptr @new_args_forward_call(ptr noundef %0, ptr noundef null, ptr noundef %1843, ptr noundef %8)
+  %1844 = call fastcc ptr @new_args_forward_call(ptr noundef nonnull %0, ptr noundef null, ptr noundef %1843, ptr noundef %8)
   store ptr %1844, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5053,8 +5053,8 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1852:                                             ; preds = %1847
   %1853 = getelementptr i8, ptr %.22842, i64 -16
-  %1854 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1849, ptr noundef %1853)
-  %1855 = call fastcc ptr @arg_append(ptr noundef %0, ptr noundef %1851, ptr noundef %1854, ptr noundef nonnull %8)
+  %1854 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1849, ptr noundef %1853)
+  %1855 = call fastcc ptr @arg_append(ptr noundef nonnull %0, ptr noundef %1851, ptr noundef %1854, ptr noundef nonnull %8)
   br label %1856
 
 1856:                                             ; preds = %1847, %1852
@@ -5070,8 +5070,8 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1861:                                             ; preds = %1858
   %1862 = getelementptr i8, ptr %.22842, i64 -16
-  %1863 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1860, ptr noundef %1862)
-  %1864 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1863, ptr noundef %1862)
+  %1863 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1860, ptr noundef %1862)
+  %1864 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1863, ptr noundef %1862)
   br label %1865
 
 1865:                                             ; preds = %1858, %1861
@@ -5081,14 +5081,14 @@ method_cond.exit3232:                             ; preds = %1745, %1748
 
 1867:                                             ; preds = %yy_reduce_print.exit
   %1868 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1868)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %1868)
   %1869 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %1869, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1870:                                             ; preds = %yy_reduce_print.exit
   %1871 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1872 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1871, ptr noundef nonnull %8)
+  %1872 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1871, ptr noundef nonnull %8)
   store ptr %1872, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5129,8 +5129,8 @@ arg_blk_pass.exit:                                ; preds = %1873, %1877, %1878
 
 1889:                                             ; preds = %1886
   %1890 = getelementptr i8, ptr %.22842, i64 -16
-  %1891 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1888, ptr noundef %1890)
-  %1892 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1891, ptr noundef %1890)
+  %1891 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1888, ptr noundef %1890)
+  %1892 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1891, ptr noundef %1890)
   store ptr %1892, ptr %7, align 8, !tbaa !25
   %1893 = load ptr, ptr %.22829, align 8, !tbaa !25
   %.not.i3235 = icmp eq ptr %1893, null
@@ -5173,8 +5173,8 @@ arg_blk_pass.exit3238:                            ; preds = %.thread3496, %1889,
 
 1909:                                             ; preds = %1904
   %1910 = getelementptr i8, ptr %.22842, i64 -16
-  %1911 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef nonnull %1906, ptr noundef %1910)
-  %1912 = call fastcc ptr @arg_append(ptr noundef %0, ptr noundef %1908, ptr noundef %1911, ptr noundef nonnull %8)
+  %1911 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef nonnull %1906, ptr noundef %1910)
+  %1912 = call fastcc ptr @arg_append(ptr noundef nonnull %0, ptr noundef %1908, ptr noundef %1911, ptr noundef nonnull %8)
   br label %1913
 
 1913:                                             ; preds = %1904, %1909
@@ -5315,14 +5315,14 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
 1965:                                             ; preds = %yy_reduce_print.exit
   %1966 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1967 = getelementptr i8, ptr %.22842, i64 -16
-  %1968 = call fastcc ptr @rb_node_block_pass_new(ptr noundef %0, ptr noundef %1966, ptr noundef %8, ptr noundef %1967)
+  %1968 = call fastcc ptr @rb_node_block_pass_new(ptr noundef nonnull %0, ptr noundef %1966, ptr noundef %8, ptr noundef %1967)
   store ptr %1968, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1969:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @forwarding_arg_check(ptr noundef %0, i64 noundef 38, ptr noundef nonnull @.str.18)
-  %1970 = call fastcc ptr @rb_node_lvar_new(ptr noundef %0, i64 noundef 38, ptr noundef nonnull %.22842)
-  %1971 = call fastcc ptr @rb_node_block_pass_new(ptr noundef %0, ptr noundef %1970, ptr noundef %8, ptr noundef nonnull %.22842)
+  call fastcc void @forwarding_arg_check(ptr noundef nonnull %0, i64 noundef 38, ptr noundef nonnull @.str.18)
+  %1970 = call fastcc ptr @rb_node_lvar_new(ptr noundef nonnull %0, i64 noundef 38, ptr noundef nonnull %.22842)
+  %1971 = call fastcc ptr @rb_node_block_pass_new(ptr noundef nonnull %0, ptr noundef %1970, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %1971, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5337,7 +5337,7 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
 
 1975:                                             ; preds = %yy_reduce_print.exit
   %1976 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1977 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %1976, ptr noundef nonnull %8)
+  %1977 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %1976, ptr noundef nonnull %8)
   store ptr %1977, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5350,7 +5350,7 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
   %1981 = getelementptr i8, ptr %.22829, i64 -16
   %1982 = load ptr, ptr %1981, align 8, !tbaa !25
   %1983 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %1984 = call fastcc ptr @last_arg_append(ptr noundef %0, ptr noundef %1982, ptr noundef %1983, ptr noundef %8)
+  %1984 = call fastcc ptr @last_arg_append(ptr noundef nonnull %0, ptr noundef %1982, ptr noundef %1983, ptr noundef %8)
   store ptr %1984, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5360,21 +5360,21 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
   %1988 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1989 = getelementptr inbounds nuw i8, ptr %1988, i64 32
   %1990 = load ptr, ptr %1989, align 8, !tbaa !123
-  %1991 = call fastcc ptr @rest_arg_append(ptr noundef %0, ptr noundef %1987, ptr noundef %1990, ptr noundef %8)
+  %1991 = call fastcc ptr @rest_arg_append(ptr noundef nonnull %0, ptr noundef %1987, ptr noundef %1990, ptr noundef %8)
   store ptr %1991, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1992:                                             ; preds = %yy_reduce_print.exit
   %1993 = load ptr, ptr %.22829, align 8, !tbaa !25
   %1994 = getelementptr i8, ptr %.22842, i64 -16
-  %1995 = call fastcc ptr @rb_node_splat_new(ptr noundef %0, ptr noundef %1993, ptr noundef nonnull %8, ptr noundef %1994)
+  %1995 = call fastcc ptr @rb_node_splat_new(ptr noundef nonnull %0, ptr noundef %1993, ptr noundef nonnull %8, ptr noundef %1994)
   store ptr %1995, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 1996:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @forwarding_arg_check(ptr noundef %0, i64 noundef 42, ptr noundef nonnull @.str.19)
-  %1997 = call fastcc ptr @rb_node_lvar_new(ptr noundef %0, i64 noundef 42, ptr noundef nonnull %.22842)
-  %1998 = call fastcc ptr @rb_node_splat_new(ptr noundef %0, ptr noundef %1997, ptr noundef nonnull %8, ptr noundef nonnull %.22842)
+  call fastcc void @forwarding_arg_check(ptr noundef nonnull %0, i64 noundef 42, ptr noundef nonnull @.str.19)
+  %1997 = call fastcc ptr @rb_node_lvar_new(ptr noundef nonnull %0, i64 noundef 42, ptr noundef nonnull %.22842)
+  %1998 = call fastcc ptr @rb_node_splat_new(ptr noundef nonnull %0, ptr noundef %1997, ptr noundef nonnull %8, ptr noundef nonnull %.22842)
   store ptr %1998, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5382,7 +5382,7 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
   %2000 = getelementptr i8, ptr %.22829, i64 -16
   %2001 = load ptr, ptr %2000, align 8, !tbaa !25
   %2002 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2003 = call fastcc ptr @last_arg_append(ptr noundef %0, ptr noundef %2001, ptr noundef %2002, ptr noundef %8)
+  %2003 = call fastcc ptr @last_arg_append(ptr noundef nonnull %0, ptr noundef %2001, ptr noundef %2002, ptr noundef %8)
   store ptr %2003, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5390,20 +5390,20 @@ arg_blk_pass.exit3242:                            ; preds = %1913, %1916, %1917
   %2005 = getelementptr i8, ptr %.22829, i64 -24
   %2006 = load ptr, ptr %2005, align 8, !tbaa !25
   %2007 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2008 = call fastcc ptr @rest_arg_append(ptr noundef %0, ptr noundef %2006, ptr noundef %2007, ptr noundef %8)
+  %2008 = call fastcc ptr @rest_arg_append(ptr noundef nonnull %0, ptr noundef %2006, ptr noundef %2007, ptr noundef %8)
   store ptr %2008, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2009:                                             ; preds = %yy_reduce_print.exit
   %2010 = load ptr, ptr %.22829, align 8, !tbaa !25
   %2011 = getelementptr i8, ptr %.22842, i64 -16
-  %2012 = call fastcc ptr @rb_node_splat_new(ptr noundef %0, ptr noundef %2010, ptr noundef nonnull %8, ptr noundef %2011)
+  %2012 = call fastcc ptr @rb_node_splat_new(ptr noundef nonnull %0, ptr noundef %2010, ptr noundef nonnull %8, ptr noundef %2011)
   store ptr %2012, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2013:                                             ; preds = %yy_reduce_print.exit
   %2014 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2015 = call fastcc ptr @rb_node_fcall_new(ptr noundef %0, i64 noundef %2014, ptr noundef null, ptr noundef nonnull %8)
+  %2015 = call fastcc ptr @rb_node_fcall_new(ptr noundef nonnull %0, i64 noundef %2014, ptr noundef null, ptr noundef nonnull %8)
   store ptr %2015, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5523,7 +5523,7 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
 
 2073:                                             ; preds = %2071, %2066
   %2074 = phi ptr [ %.pre3657, %2071 ], [ %2068, %2066 ]
-  %2075 = call fastcc ptr @rb_node_block_new(ptr noundef %0, ptr noundef %2074, ptr noundef %8)
+  %2075 = call fastcc ptr @rb_node_block_new(ptr noundef nonnull %0, ptr noundef %2074, ptr noundef %8)
   store ptr %2075, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5531,13 +5531,13 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
   %2077 = getelementptr i8, ptr %.22829, i64 -16
   %2078 = load ptr, ptr %2077, align 8, !tbaa !25
   %2079 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2080 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %2078, i64 noundef %2079, ptr noundef %8)
+  %2080 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %2078, i64 noundef %2079, ptr noundef %8)
   store ptr %2080, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2081:                                             ; preds = %yy_reduce_print.exit
   %2082 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2083 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %2082, ptr noundef %8)
+  %2083 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %2082, ptr noundef %8)
   store ptr %2083, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5561,7 +5561,7 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
   br label %2098
 
 2096:                                             ; preds = %2084
-  %2097 = call fastcc ptr @rb_node_zlist_new(ptr noundef %0, ptr noundef nonnull %8)
+  %2097 = call fastcc ptr @rb_node_zlist_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %2098
 
 2098:                                             ; preds = %2096, %2087
@@ -5572,14 +5572,14 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
 2100:                                             ; preds = %yy_reduce_print.exit
   %2101 = getelementptr i8, ptr %.22829, i64 -8
   %2102 = load ptr, ptr %2101, align 8, !tbaa !25
-  %2103 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef %2102, ptr noundef nonnull %8)
+  %2103 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef %2102, ptr noundef nonnull %8)
   store ptr %2103, ptr %7, align 8, !tbaa !25
   %2104 = getelementptr inbounds nuw i8, ptr %2103, i64 40
   store i64 1, ptr %2104, align 8, !tbaa !127
   br label %fixpos.exit
 
 2105:                                             ; preds = %yy_reduce_print.exit
-  %2106 = call fastcc ptr @rb_node_return_new(ptr noundef %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
+  %2106 = call fastcc ptr @rb_node_return_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %2106, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5588,19 +5588,19 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
   %2109 = load ptr, ptr %2108, align 8, !tbaa !25
   %2110 = getelementptr i8, ptr %.22842, i64 -48
   %2111 = getelementptr i8, ptr %.22842, i64 -32
-  %2112 = call fastcc ptr @new_yield(ptr noundef %0, ptr noundef %2109, ptr noundef %8, ptr noundef %2110, ptr noundef %2111, ptr noundef nonnull %.22842)
+  %2112 = call fastcc ptr @new_yield(ptr noundef nonnull %0, ptr noundef %2109, ptr noundef %8, ptr noundef %2110, ptr noundef %2111, ptr noundef nonnull %.22842)
   store ptr %2112, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2113:                                             ; preds = %yy_reduce_print.exit
   %2114 = getelementptr i8, ptr %.22842, i64 -32
   %2115 = getelementptr i8, ptr %.22842, i64 -16
-  %2116 = call fastcc ptr @rb_node_yield_new(ptr noundef %0, ptr noundef null, ptr noundef %8, ptr noundef %2114, ptr noundef %2115, ptr noundef nonnull %.22842)
+  %2116 = call fastcc ptr @rb_node_yield_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8, ptr noundef %2114, ptr noundef %2115, ptr noundef nonnull %.22842)
   store ptr %2116, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2117:                                             ; preds = %yy_reduce_print.exit
-  %2118 = call fastcc ptr @rb_node_yield_new(ptr noundef %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
+  %2118 = call fastcc ptr @rb_node_yield_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
   store ptr %2118, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5614,7 +5614,7 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
   store i16 %2125, ptr %50, align 8
   %2126 = getelementptr i8, ptr %.22829, i64 -8
   %2127 = load ptr, ptr %2126, align 8, !tbaa !25
-  %2128 = call fastcc ptr @new_defined(ptr noundef %0, ptr noundef %2127, ptr noundef %8)
+  %2128 = call fastcc ptr @new_defined(ptr noundef nonnull %0, ptr noundef %2127, ptr noundef %8)
   store ptr %2128, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5626,30 +5626,30 @@ parser_set_lex_state.exit3245:                    ; preds = %2051, %2054
 
 2133:                                             ; preds = %2129
   %2134 = getelementptr i8, ptr %.22842, i64 -16
-  %2135 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %2131, i32 noundef 0, ptr noundef readonly %2134, i1 noundef zeroext true)
+  %2135 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %2131, i32 noundef 0, ptr noundef readonly %2134, i1 noundef zeroext true)
   br label %method_cond.exit3247
 
 method_cond.exit3247:                             ; preds = %2129, %2133
   %.0.i3246 = phi ptr [ %2135, %2133 ], [ null, %2129 ]
   %2136 = getelementptr i8, ptr %.22842, i64 -48
-  %2137 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3246, i64 noundef 33, ptr noundef %2136, ptr noundef %8)
+  %2137 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3246, i64 noundef 33, ptr noundef %2136, ptr noundef %8)
   store ptr %2137, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2138:                                             ; preds = %yy_reduce_print.exit
   %2139 = getelementptr i8, ptr %.22842, i64 -16
-  %2140 = call fastcc ptr @rb_node_nil_new(ptr noundef %0, ptr noundef %2139)
+  %2140 = call fastcc ptr @rb_node_nil_new(ptr noundef nonnull %0, ptr noundef %2139)
   %2141 = icmp eq ptr %2140, null
   br i1 %2141, label %method_cond.exit3249, label %2142
 
 2142:                                             ; preds = %2138
-  %2143 = call fastcc ptr @cond0(ptr noundef %0, ptr noundef nonnull %2140, i32 noundef 0, ptr noundef readonly %2139, i1 noundef zeroext true)
+  %2143 = call fastcc ptr @cond0(ptr noundef nonnull %0, ptr noundef nonnull %2140, i32 noundef 0, ptr noundef readonly %2139, i1 noundef zeroext true)
   br label %method_cond.exit3249
 
 method_cond.exit3249:                             ; preds = %2138, %2142
   %.0.i3248 = phi ptr [ %2143, %2142 ], [ null, %2138 ]
   %2144 = getelementptr i8, ptr %.22842, i64 -32
-  %2145 = call fastcc ptr @call_uni_op(ptr noundef %0, ptr noundef %.0.i3248, i64 noundef 33, ptr noundef %2144, ptr noundef %8)
+  %2145 = call fastcc ptr @call_uni_op(ptr noundef nonnull %0, ptr noundef %.0.i3248, i64 noundef 33, ptr noundef %2144, ptr noundef %8)
   store ptr %2145, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5667,7 +5667,7 @@ method_cond.exit3249:                             ; preds = %2138, %2142
 2152:                                             ; preds = %yy_reduce_print.exit
   %2153 = getelementptr i8, ptr %.22829, i64 -8
   %2154 = load ptr, ptr %2153, align 8, !tbaa !25
-  %2155 = call fastcc ptr @get_nd_args(ptr noundef %0, ptr noundef %2154)
+  %2155 = call fastcc ptr @get_nd_args(ptr noundef nonnull %0, ptr noundef %2154)
   %2156 = load ptr, ptr %.22829, align 8, !tbaa !25
   %2157 = icmp ne ptr %2156, null
   %2158 = icmp ne ptr %2155, null
@@ -5681,7 +5681,7 @@ method_cond.exit3249:                             ; preds = %2138, %2142
   br i1 %2161, label %2162, label %block_dup_check.exit3252
 
 2162:                                             ; preds = %2159
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.896)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.896)
   %.pre3656 = load ptr, ptr %.22829, align 8, !tbaa !25
   br label %block_dup_check.exit3252
 
@@ -5721,7 +5721,7 @@ block_dup_check.exit3252:                         ; preds = %2152, %2159, %2162
   %2180 = load ptr, ptr %2179, align 8, !tbaa !25
   %2181 = getelementptr i8, ptr %.22842, i64 -80
   %2182 = getelementptr i8, ptr %.22842, i64 -48
-  %2183 = call fastcc ptr @new_if(ptr noundef %0, ptr noundef %2178, ptr noundef %2180, ptr noundef %2176, ptr noundef %8, ptr noundef %2181, ptr noundef %2182, ptr noundef nonnull %.22842)
+  %2183 = call fastcc ptr @new_if(ptr noundef nonnull %0, ptr noundef %2178, ptr noundef %2180, ptr noundef %2176, ptr noundef %8, ptr noundef %2181, ptr noundef %2182, ptr noundef nonnull %.22842)
   store ptr %2183, ptr %7, align 8, !tbaa !25
   %2184 = load ptr, ptr %2177, align 8, !tbaa !25
   %2185 = icmp ne ptr %2183, null
@@ -5749,7 +5749,7 @@ nd_line.exit.i3254:                               ; preds = %2175
   %2200 = load ptr, ptr %2199, align 8, !tbaa !25
   %2201 = getelementptr i8, ptr %.22842, i64 -80
   %2202 = getelementptr i8, ptr %.22842, i64 -48
-  %2203 = call fastcc ptr @new_unless(ptr noundef %0, ptr noundef %2196, ptr noundef %2198, ptr noundef %2200, ptr noundef %8, ptr noundef %2201, ptr noundef %2202, ptr noundef nonnull %.22842)
+  %2203 = call fastcc ptr @new_unless(ptr noundef nonnull %0, ptr noundef %2196, ptr noundef %2198, ptr noundef %2200, ptr noundef %8, ptr noundef %2201, ptr noundef %2202, ptr noundef nonnull %.22842)
   store ptr %2203, ptr %7, align 8, !tbaa !25
   %2204 = load ptr, ptr %2195, align 8, !tbaa !25
   %2205 = icmp ne ptr %2203, null
@@ -5919,7 +5919,7 @@ nd_line.exit.i3270:                               ; preds = %2265
   %2299 = getelementptr i8, ptr %.22829, i64 -8
   %2300 = load ptr, ptr %2299, align 8, !tbaa !25
   %2301 = getelementptr i8, ptr %.22842, i64 -64
-  %2302 = call fastcc ptr @rb_node_case3_new(ptr noundef %0, ptr noundef %2298, ptr noundef %2300, ptr noundef %8, ptr noundef %2301, ptr noundef nonnull %.22842)
+  %2302 = call fastcc ptr @rb_node_case3_new(ptr noundef nonnull %0, ptr noundef %2298, ptr noundef %2300, ptr noundef %8, ptr noundef %2301, ptr noundef nonnull %.22842)
   store ptr %2302, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -5954,10 +5954,10 @@ nd_line.exit.i3270:                               ; preds = %2265
   %2317 = getelementptr i8, ptr %.22829, i64 -64
   %2318 = load ptr, ptr %2317, align 8, !tbaa !25
   store ptr %2318, ptr %69, align 8, !tbaa !82
-  %2319 = call i64 @rb_parser_internal_id(ptr noundef %0)
-  %2320 = call fastcc ptr @rb_node_args_aux_new(ptr noundef %0, i64 noundef 0, i32 noundef 0)
+  %2319 = call i64 @rb_parser_internal_id(ptr noundef nonnull %0)
+  %2320 = call fastcc ptr @rb_node_args_aux_new(ptr noundef nonnull %0, i64 noundef 0, i32 noundef 0)
   %2321 = getelementptr i8, ptr %.22842, i64 -112
-  %2322 = call fastcc ptr @rb_node_dvar_new(ptr noundef %0, i64 noundef %2319, ptr noundef %2321)
+  %2322 = call fastcc ptr @rb_node_dvar_new(ptr noundef nonnull %0, i64 noundef %2319, ptr noundef %2321)
   %2323 = load ptr, ptr %53, align 8, !tbaa !130
   %2324 = call ptr @rb_ast_new_local_table(ptr noundef %2323, i32 noundef 1) #35
   %2325 = getelementptr inbounds nuw i8, ptr %2324, i64 8
@@ -6081,7 +6081,7 @@ fixpos.exit3274:                                  ; preds = %2355, %nd_line.exit
   %2385 = load ptr, ptr %2384, align 8, !tbaa !25
   %2386 = getelementptr i8, ptr %.22829, i64 -24
   %2387 = load ptr, ptr %2386, align 8, !tbaa !25
-  %2388 = call fastcc ptr @rb_node_class_new(ptr noundef %0, ptr noundef %2383, ptr noundef %2385, ptr noundef %2387, ptr noundef %8)
+  %2388 = call fastcc ptr @rb_node_class_new(ptr noundef nonnull %0, ptr noundef %2383, ptr noundef %2385, ptr noundef %2387, ptr noundef %8)
   store ptr %2388, ptr %7, align 8, !tbaa !25
   %2389 = getelementptr inbounds nuw i8, ptr %2388, i64 40
   %2390 = load ptr, ptr %2389, align 8, !tbaa !134
@@ -6125,7 +6125,7 @@ set_line_body.exit3278:                           ; preds = %2381, %2401, %2406
   %2415 = shl nsw i64 %2412, 15
   %2416 = or disjoint i64 %2414, %2415
   store i64 %2416, ptr %2411, align 8, !tbaa !72
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   %2417 = getelementptr i8, ptr %.22829, i64 -40
   %2418 = load i16, ptr %2417, align 8
   %2419 = and i16 %2418, 16
@@ -6153,7 +6153,7 @@ set_line_body.exit3278:                           ; preds = %2381, %2401, %2406
   %2436 = or disjoint i16 %2434, %2435
   %2437 = xor i16 %2436, 512
   store i16 %2437, ptr %50, align 8
-  call fastcc void @local_push(ptr noundef %0, i32 noundef 0)
+  call fastcc void @local_push(ptr noundef nonnull %0, i32 noundef 0)
   br label %fixpos.exit
 
 2438:                                             ; preds = %yy_reduce_print.exit
@@ -6161,7 +6161,7 @@ set_line_body.exit3278:                           ; preds = %2381, %2401, %2406
   %2440 = load ptr, ptr %2439, align 8, !tbaa !25
   %2441 = getelementptr i8, ptr %.22829, i64 -8
   %2442 = load ptr, ptr %2441, align 8, !tbaa !25
-  %2443 = call fastcc ptr @rb_node_sclass_new(ptr noundef %0, ptr noundef %2440, ptr noundef %2442, ptr noundef %8)
+  %2443 = call fastcc ptr @rb_node_sclass_new(ptr noundef nonnull %0, ptr noundef %2440, ptr noundef %2442, ptr noundef %8)
   store ptr %2443, ptr %7, align 8, !tbaa !25
   %2444 = getelementptr inbounds nuw i8, ptr %2443, i64 40
   %2445 = load ptr, ptr %2444, align 8, !tbaa !136
@@ -6227,7 +6227,7 @@ nd_line.exit.i3284:                               ; preds = %set_line_body.exit3
   br label %fixpos.exit3285
 
 fixpos.exit3285:                                  ; preds = %set_line_body.exit3282, %nd_line.exit.i3284
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   %2479 = getelementptr i8, ptr %.22829, i64 -48
   %2480 = load i16, ptr %2479, align 8
   %2481 = and i16 %2480, 8
@@ -6286,7 +6286,7 @@ fixpos.exit3285:                                  ; preds = %set_line_body.exit3
   %2509 = load ptr, ptr %2508, align 8, !tbaa !25
   %2510 = getelementptr i8, ptr %.22829, i64 -8
   %2511 = load ptr, ptr %2510, align 8, !tbaa !25
-  %2512 = call fastcc ptr @rb_node_module_new(ptr noundef %0, ptr noundef %2509, ptr noundef %2511, ptr noundef %8)
+  %2512 = call fastcc ptr @rb_node_module_new(ptr noundef nonnull %0, ptr noundef %2509, ptr noundef %2511, ptr noundef %8)
   store ptr %2512, ptr %7, align 8, !tbaa !25
   %2513 = getelementptr inbounds nuw i8, ptr %2512, i64 40
   %2514 = load ptr, ptr %2513, align 8, !tbaa !138
@@ -6330,7 +6330,7 @@ set_line_body.exit3289:                           ; preds = %2507, %2525, %2530
   %2539 = shl nsw i64 %2536, 15
   %2540 = or disjoint i64 %2538, %2539
   store i64 %2540, ptr %2535, align 8, !tbaa !72
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   %2541 = getelementptr i8, ptr %.22829, i64 -32
   %2542 = load i16, ptr %2541, align 8
   %2543 = and i16 %2542, 16
@@ -6352,18 +6352,18 @@ set_line_body.exit3289:                           ; preds = %2507, %2525, %2530
 
 2555:                                             ; preds = %yy_reduce_print.exit
   %2556 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef %2556)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef %2556)
   br label %fixpos.exit
 
 2557:                                             ; preds = %yy_reduce_print.exit
   %2558 = getelementptr i8, ptr %.22829, i64 -32
   %2559 = load ptr, ptr %2558, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %2559)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %2559)
   %2560 = getelementptr i8, ptr %.22829, i64 -24
   %2561 = load ptr, ptr %2560, align 8, !tbaa !25
   %2562 = getelementptr i8, ptr %.22829, i64 -8
   %2563 = load ptr, ptr %2562, align 8, !tbaa !25
-  %2564 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %2561, ptr noundef %2563, ptr noundef %8)
+  %2564 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %2561, ptr noundef %2563, ptr noundef %8)
   store ptr %2564, ptr %2562, align 8, !tbaa !25
   %2565 = load ptr, ptr %2558, align 8, !tbaa !25
   %2566 = getelementptr inbounds nuw i8, ptr %2565, i64 32
@@ -6374,23 +6374,23 @@ set_line_body.exit3289:                           ; preds = %2507, %2525, %2530
   %2569 = load ptr, ptr %2562, align 8, !tbaa !25
   %2570 = getelementptr inbounds nuw i8, ptr %2567, i64 40
   store ptr %2569, ptr %2570, align 8, !tbaa !94
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 2571:                                             ; preds = %yy_reduce_print.exit
   %2572 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef %2572)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef %2572)
   br label %fixpos.exit
 
 2573:                                             ; preds = %yy_reduce_print.exit
   %2574 = getelementptr i8, ptr %.22829, i64 -32
   %2575 = load ptr, ptr %2574, align 8, !tbaa !25
-  call fastcc void @restore_defun(ptr noundef %0, ptr noundef %2575)
+  call fastcc void @restore_defun(ptr noundef nonnull %0, ptr noundef %2575)
   %2576 = getelementptr i8, ptr %.22829, i64 -24
   %2577 = load ptr, ptr %2576, align 8, !tbaa !25
   %2578 = getelementptr i8, ptr %.22829, i64 -8
   %2579 = load ptr, ptr %2578, align 8, !tbaa !25
-  %2580 = call fastcc ptr @new_scope_body(ptr noundef %0, ptr noundef %2577, ptr noundef %2579, ptr noundef %8)
+  %2580 = call fastcc ptr @new_scope_body(ptr noundef nonnull %0, ptr noundef %2577, ptr noundef %2579, ptr noundef %8)
   store ptr %2580, ptr %2578, align 8, !tbaa !25
   %2581 = load ptr, ptr %2574, align 8, !tbaa !25
   %2582 = getelementptr inbounds nuw i8, ptr %2581, i64 32
@@ -6401,24 +6401,24 @@ set_line_body.exit3289:                           ; preds = %2507, %2525, %2530
   %2585 = load ptr, ptr %2578, align 8, !tbaa !25
   %2586 = getelementptr inbounds nuw i8, ptr %2583, i64 48
   store ptr %2585, ptr %2586, align 8, !tbaa !96
-  call fastcc void @local_pop(ptr noundef %0)
+  call fastcc void @local_pop(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 2587:                                             ; preds = %yy_reduce_print.exit
-  %2588 = call fastcc ptr @rb_node_break_new(ptr noundef %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
-  %2589 = call fastcc ptr @add_block_exit(ptr noundef %0, ptr noundef %2588)
+  %2588 = call fastcc ptr @rb_node_break_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
+  %2589 = call fastcc ptr @add_block_exit(ptr noundef nonnull %0, ptr noundef %2588)
   store ptr %2588, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2590:                                             ; preds = %yy_reduce_print.exit
-  %2591 = call fastcc ptr @rb_node_next_new(ptr noundef %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
-  %2592 = call fastcc ptr @add_block_exit(ptr noundef %0, ptr noundef %2591)
+  %2591 = call fastcc ptr @rb_node_next_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %8, ptr noundef nonnull %.22842)
+  %2592 = call fastcc ptr @add_block_exit(ptr noundef nonnull %0, ptr noundef %2591)
   store ptr %2591, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2593:                                             ; preds = %yy_reduce_print.exit
-  %2594 = call fastcc ptr @rb_node_redo_new(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %.22842)
-  %2595 = call fastcc ptr @add_block_exit(ptr noundef %0, ptr noundef %2594)
+  %2594 = call fastcc ptr @rb_node_redo_new(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %.22842)
+  %2595 = call fastcc ptr @add_block_exit(ptr noundef nonnull %0, ptr noundef %2594)
   store ptr %2594, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6459,18 +6459,18 @@ default.unreachable3684:                          ; preds = %2599
 
 2606:                                             ; preds = %yy_reduce_print.exit
   %2607 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %2607)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %2607)
   %2608 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %2608, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2609:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %8)
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.29, ptr noundef nonnull %8)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2610:                                             ; preds = %yy_reduce_print.exit
-  %2611 = call fastcc i32 @looking_at_eol_p(ptr noundef %0)
+  %2611 = call fastcc i32 @looking_at_eol_p(ptr noundef nonnull %0)
   %.not2979 = icmp eq i32 %2611, 0
   br i1 %.not2979, label %2615, label %2612
 
@@ -6481,7 +6481,7 @@ default.unreachable3684:                          ; preds = %2599
   br label %2615
 
 2615:                                             ; preds = %2610, %2612
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %8)
   %2616 = load ptr, ptr %77, align 8, !tbaa !140
   %.not2980 = icmp eq ptr %2616, null
   br i1 %.not2980, label %2646, label %2617
@@ -6545,62 +6545,62 @@ default.unreachable3684:                          ; preds = %2599
   br label %fixpos.exit
 
 2647:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %8)
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %8)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2648:                                             ; preds = %yy_reduce_print.exit
   %2649 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %2649, ptr %7, align 8, !tbaa !25
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %8)
   %2650 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef %2650)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef %2650)
   br label %fixpos.exit
 
 2651:                                             ; preds = %yy_reduce_print.exit
   %2652 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %2652, ptr %7, align 8, !tbaa !25
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.35, ptr noundef nonnull %8)
   %2653 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef %2653)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef %2653)
   br label %fixpos.exit
 
 2654:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %8)
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.36, ptr noundef nonnull %8)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2655:                                             ; preds = %yy_reduce_print.exit
   %2656 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %2656, ptr %7, align 8, !tbaa !25
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.37, ptr noundef nonnull %8)
   %2657 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef %2657)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef %2657)
   br label %fixpos.exit
 
 2658:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %8)
   %2659 = load i32, ptr %50, align 8
   store i32 %2659, ptr %7, align 8
   %2660 = trunc i32 %2659 to i16
   %2661 = and i16 %2660, -385
   store i16 %2661, ptr %50, align 8
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2662:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.24, ptr noundef nonnull %8)
   %2663 = load i32, ptr %50, align 8
   store i32 %2663, ptr %7, align 8
   %2664 = trunc i32 %2663 to i16
   %2665 = and i16 %2664, -385
   store i16 %2665, ptr %50, align 8
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2666:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef nonnull %8)
-  %2667 = call fastcc ptr @rb_node_def_temp_new(ptr noundef %0, ptr noundef %8)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.38, ptr noundef nonnull %8)
+  %2667 = call fastcc ptr @rb_node_def_temp_new(ptr noundef nonnull %0, ptr noundef %8)
   store ptr %2667, ptr %7, align 8, !tbaa !25
   %2668 = load i16, ptr %50, align 8
   %2669 = or i16 %2668, 4
@@ -6608,18 +6608,18 @@ default.unreachable3684:                          ; preds = %2599
   br label %fixpos.exit
 
 2670:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %8)
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %8)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2671:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %8)
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.39, ptr noundef nonnull %8)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 2672:                                             ; preds = %yy_reduce_print.exit
   %2673 = load ptr, ptr %77, align 8, !tbaa !140
-  call fastcc void @token_info_warn(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %2673, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %2673, i32 noundef 1, ptr noundef nonnull %8)
   %2674 = load i32, ptr %50, align 8
   store i32 %2674, ptr %7, align 8
   %2675 = trunc i32 %2674 to i16
@@ -6630,14 +6630,14 @@ default.unreachable3684:                          ; preds = %2599
 
 2678:                                             ; preds = %yy_reduce_print.exit
   %2679 = load ptr, ptr %77, align 8, !tbaa !140
-  call fastcc void @token_info_warn(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef %2679, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.41, ptr noundef %2679, i32 noundef 1, ptr noundef nonnull %8)
   %2680 = load i32, ptr %50, align 8
   store i32 %2680, ptr %7, align 8
   br label %fixpos.exit
 
 2681:                                             ; preds = %yy_reduce_print.exit
   %2682 = load ptr, ptr %77, align 8, !tbaa !140
-  call fastcc void @token_info_warn(ptr noundef %0, ptr noundef nonnull @.str.42, ptr noundef %2682, i32 noundef 0, ptr noundef nonnull %8)
+  call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.42, ptr noundef %2682, i32 noundef 0, ptr noundef nonnull %8)
   br label %fixpos.exit
 
 2683:                                             ; preds = %yy_reduce_print.exit
@@ -6713,7 +6713,7 @@ token_info_setup.exit.thread:                     ; preds = %2690, %token_info_s
   br label %fixpos.exit
 
 2707:                                             ; preds = %yy_reduce_print.exit
-  %2708 = call fastcc i32 @looking_at_eol_p(ptr noundef %0)
+  %2708 = call fastcc i32 @looking_at_eol_p(ptr noundef nonnull %0)
   %.not2976 = icmp eq i32 %2708, 0
   br i1 %.not2976, label %2712, label %2709
 
@@ -6725,16 +6725,16 @@ token_info_setup.exit.thread:                     ; preds = %2690, %token_info_s
 
 2712:                                             ; preds = %2707, %2709
   %2713 = load ptr, ptr %77, align 8, !tbaa !140
-  call fastcc void @token_info_warn(ptr noundef %0, ptr noundef nonnull @.str.44, ptr noundef %2713, i32 noundef 1, ptr noundef nonnull %8)
+  call fastcc void @token_info_warn(ptr noundef nonnull %0, ptr noundef nonnull @.str.44, ptr noundef %2713, i32 noundef 1, ptr noundef nonnull %8)
   br label %fixpos.exit
 
 2714:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_pop(ptr noundef %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %8)
-  call fastcc void @pop_end_expect_token_locations(ptr noundef %0)
+  call fastcc void @token_info_pop(ptr noundef nonnull %0, ptr noundef nonnull @.str.45, ptr noundef nonnull %8)
+  call fastcc void @pop_end_expect_token_locations(ptr noundef nonnull %0)
   br label %fixpos.exit
 
 2715:                                             ; preds = %yy_reduce_print.exit
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.46)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.46)
   br label %fixpos.exit
 
 2716:                                             ; preds = %yy_reduce_print.exit
@@ -6787,7 +6787,7 @@ dyna_in_block.exit.thread:                        ; preds = %2719, %dyna_in_bloc
   %2735 = load ptr, ptr %.22829, align 8, !tbaa !25
   %2736 = getelementptr i8, ptr %.22842, i64 -64
   %2737 = getelementptr i8, ptr %.22842, i64 -32
-  %2738 = call fastcc ptr @new_if(ptr noundef %0, ptr noundef %2732, ptr noundef %2734, ptr noundef %2735, ptr noundef %8, ptr noundef %2736, ptr noundef %2737, ptr noundef nonnull @NULL_LOC)
+  %2738 = call fastcc ptr @new_if(ptr noundef nonnull %0, ptr noundef %2732, ptr noundef %2734, ptr noundef %2735, ptr noundef %8, ptr noundef %2736, ptr noundef %2737, ptr noundef nonnull @NULL_LOC)
   store ptr %2738, ptr %7, align 8, !tbaa !25
   %2739 = load ptr, ptr %2731, align 8, !tbaa !25
   %2740 = icmp ne ptr %2738, null
@@ -6813,9 +6813,9 @@ nd_line.exit.i3293:                               ; preds = %2730
 
 2751:                                             ; preds = %yy_reduce_print.exit
   %2752 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2753 = call ptr @assignable(ptr noundef %0, i64 noundef %2752, ptr noundef null, ptr noundef nonnull %8)
+  %2753 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %2752, ptr noundef null, ptr noundef nonnull %8)
   store ptr %2753, ptr %7, align 8, !tbaa !25
-  call fastcc void @mark_lvar_used(ptr noundef %0, ptr noundef %2753)
+  call fastcc void @mark_lvar_used(ptr noundef nonnull %0, ptr noundef %2753)
   br label %fixpos.exit
 
 2754:                                             ; preds = %yy_reduce_print.exit
@@ -6826,7 +6826,7 @@ nd_line.exit.i3293:                               ; preds = %2730
 
 2757:                                             ; preds = %yy_reduce_print.exit
   %2758 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2759 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %2758, ptr noundef nonnull %8)
+  %2759 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %2758, ptr noundef nonnull %8)
   store ptr %2759, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6834,13 +6834,13 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2761 = getelementptr i8, ptr %.22829, i64 -16
   %2762 = load ptr, ptr %2761, align 8, !tbaa !25
   %2763 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2764 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %2762, ptr noundef %2763)
+  %2764 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %2762, ptr noundef %2763)
   store ptr %2764, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2765:                                             ; preds = %yy_reduce_print.exit
   %2766 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2767 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %2766, ptr noundef null, ptr noundef nonnull %8)
+  %2767 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %2766, ptr noundef null, ptr noundef nonnull %8)
   store ptr %2767, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6848,7 +6848,7 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2769 = getelementptr i8, ptr %.22829, i64 -16
   %2770 = load ptr, ptr %2769, align 8, !tbaa !25
   %2771 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2772 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %2770, ptr noundef %2771, ptr noundef nonnull %8)
+  %2772 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %2770, ptr noundef %2771, ptr noundef nonnull %8)
   store ptr %2772, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6858,14 +6858,14 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2776 = getelementptr i8, ptr %.22829, i64 -16
   %2777 = load ptr, ptr %2776, align 8, !tbaa !25
   %2778 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2779 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef %2777, ptr noundef %2778, ptr noundef %8)
-  %2780 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef %2775, ptr noundef %2779, ptr noundef nonnull %8)
+  %2779 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef %2777, ptr noundef %2778, ptr noundef %8)
+  %2780 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef %2775, ptr noundef %2779, ptr noundef nonnull %8)
   store ptr %2780, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2781:                                             ; preds = %yy_reduce_print.exit
   %2782 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2783 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef %2782, ptr noundef nonnull %8)
+  %2783 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2782, ptr noundef nonnull %8)
   store ptr %2783, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6873,16 +6873,16 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2785 = getelementptr i8, ptr %.22829, i64 -16
   %2786 = load ptr, ptr %2785, align 8, !tbaa !25
   %2787 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2788 = call fastcc ptr @rb_node_postarg_new(ptr noundef %0, ptr noundef %2786, ptr noundef %2787, ptr noundef %8)
-  %2789 = call fastcc ptr @rb_node_masgn_new(ptr noundef %0, ptr noundef null, ptr noundef %2788, ptr noundef nonnull %8)
+  %2788 = call fastcc ptr @rb_node_postarg_new(ptr noundef nonnull %0, ptr noundef %2786, ptr noundef %2787, ptr noundef %8)
+  %2789 = call fastcc ptr @rb_node_masgn_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2788, ptr noundef nonnull %8)
   store ptr %2789, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2790:                                             ; preds = %yy_reduce_print.exit
   %2791 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2792 = call ptr @assignable(ptr noundef %0, i64 noundef %2791, ptr noundef null, ptr noundef nonnull %8)
+  %2792 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %2791, ptr noundef null, ptr noundef nonnull %8)
   store ptr %2792, ptr %7, align 8, !tbaa !25
-  call fastcc void @mark_lvar_used(ptr noundef %0, ptr noundef %2792)
+  call fastcc void @mark_lvar_used(ptr noundef nonnull %0, ptr noundef %2792)
   br label %fixpos.exit
 
 2793:                                             ; preds = %yy_reduce_print.exit
@@ -6906,8 +6906,8 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2801 = getelementptr i8, ptr %.22829, i64 -8
   %2802 = load i64, ptr %2801, align 8, !tbaa !25
   %2803 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2804 = call ptr @assignable(ptr noundef %0, i64 noundef %2802, ptr noundef %2803, ptr noundef nonnull %8)
-  %2805 = call fastcc ptr @new_kw_arg(ptr noundef %0, ptr noundef %2804, ptr noundef %8)
+  %2804 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %2802, ptr noundef %2803, ptr noundef nonnull %8)
+  %2805 = call fastcc ptr @new_kw_arg(ptr noundef nonnull %0, ptr noundef %2804, ptr noundef %8)
   store ptr %2805, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6916,8 +6916,8 @@ nd_line.exit.i3293:                               ; preds = %2730
   %2808 = or i16 %2807, 4
   store i16 %2808, ptr %50, align 8
   %2809 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2810 = call ptr @assignable(ptr noundef %0, i64 noundef %2809, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
-  %2811 = call fastcc ptr @new_kw_arg(ptr noundef %0, ptr noundef %2810, ptr noundef %8)
+  %2810 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %2809, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
+  %2811 = call fastcc ptr @new_kw_arg(ptr noundef nonnull %0, ptr noundef %2810, ptr noundef %8)
   store ptr %2811, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6969,7 +6969,7 @@ kwd_append.exit:                                  ; preds = %2814, %opt_arg_appe
   %2833 = load i64, ptr %2832, align 8, !tbaa !25
   %2834 = load i64, ptr %.22829, align 8, !tbaa !25
   %2835 = getelementptr i8, ptr %.22842, i64 -16
-  %2836 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef %2831, i64 noundef %2833, i64 noundef %2834, ptr noundef %2835)
+  %2836 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef %2831, i64 noundef %2833, i64 noundef %2834, ptr noundef %2835)
   store ptr %2836, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6978,7 +6978,7 @@ kwd_append.exit:                                  ; preds = %2814, %opt_arg_appe
   %2839 = load ptr, ptr %2838, align 8, !tbaa !25
   %2840 = load i64, ptr %.22829, align 8, !tbaa !25
   %2841 = getelementptr i8, ptr %.22842, i64 -16
-  %2842 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef %2839, i64 noundef 0, i64 noundef %2840, ptr noundef %2841)
+  %2842 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef %2839, i64 noundef 0, i64 noundef %2840, ptr noundef %2841)
   store ptr %2842, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -6987,13 +6987,13 @@ kwd_append.exit:                                  ; preds = %2814, %opt_arg_appe
   %2845 = load i64, ptr %2844, align 8, !tbaa !25
   %2846 = load i64, ptr %.22829, align 8, !tbaa !25
   %2847 = getelementptr i8, ptr %.22842, i64 -16
-  %2848 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef %2845, i64 noundef %2846, ptr noundef %2847)
+  %2848 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef %2845, i64 noundef %2846, ptr noundef %2847)
   store ptr %2848, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2849:                                             ; preds = %yy_reduce_print.exit
   %2850 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2851 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef %2850, ptr noundef nonnull %.22842)
+  %2851 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef %2850, ptr noundef nonnull %.22842)
   store ptr %2851, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7008,8 +7008,8 @@ kwd_append.exit:                                  ; preds = %2814, %opt_arg_appe
   %2856 = getelementptr i8, ptr %.22829, i64 -16
   %2857 = load i64, ptr %2856, align 8, !tbaa !25
   %2858 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2859 = call ptr @assignable(ptr noundef %0, i64 noundef %2857, ptr noundef %2858, ptr noundef nonnull %8)
-  %2860 = call fastcc ptr @rb_node_opt_arg_new(ptr noundef %0, ptr noundef %2859, ptr noundef %8)
+  %2859 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %2857, ptr noundef %2858, ptr noundef nonnull %8)
+  %2860 = call fastcc ptr @rb_node_opt_arg_new(ptr noundef nonnull %0, ptr noundef %2859, ptr noundef %8)
   store ptr %2860, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7053,7 +7053,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   br label %fixpos.exit
 
 2879:                                             ; preds = %yy_reduce_print.exit
-  %2880 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
+  %2880 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
   store ptr %2880, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7065,7 +7065,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2886 = getelementptr i8, ptr %.22829, i64 -8
   %2887 = load i64, ptr %2886, align 8, !tbaa !25
   %2888 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2889 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2883, ptr noundef %2885, i64 noundef %2887, ptr noundef null, ptr noundef %2888, ptr noundef nonnull %8)
+  %2889 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2883, ptr noundef %2885, i64 noundef %2887, ptr noundef null, ptr noundef %2888, ptr noundef nonnull %8)
   store ptr %2888, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7079,7 +7079,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2897 = getelementptr i8, ptr %.22829, i64 -8
   %2898 = load ptr, ptr %2897, align 8, !tbaa !25
   %2899 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2900 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2892, ptr noundef %2894, i64 noundef %2896, ptr noundef %2898, ptr noundef %2899, ptr noundef nonnull %8)
+  %2900 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2892, ptr noundef %2894, i64 noundef %2896, ptr noundef %2898, ptr noundef %2899, ptr noundef nonnull %8)
   store ptr %2899, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7089,7 +7089,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2904 = getelementptr i8, ptr %.22829, i64 -8
   %2905 = load ptr, ptr %2904, align 8, !tbaa !25
   %2906 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2907 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2903, ptr noundef %2905, i64 noundef 0, ptr noundef null, ptr noundef %2906, ptr noundef nonnull %8)
+  %2907 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2903, ptr noundef %2905, i64 noundef 0, ptr noundef null, ptr noundef %2906, ptr noundef nonnull %8)
   store ptr %2906, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7101,7 +7101,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2913 = getelementptr i8, ptr %.22829, i64 -8
   %2914 = load ptr, ptr %2913, align 8, !tbaa !25
   %2915 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2916 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2910, ptr noundef %2912, i64 noundef 0, ptr noundef %2914, ptr noundef %2915, ptr noundef nonnull %8)
+  %2916 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2910, ptr noundef %2912, i64 noundef 0, ptr noundef %2914, ptr noundef %2915, ptr noundef nonnull %8)
   store ptr %2915, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7111,17 +7111,17 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2920 = getelementptr i8, ptr %.22829, i64 -8
   %2921 = load i64, ptr %2920, align 8, !tbaa !25
   %2922 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2923 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2919, ptr noundef null, i64 noundef %2921, ptr noundef null, ptr noundef %2922, ptr noundef nonnull %8)
+  %2923 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2919, ptr noundef null, i64 noundef %2921, ptr noundef null, ptr noundef %2922, ptr noundef nonnull %8)
   store ptr %2922, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 2924:                                             ; preds = %yy_reduce_print.exit
-  %2925 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
+  %2925 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
   store ptr %2925, ptr %7, align 8, !tbaa !25
   %2926 = getelementptr i8, ptr %.22829, i64 -8
   %2927 = load ptr, ptr %2926, align 8, !tbaa !25
   %2928 = load i64, ptr %.22829, align 8, !tbaa !25
-  %2929 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2927, ptr noundef null, i64 noundef %2928, ptr noundef null, ptr noundef %2925, ptr noundef nonnull %8)
+  %2929 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2927, ptr noundef null, i64 noundef %2928, ptr noundef null, ptr noundef %2925, ptr noundef nonnull %8)
   store ptr %2925, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7133,7 +7133,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2935 = getelementptr i8, ptr %.22829, i64 -8
   %2936 = load ptr, ptr %2935, align 8, !tbaa !25
   %2937 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2938 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2932, ptr noundef null, i64 noundef %2934, ptr noundef %2936, ptr noundef %2937, ptr noundef nonnull %8)
+  %2938 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2932, ptr noundef null, i64 noundef %2934, ptr noundef %2936, ptr noundef %2937, ptr noundef nonnull %8)
   store ptr %2937, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7141,7 +7141,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2940 = getelementptr i8, ptr %.22829, i64 -8
   %2941 = load ptr, ptr %2940, align 8, !tbaa !25
   %2942 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2943 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %2941, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %2942, ptr noundef nonnull %8)
+  %2943 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %2941, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %2942, ptr noundef nonnull %8)
   store ptr %2942, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7151,7 +7151,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2947 = getelementptr i8, ptr %.22829, i64 -8
   %2948 = load i64, ptr %2947, align 8, !tbaa !25
   %2949 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2950 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %2946, i64 noundef %2948, ptr noundef null, ptr noundef %2949, ptr noundef nonnull %8)
+  %2950 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2946, i64 noundef %2948, ptr noundef null, ptr noundef %2949, ptr noundef nonnull %8)
   store ptr %2949, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7163,7 +7163,7 @@ opt_arg_append.exit:                              ; preds = %.lr.ph.i3297, %2863
   %2956 = getelementptr i8, ptr %.22829, i64 -8
   %2957 = load ptr, ptr %2956, align 8, !tbaa !25
   %2958 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2959 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %2953, i64 noundef %2955, ptr noundef %2957, ptr noundef %2958, ptr noundef nonnull %8)
+  %2959 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2953, i64 noundef %2955, ptr noundef %2957, ptr noundef %2958, ptr noundef nonnull %8)
   store ptr %2958, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7202,7 +7202,7 @@ new_args.exit:                                    ; preds = %yy_reduce_print.exi
   %2980 = getelementptr i8, ptr %.22829, i64 -8
   %2981 = load ptr, ptr %2980, align 8, !tbaa !25
   %2982 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2983 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %2979, i64 noundef 0, ptr noundef %2981, ptr noundef %2982, ptr noundef nonnull %8)
+  %2983 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %2979, i64 noundef 0, ptr noundef %2981, ptr noundef %2982, ptr noundef nonnull %8)
   store ptr %2982, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7210,7 +7210,7 @@ new_args.exit:                                    ; preds = %yy_reduce_print.exi
   %2985 = getelementptr i8, ptr %.22829, i64 -8
   %2986 = load i64, ptr %2985, align 8, !tbaa !25
   %2987 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2988 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef %2986, ptr noundef null, ptr noundef %2987, ptr noundef nonnull %8)
+  %2988 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %2986, ptr noundef null, ptr noundef %2987, ptr noundef nonnull %8)
   store ptr %2987, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7220,7 +7220,7 @@ new_args.exit:                                    ; preds = %yy_reduce_print.exi
   %2992 = getelementptr i8, ptr %.22829, i64 -8
   %2993 = load ptr, ptr %2992, align 8, !tbaa !25
   %2994 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %2995 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef %2991, ptr noundef %2993, ptr noundef %2994, ptr noundef nonnull %8)
+  %2995 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %2991, ptr noundef %2993, ptr noundef %2994, ptr noundef nonnull %8)
   store ptr %2994, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7285,7 +7285,7 @@ new_args.exit3304:                                ; preds = %yy_reduce_print.exi
 
 3024:                                             ; preds = %yy_reduce_print.exit
   %3025 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @new_bv(ptr noundef %0, i64 noundef %3025)
+  call fastcc void @new_bv(ptr noundef nonnull %0, i64 noundef %3025)
   br label %fixpos.exit
 
 3026:                                             ; preds = %yy_reduce_print.exit
@@ -7325,8 +7325,8 @@ numparam_push.exit:                               ; preds = %3029, %3034
   br label %fixpos.exit
 
 3039:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_push(ptr noundef %0, ptr noundef nonnull @.str.49, ptr noundef nonnull %.22842)
-  %3040 = call fastcc ptr @dyna_push(ptr noundef %0)
+  call fastcc void @token_info_push(ptr noundef nonnull %0, ptr noundef nonnull @.str.49, ptr noundef nonnull %.22842)
+  %3040 = call fastcc ptr @dyna_push(ptr noundef nonnull %0)
   store ptr %3040, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7485,7 +7485,7 @@ numparam_pop.exit:                                ; preds = %3103, %3106
   br label %fixpos.exit
 
 3127:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @token_info_pop(ptr noundef %0, ptr noundef nonnull @.str.50, ptr noundef nonnull %.22842)
+  call fastcc void @token_info_pop(ptr noundef nonnull %0, ptr noundef nonnull @.str.50, ptr noundef nonnull %.22842)
   %3128 = getelementptr i8, ptr %.22829, i64 -8
   %3129 = load ptr, ptr %3128, align 8, !tbaa !25
   %3130 = getelementptr i8, ptr %.22842, i64 -32
@@ -7499,7 +7499,7 @@ numparam_pop.exit:                                ; preds = %3103, %3106
   br label %fixpos.exit
 
 3134:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @push_end_expect_token_locations(ptr noundef %0, ptr noundef nonnull %.22842)
+  call fastcc void @push_end_expect_token_locations(ptr noundef nonnull %0, ptr noundef nonnull %.22842)
   br label %fixpos.exit
 
 3135:                                             ; preds = %yy_reduce_print.exit
@@ -7548,7 +7548,7 @@ numparam_pop.exit:                                ; preds = %3103, %3106
   br i1 %3161, label %block_dup_check.exit3314.sink.split, label %3162
 
 3162:                                             ; preds = %3157
-  %3163 = call fastcc ptr @get_nd_args(ptr noundef %0, ptr noundef nonnull %3159)
+  %3163 = call fastcc ptr @get_nd_args(ptr noundef nonnull %0, ptr noundef nonnull %3159)
   %3164 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3165 = icmp ne ptr %3164, null
   %3166 = icmp ne ptr %3163, null
@@ -7563,7 +7563,7 @@ numparam_pop.exit:                                ; preds = %3103, %3106
 
 block_dup_check.exit3314.sink.split:              ; preds = %3167, %3157
   %.str.896.sink = phi ptr [ @.str.51, %3157 ], [ @.str.896, %3167 ]
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull %.str.896.sink)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %.str.896.sink)
   br label %block_dup_check.exit3314
 
 block_dup_check.exit3314:                         ; preds = %block_dup_check.exit3314.sink.split, %3167, %3162
@@ -7609,7 +7609,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3194 = getelementptr i8, ptr %.22829, i64 -8
   %3195 = load i64, ptr %3194, align 8, !tbaa !25
   %3196 = getelementptr i8, ptr %.22842, i64 -16
-  %3197 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef %3191, ptr noundef %3193, i64 noundef %3195, ptr noundef %3189, ptr noundef %3196, ptr noundef %8)
+  %3197 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef %3191, ptr noundef %3193, i64 noundef %3195, ptr noundef %3189, ptr noundef %3196, ptr noundef %8)
   store ptr %3197, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7633,7 +7633,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3210 = load i64, ptr %3209, align 8, !tbaa !25
   %3211 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3212 = getelementptr i8, ptr %.22842, i64 -32
-  %3213 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef %3206, ptr noundef %3208, i64 noundef %3210, ptr noundef %3204, ptr noundef %3211, ptr noundef %3212, ptr noundef %8)
+  %3213 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef %3206, ptr noundef %3208, i64 noundef %3210, ptr noundef %3204, ptr noundef %3211, ptr noundef %3212, ptr noundef %8)
   store ptr %3213, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7648,7 +7648,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3222 = load ptr, ptr %3221, align 8, !tbaa !25
   %3223 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3224 = getelementptr i8, ptr %.22842, i64 -32
-  %3225 = call fastcc ptr @new_command_qcall(ptr noundef %0, i64 noundef %3216, ptr noundef %3218, i64 noundef %3220, ptr noundef %3222, ptr noundef %3223, ptr noundef %3224, ptr noundef %8)
+  %3225 = call fastcc ptr @new_command_qcall(ptr noundef nonnull %0, i64 noundef %3216, ptr noundef %3218, i64 noundef %3220, ptr noundef %3222, ptr noundef %3223, ptr noundef %3224, ptr noundef %8)
   store ptr %3225, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7684,7 +7684,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3245 = getelementptr i8, ptr %.22829, i64 -8
   %3246 = load i64, ptr %3245, align 8, !tbaa !25
   %3247 = getelementptr i8, ptr %.22842, i64 -16
-  %3248 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef %3242, ptr noundef %3244, i64 noundef %3246, ptr noundef %3240, ptr noundef %3247, ptr noundef %8)
+  %3248 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef %3242, ptr noundef %3244, i64 noundef %3246, ptr noundef %3240, ptr noundef %3247, ptr noundef %8)
   store ptr %3248, ptr %7, align 8, !tbaa !25
   %3249 = getelementptr i8, ptr %.22842, i64 -8
   %3250 = load i32, ptr %3249, align 4, !tbaa !57
@@ -7703,7 +7703,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3260 = load i64, ptr %3259, align 8, !tbaa !25
   %3261 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3262 = getelementptr i8, ptr %.22842, i64 -16
-  %3263 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %3258, i64 noundef %3260, ptr noundef %3261, ptr noundef %3262, ptr noundef %8)
+  %3263 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %3258, i64 noundef %3260, ptr noundef %3261, ptr noundef %3262, ptr noundef %8)
   store ptr %3263, ptr %7, align 8, !tbaa !25
   %3264 = getelementptr i8, ptr %.22842, i64 -8
   %3265 = load i32, ptr %3264, align 4, !tbaa !57
@@ -7719,7 +7719,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3272 = getelementptr i8, ptr %.22829, i64 -16
   %3273 = load ptr, ptr %3272, align 8, !tbaa !25
   %3274 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3275 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %3273, i64 noundef %3274, ptr noundef null, ptr noundef nonnull %.22842, ptr noundef %8)
+  %3275 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %3273, i64 noundef %3274, ptr noundef null, ptr noundef nonnull %.22842, ptr noundef %8)
   store ptr %3275, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7730,7 +7730,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3280 = load ptr, ptr %3279, align 8, !tbaa !25
   %3281 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3282 = getelementptr i8, ptr %.22842, i64 -16
-  %3283 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef %3278, ptr noundef %3280, i64 noundef 3457, ptr noundef %3281, ptr noundef %3282, ptr noundef %8)
+  %3283 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef %3278, ptr noundef %3280, i64 noundef 3457, ptr noundef %3281, ptr noundef %3282, ptr noundef %8)
   store ptr %3283, ptr %7, align 8, !tbaa !25
   %3284 = getelementptr i8, ptr %.22842, i64 -8
   %3285 = load i32, ptr %3284, align 4, !tbaa !57
@@ -7747,7 +7747,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3293 = load ptr, ptr %3292, align 8, !tbaa !25
   %3294 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3295 = getelementptr i8, ptr %.22842, i64 -16
-  %3296 = call fastcc ptr @new_qcall(ptr noundef %0, i64 noundef 147, ptr noundef %3293, i64 noundef 3457, ptr noundef %3294, ptr noundef %3295, ptr noundef %8)
+  %3296 = call fastcc ptr @new_qcall(ptr noundef nonnull %0, i64 noundef 147, ptr noundef %3293, i64 noundef 3457, ptr noundef %3294, ptr noundef %3295, ptr noundef %8)
   store ptr %3296, ptr %7, align 8, !tbaa !25
   %3297 = getelementptr i8, ptr %.22842, i64 -8
   %3298 = load i32, ptr %3297, align 4, !tbaa !57
@@ -7772,14 +7772,14 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   store i32 %3308, ptr %73, align 4, !tbaa !56
   %3309 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3310 = getelementptr i8, ptr %.22842, i64 -16
-  %3311 = call fastcc ptr @rb_node_super_new(ptr noundef %0, ptr noundef %3309, ptr noundef %8, ptr noundef %3310, ptr noundef nonnull %22, ptr noundef nonnull %23)
+  %3311 = call fastcc ptr @rb_node_super_new(ptr noundef nonnull %0, ptr noundef %3309, ptr noundef %8, ptr noundef %3310, ptr noundef nonnull %22, ptr noundef nonnull %23)
   store ptr %3311, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #35
   br label %fixpos.exit
 
 3312:                                             ; preds = %yy_reduce_print.exit
-  %3313 = call fastcc ptr @rb_node_zsuper_new(ptr noundef %0, ptr noundef %8)
+  %3313 = call fastcc ptr @rb_node_zsuper_new(ptr noundef nonnull %0, ptr noundef %8)
   store ptr %3313, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7788,7 +7788,7 @@ nd_line.exit.i3316:                               ; preds = %block_dup_check.exi
   %3316 = load ptr, ptr %3315, align 8, !tbaa !25
   %3317 = getelementptr i8, ptr %.22829, i64 -8
   %3318 = load ptr, ptr %3317, align 8, !tbaa !25
-  %3319 = call fastcc ptr @rb_node_call_new(ptr noundef %0, ptr noundef %3316, i64 noundef 145, ptr noundef %3318, ptr noundef nonnull %8)
+  %3319 = call fastcc ptr @rb_node_call_new(ptr noundef nonnull %0, ptr noundef %3316, i64 noundef 145, ptr noundef %3318, ptr noundef nonnull %8)
   store ptr %3319, ptr %7, align 8, !tbaa !25
   %3320 = load ptr, ptr %3315, align 8, !tbaa !25
   %3321 = icmp ne ptr %3319, null
@@ -7856,7 +7856,7 @@ nd_line.exit.i3319:                               ; preds = %3314
   br label %fixpos.exit
 
 3360:                                             ; preds = %yy_reduce_print.exit
-  %3361 = call fastcc ptr @dyna_push(ptr noundef %0)
+  %3361 = call fastcc ptr @dyna_push(ptr noundef nonnull %0)
   store ptr %3361, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -7871,10 +7871,10 @@ nd_line.exit.i3319:                               ; preds = %3314
   store i64 %3368, ptr %68, align 8, !tbaa !159
   %3369 = getelementptr i8, ptr %.22829, i64 -8
   %3370 = load ptr, ptr %3369, align 8, !tbaa !25
-  %3371 = call fastcc ptr @args_with_numbered(ptr noundef %0, ptr noundef %3370, i32 noundef %3363, i64 noundef %3364)
+  %3371 = call fastcc ptr @args_with_numbered(ptr noundef nonnull %0, ptr noundef %3370, i32 noundef %3363, i64 noundef %3364)
   store ptr %3371, ptr %3369, align 8, !tbaa !25
   %3372 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3373 = call fastcc ptr @rb_node_iter_new(ptr noundef %0, ptr noundef %3371, ptr noundef %3372, ptr noundef %8)
+  %3373 = call fastcc ptr @rb_node_iter_new(ptr noundef nonnull %0, ptr noundef %3371, ptr noundef %3372, ptr noundef %8)
   store ptr %3373, ptr %7, align 8, !tbaa !25
   %3374 = getelementptr i8, ptr %.22829, i64 -16
   %3375 = load ptr, ptr %3374, align 8, !tbaa !25
@@ -7920,7 +7920,7 @@ numparam_pop.exit3330:                            ; preds = %3383, %3386
   br label %fixpos.exit
 
 3393:                                             ; preds = %yy_reduce_print.exit
-  %3394 = call fastcc ptr @dyna_push(ptr noundef %0)
+  %3394 = call fastcc ptr @dyna_push(ptr noundef nonnull %0)
   store ptr %3394, ptr %7, align 8, !tbaa !25
   %3395 = load i64, ptr %60, align 8, !tbaa !122
   %3396 = shl i64 %3395, 1
@@ -7945,10 +7945,10 @@ numparam_pop.exit3330:                            ; preds = %3383, %3386
   store i64 %3406, ptr %68, align 8, !tbaa !159
   %3407 = getelementptr i8, ptr %.22829, i64 -8
   %3408 = load ptr, ptr %3407, align 8, !tbaa !25
-  %3409 = call fastcc ptr @args_with_numbered(ptr noundef %0, ptr noundef %3408, i32 noundef %3401, i64 noundef %3402)
+  %3409 = call fastcc ptr @args_with_numbered(ptr noundef nonnull %0, ptr noundef %3408, i32 noundef %3401, i64 noundef %3402)
   store ptr %3409, ptr %3407, align 8, !tbaa !25
   %3410 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3411 = call fastcc ptr @rb_node_iter_new(ptr noundef %0, ptr noundef %3409, ptr noundef %3410, ptr noundef %8)
+  %3411 = call fastcc ptr @rb_node_iter_new(ptr noundef nonnull %0, ptr noundef %3409, ptr noundef %3410, ptr noundef %8)
   store ptr %3411, ptr %7, align 8, !tbaa !25
   %3412 = load i64, ptr %60, align 8, !tbaa !122
   %3413 = lshr i64 %3412, 1
@@ -8008,26 +8008,26 @@ numparam_pop.exit3336:                            ; preds = %3427, %3430
 
 3437:                                             ; preds = %yy_reduce_print.exit
   %3438 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @check_literal_when(ptr noundef %0, ptr noundef %3438)
+  call fastcc void @check_literal_when(ptr noundef nonnull %0, ptr noundef %3438)
   %3439 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3440 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3439, ptr noundef nonnull %8)
+  %3440 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3439, ptr noundef nonnull %8)
   store ptr %3440, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3441:                                             ; preds = %yy_reduce_print.exit
   %3442 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3443 = getelementptr i8, ptr %.22842, i64 -16
-  %3444 = call fastcc ptr @rb_node_splat_new(ptr noundef %0, ptr noundef %3442, ptr noundef nonnull %8, ptr noundef %3443)
+  %3444 = call fastcc ptr @rb_node_splat_new(ptr noundef nonnull %0, ptr noundef %3442, ptr noundef nonnull %8, ptr noundef %3443)
   store ptr %3444, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3445:                                             ; preds = %yy_reduce_print.exit
   %3446 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @check_literal_when(ptr noundef %0, ptr noundef %3446)
+  call fastcc void @check_literal_when(ptr noundef nonnull %0, ptr noundef %3446)
   %3447 = getelementptr i8, ptr %.22829, i64 -16
   %3448 = load ptr, ptr %3447, align 8, !tbaa !25
   %3449 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3450 = call fastcc ptr @last_arg_append(ptr noundef %0, ptr noundef %3448, ptr noundef %3449, ptr noundef %8)
+  %3450 = call fastcc ptr @last_arg_append(ptr noundef nonnull %0, ptr noundef %3448, ptr noundef %3449, ptr noundef %8)
   store ptr %3450, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8035,7 +8035,7 @@ numparam_pop.exit3336:                            ; preds = %3427, %3430
   %3452 = getelementptr i8, ptr %.22829, i64 -24
   %3453 = load ptr, ptr %3452, align 8, !tbaa !25
   %3454 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3455 = call fastcc ptr @rest_arg_append(ptr noundef %0, ptr noundef %3453, ptr noundef %3454, ptr noundef %8)
+  %3455 = call fastcc ptr @rest_arg_append(ptr noundef nonnull %0, ptr noundef %3453, ptr noundef %3454, ptr noundef %8)
   store ptr %3455, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8047,7 +8047,7 @@ numparam_pop.exit3336:                            ; preds = %3427, %3430
   %3461 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3462 = getelementptr i8, ptr %.22842, i64 -64
   %3463 = getelementptr i8, ptr %.22842, i64 -32
-  %3464 = call fastcc ptr @rb_node_when_new(ptr noundef %0, ptr noundef %3458, ptr noundef %3460, ptr noundef %3461, ptr noundef %8, ptr noundef %3462, ptr noundef %3463)
+  %3464 = call fastcc ptr @rb_node_when_new(ptr noundef nonnull %0, ptr noundef %3458, ptr noundef %3460, ptr noundef %3461, ptr noundef %8, ptr noundef %3462, ptr noundef %3463)
   store ptr %3464, ptr %7, align 8, !tbaa !25
   %3465 = load ptr, ptr %3457, align 8, !tbaa !25
   %3466 = icmp ne ptr %3464, null
@@ -8138,7 +8138,7 @@ pop_pktbl.exit3343:                               ; preds = %3492, %3496
   %3509 = getelementptr i8, ptr %.22829, i64 -8
   %3510 = load ptr, ptr %3509, align 8, !tbaa !25
   %3511 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3512 = call fastcc ptr @rb_node_in_new(ptr noundef %0, ptr noundef %3508, ptr noundef %3510, ptr noundef %3511, ptr noundef nonnull %8)
+  %3512 = call fastcc ptr @rb_node_in_new(ptr noundef nonnull %0, ptr noundef %3508, ptr noundef %3510, ptr noundef %3511, ptr noundef nonnull %8)
   store ptr %3512, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8147,7 +8147,7 @@ pop_pktbl.exit3343:                               ; preds = %3492, %3496
   %3515 = getelementptr i8, ptr %.22829, i64 -16
   %3516 = load ptr, ptr %3515, align 8, !tbaa !25
   %3517 = getelementptr i8, ptr %.22842, i64 -16
-  %3518 = call fastcc ptr @new_if(ptr noundef %0, ptr noundef %3514, ptr noundef %3516, ptr noundef null, ptr noundef %8, ptr noundef %3517, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
+  %3518 = call fastcc ptr @new_if(ptr noundef nonnull %0, ptr noundef %3514, ptr noundef %3516, ptr noundef null, ptr noundef %8, ptr noundef %3517, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
   store ptr %3518, ptr %7, align 8, !tbaa !25
   %3519 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3520 = icmp ne ptr %3518, null
@@ -8171,7 +8171,7 @@ nd_line.exit.i3345:                               ; preds = %3513
   %3531 = getelementptr i8, ptr %.22829, i64 -16
   %3532 = load ptr, ptr %3531, align 8, !tbaa !25
   %3533 = getelementptr i8, ptr %.22842, i64 -16
-  %3534 = call fastcc ptr @new_unless(ptr noundef %0, ptr noundef %3530, ptr noundef %3532, ptr noundef null, ptr noundef %8, ptr noundef %3533, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
+  %3534 = call fastcc ptr @new_unless(ptr noundef nonnull %0, ptr noundef %3530, ptr noundef %3532, ptr noundef null, ptr noundef %8, ptr noundef %3533, ptr noundef nonnull @NULL_LOC, ptr noundef nonnull @NULL_LOC)
   store ptr %3534, ptr %7, align 8, !tbaa !25
   %3535 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3536 = icmp ne ptr %3534, null
@@ -8191,11 +8191,11 @@ nd_line.exit.i3348:                               ; preds = %3529
   br label %fixpos.exit
 
 3545:                                             ; preds = %yy_reduce_print.exit
-  %3546 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3546 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3546, ptr %7, align 8, !tbaa !25
   %3547 = getelementptr i8, ptr %.22829, i64 -8
   %3548 = load ptr, ptr %3547, align 8, !tbaa !25
-  %3549 = call fastcc ptr @new_array_pattern(ptr noundef %0, ptr noundef null, ptr noundef %3548, ptr noundef %3546, ptr noundef %8)
+  %3549 = call fastcc ptr @new_array_pattern(ptr noundef nonnull %0, ptr noundef null, ptr noundef %3548, ptr noundef %3546, ptr noundef %8)
   store ptr %3546, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8203,7 +8203,7 @@ nd_line.exit.i3348:                               ; preds = %3529
   %3551 = getelementptr i8, ptr %.22829, i64 -16
   %3552 = load ptr, ptr %3551, align 8, !tbaa !25
   %3553 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3554 = call fastcc ptr @new_array_pattern(ptr noundef %0, ptr noundef null, ptr noundef %3552, ptr noundef %3553, ptr noundef %8)
+  %3554 = call fastcc ptr @new_array_pattern(ptr noundef nonnull %0, ptr noundef null, ptr noundef %3552, ptr noundef %3553, ptr noundef %8)
   store ptr %3553, ptr %7, align 8, !tbaa !25
   %3555 = getelementptr inbounds nuw i8, ptr %3553, i64 8
   %3556 = getelementptr i8, ptr %.22842, i64 -32
@@ -8235,10 +8235,10 @@ nd_line.exit.i3348:                               ; preds = %3529
 3567:                                             ; preds = %yy_reduce_print.exit
   %3568 = getelementptr i8, ptr %.22829, i64 -16
   %3569 = load ptr, ptr %3568, align 8, !tbaa !25
-  %3570 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3569, ptr noundef nonnull %8)
+  %3570 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3569, ptr noundef nonnull %8)
   %3571 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3572 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %3570, ptr noundef %3571)
-  %3573 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef %3572, ptr noundef nonnull %8)
+  %3572 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %3570, ptr noundef %3571)
+  %3573 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef %3572, ptr noundef nonnull %8)
   store ptr %3573, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8247,7 +8247,7 @@ nd_line.exit.i3348:                               ; preds = %3529
   %3576 = load ptr, ptr %3575, align 8, !tbaa !25
   %3577 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3578 = getelementptr i8, ptr %.22842, i64 -16
-  %3579 = call fastcc ptr @rb_node_or_new(ptr noundef %0, ptr noundef %3576, ptr noundef %3577, ptr noundef %8, ptr noundef %3578)
+  %3579 = call fastcc ptr @rb_node_or_new(ptr noundef nonnull %0, ptr noundef %3576, ptr noundef %3577, ptr noundef %8, ptr noundef %3578)
   store ptr %3579, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8340,7 +8340,7 @@ pop_pktbl.exit3355:                               ; preds = %3610, %3614
   br label %fixpos.exit
 
 3623:                                             ; preds = %yy_reduce_print.exit
-  %3624 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3624 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3624, ptr %7, align 8, !tbaa !25
   %3625 = getelementptr i8, ptr %.22829, i64 -16
   %3626 = load ptr, ptr %3625, align 8, !tbaa !25
@@ -8428,7 +8428,7 @@ pop_pktbl.exit3361:                               ; preds = %3654, %3658
   br label %fixpos.exit
 
 3667:                                             ; preds = %yy_reduce_print.exit
-  %3668 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3668 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3668, ptr %7, align 8, !tbaa !25
   %3669 = getelementptr i8, ptr %.22829, i64 -16
   %3670 = load ptr, ptr %3669, align 8, !tbaa !25
@@ -8454,7 +8454,7 @@ pop_pktbl.exit3361:                               ; preds = %3654, %3658
   br label %fixpos.exit
 
 3680:                                             ; preds = %yy_reduce_print.exit
-  %3681 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3681 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
   %3682 = getelementptr inbounds nuw i8, ptr %3681, i64 32
   store ptr null, ptr %3682, align 8, !tbaa !168
   store ptr %3681, ptr %7, align 8, !tbaa !25
@@ -8494,7 +8494,7 @@ pop_pktbl.exit3363:                               ; preds = %3686, %3690
   br label %fixpos.exit
 
 3700:                                             ; preds = %yy_reduce_print.exit
-  %3701 = call fastcc ptr @new_hash_pattern_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, ptr noundef %8)
+  %3701 = call fastcc ptr @new_hash_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, ptr noundef %8)
   %3702 = getelementptr inbounds nuw i8, ptr %3701, i64 32
   store ptr null, ptr %3702, align 8, !tbaa !170
   store ptr %3701, ptr %7, align 8, !tbaa !25
@@ -8520,14 +8520,14 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3710:                                             ; preds = %yy_reduce_print.exit
   %3711 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3712 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3711, ptr noundef nonnull %8)
-  %3713 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef %3712, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3712 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3711, ptr noundef nonnull %8)
+  %3713 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef %3712, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3713, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3714:                                             ; preds = %yy_reduce_print.exit
   %3715 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3716 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef %3715, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3716 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef %3715, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3716, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8536,7 +8536,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3719 = load ptr, ptr %3718, align 8, !tbaa !25
   %3720 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3721 = call fastcc ptr @list_concat(ptr noundef %3719, ptr noundef %3720)
-  %3722 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef %3719, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
+  %3722 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef %3719, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef %8)
   store ptr %3722, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8544,7 +8544,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3724 = getelementptr i8, ptr %.22829, i64 -8
   %3725 = load ptr, ptr %3724, align 8, !tbaa !25
   %3726 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3727 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef %3725, i32 noundef 1, ptr noundef %3726, ptr noundef null, ptr noundef %8)
+  %3727 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef %3725, i32 noundef 1, ptr noundef %3726, ptr noundef null, ptr noundef %8)
   store ptr %3727, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8554,7 +8554,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3731 = getelementptr i8, ptr %.22829, i64 -16
   %3732 = load ptr, ptr %3731, align 8, !tbaa !25
   %3733 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3734 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef %3730, i32 noundef 1, ptr noundef %3732, ptr noundef %3733, ptr noundef %8)
+  %3734 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef %3730, i32 noundef 1, ptr noundef %3732, ptr noundef %3733, ptr noundef %8)
   store ptr %3734, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8569,7 +8569,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3741:                                             ; preds = %yy_reduce_print.exit
   %3742 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3743 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %3742, ptr noundef null, ptr noundef %8)
+  %3743 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 1, ptr noundef %3742, ptr noundef null, ptr noundef %8)
   store ptr %3743, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8577,7 +8577,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3745 = getelementptr i8, ptr %.22829, i64 -16
   %3746 = load ptr, ptr %3745, align 8, !tbaa !25
   %3747 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3748 = call fastcc ptr @new_array_pattern_tail(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef %3746, ptr noundef %3747, ptr noundef %8)
+  %3748 = call fastcc ptr @new_array_pattern_tail(ptr noundef nonnull %0, ptr noundef null, i32 noundef 1, ptr noundef %3746, ptr noundef %3747, ptr noundef %8)
   store ptr %3748, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8587,15 +8587,15 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3752 = getelementptr i8, ptr %.22829, i64 -16
   %3753 = load ptr, ptr %3752, align 8, !tbaa !25
   %3754 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3755 = call fastcc ptr @new_find_pattern_tail(ptr noundef %0, ptr noundef %3751, ptr noundef %3753, ptr noundef %3754, ptr noundef %8)
+  %3755 = call fastcc ptr @new_find_pattern_tail(ptr noundef nonnull %0, ptr noundef %3751, ptr noundef %3753, ptr noundef %3754, ptr noundef %8)
   store ptr %3755, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3756:                                             ; preds = %yy_reduce_print.exit
   %3757 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @error_duplicate_pattern_variable(ptr noundef %0, i64 noundef %3757, ptr noundef nonnull %.22842)
+  call fastcc void @error_duplicate_pattern_variable(ptr noundef nonnull %0, i64 noundef %3757, ptr noundef nonnull %.22842)
   %3758 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3759 = call ptr @assignable(ptr noundef %0, i64 noundef %3758, ptr noundef null, ptr noundef nonnull %8)
+  %3759 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %3758, ptr noundef null, ptr noundef nonnull %8)
   store ptr %3759, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8613,38 +8613,38 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3766:                                             ; preds = %yy_reduce_print.exit
   %3767 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3768 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3767, ptr noundef nonnull %8)
+  %3768 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3767, ptr noundef nonnull %8)
   store ptr %3768, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3769:                                             ; preds = %yy_reduce_print.exit
   %3770 = getelementptr i8, ptr %.22829, i64 -16
   %3771 = load ptr, ptr %3770, align 8, !tbaa !25
-  %3772 = call fastcc ptr @new_unique_key_hash(ptr noundef %0, ptr noundef %3771, ptr noundef %8)
+  %3772 = call fastcc ptr @new_unique_key_hash(ptr noundef nonnull %0, ptr noundef %3771, ptr noundef %8)
   %3773 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3774 = call fastcc ptr @new_hash_pattern_tail(ptr noundef %0, ptr noundef %3772, i64 noundef %3773, ptr noundef %8)
+  %3774 = call fastcc ptr @new_hash_pattern_tail(ptr noundef nonnull %0, ptr noundef %3772, i64 noundef %3773, ptr noundef %8)
   store ptr %3774, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3775:                                             ; preds = %yy_reduce_print.exit
   %3776 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3777 = call fastcc ptr @new_unique_key_hash(ptr noundef %0, ptr noundef %3776, ptr noundef %8)
-  %3778 = call fastcc ptr @new_hash_pattern_tail(ptr noundef %0, ptr noundef %3777, i64 noundef 0, ptr noundef %8)
+  %3777 = call fastcc ptr @new_unique_key_hash(ptr noundef nonnull %0, ptr noundef %3776, ptr noundef %8)
+  %3778 = call fastcc ptr @new_hash_pattern_tail(ptr noundef nonnull %0, ptr noundef %3777, i64 noundef 0, ptr noundef %8)
   store ptr %3778, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3779:                                             ; preds = %yy_reduce_print.exit
   %3780 = getelementptr i8, ptr %.22829, i64 -8
   %3781 = load ptr, ptr %3780, align 8, !tbaa !25
-  %3782 = call fastcc ptr @new_unique_key_hash(ptr noundef %0, ptr noundef %3781, ptr noundef %8)
-  %3783 = call fastcc ptr @new_hash_pattern_tail(ptr noundef %0, ptr noundef %3782, i64 noundef 0, ptr noundef %8)
+  %3782 = call fastcc ptr @new_unique_key_hash(ptr noundef nonnull %0, ptr noundef %3781, ptr noundef %8)
+  %3783 = call fastcc ptr @new_hash_pattern_tail(ptr noundef nonnull %0, ptr noundef %3782, i64 noundef 0, ptr noundef %8)
   store ptr %3783, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3784:                                             ; preds = %yy_reduce_print.exit
-  %3785 = call fastcc ptr @new_hash(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8)
+  %3785 = call fastcc ptr @new_hash(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
   %3786 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3787 = call fastcc ptr @new_hash_pattern_tail(ptr noundef %0, ptr noundef %3785, i64 noundef %3786, ptr noundef %8)
+  %3787 = call fastcc ptr @new_hash_pattern_tail(ptr noundef nonnull %0, ptr noundef %3785, i64 noundef %3786, ptr noundef %8)
   store ptr %3787, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8660,19 +8660,19 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3794 = getelementptr i8, ptr %.22829, i64 -8
   %3795 = load i64, ptr %3794, align 8, !tbaa !25
   %3796 = getelementptr i8, ptr %.22842, i64 -16
-  call fastcc void @error_duplicate_pattern_key(ptr noundef %0, i64 noundef %3795, ptr noundef %3796)
+  call fastcc void @error_duplicate_pattern_key(ptr noundef nonnull %0, i64 noundef %3795, ptr noundef %3796)
   %3797 = load i64, ptr %3794, align 8, !tbaa !25
   %3798 = call i64 @rb_id2str(i64 noundef %3797) #35
-  %3799 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %3798, ptr noundef %3796)
-  %3800 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3799, ptr noundef nonnull %8)
+  %3799 = call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %0, i64 noundef %3798, ptr noundef %3796)
+  %3800 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3799, ptr noundef nonnull %8)
   %3801 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3802 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %3800, ptr noundef %3801)
+  %3802 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %3800, ptr noundef %3801)
   store ptr %3802, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3803:                                             ; preds = %yy_reduce_print.exit
   %3804 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @error_duplicate_pattern_key(ptr noundef %0, i64 noundef %3804, ptr noundef nonnull %.22842)
+  call fastcc void @error_duplicate_pattern_key(ptr noundef nonnull %0, i64 noundef %3804, ptr noundef nonnull %.22842)
   %3805 = load i64, ptr %.22829, align 8, !tbaa !25
   %.not2966 = icmp eq i64 %3805, 0
   br i1 %.not2966, label %3812, label %3806
@@ -8691,14 +8691,14 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3812:                                             ; preds = %3811, %3806, %3803
   %3813 = phi i64 [ %.pre3650, %3811 ], [ %3805, %3806 ], [ 0, %3803 ]
-  call fastcc void @error_duplicate_pattern_variable(ptr noundef %0, i64 noundef %3813, ptr noundef nonnull %.22842)
+  call fastcc void @error_duplicate_pattern_variable(ptr noundef nonnull %0, i64 noundef %3813, ptr noundef nonnull %.22842)
   %3814 = load i64, ptr %.22829, align 8, !tbaa !25
   %3815 = call i64 @rb_id2str(i64 noundef %3814) #35
-  %3816 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %3815, ptr noundef nonnull %8)
-  %3817 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3816, ptr noundef nonnull %8)
+  %3816 = call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %0, i64 noundef %3815, ptr noundef nonnull %8)
+  %3817 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3816, ptr noundef nonnull %8)
   %3818 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3819 = call ptr @assignable(ptr noundef %0, i64 noundef %3818, ptr noundef null, ptr noundef nonnull %8)
-  %3820 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %3817, ptr noundef %3819)
+  %3819 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %3818, ptr noundef null, ptr noundef nonnull %8)
+  %3820 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %3817, ptr noundef %3819)
   store ptr %3820, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8722,7 +8722,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   br i1 %3828, label %3829, label %3833
 
 3829:                                             ; preds = %3826, %3821
-  %3830 = call fastcc ptr @dsym_node(ptr noundef %0, ptr noundef %3825, ptr noundef %24)
+  %3830 = call fastcc ptr @dsym_node(ptr noundef nonnull %0, ptr noundef %3825, ptr noundef %24)
   %3831 = call i64 @rb_node_sym_string_val(ptr noundef %3830) #35
   %3832 = call i64 @rb_sym2id(i64 noundef %3831) #35
   br label %3837
@@ -8762,7 +8762,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3845 = load ptr, ptr %3844, align 8, !tbaa !25
   %3846 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3847 = getelementptr i8, ptr %.22842, i64 -16
-  %3848 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3845, ptr noundef %3846, ptr noundef %8, ptr noundef %3847)
+  %3848 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %3845, ptr noundef %3846, ptr noundef %8, ptr noundef %3847)
   store ptr %3848, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8771,7 +8771,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3851 = load ptr, ptr %3850, align 8, !tbaa !25
   %3852 = load ptr, ptr %.22829, align 8, !tbaa !25
   %3853 = getelementptr i8, ptr %.22842, i64 -16
-  %3854 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3851, ptr noundef %3852, ptr noundef %8, ptr noundef %3853)
+  %3854 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %3851, ptr noundef %3852, ptr noundef %8, ptr noundef %3853)
   store ptr %3854, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8780,8 +8780,8 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3857 = load ptr, ptr %3856, align 8, !tbaa !25
   %3858 = getelementptr inbounds nuw i8, ptr %.22842, i64 8
   %.val3095 = load i64, ptr %3858, align 4
-  %3859 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3095)
-  %3860 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3857, ptr noundef %3859, ptr noundef %8, ptr noundef nonnull %.22842)
+  %3859 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3095)
+  %3860 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %3857, ptr noundef %3859, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %3860, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8790,64 +8790,64 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3863 = load ptr, ptr %3862, align 8, !tbaa !25
   %3864 = getelementptr inbounds nuw i8, ptr %.22842, i64 8
   %.val3096 = load i64, ptr %3864, align 4
-  %3865 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3096)
-  %3866 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3863, ptr noundef %3865, ptr noundef %8, ptr noundef nonnull %.22842)
+  %3865 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3096)
+  %3866 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %3863, ptr noundef %3865, ptr noundef %8, ptr noundef nonnull %.22842)
   store ptr %3866, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3867:                                             ; preds = %yy_reduce_print.exit
   %3868 = getelementptr i8, ptr %.22842, i64 -16
   %.val3097 = load i64, ptr %3868, align 4
-  %3869 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3097)
+  %3869 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3097)
   %3870 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3871 = call fastcc ptr @rb_node_dot2_new(ptr noundef %0, ptr noundef %3869, ptr noundef %3870, ptr noundef %8, ptr noundef nonnull %3868)
+  %3871 = call fastcc ptr @rb_node_dot2_new(ptr noundef nonnull %0, ptr noundef %3869, ptr noundef %3870, ptr noundef %8, ptr noundef nonnull %3868)
   store ptr %3871, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3872:                                             ; preds = %yy_reduce_print.exit
   %3873 = getelementptr i8, ptr %.22842, i64 -16
   %.val3098 = load i64, ptr %3873, align 4
-  %3874 = call fastcc ptr @new_nil_at(ptr noundef %0, i64 %.val3098)
+  %3874 = call fastcc ptr @new_nil_at(ptr noundef nonnull %0, i64 %.val3098)
   %3875 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3876 = call fastcc ptr @rb_node_dot3_new(ptr noundef %0, ptr noundef %3874, ptr noundef %3875, ptr noundef %8, ptr noundef nonnull %3873)
+  %3876 = call fastcc ptr @rb_node_dot3_new(ptr noundef nonnull %0, ptr noundef %3874, ptr noundef %3875, ptr noundef %8, ptr noundef nonnull %3873)
   store ptr %3876, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3877:                                             ; preds = %yy_reduce_print.exit
   %3878 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3879 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %3878, ptr noundef %8)
+  %3879 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %3878, ptr noundef %8)
   store ptr %3879, ptr %7, align 8, !tbaa !25
   %.not2964 = icmp eq ptr %3879, null
   br i1 %.not2964, label %3880, label %fixpos.exit
 
 3880:                                             ; preds = %3877
-  %3881 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %3881 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %3881, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3882:                                             ; preds = %yy_reduce_print.exit
   %3883 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %3883)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %3883)
   %3884 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %3884, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3885:                                             ; preds = %yy_reduce_print.exit
   %3886 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @error_duplicate_pattern_variable(ptr noundef %0, i64 noundef %3886, ptr noundef nonnull %.22842)
+  call fastcc void @error_duplicate_pattern_variable(ptr noundef nonnull %0, i64 noundef %3886, ptr noundef nonnull %.22842)
   %3887 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3888 = call ptr @assignable(ptr noundef %0, i64 noundef %3887, ptr noundef null, ptr noundef nonnull %8)
+  %3888 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %3887, ptr noundef null, ptr noundef nonnull %8)
   store ptr %3888, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3889:                                             ; preds = %yy_reduce_print.exit
   %3890 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3891 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %3890, ptr noundef %8)
+  %3891 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %3890, ptr noundef %8)
   %.not2963 = icmp eq ptr %3891, null
   br i1 %.not2963, label %3892, label %3894
 
 3892:                                             ; preds = %3889
-  %3893 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %3893 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %3899
 
 3894:                                             ; preds = %3889
@@ -8859,7 +8859,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 3896:                                             ; preds = %3894
   %3897 = load i64, ptr %.22829, align 8, !tbaa !25
   %3898 = call i64 @rb_id2str(i64 noundef %3897) #35
-  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.54, i64 noundef %3898)
+  call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.54, i64 noundef %3898)
   br label %3899
 
 3899:                                             ; preds = %3894, %3896, %3892
@@ -8869,26 +8869,26 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3900:                                             ; preds = %yy_reduce_print.exit
   %3901 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3902 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %3901, ptr noundef %8)
+  %3902 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %3901, ptr noundef %8)
   store ptr %3902, ptr %7, align 8, !tbaa !25
   %.not2962 = icmp eq ptr %3902, null
   br i1 %.not2962, label %3903, label %fixpos.exit
 
 3903:                                             ; preds = %3900
-  %3904 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %3904 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %3904, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3905:                                             ; preds = %yy_reduce_print.exit
   %3906 = getelementptr i8, ptr %.22829, i64 -8
   %3907 = load ptr, ptr %3906, align 8, !tbaa !25
-  %3908 = call fastcc ptr @rb_node_block_new(ptr noundef %0, ptr noundef %3907, ptr noundef %8)
+  %3908 = call fastcc ptr @rb_node_block_new(ptr noundef nonnull %0, ptr noundef %3907, ptr noundef %8)
   store ptr %3908, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3909:                                             ; preds = %yy_reduce_print.exit
   %3910 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3911 = call fastcc ptr @rb_node_colon3_new(ptr noundef %0, i64 noundef %3910, ptr noundef %8)
+  %3911 = call fastcc ptr @rb_node_colon3_new(ptr noundef nonnull %0, i64 noundef %3910, ptr noundef %8)
   store ptr %3911, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8896,13 +8896,13 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3913 = getelementptr i8, ptr %.22829, i64 -16
   %3914 = load ptr, ptr %3913, align 8, !tbaa !25
   %3915 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3916 = call fastcc ptr @rb_node_colon2_new(ptr noundef %0, ptr noundef %3914, i64 noundef %3915, ptr noundef %8)
+  %3916 = call fastcc ptr @rb_node_colon2_new(ptr noundef nonnull %0, ptr noundef %3914, i64 noundef %3915, ptr noundef %8)
   store ptr %3916, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3917:                                             ; preds = %yy_reduce_print.exit
   %3918 = load i64, ptr %.22829, align 8, !tbaa !25
-  %3919 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %3918, ptr noundef %8)
+  %3919 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %3918, ptr noundef %8)
   store ptr %3919, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -8914,9 +8914,9 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
 
 3923:                                             ; preds = %3920
   %3924 = getelementptr i8, ptr %.22842, i64 -48
-  %3925 = call fastcc ptr @rb_node_errinfo_new(ptr noundef %0, ptr noundef %3924)
+  %3925 = call fastcc ptr @rb_node_errinfo_new(ptr noundef nonnull %0, ptr noundef %3924)
   %3926 = load ptr, ptr %3921, align 8, !tbaa !25
-  %3927 = call fastcc ptr @node_assign(ptr noundef %0, ptr noundef %3926, ptr noundef %3925, ptr noundef %3924)
+  %3927 = call fastcc ptr @node_assign(ptr noundef nonnull %0, ptr noundef %3926, ptr noundef %3925, ptr noundef %3924)
   %.pre3649 = load ptr, ptr %3921, align 8, !tbaa !25
   br label %3928
 
@@ -8927,7 +8927,7 @@ pop_pktbl.exit3365:                               ; preds = %3703, %3707
   %3932 = getelementptr i8, ptr %.22829, i64 -8
   %3933 = load ptr, ptr %3932, align 8, !tbaa !25
   %3934 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3935 = call fastcc ptr @rb_node_resbody_new(ptr noundef %0, ptr noundef %3931, ptr noundef %3929, ptr noundef %3933, ptr noundef %3934, ptr noundef %8)
+  %3935 = call fastcc ptr @rb_node_resbody_new(ptr noundef nonnull %0, ptr noundef %3931, ptr noundef %3929, ptr noundef %3933, ptr noundef %3934, ptr noundef %8)
   store ptr %3935, ptr %7, align 8, !tbaa !25
   %3936 = load ptr, ptr %3930, align 8, !tbaa !25
   %.not2960 = icmp eq ptr %3936, null
@@ -8988,7 +8988,7 @@ nd_line.exit.i3376:                               ; preds = %3955
 
 3966:                                             ; preds = %yy_reduce_print.exit
   %3967 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %3968 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %3967, ptr noundef nonnull %8)
+  %3968 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %3967, ptr noundef nonnull %8)
   store ptr %3968, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9035,8 +9035,8 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %3987 = getelementptr i8, ptr %.22829, i64 -8
   %3988 = load ptr, ptr %3987, align 8, !tbaa !25
   store ptr %3988, ptr %7, align 8, !tbaa !25
-  %3989 = call fastcc ptr @void_stmts(ptr noundef %0, ptr noundef %3988)
-  call fastcc void @void_expr(ptr noundef %0, ptr noundef %3989)
+  %3989 = call fastcc ptr @void_stmts(ptr noundef nonnull %0, ptr noundef %3988)
+  call fastcc void @void_expr(ptr noundef nonnull %0, ptr noundef %3989)
   br label %fixpos.exit
 
 3990:                                             ; preds = %yy_reduce_print.exit
@@ -9047,12 +9047,12 @@ splat_array.exit:                                 ; preds = %3969, %3973
 3992:                                             ; preds = %3990
   %3993 = load ptr, ptr %58, align 8, !tbaa !172
   %3994 = call fastcc ptr @rb_parser_encoding_string_new(ptr noundef null, i64 noundef 0, ptr noundef %3993)
-  %3995 = call fastcc ptr @rb_node_str_new(ptr noundef %0, ptr noundef nonnull %3994, ptr noundef %8)
+  %3995 = call fastcc ptr @rb_node_str_new(ptr noundef nonnull %0, ptr noundef nonnull %3994, ptr noundef %8)
   store ptr %3995, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 3996:                                             ; preds = %3990
-  %3997 = call fastcc ptr @evstr2dstr(ptr noundef %0, ptr noundef nonnull %3991)
+  %3997 = call fastcc ptr @evstr2dstr(ptr noundef nonnull %0, ptr noundef nonnull %3991)
   store ptr %3997, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9060,14 +9060,14 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %3999 = getelementptr i8, ptr %.22829, i64 -8
   %4000 = load ptr, ptr %3999, align 8, !tbaa !25
   %4001 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4002 = call fastcc ptr @literal_concat(ptr noundef %0, ptr noundef %4000, ptr noundef %4001, ptr noundef %8)
+  %4002 = call fastcc ptr @literal_concat(ptr noundef nonnull %0, ptr noundef %4000, ptr noundef %4001, ptr noundef %8)
   store ptr %4002, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4003:                                             ; preds = %yy_reduce_print.exit
   %4004 = getelementptr i8, ptr %.22829, i64 -8
   %4005 = load ptr, ptr %4004, align 8, !tbaa !25
-  %4006 = call fastcc ptr @heredoc_dedent(ptr noundef %0, ptr noundef %4005)
+  %4006 = call fastcc ptr @heredoc_dedent(ptr noundef nonnull %0, ptr noundef %4005)
   store ptr %4006, ptr %7, align 8, !tbaa !25
   %.not2956 = icmp eq ptr %4006, null
   br i1 %.not2956, label %4015, label %4007
@@ -9096,8 +9096,8 @@ splat_array.exit:                                 ; preds = %3969, %3973
 4019:                                             ; preds = %yy_reduce_print.exit
   %4020 = getelementptr i8, ptr %.22829, i64 -8
   %4021 = load ptr, ptr %4020, align 8, !tbaa !25
-  %4022 = call fastcc ptr @heredoc_dedent(ptr noundef %0, ptr noundef %4021)
-  %4023 = call fastcc ptr @new_xstring(ptr noundef %0, ptr noundef %4022, ptr noundef %8)
+  %4022 = call fastcc ptr @heredoc_dedent(ptr noundef nonnull %0, ptr noundef %4021)
+  %4023 = call fastcc ptr @new_xstring(ptr noundef nonnull %0, ptr noundef %4022, ptr noundef %8)
   store ptr %4023, ptr %7, align 8, !tbaa !25
   %4024 = load i32, ptr %63, align 4, !tbaa !173
   %4025 = icmp sgt i32 %4024, 0
@@ -9113,7 +9113,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4030 = load i32, ptr %.22829, align 8, !tbaa !25
   %4031 = getelementptr i8, ptr %.22842, i64 -32
   %4032 = getelementptr i8, ptr %.22842, i64 -16
-  %4033 = call fastcc ptr @new_regexp(ptr noundef %0, ptr noundef %4029, i32 noundef %4030, ptr noundef %8, ptr noundef %4031, ptr noundef %4032, ptr noundef nonnull %.22842)
+  %4033 = call fastcc ptr @new_regexp(ptr noundef nonnull %0, ptr noundef %4029, i32 noundef %4030, ptr noundef %8, ptr noundef %4031, ptr noundef %4032, ptr noundef nonnull %.22842)
   store ptr %4033, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9137,7 +9137,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   br label %4048
 
 4046:                                             ; preds = %4034
-  %4047 = call fastcc ptr @rb_node_zlist_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4047 = call fastcc ptr @rb_node_zlist_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %4048
 
 4048:                                             ; preds = %4046, %4037
@@ -9154,8 +9154,8 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4053 = load ptr, ptr %4052, align 8, !tbaa !25
   %4054 = getelementptr i8, ptr %.22829, i64 -8
   %4055 = load ptr, ptr %4054, align 8, !tbaa !25
-  %4056 = call fastcc ptr @evstr2dstr(ptr noundef %0, ptr noundef %4055)
-  %4057 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4053, ptr noundef %4056)
+  %4056 = call fastcc ptr @evstr2dstr(ptr noundef nonnull %0, ptr noundef %4055)
+  %4057 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4053, ptr noundef %4056)
   store ptr %4057, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9163,7 +9163,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4059 = getelementptr i8, ptr %.22829, i64 -8
   %4060 = load ptr, ptr %4059, align 8, !tbaa !25
   %4061 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4062 = call fastcc ptr @literal_concat(ptr noundef %0, ptr noundef %4060, ptr noundef %4061, ptr noundef %8)
+  %4062 = call fastcc ptr @literal_concat(ptr noundef nonnull %0, ptr noundef %4060, ptr noundef %4061, ptr noundef %8)
   store ptr %4062, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9187,7 +9187,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   br label %4077
 
 4075:                                             ; preds = %4063
-  %4076 = call fastcc ptr @rb_node_zlist_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4076 = call fastcc ptr @rb_node_zlist_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %4077
 
 4077:                                             ; preds = %4075, %4066
@@ -9204,8 +9204,8 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4082 = load ptr, ptr %4081, align 8, !tbaa !25
   %4083 = getelementptr i8, ptr %.22829, i64 -8
   %4084 = load ptr, ptr %4083, align 8, !tbaa !25
-  %4085 = call fastcc ptr @evstr2dstr(ptr noundef %0, ptr noundef %4084)
-  %4086 = call fastcc ptr @symbol_append(ptr noundef %0, ptr noundef %4082, ptr noundef %4085)
+  %4085 = call fastcc ptr @evstr2dstr(ptr noundef nonnull %0, ptr noundef %4084)
+  %4086 = call fastcc ptr @symbol_append(ptr noundef nonnull %0, ptr noundef %4082, ptr noundef %4085)
   store ptr %4086, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9229,7 +9229,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   br label %4101
 
 4099:                                             ; preds = %4087
-  %4100 = call fastcc ptr @rb_node_zlist_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4100 = call fastcc ptr @rb_node_zlist_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %4101
 
 4101:                                             ; preds = %4099, %4090
@@ -9257,7 +9257,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   br label %4117
 
 4115:                                             ; preds = %4103
-  %4116 = call fastcc ptr @rb_node_zlist_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4116 = call fastcc ptr @rb_node_zlist_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %4117
 
 4117:                                             ; preds = %4115, %4106
@@ -9274,7 +9274,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4122 = load ptr, ptr %4121, align 8, !tbaa !25
   %4123 = getelementptr i8, ptr %.22829, i64 -8
   %4124 = load ptr, ptr %4123, align 8, !tbaa !25
-  %4125 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4122, ptr noundef %4124)
+  %4125 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4122, ptr noundef %4124)
   store ptr %4125, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9287,7 +9287,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4129 = load ptr, ptr %4128, align 8, !tbaa !25
   %4130 = getelementptr i8, ptr %.22829, i64 -8
   %4131 = load ptr, ptr %4130, align 8, !tbaa !25
-  %4132 = call fastcc ptr @symbol_append(ptr noundef %0, ptr noundef %4129, ptr noundef %4131)
+  %4132 = call fastcc ptr @symbol_append(ptr noundef nonnull %0, ptr noundef %4129, ptr noundef %4131)
   store ptr %4132, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9299,7 +9299,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4135 = getelementptr i8, ptr %.22829, i64 -8
   %4136 = load ptr, ptr %4135, align 8, !tbaa !25
   %4137 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4138 = call fastcc ptr @literal_concat(ptr noundef %0, ptr noundef %4136, ptr noundef %4137, ptr noundef %8)
+  %4138 = call fastcc ptr @literal_concat(ptr noundef nonnull %0, ptr noundef %4136, ptr noundef %4137, ptr noundef %8)
   store ptr %4138, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9311,7 +9311,7 @@ splat_array.exit:                                 ; preds = %3969, %3973
   %4141 = getelementptr i8, ptr %.22829, i64 -8
   %4142 = load ptr, ptr %4141, align 8, !tbaa !25
   %4143 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4144 = call fastcc ptr @literal_concat(ptr noundef %0, ptr noundef %4142, ptr noundef %4143, ptr noundef %8)
+  %4144 = call fastcc ptr @literal_concat(ptr noundef nonnull %0, ptr noundef %4142, ptr noundef %4143, ptr noundef %8)
   store ptr %4144, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9354,13 +9354,13 @@ splat_array.exit:                                 ; preds = %3969, %3973
   br label %4163
 
 4160:                                             ; preds = %4153
-  %4161 = call fastcc ptr @rb_node_dstr_new(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8)
-  %4162 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4161, ptr noundef nonnull %4148)
+  %4161 = call fastcc ptr @rb_node_dstr_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
+  %4162 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4161, ptr noundef nonnull %4148)
   br label %4163
 
 4163:                                             ; preds = %4160, %4158, %4153
   %.02812 = phi ptr [ %4162, %4160 ], [ %4148, %4153 ], [ %4159, %4158 ]
-  %4164 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %.02812, ptr noundef nonnull %4149)
+  %4164 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %.02812, ptr noundef nonnull %4149)
   store ptr %4164, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9388,7 +9388,7 @@ parser_set_lex_state.exit3381:                    ; preds = %4165, %4169
   store ptr %4174, ptr %61, align 8, !tbaa !174
   %4175 = load ptr, ptr %.22829, align 8, !tbaa !25
   %4176 = getelementptr i8, ptr %.22842, i64 -32
-  %4177 = call fastcc ptr @rb_node_evstr_new(ptr noundef %0, ptr noundef %4175, ptr noundef %8, ptr noundef %4176, ptr noundef nonnull @NULL_LOC)
+  %4177 = call fastcc ptr @rb_node_evstr_new(ptr noundef nonnull %0, ptr noundef %4175, ptr noundef %8, ptr noundef %4176, ptr noundef nonnull @NULL_LOC)
   store ptr %4177, ptr %7, align 8, !tbaa !25
   %4178 = getelementptr inbounds nuw i8, ptr %.22842, i64 8
   %4179 = load i32, ptr %4178, align 4, !tbaa !57
@@ -9543,13 +9543,13 @@ parser_set_lex_state.exit3385:                    ; preds = %.thread3692, %4222,
 
 4245:                                             ; preds = %yy_reduce_print.exit
   %4246 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4247 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %4246, ptr noundef %8)
+  %4247 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %4246, ptr noundef %8)
   store ptr %4247, ptr %7, align 8, !tbaa !25
   %.not2944 = icmp eq ptr %4247, null
   br i1 %.not2944, label %4248, label %fixpos.exit
 
 4248:                                             ; preds = %4245
-  %4249 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4249 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %4249, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9647,37 +9647,37 @@ parser_set_lex_state.exit3389:                    ; preds = %4263, %4266
 
 4286:                                             ; preds = %yy_reduce_print.exit
   %4287 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4288 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %4287, ptr noundef %8)
+  %4288 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %4287, ptr noundef %8)
   store ptr %4288, ptr %7, align 8, !tbaa !25
   %.not2942 = icmp eq ptr %4288, null
   br i1 %.not2942, label %4289, label %fixpos.exit
 
 4289:                                             ; preds = %4286
-  %4290 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4290 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %4290, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4291:                                             ; preds = %yy_reduce_print.exit
   %4292 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4293 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %4292, ptr noundef %8)
+  %4293 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %4292, ptr noundef %8)
   store ptr %4293, ptr %7, align 8, !tbaa !25
   %.not2941 = icmp eq ptr %4293, null
   br i1 %.not2941, label %4294, label %fixpos.exit
 
 4294:                                             ; preds = %4291
-  %4295 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4295 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   store ptr %4295, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4296:                                             ; preds = %yy_reduce_print.exit
   %4297 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4298 = call ptr @assignable(ptr noundef %0, i64 noundef %4297, ptr noundef null, ptr noundef nonnull %8)
+  %4298 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %4297, ptr noundef null, ptr noundef nonnull %8)
   store ptr %4298, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4299:                                             ; preds = %yy_reduce_print.exit
   %4300 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4301 = call ptr @assignable(ptr noundef %0, i64 noundef %4300, ptr noundef null, ptr noundef nonnull %8)
+  %4301 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %4300, ptr noundef null, ptr noundef nonnull %8)
   store ptr %4301, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9715,7 +9715,7 @@ new_args.exit3398:                                ; preds = %yy_reduce_print.exi
   %4315 = and i16 %4314, -5
   store i16 %4315, ptr %50, align 8
   %4316 = getelementptr i8, ptr %.22842, i64 -16
-  %4317 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef %4316)
+  %4317 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef %4316)
   store ptr %4317, ptr %7, align 8, !tbaa !25
   %4318 = getelementptr inbounds nuw i8, ptr %4317, i64 32
   %4319 = getelementptr inbounds nuw i8, ptr %4317, i64 104
@@ -9824,8 +9824,8 @@ parser_set_lex_state.exit3404:                    ; preds = %4354, %4365
   %4373 = getelementptr i8, ptr %.22829, i64 -8
   %4374 = load i64, ptr %4373, align 8, !tbaa !25
   %4375 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4376 = call ptr @assignable(ptr noundef %0, i64 noundef %4374, ptr noundef %4375, ptr noundef nonnull %8)
-  %4377 = call fastcc ptr @new_kw_arg(ptr noundef %0, ptr noundef %4376, ptr noundef %8)
+  %4376 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %4374, ptr noundef %4375, ptr noundef nonnull %8)
+  %4377 = call fastcc ptr @new_kw_arg(ptr noundef nonnull %0, ptr noundef %4376, ptr noundef %8)
   store ptr %4377, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9834,8 +9834,8 @@ parser_set_lex_state.exit3404:                    ; preds = %4354, %4365
   %4380 = or i16 %4379, 4
   store i16 %4380, ptr %50, align 8
   %4381 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4382 = call ptr @assignable(ptr noundef %0, i64 noundef %4381, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
-  %4383 = call fastcc ptr @new_kw_arg(ptr noundef %0, ptr noundef %4382, ptr noundef %8)
+  %4382 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %4381, ptr noundef nonnull inttoptr (i64 -1 to ptr), ptr noundef nonnull %8)
+  %4383 = call fastcc ptr @new_kw_arg(ptr noundef nonnull %0, ptr noundef %4382, ptr noundef %8)
   store ptr %4383, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9887,7 +9887,7 @@ kwd_append.exit3411:                              ; preds = %4386, %opt_arg_appe
   %4405 = load i64, ptr %4404, align 8, !tbaa !25
   %4406 = load i64, ptr %.22829, align 8, !tbaa !25
   %4407 = getelementptr i8, ptr %.22842, i64 -16
-  %4408 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef %4403, i64 noundef %4405, i64 noundef %4406, ptr noundef %4407)
+  %4408 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef %4403, i64 noundef %4405, i64 noundef %4406, ptr noundef %4407)
   store ptr %4408, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9896,7 +9896,7 @@ kwd_append.exit3411:                              ; preds = %4386, %opt_arg_appe
   %4411 = load ptr, ptr %4410, align 8, !tbaa !25
   %4412 = load i64, ptr %.22829, align 8, !tbaa !25
   %4413 = getelementptr i8, ptr %.22842, i64 -16
-  %4414 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef %4411, i64 noundef 0, i64 noundef %4412, ptr noundef %4413)
+  %4414 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef %4411, i64 noundef 0, i64 noundef %4412, ptr noundef %4413)
   store ptr %4414, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9905,13 +9905,13 @@ kwd_append.exit3411:                              ; preds = %4386, %opt_arg_appe
   %4417 = load i64, ptr %4416, align 8, !tbaa !25
   %4418 = load i64, ptr %.22829, align 8, !tbaa !25
   %4419 = getelementptr i8, ptr %.22842, i64 -16
-  %4420 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef %4417, i64 noundef %4418, ptr noundef %4419)
+  %4420 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef %4417, i64 noundef %4418, ptr noundef %4419)
   store ptr %4420, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4421:                                             ; preds = %yy_reduce_print.exit
   %4422 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4423 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef %4422, ptr noundef nonnull %.22842)
+  %4423 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef %4422, ptr noundef nonnull %.22842)
   store ptr %4423, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9954,8 +9954,8 @@ kwd_append.exit3411:                              ; preds = %4386, %opt_arg_appe
   %4443 = getelementptr i8, ptr %.22829, i64 -16
   %4444 = load i64, ptr %4443, align 8, !tbaa !25
   %4445 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4446 = call ptr @assignable(ptr noundef %0, i64 noundef %4444, ptr noundef %4445, ptr noundef nonnull %8)
-  %4447 = call fastcc ptr @rb_node_opt_arg_new(ptr noundef %0, ptr noundef %4446, ptr noundef %8)
+  %4446 = call ptr @assignable(ptr noundef nonnull %0, i64 noundef %4444, ptr noundef %4445, ptr noundef nonnull %8)
+  %4447 = call fastcc ptr @rb_node_opt_arg_new(ptr noundef nonnull %0, ptr noundef %4446, ptr noundef %8)
   store ptr %4447, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -9999,7 +9999,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   br label %fixpos.exit
 
 4466:                                             ; preds = %yy_reduce_print.exit
-  %4467 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
+  %4467 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
   store ptr %4467, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10011,7 +10011,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4473 = getelementptr i8, ptr %.22829, i64 -8
   %4474 = load i64, ptr %4473, align 8, !tbaa !25
   %4475 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4476 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4470, ptr noundef %4472, i64 noundef %4474, ptr noundef null, ptr noundef %4475, ptr noundef nonnull %8)
+  %4476 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4470, ptr noundef %4472, i64 noundef %4474, ptr noundef null, ptr noundef %4475, ptr noundef nonnull %8)
   store ptr %4475, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10025,7 +10025,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4484 = getelementptr i8, ptr %.22829, i64 -8
   %4485 = load ptr, ptr %4484, align 8, !tbaa !25
   %4486 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4487 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4479, ptr noundef %4481, i64 noundef %4483, ptr noundef %4485, ptr noundef %4486, ptr noundef nonnull %8)
+  %4487 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4479, ptr noundef %4481, i64 noundef %4483, ptr noundef %4485, ptr noundef %4486, ptr noundef nonnull %8)
   store ptr %4486, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10035,7 +10035,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4491 = getelementptr i8, ptr %.22829, i64 -8
   %4492 = load ptr, ptr %4491, align 8, !tbaa !25
   %4493 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4494 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4490, ptr noundef %4492, i64 noundef 0, ptr noundef null, ptr noundef %4493, ptr noundef nonnull %8)
+  %4494 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4490, ptr noundef %4492, i64 noundef 0, ptr noundef null, ptr noundef %4493, ptr noundef nonnull %8)
   store ptr %4493, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10047,7 +10047,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4500 = getelementptr i8, ptr %.22829, i64 -8
   %4501 = load ptr, ptr %4500, align 8, !tbaa !25
   %4502 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4503 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4497, ptr noundef %4499, i64 noundef 0, ptr noundef %4501, ptr noundef %4502, ptr noundef nonnull %8)
+  %4503 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4497, ptr noundef %4499, i64 noundef 0, ptr noundef %4501, ptr noundef %4502, ptr noundef nonnull %8)
   store ptr %4502, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10057,7 +10057,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4507 = getelementptr i8, ptr %.22829, i64 -8
   %4508 = load i64, ptr %4507, align 8, !tbaa !25
   %4509 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4510 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4506, ptr noundef null, i64 noundef %4508, ptr noundef null, ptr noundef %4509, ptr noundef nonnull %8)
+  %4510 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4506, ptr noundef null, i64 noundef %4508, ptr noundef null, ptr noundef %4509, ptr noundef nonnull %8)
   store ptr %4509, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10069,7 +10069,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4516 = getelementptr i8, ptr %.22829, i64 -8
   %4517 = load ptr, ptr %4516, align 8, !tbaa !25
   %4518 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4519 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4513, ptr noundef null, i64 noundef %4515, ptr noundef %4517, ptr noundef %4518, ptr noundef nonnull %8)
+  %4519 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4513, ptr noundef null, i64 noundef %4515, ptr noundef %4517, ptr noundef %4518, ptr noundef nonnull %8)
   store ptr %4518, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10077,7 +10077,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4521 = getelementptr i8, ptr %.22829, i64 -8
   %4522 = load ptr, ptr %4521, align 8, !tbaa !25
   %4523 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4524 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef %4522, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %4523, ptr noundef nonnull %8)
+  %4524 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef %4522, ptr noundef null, i64 noundef 0, ptr noundef null, ptr noundef %4523, ptr noundef nonnull %8)
   store ptr %4523, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10087,7 +10087,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4528 = getelementptr i8, ptr %.22829, i64 -8
   %4529 = load i64, ptr %4528, align 8, !tbaa !25
   %4530 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4531 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %4527, i64 noundef %4529, ptr noundef null, ptr noundef %4530, ptr noundef nonnull %8)
+  %4531 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %4527, i64 noundef %4529, ptr noundef null, ptr noundef %4530, ptr noundef nonnull %8)
   store ptr %4530, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10099,7 +10099,7 @@ opt_arg_append.exit3416:                          ; preds = %.lr.ph.i3413, %4450
   %4537 = getelementptr i8, ptr %.22829, i64 -8
   %4538 = load ptr, ptr %4537, align 8, !tbaa !25
   %4539 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4540 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %4534, i64 noundef %4536, ptr noundef %4538, ptr noundef %4539, ptr noundef nonnull %8)
+  %4540 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %4534, i64 noundef %4536, ptr noundef %4538, ptr noundef %4539, ptr noundef nonnull %8)
   store ptr %4539, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10138,7 +10138,7 @@ new_args.exit3421:                                ; preds = %yy_reduce_print.exi
   %4561 = getelementptr i8, ptr %.22829, i64 -8
   %4562 = load ptr, ptr %4561, align 8, !tbaa !25
   %4563 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4564 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef %4560, i64 noundef 0, ptr noundef %4562, ptr noundef %4563, ptr noundef nonnull %8)
+  %4564 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef %4560, i64 noundef 0, ptr noundef %4562, ptr noundef %4563, ptr noundef nonnull %8)
   store ptr %4563, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10146,7 +10146,7 @@ new_args.exit3421:                                ; preds = %yy_reduce_print.exi
   %4566 = getelementptr i8, ptr %.22829, i64 -8
   %4567 = load i64, ptr %4566, align 8, !tbaa !25
   %4568 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4569 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef %4567, ptr noundef null, ptr noundef %4568, ptr noundef nonnull %8)
+  %4569 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %4567, ptr noundef null, ptr noundef %4568, ptr noundef nonnull %8)
   store ptr %4568, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10156,7 +10156,7 @@ new_args.exit3421:                                ; preds = %yy_reduce_print.exi
   %4573 = getelementptr i8, ptr %.22829, i64 -8
   %4574 = load ptr, ptr %4573, align 8, !tbaa !25
   %4575 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4576 = call fastcc ptr @new_args(ptr noundef %0, ptr noundef null, ptr noundef null, i64 noundef %4572, ptr noundef %4574, ptr noundef %4575, ptr noundef nonnull %8)
+  %4576 = call fastcc ptr @new_args(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, i64 noundef %4572, ptr noundef %4574, ptr noundef %4575, ptr noundef nonnull %8)
   store ptr %4575, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10188,7 +10188,7 @@ new_args.exit3426:                                ; preds = %yy_reduce_print.exi
   br label %fixpos.exit
 
 new_args.exit3431:                                ; preds = %yy_reduce_print.exit
-  %4592 = call fastcc ptr @new_args_tail(ptr noundef %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
+  %4592 = call fastcc ptr @new_args_tail(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %.22842)
   store ptr %4592, ptr %7, align 8, !tbaa !25
   %4593 = getelementptr inbounds nuw i8, ptr %4592, i64 32
   %4594 = getelementptr inbounds nuw i8, ptr %4592, i64 104
@@ -10242,32 +10242,32 @@ new_args.exit3431:                                ; preds = %yy_reduce_print.exi
 4612:                                             ; preds = %yy_reduce_print.exit
   %4613 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4613, ptr %7, align 8, !tbaa !25
-  %4614 = call fastcc i64 @formal_argument_error(ptr noundef %0, i64 noundef %4613)
+  %4614 = call fastcc i64 @formal_argument_error(ptr noundef nonnull %0, i64 noundef %4613)
   store i32 -1, ptr %52, align 8, !tbaa !108
   br label %fixpos.exit
 
 4615:                                             ; preds = %yy_reduce_print.exit
   %4616 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4616)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4616)
   %4617 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4617, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4618:                                             ; preds = %yy_reduce_print.exit
   %4619 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4620 = call fastcc ptr @rb_node_args_aux_new(ptr noundef %0, i64 noundef %4619, i32 noundef 1)
+  %4620 = call fastcc ptr @rb_node_args_aux_new(ptr noundef nonnull %0, i64 noundef %4619, i32 noundef 1)
   store ptr %4620, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4621:                                             ; preds = %yy_reduce_print.exit
-  %4622 = call i64 @rb_parser_internal_id(ptr noundef %0)
+  %4622 = call i64 @rb_parser_internal_id(ptr noundef nonnull %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25) #35
   %4623 = getelementptr i8, ptr %.22842, i64 -16
   %4624 = load i64, ptr %4623, align 4
   store i64 %4624, ptr %25, align 8
   %4625 = load i64, ptr %4623, align 4
   store i64 %4625, ptr %54, align 8
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4622)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4622)
   %.val3042 = load ptr, ptr %55, align 8, !tbaa !100
   %4626 = getelementptr i8, ptr %.val3042, i64 8
   %.val3042.val = load ptr, ptr %4626, align 8, !tbaa !148
@@ -10316,7 +10316,7 @@ dyna_in_block.exit3433.thread:                    ; preds = %4621, %dyna_in_bloc
   %4648 = load ptr, ptr %.22829, align 8, !tbaa !25
   %4649 = getelementptr inbounds nuw i8, ptr %4648, i64 48
   %4650 = load ptr, ptr %4649, align 8, !tbaa !133
-  %4651 = call fastcc ptr @block_append(ptr noundef %0, ptr noundef %4647, ptr noundef %4650)
+  %4651 = call fastcc ptr @block_append(ptr noundef nonnull %0, ptr noundef %4647, ptr noundef %4650)
   %4652 = load ptr, ptr %7, align 8, !tbaa !25
   %4653 = getelementptr inbounds nuw i8, ptr %4652, i64 48
   store ptr %4651, ptr %4653, align 8, !tbaa !133
@@ -10328,7 +10328,7 @@ dyna_in_block.exit3433.thread:                    ; preds = %4621, %dyna_in_bloc
 4655:                                             ; preds = %yy_reduce_print.exit
   %4656 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4656, ptr %7, align 8, !tbaa !25
-  %4657 = call fastcc i64 @formal_argument_error(ptr noundef %0, i64 noundef %4656)
+  %4657 = call fastcc i64 @formal_argument_error(ptr noundef nonnull %0, i64 noundef %4656)
   %.not2939 = icmp eq i64 %4657, 0
   br i1 %.not2939, label %4659, label %4658
 
@@ -10338,7 +10338,7 @@ dyna_in_block.exit3433.thread:                    ; preds = %4621, %dyna_in_bloc
 
 4659:                                             ; preds = %4658, %4655
   %4660 = load i64, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4660)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4660)
   store i32 -1, ptr %52, align 8, !tbaa !108
   %4661 = load i16, ptr %50, align 8
   %4662 = and i16 %4661, -5
@@ -10347,40 +10347,40 @@ dyna_in_block.exit3433.thread:                    ; preds = %4621, %dyna_in_bloc
 
 4663:                                             ; preds = %yy_reduce_print.exit
   %4664 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4665 = call fastcc i32 @shadowing_lvar_0(ptr noundef %0, i64 noundef %4664)
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4664)
+  %4665 = call fastcc i32 @shadowing_lvar_0(ptr noundef nonnull %0, i64 noundef %4664)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4664)
   %4666 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4666, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4667:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef 134)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef 134)
   store i64 134, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4668:                                             ; preds = %yy_reduce_print.exit
   %4669 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4670 = call fastcc i32 @shadowing_lvar_0(ptr noundef %0, i64 noundef %4669)
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4669)
+  %4670 = call fastcc i32 @shadowing_lvar_0(ptr noundef nonnull %0, i64 noundef %4669)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4669)
   %4671 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4671, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4672:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef 42)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef 42)
   store i64 42, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4673:                                             ; preds = %yy_reduce_print.exit
   %4674 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4675 = call fastcc i32 @shadowing_lvar_0(ptr noundef %0, i64 noundef %4674)
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef %4674)
+  %4675 = call fastcc i32 @shadowing_lvar_0(ptr noundef nonnull %0, i64 noundef %4674)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef %4674)
   %4676 = load i64, ptr %.22829, align 8, !tbaa !25
   store i64 %4676, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4677:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @arg_var(ptr noundef %0, i64 noundef 38)
+  call fastcc void @arg_var(ptr noundef nonnull %0, i64 noundef 38)
   store i64 38, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10395,7 +10395,7 @@ dyna_in_block.exit3433.thread:                    ; preds = %4621, %dyna_in_bloc
 
 4681:                                             ; preds = %yy_reduce_print.exit
   %4682 = load ptr, ptr %.22829, align 8, !tbaa !25
-  call fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %4682)
+  call fastcc void @value_expr_gen(ptr noundef nonnull %0, ptr noundef %4682)
   %4683 = load ptr, ptr %.22829, align 8, !tbaa !25
   store ptr %4683, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
@@ -10527,9 +10527,9 @@ parser_set_lex_state.exit3435:                    ; preds = %4684, %4687
 4736:                                             ; preds = %yy_reduce_print.exit
   %4737 = getelementptr i8, ptr %.22829, i64 -16
   %4738 = load ptr, ptr %4737, align 8, !tbaa !25
-  %4739 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4738, ptr noundef nonnull %8)
+  %4739 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %4738, ptr noundef nonnull %8)
   %4740 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4741 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4739, ptr noundef %4740)
+  %4741 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4739, ptr noundef %4740)
   store ptr %4741, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10538,30 +10538,30 @@ parser_set_lex_state.exit3435:                    ; preds = %4684, %4687
   %4744 = load i64, ptr %4743, align 8, !tbaa !25
   %4745 = call i64 @rb_id2str(i64 noundef %4744) #35
   %4746 = getelementptr i8, ptr %.22842, i64 -16
-  %4747 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %4745, ptr noundef %4746)
-  %4748 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4747, ptr noundef nonnull %8)
+  %4747 = call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %0, i64 noundef %4745, ptr noundef %4746)
+  %4748 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %4747, ptr noundef nonnull %8)
   %4749 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4750 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4748, ptr noundef %4749)
+  %4750 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4748, ptr noundef %4749)
   store ptr %4750, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4751:                                             ; preds = %yy_reduce_print.exit
   %4752 = load i64, ptr %.22829, align 8, !tbaa !25
-  %4753 = call fastcc ptr @gettable(ptr noundef %0, i64 noundef %4752, ptr noundef %8)
+  %4753 = call fastcc ptr @gettable(ptr noundef nonnull %0, i64 noundef %4752, ptr noundef %8)
   %.not2933 = icmp eq ptr %4753, null
   br i1 %.not2933, label %4754, label %4756
 
 4754:                                             ; preds = %4751
-  %4755 = call fastcc ptr @rb_node_error_new(ptr noundef %0, ptr noundef nonnull %8)
+  %4755 = call fastcc ptr @rb_node_error_new(ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %4756
 
 4756:                                             ; preds = %4754, %4751
   %.02785 = phi ptr [ %4753, %4751 ], [ %4755, %4754 ]
   %4757 = load i64, ptr %.22829, align 8, !tbaa !25
   %4758 = call i64 @rb_id2str(i64 noundef %4757) #35
-  %4759 = call fastcc ptr @rb_node_sym_new(ptr noundef %0, i64 noundef %4758, ptr noundef nonnull %.22842)
-  %4760 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4759, ptr noundef nonnull %8)
-  %4761 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4760, ptr noundef %.02785)
+  %4759 = call fastcc ptr @rb_node_sym_new(ptr noundef nonnull %0, i64 noundef %4758, ptr noundef nonnull %.22842)
+  %4760 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %4759, ptr noundef nonnull %8)
+  %4761 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4760, ptr noundef %.02785)
   store ptr %4761, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -10575,26 +10575,26 @@ parser_set_lex_state.exit3435:                    ; preds = %4684, %4687
   store i64 %.val3078, ptr %49, align 8
   %4765 = getelementptr i8, ptr %.22829, i64 -16
   %4766 = load ptr, ptr %4765, align 8, !tbaa !25
-  %4767 = call fastcc ptr @dsym_node(ptr noundef %0, ptr noundef %4766, ptr noundef %26)
-  %4768 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef %4767, ptr noundef nonnull %26)
+  %4767 = call fastcc ptr @dsym_node(ptr noundef nonnull %0, ptr noundef %4766, ptr noundef %26)
+  %4768 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef %4767, ptr noundef nonnull %26)
   %4769 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4770 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4768, ptr noundef %4769)
+  %4770 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4768, ptr noundef %4769)
   store ptr %4770, ptr %7, align 8, !tbaa !25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %26) #35
   br label %fixpos.exit
 
 4771:                                             ; preds = %yy_reduce_print.exit
-  %4772 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8)
+  %4772 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
   %4773 = load ptr, ptr %.22829, align 8, !tbaa !25
-  %4774 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4772, ptr noundef %4773)
+  %4774 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4772, ptr noundef %4773)
   store ptr %4774, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
 4775:                                             ; preds = %yy_reduce_print.exit
-  call fastcc void @forwarding_arg_check(ptr noundef %0, i64 noundef 134, ptr noundef nonnull @.str.61)
-  %4776 = call fastcc ptr @rb_node_list_new(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8)
-  %4777 = call fastcc ptr @rb_node_lvar_new(ptr noundef %0, i64 noundef 134, ptr noundef nonnull %8)
-  %4778 = call fastcc ptr @list_append(ptr noundef %0, ptr noundef %4776, ptr noundef %4777)
+  call fastcc void @forwarding_arg_check(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull @.str.61)
+  %4776 = call fastcc ptr @rb_node_list_new(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8)
+  %4777 = call fastcc ptr @rb_node_lvar_new(ptr noundef nonnull %0, i64 noundef 134, ptr noundef nonnull %8)
+  %4778 = call fastcc ptr @list_append(ptr noundef nonnull %0, ptr noundef %4776, ptr noundef %4777)
   store ptr %4778, ptr %7, align 8, !tbaa !25
   br label %fixpos.exit
 
@@ -11007,7 +11007,7 @@ yy_stack_print.exit3448:                          ; preds = %.lr.ph.i3445, %4935
   %4942 = getelementptr [1369 x i16], ptr @yystos, i64 0, i64 %4941
   %4943 = load i16, ptr %4942, align 2, !tbaa !61
   %4944 = sext i16 %4943 to i32
-  call fastcc void @yydestruct(ptr noundef nonnull @.str.68, i32 noundef %4944, ptr noundef %.828353613, ptr noundef %.828483612, ptr noundef %0)
+  call fastcc void @yydestruct(ptr noundef nonnull @.str.68, i32 noundef %4944, ptr noundef %.828353613, ptr noundef %.828483612, ptr noundef nonnull %0)
   %4945 = getelementptr i8, ptr %.828353613, i64 -8
   %4946 = getelementptr i8, ptr %.828213614, i64 -2
   %4947 = getelementptr i8, ptr %.828483612, i64 -16
@@ -24146,7 +24146,7 @@ rb_parser_ary_free.exit:                          ; preds = %rb_parser_string_fr
   %.050 = phi ptr [ %56, %.lr.ph ], [ %52, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %.050, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !193
-  tail call fastcc void @local_free(ptr noundef %0, ptr noundef nonnull %.050)
+  tail call fastcc void @local_free(ptr noundef nonnull %0, ptr noundef nonnull %.050)
   %.not40 = icmp eq ptr %56, null
   br i1 %.not40, label %.preheader, label %.lr.ph, !llvm.loop !507
 
@@ -32746,7 +32746,7 @@ rbimpl_intern_const.exit.i:                       ; preds = %.lr.ph.i.i, %162
   store i64 %.lcssa.i.i, ptr %194, align 8, !tbaa !319
   %195 = getelementptr inbounds nuw i8, ptr %186, i64 40
   store ptr %175, ptr %195, align 8, !tbaa !113
-  %196 = tail call fastcc ptr @block_append(ptr noundef %2, ptr noundef %160, ptr noundef nonnull %186)
+  %196 = tail call fastcc ptr @block_append(ptr noundef nonnull %2, ptr noundef %160, ptr noundef nonnull %186)
   %.pre.i67 = load i32, ptr %58, align 8
   br label %197
 
@@ -32940,7 +32940,7 @@ rbimpl_intern_const.exit75.i:                     ; preds = %.lr.ph.i73.i, %rbim
   store i64 %.lcssa.i63.i, ptr %278, align 8, !tbaa !254
   %279 = getelementptr inbounds nuw i8, ptr %270, i64 40
   store ptr %259, ptr %279, align 8, !tbaa !265
-  %280 = tail call fastcc ptr @block_append(ptr noundef %2, ptr noundef nonnull %270, ptr noundef %.0.i)
+  %280 = tail call fastcc ptr @block_append(ptr noundef nonnull %2, ptr noundef nonnull %270, ptr noundef %.0.i)
   %.pre92.i = load i32, ptr %58, align 8
   br label %281
 
@@ -50157,42 +50157,41 @@ tokadd.exit:                                      ; preds = %parser_precise_mbcl
   store i32 %36, ptr %17, align 8, !tbaa !574
   %37 = load i32, ptr %23, align 4, !tbaa !515
   %.not.i16 = icmp slt i32 %36, %37
-  br i1 %.not.i16, label %tokspace.exit.thread, label %.preheader.i
+  br i1 %.not.i16, label %._crit_edge.i, label %.preheader.i
 
-tokspace.exit.thread:                             ; preds = %34
+._crit_edge.i:                                    ; preds = %34
   %.pre.i = load ptr, ptr %15, align 8, !tbaa !506
-  br label %44
+  br label %tokspace.exit
 
 .preheader.i:                                     ; preds = %34, %.preheader.i
   %38 = phi i32 [ %39, %.preheader.i ], [ %37, %34 ]
   %39 = shl i32 %38, 1
   %40 = icmp slt i32 %39, %36
-  br i1 %40, label %.preheader.i, label %tokspace.exit, !llvm.loop !632
+  br i1 %40, label %.preheader.i, label %41, !llvm.loop !632
 
-tokspace.exit:                                    ; preds = %.preheader.i
+41:                                               ; preds = %.preheader.i
   store i32 %39, ptr %23, align 4, !tbaa !515
-  %41 = load ptr, ptr %15, align 8, !tbaa !506
-  %42 = sext i32 %39 to i64
-  %43 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %41, i64 noundef %42, i64 noundef 1) #43
-  store ptr %43, ptr %15, align 8, !tbaa !506
+  %42 = load ptr, ptr %15, align 8, !tbaa !506
+  %43 = sext i32 %39 to i64
+  %44 = tail call nonnull ptr @ruby_xrealloc2(ptr noundef %42, i64 noundef %43, i64 noundef 1) #43
+  store ptr %44, ptr %15, align 8, !tbaa !506
   %.pre13.i = load i32, ptr %17, align 8, !tbaa !574
-  %.not.i17 = icmp eq i32 %30, 0
-  br i1 %.not.i17, label %ruby_nonempty_memcpy.exit, label %44
+  br label %tokspace.exit
 
-44:                                               ; preds = %tokspace.exit.thread, %tokspace.exit
-  %45 = phi ptr [ %.pre.i, %tokspace.exit.thread ], [ %43, %tokspace.exit ]
-  %46 = phi i32 [ %36, %tokspace.exit.thread ], [ %.pre13.i, %tokspace.exit ]
+tokspace.exit:                                    ; preds = %41, %._crit_edge.i
+  %45 = phi i32 [ %36, %._crit_edge.i ], [ %.pre13.i, %41 ]
+  %46 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %44, %41 ]
   %47 = load ptr, ptr %3, align 8, !tbaa !184
   %48 = sub nsw i64 0, %32
   %49 = getelementptr i8, ptr %47, i64 %48
-  %50 = sub i32 %46, %30
+  %50 = sub i32 %45, %30
   %51 = sext i32 %50 to i64
-  %52 = getelementptr i8, ptr %45, i64 %51
+  %52 = getelementptr i8, ptr %46, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %52, ptr noundef nonnull readonly align 1 %49, i64 noundef range(i64 1, 0) %32, i1 noundef false) #35
   br label %ruby_nonempty_memcpy.exit
 
-ruby_nonempty_memcpy.exit:                        ; preds = %44, %tokspace.exit, %parser_precise_mbclen.exit.thread, %tokadd.exit
-  %.0 = phi i32 [ %1, %tokadd.exit ], [ -1, %parser_precise_mbclen.exit.thread ], [ %1, %tokspace.exit ], [ %1, %44 ]
+ruby_nonempty_memcpy.exit:                        ; preds = %tokspace.exit, %parser_precise_mbclen.exit.thread, %tokadd.exit
+  %.0 = phi i32 [ %1, %tokadd.exit ], [ -1, %parser_precise_mbclen.exit.thread ], [ %1, %tokspace.exit ]
   ret i32 %.0
 }
 

@@ -1928,7 +1928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit75: ; 
 
 142:                                              ; preds = %90, %119, %132
   %.130 = phi i1 [ true, %132 ], [ true, %119 ], [ %.029116, %90 ]
-  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.084.0115) #24
+  %143 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.084.0115) #24
   %.not103 = icmp eq ptr %143, %82
   br i1 %.not103, label %._crit_edge118, label %86
 

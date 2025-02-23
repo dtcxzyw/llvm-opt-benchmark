@@ -49,16 +49,16 @@ define range(i32 0, 2) i32 @cs_happly(ptr noundef readonly %0, i32 noundef %1, d
   %31 = tail call double @llvm.fmuladd.f64(double %25, double %30, double %.038)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph42.preheader, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph42.preheader:                               ; preds = %.lr.ph
   %32 = fmul double %2, %31
   %33 = sext i32 %19 to i64
   %wide.trip.count47 = sext i32 %21 to i64
   br label %.lr.ph42
 
-.lr.ph42:                                         ; preds = %._crit_edge, %.lr.ph42
-  %indvars.iv44 = phi i64 [ %33, %._crit_edge ], [ %indvars.iv.next45, %.lr.ph42 ]
+.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
+  %indvars.iv44 = phi i64 [ %33, %.lr.ph42.preheader ], [ %indvars.iv.next45, %.lr.ph42 ]
   %34 = getelementptr inbounds double, ptr %16, i64 %indvars.iv44
   %35 = load double, ptr %34, align 8, !tbaa !15
   %36 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv44

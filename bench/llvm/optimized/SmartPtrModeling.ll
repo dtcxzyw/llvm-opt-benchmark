@@ -9369,8 +9369,8 @@ _ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit.i: ; preds = %579, %_ZN4
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 16
   %590 = load i8, ptr %589, align 16
   %591 = icmp eq i8 %590, 13
-  %.not.not6.i.i = icmp ne ptr %588, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %591
+  %.not6.i.i = icmp ne ptr %588, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %591
   br i1 %.not.not.not.i.i, label %_ZNK12_GLOBAL__N_116SmartPtrModeling22isBoolConversionMethodERKN5clang4ento9CallEventE.exit, label %_ZNK12_GLOBAL__N_116SmartPtrModeling22isBoolConversionMethodERKN5clang4ento9CallEventE.exit.thread
 
 _ZNK12_GLOBAL__N_116SmartPtrModeling22isBoolConversionMethodERKN5clang4ento9CallEventE.exit: ; preds = %_ZNK5clang17CXXConversionDecl17getConversionTypeEv.exit.i

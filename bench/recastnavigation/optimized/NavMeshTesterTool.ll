@@ -571,8 +571,8 @@ _Z7inRangePKfS0_ff.exit83:                        ; preds = %226
 
 .lr.ph122.preheader:                              ; preds = %.preheader
   %241 = zext nneg i32 %.052.lcssa to i64
-  %242 = sext i32 %.052.lcssa to i64
-  %wide.trip.count = zext i32 %194 to i64
+  %242 = zext nneg i32 %.052.lcssa to i64
+  %wide.trip.count = zext nneg i32 %194 to i64
   br label %.lr.ph122
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2043,7 +2043,7 @@ _Z7inRangePKfS0_ff.exit42:                        ; preds = %168
 
 .lr.ph58.preheader:                               ; preds = %.preheader
   %185 = zext nneg i32 %.024.lcssa to i64
-  %186 = sext i32 %.024.lcssa to i64
+  %186 = zext nneg i32 %.024.lcssa to i64
   br label %.lr.ph58
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2221,13 +2221,13 @@ define internal fastcc noundef zeroext i1 @_ZL14getSteerTargetP14dtNavMeshQueryP
   store float %30, ptr %31, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit36, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %.lr.ph40, label %.lr.ph, !llvm.loop !14
 
-.loopexit36:                                      ; preds = %.lr.ph, %17
+.loopexit36:                                      ; preds = %17
   %32 = icmp sgt i32 %16, 0
   br i1 %32, label %.lr.ph40, label %.loopexit
 
-.lr.ph40:                                         ; preds = %.loopexit36
+.lr.ph40:                                         ; preds = %.lr.ph, %.loopexit36
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %wide.trip.count46 = zext nneg i32 %16 to i64

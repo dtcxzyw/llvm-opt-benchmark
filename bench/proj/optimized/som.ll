@@ -831,7 +831,7 @@ define internal { double, double } @_ZL13som_e_inverse5PJ_XYP8PJconsts(double %0
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %.critedge
-  %101 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  %101 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %4)
   %.sroa.090.0.copyload = load double, ptr %4, align 8
   %.sroa.391.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

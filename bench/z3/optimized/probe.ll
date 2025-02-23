@@ -3113,7 +3113,7 @@ while.end.loopexit:                               ; preds = %while.cond21.backed
 while.end:                                        ; preds = %sw.bb16, %while.end.loopexit
   %dec.i170.pre-phi = phi i32 [ %.pre328, %while.end.loopexit ], [ %sub.i, %sw.bb16 ]
   store i32 %dec.i170.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN30is_non_propositional_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(8) %proc, ptr noundef %14)
+  invoke void @_ZN30is_non_propositional_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(8) %proc, ptr noundef nonnull %14)
           to label %sw.epilog106 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb71:                                          ; preds = %start
@@ -5218,7 +5218,7 @@ while.end.loopexit:                               ; preds = %while.cond14.backed
 while.end:                                        ; preds = %sw.bb11, %while.end.loopexit
   %dec.i174.pre-phi = phi i32 [ %.pre336, %while.end.loopexit ], [ %sub.i, %sw.bb11 ]
   store i32 %dec.i174.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN21is_non_qfbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(32) %proc, ptr noundef %14)
+  invoke void @_ZN21is_non_qfbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(32) %proc, ptr noundef nonnull %14)
           to label %sw.epilog85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb54:                                          ; preds = %start
@@ -6268,7 +6268,7 @@ while.end.loopexit:                               ; preds = %while.cond14.backed
 while.end:                                        ; preds = %sw.bb11, %while.end.loopexit
   %dec.i174.pre-phi = phi i32 [ %.pre332, %while.end.loopexit ], [ %sub.i, %sw.bb11 ]
   store i32 %dec.i174.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN24is_non_qfaufbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(48) %proc, ptr noundef %14)
+  invoke void @_ZN24is_non_qfaufbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(48) %proc, ptr noundef nonnull %14)
           to label %sw.epilog85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb54:                                          ; preds = %start
@@ -7285,7 +7285,7 @@ while.end.loopexit:                               ; preds = %while.cond14.backed
 while.end:                                        ; preds = %sw.bb11, %while.end.loopexit
   %dec.i173.pre-phi = phi i32 [ %.pre331, %while.end.loopexit ], [ %sub.i, %sw.bb11 ]
   store i32 %dec.i173.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN23is_non_qfufbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(32) %proc, ptr noundef %14)
+  invoke void @_ZN23is_non_qfufbv_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(32) %proc, ptr noundef nonnull %14)
           to label %sw.epilog85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb54:                                          ; preds = %start

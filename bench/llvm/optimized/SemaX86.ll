@@ -2424,8 +2424,8 @@ _ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread: ; preds = %
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 16
   %308 = load i8, ptr %307, align 16
   %309 = icmp eq i8 %308, 13
-  %.not.not7.i.i = icmp ne ptr %306, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %309
+  %.not7.i.i = icmp ne ptr %306, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %309
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang15DeclarationName24getCXXOverloadedOperatorEv.exit.thread

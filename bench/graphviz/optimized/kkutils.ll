@@ -175,7 +175,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
   %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv31.i
   %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = trunc nuw nsw i64 %indvars.iv31.i to i32
-  tail call void @bfs(i32 noundef %36, ptr noundef %0, i32 noundef %1, ptr noundef %35) #20
+  tail call void @bfs(i32 noundef %36, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %35) #20
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %30
   br i1 %exitcond35.not.i, label %compute_apsp_simple.exit, label %.lr.ph29.i, !llvm.loop !23
@@ -403,13 +403,13 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
   store i32 1, ptr %42, align 4, !tbaa !12
   %43 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %43, %34
-  br i1 %exitcond.not.i, label %fill_neighbors_vec_unweighted.exit, label %38, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph59, label %38, !llvm.loop !16
 
-fill_neighbors_vec_unweighted.exit:               ; preds = %38, %.lr.ph63
+fill_neighbors_vec_unweighted.exit:               ; preds = %.lr.ph63
   %.not57 = icmp eq i64 %34, 1
   br i1 %.not57, label %empty_neighbors_vec.exit, label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %fill_neighbors_vec_unweighted.exit
+.lr.ph59:                                         ; preds = %38, %fill_neighbors_vec_unweighted.exit
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !11
   %46 = add i64 %34, -2

@@ -8794,7 +8794,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, -2147483648) i32 @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_EN18RandomizerInstance6randomEi(ptr noundef nonnull align 8 dereferenceable(5008) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal noundef range(i32 0, 2147483647) i32 @_ZZN5vcpkg19command_ci_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsENS_7TripletES6_EN18RandomizerInstance6randomEi(ptr noundef nonnull align 8 dereferenceable(5008) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 2
   br i1 %3, label %23, label %4
 

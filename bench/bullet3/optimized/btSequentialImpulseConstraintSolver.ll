@@ -5855,26 +5855,26 @@ _ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i: ; preds = %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %51 = load ptr, ptr %50, align 8, !tbaa !32
   %.not.i5.i.i = icmp eq ptr %51, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI12btSolverBodyE7reserveEi.exit.i, label %52
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, label %52
 
 52:                                               ; preds = %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load i8, ptr %53, align 8, !tbaa !31, !range !71, !noundef !72
   %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %_ZN20btAlignedObjectArrayI12btSolverBodyE7reserveEi.exit.i
+  br i1 %55, label %56, label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i
 
 56:                                               ; preds = %52
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %51)
-          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE7reserveEi.exit.i unwind label %76
+          to label %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i unwind label %76
 
-_ZN20btAlignedObjectArrayI12btSolverBodyE7reserveEi.exit.i: ; preds = %56, %52, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i: ; preds = %56, %52, %_ZNK20btAlignedObjectArrayI12btSolverBodyE4copyEiiPS0_.exit.i.i
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %57, align 8, !tbaa !31
   store ptr null, ptr %50, align 8, !tbaa !32
   store i32 0, ptr %9, align 8, !tbaa !34
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE7reserveEi.exit.i, %48
+.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI12btSolverBodyE10deallocateEv.exit.i.i, %48
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 32

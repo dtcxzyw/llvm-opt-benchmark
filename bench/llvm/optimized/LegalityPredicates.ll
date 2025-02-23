@@ -443,39 +443,38 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsF
   %30 = phi ptr [ %.pre.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.loopexit.i.i.i.i.i ], [ %17, %15 ]
   %31 = load i64, ptr %7, align 8, !tbaa !35
   %32 = icmp eq ptr %30, %10
-  br i1 %32, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i, label %33
+  br i1 %32, label %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i, label %33
 
 33:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i
   call void @free(ptr noundef %30) #12
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i
+  br label %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i: ; preds = %33, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i
+_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i: ; preds = %33, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE19moveElementsForGrowEPS3_.exit.i.i.i.i.i
   store ptr %16, ptr %8, align 8, !tbaa !13
   %34 = trunc i64 %31 to i32
   store i32 %34, ptr %12, align 4, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   %.pre8.i.i.i = load i32, ptr %11, align 8, !tbaa !15
   %.pre10.i.i.i = zext i32 %.pre8.i.i.i to i64
-  br label %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i
+  br label %.lr.ph.i.i.i.i.preheader.i.i.i
 
-_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i, %6
-  %.pre-phi.i.i.i = phi i64 [ %.pre10.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i ], [ 0, %6 ]
-  %35 = phi i32 [ %.pre8.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i ], [ 0, %6 ]
-  %36 = phi ptr [ %16, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE4growEm.exit.i.i.i.i ], [ %10, %6 ]
+_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i: ; preds = %6
   %.not9.i.i.i.i.i.i.i = icmp eq i64 %5, 0
   br i1 %.not9.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit, label %.lr.ph.i.i.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i
-  %37 = getelementptr inbounds nuw %"class.std::tuple", ptr %36, i64 %.pre-phi.i.i.i
+.lr.ph.i.i.i.i.preheader.i.i.i:                   ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i
+  %35 = phi ptr [ %16, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i ], [ %10, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i ]
+  %.pre-phi.i.i5.i = phi i64 [ %.pre10.i.i.i, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i ]
+  %36 = getelementptr inbounds nuw %"class.std::tuple", ptr %35, i64 %.pre-phi.i.i5.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i
-  %.011.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.preheader.i.i.i ]
-  %.0810.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %4, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.011.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.preheader.i.i.i ]
+  %.0810.i.i.i.i.i.i.i = phi ptr [ %37, %.lr.ph.i.i.i.i.i.i.i ], [ %4, %.lr.ph.i.i.i.i.preheader.i.i.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.011.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0810.i.i.i.i.i.i.i, i64 24, i1 false)
-  %38 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
-  %39 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %38, %13
+  %37 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %37, %13
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !37
 
 _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
@@ -483,76 +482,76 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized
   br label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit
 
 _ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit: ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i
-  %40 = phi i32 [ %.pre9.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i ], [ %35, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i ]
-  %41 = trunc i64 %5 to i32
-  %42 = add i32 %40, %41
-  store i32 %42, ptr %11, align 8, !tbaa !15
+  %39 = phi i32 [ %.pre9.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_3LLTES2_S2_EELb0EE18uninitialized_copyIPKS3_PS3_EEvT_S9_T0_.exit.loopexit.i.i.i ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEE7reserveEm.exit.i.i.i ]
+  %40 = trunc i64 %5 to i32
+  %41 = add i32 %39, %40
+  store i32 %41, ptr %11, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #12
   store i32 %1, ptr %9, align 8, !tbaa !38
-  %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %2, ptr %43, align 4, !tbaa !45
-  %44 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %3, ptr %44, align 8, !tbaa !46
-  %45 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store ptr %46, ptr %45, align 8, !tbaa !13
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i32 0, ptr %47, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 28
-  store i32 4, ptr %48, align 4, !tbaa !16
-  %.not.i.i = icmp eq i32 %42, 0
-  br i1 %.not.i.i, label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit, label %49
+  %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %2, ptr %42, align 4, !tbaa !45
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %3, ptr %43, align 8, !tbaa !46
+  %44 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store ptr %45, ptr %44, align 8, !tbaa !13
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i32 0, ptr %46, align 8, !tbaa !15
+  %47 = getelementptr inbounds nuw i8, ptr %9, i64 28
+  store i32 4, ptr %47, align 4, !tbaa !16
+  %.not.i.i = icmp eq i32 %41, 0
+  br i1 %.not.i.i, label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit, label %48
 
-49:                                               ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit
-  %50 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %45, ptr noundef nonnull align 8 dereferenceable(112) %8)
-  %.pre = load i32, ptr %47, align 8, !tbaa !15
-  %51 = icmp eq i32 %.pre, 0
+48:                                               ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit
+  %49 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef nonnull align 8 dereferenceable(112) %8)
+  %.pre = load i32, ptr %46, align 8, !tbaa !15
+  %50 = icmp eq i32 %.pre, 0
   br label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit
 
-_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit: ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit, %49
-  %.not.i.i.i.i.i.i = phi i1 [ true, %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit ], [ %51, %49 ]
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %52, align 8
-  %53 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %53, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 12, i1 false)
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %53, i64 32
-  store ptr %55, ptr %54, align 8, !tbaa !13
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  store i32 0, ptr %56, align 8, !tbaa !15
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 28
-  store i32 4, ptr %57, align 4, !tbaa !16
-  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit", label %58
+_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit: ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit, %48
+  %.not.i.i.i.i.i.i = phi i1 [ true, %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ESt16initializer_listIS3_E.exit ], [ %50, %48 ]
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 0, ptr %51, align 8
+  %52 = call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #13
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %52, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 12, i1 false)
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  store ptr %54, ptr %53, align 8, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
+  store i32 0, ptr %55, align 8, !tbaa !15
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 28
+  store i32 4, ptr %56, align 4, !tbaa !16
+  br i1 %.not.i.i.i.i.i.i, label %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit", label %57
 
-58:                                               ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit
-  %59 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(112) %54, ptr noundef nonnull align 8 dereferenceable(112) %45)
+57:                                               ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit
+  %58 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt5tupleIJNS_3LLTES2_S2_EEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(112) %53, ptr noundef nonnull align 8 dereferenceable(112) %44)
   br label %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit"
 
-"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit": ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit, %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %53, ptr %0, align 8, !tbaa !24
-  store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTES8_S8_EEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %60, align 8, !tbaa !8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTES8_S8_EEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %61, align 8, !tbaa !12
-  %62 = load ptr, ptr %45, align 8, !tbaa !13
-  %63 = icmp eq ptr %62, %46
-  br i1 %63, label %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit", label %64
+"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit": ; preds = %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EEC2ERKS4_.exit, %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %52, ptr %0, align 8, !tbaa !24
+  store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTES8_S8_EEEE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %59, align 8, !tbaa !8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTES8_S8_EEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation", ptr %60, align 8, !tbaa !12
+  %61 = load ptr, ptr %44, align 8, !tbaa !13
+  %62 = icmp eq ptr %61, %45
+  br i1 %62, label %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit", label %63
 
-64:                                               ; preds = %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit"
-  call void @free(ptr noundef %62) #12
+63:                                               ; preds = %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit"
+  call void @free(ptr noundef %61) #12
   br label %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit"
 
-"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit": ; preds = %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit", %64
+"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit": ; preds = %"_ZNSt8functionIFbRKN4llvm13LegalityQueryEEEC2IZNS0_18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS0_3LLTESA_SA_EEEE3$_0vEEOT_.exit", %63
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #12
-  %65 = load ptr, ptr %8, align 8, !tbaa !13
-  %66 = icmp eq ptr %65, %10
-  br i1 %66, label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EED2Ev.exit, label %67
+  %64 = load ptr, ptr %8, align 8, !tbaa !13
+  %65 = icmp eq ptr %64, %10
+  br i1 %65, label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EED2Ev.exit, label %66
 
-67:                                               ; preds = %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit"
-  call void @free(ptr noundef %65) #12
+66:                                               ; preds = %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit"
+  call void @free(ptr noundef %64) #12
   br label %_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EED2Ev.exit: ; preds = %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit", %67
+_ZN4llvm11SmallVectorISt5tupleIJNS_3LLTES2_S2_EELj4EED2Ev.exit: ; preds = %"_ZZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEEEN3$_0D2Ev.exit", %66
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %8) #12
   ret void
 }

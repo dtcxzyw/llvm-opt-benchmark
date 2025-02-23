@@ -7780,7 +7780,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit125: ; preds = %39, 
 ._crit_edge277:                                   ; preds = %.lr.ph276
   %63 = lshr i32 %8, 2
   %64 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %63, i32 noundef 8, ptr noundef nonnull %1) #12
-  %65 = icmp sgt i32 %8, 3
+  %65 = icmp samesign ugt i32 %8, 3
   br i1 %65, label %.lr.ph16.preheader.i.i, label %_ZN13GrowableArrayIP7ciBlockEC2EP5ArenaiiRKS1_.exit
 
 .lr.ph16.preheader.i.i:                           ; preds = %._crit_edge277
@@ -8618,7 +8618,7 @@ _ZN13GrowableArrayIP7ciBlockE8allocateEv.exit.i167: ; preds = %432, %430
   %438 = shl nuw nsw i64 %437, 3
   %scevgep = getelementptr i8, ptr %.0.i.i168, i64 %438
   %439 = xor i32 %.0.lcssa.i170, -1
-  %440 = add i32 %.0.i.i.i.i.i133, %439
+  %440 = add nsw i32 %.0.i.i.i.i.i133, %439
   %441 = zext i32 %440 to i64
   %442 = shl nuw nsw i64 %441, 3
   %443 = add nuw nsw i64 %442, 8

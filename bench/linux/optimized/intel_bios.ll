@@ -743,7 +743,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %44 = phi ptr [ %42, %40 ], [ null, %36 ]
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %44, i32 noundef 2, ptr noundef nonnull @.str.13, i32 noundef %37) #17
   %45 = icmp eq ptr %4, null
-  br i1 %45, label %46, label %.thread104
+  br i1 %45, label %46, label %.thread103
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 7168
@@ -752,7 +752,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %50 = load i64, ptr %49, align 4
   %51 = and i64 %50, 8
   %52 = icmp eq i64 %51, 0
-  br i1 %52, label %.thread99, label %53
+  br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 7368
@@ -781,7 +781,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 71:                                               ; preds = %64
   %72 = add nuw nsw i32 %65, 4
   %73 = icmp samesign ult i32 %65, 2097148
-  br i1 %73, label %64, label %.thread99, !llvm.loop !14
+  br i1 %73, label %64, label %.thread, !llvm.loop !14
 
 74:                                               ; preds = %64
   %75 = add nuw nsw i32 %66, 24
@@ -796,7 +796,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %83 = sext i32 %82 to i64
   %84 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %83, i32 noundef 3520) #18
   %85 = icmp eq ptr %84, null
-  br i1 %85, label %.thread99, label %86
+  br i1 %85, label %.thread, label %86
 
 86:                                               ; preds = %74
   %87 = icmp eq i32 %79, 0
@@ -859,25 +859,25 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %125, label %.thread98, label %126
 
 126:                                              ; preds = %120
-  br i1 %39, label %131, label %127
+  br i1 %39, label %130, label %127
 
 127:                                              ; preds = %126
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %129 = load ptr, ptr %128, align 8
-  br label %131
+  br label %130
+
+130:                                              ; preds = %127, %126
+  %131 = phi ptr [ %129, %127 ], [ null, %126 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %131, i32 noundef 2, ptr noundef nonnull @.str.14) #17
+  br label %.thread103
 
 .thread98:                                        ; preds = %86, %120, %111, %106, %105, %103
-  %130 = phi ptr [ @.str.3, %103 ], [ @.str.5, %105 ], [ @.str.6, %106 ], [ @.str.7, %111 ], [ @.str.8, %120 ], [ @.str.3, %86 ]
-  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 1, ptr noundef nonnull %130) #17
+  %132 = phi ptr [ @.str.3, %103 ], [ @.str.5, %105 ], [ @.str.6, %106 ], [ @.str.7, %111 ], [ @.str.8, %120 ], [ @.str.3, %86 ]
+  tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 1, ptr noundef nonnull %132) #17
   tail call void @kfree(ptr noundef nonnull %84) #17
-  br label %.thread99
+  br label %.thread
 
-131:                                              ; preds = %126, %127
-  %132 = phi ptr [ %129, %127 ], [ null, %126 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %132, i32 noundef 2, ptr noundef nonnull @.str.14) #17
-  br label %.thread104
-
-.thread99:                                        ; preds = %71, %.thread98, %74, %46
+.thread:                                          ; preds = %71, %46, %74, %.thread98
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr i8, ptr %134, i64 -184
@@ -885,27 +885,27 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   store i64 0, ptr %2, align 8, !annotation !16
   %136 = call ptr @pci_map_rom(ptr noundef %135, ptr noundef nonnull %2) #17
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %1038, label %.preheader174
+  br i1 %137, label %1038, label %.preheader173
 
-.preheader174:                                    ; preds = %.thread99, %142
-  %138 = phi i64 [ %139, %142 ], [ 0, %.thread99 ]
+.preheader173:                                    ; preds = %.thread, %142
+  %138 = phi i64 [ %139, %142 ], [ 0, %.thread ]
   %139 = add i64 %138, 4
   %140 = load i64, ptr %2, align 8
   %141 = icmp ult i64 %139, %140
-  br i1 %141, label %142, label %.thread101
+  br i1 %141, label %142, label %.thread100
 
-142:                                              ; preds = %.preheader174
+142:                                              ; preds = %.preheader173
   %143 = getelementptr i8, ptr %136, i64 %138
   %144 = call i32 @ioread32(ptr noundef %143) #17
   %145 = icmp eq i32 %144, 1413633572
-  br i1 %145, label %146, label %.preheader174, !llvm.loop !17
+  br i1 %145, label %146, label %.preheader173, !llvm.loop !17
 
 146:                                              ; preds = %142
   %147 = load i64, ptr %2, align 8
   %148 = sub i64 %147, %138
   store i64 %148, ptr %2, align 8
   %149 = icmp eq ptr %143, null
-  br i1 %149, label %.thread101, label %150
+  br i1 %149, label %.thread100, label %150
 
 150:                                              ; preds = %146
   %151 = icmp ult i64 %148, 48
@@ -921,7 +921,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 155:                                              ; preds = %153, %152
   %156 = phi ptr [ %154, %153 ], [ null, %152 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %156, i32 noundef 1, ptr noundef nonnull @.str.3) #17
-  br label %.thread101
+  br label %.thread100
 
 157:                                              ; preds = %150
   %158 = getelementptr i8, ptr %143, i64 24
@@ -942,12 +942,12 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 167:                                              ; preds = %165, %164
   %168 = phi ptr [ %166, %165 ], [ null, %164 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %168, i32 noundef 1, ptr noundef nonnull @.str.6) #17
-  br label %.thread101
+  br label %.thread100
 
 169:                                              ; preds = %157
   %170 = call noalias align 8 ptr @__kmalloc(i64 noundef %161, i32 noundef 3264) #18
   %171 = icmp eq ptr %170, null
-  br i1 %171, label %.thread101, label %172
+  br i1 %171, label %.thread100, label %172
 
 172:                                              ; preds = %169
   call void @memcpy_fromio(ptr noundef nonnull %170, ptr noundef nonnull %143, i64 noundef %161) #17
@@ -964,9 +964,9 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 177:                                              ; preds = %172
   call void @kfree(ptr noundef nonnull %170) #17
-  br label %.thread101
+  br label %.thread100
 
-.thread101:                                       ; preds = %.preheader174, %177, %169, %167, %155, %146
+.thread100:                                       ; preds = %.preheader173, %177, %169, %167, %155, %146
   call void @pci_unmap_rom(ptr noundef %135, ptr noundef nonnull %136) #17
   br label %1038
 
@@ -974,11 +974,11 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %179 = phi ptr [ %176, %175 ], [ null, %174 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %179, i32 noundef 2, ptr noundef nonnull @.str.16) #17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
-  br label %.thread104
+  br label %.thread103
 
-.thread104:                                       ; preds = %131, %43, %178
-  %180 = phi ptr [ %170, %178 ], [ %84, %131 ], [ null, %43 ]
-  %181 = phi ptr [ %170, %178 ], [ %84, %131 ], [ %4, %43 ]
+.thread103:                                       ; preds = %130, %43, %178
+  %180 = phi ptr [ %170, %178 ], [ %84, %130 ], [ null, %43 ]
+  %181 = phi ptr [ %170, %178 ], [ %84, %130 ], [ %4, %43 ]
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 28
   %183 = load i32, ptr %182, align 1
   %184 = zext i32 %183 to i64
@@ -988,13 +988,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   store i16 %187, ptr %5, align 8
   br i1 %39, label %191, label %188
 
-188:                                              ; preds = %.thread104
+188:                                              ; preds = %.thread103
   %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %190 = load ptr, ptr %189, align 8
   br label %191
 
-191:                                              ; preds = %188, %.thread104
-  %192 = phi ptr [ %190, %188 ], [ null, %.thread104 ]
+191:                                              ; preds = %188, %.thread103
+  %192 = phi ptr [ %190, %188 ], [ null, %.thread103 ]
   %193 = zext i16 %187 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %192, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef 20, ptr noundef nonnull %181, i32 noundef %193) #17
   %194 = getelementptr inbounds nuw i8, ptr %185, i64 18
@@ -1003,37 +1003,37 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %197 = ptrtoint ptr %185 to i64
   br label %198
 
-198:                                              ; preds = %.thread110, %191
-  %199 = phi i64 [ 0, %191 ], [ %686, %.thread110 ]
+198:                                              ; preds = %.thread109, %191
+  %199 = phi i64 [ 0, %191 ], [ %686, %.thread109 ]
   %200 = getelementptr [16 x %struct.anon.59], ptr @bdb_blocks, i64 0, i64 %199
   %201 = load i32, ptr %200, align 16
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %203 = load i64, ptr %202, align 8
   %204 = icmp eq i32 %201, 42
-  br i1 %204, label %.preheader173, label %.thread107
+  br i1 %204, label %.preheader172, label %.thread106
 
-.preheader173:                                    ; preds = %198, %208
+.preheader172:                                    ; preds = %198, %208
   %205 = phi ptr [ %206, %208 ], [ %8, %198 ]
   %206 = load ptr, ptr %205, align 8
   %207 = icmp eq ptr %206, %8
-  br i1 %207, label %.thread107, label %208
+  br i1 %207, label %.thread106, label %208
 
-208:                                              ; preds = %.preheader173
+208:                                              ; preds = %.preheader172
   %209 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %210 = load i32, ptr %209, align 8
   %211 = icmp eq i32 %210, 41
-  br i1 %211, label %212, label %.preheader173, !llvm.loop !18
+  br i1 %211, label %212, label %.preheader172, !llvm.loop !18
 
 212:                                              ; preds = %208
   %213 = getelementptr i8, ptr %206, i64 23
   %214 = icmp eq ptr %213, null
-  br i1 %214, label %.thread107, label %215
+  br i1 %214, label %.thread106, label %215
 
 215:                                              ; preds = %212
   %216 = getelementptr i8, ptr %206, i64 170
   %217 = load i8, ptr %216, align 1
   %218 = icmp eq i8 %217, 0
-  br i1 %218, label %.thread107, label %219
+  br i1 %218, label %.thread106, label %219
 
 219:                                              ; preds = %215
   %220 = getelementptr i8, ptr %206, i64 168
@@ -1041,21 +1041,21 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %222 = call i16 @llvm.umax.i16(i16 %221, i16 874)
   %223 = zext i16 %222 to i64
   %224 = add nuw nsw i64 %223, 310
-  br label %.thread107
+  br label %.thread106
 
-.thread107:                                       ; preds = %.preheader173, %219, %215, %212, %198
-  %225 = phi i64 [ %203, %198 ], [ 0, %212 ], [ %224, %219 ], [ 1184, %215 ], [ 0, %.preheader173 ]
+.thread106:                                       ; preds = %.preheader172, %219, %215, %212, %198
+  %225 = phi i64 [ %203, %198 ], [ 0, %212 ], [ %224, %219 ], [ 1184, %215 ], [ 0, %.preheader172 ]
   %226 = load i16, ptr %194, align 1
   %227 = zext i16 %226 to i32
   %228 = load i16, ptr %195, align 1
   %229 = zext i16 %228 to i32
   br label %230
 
-230:                                              ; preds = %254, %.thread107
-  %231 = phi i32 [ %227, %.thread107 ], [ %252, %254 ]
+230:                                              ; preds = %254, %.thread106
+  %231 = phi i32 [ %227, %.thread106 ], [ %252, %254 ]
   %232 = add nuw nsw i32 %231, 3
   %233 = icmp ult i32 %232, %229
-  br i1 %233, label %234, label %.loopexit172
+  br i1 %233, label %234, label %.loopexit171
 
 234:                                              ; preds = %230
   %235 = zext nneg i32 %231 to i64
@@ -1085,7 +1085,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %251 = phi i32 [ %245, %243 ], [ %249, %246 ]
   %252 = add i32 %251, %232
   %253 = icmp ugt i32 %252, %229
-  br i1 %253, label %.loopexit172, label %254
+  br i1 %253, label %.loopexit171, label %254
 
 254:                                              ; preds = %250
   %255 = zext i8 %237 to i32
@@ -1095,27 +1095,27 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 257:                                              ; preds = %254
   %258 = zext nneg i32 %232 to i64
   %259 = getelementptr i8, ptr %185, i64 %258
-  br label %.loopexit172
+  br label %.loopexit171
 
-.loopexit172:                                     ; preds = %250, %230, %257
+.loopexit171:                                     ; preds = %250, %230, %257
   %260 = phi ptr [ %259, %257 ], [ null, %230 ], [ null, %250 ]
   %261 = icmp eq ptr %260, null
   %262 = icmp eq i32 %201, 41
   %263 = and i1 %262, %261
-  br i1 %263, label %264, label %.thread109
+  br i1 %263, label %264, label %.thread108
 
-264:                                              ; preds = %.loopexit172
+264:                                              ; preds = %.loopexit171
   %265 = load i16, ptr %5, align 8
   %266 = icmp ult i16 %265, 155
-  br i1 %266, label %.thread110, label %.preheader171
+  br i1 %266, label %.thread109, label %.preheader170
 
-.preheader171:                                    ; preds = %264, %290
+.preheader170:                                    ; preds = %264, %290
   %267 = phi i32 [ %288, %290 ], [ %227, %264 ]
   %268 = add nuw nsw i32 %267, 3
   %269 = icmp ult i32 %268, %229
-  br i1 %269, label %270, label %.thread110
+  br i1 %269, label %270, label %.thread109
 
-270:                                              ; preds = %.preheader171
+270:                                              ; preds = %.preheader170
   %271 = zext nneg i32 %267 to i64
   %272 = getelementptr i8, ptr %185, i64 %271
   %273 = load i8, ptr %272, align 1
@@ -1143,17 +1143,17 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %287 = phi i32 [ %281, %279 ], [ %285, %282 ]
   %288 = add i32 %287, %268
   %289 = icmp ugt i32 %288, %229
-  br i1 %289, label %.thread110, label %290
+  br i1 %289, label %.thread109, label %290
 
 290:                                              ; preds = %286
   %291 = icmp eq i8 %273, 42
-  br i1 %291, label %292, label %.preheader171, !llvm.loop !19
+  br i1 %291, label %292, label %.preheader170, !llvm.loop !19
 
 292:                                              ; preds = %290
   %293 = zext nneg i32 %268 to i64
   %294 = getelementptr i8, ptr %185, i64 %293
   %295 = icmp eq ptr %294, null
-  br i1 %295, label %.thread110, label %296
+  br i1 %295, label %.thread109, label %296
 
 296:                                              ; preds = %292
   br i1 %39, label %299, label %297
@@ -1189,13 +1189,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 314:                                              ; preds = %310, %307
   %315 = phi i32 [ %309, %307 ], [ %313, %310 ]
   %316 = icmp slt i32 %315, 1056
-  br i1 %316, label %.thread110, label %317
+  br i1 %316, label %.thread109, label %317
 
 317:                                              ; preds = %314
   %318 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 16), align 16
   %319 = call noalias align 8 dereferenceable_or_null(151) ptr @kmalloc_trace(ptr noundef %318, i32 noundef 3520, i64 noundef 151) #19
   %320 = icmp eq ptr %319, null
-  br i1 %320, label %.thread110, label %321
+  br i1 %320, label %.thread109, label %321
 
 321:                                              ; preds = %317
   store i8 41, ptr %319, align 8
@@ -1218,17 +1218,17 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %331 = add i8 %330, 3
   store i8 %331, ptr %323, align 1
   %332 = icmp eq i8 %330, 0
-  br i1 %332, label %.preheader170, label %333
+  br i1 %332, label %.preheader169, label %333
 
 333:                                              ; preds = %321
   call void @kfree(ptr noundef nonnull %319) #17
-  br label %.thread110
+  br label %.thread109
 
-.preheader170:                                    ; preds = %321, %.preheader170
-  %334 = phi i16 [ %346, %.preheader170 ], [ 56, %321 ]
-  %335 = phi i16 [ %343, %.preheader170 ], [ 38, %321 ]
-  %336 = phi i16 [ %340, %.preheader170 ], [ 0, %321 ]
-  %337 = phi i64 [ %347, %.preheader170 ], [ 1, %321 ]
+.preheader169:                                    ; preds = %321, %.preheader169
+  %334 = phi i16 [ %346, %.preheader169 ], [ 56, %321 ]
+  %335 = phi i16 [ %343, %.preheader169 ], [ 38, %321 ]
+  %336 = phi i16 [ %340, %.preheader169 ], [ 0, %321 ]
+  %337 = phi i64 [ %347, %.preheader169 ], [ 1, %321 ]
   %338 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %324, i64 0, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 2
   store i8 38, ptr %339, align 1
@@ -1246,10 +1246,10 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   store i16 %346, ptr %344, align 1
   %347 = add nuw nsw i64 %337, 1
   %348 = icmp eq i64 %347, 16
-  br i1 %348, label %349, label %.preheader170, !llvm.loop !20
+  br i1 %348, label %349, label %.preheader169, !llvm.loop !20
 
-349:                                              ; preds = %.preheader170
-  %350 = icmp sgt i32 %315, 1263
+349:                                              ; preds = %.preheader169
+  %350 = icmp samesign ugt i32 %315, 1263
   br i1 %350, label %351, label %354
 
 351:                                              ; preds = %349
@@ -1285,22 +1285,22 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %370 = getelementptr i8, ptr %319, i64 150
   %371 = load i8, ptr %370, align 2
   %372 = icmp eq i8 %371, 0
-  br i1 %372, label %.thread109, label %373
+  br i1 %372, label %.thread108, label %373
 
 373:                                              ; preds = %369
   %374 = getelementptr i8, ptr %319, i64 148
   %375 = load i16, ptr %374, align 4
   %376 = add i16 %375, %355
   store i16 %376, ptr %374, align 4
-  br label %.thread109
+  br label %.thread108
 
-.thread109:                                       ; preds = %369, %373, %.loopexit172
-  %377 = phi ptr [ %260, %.loopexit172 ], [ %323, %373 ], [ %323, %369 ]
-  %378 = phi ptr [ null, %.loopexit172 ], [ %319, %373 ], [ %319, %369 ]
+.thread108:                                       ; preds = %369, %373, %.loopexit171
+  %377 = phi ptr [ %260, %.loopexit171 ], [ %323, %373 ], [ %323, %369 ]
+  %378 = phi ptr [ null, %.loopexit171 ], [ %319, %373 ], [ %319, %369 ]
   %379 = icmp eq ptr %377, null
-  br i1 %379, label %.thread110, label %380
+  br i1 %379, label %.thread109, label %380
 
-380:                                              ; preds = %.thread109
+380:                                              ; preds = %.thread108
   %381 = icmp eq i64 %225, 0
   br i1 %381, label %382, label %393, !prof !22
 
@@ -1373,7 +1373,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 423:                                              ; preds = %416
   call void @kfree(ptr noundef %378) #17
-  br label %.thread110
+  br label %.thread109
 
 424:                                              ; preds = %416
   %425 = getelementptr inbounds nuw i8, ptr %421, i64 16
@@ -1405,7 +1405,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %439 = phi i32 [ %435, %432 ], [ %460, %462 ]
   %440 = add nuw nsw i32 %439, 3
   %441 = icmp ult i32 %440, %437
-  br i1 %441, label %442, label %.loopexit169
+  br i1 %441, label %442, label %.loopexit168
 
 442:                                              ; preds = %438
   %443 = zext nneg i32 %439 to i64
@@ -1435,7 +1435,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %459 = phi i32 [ %453, %451 ], [ %457, %454 ]
   %460 = add i32 %459, %440
   %461 = icmp ugt i32 %460, %437
-  br i1 %461, label %.loopexit169, label %462
+  br i1 %461, label %.loopexit168, label %462
 
 462:                                              ; preds = %458
   %463 = icmp eq i8 %445, 42
@@ -1444,9 +1444,9 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 464:                                              ; preds = %462
   %465 = zext nneg i32 %440 to i64
   %466 = getelementptr i8, ptr %185, i64 %465
-  br label %.loopexit169
+  br label %.loopexit168
 
-.loopexit169:                                     ; preds = %458, %438, %464
+.loopexit168:                                     ; preds = %458, %438, %464
   %467 = phi ptr [ %466, %464 ], [ null, %438 ], [ null, %458 ]
   %468 = icmp eq ptr %467, null
   %469 = ptrtoint ptr %467 to i64
@@ -1457,27 +1457,27 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %474 = trunc i32 %472 to i16
   br label %475
 
-475:                                              ; preds = %491, %.loopexit169
-  %476 = phi i64 [ 0, %.loopexit169 ], [ %495, %491 ]
+475:                                              ; preds = %491, %.loopexit168
+  %476 = phi i64 [ 0, %.loopexit168 ], [ %495, %491 ]
   %477 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %473, i64 0, i64 %476
   %478 = load i16, ptr %477, align 1
   %479 = zext i16 %478 to i32
   %480 = icmp ugt i32 %472, %479
-  br i1 %480, label %.thread112, label %481
+  br i1 %480, label %.thread111, label %481
 
 481:                                              ; preds = %475
   %482 = getelementptr inbounds nuw i8, ptr %477, i64 3
   %483 = load i16, ptr %482, align 1
   %484 = zext i16 %483 to i32
   %485 = icmp samesign ugt i32 %472, %484
-  br i1 %485, label %.thread112, label %486
+  br i1 %485, label %.thread111, label %486
 
 486:                                              ; preds = %481
   %487 = getelementptr inbounds nuw i8, ptr %477, i64 6
   %488 = load i16, ptr %487, align 1
   %489 = zext i16 %488 to i32
   %490 = icmp samesign ugt i32 %472, %489
-  br i1 %490, label %.thread112, label %491
+  br i1 %490, label %.thread111, label %491
 
 491:                                              ; preds = %486
   %492 = sub i16 %478, %474
@@ -1495,27 +1495,27 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %499 = getelementptr i8, ptr %421, i64 170
   %500 = load i8, ptr %499, align 2
   %501 = icmp eq i8 %500, 0
-  br i1 %501, label %.preheader309, label %502
+  br i1 %501, label %.preheader308, label %502
 
 502:                                              ; preds = %497
   %503 = load i16, ptr %498, align 8
   %504 = zext i16 %503 to i32
   %505 = icmp samesign ugt i32 %472, %504
-  br i1 %505, label %.thread112, label %506
+  br i1 %505, label %.thread111, label %506
 
 506:                                              ; preds = %502
   %507 = sub i16 %503, %474
   store i16 %507, ptr %498, align 8
-  br label %.preheader309
+  br label %.preheader308
 
-.preheader309:                                    ; preds = %506, %497
+.preheader308:                                    ; preds = %506, %497
   br label %508
 
-508:                                              ; preds = %.preheader309, %532
-  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader309 ]
+508:                                              ; preds = %.preheader308, %532
+  %509 = phi i32 [ %530, %532 ], [ %435, %.preheader308 ]
   %510 = add nuw nsw i32 %509, 3
   %511 = icmp ult i32 %510, %437
-  br i1 %511, label %512, label %.thread112
+  br i1 %511, label %512, label %.thread111
 
 512:                                              ; preds = %508
   %513 = zext nneg i32 %509 to i64
@@ -1545,7 +1545,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %529 = phi i32 [ %523, %521 ], [ %527, %524 ]
   %530 = add i32 %529, %510
   %531 = icmp ugt i32 %530, %437
-  br i1 %531, label %.thread112, label %532
+  br i1 %531, label %.thread111, label %532
 
 532:                                              ; preds = %528
   %533 = icmp eq i8 %515, 42
@@ -1555,19 +1555,19 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %535 = zext nneg i32 %510 to i64
   %536 = getelementptr i8, ptr %185, i64 %535
   %537 = icmp eq ptr %536, null
-  br i1 %537, label %.thread112, label %538
+  br i1 %537, label %.thread111, label %538
 
 538:                                              ; preds = %534
   %539 = getelementptr i8, ptr %536, i64 -2
   %540 = load i16, ptr %539, align 2
   %541 = zext i16 %540 to i32
   %542 = icmp eq i16 %540, 0
-  br i1 %542, label %.thread112, label %543
+  br i1 %542, label %.thread111, label %543
 
 543:                                              ; preds = %538
   %544 = load i8, ptr %433, align 1
   %545 = icmp eq i8 %544, 3
-  br i1 %545, label %546, label %.thread112
+  br i1 %545, label %546, label %.thread111
 
 546:                                              ; preds = %543
   %547 = getelementptr i8, ptr %421, i64 26
@@ -1587,10 +1587,10 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %561 = select i1 %559, i1 true, i1 %560
   %562 = icmp ne i8 %556, 10
   %563 = select i1 %561, i1 true, i1 %562
-  br i1 %563, label %.thread112, label %564
+  br i1 %563, label %.thread111, label %564
 
 564:                                              ; preds = %546
-  switch i8 %500, label %.thread112 [
+  switch i8 %500, label %.thread111 [
     i8 13, label %565
     i8 0, label %565
   ]
@@ -1604,35 +1604,35 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %571 = sub nsw i32 %568, %570
   %572 = shl nsw i32 %571, 4
   %573 = icmp sgt i32 %572, %541
-  br i1 %573, label %.thread112, label %.preheader165
+  br i1 %573, label %.thread111, label %.preheader164
 
 574:                                              ; preds = %609
   %575 = add nuw nsw i64 %578, 1
   %576 = icmp eq i64 %575, 16
-  br i1 %576, label %617, label %.preheader165, !llvm.loop !29
+  br i1 %576, label %617, label %.preheader164, !llvm.loop !29
 
-.preheader165:                                    ; preds = %565, %574
+.preheader164:                                    ; preds = %565, %574
   %577 = phi i16 [ %594, %574 ], [ %569, %565 ]
   %578 = phi i64 [ %575, %574 ], [ 1, %565 ]
   %579 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %473, i64 0, i64 %578
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 2
   %581 = load i8, ptr %580, align 1
   %582 = icmp eq i8 %581, %548
-  br i1 %582, label %583, label %.thread112
+  br i1 %582, label %583, label %.thread111
 
-583:                                              ; preds = %.preheader165
+583:                                              ; preds = %.preheader164
   %584 = getelementptr inbounds nuw i8, ptr %579, i64 3
   %585 = getelementptr inbounds nuw i8, ptr %579, i64 5
   %586 = load i8, ptr %585, align 1
   %587 = icmp eq i8 %586, 18
-  br i1 %587, label %588, label %.thread112
+  br i1 %587, label %588, label %.thread111
 
 588:                                              ; preds = %583
   %589 = getelementptr inbounds nuw i8, ptr %579, i64 6
   %590 = getelementptr inbounds nuw i8, ptr %579, i64 8
   %591 = load i8, ptr %590, align 1
   %592 = icmp eq i8 %591, 10
-  br i1 %592, label %593, label %.thread112
+  br i1 %592, label %593, label %.thread111
 
 593:                                              ; preds = %588
   %594 = load i16, ptr %579, align 1
@@ -1642,7 +1642,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %598 = zext i16 %577 to i32
   %599 = sub nsw i32 %595, %598
   %600 = icmp eq i32 %599, %571
-  br i1 %600, label %601, label %.thread112
+  br i1 %600, label %601, label %.thread111
 
 601:                                              ; preds = %593
   %602 = load i16, ptr %584, align 1
@@ -1652,7 +1652,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %606 = zext i16 %605 to i32
   %607 = sub nsw i32 %603, %606
   %608 = icmp eq i32 %607, %571
-  br i1 %608, label %609, label %.thread112
+  br i1 %608, label %609, label %.thread111
 
 609:                                              ; preds = %601
   %610 = load i16, ptr %589, align 1
@@ -1662,7 +1662,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %614 = zext i16 %613 to i32
   %615 = sub nsw i32 %611, %614
   %616 = icmp eq i32 %615, %571
-  br i1 %616, label %574, label %.thread112
+  br i1 %616, label %574, label %.thread111
 
 617:                                              ; preds = %574
   %618 = add nuw nsw i32 %549, 6
@@ -1673,14 +1673,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %623 = add nuw nsw i32 %557, %553
   %624 = add nuw nsw i32 %623, %622
   %625 = icmp eq i32 %624, %571
-  br i1 %625, label %626, label %.thread112
+  br i1 %625, label %626, label %.thread111
 
 626:                                              ; preds = %617
   %627 = add nuw nsw i32 %622, %570
   %628 = load i16, ptr %550, align 1
   %629 = zext i16 %628 to i32
   %630 = icmp eq i32 %627, %629
-  br i1 %630, label %631, label %.thread112
+  br i1 %630, label %631, label %.thread111
 
 631:                                              ; preds = %626
   %632 = add nuw nsw i32 %627, %553
@@ -1690,40 +1690,40 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %636 = add nuw nsw i32 %634, %557
   %637 = icmp eq i32 %636, %571
   %638 = select i1 %635, i1 %637, i1 false
-  br i1 %638, label %.preheader164.preheader, label %.thread112
+  br i1 %638, label %.preheader163.preheader, label %.thread111
 
-.preheader164.preheader:                          ; preds = %631
+.preheader163.preheader:                          ; preds = %631
   %invariant.op = sub nsw i32 %541, %622
-  %invariant.op269 = sub nsw i32 %541, %553
-  %invariant.op270 = sub nsw i32 %541, %557
-  br label %.preheader164
+  %invariant.op268 = sub nsw i32 %541, %553
+  %invariant.op269 = sub nsw i32 %541, %557
+  br label %.preheader163
 
 639:                                              ; preds = %652
   %640 = add nuw nsw i64 %642, 1
   %641 = icmp eq i64 %640, 16
-  br i1 %641, label %657, label %.preheader164, !llvm.loop !30
+  br i1 %641, label %657, label %.preheader163, !llvm.loop !30
 
-.preheader164:                                    ; preds = %.preheader164.preheader, %639
-  %642 = phi i64 [ %640, %639 ], [ 0, %.preheader164.preheader ]
+.preheader163:                                    ; preds = %.preheader163.preheader, %639
+  %642 = phi i64 [ %640, %639 ], [ 0, %.preheader163.preheader ]
   %643 = getelementptr [16 x %struct.lvds_lfp_data_ptr], ptr %473, i64 0, i64 %642
   %644 = load i16, ptr %643, align 1
   %645 = zext i16 %644 to i32
   %646 = icmp slt i32 %invariant.op, %645
-  br i1 %646, label %.thread112, label %647
+  br i1 %646, label %.thread111, label %647
 
-647:                                              ; preds = %.preheader164
+647:                                              ; preds = %.preheader163
   %648 = getelementptr inbounds nuw i8, ptr %643, i64 3
   %649 = load i16, ptr %648, align 1
   %650 = zext i16 %649 to i32
-  %651 = icmp slt i32 %invariant.op269, %650
-  br i1 %651, label %.thread112, label %652
+  %651 = icmp slt i32 %invariant.op268, %650
+  br i1 %651, label %.thread111, label %652
 
 652:                                              ; preds = %647
   %653 = getelementptr inbounds nuw i8, ptr %643, i64 6
   %654 = load i16, ptr %653, align 1
   %655 = zext i16 %654 to i32
-  %656 = icmp slt i32 %invariant.op270, %655
-  br i1 %656, label %.thread112, label %639
+  %656 = icmp slt i32 %invariant.op269, %655
+  br i1 %656, label %.thread111, label %639
 
 657:                                              ; preds = %639
   %658 = load i16, ptr %498, align 8
@@ -1731,7 +1731,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %660 = shl nuw nsw i32 %558, 4
   %661 = add nuw nsw i32 %660, %659
   %662 = icmp samesign ugt i32 %661, %541
-  br i1 %662, label %.thread112, label %663
+  br i1 %662, label %.thread111, label %663
 
 663:                                              ; preds = %657
   %664 = zext nneg i32 %622 to i64
@@ -1753,20 +1753,20 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %677, label %667, label %678, !llvm.loop !31
 
 678:                                              ; preds = %667
-  br i1 %674, label %683, label %.thread112
+  br i1 %674, label %683, label %.thread111
 
-.thread112:                                       ; preds = %486, %481, %475, %528, %508, %609, %601, %593, %588, %583, %.preheader165, %652, %647, %.preheader164, %678, %657, %631, %626, %617, %565, %564, %546, %543, %538, %534, %502
+.thread111:                                       ; preds = %486, %481, %475, %528, %508, %609, %601, %593, %588, %583, %.preheader164, %652, %647, %.preheader163, %678, %657, %631, %626, %617, %565, %564, %546, %543, %538, %534, %502
   br i1 %39, label %681, label %679
 
-679:                                              ; preds = %.thread112
+679:                                              ; preds = %.thread111
   %680 = load ptr, ptr %196, align 8
   br label %681
 
-681:                                              ; preds = %679, %.thread112
-  %682 = phi ptr [ %680, %679 ], [ null, %.thread112 ]
+681:                                              ; preds = %679, %.thread111
+  %682 = phi ptr [ %680, %679 ], [ null, %.thread111 ]
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %682, ptr noundef nonnull @.str.19) #20
   call void @kfree(ptr noundef nonnull %421) #17
-  br label %.thread110
+  br label %.thread109
 
 683:                                              ; preds = %678, %430
   %684 = load ptr, ptr %9, align 8
@@ -1775,29 +1775,29 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %685 = getelementptr inbounds nuw i8, ptr %421, i64 8
   store ptr %684, ptr %685, align 8
   store volatile ptr %421, ptr %684, align 8
-  br label %.thread110
+  br label %.thread109
 
-.thread110:                                       ; preds = %286, %.preheader171, %317, %314, %292, %264, %333, %683, %681, %423, %.thread109
+.thread109:                                       ; preds = %.preheader170, %286, %333, %264, %292, %314, %317, %683, %681, %423, %.thread108
   %686 = add nuw nsw i64 %199, 1
   %687 = icmp eq i64 %686, 16
-  br i1 %687, label %.preheader163, label %198, !llvm.loop !32
+  br i1 %687, label %.preheader162, label %198, !llvm.loop !32
 
-.preheader163:                                    ; preds = %.thread110, %691
-  %688 = phi ptr [ %689, %691 ], [ %8, %.thread110 ]
+.preheader162:                                    ; preds = %.thread109, %691
+  %688 = phi ptr [ %689, %691 ], [ %8, %.thread109 ]
   %689 = load ptr, ptr %688, align 8
   %690 = icmp eq ptr %689, %8
-  br i1 %690, label %.thread113.preheader, label %691
+  br i1 %690, label %.thread112.preheader, label %691
 
-691:                                              ; preds = %.preheader163
+691:                                              ; preds = %.preheader162
   %692 = getelementptr inbounds nuw i8, ptr %689, i64 16
   %693 = load i32, ptr %692, align 8
   %694 = icmp eq i32 %693, 1
-  br i1 %694, label %695, label %.preheader163, !llvm.loop !18
+  br i1 %694, label %695, label %.preheader162, !llvm.loop !18
 
 695:                                              ; preds = %691
   %696 = getelementptr i8, ptr %689, i64 23
   %697 = icmp eq ptr %696, null
-  br i1 %697, label %.thread113.preheader, label %698
+  br i1 %697, label %.thread112.preheader, label %698
 
 698:                                              ; preds = %695
   %699 = getelementptr i8, ptr %689, i64 27
@@ -1888,9 +1888,9 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %759 = or disjoint i8 %758, %757
   store i8 %759, ptr %22, align 2
   %760 = icmp ugt i16 %707, 180
-  br i1 %760, label %762, label %.thread114
+  br i1 %760, label %762, label %.thread113
 
-.thread114:                                       ; preds = %746
+.thread113:                                       ; preds = %746
   %761 = getelementptr inbounds nuw i8, ptr %0, i64 6824
   store i32 -1, ptr %761, align 8
   br label %780
@@ -1922,7 +1922,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   store i8 %778, ptr %779, align 1
   br label %780
 
-780:                                              ; preds = %.thread114, %773, %769, %762
+780:                                              ; preds = %.thread113, %773, %769, %762
   br i1 %39, label %783, label %781
 
 781:                                              ; preds = %780
@@ -1946,39 +1946,39 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %797 = and i8 %796, 1
   %798 = zext nneg i8 %797 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %784, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %786, i32 noundef %789, i32 noundef %792, i32 noundef %747, i32 noundef %795, i32 noundef %798) #17
-  br label %.thread113.preheader
+  br label %.thread112.preheader
 
-.thread113.preheader:                             ; preds = %.preheader163, %783, %695
-  br label %.thread113
+.thread112.preheader:                             ; preds = %.preheader162, %783, %695
+  br label %.thread112
 
-.thread113:                                       ; preds = %.thread113.preheader, %802
-  %799 = phi ptr [ %800, %802 ], [ %8, %.thread113.preheader ]
+.thread112:                                       ; preds = %.thread112.preheader, %802
+  %799 = phi ptr [ %800, %802 ], [ %8, %.thread112.preheader ]
   %800 = load ptr, ptr %799, align 8
   %801 = icmp eq ptr %800, %8
-  br i1 %801, label %.thread115, label %802
+  br i1 %801, label %.thread114, label %802
 
-802:                                              ; preds = %.thread113
+802:                                              ; preds = %.thread112
   %803 = getelementptr inbounds nuw i8, ptr %800, i64 16
   %804 = load i32, ptr %803, align 8
   %805 = icmp eq i32 %804, 2
-  br i1 %805, label %806, label %.thread113, !llvm.loop !18
+  br i1 %805, label %806, label %.thread112, !llvm.loop !18
 
 806:                                              ; preds = %802
   %807 = getelementptr i8, ptr %800, i64 23
   %808 = icmp eq ptr %807, null
-  br i1 %808, label %.thread115, label %813
+  br i1 %808, label %.thread114, label %813
 
-.thread115:                                       ; preds = %.thread113, %806
+.thread114:                                       ; preds = %.thread112, %806
   br i1 %39, label %811, label %809
 
-809:                                              ; preds = %.thread115
+809:                                              ; preds = %.thread114
   %810 = load ptr, ptr %196, align 8
   br label %811
 
-811:                                              ; preds = %809, %.thread115
-  %812 = phi ptr [ %810, %809 ], [ null, %.thread115 ]
+811:                                              ; preds = %809, %.thread114
+  %812 = phi ptr [ %810, %809 ], [ null, %.thread114 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %812, i32 noundef 2, ptr noundef nonnull @.str.22) #17
-  br label %.preheader301
+  br label %.preheader300
 
 813:                                              ; preds = %806
   %814 = getelementptr i8, ptr %800, i64 20
@@ -2019,7 +2019,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 835:                                              ; preds = %833, %832
   %836 = phi ptr [ %834, %833 ], [ null, %832 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %836, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %829) #17
-  br label %.preheader301
+  br label %.preheader300
 
 837:                                              ; preds = %827
   %838 = load i8, ptr %807, align 1
@@ -2117,7 +2117,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %885 = phi ptr [ %883, %882 ], [ null, %881 ]
   %886 = zext nneg i8 %879 to i32
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %885, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %886) #17
-  br label %.preheader301
+  br label %.preheader300
 
 887:                                              ; preds = %878
   %888 = add nsw i64 %830, -5
@@ -2125,7 +2125,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %890 = udiv i64 %888, %889
   %891 = trunc i64 %890 to i32
   %892 = icmp sgt i32 %891, 0
-  br i1 %892, label %893, label %.loopexit162
+  br i1 %892, label %893, label %.loopexit161
 
 893:                                              ; preds = %887
   %894 = getelementptr i8, ptr %800, i64 28
@@ -2157,7 +2157,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %911 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %912 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %911, i32 noundef 3520, i64 noundef 72) #19
   %913 = icmp eq ptr %912, null
-  br i1 %913, label %.loopexit162, label %914
+  br i1 %913, label %.loopexit161, label %914
 
 914:                                              ; preds = %908
   store ptr %0, ptr %912, align 8
@@ -2178,14 +2178,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 922:                                              ; preds = %914, %895
   %923 = add nuw nsw i32 %896, 1
   %924 = icmp slt i32 %923, %891
-  br i1 %924, label %895, label %.loopexit162, !llvm.loop !33
+  br i1 %924, label %895, label %.loopexit161, !llvm.loop !33
 
-.loopexit162:                                     ; preds = %922, %908, %887
+.loopexit161:                                     ; preds = %922, %908, %887
   %925 = load volatile ptr, ptr %6, align 8
   %926 = icmp eq ptr %925, %6
-  br i1 %926, label %927, label %.preheader301
+  br i1 %926, label %927, label %.preheader300
 
-927:                                              ; preds = %.loopexit162
+927:                                              ; preds = %.loopexit161
   br i1 %39, label %930, label %928
 
 928:                                              ; preds = %927
@@ -2195,16 +2195,16 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 930:                                              ; preds = %928, %927
   %931 = phi ptr [ %929, %928 ], [ null, %927 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %931, i32 noundef 2, ptr noundef nonnull @.str.29) #17
-  br label %.preheader301
+  br label %.preheader300
 
-.preheader301:                                    ; preds = %930, %.loopexit162, %884, %835, %811
+.preheader300:                                    ; preds = %930, %.loopexit161, %884, %835, %811
   br label %932
 
-932:                                              ; preds = %.preheader301, %936
-  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader301 ]
+932:                                              ; preds = %.preheader300, %936
+  %933 = phi ptr [ %934, %936 ], [ %8, %.preheader300 ]
   %934 = load ptr, ptr %933, align 8
   %935 = icmp eq ptr %934, %8
-  br i1 %935, label %.thread116, label %936
+  br i1 %935, label %.thread115, label %936
 
 936:                                              ; preds = %932
   %937 = getelementptr inbounds nuw i8, ptr %934, i64 16
@@ -2215,7 +2215,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 940:                                              ; preds = %936
   %941 = getelementptr i8, ptr %934, i64 23
   %942 = icmp eq ptr %941, null
-  br i1 %942, label %.thread116, label %943
+  br i1 %942, label %.thread115, label %943
 
 943:                                              ; preds = %940
   %944 = load i16, ptr %28, align 8
@@ -2227,12 +2227,12 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %948 = load i24, ptr %947, align 1
   %949 = and i24 %948, 6144
   %950 = icmp eq i24 %949, 2048
-  br i1 %950, label %.thread116, label %960
+  br i1 %950, label %.thread115, label %960
 
 951:                                              ; preds = %943
   %952 = load i16, ptr %5, align 8
   %953 = icmp ugt i16 %952, 133
-  br i1 %953, label %954, label %.thread118
+  br i1 %953, label %954, label %.thread117
 
 954:                                              ; preds = %951
   %955 = getelementptr i8, ptr %934, i64 30
@@ -2241,37 +2241,37 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %958 = lshr i32 %957, 11
   %959 = and i32 %958, 3
   switch i32 %959, label %960 [
-    i32 1, label %.thread116
-    i32 3, label %.thread116
+    i32 1, label %.thread115
+    i32 3, label %.thread115
   ]
 
 960:                                              ; preds = %954, %946
   %961 = load i8, ptr %22, align 2
   %962 = and i8 %961, -9
   store i8 %962, ptr %22, align 2
-  br label %.thread116
+  br label %.thread115
 
-.thread116:                                       ; preds = %932, %960, %954, %954, %946, %940
-  %.pr117 = load i16, ptr %5, align 8
-  %963 = icmp ult i16 %.pr117, 198
-  br i1 %963, label %.thread118, label %.preheader161
+.thread115:                                       ; preds = %932, %960, %954, %954, %946, %940
+  %.pr116 = load i16, ptr %5, align 8
+  %963 = icmp ult i16 %.pr116, 198
+  br i1 %963, label %.thread117, label %.preheader160
 
-.preheader161:                                    ; preds = %.thread116, %967
-  %964 = phi ptr [ %965, %967 ], [ %8, %.thread116 ]
+.preheader160:                                    ; preds = %.thread115, %967
+  %964 = phi ptr [ %965, %967 ], [ %8, %.thread115 ]
   %965 = load ptr, ptr %964, align 8
   %966 = icmp eq ptr %965, %8
-  br i1 %966, label %.thread119, label %967
+  br i1 %966, label %.thread118, label %967
 
-967:                                              ; preds = %.preheader161
+967:                                              ; preds = %.preheader160
   %968 = getelementptr inbounds nuw i8, ptr %965, i64 16
   %969 = load i32, ptr %968, align 8
   %970 = icmp eq i32 %969, 56
-  br i1 %970, label %971, label %.preheader161, !llvm.loop !18
+  br i1 %970, label %971, label %.preheader160, !llvm.loop !18
 
 971:                                              ; preds = %967
   %972 = getelementptr i8, ptr %965, i64 23
   %973 = icmp eq ptr %972, null
-  br i1 %973, label %.thread119, label %974
+  br i1 %973, label %.thread118, label %974
 
 974:                                              ; preds = %971
   %975 = load i16, ptr %972, align 1
@@ -2288,7 +2288,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 980:                                              ; preds = %978, %977
   %981 = phi ptr [ %979, %978 ], [ null, %977 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %981, i32 noundef 2, ptr noundef nonnull @.str.30) #17
-  br label %.thread118
+  br label %.thread117
 
 982:                                              ; preds = %974
   %983 = getelementptr i8, ptr %965, i64 20
@@ -2311,7 +2311,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %994 = phi i32 [ %988, %986 ], [ %992, %989 ]
   %995 = and i32 %994, 65534
   %996 = icmp samesign ult i32 %995, 210
-  br i1 %996, label %997, label %.thread119
+  br i1 %996, label %997, label %.thread118
 
 997:                                              ; preds = %993
   br i1 %39, label %1000, label %998
@@ -2323,16 +2323,16 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1000:                                             ; preds = %998, %997
   %1001 = phi ptr [ %999, %998 ], [ null, %997 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1001, i32 noundef 2, ptr noundef nonnull @.str.31) #17
-  br label %.thread118
+  br label %.thread117
 
-.thread119:                                       ; preds = %.preheader161, %993, %971
-  %1002 = phi i1 [ false, %993 ], [ true, %971 ], [ true, %.preheader161 ]
-  %1003 = phi ptr [ %972, %993 ], [ null, %971 ], [ null, %.preheader161 ]
+.thread118:                                       ; preds = %.preheader160, %993, %971
+  %1002 = phi i1 [ false, %993 ], [ true, %971 ], [ true, %.preheader160 ]
+  %1003 = phi ptr [ %972, %993 ], [ null, %971 ], [ null, %.preheader160 ]
   %1004 = load ptr, ptr %6, align 8
   %1005 = icmp eq ptr %1004, %6
-  br i1 %1005, label %.thread118, label %1006
+  br i1 %1005, label %.thread117, label %1006
 
-1006:                                             ; preds = %.thread119
+1006:                                             ; preds = %.thread118
   %1007 = getelementptr inbounds nuw i8, ptr %1003, i64 2
   br label %1008
 
@@ -2389,9 +2389,9 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1035:                                             ; preds = %1028, %1026, %1018, %1008
   %1036 = load ptr, ptr %1009, align 8
   %1037 = icmp eq ptr %1036, %6
-  br i1 %1037, label %.thread118, label %1008, !llvm.loop !34
+  br i1 %1037, label %.thread117, label %1008, !llvm.loop !34
 
-1038:                                             ; preds = %.thread101, %.thread99
+1038:                                             ; preds = %.thread100, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #17
   br i1 %39, label %1041, label %1039
 
@@ -2408,20 +2408,20 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1046 = load i16, ptr %1045, align 4
   %1047 = and i16 %1046, 8
   %1048 = icmp eq i16 %1047, 0
-  br i1 %1048, label %1049, label %.preheader298
+  br i1 %1048, label %1049, label %.preheader297
 
 1049:                                             ; preds = %1041
   %1050 = getelementptr inbounds nuw i8, ptr %0, i64 7184
   %1051 = load i32, ptr %1050, align 4
   %1052 = and i32 %1051, 16777216
   %1053 = icmp eq i32 %1052, 0
-  br i1 %1053, label %.thread118, label %.preheader298
+  br i1 %1053, label %.thread117, label %.preheader297
 
-.preheader298:                                    ; preds = %1049, %1041
+.preheader297:                                    ; preds = %1049, %1041
   br label %1054
 
-1054:                                             ; preds = %.preheader298, %1089
-  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader298 ]
+1054:                                             ; preds = %.preheader297, %1089
+  %1055 = phi i32 [ %1090, %1089 ], [ 0, %.preheader297 ]
   %1056 = icmp samesign ugt i32 %1055, 5
   br i1 %1056, label %1089, label %1057
 
@@ -2439,16 +2439,16 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1064:                                             ; preds = %1060
   store ptr %0, ptr %1062, align 8
   switch i32 %1055, label %1067 [
-    i32 5, label %.thread120
-    i32 4, label %.thread121
+    i32 5, label %.thread119
+    i32 4, label %.thread120
   ]
 
-.thread120:                                       ; preds = %1064
+.thread119:                                       ; preds = %1064
   %1065 = getelementptr inbounds nuw i8, ptr %1062, i64 24
   store i8 14, ptr %1065, align 8
   br label %1073
 
-.thread121:                                       ; preds = %1064
+.thread120:                                       ; preds = %1064
   %1066 = getelementptr inbounds nuw i8, ptr %1062, i64 24
   store i8 12, ptr %1066, align 8
   br label %1077
@@ -2458,23 +2458,23 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1069 = getelementptr inbounds nuw i8, ptr %1062, i64 24
   store i8 %1068, ptr %1069, align 8
   %cond = icmp eq i32 %1055, 0
-  br i1 %cond, label %.thread122, label %1073
+  br i1 %cond, label %.thread121, label %1073
 
-.thread122:                                       ; preds = %1067
+.thread121:                                       ; preds = %1067
   %1070 = getelementptr inbounds nuw i8, ptr %1062, i64 10
   %1071 = load i16, ptr %1070, align 2
   %1072 = or i16 %1071, 4100
   store i16 %1072, ptr %1070, align 2
   br label %1077
 
-1073:                                             ; preds = %1067, %.thread120
+1073:                                             ; preds = %1067, %.thread119
   %1074 = getelementptr inbounds nuw i8, ptr %1062, i64 10
   %1075 = load i16, ptr %1074, align 2
   %1076 = or i16 %1075, 20
   store i16 %1076, ptr %1074, align 2
   br label %1077
 
-1077:                                             ; preds = %1073, %.thread121, %.thread122
+1077:                                             ; preds = %1073, %.thread120, %.thread121
   %1078 = getelementptr inbounds nuw i8, ptr %1062, i64 56
   %1079 = load ptr, ptr %7, align 8
   store ptr %1078, ptr %7, align 8
@@ -2504,16 +2504,16 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 1092:                                             ; preds = %1089, %1060
   store i16 155, ptr %5, align 8
-  br label %.thread118
+  br label %.thread117
 
-.thread118:                                       ; preds = %1035, %951, %1092, %1049, %.thread119, %1000, %980, %.thread116
-  %1093 = phi ptr [ null, %1092 ], [ null, %1049 ], [ %180, %.thread119 ], [ %180, %1000 ], [ %180, %980 ], [ %180, %.thread116 ], [ %180, %951 ], [ %180, %1035 ]
+.thread117:                                       ; preds = %1035, %951, %1092, %1049, %.thread118, %1000, %980, %.thread115
+  %1093 = phi ptr [ null, %1092 ], [ null, %1049 ], [ %180, %.thread118 ], [ %180, %1000 ], [ %180, %980 ], [ %180, %.thread115 ], [ %180, %951 ], [ %180, %1035 ]
   %1094 = load i16, ptr %28, align 8
   %1095 = add i16 %1094, -3
   %1096 = icmp ult i16 %1095, 5
   br i1 %1096, label %1103, label %1097
 
-1097:                                             ; preds = %.thread118
+1097:                                             ; preds = %.thread117
   br i1 %39, label %1101, label %1098
 
 1098:                                             ; preds = %1097
@@ -2526,7 +2526,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1102, i32 noundef 2, ptr noundef nonnull @.str.35) #17
   br label %1188
 
-1103:                                             ; preds = %.thread118
+1103:                                             ; preds = %.thread117
   %1104 = load ptr, ptr %6, align 8
   %1105 = icmp eq ptr %1104, %6
   br i1 %1105, label %1182, label %1106
@@ -2693,19 +2693,19 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1196:                                             ; preds = %1191, %1188
   %1197 = load ptr, ptr %6, align 8
   %1198 = icmp eq ptr %1197, %6
-  br i1 %1198, label %.loopexit160, label %.preheader159
+  br i1 %1198, label %.loopexit159, label %.preheader158
 
-.loopexit160.loopexit:                            ; preds = %.thread124
-  %.pre237 = load ptr, ptr %6, align 8
-  br label %.loopexit160
+.loopexit159.loopexit:                            ; preds = %.thread123
+  %.pre236 = load ptr, ptr %6, align 8
+  br label %.loopexit159
 
-.loopexit160:                                     ; preds = %.loopexit160.loopexit, %1196
-  %1199 = phi ptr [ %.pre237, %.loopexit160.loopexit ], [ %1197, %1196 ]
+.loopexit159:                                     ; preds = %.loopexit159.loopexit, %1196
+  %1199 = phi ptr [ %.pre236, %.loopexit159.loopexit ], [ %1197, %1196 ]
   %1200 = icmp eq ptr %1199, %6
   br i1 %1200, label %.loopexit, label %.preheader
 
-.preheader159:                                    ; preds = %1196, %.thread124
-  %1201 = phi ptr [ %1281, %.thread124 ], [ %1197, %1196 ]
+.preheader158:                                    ; preds = %1196, %.thread123
+  %1201 = phi ptr [ %1281, %.thread123 ], [ %1197, %1196 ]
   %1202 = getelementptr i8, ptr %1201, i64 -56
   %1203 = load ptr, ptr %1202, align 8
   %1204 = getelementptr i8, ptr %1201, i64 -32
@@ -2714,30 +2714,30 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1207 = icmp eq i32 %1206, -1
   br i1 %1207, label %1208, label %1216
 
-1208:                                             ; preds = %.preheader159
+1208:                                             ; preds = %.preheader158
   %1209 = getelementptr inbounds nuw i8, ptr %1203, i64 2632
   %1210 = load i16, ptr %1209, align 8
   %1211 = icmp ugt i16 %1210, 10
-  br i1 %1211, label %1212, label %.thread124
+  br i1 %1211, label %1212, label %.thread123
 
 1212:                                             ; preds = %1208
   %1213 = icmp eq i8 %1205, 23
   %1214 = select i1 %1213, i32 1, i32 -1
   %1215 = icmp eq i8 %1205, 21
-  br i1 %1215, label %.thread125, label %1216
+  br i1 %1215, label %.thread124, label %1216
 
-1216:                                             ; preds = %1212, %.preheader159
-  %1217 = phi i32 [ %1214, %1212 ], [ %1206, %.preheader159 ]
+1216:                                             ; preds = %1212, %.preheader158
+  %1217 = phi i32 [ %1214, %1212 ], [ %1206, %.preheader158 ]
   switch i32 %1217, label %1250 [
-    i32 -1, label %.thread124
+    i32 -1, label %.thread123
     i32 5, label %1218
-    i32 0, label %..thread125_crit_edge
+    i32 0, label %..thread124_crit_edge
   ]
 
-..thread125_crit_edge:                            ; preds = %1216
-  %.phi.trans.insert234 = getelementptr inbounds nuw i8, ptr %1203, i64 2632
-  %.pre235 = load i16, ptr %.phi.trans.insert234, align 8
-  br label %.thread125
+..thread124_crit_edge:                            ; preds = %1216
+  %.phi.trans.insert233 = getelementptr inbounds nuw i8, ptr %1203, i64 2632
+  %.pre234 = load i16, ptr %.phi.trans.insert233, align 8
+  br label %.thread124
 
 1218:                                             ; preds = %1216
   %1219 = getelementptr inbounds nuw i8, ptr %1203, i64 7184
@@ -2758,14 +2758,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1228:                                             ; preds = %1225, %1223
   %1229 = phi ptr [ %1227, %1225 ], [ null, %1223 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1229, i32 noundef 2, ptr noundef nonnull @.str.44, i32 noundef 70) #17
-  br label %.thread124
+  br label %.thread123
 
-.thread125:                                       ; preds = %..thread125_crit_edge, %1212
-  %1230 = phi i16 [ %.pre235, %..thread125_crit_edge ], [ %1210, %1212 ]
+.thread124:                                       ; preds = %..thread124_crit_edge, %1212
+  %1230 = phi i16 [ %.pre234, %..thread124_crit_edge ], [ %1210, %1212 ]
   %1231 = icmp ugt i16 %1230, 11
   br i1 %1231, label %1250, label %1232
 
-1232:                                             ; preds = %.thread125
+1232:                                             ; preds = %.thread124
   %1233 = getelementptr i8, ptr %1201, i64 -46
   %1234 = load i16, ptr %1233, align 2
   %1235 = and i16 %1234, 16
@@ -2791,31 +2791,31 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1248 = and i16 %1247, -2065
   %1249 = or disjoint i16 %1248, 2048
   store i16 %1249, ptr %1233, align 2
-  %.pre236 = load ptr, ptr %1202, align 8
+  %.pre235 = load ptr, ptr %1202, align 8
   br label %1250
 
-1250:                                             ; preds = %1218, %1244, %1232, %.thread125, %1216
-  %1251 = phi ptr [ %1203, %1218 ], [ %.pre236, %1244 ], [ %1203, %1232 ], [ %1203, %.thread125 ], [ %1203, %1216 ]
-  %1252 = phi i32 [ 5, %1218 ], [ 0, %1244 ], [ 0, %1232 ], [ 0, %.thread125 ], [ %1217, %1216 ]
+1250:                                             ; preds = %1218, %1244, %1232, %.thread124, %1216
+  %1251 = phi ptr [ %1203, %1218 ], [ %.pre235, %1244 ], [ %1203, %1232 ], [ %1203, %.thread124 ], [ %1203, %1216 ]
+  %1252 = phi i32 [ 5, %1218 ], [ 0, %1244 ], [ 0, %1232 ], [ 0, %.thread124 ], [ %1217, %1216 ]
   %1253 = getelementptr i8, ptr %1201, i64 -46
   %1254 = load i16, ptr %1253, align 2
   %1255 = and i16 %1254, 16
   %1256 = icmp eq i16 %1255, 0
-  br i1 %1256, label %.thread124, label %1257
+  br i1 %1256, label %.thread123, label %1257
 
 1257:                                             ; preds = %1250
   %1258 = getelementptr inbounds nuw i8, ptr %1251, i64 7184
   %1259 = load i32, ptr %1258, align 4
   %1260 = and i32 %1259, 8388608
   %1261 = icmp eq i32 %1260, 0
-  br i1 %1261, label %.thread124, label %1262
+  br i1 %1261, label %.thread123, label %1262
 
 1262:                                             ; preds = %1257
   %1263 = getelementptr i8, ptr %1201, i64 -43
   %1264 = load i24, ptr %1263, align 1
   %1265 = and i24 %1264, 1966080
   %1266 = icmp samesign ugt i24 %1265, 589824
-  br i1 %1266, label %1267, label %.thread124
+  br i1 %1266, label %1267, label %.thread123
 
 1267:                                             ; preds = %1262
   %1268 = icmp eq ptr %1251, null
@@ -2837,40 +2837,40 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1279 = and i24 %1278, -2031617
   %1280 = or disjoint i24 %1279, 589824
   store i24 %1280, ptr %1263, align 1
-  br label %.thread124
+  br label %.thread123
 
-.thread124:                                       ; preds = %1208, %1272, %1262, %1257, %1250, %1228, %1216
+.thread123:                                       ; preds = %1208, %1272, %1262, %1257, %1250, %1228, %1216
   %1281 = load ptr, ptr %1201, align 8
   %1282 = icmp eq ptr %1281, %6
-  br i1 %1282, label %.loopexit160.loopexit, label %.preheader159, !llvm.loop !37
+  br i1 %1282, label %.loopexit159.loopexit, label %.preheader158, !llvm.loop !37
 
-.preheader:                                       ; preds = %.loopexit160, %.thread130
-  %1283 = phi ptr [ %1505, %.thread130 ], [ %1199, %.loopexit160 ]
+.preheader:                                       ; preds = %.loopexit159, %.thread129
+  %1283 = phi ptr [ %1505, %.thread129 ], [ %1199, %.loopexit159 ]
   %1284 = getelementptr i8, ptr %1283, i64 -56
   %1285 = load ptr, ptr %1284, align 8
   %1286 = getelementptr i8, ptr %1283, i64 -32
   %1287 = load i8, ptr %1286, align 1
   %1288 = call fastcc i32 @dvo_port_to_port(ptr noundef %1285, i8 noundef zeroext %1287)
   %1289 = icmp eq i32 %1288, -1
-  br i1 %1289, label %1290, label %.thread129
+  br i1 %1289, label %1290, label %.thread128
 
 1290:                                             ; preds = %.preheader
   %1291 = getelementptr inbounds nuw i8, ptr %1285, i64 2632
   %1292 = load i16, ptr %1291, align 8
   %1293 = icmp ugt i16 %1292, 10
-  br i1 %1293, label %1294, label %.thread130
+  br i1 %1293, label %1294, label %.thread129
 
 1294:                                             ; preds = %1290
-  switch i8 %1287, label %.thread130 [
-    i8 21, label %.thread129
-    i8 23, label %.thread129.fold.split
+  switch i8 %1287, label %.thread129 [
+    i8 21, label %.thread128
+    i8 23, label %.thread128.fold.split
   ]
 
-.thread129.fold.split:                            ; preds = %1294
-  br label %.thread129
+.thread128.fold.split:                            ; preds = %1294
+  br label %.thread128
 
-.thread129:                                       ; preds = %1294, %.thread129.fold.split, %.preheader
-  %1295 = phi i32 [ %1288, %.preheader ], [ 0, %1294 ], [ 1, %.thread129.fold.split ]
+.thread128:                                       ; preds = %1294, %.thread128.fold.split, %.preheader
+  %1295 = phi i32 [ %1288, %.preheader ], [ 0, %1294 ], [ 1, %.thread128.fold.split ]
   %1296 = getelementptr i8, ptr %1283, i64 -46
   %1297 = load i16, ptr %1296, align 2
   %1298 = and i16 %1297, 1
@@ -2881,35 +2881,35 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1303 = getelementptr inbounds nuw i8, ptr %1285, i64 6816
   %1304 = load i16, ptr %1303, align 8
   %1305 = icmp ugt i16 %1304, 194
-  br i1 %1305, label %1306, label %.thread131
+  br i1 %1305, label %1306, label %.thread130
 
-1306:                                             ; preds = %.thread129
+1306:                                             ; preds = %.thread128
   %1307 = getelementptr i8, ptr %1283, i64 -15
   %1308 = load i8, ptr %1307, align 1
   %1309 = and i8 %1308, 1
   %1310 = icmp ugt i16 %1304, 208
-  br i1 %1310, label %1311, label %.thread131
+  br i1 %1310, label %1311, label %.thread130
 
 1311:                                             ; preds = %1306
   %1312 = lshr i8 %1308, 1
   %.lobit97 = and i8 %1312, 1
   %1313 = zext nneg i8 %.lobit97 to i32
-  br label %.thread131
+  br label %.thread130
 
-.thread131:                                       ; preds = %.thread129, %1311, %1306
-  %.shrunk = phi i8 [ %1309, %1306 ], [ %1309, %1311 ], [ 0, %.thread129 ]
-  %1314 = phi i32 [ 0, %1306 ], [ %1313, %1311 ], [ 0, %.thread129 ]
+.thread130:                                       ; preds = %.thread128, %1311, %1306
+  %.shrunk = phi i8 [ %1309, %1306 ], [ %1309, %1311 ], [ 0, %.thread128 ]
+  %1314 = phi i32 [ 0, %1306 ], [ %1313, %1311 ], [ 0, %.thread128 ]
   %1315 = zext nneg i8 %.shrunk to i32
   %1316 = icmp eq ptr %1285, null
   br i1 %1316, label %1320, label %1317
 
-1317:                                             ; preds = %.thread131
+1317:                                             ; preds = %.thread130
   %1318 = getelementptr inbounds nuw i8, ptr %1285, i64 8
   %1319 = load ptr, ptr %1318, align 8
   br label %1320
 
-1320:                                             ; preds = %1317, %.thread131
-  %1321 = phi ptr [ %1319, %1317 ], [ null, %.thread131 ]
+1320:                                             ; preds = %1317, %.thread130
+  %1321 = phi ptr [ %1319, %1317 ], [ null, %.thread130 ]
   %1322 = add i32 %1295, 65
   %1323 = zext nneg i16 %1298 to i32
   %1324 = lshr i16 %1297, 4
@@ -2989,13 +2989,13 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 6816
   %1364 = load i16, ptr %1363, align 8
   %1365 = icmp ult i16 %1364, 158
-  br i1 %1365, label %.thread135.thread, label %1366
+  br i1 %1365, label %.thread134.thread, label %1366
 
 1366:                                             ; preds = %1356
   %1367 = getelementptr inbounds nuw i8, ptr %1362, i64 2632
   %1368 = load i16, ptr %1367, align 8
   %1369 = icmp ugt i16 %1368, 13
-  br i1 %1369, label %.thread135, label %1370
+  br i1 %1369, label %.thread134, label %1370
 
 1370:                                             ; preds = %1366
   %1371 = getelementptr i8, ptr %1283, i64 -43
@@ -3013,23 +3013,23 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1379:                                             ; preds = %1376, %1370
   %1380 = phi ptr [ %1378, %1376 ], [ null, %1370 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1380, i32 noundef 2, ptr noundef nonnull @.str.50, i32 noundef %1322, i32 noundef %1375) #17
-  %.pre238 = load ptr, ptr %1284, align 8
-  %.phi.trans.insert239 = getelementptr inbounds nuw i8, ptr %.pre238, i64 6816
-  %.pre240 = load i16, ptr %.phi.trans.insert239, align 8
-  br label %.thread135
+  %.pre237 = load ptr, ptr %1284, align 8
+  %.phi.trans.insert238 = getelementptr inbounds nuw i8, ptr %.pre237, i64 6816
+  %.pre239 = load i16, ptr %.phi.trans.insert238, align 8
+  br label %.thread134
 
-.thread135:                                       ; preds = %1366, %1379
-  %1381 = phi i16 [ %1364, %1366 ], [ %.pre240, %1379 ]
+.thread134:                                       ; preds = %1366, %1379
+  %1381 = phi i16 [ %1364, %1366 ], [ %.pre239, %1379 ]
   %1382 = icmp ult i16 %1381, 204
-  br i1 %1382, label %.thread135.thread, label %1383
+  br i1 %1382, label %.thread134.thread, label %1383
 
-1383:                                             ; preds = %.thread135
+1383:                                             ; preds = %.thread134
   %1384 = getelementptr i8, ptr %1283, i64 -43
   %1385 = load i24, ptr %1384, align 1
   %1386 = lshr i24 %1385, 21
   %1387 = trunc nuw i24 %1386 to i3
   switch i3 %1387, label %1388 [
-    i3 0, label %.thread135.thread
+    i3 0, label %.thread134.thread
     i3 3, label %1396
     i3 -4, label %1392
     i3 -3, label %1393
@@ -3047,7 +3047,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2559, i32 2313, i64 12) #17, !srcloc !11
   call void asm sideeffect "611: nop\0A\09.pushsection .discard.instr_end\0A\09.long 611b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 611) #17, !srcloc !12
   call void asm sideeffect "612: nop\0A\09.pushsection .discard.instr_end\0A\09.long 612b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 612) #17, !srcloc !13
-  br label %.thread135.thread
+  br label %.thread134.thread
 
 1392:                                             ; preds = %1383
   br label %1396
@@ -3062,7 +3062,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br label %1396
 
 1396:                                             ; preds = %1383, %1395, %1394, %1393, %1392
-  %.ph139 = phi i32 [ 340000, %1392 ], [ 300000, %1393 ], [ 297000, %1394 ], [ 165000, %1395 ], [ 594000, %1383 ]
+  %.ph138 = phi i32 [ 340000, %1392 ], [ 300000, %1393 ], [ 297000, %1394 ], [ 165000, %1395 ], [ 594000, %1383 ]
   br i1 %1316, label %1400, label %1397
 
 1397:                                             ; preds = %1396
@@ -3072,22 +3072,22 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 
 1400:                                             ; preds = %1397, %1396
   %1401 = phi ptr [ %1399, %1397 ], [ null, %1396 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1401, i32 noundef 2, ptr noundef nonnull @.str.51, i32 noundef %1322, i32 noundef %.ph139) #17
-  br label %.thread135.thread
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1401, i32 noundef 2, ptr noundef nonnull @.str.51, i32 noundef %1322, i32 noundef %.ph138) #17
+  br label %.thread134.thread
 
-.thread135.thread:                                ; preds = %1356, %.thread135, %1383, %1388, %1400
+.thread134.thread:                                ; preds = %1356, %.thread134, %1383, %1388, %1400
   %1402 = load ptr, ptr %1284, align 8
   %1403 = getelementptr inbounds nuw i8, ptr %1402, i64 6816
   %1404 = load i16, ptr %1403, align 8
   %1405 = icmp ult i16 %1404, 196
-  br i1 %1405, label %.thread146, label %1406
+  br i1 %1405, label %.thread145, label %1406
 
-1406:                                             ; preds = %.thread135.thread
+1406:                                             ; preds = %.thread134.thread
   %1407 = getelementptr i8, ptr %1283, i64 -25
   %1408 = load i16, ptr %1407, align 1
   %1409 = and i16 %1408, 8
   %1410 = icmp eq i16 %1409, 0
-  br i1 %1410, label %.thread146, label %1411
+  br i1 %1410, label %.thread145, label %1411
 
 1411:                                             ; preds = %1406
   %1412 = getelementptr i8, ptr %1283, i64 -11
@@ -3100,7 +3100,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1417:                                             ; preds = %1411
   %1418 = zext nneg i8 %1415 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.123, i32 noundef %1418) #17
-  br label %.thread146
+  br label %.thread145
 
 1419:                                             ; preds = %1411
   %1420 = zext nneg i8 %1415 to i64
@@ -3117,21 +3117,21 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1427:                                             ; preds = %1424, %1419
   %1428 = phi ptr [ %1426, %1424 ], [ null, %1419 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1428, i32 noundef 2, ptr noundef nonnull @.str.52, i32 noundef %1322, i32 noundef %1423) #17
-  br label %.thread146
+  br label %.thread145
 
-.thread146:                                       ; preds = %1417, %.thread135.thread, %1406, %1427
+.thread145:                                       ; preds = %1417, %.thread134.thread, %1406, %1427
   %1429 = load ptr, ptr %1284, align 8
   %1430 = getelementptr inbounds nuw i8, ptr %1429, i64 6816
   %1431 = load i16, ptr %1430, align 8
   %1432 = icmp ult i16 %1431, 196
-  br i1 %1432, label %.thread152, label %1433
+  br i1 %1432, label %.thread151, label %1433
 
-1433:                                             ; preds = %.thread146
+1433:                                             ; preds = %.thread145
   %1434 = getelementptr i8, ptr %1283, i64 -25
   %1435 = load i16, ptr %1434, align 1
   %1436 = and i16 %1435, 8
   %1437 = icmp eq i16 %1436, 0
-  br i1 %1437, label %.thread152, label %1438
+  br i1 %1437, label %.thread151, label %1438
 
 1438:                                             ; preds = %1433
   %1439 = getelementptr i8, ptr %1283, i64 -11
@@ -3144,7 +3144,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1444:                                             ; preds = %1438
   %1445 = zext nneg i8 %1442 to i32
   call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.123, i32 noundef %1445) #17
-  br label %.thread152
+  br label %.thread151
 
 1446:                                             ; preds = %1438
   %1447 = zext nneg i8 %1442 to i64
@@ -3161,7 +3161,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1454:                                             ; preds = %1451, %1446
   %1455 = phi ptr [ %1453, %1451 ], [ null, %1446 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1455, i32 noundef 2, ptr noundef nonnull @.str.53, i32 noundef %1322, i32 noundef %1450) #17
-  br label %.thread152
+  br label %.thread151
 
 1456:                                             ; preds = %1343
   %1457 = getelementptr i8, ptr %1283, i64 -8
@@ -3171,14 +3171,14 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1321, i32 noundef 2, ptr noundef nonnull @.str.49, i32 noundef %1322, i32 noundef %1323, i32 noundef %1326, i32 noundef %1327, i32 noundef %1330, i32 noundef %1331, i32 noundef %1334, i32 noundef %1344, i32 noundef 0, i32 noundef %1315, i32 noundef %1314, i32 noundef %1460) #17
   br label %1488
 
-.thread152:                                       ; preds = %1444, %.thread146, %1433, %1454
+.thread151:                                       ; preds = %1444, %.thread145, %1433, %1454
   %1461 = load ptr, ptr %1284, align 8
   %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 6816
   %1463 = load i16, ptr %1462, align 8
   %1464 = icmp ult i16 %1463, 216
   br i1 %1464, label %1488, label %1465
 
-1465:                                             ; preds = %.thread152
+1465:                                             ; preds = %.thread151
   %1466 = icmp ugt i16 %1463, 229
   %1467 = getelementptr i8, ptr %1283, i64 -11
   %1468 = load i16, ptr %1467, align 1
@@ -3187,7 +3187,7 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
   br i1 %1466, label %1471, label %1478
 
 1471:                                             ; preds = %1465
-  switch i16 %1470, label %default.unreachable241 [
+  switch i16 %1470, label %default.unreachable240 [
     i16 1, label %1477
     i16 7, label %1482
     i16 6, label %1472
@@ -3232,11 +3232,11 @@ define dso_local void @intel_bios_init(ptr noundef %0) local_unnamed_addr #5 ali
 1481:                                             ; preds = %1478
   br label %1482
 
-default.unreachable241:                           ; preds = %1471
+default.unreachable240:                           ; preds = %1471
   unreachable
 
 1482:                                             ; preds = %1471, %1476, %1475, %1474, %1473, %1472, %1477, %1480, %1479, %1481, %1478
-  %.ph156 = phi i32 [ 810000, %1478 ], [ 162000, %1481 ], [ 540000, %1479 ], [ 270000, %1480 ], [ 162000, %1477 ], [ 1350000, %1472 ], [ 1000000, %1473 ], [ 810000, %1474 ], [ 540000, %1475 ], [ 270000, %1476 ], [ 2000000, %1471 ]
+  %.ph155 = phi i32 [ 810000, %1478 ], [ 162000, %1481 ], [ 540000, %1479 ], [ 270000, %1480 ], [ 162000, %1477 ], [ 1350000, %1472 ], [ 1000000, %1473 ], [ 810000, %1474 ], [ 540000, %1475 ], [ 270000, %1476 ], [ 2000000, %1471 ]
   br i1 %1316, label %1486, label %1483
 
 1483:                                             ; preds = %1482
@@ -3246,15 +3246,15 @@ default.unreachable241:                           ; preds = %1471
 
 1486:                                             ; preds = %1483, %1482
   %1487 = phi ptr [ %1485, %1483 ], [ null, %1482 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1487, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %1322, i32 noundef %.ph156) #17
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1487, i32 noundef 2, ptr noundef nonnull @.str.54, i32 noundef %1322, i32 noundef %.ph155) #17
   br label %1488
 
-1488:                                             ; preds = %.thread152, %1471, %1456, %1486
+1488:                                             ; preds = %.thread151, %1471, %1456, %1486
   %1489 = getelementptr i8, ptr %1283, i64 -25
   %1490 = load i16, ptr %1489, align 1
   %1491 = and i16 %1490, 32
   %1492 = icmp eq i16 %1491, 0
-  br i1 %1492, label %.thread130, label %1493, !prof !38
+  br i1 %1492, label %.thread129, label %1493, !prof !38
 
 1493:                                             ; preds = %1488
   call void asm sideeffect "613: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 613b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 613) #17, !srcloc !39
@@ -3278,14 +3278,14 @@ default.unreachable241:                           ; preds = %1471
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 2657, i32 2313, i64 12) #17, !srcloc !41
   call void asm sideeffect "615: nop\0A\09.pushsection .discard.instr_end\0A\09.long 615b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 615) #17, !srcloc !42
   call void asm sideeffect "616: nop\0A\09.pushsection .discard.instr_end\0A\09.long 616b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 616) #17, !srcloc !43
-  br label %.thread130
+  br label %.thread129
 
-.thread130:                                       ; preds = %1294, %1290, %1503, %1488
+.thread129:                                       ; preds = %1294, %1290, %1503, %1488
   %1505 = load ptr, ptr %1283, align 8
   %1506 = icmp eq ptr %1505, %6
   br i1 %1506, label %.loopexit, label %.preheader, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.thread130, %.loopexit160, %1191
+.loopexit:                                        ; preds = %.thread129, %.loopexit159, %1191
   call void @kfree(ptr noundef %1093) #17
   br label %1507
 

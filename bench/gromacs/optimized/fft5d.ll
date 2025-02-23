@@ -406,12 +406,7 @@ define noundef ptr @_Z13fft5d_plan_3diiiPP10tmpi_comm_iPP9t_complexS4_S4_S4_iN3g
   br i1 %.not294, label %214, label %260
 
 214:                                              ; preds = %._crit_edge480
-  br i1 %.lcssa467, label %.lr.ph.preheader.i, label %_ZL4vmaxPKii.exit.thread
-
-_ZL4vmaxPKii.exit.thread:                         ; preds = %214
-  store i32 0, ptr %16, align 4
-  store i32 %204, ptr %17, align 4
-  br label %_ZL4vmaxPKii.exit330
+  br i1 %.lcssa467, label %.lr.ph.preheader.i, label %_ZL4vmaxPKii.exit
 
 .lr.ph.preheader.i:                               ; preds = %214
   %wide.trip.count.i = zext nneg i32 %.fr to i64
@@ -425,16 +420,21 @@ _ZL4vmaxPKii.exit.thread:                         ; preds = %214
   %spec.select.i = call i32 @llvm.smax.i32(i32 %216, i32 %.011.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL4vmaxPKii.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i322, label %.lr.ph.i, !llvm.loop !10
 
-_ZL4vmaxPKii.exit:                                ; preds = %.lr.ph.i
+_ZL4vmaxPKii.exit:                                ; preds = %214
+  store i32 0, ptr %16, align 4
+  store i32 %204, ptr %17, align 4
+  br label %_ZL4vmaxPKii.exit330
+
+.lr.ph.preheader.i322:                            ; preds = %.lr.ph.i
   store i32 %spec.select.i, ptr %16, align 4
   store i32 %204, ptr %17, align 4
   br label %.lr.ph.i324
 
-.lr.ph.i324:                                      ; preds = %.lr.ph.i324, %_ZL4vmaxPKii.exit
-  %indvars.iv.i325 = phi i64 [ 0, %_ZL4vmaxPKii.exit ], [ %indvars.iv.next.i328, %.lr.ph.i324 ]
-  %.011.i326 = phi i32 [ 0, %_ZL4vmaxPKii.exit ], [ %spec.select.i327, %.lr.ph.i324 ]
+.lr.ph.i324:                                      ; preds = %.lr.ph.i324, %.lr.ph.preheader.i322
+  %indvars.iv.i325 = phi i64 [ 0, %.lr.ph.preheader.i322 ], [ %indvars.iv.next.i328, %.lr.ph.i324 ]
+  %.011.i326 = phi i32 [ 0, %.lr.ph.preheader.i322 ], [ %spec.select.i327, %.lr.ph.i324 ]
   %217 = getelementptr inbounds nuw i32, ptr %108, i64 %indvars.iv.i325
   %218 = load i32, ptr %217, align 4
   %spec.select.i327 = call i32 @llvm.smax.i32(i32 %218, i32 %.011.i326)
@@ -442,9 +442,9 @@ _ZL4vmaxPKii.exit:                                ; preds = %.lr.ph.i
   %exitcond.not.i329 = icmp eq i64 %indvars.iv.next.i328, %wide.trip.count.i
   br i1 %exitcond.not.i329, label %_ZL4vmaxPKii.exit330, label %.lr.ph.i324, !llvm.loop !10
 
-_ZL4vmaxPKii.exit330:                             ; preds = %.lr.ph.i324, %_ZL4vmaxPKii.exit.thread
-  %219 = phi i32 [ 0, %_ZL4vmaxPKii.exit.thread ], [ %spec.select.i, %.lr.ph.i324 ]
-  %.0.lcssa.i321 = phi i32 [ 0, %_ZL4vmaxPKii.exit.thread ], [ %spec.select.i327, %.lr.ph.i324 ]
+_ZL4vmaxPKii.exit330:                             ; preds = %.lr.ph.i324, %_ZL4vmaxPKii.exit
+  %219 = phi i32 [ 0, %_ZL4vmaxPKii.exit ], [ %spec.select.i, %.lr.ph.i324 ]
+  %.0.lcssa.i321 = phi i32 [ 0, %_ZL4vmaxPKii.exit ], [ %spec.select.i327, %.lr.ph.i324 ]
   store i32 %.0.lcssa.i321, ptr %18, align 4
   %220 = getelementptr inbounds i32, ptr %104, i64 %208
   %221 = load i32, ptr %220, align 4
@@ -581,11 +581,7 @@ _ZL4vmaxPKii.exit370:                             ; preds = %.lr.ph.i364, %_ZL4v
   br label %306
 
 260:                                              ; preds = %._crit_edge480
-  br i1 %.lcssa469, label %.lr.ph.preheader.i372, label %_ZL4vmaxPKii.exit380.thread
-
-_ZL4vmaxPKii.exit380.thread:                      ; preds = %260
-  store i32 0, ptr %16, align 4
-  br label %_ZL4vmaxPKii.exit390
+  br i1 %.lcssa469, label %.lr.ph.preheader.i372, label %_ZL4vmaxPKii.exit380
 
 .lr.ph.preheader.i372:                            ; preds = %260
   %wide.trip.count.i373 = zext nneg i32 %.fr489 to i64
@@ -599,15 +595,19 @@ _ZL4vmaxPKii.exit380.thread:                      ; preds = %260
   %spec.select.i377 = call i32 @llvm.smax.i32(i32 %262, i32 %.011.i376)
   %indvars.iv.next.i378 = add nuw nsw i64 %indvars.iv.i375, 1
   %exitcond.not.i379 = icmp eq i64 %indvars.iv.next.i378, %wide.trip.count.i373
-  br i1 %exitcond.not.i379, label %_ZL4vmaxPKii.exit380, label %.lr.ph.i374, !llvm.loop !10
+  br i1 %exitcond.not.i379, label %.lr.ph.preheader.i382, label %.lr.ph.i374, !llvm.loop !10
 
-_ZL4vmaxPKii.exit380:                             ; preds = %.lr.ph.i374
+_ZL4vmaxPKii.exit380:                             ; preds = %260
+  store i32 0, ptr %16, align 4
+  br label %_ZL4vmaxPKii.exit390
+
+.lr.ph.preheader.i382:                            ; preds = %.lr.ph.i374
   store i32 %spec.select.i377, ptr %16, align 4
   br label %.lr.ph.i384
 
-.lr.ph.i384:                                      ; preds = %.lr.ph.i384, %_ZL4vmaxPKii.exit380
-  %indvars.iv.i385 = phi i64 [ 0, %_ZL4vmaxPKii.exit380 ], [ %indvars.iv.next.i388, %.lr.ph.i384 ]
-  %.011.i386 = phi i32 [ 0, %_ZL4vmaxPKii.exit380 ], [ %spec.select.i387, %.lr.ph.i384 ]
+.lr.ph.i384:                                      ; preds = %.lr.ph.i384, %.lr.ph.preheader.i382
+  %indvars.iv.i385 = phi i64 [ 0, %.lr.ph.preheader.i382 ], [ %indvars.iv.next.i388, %.lr.ph.i384 ]
+  %.011.i386 = phi i32 [ 0, %.lr.ph.preheader.i382 ], [ %spec.select.i387, %.lr.ph.i384 ]
   %263 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i385
   %264 = load i32, ptr %263, align 4
   %spec.select.i387 = call i32 @llvm.smax.i32(i32 %264, i32 %.011.i386)
@@ -615,9 +615,9 @@ _ZL4vmaxPKii.exit380:                             ; preds = %.lr.ph.i374
   %exitcond.not.i389 = icmp eq i64 %indvars.iv.next.i388, %wide.trip.count.i373
   br i1 %exitcond.not.i389, label %_ZL4vmaxPKii.exit390, label %.lr.ph.i384, !llvm.loop !10
 
-_ZL4vmaxPKii.exit390:                             ; preds = %.lr.ph.i384, %_ZL4vmaxPKii.exit380.thread
-  %265 = phi i32 [ 0, %_ZL4vmaxPKii.exit380.thread ], [ %spec.select.i377, %.lr.ph.i384 ]
-  %.0.lcssa.i381 = phi i32 [ 0, %_ZL4vmaxPKii.exit380.thread ], [ %spec.select.i387, %.lr.ph.i384 ]
+_ZL4vmaxPKii.exit390:                             ; preds = %.lr.ph.i384, %_ZL4vmaxPKii.exit380
+  %265 = phi i32 [ 0, %_ZL4vmaxPKii.exit380 ], [ %spec.select.i377, %.lr.ph.i384 ]
+  %.0.lcssa.i381 = phi i32 [ 0, %_ZL4vmaxPKii.exit380 ], [ %spec.select.i387, %.lr.ph.i384 ]
   store i32 %.0.lcssa.i381, ptr %17, align 4
   store i32 %210, ptr %18, align 4
   %266 = getelementptr inbounds i32, ptr %99, i64 %202
@@ -773,10 +773,10 @@ _ZL4vmaxPKii.exit430:                             ; preds = %.lr.ph.i424, %_ZL4v
   %317 = phi i32 [ %265, %_ZL4vmaxPKii.exit430 ], [ %219, %_ZL4vmaxPKii.exit370 ]
   %318 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i32 %.sink557, ptr %318, align 4
-  call void @free(ptr noundef %.sink556) #11
-  call void @free(ptr noundef %.sink555) #11
-  call void @free(ptr noundef %.sink554) #11
-  call void @free(ptr noundef %.sink553) #11
+  call void @free(ptr noundef nonnull %.sink556) #11
+  call void @free(ptr noundef nonnull %.sink555) #11
+  call void @free(ptr noundef nonnull %.sink554) #11
+  call void @free(ptr noundef nonnull %.sink553) #11
   %319 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 -1, ptr %319, align 4
   %320 = getelementptr inbounds nuw i8, ptr %16, i64 8

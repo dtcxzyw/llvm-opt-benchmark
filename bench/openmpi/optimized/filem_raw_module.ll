@@ -1330,7 +1330,7 @@ pmix_obj_update.exit291:                          ; preds = %368
 .lr.ph.i325:                                      ; preds = %378, %.lr.ph.i325
   %384 = phi ptr [ %386, %.lr.ph.i325 ], [ %383, %378 ]
   %.07.i326 = phi ptr [ %385, %.lr.ph.i325 ], [ %382, %378 ]
-  call void %384(ptr noundef %281) #16
+  call void %384(ptr noundef nonnull %281) #16
   %385 = getelementptr inbounds nuw i8, ptr %.07.i326, i64 8
   %386 = load ptr, ptr %385, align 8, !tbaa !18
   %.not.i327 = icmp eq ptr %386, null
@@ -3493,7 +3493,7 @@ pmix_obj_update.exit:                             ; preds = %30
 .lr.ph.i:                                         ; preds = %40, %.lr.ph.i
   %46 = phi ptr [ %48, %.lr.ph.i ], [ %45, %40 ]
   %.07.i = phi ptr [ %47, %.lr.ph.i ], [ %44, %40 ]
-  call void %46(ptr noundef %5) #16
+  call void %46(ptr noundef nonnull %5) #16
   %47 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !18
   %.not.i = icmp eq ptr %48, null
@@ -3937,7 +3937,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %160
   store volatile i64 %182, ptr getelementptr inbounds nuw (i8, ptr @incoming_files, i64 264), align 8, !tbaa !34
   %183 = load ptr, ptr %23, align 8, !tbaa !110
   tail call fastcc void @send_complete(ptr noundef %183, i32 noundef -20)
-  %184 = tail call i32 @pthread_mutex_lock(ptr noundef %2) #16
+  %184 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #16
   %185 = icmp eq i32 %184, 35
   br i1 %185, label %186, label %pmix_obj_update.exit105
 

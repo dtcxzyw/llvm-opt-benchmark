@@ -231,7 +231,7 @@ invoke.cont3.i.unr-lcssa:                         ; preds = %invoke.cont3.i.unr-
   %__cur.013.i.i.i.i.i.i.idx.unr = phi i64 [ 0, %_ZNSt12_Vector_baseISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EEC2EmRKS5_.exit.i.i ], [ %__cur.013.i.i.i.i.i.i.add.1, %invoke.cont3.i.unr-lcssa.loopexit ]
   %2 = and i32 %div.i, 1
   %lcmp.mod.not = icmp eq i32 %2, 0
-  br i1 %lcmp.mod.not, label %invoke.cont3.i, label %for.inc.i.i.i.i.i.i.epil
+  br i1 %lcmp.mod.not, label %for.body.lr.ph.i, label %for.inc.i.i.i.i.i.i.epil
 
 for.inc.i.i.i.i.i.i.epil:                         ; preds = %invoke.cont3.i.unr-lcssa
   %__cur.013.i.i.i.i.i.i.ptr.epil = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i46.i, i64 %__cur.013.i.i.i.i.i.i.idx.unr
@@ -250,22 +250,15 @@ for.inc.i.i.i.i.i.i.epil:                         ; preds = %invoke.cont3.i.unr-
   store <2 x float> zeroinitializer, ptr %TCoords.i.2.i.i.i.i.i.i.i.i.epil, align 4, !tbaa !23, !noalias !9
   %__cur.013.i.i.i.i.i.i.add.epil = add nuw nsw i64 %__cur.013.i.i.i.i.i.i.idx.unr, 108
   %incdec.ptr.i.i.i.i.i.i.ptr.epil = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i46.i, i64 %__cur.013.i.i.i.i.i.i.add.epil
-  br label %invoke.cont3.i
+  br label %for.body.lr.ph.i
 
-invoke.cont3.i:                                   ; preds = %for.inc.i.i.i.i.i.i.epil, %invoke.cont3.i.unr-lcssa
+for.body.lr.ph.i:                                 ; preds = %invoke.cont3.i.unr-lcssa, %for.inc.i.i.i.i.i.i.epil
   %__cur.013.i.i.i.i.i.i.idx.lcssa = phi i64 [ %__cur.013.i.i.i.i.i.i.idx.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.idx.unr, %for.inc.i.i.i.i.i.i.epil ]
   %__cur.013.i.i.i.i.i.i.ptr.lcssa = phi ptr [ %__cur.013.i.i.i.i.i.i.ptr.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.ptr.epil, %for.inc.i.i.i.i.i.i.epil ]
   %__cur.013.i.i.i.i.i.i.add.lcssa = phi i64 [ %__cur.013.i.i.i.i.i.i.add.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.add.epil, %for.inc.i.i.i.i.i.i.epil ]
   %incdec.ptr.i.i.i.i.i.i.ptr.lcssa = phi ptr [ %incdec.ptr.i.i.i.i.i.i.ptr.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %incdec.ptr.i.i.i.i.i.i.ptr.epil, %for.inc.i.i.i.i.i.i.epil ]
   %_M_finish.i.i9.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i.ptr.lcssa, ptr %_M_finish.i.i9.i.i, align 8, !tbaa !14, !alias.scope !9
-  %cmp139.i = icmp sgt i32 %conv.i, 2
-  br i1 %cmp139.i, label %for.body.lr.ph.i, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %invoke.cont29.i, %invoke.cont3.i
-  br label %for.body
-
-for.body.lr.ph.i:                                 ; preds = %invoke.cont3.i
   %ref.tmp4.sroa.0.36.arrayinit.element.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.sroa.0.i, i64 36
   %ref.tmp4.sroa.0.72.arrayinit.element19.sroa_idx.i = getelementptr inbounds nuw i8, ptr %ref.tmp4.sroa.0.i, i64 72
   %wide.trip.count.i = zext nneg i32 %div.i to i64
@@ -340,7 +333,7 @@ invoke.cont29.i:                                  ; preds = %invoke.cont26.i
   call void @llvm.lifetime.end.p0(i64 108, ptr nonnull %ref.tmp4.sroa.0.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %for.body.preheader, label %for.body.i, !llvm.loop !32
+  br i1 %exitcond.not.i, label %for.body, label %for.body.i, !llvm.loop !32
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i47.invoke.i
   %11 = landingpad { ptr, i32 }
@@ -358,8 +351,7 @@ for.cond.cleanup.thread:                          ; preds = %_ZNSt6vectorISt5arr
   br label %nrvo.skipdtor
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %sub.ptr.div.i.i.i = udiv exact i64 %__cur.013.i.i.i.i.i.i.add.lcssa, 108
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i, i1 true), !range !33
+  %12 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i102.i, i1 true), !range !33
   %sub.i.i.i = shl nuw nsw i64 %12, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr nonnull %call5.i.i.i.i4.i.i46.i, ptr nonnull %incdec.ptr.i.i.i.i.i.i.ptr.lcssa, i64 noundef %mul.i.i)
@@ -392,8 +384,8 @@ if.else.i.i.i:                                    ; preds = %.noexc
   invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_T0_(ptr nonnull %call5.i.i.i.i4.i.i46.i, ptr nonnull %incdec.ptr.i.i.i.i.i.i.ptr.lcssa)
           to label %nrvo.skipdtor unwind label %lpad7.loopexit.split-lp
 
-for.body:                                         ; preds = %for.body.preheader, %invoke.cont
-  %__begin1.sroa.0.04 = phi ptr [ %incdec.ptr.i, %invoke.cont ], [ %call5.i.i.i.i4.i.i46.i, %for.body.preheader ]
+for.body:                                         ; preds = %invoke.cont29.i, %invoke.cont
+  %__begin1.sroa.0.04 = phi ptr [ %incdec.ptr.i, %invoke.cont ], [ %call5.i.i.i.i4.i.i46.i, %invoke.cont29.i ]
   call void @llvm.lifetime.start.p0(i64 108, ptr nonnull %ref.tmp) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %agg.tmp, ptr noundef nonnull align 4 dereferenceable(108) %__begin1.sroa.0.04, i64 108, i1 false), !tbaa.struct !30
   invoke fastcc void @_ZL12sortTriangleSt5arrayIN3irr5video9S3DVertexELm3EE(ptr dead_on_unwind noalias nonnull writable align 4 %ref.tmp, ptr noundef nonnull byval(%"struct.std::array.25") align 8 %agg.tmp)

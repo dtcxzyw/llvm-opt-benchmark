@@ -500,7 +500,7 @@ get_month_length.exit78:                          ; preds = %81, %83, %86, %91
   %116 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %114, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %115) #5
   %117 = load ptr, ptr %10, align 8, !tbaa !29
   %118 = trunc i64 %indvars.iv97 to i32
-  %119 = add i32 %118, 7
+  %119 = add nuw nsw i32 %118, 7
   tail call void @lv_buttonmatrix_set_button_ctrl(ptr noundef %117, i32 noundef %119, i32 noundef 64) #5
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %120 = icmp samesign ult i64 %indvars.iv.next98, %98

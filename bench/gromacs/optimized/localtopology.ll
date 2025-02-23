@@ -415,18 +415,18 @@ _ZN3gmx11ListOfListsIiE5clearEv.exit.i:           ; preds = %148, %_ZNSt6vectorI
 
 ._crit_edge.i.us.i:                               ; preds = %178
   %189 = icmp sgt i32 %187, 0
-  br i1 %189, label %.preheader83.i.us.i, label %._crit_edge.thread.i.us.i
+  br i1 %189, label %.lr.ph90.i.us.i, label %._crit_edge.thread.i.us.i
 
-.preheader83.i.us.i:                              ; preds = %._crit_edge.i.us.i
+.lr.ph90.i.us.i:                                  ; preds = %._crit_edge.i.us.i
   %190 = getelementptr inbounds nuw [94 x %struct.InteractionList], ptr %177, i64 0, i64 %indvars.iv123.i.us.i
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 16
   %.pre.i.us.i = load ptr, ptr %191, align 8
   br label %193
 
-193:                                              ; preds = %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i, %.preheader83.i.us.i
-  %194 = phi ptr [ %.pre.i.us.i, %.preheader83.i.us.i ], [ %229, %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i ]
-  %.05189.i.us.i = phi i64 [ 1, %.preheader83.i.us.i ], [ %230, %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i ]
+193:                                              ; preds = %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i, %.lr.ph90.i.us.i
+  %194 = phi ptr [ %.pre.i.us.i, %.lr.ph90.i.us.i ], [ %229, %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i ]
+  %.05189.i.us.i = phi i64 [ 1, %.lr.ph90.i.us.i ], [ %230, %_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEvNS4_IPiS1_EET_SA_St20forward_iterator_tag.exit.i.us.i ]
   %gep93.i.us.i = getelementptr inbounds nuw %struct.thread_work_t, ptr %invariant.gep.i.us.i, i64 %.05189.i.us.i, i32 0, i32 4
   %195 = load ptr, ptr %gep93.i.us.i, align 8
   %196 = getelementptr inbounds nuw i8, ptr %gep93.i.us.i, i64 8
@@ -541,18 +541,18 @@ _ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKiS1_EEEEv
   %249 = add i32 %.neg.i.us.i, %.05496.i.us.i
   %250 = add nuw nsw i64 %.05397.i.us.i, 1
   %exitcond119.not.i.us.i = icmp eq i64 %250, %smax.i.i
-  br i1 %exitcond119.not.i.us.i, label %.preheader.i.us.i, label %.lr.ph99.i.us.i, !llvm.loop !9
+  br i1 %exitcond119.not.i.us.i, label %.lr.ph110.i.us.i, label %.lr.ph99.i.us.i, !llvm.loop !9
 
-.preheader.i.us.i:                                ; preds = %.lr.ph99.i.us.i
+.lr.ph110.i.us.i:                                 ; preds = %.lr.ph99.i.us.i
   %.v.i.us.i = select i1 %231, i64 16, i64 40
   %251 = getelementptr inbounds nuw i8, ptr %175, i64 %.v.i.us.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 16
   br label %254
 
-254:                                              ; preds = %._crit_edge104.i.us.i, %.preheader.i.us.i
-  %.052109.i.us.i = phi i64 [ 1, %.preheader.i.us.i ], [ %317, %._crit_edge104.i.us.i ]
-  %.1108.i.us.i = phi i32 [ %249, %.preheader.i.us.i ], [ %.2.lcssa.i.us.i, %._crit_edge104.i.us.i ]
+254:                                              ; preds = %._crit_edge104.i.us.i, %.lr.ph110.i.us.i
+  %.052109.i.us.i = phi i64 [ 1, %.lr.ph110.i.us.i ], [ %317, %._crit_edge104.i.us.i ]
+  %.1108.i.us.i = phi i32 [ %249, %.lr.ph110.i.us.i ], [ %.2.lcssa.i.us.i, %._crit_edge104.i.us.i ]
   %255 = getelementptr inbounds nuw %struct.thread_work_t, ptr %.sroa.0.0.copyload.i27.i, i64 %.052109.i.us.i, i32 0, i32 2
   %256 = getelementptr inbounds nuw %struct.thread_work_t, ptr %.sroa.0.0.copyload.i27.i, i64 %.052109.i.us.i, i32 0, i32 3
   %257 = select i1 %231, ptr %255, ptr %256

@@ -866,7 +866,7 @@ define internal void @ExtractGreen_SSE2(ptr noalias noundef readonly captures(no
 
 .lr.ph65.preheader:                               ; preds = %41
   %43 = zext nneg i32 %.1 to i64
-  %wide.trip.count = zext i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph65
 
 .lr.ph65:                                         ; preds = %.lr.ph65.preheader, %.lr.ph65
@@ -1028,7 +1028,7 @@ define internal void @AlphaReplace_SSE2(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph41.preheader:                               ; preds = %.preheader
   %9 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %1 to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph41
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

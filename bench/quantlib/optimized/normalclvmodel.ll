@@ -1245,7 +1245,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 if.then.i.i.i.i.i75:                              ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
   %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
-  %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
+  %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %87, i64 88
   %92 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
   %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %92
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i.i
@@ -1282,7 +1282,7 @@ call5.i.i.i.i.i.i.i.i.i.i.noexc:                  ; preds = %_ZNSt8_Rb_treeIPN8Q
   %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i77, i64 32
   store ptr %add.ptr57, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %95, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i.i77, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i) #28
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %87, i64 104
   %96 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
   %inc.i.i.i.i.i = add i64 %96, 1
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
@@ -1466,7 +1466,7 @@ while.end.i.i.i.i.i106:                           ; preds = %while.body.i.i.i.i.
 
 if.then.i.i.i.i.i123:                             ; preds = %while.end.i.i.i.i.i106, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i93
   %__y.0.lcssa25.i.i.i.i.i124 = phi ptr [ %__x.021.i.i.i.i.i99, %while.end.i.i.i.i.i106 ], [ %add.ptr.i.i.i.i.i.i95, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i93 ]
-  %_M_left.i3.i.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %spec.select.i86, i64 32
+  %_M_left.i3.i.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %116, i64 88
   %121 = load ptr, ptr %_M_left.i3.i.i.i.i.i125, align 8, !tbaa !14
   %cmp.i4.i.i.i.i.i126 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i124, %121
   br i1 %cmp.i4.i.i.i.i.i126, label %if.then.i.i.i.i113, label %if.else.i.i.i.i.i127
@@ -1503,7 +1503,7 @@ call5.i.i.i.i.i.i.i.i.i.i.noexc135:               ; preds = %_ZNSt8_Rb_treeIPN8Q
   %_M_storage.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i136, i64 32
   store ptr %add.ptr68, ptr %_M_storage.i.i.i.i.i.i.i.i.i120, align 8, !tbaa !3
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %124, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i.i136, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i.i114, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i95) #28
-  %_M_node_count.i.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %spec.select.i86, i64 48
+  %_M_node_count.i.i.i.i.i121 = getelementptr inbounds nuw i8, ptr %116, i64 104
   %125 = load i64, ptr %_M_node_count.i.i.i.i.i121, align 8, !tbaa !16
   %inc.i.i.i.i.i122 = add i64 %125, 1
   store i64 %inc.i.i.i.i.i122, ptr %_M_node_count.i.i.i.i.i121, align 8, !tbaa !16
@@ -2774,7 +2774,7 @@ while.end.i.i.i.i.i:                              ; preds = %while.body.i.i.i.i.
 
 if.then.i.i.i.i.i80:                              ; preds = %while.end.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i
   %__y.0.lcssa25.i.i.i.i.i = phi ptr [ %__x.021.i.i.i.i.i, %while.end.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i ]
-  %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
+  %_M_left.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 88
   %85 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8, !tbaa !14
   %cmp.i4.i.i.i.i.i = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i, %85
   br i1 %cmp.i4.i.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i.i
@@ -2811,7 +2811,7 @@ call5.i.i.i.i.i.i.i.i.i.i.noexc:                  ; preds = %_ZNSt8_Rb_treeIPN8Q
   %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i82, i64 32
   store ptr %add.ptr52, ptr %_M_storage.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %88, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i.i82, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i) #28
-  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 48
+  %_M_node_count.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %80, i64 104
   %89 = load i64, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
   %inc.i.i.i.i.i = add i64 %89, 1
   store i64 %inc.i.i.i.i.i, ptr %_M_node_count.i.i.i.i.i, align 8, !tbaa !16
@@ -2995,7 +2995,7 @@ while.end.i.i.i.i.i111:                           ; preds = %while.body.i.i.i.i.
 
 if.then.i.i.i.i.i128:                             ; preds = %while.end.i.i.i.i.i111, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i98
   %__y.0.lcssa25.i.i.i.i.i129 = phi ptr [ %__x.021.i.i.i.i.i104, %while.end.i.i.i.i.i111 ], [ %add.ptr.i.i.i.i.i.i100, %_ZNK5boost10shared_ptrIN8QuantLib10ObservableEEptEv.exit.i98 ]
-  %_M_left.i3.i.i.i.i.i130 = getelementptr inbounds nuw i8, ptr %spec.select.i91, i64 32
+  %_M_left.i3.i.i.i.i.i130 = getelementptr inbounds nuw i8, ptr %109, i64 88
   %114 = load ptr, ptr %_M_left.i3.i.i.i.i.i130, align 8, !tbaa !14
   %cmp.i4.i.i.i.i.i131 = icmp eq ptr %__y.0.lcssa25.i.i.i.i.i129, %114
   br i1 %cmp.i4.i.i.i.i.i131, label %if.then.i.i.i.i118, label %if.else.i.i.i.i.i132
@@ -3032,7 +3032,7 @@ call5.i.i.i.i.i.i.i.i.i.i.noexc140:               ; preds = %_ZNSt8_Rb_treeIPN8Q
   %_M_storage.i.i.i.i.i.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i.i141, i64 32
   store ptr %add.ptr63, ptr %_M_storage.i.i.i.i.i.i.i.i.i125, align 8, !tbaa !3
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %117, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i.i141, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i.i119, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i.i100) #28
-  %_M_node_count.i.i.i.i.i126 = getelementptr inbounds nuw i8, ptr %spec.select.i91, i64 48
+  %_M_node_count.i.i.i.i.i126 = getelementptr inbounds nuw i8, ptr %109, i64 104
   %118 = load i64, ptr %_M_node_count.i.i.i.i.i126, align 8, !tbaa !16
   %inc.i.i.i.i.i127 = add i64 %118, 1
   store i64 %inc.i.i.i.i.i127, ptr %_M_node_count.i.i.i.i.i126, align 8, !tbaa !16
@@ -4051,7 +4051,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %invoke.cont24, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %y) #28
-  %inc = add i64 %i.0, 1
+  %inc = add nuw i64 %i.0, 1
   br label %for.cond, !llvm.loop !132
 
 lpad11:                                           ; preds = %for.body

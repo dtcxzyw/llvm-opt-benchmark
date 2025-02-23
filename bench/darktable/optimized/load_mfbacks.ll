@@ -833,7 +833,7 @@ define void @_ZN6LibRaw20phase_one_flat_fieldEii(ptr noundef nonnull align 8 der
   %231 = add nuw nsw i32 %.0106158, 1
   %232 = load i16, ptr %35, align 2, !tbaa !72
   %233 = zext i16 %232 to i32
-  %234 = icmp ult i32 %231, %233
+  %234 = icmp samesign ult i32 %231, %233
   %235 = icmp ult i32 %231, %174
   %or.cond120 = and i1 %234, %235
   br i1 %or.cond120, label %182, label %.critedge13, !llvm.loop !91

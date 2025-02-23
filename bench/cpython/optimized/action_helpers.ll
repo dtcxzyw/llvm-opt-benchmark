@@ -1609,7 +1609,7 @@ define hidden ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef readonl
   %.017.i29 = phi i64 [ 0, %.lr.ph30 ], [ %37, %32 ]
   %33 = getelementptr [1 x ptr], ptr %30, i64 0, i64 %.017.i29
   %34 = load ptr, ptr %33, align 8, !tbaa !51
-  %35 = tail call ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef %34, i32 noundef %2)
+  %35 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %0, ptr noundef %34, i32 noundef %2)
   %36 = getelementptr [1 x ptr], ptr %31, i64 0, i64 %.017.i29
   store ptr %35, ptr %36, align 8, !tbaa !51
   %37 = add nuw nsw i64 %.017.i29, 1
@@ -1662,7 +1662,7 @@ _set_seq_context.exit:                            ; preds = %32, %.preheader, %1
   %.017.i2328 = phi i64 [ 0, %.lr.ph ], [ %68, %63 ]
   %64 = getelementptr [1 x ptr], ptr %61, i64 0, i64 %.017.i2328
   %65 = load ptr, ptr %64, align 8, !tbaa !51
-  %66 = tail call ptr @_PyPegen_set_expr_context(ptr noundef %0, ptr noundef %65, i32 noundef %2)
+  %66 = tail call ptr @_PyPegen_set_expr_context(ptr noundef nonnull %0, ptr noundef %65, i32 noundef %2)
   %67 = getelementptr [1 x ptr], ptr %62, i64 0, i64 %.017.i2328
   store ptr %66, ptr %67, align 8, !tbaa !51
   %68 = add nuw nsw i64 %.017.i2328, 1
@@ -2146,7 +2146,7 @@ define hidden ptr @_PyPegen_join_sequences(ptr noundef readonly captures(none) %
 ; Function Attrs: nounwind uwtable
 define hidden ptr @_PyPegen_make_arguments(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %7, label %_make_posonlyargs.exit.thread92
+  br i1 %.not.i, label %7, label %_make_posonlyargs.exit.thread93
 
 7:                                                ; preds = %6
   %.not19.i = icmp eq ptr %2, null
@@ -2227,7 +2227,7 @@ _get_names.exit.thread.i:                         ; preds = %23, %_get_names.exi
 .preheader.i.i:                                   ; preds = %.preheader.loopexit.i.i, %.preheader29.i.i
   %.024.lcssa.i.i = phi i32 [ 0, %.preheader29.i.i ], [ %indvars.i.i, %.preheader.loopexit.i.i ]
   %42 = icmp sgt i64 %35, 0
-  br i1 %42, label %.lr.ph34.i.i, label %_make_posonlyargs.exit.thread92
+  br i1 %42, label %.lr.ph34.i.i, label %_make_posonlyargs.exit.thread93
 
 .lr.ph34.i.i:                                     ; preds = %.preheader.i.i
   %43 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2261,22 +2261,22 @@ _get_names.exit.thread.i:                         ; preds = %23, %_get_names.exi
   store ptr %56, ptr %60, align 8, !tbaa !19
   %61 = add nuw nsw i64 %.033.i.i, 1
   %exitcond36.not.i.i = icmp eq i64 %61, %35
-  br i1 %exitcond36.not.i.i, label %_make_posonlyargs.exit.thread92, label %53, !llvm.loop !94
+  br i1 %exitcond36.not.i.i, label %_make_posonlyargs.exit.thread93, label %53, !llvm.loop !94
 
 _make_posonlyargs.exit:                           ; preds = %7
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !4
   %64 = tail call ptr @_Py_asdl_arg_seq_new(i64 noundef 0, ptr noundef %63) #11
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %_make_posonlyargs.exit.thread, label %_make_posonlyargs.exit.thread92
+  br i1 %65, label %_make_posonlyargs.exit.thread, label %_make_posonlyargs.exit.thread93
 
-_make_posonlyargs.exit.thread92:                  ; preds = %53, %.preheader.i.i, %6, %_make_posonlyargs.exit
-  %.sink.i94 = phi ptr [ %64, %_make_posonlyargs.exit ], [ %38, %.preheader.i.i ], [ %1, %6 ], [ %38, %53 ]
+_make_posonlyargs.exit.thread93:                  ; preds = %53, %.preheader.i.i, %6, %_make_posonlyargs.exit
+  %.sink.i95 = phi ptr [ %64, %_make_posonlyargs.exit ], [ %38, %.preheader.i.i ], [ %1, %6 ], [ %38, %53 ]
   %.not.i30 = icmp eq ptr %4, null
   %.not24.i = icmp eq ptr %3, null
   br i1 %.not.i30, label %120, label %66
 
-66:                                               ; preds = %_make_posonlyargs.exit.thread92
+66:                                               ; preds = %_make_posonlyargs.exit.thread93
   %67 = load i64, ptr %4, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %69 = load ptr, ptr %68, align 8, !tbaa !4
@@ -2335,7 +2335,7 @@ _get_names.exit.thread.i32:                       ; preds = %76, %_get_names.exi
 .preheader.i.i34:                                 ; preds = %.preheader.loopexit.i.i45, %.preheader29.i.i33
   %.024.lcssa.i.i35 = phi i32 [ 0, %.preheader29.i.i33 ], [ %indvars.i.i46, %.preheader.loopexit.i.i45 ]
   %90 = icmp sgt i64 %83, 0
-  br i1 %90, label %.lr.ph34.i.i39, label %_make_posargs.exit.thread99
+  br i1 %90, label %.lr.ph34.i.i39, label %_make_posargs.exit.thread100
 
 .lr.ph34.i.i39:                                   ; preds = %.preheader.i.i34
   %91 = getelementptr inbounds nuw i8, ptr %70, i64 8
@@ -2369,7 +2369,7 @@ _get_names.exit.thread.i32:                       ; preds = %76, %_get_names.exi
   store ptr %104, ptr %108, align 8, !tbaa !19
   %109 = add nuw nsw i64 %.033.i.i40, 1
   %exitcond36.not.i.i42 = icmp eq i64 %109, %83
-  br i1 %exitcond36.not.i.i42, label %_make_posargs.exit.thread99, label %101, !llvm.loop !94
+  br i1 %exitcond36.not.i.i42, label %_make_posargs.exit.thread100, label %101, !llvm.loop !94
 
 110:                                              ; preds = %66
   br i1 %or.cond.i31.i, label %.lr.ph.i32.i, label %_make_posargs.exit
@@ -2389,12 +2389,12 @@ _get_names.exit.thread.i32:                       ; preds = %76, %_get_names.exi
   store ptr %117, ptr %118, align 8, !tbaa !95
   %119 = add nuw nsw i64 %.01417.i33.i, 1
   %exitcond.not.i34.i = icmp eq i64 %119, %67
-  br i1 %exitcond.not.i34.i, label %_make_posargs.exit.thread99, label %114, !llvm.loop !96
+  br i1 %exitcond.not.i34.i, label %_make_posargs.exit.thread100, label %114, !llvm.loop !96
 
-120:                                              ; preds = %_make_posonlyargs.exit.thread92
-  br i1 %.not24.i, label %122, label %.thread136
+120:                                              ; preds = %_make_posonlyargs.exit.thread93
+  br i1 %.not24.i, label %122, label %.thread
 
-.thread136:                                       ; preds = %120
+.thread:                                          ; preds = %120
   %121 = icmp ne ptr %2, null
   br label %211
 
@@ -2407,16 +2407,16 @@ _get_names.exit.thread.i32:                       ; preds = %76, %_get_names.exi
 _make_posargs.exit:                               ; preds = %110, %122
   %.sink.i37 = phi ptr [ %125, %122 ], [ %70, %110 ]
   %126 = icmp eq ptr %.sink.i37, null
-  br i1 %126, label %_make_posonlyargs.exit.thread, label %_make_posargs.exit.thread99
+  br i1 %126, label %_make_posonlyargs.exit.thread, label %_make_posargs.exit.thread100
 
-_make_posargs.exit.thread99:                      ; preds = %101, %114, %.preheader.i.i34, %_make_posargs.exit
-  %.sink.i37101 = phi ptr [ %.sink.i37, %_make_posargs.exit ], [ %86, %.preheader.i.i34 ], [ %70, %114 ], [ %86, %101 ]
+_make_posargs.exit.thread100:                     ; preds = %101, %114, %.preheader.i.i34, %_make_posargs.exit
+  %.sink.i37102 = phi ptr [ %.sink.i37, %_make_posargs.exit ], [ %86, %.preheader.i.i34 ], [ %70, %114 ], [ %86, %101 ]
   %127 = icmp ne ptr %2, null
   %128 = icmp ne ptr %4, null
   %or.cond.i = and i1 %127, %128
   br i1 %or.cond.i, label %129, label %193
 
-129:                                              ; preds = %_make_posargs.exit.thread99
+129:                                              ; preds = %_make_posargs.exit.thread100
   %130 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !88
   %132 = icmp eq ptr %131, null
@@ -2514,7 +2514,7 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
 .preheader.i.i56:                                 ; preds = %.preheader.loopexit.i.i64, %.preheader29.i.i55
   %.024.lcssa.i.i57 = phi i32 [ 0, %.preheader29.i.i55 ], [ %indvars.i.i65, %.preheader.loopexit.i.i64 ]
   %173 = icmp sgt i64 %166, 0
-  br i1 %173, label %.lr.ph34.i.i58, label %_make_posdefaults.exit.thread107
+  br i1 %173, label %.lr.ph34.i.i58, label %_make_posdefaults.exit.thread108
 
 .lr.ph34.i.i58:                                   ; preds = %.preheader.i.i56
   %174 = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -2548,9 +2548,9 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   store ptr %187, ptr %191, align 8, !tbaa !19
   %192 = add nuw nsw i64 %.033.i.i59, 1
   %exitcond36.not.i.i61 = icmp eq i64 %192, %166
-  br i1 %exitcond36.not.i.i61, label %_make_posdefaults.exit.thread107, label %184, !llvm.loop !94
+  br i1 %exitcond36.not.i.i61, label %_make_posdefaults.exit.thread108, label %184, !llvm.loop !94
 
-193:                                              ; preds = %_make_posargs.exit.thread99
+193:                                              ; preds = %_make_posargs.exit.thread100
   %194 = icmp eq ptr %2, null
   %or.cond3.i = and i1 %194, %128
   br i1 %or.cond3.i, label %195, label %211
@@ -2581,11 +2581,11 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   store ptr %208, ptr %209, align 8, !tbaa !51
   %210 = add nuw nsw i64 %.01417.i50.i, 1
   %exitcond.not.i51.i = icmp eq i64 %210, %196
-  br i1 %exitcond.not.i51.i, label %_make_posdefaults.exit.thread107, label %204, !llvm.loop !97
+  br i1 %exitcond.not.i51.i, label %_make_posdefaults.exit.thread108, label %204, !llvm.loop !97
 
-211:                                              ; preds = %.thread136, %193
-  %.sink.i37101129140 = phi ptr [ %3, %.thread136 ], [ %.sink.i37101, %193 ]
-  %212 = phi i1 [ %121, %.thread136 ], [ %127, %193 ]
+211:                                              ; preds = %.thread, %193
+  %.sink.i37102158168 = phi ptr [ %3, %.thread ], [ %.sink.i37102, %193 ]
+  %212 = phi i1 [ %121, %.thread ], [ %127, %193 ]
   %or.cond5.i = and i1 %.not.i30, %212
   br i1 %or.cond5.i, label %213, label %235
 
@@ -2625,7 +2625,7 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   store ptr %232, ptr %233, align 8, !tbaa !51
   %234 = add nuw nsw i64 %.01417.i56.i, 1
   %exitcond.not.i57.i = icmp eq i64 %234, %220
-  br i1 %exitcond.not.i57.i, label %_make_posdefaults.exit.thread107, label %228, !llvm.loop !97
+  br i1 %exitcond.not.i57.i, label %_make_posdefaults.exit.thread108, label %228, !llvm.loop !97
 
 235:                                              ; preds = %211
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2634,23 +2634,23 @@ _get_defaults.exit43.thread.i:                    ; preds = %158, %_get_defaults
   br label %_make_posdefaults.exit
 
 _make_posdefaults.exit:                           ; preds = %195, %219, %235
-  %.sink.i37101129139 = phi ptr [ %.sink.i37101129140, %235 ], [ %.sink.i37101, %195 ], [ %.sink.i37101129140, %219 ]
+  %.sink.i37102158167 = phi ptr [ %.sink.i37102158168, %235 ], [ %.sink.i37102, %195 ], [ %.sink.i37102158168, %219 ]
   %.sink.i51 = phi ptr [ %238, %235 ], [ %199, %195 ], [ %223, %219 ]
   %239 = icmp eq ptr %.sink.i51, null
-  br i1 %239, label %_make_posonlyargs.exit.thread, label %_make_posdefaults.exit.thread107
+  br i1 %239, label %_make_posonlyargs.exit.thread, label %_make_posdefaults.exit.thread108
 
-_make_posdefaults.exit.thread107:                 ; preds = %228, %204, %184, %.preheader.i.i56, %_make_posdefaults.exit
-  %.sink.i37101127 = phi ptr [ %.sink.i37101129139, %_make_posdefaults.exit ], [ %.sink.i37101, %.preheader.i.i56 ], [ %.sink.i37101, %184 ], [ %.sink.i37101, %204 ], [ %.sink.i37101129140, %228 ]
-  %.sink.i51109 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %.preheader.i.i56 ], [ %169, %184 ], [ %199, %204 ], [ %223, %228 ]
+_make_posdefaults.exit.thread108:                 ; preds = %228, %204, %184, %.preheader.i.i56, %_make_posdefaults.exit
+  %.sink.i37102156 = phi ptr [ %.sink.i37102158167, %_make_posdefaults.exit ], [ %.sink.i37102, %.preheader.i.i56 ], [ %.sink.i37102, %184 ], [ %.sink.i37102, %204 ], [ %.sink.i37102158168, %228 ]
+  %.sink.i51110 = phi ptr [ %.sink.i51, %_make_posdefaults.exit ], [ %169, %.preheader.i.i56 ], [ %169, %184 ], [ %199, %204 ], [ %223, %228 ]
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %.thread, label %240
+  br i1 %.not, label %_get_names.exit.i78, label %240
 
-240:                                              ; preds = %_make_posdefaults.exit.thread107
+240:                                              ; preds = %_make_posdefaults.exit.thread108
   %241 = load ptr, ptr %5, align 8, !tbaa !89
   %242 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %243 = load ptr, ptr %242, align 8, !tbaa !91
   %.not19.i70 = icmp eq ptr %243, null
-  br i1 %.not19.i70, label %.thread, label %244
+  br i1 %.not19.i70, label %_get_names.exit.i78.thread, label %244
 
 244:                                              ; preds = %240
   %245 = load i64, ptr %243, align 8, !tbaa !20
@@ -2660,106 +2660,113 @@ _make_posdefaults.exit.thread107:                 ; preds = %228, %204, %184, %.
   %.not.i.i71 = icmp ne ptr %248, null
   %249 = icmp sgt i64 %245, 0
   %or.cond.i.i72 = and i1 %249, %.not.i.i71
-  br i1 %or.cond.i.i72, label %.lr.ph.i.i76, label %_get_names.exit.i73
+  br i1 %or.cond.i.i72, label %.lr.ph.i.i75, label %_get_names.exit.thread28.i
 
-.lr.ph.i.i76:                                     ; preds = %244
+.lr.ph.i.i75:                                     ; preds = %244
   %250 = getelementptr inbounds nuw i8, ptr %243, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !17
   %252 = getelementptr inbounds nuw i8, ptr %248, i64 16
   br label %253
 
-253:                                              ; preds = %253, %.lr.ph.i.i76
-  %.01417.i.i77 = phi i64 [ 0, %.lr.ph.i.i76 ], [ %258, %253 ]
-  %254 = getelementptr ptr, ptr %251, i64 %.01417.i.i77
+253:                                              ; preds = %253, %.lr.ph.i.i75
+  %.01417.i.i76 = phi i64 [ 0, %.lr.ph.i.i75 ], [ %258, %253 ]
+  %254 = getelementptr ptr, ptr %251, i64 %.01417.i.i76
   %255 = load ptr, ptr %254, align 8, !tbaa !19
   %256 = load ptr, ptr %255, align 8, !tbaa !74
-  %257 = getelementptr [1 x ptr], ptr %252, i64 0, i64 %.01417.i.i77
+  %257 = getelementptr [1 x ptr], ptr %252, i64 0, i64 %.01417.i.i76
   store ptr %256, ptr %257, align 8, !tbaa !95
-  %258 = add nuw nsw i64 %.01417.i.i77, 1
-  %exitcond.not.i.i78 = icmp eq i64 %258, %245
-  br i1 %exitcond.not.i.i78, label %_get_names.exit.thread.i79, label %253, !llvm.loop !96
+  %258 = add nuw nsw i64 %.01417.i.i76, 1
+  %exitcond.not.i.i77 = icmp eq i64 %258, %245
+  br i1 %exitcond.not.i.i77, label %.thread30.i, label %253, !llvm.loop !96
 
-.thread:                                          ; preds = %_make_posdefaults.exit.thread107, %240
-  %.021116 = phi ptr [ %241, %240 ], [ null, %_make_posdefaults.exit.thread107 ]
+_get_names.exit.i78:                              ; preds = %_make_posdefaults.exit.thread108
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %260 = load ptr, ptr %259, align 8, !tbaa !4
   %261 = tail call ptr @_Py_asdl_arg_seq_new(i64 noundef 0, ptr noundef %260) #11
-  br label %_get_names.exit.i73
+  %262 = icmp eq ptr %261, null
+  br i1 %262, label %_make_posonlyargs.exit.thread, label %_make_kwargs.exit
 
-_get_names.exit.i73:                              ; preds = %.thread, %244
-  %.021115 = phi ptr [ %.021116, %.thread ], [ %241, %244 ]
-  %storemerge.i = phi ptr [ %261, %.thread ], [ %248, %244 ]
-  %262 = icmp eq ptr %storemerge.i, null
-  br i1 %262, label %_make_posonlyargs.exit.thread, label %_get_names.exit.thread.i79
+_get_names.exit.i78.thread:                       ; preds = %240
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %264 = load ptr, ptr %263, align 8, !tbaa !4
+  %265 = tail call ptr @_Py_asdl_arg_seq_new(i64 noundef 0, ptr noundef %264) #11
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %_make_posonlyargs.exit.thread, label %.thread30.i
 
-_get_names.exit.thread.i79:                       ; preds = %253, %_get_names.exit.i73
-  %.021113 = phi ptr [ %.021115, %_get_names.exit.i73 ], [ %241, %253 ]
-  %.085 = phi ptr [ %storemerge.i, %_get_names.exit.i73 ], [ %248, %253 ]
-  br i1 %.not, label %282, label %263
+_get_names.exit.thread28.i:                       ; preds = %244
+  %267 = icmp eq ptr %248, null
+  br i1 %267, label %_make_posonlyargs.exit.thread, label %.thread30.i
 
-263:                                              ; preds = %_get_names.exit.thread.i79
-  %264 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %265 = load ptr, ptr %264, align 8, !tbaa !91
-  %.not20.i74 = icmp eq ptr %265, null
-  br i1 %.not20.i74, label %282, label %266
+.thread30.i:                                      ; preds = %253, %_get_names.exit.i78.thread, %_get_names.exit.thread28.i
+  %.084 = phi ptr [ %248, %_get_names.exit.thread28.i ], [ %265, %_get_names.exit.i78.thread ], [ %248, %253 ]
+  %268 = load ptr, ptr %242, align 8, !tbaa !91
+  %.not20.i73 = icmp eq ptr %268, null
+  br i1 %.not20.i73, label %_make_kwargs.exit.thread, label %269
 
-266:                                              ; preds = %263
-  %267 = load i64, ptr %265, align 8, !tbaa !20
-  %268 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %269 = load ptr, ptr %268, align 8, !tbaa !4
-  %270 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef %267, ptr noundef %269) #11
-  %.not.i22.i = icmp ne ptr %270, null
-  %271 = icmp sgt i64 %267, 0
-  %or.cond.i23.i = and i1 %271, %.not.i22.i
-  br i1 %or.cond.i23.i, label %.lr.ph.i24.i, label %_make_kwargs.exit
+269:                                              ; preds = %.thread30.i
+  %270 = load i64, ptr %268, align 8, !tbaa !20
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %272 = load ptr, ptr %271, align 8, !tbaa !4
+  %273 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef %270, ptr noundef %272) #11
+  %.not.i22.i = icmp ne ptr %273, null
+  %274 = icmp sgt i64 %270, 0
+  %or.cond.i23.i = and i1 %274, %.not.i22.i
+  br i1 %or.cond.i23.i, label %.lr.ph.i24.i, label %_make_kwargs.exit.thread145
 
-.lr.ph.i24.i:                                     ; preds = %266
-  %272 = getelementptr inbounds nuw i8, ptr %265, i64 8
-  %273 = load ptr, ptr %272, align 8, !tbaa !17
-  %274 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  br label %275
+.lr.ph.i24.i:                                     ; preds = %269
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %276 = load ptr, ptr %275, align 8, !tbaa !17
+  %277 = getelementptr inbounds nuw i8, ptr %273, i64 16
+  br label %278
 
-275:                                              ; preds = %275, %.lr.ph.i24.i
-  %.01417.i25.i = phi i64 [ 0, %.lr.ph.i24.i ], [ %281, %275 ]
-  %276 = getelementptr ptr, ptr %273, i64 %.01417.i25.i
-  %277 = load ptr, ptr %276, align 8, !tbaa !19
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %279 = load ptr, ptr %278, align 8, !tbaa !77
-  %280 = getelementptr [1 x ptr], ptr %274, i64 0, i64 %.01417.i25.i
-  store ptr %279, ptr %280, align 8, !tbaa !51
-  %281 = add nuw nsw i64 %.01417.i25.i, 1
-  %exitcond.not.i26.i = icmp eq i64 %281, %267
-  br i1 %exitcond.not.i26.i, label %_make_kwargs.exit.thread121, label %275, !llvm.loop !97
+278:                                              ; preds = %278, %.lr.ph.i24.i
+  %.01417.i25.i = phi i64 [ 0, %.lr.ph.i24.i ], [ %284, %278 ]
+  %279 = getelementptr ptr, ptr %276, i64 %.01417.i25.i
+  %280 = load ptr, ptr %279, align 8, !tbaa !19
+  %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
+  %282 = load ptr, ptr %281, align 8, !tbaa !77
+  %283 = getelementptr [1 x ptr], ptr %277, i64 0, i64 %.01417.i25.i
+  store ptr %282, ptr %283, align 8, !tbaa !51
+  %284 = add nuw nsw i64 %.01417.i25.i, 1
+  %exitcond.not.i26.i = icmp eq i64 %284, %270
+  br i1 %exitcond.not.i26.i, label %.thread135, label %278, !llvm.loop !97
 
-282:                                              ; preds = %263, %_get_names.exit.thread.i79
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %284 = load ptr, ptr %283, align 8, !tbaa !4
-  %285 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef 0, ptr noundef %284) #11
-  br label %_make_kwargs.exit
+_make_kwargs.exit:                                ; preds = %_get_names.exit.i78
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %286 = load ptr, ptr %285, align 8, !tbaa !4
+  %287 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef 0, ptr noundef %286) #11
+  %288 = icmp eq ptr %287, null
+  br i1 %288, label %_make_posonlyargs.exit.thread, label %296
 
-_make_kwargs.exit:                                ; preds = %266, %282
-  %storemerge21.i = phi ptr [ %285, %282 ], [ %270, %266 ]
-  %286 = icmp eq ptr %storemerge21.i, null
-  br i1 %286, label %_make_posonlyargs.exit.thread, label %_make_kwargs.exit.thread121
+_make_kwargs.exit.thread:                         ; preds = %.thread30.i
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %290 = load ptr, ptr %289, align 8, !tbaa !4
+  %291 = tail call ptr @_Py_asdl_expr_seq_new(i64 noundef 0, ptr noundef %290) #11
+  %292 = icmp eq ptr %291, null
+  br i1 %292, label %_make_posonlyargs.exit.thread, label %.thread135
 
-_make_kwargs.exit.thread121:                      ; preds = %275, %_make_kwargs.exit
-  %storemerge21.i124 = phi ptr [ %storemerge21.i, %_make_kwargs.exit ], [ %270, %275 ]
-  br i1 %.not, label %290, label %287
+_make_kwargs.exit.thread145:                      ; preds = %269
+  %293 = icmp eq ptr %273, null
+  br i1 %293, label %_make_posonlyargs.exit.thread, label %.thread135
 
-287:                                              ; preds = %_make_kwargs.exit.thread121
-  %288 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %289 = load ptr, ptr %288, align 8, !tbaa !92
-  br label %290
+.thread135:                                       ; preds = %278, %_make_kwargs.exit.thread, %_make_kwargs.exit.thread145
+  %storemerge21.i134139 = phi ptr [ %273, %_make_kwargs.exit.thread145 ], [ %291, %_make_kwargs.exit.thread ], [ %273, %278 ]
+  %294 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %295 = load ptr, ptr %294, align 8, !tbaa !92
+  br label %296
 
-290:                                              ; preds = %287, %_make_kwargs.exit.thread121
-  %.0 = phi ptr [ null, %_make_kwargs.exit.thread121 ], [ %289, %287 ]
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %292 = load ptr, ptr %291, align 8, !tbaa !4
-  %293 = tail call ptr @_PyAST_arguments(ptr noundef nonnull %.sink.i94, ptr noundef %.sink.i37101127, ptr noundef %.021113, ptr noundef nonnull %.085, ptr noundef nonnull %storemerge21.i124, ptr noundef %.0, ptr noundef nonnull %.sink.i51109, ptr noundef %292) #11
+296:                                              ; preds = %_make_kwargs.exit, %.thread135
+  %.021114132144 = phi ptr [ %241, %.thread135 ], [ null, %_make_kwargs.exit ]
+  %.185133142 = phi ptr [ %.084, %.thread135 ], [ %261, %_make_kwargs.exit ]
+  %storemerge21.i134140 = phi ptr [ %storemerge21.i134139, %.thread135 ], [ %287, %_make_kwargs.exit ]
+  %.0 = phi ptr [ %295, %.thread135 ], [ null, %_make_kwargs.exit ]
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %298 = load ptr, ptr %297, align 8, !tbaa !4
+  %299 = tail call ptr @_PyAST_arguments(ptr noundef nonnull %.sink.i95, ptr noundef nonnull %.sink.i37102156, ptr noundef %.021114132144, ptr noundef nonnull %.185133142, ptr noundef nonnull %storemerge21.i134140, ptr noundef %.0, ptr noundef nonnull %.sink.i51110, ptr noundef %298) #11
   br label %_make_posonlyargs.exit.thread
 
-_make_posonlyargs.exit.thread:                    ; preds = %_get_names.exit.i73, %_get_defaults.exit43.i, %_get_defaults.exit.i, %_get_defaults.exit43.thread.i, %_get_names.exit.thread.i32, %_get_names.exit.i31, %33, %_get_names.exit.i, %_make_posargs.exit, %290, %_make_kwargs.exit, %_make_posdefaults.exit, %_make_posonlyargs.exit
-  %.022 = phi ptr [ null, %_make_posonlyargs.exit ], [ null, %_make_posargs.exit ], [ null, %_make_posdefaults.exit ], [ %293, %290 ], [ null, %_make_kwargs.exit ], [ null, %_get_names.exit.i ], [ null, %33 ], [ null, %_get_names.exit.i31 ], [ null, %_get_names.exit.thread.i32 ], [ null, %_get_defaults.exit43.thread.i ], [ null, %_get_defaults.exit.i ], [ null, %_get_defaults.exit43.i ], [ null, %_get_names.exit.i73 ]
+_make_posonlyargs.exit.thread:                    ; preds = %_make_kwargs.exit.thread, %_get_names.exit.i78.thread, %_get_names.exit.thread28.i, %_get_names.exit.i78, %_get_defaults.exit43.i, %_get_defaults.exit.i, %_get_defaults.exit43.thread.i, %_get_names.exit.thread.i32, %_get_names.exit.i31, %33, %_get_names.exit.i, %_make_posargs.exit, %296, %_make_kwargs.exit, %_make_kwargs.exit.thread145, %_make_posdefaults.exit, %_make_posonlyargs.exit
+  %.022 = phi ptr [ null, %_make_posonlyargs.exit ], [ null, %_make_posargs.exit ], [ null, %_make_posdefaults.exit ], [ %299, %296 ], [ null, %_make_kwargs.exit ], [ null, %_make_kwargs.exit.thread145 ], [ null, %_get_names.exit.i ], [ null, %33 ], [ null, %_get_names.exit.i31 ], [ null, %_get_names.exit.thread.i32 ], [ null, %_get_defaults.exit43.thread.i ], [ null, %_get_defaults.exit.i ], [ null, %_get_defaults.exit43.i ], [ null, %_get_names.exit.i78 ], [ null, %_get_names.exit.thread28.i ], [ null, %_get_names.exit.i78.thread ], [ null, %_make_kwargs.exit.thread ]
   ret ptr %.022
 }
 
@@ -4269,7 +4276,7 @@ define hidden ptr @_PyPegen_collect_call_seqs(ptr noundef readonly captures(none
 
 _seq_number_of_starred_exprs.exit.i:              ; preds = %22
   %29 = icmp eq i32 %spec.select.i.i, 0
-  br i1 %29, label %_PyPegen_seq_extract_starred_exprs.exit, label %30
+  br i1 %29, label %.lr.ph.i.i56, label %30
 
 30:                                               ; preds = %_seq_number_of_starred_exprs.exit.i
   %31 = sext i32 %spec.select.i.i to i64
@@ -4313,13 +4320,13 @@ _seq_number_of_starred_exprs.exit.i:              ; preds = %22
   %exitcond.not.i = icmp eq i64 %50, %.pr.pre
   br i1 %exitcond.not.i, label %_PyPegen_seq_extract_starred_exprs.exit, label %39, !llvm.loop !110
 
-_PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30, %_seq_number_of_starred_exprs.exit.i
-  %.pr = phi i64 [ %.pr.pre, %30 ], [ %18, %_seq_number_of_starred_exprs.exit.i ], [ %.pr.pre, %49 ]
-  %.0.i.ph = phi ptr [ null, %30 ], [ null, %_seq_number_of_starred_exprs.exit.i ], [ %34, %49 ]
-  %51 = icmp sgt i64 %.pr, 0
+_PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30
+  %51 = icmp sgt i64 %.pr.pre, 0
   br i1 %51, label %.lr.ph.i.i56, label %.split21.i
 
-.lr.ph.i.i56:                                     ; preds = %_PyPegen_seq_extract_starred_exprs.exit
+.lr.ph.i.i56:                                     ; preds = %_seq_number_of_starred_exprs.exit.i, %_PyPegen_seq_extract_starred_exprs.exit
+  %.0.i.ph76 = phi ptr [ %34, %_PyPegen_seq_extract_starred_exprs.exit ], [ null, %_seq_number_of_starred_exprs.exit.i ]
+  %.pr75 = phi i64 [ %.pr.pre, %_PyPegen_seq_extract_starred_exprs.exit ], [ %18, %_seq_number_of_starred_exprs.exit.i ]
   %52 = load ptr, ptr %20, align 8, !tbaa !17
   br label %53
 
@@ -4334,7 +4341,7 @@ _PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30, %_seq_numb
   %58 = zext i1 %.not.i.i59 to i32
   %spec.select.i.i60 = add i32 %.012.i.i57, %58
   %59 = add nuw nsw i64 %.0911.i.i58, 1
-  %exitcond.not.i.i61 = icmp eq i64 %59, %.pr
+  %exitcond.not.i.i61 = icmp eq i64 %59, %.pr75
   br i1 %exitcond.not.i.i61, label %.split21.loopexit.i, label %53, !llvm.loop !109
 
 .split21.loopexit.i:                              ; preds = %53
@@ -4343,8 +4350,8 @@ _PyPegen_seq_extract_starred_exprs.exit:          ; preds = %49, %30, %_seq_numb
 
 .split21.i:                                       ; preds = %17, %35, %.split21.loopexit.i, %_PyPegen_seq_extract_starred_exprs.exit
   %.not65 = phi i1 [ true, %_PyPegen_seq_extract_starred_exprs.exit ], [ false, %.split21.loopexit.i ], [ true, %35 ], [ true, %17 ]
-  %.0.i64 = phi ptr [ %.0.i.ph, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.0.i.ph, %.split21.loopexit.i ], [ %34, %35 ], [ null, %17 ]
-  %61 = phi i64 [ %.pr, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.pr, %.split21.loopexit.i ], [ %.pr.pre, %35 ], [ %18, %17 ]
+  %.0.i64 = phi ptr [ %34, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.0.i.ph76, %.split21.loopexit.i ], [ %34, %35 ], [ null, %17 ]
+  %61 = phi i64 [ %.pr.pre, %_PyPegen_seq_extract_starred_exprs.exit ], [ %.pr75, %.split21.loopexit.i ], [ %.pr.pre, %35 ], [ %18, %17 ]
   %phi.call.i = phi i64 [ 0, %_PyPegen_seq_extract_starred_exprs.exit ], [ %60, %.split21.loopexit.i ], [ 0, %35 ], [ 0, %17 ]
   %62 = icmp eq i64 %61, %phi.call.i
   br i1 %62, label %_PyPegen_seq_delete_starred_exprs.exit, label %63

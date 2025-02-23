@@ -2015,7 +2015,7 @@ dissect_uftp_tfmccdata.exit:                      ; preds = %.lr.ph.i49.i, %unqu
   %92 = load i32, ptr @hf_uftp_tfmccdata_cc_rate, align 4
   %93 = tail call ptr @proto_tree_add_uint(ptr noundef %83, i32 noundef %92, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef %70)
   %94 = add nuw nsw i32 %.07283, 8
-  %95 = icmp sgt i32 %.07384.in, 16
+  %95 = icmp samesign ugt i32 %.07384.in, 16
   br i1 %95, label %.lr.ph, label %dissect_uftp_tfmccdata.exit.thread
 
 dissect_uftp_tfmccdata.exit.thread:               ; preds = %dissect_uftp_tfmccdata.exit, %.lr.ph, %19, %58, %48

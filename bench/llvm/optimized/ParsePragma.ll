@@ -33949,14 +33949,11 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit156:         ; preds = %_ZNSt7__cxx1112basi
   br label %.critedge98
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit158:    ; preds = %338
-  %.off = add nsw i16 %339, -7
-  %switch = icmp ult i16 %.off, 13
   %444 = load ptr, ptr %144, align 8
-  %spec.select985 = select i1 %switch, ptr null, ptr %444
   br i1 %253, label %445, label %555
 
 445:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit158
-  %446 = getelementptr inbounds nuw i8, ptr %spec.select985, i64 16
+  %446 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %447 = load ptr, ptr %446, align 8, !tbaa !1166
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 16
   %449 = load i64, ptr %447, align 8, !tbaa !1169
@@ -34214,7 +34211,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit200:         ; preds = %_ZNSt7__cxx1112basi
 
 556:                                              ; preds = %555, %555
   %557 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.v
-  %558 = getelementptr inbounds nuw i8, ptr %spec.select985, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %559 = load ptr, ptr %558, align 8, !tbaa !1166
   %560 = getelementptr inbounds nuw i8, ptr %559, i64 16
   %561 = load i64, ptr %559, align 8, !tbaa !1169
@@ -34466,7 +34463,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit236:         ; preds = %_ZNSt7__cxx1112basi
   br label %.critedge98
 
 668:                                              ; preds = %555
-  %669 = getelementptr inbounds nuw i8, ptr %spec.select985, i64 16
+  %669 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %670 = load ptr, ptr %669, align 8, !tbaa !1166
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %672 = load i64, ptr %670, align 8, !tbaa !1169
@@ -34557,7 +34554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit271: ; preds = %_Z
   br label %.critedge98
 
 700:                                              ; preds = %555
-  %701 = getelementptr inbounds nuw i8, ptr %spec.select985, i64 16
+  %701 = getelementptr inbounds nuw i8, ptr %444, i64 16
   %702 = load ptr, ptr %701, align 8, !tbaa !1166
   %703 = getelementptr inbounds nuw i8, ptr %702, i64 16
   %704 = load i64, ptr %702, align 8, !tbaa !1169

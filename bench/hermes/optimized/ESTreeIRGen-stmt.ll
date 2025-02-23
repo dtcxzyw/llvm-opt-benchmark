@@ -1780,9 +1780,7 @@ if.then27:                                        ; preds = %if.then
   br label %for.end104
 
 if.else34:                                        ; preds = %if.then
-  %cmp.i.i.i.i.i.i.i33 = icmp eq i32 %6, 6
-  %spec.select.i34 = select i1 %cmp.i.i.i.i.i.i.i33, ptr %5, ptr null
-  %_id37 = getelementptr inbounds nuw i8, ptr %spec.select.i34, i64 72
+  %_id37 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %28 = load ptr, ptr %_id37, align 8
   %_name.i35 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %29 = load ptr, ptr %_name.i35, align 8

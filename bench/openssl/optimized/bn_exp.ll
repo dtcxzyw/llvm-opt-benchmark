@@ -1652,7 +1652,7 @@ MOD_EXP_CTIME_COPY_TO_PREBUF.exit:                ; preds = %.lr.ph.i, %270
   br i1 %exitcond.not.i358, label %MOD_EXP_CTIME_COPY_TO_PREBUF.exit359, label %.lr.ph.i353, !llvm.loop !40
 
 MOD_EXP_CTIME_COPY_TO_PREBUF.exit359:             ; preds = %.lr.ph.i353, %MOD_EXP_CTIME_COPY_TO_PREBUF.exit
-  %281 = icmp sgt i32 %spec.select, 1
+  %281 = icmp samesign ugt i32 %spec.select, 1
   br i1 %281, label %282, label %.loopexit401
 
 282:                                              ; preds = %MOD_EXP_CTIME_COPY_TO_PREBUF.exit359

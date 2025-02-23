@@ -3727,7 +3727,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 Ree_ManCountFadds.exit:                           ; preds = %17, %Abc_Clock.exit
   %.0.lcssa.i = phi i32 [ 0, %Abc_Clock.exit ], [ %spec.select.i, %17 ]
-  call void @Ree_ManPrintAdders(ptr noundef %10, i32 noundef 1)
+  call void @Ree_ManPrintAdders(ptr noundef nonnull %10, i32 noundef 1)
   %20 = sdiv i32 %.val.i, 6
   %21 = sub nsw i32 %20, %.0.lcssa.i
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.0.lcssa.i, i32 noundef %21)

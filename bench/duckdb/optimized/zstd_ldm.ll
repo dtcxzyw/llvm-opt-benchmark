@@ -611,7 +611,7 @@ _ZN11duckdb_zstdL19ZSTD_ldm_gear_resetEPNS_21ldmRollingHashState_tEPKhm.exit.i: 
   %wide.trip.count.i63 = zext i32 %125 to i64
   br label %127
 
-.preheader327.i:                                  ; preds = %127
+.lr.ph353.i:                                      ; preds = %127
   %126 = getelementptr inbounds nuw i8, ptr %.0212355.i, i64 %124
   br label %143
 
@@ -642,11 +642,11 @@ _ZN11duckdb_zstdL19ZSTD_ldm_gear_resetEPNS_21ldmRollingHashState_tEPKhm.exit.i: 
   tail call void @llvm.prefetch.p0(ptr %141, i32 0, i32 3, i32 1)
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i63
-  br i1 %exitcond.not.i66, label %.preheader327.i, label %127, !llvm.loop !56
+  br i1 %exitcond.not.i66, label %.lr.ph353.i, label %127, !llvm.loop !56
 
-143:                                              ; preds = %396, %.preheader327.i
-  %indvars.iv369.i = phi i64 [ 0, %.preheader327.i ], [ %indvars.iv.next370.i, %396 ]
-  %.1208351.i = phi ptr [ %.0207356.i, %.preheader327.i ], [ %.3210.ph.i, %396 ]
+143:                                              ; preds = %396, %.lr.ph353.i
+  %indvars.iv369.i = phi i64 [ 0, %.lr.ph353.i ], [ %indvars.iv.next370.i, %396 ]
+  %.1208351.i = phi ptr [ %.0207356.i, %.lr.ph353.i ], [ %.3210.ph.i, %396 ]
   %144 = getelementptr inbounds nuw %"struct.duckdb_zstd::ldmMatchCandidate_t", ptr %28, i64 %indvars.iv369.i
   %145 = load ptr, ptr %144, align 8, !tbaa !51
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 12

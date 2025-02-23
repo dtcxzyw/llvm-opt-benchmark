@@ -67,7 +67,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -70, 1048579) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
+define dso_local range(i64 -70, 262149) i64 @ZSTD_decodeLiteralsBlock(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = icmp ult i64 %2, 2
   br i1 %7, label %272, label %8
 
@@ -4155,7 +4155,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
 
 32:                                               ; preds = %27
   %33 = icmp eq i64 %4, 0
-  br i1 %33, label %BIT_reloadDStream.exit195.i.thread285.i, label %34
+  br i1 %33, label %BIT_reloadDStream.exit195.i.thread289.i, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -4174,7 +4174,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %.val.i.i = load i64, ptr %.ptr393.i, align 1
   store i64 %.val.i.i, ptr %11, align 8, !tbaa !72
   %.not51.i.i = icmp ult i64 %.val.i.i, 72057594037927936
-  br i1 %.not51.i.i, label %BIT_reloadDStream.exit195.i.thread285.i, label %BIT_initDStream.exit.i
+  br i1 %.not51.i.i, label %BIT_reloadDStream.exit195.i.thread289.i, label %BIT_initDStream.exit.i
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -4251,7 +4251,7 @@ define internal fastcc i64 @ZSTD_decompressSequencesSplitLitBuffer(ptr noundef %
   %89 = getelementptr i8, ptr %88, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !8
   %.not.i40.i = icmp eq i8 %90, 0
-  br i1 %.not.i40.i, label %BIT_reloadDStream.exit195.i.thread285.i, label %BIT_initDStream.exit.thread199.i
+  br i1 %.not.i40.i, label %BIT_reloadDStream.exit195.i.thread289.i, label %BIT_initDStream.exit.thread199.i
 
 BIT_initDStream.exit.thread199.i:                 ; preds = %86
   %91 = zext i8 %90 to i32
@@ -4271,7 +4271,7 @@ BIT_initDStream.exit.i:                           ; preds = %39
   %100 = xor i32 %99, 31
   %101 = sub nuw nsw i32 8, %100
   %102 = icmp ult i64 %4, -119
-  br i1 %102, label %103, label %BIT_reloadDStream.exit195.i.thread285.i
+  br i1 %102, label %103, label %BIT_reloadDStream.exit195.i.thread289.i
 
 103:                                              ; preds = %BIT_initDStream.exit.i, %BIT_initDStream.exit.thread199.i
   %.idx.i = phi i64 [ 0, %BIT_initDStream.exit.thread199.i ], [ %.add.i, %BIT_initDStream.exit.i ]
@@ -4820,7 +4820,7 @@ ZSTD_wildcopy.exit.i.i:                           ; preds = %ZSTD_wildcopy.exit.
 
 ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i:  ; preds = %415
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  br label %BIT_reloadDStream.exit195.i.thread285.i
+  br label %BIT_reloadDStream.exit195.i.thread289.i
 
 418:                                              ; preds = %415
   %419 = ptrtoint ptr %393 to i64
@@ -4967,13 +4967,13 @@ ZSTD_execSequenceSplitLitBuffer.exit.i.i:         ; preds = %481, %.preheader313
   %.0.i237.i.i = phi i64 [ %399, %.critedge.i240.i.i ], [ %391, %423 ], [ %391, %ZSTD_overlapCopy8.exit.i.i ], [ %391, %430 ], [ %391, %477 ], [ %391, %435 ], [ %391, %.preheader313.i ], [ %391, %481 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %486 = icmp ult i64 %.0.i237.i.i, -119
-  br i1 %486, label %487, label %BIT_reloadDStream.exit195.i.thread285.i, !prof !111
+  br i1 %486, label %487, label %BIT_reloadDStream.exit195.i.thread289.i, !prof !111
 
 487:                                              ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i
   %488 = getelementptr inbounds nuw i8, ptr %.2133.i341.i, i64 %.0.i237.i.i
   %489 = add nsw i32 %.0120.i343.i, -1
   %.not171.i.i = icmp eq i32 %489, 0
-  br i1 %.not171.i.i, label %.thread274.i, label %490, !prof !46
+  br i1 %.not171.i.i, label %.thread278.i, label %490, !prof !46
 
 490:                                              ; preds = %487
   %491 = load i32, ptr %110, align 8, !tbaa !73
@@ -5293,7 +5293,7 @@ BIT_reloadDStream.exit.i209.i.i:                  ; preds = %BIT_reloadDStream.e
   %.2133.i.lcssa.i = phi ptr [ %1, %ZSTD_decodeSequence.exit227.i.i ], [ %488, %659 ]
   %.0120.i.lcssa.i = phi i32 [ %5, %ZSTD_decodeSequence.exit227.i.i ], [ %489, %659 ]
   %697 = icmp sgt i32 %.0120.i.lcssa.i, 0
-  br i1 %697, label %698, label %BIT_reloadDStream.exit195.i.thread285.i
+  br i1 %697, label %698, label %BIT_reloadDStream.exit195.i.thread289.i
 
 698:                                              ; preds = %._crit_edge.i
   %699 = ptrtoint ptr %696 to i64
@@ -5307,7 +5307,7 @@ BIT_reloadDStream.exit.i209.i.i:                  ; preds = %BIT_reloadDStream.e
   %704 = ptrtoint ptr %.2133.i.lcssa.i to i64
   %705 = sub i64 %703, %704
   %706 = icmp ugt i64 %701, %705
-  br i1 %706, label %BIT_reloadDStream.exit195.i.thread285.i, label %707
+  br i1 %706, label %BIT_reloadDStream.exit195.i.thread289.i, label %707
 
 707:                                              ; preds = %702
   %708 = sub i64 %704, %700
@@ -5470,7 +5470,7 @@ ZSTD_wildcopy.exit270.i.i:                        ; preds = %762, %754, %750
 
 ZSTD_execSequence.exit235.i.thread.i:             ; preds = %772
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  br label %BIT_reloadDStream.exit195.i.thread285.i
+  br label %BIT_reloadDStream.exit195.i.thread289.i
 
 776:                                              ; preds = %772
   %777 = ptrtoint ptr %745 to i64
@@ -5617,13 +5617,13 @@ ZSTD_execSequence.exit235.i.i:                    ; preds = %840, %.preheader309
   %.0.i231.i.i = phi i64 [ %753, %.critedge.i234.i.i ], [ %742, %782 ], [ %742, %ZSTD_overlapCopy8.exit306.i.i ], [ %742, %788 ], [ %742, %836 ], [ %742, %794 ], [ %742, %.preheader309.i ], [ %742, %840 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %845 = icmp ult i64 %.0.i231.i.i, -119
-  br i1 %845, label %846, label %BIT_reloadDStream.exit195.i.thread285.i, !prof !111
+  br i1 %845, label %846, label %BIT_reloadDStream.exit195.i.thread289.i, !prof !111
 
 846:                                              ; preds = %ZSTD_execSequence.exit235.i.i
   %847 = getelementptr inbounds nuw i8, ptr %.7138.i.i, i64 %.0.i231.i.i
   %848 = add nsw i32 %.0120.i.lcssa.i, -1
   %.not174.i.i = icmp eq i32 %848, 0
-  br i1 %.not174.i.i, label %.thread274.i, label %849
+  br i1 %.not174.i.i, label %.thread278.i, label %849
 
 849:                                              ; preds = %846
   %850 = load i32, ptr %110, align 8, !tbaa !73
@@ -5784,9 +5784,9 @@ BIT_reloadDStream.exit188.i.i:                    ; preds = %BIT_reloadDStream.e
   store i32 %957, ptr %110, align 8, !tbaa !73, !noalias !120
   %958 = add nuw nsw i64 %956, %952
   %959 = icmp eq i64 %958, 3
-  br i1 %959, label %.thread260.i, label %963
+  br i1 %959, label %.thread263.i, label %963
 
-.thread260.i:                                     ; preds = %949
+.thread263.i:                                     ; preds = %949
   %960 = load i64, ptr %26, align 8, !tbaa !41, !noalias !120
   %961 = add i64 %960, -1
   %962 = tail call i64 @llvm.umax.i64(i64 %961, i64 1)
@@ -5799,8 +5799,8 @@ BIT_reloadDStream.exit188.i.i:                    ; preds = %BIT_reloadDStream.e
   %.not.i203.i.i = icmp eq i64 %958, 1
   br i1 %.not.i203.i.i, label %970, label %967
 
-967:                                              ; preds = %963, %.thread260.i
-  %968 = phi i64 [ %962, %.thread260.i ], [ %966, %963 ]
+967:                                              ; preds = %963, %.thread263.i
+  %968 = phi i64 [ %962, %.thread263.i ], [ %966, %963 ]
   %969 = load i64, ptr %880, align 8, !tbaa !41, !noalias !120
   store i64 %969, ptr %881, align 8, !tbaa !41, !noalias !120
   br label %970
@@ -6017,7 +6017,7 @@ ZSTD_wildcopy.exit291.i.i:                        ; preds = %1078, %1070, %1066
 
 ZSTD_execSequence.exit.i.thread.i:                ; preds = %1087
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  br label %BIT_reloadDStream.exit195.i.thread285.i
+  br label %BIT_reloadDStream.exit195.i.thread289.i
 
 1090:                                             ; preds = %1087
   %1091 = ptrtoint ptr %1062 to i64
@@ -6164,13 +6164,13 @@ ZSTD_execSequence.exit.i.i:                       ; preds = %1154, %.preheader.i
   %.0.i228.i.i = phi i64 [ %1069, %.critedge.i.i.i ], [ %1058, %1096 ], [ %1058, %ZSTD_overlapCopy8.exit307.i.i ], [ %1058, %1102 ], [ %1058, %1150 ], [ %1058, %1108 ], [ %1058, %.preheader.i ], [ %1058, %1154 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %1159 = icmp ult i64 %.0.i228.i.i, -119
-  br i1 %1159, label %1160, label %BIT_reloadDStream.exit195.i.thread285.i, !prof !111
+  br i1 %1159, label %1160, label %BIT_reloadDStream.exit195.i.thread289.i, !prof !111
 
 1160:                                             ; preds = %ZSTD_execSequence.exit.i.i
   %1161 = getelementptr inbounds nuw i8, ptr %.11142.i.i, i64 %.0.i228.i.i
   %1162 = add nsw i32 %.8128.i.i, -1
   %.not176.i.i = icmp eq i32 %1162, 0
-  br i1 %.not176.i.i, label %.thread274.i, label %1163, !prof !46
+  br i1 %.not176.i.i, label %.thread278.i, label %1163, !prof !46
 
 1163:                                             ; preds = %1160
   %1164 = load i32, ptr %110, align 8, !tbaa !73
@@ -6228,14 +6228,14 @@ BIT_reloadDStream.exit188.i.i.backedge:           ; preds = %BIT_reloadDStream.e
   %.val4.i95.i.be = phi i32 [ %1164, %1174 ], [ %1164, %1163 ], [ %.val4.i97382.ph.i, %BIT_reloadDStream.exit188.i.sink.split.i ]
   br label %BIT_reloadDStream.exit188.i.i
 
-.thread274.i:                                     ; preds = %487, %1160, %846
-  %.10141.i281.i = phi ptr [ %847, %846 ], [ %1161, %1160 ], [ %488, %487 ]
-  %.2149.i.ph259280.i = phi ptr [ %739, %846 ], [ %739, %1160 ], [ %16, %487 ]
+.thread278.i:                                     ; preds = %487, %1160, %846
+  %.10141.i285.i = phi ptr [ %847, %846 ], [ %1161, %1160 ], [ %488, %487 ]
+  %.2149.i.ph260284.i = phi ptr [ %739, %846 ], [ %739, %1160 ], [ %16, %487 ]
   %1192 = load i32, ptr %110, align 8, !tbaa !73
   %1193 = icmp ugt i32 %1192, 64
   br i1 %1193, label %BIT_reloadDStream.exit.i.i.preheader, label %1194
 
-1194:                                             ; preds = %.thread274.i
+1194:                                             ; preds = %.thread278.i
   %1195 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %1196 = load ptr, ptr %1195, align 8, !tbaa !71
   %1197 = load ptr, ptr %37, align 8, !tbaa !70
@@ -6245,9 +6245,9 @@ BIT_reloadDStream.exit188.i.i.backedge:           ; preds = %BIT_reloadDStream.e
   %or.cond.i = select i1 %.not.i.i.i, i1 %1199, i1 false
   %.not25.i.i.i = icmp eq i32 %1192, 64
   %or.cond432.i = and i1 %.not25.i.i.i, %or.cond.i
-  br i1 %or.cond432.i, label %BIT_reloadDStream.exit.i.i.preheader, label %BIT_reloadDStream.exit195.i.thread285.i
+  br i1 %or.cond432.i, label %BIT_reloadDStream.exit.i.i.preheader, label %BIT_reloadDStream.exit195.i.thread289.i
 
-BIT_reloadDStream.exit.i.i.preheader:             ; preds = %1194, %.thread274.i
+BIT_reloadDStream.exit.i.i.preheader:             ; preds = %1194, %.thread278.i
   br label %BIT_reloadDStream.exit.i.i
 
 BIT_reloadDStream.exit.i.i:                       ; preds = %BIT_reloadDStream.exit.i.i.preheader, %BIT_reloadDStream.exit.i.i
@@ -6261,7 +6261,7 @@ BIT_reloadDStream.exit.i.i:                       ; preds = %BIT_reloadDStream.e
   %exitcond370.not.i = icmp eq i64 %indvars.iv.next368.i, 3
   br i1 %exitcond370.not.i, label %BIT_reloadDStream.exit195.i.i, label %BIT_reloadDStream.exit.i.i, !llvm.loop !123
 
-BIT_reloadDStream.exit195.i.thread285.i:          ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i, %ZSTD_execSequence.exit.i.i, %1194, %ZSTD_execSequence.exit.i.thread.i, %ZSTD_execSequence.exit235.i.i, %ZSTD_execSequence.exit235.i.thread.i, %702, %._crit_edge.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, %BIT_initDStream.exit.i, %86, %39, %32
+BIT_reloadDStream.exit195.i.thread289.i:          ; preds = %ZSTD_execSequenceSplitLitBuffer.exit.i.i, %ZSTD_execSequence.exit.i.i, %1194, %ZSTD_execSequence.exit.i.thread.i, %ZSTD_execSequence.exit235.i.i, %ZSTD_execSequence.exit235.i.thread.i, %702, %._crit_edge.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i, %BIT_initDStream.exit.i, %86, %39, %32
   %.1.i.ph.i = phi i64 [ -20, %ZSTD_execSequence.exit235.i.thread.i ], [ %.0.i231.i.i, %ZSTD_execSequence.exit235.i.i ], [ -70, %702 ], [ -20, %BIT_initDStream.exit.i ], [ -20, %ZSTD_execSequenceSplitLitBuffer.exit.i.thread.i ], [ -20, %ZSTD_execSequence.exit.i.thread.i ], [ -20, %._crit_edge.i ], [ -20, %32 ], [ -20, %39 ], [ -20, %86 ], [ -20, %1194 ], [ %.0.i228.i.i, %ZSTD_execSequence.exit.i.i ], [ %.0.i237.i.i, %ZSTD_execSequenceSplitLitBuffer.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %11) #15
   br label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
@@ -6273,8 +6273,8 @@ BIT_reloadDStream.exit195.i.i:                    ; preds = %BIT_reloadDStream.e
 
 1204:                                             ; preds = %BIT_reloadDStream.exit195.i.i, %6
   %.pre387.i = phi ptr [ %.pre387.pre.i, %BIT_reloadDStream.exit195.i.i ], [ %14, %6 ]
-  %.0147.i.i = phi ptr [ %.2149.i.ph259280.i, %BIT_reloadDStream.exit195.i.i ], [ %16, %6 ]
-  %.0131.i.i = phi ptr [ %.10141.i281.i, %BIT_reloadDStream.exit195.i.i ], [ %1, %6 ]
+  %.0147.i.i = phi ptr [ %.2149.i.ph260284.i, %BIT_reloadDStream.exit195.i.i ], [ %16, %6 ]
+  %.0131.i.i = phi ptr [ %.10141.i285.i, %BIT_reloadDStream.exit195.i.i ], [ %1, %6 ]
   %1205 = getelementptr inbounds nuw i8, ptr %0, i64 30360
   %1206 = load i32, ptr %1205, align 8, !tbaa !31
   %1207 = icmp eq i32 %1206, 2
@@ -6339,8 +6339,8 @@ BIT_reloadDStream.exit195.i.i:                    ; preds = %BIT_reloadDStream.e
   %1234 = sub i64 %.16.i.ph.i, %1233
   br label %ZSTD_decompressSequencesSplitLitBuffer_default.exit
 
-ZSTD_decompressSequencesSplitLitBuffer_default.exit: ; preds = %BIT_reloadDStream.exit195.i.thread285.i, %1208, %1221, %1232
-  %.12.i.i = phi i64 [ %1234, %1232 ], [ %.1.i.ph.i, %BIT_reloadDStream.exit195.i.thread285.i ], [ -70, %1221 ], [ -70, %1208 ]
+ZSTD_decompressSequencesSplitLitBuffer_default.exit: ; preds = %BIT_reloadDStream.exit195.i.thread289.i, %1208, %1221, %1232
+  %.12.i.i = phi i64 [ %1234, %1232 ], [ %.1.i.ph.i, %BIT_reloadDStream.exit195.i.thread289.i ], [ -70, %1221 ], [ -70, %1208 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
   ret i64 %.12.i.i
 }

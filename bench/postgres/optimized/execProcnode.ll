@@ -275,7 +275,7 @@ define dso_local ptr @ExecInitNode(ptr noundef %0, ptr noundef %1, i32 noundef %
   %108 = load ptr, ptr %102, align 8
   %109 = getelementptr inbounds nuw %union.ListCell, ptr %108, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8
-  %111 = tail call ptr @ExecInitSubPlan(ptr noundef %110, ptr noundef %.0148) #6
+  %111 = tail call ptr @ExecInitSubPlan(ptr noundef %110, ptr noundef nonnull %.0148) #6
   %112 = tail call ptr @lappend(ptr noundef %.0149159163, ptr noundef %111) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %113 = load i32, ptr %101, align 4

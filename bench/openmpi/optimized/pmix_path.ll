@@ -639,7 +639,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
 
 7:                                                ; preds = %7, %6
   %.0 = phi i32 [ 5, %6 ], [ %13, %7 ]
-  %8 = call i32 @statfs(ptr noundef %0, ptr noundef nonnull %3) #14
+  %8 = call i32 @statfs(ptr noundef nonnull %0, ptr noundef nonnull %3) #14
   %9 = tail call ptr @__errno_location() #17
   %10 = load i32, ptr %9, align 4, !tbaa !12
   %11 = icmp eq i32 %8, -1
@@ -660,7 +660,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
 
 18:                                               ; preds = %15
   %19 = call ptr @strerror(i32 noundef %10) #14
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef %0, i32 noundef %10, ptr noundef %19) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %0, i32 noundef %10, ptr noundef %19) #14
   br label %31
 
 20:                                               ; preds = %.critedge
@@ -678,7 +678,7 @@ define range(i32 -1, 1) i32 @pmix_path_df(ptr noundef %0, ptr noundef writeonly 
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %20
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef %0, i64 noundef %27) #14
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i64 noundef %27) #14
   br label %31
 
 31:                                               ; preds = %20, %30, %15, %18, %2

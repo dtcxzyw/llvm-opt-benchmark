@@ -2181,8 +2181,8 @@ pgstat_entry_ref_hash_entry_hash.exit:            ; preds = %.lr.ph.i.i.i.i
   %63 = icmp ugt i64 %3, %62
   br i1 %63, label %.lr.ph, label %.lr.ph78.preheader, !llvm.loop !21
 
-.lr.ph78.preheader:                               ; preds = %.lr.ph, %pgstat_entry_ref_hash_entry_hash.exit, %60
-  %.05176.ph = phi i32 [ 0, %60 ], [ %.069, %pgstat_entry_ref_hash_entry_hash.exit ], [ %.069, %.lr.ph ]
+.lr.ph78.preheader:                               ; preds = %60, %.lr.ph, %pgstat_entry_ref_hash_entry_hash.exit
+  %.05176.ph = phi i32 [ %.069, %pgstat_entry_ref_hash_entry_hash.exit ], [ %.069, %.lr.ph ], [ 0, %60 ]
   br label %.lr.ph78
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %99

@@ -3651,7 +3651,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3m
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp9.i) #31
   store ptr %ref.tmp9, ptr %ref.tmp9.i, align 8, !tbaa !44, !alias.scope !113
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp10.i) #31
-  %call12.i = call ptr @_ZNSt8_Rb_treeItSt4pairIKt12SharedBufferIhEESt10_Select1stIS4_ESt4lessItESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOtEESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %chunks, ptr %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
+  %call12.i = call ptr @_ZNSt8_Rb_treeItSt4pairIKt12SharedBufferIhEESt10_Select1stIS4_ESt4lessItESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOtEESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %chunks, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp9.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp10.i) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp9.i) #31
   br label %_ZNSt3mapIt12SharedBufferIhESt4lessItESaISt4pairIKtS1_EEEixEOt.exit
@@ -15166,7 +15166,7 @@ for.body.preheader:                               ; preds = %dynamic_cast.notnul
   br i1 %tobool.not.i.i.i.i77, label %_ZN3con7Channel20getCurrentLossRateKBEv.exit, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us: ; preds = %for.body.us.preheader
-  %cur_kbps.i.us = getelementptr inbounds nuw i8, ptr %spec.select, i64 624
+  %cur_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 624
   %3 = load float, ptr %cur_kbps.i.us, align 8, !tbaa !197
   %call1.i.i.i.i3.i.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15175,7 +15175,7 @@ _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us: ; preds = %for.body.us.preh
   br i1 %tobool.not.i.i.i.i.us.1, label %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us
-  %cur_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1136
+  %cur_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %4 = load float, ptr %cur_kbps.i.us.1, align 8, !tbaa !197
   %call1.i.i.i.i3.i.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.1) #31
   %m_internal_mutex.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15185,14 +15185,14 @@ _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channe
 
 _ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel24getCurrentDownloadRateKBEv.exit.us.1
   %retval3.1.us.1 = fadd nsz float %3, %4
-  %cur_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1648
+  %cur_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load float, ptr %cur_kbps.i.us.2, align 8, !tbaa !197
   %call1.i.i.i.i3.i.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i.us.2) #31
   %retval3.1.us.2 = fadd nsz float %retval3.1.us.1, %5
   br label %for.cond.cleanup
 
 _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us:  ; preds = %for.body.us94.preheader
-  %avg_kbps.i.us = getelementptr inbounds nuw i8, ptr %spec.select, i64 628
+  %avg_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 628
   %6 = load float, ptr %avg_kbps.i.us, align 4, !tbaa !204
   %call1.i.i.i.i3.i55.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i51.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15201,7 +15201,7 @@ _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us:  ; preds = %for.body.us94.prehe
   br i1 %tobool.not.i.i.i.i53.us.1, label %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us
-  %avg_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1140
+  %avg_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1140
   %7 = load float, ptr %avg_kbps.i.us.1, align 4, !tbaa !204
   %call1.i.i.i.i3.i55.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.1) #31
   %m_internal_mutex.i51.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15211,14 +15211,14 @@ _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20g
 
 _ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel20getAvgDownloadRateKBEv.exit.us.1
   %retval3.1.us100.1 = fadd nsz float %6, %7
-  %avg_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1652
+  %avg_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1652
   %8 = load float, ptr %avg_kbps.i.us.2, align 4, !tbaa !204
   %call1.i.i.i.i3.i55.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i51.us.2) #31
   %retval3.1.us100.2 = fadd nsz float %retval3.1.us100.1, %8
   br label %for.cond.cleanup
 
 _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us: ; preds = %for.body.us108.preheader
-  %cur_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %spec.select, i64 636
+  %cur_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 636
   %9 = load float, ptr %cur_incoming_kbps.i.us, align 4, !tbaa !199
   %call1.i.i.i.i3.i61.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i57.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15227,7 +15227,7 @@ _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us: ; preds = %for.body.us108.p
   br i1 %tobool.not.i.i.i.i59.us.1, label %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us
-  %cur_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1148
+  %cur_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1148
   %10 = load float, ptr %cur_incoming_kbps.i.us.1, align 4, !tbaa !199
   %call1.i.i.i.i3.i61.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.1) #31
   %m_internal_mutex.i57.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15237,14 +15237,14 @@ _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channe
 
 _ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel24getCurrentIncomingRateKBEv.exit.us.1
   %retval3.1.us114.1 = fadd nsz float %9, %10
-  %cur_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1660
+  %cur_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1660
   %11 = load float, ptr %cur_incoming_kbps.i.us.2, align 4, !tbaa !199
   %call1.i.i.i.i3.i61.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i57.us.2) #31
   %retval3.1.us114.2 = fadd nsz float %retval3.1.us114.1, %11
   br label %for.cond.cleanup
 
 _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us:  ; preds = %for.body.us122.preheader
-  %avg_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %spec.select, i64 640
+  %avg_incoming_kbps.i.us = getelementptr inbounds nuw i8, ptr %0, i64 640
   %12 = load float, ptr %avg_incoming_kbps.i.us, align 8, !tbaa !206
   %call1.i.i.i.i3.i67.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i63.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15253,7 +15253,7 @@ _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us:  ; preds = %for.body.us122.preh
   br i1 %tobool.not.i.i.i.i65.us.1, label %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us
-  %avg_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1152
+  %avg_incoming_kbps.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %13 = load float, ptr %avg_incoming_kbps.i.us.1, align 8, !tbaa !206
   %call1.i.i.i.i3.i67.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.1) #31
   %m_internal_mutex.i63.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15263,14 +15263,14 @@ _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1: ; preds = %_ZN3con7Channel20g
 
 _ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.2: ; preds = %_ZN3con7Channel20getAvgIncomingRateKBEv.exit.us.1
   %retval3.1.us128.1 = fadd nsz float %12, %13
-  %avg_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1664
+  %avg_incoming_kbps.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %14 = load float, ptr %avg_incoming_kbps.i.us.2, align 8, !tbaa !206
   %call1.i.i.i.i3.i67.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i63.us.2) #31
   %retval3.1.us128.2 = fadd nsz float %retval3.1.us128.1, %14
   br label %for.cond.cleanup
 
 _ZN3con7Channel16getAvgLossRateKBEv.exit.us:      ; preds = %for.body.us136.preheader
-  %avg_kbps_lost.i.us = getelementptr inbounds nuw i8, ptr %spec.select, i64 652
+  %avg_kbps_lost.i.us = getelementptr inbounds nuw i8, ptr %0, i64 652
   %15 = load float, ptr %avg_kbps_lost.i.us, align 4, !tbaa !205
   %call1.i.i.i.i3.i73.us = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i69.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15279,7 +15279,7 @@ _ZN3con7Channel16getAvgLossRateKBEv.exit.us:      ; preds = %for.body.us136.preh
   br i1 %tobool.not.i.i.i.i71.us.1, label %_ZN3con7Channel16getAvgLossRateKBEv.exit.us.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel16getAvgLossRateKBEv.exit.us.1:    ; preds = %_ZN3con7Channel16getAvgLossRateKBEv.exit.us
-  %avg_kbps_lost.i.us.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1164
+  %avg_kbps_lost.i.us.1 = getelementptr inbounds nuw i8, ptr %0, i64 1164
   %16 = load float, ptr %avg_kbps_lost.i.us.1, align 4, !tbaa !205
   %call1.i.i.i.i3.i73.us.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.1) #31
   %m_internal_mutex.i69.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15289,7 +15289,7 @@ _ZN3con7Channel16getAvgLossRateKBEv.exit.us.1:    ; preds = %_ZN3con7Channel16ge
 
 _ZN3con7Channel16getAvgLossRateKBEv.exit.us.2:    ; preds = %_ZN3con7Channel16getAvgLossRateKBEv.exit.us.1
   %retval3.1.us142.1 = fadd nsz float %15, %16
-  %avg_kbps_lost.i.us.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1676
+  %avg_kbps_lost.i.us.2 = getelementptr inbounds nuw i8, ptr %0, i64 1676
   %17 = load float, ptr %avg_kbps_lost.i.us.2, align 4, !tbaa !205
   %call1.i.i.i.i3.i73.us.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i69.us.2) #31
   %retval3.1.us142.2 = fadd nsz float %retval3.1.us142.1, %17
@@ -15315,7 +15315,7 @@ if.then.i.i.i.i78.cont:                           ; preds = %if.then.i.i.i.i78.i
   unreachable
 
 _ZN3con7Channel20getCurrentLossRateKBEv.exit:     ; preds = %for.body.preheader
-  %cur_kbps_lost.i = getelementptr inbounds nuw i8, ptr %spec.select, i64 648
+  %cur_kbps_lost.i = getelementptr inbounds nuw i8, ptr %0, i64 648
   %20 = load float, ptr %cur_kbps_lost.i, align 8, !tbaa !198
   %call1.i.i.i.i3.i79 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75) #31
   %m_internal_mutex.i75.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1056
@@ -15324,7 +15324,7 @@ _ZN3con7Channel20getCurrentLossRateKBEv.exit:     ; preds = %for.body.preheader
   br i1 %tobool.not.i.i.i.i77.1, label %_ZN3con7Channel20getCurrentLossRateKBEv.exit.1, label %if.then.i.i.i.i78.invoke
 
 _ZN3con7Channel20getCurrentLossRateKBEv.exit.1:   ; preds = %_ZN3con7Channel20getCurrentLossRateKBEv.exit
-  %cur_kbps_lost.i.1 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1160
+  %cur_kbps_lost.i.1 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %21 = load float, ptr %cur_kbps_lost.i.1, align 8, !tbaa !198
   %call1.i.i.i.i3.i79.1 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.1) #31
   %m_internal_mutex.i75.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1568
@@ -15334,7 +15334,7 @@ _ZN3con7Channel20getCurrentLossRateKBEv.exit.1:   ; preds = %_ZN3con7Channel20ge
 
 _ZN3con7Channel20getCurrentLossRateKBEv.exit.2:   ; preds = %_ZN3con7Channel20getCurrentLossRateKBEv.exit.1
   %retval3.1.1 = fadd nsz float %20, %21
-  %cur_kbps_lost.i.2 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1672
+  %cur_kbps_lost.i.2 = getelementptr inbounds nuw i8, ptr %0, i64 1672
   %22 = load float, ptr %cur_kbps_lost.i.2, align 8, !tbaa !198
   %call1.i.i.i.i3.i79.2 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_internal_mutex.i75.2) #31
   %retval3.1.2 = fadd nsz float %retval3.1.1, %22

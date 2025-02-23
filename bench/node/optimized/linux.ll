@@ -2392,7 +2392,7 @@ if.end37:                                         ; preds = %while.body35, %whil
   br i1 %cmp38.not, label %if.end40, label %if.then39
 
 if.then39:                                        ; preds = %if.end37
-  call void @uv__metrics_set_provider_entry_time(ptr noundef %loop) #18
+  call void @uv__metrics_set_provider_entry_time(ptr noundef nonnull %loop) #18
   br label %if.end40
 
 if.end40:                                         ; preds = %if.then39, %if.end37

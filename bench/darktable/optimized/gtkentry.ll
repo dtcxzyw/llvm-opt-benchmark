@@ -417,7 +417,7 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
   %.0182535 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %._crit_edge31
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph30.preheader:                               ; preds = %.lr.ph
   %6 = shl i64 %9, 3
   %7 = add i64 %6, 16
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #15
@@ -433,20 +433,20 @@ define noalias ptr @dt_gtkentry_build_completion_tooltip_text(ptr noundef %0, pt
   %11 = getelementptr inbounds nuw i8, ptr %.01923, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph30.preheader, label %.lr.ph
 
 ._crit_edge31:                                    ; preds = %.lr.ph30, %._crit_edge.thread
   %13 = phi ptr [ %5, %._crit_edge.thread ], [ %8, %.lr.ph30 ]
   %.018.lcssa = phi ptr [ %.0182535, %._crit_edge.thread ], [ %.018, %.lr.ph30 ]
   store ptr null, ptr %.018.lcssa, align 8, !tbaa !15
   %14 = tail call noalias ptr @g_strjoinv(ptr noundef nonnull @.str.181, ptr noundef nonnull %13) #12
-  tail call void @free(ptr noundef %13) #12
+  tail call void @free(ptr noundef nonnull %13) #12
   ret ptr %14
 
-.lr.ph30:                                         ; preds = %._crit_edge, %.lr.ph30
-  %15 = phi ptr [ %19, %.lr.ph30 ], [ %4, %._crit_edge ]
-  %.01828 = phi ptr [ %.018, %.lr.ph30 ], [ %.01825, %._crit_edge ]
-  %.01727 = phi ptr [ %17, %.lr.ph30 ], [ %1, %._crit_edge ]
+.lr.ph30:                                         ; preds = %.lr.ph30.preheader, %.lr.ph30
+  %15 = phi ptr [ %19, %.lr.ph30 ], [ %4, %.lr.ph30.preheader ]
+  %.01828 = phi ptr [ %.018, %.lr.ph30 ], [ %.01825, %.lr.ph30.preheader ]
+  %.01727 = phi ptr [ %17, %.lr.ph30 ], [ %1, %.lr.ph30.preheader ]
   %16 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull %15, i32 noundef 5) #12
   store ptr %16, ptr %.01828, align 8, !tbaa !15
   %17 = getelementptr inbounds nuw i8, ptr %.01727, i64 16

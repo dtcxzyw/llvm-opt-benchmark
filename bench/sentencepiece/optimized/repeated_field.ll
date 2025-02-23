@@ -1140,89 +1140,87 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = icmp eq ptr %12, null
-  br i1 %19, label %20, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = icmp eq ptr %11, null
+  br i1 %18, label %19, label %.critedge47
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
-  br label %36
+19:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %20 = add nuw nsw i64 %17, 8
+  %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #15
+  br label %35
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = and i64 %25, 1
-  %.not.i = icmp eq i64 %26, 0
-  %.pre = and i64 %23, 4294967288
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
+  %22 = add nuw nsw i64 %17, 15
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %24 = load i64, ptr %23, align 8
+  %25 = and i64 %24, 1
+  %.not.i = icmp eq i64 %25, 0
+  %.pre = and i64 %22, 4294967288
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %26
 
-27:                                               ; preds = %.critedge47
-  %28 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+26:                                               ; preds = %.critedge47
+  %27 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %28 = load ptr, ptr %27, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %33 = load ptr, ptr %32, align 8
+  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
-  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %36
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %26
+  %34 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %35
 
-36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
-  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %37 = load i32, ptr %3, align 4
+35:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %19
+  %.040 = phi ptr [ %21, %19 ], [ %34, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %36 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %38, ptr %7, align 8
-  %39 = load i32, ptr %0, align 8
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %44
+  %37 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %37, ptr %7, align 8
+  %38 = load i32, ptr %0, align 8
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %40, label %42
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %43 = zext nneg i32 %39 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %42, i64 %43, i1 false)
-  br label %44
+40:                                               ; preds = %35
+  %41 = zext nneg i32 %38 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull align 1 %8, i64 %41, i1 false)
+  br label %42
 
-44:                                               ; preds = %41, %36
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit, label %45
+42:                                               ; preds = %40, %35
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit, label %43
 
-45:                                               ; preds = %44
-  %46 = load ptr, ptr %9, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit
+43:                                               ; preds = %42
+  %44 = load ptr, ptr %9, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit
 
-48:                                               ; preds = %45
-  %49 = sext i32 %37 to i64
-  %50 = add nsw i64 %49, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %50) #16
+46:                                               ; preds = %43
+  %47 = sext i32 %36 to i64
+  %48 = add nsw i64 %47, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %48) #16
   br label %_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
+_ZN6google8protobuf13RepeatedFieldIbE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %46, %43, %42, %2
   ret void
 }
 
@@ -1808,49 +1806,49 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIbE15ExtractSubrangeEiiP
   store i8 %14, ptr %13, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !4
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %15, label %_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit
 
-15:                                               ; preds = %.loopexit
-  %16 = add nsw i32 %2, %1
-  %17 = load i32, ptr %0, align 8
-  %18 = icmp slt i32 %16, %17
-  br i1 %18, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %15 = add nsw i32 %2, %1
+  %16 = load i32, ptr %0, align 8
+  %17 = icmp slt i32 %15, %16
+  br i1 %17, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = sext i32 %16 to i64
-  %21 = zext nneg i32 %2 to i64
-  br label %22
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = sext i32 %15 to i64
+  %20 = zext nneg i32 %2 to i64
+  br label %21
 
-22:                                               ; preds = %.lr.ph23, %22
-  %indvars.iv26 = phi i64 [ %20, %.lr.ph23 ], [ %indvars.iv.next27, %22 ]
-  %23 = sub nsw i64 %indvars.iv26, %21
-  %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv26
-  %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds i8, ptr %24, i64 %23
-  %28 = and i8 %26, 1
-  store i8 %28, ptr %27, align 1
+21:                                               ; preds = %.lr.ph23, %21
+  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
+  %22 = sub nsw i64 %indvars.iv26, %20
+  %23 = load ptr, ptr %18, align 8
+  %24 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv26
+  %25 = load i8, ptr %24, align 1
+  %26 = getelementptr inbounds i8, ptr %23, i64 %22
+  %27 = and i8 %25, 1
+  store i8 %27, ptr %26, align 1
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %29 = load i32, ptr %0, align 8
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next27, %30
-  br i1 %31, label %22, label %._crit_edge, !llvm.loop !6
+  %28 = load i32, ptr %0, align 8
+  %29 = sext i32 %28 to i64
+  %30 = icmp slt i64 %indvars.iv.next27, %29
+  br i1 %30, label %21, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %22, %15
-  %.lcssa = phi i32 [ %17, %15 ], [ %29, %22 ]
-  %32 = icmp sgt i32 %.lcssa, 0
-  br i1 %32, label %33, label %_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit
+._crit_edge:                                      ; preds = %21, %.loopexit.thread
+  %.lcssa = phi i32 [ %16, %.loopexit.thread ], [ %28, %21 ]
+  %31 = icmp sgt i32 %.lcssa, 0
+  br i1 %31, label %32, label %_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit
 
-33:                                               ; preds = %._crit_edge
-  %34 = sub nsw i32 %.lcssa, %2
-  store i32 %34, ptr %0, align 8
+32:                                               ; preds = %._crit_edge
+  %33 = sub nsw i32 %.lcssa, %2
+  store i32 %33, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit: ; preds = %33, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIbE8TruncateEi.exit: ; preds = %32, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -2403,92 +2401,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 2
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 2
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 17179869176
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 17179869176
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 4 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 2
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 2
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldIiE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -3054,48 +3050,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIiE15ExtractSubrangeEiiP
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !7
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !7
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv26
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %23, i64 %22
-  store i32 %25, ptr %26, align 4
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv26
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i32, ptr %22, i64 %21
+  store i32 %24, ptr %25, align 4
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !8
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIiE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -3652,92 +3648,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 2
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 2
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 17179869176
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 17179869176
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 4 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 2
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 2
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldIjE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -4303,48 +4297,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIjE15ExtractSubrangeEiiP
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !10
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv26
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds i32, ptr %23, i64 %22
-  store i32 %25, ptr %26, align 4
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv26
+  %24 = load i32, ptr %23, align 4
+  %25 = getelementptr inbounds i32, ptr %22, i64 %21
+  store i32 %24, ptr %25, align 4
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !11
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIjE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -4901,92 +4895,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 3
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 34359738360
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 34359738360
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 3
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 3
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -5552,48 +5544,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIlE15ExtractSubrangeEiiP
   store i64 %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !13
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !13
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv26
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i64, ptr %23, i64 %22
-  store i64 %25, ptr %26, align 8
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv26
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i64, ptr %22, i64 %21
+  store i64 %24, ptr %25, align 8
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !14
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIlE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -6150,92 +6142,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 3
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 34359738360
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 34359738360
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 3
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 3
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -6801,48 +6791,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldImE15ExtractSubrangeEiiP
   store i64 %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !16
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !16
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds i64, ptr %23, i64 %indvars.iv26
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds i64, ptr %23, i64 %22
-  store i64 %25, ptr %26, align 8
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds i64, ptr %22, i64 %indvars.iv26
+  %24 = load i64, ptr %23, align 8
+  %25 = getelementptr inbounds i64, ptr %22, i64 %21
+  store i64 %24, ptr %25, align 8
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !17
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldImE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -7399,92 +7389,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 2
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 2
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 17179869176
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 17179869176
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %39, ptr nonnull align 4 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull align 4 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 2
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 2
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldIfE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -8050,48 +8038,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIfE15ExtractSubrangeEiiP
   store float %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !19
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds float, ptr %23, i64 %indvars.iv26
-  %25 = load float, ptr %24, align 4
-  %26 = getelementptr inbounds float, ptr %23, i64 %22
-  store float %25, ptr %26, align 4
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds float, ptr %22, i64 %indvars.iv26
+  %24 = load float, ptr %23, align 4
+  %25 = getelementptr inbounds float, ptr %22, i64 %21
+  store float %24, ptr %25, align 4
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !20
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIfE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 
@@ -8648,92 +8636,90 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
-  %10 = select i1 %6, ptr null, ptr %9
-  %11 = icmp eq i32 %4, 0
-  %.in.i = select i1 %11, ptr %7, ptr %9
-  %12 = load ptr, ptr %.in.i, align 8
-  %13 = icmp slt i32 %1, 4
-  br i1 %13, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %14
+  %10 = icmp eq i32 %4, 0
+  %.in.i = select i1 %10, ptr %7, ptr %9
+  %11 = load ptr, ptr %.in.i, align 8
+  %12 = icmp slt i32 %1, 4
+  br i1 %12, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit, label %13
 
-14:                                               ; preds = %5
-  %15 = icmp slt i32 %4, 1073741824
-  br i1 %15, label %16, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+13:                                               ; preds = %5
+  %14 = icmp slt i32 %4, 1073741824
+  br i1 %14, label %15, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-16:                                               ; preds = %14
-  %17 = shl nsw i32 %4, 1
-  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %17, i32 %1)
+15:                                               ; preds = %13
+  %16 = shl nsw i32 %4, 1
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %16, i32 %1)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %14, %16
-  %.0.i = phi i32 [ %.sroa.speculated.i, %16 ], [ 4, %5 ], [ 2147483647, %14 ]
-  %18 = zext nneg i32 %.0.i to i64
-  %19 = shl nuw nsw i64 %18, 3
-  %20 = icmp eq ptr %12, null
-  br i1 %20, label %21, label %.critedge47
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %15
+  %.0.i = phi i32 [ %.sroa.speculated.i, %15 ], [ 4, %5 ], [ 2147483647, %13 ]
+  %17 = zext nneg i32 %.0.i to i64
+  %18 = shl nuw nsw i64 %17, 3
+  %19 = icmp eq ptr %11, null
+  br i1 %19, label %20, label %.critedge47
 
-21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %22 = add nuw nsw i64 %19, 8
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #15
-  br label %37
+20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %21 = add nuw nsw i64 %18, 8
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #15
+  br label %36
 
 .critedge47:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %24 = add nuw nsw i64 %19, 15
-  %25 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %26 = load i64, ptr %25, align 8
-  %27 = and i64 %26, 1
-  %.not.i = icmp eq i64 %27, 0
-  %.pre = and i64 %24, 34359738360
-  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %28
+  %23 = add nuw nsw i64 %18, 15
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %25 = load i64, ptr %24, align 8
+  %26 = and i64 %25, 1
+  %.not.i = icmp eq i64 %26, 0
+  %.pre = and i64 %23, 34359738360
+  br i1 %.not.i, label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, label %27
 
-28:                                               ; preds = %.critedge47
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+27:                                               ; preds = %.critedge47
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %29 = load ptr, ptr %28, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %34 = load ptr, ptr %33, align 8
+  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @_ZTIc, i64 noundef %.pre)
   br label %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit
 
-_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %28
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.pre)
-  br label %37
+_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit: ; preds = %.critedge47, %27
+  %35 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %.pre)
+  br label %36
 
-37:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %21
-  %.040 = phi ptr [ %23, %21 ], [ %36, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
-  store ptr %12, ptr %.040, align 8
-  %38 = load i32, ptr %3, align 4
+36:                                               ; preds = %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit, %20
+  %.040 = phi ptr [ %22, %20 ], [ %35, %_ZNK6google8protobuf8internal9ArenaImpl11RecordAllocEPKSt9type_infom.exit ]
+  store ptr %11, ptr %.040, align 8
+  %37 = load i32, ptr %3, align 4
   store i32 %.0.i, ptr %3, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %.040, i64 8
-  store ptr %39, ptr %7, align 8
-  %40 = load i32, ptr %0, align 8
-  %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %42, label %46
+  %38 = getelementptr inbounds nuw i8, ptr %.040, i64 8
+  store ptr %38, ptr %7, align 8
+  %39 = load i32, ptr %0, align 8
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %44 = zext nneg i32 %40 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %43, i64 %45, i1 false)
-  br label %46
+41:                                               ; preds = %36
+  %42 = zext nneg i32 %39 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %8, i64 %43, i1 false)
+  br label %44
 
-46:                                               ; preds = %42, %37
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit, label %47
+44:                                               ; preds = %41, %36
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit, label %45
 
-47:                                               ; preds = %46
-  %48 = load ptr, ptr %9, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %50, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
+45:                                               ; preds = %44
+  %46 = load ptr, ptr %9, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
-50:                                               ; preds = %47
-  %51 = sext i32 %38 to i64
-  %52 = shl nsw i64 %51, 3
-  %53 = add nsw i64 %52, 8
-  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %53) #16
+48:                                               ; preds = %45
+  %49 = sext i32 %37 to i64
+  %50 = shl nsw i64 %49, 3
+  %51 = add nsw i64 %50, 8
+  tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %51) #16
   br label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %50, %47, %46, %2
+_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %48, %45, %44, %2
   ret void
 }
 
@@ -9299,48 +9285,48 @@ define weak_odr void @_ZN6google8protobuf13RepeatedFieldIdE15ExtractSubrangeEiiP
   store double %12, ptr %13, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !22
+  br i1 %exitcond.not, label %.loopexit.thread, label %8, !llvm.loop !22
 
-.loopexit:                                        ; preds = %8, %4
-  br i1 %5, label %14, label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
+.loopexit:                                        ; preds = %4
+  br i1 %5, label %.loopexit.thread, label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
-14:                                               ; preds = %.loopexit
-  %15 = add nsw i32 %2, %1
-  %16 = load i32, ptr %0, align 8
-  %17 = icmp slt i32 %15, %16
-  br i1 %17, label %.lr.ph23, label %._crit_edge
+.loopexit.thread:                                 ; preds = %8, %.loopexit
+  %14 = add nsw i32 %2, %1
+  %15 = load i32, ptr %0, align 8
+  %16 = icmp slt i32 %14, %15
+  br i1 %16, label %.lr.ph23, label %._crit_edge
 
-.lr.ph23:                                         ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = sext i32 %15 to i64
-  %20 = zext nneg i32 %2 to i64
-  br label %21
+.lr.ph23:                                         ; preds = %.loopexit.thread
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %18 = sext i32 %14 to i64
+  %19 = zext nneg i32 %2 to i64
+  br label %20
 
-21:                                               ; preds = %.lr.ph23, %21
-  %indvars.iv26 = phi i64 [ %19, %.lr.ph23 ], [ %indvars.iv.next27, %21 ]
-  %22 = sub nsw i64 %indvars.iv26, %20
-  %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds double, ptr %23, i64 %indvars.iv26
-  %25 = load double, ptr %24, align 8
-  %26 = getelementptr inbounds double, ptr %23, i64 %22
-  store double %25, ptr %26, align 8
+20:                                               ; preds = %.lr.ph23, %20
+  %indvars.iv26 = phi i64 [ %18, %.lr.ph23 ], [ %indvars.iv.next27, %20 ]
+  %21 = sub nsw i64 %indvars.iv26, %19
+  %22 = load ptr, ptr %17, align 8
+  %23 = getelementptr inbounds double, ptr %22, i64 %indvars.iv26
+  %24 = load double, ptr %23, align 8
+  %25 = getelementptr inbounds double, ptr %22, i64 %21
+  store double %24, ptr %25, align 8
   %indvars.iv.next27 = add nsw i64 %indvars.iv26, 1
-  %27 = load i32, ptr %0, align 8
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next27, %28
-  br i1 %29, label %21, label %._crit_edge, !llvm.loop !23
+  %26 = load i32, ptr %0, align 8
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv.next27, %27
+  br i1 %28, label %20, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %21, %14
-  %.lcssa = phi i32 [ %16, %14 ], [ %27, %21 ]
-  %30 = icmp sgt i32 %.lcssa, 0
-  br i1 %30, label %31, label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
+._crit_edge:                                      ; preds = %20, %.loopexit.thread
+  %.lcssa = phi i32 [ %15, %.loopexit.thread ], [ %26, %20 ]
+  %29 = icmp sgt i32 %.lcssa, 0
+  br i1 %29, label %30, label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
-31:                                               ; preds = %._crit_edge
-  %32 = sub nsw i32 %.lcssa, %2
-  store i32 %32, ptr %0, align 8
+30:                                               ; preds = %._crit_edge
+  %31 = sub nsw i32 %.lcssa, %2
+  store i32 %31, ptr %0, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit: ; preds = %31, %._crit_edge, %.loopexit
+_ZN6google8protobuf13RepeatedFieldIdE8TruncateEi.exit: ; preds = %30, %._crit_edge, %.loopexit
   ret void
 }
 

@@ -409,7 +409,7 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
 
 15:                                               ; preds = %.lr.ph66, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next, %15 ]
-  %16 = tail call ptr @Abc_NtkCreateObj(ptr noundef %10, i32 noundef 2) #10
+  %16 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %10, i32 noundef 2) #10
   %.val = load ptr, ptr %14, align 8, !tbaa !33
   %17 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !35
@@ -472,23 +472,23 @@ define ptr @Io_ReadDsd(ptr noundef readonly captures(none) %0) local_unnamed_add
 38:                                               ; preds = %25
   store i8 41, ptr %.149, align 1, !tbaa !3
   store i8 0, ptr %27, align 1, !tbaa !3
-  %39 = tail call ptr @Io_ReadDsd_rec(ptr noundef %10, ptr noundef nonnull %23, ptr noundef null)
+  %39 = tail call ptr @Io_ReadDsd_rec(ptr noundef nonnull %10, ptr noundef nonnull %23, ptr noundef null)
   tail call void @free(ptr noundef %23) #10
   %40 = icmp eq ptr %39, null
   br i1 %40, label %48, label %41
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef %10, i32 noundef 3) #10
+  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %10, i32 noundef 3) #10
   %43 = tail call ptr @Abc_ObjAssignName(ptr noundef %42, ptr noundef nonnull @.str.6, ptr noundef null) #10
   tail call void @Abc_ObjAddFanin(ptr noundef %42, ptr noundef nonnull %39) #10
-  %44 = tail call i32 @Abc_NtkCheck(ptr noundef %10) #10
+  %44 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %10) #10
   %.not59 = icmp eq i32 %44, 0
   br i1 %.not59, label %45, label %48
 
 45:                                               ; preds = %41
   %46 = load ptr, ptr @stdout, align 8, !tbaa !41
   %47 = tail call i64 @fwrite(ptr nonnull @.str.7, i64 40, i64 1, ptr %46)
-  tail call void @Abc_NtkDelete(ptr noundef %10) #10
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %10) #10
   br label %48
 
 48:                                               ; preds = %41, %38, %45

@@ -16924,7 +16924,7 @@ while.body.i.i:                                   ; preds = %if.else, %while.bod
 
 "_ZSt22__chunk_insertion_sortIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_T1_.exit.i": ; preds = %while.body.i.i
   tail call fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_"(ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr)
-  %cmp16.i = icmp sgt i64 %sub.ptr.div, 14
+  %cmp16.i = icmp samesign ugt i64 %sub.ptr.div, 14
   br i1 %cmp16.i, label %while.body.i, label %"_ZSt24__merge_sort_with_bufferIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_T1_.exit"
 
 while.body.i:                                     ; preds = %"_ZSt22__chunk_insertion_sortIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver17ensure_translatedES1_E3$_0EEEvT_SA_T0_T1_.exit.i", %while.body.i
@@ -18749,7 +18749,7 @@ while.body.i.i:                                   ; preds = %if.else, %while.bod
 
 "_ZSt22__chunk_insertion_sortIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_T1_.exit.i": ; preds = %while.body.i.i
   tail call fastcc void @"_ZSt16__insertion_sortIPP4exprN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_"(ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr)
-  %cmp16.i = icmp sgt i64 %sub.ptr.div, 14
+  %cmp16.i = icmp samesign ugt i64 %sub.ptr.div, 14
   br i1 %cmp16.i, label %while.body.i, label %"_ZSt24__merge_sort_with_bufferIPP4exprS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_T1_.exit"
 
 while.body.i:                                     ; preds = %"_ZSt22__chunk_insertion_sortIPP4exprlN9__gnu_cxx5__ops15_Iter_comp_iterIZN8intblast6solver15sorted_subtermsER10ref_vectorIS0_11ast_managerER10ptr_vectorIS0_EE3$_0EEEvT_SH_T0_T1_.exit.i", %while.body.i

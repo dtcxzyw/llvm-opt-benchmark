@@ -537,10 +537,10 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
   %wide.trip.count80 = zext i32 %7 to i64
   br label %8
 
-8:                                                ; preds = %52, %4
-  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %52 ], [ 0, %4 ]
-  %indvars.iv73 = phi i32 [ %indvars.iv.next74, %52 ], [ 1, %4 ]
-  %.049 = phi nsz double [ %53, %52 ], [ %6, %4 ]
+8:                                                ; preds = %51, %4
+  %indvars.iv77 = phi i64 [ %indvars.iv.next78, %51 ], [ 0, %4 ]
+  %indvars.iv73 = phi i32 [ %indvars.iv.next74, %51 ], [ 1, %4 ]
+  %.049 = phi nsz double [ %52, %51 ], [ %6, %4 ]
   %umax = tail call i32 @llvm.umax.i32(i32 %indvars.iv73, i32 1)
   %exitcond81.not = icmp eq i64 %indvars.iv77, %wide.trip.count80
   br i1 %exitcond81.not, label %.loopexit, label %9
@@ -557,7 +557,7 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
   %13 = fdiv reassoc nsz arcp double %12, %.049
   %14 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv77
   store double %13, ptr %14, align 8, !tbaa !18
-  br label %42
+  br label %41
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %9 ]
@@ -604,52 +604,51 @@ define hidden void @FLAC__lpc_compute_lp_coefficients(ptr noundef readonly captu
   br i1 %36, label %.lr.ph58, label %._crit_edge59, !llvm.loop !37
 
 ._crit_edge59:                                    ; preds = %.lr.ph58
-  %37 = and i64 %indvars.iv.next68, 4294967295
-  %38 = and i64 %indvars.iv77, 1
-  %.not = icmp eq i64 %38, 0
-  br i1 %.not, label %42, label %._crit_edge59.thread86
+  %37 = and i64 %indvars.iv77, 1
+  %.not = icmp eq i64 %37, 0
+  br i1 %.not, label %41, label %._crit_edge59.thread86
 
 ._crit_edge59.thread86:                           ; preds = %._crit_edge, %._crit_edge59
-  %.1.lcssa89 = phi i64 [ %37, %._crit_edge59 ], [ 0, %._crit_edge ]
-  %39 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %.1.lcssa89
-  %40 = load double, ptr %39, align 8, !tbaa !18
-  %41 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %40, double %22, double %40)
-  store double %41, ptr %39, align 8, !tbaa !18
-  br label %42
+  %.1.lcssa89 = phi i64 [ %indvars.iv.next68, %._crit_edge59 ], [ 0, %._crit_edge ]
+  %38 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %.1.lcssa89
+  %39 = load double, ptr %38, align 8, !tbaa !18
+  %40 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %39, double %22, double %39)
+  store double %40, ptr %38, align 8, !tbaa !18
+  br label %41
 
-42:                                               ; preds = %._crit_edge59.thread, %._crit_edge59.thread86, %._crit_edge59
-  %43 = phi double [ %13, %._crit_edge59.thread ], [ %22, %._crit_edge59.thread86 ], [ %22, %._crit_edge59 ]
-  %44 = fneg reassoc nsz arcp double %43
-  %45 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %44, double %43, double 1.000000e+00)
+41:                                               ; preds = %._crit_edge59.thread, %._crit_edge59.thread86, %._crit_edge59
+  %42 = phi double [ %13, %._crit_edge59.thread ], [ %22, %._crit_edge59.thread86 ], [ %22, %._crit_edge59 ]
+  %43 = fneg reassoc nsz arcp double %42
+  %44 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %43, double %42, double 1.000000e+00)
   %wide.trip.count75 = zext i32 %umax to i64
-  br label %46
+  br label %45
 
-46:                                               ; preds = %42, %46
-  %indvars.iv70 = phi i64 [ 0, %42 ], [ %indvars.iv.next71, %46 ]
-  %47 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv70
-  %48 = load double, ptr %47, align 8, !tbaa !18
-  %49 = fptrunc reassoc nsz arcp double %48 to float
-  %50 = fneg reassoc nsz arcp float %49
-  %51 = getelementptr inbounds nuw [32 x float], ptr %2, i64 %indvars.iv77, i64 %indvars.iv70
-  store float %50, ptr %51, align 4, !tbaa !7
+45:                                               ; preds = %41, %45
+  %indvars.iv70 = phi i64 [ 0, %41 ], [ %indvars.iv.next71, %45 ]
+  %46 = getelementptr inbounds nuw [32 x double], ptr %5, i64 0, i64 %indvars.iv70
+  %47 = load double, ptr %46, align 8, !tbaa !18
+  %48 = fptrunc reassoc nsz arcp double %47 to float
+  %49 = fneg reassoc nsz arcp float %48
+  %50 = getelementptr inbounds nuw [32 x float], ptr %2, i64 %indvars.iv77, i64 %indvars.iv70
+  store float %49, ptr %50, align 4, !tbaa !7
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond76 = icmp eq i64 %indvars.iv.next71, %wide.trip.count75
-  br i1 %exitcond76, label %52, label %46, !llvm.loop !38
+  br i1 %exitcond76, label %51, label %45, !llvm.loop !38
 
-52:                                               ; preds = %46
-  %53 = fmul reassoc nsz arcp double %45, %.049
-  %54 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv77
-  store double %53, ptr %54, align 8, !tbaa !18
-  %55 = fcmp reassoc nsz arcp oeq double %53, 0.000000e+00
+51:                                               ; preds = %45
+  %52 = fmul reassoc nsz arcp double %44, %.049
+  %53 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv77
+  store double %52, ptr %53, align 8, !tbaa !18
+  %54 = fcmp reassoc nsz arcp oeq double %52, 0.000000e+00
   %indvars.iv.next74 = add i32 %indvars.iv73, 1
-  br i1 %55, label %56, label %8, !llvm.loop !39
+  br i1 %54, label %55, label %8, !llvm.loop !39
 
-56:                                               ; preds = %52
-  %57 = trunc nuw i64 %indvars.iv.next78 to i32
-  store i32 %57, ptr %1, align 4, !tbaa !3
+55:                                               ; preds = %51
+  %56 = trunc nuw i64 %indvars.iv.next78 to i32
+  store i32 %56, ptr %1, align 4, !tbaa !3
   br label %.loopexit
 
-.loopexit:                                        ; preds = %8, %56
+.loopexit:                                        ; preds = %8, %55
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #13
   ret void
 }

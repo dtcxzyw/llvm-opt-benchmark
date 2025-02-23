@@ -550,7 +550,7 @@ checkWellFormedRecursion.exit:                    ; preds = %232
   %259 = load ptr, ptr %71, align 8
   %260 = getelementptr inbounds nuw %struct.CteItem, ptr %259, i64 %indvars.iv200
   %261 = load ptr, ptr %260, align 8
-  call fastcc void @analyzeCTE(ptr noundef %0, ptr noundef %261)
+  call fastcc void @analyzeCTE(ptr noundef nonnull %0, ptr noundef %261)
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %262 = load i32, ptr %67, align 8
   %263 = sext i32 %262 to i64
@@ -1617,7 +1617,7 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   br i1 %83, label %.lr.ph169, label %._crit_edge166
 
 ._crit_edge166:                                   ; preds = %.lr.ph169, %.lr.ph165, %71
-  %84 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @makeDependencyGraphWalker, ptr noundef %1) #10
+  %84 = tail call zeroext i1 @raw_expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @makeDependencyGraphWalker, ptr noundef nonnull %1) #10
   %85 = load ptr, ptr %74, align 8
   %86 = tail call ptr @list_delete_first(ptr noundef %85) #10
   store ptr %86, ptr %74, align 8
@@ -1630,7 +1630,7 @@ define internal zeroext i1 @makeDependencyGraphWalker(ptr noundef %0, ptr nounde
   %89 = load ptr, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call zeroext i1 @makeDependencyGraphWalker(ptr noundef %91, ptr noundef %1)
+  %92 = tail call zeroext i1 @makeDependencyGraphWalker(ptr noundef %91, ptr noundef nonnull %1)
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %93 = load i32, ptr %80, align 4
   %94 = sext i32 %93 to i64
@@ -1885,7 +1885,7 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   br i1 %95, label %.lr.ph236, label %._crit_edge233
 
 ._crit_edge233:                                   ; preds = %.lr.ph236, %.lr.ph232, %83
-  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef %.tr219, ptr noundef %1)
+  tail call fastcc void @checkWellFormedSelectStmt(ptr noundef %.tr219, ptr noundef nonnull %1)
   %96 = load ptr, ptr %86, align 8
   %97 = tail call ptr @list_delete_first(ptr noundef %96) #10
   store ptr %97, ptr %86, align 8
@@ -1898,7 +1898,7 @@ define internal zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %0, ptr n
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 32
   %102 = load ptr, ptr %101, align 8
-  %103 = tail call zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %102, ptr noundef %1)
+  %103 = tail call zeroext i1 @checkWellFormedRecursionWalker(ptr noundef %102, ptr noundef nonnull %1)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %104 = load i32, ptr %92, align 4
   %105 = sext i32 %104 to i64

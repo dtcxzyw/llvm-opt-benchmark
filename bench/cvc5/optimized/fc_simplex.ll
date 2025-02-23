@@ -5154,7 +5154,7 @@ _ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJu
   br label %110
 
 _ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure8logPivotENS3_18WitnessImprovementE.exit: ; preds = %._crit_edge.i.i, %67, %65, %_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJustEj.exit, %12
-  %.0 = phi i32 [ 3, %12 ], [ 3, %_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJustEj.exit ], [ %.0.i, %65 ], [ %47, %67 ], [ %.0.i, %._crit_edge.i.i ]
+  %.0 = phi i32 [ 3, %12 ], [ 3, %_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJustEj.exit ], [ %.0.i, %65 ], [ %47, %67 ], [ %47, %._crit_edge.i.i ]
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %88 = load i8, ptr %87, align 8, !tbaa !408, !range !385, !noundef !386
@@ -5536,7 +5536,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit128: ; preds = %_ZN4cvc58internal
   br label %_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure8logPivotENS3_18WitnessImprovementE.exit
 
 _ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure8logPivotENS3_18WitnessImprovementE.exit: ; preds = %._crit_edge.i.i, %46, %44, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit89, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
-  %.0 = phi i32 [ 3, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ 3, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit89 ], [ %.0.i, %44 ], [ %14, %46 ], [ %.0.i, %._crit_edge.i.i ]
+  %.0 = phi i32 [ 3, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ 3, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit89 ], [ %.0.i, %44 ], [ %14, %46 ], [ %14, %._crit_edge.i.i ]
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %65 = load i8, ptr %64, align 8, !tbaa !408, !range !385, !noundef !386

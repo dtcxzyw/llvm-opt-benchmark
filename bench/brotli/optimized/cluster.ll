@@ -442,7 +442,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %101
 
 BrotliCompareAndPushToQueueLiteral.exit:          ; preds = %23, %HistogramAddHistogramLiteral.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %HistogramAddHistogramLiteral.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !24
 
@@ -1737,7 +1737,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %101
 
 BrotliCompareAndPushToQueueCommand.exit:          ; preds = %23, %HistogramAddHistogramCommand.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %HistogramAddHistogramCommand.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !51
 
@@ -3025,7 +3025,7 @@ HistogramPairIsLess.exit.i:                       ; preds = %101
 
 BrotliCompareAndPushToQueueDistance.exit:         ; preds = %23, %HistogramAddHistogramDistance.exit.i, %116, %117, %119
   %.6 = phi i64 [ %.1138146, %23 ], [ %121, %119 ], [ %.1138146, %117 ], [ %.5, %116 ], [ %.1138146, %HistogramAddHistogramDistance.exit.i ]
-  %122 = add nuw i64 %.099147, 1
+  %122 = add i64 %.099147, 1
   %exitcond.not = icmp eq i64 %122, %6
   br i1 %exitcond.not, label %.loopexit144, label %23, !llvm.loop !76
 

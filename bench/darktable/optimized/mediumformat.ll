@@ -303,7 +303,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
 
 141:                                              ; preds = %.preheader
   call void @_ZN6LibRaw10romm_coeffEPA3_f(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %3)
-  br label %.loopexit143
+  br label %.thread
 
 .preheader142:                                    ; preds = %104, %.preheader142
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %.preheader142 ], [ 0, %104 ]
@@ -313,7 +313,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   store float %143, ptr %144, align 4, !tbaa !77
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 3
-  br i1 %exitcond161.not, label %.loopexit143, label %.preheader142, !llvm.loop !80
+  br i1 %exitcond161.not, label %.thread, label %.preheader142, !llvm.loop !80
 
 145:                                              ; preds = %104
   %146 = trunc i32 %88 to i16
@@ -433,7 +433,7 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   store float %191, ptr %192, align 4, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %.loopexit143, label %.preheader144, !llvm.loop !103
+  br i1 %exitcond.not, label %.thread, label %.preheader144, !llvm.loop !103
 
 193:                                              ; preds = %104
   store i8 0, ptr %39, align 1, !tbaa !74
@@ -650,10 +650,10 @@ define void @_ZN6LibRaw15parse_phase_oneEi(ptr noundef nonnull align 8 dereferen
   store float %291, ptr %31, align 4, !tbaa !111
   br label %.thread
 
-.loopexit143:                                     ; preds = %.preheader144, %.preheader142, %141, %104
+.loopexit143:                                     ; preds = %104
   br i1 %95, label %.thread, label %.thread136
 
-.thread:                                          ; preds = %105, %135, %164, %175, %177, %179, %180, %183, %184, %185, %187, %188, %219, %214, %229, %227, %239, %232, %247, %240, %255, %250, %268, %263, %284, %281, %289, %287, %.loopexit143
+.thread:                                          ; preds = %.preheader144, %.preheader142, %141, %105, %135, %164, %175, %177, %179, %180, %183, %184, %185, %187, %188, %219, %214, %229, %227, %239, %232, %247, %240, %255, %250, %268, %263, %284, %281, %289, %287, %.loopexit143
   %292 = load ptr, ptr %5, align 8, !tbaa !6
   %293 = load ptr, ptr %292, align 8, !tbaa !71
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 32

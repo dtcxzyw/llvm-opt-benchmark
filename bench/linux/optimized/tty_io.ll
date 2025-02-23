@@ -3846,7 +3846,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1320
   %30 = load i32, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 1800
-  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, ptr noundef nonnull %27, i32 noundef %30, ptr noundef nonnull %31) #23
+  %32 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef %30, ptr noundef nonnull %31) #23
   %33 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef nonnull %28, i32 noundef 3) #22
   %34 = getelementptr i8, ptr %28, i64 1472
   %35 = load volatile ptr, ptr %34, align 16
@@ -3854,7 +3854,7 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %37 = getelementptr i8, ptr %35, i64 -1472
   %38 = icmp eq ptr %37, null
   %39 = or i1 %36, %38
-  br i1 %39, label %.loopexit12, label %.split.us, !llvm.loop !47
+  br i1 %39, label %.loopexit12.thread, label %.split.us, !llvm.loop !47
 
 .split:                                           ; preds = %23, %46
   %40 = phi ptr [ %56, %46 ], [ %20, %23 ]
@@ -3889,166 +3889,176 @@ define dso_local void @__do_SAK(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @_raw_read_lock(ptr noundef nonnull @tasklist_lock) #22
   br label %.loopexit12
 
-.loopexit12:                                      ; preds = %46, %.split.us, %59, %16
+.loopexit12:                                      ; preds = %46, %59, %16
   %60 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
   %61 = getelementptr i8, ptr %60, i64 -1112
   %62 = icmp eq ptr %61, @init_task
-  br i1 %62, label %.loopexit11, label %63
+  br i1 %62, label %.loopexit11, label %66
 
-63:                                               ; preds = %.loopexit12
-  %64 = icmp eq ptr %0, null
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %67 = select i1 %64, ptr @.str, ptr %66
-  br i1 %64, label %.split13.us, label %.split13
+.loopexit12.thread:                               ; preds = %.split.us
+  %63 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @init_task, i64 1112), align 8
+  %64 = getelementptr i8, ptr %63, i64 -1112
+  %65 = icmp eq ptr %64, @init_task
+  br i1 %65, label %.loopexit11, label %.split13.us.preheader
 
-.split13.us:                                      ; preds = %63, %.loopexit.split.us.us
-  %68 = phi ptr [ %74, %.loopexit.split.us.us ], [ %60, %63 ]
-  %69 = getelementptr i8, ptr %68, i64 768
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %72 = load volatile ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %71
-  br i1 %73, label %.loopexit.split.us.us, label %.preheader.us
+66:                                               ; preds = %.loopexit12
+  %67 = icmp eq ptr %0, null
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %70 = select i1 %67, ptr @.str, ptr %69
+  br i1 %67, label %.split13.us.preheader, label %.split13
 
-.loopexit.split.us.us:                            ; preds = %104, %.split13.us
-  %74 = load volatile ptr, ptr %68, align 8
-  %75 = getelementptr i8, ptr %74, i64 -1112
-  %76 = icmp eq ptr %75, @init_task
-  br i1 %76, label %.loopexit11, label %.split13.us, !llvm.loop !48
+.split13.us.preheader:                            ; preds = %.loopexit12.thread, %66
+  %.ph = phi ptr [ %63, %.loopexit12.thread ], [ %60, %66 ]
+  br label %.split13.us
 
-.preheader.us:                                    ; preds = %.split13.us, %104
-  %77 = phi ptr [ %105, %104 ], [ %72, %.split13.us ]
-  %78 = getelementptr i8, ptr %77, i64 -1488
-  %79 = getelementptr i8, ptr %77, i64 392
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 408
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %98, label %84
+.split13.us:                                      ; preds = %.split13.us.preheader, %.loopexit.split.us.us
+  %71 = phi ptr [ %77, %.loopexit.split.us.us ], [ %.ph, %.split13.us.preheader ]
+  %72 = getelementptr i8, ptr %71, i64 768
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %75 = load volatile ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, %74
+  br i1 %76, label %.loopexit.split.us.us, label %.preheader.us
 
-84:                                               ; preds = %.preheader.us
-  %85 = getelementptr i8, ptr %77, i64 568
-  tail call void @_raw_spin_lock(ptr noundef %85) #22
-  %86 = getelementptr i8, ptr %77, i64 368
-  %87 = load ptr, ptr %86, align 64
-  %88 = tail call i32 @iterate_fd(ptr noundef %87, i32 noundef 0, ptr noundef nonnull @this_tty, ptr noundef null) #22
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %97, label %90
+.loopexit.split.us.us:                            ; preds = %107, %.split13.us
+  %77 = load volatile ptr, ptr %71, align 8
+  %78 = getelementptr i8, ptr %77, i64 -1112
+  %79 = icmp eq ptr %78, @init_task
+  br i1 %79, label %.loopexit11, label %.split13.us, !llvm.loop !48
 
-90:                                               ; preds = %84
-  %91 = getelementptr i8, ptr %77, i64 -168
-  %92 = load i32, ptr %91, align 8
-  %93 = getelementptr i8, ptr %77, i64 312
-  %94 = add i32 %88, -1
-  %95 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, ptr noundef nonnull %67, i32 noundef %92, ptr noundef %93, i32 noundef %94) #23
-  %96 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %78, i32 noundef 3) #22
-  br label %97
+.preheader.us:                                    ; preds = %.split13.us, %107
+  %80 = phi ptr [ %108, %107 ], [ %75, %.split13.us ]
+  %81 = getelementptr i8, ptr %80, i64 -1488
+  %82 = getelementptr i8, ptr %80, i64 392
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 408
+  %85 = load ptr, ptr %84, align 8
+  %86 = icmp eq ptr %85, null
+  br i1 %86, label %101, label %87
 
-97:                                               ; preds = %90, %84
-  tail call void @_raw_spin_unlock(ptr noundef %85) #22
-  br label %104
+87:                                               ; preds = %.preheader.us
+  %88 = getelementptr i8, ptr %80, i64 568
+  tail call void @_raw_spin_lock(ptr noundef %88) #22
+  %89 = getelementptr i8, ptr %80, i64 368
+  %90 = load ptr, ptr %89, align 64
+  %91 = tail call i32 @iterate_fd(ptr noundef %90, i32 noundef 0, ptr noundef nonnull @this_tty, ptr noundef null) #22
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %100, label %93
 
-98:                                               ; preds = %.preheader.us
-  %99 = getelementptr i8, ptr %77, i64 -168
-  %100 = load i32, ptr %99, align 8
-  %101 = getelementptr i8, ptr %77, i64 312
-  %102 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, ptr noundef nonnull %67, i32 noundef %100, ptr noundef %101) #23
-  %103 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %78, i32 noundef 3) #22
-  br label %104
+93:                                               ; preds = %87
+  %94 = getelementptr i8, ptr %80, i64 -168
+  %95 = load i32, ptr %94, align 8
+  %96 = getelementptr i8, ptr %80, i64 312
+  %97 = add i32 %91, -1
+  %98 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef %95, ptr noundef %96, i32 noundef %97) #23
+  %99 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %81, i32 noundef 3) #22
+  br label %100
 
-104:                                              ; preds = %98, %97
-  %105 = load volatile ptr, ptr %77, align 8
-  %106 = load ptr, ptr %69, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
-  %108 = icmp eq ptr %105, %107
-  br i1 %108, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !49
+100:                                              ; preds = %93, %87
+  tail call void @_raw_spin_unlock(ptr noundef %88) #22
+  br label %107
 
-.loopexit.split:                                  ; preds = %159, %.split13
-  %109 = load volatile ptr, ptr %112, align 8
-  %110 = getelementptr i8, ptr %109, i64 -1112
-  %111 = icmp eq ptr %110, @init_task
-  br i1 %111, label %.loopexit11, label %.split13, !llvm.loop !48
+101:                                              ; preds = %.preheader.us
+  %102 = getelementptr i8, ptr %80, i64 -168
+  %103 = load i32, ptr %102, align 8
+  %104 = getelementptr i8, ptr %80, i64 312
+  %105 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str, i32 noundef %103, ptr noundef %104) #23
+  %106 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %81, i32 noundef 3) #22
+  br label %107
 
-.split13:                                         ; preds = %63, %.loopexit.split
-  %112 = phi ptr [ %109, %.loopexit.split ], [ %60, %63 ]
-  %113 = getelementptr i8, ptr %112, i64 768
-  %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
-  %116 = load volatile ptr, ptr %115, align 8
-  %117 = icmp eq ptr %116, %115
-  br i1 %117, label %.loopexit.split, label %.preheader
+107:                                              ; preds = %101, %100
+  %108 = load volatile ptr, ptr %80, align 8
+  %109 = load ptr, ptr %72, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
+  %111 = icmp eq ptr %108, %110
+  br i1 %111, label %.loopexit.split.us.us, label %.preheader.us, !llvm.loop !49
 
-.preheader:                                       ; preds = %.split13, %159
-  %118 = phi ptr [ %160, %159 ], [ %116, %.split13 ]
-  %119 = getelementptr i8, ptr %118, i64 -1488
-  %120 = getelementptr i8, ptr %118, i64 392
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 408
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, %0
-  br i1 %124, label %125, label %138
+.loopexit.split:                                  ; preds = %162, %.split13
+  %112 = load volatile ptr, ptr %115, align 8
+  %113 = getelementptr i8, ptr %112, i64 -1112
+  %114 = icmp eq ptr %113, @init_task
+  br i1 %114, label %.loopexit11, label %.split13, !llvm.loop !48
 
-125:                                              ; preds = %.preheader
-  %126 = load ptr, ptr %65, align 8
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %131, label %128
+.split13:                                         ; preds = %66, %.loopexit.split
+  %115 = phi ptr [ %112, %.loopexit.split ], [ %60, %66 ]
+  %116 = getelementptr i8, ptr %115, i64 768
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
+  %119 = load volatile ptr, ptr %118, align 8
+  %120 = icmp eq ptr %119, %118
+  br i1 %120, label %.loopexit.split, label %.preheader
 
-128:                                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  %130 = load ptr, ptr %129, align 8
-  br label %131
+.preheader:                                       ; preds = %.split13, %162
+  %121 = phi ptr [ %163, %162 ], [ %119, %.split13 ]
+  %122 = getelementptr i8, ptr %121, i64 -1488
+  %123 = getelementptr i8, ptr %121, i64 392
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 408
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp eq ptr %126, %0
+  br i1 %127, label %128, label %141
 
-131:                                              ; preds = %128, %125
-  %132 = phi ptr [ %130, %128 ], [ @.str.1, %125 ]
-  %133 = getelementptr i8, ptr %118, i64 -168
-  %134 = load i32, ptr %133, align 8
-  %135 = getelementptr i8, ptr %118, i64 312
-  %136 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %132, ptr noundef nonnull %67, i32 noundef %134, ptr noundef %135) #23
-  %137 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %119, i32 noundef 3) #22
-  br label %159
+128:                                              ; preds = %.preheader
+  %129 = load ptr, ptr %68, align 8
+  %130 = icmp eq ptr %129, null
+  br i1 %130, label %134, label %131
 
-138:                                              ; preds = %.preheader
-  %139 = getelementptr i8, ptr %118, i64 568
-  tail call void @_raw_spin_lock(ptr noundef %139) #22
-  %140 = getelementptr i8, ptr %118, i64 368
-  %141 = load ptr, ptr %140, align 64
-  %142 = tail call i32 @iterate_fd(ptr noundef %141, i32 noundef 0, ptr noundef nonnull @this_tty, ptr noundef nonnull %0) #22
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %158, label %144
+131:                                              ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %129, i64 32
+  %133 = load ptr, ptr %132, align 8
+  br label %134
 
-144:                                              ; preds = %138
-  %145 = load ptr, ptr %65, align 8
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %150, label %147
+134:                                              ; preds = %131, %128
+  %135 = phi ptr [ %133, %131 ], [ @.str.1, %128 ]
+  %136 = getelementptr i8, ptr %121, i64 -168
+  %137 = load i32, ptr %136, align 8
+  %138 = getelementptr i8, ptr %121, i64 312
+  %139 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef %135, ptr noundef nonnull %70, i32 noundef %137, ptr noundef %138) #23
+  %140 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %122, i32 noundef 3) #22
+  br label %162
 
-147:                                              ; preds = %144
-  %148 = getelementptr inbounds nuw i8, ptr %145, i64 32
-  %149 = load ptr, ptr %148, align 8
-  br label %150
+141:                                              ; preds = %.preheader
+  %142 = getelementptr i8, ptr %121, i64 568
+  tail call void @_raw_spin_lock(ptr noundef %142) #22
+  %143 = getelementptr i8, ptr %121, i64 368
+  %144 = load ptr, ptr %143, align 64
+  %145 = tail call i32 @iterate_fd(ptr noundef %144, i32 noundef 0, ptr noundef nonnull @this_tty, ptr noundef nonnull %0) #22
+  %146 = icmp eq i32 %145, 0
+  br i1 %146, label %161, label %147
 
-150:                                              ; preds = %147, %144
-  %151 = phi ptr [ %149, %147 ], [ @.str.1, %144 ]
-  %152 = getelementptr i8, ptr %118, i64 -168
-  %153 = load i32, ptr %152, align 8
-  %154 = getelementptr i8, ptr %118, i64 312
-  %155 = add i32 %142, -1
-  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %151, ptr noundef nonnull %67, i32 noundef %153, ptr noundef %154, i32 noundef %155) #23
-  %157 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %119, i32 noundef 3) #22
-  br label %158
+147:                                              ; preds = %141
+  %148 = load ptr, ptr %68, align 8
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %153, label %150
 
-158:                                              ; preds = %150, %138
-  tail call void @_raw_spin_unlock(ptr noundef %139) #22
-  br label %159
+150:                                              ; preds = %147
+  %151 = getelementptr inbounds nuw i8, ptr %148, i64 32
+  %152 = load ptr, ptr %151, align 8
+  br label %153
 
-159:                                              ; preds = %158, %131
-  %160 = load volatile ptr, ptr %118, align 8
-  %161 = load ptr, ptr %113, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %163 = icmp eq ptr %160, %162
-  br i1 %163, label %.loopexit.split, label %.preheader, !llvm.loop !49
+153:                                              ; preds = %150, %147
+  %154 = phi ptr [ %152, %150 ], [ @.str.1, %147 ]
+  %155 = getelementptr i8, ptr %121, i64 -168
+  %156 = load i32, ptr %155, align 8
+  %157 = getelementptr i8, ptr %121, i64 312
+  %158 = add i32 %145, -1
+  %159 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %154, ptr noundef nonnull %70, i32 noundef %156, ptr noundef %157, i32 noundef %158) #23
+  %160 = tail call i32 @group_send_sig_info(i32 noundef 9, ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %122, i32 noundef 3) #22
+  br label %161
 
-.loopexit11:                                      ; preds = %.loopexit.split, %.loopexit.split.us.us, %.loopexit12
+161:                                              ; preds = %153, %141
+  tail call void @_raw_spin_unlock(ptr noundef %142) #22
+  br label %162
+
+162:                                              ; preds = %161, %134
+  %163 = load volatile ptr, ptr %121, align 8
+  %164 = load ptr, ptr %116, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
+  %166 = icmp eq ptr %163, %165
+  br i1 %166, label %.loopexit.split, label %.preheader, !llvm.loop !49
+
+.loopexit11:                                      ; preds = %.loopexit.split, %.loopexit.split.us.us, %.loopexit12.thread, %.loopexit12
   tail call void @_raw_read_unlock(ptr noundef nonnull @tasklist_lock) #22
   tail call void @put_pid(ptr noundef %5) #22
   ret void

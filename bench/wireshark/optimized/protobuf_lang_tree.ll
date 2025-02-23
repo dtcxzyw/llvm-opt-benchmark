@@ -1961,7 +1961,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   %23 = tail call i32 @llvm.smax.i32(i32 %16, i32 -1)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store i32 %23, ptr %24, align 8
-  %25 = tail call ptr @pbl_merge_children(ptr noundef %19, ptr noundef %1)
+  %25 = tail call ptr @pbl_merge_children(ptr noundef %19, ptr noundef nonnull %1)
   %26 = tail call ptr @pbl_add_child(ptr noundef nonnull %0, ptr noundef %19)
   br label %27
 
@@ -1980,7 +1980,7 @@ check_node_depth.exit:                            ; preds = %.preheader
 
 34:                                               ; preds = %32, %27
   %35 = phi ptr [ %33, %32 ], [ %30, %27 ]
-  tail call void @g_queue_push_tail(ptr noundef %35, ptr noundef %1)
+  tail call void @g_queue_push_tail(ptr noundef %35, ptr noundef nonnull %1)
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
@@ -2072,7 +2072,7 @@ check_node_depth.exit:                            ; preds = %.preheader
 .critedge:                                        ; preds = %41, %60, %63, %66, %69, %72, %77, %58
   %84 = load ptr, ptr %36, align 8
   %85 = load ptr, ptr %43, align 8
-  %86 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef %85, ptr noundef %1)
+  %86 = tail call i32 @g_hash_table_insert(ptr noundef %84, ptr noundef %85, ptr noundef nonnull %1)
   %87 = load i32, ptr %0, align 8
   switch i32 %87, label %124 [
     i32 2, label %88
@@ -2099,7 +2099,7 @@ check_node_depth.exit:                            ; preds = %.preheader
 
 96:                                               ; preds = %94, %90
   %97 = phi ptr [ %95, %94 ], [ %92, %90 ]
-  tail call void @g_queue_push_tail(ptr noundef %97, ptr noundef %1)
+  tail call void @g_queue_push_tail(ptr noundef %97, ptr noundef nonnull %1)
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
@@ -2128,7 +2128,7 @@ check_node_depth.exit:                            ; preds = %.preheader
 
 112:                                              ; preds = %110, %106
   %113 = phi ptr [ %111, %110 ], [ %108, %106 ]
-  tail call void @g_queue_push_tail(ptr noundef %113, ptr noundef %1)
+  tail call void @g_queue_push_tail(ptr noundef %113, ptr noundef nonnull %1)
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %115 = load ptr, ptr %114, align 8
   %116 = icmp eq ptr %115, null
@@ -2145,7 +2145,7 @@ check_node_depth.exit:                            ; preds = %.preheader
   %120 = load i32, ptr %119, align 8
   %121 = sext i32 %120 to i64
   %122 = inttoptr i64 %121 to ptr
-  %123 = tail call i32 @g_hash_table_insert(ptr noundef %.sink, ptr noundef %122, ptr noundef %1)
+  %123 = tail call i32 @g_hash_table_insert(ptr noundef %.sink, ptr noundef %122, ptr noundef nonnull %1)
   br label %124
 
 124:                                              ; preds = %.sink.split, %103, %88, %.critedge, %check_node_depth.exit, %2
@@ -2174,7 +2174,7 @@ define hidden noundef ptr @pbl_merge_children(ptr noundef returned %0, ptr nound
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.03450 = phi ptr [ %13, %.lr.ph ], [ %9, %8 ]
   %10 = load ptr, ptr %.03450, align 8
-  %11 = tail call ptr @pbl_add_child(ptr noundef %0, ptr noundef %10)
+  %11 = tail call ptr @pbl_add_child(ptr noundef nonnull %0, ptr noundef %10)
   %12 = getelementptr inbounds nuw i8, ptr %.03450, i64 8
   %13 = load ptr, ptr %12, align 8
   %.not43 = icmp eq ptr %13, null

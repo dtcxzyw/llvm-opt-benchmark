@@ -12396,8 +12396,8 @@ _ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit: ; preds = %2
   %.not.i.i.i = or i1 %.not.i.i.i.i.i.i.i, %.not7.i.i.i
   br i1 %.not.i.i.i, label %_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit, label %.preheader
 
-_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit, %2
-  %14 = phi ptr [ null, %2 ], [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ %13, %.preheader ]
+_ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader, %2, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit
+  %14 = phi ptr [ null, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit ], [ null, %2 ], [ %13, %.preheader ]
   ret ptr %14
 }
 

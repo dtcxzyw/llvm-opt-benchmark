@@ -18797,7 +18797,7 @@ if.then43:                                        ; preds = %if.else40
   %conv48 = sext i32 %8 to i64
   %call49 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %conv48) #28
   %cmp52115.not = icmp eq i32 %9, 0
-  br i1 %cmp52115.not, label %delete.notnull, label %for.body.lr.ph
+  br i1 %cmp52115.not, label %if.end61.thread, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.then43
   %sub = add i32 %9, -1
@@ -18819,19 +18819,19 @@ for.body:                                         ; preds = %for.body, %for.body
   %add = add i32 %i.0118, 2
   %10 = load i32, ptr %Height46, align 4, !tbaa !474
   %cmp52 = icmp ult i32 %add, %10
-  br i1 %cmp52, label %for.body, label %delete.notnull, !llvm.loop !490
+  br i1 %cmp52, label %for.body, label %if.end61.thread, !llvm.loop !490
 
-delete.notnull:                                   ; preds = %for.body, %if.then43
+if.end61.thread:                                  ; preds = %for.body, %if.then43
   %pixels.1.lcssa = phi ptr [ %pixels.0112, %if.then43 ], [ %add.ptr57, %for.body ]
   tail call void @_ZdaPv(ptr noundef nonnull %call49) #26
-  br label %if.end61
+  br label %if.then63
 
-if.end61:                                         ; preds = %delete.notnull, %if.else40, %if.then39
-  %pixels.2 = phi ptr [ %pixels.0112, %if.then39 ], [ %pixels.1.lcssa, %delete.notnull ], [ %pixels.0112, %if.else40 ]
+if.end61:                                         ; preds = %if.else40, %if.then39
   br i1 %tobool25, label %if.then63, label %return
 
-if.then63:                                        ; preds = %if.end61
-  %tobool66.not = icmp eq ptr %pixels.2, null
+if.then63:                                        ; preds = %if.end61.thread, %if.end61
+  %pixels.23 = phi ptr [ %pixels.1.lcssa, %if.end61.thread ], [ %pixels.0112, %if.end61 ]
+  %tobool66.not = icmp eq ptr %pixels.23, null
   br i1 %tobool66.not, label %if.then67, label %return
 
 if.then67:                                        ; preds = %if.then63
@@ -22249,7 +22249,7 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
 for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i68.prol, %for.body.i.i.i60.prol ]
   %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
-  %7 = icmp ult i64 %__n, 8
+  %7 = icmp samesign ult i64 %__n, 8
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video13COpenGLDriver14SUserClipPlaneEmS3_ET_S5_T0_RSaIT1_E.exit71, label %for.body.i.i.i60
 
 for.body.i.i.i60:                                 ; preds = %for.body.i.i.i60.prol.loopexit, %for.body.i.i.i60

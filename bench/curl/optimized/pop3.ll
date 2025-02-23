@@ -597,7 +597,7 @@ define internal noundef i32 @pop3_disconnect(ptr noundef %0, ptr noundef %1, i1 
   br i1 %.not6.i, label %pop3_perform_quit.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
-  %16 = tail call i32 @Curl_pp_statemach(ptr noundef %0, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext true) #6
+  %16 = tail call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %9, i1 noundef zeroext true, i1 noundef zeroext true) #6
   %17 = load i32, ptr %14, align 8, !tbaa !86
   %18 = icmp ne i32 %17, 0
   %.not.i12 = icmp eq i32 %16, 0
@@ -1676,7 +1676,7 @@ define internal fastcc i32 @pop3_perform_apop(ptr noundef %0, ptr noundef %1) un
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 480
   %32 = load ptr, ptr %31, align 8, !tbaa !132
-  %33 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.11, ptr noundef %32, ptr noundef nonnull %4) #6
+  %33 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull @.str.11, ptr noundef %32, ptr noundef nonnull %4) #6
   %.not25 = icmp eq i32 %33, 0
   br i1 %.not25, label %.sink.split, label %36
 

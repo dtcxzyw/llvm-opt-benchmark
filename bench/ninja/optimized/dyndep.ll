@@ -227,7 +227,7 @@ _ZNSt3mapIP4Edge7DyndepsSt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit.thread:
 59:                                               ; preds = %_ZNSt3mapIP4Edge7DyndepsSt4lessIS1_ESaISt4pairIKS1_S2_EEE4findERS6_.exit
   %60 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   store i8 1, ptr %60, align 8
-  %61 = tail call noundef zeroext i1 @_ZNK12DyndepLoader10UpdateEdgeEP4EdgePK7DyndepsPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef %31, ptr noundef nonnull %60, ptr noundef %3)
+  %61 = tail call noundef zeroext i1 @_ZNK12DyndepLoader10UpdateEdgeEP4EdgePK7DyndepsPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull align 8 poison, ptr noundef nonnull %31, ptr noundef nonnull %60, ptr noundef %3)
   br i1 %61, label %._crit_edge72, label %.loopexit
 
 ._crit_edge72:                                    ; preds = %59

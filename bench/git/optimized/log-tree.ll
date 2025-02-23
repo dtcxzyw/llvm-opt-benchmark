@@ -1560,7 +1560,7 @@ show_parents.exit:                                ; preds = %.lr.ph.i, %45, %36
   br i1 %.not132, label %show_children.exit, label %56
 
 56:                                               ; preds = %show_parents.exit
-  %57 = tail call ptr @lookup_decoration(ptr noundef nonnull %54, ptr noundef %10) #15
+  %57 = tail call ptr @lookup_decoration(ptr noundef nonnull %54, ptr noundef nonnull %10) #15
   %.not6.i = icmp eq ptr %57, null
   br i1 %.not6.i, label %show_children.exit, label %.lr.ph.i163
 
@@ -1578,7 +1578,7 @@ show_parents.exit:                                ; preds = %.lr.ph.i, %45, %36
   br i1 %.not.i164, label %show_children.exit, label %.lr.ph.i163, !llvm.loop !147
 
 show_children.exit:                               ; preds = %.lr.ph.i163, %56, %show_parents.exit
-  tail call void @show_decorations(ptr noundef nonnull %0, ptr noundef %10)
+  tail call void @show_decorations(ptr noundef nonnull %0, ptr noundef nonnull %10)
   %66 = load ptr, ptr %32, align 8, !tbaa !107
   %.not133 = icmp eq ptr %66, null
   br i1 %.not133, label %74, label %67
@@ -1718,7 +1718,7 @@ show_parents.exit171:                             ; preds = %.lr.ph.i167, %129, 
   br i1 %.not143, label %show_children.exit176, label %140
 
 140:                                              ; preds = %show_parents.exit171
-  %141 = tail call ptr @lookup_decoration(ptr noundef nonnull %138, ptr noundef %10) #15
+  %141 = tail call ptr @lookup_decoration(ptr noundef nonnull %138, ptr noundef nonnull %10) #15
   %.not6.i172 = icmp eq ptr %141, null
   br i1 %.not6.i172, label %show_children.exit176, label %.lr.ph.i173
 
@@ -1752,7 +1752,7 @@ show_children.exit176:                            ; preds = %.lr.ph.i173, %140, 
   %158 = tail call ptr @diff_get_color(i32 noundef %157, i32 noundef 0) #15
   %159 = load ptr, ptr %111, align 8, !tbaa !95
   %160 = tail call i32 @fputs(ptr noundef %158, ptr noundef %159)
-  tail call void @show_decorations(ptr noundef nonnull %0, ptr noundef %10)
+  tail call void @show_decorations(ptr noundef nonnull %0, ptr noundef nonnull %10)
   %161 = load i32, ptr %99, align 4, !tbaa !149
   %162 = icmp eq i32 %161, 5
   %163 = load ptr, ptr %111, align 8, !tbaa !95

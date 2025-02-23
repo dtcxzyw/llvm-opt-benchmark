@@ -1690,7 +1690,7 @@ LimitAdditionalPins.exit.i:                       ; preds = %22
   br i1 %59, label %.lr.ph190.preheader.i, label %._crit_edge191.i
 
 .lr.ph190.preheader.i:                            ; preds = %51
-  %60 = zext i32 %.1.i to i64
+  %60 = zext nneg i32 %.1.i to i64
   br label %.lr.ph190.i
 
 ._crit_edge191.i:                                 ; preds = %.lr.ph190.i, %51
@@ -5609,7 +5609,7 @@ BufTagMatchesRelFileLocator.exit.thread:          ; preds = %LockBufHdr.exit, %3
 
 53:                                               ; preds = %51, %BufTagMatchesRelFileLocator.exit.thread, %18
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #16
-  %54 = add nuw i32 %.024, 1
+  %54 = add i32 %.024, 1
   %exitcond.not = icmp eq i32 %54, %3
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !34
 
@@ -5984,7 +5984,7 @@ define dso_local void @DropRelationsAllBuffers(ptr noundef readonly captures(non
   br i1 %exitcond176.not, label %._crit_edge149, label %.lr.ph148, !llvm.loop !40
 
 ._crit_edge149:                                   ; preds = %.lr.ph148
-  %65 = icmp sgt i32 %.1100, 20
+  %65 = icmp samesign ugt i32 %.1100, 20
   br i1 %65, label %66, label %._crit_edge149.thread
 
 66:                                               ; preds = %._crit_edge149
@@ -6810,7 +6810,7 @@ define dso_local void @FlushRelationsAllBuffers(ptr noundef readonly captures(no
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %16 = icmp sgt i32 %1, 20
+  %16 = icmp samesign ugt i32 %1, 20
   br i1 %16, label %17, label %._crit_edge.thread
 
 17:                                               ; preds = %._crit_edge

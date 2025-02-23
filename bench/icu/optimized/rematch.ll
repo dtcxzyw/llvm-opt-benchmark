@@ -16314,11 +16314,7 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %cmp618 = icmp sgt i32 %destCapacity, 0
-  br i1 %cmp618, label %for.body.preheader, label %for.end.thread
-
-for.end.thread:                                   ; preds = %for.cond.preheader
-  %call1028 = call noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %inputText, ptr noundef nonnull %call3, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  br label %for.end19
+  br i1 %cmp618, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %for.cond.preheader
   %wide.trip.count = zext nneg i32 %destCapacity to i64
@@ -16336,15 +16332,19 @@ for.body:                                         ; preds = %for.body.preheader,
   store ptr %call7, ptr %arrayidx9, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !40
+  br i1 %exitcond.not, label %for.body13.preheader, label %for.body, !llvm.loop !40
 
-for.end:                                          ; preds = %for.body
+for.end:                                          ; preds = %for.cond.preheader
   %call10 = call noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %inputText, ptr noundef nonnull %call3, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  br label %for.end19
+
+for.body13.preheader:                             ; preds = %for.body
+  %call1028 = call noundef i32 @_ZN6icu_7512RegexMatcher5splitEP5UTextPS2_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull %inputText, ptr noundef nonnull %call3, i32 noundef %destCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %wide.trip.count26 = zext nneg i32 %destCapacity to i64
   br label %for.body13
 
-for.body13:                                       ; preds = %for.end, %for.body13
-  %indvars.iv23 = phi i64 [ 0, %for.end ], [ %indvars.iv.next24, %for.body13 ]
+for.body13:                                       ; preds = %for.body13.preheader, %for.body13
+  %indvars.iv23 = phi i64 [ 0, %for.body13.preheader ], [ %indvars.iv.next24, %for.body13 ]
   %arrayidx15 = getelementptr inbounds nuw ptr, ptr %call3, i64 %indvars.iv23
   %2 = load ptr, ptr %arrayidx15, align 8
   %call16 = call ptr @utext_close_75(ptr noundef %2)
@@ -16352,8 +16352,8 @@ for.body13:                                       ; preds = %for.end, %for.body1
   %exitcond27.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count26
   br i1 %exitcond27.not, label %for.end19, label %for.body13, !llvm.loop !41
 
-for.end19:                                        ; preds = %for.body13, %for.end.thread
-  %call1029 = phi i32 [ %call1028, %for.end.thread ], [ %call10, %for.body13 ]
+for.end19:                                        ; preds = %for.body13, %for.end
+  %call1029 = phi i32 [ %call10, %for.end ], [ %call1028, %for.body13 ]
   call void @uprv_free_75(ptr noundef nonnull %call3)
   %call20 = call ptr @utext_close_75(ptr noundef nonnull %inputText)
   br label %return

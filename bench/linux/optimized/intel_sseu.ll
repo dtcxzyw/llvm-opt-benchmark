@@ -1696,7 +1696,7 @@ define internal fastcc void @cherryview_sseu_info_init(ptr noundef captures(none
 
 78:                                               ; preds = %68
   %79 = icmp eq i32 %75, 0
-  br i1 %79, label %103, label %.preheader22
+  br i1 %79, label %.preheader.preheader, label %.preheader26
 
 .thread4:                                         ; preds = %.thread
   %80 = trunc i32 %64 to i16
@@ -1707,81 +1707,79 @@ define internal fastcc void @cherryview_sseu_info_init(ptr noundef captures(none
   %84 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %83) #10
   %85 = and i64 %84, 4294967295
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %.thread6, label %.thread5
+  br i1 %86, label %.thread6, label %._crit_edge
 
 .thread6:                                         ; preds = %.thread4
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 5130
   store i8 0, ptr %87, align 2
-  br label %108
+  br label %107
 
-.thread5:                                         ; preds = %.thread4
-  %88 = trunc i64 %84 to i32
-  br label %.loopexit7
+.preheader26:                                     ; preds = %78, %.preheader26
+  %88 = phi i64 [ %95, %.preheader26 ], [ 0, %78 ]
+  %89 = phi i32 [ %94, %.preheader26 ], [ 0, %78 ]
+  %90 = getelementptr [3 x i8], ptr %67, i64 0, i64 %88
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %92) #10, !srcloc !6
+  %94 = add i32 %93, %89
+  %95 = add nuw nsw i64 %88, 1
+  %96 = icmp eq i64 %95, 3
+  br i1 %96, label %.thread19, label %.preheader26, !llvm.loop !7
 
-.preheader22:                                     ; preds = %78, %.preheader22
-  %89 = phi i64 [ %96, %.preheader22 ], [ 0, %78 ]
-  %90 = phi i32 [ %95, %.preheader22 ], [ 0, %78 ]
-  %91 = getelementptr [3 x i8], ptr %67, i64 0, i64 %89
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i32
-  %94 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %93) #10, !srcloc !6
-  %95 = add i32 %94, %90
-  %96 = add nuw nsw i64 %89, 1
-  %97 = icmp eq i64 %96, 3
-  br i1 %97, label %.loopexit7, label %.preheader22, !llvm.loop !7
+.thread19:                                        ; preds = %.preheader26
+  %97 = and i32 %56, 65535
+  %98 = udiv i32 %97, %94
+  %99 = trunc i32 %98 to i8
+  br label %.preheader.preheader
 
-.loopexit7:                                       ; preds = %.preheader22, %.thread5
-  %.in = phi i32 [ %64, %.thread5 ], [ %56, %.preheader22 ]
-  %98 = phi ptr [ %82, %.thread5 ], [ %67, %.preheader22 ]
-  %99 = phi i32 [ %88, %.thread5 ], [ %95, %.preheader22 ]
-  %100 = and i32 %.in, 65535
-  %101 = udiv i32 %100, %99
-  %102 = trunc i32 %101 to i8
-  br label %103
+._crit_edge:                                      ; preds = %.thread4
+  %100 = trunc i64 %84 to i32
+  %101 = and i32 %64, 65535
+  %102 = udiv i32 %101, %100
+  %103 = trunc i32 %102 to i8
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 5130
+  store i8 %103, ptr %104, align 2
+  %.pre = load i64, ptr %82, align 8
+  br label %107
 
-103:                                              ; preds = %.loopexit7, %78
-  %104 = phi ptr [ %98, %.loopexit7 ], [ %67, %78 ]
-  %105 = phi i8 [ %102, %.loopexit7 ], [ 0, %78 ]
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 5130
-  store i8 %105, ptr %106, align 2
-  %107 = and i8 %46, -2
-  store i8 %107, ptr %44, align 1
-  br i1 %48, label %.preheader, label %._crit_edge
+.preheader.preheader:                             ; preds = %78, %.thread19
+  %.sink = phi i8 [ %99, %.thread19 ], [ 0, %78 ]
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 5130
+  store i8 %.sink, ptr %105, align 2
+  %106 = and i8 %46, -10
+  store i8 %106, ptr %44, align 1
+  br label %.preheader
 
-._crit_edge:                                      ; preds = %103
-  %.pre = load i64, ptr %104, align 8
-  br label %108
-
-108:                                              ; preds = %._crit_edge, %.thread6
-  %109 = phi i64 [ %83, %.thread6 ], [ %.pre, %._crit_edge ]
-  %110 = phi i8 [ 0, %.thread6 ], [ %105, %._crit_edge ]
-  %111 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %109) #10, !srcloc !5
-  %112 = trunc i64 %111 to i32
+107:                                              ; preds = %._crit_edge, %.thread6
+  %108 = phi i64 [ %83, %.thread6 ], [ %.pre, %._crit_edge ]
+  %109 = phi i8 [ 0, %.thread6 ], [ %103, %._crit_edge ]
+  %110 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %108) #10, !srcloc !5
+  %111 = trunc i64 %110 to i32
   br label %.loopexit
 
-.preheader:                                       ; preds = %103, %.preheader
-  %113 = phi i64 [ %120, %.preheader ], [ 0, %103 ]
-  %114 = phi i32 [ %119, %.preheader ], [ 0, %103 ]
-  %115 = getelementptr [3 x i8], ptr %104, i64 0, i64 %113
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %117) #10, !srcloc !6
-  %119 = add i32 %118, %114
-  %120 = add nuw nsw i64 %113, 1
-  %121 = icmp eq i64 %120, 3
-  br i1 %121, label %.loopexit, label %.preheader, !llvm.loop !7
+.preheader:                                       ; preds = %.preheader.preheader, %.preheader
+  %112 = phi i64 [ %119, %.preheader ], [ 0, %.preheader.preheader ]
+  %113 = phi i32 [ %118, %.preheader ], [ 0, %.preheader.preheader ]
+  %114 = getelementptr [3 x i8], ptr %67, i64 0, i64 %112
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %116) #10, !srcloc !6
+  %118 = add i32 %117, %113
+  %119 = add nuw nsw i64 %112, 1
+  %120 = icmp eq i64 %119, 3
+  br i1 %120, label %.loopexit, label %.preheader, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.preheader, %108
-  %122 = phi i8 [ %110, %108 ], [ %105, %.preheader ]
-  %123 = phi i32 [ %112, %108 ], [ %119, %.preheader ]
-  %124 = icmp ugt i32 %123, 1
-  %125 = select i1 %124, i8 2, i8 0
-  %126 = and i8 %46, -8
-  %127 = icmp ugt i8 %122, 2
-  %128 = select i1 %127, i8 4, i8 0
-  %129 = or disjoint i8 %128, %126
-  %130 = or disjoint i8 %129, %125
-  store i8 %130, ptr %44, align 1
+.loopexit:                                        ; preds = %.preheader, %107
+  %121 = phi i8 [ %109, %107 ], [ %.sink, %.preheader ]
+  %122 = phi i32 [ %111, %107 ], [ %118, %.preheader ]
+  %123 = icmp ugt i32 %122, 1
+  %124 = select i1 %123, i8 2, i8 0
+  %125 = and i8 %46, -8
+  %126 = icmp ugt i8 %121, 2
+  %127 = select i1 %126, i8 4, i8 0
+  %128 = or disjoint i8 %127, %125
+  %129 = or disjoint i8 %128, %124
+  store i8 %129, ptr %44, align 1
   ret void
 }
 

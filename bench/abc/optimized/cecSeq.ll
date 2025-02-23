@@ -845,13 +845,13 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %41
   store i32 %52, ptr %60, align 8, !tbaa !83
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %55, ptr %62, align 8, !tbaa !3
-  call void @Cec_ManSeqDeriveInfoFromCex(ptr noundef nonnull %60, ptr noundef %0, ptr noundef nonnull %2)
+  call void @Cec_ManSeqDeriveInfoFromCex(ptr noundef nonnull %60, ptr noundef nonnull %0, ptr noundef nonnull %2)
   %63 = load i32, ptr %32, align 4, !tbaa !80
   %.not28 = icmp eq i32 %63, 0
   br i1 %.not28, label %65, label %64
 
 64:                                               ; preds = %Vec_PtrAllocSimInfo.exit
-  call void @Gia_ManEquivPrintClasses(ptr noundef %0, i32 noundef 0, float noundef 0.000000e+00) #14
+  call void @Gia_ManEquivPrintClasses(ptr noundef nonnull %0, i32 noundef 0, float noundef 0.000000e+00) #14
   br label %65
 
 65:                                               ; preds = %64, %Vec_PtrAllocSimInfo.exit
@@ -879,8 +879,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %41
   store i32 %78, ptr %5, align 4, !tbaa !72
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 %67, ptr %79, align 4, !tbaa !73
-  call void @Gia_ManCreateValueRefs(ptr noundef %0) #14
-  %80 = call ptr @Cec_ManSimStart(ptr noundef %0, ptr noundef nonnull %5) #14
+  call void @Gia_ManCreateValueRefs(ptr noundef nonnull %0) #14
+  %80 = call ptr @Cec_ManSimStart(ptr noundef nonnull %0, ptr noundef nonnull %5) #14
   %81 = call i32 @Cec_ManSeqResimulate(ptr noundef %80, ptr noundef nonnull readonly %60)
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 104
   store ptr null, ptr %82, align 8, !tbaa !74

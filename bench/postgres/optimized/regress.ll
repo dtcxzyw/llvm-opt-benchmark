@@ -941,7 +941,7 @@ define i64 @ttdummy(ptr noundef readonly captures(none) %0) local_unnamed_addr #
 
 191:                                              ; preds = %190, %153
   %192 = phi ptr [ %178, %190 ], [ %158, %153 ]
-  %193 = call i32 @SPI_execp(ptr noundef nonnull %192, ptr noundef %136, ptr noundef %137, i64 noundef 0) #18
+  %193 = call i32 @SPI_execp(ptr noundef nonnull %192, ptr noundef nonnull %136, ptr noundef nonnull %137, i64 noundef 0) #18
   %194 = icmp slt i32 %193, 0
   br i1 %194, label %195, label %198
 

@@ -1074,7 +1074,7 @@ bb_data_at.exit:                                  ; preds = %55, %60
   br label %73
 
 73:                                               ; preds = %71, %bb_data_at.exit
-  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef %41) #19
+  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef nonnull %41) #19
   %74 = load i64, ptr %30, align 8, !tbaa !96
   %.not5387.i = icmp eq i64 %74, 0
   br i1 %.not5387.i, label %.preheader.i.preheader, label %.lr.ph88.i

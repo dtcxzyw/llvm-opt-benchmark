@@ -370,7 +370,7 @@ define dso_local void @zend_type_release(ptr %0, i32 %1, i1 noundef zeroext %2) 
   br i1 %2, label %15, label %16
 
 15:                                               ; preds = %14
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef nonnull %0) #14
   br label %zend_string_release.exit
 
 16:                                               ; preds = %14

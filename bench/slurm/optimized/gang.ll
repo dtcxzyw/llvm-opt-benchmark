@@ -793,13 +793,13 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 796), align 4
   %.not = icmp sgt i16 %2, -1
-  br i1 %.not, label %52, label %3
+  br i1 %.not, label %53, label %3
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %5 = load i32, ptr %4, align 8
   %.not22 = icmp eq i32 %5, 0
-  br i1 %.not22, label %6, label %52
+  br i1 %.not22, label %6, label %53
 
 6:                                                ; preds = %3
   %7 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -849,12 +849,12 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
   %27 = load ptr, ptr @gs_part_list, align 8
   %28 = tail call ptr @list_find_first(ptr noundef %27, ptr noundef nonnull @_find_gs_part, ptr noundef %.0) #8
   %.not27 = icmp eq ptr %28, null
-  br i1 %.not27, label %.thread32, label %29
+  br i1 %.not27, label %.thread, label %29
 
 29:                                               ; preds = %26
   %30 = tail call fastcc zeroext i16 @_add_job_to_part(ptr noundef %28, ptr noundef nonnull %0)
   %31 = icmp eq i16 %30, 1
-  br i1 %31, label %32, label %.thread
+  br i1 %31, label %32, label %39
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr @gs_part_list, align 8
@@ -863,59 +863,57 @@ define dso_local void @gs_job_start(ptr noundef %0) local_unnamed_addr #0 {
   %35 = tail call ptr @list_iterator_create(ptr noundef %34) #8
   %36 = tail call ptr @list_next(ptr noundef %35) #8
   %.not3.i = icmp eq ptr %36, null
-  br i1 %.not3.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not3.i, label %_update_all_active_rows.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %.lr.ph.i
   %37 = phi ptr [ %38, %.lr.ph.i ], [ %36, %32 ]
   tail call fastcc void @_update_active_row(ptr noundef %37, i32 noundef 1)
   %38 = tail call ptr @list_next(ptr noundef %35) #8
   %.not.i = icmp eq ptr %38, null
-  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not.i, label %_update_all_active_rows.exit, label %.lr.ph.i, !llvm.loop !13
 
-.loopexit:                                        ; preds = %.lr.ph.i, %32
+_update_all_active_rows.exit:                     ; preds = %.lr.ph.i, %32
   tail call void @list_iterator_destroy(ptr noundef %35) #8
-  %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @data_mutex) #8
-  %.not28 = icmp eq i32 %39, 0
-  br i1 %.not28, label %.thread31, label %42
+  br label %39
 
-.thread32:                                        ; preds = %26
+39:                                               ; preds = %_update_all_active_rows.exit, %29
   %40 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @data_mutex) #8
-  %.not2833 = icmp eq i32 %40, 0
-  br i1 %.not2833, label %.thread34, label %42
+  %.not28 = icmp eq i32 %40, 0
+  br i1 %.not28, label %46, label %42
 
-.thread:                                          ; preds = %29
+.thread:                                          ; preds = %26
   %41 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @data_mutex) #8
   %.not2830 = icmp eq i32 %41, 0
   br i1 %.not2830, label %.thread31, label %42
 
-42:                                               ; preds = %.thread32, %.thread, %.loopexit
-  %43 = phi i32 [ %41, %.thread ], [ %39, %.loopexit ], [ %40, %.thread32 ]
+42:                                               ; preds = %.thread, %39
+  %43 = phi i32 [ %41, %.thread ], [ %40, %39 ]
   %44 = tail call ptr @__errno_location() #9
   store i32 %43, ptr %44, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.gs_job_start) #10
   unreachable
 
-.thread34:                                        ; preds = %.thread32
+.thread31:                                        ; preds = %.thread
   %45 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.10, ptr noundef %.0, ptr noundef nonnull %0) #8
-  br label %.thread31
+  br label %46
 
-.thread31:                                        ; preds = %.loopexit, %.thread, %.thread34
+46:                                               ; preds = %39, %.thread31
   tail call fastcc void @_preempt_job_dequeue()
-  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %47 = and i64 %46, 8192
-  %.not29 = icmp eq i64 %47, 0
-  br i1 %.not29, label %52, label %48
+  %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %48 = and i64 %47, 8192
+  %.not29 = icmp eq i64 %48, 0
+  br i1 %.not29, label %53, label %49
 
-48:                                               ; preds = %.thread31
-  %49 = tail call i32 @get_log_level() #8
-  %50 = icmp sgt i32 %49, 3
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %46
+  %50 = tail call i32 @get_log_level() #8
+  %51 = icmp sgt i32 %50, 3
+  br i1 %51, label %52, label %53
 
-51:                                               ; preds = %48
+52:                                               ; preds = %49
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.11) #8
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.thread31, %51, %48, %3, %1
+53:                                               ; preds = %46, %52, %49, %3, %1
   ret void
 }
 
@@ -3267,7 +3265,7 @@ _get_part_gr_type.exit.thread:                    ; preds = %17, %14, %7, %_get_
 
 .preheader60.i:                                   ; preds = %46, %.preheader62.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader62.i ], [ %50, %46 ]
-  %.not5571.i = icmp sgt i32 %36, %38
+  %.not5571.i = icmp samesign ugt i32 %36, %38
   br i1 %.not5571.i, label %_fill_sockets.exit.thread, label %.lr.ph74.preheader.i
 
 .lr.ph74.preheader.i:                             ; preds = %.preheader60.i
@@ -3555,7 +3553,7 @@ _fill_sockets.exit:                               ; preds = %94, %118, %109
   %exitcond.not = icmp eq i32 %180, %127
   br i1 %exitcond.not, label %_fill_sockets.exit.thread, label %154, !llvm.loop !42
 
-_fill_sockets.exit.thread:                        ; preds = %.loopexit.i, %179, %151, %.preheader60.i, %.preheader81, %.preheader, %32, %29, %27, %_fill_sockets.exit
+_fill_sockets.exit.thread:                        ; preds = %.loopexit.i, %179, %151, %.preheader81, %.preheader, %.preheader60.i, %32, %29, %27, %_fill_sockets.exit
   %181 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, 1

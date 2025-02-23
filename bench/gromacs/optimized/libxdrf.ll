@@ -1370,7 +1370,7 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %644, label %925, label %731
 
 731:                                              ; preds = %730
-  call void @free(ptr noundef %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #21
   %732 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %733 = load ptr, ptr %732, align 8
   call void @free(ptr noundef %733) #21
@@ -1416,7 +1416,7 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %644, label %925, label %757
 
 757:                                              ; preds = %756
-  call void @free(ptr noundef %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #21
   %758 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %759 = load ptr, ptr %758, align 8
   call void @free(ptr noundef %759) #21
@@ -1450,7 +1450,7 @@ _ZL9sizeofinti.exit530:                           ; preds = %.lr.ph.i527, %_ZL9s
   br i1 %644, label %925, label %776
 
 776:                                              ; preds = %775
-  call void @free(ptr noundef %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #21
   %777 = load ptr, ptr %762, align 8
   call void @free(ptr noundef %777) #21
   br label %925
@@ -1718,7 +1718,7 @@ _ZL11receivebitsP10DataBufferi.exit543:           ; preds = %824, %826
   br i1 %644, label %925, label %923
 
 923:                                              ; preds = %._crit_edge643
-  call void @free(ptr noundef %.1404) #21
+  call void @free(ptr noundef nonnull %.1404) #21
   %924 = load ptr, ptr %762, align 8
   call void @free(ptr noundef %924) #21
   br label %925

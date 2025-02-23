@@ -3116,7 +3116,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %78
   %.117.i15 = phi i64 [ %90, %84 ], [ %.016.i13, %78 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %78 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20
 
 94:                                               ; preds = %92
@@ -3128,7 +3128,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.117.i15
   br label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20
 
@@ -4683,8 +4683,8 @@ _ZN6rustls4msgs7message8outbound15PrefixedPayload18extend_from_chunks17h8cfa78da
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10), !noalias !914
   %101 = getelementptr inbounds nuw i8, ptr %.val24, i64 16
   %102 = load i64, ptr %101, align 8, !noalias !923, !noundef !15
-  %.not1.i.i = icmp ugt i64 %97, %102
-  br i1 %.not1.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %104
+  %.not5.i.i = icmp ugt i64 %97, %102
+  br i1 %.not5.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, label %104
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %95, %.lr.ph.i.i.i.i.i.i.i.i
   %.idx.i.i.i.i.i.i.i = phi i64 [ %.add.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %95 ]
@@ -6477,7 +6477,7 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
   %23 = icmp ne ptr %.fca.1.extract, null
   call void @llvm.assume(i1 %23)
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
-          to label %common.resume unwind label %81
+          to label %common.resume unwind label %80
 
 24:                                               ; preds = %28, %29, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15737726635708573862.exit"
   %25 = landingpad { ptr, i32 }
@@ -6593,54 +6593,52 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
 
 "_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit25": ; preds = %.lr.ph.i.i.i.i21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %60 = icmp ne ptr %.fca.1.extract, null
-  call void @llvm.assume(i1 %60)
-  %61 = load ptr, ptr %.fca.1.extract, align 8, !invariant.load !15, !nonnull !15
-  invoke void %61(ptr noundef nonnull align 1 %.fca.0.extract)
-          to label %71 unwind label %62
+  %60 = load ptr, ptr %.fca.1.extract, align 8, !invariant.load !15, !nonnull !15
+  invoke void %60(ptr noundef nonnull align 1 %.fca.0.extract)
+          to label %70 unwind label %61
 
-62:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit25"
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit25"
+  %62 = landingpad { ptr, i32 }
           cleanup
-  %64 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
-  %65 = load i64, ptr %64, align 8, !range !237, !invariant.load !15
-  %66 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
-  %67 = load i64, ptr %66, align 8, !range !238, !invariant.load !15
-  %68 = icmp ult i64 %67, -9223372036854775807
-  call void @llvm.assume(i1 %68)
-  %69 = icmp eq i64 %65, 0
-  br i1 %69, label %common.resume, label %70
+  %63 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
+  %64 = load i64, ptr %63, align 8, !range !237, !invariant.load !15
+  %65 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
+  %66 = load i64, ptr %65, align 8, !range !238, !invariant.load !15
+  %67 = icmp ult i64 %66, -9223372036854775807
+  call void @llvm.assume(i1 %67)
+  %68 = icmp eq i64 %64, 0
+  br i1 %68, label %common.resume, label %69
 
-70:                                               ; preds = %62
-  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %65, i64 noundef range(i64 0, -9223372036854775807) %67) #36
+69:                                               ; preds = %61
+  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %64, i64 noundef range(i64 0, -9223372036854775807) %66) #36
   br label %common.resume
 
-71:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit25"
-  %72 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
-  %73 = load i64, ptr %72, align 8, !range !237, !invariant.load !15
-  %74 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
-  %75 = load i64, ptr %74, align 8, !range !238, !invariant.load !15
-  %76 = icmp ult i64 %75, -9223372036854775807
-  call void @llvm.assume(i1 %76)
-  %77 = icmp eq i64 %73, 0
-  br i1 %77, label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit", label %78
+70:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit25"
+  %71 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
+  %72 = load i64, ptr %71, align 8, !range !237, !invariant.load !15
+  %73 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
+  %74 = load i64, ptr %73, align 8, !range !238, !invariant.load !15
+  %75 = icmp ult i64 %74, -9223372036854775807
+  call void @llvm.assume(i1 %75)
+  %76 = icmp eq i64 %72, 0
+  br i1 %76, label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit", label %77
 
-78:                                               ; preds = %71
-  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %73, i64 noundef range(i64 0, -9223372036854775807) %75) #36
+77:                                               ; preds = %70
+  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %72, i64 noundef range(i64 0, -9223372036854775807) %74) #36
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit"
 
-common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", %62, %70
-  %common.resume.op = phi { ptr, i32 } [ %63, %70 ], [ %63, %62 ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", %61, %69
+  %common.resume.op = phi { ptr, i32 } [ %62, %69 ], [ %62, %61 ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit": ; preds = %71, %78
+"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit": ; preds = %70, %77
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6)
-  %79 = insertvalue { ptr, ptr } poison, ptr %50, 0
-  %80 = insertvalue { ptr, ptr } %79, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.178, 1
-  ret { ptr, ptr } %80
+  %78 = insertvalue { ptr, ptr } poison, ptr %50, 0
+  %79 = insertvalue { ptr, ptr } %78, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.178, 1
+  ret { ptr, ptr } %79
 
-81:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit"
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit"
+  %81 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
   unreachable
@@ -6687,40 +6685,38 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
   %23 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 24
   %24 = load ptr, ptr %23, align 8, !invariant.load !15, !nonnull !15
   invoke void %24(ptr noalias noundef nonnull sret({ [64 x i8], i64 }) align 8 captures(none) dereferenceable(72) %8, ptr noundef align 1 %.fca.0.extract, ptr noalias noundef nonnull readonly align 8 %7, i64 noundef 1)
-          to label %28 unwind label %26
+          to label %27 unwind label %25
 
-"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit": ; preds = %.lr.ph.i.i.i.i, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %eh.lpad-body, %.lr.ph.i.i.i.i ]
-  %25 = icmp ne ptr %.fca.1.extract, null
-  call void @llvm.assume(i1 %25)
+"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit": ; preds = %.lr.ph.i.i.i.i, %25
+  %.pn = phi { ptr, i32 } [ %26, %25 ], [ %eh.lpad-body, %.lr.ph.i.i.i.i ]
   invoke fastcc void @"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E"(ptr %.fca.0.extract, ptr nonnull %.fca.1.extract) #34
-          to label %common.resume unwind label %76
+          to label %common.resume unwind label %74
 
-26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15737726635708573862.exit"
-  %27 = landingpad { ptr, i32 }
+25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15737726635708573862.exit"
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit"
 
-28:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15737726635708573862.exit"
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %30 = load i64, ptr %29, align 8, !alias.scope !1537, !noundef !15
-  %31 = icmp ugt i64 %30, 64
-  br i1 %31, label %32, label %36
+27:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.15737726635708573862.exit"
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %29 = load i64, ptr %28, align 8, !alias.scope !1537, !noundef !15
+  %30 = icmp ugt i64 %29, 64
+  br i1 %30, label %31, label %35
 
-32:                                               ; preds = %28
-  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %30, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.15daca1494ab48175fa7b5da83d8f4c5.166.llvm.15737726635708573862) #33
-          to label %.noexc unwind label %33
+31:                                               ; preds = %27
+  invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %29, i64 noundef 64, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.15daca1494ab48175fa7b5da83d8f4c5.166.llvm.15737726635708573862) #33
+          to label %.noexc unwind label %32
 
-.noexc:                                           ; preds = %32
+.noexc:                                           ; preds = %31
   unreachable
 
-33:                                               ; preds = %32, %36
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %31, %35
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %48, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %49, %48 ]
+.body:                                            ; preds = %47, %32
+  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %48, %47 ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.body
@@ -6729,115 +6725,113 @@ define { ptr, ptr } @"_ZN84_$LT$rustls..crypto..tls13..HkdfUsingHmac$u20$as$u20$
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 1
   store volatile i8 0, ptr %.ptr.i.i.i, align 1, !alias.scope !1540, !noalias !1549
   fence syncscope("singlethread") seq_cst
-  %35 = icmp eq i64 %.add.i.i.i, 64
-  br i1 %35, label %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", label %.lr.ph.i.i.i.i
+  %34 = icmp eq i64 %.add.i.i.i, 64
+  br i1 %34, label %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", label %.lr.ph.i.i.i.i
 
-36:                                               ; preds = %28
-  %37 = invoke { ptr, ptr } %20(ptr noundef nonnull align 1 %.pre, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %30)
-          to label %38 unwind label %33
+35:                                               ; preds = %27
+  %36 = invoke { ptr, ptr } %20(ptr noundef nonnull align 1 %.pre, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %29)
+          to label %37 unwind label %32
 
-38:                                               ; preds = %36
-  %39 = extractvalue { ptr, ptr } %37, 0
-  %40 = extractvalue { ptr, ptr } %37, 1
+37:                                               ; preds = %35
+  %38 = extractvalue { ptr, ptr } %36, 0
+  %39 = extractvalue { ptr, ptr } %36, 1
+  %40 = icmp ne ptr %38, null
+  call void @llvm.assume(i1 %40)
   %41 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %41)
-  %42 = icmp ne ptr %40, null
-  call void @llvm.assume(i1 %42)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  store ptr %39, ptr %6, align 8, !noalias !1552
-  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %40, ptr %43, align 8, !noalias !1552
-  %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %45 = call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef range(i64 1, -9223372036854775807) 8) #36
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %52
+  store ptr %38, ptr %6, align 8, !noalias !1552
+  %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %39, ptr %42, align 8, !noalias !1552
+  %43 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %44 = call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef range(i64 1, -9223372036854775807) 8) #36
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %51
 
-47:                                               ; preds = %38
+46:                                               ; preds = %37
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 16) #33
-          to label %.noexc16 unwind label %48
+          to label %.noexc16 unwind label %47
 
-.noexc16:                                         ; preds = %47
+.noexc16:                                         ; preds = %46
   unreachable
 
-48:                                               ; preds = %47
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %46
+  %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$rustls..crypto..tls13..HkdfExpanderUsingHmac$GT$17h56463a4ccd6016c8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #34
-          to label %.body unwind label %50
+          to label %.body unwind label %49
 
-50:                                               ; preds = %48
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %47
+  %50 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
   unreachable
 
-52:                                               ; preds = %38
-  store ptr %39, ptr %45, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %40, ptr %53, align 8
+51:                                               ; preds = %37
+  store ptr %38, ptr %44, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %39, ptr %52, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   br label %.lr.ph.i.i.i.i17
 
-.lr.ph.i.i.i.i17:                                 ; preds = %.lr.ph.i.i.i.i17, %52
-  %.idx.i.i.i18 = phi i64 [ %.add.i.i.i20, %.lr.ph.i.i.i.i17 ], [ 0, %52 ]
+.lr.ph.i.i.i.i17:                                 ; preds = %.lr.ph.i.i.i.i17, %51
+  %.idx.i.i.i18 = phi i64 [ %.add.i.i.i20, %.lr.ph.i.i.i.i17 ], [ 0, %51 ]
   %.ptr.i.i.i19 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i18
   %.add.i.i.i20 = add nuw nsw i64 %.idx.i.i.i18, 1
   store volatile i8 0, ptr %.ptr.i.i.i19, align 1, !alias.scope !1555, !noalias !1564
   fence syncscope("singlethread") seq_cst
-  %54 = icmp eq i64 %.add.i.i.i20, 64
-  br i1 %54, label %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21", label %.lr.ph.i.i.i.i17
+  %53 = icmp eq i64 %.add.i.i.i20, 64
+  br i1 %53, label %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21", label %.lr.ph.i.i.i.i17
 
 "_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21": ; preds = %.lr.ph.i.i.i.i17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %55 = icmp ne ptr %.fca.1.extract, null
-  call void @llvm.assume(i1 %55)
-  %56 = load ptr, ptr %.fca.1.extract, align 8, !invariant.load !15, !nonnull !15
-  invoke void %56(ptr noundef nonnull align 1 %.fca.0.extract)
-          to label %66 unwind label %57
+  %54 = load ptr, ptr %.fca.1.extract, align 8, !invariant.load !15, !nonnull !15
+  invoke void %54(ptr noundef nonnull align 1 %.fca.0.extract)
+          to label %64 unwind label %55
 
-57:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21"
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21"
+  %56 = landingpad { ptr, i32 }
           cleanup
-  %59 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
-  %60 = load i64, ptr %59, align 8, !range !237, !invariant.load !15
-  %61 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
-  %62 = load i64, ptr %61, align 8, !range !238, !invariant.load !15
-  %63 = icmp ult i64 %62, -9223372036854775807
-  call void @llvm.assume(i1 %63)
-  %64 = icmp eq i64 %60, 0
-  br i1 %64, label %common.resume, label %65
+  %57 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
+  %58 = load i64, ptr %57, align 8, !range !237, !invariant.load !15
+  %59 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
+  %60 = load i64, ptr %59, align 8, !range !238, !invariant.load !15
+  %61 = icmp ult i64 %60, -9223372036854775807
+  call void @llvm.assume(i1 %61)
+  %62 = icmp eq i64 %58, 0
+  br i1 %62, label %common.resume, label %63
 
-65:                                               ; preds = %57
-  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %60, i64 noundef range(i64 0, -9223372036854775807) %62) #36
+63:                                               ; preds = %55
+  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %58, i64 noundef range(i64 0, -9223372036854775807) %60) #36
   br label %common.resume
 
-66:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21"
-  %67 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
-  %68 = load i64, ptr %67, align 8, !range !237, !invariant.load !15
-  %69 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
-  %70 = load i64, ptr %69, align 8, !range !238, !invariant.load !15
-  %71 = icmp ult i64 %70, -9223372036854775807
-  call void @llvm.assume(i1 %71)
-  %72 = icmp eq i64 %68, 0
-  br i1 %72, label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit", label %73
+64:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit21"
+  %65 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 8
+  %66 = load i64, ptr %65, align 8, !range !237, !invariant.load !15
+  %67 = getelementptr inbounds nuw i8, ptr %.fca.1.extract, i64 16
+  %68 = load i64, ptr %67, align 8, !range !238, !invariant.load !15
+  %69 = icmp ult i64 %68, -9223372036854775807
+  call void @llvm.assume(i1 %69)
+  %70 = icmp eq i64 %66, 0
+  br i1 %70, label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit", label %71
 
-73:                                               ; preds = %66
-  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %68, i64 noundef range(i64 0, -9223372036854775807) %70) #36
+71:                                               ; preds = %64
+  call void @__rust_dealloc(ptr noundef nonnull %.fca.0.extract, i64 noundef range(i64 1, 0) %66, i64 noundef range(i64 0, -9223372036854775807) %68) #36
   br label %"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit"
 
-common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", %57, %65
-  %common.resume.op = phi { ptr, i32 } [ %58, %65 ], [ %58, %57 ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit" ]
+common.resume:                                    ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit", %55, %63
+  %common.resume.op = phi { ptr, i32 } [ %56, %63 ], [ %56, %55 ], [ %.pn, %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit" ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit": ; preds = %66, %73
+"_ZN4core3ptr79drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$rustls..crypto..hmac..Key$GT$$GT$17hb5eb4a04d4424ca5E.exit": ; preds = %64, %71
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8)
-  %74 = insertvalue { ptr, ptr } poison, ptr %45, 0
-  %75 = insertvalue { ptr, ptr } %74, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.178, 1
-  ret { ptr, ptr } %75
+  %72 = insertvalue { ptr, ptr } poison, ptr %44, 0
+  %73 = insertvalue { ptr, ptr } %72, ptr @anon.15daca1494ab48175fa7b5da83d8f4c5.178, 1
+  ret { ptr, ptr } %73
 
-76:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit"
-  %77 = landingpad { ptr, i32 }
+74:                                               ; preds = %"_ZN4core3ptr46drop_in_place$LT$rustls..crypto..hmac..Tag$GT$17h09807ec02f6c292dE.exit"
+  %75 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #35
   unreachable

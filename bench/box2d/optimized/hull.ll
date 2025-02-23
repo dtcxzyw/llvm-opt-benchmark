@@ -19,7 +19,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   store i32 0, ptr %9, align 4, !tbaa !3
   %10 = add i32 %2, -9
   %or.cond = icmp ult i32 %10, -6
-  br i1 %or.cond, label %204, label %.lr.ph232.preheader
+  br i1 %or.cond, label %200, label %.lr.ph232.preheader
 
 .lr.ph232.preheader:                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #4
@@ -32,7 +32,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 ._crit_edge:                                      ; preds = %.loopexit
   %15 = icmp slt i32 %.1, 3
-  br i1 %15, label %203, label %38
+  br i1 %15, label %199, label %38
 
 .lr.ph232:                                        ; preds = %.lr.ph232.preheader, %.loopexit
   %indvars.iv269 = phi i64 [ 0, %.lr.ph232.preheader ], [ %indvars.iv.next270, %.loopexit ]
@@ -115,7 +115,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %50 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %49
   %.sroa.059.0.copyload = load <2 x float>, ptr %50, align 8
   %51 = add nsw i32 %.1, -1
-  %52 = zext i32 %51 to i64
+  %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %4, i64 0, i64 %52
   %54 = load i64, ptr %53, align 8
   store i64 %54, ptr %50, align 8
@@ -124,8 +124,8 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %57 = fmul <2 x float> %56, %56
   %58 = fsub <2 x float> %55, %.sroa.059.0.copyload
   %59 = fmul <2 x float> %58, %58
-  %shift314 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %60 = fadd <2 x float> %57, %shift314
+  %shift322 = shufflevector <2 x float> %59, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %60 = fadd <2 x float> %57, %shift322
   %61 = extractelement <2 x float> %60, i64 0
   br label %.lr.ph242
 
@@ -185,9 +185,8 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %.sroa.012.0.i = phi <2 x float> [ %.sroa.012.4.vec.insert.i, %86 ], [ zeroinitializer, %._crit_edge243 ]
   %91 = fmul float %12, 2.000000e+00
   %92 = fmul float %12, -2.000000e+00
-  %smax = tail call i32 @llvm.smax.i32(i32 %74, i32 1)
-  %wide.trip.count286 = zext nneg i32 %smax to i64
-  %shift316 = shufflevector <2 x float> %.sroa.012.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %wide.trip.count286 = zext nneg i32 %74 to i64
+  %shift324 = shufflevector <2 x float> %.sroa.012.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   br label %109
 
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %.lr.ph242
@@ -200,8 +199,8 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %96 = fsub <2 x float> %94, %.sroa.059.0.copyload
   %97 = fmul <2 x float> %95, %95
   %98 = fmul <2 x float> %96, %96
-  %shift315 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %99 = fadd <2 x float> %97, %shift315
+  %shift323 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %99 = fadd <2 x float> %97, %shift323
   %100 = extractelement <2 x float> %99, i64 0
   %101 = fcmp ogt float %100, %.0143239
   %.1144 = select i1 %101, float %100, float %.0143239
@@ -223,7 +222,7 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %107 = load i32, ptr %106, align 4
   %108 = icmp eq i32 %107, 0
   %or.cond5 = select i1 %105, i1 %108, i1 false
-  br i1 %or.cond5, label %202, label %128
+  br i1 %or.cond5, label %198, label %128
 
 109:                                              ; preds = %.lr.ph248, %127
   %indvars.iv283 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next284, %127 ]
@@ -233,9 +232,9 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %111 = load <2 x float>, ptr %110, align 8
   %112 = fsub <2 x float> %111, %.sroa.059.0.copyload
   %113 = fsub <2 x float> %111, %.sroa.059.0.copyload
-  %114 = fmul <2 x float> %shift316, %112
-  %shift317 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %115 = fmul <2 x float> %.sroa.012.0.i, %shift317
+  %114 = fmul <2 x float> %shift324, %112
+  %shift325 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %115 = fmul <2 x float> %.sroa.012.0.i, %shift325
   %116 = fsub <2 x float> %114, %115
   %117 = extractelement <2 x float> %116, i64 0
   %118 = fcmp ult float %117, %91
@@ -255,11 +254,11 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
 
 .sink.split:                                      ; preds = %119, %123
   %.0146246.sink = phi i32 [ %.0146246, %123 ], [ %.0148245, %119 ]
-  %.sink306 = phi ptr [ %6, %123 ], [ %5, %119 ]
+  %.sink310 = phi ptr [ %6, %123 ], [ %5, %119 ]
   %.1149.ph = phi i32 [ %.0148245, %123 ], [ %120, %119 ]
   %.1147.ph = phi i32 [ %124, %123 ], [ %.0146246, %119 ]
   %125 = sext i32 %.0146246.sink to i64
-  %126 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %.sink306, i64 0, i64 %125
+  %126 = getelementptr inbounds [6 x %struct.b2Vec2], ptr %.sink310, i64 0, i64 %125
   store <2 x float> %111, ptr %126, align 8
   br label %127
 
@@ -335,22 +334,23 @@ define void @b2ComputeHull(ptr dead_on_unwind noalias writable sret(%struct.b2Hu
   %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
   br i1 %exitcond297.not, label %.preheader223, label %.lr.ph258, !llvm.loop !17
 
-.preheader222:                                    ; preds = %.preheader222.backedge, %.preheader222.lr.ph
-  %150 = phi i32 [ %141, %.preheader222.lr.ph ], [ %.be, %.preheader222.backedge ]
-  %151 = phi i32 [ %141, %.preheader222.lr.ph ], [ %.be320, %.preheader222.backedge ]
-  %indvars.iv301 = phi i64 [ 0, %.preheader222.lr.ph ], [ %indvars.iv301.be, %.preheader222.backedge ]
-  %.1135 = phi i1 [ false, %.preheader222.lr.ph ], [ %.1135.be, %.preheader222.backedge ]
-  %152 = sext i32 %151 to i64
-  %153 = icmp slt i64 %indvars.iv301, %152
-  br i1 %153, label %154, label %197
+.preheader222:                                    ; preds = %.preheader222.lr.ph, %.loopexit305
+  %150 = phi i32 [ %141, %.preheader222.lr.ph ], [ %194, %.loopexit305 ]
+  %151 = sext i32 %150 to i64
+  br label %152
 
-154:                                              ; preds = %.preheader222
+152:                                              ; preds = %b2Normalize.exit211, %.preheader222
+  %indvars.iv301 = phi i64 [ 0, %.preheader222 ], [ %indvars.iv.next302, %b2Normalize.exit211 ]
+  %153 = icmp slt i64 %indvars.iv301, %151
+  br i1 %153, label %154, label %.loopexit305
+
+154:                                              ; preds = %152
   %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
   %155 = trunc nuw i64 %indvars.iv.next302 to i32
-  %156 = srem i32 %155, %151
+  %156 = srem i32 %155, %150
   %157 = trunc i64 %indvars.iv301 to i32
   %158 = add i32 %157, 2
-  %159 = srem i32 %158, %151
+  %159 = srem i32 %158, %150
   %160 = getelementptr inbounds nuw [8 x %struct.b2Vec2], ptr %0, i64 0, i64 %indvars.iv301
   %.sroa.013.0.copyload = load <2 x float>, ptr %160, align 4
   %161 = zext nneg i32 %156 to i64
@@ -383,24 +383,24 @@ b2Normalize.exit211:                              ; preds = %154, %173
   %.sroa.012.0.i210 = phi <2 x float> [ %.sroa.012.4.vec.insert.i209, %173 ], [ zeroinitializer, %154 ]
   %178 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
   %179 = fsub <2 x float> %.sroa.012.0.copyload, %.sroa.013.0.copyload
-  %shift318 = shufflevector <2 x float> %.sroa.012.0.i210, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %180 = fmul <2 x float> %178, %shift318
-  %shift319 = shufflevector <2 x float> %179, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %181 = fmul <2 x float> %shift319, %.sroa.012.0.i210
+  %shift326 = shufflevector <2 x float> %.sroa.012.0.i210, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %180 = fmul <2 x float> %178, %shift326
+  %shift327 = shufflevector <2 x float> %179, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %181 = fmul <2 x float> %shift327, %.sroa.012.0.i210
   %182 = fsub <2 x float> %180, %181
   %183 = extractelement <2 x float> %182, i64 0
   %184 = fcmp ugt float %183, %143
-  br i1 %184, label %194, label %.preheader
+  br i1 %184, label %152, label %.preheader
 
 .preheader:                                       ; preds = %b2Normalize.exit211
-  %185 = add nsw i32 %151, -1
+  %185 = add nsw i32 %150, -1
   %186 = icmp slt i32 %156, %185
-  br i1 %186, label %.lr.ph260, label %._crit_edge261
+  br i1 %186, label %.lr.ph260, label %.thread
 
-._crit_edge261:                                   ; preds = %.lr.ph260, %.preheader
+.thread:                                          ; preds = %.lr.ph260, %.preheader
   %.lcssa = phi i32 [ %185, %.preheader ], [ %191, %.lr.ph260 ]
   store i32 %.lcssa, ptr %9, align 4, !tbaa !3
-  br label %194
+  br label %.loopexit305
 
 .lr.ph260:                                        ; preds = %.preheader, %.lr.ph260
   %indvars.iv298 = phi i64 [ %indvars.iv.next299, %.lr.ph260 ], [ %161, %.preheader ]
@@ -413,48 +413,34 @@ b2Normalize.exit211:                              ; preds = %154, %173
   %191 = add nsw i32 %190, -1
   %192 = trunc nuw i64 %indvars.iv.next299 to i32
   %193 = icmp sgt i32 %191, %192
-  br i1 %193, label %.lr.ph260, label %._crit_edge261, !llvm.loop !18
+  br i1 %193, label %.lr.ph260, label %.thread, !llvm.loop !18
 
-194:                                              ; preds = %b2Normalize.exit211, %._crit_edge261
-  %195 = phi i32 [ %.lcssa, %._crit_edge261 ], [ %150, %b2Normalize.exit211 ]
-  %196 = phi i32 [ %.lcssa, %._crit_edge261 ], [ %151, %b2Normalize.exit211 ]
-  %.3 = phi i1 [ true, %._crit_edge261 ], [ %.1135, %b2Normalize.exit211 ]
-  br i1 %184, label %.preheader222.backedge, label %197
+.loopexit305:                                     ; preds = %152, %.thread
+  %194 = phi i32 [ %.lcssa, %.thread ], [ %150, %152 ]
+  %195 = icmp sgt i32 %194, 2
+  %196 = and i1 %153, %195
+  br i1 %196, label %.preheader222, label %._crit_edge263, !llvm.loop !19
 
-.preheader222.backedge:                           ; preds = %194, %197
-  %.be = phi i32 [ %195, %194 ], [ %198, %197 ]
-  %.be320 = phi i32 [ %196, %194 ], [ %198, %197 ]
-  %indvars.iv301.be = phi i64 [ %indvars.iv.next302, %194 ], [ 0, %197 ]
-  %.1135.be = phi i1 [ %.3, %194 ], [ false, %197 ]
-  br label %.preheader222, !llvm.loop !19
-
-197:                                              ; preds = %.preheader222, %194
-  %198 = phi i32 [ %195, %194 ], [ %150, %.preheader222 ]
-  %.2136 = phi i1 [ %.3, %194 ], [ %.1135, %.preheader222 ]
-  %199 = icmp sgt i32 %198, 2
-  %200 = select i1 %.2136, i1 %199, i1 false
-  br i1 %200, label %.preheader222.backedge, label %._crit_edge263
-
-._crit_edge263:                                   ; preds = %197
-  %201 = icmp slt i32 %198, 3
-  br i1 %201, label %._crit_edge263.thread, label %202
+._crit_edge263:                                   ; preds = %.loopexit305
+  %197 = icmp slt i32 %194, 3
+  br i1 %197, label %._crit_edge263.thread, label %198
 
 ._crit_edge263.thread:                            ; preds = %.preheader223, %._crit_edge263
   store i32 0, ptr %9, align 4, !tbaa !3
-  br label %202
+  br label %198
 
-202:                                              ; preds = %._crit_edge263, %._crit_edge263.thread, %._crit_edge249
+198:                                              ; preds = %._crit_edge263, %._crit_edge263.thread, %._crit_edge249
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %8) #4
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %7) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #4
-  br label %203
+  br label %199
 
-203:                                              ; preds = %._crit_edge, %202
+199:                                              ; preds = %._crit_edge, %198
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #4
-  br label %204
+  br label %200
 
-204:                                              ; preds = %3, %203
+200:                                              ; preds = %3, %199
   ret void
 }
 
@@ -794,9 +780,6 @@ b2Normalize.exit97:                               ; preds = %44, %63
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #3
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

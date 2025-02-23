@@ -974,7 +974,7 @@ define dso_local noundef zeroext i1 @tcp_peer_is_proven(ptr noundef readonly cap
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #11
   br label %98
 
-94:                                               ; preds = %93, %86
+94:                                               ; preds = %86, %93
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #11
   %95 = getelementptr inbounds nuw i8, ptr %49, i64 68

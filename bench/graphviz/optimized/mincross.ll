@@ -3318,7 +3318,7 @@ define void @build_ranks(ptr noundef %0, i32 noundef %1, ptr noundef captures(no
   br i1 %exitcond.not, label %._crit_edge90, label %20, !llvm.loop !161
 
 ._crit_edge90:                                    ; preds = %20, %._crit_edge
-  %22 = tail call ptr @agroot(ptr noundef %0) #23
+  %22 = tail call ptr @agroot(ptr noundef nonnull %0) #23
   %.not70 = icmp eq ptr %0, %22
   %23 = load ptr, ptr %5, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 256
@@ -3443,12 +3443,12 @@ node_queue_push_back.exit:                        ; preds = %51, %60
   br i1 %.not78, label %82, label %81
 
 81:                                               ; preds = %.lr.ph92
-  call void @install_in_rank(ptr noundef %0, ptr noundef nonnull %73)
+  call void @install_in_rank(ptr noundef nonnull %0, ptr noundef nonnull %73)
   call void @enqueue_neighbors(ptr noundef nonnull %4, ptr noundef nonnull %73, i32 noundef %1)
   br label %83
 
 82:                                               ; preds = %.lr.ph92
-  call void @install_cluster(ptr noundef %0, ptr noundef nonnull %73, i32 noundef %1, ptr noundef nonnull %4) #23
+  call void @install_cluster(ptr noundef nonnull %0, ptr noundef nonnull %73, i32 noundef %1, ptr noundef nonnull %4) #23
   br label %83
 
 83:                                               ; preds = %82, %81
@@ -3568,7 +3568,7 @@ node_queue_push_back.exit:                        ; preds = %51, %60
   br i1 %exitcond114.not, label %._crit_edge103, label %109, !llvm.loop !170
 
 ._crit_edge103:                                   ; preds = %.loopexit, %.lr.ph102.split.us, %._crit_edge97
-  %144 = call ptr @dot_root(ptr noundef %0) #23
+  %144 = call ptr @dot_root(ptr noundef nonnull %0) #23
   %145 = icmp eq ptr %0, %144
   br i1 %145, label %146, label %150
 
@@ -4461,7 +4461,7 @@ define internal fastcc void @transpose(ptr readonly captures(none) %.16.val, i1 
   %9 = add i32 %5, 1
   br label %18
 
-.preheader:                                       ; preds = %18
+.preheader.split:                                 ; preds = %18
   %.b26.i.i = load i1, ptr @ReMincross, align 1
   %10 = getelementptr inbounds nuw i8, ptr %.16.val, i64 132
   %11 = load ptr, ptr @Root, align 8
@@ -4480,11 +4480,11 @@ define internal fastcc void @transpose(ptr readonly captures(none) %.16.val, i1 
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %9, %lftr.wideiv
-  br i1 %exitcond.not, label %.preheader, label %18, !llvm.loop !194
+  br i1 %exitcond.not, label %.preheader.split, label %18, !llvm.loop !194
 
-.lr.ph7:                                          ; preds = %.lr.ph7.backedge, %.preheader
-  %indvars.iv10 = phi i64 [ %15, %.preheader ], [ %indvars.iv10.be, %.lr.ph7.backedge ]
-  %.06 = phi i64 [ 0, %.preheader ], [ %.06.be, %.lr.ph7.backedge ]
+.lr.ph7:                                          ; preds = %.lr.ph7.backedge, %.preheader.split
+  %indvars.iv10 = phi i64 [ %15, %.preheader.split ], [ %indvars.iv10.be, %.lr.ph7.backedge ]
+  %.06 = phi i64 [ 0, %.preheader.split ], [ %.06.be, %.lr.ph7.backedge ]
   %20 = getelementptr inbounds %struct.rank_t, ptr %14, i64 %indvars.iv10, i32 8
   %21 = load i8, ptr %20, align 8, !tbaa !193, !range !174, !noundef !175
   %22 = trunc nuw i8 %21 to i1
@@ -5756,17 +5756,17 @@ define internal fastcc void @flat_reorder(ptr noundef %0) unnamed_addr #0 {
   store i64 0, ptr %37, align 8, !tbaa !159
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !216
+  br i1 %exitcond.not, label %.lr.ph175.preheader, label %.lr.ph, !llvm.loop !216
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph175.preheader:                              ; preds = %.lr.ph
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   br label %.lr.ph175
 
-.lr.ph175:                                        ; preds = %._crit_edge, %275
-  %indvars.iv200 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next201, %275 ]
-  %38 = phi i32 [ %22, %._crit_edge ], [ %280, %275 ]
-  %39 = phi ptr [ %20, %._crit_edge ], [ %278, %275 ]
-  %40 = phi ptr [ %18, %._crit_edge ], [ %276, %275 ]
+.lr.ph175:                                        ; preds = %.lr.ph175.preheader, %275
+  %indvars.iv200 = phi i64 [ 0, %.lr.ph175.preheader ], [ %indvars.iv.next201, %275 ]
+  %38 = phi i32 [ %22, %.lr.ph175.preheader ], [ %280, %275 ]
+  %39 = phi ptr [ %20, %.lr.ph175.preheader ], [ %278, %275 ]
+  %40 = phi ptr [ %18, %.lr.ph175.preheader ], [ %276, %275 ]
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 132
   %42 = load i32, ptr %41, align 4, !tbaa !139
   %43 = and i32 %42, 1
@@ -6353,7 +6353,7 @@ nodes_reverse.exit:                               ; preds = %292, %287, %283
 359:                                              ; preds = %357, %355
   tail call void @delete_flat_edge(ptr noundef nonnull %332) #23
   %360 = add i64 %.0183, -1
-  tail call fastcc void @flat_rev(ptr noundef nonnull %0, ptr noundef %332)
+  tail call fastcc void @flat_rev(ptr noundef %0, ptr noundef %332)
   %.pre = load ptr, ptr %326, align 8, !tbaa !3
   br label %.thread
 

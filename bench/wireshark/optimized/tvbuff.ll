@@ -671,7 +671,7 @@ _tvb_captured_length_remaining.exit.thread:       ; preds = %15
 30:                                               ; preds = %_tvb_captured_length_remaining.exit.thread, %_tvb_captured_length_remaining.exit
   %.06577 = phi i32 [ 0, %_tvb_captured_length_remaining.exit.thread ], [ %.065, %_tvb_captured_length_remaining.exit ]
   %31 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef nonnull %0, i32 noundef %10, i32 noundef %.06577, i32 noundef %.06577)
-  br label %80
+  br label %79
 
 32:                                               ; preds = %_tvb_captured_length_remaining.exit
   %33 = icmp sgt i32 %.065, 0
@@ -716,53 +716,55 @@ _tvb_captured_length_remaining.exit73:            ; preds = %32
   %53 = getelementptr i8, ptr %40, i64 %indvars.iv
   store i8 %52, ptr %53, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %43, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %43, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %43, %_tvb_captured_length_remaining.exit73
-  %.066.lcssa = phi i32 [ 0, %_tvb_captured_length_remaining.exit73 ], [ %41, %43 ]
-  %54 = zext nneg i32 %.066.lcssa to i64
-  %55 = getelementptr i8, ptr %38, i64 %54
+._crit_edge.loopexit:                             ; preds = %43
+  %54 = zext nneg i32 %41 to i64
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_tvb_captured_length_remaining.exit73
+  %.066.lcssa = phi i64 [ 0, %_tvb_captured_length_remaining.exit73 ], [ %54, %._crit_edge.loopexit ]
+  %55 = getelementptr i8, ptr %38, i64 %.066.lcssa
   %56 = load i8, ptr %55, align 1
   %57 = zext i8 %56 to i32
   %58 = lshr i32 %57, %11
   %59 = trunc nuw i32 %58 to i8
-  %60 = getelementptr i8, ptr %40, i64 %54
+  %60 = getelementptr i8, ptr %40, i64 %.066.lcssa
   store i8 %59, ptr %60, align 1
   %61 = icmp sgt i32 %.064, %.065
-  br i1 %61, label %62, label %72
+  br i1 %61, label %62, label %71
 
 62:                                               ; preds = %._crit_edge
-  %63 = sext i32 %.066.lcssa to i64
-  %64 = getelementptr i8, ptr %38, i64 %63
-  %65 = getelementptr i8, ptr %64, i64 1
-  %66 = load i8, ptr %65, align 1
-  %67 = zext i8 %66 to i32
-  %68 = zext nneg i8 %13 to i32
-  %69 = shl nuw nsw i32 %67, %68
-  %70 = or i32 %69, %58
-  %71 = trunc i32 %70 to i8
-  store i8 %71, ptr %60, align 1
-  br label %72
+  %63 = getelementptr i8, ptr %38, i64 %.066.lcssa
+  %64 = getelementptr i8, ptr %63, i64 1
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = zext nneg i8 %13 to i32
+  %68 = shl nuw nsw i32 %66, %67
+  %69 = or i32 %68, %58
+  %70 = trunc i32 %69 to i8
+  store i8 %70, ptr %60, align 1
+  br label %71
 
-72:                                               ; preds = %62, %._crit_edge
-  %73 = phi i8 [ %71, %62 ], [ %59, %._crit_edge ]
-  br i1 %28, label %78, label %74
+71:                                               ; preds = %62, %._crit_edge
+  %72 = phi i8 [ %70, %62 ], [ %59, %._crit_edge ]
+  br i1 %28, label %77, label %73
 
-74:                                               ; preds = %72
+73:                                               ; preds = %71
   %notmask = shl nsw i32 -1, %27
-  %75 = trunc i32 %notmask to i8
-  %76 = xor i8 %75, -1
-  %77 = and i8 %73, %76
-  store i8 %77, ptr %60, align 1
-  br label %78
+  %74 = trunc i32 %notmask to i8
+  %75 = xor i8 %74, -1
+  %76 = and i8 %72, %75
+  store i8 %76, ptr %60, align 1
+  br label %77
 
-78:                                               ; preds = %74, %72
-  %79 = tail call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef %40, i32 noundef %.065, i32 noundef %.065)
-  tail call void @tvb_set_free_cb(ptr noundef %79, ptr noundef nonnull @g_free)
-  br label %80
+77:                                               ; preds = %73, %71
+  %78 = tail call ptr @tvb_new_child_real_data(ptr noundef nonnull %0, ptr noundef %40, i32 noundef %.065, i32 noundef %.065)
+  tail call void @tvb_set_free_cb(ptr noundef %78, ptr noundef nonnull @g_free)
+  br label %79
 
-80:                                               ; preds = %78, %30
-  %.0 = phi ptr [ %31, %30 ], [ %79, %78 ]
+79:                                               ; preds = %77, %30
+  %.0 = phi ptr [ %31, %30 ], [ %78, %77 ]
   ret ptr %.0
 }
 

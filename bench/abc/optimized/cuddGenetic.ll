@@ -671,7 +671,7 @@ find_best.exit:                                   ; preds = %178, %make_random.e
   br i1 %.not71.i, label %.lr.ph211.preheader, label %.preheader.i138, !llvm.loop !50
 
 .lr.ph211.preheader:                              ; preds = %323
-  call void @free(ptr noundef %196) #9
+  call void @free(ptr noundef nonnull %196) #9
   call void @free(ptr noundef nonnull %199) #9
   br label %.lr.ph211
 

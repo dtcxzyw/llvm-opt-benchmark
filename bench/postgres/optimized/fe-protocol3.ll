@@ -2042,15 +2042,15 @@ define void @pqBuildErrorMessage3(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %180
 
 180:                                              ; preds = %._crit_edge226.i, %.loopexit
-  tail call void @free(ptr noundef %68) #16
+  tail call void @free(ptr noundef nonnull %68) #16
   br label %.sink.split.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %180, %67
-  tail call void @free(ptr noundef %65) #16
+  tail call void @free(ptr noundef nonnull %65) #16
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.sink.split.sink.split.i, %61
-  tail call void @free(ptr noundef %59) #16
+  tail call void @free(ptr noundef nonnull %59) #16
   br label %reportErrorPosition.exit
 
 reportErrorPosition.exit:                         ; preds = %.sink.split.i, %55, %52

@@ -10565,7 +10565,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @snd_pcm_ioctl_hw_params_co
   br label %.thread
 
 .thread:                                          ; preds = %43, %56, %53, %29, %26, %23, %16, %11
-  %58 = phi i32 [ %17, %16 ], [ %24, %23 ], [ -14, %11 ], [ %42, %29 ], [ -14, %26 ], [ %24, %56 ], [ %24, %53 ], [ 0, %43 ]
+  %58 = phi i32 [ %17, %16 ], [ %24, %23 ], [ -14, %11 ], [ %42, %29 ], [ -14, %26 ], [ 0, %56 ], [ 0, %53 ], [ 0, %43 ]
   tail call void @kfree(ptr noundef nonnull %9) #18
   br label %59
 

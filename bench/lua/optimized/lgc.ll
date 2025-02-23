@@ -607,7 +607,7 @@ define internal fastcc void @entergen(ptr noundef %0, ptr noundef %1) unnamed_ad
   br i1 %.not4.i, label %.lr.ph.i7.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %7 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef 1)
+  %7 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef 1)
   %8 = load i8, ptr %5, align 1, !tbaa !20
   %.not.i = icmp eq i8 %8, 8
   br i1 %.not.i, label %luaC_runtilstate.exit, label %.lr.ph.i
@@ -625,14 +625,14 @@ luaC_runtilstate.exit:                            ; preds = %.lr.ph.i
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %.lr.ph.i7
-  %11 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef 1)
+  %11 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef 1)
   %12 = load i8, ptr %10, align 1, !tbaa !20
   %.not.i8 = icmp eq i8 %12, 0
   br i1 %.not.i8, label %luaC_runtilstate.exit9, label %.lr.ph.i7
 
 luaC_runtilstate.exit9:                           ; preds = %.lr.ph.i7, %luaC_runtilstate.exit
-  tail call fastcc void @atomic(ptr noundef %0)
-  tail call fastcc void @atomic2gen(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @atomic(ptr noundef nonnull %0)
+  tail call fastcc void @atomic2gen(ptr noundef nonnull %0, ptr noundef %1)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %14 = load i8, ptr %13, align 4, !tbaa !33
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -700,7 +700,7 @@ separatetobefnz.exit:                             ; preds = %findlast.exit.us.i,
   br i1 %.not3.i, label %callallpendingfinalizers.exit, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %separatetobefnz.exit, %.lr.ph.i10
-  tail call fastcc void @GCTM(ptr noundef %0)
+  tail call fastcc void @GCTM(ptr noundef nonnull %0)
   %23 = load ptr, ptr %21, align 8, !tbaa !58
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %callallpendingfinalizers.exit, label %.lr.ph.i10
@@ -716,7 +716,7 @@ callallpendingfinalizers.exit:                    ; preds = %.lr.ph.i10, %separa
 .lr.ph.i11:                                       ; preds = %callallpendingfinalizers.exit, %.lr.ph.i11
   %.07.i = phi ptr [ %28, %.lr.ph.i11 ], [ %25, %callallpendingfinalizers.exit ]
   %28 = load ptr, ptr %.07.i, align 8, !tbaa !47
-  tail call fastcc void @freeobj(ptr noundef %0, ptr noundef nonnull %.07.i)
+  tail call fastcc void @freeobj(ptr noundef nonnull %0, ptr noundef nonnull %.07.i)
   %.not.i12 = icmp eq ptr %28, %27
   br i1 %.not.i12, label %deletelist.exit, label %.lr.ph.i11
 
@@ -729,7 +729,7 @@ deletelist.exit:                                  ; preds = %.lr.ph.i11, %callal
 .lr.ph.i14:                                       ; preds = %deletelist.exit, %.lr.ph.i14
   %.07.i15 = phi ptr [ %31, %.lr.ph.i14 ], [ %30, %deletelist.exit ]
   %31 = load ptr, ptr %.07.i15, align 8, !tbaa !47
-  tail call fastcc void @freeobj(ptr noundef %0, ptr noundef nonnull %.07.i15)
+  tail call fastcc void @freeobj(ptr noundef nonnull %0, ptr noundef nonnull %.07.i15)
   %.not.i16 = icmp eq ptr %31, null
   br i1 %.not.i16, label %deletelist.exit17, label %.lr.ph.i14
 
@@ -748,7 +748,7 @@ define hidden void @luaC_runtilstate(ptr noundef %0, i32 noundef %1, i32 noundef
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %9 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef %2)
+  %9 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef %2)
   %10 = load i8, ptr %6, align 1, !tbaa !20
   %11 = zext i8 %10 to i32
   %.not = icmp eq i32 %1, %11
@@ -1270,7 +1270,7 @@ define hidden void @luaC_step(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %20, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %12, %.split.us.i
-  %22 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef %21)
+  %22 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef %21)
   switch i64 %22, label %.split.us.i [
     i64 -1, label %incstep.exit
     i64 -3, label %.split20.us.i
@@ -2074,7 +2074,7 @@ entersweep.exit:                                  ; preds = %11, %sweeplist.exit
   br i1 %.not4.i, label %.lr.ph.i7.preheader, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34, %.lr.ph.i
-  %39 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef 1)
+  %39 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef 1)
   %40 = load i8, ptr %37, align 1, !tbaa !20
   %.not.i = icmp eq i8 %40, 8
   br i1 %.not.i, label %luaC_runtilstate.exit, label %.lr.ph.i
@@ -2092,7 +2092,7 @@ luaC_runtilstate.exit:                            ; preds = %.lr.ph.i
   br label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %.lr.ph.i7
-  %43 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef 1)
+  %43 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef 1)
   %44 = load i8, ptr %42, align 1, !tbaa !20
   %.not.i8 = icmp eq i8 %44, 7
   br i1 %.not.i8, label %luaC_runtilstate.exit9, label %.lr.ph.i7
@@ -2110,7 +2110,7 @@ luaC_runtilstate.exit9:                           ; preds = %.lr.ph.i7
   br label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i11.preheader, %.lr.ph.i11
-  %47 = tail call fastcc i64 @singlestep(ptr noundef %0, i32 noundef 1)
+  %47 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0, i32 noundef 1)
   %48 = load i8, ptr %46, align 1, !tbaa !20
   %.not.i12 = icmp eq i8 %48, 8
   br i1 %.not.i12, label %luaC_runtilstate.exit13, label %.lr.ph.i11
@@ -4602,7 +4602,7 @@ checkSizes.exit:                                  ; preds = %17
   br i1 %.not3.i, label %callallpendingfinalizers.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %.lr.ph.i
-  tail call fastcc void @GCTM(ptr noundef %0)
+  tail call fastcc void @GCTM(ptr noundef nonnull %0)
   %33 = load ptr, ptr %31, align 8, !tbaa !58
   %.not.i6 = icmp eq ptr %33, null
   br i1 %.not.i6, label %callallpendingfinalizers.exit, label %.lr.ph.i

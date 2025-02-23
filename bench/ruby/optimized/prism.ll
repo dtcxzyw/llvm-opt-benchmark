@@ -19842,7 +19842,7 @@ pm_parser_scope_find.exit:                        ; preds = %671
   br label %676
 
 676:                                              ; preds = %666, %pm_parser_scope_find.exit, %648
-  tail call void @pm_node_destroy(ptr noundef %0, ptr noundef nonnull %594) #31
+  tail call void @pm_node_destroy(ptr noundef nonnull %0, ptr noundef nonnull %594) #31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %23) #31
   br label %684
 
@@ -34859,7 +34859,7 @@ pm_begin_node_rescue_clause_set.exit:             ; preds = %98, %100
   br i1 %.not130, label %117, label %116
 
 116:                                              ; preds = %115
-  tail call fastcc void @parser_warn_indentation_mismatch(ptr noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
+  tail call fastcc void @parser_warn_indentation_mismatch(ptr noundef nonnull %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %117
 
 117:                                              ; preds = %116, %115

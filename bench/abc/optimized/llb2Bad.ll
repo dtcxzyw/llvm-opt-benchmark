@@ -313,10 +313,10 @@ define noundef ptr @Llb_BddQuantifyPis(ptr noundef readonly captures(none) %0, p
   %.02731 = phi ptr [ %6, %.lr.ph ], [ %13, %10 ]
   %.val29 = load i32, ptr %9, align 8, !tbaa !22
   %11 = add nsw i32 %.val29, %.032
-  %12 = tail call ptr @Cudd_bddIthVar(ptr noundef %1, i32 noundef %11) #3
-  %13 = tail call ptr @Cudd_bddAnd(ptr noundef %1, ptr noundef %.02731, ptr noundef %12) #3
+  %12 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %1, i32 noundef %11) #3
+  %13 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %1, ptr noundef %.02731, ptr noundef %12) #3
   tail call void @Cudd_Ref(ptr noundef %13) #3
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.02731) #3
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.02731) #3
   %14 = add nuw nsw i32 %.032, 1
   %.val = load i32, ptr %7, align 4, !tbaa !23
   %15 = icmp slt i32 %14, %.val
@@ -324,9 +324,9 @@ define noundef ptr @Llb_BddQuantifyPis(ptr noundef readonly captures(none) %0, p
 
 .critedge:                                        ; preds = %10, %3
   %.027.lcssa = phi ptr [ %6, %3 ], [ %13, %10 ]
-  %16 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %1, ptr noundef %2, ptr noundef %.027.lcssa) #3
+  %16 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %.027.lcssa) #3
   tail call void @Cudd_Ref(ptr noundef %16) #3
-  tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %.027.lcssa) #3
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %1, ptr noundef %.027.lcssa) #3
   tail call void @Cudd_Deref(ptr noundef %16) #3
   store i64 %5, ptr %4, align 8, !tbaa !40
   ret ptr %16

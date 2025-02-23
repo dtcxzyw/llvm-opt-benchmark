@@ -13015,10 +13015,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !773
-  %29 = select i1 %26, ptr %28, ptr null, !prof !96
-  %30 = icmp ne ptr %.0.i.i, null
-  %31 = icmp ne ptr %29, null
-  %or.cond.i = and i1 %30, %31
+  %29 = icmp ne ptr %.0.i.i, null
+  %30 = icmp ne ptr %28, null
+  %31 = select i1 %26, i1 %30, i1 false
+  %or.cond.i = and i1 %29, %31
   br i1 %or.cond.i, label %32, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
 
 32:                                               ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i
@@ -13116,7 +13116,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
   %93 = sub nsw i32 %92, %87
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %.0.i.i, i64 %88
-  %96 = getelementptr inbounds i8, ptr %29, i64 %90
+  %96 = getelementptr inbounds i8, ptr %28, i64 %90
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %95, ptr nonnull readonly %96, i64 range(i64 -2147483648, 2147483648) %94), !noalias !773
   %97 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %98 = zext i1 %97 to i8
@@ -13181,7 +13181,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13Comp
   %135 = sub nsw i32 %134, %128
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds i8, ptr %.0.i.i, i64 %129
-  %138 = getelementptr inbounds i8, ptr %29, i64 %132
+  %138 = getelementptr inbounds i8, ptr %28, i64 %132
   %bcmp.i.i14.i.i.i = call i32 @bcmp(ptr nonnull readonly %137, ptr nonnull readonly %138, i64 range(i64 -2147483648, 2147483648) %136), !noalias !773
   %139 = icmp eq i32 %bcmp.i.i14.i.i.i, 0
   br i1 %139, label %106, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIiRKZNS1_13CompareBinaryINS_10BinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.thread.i.i.i, !llvm.loop !777
@@ -13632,10 +13632,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i: ; preds = %_ZNK5arrow9ArrayDat
   %26 = trunc nuw i8 %25 to i1
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %28 = load ptr, ptr %27, align 8, !noalias !787
-  %29 = select i1 %26, ptr %28, ptr null, !prof !96
-  %30 = icmp ne ptr %.0.i.i, null
-  %31 = icmp ne ptr %29, null
-  %or.cond.i = and i1 %30, %31
+  %29 = icmp ne ptr %.0.i.i, null
+  %30 = icmp ne ptr %28, null
+  %31 = select i1 %26, i1 %30, i1 false
+  %or.cond.i = and i1 %29, %31
   br i1 %or.cond.i, label %32, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.thread.i
 
 32:                                               ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit4.i
@@ -13730,7 +13730,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i.i.i: ; preds = %64, %_ZNK
   %90 = load i64, ptr %89, align 8, !tbaa !223, !noalias !787
   %91 = sub nsw i64 %90, %87
   %92 = getelementptr inbounds i8, ptr %.0.i.i, i64 %87
-  %93 = getelementptr inbounds i8, ptr %29, i64 %88
+  %93 = getelementptr inbounds i8, ptr %28, i64 %88
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly %92, ptr nonnull readonly %93, i64 %91), !noalias !787
   %94 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %95 = zext i1 %94 to i8
@@ -13792,7 +13792,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13Comp
   %129 = load i64, ptr %128, align 8, !tbaa !223, !noalias !787
   %130 = sub nsw i64 %129, %125
   %131 = getelementptr inbounds i8, ptr %.0.i.i, i64 %125
-  %132 = getelementptr inbounds i8, ptr %29, i64 %127
+  %132 = getelementptr inbounds i8, ptr %28, i64 %127
   %bcmp.i.i14.i.i.i = call i32 @bcmp(ptr nonnull readonly %131, ptr nonnull readonly %132, i64 %130), !noalias !787
   %133 = icmp eq i32 %bcmp.i.i14.i.i.i, 0
   br i1 %133, label %103, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl18CompareWithOffsetsIlRKZNS1_13CompareBinaryINS_15LargeBinaryTypeEEENS_6StatusERKT_EUllllE_EEviOT0_ENKUlllE_clEll.exit17.thread.i.i.i, !llvm.loop !791
@@ -14002,10 +14002,10 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit5:   ; preds = %_ZNK5arrow9ArrayDat
   %31 = trunc nuw i8 %30 to i1
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = select i1 %31, ptr %33, ptr null, !prof !96
-  %35 = icmp ne ptr %.0.i, null
-  %36 = icmp ne ptr %34, null
-  %or.cond = and i1 %35, %36
+  %34 = icmp ne ptr %.0.i, null
+  %35 = icmp ne ptr %33, null
+  %36 = select i1 %31, i1 %35, i1 false
+  %or.cond = and i1 %34, %36
   br i1 %or.cond, label %37, label %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit5.thread
 
 37:                                               ; preds = %_ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit5
@@ -14040,7 +14040,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %39, %37
   %59 = load i64, ptr %58, align 8, !tbaa !649
   %60 = add i64 %59, %57
   %61 = mul nsw i64 %60, %53
-  %62 = getelementptr inbounds i8, ptr %34, i64 %61
+  %62 = getelementptr inbounds i8, ptr %33, i64 %61
   %63 = mul nsw i64 %47, %53
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %55, ptr nonnull %62, i64 %63)
   %64 = icmp eq i32 %bcmp.i.i, 0
@@ -14086,7 +14086,7 @@ _ZNK5arrow9ArrayData9GetValuesIhEEPKT_il.exit.thread.i: ; preds = %39, %37
   %95 = add i64 %91, %82
   %96 = add i64 %95, %94
   %97 = mul nsw i64 %96, %75
-  %98 = getelementptr inbounds i8, ptr %34, i64 %97
+  %98 = getelementptr inbounds i8, ptr %33, i64 %97
   %99 = mul nsw i64 %79, %75
   %bcmp.i8.i = call i32 @bcmp(ptr nonnull %90, ptr nonnull %98, i64 %99)
   %100 = icmp eq i32 %bcmp.i8.i, 0

@@ -90,7 +90,7 @@ define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.056.val65 = load ptr, ptr %31, align 8, !tbaa !44
   %33 = getelementptr inbounds nuw ptr, ptr %.056.val65, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !45
-  %35 = tail call ptr @Abc_NtkCreateObj(ptr noundef %23, i32 noundef 2) #15
+  %35 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %23, i32 noundef 2) #15
   %36 = tail call ptr @Abc_ObjAssignName(ptr noundef %35, ptr noundef %34, ptr noundef null) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.056.val64 = load i32, ptr %28, align 4, !tbaa !24
@@ -99,7 +99,7 @@ define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   br i1 %38, label %32, label %.critedge, !llvm.loop !46
 
 .critedge:                                        ; preds = %32, %22
-  %39 = tail call ptr @Abc_NtkCreateObj(ptr noundef %23, i32 noundef 7) #15
+  %39 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %23, i32 noundef 7) #15
   %40 = load ptr, ptr %26, align 8, !tbaa !43
   %41 = tail call ptr @Cudd_bddTransfer(ptr noundef %0, ptr noundef %40, ptr noundef %1) #15
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 56
@@ -119,7 +119,7 @@ define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %.val66.val = load ptr, ptr %46, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw ptr, ptr %.val66.val, i64 %indvars.iv81
   %48 = load ptr, ptr %47, align 8, !tbaa !45
-  tail call void @Abc_ObjAddFanin(ptr noundef %39, ptr noundef %48) #15
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %39, ptr noundef %48) #15
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %.val = load ptr, ptr %43, align 8, !tbaa !47
   %49 = getelementptr i8, ptr %.val, i64 4
@@ -130,7 +130,7 @@ define ptr @Abc_NtkDeriveFromBdd(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 .critedge2:                                       ; preds = %.lr.ph79, %.critedge
   %52 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %23, i32 noundef 3) #15
-  tail call void @Abc_ObjAddFanin(ptr noundef %52, ptr noundef %39) #15
+  tail call void @Abc_ObjAddFanin(ptr noundef %52, ptr noundef nonnull %39) #15
   %53 = tail call ptr @Abc_ObjAssignName(ptr noundef %52, ptr noundef nonnull %spec.store.select, ptr noundef null) #15
   %54 = tail call i32 @Abc_NtkMinimumBase(ptr noundef nonnull %23) #15
   %.not61 = icmp eq ptr %.057, null

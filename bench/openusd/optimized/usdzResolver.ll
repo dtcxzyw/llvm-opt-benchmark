@@ -7652,7 +7652,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE11try_acquireERS3_b.exit8
   br i1 %162, label %.lr.ph.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !41
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %.lr.ph.i.i
-  %163 = icmp slt i32 %.sroa.0.0, 16
+  %163 = icmp samesign ult i32 %.sroa.0.0, 16
   br i1 %163, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, label %165
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit: ; preds = %159, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i

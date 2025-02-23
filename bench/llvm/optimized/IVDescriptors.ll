@@ -2839,8 +2839,8 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.i.i: ; preds
   %87 = getelementptr inbounds i8, ptr %1, i64 -96
   %88 = load ptr, ptr %87, align 8, !tbaa !16
   %89 = load i8, ptr %88, align 8, !tbaa !21
-  %.not65.i.i = icmp eq i8 %89, 82
-  br i1 %.not65.i.i, label %90, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread221
+  %.not64.i.i = icmp eq i8 %89, 82
+  br i1 %.not64.i.i, label %90, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread221
 
 90:                                               ; preds = %86
   %91 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -2930,8 +2930,8 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS
   %125 = getelementptr inbounds i8, ptr %1, i64 -96
   %126 = load ptr, ptr %125, align 8, !tbaa !16
   %127 = load i8, ptr %126, align 8, !tbaa !21
-  %.not65.i.i20 = icmp eq i8 %127, 82
-  br i1 %.not65.i.i20, label %128, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread224
+  %.not64.i.i20 = icmp eq i8 %127, 82
+  br i1 %.not64.i.i20, label %128, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread224
 
 128:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread221
   %129 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -3021,8 +3021,8 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS
   %165 = getelementptr inbounds i8, ptr %1, i64 -96
   %166 = load ptr, ptr %165, align 8, !tbaa !16
   %167 = load i8, ptr %166, align 8, !tbaa !21
-  %.not65.i.i35 = icmp eq i8 %167, 82
-  br i1 %.not65.i.i35, label %168, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread227
+  %.not64.i.i35 = icmp eq i8 %167, 82
+  br i1 %.not64.i.i35, label %168, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread227
 
 168:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12umax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread224
   %169 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -3112,8 +3112,8 @@ _ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS
   %203 = getelementptr inbounds i8, ptr %1, i64 -96
   %204 = load ptr, ptr %203, align 8, !tbaa !16
   %205 = load i8, ptr %204, align 8, !tbaa !21
-  %.not65.i.i50 = icmp eq i8 %205, 82
-  br i1 %.not65.i.i50, label %206, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread
+  %.not64.i.i50 = icmp eq i8 %205, 82
+  br i1 %.not64.i.i50, label %206, label %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smin_pred_tyELb0EEEEEbPT_RKT0_.exit.thread
 
 206:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_11InstructionENS0_12MaxMin_matchINS_8ICmpInstENS0_11class_matchINS_5ValueEEES7_NS0_12smax_pred_tyELb0EEEEEbPT_RKT0_.exit.thread.thread227
   %207 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -7766,8 +7766,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch16match_com
   %5 = getelementptr inbounds i8, ptr %1, i64 -96
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = load i8, ptr %6, align 8, !tbaa !21
-  %.not60.i = icmp eq i8 %7, 83
-  br i1 %.not60.i, label %8, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
+  %.not59.i = icmp eq i8 %7, 83
+  br i1 %.not59.i, label %8, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -7814,8 +7814,8 @@ _ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEE
 _ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread: ; preds = %4, %17, %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread
   %29 = load ptr, ptr %5, align 8, !tbaa !16
   %30 = load i8, ptr %29, align 8, !tbaa !21
-  %.not60.i6 = icmp eq i8 %30, 83
-  br i1 %.not60.i6, label %31, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ufmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit
+  %.not59.i6 = icmp eq i8 %30, 83
+  br i1 %.not59.i6, label %31, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ufmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit
 
 31:                                               ; preds = %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmin_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
   %32 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -7869,8 +7869,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12PatternMatch16match_com
   %5 = getelementptr inbounds i8, ptr %1, i64 -96
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = load i8, ptr %6, align 8, !tbaa !21
-  %.not60.i = icmp eq i8 %7, 83
-  br i1 %.not60.i, label %8, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
+  %.not59.i = icmp eq i8 %7, 83
+  br i1 %.not59.i, label %8, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %1, i64 -64
@@ -7917,8 +7917,8 @@ _ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEE
 _ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread: ; preds = %4, %17, %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread
   %29 = load ptr, ptr %5, align 8, !tbaa !16
   %30 = load i8, ptr %29, align 8, !tbaa !21
-  %.not60.i6 = icmp eq i8 %30, 83
-  br i1 %.not60.i6, label %31, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ufmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit
+  %.not59.i6 = icmp eq i8 %30, 83
+  br i1 %.not59.i6, label %31, label %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ufmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit
 
 31:                                               ; preds = %_ZN4llvm12PatternMatch12MaxMin_matchINS_8FCmpInstENS0_11class_matchINS_5ValueEEES5_NS0_13ofmax_pred_tyELb0EE5matchINS_11InstructionEEEbPT_.exit.thread.thread
   %32 = getelementptr inbounds i8, ptr %1, i64 -64

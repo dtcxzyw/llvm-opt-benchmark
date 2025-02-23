@@ -12,7 +12,7 @@ define ptr @Hop_IthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i32 [ %5, %.lr.ph ], [ %.val, %2 ]
-  %4 = tail call ptr @Hop_ObjCreatePi(ptr noundef %0) #2
+  %4 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %0) #2
   %5 = add i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -1314,7 +1314,7 @@ define ptr @Hop_CreateAnd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.09.i = phi i32 [ %13, %.lr.ph.i ], [ %.val.i, %10 ]
-  %12 = tail call ptr @Hop_ObjCreatePi(ptr noundef %0) #2
+  %12 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %0) #2
   %13 = add i32 %.09.i, 1
   %14 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %14
@@ -1440,7 +1440,7 @@ define ptr @Hop_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.09.i = phi i32 [ %13, %.lr.ph.i ], [ %.val.i, %10 ]
-  %12 = tail call ptr @Hop_ObjCreatePi(ptr noundef %0) #2
+  %12 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %0) #2
   %13 = add i32 %.09.i, 1
   %14 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %14
@@ -1562,7 +1562,7 @@ define ptr @Hop_CreateExor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.09.i = phi i32 [ %12, %.lr.ph.i ], [ %.val.i, %9 ]
-  %11 = tail call ptr @Hop_ObjCreatePi(ptr noundef %0) #2
+  %11 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %0) #2
   %12 = add i32 %.09.i, 1
   %13 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %13

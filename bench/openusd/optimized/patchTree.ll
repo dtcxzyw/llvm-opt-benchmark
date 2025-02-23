@@ -301,7 +301,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit105.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit105: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit105.loopexit, %126
   %141 = phi i32 [ %.pre, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit105.loopexit ], [ %127, %126 ]
-  %142 = getelementptr inbounds nuw float, ptr %spec.select, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %143 = load float, ptr %142, align 4
   %144 = fcmp une float %143, 0.000000e+00
   %145 = icmp sgt i32 %141, 0
@@ -364,7 +364,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119.loopexit, %155
   %170 = phi i32 [ %.pre136, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119.loopexit ], [ %156, %155 ]
-  %171 = getelementptr inbounds nuw float, ptr %.089, i64 %indvars.iv
+  %171 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %172 = load float, ptr %171, align 4
   %173 = fcmp une float %172, 0.000000e+00
   %174 = icmp sgt i32 %170, 0
@@ -396,7 +396,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126.loopexit, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119
   %184 = phi i32 [ %.pre137, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit126.loopexit ], [ %170, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIdfEEvPT0_iS4_PKT_.exit119 ]
-  %185 = getelementptr inbounds nuw float, ptr %.090, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %186 = load float, ptr %185, align 4
   %187 = fcmp une float %186, 0.000000e+00
   %188 = icmp sgt i32 %184, 0
@@ -639,7 +639,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.loopexit, %122
   %133 = phi i32 [ %.pre, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit106.loopexit ], [ %123, %122 ]
-  %134 = getelementptr inbounds nuw float, ptr %spec.select, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
   %135 = load float, ptr %134, align 4
   %136 = fcmp une float %135, 0.000000e+00
   %137 = icmp sgt i32 %133, 0
@@ -696,7 +696,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.loopexit, %143
   %154 = phi i32 [ %.pre141, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122.loopexit ], [ %144, %143 ]
-  %155 = getelementptr inbounds nuw float, ptr %.089, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
   %156 = load float, ptr %155, align 4
   %157 = fcmp une float %156, 0.000000e+00
   %158 = icmp sgt i32 %154, 0
@@ -725,7 +725,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.loopexit, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122
   %164 = phi i32 [ %.pre142, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit130.loopexit ], [ %154, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIffEEvPT0_iS4_PKT_.exit122 ]
-  %165 = getelementptr inbounds nuw float, ptr %.090, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   %166 = load float, ptr %165, align 4
   %167 = fcmp une float %166, 0.000000e+00
   %168 = icmp sgt i32 %164, 0
@@ -1052,7 +1052,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.loopexit, %122
   %133 = phi i32 [ %.pre, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit106.loopexit ], [ %123, %122 ]
-  %134 = getelementptr inbounds nuw double, ptr %spec.select, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
   %135 = load double, ptr %134, align 8
   %136 = fcmp une double %135, 0.000000e+00
   %137 = icmp sgt i32 %133, 0
@@ -1109,7 +1109,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.loopexit, %143
   %154 = phi i32 [ %.pre141, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122.loopexit ], [ %144, %143 ]
-  %155 = getelementptr inbounds nuw double, ptr %.089, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %156 = load double, ptr %155, align 8
   %157 = fcmp une double %156, 0.000000e+00
   %158 = icmp sgt i32 %154, 0
@@ -1138,7 +1138,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.loopexit, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122
   %164 = phi i32 [ %.pre142, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit130.loopexit ], [ %154, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIddEEvPT0_iS4_PKT_.exit122 ]
-  %165 = getelementptr inbounds nuw double, ptr %.090, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %166 = load double, ptr %165, align 8
   %167 = fcmp une double %166, 0.000000e+00
   %168 = icmp sgt i32 %164, 0
@@ -1380,7 +1380,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.loopexit, %123
   %135 = phi i32 [ %.pre, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit106.loopexit ], [ %124, %123 ]
-  %136 = getelementptr inbounds nuw double, ptr %spec.select, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
   %137 = load double, ptr %136, align 8
   %138 = fcmp une double %137, 0.000000e+00
   %139 = icmp sgt i32 %135, 0
@@ -1439,7 +1439,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.loopexit, %146
   %158 = phi i32 [ %.pre141, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122.loopexit ], [ %147, %146 ]
-  %159 = getelementptr inbounds nuw double, ptr %.089, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
   %160 = load double, ptr %159, align 8
   %161 = fcmp une double %160, 0.000000e+00
   %162 = icmp sgt i32 %158, 0
@@ -1469,7 +1469,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.l
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130: ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.loopexit, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122
   %169 = phi i32 [ %.pre142, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit130.loopexit ], [ %158, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110addToArrayIfdEEvPT0_iS4_PKT_.exit122 ]
-  %170 = getelementptr inbounds nuw double, ptr %.090, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
   %171 = load double, ptr %170, align 8
   %172 = fcmp une double %171, 0.000000e+00
   %173 = icmp sgt i32 %169, 0

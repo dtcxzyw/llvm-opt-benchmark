@@ -1044,7 +1044,7 @@ apply_toneequalizer.exit.i:                       ; preds = %175, %157, %156, %1
   br i1 %.not147.i, label %184, label %toneeq_process.exit
 
 184:                                              ; preds = %apply_toneequalizer.exit.i
-  tail call void @free(ptr noundef %.0.i) #28, !noalias !95
+  tail call void @free(ptr noundef nonnull %.0.i) #28, !noalias !95
   br label %toneeq_process.exit
 
 toneeq_process.exit:                              ; preds = %6, %27, %32, %37, %98, %apply_toneequalizer.exit.i, %184
@@ -5771,7 +5771,7 @@ define internal void @smoothing_callback(ptr noundef %0, ptr noundef %1) #4 {
   br i1 %exitcond.not.i, label %get_channels_factors.exit, label %41
 
 get_channels_factors.exit:                        ; preds = %41
-  %45 = tail call fastcc i32 @update_curve_lut(ptr noundef %1)
+  %45 = tail call fastcc i32 @update_curve_lut(ptr noundef nonnull %1)
   %.not9 = icmp eq i32 %45, 0
   br i1 %.not9, label %46, label %48
 
@@ -5787,8 +5787,8 @@ get_channels_factors.exit:                        ; preds = %41
   %52 = tail call ptr @g_type_check_instance_cast(ptr noundef %50, i64 noundef %51) #28
   tail call void @gtk_widget_queue_draw(ptr noundef %52) #28
   %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !380
-  tail call void @dt_dev_add_history_item(ptr noundef %53, ptr noundef %1, i32 noundef 1) #28
-  tail call void @dt_iop_color_picker_reset(ptr noundef %1, i32 noundef 1) #28
+  tail call void @dt_dev_add_history_item(ptr noundef %53, ptr noundef nonnull %1, i32 noundef 1) #28
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %1, i32 noundef 1) #28
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #28
   br label %54
 

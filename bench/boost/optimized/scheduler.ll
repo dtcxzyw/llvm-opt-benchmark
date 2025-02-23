@@ -377,7 +377,7 @@ define void @_ZN5boost6fibers9scheduler12sleep2ready_Ev(ptr noundef nonnull alig
 _ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i: ; preds = %.preheader17.i.i.i, %20
   %.013.i.i.i = phi ptr [ %23, %20 ], [ %.05.i.i.i.i, %.preheader17.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #21, !noalias !31
-  invoke void @_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %.sroa.05.012, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  invoke void @_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %.sroa.05.012, ptr noundef nonnull align 8 dereferenceable(24) %2)
           to label %24 unwind label %38, !noalias !31
 
 24:                                               ; preds = %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i
@@ -759,7 +759,7 @@ define void @_ZN5boost6fibers9scheduler8dispatchEv(ptr dead_on_unwind noalias wr
   %.not.i.i = icmp eq ptr %36, null
   %37 = icmp eq ptr %36, %10
   %38 = or i1 %.not.i.i, %37
-  br i1 %38, label %255, label %39
+  br i1 %38, label %258, label %39
 
 39:                                               ; preds = %31, %28
   %40 = load ptr, ptr %11, align 8, !tbaa !3
@@ -1111,7 +1111,7 @@ _ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit: ; preds = %_ZN5boost6fib
   br i1 %.not11.i, label %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit, label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i
-  %.sroa.05.012.i = phi ptr [ %.013.i.i.i.i, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i ], [ %159, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit ]
+  %.sroa.05.012.i = phi ptr [ %.013.i.i.i.i27, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i ], [ %159, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit ]
   %160 = ptrtoint ptr %.sroa.05.012.i to i64
   %161 = add i64 %160, -112
   %162 = inttoptr i64 %161 to ptr
@@ -1139,267 +1139,275 @@ _ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit: ; preds = %_ZN5boost6fib
   %167 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !30, !noalias !106
   %169 = icmp eq ptr %.014.i.i.i.i, %168
-  br i1 %169, label %.preheader.i.i.i.i, label %170, !llvm.loop !36
+  br i1 %169, label %.preheader.i.i.i.i, label %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread, !llvm.loop !36
 
-170:                                              ; preds = %.preheader.i.i.i.i
-  %171 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
-  %172 = load ptr, ptr %171, align 8, !tbaa !30, !noalias !106
-  %.not16.i.i.i.i = icmp eq ptr %172, %.0.i.i.i.i
-  %173 = select i1 %.not16.i.i.i.i, ptr %.014.i.i.i.i, ptr %.0.i.i.i.i
-  br label %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i
+_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread: ; preds = %.preheader.i.i.i.i
+  %170 = getelementptr inbounds nuw i8, ptr %.014.i.i.i.i, i64 16
+  %171 = load ptr, ptr %170, align 8, !tbaa !30, !noalias !106
+  %.not16.i.i.i.i = icmp eq ptr %171, %.0.i.i.i.i
+  %172 = select i1 %.not16.i.i.i.i, ptr %.014.i.i.i.i, ptr %.0.i.i.i.i
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
+  %174 = load ptr, ptr %173, align 8, !tbaa !23, !noalias !106
+  %.not.i1125 = icmp eq ptr %174, null
+  br label %.thread.i
 
-_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i: ; preds = %.preheader17.i.i.i.i, %170
-  %.013.i.i.i.i = phi ptr [ %173, %170 ], [ %.05.i.i.i.i.i, %.preheader17.i.i.i.i ]
-  %174 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !23, !noalias !106
-  %.not.i11 = icmp eq ptr %175, null
-  %brmerge = or i1 %.not.i.i.i.i7, %.not.i11
-  br i1 %brmerge, label %.thread.i, label %.preheader99.i
+_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i: ; preds = %.preheader17.i.i.i.i
+  %175 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 8
+  %176 = load ptr, ptr %175, align 8, !tbaa !23, !noalias !106
+  %.not.i11 = icmp eq ptr %176, null
+  br i1 %.not.i11, label %.thread.i, label %.preheader99.i
 
 .preheader99.i:                                   ; preds = %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i, %.preheader99.i
   %.05.i.i = phi ptr [ %.0.i.i, %.preheader99.i ], [ %166, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
   %.0.in.i.i = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8, !tbaa !23, !noalias !106
   %.not.i.i12 = icmp eq ptr %.0.i.i, null
-  br i1 %.not.i.i12, label %180, label %.preheader99.i, !llvm.loop !34
+  br i1 %.not.i.i12, label %182, label %.preheader99.i, !llvm.loop !34
 
-.thread.i:                                        ; preds = %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i
-  %.mux = select i1 %.not.i11, ptr %166, ptr %175
-  %176 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !35, !noalias !106
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %178 = load ptr, ptr %177, align 8, !tbaa !23, !noalias !106
-  %179 = icmp eq ptr %178, %.sroa.05.012.i
-  br label %198
+.thread.i:                                        ; preds = %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i
+  %.not.i1131 = phi i1 [ %.not.i1125, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ true, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
+  %177 = phi ptr [ %174, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ %176, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
+  %.013.i.i.i.i29 = phi ptr [ %172, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i.thread ], [ %.05.i.i.i.i.i, %_ZN5boost9intrusive13tree_iteratorINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEELb1EEppEv.exit.i.i ]
+  %.mux = select i1 %.not.i1131, ptr %166, ptr %177
+  %178 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !35, !noalias !106
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %180 = load ptr, ptr %179, align 8, !tbaa !23, !noalias !106
+  %181 = icmp eq ptr %180, %.sroa.05.012.i
+  br label %200
 
-180:                                              ; preds = %.preheader99.i
-  %181 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
-  %182 = load ptr, ptr %181, align 8, !tbaa !30, !noalias !106
-  %183 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !35, !noalias !106
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %185 = load ptr, ptr %184, align 8, !tbaa !23, !noalias !106
-  %186 = icmp eq ptr %185, %.sroa.05.012.i
+182:                                              ; preds = %.preheader99.i
+  %183 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 16
+  %184 = load ptr, ptr %183, align 8, !tbaa !30, !noalias !106
+  %185 = load ptr, ptr %.sroa.05.012.i, align 8, !tbaa !35, !noalias !106
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
+  %187 = load ptr, ptr %186, align 8, !tbaa !23, !noalias !106
+  %188 = icmp eq ptr %187, %.sroa.05.012.i
   %.not75.i = icmp eq ptr %.05.i.i, %.sroa.05.012.i
-  br i1 %.not75.i, label %198, label %187
+  br i1 %.not75.i, label %200, label %189
 
-187:                                              ; preds = %180
+189:                                              ; preds = %182
   %.0.in.i.i.le = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 8
-  store ptr %.05.i.i, ptr %175, align 8, !tbaa !35, !noalias !106
-  store ptr %175, ptr %.0.in.i.i.le, align 8, !tbaa !23, !noalias !106
+  store ptr %.05.i.i, ptr %176, align 8, !tbaa !35, !noalias !106
+  store ptr %176, ptr %.0.in.i.i.le, align 8, !tbaa !23, !noalias !106
   %.not78.i = icmp eq ptr %.05.i.i, %166
-  br i1 %.not78.i, label %191, label %188
+  br i1 %.not78.i, label %193, label %190
 
-188:                                              ; preds = %187
-  store ptr %166, ptr %181, align 8, !tbaa !30, !noalias !106
+190:                                              ; preds = %189
+  store ptr %166, ptr %183, align 8, !tbaa !30, !noalias !106
   store ptr %.05.i.i, ptr %166, align 8, !tbaa !35, !noalias !106
-  %189 = load ptr, ptr %.05.i.i, align 8, !tbaa !35, !noalias !106
-  %.not79.i = icmp eq ptr %182, null
+  %191 = load ptr, ptr %.05.i.i, align 8, !tbaa !35, !noalias !106
+  %.not79.i = icmp eq ptr %184, null
   br i1 %.not79.i, label %.sink.split.i, label %.split65.i
 
-.split65.i:                                       ; preds = %188
-  store ptr %189, ptr %182, align 8, !tbaa !35, !noalias !106
+.split65.i:                                       ; preds = %190
+  store ptr %191, ptr %184, align 8, !tbaa !35, !noalias !106
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.split65.i, %188
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store ptr %182, ptr %190, align 8, !tbaa !23, !noalias !106
-  br label %191
+.sink.split.i:                                    ; preds = %.split65.i, %190
+  %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store ptr %184, ptr %192, align 8, !tbaa !23, !noalias !106
+  br label %193
 
-191:                                              ; preds = %.sink.split.i, %187
-  %.063.i = phi ptr [ %.05.i.i, %187 ], [ %189, %.sink.split.i ]
-  store ptr %183, ptr %.05.i.i, align 8, !tbaa !35, !noalias !106
-  %192 = icmp eq ptr %183, %24
-  br i1 %192, label %193, label %194
+193:                                              ; preds = %.sink.split.i, %189
+  %.063.i = phi ptr [ %.05.i.i, %189 ], [ %191, %.sink.split.i ]
+  store ptr %185, ptr %.05.i.i, align 8, !tbaa !35, !noalias !106
+  %194 = icmp eq ptr %185, %24
+  br i1 %194, label %195, label %196
 
-193:                                              ; preds = %191
+195:                                              ; preds = %193
   store ptr %.05.i.i, ptr %24, align 8, !tbaa !35, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
-194:                                              ; preds = %191
-  br i1 %186, label %195, label %196
+196:                                              ; preds = %193
+  br i1 %188, label %197, label %198
 
-195:                                              ; preds = %194
-  store ptr %.05.i.i, ptr %184, align 8, !tbaa !23, !noalias !106
+197:                                              ; preds = %196
+  store ptr %.05.i.i, ptr %186, align 8, !tbaa !23, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
-196:                                              ; preds = %194
-  %197 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  store ptr %.05.i.i, ptr %197, align 8, !tbaa !30, !noalias !106
+198:                                              ; preds = %196
+  %199 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store ptr %.05.i.i, ptr %199, align 8, !tbaa !30, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
-198:                                              ; preds = %180, %.thread.i
-  %199 = phi i1 [ %179, %.thread.i ], [ %186, %180 ]
-  %200 = phi ptr [ %177, %.thread.i ], [ %184, %180 ]
-  %201 = phi ptr [ %176, %.thread.i ], [ %183, %180 ]
-  %.097.i = phi ptr [ %.sroa.05.012.i, %.thread.i ], [ %.05.i.i, %180 ]
-  %.06295.i = phi ptr [ %.mux, %.thread.i ], [ %182, %180 ]
+200:                                              ; preds = %182, %.thread.i
+  %.not.i1130 = phi i1 [ %.not.i1131, %.thread.i ], [ false, %182 ]
+  %201 = phi ptr [ %177, %.thread.i ], [ %176, %182 ]
+  %.013.i.i.i.i28 = phi ptr [ %.013.i.i.i.i29, %.thread.i ], [ %.05.i.i.i.i.i, %182 ]
+  %202 = phi i1 [ %181, %.thread.i ], [ %188, %182 ]
+  %203 = phi ptr [ %179, %.thread.i ], [ %186, %182 ]
+  %204 = phi ptr [ %178, %.thread.i ], [ %185, %182 ]
+  %.097.i = phi ptr [ %.sroa.05.012.i, %.thread.i ], [ %.05.i.i, %182 ]
+  %.06295.i = phi ptr [ %.mux, %.thread.i ], [ %184, %182 ]
   %.not76.i = icmp eq ptr %.06295.i, null
   br i1 %.not76.i, label %.split66.i, label %.split68.i
 
-.split66.i:                                       ; preds = %198
-  %202 = icmp eq ptr %201, %24
-  br i1 %202, label %203, label %204
+.split66.i:                                       ; preds = %200
+  %205 = icmp eq ptr %204, %24
+  br i1 %205, label %206, label %207
 
-203:                                              ; preds = %.split66.i
+206:                                              ; preds = %.split66.i
   store ptr null, ptr %24, align 8, !tbaa !35, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-204:                                              ; preds = %.split66.i
-  br i1 %199, label %205, label %206
+207:                                              ; preds = %.split66.i
+  br i1 %202, label %208, label %209
 
-205:                                              ; preds = %204
-  store ptr null, ptr %200, align 8, !tbaa !23, !noalias !106
+208:                                              ; preds = %207
+  store ptr null, ptr %203, align 8, !tbaa !23, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store ptr null, ptr %207, align 8, !tbaa !30, !noalias !106
+209:                                              ; preds = %207
+  %210 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  store ptr null, ptr %210, align 8, !tbaa !30, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-.split68.i:                                       ; preds = %198
-  store ptr %201, ptr %.06295.i, align 8, !tbaa !35, !noalias !106
-  %208 = icmp eq ptr %201, %24
-  br i1 %208, label %209, label %210
+.split68.i:                                       ; preds = %200
+  store ptr %204, ptr %.06295.i, align 8, !tbaa !35, !noalias !106
+  %211 = icmp eq ptr %204, %24
+  br i1 %211, label %212, label %213
 
-209:                                              ; preds = %.split68.i
+212:                                              ; preds = %.split68.i
   store ptr %.06295.i, ptr %24, align 8, !tbaa !35, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-210:                                              ; preds = %.split68.i
-  br i1 %199, label %211, label %212
+213:                                              ; preds = %.split68.i
+  br i1 %202, label %214, label %215
 
-211:                                              ; preds = %210
-  store ptr %.06295.i, ptr %200, align 8, !tbaa !23, !noalias !106
+214:                                              ; preds = %213
+  store ptr %.06295.i, ptr %203, align 8, !tbaa !23, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-212:                                              ; preds = %210
-  %213 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store ptr %.06295.i, ptr %213, align 8, !tbaa !30, !noalias !106
+215:                                              ; preds = %213
+  %216 = getelementptr inbounds nuw i8, ptr %204, i64 16
+  store ptr %.06295.i, ptr %216, align 8, !tbaa !30, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
 
-_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i: ; preds = %212, %211, %209, %206, %205, %203
-  %214 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !106
-  %215 = icmp eq ptr %214, %.sroa.05.012.i
-  br i1 %215, label %216, label %218
+_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i: ; preds = %215, %214, %212, %209, %208, %206
+  %217 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !106
+  %218 = icmp eq ptr %217, %.sroa.05.012.i
+  br i1 %218, label %219, label %221
 
-216:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
+219:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
   br i1 %.not.i.i.i.i7, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i, label %.preheader98.i
 
-.preheader98.i:                                   ; preds = %216, %.preheader98.i
-  %.05.i82.i = phi ptr [ %.0.i84.i, %.preheader98.i ], [ %166, %216 ]
+.preheader98.i:                                   ; preds = %219, %.preheader98.i
+  %.05.i82.i = phi ptr [ %.0.i84.i, %.preheader98.i ], [ %166, %219 ]
   %.0.in.i83.i = getelementptr inbounds nuw i8, ptr %.05.i82.i, i64 8
   %.0.i84.i = load ptr, ptr %.0.in.i83.i, align 8, !tbaa !23, !noalias !106
   %.not.i85.i = icmp eq ptr %.0.i84.i, null
   br i1 %.not.i85.i, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i, label %.preheader98.i, !llvm.loop !34
 
-_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i: ; preds = %.preheader98.i, %216
-  %217 = phi ptr [ %201, %216 ], [ %.05.i82.i, %.preheader98.i ]
-  store ptr %217, ptr %25, align 8, !tbaa !23, !noalias !106
-  br label %218
+_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i: ; preds = %.preheader98.i, %219
+  %220 = phi ptr [ %204, %219 ], [ %.05.i82.i, %.preheader98.i ]
+  store ptr %220, ptr %25, align 8, !tbaa !23, !noalias !106
+  br label %221
 
-218:                                              ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
-  %219 = load ptr, ptr %26, align 8, !tbaa !30, !noalias !106
-  %220 = icmp eq ptr %219, %.sroa.05.012.i
-  br i1 %220, label %221, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
+221:                                              ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7minimumEPNS0_11rbtree_nodeIS3_EE.exit86.i, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE9set_childEPNS0_11rbtree_nodeIS3_EES8_S8_b.exit80.i
+  %222 = load ptr, ptr %26, align 8, !tbaa !30, !noalias !106
+  %223 = icmp eq ptr %222, %.sroa.05.012.i
+  br i1 %223, label %224, label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
-221:                                              ; preds = %218
-  br i1 %.not.i11, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, label %.preheader.i
+224:                                              ; preds = %221
+  br i1 %.not.i1130, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %221, %.preheader.i
-  %.05.i87.i = phi ptr [ %.0.i89.i, %.preheader.i ], [ %175, %221 ]
+.preheader.i:                                     ; preds = %224, %.preheader.i
+  %.05.i87.i = phi ptr [ %.0.i89.i, %.preheader.i ], [ %201, %224 ]
   %.0.in.i88.i = getelementptr inbounds nuw i8, ptr %.05.i87.i, i64 16
   %.0.i89.i = load ptr, ptr %.0.in.i88.i, align 8, !tbaa !30, !noalias !106
   %.not.i90.i = icmp eq ptr %.0.i89.i, null
   br i1 %.not.i90.i, label %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, label %.preheader.i, !llvm.loop !109
 
-_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i: ; preds = %.preheader.i, %221
-  %222 = phi ptr [ %201, %221 ], [ %.05.i87.i, %.preheader.i ]
-  store ptr %222, ptr %26, align 8, !tbaa !30, !noalias !106
+_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i: ; preds = %.preheader.i, %224
+  %225 = phi ptr [ %204, %224 ], [ %.05.i87.i, %.preheader.i ]
+  store ptr %225, ptr %26, align 8, !tbaa !30, !noalias !106
   br label %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
 
-_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit: ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, %218, %196, %195, %193
-  %.096.i = phi ptr [ %.097.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.097.i, %218 ], [ %.05.i.i, %193 ], [ %.05.i.i, %195 ], [ %.05.i.i, %196 ]
-  %.06294.i = phi ptr [ %.06295.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.06295.i, %218 ], [ %182, %193 ], [ %182, %195 ], [ %182, %196 ]
-  %.1.i13 = phi ptr [ %201, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %201, %218 ], [ %.063.i, %193 ], [ %.063.i, %195 ], [ %.063.i, %196 ]
+_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit: ; preds = %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i, %221, %198, %197, %195
+  %.013.i.i.i.i27 = phi ptr [ %.013.i.i.i.i28, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.013.i.i.i.i28, %221 ], [ %.05.i.i.i.i.i, %195 ], [ %.05.i.i.i.i.i, %197 ], [ %.05.i.i.i.i.i, %198 ]
+  %.096.i = phi ptr [ %.097.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.097.i, %221 ], [ %.05.i.i, %195 ], [ %.05.i.i, %197 ], [ %.05.i.i, %198 ]
+  %.06294.i = phi ptr [ %.06295.i, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %.06295.i, %221 ], [ %184, %195 ], [ %184, %197 ], [ %184, %198 ]
+  %.1.i13 = phi ptr [ %204, %_ZN5boost9intrusive22bstree_algorithms_baseINS0_18rbtree_node_traitsIPvLb0EEEE7maximumEPNS0_11rbtree_nodeIS3_EE.exit.i ], [ %204, %221 ], [ %.063.i, %195 ], [ %.063.i, %197 ], [ %.063.i, %198 ]
   %.not.i.i3.i.i = icmp eq ptr %.096.i, %.sroa.05.012.i
-  br i1 %.not.i.i3.i.i, label %228, label %223
+  br i1 %.not.i.i3.i.i, label %231, label %226
 
-223:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
-  %224 = getelementptr inbounds nuw i8, ptr %.096.i, i64 24
-  %225 = load i32, ptr %224, align 8, !tbaa !39, !noalias !106
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 24
-  %227 = load i32, ptr %226, align 8, !tbaa !39, !noalias !106
-  store i32 %227, ptr %224, align 8, !tbaa !39, !noalias !106
-  br label %231
-
-228:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
+226:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
+  %227 = getelementptr inbounds nuw i8, ptr %.096.i, i64 24
+  %228 = load i32, ptr %227, align 8, !tbaa !39, !noalias !106
   %229 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 24
   %230 = load i32, ptr %229, align 8, !tbaa !39, !noalias !106
-  br label %231
+  store i32 %230, ptr %227, align 8, !tbaa !39, !noalias !106
+  br label %234
 
-231:                                              ; preds = %228, %223
-  %.0.i.i4.i.i = phi i32 [ %225, %223 ], [ %230, %228 ]
+231:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE5eraseEPNS0_11rbtree_nodeIS3_EES8_RNS0_20data_for_rebalance_tIS8_EE.exit
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 24
+  %233 = load i32, ptr %232, align 8, !tbaa !39, !noalias !106
+  br label %234
+
+234:                                              ; preds = %231, %226
+  %.0.i.i4.i.i = phi i32 [ %228, %226 ], [ %233, %231 ]
   %.not11.i.i.i.i = icmp eq i32 %.0.i.i4.i.i, 0
-  br i1 %.not11.i.i.i.i, label %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i, label %232
+  br i1 %.not11.i.i.i.i, label %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i, label %235
 
-232:                                              ; preds = %231
-  call void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE42rebalance_after_erasure_restore_invariantsEPNS0_11rbtree_nodeIS3_EES8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %.06294.i, ptr noundef %.1.i13) #21, !noalias !106
+235:                                              ; preds = %234
+  call void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rbtree_node_traitsIPvLb0EEEE42rebalance_after_erasure_restore_invariantsEPNS0_11rbtree_nodeIS3_EES8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef %.06294.i, ptr noundef nonnull %.1.i13) #21, !noalias !106
   br label %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i
 
-_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i: ; preds = %232, %231
+_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i: ; preds = %235, %234
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.012.i, i8 0, i64 24, i1 false), !noalias !106
   store i64 9223372036854775807, ptr %163, align 8, !tbaa !29
-  %233 = getelementptr inbounds nuw i8, ptr %162, i64 144
-  %234 = call noundef zeroext i1 @_ZNK5boost6fibers5waker4wakeEv(ptr noundef nonnull align 8 dereferenceable(16) %233) #21
-  %.not.i = icmp eq ptr %.013.i.i.i.i, %24
+  %236 = getelementptr inbounds nuw i8, ptr %162, i64 144
+  %237 = call noundef zeroext i1 @_ZNK5boost6fibers5waker4wakeEv(ptr noundef nonnull align 8 dereferenceable(16) %236) #21
+  %.not.i = icmp eq ptr %.013.i.i.i.i27, %24
   br i1 %.not.i, label %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit, label %.lr.ph.i6, !llvm.loop !42
 
 _ZN5boost6fibers9scheduler12sleep2ready_Ev.exit:  ; preds = %.lr.ph.i6, %_ZN5boost9intrusive11bstree_implINS0_8mhtraitsINS_6fibers7contextENS0_15set_member_hookIJNS0_3tagINS3_6detail9sleep_tagEEENS0_9link_modeILNS0_14link_mode_typeE2EEEEEEXadL_ZNS4_11sleep_hook_EEEEEvNS3_9scheduler14timepoint_lessEmLb0ELNS0_10algo_typesE5EvE5eraseENS0_13tree_iteratorISE_Lb1EEE.exit.i, %_ZN5boost6fibers9scheduler19remote_ready2ready_Ev.exit
-  %235 = load ptr, ptr %9, align 8, !tbaa !20
-  %236 = load ptr, ptr %235, align 8, !tbaa !15
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %238 = load ptr, ptr %237, align 8
-  %239 = call noundef ptr %238(ptr noundef nonnull align 8 dereferenceable(16) %235) #21
-  %.not = icmp eq ptr %239, null
-  br i1 %.not, label %242, label %240
+  %238 = load ptr, ptr %9, align 8, !tbaa !20
+  %239 = load ptr, ptr %238, align 8, !tbaa !15
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
+  %241 = load ptr, ptr %240, align 8
+  %242 = call noundef ptr %241(ptr noundef nonnull align 8 dereferenceable(16) %238) #21
+  %.not = icmp eq ptr %242, null
+  br i1 %.not, label %245, label %243
 
-240:                                              ; preds = %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit
-  %241 = load ptr, ptr %27, align 8, !tbaa !76
-  call void @_ZN5boost6fibers7context6resumeEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %239, ptr noundef %241) #21
+243:                                              ; preds = %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit
+  %244 = load ptr, ptr %27, align 8, !tbaa !76
+  call void @_ZN5boost6fibers7context6resumeEPS1_(ptr noundef nonnull align 8 dereferenceable(232) %242, ptr noundef %244) #21
   br label %.backedge
 
-242:                                              ; preds = %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit
+245:                                              ; preds = %_ZN5boost6fibers9scheduler12sleep2ready_Ev.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   store i64 9223372036854775807, ptr %7, align 8
-  %243 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !110
-  %.not17 = icmp eq ptr %24, %243
-  br i1 %.not17, label %250, label %244
+  %246 = load ptr, ptr %25, align 8, !tbaa !23, !noalias !110
+  %.not17 = icmp eq ptr %24, %246
+  br i1 %.not17, label %253, label %247
 
-244:                                              ; preds = %242
-  %245 = ptrtoint ptr %243 to i64
-  %246 = add i64 %245, -112
-  %247 = inttoptr i64 %246 to ptr
-  %248 = getelementptr inbounds nuw i8, ptr %247, i64 216
-  %249 = load i64, ptr %248, align 8, !tbaa !29
-  store i64 %249, ptr %7, align 8, !tbaa !29
-  br label %250
+247:                                              ; preds = %245
+  %248 = ptrtoint ptr %246 to i64
+  %249 = add i64 %248, -112
+  %250 = inttoptr i64 %249 to ptr
+  %251 = getelementptr inbounds nuw i8, ptr %250, i64 216
+  %252 = load i64, ptr %251, align 8, !tbaa !29
+  store i64 %252, ptr %7, align 8, !tbaa !29
+  br label %253
 
-250:                                              ; preds = %244, %242
-  %251 = load ptr, ptr %9, align 8, !tbaa !20
-  %252 = load ptr, ptr %251, align 8, !tbaa !15
-  %253 = getelementptr inbounds nuw i8, ptr %252, i64 40
-  %254 = load ptr, ptr %253, align 8
-  call void %254(ptr noundef nonnull align 8 dereferenceable(16) %251, ptr noundef nonnull align 8 dereferenceable(8) %7) #21
+253:                                              ; preds = %247, %245
+  %254 = load ptr, ptr %9, align 8, !tbaa !20
+  %255 = load ptr, ptr %254, align 8, !tbaa !15
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 40
+  %257 = load ptr, ptr %256, align 8
+  call void %257(ptr noundef nonnull align 8 dereferenceable(16) %254, ptr noundef nonnull align 8 dereferenceable(8) %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
   br label %.backedge
 
-.backedge:                                        ; preds = %250, %240
+.backedge:                                        ; preds = %253, %243
   br label %28, !llvm.loop !113
 
-255:                                              ; preds = %31
+258:                                              ; preds = %31
   call void @_ZN5boost6fibers9scheduler19release_terminated_Ev(ptr noundef nonnull align 8 dereferenceable(137) %1) #21
-  %256 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %257 = load ptr, ptr %256, align 8, !tbaa !77
-  call void @_ZN5boost6fibers7context15suspend_with_ccEv(ptr dead_on_unwind writable sret(%"class.boost::context::fiber") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %257) #21
+  %259 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %260 = load ptr, ptr %259, align 8, !tbaa !77
+  call void @_ZN5boost6fibers7context15suspend_with_ccEv(ptr dead_on_unwind writable sret(%"class.boost::context::fiber") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %260) #21
   ret void
 }
 
@@ -2097,7 +2105,9 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !94
-  %20 = udiv i64 %18, %.zext
+  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %20 = udiv i32 %.lhs.trunc, %12
+  %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit
 
 21:                                               ; preds = %3
@@ -2141,7 +2151,7 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %19
   %40 = phi i64 [ %7, %19 ], [ %7, %35 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %20, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
   %41 = add i64 %40, %.0
   ret i64 %41
 }

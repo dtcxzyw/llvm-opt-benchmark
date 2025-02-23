@@ -5314,7 +5314,7 @@ add_rev_cmdline_list.exit.i:                      ; preds = %add_rev_cmdline.exi
   store i32 %255, ptr %253, align 4
   %256 = getelementptr inbounds nuw i8, ptr %253, i64 4
   %257 = call ptr @oid_to_hex(ptr noundef nonnull %256) #26
-  call fastcc void @add_pending_object_with_path(ptr noundef %2, ptr noundef nonnull %253, ptr noundef %257, i32 noundef 12288, ptr noundef null)
+  call fastcc void @add_pending_object_with_path(ptr noundef nonnull %2, ptr noundef nonnull %253, ptr noundef %257, i32 noundef 12288, ptr noundef null)
   %258 = getelementptr inbounds nuw i8, ptr %.08.i54.i, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !251
   %.not.i55.i = icmp eq ptr %259, null
@@ -6861,8 +6861,8 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false)
   %12 = load i32, ptr %10, align 8, !tbaa !292
-  %.not288 = icmp eq i32 %12, 0
-  br i1 %.not288, label %._crit_edge, label %.lr.ph
+  %.not299 = icmp eq i32 %12, 0
+  br i1 %.not299, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6877,7 +6877,7 @@ define dso_local range(i32 -1, 1) i32 @prepare_revision_walk(ptr noundef %0) loc
 
 21:                                               ; preds = %.lr.ph, %handle_commit.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %handle_commit.exit.thread ]
-  %.042286 = phi ptr [ %0, %.lr.ph ], [ %.1, %handle_commit.exit.thread ]
+  %.042297 = phi ptr [ %0, %.lr.ph ], [ %.1, %handle_commit.exit.thread ]
   %22 = load ptr, ptr %13, align 8, !tbaa !293
   %23 = getelementptr inbounds nuw %struct.object_array_entry, ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !294
@@ -7275,7 +7275,7 @@ mark_parents_uninteresting.exit:                  ; preds = %mark_one_parent_uni
 180:                                              ; preds = %177, %174, %122
   %181 = load ptr, ptr %19, align 8, !tbaa !303
   %.not83.i = icmp eq ptr %181, null
-  br i1 %.not83.i, label %handle_commit.exit, label %182
+  br i1 %.not83.i, label %handle_commit.exit.thread228, label %182
 
 182:                                              ; preds = %180
   %183 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 64
@@ -7349,12 +7349,12 @@ revision_sources_at.exit.i:                       ; preds = %206, %201
   %222 = getelementptr inbounds nuw ptr, ptr %217, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !200
   %.not84.i = icmp eq ptr %223, null
-  br i1 %.not84.i, label %224, label %handle_commit.exit
+  br i1 %.not84.i, label %224, label %handle_commit.exit.thread228
 
 224:                                              ; preds = %revision_sources_at.exit.i
   %225 = call ptr @xstrdup(ptr noundef %26) #26
   store ptr %225, ptr %222, align 8, !tbaa !200
-  br label %handle_commit.exit
+  br label %handle_commit.exit.thread228
 
 .split116.us.i:                                   ; preds = %.split.us.i, %.split.i
   %.us-phi117.i = phi i32 [ %.071.i, %.split.i ], [ %.071.us.i, %.split.us.i ]
@@ -7395,20 +7395,20 @@ revision_sources_at.exit.i:                       ; preds = %206, %201
   call void (ptr, ...) @die(ptr noundef nonnull @.str.218, ptr noundef %26) #28
   unreachable
 
-handle_commit.exit:                               ; preds = %224, %revision_sources_at.exit.i, %180
+handle_commit.exit.thread228:                     ; preds = %180, %224, %revision_sources_at.exit.i
   %235 = load i32, ptr %.us-phi.i, align 8
   %236 = and i32 %235, 16
   %.not58 = icmp eq i32 %236, 0
   br i1 %.not58, label %237, label %handle_commit.exit.thread
 
-237:                                              ; preds = %handle_commit.exit
+237:                                              ; preds = %handle_commit.exit.thread228
   %238 = or disjoint i32 %235, 16
   store i32 %238, ptr %.us-phi.i, align 8
-  %239 = call ptr @commit_list_append(ptr noundef nonnull %.us-phi.i, ptr noundef %.042286) #26
+  %239 = call ptr @commit_list_append(ptr noundef nonnull %.us-phi.i, ptr noundef %.042297) #26
   br label %handle_commit.exit.thread
 
-handle_commit.exit.thread:                        ; preds = %108, %.split126.us.i, %97, %.split121.us.i, %229, %231, %.split116.us.i, %234, %handle_commit.exit, %237
-  %.1 = phi ptr [ %.042286, %handle_commit.exit ], [ %239, %237 ], [ %.042286, %234 ], [ %.042286, %.split116.us.i ], [ %.042286, %231 ], [ %.042286, %229 ], [ %.042286, %.split121.us.i ], [ %.042286, %97 ], [ %.042286, %.split126.us.i ], [ %.042286, %108 ]
+handle_commit.exit.thread:                        ; preds = %108, %.split126.us.i, %97, %.split121.us.i, %229, %231, %.split116.us.i, %234, %handle_commit.exit.thread228, %237
+  %.1 = phi ptr [ %.042297, %handle_commit.exit.thread228 ], [ %239, %237 ], [ %.042297, %234 ], [ %.042297, %.split116.us.i ], [ %.042297, %231 ], [ %.042297, %229 ], [ %.042297, %.split121.us.i ], [ %.042297, %97 ], [ %.042297, %.split126.us.i ], [ %.042297, %108 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %240 = load i32, ptr %10, align 8, !tbaa !292
   %241 = zext i32 %240 to i64
@@ -7423,8 +7423,8 @@ handle_commit.exit.thread:                        ; preds = %108, %.split126.us.
   %.not = icmp ne i64 %245, 0
   %246 = and i64 %244, 274878431372
   %or.cond = icmp eq i64 %246, 524300
-  %or.cond413 = or i1 %.not, %or.cond
-  br i1 %or.cond413, label %247, label %249
+  %or.cond424 = or i1 %.not, %or.cond
+  br i1 %or.cond424, label %247, label %249
 
 247:                                              ; preds = %._crit_edge
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 2712
@@ -7944,29 +7944,29 @@ still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %367, i64 40
   %.pre.i72.pre = load i64, ptr %.phi.trans.insert.i.phi.trans.insert, align 8, !tbaa !321
   %450 = icmp ugt i64 %.pre.i72.pre, %449
-  %or.cond414 = select i1 %.not67.i, i1 %450, i1 false
-  br i1 %or.cond414, label %451, label %._crit_edge347
+  %or.cond425 = select i1 %.not67.i, i1 %450, i1 false
+  br i1 %or.cond425, label %451, label %._crit_edge358
 
 451:                                              ; preds = %448
   %452 = load i64, ptr %243, align 8
   %453 = and i64 %452, 1099511627776
   %.not68.i = icmp eq i64 %453, 0
-  br i1 %.not68.i, label %still_interesting.exit.thread.i, label %._crit_edge347, !llvm.loop !323
+  br i1 %.not68.i, label %still_interesting.exit.thread.i, label %._crit_edge358, !llvm.loop !323
 
-._crit_edge347:                                   ; preds = %448, %451
+._crit_edge358:                                   ; preds = %448, %451
   %454 = load i64, ptr %365, align 8, !tbaa !214
   %.not69.i = icmp ne i64 %454, -1
   %455 = icmp ult i64 %.pre.i72.pre, %454
   %or.cond300.i = select i1 %.not69.i, i1 %455, i1 false
   br i1 %or.cond300.i, label %456, label %._crit_edge.i73
 
-456:                                              ; preds = %._crit_edge347
+456:                                              ; preds = %._crit_edge358
   %457 = load i64, ptr %243, align 8
   %458 = and i64 %457, 1099511627776
   %.not70.i = icmp eq i64 %458, 0
   br i1 %.not70.i, label %still_interesting.exit.thread.i, label %._crit_edge.i73, !llvm.loop !323
 
-._crit_edge.i73:                                  ; preds = %456, %._crit_edge347
+._crit_edge.i73:                                  ; preds = %456, %._crit_edge358
   %459 = call ptr @commit_list_insert(ptr noundef nonnull %367, ptr noundef %.055237.i) #26
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 8
   %461 = load volatile ptr, ptr @show_early_output, align 8, !tbaa !324
@@ -8670,7 +8670,7 @@ indegree_slab_at.exit69.i:                        ; preds = %710, %705
   br i1 %724, label %725, label %726
 
 725:                                              ; preds = %indegree_slab_at.exit69.i
-  call void @prio_queue_put(ptr noundef nonnull %622, ptr noundef %690) #26
+  call void @prio_queue_put(ptr noundef nonnull %622, ptr noundef nonnull %690) #26
   br label %726
 
 726:                                              ; preds = %725, %indegree_slab_at.exit69.i
@@ -8714,16 +8714,16 @@ init_topo_walk.exit:                              ; preds = %734, %731, %608, %.
 want_ancestry.exit:                               ; preds = %738
   %740 = getelementptr inbounds nuw i8, ptr %0, i64 2664
   %741 = load ptr, ptr %740, align 8, !tbaa !236
-  %.not229 = icmp eq ptr %741, null
-  br i1 %.not229, label %743, label %want_ancestry.exit.thread
+  %.not240 = icmp eq ptr %741, null
+  br i1 %.not240, label %743, label %want_ancestry.exit.thread
 
 want_ancestry.exit.thread:                        ; preds = %738, %want_ancestry.exit
   %742 = call i32 @line_log_filter(ptr noundef nonnull %0) #26
-  %.pre349 = load i64, ptr %243, align 8
+  %.pre360 = load i64, ptr %243, align 8
   br label %743
 
 743:                                              ; preds = %want_ancestry.exit.thread, %want_ancestry.exit, %init_topo_walk.exit
-  %744 = phi i64 [ %.pre349, %want_ancestry.exit.thread ], [ %736, %want_ancestry.exit ], [ %736, %init_topo_walk.exit ]
+  %744 = phi i64 [ %.pre360, %want_ancestry.exit.thread ], [ %736, %want_ancestry.exit ], [ %736, %init_topo_walk.exit ]
   %745 = and i64 %744, 1024
   %.not55 = icmp eq i64 %745, 0
   br i1 %.not55, label %921, label %746
@@ -13330,7 +13330,7 @@ indegree_slab_at.exit.i:                          ; preds = %147, %142
   %156 = phi ptr [ %146, %142 ], [ %153, %147 ]
   %157 = load i32, ptr %123, align 4, !tbaa !344
   %158 = load ptr, ptr %7, align 8, !tbaa !73
-  %159 = tail call i32 @repo_parse_commit_gently(ptr noundef %158, ptr noundef %127, i32 noundef 1) #26
+  %159 = tail call i32 @repo_parse_commit_gently(ptr noundef %158, ptr noundef nonnull %127, i32 noundef 1) #26
   %160 = icmp slt i32 %159, 0
   br i1 %160, label %indegree_walk_step.exit, label %161
 
@@ -13596,7 +13596,7 @@ st_mult.exit.i.i.i:                               ; preds = %16
   %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !283
   %.not34.i.i.i = icmp eq ptr %38, null
-  br i1 %.not34.i.i.i, label %39, label %indegree_slab_at.exit.i
+  br i1 %.not34.i.i.i, label %39, label %next_topo_commit.exit.thread63
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 168
@@ -13610,9 +13610,9 @@ st_mult.exit.i.i.i:                               ; preds = %16
   %48 = load ptr, ptr %40, align 8, !tbaa !282
   %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %36
   store ptr %47, ptr %49, align 8, !tbaa !283
-  br label %indegree_slab_at.exit.i
+  br label %next_topo_commit.exit.thread63
 
-indegree_slab_at.exit.i:                          ; preds = %39, %34
+next_topo_commit.exit.thread63:                   ; preds = %34, %39
   %50 = phi ptr [ %38, %34 ], [ %47, %39 ]
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 156
   %52 = load i32, ptr %51, align 4, !tbaa !344
@@ -13620,26 +13620,27 @@ indegree_slab_at.exit.i:                          ; preds = %39, %34
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw i32, ptr %50, i64 %54
   store i32 0, ptr %55, align 4, !tbaa !42
-  br label %next_topo_commit.exit
+  br label %58
 
 56:                                               ; preds = %11
   %57 = tail call ptr @pop_commit(ptr noundef nonnull %0) #26
   br label %next_topo_commit.exit
 
-next_topo_commit.exit:                            ; preds = %indegree_slab_at.exit.i, %56, %9
-  %.032 = phi ptr [ %10, %9 ], [ %57, %56 ], [ %15, %indegree_slab_at.exit.i ]
+next_topo_commit.exit:                            ; preds = %56, %9
+  %.032 = phi ptr [ %10, %9 ], [ %57, %56 ]
   %.not36 = icmp eq ptr %.032, null
   br i1 %.not36, label %next_topo_commit.exit.thread, label %58
 
-58:                                               ; preds = %next_topo_commit.exit
+58:                                               ; preds = %next_topo_commit.exit.thread63, %next_topo_commit.exit
+  %.03266 = phi ptr [ %15, %next_topo_commit.exit.thread63 ], [ %.032, %next_topo_commit.exit ]
   %59 = load ptr, ptr %2, align 8, !tbaa !175
   %.not37 = icmp eq ptr %59, null
   br i1 %.not37, label %63, label %60
 
 60:                                               ; preds = %58
-  %61 = load i32, ptr %.032, align 8
+  %61 = load i32, ptr %.03266, align 8
   %62 = and i32 %61, -2193
-  store i32 %62, ptr %.032, align 8
+  store i32 %62, ptr %.03266, align 8
   br label %63
 
 63:                                               ; preds = %60, %58
@@ -13651,20 +13652,20 @@ next_topo_commit.exit:                            ; preds = %indegree_slab_at.ex
 66:                                               ; preds = %63
   %67 = load i64, ptr %5, align 8, !tbaa !213
   %.not39 = icmp eq i64 %67, -1
-  %.pre78 = load ptr, ptr %2, align 8, !tbaa !175
+  %.pre82 = load ptr, ptr %2, align 8, !tbaa !175
   br i1 %.not39, label %77, label %68
 
 68:                                               ; preds = %66
-  %.not.i45 = icmp eq ptr %.pre78, null
+  %.not.i45 = icmp eq ptr %.pre82, null
   br i1 %.not.i45, label %71, label %69
 
 69:                                               ; preds = %68
-  %70 = tail call i64 @get_reflog_timestamp(ptr noundef nonnull %.pre78) #26
+  %70 = tail call i64 @get_reflog_timestamp(ptr noundef nonnull %.pre82) #26
   %.pre = load i64, ptr %5, align 8, !tbaa !213
   br label %comparison_date.exit
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.032, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.03266, i64 40
   %73 = load i64, ptr %72, align 8, !tbaa !321
   br label %comparison_date.exit
 
@@ -13675,16 +13676,16 @@ comparison_date.exit:                             ; preds = %69, %71
   br i1 %76, label %.backedge, label %comparison_date.exit._crit_edge
 
 comparison_date.exit._crit_edge:                  ; preds = %comparison_date.exit
-  %.pre77 = load ptr, ptr %2, align 8, !tbaa !175
+  %.pre81 = load ptr, ptr %2, align 8, !tbaa !175
   br label %77
 
 77:                                               ; preds = %comparison_date.exit._crit_edge, %66
-  %78 = phi ptr [ %.pre77, %comparison_date.exit._crit_edge ], [ %.pre78, %66 ]
+  %78 = phi ptr [ %.pre81, %comparison_date.exit._crit_edge ], [ %.pre82, %66 ]
   %.not40 = icmp eq ptr %78, null
   br i1 %.not40, label %80, label %79
 
 79:                                               ; preds = %77
-  tail call fastcc void @try_to_simplify_commit(ptr noundef nonnull %0, ptr noundef nonnull %.032)
+  tail call fastcc void @try_to_simplify_commit(ptr noundef nonnull %0, ptr noundef nonnull %.03266)
   br label %expand_topo_walk.exit
 
 80:                                               ; preds = %77
@@ -13693,7 +13694,7 @@ comparison_date.exit._crit_edge:                  ; preds = %comparison_date.exi
   br i1 %.not41, label %155, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call fastcc i32 @process_parents(ptr noundef nonnull %0, ptr noundef nonnull %.032, ptr noundef null, ptr noundef null)
+  %83 = tail call fastcc i32 @process_parents(ptr noundef nonnull %0, ptr noundef nonnull %.03266, ptr noundef null, ptr noundef null)
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %85, label %91
 
@@ -13704,7 +13705,7 @@ comparison_date.exit._crit_edge:                  ; preds = %comparison_date.exi
   br i1 %.not.i58, label %88, label %91
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %.032, i64 4
+  %89 = getelementptr inbounds nuw i8, ptr %.03266, i64 4
   %90 = tail call ptr @oid_to_hex(ptr noundef nonnull %89) #26
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.241, ptr noundef %90) #28
   unreachable
@@ -13713,7 +13714,7 @@ comparison_date.exit._crit_edge:                  ; preds = %comparison_date.exi
   %92 = load i32, ptr @count_topo_walked, align 4, !tbaa !42
   %93 = add i32 %92, 1
   store i32 %93, ptr @count_topo_walked, align 4, !tbaa !42
-  %94 = getelementptr inbounds nuw i8, ptr %.032, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %.03266, i64 48
   %.02632.i = load ptr, ptr %94, align 8, !tbaa !58
   %.not2833.i = icmp eq ptr %.02632.i, null
   br i1 %.not2833.i, label %expand_topo_walk.exit, label %.lr.ph.i
@@ -13838,7 +13839,7 @@ select.unfold.i:                                  ; preds = %151, %104, %100
   br i1 %.not28.i, label %expand_topo_walk.exit, label %100, !llvm.loop !444
 
 155:                                              ; preds = %80
-  %156 = tail call fastcc i32 @process_parents(ptr noundef nonnull %0, ptr noundef nonnull %.032, ptr noundef nonnull %0, ptr noundef null)
+  %156 = tail call fastcc i32 @process_parents(ptr noundef nonnull %0, ptr noundef nonnull %.03266, ptr noundef nonnull %0, ptr noundef null)
   %157 = icmp slt i32 %156, 0
   br i1 %157, label %158, label %expand_topo_walk.exit
 
@@ -13849,13 +13850,13 @@ select.unfold.i:                                  ; preds = %151, %104, %100
   br i1 %.not42, label %161, label %expand_topo_walk.exit
 
 161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %.032, i64 4
+  %162 = getelementptr inbounds nuw i8, ptr %.03266, i64 4
   %163 = tail call ptr @oid_to_hex(ptr noundef nonnull %162) #26
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.241, ptr noundef %163) #28
   unreachable
 
 expand_topo_walk.exit:                            ; preds = %select.unfold.i, %151, %91, %79, %155, %158, %63
-  %164 = tail call i32 @simplify_commit(ptr noundef %0, ptr noundef nonnull %.032)
+  %164 = tail call i32 @simplify_commit(ptr noundef %0, ptr noundef nonnull %.03266)
   switch i32 %164, label %168 [
     i32 0, label %.backedge
     i32 2, label %165
@@ -13865,7 +13866,7 @@ expand_topo_walk.exit:                            ; preds = %select.unfold.i, %1
   br label %7
 
 165:                                              ; preds = %expand_topo_walk.exit
-  %166 = getelementptr inbounds nuw i8, ptr %.032, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %.03266, i64 4
   %167 = tail call ptr @oid_to_hex(ptr noundef nonnull %166) #26
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.242, ptr noundef %167) #28
   unreachable
@@ -13894,7 +13895,7 @@ expand_topo_walk.exit:                            ; preds = %select.unfold.i, %1
   br i1 %.not1923.i, label %._crit_edge.i, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %177
-  %179 = getelementptr inbounds nuw i8, ptr %.032, i64 4
+  %179 = getelementptr inbounds nuw i8, ptr %.03266, i64 4
   br label %182
 
 180:                                              ; preds = %185
@@ -13933,23 +13934,23 @@ expand_topo_walk.exit:                            ; preds = %select.unfold.i, %1
   br i1 %or.cond.i, label %track_linear.exit, label %194
 
 194:                                              ; preds = %190
-  %195 = load i32, ptr %.032, align 8
+  %195 = load i32, ptr %.03266, align 8
   %196 = or i32 %195, 1073741824
-  store i32 %196, ptr %.032, align 8
+  store i32 %196, ptr %.03266, align 8
   br label %track_linear.exit
 
 track_linear.exit:                                ; preds = %190, %194
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 2888
   %198 = load ptr, ptr %197, align 8, !tbaa !400
   tail call void @free_commit_list(ptr noundef %198) #26
-  %199 = getelementptr inbounds nuw i8, ptr %.032, i64 48
+  %199 = getelementptr inbounds nuw i8, ptr %.03266, i64 48
   %200 = load ptr, ptr %199, align 8, !tbaa !363
   %201 = tail call ptr @copy_commit_list(ptr noundef %200) #26
   store ptr %201, ptr %197, align 8, !tbaa !400
   br label %next_topo_commit.exit.thread
 
 next_topo_commit.exit.thread:                     ; preds = %13, %next_topo_commit.exit, %track_linear.exit, %168
-  %.1.ph = phi ptr [ %.032, %168 ], [ %.032, %track_linear.exit ], [ null, %next_topo_commit.exit ], [ null, %13 ]
+  %.1.ph = phi ptr [ %.03266, %168 ], [ %.03266, %track_linear.exit ], [ null, %next_topo_commit.exit ], [ null, %13 ]
   ret ptr %.1.ph
 }
 

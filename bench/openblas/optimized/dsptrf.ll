@@ -312,7 +312,7 @@ define void @dsptrf_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %166 = call double @llvm.fmuladd.f64(double %165, double %160, double -1.000000e+00)
   %167 = fdiv double 1.000000e+00, %166
   %168 = fdiv double %167, %152
-  %169 = zext i32 %153 to i64
+  %169 = zext nneg i32 %153 to i64
   %170 = zext nneg i32 %148 to i64
   %171 = zext nneg i32 %155 to i64
   %invariant.gep753 = getelementptr double, ptr %10, i64 %171

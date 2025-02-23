@@ -51,7 +51,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nound
 
 .preheader:                                       ; preds = %.preheader.loopexit, %13
   %.0.lcssa = phi i32 [ 1, %13 ], [ %18, %.preheader.loopexit ]
-  %19 = icmp slt i32 %.0.lcssa, %3
+  %19 = icmp samesign ult i32 %.0.lcssa, %3
   br i1 %19, label %.lr.ph42.preheader, label %.loopexit
 
 .lr.ph42.preheader:                               ; preds = %.preheader
@@ -132,7 +132,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %9
   %.0.lcssa.i = phi i32 [ 1, %9 ], [ %14, %.preheader.loopexit.i ]
-  %15 = icmp slt i32 %.0.lcssa.i, %3
+  %15 = icmp samesign ult i32 %.0.lcssa.i, %3
   br i1 %15, label %.lr.ph42.preheader.i, label %HorizontalUnfilter_SSE2.exit
 
 .lr.ph42.preheader.i:                             ; preds = %.preheader.i
@@ -201,7 +201,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef
 
 .lr.ph38.preheader:                               ; preds = %.preheader
   %44 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %3 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph38
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -270,7 +270,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr noundef
 
 .preheader.i:                                     ; preds = %.preheader.loopexit.i, %9
   %.0.lcssa.i = phi i32 [ 1, %9 ], [ %14, %.preheader.loopexit.i ]
-  %15 = icmp slt i32 %.0.lcssa.i, %3
+  %15 = icmp samesign ult i32 %.0.lcssa.i, %3
   br i1 %15, label %.lr.ph42.preheader.i, label %HorizontalUnfilter_SSE2.exit
 
 .lr.ph42.preheader.i:                             ; preds = %.preheader.i
@@ -474,7 +474,7 @@ define internal void @HorizontalFilter_SSE2(ptr noalias noundef readonly capture
 
 .lr.ph32.preheader.i.i:                           ; preds = %.preheader.i.i
   %15 = zext nneg i32 %.0.lcssa.i.i to i64
-  %wide.trip.count.i.i = zext i32 %9 to i64
+  %wide.trip.count.i.i = zext nneg i32 %9 to i64
   br label %.lr.ph32.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -520,7 +520,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %38 = sext i32 %37 to i64
   %39 = and i32 %9, 2147483616
   %40 = zext nneg i32 %39 to i64
-  %wide.trip.count.i28.i = zext i32 %9 to i64
+  %wide.trip.count.i28.i = zext nneg i32 %9 to i64
   br i1 %10, label %.lr.ph.preheader.i33.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i33.us.i:                        ; preds = %.lr.ph.i, %PredictLineLeft_SSE2.exit38.us.i
@@ -677,7 +677,7 @@ define internal void @VerticalFilter_SSE2(ptr noalias noundef readonly captures(
 
 .lr.ph32.preheader.i.i:                           ; preds = %.preheader.i.i
   %15 = zext nneg i32 %.0.lcssa.i.i to i64
-  %wide.trip.count.i.i = zext i32 %9 to i64
+  %wide.trip.count.i.i = zext nneg i32 %9 to i64
   br label %.lr.ph32.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -722,7 +722,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %37 = icmp sgt i32 %1, 31
   %38 = and i32 %1, 2147483616
   %39 = zext nneg i32 %38 to i64
-  %wide.trip.count.i26.i = zext i32 %1 to i64
+  %wide.trip.count.i26.i = zext nneg i32 %1 to i64
   br i1 %37, label %.lr.ph.preheader.i31.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i31.us.i:                        ; preds = %.lr.ph.i, %PredictLineTop_SSE2.exit.us.i
@@ -851,7 +851,7 @@ define internal void @GradientFilter_SSE2(ptr noalias noundef readonly captures(
 
 .lr.ph32.preheader.i.i:                           ; preds = %.preheader.i.i
   %15 = zext nneg i32 %.0.lcssa.i.i to i64
-  %wide.trip.count.i.i = zext i32 %9 to i64
+  %wide.trip.count.i.i = zext nneg i32 %9 to i64
   br label %.lr.ph32.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
@@ -899,7 +899,7 @@ PredictLineLeft_SSE2.exit.i:                      ; preds = %.lr.ph32.i.i, %.pre
   %40 = icmp sgt i32 %1, 8
   %41 = and i32 %9, 2147483640
   %42 = zext nneg i32 %41 to i64
-  %wide.trip.count.i29.i = zext i32 %9 to i64
+  %wide.trip.count.i29.i = zext nneg i32 %9 to i64
   br i1 %40, label %.lr.ph.preheader.i31.us.i, label %.lr.ph.split.i
 
 .lr.ph.preheader.i31.us.i:                        ; preds = %.lr.ph.i, %GradientPredictDirect_SSE2.exit.us.i

@@ -266,7 +266,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
 ricsv_gen_dynamic_vector_feature.exit:            ; preds = %44
   call void @gdb_feature_builder_end(ptr noundef nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #7
-  call void @gdb_register_coprocessor(ptr noundef %0, ptr noundef nonnull @riscv_gdb_get_vector, ptr noundef nonnull @riscv_gdb_set_vector, ptr noundef nonnull %26, i32 noundef 0) #7
+  call void @gdb_register_coprocessor(ptr noundef nonnull %0, ptr noundef nonnull @riscv_gdb_get_vector, ptr noundef nonnull @riscv_gdb_set_vector, ptr noundef nonnull %26, i32 noundef 0) #7
   br label %47
 
 47:                                               ; preds = %ricsv_gen_dynamic_vector_feature.exit, %14

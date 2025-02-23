@@ -3614,7 +3614,7 @@ define void @Eso_ManComputeOne(ptr noundef readonly captures(none) %0, ptr nound
   %.val51 = load ptr, ptr %13, align 8, !tbaa !44
   %27 = getelementptr inbounds nuw i32, ptr %.val51, i64 %indvars.iv75
   %28 = load i32, ptr %27, align 4, !tbaa !54
-  tail call void @Eso_ManMinimizeAdd(ptr noundef %0, i32 noundef %28)
+  tail call void @Eso_ManMinimizeAdd(ptr noundef nonnull %0, i32 noundef %28)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %.val46 = load i32, ptr %9, align 4, !tbaa !31
   %29 = sext i32 %.val46 to i64

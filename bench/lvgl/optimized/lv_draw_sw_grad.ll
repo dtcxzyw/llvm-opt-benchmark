@@ -62,7 +62,7 @@ allocate_item.exit:                               ; preds = %9
   %26 = load ptr, ptr %21, align 8, !tbaa !10
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv
   %28 = trunc nuw i64 %indvars.iv to i32
-  tail call void @lv_draw_sw_grad_color_calculate(ptr noundef %0, i32 noundef %23, i32 noundef %28, ptr noundef %25, ptr noundef %27)
+  tail call void @lv_draw_sw_grad_color_calculate(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %28, ptr noundef %25, ptr noundef %27)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %22, align 8, !tbaa !11
   %30 = zext i32 %29 to i64

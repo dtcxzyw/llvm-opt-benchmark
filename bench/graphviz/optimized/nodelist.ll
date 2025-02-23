@@ -376,13 +376,13 @@ define void @reverseAppend(ptr noundef captures(none) %0, ptr noundef captures(n
   store ptr %14, ptr %17, align 8, !tbaa !15
   %19 = add nuw nsw i64 %.016.i, 1
   %exitcond.not.i = icmp eq i64 %19, %4
-  br i1 %exitcond.not.i, label %nodelist_reverse.exit, label %10, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.lr.ph.i5, label %10, !llvm.loop !24
 
-nodelist_reverse.exit:                            ; preds = %10, %2
+nodelist_reverse.exit:                            ; preds = %2
   %.not.i4 = icmp eq i64 %.val15.i, 0
   br i1 %.not.i4, label %concatNodelist.exit, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %nodelist_reverse.exit
+.lr.ph.i5:                                        ; preds = %10, %nodelist_reverse.exit
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16

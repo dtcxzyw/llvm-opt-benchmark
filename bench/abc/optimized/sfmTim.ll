@@ -908,7 +908,7 @@ Vec_IntFill.exit:                                 ; preds = %106, %Vec_IntGrow.e
   %.val46 = load ptr, ptr %132, align 8, !tbaa !40
   %135 = getelementptr inbounds nuw ptr, ptr %.val46, i64 %indvars.iv.next84
   %136 = load ptr, ptr %135, align 8, !tbaa !42
-  tail call void @Sfm_TimNodeRequired(ptr noundef %0, ptr noundef %136)
+  tail call void @Sfm_TimNodeRequired(ptr noundef nonnull %0, ptr noundef %136)
   %137 = icmp samesign ugt i64 %indvars.iv83, 1
   br i1 %137, label %134, label %.critedge6, !llvm.loop !62
 

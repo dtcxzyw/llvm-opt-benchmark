@@ -602,7 +602,6 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   %13 = add nuw nsw i64 %10, 1
   %14 = icmp ult i8 %9, 7
   %.sroa.3.0.i.i = select i1 %14, i64 %13, i64 undef
-  %.sroa.0.0.i.i = select i1 %14, ptr %11, ptr null
   br i1 %14, label %20, label %48
 
 15:                                               ; preds = %4
@@ -651,9 +650,9 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   unreachable
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %25
+  %32 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %25
   %33 = load i32, ptr %32, align 4, !alias.scope !17, !noundef !4
-  %34 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %24
+  %34 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %24
   store i32 %33, ptr %34, align 4, !alias.scope !17
   %35 = icmp ult i64 %22, %24
   br i1 %35, label %.lr.ph.i, label %._crit_edge.i
@@ -663,7 +662,7 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8479c585592764b2E.exit": ; preds = %._crit_edge.i
-  %37 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %1
+  %37 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %1
   store i32 %2, ptr %37, align 4, !alias.scope !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   %.not = icmp ugt i64 %22, %10
@@ -720,7 +719,6 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   %11 = add nuw nsw i64 %9, 1
   %12 = icmp ult i8 %8, 15
   %.sroa.3.0.i.i = select i1 %12, i64 %11, i64 undef
-  %.sroa.0.0.i.i = select i1 %12, ptr %10, ptr null
   br i1 %12, label %18, label %_ZN17cranelift_bforest12slice_insert17he6d2a04e101f2492E.exit
 
 13:                                               ; preds = %3
@@ -769,9 +767,9 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   unreachable
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %23
+  %30 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %23
   %31 = load i32, ptr %30, align 4, !alias.scope !24, !noundef !4
-  %32 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %22
+  %32 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %22
   store i32 %31, ptr %32, align 4, !alias.scope !24
   %33 = icmp ult i64 %20, %22
   br i1 %33, label %.lr.ph.i, label %._crit_edge.i
@@ -781,7 +779,7 @@ define hidden noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17ha6cb4d4dfda7c448E.exit": ; preds = %._crit_edge.i
-  %35 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %1
+  %35 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %1
   store i32 %2, ptr %35, align 4, !alias.scope !24
   %.not36 = icmp ugt i64 %20, %9
   br i1 %.not36, label %._crit_edge, label %.lr.ph
@@ -873,7 +871,6 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   %12 = add nuw nsw i64 %10, 1
   %13 = icmp ult i8 %9, 7
   %.sroa.3.0.i.i = select i1 %13, i64 %12, i64 undef
-  %.sroa.0.0.i.i = select i1 %13, ptr %11, ptr null
   br i1 %13, label %19, label %48
 
 14:                                               ; preds = %4
@@ -922,9 +919,9 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   unreachable
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %24
+  %31 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %24
   %32 = load i32, ptr %31, align 4, !alias.scope !30, !noundef !4
-  %33 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %23
+  %33 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %23
   store i32 %32, ptr %33, align 4, !alias.scope !30
   %34 = icmp ult i64 %21, %23
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
@@ -934,7 +931,7 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5da6ec003185af72E.exit": ; preds = %._crit_edge.i
-  %36 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %1
+  %36 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %1
   store i32 %2, ptr %36, align 4, !alias.scope !30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
@@ -992,7 +989,6 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   %12 = add nuw nsw i64 %10, 1
   %13 = icmp ult i8 %9, 7
   %.sroa.3.0.i.i = select i1 %13, i64 %12, i64 undef
-  %.sroa.0.0.i.i = select i1 %13, ptr %11, ptr null
   br i1 %13, label %19, label %48
 
 14:                                               ; preds = %4
@@ -1041,9 +1037,9 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   unreachable
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %24
+  %31 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %24
   %32 = load i32, ptr %31, align 4, !alias.scope !36, !noundef !4
-  %33 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %23
+  %33 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %23
   store i32 %32, ptr %33, align 4, !alias.scope !36
   %34 = icmp ult i64 %21, %23
   br i1 %34, label %.lr.ph.i, label %._crit_edge.i
@@ -1053,7 +1049,7 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeDat
   unreachable
 
 "_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5da6ec003185af72E.exit": ; preds = %._crit_edge.i
-  %36 = getelementptr inbounds [0 x i32], ptr %.sroa.0.0.i.i, i64 0, i64 %1
+  %36 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %1
   store i32 %2, ptr %36, align 4, !alias.scope !36
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)

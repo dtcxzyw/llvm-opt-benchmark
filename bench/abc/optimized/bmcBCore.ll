@@ -678,7 +678,7 @@ Vec_IntPush.exit166:
   %.0190 = phi ptr [ %17, %.lr.ph191 ], [ %.0107189, %.critedge6 ]
   %.0107189 = phi ptr [ %13, %.lr.ph191 ], [ %.0190, %.critedge6 ]
   %.0108188 = phi i32 [ %1, %.lr.ph191 ], [ %186, %.critedge6 ]
-  call void @Gia_ManIncrementTravId(ptr noundef %0) #16
+  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #16
   %.val144 = load ptr, ptr %22, align 8, !tbaa !34
   %52 = load i32, ptr %34, align 8, !tbaa !39
   %53 = load ptr, ptr %35, align 8, !tbaa !40

@@ -6079,7 +6079,7 @@ _ZN12_GLOBAL__N_17WidenIV13getExtendKindEPN4llvm11InstructionE.exit60.i: ; preds
 
 748:                                              ; preds = %.thread.i
   %749 = load ptr, ptr %601, align 8, !tbaa !397
-  %750 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 40
+  %750 = getelementptr inbounds nuw i8, ptr %745, i64 40
   %751 = load ptr, ptr %750, align 8, !tbaa !3
   %752 = load ptr, ptr %749, align 8, !tbaa !9
   %753 = getelementptr inbounds nuw i8, ptr %749, i64 16
@@ -6131,7 +6131,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.i: ; p
   br i1 %.not41.i, label %879, label %781
 
 781:                                              ; preds = %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.i
-  %782 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 4
+  %782 = getelementptr inbounds nuw i8, ptr %745, i64 4
   %783 = load i32, ptr %782, align 4
   %784 = and i32 %783, 134217727
   %.not42.i = icmp eq i32 %784, 1
@@ -6164,7 +6164,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %781
   store ptr %797, ptr %43, align 8, !tbaa !74, !alias.scope !484
   store i64 %798, ptr %605, align 8, !tbaa !74, !alias.scope !484
   store ptr @.str.30, ptr %606, align 8, !tbaa !74, !alias.scope !484
-  %799 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
+  %799 = getelementptr inbounds nuw i8, ptr %745, i64 24
   %800 = call noundef ptr @_ZN4llvm4UsernwEmNS0_26HungOffOperandsAllocMarkerE(i64 noundef 80) #16
   call void @_ZN4llvm11InstructionC2EPNS_4TypeEjNS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(76) %800, ptr noundef %795, i32 noundef 55, i32 134217728, ptr nonnull %799, i64 0) #16
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 72
@@ -6174,9 +6174,9 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit.i:     ; preds = %781
   call void @_ZN4llvm4User16allocHungoffUsesEjb(ptr noundef nonnull align 8 dereferenceable(76) %800, i32 noundef %802, i1 noundef zeroext true) #16
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %43) #16
   %803 = load ptr, ptr %602, align 8, !tbaa !483
-  %804 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 -8
+  %804 = getelementptr inbounds i8, ptr %745, i64 -8
   %805 = load ptr, ptr %804, align 8, !tbaa !66
-  %806 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 72
+  %806 = getelementptr inbounds nuw i8, ptr %745, i64 72
   %807 = load i32, ptr %806, align 8, !tbaa !466
   %808 = zext i32 %807 to i64
   %809 = getelementptr inbounds nuw %"class.llvm::Use", ptr %805, i64 %808
@@ -14008,7 +14008,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %46
   %spec.select.i.i = select i1 %55, ptr %52, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %56 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %57 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
+  %57 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !3
   store ptr %58, ptr %42, align 8, !tbaa !500
   store ptr %56, ptr %43, align 8

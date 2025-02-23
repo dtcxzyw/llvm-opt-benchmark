@@ -3749,7 +3749,7 @@ vu_remove_all_mem_regs.exit:                      ; preds = %9, %2
   %28 = getelementptr inbounds nuw [8 x %struct.VhostUserMemoryRegion], ptr %25, i64 0, i64 %indvars.iv
   %29 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 0, i64 %indvars.iv
   %30 = load i32, ptr %29, align 1
-  call fastcc void @_vu_add_mem_reg(ptr noundef %0, ptr noundef %28, i32 noundef %30)
+  call fastcc void @_vu_add_mem_reg(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %30)
   %31 = load i32, ptr %29, align 1
   %32 = tail call i32 @close(i32 noundef %31) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5625,7 +5625,7 @@ define internal fastcc noundef zeroext i1 @vu_check_queue_msg_file(ptr noundef %
   br i1 %21, label %15, label %vmsg_close_fds.exit
 
 vmsg_close_fds.exit:                              ; preds = %15, %10
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.77, i32 noundef %6)
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.77, i32 noundef %6)
   br label %vmsg_close_fds.exit19
 
 22:                                               ; preds = %2
@@ -5679,7 +5679,7 @@ vmsg_close_fds.exit:                              ; preds = %15, %10
 
 vmsg_close_fds.exit23:                            ; preds = %40, %37
   %47 = load i32, ptr %1, align 1
-  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef %0, ptr noundef nonnull @.str.78, i32 noundef %47)
+  tail call void (ptr, ptr, ...) @vu_panic(ptr noundef nonnull %0, ptr noundef nonnull @.str.78, i32 noundef %47)
   br label %vmsg_close_fds.exit19
 
 vmsg_close_fds.exit19:                            ; preds = %29, %26, %36, %vmsg_close_fds.exit23, %vmsg_close_fds.exit

@@ -787,12 +787,12 @@ CBS_get_any_asn1_element.exit.i.thread:           ; preds = %41
   %.sroa.gep10.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.else.val.i, ptr %.sroa.gep10.i, align 8, !tbaa !13
   %.not6.i2 = icmp ne i32 %2, %11
-  %44 = icmp ult i64 %.else.val.i, %.sink.i.i.i
+  %44 = icmp samesign ult i64 %.else.val.i, %.sink.i.i.i
   %or.cond = select i1 %.not6.i2, i1 true, i1 %44
   br i1 %or.cond, label %cbs_get_asn1.exit, label %.else15.i
 
 .cont.i:                                          ; preds = %CBS_get_any_asn1_element.exit.i
-  %45 = icmp uge i64 %.else.val.i, %.sink.i.i.i
+  %45 = icmp samesign uge i64 %.else.val.i, %.sink.i.i.i
   %spec.select.i = zext i1 %45 to i32
   br label %cbs_get_asn1.exit
 
@@ -1002,7 +1002,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %33, %13
   %40 = sub nuw i64 %.sroa.9.0.copyload.i.i.i.i, %.else.val.i.i
   store i64 %40, ptr %.sroa.9.0..sroa_idx.i.i.i.i, align 8, !tbaa !13
   %.not6.i2.i = icmp ne i8 %4, 2
-  %41 = icmp ult i64 %.else.val.i.i, %.sink.i.i.i.i
+  %41 = icmp samesign ult i64 %.else.val.i.i, %.sink.i.i.i.i
   %or.cond.i = select i1 %.not6.i2.i, i1 true, i1 %41
   br i1 %or.cond.i, label %CBS_get_asn1.exit.thread, label %42
 
@@ -1146,14 +1146,14 @@ CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %42, %22
   br i1 %12, label %CBS_get_any_asn1_element.exit.i.i, label %CBS_get_any_asn1_element.exit.i.thread.i
 
 CBS_get_any_asn1_element.exit.i.i:                ; preds = %47
-  %.not19 = icmp ult i64 %.else.val.i.i, %.sink.i.i.i.i
+  %.not19 = icmp samesign ult i64 %.else.val.i.i, %.sink.i.i.i.i
   br i1 %.not19, label %CBS_get_asn1.exit.thread, label %CBS_peek_asn1_tag.exit.thread
 
 CBS_get_any_asn1_element.exit.i.thread.i:         ; preds = %47
   store ptr %8, ptr %1, align 8, !tbaa !6
   %.sroa.gep10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.else.val.i.i, ptr %.sroa.gep10.i.i, align 8, !tbaa !13
-  %50 = icmp ult i64 %.else.val.i.i, %.sink.i.i.i.i
+  %50 = icmp samesign ult i64 %.else.val.i.i, %.sink.i.i.i.i
   br i1 %50, label %CBS_get_asn1.exit.thread, label %CBS_get_asn1.exit.thread16
 
 CBS_get_asn1.exit.thread16:                       ; preds = %CBS_get_any_asn1_element.exit.i.thread.i
@@ -1263,14 +1263,14 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %41, %21
   store ptr %47, ptr %0, align 8, !tbaa !6
   %48 = sub nuw i64 %6, %.else.val.i.i.i
   store i64 %48, ptr %5, align 8, !tbaa !13
-  %49 = icmp ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
+  %49 = icmp samesign ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
   br i1 %49, label %CBS_get_optional_asn1.exit.thread, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.i.i.i.i.i
   %52 = sub nuw nsw i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
   %53 = icmp eq ptr %1, null
-  %switch.i.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i, label %CBS_get_optional_asn1.exit.thread, label %54
 
 54:                                               ; preds = %50
@@ -1297,7 +1297,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %41, %21
   %68 = zext nneg i8 %67 to i64
   %69 = add nsw i8 %67, -5
   %or.cond3.i.i.i.i = icmp ult i8 %69, -4
-  %70 = icmp ult i64 %58, %68
+  %70 = icmp samesign ult i64 %58, %68
   %or.cond96.i.i.i.i = select i1 %or.cond3.i.i.i.i, i1 true, i1 %70
   br i1 %or.cond96.i.i.i.i, label %CBS_get_optional_asn1.exit.thread, label %cbs_get.exit.i.i.i.i.i
 
@@ -1334,7 +1334,7 @@ cbs_get_u.exit.i.i.i.i:                           ; preds = %cbs_get.exit.i.i.i.
 CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %84, %64
   %.sink.i.i.i.i = phi i64 [ 2, %64 ], [ %86, %84 ]
   %.else.val.i.i = phi i64 [ %65, %64 ], [ %87, %84 ]
-  %88 = icmp ult i64 %52, %.else.val.i.i
+  %88 = icmp samesign ult i64 %52, %.else.val.i.i
   br i1 %88, label %CBS_get_optional_asn1.exit.thread, label %89
 
 89:                                               ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i
@@ -1349,7 +1349,7 @@ CBS_get_any_asn1_element.exit.i.thread.i:         ; preds = %89
   %.sroa.gep10.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.else.val.i.i, ptr %.sroa.gep10.i.i, align 8, !tbaa !13
   %.not6.i2.i = icmp ne i8 %55, 4
-  %90 = icmp ult i64 %.else.val.i.i, %.sink.i.i.i.i
+  %90 = icmp samesign ult i64 %.else.val.i.i, %.sink.i.i.i.i
   %or.cond.i = select i1 %.not6.i2.i, i1 true, i1 %90
   br i1 %or.cond.i, label %CBS_get_optional_asn1.exit.thread, label %CBS_get_asn1.exit.thread31
 
@@ -1362,7 +1362,7 @@ CBS_get_asn1.exit.thread31:                       ; preds = %CBS_get_any_asn1_el
   br i1 %.not9.old, label %95, label %CBS_get_optional_asn1.exit.thread
 
 CBS_get_asn1.exit:                                ; preds = %CBS_get_any_asn1_element.exit.i.i
-  %93 = icmp uge i64 %.else.val.i.i, %.sink.i.i.i.i
+  %93 = icmp samesign uge i64 %.else.val.i.i, %.sink.i.i.i.i
   %.not9 = icmp eq i64 %52, %.else.val.i.i
   %or.cond = and i1 %93, %.not9
   br i1 %or.cond, label %95, label %CBS_get_optional_asn1.exit.thread
@@ -1473,7 +1473,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %42, %22
   store ptr %48, ptr %0, align 8, !tbaa !6
   %49 = sub nuw i64 %7, %.else.val.i.i.i
   store i64 %49, ptr %6, align 8, !tbaa !13
-  %50 = icmp ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
+  %50 = icmp samesign ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
   br i1 %50, label %CBS_get_optional_asn1.exit.thread, label %51
 
 51:                                               ; preds = %47
@@ -1588,13 +1588,13 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %41, %21
   store ptr %47, ptr %0, align 8, !tbaa !6
   %48 = sub nuw i64 %6, %.else.val.i.i.i
   store i64 %48, ptr %5, align 8, !tbaa !13
-  %49 = icmp ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
+  %49 = icmp samesign ult i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
   br i1 %49, label %CBS_get_optional_asn1.exit.thread, label %50
 
 50:                                               ; preds = %46
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.i.i.i.i.i
   %52 = sub nuw nsw i64 %.else.val.i.i.i, %.sink.i.i.i.i.i
-  %switch.i.i.i = icmp ult i64 %52, 2
+  %switch.i.i.i = icmp samesign ult i64 %52, 2
   br i1 %switch.i.i.i, label %CBS_get_optional_asn1.exit.thread, label %53
 
 53:                                               ; preds = %50
@@ -1621,7 +1621,7 @@ CBS_get_bytes.exit.sink.split.i.i.i.i.i:          ; preds = %41, %21
   %67 = zext nneg i8 %66 to i64
   %68 = add nsw i8 %66, -5
   %or.cond3.i.i.i.i = icmp ult i8 %68, -4
-  %69 = icmp ult i64 %57, %67
+  %69 = icmp samesign ult i64 %57, %67
   %or.cond96.i.i.i.i = select i1 %or.cond3.i.i.i.i, i1 true, i1 %69
   br i1 %or.cond96.i.i.i.i, label %CBS_get_optional_asn1.exit.thread, label %cbs_get.exit.i.i.i.i.i
 
@@ -1658,12 +1658,12 @@ cbs_get_u.exit.i.i.i.i:                           ; preds = %cbs_get.exit.i.i.i.
 CBS_get_bytes.exit.sink.split.i.i.i.i:            ; preds = %83, %63
   %.sink.i.i.i.i = phi i64 [ 2, %63 ], [ %85, %83 ]
   %.else.val.i.i = phi i64 [ %64, %63 ], [ %86, %83 ]
-  %87 = icmp ult i64 %52, %.else.val.i.i
+  %87 = icmp samesign ult i64 %52, %.else.val.i.i
   br i1 %87, label %CBS_get_optional_asn1.exit.thread, label %88
 
 88:                                               ; preds = %CBS_get_bytes.exit.sink.split.i.i.i.i
   %.not6.i2.i = icmp ne i8 %54, 1
-  %89 = icmp ult i64 %.else.val.i.i, %.sink.i.i.i.i
+  %89 = icmp samesign ult i64 %.else.val.i.i, %.sink.i.i.i.i
   %or.cond.i = select i1 %.not6.i2.i, i1 true, i1 %89
   br i1 %or.cond.i, label %CBS_get_optional_asn1.exit.thread, label %90
 

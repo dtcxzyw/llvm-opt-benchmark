@@ -10332,14 +10332,14 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %fo
 
 _ZNK2bv6solver4findEi.exit:                       ; preds = %while.body.i.i
   %cmp6 = icmp eq i32 %v.addr.0.i.i, %v1
-  br i1 %cmp6, label %if.then.i, label %for.cond, !llvm.loop !62
+  br i1 %cmp6, label %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit, label %for.cond, !llvm.loop !62
 
-if.then.i:                                        ; preds = %_ZNK2bv6solver4findEi.exit
+_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit: ; preds = %_ZNK2bv6solver4findEi.exit
   %8 = trunc nuw i64 %indvars.iv to i32
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %for.cond, %if.then.i
-  %.sink = phi i32 [ %8, %if.then.i ], [ 0, %for.cond ]
+return.sink.split:                                ; preds = %for.cond, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit
+  %.sink = phi i32 [ %8, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit ], [ 0, %for.cond ]
   store i32 %.sink, ptr %arrayidx.i8, align 4
   br label %return
 
@@ -12535,14 +12535,14 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i,
 
 _ZNK2bv6solver4findEi.exit.i.i:                   ; preds = %while.body.i.i.i.i
   %cmp6.i.i = icmp eq i32 %v.addr.0.i.i.i.i, %3
-  br i1 %cmp6.i.i, label %if.then.i.i.i, label %for.cond.i.i, !llvm.loop !62
+  br i1 %cmp6.i.i, label %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit.i.i, label %for.cond.i.i, !llvm.loop !62
 
-if.then.i.i.i:                                    ; preds = %_ZNK2bv6solver4findEi.exit.i.i
+_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit.i.i: ; preds = %_ZNK2bv6solver4findEi.exit.i.i
   %20 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %return.sink.split.i.i
 
-return.sink.split.i.i:                            ; preds = %for.cond.i.i, %if.then.i.i.i
-  %.sink.i.i = phi i32 [ %20, %if.then.i.i.i ], [ 0, %for.cond.i.i ]
+return.sink.split.i.i:                            ; preds = %for.cond.i.i, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit.i.i
+  %.sink.i.i = phi i32 [ %20, %_ZN6vectorIN2bv6solver12zero_one_bitELb0EjE6shrinkEj.exit.i.i ], [ 0, %for.cond.i.i ]
   store i32 %.sink.i.i, ptr %arrayidx.i8.i.i, align 4
   br label %_ZN10union_findIN2bv6solverEN3euf6solverEE7unmergeEj.exit
 
@@ -12659,13 +12659,7 @@ if.end:                                           ; preds = %if.else
   %call25 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv24)
   %4 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit.thread, label %_ZNK6vectorIN2bv6solver16propagation_itemELb0EjE4sizeEv.exit
-
-_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit.thread: ; preds = %if.end
-  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
-  store i32 0, ptr %arrayidx2722, align 4
-  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  br label %_ZN6vectorIN2bv6solver16propagation_itemELb0EjE7destroyEv.exit
+  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit, label %_ZNK6vectorIN2bv6solver16propagation_itemELb0EjE4sizeEv.exit
 
 _ZNK6vectorIN2bv6solver16propagation_itemELb0EjE4sizeEv.exit: ; preds = %if.end
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
@@ -12687,14 +12681,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorIN2bv6so
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !70
 
+_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit: ; preds = %if.end
+  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
+  store i32 0, ptr %arrayidx2722, align 4
+  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
+  br label %_ZN6vectorIN2bv6solver16propagation_itemELb0EjE7destroyEv.exit
+
 if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorIN2bv6solver16propagation_itemELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorIN2bv6solver16propagation_itemELb0EjE7destroyEv.exit
 
-_ZN6vectorIN2bv6solver16propagation_itemELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit.thread, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %if.then.i ]
-  store ptr %add.ptr282832, ptr %this, align 8
+_ZN6vectorIN2bv6solver16propagation_itemELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit, %if.then.i
+  %add.ptr282833 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPN2bv6solver16propagation_itemEjS3_ESt4pairIT_T1_ES5_T0_S6_.exit ], [ %add.ptr28, %if.then.i ]
+  store ptr %add.ptr282833, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32
 
@@ -12773,13 +12773,7 @@ if.end:                                           ; preds = %if.else
   %call25 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv24)
   %4 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit.thread, label %_ZNK6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE4sizeEv.exit
-
-_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit.thread: ; preds = %if.end
-  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
-  store i32 0, ptr %arrayidx2722, align 4
-  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  br label %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE7destroyEv.exit
+  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit, label %_ZNK6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE4sizeEv.exit
 
 _ZNK6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE4sizeEv.exit: ; preds = %if.end
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
@@ -12801,14 +12795,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !71
 
+_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit: ; preds = %if.end
+  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
+  store i32 0, ptr %arrayidx2722, align 4
+  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
+  br label %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE7destroyEv.exit
+
 if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit.thread, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit.thread ], [ %add.ptr28, %if.then.i ]
-  store ptr %add.ptr282832, ptr %this, align 8
+_ZN6vectorISt4pairIP4exprN2bv6solver16internalize_modeEELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit, %if.then.i
+  %add.ptr282833 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP4exprN2bv6solver16internalize_modeEEjS7_ES0_IT_T1_ES8_T0_S9_.exit ], [ %add.ptr28, %if.then.i ]
+  store ptr %add.ptr282833, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32
 

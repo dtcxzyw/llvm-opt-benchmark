@@ -4626,8 +4626,7 @@ ssl_decrypt_encrypted_pms.exit:                   ; preds = %39, %48, %51, %54, 
   br i1 %115, label %99, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %99, %92, %ssl_decrypt_encrypted_pms.exit
-  %.0 = phi i32 [ %91, %ssl_decrypt_encrypted_pms.exit ], [ 0, %92 ], [ 0, %99 ]
-  ret i32 %.0
+  ret i32 %91
 }
 
 declare i32 @mbedtls_dhm_read_public(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6

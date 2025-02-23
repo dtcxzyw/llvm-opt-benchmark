@@ -1993,7 +1993,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %41, %Vec_PtrAllocSi
 Abc_Clock.exit:                                   ; preds = %Vec_PtrCleanSimInfo.exit, %47
   %.0.i.neg = phi i64 [ %.neg33, %47 ], [ 1, %Vec_PtrCleanSimInfo.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #17
-  %51 = call ptr @Saig_ManProcessCex(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %36, i32 poison)
+  %51 = call ptr @Saig_ManProcessCex(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %36, i32 poison)
   %.not22 = icmp eq i32 %3, 0
   br i1 %.not22, label %68, label %52
 

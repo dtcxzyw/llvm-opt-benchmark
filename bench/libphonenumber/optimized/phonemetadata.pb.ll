@@ -9760,7 +9760,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit569: ; preds = %
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit574: ; preds = %478, %484, %496
   %.0.i573 = phi ptr [ %479, %478 ], [ %487, %484 ], [ %498, %496 ]
-  %499 = tail call noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %471, ptr noundef nonnull %.0.i573, ptr noundef %2)
+  %499 = tail call noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %471, ptr noundef nonnull %.0.i573, ptr noundef nonnull %2)
   %500 = add nuw i32 %.0432724, 1
   %exitcond.not = icmp eq i32 %500, %461
   br i1 %exitcond.not, label %._crit_edge, label %463, !llvm.loop !21
@@ -9846,7 +9846,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit577: ; preds = %
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit582: ; preds = %519, %525, %537
   %.0.i581 = phi ptr [ %520, %519 ], [ %528, %525 ], [ %539, %537 ]
-  %540 = tail call noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %512, ptr noundef nonnull %.0.i581, ptr noundef %2)
+  %540 = tail call noundef ptr @_ZNK4i18n12phonenumbers12NumberFormat18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %512, ptr noundef nonnull %.0.i581, ptr noundef nonnull %2)
   %541 = add nuw i32 %.0430726, 1
   %exitcond781.not = icmp eq i32 %541, %502
   br i1 %exitcond781.not, label %._crit_edge729, label %504, !llvm.loop !22
@@ -9922,7 +9922,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit585: ; preds = %
 
 _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit590: ; preds = %555, %561, %573
   %.0.i589 = phi ptr [ %556, %555 ], [ %564, %561 ], [ %575, %573 ]
-  %576 = tail call noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberDesc18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(72) %548, ptr noundef nonnull %.0.i589, ptr noundef %2)
+  %576 = tail call noundef ptr @_ZNK4i18n12phonenumbers15PhoneNumberDesc18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(72) %548, ptr noundef nonnull %.0.i589, ptr noundef nonnull %2)
   br label %577
 
 577:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit590, %._crit_edge729

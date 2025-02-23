@@ -295,7 +295,7 @@ declare void @jv_free(i64, ptr) local_unnamed_addr #2
 declare { i64, ptr } @jv_null() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @yyparse(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @yyparse(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %union.YYSTYPE, align 8
   %6 = alloca %struct.location, align 8
   %7 = alloca [200 x i16], align 16

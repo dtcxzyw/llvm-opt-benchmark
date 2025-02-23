@@ -175,7 +175,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter13EncryptPacketEhmN4base16B
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i64 %16(ptr noundef nonnull align 8 dereferenceable(96) %0, i64 noundef %13)
   %18 = icmp ult i64 %8, %17
-  br i1 %18, label %35, label %19
+  br i1 %18, label %36, label %19
 
 19:                                               ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -201,12 +201,7 @@ define noundef zeroext i1 @_ZN3net17AeadBaseEncrypter13EncryptPacketEhmN4base16B
   %32 = add i64 %31, %13
   %33 = call i32 @EVP_AEAD_CTX_seal(ptr noundef %29, ptr noundef %6, ptr noundef nonnull %10, i64 noundef %32, ptr noundef nonnull %11, i64 noundef %27, ptr noundef %.sroa.013.0.copyload, i64 noundef %13, ptr noundef %3, i64 noundef %4)
   %.not3.i.not = icmp eq i32 %33, 0
-  br i1 %.not3.i.not, label %.preheader.i, label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread17
-
-_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread17: ; preds = %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
-  store i64 %17, ptr %7, align 8, !tbaa !25
-  br label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
+  br i1 %.not3.i.not, label %.preheader.i, label %35
 
 .preheader.i:                                     ; preds = %26, %.preheader.i
   %34 = call i32 @ERR_get_error()
@@ -217,12 +212,17 @@ _ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_s
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
   br label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
 
-_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread: ; preds = %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit, %19, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread17
-  %.0.i16 = phi i1 [ false, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit ], [ true, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread17 ], [ false, %19 ]
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #9
-  br label %35
+35:                                               ; preds = %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  store i64 %17, ptr %7, align 8, !tbaa !25
+  br label %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
 
-35:                                               ; preds = %9, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
+_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread: ; preds = %19, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit, %35
+  %.0.i16 = phi i1 [ false, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit ], [ true, %35 ], [ false, %19 ]
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %11) #9
+  br label %36
+
+36:                                               ; preds = %9, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread
   %.0 = phi i1 [ %.0.i16, %_ZN3net17AeadBaseEncrypter7EncryptEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES9_S9_Ph.exit.thread ], [ false, %9 ]
   ret i1 %.0
 }

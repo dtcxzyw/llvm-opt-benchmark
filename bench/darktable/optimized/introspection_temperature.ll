@@ -852,7 +852,7 @@ define void @commit_params(ptr noundef %0, ptr noundef readonly captures(none) %
   br i1 %brmerge, label %.loopexit, label %49
 
 49:                                               ; preds = %38
-  tail call void @dt_iop_set_module_trouble_message(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null) #24
+  tail call void @dt_iop_set_module_trouble_message(ptr noundef nonnull %0, ptr noundef null, ptr noundef null, ptr noundef null) #24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %24, %38, %49

@@ -441,39 +441,33 @@ smart_str_alloc.exit:                             ; preds = %21, %26
   store i8 %38, ptr %39, align 1, !tbaa !4
   %40 = udiv i64 %.0.i18, 10
   %.not.i19 = icmp samesign ult i64 %.0.i18, 10
-  br i1 %.not.i19, label %zend_print_ulong_to_buf.exit, label %35
+  br i1 %.not.i19, label %41, label %35
 
-zend_print_ulong_to_buf.exit:                     ; preds = %35
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %13, %41
-  %.not.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i, label %47, label %43, !prof !17
-
-43:                                               ; preds = %zend_print_ulong_to_buf.exit
+41:                                               ; preds = %35
+  %42 = ptrtoint ptr %39 to i64
+  %43 = sub i64 %13, %42
   %44 = load i64, ptr %32, align 8, !tbaa !7
-  %45 = add i64 %44, %42
+  %45 = add i64 %44, %43
   %46 = load i64, ptr %11, align 8, !tbaa !18
   %.not12.i.i = icmp ult i64 %45, %46
   br i1 %.not12.i.i, label %48, label %47, !prof !20
 
-47:                                               ; preds = %43, %zend_print_ulong_to_buf.exit
-  %.0.i.i = phi i64 [ %42, %zend_print_ulong_to_buf.exit ], [ %45, %43 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %.0.i.i) #9
+47:                                               ; preds = %41
+  call void @smart_str_erealloc(ptr noundef nonnull %4, i64 noundef %45) #9
   %.pre38 = load ptr, ptr %4, align 8, !tbaa !21
   %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %.pre38, i64 16
   %.pre40 = load i64, ptr %.phi.trans.insert39, align 8, !tbaa !7
   br label %48
 
-48:                                               ; preds = %47, %43
-  %49 = phi i64 [ %.pre40, %47 ], [ %44, %43 ]
-  %50 = phi ptr [ %.pre38, %47 ], [ %31, %43 ]
-  %.1.i.i = phi i64 [ %.0.i.i, %47 ], [ %45, %43 ]
+48:                                               ; preds = %47, %41
+  %49 = phi i64 [ %.pre40, %47 ], [ %44, %41 ]
+  %50 = phi ptr [ %.pre38, %47 ], [ %31, %41 ]
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %39, i64 %42, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %52, ptr noundef nonnull align 1 dereferenceable(1) %39, i64 %43, i1 false)
   %53 = load ptr, ptr %4, align 8, !tbaa !21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i64 %.1.i.i, ptr %54, align 8, !tbaa !7
+  store i64 %45, ptr %54, align 8, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #9
   %55 = load i64, ptr %54, align 8, !tbaa !7
   %56 = add i64 %55, 1

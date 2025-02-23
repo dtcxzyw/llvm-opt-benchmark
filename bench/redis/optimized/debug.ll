@@ -515,7 +515,7 @@ sdslen.exit:                                      ; preds = %2, %12, %15, %19, %
 xorDigest.exit:                                   ; preds = %31
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %3) #25
-  call void @decrRefCount(ptr noundef %5) #25
+  call void @decrRefCount(ptr noundef nonnull %5) #25
   ret void
 }
 
@@ -684,7 +684,7 @@ mixDigest.exit:                                   ; preds = %32
   call void @SHA1Update(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef 20) #25
   call void @SHA1Final(ptr noundef nonnull %0, ptr noundef nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %5) #25
-  call void @decrRefCount(ptr noundef %6) #25
+  call void @decrRefCount(ptr noundef nonnull %6) #25
   ret void
 }
 
@@ -1449,7 +1449,7 @@ xorDigest.exit145:                                ; preds = %307
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %19) #25
   call void @llvm.lifetime.end.p0(i64 92, ptr nonnull %18) #25
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %60) #25
-  %313 = call i32 @hashTypeNext(ptr noundef %234, i32 noundef 0) #25
+  %313 = call i32 @hashTypeNext(ptr noundef nonnull %234, i32 noundef 0) #25
   %.not86 = icmp eq i32 %313, -1
   br i1 %.not86, label %._crit_edge174, label %237, !llvm.loop !39
 
@@ -2932,7 +2932,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   %234 = lshr i32 %233, 8
   %235 = tail call i64 @estimateObjectIdleTime(ptr noundef nonnull %170) #25
   %236 = udiv i64 %235, 1000
-  call void (ptr, ptr, ...) @addReplyStatusFormat(ptr noundef %0, ptr noundef nonnull @.str.151, ptr noundef nonnull %170, i32 noundef %225, ptr noundef %174, i64 noundef %232, i32 noundef %234, i64 noundef %236, ptr noundef nonnull %6) #25
+  call void (ptr, ptr, ...) @addReplyStatusFormat(ptr noundef nonnull %0, ptr noundef nonnull @.str.151, ptr noundef nonnull %170, i32 noundef %225, ptr noundef %174, i64 noundef %232, i32 noundef %234, i64 noundef %236, ptr noundef nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 138, ptr nonnull %6) #25
   br label %.loopexit
 
@@ -3235,7 +3235,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %390
 
 389:                                              ; preds = %390
-  call void @addReplyStatus(ptr noundef %0, ptr noundef %394) #25
+  call void @addReplyStatus(ptr noundef nonnull %0, ptr noundef %394) #25
   call void @sdsfree(ptr noundef %394) #25
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %10) #25
   br label %.loopexit
@@ -3330,7 +3330,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %435
 
 431:                                              ; preds = %435
-  call void @addReplyStatus(ptr noundef %0, ptr noundef %439) #25
+  call void @addReplyStatus(ptr noundef nonnull %0, ptr noundef %439) #25
   call void @sdsfree(ptr noundef %439) #25
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %12) #25
   %indvars.iv.next784 = add nuw nsw i64 %indvars.iv783, 1
@@ -3416,7 +3416,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 464:                                              ; preds = %463, %464
   %indvars.iv775 = phi i64 [ 0, %463 ], [ %indvars.iv.next776, %464 ]
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %indvars.iv775) #25
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %indvars.iv775) #25
   %indvars.iv.next776 = add nuw nsw i64 %indvars.iv775, 1
   %exitcond778.not = icmp eq i64 %indvars.iv.next776, 3
   br i1 %exitcond778.not, label %.loopexit, label %464, !llvm.loop !132
@@ -3432,7 +3432,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 468:                                              ; preds = %467, %468
   %indvars.iv771 = phi i64 [ 0, %467 ], [ %indvars.iv.next772, %468 ]
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %indvars.iv771) #25
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %indvars.iv771) #25
   %indvars.iv.next772 = add nuw nsw i64 %indvars.iv771, 1
   %exitcond774.not = icmp eq i64 %indvars.iv.next772, 3
   br i1 %exitcond774.not, label %.loopexit, label %468, !llvm.loop !133
@@ -3448,10 +3448,10 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 472:                                              ; preds = %471, %472
   %indvars.iv767 = phi i64 [ 0, %471 ], [ %indvars.iv.next768, %472 ]
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %indvars.iv767) #25
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %indvars.iv767) #25
   %473 = icmp eq i64 %indvars.iv767, 1
   %474 = zext i1 %473 to i32
-  tail call void @addReplyBool(ptr noundef %0, i32 noundef %474) #25
+  tail call void @addReplyBool(ptr noundef nonnull %0, i32 noundef %474) #25
   %indvars.iv.next768 = add nuw nsw i64 %indvars.iv767, 1
   %exitcond770.not = icmp eq i64 %indvars.iv.next768, 3
   br i1 %exitcond770.not, label %.loopexit, label %472, !llvm.loop !134

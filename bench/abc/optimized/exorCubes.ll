@@ -46,7 +46,7 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   %load_initial = load ptr, ptr %10, align 8
   br label %25
 
-.preheader:                                       ; preds = %25
+.lr.ph53.preheader:                               ; preds = %25
   %.pre60.pre = load ptr, ptr %10, align 8, !tbaa !3
   %24 = add nsw i32 %0, -1
   %wide.trip.count58 = zext nneg i32 %24 to i64
@@ -66,11 +66,11 @@ define i32 @AllocateCover(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_
   store ptr %30, ptr %31, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %25, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph53.preheader, label %25, !llvm.loop !13
 
-.lr.ph53:                                         ; preds = %.preheader, %.lr.ph53
-  %32 = phi ptr [ %.pre60.pre, %.preheader ], [ %34, %.lr.ph53 ]
-  %indvars.iv55 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
+.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
+  %32 = phi ptr [ %.pre60.pre, %.lr.ph53.preheader ], [ %34, %.lr.ph53 ]
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next56, %.lr.ph53 ]
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %33 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next56
   %34 = load ptr, ptr %33, align 8, !tbaa !3

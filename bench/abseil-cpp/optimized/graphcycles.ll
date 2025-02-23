@@ -1750,26 +1750,26 @@ define dso_local void @_ZN4absl24synchronization_internal11GraphCycles10RemoveEd
   %10 = lshr i64 %1, 32
   %11 = trunc nuw i64 %10 to i32
   %12 = icmp eq i32 %9, %11
-  %13 = select i1 %12, ptr %7, ptr null
-  %14 = and i64 %2, 4294967295
-  %15 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !47
-  %19 = lshr i64 %2, 32
-  %20 = trunc nuw i64 %19 to i32
-  %21 = icmp eq i32 %18, %20
-  %22 = select i1 %21, ptr %16, ptr null
-  %23 = icmp ne ptr %13, null
-  %24 = icmp ne ptr %22, null
-  %or.cond = and i1 %23, %24
+  %13 = and i64 %2, 4294967295
+  %14 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !47
+  %18 = lshr i64 %2, 32
+  %19 = trunc nuw i64 %18 to i32
+  %20 = icmp eq i32 %17, %19
+  %21 = icmp ne ptr %7, null
+  %22 = and i1 %21, %12
+  %23 = icmp ne ptr %15, null
+  %24 = and i1 %23, %20
+  %or.cond = and i1 %22, %24
   br i1 %or.cond, label %25, label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit34
 
 25:                                               ; preds = %3
-  %26 = getelementptr inbounds nuw i8, ptr %13, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %27 = trunc i64 %2 to i32
   %.val15 = load ptr, ptr %26, align 8
-  %28 = getelementptr i8, ptr %13, i64 120
+  %28 = getelementptr i8, ptr %7, i64 120
   %.val16 = load i32, ptr %28, align 8, !tbaa !25
   %29 = add i32 %.val16, -1
   %30 = mul i32 %27, 41
@@ -1822,10 +1822,10 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.threa
   br label %_ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread.i
-  %48 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %49 = trunc i64 %1 to i32
   %.val = load ptr, ptr %48, align 8
-  %50 = getelementptr i8, ptr %22, i64 64
+  %50 = getelementptr i8, ptr %15, i64 64
   %.val14 = load i32, ptr %50, align 8, !tbaa !25
   %51 = add i32 %.val14, -1
   %52 = mul i32 %49, 41
@@ -2170,7 +2170,7 @@ _ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit63.i: 
 
 _ZN4absl24synchronization_internalL10ForwardDFSEPNS0_11GraphCycles3RepEii.exit: ; preds = %97
   %.val51 = load ptr, ptr %30, align 8
-  %134 = getelementptr i8, ptr %15, i64 120
+  %134 = getelementptr i8, ptr %9, i64 120
   %.val52 = load i32, ptr %134, align 8, !tbaa !25
   %135 = add i32 %.val52, -1
   %136 = mul i32 %6, 41
@@ -2224,7 +2224,7 @@ _ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.threa
 
 _ZN4absl24synchronization_internal12_GLOBAL__N_17NodeSet5eraseEi.exit: ; preds = %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.i, %_ZNK4absl24synchronization_internal12_GLOBAL__N_17NodeSet9FindIndexEi.exit.thread.i
   %.val49 = load ptr, ptr %33, align 8
-  %154 = getelementptr i8, ptr %24, i64 64
+  %154 = getelementptr i8, ptr %18, i64 64
   %.val50 = load i32, ptr %154, align 8, !tbaa !25
   %155 = add i32 %.val50, -1
   %156 = mul i32 %5, 41
@@ -2875,7 +2875,7 @@ _ZN4absl24synchronization_internalL7ReorderEPNS0_11GraphCycles3RepE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK4absl24synchronization_internal11GraphCycles8FindPathENS0_7GraphIdES2_iPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZNK4absl24synchronization_internal11GraphCycles8FindPathENS0_7GraphIdES2_iPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i64 %1, i64 %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.absl::synchronization_internal::(anonymous namespace)::NodeSet", align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !4
   %.val53 = load ptr, ptr %7, align 8, !tbaa !19
@@ -3506,11 +3506,11 @@ define internal fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit
-  %11 = phi i64 [ %7, %.lr.ph ], [ %181, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit ]
+  %11 = phi i64 [ %7, %.lr.ph ], [ %179, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit ]
   %.023 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit ]
-  %.01522 = phi i64 [ %2, %.lr.ph ], [ %126, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit ]
+  %.01522 = phi i64 [ %2, %.lr.ph ], [ %124, %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit ]
   %12 = icmp eq i64 %.01522, 0
-  br i1 %12, label %13, label %125
+  br i1 %12, label %13, label %123
 
 13:                                               ; preds = %10
   %14 = lshr i64 %11, 2
@@ -3575,7 +3575,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_
 
 50:                                               ; preds = %48, %._crit_edge.i.i.i.i
   %.128.i.i.i.i = phi i64 [ %21, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %51 = icmp sgt i64 %.128.i.i.i.i, %.014.i.i.i
+  %51 = icmp samesign ugt i64 %.128.i.i.i.i, %.014.i.i.i
   br i1 %51, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_T0_SI_T1_T2_.exit.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %50
@@ -3625,222 +3625,222 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronizat
   %74 = add nsw i64 %73, -1
   %75 = sdiv i64 %74, 2
   %76 = icmp sgt i64 %73, 2
-  br i1 %76, label %.lr.ph.i.i.i16.i, label %._crit_edge.i.i.i6.i
+  br i1 %76, label %.lr.ph.i.i.i15.i, label %._crit_edge.i.i.i6.i
 
-.lr.ph.i.i.i16.i:                                 ; preds = %.lr.ph.i5.i
-  %.val.val.i.i.i17.i = load ptr, ptr %3, align 8, !tbaa !19
+.lr.ph.i.i.i15.i:                                 ; preds = %.lr.ph.i5.i
+  %.val.val.i.i.i16.i = load ptr, ptr %3, align 8, !tbaa !19
   br label %77
 
-77:                                               ; preds = %77, %.lr.ph.i.i.i16.i
-  %.034.i.i.i18.i = phi i64 [ 0, %.lr.ph.i.i.i16.i ], [ %spec.select.i.i.i21.i, %77 ]
-  %78 = shl i64 %.034.i.i.i18.i, 1
+77:                                               ; preds = %77, %.lr.ph.i.i.i15.i
+  %.034.i.i.i17.i = phi i64 [ 0, %.lr.ph.i.i.i15.i ], [ %spec.select.i.i.i20.i, %77 ]
+  %78 = shl i64 %.034.i.i.i17.i, 1
   %79 = add i64 %78, 2
   %80 = getelementptr inbounds nuw i32, ptr %0, i64 %79
   %81 = or disjoint i64 %78, 1
   %82 = getelementptr inbounds nuw i32, ptr %0, i64 %81
-  %.val29.i.i.i19.i = load i32, ptr %80, align 4, !tbaa !31
-  %.val30.i.i.i20.i = load i32, ptr %82, align 4, !tbaa !31
-  %83 = zext i32 %.val29.i.i.i19.i to i64
-  %84 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i17.i, i64 %83
+  %.val29.i.i.i18.i = load i32, ptr %80, align 4, !tbaa !31
+  %.val30.i.i.i19.i = load i32, ptr %82, align 4, !tbaa !31
+  %83 = zext i32 %.val29.i.i.i18.i to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i16.i, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !20
   %86 = load i32, ptr %85, align 8, !tbaa !42
-  %87 = zext i32 %.val30.i.i.i20.i to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i17.i, i64 %87
+  %87 = zext i32 %.val30.i.i.i19.i to i64
+  %88 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i16.i, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !20
   %90 = load i32, ptr %89, align 8, !tbaa !42
   %91 = icmp slt i32 %86, %90
-  %spec.select.i.i.i21.i = select i1 %91, i64 %81, i64 %79
-  %92 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i.i.i21.i
+  %spec.select.i.i.i20.i = select i1 %91, i64 %81, i64 %79
+  %92 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i.i.i20.i
   %93 = load i32, ptr %92, align 4, !tbaa !31
-  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %.034.i.i.i18.i
+  %94 = getelementptr inbounds nuw i32, ptr %0, i64 %.034.i.i.i17.i
   store i32 %93, ptr %94, align 4, !tbaa !31
-  %95 = icmp slt i64 %spec.select.i.i.i21.i, %75
+  %95 = icmp slt i64 %spec.select.i.i.i20.i, %75
   br i1 %95, label %77, label %._crit_edge.i.i.i6.i, !llvm.loop !66
 
 ._crit_edge.i.i.i6.i:                             ; preds = %77, %.lr.ph.i5.i
-  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i21.i, %77 ]
+  %.0.lcssa.i.i.i7.i = phi i64 [ 0, %.lr.ph.i5.i ], [ %spec.select.i.i.i20.i, %77 ]
   %96 = and i64 %72, 4
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %98, label %108
+  br i1 %97, label %98, label %107
 
 98:                                               ; preds = %._crit_edge.i.i.i6.i
   %99 = add nsw i64 %73, -2
   %100 = ashr exact i64 %99, 1
   %101 = icmp eq i64 %.0.lcssa.i.i.i7.i, %100
-  br i1 %101, label %102, label %108
+  br i1 %101, label %.thread.i.i.i, label %107
 
-102:                                              ; preds = %98
-  %103 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
-  %104 = or disjoint i64 %103, 1
-  %105 = getelementptr inbounds nuw i32, ptr %0, i64 %104
-  %106 = load i32, ptr %105, align 4, !tbaa !31
-  %107 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i7.i
-  store i32 %106, ptr %107, align 4, !tbaa !31
-  br label %108
+.thread.i.i.i:                                    ; preds = %98
+  %102 = shl nuw nsw i64 %.0.lcssa.i.i.i7.i, 1
+  %103 = or disjoint i64 %102, 1
+  %104 = getelementptr inbounds nuw i32, ptr %0, i64 %103
+  %105 = load i32, ptr %104, align 4, !tbaa !31
+  %106 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  store i32 %105, ptr %106, align 4, !tbaa !31
+  br label %.lr.ph.i.i.i.i9.i
 
-108:                                              ; preds = %102, %98, %._crit_edge.i.i.i6.i
-  %.128.i.i.i8.i = phi i64 [ %104, %102 ], [ %.0.lcssa.i.i.i7.i, %98 ], [ %.0.lcssa.i.i.i7.i, %._crit_edge.i.i.i6.i ]
-  %109 = icmp sgt i64 %.128.i.i.i8.i, 0
-  br i1 %109, label %.lr.ph.i.i.i.i10.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i
+107:                                              ; preds = %98, %._crit_edge.i.i.i6.i
+  %.not.i.i8.i = icmp eq i64 %.0.lcssa.i.i.i7.i, 0
+  br i1 %.not.i.i8.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i9.i
 
-.lr.ph.i.i.i.i10.i:                               ; preds = %108
-  %.val.val.i.i.i.i11.i = load ptr, ptr %3, align 8, !tbaa !19
-  %110 = zext i32 %69 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i11.i, i64 %110
-  %112 = load ptr, ptr %111, align 8, !tbaa !20
-  br label %113
+.lr.ph.i.i.i.i9.i:                                ; preds = %107, %.thread.i.i.i
+  %.128.i2.i.i.i = phi i64 [ %103, %.thread.i.i.i ], [ %.0.lcssa.i.i.i7.i, %107 ]
+  %.val.val.i.i.i.i10.i = load ptr, ptr %3, align 8, !tbaa !19
+  %108 = zext i32 %69 to i64
+  %109 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i10.i, i64 %108
+  %110 = load ptr, ptr %109, align 8, !tbaa !20
+  br label %111
 
-113:                                              ; preds = %121, %.lr.ph.i.i.i.i10.i
-  %.0134.i.i.i.i12.i = phi i64 [ %.128.i.i.i8.i, %.lr.ph.i.i.i.i10.i ], [ %.05.i.i12.i.i.i, %121 ]
-  %.05.in.i.i.i.i13.i = add nsw i64 %.0134.i.i.i.i12.i, -1
-  %.05.i.i12.i.i.i = lshr i64 %.05.in.i.i.i.i13.i, 1
-  %114 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i12.i.i.i
-  %.val14.i.i.i.i14.i = load i32, ptr %114, align 4, !tbaa !31
-  %115 = zext i32 %.val14.i.i.i.i14.i to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i11.i, i64 %115
-  %117 = load ptr, ptr %116, align 8, !tbaa !20
-  %118 = load i32, ptr %117, align 8, !tbaa !42
-  %119 = load i32, ptr %112, align 8, !tbaa !42
-  %120 = icmp slt i32 %118, %119
-  br i1 %120, label %121, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i
+111:                                              ; preds = %119, %.lr.ph.i.i.i.i9.i
+  %.0134.i.i.i.i11.i = phi i64 [ %.128.i2.i.i.i, %.lr.ph.i.i.i.i9.i ], [ %.05.i.i34.i.i.i, %119 ]
+  %.05.in.i.i.i.i12.i = add nsw i64 %.0134.i.i.i.i11.i, -1
+  %.05.i.i34.i.i.i = lshr i64 %.05.in.i.i.i.i12.i, 1
+  %112 = getelementptr inbounds nuw i32, ptr %0, i64 %.05.i.i34.i.i.i
+  %.val14.i.i.i.i13.i = load i32, ptr %112, align 4, !tbaa !31
+  %113 = zext i32 %.val14.i.i.i.i13.i to i64
+  %114 = getelementptr inbounds nuw ptr, ptr %.val.val.i.i.i.i10.i, i64 %113
+  %115 = load ptr, ptr %114, align 8, !tbaa !20
+  %116 = load i32, ptr %115, align 8, !tbaa !42
+  %117 = load i32, ptr %110, align 8, !tbaa !42
+  %118 = icmp slt i32 %116, %117
+  br i1 %118, label %119, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i
 
-121:                                              ; preds = %113
-  %122 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i.i.i12.i
-  store i32 %.val14.i.i.i.i14.i, ptr %122, align 4, !tbaa !31
-  %.not.i.i15.i = icmp ult i64 %.05.in.i.i.i.i13.i, 2
-  br i1 %.not.i.i15.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i, label %113, !llvm.loop !67
+119:                                              ; preds = %111
+  %120 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i.i.i11.i
+  store i32 %.val14.i.i.i.i13.i, ptr %120, align 4, !tbaa !31
+  %.not5.i.i.i = icmp ult i64 %.05.in.i.i.i.i12.i, 2
+  br i1 %.not5.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i, label %111, !llvm.loop !67
 
-_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %121, %113, %108
-  %.013.lcssa.i.i.i.i9.i = phi i64 [ %.128.i.i.i8.i, %108 ], [ %.0134.i.i.i.i12.i, %113 ], [ 0, %121 ]
-  %123 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i9.i
-  store i32 %69, ptr %123, align 4, !tbaa !31
-  %124 = icmp sgt i64 %72, 4
-  br i1 %124, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit, !llvm.loop !69
+_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i: ; preds = %119, %111, %107
+  %.013.lcssa.i.i.i.i14.i = phi i64 [ 0, %107 ], [ %.0134.i.i.i.i11.i, %111 ], [ 0, %119 ]
+  %121 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i.i14.i
+  store i32 %69, ptr %121, align 4, !tbaa !31
+  %122 = icmp sgt i64 %72, 4
+  br i1 %122, label %.lr.ph.i5.i, label %_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit, !llvm.loop !69
 
-125:                                              ; preds = %10
-  %126 = add nsw i64 %.01522, -1
+123:                                              ; preds = %10
+  %124 = add nsw i64 %.01522, -1
   %.val = load ptr, ptr %3, align 8, !tbaa !19
-  %127 = lshr i64 %11, 3
-  %128 = getelementptr inbounds nuw i32, ptr %0, i64 %127
-  %129 = getelementptr inbounds i8, ptr %.023, i64 -4
+  %125 = lshr i64 %11, 3
+  %126 = getelementptr inbounds nuw i32, ptr %0, i64 %125
+  %127 = getelementptr inbounds i8, ptr %.023, i64 -4
   %.val34.i.i = load i32, ptr %9, align 4, !tbaa !31
-  %.val35.i.i = load i32, ptr %128, align 4, !tbaa !31
-  %130 = zext i32 %.val34.i.i to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %.val, i64 %130
-  %132 = load ptr, ptr %131, align 8, !tbaa !20
-  %133 = load i32, ptr %132, align 8, !tbaa !42
-  %134 = zext i32 %.val35.i.i to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %.val, i64 %134
-  %136 = load ptr, ptr %135, align 8, !tbaa !20
-  %137 = load i32, ptr %136, align 8, !tbaa !42
-  %138 = icmp slt i32 %133, %137
-  %.val32.i.i = load i32, ptr %129, align 4, !tbaa !31
-  %139 = zext i32 %.val32.i.i to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %.val, i64 %139
-  %141 = load ptr, ptr %140, align 8, !tbaa !20
-  %142 = load i32, ptr %141, align 8, !tbaa !42
-  br i1 %138, label %143, label %152
+  %.val35.i.i = load i32, ptr %126, align 4, !tbaa !31
+  %128 = zext i32 %.val34.i.i to i64
+  %129 = getelementptr inbounds nuw ptr, ptr %.val, i64 %128
+  %130 = load ptr, ptr %129, align 8, !tbaa !20
+  %131 = load i32, ptr %130, align 8, !tbaa !42
+  %132 = zext i32 %.val35.i.i to i64
+  %133 = getelementptr inbounds nuw ptr, ptr %.val, i64 %132
+  %134 = load ptr, ptr %133, align 8, !tbaa !20
+  %135 = load i32, ptr %134, align 8, !tbaa !42
+  %136 = icmp slt i32 %131, %135
+  %.val32.i.i = load i32, ptr %127, align 4, !tbaa !31
+  %137 = zext i32 %.val32.i.i to i64
+  %138 = getelementptr inbounds nuw ptr, ptr %.val, i64 %137
+  %139 = load ptr, ptr %138, align 8, !tbaa !20
+  %140 = load i32, ptr %139, align 8, !tbaa !42
+  br i1 %136, label %141, label %150
 
-143:                                              ; preds = %125
-  %144 = icmp slt i32 %137, %142
-  br i1 %144, label %145, label %147
+141:                                              ; preds = %123
+  %142 = icmp slt i32 %135, %140
+  br i1 %142, label %143, label %145
 
-145:                                              ; preds = %143
-  %146 = load i32, ptr %0, align 4, !tbaa !31
+143:                                              ; preds = %141
+  %144 = load i32, ptr %0, align 4, !tbaa !31
   store i32 %.val35.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %146, ptr %128, align 4, !tbaa !31
+  store i32 %144, ptr %126, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-147:                                              ; preds = %143
-  %148 = icmp slt i32 %133, %142
-  %149 = load i32, ptr %0, align 4, !tbaa !31
-  br i1 %148, label %150, label %151
+145:                                              ; preds = %141
+  %146 = icmp slt i32 %131, %140
+  %147 = load i32, ptr %0, align 4, !tbaa !31
+  br i1 %146, label %148, label %149
 
-150:                                              ; preds = %147
+148:                                              ; preds = %145
   store i32 %.val32.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %149, ptr %129, align 4, !tbaa !31
+  store i32 %147, ptr %127, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-151:                                              ; preds = %147
+149:                                              ; preds = %145
   store i32 %.val34.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %149, ptr %9, align 4, !tbaa !31
+  store i32 %147, ptr %9, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-152:                                              ; preds = %125
-  %153 = icmp slt i32 %133, %142
-  br i1 %153, label %154, label %156
+150:                                              ; preds = %123
+  %151 = icmp slt i32 %131, %140
+  br i1 %151, label %152, label %154
 
-154:                                              ; preds = %152
-  %155 = load i32, ptr %0, align 4, !tbaa !31
+152:                                              ; preds = %150
+  %153 = load i32, ptr %0, align 4, !tbaa !31
   store i32 %.val34.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %155, ptr %9, align 4, !tbaa !31
+  store i32 %153, ptr %9, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-156:                                              ; preds = %152
-  %157 = icmp slt i32 %137, %142
-  %158 = load i32, ptr %0, align 4, !tbaa !31
-  br i1 %157, label %159, label %160
+154:                                              ; preds = %150
+  %155 = icmp slt i32 %135, %140
+  %156 = load i32, ptr %0, align 4, !tbaa !31
+  br i1 %155, label %157, label %158
 
-159:                                              ; preds = %156
+157:                                              ; preds = %154
   store i32 %.val32.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %158, ptr %129, align 4, !tbaa !31
+  store i32 %156, ptr %127, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-160:                                              ; preds = %156
+158:                                              ; preds = %154
   store i32 %.val35.i.i, ptr %0, align 4, !tbaa !31
-  store i32 %158, ptr %128, align 4, !tbaa !31
+  store i32 %156, ptr %126, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %160, %159, %154, %151, %150, %145
+_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %158, %157, %152, %149, %148, %143
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader, %179
-  %.013.i.i = phi ptr [ %.114.i.i, %179 ], [ %.023, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %171, %179 ], [ %9, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader, %177
+  %.013.i.i = phi ptr [ %.114.i.i, %177 ], [ %.023, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %169, %177 ], [ %9, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i.preheader ]
   %.val17.i.i = load i32, ptr %0, align 4, !tbaa !31
-  %161 = zext i32 %.val17.i.i to i64
-  %162 = getelementptr inbounds nuw ptr, ptr %.val, i64 %161
-  %163 = load ptr, ptr %162, align 8, !tbaa !20
-  %164 = load i32, ptr %163, align 8, !tbaa !42
-  br label %165
+  %159 = zext i32 %.val17.i.i to i64
+  %160 = getelementptr inbounds nuw ptr, ptr %.val, i64 %159
+  %161 = load ptr, ptr %160, align 8, !tbaa !20
+  %162 = load i32, ptr %161, align 8, !tbaa !42
+  br label %163
 
-165:                                              ; preds = %165, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i ], [ %171, %165 ]
+163:                                              ; preds = %163, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i ], [ %169, %163 ]
   %.1.val.i.i = load i32, ptr %.1.i.i, align 4, !tbaa !31
-  %166 = zext i32 %.1.val.i.i to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %.val, i64 %166
-  %168 = load ptr, ptr %167, align 8, !tbaa !20
-  %169 = load i32, ptr %168, align 8, !tbaa !42
-  %170 = icmp slt i32 %169, %164
-  %171 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  br i1 %170, label %165, label %.preheader.i.i, !llvm.loop !70
+  %164 = zext i32 %.1.val.i.i to i64
+  %165 = getelementptr inbounds nuw ptr, ptr %.val, i64 %164
+  %166 = load ptr, ptr %165, align 8, !tbaa !20
+  %167 = load i32, ptr %166, align 8, !tbaa !42
+  %168 = icmp slt i32 %167, %162
+  %169 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
+  br i1 %168, label %163, label %.preheader.i.i, !llvm.loop !70
 
-.preheader.i.i:                                   ; preds = %165, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %165 ]
+.preheader.i.i:                                   ; preds = %163, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %163 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %.114.val.i.i = load i32, ptr %.114.i.i, align 4, !tbaa !31
-  %172 = zext i32 %.114.val.i.i to i64
-  %173 = getelementptr inbounds nuw ptr, ptr %.val, i64 %172
-  %174 = load ptr, ptr %173, align 8, !tbaa !20
-  %175 = load i32, ptr %174, align 8, !tbaa !42
-  %176 = icmp slt i32 %164, %175
-  br i1 %176, label %.preheader.i.i, label %177, !llvm.loop !71
+  %170 = zext i32 %.114.val.i.i to i64
+  %171 = getelementptr inbounds nuw ptr, ptr %.val, i64 %170
+  %172 = load ptr, ptr %171, align 8, !tbaa !20
+  %173 = load i32, ptr %172, align 8, !tbaa !42
+  %174 = icmp slt i32 %162, %173
+  br i1 %174, label %.preheader.i.i, label %175, !llvm.loop !71
 
-177:                                              ; preds = %.preheader.i.i
-  %178 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %178, label %179, label %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit
+175:                                              ; preds = %.preheader.i.i
+  %176 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %176, label %177, label %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit
 
-179:                                              ; preds = %177
+177:                                              ; preds = %175
   store i32 %.114.val.i.i, ptr %.1.i.i, align 4, !tbaa !31
   store i32 %.1.val.i.i, ptr %.114.i.i, align 4, !tbaa !31
   br label %_ZSt22__move_median_to_firstIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !72
 
-_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit: ; preds = %177
-  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %126, ptr nonnull %3)
-  %180 = ptrtoint ptr %.1.i.i to i64
-  %181 = sub i64 %180, %5
-  %182 = icmp sgt i64 %181, 64
-  br i1 %182, label %10, label %_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit, !llvm.loop !73
+_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit: ; preds = %175
+  tail call fastcc void @_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.023, i64 noundef %124, ptr nonnull %3)
+  %178 = ptrtoint ptr %.1.i.i to i64
+  %179 = sub i64 %178, %5
+  %180 = icmp sgt i64 %179, 64
+  br i1 %180, label %10, label %_ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit, !llvm.loop !73
 
 _ZSt14__partial_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN4absl24synchronization_internalL4SortERKNS5_12_GLOBAL__N_13VecIPNS6_4NodeEEEPNS7_IiEEE6ByRankEEEvT_SH_SH_RT0_.exit.i.i, %4
   ret void

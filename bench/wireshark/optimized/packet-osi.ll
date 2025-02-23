@@ -405,7 +405,7 @@ define hidden i32 @check_atn_ec_32(ptr noundef %0, i32 noundef %1, i32 noundef %
   br i1 %79, label %.lr.ph262.preheader, label %._crit_edge263
 
 .lr.ph262.preheader:                              ; preds = %.preheader
-  %80 = add i32 %2, 3
+  %80 = add nuw i32 %2, 3
   br label %.lr.ph262
 
 .lr.ph252:                                        ; preds = %.lr.ph252.preheader, %.lr.ph252
@@ -600,7 +600,7 @@ define hidden zeroext i16 @check_atn_ec_16(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %56, label %.lr.ph140.preheader, label %._crit_edge141
 
 .lr.ph140.preheader:                              ; preds = %.preheader
-  %57 = add i32 %2, 1
+  %57 = add nuw i32 %2, 1
   br label %.lr.ph140
 
 .lr.ph134:                                        ; preds = %.lr.ph134.preheader, %.lr.ph134

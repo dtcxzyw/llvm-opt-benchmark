@@ -313,7 +313,7 @@ define void @_ZN10MutualInfo9histogramEiiPhS0_iiii(ptr noundef nonnull readonly 
   br label %.lr.ph
 
 .preheader48:                                     ; preds = %.lr.ph
-  %.not4552 = icmp ult i32 %19, 2
+  %.not4552 = icmp samesign ult i32 %19, 2
   br i1 %.not4552, label %.preheader47, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %9, %.preheader48

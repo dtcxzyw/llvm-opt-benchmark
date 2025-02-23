@@ -955,11 +955,11 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %19, %23
   %26 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load ptr, ptr %27, align 8
-  %29 = tail call noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef %1) #15
+  %29 = tail call noundef zeroext i1 @_ZN17BarrierSetNMethod8is_armedEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull %1) #15
   br i1 %29, label %30, label %_ZN17ShenandoahNMethod14disarm_nmethodEP7nmethod.exit
 
 30:                                               ; preds = %25
-  tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef %1) #15
+  tail call void @_ZN17BarrierSetNMethod6disarmEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull %1) #15
   br label %_ZN17ShenandoahNMethod14disarm_nmethodEP7nmethod.exit
 
 _ZN17ShenandoahNMethod14disarm_nmethodEP7nmethod.exit: ; preds = %25, %30

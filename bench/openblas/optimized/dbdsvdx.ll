@@ -837,11 +837,10 @@ define void @dbdsvdx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
   br i1 %.not830.not933, label %.lr.ph937.preheader, label %._crit_edge938
 
 .lr.ph937.preheader:                              ; preds = %.loopexit859
-  %421 = call i32 @llvm.smin.i32(i32 %383, i32 %420)
+  %421 = call i32 @llvm.umin.i32(i32 %383, i32 %420)
   %422 = sext i32 %.1733969 to i64
   %423 = sext i32 %.1715975 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %421, i32 1)
-  %wide.trip.count1088 = zext nneg i32 %smax to i64
+  %wide.trip.count1088 = zext nneg i32 %421 to i64
   %invariant.gep1180 = getelementptr double, ptr %37, i64 %423
   %invariant.gep1178 = getelementptr double, ptr %37, i64 %423
   br label %.lr.ph937
@@ -1444,11 +1443,11 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #5
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="skylake-avx512" "target-features"="+adx,+aes,+avx,+avx2,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512vl,+bmi,+bmi2,+clflushopt,+clwb,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdrnd,+rdseed,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave,+xsavec,+xsaveopt,+xsaves" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

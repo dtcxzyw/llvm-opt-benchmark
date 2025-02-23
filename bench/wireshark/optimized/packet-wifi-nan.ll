@@ -3528,7 +3528,7 @@ define internal fastcc void @dissect_attr_ndl(ptr noundef %0, ptr noundef %1, i3
   %63 = add i32 %60, %57
   %64 = add nuw nsw i32 %.27175, 4
   %65 = add nuw nsw i32 %64, %57
-  %66 = icmp ult i32 %65, %6
+  %66 = icmp samesign ult i32 %65, %6
   br i1 %66, label %.lr.ph, label %.loopexit, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.lr.ph, %44, %43, %8

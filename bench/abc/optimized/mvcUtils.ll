@@ -276,7 +276,7 @@ define i32 @Mvc_CoverSupportSizeBinary(ptr noundef %0) local_unnamed_addr #1 {
 
 ._crit_edge:                                      ; preds = %8, %1
   %.0.lcssa = phi i32 [ %5, %1 ], [ %spec.select, %8 ]
-  tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef %2) #6
+  tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef %2) #6
   ret i32 %.0.lcssa
 }
 
@@ -759,7 +759,7 @@ Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit
   store i32 %59, ptr %45, align 8, !tbaa !3
   %.033.us.i38 = load ptr, ptr %.03342.us.i37, align 8, !tbaa !7
   %.not.us.i39 = icmp eq ptr %.033.us.i38, null
-  br i1 %.not.us.i39, label %Mvc_CoverSupport.exit50, label %55, !llvm.loop !10
+  br i1 %.not.us.i39, label %Mvc_CoverSupport.exit50.thread, label %55, !llvm.loop !10
 
 .lr.ph.split.us43.i29:                            ; preds = %.lr.ph.i28
   %.promoted47.i30 = load i32, ptr %45, align 8, !tbaa !3
@@ -780,7 +780,7 @@ Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit
   store i32 %68, ptr %53, align 4, !tbaa !3
   %.033.us45.i33 = load ptr, ptr %.03342.us44.i32, align 8, !tbaa !7
   %.not.us46.i34 = icmp eq ptr %.033.us45.i33, null
-  br i1 %.not.us46.i34, label %Mvc_CoverSupport.exit50, label %60, !llvm.loop !10
+  br i1 %.not.us46.i34, label %Mvc_CoverSupport.exit50.thread61, label %60, !llvm.loop !10
 
 .preheader.i41:                                   ; preds = %.loopexit.i45, %.preheader.preheader.i40
   %.03342.i42 = phi ptr [ %.033.i46, %.loopexit.i45 ], [ %.03340.i26, %.preheader.preheader.i40 ]
@@ -804,66 +804,66 @@ Mvc_CoverSupport.exit:                            ; preds = %23, %18, %.loopexit
   %.not.i47 = icmp eq ptr %.033.i46, null
   br i1 %.not.i47, label %Mvc_CoverSupport.exit50, label %.preheader.i41, !llvm.loop !10
 
-Mvc_CoverSupport.exit50:                          ; preds = %60, %55, %.loopexit.i45, %.loopexit37.i25
+Mvc_CoverSupport.exit50:                          ; preds = %.loopexit.i45, %.loopexit37.i25
   switch i32 %44, label %.preheader [
-    i32 0, label %79
-    i32 1, label %87
+    i32 0, label %Mvc_CoverSupport.exit50.thread
+    i32 1, label %Mvc_CoverSupport.exit50.thread61
   ]
 
 .preheader:                                       ; preds = %Mvc_CoverSupport.exit50
   %77 = load ptr, ptr %3, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 16
-  br label %101
+  br label %99
 
-79:                                               ; preds = %Mvc_CoverSupport.exit50
-  %80 = load i32, ptr %45, align 8, !tbaa !3
-  %81 = load ptr, ptr %3, align 8, !tbaa !24
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
-  %83 = load i32, ptr %82, align 8, !tbaa !3
-  %84 = xor i32 %83, -1
-  %85 = and i32 %80, %84
-  %86 = icmp eq i32 %85, 0
+Mvc_CoverSupport.exit50.thread:                   ; preds = %55, %Mvc_CoverSupport.exit50
+  %79 = load i32, ptr %45, align 8, !tbaa !3
+  %80 = load ptr, ptr %3, align 8, !tbaa !24
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load i32, ptr %81, align 8, !tbaa !3
+  %83 = xor i32 %82, -1
+  %84 = and i32 %79, %83
+  %85 = icmp eq i32 %84, 0
   br label %.loopexit
 
-87:                                               ; preds = %Mvc_CoverSupport.exit50
-  %88 = load i32, ptr %45, align 8, !tbaa !3
-  %89 = load ptr, ptr %3, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load i32, ptr %90, align 8, !tbaa !3
-  %92 = xor i32 %91, -1
-  %93 = and i32 %88, %92
-  %.not23 = icmp eq i32 %93, 0
-  br i1 %.not23, label %94, label %.loopexit
+Mvc_CoverSupport.exit50.thread61:                 ; preds = %60, %Mvc_CoverSupport.exit50
+  %86 = load i32, ptr %45, align 8, !tbaa !3
+  %87 = load ptr, ptr %3, align 8, !tbaa !24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
+  %89 = load i32, ptr %88, align 8, !tbaa !3
+  %90 = xor i32 %89, -1
+  %91 = and i32 %86, %90
+  %.not23 = icmp eq i32 %91, 0
+  br i1 %.not23, label %92, label %.loopexit
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds nuw i8, ptr %41, i64 20
+92:                                               ; preds = %Mvc_CoverSupport.exit50.thread61
+  %93 = getelementptr inbounds nuw i8, ptr %41, i64 20
+  %94 = load i32, ptr %93, align 4, !tbaa !3
+  %95 = getelementptr inbounds nuw i8, ptr %87, i64 20
   %96 = load i32, ptr %95, align 4, !tbaa !3
-  %97 = getelementptr inbounds nuw i8, ptr %89, i64 20
-  %98 = load i32, ptr %97, align 4, !tbaa !3
-  %99 = xor i32 %98, -1
-  %100 = and i32 %96, %99
-  %.not51 = icmp eq i32 %100, 0
+  %97 = xor i32 %96, -1
+  %98 = and i32 %94, %97
+  %.not51 = icmp eq i32 %98, 0
   br label %.loopexit
 
-101:                                              ; preds = %101, %.preheader
-  %.056 = phi i32 [ %44, %.preheader ], [ %109, %101 ]
-  %102 = zext nneg i32 %.056 to i64
-  %103 = getelementptr inbounds nuw [1 x i32], ptr %45, i64 0, i64 %102
+99:                                               ; preds = %99, %.preheader
+  %.056 = phi i32 [ %44, %.preheader ], [ %107, %99 ]
+  %100 = zext nneg i32 %.056 to i64
+  %101 = getelementptr inbounds nuw [1 x i32], ptr %45, i64 0, i64 %100
+  %102 = load i32, ptr %101, align 4, !tbaa !3
+  %103 = getelementptr inbounds nuw [1 x i32], ptr %78, i64 0, i64 %100
   %104 = load i32, ptr %103, align 4, !tbaa !3
-  %105 = getelementptr inbounds nuw [1 x i32], ptr %78, i64 0, i64 %102
-  %106 = load i32, ptr %105, align 4, !tbaa !3
-  %107 = xor i32 %106, -1
-  %108 = and i32 %104, %107
-  %.not = icmp eq i32 %108, 0
-  %109 = add nsw i32 %.056, -1
-  %110 = icmp sgt i32 %.056, 0
-  %or.cond = and i1 %.not, %110
-  br i1 %or.cond, label %101, label %.loopexit, !llvm.loop !33
+  %105 = xor i32 %104, -1
+  %106 = and i32 %102, %105
+  %.not = icmp eq i32 %106, 0
+  %107 = add nsw i32 %.056, -1
+  %108 = icmp sgt i32 %.056, 0
+  %or.cond = and i1 %.not, %108
+  br i1 %or.cond, label %99, label %.loopexit, !llvm.loop !33
 
-.loopexit:                                        ; preds = %101, %87, %94, %79
-  %.021 = phi i1 [ %86, %79 ], [ false, %87 ], [ %.not51, %94 ], [ %.not, %101 ]
-  %111 = zext i1 %.021 to i32
-  ret i32 %111
+.loopexit:                                        ; preds = %99, %Mvc_CoverSupport.exit50.thread61, %92, %Mvc_CoverSupport.exit50.thread
+  %.021 = phi i1 [ %85, %Mvc_CoverSupport.exit50.thread ], [ false, %Mvc_CoverSupport.exit50.thread61 ], [ %.not51, %92 ], [ %.not, %99 ]
+  %109 = zext i1 %.021 to i32
+  ret i32 %109
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

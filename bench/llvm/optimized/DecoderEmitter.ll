@@ -1160,7 +1160,7 @@ _ZNSt20back_insert_iteratorISt6vectorIN4llvm9StringRefESaIS2_EEEaSEOS2_.exit.i.i
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i.i ], [ %.sroa.10.1, %199 ]
   %.sroa.0543.2 = phi ptr [ %212, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i.i.i.i ], [ %.sroa.0543.1, %199 ]
   %.sroa.10.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.i.i.i.pn, i64 16
-  %218 = add i32 %.sroa.2.016.i.i.i, 1
+  %218 = add nuw i32 %.sroa.2.016.i.i.i, 1
   br i1 %.not.i.i.i.i.i, label %227, label %219
 
 219:                                              ; preds = %_ZNSt20back_insert_iteratorISt6vectorIN4llvm9StringRefESaIS2_EEEaSEOS2_.exit.i.i.i
@@ -2262,7 +2262,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4
   br label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12emplace_backIJRPKN4llvm6RecordERKPKNS5_18CodeGenInstructionERA1_KcEEERS1_DpOT_.exit
 
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12emplace_backIJRPKN4llvm6RecordERKPKNS5_18CodeGenInstructionERA1_KcEEERS1_DpOT_.exit: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERKPKNS5_18CodeGenInstructionERKNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %587, %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERKPKNS5_18CodeGenInstructionERA1_KcEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %553
-  %613 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0512.0688) #24
+  %613 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0512.0688) #24
   %.not587 = icmp eq ptr %613, %508
   br i1 %.not587, label %._crit_edge, label %.lr.ph
 
@@ -2604,7 +2604,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4
 _ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12emplace_backIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEERS1_DpOT_.exit39.i: ; preds = %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i38.i, %695
   %721 = phi ptr [ %692, %695 ], [ %720, %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i38.i ]
   %722 = phi ptr [ %698, %695 ], [ %718, %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE17_M_realloc_insertIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERNS5_9StringRefEEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i38.i ]
-  %723 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.024.i) #24
+  %723 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.024.i) #24
   %.not.i153 = icmp eq ptr %723, %.19.i.i.i.i.sroa.sel542.v.sroa.sel.v.sroa.sel
   br i1 %.not.i153, label %_ZNSt6vectorIN12_GLOBAL__N_115EncodingAndInstESaIS1_EE12emplace_backIJRPKN4llvm6RecordERPKNS5_18CodeGenInstructionERA1_KcEEERS1_DpOT_.exit.i, label %691
 
@@ -5127,7 +5127,7 @@ _ZL22parseVarLenInstOperandRKN4llvm6RecordERSt6vectorIN12_GLOBAL__N_111OperandIn
   br i1 %.not.i202, label %1738, label %1735
 
 1735:                                             ; preds = %1729
-  %1736 = getelementptr inbounds nuw i8, ptr %spec.select.i.i191.i, i64 32
+  %1736 = getelementptr inbounds nuw i8, ptr %1730, i64 32
   %1737 = load ptr, ptr %1736, align 8, !tbaa !440
   br label %1738
 
@@ -5331,7 +5331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit239.i: ; preds = %
 .lr.ph185.i:                                      ; preds = %1796
   %.ptr202.i = getelementptr inbounds nuw i8, ptr %1745, i64 56
   %1801 = getelementptr inbounds nuw i8, ptr %spec.select.i.i191.i, i64 56
-  %1802 = getelementptr inbounds nuw i8, ptr %spec.select.i.i191.i, i64 48
+  %1802 = getelementptr inbounds nuw i8, ptr %1730, i64 48
   br label %1803
 
 1803:                                             ; preds = %_ZN12_GLOBAL__N_111OperandInfoD2Ev.exit270.i, %.lr.ph185.i
@@ -12564,8 +12564,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit34:               ; preds = %562, %564
   %581 = getelementptr inbounds nuw i8, ptr %580, i64 8
   %582 = load i8, ptr %581, align 8, !tbaa !160
   %583 = icmp ne i8 %582, 2
-  %.not.not7.i.i = icmp eq ptr %580, null
-  %.not.not.i.i = or i1 %.not.not7.i.i, %583
+  %.not7.i.i = icmp eq ptr %580, null
+  %.not.not.i.i = or i1 %.not7.i.i, %583
   br i1 %.not.not.i.i, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread.i, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.i
 
 _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.i:       ; preds = %577
@@ -17186,8 +17186,8 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread.us: ; preds = %.lr.ph, %_ZL11bit
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !160
   %55 = icmp ne i8 %54, 2
-  %.not.not7.i24.us = icmp eq ptr %52, null
-  %.not.not.i25.us = or i1 %.not.not7.i24.us, %55
+  %.not7.i24.us = icmp eq ptr %52, null
+  %.not.not.i25.us = or i1 %.not7.i24.us, %55
   br i1 %.not.not.i25.us, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit28.us, label %56
 
 56:                                               ; preds = %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread.us
@@ -17215,8 +17215,8 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit28.us:    ; preds = %56, %_ZL11bitFromBi
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8, !tbaa !160
   %65 = icmp ne i8 %64, 2
-  %.not.not7.i = icmp eq ptr %62, null
-  %.not.not.i = or i1 %.not.not7.i, %65
+  %.not7.i = icmp eq ptr %62, null
+  %.not.not.i = or i1 %.not7.i, %65
   br i1 %.not.not.i, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit
 
 _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit:         ; preds = %.lr.ph.split
@@ -17231,8 +17231,8 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread:  ; preds = %.lr.ph.split, %_ZL1
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i8, ptr %70, align 8, !tbaa !160
   %72 = icmp ne i8 %71, 2
-  %.not.not7.i24 = icmp eq ptr %69, null
-  %.not.not.i25 = or i1 %.not.not7.i24, %72
+  %.not7.i24 = icmp eq ptr %69, null
+  %.not.not.i25 = or i1 %.not7.i24, %72
   br i1 %.not.not.i25, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit28, label %73
 
 73:                                               ; preds = %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.thread
@@ -20403,8 +20403,8 @@ _ZN4llvm5APIntC2Ejmbb.exit50.i:                   ; preds = %399, %396
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %411 = load i8, ptr %410, align 8, !tbaa !160
   %412 = icmp ne i8 %411, 2
-  %.not.not7.i.i = icmp eq ptr %409, null
-  %.not.not.i.i = or i1 %.not.not7.i.i, %412
+  %.not7.i.i = icmp eq ptr %409, null
+  %.not.not.i.i = or i1 %.not7.i.i, %412
   br i1 %.not.not.i.i, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.i, label %413
 
 413:                                              ; preds = %407
@@ -20420,8 +20420,8 @@ _ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.i:       ; preds = %413, %407
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %420 = load i8, ptr %419, align 8, !tbaa !160
   %421 = icmp ne i8 %420, 2
-  %.not.not7.i51.i = icmp eq ptr %418, null
-  %.not.not.i52.i = or i1 %.not.not7.i51.i, %421
+  %.not7.i51.i = icmp eq ptr %418, null
+  %.not.not.i52.i = or i1 %.not7.i51.i, %421
   br i1 %.not.not.i52.i, label %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit55.i, label %422
 
 422:                                              ; preds = %_ZL11bitFromBitsRKN4llvm8BitsInitEj.exit.i

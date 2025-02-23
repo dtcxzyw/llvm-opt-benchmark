@@ -160,10 +160,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #3
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %1, 0
+  %.not20 = icmp eq ptr %0, null
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %.not20 = icmp eq ptr %0, null
   %wide.trip.count29 = zext nneg i32 %1 to i64
   br i1 %.not20, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -183,7 +183,7 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %
   %16 = fadd float %.022.us, %15
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %exitcond30.not = icmp eq i64 %indvars.iv.next27, %wide.trip.count29
-  br i1 %exitcond30.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !8
+  br i1 %exitcond30.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -203,24 +203,22 @@ define noundef float @_Z6radiusP8_IO_FILEiPKiPA3_f(ptr noundef %0, i32 noundef %
   %29 = fadd float %.022, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count29
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.thread34, label %.lr.ph.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us, %4
-  %.0.lcssa = phi float [ 0.000000e+00, %4 ], [ %16, %.lr.ph.split.us ]
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %30, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %4
+  br i1 %.not20, label %._crit_edge.thread, label %._crit_edge.thread34
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split, %._crit_edge
-  %.0.lcssa33 = phi float [ %.0.lcssa, %._crit_edge ], [ %29, %.lr.ph.split ]
+._crit_edge.thread34:                             ; preds = %.lr.ph.split, %._crit_edge
+  %.0.lcssa37 = phi float [ 0.000000e+00, %._crit_edge ], [ %29, %.lr.ph.split ]
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
-  br label %30
+  br label %._crit_edge.thread
 
-30:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.lcssa34 = phi float [ %.0.lcssa33, %._crit_edge.thread ], [ %.0.lcssa, %._crit_edge ]
-  %31 = sitofp i32 %1 to float
-  %32 = fdiv float %.0.lcssa34, %31
-  %33 = tail call noundef float @sqrtf(float noundef %32) #19
-  ret float %33
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread34, %._crit_edge
+  %.0.lcssa33 = phi float [ %.0.lcssa37, %._crit_edge.thread34 ], [ 0.000000e+00, %._crit_edge ], [ %16, %.lr.ph.split.us ]
+  %30 = sitofp i32 %1 to float
+  %31 = fdiv float %.0.lcssa33, %30
+  %32 = tail call noundef float @sqrtf(float noundef %31) #19
+  ret float %32
 }
 
 ; Function Attrs: nofree nounwind

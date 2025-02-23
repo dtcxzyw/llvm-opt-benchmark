@@ -451,7 +451,7 @@ define internal void @AddVector_SSE2(ptr noalias noundef readonly captures(none)
   %38 = trunc nuw nsw i64 %indvars.iv to i32
   %39 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %40 = load <4 x i32>, ptr %39, align 1, !tbaa !7
-  %41 = add nuw i64 %indvars.iv, 20
+  %41 = add nuw nsw i64 %indvars.iv, 20
   %42 = and i64 %41, 4294967284
   %43 = getelementptr inbounds nuw i32, ptr %0, i64 %42
   %44 = load <4 x i32>, ptr %43, align 1, !tbaa !7
@@ -556,7 +556,7 @@ define internal void @AddVectorEq_SSE2(ptr noalias noundef readonly captures(non
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = getelementptr inbounds nuw i32, ptr %0, i64 %5
   %35 = load <4 x i32>, ptr %34, align 1, !tbaa !7
-  %36 = add nuw i64 %indvars.iv, 20
+  %36 = add nuw nsw i64 %indvars.iv, 20
   %37 = and i64 %36, 4294967284
   %38 = getelementptr inbounds nuw i32, ptr %0, i64 %37
   %39 = load <4 x i32>, ptr %38, align 1, !tbaa !7

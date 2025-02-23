@@ -11404,8 +11404,8 @@ if.end152:                                        ; preds = %if.end146
   br i1 %cmp153, label %if.then154, label %if.end202
 
 if.then154:                                       ; preds = %if.end152.thread, %if.end152
-  %invert.0.in298 = phi i1 [ %lnot150, %if.end152.thread ], [ %inv, %if.end152 ]
-  %y.0297 = phi x86_fp80 [ %x, %if.end152.thread ], [ %sub, %if.end152 ]
+  %invert.0.in302 = phi i1 [ %lnot150, %if.end152.thread ], [ %inv, %if.end152 ]
+  %y.0301 = phi x86_fp80 [ %x, %if.end152.thread ], [ %sub, %if.end152 ]
   %13 = phi x86_fp80 [ %b, %if.end152.thread ], [ %a, %if.end152 ]
   %14 = phi x86_fp80 [ %sub, %if.end152.thread ], [ %x, %if.end152 ]
   %cmp155 = fcmp oeq x86_fp80 %13, 0xK3FFF8000000000000000
@@ -11419,7 +11419,7 @@ if.then158:                                       ; preds = %if.then156
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then158, %if.then156
-  %cond164 = select i1 %invert.0.in298, x86_fp80 %y.0297, x86_fp80 %14
+  %cond164 = select i1 %invert.0.in302, x86_fp80 %y.0301, x86_fp80 %14
   br label %cleanup
 
 if.end165:                                        ; preds = %if.then154
@@ -11433,14 +11433,14 @@ if.then167:                                       ; preds = %if.end165
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then167, %if.end165
-  %cmp173 = fcmp olt x86_fp80 %y.0297, 0xK3FFE8000000000000000
+  %cmp173 = fcmp olt x86_fp80 %y.0301, 0xK3FFE8000000000000000
   br i1 %cmp173, label %if.then174, label %if.else188
 
 if.then174:                                       ; preds = %if.end171
-  %fneg = fneg x86_fp80 %y.0297
+  %fneg = fneg x86_fp80 %y.0301
   %call177 = tail call noundef x86_fp80 @_ZN5boost4math5log1pINS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEEeeRKT_(x86_fp80 noundef %fneg, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   %mul178 = fmul x86_fp80 %13, %call177
-  br i1 %invert.0.in298, label %cond.true176, label %cond.false181
+  br i1 %invert.0.in302, label %cond.true176, label %cond.false181
 
 cond.true176:                                     ; preds = %if.then174
   %call.i208 = tail call noundef x86_fp80 @expm1l(x86_fp80 noundef %mul178) #31, !tbaa !7
@@ -11452,7 +11452,7 @@ cond.false181:                                    ; preds = %if.then174
   br label %if.end197
 
 if.else188:                                       ; preds = %if.end171
-  br i1 %invert.0.in298, label %cond.true190, label %cond.false193
+  br i1 %invert.0.in302, label %cond.true190, label %cond.false193
 
 cond.true190:                                     ; preds = %if.else188
   %call.i210 = tail call noundef x86_fp80 @_ZN5boost4math6detail9powm1_impIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_RKT0_(x86_fp80 noundef %14, x86_fp80 noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %pol)
@@ -11568,7 +11568,7 @@ cond.end258:                                      ; preds = %if.else252, %cond.f
   br label %if.end530
 
 if.else266:                                       ; preds = %if.else241
-  br i1 %normalised, label %if.end271.thread, label %if.then268
+  br i1 %normalised, label %if.end271, label %if.then268
 
 if.then268:                                       ; preds = %if.else266
   %add = fadd x86_fp80 %b, %a
@@ -11584,34 +11584,34 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %mul.i = fmul x86_fp80 %result.07.i, %div.i
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 20
-  br i1 %exitcond.not.i, label %if.end271, label %for.body.i, !llvm.loop !145
+  br i1 %exitcond.not.i, label %if.end271.thread, label %for.body.i, !llvm.loop !145
 
-if.end271:                                        ; preds = %for.body.i
-  %call273 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
-  br i1 %invert.1, label %if.then275, label %cond.false282
-
-if.end271.thread:                                 ; preds = %if.else266
-  %call273268 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
+if.end271:                                        ; preds = %if.else266
+  %call273 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
   br i1 %invert.1, label %if.then275, label %cond.end285
+
+if.end271.thread:                                 ; preds = %for.body.i
+  %call273268 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
+  br i1 %invert.1, label %if.then275, label %cond.false282
 
 if.then275:                                       ; preds = %if.end271.thread, %if.end271
   %call273272 = phi x86_fp80 [ %call273268, %if.end271.thread ], [ %call273, %if.end271 ]
-  %prefix.0270 = phi x86_fp80 [ 0xK3FFF8000000000000000, %if.end271.thread ], [ %mul.i, %if.end271 ]
+  %prefix.0270 = phi x86_fp80 [ %mul.i, %if.end271.thread ], [ 0xK3FFF8000000000000000, %if.end271 ]
   %add276 = fadd x86_fp80 %18, 0xK4003A000000000000000
   %call278 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add276, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call273272, x86_fp80 noundef %prefix.0270, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   br label %if.end530
 
-cond.false282:                                    ; preds = %if.end271
+cond.false282:                                    ; preds = %if.end271.thread
   %call284 = tail call noundef x86_fp80 @_ZN5boost4math4betaIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_T1_fffE4typeES8_S9_SA_(x86_fp80 noundef %18, x86_fp80 noundef %17)
   br label %cond.end285
 
-cond.end285:                                      ; preds = %if.end271.thread, %cond.false282
-  %prefix.0269276 = phi x86_fp80 [ %mul.i, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271.thread ]
-  %call273271275 = phi x86_fp80 [ %call273, %cond.false282 ], [ %call273268, %if.end271.thread ]
-  %cond286 = phi x86_fp80 [ %call284, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271.thread ]
-  %sub287 = fsub x86_fp80 %call273271275, %cond286
+cond.end285:                                      ; preds = %if.end271, %cond.false282
+  %prefix.0269278 = phi x86_fp80 [ %mul.i, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271 ]
+  %call273271276 = phi x86_fp80 [ %call273268, %cond.false282 ], [ %call273, %if.end271 ]
+  %cond286 = phi x86_fp80 [ %call284, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271 ]
+  %sub287 = fsub x86_fp80 %call273271276, %cond286
   %add288 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call290 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add288, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub287, x86_fp80 noundef %prefix.0269276, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call290 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add288, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub287, x86_fp80 noundef %prefix.0269278, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   %fneg291 = fneg x86_fp80 %call290
   br label %if.end530
 
@@ -11712,7 +11712,7 @@ cond.end360:                                      ; preds = %if.else354, %cond.f
   br label %if.end530
 
 if.else367:                                       ; preds = %if.else347
-  br i1 %normalised, label %if.end374.thread, label %if.then370
+  br i1 %normalised, label %if.end374, label %if.then370
 
 if.then370:                                       ; preds = %if.else367
   %add371 = fadd x86_fp80 %b, %a
@@ -11728,34 +11728,34 @@ for.body.i218:                                    ; preds = %for.body.i218, %if.
   %mul.i225 = fmul x86_fp80 %result.07.i220, %div.i224
   %inc.i226 = add nuw nsw i32 %i.08.i219, 1
   %exitcond.not.i227 = icmp eq i32 %inc.i226, 20
-  br i1 %exitcond.not.i227, label %if.end374, label %for.body.i218, !llvm.loop !145
+  br i1 %exitcond.not.i227, label %if.end374.thread, label %for.body.i218, !llvm.loop !145
 
-if.end374:                                        ; preds = %for.body.i218
-  %call376 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
-  br i1 %invert.1, label %if.then378, label %cond.false385
-
-if.end374.thread:                                 ; preds = %if.else367
-  %call376279 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
+if.end374:                                        ; preds = %if.else367
+  %call376 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
   br i1 %invert.1, label %if.then378, label %cond.end388
 
+if.end374.thread:                                 ; preds = %for.body.i218
+  %call376281 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_iRKT0_bPS7_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
+  br i1 %invert.1, label %if.then378, label %cond.false385
+
 if.then378:                                       ; preds = %if.end374.thread, %if.end374
-  %call376283 = phi x86_fp80 [ %call376279, %if.end374.thread ], [ %call376, %if.end374 ]
-  %prefix368.0281 = phi x86_fp80 [ 0xK3FFF8000000000000000, %if.end374.thread ], [ %mul.i225, %if.end374 ]
+  %call376285 = phi x86_fp80 [ %call376281, %if.end374.thread ], [ %call376, %if.end374 ]
+  %prefix368.0283 = phi x86_fp80 [ %mul.i225, %if.end374.thread ], [ 0xK3FFF8000000000000000, %if.end374 ]
   %add379 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call381 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add379, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call376283, x86_fp80 noundef %prefix368.0281, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call381 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add379, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call376285, x86_fp80 noundef %prefix368.0283, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   br label %if.end530
 
-cond.false385:                                    ; preds = %if.end374
+cond.false385:                                    ; preds = %if.end374.thread
   %call387 = tail call noundef x86_fp80 @_ZN5boost4math4betaIeeNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_T1_fffE4typeES8_S9_SA_(x86_fp80 noundef %18, x86_fp80 noundef %17)
   br label %cond.end388
 
-cond.end388:                                      ; preds = %if.end374.thread, %cond.false385
-  %prefix368.0280287 = phi x86_fp80 [ %mul.i225, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374.thread ]
-  %call376282286 = phi x86_fp80 [ %call376, %cond.false385 ], [ %call376279, %if.end374.thread ]
-  %cond389 = phi x86_fp80 [ %call387, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374.thread ]
-  %sub390 = fsub x86_fp80 %call376282286, %cond389
+cond.end388:                                      ; preds = %if.end374, %cond.false385
+  %prefix368.0282291 = phi x86_fp80 [ %mul.i225, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374 ]
+  %call376284289 = phi x86_fp80 [ %call376281, %cond.false385 ], [ %call376, %if.end374 ]
+  %cond389 = phi x86_fp80 [ %call387, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374 ]
+  %sub390 = fsub x86_fp80 %call376284289, %cond389
   %add391 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call393 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add391, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub390, x86_fp80 noundef %prefix368.0280287, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call393 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_14default_policyES5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_S5_EEEET_S7_S7_S7_S7_S7_S7_RKT0_b(x86_fp80 noundef %add391, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub390, x86_fp80 noundef %prefix368.0282291, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   %fneg394 = fneg x86_fp80 %call393
   br label %if.end530
 
@@ -11800,8 +11800,8 @@ if.then417:                                       ; preds = %if.end415
   %cmp419 = fcmp oeq x86_fp80 %27, %25
   %28 = tail call x86_fp80 @llvm.floor.f80(x86_fp80 %26)
   %cmp422 = fcmp oeq x86_fp80 %28, %26
-  %or.cond289 = and i1 %cmp422, %cmp419
-  br i1 %or.cond289, label %land.lhs.true423, label %if.else440
+  %or.cond293 = and i1 %cmp422, %cmp419
+  br i1 %or.cond293, label %land.lhs.true423, label %if.else440
 
 land.lhs.true423:                                 ; preds = %if.then417
   %cmp427 = fcmp olt x86_fp80 %25, 0xK401DFFFFFF3600000000
@@ -11935,21 +11935,21 @@ if.end530:                                        ; preds = %if.else526, %cond.e
 if.then532:                                       ; preds = %if.end530
   %42 = load x86_fp80, ptr %p_derivative, align 16, !tbaa !50
   %cmp533 = fcmp olt x86_fp80 %42, 0xK00000000000000000000
-  %.pre292 = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
+  %.pre296 = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
   br i1 %cmp533, label %if.then534, label %if.end537
 
 if.then534:                                       ; preds = %if.then532
   %43 = load x86_fp80, ptr %a.addr, align 16, !tbaa !50
   %44 = load x86_fp80, ptr %b.addr, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp535) #31
-  %call536 = call noundef x86_fp80 @_ZN5boost4math6detail17ibeta_power_termsIeNS0_7lanczos12lanczos17m64ENS0_8policies6policyINS5_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEET_S9_S9_S9_S9_RKT0_bRKT1_S9_PKc(x86_fp80 noundef %43, x86_fp80 noundef %44, x86_fp80 noundef %.pre292, x86_fp80 noundef %y.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK3FFF8000000000000000, ptr noundef nonnull @.str.74)
+  %call536 = call noundef x86_fp80 @_ZN5boost4math6detail17ibeta_power_termsIeNS0_7lanczos12lanczos17m64ENS0_8policies6policyINS5_14default_policyES7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_S7_EEEET_S9_S9_S9_S9_RKT0_bRKT1_S9_PKc(x86_fp80 noundef %43, x86_fp80 noundef %44, x86_fp80 noundef %.pre296, x86_fp80 noundef %y.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK3FFF8000000000000000, ptr noundef nonnull @.str.74)
   store x86_fp80 %call536, ptr %p_derivative, align 16, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp535) #31
   %.pre = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
   br label %if.end537
 
 if.end537:                                        ; preds = %if.then534, %if.then532
-  %45 = phi x86_fp80 [ %.pre, %if.then534 ], [ %.pre292, %if.then532 ]
+  %45 = phi x86_fp80 [ %.pre, %if.then534 ], [ %.pre296, %if.then532 ]
   %46 = phi x86_fp80 [ %call536, %if.then534 ], [ %42, %if.then532 ]
   %cmp540 = fcmp une x86_fp80 %46, 0xK00000000000000000000
   br i1 %cmp540, label %if.then541, label %if.end552
@@ -12664,7 +12664,7 @@ if.then436:                                       ; preds = %if.end426, %if.end4
   %p.addr.9351 = phi x86_fp80 [ %q.addr.2328, %if.end434 ], [ %p.addr.2, %if.end426 ]
   %q.addr.9349 = phi x86_fp80 [ %p.addr.2329, %if.end434 ], [ %q.addr.2, %if.end426 ]
   %x.9347 = phi x86_fp80 [ %y.0327, %if.end434 ], [ %x.0, %if.end426 ]
-  %loadedv437 = trunc i8 %invert.11354 to i1
+  %loadedv437 = trunc nuw i8 %invert.11354 to i1
   %cmp439 = icmp eq ptr %py, null
   %or.cond9 = and i1 %cmp439, %loadedv437
   br i1 %or.cond9, label %if.then440, label %if.end447
@@ -12771,7 +12771,7 @@ _ZN5boost4math8policies21check_root_iterationsIeNS1_6policyINS1_13promote_floatI
   %cmp474 = fcmp oeq x86_fp80 %call.i148, %lower.1371
   %x.12 = select i1 %cmp474, x86_fp80 0xK00000000000000000000, x86_fp80 %call.i148
   %tobool477.not = icmp eq ptr %py, null
-  %.pre = trunc i8 %invert.11355366 to i1
+  %.pre = trunc nuw i8 %invert.11355366 to i1
   %.pre434 = fsub x86_fp80 0xK3FFF8000000000000000, %x.12
   br i1 %tobool477.not, label %if.end485, label %if.then478
 
@@ -18262,8 +18262,8 @@ if.end152:                                        ; preds = %if.end146
   br i1 %cmp153, label %if.then154, label %if.end202
 
 if.then154:                                       ; preds = %if.end152.thread, %if.end152
-  %invert.0.in297 = phi i1 [ %lnot150, %if.end152.thread ], [ %inv, %if.end152 ]
-  %y.0296 = phi x86_fp80 [ %x, %if.end152.thread ], [ %sub, %if.end152 ]
+  %invert.0.in301 = phi i1 [ %lnot150, %if.end152.thread ], [ %inv, %if.end152 ]
+  %y.0300 = phi x86_fp80 [ %x, %if.end152.thread ], [ %sub, %if.end152 ]
   %13 = phi x86_fp80 [ %b, %if.end152.thread ], [ %a, %if.end152 ]
   %14 = phi x86_fp80 [ %sub, %if.end152.thread ], [ %x, %if.end152 ]
   %cmp155 = fcmp oeq x86_fp80 %13, 0xK3FFF8000000000000000
@@ -18277,7 +18277,7 @@ if.then158:                                       ; preds = %if.then156
   br label %if.end159
 
 if.end159:                                        ; preds = %if.then158, %if.then156
-  %cond164 = select i1 %invert.0.in297, x86_fp80 %y.0296, x86_fp80 %14
+  %cond164 = select i1 %invert.0.in301, x86_fp80 %y.0300, x86_fp80 %14
   br label %cleanup
 
 if.end165:                                        ; preds = %if.then154
@@ -18291,14 +18291,14 @@ if.then167:                                       ; preds = %if.end165
   br label %if.end171
 
 if.end171:                                        ; preds = %if.then167, %if.end165
-  %cmp173 = fcmp olt x86_fp80 %y.0296, 0xK3FFE8000000000000000
+  %cmp173 = fcmp olt x86_fp80 %y.0300, 0xK3FFE8000000000000000
   br i1 %cmp173, label %if.then174, label %if.else188
 
 if.then174:                                       ; preds = %if.end171
-  %fneg = fneg x86_fp80 %y.0296
+  %fneg = fneg x86_fp80 %y.0300
   %call177 = tail call noundef x86_fp80 @_ZN5boost4math5log1pINS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEEeeRKT_(x86_fp80 noundef %fneg, ptr noundef nonnull align 1 dereferenceable(1) %pol)
   %mul178 = fmul x86_fp80 %13, %call177
-  br i1 %invert.0.in297, label %cond.true176, label %cond.false181
+  br i1 %invert.0.in301, label %cond.true176, label %cond.false181
 
 cond.true176:                                     ; preds = %if.then174
   %call179 = tail call noundef x86_fp80 @_ZN5boost4math5expm1IeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_(x86_fp80 noundef %mul178, ptr noundef nonnull align 1 dereferenceable(1) %pol)
@@ -18310,7 +18310,7 @@ cond.false181:                                    ; preds = %if.then174
   br label %if.end197
 
 if.else188:                                       ; preds = %if.end171
-  br i1 %invert.0.in297, label %cond.true190, label %cond.false193
+  br i1 %invert.0.in301, label %cond.true190, label %cond.false193
 
 cond.true190:                                     ; preds = %if.else188
   %call.i209 = tail call noundef x86_fp80 @_ZN5boost4math6detail9powm1_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %14, x86_fp80 noundef %13, ptr noundef nonnull align 1 dereferenceable(1) %pol)
@@ -18426,7 +18426,7 @@ cond.end258:                                      ; preds = %if.else252, %cond.f
   br label %if.end530
 
 if.else266:                                       ; preds = %if.else241
-  br i1 %normalised, label %if.end271.thread, label %if.then268
+  br i1 %normalised, label %if.end271, label %if.then268
 
 if.then268:                                       ; preds = %if.else266
   %add = fadd x86_fp80 %b, %a
@@ -18442,34 +18442,34 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %mul.i = fmul x86_fp80 %result.07.i, %div.i
   %inc.i = add nuw nsw i32 %i.08.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 20
-  br i1 %exitcond.not.i, label %if.end271, label %for.body.i, !llvm.loop !145
+  br i1 %exitcond.not.i, label %if.end271.thread, label %for.body.i, !llvm.loop !145
 
-if.end271:                                        ; preds = %for.body.i
-  %call273 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
-  br i1 %invert.1, label %if.then275, label %cond.false282
-
-if.end271.thread:                                 ; preds = %if.else266
-  %call273267 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
+if.end271:                                        ; preds = %if.else266
+  %call273 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
   br i1 %invert.1, label %if.then275, label %cond.end285
+
+if.end271.thread:                                 ; preds = %for.body.i
+  %call273267 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
+  br i1 %invert.1, label %if.then275, label %cond.false282
 
 if.then275:                                       ; preds = %if.end271.thread, %if.end271
   %call273271 = phi x86_fp80 [ %call273267, %if.end271.thread ], [ %call273, %if.end271 ]
-  %prefix.0269 = phi x86_fp80 [ 0xK3FFF8000000000000000, %if.end271.thread ], [ %mul.i, %if.end271 ]
+  %prefix.0269 = phi x86_fp80 [ %mul.i, %if.end271.thread ], [ 0xK3FFF8000000000000000, %if.end271 ]
   %add276 = fadd x86_fp80 %18, 0xK4003A000000000000000
   %call278 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add276, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call273271, x86_fp80 noundef %prefix.0269, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   br label %if.end530
 
-cond.false282:                                    ; preds = %if.end271
+cond.false282:                                    ; preds = %if.end271.thread
   %call284 = tail call noundef x86_fp80 @_ZN5boost4math4betaIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_T1_fffE4typeESC_SD_SE_(x86_fp80 noundef %18, x86_fp80 noundef %17)
   br label %cond.end285
 
-cond.end285:                                      ; preds = %if.end271.thread, %cond.false282
-  %prefix.0268275 = phi x86_fp80 [ %mul.i, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271.thread ]
-  %call273270274 = phi x86_fp80 [ %call273, %cond.false282 ], [ %call273267, %if.end271.thread ]
-  %cond286 = phi x86_fp80 [ %call284, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271.thread ]
-  %sub287 = fsub x86_fp80 %call273270274, %cond286
+cond.end285:                                      ; preds = %if.end271, %cond.false282
+  %prefix.0268277 = phi x86_fp80 [ %mul.i, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271 ]
+  %call273270275 = phi x86_fp80 [ %call273267, %cond.false282 ], [ %call273, %if.end271 ]
+  %cond286 = phi x86_fp80 [ %call284, %cond.false282 ], [ 0xK3FFF8000000000000000, %if.end271 ]
+  %sub287 = fsub x86_fp80 %call273270275, %cond286
   %add288 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call290 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add288, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub287, x86_fp80 noundef %prefix.0268275, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call290 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add288, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub287, x86_fp80 noundef %prefix.0268277, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   %fneg291 = fneg x86_fp80 %call290
   br label %if.end530
 
@@ -18570,7 +18570,7 @@ cond.end360:                                      ; preds = %if.else354, %cond.f
   br label %if.end530
 
 if.else367:                                       ; preds = %if.else347
-  br i1 %normalised, label %if.end374.thread, label %if.then370
+  br i1 %normalised, label %if.end374, label %if.then370
 
 if.then370:                                       ; preds = %if.else367
   %add371 = fadd x86_fp80 %b, %a
@@ -18586,34 +18586,34 @@ for.body.i217:                                    ; preds = %for.body.i217, %if.
   %mul.i224 = fmul x86_fp80 %result.07.i219, %div.i223
   %inc.i225 = add nuw nsw i32 %i.08.i218, 1
   %exitcond.not.i226 = icmp eq i32 %inc.i225, 20
-  br i1 %exitcond.not.i226, label %if.end374, label %for.body.i217, !llvm.loop !145
+  br i1 %exitcond.not.i226, label %if.end374.thread, label %for.body.i217, !llvm.loop !145
 
-if.end374:                                        ; preds = %for.body.i217
-  %call376 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
-  br i1 %invert.1, label %if.then378, label %cond.false385
-
-if.end374.thread:                                 ; preds = %if.else367
-  %call376278 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
+if.end374:                                        ; preds = %if.else367
+  %call376 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext true, ptr noundef %p_derivative)
   br i1 %invert.1, label %if.then378, label %cond.end388
 
+if.end374.thread:                                 ; preds = %for.body.i217
+  %call376280 = tail call noundef x86_fp80 @_ZN5boost4math6detail12ibeta_a_stepIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_iRKT0_bPSB_(x86_fp80 noundef %18, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, i32 noundef 20, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext false, ptr noundef %p_derivative)
+  br i1 %invert.1, label %if.then378, label %cond.false385
+
 if.then378:                                       ; preds = %if.end374.thread, %if.end374
-  %call376282 = phi x86_fp80 [ %call376278, %if.end374.thread ], [ %call376, %if.end374 ]
-  %prefix368.0280 = phi x86_fp80 [ 0xK3FFF8000000000000000, %if.end374.thread ], [ %mul.i224, %if.end374 ]
+  %call376284 = phi x86_fp80 [ %call376280, %if.end374.thread ], [ %call376, %if.end374 ]
+  %prefix368.0282 = phi x86_fp80 [ %mul.i224, %if.end374.thread ], [ 0xK3FFF8000000000000000, %if.end374 ]
   %add379 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call381 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add379, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call376282, x86_fp80 noundef %prefix368.0280, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call381 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add379, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %call376284, x86_fp80 noundef %prefix368.0282, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   br label %if.end530
 
-cond.false385:                                    ; preds = %if.end374
+cond.false385:                                    ; preds = %if.end374.thread
   %call387 = tail call noundef x86_fp80 @_ZN5boost4math4betaIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_T1_fffE4typeESC_SD_SE_(x86_fp80 noundef %18, x86_fp80 noundef %17)
   br label %cond.end388
 
-cond.end388:                                      ; preds = %if.end374.thread, %cond.false385
-  %prefix368.0279286 = phi x86_fp80 [ %mul.i224, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374.thread ]
-  %call376281285 = phi x86_fp80 [ %call376, %cond.false385 ], [ %call376278, %if.end374.thread ]
-  %cond389 = phi x86_fp80 [ %call387, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374.thread ]
-  %sub390 = fsub x86_fp80 %call376281285, %cond389
+cond.end388:                                      ; preds = %if.end374, %cond.false385
+  %prefix368.0281290 = phi x86_fp80 [ %mul.i224, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374 ]
+  %call376283288 = phi x86_fp80 [ %call376280, %cond.false385 ], [ %call376, %if.end374 ]
+  %cond389 = phi x86_fp80 [ %call387, %cond.false385 ], [ 0xK3FFF8000000000000000, %if.end374 ]
+  %sub390 = fsub x86_fp80 %call376283288, %cond389
   %add391 = fadd x86_fp80 %18, 0xK4003A000000000000000
-  %call393 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add391, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub390, x86_fp80 noundef %prefix368.0279286, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
+  %call393 = tail call noundef x86_fp80 @_ZN5boost4math6detail27beta_small_b_large_a_seriesIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_SB_SB_SB_RKT0_b(x86_fp80 noundef %add391, x86_fp80 noundef %17, x86_fp80 noundef %19, x86_fp80 noundef %16, x86_fp80 noundef %sub390, x86_fp80 noundef %prefix368.0281290, ptr noundef nonnull align 1 dereferenceable(1) %pol, i1 noundef zeroext %normalised)
   %fneg394 = fneg x86_fp80 %call393
   br label %if.end530
 
@@ -18658,8 +18658,8 @@ if.then417:                                       ; preds = %if.end415
   %cmp419 = fcmp oeq x86_fp80 %27, %25
   %28 = tail call x86_fp80 @llvm.floor.f80(x86_fp80 %26)
   %cmp422 = fcmp oeq x86_fp80 %28, %26
-  %or.cond288 = and i1 %cmp422, %cmp419
-  br i1 %or.cond288, label %land.lhs.true423, label %if.else440
+  %or.cond292 = and i1 %cmp422, %cmp419
+  br i1 %or.cond292, label %land.lhs.true423, label %if.else440
 
 land.lhs.true423:                                 ; preds = %if.then417
   %cmp427 = fcmp olt x86_fp80 %25, 0xK401DFFFFFF3600000000
@@ -18793,21 +18793,21 @@ if.end530:                                        ; preds = %if.else526, %cond.e
 if.then532:                                       ; preds = %if.end530
   %42 = load x86_fp80, ptr %p_derivative, align 16, !tbaa !50
   %cmp533 = fcmp olt x86_fp80 %42, 0xK00000000000000000000
-  %.pre291 = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
+  %.pre295 = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
   br i1 %cmp533, label %if.then534, label %if.end537
 
 if.then534:                                       ; preds = %if.then532
   %43 = load x86_fp80, ptr %a.addr, align 16, !tbaa !50
   %44 = load x86_fp80, ptr %b.addr, align 16, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp535) #31
-  %call536 = call noundef x86_fp80 @_ZN5boost4math6detail17ibeta_power_termsIeNS0_7lanczos12lanczos17m64ENS0_8policies6policyINS5_13promote_floatILb0EEENS5_14promote_doubleILb0EEENS5_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_SB_EEEET_SD_SD_SD_SD_RKT0_bRKT1_SD_PKc(x86_fp80 noundef %43, x86_fp80 noundef %44, x86_fp80 noundef %.pre291, x86_fp80 noundef %y.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK3FFF8000000000000000, ptr noundef nonnull @.str.74)
+  %call536 = call noundef x86_fp80 @_ZN5boost4math6detail17ibeta_power_termsIeNS0_7lanczos12lanczos17m64ENS0_8policies6policyINS5_13promote_floatILb0EEENS5_14promote_doubleILb0EEENS5_14default_policyESB_SB_SB_SB_SB_SB_SB_SB_SB_SB_EEEET_SD_SD_SD_SD_RKT0_bRKT1_SD_PKc(x86_fp80 noundef %43, x86_fp80 noundef %44, x86_fp80 noundef %.pre295, x86_fp80 noundef %y.2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp535, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef 0xK3FFF8000000000000000, ptr noundef nonnull @.str.74)
   store x86_fp80 %call536, ptr %p_derivative, align 16, !tbaa !50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp535) #31
   %.pre = load x86_fp80, ptr %x.addr, align 16, !tbaa !50
   br label %if.end537
 
 if.end537:                                        ; preds = %if.then534, %if.then532
-  %45 = phi x86_fp80 [ %.pre, %if.then534 ], [ %.pre291, %if.then532 ]
+  %45 = phi x86_fp80 [ %.pre, %if.then534 ], [ %.pre295, %if.then532 ]
   %46 = phi x86_fp80 [ %call536, %if.then534 ], [ %42, %if.then532 ]
   %cmp540 = fcmp une x86_fp80 %46, 0xK00000000000000000000
   br i1 %cmp540, label %if.then541, label %if.end552

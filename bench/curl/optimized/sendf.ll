@@ -541,55 +541,55 @@ define hidden i32 @Curl_client_start(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %21, %20, %14, %5
-  %.not29.not37 = icmp eq ptr %7, null
-  br i1 %.not29.not37, label %._crit_edge, label %.lr.ph
+  %.not29.not34 = icmp eq ptr %7, null
+  br i1 %.not29.not34, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %22, %29
-  %.02138 = phi ptr [ %31, %29 ], [ %7, %22 ]
-  %23 = load ptr, ptr %.02138, align 8, !tbaa !97
+.lr.ph:                                           ; preds = %22, %27
+  %.02135 = phi ptr [ %29, %27 ], [ %7, %22 ]
+  %23 = load ptr, ptr %.02135, align 8, !tbaa !97
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !104
-  %26 = tail call i32 %25(ptr noundef %0, ptr noundef nonnull %.02138) #17
+  %26 = tail call i32 %25(ptr noundef %0, ptr noundef nonnull %.02135) #17
   %.not30 = icmp eq i32 %26, 0
-  br i1 %.not30, label %29, label %cl_reset_reader.exit.thread33
+  br i1 %.not30, label %27, label %cl_reset_reader.exit
 
-cl_reset_reader.exit.thread33:                    ; preds = %.lr.ph
-  %27 = load ptr, ptr %.02138, align 8, !tbaa !97
-  %28 = load ptr, ptr %27, align 8, !tbaa !105
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %28, i32 noundef %26) #17
-  br label %cl_reset_reader.exit.thread
+27:                                               ; preds = %.lr.ph
+  %28 = getelementptr inbounds nuw i8, ptr %.02135, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !94
+  %.not29.not = icmp eq ptr %29, null
+  br i1 %.not29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !105
 
-29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %.02138, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !94
-  %.not29.not = icmp eq ptr %31, null
-  br i1 %.not29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
-
-._crit_edge:                                      ; preds = %29, %22
-  %32 = load i32, ptr %2, align 1
-  %33 = and i32 %32, -129
-  store i32 %33, ptr %2, align 1
+._crit_edge:                                      ; preds = %27, %22
+  %30 = load i32, ptr %2, align 1
+  %31 = and i32 %30, -129
+  store i32 %31, ptr %2, align 1
   %.09.i = load ptr, ptr %6, align 8, !tbaa !93
   %.not10.i = icmp eq ptr %.09.i, null
   br i1 %.not10.i, label %cl_reset_reader.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %.lr.ph.i
   %.011.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.09.i, %._crit_edge ]
-  %34 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
-  %35 = load ptr, ptr %34, align 8, !tbaa !94
-  store ptr %35, ptr %6, align 8, !tbaa !93
-  %36 = load ptr, ptr %.011.i, align 8, !tbaa !97
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !98
-  tail call void %38(ptr noundef nonnull %0, ptr noundef nonnull %.011.i) #17
-  %39 = load ptr, ptr @Curl_cfree, align 8, !tbaa !83
-  tail call void %39(ptr noundef nonnull %.011.i) #17
+  %32 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !94
+  store ptr %33, ptr %6, align 8, !tbaa !93
+  %34 = load ptr, ptr %.011.i, align 8, !tbaa !97
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %36 = load ptr, ptr %35, align 8, !tbaa !98
+  tail call void %36(ptr noundef nonnull %0, ptr noundef nonnull %.011.i) #17
+  %37 = load ptr, ptr @Curl_cfree, align 8, !tbaa !83
+  tail call void %37(ptr noundef nonnull %.011.i) #17
   %.0.i = load ptr, ptr %6, align 8, !tbaa !93
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %cl_reset_reader.exit.thread, label %.lr.ph.i, !llvm.loop !100
 
-cl_reset_reader.exit.thread:                      ; preds = %.lr.ph.i, %1, %._crit_edge, %cl_reset_reader.exit.thread33
-  %.1 = phi i32 [ %26, %cl_reset_reader.exit.thread33 ], [ 0, %._crit_edge ], [ 0, %1 ], [ 0, %.lr.ph.i ]
+cl_reset_reader.exit:                             ; preds = %.lr.ph
+  %38 = load ptr, ptr %.02135, align 8, !tbaa !97
+  %39 = load ptr, ptr %38, align 8, !tbaa !106
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %39, i32 noundef %26) #17
+  br label %cl_reset_reader.exit.thread
+
+cl_reset_reader.exit.thread:                      ; preds = %.lr.ph.i, %._crit_edge, %1, %cl_reset_reader.exit
+  %.1 = phi i32 [ %26, %cl_reset_reader.exit ], [ 0, %1 ], [ 0, %._crit_edge ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }
 
@@ -1827,7 +1827,7 @@ define hidden void @Curl_creader_done(ptr noundef %0, i32 noundef %1) local_unna
   %4 = load ptr, ptr %.08, align 8, !tbaa !97
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !145
-  tail call void %6(ptr noundef %0, ptr noundef nonnull %.08, i32 noundef %1) #17
+  tail call void %6(ptr noundef nonnull %0, ptr noundef nonnull %.08, i32 noundef %1) #17
   %7 = getelementptr inbounds nuw i8, ptr %.08, i64 8
   %.0 = load ptr, ptr %7, align 8, !tbaa !117
   %.not = icmp eq ptr %.0, null
@@ -3414,8 +3414,8 @@ attributes #19 = { nounwind willreturn memory(none) }
 !102 = !{!4, !8, i64 256}
 !103 = !{!4, !5, i64 300}
 !104 = !{!99, !10, i64 56}
-!105 = !{!99, !29, i64 0}
-!106 = distinct !{!106, !90}
+!105 = distinct !{!105, !90}
+!106 = !{!99, !29, i64 0}
 !107 = distinct !{!107, !90}
 !108 = !{!79, !29, i64 0}
 !109 = distinct !{!109, !90}

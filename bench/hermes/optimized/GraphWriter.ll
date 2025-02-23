@@ -627,16 +627,16 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit328: ; preds = %_ZN4ll
 
 if.then.i.i377:                                   ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit328
   %call3.i.i378 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %call32, ptr noundef nonnull @.str.34, i64 noundef 29) #16
-  br label %if.then.i.i.i381
+  br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit382
 
 if.then4.i.i374:                                  ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EE9push_backEOS1_.exit328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(29) %8, ptr noundef nonnull align 1 dereferenceable(29) @.str.34, i64 29, i1 false)
   %9 = load ptr, ptr %OutBufCur.i6.i367, align 8
   %add.ptr.i.i375 = getelementptr inbounds nuw i8, ptr %9, i64 29
   store ptr %add.ptr.i.i375, ptr %OutBufCur.i6.i367, align 8
-  br label %if.then.i.i.i381
+  br label %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit382
 
-if.then.i.i.i381:                                 ; preds = %if.then4.i.i374, %if.then.i.i377
+_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit382: ; preds = %if.then.i.i377, %if.then4.i.i374
   %call.i385 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #16
   %call2.i387 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #16
   %call.i391 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Filename) #16
@@ -1008,7 +1008,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit673:              ; preds = %if.then.i.i671, %if
   %call2.i417 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath) #16
   %call.i421 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %Filename) #16
   %call2.i423 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %Filename) #16
-  %call77 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvh9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %call.i415, i64 %call2.i417, ptr %args59.val, ptr nonnull %args59.val87, ptr %call.i421, i64 %call2.i423, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg)
+  %call77 = call fastcc noundef zeroext i1 @_ZL15ExecGraphViewerN4llvh9StringRefERSt6vectorIS0_SaIS0_EES0_bRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %call.i415, i64 %call2.i417, ptr nonnull %args59.val, ptr nonnull %args59.val87, ptr %call.i421, i64 %call2.i423, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg)
   br i1 %call77, label %cleanup106, label %if.end79
 
 if.end79:                                         ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit673
@@ -1195,8 +1195,8 @@ cleanup128:                                       ; preds = %if.then4.i.i833, %i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %GeneratorPath) #16
   br label %cleanup129
 
-cleanup129:                                       ; preds = %if.then.i.i.i381, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit, %cleanup128, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit220
-  %retval.1 = phi i1 [ %call20, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit220 ], [ %retval.3, %cleanup128 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit ], [ %call37, %if.then.i.i.i381 ]
+cleanup129:                                       ; preds = %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit, %cleanup128, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit382, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit220
+  %retval.1 = phi i1 [ %call20, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit220 ], [ %call37, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit382 ], [ %retval.3, %cleanup128 ], [ false, %_ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %S) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ViewerPath) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ErrMsg) #16

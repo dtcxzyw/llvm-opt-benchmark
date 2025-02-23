@@ -304,7 +304,7 @@ insert_record.exit.i.thread:                      ; preds = %.lr.ph.preheader.i.
   br i1 %.not48, label %111, label %106, !llvm.loop !48
 
 111:                                              ; preds = %106
-  tail call void @free(ptr noundef %26) #6
+  tail call void @free(ptr noundef nonnull %26) #6
   br label %fill_hashmap.exit
 
 .thread:                                          ; preds = %insert_record.exit.i.thread, %98
@@ -430,7 +430,7 @@ binary_search.exit.thread.i:                      ; preds = %120, %134, %binary_
 
 .loopexit:                                        ; preds = %.lr.ph67.i, %154
   %.140.lcssa.sink.i = phi ptr [ %158, %154 ], [ %162, %.lr.ph67.i ]
-  tail call void @free(ptr noundef %116) #6
+  tail call void @free(ptr noundef nonnull %116) #6
   %166 = add nsw i32 %3, %2
   %167 = add nsw i32 %5, %4
   br label %168

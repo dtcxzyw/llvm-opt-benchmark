@@ -4711,7 +4711,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   store double -1.000000e+00, ptr %125, align 8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double -1.000000e+00, ptr %126, align 8
-  %127 = sitofp i32 %3 to double
+  %127 = uitofp nneg i32 %3 to double
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %127, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 273

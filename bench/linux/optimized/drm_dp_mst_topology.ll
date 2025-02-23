@@ -9876,7 +9876,7 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
 189:                                              ; preds = %176, %174
   %190 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %191 = trunc i32 %13 to i8
-  %192 = sub i8 %191, %140
+  %192 = sub nsw i8 %191, %140
   %193 = call i8 @llvm.umin.i8(i8 %128, i8 %192)
   %194 = zext nneg i8 %140 to i64
   %195 = getelementptr i8, ptr %4, i64 %194
@@ -9886,8 +9886,8 @@ define internal fastcc noundef zeroext i1 @drm_dp_get_one_sb_msg(ptr noundef %0,
   %198 = getelementptr inbounds nuw i8, ptr %7, i64 306
   %199 = load i8, ptr %198, align 1
   %200 = zext i8 %199 to i32
-  %201 = sub i32 %197, %13
-  %202 = add i32 %201, %200
+  %201 = sub nsw i32 %197, %13
+  %202 = add nsw i32 %201, %200
   %203 = icmp sgt i32 %202, 0
   br i1 %203, label %.preheader, label %.loopexit
 

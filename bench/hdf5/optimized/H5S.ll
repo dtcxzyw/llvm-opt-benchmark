@@ -1356,7 +1356,7 @@ H5S__extent_release.exit:                         ; preds = %10, %19, %22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %62, %56, %H5S__extent_release.exit, %66, %35
-  %68 = tail call i32 @H5O_set_shared(ptr noundef %0, ptr noundef nonnull %1) #10
+  %68 = tail call i32 @H5O_set_shared(ptr noundef nonnull %0, ptr noundef nonnull %1) #10
   %69 = icmp slt i32 %68, 0
   br i1 %69, label %70, label %.critedge
 

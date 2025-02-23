@@ -10604,9 +10604,9 @@ _ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.ex
   %73 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i79, i64 256
   %74 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i78, i64 256
   %.not.i.i.i.i.i80 = icmp eq ptr %73, %17
-  br i1 %.not.i.i.i.i.i80, label %_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit82, label %.lr.ph.i.i.i.i.i77, !llvm.loop !272
+  br i1 %.not.i.i.i.i.i80, label %.lr.ph.i.i.i84, label %.lr.ph.i.i.i.i.i77, !llvm.loop !272
 
-_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit82: ; preds = %.lr.ph.i.i.i.i.i77
+.lr.ph.i.i.i84:                                   ; preds = %.lr.ph.i.i.i.i.i77
   %75 = load ptr, ptr %9, align 8, !tbaa !117
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %20
   store ptr %76, ptr %9, align 8, !tbaa !117
@@ -10619,8 +10619,8 @@ _ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.ex
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 232
   br label %84
 
-84:                                               ; preds = %.noexc94, %_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit82
-  %.06.i.i.i85 = phi ptr [ %1, %_ZSt22__uninitialized_move_aIPN9cmCTestVC8RevisionES2_SaIS1_EET0_T_S5_S4_RT1_.exit82 ], [ %92, %.noexc94 ]
+84:                                               ; preds = %.noexc94, %.lr.ph.i.i.i84
+  %.06.i.i.i85 = phi ptr [ %1, %.lr.ph.i.i.i84 ], [ %92, %.noexc94 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(256) %.06.i.i.i85, ptr noundef nonnull align 8 dereferenceable(256) %16)
           to label %.noexc87 unwind label %.loopexit.split-lp
 

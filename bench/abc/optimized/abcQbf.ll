@@ -608,10 +608,6 @@ Abc_NtkVectorClearVars.exit:                      ; preds = %229, %Abc_NtkModelT
   %248 = icmp sgt i32 %.val.val8.i182, 0
   br i1 %248, label %.lr.ph.i183, label %Abc_NtkModelToVector.exit188.thread
 
-Abc_NtkModelToVector.exit188.thread:              ; preds = %243
-  call void @Abc_NtkDelete(ptr noundef nonnull %233) #13
-  br label %255
-
 .lr.ph.i183:                                      ; preds = %243
   %.val7.i184 = load ptr, ptr %195, align 8, !tbaa !20
   br label %249
@@ -626,9 +622,13 @@ Abc_NtkModelToVector.exit188.thread:              ; preds = %243
   %.val.val.i187 = load i32, ptr %247, align 4, !tbaa !31
   %253 = sext i32 %.val.val.i187 to i64
   %254 = icmp slt i64 %indvars.iv.next.i186, %253
-  br i1 %254, label %249, label %Abc_NtkModelToVector.exit188, !llvm.loop !56
+  br i1 %254, label %249, label %Abc_NtkModelToVector.exit188.thread, !llvm.loop !56
 
-Abc_NtkModelToVector.exit188:                     ; preds = %249, %Abc_NtkVectorClearVars.exit
+Abc_NtkModelToVector.exit188.thread:              ; preds = %249, %243
+  call void @Abc_NtkDelete(ptr noundef nonnull %233) #13
+  br label %255
+
+Abc_NtkModelToVector.exit188:                     ; preds = %Abc_NtkVectorClearVars.exit
   call void @Abc_NtkDelete(ptr noundef nonnull %233) #13
   switch i32 %240, label %255 [
     i32 1, label %273

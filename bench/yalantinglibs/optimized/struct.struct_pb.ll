@@ -171,7 +171,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add19 = add i64 %total.024, 2
   %add20 = add i64 %add19, %add17
   %add21 = add i64 %add20, %ret.i.0
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.023) #17
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.023) #17
   %cmp.i = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i, label %for.end, label %for.body
 
@@ -219,20 +219,22 @@ do.body.i103:                                     ; preds = %do.body.i103, %_ZSt
   %inc.i104 = add nuw nsw i64 %ret.i102.0, 1
   %shr.i105 = lshr i64 %v.addr.i101.0, 7
   %cmp.i106.not = icmp ult i64 %v.addr.i101.0, 128
-  br i1 %cmp.i106.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit107, label %do.body.i103, !llvm.loop !5
+  br i1 %cmp.i106.not, label %if.end.thread, label %do.body.i103, !llvm.loop !5
 
-_ZN9struct_pb8internal21calculate_varint_sizeEm.exit107: ; preds = %do.body.i103
+if.end.thread:                                    ; preds = %do.body.i103
   %add = add i64 %total.0.lcssa.i, 2
   %add5 = add i64 %add, %ret.i102.0
-  br label %if.end
+  br label %if.end78
 
-if.end:                                           ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit107, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
-  %total.0 = phi i64 [ %add5, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit107 ], [ %total.0.lcssa.i, %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit ]
+if.end:                                           ; preds = %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit
   %cmp8 = icmp eq i8 %3, 2
-  %add10 = add i64 %total.0, 9
-  %spec.select = select i1 %cmp8, i64 %add10, i64 %total.0
-  %cmp14 = icmp eq i8 %3, 3
-  br i1 %cmp14, label %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit, label %if.end26
+  %add10 = add i64 %total.0.lcssa.i, 9
+  %spec.select = select i1 %cmp8, i64 %add10, i64 %total.0.lcssa.i
+  switch i8 %3, label %if.end55 [
+    i8 3, label %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit
+    i8 4, label %_ZSt3getILm4EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit
+    i8 5, label %_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit
+  ]
 
 _ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit: ; preds = %if.end
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %t, i64 8
@@ -248,26 +250,19 @@ do.body.i96:                                      ; preds = %do.body.i96, %_ZSt3
   br i1 %cmp.i99.not, label %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47, label %do.body.i96, !llvm.loop !5
 
 _ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47: ; preds = %do.body.i96
-  %add20 = add i64 %spec.select, 2
+  %add20 = add i64 %total.0.lcssa.i, 2
   %add24 = add i64 %add20, %5
   %add25 = add i64 %add24, %ret.i95.0
-  br label %if.end26
-
-if.end26:                                         ; preds = %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47, %if.end
-  %total.2 = phi i64 [ %add25, %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47 ], [ %spec.select, %if.end ]
-  switch i8 %3, label %if.end55 [
-    i8 4, label %if.end55.thread
-    i8 5, label %_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit
-  ]
-
-if.end55.thread:                                  ; preds = %if.end26
-  %add36 = add i64 %total.2, 2
   br label %if.end78
 
-_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit: ; preds = %if.end26
+_ZSt3getILm4EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit: ; preds = %if.end
+  %add36 = add i64 %total.0.lcssa.i, 2
+  br label %if.end78
+
+_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit: ; preds = %if.end
   %6 = load ptr, ptr %t, align 8
-  %cmp.i.not94 = icmp eq ptr %6, null
-  br i1 %cmp.i.not94, label %if.end50, label %_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit68
+  %cmp.i.not101 = icmp eq ptr %6, null
+  br i1 %cmp.i.not101, label %if.end50, label %_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit68
 
 _ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit68: ; preds = %_ZSt3getILm5EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -287,15 +282,15 @@ do.body.i82:                                      ; preds = %do.body.i82, %if.en
   br i1 %cmp.i85.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86, label %do.body.i82, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit86: ; preds = %do.body.i82
-  %add52 = add i64 %total.2, 2
+  %add52 = add i64 %total.0.lcssa.i, 2
   %add53 = add i64 %add52, %sz.0
   %add54 = add i64 %add53, %ret.i81.0
   %.pre = load i8, ptr %_M_index.i, align 8
   br label %if.end55
 
-if.end55:                                         ; preds = %if.end26, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86
-  %7 = phi i8 [ %.pre, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86 ], [ %3, %if.end26 ]
-  %total.4 = phi i64 [ %add54, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86 ], [ %total.2, %if.end26 ]
+if.end55:                                         ; preds = %if.end, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86
+  %7 = phi i8 [ %.pre, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86 ], [ %3, %if.end ]
+  %total.4 = phi i64 [ %add54, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit86 ], [ %spec.select, %if.end ]
   %cmp58 = icmp eq i8 %7, 6
   br i1 %cmp58, label %_ZSt3getILm6EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit, label %if.end78
 
@@ -327,8 +322,8 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit: ; preds = %do.body.i
   %add77 = add i64 %add76, %ret.i.0
   br label %if.end78
 
-if.end78:                                         ; preds = %if.end55.thread, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %if.end55
-  %total.5 = phi i64 [ %add77, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.4, %if.end55 ], [ %add36, %if.end55.thread ]
+if.end78:                                         ; preds = %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47, %if.end.thread, %_ZSt3getILm4EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit, %if.end55
+  %total.5 = phi i64 [ %add77, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit ], [ %total.4, %if.end55 ], [ %add25, %_ZSt3getILm3EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit47 ], [ %add5, %if.end.thread ], [ %add36, %_ZSt3getILm4EJSt9monostateN6google8protobuf9NullValueEdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt10unique_ptrINS2_6StructESt14default_deleteISB_EESA_INS2_9ListValueESC_ISF_EEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSM_.exit ]
   ret i64 %total.5
 }
 
@@ -785,7 +780,7 @@ _ZN9struct_pb8internal21calculate_varint_sizeEm.exit.i: ; preds = %do.body.i.i
   %add19.i = add i64 %total.024.i, 2
   %add20.i = add i64 %add19.i, %add17.i
   %add21.i = add i64 %add20.i, %ret.i.0.i
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.023.i) #17
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.023.i) #17
   %cmp.i.i = icmp eq ptr %call.i.i, %add.ptr.i.i.i
   br i1 %cmp.i.i, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit, label %for.body.i
 

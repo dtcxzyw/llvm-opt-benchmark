@@ -2232,17 +2232,17 @@ define hidden void @_ZN2cv12cpu_baseline18calcSIFTDescriptorERKNS_3MatENS_6Point
   %334 = call float @llvm.fmuladd.f32(float %333, float %333, float %.0263347)
   %indvars.iv.next415 = add nuw nsw i64 %indvars.iv414, 1
   %exitcond418.not = icmp eq i64 %indvars.iv.next415, %wide.trip.count417
-  br i1 %exitcond418.not, label %._crit_edge350, label %331, !llvm.loop !31
+  br i1 %exitcond418.not, label %.lr.ph355.preheader, label %331, !llvm.loop !31
 
-._crit_edge350:                                   ; preds = %331
+.lr.ph355.preheader:                              ; preds = %331
   %335 = call noundef float @sqrtf(float noundef %334) #26
   %336 = fmul float %335, 0x3FC99999A0000000
   %wide.trip.count422 = zext nneg i32 %328 to i64
   br label %.lr.ph355
 
-.lr.ph355:                                        ; preds = %._crit_edge350, %.lr.ph355
-  %indvars.iv419 = phi i64 [ 0, %._crit_edge350 ], [ %indvars.iv.next420, %.lr.ph355 ]
-  %.1353 = phi float [ 0.000000e+00, %._crit_edge350 ], [ %341, %.lr.ph355 ]
+.lr.ph355:                                        ; preds = %.lr.ph355.preheader, %.lr.ph355
+  %indvars.iv419 = phi i64 [ 0, %.lr.ph355.preheader ], [ %indvars.iv.next420, %.lr.ph355 ]
+  %.1353 = phi float [ 0.000000e+00, %.lr.ph355.preheader ], [ %341, %.lr.ph355 ]
   %337 = load ptr, ptr %18, align 8
   %338 = getelementptr inbounds nuw float, ptr %337, i64 %indvars.iv419
   %339 = load float, ptr %338, align 4

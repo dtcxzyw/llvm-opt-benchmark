@@ -17201,34 +17201,34 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterFBXI6CMeshOE4OpenERS3_P
   %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24)
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.321, i32 noundef %28)
   %30 = icmp sgt i32 %28, 0
-  br i1 %30, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %16
-  %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.322, i32 noundef %28)
-  br label %._crit_edge170
+  br i1 %30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16, %.lr.ph
-  %.0103156 = phi i32 [ %44, %.lr.ph ], [ 0, %16 ]
-  %.0104155 = phi i32 [ %45, %.lr.ph ], [ 0, %16 ]
-  %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %.0104155)
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef ptr %38(ptr noundef nonnull align 8 dereferenceable(176) %35)
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %42 = load ptr, ptr %41, align 8
-  %43 = tail call noundef i32 %42(ptr noundef nonnull align 8 dereferenceable(176) %39)
-  %44 = add nsw i32 %43, %.0103156
-  %45 = add nuw nsw i32 %.0104155, 1
-  %exitcond.not = icmp eq i32 %45, %28
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !111
+  %.0103156 = phi i32 [ %43, %.lr.ph ], [ 0, %16 ]
+  %.0104155 = phi i32 [ %44, %.lr.ph ], [ 0, %16 ]
+  %31 = load ptr, ptr %24, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(8) %24, i32 noundef %.0104155)
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(176) %34)
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = tail call noundef i32 %41(ptr noundef nonnull align 8 dereferenceable(176) %38)
+  %43 = add nsw i32 %42, %.0103156
+  %44 = add nuw nsw i32 %.0104155, 1
+  %exitcond.not = icmp eq i32 %44, %28
+  br i1 %exitcond.not, label %.lr.ph169, label %.lr.ph, !llvm.loop !111
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %46 = sext i32 %44 to i64
+._crit_edge:                                      ; preds = %16
+  %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.322, i32 noundef %28)
+  br label %._crit_edge170
+
+.lr.ph169:                                        ; preds = %.lr.ph
+  %46 = sext i32 %43 to i64
   %47 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.322, i32 noundef %28)
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17260,8 +17260,8 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterFBXI6CMeshOE4OpenERS3_P
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 312
   br label %75
 
-75:                                               ; preds = %._crit_edge, %.loopexit150
-  %.0106167 = phi i32 [ 0, %._crit_edge ], [ %382, %.loopexit150 ]
+75:                                               ; preds = %.lr.ph169, %.loopexit150
+  %.0106167 = phi i32 [ 0, %.lr.ph169 ], [ %382, %.loopexit150 ]
   %76 = load ptr, ptr %49, align 8
   %77 = load ptr, ptr %48, align 8
   %78 = ptrtoint ptr %76 to i64
@@ -17728,13 +17728,13 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %_ZN3vcgml
 .preheader:                                       ; preds = %301
   %302 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv186
   %303 = and i64 %284, 4294967295
-  %invariant.gep197 = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %207, i64 %303
+  %invariant.gep198 = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %207, i64 %303
   br i1 %.not122, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.preheader.split.us ], [ 0, %.preheader ]
-  %gep198 = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %invariant.gep197, i64 %indvars.iv182
-  %304 = load double, ptr %gep198, align 8
+  %gep199 = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %invariant.gep198, i64 %indvars.iv182
+  %304 = load double, ptr %gep199, align 8
   %305 = fptrunc double %304 to float
   %306 = load ptr, ptr %74, align 8
   %307 = getelementptr inbounds i8, ptr %306, i64 -48
@@ -17749,7 +17749,7 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %_ZN3vcgml
   %316 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %315, i64 %314
   %317 = getelementptr inbounds nuw [3 x %"class.vcg::TexCoord2"], ptr %316, i64 0, i64 %indvars.iv182
   store float %305, ptr %317, align 4
-  %318 = getelementptr inbounds nuw i8, ptr %gep198, i64 8
+  %318 = getelementptr inbounds nuw i8, ptr %gep199, i64 8
   %319 = load double, ptr %318, align 8
   %320 = fptrunc double %319 to float
   %321 = load ptr, ptr %74, align 8
@@ -17771,7 +17771,7 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %_ZN3vcgml
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %.preheader.split ], [ 0, %.preheader ]
-  %gep = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %invariant.gep197, i64 %indvars.iv178
+  %gep = getelementptr inbounds nuw %"struct.ofbx::Vec2", ptr %invariant.gep198, i64 %indvars.iv178
   %333 = load double, ptr %gep, align 8
   %334 = fptrunc double %333 to float
   %335 = load ptr, ptr %74, align 8
@@ -17841,7 +17841,7 @@ _ZN3vcgmlIdEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %_ZN3vcgml
   %exitcond191.not = icmp eq i32 %382, %28
   br i1 %exitcond191.not, label %._crit_edge170, label %75, !llvm.loop !123
 
-._crit_edge170:                                   ; preds = %.loopexit150, %._crit_edge.thread
+._crit_edge170:                                   ; preds = %.loopexit150, %._crit_edge
   %383 = call noundef i32 @_ZN3vcg3tri5CleanI6CMeshOE21RemoveDuplicateVertexERS2_b(ptr noundef nonnull align 8 dereferenceable(1196) %0, i1 noundef zeroext true)
   call void @_ZN3vcg3tri9AllocatorI6CMeshOE18CompactEveryVectorERS2_(ptr noundef nonnull align 8 dereferenceable(1196) %0)
   br label %384
@@ -36238,18 +36238,17 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = icmp eq i64 %2, 0
-  br i1 %10, label %.split.i.i, label %.lr.ph43
+  br label %10
 
-11:                                               ; preds = %.lr.ph43
-  %12 = icmp eq i64 %27, 0
-  br i1 %12, label %.split.i.i, label %.lr.ph43, !llvm.loop !264
+10:                                               ; preds = %.lr.ph, %25
+  %11 = phi i64 [ %7, %.lr.ph ], [ %33, %25 ]
+  %.023 = phi i64 [ %2, %.lr.ph ], [ %26, %25 ]
+  %storemerge22 = phi ptr [ %1, %.lr.ph ], [ %30, %25 ]
+  %12 = icmp eq i64 %.023, 0
+  br i1 %12, label %.split.i.i, label %25
 
-.split.i.i:                                       ; preds = %11, %.lr.ph
-  %.lcssa39 = phi i64 [ %7, %.lr.ph ], [ %34, %11 ]
-  %.lcssa = phi i64 [ %6, %.lr.ph ], [ %33, %11 ]
-  %storemerge24.lcssa = phi ptr [ %1, %.lr.ph ], [ %31, %11 ]
-  %13 = add nsw i64 %.lcssa39, -2
+.split.i.i:                                       ; preds = %10
+  %13 = add nsw i64 %11, -2
   %14 = lshr i64 %13, 1
   br label %.split9.i.i
 
@@ -36257,46 +36256,39 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.0.i.i = phi i64 [ %14, %.split.i.i ], [ %17, %.split9.i.i ]
   %phi.call.i.i = getelementptr inbounds ptr, ptr %0, i64 %.0.i.i
   %15 = load ptr, ptr %phi.call.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_T0_SJ_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %.lcssa39, ptr noundef %15)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_T0_SJ_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %11, ptr noundef %15)
   %16 = icmp eq i64 %.0.i.i, 0
   %17 = add nsw i64 %.0.i.i, -1
-  br i1 %16, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, label %.split9.i.i, !llvm.loop !265
+  br i1 %16, label %.lr.ph.i.i, label %.split9.i.i, !llvm.loop !264
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit: ; preds = %.split9.i.i
-  %18 = icmp sgt i64 %.lcssa, 8
-  br i1 %18, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit
+.lr.ph.i.i:                                       ; preds = %.split9.i.i, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %18, %.lr.ph.i.i ], [ %storemerge22, %.split9.i.i ]
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %0, align 8
+  store ptr %20, ptr %18, align 8
+  %21 = ptrtoint ptr %18 to i64
+  %22 = sub i64 %21, %4
+  %23 = ashr exact i64 %22, 3
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_T0_SJ_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %23, ptr noundef %19)
+  %24 = icmp sgt i64 %22, 8
+  br i1 %24, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, !llvm.loop !265
 
-.lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %storemerge24.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %0, align 8
-  store ptr %21, ptr %19, align 8
-  %22 = ptrtoint ptr %19 to i64
-  %23 = sub i64 %22, %4
-  %24 = ashr exact i64 %23, 3
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_T0_SJ_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %24, ptr noundef %20)
-  %25 = icmp sgt i64 %23, 8
-  br i1 %25, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, !llvm.loop !266
+25:                                               ; preds = %10
+  %26 = add nsw i64 %.023, -1
+  %27 = lshr i64 %11, 1
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %27
+  %29 = getelementptr inbounds i8, ptr %storemerge22, i64 -8
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_SI_T0_(ptr %0, ptr nonnull %9, ptr %28, ptr nonnull %29)
+  %30 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEET_SI_SI_SI_T0_(ptr nonnull %9, ptr %storemerge22, ptr %0)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_T0_T1_(ptr %30, ptr %storemerge22, i64 noundef %26)
+  %31 = ptrtoint ptr %30 to i64
+  %32 = sub i64 %31, %4
+  %33 = ashr exact i64 %32, 3
+  %34 = icmp sgt i64 %33, 16
+  br i1 %34, label %10, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, !llvm.loop !266
 
-.lr.ph43:                                         ; preds = %.lr.ph, %11
-  %storemerge2442 = phi ptr [ %31, %11 ], [ %1, %.lr.ph ]
-  %.02541 = phi i64 [ %27, %11 ], [ %2, %.lr.ph ]
-  %26 = phi i64 [ %34, %11 ], [ %7, %.lr.ph ]
-  %27 = add nsw i64 %.02541, -1
-  %28 = lshr i64 %26, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
-  %30 = getelementptr inbounds i8, ptr %storemerge2442, i64 -8
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_SI_T0_(ptr %0, ptr nonnull %9, ptr %29, ptr nonnull %30)
-  %31 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEET_SI_SI_SI_T0_(ptr nonnull %9, ptr %storemerge2442, ptr %0)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_T0_T1_(ptr %31, ptr %storemerge2442, i64 noundef %27)
-  %32 = ptrtoint ptr %31 to i64
-  %33 = sub i64 %32, %4
-  %34 = ashr exact i64 %33, 3
-  %35 = icmp sgt i64 %34, 16
-  br i1 %35, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit, !llvm.loop !264
-
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit: ; preds = %.lr.ph43, %.lr.ph.i.i, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8CVertexOSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN3vcg3tri5CleanI6CMeshOE27RemoveDuplicateVert_CompareEEEEvT_SI_SI_T0_.exit: ; preds = %25, %.lr.ph.i.i, %3
   ret void
 }
 
@@ -37847,55 +37839,58 @@ define linkonce_odr void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %spec.select.i, %.lr.ph.i ]
   %29 = and i64 %7, 16
   %30 = icmp eq i64 %29, 0
-  br i1 %30, label %31, label %40
+  br i1 %30, label %31, label %39
 
 31:                                               ; preds = %._crit_edge.i
   %32 = add nsw i64 %8, -2
   %33 = ashr exact i64 %32, 1
   %34 = icmp eq i64 %.0.lcssa.i, %33
-  br i1 %34, label %35, label %40
+  br i1 %34, label %.thread, label %39
 
-35:                                               ; preds = %31
-  %36 = shl nsw i64 %.0.lcssa.i, 1
-  %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0.lcssa.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  br label %40
+.thread:                                          ; preds = %31
+  %35 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %36 = or disjoint i64 %35, 1
+  %37 = getelementptr inbounds nuw %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %36
+  %38 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0.lcssa.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
+  br label %.lr.ph.i.i.preheader
 
-40:                                               ; preds = %35, %31, %._crit_edge.i
-  %.1.i = phi i64 [ %37, %35 ], [ %.0.lcssa.i, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %.sroa.012.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.02.0.copyload to i32
-  %.sroa.012.sroa.3.0.extract.shift.i.i = lshr i64 %.sroa.02.0.copyload, 32
-  %.sroa.012.sroa.3.0.extract.trunc.i.i = trunc nuw i64 %.sroa.012.sroa.3.0.extract.shift.i.i to i32
-  %41 = icmp sgt i64 %.1.i, 0
-  br i1 %41, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit
+39:                                               ; preds = %31, %._crit_edge.i
+  %.not = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %40, %49
-  %.019.i.i = phi i64 [ %.0920.i.i89, %49 ], [ %.1.i, %40 ]
+.lr.ph.i.i.preheader:                             ; preds = %.thread, %39
+  %.1.i16 = phi i64 [ %36, %.thread ], [ %.0.lcssa.i, %39 ]
+  %.sroa.012.sroa.0.0.extract.trunc.i.i17 = trunc i64 %.sroa.02.0.copyload to i32
+  %.sroa.012.sroa.3.0.extract.trunc.i.i18.in = lshr i64 %.sroa.02.0.copyload, 32
+  %.sroa.012.sroa.3.0.extract.trunc.i.i18 = trunc nuw i64 %.sroa.012.sroa.3.0.extract.trunc.i.i18.in to i32
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %47
+  %.019.i.i = phi i64 [ %.0920.i.i89, %47 ], [ %.1.i16, %.lr.ph.i.i.preheader ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i89 = lshr i64 %.0920.in.i.i, 1
-  %42 = getelementptr inbounds nuw %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0920.i.i89
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = load i32, ptr %43, align 4
-  %.not.i.i.i.i = icmp eq i32 %44, %.sroa.012.sroa.3.0.extract.trunc.i.i
-  %45 = icmp ult i32 %44, %.sroa.012.sroa.3.0.extract.trunc.i.i
-  %46 = load i32, ptr %42, align 8
-  %47 = icmp ult i32 %46, %.sroa.012.sroa.0.0.extract.trunc.i.i
-  %48 = select i1 %.not.i.i.i.i, i1 %47, i1 %45
-  br i1 %48, label %49, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit
+  %40 = getelementptr inbounds nuw %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0920.i.i89
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %42 = load i32, ptr %41, align 4
+  %.not.i.i.i.i = icmp eq i32 %42, %.sroa.012.sroa.3.0.extract.trunc.i.i18
+  %43 = icmp ult i32 %42, %.sroa.012.sroa.3.0.extract.trunc.i.i18
+  %44 = load i32, ptr %40, align 8
+  %45 = icmp ult i32 %44, %.sroa.012.sroa.0.0.extract.trunc.i.i17
+  %46 = select i1 %.not.i.i.i.i, i1 %45, i1 %43
+  br i1 %46, label %47, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit
 
-49:                                               ; preds = %.lr.ph.i.i
-  %50 = getelementptr inbounds nuw %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.019.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
-  %.not = icmp ult i64 %.0920.in.i.i, 2
-  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !283
+47:                                               ; preds = %.lr.ph.i.i
+  %48 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.019.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
+  %.not10 = icmp ult i64 %.0920.in.i.i, 2
+  br i1 %.not10, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !283
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit: ; preds = %.lr.ph.i.i, %49, %40
-  %.0.lcssa.i.i = phi i64 [ %.1.i, %40 ], [ 0, %49 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %51 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0.lcssa.i.i
-  store i64 %.sroa.02.0.copyload, ptr %51, align 8
-  %.sroa.4.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %51, i64 8
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg3tri5CleanI6CMeshOE10SortedPairESt6vectorIS7_SaIS7_EEEElS7_NS0_5__ops15_Iter_less_iterEEvT_T0_SG_T1_T2_.exit: ; preds = %.lr.ph.i.i, %47, %39
+  %.0.lcssa.i.i = phi i64 [ 0, %39 ], [ 0, %47 ], [ %.019.i.i, %.lr.ph.i.i ]
+  %49 = getelementptr inbounds %"class.vcg::tri::Clean<CMeshO>::SortedPair", ptr %0, i64 %.0.lcssa.i.i
+  store i64 %.sroa.02.0.copyload, ptr %49, align 8
+  %.sroa.4.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %.sroa.23.0.copyload, ptr %.sroa.4.0..sroa.0.0..sroa_idx.i.i, align 8
   ret void
 }
@@ -75216,7 +75211,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   %.08852193 = phi i64 [ %42, %.lr.ph ], [ 0, %.preheader ]
   %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %38, i64 %.08852193
   %40 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %39) #33
-  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.130, ptr noundef %40) #33
+  %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.339, ptr noundef nonnull @.str.130, ptr noundef %40) #33
   %42 = add nuw i64 %.08852193, 1
   %43 = load ptr, ptr %35, align 8
   %44 = load ptr, ptr %34, align 8
@@ -75254,48 +75249,48 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not918, label %87, label %62
 
 62:                                               ; preds = %._crit_edge.thread
-  %63 = tail call i64 @fwrite(ptr nonnull @.str.340, i64 17, i64 1, ptr %27)
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.403) #33
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.403) #33
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.403) #33
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.403) #33
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.403) #33
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.403) #33
-  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.403) #33
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.403) #33
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.349, ptr noundef nonnull @.str.403) #33
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.403) #33
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.403) #33
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.403) #33
-  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.403) #33
-  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.354, ptr noundef nonnull @.str.403) #33
-  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.355, ptr noundef nonnull @.str.403) #33
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.356, ptr noundef nonnull @.str.403) #33
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.403) #33
-  %81 = tail call i64 @fwrite(ptr nonnull @.str.358, i64 23, i64 1, ptr %27)
-  %82 = tail call i64 @fwrite(ptr nonnull @.str.359, i64 23, i64 1, ptr %27)
-  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.360, ptr noundef nonnull @.str.403) #33
-  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.361, ptr noundef nonnull @.str.403) #33
-  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.403) #33
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.403) #33
+  %63 = tail call i64 @fwrite(ptr nonnull @.str.340, i64 17, i64 1, ptr nonnull %27)
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.341, ptr noundef nonnull @.str.403) #33
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.403) #33
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.343, ptr noundef nonnull @.str.403) #33
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.344, ptr noundef nonnull @.str.403) #33
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.403) #33
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.403) #33
+  %70 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.347, ptr noundef nonnull @.str.403) #33
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.348, ptr noundef nonnull @.str.403) #33
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.349, ptr noundef nonnull @.str.403) #33
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.403) #33
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.351, ptr noundef nonnull @.str.403) #33
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.352, ptr noundef nonnull @.str.403) #33
+  %76 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.403) #33
+  %77 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.354, ptr noundef nonnull @.str.403) #33
+  %78 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.355, ptr noundef nonnull @.str.403) #33
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.356, ptr noundef nonnull @.str.403) #33
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.357, ptr noundef nonnull @.str.403) #33
+  %81 = tail call i64 @fwrite(ptr nonnull @.str.358, i64 23, i64 1, ptr nonnull %27)
+  %82 = tail call i64 @fwrite(ptr nonnull @.str.359, i64 23, i64 1, ptr nonnull %27)
+  %83 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.360, ptr noundef nonnull @.str.403) #33
+  %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.361, ptr noundef nonnull @.str.403) #33
+  %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.362, ptr noundef nonnull @.str.403) #33
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.363, ptr noundef nonnull @.str.403) #33
   br label %87
 
 87:                                               ; preds = %._crit_edge.thread, %62
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %89 = load i32, ptr %88, align 8
-  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.364, i32 noundef %89) #33
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.365, ptr noundef nonnull @.str.403) #33
-  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.366, ptr noundef nonnull @.str.403) #33
-  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.403) #33
+  %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.364, i32 noundef %89) #33
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.365, ptr noundef nonnull @.str.403) #33
+  %92 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.366, ptr noundef nonnull @.str.403) #33
+  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.403) #33
   %94 = load i32, ptr %31, align 4
   %95 = and i32 %94, 16
   %.not919 = icmp eq i32 %95, 0
   br i1 %.not919, label %100, label %96
 
 96:                                               ; preds = %87
-  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.403) #33
-  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.403) #33
-  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.370, ptr noundef nonnull @.str.403) #33
+  %97 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.368, ptr noundef nonnull @.str.403) #33
+  %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.403) #33
+  %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.370, ptr noundef nonnull @.str.403) #33
   %.pre = load i32, ptr %31, align 4
   br label %100
 
@@ -75306,7 +75301,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not920, label %105, label %103
 
 103:                                              ; preds = %100
-  %104 = tail call i64 @fwrite(ptr nonnull @.str.371, i64 19, i64 1, ptr %27)
+  %104 = tail call i64 @fwrite(ptr nonnull @.str.371, i64 19, i64 1, ptr nonnull %27)
   %.pre2288 = load i32, ptr %31, align 4
   br label %105
 
@@ -75317,7 +75312,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not921, label %110, label %108
 
 108:                                              ; preds = %105
-  %109 = tail call i64 @fwrite(ptr nonnull @.str.372, i64 81, i64 1, ptr %27)
+  %109 = tail call i64 @fwrite(ptr nonnull @.str.372, i64 81, i64 1, ptr nonnull %27)
   %.pre2289 = load i32, ptr %31, align 4
   br label %110
 
@@ -75328,7 +75323,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not922, label %115, label %113
 
 113:                                              ; preds = %110
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.373, ptr noundef nonnull @.str.403) #33
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.373, ptr noundef nonnull @.str.403) #33
   br label %115
 
 115:                                              ; preds = %113, %110
@@ -75344,7 +75339,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not923, label %124, label %122
 
 122:                                              ; preds = %119
-  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.374, ptr noundef nonnull @.str.403) #33
+  %123 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.374, ptr noundef nonnull @.str.403) #33
   br label %124
 
 124:                                              ; preds = %122, %119, %115
@@ -75360,7 +75355,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI6CMeshOE4SaveERKS3_
   br i1 %.not924, label %133, label %131
 
 131:                                              ; preds = %128
-  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.375, ptr noundef nonnull @.str.403, ptr noundef nonnull @.str.403) #33
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %27, ptr noundef nonnull @.str.375, ptr noundef nonnull @.str.403, ptr noundef nonnull @.str.403) #33
   br label %133
 
 133:                                              ; preds = %131, %128, %124

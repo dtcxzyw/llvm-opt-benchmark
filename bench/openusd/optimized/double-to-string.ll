@@ -351,7 +351,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   %36 = sub i32 %3, %2
   %37 = add i32 %36, %4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.i49, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52
+  br i1 %38, label %.lr.ph.i49, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread
 
 .lr.ph.i49:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit, %.lr.ph.i49
   %.04.i50 = phi i32 [ %44, %.lr.ph.i49 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit ]
@@ -364,7 +364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %43, align 1
   %44 = add nuw nsw i32 %.04.i50, 1
   %exitcond.not.i51 = icmp eq i32 %44, %37
-  br i1 %exitcond.not.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i49, !llvm.loop !8
+  br i1 %exitcond.not.i51, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %.lr.ph.i49, !llvm.loop !8
 
 45:                                               ; preds = %6
   %.not = icmp slt i32 %3, %2
@@ -464,7 +464,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   %exitcond.not.i63 = icmp eq i32 %100, %93
   br i1 %exitcond.not.i63, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !8
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52: ; preds = %.lr.ph.i61, %.lr.ph.i49, %76, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56, %8
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52: ; preds = %.lr.ph.i61, %76, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit56, %8
   %101 = icmp eq i32 %4, 0
   br i1 %101, label %102, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread
 
@@ -503,7 +503,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10Add
   store i8 48, ptr %121, align 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread: ; preds = %69, %112, %115, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52.thread: ; preds = %69, %.lr.ph.i49, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit, %112, %115, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion13StringBuilder10AddPaddingEci.exit52
   ret void
 }
 

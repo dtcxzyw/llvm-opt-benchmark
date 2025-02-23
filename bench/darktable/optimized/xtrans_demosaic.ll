@@ -1343,13 +1343,13 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %774 = load i32, ptr %773, align 4, !tbaa !74
   %775 = getelementptr inbounds nuw [3 x [8 x i32]], ptr %5, i64 0, i64 2, i64 %indvars.iv1449
   store i32 %774, ptr %775, align 4, !tbaa !74
-  br label %.loopexit1118
+  br label %.preheader1116.preheader
 
-.loopexit1118:                                    ; preds = %.preheader1117, %761
+.loopexit1118:                                    ; preds = %761
   %or.cond1045 = and i1 %719, %.not1029
   br i1 %or.cond1045, label %787, label %.preheader1116.preheader
 
-.preheader1116.preheader:                         ; preds = %764, %.loopexit1118
+.preheader1116.preheader:                         ; preds = %.preheader1117, %764, %.loopexit1118
   br label %.preheader1116
 
 .preheader1116:                                   ; preds = %.preheader1116.preheader, %.preheader1116

@@ -9640,7 +9640,7 @@ define dso_local void @xlog_redo(ptr noundef %0) local_unnamed_addr #0 {
   unreachable
 
 125:                                              ; preds = %112
-  call fastcc void @RecoveryRestartPoint(ptr noundef %2, ptr noundef %0)
+  call fastcc void @RecoveryRestartPoint(ptr noundef %2, ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #26
   br label %.loopexit

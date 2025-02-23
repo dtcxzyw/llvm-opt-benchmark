@@ -1952,7 +1952,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   br i1 %.not, label %52, label %51
 
 51:                                               ; preds = %Vec_IntStartNatural.exit
-  call void @Bmc_PerformFindFlopOrder(ptr noundef %0, ptr noundef nonnull %40)
+  call void @Bmc_PerformFindFlopOrder(ptr noundef nonnull %0, ptr noundef nonnull %40)
   %.val108.pre.pre = load i32, ptr %42, align 4, !tbaa !29
   br label %52
 
@@ -1983,13 +1983,13 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   store i32 %59, ptr %64, align 4, !tbaa !51
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next.i125, %56
-  br i1 %exitcond141.not, label %Vec_IntReverseOrder.exit, label %57, !llvm.loop !87
+  br i1 %exitcond141.not, label %.lr.ph138, label %57, !llvm.loop !87
 
-Vec_IntReverseOrder.exit:                         ; preds = %57, %52
+Vec_IntReverseOrder.exit:                         ; preds = %52
   %66 = icmp sgt i32 %.val108.pre, 0
   br i1 %66, label %.lr.ph138, label %.critedge
 
-.lr.ph138:                                        ; preds = %Vec_IntReverseOrder.exit
+.lr.ph138:                                        ; preds = %57, %Vec_IntReverseOrder.exit
   %.val115 = load ptr, ptr %48, align 8, !tbaa !49
   %.not100 = icmp eq i32 %5, 0
   %67 = add nsw i32 %1, 1

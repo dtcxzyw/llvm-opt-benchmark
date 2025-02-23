@@ -819,8 +819,8 @@ _ZL13gmx_snew_implIdEvPKcS1_iRPT_m.exit:          ; preds = %169
   %287 = sub nsw i32 %.sroa.speculated.i, %.sroa.speculated117.i
   %288 = sitofp i32 %287 to float
   %289 = zext nneg i32 %.sroa.speculated117.i to i64
-  %290 = add nsw i32 %.sroa.speculated.i, 1
-  %wide.trip.count152.i = zext i32 %290 to i64
+  %290 = add nuw nsw i32 %.sroa.speculated.i, 1
+  %wide.trip.count152.i = zext nneg i32 %290 to i64
   br label %296
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i

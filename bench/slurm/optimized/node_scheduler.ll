@@ -8392,7 +8392,7 @@ _resolve_shared_status.exit:                      ; preds = %55, %62, %70, %79, 
   %156 = tail call i32 @bit_set_count(ptr noundef %155) #14
   %157 = load ptr, ptr @share_node_bitmap, align 8
   %158 = tail call i32 @bit_set_count(ptr noundef %157) #14
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__._pick_best_nodes, ptr noundef %3, i32 noundef %156, i32 noundef %158) #14
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.52, ptr noundef nonnull @__func__._pick_best_nodes, ptr noundef nonnull %3, i32 noundef %156, i32 noundef %158) #14
   br label %159
 
 159:                                              ; preds = %154, %._crit_edge

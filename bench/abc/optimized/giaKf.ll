@@ -341,7 +341,7 @@ Kf_CutRef.exit:                                   ; preds = %.lr.ph.i, %.Kf_CutR
 79:                                               ; preds = %39, %Kf_CutRef.exit, %50, %49
   %80 = phi i64 [ %26, %39 ], [ %78, %Kf_CutRef.exit ], [ %26, %50 ], [ %26, %49 ]
   %81 = phi i64 [ %27, %39 ], [ %77, %Kf_CutRef.exit ], [ %27, %50 ], [ %27, %49 ]
-  %82 = icmp sgt i64 %indvars.iv, 1
+  %82 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %82, label %.lr.ph.split, label %.critedge, !llvm.loop !56
 
 .critedge:                                        ; preds = %79

@@ -42,11 +42,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readn
   %19 = getelementptr inbounds nuw i8, ptr %.0107126, i64 28
   %20 = load i8, ptr %19, align 4, !tbaa !25
   %21 = icmp eq i8 %20, 42
-  br i1 %21, label %22, label %.lr.ph._crit_edge
-
-.lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre = zext i32 %.0113120 to i64
-  br label %thread-pre-split
+  br i1 %21, label %22, label %thread-pre-split
 
 22:                                               ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.0107126, i64 8
@@ -59,46 +55,46 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr noundef readn
   %30 = icmp ugt ptr %26, %29
   br i1 %30, label %.preheader119, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %22
-  %31 = add i32 %.0113120, 1
-  %32 = getelementptr inbounds nuw i32, ptr %13, i64 %28
-  store i32 %.0111122, ptr %32, align 4, !tbaa !28
-  br label %46
-
 .preheader119:                                    ; preds = %22, %.preheader119
   %.pn = phi ptr [ %.0, %.preheader119 ], [ %26, %22 ]
   %.0 = getelementptr inbounds i8, ptr %.pn, i64 -32
-  %33 = getelementptr inbounds i8, ptr %.pn, i64 -4
-  %34 = load i8, ptr %33, align 4, !tbaa !25
-  %35 = icmp eq i8 %34, 0
-  br i1 %35, label %.preheader119, label %36
+  %31 = getelementptr inbounds i8, ptr %.pn, i64 -4
+  %32 = load i8, ptr %31, align 4, !tbaa !25
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %.preheader119, label %34
 
-36:                                               ; preds = %.preheader119
-  %37 = icmp eq ptr %.0, %.0107126
-  br i1 %37, label %.thread, label %thread-pre-split
+34:                                               ; preds = %.preheader119
+  %35 = icmp eq ptr %.0, %.0107126
+  br i1 %35, label %.thread, label %thread-pre-split.thread
 
-.thread:                                          ; preds = %36
+.thread:                                          ; preds = %34
   store i8 0, ptr %19, align 4, !tbaa !25
+  %36 = add i32 %.0113120, 1
+  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  store i32 %.0111122, ptr %37, align 4, !tbaa !28
+  br label %43
+
+thread-pre-split.thread:                          ; preds = %34, %22
   %38 = add i32 %.0113120, 1
   %39 = getelementptr inbounds nuw i32, ptr %13, i64 %28
   store i32 %.0111122, ptr %39, align 4, !tbaa !28
-  br label %43
+  br label %46
 
-thread-pre-split:                                 ; preds = %36, %.lr.ph._crit_edge
-  %.pre-phi = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %28, %36 ]
+thread-pre-split:                                 ; preds = %.lr.ph
+  %.pre = zext i32 %.0113120 to i64
   %40 = add i32 %.0113120, 1
-  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %.pre-phi
+  %41 = getelementptr inbounds nuw i32, ptr %13, i64 %.pre
   store i32 %.0111122, ptr %41, align 4, !tbaa !28
   %42 = icmp eq i8 %20, 0
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %.thread, %thread-pre-split
-  %44 = phi i32 [ %38, %.thread ], [ %40, %thread-pre-split ]
+  %44 = phi i32 [ %36, %.thread ], [ %40, %thread-pre-split ]
   %45 = add i32 %.0111122, 1
   br label %54
 
 46:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
-  %47 = phi i32 [ %31, %thread-pre-split.thread ], [ %40, %thread-pre-split ]
+  %47 = phi i32 [ %38, %thread-pre-split.thread ], [ %40, %thread-pre-split ]
   %.not118 = icmp eq i32 %.0111122, 0
   br i1 %.not118, label %52, label %48
 
@@ -148,7 +144,7 @@ thread-pre-split:                                 ; preds = %36, %.lr.ph._crit_e
 
 .lr.ph130:                                        ; preds = %59, %.lr.ph130
   %.1128 = phi ptr [ %68, %.lr.ph130 ], [ %60, %59 ]
-  call void @zend_optimizer_shift_jump(ptr noundef %0, ptr noundef %.1128, ptr noundef %13) #5
+  call void @zend_optimizer_shift_jump(ptr noundef nonnull %0, ptr noundef %.1128, ptr noundef nonnull %13) #5
   %68 = getelementptr inbounds nuw i8, ptr %.1128, i64 32
   %69 = icmp ult ptr %68, %62
   br i1 %69, label %.lr.ph130, label %.preheader

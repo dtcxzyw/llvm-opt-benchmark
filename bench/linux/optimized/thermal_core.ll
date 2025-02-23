@@ -2466,12 +2466,12 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = tail call i32 %19(ptr noundef %0, ptr noundef nonnull %20) #20
+  %21 = tail call i32 %19(ptr noundef nonnull %0, ptr noundef nonnull %20) #20
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %57
 
 23:                                               ; preds = %15
-  tail call void @thermal_cooling_device_stats_reinit(ptr noundef %0) #20
+  tail call void @thermal_cooling_device_stats_reinit(ptr noundef nonnull %0) #20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, %24
@@ -2531,7 +2531,7 @@ define dso_local void @thermal_cooling_device_update(ptr noundef %0) #1 align 16
   %53 = load ptr, ptr %17, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = call i32 %55(ptr noundef %0, ptr noundef nonnull %2) #20
+  %56 = call i32 %55(ptr noundef nonnull %0, ptr noundef nonnull %2) #20
   br label %57
 
 57:                                               ; preds = %.loopexit, %15

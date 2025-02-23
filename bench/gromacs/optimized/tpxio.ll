@@ -1688,7 +1688,7 @@ _ZN3gmx11ISerializer11doRealArrayEPfi.exit35.i:   ; preds = %.lr.ph.i31.i, %_ZN3
 _ZL18do_tpx_state_firstPN3gmx11ISerializerEP13TpxFileHeaderP7t_state.exit: ; preds = %59, %_ZN3gmx11ISerializer11doRealArrayEPfi.exit35.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %13)
-  call fastcc void @_ZL11do_tpx_mtopPN3gmx11ISerializerEP13TpxFileHeaderP10gmx_mtop_t(ptr noundef %0, ptr noundef %1, ptr noundef %6)
+  call fastcc void @_ZL11do_tpx_mtopPN3gmx11ISerializerEP13TpxFileHeaderP10gmx_mtop_t(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %6)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16

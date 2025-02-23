@@ -2202,7 +2202,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_120AtomicOperandChecker15getRecovery
   br i1 %.not9, label %23, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %27
 
 23:                                               ; preds = %14

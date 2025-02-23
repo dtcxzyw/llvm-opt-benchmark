@@ -2256,7 +2256,7 @@ define hidden noundef nonnull ptr @_ZN10duckdb_re29Prefilter4Info3AltEPS1_S2_(pt
   %23 = load i64, ptr %22, align 8, !tbaa !36
   %24 = icmp ult i64 %21, %23
   %spec.select = select i1 %24, ptr %1, ptr %0
-  %spec.select34 = select i1 %24, ptr %0, ptr %1
+  %spec.select27 = select i1 %24, ptr %0, ptr %1
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef null)
           to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE5clearEv.exit.i.i.i unwind label %25
 
@@ -2300,17 +2300,13 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit
 
 _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE5clearEv.exit.i.i.i, %30
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select34, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %spec.select27, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !31
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select34, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %spec.select27, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #21
   store ptr %4, ptr %3, align 8, !tbaa !78
   %.not6.i.i = icmp eq ptr %41, %42
-  br i1 %.not6.i.i, label %.thread33, label %.lr.ph.i.i
-
-.thread33:                                        ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  br label %.sink.split
+  br i1 %.not6.i.i, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit, %.lr.ph.i.i
   %.sroa.03.07.i.i = phi ptr [ %45, %.lr.ph.i.i ], [ %41, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit ]
@@ -2318,7 +2314,11 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Pref
   %44 = call ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE17_M_insert_unique_IRKS5_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr nonnull %5, ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %45 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.03.07.i.i) #24
   %.not.i.i = icmp eq ptr %45, %42
-  br i1 %.not.i.i, label %58, label %.lr.ph.i.i, !llvm.loop !80
+  br i1 %.not.i.i, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit, label %.lr.ph.i.i, !llvm.loop !80
+
+_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit: ; preds = %.lr.ph.i.i, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EEaSEOSA_.exit
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
+  br label %58
 
 ._crit_edge.i:                                    ; preds = %2
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2342,98 +2342,76 @@ _ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit:  ; preds = %._crit_edge.i, %46
 ._crit_edge.i9:                                   ; preds = %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit
   %.phi.trans.insert.i10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.pre.i11 = load ptr, ptr %.phi.trans.insert.i10, align 8, !tbaa !51
-  br label %.thread27
+  br label %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12
 
 53:                                               ; preds = %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit
   %54 = tail call noundef ptr @_ZN10duckdb_re29Prefilter9OrStringsEPSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_13LengthThenLexESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(64) %1)
   store i8 0, ptr %50, align 8, !tbaa !43
-  br label %.thread27
+  br label %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12
 
-.thread27:                                        ; preds = %53, %._crit_edge.i9
+_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12: ; preds = %._crit_edge.i9, %53
   %55 = phi ptr [ %.pre.i11, %._crit_edge.i9 ], [ %54, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store ptr null, ptr %56, align 8, !tbaa !51
   %57 = tail call noundef ptr @_ZN10duckdb_re29Prefilter5AndOrENS0_2OpEPS0_S2_(i32 noundef 4, ptr noundef %48, ptr noundef %55)
   store ptr %57, ptr %11, align 8, !tbaa !51
-  br label %.sink.split
+  br label %58
 
-58:                                               ; preds = %.lr.ph.i.i
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
-  store i8 1, ptr %10, align 8, !tbaa !43
-  %59 = icmp eq ptr %spec.select, null
-  br i1 %59, label %71, label %60
+58:                                               ; preds = %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit, %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12
+  %storemerge = phi i8 [ 0, %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12 ], [ 1, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit ]
+  %.126 = phi ptr [ %0, %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12 ], [ %spec.select, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit ]
+  %.1 = phi ptr [ %1, %_ZN10duckdb_re29Prefilter4Info9TakeMatchEv.exit12 ], [ %spec.select27, %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE6insertISt23_Rb_tree_const_iteratorIS5_EEEvT_SE_.exit ]
+  store i8 %storemerge, ptr %10, align 8, !tbaa !43
+  %59 = getelementptr inbounds nuw i8, ptr %.126, i64 56
+  %60 = load ptr, ptr %59, align 8, !tbaa !51
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %63, label %62
 
-.sink.split:                                      ; preds = %.thread27, %.thread33
-  %.sink = phi i8 [ 1, %.thread33 ], [ 0, %.thread27 ]
-  %.131.ph = phi ptr [ %spec.select34, %.thread33 ], [ %1, %.thread27 ]
-  %.12630.ph = phi ptr [ %spec.select, %.thread33 ], [ %0, %.thread27 ]
-  store i8 %.sink, ptr %10, align 8, !tbaa !43
-  br label %60
+62:                                               ; preds = %58
+  call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %60) #21
+  call void @_ZdlPv(ptr noundef nonnull %60) #22
+  br label %63
 
-60:                                               ; preds = %.sink.split, %58
-  %.131 = phi ptr [ %spec.select34, %58 ], [ %.131.ph, %.sink.split ]
-  %.12630 = phi ptr [ %spec.select, %58 ], [ %.12630.ph, %.sink.split ]
-  %61 = getelementptr inbounds nuw i8, ptr %.12630, i64 56
-  %62 = load ptr, ptr %61, align 8, !tbaa !51
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %65, label %64
+63:                                               ; preds = %62, %58
+  %64 = getelementptr inbounds nuw i8, ptr %.126, i64 16
+  %65 = load ptr, ptr %64, align 8, !tbaa !41
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(64) %.126, ptr noundef %65)
+          to label %69 unwind label %66
 
-64:                                               ; preds = %60
-  call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %62) #21
-  call void @_ZdlPv(ptr noundef nonnull %62) #22
-  br label %65
-
-65:                                               ; preds = %64, %60
-  %66 = getelementptr inbounds nuw i8, ptr %.12630, i64 16
-  %67 = load ptr, ptr %66, align 8, !tbaa !41
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(64) %.12630, ptr noundef %67)
-          to label %_ZN10duckdb_re29Prefilter4InfoD2Ev.exit unwind label %68
-
-68:                                               ; preds = %65
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %63
+  %67 = landingpad { ptr, i32 }
           catch ptr null
-  %70 = extractvalue { ptr, i32 } %69, 0
-  call void @__clang_call_terminate(ptr %70) #25
+  %68 = extractvalue { ptr, i32 } %67, 0
+  call void @__clang_call_terminate(ptr %68) #25
   unreachable
 
-_ZN10duckdb_re29Prefilter4InfoD2Ev.exit:          ; preds = %65
-  call void @_ZdlPv(ptr noundef nonnull %.12630) #22
-  br label %71
+69:                                               ; preds = %63
+  call void @_ZdlPv(ptr noundef nonnull %.126) #22
+  %70 = getelementptr inbounds nuw i8, ptr %.1, i64 56
+  %71 = load ptr, ptr %70, align 8, !tbaa !51
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %74, label %73
 
-71:                                               ; preds = %_ZN10duckdb_re29Prefilter4InfoD2Ev.exit, %58
-  %.132 = phi ptr [ %.131, %_ZN10duckdb_re29Prefilter4InfoD2Ev.exit ], [ %spec.select34, %58 ]
-  %72 = icmp eq ptr %.132, null
-  br i1 %72, label %84, label %73
+73:                                               ; preds = %69
+  call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %71) #21
+  call void @_ZdlPv(ptr noundef nonnull %71) #22
+  br label %74
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %.132, i64 56
-  %75 = load ptr, ptr %74, align 8, !tbaa !51
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %78, label %77
+74:                                               ; preds = %73, %69
+  %75 = getelementptr inbounds nuw i8, ptr %.1, i64 16
+  %76 = load ptr, ptr %75, align 8, !tbaa !41
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(64) %.1, ptr noundef %76)
+          to label %80 unwind label %77
 
-77:                                               ; preds = %73
-  call void @_ZN10duckdb_re29PrefilterD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %75) #21
-  call void @_ZdlPv(ptr noundef nonnull %75) #22
-  br label %78
-
-78:                                               ; preds = %77, %73
-  %79 = getelementptr inbounds nuw i8, ptr %.132, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !41
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_EN10duckdb_re29Prefilter13LengthThenLexESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(64) %.132, ptr noundef %80)
-          to label %_ZN10duckdb_re29Prefilter4InfoD2Ev.exit13 unwind label %81
-
-81:                                               ; preds = %78
-  %82 = landingpad { ptr, i32 }
+77:                                               ; preds = %74
+  %78 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #25
+  %79 = extractvalue { ptr, i32 } %78, 0
+  call void @__clang_call_terminate(ptr %79) #25
   unreachable
 
-_ZN10duckdb_re29Prefilter4InfoD2Ev.exit13:        ; preds = %78
-  call void @_ZdlPv(ptr noundef nonnull %.132) #22
-  br label %84
-
-84:                                               ; preds = %_ZN10duckdb_re29Prefilter4InfoD2Ev.exit13, %71
+80:                                               ; preds = %74
+  call void @_ZdlPv(ptr noundef nonnull %.1) #22
   ret ptr %4
 }
 

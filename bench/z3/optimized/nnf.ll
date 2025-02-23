@@ -3185,7 +3185,7 @@ if.then96:                                        ; preds = %if.end90
   %62 = load ptr, ptr %this, align 8
   %63 = load i32, ptr %m_pos.i.i, align 8
   %64 = load ptr, ptr %new_patterns, align 8
-  %call103 = invoke noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprS3_(ptr noundef nonnull align 8 dereferenceable(976) %62, ptr noundef %q, i32 noundef %63, ptr noundef %64, ptr noundef %35)
+  %call103 = invoke noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprS3_(ptr noundef nonnull align 8 dereferenceable(976) %62, ptr noundef nonnull %q, i32 noundef %63, ptr noundef %64, ptr noundef %35)
           to label %invoke.cont102 unwind label %lpad68.loopexit.split-lp
 
 invoke.cont102:                                   ; preds = %if.then96
@@ -3197,13 +3197,13 @@ invoke.cont102:                                   ; preds = %if.then96
 
 if.then105:                                       ; preds = %invoke.cont102
   %67 = load ptr, ptr %new_expr_pr, align 8
-  %call108 = invoke noundef ptr @_ZN11ast_manager13mk_bind_proofEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(976) %65, ptr noundef %q, ptr noundef %67)
+  %call108 = invoke noundef ptr @_ZN11ast_manager13mk_bind_proofEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(976) %65, ptr noundef nonnull %q, ptr noundef %67)
           to label %invoke.cont107 unwind label %lpad68.loopexit.split-lp
 
 invoke.cont107:                                   ; preds = %if.then105
   store ptr %call108, ptr %new_expr_pr, align 8
   %68 = load ptr, ptr %this, align 8
-  %call111 = invoke noundef ptr @_ZN11ast_manager10mk_nnf_posEP4exprS1_jPKP3app(ptr noundef nonnull align 8 dereferenceable(976) %68, ptr noundef %q, ptr noundef %call103, i32 noundef 1, ptr noundef nonnull %new_expr_pr)
+  %call111 = invoke noundef ptr @_ZN11ast_manager10mk_nnf_posEP4exprS1_jPKP3app(ptr noundef nonnull align 8 dereferenceable(976) %68, ptr noundef nonnull %q, ptr noundef %call103, i32 noundef 1, ptr noundef nonnull %new_expr_pr)
           to label %if.end133 unwind label %lpad68.loopexit.split-lp
 
 if.else113:                                       ; preds = %if.end90

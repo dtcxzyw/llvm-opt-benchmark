@@ -1101,7 +1101,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load i64, ptr %arrayidx, align 8
   store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
+  %cmp6 = icmp samesign ugt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %if.end14, !llvm.loop !11
 
 if.end14:                                         ; preds = %for.body, %for.cond.preheader
@@ -1222,7 +1222,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %10 = load i64, ptr %arrayidx, align 8
   store i64 %10, ptr %9, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp6 = icmp sgt i64 %indvars.iv.next, %7
+  %cmp6 = icmp samesign ugt i64 %indvars.iv.next, %7
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !12
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader

@@ -1271,13 +1271,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %87, %85, %75
   %96 = icmp eq ptr %95, null
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 48
   %spec.select = select i1 %96, ptr null, ptr %97
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %95, i64 56
   %.pre = load i16, ptr %.phi.trans.insert, align 8
   br label %98
 
 98:                                               ; preds = %93, %_ZN4llvm11raw_ostreamlsEPKc.exit
   %99 = phi i16 [ %.pre, %93 ], [ %91, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
-  %.036 = phi ptr [ %97, %93 ], [ %77, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
+  %.036 = phi ptr [ %spec.select, %93 ], [ %77, %_ZN4llvm11raw_ostreamlsEPKc.exit ]
   %100 = and i16 %99, 127
   %.not148 = icmp eq i16 %100, 21
   br i1 %.not148, label %101, label %169

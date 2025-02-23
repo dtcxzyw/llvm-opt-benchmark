@@ -1108,7 +1108,7 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   store i32 %20, ptr %21, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !15
+  br i1 %exitcond70.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1120,20 +1120,20 @@ define internal fastcc noundef i32 @dissect_object_id(ptr noundef %0, ptr nounde
   store i32 %24, ptr %25, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count69
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !15
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.not36.i = icmp eq i8 %10, 0
   br i1 %.not36.i, label %.lr.ph.preheader.i, label %26
 
-26:                                               ; preds = %._crit_edge
+26:                                               ; preds = %.loopexit
   %27 = sext i8 %10 to i32
   %28 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 2048, i32 noundef 2, i64 noundef 2048, ptr noundef nonnull @.str.182, i32 noundef %27)
   %29 = icmp slt i32 %28, 2048
   br i1 %29, label %.lr.ph.preheader.i, label %convert_oid_to_str.exit.thread58
 
-.lr.ph.preheader.i:                               ; preds = %26, %._crit_edge
-  %.042.i = phi i32 [ %28, %26 ], [ 0, %._crit_edge ]
+.lr.ph.preheader.i:                               ; preds = %26, %.loopexit
+  %.042.i = phi i32 [ %28, %26 ], [ 0, %.loopexit ]
   %30 = zext i8 %8 to i64
   br label %.lr.ph.i
 

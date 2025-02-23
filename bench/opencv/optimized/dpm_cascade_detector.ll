@@ -1016,8 +1016,8 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE5clearEv.exit: ; pre
   br label %22
 
 22:                                               ; preds = %.lr.ph54, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40
-  %23 = phi ptr [ %14, %.lr.ph54 ], [ %97, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40 ]
-  %.053 = phi i64 [ 0, %.lr.ph54 ], [ %95, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40 ]
+  %23 = phi ptr [ %14, %.lr.ph54 ], [ %96, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40 ]
+  %.053 = phi i64 [ 0, %.lr.ph54 ], [ %94, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds %"struct.cv::Ptr.12", ptr %23, i64 %.053
   %25 = load ptr, ptr %24, align 8
@@ -1200,22 +1200,22 @@ _ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34: ; preds = %92, %.lr.ph.i.i.
 
 _ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38: ; preds = %_ZSt8_DestroyISt6vectorIdSaIdEEEvPT_.exit.i.i.i.i34, %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit
   %.not.i.i.i39 = icmp eq ptr %26, null
-  br i1 %.not.i.i.i39, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40, label %94
+  br i1 %.not.i.i.i39, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40, label %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38.thread
 
-94:                                               ; preds = %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38
+_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38.thread: ; preds = %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38
   call void @_ZdlPv(ptr noundef nonnull %26) #21
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40
 
-_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40:       ; preds = %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38, %94
-  %95 = add nuw i64 %.053, 1
-  %96 = load ptr, ptr %12, align 8
-  %97 = load ptr, ptr %11, align 8
+_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40:       ; preds = %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38, %_ZSt8_DestroyIPSt6vectorIdSaIdEES2_EvT_S4_RSaIT0_E.exit.i38.thread
+  %94 = add nuw i64 %.053, 1
+  %95 = load ptr, ptr %12, align 8
+  %96 = load ptr, ptr %11, align 8
+  %97 = ptrtoint ptr %95 to i64
   %98 = ptrtoint ptr %96 to i64
-  %99 = ptrtoint ptr %97 to i64
-  %100 = sub i64 %98, %99
-  %101 = ashr exact i64 %100, 4
-  %102 = icmp ult i64 %95, %101
-  br i1 %102, label %22, label %._crit_edge55, !llvm.loop !29
+  %99 = sub i64 %97, %98
+  %100 = ashr exact i64 %99, 4
+  %101 = icmp ult i64 %94, %100
+  br i1 %101, label %22, label %._crit_edge55, !llvm.loop !29
 
 ._crit_edge55:                                    ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit40, %_ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EE5clearEv.exit
   ret void

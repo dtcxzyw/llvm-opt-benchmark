@@ -344,7 +344,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   store i8 %41, ptr %42, align 1
   %43 = add i32 %.0316, 1
   %44 = zext i32 %43 to i64
-  %45 = icmp ugt i64 %.0294, %44
+  %45 = icmp samesign ugt i64 %.0294, %44
   br i1 %45, label %.lr.ph, label %.loopexit314, !llvm.loop !4
 
 .loopexit314:                                     ; preds = %.lr.ph, %37
@@ -585,7 +585,7 @@ define internal fastcc void @chacha20_encrypt_bytes(ptr noundef nonnull captures
   %230 = getelementptr i8, ptr %.1286, i64 %indvars.iv
   store i8 %229, ptr %230, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %231 = icmp ult i64 %indvars.iv.next, %.0294
+  %231 = icmp samesign ult i64 %indvars.iv.next, %.0294
   br i1 %231, label %.lr.ph335, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph335, %227

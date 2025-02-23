@@ -27665,11 +27665,11 @@ _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread: ; preds 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge: ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread
   %.pre = load i32, ptr %7, align 4, !tbaa !479
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 3968
-  %.pre55 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre56 = load i32, ptr %.phi.trans.insert, align 8
   br label %16
 
 16:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit
-  %17 = phi i32 [ %.pre55, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %12, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
+  %17 = phi i32 [ %.pre56, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %12, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
   %18 = phi i32 [ %.pre, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit.thread._crit_edge ], [ %8, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit ]
   %.off.i = add i32 %18, -1
   %switch.i = icmp ult i32 %.off.i, 2
@@ -27694,7 +27694,7 @@ _ZN5clang13SanitizerMaskoRERKS0_.exit21:          ; preds = %16, %_ZNK5clang6dri
 26:                                               ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit21, %_ZN5clang13SanitizerMaskoRERKS0_.exit21
   %27 = load i32, ptr %7, align 4, !tbaa !479
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22
+  br i1 %28, label %38, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22
 
 _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22: ; preds = %26
   %29 = icmp eq i32 %27, 1
@@ -27702,50 +27702,48 @@ _ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22: ; preds = %26
   %31 = load i32, ptr %30, align 8
   %32 = icmp eq i32 %31, 2
   %33 = select i1 %29, i1 %32, i1 false
-  br i1 %33, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread, label %34
+  br i1 %33, label %.thread60, label %34
 
 34:                                               ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22
   %35 = icmp eq i32 %31, 1
   %36 = icmp ult i32 %27, 4
-  %or.cond47 = select i1 %36, i1 %35, i1 false
-  br i1 %or.cond47, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
+  %or.cond46 = select i1 %36, i1 %35, i1 false
+  br i1 %or.cond46, label %.thread60, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread: ; preds = %26, %34, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22
+.thread60:                                        ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22, %34
   %37 = or i64 %.sroa.0.0, 32768
-  switch i32 %2, label %_ZN5clang13SanitizerMaskoRERKS0_.exit31 [
-    i32 38, label %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread
-    i32 3, label %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread
-  ]
+  br label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread:   ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread
-  br i1 %28, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
+38:                                               ; preds = %26
+  %39 = or i64 %.sroa.0.0, 32768
+  br label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27: ; preds = %34, %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread
-  %.sroa.0.157 = phi i64 [ %37, %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread ], [ %.sroa.0.0, %34 ]
-  %38 = icmp eq i32 %27, 1
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 3968
-  %40 = load i32, ptr %39, align 8
-  %41 = icmp eq i32 %40, 2
-  %42 = select i1 %38, i1 %41, i1 false
-  br i1 %42, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread, label %_ZN5clang13SanitizerMaskoRERKS0_.exit29
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27: ; preds = %34, %.thread60
+  %.sroa.0.158 = phi i64 [ %37, %.thread60 ], [ %.sroa.0.0, %34 ]
+  %40 = icmp eq i32 %27, 1
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 3968
+  %42 = load i32, ptr %41, align 8
+  %43 = icmp eq i32 %42, 2
+  %44 = select i1 %40, i1 %43, i1 false
+  br i1 %44, label %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread, label %_ZN5clang13SanitizerMaskoRERKS0_.exit26
 
-_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread: ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
-  %.sroa.0.158 = phi i64 [ %37, %_ZN5clang13SanitizerMaskoRERKS0_.exit26.thread ], [ %.sroa.0.157, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27 ]
-  %43 = or i64 %.sroa.0.158, 16384
-  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit29
+_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread: ; preds = %38, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
+  %.sroa.0.159 = phi i64 [ %39, %38 ], [ %.sroa.0.158, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27 ]
+  %45 = or i64 %.sroa.0.159, 16384
+  br label %_ZN5clang13SanitizerMaskoRERKS0_.exit26
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit29:          ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
-  %.sroa.0.2 = phi i64 [ %43, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread ], [ %.sroa.0.157, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27 ]
-  %44 = or i64 %.sroa.0.2, 65536
-  %spec.select59 = select i1 %3, i64 %44, i64 %.sroa.0.2
+_ZN5clang13SanitizerMaskoRERKS0_.exit26:          ; preds = %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27
+  %.sroa.0.2 = phi i64 [ %45, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27.thread ], [ %.sroa.0.158, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit27 ]
+  %46 = or i64 %.sroa.0.2, 65536
+  %spec.select61 = select i1 %3, i64 %46, i64 %.sroa.0.2
   br label %_ZN5clang13SanitizerMaskoRERKS0_.exit31
 
-_ZN5clang13SanitizerMaskoRERKS0_.exit31:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit29, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread, %_ZN5clang13SanitizerMaskoRERKS0_.exit21
-  %.sroa.0.3 = phi i64 [ %.sroa.0.0, %_ZN5clang13SanitizerMaskoRERKS0_.exit21 ], [ %37, %_ZNK5clang6driver10toolchains6Darwin18isTargetMacOSBasedEv.exit22.thread ], [ %spec.select59, %_ZN5clang13SanitizerMaskoRERKS0_.exit29 ]
-  %45 = extractvalue { i64, i64 } %4, 1
-  %46 = or i64 %45, 64
+_ZN5clang13SanitizerMaskoRERKS0_.exit31:          ; preds = %_ZN5clang13SanitizerMaskoRERKS0_.exit26, %_ZN5clang13SanitizerMaskoRERKS0_.exit21
+  %.sroa.0.3 = phi i64 [ %.sroa.0.0, %_ZN5clang13SanitizerMaskoRERKS0_.exit21 ], [ %spec.select61, %_ZN5clang13SanitizerMaskoRERKS0_.exit26 ]
+  %47 = extractvalue { i64, i64 } %4, 1
+  %48 = or i64 %47, 64
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.3, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %46, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %48, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

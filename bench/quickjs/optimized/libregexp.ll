@@ -3401,7 +3401,7 @@ parse_digits.exit464:                             ; preds = %.lr.ph.split.i454
 parse_digits.exit477:                             ; preds = %.lr.ph.split.i467
   store ptr %432, ptr %13, align 8, !tbaa !7
   %435 = trunc nuw nsw i64 %spec.select.i470 to i32
-  %436 = icmp ult i64 %431, %spec.select.i457
+  %436 = icmp samesign ult i64 %431, %spec.select.i457
   br i1 %436, label %437, label %thread-pre-split
 
 437:                                              ; preds = %parse_digits.exit477, %409

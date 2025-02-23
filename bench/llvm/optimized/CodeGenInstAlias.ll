@@ -155,7 +155,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm16CodeGenInstAlias15tryAliasOpMatch
   br i1 %.not, label %.thread, label %48
 
 48:                                               ; preds = %8
-  %49 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !11
   %51 = icmp eq ptr %50, %3
   br i1 %51, label %52, label %.thread
@@ -931,10 +931,8 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit175: ; preds = %_ZNKSt7__cxx11
   %339 = phi i1 [ false, %145 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %140 ], [ true, %.critedge ]
   %.089256 = phi ptr [ null, %145 ], [ %.089255, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ null, %140 ], [ %.089255, %.critedge ]
   %340 = load i8, ptr %45, align 8, !tbaa !8
-  %341 = icmp eq i8 %340, 7
-  %spec.select.i.i176 = select i1 %341, ptr %44, ptr null
-  %.not99 = icmp eq ptr %spec.select.i.i176, null
-  %brmerge = or i1 %4, %.not99
+  %341 = icmp ne i8 %340, 7
+  %brmerge = or i1 %4, %341
   br i1 %brmerge, label %381, label %342
 
 342:                                              ; preds = %.critedge105
@@ -982,7 +980,7 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit175: ; preds = %_ZNKSt7__cxx11
 
 358:                                              ; preds = %344
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35) #14
-  %359 = getelementptr inbounds nuw i8, ptr %spec.select.i.i176, i64 24
+  %359 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %360 = load i64, ptr %359, align 8, !tbaa !130
   %361 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %361, ptr %35, align 8, !tbaa !33
@@ -1044,7 +1042,7 @@ _ZN4llvm16CodeGenInstAlias13ResultOperandD2Ev.exit188: ; preds = %_ZNKSt7__cxx11
   br label %.thread277
 
 381:                                              ; preds = %.critedge105
-  br i1 %.not99, label %382, label %.thread277
+  br i1 %341, label %382, label %.thread277
 
 382:                                              ; preds = %381
   %383 = icmp eq i8 %340, 3
@@ -3141,7 +3139,7 @@ _ZNSt6vectorISt4pairIjiESaIS1_EE17_M_realloc_insertIJRjS5_EEEvN9__gnu_cxx17__nor
   br label %_ZNSt6vectorISt4pairIjiESaIS1_EE12emplace_backIJRjS5_EEERS1_DpOT_.exit197
 
 _ZNSt6vectorISt4pairIjiESaIS1_EE12emplace_backIJRjS5_EEERS1_DpOT_.exit197: ; preds = %634, %_ZNSt6vectorISt4pairIjiESaIS1_EE17_M_realloc_insertIJRjS5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i196
-  %661 = add i32 %.4349, 1
+  %661 = add nuw i32 %.4349, 1
   %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %.not95 = icmp eq i64 %indvars.iv.next413, %587
   br i1 %.not95, label %.loopexit, label %590, !llvm.loop !254

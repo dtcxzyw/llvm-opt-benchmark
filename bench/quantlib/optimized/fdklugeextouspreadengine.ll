@@ -12974,7 +12974,7 @@ for.body.us.us:                                   ; preds = %for.body.us.us, %fo
   store double %53, ptr %add.ptr.i.i1.i.i.i.us.us, align 8, !tbaa !82
   %inc.i.us.us = add i64 %52, 1
   %cmp.i.not.us.us = icmp eq i64 %inc.i.us.us, %45
-  br i1 %cmp.i.not.us.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.us.us
+  br i1 %cmp.i.not.us.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread, label %for.body.us.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
   %54 = phi i64 [ %inc.i.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us ], [ 0, %for.body.lr.ph.split.us ]
@@ -13011,17 +13011,17 @@ if.then.i.us:                                     ; preds = %for.body.i.us
 
 _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us: ; preds = %if.then.i.us, %for.body.i.us
   %cmp.i.not.us = icmp eq i64 %inc.i.us, %45
-  br i1 %cmp.i.not.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit142, label %for.body.us
+  br i1 %cmp.i.not.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit143, label %for.body.us
 
-_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit142: ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
+_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit143: ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
   store i64 %inc.i.us, ptr %__begin2, align 8, !tbaa !291
   br label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread
 
-_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread: ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit142
+_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread: ; preds = %for.body.us.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread.loopexit143
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end2) #29
   br label %if.then.i.i.i.i45
 
-_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %for.body.us.us, %invoke.cont34
+_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %invoke.cont34
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end2) #29
   %tobool.not.i.i.i.i44 = icmp eq ptr %43, null
   br i1 %tobool.not.i.i.i.i44, label %_ZNSt6vectorImSaImEED2Ev.exit.i50, label %if.then.i.i.i.i45
@@ -18103,12 +18103,12 @@ cond.end73:                                       ; preds = %_ZNK8QuantLib6detai
   %68 = getelementptr double, ptr %66, i64 %67
   %69 = load double, ptr %68, align 8, !tbaa !82
   %sub78 = fsub double %65, %69
-  switch i64 %j.0532, label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211 [
+  switch i64 %j.0532, label %cond.true.i.i266 [
     i64 0, label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit321
-    i64 1, label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408
+    i64 1, label %cond.true.i263.thread
   ]
 
-_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408: ; preds = %cond.end73
+cond.true.i263.thread:                            ; preds = %cond.end73
   %70 = load double, ptr %second.i68, align 8, !tbaa !186
   %sub82390398 = fsub double %65, %70
   %div391399 = fdiv double %sub82390398, %sub78
@@ -18123,7 +18123,7 @@ _ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408
   %mul462473 = fmul double %div391399, %div391399
   br label %cond.true.i273
 
-_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211: ; preds = %cond.end73
+cond.true.i.i266:                                 ; preds = %cond.end73
   %sub.i.i199 = add nsw i64 %j.0532, -2
   %call.i.i200 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i71, i64 noundef %sub.i.i199)
   %sub82390 = fsub double %65, %call.i.i200
@@ -18150,10 +18150,10 @@ _ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211: ; preds 
   %.pre538 = load double, ptr %call.i.i269, align 8, !tbaa !82
   br label %cond.true.i273
 
-cond.true.i273:                                   ; preds = %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211
-  %.ph = phi double [ %div391399, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408 ], [ %.pre538, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211 ]
-  %.ph541 = phi double [ %div391399, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408 ], [ %79, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211 ]
-  %mul468481.ph = phi double [ %mul462473, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211.thread408 ], [ %mul462, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS0_8EmptyResEEEEEEixEm.exit211 ]
+cond.true.i273:                                   ; preds = %cond.true.i263.thread, %cond.true.i.i266
+  %.ph = phi double [ %div391399, %cond.true.i263.thread ], [ %.pre538, %cond.true.i.i266 ]
+  %.ph541 = phi double [ %div391399, %cond.true.i263.thread ], [ %79, %cond.true.i.i266 ]
+  %mul468481.ph = phi double [ %mul462473, %cond.true.i263.thread ], [ %mul462, %cond.true.i.i266 ]
   %neg543 = fneg double %.ph
   %80 = tail call double @llvm.fmuladd.f64(double %mul468481.ph, double %.ph541, double %neg543)
   %mul100544 = fmul double %sub78, %80

@@ -10541,10 +10541,10 @@ _ZN4llvm5SDLocC2ERKS0_.exit2112:                  ; preds = %2364, %2385
   store i64 3, ptr %2458, align 8, !tbaa !611
   %2459 = call noundef ptr @_ZN4llvm12SelectionDAG14getMachineNodeEjRKNS_5SDLocENS_8SDVTListENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %2445, i32 noundef 31, ptr noundef nonnull align 8 dereferenceable(12) %24, ptr %2456, i32 %2457, ptr noundef nonnull byval(%"class.llvm::ArrayRef.467") align 8 %211) #25
   %2460 = load ptr, ptr %2421, align 8, !tbaa !341
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %2460, ptr %1, i32 0, ptr %2459, i32 0) #25
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %2460, ptr nonnull %1, i32 0, ptr %2459, i32 0) #25
   call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %2459) #25
   %2461 = load ptr, ptr %2421, align 8, !tbaa !341
-  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %2461, ptr %1, i32 1, ptr %2459, i32 1) #25
+  call void @_ZN4llvm12SelectionDAG25ReplaceAllUsesOfValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(952) %2461, ptr nonnull %1, i32 1, ptr %2459, i32 1) #25
   call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %2459) #25
   %2462 = load ptr, ptr %2421, align 8, !tbaa !341
   call void @_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %2462, ptr noundef nonnull %1) #25

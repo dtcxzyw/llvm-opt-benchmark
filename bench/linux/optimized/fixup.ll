@@ -806,7 +806,7 @@ define internal void @pcie_rootport_aspm_quirk(ptr noundef readonly captures(non
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 7
   %37 = or disjoint i32 %36, %17
-  %38 = zext i32 %37 to i64
+  %38 = zext nneg i32 %37 to i64
   %39 = getelementptr [48 x i32], ptr @quirk_aspm_offset, i64 0, i64 %38
   store i32 %33, ptr %39, align 4
   %40 = load ptr, ptr %29, align 8

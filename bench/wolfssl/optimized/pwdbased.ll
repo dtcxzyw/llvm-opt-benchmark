@@ -433,27 +433,27 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %0, ptr noundef readonly ca
   %or.cond3 = or i1 %or.cond, %21
   %22 = icmp slt i32 %6, 0
   %or.cond5 = or i1 %or.cond3, %22
-  br i1 %or.cond5, label %142, label %23
+  br i1 %or.cond5, label %141, label %23
 
 23:                                               ; preds = %10
   %24 = tail call i32 @wc_HashTypeConvert(i32 noundef %7) #6
   %25 = tail call i32 @wc_HashGetDigestSize(i32 noundef %24) #6
   %26 = icmp slt i32 %25, 0
-  br i1 %26, label %142, label %27
+  br i1 %26, label %141, label %27
 
 27:                                               ; preds = %23
   %28 = icmp eq i32 %25, 0
-  br i1 %28, label %142, label %29
+  br i1 %28, label %141, label %29
 
 29:                                               ; preds = %27
   %30 = tail call i32 @wc_HashGetBlockSize(i32 noundef %24) #6
   %.fr = freeze i32 %30
   %31 = icmp slt i32 %.fr, 0
-  br i1 %31, label %142, label %32
+  br i1 %31, label %141, label %32
 
 32:                                               ; preds = %29
   %33 = icmp eq i32 %.fr, 0
-  br i1 %33, label %142, label %34
+  br i1 %33, label %141, label %34
 
 34:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %13, i8 0, i64 64, i1 false)
@@ -475,7 +475,7 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %0, ptr noundef readonly ca
   %47 = zext i32 %44 to i64
   %48 = tail call ptr @wolfSSL_Malloc(i64 noundef %47) #6
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %142, label %50
+  br i1 %49, label %141, label %50
 
 50:                                               ; preds = %46, %34
   %.0124 = phi ptr [ %12, %34 ], [ %48, %46 ]
@@ -510,213 +510,212 @@ define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %0, ptr noundef readonly ca
   br i1 %63, label %.lr.ph, label %.preheader175, !llvm.loop !14
 
 .preheader173:                                    ; preds = %.lr.ph178, %.preheader175
-  %64 = icmp sgt i32 %6, 0
-  br i1 %64, label %.lr.ph186, label %.thread164
+  %.not205 = icmp eq i32 %6, 0
+  br i1 %.not205, label %.thread164, label %.lr.ph186
 
 .lr.ph186:                                        ; preds = %.preheader173
-  %65 = icmp sgt i32 %5, 1
+  %64 = icmp sgt i32 %5, 1
   %.not192 = icmp eq i32 %43, 0
-  %66 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  %umax = tail call i32 @llvm.umax.i32(i32 %.fr, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %74
+  %65 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  %wide.trip.count = zext nneg i32 %.fr to i64
+  br label %73
 
 .lr.ph178:                                        ; preds = %.lr.ph178.preheader, %.lr.ph178
   %indvars.iv195 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next196, %.lr.ph178 ]
-  %67 = trunc nuw i64 %indvars.iv195 to i32
-  %68 = urem i32 %67, %2
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %69
-  %71 = load i8, ptr %70, align 1, !tbaa !11
-  %72 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv195
-  store i8 %71, ptr %72, align 1, !tbaa !11
+  %66 = trunc nuw i64 %indvars.iv195 to i32
+  %67 = urem i32 %66, %2
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !11
+  %71 = getelementptr inbounds nuw i8, ptr %54, i64 %indvars.iv195
+  store i8 %70, ptr %71, align 1, !tbaa !11
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %73 = icmp samesign ult i64 %indvars.iv.next196, %56
-  br i1 %73, label %.lr.ph178, label %.preheader173, !llvm.loop !15
+  %72 = icmp samesign ult i64 %indvars.iv.next196, %56
+  br i1 %72, label %.lr.ph178, label %.preheader173, !llvm.loop !15
 
-74:                                               ; preds = %.lr.ph186, %.thread159.thread201
-  %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %138, %.thread159.thread201 ]
-  %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %139, %.thread159.thread201 ]
+73:                                               ; preds = %.lr.ph186, %.thread159.thread201
+  %.0119185 = phi ptr [ %0, %.lr.ph186 ], [ %137, %.thread159.thread201 ]
+  %.0122184 = phi i32 [ %6, %.lr.ph186 ], [ %138, %.thread159.thread201 ]
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %11) #6
-  %75 = call i32 @wc_HashTypeConvert(i32 noundef %7) #6
-  %76 = call i32 @wc_HashInit(ptr noundef nonnull %11, i32 noundef %75) #6
-  %.not.i = icmp eq i32 %76, 0
-  br i1 %.not.i, label %77, label %DoPKCS12Hash.exit
+  %74 = call i32 @wc_HashTypeConvert(i32 noundef %7) #6
+  %75 = call i32 @wc_HashInit(ptr noundef nonnull %11, i32 noundef %74) #6
+  %.not.i = icmp eq i32 %75, 0
+  br i1 %.not.i, label %76, label %DoPKCS12Hash.exit
 
-77:                                               ; preds = %74
-  %78 = call i32 @wc_HashUpdate(ptr noundef nonnull %11, i32 noundef %75, ptr noundef nonnull %.0124, i32 noundef %44) #6
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %82
+76:                                               ; preds = %73
+  %77 = call i32 @wc_HashUpdate(ptr noundef nonnull %11, i32 noundef %74, ptr noundef nonnull %.0124, i32 noundef %44) #6
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %81
 
-80:                                               ; preds = %77
-  %81 = call i32 @wc_HashFinal(ptr noundef nonnull %11, i32 noundef %75, ptr noundef nonnull %13) #6
-  br label %82
+79:                                               ; preds = %76
+  %80 = call i32 @wc_HashFinal(ptr noundef nonnull %11, i32 noundef %74, ptr noundef nonnull %13) #6
+  br label %81
 
-82:                                               ; preds = %80, %77
-  %.025.i = phi i32 [ %81, %80 ], [ %78, %77 ]
-  br i1 %65, label %.lr.ph.i, label %._crit_edge.i
+81:                                               ; preds = %79, %76
+  %.025.i = phi i32 [ %80, %79 ], [ %77, %76 ]
+  br i1 %64, label %.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %82, %.thread.i
-  %.133.i = phi i32 [ %.3.i, %.thread.i ], [ %.025.i, %82 ]
-  %.02632.i = phi i32 [ %89, %.thread.i ], [ 1, %82 ]
-  %83 = icmp eq i32 %.133.i, 0
-  br i1 %83, label %84, label %.thread.i
+.lr.ph.i:                                         ; preds = %81, %.thread.i
+  %.133.i = phi i32 [ %.3.i, %.thread.i ], [ %.025.i, %81 ]
+  %.02632.i = phi i32 [ %88, %.thread.i ], [ 1, %81 ]
+  %82 = icmp eq i32 %.133.i, 0
+  br i1 %82, label %83, label %.thread.i
 
-84:                                               ; preds = %.lr.ph.i
-  %85 = call i32 @wc_HashUpdate(ptr noundef nonnull %11, i32 noundef %75, ptr noundef nonnull %13, i32 noundef range(i32 1, -2147483648) %25) #6
-  %86 = icmp eq i32 %85, 0
-  br i1 %86, label %87, label %.thread.i
+83:                                               ; preds = %.lr.ph.i
+  %84 = call i32 @wc_HashUpdate(ptr noundef nonnull %11, i32 noundef %74, ptr noundef nonnull %13, i32 noundef range(i32 1, -2147483648) %25) #6
+  %85 = icmp eq i32 %84, 0
+  br i1 %85, label %86, label %.thread.i
 
-87:                                               ; preds = %84
-  %88 = call i32 @wc_HashFinal(ptr noundef nonnull %11, i32 noundef %75, ptr noundef nonnull %13) #6
+86:                                               ; preds = %83
+  %87 = call i32 @wc_HashFinal(ptr noundef nonnull %11, i32 noundef %74, ptr noundef nonnull %13) #6
   br label %.thread.i
 
-.thread.i:                                        ; preds = %87, %84, %.lr.ph.i
-  %.3.i = phi i32 [ %88, %87 ], [ %85, %84 ], [ %.133.i, %.lr.ph.i ]
-  %89 = add nuw nsw i32 %.02632.i, 1
-  %exitcond.not.i = icmp eq i32 %5, %89
+.thread.i:                                        ; preds = %86, %83, %.lr.ph.i
+  %.3.i = phi i32 [ %87, %86 ], [ %84, %83 ], [ %.133.i, %.lr.ph.i ]
+  %88 = add nuw nsw i32 %.02632.i, 1
+  %exitcond.not.i = icmp eq i32 %5, %88
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %.thread.i, %82
-  %.1.lcssa.i = phi i32 [ %.025.i, %82 ], [ %.3.i, %.thread.i ]
-  %90 = call i32 @wc_HashFree(ptr noundef nonnull %11, i32 noundef %75) #6
+._crit_edge.i:                                    ; preds = %.thread.i, %81
+  %.1.lcssa.i = phi i32 [ %.025.i, %81 ], [ %.3.i, %.thread.i ]
+  %89 = call i32 @wc_HashFree(ptr noundef nonnull %11, i32 noundef %74) #6
   br label %DoPKCS12Hash.exit
 
-DoPKCS12Hash.exit:                                ; preds = %74, %._crit_edge.i
-  %.0.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %76, %74 ]
+DoPKCS12Hash.exit:                                ; preds = %73, %._crit_edge.i
+  %.0.i = phi i32 [ %.1.lcssa.i, %._crit_edge.i ], [ %75, %73 ]
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %11) #6
-  %91 = icmp slt i32 %.0.i, 0
-  br i1 %91, label %.thread164, label %.preheader172
+  %90 = icmp slt i32 %.0.i, 0
+  br i1 %90, label %.thread164, label %.preheader172
 
 .preheader172:                                    ; preds = %DoPKCS12Hash.exit, %.preheader172
   %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.preheader172 ], [ 0, %DoPKCS12Hash.exit ]
-  %92 = trunc nuw nsw i64 %indvars.iv198 to i32
-  %93 = urem i32 %92, %25
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !11
-  %97 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 0, i64 %indvars.iv198
-  store i8 %96, ptr %97, align 1, !tbaa !11
+  %91 = trunc nuw nsw i64 %indvars.iv198 to i32
+  %92 = urem i32 %91, %25
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 0, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !11
+  %96 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 0, i64 %indvars.iv198
+  store i8 %95, ptr %96, align 1, !tbaa !11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count
-  br i1 %exitcond.not, label %98, label %.preheader172, !llvm.loop !17
+  br i1 %exitcond.not, label %97, label %.preheader172, !llvm.loop !17
 
-98:                                               ; preds = %.preheader172
-  %99 = call i32 @sp_init(ptr noundef nonnull %15) #6
-  %.not = icmp eq i32 %99, 0
-  br i1 %.not, label %100, label %.thread164.sink.split
+97:                                               ; preds = %.preheader172
+  %98 = call i32 @sp_init(ptr noundef nonnull %15) #6
+  %.not = icmp eq i32 %98, 0
+  br i1 %.not, label %99, label %.thread164.sink.split
 
-100:                                              ; preds = %98
-  %101 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef %.fr) #6
-  %.not146 = icmp eq i32 %101, 0
-  br i1 %.not146, label %102, label %.thread164.sink.split
+99:                                               ; preds = %97
+  %100 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %15, ptr noundef nonnull %14, i32 noundef %.fr) #6
+  %.not146 = icmp eq i32 %100, 0
+  br i1 %.not146, label %101, label %.thread164.sink.split
 
-102:                                              ; preds = %100
-  %103 = call i32 @sp_add_d(ptr noundef nonnull %15, i64 noundef 1, ptr noundef nonnull %15) #6
-  %.not147 = icmp eq i32 %103, 0
-  br i1 %.not147, label %104, label %.thread164.sink.split
+101:                                              ; preds = %99
+  %102 = call i32 @sp_add_d(ptr noundef nonnull %15, i64 noundef 1, ptr noundef nonnull %15) #6
+  %.not147 = icmp eq i32 %102, 0
+  br i1 %.not147, label %103, label %.thread164.sink.split
 
-104:                                              ; preds = %102
+103:                                              ; preds = %101
   %.not148 = icmp eq i32 %.0.i, 0
   br i1 %.not148, label %.preheader, label %.thread164.sink.split
 
-.preheader:                                       ; preds = %104
+.preheader:                                       ; preds = %103
   br i1 %.not192, label %.thread159.thread201, label %.lr.ph181
 
-.lr.ph181:                                        ; preds = %.preheader, %131
-  %.3131180 = phi i32 [ %133, %131 ], [ 0, %.preheader ]
-  %105 = call i32 @sp_init_multi(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #6
-  %.not149 = icmp eq i32 %105, 0
-  br i1 %.not149, label %106, label %.thread164.sink.split
+.lr.ph181:                                        ; preds = %.preheader, %130
+  %.3131180 = phi i32 [ %132, %130 ], [ 0, %.preheader ]
+  %104 = call i32 @sp_init_multi(ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #6
+  %.not149 = icmp eq i32 %104, 0
+  br i1 %.not149, label %105, label %.thread164.sink.split
 
-106:                                              ; preds = %.lr.ph181
-  %107 = zext i32 %.3131180 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %52, i64 %107
-  %109 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %16, ptr noundef nonnull %108, i32 noundef %.fr) #6
-  %.not150 = icmp eq i32 %109, 0
-  br i1 %.not150, label %110, label %131
+105:                                              ; preds = %.lr.ph181
+  %106 = zext i32 %.3131180 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %52, i64 %106
+  %108 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %16, ptr noundef nonnull %107, i32 noundef %.fr) #6
+  %.not150 = icmp eq i32 %108, 0
+  br i1 %.not150, label %109, label %130
 
-110:                                              ; preds = %106
-  %111 = call i32 @sp_add(ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17) #6
-  %.not151 = icmp eq i32 %111, 0
-  br i1 %.not151, label %112, label %131
+109:                                              ; preds = %105
+  %110 = call i32 @sp_add(ptr noundef nonnull %16, ptr noundef nonnull %15, ptr noundef nonnull %17) #6
+  %.not151 = icmp eq i32 %110, 0
+  br i1 %.not151, label %111, label %130
 
-112:                                              ; preds = %110
-  %113 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %17) #6
-  %114 = icmp slt i32 %113, 0
-  br i1 %114, label %131, label %115
+111:                                              ; preds = %109
+  %112 = call i32 @sp_unsigned_bin_size(ptr noundef nonnull %17) #6
+  %113 = icmp slt i32 %112, 0
+  br i1 %113, label %130, label %114
 
-115:                                              ; preds = %112
-  %116 = icmp sgt i32 %113, %.fr
-  br i1 %116, label %117, label %119
+114:                                              ; preds = %111
+  %115 = icmp sgt i32 %112, %.fr
+  br i1 %115, label %116, label %118
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(i64 145, ptr nonnull %18) #6
-  %118 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %18) #6
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %66, i64 %51, i1 false)
+  %117 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %18) #6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %65, i64 %51, i1 false)
   call void @llvm.lifetime.end.p0(i64 145, ptr nonnull %18) #6
-  br label %131
+  br label %130
 
-119:                                              ; preds = %115
-  %120 = icmp samesign ult i32 %113, %.fr
-  br i1 %120, label %121, label %129
+118:                                              ; preds = %114
+  %119 = icmp samesign ult i32 %112, %.fr
+  br i1 %119, label %120, label %128
 
-121:                                              ; preds = %119
-  %122 = sub nuw nsw i32 %.fr, %113
-  %123 = zext nneg i32 %122 to i64
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %108, i8 0, i64 %123, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %108, i64 %51
-  %125 = zext nneg i32 %113 to i64
-  %126 = sub nsw i64 0, %125
-  %127 = getelementptr inbounds i8, ptr %124, i64 %126
-  %128 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %127) #6
-  br label %131
+120:                                              ; preds = %118
+  %121 = sub nuw nsw i32 %.fr, %112
+  %122 = zext nneg i32 %121 to i64
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %107, i8 0, i64 %122, i1 false)
+  %123 = getelementptr inbounds nuw i8, ptr %107, i64 %51
+  %124 = zext nneg i32 %112 to i64
+  %125 = sub nsw i64 0, %124
+  %126 = getelementptr inbounds i8, ptr %123, i64 %125
+  %127 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %126) #6
+  br label %130
 
-129:                                              ; preds = %119
-  %130 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %108) #6
-  br label %131
+128:                                              ; preds = %118
+  %129 = call i32 @sp_to_unsigned_bin(ptr noundef nonnull %17, ptr noundef nonnull %107) #6
+  br label %130
 
-131:                                              ; preds = %112, %110, %106, %117, %129, %121
-  %.7 = phi i32 [ %118, %117 ], [ %128, %121 ], [ %130, %129 ], [ -111, %106 ], [ -115, %110 ], [ -113, %112 ]
+130:                                              ; preds = %111, %109, %105, %116, %128, %120
+  %.7 = phi i32 [ %117, %116 ], [ %127, %120 ], [ %129, %128 ], [ -111, %105 ], [ -115, %109 ], [ -113, %111 ]
   %.7.fr = freeze i32 %.7
   call void @sp_clear(ptr noundef nonnull %16) #6
   call void @sp_clear(ptr noundef nonnull %17) #6
-  %132 = icmp sgt i32 %.7.fr, -1
-  %133 = add i32 %.3131180, %.fr
-  %134 = icmp ult i32 %133, %43
-  %or.cond189 = select i1 %132, i1 %134, i1 false
+  %131 = icmp sgt i32 %.7.fr, -1
+  %132 = add i32 %.3131180, %.fr
+  %133 = icmp ult i32 %132, %43
+  %or.cond189 = select i1 %131, i1 %133, i1 false
   br i1 %or.cond189, label %.lr.ph181, label %.thread159, !llvm.loop !18
 
-.thread159:                                       ; preds = %131
-  %135 = icmp slt i32 %.7.fr, 0
-  br i1 %135, label %.thread164.sink.split, label %.thread159.thread201
+.thread159:                                       ; preds = %130
+  %134 = icmp slt i32 %.7.fr, 0
+  br i1 %134, label %.thread164.sink.split, label %.thread159.thread201
 
 .thread159.thread201:                             ; preds = %.preheader, %.thread159
   %.5203 = phi i32 [ %.7.fr, %.thread159 ], [ 0, %.preheader ]
-  %136 = call noundef i32 @llvm.umin.i32(i32 %.0122184, i32 range(i32 -2147483647, -2147483648) %25)
-  %137 = zext nneg i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0119185, ptr nonnull align 16 %13, i64 %137, i1 false)
-  %138 = getelementptr inbounds nuw i8, ptr %.0119185, i64 %137
-  %139 = sub nsw i32 %.0122184, %136
+  %135 = call noundef i32 @llvm.umin.i32(i32 %.0122184, i32 range(i32 -2147483647, -2147483648) %25)
+  %136 = zext nneg i32 %135 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0119185, ptr nonnull align 16 %13, i64 %136, i1 false)
+  %137 = getelementptr inbounds nuw i8, ptr %.0119185, i64 %136
+  %138 = sub nsw i32 %.0122184, %135
   call void @sp_clear(ptr noundef nonnull %15) #6
-  %140 = icmp sgt i32 %139, 0
-  br i1 %140, label %74, label %.thread164
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %73, label %.thread164
 
-.thread164.sink.split:                            ; preds = %.thread159, %104, %98, %100, %102, %.lr.ph181
-  %.1127.ph = phi i32 [ -110, %.lr.ph181 ], [ %.0.i, %104 ], [ -115, %102 ], [ -111, %100 ], [ -110, %98 ], [ %.7.fr, %.thread159 ]
+.thread164.sink.split:                            ; preds = %.thread159, %103, %97, %99, %101, %.lr.ph181
+  %.1127.ph = phi i32 [ -110, %.lr.ph181 ], [ %.0.i, %103 ], [ -115, %101 ], [ -111, %99 ], [ -110, %97 ], [ %.7.fr, %.thread159 ]
   call void @sp_clear(ptr noundef nonnull %15) #6
   br label %.thread164
 
 .thread164:                                       ; preds = %.thread159.thread201, %DoPKCS12Hash.exit, %.thread164.sink.split, %.preheader173
   %.1127 = phi i32 [ %.fr, %.preheader173 ], [ %.1127.ph, %.thread164.sink.split ], [ %.5203, %.thread159.thread201 ], [ %.0.i, %DoPKCS12Hash.exit ]
-  br i1 %45, label %142, label %141
+  br i1 %45, label %141, label %140
 
-141:                                              ; preds = %.thread164
+140:                                              ; preds = %.thread164
   call void @wolfSSL_Free(ptr noundef nonnull %.0124) #6
-  br label %142
+  br label %141
 
-142:                                              ; preds = %.thread164, %141, %46, %32, %29, %27, %23, %10
-  %.0 = phi i32 [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr, %29 ], [ -192, %32 ], [ -125, %46 ], [ %.1127, %141 ], [ %.1127, %.thread164 ]
+141:                                              ; preds = %.thread164, %140, %46, %32, %29, %27, %23, %10
+  %.0 = phi i32 [ -173, %10 ], [ %25, %23 ], [ -192, %27 ], [ %.fr, %29 ], [ -192, %32 ], [ -125, %46 ], [ %.1127, %140 ], [ %.1127, %.thread164 ]
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %17) #6
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 1040, ptr nonnull %15) #6
@@ -755,9 +754,6 @@ declare i32 @wc_HashInit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

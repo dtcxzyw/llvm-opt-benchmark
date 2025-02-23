@@ -39,9 +39,9 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   br i1 %.not34.not41, label %.lr.ph43, label %.loopexit
 
 .lr.ph43:                                         ; preds = %.preheader36
-  %12 = sitofp i32 %3 to float
+  %12 = uitofp nneg i32 %3 to float
   %13 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count57 = zext i32 %1 to i64
+  %wide.trip.count57 = zext nneg i32 %1 to i64
   %14 = fdiv reassoc nsz arcp float 1.000000e+00, %12
   br label %21
 
@@ -76,9 +76,9 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   br i1 %.not32.not48, label %.lr.ph50, label %.loopexit
 
 .lr.ph50:                                         ; preds = %.preheader
-  %28 = sitofp i32 %3 to float
+  %28 = uitofp nneg i32 %3 to float
   %29 = zext nneg i32 %.2.lcssa to i64
-  %wide.trip.count67 = zext i32 %1 to i64
+  %wide.trip.count67 = zext nneg i32 %1 to i64
   %30 = fdiv reassoc nsz arcp float 1.000000e+00, %28
   br label %37
 
@@ -601,10 +601,10 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   br i1 %.not3544, label %.loopexit, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %.preheader37
-  %15 = sitofp i32 %1 to float
+  %15 = uitofp nneg i32 %1 to float
   %16 = fadd reassoc nsz arcp float %15, 1.000000e+00
   %17 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count64 = zext i32 %4 to i64
+  %wide.trip.count64 = zext nneg i32 %4 to i64
   %18 = fdiv reassoc nsz arcp float 1.000000e+00, %16
   br label %24
 
@@ -640,11 +640,11 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   br i1 %.not3355, label %.loopexit, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader
-  %31 = sitofp i32 %1 to float
+  %31 = uitofp nneg i32 %1 to float
   %32 = fadd reassoc nsz arcp float %31, 1.000000e+00
   %33 = zext nneg i32 %.2.lcssa to i64
   %34 = or disjoint i32 %1, 1
-  %wide.trip.count74 = zext i32 %34 to i64
+  %wide.trip.count74 = zext nneg i32 %34 to i64
   %35 = fdiv reassoc nsz arcp float 1.000000e+00, %32
   br label %41
 
@@ -905,7 +905,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %26, label %.lr.ph111.preheader, label %.preheader100
 
 .lr.ph111.preheader:                              ; preds = %.preheader101
-  %27 = zext i32 %.167.i.lcssa to i64
+  %27 = zext nneg i32 %.167.i.lcssa to i64
   br label %.lr.ph111
 
 28:                                               ; preds = %.lr.ph107, %28
@@ -932,7 +932,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .lr.ph116:                                        ; preds = %.preheader100
   %38 = sitofp i32 %16 to double
-  %39 = zext i32 %.2.i.lcssa to i64
+  %39 = zext nneg i32 %.2.i.lcssa to i64
   %40 = fdiv reassoc nsz arcp double 1.000000e+00, %38
   br label %45
 
@@ -1007,7 +1007,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %71, label %.lr.ph131.preheader, label %.preheader95
 
 .lr.ph131.preheader:                              ; preds = %.preheader96
-  %72 = zext i32 %.167.i70.lcssa to i64
+  %72 = zext nneg i32 %.167.i70.lcssa to i64
   br label %.lr.ph131
 
 73:                                               ; preds = %.lr.ph127, %73
@@ -1034,7 +1034,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .lr.ph136:                                        ; preds = %.preheader95
   %83 = sitofp i32 %61 to double
-  %84 = zext i32 %.2.i72.lcssa to i64
+  %84 = zext nneg i32 %.2.i72.lcssa to i64
   %85 = fdiv reassoc nsz arcp double 1.000000e+00, %83
   br label %90
 
@@ -1111,7 +1111,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %117, label %.lr.ph151.preheader, label %.preheader90
 
 .lr.ph151.preheader:                              ; preds = %.preheader91
-  %118 = zext i32 %.167.i78.lcssa to i64
+  %118 = zext nneg i32 %.167.i78.lcssa to i64
   br label %.lr.ph151
 
 119:                                              ; preds = %.lr.ph147, %119
@@ -1138,7 +1138,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .lr.ph156:                                        ; preds = %.preheader90
   %129 = sitofp i32 %107 to double
-  %130 = zext i32 %.2.i80.lcssa to i64
+  %130 = zext nneg i32 %.2.i80.lcssa to i64
   %131 = fdiv reassoc nsz arcp double 1.000000e+00, %129
   br label %136
 
@@ -1210,7 +1210,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %161, label %.lr.ph171.preheader, label %.preheader85
 
 .lr.ph171.preheader:                              ; preds = %.preheader86
-  %162 = zext i32 %.167.lcssa to i64
+  %162 = zext nneg i32 %.167.lcssa to i64
   br label %.lr.ph171
 
 163:                                              ; preds = %.lr.ph167, %163
@@ -1237,7 +1237,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 .lr.ph176:                                        ; preds = %.preheader85
   %173 = sitofp i32 %151 to double
-  %174 = zext i32 %.2.lcssa to i64
+  %174 = zext nneg i32 %.2.lcssa to i64
   %175 = fdiv reassoc nsz arcp double 1.000000e+00, %173
   br label %180
 
@@ -1274,11 +1274,11 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 FLAC__window_partial_tukey.exit.sink.split:       ; preds = %.preheader, %.preheader88, %.preheader93, %.preheader98
   %.3.i.lcssa.sink280 = phi i32 [ %.3.i.lcssa, %.preheader98 ], [ %.3.i73.lcssa, %.preheader93 ], [ %.3.i81.lcssa, %.preheader88 ], [ %.3.lcssa, %.preheader ]
-  %191 = zext i32 %.3.i.lcssa.sink280 to i64
+  %191 = zext nneg i32 %.3.i.lcssa.sink280 to i64
   %192 = shl nuw nsw i64 %191, 2
   %scevgep = getelementptr i8, ptr %0, i64 %192
   %193 = xor i32 %.3.i.lcssa.sink280, -1
-  %194 = add i32 %1, %193
+  %194 = add nsw i32 %1, %193
   %195 = zext i32 %194 to i64
   %196 = shl nuw nsw i64 %195, 2
   %197 = add nuw nsw i64 %196, 4
@@ -1345,7 +1345,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 
 .lr.ph112.preheader:                              ; preds = %.preheader103
   %31 = zext nneg i32 %.089.lcssa to i64
-  %wide.trip.count144 = zext i32 %invariant.smin110 to i64
+  %wide.trip.count144 = zext nneg i32 %invariant.smin110 to i64
   br label %.lr.ph112
 
 32:                                               ; preds = %.lr.ph, %32
@@ -1372,7 +1372,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 
 .lr.ph117:                                        ; preds = %.preheader102
   %42 = sitofp i32 %21 to double
-  %43 = zext i32 %.190.lcssa to i64
+  %43 = zext nneg i32 %.190.lcssa to i64
   %44 = fdiv reassoc nsz arcp double 1.000000e+00, %42
   br label %54
 
@@ -1391,11 +1391,11 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   br i1 %46, label %.lr.ph121.preheader, label %.preheader100
 
 .lr.ph121.preheader:                              ; preds = %.preheader101
-  %47 = zext i32 %.291.lcssa to i64
+  %47 = zext nneg i32 %.291.lcssa to i64
   %48 = shl nuw nsw i64 %47, 2
   %scevgep = getelementptr i8, ptr %0, i64 %48
   %49 = xor i32 %.291.lcssa, -1
-  %50 = add i32 %invariant.smin119, %49
+  %50 = add nsw i32 %invariant.smin119, %49
   %51 = zext i32 %50 to i64
   %52 = shl nuw nsw i64 %51, 2
   %53 = add nuw nsw i64 %52, 4
@@ -1428,8 +1428,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 
 .lr.ph126:                                        ; preds = %.preheader100
   %67 = sitofp i32 %25 to double
-  %68 = zext i32 %.392.lcssa to i64
-  %69 = add i32 %invariant.smin123, 1
+  %68 = zext nneg i32 %.392.lcssa to i64
+  %69 = add nuw i32 %invariant.smin123, 1
   %70 = sub i32 %69, %.392.lcssa
   %71 = fdiv reassoc nsz arcp double 1.000000e+00, %67
   br label %78

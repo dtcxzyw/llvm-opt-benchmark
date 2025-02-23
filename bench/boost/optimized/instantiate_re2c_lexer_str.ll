@@ -40738,7 +40738,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre263.pre = load ptr, ptr %61, align 8, !tbaa !124
-  %.not214 = icmp sgt i64 %96, 196607
+  %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -81275,7 +81275,7 @@ _ZN5boost4wave8cpplexer7re2clex18adjust_eol_offsetsIN9__gnu_cxx17__normal_iterat
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.pre263.pre = load ptr, ptr %61, align 8, !tbaa !212
-  %.not214 = icmp sgt i64 %96, 196607
+  %.not214 = icmp samesign ugt i64 %96, 196607
   br i1 %.not214, label %105, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

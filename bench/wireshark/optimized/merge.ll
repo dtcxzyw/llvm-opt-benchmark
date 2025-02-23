@@ -173,13 +173,13 @@ define internal fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr nounde
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 8
   br label %38
 
-38:                                               ; preds = %.lr.ph, %.thread
-  %.0121321 = phi i32 [ 0, %.lr.ph ], [ %312, %.thread ]
-  %.0124320 = phi ptr [ null, %.lr.ph ], [ %.3127, %.thread ]
-  %.0136319 = phi ptr [ null, %.lr.ph ], [ %.1137, %.thread ]
-  %.0138318 = phi ptr [ null, %.lr.ph ], [ %.1139, %.thread ]
-  %.0145317 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %.thread ]
-  %.0215316 = phi i32 [ %7, %.lr.ph ], [ %.2, %.thread ]
+38:                                               ; preds = %.lr.ph, %315
+  %.0121321 = phi i32 [ 0, %.lr.ph ], [ %316, %315 ]
+  %.0124320 = phi ptr [ null, %.lr.ph ], [ %.3127, %315 ]
+  %.0136319 = phi ptr [ null, %.lr.ph ], [ %.1137, %315 ]
+  %.0138318 = phi ptr [ null, %.lr.ph ], [ %.1139, %315 ]
+  %.0145317 = phi i32 [ %8, %.lr.ph ], [ %spec.store.select, %315 ]
+  %.0215316 = phi i32 [ %7, %.lr.ph ], [ %.2, %315 ]
   %39 = call i32 @dup(i32 noundef 1) #12
   %40 = icmp eq i32 %39, -1
   br i1 %40, label %.thread234, label %43
@@ -876,11 +876,11 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %285
 
 299:                                              ; preds = %297, %296
   %.not168 = icmp eq ptr %.3127, null
-  br i1 %.not168, label %315, label %300
+  br i1 %.not168, label %312, label %300
 
 300:                                              ; preds = %299
   %301 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
-  br label %315
+  br label %312
 
 302:                                              ; preds = %284
   br i1 %.not82.i, label %.split, label %.split148
@@ -906,118 +906,118 @@ merge_close_in_files.exit:                        ; preds = %.lr.ph.i198, %285
 
 309:                                              ; preds = %307, %.split
   %.not165 = icmp eq ptr %.1129, null
-  br i1 %.not165, label %.thread, label %310
+  br i1 %.not165, label %315, label %310
 
 310:                                              ; preds = %309
   %311 = call ptr @g_array_free(ptr noundef nonnull %.1129, i32 noundef 1)
-  br label %.thread
+  br label %315
 
-.thread:                                          ; preds = %309, %310
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #12
-  %312 = add i32 %.076.i, %.0121321
-  %313 = icmp uge i32 %312, %5
-  %314 = icmp ne i32 %306, 0
-  %.not172 = select i1 %313, i1 true, i1 %314
-  br i1 %.not172, label %._crit_edge, label %38, !llvm.loop !22
-
-315:                                              ; preds = %299, %300
-  %316 = load i32, ptr %20, align 4
-  %317 = load ptr, ptr %21, align 8
-  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %316, ptr noundef %317, i32 noundef %3)
+312:                                              ; preds = %299, %300
+  %313 = load i32, ptr %20, align 4
+  %314 = load ptr, ptr %21, align 8
+  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %313, ptr noundef %314, i32 noundef %3)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #12
   br label %.thread239.thread
 
-._crit_edge:                                      ; preds = %.thread
+315:                                              ; preds = %309, %310
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %24) #12
+  %316 = add i32 %.076.i, %.0121321
+  %317 = icmp uge i32 %316, %5
+  %318 = icmp ne i32 %306, 0
+  %.not172 = select i1 %317, i1 true, i1 %318
+  br i1 %.not172, label %._crit_edge, label %38, !llvm.loop !22
+
+._crit_edge:                                      ; preds = %315
   switch i32 %306, label %default.unreachable379 [
     i32 0, label %.thread239
-    i32 1, label %353
-    i32 2, label %318
-    i32 3, label %325
-    i32 4, label %328
-    i32 5, label %335
-    i32 6, label %341
-    i32 7, label %350
+    i32 1, label %354
+    i32 2, label %319
+    i32 3, label %326
+    i32 4, label %329
+    i32 5, label %336
+    i32 6, label %342
+    i32 7, label %351
   ]
 
-318:                                              ; preds = %._crit_edge
-  %319 = load i32, ptr %22, align 4
-  %320 = zext i32 %319 to i64
-  %321 = getelementptr ptr, ptr %4, i64 %320
-  %322 = load ptr, ptr %321, align 8
-  %323 = load i32, ptr %20, align 4
-  %324 = load ptr, ptr %21, align 8
-  call void @report_cfile_open_failure(ptr noundef %322, i32 noundef %323, ptr noundef %324)
-  br label %353
+319:                                              ; preds = %._crit_edge
+  %320 = load i32, ptr %22, align 4
+  %321 = zext i32 %320 to i64
+  %322 = getelementptr ptr, ptr %4, i64 %321
+  %323 = load ptr, ptr %322, align 8
+  %324 = load i32, ptr %20, align 4
+  %325 = load ptr, ptr %21, align 8
+  call void @report_cfile_open_failure(ptr noundef %323, i32 noundef %324, ptr noundef %325)
+  br label %354
 
-325:                                              ; preds = %._crit_edge
-  %326 = load i32, ptr %20, align 4
-  %327 = load ptr, ptr %21, align 8
-  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %326, ptr noundef %327, i32 noundef %3)
-  br label %353
+326:                                              ; preds = %._crit_edge
+  %327 = load i32, ptr %20, align 4
+  %328 = load ptr, ptr %21, align 8
+  call void @report_cfile_dump_open_failure(ptr noundef %0, i32 noundef %327, ptr noundef %328, i32 noundef %3)
+  br label %354
 
-328:                                              ; preds = %._crit_edge
-  %329 = load i32, ptr %22, align 4
-  %330 = zext i32 %329 to i64
-  %331 = getelementptr ptr, ptr %4, i64 %330
-  %332 = load ptr, ptr %331, align 8
-  %333 = load i32, ptr %20, align 4
-  %334 = load ptr, ptr %21, align 8
-  call void @report_cfile_read_failure(ptr noundef %332, i32 noundef %333, ptr noundef %334)
-  br label %353
+329:                                              ; preds = %._crit_edge
+  %330 = load i32, ptr %22, align 4
+  %331 = zext i32 %330 to i64
+  %332 = getelementptr ptr, ptr %4, i64 %331
+  %333 = load ptr, ptr %332, align 8
+  %334 = load i32, ptr %20, align 4
+  %335 = load ptr, ptr %21, align 8
+  call void @report_cfile_read_failure(ptr noundef %333, i32 noundef %334, ptr noundef %335)
+  br label %354
 
-335:                                              ; preds = %._crit_edge
-  %336 = load i32, ptr %23, align 4
-  %337 = load i32, ptr %22, align 4
-  %338 = zext i32 %337 to i64
-  %339 = getelementptr ptr, ptr %4, i64 %338
-  %340 = load ptr, ptr %339, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, i32 noundef %336, ptr noundef %340)
-  br label %353
+336:                                              ; preds = %._crit_edge
+  %337 = load i32, ptr %23, align 4
+  %338 = load i32, ptr %22, align 4
+  %339 = zext i32 %338 to i64
+  %340 = getelementptr ptr, ptr %4, i64 %339
+  %341 = load ptr, ptr %340, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.6, i32 noundef %337, ptr noundef %341)
+  br label %354
 
-341:                                              ; preds = %._crit_edge
-  %342 = load i32, ptr %22, align 4
-  %343 = zext i32 %342 to i64
-  %344 = getelementptr ptr, ptr %4, i64 %343
-  %345 = load ptr, ptr %344, align 8
-  %346 = load i32, ptr %20, align 4
-  %347 = load ptr, ptr %21, align 8
-  %348 = load i32, ptr %23, align 4
-  %349 = zext i32 %348 to i64
-  call void @report_cfile_write_failure(ptr noundef %345, ptr noundef %0, i32 noundef %346, ptr noundef %347, i64 noundef %349, i32 noundef %3)
-  br label %353
+342:                                              ; preds = %._crit_edge
+  %343 = load i32, ptr %22, align 4
+  %344 = zext i32 %343 to i64
+  %345 = getelementptr ptr, ptr %4, i64 %344
+  %346 = load ptr, ptr %345, align 8
+  %347 = load i32, ptr %20, align 4
+  %348 = load ptr, ptr %21, align 8
+  %349 = load i32, ptr %23, align 4
+  %350 = zext i32 %349 to i64
+  call void @report_cfile_write_failure(ptr noundef %346, ptr noundef %0, i32 noundef %347, ptr noundef %348, i64 noundef %350, i32 noundef %3)
+  br label %354
 
-350:                                              ; preds = %._crit_edge
-  %351 = load i32, ptr %20, align 4
-  %352 = load ptr, ptr %21, align 8
-  call void @report_cfile_close_failure(ptr noundef %0, i32 noundef %351, ptr noundef %352)
-  br label %353
+351:                                              ; preds = %._crit_edge
+  %352 = load i32, ptr %20, align 4
+  %353 = load ptr, ptr %21, align 8
+  call void @report_cfile_close_failure(ptr noundef %0, i32 noundef %352, ptr noundef %353)
+  br label %354
 
 default.unreachable379:                           ; preds = %._crit_edge
   unreachable
 
-353:                                              ; preds = %._crit_edge, %350, %341, %335, %328, %325, %318
+354:                                              ; preds = %._crit_edge, %351, %342, %336, %329, %326, %319
   %.not175 = icmp eq ptr %.3127, null
-  br i1 %.not175, label %.thread239.thread, label %354
+  br i1 %.not175, label %.thread239.thread, label %355
 
-354:                                              ; preds = %353
-  %355 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
+355:                                              ; preds = %354
+  %356 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
   br label %.thread239.thread
 
 .thread239:                                       ; preds = %._crit_edge
   %.not174 = icmp eq ptr %.3127, null
-  br i1 %.not174, label %.thread239.thread, label %356
+  br i1 %.not174, label %.thread239.thread, label %357
 
-356:                                              ; preds = %.thread239
-  %357 = load ptr, ptr %.3127, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %.3127, i64 8
-  %359 = load i32, ptr %358, align 8
-  %360 = call fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %357, i32 noundef %359, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, i32 noundef %11)
-  %361 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
-  %362 = xor i1 %360, true
+357:                                              ; preds = %.thread239
+  %358 = load ptr, ptr %.3127, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %.3127, i64 8
+  %360 = load i32, ptr %359, align 8
+  %361 = call fastcc zeroext i1 @merge_files_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %358, i32 noundef %360, i1 noundef zeroext %6, i32 noundef %.2, i32 noundef %spec.store.select, ptr noundef %9, ptr noundef %10, i32 noundef %11)
+  %362 = call ptr @g_ptr_array_free(ptr noundef nonnull %.3127, i32 noundef 1)
+  %363 = xor i1 %361, true
   br label %.thread239.thread
 
-.thread239.thread:                                ; preds = %12, %merge_open_in_files.exit.thread, %315, %.thread234, %.thread239, %356, %353, %354
-  %.3 = phi i1 [ false, %354 ], [ false, %353 ], [ %362, %356 ], [ true, %.thread239 ], [ false, %.thread234 ], [ false, %315 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
+.thread239.thread:                                ; preds = %12, %merge_open_in_files.exit.thread, %312, %.thread234, %.thread239, %357, %354, %355
+  %.3 = phi i1 [ false, %355 ], [ false, %354 ], [ %363, %357 ], [ true, %.thread239 ], [ false, %.thread234 ], [ false, %312 ], [ false, %merge_open_in_files.exit.thread ], [ true, %12 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #12

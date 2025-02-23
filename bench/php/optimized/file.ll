@@ -2354,7 +2354,7 @@ zend_parse_arg_resource.exit:                     ; preds = %34, %8, %zend_parse
   br label %.loopexit
 
 .loopexit:                                        ; preds = %90, %130, %.loopexit.loopexit235, %.loopexit.loopexit, %108
-  %.3133 = phi i8 [ %.0130, %108 ], [ %spec.select, %.loopexit.loopexit ], [ %spec.select, %.loopexit.loopexit235 ], [ %spec.select, %130 ], [ %spec.select, %90 ]
+  %.3133 = phi i8 [ %.0130, %108 ], [ %spec.select, %.loopexit.loopexit ], [ 13, %.loopexit.loopexit235 ], [ %spec.select, %130 ], [ %spec.select, %90 ]
   %.2124 = phi i32 [ %109, %108 ], [ %134, %.loopexit.loopexit ], [ %135, %.loopexit.loopexit235 ], [ %.4126, %130 ], [ %.4126.us, %90 ]
   %.2118 = phi ptr [ %.0115, %108 ], [ %.3.us221, %.loopexit.loopexit ], [ %.3.us.us, %.loopexit.loopexit235 ], [ %.3, %130 ], [ %.3.us, %90 ]
   %.not159 = icmp eq ptr %.2118, %70

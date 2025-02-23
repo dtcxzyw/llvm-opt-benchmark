@@ -2126,7 +2126,7 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i
   %6 = load ptr, ptr %tmp_.i.i, align 8, !tbaa !8
   br label %for.body.i.i
 
-for.cond5.preheader.i.i:                          ; preds = %for.body.i.i
+for.body8.lr.ph.i.i:                              ; preds = %for.body.i.i
   %downs_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %7 = load ptr, ptr %downs_.i.i, align 8, !tbaa !37
   %ups_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2152,10 +2152,10 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   store double %div.i.i, ptr %add.ptr.i18.i.i, align 8, !tbaa !33
   %inc.i.i = add nuw i64 %i.030.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %3
-  br i1 %exitcond.not.i.i, label %for.cond5.preheader.i.i, label %for.body.i.i, !llvm.loop !64
+  br i1 %exitcond.not.i.i, label %for.body8.lr.ph.i.i, label %for.body.i.i, !llvm.loop !64
 
-for.body8.i.i:                                    ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i.i, %for.cond5.preheader.i.i
-  %i.132.i.i = phi i64 [ %2, %for.cond5.preheader.i.i ], [ %add29.i.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i.i ]
+for.body8.i.i:                                    ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i.i, %for.body8.lr.ph.i.i
+  %i.132.i.i = phi i64 [ %2, %for.body8.lr.ph.i.i ], [ %add29.i.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i.i ]
   %add.ptr.i19.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.132.i.i
   %15 = load i64, ptr %add.ptr.i19.i.i, align 8, !tbaa !39
   %add.ptr.i21.i.i = getelementptr inbounds nuw i64, ptr %8, i64 %i.132.i.i
@@ -2225,7 +2225,7 @@ for.body.lr.ph.i:                                 ; preds = %if.then
   %5 = load ptr, ptr %tmp_.i, align 8, !tbaa !8
   br label %for.body.i
 
-for.cond5.preheader.i:                            ; preds = %for.body.i
+for.body8.lr.ph.i:                                ; preds = %for.body.i
   %downs_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %6 = load ptr, ptr %downs_.i, align 8, !tbaa !37
   %ups_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2251,10 +2251,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store double %div.i, ptr %add.ptr.i18.i, align 8, !tbaa !33
   %inc.i = add nuw i64 %i.030.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
-  br i1 %exitcond.not.i, label %for.cond5.preheader.i, label %for.body.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %for.body8.lr.ph.i, label %for.body.i, !llvm.loop !64
 
-for.body8.i:                                      ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i, %for.cond5.preheader.i
-  %i.132.i = phi i64 [ %1, %for.cond5.preheader.i ], [ %add29.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i ]
+for.body8.i:                                      ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i, %for.body8.lr.ph.i
+  %i.132.i = phi i64 [ %1, %for.body8.lr.ph.i ], [ %add29.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i ]
   %add.ptr.i19.i = getelementptr inbounds nuw i64, ptr %6, i64 %i.132.i
   %14 = load i64, ptr %add.ptr.i19.i, align 8, !tbaa !39
   %add.ptr.i21.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.132.i
@@ -2707,7 +2707,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   %5 = load ptr, ptr %tmp_.i, align 8, !tbaa !8
   br label %for.body.i
 
-for.cond5.preheader.i:                            ; preds = %for.body.i
+for.body8.lr.ph.i:                                ; preds = %for.body.i
   %downs_.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %6 = load ptr, ptr %downs_.i, align 8, !tbaa !37
   %ups_.i = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2733,10 +2733,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store double %div.i, ptr %add.ptr.i18.i, align 8, !tbaa !33
   %inc.i = add nuw i64 %i.030.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %2
-  br i1 %exitcond.not.i, label %for.cond5.preheader.i, label %for.body.i, !llvm.loop !64
+  br i1 %exitcond.not.i, label %for.body8.lr.ph.i, label %for.body.i, !llvm.loop !64
 
-for.body8.i:                                      ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i, %for.cond5.preheader.i
-  %i.132.i = phi i64 [ %1, %for.cond5.preheader.i ], [ %add29.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i ]
+for.body8.i:                                      ; preds = %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i, %for.body8.lr.ph.i
+  %i.132.i = phi i64 [ %1, %for.body8.lr.ph.i ], [ %add29.i, %_ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEPKddET1_T_SA_T0_S9_.exit.i ]
   %add.ptr.i19.i = getelementptr inbounds nuw i64, ptr %6, i64 %i.132.i
   %14 = load i64, ptr %add.ptr.i19.i, align 8, !tbaa !39
   %add.ptr.i21.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.132.i

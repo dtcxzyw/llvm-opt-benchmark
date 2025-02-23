@@ -1734,36 +1734,39 @@ define internal fastcc void @ilk_dump_csc(ptr noundef readonly %0, ptr noundef %
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str.72, ptr noundef %1, i32 noundef %40, i32 noundef %44, i32 noundef %48) #6
   %49 = add nuw nsw i64 %35, 1
   %50 = icmp eq i64 %49, 3
-  br i1 %50, label %.split3.us, label %.split, !llvm.loop !17
+  br i1 %50, label %.split3.us.thread, label %.split, !llvm.loop !17
 
-.split3.us:                                       ; preds = %.split, %.split.us
+.split3.us:                                       ; preds = %.split.us
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %52 = load i16, ptr %51, align 8
   %53 = icmp ult i16 %52, 7
-  br i1 %53, label %68, label %54
+  br i1 %53, label %69, label %58
 
-54:                                               ; preds = %.split3.us
-  br i1 %4, label %57, label %55
+.split3.us.thread:                                ; preds = %.split
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2632
+  %55 = load i16, ptr %54, align 8
+  %56 = icmp ult i16 %55, 7
+  br i1 %56, label %69, label %.thread
 
-55:                                               ; preds = %54
-  %56 = load ptr, ptr %19, align 8
-  br label %57
+.thread:                                          ; preds = %.split3.us.thread
+  %57 = load ptr, ptr %19, align 8
+  br label %58
 
-57:                                               ; preds = %55, %54
-  %58 = phi ptr [ %56, %55 ], [ null, %54 ]
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %60 = load i16, ptr %59, align 2
-  %61 = zext i16 %60 to i32
-  %62 = getelementptr i8, ptr %2, i64 26
-  %63 = load i16, ptr %62, align 2
-  %64 = zext i16 %63 to i32
-  %65 = getelementptr i8, ptr %2, i64 28
-  %66 = load i16, ptr %65, align 2
-  %67 = zext i16 %66 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %58, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef %61, i32 noundef %64, i32 noundef %67) #6
-  br label %68
+58:                                               ; preds = %.split3.us, %.thread
+  %59 = phi ptr [ %57, %.thread ], [ null, %.split3.us ]
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %61 = load i16, ptr %60, align 2
+  %62 = zext i16 %61 to i32
+  %63 = getelementptr i8, ptr %2, i64 26
+  %64 = load i16, ptr %63, align 2
+  %65 = zext i16 %64 to i32
+  %66 = getelementptr i8, ptr %2, i64 28
+  %67 = load i16, ptr %66, align 2
+  %68 = zext i16 %67 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %59, i32 noundef 2, ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef %62, i32 noundef %65, i32 noundef %68) #6
+  br label %69
 
-68:                                               ; preds = %57, %.split3.us
+69:                                               ; preds = %.split3.us.thread, %58, %.split3.us
   ret void
 }
 

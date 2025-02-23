@@ -542,15 +542,15 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %3
   store i32 %.val.val, ptr %17, align 8, !tbaa !46
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %11, ptr %19, align 8, !tbaa !3
-  tail call void @Dch_PerformRandomSimulation(ptr noundef %0, ptr noundef nonnull %17)
-  %20 = tail call ptr @Dch_ClassesStart(ptr noundef %0) #7
+  tail call void @Dch_PerformRandomSimulation(ptr noundef nonnull %0, ptr noundef nonnull %17)
+  %20 = tail call ptr @Dch_ClassesStart(ptr noundef nonnull %0) #7
   tail call void @Dch_ClassesSetData(ptr noundef %20, ptr noundef nonnull %17, ptr noundef nonnull @Dch_NodeHash, ptr noundef nonnull @Dch_NodeIsConst, ptr noundef nonnull @Dch_NodesAreEqual) #7
   tail call void @Dch_ClassesPrepare(ptr noundef %20, i32 noundef 0, i32 noundef 0) #7
   br label %21
 
 21:                                               ; preds = %Vec_PtrAllocSimInfo.exit, %21
   %.015 = phi i32 [ 0, %Vec_PtrAllocSimInfo.exit ], [ %23, %21 ]
-  tail call void @Dch_PerformRandomSimulation(ptr noundef %0, ptr noundef nonnull %17)
+  tail call void @Dch_PerformRandomSimulation(ptr noundef nonnull %0, ptr noundef nonnull %17)
   %22 = tail call i32 @Dch_ClassesRefine(ptr noundef %20) #7
   %23 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %23, 7

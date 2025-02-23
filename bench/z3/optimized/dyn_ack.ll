@@ -5871,13 +5871,7 @@ if.end:                                           ; preds = %if.else
   %call25 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %conv24)
   %4 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %4, null
-  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, label %_ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit
-
-_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread: ; preds = %if.end
-  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
-  store i32 0, ptr %arrayidx2722, align 4
-  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
-  br label %_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit
+  br i1 %cmp.i, label %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit, label %_ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit
 
 _ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit:  ; preds = %if.end
   %arrayidx.i = getelementptr inbounds i8, ptr %4, i64 -4
@@ -5899,14 +5893,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNK6vectorISt4pair
   %cmp.i.i.not.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i, %add.ptr.i.i.i.i
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %if.then.i, label %for.body.i.i.i.i.i.i, !llvm.loop !29
 
+_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit: ; preds = %if.end
+  %arrayidx2722 = getelementptr inbounds nuw i8, ptr %call25, i64 4
+  store i32 0, ptr %arrayidx2722, align 4
+  %add.ptr2823 = getelementptr inbounds nuw i8, ptr %call25, i64 8
+  br label %_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit
+
 if.then.i:                                        ; preds = %for.body.i.i.i.i.i.i, %_ZNK6vectorISt4pairIP3appS2_ELb0EjE4sizeEv.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %4, i64 -8
   tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i)
   br label %_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit
 
-_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread, %if.then.i
-  %add.ptr282832 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit.thread ], [ %add.ptr28, %if.then.i ]
-  store ptr %add.ptr282832, ptr %this, align 8
+_ZN6vectorISt4pairIP3appS2_ELb0EjE7destroyEv.exit: ; preds = %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit, %if.then.i
+  %add.ptr282833 = phi ptr [ %add.ptr2823, %_ZSt20uninitialized_move_nIPSt4pairIP3appS2_EjS4_ES0_IT_T1_ES5_T0_S6_.exit ], [ %add.ptr28, %if.then.i ]
+  store ptr %add.ptr282833, ptr %this, align 8
   store i32 %shr, ptr %call25, align 4
   br label %if.end32
 
@@ -7064,13 +7064,7 @@ if.then.i:                                        ; preds = %while.body.i.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 %mul.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first, i64 16, i1 false)
   %cmp1.not12.i.i.i = icmp eq i64 %storemerge27.i.i, 1
-  br i1 %cmp1.not12.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30, label %for.body.i.i.preheader.i
-
-_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30: ; preds = %if.then.i
-  %0 = load ptr, ptr %call.i.i, align 8
-  store ptr %0, ptr %__first, align 8
-  %second.i.i.i.i32 = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
-  br label %if.else.sink.split
+  br i1 %cmp1.not12.i.i.i, label %for.end.i.i.i, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.then.i
   %__cur.011.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 16
@@ -7083,35 +7077,32 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %incdec.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.013.i.i.i, i64 16
   %__cur.0.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.014.i.i.i, i64 16
   %cmp1.not.i.i.i = icmp eq ptr %__cur.0.i.i.i, %add.ptr.i
-  br i1 %cmp1.not.i.i.i, label %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit, label %for.body.i.i.i, !llvm.loop !47
+  br i1 %cmp1.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !47
 
-_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit: ; preds = %for.body.i.i.i
-  %1 = load ptr, ptr %incdec.ptr3.i.i.i, align 8
-  store ptr %1, ptr %__first, align 8
-  %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.013.i.i.i, i64 24
-  br label %if.else.sink.split
+for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if.then.i
+  %__prev.0.lcssa.i.i.i = phi ptr [ %call.i.i, %if.then.i ], [ %incdec.ptr3.i.i.i, %for.body.i.i.i ]
+  %0 = load ptr, ptr %__prev.0.lcssa.i.i.i, align 8
+  store ptr %0, ptr %__first, align 8
+  %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.0.lcssa.i.i.i, i64 8
+  %1 = load ptr, ptr %second.i.i.i.i, align 8
+  %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
+  store ptr %1, ptr %second3.i.i.i.i, align 8
+  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP3appS2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
+          to label %if.end15 unwind label %lpad
 
 if.then3:                                         ; preds = %if.end4.i.i, %if.end
   invoke void @_ZSt21__inplace_stable_sortIPSt4pairIP3appS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_(ptr noundef %__first, ptr noundef %__last, ptr %__comp.coerce)
           to label %if.end15 unwind label %lpad
 
-lpad:                                             ; preds = %if.else.sink.split, %if.then3
-  %__buf.sroa.4.023 = phi ptr [ %call.i.i, %if.else.sink.split ], [ null, %if.then3 ]
+lpad:                                             ; preds = %for.end.i.i.i, %if.then3
+  %__buf.sroa.4.023 = phi ptr [ %call.i.i, %for.end.i.i.i ], [ null, %if.then3 ]
   %2 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.023) #19
   resume { ptr, i32 } %2
 
-if.else.sink.split:                               ; preds = %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit
-  %.sink.in = phi ptr [ %second.i.i.i.i, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit ], [ %second.i.i.i.i32, %_ZNSt17_Temporary_bufferIPSt4pairIP3appS2_ES3_EC2ES4_l.exit.thread30 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first, i64 8
-  store ptr %.sink, ptr %second3.i.i.i.i, align 8
-  invoke void @_ZSt22__stable_sort_adaptiveIPSt4pairIP3appS2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt11app_pair_ltEEEEvT_SB_T0_T1_T2_(ptr noundef nonnull %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
-          to label %if.end15 unwind label %lpad
-
-if.end15:                                         ; preds = %if.else.sink.split, %if.then3
-  %__buf.sroa.4.021 = phi ptr [ %call.i.i, %if.else.sink.split ], [ null, %if.then3 ]
+if.end15:                                         ; preds = %for.end.i.i.i, %if.then3
+  %__buf.sroa.4.021 = phi ptr [ %call.i.i, %for.end.i.i.i ], [ null, %if.then3 ]
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.021) #19
   br label %return
 
@@ -11225,11 +11216,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp16.i.i, label %while.body.i.i.preheader, label %if.then3
 
 while.body.i.i.preheader:                         ; preds = %if.end
-  %sub.ptr.div41 = udiv exact i64 %sub.ptr.sub, 24
+  %sub.ptr.div32 = udiv exact i64 %sub.ptr.sub, 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end4.i.i
-  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div41, %while.body.i.i.preheader ]
+  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div32, %while.body.i.i.preheader ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
   %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 24
@@ -11249,7 +11240,7 @@ if.then.i:                                        ; preds = %while.body.i.i
 if.end.i.i.i:                                     ; preds = %if.then.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i, ptr noundef nonnull align 8 dereferenceable(24) %__first, i64 24, i1 false)
   %cmp1.not12.i.i.i = icmp eq i64 %storemerge27.i.i, 1
-  br i1 %cmp1.not12.i.i.i, label %if.else, label %for.body.i.i.preheader.i
+  br i1 %cmp1.not12.i.i.i, label %for.end.i.i.i, label %for.body.i.i.preheader.i
 
 for.body.i.i.preheader.i:                         ; preds = %if.end.i.i.i
   %__cur.011.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 24
@@ -11262,10 +11253,11 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
   %incdec.ptr4.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.013.i.i.i, i64 24
   %__cur.0.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.014.i.i.i, i64 24
   %cmp1.not.i.i.i = icmp eq ptr %__cur.0.i.i.i, %add.ptr.i
-  br i1 %cmp1.not.i.i.i, label %_ZNSt17_Temporary_bufferIP6tripleIP3appS2_S2_ES3_EC2ES4_l.exit, label %for.body.i.i.i, !llvm.loop !95
+  br i1 %cmp1.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i, !llvm.loop !95
 
-_ZNSt17_Temporary_bufferIP6tripleIP3appS2_S2_ES3_EC2ES4_l.exit: ; preds = %for.body.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr4.i.i.i, i64 24, i1 false)
+for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if.end.i.i.i
+  %__prev.0.lcssa.i.i.i = phi ptr [ %call.i.i, %if.end.i.i.i ], [ %incdec.ptr4.i.i.i, %for.body.i.i.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %__first, ptr noundef nonnull align 8 dereferenceable(24) %__prev.0.lcssa.i.i.i, i64 24, i1 false)
   br label %if.else
 
 if.then3:                                         ; preds = %if.end4.i.i, %if.end
@@ -11279,7 +11271,7 @@ lpad:                                             ; preds = %if.else, %if.then3
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.023) #19
   resume { ptr, i32 } %0
 
-if.else:                                          ; preds = %if.end.i.i.i, %_ZNSt17_Temporary_bufferIP6tripleIP3appS2_S2_ES3_EC2ES4_l.exit, %if.then.i
+if.else:                                          ; preds = %for.end.i.i.i, %if.then.i
   invoke void @_ZSt22__stable_sort_adaptiveIP6tripleIP3appS2_S2_ES4_lN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt13app_triple_ltEEEEvT_SB_T0_T1_T2_(ptr noundef %__first, ptr noundef %__last, ptr noundef nonnull %call.i.i, i64 noundef %storemerge27.i.i, ptr %__comp.coerce)
           to label %if.end15 unwind label %lpad
 

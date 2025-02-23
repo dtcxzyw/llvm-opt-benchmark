@@ -1388,7 +1388,7 @@ llvm_emit_func_parameter.exit.i:                  ; preds = %382, %llvm_process_
   %389 = getelementptr inbounds nuw %struct.Ast_, ptr %387, i64 %388
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %391 = load i32, ptr %390, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %389) #7
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %389) #7
   %.not136.i = icmp eq i32 %391, 0
   br i1 %.not136.i, label %._crit_edge.i, label %.lr.ph151.i, !llvm.loop !10
 

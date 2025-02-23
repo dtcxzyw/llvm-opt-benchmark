@@ -5417,12 +5417,12 @@ list_length.exit.i:                               ; preds = %56
   br label %markNullableIfNeeded.exit
 
 markNullableIfNeeded.exit:                        ; preds = %._crit_edge.i, %56, %list_length.exit.i, %61, %67
-  %71 = tail call ptr @lappend(ptr noundef %.04855, ptr noundef %38) #11
+  %71 = tail call ptr @lappend(ptr noundef %.04855, ptr noundef nonnull %38) #11
   br i1 %.not, label %75, label %72
 
 72:                                               ; preds = %markNullableIfNeeded.exit
   %73 = load ptr, ptr %4, align 8
-  %74 = tail call ptr @lappend(ptr noundef %73, ptr noundef %18) #11
+  %74 = tail call ptr @lappend(ptr noundef %73, ptr noundef nonnull %18) #11
   store ptr %74, ptr %4, align 8
   br label %75
 
@@ -5474,34 +5474,34 @@ define dso_local ptr @expandNSItemAttrs(ptr noundef captures(none) %0, ptr nound
   br i1 %.not, label %.thread, label %.split.split.us.split
 
 .split.split.us.split:                            ; preds = %.split.split.us, %markVarForSelectPriv.exit.us
-  %.sroa.10.0.us34 = phi i32 [ %61, %markVarForSelectPriv.exit.us ], [ 0, %.split.split.us ]
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %markVarForSelectPriv.exit.us ], [ 0, %.split.split.us ]
   %.0.us35 = phi ptr [ %52, %markVarForSelectPriv.exit.us ], [ null, %.split.split.us ]
   %26 = load i32, ptr %22, align 4
-  %27 = icmp slt i32 %.sroa.10.0.us34, %26
-  br i1 %27, label %28, label %32
+  %27 = sext i32 %26 to i64
+  %28 = icmp slt i64 %indvars.iv55, %27
+  br i1 %28, label %29, label %32
 
-28:                                               ; preds = %.split.split.us.split
-  %29 = load ptr, ptr %23, align 8
-  %30 = sext i32 %.sroa.10.0.us34 to i64
-  %31 = getelementptr inbounds %union.ListCell, ptr %29, i64 %30
+29:                                               ; preds = %.split.split.us.split
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv55
   br label %32
 
-32:                                               ; preds = %28, %.split.split.us.split
-  %33 = phi ptr [ %31, %28 ], [ null, %.split.split.us.split ]
+32:                                               ; preds = %29, %.split.split.us.split
+  %33 = phi ptr [ %31, %29 ], [ null, %.split.split.us.split ]
   %34 = load i32, ptr %21, align 4
-  %35 = icmp slt i32 %.sroa.10.0.us34, %34
-  br i1 %35, label %36, label %.thread
+  %35 = sext i32 %34 to i64
+  %36 = icmp slt i64 %indvars.iv55, %35
+  br i1 %36, label %37, label %.thread
 
-36:                                               ; preds = %32
-  %37 = load ptr, ptr %24, align 8
-  %38 = icmp ne ptr %33, null
-  %39 = icmp ne ptr %37, null
-  %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %41, label %.thread
+37:                                               ; preds = %32
+  %38 = load ptr, ptr %24, align 8
+  %39 = icmp ne ptr %33, null
+  %40 = icmp ne ptr %38, null
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %42, label %.thread
 
-41:                                               ; preds = %36
-  %42 = sext i32 %.sroa.10.0.us34 to i64
-  %43 = getelementptr inbounds %union.ListCell, ptr %37, i64 %42
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw %union.ListCell, ptr %38, i64 %indvars.iv55
   %44 = load ptr, ptr %33, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
@@ -5517,72 +5517,72 @@ define dso_local ptr @expandNSItemAttrs(ptr noundef captures(none) %0, ptr nound
   %.not.i.us = icmp eq i32 %54, 0
   br i1 %.not.i.us, label %markVarForSelectPriv.exit.us, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %41, %.lr.ph.i.us
-  %.08.i.us = phi i32 [ %56, %.lr.ph.i.us ], [ 0, %41 ]
-  %.067.i.us = phi ptr [ %55, %.lr.ph.i.us ], [ %0, %41 ]
+.lr.ph.i.us:                                      ; preds = %42, %.lr.ph.i.us
+  %.08.i.us = phi i32 [ %56, %.lr.ph.i.us ], [ 0, %42 ]
+  %.067.i.us = phi ptr [ %55, %.lr.ph.i.us ], [ %0, %42 ]
   %55 = load ptr, ptr %.067.i.us, align 8
   %56 = add nuw i32 %.08.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %56, %54
   br i1 %exitcond.not.i.us, label %markVarForSelectPriv.exit.us, label %.lr.ph.i.us, !llvm.loop !13
 
-markVarForSelectPriv.exit.us:                     ; preds = %.lr.ph.i.us, %41
-  %.06.lcssa.i.us = phi ptr [ %0, %41 ], [ %55, %.lr.ph.i.us ]
+markVarForSelectPriv.exit.us:                     ; preds = %.lr.ph.i.us, %42
+  %.06.lcssa.i.us = phi ptr [ %0, %42 ], [ %55, %.lr.ph.i.us ]
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %60 = load i16, ptr %59, align 8
   call fastcc void @markRTEForSelectPriv(ptr noundef %.06.lcssa.i.us, i32 noundef %58, i16 noundef signext %60)
-  %61 = add nuw i32 %.sroa.10.0.us34, 1
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   br label %.split.split.us.split, !llvm.loop !30
 
 .split.split:                                     ; preds = %.split
   br i1 %.not, label %.thread, label %.split.split.split
 
 .split.split.split:                               ; preds = %.split.split, %77
-  %.sroa.10.0 = phi i32 [ %89, %77 ], [ 0, %.split.split ]
-  %.0 = phi ptr [ %88, %77 ], [ null, %.split.split ]
-  %62 = load i32, ptr %22, align 4
-  %63 = icmp slt i32 %.sroa.10.0, %62
-  br i1 %63, label %64, label %68
+  %indvars.iv = phi i64 [ %indvars.iv.next, %77 ], [ 0, %.split.split ]
+  %.0 = phi ptr [ %87, %77 ], [ null, %.split.split ]
+  %61 = load i32, ptr %22, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv, %62
+  br i1 %63, label %64, label %67
 
 64:                                               ; preds = %.split.split.split
   %65 = load ptr, ptr %23, align 8
-  %66 = zext nneg i32 %.sroa.10.0 to i64
-  %67 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %66
-  br label %68
+  %66 = getelementptr inbounds nuw %union.ListCell, ptr %65, i64 %indvars.iv
+  br label %67
 
-68:                                               ; preds = %.split.split.split, %64
-  %69 = phi ptr [ %67, %64 ], [ null, %.split.split.split ]
-  %70 = load i32, ptr %21, align 4
-  %71 = icmp slt i32 %.sroa.10.0, %70
+67:                                               ; preds = %.split.split.split, %64
+  %68 = phi ptr [ %66, %64 ], [ null, %.split.split.split ]
+  %69 = load i32, ptr %21, align 4
+  %70 = sext i32 %69 to i64
+  %71 = icmp slt i64 %indvars.iv, %70
   br i1 %71, label %72, label %.thread
 
-72:                                               ; preds = %68
+72:                                               ; preds = %67
   %73 = load ptr, ptr %24, align 8
-  %74 = icmp ne ptr %69, null
+  %74 = icmp ne ptr %68, null
   %75 = icmp ne ptr %73, null
   %76 = select i1 %74, i1 %75, i1 false
   br i1 %76, label %77, label %.thread
 
-.thread:                                          ; preds = %72, %68, %32, %36, %19, %.split.split, %.split.split.us
-  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ null, %19 ], [ %.0.us35, %36 ], [ %.0.us35, %32 ], [ %.0, %68 ], [ %.0, %72 ]
+.thread:                                          ; preds = %72, %67, %32, %37, %19, %.split.split, %.split.split.us
+  %.us-phi = phi ptr [ null, %.split.split.us ], [ null, %.split.split ], [ null, %19 ], [ %.0.us35, %37 ], [ %.0.us35, %32 ], [ %.0, %67 ], [ %.0, %72 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   ret ptr %.us-phi
 
 77:                                               ; preds = %72
-  %78 = zext nneg i32 %.sroa.10.0 to i64
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %73, i64 %78
-  %80 = load ptr, ptr %69, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = load ptr, ptr %79, align 8
-  %84 = load i32, ptr %25, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %25, align 4
-  %86 = trunc i32 %84 to i16
-  %87 = call ptr @makeTargetEntry(ptr noundef %83, i16 noundef signext %86, ptr noundef %82, i1 noundef zeroext false) #11
-  %88 = call ptr @lappend(ptr noundef %.0, ptr noundef %87) #11
-  %89 = add nuw nsw i32 %.sroa.10.0, 1
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %73, i64 %indvars.iv
+  %79 = load ptr, ptr %68, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = load ptr, ptr %78, align 8
+  %83 = load i32, ptr %25, align 4
+  %84 = add i32 %83, 1
+  store i32 %84, ptr %25, align 4
+  %85 = trunc i32 %83 to i16
+  %86 = call ptr @makeTargetEntry(ptr noundef %82, i16 noundef signext %85, ptr noundef %81, i1 noundef zeroext false) #11
+  %87 = call ptr @lappend(ptr noundef %.0, ptr noundef %86) #11
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %.split.split.split, !llvm.loop !30
 }
 

@@ -252,7 +252,7 @@ define hidden noundef ptr @CreatePreparedDictionary(ptr noundef %0, ptr noundef 
   br i1 %exitcond251.not.i, label %135, label %.preheader.i, !llvm.loop !23
 
 135:                                              ; preds = %134
-  tail call void @BrotliFree(ptr noundef %0, ptr noundef %33) #6
+  tail call void @BrotliFree(ptr noundef %0, ptr noundef nonnull %33) #6
   br label %CreatePreparedDictionaryWithParams.exit
 
 CreatePreparedDictionaryWithParams.exit:          ; preds = %._crit_edge, %135

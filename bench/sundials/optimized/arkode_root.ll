@@ -1532,7 +1532,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %68 = tail call double @llvm.fabs.f64(double %67)
   %69 = load double, ptr %64, align 8, !tbaa !44
   %70 = fcmp ugt double %68, %69
-  br i1 %70, label %.lr.ph308, label %.lr.ph319.critedge
+  br i1 %70, label %.lr.ph308, label %.lr.ph319.sink.split
 
 .lr.ph308:                                        ; preds = %.preheader263
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 64
@@ -1805,7 +1805,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %218 = tail call double @llvm.fabs.f64(double %217)
   %219 = load double, ptr %64, align 8, !tbaa !44
   %220 = fcmp ugt double %218, %219
-  br i1 %220, label %.backedge, label %.loopexit261.loopexit446
+  br i1 %220, label %.backedge, label %.loopexit261.loopexit
 
 .backedge:                                        ; preds = %._crit_edge298, %._crit_edge302
   %.3232.lcssa398 = phi i32 [ %.4408415, %._crit_edge298 ], [ %.3232.lcssa399419422, %._crit_edge302 ]
@@ -1817,7 +1817,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %.v.be = phi double [ 5.000000e-01, %._crit_edge298 ], [ 2.000000e+00, %._crit_edge302 ]
   %.0228.be = phi i32 [ 1, %._crit_edge298 ], [ 2, %._crit_edge302 ]
   %224 = fcmp ugt double %.pre-phi370, %221
-  br i1 %224, label %115, label %.loopexit261.loopexit446
+  br i1 %224, label %115, label %.loopexit261.loopexit
 
 225:                                              ; preds = %._crit_edge290
   %226 = icmp eq i32 %.3226, 0
@@ -1838,7 +1838,7 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   store double %231, ptr %232, align 8, !tbaa !42
   %indvars.iv.next349 = add nuw nsw i64 %indvars.iv348, 1
   %exitcond353.not = icmp eq i64 %indvars.iv.next349, %wide.trip.count346
-  br i1 %exitcond353.not, label %.loopexit261.loopexit, label %229
+  br i1 %exitcond353.not, label %.loopexit261.thread, label %229
 
 .lr.ph301:                                        ; preds = %225
   store double %.1234, ptr %63, align 8, !tbaa !39
@@ -1868,26 +1868,26 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %242 = tail call double @llvm.fabs.f64(double %241)
   %243 = load double, ptr %64, align 8, !tbaa !44
   %244 = fcmp ugt double %242, %243
-  br i1 %244, label %.backedge, label %.loopexit261.loopexit446
+  br i1 %244, label %.backedge, label %.loopexit261.loopexit
 
-.loopexit261.loopexit:                            ; preds = %229
+.loopexit261.thread:                              ; preds = %229
   %.pre366 = load double, ptr %62, align 8, !tbaa !40
-  br label %.lr.ph319.critedge
+  br label %.lr.ph319.sink.split
 
-.loopexit261.loopexit446:                         ; preds = %._crit_edge302, %._crit_edge298, %.backedge
+.loopexit261.loopexit:                            ; preds = %._crit_edge302, %._crit_edge298, %.backedge
   %.ph = phi double [ %223, %.backedge ], [ %.pre, %._crit_edge298 ], [ %240, %._crit_edge302 ]
   %245 = icmp sgt i32 %164, 0
   %246 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store double %.ph, ptr %246, align 8, !tbaa !41
   br i1 %245, label %.lr.ph319, label %.loopexit
 
-.lr.ph319.critedge:                               ; preds = %.preheader263, %.loopexit261.loopexit
-  %.ph464 = phi double [ %65, %.preheader263 ], [ %.pre366, %.loopexit261.loopexit ]
+.lr.ph319.sink.split:                             ; preds = %.preheader263, %.loopexit261.thread
+  %.sink = phi double [ %.pre366, %.loopexit261.thread ], [ %65, %.preheader263 ]
   %247 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store double %.ph464, ptr %247, align 8, !tbaa !41
+  store double %.sink, ptr %247, align 8, !tbaa !41
   br label %.lr.ph319
 
-.lr.ph319:                                        ; preds = %.lr.ph319.critedge, %.loopexit261.loopexit446
+.lr.ph319:                                        ; preds = %.lr.ph319.sink.split, %.loopexit261.loopexit
   %248 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %249 = load ptr, ptr %248, align 8, !tbaa !32
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -1975,8 +1975,8 @@ define range(i32 -21, 2) i32 @arkRootfind(ptr noundef %0) local_unnamed_addr #0 
   %299 = icmp slt i64 %indvars.iv.next355, %298
   br i1 %299, label %258, label %.loopexit
 
-.loopexit:                                        ; preds = %154, %296, %111, %._crit_edge323, %._crit_edge323.thread, %.loopexit261.loopexit446, %3
-  %.0 = phi i32 [ -21, %3 ], [ %.mux, %._crit_edge323 ], [ 1, %.loopexit261.loopexit446 ], [ 0, %._crit_edge323.thread ], [ 1, %111 ], [ 1, %296 ], [ -12, %154 ]
+.loopexit:                                        ; preds = %154, %296, %111, %._crit_edge323, %._crit_edge323.thread, %.loopexit261.loopexit, %3
+  %.0 = phi i32 [ -21, %3 ], [ %.mux, %._crit_edge323 ], [ 1, %.loopexit261.loopexit ], [ 0, %._crit_edge323.thread ], [ 1, %111 ], [ 1, %296 ], [ -12, %154 ]
   ret i32 %.0
 }
 

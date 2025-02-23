@@ -475,7 +475,7 @@ gettoalign.exit:                                  ; preds = %.lr.ph, %23
 
 60:                                               ; preds = %.loopexit.i
   %61 = shl nsw i64 %20, 3
-  %62 = add i64 %61, 4294967295
+  %62 = add nsw i64 %61, 4294967295
   %63 = and i64 %62, 4294967295
   %64 = shl nsw i64 -1, %63
   %65 = and i64 %.125.i, %64

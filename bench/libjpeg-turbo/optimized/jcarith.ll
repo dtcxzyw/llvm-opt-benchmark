@@ -1079,7 +1079,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   %62 = add i32 %61, -3
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds i8, ptr %60, i64 %63
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef %64, i32 noundef 0)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef %64, i32 noundef 0)
   %65 = sext i32 %.086137 to i64
   br label %66
 
@@ -1805,7 +1805,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   %.1137195 = phi i32 [ %.1137, %.lr.ph197 ], [ %.1137191, %140 ]
   %.4194 = phi i32 [ %147, %.lr.ph197 ], [ 2, %140 ]
   %.5148193 = phi ptr [ %148, %.lr.ph197 ], [ %145, %140 ]
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %.5148193, i32 noundef 1)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.5148193, i32 noundef 1)
   %147 = shl i32 %.4194, 1
   %148 = getelementptr inbounds nuw i8, ptr %.5148193, i64 1
   %.1137 = ashr i32 %.1137195, 1
@@ -1817,7 +1817,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   br label %._crit_edge204
 
 .loopexit:                                        ; preds = %.lr.ph197
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %148, i32 noundef 0)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %148, i32 noundef 0)
   %149 = getelementptr inbounds nuw i8, ptr %.5148193, i64 15
   %.not169200 = icmp eq i32 %147, 0
   br i1 %.not169200, label %._crit_edge204, label %.lr.ph203.preheader
@@ -1833,7 +1833,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   %152 = and i32 %151, %138
   %.not170 = icmp ne i32 %152, 0
   %153 = zext i1 %.not170 to i32
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef nonnull %150, i32 noundef %153)
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %150, i32 noundef %153)
   %.not169 = icmp ult i32 %151, 2
   br i1 %.not169, label %._crit_edge204, label %.lr.ph203, !llvm.loop !93
 

@@ -6776,12 +6776,10 @@ invoke.cont27:                                    ; preds = %if.end.i.i, %if.the
   %add.ptr.i.i.i.i.sink.i.i = phi ptr [ %add.ptr.i.i.i.i.i.i2, %if.end.i.i ], [ %directProps_.i.i.i, %if.then.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.544", ptr %add.ptr.i.i.i.i.sink.i.i, i64 %sub.sink.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.not.i.i.i.i = icmp eq i32 %retval.sroa.0.0.i.i, 0
   %conv.i.i.i.i.i3 = zext i32 %retval.sroa.0.0.i.i to i64
   %add.i.i.i.i.i4 = add i64 %.pre-phi, %conv.i.i.i.i.i3
   %13 = inttoptr i64 %add.i.i.i.i.i4 to ptr
-  %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %13
-  %context_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 8
+  %context_.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %context_.i, align 8
   %15 = load ptr, ptr %14, align 8
   store ptr %15, ptr %agg.result, align 8

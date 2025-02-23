@@ -750,7 +750,7 @@ define internal noundef ptr @fake_rsa_gen(ptr noundef %0, ptr readnone captures(
   br i1 %.not7, label %13, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %..i, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 2, ptr %12, align 4, !tbaa !12
   br label %13
 
@@ -915,7 +915,7 @@ define internal noundef i32 @fake_rsa_st_load(ptr noundef captures(none) %0, ptr
   br i1 %.not, label %29, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %..i, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 1, ptr %20, align 4, !tbaa !12
   %21 = tail call i32 @test_int_gt(ptr noundef nonnull @.str.9, i32 noundef 631, ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.22, i32 noundef 1, i32 noundef 0) #12
   %.not11 = icmp eq i32 %21, 0

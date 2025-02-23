@@ -1517,13 +1517,7 @@ Abc_EsopCheck.exit81:                             ; preds = %.thread, %Abc_TtHas
 
 .preheader136:                                    ; preds = %Abc_EsopCheck.exit81
   %.not163 = icmp eq i32 %5, 31
-  br i1 %.not163, label %.lr.ph157.thread, label %.lr.ph155.preheader
-
-.lr.ph157.thread:                                 ; preds = %.preheader136
-  %67 = ashr i64 %.022.i79, 32
-  %68 = getelementptr inbounds i32, ptr %64, i64 %67
-  %69 = select i1 %.not74198, ptr null, ptr %68
-  br label %Abc_TtHasVar.exit126.thread
+  br i1 %.not163, label %.lr.ph157.split.us.preheader, label %.lr.ph155.preheader
 
 .lr.ph155.preheader:                              ; preds = %.preheader136
   %smax = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
@@ -1534,24 +1528,30 @@ Abc_EsopCheck.exit81:                             ; preds = %.thread, %Abc_TtHas
 .lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
   %indvars.iv = phi i64 [ 0, %.lr.ph155.preheader ], [ %indvars.iv.next, %.lr.ph155 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %70 = load i64, ptr %gep, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
-  %72 = load i64, ptr %71, align 8, !tbaa !3
-  %73 = xor i64 %72, %70
-  store i64 %73, ptr %71, align 8, !tbaa !3
+  %67 = load i64, ptr %gep, align 8, !tbaa !3
+  %68 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %69 = load i64, ptr %68, align 8, !tbaa !3
+  %70 = xor i64 %69, %67
+  store i64 %70, ptr %68, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph155, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph155
+  %71 = ashr i64 %.022.i79, 32
+  %72 = getelementptr inbounds i32, ptr %64, i64 %71
+  %73 = select i1 %.not74198, ptr null, ptr %72
+  br i1 %8, label %Abc_EsopCheck.exit85.thread, label %.preheader.lr.ph.i111
+
+.lr.ph157.split.us.preheader:                     ; preds = %.preheader136
   %74 = ashr i64 %.022.i79, 32
   %75 = getelementptr inbounds i32, ptr %64, i64 %74
   %76 = select i1 %.not74198, ptr null, ptr %75
-  br i1 %8, label %Abc_EsopCheck.exit85.thread, label %.preheader.lr.ph.i111
+  br label %Abc_TtHasVar.exit126.thread
 
 Abc_EsopCheck.exit85.thread:                      ; preds = %._crit_edge
   %77 = load i64, ptr %0, align 8, !tbaa !3
-  %78 = tail call i64 @Abc_Esop6Cover(i64 noundef %77, i32 noundef %7, i64 noundef %2, ptr noundef %76)
+  %78 = tail call i64 @Abc_Esop6Cover(i64 noundef %77, i32 noundef %7, i64 noundef %2, ptr noundef %73)
   br label %.lr.ph161.preheader
 
 .preheader.lr.ph.i111:                            ; preds = %._crit_edge, %.loopexit
@@ -1602,25 +1602,25 @@ Abc_TtHasVar.exit126:                             ; preds = %86
   %93 = icmp eq i32 %.021.i82156, 6
   br i1 %93, label %Abc_TtHasVar.exit126.thread, label %98
 
-Abc_TtHasVar.exit126.thread:                      ; preds = %.loopexit, %.lr.ph157.thread, %Abc_TtHasVar.exit126
-  %94 = phi ptr [ %76, %Abc_TtHasVar.exit126 ], [ %69, %.lr.ph157.thread ], [ %76, %.loopexit ]
-  %95 = phi i64 [ %74, %Abc_TtHasVar.exit126 ], [ %67, %.lr.ph157.thread ], [ %74, %.loopexit ]
+Abc_TtHasVar.exit126.thread:                      ; preds = %.loopexit, %.lr.ph157.split.us.preheader, %Abc_TtHasVar.exit126
+  %94 = phi ptr [ %73, %Abc_TtHasVar.exit126 ], [ %76, %.lr.ph157.split.us.preheader ], [ %73, %.loopexit ]
+  %95 = phi i64 [ %71, %Abc_TtHasVar.exit126 ], [ %74, %.lr.ph157.split.us.preheader ], [ %71, %.loopexit ]
   %96 = load i64, ptr %0, align 8, !tbaa !3
   %97 = tail call i64 @Abc_Esop6Cover(i64 noundef %96, i32 noundef 6, i64 noundef %2, ptr noundef %94)
   br label %Abc_EsopCheck.exit85
 
 98:                                               ; preds = %Abc_TtHasVar.exit126
-  %99 = tail call i64 @Abc_EsopCover(ptr noundef %0, i32 noundef %.021.i82156, i64 noundef %2, ptr noundef %76)
+  %99 = tail call i64 @Abc_EsopCover(ptr noundef %0, i32 noundef %.021.i82156, i64 noundef %2, ptr noundef %73)
   br label %Abc_EsopCheck.exit85
 
 Abc_EsopCheck.exit85:                             ; preds = %Abc_TtHasVar.exit126.thread, %98
-  %100 = phi i64 [ %95, %Abc_TtHasVar.exit126.thread ], [ %74, %98 ]
+  %100 = phi i64 [ %95, %Abc_TtHasVar.exit126.thread ], [ %71, %98 ]
   %.022.i83 = phi i64 [ %97, %Abc_TtHasVar.exit126.thread ], [ %99, %98 ]
   br i1 %.not163, label %._crit_edge162, label %.lr.ph161.preheader
 
 .lr.ph161.preheader:                              ; preds = %Abc_EsopCheck.exit85.thread, %Abc_EsopCheck.exit85
   %.022.i83204 = phi i64 [ %78, %Abc_EsopCheck.exit85.thread ], [ %.022.i83, %Abc_EsopCheck.exit85 ]
-  %101 = phi i64 [ %74, %Abc_EsopCheck.exit85.thread ], [ %100, %Abc_EsopCheck.exit85 ]
+  %101 = phi i64 [ %71, %Abc_EsopCheck.exit85.thread ], [ %100, %Abc_EsopCheck.exit85 ]
   %smax187 = tail call i32 @llvm.smax.i32(i32 %6, i32 1)
   %wide.trip.count188 = zext nneg i32 %smax187 to i64
   %invariant.gep210 = getelementptr i64, ptr %0, i64 %66
@@ -2093,8 +2093,8 @@ Abc_TtFindFirstBit.exit:                          ; preds = %68, %42
   %.not191 = icmp eq i32 %107, 0
   %108 = add nuw nsw i64 %indvars.iv385, 1
   %109 = icmp slt i64 %108, %36
-  %or.cond416 = select i1 %.not191, i1 %109, i1 false
-  br i1 %or.cond416, label %.lr.ph329, label %.loopexit307
+  %or.cond417 = select i1 %.not191, i1 %109, i1 false
+  br i1 %or.cond417, label %.lr.ph329, label %.loopexit307
 
 .lr.ph329:                                        ; preds = %.lr.ph338
   %110 = trunc nuw nsw i64 %indvars.iv385 to i32
@@ -2941,12 +2941,7 @@ Abc_Clock.exit41:                                 ; preds = %Abc_Clock.exit39, %
   %59 = shl nuw i32 1, %58
   %60 = select i1 %57, i32 1, i32 %59
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph.preheader.i, label %Abc_TtNot.exit.thread
-
-Abc_TtNot.exit.thread:                            ; preds = %Abc_Clock.exit41
-  %.val3655 = load ptr, ptr %31, align 8, !tbaa !29
-  %62 = call i64 @Abc_IsopCheck(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %10, i32 noundef %1, i64 noundef 281470681743360, ptr noundef %.val3655)
-  br label %Abc_TtNot.exit48
+  br i1 %61, label %.lr.ph.preheader.i, label %Abc_TtNot.exit
 
 .lr.ph.preheader.i:                               ; preds = %Abc_Clock.exit41
   %wide.trip.count.i = zext nneg i32 %60 to i64
@@ -2954,21 +2949,26 @@ Abc_TtNot.exit.thread:                            ; preds = %Abc_Clock.exit41
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %63 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
-  %64 = load i64, ptr %63, align 8, !tbaa !3
-  %65 = xor i64 %64, -1
-  store i64 %65, ptr %63, align 8, !tbaa !3
+  %62 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %63 = load i64, ptr %62, align 8, !tbaa !3
+  %64 = xor i64 %63, -1
+  store i64 %64, ptr %62, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_TtNot.exit, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i42, label %.lr.ph.i, !llvm.loop !36
 
-Abc_TtNot.exit:                                   ; preds = %.lr.ph.i
+Abc_TtNot.exit:                                   ; preds = %Abc_Clock.exit41
   %.val36 = load ptr, ptr %31, align 8, !tbaa !29
-  %66 = call i64 @Abc_IsopCheck(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %1, i64 noundef 281470681743360, ptr noundef %.val36)
+  %65 = call i64 @Abc_IsopCheck(ptr noundef %0, ptr noundef %0, ptr noundef nonnull %10, i32 noundef %1, i64 noundef 281470681743360, ptr noundef %.val36)
+  br label %Abc_TtNot.exit48
+
+.lr.ph.preheader.i42:                             ; preds = %.lr.ph.i
+  %.val3655 = load ptr, ptr %31, align 8, !tbaa !29
+  %66 = call i64 @Abc_IsopCheck(ptr noundef nonnull %0, ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %1, i64 noundef 281470681743360, ptr noundef %.val3655)
   br label %.lr.ph.i44
 
-.lr.ph.i44:                                       ; preds = %.lr.ph.i44, %Abc_TtNot.exit
-  %indvars.iv.i45 = phi i64 [ 0, %Abc_TtNot.exit ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
+.lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
+  %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
   %67 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i45
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = xor i64 %68, -1
@@ -2977,8 +2977,8 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, %wide.trip.count.i
   br i1 %exitcond.not.i47, label %Abc_TtNot.exit48, label %.lr.ph.i44, !llvm.loop !36
 
-Abc_TtNot.exit48:                                 ; preds = %.lr.ph.i44, %Abc_TtNot.exit.thread
-  %70 = phi i64 [ %62, %Abc_TtNot.exit.thread ], [ %66, %.lr.ph.i44 ]
+Abc_TtNot.exit48:                                 ; preds = %.lr.ph.i44, %Abc_TtNot.exit
+  %70 = phi i64 [ %65, %Abc_TtNot.exit ], [ %66, %.lr.ph.i44 ]
   %71 = lshr i64 %70, 32
   %72 = trunc nuw i64 %71 to i32
   store i32 %72, ptr %35, align 4, !tbaa !26

@@ -334,40 +334,36 @@ define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly %0, ptr nound
   %.03449.neg = phi i64 [ -1, %.thread50 ], [ 0, %._crit_edge ], [ 0, %20 ]
   %32 = add i64 %.03449.neg, %3
   %.not43 = icmp eq ptr %0, null
-  br i1 %.not43, label %twos_complement.exit, label %33
+  br i1 %.not43, label %twos_complement.exit, label %.lr.ph.preheader.i
 
-33:                                               ; preds = %.thread
+.lr.ph.preheader.i:                               ; preds = %.thread
   %sext = ashr i8 %8, 7
-  %.not1617.i = icmp eq i64 %32, 0
-  br i1 %.not1617.i, label %twos_complement.exit, label %.lr.ph.preheader.i
-
-.lr.ph.preheader.i:                               ; preds = %33
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 %3
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %32
-  %36 = lshr i8 %8, 7
-  %37 = zext nneg i8 %36 to i32
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 %3
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %32
+  %35 = lshr i8 %8, 7
+  %36 = zext nneg i8 %35 to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.021.i = phi i32 [ %46, %.lr.ph.i ], [ %37, %.lr.ph.preheader.i ]
-  %.120.i = phi ptr [ %45, %.lr.ph.i ], [ %35, %.lr.ph.preheader.i ]
-  %.01219.i = phi i64 [ %38, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
-  %.11418.i = phi ptr [ %39, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
-  %38 = add i64 %.01219.i, -1
-  %39 = getelementptr inbounds i8, ptr %.11418.i, i64 -1
-  %40 = load i8, ptr %39, align 1, !tbaa !13
-  %41 = xor i8 %40, %sext
-  %42 = zext i8 %41 to i32
-  %43 = add nuw nsw i32 %.021.i, %42
-  %44 = trunc i32 %43 to i8
-  %45 = getelementptr inbounds i8, ptr %.120.i, i64 -1
-  store i8 %44, ptr %45, align 1, !tbaa !13
-  %46 = lshr i32 %43, 8
-  %.not16.i = icmp eq i64 %38, 0
+  %.021.i = phi i32 [ %45, %.lr.ph.i ], [ %36, %.lr.ph.preheader.i ]
+  %.120.i = phi ptr [ %44, %.lr.ph.i ], [ %34, %.lr.ph.preheader.i ]
+  %.01219.i = phi i64 [ %37, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
+  %.11418.i = phi ptr [ %38, %.lr.ph.i ], [ %33, %.lr.ph.preheader.i ]
+  %37 = add i64 %.01219.i, -1
+  %38 = getelementptr inbounds i8, ptr %.11418.i, i64 -1
+  %39 = load i8, ptr %38, align 1, !tbaa !13
+  %40 = xor i8 %39, %sext
+  %41 = zext i8 %40 to i32
+  %42 = add nuw nsw i32 %.021.i, %41
+  %43 = trunc i32 %42 to i8
+  %44 = getelementptr inbounds i8, ptr %.120.i, i64 -1
+  store i8 %43, ptr %44, align 1, !tbaa !13
+  %45 = lshr i32 %42, 8
+  %.not16.i = icmp eq i64 %37, 0
   br i1 %.not16.i, label %twos_complement.exit, label %.lr.ph.i, !llvm.loop !17
 
-twos_complement.exit:                             ; preds = %.lr.ph.i, %33, %.thread, %14, %19, %17, %31, %6
-  %.035 = phi i64 [ 0, %6 ], [ 0, %31 ], [ 1, %17 ], [ 1, %19 ], [ 1, %14 ], [ %32, %.thread ], [ 0, %33 ], [ %32, %.lr.ph.i ]
+twos_complement.exit:                             ; preds = %.lr.ph.i, %.thread, %14, %19, %17, %31, %6
+  %.035 = phi i64 [ 0, %6 ], [ 0, %31 ], [ 1, %17 ], [ 1, %19 ], [ 1, %14 ], [ %32, %.thread ], [ %32, %.lr.ph.i ]
   ret i64 %.035
 }
 
@@ -680,7 +676,7 @@ asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %18 = trunc i64 %.0.i to i32
   %19 = sub i32 8, %18
-  %20 = call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %19) #6
+  %20 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %19) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %20
 }
@@ -786,7 +782,7 @@ asn1_string_set_uint64.exit:                      ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 %7
   %11 = trunc i64 %7 to i32
   %12 = sub i32 8, %11
-  %13 = call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef nonnull %10, i32 noundef %12) #6
+  %13 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef nonnull %10, i32 noundef %12) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %13
 }
@@ -832,7 +828,7 @@ ASN1_INTEGER_set_int64.exit:                      ; preds = %.preheader.i.i, %7
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i.i
   %18 = trunc i64 %.0.i.i to i32
   %19 = sub i32 8, %18
-  %20 = call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %19) #6
+  %20 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %19) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %20
 }
@@ -1042,7 +1038,7 @@ asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i
   %18 = trunc i64 %.0.i to i32
   %19 = sub i32 8, %18
-  %20 = call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %19) #6
+  %20 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %19) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %20
 }
@@ -1088,7 +1084,7 @@ ASN1_ENUMERATED_set_int64.exit:                   ; preds = %.preheader.i.i, %7
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.0.i.i
   %18 = trunc i64 %.0.i.i to i32
   %19 = sub i32 8, %18
-  %20 = call i32 @ASN1_STRING_set(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %19) #6
+  %20 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %19) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #6
   ret i32 %20
 }

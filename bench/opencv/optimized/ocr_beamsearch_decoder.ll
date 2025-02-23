@@ -4761,14 +4761,17 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %44 = icmp slt i64 %indvars.iv.next79, %43
   br i1 %44, label %.preheader51, label %.preheader50, !llvm.loop !121
 
-.preheader49.loopexit:                            ; preds = %.lr.ph60
+.preheader49.thread:                              ; preds = %.lr.ph60
   %45 = uitofp nneg i32 %.1 to double
-  br label %.preheader49
+  br label %.lr.ph62.preheader
 
-.preheader49:                                     ; preds = %.preheader49.loopexit, %.preheader50
-  %.044.lcssa = phi double [ 0.000000e+00, %.preheader50 ], [ %45, %.preheader49.loopexit ]
-  %46 = icmp sgt i32 %22, 0
-  br i1 %46, label %.lr.ph62, label %._crit_edge70
+.preheader49:                                     ; preds = %.preheader50
+  %46 = icmp eq i32 %22, 1
+  br i1 %46, label %.lr.ph62.preheader, label %._crit_edge70
+
+.lr.ph62.preheader:                               ; preds = %.preheader49.thread, %.preheader49
+  %.044.lcssa97 = phi double [ %45, %.preheader49.thread ], [ 0.000000e+00, %.preheader49 ]
+  br label %.lr.ph62
 
 .lr.ph60:                                         ; preds = %.lr.ph60.preheader, %.lr.ph60
   %indvars.iv81 = phi i64 [ 1, %.lr.ph60.preheader ], [ %indvars.iv.next82, %.lr.ph60 ]
@@ -4783,7 +4786,7 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %.1 = select i1 %52, i32 %53, i32 %.04458
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader49.loopexit, label %.lr.ph60, !llvm.loop !122
+  br i1 %exitcond.not, label %.preheader49.thread, label %.lr.ph60, !llvm.loop !122
 
 .preheader48:                                     ; preds = %.lr.ph62
   %54 = icmp sgt i32 %61, 0
@@ -4793,8 +4796,8 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %wide.trip.count90 = zext nneg i32 %61 to i64
   br label %.lr.ph66
 
-.lr.ph62:                                         ; preds = %.preheader49, %.lr.ph62
-  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.lr.ph62 ], [ 0, %.preheader49 ]
+.lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
+  %indvars.iv84 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next85, %.lr.ph62 ]
   %55 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv84
   %56 = load double, ptr %55, align 8
   %57 = fneg double %56
@@ -4831,8 +4834,8 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   br i1 %72, label %.lr.ph69, label %._crit_edge70, !llvm.loop !125
 
 ._crit_edge70:                                    ; preds = %.lr.ph69, %.preheader48, %.preheader51.lr.ph, %.preheader49
-  %.044.lcssa9698101 = phi double [ %.044.lcssa, %.preheader49 ], [ 0.000000e+00, %.preheader51.lr.ph ], [ %.044.lcssa, %.preheader48 ], [ %.044.lcssa, %.lr.ph69 ]
-  ret double %.044.lcssa9698101
+  %.044.lcssa96101104 = phi double [ 0.000000e+00, %.preheader49 ], [ 0.000000e+00, %.preheader51.lr.ph ], [ %.044.lcssa97, %.preheader48 ], [ %.044.lcssa97, %.lr.ph69 ]
+  ret double %.044.lcssa96101104
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -9104,7 +9107,7 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeES
 .lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbS4_S4_EEEEvT_SF_SF_T0_.exit, %.lr.ph.i.i
   %.sroa.0.05.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %storemerge20.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbS4_S4_EEEEvT_SF_SF_T0_.exit ]
   %40 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -40
-  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbS4_S4_EEEEvT_SF_SF_RT0_(ptr %0, ptr nonnull %40, ptr nonnull %40, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  call void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv4text15beamSearch_nodeESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIPFbS4_S4_EEEEvT_SF_SF_RT0_(ptr nonnull %0, ptr nonnull %40, ptr nonnull %40, ptr noundef nonnull align 8 dereferenceable(8) %6)
   %41 = ptrtoint ptr %40 to i64
   %42 = sub i64 %41, %7
   %43 = icmp sgt i64 %42, 40

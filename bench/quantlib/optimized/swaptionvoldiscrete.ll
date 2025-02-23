@@ -3612,7 +3612,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i32: ; preds = %_ZNSt6vector
 
 _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i44: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %optionDatesAsReal_, i8 0, i64 24, i1 false)
-  br label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i51.thread
+  br label %invoke.cont20.thread
 
 if.then.i.i.i.i.i34:                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i32
   %call5.i.i.i.i2.i.i48 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #26
@@ -3626,9 +3626,9 @@ call5.i.i.i.i2.i.i.noexc47:                       ; preds = %if.then.i.i.i.i.i34
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i48, align 8, !tbaa !59
   %incdec.ptr.i.i.i.i.i38 = getelementptr i8, ptr %call5.i.i.i.i2.i.i48, i64 8
   %cmp.i.i.i.i.i.i.i39 = icmp eq i64 %sub.ptr.sub.i, 8
-  br i1 %cmp.i.i.i.i.i.i.i39, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i51.thread, label %invoke.cont20
+  br i1 %cmp.i.i.i.i.i.i.i39, label %invoke.cont20.thread, label %invoke.cont20
 
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i51.thread: ; preds = %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i44, %call5.i.i.i.i2.i.i.noexc47
+invoke.cont20.thread:                             ; preds = %call5.i.i.i.i2.i.i.noexc47, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i44
   %__first.addr.0.i.i.i.i.i42.ph = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i44 ], [ %incdec.ptr.i.i.i.i.i38, %call5.i.i.i.i2.i.i.noexc47 ]
   %_M_finish.i.i7.i43218 = getelementptr inbounds nuw i8, ptr %this, i64 208
   store ptr %__first.addr.0.i.i.i.i.i42.ph, ptr %_M_finish.i.i7.i43218, align 8, !tbaa !61
@@ -3649,17 +3649,17 @@ if.then.i.i64:                                    ; preds = %invoke.cont20
 .noexc65:                                         ; preds = %if.then.i.i64
   unreachable
 
-if.then.i.i.i.i.i53:                              ; preds = %invoke.cont20, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i51.thread
-  %optionInterpolatorTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 224
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %optionInterpolatorTimes_, i8 0, i64 24, i1 false)
-  %add227231 = add nuw nsw i64 %sub.ptr.div.i, 1
-  %mul.i.i.i.i.i.i54 = shl nuw nsw i64 %add227231, 3
+if.then.i.i.i.i.i53:                              ; preds = %invoke.cont20, %invoke.cont20.thread
+  %optionInterpolatorTimes_222 = getelementptr inbounds nuw i8, ptr %this, i64 224
+  %add227 = add nuw nsw i64 %sub.ptr.div.i, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %optionInterpolatorTimes_222, i8 0, i64 24, i1 false)
+  %mul.i.i.i.i.i.i54 = shl nuw nsw i64 %add227, 3
   %call5.i.i.i.i2.i.i67 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i54) #26
           to label %call5.i.i.i.i2.i.i.noexc66 unwind label %lpad23
 
 call5.i.i.i.i2.i.i.noexc66:                       ; preds = %if.then.i.i.i.i.i53
-  store ptr %call5.i.i.i.i2.i.i67, ptr %optionInterpolatorTimes_, align 8, !tbaa !57
-  %add.ptr.i.i.i55 = getelementptr double, ptr %call5.i.i.i.i2.i.i67, i64 %add227231
+  store ptr %call5.i.i.i.i2.i.i67, ptr %optionInterpolatorTimes_222, align 8, !tbaa !57
+  %add.ptr.i.i.i55 = getelementptr double, ptr %call5.i.i.i.i2.i.i67, i64 %add227
   %_M_end_of_storage.i.i.i56 = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr %add.ptr.i.i.i55, ptr %_M_end_of_storage.i.i.i56, align 8, !tbaa !58
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i67, align 8, !tbaa !59
@@ -3671,10 +3671,10 @@ if.end.i.i.i.i.i.i.i59:                           ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i57, i8 0, i64 %26, i1 false), !tbaa !59
   br label %if.then.i.i.i.i.i72
 
-if.then.i.i.i.i.i72:                              ; preds = %call5.i.i.i.i2.i.i.noexc66, %if.end.i.i.i.i.i.i.i59
-  %incdec.ptr.i.i.i.i.i57.sink = phi ptr [ %add.ptr.i.i.i55, %if.end.i.i.i.i.i.i.i59 ], [ %incdec.ptr.i.i.i.i.i57, %call5.i.i.i.i2.i.i.noexc66 ]
+if.then.i.i.i.i.i72:                              ; preds = %if.end.i.i.i.i.i.i.i59, %call5.i.i.i.i2.i.i.noexc66
+  %__first.addr.0.i.i.i.i.i61 = phi ptr [ %incdec.ptr.i.i.i.i.i57, %call5.i.i.i.i2.i.i.noexc66 ], [ %add.ptr.i.i.i55, %if.end.i.i.i.i.i.i.i59 ]
   %_M_finish.i.i7.i62 = getelementptr inbounds nuw i8, ptr %this, i64 232
-  store ptr %incdec.ptr.i.i.i.i.i57.sink, ptr %_M_finish.i.i7.i62, align 8, !tbaa !61
+  store ptr %__first.addr.0.i.i.i.i.i61, ptr %_M_finish.i.i7.i62, align 8, !tbaa !61
   %optionInterpolatorDatesAsReal_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %optionInterpolatorDatesAsReal_, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i86 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i54) #26
@@ -3682,7 +3682,7 @@ if.then.i.i.i.i.i72:                              ; preds = %call5.i.i.i.i2.i.i.
 
 call5.i.i.i.i2.i.i.noexc85:                       ; preds = %if.then.i.i.i.i.i72
   store ptr %call5.i.i.i.i2.i.i86, ptr %optionInterpolatorDatesAsReal_, align 8, !tbaa !57
-  %add.ptr.i.i.i74 = getelementptr double, ptr %call5.i.i.i.i2.i.i86, i64 %add227231
+  %add.ptr.i.i.i74 = getelementptr double, ptr %call5.i.i.i.i2.i.i86, i64 %add227
   %_M_end_of_storage.i.i.i75 = getelementptr inbounds nuw i8, ptr %this, i64 264
   store ptr %add.ptr.i.i.i74, ptr %_M_end_of_storage.i.i.i75, align 8, !tbaa !58
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i86, align 8, !tbaa !59
@@ -3800,7 +3800,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
           to label %invoke.cont39 unwind label %lpad37.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont39:                                    ; preds = %invoke.cont38
-  %34 = load ptr, ptr %optionInterpolatorTimes_, align 8, !tbaa !57
+  %34 = load ptr, ptr %optionInterpolatorTimes_222, align 8, !tbaa !57
   store double 0.000000e+00, ptr %34, align 8, !tbaa !59
   %35 = load i64, ptr %nOptionTenors_, align 8, !tbaa !36
   %cmp7.not.i = icmp eq i64 %35, 0
@@ -3815,7 +3815,7 @@ for.body.i:                                       ; preds = %invoke.cont39, %cal
 
 call3.i.noexc:                                    ; preds = %for.body.i
   %add.i = add nuw i64 %i.08.i, 1
-  %37 = load ptr, ptr %optionInterpolatorTimes_, align 8, !tbaa !57
+  %37 = load ptr, ptr %optionInterpolatorTimes_222, align 8, !tbaa !57
   %add.ptr.i5.i = getelementptr inbounds nuw double, ptr %37, i64 %add.i
   store double %call3.i137, ptr %add.ptr.i5.i, align 8, !tbaa !59
   %38 = load ptr, ptr %optionTimes_, align 8, !tbaa !57
@@ -3853,7 +3853,7 @@ call2.i.noexc:                                    ; preds = %for.body.i140
 invoke.cont42:                                    ; preds = %call2.i.noexc, %invoke.cont41
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp43) #23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp44) #23
-  %44 = load ptr, ptr %optionInterpolatorTimes_, align 8, !tbaa !54
+  %44 = load ptr, ptr %optionInterpolatorTimes_222, align 8, !tbaa !54
   store ptr %44, ptr %ref.tmp44, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp47) #23
   %45 = load ptr, ptr %_M_finish.i.i7.i62, align 8, !tbaa !54
@@ -4035,12 +4035,12 @@ lpad37.loopexit:                                  ; preds = %for.body.i140
   br label %ehcleanup
 
 lpad37.loopexit.split-lp.loopexit:                ; preds = %for.body.i
-  %lpad.loopexit258 = landingpad { ptr, i32 }
+  %lpad.loopexit228 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad37.loopexit.split-lp.loopexit.split-lp:       ; preds = %_ZNK5boost10shared_ptrIN8QuantLib13Interpolation4ImplEEptEv.exit.i, %cond.false.i.i, %invoke.cont40, %invoke.cont38, %invoke.cont36
-  %lpad.loopexit.split-lp259 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp229 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -4054,7 +4054,7 @@ lpad55:                                           ; preds = %invoke.cont42
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad37.loopexit, %lpad37.loopexit.split-lp.loopexit.split-lp, %lpad37.loopexit.split-lp.loopexit, %lpad55
-  %.pn = phi { ptr, i32 } [ %76, %lpad55 ], [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit258, %lpad37.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp259, %lpad37.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %76, %lpad55 ], [ %lpad.loopexit, %lpad37.loopexit ], [ %lpad.loopexit228, %lpad37.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp229, %lpad37.loopexit.split-lp.loopexit.split-lp ]
   %77 = load ptr, ptr %swapLengths_, align 8, !tbaa !57
   %tobool.not.i.i.i = icmp eq ptr %77, null
   br i1 %tobool.not.i.i.i, label %ehcleanup63, label %if.then.i.i.i159
@@ -4098,7 +4098,7 @@ if.then.i.i.i172:                                 ; preds = %ehcleanup64
 
 ehcleanup65:                                      ; preds = %if.then.i.i.i172, %ehcleanup64, %lpad28
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %73, %lpad28 ], [ %.pn.pn.pn, %ehcleanup64 ], [ %.pn.pn.pn, %if.then.i.i.i172 ]
-  %83 = load ptr, ptr %optionInterpolatorTimes_, align 8, !tbaa !57
+  %83 = load ptr, ptr %optionInterpolatorTimes_222, align 8, !tbaa !57
   %tobool.not.i.i.i179 = icmp eq ptr %83, null
   br i1 %tobool.not.i.i.i179, label %ehcleanup66, label %if.then.i.i.i180
 

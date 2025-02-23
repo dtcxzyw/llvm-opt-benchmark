@@ -369,7 +369,7 @@ define internal fastcc noundef zeroext i1 @_ZL12addEmuTlsVarRN4llvm6ModuleEPKNS_
 
 34:                                               ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !162
   %38 = icmp ult i32 %37, 65
   br i1 %38, label %39, label %_ZNK4llvm11ConstantInt6isZeroEv.exit

@@ -5825,14 +5825,14 @@ lor.rhs.i.i48:                                    ; preds = %if.end.i38, %_ZN4ab
   br i1 %cmp.not.i.i49, label %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i50
 
 _ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i50: ; preds = %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i35, %lor.rhs.i.i48
-  %google3_name.sroa.18.1199 = phi ptr [ %google3_name.sroa.18.1, %lor.rhs.i.i48 ], [ %google3_name.sroa.18.0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i35 ]
-  %google3_name.sroa.0.1198 = phi i64 [ %google3_name.sroa.0.1, %lor.rhs.i.i48 ], [ %google3_name.sroa.0.0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i35 ]
-  %bcmp.i.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %google3_name.sroa.18.1199, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
+  %google3_name.sroa.18.1201 = phi ptr [ %google3_name.sroa.18.1, %lor.rhs.i.i48 ], [ %google3_name.sroa.18.0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i35 ]
+  %google3_name.sroa.0.1200 = phi i64 [ %google3_name.sroa.0.1, %lor.rhs.i.i48 ], [ %google3_name.sroa.0.0, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i35 ]
+  %bcmp.i.i51 = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %google3_name.sroa.18.1201, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
   %cmp7.i.i52 = icmp eq i32 %bcmp.i.i51, 0
-  %sub.i.i55 = add i64 %google3_name.sroa.0.1198, -6
-  %google3_name.sroa.0.2 = select i1 %cmp7.i.i52, i64 %sub.i.i55, i64 %google3_name.sroa.0.1198
+  %sub.i.i55 = add i64 %google3_name.sroa.0.1200, -6
+  %google3_name.sroa.0.2 = select i1 %cmp7.i.i52, i64 %sub.i.i55, i64 %google3_name.sroa.0.1200
   %google3_name.sroa.18.2.idx = select i1 %cmp7.i.i52, i64 6, i64 0
-  %google3_name.sroa.18.2 = getelementptr inbounds nuw i8, ptr %google3_name.sroa.18.1199, i64 %google3_name.sroa.18.2.idx
+  %google3_name.sroa.18.2 = getelementptr inbounds nuw i8, ptr %google3_name.sroa.18.1201, i64 %google3_name.sroa.18.2.idx
   %cmp.not.i.i64 = icmp ult i64 %google3_name.sroa.0.2, 7
   br i1 %cmp.not.i.i64, label %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread, label %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65
 
@@ -5902,11 +5902,11 @@ lpad57:                                           ; preds = %invoke.cont63
   br label %ehcleanup181
 
 if.else:                                          ; preds = %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i80, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65
-  %google3_name.sroa.18.3207 = phi ptr [ %google3_name.sroa.18.3.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread ], [ %google3_name.sroa.18.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i80 ], [ %google3_name.sroa.18.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65 ]
-  %google3_name.sroa.0.3206 = phi i64 [ %google3_name.sroa.0.3.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread ], [ %google3_name.sroa.0.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i80 ], [ %google3_name.sroa.0.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65 ]
+  %google3_name.sroa.18.3209 = phi ptr [ %google3_name.sroa.18.3.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread ], [ %google3_name.sroa.18.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i80 ], [ %google3_name.sroa.18.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65 ]
+  %google3_name.sroa.0.3208 = phi i64 [ %google3_name.sroa.0.3.ph, %_ZN4absl12lts_2023080213ConsumePrefixEPSt17basic_string_viewIcSt11char_traitsIcEES4_.exit71.thread ], [ %google3_name.sroa.0.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i80 ], [ %google3_name.sroa.0.3, %_ZN4absl12lts_2023080210StartsWithESt17basic_string_viewIcSt11char_traitsIcEES4_.exit.i65 ]
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp70) #25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %google3_name.sroa.0.3206, ptr nonnull %google3_name.sroa.18.3207) #25
+  %call.i = call { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64 %google3_name.sroa.0.3208, ptr nonnull %google3_name.sroa.18.3209) #25
   %8 = extractvalue { i64, ptr } %call.i, 0
   %9 = extractvalue { i64, ptr } %call.i, 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrapperC1ESt17basic_string_viewIcS2_E(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, i64 %8, ptr %9) #25
@@ -26074,7 +26074,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74 = getelementptr i8, ptr %parent.2, i64 10
   %14 = load i8, ptr %arrayidx.i74, align 1
   %conv35 = zext i8 %14 to i64
-  %cmp36.not.not = icmp ult i64 %pos.2, %conv35
+  %cmp36.not.not = icmp samesign ult i64 %pos.2, %conv35
   br i1 %cmp36.not.not, label %do.body.backedge, label %do.body37
 
 do.body.backedge:                                 ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf10DescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67, %do.end52
@@ -27298,7 +27298,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74 = getelementptr i8, ptr %parent.2, i64 10
   %14 = load i8, ptr %arrayidx.i74, align 1
   %conv35 = zext i8 %14 to i64
-  %cmp36.not.not = icmp ult i64 %pos.2, %conv35
+  %cmp36.not.not = icmp samesign ult i64 %pos.2, %conv35
   br i1 %cmp36.not.not, label %do.body.backedge, label %do.body37
 
 do.body.backedge:                                 ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf14EnumDescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67, %do.end52
@@ -28199,7 +28199,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i243 = getelementptr i8, ptr %parent.2.i231, i64 10
   %30 = load i8, ptr %arrayidx.i74.i243, align 1
   %conv35.i244 = zext i8 %30 to i64
-  %cmp36.not.not.i245 = icmp ult i64 %pos.2.i230, %conv35.i244
+  %cmp36.not.not.i245 = icmp samesign ult i64 %pos.2.i230, %conv35.i244
   br i1 %cmp36.not.not.i245, label %do.body.i221.backedge, label %do.body37.i246
 
 do.body.i221.backedge:                            ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf10DescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i241, %do.end52.i262
@@ -28355,7 +28355,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i165 = getelementptr i8, ptr %parent.2.i154, i64 10
   %51 = load i8, ptr %arrayidx.i74.i165, align 1
   %conv35.i166 = zext i8 %51 to i64
-  %cmp36.not.not.i167 = icmp ult i64 %pos.2.i153, %conv35.i166
+  %cmp36.not.not.i167 = icmp samesign ult i64 %pos.2.i153, %conv35.i166
   br i1 %cmp36.not.not.i167, label %do.body.i144.backedge, label %do.body37.i168
 
 do.body.i144.backedge:                            ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf14EnumDescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i, %do.end52.i183
@@ -28510,7 +28510,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i = getelementptr i8, ptr %parent.2.i, i64 10
   %72 = load i8, ptr %arrayidx.i74.i, align 1
   %conv35.i = zext i8 %72 to i64
-  %cmp36.not.not.i = icmp ult i64 %pos.2.i, %conv35.i
+  %cmp36.not.not.i = icmp samesign ult i64 %pos.2.i, %conv35.i
   br i1 %cmp36.not.not.i, label %do.body.i.backedge, label %do.body37.i
 
 do.body.i.backedge:                               ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf10DescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i, %do.end52.i
@@ -28700,7 +28700,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i483 = getelementptr i8, ptr %parent.2.i471, i64 10
   %97 = load i8, ptr %arrayidx.i74.i483, align 1
   %conv35.i484 = zext i8 %97 to i64
-  %cmp36.not.not.i485 = icmp ult i64 %pos.2.i470, %conv35.i484
+  %cmp36.not.not.i485 = icmp samesign ult i64 %pos.2.i470, %conv35.i484
   br i1 %cmp36.not.not.i485, label %do.body.i461.backedge, label %do.body37.i486
 
 do.body.i461.backedge:                            ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf10DescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i481, %do.end52.i502
@@ -28856,7 +28856,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i403 = getelementptr i8, ptr %parent.2.i391, i64 10
   %118 = load i8, ptr %arrayidx.i74.i403, align 1
   %conv35.i404 = zext i8 %118 to i64
-  %cmp36.not.not.i405 = icmp ult i64 %pos.2.i390, %conv35.i404
+  %cmp36.not.not.i405 = icmp samesign ult i64 %pos.2.i390, %conv35.i404
   br i1 %cmp36.not.not.i405, label %do.body.i381.backedge, label %do.body37.i406
 
 do.body.i381.backedge:                            ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf14EnumDescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i401, %do.end52.i422
@@ -29011,7 +29011,7 @@ _ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cx
   %arrayidx.i74.i323 = getelementptr i8, ptr %parent.2.i311, i64 10
   %139 = load i8, ptr %arrayidx.i74.i323, align 1
   %conv35.i324 = zext i8 %139 to i64
-  %cmp36.not.not.i325 = icmp ult i64 %pos.2.i310, %conv35.i324
+  %cmp36.not.not.i325 = icmp samesign ult i64 %pos.2.i310, %conv35.i324
   br i1 %cmp36.not.not.i325, label %do.body.i301.backedge, label %do.body37.i326
 
 do.body.i301.backedge:                            ; preds = %_ZN4absl12lts_2023080218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN6google8protobuf10DescriptorESt4lessIS9_ESaISt4pairIKS9_SE_EELi256ELb0EEEE15value_destroy_nEhhPSK_.exit67.i321, %do.end52.i342

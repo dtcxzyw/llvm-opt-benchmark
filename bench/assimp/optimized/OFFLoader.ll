@@ -1538,8 +1538,8 @@ _ZN6AssimpL9NextTokenEPPKcS1_.exit433:            ; preds = %_ZN6Assimp20SkipSpa
   %431 = add nsw i64 %428, -12
   %432 = urem i64 %431, 12
   %433 = sub nuw nsw i64 %431, %432
-  %434 = add nsw i64 %433, 12
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %429, i8 0, i64 %434, i1 false)
+  %434 = add nuw nsw i64 %433, 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %429, i8 0, i64 %434, i1 false)
   store ptr %429, ptr %409, align 8
   br i1 %.0155634641656, label %435, label %.loopexit698
 
@@ -1548,7 +1548,7 @@ _ZN6AssimpL9NextTokenEPPKcS1_.exit433:            ; preds = %_ZN6Assimp20SkipSpa
           to label %.loopexit698.loopexit unwind label %451
 
 .loopexit698.loopexit:                            ; preds = %435
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %436, i8 0, i64 %434, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %436, i8 0, i64 %434, i1 false)
   br label %.loopexit698
 
 .loopexit698:                                     ; preds = %.loopexit698.loopexit, %430
@@ -1579,7 +1579,7 @@ _ZN6AssimpL9NextTokenEPPKcS1_.exit433:            ; preds = %_ZN6Assimp20SkipSpa
           to label %447 unwind label %451
 
 447:                                              ; preds = %444
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %446, i8 0, i64 %434, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %446, i8 0, i64 %434, i1 false)
   %448 = getelementptr inbounds nuw i8, ptr %405, i64 112
   store ptr %446, ptr %448, align 8
   br label %453
@@ -1602,8 +1602,7 @@ _ZN6AssimpL9NextTokenEPPKcS1_.exit433:            ; preds = %_ZN6Assimp20SkipSpa
   %.not739 = icmp eq i32 %.1164664, 0
   %457 = ptrtoint ptr %454 to i64
   %458 = getelementptr inbounds nuw i8, ptr %405, i64 112
-  %umax = call i32 @llvm.umax.i32(i32 %.0.lcssa.i333, i32 1)
-  %wide.trip.count780 = zext i32 %umax to i64
+  %wide.trip.count780 = zext i32 %.0.lcssa.i333 to i64
   %wide.trip.count = zext nneg i32 %.1164664 to i64
   %wide.trip.count775 = zext nneg i32 %.1164664 to i64
   br label %459
@@ -3431,7 +3430,7 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
   %8 = icmp ne ptr %1, null
   %9 = icmp sgt i32 %2, 0
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30
+  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #19
@@ -3534,7 +3533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %.not.i.i = icmp eq ptr %46, %41
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !30
 
-_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30: ; preds = %4
+_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit: ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %47, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3563,7 +3562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #19
   br label %.critedge24
 
-.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
 55:                                               ; preds = %.noexc.i.i

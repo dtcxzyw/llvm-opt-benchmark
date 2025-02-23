@@ -39,7 +39,7 @@ define void @CAST_set_key(ptr noundef writeonly captures(none) %0, i32 noundef %
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %12 = icmp slt i32 %1, 11
+  %12 = icmp samesign ult i32 %1, 11
   %spec.select = zext i1 %12 to i32
   br label %._crit_edge.thread
 

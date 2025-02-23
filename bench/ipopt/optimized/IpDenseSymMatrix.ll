@@ -1219,9 +1219,9 @@ define void @_ZN5Ipopt14DenseSymMatrix18SpecialAddForLMSR1ERKNS_11DenseVectorERK
   store double %22, ptr %20, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph33, label %13, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %13
+.lr.ph33:                                         ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1234,9 +1234,9 @@ define void @_ZN5Ipopt14DenseSymMatrix18SpecialAddForLMSR1ERKNS_11DenseVectorERK
   %exitcond47.not = icmp eq i64 %indvars.iv.next44, %27
   br i1 %exitcond47.not, label %._crit_edge34, label %28, !llvm.loop !30
 
-28:                                               ; preds = %._crit_edge, %.loopexit
-  %indvars.iv43 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next44, %.loopexit ]
-  %indvars.iv36 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next37, %.loopexit ]
+28:                                               ; preds = %.lr.ph33, %.loopexit
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next44, %.loopexit ]
+  %indvars.iv36 = phi i64 [ 1, %.lr.ph33 ], [ %indvars.iv.next37, %.loopexit ]
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %29 = icmp samesign ult i64 %indvars.iv.next44, %26
   br i1 %29, label %.lr.ph30, label %.loopexit

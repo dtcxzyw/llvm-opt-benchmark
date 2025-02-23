@@ -7393,14 +7393,14 @@ _ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
   %28 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29)
-          to label %.noexc unwind label %.thread53
+          to label %.noexc unwind label %.thread52
 
-.thread53:                                        ; preds = %_ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm55 = landingpad { ptr, i32 }
+.thread52:                                        ; preds = %_ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit
+  %lpad.thr_comm54 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %lpad.thr_comm55, 0
+  %30 = extractvalue { ptr, i32 } %lpad.thr_comm54, 0
   %31 = tail call ptr @__cxa_begin_catch(ptr %30) #22
-  br label %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38
+  br label %.loopexit
 
 .noexc:                                           ; preds = %_ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit
   %32 = getelementptr inbounds nuw i8, ptr %21, i64 56
@@ -7414,7 +7414,7 @@ _ZNKSt6vectorI12CVQualifiersSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %3
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %28) #22
   %35 = extractvalue { ptr, i32 } %34, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #22
-  br label %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38
+  br label %.loopexit
 
 _ZNSt16allocator_traitsISaI12CVQualifiersEE9constructIS0_JRKS0_EEEvRS1_PT_DpOT0_.exit: ; preds = %.noexc
   %37 = invoke noundef ptr @_ZSt16__do_uninit_copyIPK12CVQualifiersPS0_ET0_T_S5_S4_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %20)
@@ -7465,7 +7465,7 @@ _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   %52 = load ptr, ptr %21, align 8, !tbaa !4
   %53 = load ptr, ptr %52, align 8
   tail call void %53(ptr noundef nonnull align 8 dereferenceable(96) %21) #22
-  br label %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38
+  br label %.loopexit
 
 54:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP12CVQualifiersS1_SaIS0_EET0_T_S4_S3_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -7473,7 +7473,7 @@ _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   %55 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #22
   %.not4.i.i.i32 = icmp eq ptr %20, %38
-  br i1 %.not4.i.i.i32, label %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38, label %.lr.ph.i.i.i33
+  br i1 %.not4.i.i.i32, label %.loopexit, label %.lr.ph.i.i.i33
 
 .lr.ph.i.i.i33:                                   ; preds = %54, %.lr.ph.i.i.i33
   %.05.i.i.i34 = phi ptr [ %59, %.lr.ph.i.i.i33 ], [ %20, %54 ]
@@ -7482,15 +7482,15 @@ _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = 
   tail call void %58(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i34) #22
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i34, i64 96
   %.not.i.i.i35 = icmp eq ptr %.05.i.i.i34, %37
-  br i1 %.not.i.i.i35, label %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38, label %.lr.ph.i.i.i33, !llvm.loop !176
+  br i1 %.not.i.i.i35, label %.loopexit, label %.lr.ph.i.i.i33, !llvm.loop !176
 
-60:                                               ; preds = %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38
+60:                                               ; preds = %.loopexit
   %61 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %62 unwind label %63
 
-_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds = %.lr.ph.i.i.i33, %54, %49, %.thread, %.thread53
+.loopexit:                                        ; preds = %.lr.ph.i.i.i33, %.thread52, %.thread, %49, %54
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #24
   invoke void @__cxa_rethrow() #27
           to label %66 unwind label %60
@@ -7505,7 +7505,7 @@ _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38: ; preds 
   tail call void @__clang_call_terminate(ptr %65) #26
   unreachable
 
-66:                                               ; preds = %_ZNSt12_Vector_baseI12CVQualifiersSaIS0_EE13_M_deallocateEPS0_m.exit38
+66:                                               ; preds = %.loopexit
   unreachable
 }
 

@@ -327,7 +327,7 @@ define hidden void @_Z8LUPSolvePPdPiS_iS_(ptr noundef readonly captures(none) %0
   %44 = load double, ptr %43, align 8
   %45 = fdiv contract double %39, %44
   store double %45, ptr %40, align 8
-  %46 = icmp sgt i64 %indvars.iv60, 1
+  %46 = icmp samesign ugt i64 %indvars.iv60, 1
   br i1 %46, label %.preheader, label %._crit_edge53, !llvm.loop !15
 
 ._crit_edge53:                                    ; preds = %._crit_edge49, %5
@@ -1026,7 +1026,7 @@ define hidden noundef double @_Z12gauss_newtonPKdPdi(ptr noundef readonly captur
 
 _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
-  call void @_Z13eval_jacobianPKdS0_PPd(ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull %8)
+  call void @_Z13eval_jacobianPKdS0_PPd(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %8)
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %_Z13eval_residualPKdS0_Pd.exit
@@ -1211,7 +1211,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
 .preheader.i45:                                   ; preds = %._crit_edge.i, %._crit_edge49.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %._crit_edge49.i ], [ 3, %._crit_edge.i ]
   %indvars.iv.next61.i = add nsw i64 %indvars.iv60.i, -1
-  %140 = icmp samesign ult i64 %indvars.iv60.i, 3
+  %140 = icmp ult i64 %indvars.iv60.i, 3
   br i1 %140, label %.lr.ph48.i, label %.preheader.._crit_edge49_crit_edge.i
 
 .preheader.._crit_edge49_crit_edge.i:             ; preds = %.preheader.i45
@@ -1250,7 +1250,7 @@ _Z13eval_residualPKdS0_Pd.exit:                   ; preds = %45
   %156 = load double, ptr %155, align 8
   %157 = fdiv contract double %153, %156
   store double %157, ptr %154, align 8
-  %158 = icmp ugt i64 %indvars.iv60.i, 1
+  %158 = icmp samesign ugt i64 %indvars.iv60.i, 1
   br i1 %158, label %.preheader.i45, label %_Z8LUPSolvePPdPiS_iS_.exit, !llvm.loop !15
 
 _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPiS_iS_.exit
@@ -1680,7 +1680,7 @@ select.unfold:                                    ; preds = %22, %9, %10, %14, %
 
 .lr.ph.preheader:                                 ; preds = %31
   %39 = add nsw i32 %28, -1
-  %40 = sitofp i32 %39 to double
+  %40 = uitofp nneg i32 %39 to double
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

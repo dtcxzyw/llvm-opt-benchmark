@@ -2265,7 +2265,7 @@ while.body76:                                     ; preds = %while.body76.prehea
   %arrayidx80 = getelementptr inbounds nuw [64448 x i16], ptr %stage2Single45, i64 0, i64 %indvars.iv80
   store i16 %conv77, ptr %arrayidx80, align 2
   %add81 = add nuw nsw i32 %newBlock.472, 16
-  %cmp75 = icmp ult i32 %add81, %add68
+  %cmp75 = icmp samesign ult i32 %add81, %add68
   br i1 %cmp75, label %while.body76, label %while.end82.loopexit, !llvm.loop !36
 
 while.end82.loopexit:                             ; preds = %while.body76
@@ -2922,18 +2922,15 @@ _ZL10printBytesPcPKhi.exit215:                    ; preds = %while.body.i198, %i
   %s.0.lcssa.i197 = phi ptr [ %buffer, %if.then208 ], [ %incdec.ptr5.i211, %while.body.i198 ]
   store i8 0, ptr %s.0.lcssa.i197, align 1
   %call211 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.27, i32 noundef %c, ptr noundef nonnull %buffer, i32 noundef %old.0) #15
-  br label %if.end214
-
-if.end214:                                        ; preds = %_ZL10printBytesPcPKhi.exit215, %sw.epilog185
-  %cmp216 = icmp slt i8 %flag, 1
-  br i1 %cmp216, label %if.end214.if.then217_crit_edge, label %return
-
-if.end214.if.then217_crit_edge:                   ; preds = %if.end214
   %.pre271 = load i32, ptr %arrayidx190, align 4
   br label %if.then217
 
-if.then217:                                       ; preds = %if.end214.if.then217_crit_edge, %if.else206
-  %66 = phi i32 [ %.pre271, %if.end214.if.then217_crit_edge ], [ %56, %if.else206 ]
+if.end214:                                        ; preds = %sw.epilog185
+  %cmp216 = icmp slt i8 %flag, 1
+  br i1 %cmp216, label %if.then217, label %return
+
+if.then217:                                       ; preds = %if.else206, %_ZL10printBytesPcPKhi.exit215, %if.end214
+  %66 = phi i32 [ %56, %if.else206 ], [ %.pre271, %_ZL10printBytesPcPKhi.exit215 ], [ %56, %if.end214 ]
   %67 = trunc nuw i64 %shl194 to i32
   %conv229 = or i32 %66, %67
   store i32 %conv229, ptr %arrayidx190, align 4

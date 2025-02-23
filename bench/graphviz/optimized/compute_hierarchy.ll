@@ -115,7 +115,7 @@ gv_calloc.exit81:                                 ; preds = %._crit_edge113
   %54 = fdiv double %52, %53
   %55 = fcmp ogt double %2, %54
   %. = select i1 %55, double %2, double %54
-  %56 = icmp sgt i32 %1, 1
+  %56 = icmp samesign ugt i32 %1, 1
   br i1 %56, label %.lr.ph97.preheader, label %._crit_edge98.thread
 
 ._crit_edge98.thread:                             ; preds = %._crit_edge
@@ -172,7 +172,7 @@ gv_calloc.exit82:                                 ; preds = %71
   %78 = zext nneg i32 %.166 to i64
   %79 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %78, i64 noundef 4) #7
   %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %gv_calloc.exit87
+  br i1 %80, label %81, label %.lr.ph101.preheader
 
 81:                                               ; preds = %77
   %82 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -181,14 +181,14 @@ gv_calloc.exit82:                                 ; preds = %71
   tail call fastcc void @graphviz_exit() #9
   unreachable
 
-gv_calloc.exit87:                                 ; preds = %77
+.lr.ph101.preheader:                              ; preds = %77
   store ptr %79, ptr %6, align 8, !tbaa !8
   %wide.trip.count111 = zext nneg i32 %1 to i64
   br label %.lr.ph101
 
-.lr.ph101:                                        ; preds = %gv_calloc.exit87, %102
-  %indvars.iv108 = phi i64 [ 1, %gv_calloc.exit87 ], [ %indvars.iv.next109, %102 ]
-  %.0100 = phi i32 [ 0, %gv_calloc.exit87 ], [ %.1, %102 ]
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %102
+  %indvars.iv108 = phi i64 [ 1, %.lr.ph101.preheader ], [ %indvars.iv.next109, %102 ]
+  %.0100 = phi i32 [ 0, %.lr.ph101.preheader ], [ %.1, %102 ]
   %85 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv108
   %86 = load i32, ptr %85, align 4, !tbaa !10
   %87 = sext i32 %86 to i64

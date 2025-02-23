@@ -354,7 +354,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
   br i1 %exitcond.not.i, label %._crit_edge36.i, label %.lr.ph35.i, !llvm.loop !33
 
 ._crit_edge36.i:                                  ; preds = %._crit_edge.i
-  tail call void @free(ptr noundef %.pre.i) #9
+  tail call void @free(ptr noundef nonnull %.pre.i) #9
   store i64 %13, ptr %6, align 8, !tbaa !6
   store ptr %calloc.i, ptr %.phi.trans.insert.i, align 8, !tbaa !14
   br label %lh_rebucket.exit
@@ -410,7 +410,7 @@ define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %0) unna
   br i1 %exitcond.not.i28, label %._crit_edge36.i29, label %.lr.ph35.i21, !llvm.loop !33
 
 ._crit_edge36.i29:                                ; preds = %._crit_edge.i27
-  tail call void @free(ptr noundef %.pre.i20) #9
+  tail call void @free(ptr noundef nonnull %.pre.i20) #9
   store i64 %spec.store.select, ptr %6, align 8, !tbaa !6
   store ptr %calloc.i17, ptr %.phi.trans.insert.i19, align 8, !tbaa !14
   br label %lh_rebucket.exit

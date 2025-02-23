@@ -7958,7 +7958,7 @@ _ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit: 
   br label %173
 
 127:                                              ; preds = %_ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit
-  %128 = icmp ult i32 %.sroa.0.0.i, 524288
+  %128 = icmp samesign ult i32 %.sroa.0.0.i, 524288
   br i1 %128, label %129, label %.thread
 
 129:                                              ; preds = %127
@@ -7967,7 +7967,7 @@ _ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit: 
   br label %.thread
 
 132:                                              ; preds = %_ZNSt6vectorIN6duckdb7roaring17ContainerMetadataESaIS2_EE9push_backERKS2_.exit
-  %133 = icmp ult i32 %.sroa.0.0.i, 262144
+  %133 = icmp samesign ult i32 %.sroa.0.0.i, 262144
   br i1 %133, label %134, label %.thread
 
 134:                                              ; preds = %132
@@ -8043,7 +8043,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 
 160:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
   %161 = zext nneg i32 %.sroa.1062.0.extract.shift to i64
-  %162 = icmp ugt i32 %.sroa.0.0.i, 262143
+  %162 = icmp samesign ugt i32 %.sroa.0.0.i, 262143
   %163 = shl nuw nsw i64 %161, 1
   %164 = add nuw nsw i64 %163, 8
   %165 = shl nuw nsw i64 %161, 2
@@ -8052,7 +8052,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
 
 166:                                              ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit
   %167 = zext nneg i32 %.sroa.1062.0.extract.shift to i64
-  %168 = icmp ugt i32 %.sroa.0.0.i, 524287
+  %168 = icmp samesign ugt i32 %.sroa.0.0.i, 524287
   %169 = add nuw nsw i64 %167, 8
   %170 = shl nuw nsw i64 %167, 1
   %.2.i.i = select i1 %168, i64 %169, i64 %170

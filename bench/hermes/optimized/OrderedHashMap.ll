@@ -1191,11 +1191,11 @@ _ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7Ha
   store i32 %retval.sroa.0.0.copyload.i58.fr, ptr %nextEntryInBucket, align 4
   %agg.tmp.sroa.0.0.copyload.i.i68.pre = load i64, ptr %self.coerce, align 8
   %.pre = and i64 %agg.tmp.sroa.0.0.copyload.i.i68.pre, 281474976710655
-  %.pre198 = inttoptr i64 %.pre to ptr
+  %.pre199 = inttoptr i64 %.pre to ptr
   br label %if.end59
 
 if.end59:                                         ; preds = %switch.early.test, %switch.early.test, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit54, %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit
-  %.pre-phi = phi ptr [ %22, %switch.early.test ], [ %22, %switch.early.test ], [ %22, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit54 ], [ %.pre198, %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit ]
+  %.pre-phi = phi ptr [ %22, %switch.early.test ], [ %22, %switch.early.test ], [ %22, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit54 ], [ %.pre199, %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit ]
   %hashTable_61 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 4
   %agg.tmp.sroa.0.0.copyload.i.i70 = load i32, ptr %hashTable_61, align 4
   %conv.i.i.i71 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i70 to i64
@@ -1337,7 +1337,6 @@ _ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseERKS3_RNS0_7H
   %conv.i.i.i.i.i145 = zext i32 %agg.tmp.sroa.0.0.copyload.i.i144 to i64
   %add.i.i.i.i.i = add i64 %conv.i.i.i.i.i145, %3
   %56 = inttoptr i64 %add.i.i.i.i.i to ptr
-  %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %56
   %retval.sroa.0.0.copyload.i.i148 = load i64, ptr %retval.0.i.i.i.i.i.i, align 8
   %and.i.i.i.i149 = and i64 %retval.sroa.0.0.copyload.i.i148, 281474976710655
   %57 = load ptr, ptr %youngGen_.i.i.i41, align 8
@@ -1358,11 +1357,12 @@ _ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7Ha
   %conv.i.i.i.i.i.i157 = trunc i64 %sub.i.i.i.i.i.i156 to i32
   %retval.sroa.0.0.i.i.i.i.i158 = select i1 %tobool.not.i.i.i.i.i155, i32 0, i32 %conv.i.i.i.i.i.i157
   store i32 %retval.sroa.0.0.i.i.i.i.i158, ptr %lastIterationEntry_89, align 4
-  %tobool95.not = icmp eq ptr %cond.i.i.i.i, null
+  %tobool95.not194 = icmp eq i64 %add.i.i.i.i.i, 0
+  %tobool95.not = select i1 %cmp.i.not.i.i.i.i, i1 true, i1 %tobool95.not194
   br i1 %tobool95.not, label %if.end101, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %_ZN6hermes2vm9GCPointerINS0_12HashMapEntryEE3setERNS0_11PointerBaseEPS2_RNS0_7HadesGCE.exit159
-  %value.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 16
+  %value.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %61 = load i64, ptr %value.i, align 8
   %shr.i.mask.i.i = and i64 %61, -140737488355328
   %cmp.i.i160 = icmp eq i64 %shr.i.mask.i.i, -1970324836974592

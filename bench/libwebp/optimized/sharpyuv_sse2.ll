@@ -73,7 +73,7 @@ define internal i64 @SharpYuvUpdateY_SSE2(ptr noundef readonly captures(none) %0
 
 .lr.ph58.preheader:                               ; preds = %._crit_edge
   %34 = zext nneg i32 %.047.lcssa to i64
-  %wide.trip.count = zext i32 %3 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
@@ -127,7 +127,7 @@ define internal void @SharpYuvUpdateRGB_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph30.preheader:                               ; preds = %.preheader
   %8 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %3 to i64
+  %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph30
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -195,7 +195,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph95.preheader.i:                             ; preds = %.preheader.i
   %16 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %2 to i64
+  %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph95.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -318,7 +318,7 @@ define internal void @SharpYuvFilterRow_SSE2(ptr noundef readonly captures(none)
 
 .lr.ph86.preheader.i:                             ; preds = %.preheader.i19
   %104 = zext nneg i32 %.0.lcssa.i20 to i64
-  %wide.trip.count.i21 = zext i32 %2 to i64
+  %wide.trip.count.i21 = zext nneg i32 %2 to i64
   br label %.lr.ph86.i
 
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14, %.lr.ph.preheader.i13

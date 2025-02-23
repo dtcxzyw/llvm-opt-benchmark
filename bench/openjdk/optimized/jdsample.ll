@@ -652,7 +652,7 @@ define internal void @h2v2_upsample(ptr noundef readonly captures(none) %0, ptr 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %10
   %23 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ 0, %10 ]
   %24 = or disjoint i32 %indvars34, 1
-  tail call void @jCopySamples(ptr noundef %5, i32 noundef %indvars34, ptr noundef %5, i32 noundef %24, i32 noundef 1, i32 noundef %23) #7
+  tail call void @jCopySamples(ptr noundef nonnull %5, i32 noundef %indvars34, ptr noundef nonnull %5, i32 noundef %24, i32 noundef 1, i32 noundef %23) #7
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %25 = load i32, ptr %6, align 4
@@ -733,7 +733,7 @@ define internal void @int_upsample(ptr noundef readonly captures(none) %0, ptr n
 ._crit_edge.split.us.us.us:                       ; preds = %._crit_edge.split.us.us.us.loopexit, %.lr.ph.split.us.split.us
   %38 = phi i32 [ %.pre72, %._crit_edge.split.us.us.us.loopexit ], [ 0, %.lr.ph.split.us.split.us ]
   %39 = add nuw nsw i32 %indvars69, 1
-  tail call void @jCopySamples(ptr noundef %7, i32 noundef %indvars69, ptr noundef %7, i32 noundef %39, i32 noundef %24, i32 noundef %38) #7
+  tail call void @jCopySamples(ptr noundef nonnull %7, i32 noundef %indvars69, ptr noundef nonnull %7, i32 noundef %39, i32 noundef %24, i32 noundef %38) #7
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, %30
   %40 = load i32, ptr %19, align 4

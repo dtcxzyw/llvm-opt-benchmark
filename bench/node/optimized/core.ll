@@ -529,7 +529,7 @@ while.body.i:                                     ; preds = %uv__queue_move.exit
   store ptr %11, ptr %prev.i.i, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %11, i64 -8
   %15 = load ptr, ptr %add.ptr.i, align 8
-  call void %15(ptr noundef %loop, ptr noundef nonnull %add.ptr.i, i32 noundef 4) #23
+  call void %15(ptr noundef nonnull %loop, ptr noundef nonnull %add.ptr.i, i32 noundef 4) #23
   %16 = load ptr, ptr %pq.i, align 8
   %cmp.i.not.i44 = icmp eq ptr %pq.i, %16
   br i1 %cmp.i.not.i44, label %uv__run_pending.exit, label %while.body.i
@@ -537,8 +537,8 @@ while.body.i:                                     ; preds = %uv__queue_move.exit
 uv__run_pending.exit:                             ; preds = %while.body.i, %land.end14.thread, %uv__queue_move.exit.i
   %17 = phi i1 [ %cmp.i41, %land.end14.thread ], [ false, %uv__queue_move.exit.i ], [ false, %while.body.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %pq.i)
-  call void @uv__run_idle(ptr noundef %loop) #23
-  call void @uv__run_prepare(ptr noundef %loop) #23
+  call void @uv__run_idle(ptr noundef nonnull %loop) #23
+  call void @uv__run_prepare(ptr noundef nonnull %loop) #23
   %or.cond1 = select i1 %cmp15, i1 %17, i1 false
   %or.cond2 = or i1 %cmp, %or.cond1
   br i1 %or.cond2, label %if.then19, label %do.body
@@ -590,7 +590,7 @@ do.body:                                          ; preds = %if.then.i, %land.lh
   %26 = load i64, ptr %loop_metrics, align 8
   %inc = add i64 %26, 1
   store i64 %inc, ptr %loop_metrics, align 8
-  call void @uv__io_poll(ptr noundef %loop, i32 noundef %timeout.0) #23
+  call void @uv__io_poll(ptr noundef nonnull %loop, i32 noundef %timeout.0) #23
   br label %land.rhs23
 
 land.rhs23:                                       ; preds = %do.body, %uv__run_pending.exit69
@@ -627,7 +627,7 @@ while.body.i64:                                   ; preds = %for.body, %while.bo
   store ptr %30, ptr %prev.i.i65, align 8
   %add.ptr.i67 = getelementptr inbounds i8, ptr %30, i64 -8
   %34 = load ptr, ptr %add.ptr.i67, align 8
-  call void %34(ptr noundef %loop, ptr noundef nonnull %add.ptr.i67, i32 noundef 4) #23
+  call void %34(ptr noundef nonnull %loop, ptr noundef nonnull %add.ptr.i67, i32 noundef 4) #23
   %35 = load ptr, ptr %pq.i55, align 8
   %cmp.i.not.i68 = icmp eq ptr %pq.i55, %35
   br i1 %cmp.i.not.i68, label %uv__run_pending.exit69, label %while.body.i64
@@ -639,8 +639,8 @@ uv__run_pending.exit69:                           ; preds = %while.body.i64, %fo
   br i1 %exitcond.not, label %for.end, label %land.rhs23
 
 for.end:                                          ; preds = %uv__run_pending.exit69, %land.rhs23
-  call void @uv__metrics_update_idle_time(ptr noundef %loop) #23
-  call void @uv__run_check(ptr noundef %loop) #23
+  call void @uv__metrics_update_idle_time(ptr noundef nonnull %loop) #23
+  call void @uv__run_check(ptr noundef nonnull %loop) #23
   %36 = load ptr, ptr %closing_handles.i50, align 8
   store ptr null, ptr %closing_handles.i50, align 8
   %tobool.not4.i = icmp eq ptr %36, null

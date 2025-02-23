@@ -59,7 +59,7 @@ define noundef i64 @modp_b64_encode(ptr noundef %0, ptr noundef readonly capture
   %37 = load i8, ptr %36, align 1, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %.14647, i64 4
   store i8 %37, ptr %34, align 1, !tbaa !3
-  %39 = add i64 %.148, 3
+  %39 = add nuw i64 %.148, 3
   %40 = icmp ult i64 %39, %5
   br i1 %40, label %.lr.ph, label %.loopexit, !llvm.loop !6
 

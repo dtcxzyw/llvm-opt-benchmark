@@ -4896,7 +4896,7 @@ define internal i32 @selinux_inode_init_security_anon(ptr noundef readonly captu
   store i16 95, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %22, i64 28
   %47 = tail call i32 @security_transition_sid(i32 noundef %45, i32 noundef %45, i16 noundef zeroext 95, ptr noundef %1, ptr noundef nonnull %46) #24
   %48 = icmp eq i32 %47, 0
   br i1 %48, label %49, label %65

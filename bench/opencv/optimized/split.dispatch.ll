@@ -1275,8 +1275,11 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
   %77 = icmp ult i64 %.059.us, %76
   br i1 %77, label %.preheader.us, label %.split104.us
 
-.preheader.us:                                    ; preds = %.split.us, %.loopexit.us
-  %.058102.us = phi i64 [ %82, %.loopexit.us ], [ 0, %.split.us ]
+.preheader.us.loopexit:                           ; preds = %89
+  br label %.preheader.us, !llvm.loop !31
+
+.preheader.us:                                    ; preds = %.split.us, %.preheader.us.loopexit
+  %.058102.us = phi i64 [ %82, %.preheader.us.loopexit ], [ 0, %.split.us ]
   %78 = sub nuw i64 %.fr106, %.058102.us
   %.sroa.speculated.us = call i64 @llvm.umin.i64(i64 %.sroa.speculated77, i64 %78)
   %79 = load ptr, ptr %66, align 16
@@ -1305,15 +1308,12 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %88
   store ptr %92, ptr %90, align 8
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count
-  br i1 %exitcond118.not, label %.loopexit.us, label %89, !llvm.loop !31
-
-.loopexit.us:                                     ; preds = %89
-  br label %.preheader.us, !llvm.loop !32
+  br i1 %exitcond118.not, label %.preheader.us.loopexit, label %89, !llvm.loop !31
 
 ._crit_edge.us:                                   ; preds = %81
   %93 = add nuw i64 %.059.us, 1
   %94 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
-          to label %.split.us unwind label %.loopexit.split-lp.loopexit.split.us, !llvm.loop !33
+          to label %.split.us unwind label %.loopexit.split-lp.loopexit.split.us, !llvm.loop !32
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %._crit_edge.us
   %lpad.loopexit91.us = landingpad { ptr, i32 }
@@ -1334,7 +1334,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %_ZNK2cv3Ma
 .preheader:                                       ; preds = %.split
   %97 = add nuw i64 %.059, 1
   %98 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %6)
-          to label %.split unwind label %.loopexit.split-lp.loopexit.split, !llvm.loop !33
+          to label %.split unwind label %.loopexit.split-lp.loopexit.split, !llvm.loop !32
 
 .split104.us:                                     ; preds = %.split.us, %.split
   %99 = load ptr, ptr %5, align 8
@@ -1413,7 +1413,7 @@ define void @_ZN2cv5splitERKNS_11_InputArrayERKNS_12_OutputArrayE(ptr noundef no
 
 10:                                               ; preds = %.noexc
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = load ptr, ptr %11, align 8, !noalias !34
+  %12 = load ptr, ptr %11, align 8, !noalias !33
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %12)
           to label %_ZNK2cv11_InputArray6getMatEi.exit unwind label %17
 
@@ -1523,7 +1523,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
 50:                                               ; preds = %47
   %51 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %.026, %43
-  br i1 %exitcond.not, label %52, label %47, !llvm.loop !37
+  br i1 %exitcond.not, label %52, label %47, !llvm.loop !36
 
 52:                                               ; preds = %50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -1547,7 +1547,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %10, %13
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #14
   %59 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
   %.not.i.i.i.i = icmp eq ptr %59, %58
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !37
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %7, align 8
@@ -1629,7 +1629,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef 
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i) #14
   %5 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 96
   %.not.i.i.i = icmp eq ptr %5, %4
-  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !38
+  br i1 %.not.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split, label %.lr.ph.i.i.i, !llvm.loop !37
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split: ; preds = %.lr.ph.i.i.i
   %.pr = load ptr, ptr %0, align 8
@@ -1746,9 +1746,8 @@ attributes #17 = { noreturn }
 !30 = distinct !{!30, !5}
 !31 = distinct !{!31, !5}
 !32 = distinct !{!32, !5}
-!33 = distinct !{!33, !5}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
-!36 = distinct !{!36, !"_ZNK2cv11_InputArray6getMatEi"}
+!33 = !{!34}
+!34 = distinct !{!34, !35, !"_ZNK2cv11_InputArray6getMatEi: argument 0"}
+!35 = distinct !{!35, !"_ZNK2cv11_InputArray6getMatEi"}
+!36 = distinct !{!36, !5}
 !37 = distinct !{!37, !5}
-!38 = distinct !{!38, !5}

@@ -672,7 +672,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [27 x i8] c"Failed to initiate request\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @s_server_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @s_server_main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

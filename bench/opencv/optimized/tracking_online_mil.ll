@@ -877,7 +877,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i162: ; preds = %.noexc166
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %._crit_edge413
 
-244:                                              ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i162, %.noexc166
+244:                                              ; preds = %.noexc166, %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i162
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %245 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %236) #19
           to label %.noexc174 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit190.thread
@@ -3220,58 +3220,63 @@ define linkonce_odr hidden void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iter
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %28 = and i64 %13, 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %._crit_edge.i.i.i
   %31 = add nsw i64 %14, -2
   %32 = ashr exact i64 %31, 1
   %33 = icmp eq i64 %.0.lcssa.i.i.i, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %.thread.i.i, label %39
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i
-  %39 = load i64, ptr %37, align 4
-  store i64 %39, ptr %38, align 4
-  br label %40
-
-40:                                               ; preds = %34, %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %36, %34 ], [ %.0.lcssa.i.i.i, %30 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+.thread.i.i:                                      ; preds = %30
+  %34 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %35 = or disjoint i64 %34, 1
+  %36 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %35
+  %37 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload.i.i, ptr %5, align 8
-  %41 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %41, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i
+  br label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %40, %44
-  %.018.i.i.i.i = phi i64 [ %.0919.i.i89.i.i, %44 ], [ %.1.i.i.i, %40 ]
+39:                                               ; preds = %30, %._crit_edge.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store i64 %.sroa.03.0.copyload.i.i, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %39, %.thread.i.i
+  %.018.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %39 ], [ %35, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %42
+  %.018.i.i.i.i = phi i64 [ %.0919.i.i89.i.i, %42 ], [ %.018.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i89.i.i = lshr i64 %.0919.in.i.i.i.i, 1
-  %42 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0919.i.i89.i.i
-  %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %43, label %44, label %.critedge.loopexit.i.i.i.i
+  %40 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0919.i.i89.i.i
+  %41 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %41, label %42, label %.critedge.loopexit.i.i.i.i
 
-44:                                               ; preds = %.lr.ph.i.i.i.i
-  %45 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.018.i.i.i.i
-  %46 = load i64, ptr %42, align 4
-  store i64 %46, ptr %45, align 4
-  %.not.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !63
+42:                                               ; preds = %.lr.ph.i.i.i.i
+  %43 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.018.i.i.i.i
+  %44 = load i64, ptr %40, align 4
+  store i64 %44, ptr %43, align 4
+  %.not10.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
+  br i1 %.not10.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !63
 
-.critedge.loopexit.i.i.i.i:                       ; preds = %44, %.lr.ph.i.i.i.i
-  %.0.lcssa.ph.i.i.i.i = phi i64 [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %44 ]
+.critedge.loopexit.i.i.i.i:                       ; preds = %42, %.lr.ph.i.i.i.i
+  %.0.lcssa.ph.i.i.i.i = phi i64 [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %42 ]
   %.pre.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %40
-  %47 = phi i64 [ %.sroa.03.0.copyload.i.i, %40 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.0.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %48 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i.i
-  store i64 %47, ptr %48, align 4
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %39
+  %45 = phi i64 [ %.sroa.03.0.copyload.i.i, %39 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %39 ], [ %.0.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %46 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i.i
+  store i64 %45, ptr %46, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %49 = icmp sgt i64 %13, 8
-  br i1 %49, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_.exit, !llvm.loop !64
+  %47 = icmp sgt i64 %13, 8
+  br i1 %47, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_.exit, !llvm.loop !64
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.i, %4
   ret void
@@ -3407,15 +3412,15 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %19 = or disjoint i64 %17, 1
-  %20 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %19
   %21 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %18
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %.sroa.0.011.us = phi ptr [ %47, %46 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %44
+  %.sroa.0.011.us = phi ptr [ %45, %44 ], [ %1, %.lr.ph.split.us.preheader ]
   %22 = load ptr, ptr %6, align 8
   %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %23, label %.lr.ph.i.i.preheader.us, label %46
+  br i1 %23, label %.lr.ph.i.i.preheader.us, label %44
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.03.0.copyload.i.us = load i64, ptr %.sroa.0.011.us, align 4
@@ -3441,140 +3446,145 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !62
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %36 = load i64, ptr %20, align 4
-  store i64 %36, ptr %21, align 4
-  br label %37
-
-37:                                               ; preds = %35, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %19, %35 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload.i.us, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %41
-  %.018.i.i.i.us = phi i64 [ %.0919.i.i89.i.us, %41 ], [ %.1.i.i.us, %37 ]
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
+  %36 = load i64, ptr %20, align 4
+  store i64 %36, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store i64 %.sroa.03.0.copyload.i.us, ptr %5, align 8
+  br label %.lr.ph.i.i.i.us.preheader
+
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %35
+  %.018.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %35 ], [ %19, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
+
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %39
+  %.018.i.i.i.us = phi i64 [ %.0919.i.i89.i.us, %39 ], [ %.018.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.0919.in.i.i.i.us = add nsw i64 %.018.i.i.i.us, -1
   %.0919.i.i89.i.us = lshr i64 %.0919.in.i.i.i.us, 1
-  %39 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0919.i.i89.i.us
-  %40 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %40, label %41, label %.critedge.loopexit.i.i.i.us
+  %37 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0919.i.i89.i.us
+  %38 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %38, label %39, label %.critedge.loopexit.i.i.i.us
 
-41:                                               ; preds = %.lr.ph.i.i.i.us
-  %42 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.018.i.i.i.us
-  %43 = load i64, ptr %39, align 4
-  store i64 %43, ptr %42, align 4
-  %.not.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !63
+39:                                               ; preds = %.lr.ph.i.i.i.us
+  %40 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.018.i.i.i.us
+  %41 = load i64, ptr %37, align 4
+  store i64 %41, ptr %40, align 4
+  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
+  br i1 %.not10.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !63
 
-.critedge.loopexit.i.i.i.us:                      ; preds = %41, %.lr.ph.i.i.i.us
-  %.0.lcssa.ph.i.i.i.us = phi i64 [ %.018.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %41 ]
+.critedge.loopexit.i.i.i.us:                      ; preds = %39, %.lr.ph.i.i.i.us
+  %.0.lcssa.ph.i.i.i.us = phi i64 [ %.018.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %39 ]
   %.pre.i.i.i.us = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %37
-  %44 = phi i64 [ %.sroa.03.0.copyload.i.us, %37 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %.0.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.0.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %45 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i.us
-  store i64 %44, ptr %45, align 4
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %35
+  %42 = phi i64 [ %.sroa.03.0.copyload.i.us, %35 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %.0.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.0.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %43 = getelementptr inbounds %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.i.i.i.us
+  store i64 %42, ptr %43, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %48 = icmp ult ptr %47, %2
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
+44:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv6detail8tracking18SortableElementRevIfEESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS6_SF_EEEEvT_SJ_SJ_RT0_.exit.us, %.lr.ph.split.us
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
+  %46 = icmp ult ptr %45, %2
+  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %49 = icmp eq i64 %spec.select.i.i.us, %18
-  %or.cond = select i1 %16, i1 %49, i1 false
-  br i1 %or.cond, label %35, label %37
+  %47 = icmp eq i64 %spec.select.i.i.us, %18
+  %or.cond = select i1 %16, i1 %47, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %16, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %51 = icmp eq i64 %17, 0
-  br i1 %51, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %49 = icmp eq i64 %17, 0
+  br i1 %49, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %60
-  %.sroa.0.011.us12.us = phi ptr [ %61, %60 ], [ %1, %.lr.ph.split.split.us ]
-  %52 = load ptr, ptr %6, align 8
-  %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %53, label %._crit_edge.i.i.us13.us, label %60
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %58
+  %.sroa.0.011.us12.us = phi ptr [ %59, %58 ], [ %1, %.lr.ph.split.split.us ]
+  %50 = load ptr, ptr %6, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %51, label %._crit_edge.i.i.us13.us, label %58
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.03.0.copyload.i.us14.us = load i64, ptr %.sroa.0.011.us12.us, align 4
-  %54 = load i64, ptr %0, align 4
-  store i64 %54, ptr %.sroa.0.011.us12.us, align 4
+  %52 = load i64, ptr %0, align 4
+  store i64 %52, ptr %.sroa.0.011.us12.us, align 4
   %.sroa.0.0.copyload.i.us15.us = load ptr, ptr %6, align 8
-  %55 = load i64, ptr %50, align 4
-  store i64 %55, ptr %0, align 4
+  %53 = load i64, ptr %48, align 4
+  store i64 %53, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload.i.us14.us, ptr %5, align 8
-  %56 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %56, label %57, label %.critedge.loopexit.i.i.i.us22.us
+  %54 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %54, label %55, label %.critedge.loopexit.i.i.i.us22.us
 
-57:                                               ; preds = %._crit_edge.i.i.us13.us
-  %58 = load i64, ptr %0, align 4
-  store i64 %58, ptr %50, align 4
+55:                                               ; preds = %._crit_edge.i.i.us13.us
+  %56 = load i64, ptr %0, align 4
+  store i64 %56, ptr %48, align 4
   br label %.critedge.loopexit.i.i.i.us22.us
 
-.critedge.loopexit.i.i.i.us22.us:                 ; preds = %57, %._crit_edge.i.i.us13.us
-  %.0.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %57 ]
+.critedge.loopexit.i.i.i.us22.us:                 ; preds = %55, %._crit_edge.i.i.us13.us
+  %.0.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %55 ]
   %.pre.i.i.i.us24.us = load i64, ptr %5, align 8
-  %59 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.ph.i.i.i.us23.us
-  store i64 %.pre.i.i.i.us24.us, ptr %59, align 4
+  %57 = getelementptr inbounds nuw %"class.cv::detail::tracking::SortableElementRev", ptr %0, i64 %.0.lcssa.ph.i.i.i.us23.us
+  store i64 %.pre.i.i.i.us24.us, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %60
+  br label %58
 
-60:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %62 = icmp ult ptr %61, %2
-  br i1 %62, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !68
+58:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
+  %60 = icmp ult ptr %59, %2
+  br i1 %60, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !68
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %66
-  %.sroa.0.011.us12 = phi ptr [ %67, %66 ], [ %1, %.lr.ph.split.split.us ]
-  %63 = load ptr, ptr %6, align 8
-  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %64, label %._crit_edge.i.i.us13, label %66
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %64
+  %.sroa.0.011.us12 = phi ptr [ %65, %64 ], [ %1, %.lr.ph.split.split.us ]
+  %61 = load ptr, ptr %6, align 8
+  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %62, label %._crit_edge.i.i.us13, label %64
 
 ._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
   %.sroa.03.0.copyload.i.us14 = load i64, ptr %.sroa.0.011.us12, align 4
-  %65 = load i64, ptr %0, align 4
-  store i64 %65, ptr %.sroa.0.011.us12, align 4
+  %63 = load i64, ptr %0, align 4
+  store i64 %63, ptr %.sroa.0.011.us12, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload.i.us14, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %66
+  br label %64
 
-66:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %68 = icmp ult ptr %67, %2
-  br i1 %68, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !68
+64:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
+  %66 = icmp ult ptr %65, %2
+  br i1 %66, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !68
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %72
-  %.sroa.0.011 = phi ptr [ %73, %72 ], [ %1, %.lr.ph.split ]
-  %69 = load ptr, ptr %6, align 8
-  %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %70, label %._crit_edge.i.i, label %72
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %70
+  %.sroa.0.011 = phi ptr [ %71, %70 ], [ %1, %.lr.ph.split ]
+  %67 = load ptr, ptr %6, align 8
+  %68 = call noundef zeroext i1 %67(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %68, label %._crit_edge.i.i, label %70
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
   %.sroa.03.0.copyload.i = load i64, ptr %.sroa.0.011, align 4
-  %71 = load i64, ptr %0, align 4
-  store i64 %71, ptr %.sroa.0.011, align 4
+  %69 = load i64, ptr %0, align 4
+  store i64 %69, ptr %.sroa.0.011, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.03.0.copyload.i, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %72
+  br label %70
 
-72:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %74 = icmp ult ptr %73, %2
-  br i1 %74, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !68
+70:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
+  %72 = icmp ult ptr %71, %2
+  br i1 %72, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %72, %66, %60, %46, %4
+._crit_edge:                                      ; preds = %70, %64, %58, %44, %4
   ret void
 }
 

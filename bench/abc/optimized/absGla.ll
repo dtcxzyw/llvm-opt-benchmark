@@ -149,39 +149,39 @@ define i32 @Ga2_ManComputeTruth(ptr noundef readonly %0, ptr noundef readonly %1
   %4 = getelementptr i8, ptr %2, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !8
   %5 = icmp sgt i32 %.val, 0
-  br i1 %5, label %.lr.ph, label %.critedge.thread39
-
-.critedge.thread39:                               ; preds = %3
-  %6 = tail call i32 @Ga2_ObjComputeTruth_rec(ptr noundef %0, ptr noundef %1, i32 noundef 1)
-  br label %.critedge2
+  br i1 %5, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3
-  %7 = getelementptr i8, ptr %0, i64 32
-  %.val25 = load ptr, ptr %7, align 8, !tbaa !12
+  %6 = getelementptr i8, ptr %0, i64 32
+  %.val25 = load ptr, ptr %6, align 8, !tbaa !12
   %.not = icmp eq ptr %.val25, null
   br i1 %.not, label %.lr.ph31, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %8 = getelementptr i8, ptr %2, i64 8
-  %.val23 = load ptr, ptr %8, align 8, !tbaa !31
+  %7 = getelementptr i8, ptr %2, i64 8
+  %.val23 = load ptr, ptr %7, align 8, !tbaa !31
   %wide.trip.count = zext nneg i32 %.val to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph.split, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %.val23, i64 %indvars.iv
-  %11 = load i32, ptr %10, align 4, !tbaa !32
-  %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv
-  %14 = load i32, ptr %13, align 4, !tbaa !32
-  %15 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val25, i64 %12, i32 1
-  store i32 %14, ptr %15, align 4, !tbaa !3
+8:                                                ; preds = %.lr.ph.split, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %8 ]
+  %9 = getelementptr inbounds nuw i32, ptr %.val23, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4, !tbaa !32
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds nuw [5 x i32], ptr @Ga2_ObjComputeTruthSpecial.uTruth5, i64 0, i64 %indvars.iv
+  %13 = load i32, ptr %12, align 4, !tbaa !32
+  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val25, i64 %11, i32 1
+  store i32 %13, ptr %14, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph31, label %9, !llvm.loop !33
+  br i1 %exitcond.not, label %.lr.ph31, label %8, !llvm.loop !33
 
-.lr.ph31:                                         ; preds = %9, %.lr.ph
-  %16 = tail call i32 @Ga2_ObjComputeTruth_rec(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+.critedge:                                        ; preds = %3
+  %15 = tail call i32 @Ga2_ObjComputeTruth_rec(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  br label %.critedge2
+
+.lr.ph31:                                         ; preds = %8, %.lr.ph
+  %16 = tail call i32 @Ga2_ObjComputeTruth_rec(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   %17 = getelementptr i8, ptr %0, i64 32
   %.val26 = load ptr, ptr %17, align 8, !tbaa !12
   %.not21 = icmp eq ptr %.val26, null
@@ -204,8 +204,8 @@ define i32 @Ga2_ManComputeTruth(ptr noundef readonly %0, ptr noundef readonly %1
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %.critedge2, label %19, !llvm.loop !35
 
-.critedge2:                                       ; preds = %19, %.critedge.thread39, %.lr.ph31
-  %24 = phi i32 [ %16, %.lr.ph31 ], [ %6, %.critedge.thread39 ], [ %16, %19 ]
+.critedge2:                                       ; preds = %19, %.critedge, %.lr.ph31
+  %24 = phi i32 [ %16, %.lr.ph31 ], [ %15, %.critedge ], [ %16, %19 ]
   ret i32 %24
 }
 

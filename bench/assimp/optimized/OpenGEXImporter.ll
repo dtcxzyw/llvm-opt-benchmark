@@ -4800,7 +4800,7 @@ select.unfold:                                    ; preds = %29, %19, %23, %26
   br i1 %.not.i, label %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit, label %42, !llvm.loop !38
 
 _ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit: ; preds = %42
-  switch i32 %.0.i.ph, label %default.unreachable [
+  switch i32 %.0.i.ph, label %default.unreachable130 [
     i32 1, label %45
     i32 2, label %79
     i32 3, label %124
@@ -4892,7 +4892,7 @@ _ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i: ;
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit:                      ; preds = %_ZN6Assimp7OpenGEXL10fillColor4EP9aiColor4tIfEPN10ODDLParser5ValueE.exit.i, %110, %101, %.lr.ph.i52
+.loopexit.split-lp.loopexit:                      ; preds = %_ZN6Assimp7OpenGEXL10fillColor4EP9aiColor4tIfEPN10ODDLParser5ValueE.exit.i, %110, %101, %91
   %lpad.loopexit114 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4923,25 +4923,25 @@ _ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i: ;
 
 85:                                               ; preds = %79
   %86 = icmp eq i64 %spec.select.i, 0
-  br i1 %86, label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit.sink.split, label %87
+  br i1 %86, label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit.sink.split, label %.lr.ph.i52
 
-87:                                               ; preds = %85
-  %88 = select i1 %.not11.i, i64 16, i64 0
-  %89 = add i64 %indvar, 1
-  %90 = mul i64 %88, %89
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %84, i8 0, i64 %90, i1 false)
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  store ptr %84, ptr %91, align 8
-  br label %.lr.ph.i52
+.lr.ph.i52:                                       ; preds = %85
+  %87 = select i1 %.not11.i, i64 16, i64 0
+  %88 = add i64 %indvar, 1
+  %89 = mul i64 %87, %88
+  call void @llvm.memset.p0.i64(ptr nonnull align 4 %84, i8 0, i64 %89, i1 false)
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  store ptr %84, ptr %90, align 8
+  br label %91
 
-.lr.ph.i52:                                       ; preds = %87, %.noexc61
-  %.06.i = phi i64 [ %123, %.noexc61 ], [ 0, %87 ]
+91:                                               ; preds = %.noexc61, %.lr.ph.i52
+  %.06.i = phi i64 [ 0, %.lr.ph.i52 ], [ %123, %.noexc61 ]
   %92 = load ptr, ptr %39, align 8
   %93 = getelementptr inbounds nuw %class.aiColor4t, ptr %84, i64 %.06.i
   %94 = invoke noundef float @_ZNK10ODDLParser5Value8getFloatEv(ptr noundef nonnull align 8 dereferenceable(32) %92)
           to label %.noexc55 unwind label %.loopexit.split-lp.loopexit
 
-.noexc55:                                         ; preds = %.lr.ph.i52
+.noexc55:                                         ; preds = %91
   store float %94, ptr %93, align 4
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %96 = load ptr, ptr %95, align 8
@@ -5025,7 +5025,7 @@ _ZN6Assimp7OpenGEXL10fillColor4EP9aiColor4tIfEPN10ODDLParser5ValueE.exit.i: ; pr
   store float %121, ptr %122, align 4
   %123 = add nuw i64 %.06.i, 1
   %exitcond.not.i54 = icmp eq i64 %123, %spec.select.i
-  br i1 %exitcond.not.i54, label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit, label %.lr.ph.i52, !llvm.loop !40
+  br i1 %exitcond.not.i54, label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit, label %91, !llvm.loop !40
 
 124:                                              ; preds = %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -5173,13 +5173,13 @@ _ZN6Assimp7OpenGEXL11fillVector3EP10aiVector3tIfEPN10ODDLParser5ValueE.exit.i82:
   %exitcond.not.i84 = icmp eq i64 %191, %spec.select.i
   br i1 %exitcond.not.i84, label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit, label %.lr.ph.i78, !llvm.loop !39
 
-default.unreachable:                              ; preds = %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit
+default.unreachable130:                           ; preds = %_ZN6Assimp7OpenGEXL23countDataArrayListItemsEPN10ODDLParser13DataArrayListE.exit
   unreachable
 
 _ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit.sink.split: ; preds = %165, %85
-  %.sink136 = phi i64 [ 456, %85 ], [ 552, %165 ]
+  %.sink137 = phi i64 [ 456, %85 ], [ 552, %165 ]
   %.sink = phi ptr [ %84, %85 ], [ %164, %165 ]
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink136
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink137
   store ptr %.sink, ptr %192, align 8
   br label %_ZN6Assimp7OpenGEXL15copyVectorArrayEmPN10ODDLParser13DataArrayListEP10aiVector3tIfE.exit
 
@@ -7611,7 +7611,7 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImpo
   br i1 %.not.i.i.i.i, label %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !45
 
 _ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit: ; preds = %.lr.ph.i.i.i.i, %3
-  tail call void @_ZdlPvm(ptr noundef %2, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 24) #29
   br label %6
 
 6:                                                ; preds = %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit, %1
@@ -8016,7 +8016,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_p
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !45
 
 _ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %9
-  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 24) #29
   br label %_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
 
 _ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %.lr.ph, %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i
@@ -11237,7 +11237,7 @@ define linkonce_odr hidden ptr @_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_pt
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !45
 
 _ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %34
-  tail call void @_ZdlPvm(ptr noundef %33, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %33, i64 noundef 24) #29
   br label %_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i
 
 _ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit.i: ; preds = %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i.i, %32
@@ -11488,7 +11488,7 @@ define linkonce_odr hidden void @_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_p
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !45
 
 _ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %7
-  tail call void @_ZdlPvm(ptr noundef %6, i64 noundef 24) #29
+  tail call void @_ZdlPvm(ptr noundef nonnull %6, i64 noundef 24) #29
   br label %_ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit
 
 _ZNSt8_Rb_treeIP6aiNodeSt4pairIKS1_St10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS8_EEESt10_Select1stISC_ESt4lessIS1_ESaISC_EE12_M_drop_nodeEPSt13_Rb_tree_nodeISC_E.exit: ; preds = %4, %_ZNKSt14default_deleteIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoEEclEPS3_.exit.i.i.i.i.i.i

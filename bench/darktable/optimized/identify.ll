@@ -7008,7 +7008,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %11 = load i32, ptr %10, align 4, !tbaa !115
   %.not = icmp eq i32 %11, 0
   %indvars.iv.sroa.gep864 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  br i1 %.not, label %725, label %12
+  br i1 %.not, label %724, label %12
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8341,7 +8341,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %663 = load i32, ptr %31, align 8, !tbaa !87
   %664 = icmp slt i32 %26, %663
   %or.cond15 = and i1 %34, %664
-  br i1 %or.cond15, label %665, label %725
+  br i1 %or.cond15, label %665, label %724
 
 665:                                              ; preds = %.thread579
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 433336
@@ -8359,7 +8359,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %sext506 = add nsw i32 %675, -1
   %676 = select i1 %.not504, i32 %sext506, i32 %26
   %677 = icmp sgt i32 %676, -1
-  br i1 %677, label %678, label %725
+  br i1 %677, label %678, label %724
 
 678:                                              ; preds = %665
   %679 = zext nneg i32 %676 to i64
@@ -8373,7 +8373,7 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %685 = fcmp reassoc nsz arcp contract afn ule double %684, 1.000000e-01
   %686 = fcmp reassoc nsz arcp contract afn ugt float %682, 1.000000e+00
   %or.cond571 = or i1 %686, %685
-  br i1 %or.cond571, label %725, label %.preheader582
+  br i1 %or.cond571, label %724, label %.preheader582
 
 .preheader582:                                    ; preds = %678
   %687 = getelementptr inbounds nuw i8, ptr %0, i64 540
@@ -8396,12 +8396,12 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %695 = load i32, ptr %694, align 4, !tbaa !92
   %696 = mul i32 %695, %693
   %.not509 = icmp eq i32 %696, 0
-  br i1 %.not509, label %707, label %.preheader
+  br i1 %.not509, label %706, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge688
   %invariant.umin691 = call i32 @llvm.umin.i32(i32 %696, i32 4096)
   %wide.trip.count824 = zext nneg i32 %invariant.umin691 to i64
-  br label %702
+  br label %701
 
 .lr.ph687:                                        ; preds = %.lr.ph687.preheader, %.lr.ph687
   %indvars.iv814 = phi i64 [ 0, %.lr.ph687.preheader ], [ %indvars.iv.next815, %.lr.ph687 ]
@@ -8413,64 +8413,63 @@ define void @_ZN6LibRaw27identify_process_dng_fieldsEv(ptr noundef nonnull align
   %exitcond818.not = icmp eq i64 %indvars.iv.next815, %wide.trip.count817
   br i1 %exitcond818.not, label %._crit_edge688, label %.lr.ph687, !llvm.loop !270
 
-.critedge:                                        ; preds = %702
-  %700 = call i32 @llvm.umax.i32(i32 %invariant.umin691, i32 1)
-  %701 = udiv i32 %706, %700
-  br label %707
+.critedge:                                        ; preds = %701
+  %700 = udiv i32 %705, %invariant.umin691
+  br label %706
 
-702:                                              ; preds = %.preheader, %702
-  %indvars.iv819 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next820, %702 ]
-  %.1322692 = phi i32 [ 0, %.preheader ], [ %706, %702 ]
-  %703 = add nuw nsw i64 %indvars.iv819, 6
-  %704 = getelementptr inbounds nuw [4104 x i32], ptr %661, i64 0, i64 %703
-  %705 = load i32, ptr %704, align 4, !tbaa !92
-  %706 = add i32 %705, %.1322692
+701:                                              ; preds = %.preheader, %701
+  %indvars.iv819 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next820, %701 ]
+  %.1322692 = phi i32 [ 0, %.preheader ], [ %705, %701 ]
+  %702 = add nuw nsw i64 %indvars.iv819, 6
+  %703 = getelementptr inbounds nuw [4104 x i32], ptr %661, i64 0, i64 %702
+  %704 = load i32, ptr %703, align 4, !tbaa !92
+  %705 = add i32 %704, %.1322692
   %indvars.iv.next820 = add nuw nsw i64 %indvars.iv819, 1
   %exitcond825.not = icmp eq i64 %indvars.iv.next820, %wide.trip.count824
-  br i1 %exitcond825.not, label %.critedge, label %702, !llvm.loop !271
+  br i1 %exitcond825.not, label %.critedge, label %701, !llvm.loop !271
 
-707:                                              ; preds = %.critedge, %._crit_edge688
-  %.0321 = phi i32 [ %701, %.critedge ], [ 0, %._crit_edge688 ]
+706:                                              ; preds = %.critedge, %._crit_edge688
+  %.0321 = phi i32 [ %700, %.critedge ], [ 0, %._crit_edge688 ]
   br i1 %689, label %.lr.ph699, label %._crit_edge700
 
-.lr.ph699:                                        ; preds = %707
-  %708 = add i32 %.0321, %691
-  %709 = add i32 %708, %660
-  %710 = sub i32 %527, %709
-  %711 = uitofp i32 %710 to float
-  %712 = fmul reassoc nsz arcp contract afn float %682, %711
-  %713 = sitofp i32 %709 to float
-  %714 = fadd reassoc nsz arcp contract afn float %712, %713
-  %715 = fptosi float %714 to i64
-  %716 = getelementptr inbounds nuw i8, ptr %0, i64 153008
+.lr.ph699:                                        ; preds = %706
+  %707 = add i32 %.0321, %691
+  %708 = add i32 %707, %660
+  %709 = sub i32 %527, %708
+  %710 = uitofp i32 %709 to float
+  %711 = fmul reassoc nsz arcp contract afn float %682, %710
+  %712 = sitofp i32 %708 to float
+  %713 = fadd reassoc nsz arcp contract afn float %711, %712
+  %714 = fptosi float %713 to i64
+  %715 = getelementptr inbounds nuw i8, ptr %0, i64 153008
   %wide.trip.count829 = zext nneg i32 %invariant.smin684 to i64
-  br label %719
+  br label %718
 
-._crit_edge700:                                   ; preds = %719, %707
-  %717 = getelementptr inbounds nuw i8, ptr %0, i64 153016
-  %718 = load i64, ptr %717, align 8, !tbaa !259
-  %.not510 = icmp eq i64 %718, 0
-  br i1 %.not510, label %725, label %721
+._crit_edge700:                                   ; preds = %718, %706
+  %716 = getelementptr inbounds nuw i8, ptr %0, i64 153016
+  %717 = load i64, ptr %716, align 8, !tbaa !259
+  %.not510 = icmp eq i64 %717, 0
+  br i1 %.not510, label %724, label %720
 
-719:                                              ; preds = %.lr.ph699, %719
-  %indvars.iv826 = phi i64 [ 0, %.lr.ph699 ], [ %indvars.iv.next827, %719 ]
-  %720 = getelementptr inbounds nuw [4 x i64], ptr %716, i64 0, i64 %indvars.iv826
-  store i64 %715, ptr %720, align 8, !tbaa !259
+718:                                              ; preds = %.lr.ph699, %718
+  %indvars.iv826 = phi i64 [ 0, %.lr.ph699 ], [ %indvars.iv.next827, %718 ]
+  %719 = getelementptr inbounds nuw [4 x i64], ptr %715, i64 0, i64 %indvars.iv826
+  store i64 %714, ptr %719, align 8, !tbaa !259
   %indvars.iv.next827 = add nuw nsw i64 %indvars.iv826, 1
   %exitcond830.not = icmp eq i64 %indvars.iv.next827, %wide.trip.count829
-  br i1 %exitcond830.not, label %._crit_edge700, label %719, !llvm.loop !272
+  br i1 %exitcond830.not, label %._crit_edge700, label %718, !llvm.loop !272
 
-721:                                              ; preds = %._crit_edge700
-  %722 = getelementptr inbounds nuw i8, ptr %0, i64 153032
-  %723 = load i64, ptr %722, align 8, !tbaa !259
-  %.not511 = icmp eq i64 %723, 0
-  br i1 %.not511, label %724, label %725
+720:                                              ; preds = %._crit_edge700
+  %721 = getelementptr inbounds nuw i8, ptr %0, i64 153032
+  %722 = load i64, ptr %721, align 8, !tbaa !259
+  %.not511 = icmp eq i64 %722, 0
+  br i1 %.not511, label %723, label %724
 
-724:                                              ; preds = %721
-  store i64 %718, ptr %722, align 8, !tbaa !259
-  br label %725
+723:                                              ; preds = %720
+  store i64 %717, ptr %721, align 8, !tbaa !259
+  br label %724
 
-725:                                              ; preds = %.thread579, %._crit_edge700, %721, %724, %678, %665, %1
+724:                                              ; preds = %.thread579, %._crit_edge700, %720, %723, %678, %665, %1
   ret void
 }
 
@@ -8551,9 +8550,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #16

@@ -1408,12 +1408,7 @@ define internal fastcc void @hwloc_internal_distances_print_matrix(ptr noundef r
   %13 = select i1 %spec.select, ptr @.str.7, ptr @.str.8
   %14 = tail call i64 @fwrite(ptr nonnull %13, i64 8, i64 1, ptr %12) #32
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %1
-  %15 = load ptr, ptr @stderr, align 8, !tbaa !88
-  %fputc68 = tail call i32 @fputc(i32 10, ptr %15)
-  br label %._crit_edge37
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   switch i32 %9, label %.lr.ph.split.preheader [
@@ -1427,46 +1422,51 @@ define internal fastcc void @hwloc_internal_distances_print_matrix(ptr noundef r
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph
   %wide.trip.count = zext i32 %3 to i64
-  br label %16
+  br label %15
 
-16:                                               ; preds = %16, %.lr.ph.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.lr.ph.split.us ]
-  %17 = load ptr, ptr @stderr, align 8, !tbaa !88
-  %18 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !72
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load i32, ptr %20, align 8, !tbaa !84
-  %22 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.9, i32 noundef %21) #33
+15:                                               ; preds = %15, %.lr.ph.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %.lr.ph.split.us ]
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %17 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8, !tbaa !72
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %20 = load i32, ptr %19, align 8, !tbaa !84
+  %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.9, i32 noundef %20) #33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %16, !llvm.loop !90
+  br i1 %exitcond.not, label %.lr.ph36, label %15, !llvm.loop !90
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv42 = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next43, %.lr.ph.split ]
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !88
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv42
-  %25 = load ptr, ptr %24, align 8, !tbaa !72
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 240
-  %27 = load i64, ptr %26, align 8, !tbaa !86
-  %28 = trunc i64 %27 to i32
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.9, i32 noundef %28) #33
+  %22 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %23 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv42
+  %24 = load ptr, ptr %23, align 8, !tbaa !72
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 240
+  %26 = load i64, ptr %25, align 8, !tbaa !86
+  %27 = trunc i64 %26 to i32
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %22, ptr noundef nonnull @.str.9, i32 noundef %27) #33
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
-  br i1 %exitcond46.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !90
+  br i1 %exitcond46.not, label %.lr.ph36, label %.lr.ph.split, !llvm.loop !90
 
-._crit_edge:                                      ; preds = %16, %.lr.ph.split
+._crit_edge:                                      ; preds = %1
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !88
+  %fputc = tail call i32 @fputc(i32 10, ptr %29)
+  br label %._crit_edge37
+
+.lr.ph36:                                         ; preds = %15, %.lr.ph.split
   %30 = load ptr, ptr @stderr, align 8, !tbaa !88
-  %fputc = tail call i32 @fputc(i32 10, ptr %30)
+  %fputc68 = tail call i32 @fputc(i32 10, ptr %30)
   switch i32 %9, label %.lr.ph36.split.preheader [
     i32 14, label %.lr.ph36.split.us
     i32 4, label %.lr.ph36.split.us
   ]
 
-.lr.ph36.split.preheader:                         ; preds = %._crit_edge
+.lr.ph36.split.preheader:                         ; preds = %.lr.ph36
   %wide.trip.count66 = zext i32 %3 to i64
   br label %.lr.ph36.split
 
-.lr.ph36.split.us:                                ; preds = %._crit_edge, %._crit_edge
+.lr.ph36.split.us:                                ; preds = %.lr.ph36, %.lr.ph36
   %wide.trip.count56 = zext i32 %3 to i64
   br label %31
 
@@ -1535,7 +1535,7 @@ define internal fastcc void @hwloc_internal_distances_print_matrix(ptr noundef r
   %exitcond67.not = icmp eq i64 %indvars.iv.next64, %wide.trip.count66
   br i1 %exitcond67.not, label %._crit_edge37, label %.lr.ph36.split, !llvm.loop !91
 
-._crit_edge37:                                    ; preds = %40, %67, %._crit_edge.thread
+._crit_edge37:                                    ; preds = %40, %67, %._crit_edge
   ret void
 }
 

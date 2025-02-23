@@ -27,36 +27,32 @@ define hidden range(i32 -1, 1) i32 @_PyTestLimitedCAPI_Init_Complex(ptr noundef 
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_check(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
-  %3 = icmp eq ptr %1, @_Py_NoneStruct
-  %spec.store.select = select i1 %3, ptr null, ptr %1
-  %4 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %4, align 8, !tbaa !3
+define internal ptr @complex_check(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = getelementptr i8, ptr %1, i64 8
+  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
   %.not.i = icmp eq ptr %spec.store.select.val, @PyComplex_Type
-  br i1 %.not.i, label %PyObject_TypeCheck.exit, label %5
+  br i1 %.not.i, label %PyObject_TypeCheck.exit, label %4
 
-5:                                                ; preds = %2
-  %6 = tail call i32 @PyType_IsSubtype(ptr noundef %spec.store.select.val, ptr noundef nonnull @PyComplex_Type) #3
-  %7 = icmp ne i32 %6, 0
-  %8 = zext i1 %7 to i64
+4:                                                ; preds = %2
+  %5 = tail call i32 @PyType_IsSubtype(ptr noundef %spec.store.select.val, ptr noundef nonnull @PyComplex_Type) #3
+  %6 = icmp ne i32 %5, 0
+  %7 = zext i1 %6 to i64
   br label %PyObject_TypeCheck.exit
 
-PyObject_TypeCheck.exit:                          ; preds = %2, %5
-  %9 = phi i64 [ 1, %2 ], [ %8, %5 ]
-  %10 = tail call ptr @PyLong_FromLong(i64 noundef %9) #3
-  ret ptr %10
+PyObject_TypeCheck.exit:                          ; preds = %2, %4
+  %8 = phi i64 [ 1, %2 ], [ %7, %4 ]
+  %9 = tail call ptr @PyLong_FromLong(i64 noundef %8) #3
+  ret ptr %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_checkexact(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
-  %3 = icmp eq ptr %1, @_Py_NoneStruct
-  %spec.store.select = select i1 %3, ptr null, ptr %1
-  %4 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %4, align 8, !tbaa !3
-  %5 = icmp eq ptr %spec.store.select.val, @PyComplex_Type
-  %6 = zext i1 %5 to i64
-  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #3
-  ret ptr %7
+define internal ptr @complex_checkexact(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = getelementptr i8, ptr %1, i64 8
+  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = icmp eq ptr %spec.store.select.val, @PyComplex_Type
+  %5 = zext i1 %4 to i64
+  %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #3
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable

@@ -670,7 +670,7 @@ define internal i32 @mempacket_test_read(ptr noundef %0, ptr noundef writeonly c
   %65 = zext i8 %64 to i32
   %66 = or disjoint i32 %62, %65
   %67 = add nuw nsw i32 %66, 13
-  %68 = icmp slt i32 %.06582, %67
+  %68 = icmp samesign ult i32 %.06582, %67
   br i1 %68, label %.loopexit79, label %69
 
 69:                                               ; preds = %58

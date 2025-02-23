@@ -956,8 +956,7 @@ exe_name.exit:                                    ; preds = %.sink.split.i214, %
   br i1 %exitcond.not, label %.loopexit277, label %.preheader276, !llvm.loop !11
 
 .loopexit277:                                     ; preds = %.preheader276, %159
-  %umax = tail call i32 @llvm.umax.i32(i32 %.0162, i32 1)
-  %wide.trip.count293 = zext i32 %umax to i64
+  %wide.trip.count293 = zext i32 %.0162 to i64
   br label %174
 
 174:                                              ; preds = %.loopexit277, %202
@@ -3502,9 +3501,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19

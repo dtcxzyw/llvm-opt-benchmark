@@ -2726,7 +2726,7 @@ for.body.us.us:                                   ; preds = %for.body.us.us, %fo
   store double %.pre48, ptr %arrayidx.i.us.us, align 8, !tbaa !41
   %inc.i.us.us = add i64 %18, 1
   %cmp.i.not.us.us = icmp eq i64 %inc.i.us.us, %12
-  br i1 %cmp.i.not.us.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.us.us
+  br i1 %cmp.i.not.us.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread, label %for.body.us.us
 
 for.body.us:                                      ; preds = %for.body.lr.ph.split.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us
   %19 = phi i64 [ %inc.i.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us ], [ 0, %for.body.lr.ph.split.us ]
@@ -2759,11 +2759,11 @@ _ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us: ; preds = %if.then.i.us,
   %cmp.i.not.us = icmp eq i64 %inc.i.us, %12
   br i1 %cmp.i.not.us, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread, label %for.body.us
 
-_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread: ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
+_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit.thread: ; preds = %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit.us, %for.body.us.us, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end1) #20
   br label %if.then.i.i.i.i20
 
-_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %for.body.us.us, %invoke.cont6
+_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit:       ; preds = %invoke.cont6
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %__end1) #20
   %tobool.not.i.i.i.i19 = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i19, label %_ZNSt6vectorImSaImEED2Ev.exit.i25, label %if.then.i.i.i.i20

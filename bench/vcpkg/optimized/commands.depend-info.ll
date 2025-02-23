@@ -1156,9 +1156,9 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 
 78:                                               ; preds = %75
   %79 = trunc nuw i8 %.sroa.0194.0 to i1
-  %.not = icmp ne i8 %.sroa.23.0, 2
-  %or.cond.not = and i1 %.not, %79
-  br i1 %or.cond.not, label %.noexc, label %.thread
+  %.not283 = icmp ne i8 %.sroa.23.0, 2
+  %or.cond.not296 = and i1 %.not283, %79
+  br i1 %or.cond.not296, label %.noexc, label %.thread
 
 .noexc:                                           ; preds = %78
   %.sroa.018.0.copyload = load i64, ptr @_ZN5vcpkg30msgCmdDependInfoFormatConflictE, align 8
@@ -1214,9 +1214,9 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
 
 89:                                               ; preds = %86
   %90 = trunc nuw i8 %.sroa.0194.2.ph to i1
-  %.not282 = icmp ne i8 %.sroa.23.2.ph, 3
-  %or.cond288.not = and i1 %.not282, %90
-  br i1 %or.cond288.not, label %.noexc85, label %.thread259
+  %.not285 = icmp ne i8 %.sroa.23.2.ph, 3
+  %or.cond290.not = and i1 %.not285, %90
+  br i1 %or.cond290.not, label %.noexc85, label %.thread259
 
 .noexc85:                                         ; preds = %89
   %.sroa.017.0.copyload = load i64, ptr @_ZN5vcpkg30msgCmdDependInfoFormatConflictE, align 8
@@ -1310,9 +1310,9 @@ _ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 124:                                              ; preds = %119
   %125 = trunc nuw i8 %.sroa.0194.3 to i1
-  %.not284 = icmp ne i8 %.sroa.23.3, 1
-  %or.cond290.not = and i1 %.not284, %125
-  br i1 %or.cond290.not, label %126, label %_ZN5vcpkg7details15OptionalStorageINS_18DependInfoSortModeELb1EE7emplaceIJS2_EEERS2_DpOT_.exit
+  %.not287 = icmp ne i8 %.sroa.23.3, 1
+  %or.cond292.not = and i1 %.not287, %125
+  br i1 %or.cond292.not, label %126, label %_ZN5vcpkg7details15OptionalStorageINS_18DependInfoSortModeELb1EE7emplaceIJS2_EEERS2_DpOT_.exit
 
 126:                                              ; preds = %124
   %.sroa.08.0.copyload = load i64, ptr @_ZN5vcpkg25msgCmdDependInfoXtreeTreeE, align 8
@@ -1469,8 +1469,8 @@ _ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcES
 _ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152.thread: ; preds = %155, %139, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i146, %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152
   %.sroa.4.0 = phi i32 [ 2147483647, %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152 ], [ 2147483647, %_ZNKSt8_Rb_treeIN5vcpkg13StringLiteralESt4pairIKS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESt10_Select1stISA_ESt4lessIvESaISA_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISA_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i146 ], [ 2147483647, %139 ], [ %spec.select, %155 ]
   %switch = icmp samesign ugt i32 %131, 1
-  %or.cond292.not = select i1 %140, i1 %switch, i1 false
-  br i1 %or.cond292.not, label %.noexc158, label %172
+  %or.cond.not = select i1 %140, i1 %switch, i1 false
+  br i1 %or.cond.not, label %.noexc158, label %172
 
 .noexc158:                                        ; preds = %_ZNKSt3mapIN5vcpkg13StringLiteralENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIvESaISt4pairIKS1_S7_EEE4findERSB_.exit152.thread
   %.sroa.0.0.copyload = load i64, ptr @_ZN5vcpkg39msgCmdDependInfoShowDepthFormatMismatchE, align 8
@@ -12421,7 +12421,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt10_HashtableIN
   br label %195, !llvm.loop !195
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEET_SK_SK_T0_.exit": ; preds = %203
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_SK_T0_T1_"(ptr %.sroa.012.1.i.i, ptr %storemerge49, i64 noundef %180)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_2EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge49, i64 noundef %180)
   %321 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %322 = sub i64 %321, %9
   %323 = icmp sgt i64 %322, 1920
@@ -15053,7 +15053,7 @@ _ZN5vcpkg17PackageDependInfoD2Ev.exit:            ; preds = %_ZNSt10_HashtableIN
   br label %195, !llvm.loop !214
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEET_SK_SK_T0_.exit": ; preds = %203
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_SK_T0_T1_"(ptr %.sroa.012.1.i.i, ptr %storemerge49, i64 noundef %180)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN5vcpkg17PackageDependInfoESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_28command_depend_info_and_exitERKNS2_17VcpkgCmdArgumentsERKNS2_10VcpkgPathsENS2_7TripletESH_E3$_4EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge49, i64 noundef %180)
   %321 = ptrtoint ptr %.sroa.012.1.i.i to i64
   %322 = sub i64 %321, %9
   %323 = icmp sgt i64 %322, 1920

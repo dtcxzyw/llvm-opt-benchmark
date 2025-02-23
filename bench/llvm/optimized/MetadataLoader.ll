@@ -9201,7 +9201,7 @@ _ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit: ;
   br i1 %.not1155, label %2016, label %2004
 
 2004:                                             ; preds = %_ZN4llvm16dyn_cast_or_nullINS_18ConstantAsMetadataENS_8MetadataEEEDaPT0_.exit
-  %2005 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %2005 = getelementptr inbounds nuw i8, ptr %2001, i64 32
   %2006 = load i32, ptr %2005, align 8
   %2007 = and i32 %2006, 134217728
   %.not2756 = icmp eq i32 %2007, 0

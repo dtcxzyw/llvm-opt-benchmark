@@ -1974,7 +1974,7 @@ define dso_local void @CacheRegisterSyscacheCallback(i32 noundef %0, ptr noundef
   store ptr %1, ptr %36, align 8
   %37 = getelementptr inbounds [64 x %struct.SYSCACHECALLBACK], ptr @syscache_callback_list, i64 0, i64 %33, i32 3
   store i64 %2, ptr %37, align 8
-  %38 = add i32 %8, 1
+  %38 = add nsw i32 %8, 1
   store i32 %38, ptr @syscache_callback_count, align 4
   ret void
 }

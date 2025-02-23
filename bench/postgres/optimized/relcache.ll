@@ -694,7 +694,7 @@ GetPgIndexDescriptor.exit95:                      ; preds = %IndexSupportInitial
   %277 = load ptr, ptr %97, align 8
   %278 = getelementptr inbounds nuw i8, ptr %276, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %277, ptr nonnull align 4 %278, i64 %95, i1 false)
-  %279 = call ptr @RelationGetIndexAttOptions(ptr noundef %0, i1 noundef zeroext false)
+  %279 = call ptr @RelationGetIndexAttOptions(ptr noundef nonnull %0, i1 noundef zeroext false)
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 456
   store ptr null, ptr %281, align 8

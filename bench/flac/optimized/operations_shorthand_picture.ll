@@ -96,22 +96,22 @@ import_pic_from.exit:                             ; preds = %27
 36:                                               ; preds = %34
   %37 = call i32 @FLAC__metadata_iterator_insert_block_after(ptr noundef %6, ptr noundef nonnull %21) #6
   %.not58 = icmp eq i32 %37, 0
-  br i1 %.not58, label %38, label %.preheader78
+  br i1 %.not58, label %38, label %.preheader83
 
 38:                                               ; preds = %36
   call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %1, ptr noundef nonnull @.str.1, ptr noundef %0) #6
   call void @FLAC__metadata_object_delete(ptr noundef nonnull %21) #6
   br label %export_pic_to.exit
 
-.preheader78:                                     ; preds = %36, %.preheader78
+.preheader83:                                     ; preds = %36, %.preheader83
   %39 = call i32 @FLAC__metadata_iterator_prev(ptr noundef %6) #6
   %.not60 = icmp eq i32 %39, 0
-  br i1 %.not60, label %.preheader, label %.preheader78, !llvm.loop !18
+  br i1 %.not60, label %.preheader, label %.preheader83, !llvm.loop !18
 
-.preheader:                                       ; preds = %.preheader78, %48
-  %.047 = phi i32 [ %.148, %48 ], [ 0, %.preheader78 ]
-  %.045 = phi i32 [ %.146, %48 ], [ 0, %.preheader78 ]
-  %.1 = phi i32 [ %.2, %48 ], [ 1, %.preheader78 ]
+.preheader:                                       ; preds = %.preheader83, %48
+  %.047 = phi i32 [ %.148, %48 ], [ 0, %.preheader83 ]
+  %.045 = phi i32 [ %.146, %48 ], [ 0, %.preheader83 ]
+  %.1 = phi i32 [ %.2, %48 ], [ 1, %.preheader83 ]
   %40 = call ptr @FLAC__metadata_iterator_get_block(ptr noundef %6) #6
   %41 = load i32, ptr %40, align 8, !tbaa !19
   %42 = icmp eq i32 %41, 6
@@ -168,116 +168,115 @@ import_pic_from.exit:                             ; preds = %27
 
 60:                                               ; preds = %50, %54, %56
   %61 = phi i32 [ %59, %56 ], [ -1, %54 ], [ -1, %50 ]
-  %62 = icmp slt i32 %61, 0
+  %62 = icmp sgt i32 %61, -1
   br label %63
 
 63:                                               ; preds = %63, %60
-  %.044 = phi i32 [ 0, %60 ], [ %69, %63 ]
+  %.044 = phi i32 [ 0, %60 ], [ %68, %63 ]
   %64 = tail call ptr @FLAC__metadata_iterator_get_block(ptr noundef %6) #6
   %65 = load i32, ptr %64, align 8, !tbaa !19
-  %66 = icmp eq i32 %65, 6
-  %67 = icmp eq i32 %.044, %61
-  %or.cond = select i1 %62, i1 true, i1 %67
-  %68 = select i1 %66, i1 %or.cond, i1 false
-  %.171 = select i1 %68, ptr %64, ptr null
-  %69 = add i32 %.044, 1
-  %70 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %6) #6
-  %71 = icmp ne i32 %70, 0
-  %72 = icmp eq ptr %.171, null
-  %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %63, label %74, !llvm.loop !26
+  %66 = icmp ne i32 %65, 6
+  %67 = icmp ne i32 %.044, %61
+  %or.cond.not82 = select i1 %62, i1 %67, i1 false
+  %.not79 = select i1 %66, i1 true, i1 %or.cond.not82
+  %68 = add i32 %.044, 1
+  %69 = tail call i32 @FLAC__metadata_iterator_next(ptr noundef %6) #6
+  %70 = icmp ne i32 %69, 0
+  %71 = select i1 %70, i1 %.not79, i1 false
+  br i1 %71, label %63, label %72, !llvm.loop !26
 
-74:                                               ; preds = %63
-  br i1 %72, label %75, label %81
+72:                                               ; preds = %63
+  br i1 %.not79, label %73, label %80
 
-75:                                               ; preds = %74
-  %76 = load ptr, ptr @stderr, align 8, !tbaa !10
-  br i1 %62, label %77, label %79
+73:                                               ; preds = %72
+  %74 = icmp slt i32 %61, 0
+  %75 = load ptr, ptr @stderr, align 8, !tbaa !10
+  br i1 %74, label %76, label %78
 
-77:                                               ; preds = %75
-  %78 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %76, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %0) #6
+76:                                               ; preds = %73
+  %77 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %75, i32 noundef 1, ptr noundef nonnull @.str.4, ptr noundef %0) #6
   br label %export_pic_to.exit
 
-79:                                               ; preds = %75
-  %80 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %76, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %61) #6
+78:                                               ; preds = %73
+  %79 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %75, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef %0, i32 noundef %61) #6
   br label %export_pic_to.exit
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %51, align 8, !tbaa !9
-  %83 = getelementptr inbounds nuw i8, ptr %.171, i64 56
-  %84 = load i32, ptr %83, align 8, !tbaa !9
-  %85 = icmp eq ptr %82, null
-  br i1 %85, label %87, label %86
+80:                                               ; preds = %72
+  %81 = load ptr, ptr %51, align 8, !tbaa !9
+  %82 = getelementptr inbounds nuw i8, ptr %64, i64 56
+  %83 = load i32, ptr %82, align 8, !tbaa !9
+  %84 = icmp eq ptr %81, null
+  br i1 %84, label %86, label %85
 
-86:                                               ; preds = %81
-  %char0.i64 = load i8, ptr %82, align 1
+85:                                               ; preds = %80
+  %char0.i64 = load i8, ptr %81, align 1
   switch i8 %char0.i64, label %.tail.thread.i [
-    i8 0, label %87
+    i8 0, label %86
     i8 45, label %.tail.i
   ]
 
-87:                                               ; preds = %86, %81
-  %88 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %89 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %88, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %0) #6
+86:                                               ; preds = %85, %80
+  %87 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %88 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %87, i32 noundef 1, ptr noundef nonnull @.str.9, ptr noundef %0) #6
   br label %export_pic_to.exit
 
-.tail.i:                                          ; preds = %86
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 1
-  %91 = load i8, ptr %90, align 1
-  %92 = icmp eq i8 %91, 0
-  br i1 %92, label %93, label %.tail.thread.i
+.tail.i:                                          ; preds = %85
+  %89 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %90 = load i8, ptr %89, align 1
+  %91 = icmp eq i8 %90, 0
+  br i1 %91, label %92, label %.tail.thread.i
 
-93:                                               ; preds = %.tail.i
-  %94 = tail call ptr @grabbag__file_get_binary_stdout() #6
-  br label %96
+92:                                               ; preds = %.tail.i
+  %93 = tail call ptr @grabbag__file_get_binary_stdout() #6
+  br label %95
 
-.tail.thread.i:                                   ; preds = %.tail.i, %86
-  %95 = tail call noalias ptr @fopen64(ptr noundef nonnull %82, ptr noundef nonnull @.str.11)
-  br label %96
+.tail.thread.i:                                   ; preds = %.tail.i, %85
+  %94 = tail call noalias ptr @fopen64(ptr noundef nonnull %81, ptr noundef nonnull @.str.11)
+  br label %95
 
-96:                                               ; preds = %.tail.thread.i, %93
-  %.018.i = phi ptr [ %94, %93 ], [ %95, %.tail.thread.i ]
-  %97 = icmp eq ptr %.018.i, null
-  br i1 %97, label %98, label %104
+95:                                               ; preds = %.tail.thread.i, %92
+  %.018.i = phi ptr [ %93, %92 ], [ %94, %.tail.thread.i ]
+  %96 = icmp eq ptr %.018.i, null
+  br i1 %96, label %97, label %103
 
-98:                                               ; preds = %96
-  %99 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %100 = tail call ptr @__errno_location() #7
-  %101 = load i32, ptr %100, align 4, !tbaa !15
-  %102 = tail call ptr @strerror(i32 noundef %101) #6
-  %103 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %99, i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef nonnull %82, ptr noundef %102) #6
+97:                                               ; preds = %95
+  %98 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %99 = tail call ptr @__errno_location() #7
+  %100 = load i32, ptr %99, align 4, !tbaa !15
+  %101 = tail call ptr @strerror(i32 noundef %100) #6
+  %102 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %98, i32 noundef 1, ptr noundef nonnull @.str.12, ptr noundef %0, ptr noundef nonnull %81, ptr noundef %101) #6
   br label %export_pic_to.exit
 
-104:                                              ; preds = %96
-  %105 = getelementptr inbounds nuw i8, ptr %.171, i64 64
-  %106 = load ptr, ptr %105, align 8, !tbaa !9
-  %107 = zext i32 %84 to i64
-  %108 = tail call i64 @fwrite(ptr noundef %106, i64 noundef 1, i64 noundef %107, ptr noundef nonnull %.018.i)
-  %.not.i65 = icmp eq i64 %108, %107
-  br i1 %.not.i65, label %115, label %109
+103:                                              ; preds = %95
+  %104 = getelementptr inbounds nuw i8, ptr %64, i64 64
+  %105 = load ptr, ptr %104, align 8, !tbaa !9
+  %106 = zext i32 %83 to i64
+  %107 = tail call i64 @fwrite(ptr noundef %105, i64 noundef 1, i64 noundef %106, ptr noundef nonnull %.018.i)
+  %.not.i65 = icmp eq i64 %107, %106
+  br i1 %.not.i65, label %114, label %108
 
-109:                                              ; preds = %104
-  %110 = load ptr, ptr @stderr, align 8, !tbaa !10
-  %111 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %110, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef %0) #6
-  %112 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %.not21.i = icmp eq ptr %.018.i, %112
-  br i1 %.not21.i, label %export_pic_to.exit, label %113
+108:                                              ; preds = %103
+  %109 = load ptr, ptr @stderr, align 8, !tbaa !10
+  %110 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %109, i32 noundef 1, ptr noundef nonnull @.str.13, ptr noundef %0) #6
+  %111 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %.not21.i = icmp eq ptr %.018.i, %111
+  br i1 %.not21.i, label %export_pic_to.exit, label %112
 
-113:                                              ; preds = %109
-  %114 = tail call i32 @fclose(ptr noundef nonnull %.018.i)
+112:                                              ; preds = %108
+  %113 = tail call i32 @fclose(ptr noundef nonnull %.018.i)
   br label %export_pic_to.exit
 
-115:                                              ; preds = %104
-  %116 = load ptr, ptr @stdout, align 8, !tbaa !10
-  %.not20.i = icmp eq ptr %.018.i, %116
-  br i1 %.not20.i, label %export_pic_to.exit, label %117
+114:                                              ; preds = %103
+  %115 = load ptr, ptr @stdout, align 8, !tbaa !10
+  %.not20.i = icmp eq ptr %.018.i, %115
+  br i1 %.not20.i, label %export_pic_to.exit, label %116
 
-117:                                              ; preds = %115
-  %118 = tail call i32 @fclose(ptr noundef nonnull %.018.i)
+116:                                              ; preds = %114
+  %117 = tail call i32 @fclose(ptr noundef nonnull %.018.i)
   br label %export_pic_to.exit
 
-export_pic_to.exit:                               ; preds = %48, %import_pic_from.exit.thread, %38, %117, %115, %113, %109, %98, %87, %9, %79, %77
-  %.5 = phi i32 [ 0, %79 ], [ 0, %77 ], [ 0, %9 ], [ 0, %87 ], [ 0, %98 ], [ 0, %113 ], [ 0, %109 ], [ 1, %117 ], [ 1, %115 ], [ 0, %38 ], [ 0, %import_pic_from.exit.thread ], [ %.2, %48 ]
+export_pic_to.exit:                               ; preds = %48, %import_pic_from.exit.thread, %38, %116, %114, %112, %108, %97, %86, %9, %78, %76
+  %.5 = phi i32 [ 0, %78 ], [ 0, %76 ], [ 0, %9 ], [ 0, %86 ], [ 0, %97 ], [ 0, %112 ], [ 0, %108 ], [ 1, %116 ], [ 1, %114 ], [ 0, %38 ], [ 0, %import_pic_from.exit.thread ], [ %.2, %48 ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %6) #6
   ret i32 %.5
 }

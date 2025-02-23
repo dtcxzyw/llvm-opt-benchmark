@@ -7462,7 +7462,7 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %_ZNK2OT4avar12unmap_coordsEPij.exit.thread, label %11
+  br i1 %.not, label %_ZNK2OT4avar12unmap_coordsEPij.exit, label %11
 
 11:                                               ; preds = %6
   %12 = zext i32 %2 to i64
@@ -7482,64 +7482,64 @@ define hidden void @hb_font_set_var_coords_normalized(ptr noundef %0, ptr nounde
   tail call void @free(ptr noundef %15) #25
   br label %75
 
-_ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 232
-  %23 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %22)
-  br label %._crit_edge
-
 .split43:                                         ; preds = %11
-  %24 = shl nuw nsw i64 %12, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %24, i1 false), !alias.scope !28
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %20 = shl nuw nsw i64 %12, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %13, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull readonly align 1 dereferenceable(1) %1, i64 range(i64 4, 17179869181) %20, i1 false), !alias.scope !28
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 232
+  %24 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 232
-  %28 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %27)
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp ult i32 %32, 8
-  %spec.select.i.i.i.i.i46 = select i1 %33, ptr @_hb_NullPool, ptr %30
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 6
-  %.val10.i47 = load i8, ptr %34, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 7
-  %.val11.i48 = load i8, ptr %35, align 1
-  %36 = zext i8 %.val10.i47 to i32
-  %37 = shl nuw nsw i32 %36, 8
-  %38 = zext i8 %.val11.i48 to i32
-  %39 = or disjoint i32 %37, %38
-  %.not.i49 = icmp eq i32 %39, 0
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp ult i32 %28, 8
+  %spec.select.i.i.i.i.i46 = select i1 %29, ptr @_hb_NullPool, ptr %26
+  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 6
+  %.val10.i47 = load i8, ptr %30, align 1
+  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 7
+  %.val11.i48 = load i8, ptr %31, align 1
+  %32 = zext i8 %.val10.i47 to i32
+  %33 = shl nuw nsw i32 %32, 8
+  %34 = zext i8 %.val11.i48 to i32
+  %35 = or disjoint i32 %33, %34
+  %.not.i49 = icmp eq i32 %35, 0
   br i1 %.not.i49, label %.lr.ph.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.split43
-  %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %2, i32 %39)
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 8
+  %spec.select.i.i = tail call noundef range(i32 0, 65536) i32 @llvm.umin.i32(i32 %2, i32 %35)
+  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i46, i64 8
   %wide.trip.count.i = zext nneg i32 %spec.select.i.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.0912.i = phi ptr [ %40, %.lr.ph.preheader.i ], [ %53, %.lr.ph.i ]
-  %41 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
-  %42 = load i32, ptr %41, align 4
-  %43 = tail call noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef nonnull align 1 dereferenceable(6) %.0912.i, i32 noundef %42, i32 noundef 1, i32 noundef 0)
-  store i32 %43, ptr %41, align 4
-  %44 = load i8, ptr %.0912.i, align 1
-  %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
-  %47 = load i8, ptr %46, align 1
-  %48 = zext i8 %47 to i64
-  %49 = shl nuw nsw i64 %45, 10
-  %50 = shl nuw nsw i64 %48, 2
-  %51 = or disjoint i64 %49, %50
-  %52 = or disjoint i64 %51, 2
-  %53 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %52
+  %.0912.i = phi ptr [ %36, %.lr.ph.preheader.i ], [ %49, %.lr.ph.i ]
+  %37 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %38 = load i32, ptr %37, align 4
+  %39 = tail call noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef nonnull align 1 dereferenceable(6) %.0912.i, i32 noundef %38, i32 noundef 1, i32 noundef 0)
+  store i32 %39, ptr %37, align 4
+  %40 = load i8, ptr %.0912.i, align 1
+  %41 = zext i8 %40 to i64
+  %42 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = zext i8 %43 to i64
+  %45 = shl nuw nsw i64 %41, 10
+  %46 = shl nuw nsw i64 %44, 2
+  %47 = or disjoint i64 %45, %46
+  %48 = or disjoint i64 %47, 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 %48
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !32
+
+_ZNK2OT4avar12unmap_coordsEPij.exit:              ; preds = %6
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 232
+  %53 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4avarE22hb_table_lazy_loader_tIS1_Lj19ELb1EE9hb_face_tLj19E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
+  br label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.i, %.split43
   %wide.trip.count = zext i32 %2 to i64
@@ -7547,7 +7547,7 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %54 = load ptr, ptr %25, align 8
+  %54 = load ptr, ptr %21, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 224
   %56 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN2OT4fvarE22hb_table_lazy_loader_tIS1_Lj18ELb1EE9hb_face_tLj18E9hb_blob_tE10get_storedEv(ptr noundef nonnull align 8 dereferenceable(8) %55)
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -7566,10 +7566,10 @@ _ZNK2OT4avar12unmap_coordsEPij.exit.thread:       ; preds = %6
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread
-  %67 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %13, %.lr.ph ]
-  %68 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %14, %.lr.ph ]
-  %69 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit.thread ], [ %15, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZNK2OT4avar12unmap_coordsEPij.exit
+  %67 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %13, %.lr.ph ]
+  %68 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %14, %.lr.ph ]
+  %69 = phi ptr [ null, %_ZNK2OT4avar12unmap_coordsEPij.exit ], [ %15, %.lr.ph ]
   tail call void @free(ptr noundef %68) #25
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %71 = load ptr, ptr %70, align 8
@@ -7598,7 +7598,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
   %.not.i = icmp eq i32 %6, 0
-  br i1 %.not.i, label %113, label %7
+  br i1 %.not.i, label %119, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7652,7 +7652,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
 45:                                               ; preds = %39
   tail call void @free(ptr noundef %41) #25
   tail call void @free(ptr noundef %42) #25
-  br label %113
+  br label %119
 
 .thread59:                                        ; preds = %7
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -7675,7 +7675,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   store float %51, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !34
+  br i1 %exitcond.not, label %.lr.ph66.preheader, label %.lr.ph, !llvm.loop !34
 
 .lr.ph63:                                         ; preds = %.thread59.thread, %.lr.ph63
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.lr.ph63 ], [ 0, %.thread59.thread ]
@@ -7721,65 +7721,71 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   %82 = call i32 @hb_ot_var_named_instance_get_design_coords(ptr noundef %81, i32 noundef %79, ptr noundef nonnull %4, ptr noundef %75)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.thread59, %._crit_edge, %80
-  %83 = phi ptr [ %77, %._crit_edge ], [ %77, %80 ], [ %46, %.thread59 ], [ %48, %.lr.ph ]
-  %84 = phi ptr [ %76, %._crit_edge ], [ %76, %80 ], [ null, %.thread59 ], [ %41, %.lr.ph ]
-  %85 = phi ptr [ %75, %._crit_edge ], [ %75, %80 ], [ null, %.thread59 ], [ %42, %.lr.ph ]
+.loopexit:                                        ; preds = %.thread59, %._crit_edge, %80
+  %83 = phi ptr [ %77, %._crit_edge ], [ %77, %80 ], [ %46, %.thread59 ]
+  %84 = phi ptr [ %76, %._crit_edge ], [ %76, %80 ], [ null, %.thread59 ]
+  %85 = phi ptr [ %75, %._crit_edge ], [ %75, %80 ], [ null, %.thread59 ]
   br i1 %.not, label %._crit_edge67, label %.lr.ph66.preheader
 
-.lr.ph66.preheader:                               ; preds = %.loopexit
+.lr.ph66.preheader:                               ; preds = %.lr.ph, %.loopexit
+  %86 = phi ptr [ %85, %.loopexit ], [ %42, %.lr.ph ]
+  %87 = phi ptr [ %84, %.loopexit ], [ %41, %.lr.ph ]
+  %88 = phi ptr [ %83, %.loopexit ], [ %48, %.lr.ph ]
   %wide.trip.count80 = zext nneg i32 %.sroa.2.8.insert.ext.i.i to i64
   br label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %107
-  %indvars.iv77 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next78, %107 ]
-  %86 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
-  %87 = load i8, ptr %86, align 1
-  %88 = zext i8 %87 to i32
-  %89 = shl nuw i32 %88, 24
-  %90 = getelementptr inbounds nuw i8, ptr %86, i64 1
-  %91 = load i8, ptr %90, align 1
-  %92 = zext i8 %91 to i32
-  %93 = shl nuw nsw i32 %92, 16
-  %94 = or disjoint i32 %93, %89
-  %95 = getelementptr inbounds nuw i8, ptr %86, i64 2
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i32
-  %98 = shl nuw nsw i32 %97, 8
-  %99 = or disjoint i32 %94, %98
-  %100 = getelementptr inbounds nuw i8, ptr %86, i64 3
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i32
-  %103 = or disjoint i32 %99, %102
-  %104 = icmp eq i32 %103, %1
-  br i1 %104, label %105, label %107
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %110
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph66.preheader ], [ %indvars.iv.next78, %110 ]
+  %89 = getelementptr inbounds nuw %"struct.OT::AxisRecord", ptr %.0.i.i.i, i64 %indvars.iv77
+  %90 = load i8, ptr %89, align 1
+  %91 = zext i8 %90 to i32
+  %92 = shl nuw i32 %91, 24
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 1
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = shl nuw nsw i32 %95, 16
+  %97 = or disjoint i32 %96, %92
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 2
+  %99 = load i8, ptr %98, align 1
+  %100 = zext i8 %99 to i32
+  %101 = shl nuw nsw i32 %100, 8
+  %102 = or disjoint i32 %97, %101
+  %103 = getelementptr inbounds nuw i8, ptr %89, i64 3
+  %104 = load i8, ptr %103, align 1
+  %105 = zext i8 %104 to i32
+  %106 = or disjoint i32 %102, %105
+  %107 = icmp eq i32 %106, %1
+  br i1 %107, label %108, label %110
 
-105:                                              ; preds = %.lr.ph66
-  %106 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv77
-  store float %2, ptr %106, align 4
-  br label %107
+108:                                              ; preds = %.lr.ph66
+  %109 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv77
+  store float %2, ptr %109, align 4
+  br label %110
 
-107:                                              ; preds = %.lr.ph66, %105
+110:                                              ; preds = %.lr.ph66, %108
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge67, label %.lr.ph66, !llvm.loop !36
 
-._crit_edge67:                                    ; preds = %107, %.loopexit
-  %108 = load ptr, ptr %12, align 8
-  call void @hb_ot_var_normalize_coords(ptr noundef %108, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %85, ptr noundef %84)
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %110 = load ptr, ptr %109, align 8
-  call void @free(ptr noundef %110) #25
-  %111 = load ptr, ptr %83, align 8
-  call void @free(ptr noundef %111) #25
-  store ptr %84, ptr %109, align 8
-  store ptr %85, ptr %83, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 %.sroa.2.8.insert.ext.i.i, ptr %112, align 8
+._crit_edge67:                                    ; preds = %110, %.loopexit
+  %111 = phi ptr [ %85, %.loopexit ], [ %86, %110 ]
+  %112 = phi ptr [ %84, %.loopexit ], [ %87, %110 ]
+  %113 = phi ptr [ %83, %.loopexit ], [ %88, %110 ]
+  %114 = load ptr, ptr %12, align 8
+  call void @hb_ot_var_normalize_coords(ptr noundef %114, i32 noundef %.sroa.2.8.insert.ext.i.i, ptr noundef %111, ptr noundef %112)
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %116 = load ptr, ptr %115, align 8
+  call void @free(ptr noundef %116) #25
+  %117 = load ptr, ptr %113, align 8
+  call void @free(ptr noundef %117) #25
+  store ptr %112, ptr %115, align 8
+  store ptr %111, ptr %113, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 %.sroa.2.8.insert.ext.i.i, ptr %118, align 8
   call void @_ZN9hb_font_t13mults_changedEv(ptr noundef nonnull align 8 dereferenceable(192) %0)
-  br label %113
+  br label %119
 
-113:                                              ; preds = %3, %._crit_edge67, %45
+119:                                              ; preds = %3, %._crit_edge67, %45
   ret void
 }
 

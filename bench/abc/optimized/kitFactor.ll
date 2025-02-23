@@ -182,7 +182,7 @@ define i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 nou
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %10 = icmp eq i32 %spec.select, 1
-  br i1 %10, label %common.ret, label %16
+  br i1 %10, label %common.ret, label %.lr.ph49.preheader
 
 common.ret:                                       ; preds = %._crit_edge
   %11 = sdiv i32 %spec.select41, 2
@@ -192,41 +192,41 @@ common.ret:                                       ; preds = %._crit_edge
   %15 = or disjoint i32 %14, %12
   br label %common.ret59
 
-16:                                               ; preds = %._crit_edge
-  %17 = lshr i32 %spec.select, 1
+.lr.ph49.preheader:                               ; preds = %._crit_edge
+  %16 = lshr i32 %spec.select, 1
   br label %.lr.ph49
 
-.lr.ph49:                                         ; preds = %16, %24
-  %.147 = phi i32 [ %25, %24 ], [ %2, %16 ]
-  %.246 = phi i32 [ %.3, %24 ], [ 0, %16 ]
-  %18 = shl nuw i32 1, %.147
-  %19 = and i32 %18, %1
-  %.not = icmp eq i32 %19, 0
-  br i1 %.not, label %24, label %20
+.lr.ph49:                                         ; preds = %.lr.ph49.preheader, %23
+  %.147 = phi i32 [ %24, %23 ], [ %2, %.lr.ph49.preheader ]
+  %.246 = phi i32 [ %.3, %23 ], [ 0, %.lr.ph49.preheader ]
+  %17 = shl nuw i32 1, %.147
+  %18 = and i32 %17, %1
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %23, label %19
 
-20:                                               ; preds = %.lr.ph49
-  %21 = icmp eq i32 %.246, %17
-  br i1 %21, label %._crit_edge50, label %22
+19:                                               ; preds = %.lr.ph49
+  %20 = icmp eq i32 %.246, %16
+  br i1 %20, label %._crit_edge50, label %21
 
-22:                                               ; preds = %20
-  %23 = add nsw i32 %.246, 1
-  br label %24
+21:                                               ; preds = %19
+  %22 = add nsw i32 %.246, 1
+  br label %23
 
-24:                                               ; preds = %.lr.ph49, %22
-  %.3 = phi i32 [ %23, %22 ], [ %.246, %.lr.ph49 ]
-  %25 = add i32 %.147, 1
-  %exitcond54.not = icmp eq i32 %25, %3
+23:                                               ; preds = %.lr.ph49, %21
+  %.3 = phi i32 [ %22, %21 ], [ %.246, %.lr.ph49 ]
+  %24 = add i32 %.147, 1
+  %exitcond54.not = icmp eq i32 %24, %3
   br i1 %exitcond54.not, label %._crit_edge50, label %.lr.ph49, !llvm.loop !19
 
 common.ret59:                                     ; preds = %._crit_edge50, %common.ret
-  %common.ret59.op = phi i32 [ %15, %common.ret ], [ %28, %._crit_edge50 ]
+  %common.ret59.op = phi i32 [ %15, %common.ret ], [ %27, %._crit_edge50 ]
   ret i32 %common.ret59.op
 
-._crit_edge50:                                    ; preds = %24, %20, %4
-  %.1.lcssa = phi i32 [ %2, %4 ], [ %.147, %20 ], [ %3, %24 ]
-  %26 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.1.lcssa)
-  %27 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %.1.lcssa, i32 noundef %3)
-  %28 = tail call i32 @Kit_GraphAddNodeAnd(ptr noundef %0, i32 %26, i32 %27) #8
+._crit_edge50:                                    ; preds = %23, %19, %4
+  %.1.lcssa = phi i32 [ %2, %4 ], [ %.147, %19 ], [ %3, %23 ]
+  %25 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %.1.lcssa)
+  %26 = tail call i32 @Kit_SopFactorTrivialCube_rec(ptr noundef %0, i32 noundef %1, i32 noundef %.1.lcssa, i32 noundef %3)
+  %27 = tail call i32 @Kit_GraphAddNodeAnd(ptr noundef %0, i32 %25, i32 %26) #8
   br label %common.ret59
 }
 

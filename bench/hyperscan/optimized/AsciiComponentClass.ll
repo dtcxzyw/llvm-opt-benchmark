@@ -253,7 +253,7 @@ for.body.i.preheader.i.i:                         ; preds = %if.end20.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.body.i.preheader.i.i, %if.end20.i.i.i
   %i.1.lcssa.i.i.i = phi i64 [ %i.0.i.i.i, %if.end20.i.i.i ], [ %13, %for.body.i.preheader.i.i ]
-  %cmp28.not.i.i.i = icmp ugt i64 %i.1.lcssa.i.i.i, %conv2.i.i
+  %cmp28.not.i.i.i = icmp samesign ugt i64 %i.1.lcssa.i.i.i, %conv2.i.i
   br i1 %cmp28.not.i.i.i, label %_ZN3ue29CharReachC2Ehh.exit, label %if.then29.i.i.i
 
 if.then29.i.i.i:                                  ; preds = %for.end.i.i.i

@@ -3967,7 +3967,7 @@ if.then.i20.i342:                                 ; preds = %_ZNSt6vectorINSt7__
 invoke.cont90:                                    ; preds = %.noexc117, %if.then.i.i114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp74) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #22
-  %call.i119 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin264.sroa.0.0384) #27
+  %call.i119 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin264.sroa.0.0384) #27
   %cmp.i100.not = icmp eq ptr %call.i119, %add.ptr.i.i
   br i1 %cmp.i100.not, label %for.end95, label %invoke.cont80
 

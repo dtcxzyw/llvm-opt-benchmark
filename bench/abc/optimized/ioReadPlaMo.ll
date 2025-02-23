@@ -3348,7 +3348,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %56 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %55)
   %57 = add nsw i32 %56, %62
   %exitcond.not = icmp eq i64 %indvars.iv.next37.i, %54
-  br i1 %exitcond.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader, !llvm.loop !85
+  br i1 %exitcond.not, label %.lr.ph.i38, label %.lr.ph.i36.preheader
 
 .lr.ph.i36.preheader:                             ; preds = %.lr.ph31.i, %.critedge2.loopexit.i
   %indvars.iv.next37.i161 = phi i64 [ %indvars.iv.next37.i, %.critedge2.loopexit.i ], [ 1, %.lr.ph31.i ]
@@ -3420,7 +3420,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %83 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %82)
   %84 = add nsw i32 %83, %89
   %exitcond181.not = icmp eq i64 %indvars.iv.next37.i50, %umax
-  br i1 %exitcond181.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader, !llvm.loop !85
+  br i1 %exitcond181.not, label %.lr.ph.i67, label %.lr.ph.i56.preheader
 
 .lr.ph.i56.preheader:                             ; preds = %.lr.ph.i56.preheader.preheader, %.critedge2.loopexit.i52
   %indvars.iv.next37.i50163 = phi i64 [ %indvars.iv.next37.i50, %.critedge2.loopexit.i52 ], [ 1, %.lr.ph.i56.preheader.preheader ]
@@ -3491,7 +3491,7 @@ Mop_ManCountOutputLits.exit:                      ; preds = %Mop_ManCountOnes.ex
   %110 = call i32 @Mop_ManRemoveIdentical(ptr noundef readonly %0, ptr noundef nonnull %109)
   %111 = add nsw i32 %110, %116
   %exitcond183.not = icmp eq i64 %indvars.iv.next37.i84, %umax182
-  br i1 %exitcond183.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader, !llvm.loop !85
+  br i1 %exitcond183.not, label %Mop_ManMergeContainAll.exit98, label %.lr.ph.i90.preheader
 
 .lr.ph.i90.preheader:                             ; preds = %.lr.ph.i90.preheader.preheader, %.critedge2.loopexit.i86
   %indvars.iv.next37.i84168 = phi i64 [ %indvars.iv.next37.i84, %.critedge2.loopexit.i86 ], [ 1, %.lr.ph.i90.preheader.preheader ]
@@ -4559,7 +4559,7 @@ define ptr @Mop_ManDerive(ptr noundef readonly captures(none) %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.071 = phi i32 [ %24, %.lr.ph ], [ 0, %2 ]
-  %23 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 2) #23
+  %23 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %8, i32 noundef 2) #23
   %24 = add nuw nsw i32 %.071, 1
   %25 = load i32, ptr %0, align 8, !tbaa !3
   %26 = icmp slt i32 %24, %25
@@ -4570,8 +4570,8 @@ define ptr @Mop_ManDerive(ptr noundef readonly captures(none) %0, ptr noundef %1
   %indvars.iv88 = phi i64 [ 0, %.lr.ph82 ], [ %indvars.iv.next89, %157 ]
   %.val57 = load ptr, ptr %18, align 8, !tbaa !79
   %29 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val57, i64 %indvars.iv88
-  %30 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 3) #23
-  %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef %8, i32 noundef 7) #23
+  %30 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %8, i32 noundef 3) #23
+  %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %8, i32 noundef 7) #23
   tail call void @Abc_ObjAddFanin(ptr noundef %30, ptr noundef %31) #23
   %32 = getelementptr i8, ptr %29, i64 4
   %.val55 = load i32, ptr %32, align 4, !tbaa !21

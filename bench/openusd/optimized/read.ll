@@ -526,8 +526,8 @@ define hidden i32 @avifDecoderReset(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  %indvars.iv758.sroa.gep1099 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %indvars.iv758.sroa.gep1102 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %indvars.iv758.sroa.gep1103 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %indvars.iv758.sroa.gep1106 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %avifMetaFindAlphaItem.exit, label %.preheader528
 
 .preheader528:                                    ; preds = %1
@@ -1089,16 +1089,12 @@ avifPropertyArrayFind.exit.i.i:                   ; preds = %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(44) @.str.159) #14
   %.not.i7.i.i = icmp eq i32 %244, 0
-  br i1 %.not.i7.i.i, label %avifDecoderItemIsAlphaAux.exit.thread106.i, label %avifDecoderItemIsAlphaAux.exit.i
+  br i1 %.not.i7.i.i, label %313, label %avifDecoderItemIsAlphaAux.exit.i
 
 avifDecoderItemIsAlphaAux.exit.i:                 ; preds = %avifPropertyArrayFind.exit.i.i
   %245 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %243, ptr noundef nonnull dereferenceable(27) @.str.160) #14
   %.not2.i.i.not.i = icmp eq i32 %245, 0
-  br i1 %.not2.i.i.not.i, label %avifDecoderItemIsAlphaAux.exit.thread106.i, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
-
-avifDecoderItemIsAlphaAux.exit.thread106.i:       ; preds = %avifDecoderItemIsAlphaAux.exit.i, %avifPropertyArrayFind.exit.i.i
-  store ptr %220, ptr %215, align 8
-  br label %313
+  br i1 %.not2.i.i.not.i, label %313, label %avifDecoderItemShouldBeSkipped.exit.thread.i453
 
 avifDecoderItemShouldBeSkipped.exit.thread.i453:  ; preds = %240, %avifDecoderItemIsAlphaAux.exit.i, %235, %231, %avifDecoderItemShouldBeSkipped.exit.i462, %228, %223, %219
   %indvars.iv.next.i454 = add nuw nsw i64 %indvars.iv.i450, 1
@@ -1271,24 +1267,25 @@ avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderIt
   store i32 %.pre, ptr %311, align 4
   %indvars.iv.next154.i = add nuw nsw i64 %indvars.iv153.i, 1
   %exitcond157.not.i = icmp eq i64 %indvars.iv.next154.i, %253
-  br i1 %exitcond157.not.i, label %._crit_edge136.i, label %.lr.ph135.i, !llvm.loop !16
+  br i1 %exitcond157.not.i, label %.thread793, label %.lr.ph135.i, !llvm.loop !16
 
-._crit_edge136.i:                                 ; preds = %.lr.ph135.i
+.thread793:                                       ; preds = %.lr.ph135.i
   tail call void @avifFree(ptr noundef nonnull %255) #13
   %312 = getelementptr inbounds nuw i8, ptr %9, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %312, ptr noundef nonnull readonly align 4 dereferenceable(16) %invariant.gep, i64 16, i1 false)
-  br label %313
+  br label %314
 
-313:                                              ; preds = %avifDecoderItemIsAlphaAux.exit.thread106.i, %._crit_edge136.i
-  %314 = phi ptr [ %220, %avifDecoderItemIsAlphaAux.exit.thread106.i ], [ %299, %._crit_edge136.i ]
-  %.0496.ph = phi i32 [ 1, %avifDecoderItemIsAlphaAux.exit.thread106.i ], [ 0, %._crit_edge136.i ]
-  %.not374 = icmp eq ptr %314, null
-  br i1 %.not374, label %.thread, label %315
+313:                                              ; preds = %avifPropertyArrayFind.exit.i.i, %avifDecoderItemIsAlphaAux.exit.i
+  store ptr %220, ptr %215, align 8
+  %.not374 = icmp eq ptr %218, null
+  br i1 %.not374, label %.thread, label %314
 
-315:                                              ; preds = %313
+314:                                              ; preds = %.thread793, %313
+  %.0496.ph796 = phi i32 [ 0, %.thread793 ], [ 1, %313 ]
+  %315 = phi ptr [ %299, %.thread793 ], [ %220, %313 ]
   %316 = getelementptr inbounds nuw i8, ptr %9, i64 96
   %317 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %318 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %314, i32 noundef %.0496.ph, ptr noundef %316, ptr noundef %317)
+  %318 = call fastcc i32 @avifDecoderItemReadAndParse(ptr noundef %0, ptr noundef %315, i32 noundef %.0496.ph796, ptr noundef %316, ptr noundef %317)
   %.not375 = icmp eq i32 %318, 0
   br i1 %.not375, label %.thread, label %avifMetaFindAlphaItem.exit
 
@@ -1296,9 +1293,9 @@ avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderIt
   store ptr null, ptr %215, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %313, %315
-  %319 = phi ptr [ null, %313 ], [ %314, %315 ], [ null, %.thread.sink.split ]
-  %.0496.ph509 = phi i32 [ %.0496.ph, %313 ], [ %.0496.ph, %315 ], [ 0, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %313, %314
+  %319 = phi ptr [ null, %313 ], [ %315, %314 ], [ null, %.thread.sink.split ]
+  %.0496.ph509 = phi i32 [ 1, %313 ], [ %.0496.ph796, %314 ], [ 0, %.thread.sink.split ]
   %320 = load ptr, ptr %9, align 8
   %321 = load ptr, ptr %10, align 8
   %322 = load ptr, ptr %3, align 16
@@ -1337,10 +1334,10 @@ avifDecoderItemIsAlphaAux.exit102.thread.i:       ; preds = %277, %avifDecoderIt
 
 342:                                              ; preds = %325, %605
   %.not660 = phi i1 [ true, %325 ], [ false, %605 ]
-  %indvars.iv758.sroa.phi = phi ptr [ %4, %325 ], [ %indvars.iv758.sroa.gep1099, %605 ]
-  %indvars.iv758.sroa.phi1100 = phi ptr [ %3, %325 ], [ %indvars.iv758.sroa.gep1102, %605 ]
+  %indvars.iv758.sroa.phi = phi ptr [ %4, %325 ], [ %indvars.iv758.sroa.gep1103, %605 ]
+  %indvars.iv758.sroa.phi1104 = phi ptr [ %3, %325 ], [ %indvars.iv758.sroa.gep1106, %605 ]
   %indvars.iv758 = phi i64 [ 0, %325 ], [ 1, %605 ]
-  %343 = load ptr, ptr %indvars.iv758.sroa.phi1100, align 8
+  %343 = load ptr, ptr %indvars.iv758.sroa.phi1104, align 8
   %.not378 = icmp eq ptr %343, null
   br i1 %.not378, label %605, label %344
 
@@ -2019,21 +2016,21 @@ avifDecoderItemValidateProperties.exit:           ; preds = %583, %.loopexit.i48
   br label %.sink.split
 
 .sink.split:                                      ; preds = %184, %629
-  %.sink898 = phi ptr [ %319, %629 ], [ %.0307, %184 ]
-  %.sink896.in = phi ptr [ %630, %629 ], [ %185, %184 ]
+  %.sink902 = phi ptr [ %319, %629 ], [ %.0307, %184 ]
+  %.sink900.in = phi ptr [ %630, %629 ], [ %185, %184 ]
   %.0306.ph = phi ptr [ %213, %629 ], [ %79, %184 ]
-  %.sink896 = load i32, ptr %.sink896.in, align 4
-  %631 = load i32, ptr %.sink898, align 8
-  %632 = icmp eq i32 %.sink896, %631
+  %.sink900 = load i32, ptr %.sink900.in, align 4
+  %631 = load i32, ptr %.sink902, align 8
+  %632 = icmp eq i32 %.sink900, %631
   %633 = zext i1 %632 to i32
   br label %634
 
 634:                                              ; preds = %.sink.split, %620, %154
-  %.sink892 = phi i32 [ 0, %154 ], [ 0, %620 ], [ %633, %.sink.split ]
+  %.sink896 = phi i32 [ 0, %154 ], [ 0, %620 ], [ %633, %.sink.split ]
   %.0306 = phi ptr [ %79, %154 ], [ %213, %620 ], [ %.0306.ph, %.sink.split ]
   %635 = load ptr, ptr %10, align 8
   %636 = getelementptr inbounds nuw i8, ptr %635, i64 80
-  store i32 %.sink892, ptr %636, align 8
+  store i32 %.sink896, ptr %636, align 8
   %637 = getelementptr inbounds nuw i8, ptr %9, i64 56
   br label %642
 
@@ -2374,8 +2371,8 @@ avifDecoderItemValidateProperties.exit:           ; preds = %583, %.loopexit.i48
   %819 = call fastcc i32 @avifReadCodecConfigProperty(ptr noundef %818, ptr noundef nonnull %.0306)
   br label %avifMetaFindAlphaItem.exit
 
-avifMetaFindAlphaItem.exit:                       ; preds = %464, %avifDecoderItemOperatingPoint.exit.i, %445, %avifDecoderItemOperatingPoint.exit.i.i, %403, %avifPropertyArrayFind.exit.i.i476, %.lr.ph650, %705, %697, %688, %687, %789, %381, %386, %.loopexit.i.i, %431, %444, %avifDecoderItemValidateProperties.exit.thread, %298, %252, %.loopexit, %.thread, %315, %209, %140, %134, %119, %avifSampleTableGetCodecType.exit438._crit_edge.thread, %82, %13, %1, %.loopexit526, %192, %.loopexit517, %avifSampleTableGetCodecType.exit._crit_edge.thread
-  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 9, %.loopexit517 ], [ 10, %192 ], [ 10, %.loopexit526 ], [ 0, %1 ], [ 26, %13 ], [ %84, %82 ], [ 26, %avifSampleTableGetCodecType.exit438._crit_edge.thread ], [ %130, %119 ], [ 26, %134 ], [ %149, %140 ], [ %211, %209 ], [ %318, %315 ], [ %324, %.thread ], [ %819, %.loopexit ], [ %297, %298 ], [ 26, %252 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %381 ], [ 18, %386 ], [ 18, %.loopexit.i.i ], [ 18, %431 ], [ 18, %444 ], [ %792, %789 ], [ 9, %705 ], [ %701, %697 ], [ %696, %688 ], [ 9, %687 ], [ 9, %.lr.ph650 ], [ 26, %avifPropertyArrayFind.exit.i.i476 ], [ %410, %403 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ 10, %445 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ %471, %464 ]
+avifMetaFindAlphaItem.exit:                       ; preds = %464, %avifDecoderItemOperatingPoint.exit.i, %445, %avifDecoderItemOperatingPoint.exit.i.i, %403, %avifPropertyArrayFind.exit.i.i476, %.lr.ph650, %705, %697, %688, %687, %789, %381, %386, %.loopexit.i.i, %431, %444, %avifDecoderItemValidateProperties.exit.thread, %298, %252, %.loopexit, %.thread, %314, %209, %140, %134, %119, %avifSampleTableGetCodecType.exit438._crit_edge.thread, %82, %13, %1, %.loopexit526, %192, %.loopexit517, %avifSampleTableGetCodecType.exit._crit_edge.thread
+  %.0 = phi i32 [ 3, %avifSampleTableGetCodecType.exit._crit_edge.thread ], [ 9, %.loopexit517 ], [ 10, %192 ], [ 10, %.loopexit526 ], [ 0, %1 ], [ 26, %13 ], [ %84, %82 ], [ 26, %avifSampleTableGetCodecType.exit438._crit_edge.thread ], [ %130, %119 ], [ 26, %134 ], [ %149, %140 ], [ %211, %209 ], [ %318, %314 ], [ %324, %.thread ], [ %819, %.loopexit ], [ %297, %298 ], [ 26, %252 ], [ 9, %avifDecoderItemValidateProperties.exit.thread ], [ 18, %381 ], [ 18, %386 ], [ 18, %.loopexit.i.i ], [ 18, %431 ], [ 18, %444 ], [ %792, %789 ], [ 9, %705 ], [ %701, %697 ], [ %696, %688 ], [ 9, %687 ], [ 9, %.lr.ph650 ], [ 26, %avifPropertyArrayFind.exit.i.i476 ], [ %410, %403 ], [ 26, %avifDecoderItemOperatingPoint.exit.i.i ], [ 10, %445 ], [ 26, %avifDecoderItemOperatingPoint.exit.i ], [ %471, %464 ]
   ret i32 %.0
 }
 
@@ -10716,7 +10713,7 @@ avifPropertyArrayFind.exit134.thread:             ; preds = %40
 
 .loopexit167:                                     ; preds = %.preheader, %65
   %.195 = phi i64 [ %67, %65 ], [ %62, %.preheader ]
-  %68 = tail call ptr @avifArrayPush(ptr noundef %0) #13
+  %68 = tail call ptr @avifArrayPush(ptr noundef nonnull %0) #13
   %.not122 = icmp eq ptr %68, null
   br i1 %.not122, label %.loopexit, label %69
 

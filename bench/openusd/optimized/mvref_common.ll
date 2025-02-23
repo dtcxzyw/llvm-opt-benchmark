@@ -1707,7 +1707,7 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
 
 .lr.ph632.i:                                      ; preds = %.lr.ph632.i, %.lr.ph632.preheader.i
   %indvars.iv697.i = phi i64 [ %811, %.lr.ph632.preheader.i ], [ 1, %.lr.ph632.i ]
-  %813 = getelementptr inbounds nuw %union.int_mv, ptr %67, i64 %indvars.iv697.i
+  %813 = getelementptr inbounds nuw %union.int_mv, ptr %66, i64 %indvars.iv697.i
   store i32 %.pre732.i, ptr %813, align 4
   %814 = icmp eq i64 %indvars.iv697.i, 0
   br i1 %814, label %.lr.ph632.i, label %.preheader575.loopexit.i, !llvm.loop !33
@@ -1716,7 +1716,7 @@ process_single_ref_mv_candidate.exit540.i:        ; preds = %758
   %indvars.iv700.i = phi i64 [ 1, %.lr.ph636.i ], [ 0, %.lr.ph636.i.preheader ]
   %815 = getelementptr inbounds nuw %struct.candidate_mv, ptr %64, i64 %indvars.iv700.i
   %816 = load i32, ptr %815, align 4
-  %817 = getelementptr inbounds nuw %union.int_mv, ptr %67, i64 %indvars.iv700.i
+  %817 = getelementptr inbounds nuw %union.int_mv, ptr %66, i64 %indvars.iv700.i
   store i32 %816, ptr %817, align 4
   %indvars.iv.next701.i = add nuw nsw i64 %indvars.iv700.i, 1
   %818 = load i8, ptr %63, align 1

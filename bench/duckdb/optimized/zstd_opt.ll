@@ -39,7 +39,7 @@ define void @_ZN11duckdb_zstd15ZSTD_updateTreeEPNS_17ZSTD_matchState_tEPKhS3_(pt
   %.0.i4 = phi i32 [ %18, %.lr.ph ], [ %13, %3 ]
   %15 = zext i32 %.0.i4 to i64
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
-  %17 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %0, ptr noundef %16, ptr noundef %2, i32 noundef %11, i32 noundef %5, i32 noundef 0)
+  %17 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %2, i32 noundef %11, i32 noundef %5, i32 noundef 0)
   %18 = add i32 %17, %.0.i4
   %19 = icmp ult i32 %18, %11
   br i1 %19, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit, !llvm.loop !21
@@ -277,8 +277,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %94,
   br i1 %exitcond.not, label %.preheader189.preheader, label %.preheader190, !llvm.loop !48
 
 .preheader189.preheader:                          ; preds = %.preheader190
-  %umax263 = call i32 @llvm.umax.i32(i32 %89, i32 1)
-  %wide.trip.count264 = zext i32 %umax263 to i64
+  %wide.trip.count264 = zext i32 %89 to i64
   br label %.preheader189
 
 .preheader189:                                    ; preds = %.preheader189.preheader, %._crit_edge
@@ -1753,8 +1752,7 @@ _ZN11duckdb_zstdL19ZSTD_litLengthPriceEjPKNS_10optState_tEi.exit: ; preds = %96,
   br i1 %exitcond.not, label %.preheader306.preheader, label %.preheader307, !llvm.loop !48
 
 .preheader306.preheader:                          ; preds = %.preheader307
-  %umax376 = call i32 @llvm.umax.i32(i32 %91, i32 1)
-  %wide.trip.count377 = zext i32 %umax376 to i64
+  %wide.trip.count377 = zext i32 %91 to i64
   br label %.preheader306
 
 .preheader306:                                    ; preds = %.preheader306.preheader, %._crit_edge
@@ -4422,7 +4420,7 @@ _ZN11duckdb_zstdL7sum_u32EPKjm.exit.i:            ; preds = %127
   %137 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i.i
   %138 = load i32, ptr %137, align 4, !tbaa !26
   %139 = lshr i32 %138, %136
-  %140 = add i32 %139, 1
+  %140 = add nuw i32 %139, 1
   %141 = add i32 %140, %.01517.i.i
   store i32 %140, ptr %137, align 4, !tbaa !26
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4466,7 +4464,7 @@ _ZN11duckdb_zstdL7sum_u32EPKjm.exit.i102:         ; preds = %146
   %156 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i104
   %157 = load i32, ptr %156, align 4, !tbaa !26
   %158 = lshr i32 %157, %155
-  %159 = add i32 %158, 1
+  %159 = add nuw i32 %158, 1
   %160 = add i32 %159, %.01517.i.i105
   store i32 %159, ptr %156, align 4, !tbaa !26
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
@@ -4506,7 +4504,7 @@ _ZN11duckdb_zstdL7sum_u32EPKjm.exit.i113:         ; preds = %163
   %173 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i.i115
   %174 = load i32, ptr %173, align 4, !tbaa !26
   %175 = lshr i32 %174, %172
-  %176 = add i32 %175, 1
+  %176 = add nuw i32 %175, 1
   %177 = add i32 %176, %.01517.i.i116
   store i32 %176, ptr %173, align 4, !tbaa !26
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
@@ -4547,7 +4545,7 @@ _ZN11duckdb_zstdL7sum_u32EPKjm.exit.i124:         ; preds = %181
   %191 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i.i126
   %192 = load i32, ptr %191, align 4, !tbaa !26
   %193 = lshr i32 %192, %190
-  %194 = add i32 %193, 1
+  %194 = add nuw i32 %193, 1
   %195 = add i32 %194, %.01517.i.i127
   store i32 %194, ptr %191, align 4, !tbaa !26
   %indvars.iv.next.i.i128 = add nuw nsw i64 %indvars.iv.i.i126, 1
@@ -4799,7 +4797,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_noDict_3EPN
   %.0.i.i118 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i118 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i118
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -5456,7 +5454,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_noDict_4EPN
   %.0.i.i79 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i79 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i79
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -5936,7 +5934,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_noDict_5EPN
   %.0.i.i79 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i79 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i79
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -6416,7 +6414,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL29ZSTD_btGetAllMatches_noDict_6EPN
   %.0.i.i79 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i79 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i79
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -6896,7 +6894,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL30ZSTD_btGetAllMatches_extDict_3EP
   %.0.i.i124 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i124 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 1)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i124
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -7613,7 +7611,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL30ZSTD_btGetAllMatches_extDict_4EP
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 1)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -8142,7 +8140,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL30ZSTD_btGetAllMatches_extDict_5EP
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 1)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -8671,7 +8669,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL30ZSTD_btGetAllMatches_extDict_6EP
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 1)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -9200,7 +9198,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL37ZSTD_btGetAllMatches_dictMatchSt
   %.0.i.i149 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i149 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i149
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -10023,7 +10021,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL37ZSTD_btGetAllMatches_dictMatchSt
   %.0.i.i108 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i108 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i108
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -10667,7 +10665,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL37ZSTD_btGetAllMatches_dictMatchSt
   %.0.i.i108 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i108 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i108
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21
@@ -11309,7 +11307,7 @@ define internal noundef i32 @_ZN11duckdb_zstdL37ZSTD_btGetAllMatches_dictMatchSt
   %.0.i.i108 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i108 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
+  %25 = tail call fastcc noundef i32 @_ZN11duckdb_zstdL14ZSTD_insertBt1EPKNS_17ZSTD_matchState_tEPKhS4_jji(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i108
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %_ZN11duckdb_zstdL24ZSTD_updateTree_internalEPNS_17ZSTD_matchState_tEPKhS3_jNS_15ZSTD_dictMode_eE.exit.i.loopexit, !llvm.loop !21

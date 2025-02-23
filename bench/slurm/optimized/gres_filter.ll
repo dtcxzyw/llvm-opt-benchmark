@@ -461,7 +461,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %210, %219, %201, %s
   call void @qsort(ptr noundef %.pre1100, i64 noundef %31, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
   br label %._crit_edge944
 
-._crit_edge913:                                   ; preds = %.lr.ph912
+.lr.ph943:                                        ; preds = %.lr.ph912
   call void @qsort(ptr noundef nonnull %.pre1100, i64 noundef %31, i64 noundef 4, ptr noundef nonnull @_sort_sockets_by_avail_cores) #5
   %230 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %231 = icmp ne i16 %.0829, 0
@@ -481,7 +481,7 @@ _estimate_cpus_per_gres.exit:                     ; preds = %210, %219, %201, %s
   store i32 %238, ptr %237, align 4
   %indvars.iv.next1067 = add nuw nsw i64 %indvars.iv1066, 1
   %exitcond1070.not = icmp eq i64 %indvars.iv.next1067, %wide.trip.count1069
-  br i1 %exitcond1070.not, label %._crit_edge913, label %.lr.ph912, !llvm.loop !13
+  br i1 %exitcond1070.not, label %.lr.ph943, label %.lr.ph912, !llvm.loop !13
 
 ._crit_edge944:                                   ; preds = %374, %._crit_edge913.thread
   %.promoted967 = phi i16 [ 0, %._crit_edge913.thread ], [ %357, %374 ]
@@ -494,14 +494,14 @@ _estimate_cpus_per_gres.exit:                     ; preds = %210, %219, %201, %s
   %.not724 = icmp eq i16 %.0829, 0
   br i1 %.not724, label %380, label %375
 
-239:                                              ; preds = %._crit_edge913, %374
-  %indvars.iv1076 = phi i64 [ 0, %._crit_edge913 ], [ %indvars.iv.next1077, %374 ]
-  %.3941 = phi i32 [ %.15881018, %._crit_edge913 ], [ %.4, %374 ]
-  %.0606940 = phi i1 [ false, %._crit_edge913 ], [ %.1607, %374 ]
-  %.0609939 = phi i64 [ %229, %._crit_edge913 ], [ %.1610, %374 ]
-  %.0627938 = phi i32 [ 0, %._crit_edge913 ], [ %.1628, %374 ]
-  %240 = phi i16 [ %.promoted933, %._crit_edge913 ], [ %352, %374 ]
-  %241 = phi i16 [ 0, %._crit_edge913 ], [ %357, %374 ]
+239:                                              ; preds = %.lr.ph943, %374
+  %indvars.iv1076 = phi i64 [ 0, %.lr.ph943 ], [ %indvars.iv.next1077, %374 ]
+  %.3941 = phi i32 [ %.15881018, %.lr.ph943 ], [ %.4, %374 ]
+  %.0606940 = phi i1 [ false, %.lr.ph943 ], [ %.1607, %374 ]
+  %.0609939 = phi i64 [ %229, %.lr.ph943 ], [ %.1610, %374 ]
+  %.0627938 = phi i32 [ 0, %.lr.ph943 ], [ %.1628, %374 ]
+  %240 = phi i16 [ %.promoted933, %.lr.ph943 ], [ %352, %374 ]
+  %241 = phi i16 [ 0, %.lr.ph943 ], [ %357, %374 ]
   %242 = getelementptr inbounds nuw i32, ptr %.pre1100, i64 %indvars.iv1076
   %243 = load i32, ptr %242, align 4
   %244 = load ptr, ptr %230, align 8

@@ -588,13 +588,13 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
-  %.sink124 = select i1 %28, i64 36, i64 44
-  %.sink123 = select i1 %28, i64 40, i64 48
-  %.sink120.idx = select i1 %28, i64 0, i64 4
-  %.sink120 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink120.idx
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink124
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink123
-  %31 = call fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef %.sink120, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %7)
+  %.sink123 = select i1 %28, i64 36, i64 44
+  %.sink122 = select i1 %28, i64 40, i64 48
+  %.sink119.idx = select i1 %28, i64 0, i64 4
+  %.sink119 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink119.idx
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink123
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink122
+  %31 = call fastcc zeroext i1 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef %.sink119, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %.092, i64 8
   %33 = zext i1 %31 to i8
   store i8 %33, ptr %32, align 4
@@ -697,17 +697,17 @@ ts2_add_checked_crc32.exit:                       ; preds = %40, %52
   %.1107112 = phi ptr [ %80, %.thread110 ], [ %83, %82 ]
   %85 = load i8, ptr %61, align 4, !range !6, !noundef !7
   %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %.thread114, label %87
+  br i1 %86, label %279, label %87
 
 87:                                               ; preds = %81, %84
   %.1106 = phi ptr [ %.1107112, %84 ], [ %73, %81 ]
   %88 = getelementptr inbounds nuw i8, ptr %43, i64 9
   %89 = load i8, ptr %88, align 1, !range !6, !noundef !7
   %90 = trunc nuw i8 %89 to i1
-  br i1 %90, label %.thread114, label %91
+  br i1 %90, label %279, label %91
 
 91:                                               ; preds = %87
-  switch i16 %8, label %.thread114 [
+  switch i16 %8, label %279 [
     i16 5, label %92
     i16 6, label %103
     i16 7, label %163
@@ -732,7 +732,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %40, %52
   %100 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %99, ptr noundef %.1106, i32 noundef 62, i32 noundef 1, i32 noundef 0)
   %101 = load i32, ptr @hf_ts2_unknown, align 4
   %102 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %101, ptr noundef %.1106, i32 noundef 92, i32 noundef 4, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 103:                                              ; preds = %91
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -803,7 +803,7 @@ ts2_add_checked_crc32.exit:                       ; preds = %40, %52
 
 ts2_parse_channellist.exit:                       ; preds = %.lr.ph.i, %103
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #6
-  br label %.thread114
+  br label %279
 
 163:                                              ; preds = %91
   %164 = load i32, ptr @hf_ts2_number_of_players, align 4
@@ -855,7 +855,7 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %201 = load i32, ptr @hf_ts2_emptyspace, align 4
   %202 = call i32 @tvb_captured_length_remaining(ptr noundef %.1106, i32 noundef 0)
   %203 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %201, ptr noundef %.1106, i32 noundef %.036.lcssa.i, i32 noundef %202, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 204:                                              ; preds = %91
   %205 = load i32, ptr @hf_ts2_player_id, align 4
@@ -866,7 +866,7 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %210 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %209, ptr noundef %.1106, i32 noundef 8, i32 noundef 6, i32 noundef 0)
   %211 = load i32, ptr @hf_ts2_nick, align 4
   %212 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %211, ptr noundef %.1106, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 213:                                              ; preds = %91
   %214 = load i32, ptr @hf_ts2_player_id, align 4
@@ -883,7 +883,7 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %225 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %224, ptr noundef %.1106, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
   %226 = load i32, ptr @hf_ts2_status_mute, align 4
   %227 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %226, ptr noundef %.1106, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
-  br label %.thread114
+  br label %279
 
 228:                                              ; preds = %91
   %229 = load i32, ptr @hf_ts2_player_id, align 4
@@ -895,7 +895,7 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %235 = load i32, ptr @hf_ts2_unknown, align 4
   %236 = call i32 @tvb_captured_length_remaining(ptr noundef %.1106, i32 noundef 12)
   %237 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %235, ptr noundef %.1106, i32 noundef 12, i32 noundef %236, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 238:                                              ; preds = %91
   %239 = load i32, ptr @hf_ts2_player_id, align 4
@@ -907,13 +907,13 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %245 = load i32, ptr @hf_ts2_unknown, align 4
   %246 = call i32 @tvb_captured_length_remaining(ptr noundef %.1106, i32 noundef 12)
   %247 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %245, ptr noundef %.1106, i32 noundef 12, i32 noundef %246, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 248:                                              ; preds = %91
   %249 = load i32, ptr @hf_ts2_unknown, align 4
   %250 = call i32 @tvb_captured_length_remaining(ptr noundef %.1106, i32 noundef 0)
   %251 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %249, ptr noundef %.1106, i32 noundef 0, i32 noundef %250, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 252:                                              ; preds = %91
   %253 = load i32, ptr @hf_ts2_player_status_flags, align 4
@@ -928,14 +928,14 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %262 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %261, ptr noundef %.1106, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
   %263 = load i32, ptr @hf_ts2_status_mute, align 4
   %264 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %263, ptr noundef %.1106, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  br label %.thread114
+  br label %279
 
 265:                                              ; preds = %91
   %266 = load i32, ptr @hf_ts2_channel_id, align 4
   %267 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %266, ptr noundef %.1106, i32 noundef 0, i32 noundef 4, i32 noundef -2147483648)
   %268 = load i32, ptr @hf_ts2_password, align 4
   %269 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %268, ptr noundef %.1106, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
 270:                                              ; preds = %91
   %271 = load i32, ptr @hf_ts2_player_id, align 4
@@ -946,21 +946,21 @@ ts2_parse_playerlist.exit:                        ; preds = %.lr.ph.i103, %163
   %276 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %275, ptr noundef %.1106, i32 noundef 8, i32 noundef 4, i32 noundef -2147483648)
   %277 = load i32, ptr @hf_ts2_unknown, align 4
   %278 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %277, ptr noundef %.1106, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %.thread114
+  br label %279
 
-.thread114:                                       ; preds = %ts2_parse_playerlist.exit, %ts2_parse_channellist.exit, %84, %87, %270, %265, %252, %248, %238, %228, %213, %204, %92, %91
-  %279 = getelementptr inbounds nuw i8, ptr %43, i64 9
-  %280 = load i8, ptr %279, align 1, !range !6, !noundef !7
-  %281 = trunc nuw i8 %280 to i1
-  br i1 %281, label %282, label %.critedge
+279:                                              ; preds = %84, %87, %270, %265, %252, %248, %238, %228, %213, %204, %ts2_parse_playerlist.exit, %ts2_parse_channellist.exit, %92, %91
+  %280 = getelementptr inbounds nuw i8, ptr %43, i64 9
+  %281 = load i8, ptr %280, align 1, !range !6, !noundef !7
+  %282 = trunc nuw i8 %281 to i1
+  br i1 %282, label %283, label %.critedge
 
-282:                                              ; preds = %.thread114
-  %283 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %284 = load ptr, ptr %283, align 8
-  call void @col_append_str(ptr noundef %284, i32 noundef 25, ptr noundef nonnull @.str.185)
+283:                                              ; preds = %279
+  %284 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %285 = load ptr, ptr %284, align 8
+  call void @col_append_str(ptr noundef %285, i32 noundef 25, ptr noundef nonnull @.str.185)
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread113, %282, %.thread114
+.critedge:                                        ; preds = %.thread113, %283, %279
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
   ret void
 }

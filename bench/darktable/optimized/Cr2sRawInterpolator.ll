@@ -309,7 +309,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %102 = zext nneg i32 %19 to i64
   %103 = zext nneg i32 %15 to i64
   %104 = zext nneg i32 %49 to i64
-  %wide.trip.count = zext i32 %74 to i64
+  %wide.trip.count = zext nneg i32 %74 to i64
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -796,7 +796,7 @@ define linkonce_odr hidden void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_
   %102 = zext nneg i32 %19 to i64
   %103 = zext nneg i32 %15 to i64
   %104 = zext nneg i32 %49 to i64
-  %wide.trip.count = zext i32 %74 to i64
+  %wide.trip.count = zext nneg i32 %74 to i64
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %107 = getelementptr inbounds nuw i8, ptr %4, i64 52

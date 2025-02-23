@@ -6430,7 +6430,7 @@ _zend_dirname.exit:                               ; preds = %.critedge.i, %50, %
 
 59:                                               ; preds = %_zend_dirname.exit.thread, %_zend_dirname.exit
   %.122 = phi ptr [ %4, %_zend_dirname.exit.thread ], [ %.0, %_zend_dirname.exit ]
-  call void @zval_ptr_dtor(ptr noundef %.122) #28
+  call void @zval_ptr_dtor(ptr noundef nonnull %.122) #28
   br label %60
 
 60:                                               ; preds = %59, %_zend_dirname.exit
@@ -14654,7 +14654,7 @@ zend_string_alloc.exit163:                        ; preds = %.lr.ph216
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !16
   %.not153229.not = icmp eq i64 %77, 0
-  br i1 %.not153229.not, label %.thread180, label %.lr.ph231
+  br i1 %.not153229.not, label %._crit_edge232, label %.lr.ph231
 
 .lr.ph231:                                        ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14674,19 +14674,15 @@ zend_string_alloc.exit163:                        ; preds = %.lr.ph216
   %exitcond.not = icmp eq i64 %86, %3
   br i1 %exitcond.not, label %.preheader, label %.lr.ph228
 
-.thread180:                                       ; preds = %111, %.preheader
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #28
-  br label %.critedge
-
-87:                                               ; preds = %.lr.ph231, %111
-  %.1139230 = phi i64 [ 0, %.lr.ph231 ], [ %112, %111 ]
+87:                                               ; preds = %.lr.ph231, %112
+  %.1139230 = phi i64 [ 0, %.lr.ph231 ], [ %113, %112 ]
   %88 = getelementptr inbounds nuw [1 x i8], ptr %78, i64 0, i64 %.1139230
   %89 = load i8, ptr %88, align 1, !tbaa !10
   %90 = zext i8 %89 to i64
   %91 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !10
   %.not = icmp eq i8 %92, 0
-  br i1 %.not, label %111, label %zend_string_alloc.exit
+  br i1 %.not, label %112, label %zend_string_alloc.exit
 
 zend_string_alloc.exit:                           ; preds = %87
   %93 = and i64 %77, -8
@@ -14716,34 +14712,38 @@ zend_string_alloc.exit:                           ; preds = %87
   store i8 %107, ptr %108, align 1, !tbaa !10
   %109 = add nuw i64 %.2140, 1
   %110 = icmp ult i64 %109, %100
-  br i1 %110, label %101, label %113
+  br i1 %110, label %101, label %.thread180
 
-111:                                              ; preds = %87
-  %112 = add nuw i64 %.1139230, 1
-  %exitcond249.not = icmp eq i64 %112, %77
-  br i1 %exitcond249.not, label %.thread180, label %87
-
-113:                                              ; preds = %101
-  %114 = getelementptr inbounds nuw [1 x i8], ptr %99, i64 0, i64 %109
-  store i8 0, ptr %114, align 1, !tbaa !10
+.thread180:                                       ; preds = %101
+  %111 = getelementptr inbounds nuw [1 x i8], ptr %99, i64 0, i64 %109
+  store i8 0, ptr %111, align 1, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #28
   br label %zend_string_copy.exit162
 
-.critedge:                                        ; preds = %73, %.thread171, %.thread180
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %116 = load i32, ptr %115, align 4, !tbaa !10
-  %117 = and i32 %116, 64
-  %.not.i = icmp eq i32 %117, 0
-  br i1 %.not.i, label %118, label %zend_string_copy.exit162
+112:                                              ; preds = %87
+  %113 = add nuw i64 %.1139230, 1
+  %exitcond250.not = icmp eq i64 %113, %77
+  br i1 %exitcond250.not, label %._crit_edge232, label %87
 
-118:                                              ; preds = %.critedge
-  %119 = load i32, ptr %0, align 4, !tbaa !21
-  %120 = add i32 %119, 1
-  store i32 %120, ptr %0, align 4, !tbaa !21
+._crit_edge232:                                   ; preds = %112, %.preheader
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #28
+  br label %.critedge
+
+.critedge:                                        ; preds = %73, %.thread171, %._crit_edge232
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %115 = load i32, ptr %114, align 4, !tbaa !10
+  %116 = and i32 %115, 64
+  %.not.i = icmp eq i32 %116, 0
+  br i1 %.not.i, label %117, label %zend_string_copy.exit162
+
+117:                                              ; preds = %.critedge
+  %118 = load i32, ptr %0, align 4, !tbaa !21
+  %119 = add i32 %118, 1
+  store i32 %119, ptr %0, align 4, !tbaa !21
   br label %zend_string_copy.exit162
 
-zend_string_copy.exit162:                         ; preds = %113, %._crit_edge, %._crit_edge224, %118, %.critedge, %10, %6
-  %.0 = phi ptr [ %95, %113 ], [ %0, %6 ], [ %0, %10 ], [ %0, %.critedge ], [ %0, %118 ], [ %32, %._crit_edge ], [ %62, %._crit_edge224 ]
+zend_string_copy.exit162:                         ; preds = %._crit_edge, %._crit_edge224, %117, %.critedge, %.thread180, %10, %6
+  %.0 = phi ptr [ %0, %6 ], [ %0, %10 ], [ %95, %.thread180 ], [ %0, %.critedge ], [ %0, %117 ], [ %32, %._crit_edge ], [ %62, %._crit_edge224 ]
   ret ptr %.0
 }
 
@@ -20235,7 +20235,7 @@ zend_parse_arg_long_ex.exit:                      ; preds = %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %31
-  %43 = icmp slt i64 %27, 3
+  %43 = icmp samesign ult i64 %27, 3
   br i1 %43, label %44, label %.preheader
 
 44:                                               ; preds = %._crit_edge

@@ -418,7 +418,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaI
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 1099511627775
   %34 = icmp samesign ult i64 %22, %33
-  br i1 %34, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread, label %116
+  br i1 %34, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread, label %.lr.ph.i.i.i.i55
 
 _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread: ; preds = %3, %_ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_12OracleCallerEESt10_Select1stIS7_ESt4lessIS3_ESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS5_.exit.i.i, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #23
@@ -561,7 +561,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %96 = load i64, ptr %95, align 8
   %97 = and i64 %96, 1152920405095219200
   %.not.i.i.i53 = icmp eq i64 %97, 1152920405095219200
-  br i1 %.not.i.i.i53, label %_ZN4cvc58internal12OracleCallerD2Ev.exit, label %98, !prof !22
+  br i1 %.not.i.i.i53, label %116, label %98, !prof !22
 
 98:                                               ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit.i
   %99 = add i64 %96, 1152920405095219200
@@ -570,11 +570,11 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %102 = or disjoint i64 %100, %101
   store i64 %102, ptr %95, align 8
   %103 = icmp eq i64 %100, 0
-  br i1 %103, label %104, label %_ZN4cvc58internal12OracleCallerD2Ev.exit, !prof !22
+  br i1 %103, label %104, label %116, !prof !22
 
 104:                                              ; preds = %98
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %95)
-          to label %_ZN4cvc58internal12OracleCallerD2Ev.exit unwind label %105
+          to label %116 unwind label %105
 
 105:                                              ; preds = %104
   %106 = landingpad { ptr, i32 }
@@ -582,12 +582,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ES
   %107 = extractvalue { ptr, i32 } %106, 0
   call void @__clang_call_terminate(ptr %107) #24
   unreachable
-
-_ZN4cvc58internal12OracleCallerD2Ev.exit:         ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit.i, %98, %104
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
-  %.pre = load ptr, ptr %17, align 8, !tbaa !14
-  br label %116
 
 108:                                              ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit.thread
   %109 = landingpad { ptr, i32 }
@@ -616,12 +610,15 @@ _ZN4cvc58internal12OracleCallerD2Ev.exit:         ; preds = %_ZNSt3mapIN4cvc58in
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
   br label %385
 
-116:                                              ; preds = %_ZN4cvc58internal12OracleCallerD2Ev.exit, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit
-  %117 = phi ptr [ %.pre, %_ZN4cvc58internal12OracleCallerD2Ev.exit ], [ %18, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit ]
-  %.not10.i.i.i.i54 = icmp eq ptr %117, null
+116:                                              ; preds = %104, %98, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev.exit.i
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #23
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5) #23
+  %.pre = load ptr, ptr %17, align 8, !tbaa !14
+  %.not10.i.i.i.i54 = icmp eq ptr %.pre, null
   br i1 %.not10.i.i.i.i54, label %.critedge.i64, label %.lr.ph.i.i.i.i55
 
-.lr.ph.i.i.i.i55:                                 ; preds = %116
+.lr.ph.i.i.i.i55:                                 ; preds = %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit, %116
+  %117 = phi ptr [ %.pre, %116 ], [ %18, %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_12OracleCallerESt4lessIS3_ESaISt4pairIKS3_S4_EEE4findERS8_.exit ]
   %118 = load ptr, ptr %4, align 8, !tbaa !18
   %119 = load i64, ptr %118, align 8
   %120 = and i64 %119, 1099511627775

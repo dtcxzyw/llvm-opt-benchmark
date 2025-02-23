@@ -699,7 +699,7 @@ b2BodyArray_Push.exit:                            ; preds = %.b2BodyArray_Reserv
   br i1 %213, label %214, label %222
 
 214:                                              ; preds = %174
-  %215 = tail call ptr @b2CreateIsland(ptr noundef %3, i32 noundef range(i32 1, -2147483648) %.0114) #10
+  %215 = tail call ptr @b2CreateIsland(ptr noundef nonnull %3, i32 noundef range(i32 1, -2147483648) %.0114) #10
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load i32, ptr %216, align 4, !tbaa !151
   store i32 %217, ptr %192, align 4, !tbaa !135
@@ -713,7 +713,7 @@ b2BodyArray_Push.exit:                            ; preds = %.b2BodyArray_Reserv
   br label %222
 
 222:                                              ; preds = %214, %174
-  tail call void @b2ValidateSolverSets(ptr noundef %3) #10
+  tail call void @b2ValidateSolverSets(ptr noundef nonnull %3) #10
   %223 = add nsw i32 %54, 1
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 1780
   %225 = load i16, ptr %224, align 4, !tbaa !28
@@ -4039,7 +4039,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds %struct.b2SolverSet, ptr %.val46, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %.val46, i64 88
-  tail call void @b2TransferBody(ptr noundef nonnull %4, ptr noundef nonnull %78, ptr noundef %77, ptr noundef %10) #10
+  tail call void @b2TransferBody(ptr noundef nonnull %4, ptr noundef nonnull %78, ptr noundef %77, ptr noundef nonnull %10) #10
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 68
   %80 = load i32, ptr %79, align 4, !tbaa !133
   %.not4355 = icmp eq i32 %80, -1
@@ -4492,7 +4492,7 @@ define i32 @b2Body_GetShapeCount(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @b2Body_GetShapes(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @b2Body_GetShapes(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -4567,7 +4567,7 @@ define i32 @b2Body_GetJointCount(i64 %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @b2Body_GetJoints(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @b2Body_GetJoints(i64 %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc i64 %.sroa.2.0.extract.shift to i16
   %4 = trunc nuw i64 %.sroa.2.0.extract.shift to i32

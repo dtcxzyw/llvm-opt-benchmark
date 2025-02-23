@@ -416,7 +416,7 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph56, !llvm.loop !13
 
 ._crit_edge57:                                    ; preds = %.lr.ph56, %50
-  call fastcc void @RunWorker(ptr noundef %0, ptr noundef %32)
+  call fastcc void @RunWorker(ptr noundef %0, ptr noundef nonnull %32)
   call void @exit(i32 noundef 0) #19
   unreachable
 

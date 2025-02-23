@@ -816,7 +816,7 @@ _ZN5Eigen6MatrixIfLin1ELi1ELi0ELin1ELi1EEC2INS_13CwiseBinaryOpINS_8internal13sca
   %63 = shl nsw i64 %62, 3
   %64 = sdiv i64 %16, 4
   %65 = shl nsw i64 %64, 2
-  %.off.i.i.i.i = add i64 %16, 3
+  %.off.i.i.i.i = add nsw i64 %16, 3
   %.not.i.i.i.i = icmp ult i64 %.off.i.i.i.i, 7
   br i1 %.not.i.i.i.i, label %101, label %66
 

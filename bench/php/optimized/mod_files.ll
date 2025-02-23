@@ -549,126 +549,122 @@ define hidden ptr @ps_create_sid_files(ptr noundef readonly captures(none) %0) #
   %invariant.gep = getelementptr inbounds nuw i8, ptr %2, i64 6
   br label %6
 
-6:                                                ; preds = %55, %1
-  %.0 = phi i32 [ 3, %1 ], [ %.1, %55 ]
+6:                                                ; preds = %53, %1
+  %.0 = phi i32 [ 3, %1 ], [ %.1, %53 ]
   %7 = call ptr @php_session_create_id(ptr noundef nonnull %4) #15
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %11
+  br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %6
-  %9 = add nsw i32 %.0, -1
-  %10 = icmp slt i32 %.0, 1
-  br i1 %10, label %.thread, label %55
+  %9 = icmp slt i32 %.0, 1
+  br i1 %9, label %.thread, label %53
 
-11:                                               ; preds = %6
-  %12 = load ptr, ptr %4, align 8, !tbaa !24
-  %.not15 = icmp eq ptr %12, null
-  br i1 %.not15, label %.thread, label %13
+10:                                               ; preds = %6
+  %11 = load ptr, ptr %4, align 8, !tbaa !24
+  %.not15 = icmp eq ptr %11, null
+  br i1 %.not15, label %.thread, label %12
 
-13:                                               ; preds = %11
+12:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %2) #15
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false)
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !22
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %17 = load i64, ptr %16, align 8, !tbaa !16
-  %.not40.i.i = icmp ugt i64 %15, %17
-  br i1 %.not40.i.i, label %18, label %ps_files_key_exists.exit.thread
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !22
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %16 = load i64, ptr %15, align 8, !tbaa !16
+  %.not40.i.i = icmp ugt i64 %14, %16
+  br i1 %.not40.i.i, label %17, label %ps_files_key_exists.exit.thread
 
-18:                                               ; preds = %13
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !23
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !22
-  %23 = shl i64 %17, 1
-  %24 = add i64 %15, -4086
-  %25 = add i64 %24, %23
-  %26 = add i64 %25, %22
-  %27 = icmp ult i64 %26, -4097
-  br i1 %27, label %ps_files_key_exists.exit.thread, label %28
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !23
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i64, ptr %20, align 8, !tbaa !22
+  %22 = shl i64 %16, 1
+  %23 = add i64 %14, -4086
+  %24 = add i64 %23, %22
+  %25 = add i64 %24, %21
+  %26 = icmp ult i64 %25, -4097
+  br i1 %26, label %ps_files_key_exists.exit.thread, label %27
 
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 8 %30, i64 %22, i1 false)
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 %22
-  store i8 47, ptr %31, align 1, !tbaa !4
-  %.041.i.i = add i64 %22, 1
-  %32 = trunc i64 %17 to i32
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph.i.i, label %ps_files_key_exists.exit
+27:                                               ; preds = %17
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %2, ptr nonnull align 8 %29, i64 %21, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %21
+  store i8 47, ptr %30, align 1, !tbaa !4
+  %.041.i.i = add i64 %21, 1
+  %31 = trunc i64 %16 to i32
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph.i.i, label %ps_files_key_exists.exit
 
-.lr.ph.i.i:                                       ; preds = %28, %.lr.ph.i.i
-  %.045.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.041.i.i, %28 ]
-  %.0.in44.i.i = phi i64 [ %36, %.lr.ph.i.i ], [ %22, %28 ]
-  %.03443.i.i = phi i32 [ %39, %.lr.ph.i.i ], [ 0, %28 ]
-  %.03542.i.i = phi ptr [ %34, %.lr.ph.i.i ], [ %29, %28 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.03542.i.i, i64 1
-  %35 = load i8, ptr %.03542.i.i, align 1, !tbaa !4
-  %36 = add i64 %.0.in44.i.i, 2
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %.045.i.i
-  store i8 %35, ptr %37, align 1, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 %36
-  store i8 47, ptr %38, align 1, !tbaa !4
-  %39 = add nuw nsw i32 %.03443.i.i, 1
+.lr.ph.i.i:                                       ; preds = %27, %.lr.ph.i.i
+  %.045.i.i = phi i64 [ %.0.i.i, %.lr.ph.i.i ], [ %.041.i.i, %27 ]
+  %.0.in44.i.i = phi i64 [ %35, %.lr.ph.i.i ], [ %21, %27 ]
+  %.03443.i.i = phi i32 [ %38, %.lr.ph.i.i ], [ 0, %27 ]
+  %.03542.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %28, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.03542.i.i, i64 1
+  %34 = load i8, ptr %.03542.i.i, align 1, !tbaa !4
+  %35 = add i64 %.0.in44.i.i, 2
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 %.045.i.i
+  store i8 %34, ptr %36, align 1, !tbaa !4
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %35
+  store i8 47, ptr %37, align 1, !tbaa !4
+  %38 = add nuw nsw i32 %.03443.i.i, 1
   %.0.i.i = add i64 %.0.in44.i.i, 3
-  %exitcond.not.i = icmp eq i32 %39, %32
+  %exitcond.not.i = icmp eq i32 %38, %31
   br i1 %exitcond.not.i, label %ps_files_key_exists.exit, label %.lr.ph.i.i
 
-ps_files_key_exists.exit.thread:                  ; preds = %18, %13
+ps_files_key_exists.exit.thread:                  ; preds = %17, %12
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #15
   br label %.thread
 
-ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %28
-  %.0.in.lcssa.i.i = phi i64 [ %22, %28 ], [ %36, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %28 ], [ %.0.i.i, %.lr.ph.i.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
+ps_files_key_exists.exit:                         ; preds = %.lr.ph.i.i, %27
+  %.0.in.lcssa.i.i = phi i64 [ %21, %27 ], [ %35, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i64 [ %.041.i.i, %27 ], [ %.0.i.i, %.lr.ph.i.i ]
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.lcssa.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %39, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.0.in.lcssa.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %gep, ptr nonnull readonly align 8 %29, i64 %15, i1 false)
-  %41 = getelementptr i8, ptr %gep, i64 %15
-  store i8 0, ptr %41, align 1, !tbaa !4
-  %42 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
-  %.not5.i.not = icmp eq i32 %42, 0
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %gep, ptr nonnull readonly align 8 %28, i64 %14, i1 false)
+  %40 = getelementptr i8, ptr %gep, i64 %14
+  store i8 0, ptr %40, align 1, !tbaa !4
+  %41 = call i32 @stat(ptr noundef nonnull %2, ptr noundef nonnull %3) #15
+  %.not5.i.not = icmp eq i32 %41, 0
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #15
-  br i1 %.not5.i.not, label %43, label %55
+  br i1 %.not5.i.not, label %42, label %.thread
 
-43:                                               ; preds = %ps_files_key_exists.exit
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !4
-  %46 = and i32 %45, 64
-  %.not.i = icmp eq i32 %46, 0
-  br i1 %.not.i, label %47, label %zend_string_release_ex.exit
+42:                                               ; preds = %ps_files_key_exists.exit
+  %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !4
+  %45 = and i32 %44, 64
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %46, label %zend_string_release_ex.exit
 
-47:                                               ; preds = %43
-  %48 = load i32, ptr %7, align 4, !tbaa !18
-  %49 = icmp ne i32 %48, 0
-  call void @llvm.assume(i1 %49)
-  %50 = add i32 %48, -1
-  store i32 %50, ptr %7, align 4, !tbaa !18
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %zend_string_release_ex.exit
+46:                                               ; preds = %42
+  %47 = load i32, ptr %7, align 4, !tbaa !18
+  %48 = icmp ne i32 %47, 0
+  call void @llvm.assume(i1 %48)
+  %49 = add i32 %47, -1
+  store i32 %49, ptr %7, align 4, !tbaa !18
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %51, label %zend_string_release_ex.exit
 
-52:                                               ; preds = %47
+51:                                               ; preds = %46
   call void @_efree(ptr noundef nonnull %7) #15
   br label %zend_string_release_ex.exit
 
-zend_string_release_ex.exit:                      ; preds = %43, %47, %52
-  %53 = add nsw i32 %.0, -1
-  %54 = icmp slt i32 %.0, 1
-  br i1 %54, label %.thread, label %55
+zend_string_release_ex.exit:                      ; preds = %42, %46, %51
+  %52 = icmp slt i32 %.0, 1
+  br i1 %52, label %.thread, label %53
 
-55:                                               ; preds = %ps_files_key_exists.exit, %zend_string_release_ex.exit, %8
-  %.08 = phi ptr [ null, %zend_string_release_ex.exit ], [ %7, %ps_files_key_exists.exit ], [ null, %8 ]
-  %.1 = phi i32 [ %53, %zend_string_release_ex.exit ], [ %.0, %ps_files_key_exists.exit ], [ %9, %8 ]
-  %.not16 = icmp eq ptr %.08, null
-  br i1 %.not16, label %6, label %.thread
+53:                                               ; preds = %zend_string_release_ex.exit, %8
+  %.1 = add nsw i32 %.0, -1
+  br label %6
 
-.thread:                                          ; preds = %11, %55, %zend_string_release_ex.exit, %8, %ps_files_key_exists.exit.thread
-  %.09 = phi ptr [ %7, %ps_files_key_exists.exit.thread ], [ %7, %11 ], [ %.08, %55 ], [ null, %zend_string_release_ex.exit ], [ null, %8 ]
+.thread:                                          ; preds = %10, %ps_files_key_exists.exit, %zend_string_release_ex.exit, %8, %ps_files_key_exists.exit.thread
+  %.09 = phi ptr [ %7, %ps_files_key_exists.exit.thread ], [ %7, %10 ], [ %7, %ps_files_key_exists.exit ], [ null, %zend_string_release_ex.exit ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   ret ptr %.09
 }
@@ -827,7 +823,7 @@ define hidden range(i32 -1, 1) i32 @ps_update_timestamp_files(ptr noundef readon
   br i1 %39, label %40, label %ps_files_path_create.exit.thread
 
 40:                                               ; preds = %.loopexit
-  %41 = tail call fastcc i32 @ps_files_write(ptr noundef nonnull %6, ptr noundef %1, ptr noundef %2)
+  %41 = tail call fastcc i32 @ps_files_write(ptr noundef nonnull %6, ptr noundef nonnull %1, ptr noundef %2)
   br label %ps_files_path_create.exit.thread
 
 ps_files_path_create.exit.thread:                 ; preds = %4, %7, %12, %.loopexit, %40

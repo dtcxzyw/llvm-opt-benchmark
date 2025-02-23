@@ -2865,7 +2865,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly c
   %indvars.iv81 = phi i64 [ 0, %.lr.ph72 ], [ %indvars.iv.next82, %52 ]
   %53 = mul nuw i64 %indvars.iv81, %50
   %54 = add i64 %53, %1
-  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @H5Z__nbit_compress_one_array(ptr noundef %0, i64 noundef %54, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4, !tbaa !12
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %55 = icmp samesign ult i64 %indvars.iv.next82, %51
@@ -2888,7 +2888,7 @@ define internal fastcc void @H5Z__nbit_compress_one_array(ptr noundef readonly c
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %64 = mul nuw i64 %indvars.iv, %61
   %65 = add i64 %64, %1
-  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  tail call fastcc void @H5Z__nbit_compress_one_compound(ptr noundef %0, i64 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6)
   store i32 %14, ptr %6, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = icmp samesign ult i64 %indvars.iv.next, %62

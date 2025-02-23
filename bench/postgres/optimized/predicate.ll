@@ -2571,7 +2571,7 @@ PredicateLockingNeededForRelation.exit.thread:    ; preds = %7, %PredicateLockin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @TransferPredicateLocksToNewTarget(i64 %0, i64 %1, i64 %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @TransferPredicateLocksToNewTarget(i64 %0, i64 %1, i64 %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -2639,14 +2639,14 @@ define internal fastcc zeroext i1 @TransferPredicateLocksToNewTarget(i64 %0, i64
   %48 = load ptr, ptr @PredicateLockTargetHash, align 8
   %49 = call ptr @hash_search_with_hash_value(ptr noundef %48, ptr noundef nonnull %9, i32 noundef %16, i32 noundef 0, ptr noundef null) #12
   %.not = icmp eq ptr %49, null
-  br i1 %.not, label %174, label %50
+  br i1 %.not, label %172, label %50
 
 50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #12
   %51 = load ptr, ptr @PredicateLockTargetHash, align 8
   %52 = call ptr @hash_search_with_hash_value(ptr noundef %51, ptr noundef nonnull %10, i32 noundef %18, i32 noundef 3, ptr noundef nonnull %11) #12
   %.not79 = icmp eq ptr %52, null
-  br i1 %.not79, label %.sink.split, label %53
+  br i1 %.not79, label %RemoveTargetIfNoLongerUsed.exit, label %53
 
 53:                                               ; preds = %50
   %54 = load i8, ptr %11, align 1, !range !4, !noundef !5
@@ -2669,244 +2669,242 @@ define internal fastcc zeroext i1 @TransferPredicateLocksToNewTarget(i64 %0, i64
   %64 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %65 = load ptr, ptr %64, align 8
   %.not80 = icmp eq ptr %65, null
-  %. = select i1 %.not80, ptr %63, ptr %65
+  %.not818892 = icmp eq ptr %65, %63
+  %.not8188 = select i1 %.not80, i1 true, i1 %.not818892
+  br i1 %.not8188, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %59
   %66 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %68 = getelementptr inbounds nuw i8, ptr %52, i64 24
   br label %69
 
-69:                                               ; preds = %DeleteLockTarget.exit, %59
-  %.sroa.0.0 = phi ptr [ %., %59 ], [ %.sroa.8.0, %DeleteLockTarget.exit ]
-  %.166 = phi i1 [ false, %59 ], [ %.2, %DeleteLockTarget.exit ]
-  %.sroa.8.0.in = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  %.sroa.8.0 = load ptr, ptr %.sroa.8.0.in, align 8
-  %.not81 = icmp eq ptr %.sroa.0.0, %63
-  br i1 %.not81, label %163, label %70
+69:                                               ; preds = %.lr.ph, %DeleteLockTarget.exit
+  %.sroa.0.089 = phi ptr [ %65, %.lr.ph ], [ %.sroa.8.091, %DeleteLockTarget.exit ]
+  %.sroa.8.0.in90 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 8
+  %.sroa.8.091 = load ptr, ptr %.sroa.8.0.in90, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 32
+  %71 = load i64, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %.sroa.0.089, i64 -8
+  %73 = load ptr, ptr %72, align 8
+  store ptr %73, ptr %66, align 8
+  br i1 %4, label %74, label %93
 
-70:                                               ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 32
-  %72 = load i64, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 -8
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %66, align 8
-  br i1 %4, label %75, label %94
-
-75:                                               ; preds = %70
-  %76 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 -16
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 16
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = load ptr, ptr %77, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %79, ptr %81, align 8
-  %82 = load ptr, ptr %77, align 8
-  store ptr %82, ptr %79, align 8
-  %83 = load ptr, ptr %.sroa.8.0.in, align 8
-  %84 = load ptr, ptr %.sroa.0.0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %83, ptr %85, align 8
-  %86 = load ptr, ptr %.sroa.0.0, align 8
-  store ptr %86, ptr %83, align 8
-  %87 = load ptr, ptr @PredicateLockHash, align 8
-  %88 = load ptr, ptr %73, align 8
-  %89 = ptrtoint ptr %88 to i64
-  %90 = trunc i64 %89 to i32
-  %91 = shl i32 %90, 4
-  %92 = xor i32 %91, %16
-  %93 = call ptr @hash_search_with_hash_value(ptr noundef %87, ptr noundef nonnull %76, i32 noundef %92, i32 noundef 2, ptr noundef nonnull %11) #12
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds i8, ptr %.sroa.0.089, i64 -16
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 24
+  %78 = load ptr, ptr %77, align 8
+  %79 = load ptr, ptr %76, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %78, ptr %80, align 8
+  %81 = load ptr, ptr %76, align 8
+  store ptr %81, ptr %78, align 8
+  %82 = load ptr, ptr %.sroa.8.0.in90, align 8
+  %83 = load ptr, ptr %.sroa.0.089, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %82, ptr %84, align 8
+  %85 = load ptr, ptr %.sroa.0.089, align 8
+  store ptr %85, ptr %82, align 8
+  %86 = load ptr, ptr @PredicateLockHash, align 8
+  %87 = load ptr, ptr %72, align 8
+  %88 = ptrtoint ptr %87 to i64
+  %89 = trunc i64 %88 to i32
+  %90 = shl i32 %89, 4
+  %91 = xor i32 %90, %16
+  %92 = call ptr @hash_search_with_hash_value(ptr noundef %86, ptr noundef nonnull %75, i32 noundef %91, i32 noundef 2, ptr noundef nonnull %11) #12
   %.pre = load ptr, ptr %66, align 8
-  br label %94
+  br label %93
 
-94:                                               ; preds = %75, %70
-  %95 = phi ptr [ %.pre, %75 ], [ %74, %70 ]
-  %96 = load ptr, ptr @PredicateLockHash, align 8
-  %97 = ptrtoint ptr %95 to i64
-  %98 = trunc i64 %97 to i32
-  %99 = shl i32 %98, 4
-  %100 = xor i32 %99, %18
-  %101 = call ptr @hash_search_with_hash_value(ptr noundef %96, ptr noundef nonnull %12, i32 noundef %100, i32 noundef 3, ptr noundef nonnull %11) #12
-  %.not82.not = icmp eq ptr %101, null
-  br i1 %.not82.not, label %102, label %136
+93:                                               ; preds = %74, %69
+  %94 = phi ptr [ %.pre, %74 ], [ %73, %69 ]
+  %95 = load ptr, ptr @PredicateLockHash, align 8
+  %96 = ptrtoint ptr %94 to i64
+  %97 = trunc i64 %96 to i32
+  %98 = shl i32 %97, 4
+  %99 = xor i32 %98, %18
+  %100 = call ptr @hash_search_with_hash_value(ptr noundef %95, ptr noundef nonnull %12, i32 noundef %99, i32 noundef 3, ptr noundef nonnull %11) #12
+  %.not82.not = icmp eq ptr %100, null
+  br i1 %.not82.not, label %101, label %135
 
-102:                                              ; preds = %94
-  %103 = load ptr, ptr @MainLWLockArray, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 3584
-  call void @LWLockRelease(ptr noundef nonnull %104) #12
-  %105 = load ptr, ptr @MainLWLockArray, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 3584
-  %107 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %106, i32 noundef 0) #12
-  %108 = load ptr, ptr %68, align 8
-  %.not.i = icmp eq ptr %108, null
-  %.not131416.i = icmp eq ptr %108, %67
+101:                                              ; preds = %93
+  %102 = load ptr, ptr @MainLWLockArray, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 3584
+  call void @LWLockRelease(ptr noundef nonnull %103) #12
+  %104 = load ptr, ptr @MainLWLockArray, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 3584
+  %106 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %105, i32 noundef 0) #12
+  %107 = load ptr, ptr %68, align 8
+  %.not.i = icmp eq ptr %107, null
+  %.not131416.i = icmp eq ptr %107, %67
   %.not1314.i = select i1 %.not.i, i1 true, i1 %.not131416.i
   br i1 %.not1314.i, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %102, %.lr.ph.i
-  %.sroa.0.015.i = phi ptr [ %.sroa.8.0.i, %.lr.ph.i ], [ %108, %102 ]
+.lr.ph.i:                                         ; preds = %101, %.lr.ph.i
+  %.sroa.0.015.i = phi ptr [ %.sroa.8.0.i, %.lr.ph.i ], [ %107, %101 ]
   %.sroa.8.0.in.i = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 8
   %.sroa.8.0.i = load ptr, ptr %.sroa.8.0.in.i, align 8
-  %109 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 -16
+  %108 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 16
-  %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 24
-  %112 = load ptr, ptr %111, align 8
-  %113 = load ptr, ptr %110, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  store ptr %112, ptr %114, align 8
-  %115 = load ptr, ptr %110, align 8
-  store ptr %115, ptr %112, align 8
-  %116 = load ptr, ptr %.sroa.8.0.in.i, align 8
-  %117 = load ptr, ptr %.sroa.0.015.i, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  store ptr %116, ptr %118, align 8
-  %119 = load ptr, ptr %.sroa.0.015.i, align 8
-  store ptr %119, ptr %116, align 8
-  %120 = load ptr, ptr @PredicateLockHash, align 8
-  %121 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 -8
-  %122 = load ptr, ptr %121, align 8
-  %123 = ptrtoint ptr %122 to i64
-  %124 = trunc i64 %123 to i32
-  %125 = shl i32 %124, 4
-  %126 = xor i32 %125, %18
-  %127 = call ptr @hash_search_with_hash_value(ptr noundef %120, ptr noundef nonnull %109, i32 noundef %126, i32 noundef 2, ptr noundef nonnull %7) #12
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i, i64 24
+  %111 = load ptr, ptr %110, align 8
+  %112 = load ptr, ptr %109, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
+  store ptr %111, ptr %113, align 8
+  %114 = load ptr, ptr %109, align 8
+  store ptr %114, ptr %111, align 8
+  %115 = load ptr, ptr %.sroa.8.0.in.i, align 8
+  %116 = load ptr, ptr %.sroa.0.015.i, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  store ptr %115, ptr %117, align 8
+  %118 = load ptr, ptr %.sroa.0.015.i, align 8
+  store ptr %118, ptr %115, align 8
+  %119 = load ptr, ptr @PredicateLockHash, align 8
+  %120 = getelementptr inbounds i8, ptr %.sroa.0.015.i, i64 -8
+  %121 = load ptr, ptr %120, align 8
+  %122 = ptrtoint ptr %121 to i64
+  %123 = trunc i64 %122 to i32
+  %124 = shl i32 %123, 4
+  %125 = xor i32 %124, %18
+  %126 = call ptr @hash_search_with_hash_value(ptr noundef %119, ptr noundef nonnull %108, i32 noundef %125, i32 noundef 2, ptr noundef nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #12
   %.not13.i = icmp eq ptr %.sroa.8.0.i, %67
   br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %102
-  %128 = load ptr, ptr @MainLWLockArray, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 3584
-  call void @LWLockRelease(ptr noundef nonnull %129) #12
-  %130 = load ptr, ptr %68, align 8
-  %131 = icmp eq ptr %130, null
-  %132 = icmp eq ptr %130, %67
-  %spec.select.i.i.i = or i1 %131, %132
-  br i1 %spec.select.i.i.i, label %133, label %DeleteLockTarget.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %101
+  %127 = load ptr, ptr @MainLWLockArray, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 3584
+  call void @LWLockRelease(ptr noundef nonnull %128) #12
+  %129 = load ptr, ptr %68, align 8
+  %130 = icmp eq ptr %129, null
+  %131 = icmp eq ptr %129, %67
+  %spec.select.i.i.i = or i1 %130, %131
+  br i1 %spec.select.i.i.i, label %132, label %RemoveTargetIfNoLongerUsed.exit
 
-133:                                              ; preds = %._crit_edge.i
-  %134 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %135 = call ptr @hash_search_with_hash_value(ptr noundef %134, ptr noundef nonnull %52, i32 noundef %18, i32 noundef 2, ptr noundef null) #12
-  br label %DeleteLockTarget.exit
+132:                                              ; preds = %._crit_edge.i
+  %133 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %134 = call ptr @hash_search_with_hash_value(ptr noundef %133, ptr noundef nonnull %52, i32 noundef %18, i32 noundef 2, ptr noundef null) #12
+  br label %RemoveTargetIfNoLongerUsed.exit
 
-136:                                              ; preds = %94
-  %137 = load i8, ptr %11, align 1, !range !4, !noundef !5
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %158, label %139
+135:                                              ; preds = %93
+  %136 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %137 = trunc nuw i8 %136 to i1
+  br i1 %137, label %157, label %138
 
-139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %141 = load ptr, ptr %68, align 8
-  %142 = icmp eq ptr %141, null
-  br i1 %142, label %143, label %dlist_push_tail.exit
+138:                                              ; preds = %135
+  %139 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %140 = load ptr, ptr %68, align 8
+  %141 = icmp eq ptr %140, null
+  br i1 %141, label %142, label %dlist_push_tail.exit
 
-143:                                              ; preds = %139
+142:                                              ; preds = %138
   store ptr %67, ptr %67, align 8
   store ptr %67, ptr %68, align 8
   br label %dlist_push_tail.exit
 
-dlist_push_tail.exit:                             ; preds = %139, %143
-  %144 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %67, ptr %144, align 8
-  %145 = load ptr, ptr %67, align 8
-  store ptr %145, ptr %140, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  store ptr %140, ptr %146, align 8
-  store ptr %140, ptr %67, align 8
-  %147 = load ptr, ptr %66, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 64
-  %149 = getelementptr inbounds nuw i8, ptr %101, i64 32
-  %150 = getelementptr inbounds nuw i8, ptr %147, i64 72
-  %151 = load ptr, ptr %150, align 8
-  %152 = icmp eq ptr %151, null
-  br i1 %152, label %153, label %dlist_push_tail.exit83
+dlist_push_tail.exit:                             ; preds = %138, %142
+  %143 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  store ptr %67, ptr %143, align 8
+  %144 = load ptr, ptr %67, align 8
+  store ptr %144, ptr %139, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store ptr %139, ptr %145, align 8
+  store ptr %139, ptr %67, align 8
+  %146 = load ptr, ptr %66, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %100, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %146, i64 72
+  %150 = load ptr, ptr %149, align 8
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %152, label %dlist_push_tail.exit83
 
-153:                                              ; preds = %dlist_push_tail.exit
-  store ptr %148, ptr %148, align 8
-  store ptr %148, ptr %150, align 8
+152:                                              ; preds = %dlist_push_tail.exit
+  store ptr %147, ptr %147, align 8
+  store ptr %147, ptr %149, align 8
   br label %dlist_push_tail.exit83
 
-dlist_push_tail.exit83:                           ; preds = %dlist_push_tail.exit, %153
-  %154 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  store ptr %148, ptr %154, align 8
-  %155 = load ptr, ptr %148, align 8
-  store ptr %155, ptr %149, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %149, ptr %156, align 8
-  store ptr %149, ptr %148, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  store i64 %72, ptr %157, align 8
+dlist_push_tail.exit83:                           ; preds = %dlist_push_tail.exit, %152
+  %153 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  store ptr %147, ptr %153, align 8
+  %154 = load ptr, ptr %147, align 8
+  store ptr %154, ptr %148, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  store ptr %148, ptr %155, align 8
+  store ptr %148, ptr %147, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  store i64 %71, ptr %156, align 8
   br label %DeleteLockTarget.exit
 
-158:                                              ; preds = %136
-  %159 = getelementptr inbounds nuw i8, ptr %101, i64 48
-  %160 = load i64, ptr %159, align 8
-  %161 = icmp ult i64 %160, %72
-  br i1 %161, label %162, label %DeleteLockTarget.exit
+157:                                              ; preds = %135
+  %158 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %159 = load i64, ptr %158, align 8
+  %160 = icmp ult i64 %159, %71
+  br i1 %160, label %161, label %DeleteLockTarget.exit
 
-162:                                              ; preds = %158
-  store i64 %72, ptr %159, align 8
+161:                                              ; preds = %157
+  store i64 %71, ptr %158, align 8
   br label %DeleteLockTarget.exit
 
-DeleteLockTarget.exit:                            ; preds = %133, %._crit_edge.i, %dlist_push_tail.exit83, %162, %158
-  %.2 = phi i1 [ %.166, %158 ], [ %.166, %162 ], [ %.166, %dlist_push_tail.exit83 ], [ true, %._crit_edge.i ], [ true, %133 ]
-  br i1 %.not82.not, label %.sink.split, label %69, !llvm.loop !25
+DeleteLockTarget.exit:                            ; preds = %dlist_push_tail.exit83, %161, %157
+  %.not81 = icmp eq ptr %.sroa.8.091, %63
+  br i1 %.not81, label %._crit_edge, label %69, !llvm.loop !25
 
-163:                                              ; preds = %69
-  %164 = load ptr, ptr @MainLWLockArray, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 3584
-  call void @LWLockRelease(ptr noundef nonnull %165) #12
-  br i1 %4, label %166, label %.sink.split
+._crit_edge:                                      ; preds = %DeleteLockTarget.exit, %59
+  %162 = load ptr, ptr @MainLWLockArray, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 3584
+  call void @LWLockRelease(ptr noundef nonnull %163) #12
+  br i1 %4, label %164, label %RemoveTargetIfNoLongerUsed.exit
 
-166:                                              ; preds = %163
-  %167 = load ptr, ptr %64, align 8
-  %168 = icmp eq ptr %167, null
-  %169 = icmp eq ptr %167, %63
-  %spec.select.i.i = or i1 %168, %169
-  br i1 %spec.select.i.i, label %170, label %.sink.split
+164:                                              ; preds = %._crit_edge
+  %165 = load ptr, ptr %64, align 8
+  %166 = icmp eq ptr %165, null
+  %167 = icmp eq ptr %165, %63
+  %spec.select.i.i = or i1 %166, %167
+  br i1 %spec.select.i.i, label %168, label %RemoveTargetIfNoLongerUsed.exit
 
-170:                                              ; preds = %166
-  %171 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %172 = call ptr @hash_search_with_hash_value(ptr noundef %171, ptr noundef nonnull %49, i32 noundef %16, i32 noundef 2, ptr noundef null) #12
-  br label %.sink.split
+168:                                              ; preds = %164
+  %169 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %170 = call ptr @hash_search_with_hash_value(ptr noundef %169, ptr noundef nonnull %49, i32 noundef %16, i32 noundef 2, ptr noundef null) #12
+  br label %RemoveTargetIfNoLongerUsed.exit
 
-.sink.split:                                      ; preds = %DeleteLockTarget.exit, %170, %166, %163, %50
-  %.3.ph = phi i1 [ %.166, %170 ], [ %.166, %166 ], [ %.166, %163 ], [ true, %50 ], [ %.2, %DeleteLockTarget.exit ]
+RemoveTargetIfNoLongerUsed.exit:                  ; preds = %._crit_edge.i, %132, %168, %164, %._crit_edge, %50
+  %171 = phi i1 [ false, %50 ], [ true, %._crit_edge ], [ true, %164 ], [ true, %168 ], [ false, %132 ], [ false, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #12
-  %173 = xor i1 %.3.ph, true
-  br label %174
+  br label %172
 
-174:                                              ; preds = %.sink.split, %47
-  %.3 = phi i1 [ true, %47 ], [ %173, %.sink.split ]
-  br i1 %36, label %.sink.split89, label %175
+172:                                              ; preds = %RemoveTargetIfNoLongerUsed.exit, %47
+  %.3 = phi i1 [ %171, %RemoveTargetIfNoLongerUsed.exit ], [ true, %47 ]
+  br i1 %36, label %.sink.split, label %173
 
-175:                                              ; preds = %174
-  %176 = icmp samesign ugt i32 %20, %24
-  br i1 %176, label %.sink.split89, label %177
+173:                                              ; preds = %172
+  %174 = icmp samesign ugt i32 %20, %24
+  br i1 %174, label %.sink.split, label %175
 
-.sink.split89:                                    ; preds = %175, %174
-  %.sink90 = phi ptr [ %27, %174 ], [ %23, %175 ]
-  %.sink.ph = phi ptr [ %23, %174 ], [ %27, %175 ]
-  call void @LWLockRelease(ptr noundef nonnull %.sink90) #12
-  br label %177
+.sink.split:                                      ; preds = %173, %172
+  %.sink93 = phi ptr [ %27, %172 ], [ %23, %173 ]
+  %.sink.ph = phi ptr [ %23, %172 ], [ %27, %173 ]
+  call void @LWLockRelease(ptr noundef nonnull %.sink93) #12
+  br label %175
 
-177:                                              ; preds = %.sink.split89, %175
-  %.sink = phi ptr [ %27, %175 ], [ %.sink.ph, %.sink.split89 ]
+175:                                              ; preds = %.sink.split, %173
+  %.sink = phi ptr [ %27, %173 ], [ %.sink.ph, %.sink.split ]
   call void @LWLockRelease(ptr noundef nonnull %.sink) #12
-  br i1 %4, label %178, label %185
+  br i1 %4, label %176, label %183
 
-178:                                              ; preds = %177
+176:                                              ; preds = %175
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #12
-  %179 = load ptr, ptr @ScratchPartitionLock, align 8
-  %180 = call zeroext i1 @LWLockAcquire(ptr noundef %179, i32 noundef 0) #12
-  %181 = load ptr, ptr @PredicateLockTargetHash, align 8
-  %182 = load i32, ptr @ScratchTargetTagHash, align 4
-  %183 = call ptr @hash_search_with_hash_value(ptr noundef %181, ptr noundef nonnull @ScratchTargetTag, i32 noundef %182, i32 noundef 1, ptr noundef nonnull %6) #12
-  %184 = load ptr, ptr @ScratchPartitionLock, align 8
-  call void @LWLockRelease(ptr noundef %184) #12
+  %177 = load ptr, ptr @ScratchPartitionLock, align 8
+  %178 = call zeroext i1 @LWLockAcquire(ptr noundef %177, i32 noundef 0) #12
+  %179 = load ptr, ptr @PredicateLockTargetHash, align 8
+  %180 = load i32, ptr @ScratchTargetTagHash, align 4
+  %181 = call ptr @hash_search_with_hash_value(ptr noundef %179, ptr noundef nonnull @ScratchTargetTag, i32 noundef %180, i32 noundef 1, ptr noundef nonnull %6) #12
+  %182 = load ptr, ptr @ScratchPartitionLock, align 8
+  call void @LWLockRelease(ptr noundef %182) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #12
-  br label %185
+  br label %183
 
-185:                                              ; preds = %178, %177
+183:                                              ; preds = %175, %176
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #12
   ret i1 %.3
 }

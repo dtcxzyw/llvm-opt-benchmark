@@ -141,7 +141,7 @@ define void @_ZN6Assimp23LimitBoneWeightsProcess11ProcessMeshEP6aiMesh(ptr nound
   %9 = load i32, ptr %8, align 8
   %10 = icmp ne i32 %9, 0
   %11 = select i1 %.not.i, i1 %10, i1 false
-  br i1 %11, label %12, label %233
+  br i1 %11, label %12, label %232
 
 12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
@@ -192,7 +192,7 @@ _ZNSt12_Vector_baseIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightEL
   %29 = load i32, ptr %28, align 8
   %30 = zext i32 %29 to i64
   %.not = icmp ugt i64 %.1.lcssa, %30
-  br i1 %.not, label %96, label %220
+  br i1 %.not, label %96, label %219
 
 .lr.ph121:                                        ; preds = %.lr.ph121.preheader, %._crit_edge
   %31 = phi i32 [ %9, %.lr.ph121.preheader ], [ %41, %._crit_edge ]
@@ -328,7 +328,7 @@ _ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE9push_backERKS2
 94:                                               ; preds = %68
   %95 = landingpad { ptr, i32 }
           cleanup
-  br label %235
+  br label %234
 
 96:                                               ; preds = %._crit_edge122
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
@@ -343,14 +343,14 @@ _ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE9push_backERKS2
   br label %.preheader110
 
 .preheader110:                                    ; preds = %.preheader110.loopexit, %96
-  %97 = phi ptr [ %148, %.preheader110.loopexit ], [ %25, %96 ]
+  %97 = phi ptr [ %147, %.preheader110.loopexit ], [ %25, %96 ]
   %98 = phi i32 [ %.pre167, %.preheader110.loopexit ], [ %41, %96 ]
   %.not152 = icmp eq i32 %98, 0
   br i1 %.not152, label %.preheader, label %.lr.ph141
 
 .lr.ph139:                                        ; preds = %96, %.loopexit
-  %99 = phi i32 [ %147, %.loopexit ], [ 0, %96 ]
-  %.sroa.086.0137 = phi ptr [ %148, %.loopexit ], [ %42, %96 ]
+  %99 = phi i32 [ %146, %.loopexit ], [ 0, %96 ]
+  %.sroa.086.0137 = phi ptr [ %147, %.loopexit ], [ %42, %96 ]
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 8
   %101 = load i64, ptr %100, align 8
   %102 = load i32, ptr %28, align 8
@@ -361,7 +361,7 @@ _ZN6Assimp11SmallVectorINS_23LimitBoneWeightsProcess6WeightELj8EE9push_backERKS2
 104:                                              ; preds = %.noexc77, %106
   %105 = landingpad { ptr, i32 }
           cleanup
-  br label %234
+  br label %233
 
 106:                                              ; preds = %.lr.ph139
   %107 = load ptr, ptr %.sroa.086.0137, align 8
@@ -422,12 +422,12 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
 
 ._crit_edge130:                                   ; preds = %.lr.ph129
   %131 = fcmp une float %136, 0.000000e+00
-  br i1 %131, label %138, label %.loopexit
+  br i1 %131, label %.lr.ph135.preheader, label %.loopexit
 
 132:                                              ; preds = %.loopexit.i.i
   %133 = landingpad { ptr, i32 }
           cleanup
-  br label %234
+  br label %233
 
 .lr.ph129:                                        ; preds = %125, %.lr.ph129
   %.061127 = phi ptr [ %137, %.lr.ph129 ], [ %126, %125 ]
@@ -439,234 +439,234 @@ _ZSt4sortIPN6Assimp23LimitBoneWeightsProcess6WeightEEvT_S4_.exit: ; preds = %.no
   %.not70 = icmp eq ptr %137, %130
   br i1 %.not70, label %._crit_edge130, label %.lr.ph129, !llvm.loop !8
 
-138:                                              ; preds = %._crit_edge130
-  %139 = fdiv float 1.000000e+00, %136
+.lr.ph135.preheader:                              ; preds = %._crit_edge130
+  %138 = fdiv float 1.000000e+00, %136
   br label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %138, %.lr.ph135
-  %.059133 = phi ptr [ %143, %.lr.ph135 ], [ %126, %138 ]
-  %140 = getelementptr inbounds nuw i8, ptr %.059133, i64 4
-  %141 = load float, ptr %140, align 4
-  %142 = fmul float %139, %141
-  store float %142, ptr %140, align 4
-  %143 = getelementptr inbounds nuw i8, ptr %.059133, i64 8
-  %144 = load ptr, ptr %.sroa.086.0137, align 8
-  %145 = load i64, ptr %100, align 8
-  %146 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %144, i64 %145
-  %.not71 = icmp eq ptr %143, %146
+.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %.lr.ph135
+  %.059133 = phi ptr [ %142, %.lr.ph135 ], [ %126, %.lr.ph135.preheader ]
+  %139 = getelementptr inbounds nuw i8, ptr %.059133, i64 4
+  %140 = load float, ptr %139, align 4
+  %141 = fmul float %138, %140
+  store float %141, ptr %139, align 4
+  %142 = getelementptr inbounds nuw i8, ptr %.059133, i64 8
+  %143 = load ptr, ptr %.sroa.086.0137, align 8
+  %144 = load i64, ptr %100, align 8
+  %145 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %143, i64 %144
+  %.not71 = icmp eq ptr %142, %145
   br i1 %.not71, label %.loopexit, label %.lr.ph135, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph135, %125, %._crit_edge130, %.lr.ph139
-  %147 = phi i32 [ %129, %._crit_edge130 ], [ %99, %.lr.ph139 ], [ %129, %125 ], [ %129, %.lr.ph135 ]
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 88
-  %149 = load ptr, ptr %26, align 8
-  %.not109 = icmp eq ptr %148, %149
+  %146 = phi i32 [ %129, %._crit_edge130 ], [ %99, %.lr.ph139 ], [ %129, %125 ], [ %129, %.lr.ph135 ]
+  %147 = getelementptr inbounds nuw i8, ptr %.sroa.086.0137, i64 88
+  %148 = load ptr, ptr %26, align 8
+  %.not109 = icmp eq ptr %147, %148
   br i1 %.not109, label %.preheader110.loopexit, label %.lr.ph139, !llvm.loop !10
 
 .preheader:                                       ; preds = %.lr.ph141, %.preheader110
-  %150 = load ptr, ptr %3, align 8
-  %.not153 = icmp eq ptr %97, %150
+  %149 = load ptr, ptr %3, align 8
+  %.not153 = icmp eq ptr %97, %149
   br i1 %.not153, label %._crit_edge149, label %.lr.ph148.preheader
 
 .lr.ph148.preheader:                              ; preds = %.preheader
-  %151 = ptrtoint ptr %97 to i64
-  %152 = ptrtoint ptr %150 to i64
-  %153 = sub i64 %151, %152
-  %154 = sdiv exact i64 %153, 88
+  %150 = ptrtoint ptr %97 to i64
+  %151 = ptrtoint ptr %149 to i64
+  %152 = sub i64 %150, %151
+  %153 = sdiv exact i64 %152, 88
   br label %.lr.ph148
 
 .lr.ph141:                                        ; preds = %.preheader110, %.lr.ph141
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %.lr.ph141 ], [ 0, %.preheader110 ]
-  %155 = load ptr, ptr %6, align 8
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv161
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 1028
-  store i32 0, ptr %158, align 4
+  %154 = load ptr, ptr %6, align 8
+  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv161
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 1028
+  store i32 0, ptr %157, align 4
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %159 = load i32, ptr %8, align 8
-  %160 = zext i32 %159 to i64
-  %161 = icmp samesign ult i64 %indvars.iv.next162, %160
-  br i1 %161, label %.lr.ph141, label %.preheader, !llvm.loop !11
+  %158 = load i32, ptr %8, align 8
+  %159 = zext i32 %158 to i64
+  %160 = icmp samesign ult i64 %indvars.iv.next162, %159
+  br i1 %160, label %.lr.ph141, label %.preheader, !llvm.loop !11
 
 ._crit_edge149:                                   ; preds = %._crit_edge146, %.preheader
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %163 = load i8, ptr %162, align 4, !range !12, !noundef !13
-  %164 = trunc nuw i8 %163 to i1
-  br i1 %164, label %191, label %213
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %162 = load i8, ptr %161, align 4, !range !12, !noundef !13
+  %163 = trunc nuw i8 %162 to i1
+  br i1 %163, label %190, label %212
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %._crit_edge146
-  %165 = phi i64 [ %171, %._crit_edge146 ], [ 0, %.lr.ph148.preheader ]
-  %.057147 = phi i32 [ %170, %._crit_edge146 ], [ 0, %.lr.ph148.preheader ]
-  %166 = getelementptr inbounds nuw %"class.Assimp::SmallVector", ptr %150, i64 %165
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %168 = load i64, ptr %167, align 8
-  %.not66142 = icmp eq i64 %168, 0
+  %164 = phi i64 [ %170, %._crit_edge146 ], [ 0, %.lr.ph148.preheader ]
+  %.057147 = phi i32 [ %169, %._crit_edge146 ], [ 0, %.lr.ph148.preheader ]
+  %165 = getelementptr inbounds nuw %"class.Assimp::SmallVector", ptr %149, i64 %164
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+  %167 = load i64, ptr %166, align 8
+  %.not66142 = icmp eq i64 %167, 0
   br i1 %.not66142, label %._crit_edge146, label %.lr.ph145.preheader
 
 .lr.ph145.preheader:                              ; preds = %.lr.ph148
-  %169 = load ptr, ptr %166, align 8
+  %168 = load ptr, ptr %165, align 8
   br label %.lr.ph145
 
 ._crit_edge146:                                   ; preds = %.lr.ph145, %.lr.ph148
-  %170 = add i32 %.057147, 1
-  %171 = zext i32 %170 to i64
-  %172 = icmp ugt i64 %154, %171
-  br i1 %172, label %.lr.ph148, label %._crit_edge149, !llvm.loop !14
+  %169 = add i32 %.057147, 1
+  %170 = zext i32 %169 to i64
+  %171 = icmp ugt i64 %153, %170
+  br i1 %171, label %.lr.ph148, label %._crit_edge149, !llvm.loop !14
 
 .lr.ph145:                                        ; preds = %.lr.ph145.preheader, %.lr.ph145
-  %.052143 = phi ptr [ %187, %.lr.ph145 ], [ %169, %.lr.ph145.preheader ]
-  %173 = load ptr, ptr %6, align 8
-  %174 = load i32, ptr %.052143, align 4
-  %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr %173, i64 %175
-  %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr inbounds nuw i8, ptr %.052143, i64 4
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds nuw i8, ptr %177, i64 1048
-  %181 = load ptr, ptr %180, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %177, i64 1028
-  %183 = load i32, ptr %182, align 4
-  %184 = add i32 %183, 1
-  store i32 %184, ptr %182, align 4
-  %185 = zext i32 %183 to i64
-  %186 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %181, i64 %185
-  store i32 %.057147, ptr %186, align 4
-  %.sroa_idx84 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  store i32 %179, ptr %.sroa_idx84, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %.052143, i64 8
-  %188 = load ptr, ptr %166, align 8
-  %189 = load i64, ptr %167, align 8
-  %190 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %188, i64 %189
-  %.not66 = icmp eq ptr %187, %190
+  %.052143 = phi ptr [ %186, %.lr.ph145 ], [ %168, %.lr.ph145.preheader ]
+  %172 = load ptr, ptr %6, align 8
+  %173 = load i32, ptr %.052143, align 4
+  %174 = zext i32 %173 to i64
+  %175 = getelementptr inbounds nuw ptr, ptr %172, i64 %174
+  %176 = load ptr, ptr %175, align 8
+  %177 = getelementptr inbounds nuw i8, ptr %.052143, i64 4
+  %178 = load i32, ptr %177, align 4
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 1048
+  %180 = load ptr, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 1028
+  %182 = load i32, ptr %181, align 4
+  %183 = add i32 %182, 1
+  store i32 %183, ptr %181, align 4
+  %184 = zext i32 %182 to i64
+  %185 = getelementptr inbounds nuw %struct.aiVertexWeight, ptr %180, i64 %184
+  store i32 %.057147, ptr %185, align 4
+  %.sroa_idx84 = getelementptr inbounds nuw i8, ptr %185, i64 4
+  store i32 %178, ptr %.sroa_idx84, align 4
+  %186 = getelementptr inbounds nuw i8, ptr %.052143, i64 8
+  %187 = load ptr, ptr %165, align 8
+  %188 = load i64, ptr %166, align 8
+  %189 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %187, i64 %188
+  %.not66 = icmp eq ptr %186, %189
   br i1 %.not66, label %._crit_edge146, label %.lr.ph145, !llvm.loop !15
 
-191:                                              ; preds = %._crit_edge149
-  %192 = load i32, ptr %8, align 8
-  %.not14.i = icmp eq i32 %192, 0
+190:                                              ; preds = %._crit_edge149
+  %191 = load i32, ptr %8, align 8
+  %.not14.i = icmp eq i32 %191, 0
   br i1 %.not14.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %191, %207
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %207 ], [ 0, %191 ]
-  %.013.i = phi i32 [ %.1.i, %207 ], [ 0, %191 ]
-  %193 = load ptr, ptr %6, align 8
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv.i
-  %195 = load ptr, ptr %194, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %195, i64 1028
-  %197 = load i32, ptr %196, align 4
-  %.not.i81 = icmp eq i32 %197, 0
-  br i1 %.not.i81, label %202, label %198
+.lr.ph.i:                                         ; preds = %190, %206
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %206 ], [ 0, %190 ]
+  %.013.i = phi i32 [ %.1.i, %206 ], [ 0, %190 ]
+  %192 = load ptr, ptr %6, align 8
+  %193 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.i
+  %194 = load ptr, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %194, i64 1028
+  %196 = load i32, ptr %195, align 4
+  %.not.i81 = icmp eq i32 %196, 0
+  br i1 %.not.i81, label %201, label %197
 
-198:                                              ; preds = %.lr.ph.i
-  %199 = add i32 %.013.i, 1
-  %200 = zext i32 %.013.i to i64
-  %201 = getelementptr inbounds nuw ptr, ptr %193, i64 %200
-  store ptr %195, ptr %201, align 8
-  br label %207
+197:                                              ; preds = %.lr.ph.i
+  %198 = add i32 %.013.i, 1
+  %199 = zext i32 %.013.i to i64
+  %200 = getelementptr inbounds nuw ptr, ptr %192, i64 %199
+  store ptr %194, ptr %200, align 8
+  br label %206
 
-202:                                              ; preds = %.lr.ph.i
-  %203 = getelementptr inbounds nuw i8, ptr %195, i64 1048
-  %204 = load ptr, ptr %203, align 8
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %_ZN6aiBoneD2Ev.exit.i, label %206
+201:                                              ; preds = %.lr.ph.i
+  %202 = getelementptr inbounds nuw i8, ptr %194, i64 1048
+  %203 = load ptr, ptr %202, align 8
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %_ZN6aiBoneD2Ev.exit.i, label %205
 
-206:                                              ; preds = %202
-  tail call void @_ZdaPv(ptr noundef nonnull %204) #18
+205:                                              ; preds = %201
+  tail call void @_ZdaPv(ptr noundef nonnull %203) #18
   br label %_ZN6aiBoneD2Ev.exit.i
 
-_ZN6aiBoneD2Ev.exit.i:                            ; preds = %206, %202
-  tail call void @_ZdlPvm(ptr noundef nonnull %195, i64 noundef 1120) #18
-  br label %207
+_ZN6aiBoneD2Ev.exit.i:                            ; preds = %205, %201
+  tail call void @_ZdlPvm(ptr noundef nonnull %194, i64 noundef 1120) #18
+  br label %206
 
-207:                                              ; preds = %_ZN6aiBoneD2Ev.exit.i, %198
-  %.1.i = phi i32 [ %199, %198 ], [ %.013.i, %_ZN6aiBoneD2Ev.exit.i ]
+206:                                              ; preds = %_ZN6aiBoneD2Ev.exit.i, %197
+  %.1.i = phi i32 [ %198, %197 ], [ %.013.i, %_ZN6aiBoneD2Ev.exit.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %208 = load i32, ptr %8, align 8
-  %209 = zext i32 %208 to i64
-  %210 = icmp samesign ult i64 %indvars.iv.next.i, %209
-  br i1 %210, label %.lr.ph.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, !llvm.loop !16
+  %207 = load i32, ptr %8, align 8
+  %208 = zext i32 %207 to i64
+  %209 = icmp samesign ult i64 %indvars.iv.next.i, %208
+  br i1 %209, label %.lr.ph.i, label %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, !llvm.loop !16
 
-_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit:      ; preds = %207, %191
-  %.0.lcssa.i = phi i32 [ 0, %191 ], [ %.1.i, %207 ]
+_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit:      ; preds = %206, %190
+  %.0.lcssa.i = phi i32 [ 0, %190 ], [ %.1.i, %206 ]
   store i32 %.0.lcssa.i, ptr %8, align 8
-  br label %213
+  br label %212
 
-211:                                              ; preds = %218, %216, %213
-  %212 = landingpad { ptr, i32 }
+210:                                              ; preds = %217, %215, %212
+  %211 = landingpad { ptr, i32 }
           cleanup
-  br label %234
-
-213:                                              ; preds = %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, %._crit_edge149
-  %214 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
-          to label %215 unwind label %211
-
-215:                                              ; preds = %213
-  br i1 %214, label %219, label %216
-
-216:                                              ; preds = %215
-  %217 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
-          to label %218 unwind label %211
-
-218:                                              ; preds = %216
-  invoke void @_ZN6Assimp6Logger4infoIJRA9_KcRjRA24_S2_S5_RA17_S2_S5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %217, ptr noundef nonnull align 1 dereferenceable(9) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(24) @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(17) @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %8)
-          to label %219 unwind label %211
-
-219:                                              ; preds = %218, %215
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  br label %220
-
-220:                                              ; preds = %._crit_edge122, %219
-  %221 = phi ptr [ %25, %._crit_edge122 ], [ %97, %219 ]
-  %.pr.i = phi ptr [ %42, %._crit_edge122 ], [ %150, %219 ]
-  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %221
-  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
-
-.lr.ph.i.i.i.i:                                   ; preds = %220, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %226, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %220 ]
-  %222 = load ptr, ptr %.05.i.i.i.i, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
-  %.not.i.i.i.i.i.i = icmp eq ptr %222, %223
-  %224 = icmp eq ptr %222, null
-  %or.cond.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i, %224
-  br i1 %or.cond.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, label %225
-
-225:                                              ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %222) #18
-  br label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
-
-_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i: ; preds = %225, %.lr.ph.i.i.i.i
-  %226 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 88
-  %.not.i.i.i.i82 = icmp eq ptr %226, %221
-  br i1 %.not.i.i.i.i82, label %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
-
-_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, %220
-  %.not.i.i.i83 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit, label %227
-
-227:                                              ; preds = %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i
-  %228 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %229 = load ptr, ptr %228, align 8
-  %230 = ptrtoint ptr %229 to i64
-  %231 = ptrtoint ptr %.pr.i to i64
-  %232 = sub i64 %230, %231
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %232) #18
-  br label %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit
-
-_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, %227
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   br label %233
 
-233:                                              ; preds = %2, %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit
-  ret void
+212:                                              ; preds = %_ZN6AssimpL16removeEmptyBonesEP6aiMesh.exit, %._crit_edge149
+  %213 = invoke noundef zeroext i1 @_ZN6Assimp13DefaultLogger12isNullLoggerEv()
+          to label %214 unwind label %210
 
-234:                                              ; preds = %104, %132, %211
-  %.pn.pn = phi { ptr, i32 } [ %212, %211 ], [ %133, %132 ], [ %105, %104 ]
+214:                                              ; preds = %212
+  br i1 %213, label %218, label %215
+
+215:                                              ; preds = %214
+  %216 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+          to label %217 unwind label %210
+
+217:                                              ; preds = %215
+  invoke void @_ZN6Assimp6Logger4infoIJRA9_KcRjRA24_S2_S5_RA17_S2_S5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %216, ptr noundef nonnull align 1 dereferenceable(9) @.str.4, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 1 dereferenceable(24) @.str.5, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(17) @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %8)
+          to label %218 unwind label %210
+
+218:                                              ; preds = %217, %214
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  br label %235
+  br label %219
 
-235:                                              ; preds = %234, %94
-  %.pn73 = phi { ptr, i32 } [ %95, %94 ], [ %.pn.pn, %234 ]
+219:                                              ; preds = %._crit_edge122, %218
+  %220 = phi ptr [ %25, %._crit_edge122 ], [ %97, %218 ]
+  %.pr.i = phi ptr [ %42, %._crit_edge122 ], [ %149, %218 ]
+  %.not4.i.i.i.i = icmp eq ptr %.pr.i, %220
+  br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %219, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %225, %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %219 ]
+  %221 = load ptr, ptr %.05.i.i.i.i, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 24
+  %.not.i.i.i.i.i.i = icmp eq ptr %221, %222
+  %223 = icmp eq ptr %221, null
+  %or.cond.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i, %223
+  br i1 %or.cond.i.i.i.i.i.i, label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, label %224
+
+224:                                              ; preds = %.lr.ph.i.i.i.i
+  call void @_ZdaPv(ptr noundef nonnull %221) #18
+  br label %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i
+
+_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i: ; preds = %224, %.lr.ph.i.i.i.i
+  %225 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 88
+  %.not.i.i.i.i82 = icmp eq ptr %225, %220
+  br i1 %.not.i.i.i.i82, label %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
+
+_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEEEvPT_.exit.i.i.i.i, %219
+  %.not.i.i.i83 = icmp eq ptr %.pr.i, null
+  br i1 %.not.i.i.i83, label %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit, label %226
+
+226:                                              ; preds = %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i
+  %227 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %228 = load ptr, ptr %227, align 8
+  %229 = ptrtoint ptr %228 to i64
+  %230 = ptrtoint ptr %.pr.i to i64
+  %231 = sub i64 %229, %230
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %231) #18
+  br label %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit
+
+_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEES4_EvT_S6_RSaIT0_E.exit.i, %226
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
+  br label %232
+
+232:                                              ; preds = %2, %_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev.exit
+  ret void
+
+233:                                              ; preds = %104, %132, %210
+  %.pn.pn = phi { ptr, i32 } [ %211, %210 ], [ %133, %132 ], [ %105, %104 ]
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  br label %234
+
+234:                                              ; preds = %233, %94
+  %.pn73 = phi { ptr, i32 } [ %95, %94 ], [ %.pn.pn, %233 ]
   call void @_ZNSt6vectorIN6Assimp11SmallVectorINS0_23LimitBoneWeightsProcess6WeightELj8EEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #16
   resume { ptr, i32 } %.pn73
@@ -905,11 +905,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProc
   br label %12
 
 12:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
-  %13 = phi i64 [ %7, %.lr.ph ], [ %110, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit ]
+  %13 = phi i64 [ %7, %.lr.ph ], [ %108, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit ]
   %.018 = phi ptr [ %1, %.lr.ph ], [ %.1.i.i, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit ]
-  %.01217 = phi i64 [ %2, %.lr.ph ], [ %61, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit ]
+  %.01217 = phi i64 [ %2, %.lr.ph ], [ %59, %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit ]
   %14 = icmp eq i64 %.01217, 0
-  br i1 %14, label %15, label %60
+  br i1 %14, label %15, label %58
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -953,169 +953,176 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProc
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
   %36 = and i64 %19, 8
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %38, label %48
+  br i1 %37, label %38, label %47
 
 38:                                               ; preds = %._crit_edge.i.i.i.i
   %39 = add nsw i64 %20, -2
   %40 = ashr exact i64 %39, 1
   %41 = icmp eq i64 %.0.lcssa.i.i.i.i, %40
-  br i1 %41, label %42, label %48
+  br i1 %41, label %.thread.i.i.i, label %47
 
-42:                                               ; preds = %38
-  %43 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
-  %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %44
-  %46 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.0.lcssa.i.i.i.i
-  %47 = load i64, ptr %45, align 4
-  store i64 %47, ptr %46, align 4
-  br label %48
+.thread.i.i.i:                                    ; preds = %38
+  %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %43 = or disjoint i64 %42, 1
+  %44 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %43
+  %45 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = load i64, ptr %44, align 4
+  store i64 %46, ptr %45, align 4
+  %.sroa.2.0.extract.shift.i.i11.i.i.i = lshr i64 %.sroa.01.0.copyload.i.i.i, 32
+  %.sroa.2.0.extract.trunc.i.i12.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i11.i.i.i to i32
+  br label %.lr.ph.i.i.preheader.i.i.i
 
-48:                                               ; preds = %42, %38, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %44, %42 ], [ %.0.lcssa.i.i.i.i, %38 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+47:                                               ; preds = %38, %._crit_edge.i.i.i.i
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.01.0.copyload.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
-  %49 = bitcast i32 %.sroa.2.0.extract.trunc.i.i.i.i.i to float
-  %50 = icmp sgt i64 %.1.i.i.i.i, 0
-  br i1 %50, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %55
-  %.01318.i.i.i.i.i = phi i64 [ %.019.i.i78.i.i.i, %55 ], [ %.1.i.i.i.i, %48 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %47, %.thread.i.i.i
+  %.sroa.2.0.extract.trunc.i.i15.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i12.i.i.i, %.thread.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %47 ]
+  %.1.i14.i.i.i = phi i64 [ %43, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %47 ]
+  %48 = bitcast i32 %.sroa.2.0.extract.trunc.i.i15.i.i.i to float
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %53, %.lr.ph.i.i.preheader.i.i.i
+  %.01318.i.i.i.i.i = phi i64 [ %.019.i.i78.i.i.i, %53 ], [ %.1.i14.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.019.in.i.i.i.i.i = add nsw i64 %.01318.i.i.i.i.i, -1
   %.019.i.i78.i.i.i = lshr i64 %.019.in.i.i.i.i.i, 1
-  %51 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.019.i.i78.i.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = load float, ptr %52, align 4
-  %54 = fcmp ogt float %53, %49
-  br i1 %54, label %55, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i
+  %49 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.019.i.i78.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %51 = load float, ptr %50, align 4
+  %52 = fcmp ogt float %51, %48
+  br i1 %52, label %53, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i
 
-55:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %56 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.01318.i.i.i.i.i
-  %57 = load i64, ptr %51, align 4
-  store i64 %57, ptr %56, align 4
-  %.not.i.i.i = icmp ult i64 %.019.in.i.i.i.i.i, 2
-  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
+53:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %54 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.01318.i.i.i.i.i
+  %55 = load i64, ptr %49, align 4
+  store i64 %55, ptr %54, align 4
+  %.not9.i.i.i = icmp ult i64 %.019.in.i.i.i.i.i, 2
+  br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !19
 
-_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i, %48
-  %.013.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %48 ], [ %.01318.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %55 ]
+_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i: ; preds = %53, %.lr.ph.i.i.i.i.i, %47
+  %.sroa.2.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %47 ], [ %.sroa.2.0.extract.trunc.i.i15.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i15.i.i.i, %53 ]
+  %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ 0, %53 ], [ %.01318.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.01.0.copyload.i.i.i to i32
-  %58 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i.i.i.i
-  store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %58, align 4
-  %.sroa_idx14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa_idx14.i.i.i.i.i, align 4
-  %59 = icmp sgt i64 %19, 8
-  br i1 %59, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !20
+  %56 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  store i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %56, align 4
+  %.sroa_idx14.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i32 %.sroa.2.0.extract.trunc.i.i16.i.i.i, ptr %.sroa_idx14.i.i.i.i.i, align 4
+  %57 = icmp sgt i64 %19, 8
+  br i1 %57, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !20
 
-60:                                               ; preds = %12
-  %61 = add nsw i64 %.01217, -1
-  %62 = lshr i64 %13, 4
-  %63 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %62
-  %64 = getelementptr inbounds i8, ptr %.018, i64 -8
-  %65 = load float, ptr %10, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
-  %67 = load float, ptr %66, align 4
-  %68 = fcmp ogt float %65, %67
-  %69 = getelementptr inbounds i8, ptr %.018, i64 -4
-  %70 = load float, ptr %69, align 4
-  br i1 %68, label %71, label %83
+58:                                               ; preds = %12
+  %59 = add nsw i64 %.01217, -1
+  %60 = lshr i64 %13, 4
+  %61 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %0, i64 %60
+  %62 = getelementptr inbounds i8, ptr %.018, i64 -8
+  %63 = load float, ptr %10, align 4
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %65 = load float, ptr %64, align 4
+  %66 = fcmp ogt float %63, %65
+  %67 = getelementptr inbounds i8, ptr %.018, i64 -4
+  %68 = load float, ptr %67, align 4
+  br i1 %66, label %69, label %81
 
-71:                                               ; preds = %60
-  %72 = fcmp ogt float %67, %70
-  br i1 %72, label %73, label %76
+69:                                               ; preds = %58
+  %70 = fcmp ogt float %65, %68
+  br i1 %70, label %71, label %74
 
-73:                                               ; preds = %71
-  %74 = load i64, ptr %0, align 4
-  %75 = load i64, ptr %63, align 4
-  store i64 %75, ptr %0, align 4
-  store i64 %74, ptr %63, align 4
+71:                                               ; preds = %69
+  %72 = load i64, ptr %0, align 4
+  %73 = load i64, ptr %61, align 4
+  store i64 %73, ptr %0, align 4
+  store i64 %72, ptr %61, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
 
-76:                                               ; preds = %71
-  %77 = fcmp ogt float %65, %70
-  %78 = load i64, ptr %0, align 4
-  br i1 %77, label %79, label %81
+74:                                               ; preds = %69
+  %75 = fcmp ogt float %63, %68
+  %76 = load i64, ptr %0, align 4
+  br i1 %75, label %77, label %79
 
-79:                                               ; preds = %76
-  %80 = load i64, ptr %64, align 4
+77:                                               ; preds = %74
+  %78 = load i64, ptr %62, align 4
+  store i64 %78, ptr %0, align 4
+  store i64 %76, ptr %62, align 4
+  br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
+
+79:                                               ; preds = %74
+  %80 = load i64, ptr %9, align 4
   store i64 %80, ptr %0, align 4
-  store i64 %78, ptr %64, align 4
+  store i64 %76, ptr %9, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
 
-81:                                               ; preds = %76
-  %82 = load i64, ptr %9, align 4
-  store i64 %82, ptr %0, align 4
-  store i64 %78, ptr %9, align 4
+81:                                               ; preds = %58
+  %82 = fcmp ogt float %63, %68
+  br i1 %82, label %83, label %86
+
+83:                                               ; preds = %81
+  %84 = load i64, ptr %0, align 4
+  %85 = load i64, ptr %9, align 4
+  store i64 %85, ptr %0, align 4
+  store i64 %84, ptr %9, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
 
-83:                                               ; preds = %60
-  %84 = fcmp ogt float %65, %70
-  br i1 %84, label %85, label %88
+86:                                               ; preds = %81
+  %87 = fcmp ogt float %65, %68
+  %88 = load i64, ptr %0, align 4
+  br i1 %87, label %89, label %91
 
-85:                                               ; preds = %83
-  %86 = load i64, ptr %0, align 4
-  %87 = load i64, ptr %9, align 4
-  store i64 %87, ptr %0, align 4
-  store i64 %86, ptr %9, align 4
+89:                                               ; preds = %86
+  %90 = load i64, ptr %62, align 4
+  store i64 %90, ptr %0, align 4
+  store i64 %88, ptr %62, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
 
-88:                                               ; preds = %83
-  %89 = fcmp ogt float %67, %70
-  %90 = load i64, ptr %0, align 4
-  br i1 %89, label %91, label %93
-
-91:                                               ; preds = %88
-  %92 = load i64, ptr %64, align 4
+91:                                               ; preds = %86
+  %92 = load i64, ptr %61, align 4
   store i64 %92, ptr %0, align 4
-  store i64 %90, ptr %64, align 4
+  store i64 %88, ptr %61, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
 
-93:                                               ; preds = %88
-  %94 = load i64, ptr %63, align 4
-  store i64 %94, ptr %0, align 4
-  store i64 %90, ptr %63, align 4
-  br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader: ; preds = %93, %91, %85, %81, %79, %73
+_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader: ; preds = %91, %89, %83, %79, %77, %71
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i
 
-_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader, %106
-  %.013.i.i = phi ptr [ %.114.i.i, %106 ], [ %.018, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader ]
-  %.0.i.i = phi ptr [ %100, %106 ], [ %9, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader ]
-  %95 = load float, ptr %11, align 4
-  br label %96
+_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader, %104
+  %.013.i.i = phi ptr [ %.114.i.i, %104 ], [ %.018, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader ]
+  %.0.i.i = phi ptr [ %98, %104 ], [ %9, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i.preheader ]
+  %93 = load float, ptr %11, align 4
+  br label %94
 
-96:                                               ; preds = %96, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i
-  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i ], [ %100, %96 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
-  %98 = load float, ptr %97, align 4
-  %99 = fcmp ogt float %98, %95
-  %100 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
-  br i1 %99, label %96, label %.preheader.i.i, !llvm.loop !21
+94:                                               ; preds = %94, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i
+  %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i ], [ %98, %94 ]
+  %95 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 4
+  %96 = load float, ptr %95, align 4
+  %97 = fcmp ogt float %96, %93
+  %98 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
+  br i1 %97, label %94, label %.preheader.i.i, !llvm.loop !21
 
-.preheader.i.i:                                   ; preds = %96, %.preheader.i.i
-  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %96 ]
+.preheader.i.i:                                   ; preds = %94, %.preheader.i.i
+  %.013.pn.i.i = phi ptr [ %.114.i.i, %.preheader.i.i ], [ %.013.i.i, %94 ]
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -8
-  %101 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
-  %102 = load float, ptr %101, align 4
-  %103 = fcmp ogt float %95, %102
-  br i1 %103, label %.preheader.i.i, label %104, !llvm.loop !22
+  %99 = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
+  %100 = load float, ptr %99, align 4
+  %101 = fcmp ogt float %93, %100
+  br i1 %101, label %.preheader.i.i, label %102, !llvm.loop !22
 
-104:                                              ; preds = %.preheader.i.i
-  %105 = icmp ult ptr %.1.i.i, %.114.i.i
-  br i1 %105, label %106, label %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
+102:                                              ; preds = %.preheader.i.i
+  %103 = icmp ult ptr %.1.i.i, %.114.i.i
+  br i1 %103, label %104, label %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit
 
-106:                                              ; preds = %104
-  %107 = load i64, ptr %.1.i.i, align 4
-  %108 = load i64, ptr %.114.i.i, align 4
-  store i64 %108, ptr %.1.i.i, align 4
-  store i64 %107, ptr %.114.i.i, align 4
+104:                                              ; preds = %102
+  %105 = load i64, ptr %.1.i.i, align 4
+  %106 = load i64, ptr %.114.i.i, align 4
+  store i64 %106, ptr %.1.i.i, align 4
+  store i64 %105, ptr %.114.i.i, align 4
   br label %_ZSt22__move_median_to_firstIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_S7_T0_.exit.i, !llvm.loop !23
 
-_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit: ; preds = %104
-  tail call void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef %.1.i.i, ptr noundef %.018, i64 noundef %61)
-  %109 = ptrtoint ptr %.1.i.i to i64
-  %110 = sub i64 %109, %5
-  %111 = icmp sgt i64 %110, 128
-  br i1 %111, label %12, label %_ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !24
+_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit: ; preds = %102
+  tail call void @_ZSt16__introsort_loopIPN6Assimp23LimitBoneWeightsProcess6WeightElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.018, i64 noundef %59)
+  %107 = ptrtoint ptr %.1.i.i to i64
+  %108 = sub i64 %107, %5
+  %109 = icmp sgt i64 %108, 128
+  br i1 %109, label %12, label %_ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit, !llvm.loop !24
 
 _ZSt14__partial_sortIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEET_S7_S7_T0_.exit, %_ZSt10__pop_heapIPN6Assimp23LimitBoneWeightsProcess6WeightEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S7_S7_RT0_.exit.i.i, %3
   ret void

@@ -345,7 +345,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.39.6 = phi ptr [ %.sroa.39.5318, %92 ], [ %125, %.noexc51 ], [ %.sroa.39.5318, %95 ]
   %.sroa.15.5 = phi ptr [ %.sroa.15.4319, %92 ], [ %124, %.noexc51 ], [ %98, %95 ]
   %.sroa.0160.6 = phi ptr [ %.sroa.0160.5320, %92 ], [ %111, %.noexc51 ], [ %.sroa.0160.5320, %95 ]
-  %128 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0139.0317) #16
+  %128 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0139.0317) #16
   %.not205 = icmp eq ptr %128, %78
   br i1 %.not205, label %._crit_edge323, label %84, !llvm.loop !44
 
@@ -510,7 +510,7 @@ _ZNSt6vectorISt5tupleIJPKN4cvc58internal16NodeTemplateTrieILb0EEES6_mEESaIS7_EE1
   %.sroa.39.9 = phi ptr [ %.sroa.39.8289, %151 ], [ %184, %.noexc54 ], [ %.sroa.39.8289, %154 ]
   %.sroa.15.8 = phi ptr [ %.sroa.15.7290, %151 ], [ %183, %.noexc54 ], [ %157, %154 ]
   %.sroa.0160.9 = phi ptr [ %.sroa.0160.8291, %151 ], [ %170, %.noexc54 ], [ %.sroa.0160.8291, %154 ]
-  %187 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0125.0288) #16
+  %187 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0125.0288) #16
   %.not202 = icmp eq ptr %187, %135
   br i1 %.not202, label %._crit_edge, label %143
 

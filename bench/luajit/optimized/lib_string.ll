@@ -65,7 +65,7 @@ declare i32 @luaopen_string_buffer(ptr noundef) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483646, -2147483648) i32 @lj_ffh_string_byte(ptr noundef %0) #0 {
+define internal range(i32 1, 8002) i32 @lj_ffh_string_byte(ptr noundef %0) #0 {
   %2 = tail call ptr @lj_lib_checkstr(ptr noundef %0, i32 noundef 1) #7
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !19

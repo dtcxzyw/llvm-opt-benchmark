@@ -1512,8 +1512,8 @@ _ZNK12_GLOBAL__N_110AtomicInfo22castToAtomicIntPointerEN5clang7CodeGen7AddressE.
   %543 = getelementptr inbounds nuw i8, ptr %542, i64 16
   %544 = load i8, ptr %543, align 16
   %545 = icmp eq i8 %544, 13
-  %.not.not7.i.i = icmp ne ptr %542, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %545
+  %.not7.i.i = icmp ne ptr %542, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %545
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %536
@@ -3106,8 +3106,8 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit460: ; preds = 
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 16
   %1299 = load i8, ptr %1298, align 16
   %1300 = icmp eq i8 %1299, 13
-  %.not.not7.i.i463 = icmp ne ptr %1297, null
-  %.not.not.not.i.i464 = and i1 %.not.not7.i.i463, %1300
+  %.not7.i.i463 = icmp ne ptr %1297, null
+  %.not.not.not.i.i464 = and i1 %.not7.i.i463, %1300
   br i1 %.not.not.not.i.i464, label %_ZNK5clang4Type10isVoidTypeEv.exit466, label %_ZNK5clang4Type10isVoidTypeEv.exit466.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit466:            ; preds = %1291
@@ -3302,8 +3302,8 @@ default.unreachable:                              ; preds = %1355
   %1368 = getelementptr inbounds nuw i8, ptr %1367, i64 16
   %1369 = load i8, ptr %1368, align 16
   %1370 = icmp eq i8 %1369, 13
-  %.not.not7.i.i477 = icmp ne ptr %1367, null
-  %.not.not.not.i.i478 = and i1 %.not.not7.i.i477, %1370
+  %.not7.i.i477 = icmp ne ptr %1367, null
+  %.not.not.not.i.i478 = and i1 %.not7.i.i477, %1370
   br i1 %.not.not.not.i.i478, label %_ZNK5clang4Type10isVoidTypeEv.exit480, label %_ZNK5clang4Type10isVoidTypeEv.exit480.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit480:            ; preds = %1361
@@ -3513,7 +3513,7 @@ _ZN4llvm13IRBuilderBase12CreateSwitchEPNS_5ValueEPNS_10BasicBlockEjPNS_6MDNodeES
   %1469 = getelementptr inbounds nuw i8, ptr %1399, i64 48
   store ptr %1469, ptr %1455, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 2, ptr noundef %371)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 2, ptr noundef %371)
   %1470 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #15
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %1470, ptr noundef nonnull %1438, i32 1, ptr null, i64 0) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #15
@@ -3552,7 +3552,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit: ; preds = %.lr.ph.i.i.i
   %1485 = getelementptr inbounds nuw i8, ptr %.0146, i64 48
   store ptr %1485, ptr %1455, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 4, ptr noundef %371)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 4, ptr noundef %371)
   %1486 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #15
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %1486, ptr noundef nonnull %1438, i32 1, ptr null, i64 0) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #15
@@ -3602,7 +3602,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit516: ; preds = %.lr.ph.i.
   %1508 = getelementptr inbounds nuw i8, ptr %.0145947, i64 48
   store ptr %1508, ptr %1455, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 5, ptr noundef %371)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 5, ptr noundef %371)
   %1509 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #15
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %1509, ptr noundef nonnull %1438, i32 1, ptr null, i64 0) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #15
@@ -3645,7 +3645,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit525: ; preds = %.lr.ph.i.
   %1527 = getelementptr inbounds nuw i8, ptr %.0144, i64 48
   store ptr %1527, ptr %1455, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 6, ptr noundef %371)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 6, ptr noundef %371)
   %1528 = call noundef ptr @_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(128) %1439, ptr noundef nonnull %1438)
   %1529 = call noundef ptr @_ZN4llvm13IRBuilderBase8getInt32Ej(ptr noundef nonnull align 8 dereferenceable(128) %1439, i32 noundef 4)
   call void @_ZN4llvm10SwitchInst7addCaseEPNS_11ConstantIntEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(76) %1451, ptr noundef %1529, ptr noundef %.0144) #15
@@ -3656,7 +3656,7 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit525: ; preds = %.lr.ph.i.
   %1530 = getelementptr inbounds nuw i8, ptr %1431, i64 48
   store ptr %1530, ptr %1455, align 8
   store i16 0, ptr %.sroa.2.0..sroa_idx.i.i497, align 8
-  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 7, ptr noundef %371)
+  call fastcc void @_ZL12EmitAtomicOpRN5clang7CodeGen15CodeGenFunctionEPNS_10AtomicExprENS0_7AddressES5_S5_S5_PN4llvm5ValueES8_mNS6_14AtomicOrderingES8_(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %31, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %28, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %29, ptr noundef %.0, ptr noundef %.0141, i32 noundef 7, ptr noundef %371)
   %1531 = call noundef ptr @_ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE(i64 noundef 72, i32 1) #15
   call void @_ZN4llvm10BranchInstC1EPNS_10BasicBlockENS_4User9AllocInfoENS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(72) %1531, ptr noundef nonnull %1438, i32 1, ptr null, i64 0) #15
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #15
@@ -3706,8 +3706,8 @@ _ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit535: ; preds = %.lr.ph.i.
   %1555 = getelementptr inbounds nuw i8, ptr %1554, i64 16
   %1556 = load i8, ptr %1555, align 16
   %1557 = icmp eq i8 %1556, 13
-  %.not.not7.i.i539 = icmp ne ptr %1554, null
-  %.not.not.not.i.i540 = and i1 %.not.not7.i.i539, %1557
+  %.not7.i.i539 = icmp ne ptr %1554, null
+  %.not.not.not.i.i540 = and i1 %.not7.i.i539, %1557
   br i1 %.not.not.not.i.i540, label %_ZNK5clang4Type10isVoidTypeEv.exit542, label %_ZNK5clang4Type10isVoidTypeEv.exit542.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit542:            ; preds = %_ZN4llvm13IRBuilderBase8CreateBrEPNS_10BasicBlockE.exit535

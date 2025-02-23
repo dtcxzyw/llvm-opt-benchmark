@@ -161,7 +161,7 @@ handleRV.exit.thread:                             ; preds = %27, %21, %15, %9, %
 define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %.not55 = icmp eq i8 %3, 0
-  br i1 %.not55, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not55, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.057 = phi i32 [ %7, %.lr.ph ], [ 0, %2 ]
@@ -172,19 +172,19 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %7 = add nuw nsw i32 %.057, 1
   %8 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %9 = zext nneg i32 %7 to i64
-  %10 = shl nuw nsw i64 %9, 3
-  %11 = tail call noalias ptr @malloc(i64 noundef %10) #9
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %15, label %.lr.ph61
+._crit_edge:                                      ; preds = %2
+  %9 = tail call noalias ptr @malloc(i64 noundef 0) #9
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %15, label %._crit_edge62
 
-._crit_edge.thread:                               ; preds = %2
-  %13 = tail call noalias ptr @malloc(i64 noundef 0) #9
+._crit_edge.thread:                               ; preds = %.lr.ph
+  %11 = zext nneg i32 %7 to i64
+  %12 = shl nuw nsw i64 %11, 3
+  %13 = tail call noalias ptr @malloc(i64 noundef %12) #9
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %15, label %._crit_edge62
+  br i1 %14, label %15, label %.lr.ph61
 
 15:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %16 = load ptr, ptr %0, align 8
@@ -201,11 +201,11 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %24 = tail call i32 %23(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef null) #7
   br label %throwOutOfMemoryError.exit
 
-.lr.ph61:                                         ; preds = %._crit_edge, %.lr.ph61
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %._crit_edge ]
-  %.14759 = phi ptr [ %28, %.lr.ph61 ], [ %1, %._crit_edge ]
+.lr.ph61:                                         ; preds = %._crit_edge.thread, %.lr.ph61
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph61 ], [ 0, %._crit_edge.thread ]
+  %.14759 = phi ptr [ %28, %.lr.ph61 ], [ %1, %._crit_edge.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
   store ptr %.14759, ptr %25, align 8
   %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.14759) #8
   %27 = getelementptr i8, ptr %.14759, i64 %26
@@ -218,9 +218,9 @@ define hidden ptr @pcsc_multi2jstring(ptr noundef %0, ptr noundef %1) local_unna
   %30 = trunc nuw i64 %indvars.iv.next to i32
   br label %._crit_edge62
 
-._crit_edge62:                                    ; preds = %._crit_edge.thread, %._crit_edge62.loopexit
-  %31 = phi ptr [ %11, %._crit_edge62.loopexit ], [ %13, %._crit_edge.thread ]
-  %.1.lcssa = phi i32 [ %30, %._crit_edge62.loopexit ], [ 0, %._crit_edge.thread ]
+._crit_edge62:                                    ; preds = %._crit_edge, %._crit_edge62.loopexit
+  %31 = phi ptr [ %13, %._crit_edge62.loopexit ], [ %9, %._crit_edge ]
+  %.1.lcssa = phi i32 [ %30, %._crit_edge62.loopexit ], [ 0, %._crit_edge ]
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load ptr, ptr %33, align 8

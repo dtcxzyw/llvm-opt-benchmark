@@ -410,80 +410,76 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
   %37 = icmp ult i8 %36, 2
   tail call void @llvm.assume(i1 %37)
   %38 = icmp eq i8 %36, 0
-  br i1 %38, label %.lr.ph12, label %..split.us_crit_edge, !prof !12
-
-..split.us_crit_edge:                             ; preds = %.lr.ph12
-  %39 = and i32 %34, -65537
-  br label %.split.us
+  br i1 %38, label %.lr.ph12, label %.thread5.thread, !prof !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %40 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %21) #17, !srcloc !10
-  %41 = extractvalue { i8, i32 } %40, 0
-  %42 = icmp ult i8 %41, 2
-  tail call void @llvm.assume(i1 %42)
-  %43 = icmp eq i8 %41, 0
-  br i1 %43, label %.lr.ph10, label %.split.us, !prof !11
+  %39 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %21) #17, !srcloc !10
+  %40 = extractvalue { i8, i32 } %39, 0
+  %41 = icmp ult i8 %40, 2
+  tail call void @llvm.assume(i1 %41)
+  %42 = icmp eq i8 %40, 0
+  br i1 %42, label %.lr.ph10, label %.split.us, !prof !11
 
-44:                                               ; preds = %.lr.ph10
-  %45 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %50) #17, !srcloc !10
-  %46 = extractvalue { i8, i32 } %45, 0
-  %47 = icmp ult i8 %46, 2
-  tail call void @llvm.assume(i1 %47)
-  %48 = icmp eq i8 %46, 0
-  br i1 %48, label %.lr.ph10, label %.split.us, !prof !12, !llvm.loop !13
+43:                                               ; preds = %.lr.ph10
+  %44 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20, i32 %15, ptr elementtype(i32) %20, i32 %49) #17, !srcloc !10
+  %45 = extractvalue { i8, i32 } %44, 0
+  %46 = icmp ult i8 %45, 2
+  tail call void @llvm.assume(i1 %46)
+  %47 = icmp eq i8 %45, 0
+  br i1 %47, label %.lr.ph10, label %.split.us, !prof !12, !llvm.loop !13
 
-.lr.ph10:                                         ; preds = %.lr.ph.split, %44
-  %49 = phi { i8, i32 } [ %45, %44 ], [ %40, %.lr.ph.split ]
-  %50 = extractvalue { i8, i32 } %49, 1
-  %51 = and i32 %50, -65537
-  %52 = icmp ne i32 %51, 0
-  %53 = icmp ne i32 %23, %51
-  %54 = and i1 %52, %53
-  br i1 %54, label %._crit_edge, label %44, !llvm.loop !13
+.lr.ph10:                                         ; preds = %.lr.ph.split, %43
+  %48 = phi { i8, i32 } [ %44, %43 ], [ %39, %.lr.ph.split ]
+  %49 = extractvalue { i8, i32 } %48, 1
+  %50 = and i32 %49, -65537
+  %51 = icmp ne i32 %50, 0
+  %52 = icmp ne i32 %23, %50
+  %53 = and i1 %51, %52
+  br i1 %53, label %._crit_edge, label %43, !llvm.loop !13
 
-.split.us:                                        ; preds = %44, %.lr.ph.split, %..split.us_crit_edge
-  %.us-phi = phi i32 [ %39, %..split.us_crit_edge ], [ %24, %.lr.ph.split ], [ %51, %44 ]
-  %55 = icmp eq i32 %23, 0
-  %56 = icmp eq i32 %23, %.us-phi
-  %57 = or i1 %55, %56
-  br i1 %57, label %.thread5, label %58
+.split.us:                                        ; preds = %43, %.lr.ph.split
+  %.us-phi = phi i32 [ %24, %.lr.ph.split ], [ %50, %43 ]
+  %54 = icmp eq i32 %23, 0
+  %55 = icmp eq i32 %23, %.us-phi
+  %56 = or i1 %54, %55
+  br i1 %56, label %.thread5, label %57
 
-58:                                               ; preds = %.split.us
-  %59 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %5, i32 noundef %23) #18
+57:                                               ; preds = %.split.us
+  %58 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.22, i32 noundef %5, i32 noundef %23) #18
   br label %.thread5
 
 ._crit_edge:                                      ; preds = %.lr.ph10, %18
-  %.lcssa8 = phi i32 [ %21, %18 ], [ %50, %.lr.ph10 ]
-  %60 = icmp eq i32 %.lcssa8, %15
-  br i1 %60, label %.thread5, label %.thread6
+  %.lcssa8 = phi i32 [ %21, %18 ], [ %49, %.lr.ph10 ]
+  %59 = icmp eq i32 %.lcssa8, %15
+  br i1 %59, label %.thread5, label %.thread6
 
 .thread6:                                         ; preds = %4, %._crit_edge
-  %61 = phi i32 [ %.lcssa8, %._crit_edge ], [ -1, %4 ]
-  %62 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !16
-  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %62, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %61) #18
-  br label %73
+  %60 = phi i32 [ %.lcssa8, %._crit_edge ], [ -1, %4 ]
+  %61 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !16
+  %62 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, i32 noundef %61, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %60) #18
+  br label %72
 
-.thread5:                                         ; preds = %.split.us, %58, %._crit_edge
-  %64 = and i32 %16, 65536
-  %65 = icmp ne i32 %64, 0
-  %66 = icmp eq i32 %15, 65536
-  %67 = or i1 %66, %65
-  %68 = icmp eq i32 %23, %16
-  %69 = or i1 %68, %67
-  br i1 %69, label %.thread5.thread, label %70
+.thread5:                                         ; preds = %.split.us, %57, %._crit_edge
+  %63 = and i32 %16, 65536
+  %64 = icmp ne i32 %63, 0
+  %65 = icmp eq i32 %15, 65536
+  %66 = or i1 %65, %64
+  %67 = icmp eq i32 %23, %16
+  %68 = or i1 %67, %66
+  br i1 %68, label %.thread5.thread, label %69
 
-70:                                               ; preds = %.thread5
-  %71 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !17
-  %72 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %71, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %16) #18
-  br label %73
+69:                                               ; preds = %.thread5
+  %70 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !17
+  %71 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %70, i64 noundef %8, i32 noundef %5, i32 noundef %15, i32 noundef %16) #18
+  br label %72
 
-.thread5.thread:                                  ; preds = %.lr.ph.split.us, %.thread5
+.thread5.thread:                                  ; preds = %.lr.ph12, %.lr.ph.split.us, %.thread5
   tail call void @__SCT__apic_call_write(i32 noundef %7, i32 noundef %15) #17
-  br label %73
+  br label %72
 
-73:                                               ; preds = %.thread5.thread, %70, %.thread6
-  %74 = phi i32 [ -22, %.thread6 ], [ 0, %.thread5.thread ], [ -16, %70 ]
-  ret i32 %74
+72:                                               ; preds = %.thread5.thread, %69, %.thread6
+  %73 = phi i32 [ -22, %.thread6 ], [ 0, %.thread5.thread ], [ -16, %69 ]
+  ret i32 %73
 }
 
 ; Function Attrs: cold null_pointer_is_valid

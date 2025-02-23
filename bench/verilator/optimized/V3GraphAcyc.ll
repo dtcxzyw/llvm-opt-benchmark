@@ -3751,7 +3751,7 @@ define dso_local void @_ZN7V3Graph7acyclicEPFbPK11V3GraphEdgeE(ptr noundef nonnu
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %44
-  call void @_ZdlPv(ptr noundef %42) #21
+  call void @_ZdlPv(ptr noundef nonnull %42) #21
   br label %47
 
 47:                                               ; preds = %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit.i, %.lr.ph.i
@@ -3820,7 +3820,7 @@ define linkonce_odr dso_local void @_ZN9GraphAcycD2Ev(ptr noundef nonnull align 
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !5
 
 _ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %8
-  tail call void @_ZdlPv(ptr noundef %6) #21
+  tail call void @_ZdlPv(ptr noundef nonnull %6) #21
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt7__cxx114listIP11V3GraphEdgeSaIS2_EED2Ev.exit

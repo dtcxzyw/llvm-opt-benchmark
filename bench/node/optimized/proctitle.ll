@@ -61,8 +61,7 @@ if.end15:                                         ; preds = %for.end
   br i1 %cmp435.not, label %for.end34, label %for.body23.preheader
 
 for.body23.preheader:                             ; preds = %if.end15
-  %smax = tail call i32 @llvm.smax.i32(i32 %argc, i32 2)
-  %wide.trip.count51 = zext nneg i32 %smax to i64
+  %wide.trip.count51 = zext nneg i32 %argc to i64
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.preheader, %for.body23
@@ -82,7 +81,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   br i1 %exitcond52.not, label %for.end34.loopexit, label %for.body23
 
 for.end34.loopexit:                               ; preds = %for.body23
-  %4 = zext nneg i32 %smax to i64
+  %4 = zext nneg i32 %argc to i64
   br label %for.end34
 
 for.end34:                                        ; preds = %if.end15, %for.end34.loopexit
@@ -222,9 +221,6 @@ entry:
 declare void @uv__free(ptr noundef) local_unnamed_addr #2
 
 declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #5

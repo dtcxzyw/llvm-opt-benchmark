@@ -385,7 +385,7 @@ _ZN3g2o17JacobianWorkspace10updateSizeEPKNS_10HyperGraph4EdgeE.exit: ; preds = %
   store i32 %.sroa.speculated22.i, ptr %11, align 8, !tbaa !3
   %.sroa.speculated17.i = tail call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 %.sroa.speculated17.i11)
   store i32 %.sroa.speculated17.i, ptr %12, align 4, !tbaa !14
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.04.08) #27
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.04.08) #27
   %.not = icmp eq ptr %32, %10
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !83
 }

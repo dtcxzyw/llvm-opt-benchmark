@@ -1492,7 +1492,7 @@ define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 71:                                               ; preds = %71, %70
   %72 = load i32, ptr %4, align 4
-  %73 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %72, ptr noundef nonnull %4) #9
+  %73 = call i32 @fdt_next_tag(ptr noundef nonnull %0, i32 noundef %72, ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %73, 9
   br i1 %.not, label %74, label %71, !llvm.loop !7
 
@@ -1503,12 +1503,12 @@ define dso_local i32 @fdt_open_into(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 77:                                               ; preds = %74, %49
   %78 = phi i32 [ %75, %74 ], [ %67, %49 ]
-  %79 = call fastcc i32 @fdt_blocks_misordered_(ptr noundef %0, i32 noundef %29, i32 noundef %78)
+  %79 = call fastcc i32 @fdt_blocks_misordered_(ptr noundef nonnull %0, i32 noundef %29, i32 noundef %78)
   %.not60 = icmp eq i32 %79, 0
   br i1 %.not60, label %80, label %86
 
 80:                                               ; preds = %77
-  %81 = call i32 @fdt_move(ptr noundef %0, ptr noundef %1, i32 noundef %2) #9
+  %81 = call i32 @fdt_move(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) #9
   %.not61 = icmp eq i32 %81, 0
   br i1 %.not61, label %82, label %226
 

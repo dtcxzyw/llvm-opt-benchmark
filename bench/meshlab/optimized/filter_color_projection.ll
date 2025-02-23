@@ -1978,15 +1978,15 @@ _ZN3vcg9HistogramIfE3AddEff.exit:                 ; preds = %54, %57
   %98 = fadd float %.01518.i, %97
   %99 = add nuw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %99, %umax.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !23
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
   %100 = fmul float %98, 0x3FECCCCCC0000000
   br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %105, %._crit_edge.i
-  %.121.i = phi i64 [ %106, %105 ], [ 0, %._crit_edge.i ]
-  %.01420.i = phi float [ %103, %105 ], [ 0.000000e+00, %._crit_edge.i ]
+.lr.ph23.i:                                       ; preds = %105, %.lr.ph23.preheader.i
+  %.121.i = phi i64 [ %106, %105 ], [ 0, %.lr.ph23.preheader.i ]
+  %.01420.i = phi float [ %103, %105 ], [ 0.000000e+00, %.lr.ph23.preheader.i ]
   %101 = getelementptr inbounds float, ptr %84, i64 %.121.i
   %102 = load float, ptr %101, align 4
   %103 = fadd float %.01420.i, %102

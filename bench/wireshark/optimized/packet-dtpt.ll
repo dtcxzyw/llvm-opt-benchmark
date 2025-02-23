@@ -678,7 +678,7 @@ define internal i32 @dissect_dtpt_conversation(ptr noundef %0, ptr noundef %1, p
   br i1 %exitcond.not.i, label %.loopexit296.i, label %112, !llvm.loop !6
 
 .loopexit296.i:                                   ; preds = %112, %105, %101, %100
-  %.pre-phi.i = phi i32 [ %.pre.i, %101 ], [ 4, %105 ], [ %.pre.i, %100 ], [ %.pre.i, %112 ]
+  %.pre-phi.i = phi i32 [ %.pre.i, %101 ], [ 4, %105 ], [ %.pre.i, %100 ], [ 8, %112 ]
   %123 = add i32 %.pre308.i, %phi.call.i
   %124 = add i32 %123, %.pre-phi.i
   %125 = load i32, ptr @hf_dtpt_query_string, align 4

@@ -1424,7 +1424,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S
   store i64 %572, ptr %571, align 4
   br label %.thread
 
-.thread:                                          ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %520, %528, %525, %564
+.thread:                                          ; preds = %520, %525, %528, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS2_S4_EE.exit, %564
   br i1 %524, label %574, label %257, !llvm.loop !34
 
 574:                                              ; preds = %.thread
@@ -1484,7 +1484,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 .preheader:                                       ; preds = %5
   %13 = sitofp i32 %1 to float
   %14 = sitofp i32 %2 to float
-  switch i32 %0, label %68 [
+  switch i32 %0, label %67 [
     i32 1, label %.preheader.split.us
     i32 4, label %53
     i32 0, label %54
@@ -1516,10 +1516,10 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 28:                                               ; preds = %26, %20, %.preheader.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !35
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split.us, !llvm.loop !35
 
 29:                                               ; preds = %5
-  switch i32 %0, label %68 [
+  switch i32 %0, label %67 [
     i32 1, label %30
     i32 4, label %53
     i32 0, label %54
@@ -1539,7 +1539,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8
-  br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
+  br label %.thread
 
 37:                                               ; preds = %30
   %38 = icmp eq i64 %10, 9223372036854775800
@@ -1593,44 +1593,43 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8
   %52 = getelementptr inbounds nuw %"class.cv::Point_", ptr %45, i64 %43
   store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8
-  br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
+  br label %.thread
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit: ; preds = %34, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
+.thread:                                          ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %34
   store i8 1, ptr @validation_needed, align 1
-  br label %.loopexit
+  br label %67
 
-.loopexit:                                        ; preds = %28, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
-  switch i32 %0, label %68 [
+.split.us:                                        ; preds = %28
+  switch i32 %0, label %67 [
     i32 4, label %53
     i32 0, label %54
   ]
 
-53:                                               ; preds = %.preheader, %29, %.loopexit
+53:                                               ; preds = %.preheader, %29, %.split.us
   store i8 0, ptr @dragging, align 1
-  br label %68
+  br label %67
 
-54:                                               ; preds = %.preheader, %29, %.loopexit
+54:                                               ; preds = %.preheader, %29, %.split.us
   %55 = load i8, ptr @dragging, align 1
   %56 = trunc i8 %55 to i1
-  br i1 %56, label %57, label %68
+  br i1 %56, label %57, label %67
 
 57:                                               ; preds = %54
   %58 = sitofp i32 %1 to float
   %59 = load i32, ptr @selected_corner_index, align 4
   %60 = sext i32 %59 to i64
-  %61 = load ptr, ptr @roi_corners, align 8
-  %62 = getelementptr inbounds %"class.cv::Point_", ptr %61, i64 %60
-  store float %58, ptr %62, align 4
-  %63 = sitofp i32 %2 to float
-  %64 = load i32, ptr @selected_corner_index, align 4
-  %65 = sext i32 %64 to i64
-  %66 = load ptr, ptr @roi_corners, align 8
-  %67 = getelementptr inbounds %"class.cv::Point_", ptr %66, i64 %65, i32 1
-  store float %63, ptr %67, align 4
+  %61 = getelementptr inbounds %"class.cv::Point_", ptr %7, i64 %60
+  store float %58, ptr %61, align 4
+  %62 = sitofp i32 %2 to float
+  %63 = load i32, ptr @selected_corner_index, align 4
+  %64 = sext i32 %63 to i64
+  %65 = load ptr, ptr @roi_corners, align 8
+  %66 = getelementptr inbounds %"class.cv::Point_", ptr %65, i64 %64, i32 1
+  store float %62, ptr %66, align 4
   store i8 1, ptr @validation_needed, align 1
-  br label %68
+  br label %67
 
-68:                                               ; preds = %.preheader, %53, %29, %.loopexit, %57, %54
+67:                                               ; preds = %.preheader, %53, %.thread, %29, %.split.us, %57, %54
   ret void
 }
 

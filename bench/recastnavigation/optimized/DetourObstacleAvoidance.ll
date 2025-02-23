@@ -403,17 +403,17 @@ define void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr noundef n
   %11 = select i1 %10, float %.02226.i, float %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.lr.ph31.preheader.i, label %.lr.ph.i, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph31.preheader.i:                             ; preds = %.lr.ph.i
   %12 = fsub float %11, %9
   %13 = fcmp ogt float %12, 0x3F50624DE0000000
   %14 = fdiv float 1.000000e+00, %12
   %15 = select i1 %13, float %14, float 1.000000e+00
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
-  %indvars.iv35.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next36.i, %.lr.ph31.i ]
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
+  %indvars.iv35.i = phi i64 [ 0, %.lr.ph31.preheader.i ], [ %indvars.iv.next36.i, %.lr.ph31.i ]
   %16 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv35.i
   %17 = load float, ptr %16, align 4
   %18 = fsub float %17, %9
@@ -450,17 +450,17 @@ _ZL14normalizeArrayPfi.exit:                      ; preds = %.lr.ph31.i
   %32 = select i1 %31, float %.02226.i6, float %28
   %indvars.iv.next.i7 = add nuw nsw i64 %indvars.iv.i4, 1
   %exitcond.not.i8 = icmp eq i64 %indvars.iv.next.i7, %wide.trip.count.i2
-  br i1 %exitcond.not.i8, label %._crit_edge.i9, label %.lr.ph.i3, !llvm.loop !4
+  br i1 %exitcond.not.i8, label %.lr.ph31.preheader.i9, label %.lr.ph.i3, !llvm.loop !4
 
-._crit_edge.i9:                                   ; preds = %.lr.ph.i3
+.lr.ph31.preheader.i9:                            ; preds = %.lr.ph.i3
   %33 = fsub float %32, %30
   %34 = fcmp ogt float %33, 0x3F50624DE0000000
   %35 = fdiv float 1.000000e+00, %33
   %36 = select i1 %34, float %35, float 1.000000e+00
   br label %.lr.ph31.i11
 
-.lr.ph31.i11:                                     ; preds = %.lr.ph31.i11, %._crit_edge.i9
-  %indvars.iv35.i12 = phi i64 [ 0, %._crit_edge.i9 ], [ %indvars.iv.next36.i13, %.lr.ph31.i11 ]
+.lr.ph31.i11:                                     ; preds = %.lr.ph31.i11, %.lr.ph31.preheader.i9
+  %indvars.iv35.i12 = phi i64 [ 0, %.lr.ph31.preheader.i9 ], [ %indvars.iv.next36.i13, %.lr.ph31.i11 ]
   %37 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv35.i12
   %38 = load float, ptr %37, align 4
   %39 = fsub float %38, %30
@@ -497,17 +497,17 @@ _ZL14normalizeArrayPfi.exit15:                    ; preds = %.lr.ph31.i11
   %53 = select i1 %52, float %.02226.i21, float %49
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i19, 1
   %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i17
-  br i1 %exitcond.not.i23, label %._crit_edge.i24, label %.lr.ph.i18, !llvm.loop !4
+  br i1 %exitcond.not.i23, label %.lr.ph31.preheader.i24, label %.lr.ph.i18, !llvm.loop !4
 
-._crit_edge.i24:                                  ; preds = %.lr.ph.i18
+.lr.ph31.preheader.i24:                           ; preds = %.lr.ph.i18
   %54 = fsub float %53, %51
   %55 = fcmp ogt float %54, 0x3F50624DE0000000
   %56 = fdiv float 1.000000e+00, %54
   %57 = select i1 %55, float %56, float 1.000000e+00
   br label %.lr.ph31.i26
 
-.lr.ph31.i26:                                     ; preds = %.lr.ph31.i26, %._crit_edge.i24
-  %indvars.iv35.i27 = phi i64 [ 0, %._crit_edge.i24 ], [ %indvars.iv.next36.i28, %.lr.ph31.i26 ]
+.lr.ph31.i26:                                     ; preds = %.lr.ph31.i26, %.lr.ph31.preheader.i24
+  %indvars.iv35.i27 = phi i64 [ 0, %.lr.ph31.preheader.i24 ], [ %indvars.iv.next36.i28, %.lr.ph31.i26 ]
   %58 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv35.i27
   %59 = load float, ptr %58, align 4
   %60 = fsub float %59, %51
@@ -544,17 +544,17 @@ _ZL14normalizeArrayPfi.exit30:                    ; preds = %.lr.ph31.i26
   %74 = select i1 %73, float %.02226.i36, float %70
   %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i34, 1
   %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i32
-  br i1 %exitcond.not.i38, label %._crit_edge.i39, label %.lr.ph.i33, !llvm.loop !4
+  br i1 %exitcond.not.i38, label %.lr.ph31.preheader.i39, label %.lr.ph.i33, !llvm.loop !4
 
-._crit_edge.i39:                                  ; preds = %.lr.ph.i33
+.lr.ph31.preheader.i39:                           ; preds = %.lr.ph.i33
   %75 = fsub float %74, %72
   %76 = fcmp ogt float %75, 0x3F50624DE0000000
   %77 = fdiv float 1.000000e+00, %75
   %78 = select i1 %76, float %77, float 1.000000e+00
   br label %.lr.ph31.i41
 
-.lr.ph31.i41:                                     ; preds = %.lr.ph31.i41, %._crit_edge.i39
-  %indvars.iv35.i42 = phi i64 [ 0, %._crit_edge.i39 ], [ %indvars.iv.next36.i43, %.lr.ph31.i41 ]
+.lr.ph31.i41:                                     ; preds = %.lr.ph31.i41, %.lr.ph31.preheader.i39
+  %indvars.iv35.i42 = phi i64 [ 0, %.lr.ph31.preheader.i39 ], [ %indvars.iv.next36.i43, %.lr.ph31.i41 ]
   %79 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv35.i42
   %80 = load float, ptr %79, align 4
   %81 = fsub float %80, %72
@@ -591,17 +591,17 @@ _ZL14normalizeArrayPfi.exit45:                    ; preds = %.lr.ph31.i41
   %95 = select i1 %94, float %.02226.i51, float %91
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i47
-  br i1 %exitcond.not.i53, label %._crit_edge.i54, label %.lr.ph.i48, !llvm.loop !4
+  br i1 %exitcond.not.i53, label %.lr.ph31.preheader.i54, label %.lr.ph.i48, !llvm.loop !4
 
-._crit_edge.i54:                                  ; preds = %.lr.ph.i48
+.lr.ph31.preheader.i54:                           ; preds = %.lr.ph.i48
   %96 = fsub float %95, %93
   %97 = fcmp ogt float %96, 0x3F50624DE0000000
   %98 = fdiv float 1.000000e+00, %96
   %99 = select i1 %97, float %98, float 1.000000e+00
   br label %.lr.ph31.i56
 
-.lr.ph31.i56:                                     ; preds = %.lr.ph31.i56, %._crit_edge.i54
-  %indvars.iv35.i57 = phi i64 [ 0, %._crit_edge.i54 ], [ %indvars.iv.next36.i58, %.lr.ph31.i56 ]
+.lr.ph31.i56:                                     ; preds = %.lr.ph31.i56, %.lr.ph31.preheader.i54
+  %indvars.iv35.i57 = phi i64 [ 0, %.lr.ph31.preheader.i54 ], [ %indvars.iv.next36.i58, %.lr.ph31.i56 ]
   %100 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv35.i57
   %101 = load float, ptr %100, align 4
   %102 = fsub float %101, %93

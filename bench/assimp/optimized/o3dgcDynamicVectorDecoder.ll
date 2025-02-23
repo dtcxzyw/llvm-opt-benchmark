@@ -128,7 +128,7 @@ define hidden noundef i32 @_ZN5o3dgc5MergeEPll(ptr noundef captures(none) %0, i6
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %7 = add nuw nsw i64 %.01418, 1
-  %8 = icmp sgt i64 %.01519.in, 2
+  %8 = icmp samesign ugt i64 %.01519.in, 2
   br i1 %8, label %.preheader, label %._crit_edge20, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
@@ -917,7 +917,7 @@ _ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adapt
   %.0.i107.us = phi i64 [ %242, %_ZN5o3dgc16Arithmetic_Codec15ExpGolombDecodeEiRNS_16Static_Bit_ModelERNS_18Adaptive_Bit_ModelE.exit.i.us ], [ %228, %.noexc111.us ]
   %244 = and i64 %.0.i107.us, 1
   %.not.i10.i.us = icmp eq i64 %244, 0
-  %245 = add nsw i64 %.0.i107.us, 1
+  %245 = add nuw nsw i64 %.0.i107.us, 1
   %246 = lshr exact i64 %245, 1
   %247 = sub nsw i64 0, %246
   %248 = lshr exact i64 %.0.i107.us, 1
@@ -1230,7 +1230,7 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc10ITransformEPlm(ptr noundef %0
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %25 = add nuw nsw i64 %.01418.i, 1
-  %26 = icmp sgt i64 %.01519.in.i, 2
+  %26 = icmp samesign ugt i64 %.01519.in.i, 2
   br i1 %26, label %.preheader.i, label %_ZN5o3dgc5MergeEPll.exit, !llvm.loop !6
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i

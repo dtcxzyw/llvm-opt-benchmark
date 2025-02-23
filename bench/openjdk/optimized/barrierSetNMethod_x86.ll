@@ -181,7 +181,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE94ELS1_8ELS1_0ELS1_0
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17BarrierSetNMethod15set_guard_valueEP7nmethodi(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN17BarrierSetNMethod22supports_entry_barrierEP7nmethod(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef %1) #5
-  br i1 %4, label %5, label %44
+  br i1 %4, label %5, label %35
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 209
@@ -191,51 +191,41 @@ define hidden void @_ZN17BarrierSetNMethod15set_guard_valueEP7nmethodi(ptr nound
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
   %12 = getelementptr inbounds i8, ptr %1, i64 %11
-  br i1 %8, label %13, label %35
+  br i1 %8, label %13, label %26
 
 13:                                               ; preds = %5
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds i8, ptr %1, i64 %16
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %19 = load i32, ptr %18, align 8
-  %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i8, ptr %1, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 182
-  %23 = load i16, ptr %22, align 2
-  %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 %24
-  %26 = ptrtoint ptr %17 to i64
-  %27 = ptrtoint ptr %25 to i64
-  %28 = sub i64 %26, %27
-  %29 = and i64 %28, 4294967295
-  %30 = icmp eq i64 %29, 0
-  %spec.select.i.i = select i1 %30, ptr null, ptr %25
-  %31 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %12, i64 %33
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 182
+  %19 = load i16, ptr %18, align 2
+  %20 = zext i16 %19 to i64
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 %20
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load i32, ptr %22, align 8
+  %24 = sext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %12, i64 %24
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-35:                                               ; preds = %5
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %37 = load i16, ptr %36, align 2
-  %38 = sext i16 %37 to i64
-  %39 = getelementptr inbounds i8, ptr %12, i64 %38
-  %40 = icmp eq i8 %7, 2
-  %41 = select i1 %40, i64 -14, i64 -15
-  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+26:                                               ; preds = %5
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %28 = load i16, ptr %27, align 2
+  %29 = sext i16 %28 to i64
+  %30 = getelementptr inbounds i8, ptr %12, i64 %29
+  %31 = icmp eq i8 %7, 2
+  %32 = select i1 %31, i64 -14, i64 -15
+  %33 = getelementptr inbounds i8, ptr %30, i64 %32
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %13, %35
-  %.0.i = phi ptr [ %34, %13 ], [ %42, %35 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  store i32 %2, ptr %43, align 4
+_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %13, %26
+  %.0.i = phi ptr [ %25, %13 ], [ %33, %26 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  store i32 %2, ptr %34, align 4
   tail call void @_ZN17NativeInstruction5wroteEi(ptr noundef nonnull align 1 dereferenceable(1) %.0.i, i32 noundef 4) #5
-  br label %44
+  br label %35
 
-44:                                               ; preds = %3, %_ZL22native_nmethod_barrierP7nmethod.exit
+35:                                               ; preds = %3, %_ZL22native_nmethod_barrierP7nmethod.exit
   ret void
 }
 
@@ -248,7 +238,7 @@ define hidden noundef i32 @_ZN17BarrierSetNMethod11guard_valueEP7nmethod(ptr nou
 
 4:                                                ; preds = %2
   %5 = tail call noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr noundef nonnull align 8 dereferenceable(12) %0) #5
-  br label %46
+  br label %37
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 209
@@ -258,51 +248,41 @@ define hidden noundef i32 @_ZN17BarrierSetNMethod11guard_valueEP7nmethod(ptr nou
   %11 = load i32, ptr %10, align 4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %1, i64 %12
-  br i1 %9, label %14, label %36
+  br i1 %9, label %14, label %27
 
 14:                                               ; preds = %6
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %16 = load i32, ptr %15, align 8
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %1, i64 %17
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %20 = load i32, ptr %19, align 8
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i8, ptr %1, i64 %21
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 182
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
-  %27 = ptrtoint ptr %18 to i64
-  %28 = ptrtoint ptr %26 to i64
-  %29 = sub i64 %27, %28
-  %30 = and i64 %29, 4294967295
-  %31 = icmp eq i64 %30, 0
-  %spec.select.i.i = select i1 %31, ptr null, ptr %26
-  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i8, ptr %13, i64 %34
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 182
+  %20 = load i16, ptr %19, align 2
+  %21 = zext i16 %20 to i64
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 %21
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr inbounds i8, ptr %13, i64 %25
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-36:                                               ; preds = %6
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %38 = load i16, ptr %37, align 2
-  %39 = sext i16 %38 to i64
-  %40 = getelementptr inbounds i8, ptr %13, i64 %39
-  %41 = icmp eq i8 %8, 2
-  %42 = select i1 %41, i64 -14, i64 -15
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
+27:                                               ; preds = %6
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %29 = load i16, ptr %28, align 2
+  %30 = sext i16 %29 to i64
+  %31 = getelementptr inbounds i8, ptr %13, i64 %30
+  %32 = icmp eq i8 %8, 2
+  %33 = select i1 %32, i64 -14, i64 -15
+  %34 = getelementptr inbounds i8, ptr %31, i64 %33
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %14, %36
-  %.0.i = phi ptr [ %35, %14 ], [ %43, %36 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
-  %45 = load i32, ptr %44, align 4
-  br label %46
+_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %14, %27
+  %.0.i = phi ptr [ %26, %14 ], [ %34, %27 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %36 = load i32, ptr %35, align 4
+  br label %37
 
-46:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit, %4
-  %.0 = phi i32 [ %45, %_ZL22native_nmethod_barrierP7nmethod.exit ], [ %5, %4 ]
+37:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit, %4
+  %.0 = phi i32 [ %36, %_ZL22native_nmethod_barrierP7nmethod.exit ], [ %5, %4 ]
   ret i32 %.0
 }
 
@@ -317,88 +297,78 @@ define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod14verify_barrierEP7nmeth
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  br i1 %6, label %11, label %33
+  br i1 %6, label %11, label %24
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %17 = load i32, ptr %16, align 8
-  %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %1, i64 %18
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 182
-  %21 = load i16, ptr %20, align 2
-  %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 %22
-  %24 = ptrtoint ptr %15 to i64
-  %25 = ptrtoint ptr %23 to i64
-  %26 = sub i64 %24, %25
-  %27 = and i64 %26, 4294967295
-  %28 = icmp eq i64 %27, 0
-  %spec.select.i.i = select i1 %28, ptr null, ptr %23
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
-  %30 = load i32, ptr %29, align 8
-  %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i8, ptr %10, i64 %31
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 182
+  %17 = load i16, ptr %16, align 2
+  %18 = zext i16 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 %18
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %21 = load i32, ptr %20, align 8
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %10, i64 %22
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-33:                                               ; preds = %3
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 50
-  %35 = load i16, ptr %34, align 2
-  %36 = sext i16 %35 to i64
-  %37 = getelementptr inbounds i8, ptr %10, i64 %36
-  %38 = icmp eq i8 %5, 2
-  %39 = select i1 %38, i64 -14, i64 -15
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 50
+  %26 = load i16, ptr %25, align 2
+  %27 = sext i16 %26 to i64
+  %28 = getelementptr inbounds i8, ptr %10, i64 %27
+  %29 = icmp eq i8 %5, 2
+  %30 = select i1 %29, i64 -14, i64 -15
+  %31 = getelementptr inbounds i8, ptr %28, i64 %30
   br label %_ZL22native_nmethod_barrierP7nmethod.exit
 
-_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %11, %33
-  %.0.i = phi ptr [ %32, %11 ], [ %40, %33 ]
-  %41 = ptrtoint ptr %.0.i to i64
-  %42 = and i64 %41, 3
-  %.not.i = icmp eq i64 %42, 0
-  br i1 %.not.i, label %44, label %43
+_ZL22native_nmethod_barrierP7nmethod.exit:        ; preds = %11, %24
+  %.0.i = phi ptr [ %23, %11 ], [ %31, %24 ]
+  %32 = ptrtoint ptr %.0.i to i64
+  %33 = and i64 %32, 3
+  %.not.i = icmp eq i64 %33, 0
+  br i1 %.not.i, label %35, label %34
 
-43:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit
-  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str, i64 noundef %41)
+34:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit
+  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str, i64 noundef %32)
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
-44:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit
-  %45 = load i8, ptr %.0.i, align 1
-  %.not14.i = icmp eq i8 %45, 65
-  br i1 %.not14.i, label %48, label %46
+35:                                               ; preds = %_ZL22native_nmethod_barrierP7nmethod.exit
+  %36 = load i8, ptr %.0.i, align 1
+  %.not14.i = icmp eq i8 %36, 65
+  br i1 %.not14.i, label %39, label %37
 
-46:                                               ; preds = %44
-  %47 = zext i8 %45 to i32
-  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.4, i64 noundef %41, i32 noundef %47, i32 noundef 65)
+37:                                               ; preds = %35
+  %38 = zext i8 %36 to i32
+  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.4, i64 noundef %32, i32 noundef %38, i32 noundef 65)
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
-48:                                               ; preds = %44
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %50 = load i8, ptr %49, align 1
-  %.not15.i = icmp eq i8 %50, -127
-  br i1 %.not15.i, label %53, label %51
+39:                                               ; preds = %35
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
+  %41 = load i8, ptr %40, align 1
+  %.not15.i = icmp eq i8 %41, -127
+  br i1 %.not15.i, label %44, label %42
 
-51:                                               ; preds = %48
-  %52 = zext i8 %50 to i32
-  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.4, i64 noundef %41, i32 noundef %52, i32 noundef 129)
+42:                                               ; preds = %39
+  %43 = zext i8 %41 to i32
+  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.4, i64 noundef %32, i32 noundef %43, i32 noundef 129)
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
-  %55 = load i8, ptr %54, align 1
-  %.not16.i = icmp eq i8 %55, 127
-  br i1 %.not16.i, label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit, label %56
+44:                                               ; preds = %39
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
+  %46 = load i8, ptr %45, align 1
+  %.not16.i = icmp eq i8 %46, 127
+  br i1 %.not16.i, label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit, label %47
 
-56:                                               ; preds = %53
-  %57 = zext i8 %55 to i32
-  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.5, i64 noundef %41, i32 noundef %57, i32 noundef 127)
+47:                                               ; preds = %44
+  %48 = zext i8 %46 to i32
+  tail call void (ptr, ptr, ...) @_ZN12FormatBufferILm256EE5printEPKcz(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull @.str.5, i64 noundef %32, i32 noundef %48, i32 noundef 127)
   br label %_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit
 
-_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit: ; preds = %43, %46, %51, %53, %56
-  %.0.i3 = phi i1 [ false, %43 ], [ false, %46 ], [ false, %51 ], [ false, %56 ], [ true, %53 ]
+_ZNK23NativeNMethodCmpBarrier13check_barrierER12FormatBufferILm256EE.exit: ; preds = %34, %37, %42, %44, %47
+  %.0.i3 = phi i1 [ false, %34 ], [ false, %37 ], [ false, %42 ], [ false, %47 ], [ true, %44 ]
   ret i1 %.0.i3
 }
 

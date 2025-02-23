@@ -5257,7 +5257,6 @@ _ZNKSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_E
   %2281 = load i64, ptr %2280, align 8
   %2282 = and i64 %2281, 1099511627775
   %2283 = icmp samesign ult i64 %2271, %2282
-  %spec.select.i.i1754 = select i1 %2283, ptr %2166, ptr %.19.i.i.i1749
   %2284 = load ptr, ptr %2167, align 8
   %.not10.i.i.i1808 = icmp eq ptr %2284, null
   %or.cond = select i1 %2283, i1 true, i1 %.not10.i.i.i1808
@@ -5303,8 +5302,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S_IS3_NS1_4kind6Kind_tESt4le
   br i1 %.not43117692, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1770, label %.lr.ph7695
 
 .lr.ph7695:                                       ; preds = %2298
-  %2302 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1754, i64 40
-  %2303 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1754, i64 48
+  %2302 = getelementptr inbounds nuw i8, ptr %.19.i.i.i1749, i64 40
+  %2303 = getelementptr inbounds nuw i8, ptr %.19.i.i.i1749, i64 48
   br label %2304
 
 2304:                                             ; preds = %.lr.ph7695, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1836
@@ -18357,7 +18356,6 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S_IS3_NS1_4kind6Kind_tESt4le
   %168 = load i64, ptr %167, align 8
   %169 = and i64 %168, 1099511627775
   %170 = icmp samesign ult i64 %158, %169
-  %spec.select.i.i214 = select i1 %170, ptr %88, ptr %.19.i.i.i208
   br i1 %170, label %_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S_IS3_NS1_4kind6Kind_tESt4lessIS3_ESaISt4pairIKS3_S5_EEES7_SaIS8_IS9_SC_EEES7_SaIS8_IS9_SF_EEE4findERS9_.exit216.thread, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit261
 
 171:                                              ; preds = %153
@@ -18717,8 +18715,8 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit468: ; preds = %316
   br i1 %.not13071382, label %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit, label %.lr.ph1384
 
 .lr.ph1384:                                       ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit468
-  %328 = getelementptr inbounds nuw i8, ptr %spec.select.i.i214, i64 64
-  %329 = getelementptr inbounds nuw i8, ptr %spec.select.i.i214, i64 48
+  %328 = getelementptr inbounds nuw i8, ptr %.19.i.i.i208, i64 64
+  %329 = getelementptr inbounds nuw i8, ptr %.19.i.i.i208, i64 48
   br label %350
 
 ._crit_edge1385:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit

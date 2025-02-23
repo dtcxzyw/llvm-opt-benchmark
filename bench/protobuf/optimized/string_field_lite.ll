@@ -3991,12 +3991,12 @@ entry:
   %bf.cast.not.i = icmp eq i8 %4, 0
   %scope_.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %scope_.i, align 8
-  %cond.i = select i1 %bf.cast.not.i, ptr null, ptr %5
-  %containing_type_.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
+  %containing_type_.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %containing_type_.i, align 8
   %oneof_decls_.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %7 = load ptr, ptr %oneof_decls_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i to i64
+  %8 = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i = select i1 %bf.cast.not.i, i64 0, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56

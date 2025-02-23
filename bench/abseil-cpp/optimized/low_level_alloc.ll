@@ -837,7 +837,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %52, align 8, !tbaa !36
-  %53 = icmp sgt i64 %indvars.iv.i.i, 1
+  %53 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %53, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
 .preheader.i:                                     ; preds = %.lr.ph.i
@@ -1240,7 +1240,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %140, align 8, !tbaa !36
-  %141 = icmp sgt i64 %indvars.iv.i.i, 1
+  %141 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %141, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
 142:                                              ; preds = %._crit_edge.i.i
@@ -1515,7 +1515,7 @@ define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %29, align 8, !tbaa !36
-  %30 = icmp sgt i64 %indvars.iv.i.i, 1
+  %30 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %30, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
 
 31:                                               ; preds = %._crit_edge.i.i
@@ -1630,7 +1630,7 @@ _ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i38
   store ptr %.1.i.i39, ptr %74, align 8, !tbaa !36
-  %75 = icmp sgt i64 %indvars.iv.i.i36, 1
+  %75 = icmp samesign ugt i64 %indvars.iv.i.i36, 1
   br i1 %75, label %.preheader.i.i35, label %._crit_edge.i.i20, !llvm.loop !49
 
 76:                                               ; preds = %._crit_edge.i.i20
@@ -1780,7 +1780,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 135:                                              ; preds = %128
   %136 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i52
   store ptr %.1.i.i53, ptr %136, align 8, !tbaa !36
-  %137 = icmp sgt i64 %indvars.iv.i.i50, 1
+  %137 = icmp samesign ugt i64 %indvars.iv.i.i50, 1
   br i1 %137, label %.preheader.i.i49, label %._crit_edge.i.i42, !llvm.loop !49
 
 .preheader.i43:                                   ; preds = %.lr.ph.i45

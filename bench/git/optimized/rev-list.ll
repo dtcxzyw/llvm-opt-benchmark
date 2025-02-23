@@ -1511,7 +1511,7 @@ get_object_disk_usage.exit:                       ; preds = %21
   br i1 %.not78, label %.loopexit, label %.lr.ph94, !llvm.loop !137
 
 .loopexit:                                        ; preds = %.lr.ph94, %121, %.loopexit88
-  call void @show_decorations(ptr noundef %7, ptr noundef %0) #11
+  call void @show_decorations(ptr noundef nonnull %7, ptr noundef %0) #11
   %129 = getelementptr inbounds nuw i8, ptr %7, i64 332
   %130 = load i32, ptr %129, align 4, !tbaa !60
   %131 = icmp eq i32 %130, 5

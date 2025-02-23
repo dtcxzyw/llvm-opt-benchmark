@@ -20133,7 +20133,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 578:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %579 = load i64, ptr %508, align 8, !tbaa !3732
-  %580 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %580 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %581 = add i64 %579, %580
   %582 = add i64 %581, 32
   %583 = load i64, ptr %514, align 8, !tbaa !3767
@@ -20175,12 +20175,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i137.i.i.i, label %.preheader.i.i147.i.i.i, label %.preheader44.i.i138.i.i.i
 
 .preheader44.i.i138.i.i.i:                        ; preds = %591
-  %.idx.i.i.i139.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i.i.i139.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   br label %.noexc14.i140.i.i.i
 
 .preheader.i.i147.i.i.i:                          ; preds = %591
   %593 = load ptr, ptr %517, align 8
-  %.idx.i32.i.i148.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i32.i.i148.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   %invariant.gep.i.i149.i.i.i = getelementptr i8, ptr %593, i64 %.idx.i32.i.i148.i.i.i
   %594 = load ptr, ptr %518, align 8
   %595 = getelementptr inbounds nuw i64, ptr %594, i64 %558
@@ -20460,7 +20460,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i: ; preds = %_Z
 
 714:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i
   %715 = load i64, ptr %644, align 8, !tbaa !3732
-  %716 = shl i64 %indvars.iv.i.i167.i.i.i, 4
+  %716 = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 4
   %717 = add i64 %715, %716
   %718 = add i64 %717, 32
   %719 = load i64, ptr %650, align 8, !tbaa !3767
@@ -20502,12 +20502,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i197.i.i.i, label %.preheader.i.i208.i.i.i, label %.preheader44.i.i198.i.i.i
 
 .preheader44.i.i198.i.i.i:                        ; preds = %727
-  %.idx.i.i.i199.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i.i.i199.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   br label %.noexc14.i200.i.i.i
 
 .preheader.i.i208.i.i.i:                          ; preds = %727
   %729 = load ptr, ptr %653, align 8
-  %.idx.i32.i.i209.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i32.i.i209.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   %invariant.gep.i.i210.i.i.i = getelementptr i8, ptr %729, i64 %.idx.i32.i.i209.i.i.i
   %730 = load ptr, ptr %654, align 8
   %731 = getelementptr inbounds nuw i64, ptr %730, i64 %694
@@ -20787,7 +20787,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i: ; preds = %_Z
 
 850:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i
   %851 = load i64, ptr %780, align 8, !tbaa !3732
-  %852 = shl i64 %indvars.iv.i.i234.i.i.i, 4
+  %852 = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 4
   %853 = add i64 %851, %852
   %854 = add i64 %853, 32
   %855 = load i64, ptr %786, align 8, !tbaa !3767
@@ -20829,12 +20829,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i264.i.i.i, label %.preheader.i.i275.i.i.i, label %.preheader44.i.i265.i.i.i
 
 .preheader44.i.i265.i.i.i:                        ; preds = %863
-  %.idx.i.i.i266.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i.i.i266.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   br label %.noexc14.i267.i.i.i
 
 .preheader.i.i275.i.i.i:                          ; preds = %863
   %865 = load ptr, ptr %789, align 8
-  %.idx.i32.i.i276.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i32.i.i276.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   %invariant.gep.i.i277.i.i.i = getelementptr i8, ptr %865, i64 %.idx.i32.i.i276.i.i.i
   %866 = load ptr, ptr %790, align 8
   %867 = getelementptr inbounds nuw i64, ptr %866, i64 %830
@@ -21951,7 +21951,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i: ; preds = 
 
 1316:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i
   %1317 = load i64, ptr %1246, align 8, !tbaa !3732
-  %1318 = shl i64 %indvars.iv.i.i107.i158.i.i, 4
+  %1318 = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 4
   %1319 = add i64 %1317, %1318
   %1320 = add i64 %1319, 32
   %1321 = load i64, ptr %1252, align 8, !tbaa !3767
@@ -21993,12 +21993,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i137.i188.i.i, label %.preheader.i.i147.i198.i.i, label %.preheader44.i.i138.i189.i.i
 
 .preheader44.i.i138.i189.i.i:                     ; preds = %1329
-  %.idx.i.i.i139.i190.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i.i.i139.i190.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   br label %.noexc14.i140.i191.i.i
 
 .preheader.i.i147.i198.i.i:                       ; preds = %1329
   %1331 = load ptr, ptr %1255, align 8
-  %.idx.i32.i.i148.i199.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i32.i.i148.i199.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   %invariant.gep.i.i149.i200.i.i = getelementptr i8, ptr %1331, i64 %.idx.i32.i.i148.i199.i.i
   %1332 = load ptr, ptr %1256, align 8
   %1333 = getelementptr inbounds nuw i64, ptr %1332, i64 %1296
@@ -22278,7 +22278,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i: ; preds = 
 
 1452:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i
   %1453 = load i64, ptr %1382, align 8, !tbaa !3732
-  %1454 = shl i64 %indvars.iv.i.i167.i103.i.i, 4
+  %1454 = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 4
   %1455 = add i64 %1453, %1454
   %1456 = add i64 %1455, 32
   %1457 = load i64, ptr %1388, align 8, !tbaa !3767
@@ -22320,12 +22320,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i197.i133.i.i, label %.preheader.i.i208.i143.i.i, label %.preheader44.i.i198.i134.i.i
 
 .preheader44.i.i198.i134.i.i:                     ; preds = %1465
-  %.idx.i.i.i199.i135.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i.i.i199.i135.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   br label %.noexc14.i200.i136.i.i
 
 .preheader.i.i208.i143.i.i:                       ; preds = %1465
   %1467 = load ptr, ptr %1391, align 8
-  %.idx.i32.i.i209.i144.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i32.i.i209.i144.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   %invariant.gep.i.i210.i145.i.i = getelementptr i8, ptr %1467, i64 %.idx.i32.i.i209.i144.i.i
   %1468 = load ptr, ptr %1392, align 8
   %1469 = getelementptr inbounds nuw i64, ptr %1468, i64 %1432
@@ -22605,7 +22605,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i: ; preds = %
 
 1588:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i
   %1589 = load i64, ptr %1518, align 8, !tbaa !3732
-  %1590 = shl i64 %indvars.iv.i.i234.i48.i.i, 4
+  %1590 = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 4
   %1591 = add i64 %1589, %1590
   %1592 = add i64 %1591, 32
   %1593 = load i64, ptr %1524, align 8, !tbaa !3767
@@ -22647,12 +22647,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItiEELb1EE11get_lt
   br i1 %.not23.i.i264.i78.i.i, label %.preheader.i.i275.i88.i.i, label %.preheader44.i.i265.i79.i.i
 
 .preheader44.i.i265.i79.i.i:                      ; preds = %1601
-  %.idx.i.i.i266.i80.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i.i.i266.i80.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   br label %.noexc14.i267.i81.i.i
 
 .preheader.i.i275.i88.i.i:                        ; preds = %1601
   %1603 = load ptr, ptr %1527, align 8
-  %.idx.i32.i.i276.i89.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i32.i.i276.i89.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   %invariant.gep.i.i277.i90.i.i = getelementptr i8, ptr %1603, i64 %.idx.i32.i.i276.i89.i.i
   %1604 = load ptr, ptr %1528, align 8
   %1605 = getelementptr inbounds nuw i64, ptr %1604, i64 %1568
@@ -27284,7 +27284,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 562:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %563 = load i64, ptr %498, align 8, !tbaa !4015
-  %564 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %564 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %565 = add i64 %563, %564
   %566 = add i64 %565, 32
   %567 = load i64, ptr %503, align 8, !tbaa !3767
@@ -27594,7 +27594,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i: ; preds = %_Z
 
 688:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i
   %689 = load i64, ptr %624, align 8, !tbaa !4015
-  %690 = shl i64 %indvars.iv.i.i162.i.i.i, 4
+  %690 = shl nuw nsw i64 %indvars.iv.i.i162.i.i.i, 4
   %691 = add i64 %689, %690
   %692 = add i64 %691, 32
   %693 = load i64, ptr %629, align 8, !tbaa !3767
@@ -27904,7 +27904,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i: ; preds = %_Z
 
 814:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i
   %815 = load i64, ptr %750, align 8, !tbaa !4015
-  %816 = shl i64 %indvars.iv.i.i224.i.i.i, 4
+  %816 = shl nuw nsw i64 %indvars.iv.i.i224.i.i.i, 4
   %817 = add i64 %815, %816
   %818 = add i64 %817, 32
   %819 = load i64, ptr %755, align 8, !tbaa !3767
@@ -29034,7 +29034,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i: ; preds = 
 
 1260:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i
   %1261 = load i64, ptr %1196, align 8, !tbaa !4015
-  %1262 = shl i64 %indvars.iv.i.i107.i148.i.i, 4
+  %1262 = shl nuw nsw i64 %indvars.iv.i.i107.i148.i.i, 4
   %1263 = add i64 %1261, %1262
   %1264 = add i64 %1263, 32
   %1265 = load i64, ptr %1201, align 8, !tbaa !3767
@@ -29344,7 +29344,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i: ; preds = 
 
 1386:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i
   %1387 = load i64, ptr %1322, align 8, !tbaa !4015
-  %1388 = shl i64 %indvars.iv.i.i162.i98.i.i, 4
+  %1388 = shl nuw nsw i64 %indvars.iv.i.i162.i98.i.i, 4
   %1389 = add i64 %1387, %1388
   %1390 = add i64 %1389, 32
   %1391 = load i64, ptr %1327, align 8, !tbaa !3767
@@ -29654,7 +29654,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i: ; preds = %
 
 1512:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i
   %1513 = load i64, ptr %1448, align 8, !tbaa !4015
-  %1514 = shl i64 %indvars.iv.i.i224.i48.i.i, 4
+  %1514 = shl nuw nsw i64 %indvars.iv.i.i224.i48.i.i, 4
   %1515 = add i64 %1513, %1514
   %1516 = add i64 %1515, 32
   %1517 = load i64, ptr %1453, align 8, !tbaa !3767
@@ -38574,7 +38574,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 578:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %579 = load i64, ptr %508, align 8, !tbaa !4634
-  %580 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %580 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %581 = add i64 %579, %580
   %582 = add i64 %581, 32
   %583 = load i64, ptr %514, align 8, !tbaa !3767
@@ -38616,12 +38616,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i137.i.i.i, label %.preheader.i.i147.i.i.i, label %.preheader44.i.i138.i.i.i
 
 .preheader44.i.i138.i.i.i:                        ; preds = %591
-  %.idx.i.i.i139.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i.i.i139.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   br label %.noexc14.i140.i.i.i
 
 .preheader.i.i147.i.i.i:                          ; preds = %591
   %593 = load ptr, ptr %517, align 8
-  %.idx.i32.i.i148.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i32.i.i148.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   %invariant.gep.i.i149.i.i.i = getelementptr i8, ptr %593, i64 %.idx.i32.i.i148.i.i.i
   %594 = load ptr, ptr %518, align 8
   %595 = getelementptr inbounds nuw i64, ptr %594, i64 %558
@@ -38901,7 +38901,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i: ; preds = %_Z
 
 714:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i
   %715 = load i64, ptr %644, align 8, !tbaa !4634
-  %716 = shl i64 %indvars.iv.i.i167.i.i.i, 4
+  %716 = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 4
   %717 = add i64 %715, %716
   %718 = add i64 %717, 32
   %719 = load i64, ptr %650, align 8, !tbaa !3767
@@ -38943,12 +38943,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i197.i.i.i, label %.preheader.i.i208.i.i.i, label %.preheader44.i.i198.i.i.i
 
 .preheader44.i.i198.i.i.i:                        ; preds = %727
-  %.idx.i.i.i199.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i.i.i199.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   br label %.noexc14.i200.i.i.i
 
 .preheader.i.i208.i.i.i:                          ; preds = %727
   %729 = load ptr, ptr %653, align 8
-  %.idx.i32.i.i209.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i32.i.i209.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   %invariant.gep.i.i210.i.i.i = getelementptr i8, ptr %729, i64 %.idx.i32.i.i209.i.i.i
   %730 = load ptr, ptr %654, align 8
   %731 = getelementptr inbounds nuw i64, ptr %730, i64 %694
@@ -39228,7 +39228,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i: ; preds = %_Z
 
 850:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i
   %851 = load i64, ptr %780, align 8, !tbaa !4634
-  %852 = shl i64 %indvars.iv.i.i234.i.i.i, 4
+  %852 = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 4
   %853 = add i64 %851, %852
   %854 = add i64 %853, 32
   %855 = load i64, ptr %786, align 8, !tbaa !3767
@@ -39270,12 +39270,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i264.i.i.i, label %.preheader.i.i275.i.i.i, label %.preheader44.i.i265.i.i.i
 
 .preheader44.i.i265.i.i.i:                        ; preds = %863
-  %.idx.i.i.i266.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i.i.i266.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   br label %.noexc14.i267.i.i.i
 
 .preheader.i.i275.i.i.i:                          ; preds = %863
   %865 = load ptr, ptr %789, align 8
-  %.idx.i32.i.i276.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i32.i.i276.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   %invariant.gep.i.i277.i.i.i = getelementptr i8, ptr %865, i64 %.idx.i32.i.i276.i.i.i
   %866 = load ptr, ptr %790, align 8
   %867 = getelementptr inbounds nuw i64, ptr %866, i64 %830
@@ -40392,7 +40392,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i: ; preds = 
 
 1316:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i
   %1317 = load i64, ptr %1246, align 8, !tbaa !4634
-  %1318 = shl i64 %indvars.iv.i.i107.i158.i.i, 4
+  %1318 = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 4
   %1319 = add i64 %1317, %1318
   %1320 = add i64 %1319, 32
   %1321 = load i64, ptr %1252, align 8, !tbaa !3767
@@ -40434,12 +40434,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i137.i188.i.i, label %.preheader.i.i147.i198.i.i, label %.preheader44.i.i138.i189.i.i
 
 .preheader44.i.i138.i189.i.i:                     ; preds = %1329
-  %.idx.i.i.i139.i190.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i.i.i139.i190.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   br label %.noexc14.i140.i191.i.i
 
 .preheader.i.i147.i198.i.i:                       ; preds = %1329
   %1331 = load ptr, ptr %1255, align 8
-  %.idx.i32.i.i148.i199.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i32.i.i148.i199.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   %invariant.gep.i.i149.i200.i.i = getelementptr i8, ptr %1331, i64 %.idx.i32.i.i148.i199.i.i
   %1332 = load ptr, ptr %1256, align 8
   %1333 = getelementptr inbounds nuw i64, ptr %1332, i64 %1296
@@ -40719,7 +40719,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i: ; preds = 
 
 1452:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i
   %1453 = load i64, ptr %1382, align 8, !tbaa !4634
-  %1454 = shl i64 %indvars.iv.i.i167.i103.i.i, 4
+  %1454 = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 4
   %1455 = add i64 %1453, %1454
   %1456 = add i64 %1455, 32
   %1457 = load i64, ptr %1388, align 8, !tbaa !3767
@@ -40761,12 +40761,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i197.i133.i.i, label %.preheader.i.i208.i143.i.i, label %.preheader44.i.i198.i134.i.i
 
 .preheader44.i.i198.i134.i.i:                     ; preds = %1465
-  %.idx.i.i.i199.i135.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i.i.i199.i135.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   br label %.noexc14.i200.i136.i.i
 
 .preheader.i.i208.i143.i.i:                       ; preds = %1465
   %1467 = load ptr, ptr %1391, align 8
-  %.idx.i32.i.i209.i144.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i32.i.i209.i144.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   %invariant.gep.i.i210.i145.i.i = getelementptr i8, ptr %1467, i64 %.idx.i32.i.i209.i144.i.i
   %1468 = load ptr, ptr %1392, align 8
   %1469 = getelementptr inbounds nuw i64, ptr %1468, i64 %1432
@@ -41046,7 +41046,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i: ; preds = %
 
 1588:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i
   %1589 = load i64, ptr %1518, align 8, !tbaa !4634
-  %1590 = shl i64 %indvars.iv.i.i234.i48.i.i, 4
+  %1590 = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 4
   %1591 = add i64 %1589, %1590
   %1592 = add i64 %1591, 32
   %1593 = load i64, ptr %1524, align 8, !tbaa !3767
@@ -41088,12 +41088,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItiEELb1EE11get_lt
   br i1 %.not23.i.i264.i78.i.i, label %.preheader.i.i275.i88.i.i, label %.preheader44.i.i265.i79.i.i
 
 .preheader44.i.i265.i79.i.i:                      ; preds = %1601
-  %.idx.i.i.i266.i80.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i.i.i266.i80.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   br label %.noexc14.i267.i81.i.i
 
 .preheader.i.i275.i88.i.i:                        ; preds = %1601
   %1603 = load ptr, ptr %1527, align 8
-  %.idx.i32.i.i276.i89.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i32.i.i276.i89.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   %invariant.gep.i.i277.i90.i.i = getelementptr i8, ptr %1603, i64 %.idx.i32.i.i276.i89.i.i
   %1604 = load ptr, ptr %1528, align 8
   %1605 = getelementptr inbounds nuw i64, ptr %1604, i64 %1568
@@ -45725,7 +45725,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 562:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %563 = load i64, ptr %498, align 8, !tbaa !4902
-  %564 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %564 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %565 = add i64 %563, %564
   %566 = add i64 %565, 32
   %567 = load i64, ptr %503, align 8, !tbaa !3767
@@ -46035,7 +46035,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i: ; preds = %_Z
 
 688:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i
   %689 = load i64, ptr %624, align 8, !tbaa !4902
-  %690 = shl i64 %indvars.iv.i.i162.i.i.i, 4
+  %690 = shl nuw nsw i64 %indvars.iv.i.i162.i.i.i, 4
   %691 = add i64 %689, %690
   %692 = add i64 %691, 32
   %693 = load i64, ptr %629, align 8, !tbaa !3767
@@ -46345,7 +46345,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i: ; preds = %_Z
 
 814:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i
   %815 = load i64, ptr %750, align 8, !tbaa !4902
-  %816 = shl i64 %indvars.iv.i.i224.i.i.i, 4
+  %816 = shl nuw nsw i64 %indvars.iv.i.i224.i.i.i, 4
   %817 = add i64 %815, %816
   %818 = add i64 %817, 32
   %819 = load i64, ptr %755, align 8, !tbaa !3767
@@ -47475,7 +47475,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i: ; preds = 
 
 1260:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i
   %1261 = load i64, ptr %1196, align 8, !tbaa !4902
-  %1262 = shl i64 %indvars.iv.i.i107.i148.i.i, 4
+  %1262 = shl nuw nsw i64 %indvars.iv.i.i107.i148.i.i, 4
   %1263 = add i64 %1261, %1262
   %1264 = add i64 %1263, 32
   %1265 = load i64, ptr %1201, align 8, !tbaa !3767
@@ -47785,7 +47785,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i: ; preds = 
 
 1386:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i
   %1387 = load i64, ptr %1322, align 8, !tbaa !4902
-  %1388 = shl i64 %indvars.iv.i.i162.i98.i.i, 4
+  %1388 = shl nuw nsw i64 %indvars.iv.i.i162.i98.i.i, 4
   %1389 = add i64 %1387, %1388
   %1390 = add i64 %1389, 32
   %1391 = load i64, ptr %1327, align 8, !tbaa !3767
@@ -48095,7 +48095,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i: ; preds = %
 
 1512:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i
   %1513 = load i64, ptr %1448, align 8, !tbaa !4902
-  %1514 = shl i64 %indvars.iv.i.i224.i48.i.i, 4
+  %1514 = shl nuw nsw i64 %indvars.iv.i.i224.i48.i.i, 4
   %1515 = add i64 %1513, %1514
   %1516 = add i64 %1515, 32
   %1517 = load i64, ptr %1453, align 8, !tbaa !3767
@@ -57012,7 +57012,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 578:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %579 = load i64, ptr %508, align 8, !tbaa !5511
-  %580 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %580 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %581 = add i64 %579, %580
   %582 = add i64 %581, 32
   %583 = load i64, ptr %514, align 8, !tbaa !3767
@@ -57054,12 +57054,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i137.i.i.i, label %.preheader.i.i147.i.i.i, label %.preheader44.i.i138.i.i.i
 
 .preheader44.i.i138.i.i.i:                        ; preds = %591
-  %.idx.i.i.i139.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i.i.i139.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   br label %.noexc14.i140.i.i.i
 
 .preheader.i.i147.i.i.i:                          ; preds = %591
   %593 = load ptr, ptr %517, align 8
-  %.idx.i32.i.i148.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i32.i.i148.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   %invariant.gep.i.i149.i.i.i = getelementptr i8, ptr %593, i64 %.idx.i32.i.i148.i.i.i
   %594 = load ptr, ptr %518, align 8
   %595 = getelementptr inbounds nuw i64, ptr %594, i64 %558
@@ -57339,7 +57339,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i: ; preds = %_Z
 
 714:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i
   %715 = load i64, ptr %644, align 8, !tbaa !5511
-  %716 = shl i64 %indvars.iv.i.i167.i.i.i, 4
+  %716 = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 4
   %717 = add i64 %715, %716
   %718 = add i64 %717, 32
   %719 = load i64, ptr %650, align 8, !tbaa !3767
@@ -57381,12 +57381,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i197.i.i.i, label %.preheader.i.i208.i.i.i, label %.preheader44.i.i198.i.i.i
 
 .preheader44.i.i198.i.i.i:                        ; preds = %727
-  %.idx.i.i.i199.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i.i.i199.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   br label %.noexc14.i200.i.i.i
 
 .preheader.i.i208.i.i.i:                          ; preds = %727
   %729 = load ptr, ptr %653, align 8
-  %.idx.i32.i.i209.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i32.i.i209.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   %invariant.gep.i.i210.i.i.i = getelementptr i8, ptr %729, i64 %.idx.i32.i.i209.i.i.i
   %730 = load ptr, ptr %654, align 8
   %731 = getelementptr inbounds nuw i64, ptr %730, i64 %694
@@ -57666,7 +57666,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i: ; preds = %_Z
 
 850:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i
   %851 = load i64, ptr %780, align 8, !tbaa !5511
-  %852 = shl i64 %indvars.iv.i.i234.i.i.i, 4
+  %852 = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 4
   %853 = add i64 %851, %852
   %854 = add i64 %853, 32
   %855 = load i64, ptr %786, align 8, !tbaa !3767
@@ -57708,12 +57708,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i264.i.i.i, label %.preheader.i.i275.i.i.i, label %.preheader44.i.i265.i.i.i
 
 .preheader44.i.i265.i.i.i:                        ; preds = %863
-  %.idx.i.i.i266.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i.i.i266.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   br label %.noexc14.i267.i.i.i
 
 .preheader.i.i275.i.i.i:                          ; preds = %863
   %865 = load ptr, ptr %789, align 8
-  %.idx.i32.i.i276.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i32.i.i276.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   %invariant.gep.i.i277.i.i.i = getelementptr i8, ptr %865, i64 %.idx.i32.i.i276.i.i.i
   %866 = load ptr, ptr %790, align 8
   %867 = getelementptr inbounds nuw i64, ptr %866, i64 %830
@@ -58830,7 +58830,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i: ; preds = 
 
 1316:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i
   %1317 = load i64, ptr %1246, align 8, !tbaa !5511
-  %1318 = shl i64 %indvars.iv.i.i107.i158.i.i, 4
+  %1318 = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 4
   %1319 = add i64 %1317, %1318
   %1320 = add i64 %1319, 32
   %1321 = load i64, ptr %1252, align 8, !tbaa !3767
@@ -58872,12 +58872,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i137.i188.i.i, label %.preheader.i.i147.i198.i.i, label %.preheader44.i.i138.i189.i.i
 
 .preheader44.i.i138.i189.i.i:                     ; preds = %1329
-  %.idx.i.i.i139.i190.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i.i.i139.i190.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   br label %.noexc14.i140.i191.i.i
 
 .preheader.i.i147.i198.i.i:                       ; preds = %1329
   %1331 = load ptr, ptr %1255, align 8
-  %.idx.i32.i.i148.i199.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i32.i.i148.i199.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   %invariant.gep.i.i149.i200.i.i = getelementptr i8, ptr %1331, i64 %.idx.i32.i.i148.i199.i.i
   %1332 = load ptr, ptr %1256, align 8
   %1333 = getelementptr inbounds nuw i64, ptr %1332, i64 %1296
@@ -59157,7 +59157,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i: ; preds = 
 
 1452:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i
   %1453 = load i64, ptr %1382, align 8, !tbaa !5511
-  %1454 = shl i64 %indvars.iv.i.i167.i103.i.i, 4
+  %1454 = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 4
   %1455 = add i64 %1453, %1454
   %1456 = add i64 %1455, 32
   %1457 = load i64, ptr %1388, align 8, !tbaa !3767
@@ -59199,12 +59199,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i197.i133.i.i, label %.preheader.i.i208.i143.i.i, label %.preheader44.i.i198.i134.i.i
 
 .preheader44.i.i198.i134.i.i:                     ; preds = %1465
-  %.idx.i.i.i199.i135.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i.i.i199.i135.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   br label %.noexc14.i200.i136.i.i
 
 .preheader.i.i208.i143.i.i:                       ; preds = %1465
   %1467 = load ptr, ptr %1391, align 8
-  %.idx.i32.i.i209.i144.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i32.i.i209.i144.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   %invariant.gep.i.i210.i145.i.i = getelementptr i8, ptr %1467, i64 %.idx.i32.i.i209.i144.i.i
   %1468 = load ptr, ptr %1392, align 8
   %1469 = getelementptr inbounds nuw i64, ptr %1468, i64 %1432
@@ -59484,7 +59484,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i: ; preds = %
 
 1588:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i
   %1589 = load i64, ptr %1518, align 8, !tbaa !5511
-  %1590 = shl i64 %indvars.iv.i.i234.i48.i.i, 4
+  %1590 = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 4
   %1591 = add i64 %1589, %1590
   %1592 = add i64 %1591, 32
   %1593 = load i64, ptr %1524, align 8, !tbaa !3767
@@ -59526,12 +59526,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMaxItlEELb1EE11get_lt
   br i1 %.not23.i.i264.i78.i.i, label %.preheader.i.i275.i88.i.i, label %.preheader44.i.i265.i79.i.i
 
 .preheader44.i.i265.i79.i.i:                      ; preds = %1601
-  %.idx.i.i.i266.i80.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i.i.i266.i80.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   br label %.noexc14.i267.i81.i.i
 
 .preheader.i.i275.i88.i.i:                        ; preds = %1601
   %1603 = load ptr, ptr %1527, align 8
-  %.idx.i32.i.i276.i89.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i32.i.i276.i89.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   %invariant.gep.i.i277.i90.i.i = getelementptr i8, ptr %1603, i64 %.idx.i32.i.i276.i89.i.i
   %1604 = load ptr, ptr %1528, align 8
   %1605 = getelementptr inbounds nuw i64, ptr %1604, i64 %1568
@@ -64163,7 +64163,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 562:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %563 = load i64, ptr %498, align 8, !tbaa !5778
-  %564 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %564 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %565 = add i64 %563, %564
   %566 = add i64 %565, 32
   %567 = load i64, ptr %503, align 8, !tbaa !3767
@@ -64473,7 +64473,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i: ; preds = %_Z
 
 688:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i
   %689 = load i64, ptr %624, align 8, !tbaa !5778
-  %690 = shl i64 %indvars.iv.i.i162.i.i.i, 4
+  %690 = shl nuw nsw i64 %indvars.iv.i.i162.i.i.i, 4
   %691 = add i64 %689, %690
   %692 = add i64 %691, 32
   %693 = load i64, ptr %629, align 8, !tbaa !3767
@@ -64783,7 +64783,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i: ; preds = %_Z
 
 814:                                              ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i
   %815 = load i64, ptr %750, align 8, !tbaa !5778
-  %816 = shl i64 %indvars.iv.i.i224.i.i.i, 4
+  %816 = shl nuw nsw i64 %indvars.iv.i.i224.i.i.i, 4
   %817 = add i64 %815, %816
   %818 = add i64 %817, 32
   %819 = load i64, ptr %755, align 8, !tbaa !3767
@@ -65913,7 +65913,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i: ; preds = 
 
 1260:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i
   %1261 = load i64, ptr %1196, align 8, !tbaa !5778
-  %1262 = shl i64 %indvars.iv.i.i107.i148.i.i, 4
+  %1262 = shl nuw nsw i64 %indvars.iv.i.i107.i148.i.i, 4
   %1263 = add i64 %1261, %1262
   %1264 = add i64 %1263, 32
   %1265 = load i64, ptr %1201, align 8, !tbaa !3767
@@ -66223,7 +66223,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i: ; preds = 
 
 1386:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i
   %1387 = load i64, ptr %1322, align 8, !tbaa !5778
-  %1388 = shl i64 %indvars.iv.i.i162.i98.i.i, 4
+  %1388 = shl nuw nsw i64 %indvars.iv.i.i162.i98.i.i, 4
   %1389 = add i64 %1387, %1388
   %1390 = add i64 %1389, 32
   %1391 = load i64, ptr %1327, align 8, !tbaa !3767
@@ -66533,7 +66533,7 @@ _ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i: ; preds = %
 
 1512:                                             ; preds = %_ZN5faiss8cmp_ge32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i
   %1513 = load i64, ptr %1448, align 8, !tbaa !5778
-  %1514 = shl i64 %indvars.iv.i.i224.i48.i.i, 4
+  %1514 = shl nuw nsw i64 %indvars.iv.i.i224.i48.i.i, 4
   %1515 = add i64 %1513, %1514
   %1516 = add i64 %1515, 32
   %1517 = load i64, ptr %1453, align 8, !tbaa !3767
@@ -75454,7 +75454,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 578:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %579 = load i64, ptr %508, align 8, !tbaa !6392
-  %580 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %580 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %581 = add i64 %579, %580
   %582 = add i64 %581, 32
   %583 = load i64, ptr %514, align 8, !tbaa !3767
@@ -75496,12 +75496,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i137.i.i.i, label %.preheader.i.i147.i.i.i, label %.preheader44.i.i138.i.i.i
 
 .preheader44.i.i138.i.i.i:                        ; preds = %591
-  %.idx.i.i.i139.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i.i.i139.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   br label %.noexc14.i140.i.i.i
 
 .preheader.i.i147.i.i.i:                          ; preds = %591
   %593 = load ptr, ptr %517, align 8
-  %.idx.i32.i.i148.i.i.i = shl i64 %indvars.iv.i.i107.i.i.i, 7
+  %.idx.i32.i.i148.i.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 7
   %invariant.gep.i.i149.i.i.i = getelementptr i8, ptr %593, i64 %.idx.i32.i.i148.i.i.i
   %594 = load ptr, ptr %518, align 8
   %595 = getelementptr inbounds nuw i64, ptr %594, i64 %558
@@ -75781,7 +75781,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i: ; preds = %_Z
 
 714:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i.i.i
   %715 = load i64, ptr %644, align 8, !tbaa !6392
-  %716 = shl i64 %indvars.iv.i.i167.i.i.i, 4
+  %716 = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 4
   %717 = add i64 %715, %716
   %718 = add i64 %717, 32
   %719 = load i64, ptr %650, align 8, !tbaa !3767
@@ -75823,12 +75823,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i197.i.i.i, label %.preheader.i.i208.i.i.i, label %.preheader44.i.i198.i.i.i
 
 .preheader44.i.i198.i.i.i:                        ; preds = %727
-  %.idx.i.i.i199.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i.i.i199.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   br label %.noexc14.i200.i.i.i
 
 .preheader.i.i208.i.i.i:                          ; preds = %727
   %729 = load ptr, ptr %653, align 8
-  %.idx.i32.i.i209.i.i.i = shl i64 %indvars.iv.i.i167.i.i.i, 7
+  %.idx.i32.i.i209.i.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i.i.i, 7
   %invariant.gep.i.i210.i.i.i = getelementptr i8, ptr %729, i64 %.idx.i32.i.i209.i.i.i
   %730 = load ptr, ptr %654, align 8
   %731 = getelementptr inbounds nuw i64, ptr %730, i64 %694
@@ -76108,7 +76108,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i: ; preds = %_Z
 
 850:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i.i.i
   %851 = load i64, ptr %780, align 8, !tbaa !6392
-  %852 = shl i64 %indvars.iv.i.i234.i.i.i, 4
+  %852 = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 4
   %853 = add i64 %851, %852
   %854 = add i64 %853, 32
   %855 = load i64, ptr %786, align 8, !tbaa !3767
@@ -76150,12 +76150,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i264.i.i.i, label %.preheader.i.i275.i.i.i, label %.preheader44.i.i265.i.i.i
 
 .preheader44.i.i265.i.i.i:                        ; preds = %863
-  %.idx.i.i.i266.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i.i.i266.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   br label %.noexc14.i267.i.i.i
 
 .preheader.i.i275.i.i.i:                          ; preds = %863
   %865 = load ptr, ptr %789, align 8
-  %.idx.i32.i.i276.i.i.i = shl i64 %indvars.iv.i.i234.i.i.i, 7
+  %.idx.i32.i.i276.i.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i.i.i, 7
   %invariant.gep.i.i277.i.i.i = getelementptr i8, ptr %865, i64 %.idx.i32.i.i276.i.i.i
   %866 = load ptr, ptr %790, align 8
   %867 = getelementptr inbounds nuw i64, ptr %866, i64 %830
@@ -77272,7 +77272,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i: ; preds = 
 
 1316:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i184.i.i
   %1317 = load i64, ptr %1246, align 8, !tbaa !6392
-  %1318 = shl i64 %indvars.iv.i.i107.i158.i.i, 4
+  %1318 = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 4
   %1319 = add i64 %1317, %1318
   %1320 = add i64 %1319, 32
   %1321 = load i64, ptr %1252, align 8, !tbaa !3767
@@ -77314,12 +77314,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i137.i188.i.i, label %.preheader.i.i147.i198.i.i, label %.preheader44.i.i138.i189.i.i
 
 .preheader44.i.i138.i189.i.i:                     ; preds = %1329
-  %.idx.i.i.i139.i190.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i.i.i139.i190.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   br label %.noexc14.i140.i191.i.i
 
 .preheader.i.i147.i198.i.i:                       ; preds = %1329
   %1331 = load ptr, ptr %1255, align 8
-  %.idx.i32.i.i148.i199.i.i = shl i64 %indvars.iv.i.i107.i158.i.i, 7
+  %.idx.i32.i.i148.i199.i.i = shl nuw nsw i64 %indvars.iv.i.i107.i158.i.i, 7
   %invariant.gep.i.i149.i200.i.i = getelementptr i8, ptr %1331, i64 %.idx.i32.i.i148.i199.i.i
   %1332 = load ptr, ptr %1256, align 8
   %1333 = getelementptr inbounds nuw i64, ptr %1332, i64 %1296
@@ -77599,7 +77599,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i: ; preds = 
 
 1452:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i193.i129.i.i
   %1453 = load i64, ptr %1382, align 8, !tbaa !6392
-  %1454 = shl i64 %indvars.iv.i.i167.i103.i.i, 4
+  %1454 = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 4
   %1455 = add i64 %1453, %1454
   %1456 = add i64 %1455, 32
   %1457 = load i64, ptr %1388, align 8, !tbaa !3767
@@ -77641,12 +77641,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i197.i133.i.i, label %.preheader.i.i208.i143.i.i, label %.preheader44.i.i198.i134.i.i
 
 .preheader44.i.i198.i134.i.i:                     ; preds = %1465
-  %.idx.i.i.i199.i135.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i.i.i199.i135.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   br label %.noexc14.i200.i136.i.i
 
 .preheader.i.i208.i143.i.i:                       ; preds = %1465
   %1467 = load ptr, ptr %1391, align 8
-  %.idx.i32.i.i209.i144.i.i = shl i64 %indvars.iv.i.i167.i103.i.i, 7
+  %.idx.i32.i.i209.i144.i.i = shl nuw nsw i64 %indvars.iv.i.i167.i103.i.i, 7
   %invariant.gep.i.i210.i145.i.i = getelementptr i8, ptr %1467, i64 %.idx.i32.i.i209.i144.i.i
   %1468 = load ptr, ptr %1392, align 8
   %1469 = getelementptr inbounds nuw i64, ptr %1468, i64 %1432
@@ -77926,7 +77926,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i: ; preds = %
 
 1588:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i260.i74.i.i
   %1589 = load i64, ptr %1518, align 8, !tbaa !6392
-  %1590 = shl i64 %indvars.iv.i.i234.i48.i.i, 4
+  %1590 = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 4
   %1591 = add i64 %1589, %1590
   %1592 = add i64 %1591, 32
   %1593 = load i64, ptr %1524, align 8, !tbaa !3767
@@ -77968,12 +77968,12 @@ _ZN5faiss20simd_result_handlers20ResultHandlerCompareINS_4CMinItlEELb1EE11get_lt
   br i1 %.not23.i.i264.i78.i.i, label %.preheader.i.i275.i88.i.i, label %.preheader44.i.i265.i79.i.i
 
 .preheader44.i.i265.i79.i.i:                      ; preds = %1601
-  %.idx.i.i.i266.i80.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i.i.i266.i80.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   br label %.noexc14.i267.i81.i.i
 
 .preheader.i.i275.i88.i.i:                        ; preds = %1601
   %1603 = load ptr, ptr %1527, align 8
-  %.idx.i32.i.i276.i89.i.i = shl i64 %indvars.iv.i.i234.i48.i.i, 7
+  %.idx.i32.i.i276.i89.i.i = shl nuw nsw i64 %indvars.iv.i.i234.i48.i.i, 7
   %invariant.gep.i.i277.i90.i.i = getelementptr i8, ptr %1603, i64 %.idx.i32.i.i276.i89.i.i
   %1604 = load ptr, ptr %1528, align 8
   %1605 = getelementptr inbounds nuw i64, ptr %1604, i64 %1568
@@ -82605,7 +82605,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i: ; preds = %_Z
 
 562:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i.i.i
   %563 = load i64, ptr %498, align 8, !tbaa !6659
-  %564 = shl i64 %indvars.iv.i.i107.i.i.i, 4
+  %564 = shl nuw nsw i64 %indvars.iv.i.i107.i.i.i, 4
   %565 = add i64 %563, %564
   %566 = add i64 %565, 32
   %567 = load i64, ptr %503, align 8, !tbaa !3767
@@ -82915,7 +82915,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i: ; preds = %_Z
 
 688:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i.i.i
   %689 = load i64, ptr %624, align 8, !tbaa !6659
-  %690 = shl i64 %indvars.iv.i.i162.i.i.i, 4
+  %690 = shl nuw nsw i64 %indvars.iv.i.i162.i.i.i, 4
   %691 = add i64 %689, %690
   %692 = add i64 %691, 32
   %693 = load i64, ptr %629, align 8, !tbaa !3767
@@ -83225,7 +83225,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i: ; preds = %_Z
 
 814:                                              ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i.i.i
   %815 = load i64, ptr %750, align 8, !tbaa !6659
-  %816 = shl i64 %indvars.iv.i.i224.i.i.i, 4
+  %816 = shl nuw nsw i64 %indvars.iv.i.i224.i.i.i, 4
   %817 = add i64 %815, %816
   %818 = add i64 %817, 32
   %819 = load i64, ptr %755, align 8, !tbaa !3767
@@ -84355,7 +84355,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i: ; preds = 
 
 1260:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i133.i174.i.i
   %1261 = load i64, ptr %1196, align 8, !tbaa !6659
-  %1262 = shl i64 %indvars.iv.i.i107.i148.i.i, 4
+  %1262 = shl nuw nsw i64 %indvars.iv.i.i107.i148.i.i, 4
   %1263 = add i64 %1261, %1262
   %1264 = add i64 %1263, 32
   %1265 = load i64, ptr %1201, align 8, !tbaa !3767
@@ -84665,7 +84665,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i: ; preds = 
 
 1386:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i188.i124.i.i
   %1387 = load i64, ptr %1322, align 8, !tbaa !6659
-  %1388 = shl i64 %indvars.iv.i.i162.i98.i.i, 4
+  %1388 = shl nuw nsw i64 %indvars.iv.i.i162.i98.i.i, 4
   %1389 = add i64 %1387, %1388
   %1390 = add i64 %1389, 32
   %1391 = load i64, ptr %1327, align 8, !tbaa !3767
@@ -84975,7 +84975,7 @@ _ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i: ; preds = %
 
 1512:                                             ; preds = %_ZN5faiss8cmp_le32ERKNS_12simd16uint16ES2_S2_.exit.i.i.i250.i74.i.i
   %1513 = load i64, ptr %1448, align 8, !tbaa !6659
-  %1514 = shl i64 %indvars.iv.i.i224.i48.i.i, 4
+  %1514 = shl nuw nsw i64 %indvars.iv.i.i224.i48.i.i, 4
   %1515 = add i64 %1513, %1514
   %1516 = add i64 %1515, 32
   %1517 = load i64, ptr %1453, align 8, !tbaa !3767

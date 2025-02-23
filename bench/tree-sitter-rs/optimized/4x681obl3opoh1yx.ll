@@ -1105,7 +1105,6 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   %64 = load i64, ptr %63, align 8, !noundef !12
   %.not156 = icmp eq i64 %50, 1
   %65 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %spec.select = select i1 %.not156, ptr null, ptr %65
   switch i64 %64, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread" [
     i64 16, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit96"
     i64 6, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100"
@@ -1123,7 +1122,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
   br i1 %69, label %70, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hfe82f3f5eef320a8E.exit100.thread"
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %72 = load i32, ptr %71, align 8, !noundef !12
   store i32 1, ptr %5, align 8
   store i32 %72, ptr %6, align 4
@@ -1142,7 +1141,7 @@ define hidden void @"_ZN16tree_sitter_tags17TagsConfiguration3new28_$u7b$$u7b$cl
 
 76:                                               ; preds = %74
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %77 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %78 = load i64, ptr %77, align 8, !noundef !12
   invoke void @_ZN5regex5regex6string5Regex3new17he028e9b85ae13c03E(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %75, i64 noundef %78)
           to label %79 unwind label %.loopexit

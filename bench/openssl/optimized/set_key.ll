@@ -103,7 +103,7 @@ DES_check_key_parity.exit:                        ; preds = %3, %DES_check_key_p
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %DES_check_key_parity.exit ], [ 0, %3 ]
   %.068.i = phi i32 [ %18, %DES_check_key_parity.exit ], [ 0, %3 ]
   %15 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @weak_keys, i64 0, i64 %indvars.iv.i5
-  %16 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef %0, i64 noundef 8) #5
+  %16 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef nonnull %0, i64 noundef 8) #5
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 -1, i32 %.068.i
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
@@ -117,7 +117,7 @@ DES_is_weak_key.exit:                             ; preds = %DES_check_key_parit
   %20 = and i32 %18, 1
   %.not4 = icmp eq i32 %20, 0
   %.1 = select i1 %.not4, i32 %spec.select, i32 -2
-  tail call void @DES_set_key_unchecked(ptr noundef %0, ptr noundef %1)
+  tail call void @DES_set_key_unchecked(ptr noundef nonnull %0, ptr noundef %1)
   ret i32 %.1
 }
 
@@ -327,7 +327,7 @@ DES_check_key_parity.exit:                        ; preds = %3
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i6, %.preheader ], [ 0, %DES_check_key_parity.exit ]
   %.068.i = phi i32 [ %19, %.preheader ], [ 0, %DES_check_key_parity.exit ]
   %16 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @weak_keys, i64 0, i64 %indvars.iv.i5
-  %17 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %16, ptr noundef %0, i64 noundef 8) #5
+  %17 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %16, ptr noundef nonnull %0, i64 noundef 8) #5
   %18 = icmp eq i32 %17, 0
   %19 = select i1 %18, i32 -1, i32 %.068.i
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
@@ -340,7 +340,7 @@ DES_is_weak_key.exit:                             ; preds = %.preheader
   br i1 %.not4, label %21, label %22
 
 21:                                               ; preds = %DES_is_weak_key.exit
-  tail call void @DES_set_key_unchecked(ptr noundef %0, ptr noundef %1)
+  tail call void @DES_set_key_unchecked(ptr noundef nonnull %0, ptr noundef %1)
   br label %22
 
 22:                                               ; preds = %DES_is_weak_key.exit, %DES_check_key_parity.exit, %21
@@ -374,7 +374,7 @@ DES_check_key_parity.exit.i:                      ; preds = %3, %DES_check_key_p
   %indvars.iv.i5.i = phi i64 [ %indvars.iv.next.i6.i, %DES_check_key_parity.exit.i ], [ 0, %3 ]
   %.068.i.i = phi i32 [ %18, %DES_check_key_parity.exit.i ], [ 0, %3 ]
   %15 = getelementptr inbounds nuw [16 x [8 x i8]], ptr @weak_keys, i64 0, i64 %indvars.iv.i5.i
-  %16 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef %0, i64 noundef 8) #5
+  %16 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef nonnull %0, i64 noundef 8) #5
   %17 = icmp eq i32 %16, 0
   %18 = select i1 %17, i32 -1, i32 %.068.i.i
   %indvars.iv.next.i6.i = add nuw nsw i64 %indvars.iv.i5.i, 1
@@ -388,7 +388,7 @@ DES_set_key.exit:                                 ; preds = %DES_check_key_parit
   %20 = and i32 %18, 1
   %.not4.i = icmp eq i32 %20, 0
   %.1.i = select i1 %.not4.i, i32 %spec.select.i, i32 -2
-  tail call void @DES_set_key_unchecked(ptr noundef %0, ptr noundef %1)
+  tail call void @DES_set_key_unchecked(ptr noundef nonnull %0, ptr noundef %1)
   ret i32 %.1.i
 }
 

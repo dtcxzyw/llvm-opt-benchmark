@@ -1353,7 +1353,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %78 = getelementptr %struct.NonEmptyRange, ptr %68, i64 %73
   %79 = getelementptr i8, ptr %78, i64 -32
   %80 = getelementptr i8, ptr %78, i64 -16
-  call void @range_deserialize(ptr noundef %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
+  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %77, ptr noundef %79, ptr noundef %80, ptr noundef nonnull %2) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #10
   %81 = add i16 %.0244.i, 1
   %.not.i77 = icmp ugt i16 %81, %71
@@ -1361,8 +1361,8 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 
 ._crit_edge.i:                                    ; preds = %72
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %69, ptr align 8 %68, i64 %67, i1 false)
-  call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef %21) #10
-  call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef %21) #10
+  call void @qsort_arg(ptr noundef %68, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_lower, ptr noundef nonnull %21) #10
+  call void @qsort_arg(ptr noundef %69, i64 noundef %66, i64 noundef 32, ptr noundef nonnull @interval_cmp_upper, ptr noundef nonnull %21) #10
   %82 = add nuw nsw i32 %64, 1
   %83 = lshr i32 %82, 1
   %84 = lshr i32 %64, 1
@@ -1390,13 +1390,13 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
   %indvars.iv.i = phi i64 [ %88, %.lr.ph248.i ], [ %indvars.iv.next.i, %93 ]
   %.1183246.i = phi ptr [ %.0182276.i, %.lr.ph248.i ], [ %spec.select.i, %93 ]
   %90 = getelementptr inbounds %struct.NonEmptyRange, ptr %68, i64 %indvars.iv.i
-  %91 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %.0186275.i, ptr noundef %90) #10
+  %91 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %.0186275.i, ptr noundef %90) #10
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %98
 
 93:                                               ; preds = %89
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %95 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %94, ptr noundef %.1183246.i) #10
+  %95 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %94, ptr noundef %.1183246.i) #10
   %96 = icmp sgt i32 %95, 0
   %spec.select.i = select i1 %96, ptr %94, ptr %.1183246.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -1418,7 +1418,7 @@ get_gist_range_class.exit:                        ; preds = %.lr.ph, %40
 .lr.ph263.i:                                      ; preds = %107, %.lr.ph263.preheader.i
   %indvars.iv351.i = phi i64 [ %103, %.lr.ph263.preheader.i ], [ %indvars.iv.next352.i, %107 ]
   %104 = getelementptr inbounds %struct.NonEmptyRange, ptr %69, i64 %indvars.iv351.i, i32 1
-  %105 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %104, ptr noundef %.1183246.i) #10
+  %105 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %104, ptr noundef %.1183246.i) #10
   %106 = icmp slt i32 %105, 1
   br i1 %106, label %107, label %.critedge2.loopexit.split.loop.exit393.i
 
@@ -1521,12 +1521,12 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
   %.2188284.i = phi ptr [ %.1187310.i, %.lr.ph286.i ], [ %spec.select204.i, %143 ]
   %139 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %69, i64 %indvars.iv354.i
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %141 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %.3185311.i, ptr noundef nonnull %140) #10
+  %141 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %.3185311.i, ptr noundef nonnull %140) #10
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %143, label %.critedge4.i
 
 143:                                              ; preds = %138
-  %144 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %139, ptr noundef %.2188284.i) #10
+  %144 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %139, ptr noundef %.2188284.i) #10
   %145 = icmp slt i32 %144, 0
   %spec.select204.i = select i1 %145, ptr %139, ptr %.2188284.i
   %indvars.iv.next355.i = add nsw i64 %indvars.iv354.i, -1
@@ -1548,7 +1548,7 @@ range_gist_consider_split.exit.i:                 ; preds = %.critedge.i.i, %129
 .lr.ph298.i:                                      ; preds = %156, %.lr.ph298.preheader.i
   %indvars.iv357.i = phi i64 [ %152, %.lr.ph298.preheader.i ], [ %indvars.iv.next358.i, %156 ]
   %153 = getelementptr inbounds nuw %struct.NonEmptyRange, ptr %68, i64 %indvars.iv357.i
-  %154 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef %153, ptr noundef %.2188284.i) #10
+  %154 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef %153, ptr noundef %.2188284.i) #10
   %155 = icmp sgt i32 %154, -1
   br i1 %155, label %156, label %.critedge6.loopexit.split.loop.exit395.i
 
@@ -1637,7 +1637,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br label %._crit_edge287.thread.i
 
 ._crit_edge287.thread.i:                          ; preds = %._crit_edge287.thread.critedge.i, %._crit_edge287.i
-  call fastcc void @range_gist_fallback_split(ptr noundef %21, ptr noundef nonnull readonly %10, ptr noundef nonnull %13)
+  call fastcc void @range_gist_fallback_split(ptr noundef nonnull %21, ptr noundef nonnull readonly %10, ptr noundef nonnull %13)
   br label %range_gist_double_sorting_split.exit
 
 187:                                              ; preds = %._crit_edge287.i
@@ -1668,13 +1668,13 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   %199 = load i64, ptr %198, align 8
   %200 = inttoptr i64 %199 to ptr
   %201 = call ptr @pg_detoast_datum(ptr noundef %200) #10
-  call void @range_deserialize(ptr noundef %21, ptr noundef %201, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
-  %202 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %4, ptr noundef %.sroa.19223.1.lcssa.i) #10
+  call void @range_deserialize(ptr noundef nonnull %21, ptr noundef %201, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %202 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %4, ptr noundef %.sroa.19223.1.lcssa.i) #10
   %203 = icmp slt i32 %202, 1
   br i1 %203, label %204, label %236
 
 204:                                              ; preds = %195
-  %205 = call i32 @range_cmp_bounds(ptr noundef %21, ptr noundef nonnull %3, ptr noundef %.sroa.23.1.lcssa.i) #10
+  %205 = call i32 @range_cmp_bounds(ptr noundef nonnull %21, ptr noundef nonnull %3, ptr noundef %.sroa.23.1.lcssa.i) #10
   %206 = icmp sgt i32 %205, -1
   br i1 %206, label %207, label %225
 
@@ -1715,7 +1715,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br i1 %227, label %228, label %230
 
 228:                                              ; preds = %225
-  %229 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.0170319.i, ptr noundef %201)
+  %229 = call fastcc ptr @range_super_union(ptr noundef nonnull %21, ptr noundef %.0170319.i, ptr noundef %201)
   %.pre360.i = load i32, ptr %191, align 8
   br label %230
 
@@ -1736,7 +1736,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br i1 %238, label %239, label %241
 
 239:                                              ; preds = %236
-  %240 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.0173318.i, ptr noundef %201)
+  %240 = call fastcc ptr @range_super_union(ptr noundef nonnull %21, ptr noundef %.0173318.i, ptr noundef %201)
   %.pre.i = load i32, ptr %192, align 8
   br label %241
 
@@ -1794,7 +1794,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br i1 %266, label %267, label %269
 
 267:                                              ; preds = %264
-  %268 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.4328.i, ptr noundef %262)
+  %268 = call fastcc ptr @range_super_union(ptr noundef nonnull %21, ptr noundef %.4328.i, ptr noundef %262)
   %.pre362.i = load i32, ptr %191, align 8
   br label %269
 
@@ -1812,7 +1812,7 @@ range_gist_consider_split.exit212.i:              ; preds = %.critedge.i208.i, %
   br i1 %275, label %276, label %278
 
 276:                                              ; preds = %273
-  %277 = call fastcc ptr @range_super_union(ptr noundef %21, ptr noundef %.4177327.i, ptr noundef %262)
+  %277 = call fastcc ptr @range_super_union(ptr noundef nonnull %21, ptr noundef %.4177327.i, ptr noundef %262)
   %.pre361.i = load i32, ptr %192, align 8
   br label %278
 
@@ -2061,63 +2061,63 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %11 = mul nuw nsw i64 %10, 24
   %12 = tail call ptr @palloc(i64 noundef %11) #10
   %.not61 = icmp eq i16 %9, 0
-  br i1 %.not61, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %4
-  tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %13, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store i32 0, ptr %14, align 8
-  br label %._crit_edge68
+  br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %3, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.05662.us = phi i16 [ %25, %.lr.ph.split.us ], [ 1, %.lr.ph ]
-  %16 = zext i16 %.05662.us to i32
-  %17 = zext i16 %.05662.us to i64
-  %18 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8
-  %20 = inttoptr i64 %19 to ptr
-  %21 = call ptr @pg_detoast_datum(ptr noundef %20) #10
+  %.05662.us = phi i16 [ %23, %.lr.ph.split.us ], [ 1, %.lr.ph ]
+  %14 = zext i16 %.05662.us to i32
+  %15 = zext i16 %.05662.us to i64
+  %16 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %13, i64 0, i64 %15
+  %17 = load i64, ptr %16, align 8
+  %18 = inttoptr i64 %17 to ptr
+  %19 = call ptr @pg_detoast_datum(ptr noundef %18) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
-  %22 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %17
-  %23 = getelementptr i8, ptr %22, i64 -24
-  store i32 %16, ptr %23, align 8
-  %24 = getelementptr i8, ptr %22, i64 -16
-  call void @range_deserialize(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %5, ptr noundef %24, ptr noundef nonnull %6) #10
+  %20 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %15
+  %21 = getelementptr i8, ptr %20, i64 -24
+  store i32 %14, ptr %21, align 8
+  %22 = getelementptr i8, ptr %20, i64 -16
+  call void @range_deserialize(ptr noundef %0, ptr noundef %19, ptr noundef nonnull %5, ptr noundef %22, ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  %25 = add i16 %.05662.us, 1
-  %.not.us = icmp ugt i16 %25, %9
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !18
+  %23 = add i16 %.05662.us, 1
+  %.not.us = icmp ugt i16 %23, %9
+  br i1 %.not.us, label %.lr.ph67, label %.lr.ph.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.05662 = phi i16 [ %35, %.lr.ph.split ], [ 1, %.lr.ph ]
-  %26 = zext i16 %.05662 to i32
-  %27 = zext i16 %.05662 to i64
-  %28 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %15, i64 0, i64 %27
-  %29 = load i64, ptr %28, align 8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = call ptr @pg_detoast_datum(ptr noundef %30) #10
+  %.05662 = phi i16 [ %33, %.lr.ph.split ], [ 1, %.lr.ph ]
+  %24 = zext i16 %.05662 to i32
+  %25 = zext i16 %.05662 to i64
+  %26 = getelementptr inbounds nuw [0 x %struct.GISTENTRY], ptr %13, i64 0, i64 %25
+  %27 = load i64, ptr %26, align 8
+  %28 = inttoptr i64 %27 to ptr
+  %29 = call ptr @pg_detoast_datum(ptr noundef %28) #10
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #10
-  %32 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %27
-  %33 = getelementptr i8, ptr %32, i64 -24
-  store i32 %26, ptr %33, align 8
-  %34 = getelementptr i8, ptr %32, i64 -16
-  call void @range_deserialize(ptr noundef %0, ptr noundef %31, ptr noundef %34, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
+  %30 = getelementptr %struct.SingleBoundSortItem, ptr %12, i64 %25
+  %31 = getelementptr i8, ptr %30, i64 -24
+  store i32 %24, ptr %31, align 8
+  %32 = getelementptr i8, ptr %30, i64 -16
+  call void @range_deserialize(ptr noundef %0, ptr noundef %29, ptr noundef %32, ptr noundef nonnull %5, ptr noundef nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
-  %35 = add i16 %.05662, 1
-  %.not = icmp ugt i16 %35, %9
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
+  %33 = add i16 %.05662, 1
+  %.not = icmp ugt i16 %33, %9
+  br i1 %.not, label %.lr.ph67, label %.lr.ph.split, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
+._crit_edge:                                      ; preds = %4
+  tail call void @qsort_arg(ptr noundef %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %34, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store i32 0, ptr %35, align 8
+  br label %._crit_edge68
+
+.lr.ph67:                                         ; preds = %.lr.ph.split, %.lr.ph.split.us
   call void @qsort_arg(ptr noundef nonnull %12, i64 noundef %10, i64 noundef 24, ptr noundef nonnull @single_bound_cmp, ptr noundef %0) #10
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %36, align 8
@@ -2129,10 +2129,10 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %41 = zext nneg i16 %38 to i64
   br label %42
 
-42:                                               ; preds = %._crit_edge, %69
-  %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %69 ]
-  %.065 = phi ptr [ null, %._crit_edge ], [ %.2, %69 ]
-  %.05364 = phi ptr [ null, %._crit_edge ], [ %.154, %69 ]
+42:                                               ; preds = %.lr.ph67, %69
+  %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %69 ]
+  %.065 = phi ptr [ null, %.lr.ph67 ], [ %.2, %69 ]
+  %.05364 = phi ptr [ null, %.lr.ph67 ], [ %.154, %69 ]
   %43 = getelementptr inbounds nuw %struct.SingleBoundSortItem, ptr %12, i64 %indvars.iv
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -2197,9 +2197,9 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
   %73 = ptrtoint ptr %.154 to i64
   br label %._crit_edge68
 
-._crit_edge68:                                    ; preds = %._crit_edge.thread, %._crit_edge68.loopexit
-  %.053.lcssa = phi i64 [ %73, %._crit_edge68.loopexit ], [ 0, %._crit_edge.thread ]
-  %.0.lcssa = phi i64 [ %72, %._crit_edge68.loopexit ], [ 0, %._crit_edge.thread ]
+._crit_edge68:                                    ; preds = %._crit_edge, %._crit_edge68.loopexit
+  %.053.lcssa = phi i64 [ 0, %._crit_edge ], [ %73, %._crit_edge68.loopexit ]
+  %.0.lcssa = phi i64 [ 0, %._crit_edge ], [ %72, %._crit_edge68.loopexit ]
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i64 %.0.lcssa, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 48

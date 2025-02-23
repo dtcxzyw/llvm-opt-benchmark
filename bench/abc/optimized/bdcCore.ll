@@ -1338,8 +1338,8 @@ select.unfold.i71:                                ; preds = %select.unfold.i71, 
   br i1 %148, label %select.unfold.i71, label %Kit_TruthSharp.exit, !llvm.loop !96
 
 Kit_TruthSharp.exit:                              ; preds = %select.unfold.i57, %select.unfold.i71, %Kit_TruthCopy.exit, %Kit_TruthAnd.exit
-  call void @Bdc_SuppMinimize(ptr noundef %0, ptr noundef nonnull %9) #20
-  %149 = call ptr @Bdc_ManDecompose_rec(ptr noundef %0, ptr noundef nonnull %9) #20
+  call void @Bdc_SuppMinimize(ptr noundef nonnull %0, ptr noundef nonnull %9) #20
+  %149 = call ptr @Bdc_ManDecompose_rec(ptr noundef nonnull %0, ptr noundef nonnull %9) #20
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %149, ptr %150, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20

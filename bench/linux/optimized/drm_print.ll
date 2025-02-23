@@ -551,7 +551,7 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %6, label %.thread
+  br i1 %5, label %6, label %.loopexit
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8
@@ -589,9 +589,9 @@ define dso_local void @drm_print_regset32(ptr noundef %0, ptr noundef readonly c
   %32 = load i32, ptr %3, align 8
   %33 = sext i32 %32 to i64
   %34 = icmp slt i64 %31, %33
-  br i1 %34, label %21, label %.thread, !llvm.loop !18
+  br i1 %34, label %21, label %.loopexit, !llvm.loop !18
 
-.thread:                                          ; preds = %21, %2
+.loopexit:                                        ; preds = %21, %2
   ret void
 }
 

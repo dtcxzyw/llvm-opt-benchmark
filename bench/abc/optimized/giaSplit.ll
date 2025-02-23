@@ -247,11 +247,11 @@ define noalias noundef ptr @Spl_ManFromWecMapping(ptr noundef readonly captures(
   %9 = add nsw i32 %.val9.i, %.011.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_WecSizeSize.exit, label %7, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.lr.ph.i39, label %7, !llvm.loop !40
 
-Vec_WecSizeSize.exit:                             ; preds = %7, %Vec_WecSizeSize.exit
-  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i45, %Vec_WecSizeSize.exit ], [ 0, %7 ]
-  %.011.i43 = phi i32 [ %13, %Vec_WecSizeSize.exit ], [ 0, %7 ]
+.lr.ph.i39:                                       ; preds = %7, %.lr.ph.i39
+  %indvars.iv.i42 = phi i64 [ %indvars.iv.next.i45, %.lr.ph.i39 ], [ 0, %7 ]
+  %.011.i43 = phi i32 [ %13, %.lr.ph.i39 ], [ 0, %7 ]
   %10 = getelementptr %struct.Vec_Int_t_, ptr %.val.i, i64 %indvars.iv.i42, i32 1
   %.val9.i44 = load i32, ptr %10, align 4, !tbaa !35
   %11 = icmp sgt i32 %.val9.i44, 0
@@ -259,9 +259,9 @@ Vec_WecSizeSize.exit:                             ; preds = %7, %Vec_WecSizeSize
   %13 = add nuw nsw i32 %.011.i43, %12
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i46, label %Vec_WecSizeUsed.exit.loopexit, label %Vec_WecSizeSize.exit, !llvm.loop !41
+  br i1 %exitcond.not.i46, label %Vec_WecSizeUsed.exit.loopexit, label %.lr.ph.i39, !llvm.loop !41
 
-Vec_WecSizeUsed.exit.loopexit:                    ; preds = %Vec_WecSizeSize.exit
+Vec_WecSizeUsed.exit.loopexit:                    ; preds = %.lr.ph.i39
   %14 = add nsw i32 %9, %.val28
   %15 = shl nuw nsw i32 %13, 1
   br label %Vec_WecSizeUsed.exit
@@ -1636,7 +1636,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i32, ptr %.val26.val, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !34
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %0, i32 noundef %70, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %0, i32 noundef %70, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %71 = add nuw nsw i32 %.030, 1
   %.val25 = load ptr, ptr %24, align 8, !tbaa !81
   %72 = getelementptr i8, ptr %.val25, i64 8
@@ -1691,7 +1691,7 @@ define i32 @Spl_ManLutFanouts(ptr noundef readonly captures(none) %0, i32 nounde
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i32, ptr %.val25.val, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !34
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull %0, i32 noundef %25, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   %26 = add nuw nsw i32 %.028, 1
   %.val24 = load ptr, ptr %7, align 8, !tbaa !81
   %27 = getelementptr i8, ptr %.val24, i64 8
@@ -2056,7 +2056,7 @@ define i32 @Spl_ManFindOne(ptr noundef readonly captures(none) %0) local_unnamed
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i32, ptr %.val25.val.i, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !34
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %42, i32 noundef %71, ptr noundef %50, ptr noundef readonly %51, ptr noundef readonly %52)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %42, i32 noundef %71, ptr noundef nonnull %50, ptr noundef readonly %51, ptr noundef readonly %52)
   %72 = add nuw nsw i32 %.028.i, 1
   %.val24.i = load ptr, ptr %54, align 8, !tbaa !81
   %73 = getelementptr i8, ptr %.val24.i, i64 8
@@ -2684,7 +2684,7 @@ Vec_IntPush.exit224:                              ; preds = %.Vec_IntGrow.exit10
   %383 = sext i32 %382 to i64
   %384 = getelementptr inbounds i32, ptr %.val25.val.i231, i64 %383
   %385 = load i32, ptr %384, align 4, !tbaa !34
-  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %356, i32 noundef %385, ptr noundef %364, ptr noundef readonly %365, ptr noundef readonly %366)
+  tail call void @Spl_ManLutFanouts_rec(ptr noundef nonnull readonly %356, i32 noundef %385, ptr noundef nonnull %364, ptr noundef readonly %365, ptr noundef readonly %366)
   %386 = add nuw nsw i32 %.028.i229, 1
   %.val24.i232 = load ptr, ptr %368, align 8, !tbaa !81
   %387 = getelementptr i8, ptr %.val24.i232, i64 8

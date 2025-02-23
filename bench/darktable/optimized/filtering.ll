@@ -2512,7 +2512,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !132
   %23 = load i32, ptr %20, align 8, !tbaa !130
-  call void %22(ptr noundef nonnull %2, i32 noundef %23, ptr noundef nonnull @.str.13, ptr noundef %0, i32 noundef 0) #20
+  call void %22(ptr noundef nonnull %2, i32 noundef %23, ptr noundef nonnull @.str.13, ptr noundef nonnull %0, i32 noundef 0) #20
   %24 = load ptr, ptr %14, align 8, !tbaa !123
   call void @gtk_widget_destroy(ptr noundef %24) #20
   %25 = load ptr, ptr %15, align 8, !tbaa !124
@@ -2538,11 +2538,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %36 = call ptr @g_type_check_instance_cast(ptr noundef %35, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %36, ptr noundef %33, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   %37 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.83, i32 noundef 5) #20
-  %38 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @_event_rule_append, ptr noundef %0, ptr noundef %37, i32 noundef 0, i32 noundef 0) #20
+  %38 = call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.82, ptr noundef nonnull @_event_rule_append, ptr noundef nonnull %0, ptr noundef %37, i32 noundef 0, i32 noundef 0) #20
   %39 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %39, ptr noundef %38, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   %40 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.85, i32 noundef 5) #20
-  %41 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull @_event_history_show, ptr noundef %0, ptr noundef %40, i32 noundef 0, i32 noundef 0) #20
+  %41 = call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.84, ptr noundef nonnull @_event_history_show, ptr noundef nonnull %0, ptr noundef %40, i32 noundef 0, i32 noundef 0) #20
   %42 = call ptr @g_type_check_instance_cast(ptr noundef %33, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %42, ptr noundef %41, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   call void @gtk_widget_show_all(ptr noundef %33) #20
@@ -2571,11 +2571,11 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %59 = call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %59, ptr noundef %56, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   %60 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 5) #20
-  %61 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @_sort_show_add_popup, ptr noundef %0, ptr noundef %60, i32 noundef 0, i32 noundef 0) #20
+  %61 = call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.88, ptr noundef nonnull @_sort_show_add_popup, ptr noundef nonnull %0, ptr noundef %60, i32 noundef 0, i32 noundef 0) #20
   %62 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %62, ptr noundef %61, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   %63 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.90, i32 noundef 5) #20
-  %64 = call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.84, ptr noundef nonnull @_sort_history_show, ptr noundef %0, ptr noundef %63, i32 noundef 0, i32 noundef 0) #20
+  %64 = call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.84, ptr noundef nonnull @_sort_history_show, ptr noundef nonnull %0, ptr noundef %63, i32 noundef 0, i32 noundef 0) #20
   %65 = call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %30) #20
   call void @gtk_box_pack_start(ptr noundef %65, ptr noundef %64, i32 noundef 1, i32 noundef 1, i32 noundef 0) #20
   call void @gtk_widget_show_all(ptr noundef %56) #20

@@ -247,7 +247,7 @@ define range(i32 0, 2) i32 @Res_WinCollectLeavesAndNodes(ptr noundef captures(no
 
 Vec_VecClear.exit:                                ; preds = %7, %1
   %11 = load ptr, ptr %0, align 8, !tbaa !32
-  tail call fastcc void @Vec_VecPush(ptr noundef %3, i32 noundef 0, ptr noundef %11)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %3, i32 noundef 0, ptr noundef %11)
   %12 = load ptr, ptr %0, align 8, !tbaa !32
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 232

@@ -966,8 +966,8 @@ Fra_ClauCreateMapping.exit139:                    ; preds = %148, %.preheader.i1
   tail call void @Cnf_DataFree(ptr noundef %66) #15
   tail call void @Cnf_DataFree(ptr noundef %69) #15
   tail call void @Cnf_DataFree(ptr noundef %76) #15
-  tail call void @Aig_ManStop(ptr noundef %58) #15
-  tail call void @Aig_ManStop(ptr noundef %68) #15
+  tail call void @Aig_ManStop(ptr noundef nonnull %58) #15
+  tail call void @Aig_ManStop(ptr noundef nonnull %68) #15
   tail call void @Aig_ManStop(ptr noundef %75) #15
   %156 = icmp eq ptr %67, null
   %157 = icmp eq ptr %70, null

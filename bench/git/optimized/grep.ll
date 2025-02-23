@@ -1329,7 +1329,7 @@ define dso_local i32 @grep_source(ptr noundef %0, ptr noundef %1) local_unnamed_
 clr_hit_marker.exit:                              ; preds = %.lr.ph.i, %8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %20, align 4, !tbaa !75
-  %21 = tail call fastcc i32 @grep_source_1(ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  %21 = tail call fastcc i32 @grep_source_1(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   %22 = load i32, ptr %3, align 4, !tbaa !60
   %.not15 = icmp eq i32 %22, 0
   br i1 %.not15, label %36, label %23

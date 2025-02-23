@@ -471,7 +471,7 @@ Vec_BitStart.exit23:                              ; preds = %Vec_BitStart.exit, 
   %.val17 = load ptr, ptr %40, align 8, !tbaa !28
   %44 = sext i32 %43 to i64
   %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val17, i64 %44
-  tail call void @Pas_ManPhase_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %45, i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %28)
+  tail call void @Pas_ManPhase_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %45, i32 noundef 1, ptr noundef nonnull %12, ptr noundef nonnull %28)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val18 = load i32, ptr %37, align 4, !tbaa !38
   %46 = sext i32 %.val18 to i64
@@ -573,7 +573,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 
 .critedge._crit_edge.thread:                      ; preds = %.critedge.preheader
   %41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef 0)
-  br label %Vec_IntPrint.exit.thread
+  br label %Vec_BitFreeP.exit108
 
 42:                                               ; preds = %.lr.ph, %59
   %.val91143 = phi i32 [ %.val91120, %.lr.ph ], [ %.val91, %59 ]
@@ -709,14 +709,14 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %122, %124, %114, %116
-  %.sink157 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
+  %.sink162 = phi ptr [ %115, %114 ], [ %117, %116 ], [ %123, %122 ], [ %125, %124 ]
   %.sink = phi i32 [ 16, %114 ], [ 16, %116 ], [ %119, %122 ], [ %119, %124 ]
-  store ptr %.sink157, ptr %35, align 8, !tbaa !33
+  store ptr %.sink162, ptr %35, align 8, !tbaa !33
   store i32 %.sink, ptr %32, align 8, !tbaa !46
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %107
-  %.pre.i146 = phi ptr [ %95, %107 ], [ %.sink157, %Vec_IntPush.exit.sink.split ]
+  %.pre.i146 = phi ptr [ %95, %107 ], [ %.sink162, %Vec_IntPush.exit.sink.split ]
   %126 = add nsw i32 %108, 1
   store i32 %126, ptr %33, align 4, !tbaa !38
   %127 = sext i32 %108 to i64
@@ -736,35 +736,29 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %.val90.pre = load i32, ptr %33, align 4, !tbaa !38
   %131 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.val90.pre)
   %132 = icmp sgt i32 %.val90.pre, 0
-  br i1 %132, label %.lr.ph.i.preheader, label %Vec_IntPrint.exit.thread
+  br i1 %132, label %.lr.ph.i.preheader, label %Vec_BitFreeP.exit108
 
 .lr.ph.i.preheader:                               ; preds = %.critedge._crit_edge
   %133 = zext nneg i32 %.val90.pre to i64
   br label %.lr.ph.i
 
-Vec_IntPrint.exit.thread:                         ; preds = %.critedge._crit_edge.thread, %.critedge._crit_edge
-  %.val90156 = phi i32 [ 0, %.critedge._crit_edge.thread ], [ %.val90.pre, %.critedge._crit_edge ]
-  %134 = phi ptr [ %34, %.critedge._crit_edge.thread ], [ %.pre.i147, %.critedge._crit_edge ]
-  %puts.i119 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %Vec_BitFreeP.exit108
-
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %135 = getelementptr inbounds nuw i32, ptr %.pre.i147, i64 %indvars.iv.i
-  %136 = load i32, ptr %135, align 4, !tbaa !29
-  %137 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %136)
+  %134 = getelementptr inbounds nuw i32, ptr %.pre.i147, i64 %indvars.iv.i
+  %135 = load i32, ptr %134, align 4, !tbaa !29
+  %136 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %135)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %133
-  br i1 %exitcond.not, label %Vec_IntPrint.exit, label %.lr.ph.i, !llvm.loop !49
+  br i1 %exitcond.not, label %137, label %.lr.ph.i, !llvm.loop !49
 
-Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
-  %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %138 = call ptr @Pas_ManPhase(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %21, ptr noundef nonnull %32, ptr noundef nonnull %6)
+137:                                              ; preds = %.lr.ph.i
+  %puts.i119 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %138 = call ptr @Pas_ManPhase(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %21, ptr noundef nonnull %32, ptr noundef nonnull %6)
   %.val89.i = load i32, ptr %36, align 4, !tbaa !38
   %139 = icmp sgt i32 %.val89.i, 0
   br i1 %139, label %.lr.ph.i101, label %Pas_ManVerifyPhase.exit
 
-.lr.ph.i101:                                      ; preds = %Vec_IntPrint.exit
+.lr.ph.i101:                                      ; preds = %137
   %140 = getelementptr i8, ptr %2, i64 8
   br label %141
 
@@ -773,14 +767,14 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   %.val.i103 = load ptr, ptr %140, align 8, !tbaa !33
   %142 = getelementptr inbounds nuw i32, ptr %.val.i103, i64 %indvars.iv.i102
   %143 = load i32, ptr %142, align 4, !tbaa !29
-  tail call void @Pas_ManVerifyPhaseOne(ptr noundef %0, ptr noundef readonly %1, i32 noundef %143, ptr noundef readonly %138)
+  tail call void @Pas_ManVerifyPhaseOne(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %143, ptr noundef readonly %138)
   %indvars.iv.next.i104 = add nuw nsw i64 %indvars.iv.i102, 1
   %.val8.i = load i32, ptr %36, align 4, !tbaa !38
   %144 = sext i32 %.val8.i to i64
   %145 = icmp slt i64 %indvars.iv.next.i104, %144
   br i1 %145, label %141, label %Pas_ManVerifyPhase.exit, !llvm.loop !39
 
-Pas_ManVerifyPhase.exit:                          ; preds = %141, %Vec_IntPrint.exit
+Pas_ManVerifyPhase.exit:                          ; preds = %141, %137
   %146 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5)
   %147 = getelementptr i8, ptr %4, i64 4
   %.val88125 = load i32, ptr %147, align 4, !tbaa !38
@@ -848,88 +842,95 @@ Pas_ManVerifyPhase.exit:                          ; preds = %141, %Vec_IntPrint.
   %.val87 = load i32, ptr %165, align 4, !tbaa !38
   %184 = sext i32 %.val87 to i64
   %185 = icmp slt i64 %indvars.iv.next137, %184
-  br i1 %185, label %169, label %.critedge4, !llvm.loop !51
+  br i1 %185, label %169, label %.critedge4.thread, !llvm.loop !51
 
-.critedge4:                                       ; preds = %169, %.critedge2
-  %.0.lcssa = phi i32 [ 0, %.critedge2 ], [ %183, %169 ]
-  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.0.lcssa)
-  %187 = icmp eq ptr %138, null
-  br i1 %187, label %Vec_BitFreeP.exit, label %188
+.critedge4.thread:                                ; preds = %169
+  %186 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %183)
+  br label %189
 
-188:                                              ; preds = %.critedge4
-  %189 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !34
-  %.not.i105 = icmp eq ptr %190, null
-  br i1 %.not.i105, label %191, label %.thread.i
+.critedge4:                                       ; preds = %.critedge2
+  %187 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 0)
+  %188 = icmp eq ptr %138, null
+  br i1 %188, label %Vec_BitFreeP.exit, label %189
 
-.thread.i:                                        ; preds = %188
-  tail call void @free(ptr noundef nonnull %190) #15
-  br label %191
+189:                                              ; preds = %.critedge4.thread, %.critedge4
+  %190 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %191 = load ptr, ptr %190, align 8, !tbaa !34
+  %.not.i105 = icmp eq ptr %191, null
+  br i1 %.not.i105, label %192, label %.thread.i
 
-191:                                              ; preds = %.thread.i, %188
+.thread.i:                                        ; preds = %189
+  tail call void @free(ptr noundef nonnull %191) #15
+  br label %192
+
+192:                                              ; preds = %.thread.i, %189
   tail call void @free(ptr noundef nonnull %138) #15
   br label %Vec_BitFreeP.exit
 
-Vec_BitFreeP.exit:                                ; preds = %.critedge4, %191
-  %192 = load ptr, ptr %6, align 8, !tbaa !44
-  %193 = icmp eq ptr %192, null
-  br i1 %193, label %Vec_BitFreeP.exit108, label %194
+Vec_BitFreeP.exit:                                ; preds = %.critedge4, %192
+  %193 = load ptr, ptr %6, align 8, !tbaa !44
+  %194 = icmp eq ptr %193, null
+  br i1 %194, label %Vec_BitFreeP.exit108.thread, label %195
 
-194:                                              ; preds = %Vec_BitFreeP.exit
-  %195 = getelementptr inbounds nuw i8, ptr %192, i64 8
-  %196 = load ptr, ptr %195, align 8, !tbaa !34
-  %.not.i106 = icmp eq ptr %196, null
-  br i1 %.not.i106, label %197, label %.thread.i107
+195:                                              ; preds = %Vec_BitFreeP.exit
+  %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %197 = load ptr, ptr %196, align 8, !tbaa !34
+  %.not.i106 = icmp eq ptr %197, null
+  br i1 %.not.i106, label %198, label %.thread.i107
 
-.thread.i107:                                     ; preds = %194
-  tail call void @free(ptr noundef nonnull %196) #15
-  br label %197
+.thread.i107:                                     ; preds = %195
+  tail call void @free(ptr noundef nonnull %197) #15
+  br label %198
 
-197:                                              ; preds = %.thread.i107, %194
-  tail call void @free(ptr noundef nonnull %192) #15
-  br label %Vec_BitFreeP.exit108
+198:                                              ; preds = %.thread.i107, %195
+  tail call void @free(ptr noundef nonnull %193) #15
+  br label %Vec_BitFreeP.exit108.thread
 
-Vec_BitFreeP.exit108:                             ; preds = %197, %Vec_BitFreeP.exit, %Vec_IntPrint.exit.thread
-  %.val90155 = phi i32 [ %.val90.pre, %197 ], [ %.val90.pre, %Vec_BitFreeP.exit ], [ %.val90156, %Vec_IntPrint.exit.thread ]
-  %198 = phi ptr [ %.pre.i147, %197 ], [ %.pre.i147, %Vec_BitFreeP.exit ], [ %134, %Vec_IntPrint.exit.thread ]
-  %.not.i109 = icmp eq ptr %198, null
-  br i1 %.not.i109, label %Vec_IntFree.exit, label %199
+Vec_BitFreeP.exit108:                             ; preds = %.critedge._crit_edge, %.critedge._crit_edge.thread
+  %.val90156 = phi i32 [ 0, %.critedge._crit_edge.thread ], [ %.val90.pre, %.critedge._crit_edge ]
+  %199 = phi ptr [ %34, %.critedge._crit_edge.thread ], [ %.pre.i147, %.critedge._crit_edge ]
+  %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %.not.i109 = icmp eq ptr %199, null
+  br i1 %.not.i109, label %Vec_IntFree.exit, label %Vec_BitFreeP.exit108.thread
 
-199:                                              ; preds = %Vec_BitFreeP.exit108
-  tail call void @free(ptr noundef nonnull %198) #15
+Vec_BitFreeP.exit108.thread:                      ; preds = %Vec_BitFreeP.exit, %198, %Vec_BitFreeP.exit108
+  %200 = phi ptr [ %199, %Vec_BitFreeP.exit108 ], [ %.pre.i147, %198 ], [ %.pre.i147, %Vec_BitFreeP.exit ]
+  %.val90155160 = phi i32 [ %.val90156, %Vec_BitFreeP.exit108 ], [ %.val90.pre, %198 ], [ %.val90.pre, %Vec_BitFreeP.exit ]
+  tail call void @free(ptr noundef nonnull %200) #15
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Vec_BitFreeP.exit108, %199
+Vec_IntFree.exit:                                 ; preds = %Vec_BitFreeP.exit108, %Vec_BitFreeP.exit108.thread
+  %.val90155161 = phi i32 [ %.val90156, %Vec_BitFreeP.exit108 ], [ %.val90155160, %Vec_BitFreeP.exit108.thread ]
   tail call void @free(ptr noundef nonnull %32) #15
-  %200 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %201 = load ptr, ptr %200, align 8, !tbaa !33
-  %.not.i110 = icmp eq ptr %201, null
-  br i1 %.not.i110, label %Vec_IntFree.exit111, label %202
+  %201 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %202 = load ptr, ptr %201, align 8, !tbaa !33
+  %.not.i110 = icmp eq ptr %202, null
+  br i1 %.not.i110, label %Vec_IntFree.exit111, label %203
 
-202:                                              ; preds = %Vec_IntFree.exit
-  tail call void @free(ptr noundef nonnull %201) #15
+203:                                              ; preds = %Vec_IntFree.exit
+  tail call void @free(ptr noundef nonnull %202) #15
   br label %Vec_IntFree.exit111
 
-Vec_IntFree.exit111:                              ; preds = %Vec_IntFree.exit, %202
+Vec_IntFree.exit111:                              ; preds = %Vec_IntFree.exit, %203
   tail call void @free(ptr noundef nonnull %21) #15
   %.not.i112 = icmp eq ptr %19, null
-  br i1 %.not.i112, label %Vec_BitFree.exit, label %203
+  br i1 %.not.i112, label %Vec_BitFree.exit, label %204
 
-203:                                              ; preds = %Vec_IntFree.exit111
+204:                                              ; preds = %Vec_IntFree.exit111
   tail call void @free(ptr noundef nonnull %19) #15
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %Vec_IntFree.exit111, %203
+Vec_BitFree.exit:                                 ; preds = %Vec_IntFree.exit111, %204
   %.not.i113 = icmp eq ptr %20, null
-  br i1 %.not.i113, label %Vec_BitFree.exit114, label %204
+  br i1 %.not.i113, label %Vec_BitFree.exit114, label %205
 
-204:                                              ; preds = %Vec_BitFree.exit
+205:                                              ; preds = %Vec_BitFree.exit
   tail call void @free(ptr noundef nonnull %20) #15
   br label %Vec_BitFree.exit114
 
-Vec_BitFree.exit114:                              ; preds = %Vec_BitFree.exit, %204
+Vec_BitFree.exit114:                              ; preds = %Vec_BitFree.exit, %205
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
-  ret i32 %.val90155
+  ret i32 %.val90155161
 }
 
 ; Function Attrs: nounwind uwtable

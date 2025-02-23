@@ -15654,7 +15654,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %73, %
   %107 = load i32, ptr %106, align 4
   store i32 %107, ptr %105, align 4
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %108 = load i32, ptr %.0116, align 4
+  %108 = load i32, ptr %10, align 4
   %109 = sext i32 %108 to i64
   %110 = icmp slt i64 %indvars.iv.next211, %109
   br i1 %110, label %.lr.ph180.split.us, label %.loopexit, !llvm.loop !90
@@ -15667,7 +15667,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %73, %
   %114 = load ptr, ptr %113, align 8
   store ptr %114, ptr %112, align 8
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %115 = load i32, ptr %.0116, align 4
+  %115 = load i32, ptr %9, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next208, %116
   br i1 %117, label %.lr.ph180.split, label %.loopexit, !llvm.loop !90

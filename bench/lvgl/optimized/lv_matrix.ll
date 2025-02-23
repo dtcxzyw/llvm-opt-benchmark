@@ -215,7 +215,7 @@ define void @lv_matrix_multiply(ptr noundef %0, ptr noundef readonly captures(no
   br label %15
 
 12:                                               ; preds = %14
-  %13 = call ptr @lv_memcpy(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 36) #9
+  %13 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
   ret void
 
@@ -303,7 +303,7 @@ define void @lv_matrix_scale(ptr noundef %0, float noundef %1, float noundef %2)
   br i1 %exitcond.not.i, label %20, label %21, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %20
-  %32 = call ptr @lv_memcpy(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 36) #9
+  %32 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
   ret void
@@ -372,7 +372,7 @@ define void @lv_matrix_rotate(ptr noundef %0, float noundef %1) local_unnamed_ad
   br i1 %exitcond.not.i, label %24, label %25, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %24
-  %36 = call ptr @lv_memcpy(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 36) #9
+  %36 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   ret void
@@ -448,7 +448,7 @@ define void @lv_matrix_skew(ptr noundef %0, float noundef %1, float noundef %2) 
   br i1 %exitcond.not.i, label %26, label %27, !llvm.loop !9
 
 lv_matrix_multiply.exit:                          ; preds = %26
-  %38 = call ptr @lv_memcpy(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 36) #9
+  %38 = call ptr @lv_memcpy(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 36) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #9
   ret void

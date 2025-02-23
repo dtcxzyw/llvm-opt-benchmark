@@ -736,7 +736,7 @@ sub_1391:                                         ; preds = %.tail385
 
 276:                                              ; preds = %272
   %.not300 = icmp eq ptr %1, null
-  br i1 %.not300, label %strbuf_setlen.exit355.thread, label %277
+  br i1 %.not300, label %strbuf_setlen.exit355, label %277
 
 277:                                              ; preds = %276
   store ptr null, ptr %1, align 8, !tbaa !7
@@ -752,11 +752,7 @@ _.exit352:                                        ; preds = %277, %279
   %.0.i351 = phi ptr [ %280, %279 ], [ @.str.22, %277 ]
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.0.i351, ptr %281, align 8, !tbaa !14
-  br label %strbuf_setlen.exit355.thread
-
-strbuf_setlen.exit355.thread:                     ; preds = %276, %_.exit352
-  call void @strbuf_release(ptr noundef nonnull %4) #16
-  br label %.thread
+  br label %strbuf_setlen.exit355
 
 .preheader:                                       ; preds = %272, %.preheader
   %.0 = phi ptr [ %282, %.preheader ], [ %275, %272 ]
@@ -803,6 +799,10 @@ strbuf_setlen.exit355.thread:                     ; preds = %276, %_.exit352
   %.not9.i357 = icmp eq ptr %247, @strbuf_slopbuf
   br i1 %.not9.i357, label %strbuf_setlen.exit, label %strbuf_setlen.exit.sink.split
 
+strbuf_setlen.exit355:                            ; preds = %276, %_.exit352
+  call void @strbuf_release(ptr noundef nonnull %4) #16
+  br label %.thread
+
 strbuf_setlen.exit.sink.split:                    ; preds = %300, %293, %266, %261
   %.sink475 = phi i64 [ %258, %261 ], [ %263, %266 ], [ %290, %293 ], [ %297, %300 ]
   %.not303.ph = phi i1 [ false, %261 ], [ true, %266 ], [ false, %293 ], [ true, %300 ]
@@ -811,7 +811,7 @@ strbuf_setlen.exit.sink.split:                    ; preds = %300, %293, %266, %2
   br label %strbuf_setlen.exit
 
 strbuf_setlen.exit:                               ; preds = %strbuf_setlen.exit.sink.split, %sub_0386, %sub_1391, %293, %300, %266, %261, %.tail389
-  %.not303 = phi i1 [ true, %.tail389 ], [ false, %261 ], [ true, %266 ], [ false, %293 ], [ true, %300 ], [ true, %sub_1391 ], [ true, %sub_0386 ], [ %.not303.ph, %strbuf_setlen.exit.sink.split ]
+  %.not303 = phi i1 [ true, %.tail389 ], [ false, %261 ], [ true, %266 ], [ true, %300 ], [ false, %293 ], [ true, %sub_1391 ], [ true, %sub_0386 ], [ %.not303.ph, %strbuf_setlen.exit.sink.split ]
   %302 = sub i64 %.4217421, %245
   %303 = load i8, ptr %244, align 1, !tbaa !4
   %.not302 = icmp eq i8 %303, 47
@@ -905,8 +905,8 @@ _.exit361:                                        ; preds = %319, %321
   store i64 %315, ptr %341, align 8, !tbaa !35
   br label %.thread
 
-.thread:                                          ; preds = %strbuf_setlen.exit355.thread, %243, %216, %204, %325, %327, %26, %_.exit, %324, %145, %128, %110, %72
-  %.0202 = phi ptr [ null, %145 ], [ null, %324 ], [ null, %128 ], [ null, %110 ], [ null, %72 ], [ null, %_.exit ], [ null, %26 ], [ %326, %327 ], [ %326, %325 ], [ null, %204 ], [ null, %216 ], [ null, %243 ], [ null, %strbuf_setlen.exit355.thread ]
+.thread:                                          ; preds = %243, %strbuf_setlen.exit355, %216, %204, %325, %327, %26, %_.exit, %324, %145, %128, %110, %72
+  %.0202 = phi ptr [ null, %145 ], [ null, %324 ], [ null, %128 ], [ null, %110 ], [ null, %72 ], [ null, %_.exit ], [ null, %26 ], [ %326, %327 ], [ %326, %325 ], [ null, %204 ], [ null, %216 ], [ null, %strbuf_setlen.exit355 ], [ null, %243 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   ret ptr %.0202

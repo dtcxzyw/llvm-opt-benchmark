@@ -147785,7 +147785,7 @@ common.ret:                                       ; preds = %1524, %1520, %197
 
 .preheader.i.i.i.i:                               ; preds = %1428, %1444
   %.sroa.025.052.i.i.i.i = phi i64 [ %1440, %1444 ], [ 0, %1428 ]
-  %.251.i.i.i.i = phi i8 [ %.3.i.i.i.i, %1444 ], [ %.06453.i.i.i.i, %1428 ]
+  %.251.i.i.i.i = phi i8 [ %.3.i.i.i.i, %1444 ], [ 0, %1428 ]
   %1440 = add nuw nsw i64 %.sroa.025.052.i.i.i.i, 1
   %1441 = getelementptr inbounds nuw [4 x i16], ptr %6, i64 0, i64 %.sroa.025.052.i.i.i.i
   %1442 = load i16, ptr %1441, align 2, !noalias !23046, !noundef !4

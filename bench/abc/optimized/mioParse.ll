@@ -2325,7 +2325,7 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr noundef re
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %24
 
-.preheader187.i:                                  ; preds = %24
+.lr.ph195.i:                                      ; preds = %24
   %23 = icmp sgt i32 %10, 0
   %wide.trip.count229.i = zext nneg i32 %10 to i64
   br label %27
@@ -2337,10 +2337,10 @@ define noalias noundef ptr @Mio_ParseFormulaTruth(ptr noundef %0, ptr noundef re
   store ptr %25, ptr %26, align 8, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader187.i, label %24, !llvm.loop !43
+  br i1 %exitcond.not.i, label %.lr.ph195.i, label %24, !llvm.loop !43
 
-27:                                               ; preds = %.loopexit.i, %.preheader187.i
-  %indvars.iv236.i = phi i64 [ 0, %.preheader187.i ], [ %indvars.iv.next237.i, %.loopexit.i ]
+27:                                               ; preds = %.loopexit.i, %.lr.ph195.i
+  %indvars.iv236.i = phi i64 [ 0, %.lr.ph195.i ], [ %indvars.iv.next237.i, %.loopexit.i ]
   %28 = icmp samesign ult i64 %indvars.iv236.i, 6
   br i1 %28, label %.preheader.i, label %.preheader185.i
 
@@ -2610,7 +2610,7 @@ Exp_TruthLit.exit.i:                              ; preds = %92, %87, %.lr.ph53.
   store i64 %125, ptr %126, align 8, !tbaa !44
   %indvars.iv.next68.i140.i = add nuw nsw i64 %indvars.iv67.i139.i, 1
   %exitcond71.not.i141.i = icmp eq i64 %indvars.iv.next68.i140.i, %58
-  br i1 %exitcond71.not.i141.i, label %Exp_TruthLit.exit146.i, label %122, !llvm.loop !50
+  br i1 %exitcond71.not.i141.i, label %.lr.ph201.i, label %122, !llvm.loop !50
 
 127:                                              ; preds = %127, %.lr.ph51.split.i126.i
   %indvars.iv.i127.i = phi i64 [ 0, %.lr.ph51.split.i126.i ], [ %indvars.iv.next.i128.i, %127 ]
@@ -2621,12 +2621,9 @@ Exp_TruthLit.exit.i:                              ; preds = %92, %87, %.lr.ph53.
   store i64 %130, ptr %131, align 8, !tbaa !44
   %indvars.iv.next.i128.i = add nuw nsw i64 %indvars.iv.i127.i, 1
   %exitcond.not.i129.i = icmp eq i64 %indvars.iv.next.i128.i, %58
-  br i1 %exitcond.not.i129.i, label %Exp_TruthLit.exit146.i, label %127, !llvm.loop !51
+  br i1 %exitcond.not.i129.i, label %.lr.ph201.i, label %127, !llvm.loop !51
 
-Exp_TruthLit.exit146.i:                           ; preds = %127, %122
-  br i1 %57, label %.lr.ph201.i, label %._crit_edge202.i
-
-.lr.ph201.i:                                      ; preds = %Exp_TruthLit.exit146.i, %.lr.ph53.split.us.i142.i, %.lr.ph51.split.us.i130.i, %.lr.ph49.preheader.i121.i, %.lr.ph.preheader.i119.i
+.lr.ph201.i:                                      ; preds = %127, %122, %.lr.ph53.split.us.i142.i, %.lr.ph51.split.us.i130.i, %.lr.ph49.preheader.i121.i, %.lr.ph.preheader.i119.i
   %132 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv251.i
   %133 = load ptr, ptr %132, align 8, !tbaa !42
   br label %134
@@ -2644,7 +2641,7 @@ Exp_TruthLit.exit146.i:                           ; preds = %127, %122
   %exitcond250.not.i = icmp eq i64 %indvars.iv.next247.i, %58
   br i1 %exitcond250.not.i, label %._crit_edge202.i, label %134, !llvm.loop !52
 
-._crit_edge202.i:                                 ; preds = %134, %Exp_TruthLit.exit146.i, %.preheader.i134.i, %.preheader41.i122.i, %.preheader43.i120.i, %.preheader45.i118.i
+._crit_edge202.i:                                 ; preds = %134, %.preheader.i134.i, %.preheader41.i122.i, %.preheader43.i120.i, %.preheader45.i118.i
   %indvars.iv.next252.i = add nuw nsw i64 %indvars.iv251.i, 1
   %exitcond255.not.i = icmp eq i64 %indvars.iv.next252.i, %wide.trip.count254.i
   br i1 %exitcond255.not.i, label %._crit_edge206.i, label %61, !llvm.loop !53

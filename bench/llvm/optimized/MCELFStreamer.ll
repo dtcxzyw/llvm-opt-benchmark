@@ -2066,49 +2066,49 @@ _ZL21CheckBundleSubtargetsPKN4llvm15MCSubtargetInfoES2_.exit: ; preds = %19, %_Z
   store i8 %96, ptr %94, align 1
   %97 = getelementptr inbounds nuw i8, ptr %.1, i64 32
   store ptr %2, ptr %97, align 8, !tbaa !399
-  br label %121
+  br label %122
 
 .lr.ph:                                           ; preds = %78
   %98 = zext i32 %81 to i64
   %99 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %90, i64 %98
   %100 = trunc i64 %84 to i32
-  br label %113
+  br label %101
 
-._crit_edge:                                      ; preds = %113
-  %101 = getelementptr inbounds nuw i8, ptr %.1, i64 29
-  %102 = load i8, ptr %101, align 1
-  %103 = or i8 %102, 1
-  store i8 %103, ptr %101, align 1
-  %104 = getelementptr inbounds nuw i8, ptr %.1, i64 32
-  store ptr %2, ptr %104, align 8, !tbaa !399
-  %105 = getelementptr i8, ptr %93, i64 -12
-  %106 = load i32, ptr %105, align 4, !tbaa !413
-  %107 = load ptr, ptr %4, align 8, !tbaa !76
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
-  %109 = load ptr, ptr %108, align 8, !tbaa !3
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 12
-  %111 = load i32, ptr %110, align 4, !tbaa !414
-  %112 = icmp eq i32 %106, %111
-  br i1 %112, label %119, label %121
+101:                                              ; preds = %.lr.ph, %101
+  %.03140 = phi ptr [ %99, %.lr.ph ], [ %106, %101 ]
+  %102 = getelementptr inbounds nuw i8, ptr %.03140, i64 8
+  %103 = load i32, ptr %102, align 8, !tbaa !413
+  %104 = add i32 %103, %100
+  store i32 %104, ptr %102, align 8, !tbaa !413
+  %105 = load ptr, ptr %.03140, align 8, !tbaa !396
+  tail call void @_ZN4llvm13MCELFStreamer21fixSymbolsInTLSFixupsEPKNS_6MCExprE(ptr noundef nonnull align 8 dereferenceable(6609) %0, ptr noundef %105)
+  %106 = getelementptr inbounds nuw i8, ptr %.03140, i64 24
+  %.not = icmp eq ptr %106, %93
+  br i1 %.not, label %107, label %101
 
-113:                                              ; preds = %.lr.ph, %113
-  %.03140 = phi ptr [ %99, %.lr.ph ], [ %118, %113 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.03140, i64 8
-  %115 = load i32, ptr %114, align 8, !tbaa !417
-  %116 = add i32 %115, %100
-  store i32 %116, ptr %114, align 8, !tbaa !417
-  %117 = load ptr, ptr %.03140, align 8, !tbaa !396
-  tail call void @_ZN4llvm13MCELFStreamer21fixSymbolsInTLSFixupsEPKNS_6MCExprE(ptr noundef nonnull align 8 dereferenceable(6609) %0, ptr noundef %117)
-  %118 = getelementptr inbounds nuw i8, ptr %.03140, i64 24
-  %.not = icmp eq ptr %118, %93
-  br i1 %.not, label %._crit_edge, label %113
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds nuw i8, ptr %.1, i64 29
+  %109 = load i8, ptr %108, align 1
+  %110 = or i8 %109, 1
+  store i8 %110, ptr %108, align 1
+  %111 = getelementptr inbounds nuw i8, ptr %.1, i64 32
+  store ptr %2, ptr %111, align 8, !tbaa !399
+  %112 = getelementptr i8, ptr %93, i64 -12
+  %113 = load i32, ptr %112, align 4, !tbaa !414
+  %114 = load ptr, ptr %4, align 8, !tbaa !76
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !3
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  %118 = load i32, ptr %117, align 4, !tbaa !415
+  %119 = icmp eq i32 %113, %118
+  br i1 %119, label %120, label %122
 
-119:                                              ; preds = %._crit_edge
-  %120 = or i8 %102, 5
-  store i8 %120, ptr %101, align 1
-  br label %121
+120:                                              ; preds = %107
+  %121 = or i8 %109, 5
+  store i8 %121, ptr %108, align 1
+  br label %122
 
-121:                                              ; preds = %._crit_edge.thread, %119, %._crit_edge
+122:                                              ; preds = %._crit_edge.thread, %120, %107
   ret void
 }
 
@@ -4910,11 +4910,11 @@ attributes #21 = { builtin nounwind allocsize(0) }
 !410 = !{!83, !84, i64 8}
 !411 = !{!412, !56, i64 8}
 !412 = !{!"_ZTSN4llvm9MCSection8FragListE", !56, i64 0, !56, i64 8}
-!413 = !{!397, !398, i64 12}
-!414 = !{!415, !16, i64 12}
-!415 = !{!"_ZTSN4llvm12MCAsmBackendE", !416, i64 8, !16, i64 12}
-!416 = !{!"_ZTSN4llvm10endiannessE", !6, i64 0}
-!417 = !{!397, !16, i64 8}
+!413 = !{!397, !16, i64 8}
+!414 = !{!397, !398, i64 12}
+!415 = !{!416, !16, i64 12}
+!416 = !{!"_ZTSN4llvm12MCAsmBackendE", !417, i64 8, !16, i64 12}
+!417 = !{!"_ZTSN4llvm10endiannessE", !6, i64 0}
 !418 = !{!80, !80, i64 0}
 !419 = !{!101, !94, i64 0}
 !420 = !{!101, !47, i64 8}

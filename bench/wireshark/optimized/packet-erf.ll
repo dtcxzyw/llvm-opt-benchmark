@@ -1575,11 +1575,11 @@ define hidden void @proto_register_erf() local_unnamed_addr #2 {
   call void @wmem_array_append(ptr noundef %68, ptr noundef nonnull %14, i32 noundef 1)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 2
-  br i1 %exitcond.not.i.i.i, label %init_tag_value_subfields.exit.i.i, label %83, !llvm.loop !8
+  br i1 %exitcond.not.i.i.i, label %.thread.i, label %83, !llvm.loop !8
 
-init_tag_value_subfields.exit.i.i:                ; preds = %83
+.thread.i:                                        ; preds = %83
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %14) #11
-  br label %129
+  br label %init_tag_fields.exit.i
 
 98:                                               ; preds = %66, %66, %66, %66, %66, %66, %66, %66, %66, %66
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %13) #11
@@ -1646,7 +1646,7 @@ init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #11
   br label %129
 
-129:                                              ; preds = %120, %init_ns_addr_tag_value_fields.exit.i.i, %init_tag_value_subfields.exit.i.i
+129:                                              ; preds = %120, %init_ns_addr_tag_value_fields.exit.i.i
   switch i16 %72, label %init_tag_fields.exit.i [
     i16 38, label %130
     i16 81, label %init_tag_value_subfields.exit34.i.i
@@ -1930,7 +1930,7 @@ init_ext_hdrs_tag_value_subfields.exit.i.i:       ; preds = %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #11
   br label %init_tag_fields.exit.i
 
-init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_value_subfields.exit.i.i, %init_tag_value_subfields.exit50.i.i, %init_tag_value_subfields.exit46.i.i, %init_tag_value_subfields.exit42.i.i, %init_tag_value_subfields.exit38.i.i, %init_tag_value_subfields.exit34.i.i, %init_tag_value_subfields.exit30.i.i, %129
+init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_value_subfields.exit.i.i, %init_tag_value_subfields.exit50.i.i, %init_tag_value_subfields.exit46.i.i, %init_tag_value_subfields.exit42.i.i, %init_tag_value_subfields.exit38.i.i, %init_tag_value_subfields.exit34.i.i, %init_tag_value_subfields.exit30.i.i, %129, %.thread.i
   store ptr %75, ptr %15, align 8
   call void @wmem_array_append(ptr noundef %69, ptr noundef nonnull %15, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #11
@@ -4278,11 +4278,11 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   %1279 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
   %1280 = call ptr @proto_item_add_subtree(ptr noundef %1278, i32 noundef %1279)
   %.not95.i.i = icmp ult i16 %1008, 4
-  br i1 %.not95.i.i, label %.thread639.i, label %.lr.ph.preheader.i.i
+  br i1 %.not95.i.i, label %._crit_edge92.thread.i.i, label %.lr.ph.preheader.i.i
 
-.thread639.i:                                     ; preds = %1275
+._crit_edge92.thread.i.i:                         ; preds = %1275
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.448)
-  br label %._crit_edge92.thread.i.i
+  br label %1357
 
 .lr.ph.preheader.i.i:                             ; preds = %1275
   %wide.trip.count.i.i = zext nneg i32 %spec.select.i.i144 to i64
@@ -4304,169 +4304,169 @@ dissect_relative_time.exit.i:                     ; preds = %1255, %1253
   br i1 %exitcond.not.i.i147, label %._crit_edge.i.i, label %.lr.ph.i453.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i453.i
-  br i1 %spec.select74.i.i, label %1285, label %.thread633.i
+  br i1 %spec.select74.i.i, label %.lr.ph91.split.us.preheader.i.i, label %.lr.ph91.split.preheader.i.i
 
-1285:                                             ; preds = %._crit_edge.i.i
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.448)
-  %1286 = load i32, ptr %5, align 16
-  %1287 = zext i32 %1286 to i64
-  br label %.lr.ph91.split.us.i.i
-
-.thread633.i:                                     ; preds = %._crit_edge.i.i
-  %1288 = load i32, ptr %5, align 16
-  %1289 = zext i32 %1288 to i64
+.lr.ph91.split.preheader.i.i:                     ; preds = %._crit_edge.i.i
+  %1285 = load i32, ptr %5, align 16
+  %1286 = zext i32 %1285 to i64
   br label %.lr.ph91.split.i.i
 
-.lr.ph91.split.us.i.i:                            ; preds = %.split85.us.us.i.i, %1285
-  %indvars.iv105.i.i = phi i64 [ %indvars.iv.next106.i.i, %.split85.us.us.i.i ], [ 0, %1285 ]
-  %.05989.us.i.i = phi i8 [ %.2.us.us.i.i, %.split85.us.us.i.i ], [ 1, %1285 ]
-  %.06188.us.i.i = phi i32 [ %1320, %.split85.us.us.i.i ], [ 0, %1285 ]
-  %1290 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1291 = getelementptr inbounds nuw i8, ptr %1290, i64 4
-  %1292 = getelementptr [32 x i32], ptr %1291, i64 0, i64 %indvars.iv105.i.i
-  %1293 = load i32, ptr %1292, align 4
-  %indvars.iv105.tr.i.i = trunc i64 %indvars.iv105.i.i to i32
-  %1294 = shl i32 %indvars.iv105.tr.i.i, 2
-  %1295 = add i32 %1294, %1277
-  %1296 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1293, ptr noundef %0, i32 noundef %1295, i32 noundef 4, i32 noundef 0)
-  %1297 = icmp eq i64 %indvars.iv105.i.i, 0
-  br i1 %1297, label %1298, label %.split.us.us.i.i
+.lr.ph91.split.us.preheader.i.i:                  ; preds = %._crit_edge.i.i
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.448)
+  %1287 = load i32, ptr %5, align 16
+  %1288 = zext i32 %1287 to i64
+  br label %.lr.ph91.split.us.i.i
 
-1298:                                             ; preds = %.lr.ph91.split.us.i.i
-  %1299 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
-  %1300 = call ptr @proto_item_add_subtree(ptr noundef %1296, i32 noundef %1299)
-  %1301 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1302 = getelementptr i8, ptr %1301, i64 20
-  %1303 = load i32, ptr %1302, align 4
-  %.not7177.us.i.i = icmp eq i32 %1303, -1
+.lr.ph91.split.us.i.i:                            ; preds = %.split85.us.us.i.i, %.lr.ph91.split.us.preheader.i.i
+  %indvars.iv105.i.i = phi i64 [ 0, %.lr.ph91.split.us.preheader.i.i ], [ %indvars.iv.next106.i.i, %.split85.us.us.i.i ]
+  %.05989.us.i.i = phi i8 [ 1, %.lr.ph91.split.us.preheader.i.i ], [ %.2.us.us.i.i, %.split85.us.us.i.i ]
+  %.06188.us.i.i = phi i32 [ 0, %.lr.ph91.split.us.preheader.i.i ], [ %1319, %.split85.us.us.i.i ]
+  %1289 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1290 = getelementptr inbounds nuw i8, ptr %1289, i64 4
+  %1291 = getelementptr [32 x i32], ptr %1290, i64 0, i64 %indvars.iv105.i.i
+  %1292 = load i32, ptr %1291, align 4
+  %indvars.iv105.tr.i.i = trunc i64 %indvars.iv105.i.i to i32
+  %1293 = shl i32 %indvars.iv105.tr.i.i, 2
+  %1294 = add i32 %1293, %1277
+  %1295 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1292, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i32 noundef 0)
+  %1296 = icmp eq i64 %indvars.iv105.i.i, 0
+  br i1 %1296, label %1297, label %.split.us.us.i.i
+
+1297:                                             ; preds = %.lr.ph91.split.us.i.i
+  %1298 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
+  %1299 = call ptr @proto_item_add_subtree(ptr noundef %1295, i32 noundef %1298)
+  %1300 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1301 = getelementptr i8, ptr %1300, i64 20
+  %1302 = load i32, ptr %1301, align 4
+  %.not7177.us.i.i = icmp eq i32 %1302, -1
   br i1 %.not7177.us.i.i, label %.split.us.us.i.i, label %.lr.ph80.us.i.i
 
-.lr.ph80.us.i.i:                                  ; preds = %1298, %.lr.ph80.us.i.i
-  %1304 = phi i32 [ %1311, %.lr.ph80.us.i.i ], [ %1303, %1298 ]
-  %.06678.us.i.i = phi i32 [ %1306, %.lr.ph80.us.i.i ], [ 4, %1298 ]
-  %1305 = call ptr @proto_tree_add_boolean(ptr noundef %1300, i32 noundef %1304, ptr noundef %0, i32 noundef %1295, i32 noundef 4, i64 noundef %1287)
-  %1306 = add i32 %.06678.us.i.i, 1
-  %1307 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1308 = getelementptr inbounds nuw i8, ptr %1307, i64 4
-  %1309 = sext i32 %1306 to i64
-  %1310 = getelementptr [32 x i32], ptr %1308, i64 0, i64 %1309
-  %1311 = load i32, ptr %1310, align 4
-  %.not71.us.i.i = icmp eq i32 %1311, -1
+.lr.ph80.us.i.i:                                  ; preds = %1297, %.lr.ph80.us.i.i
+  %1303 = phi i32 [ %1310, %.lr.ph80.us.i.i ], [ %1302, %1297 ]
+  %.06678.us.i.i = phi i32 [ %1305, %.lr.ph80.us.i.i ], [ 4, %1297 ]
+  %1304 = call ptr @proto_tree_add_boolean(ptr noundef %1299, i32 noundef %1303, ptr noundef %0, i32 noundef %1294, i32 noundef 4, i64 noundef %1288)
+  %1305 = add i32 %.06678.us.i.i, 1
+  %1306 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1307 = getelementptr inbounds nuw i8, ptr %1306, i64 4
+  %1308 = sext i32 %1305 to i64
+  %1309 = getelementptr [32 x i32], ptr %1307, i64 0, i64 %1308
+  %1310 = load i32, ptr %1309, align 4
+  %.not71.us.i.i = icmp eq i32 %1310, -1
   br i1 %.not71.us.i.i, label %.split.us.us.i.i, label %.lr.ph80.us.i.i, !llvm.loop !24
 
-.split.us.us.i.i:                                 ; preds = %.lr.ph80.us.i.i, %1298, %.lr.ph91.split.us.i.i
-  %1312 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv105.i.i
-  %1313 = load i32, ptr %1312, align 4
-  br label %1314
+.split.us.us.i.i:                                 ; preds = %.lr.ph80.us.i.i, %1297, %.lr.ph91.split.us.i.i
+  %1311 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv105.i.i
+  %1312 = load i32, ptr %1311, align 4
+  br label %1313
 
-1314:                                             ; preds = %1319, %.split.us.us.i.i
-  %.16083.us.us.i.i = phi i8 [ %.05989.us.i.i, %.split.us.us.i.i ], [ %.2.us.us.i.i, %1319 ]
-  %.16282.us.us.i.i = phi i32 [ %.06188.us.i.i, %.split.us.us.i.i ], [ %1320, %1319 ]
-  %.06381.us.us.i.i = phi i32 [ 0, %.split.us.us.i.i ], [ %1321, %1319 ]
-  %1315 = shl nuw i32 1, %.06381.us.us.i.i
-  %1316 = and i32 %1315, %1313
-  %.not72.us.us.i.i = icmp eq i32 %1316, 0
-  br i1 %.not72.us.us.i.i, label %1319, label %1317
+1313:                                             ; preds = %1318, %.split.us.us.i.i
+  %.16083.us.us.i.i = phi i8 [ %.05989.us.i.i, %.split.us.us.i.i ], [ %.2.us.us.i.i, %1318 ]
+  %.16282.us.us.i.i = phi i32 [ %.06188.us.i.i, %.split.us.us.i.i ], [ %1319, %1318 ]
+  %.06381.us.us.i.i = phi i32 [ 0, %.split.us.us.i.i ], [ %1320, %1318 ]
+  %1314 = shl nuw i32 1, %.06381.us.us.i.i
+  %1315 = and i32 %1314, %1312
+  %.not72.us.us.i.i = icmp eq i32 %1315, 0
+  br i1 %.not72.us.us.i.i, label %1318, label %1316
 
-1317:                                             ; preds = %1314
-  %1318 = call ptr @val_to_str(i32 noundef %.16282.us.us.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1296, ptr noundef nonnull @.str.449, ptr noundef %1318)
-  br label %1319
+1316:                                             ; preds = %1313
+  %1317 = call ptr @val_to_str(i32 noundef %.16282.us.us.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1295, ptr noundef nonnull @.str.449, ptr noundef %1317)
+  br label %1318
 
-1319:                                             ; preds = %1317, %1314
-  %.2.us.us.i.i = phi i8 [ %.16083.us.us.i.i, %1314 ], [ 0, %1317 ]
-  %1320 = add i32 %.16282.us.us.i.i, 1
-  %1321 = add nuw nsw i32 %.06381.us.us.i.i, 1
-  %exitcond104.not.i.i = icmp eq i32 %1321, 32
-  br i1 %exitcond104.not.i.i, label %.split85.us.us.i.i, label %1314, !llvm.loop !25
+1318:                                             ; preds = %1316, %1313
+  %.2.us.us.i.i = phi i8 [ %.16083.us.us.i.i, %1313 ], [ 0, %1316 ]
+  %1319 = add i32 %.16282.us.us.i.i, 1
+  %1320 = add nuw nsw i32 %.06381.us.us.i.i, 1
+  %exitcond104.not.i.i = icmp eq i32 %1320, 32
+  br i1 %exitcond104.not.i.i, label %.split85.us.us.i.i, label %1313, !llvm.loop !25
 
-.split85.us.us.i.i:                               ; preds = %1319
+.split85.us.us.i.i:                               ; preds = %1318
   %indvars.iv.next106.i.i = add nuw nsw i64 %indvars.iv105.i.i, 1
   %exitcond108.not.i.i = icmp eq i64 %indvars.iv.next106.i.i, %wide.trip.count.i.i
   br i1 %exitcond108.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.us.i.i, !llvm.loop !26
 
-.lr.ph91.split.i.i:                               ; preds = %.split85.i.i, %.thread633.i
-  %indvars.iv100.i.i = phi i64 [ %indvars.iv.next101.i.i, %.split85.i.i ], [ 0, %.thread633.i ]
-  %.05989.i.i = phi i8 [ %.2.i.i, %.split85.i.i ], [ 1, %.thread633.i ]
-  %.06188.i.i = phi i32 [ %1355, %.split85.i.i ], [ 0, %.thread633.i ]
-  %1322 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1323 = getelementptr inbounds nuw i8, ptr %1322, i64 4
-  %1324 = getelementptr [32 x i32], ptr %1323, i64 0, i64 %indvars.iv100.i.i
-  %1325 = load i32, ptr %1324, align 4
+.lr.ph91.split.i.i:                               ; preds = %.split85.i.i, %.lr.ph91.split.preheader.i.i
+  %indvars.iv100.i.i = phi i64 [ 0, %.lr.ph91.split.preheader.i.i ], [ %indvars.iv.next101.i.i, %.split85.i.i ]
+  %.05989.i.i = phi i8 [ 1, %.lr.ph91.split.preheader.i.i ], [ %.2.i.i, %.split85.i.i ]
+  %.06188.i.i = phi i32 [ 0, %.lr.ph91.split.preheader.i.i ], [ %1354, %.split85.i.i ]
+  %1321 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1322 = getelementptr inbounds nuw i8, ptr %1321, i64 4
+  %1323 = getelementptr [32 x i32], ptr %1322, i64 0, i64 %indvars.iv100.i.i
+  %1324 = load i32, ptr %1323, align 4
   %indvars.iv100.tr.i.i = trunc i64 %indvars.iv100.i.i to i32
-  %1326 = shl i32 %indvars.iv100.tr.i.i, 2
-  %1327 = add i32 %1326, %1277
-  %1328 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1325, ptr noundef %0, i32 noundef %1327, i32 noundef 4, i32 noundef 0)
-  %1329 = icmp eq i64 %indvars.iv100.i.i, 0
-  br i1 %1329, label %1330, label %.split.i.i
+  %1325 = shl i32 %indvars.iv100.tr.i.i, 2
+  %1326 = add i32 %1325, %1277
+  %1327 = call ptr @proto_tree_add_item(ptr noundef %1280, i32 noundef %1324, ptr noundef %0, i32 noundef %1326, i32 noundef 4, i32 noundef 0)
+  %1328 = icmp eq i64 %indvars.iv100.i.i, 0
+  br i1 %1328, label %1329, label %.split.i.i
 
-1330:                                             ; preds = %.lr.ph91.split.i.i
-  %1331 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
-  %1332 = call ptr @proto_item_add_subtree(ptr noundef %1328, i32 noundef %1331)
-  %1333 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1334 = getelementptr i8, ptr %1333, i64 20
-  %1335 = load i32, ptr %1334, align 4
-  %.not7177.i.i = icmp eq i32 %1335, -1
+1329:                                             ; preds = %.lr.ph91.split.i.i
+  %1330 = load i32, ptr %spec.store.select.sroa.sel545.i, align 8
+  %1331 = call ptr @proto_item_add_subtree(ptr noundef %1327, i32 noundef %1330)
+  %1332 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1333 = getelementptr i8, ptr %1332, i64 20
+  %1334 = load i32, ptr %1333, align 4
+  %.not7177.i.i = icmp eq i32 %1334, -1
   br i1 %.not7177.i.i, label %.split.i.i, label %.lr.ph80.i.i
 
-.lr.ph80.i.i:                                     ; preds = %1330, %.lr.ph80.i.i
-  %1336 = phi i32 [ %1343, %.lr.ph80.i.i ], [ %1335, %1330 ]
-  %.06678.i.i = phi i32 [ %1338, %.lr.ph80.i.i ], [ 4, %1330 ]
-  %1337 = call ptr @proto_tree_add_boolean(ptr noundef %1332, i32 noundef %1336, ptr noundef %0, i32 noundef %1327, i32 noundef 4, i64 noundef %1289)
-  %1338 = add i32 %.06678.i.i, 1
-  %1339 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
-  %1340 = getelementptr inbounds nuw i8, ptr %1339, i64 4
-  %1341 = sext i32 %1338 to i64
-  %1342 = getelementptr [32 x i32], ptr %1340, i64 0, i64 %1341
-  %1343 = load i32, ptr %1342, align 4
-  %.not71.i.i = icmp eq i32 %1343, -1
+.lr.ph80.i.i:                                     ; preds = %1329, %.lr.ph80.i.i
+  %1335 = phi i32 [ %1342, %.lr.ph80.i.i ], [ %1334, %1329 ]
+  %.06678.i.i = phi i32 [ %1337, %.lr.ph80.i.i ], [ 4, %1329 ]
+  %1336 = call ptr @proto_tree_add_boolean(ptr noundef %1331, i32 noundef %1335, ptr noundef %0, i32 noundef %1326, i32 noundef 4, i64 noundef %1286)
+  %1337 = add i32 %.06678.i.i, 1
+  %1338 = load ptr, ptr %spec.store.select.sroa.sel539.i, align 8
+  %1339 = getelementptr inbounds nuw i8, ptr %1338, i64 4
+  %1340 = sext i32 %1337 to i64
+  %1341 = getelementptr [32 x i32], ptr %1339, i64 0, i64 %1340
+  %1342 = load i32, ptr %1341, align 4
+  %.not71.i.i = icmp eq i32 %1342, -1
   br i1 %.not71.i.i, label %.split.i.i, label %.lr.ph80.i.i, !llvm.loop !24
 
-.split.i.i:                                       ; preds = %.lr.ph80.i.i, %1330, %.lr.ph91.split.i.i
-  %1344 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv100.i.i
-  %1345 = load i32, ptr %1344, align 4
-  br label %1346
+.split.i.i:                                       ; preds = %.lr.ph80.i.i, %1329, %.lr.ph91.split.i.i
+  %1343 = getelementptr [4 x i32], ptr %5, i64 0, i64 %indvars.iv100.i.i
+  %1344 = load i32, ptr %1343, align 4
+  br label %1345
 
-1346:                                             ; preds = %1354, %.split.i.i
-  %.16083.i.i = phi i8 [ %.05989.i.i, %.split.i.i ], [ %.2.i.i, %1354 ]
-  %.16282.i.i = phi i32 [ %.06188.i.i, %.split.i.i ], [ %1355, %1354 ]
-  %.06381.i.i = phi i32 [ 0, %.split.i.i ], [ %1356, %1354 ]
-  %1347 = shl nuw i32 1, %.06381.i.i
-  %1348 = and i32 %1347, %1345
-  %.not72.i.i = icmp eq i32 %1348, 0
-  br i1 %.not72.i.i, label %1354, label %1349
+1345:                                             ; preds = %1353, %.split.i.i
+  %.16083.i.i = phi i8 [ %.05989.i.i, %.split.i.i ], [ %.2.i.i, %1353 ]
+  %.16282.i.i = phi i32 [ %.06188.i.i, %.split.i.i ], [ %1354, %1353 ]
+  %.06381.i.i = phi i32 [ 0, %.split.i.i ], [ %1355, %1353 ]
+  %1346 = shl nuw i32 1, %.06381.i.i
+  %1347 = and i32 %1346, %1344
+  %.not72.i.i = icmp eq i32 %1347, 0
+  br i1 %.not72.i.i, label %1353, label %1348
 
-1349:                                             ; preds = %1346
-  %1350 = call ptr @val_to_str(i32 noundef %.16282.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1328, ptr noundef nonnull @.str.449, ptr noundef %1350)
-  %1351 = trunc nuw i8 %.16083.i.i to i1
-  %1352 = select i1 %1351, ptr @.str.452, ptr @.str.453
-  %1353 = call ptr @val_to_str(i32 noundef %.16282.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.451, ptr noundef nonnull %1352, ptr noundef %1353)
-  br label %1354
+1348:                                             ; preds = %1345
+  %1349 = call ptr @val_to_str(i32 noundef %.16282.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1327, ptr noundef nonnull @.str.449, ptr noundef %1349)
+  %1350 = trunc nuw i8 %.16083.i.i to i1
+  %1351 = select i1 %1350, ptr @.str.452, ptr @.str.453
+  %1352 = call ptr @val_to_str(i32 noundef %.16282.i.i, ptr noundef nonnull @ehdr_type_vals, ptr noundef nonnull @.str.450)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.451, ptr noundef nonnull %1351, ptr noundef %1352)
+  br label %1353
 
-1354:                                             ; preds = %1349, %1346
-  %.2.i.i = phi i8 [ %.16083.i.i, %1346 ], [ 0, %1349 ]
-  %1355 = add i32 %.16282.i.i, 1
-  %1356 = add nuw nsw i32 %.06381.i.i, 1
-  %exitcond99.not.i.i = icmp eq i32 %1356, 32
-  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1346, !llvm.loop !25
+1353:                                             ; preds = %1348, %1345
+  %.2.i.i = phi i8 [ %.16083.i.i, %1345 ], [ 0, %1348 ]
+  %1354 = add i32 %.16282.i.i, 1
+  %1355 = add nuw nsw i32 %.06381.i.i, 1
+  %exitcond99.not.i.i = icmp eq i32 %1355, 32
+  br i1 %exitcond99.not.i.i, label %.split85.i.i, label %1345, !llvm.loop !25
 
-.split85.i.i:                                     ; preds = %1354
+.split85.i.i:                                     ; preds = %1353
   %indvars.iv.next101.i.i = add nuw nsw i64 %indvars.iv100.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next101.i.i, %wide.trip.count.i.i
   br i1 %exitcond103.not.i.i, label %._crit_edge92.i.i, label %.lr.ph91.split.i.i, !llvm.loop !26
 
 ._crit_edge92.i.i:                                ; preds = %.split85.i.i, %.split85.us.us.i.i
   %.059.lcssa.i.i = phi i8 [ %.2.us.us.i.i, %.split85.us.us.i.i ], [ %.2.i.i, %.split85.i.i ]
-  %1357 = trunc nuw i8 %.059.lcssa.i.i to i1
-  br i1 %1357, label %._crit_edge92.thread.i.i, label %dissect_meta_tag_ext_hdrs.exit.i
+  %1356 = trunc nuw i8 %.059.lcssa.i.i to i1
+  br i1 %1356, label %1357, label %dissect_meta_tag_ext_hdrs.exit.i
 
-._crit_edge92.thread.i.i:                         ; preds = %._crit_edge92.i.i, %.thread639.i
+1357:                                             ; preds = %._crit_edge92.i.i, %._crit_edge92.thread.i.i
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1278, ptr noundef nonnull @.str.454)
   br label %dissect_meta_tag_ext_hdrs.exit.i
 
-dissect_meta_tag_ext_hdrs.exit.i:                 ; preds = %._crit_edge92.thread.i.i, %._crit_edge92.i.i
+dissect_meta_tag_ext_hdrs.exit.i:                 ; preds = %1357, %._crit_edge92.i.i
   %1358 = icmp ugt i16 %1008, 15
   %1359 = and i32 %1030, 3
   %.not70.i.i = icmp eq i32 %1359, 0

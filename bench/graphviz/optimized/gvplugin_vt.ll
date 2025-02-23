@@ -464,7 +464,7 @@ define internal fastcc void @process(ptr noundef %0, i32 noundef range(i32 3, 25
   br i1 %exitcond.not.i, label %get_color.exit, label %.preheader66, !llvm.loop !35
 
 get_color.exit:                                   ; preds = %.preheader66
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.8, i32 noundef %spec.select18.i) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.8, i32 noundef %spec.select18.i) #4
   br label %55
 
 54:                                               ; preds = %14
@@ -539,7 +539,7 @@ get_color.exit:                                   ; preds = %.preheader66
   br i1 %exitcond.not.i64, label %get_color.exit65, label %.preheader, !llvm.loop !35
 
 get_color.exit65:                                 ; preds = %.preheader
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.10, i32 noundef %spec.select18.i63) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, i32 noundef %spec.select18.i63) #4
   br label %100
 
 99:                                               ; preds = %77
@@ -547,7 +547,7 @@ get_color.exit65:                                 ; preds = %.preheader
   br label %100
 
 100:                                              ; preds = %99, %get_color.exit65
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.12) #4
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12) #4
   %101 = add nuw i32 %.05168, 1
   %102 = load i32, ptr %7, align 8, !tbaa !31
   %103 = icmp ult i32 %101, %102

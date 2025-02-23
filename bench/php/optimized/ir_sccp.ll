@@ -267,21 +267,21 @@ ir_sccp_identity.exit.i:                          ; preds = %.preheader166.i, %5
   store i32 108, ptr %gep228.i, align 8, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit165.i, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.lr.ph185.i.loopexit, label %.lr.ph.i
 
-.loopexit165.i:                                   ; preds = %.lr.ph.i, %75
-  %85 = icmp ugt i16 %77, 1
-  br i1 %85, label %.loopexit165.i..lr.ph185.i_crit_edge, label %ir_sccp_add_uses.exit.backedge
+.loopexit165.i:                                   ; preds = %75
+  %85 = icmp samesign ugt i16 %77, 1
+  br i1 %85, label %.lr.ph185.i, label %ir_sccp_add_uses.exit.backedge
 
-.loopexit165.i..lr.ph185.i_crit_edge:             ; preds = %.loopexit165.i
+.lr.ph185.i.loopexit:                             ; preds = %.lr.ph.i
   %.pre603 = load ptr, ptr %0, align 8, !tbaa !38
   %.pre604 = load i32, ptr %70, align 4, !tbaa !39
   %.pre606 = sext i32 %.pre604 to i64
   br label %.lr.ph185.i
 
-.lr.ph185.i:                                      ; preds = %.loopexit165.i..lr.ph185.i_crit_edge, %80
-  %.pre-phi = phi i64 [ %.pre606, %.loopexit165.i..lr.ph185.i_crit_edge ], [ %72, %80 ]
-  %86 = phi ptr [ %.pre603, %.loopexit165.i..lr.ph185.i_crit_edge ], [ %43, %80 ]
+.lr.ph185.i:                                      ; preds = %.lr.ph185.i.loopexit, %.loopexit165.i, %80
+  %.pre-phi = phi i64 [ %.pre606, %.lr.ph185.i.loopexit ], [ %72, %.loopexit165.i ], [ %72, %80 ]
+  %86 = phi ptr [ %.pre603, %.lr.ph185.i.loopexit ], [ %43, %.loopexit165.i ], [ %43, %80 ]
   %87 = getelementptr inbounds %struct._ir_insn, ptr %86, i64 %.pre-phi, i32 0, i32 1
   %88 = getelementptr inbounds nuw i8, ptr %45, i64 8
   br label %89
@@ -385,7 +385,7 @@ ir_sccp_identity.exit141.i:                       ; preds = %.preheader163.i, %1
 ir_sccp_add_input.exit.i:                         ; preds = %141, %ir_sccp_identity.exit141.i, %123, %111, %108, %102, %89
   %143 = getelementptr inbounds nuw i8, ptr %.0114184.i, i64 4
   %144 = getelementptr inbounds nuw i8, ptr %.0116183.i, i64 4
-  %145 = icmp sgt i32 %.in.i, 2
+  %145 = icmp samesign ugt i32 %.in.i, 2
   br i1 %145, label %89, label %ir_sccp_add_uses.exit.backedge
 
 .loopexit.i:                                      ; preds = %141, %ir_sccp_identity.exit141.i, %104, %98
@@ -1589,13 +1589,13 @@ ir_bitqueue_add.exit382:                          ; preds = %744, %734, %733
   store i32 108, ptr %gep659, align 8, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph510
+  br i1 %exitcond.not, label %.lr.ph515.preheader, label %.lr.ph510
 
-.loopexit:                                        ; preds = %.lr.ph510, %747
+.loopexit:                                        ; preds = %747
   %.not553 = icmp eq i16 %749, 0
   br i1 %.not553, label %._crit_edge516.thread, label %.lr.ph515.preheader
 
-.lr.ph515.preheader:                              ; preds = %752, %.loopexit
+.lr.ph515.preheader:                              ; preds = %.lr.ph510, %752, %.loopexit
   br label %.lr.ph515
 
 .lr.ph515:                                        ; preds = %.lr.ph515.preheader, %.lr.ph515
@@ -1611,7 +1611,7 @@ ir_bitqueue_add.exit382:                          ; preds = %744, %734, %733
   %761 = zext i1 %.not463 to i32
   %spec.select = add nuw nsw i32 %.0296512, %761
   %762 = add nsw i32 %.1294513, -1
-  %763 = icmp sgt i32 %.1294513, 1
+  %763 = icmp samesign ugt i32 %.1294513, 1
   br i1 %763, label %.lr.ph515, label %._crit_edge516
 
 ._crit_edge516:                                   ; preds = %.lr.ph515
@@ -2405,7 +2405,7 @@ define internal fastcc void @ir_sccp_transform(ptr noundef %0, ptr noundef reado
 ir_sccp_identity.exit:                            ; preds = %.preheader105, %38, %42
   %.0.i95 = phi i32 [ %40, %42 ], [ %40, %38 ], [ %49, %.preheader105 ]
   %54 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call fastcc void @ir_sccp_replace_insn(ptr noundef %0, ptr noundef %1, i32 noundef %54, i32 noundef %.0.i95, ptr noundef %3)
+  tail call fastcc void @ir_sccp_replace_insn(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %54, i32 noundef %.0.i95, ptr noundef %3)
   br label %ir_sccp_remove_insn.exit
 
 .thread:                                          ; preds = %18

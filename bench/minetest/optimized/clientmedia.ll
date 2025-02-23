@@ -6043,7 +6043,7 @@ if.then86:                                        ; preds = %lor.lhs.false, %if.
 
 if.end90:                                         ; preds = %if.then86, %if.then84, %lor.lhs.false
   %changing_name_bound.1 = phi i8 [ %changing_name_bound.0336, %if.then86 ], [ 0, %if.then84 ], [ 0, %lor.lhs.false ]
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %files_iter.sroa.0.0333) #32
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %files_iter.sroa.0.0333) #32
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i.i
   br i1 %cmp.i.not, label %cleanup, label %for.body, !llvm.loop !205
 

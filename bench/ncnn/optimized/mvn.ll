@@ -183,9 +183,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
   %73 = fadd fast float %72, %.0413636
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv693, 1
   %exitcond697.not = icmp eq i64 %indvars.iv.next694, %wide.trip.count696
-  br i1 %exitcond697.not, label %._crit_edge639, label %70, !llvm.loop !7
+  br i1 %exitcond697.not, label %.lr.ph647, label %70, !llvm.loop !7
 
-._crit_edge639:                                   ; preds = %70
+.lr.ph647:                                        ; preds = %70
   %74 = mul nsw i32 %12, %15
   %75 = sitofp i32 %74 to float
   %76 = fdiv fast float %73, %75
@@ -196,8 +196,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn3MVN7forwardERKNS_3MatERS
   %wide.trip.count701 = zext nneg i32 %15 to i64
   br label %80
 
-80:                                               ; preds = %._crit_edge639, %._crit_edge644
-  %indvars.iv703 = phi i64 [ 0, %._crit_edge639 ], [ %indvars.iv.next704, %._crit_edge644 ]
+80:                                               ; preds = %.lr.ph647, %._crit_edge644
+  %indvars.iv703 = phi i64 [ 0, %.lr.ph647 ], [ %indvars.iv.next704, %._crit_edge644 ]
   %81 = load ptr, ptr %1, align 8
   %82 = load i64, ptr %77, align 8
   %83 = mul i64 %82, %indvars.iv703

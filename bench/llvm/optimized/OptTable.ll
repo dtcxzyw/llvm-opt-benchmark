@@ -5421,7 +5421,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %563, %561
   %.not6466.i = icmp eq ptr %.val33.i, %.val.i104
   br i1 %.not6466.i, label %_ZL19PrintHelpOptionListRN4llvm11raw_ostreamENS_9StringRefERSt6vectorIN12_GLOBAL__N_110OptionInfoESaIS5_EE.exit, label %.lr.ph.i105
 
-.preheader.i:                                     ; preds = %.lr.ph.i105
+.lr.ph75.i:                                       ; preds = %.lr.ph.i105
   %568 = add i32 %.1.i, 2
   %569 = add i32 %.1.i, 3
   br label %575
@@ -5437,10 +5437,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i:               ; preds = %563, %561
   %.1.i = select i1 %573, i32 %.sroa.speculated.i, i32 %.06368.i
   %574 = getelementptr inbounds nuw i8, ptr %.sroa.058.067.i, i64 48
   %.not64.i = icmp eq ptr %574, %.val.i104
-  br i1 %.not64.i, label %.preheader.i, label %.lr.ph.i105
+  br i1 %.not64.i, label %.lr.ph75.i, label %.lr.ph.i105
 
-575:                                              ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit.i, %.preheader.i
-  %.sroa.055.074.i = phi ptr [ %.val33.i, %.preheader.i ], [ %656, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit.i ]
+575:                                              ; preds = %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit.i, %.lr.ph75.i
+  %.sroa.055.074.i = phi ptr [ %.val33.i, %.lr.ph75.i ], [ %656, %_ZN4llvm11SmallVectorINS_9StringRefELj3EED2Ev.exit.i ]
   %576 = getelementptr inbounds nuw i8, ptr %.sroa.055.074.i, i64 8
   %577 = load i64, ptr %576, align 8, !tbaa !77
   %578 = trunc i64 %577 to i32

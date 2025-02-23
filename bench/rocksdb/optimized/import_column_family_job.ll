@@ -1897,7 +1897,7 @@ lpad223:                                          ; preds = %invoke.cont221
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp220) #21
   br label %ehcleanup249
 
-if.then229:                                       ; preds = %invoke.cont196, %invoke.cont224
+if.then229:                                       ; preds = %invoke.cont224, %invoke.cont196
   %149 = load ptr, ptr %io_tracer_.i, align 8
   %cmp.i.not.i283 = icmp eq ptr %149, null
   br i1 %cmp.i.not.i283, label %_ZNK7rocksdb13FileSystemPtr3getEv.exit, label %land.lhs.true.i284
@@ -1970,7 +1970,7 @@ _ZN7rocksdb8IOStatusD2Ev.exit309:                 ; preds = %if.then.i288, %_ZN7
   %.pr = load i8, ptr %agg.result, align 8
   br label %invoke.cont239
 
-invoke.cont239:                                   ; preds = %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit, %_ZN7rocksdb8IOStatusD2Ev.exit309
+invoke.cont239:                                   ; preds = %_ZN7rocksdb8IOStatusD2Ev.exit309, %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit
   %161 = phi i8 [ %.pr, %_ZN7rocksdb8IOStatusD2Ev.exit309 ], [ %143, %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit ]
   %hardlink_files.3471 = phi i8 [ 0, %_ZN7rocksdb8IOStatusD2Ev.exit309 ], [ 1, %_ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit ]
   %cmp.i310 = icmp eq i8 %161, 0
@@ -9841,7 +9841,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8
   br label %if.then
 
-if.then:                                          ; preds = %if.then28.i, %while.end.i, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.then28.i, %if.else.i, %if.else37.i
   %_M_t = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64

@@ -9858,7 +9858,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZNSt5dequeImSaImEED2Ev.exit.i.i:                 ; preds = %.lr.ph.i.i.i96.i.i, %1181
   %1188 = shl i64 %.sroa.9.0.i, 3
-  call void @_ZdlPvm(ptr noundef %.sroa.06.0.i, i64 noundef %1188) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.06.0.i, i64 noundef %1188) #24
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116CustomDfaEmitterE, i64 16), ptr %9, align 8, !tbaa !125
   %1189 = load ptr, ptr %72, align 8, !tbaa !293
   %1190 = icmp eq ptr %1189, %73

@@ -1332,28 +1332,28 @@ define dso_local i32 @i2c_recover_bus(ptr noundef %0) #1 align 16 {
 define internal noundef range(i32 0, 2) i32 @i2c_device_match(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, @i2c_client_type
-  %6 = getelementptr i8, ptr %0, i64 -32
-  %7 = select i1 %5, ptr %6, ptr null
-  %8 = tail call zeroext i1 @acpi_driver_match_device(ptr noundef %0, ptr noundef %1) #22
-  br i1 %8, label %30, label %9
+  %5 = tail call zeroext i1 @acpi_driver_match_device(ptr noundef %0, ptr noundef %1) #22
+  br i1 %5, label %30, label %6
 
-9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %1, i64 144
-  %11 = load ptr, ptr %10, align 8
-  %12 = icmp ne ptr %11, null
-  %13 = icmp ne ptr %7, null
-  %14 = and i1 %13, %12
+6:                                                ; preds = %2
+  %7 = getelementptr i8, ptr %0, i64 -32
+  %8 = icmp eq ptr %4, @i2c_client_type
+  %9 = getelementptr i8, ptr %1, i64 144
+  %10 = load ptr, ptr %9, align 8
+  %11 = icmp ne ptr %10, null
+  %12 = icmp ne ptr %7, null
+  %13 = and i1 %12, %8
+  %14 = and i1 %13, %11
   br i1 %14, label %15, label %30
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %17 = load i8, ptr %11, align 8
+15:                                               ; preds = %6
+  %16 = getelementptr i8, ptr %0, i64 -28
+  %17 = load i8, ptr %10, align 8
   %18 = icmp eq i8 %17, 0
   br i1 %18, label %30, label %.preheader
 
 .preheader:                                       ; preds = %15, %22
-  %19 = phi ptr [ %23, %22 ], [ %11, %15 ]
+  %19 = phi ptr [ %23, %22 ], [ %10, %15 ]
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef %19) #22
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %26, label %22
@@ -1370,8 +1370,8 @@ define internal noundef range(i32 0, 2) i32 @i2c_device_match(ptr noundef %0, pt
   %29 = zext i1 %28 to i32
   br label %30
 
-30:                                               ; preds = %26, %15, %9, %2
-  %31 = phi i32 [ 1, %2 ], [ 0, %9 ], [ 0, %15 ], [ %29, %26 ]
+30:                                               ; preds = %26, %15, %6, %2
+  %31 = phi i32 [ 1, %2 ], [ 0, %6 ], [ 0, %15 ], [ %29, %26 ]
   ret i32 %31
 }
 

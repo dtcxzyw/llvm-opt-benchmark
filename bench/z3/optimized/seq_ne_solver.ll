@@ -5161,7 +5161,7 @@ _ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsE
   %15 = phi ptr [ %.pre.i.i, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsEv.exit.loopexit.i.i ], [ %13, %_ZNK6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE4sizeEv.exit.i.i.i ]
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i)
-          to label %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit unwind label %terminate.lpad.i14
+          to label %if.end.i.i unwind label %terminate.lpad.i14
 
 terminate.lpad.i14:                               ; preds = %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsEv.exit.i.i
   %16 = landingpad { ptr, i32 }
@@ -5170,44 +5170,41 @@ terminate.lpad.i14:                               ; preds = %_ZN6vectorISt4pairI
   tail call void @__clang_call_terminate(ptr %17) #15
   unreachable
 
-_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit: ; preds = %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsEv.exit.i.i
+if.end.i.i:                                       ; preds = %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjE16destroy_elementsEv.exit.i.i, %if.end.i
   store ptr null, ptr %m_eqs, align 8
-  br label %if.end.i.i
-
-if.end.i.i:                                       ; preds = %if.end.i, %_ZN6vectorISt4pairI10ref_vectorI4expr11ast_managerES4_ELb1EjEaSEOS6_.exit
-  %storemerge = load ptr, ptr %m_eqs5, align 8
-  store ptr %storemerge, ptr %m_eqs, align 8
+  %18 = load ptr, ptr %m_eqs5, align 8
+  store ptr %18, ptr %m_eqs, align 8
   store ptr null, ptr %m_eqs5, align 8
-  %m_lits21 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %m_lits722 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %18 = load ptr, ptr %m_lits21, align 8
-  %tobool.not.i.i.i15 = icmp eq ptr %18, null
+  %m_lits = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %m_lits7 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %19 = load ptr, ptr %m_lits, align 8
+  %tobool.not.i.i.i15 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i15, label %invoke.cont.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i.i
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %18, i64 -8
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 -8
   invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %add.ptr.i.i.i.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i.i.i, %if.end.i.i
-  store ptr null, ptr %m_lits21, align 8
-  %19 = load ptr, ptr %m_lits722, align 8
-  store ptr %19, ptr %m_lits21, align 8
-  store ptr null, ptr %m_lits722, align 8
+  store ptr null, ptr %m_lits, align 8
+  %20 = load ptr, ptr %m_lits7, align 8
+  store ptr %20, ptr %m_lits, align 8
+  store ptr null, ptr %m_lits7, align 8
   br label %_ZN7svectorIN3sat7literalEjEaSEOS2_.exit
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
-  %20 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #15
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #15
   unreachable
 
 _ZN7svectorIN3sat7literalEjEaSEOS2_.exit:         ; preds = %_ZN7obj_refI4expr11ast_managerEaSEOS2_.exit13, %invoke.cont.i.i
   %m_dep = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %22 = load ptr, ptr %m_dep, align 8
+  %23 = load ptr, ptr %m_dep, align 8
   %m_dep9 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  store ptr %22, ptr %m_dep9, align 8
+  store ptr %23, ptr %m_dep9, align 8
   ret ptr %this
 }
 

@@ -265,11 +265,11 @@ define dso_local void @init_ps_display(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !11
 
 20:                                               ; preds = %._crit_edge
-  %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %9, i64 noundef %17, ptr noundef nonnull @.str.1, ptr noundef %.06) #15
+  %21 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef %17, ptr noundef nonnull @.str.1, ptr noundef %.06) #15
   br label %24
 
 22:                                               ; preds = %._crit_edge
-  %23 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %9, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef %.06) #15
+  %23 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %9, i64 noundef %17, ptr noundef nonnull @.str.2, ptr noundef nonnull %14, ptr noundef %.06) #15
   br label %24
 
 24:                                               ; preds = %20, %22

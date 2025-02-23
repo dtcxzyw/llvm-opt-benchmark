@@ -34360,7 +34360,7 @@ define linkonce_odr void @_ZNSt8__detail9_StateSeqINSt7__cxx1112regex_traitsIcEE
   br label %309
 
 309:                                              ; preds = %305, %282, %280
-  %310 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %247) #36
+  %310 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %247) #36
   %311 = icmp eq ptr %310, %8
   br i1 %311, label %.loopexit, label %.preheader42
 
@@ -35702,7 +35702,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail17__regex_algo_implIN9__gn
   %152 = phi ptr [ poison, %138 ], [ %149, %.preheader16 ]
   %153 = phi ptr [ %140, %138 ], [ %149, %.preheader16 ]
   %154 = phi i64 [ %132, %138 ], [ %145, %.preheader16 ]
-  %155 = icmp ult i64 %132, 8
+  %155 = icmp samesign ult i64 %132, 8
   br i1 %155, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit17, %.preheader
@@ -36000,7 +36000,7 @@ define linkonce_odr void @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__normal_iterato
   %43 = phi ptr [ poison, %31 ], [ %40, %.preheader3 ]
   %44 = phi ptr [ %30, %31 ], [ %40, %.preheader3 ]
   %45 = phi i64 [ %22, %31 ], [ %36, %.preheader3 ]
-  %46 = icmp ult i64 %22, 8
+  %46 = icmp samesign ult i64 %22, 8
   br i1 %46, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit4, %.preheader
@@ -36342,7 +36342,7 @@ define linkonce_odr void @_ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__norm
   %26 = phi ptr [ poison, %15 ], [ %23, %.preheader7 ]
   %27 = phi ptr [ %17, %15 ], [ %23, %.preheader7 ]
   %28 = phi i64 [ %1, %15 ], [ %20, %.preheader7 ]
-  %29 = icmp ult i64 %1, 4
+  %29 = icmp samesign ult i64 %1, 4
   br i1 %29, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit8, %.preheader
@@ -39452,7 +39452,7 @@ define linkonce_odr noundef zeroext i1 @_ZNSt8__detail9_ExecutorIN9__gnu_cxx17__
   %79 = phi ptr [ poison, %67 ], [ %76, %.preheader12 ]
   %80 = phi ptr [ %66, %67 ], [ %76, %.preheader12 ]
   %81 = phi i64 [ %57, %67 ], [ %72, %.preheader12 ]
-  %82 = icmp ult i64 %57, 8
+  %82 = icmp samesign ult i64 %57, 8
   br i1 %82, label %.loopexit11, label %.preheader10
 
 .preheader10:                                     ; preds = %.loopexit13, %.preheader10

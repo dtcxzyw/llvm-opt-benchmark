@@ -1168,7 +1168,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
 
 .preheader121:                                    ; preds = %7
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader121
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1190,15 +1190,15 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   %22 = add i32 %.0122, 1
   %23 = zext i32 %22 to i64
   %24 = icmp ugt i64 %1, %23
-  br i1 %24, label %12, label %._crit_edge, !llvm.loop !15
+  br i1 %24, label %12, label %._crit_edge.thread, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %12
-  br i1 %8, label %.lr.ph137, label %43
-
-._crit_edge.thread:                               ; preds = %.preheader121
+._crit_edge:                                      ; preds = %.preheader121
   br i1 %8, label %.loopexit, label %43
 
-.lr.ph137:                                        ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %12
+  br i1 %8, label %.lr.ph137, label %43
+
+.lr.ph137:                                        ; preds = %._crit_edge.thread
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br label %26
 
@@ -1221,7 +1221,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   store i32 %39, ptr %34, align 4, !tbaa !14
   %40 = add i32 %.1136, 1
   %41 = zext i32 %40 to i64
-  %42 = icmp ugt i64 %1, %41
+  %42 = icmp samesign ugt i64 %1, %41
   br i1 %42, label %26, label %.loopexit, !llvm.loop !17
 
 43:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -1287,7 +1287,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   store i32 %86, ptr %73, align 4, !tbaa !14
   %87 = add i32 %.2132.us, 1
   %88 = zext i32 %87 to i64
-  %89 = icmp ugt i64 %1, %88
+  %89 = icmp samesign ugt i64 %1, %88
   br i1 %89, label %.lr.ph134.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph134.split:                                  ; preds = %.lr.ph134
@@ -1316,7 +1316,7 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   store i32 %102, ptr %93, align 4, !tbaa !14
   %103 = add i32 %.2132.us135, 1
   %104 = zext i32 %103 to i64
-  %105 = icmp ugt i64 %1, %104
+  %105 = icmp samesign ugt i64 %1, %104
   br i1 %105, label %.lr.ph134.split.split.us, label %.loopexit, !llvm.loop !18
 
 .lr.ph134.split.split:                            ; preds = %.lr.ph134.split, %.lr.ph134.split.split
@@ -1343,10 +1343,10 @@ define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef
   store i32 %121, ptr %109, align 4, !tbaa !14
   %122 = add i32 %.2132, 1
   %123 = zext i32 %122 to i64
-  %124 = icmp ugt i64 %1, %123
+  %124 = icmp samesign ugt i64 %1, %123
   br i1 %124, label %.lr.ph134.split.split, label %.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %26, %.lr.ph134.split.split, %.lr.ph134.split.split.us, %.lr.ph134.split.us, %._crit_edge.thread, %43, %7
+.loopexit:                                        ; preds = %26, %.lr.ph134.split.split, %.lr.ph134.split.split.us, %.lr.ph134.split.us, %._crit_edge, %43, %7
   ret void
 }
 

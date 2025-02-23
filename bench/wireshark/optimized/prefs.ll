@@ -12947,83 +12947,77 @@ capture_column_free_cb.exit:                      ; preds = %6, %11
 
 .loopexit42:                                      ; preds = %.preheader, %capture_column_free_cb.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %23
+  %.not4060 = icmp eq ptr %14, null
+  br i1 %.not4060, label %._crit_edge63, label %.lr.ph62
 
-23:                                               ; preds = %41, %.loopexit42
-  %.033 = phi ptr [ %14, %.loopexit42 ], [ %.134, %41 ]
-  %.not40 = icmp eq ptr %.033, null
-  br i1 %.not40, label %42, label %24
+.lr.ph62:                                         ; preds = %.loopexit42, %35
+  %.03361 = phi ptr [ %37, %35 ], [ %14, %.loopexit42 ]
+  %23 = load ptr, ptr %.03361, align 8
+  br label %25
 
-24:                                               ; preds = %23
-  %25 = load ptr, ptr %.033, align 8
-  br label %27
-
-26:                                               ; preds = %27
+24:                                               ; preds = %25
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond54.not = icmp eq i64 %indvars.iv.next52, 7
-  br i1 %exitcond54.not, label %.critedge, label %27, !llvm.loop !56
+  br i1 %exitcond54.not, label %.critedge, label %25, !llvm.loop !56
 
-27:                                               ; preds = %24, %26
-  %indvars.iv51 = phi i64 [ 0, %24 ], [ %indvars.iv.next52, %26 ]
-  %28 = getelementptr [7 x ptr], ptr @capture_cols, i64 0, i64 %indvars.iv51
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call i32 @strcmp(ptr noundef %25, ptr noundef %29) #29
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %38, label %26
+25:                                               ; preds = %.lr.ph62, %24
+  %indvars.iv51 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next52, %24 ]
+  %26 = getelementptr [7 x ptr], ptr @capture_cols, i64 0, i64 %indvars.iv51
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call i32 @strcmp(ptr noundef %23, ptr noundef %27) #29
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %35, label %24
 
-.critedge:                                        ; preds = %26, %.critedge
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.critedge ], [ 0, %26 ]
-  %32 = getelementptr [7 x ptr], ptr @capture_cols, i64 0, i64 %indvars.iv55
-  %33 = load ptr, ptr %32, align 8
-  %34 = tail call noalias ptr @g_strdup(ptr noundef %33)
-  %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
-  %36 = tail call ptr @g_list_append(ptr noundef %35, ptr noundef %34)
-  store ptr %36, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
+.critedge:                                        ; preds = %24, %.critedge
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.critedge ], [ 0, %24 ]
+  %30 = getelementptr [7 x ptr], ptr @capture_cols, i64 0, i64 %indvars.iv55
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noalias ptr @g_strdup(ptr noundef %31)
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
+  %34 = tail call ptr @g_list_append(ptr noundef %33, ptr noundef %32)
+  store ptr %34, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next56, 7
-  br i1 %exitcond58.not, label %37, label %.critedge, !llvm.loop !57
+  br i1 %exitcond58.not, label %.loopexit.loopexit, label %.critedge, !llvm.loop !57
 
-37:                                               ; preds = %.critedge
-  store ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), ptr %22, align 8
-  tail call void @g_list_free_full(ptr noundef nonnull %4, ptr noundef nonnull @g_free)
-  br label %41
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds nuw i8, ptr %.03361, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %.not40 = icmp eq ptr %37, null
+  br i1 %.not40, label %._crit_edge63, label %.lr.ph62, !llvm.loop !58
 
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds nuw i8, ptr %.033, i64 8
-  %40 = load ptr, ptr %39, align 8
-  br label %41
-
-41:                                               ; preds = %38, %37
-  %.134 = phi ptr [ %40, %38 ], [ %.033, %37 ]
-  br i1 %31, label %23, label %.loopexit, !llvm.loop !58
-
-42:                                               ; preds = %23
-  %43 = tail call ptr @g_list_first(ptr noundef nonnull %4)
-  %.not4147 = icmp eq ptr %43, null
+._crit_edge63:                                    ; preds = %35, %.loopexit42
+  %38 = tail call ptr @g_list_first(ptr noundef nonnull %4)
+  %.not4147 = icmp eq ptr %38, null
   br i1 %.not4147, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %42
+.lr.ph.preheader:                                 ; preds = %._crit_edge63
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %44 = phi ptr [ %46, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
-  %.23548 = phi ptr [ %48, %.lr.ph ], [ %43, %.lr.ph.preheader ]
-  %45 = load ptr, ptr %.23548, align 8
-  %46 = tail call ptr @g_list_append(ptr noundef %44, ptr noundef %45)
-  store ptr %46, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.23548, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %.not41 = icmp eq ptr %48, null
+  %39 = phi ptr [ %41, %.lr.ph ], [ %.pre, %.lr.ph.preheader ]
+  %.23548 = phi ptr [ %43, %.lr.ph ], [ %38, %.lr.ph.preheader ]
+  %40 = load ptr, ptr %.23548, align 8
+  %41 = tail call ptr @g_list_append(ptr noundef %39, ptr noundef %40)
+  store ptr %41, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), align 8
+  %42 = getelementptr inbounds nuw i8, ptr %.23548, i64 8
+  %43 = load ptr, ptr %42, align 8
+  %.not41 = icmp eq ptr %43, null
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %.lr.ph, %42
+._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge63
   store ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), ptr %22, align 8
   tail call void @g_list_free(ptr noundef nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %41, %3, %._crit_edge
-  %.036 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 1, %41 ]
+.loopexit.loopexit:                               ; preds = %.critedge
+  store ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 368), ptr %22, align 8
+  tail call void @g_list_free_full(ptr noundef nonnull %4, ptr noundef nonnull @g_free)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.loopexit.loopexit, %3, %._crit_edge
+  %.036 = phi i32 [ 0, %._crit_edge ], [ 1, %3 ], [ 1, %.loopexit.loopexit ]
   ret i32 %.036
 }
 

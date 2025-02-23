@@ -488,9 +488,9 @@ define dso_local void @_ZN4llvm9SetTheory8evaluateEPKNS_4InitERNS_14SmallSetVect
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i8, ptr %16, align 8, !tbaa !68
   %18 = icmp ne i8 %17, 5
-  %.not.not66 = icmp eq ptr %1, null
-  %.not.not = or i1 %.not.not66, %18
-  br i1 %.not.not, label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread63, label %19
+  %.not.not64 = icmp eq ptr %1, null
+  %.not.not = or i1 %.not.not64, %18
+  br i1 %.not.not, label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit, label %19
 
 19:                                               ; preds = %5
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -521,36 +521,36 @@ define dso_local void @_ZN4llvm9SetTheory8evaluateEPKNS_4InitERNS_14SmallSetVect
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
   br label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread
 
-_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread63: ; preds = %5
+_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit: ; preds = %5
   %31 = icmp ne i8 %17, 8
-  %.not50.not = or i1 %.not.not66, %31
+  %.not50.not = or i1 %.not.not64, %31
   br i1 %.not50.not, label %_ZN4llvm9SetTheory8evaluateIPKPKNS_4InitEEEvT_S7_RNS_14SmallSetVectorIPKNS_6RecordELj16EEENS_8ArrayRefINS_5SMLocEEE.exit.thread, label %32
 
-32:                                               ; preds = %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread63
+32:                                               ; preds = %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !81
   %35 = zext i32 %34 to i64
   %.idx = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
-  %.ptr73 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  %.not.i5671 = icmp eq i32 %34, 0
-  br i1 %.not.i5671, label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread, label %.lr.ph.preheader
+  %.ptr71 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  %.not.i5669 = icmp eq i32 %34, 0
+  br i1 %.not.i5669, label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %32
   %.ptr = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0.i72 = phi ptr [ %37, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i72, i64 8
-  %38 = load ptr, ptr %.0.i72, align 8, !tbaa !84
+  %.0.i70 = phi ptr [ %37, %.lr.ph ], [ %.ptr, %.lr.ph.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i70, i64 8
+  %38 = load ptr, ptr %.0.i70, align 8, !tbaa !84
   tail call void @_ZN4llvm9SetTheory8evaluateEPKNS_4InitERNS_14SmallSetVectorIPKNS_6RecordELj16EEENS_8ArrayRefINS_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %38, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr %3, i64 %4)
-  %.not.i56 = icmp eq ptr %37, %.ptr73
+  %.not.i56 = icmp eq ptr %37, %.ptr71
   br i1 %.not.i56, label %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread, label %.lr.ph, !llvm.loop !86
 
-_ZN4llvm9SetTheory8evaluateIPKPKNS_4InitEEEvT_S7_RNS_14SmallSetVectorIPKNS_6RecordELj16EEENS_8ArrayRefINS_5SMLocEEE.exit.thread: ; preds = %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit.thread63
+_ZN4llvm9SetTheory8evaluateIPKPKNS_4InitEEEvT_S7_RNS_14SmallSetVectorIPKNS_6RecordELj16EEENS_8ArrayRefINS_5SMLocEEE.exit.thread: ; preds = %_ZN4llvm9SetVectorIPKNS_6RecordENS_11SmallVectorIS3_Lj16EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj16EE6insertIN9__gnu_cxx17__normal_iteratorIPKS3_St6vectorIS3_SaIS3_EEEEEEvT_SK_.exit
   %39 = icmp ne i8 %17, 4
-  %.not51 = or i1 %.not.not66, %39
+  %.not51 = or i1 %.not.not64, %39
   br i1 %.not51, label %40, label %46
 
 40:                                               ; preds = %_ZN4llvm9SetTheory8evaluateIPKPKNS_4InitEEEvT_S7_RNS_14SmallSetVectorIPKNS_6RecordELj16EEENS_8ArrayRefINS_5SMLocEEE.exit.thread
@@ -576,8 +576,8 @@ _ZN4llvm9SetTheory8evaluateIPKPKNS_4InitEEEvT_S7_RNS_14SmallSetVectorIPKNS_6Reco
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8, !tbaa !68
   %51 = icmp ne i8 %50, 5
-  %.not5269 = icmp eq ptr %48, null
-  %.not52 = or i1 %.not5269, %51
+  %.not5267 = icmp eq ptr %48, null
+  %.not52 = or i1 %.not5267, %51
   br i1 %.not52, label %52, label %58
 
 52:                                               ; preds = %46
@@ -705,14 +705,14 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %27
 
-27:                                               ; preds = %.lr.ph, %.thread
-  %.01936 = phi ptr [ %20, %.lr.ph ], [ %80, %.thread ]
+27:                                               ; preds = %.lr.ph, %80
+  %.01936 = phi ptr [ %20, %.lr.ph ], [ %81, %80 ]
   %28 = load ptr, ptr %.01936, align 8, !tbaa !80
   %29 = load ptr, ptr %28, align 8, !tbaa !95
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !68
   %32 = icmp eq i8 %31, 19
-  br i1 %32, label %33, label %.thread
+  br i1 %32, label %33, label %80
 
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -727,7 +727,7 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE
   %40 = sext i32 %36 to i64
   %41 = icmp eq i64 %40, %39
   %42 = select i1 %37, i1 true, i1 %41
-  br i1 %42, label %.thread, label %43
+  br i1 %42, label %80, label %43
 
 43:                                               ; preds = %33
   %44 = load ptr, ptr %25, align 8
@@ -813,13 +813,13 @@ _ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %6) #19
   br label %.loopexit
 
-.thread:                                          ; preds = %33, %27
-  %80 = getelementptr inbounds nuw i8, ptr %.01936, i64 24
-  %.not = icmp eq ptr %80, %24
+80:                                               ; preds = %27, %33
+  %81 = getelementptr inbounds nuw i8, ptr %.01936, i64 24
+  %.not = icmp eq ptr %81, %24
   br i1 %.not, label %.loopexit, label %27
 
-.loopexit:                                        ; preds = %.thread, %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %74, %17
-  %.0 = phi ptr [ %18, %17 ], [ %56, %74 ], [ null, %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread ], [ null, %.thread ]
+.loopexit:                                        ; preds = %80, %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread, %74, %17
+  %.0 = phi ptr [ %18, %17 ], [ %56, %74 ], [ null, %_ZNSt3mapIPKN4llvm6RecordESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEE4findERSA_.exit.thread ], [ null, %80 ]
   ret ptr %.0
 }
 

@@ -530,7 +530,7 @@ uv__queue_move.exit.i:                            ; preds = %44
   store ptr %51, ptr %53, align 8
   %57 = getelementptr inbounds i8, ptr %51, i64 -8
   %58 = load ptr, ptr %57, align 8
-  call void %58(ptr noundef %0, ptr noundef nonnull %57, i32 noundef 4) #23
+  call void %58(ptr noundef nonnull %0, ptr noundef nonnull %57, i32 noundef 4) #23
   %59 = load ptr, ptr %4, align 8
   %.not.i54 = icmp eq ptr %4, %59
   br i1 %.not.i54, label %uv__run_pending.exit, label %.lr.ph.i
@@ -538,8 +538,8 @@ uv__queue_move.exit.i:                            ; preds = %44
 uv__run_pending.exit:                             ; preds = %.lr.ph.i, %.thread, %uv__queue_move.exit.i
   %60 = phi i1 [ %47, %.thread ], [ false, %uv__queue_move.exit.i ], [ false, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
-  call void @uv__run_idle(ptr noundef %0) #23
-  call void @uv__run_prepare(ptr noundef %0) #23
+  call void @uv__run_idle(ptr noundef nonnull %0) #23
+  call void @uv__run_prepare(ptr noundef nonnull %0) #23
   %or.cond3 = select i1 %33, i1 %60, i1 false
   %or.cond5 = or i1 %18, %or.cond3
   br i1 %or.cond5, label %61, label %uv__backend_timeout.exit
@@ -591,7 +591,7 @@ uv__backend_timeout.exit:                         ; preds = %79, %76, %72, %70, 
   %83 = load i64, ptr %82, align 8
   %84 = add i64 %83, 1
   store i64 %84, ptr %82, align 8
-  call void @uv__io_poll(ptr noundef %0, i32 noundef %.0) #23
+  call void @uv__io_poll(ptr noundef nonnull %0, i32 noundef %.0) #23
   br label %85
 
 85:                                               ; preds = %uv__backend_timeout.exit, %uv__run_pending.exit62
@@ -628,7 +628,7 @@ uv__queue_move.exit.i57:                          ; preds = %85
   store ptr %90, ptr %92, align 8
   %96 = getelementptr inbounds i8, ptr %90, i64 -8
   %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef %0, ptr noundef nonnull %96, i32 noundef 4) #23
+  call void %97(ptr noundef nonnull %0, ptr noundef nonnull %96, i32 noundef 4) #23
   %98 = load ptr, ptr %3, align 8
   %.not.i61 = icmp eq ptr %3, %98
   br i1 %.not.i61, label %uv__run_pending.exit62, label %.lr.ph.i60
@@ -640,8 +640,8 @@ uv__run_pending.exit62:                           ; preds = %.lr.ph.i60, %uv__qu
   br i1 %exitcond.not, label %.critedge7, label %85
 
 .critedge7:                                       ; preds = %uv__run_pending.exit62, %85
-  call void @uv__metrics_update_idle_time(ptr noundef %0) #23
-  call void @uv__run_check(ptr noundef %0) #23
+  call void @uv__metrics_update_idle_time(ptr noundef nonnull %0) #23
+  call void @uv__run_check(ptr noundef nonnull %0) #23
   %100 = load ptr, ptr %36, align 8
   store ptr null, ptr %36, align 8
   %.not6.i63 = icmp eq ptr %100, null

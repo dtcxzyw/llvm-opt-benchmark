@@ -413,7 +413,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 
 .lr.ph57.preheader.i:                             ; preds = %27
   %scevgep.i = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %30 = zext i32 %29 to i64
+  %30 = zext nneg i32 %29 to i64
   %31 = shl nuw nsw i64 %30, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 4 %scevgep.i, i64 %31, i1 false)
   br label %._crit_edge58.i
@@ -451,7 +451,7 @@ define internal fastcc range(i32 0, 2) i32 @ComputeComponentIncrements(i32 nound
 ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, %.lr.ph63.preheader.i
   %.0.i = phi i32 [ 0, %15 ], [ 1, %.preheader.i ], [ 1, %.lr.ph63.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
-  br label %74
+  br label %73
 
 42:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
@@ -514,7 +514,7 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   %57 = load i32, ptr %5, align 16
   %58 = add nsw i32 %12, -1
   %scevgep.i19 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %59 = zext i32 %58 to i64
+  %59 = zext nneg i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 2
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull align 4 %scevgep.i19, i64 %60, i1 false)
   %61 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %59
@@ -523,16 +523,14 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
 
 62:                                               ; preds = %._crit_edge62.i, %._crit_edge.i17
   %63 = icmp samesign ugt i32 %..i.i8, 1
-  %64 = icmp ne i32 %12, 0
-  %or.cond68.i = and i1 %63, %64
-  br i1 %or.cond68.i, label %.lr.ph64.i, label %.loopexit54.i
+  br i1 %63, label %.lr.ph64.i, label %.loopexit54.i
 
 .lr.ph64.i:                                       ; preds = %62, %.lr.ph64.i
   %indvars.iv88.i = phi i64 [ %indvars.iv.next89.i, %.lr.ph64.i ], [ 0, %62 ]
-  %65 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv88.i
-  %66 = load i32, ptr %65, align 4
-  %67 = mul i32 %66, %..i.i8
-  store i32 %67, ptr %65, align 4
+  %64 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 0, i64 %indvars.iv88.i
+  %65 = load i32, ptr %64, align 4
+  %66 = mul i32 %65, %..i.i8
+  store i32 %66, ptr %64, align 4
   %indvars.iv.next89.i = add nuw nsw i64 %indvars.iv88.i, 1
   %exitcond92.not.i = icmp eq i64 %indvars.iv.next89.i, %wide.trip.count83.i
   br i1 %exitcond92.not.i, label %.loopexit54.i, label %.lr.ph64.i, !llvm.loop !19
@@ -541,22 +539,22 @@ ComputeIncrementsForPlanar.exit:                  ; preds = %15, %.preheader.i, 
   br i1 %.not69.i, label %ComputeIncrementsForChunky.exit, label %.lr.ph67.preheader.i
 
 .lr.ph67.preheader.i:                             ; preds = %.loopexit54.i
-  %68 = shl nuw nsw i32 %10, 2
-  %69 = and i32 %68, 60
-  %70 = zext nneg i32 %69 to i64
-  %scevgep93.i = getelementptr i8, ptr %5, i64 %70
-  %71 = shl nuw nsw i32 %8, 2
-  %72 = and i32 %71, 28
-  %73 = zext nneg i32 %72 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr align 4 %scevgep93.i, i64 %73, i1 false)
+  %67 = shl nuw nsw i32 %10, 2
+  %68 = and i32 %67, 60
+  %69 = zext nneg i32 %68 to i64
+  %scevgep93.i = getelementptr i8, ptr %5, i64 %69
+  %70 = shl nuw nsw i32 %8, 2
+  %71 = and i32 %70, 28
+  %72 = zext nneg i32 %71 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %2, ptr align 4 %scevgep93.i, i64 %72, i1 false)
   br label %ComputeIncrementsForChunky.exit
 
 ComputeIncrementsForChunky.exit:                  ; preds = %42, %.loopexit54.i, %.lr.ph67.preheader.i
   %.0.i18 = phi i32 [ 0, %42 ], [ 1, %.loopexit54.i ], [ 1, %.lr.ph67.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5)
-  br label %74
+  br label %73
 
-74:                                               ; preds = %ComputeIncrementsForChunky.exit, %ComputeIncrementsForPlanar.exit
+73:                                               ; preds = %ComputeIncrementsForChunky.exit, %ComputeIncrementsForPlanar.exit
   %.0 = phi i32 [ %.0.i, %ComputeIncrementsForPlanar.exit ], [ %.0.i18, %ComputeIncrementsForChunky.exit ]
   ret i32 %.0
 }

@@ -826,17 +826,17 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
 82:                                               ; preds = %79
   %83 = load i16, ptr %72, align 2
   %84 = icmp ult i16 %83, 12
-  br i1 %84, label %85, label %.loopexit4
+  br i1 %84, label %85, label %.loopexit3
 
 85:                                               ; preds = %82
   store i16 12, ptr %72, align 2
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 7024
   %87 = load i8, ptr %86, align 8
   %88 = icmp ugt i8 %87, 1
-  br i1 %88, label %.preheader3, label %.loopexit4
+  br i1 %88, label %.preheader2, label %.loopexit3
 
-.preheader3:                                      ; preds = %85, %.preheader3
-  %89 = phi i64 [ %93, %.preheader3 ], [ 1, %85 ]
+.preheader2:                                      ; preds = %85, %.preheader2
+  %89 = phi i64 [ %93, %.preheader2 ], [ 1, %85 ]
   %90 = getelementptr i16, ptr %72, i64 %89
   %91 = load i16, ptr %90, align 2
   %92 = tail call i16 @llvm.umax.i16(i16 %91, i16 3)
@@ -845,19 +845,19 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %94 = load i8, ptr %86, align 8
   %95 = zext i8 %94 to i64
   %96 = icmp samesign ult i64 %93, %95
-  br i1 %96, label %.preheader3, label %.loopexit4, !llvm.loop !41
+  br i1 %96, label %.preheader2, label %.loopexit3, !llvm.loop !41
 
-.loopexit4:                                       ; preds = %.preheader3, %85, %82
+.loopexit3:                                       ; preds = %.preheader2, %85, %82
   %97 = load i16, ptr %73, align 2
   %98 = icmp ult i16 %97, 12
-  br i1 %98, label %99, label %.loopexit2
+  br i1 %98, label %99, label %.loopexit
 
-99:                                               ; preds = %.loopexit4
+99:                                               ; preds = %.loopexit3
   store i16 12, ptr %73, align 2
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 7024
   %101 = load i8, ptr %100, align 8
   %102 = icmp ugt i8 %101, 1
-  br i1 %102, label %.preheader1, label %.loopexit2
+  br i1 %102, label %.preheader1, label %.loopexit
 
 .preheader1:                                      ; preds = %99, %.preheader1
   %103 = phi i64 [ %107, %.preheader1 ], [ 1, %99 ]
@@ -869,38 +869,37 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   %108 = load i8, ptr %100, align 8
   %109 = zext i8 %108 to i64
   %110 = icmp samesign ult i64 %107, %109
-  br i1 %110, label %.preheader1, label %.loopexit2, !llvm.loop !41
+  br i1 %110, label %.preheader1, label %.loopexit, !llvm.loop !41
 
-.loopexit2:                                       ; preds = %.preheader1, %99, %.loopexit4
-  %111 = or i1 %84, %98
-  %112 = load i16, ptr %74, align 2
-  %113 = icmp ult i16 %112, 12
-  br i1 %113, label %114, label %.loopexit
+.loopexit:                                        ; preds = %.preheader1, %99, %.loopexit3
+  %111 = load i16, ptr %74, align 2
+  %112 = icmp ult i16 %111, 12
+  br i1 %112, label %113, label %125
 
-114:                                              ; preds = %.loopexit2
+113:                                              ; preds = %.loopexit
   store i16 12, ptr %74, align 2
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 7024
-  %116 = load i8, ptr %115, align 8
-  %117 = icmp ugt i8 %116, 1
-  br i1 %117, label %.preheader, label %.thread
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 7024
+  %115 = load i8, ptr %114, align 8
+  %116 = icmp ugt i8 %115, 1
+  br i1 %116, label %.preheader, label %.thread
 
-.preheader:                                       ; preds = %114, %.preheader
-  %118 = phi i64 [ %122, %.preheader ], [ 1, %114 ]
-  %119 = getelementptr i16, ptr %74, i64 %118
-  %120 = load i16, ptr %119, align 2
-  %121 = tail call i16 @llvm.umax.i16(i16 %120, i16 3)
-  store i16 %121, ptr %119, align 2
-  %122 = add nuw nsw i64 %118, 1
-  %123 = load i8, ptr %115, align 8
-  %124 = zext i8 %123 to i64
-  %125 = icmp samesign ult i64 %122, %124
-  br i1 %125, label %.preheader, label %.loopexit, !llvm.loop !41
+.preheader:                                       ; preds = %113, %.preheader
+  %117 = phi i64 [ %121, %.preheader ], [ 1, %113 ]
+  %118 = getelementptr i16, ptr %74, i64 %117
+  %119 = load i16, ptr %118, align 2
+  %120 = tail call i16 @llvm.umax.i16(i16 %119, i16 3)
+  store i16 %120, ptr %118, align 2
+  %121 = add nuw nsw i64 %117, 1
+  %122 = load i8, ptr %114, align 8
+  %123 = zext i8 %122 to i64
+  %124 = icmp samesign ult i64 %121, %123
+  br i1 %124, label %.preheader, label %.thread, !llvm.loop !41
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit2
-  %126 = or i1 %111, %113
+125:                                              ; preds = %.loopexit
+  %126 = or i1 %84, %98
   br i1 %126, label %.thread, label %133
 
-.thread:                                          ; preds = %114, %.loopexit
+.thread:                                          ; preds = %.preheader, %113, %125
   %127 = icmp eq ptr %0, null
   br i1 %127, label %131, label %128
 
@@ -917,7 +916,7 @@ define dso_local void @i9xx_wm_init(ptr noundef %0) local_unnamed_addr #0 align 
   tail call void @intel_print_wm_latency(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %74) #14
   br label %133
 
-133:                                              ; preds = %131, %.loopexit
+133:                                              ; preds = %131, %125
   %134 = getelementptr i8, ptr %0, i64 6894
   %135 = load i16, ptr %134, align 2
   %136 = icmp eq i16 %135, 0

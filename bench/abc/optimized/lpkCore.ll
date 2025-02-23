@@ -2173,7 +2173,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
   br i1 %.not209, label %86, label %82
 
 82:                                               ; preds = %80
-  %83 = call i32 @Abc_NtkGetTotalFanins(ptr noundef %0) #16
+  %83 = call i32 @Abc_NtkGetTotalFanins(ptr noundef nonnull %0) #16
   %84 = getelementptr inbounds nuw i8, ptr %57, i64 8241820
   store i32 %83, ptr %84, align 4, !tbaa !163
   %.val244 = load i32, ptr %59, align 4, !tbaa !42

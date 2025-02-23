@@ -989,13 +989,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph.preheader:                                 ; preds = %48
   %53 = zext nneg i32 %47 to i64
   %wide.trip.count = zext i32 %49 to i64
-  %invariant.gep391 = getelementptr inbounds nuw float, ptr %52, i64 %53
+  %invariant.gep = getelementptr inbounds nuw float, ptr %52, i64 %53
   br label %.lr.ph
 
 .lr.ph248.preheader:                              ; preds = %.lr.ph
   %54 = zext nneg i32 %47 to i64
   %wide.trip.count320 = zext i32 %49 to i64
-  %invariant.gep393 = getelementptr inbounds nuw float, ptr %52, i64 %54
+  %invariant.gep394 = getelementptr inbounds nuw float, ptr %52, i64 %54
   br label %.lr.ph248
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1013,8 +1013,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %64 = tail call noundef float @erff(float noundef %63) #24
   %65 = fsub float %64, %60
   %66 = fmul float %65, 5.000000e-01
-  %gep392 = getelementptr inbounds nuw float, ptr %invariant.gep391, i64 %indvars.iv
-  store float %66, ptr %gep392, align 4
+  %gep393 = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  store float %66, ptr %gep393, align 4
   %.not225 = icmp eq i64 %indvars.iv, 0
   %67 = tail call float @llvm.fmuladd.f32(float %66, float 2.000000e+00, float %.0189245)
   %.1190 = select i1 %.not225, float %66, float %67
@@ -1023,29 +1023,29 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %exitcond.not, label %.lr.ph248.preheader, label %.lr.ph, !llvm.loop !12
 
 .lr.ph250.preheader:                              ; preds = %.lr.ph248
-  %invariant.gep = getelementptr i8, ptr %52, i64 4
+  %invariant.gep382 = getelementptr i8, ptr %52, i64 4
   %68 = zext nneg i32 %47 to i64
   %wide.trip.count325 = zext nneg i32 %47 to i64
-  %invariant.gep395 = getelementptr float, ptr %invariant.gep, i64 %68
-  %invariant.gep397 = getelementptr float, ptr %52, i64 %68
+  %invariant.gep396 = getelementptr float, ptr %invariant.gep382, i64 %68
+  %invariant.gep398 = getelementptr float, ptr %52, i64 %68
   br label %.lr.ph250
 
 .lr.ph248:                                        ; preds = %.lr.ph248.preheader, %.lr.ph248
   %indvars.iv317 = phi i64 [ 0, %.lr.ph248.preheader ], [ %indvars.iv.next318, %.lr.ph248 ]
-  %gep394 = getelementptr inbounds nuw float, ptr %invariant.gep393, i64 %indvars.iv317
-  %69 = load float, ptr %gep394, align 4
+  %gep395 = getelementptr inbounds nuw float, ptr %invariant.gep394, i64 %indvars.iv317
+  %69 = load float, ptr %gep395, align 4
   %70 = fdiv float %69, %.1190
-  store float %70, ptr %gep394, align 4
+  store float %70, ptr %gep395, align 4
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond321.not = icmp eq i64 %indvars.iv.next318, %wide.trip.count320
   br i1 %exitcond321.not, label %.lr.ph250.preheader, label %.lr.ph248, !llvm.loop !13
 
 .lr.ph250:                                        ; preds = %.lr.ph250.preheader, %.lr.ph250
   %indvars.iv322 = phi i64 [ 0, %.lr.ph250.preheader ], [ %indvars.iv.next323, %.lr.ph250 ]
-  %gep396 = getelementptr float, ptr %invariant.gep395, i64 %indvars.iv322
-  %71 = load float, ptr %gep396, align 4
+  %gep397 = getelementptr float, ptr %invariant.gep396, i64 %indvars.iv322
+  %71 = load float, ptr %gep397, align 4
   %72 = xor i64 %indvars.iv322, -1
-  %gep = getelementptr float, ptr %invariant.gep397, i64 %72
+  %gep = getelementptr float, ptr %invariant.gep398, i64 %72
   store float %71, ptr %gep, align 4
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count325
@@ -1074,13 +1074,13 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .lr.ph255.preheader:                              ; preds = %80
   %85 = zext nneg i32 %.fr to i64
   %wide.trip.count330 = zext i32 %81 to i64
-  %invariant.gep398 = getelementptr inbounds nuw float, ptr %84, i64 %85
+  %invariant.gep399 = getelementptr inbounds nuw float, ptr %84, i64 %85
   br label %.lr.ph255
 
 .lr.ph259.preheader:                              ; preds = %.lr.ph255
   %86 = zext nneg i32 %.fr to i64
   %wide.trip.count335 = zext i32 %81 to i64
-  %invariant.gep400 = getelementptr inbounds nuw float, ptr %84, i64 %86
+  %invariant.gep401 = getelementptr inbounds nuw float, ptr %84, i64 %86
   br label %.lr.ph259
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
@@ -1098,8 +1098,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %96 = tail call noundef float @erff(float noundef %95) #24
   %97 = fsub float %96, %92
   %98 = fmul float %97, 5.000000e-01
-  %gep399 = getelementptr inbounds nuw float, ptr %invariant.gep398, i64 %indvars.iv327
-  store float %98, ptr %gep399, align 4
+  %gep400 = getelementptr inbounds nuw float, ptr %invariant.gep399, i64 %indvars.iv327
+  store float %98, ptr %gep400, align 4
   %.not224 = icmp eq i64 %indvars.iv327, 0
   %99 = tail call float @llvm.fmuladd.f32(float %98, float 2.000000e+00, float %.2253)
   %.3 = select i1 %.not224, float %98, float %99
@@ -1108,27 +1108,27 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br i1 %exitcond331.not, label %.lr.ph259.preheader, label %.lr.ph255, !llvm.loop !15
 
 .lr.ph263.preheader:                              ; preds = %.lr.ph259
-  %invariant.gep260 = getelementptr i8, ptr %84, i64 4
+  %invariant.gep260385 = getelementptr i8, ptr %84, i64 4
   %100 = zext nneg i32 %.fr to i64
   %wide.trip.count340 = zext nneg i32 %.fr to i64
-  %invariant.gep402 = getelementptr float, ptr %invariant.gep260, i64 %100
+  %invariant.gep403 = getelementptr float, ptr %invariant.gep260385, i64 %100
   %101 = getelementptr float, ptr %84, i64 %100
   br label %.lr.ph263
 
 .lr.ph259:                                        ; preds = %.lr.ph259.preheader, %.lr.ph259
   %indvars.iv332 = phi i64 [ 0, %.lr.ph259.preheader ], [ %indvars.iv.next333, %.lr.ph259 ]
-  %gep401 = getelementptr inbounds nuw float, ptr %invariant.gep400, i64 %indvars.iv332
-  %102 = load float, ptr %gep401, align 4
+  %gep402 = getelementptr inbounds nuw float, ptr %invariant.gep401, i64 %indvars.iv332
+  %102 = load float, ptr %gep402, align 4
   %103 = fdiv float %102, %.3
-  store float %103, ptr %gep401, align 4
+  store float %103, ptr %gep402, align 4
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
   %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count335
   br i1 %exitcond336.not, label %.lr.ph263.preheader, label %.lr.ph259, !llvm.loop !16
 
 .lr.ph263:                                        ; preds = %.lr.ph263.preheader, %.lr.ph263
   %indvars.iv337 = phi i64 [ 0, %.lr.ph263.preheader ], [ %indvars.iv.next338, %.lr.ph263 ]
-  %gep403 = getelementptr float, ptr %invariant.gep402, i64 %indvars.iv337
-  %104 = load float, ptr %gep403, align 4
+  %gep404 = getelementptr float, ptr %invariant.gep403, i64 %indvars.iv337
+  %104 = load float, ptr %gep404, align 4
   %105 = xor i64 %indvars.iv337, -1
   %106 = getelementptr float, ptr %101, i64 %105
   store float %104, ptr %106, align 4
@@ -1146,10 +1146,10 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %113 = tail call noalias ptr @malloc(i64 noundef %112) #28
   %114 = icmp sgt i32 %19, 0
   %115 = icmp sgt i32 %17, 0
-  %or.cond406 = and i1 %114, %115
+  %or.cond407 = and i1 %114, %115
   %116 = icmp sgt i32 %108, 0
-  %or.cond407 = and i1 %or.cond406, %116
-  br i1 %or.cond407, label %.preheader238.lr.ph.split.us.split.us, label %.preheader235
+  %or.cond408 = and i1 %or.cond407, %116
+  br i1 %or.cond408, label %.preheader238.lr.ph.split.us.split.us, label %.preheader235
 
 .preheader238.lr.ph.split.us.split.us:            ; preds = %._crit_edge264
   %wide.trip.count370 = zext nneg i32 %19 to i64
@@ -1188,7 +1188,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %128 = trunc nuw nsw i64 %indvars.iv357 to i32
   %129 = mul i32 %15, %128
   %130 = mul nuw nsw i64 %indvars.iv357, %119
-  %invariant.gep404 = getelementptr inbounds nuw float, ptr %113, i64 %130
+  %invariant.gep405 = getelementptr inbounds nuw float, ptr %113, i64 %130
   br label %.preheader237.us.us284.us
 
 .preheader237.us.us284.us:                        ; preds = %.preheader238.us.us, %._crit_edge272.split.us277.us.us
@@ -1201,7 +1201,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %136 = fptosi float %135 to i32
   %137 = sub i32 %136, %47
   %138 = mul nuw nsw i64 %indvars.iv352, %118
-  %gep405 = getelementptr inbounds nuw float, ptr %invariant.gep404, i64 %138
+  %gep406 = getelementptr inbounds nuw float, ptr %invariant.gep405, i64 %138
   br label %.preheader236.us275.us.us
 
 139:                                              ; preds = %.preheader236.us275.us.us, %151
@@ -1238,7 +1238,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   br label %139
 
 ._crit_edge269.us.us.us:                          ; preds = %151
-  %153 = getelementptr inbounds nuw float, ptr %gep405, i64 %indvars.iv347
+  %153 = getelementptr inbounds nuw float, ptr %gep406, i64 %indvars.iv347
   store float %.1195.us.us.us, ptr %153, align 4
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %exitcond351.not = icmp eq i64 %indvars.iv.next348, %118
@@ -1257,8 +1257,8 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
 .preheader235:                                    ; preds = %._crit_edge274.split.us.split.us286.us, %.preheader238.us.us.us, %._crit_edge264
   %154 = icmp sgt i32 %21, 0
   %155 = icmp sgt i32 %17, 0
-  %or.cond408 = and i1 %154, %155
-  br i1 %or.cond408, label %.preheader234.lr.ph.split.us, label %._crit_edge300
+  %or.cond409 = and i1 %154, %155
+  br i1 %or.cond409, label %.preheader234.lr.ph.split.us, label %._crit_edge300
 
 .preheader234.lr.ph.split.us:                     ; preds = %.preheader235
   %smax375 = tail call i32 @llvm.smax.i32(i32 %107, i32 0)

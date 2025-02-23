@@ -1891,7 +1891,7 @@ select.unfold.i13:                                ; preds = %select.unfold.i13, 
   br i1 %38, label %select.unfold.i13, label %Kit_TruthNot.exit, !llvm.loop !32
 
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %select.unfold.i13, %25, %8
-  %39 = tail call i32 @Bdc_TableCheckContainment(ptr noundef %0, ptr noundef %1, ptr noundef %5) #7
+  %39 = tail call i32 @Bdc_TableCheckContainment(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %5) #7
   ret i32 %39
 }
 
@@ -2198,7 +2198,7 @@ Kit_TruthAnd.exit:                                ; preds = %select.unfold.i74, 
   %165 = tail call i32 @Kit_TruthSupport(ptr noundef %162, i32 noundef %164) #7
   %166 = getelementptr inbounds nuw i8, ptr %160, i64 24
   store i32 %165, ptr %166, align 8, !tbaa !81
-  tail call void @Bdc_TableAdd(ptr noundef %0, ptr noundef %160) #7
+  tail call void @Bdc_TableAdd(ptr noundef nonnull %0, ptr noundef %160) #7
   br label %Bdc_FunNew.exit.thread
 
 Bdc_FunNew.exit.thread:                           ; preds = %4, %9, %Kit_TruthAnd.exit

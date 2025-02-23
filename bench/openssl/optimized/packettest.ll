@@ -1204,54 +1204,54 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_1() #0 {
 5:                                                ; preds = %2
   %6 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 360, ptr noundef nonnull @.str.29, i32 noundef 1) #6
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %25, label %7
+  br i1 %.not, label %26, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 361, ptr noundef nonnull @.str.106, i32 noundef 1) #6
   %.not2 = icmp eq i32 %8, 0
-  br i1 %.not2, label %25, label %PACKET_get_length_prefixed_1.exit
+  br i1 %.not2, label %26, label %PACKET_get_length_prefixed_1.exit
 
 PACKET_get_length_prefixed_1.exit:                ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 362, ptr noundef nonnull @.str.107, i32 noundef 1) #6
   %.not3 = icmp eq i32 %10, 0
-  br i1 %.not3, label %25, label %11
+  br i1 %.not3, label %26, label %11
 
 11:                                               ; preds = %PACKET_get_length_prefixed_1.exit
   %12 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 363, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.84, i64 noundef 16, i64 noundef 16) #6
   %.not4 = icmp eq i32 %12, 0
-  br i1 %.not4, label %25, label %PACKET_get_net_2.exit
+  br i1 %.not4, label %26, label %PACKET_get_net_2.exit
 
 PACKET_get_net_2.exit:                            ; preds = %11
-  %13 = load i8, ptr %9, align 1, !tbaa !4
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %14 = load i8, ptr %.sroa.gep, align 2, !tbaa !4
-  %15 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 364, ptr noundef nonnull @.str.108, i32 noundef 1) #6
-  %.not5 = icmp eq i32 %15, 0
-  br i1 %.not5, label %25, label %16
+  %13 = load i8, ptr %9, align 1
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %15 = load i8, ptr %14, align 2
+  %16 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 364, ptr noundef nonnull @.str.108, i32 noundef 1) #6
+  %.not5 = icmp eq i32 %16, 0
+  br i1 %.not5, label %26, label %17
 
-16:                                               ; preds = %PACKET_get_net_2.exit
-  %17 = zext i8 %13 to i32
-  %18 = shl nuw nsw i32 %17, 8
-  %19 = zext i8 %14 to i32
-  %20 = or disjoint i32 %18, %19
-  %21 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 365, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.56, i32 noundef %20, i32 noundef 516) #6
-  %.not6 = icmp eq i32 %21, 0
-  br i1 %.not6, label %25, label %PACKET_get_length_prefixed_1.exit16
+17:                                               ; preds = %PACKET_get_net_2.exit
+  %18 = zext i8 %13 to i32
+  %19 = shl nuw nsw i32 %18, 8
+  %20 = zext i8 %15 to i32
+  %21 = or disjoint i32 %19, %20
+  %22 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 365, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.56, i32 noundef %21, i32 noundef 516) #6
+  %.not6 = icmp eq i32 %22, 0
+  br i1 %.not6, label %26, label %PACKET_get_length_prefixed_1.exit16
 
-PACKET_get_length_prefixed_1.exit16:              ; preds = %16
-  %22 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 366, ptr noundef nonnull @.str.109, i32 noundef 0) #6
-  %.not7 = icmp eq i32 %22, 0
-  br i1 %.not7, label %25, label %23
+PACKET_get_length_prefixed_1.exit16:              ; preds = %17
+  %23 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 366, ptr noundef nonnull @.str.109, i32 noundef 0) #6
+  %.not7 = icmp eq i32 %23, 0
+  br i1 %.not7, label %26, label %24
 
-23:                                               ; preds = %PACKET_get_length_prefixed_1.exit16
-  %24 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 367, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef 16, i64 noundef 16) #6
-  %.not8 = icmp ne i32 %24, 0
+24:                                               ; preds = %PACKET_get_length_prefixed_1.exit16
+  %25 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 367, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef 16, i64 noundef 16) #6
+  %.not8 = icmp ne i32 %25, 0
   %spec.select = zext i1 %.not8 to i32
-  br label %25
+  br label %26
 
-25:                                               ; preds = %23, %5, %7, %PACKET_get_length_prefixed_1.exit, %11, %PACKET_get_net_2.exit, %16, %PACKET_get_length_prefixed_1.exit16
-  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_1.exit16 ], [ 0, %16 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %11 ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %23 ]
+26:                                               ; preds = %24, %5, %7, %PACKET_get_length_prefixed_1.exit, %11, %PACKET_get_net_2.exit, %17, %PACKET_get_length_prefixed_1.exit16
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_1.exit16 ], [ 0, %17 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %11 ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %24 ]
   call void @llvm.lifetime.end.p0(i64 255, ptr nonnull %1) #6
   ret i32 %.0
 }
@@ -1276,12 +1276,12 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_2() #0 {
 6:                                                ; preds = %2
   %7 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 384, ptr noundef nonnull @.str.111, i32 noundef 1) #6
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %39, label %8
+  br i1 %.not, label %38, label %8
 
 8:                                                ; preds = %6
   %9 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 385, ptr noundef nonnull @.str.106, i32 noundef 1) #6
   %.not2 = icmp eq i32 %9, 0
-  br i1 %.not2, label %39, label %PACKET_get_length_prefixed_2.exit
+  br i1 %.not2, label %38, label %PACKET_get_length_prefixed_2.exit
 
 PACKET_get_length_prefixed_2.exit:                ; preds = %8
   %10 = load i8, ptr %1, align 16, !tbaa !4
@@ -1297,57 +1297,50 @@ PACKET_get_length_prefixed_2.exit:                ; preds = %8
   %.0.i = zext i1 %17 to i32
   %19 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 386, ptr noundef nonnull @.str.112, i32 noundef %.0.i) #6
   %.not3 = icmp eq i32 %19, 0
-  br i1 %.not3, label %39, label %20
+  br i1 %.not3, label %38, label %20
 
 20:                                               ; preds = %PACKET_get_length_prefixed_2.exit
   %21 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 387, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.84, i64 noundef %.sroa.7.0, i64 noundef 516) #6
   %.not4 = icmp eq i32 %21, 0
-  br i1 %.not4, label %39, label %22
+  br i1 %.not4, label %38, label %PACKET_get_net_2.exit
 
-22:                                               ; preds = %20
-  %23 = icmp samesign ult i64 %.sroa.7.0, 2
-  br i1 %23, label %PACKET_get_net_2.exit, label %24
+PACKET_get_net_2.exit:                            ; preds = %20
+  %22 = icmp samesign ugt i64 %.sroa.7.0, 1
+  %23 = load i8, ptr %18, align 2
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %25 = load i8, ptr %24, align 1
+  %.0.i10 = zext i1 %22 to i32
+  %26 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 388, ptr noundef nonnull @.str.108, i32 noundef %.0.i10) #6
+  %.not5 = icmp eq i32 %26, 0
+  br i1 %.not5, label %38, label %27
 
-24:                                               ; preds = %22
-  %25 = load i8, ptr %18, align 2, !tbaa !4
-  %26 = zext i8 %25 to i32
-  %27 = shl nuw nsw i32 %26, 8
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %.sroa.0.0.sroa.sel = select i1 %17, ptr %.sroa.gep, ptr inttoptr (i64 1 to ptr)
-  %28 = load i8, ptr %.sroa.0.0.sroa.sel, align 1, !tbaa !4
-  %29 = zext i8 %28 to i32
-  %30 = or disjoint i32 %27, %29
-  br label %PACKET_get_net_2.exit
+27:                                               ; preds = %PACKET_get_net_2.exit
+  %28 = zext i8 %23 to i32
+  %29 = shl nuw nsw i32 %28, 8
+  %30 = zext i8 %25 to i32
+  %31 = or disjoint i32 %29, %30
+  %.022 = select i1 %22, i32 %31, i32 1025
+  %32 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 389, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.113, i32 noundef %.022, i32 noundef 1544) #6
+  %.not6 = icmp eq i32 %32, 0
+  br i1 %.not6, label %38, label %PACKET_get_length_prefixed_2.exit15
 
-PACKET_get_net_2.exit:                            ; preds = %22, %24
-  %.022 = phi i32 [ 1025, %22 ], [ %30, %24 ]
-  %.0.i10 = phi i32 [ 0, %22 ], [ 1, %24 ]
-  %31 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 388, ptr noundef nonnull @.str.108, i32 noundef %.0.i10) #6
-  %.not5 = icmp eq i32 %31, 0
-  br i1 %.not5, label %39, label %32
+PACKET_get_length_prefixed_2.exit15:              ; preds = %27
+  %33 = icmp samesign ult i64 %16, 515
+  %spec.select24 = zext i1 %33 to i32
+  %34 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 390, ptr noundef nonnull @.str.114, i32 noundef %spec.select24) #6
+  %.not7 = icmp eq i32 %34, 0
+  br i1 %.not7, label %38, label %35
 
-32:                                               ; preds = %PACKET_get_net_2.exit
-  %33 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 389, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.113, i32 noundef %.022, i32 noundef 1544) #6
-  %.not6 = icmp eq i32 %33, 0
-  br i1 %.not6, label %39, label %PACKET_get_length_prefixed_2.exit15
-
-PACKET_get_length_prefixed_2.exit15:              ; preds = %32
-  %34 = icmp samesign ult i64 %16, 515
-  %spec.select24 = zext i1 %34 to i32
-  %35 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 390, ptr noundef nonnull @.str.114, i32 noundef %spec.select24) #6
-  %.not7 = icmp eq i32 %35, 0
-  br i1 %.not7, label %39, label %36
-
-36:                                               ; preds = %PACKET_get_length_prefixed_2.exit15
-  %37 = sub nuw nsw i64 514, %16
-  %spec.select23 = select i1 %34, i64 %37, i64 516
-  %38 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 391, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef %spec.select23, i64 noundef 516) #6
-  %.not8 = icmp ne i32 %38, 0
+35:                                               ; preds = %PACKET_get_length_prefixed_2.exit15
+  %36 = sub nuw nsw i64 514, %16
+  %spec.select23 = select i1 %33, i64 %36, i64 516
+  %37 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 391, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef %spec.select23, i64 noundef 516) #6
+  %.not8 = icmp ne i32 %37, 0
   %spec.select = zext i1 %.not8 to i32
-  br label %39
+  br label %38
 
-39:                                               ; preds = %36, %6, %8, %PACKET_get_length_prefixed_2.exit, %20, %PACKET_get_net_2.exit, %32, %PACKET_get_length_prefixed_2.exit15
-  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_2.exit15 ], [ 0, %32 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %20 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %36 ]
+38:                                               ; preds = %35, %6, %8, %PACKET_get_length_prefixed_2.exit, %20, %PACKET_get_net_2.exit, %27, %PACKET_get_length_prefixed_2.exit15
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_2.exit15 ], [ 0, %27 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %20 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %8 ], [ 0, %6 ], [ %spec.select, %35 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #6
   ret i32 %.0
 }
@@ -1371,12 +1364,12 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_length_prefixed_3() #0 {
 5:                                                ; preds = %2
   %6 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 408, ptr noundef nonnull @.str.111, i32 noundef 1) #6
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %43, label %7
+  br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %5
   %8 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 409, ptr noundef nonnull @.str.106, i32 noundef 1) #6
   %.not2 = icmp eq i32 %8, 0
-  br i1 %.not2, label %43, label %PACKET_get_length_prefixed_3.exit
+  br i1 %.not2, label %42, label %PACKET_get_length_prefixed_3.exit
 
 PACKET_get_length_prefixed_3.exit:                ; preds = %7
   %9 = load i8, ptr %1, align 16, !tbaa !4
@@ -1397,57 +1390,50 @@ PACKET_get_length_prefixed_3.exit:                ; preds = %7
   %.0.i = zext i1 %21 to i32
   %23 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 410, ptr noundef nonnull @.str.115, i32 noundef %.0.i) #6
   %.not3 = icmp eq i32 %23, 0
-  br i1 %.not3, label %43, label %24
+  br i1 %.not3, label %42, label %24
 
 24:                                               ; preds = %PACKET_get_length_prefixed_3.exit
   %25 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 411, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.84, i64 noundef %.sroa.7.0, i64 noundef 516) #6
   %.not4 = icmp eq i32 %25, 0
-  br i1 %.not4, label %43, label %26
+  br i1 %.not4, label %42, label %PACKET_get_net_2.exit
 
-26:                                               ; preds = %24
-  %27 = icmp samesign ult i64 %.sroa.7.0, 2
-  br i1 %27, label %PACKET_get_net_2.exit, label %28
+PACKET_get_net_2.exit:                            ; preds = %24
+  %26 = icmp samesign ugt i64 %.sroa.7.0, 1
+  %27 = load i8, ptr %22, align 1
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %29 = load i8, ptr %28, align 4
+  %.0.i10 = zext i1 %26 to i32
+  %30 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 412, ptr noundef nonnull @.str.108, i32 noundef %.0.i10) #6
+  %.not5 = icmp eq i32 %30, 0
+  br i1 %.not5, label %42, label %31
 
-28:                                               ; preds = %26
-  %29 = load i8, ptr %22, align 1, !tbaa !4
-  %30 = zext i8 %29 to i32
-  %31 = shl nuw nsw i32 %30, 8
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.sroa.0.0.sroa.sel = select i1 %21, ptr %.sroa.gep, ptr inttoptr (i64 1 to ptr)
-  %32 = load i8, ptr %.sroa.0.0.sroa.sel, align 1, !tbaa !4
-  %33 = zext i8 %32 to i32
-  %34 = or disjoint i32 %31, %33
-  br label %PACKET_get_net_2.exit
+31:                                               ; preds = %PACKET_get_net_2.exit
+  %32 = zext i8 %27 to i32
+  %33 = shl nuw nsw i32 %32, 8
+  %34 = zext i8 %29 to i32
+  %35 = or disjoint i32 %33, %34
+  %.022 = select i1 %26, i32 %35, i32 1024
+  %36 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 413, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.113, i32 noundef %.022, i32 noundef 1544) #6
+  %.not6 = icmp eq i32 %36, 0
+  br i1 %.not6, label %42, label %PACKET_get_length_prefixed_3.exit15
 
-PACKET_get_net_2.exit:                            ; preds = %26, %28
-  %.022 = phi i32 [ 1024, %26 ], [ %34, %28 ]
-  %.0.i10 = phi i32 [ 0, %26 ], [ 1, %28 ]
-  %35 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 412, ptr noundef nonnull @.str.108, i32 noundef %.0.i10) #6
-  %.not5 = icmp eq i32 %35, 0
-  br i1 %.not5, label %43, label %36
+PACKET_get_length_prefixed_3.exit15:              ; preds = %31
+  %37 = icmp samesign ult i64 %20, 514
+  %spec.select24 = zext i1 %37 to i32
+  %38 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 414, ptr noundef nonnull @.str.116, i32 noundef %spec.select24) #6
+  %.not7 = icmp eq i32 %38, 0
+  br i1 %.not7, label %42, label %39
 
-36:                                               ; preds = %PACKET_get_net_2.exit
-  %37 = tail call i32 @test_uint_eq(ptr noundef nonnull @.str.25, i32 noundef 413, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.113, i32 noundef %.022, i32 noundef 1544) #6
-  %.not6 = icmp eq i32 %37, 0
-  br i1 %.not6, label %43, label %PACKET_get_length_prefixed_3.exit15
-
-PACKET_get_length_prefixed_3.exit15:              ; preds = %36
-  %38 = icmp samesign ult i64 %20, 514
-  %spec.select24 = zext i1 %38 to i32
-  %39 = tail call i32 @test_false(ptr noundef nonnull @.str.25, i32 noundef 414, ptr noundef nonnull @.str.116, i32 noundef %spec.select24) #6
-  %.not7 = icmp eq i32 %39, 0
-  br i1 %.not7, label %43, label %40
-
-40:                                               ; preds = %PACKET_get_length_prefixed_3.exit15
-  %41 = sub nuw nsw i64 513, %20
-  %spec.select23 = select i1 %38, i64 %41, i64 516
-  %42 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 415, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef %spec.select23, i64 noundef 516) #6
-  %.not8 = icmp ne i32 %42, 0
+39:                                               ; preds = %PACKET_get_length_prefixed_3.exit15
+  %40 = sub nuw nsw i64 513, %20
+  %spec.select23 = select i1 %37, i64 %40, i64 516
+  %41 = tail call i32 @test_size_t_eq(ptr noundef nonnull @.str.25, i32 noundef 415, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.84, i64 noundef %spec.select23, i64 noundef 516) #6
+  %.not8 = icmp ne i32 %41, 0
   %spec.select = zext i1 %.not8 to i32
-  br label %43
+  br label %42
 
-43:                                               ; preds = %40, %5, %7, %PACKET_get_length_prefixed_3.exit, %24, %PACKET_get_net_2.exit, %36, %PACKET_get_length_prefixed_3.exit15
-  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_3.exit15 ], [ 0, %36 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %24 ], [ 0, %PACKET_get_length_prefixed_3.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %40 ]
+42:                                               ; preds = %39, %5, %7, %PACKET_get_length_prefixed_3.exit, %24, %PACKET_get_net_2.exit, %31, %PACKET_get_length_prefixed_3.exit15
+  %.0 = phi i32 [ 0, %PACKET_get_length_prefixed_3.exit15 ], [ 0, %31 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %24 ], [ 0, %PACKET_get_length_prefixed_3.exit ], [ 0, %7 ], [ 0, %5 ], [ %spec.select, %39 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %1) #6
   ret i32 %.0
 }

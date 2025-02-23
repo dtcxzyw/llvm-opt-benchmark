@@ -1147,9 +1147,9 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   %244 = select i1 %243, float %.088169, float %242
   %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next215, %wide.trip.count217
-  br i1 %exitcond218.not, label %.critedge4, label %231, !llvm.loop !66
+  br i1 %exitcond218.not, label %.lr.ph176, label %231, !llvm.loop !66
 
-.critedge4:                                       ; preds = %231
+.lr.ph176:                                        ; preds = %231
   %245 = fpext float %244 to double
   %246 = fmul double %245, 9.000000e-01
   %247 = fptrunc double %246 to float
@@ -1161,9 +1161,9 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %224
   %wide.trip.count222 = zext nneg i32 %.val107.val to i64
   br label %251
 
-251:                                              ; preds = %.critedge4, %251
-  %indvars.iv219 = phi i64 [ 0, %.critedge4 ], [ %indvars.iv.next220, %251 ]
-  %.0175 = phi i32 [ 0, %.critedge4 ], [ %.1, %251 ]
+251:                                              ; preds = %.lr.ph176, %251
+  %indvars.iv219 = phi i64 [ 0, %.lr.ph176 ], [ %indvars.iv.next220, %251 ]
+  %.0175 = phi i32 [ 0, %.lr.ph176 ], [ %.1, %251 ]
   %252 = getelementptr inbounds nuw ptr, ptr %.val111.val, i64 %indvars.iv219
   %253 = load ptr, ptr %252, align 8, !tbaa !40
   %.val114 = load ptr, ptr %253, align 8, !tbaa !36

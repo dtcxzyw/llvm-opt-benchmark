@@ -1167,7 +1167,7 @@ switch.lookup:                                    ; preds = %397
   %413 = fadd float %.sroa.15.01089, %412
   %indvars.iv.next1282 = add nsw i64 %indvars.iv1281, 1
   %414 = icmp slt i64 %indvars.iv.next1282, %404
-  br i1 %414, label %.lr.ph1093, label %._crit_edge1094, !llvm.loop !12
+  br i1 %414, label %.lr.ph1093, label %.lr.ph1101.preheader, !llvm.loop !12
 
 ._crit_edge1094.thread:                           ; preds = %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit
   %415 = sitofp i32 %280 to float
@@ -1177,8 +1177,8 @@ switch.lookup:                                    ; preds = %397
   %419 = fmul float %416, 0.000000e+00
   br label %._crit_edge1102
 
-._crit_edge1094:                                  ; preds = %.lr.ph1093
-  %420 = sitofp i32 %280 to float
+.lr.ph1101.preheader:                             ; preds = %.lr.ph1093
+  %420 = uitofp nneg i32 %280 to float
   %421 = fdiv float 1.000000e+00, %420
   %422 = fmul float %421, %407
   %423 = fmul float %421, %410
@@ -1187,9 +1187,9 @@ switch.lookup:                                    ; preds = %397
   %426 = sext i32 %279 to i64
   br label %.lr.ph1101
 
-.lr.ph1101:                                       ; preds = %._crit_edge1094, %.lr.ph1101
-  %indvars.iv1284 = phi i64 [ %425, %._crit_edge1094 ], [ %indvars.iv.next1285, %.lr.ph1101 ]
-  %.08891098 = phi float [ 0.000000e+00, %._crit_edge1094 ], [ %.sroa.speculated, %.lr.ph1101 ]
+.lr.ph1101:                                       ; preds = %.lr.ph1101.preheader, %.lr.ph1101
+  %indvars.iv1284 = phi i64 [ %425, %.lr.ph1101.preheader ], [ %indvars.iv.next1285, %.lr.ph1101 ]
+  %.08891098 = phi float [ 0.000000e+00, %.lr.ph1101.preheader ], [ %.sroa.speculated, %.lr.ph1101 ]
   %427 = getelementptr inbounds %"class.gmx::BasicVector", ptr %289, i64 %indvars.iv1284
   %428 = load float, ptr %427, align 4
   %429 = fsub float %422, %428

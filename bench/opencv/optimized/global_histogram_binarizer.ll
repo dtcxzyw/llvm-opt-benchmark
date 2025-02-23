@@ -1292,7 +1292,7 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %3
-  %.058.lcssa113 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph93 ]
+  %.058.lcssa114 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph93 ]
   %.064.lcssa112 = phi i32 [ 0, %3 ], [ %spec.select84, %.lr.ph93 ]
   %.069.lcssa = phi i32 [ 0, %3 ], [ %spec.select78, %.lr.ph93 ]
   %spec.select79 = tail call i32 @llvm.umax.i32(i32 %.064.lcssa112, i32 %.069.lcssa)
@@ -1352,7 +1352,7 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   %55 = mul nsw i32 %52, %54
   %56 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv108
   %57 = load i32, ptr %56, align 4
-  %58 = sub nsw i32 %.058.lcssa113, %57
+  %58 = sub nsw i32 %.058.lcssa114, %57
   %59 = mul nsw i32 %55, %58
   %60 = icmp sgt i32 %59, %.06096
   %61 = trunc nuw nsw i64 %indvars.iv108 to i32

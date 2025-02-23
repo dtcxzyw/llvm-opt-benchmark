@@ -2191,11 +2191,16 @@ invoke.cont7.i.i369:                              ; preds = %if.then6.i.i364
 
 if.else8.i.i360:                                  ; preds = %if.else.i.i357
   %cmp.i8.i.i361 = icmp eq i32 %56, 0
-  br i1 %cmp.i8.i.i361, label %if.then.i9.i.i363, label %if.end47
+  br i1 %cmp.i8.i.i361, label %if.then.i9.i.i363, label %invoke.cont41
 
 if.then.i9.i.i363:                                ; preds = %if.else8.i.i360
   store i32 %52, ptr %call.i.i.i332, align 4
-  br label %if.end47
+  br label %invoke.cont41
+
+invoke.cont41:                                    ; preds = %if.then.i9.i.i363, %if.else8.i.i360
+  %conv.i.i362 = trunc i64 %call.i.i355 to i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i352)
+  br label %if.end85
 
 lpad27:                                           ; preds = %if.then22
   %59 = landingpad { ptr, i32 }
@@ -2224,11 +2229,6 @@ ehcleanup44:                                      ; preds = %lpad40.body, %lpad3
   %.pn129 = phi { ptr, i32 } [ %54, %lpad40.body ], [ %60, %lpad38 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37) #26
   br label %ehcleanup2182
-
-if.end47:                                         ; preds = %if.else8.i.i360, %if.then.i9.i.i363
-  %conv.i.i362 = trunc i64 %call.i.i355 to i32
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__endptr.i.i352)
-  br label %if.end85
 
 if.then49:                                        ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %_ZN4YAML4NodeD2Ev.exit
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
@@ -2332,11 +2332,11 @@ ehcleanup84:                                      ; preds = %ehcleanup75, %clean
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #26
   br label %ehcleanup2182
 
-if.end85:                                         ; preds = %if.end47, %invoke.cont18
-  %ref.tmp34.sink = phi ptr [ %ref.tmp34, %if.end47 ], [ %ref.tmp11, %invoke.cont18 ]
-  %ref.tmp37.sink = phi ptr [ %ref.tmp37, %if.end47 ], [ %ref.tmp14, %invoke.cont18 ]
-  %profile_major_version.03552.in = phi i64 [ %call.i.i333, %if.end47 ], [ %call.i.i, %invoke.cont18 ]
-  %profile_minor_version.03550 = phi i32 [ %conv.i.i362, %if.end47 ], [ 0, %invoke.cont18 ]
+if.end85:                                         ; preds = %invoke.cont41, %invoke.cont18
+  %ref.tmp34.sink = phi ptr [ %ref.tmp34, %invoke.cont41 ], [ %ref.tmp11, %invoke.cont18 ]
+  %ref.tmp37.sink = phi ptr [ %ref.tmp37, %invoke.cont41 ], [ %ref.tmp14, %invoke.cont18 ]
+  %profile_major_version.03552.in = phi i64 [ %call.i.i333, %invoke.cont41 ], [ %call.i.i, %invoke.cont18 ]
+  %profile_minor_version.03550 = phi i32 [ %conv.i.i362, %invoke.cont41 ], [ 0, %invoke.cont18 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34.sink) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp37.sink) #26
   %profile_major_version.03552 = trunc i64 %profile_major_version.03552.in to i32

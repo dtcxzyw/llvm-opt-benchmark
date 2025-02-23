@@ -7282,7 +7282,7 @@ _ZNK6duckdb10ByteBuffer9availableEm.exit:         ; preds = %23
   store ptr %43, ptr %0, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %.012.i, i64 256
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #24
-  %45 = add i64 %.01011.i, 32
+  %45 = add nuw i64 %.01011.i, 32
   %46 = icmp ult i64 %45, %2
   br i1 %46, label %38, label %_ZN6duckdb18ParquetDecodeUtils24BitUnpackAlignedInternalImEEvRNS_10ByteBufferEPT_mh.exit, !llvm.loop !395
 

@@ -1634,7 +1634,7 @@ _get_exposure_bias.exit66:                        ; preds = %302, %304, %308
 315:                                              ; preds = %_get_exposure_bias.exit66, %dt_Lab_to_XYZ.exit62
   %.0 = phi nsz float [ %314, %_get_exposure_bias.exit66 ], [ %299, %dt_Lab_to_XYZ.exit62 ]
   %316 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %.0)
-  tail call fastcc void @_exposure_set_white(ptr noundef %0, float noundef %316)
+  tail call fastcc void @_exposure_set_white(ptr noundef nonnull %0, float noundef %316)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #22
   br label %317
 

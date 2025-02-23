@@ -14036,7 +14036,6 @@ default.unreachable130:                           ; preds = %4
   store i64 %43, ptr %48, align 8, !alias.scope !2257, !noalias !2255
   %49 = load i64, ptr %1, align 8, !range !273, !alias.scope !2251, !noalias !2256, !noundef !4
   %50 = icmp eq i64 %49, -9223372036854775808
-  %..i = select i1 %50, ptr null, ptr %1
   br i1 %50, label %.invoke56.i, label %51
 
 .loopexit42.i:                                    ; preds = %"_ZN96_$LT$core..slice..iter..ChunksMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbb3eea99e5f1bc59E.exit.i.i"
@@ -14110,7 +14109,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h5d3e97ea8bb3de04E.exit.i: ; pr
   %75 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store ptr %24, ptr %75, align 8, !noalias !2255
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  store ptr %..i, ptr %76, align 8, !noalias !2255
+  store ptr %1, ptr %76, align 8, !noalias !2255
   %77 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0.i.i, i64 %52)
   %78 = extractvalue { i64, i1 } %77, 0
   %79 = extractvalue { i64, i1 } %77, 1
@@ -14722,7 +14721,6 @@ default.unreachable131:                           ; preds = %4
   store i64 %47, ptr %52, align 8, !alias.scope !2367, !noalias !2365
   %53 = load i64, ptr %1, align 8, !range !273, !alias.scope !2361, !noalias !2366, !noundef !4
   %54 = icmp eq i64 %53, -9223372036854775808
-  %..i = select i1 %54, ptr null, ptr %1
   br i1 %54, label %.invoke50.i, label %55
 
 55:                                               ; preds = %33
@@ -14814,7 +14812,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17hda526fce825a2de6E.exit.i: ; pr
   %86 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %28, ptr %86, align 8, !noalias !2365
   %87 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store ptr %..i, ptr %87, align 8, !noalias !2365
+  store ptr %1, ptr %87, align 8, !noalias !2365
   %88 = sext i32 %76 to i64
   %89 = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %66, i64 %88)
   %90 = extractvalue { i64, i1 } %89, 0

@@ -312,12 +312,7 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   call void @dcopy_(ptr noundef nonnull %39, ptr noundef nonnull %188, ptr noundef nonnull @c__1, ptr noundef nonnull %189, ptr noundef nonnull @c__1) #7
   %190 = load i32, ptr %39, align 4, !tbaa !3
   %.not797953 = icmp slt i32 %190, 1
-  br i1 %.not797953, label %._crit_edge957.thread, label %.lr.ph956.preheader
-
-._crit_edge957.thread:                            ; preds = %186
-  store i32 1, ptr %109, align 4, !tbaa !3
-  store i32 %190, ptr %110, align 4, !tbaa !3
-  br label %._crit_edge1039
+  br i1 %.not797953, label %._crit_edge957, label %.lr.ph956.preheader
 
 .lr.ph956.preheader:                              ; preds = %186
   %191 = sext i32 %.07051050 to i64
@@ -334,9 +329,14 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   store double %194, ptr %gep1170, align 8, !tbaa !7
   %indvars.iv.next1088 = add nuw nsw i64 %indvars.iv1087, 1
   %exitcond1091.not = icmp eq i64 %indvars.iv.next1088, %wide.trip.count1090
-  br i1 %exitcond1091.not, label %._crit_edge957, label %.lr.ph956, !llvm.loop !11
+  br i1 %exitcond1091.not, label %.lr.ph1038, label %.lr.ph956, !llvm.loop !11
 
-._crit_edge957:                                   ; preds = %.lr.ph956
+._crit_edge957:                                   ; preds = %186
+  store i32 1, ptr %109, align 4, !tbaa !3
+  store i32 %190, ptr %110, align 4, !tbaa !3
+  br label %._crit_edge1039
+
+.lr.ph1038:                                       ; preds = %.lr.ph956
   store i32 1, ptr %109, align 4, !tbaa !3
   store i32 %190, ptr %110, align 4, !tbaa !3
   %invariant.op1008 = add i32 %.07051050, -2
@@ -357,15 +357,15 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %invariant.gep1174 = getelementptr double, ptr %invariant.gep985, i64 %207
   br label %208
 
-208:                                              ; preds = %._crit_edge957, %._crit_edge1022
-  %209 = phi i32 [ %190, %._crit_edge957 ], [ %654, %._crit_edge1022 ]
-  %.11036 = phi double [ %.06851051, %._crit_edge957 ], [ %.2.lcssa, %._crit_edge1022 ]
-  %.06881035 = phi i32 [ 1, %._crit_edge957 ], [ %213, %._crit_edge1022 ]
-  %.06951034 = phi i32 [ 0, %._crit_edge957 ], [ %655, %._crit_edge1022 ]
-  %.17311032 = phi double [ %.07301046, %._crit_edge957 ], [ %.2732.lcssa, %._crit_edge1022 ]
-  %.07401031 = phi i32 [ 1, %._crit_edge957 ], [ %.1741.lcssa, %._crit_edge1022 ]
-  %.07541030 = phi double [ %125, %._crit_edge957 ], [ %.1755.lcssa, %._crit_edge1022 ]
-  %.07571029 = phi i32 [ 0, %._crit_edge957 ], [ %.1758.lcssa, %._crit_edge1022 ]
+208:                                              ; preds = %.lr.ph1038, %._crit_edge1022
+  %209 = phi i32 [ %190, %.lr.ph1038 ], [ %654, %._crit_edge1022 ]
+  %.11036 = phi double [ %.06851051, %.lr.ph1038 ], [ %.2.lcssa, %._crit_edge1022 ]
+  %.06881035 = phi i32 [ 1, %.lr.ph1038 ], [ %213, %._crit_edge1022 ]
+  %.06951034 = phi i32 [ 0, %.lr.ph1038 ], [ %655, %._crit_edge1022 ]
+  %.17311032 = phi double [ %.07301046, %.lr.ph1038 ], [ %.2732.lcssa, %._crit_edge1022 ]
+  %.07401031 = phi i32 [ 1, %.lr.ph1038 ], [ %.1741.lcssa, %._crit_edge1022 ]
+  %.07541030 = phi double [ %125, %.lr.ph1038 ], [ %.1755.lcssa, %._crit_edge1022 ]
+  %.07571029 = phi i32 [ 0, %.lr.ph1038 ], [ %.1758.lcssa, %._crit_edge1022 ]
   %210 = load i32, ptr %7, align 4, !tbaa !3
   %211 = icmp sgt i32 %.06951034, %210
   br i1 %211, label %.loopexit849.sink.split, label %212
@@ -1225,9 +1225,9 @@ define void @dlarrv_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %656 = icmp slt i32 %.1758.lcssa, %654
   br i1 %656, label %208, label %._crit_edge1039
 
-._crit_edge1039:                                  ; preds = %._crit_edge1022, %._crit_edge957.thread
-  %.1731.lcssa = phi double [ %.07301046, %._crit_edge957.thread ], [ %.2732.lcssa, %._crit_edge1022 ]
-  %.1.lcssa = phi double [ %.06851051, %._crit_edge957.thread ], [ %.2.lcssa, %._crit_edge1022 ]
+._crit_edge1039:                                  ; preds = %._crit_edge1022, %._crit_edge957
+  %.1731.lcssa = phi double [ %.07301046, %._crit_edge957 ], [ %.2732.lcssa, %._crit_edge1022 ]
+  %.1.lcssa = phi double [ %.06851051, %._crit_edge957 ], [ %.2.lcssa, %._crit_edge1022 ]
   %657 = add nuw nsw i32 %.0728.lcssa, 1
   br label %658
 

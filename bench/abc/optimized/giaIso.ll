@@ -571,11 +571,7 @@ Vec_IntGrow.exit.i110:                            ; preds = %110, %108
 .preheader:                                       ; preds = %Vec_IntPush.exit125
   %133 = load i32, ptr %71, align 8, !tbaa !31
   %134 = icmp sgt i32 %133, 1
-  br i1 %134, label %.lr.ph148, label %._crit_edge149.thread
-
-._crit_edge149.thread:                            ; preds = %.preheader
-  tail call void @free(ptr noundef nonnull %132) #27
-  br label %218
+  br i1 %134, label %.lr.ph148, label %.loopexit
 
 .lr.ph148:                                        ; preds = %.preheader
   %135 = load ptr, ptr %2, align 8, !tbaa !34
@@ -747,18 +743,11 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
   %215 = load i32, ptr %71, align 8, !tbaa !31
   %216 = sext i32 %215 to i64
   %217 = icmp slt i64 %indvars.iv.next166, %216
-  br i1 %217, label %206, label %._crit_edge149, !llvm.loop !59
+  br i1 %217, label %206, label %.loopexit, !llvm.loop !59
 
-._crit_edge149:                                   ; preds = %206
+.loopexit:                                        ; preds = %206, %.preheader
   tail call void @free(ptr noundef nonnull %132) #27
-  %.not89 = icmp eq ptr %70, null
-  br i1 %.not89, label %219, label %218
-
-218:                                              ; preds = %._crit_edge149.thread, %._crit_edge149
   tail call void @free(ptr noundef nonnull %70) #27
-  br label %219
-
-219:                                              ; preds = %._crit_edge149, %218
   ret void
 }
 
@@ -1432,9 +1421,8 @@ Vec_IntPush.exit133:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond174.not, label %._crit_edge157, label %.lr.ph156, !llvm.loop !67
 
 ._crit_edge157:                                   ; preds = %222, %Abc_Clock.exit119
-  %.190.lcssa = phi i32 [ 1, %Abc_Clock.exit119 ], [ %25, %222 ]
   %.087.lcssa = phi i32 [ %23, %Abc_Clock.exit119 ], [ %.188, %222 ]
-  %223 = add nsw i32 %.190.lcssa, %23
+  %223 = add nsw i32 %25, %23
   %224 = sub i32 %223, %.087.lcssa
   %225 = icmp eq i32 %224, 1
   br i1 %225, label %226, label %237
@@ -7664,8 +7652,8 @@ Vec_IntPrint.exit.critedge:                       ; preds = %Vec_IntAlloc.exit.i
 
 Vec_IntPrint.exit:                                ; preds = %.lr.ph.i27, %Vec_IntPrint.exit.critedge
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  %35 = tail call ptr @Gia_ManDupPerm(ptr noundef %0, ptr noundef nonnull %10) #27
-  %36 = tail call ptr @Gia_ManDupAppendNew(ptr noundef %0, ptr noundef %35) #27
+  %35 = tail call ptr @Gia_ManDupPerm(ptr noundef nonnull %0, ptr noundef nonnull %10) #27
+  %36 = tail call ptr @Gia_ManDupAppendNew(ptr noundef nonnull %0, ptr noundef %35) #27
   %37 = call ptr @Gia_ManIsoReduce(ptr noundef %36, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %38 = load ptr, ptr %4, align 8, !tbaa !131
   %39 = getelementptr i8, ptr %38, i64 4
@@ -7780,7 +7768,7 @@ Vec_PtrFree.exit.i44:                             ; preds = %71, %68
 
 Vec_VecFree.exit48:                               ; preds = %.critedge.i36, %77
   call void @free(ptr noundef nonnull %61) #27
-  %78 = call i32 @Gia_ManVerifyCex(ptr noundef %0, ptr noundef %1, i32 noundef 0) #27
+  %78 = call i32 @Gia_ManVerifyCex(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #27
   %.not = icmp eq i32 %78, 0
   %str.4.str.5 = select i1 %.not, ptr @str.4, ptr @str.5
   %puts19 = call i32 @puts(ptr nonnull dereferenceable(1) %str.4.str.5)

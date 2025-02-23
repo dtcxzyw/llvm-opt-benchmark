@@ -714,7 +714,7 @@ define noundef i32 @exec_blas(i64 noundef %0, ptr noundef %1) local_unnamed_addr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.lr.ph14.i
   %64 = getelementptr inbounds nuw i8, ptr %.0811.i, i64 64
   %65 = load ptr, ptr %64, align 8, !tbaa !39
-  %66 = icmp sgt i64 %.012.i.in, 2
+  %66 = icmp samesign ugt i64 %.012.i.in, 2
   %67 = icmp ne ptr %65, null
   %68 = select i1 %66, i1 %67, i1 false
   br i1 %68, label %.lr.ph14.i, label %exec_blas_async_wait.exit, !llvm.loop !44

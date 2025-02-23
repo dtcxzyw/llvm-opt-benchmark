@@ -457,7 +457,7 @@ _ZN17GrowableArrayViewIP21ProtectionDomainEntryE9remove_atEi.exit.i: ; preds = %
 
 51:                                               ; preds = %50, %_ZN17GrowableArrayViewIP21ProtectionDomainEntryE9remove_atEi.exit.i
   %52 = phi ptr [ %33, %_ZN17GrowableArrayViewIP21ProtectionDomainEntryE9remove_atEi.exit.i ], [ %.pre.i, %50 ]
-  %53 = icmp sgt i64 %indvars.iv.i, 1
+  %53 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %53, label %.lr.ph.i, label %_ZL21purge_deleted_entriesv.exit, !llvm.loop !8
 
 _ZL21purge_deleted_entriesv.exit:                 ; preds = %51, %_ZN11MutexLockerD2Ev.exit5, %27

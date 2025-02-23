@@ -1355,7 +1355,7 @@ sdsalloc.exit254:                                 ; preds = %sdslen.exit252, %sd
   br i1 %or.cond5, label %308, label %313
 
 308:                                              ; preds = %306
-  %309 = getelementptr inbounds i8, ptr %spec.store.select, i64 %304
+  %309 = getelementptr inbounds i8, ptr %133, i64 %304
   %310 = ptrtoint ptr %.ptr328 to i64
   %311 = ptrtoint ptr %spec.store.select to i64
   %312 = sub i64 %310, %311
@@ -3567,7 +3567,7 @@ hllDenseAdd.exit:                                 ; preds = %.lr.ph.i.i, %105
 147:                                              ; preds = %.critedge100
   %148 = load ptr, ptr @shared, align 8, !tbaa !89
   call void @addReply(ptr noundef %0, ptr noundef %148) #20
-  call void @sdsfree(ptr noundef nonnull %4) #20
+  call void @sdsfree(ptr noundef %4) #20
   %.not99 = icmp eq ptr %64, null
   br i1 %.not99, label %150, label %149
 

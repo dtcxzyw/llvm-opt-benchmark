@@ -174,7 +174,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
   %.026 = phi i32 [ 0, %1 ], [ %9, %8 ]
   %.024 = phi ptr [ %5, %1 ], [ %11, %8 ]
   %9 = add nuw nsw i32 %.026, 1
-  %10 = call i64 @lj_carith_check64(ptr noundef %0, i32 noundef %9, ptr noundef nonnull %2) #5
+  %10 = call i64 @lj_carith_check64(ptr noundef nonnull %0, i32 noundef %9, ptr noundef nonnull %2) #5
   %11 = getelementptr inbounds nuw i8, ptr %.024, i64 8
   %12 = icmp ult ptr %11, %7
   br i1 %12, label %8, label %13, !llvm.loop !22
@@ -245,7 +245,7 @@ define internal range(i32 0, 3) i32 @lj_ffh_bit_band(ptr noundef %0) #0 {
 .split31.us:                                      ; preds = %.split.split, %.split.split.us, %.split.us
   %.us-phi = phi i64 [ %35, %.split.us ], [ %40, %.split.split.us ], [ %44, %.split.split ]
   %47 = load i32, ptr %2, align 4, !tbaa !4
-  %48 = call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef 24) #5
+  %48 = call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef 24) #5
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 9
   store i8 10, ptr %49, align 1, !tbaa !16
   %50 = trunc i32 %47 to i16

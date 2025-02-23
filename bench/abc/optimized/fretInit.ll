@@ -2503,7 +2503,7 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_PartialSat(ptr noundef readonly captu
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   %47 = getelementptr i8, ptr %46, i64 64
   %.val48 = load ptr, ptr %47, align 8, !tbaa !49
-  tail call void @Abc_ObjAddFanin(ptr noundef %29, ptr noundef %.val48) #18
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %29, ptr noundef %.val48) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val44 = load i32, ptr %36, align 4, !tbaa !63
   %48 = sext i32 %.val44 to i64

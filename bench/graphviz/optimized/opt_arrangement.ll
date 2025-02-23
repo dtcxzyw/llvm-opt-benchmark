@@ -109,9 +109,9 @@ construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not.i56 = icmp eq i64 %44, 0
-  br i1 %.not.i56, label %.thread.i59, label %46
+  br i1 %.not.i56, label %gv_calloc.exit60.thread94, label %46
 
-.thread.i59:                                      ; preds = %._crit_edge
+gv_calloc.exit60.thread94:                        ; preds = %._crit_edge
   %45 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #9
   br label %.lr.ph69.preheader
 
@@ -137,8 +137,8 @@ construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr
   tail call fastcc void @graphviz_exit() #8
   unreachable
 
-.lr.ph69.preheader:                               ; preds = %50, %.thread.i59
-  %57 = phi ptr [ %45, %.thread.i59 ], [ %51, %50 ]
+.lr.ph69.preheader:                               ; preds = %50, %gv_calloc.exit60.thread94
+  %57 = phi ptr [ %45, %gv_calloc.exit60.thread94 ], [ %51, %50 ]
   %wide.trip.count82 = zext nneg i32 %1 to i64
   br label %.lr.ph69
 
@@ -174,7 +174,7 @@ construct_b.exit:                                 ; preds = %._crit_edge.i, %.lr
   %68 = phi ptr [ %17, %construct_b.exit.thread ], [ %11, %._crit_edge66 ]
   %69 = phi ptr [ %18, %construct_b.exit.thread ], [ %20, %._crit_edge66 ]
   %70 = phi ptr [ %19, %construct_b.exit.thread ], [ %21, %._crit_edge66 ]
-  %71 = tail call i32 @conjugate_gradient(ptr noundef %0, ptr noundef %2, ptr noundef %68, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %3) #10
+  %71 = tail call i32 @conjugate_gradient(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %68, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %3) #10
   %72 = load ptr, ptr %69, align 8, !tbaa !8
   tail call void @free(ptr noundef %72) #10
   br i1 %.not.i.not, label %._crit_edge75, label %.lr.ph74.preheader

@@ -202,8 +202,8 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %exitcond399.not, label %._crit_edge344, label %.lr.ph343, !llvm.loop !9
 
 ._crit_edge344:                                   ; preds = %.lr.ph343
-  %.not317.not345 = icmp sgt i32 %52, 1
-  br i1 %.not317.not345, label %.lr.ph348.preheader, label %._crit_edge349
+  %.not317.not345.not = icmp eq i32 %52, 1
+  br i1 %.not317.not345.not, label %._crit_edge349, label %.lr.ph348.preheader
 
 .lr.ph348.preheader:                              ; preds = %._crit_edge344
   %99 = add nsw i32 %52, -1
@@ -236,11 +236,11 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %.not314.not336 = icmp sgt i32 %52, 1
+  %.not314.not336.not = icmp eq i32 %52, 1
   br i1 %.not295, label %112, label %107
 
 107:                                              ; preds = %._crit_edge
-  br i1 %.not314.not336, label %.lr.ph335.preheader, label %.loopexit328
+  br i1 %.not314.not336.not, label %.loopexit328, label %.lr.ph335.preheader
 
 .lr.ph335.preheader:                              ; preds = %107
   %108 = sext i32 %24 to i64
@@ -260,7 +260,7 @@ define void @dsytrd_sb2st_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
   br i1 %exitcond389.not, label %.loopexit328, label %.lr.ph335, !llvm.loop !12
 
 112:                                              ; preds = %._crit_edge
-  br i1 %.not314.not336, label %.lr.ph339.preheader, label %.loopexit328
+  br i1 %.not314.not336.not, label %.loopexit328, label %.lr.ph339.preheader
 
 .lr.ph339.preheader:                              ; preds = %112
   %113 = sext i32 %24 to i64

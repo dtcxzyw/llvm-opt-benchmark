@@ -1295,7 +1295,7 @@ define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_call_php_ns(ptr n
 
 php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str) #9
-  br label %22
+  br label %23
 
 8:                                                ; preds = %6
   %9 = add nsw i32 %2, -1
@@ -1308,21 +1308,22 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
 
 15:                                               ; preds = %8
   tail call void (ptr, ...) @zend_type_error(ptr noundef nonnull @.str.1) #9
-  br label %20
+  br label %21
 
 16:                                               ; preds = %8
   %17 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   %18 = load ptr, ptr %0, align 8, !tbaa !26
   %19 = tail call fastcc i32 @php_dom_xpath_callback_dispatch(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %1, ptr noundef %10, i32 noundef %9, ptr noundef nonnull %13, i64 noundef %17)
-  br label %20
+  %20 = icmp eq i32 %19, 0
+  br label %21
 
-20:                                               ; preds = %16, %15
-  %.1 = phi i32 [ -1, %15 ], [ %19, %16 ]
+21:                                               ; preds = %16, %15
+  %.1 = phi i1 [ false, %15 ], [ %20, %16 ]
   tail call void @xmlXPathFreeObject(ptr noundef nonnull %11) #9
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %php_dom_xpath_callback_cleanup_args.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %20
+.preheader.i:                                     ; preds = %21
   %.not8.i = icmp eq i32 %9, 0
   br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -1336,24 +1337,22 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %10, i64 %indvars.iv.i
-  tail call void @zval_ptr_dtor(ptr noundef nonnull %21) #9
+  %22 = getelementptr inbounds nuw %struct._zval_struct, ptr %10, i64 %indvars.iv.i
+  tail call void @zval_ptr_dtor(ptr noundef nonnull %22) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i
 
-php_dom_xpath_callback_cleanup_args.exit:         ; preds = %._crit_edge.i, %20
-  %.not = icmp eq i32 %.1, 0
-  br i1 %.not, label %25, label %22, !prof !64
+php_dom_xpath_callback_cleanup_args.exit:         ; preds = %._crit_edge.i, %21
+  br i1 %.1, label %26, label %23, !prof !64
 
-22:                                               ; preds = %php_dom_xpath_callback_cleanup_args.exit.thread, %php_dom_xpath_callback_cleanup_args.exit
-  %.027 = phi i32 [ -1, %php_dom_xpath_callback_cleanup_args.exit.thread ], [ %.1, %php_dom_xpath_callback_cleanup_args.exit ]
-  %23 = tail call ptr @xmlXPathNewString(ptr noundef nonnull @.str.2) #9
-  %24 = tail call i32 @valuePush(ptr noundef %1, ptr noundef %23) #9
-  br label %25
+23:                                               ; preds = %php_dom_xpath_callback_cleanup_args.exit.thread, %php_dom_xpath_callback_cleanup_args.exit
+  %24 = tail call ptr @xmlXPathNewString(ptr noundef nonnull @.str.2) #9
+  %25 = tail call i32 @valuePush(ptr noundef %1, ptr noundef %24) #9
+  br label %26
 
-25:                                               ; preds = %22, %php_dom_xpath_callback_cleanup_args.exit
-  %.028 = phi i32 [ %.027, %22 ], [ 0, %php_dom_xpath_callback_cleanup_args.exit ]
+26:                                               ; preds = %23, %php_dom_xpath_callback_cleanup_args.exit
+  %.028 = phi i32 [ -1, %23 ], [ 0, %php_dom_xpath_callback_cleanup_args.exit ]
   ret i32 %.028
 }
 

@@ -2315,7 +2315,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
 92:                                               ; preds = %84, %81
   %.118.i15.i = phi i64 [ %90, %84 ], [ %.017.i13.i, %81 ]
   %.1.i16.i = phi i64 [ %91, %84 ], [ %.0.i14.i, %81 ]
-  %93 = icmp ult i64 %.1.i16.i, %44
+  %93 = icmp samesign ult i64 %.1.i16.i, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20.i
 
 94:                                               ; preds = %92
@@ -2327,7 +2327,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16.i, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.118.i15.i
   br label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20.i
 
@@ -4972,7 +4972,7 @@ define hidden noundef zeroext i1 @_ZN7uu_tail6follow5files12FileHandling15files_
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %.lr.ph
 
-thread-pre-split:                                 ; preds = %45
+thread-pre-split:                                 ; preds = %46
   %.pr = load i64, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !alias.scope !1167
   %17 = icmp eq i64 %.pr, 0
   br i1 %17, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %.lr.ph
@@ -5010,8 +5010,8 @@ thread-pre-split:                                 ; preds = %45
   %37 = add i64 %36, -1
   store i64 %37, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8, !alias.scope !1167
   %38 = getelementptr i8, ptr %35, i64 -240
-  %.not16.not = icmp eq ptr %38, null
-  br i1 %.not16.not, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %39
+  %.not = icmp eq ptr %38, null
+  br i1 %.not, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %39
 
 39:                                               ; preds = %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit"
   %40 = getelementptr i8, ptr %35, i64 -232
@@ -5019,16 +5019,16 @@ thread-pre-split:                                 ; preds = %45
   %42 = getelementptr i8, ptr %35, i64 -224
   %43 = load i64, ptr %42, align 8, !noundef !54
   %44 = call noundef zeroext i1 @_ZN7uu_tail5paths16path_is_tailable17h67f56ba782edff77E.llvm.1595114882763162607(ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %43)
-  br i1 %44, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %45
+  br i1 %44, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %46
 
-"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread": ; preds = %39, %45, %thread-pre-split, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit", %1
-  %.not.not23 = phi i1 [ false, %1 ], [ true, %39 ], [ true, %45 ], [ false, %thread-pre-split ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit" ]
+"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread": ; preds = %39, %46, %thread-pre-split, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit", %1
+  %45 = phi i1 [ false, %1 ], [ true, %39 ], [ true, %46 ], [ false, %thread-pre-split ], [ false, %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2)
-  ret i1 %.not.not23
+  ret i1 %45
 
-45:                                               ; preds = %39
-  %46 = call noundef zeroext i1 @"_ZN63_$LT$std..path..Path$u20$as$u20$uu_tail..paths..PathExtTail$GT$8is_stdin17he719483ea8775764E"(ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %43)
-  br i1 %46, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %thread-pre-split
+46:                                               ; preds = %39
+  %47 = call noundef zeroext i1 @"_ZN63_$LT$std..path..Path$u20$as$u20$uu_tail..paths..PathExtTail$GT$8is_stdin17he719483ea8775764E"(ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %43)
+  br i1 %47, label %"_ZN92_$LT$hashbrown..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hade0d949a1a27019E.exit.thread", label %thread-pre-split
 }
 
 ; Function Attrs: nonlazybind uwtable

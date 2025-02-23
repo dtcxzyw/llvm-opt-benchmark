@@ -167,12 +167,12 @@ Vec_IntStart.exit133:                             ; preds = %Vec_IntAlloc.exit.t
   store i32 1, ptr %60, align 4, !tbaa !16
   %61 = getelementptr inbounds nuw i8, ptr %.097179, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !37
-  %63 = tail call ptr @Cudd_ReadOne(ptr noundef %45) #13
+  %63 = tail call ptr @Cudd_ReadOne(ptr noundef nonnull %45) #13
   %.not104 = icmp eq ptr %62, %63
   br i1 %.not104, label %._crit_edge, label %57, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %57, %Vec_IntStart.exit133
-  tail call void @Cudd_RecursiveDeref(ptr noundef %45, ptr noundef %54) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %45, ptr noundef %54) #13
   %64 = icmp eq i32 %43, %42
   br i1 %64, label %65, label %.Vec_PtrGrow.exit11_crit_edge.i134
 
@@ -1060,7 +1060,7 @@ define noundef ptr @Llb_ImgPartition(ptr noundef %0, ptr noundef %1, ptr noundef
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = getelementptr i8, ptr %14, i64 36
   %.val91 = load i32, ptr %15, align 4, !tbaa !53
-  %16 = tail call ptr @Cudd_bddIthVar(ptr noundef %7, i32 noundef %.val91) #13
+  %16 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %7, i32 noundef %.val91) #13
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %16, ptr %17, align 8, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1070,7 +1070,7 @@ define noundef ptr @Llb_ImgPartition(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %19, label %12, label %.critedge, !llvm.loop !69
 
 .critedge:                                        ; preds = %12, %4
-  %20 = tail call ptr @Llb_ManCutNodes(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #13
+  %20 = tail call ptr @Llb_ManCutNodes(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #13
   %21 = getelementptr i8, ptr %20, i64 4
   %.val88111 = load i32, ptr %21, align 4, !tbaa !19
   %22 = icmp sgt i32 %.val88111, 0
@@ -1136,7 +1136,7 @@ Vec_PtrFree.exit:                                 ; preds = %50, %52
   br i1 %55, label %24, label %.critedge2, !llvm.loop !72
 
 .critedge2:                                       ; preds = %53, %.critedge
-  %56 = tail call ptr @Llb_ManCutRange(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) #13
+  %56 = tail call ptr @Llb_ManCutRange(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #13
   %57 = tail call ptr @Cudd_ReadOne(ptr noundef %7) #13
   tail call void @Cudd_Ref(ptr noundef %57) #13
   %58 = getelementptr i8, ptr %56, i64 4
@@ -1307,10 +1307,10 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = getelementptr i8, ptr %16, i64 36
   %.val22 = load i32, ptr %17, align 4, !tbaa !53
-  %18 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %.val22) #13
-  %19 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.026, ptr noundef %18) #13
+  %18 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %2, i32 noundef %.val22) #13
+  %19 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %2, ptr noundef %.026, ptr noundef %18) #13
   tail call void @Cudd_Ref(ptr noundef %19) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.026) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %2, ptr noundef %.026) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %7, align 4, !tbaa !15
   %20 = sext i32 %.val to i64

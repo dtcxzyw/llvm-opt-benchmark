@@ -1980,17 +1980,17 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
 
 .preheader:                                       ; preds = %3
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader
-  %5 = tail call ptr @_glfw_calloc(i64 noundef 0, i64 noundef 8) #17
-  br label %._crit_edge60
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.preheader
+  %5 = tail call ptr @_glfw_calloc(i64 noundef 0, i64 noundef 8) #17
+  br label %._crit_edge60
+
+.lr.ph59.preheader:                               ; preds = %.lr.ph
   %6 = sext i32 %14 to i64
   %7 = tail call ptr @_glfw_calloc(i64 noundef %6, i64 noundef 8) #17
   %wide.trip.count71 = zext nneg i32 %1 to i64
@@ -2008,11 +2008,11 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
   %14 = add i32 %13, %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %.lr.ph59.preheader, label %.lr.ph
 
-._crit_edge60:                                    ; preds = %._crit_edge54, %._crit_edge.thread
-  %15 = phi ptr [ %5, %._crit_edge.thread ], [ %7, %._crit_edge54 ]
-  %.045.lcssa74 = phi i32 [ 0, %._crit_edge.thread ], [ %14, %._crit_edge54 ]
+._crit_edge60:                                    ; preds = %._crit_edge54, %._crit_edge
+  %15 = phi ptr [ %5, %._crit_edge ], [ %7, %._crit_edge54 ]
+  %.045.lcssa74 = phi i32 [ 0, %._crit_edge ], [ %14, %._crit_edge54 ]
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1248
@@ -2022,9 +2022,9 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
   tail call void @_glfw_free(ptr noundef %15) #17
   br label %65
 
-.lr.ph59:                                         ; preds = %._crit_edge, %._crit_edge54
-  %indvars.iv68 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next69, %._crit_edge54 ]
-  %.04456 = phi ptr [ %7, %._crit_edge ], [ %.1.lcssa, %._crit_edge54 ]
+.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %._crit_edge54
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next69, %._crit_edge54 ]
+  %.04456 = phi ptr [ %7, %.lr.ph59.preheader ], [ %.1.lcssa, %._crit_edge54 ]
   %22 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv68
   %23 = load i32, ptr %22, align 8, !tbaa !326
   %24 = sext i32 %23 to i64

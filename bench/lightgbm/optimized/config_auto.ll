@@ -18521,12 +18521,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc10
 
 453:                                              ; preds = %453, %.lr.ph.i7
   %.010.i = phi i64 [ 0, %.lr.ph.i7 ], [ %458, %453 ]
-  %454 = getelementptr inbounds i8, ptr %439, i64 %.010.i
+  %454 = getelementptr inbounds nuw i8, ptr %439, i64 %.010.i
   %455 = load i8, ptr %454, align 1, !noalias !43
   %456 = sext i8 %455 to i32
-  %457 = getelementptr inbounds i32, ptr %445, i64 %.010.i
+  %457 = getelementptr inbounds nuw i32, ptr %445, i64 %.010.i
   store i32 %456, ptr %457, align 4, !noalias !43
-  %458 = add nuw i64 %.010.i, 1
+  %458 = add nuw nsw i64 %.010.i, 1
   %exitcond.not = icmp eq i64 %458, %442
   br i1 %exitcond.not, label %_ZN8LightGBM6CommonL9ArrayCastIaiEESt6vectorIT0_SaIS3_EERKS2_IT_SaIS6_EE.exit, label %453, !llvm.loop !46
 

@@ -1176,190 +1176,183 @@ define internal void @lv_ime_pinyin_kb_event(ptr noundef %0) #0 {
 96:                                               ; preds = %92
   %97 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.675) #6
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.preheader, label %108
+  br i1 %98, label %.preheader, label %107
 
 .preheader:                                       ; preds = %96
   %99 = tail call i64 @lv_strlen(ptr noundef nonnull %12) #6
   %.not161 = icmp eq i64 %99, 0
-  br i1 %.not161, label %._crit_edge159, label %.lr.ph158
+  br i1 %.not161, label %.loopexit165, label %.lr.ph158
 
-._crit_edge159:                                   ; preds = %.lr.ph158, %.preheader
-  tail call fastcc void @pinyin_ime_clear_data(ptr noundef %4)
+.loopexit165:                                     ; preds = %.lr.ph158, %.preheader
+  tail call fastcc void @pinyin_ime_clear_data(ptr noundef nonnull %4)
   tail call void @lv_textarea_set_cursor_pos(ptr noundef %17, i32 noundef 32767) #6
-  %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %.preheader.i, label %100
-
-.preheader.i:                                     ; preds = %._crit_edge159, %.preheader.i
-  br label %.preheader.i
-
-100:                                              ; preds = %._crit_edge159
-  %101 = load ptr, ptr %15, align 8, !tbaa !36
-  %.not8.i = icmp eq ptr %101, null
+  %100 = load ptr, ptr %15, align 8, !tbaa !36
+  %.not8.i = icmp eq ptr %100, null
   br i1 %.not8.i, label %.preheader9.i, label %lv_ime_pinyin_set_mode.exit
 
-.preheader9.i:                                    ; preds = %100, %.preheader9.i
+.preheader9.i:                                    ; preds = %.loopexit165, %.preheader9.i
   br label %.preheader9.i
 
-lv_ime_pinyin_set_mode.exit:                      ; preds = %100
+lv_ime_pinyin_set_mode.exit:                      ; preds = %.loopexit165
   store i32 2, ptr %18, align 4, !tbaa !11
   tail call void @lv_keyboard_set_mode(ptr noundef %3, i32 noundef 3) #6
-  %102 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %103 = load ptr, ptr %102, align 8, !tbaa !30
-  tail call void @lv_obj_add_flag(ptr noundef %103, i32 noundef 1) #6
+  %101 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %102 = load ptr, ptr %101, align 8, !tbaa !30
+  tail call void @lv_obj_add_flag(ptr noundef %102, i32 noundef 1) #6
   br label %.critedge144
 
 .lr.ph158:                                        ; preds = %.preheader, %.lr.ph158
-  %.0126157 = phi i16 [ %104, %.lr.ph158 ], [ 0, %.preheader ]
+  %.0126157 = phi i16 [ %103, %.lr.ph158 ], [ 0, %.preheader ]
   tail call void @lv_textarea_delete_char(ptr noundef %17) #6
-  %104 = add i16 %.0126157, 1
-  %105 = zext i16 %104 to i64
-  %106 = tail call i64 @lv_strlen(ptr noundef nonnull %12) #6
-  %107 = icmp ugt i64 %106, %105
-  br i1 %107, label %.lr.ph158, label %._crit_edge159, !llvm.loop !38
+  %103 = add i16 %.0126157, 1
+  %104 = zext i16 %103 to i64
+  %105 = tail call i64 @lv_strlen(ptr noundef nonnull %12) #6
+  %106 = icmp ugt i64 %105, %104
+  br i1 %106, label %.lr.ph158, label %.loopexit165, !llvm.loop !38
 
-108:                                              ; preds = %96
-  %109 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.676) #6
-  %110 = icmp eq i32 %109, 0
-  %111 = load i32, ptr %18, align 4, !tbaa !11
-  br i1 %110, label %112, label %118
+107:                                              ; preds = %96
+  %108 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.676) #6
+  %109 = icmp eq i32 %108, 0
+  %110 = load i32, ptr %18, align 4, !tbaa !11
+  br i1 %109, label %111, label %117
 
-112:                                              ; preds = %108
-  switch i32 %111, label %117 [
-    i32 0, label %113
-    i32 1, label %114
-    i32 2, label %116
+111:                                              ; preds = %107
+  switch i32 %110, label %116 [
+    i32 0, label %112
+    i32 1, label %113
+    i32 2, label %115
   ]
 
-113:                                              ; preds = %112
+112:                                              ; preds = %111
   tail call void @lv_ime_pinyin_set_mode(ptr noundef nonnull %4, i32 noundef 1)
-  br label %117
+  br label %116
 
-114:                                              ; preds = %112
-  %115 = load ptr, ptr %15, align 8, !tbaa !36
-  %.not8.i146 = icmp eq ptr %115, null
+113:                                              ; preds = %111
+  %114 = load ptr, ptr %15, align 8, !tbaa !36
+  %.not8.i146 = icmp eq ptr %114, null
   br i1 %.not8.i146, label %.preheader9.i147, label %lv_ime_pinyin_set_mode.exit149
 
-.preheader9.i147:                                 ; preds = %114, %.preheader9.i147
+.preheader9.i147:                                 ; preds = %113, %.preheader9.i147
   br label %.preheader9.i147
 
-lv_ime_pinyin_set_mode.exit149:                   ; preds = %114
+lv_ime_pinyin_set_mode.exit149:                   ; preds = %113
   store i32 0, ptr %18, align 4, !tbaa !11
-  tail call void @lv_keyboard_set_mode(ptr noundef nonnull %115, i32 noundef 0) #6
-  br label %117
+  tail call void @lv_keyboard_set_mode(ptr noundef nonnull %114, i32 noundef 0) #6
+  br label %116
 
-116:                                              ; preds = %112
+115:                                              ; preds = %111
   tail call void @lv_ime_pinyin_set_mode(ptr noundef nonnull %4, i32 noundef 1)
-  br label %117
+  br label %116
 
-117:                                              ; preds = %112, %lv_ime_pinyin_set_mode.exit149, %116, %113
+116:                                              ; preds = %111, %lv_ime_pinyin_set_mode.exit149, %115, %112
   tail call fastcc void @pinyin_ime_clear_data(ptr noundef nonnull %4)
   br label %.critedge144
 
-118:                                              ; preds = %108
-  switch i32 %111, label %.thread [
-    i32 0, label %119
-    i32 1, label %133
+117:                                              ; preds = %107
+  switch i32 %110, label %.thread [
+    i32 0, label %118
+    i32 1, label %132
   ]
 
-119:                                              ; preds = %118
-  %120 = load i8, ptr %12, align 1, !tbaa !8
-  %121 = and i8 %120, -33
-  %122 = add i8 %121, -65
-  %or.cond150 = icmp ult i8 %122, 26
-  br i1 %or.cond150, label %123, label %.thread
+118:                                              ; preds = %117
+  %119 = load i8, ptr %12, align 1, !tbaa !8
+  %120 = and i8 %119, -33
+  %121 = add i8 %120, -65
+  %or.cond150 = icmp ult i8 %121, 26
+  br i1 %or.cond150, label %122, label %.thread
 
-123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %125 = tail call i64 @lv_strlen(ptr noundef nonnull %124) #6
-  %126 = and i64 %125, 65535
-  %127 = getelementptr inbounds nuw i8, ptr %124, i64 %126
-  %128 = sub nsw i64 16, %126
-  %129 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %127, i64 noundef %128, ptr noundef nonnull @.str.677, ptr noundef nonnull %12) #6
+122:                                              ; preds = %118
+  %123 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %124 = tail call i64 @lv_strlen(ptr noundef nonnull %123) #6
+  %125 = and i64 %124, 65535
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 %125
+  %127 = sub nsw i64 16, %125
+  %128 = tail call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %126, i64 noundef %127, ptr noundef nonnull @.str.677, ptr noundef nonnull %12) #6
   tail call fastcc void @pinyin_input_proc(ptr noundef nonnull %4)
-  %130 = getelementptr inbounds nuw i8, ptr %4, i64 150
-  %131 = load i16, ptr %130, align 2, !tbaa !23
-  %132 = add i16 %131, 1
-  store i16 %132, ptr %130, align 2, !tbaa !23
+  %129 = getelementptr inbounds nuw i8, ptr %4, i64 150
+  %130 = load i16, ptr %129, align 2, !tbaa !23
+  %131 = add i16 %130, 1
+  store i16 %131, ptr %129, align 2, !tbaa !23
   br label %.critedge144
 
-133:                                              ; preds = %118
-  %134 = load i8, ptr %12, align 1, !tbaa !8
-  %135 = add i8 %134, -97
-  %or.cond142 = icmp ult i8 %135, 26
+132:                                              ; preds = %117
+  %133 = load i8, ptr %12, align 1, !tbaa !8
+  %134 = add i8 %133, -97
+  %or.cond142 = icmp ult i8 %134, 26
   br i1 %or.cond142, label %.preheader151, label %.thread
 
-.preheader151:                                    ; preds = %133, %164
-  %indvars.iv = phi i64 [ %indvars.iv.next, %164 ], [ 0, %133 ]
-  %136 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %indvars.iv
-  %137 = load ptr, ptr %136, align 8, !tbaa !3
-  %138 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef %137) #6
-  %139 = icmp eq i32 %138, 0
-  br i1 %139, label %143, label %140
+.preheader151:                                    ; preds = %132, %163
+  %indvars.iv = phi i64 [ %indvars.iv.next, %163 ], [ 0, %132 ]
+  %135 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %indvars.iv
+  %136 = load ptr, ptr %135, align 8, !tbaa !3
+  %137 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef %136) #6
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %142, label %139
 
-140:                                              ; preds = %.preheader151
-  %141 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.678) #6
-  %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %164
+139:                                              ; preds = %.preheader151
+  %140 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.678) #6
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %163
 
-143:                                              ; preds = %140, %.preheader151
-  %144 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %indvars.iv
-  %145 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.678) #6
-  %146 = icmp eq i32 %145, 0
-  %147 = load ptr, ptr %144, align 8, !tbaa !3
-  %148 = tail call i64 @lv_strlen(ptr noundef %147) #6
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 148
-  %150 = load i16, ptr %149, align 4, !tbaa !31
-  %151 = trunc i64 %148 to i16
-  %152 = zext i1 %146 to i16
-  %.sink.v = add i16 %151, %152
-  %.sink = add i16 %.sink.v, %150
-  store i16 %.sink, ptr %149, align 4, !tbaa !31
-  %153 = trunc i64 %indvars.iv to i8
-  %154 = add nuw nsw i8 %153, 50
-  %155 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %156 = getelementptr inbounds nuw i8, ptr %4, i64 150
-  %157 = load i16, ptr %156, align 2, !tbaa !23
-  %158 = zext i16 %157 to i64
-  %159 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 0, i64 %158
-  store i8 %154, ptr %159, align 1, !tbaa !8
-  %160 = load i16, ptr %156, align 2, !tbaa !23
-  %161 = zext i16 %160 to i64
-  %162 = add nuw nsw i64 %161, 1
-  %163 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 0, i64 %162
-  store i8 0, ptr %163, align 1, !tbaa !8
+142:                                              ; preds = %139, %.preheader151
+  %143 = getelementptr inbounds nuw [8 x ptr], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 0, i64 %indvars.iv
+  %144 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.678) #6
+  %145 = icmp eq i32 %144, 0
+  %146 = load ptr, ptr %143, align 8, !tbaa !3
+  %147 = tail call i64 @lv_strlen(ptr noundef %146) #6
+  %148 = getelementptr inbounds nuw i8, ptr %4, i64 148
+  %149 = load i16, ptr %148, align 4, !tbaa !31
+  %150 = trunc i64 %147 to i16
+  %151 = zext i1 %145 to i16
+  %.sink.v = add i16 %150, %151
+  %.sink = add i16 %.sink.v, %149
+  store i16 %.sink, ptr %148, align 4, !tbaa !31
+  %152 = trunc i64 %indvars.iv to i8
+  %153 = add nuw nsw i8 %152, 50
+  %154 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %155 = getelementptr inbounds nuw i8, ptr %4, i64 150
+  %156 = load i16, ptr %155, align 2, !tbaa !23
+  %157 = zext i16 %156 to i64
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 0, i64 %157
+  store i8 %153, ptr %158, align 1, !tbaa !8
+  %159 = load i16, ptr %155, align 2, !tbaa !23
+  %160 = zext i16 %159 to i64
+  %161 = add nuw nsw i64 %160, 1
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 0, i64 %161
+  store i8 0, ptr %162, align 1, !tbaa !8
   br label %.loopexit
 
-164:                                              ; preds = %140
+163:                                              ; preds = %139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.loopexit, label %.preheader151, !llvm.loop !39
 
-.loopexit:                                        ; preds = %164, %143
-  %165 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  tail call fastcc void @pinyin_k9_get_legal_py(ptr noundef %4, ptr noundef nonnull %165)
+.loopexit:                                        ; preds = %163, %142
+  %164 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  tail call fastcc void @pinyin_k9_get_legal_py(ptr noundef %4, ptr noundef nonnull %164)
   tail call fastcc void @pinyin_k9_fill_cand(ptr noundef %4)
   tail call fastcc void @pinyin_input_proc(ptr noundef %4)
   br label %.critedge144
 
-.thread:                                          ; preds = %119, %118, %133
-  %166 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.679) #6
-  %167 = icmp eq i32 %166, 0
-  br i1 %167, label %168, label %169
+.thread:                                          ; preds = %118, %117, %132
+  %165 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.679) #6
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %168
 
-168:                                              ; preds = %.thread
+167:                                              ; preds = %.thread
   tail call fastcc void @pinyin_k9_cand_page_proc(ptr noundef nonnull %4, i16 noundef zeroext 0)
   br label %.critedge144
 
-169:                                              ; preds = %.thread
-  %170 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.680) #6
-  %171 = icmp eq i32 %170, 0
-  br i1 %171, label %172, label %.critedge144
+168:                                              ; preds = %.thread
+  %169 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.680) #6
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %171, label %.critedge144
 
-172:                                              ; preds = %169
+171:                                              ; preds = %168
   tail call fastcc void @pinyin_k9_cand_page_proc(ptr noundef nonnull %4, i16 noundef zeroext 1)
   br label %.critedge144
 
-.critedge144:                                     ; preds = %._crit_edge, %6, %10, %95, %1, %43, %117, %.loopexit, %169, %172, %168, %123, %lv_ime_pinyin_set_mode.exit, %49, %73, %74, %68, %71
+.critedge144:                                     ; preds = %._crit_edge, %6, %10, %95, %1, %43, %116, %.loopexit, %168, %171, %167, %122, %lv_ime_pinyin_set_mode.exit, %49, %73, %74, %68, %71
   ret void
 }
 

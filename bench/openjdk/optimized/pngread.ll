@@ -3957,7 +3957,7 @@ png_read_update_info.exit:                        ; preds = %12, %18, %19
   br label %.loopexit68
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72.split
-  %105 = icmp sgt i32 %.in, 1
+  %105 = icmp samesign ugt i32 %.in, 1
   br i1 %105, label %.lr.ph72.splitthread-pre-split, label %.loopexit68, !llvm.loop !55
 
 .lr.ph72.splitthread-pre-split:                   ; preds = %.loopexit
@@ -4418,7 +4418,7 @@ png_read_update_info.exit:                        ; preds = %127, %128
   br i1 %184, label %.loopexit233, label %.lr.ph237.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph237.split
-  %185 = icmp sgt i32 %.in, 1
+  %185 = icmp samesign ugt i32 %.in, 1
   br i1 %185, label %.lr.ph237.splitthread-pre-split, label %.loopexit233, !llvm.loop !66
 
 .lr.ph237.splitthread-pre-split:                  ; preds = %.loopexit
@@ -5384,7 +5384,7 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
 .lr.ph147.split:                                  ; preds = %.lr.ph147, %.lr.ph147.split
   %.1110146 = phi i32 [ %193, %.lr.ph147.split ], [ %.0109, %.lr.ph147 ]
   %192 = load ptr, ptr %20, align 8
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %192, ptr noundef null)
+  tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %192, ptr noundef null)
   %193 = add i32 %.1110146, %.0108
   %194 = icmp ult i32 %193, %11
   br i1 %194, label %.lr.ph147.split, label %.loopexit134, !llvm.loop !69

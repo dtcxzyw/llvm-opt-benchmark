@@ -1385,126 +1385,132 @@ _ZN14SystemPropertyC2EPKcS1_bb.exit47:            ; preds = %82, %83
   %124 = load ptr, ptr @_ZN9Arguments22_sun_boot_library_pathE, align 8
   %125 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %126 = icmp eq ptr %125, null
-  br i1 %126, label %127, label %.preheader.i48
-
-127:                                              ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit47
-  store ptr %124, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+  br i1 %126, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51, label %.preheader.i48
 
 .preheader.i48:                                   ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit47, %.preheader.i48
-  %.0.i49 = phi ptr [ %129, %.preheader.i48 ], [ %125, %_ZN14SystemPropertyC2EPKcS1_bb.exit47 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
-  %129 = load ptr, ptr %128, align 8
-  %.not.i50 = icmp eq ptr %129, null
-  br i1 %.not.i50, label %130, label %.preheader.i48, !llvm.loop !8
+  %.0.i49 = phi ptr [ %128, %.preheader.i48 ], [ %125, %_ZN14SystemPropertyC2EPKcS1_bb.exit47 ]
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %.not.i50 = icmp eq ptr %128, null
+  br i1 %.not.i50, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread, label %.preheader.i48, !llvm.loop !8
 
-130:                                              ; preds = %.preheader.i48
-  %131 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
-  store ptr %124, ptr %131, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread: ; preds = %.preheader.i48
+  %129 = getelementptr inbounds nuw i8, ptr %.0.i49, i64 16
+  store ptr %124, ptr %129, align 8
+  %130 = load ptr, ptr @_ZN9Arguments18_java_library_pathE, align 8
+  br label %.preheader.i52.preheader
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51: ; preds = %127, %130
-  %.pr72 = phi ptr [ %124, %127 ], [ %125, %130 ]
-  %132 = load ptr, ptr @_ZN9Arguments18_java_library_pathE, align 8
-  %133 = icmp eq ptr %.pr72, null
-  br i1 %133, label %134, label %.preheader.i52
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51: ; preds = %_ZN14SystemPropertyC2EPKcS1_bb.exit47
+  store ptr %124, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %131 = load ptr, ptr @_ZN9Arguments18_java_library_pathE, align 8
+  %132 = icmp eq ptr %124, null
+  br i1 %132, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55, label %.preheader.i52.preheader
 
-134:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
-  store ptr %132, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+.preheader.i52.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+  %133 = phi ptr [ %130, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread ], [ %131, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
+  %.pr7286 = phi ptr [ %125, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51.thread ], [ %124, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
+  br label %.preheader.i52
 
-.preheader.i52:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51, %.preheader.i52
-  %.0.i53 = phi ptr [ %136, %.preheader.i52 ], [ %.pr72, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51 ]
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
-  %136 = load ptr, ptr %135, align 8
-  %.not.i54 = icmp eq ptr %136, null
-  br i1 %.not.i54, label %137, label %.preheader.i52, !llvm.loop !8
+.preheader.i52:                                   ; preds = %.preheader.i52.preheader, %.preheader.i52
+  %.0.i53 = phi ptr [ %135, %.preheader.i52 ], [ %.pr7286, %.preheader.i52.preheader ]
+  %134 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %.not.i54 = icmp eq ptr %135, null
+  br i1 %.not.i54, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread, label %.preheader.i52, !llvm.loop !8
 
-137:                                              ; preds = %.preheader.i52
-  %138 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
-  store ptr %132, ptr %138, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread: ; preds = %.preheader.i52
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i53, i64 16
+  store ptr %133, ptr %136, align 8
+  %137 = load ptr, ptr @_ZN9Arguments10_java_homeE, align 8
+  br label %.preheader.i56.preheader
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %134, %137
-  %.pr73 = phi ptr [ %132, %134 ], [ %.pr72, %137 ]
-  %139 = load ptr, ptr @_ZN9Arguments10_java_homeE, align 8
-  %140 = icmp eq ptr %.pr73, null
-  br i1 %140, label %141, label %.preheader.i56
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit51
+  store ptr %131, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %138 = load ptr, ptr @_ZN9Arguments10_java_homeE, align 8
+  %139 = icmp eq ptr %131, null
+  br i1 %139, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59, label %.preheader.i56.preheader
 
-141:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
-  store ptr %139, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
+.preheader.i56.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+  %140 = phi ptr [ %137, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread ], [ %138, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
+  %.pr7388 = phi ptr [ %.pr7286, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55.thread ], [ %131, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
+  br label %.preheader.i56
 
-.preheader.i56:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55, %.preheader.i56
-  %.0.i57 = phi ptr [ %143, %.preheader.i56 ], [ %.pr73, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
-  %143 = load ptr, ptr %142, align 8
-  %.not.i58 = icmp eq ptr %143, null
-  br i1 %.not.i58, label %144, label %.preheader.i56, !llvm.loop !8
+.preheader.i56:                                   ; preds = %.preheader.i56.preheader, %.preheader.i56
+  %.0.i57 = phi ptr [ %142, %.preheader.i56 ], [ %.pr7388, %.preheader.i56.preheader ]
+  %141 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %.not.i58 = icmp eq ptr %142, null
+  br i1 %.not.i58, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread, label %.preheader.i56, !llvm.loop !8
 
-144:                                              ; preds = %.preheader.i56
-  %145 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
-  store ptr %139, ptr %145, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread: ; preds = %.preheader.i56
+  %143 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 16
+  store ptr %140, ptr %143, align 8
+  %144 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
+  br label %.preheader.i60.preheader
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59: ; preds = %141, %144
-  %.pr74 = phi ptr [ %139, %141 ], [ %.pr73, %144 ]
-  %146 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
-  %147 = icmp eq ptr %.pr74, null
-  br i1 %147, label %148, label %.preheader.i60
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit55
+  store ptr %138, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %145 = load ptr, ptr @_ZN9Arguments16_java_class_pathE, align 8
+  %146 = icmp eq ptr %138, null
+  br i1 %146, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63, label %.preheader.i60.preheader
 
-148:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
-  store ptr %146, ptr @_ZN9Arguments18_system_propertiesE, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+.preheader.i60.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
+  %147 = phi ptr [ %144, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread ], [ %145, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
+  %.pr7490 = phi ptr [ %.pr7388, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59.thread ], [ %138, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
+  br label %.preheader.i60
 
-.preheader.i60:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59, %.preheader.i60
-  %.0.i61 = phi ptr [ %150, %.preheader.i60 ], [ %.pr74, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
-  %150 = load ptr, ptr %149, align 8
-  %.not.i62 = icmp eq ptr %150, null
-  br i1 %.not.i62, label %151, label %.preheader.i60, !llvm.loop !8
+.preheader.i60:                                   ; preds = %.preheader.i60.preheader, %.preheader.i60
+  %.0.i61 = phi ptr [ %149, %.preheader.i60 ], [ %.pr7490, %.preheader.i60.preheader ]
+  %148 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
+  %149 = load ptr, ptr %148, align 8
+  %.not.i62 = icmp eq ptr %149, null
+  br i1 %.not.i62, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread, label %.preheader.i60, !llvm.loop !8
 
-151:                                              ; preds = %.preheader.i60
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
-  store ptr %146, ptr %152, align 8
-  br label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread: ; preds = %.preheader.i60
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i61, i64 16
+  store ptr %147, ptr %150, align 8
+  br label %.preheader.i64.preheader
 
-_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %148, %151
-  %.pr75 = phi ptr [ %146, %148 ], [ %.pr74, %151 ]
-  %153 = icmp eq ptr %.pr75, null
-  br i1 %153, label %154, label %.preheader.i64
+_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63: ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit59
+  store ptr %145, ptr @_ZN9Arguments18_system_propertiesE, align 8
+  %151 = icmp eq ptr %145, null
+  br i1 %151, label %152, label %.preheader.i64.preheader
 
-154:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+.preheader.i64.preheader:                         ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
+  %.pr7592 = phi ptr [ %.pr7490, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63.thread ], [ %145, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63 ]
+  br label %.preheader.i64
+
+152:                                              ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63
   store ptr %118, ptr @_ZN9Arguments18_system_propertiesE, align 8
   br label %.preheader.i68.preheader
 
-.preheader.i64:                                   ; preds = %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63, %.preheader.i64
-  %.0.i65 = phi ptr [ %156, %.preheader.i64 ], [ %.pr75, %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit63 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
-  %156 = load ptr, ptr %155, align 8
-  %.not.i66 = icmp eq ptr %156, null
-  br i1 %.not.i66, label %157, label %.preheader.i64, !llvm.loop !8
+.preheader.i64:                                   ; preds = %.preheader.i64.preheader, %.preheader.i64
+  %.0.i65 = phi ptr [ %154, %.preheader.i64 ], [ %.pr7592, %.preheader.i64.preheader ]
+  %153 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
+  %154 = load ptr, ptr %153, align 8
+  %.not.i66 = icmp eq ptr %154, null
+  br i1 %.not.i66, label %155, label %.preheader.i64, !llvm.loop !8
 
-157:                                              ; preds = %.preheader.i64
-  %158 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
-  store ptr %118, ptr %158, align 8
+155:                                              ; preds = %.preheader.i64
+  %156 = getelementptr inbounds nuw i8, ptr %.0.i65, i64 16
+  store ptr %118, ptr %156, align 8
   br label %.preheader.i68.preheader
 
-.preheader.i68.preheader:                         ; preds = %157, %154
-  %159 = phi ptr [ %118, %154 ], [ %.pr75, %157 ]
-  %160 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
+.preheader.i68.preheader:                         ; preds = %155, %152
+  %157 = phi ptr [ %118, %152 ], [ %.pr7592, %155 ]
+  %158 = load ptr, ptr @_ZN9Arguments8_vm_infoE, align 8
   br label %.preheader.i68
 
 .preheader.i68:                                   ; preds = %.preheader.i68.preheader, %.preheader.i68
-  %.0.i69 = phi ptr [ %162, %.preheader.i68 ], [ %159, %.preheader.i68.preheader ]
-  %161 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
-  %162 = load ptr, ptr %161, align 8
-  %.not.i70 = icmp eq ptr %162, null
+  %.0.i69 = phi ptr [ %160, %.preheader.i68 ], [ %157, %.preheader.i68.preheader ]
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
+  %160 = load ptr, ptr %159, align 8
+  %.not.i70 = icmp eq ptr %160, null
   br i1 %.not.i70, label %_ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71, label %.preheader.i68, !llvm.loop !8
 
 _ZN9Arguments16PropertyList_addEPP14SystemPropertyS1_.exit71: ; preds = %.preheader.i68
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
-  store ptr %160, ptr %163, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 16
+  store ptr %158, ptr %161, align 8
   tail call void @_ZN2os29init_system_properties_valuesEv() #30
   ret void
 }
@@ -2863,11 +2869,7 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
 
 .preheader:                                       ; preds = %2
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader
-  %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 0, i32 noundef 0) #30
-  br label %.loopexit
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -2875,25 +2877,29 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02732 = phi i64 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #29
-  %10 = add i64 %.02732, 1
-  %11 = add i64 %10, %9
+  %.02732 = phi i64 [ 0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
+  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #29
+  %9 = add i64 %.02732, 1
+  %10 = add i64 %9, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %.lr.ph37.preheader, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %12 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %11, i32 noundef 0) #30
+._crit_edge:                                      ; preds = %.preheader
+  %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 0, i32 noundef 0) #30
+  br label %.loopexit
+
+.lr.ph37.preheader:                               ; preds = %.lr.ph
+  %12 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %10, i32 noundef 0) #30
   %wide.trip.count42 = zext nneg i32 %1 to i64
   br label %.lr.ph37
 
-.lr.ph37:                                         ; preds = %._crit_edge, %.lr.ph37
-  %indvars.iv39 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next40, %.lr.ph37 ]
-  %.02634 = phi ptr [ %12, %._crit_edge ], [ %18, %.lr.ph37 ]
-  %.133 = phi i64 [ %11, %._crit_edge ], [ %19, %.lr.ph37 ]
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv39 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next40, %.lr.ph37 ]
+  %.02634 = phi ptr [ %12, %.lr.ph37.preheader ], [ %18, %.lr.ph37 ]
+  %.133 = phi i64 [ %10, %.lr.ph37.preheader ], [ %19, %.lr.ph37 ]
   %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv39
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #29
@@ -2905,8 +2911,8 @@ define hidden noundef ptr @_ZN9Arguments21build_resource_stringEPPci(ptr noundef
   %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
   br i1 %exitcond43.not, label %.loopexit, label %.lr.ph37, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge.thread, %2
-  %.0 = phi ptr [ null, %2 ], [ %6, %._crit_edge.thread ], [ %12, %.lr.ph37 ]
+.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge, %2
+  %.0 = phi ptr [ null, %2 ], [ %11, %._crit_edge ], [ %12, %.lr.ph37 ]
   ret ptr %.0
 }
 
@@ -8130,7 +8136,7 @@ _ZN26GrowableArrayWithAllocatorI12JavaVMOption18GrowableArrayCHeapIS0_L8MEMFLAGS
   %75 = shl nuw nsw i64 %74, 4
   %scevgep = getelementptr i8, ptr %70, i64 %75
   %76 = xor i32 %.0.lcssa.i.i.i24, -1
-  %77 = add i32 %.0.i.i.i.i22, %76
+  %77 = add nsw i32 %.0.i.i.i.i22, %76
   %78 = zext i32 %77 to i64
   %79 = shl nuw nsw i64 %78, 4
   %80 = add nuw nsw i64 %79, 16

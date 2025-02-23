@@ -79,7 +79,7 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %31 = icmp sgt i32 %0, 2
+  %31 = icmp samesign ugt i32 %0, 2
   br i1 %31, label %32, label %._crit_edge.thread
 
 32:                                               ; preds = %._crit_edge
@@ -120,14 +120,13 @@ gv_calloc.exit50:                                 ; preds = %gv_calloc.exit
   br i1 %.not, label %._crit_edge59, label %.lr.ph58.preheader
 
 .lr.ph58.preheader:                               ; preds = %.thread, %49
-  %smax = call i32 @llvm.smax.i32(i32 %0, i32 1)
   br label %.lr.ph58
 
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %.256 = phi i32 [ %51, %.lr.ph58 ], [ 0, %.lr.ph58.preheader ]
   %50 = call ptr @SparseMatrix_coordinate_form_add_entry(ptr noundef %34, i32 noundef %.256, i32 noundef %.256, ptr noundef nonnull %3) #9
   %51 = add nuw nsw i32 %.256, 1
-  %exitcond65.not = icmp eq i32 %51, %smax
+  %exitcond65.not = icmp eq i32 %51, %0
   br i1 %exitcond65.not, label %._crit_edge59, label %.lr.ph58, !llvm.loop !15
 
 ._crit_edge59:                                    ; preds = %.lr.ph58, %49
@@ -236,8 +235,7 @@ gv_calloc.exit50._crit_edge:                      ; preds = %gv_calloc.exit50, %
   br i1 %.not, label %._crit_edge58, label %.preheader51.preheader
 
 .preheader51.preheader:                           ; preds = %gv_calloc.exit50._crit_edge
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count69 = zext nneg i32 %smax to i64
+  %wide.trip.count69 = zext nneg i32 %0 to i64
   br label %.preheader51
 
 .preheader51:                                     ; preds = %.preheader51.preheader, %._crit_edge

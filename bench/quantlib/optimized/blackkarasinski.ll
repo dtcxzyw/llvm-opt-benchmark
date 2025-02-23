@@ -5809,7 +5809,7 @@ do.end187:                                        ; preds = %do.body135, %lor.lh
   %94 = load double, ptr %discountBondPrice_.i, align 8, !tbaa !161
   %95 = load i64, ptr %f, align 8, !tbaa !148
   %cmp5.not.i = icmp eq i64 %95, 0
-  br i1 %cmp5.not.i, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread, label %for.body.lr.ph.i
+  br i1 %cmp5.not.i, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end187
   %xMin_.i = getelementptr inbounds nuw i8, ptr %f, i64 16
@@ -5839,27 +5839,27 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add5.i = fadd double %100, %x.06.i
   %inc.i = add nuw i64 %j.07.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %95
-  br i1 %exitcond.not.i, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit, label %for.body.i, !llvm.loop !170
+  br i1 %exitcond.not.i, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread, label %for.body.i, !llvm.loop !170
 
-_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit:   ; preds = %for.body.i
+_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit:   ; preds = %do.end187
   %fxMin_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store double %102, ptr %fxMin_, align 8, !tbaa !171
-  %cmp.i163 = fcmp oeq double %102, 0.000000e+00
-  %103 = tail call double @llvm.fabs.f64(double %102)
+  store double %94, ptr %fxMin_, align 8, !tbaa !171
+  %cmp.i163 = fcmp oeq double %94, 0.000000e+00
+  %103 = tail call double @llvm.fabs.f64(double %94)
   %cmp4.i = fcmp olt double %103, 0x3A1B900000000000
   %or.cond = or i1 %cmp.i163, %cmp4.i
-  br i1 %or.cond, label %return, label %for.body.lr.ph.i167
+  br i1 %or.cond, label %return, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187
 
-_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread: ; preds = %do.end187
+_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread: ; preds = %for.body.i
   %fxMin_462 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  store double %94, ptr %fxMin_462, align 8, !tbaa !171
-  %cmp.i163463 = fcmp oeq double %94, 0.000000e+00
-  %104 = tail call double @llvm.fabs.f64(double %94)
+  store double %102, ptr %fxMin_462, align 8, !tbaa !171
+  %cmp.i163463 = fcmp oeq double %102, 0.000000e+00
+  %104 = tail call double @llvm.fabs.f64(double %102)
   %cmp4.i464 = fcmp olt double %104, 0x3A1B900000000000
   %or.cond465 = or i1 %cmp.i163463, %cmp4.i464
-  br i1 %or.cond465, label %return, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187
+  br i1 %or.cond465, label %return, label %for.body.lr.ph.i167
 
-for.body.lr.ph.i167:                              ; preds = %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit
+for.body.lr.ph.i167:                              ; preds = %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread
   %xMin_.i168 = getelementptr inbounds nuw i8, ptr %f, i64 16
   %105 = load double, ptr %xMin_.i168, align 8, !tbaa !151
   %dt_.i169 = getelementptr inbounds nuw i8, ptr %f, i64 8
@@ -5889,10 +5889,10 @@ for.body.i172:                                    ; preds = %for.body.i172, %for
   %exitcond.not.i185 = icmp eq i64 %inc.i184, %95
   br i1 %exitcond.not.i185, label %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187, label %for.body.i172, !llvm.loop !170
 
-_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187: ; preds = %for.body.i172, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread
-  %value.0.lcssa.i466471 = phi double [ %94, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread ], [ %102, %for.body.i172 ]
-  %fxMin_467470 = phi ptr [ %fxMin_462, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread ], [ %fxMin_, %for.body.i172 ]
-  %value.0.lcssa.i186 = phi double [ %94, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit.thread ], [ %111, %for.body.i172 ]
+_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187: ; preds = %for.body.i172, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit
+  %value.0.lcssa.i466473 = phi double [ %94, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit ], [ %102, %for.body.i172 ]
+  %fxMin_467471 = phi ptr [ %fxMin_, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit ], [ %fxMin_462, %for.body.i172 ]
+  %value.0.lcssa.i186 = phi double [ %94, %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit ], [ %111, %for.body.i172 ]
   %fxMax_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %value.0.lcssa.i186, ptr %fxMax_, align 8, !tbaa !172
   %cmp.i188 = fcmp oeq double %value.0.lcssa.i186, 0.000000e+00
@@ -5904,7 +5904,7 @@ _ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187: ; preds = %for.body.i172, %_Z
 if.end201:                                        ; preds = %_ZNK8QuantLib15BlackKarasinski6HelperclEd.exit187
   %evaluationNumber_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i64 2, ptr %evaluationNumber_, align 8, !tbaa !173
-  %mul = fmul double %value.0.lcssa.i466471, %value.0.lcssa.i186
+  %mul = fmul double %value.0.lcssa.i466473, %value.0.lcssa.i186
   %cmp205 = fcmp olt double %mul, 0.000000e+00
   br i1 %cmp205, label %do.body266, label %if.then206
 
@@ -5942,7 +5942,7 @@ invoke.cont221:                                   ; preds = %invoke.cont217
   %and.i.i.i.i = and i32 %115, -261
   %or.i.i.i.i = or disjoint i32 %and.i.i.i.i, 256
   store i32 %or.i.i.i.i, ptr %_M_flags.i.i, align 4, !tbaa !180
-  %116 = load double, ptr %fxMin_467470, align 8, !tbaa !171
+  %116 = load double, ptr %fxMin_467471, align 8, !tbaa !171
   %call.i215216 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i206207, double noundef %116)
           to label %invoke.cont224 unwind label %lpad208
 

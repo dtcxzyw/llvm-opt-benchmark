@@ -4868,18 +4868,17 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %11 = icmp eq i64 %2, 0
-  br i1 %11, label %.split.i.i.i, label %.lr.ph53
+  br label %11
 
-12:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit"
-  %13 = icmp eq i64 %28, 0
-  br i1 %13, label %.split.i.i.i, label %.lr.ph53, !llvm.loop !13
+11:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit"
+  %12 = phi i64 [ %8, %.lr.ph ], [ %212, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit" ]
+  %.024 = phi i64 [ %2, %.lr.ph ], [ %27, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit" ]
+  %storemerge23 = phi ptr [ %1, %.lr.ph ], [ %.us-phi.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit" ]
+  %13 = icmp eq i64 %.024, 0
+  br i1 %13, label %.split.i.i.i, label %26
 
-.split.i.i.i:                                     ; preds = %12, %.lr.ph
-  %.lcssa49 = phi i64 [ %8, %.lr.ph ], [ %213, %12 ]
-  %.lcssa47 = phi i64 [ %7, %.lr.ph ], [ %212, %12 ]
-  %storemerge25.lcssa = phi ptr [ %1, %.lr.ph ], [ %.us-phi.i.i, %12 ]
-  %14 = add nsw i64 %.lcssa49, -2
+.split.i.i.i:                                     ; preds = %11
+  %14 = add nsw i64 %12, -2
   %15 = lshr i64 %14, 1
   br label %.split9.i.i.i
 
@@ -4887,362 +4886,355 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.i.i.i = phi i64 [ %15, %.split.i.i.i ], [ %18, %.split9.i.i.i ]
   %phi.call.i.i.i = getelementptr inbounds i32, ptr %0, i64 %.0.i.i.i
   %16 = load i32, ptr %phi.call.i.i.i, align 4
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa49, i32 noundef %16, ptr readonly %3)
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %12, i32 noundef %16, ptr readonly %3)
   %17 = icmp eq i64 %.0.i.i.i, 0
   %18 = add nsw i64 %.0.i.i.i, -1
-  br i1 %17, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i", label %.split9.i.i.i, !llvm.loop !14
+  br i1 %17, label %.lr.ph.i9.i, label %.split9.i.i.i, !llvm.loop !13
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %.split9.i.i.i
-  %19 = icmp sgt i64 %.lcssa47, 4
-  br i1 %19, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit"
+.lr.ph.i9.i:                                      ; preds = %.split9.i.i.i, %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %19, %.lr.ph.i9.i ], [ %storemerge23, %.split9.i.i.i ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
+  %20 = load i32, ptr %19, align 4
+  %21 = load i32, ptr %0, align 4
+  store i32 %21, ptr %19, align 4
+  %22 = ptrtoint ptr %19 to i64
+  %23 = sub i64 %22, %5
+  %24 = ashr exact i64 %23, 2
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %24, i32 noundef %20, ptr readonly %3)
+  %25 = icmp sgt i64 %23, 4
+  br i1 %25, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !14
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %20, %.lr.ph.i9.i ], [ %storemerge25.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i" ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -4
-  %21 = load i32, ptr %20, align 4
-  %22 = load i32, ptr %0, align 4
-  store i32 %22, ptr %20, align 4
-  %23 = ptrtoint ptr %20 to i64
-  %24 = sub i64 %23, %5
-  %25 = ashr exact i64 %24, 2
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_T0_SG_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %25, i32 noundef %21, ptr readonly %3)
-  %26 = icmp sgt i64 %24, 4
-  br i1 %26, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !15
-
-.lr.ph53:                                         ; preds = %.lr.ph, %12
-  %storemerge2552 = phi ptr [ %.us-phi.i.i, %12 ], [ %1, %.lr.ph ]
-  %.02651 = phi i64 [ %28, %12 ], [ %2, %.lr.ph ]
-  %27 = phi i64 [ %213, %12 ], [ %8, %.lr.ph ]
-  %28 = add nsw i64 %.02651, -1
-  %29 = lshr i64 %27, 1
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %29
-  %31 = getelementptr inbounds i8, ptr %storemerge2552, i64 -4
+26:                                               ; preds = %11
+  %27 = add nsw i64 %.024, -1
+  %28 = lshr i64 %12, 1
+  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %28
+  %30 = getelementptr inbounds i8, ptr %storemerge23, i64 -4
   %.val29.val.i.i = load ptr, ptr %3, align 8
-  %32 = load i32, ptr %10, align 4
-  %33 = load i32, ptr %30, align 4
-  %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %34
-  %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %36
-  %38 = load i8, ptr %35, align 4
-  %39 = icmp eq i8 %38, 1
-  %40 = load i8, ptr %37, align 4
-  %41 = icmp eq i8 %40, 1
-  %42 = xor i1 %39, %41
-  br i1 %42, label %43, label %46
+  %31 = load i32, ptr %10, align 4
+  %32 = load i32, ptr %29, align 4
+  %33 = zext i32 %31 to i64
+  %34 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %33
+  %35 = zext i32 %32 to i64
+  %36 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %35
+  %37 = load i8, ptr %34, align 4
+  %38 = icmp eq i8 %37, 1
+  %39 = load i8, ptr %36, align 4
+  %40 = icmp eq i8 %39, 1
+  %41 = xor i1 %38, %40
+  br i1 %41, label %42, label %45
 
-43:                                               ; preds = %.lr.ph53
-  %44 = xor i1 %39, true
-  %45 = and i1 %41, %44
-  br i1 %45, label %58, label %98
+42:                                               ; preds = %26
+  %43 = xor i1 %38, true
+  %44 = and i1 %40, %43
+  br i1 %44, label %57, label %97
 
-46:                                               ; preds = %.lr.ph53
-  %47 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %50 = load i32, ptr %49, align 4
-  %.not.i.i.i.i = icmp eq i32 %48, %50
-  br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", label %51
+45:                                               ; preds = %26
+  %46 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %49 = load i32, ptr %48, align 4
+  %.not.i.i.i.i = icmp eq i32 %47, %49
+  br i1 %.not.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", label %50
 
-51:                                               ; preds = %46
-  %52 = icmp ult i32 %48, %50
-  br i1 %52, label %58, label %98
+50:                                               ; preds = %45
+  %51 = icmp ult i32 %47, %49
+  br i1 %51, label %57, label %97
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i": ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %54 = load i32, ptr %53, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %56 = load i32, ptr %55, align 4
-  %57 = icmp ult i32 %54, %56
-  br i1 %57, label %58, label %98
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i": ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %53 = load i32, ptr %52, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp ult i32 %53, %55
+  br i1 %56, label %57, label %97
 
-58:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %51, %43
-  %59 = load i32, ptr %31, align 4
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %60
-  %62 = load i8, ptr %61, align 4
-  %63 = icmp eq i8 %62, 1
-  %64 = xor i1 %41, %63
-  br i1 %64, label %65, label %68
+57:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %50, %42
+  %58 = load i32, ptr %30, align 4
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %59
+  %61 = load i8, ptr %60, align 4
+  %62 = icmp eq i8 %61, 1
+  %63 = xor i1 %40, %62
+  br i1 %63, label %64, label %67
 
-65:                                               ; preds = %58
-  %66 = xor i1 %41, true
-  %67 = and i1 %63, %66
-  br i1 %67, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %80
+64:                                               ; preds = %57
+  %65 = xor i1 %40, true
+  %66 = and i1 %62, %65
+  br i1 %66, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %79
 
-68:                                               ; preds = %58
-  %69 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %72 = load i32, ptr %71, align 4
-  %.not.i.i30.i.i = icmp eq i32 %70, %72
-  br i1 %.not.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", label %73
+67:                                               ; preds = %57
+  %68 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %71 = load i32, ptr %70, align 4
+  %.not.i.i30.i.i = icmp eq i32 %69, %71
+  br i1 %.not.i.i30.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", label %72
 
-73:                                               ; preds = %68
-  %74 = icmp ult i32 %70, %72
-  br i1 %74, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %80
+72:                                               ; preds = %67
+  %73 = icmp ult i32 %69, %71
+  br i1 %73, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %79
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i": ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %78 = load i32, ptr %77, align 4
-  %79 = icmp ult i32 %76, %78
-  br i1 %79, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %80
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i": ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %75 = load i32, ptr %74, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %77 = load i32, ptr %76, align 4
+  %78 = icmp ult i32 %75, %77
+  br i1 %78, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %79
 
-80:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %73, %65
-  %81 = xor i1 %39, %63
-  br i1 %81, label %82, label %85
+79:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %72, %64
+  %80 = xor i1 %38, %62
+  br i1 %80, label %81, label %84
 
-82:                                               ; preds = %80
-  %83 = xor i1 %39, true
-  %84 = and i1 %63, %83
-  br i1 %84, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %97
+81:                                               ; preds = %79
+  %82 = xor i1 %38, true
+  %83 = and i1 %62, %82
+  br i1 %83, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %96
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %87 = load i32, ptr %86, align 4
-  %88 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  %89 = load i32, ptr %88, align 4
-  %.not.i.i33.i.i = icmp eq i32 %87, %89
-  br i1 %.not.i.i33.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", label %90
+84:                                               ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %86 = load i32, ptr %85, align 4
+  %87 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  %88 = load i32, ptr %87, align 4
+  %.not.i.i33.i.i = icmp eq i32 %86, %88
+  br i1 %.not.i.i33.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", label %89
 
-90:                                               ; preds = %85
-  %91 = icmp ult i32 %87, %89
-  br i1 %91, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %97
+89:                                               ; preds = %84
+  %90 = icmp ult i32 %86, %88
+  br i1 %90, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %96
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i": ; preds = %85
-  %92 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %95 = load i32, ptr %94, align 4
-  %96 = icmp ult i32 %93, %95
-  br i1 %96, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %97
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i": ; preds = %84
+  %91 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %92 = load i32, ptr %91, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %94 = load i32, ptr %93, align 4
+  %95 = icmp ult i32 %92, %94
+  br i1 %95, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %96
 
-97:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %90, %82
+96:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %89, %81
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
-98:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %51, %43
-  %99 = load i32, ptr %31, align 4
-  %100 = zext i32 %99 to i64
-  %101 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %100
-  %102 = load i8, ptr %101, align 4
-  %103 = icmp eq i8 %102, 1
-  %104 = xor i1 %39, %103
-  br i1 %104, label %105, label %108
+97:                                               ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i.i", %50, %42
+  %98 = load i32, ptr %30, align 4
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val29.val.i.i, i64 %99
+  %101 = load i8, ptr %100, align 4
+  %102 = icmp eq i8 %101, 1
+  %103 = xor i1 %38, %102
+  br i1 %103, label %104, label %107
 
-105:                                              ; preds = %98
-  %106 = xor i1 %39, true
-  %107 = and i1 %103, %106
-  br i1 %107, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %120
+104:                                              ; preds = %97
+  %105 = xor i1 %38, true
+  %106 = and i1 %102, %105
+  br i1 %106, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %119
 
-108:                                              ; preds = %98
-  %109 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %112 = load i32, ptr %111, align 4
-  %.not.i.i36.i.i = icmp eq i32 %110, %112
-  br i1 %.not.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", label %113
+107:                                              ; preds = %97
+  %108 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  %109 = load i32, ptr %108, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %111 = load i32, ptr %110, align 4
+  %.not.i.i36.i.i = icmp eq i32 %109, %111
+  br i1 %.not.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", label %112
 
-113:                                              ; preds = %108
-  %114 = icmp ult i32 %110, %112
-  br i1 %114, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %120
+112:                                              ; preds = %107
+  %113 = icmp ult i32 %109, %111
+  br i1 %113, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %119
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i": ; preds = %108
-  %115 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp ult i32 %116, %118
-  br i1 %119, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %120
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i": ; preds = %107
+  %114 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %115 = load i32, ptr %114, align 4
+  %116 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %117 = load i32, ptr %116, align 4
+  %118 = icmp ult i32 %115, %117
+  br i1 %118, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %119
 
-120:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %113, %105
-  %121 = xor i1 %41, %103
-  br i1 %121, label %122, label %125
+119:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %112, %104
+  %120 = xor i1 %40, %102
+  br i1 %120, label %121, label %124
 
-122:                                              ; preds = %120
-  %123 = xor i1 %41, true
-  %124 = and i1 %103, %123
-  br i1 %124, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %137
+121:                                              ; preds = %119
+  %122 = xor i1 %40, true
+  %123 = and i1 %102, %122
+  br i1 %123, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %136
 
-125:                                              ; preds = %120
-  %126 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  %127 = load i32, ptr %126, align 4
-  %128 = getelementptr inbounds nuw i8, ptr %101, i64 12
-  %129 = load i32, ptr %128, align 4
-  %.not.i.i39.i.i = icmp eq i32 %127, %129
-  br i1 %.not.i.i39.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", label %130
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds nuw i8, ptr %36, i64 12
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %100, i64 12
+  %128 = load i32, ptr %127, align 4
+  %.not.i.i39.i.i = icmp eq i32 %126, %128
+  br i1 %.not.i.i39.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", label %129
 
-130:                                              ; preds = %125
-  %131 = icmp ult i32 %127, %129
-  br i1 %131, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %137
+129:                                              ; preds = %124
+  %130 = icmp ult i32 %126, %128
+  br i1 %130, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %136
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i": ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %133 = load i32, ptr %132, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp ult i32 %133, %135
-  br i1 %136, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %137
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i": ; preds = %124
+  %131 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %132 = load i32, ptr %131, align 4
+  %133 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %134 = load i32, ptr %133, align 4
+  %135 = icmp ult i32 %132, %134
+  br i1 %135, label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i", label %136
 
-137:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %130, %122
+136:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %129, %121
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %137, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %130, %122, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %113, %105, %97, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %90, %82, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %73, %65
-  %.sink43.i.i = phi i32 [ %33, %137 ], [ %32, %97 ], [ %33, %73 ], [ %33, %65 ], [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %59, %90 ], [ %59, %82 ], [ %59, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %32, %113 ], [ %32, %105 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %99, %130 ], [ %99, %122 ], [ %99, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
-  %.sink42.i.i = phi ptr [ %30, %137 ], [ %10, %97 ], [ %30, %73 ], [ %30, %65 ], [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %31, %90 ], [ %31, %82 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %10, %113 ], [ %10, %105 ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %31, %130 ], [ %31, %122 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
-  %138 = load i32, ptr %0, align 4
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i": ; preds = %136, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i", %129, %121, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i", %112, %104, %96, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i", %89, %81, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i", %72, %64
+  %.sink43.i.i = phi i32 [ %32, %136 ], [ %31, %96 ], [ %32, %72 ], [ %32, %64 ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %58, %89 ], [ %58, %81 ], [ %58, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %31, %112 ], [ %31, %104 ], [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %98, %129 ], [ %98, %121 ], [ %98, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
+  %.sink42.i.i = phi ptr [ %29, %136 ], [ %10, %96 ], [ %29, %72 ], [ %29, %64 ], [ %29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit32.i.i" ], [ %30, %89 ], [ %30, %81 ], [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit35.i.i" ], [ %10, %112 ], [ %10, %104 ], [ %10, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit38.i.i" ], [ %30, %129 ], [ %30, %121 ], [ %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit41.i.i" ]
+  %137 = load i32, ptr %0, align 4
   store i32 %.sink43.i.i, ptr %0, align 4
-  store i32 %138, ptr %.sink42.i.i, align 4
-  br label %139
+  store i32 %137, ptr %.sink42.i.i, align 4
+  br label %138
 
-139:                                              ; preds = %209, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
-  %.sroa.012.0.i.i = phi ptr [ %storemerge2552, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %.sroa.012.1.i.i, %209 ]
-  %.sroa.015.0.i.i = phi ptr [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %210, %209 ]
+138:                                              ; preds = %208, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i"
+  %.sroa.012.0.i.i = phi ptr [ %storemerge23, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %.sroa.012.1.i.i, %208 ]
+  %.sroa.015.0.i.i = phi ptr [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_SF_T0_.exit.i" ], [ %209, %208 ]
   %.val8.val.i.i = load ptr, ptr %3, align 8
-  %140 = load i32, ptr %0, align 4
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %141
-  %143 = load i8, ptr %142, align 4
-  %.fr32.i.i = freeze i8 %143
-  %144 = icmp eq i8 %.fr32.i.i, 1
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  %146 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  br i1 %144, label %.split.i.i, label %.split.us.i.i
+  %139 = load i32, ptr %0, align 4
+  %140 = zext i32 %139 to i64
+  %141 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %140
+  %142 = load i8, ptr %141, align 4
+  %.fr32.i.i = freeze i8 %142
+  %143 = icmp eq i8 %.fr32.i.i, 1
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 12
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  br i1 %143, label %.split.i.i, label %.split.us.i.i
 
-.split.us.i.i:                                    ; preds = %139
-  %147 = load i32, ptr %.sroa.015.0.i.i, align 4
-  %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %148
-  %150 = load i8, ptr %149, align 4
-  %151 = icmp eq i8 %150, 1
-  br i1 %151, label %.split22.us.i.i, label %.lr.ph.i.i
+.split.us.i.i:                                    ; preds = %138
+  %146 = load i32, ptr %.sroa.015.0.i.i, align 4
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %147
+  %149 = load i8, ptr %148, align 4
+  %150 = icmp eq i8 %149, 1
+  br i1 %150, label %.split22.us.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.split.us.i.i
-  %152 = load i32, ptr %145, align 4
-  br label %153
+  %151 = load i32, ptr %144, align 4
+  br label %152
 
-153:                                              ; preds = %164, %.lr.ph.i.i
-  %154 = phi ptr [ %149, %.lr.ph.i.i ], [ %168, %164 ]
-  %155 = phi i32 [ %147, %.lr.ph.i.i ], [ %166, %164 ]
-  %.sroa.015.1.us30.i.i = phi ptr [ %.sroa.015.0.i.i, %.lr.ph.i.i ], [ %165, %164 ]
-  %156 = getelementptr inbounds nuw i8, ptr %154, i64 12
-  %157 = load i32, ptr %156, align 4
-  %.not.i.i.us.i.i = icmp eq i32 %157, %152
-  br i1 %.not.i.i.us.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", label %158
+152:                                              ; preds = %163, %.lr.ph.i.i
+  %153 = phi ptr [ %148, %.lr.ph.i.i ], [ %167, %163 ]
+  %154 = phi i32 [ %146, %.lr.ph.i.i ], [ %165, %163 ]
+  %.sroa.015.1.us30.i.i = phi ptr [ %.sroa.015.0.i.i, %.lr.ph.i.i ], [ %164, %163 ]
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 12
+  %156 = load i32, ptr %155, align 4
+  %.not.i.i.us.i.i = icmp eq i32 %156, %151
+  br i1 %.not.i.i.us.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", label %157
 
-158:                                              ; preds = %153
-  %159 = icmp ult i32 %157, %152
-  br i1 %159, label %164, label %.split22.us.i.i
+157:                                              ; preds = %152
+  %158 = icmp ult i32 %156, %151
+  br i1 %158, label %163, label %.split22.us.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %153
-  %160 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %161 = load i32, ptr %160, align 4
-  %162 = load i32, ptr %146, align 4
-  %163 = icmp ult i32 %161, %162
-  br i1 %163, label %164, label %.split22.us.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i": ; preds = %152
+  %159 = getelementptr inbounds nuw i8, ptr %153, i64 16
+  %160 = load i32, ptr %159, align 4
+  %161 = load i32, ptr %145, align 4
+  %162 = icmp ult i32 %160, %161
+  br i1 %162, label %163, label %.split22.us.i.i
 
-164:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %158
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.us30.i.i, i64 4
-  %166 = load i32, ptr %165, align 4
-  %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %167
-  %169 = load i8, ptr %168, align 4
-  %170 = icmp eq i8 %169, 1
-  br i1 %170, label %.split22.us.i.i, label %153, !llvm.loop !16
+163:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %157
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.us30.i.i, i64 4
+  %165 = load i32, ptr %164, align 4
+  %166 = zext i32 %165 to i64
+  %167 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %166
+  %168 = load i8, ptr %167, align 4
+  %169 = icmp eq i8 %168, 1
+  br i1 %169, label %.split22.us.i.i, label %152, !llvm.loop !15
 
-.split.i.i:                                       ; preds = %139, %185
-  %.sroa.015.1.i.i = phi ptr [ %186, %185 ], [ %.sroa.015.0.i.i, %139 ]
-  %171 = load i32, ptr %.sroa.015.1.i.i, align 4
-  %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %172
-  %174 = load i8, ptr %173, align 4
-  %.not.i.i = icmp eq i8 %174, 1
-  br i1 %.not.i.i, label %175, label %185
+.split.i.i:                                       ; preds = %138, %184
+  %.sroa.015.1.i.i = phi ptr [ %185, %184 ], [ %.sroa.015.0.i.i, %138 ]
+  %170 = load i32, ptr %.sroa.015.1.i.i, align 4
+  %171 = zext i32 %170 to i64
+  %172 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %171
+  %173 = load i8, ptr %172, align 4
+  %.not.i.i = icmp eq i8 %173, 1
+  br i1 %.not.i.i, label %174, label %184
 
-175:                                              ; preds = %.split.i.i
-  %176 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  %177 = load i32, ptr %176, align 4
-  %178 = load i32, ptr %145, align 4
-  %.not.i.i.i12.i = icmp eq i32 %177, %178
-  br i1 %.not.i.i.i12.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", label %179
+174:                                              ; preds = %.split.i.i
+  %175 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  %176 = load i32, ptr %175, align 4
+  %177 = load i32, ptr %144, align 4
+  %.not.i.i.i12.i = icmp eq i32 %176, %177
+  br i1 %.not.i.i.i12.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", label %178
 
-179:                                              ; preds = %175
-  %180 = icmp ult i32 %177, %178
-  br i1 %180, label %185, label %.split22.us.i.i
+178:                                              ; preds = %174
+  %179 = icmp ult i32 %176, %177
+  br i1 %179, label %184, label %.split22.us.i.i
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i": ; preds = %175
-  %181 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %182 = load i32, ptr %181, align 4
-  %183 = load i32, ptr %146, align 4
-  %184 = icmp ult i32 %182, %183
-  br i1 %184, label %185, label %.split22.us.i.i
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i": ; preds = %174
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  %181 = load i32, ptr %180, align 4
+  %182 = load i32, ptr %145, align 4
+  %183 = icmp ult i32 %181, %182
+  br i1 %183, label %184, label %.split22.us.i.i
 
-185:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %179, %.split.i.i
-  %186 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.i.i, i64 4
-  br label %.split.i.i, !llvm.loop !16
+184:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %178, %.split.i.i
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.015.1.i.i, i64 4
+  br label %.split.i.i, !llvm.loop !15
 
-.split22.us.i.i:                                  ; preds = %164, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %158, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %179, %.split.us.i.i
-  %.us-phi.i.i = phi ptr [ %.sroa.015.0.i.i, %.split.us.i.i ], [ %.sroa.015.1.i.i, %179 ], [ %.sroa.015.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i" ], [ %165, %164 ], [ %.sroa.015.1.us30.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.015.1.us30.i.i, %158 ]
-  %.us-phi24.i.i = phi i32 [ %147, %.split.us.i.i ], [ %171, %179 ], [ %171, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i" ], [ %166, %164 ], [ %155, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i" ], [ %155, %158 ]
-  %187 = xor i1 %144, true
-  br label %188
+.split22.us.i.i:                                  ; preds = %163, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i", %157, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i", %178, %.split.us.i.i
+  %.us-phi.i.i = phi ptr [ %.sroa.015.0.i.i, %.split.us.i.i ], [ %.sroa.015.1.i.i, %178 ], [ %.sroa.015.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i" ], [ %164, %163 ], [ %.sroa.015.1.us30.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i" ], [ %.sroa.015.1.us30.i.i, %157 ]
+  %.us-phi24.i.i = phi i32 [ %146, %.split.us.i.i ], [ %170, %178 ], [ %170, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.i13.i" ], [ %165, %163 ], [ %154, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit.us.i.i" ], [ %154, %157 ]
+  %186 = xor i1 %143, true
+  br label %187
 
-188:                                              ; preds = %.backedge, %.split22.us.i.i
+187:                                              ; preds = %.backedge, %.split22.us.i.i
   %.sroa.012.0.pn.i.i = phi ptr [ %.sroa.012.0.i.i, %.split22.us.i.i ], [ %.sroa.012.1.i.i, %.backedge ]
   %.sroa.012.1.i.i = getelementptr inbounds i8, ptr %.sroa.012.0.pn.i.i, i64 -4
-  %189 = load i32, ptr %.sroa.012.1.i.i, align 4
-  %190 = zext i32 %189 to i64
-  %191 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %190
-  %192 = load i8, ptr %191, align 4
-  %193 = icmp eq i8 %192, 1
-  %194 = xor i1 %144, %193
-  br i1 %194, label %195, label %197
+  %188 = load i32, ptr %.sroa.012.1.i.i, align 4
+  %189 = zext i32 %188 to i64
+  %190 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrBlock", ptr %.val8.val.i.i, i64 %189
+  %191 = load i8, ptr %190, align 4
+  %192 = icmp eq i8 %191, 1
+  %193 = xor i1 %143, %192
+  br i1 %193, label %194, label %196
 
-195:                                              ; preds = %188
-  %196 = and i1 %193, %187
-  br i1 %196, label %.backedge, label %207
+194:                                              ; preds = %187
+  %195 = and i1 %192, %186
+  br i1 %195, label %.backedge, label %206
 
-197:                                              ; preds = %188
-  %198 = load i32, ptr %145, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %191, i64 12
-  %200 = load i32, ptr %199, align 4
-  %.not.i.i9.i.i = icmp eq i32 %198, %200
-  br i1 %.not.i.i9.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", label %201
+196:                                              ; preds = %187
+  %197 = load i32, ptr %144, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %190, i64 12
+  %199 = load i32, ptr %198, align 4
+  %.not.i.i9.i.i = icmp eq i32 %197, %199
+  br i1 %.not.i.i9.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", label %200
 
-201:                                              ; preds = %197
-  %202 = icmp ult i32 %198, %200
-  br i1 %202, label %.backedge, label %207
+200:                                              ; preds = %196
+  %201 = icmp ult i32 %197, %199
+  br i1 %201, label %.backedge, label %206
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i": ; preds = %197
-  %203 = load i32, ptr %146, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp ult i32 %203, %205
-  br i1 %206, label %.backedge, label %207
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i": ; preds = %196
+  %202 = load i32, ptr %145, align 4
+  %203 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %204 = load i32, ptr %203, align 4
+  %205 = icmp ult i32 %202, %204
+  br i1 %205, label %.backedge, label %206
 
-.backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %201, %195
-  br label %188, !llvm.loop !17
+.backedge:                                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %200, %194
+  br label %187, !llvm.loop !16
 
-207:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %201, %195
-  %208 = icmp ult ptr %.us-phi.i.i, %.sroa.012.1.i.i
-  br i1 %208, label %209, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit"
+206:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNS3_10IrFunctionEE3$_0EclINS_17__normal_iteratorIPjSt6vectorIjSaIjEEEESE_EEbT_T0_.exit11.i.i", %200, %194
+  %207 = icmp ult ptr %.us-phi.i.i, %.sroa.012.1.i.i
+  br i1 %207, label %208, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit"
 
-209:                                              ; preds = %207
-  store i32 %189, ptr %.us-phi.i.i, align 4
+208:                                              ; preds = %206
+  store i32 %188, ptr %.us-phi.i.i, align 4
   store i32 %.us-phi24.i.i, ptr %.sroa.012.1.i.i, align 4
-  %210 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 4
-  br label %139, !llvm.loop !18
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 4
+  br label %138, !llvm.loop !17
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit": ; preds = %207
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_T0_T1_"(ptr %.us-phi.i.i, ptr %storemerge2552, i64 noundef %28, ptr nonnull %3)
-  %211 = ptrtoint ptr %.us-phi.i.i to i64
-  %212 = sub i64 %211, %5
-  %213 = ashr exact i64 %212, 2
-  %214 = icmp sgt i64 %213, 16
-  br i1 %214, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !13
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit": ; preds = %206
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_T0_T1_"(ptr %.us-phi.i.i, ptr %storemerge23, i64 noundef %27, ptr nonnull %3)
+  %210 = ptrtoint ptr %.us-phi.i.i to i64
+  %211 = sub i64 %210, %5
+  %212 = ashr exact i64 %211, 2
+  %213 = icmp sgt i64 %212, 16
+  br i1 %213, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit", !llvm.loop !18
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit", %.lr.ph.i9.i, %4, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEEvT_SF_SF_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIZN4Luau7CodeGen19getSortedBlockOrderERNSA_10IrFunctionEE3$_0EEET_SF_SF_T0_.exit", %.lr.ph.i9.i, %4
   ret void
 }
 

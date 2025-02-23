@@ -710,7 +710,7 @@ tailrecurse:                                      ; preds = %23
   %74 = zext nneg i32 %70 to i64
   %75 = xor i64 %73, %74
   %76 = inttoptr i64 %75 to ptr
-  tail call void @Map_MappingSetRefs_rec(ptr noundef %0, ptr noundef %76)
+  tail call void @Map_MappingSetRefs_rec(ptr noundef nonnull %0, ptr noundef %76)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i8, ptr %63, align 4, !tbaa !44
   %78 = sext i8 %77 to i64

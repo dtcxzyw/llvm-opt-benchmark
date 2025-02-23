@@ -3586,13 +3586,14 @@ proto_item_set_hidden.exit:                       ; preds = %24, %21, %18, %13
   %123 = icmp eq i64 %122, 0
   %124 = sext i1 %123 to i32
   %spec.select = add i32 %115, %124
-  %125 = icmp ult i64 %.0265, 3
-  %spec.select382 = select i1 %125, i32 1, i32 %spec.select
+  %125 = icmp samesign ult i64 %.0265, 3
+  %spec.select382 = select i1 %125, i64 2, i64 %.0265
+  %spec.select383 = select i1 %125, i32 1, i32 %spec.select
   br label %126
 
 126:                                              ; preds = %._crit_edge, %._crit_edge.thread
-  %.0265301305367375 = phi i64 [ %.0265301305367.ph, %._crit_edge.thread ], [ %.0265, %._crit_edge ]
-  %127 = phi i32 [ %spec.select374, %._crit_edge.thread ], [ %spec.select382, %._crit_edge ]
+  %.0265301305367375 = phi i64 [ %.0265301305367.ph, %._crit_edge.thread ], [ %spec.select382, %._crit_edge ]
+  %127 = phi i32 [ %spec.select374, %._crit_edge.thread ], [ %spec.select383, %._crit_edge ]
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 408
@@ -4149,7 +4150,7 @@ define internal fastcc i32 @dissect_per_normally_small_nonnegative_whole_number(
 proto_item_set_hidden.exit:                       ; preds = %19, %16, %13, %6
   %23 = load i8, ptr %7, align 1, !range !6, !noundef !7
   %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %61, label %25
+  br i1 %24, label %63, label %25
 
 25:                                               ; preds = %proto_item_set_hidden.exit
   br i1 %.not, label %.cont73.us.preheader, label %.cont73.thread.preheader
@@ -4180,7 +4181,7 @@ proto_item_set_hidden.exit:                       ; preds = %19, %16, %13, %6
   %spec.select.us = or disjoint i32 %36, %34
   %37 = add nuw nsw i32 %.0129.us, 1
   %exitcond133.not = icmp eq i32 %37, 6
-  br i1 %exitcond133.not, label %.split.us, label %.cont73.us, !llvm.loop !26
+  br i1 %exitcond133.not, label %.split.us.thread, label %.cont73.us, !llvm.loop !26
 
 .cont73.thread:                                   ; preds = %.cont73.thread.preheader, %.cont73.thread
   %.0129 = phi i32 [ %47, %.cont73.thread ], [ 0, %.cont73.thread.preheader ]
@@ -4202,144 +4203,152 @@ proto_item_set_hidden.exit:                       ; preds = %19, %16, %13, %6
   %exitcond.not = icmp eq i32 %47, 6
   br i1 %exitcond.not, label %.split.us, label %.cont73.thread, !llvm.loop !26
 
-.split.us:                                        ; preds = %.cont73.thread, %.cont73.us
-  %.us-phi = phi i32 [ %spec.select.us, %.cont73.us ], [ 0, %.cont73.thread ]
-  %.us-phi130 = phi i32 [ %33, %.cont73.us ], [ %43, %.cont73.thread ]
+.split.us:                                        ; preds = %.cont73.thread
   %48 = icmp sgt i32 %4, 0
-  br i1 %48, label %49, label %proto_item_set_hidden.exit67
+  br i1 %48, label %.else, label %proto_item_set_hidden.exit67
 
-49:                                               ; preds = %.split.us
-  %50 = add i32 %.us-phi130, -6
-  %51 = lshr i32 %50, 3
-  %52 = and i32 %.us-phi130, 6
+.split.us.thread:                                 ; preds = %.cont73.us
+  %49 = icmp sgt i32 %4, 0
+  br i1 %49, label %.thread, label %proto_item_set_hidden.exit67
+
+.thread:                                          ; preds = %.split.us.thread
+  %50 = and i32 %33, 6
+  %.not63141 = icmp eq i32 %50, 6
+  %51 = select i1 %.not63141, i32 1, i32 2
+  br label %.cont
+
+.else:                                            ; preds = %.split.us
+  %52 = and i32 %43, 6
   %.not63 = icmp eq i32 %52, 6
   %53 = select i1 %.not63, i32 1, i32 2
-  br i1 %.not, label %.cont, label %.else
-
-.else:                                            ; preds = %49
   %.else.val = load i32, ptr %5, align 4
   br label %.cont
 
-.cont:                                            ; preds = %49, %.else
-  %54 = phi i32 [ %.us-phi, %49 ], [ %.else.val, %.else ]
-  %55 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %51, i32 noundef %53, i32 noundef %54)
-  %56 = load i8, ptr @display_internal_per_fields, align 1, !range !6, !noundef !7
-  %57 = trunc nuw i8 %56 to i1
-  %.not.i65 = icmp eq ptr %55, null
-  %or.cond = select i1 %57, i1 true, i1 %.not.i65
-  br i1 %or.cond, label %proto_item_set_hidden.exit67, label %58
+.cont:                                            ; preds = %.thread, %.else
+  %54 = phi i32 [ %53, %.else ], [ %51, %.thread ]
+  %.in151.in = phi i32 [ %.060128, %.else ], [ %.060128.us, %.thread ]
+  %.us-phi130138142 = phi i32 [ %43, %.else ], [ %33, %.thread ]
+  %55 = phi i32 [ %.else.val, %.else ], [ %spec.select.us, %.thread ]
+  %.in151 = add i32 %.in151.in, -5
+  %56 = lshr i32 %.in151, 3
+  %57 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %56, i32 noundef %54, i32 noundef %55)
+  %58 = load i8, ptr @display_internal_per_fields, align 1, !range !6, !noundef !7
+  %59 = trunc nuw i8 %58 to i1
+  %.not.i65 = icmp eq ptr %57, null
+  %or.cond = select i1 %59, i1 true, i1 %.not.i65
+  br i1 %or.cond, label %proto_item_set_hidden.exit67, label %60
 
-58:                                               ; preds = %.cont
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %.not5.i66 = icmp eq ptr %60, null
+60:                                               ; preds = %.cont
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %.not5.i66 = icmp eq ptr %62, null
   br i1 %.not5.i66, label %proto_item_set_hidden.exit67, label %proto_item_set_hidden.exit67.sink.split
 
-61:                                               ; preds = %proto_item_set_hidden.exit
-  %62 = load i32, ptr @hf_per_normally_small_nonnegative_whole_number_length, align 4
-  %63 = call i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, i32 noundef %62, ptr noundef nonnull %8, ptr noundef null)
-  %64 = load i32, ptr %8, align 4
-  switch i32 %64, label %76 [
-    i32 0, label %65
-    i32 1, label %66
-    i32 2, label %69
-    i32 3, label %72
-    i32 4, label %74
+63:                                               ; preds = %proto_item_set_hidden.exit
+  %64 = load i32, ptr @hf_per_normally_small_nonnegative_whole_number_length, align 4
+  %65 = call i32 @dissect_per_length_determinant(ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, i32 noundef %64, ptr noundef nonnull %8, ptr noundef null)
+  %66 = load i32, ptr %8, align 4
+  switch i32 %66, label %78 [
+    i32 0, label %67
+    i32 1, label %68
+    i32 2, label %71
+    i32 3, label %74
+    i32 4, label %76
   ]
 
-65:                                               ; preds = %61
+67:                                               ; preds = %63
   br i1 %.not, label %.cont83.thread120, label %.cont83.thread
 
-66:                                               ; preds = %61
-  %67 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %63, i32 noundef 8)
-  %68 = zext i8 %67 to i32
+68:                                               ; preds = %63
+  %69 = call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %65, i32 noundef 8)
+  %70 = zext i8 %69 to i32
   br i1 %.not, label %.cont83, label %.cont83.sink.split
 
-69:                                               ; preds = %61
-  %70 = call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %63, i32 noundef 16, i32 noundef 0)
-  %71 = zext i16 %70 to i32
+71:                                               ; preds = %63
+  %72 = call zeroext i16 @tvb_get_bits16(ptr noundef %0, i32 noundef %65, i32 noundef 16, i32 noundef 0)
+  %73 = zext i16 %72 to i32
   br i1 %.not, label %.cont83, label %.cont83.sink.split
 
-72:                                               ; preds = %61
-  %73 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %63, i32 noundef 24, i32 noundef 0)
+74:                                               ; preds = %63
+  %75 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %65, i32 noundef 24, i32 noundef 0)
   br i1 %.not, label %.cont83, label %.cont83.sink.split
 
-74:                                               ; preds = %61
-  %75 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %63, i32 noundef 32, i32 noundef 0)
+76:                                               ; preds = %63
+  %77 = call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef %65, i32 noundef 32, i32 noundef 0)
   br i1 %.not, label %.cont83, label %.cont83.sink.split
 
-76:                                               ; preds = %61
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %78, ptr noundef nonnull @ei_per_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.178)
-  %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  %81 = load ptr, ptr %80, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.178)
+78:                                               ; preds = %63
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %80, ptr noundef nonnull @ei_per_undecoded, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.178)
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %83 = load ptr, ptr %82, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %83, i32 noundef 25, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.178)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #12
   unreachable
 
-.cont83.sink.split:                               ; preds = %74, %72, %69, %66
-  %.sink142 = phi i32 [ %68, %66 ], [ %71, %69 ], [ %73, %72 ], [ %75, %74 ]
-  %.sink.ph = phi i32 [ 8, %66 ], [ 16, %69 ], [ 24, %72 ], [ 32, %74 ]
-  store i32 %.sink142, ptr %5, align 4
+.cont83.sink.split:                               ; preds = %76, %74, %71, %68
+  %.sink149 = phi i32 [ %70, %68 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ]
+  %.sink.ph = phi i32 [ 8, %68 ], [ 16, %71 ], [ 24, %74 ], [ 32, %76 ]
+  store i32 %.sink149, ptr %5, align 4
   br label %.cont83
 
-.cont83:                                          ; preds = %.cont83.sink.split, %74, %72, %69, %66
-  %.sink = phi i32 [ 8, %66 ], [ 16, %69 ], [ 24, %72 ], [ 32, %74 ], [ %.sink.ph, %.cont83.sink.split ]
-  %.2 = phi i32 [ %68, %66 ], [ %71, %69 ], [ %73, %72 ], [ %75, %74 ], [ undef, %.cont83.sink.split ]
-  %82 = add i32 %63, %.sink
-  %83 = icmp sgt i32 %4, 0
-  br i1 %83, label %86, label %proto_item_set_hidden.exit67
-
-.cont83.thread120:                                ; preds = %65
-  %84 = icmp sgt i32 %4, 0
-  br i1 %84, label %.cont95, label %proto_item_set_hidden.exit67
-
-.cont83.thread:                                   ; preds = %65
-  store i32 0, ptr %5, align 4
+.cont83:                                          ; preds = %.cont83.sink.split, %76, %74, %71, %68
+  %.sink = phi i32 [ 8, %68 ], [ 16, %71 ], [ 24, %74 ], [ 32, %76 ], [ %.sink.ph, %.cont83.sink.split ]
+  %.2 = phi i32 [ %70, %68 ], [ %73, %71 ], [ %75, %74 ], [ %77, %76 ], [ undef, %.cont83.sink.split ]
+  %84 = add i32 %65, %.sink
   %85 = icmp sgt i32 %4, 0
-  br i1 %85, label %.cont95, label %proto_item_set_hidden.exit67
+  br i1 %85, label %88, label %proto_item_set_hidden.exit67
 
-86:                                               ; preds = %.cont83
-  %87 = load i32, ptr %8, align 4
-  %88 = shl i32 %87, 3
-  %89 = sub i32 %82, %88
+.cont83.thread120:                                ; preds = %67
+  %86 = icmp sgt i32 %4, 0
+  br i1 %86, label %.cont95, label %proto_item_set_hidden.exit67
+
+.cont83.thread:                                   ; preds = %67
+  store i32 0, ptr %5, align 4
+  %87 = icmp sgt i32 %4, 0
+  br i1 %87, label %.cont95, label %proto_item_set_hidden.exit67
+
+88:                                               ; preds = %.cont83
+  %89 = load i32, ptr %8, align 4
+  %90 = shl i32 %89, 3
+  %91 = sub i32 %84, %90
   br i1 %.not, label %.cont95, label %..else97_crit_edge
 
-..else97_crit_edge:                               ; preds = %86
+..else97_crit_edge:                               ; preds = %88
   %.else.val98.pre = load i32, ptr %5, align 4
   br label %.cont95
 
-.cont95:                                          ; preds = %.cont83.thread, %.cont83.thread120, %..else97_crit_edge, %86
-  %.in = phi i32 [ %89, %86 ], [ %89, %..else97_crit_edge ], [ %63, %.cont83.thread120 ], [ %63, %.cont83.thread ]
-  %90 = phi i32 [ %87, %86 ], [ %87, %..else97_crit_edge ], [ 0, %.cont83.thread120 ], [ 0, %.cont83.thread ]
-  %.1114119 = phi i32 [ %82, %86 ], [ %82, %..else97_crit_edge ], [ %63, %.cont83.thread120 ], [ %63, %.cont83.thread ]
-  %91 = phi i32 [ %.2, %86 ], [ %.else.val98.pre, %..else97_crit_edge ], [ 0, %.cont83.thread120 ], [ 0, %.cont83.thread ]
-  %92 = lshr i32 %.in, 3
-  %93 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %92, i32 noundef %90, i32 noundef %91)
-  %94 = load i8, ptr @display_internal_per_fields, align 1, !range !6, !noundef !7
-  %95 = trunc nuw i8 %94 to i1
-  %.not.i68 = icmp eq ptr %93, null
-  %or.cond126 = select i1 %95, i1 true, i1 %.not.i68
-  br i1 %or.cond126, label %proto_item_set_hidden.exit67, label %96
+.cont95:                                          ; preds = %.cont83.thread, %.cont83.thread120, %..else97_crit_edge, %88
+  %.in = phi i32 [ %91, %88 ], [ %91, %..else97_crit_edge ], [ %65, %.cont83.thread120 ], [ %65, %.cont83.thread ]
+  %92 = phi i32 [ %89, %88 ], [ %89, %..else97_crit_edge ], [ 0, %.cont83.thread120 ], [ 0, %.cont83.thread ]
+  %.1114119 = phi i32 [ %84, %88 ], [ %84, %..else97_crit_edge ], [ %65, %.cont83.thread120 ], [ %65, %.cont83.thread ]
+  %93 = phi i32 [ %.2, %88 ], [ %.else.val98.pre, %..else97_crit_edge ], [ 0, %.cont83.thread120 ], [ 0, %.cont83.thread ]
+  %94 = lshr i32 %.in, 3
+  %95 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %94, i32 noundef %92, i32 noundef %93)
+  %96 = load i8, ptr @display_internal_per_fields, align 1, !range !6, !noundef !7
+  %97 = trunc nuw i8 %96 to i1
+  %.not.i68 = icmp eq ptr %95, null
+  %or.cond126 = select i1 %97, i1 true, i1 %.not.i68
+  br i1 %or.cond126, label %proto_item_set_hidden.exit67, label %98
 
-96:                                               ; preds = %.cont95
-  %97 = getelementptr inbounds nuw i8, ptr %93, i64 40
-  %98 = load ptr, ptr %97, align 8
-  %.not5.i69 = icmp eq ptr %98, null
+98:                                               ; preds = %.cont95
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 40
+  %100 = load ptr, ptr %99, align 8
+  %.not5.i69 = icmp eq ptr %100, null
   br i1 %.not5.i69, label %proto_item_set_hidden.exit67, label %proto_item_set_hidden.exit67.sink.split
 
-proto_item_set_hidden.exit67.sink.split:          ; preds = %96, %58
-  %.sink141 = phi ptr [ %60, %58 ], [ %98, %96 ]
-  %.059.ph = phi i32 [ %.us-phi130, %58 ], [ %.1114119, %96 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sink141, i64 28
-  %100 = load i32, ptr %99, align 4
-  %101 = or i32 %100, 1
-  store i32 %101, ptr %99, align 4
+proto_item_set_hidden.exit67.sink.split:          ; preds = %98, %60
+  %.sink148 = phi ptr [ %62, %60 ], [ %100, %98 ]
+  %.059.ph = phi i32 [ %.us-phi130138142, %60 ], [ %.1114119, %98 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.sink148, i64 28
+  %102 = load i32, ptr %101, align 4
+  %103 = or i32 %102, 1
+  store i32 %103, ptr %101, align 4
   br label %proto_item_set_hidden.exit67
 
-proto_item_set_hidden.exit67:                     ; preds = %proto_item_set_hidden.exit67.sink.split, %96, %.cont83.thread120, %.cont83.thread, %58, %.cont83, %.cont95, %.split.us, %.cont
-  %.059 = phi i32 [ %.us-phi130, %.cont ], [ %.us-phi130, %.split.us ], [ %.1114119, %.cont95 ], [ %82, %.cont83 ], [ %.us-phi130, %58 ], [ %63, %.cont83.thread ], [ %63, %.cont83.thread120 ], [ %.1114119, %96 ], [ %.059.ph, %proto_item_set_hidden.exit67.sink.split ]
+proto_item_set_hidden.exit67:                     ; preds = %proto_item_set_hidden.exit67.sink.split, %.split.us.thread, %98, %.cont83.thread120, %.cont83.thread, %60, %.cont83, %.cont95, %.split.us, %.cont
+  %.059 = phi i32 [ %.us-phi130138142, %.cont ], [ %43, %.split.us ], [ %.1114119, %.cont95 ], [ %84, %.cont83 ], [ %.us-phi130138142, %60 ], [ %65, %.cont83.thread ], [ %65, %.cont83.thread120 ], [ %.1114119, %98 ], [ %33, %.split.us.thread ], [ %.059.ph, %proto_item_set_hidden.exit67.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #13
   ret i32 %.059

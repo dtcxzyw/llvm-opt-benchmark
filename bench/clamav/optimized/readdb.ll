@@ -4643,7 +4643,7 @@ load_oneyara.exit.thread147:                      ; preds = %load_oneyara.exit.t
   br label %.backedge
 
 load_oneyara.exit:                                ; preds = %338, %._crit_edge.i366.i
-  call void @free(ptr noundef %106) #21
+  call void @free(ptr noundef nonnull %106) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21

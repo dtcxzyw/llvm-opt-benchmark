@@ -251,7 +251,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
 25:                                               ; preds = %17, %14
   %.sroa.03.1.i12.i.i.i = phi i64 [ %24, %17 ], [ %.sroa.03.0.i10.i.i.i, %14 ]
   %.sroa.0.1.i13.i.i.i = phi i64 [ %23, %17 ], [ %.sroa.0.0.i11.i.i.i, %14 ]
-  %26 = icmp ult i64 %.sroa.03.1.i12.i.i.i, %8
+  %26 = icmp samesign ult i64 %.sroa.03.1.i12.i.i.i, %8
   br i1 %26, label %27, label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h7c53e0c190c8bc72E.exit"
 
 27:                                               ; preds = %25
@@ -263,7 +263,7 @@ define hidden void @_ZN10phf_shared4hash17h905183aa0b0b0ccfE.llvm.85372212612730
   %32 = zext i8 %31 to i64
   %33 = shl nuw nsw i64 %.sroa.03.1.i12.i.i.i, 3
   %34 = and i64 %33, 56
-  %35 = shl nuw i64 %32, %34
+  %35 = shl nuw nsw i64 %32, %34
   %36 = or i64 %35, %.sroa.0.1.i13.i.i.i
   br label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h7c53e0c190c8bc72E.exit"
 

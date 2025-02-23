@@ -1319,19 +1319,19 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader111, label %81
 
-._crit_edge:                                      ; preds = %136
+.lr.ph.i:                                         ; preds = %136
   %92 = load ptr, ptr %12, align 8, !tbaa !125
   %.not.i85 = icmp eq ptr %92, null
   %93 = sext i32 %69 to i64
   %wide.trip.count83.i = sext i32 %76 to i64
   br i1 %.not.i85, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
-.lr.ph.split.us.i:                                ; preds = %._crit_edge, %.lr.ph.split.us.i
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.lr.ph.split.us.i ], [ %93, %._crit_edge ]
-  %.064.us.i = phi float [ %101, %.lr.ph.split.us.i ], [ 0x47EFFFFFE0000000, %._crit_edge ]
-  %.05263.us.i = phi float [ %103, %.lr.ph.split.us.i ], [ 0x3810000000000000, %._crit_edge ]
-  %.05462.us.i = phi float [ %105, %.lr.ph.split.us.i ], [ 0x47EFFFFFE0000000, %._crit_edge ]
-  %.05661.us.i = phi float [ %107, %.lr.ph.split.us.i ], [ 0x3810000000000000, %._crit_edge ]
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
+  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %.lr.ph.split.us.i ], [ %93, %.lr.ph.i ]
+  %.064.us.i = phi float [ %101, %.lr.ph.split.us.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
+  %.05263.us.i = phi float [ %103, %.lr.ph.split.us.i ], [ 0x3810000000000000, %.lr.ph.i ]
+  %.05462.us.i = phi float [ %105, %.lr.ph.split.us.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
+  %.05661.us.i = phi float [ %107, %.lr.ph.split.us.i ], [ 0x3810000000000000, %.lr.ph.i ]
   %94 = shl nsw i64 %indvars.iv80.i, 1
   %95 = getelementptr inbounds float, ptr %.pre, i64 %94
   %96 = load float, ptr %95, align 4, !tbaa !93
@@ -1350,12 +1350,12 @@ dt_get_debug_wtime.exit:                          ; preds = %17, %19
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count83.i
   br i1 %exitcond84.not.i, label %_brush_bounding_box_raw.exit, label %.lr.ph.split.us.i
 
-.lr.ph.split.i:                                   ; preds = %._crit_edge, %.lr.ph.split.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ %93, %._crit_edge ]
-  %.064.i = phi float [ %127, %.lr.ph.split.i ], [ 0x47EFFFFFE0000000, %._crit_edge ]
-  %.05263.i = phi float [ %129, %.lr.ph.split.i ], [ 0x3810000000000000, %._crit_edge ]
-  %.05462.i = phi float [ %131, %.lr.ph.split.i ], [ 0x47EFFFFFE0000000, %._crit_edge ]
-  %.05661.i = phi float [ %133, %.lr.ph.split.i ], [ 0x3810000000000000, %._crit_edge ]
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ %93, %.lr.ph.i ]
+  %.064.i = phi float [ %127, %.lr.ph.split.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
+  %.05263.i = phi float [ %129, %.lr.ph.split.i ], [ 0x3810000000000000, %.lr.ph.i ]
+  %.05462.i = phi float [ %131, %.lr.ph.split.i ], [ 0x47EFFFFFE0000000, %.lr.ph.i ]
+  %.05661.i = phi float [ %133, %.lr.ph.split.i ], [ 0x3810000000000000, %.lr.ph.i ]
   %108 = shl nsw i64 %indvars.iv.i, 1
   %109 = getelementptr inbounds float, ptr %92, i64 %108
   %110 = load float, ptr %109, align 4, !tbaa !93
@@ -1412,7 +1412,7 @@ _brush_bounding_box_raw.exit:                     ; preds = %.lr.ph.split.i, %.l
   store float %146, ptr %141, align 4, !tbaa !93
   %indvars.iv.next138 = add nsw i64 %indvars.iv137, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
-  br i1 %exitcond141.not, label %._crit_edge, label %136
+  br i1 %exitcond141.not, label %.lr.ph.i, label %136
 
 147:                                              ; preds = %_brush_bounding_box_raw.exit
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2224,7 +2224,7 @@ g_list_next_wraparound.exit:                      ; preds = %151, %154
   br label %.loopexit
 
 .loopexit:                                        ; preds = %331, %352
-  call void @dt_masks_gui_form_create(ptr noundef %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #19
+  call void @dt_masks_gui_form_create(ptr noundef nonnull %6, ptr noundef nonnull %8, i32 noundef %9, ptr noundef %0) #19
   call void (...) @dt_control_queue_redraw_center() #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #19
   br label %.critedge341
@@ -7460,7 +7460,6 @@ dt_masks_dynbuf_reserve_n.exit105:                ; preds = %dt_masks_dynbuf_res
 
 .lr.ph.preheader:                                 ; preds = %dt_masks_dynbuf_reserve_n.exit105
   %76 = getelementptr inbounds nuw float, ptr %73, i64 %72
-  %smax = tail call i32 @llvm.smax.i32(i32 %.090, i32 2)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7490,7 +7489,7 @@ dt_masks_dynbuf_reserve_n.exit105:                ; preds = %dt_masks_dynbuf_res
   %90 = getelementptr inbounds nuw i8, ptr %.08410, i64 8
   store float %89, ptr %85, align 4, !tbaa !93
   %91 = add nuw nsw i32 %.011, 1
-  %exitcond.not = icmp eq i32 %91, %smax
+  %exitcond.not = icmp eq i32 %91, %.090
   br i1 %exitcond.not, label %dt_masks_dynbuf_reserve_n.exit105.thread, label %.lr.ph
 
 dt_masks_dynbuf_reserve_n.exit105.thread:         ; preds = %.lr.ph, %67, %70, %15, %dt_masks_dynbuf_reserve_n.exit105, %4

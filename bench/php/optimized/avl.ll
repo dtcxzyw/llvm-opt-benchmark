@@ -1106,7 +1106,7 @@ define hidden void @lexbor_avl_remove_by_node(ptr noundef captures(none) %0, ptr
 
 lexbor_avl_rotate_for_delete.exit:                ; preds = %.lr.ph.i, %64
   %66 = load ptr, ptr %0, align 8, !tbaa !10
-  %67 = tail call ptr @lexbor_dobject_free(ptr noundef %66, ptr noundef %2) #7
+  %67 = tail call ptr @lexbor_dobject_free(ptr noundef %66, ptr noundef nonnull %2) #7
   ret void
 }
 

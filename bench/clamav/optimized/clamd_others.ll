@@ -1348,7 +1348,7 @@ define dso_local void @fds_cleanup(ptr noundef captures(none) %0) local_unnamed_
   store i32 -1, ptr %33, align 8, !tbaa !29
   %34 = add i32 %.13448, 1
   %35 = zext i32 %34 to i64
-  %36 = icmp ugt i64 %.lcssa, %35
+  %36 = icmp samesign ugt i64 %.lcssa, %35
   br i1 %36, label %31, label %._crit_edge50
 
 ._crit_edge50:                                    ; preds = %31, %.preheader

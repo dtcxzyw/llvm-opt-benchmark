@@ -3406,7 +3406,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15RegionLayerImpl11do_nms_sortEPfiff(
 
 _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %5
   %.not.i.i.i.i = icmp eq i32 %2, 0
-  br i1 %.not.i.i.i.i, label %._crit_edge.thread, label %.lr.ph.preheader.i.i.i.i.i
+  br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %11 = shl nuw nsw i64 %9, 5
@@ -3484,48 +3484,47 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
   store double %53, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !37
+  br i1 %exitcond.not, label %._crit_edge.thread, label %26, !llvm.loop !37
 
 55:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
   %56 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-._crit_edge:                                      ; preds = %26
+._crit_edge:                                      ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %58 = load i32, ptr %57, align 4
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.preheader.lr.ph, label %_ZNSt6vectorIiSaIiEED2Ev.exit63
+  br i1 %59, label %.preheader.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit63
 
-._crit_edge.thread:                               ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
+._crit_edge.thread:                               ; preds = %26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %61 = load i32, ptr %60, align 4
   %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %.preheader.lr.ph.thread, label %_ZNSt6vectorIiSaIiEED2Ev.exit63
+  br i1 %62, label %.preheader.us.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit63
 
-.preheader.lr.ph.thread:                          ; preds = %._crit_edge.thread
+.preheader.us.preheader:                          ; preds = %._crit_edge.thread
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %.preheader
-
-.preheader.lr.ph:                                 ; preds = %._crit_edge
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %smax87 = tail call i32 @llvm.smax.i32(i32 %2, i32 1)
-  %wide.trip.count88 = zext nneg i32 %smax87 to i64
+  %wide.trip.count88 = zext nneg i32 %2 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge78.us
-  %.05279.us = phi i32 [ %77, %._crit_edge78.us ], [ 0, %.preheader.lr.ph ]
+.preheader.preheader:                             ; preds = %._crit_edge
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %.preheader
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge78.us
+  %.05279.us = phi i32 [ %77, %._crit_edge78.us ], [ 0, %.preheader.us.preheader ]
   %67 = add nuw i32 %.05279.us, 5
   br label %94
 
 68:                                               ; preds = %._crit_edge74.us
-  %69 = load ptr, ptr %66, align 8
+  %69 = load ptr, ptr %64, align 8
   %70 = load ptr, ptr %8, align 8
   %71 = ptrtoint ptr %69 to i64
   %72 = ptrtoint ptr %70 to i64
@@ -3537,7 +3536,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
 
 ._crit_edge78.us:                                 ; preds = %80, %68
   %77 = add nuw nsw i32 %.05279.us, 1
-  %78 = load i32, ptr %57, align 4
+  %78 = load i32, ptr %60, align 4
   %79 = icmp slt i32 %77, %78
   br i1 %79, label %.preheader.us, label %._crit_edge80, !llvm.loop !38
 
@@ -3545,8 +3544,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
   %indvars.iv90 = phi i64 [ 0, %.lr.ph77.us ], [ %indvars.iv.next91, %80 ]
   %81 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv90
   %82 = load i32, ptr %81, align 4
-  %83 = load i32, ptr %57, align 4
-  %84 = load i32, ptr %65, align 8
+  %83 = load i32, ptr %60, align 4
+  %84 = load i32, ptr %63, align 8
   %85 = add i32 %83, 1
   %86 = add i32 %85, %84
   %87 = mul nsw i32 %86, %82
@@ -3563,8 +3562,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
 
 94:                                               ; preds = %.preheader.us, %94
   %indvars.iv84 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next85, %94 ]
-  %95 = load i32, ptr %57, align 4
-  %96 = load i32, ptr %65, align 8
+  %95 = load i32, ptr %60, align 4
+  %96 = load i32, ptr %63, align 8
   %97 = add i32 %95, 1
   %98 = add i32 %97, %96
   %99 = trunc nuw nsw i64 %indvars.iv84 to i32
@@ -3595,13 +3594,13 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
           cleanup
   br label %135
 
-.preheader:                                       ; preds = %.preheader.lr.ph.thread, %._crit_edge78
-  %.05279 = phi i32 [ %140, %._crit_edge78 ], [ 0, %.preheader.lr.ph.thread ]
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge78
+  %.05279 = phi i32 [ %140, %._crit_edge78 ], [ 0, %.preheader.preheader ]
   invoke void @_ZN2cv3dnn14dnn4_v202405218NMSBoxesERKSt6vectorINS_5Rect_IdEESaIS4_EERKS2_IfSaIfEEffRS2_IiSaIiEEfi(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, float noundef %3, float noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %8, float noundef 1.000000e+00, i32 noundef 0)
           to label %109 unwind label %.split
 
 109:                                              ; preds = %.preheader
-  %110 = load ptr, ptr %64, align 8
+  %110 = load ptr, ptr %66, align 8
   %111 = load ptr, ptr %8, align 8
   %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
@@ -3621,8 +3620,8 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc60
   %indvars.iv95 = phi i64 [ 0, %.lr.ph77 ], [ %indvars.iv.next96, %120 ]
   %121 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv95
   %122 = load i32, ptr %121, align 4
-  %123 = load i32, ptr %60, align 4
-  %124 = load i32, ptr %63, align 8
+  %123 = load i32, ptr %57, align 4
+  %124 = load i32, ptr %65, align 8
   %125 = add i32 %123, 1
   %126 = add i32 %125, %124
   %127 = mul nsw i32 %126, %122
@@ -3663,7 +3662,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %135, %137
 
 ._crit_edge78:                                    ; preds = %120, %109
   %140 = add nuw nsw i32 %.05279, 1
-  %141 = load i32, ptr %60, align 4
+  %141 = load i32, ptr %57, align 4
   %142 = icmp slt i32 %140, %141
   br i1 %142, label %.preheader, label %._crit_edge80, !llvm.loop !38
 
@@ -3917,9 +3916,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

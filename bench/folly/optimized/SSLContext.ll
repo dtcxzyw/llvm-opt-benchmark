@@ -4989,7 +4989,7 @@ define void @_ZN5folly10SSLContext21setClientECCurvesListERKSt6vectorINSt7__cxx1
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %._crit_edge.i.i.i
-  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(2) @.str.32, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1), ptr %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(2) @.str.32, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1), ptr nonnull %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN5folly4joinIA2_cSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EES8_EEvRKT_RKT0_RT1_.exit unwind label %34
 
 _ZN5folly4joinIA2_cSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EES8_EEvRKT_RKT0_RT1_.exit: ; preds = %.noexc
@@ -5359,7 +5359,7 @@ define void @_ZN5folly10SSLContext18setSupportedGroupsERKSt6vectorINSt7__cxx1112
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %._crit_edge.i.i.i
-  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(2) @.str.32, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1), ptr %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(2) @.str.32, ptr nonnull getelementptr inbounds nuw (i8, ptr @.str.32, i64 1), ptr nonnull %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZN5folly4joinIA2_cSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EES8_EEvRKT_RKT0_RT1_.exit unwind label %34
 
 _ZN5folly4joinIA2_cSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EES8_EEvRKT_RKT0_RT1_.exit: ; preds = %.noexc

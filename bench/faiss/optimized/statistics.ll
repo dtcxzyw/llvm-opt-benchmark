@@ -164,7 +164,7 @@ define noundef double @_ZN9benchmark16StatisticsMedianERKSt6vectorIdSaIdEE(ptr n
   br i1 %.not.i.i.i, label %"_ZNK9benchmark3$_0clERKSt6vectorIdSaIdEE.exit.i", label %.lr.ph.i.i.i, !llvm.loop !10
 
 "_ZNK9benchmark3$_0clERKSt6vectorIdSaIdEE.exit.i": ; preds = %.lr.ph.i.i.i
-  %14 = uitofp i64 %8 to double
+  %14 = uitofp nneg i64 %8 to double
   %15 = fdiv double 1.000000e+00, %14
   %16 = fmul double %15, %12
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
@@ -283,44 +283,44 @@ define noundef double @_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE(ptr n
   %7 = fadd double %.07.i.i.i, %6
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %8, %4
-  br i1 %.not.i.i.i, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %9, label %.lr.ph.i.i.i, !llvm.loop !10
 
-_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i.i.i
-  %9 = ptrtoint ptr %4 to i64
-  %10 = ptrtoint ptr %2 to i64
-  %11 = sub i64 %9, %10
-  %12 = ashr exact i64 %11, 3
-  %13 = uitofp i64 %12 to double
-  %14 = fdiv double 1.000000e+00, %13
-  %15 = fmul double %14, %7
-  %16 = icmp eq i64 %11, 8
-  br i1 %16, label %"_ZNK9benchmark3$_2clEd.exit", label %.lr.ph.i.i
+9:                                                ; preds = %.lr.ph.i.i.i
+  %10 = ptrtoint ptr %4 to i64
+  %11 = ptrtoint ptr %2 to i64
+  %12 = sub i64 %10, %11
+  %13 = ashr exact i64 %12, 3
+  %14 = uitofp i64 %13 to double
+  %15 = fdiv double 1.000000e+00, %14
+  %16 = fmul double %15, %7
+  %17 = icmp eq i64 %12, 8
+  br i1 %17, label %"_ZNK9benchmark3$_2clEd.exit", label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, %.lr.ph.i.i
-  %.010.i.i = phi double [ %18, %.lr.ph.i.i ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
-  %.sroa.0.09.i.i = phi ptr [ %19, %.lr.ph.i.i ], [ %2, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
-  %17 = load double, ptr %.sroa.0.09.i.i, align 8, !tbaa !8
-  %18 = tail call double @llvm.fmuladd.f64(double %17, double %17, double %.010.i.i)
-  %19 = getelementptr i8, ptr %.sroa.0.09.i.i, i64 8
-  %.not.i.i = icmp eq ptr %19, %4
+.lr.ph.i.i:                                       ; preds = %9, %.lr.ph.i.i
+  %.010.i.i = phi double [ %19, %.lr.ph.i.i ], [ 0.000000e+00, %9 ]
+  %.sroa.0.09.i.i = phi ptr [ %20, %.lr.ph.i.i ], [ %2, %9 ]
+  %18 = load double, ptr %.sroa.0.09.i.i, align 8, !tbaa !8
+  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.010.i.i)
+  %20 = getelementptr i8, ptr %.sroa.0.09.i.i, i64 8
+  %.not.i.i = icmp eq ptr %20, %4
   br i1 %.not.i.i, label %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit", label %.lr.ph.i.i, !llvm.loop !17
 
 "_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit":  ; preds = %.lr.ph.i.i
-  %20 = fmul double %14, %18
-  %21 = fadd double %13, -1.000000e+00
-  %22 = fdiv double %13, %21
-  %23 = fmul double %15, %15
-  %24 = fsub double %20, %23
-  %25 = fmul double %22, %24
-  %26 = fcmp olt double %25, 0.000000e+00
-  br i1 %26, label %"_ZNK9benchmark3$_2clEd.exit", label %27
+  %21 = fmul double %15, %19
+  %22 = fadd double %14, -1.000000e+00
+  %23 = fdiv double %14, %22
+  %24 = fmul double %16, %16
+  %25 = fsub double %21, %24
+  %26 = fmul double %23, %25
+  %27 = fcmp olt double %26, 0.000000e+00
+  br i1 %27, label %"_ZNK9benchmark3$_2clEd.exit", label %28
 
-27:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit"
-  %28 = tail call double @sqrt(double noundef %25) #29, !tbaa !18
+28:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit"
+  %29 = tail call double @sqrt(double noundef %26) #29, !tbaa !18
   br label %"_ZNK9benchmark3$_2clEd.exit"
 
-"_ZNK9benchmark3$_2clEd.exit":                    ; preds = %1, %27, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit", %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
-  %.0 = phi double [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ], [ %28, %27 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit" ], [ 0.000000e+00, %1 ]
+"_ZNK9benchmark3$_2clEd.exit":                    ; preds = %1, %28, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit", %9
+  %.0 = phi double [ 0.000000e+00, %9 ], [ %29, %28 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit" ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 
@@ -345,62 +345,62 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
   %12 = fadd double %.07.i.i.i.i, %11
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %3
-  br i1 %.not.i.i.i.i, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %14, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
-_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %14 = uitofp i64 %8 to double
-  %15 = fdiv double 1.000000e+00, %14
-  %16 = fmul double %15, %12
-  %17 = icmp eq i64 %7, 8
-  br i1 %17, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i
+14:                                               ; preds = %.lr.ph.i.i.i.i
+  %15 = uitofp i64 %8 to double
+  %16 = fdiv double 1.000000e+00, %15
+  %17 = fmul double %16, %12
+  %18 = icmp eq i64 %7, 8
+  br i1 %18, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i, %.lr.ph.i.i.i
-  %.010.i.i.i = phi double [ %19, %.lr.ph.i.i.i ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i ]
-  %.sroa.0.09.i.i.i = phi ptr [ %20, %.lr.ph.i.i.i ], [ %4, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i ]
-  %18 = load double, ptr %.sroa.0.09.i.i.i, align 8, !tbaa !8
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double %18, double %.010.i.i.i)
-  %20 = getelementptr i8, ptr %.sroa.0.09.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %20, %3
+.lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
+  %.010.i.i.i = phi double [ %20, %.lr.ph.i.i.i ], [ 0.000000e+00, %14 ]
+  %.sroa.0.09.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %4, %14 ]
+  %19 = load double, ptr %.sroa.0.09.i.i.i, align 8, !tbaa !8
+  %20 = tail call double @llvm.fmuladd.f64(double %19, double %19, double %.010.i.i.i)
+  %21 = getelementptr i8, ptr %.sroa.0.09.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %21, %3
   br i1 %.not.i.i.i, label %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", label %.lr.ph.i.i.i, !llvm.loop !17
 
 "_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i": ; preds = %.lr.ph.i.i.i
-  %21 = fmul double %15, %19
-  %22 = fadd double %14, -1.000000e+00
-  %23 = fdiv double %14, %22
-  %24 = fmul double %16, %16
-  %25 = fsub double %21, %24
-  %26 = fmul double %23, %25
-  %27 = fcmp olt double %26, 0.000000e+00
-  br i1 %27, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %28
+  %22 = fmul double %16, %20
+  %23 = fadd double %15, -1.000000e+00
+  %24 = fdiv double %15, %23
+  %25 = fmul double %17, %17
+  %26 = fsub double %22, %25
+  %27 = fmul double %24, %26
+  %28 = fcmp olt double %27, 0.000000e+00
+  br i1 %28, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %29
 
-28:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i"
-  %29 = tail call double @sqrt(double noundef %26) #29, !tbaa !18
+29:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i"
+  %30 = tail call double @sqrt(double noundef %27) #29, !tbaa !18
   br label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit
 
-_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit: ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", %28
-  %.0.i = phi double [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.i ], [ %29, %28 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i" ]
+_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit: ; preds = %14, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", %29
+  %.0.i = phi double [ 0.000000e+00, %14 ], [ %30, %29 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i" ]
   br label %.lr.ph.i.i.i7
 
 .lr.ph.i.i.i7:                                    ; preds = %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, %.lr.ph.i.i.i7
-  %.07.i.i.i = phi double [ %31, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %.sroa.02.06.i.i.i = phi ptr [ %32, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %30 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
-  %31 = fadd double %.07.i.i.i, %30
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
-  %.not.i.i.i8 = icmp eq ptr %32, %3
+  %.07.i.i.i = phi double [ %32, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %.sroa.02.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %31 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
+  %32 = fadd double %.07.i.i.i, %31
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
+  %.not.i.i.i8 = icmp eq ptr %33, %3
   br i1 %.not.i.i.i8, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i7, !llvm.loop !10
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i.i.i7
-  %33 = fmul double %15, %31
-  %34 = fcmp oeq double %33, 0.000000e+00
-  br i1 %34, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
+  %34 = fmul double %16, %32
+  %35 = fcmp oeq double %34, 0.000000e+00
+  br i1 %35, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
 
 _ZSt10fpclassifyd.exit.thread:                    ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
-  %35 = fdiv double %.0.i, %33
+  %36 = fdiv double %.0.i, %34
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread: ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, %_ZSt10fpclassifyd.exit.thread, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %35, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %36, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
   ret double %.0
 }
 
@@ -3144,16 +3144,16 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %17 = or disjoint i64 %15, 1
-  %18 = getelementptr inbounds double, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw double, ptr %0, i64 %17
   %19 = getelementptr inbounds double, ptr %0, i64 %16
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %45
-  %.sroa.0.011.us = phi ptr [ %46, %45 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %43
+  %.sroa.0.011.us = phi ptr [ %44, %43 ], [ %1, %.lr.ph.split.us.preheader ]
   %20 = load double, ptr %.sroa.0.011.us, align 8, !tbaa !8
   %21 = load double, ptr %0, align 8, !tbaa !8
   %22 = fcmp olt double %20, %21
-  br i1 %22, label %.lr.ph.i.i.preheader.us, label %45
+  br i1 %22, label %.lr.ph.i.i.preheader.us, label %43
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   store double %21, ptr %.sroa.0.011.us, align 8, !tbaa !8
@@ -3178,122 +3178,125 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_itera
   br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !120
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
+
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
   %36 = load double, ptr %18, align 8, !tbaa !8
   store double %36, ptr %19, align 8, !tbaa !8
-  br label %37
+  br label %.lr.ph.i.i.i.us.preheader
 
-37:                                               ; preds = %35, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %17, %35 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %35
+  %.019.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %35 ], [ %17, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %42
-  %.019.i.i.i.us = phi i64 [ %.0920.i.i56.i.us, %42 ], [ %.1.i.i.us, %37 ]
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %40
+  %.019.i.i.i.us = phi i64 [ %.0920.i.i56.i.us, %40 ], [ %.019.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
   %.0920.i.i56.i.us = lshr i64 %.0920.in.i.i.i.us, 1
-  %39 = getelementptr inbounds nuw double, ptr %0, i64 %.0920.i.i56.i.us
-  %40 = load double, ptr %39, align 8, !tbaa !8
-  %41 = fcmp olt double %40, %20
-  br i1 %41, label %42, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us
+  %37 = getelementptr inbounds nuw double, ptr %0, i64 %.0920.i.i56.i.us
+  %38 = load double, ptr %37, align 8, !tbaa !8
+  %39 = fcmp olt double %38, %20
+  br i1 %39, label %40, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us
 
-42:                                               ; preds = %.lr.ph.i.i.i.us
-  %43 = getelementptr inbounds nuw double, ptr %0, i64 %.019.i.i.i.us
-  store double %40, ptr %43, align 8, !tbaa !8
-  %.not.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !121
+40:                                               ; preds = %.lr.ph.i.i.i.us
+  %41 = getelementptr inbounds double, ptr %0, i64 %.019.i.i.i.us
+  store double %38, ptr %41, align 8, !tbaa !8
+  %.not7.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  br i1 %.not7.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !121
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %42, %37
-  %.0.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %42 ]
-  %44 = getelementptr inbounds double, ptr %0, i64 %.0.lcssa.i.i.i.us
-  store double %20, ptr %44, align 8, !tbaa !8
-  br label %45
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %40, %35
+  %.0.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %40 ]
+  %42 = getelementptr inbounds double, ptr %0, i64 %.0.lcssa.i.i.i.us
+  store double %20, ptr %42, align 8, !tbaa !8
+  br label %43
 
-45:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, %.lr.ph.split.us
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %47 = icmp ult ptr %46, %2
-  br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !122
+43:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.us, %.lr.ph.split.us
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
+  %45 = icmp ult ptr %44, %2
+  br i1 %45, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %48 = icmp eq i64 %spec.select.i.i.us, %16
-  %or.cond = select i1 %14, i1 %48, i1 false
-  br i1 %or.cond, label %35, label %37
+  %46 = icmp eq i64 %spec.select.i.i.us, %16
+  %or.cond = select i1 %14, i1 %46, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %14, label %.lr.ph.split.split.us, label %.lr.ph.split.split.preheader
+
+.lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
+  %.pre = load double, ptr %0, align 8, !tbaa !8
+  br label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %50 = icmp eq i64 %15, 0
-  br i1 %50, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %48 = icmp eq i64 %15, 0
+  br i1 %48, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split.preheader
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %57
-  %.sroa.0.011.us12.us = phi ptr [ %58, %57 ], [ %1, %.lr.ph.split.split.us ]
-  %51 = load double, ptr %.sroa.0.011.us12.us, align 8, !tbaa !8
-  %52 = load double, ptr %0, align 8, !tbaa !8
-  %53 = fcmp olt double %51, %52
-  br i1 %53, label %._crit_edge.i.i.us13.us, label %57
+.lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
+  %.pre31 = load double, ptr %0, align 8, !tbaa !8
+  br label %.lr.ph.split.split.us.split
+
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %55
+  %.sroa.0.011.us12.us = phi ptr [ %56, %55 ], [ %1, %.lr.ph.split.split.us ]
+  %49 = load double, ptr %.sroa.0.011.us12.us, align 8, !tbaa !8
+  %50 = load double, ptr %0, align 8, !tbaa !8
+  %51 = fcmp olt double %49, %50
+  br i1 %51, label %._crit_edge.i.i.us13.us, label %55
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  store double %52, ptr %.sroa.0.011.us12.us, align 8, !tbaa !8
-  %54 = load double, ptr %49, align 8, !tbaa !8
-  store double %54, ptr %0, align 8, !tbaa !8
-  %55 = fcmp uge double %54, %51
-  %.0.lcssa.i.i.i.ph.us24.us = zext i1 %55 to i64
-  %56 = getelementptr inbounds nuw double, ptr %0, i64 %.0.lcssa.i.i.i.ph.us24.us
-  store double %51, ptr %56, align 8, !tbaa !8
-  br label %57
+  store double %50, ptr %.sroa.0.011.us12.us, align 8, !tbaa !8
+  %52 = load double, ptr %47, align 8, !tbaa !8
+  store double %52, ptr %0, align 8, !tbaa !8
+  %53 = fcmp uge double %52, %49
+  %.0.lcssa.i.i.i.ph.us23.us = zext i1 %53 to i64
+  %54 = getelementptr inbounds nuw double, ptr %0, i64 %.0.lcssa.i.i.i.ph.us23.us
+  store double %49, ptr %54, align 8, !tbaa !8
+  br label %55
 
-57:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %59 = icmp ult ptr %58, %2
-  br i1 %59, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !122
+55:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
+  %57 = icmp ult ptr %56, %2
+  br i1 %57, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !122
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.pre32 = load double, ptr %0, align 8, !tbaa !8
-  br label %60
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us.split.preheader, %61
+  %58 = phi double [ %62, %61 ], [ %.pre31, %.lr.ph.split.split.us.split.preheader ]
+  %.sroa.0.011.us12 = phi ptr [ %63, %61 ], [ %1, %.lr.ph.split.split.us.split.preheader ]
+  %59 = load double, ptr %.sroa.0.011.us12, align 8, !tbaa !8
+  %60 = fcmp olt double %59, %58
+  br i1 %60, label %._crit_edge.i.i.us13, label %61
 
-60:                                               ; preds = %64, %.lr.ph.split.split.us.split
-  %61 = phi double [ %.pre32, %.lr.ph.split.split.us.split ], [ %65, %64 ]
-  %.sroa.0.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %66, %64 ]
-  %62 = load double, ptr %.sroa.0.011.us12, align 8, !tbaa !8
-  %63 = fcmp olt double %62, %61
-  br i1 %63, label %._crit_edge.i.i.us13, label %64
+._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
+  store double %58, ptr %.sroa.0.011.us12, align 8, !tbaa !8
+  store double %59, ptr %0, align 8, !tbaa !8
+  br label %61
 
-._crit_edge.i.i.us13:                             ; preds = %60
-  store double %61, ptr %.sroa.0.011.us12, align 8, !tbaa !8
-  store double %62, ptr %0, align 8, !tbaa !8
-  br label %64
+61:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %62 = phi double [ %59, %._crit_edge.i.i.us13 ], [ %58, %.lr.ph.split.split.us.split ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
+  %64 = icmp ult ptr %63, %2
+  br i1 %64, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !122
 
-64:                                               ; preds = %._crit_edge.i.i.us13, %60
-  %65 = phi double [ %62, %._crit_edge.i.i.us13 ], [ %61, %60 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %67 = icmp ult ptr %66, %2
-  br i1 %67, label %60, label %._crit_edge, !llvm.loop !122
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  %.pre = load double, ptr %0, align 8, !tbaa !8
-  br label %68
-
-._crit_edge:                                      ; preds = %72, %64, %57, %45, %3
+._crit_edge:                                      ; preds = %68, %61, %55, %43, %3
   ret void
 
-68:                                               ; preds = %.lr.ph.split.split, %72
-  %69 = phi double [ %.pre, %.lr.ph.split.split ], [ %73, %72 ]
-  %.sroa.0.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %74, %72 ]
-  %70 = load double, ptr %.sroa.0.011, align 8, !tbaa !8
-  %71 = fcmp olt double %70, %69
-  br i1 %71, label %._crit_edge.i.i, label %72
+.lr.ph.split.split:                               ; preds = %.lr.ph.split.split.preheader, %68
+  %65 = phi double [ %69, %68 ], [ %.pre, %.lr.ph.split.split.preheader ]
+  %.sroa.0.011 = phi ptr [ %70, %68 ], [ %1, %.lr.ph.split.split.preheader ]
+  %66 = load double, ptr %.sroa.0.011, align 8, !tbaa !8
+  %67 = fcmp olt double %66, %65
+  br i1 %67, label %._crit_edge.i.i, label %68
 
-._crit_edge.i.i:                                  ; preds = %68
-  store double %69, ptr %.sroa.0.011, align 8, !tbaa !8
-  store double %70, ptr %0, align 8, !tbaa !8
-  br label %72
+._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
+  store double %65, ptr %.sroa.0.011, align 8, !tbaa !8
+  store double %66, ptr %0, align 8, !tbaa !8
+  br label %68
 
-72:                                               ; preds = %68, %._crit_edge.i.i
-  %73 = phi double [ %69, %68 ], [ %70, %._crit_edge.i.i ]
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %75 = icmp ult ptr %74, %2
-  br i1 %75, label %68, label %._crit_edge, !llvm.loop !122
+68:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %69 = phi double [ %65, %.lr.ph.split.split ], [ %66, %._crit_edge.i.i ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
+  %71 = icmp ult ptr %70, %2
+  br i1 %71, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !122
 }
 
 ; Function Attrs: mustprogress uwtable

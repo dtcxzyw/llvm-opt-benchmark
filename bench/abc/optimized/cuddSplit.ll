@@ -65,7 +65,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br i1 %31, label %.split.us, label %.preheader81.us
 
 ._crit_edge.us:                                   ; preds = %43, %.preheader.us
-  %32 = tail call fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr noundef nonnull %30, double noundef %4)
+  %32 = tail call fastcc ptr @selectMintermsFromUniverse(ptr noundef nonnull %0, ptr noundef nonnull %30, double noundef %4)
   %.not80.us = icmp eq ptr %32, null
   br i1 %.not80.us, label %40, label %33
 
@@ -169,7 +169,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br label %.split93.us
 
 73:                                               ; preds = %._crit_edge
-  %74 = tail call fastcc double @bddAnnotateMintermCount(ptr noundef %0, ptr noundef %1, double noundef %ldexp.fr, ptr noundef %66)
+  %74 = tail call fastcc double @bddAnnotateMintermCount(ptr noundef nonnull %0, ptr noundef %1, double noundef %ldexp.fr, ptr noundef %66)
   %75 = fcmp oeq double %4, %74
   br i1 %75, label %76, label %78
 
@@ -180,7 +180,7 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
   br label %.split93.us
 
 78:                                               ; preds = %73
-  %79 = tail call ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef nonnull %66, ptr noundef nonnull %53, ptr noundef %1, double noundef %4, double noundef %ldexp.fr, i32 noundef 0)
+  %79 = tail call ptr @cuddSplitSetRecur(ptr noundef nonnull %0, ptr noundef nonnull %66, ptr noundef nonnull %53, ptr noundef %1, double noundef %4, double noundef %ldexp.fr, i32 noundef 0)
   %.not = icmp eq ptr %79, null
   br i1 %.not, label %87, label %80
 

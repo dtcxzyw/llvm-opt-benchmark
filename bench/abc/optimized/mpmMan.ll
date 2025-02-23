@@ -1984,15 +1984,15 @@ define void @Mpm_ManPrintStats(ptr noundef captures(none) %0) local_unnamed_addr
   %23 = add nsw i32 %22, %.010.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Mmr_StepMemory.exit, label %17, !llvm.loop !129
+  br i1 %exitcond.not.i, label %.lr.ph.i58, label %17, !llvm.loop !129
 
-Mmr_StepMemory.exit:                              ; preds = %17
+.lr.ph.i58:                                       ; preds = %17
   %24 = sitofp i32 %23 to double
   br label %25
 
-25:                                               ; preds = %25, %Mmr_StepMemory.exit
-  %indvars.iv.i60 = phi i64 [ 1, %Mmr_StepMemory.exit ], [ %indvars.iv.next.i64, %25 ]
-  %.010.i61 = phi i32 [ 0, %Mmr_StepMemory.exit ], [ %31, %25 ]
+25:                                               ; preds = %25, %.lr.ph.i58
+  %indvars.iv.i60 = phi i64 [ 1, %.lr.ph.i58 ], [ %indvars.iv.next.i64, %25 ]
+  %.010.i61 = phi i32 [ 0, %.lr.ph.i58 ], [ %31, %25 ]
   %26 = getelementptr inbounds nuw %struct.Mmr_Fixed_t_, ptr %15, i64 %indvars.iv.i60
   %27 = getelementptr i8, ptr %26, i64 4
   %.val.i62 = load i32, ptr %27, align 4, !tbaa !41
@@ -2011,9 +2011,9 @@ Mmr_StepMemory.exit67.loopexit:                   ; preds = %25
   %34 = fmul double %33, 0x3EE0000000000000
   br label %Mmr_StepMemory.exit67
 
-Mmr_StepMemory.exit67:                            ; preds = %1, %Mmr_StepMemory.exit67.loopexit
-  %35 = phi double [ %32, %Mmr_StepMemory.exit67.loopexit ], [ 0.000000e+00, %1 ]
-  %.0.lcssa.i66 = phi double [ %34, %Mmr_StepMemory.exit67.loopexit ], [ 0.000000e+00, %1 ]
+Mmr_StepMemory.exit67:                            ; preds = %Mmr_StepMemory.exit67.loopexit, %1
+  %35 = phi double [ 0.000000e+00, %1 ], [ %32, %Mmr_StepMemory.exit67.loopexit ]
+  %.0.lcssa.i66 = phi double [ 0.000000e+00, %1 ], [ %34, %Mmr_StepMemory.exit67.loopexit ]
   %36 = fadd double %8, %10
   %37 = fadd double %36, %.0.lcssa.i66
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %8, double noundef %10, double noundef %35, double noundef %37)

@@ -6765,7 +6765,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
+  %cmp.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %5
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !127
 
 for.end.i:                                        ; preds = %for.body.i, %entry
@@ -7052,7 +7052,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
+  %cmp.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %5
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !127
 
 for.end.i:                                        ; preds = %for.body.i, %entry

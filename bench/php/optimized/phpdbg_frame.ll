@@ -349,39 +349,33 @@ smart_str_appendc_ex.exit:                        ; preds = %123, %132
   store i8 %146, ptr %147, align 1, !tbaa !27
   %148 = udiv i64 %.0.i71, 10
   %.not.i72 = icmp samesign ult i64 %.0.i71, 10
-  br i1 %.not.i72, label %zend_print_ulong_to_buf.exit, label %143
+  br i1 %.not.i72, label %149, label %143
 
-zend_print_ulong_to_buf.exit:                     ; preds = %143
-  %149 = ptrtoint ptr %142 to i64
-  %150 = ptrtoint ptr %147 to i64
-  %151 = sub i64 %149, %150
-  %.not.i.i67 = icmp eq ptr %136, null
-  br i1 %.not.i.i67, label %155, label %152, !prof !52
-
-152:                                              ; preds = %zend_print_ulong_to_buf.exit
-  %153 = add i64 %130, %151
+149:                                              ; preds = %143
+  %150 = ptrtoint ptr %142 to i64
+  %151 = ptrtoint ptr %147 to i64
+  %152 = sub i64 %150, %151
+  %153 = add i64 %130, %152
   %154 = load i64, ptr %62, align 8, !tbaa !47
   %.not12.i.i68 = icmp ult i64 %153, %154
   br i1 %.not12.i.i68, label %smart_str_append_unsigned_ex.exit, label %155, !prof !48
 
-155:                                              ; preds = %152, %zend_print_ulong_to_buf.exit
-  %.0.i.i69 = phi i64 [ %151, %zend_print_ulong_to_buf.exit ], [ %153, %152 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %.0.i.i69) #11
+155:                                              ; preds = %149
+  call void @smart_str_erealloc(ptr noundef nonnull %3, i64 noundef %153) #11
   %.pre105 = load ptr, ptr %3, align 8, !tbaa !45
   %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %.pre105, i64 16
   %.pre107 = load i64, ptr %.phi.trans.insert106, align 8, !tbaa !43
   br label %smart_str_append_unsigned_ex.exit
 
-smart_str_append_unsigned_ex.exit:                ; preds = %152, %155
-  %156 = phi i64 [ %.pre107, %155 ], [ %130, %152 ]
-  %157 = phi ptr [ %.pre105, %155 ], [ %136, %152 ]
-  %.1.i.i70 = phi i64 [ %.0.i.i69, %155 ], [ %153, %152 ]
+smart_str_append_unsigned_ex.exit:                ; preds = %149, %155
+  %156 = phi i64 [ %130, %149 ], [ %.pre107, %155 ]
+  %157 = phi ptr [ %136, %149 ], [ %.pre105, %155 ]
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 %156
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %159, ptr noundef nonnull align 1 dereferenceable(1) %147, i64 %151, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %159, ptr noundef nonnull align 1 dereferenceable(1) %147, i64 %152, i1 false)
   %160 = load ptr, ptr %3, align 8, !tbaa !45
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
-  store i64 %.1.i.i70, ptr %161, align 8, !tbaa !43
+  store i64 %153, ptr %161, align 8, !tbaa !43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #11
   br label %170
 

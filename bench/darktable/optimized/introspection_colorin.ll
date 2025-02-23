@@ -1163,7 +1163,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %146 = fpext reassoc nsz arcp contract afn float %122 to double
   %147 = fpext reassoc nsz arcp contract afn float %124 to double
   %148 = fpext reassoc nsz arcp contract afn float %121 to double
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.23, ptr noundef %141, ptr noundef %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %144, ptr noundef nonnull %145, double noundef %146, double noundef %147, double noundef %148) #18
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.23, ptr noundef %141, ptr noundef nonnull %0, i32 noundef -1, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @.str.24, ptr noundef %144, ptr noundef nonnull %145, double noundef %146, double noundef %147, double noundef %148) #18
   br label %149
 
 149:                                              ; preds = %139, %135
@@ -4514,7 +4514,7 @@ define void @reload_defaults(ptr noundef captures(none) initializes((484, 488), 
   %.sink = phi i32 [ %.3, %.thread ], [ %.3, %118 ], [ 4, %119 ], [ 3, %123 ], [ 1, %128 ], [ 10, %130 ], [ 11, %135 ], [ %., %137 ], [ %127, %125 ]
   store i32 %.sink, ptr %13, align 4, !tbaa !176
   %140 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 120), align 8, !tbaa !200
-  call void @dt_image_cache_write_release(ptr noundef %140, ptr noundef %19, i32 noundef 1) #18
+  call void @dt_image_cache_write_release(ptr noundef %140, ptr noundef nonnull %19, i32 noundef 1) #18
   %141 = load ptr, ptr %80, align 16, !tbaa !205
   %.not.i = icmp eq ptr %141, null
   br i1 %.not.i, label %update_profile_list.exit, label %142

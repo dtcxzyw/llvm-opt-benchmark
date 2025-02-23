@@ -794,7 +794,9 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !49
-  %20 = udiv i64 %18, %.zext
+  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %20 = udiv i32 %.lhs.trunc, %12
+  %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit
 
 21:                                               ; preds = %3
@@ -838,7 +840,7 @@ define linkonce_odr noundef i64 @_ZNSt24uniform_int_distributionImEclISt26linear
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %19
   %40 = phi i64 [ %7, %19 ], [ %7, %35 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %20, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
   %41 = add i64 %40, %.0
   ret i64 %41
 }

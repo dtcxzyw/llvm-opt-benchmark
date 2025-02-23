@@ -51,28 +51,24 @@ define hidden range(i32 -1, 1) i32 @_PyTestLimitedCAPI_Init_Bytes(ptr noundef %0
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_check(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
-  %3 = icmp eq ptr %1, @_Py_NoneStruct
-  %spec.store.select = select i1 %3, ptr null, ptr %1
-  %4 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %4, align 8, !tbaa !3
-  %5 = tail call i64 @PyType_GetFlags(ptr noundef %spec.store.select.val) #4
-  %6 = lshr i64 %5, 27
-  %7 = and i64 %6, 1
-  %8 = tail call ptr @PyLong_FromLong(i64 noundef %7) #4
-  ret ptr %8
+define internal ptr @bytes_check(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = getelementptr i8, ptr %1, i64 8
+  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = tail call i64 @PyType_GetFlags(ptr noundef %spec.store.select.val) #4
+  %5 = lshr i64 %4, 27
+  %6 = and i64 %5, 1
+  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #4
+  ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_checkexact(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 {
-  %3 = icmp eq ptr %1, @_Py_NoneStruct
-  %spec.store.select = select i1 %3, ptr null, ptr %1
-  %4 = getelementptr i8, ptr %spec.store.select, i64 8
-  %spec.store.select.val = load ptr, ptr %4, align 8, !tbaa !3
-  %5 = icmp eq ptr %spec.store.select.val, @PyBytes_Type
-  %6 = zext i1 %5 to i64
-  %7 = tail call ptr @PyLong_FromLong(i64 noundef %6) #4
-  ret ptr %7
+define internal ptr @bytes_checkexact(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
+  %3 = getelementptr i8, ptr %1, i64 8
+  %spec.store.select.val = load ptr, ptr %3, align 8, !tbaa !3
+  %4 = icmp eq ptr %spec.store.select.val, @PyBytes_Type
+  %5 = zext i1 %4 to i64
+  %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #4
+  ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable

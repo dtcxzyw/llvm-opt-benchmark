@@ -1153,8 +1153,8 @@ entry:
 _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %entry
   %arrayidx.i = getelementptr inbounds i8, ptr %0, i64 -4
   %1 = load i32, ptr %arrayidx.i, align 4
-  %cmp57.not = icmp eq i32 %1, 0
-  br i1 %cmp57.not, label %return, label %for.body.lr.ph
+  %cmp59.not = icmp eq i32 %1, 0
+  br i1 %cmp59.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %m_tail.i = getelementptr inbounds nuw i8, ptr %r, i64 80
@@ -1164,8 +1164,8 @@ for.body.lr.ph:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %best_cost.060 = phi float [ undef, %for.body.lr.ph ], [ %best_cost.1, %for.inc ]
-  %candidate_index.059 = phi i32 [ -1, %for.body.lr.ph ], [ %candidate_index.1, %for.inc ]
+  %best_cost.062 = phi float [ undef, %for.body.lr.ph ], [ %best_cost.1, %for.inc ]
+  %candidate_index.061 = phi i32 [ -1, %for.body.lr.ph ], [ %candidate_index.1, %for.inc ]
   %2 = load ptr, ptr %cont, align 8
   %arrayidx.i17 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %3 = load i32, ptr %arrayidx.i17, align 4
@@ -1202,7 +1202,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %res.1.us.i = add i32 %res.09.us.i, %inc.us.i
   %indvars.iv.next13.i = add nuw nsw i64 %indvars.iv12.i, 1
   %exitcond16.not.i = icmp eq i64 %indvars.iv.next13.i, %wide.trip.count15.i
-  br i1 %exitcond16.not.i, label %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit, label %for.body.us.i, !llvm.loop !13
+  br i1 %exitcond16.not.i, label %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56, label %for.body.us.i, !llvm.loop !13
 
 for.body.i:                                       ; preds = %for.body.lr.ph.i, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.lr.ph.i ]
@@ -1243,12 +1243,15 @@ for.inc.i:                                        ; preds = %if.then.i, %_ZNK8ui
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count15.i
   br i1 %exitcond.not.i, label %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit, label %for.body.i, !llvm.loop !13
 
-_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit: ; preds = %for.inc.i, %for.body.us.i
-  %res.0.lcssa.i = phi i32 [ %res.1.us.i, %for.body.us.i ], [ %res.1.i, %for.inc.i ]
-  %cmp5 = icmp eq i32 %res.0.lcssa.i, 0
+_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit: ; preds = %for.inc.i
+  %cmp5 = icmp eq i32 %res.1.i, 0
   br i1 %cmp5, label %for.inc, label %for.body.lr.ph.i21
 
-for.body.lr.ph.i21:                               ; preds = %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit
+_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56: ; preds = %for.body.us.i
+  %cmp558 = icmp eq i32 %res.1.us.i, 0
+  br i1 %cmp558, label %for.inc, label %for.body.lr.ph.i21
+
+for.body.lr.ph.i21:                               ; preds = %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56
   %m_decl.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %14 = load ptr, ptr %m_decl.i.i, align 8
   %m_domain.i.i = getelementptr inbounds nuw i8, ptr %14, i64 48
@@ -1305,8 +1308,8 @@ for.inc.i30:                                      ; preds = %if.then.i39, %_ZNK8
   br i1 %exitcond.not.i33, label %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit, label %for.body.i23, !llvm.loop !14
 
 _ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit: ; preds = %for.inc.i30
-  %cmp7 = icmp eq i32 %candidate_index.059, -1
-  %cmp8 = fcmp olt float %res.1.i31, %best_cost.060
+  %cmp7 = icmp eq i32 %candidate_index.061, -1
+  %cmp8 = fcmp olt float %res.1.i31, %best_cost.062
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp8
   br i1 %or.cond, label %if.then9, label %for.inc
 
@@ -1314,9 +1317,9 @@ if.then9:                                         ; preds = %_ZN7datalog13mk_mag
   %22 = trunc nuw i64 %indvars.iv to i32
   br label %for.inc
 
-for.inc:                                          ; preds = %for.body, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit, %if.then9, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit
-  %candidate_index.1 = phi i32 [ %candidate_index.059, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit ], [ %22, %if.then9 ], [ %candidate_index.059, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit ], [ %candidate_index.059, %for.body ]
-  %best_cost.1 = phi float [ %best_cost.060, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit ], [ %res.1.i31, %if.then9 ], [ %best_cost.060, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit ], [ %best_cost.060, %for.body ]
+for.inc:                                          ; preds = %for.body, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit, %if.then9, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit
+  %candidate_index.1 = phi i32 [ %candidate_index.061, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit ], [ %22, %if.then9 ], [ %candidate_index.061, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit ], [ %candidate_index.061, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56 ], [ %candidate_index.061, %for.body ]
+  %best_cost.1 = phi float [ %best_cost.062, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit ], [ %res.1.i31, %if.then9 ], [ %best_cost.062, %_ZN7datalog13mk_magic_sets16get_unbound_costEP3appRK8uint_set.exit ], [ %best_cost.062, %_ZN7datalog19get_bound_arg_countEP3appRK8uint_set.exit.thread56 ], [ %best_cost.062, %for.body ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !15
@@ -1328,14 +1331,14 @@ for.end:                                          ; preds = %for.inc
 if.end13:                                         ; preds = %for.end
   %sub = add i32 %1, -1
   %cmp14.not = icmp eq i32 %candidate_index.1, %sub
-  %.pre63 = load ptr, ptr %cont, align 8
+  %.pre64 = load ptr, ptr %cont, align 8
   br i1 %cmp14.not, label %if.end19, label %if.then15
 
 if.then15:                                        ; preds = %if.end13
   %idxprom.i47 = zext i32 %candidate_index.1 to i64
-  %arrayidx.i48 = getelementptr inbounds nuw i32, ptr %.pre63, i64 %idxprom.i47
+  %arrayidx.i48 = getelementptr inbounds nuw i32, ptr %.pre64, i64 %idxprom.i47
   %idxprom.i49 = zext i32 %sub to i64
-  %arrayidx.i50 = getelementptr inbounds nuw i32, ptr %.pre63, i64 %idxprom.i49
+  %arrayidx.i50 = getelementptr inbounds nuw i32, ptr %.pre64, i64 %idxprom.i49
   %23 = load i32, ptr %arrayidx.i48, align 4
   %24 = load i32, ptr %arrayidx.i50, align 4
   store i32 %24, ptr %arrayidx.i48, align 4
@@ -1344,13 +1347,13 @@ if.then15:                                        ; preds = %if.end13
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then15, %if.end13
-  %25 = phi ptr [ %.pre, %if.then15 ], [ %.pre63, %if.end13 ]
+  %25 = phi ptr [ %.pre, %if.then15 ], [ %.pre64, %if.end13 ]
   %cmp.i.i51 = icmp eq ptr %25, null
   br i1 %cmp.i.i51, label %if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, label %if.end.i.i
 
 if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge: ; preds = %if.end19
-  %.pre64 = load i32, ptr inttoptr (i64 -4 to ptr), align 4
-  %.pre65 = add i32 %.pre64, -1
+  %.pre65 = load i32, ptr inttoptr (i64 -4 to ptr), align 4
+  %.pre66 = add i32 %.pre65, -1
   br label %_ZN6vectorIjLb0EjE4backEv.exit
 
 if.end.i.i:                                       ; preds = %if.end19
@@ -1361,7 +1364,7 @@ if.end.i.i:                                       ; preds = %if.end19
   br label %_ZN6vectorIjLb0EjE4backEv.exit
 
 _ZN6vectorIjLb0EjE4backEv.exit:                   ; preds = %if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge, %if.end.i.i
-  %dec.i.pre-phi = phi i32 [ %.pre65, %if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %27, %if.end.i.i ]
+  %dec.i.pre-phi = phi i32 [ %.pre66, %if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %27, %if.end.i.i ]
   %retval.0.i.i = phi i64 [ 4294967295, %if.end19._ZN6vectorIjLb0EjE4backEv.exit_crit_edge ], [ %28, %if.end.i.i ]
   %arrayidx.i1.i = getelementptr inbounds nuw i32, ptr %25, i64 %retval.0.i.i
   %29 = load i32, ptr %arrayidx.i1.i, align 4

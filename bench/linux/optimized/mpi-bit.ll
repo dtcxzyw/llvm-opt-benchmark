@@ -820,7 +820,7 @@ define dso_local void @mpi_lshift(ptr noundef %0, ptr noundef readonly %1, i32 n
   %117 = phi i64 [ 0, %114 ], [ %125, %116 ]
   %118 = load ptr, ptr %115, align 8
   %119 = trunc i64 %117 to i32
-  %120 = add i32 %109, %119
+  %120 = add nuw i32 %109, %119
   %121 = zext i32 %120 to i64
   %122 = getelementptr i64, ptr %118, i64 %121
   %123 = load i64, ptr %122, align 8

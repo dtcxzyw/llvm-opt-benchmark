@@ -3190,7 +3190,7 @@ _ZN4llvm16MCSubRegIteratorppEv.exit.preheader:    ; preds = %_ZN4llvm9BitVectorC
   %37 = getelementptr inbounds nuw i16, ptr %28, i64 %36
   br label %_ZN4llvm16MCSubRegIteratorppEv.exit
 
-._crit_edge:                                      ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit
+_ZN4llvm16MCSubRegIteratorppEv.exit44.preheader:  ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !264
   %40 = or i64 %39, 32
@@ -3219,7 +3219,7 @@ _ZN4llvm16MCSubRegIteratorppEv.exit:              ; preds = %_ZN4llvm16MCSubRegI
   %56 = zext i16 %55 to i32
   %57 = add i32 %.sroa.0133.0167, %56
   %.not.i.i42 = icmp eq i16 %55, 0
-  br i1 %.not.i.i42, label %._crit_edge, label %_ZN4llvm16MCSubRegIteratorppEv.exit
+  br i1 %.not.i.i42, label %_ZN4llvm16MCSubRegIteratorppEv.exit44.preheader, label %_ZN4llvm16MCSubRegIteratorppEv.exit
 
 ._crit_edge172:                                   ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit44, %._crit_edge.thread
   %58 = load ptr, ptr %2, align 8, !tbaa !366
@@ -3233,9 +3233,9 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit: ; preds = %._
   %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(21) %23, ptr noundef nonnull align 8 dereferenceable(1065) %2) #23
   br i1 %63, label %77, label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit.thread
 
-_ZN4llvm16MCSubRegIteratorppEv.exit44:            ; preds = %._crit_edge, %_ZN4llvm16MCSubRegIteratorppEv.exit44
-  %.sroa.5117.0171 = phi ptr [ %73, %_ZN4llvm16MCSubRegIteratorppEv.exit44 ], [ %44, %._crit_edge ]
-  %.sroa.0115.0170 = phi i32 [ %76, %_ZN4llvm16MCSubRegIteratorppEv.exit44 ], [ 58, %._crit_edge ]
+_ZN4llvm16MCSubRegIteratorppEv.exit44:            ; preds = %_ZN4llvm16MCSubRegIteratorppEv.exit44.preheader, %_ZN4llvm16MCSubRegIteratorppEv.exit44
+  %.sroa.5117.0171 = phi ptr [ %73, %_ZN4llvm16MCSubRegIteratorppEv.exit44 ], [ %44, %_ZN4llvm16MCSubRegIteratorppEv.exit44.preheader ]
+  %.sroa.0115.0170 = phi i32 [ %76, %_ZN4llvm16MCSubRegIteratorppEv.exit44 ], [ 58, %_ZN4llvm16MCSubRegIteratorppEv.exit44.preheader ]
   %64 = and i32 %.sroa.0115.0170, 63
   %65 = zext nneg i32 %64 to i64
   %66 = shl nuw i64 1, %65

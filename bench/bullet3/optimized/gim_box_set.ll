@@ -14,64 +14,64 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting_axisER9gim_arrayI13GIM_AABB_DATAEjj(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = sub i32 %3, %2
   %6 = icmp ult i32 %2, %3
-  br i1 %6, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %4
-  %7 = uitofp i32 %5 to float
-  br label %._crit_edge101
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = load ptr, ptr %1, align 8, !tbaa !4
-  %9 = zext i32 %2 to i64
+  %7 = load ptr, ptr %1, align 8, !tbaa !4
+  %8 = zext i32 %2 to i64
   %wide.trip.count = zext i32 %3 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %31, %10 ]
-  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %10 ]
-  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %10 ]
-  %11 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %8, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load float, ptr %12, align 4, !tbaa !11
-  %14 = load float, ptr %11, align 4, !tbaa !11
-  %15 = fadd float %13, %14
-  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  %17 = load float, ptr %16, align 4, !tbaa !11
-  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %19 = load float, ptr %18, align 4, !tbaa !11
-  %20 = fadd float %17, %19
-  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %22 = load float, ptr %21, align 4, !tbaa !11
-  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %24 = load float, ptr %23, align 4, !tbaa !11
-  %25 = fadd float %22, %24
-  %26 = fmul float %15, 5.000000e-01
-  %27 = fmul float %20, 5.000000e-01
-  %28 = fmul float %25, 5.000000e-01
-  %29 = fadd float %.sroa.079.089, %26
-  %30 = fadd float %.sroa.882.090, %27
-  %31 = fadd float %.sroa.1485.091, %28
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ %8, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %9 ]
+  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %9 ]
+  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %28, %9 ]
+  %10 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %12 = load float, ptr %11, align 4, !tbaa !11
+  %13 = load float, ptr %10, align 4, !tbaa !11
+  %14 = fadd float %12, %13
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  %16 = load float, ptr %15, align 4, !tbaa !11
+  %17 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  %18 = load float, ptr %17, align 4, !tbaa !11
+  %19 = fadd float %16, %18
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %21 = load float, ptr %20, align 4, !tbaa !11
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %23 = load float, ptr %22, align 4, !tbaa !11
+  %24 = fadd float %21, %23
+  %25 = fmul float %14, 5.000000e-01
+  %26 = fmul float %19, 5.000000e-01
+  %27 = fmul float %24, 5.000000e-01
+  %28 = fadd float %.sroa.079.089, %25
+  %29 = fadd float %.sroa.882.090, %26
+  %30 = fadd float %.sroa.1485.091, %27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph100, label %9, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %10
+._crit_edge:                                      ; preds = %4
+  %31 = uitofp i32 %5 to float
+  br label %._crit_edge101
+
+.lr.ph100:                                        ; preds = %9
   %32 = uitofp i32 %5 to float
   %33 = fdiv float 1.000000e+00, %32
-  %34 = fmul float %33, %29
-  %35 = fmul float %33, %30
-  %36 = fmul float %33, %31
+  %34 = fmul float %33, %28
+  %35 = fmul float %33, %29
+  %36 = fmul float %33, %30
   %37 = load ptr, ptr %1, align 8, !tbaa !4
   %38 = zext i32 %2 to i64
   %wide.trip.count114 = zext i32 %3 to i64
   br label %39
 
-39:                                               ; preds = %._crit_edge, %39
-  %indvars.iv111 = phi i64 [ %38, %._crit_edge ], [ %indvars.iv.next112, %39 ]
-  %.sroa.14.097 = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %39 ]
-  %.sroa.8.096 = phi float [ 0.000000e+00, %._crit_edge ], [ %65, %39 ]
-  %.sroa.069.095 = phi float [ 0.000000e+00, %._crit_edge ], [ %64, %39 ]
+39:                                               ; preds = %.lr.ph100, %39
+  %indvars.iv111 = phi i64 [ %38, %.lr.ph100 ], [ %indvars.iv.next112, %39 ]
+  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %39 ]
+  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %65, %39 ]
+  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %64, %39 ]
   %40 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %37, i64 %indvars.iv111
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load float, ptr %41, align 4, !tbaa !11
@@ -103,11 +103,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN12GIM_BOX_TREE20_calc_splitting
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %._crit_edge101, label %39, !llvm.loop !15
 
-._crit_edge101:                                   ; preds = %39, %._crit_edge.thread
-  %67 = phi float [ %7, %._crit_edge.thread ], [ %32, %39 ]
-  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %64, %39 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %65, %39 ]
-  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %66, %39 ]
+._crit_edge101:                                   ; preds = %39, %._crit_edge
+  %67 = phi float [ %31, %._crit_edge ], [ %32, %39 ]
+  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %64, %39 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %65, %39 ]
+  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %39 ]
   %68 = fadd float %67, -1.000000e+00
   %69 = fdiv float 1.000000e+00, %68
   %70 = fmul float %69, %.sroa.069.0.lcssa
@@ -157,9 +157,9 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   %19 = tail call float @llvm.fmuladd.f32(float %18, float 5.000000e-01, float %.04446)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph51, label %11, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %11
+.lr.ph51:                                         ; preds = %11
   %20 = uitofp i32 %6 to float
   %21 = fdiv float %19, %20
   %22 = zext i32 %4 to i64
@@ -168,9 +168,9 @@ define dso_local noundef i32 @_ZN12GIM_BOX_TREE30_sort_and_calc_splitting_indexE
   %wide.trip.count58 = zext i32 %3 to i64
   br label %24
 
-24:                                               ; preds = %._crit_edge, %41
-  %indvars.iv55 = phi i64 [ %23, %._crit_edge ], [ %indvars.iv.next56, %41 ]
-  %.04248 = phi i32 [ %2, %._crit_edge ], [ %.143, %41 ]
+24:                                               ; preds = %.lr.ph51, %41
+  %indvars.iv55 = phi i64 [ %23, %.lr.ph51 ], [ %indvars.iv.next56, %41 ]
+  %.04248 = phi i32 [ %2, %.lr.ph51 ], [ %.143, %41 ]
   %25 = load ptr, ptr %1, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %25, i64 %indvars.iv55
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -348,18 +348,18 @@ common.ret:                                       ; preds = %4
   %76 = tail call float @llvm.fmuladd.f32(float %75, float 5.000000e-01, float %.04446.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %68, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph51.i, label %68, !llvm.loop !16
 
-._crit_edge.i:                                    ; preds = %68
+.lr.ph51.i:                                       ; preds = %68
   %77 = uitofp i32 %7 to float
   %78 = fdiv float %76, %77
   %.sroa.0.16..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.0.i.i.i, i64 16
   br label %79
 
-79:                                               ; preds = %96, %._crit_edge.i
-  %80 = phi ptr [ %65, %._crit_edge.i ], [ %97, %96 ]
-  %indvars.iv55.i = phi i64 [ %67, %._crit_edge.i ], [ %indvars.iv.next56.i, %96 ]
-  %.04248.i = phi i32 [ %2, %._crit_edge.i ], [ %.143.i, %96 ]
+79:                                               ; preds = %96, %.lr.ph51.i
+  %80 = phi ptr [ %65, %.lr.ph51.i ], [ %97, %96 ]
+  %indvars.iv55.i = phi i64 [ %67, %.lr.ph51.i ], [ %indvars.iv.next56.i, %96 ]
+  %.04248.i = phi i32 [ %2, %.lr.ph51.i ], [ %.143.i, %96 ]
   %81 = getelementptr inbounds nuw %struct.GIM_AABB_DATA, ptr %80, i64 %indvars.iv55.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = getelementptr inbounds nuw float, ptr %82, i64 %66

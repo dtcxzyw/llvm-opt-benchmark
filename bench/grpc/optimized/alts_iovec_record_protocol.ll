@@ -190,15 +190,12 @@ for.body.i:                                       ; preds = %if.end9, %for.body.
   %add.i41 = add i64 %3, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %unprotected_vec_length
-  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %if.end14, label %for.body.i, !llvm.loop !4
 
-_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i
-  %add = add i64 %agg.tmp6.sroa.2.0.copyload, %add.i41
-  br label %if.end14
-
-if.end14:                                         ; preds = %if.end9, %_ZL16get_total_lengthPK5iovecm.exit
-  %add55 = phi i64 [ %add, %_ZL16get_total_lengthPK5iovecm.exit ], [ %agg.tmp6.sroa.2.0.copyload, %if.end9 ]
-  %4 = trunc i64 %add55 to i32
+if.end14:                                         ; preds = %for.body.i, %if.end9
+  %total_length.0.lcssa.i = phi i64 [ 0, %if.end9 ], [ %add.i41, %for.body.i ]
+  %add = add i64 %agg.tmp6.sroa.2.0.copyload, %total_length.0.lcssa.i
+  %4 = trunc i64 %add to i32
   %conv.i = add i32 %4, 4
   %shr.i.i = lshr i32 %conv.i, 24
   %conv2.i.i = trunc nuw i32 %shr.i.i to i8
@@ -440,17 +437,17 @@ for.body.i:                                       ; preds = %if.end9, %for.body.
   %add.i39 = add i64 %3, %total_length.05.i
   %inc.i = add nuw i64 %i.06.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %protected_vec_length
-  br i1 %exitcond.not.i, label %_ZL16get_total_lengthPK5iovecm.exit, label %for.body.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %if.end.i.loopexit, label %for.body.i, !llvm.loop !4
 
-_ZL16get_total_lengthPK5iovecm.exit:              ; preds = %for.body.i
-  %add = add i64 %agg.tmp6.sroa.2.0.copyload, %add.i39
+if.end.i.loopexit:                                ; preds = %for.body.i
+  %4 = add i64 %add.i39, 4
   br label %if.end.i
 
-if.end.i:                                         ; preds = %if.end9, %_ZL16get_total_lengthPK5iovecm.exit
-  %add60 = phi i64 [ %add, %_ZL16get_total_lengthPK5iovecm.exit ], [ %agg.tmp6.sroa.2.0.copyload, %if.end9 ]
-  %4 = load i32, ptr %header.coerce0, align 1
-  %conv.i = zext i32 %4 to i64
-  %add.i41 = add i64 %add60, 4
+if.end.i:                                         ; preds = %if.end.i.loopexit, %if.end9
+  %total_length.0.lcssa.i = phi i64 [ 4, %if.end9 ], [ %4, %if.end.i.loopexit ]
+  %5 = load i32, ptr %header.coerce0, align 1
+  %conv.i = zext i32 %5 to i64
+  %add.i41 = add i64 %total_length.0.lcssa.i, %agg.tmp6.sroa.2.0.copyload
   %cmp1.not.i = icmp eq i64 %add.i41, %conv.i
   br i1 %cmp1.not.i, label %if.end3.i47, label %if.then2.i42
 
@@ -466,8 +463,8 @@ if.then.i6.i44:                                   ; preds = %if.then2.i42
 
 if.end3.i47:                                      ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %header.coerce0, i64 4
-  %5 = load i32, ptr %add.ptr.i, align 1
-  %cmp6.not.i = icmp eq i32 %5, 6
+  %6 = load i32, ptr %add.ptr.i, align 1
+  %cmp6.not.i = icmp eq i32 %6, 6
   br i1 %cmp6.not.i, label %if.end14, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end3.i47
@@ -484,15 +481,15 @@ if.end14:                                         ; preds = %if.end3.i47
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp18, i8 0, i64 16, i1 false)
   store i64 0, ptr %bytes_written, align 8
   %crypter = getelementptr inbounds nuw i8, ptr %rp, i64 8
-  %6 = load ptr, ptr %crypter, align 8
-  %7 = load ptr, ptr %rp, align 8
-  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %7)
+  %7 = load ptr, ptr %crypter, align 8
   %8 = load ptr, ptr %rp, align 8
-  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %8)
-  %call19 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %6, ptr noundef %call15, i64 noundef %call17, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull %tag, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp18, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
+  %call15 = tail call noundef ptr @_Z24alts_counter_get_counterP12alts_counter(ptr noundef %8)
+  %9 = load ptr, ptr %rp, align 8
+  %call17 = tail call noundef i64 @_Z21alts_counter_get_sizeP12alts_counter(ptr noundef %9)
+  %call19 = call noundef i32 @_Z31gsec_aead_crypter_decrypt_iovecP17gsec_aead_crypterPKhmPK5iovecmS5_mS3_PmPPc(ptr noundef %7, ptr noundef %call15, i64 noundef %call17, ptr noundef %protected_vec, i64 noundef %protected_vec_length, ptr noundef nonnull %tag, i64 noundef 1, ptr noundef nonnull byval(%struct.iovec) align 8 %agg.tmp18, ptr noundef nonnull %bytes_written, ptr noundef %error_details)
   %cmp20 = icmp ne i32 %call19, 0
-  %9 = load i64, ptr %bytes_written, align 8
-  %cmp21 = icmp ne i64 %9, 0
+  %10 = load i64, ptr %bytes_written, align 8
+  %cmp21 = icmp ne i64 %10, 0
   %or.cond = select i1 %cmp20, i1 true, i1 %cmp21
   br i1 %or.cond, label %if.then22, label %if.end23
 
@@ -501,12 +498,12 @@ if.then22:                                        ; preds = %if.end14
   br label %return
 
 if.end23:                                         ; preds = %if.end14
-  %10 = load ptr, ptr %rp, align 8
-  %call25 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %10, ptr noundef %error_details)
+  %11 = load ptr, ptr %rp, align 8
+  %call25 = call fastcc noundef i32 @_ZL17increment_counterP12alts_counterPPc(ptr noundef %11, ptr noundef %error_details)
   br label %return
 
 return:                                           ; preds = %if.then.i14.i49, %if.then7.i, %if.then.i6.i44, %if.then2.i42, %if.then.i22.i, %if.then13.i, %if.then.i14.i, %if.then9.i, %if.then.i6.i, %if.then5.i, %if.then.i.i, %if.then2.i, %if.then.i31, %if.then4, %if.then.i23, %if.then1, %if.then.i, %if.then, %if.end23, %if.then22
-  %retval.0 = phi i32 [ 13, %if.then22 ], [ %call25, %if.end23 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i23 ], [ 9, %if.then4 ], [ 9, %if.then.i31 ], [ 3, %if.then2.i ], [ 3, %if.then.i.i ], [ 3, %if.then5.i ], [ 3, %if.then.i6.i ], [ 3, %if.then9.i ], [ 3, %if.then.i14.i ], [ 3, %if.then13.i ], [ 3, %if.then.i22.i ], [ 13, %if.then.i14.i49 ], [ 13, %if.then7.i ], [ 13, %if.then.i6.i44 ], [ 13, %if.then2.i42 ]
+  %retval.0 = phi i32 [ 13, %if.then22 ], [ %call25, %if.end23 ], [ 3, %if.then ], [ 3, %if.then.i ], [ 9, %if.then1 ], [ 9, %if.then.i23 ], [ 9, %if.then4 ], [ 9, %if.then.i31 ], [ 3, %if.then2.i ], [ 3, %if.then.i.i ], [ 3, %if.then5.i ], [ 3, %if.then.i6.i ], [ 3, %if.then9.i ], [ 3, %if.then.i14.i ], [ 3, %if.then13.i ], [ 3, %if.then.i22.i ], [ 13, %if.then2.i42 ], [ 13, %if.then.i6.i44 ], [ 13, %if.then7.i ], [ 13, %if.then.i14.i49 ]
   ret i32 %retval.0
 }
 

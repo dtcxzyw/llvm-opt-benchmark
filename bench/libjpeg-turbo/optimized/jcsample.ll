@@ -362,9 +362,9 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %70 = sub nsw i64 %factor.us, %59
   %71 = add nsw i64 %70, %68
   %72 = mul nsw i64 %33, %59
-  %73 = mul i64 %71, %35
+  %73 = mul nsw i64 %71, %35
   %74 = add nsw i64 %72, 32768
-  %75 = add i64 %74, %73
+  %75 = add nsw i64 %74, %73
   %76 = lshr i64 %75, 16
   %77 = trunc i64 %76 to i8
   store i8 %77, ptr %41, align 1, !tbaa !32
@@ -376,9 +376,9 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
   %81 = zext nneg i32 %narrow to i64
   %82 = sub nsw i64 %81, %79
   %83 = mul nsw i64 %33, %79
-  %84 = mul i64 %82, %35
+  %84 = mul nsw i64 %82, %35
   %85 = add nsw i64 %83, 32768
-  %86 = add i64 %85, %84
+  %86 = add nsw i64 %85, %84
   %87 = lshr i64 %86, 16
   %88 = trunc i64 %87 to i8
   store i8 %88, ptr %.07381.us, align 1, !tbaa !32
@@ -1163,8 +1163,8 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   br i1 %64, label %.preheader.lr.ph.us.us.us, label %._crit_edge68, !llvm.loop !74
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us
-  %65 = sdiv i64 %41, %42
-  %66 = trunc i64 %65 to i8
+  %65 = sdiv i32 %24, %23
+  %66 = trunc i32 %65 to i8
   %67 = zext i32 %12 to i64
   br label %.preheader.lr.ph.us.us
 
@@ -1180,8 +1180,8 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
   br i1 %72, label %.preheader.lr.ph.us.us, label %._crit_edge68, !llvm.loop !74
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  %73 = sdiv i64 %41, %42
-  %74 = trunc i64 %73 to i8
+  %73 = sdiv i32 %24, %23
+  %74 = trunc i32 %73 to i8
   %75 = zext i32 %12 to i64
   br label %.preheader.lr.ph.us
 

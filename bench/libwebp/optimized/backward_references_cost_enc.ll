@@ -136,19 +136,19 @@ VP8LRefsCursorNext.exit.i.i:                      ; preds = %42, %37
   %62 = zext nneg i32 %54 to i64
   %63 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !20
-  br label %VP8LFastLog2.exit.i.i.i
+  br label %.lr.ph30.preheader.i.i.i
 
 65:                                               ; preds = %59
   %66 = load ptr, ptr @VP8LFastLog2Slow, align 8, !tbaa !22
   %67 = call i32 %66(i32 noundef %54) #7
-  br label %VP8LFastLog2.exit.i.i.i
+  br label %.lr.ph30.preheader.i.i.i
 
-VP8LFastLog2.exit.i.i.i:                          ; preds = %65, %61
+.lr.ph30.preheader.i.i.i:                         ; preds = %65, %61
   %68 = phi i32 [ %64, %61 ], [ %67, %65 ]
   br label %.lr.ph30.i.i.i
 
-.lr.ph30.i.i.i:                                   ; preds = %VP8LFastLog2.exit24.i.i.i, %VP8LFastLog2.exit.i.i.i
-  %indvars.iv32.i.i.i = phi i64 [ 0, %VP8LFastLog2.exit.i.i.i ], [ %indvars.iv.next33.i.i.i, %VP8LFastLog2.exit24.i.i.i ]
+.lr.ph30.i.i.i:                                   ; preds = %VP8LFastLog2.exit24.i.i.i, %.lr.ph30.preheader.i.i.i
+  %indvars.iv32.i.i.i = phi i64 [ 0, %.lr.ph30.preheader.i.i.i ], [ %indvars.iv.next33.i.i.i, %VP8LFastLog2.exit24.i.i.i ]
   %69 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv32.i.i.i
   %70 = load i32, ptr %69, align 4, !tbaa !20
   %71 = icmp ult i32 %70, 256
@@ -209,19 +209,19 @@ ConvertPopulationCountTableToBitEstimates.exit.i.i: ; preds = %VP8LFastLog2.exit
   %92 = zext nneg i32 %85 to i64
   %93 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !20
-  br label %VP8LFastLog2.exit.i30.i.i
+  br label %.lr.ph30.preheader.i30.i.i
 
 95:                                               ; preds = %89
   %96 = load ptr, ptr @VP8LFastLog2Slow, align 8, !tbaa !22
   %97 = call i32 %96(i32 noundef %85) #7
-  br label %VP8LFastLog2.exit.i30.i.i
+  br label %.lr.ph30.preheader.i30.i.i
 
-VP8LFastLog2.exit.i30.i.i:                        ; preds = %95, %91
+.lr.ph30.preheader.i30.i.i:                       ; preds = %95, %91
   %98 = phi i32 [ %94, %91 ], [ %97, %95 ]
   br label %.lr.ph30.i31.i.i
 
-.lr.ph30.i31.i.i:                                 ; preds = %VP8LFastLog2.exit24.i33.i.i, %VP8LFastLog2.exit.i30.i.i
-  %indvars.iv32.i32.i.i = phi i64 [ 0, %VP8LFastLog2.exit.i30.i.i ], [ %indvars.iv.next33.i34.i.i, %VP8LFastLog2.exit24.i33.i.i ]
+.lr.ph30.i31.i.i:                                 ; preds = %VP8LFastLog2.exit24.i33.i.i, %.lr.ph30.preheader.i30.i.i
+  %indvars.iv32.i32.i.i = phi i64 [ 0, %.lr.ph30.preheader.i30.i.i ], [ %indvars.iv.next33.i34.i.i, %VP8LFastLog2.exit24.i33.i.i ]
   %99 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv32.i32.i.i
   %100 = load i32, ptr %99, align 4, !tbaa !20
   %101 = icmp ult i32 %100, 256
@@ -282,19 +282,19 @@ ConvertPopulationCountTableToBitEstimates.exit37.i.i: ; preds = %VP8LFastLog2.ex
   %122 = zext nneg i32 %115 to i64
   %123 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !20
-  br label %VP8LFastLog2.exit.i48.i.i
+  br label %.lr.ph30.preheader.i48.i.i
 
 125:                                              ; preds = %119
   %126 = load ptr, ptr @VP8LFastLog2Slow, align 8, !tbaa !22
   %127 = call i32 %126(i32 noundef %115) #7
-  br label %VP8LFastLog2.exit.i48.i.i
+  br label %.lr.ph30.preheader.i48.i.i
 
-VP8LFastLog2.exit.i48.i.i:                        ; preds = %125, %121
+.lr.ph30.preheader.i48.i.i:                       ; preds = %125, %121
   %128 = phi i32 [ %124, %121 ], [ %127, %125 ]
   br label %.lr.ph30.i49.i.i
 
-.lr.ph30.i49.i.i:                                 ; preds = %VP8LFastLog2.exit24.i51.i.i, %VP8LFastLog2.exit.i48.i.i
-  %indvars.iv32.i50.i.i = phi i64 [ 0, %VP8LFastLog2.exit.i48.i.i ], [ %indvars.iv.next33.i52.i.i, %VP8LFastLog2.exit24.i51.i.i ]
+.lr.ph30.i49.i.i:                                 ; preds = %VP8LFastLog2.exit24.i51.i.i, %.lr.ph30.preheader.i48.i.i
+  %indvars.iv32.i50.i.i = phi i64 [ 0, %.lr.ph30.preheader.i48.i.i ], [ %indvars.iv.next33.i52.i.i, %VP8LFastLog2.exit24.i51.i.i ]
   %129 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv32.i50.i.i
   %130 = load i32, ptr %129, align 4, !tbaa !20
   %131 = icmp ult i32 %130, 256
@@ -354,19 +354,19 @@ ConvertPopulationCountTableToBitEstimates.exit55.i.i: ; preds = %VP8LFastLog2.ex
   %151 = zext nneg i32 %145 to i64
   %152 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !20
-  br label %VP8LFastLog2.exit.i66.i.i
+  br label %.lr.ph30.preheader.i66.i.i
 
 154:                                              ; preds = %148
   %155 = load ptr, ptr @VP8LFastLog2Slow, align 8, !tbaa !22
   %156 = call i32 %155(i32 noundef %145) #7
-  br label %VP8LFastLog2.exit.i66.i.i
+  br label %.lr.ph30.preheader.i66.i.i
 
-VP8LFastLog2.exit.i66.i.i:                        ; preds = %154, %150
+.lr.ph30.preheader.i66.i.i:                       ; preds = %154, %150
   %157 = phi i32 [ %153, %150 ], [ %156, %154 ]
   br label %.lr.ph30.i67.i.i
 
-.lr.ph30.i67.i.i:                                 ; preds = %VP8LFastLog2.exit24.i69.i.i, %VP8LFastLog2.exit.i66.i.i
-  %indvars.iv32.i68.i.i = phi i64 [ 0, %VP8LFastLog2.exit.i66.i.i ], [ %indvars.iv.next33.i70.i.i, %VP8LFastLog2.exit24.i69.i.i ]
+.lr.ph30.i67.i.i:                                 ; preds = %VP8LFastLog2.exit24.i69.i.i, %.lr.ph30.preheader.i66.i.i
+  %indvars.iv32.i68.i.i = phi i64 [ 0, %.lr.ph30.preheader.i66.i.i ], [ %indvars.iv.next33.i70.i.i, %VP8LFastLog2.exit24.i69.i.i ]
   %158 = getelementptr inbounds nuw i32, ptr %142, i64 %indvars.iv32.i68.i.i
   %159 = load i32, ptr %158, align 4, !tbaa !20
   %160 = icmp ult i32 %159, 256
@@ -427,19 +427,19 @@ ConvertPopulationCountTableToBitEstimates.exit73.i.i: ; preds = %VP8LFastLog2.ex
   %181 = zext nneg i32 %174 to i64
   %182 = getelementptr inbounds nuw [256 x i32], ptr @kLog2Table, i64 0, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !20
-  br label %VP8LFastLog2.exit.i84.i.i
+  br label %.lr.ph30.preheader.i84.i.i
 
 184:                                              ; preds = %178
   %185 = load ptr, ptr @VP8LFastLog2Slow, align 8, !tbaa !22
   %186 = call i32 %185(i32 noundef %174) #7
-  br label %VP8LFastLog2.exit.i84.i.i
+  br label %.lr.ph30.preheader.i84.i.i
 
-VP8LFastLog2.exit.i84.i.i:                        ; preds = %184, %180
+.lr.ph30.preheader.i84.i.i:                       ; preds = %184, %180
   %187 = phi i32 [ %183, %180 ], [ %186, %184 ]
   br label %.lr.ph30.i85.i.i
 
-.lr.ph30.i85.i.i:                                 ; preds = %VP8LFastLog2.exit24.i87.i.i, %VP8LFastLog2.exit.i84.i.i
-  %indvars.iv32.i86.i.i = phi i64 [ 0, %VP8LFastLog2.exit.i84.i.i ], [ %indvars.iv.next33.i88.i.i, %VP8LFastLog2.exit24.i87.i.i ]
+.lr.ph30.i85.i.i:                                 ; preds = %VP8LFastLog2.exit24.i87.i.i, %.lr.ph30.preheader.i84.i.i
+  %indvars.iv32.i86.i.i = phi i64 [ 0, %.lr.ph30.preheader.i84.i.i ], [ %indvars.iv.next33.i88.i.i, %VP8LFastLog2.exit24.i87.i.i ]
   %188 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv32.i86.i.i
   %189 = load i32, ptr %188, align 4, !tbaa !20
   %190 = icmp ult i32 %189, 256

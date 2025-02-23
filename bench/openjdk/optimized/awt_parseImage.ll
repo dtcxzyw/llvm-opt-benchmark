@@ -403,9 +403,9 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   br label %.lr.ph259.preheader.i
 
 .lr.ph259.preheader.i:                            ; preds = %156, %153, %149, %130
-  %.sink287.i = phi i32 [ 0, %156 ], [ 65, %153 ], [ 49, %149 ], [ 50, %130 ]
+  %.sink288.i = phi i32 [ 0, %156 ], [ 65, %153 ], [ 49, %149 ], [ 50, %130 ]
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 608
-  store i32 %.sink287.i, ptr %157, align 8
+  store i32 %.sink288.i, ptr %157, align 8
   br label %.lr.ph259.i
 
 .lr.ph259.i:                                      ; preds = %.lr.ph259.i, %.lr.ph259.preheader.i
@@ -431,7 +431,7 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %wide.trip.count.i = zext nneg i32 %51 to i64
   br label %.lr.ph243.i
 
-.preheader.i:                                     ; preds = %.lr.ph243.i
+.lr.ph248.i:                                      ; preds = %.lr.ph243.i
   %169 = getelementptr inbounds nuw i8, ptr %8, i64 432
   br label %172
 
@@ -443,12 +443,12 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %171, i32 %.0205242.i)
   %indvars.iv.next265.i = add nuw nsw i64 %indvars.iv264.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next265.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph243.i, !llvm.loop !8
+  br i1 %exitcond.not.i, label %.lr.ph248.i, label %.lr.ph243.i, !llvm.loop !8
 
-172:                                              ; preds = %184, %.preheader.i
-  %indvars.iv267.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next268.i, %184 ]
-  %.0203247.i = phi i32 [ 0, %.preheader.i ], [ %.1.i, %184 ]
-  %.0209245.i = phi i32 [ 1, %.preheader.i ], [ %.1210.i, %184 ]
+172:                                              ; preds = %184, %.lr.ph248.i
+  %indvars.iv267.i = phi i64 [ 1, %.lr.ph248.i ], [ %indvars.iv.next268.i, %184 ]
+  %.0203247.i = phi i32 [ 0, %.lr.ph248.i ], [ %.1.i, %184 ]
+  %.0209245.i = phi i32 [ 1, %.lr.ph248.i ], [ %.1210.i, %184 ]
   %173 = getelementptr inbounds nuw i32, ptr %166, i64 %indvars.iv267.i
   %174 = load i32, ptr %173, align 4
   %175 = sub nsw i32 %174, %spec.select.i
@@ -609,11 +609,11 @@ awt_getBIColorOrder.exit.i:                       ; preds = %85, %82, %76, %66
   br i1 %258, label %248, label %.loopexit237.i.loopexit, !llvm.loop !12
 
 .loopexit237.sink.split.i:                        ; preds = %248, %243
-  %.sink291.i = phi i32 [ %245, %243 ], [ 8, %248 ]
+  %.sink292.i = phi i32 [ %245, %243 ], [ 8, %248 ]
   %259 = getelementptr inbounds nuw i8, ptr %8, i64 620
   store i32 1, ptr %259, align 4
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 624
-  store i32 %.sink291.i, ptr %260, align 8
+  store i32 %.sink292.i, ptr %260, align 8
   br label %.loopexit237.i
 
 .loopexit237.i.loopexit:                          ; preds = %252

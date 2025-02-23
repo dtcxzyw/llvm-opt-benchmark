@@ -1657,7 +1657,7 @@ free_key_list.exit30:                             ; preds = %.lr.ph.i26, %free_k
   %462 = tail call i32 @BIO_free(ptr noundef %461) #10
   %463 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %464 = load i32, ptr %463, align 8, !tbaa !67
-  tail call void @CRYPTO_free(ptr noundef %6, ptr noundef nonnull @.str.29, i32 noundef 5307) #10
+  tail call void @CRYPTO_free(ptr noundef nonnull %6, ptr noundef nonnull @.str.29, i32 noundef 5307) #10
   %465 = icmp eq i32 %464, 0
   %466 = zext i1 %465 to i32
   br label %467
@@ -11467,7 +11467,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.29, i32 noundef 2369, ptr noundef nonnull @.str.335, ptr noundef nonnull %11) #10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 35224
   store i32 1, ptr %23, align 8, !tbaa !26
-  br label %173
+  br label %172
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -11526,7 +11526,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   store ptr %56, ptr %9, align 8, !tbaa !310
   %57 = tail call i32 @test_ptr(ptr noundef nonnull @.str.29, i32 noundef 2396, ptr noundef nonnull @.str.434, ptr noundef %56) #10
   %.not52 = icmp eq i32 %57, 0
-  br i1 %.not52, label %173, label %58
+  br i1 %.not52, label %172, label %58
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -11535,7 +11535,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   %62 = load ptr, ptr %9, align 8, !tbaa !310
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !311
-  br i1 %61, label %65, label %166
+  br i1 %61, label %65, label %165
 
 65:                                               ; preds = %58
   %66 = load ptr, ptr %8, align 8, !tbaa !20
@@ -11654,8 +11654,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 
 119:                                              ; preds = %115
   %120 = call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.472, ptr noundef nonnull dereferenceable(1) %118) #11
-  %121 = icmp eq i32 %120, 0
-  %spec.select.i = zext i1 %121 to i32
+  %121 = icmp ne i32 %120, 0
   br label %145
 
 122:                                              ; preds = %112
@@ -11704,7 +11703,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   %.pre70.i = phi i64 [ %.pre70.pre.i, %74 ], [ %87, %91 ], [ %87, %97 ], [ %87, %102 ], [ %87, %115 ], [ %87, %140 ], [ %77, %._crit_edge.i ], [ %87, %110 ], [ %87, %104 ], [ %87, %119 ], [ %87, %126 ], [ %87, %134 ]
   %.049.i = phi ptr [ null, %74 ], [ null, %91 ], [ null, %97 ], [ null, %102 ], [ %106, %115 ], [ %106, %140 ], [ null, %._crit_edge.i ], [ %106, %110 ], [ %106, %104 ], [ %106, %119 ], [ %106, %126 ], [ %106, %134 ]
   %.048.i = phi ptr [ null, %74 ], [ null, %91 ], [ null, %97 ], [ null, %102 ], [ %108, %115 ], [ %108, %140 ], [ null, %._crit_edge.i ], [ %108, %110 ], [ %108, %104 ], [ %108, %119 ], [ %108, %126 ], [ %108, %134 ]
-  %.0.i = phi i32 [ 0, %74 ], [ 0, %91 ], [ 0, %97 ], [ 0, %102 ], [ 0, %115 ], [ 0, %140 ], [ 0, %._crit_edge.i ], [ 0, %110 ], [ 0, %104 ], [ %spec.select.i, %119 ], [ 0, %126 ], [ 0, %134 ]
+  %.0.i = phi i1 [ true, %74 ], [ true, %91 ], [ true, %97 ], [ true, %102 ], [ true, %115 ], [ true, %140 ], [ true, %._crit_edge.i ], [ true, %110 ], [ true, %104 ], [ %121, %119 ], [ true, %126 ], [ true, %134 ]
   call void @CRYPTO_free(ptr noundef %.049.i, ptr noundef nonnull @.str.29, i32 noundef 2295) #10
   call void @CRYPTO_free(ptr noundef %.048.i, ptr noundef nonnull @.str.29, i32 noundef 2296) #10
   br label %146
@@ -11715,7 +11714,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
   %.066 = phi i64 [ 0, %145 ], [ %143, %141 ]
   %.065 = phi i64 [ 0, %145 ], [ %144, %141 ]
   %147 = phi i64 [ %.pre70.i, %145 ], [ %87, %141 ]
-  %.1.i = phi i32 [ %.0.i, %145 ], [ 1, %141 ]
+  %.1.i = phi i1 [ %.0.i, %145 ], [ false, %141 ]
   %148 = load ptr, ptr %70, align 8, !tbaa !302
   %149 = call i32 @OPENSSL_sk_num(ptr noundef %148) #10
   %150 = icmp sgt i32 %149, 0
@@ -11737,61 +11736,60 @@ encapsulate.exit:                                 ; preds = %.lr.ph.i.i, %146
   call void @llvm.lifetime.end.p0(i64 400, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  %155 = icmp eq i32 %.1.i, 0
-  br i1 %155, label %173, label %156
+  br i1 %.1.i, label %172, label %155
 
-156:                                              ; preds = %encapsulate.exit
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 35240
-  %158 = load ptr, ptr %157, align 8, !tbaa !64
-  %.not53 = icmp eq ptr %158, null
-  br i1 %.not53, label %159, label %173
+155:                                              ; preds = %encapsulate.exit
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 35240
+  %157 = load ptr, ptr %156, align 8, !tbaa !64
+  %.not53 = icmp eq ptr %157, null
+  br i1 %.not53, label %158, label %172
 
-159:                                              ; preds = %156
-  br i1 %.not, label %160, label %163
+158:                                              ; preds = %155
+  br i1 %.not, label %159, label %162
 
-160:                                              ; preds = %159
-  %161 = getelementptr inbounds nuw i8, ptr %9, i64 88
-  %162 = load ptr, ptr %161, align 8, !tbaa !307
-  %.not55 = icmp eq ptr %162, null
-  br i1 %.not55, label %.thread82, label %163
+159:                                              ; preds = %158
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %161 = load ptr, ptr %160, align 8, !tbaa !307
+  %.not55 = icmp eq ptr %161, null
+  br i1 %.not55, label %.thread82, label %162
 
-163:                                              ; preds = %160, %159
-  %164 = load ptr, ptr %9, align 8, !tbaa !310
-  %165 = load ptr, ptr %63, align 8, !tbaa !311
-  call fastcc void @decapsulate(ptr noundef nonnull %0, ptr noundef %164, ptr noundef %165, ptr noundef %.170, i64 noundef %.066, ptr noundef %.168, i64 noundef %.065)
-  br label %173
+162:                                              ; preds = %159, %158
+  %163 = load ptr, ptr %9, align 8, !tbaa !310
+  %164 = load ptr, ptr %63, align 8, !tbaa !311
+  call fastcc void @decapsulate(ptr noundef nonnull %0, ptr noundef %163, ptr noundef %164, ptr noundef %.170, i64 noundef %.066, ptr noundef %.168, i64 noundef %.065)
+  br label %172
 
-166:                                              ; preds = %58
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %168 = load i64, ptr %167, align 8, !tbaa !317
-  %169 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %170 = load ptr, ptr %169, align 8, !tbaa !304
-  %171 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %172 = load i64, ptr %171, align 8, !tbaa !316
-  tail call fastcc void @decapsulate(ptr noundef %0, ptr noundef %62, ptr noundef %64, ptr noundef nonnull %60, i64 noundef %168, ptr noundef %170, i64 noundef %172)
-  br label %173
+165:                                              ; preds = %58
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %167 = load i64, ptr %166, align 8, !tbaa !317
+  %168 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %169 = load ptr, ptr %168, align 8, !tbaa !304
+  %170 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %171 = load i64, ptr %170, align 8, !tbaa !316
+  tail call fastcc void @decapsulate(ptr noundef %0, ptr noundef %62, ptr noundef %64, ptr noundef nonnull %60, i64 noundef %167, ptr noundef %169, i64 noundef %171)
+  br label %172
 
-173:                                              ; preds = %163, %156, %encapsulate.exit, %find_key.exit.thread, %166, %53
-  %.172 = phi ptr [ %.071, %53 ], [ %.071, %166 ], [ null, %find_key.exit.thread ], [ %.071, %encapsulate.exit ], [ %.071, %156 ], [ %.071, %163 ]
-  %.069 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.170, %encapsulate.exit ], [ %.170, %156 ], [ %.170, %163 ]
-  %.067 = phi ptr [ null, %53 ], [ null, %166 ], [ null, %find_key.exit.thread ], [ %.168, %encapsulate.exit ], [ %.168, %156 ], [ %.168, %163 ]
-  %.041 = phi i32 [ 0, %53 ], [ 1, %166 ], [ 1, %find_key.exit.thread ], [ 0, %encapsulate.exit ], [ %.1.i, %156 ], [ 1, %163 ]
-  %.2 = phi i32 [ %.1, %53 ], [ %.1, %166 ], [ %.07.i78, %find_key.exit.thread ], [ %.1, %encapsulate.exit ], [ %.1, %156 ], [ %.1, %163 ]
+172:                                              ; preds = %162, %155, %encapsulate.exit, %find_key.exit.thread, %165, %53
+  %.172 = phi ptr [ %.071, %53 ], [ %.071, %165 ], [ null, %find_key.exit.thread ], [ %.071, %encapsulate.exit ], [ %.071, %155 ], [ %.071, %162 ]
+  %.069 = phi ptr [ null, %53 ], [ null, %165 ], [ null, %find_key.exit.thread ], [ %.170, %encapsulate.exit ], [ %.170, %155 ], [ %.170, %162 ]
+  %.067 = phi ptr [ null, %53 ], [ null, %165 ], [ null, %find_key.exit.thread ], [ %.168, %encapsulate.exit ], [ %.168, %155 ], [ %.168, %162 ]
+  %.041 = phi i32 [ 0, %53 ], [ 1, %165 ], [ 1, %find_key.exit.thread ], [ 0, %encapsulate.exit ], [ 1, %155 ], [ 1, %162 ]
+  %.2 = phi i32 [ %.1, %53 ], [ %.1, %165 ], [ %.07.i78, %find_key.exit.thread ], [ %.1, %encapsulate.exit ], [ %.1, %155 ], [ %.1, %162 ]
   %.not56 = icmp eq i32 %.2, 0
-  br i1 %.not56, label %.thread82, label %174
+  br i1 %.not56, label %.thread82, label %173
 
-.thread82:                                        ; preds = %160, %50, %36, %52, %173
-  %.04195 = phi i32 [ %.041, %173 ], [ 1, %160 ], [ 1, %36 ], [ 1, %50 ], [ 0, %52 ]
-  %.06793 = phi ptr [ %.067, %173 ], [ %.168, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
-  %.06991 = phi ptr [ %.069, %173 ], [ %.170, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
-  %.17289 = phi ptr [ %.172, %173 ], [ %.071, %160 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+.thread82:                                        ; preds = %159, %50, %36, %52, %172
+  %.04195 = phi i32 [ %.041, %172 ], [ 1, %159 ], [ 1, %36 ], [ 1, %50 ], [ 0, %52 ]
+  %.06793 = phi ptr [ %.067, %172 ], [ %.168, %159 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+  %.06991 = phi ptr [ %.069, %172 ], [ %.170, %159 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
+  %.17289 = phi ptr [ %.172, %172 ], [ %.071, %159 ], [ null, %36 ], [ null, %50 ], [ null, %52 ]
   call void @EVP_PKEY_free(ptr noundef %.17289) #10
-  br label %174
+  br label %173
 
-174:                                              ; preds = %173, %.thread82
-  %.04194 = phi i32 [ %.04195, %.thread82 ], [ %.041, %173 ]
-  %.06792 = phi ptr [ %.06793, %.thread82 ], [ %.067, %173 ]
-  %.06990 = phi ptr [ %.06991, %.thread82 ], [ %.069, %173 ]
+173:                                              ; preds = %172, %.thread82
+  %.04194 = phi i32 [ %.04195, %.thread82 ], [ %.041, %172 ]
+  %.06792 = phi ptr [ %.06793, %.thread82 ], [ %.067, %172 ]
+  %.06990 = phi ptr [ %.06991, %.thread82 ], [ %.069, %172 ]
   call void @CRYPTO_free(ptr noundef %.06990, ptr noundef nonnull @.str.29, i32 noundef 2421) #10
   call void @CRYPTO_free(ptr noundef %.06792, ptr noundef nonnull @.str.29, i32 noundef 2422) #10
   ret i32 %.04194

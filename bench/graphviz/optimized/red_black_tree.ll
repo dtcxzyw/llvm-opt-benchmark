@@ -601,7 +601,7 @@ TreeSuccessor.exit:                               ; preds = %.preheader24.i, %2,
   br i1 %.not60, label %42, label %43
 
 42:                                               ; preds = %39
-  tail call fastcc void @RBDeleteFixUp(ptr noundef %0, ptr noundef nonnull %24)
+  tail call fastcc void @RBDeleteFixUp(ptr noundef nonnull %0, ptr noundef nonnull %24)
   br label %43
 
 43:                                               ; preds = %42, %39

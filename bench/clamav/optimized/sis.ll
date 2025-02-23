@@ -2886,55 +2886,107 @@ define internal fastcc void @spamsisnames(ptr noundef %0, i64 noundef range(i64 
 
 9:                                                ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.198) #9
-  br label %25
+  br label %46
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i32, ptr %8, i64 %.tr
-  %.not30 = icmp eq i16 %2, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph.preheader
+  %.not32 = icmp eq i16 %2, 0
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %10
+.lr.ph:                                           ; preds = %10
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %wide.trip.count = zext i16 %2 to i64
-  br label %.lr.ph
+  br label %13
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 1, !tbaa !47
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+13:                                               ; preds = %.lr.ph, %getsistring.exit.thread
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %getsistring.exit.thread ]
+  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
   %15 = load i32, ptr %14, align 1, !tbaa !47
-  %16 = tail call fastcc ptr @getsistring(ptr noundef %0, i32 noundef %13, i32 noundef %15)
-  %.not28 = icmp eq ptr %16, null
-  br i1 %.not28, label %22, label %17
+  %16 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %17 = load i32, ptr %16, align 1, !tbaa !47
+  %.not.i = icmp eq i32 %17, 0
+  br i1 %.not.i, label %getsistring.exit.thread, label %18
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8, !tbaa !52
-  %20 = load i32, ptr %12, align 1, !tbaa !47
-  %21 = load i32, ptr %14, align 1, !tbaa !47
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.199, ptr noundef nonnull %16, ptr noundef %19, i32 noundef %20, i32 noundef %21) #9
-  tail call void @free(ptr noundef nonnull %16) #9
-  br label %22
+18:                                               ; preds = %13
+  %spec.store.select.i = tail call i32 @llvm.umin.i32(i32 %17, i32 400)
+  %19 = add nuw nsw i32 %spec.store.select.i, 1
+  %20 = zext nneg i32 %19 to i64
+  %21 = tail call ptr @cli_max_malloc(i64 noundef %20) #9
+  %.not23.i = icmp eq ptr %21, null
+  br i1 %.not23.i, label %22, label %23
 
-22:                                               ; preds = %17, %.lr.ph
+22:                                               ; preds = %18
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.151) #9
+  br label %getsistring.exit.thread
+
+23:                                               ; preds = %18
+  %24 = zext i32 %15 to i64
+  %25 = zext nneg i32 %spec.store.select.i to i64
+  %26 = load i64, ptr %12, align 8, !tbaa !44
+  %or.cond.not.i = icmp ugt i64 %26, %24
+  br i1 %or.cond.not.i, label %27, label %fmap_readn.exit.thread.i
+
+27:                                               ; preds = %23
+  %28 = sub nuw i64 %26, %24
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %25, i64 %28)
+  %29 = load ptr, ptr %6, align 8, !tbaa !46
+  %30 = tail call ptr %29(ptr noundef nonnull %0, i64 noundef %24, i64 noundef %spec.select.i.i, i32 noundef 0) #9
+  %.not.i.i = icmp eq ptr %30, null
+  br i1 %.not.i.i, label %fmap_readn.exit.thread.i, label %fmap_readn.exit.i
+
+fmap_readn.exit.i:                                ; preds = %27
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %30, i64 %spec.select.i.i, i1 false)
+  %31 = trunc nuw nsw i64 %spec.select.i.i to i32
+  %.not24.i = icmp eq i32 %spec.store.select.i, %31
+  br i1 %.not24.i, label %.preheader.i, label %fmap_readn.exit.thread.i
+
+fmap_readn.exit.thread.i:                         ; preds = %fmap_readn.exit.i, %27, %23
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.200) #9
+  tail call void @free(ptr noundef nonnull %21) #9
+  br label %getsistring.exit.thread
+
+.preheader.i:                                     ; preds = %fmap_readn.exit.i, %.preheader.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %fmap_readn.exit.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i
+  %33 = load i8, ptr %32, align 1, !tbaa !47
+  %34 = lshr exact i64 %indvars.iv.i, 1
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 %34
+  store i8 %33, ptr %35, align 1, !tbaa !47
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
+  %36 = icmp samesign ult i64 %indvars.iv.next.i, %25
+  br i1 %36, label %.preheader.i, label %37
+
+37:                                               ; preds = %.preheader.i
+  %38 = lshr exact i64 %indvars.iv.next.i, 1
+  %39 = getelementptr inbounds nuw i8, ptr %21, i64 %38
+  store i8 0, ptr %39, align 1, !tbaa !47
+  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !52
+  %42 = load i32, ptr %14, align 1, !tbaa !47
+  %43 = load i32, ptr %16, align 1, !tbaa !47
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.199, ptr noundef nonnull %21, ptr noundef %41, i32 noundef %42, i32 noundef %43) #9
+  tail call void @free(ptr noundef nonnull %21) #9
+  br label %getsistring.exit.thread
+
+getsistring.exit.thread:                          ; preds = %13, %22, %fmap_readn.exit.thread.i, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
+  br i1 %exitcond.not, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %22, %10
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %24 = load ptr, ptr %23, align 8, !tbaa !68
-  tail call void %24(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i64 noundef range(i64 0, 524281) %5) #9
-  br label %25
+._crit_edge:                                      ; preds = %getsistring.exit.thread, %10
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %45 = load ptr, ptr %44, align 8, !tbaa !68
+  tail call void %45(ptr noundef %0, i64 noundef range(i64 0, 38653919236) %1, i64 noundef range(i64 0, 524281) %5) #9
+  br label %46
 
-25:                                               ; preds = %._crit_edge, %9
+46:                                               ; preds = %._crit_edge, %9
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @getsistring(ptr noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %29, label %4
+  br i1 %.not, label %28, label %4
 
 4:                                                ; preds = %3
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %2, i32 400)
@@ -2946,7 +2998,7 @@ define internal fastcc ptr @getsistring(ptr noundef %0, i32 noundef %1, i32 noun
 
 8:                                                ; preds = %4
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.151) #9
-  br label %29
+  br label %28
 
 9:                                                ; preds = %4
   %10 = zext i32 %1 to i64
@@ -2974,7 +3026,7 @@ fmap_readn.exit:                                  ; preds = %14
 fmap_readn.exit.thread:                           ; preds = %14, %9, %fmap_readn.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.200) #9
   tail call void @free(ptr noundef nonnull %7) #9
-  br label %29
+  br label %28
 
 .preheader:                                       ; preds = %fmap_readn.exit, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %fmap_readn.exit ]
@@ -2989,12 +3041,11 @@ fmap_readn.exit.thread:                           ; preds = %14, %9, %fmap_readn
 
 25:                                               ; preds = %.preheader
   %26 = lshr exact i64 %indvars.iv.next, 1
-  %27 = and i64 %26, 2147483647
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 %27
-  store i8 0, ptr %28, align 1, !tbaa !47
-  br label %29
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 %26
+  store i8 0, ptr %27, align 1, !tbaa !47
+  br label %28
 
-29:                                               ; preds = %3, %25, %fmap_readn.exit.thread, %8
+28:                                               ; preds = %3, %25, %fmap_readn.exit.thread, %8
   %.020 = phi ptr [ null, %fmap_readn.exit.thread ], [ %7, %25 ], [ null, %8 ], [ null, %3 ]
   ret ptr %.020
 }

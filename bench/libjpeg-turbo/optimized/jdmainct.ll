@@ -287,7 +287,7 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader54.i, label %.lr.ph.i, !llvm.loop !65
 
-.preheader.i:                                     ; preds = %52
+.lr.ph59.preheader.i:                             ; preds = %52
   %51 = zext nneg i32 %32 to i64
   %.pre.i = load ptr, ptr %34, align 8, !tbaa !64
   br label %.lr.ph59.i
@@ -306,10 +306,10 @@ define internal void @start_pass_main(ptr noundef %0, i32 noundef %1) #0 {
   store ptr %59, ptr %60, align 8, !tbaa !64
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond70.not.i = icmp eq i64 %indvars.iv.next67.i, %wide.trip.count69.i
-  br i1 %exitcond70.not.i, label %.preheader.i, label %52, !llvm.loop !66
+  br i1 %exitcond70.not.i, label %.lr.ph59.preheader.i, label %52, !llvm.loop !66
 
-.lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.preheader.i
-  %indvars.iv71.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph59.i ]
+.lr.ph59.i:                                       ; preds = %.lr.ph59.i, %.lr.ph59.preheader.i
+  %indvars.iv71.i = phi i64 [ 0, %.lr.ph59.preheader.i ], [ %indvars.iv.next72.i, %.lr.ph59.i ]
   %61 = sub nsw i64 %indvars.iv71.i, %51
   %62 = getelementptr inbounds ptr, ptr %34, i64 %61
   store ptr %.pre.i, ptr %62, align 8, !tbaa !64

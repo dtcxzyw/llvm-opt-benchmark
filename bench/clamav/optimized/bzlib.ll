@@ -2344,16 +2344,16 @@ makeMaps_d.exit.i:                                ; preds = %812
   %.1.i = tail call i32 @llvm.umin.i32(i32 %.09411562.i, i32 %1225)
   %indvars.iv.next1777.i = add nuw nsw i64 %indvars.iv1776.i, 1
   %exitcond1781.not.i = icmp eq i64 %indvars.iv.next1777.i, %wide.trip.count.i.i
-  br i1 %exitcond1781.not.i, label %.preheader69.lr.ph.i.i, label %.lr.ph1563.i
+  br i1 %exitcond1781.not.i, label %.preheader69.us.i.preheader.i, label %.lr.ph1563.i
 
-.preheader69.lr.ph.i.i:                           ; preds = %.lr.ph1563.i
+.preheader69.us.i.preheader.i:                    ; preds = %.lr.ph1563.i
   %1226 = getelementptr inbounds nuw [6 x [258 x i32]], ptr %35, i64 0, i64 %indvars.iv1782.i
   %1227 = getelementptr inbounds nuw [6 x [258 x i8]], ptr %32, i64 0, i64 %indvars.iv1782.i
   br label %.preheader69.us.i.i
 
-.preheader69.us.i.i:                              ; preds = %._crit_edge.us.i.i, %.preheader69.lr.ph.i.i
-  %.05774.us.i.i = phi i32 [ %1239, %._crit_edge.us.i.i ], [ %.1.i, %.preheader69.lr.ph.i.i ]
-  %.05873.us.i.i = phi i32 [ %.260.us.i.i, %._crit_edge.us.i.i ], [ 0, %.preheader69.lr.ph.i.i ]
+.preheader69.us.i.i:                              ; preds = %._crit_edge.us.i.i, %.preheader69.us.i.preheader.i
+  %.05774.us.i.i = phi i32 [ %1239, %._crit_edge.us.i.i ], [ %.1.i, %.preheader69.us.i.preheader.i ]
+  %.05873.us.i.i = phi i32 [ %.260.us.i.i, %._crit_edge.us.i.i ], [ 0, %.preheader69.us.i.preheader.i ]
   br label %1228
 
 1228:                                             ; preds = %1238, %.preheader69.us.i.i
@@ -2391,8 +2391,8 @@ makeMaps_d.exit.i:                                ; preds = %812
   br label %.lr.ph.i.i
 
 .preheader66.i.i:                                 ; preds = %.lr.ph.i.i, %.preheader68.i.thread.i
-  %.0941.lcssa2004.i = phi i32 [ 32, %.preheader68.i.thread.i ], [ %.1.i, %.lr.ph.i.i ]
-  %.0944.lcssa2002.i = phi i32 [ 0, %.preheader68.i.thread.i ], [ %spec.select.i, %.lr.ph.i.i ]
+  %.0944.lcssa20032014.i = phi i32 [ 0, %.preheader68.i.thread.i ], [ %spec.select.i, %.lr.ph.i.i ]
+  %.0941.lcssa20052013.i = phi i32 [ 32, %.preheader68.i.thread.i ], [ %.1.i, %.lr.ph.i.i ]
   %1241 = getelementptr inbounds nuw [6 x [258 x i32]], ptr %34, i64 0, i64 %indvars.iv1782.i
   %load_initial = load i32, ptr %gep, align 4
   br label %1247
@@ -2427,20 +2427,20 @@ makeMaps_d.exit.i:                                ; preds = %812
   br i1 %1025, label %.preheader.i.i, label %.lr.ph82.preheader.i.i
 
 .lr.ph82.preheader.i.i:                           ; preds = %.preheader65.preheader.i.i
-  %1252 = zext nneg i32 %.0941.lcssa2004.i to i64
-  %1253 = add nuw nsw i32 %.0944.lcssa2002.i, 1
+  %1252 = zext nneg i32 %.0941.lcssa20052013.i to i64
+  %1253 = add nuw nsw i32 %.0944.lcssa20032014.i, 1
   %wide.trip.count107.i.i = zext nneg i32 %1253 to i64
   %.phi.trans.insert1949.i = getelementptr inbounds nuw i32, ptr %1241, i64 %1252
   %.pre1950.i = load i32, ptr %.phi.trans.insert1949.i, align 4, !tbaa !38
   br label %.lr.ph82.i.i
 
 .preheader.i.i:                                   ; preds = %.lr.ph82.i.i, %.preheader65.preheader.i.i
-  %.not63.not83.i.i = icmp samesign ult i32 %.0941.lcssa2004.i, %.0944.lcssa2002.i
+  %.not63.not83.i.i = icmp samesign ult i32 %.0941.lcssa20052013.i, %.0944.lcssa20032014.i
   br i1 %.not63.not83.i.i, label %.lr.ph85.preheader.i.i, label %CreateDecodeTables.exit.i
 
 .lr.ph85.preheader.i.i:                           ; preds = %.preheader.i.i
-  %1254 = zext nneg i32 %.0941.lcssa2004.i to i64
-  %wide.trip.count112.i.i = zext nneg i32 %.0944.lcssa2002.i to i64
+  %1254 = zext nneg i32 %.0941.lcssa20052013.i to i64
+  %wide.trip.count112.i.i = zext nneg i32 %.0944.lcssa20032014.i to i64
   br label %.lr.ph85.i.i
 
 .lr.ph82.i.i:                                     ; preds = %.lr.ph82.i.i, %.lr.ph82.preheader.i.i
@@ -2475,7 +2475,7 @@ makeMaps_d.exit.i:                                ; preds = %812
 
 CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.preheader.i.i
   %1270 = getelementptr inbounds nuw [6 x i32], ptr %36, i64 0, i64 %indvars.iv1782.i
-  store i32 %.0941.lcssa2004.i, ptr %1270, align 4, !tbaa !38
+  store i32 %.0941.lcssa20052013.i, ptr %1270, align 4, !tbaa !38
   %indvars.iv.next1783.i = add nuw nsw i64 %indvars.iv1782.i, 1
   %exitcond1787.not.i = icmp eq i64 %indvars.iv.next1783.i, %wide.trip.count1786.i
   br i1 %exitcond1787.not.i, label %._crit_edge1568.i, label %.preheader1418.i
@@ -3197,9 +3197,9 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
   br i1 %.not13511600.i, label %._crit_edge1603.i, label %.lr.ph1602.preheader.i
 
 .lr.ph1602.preheader.i:                           ; preds = %1537, %.preheader1411.i
-  %.0942.lcssa2015.i = phi i32 [ %1566, %.preheader1411.i ], [ %1535, %1537 ]
-  %invariant.op2016.i = add i32 %1538, -1
-  %1545 = zext nneg i32 %.0942.lcssa2015.i to i64
+  %.0942.lcssa2018.i = phi i32 [ %1566, %.preheader1411.i ], [ %1535, %1537 ]
+  %invariant.op2019.i = add i32 %1538, -1
+  %1545 = zext nneg i32 %.0942.lcssa2018.i to i64
   br label %.lr.ph1602.i
 
 .lr.ph1598.i:                                     ; preds = %.lr.ph1598.i, %.lr.ph1598.preheader.i
@@ -3237,7 +3237,7 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
   %indvars.iv1819.i = phi i64 [ %1545, %.lr.ph1602.preheader.i ], [ %indvars.iv.next1820.i, %.lr.ph1602.i ]
   %1568 = trunc nuw i64 %indvars.iv1819.i to i32
   %1569 = add i32 %1538, %1568
-  %.reass.i = add i32 %invariant.op2016.i, %1568
+  %.reass.i = add i32 %invariant.op2019.i, %1568
   %1570 = zext i32 %.reass.i to i64
   %1571 = getelementptr inbounds nuw [4096 x i8], ptr %38, i64 0, i64 %1570
   %1572 = load i8, ptr %1571, align 1, !tbaa !32
@@ -3310,7 +3310,7 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
   %1609 = sext i32 %1602 to i64
   %1610 = getelementptr inbounds [4096 x i8], ptr %38, i64 0, i64 %1609
   store i8 %1608, ptr %1610, align 1, !tbaa !32
-  %1611 = icmp sgt i64 %indvars.iv1805.i, 1
+  %1611 = icmp samesign ugt i64 %indvars.iv1805.i, 1
   br i1 %1611, label %.lr.ph1590.i, label %._crit_edge1591.i
 
 ._crit_edge1591.i:                                ; preds = %.lr.ph1590.i
@@ -3785,8 +3785,8 @@ CreateDecodeTables.exit.i:                        ; preds = %.lr.ph85.i.i, %.pre
   br label %1810
 
 1810:                                             ; preds = %1804, %1799
-  %.sink2092.i = phi i8 [ %1809, %1804 ], [ %1803, %1799 ]
-  store i8 %.sink2092.i, ptr %1797, align 1, !tbaa !32
+  %.sink2093.i = phi i8 [ %1809, %1804 ], [ %1803, %1799 ]
+  store i8 %.sink2093.i, ptr %1797, align 1, !tbaa !32
   %1811 = load i32, ptr %1789, align 4, !tbaa !38
   %1812 = add nsw i32 %1811, 1
   store i32 %1812, ptr %1789, align 4, !tbaa !38

@@ -276,7 +276,7 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i: ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %.not10.i = icmp eq ptr %3, null
-  br i1 %.not10.i, label %._crit_edge.thread13.i, label %.lr.ph.i
+  br i1 %.not10.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i, %.lr.ph.i
   %.011.i = phi ptr [ %5, %.lr.ph.i ], [ %3, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i ]
@@ -284,13 +284,13 @@ _ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i: ; preds = %1
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %.011.i)
   %.not.i = icmp eq ptr %5, null
-  br i1 %.not.i, label %._crit_edge.thread13.i, label %.lr.ph.i, !llvm.loop !21
+  br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !21
 
-._crit_edge.thread13.i:                           ; preds = %.lr.ph.i, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i
+.loopexit.i:                                      ; preds = %.lr.ph.i, %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit.i
   tail call void @_ZN17duckdb_libpgquery5pfreeEPv(ptr noundef nonnull %0)
   br label %_ZN17duckdb_libpgqueryL17list_free_privateEPNS_6PGListEb.exit
 
-_ZN17duckdb_libpgqueryL17list_free_privateEPNS_6PGListEb.exit: ; preds = %1, %._crit_edge.thread13.i
+_ZN17duckdb_libpgqueryL17list_free_privateEPNS_6PGListEb.exit: ; preds = %1, %.loopexit.i
   ret void
 }
 

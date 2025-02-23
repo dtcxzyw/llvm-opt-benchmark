@@ -601,7 +601,7 @@ if.then9:                                         ; preds = %if.end3
   br label %return.sink.split
 
 for.cond18.preheader:                             ; preds = %for.body
-  %cmp19169 = icmp slt i32 %call4.fr, 20
+  %cmp19169 = icmp samesign ult i32 %call4.fr, 20
   br i1 %cmp19169, label %if.else, label %if.then27
 
 for.body:                                         ; preds = %for.body.preheader, %for.body

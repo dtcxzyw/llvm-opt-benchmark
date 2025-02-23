@@ -43,7 +43,7 @@ define void @files_releaselist(ptr noundef readonly captures(none) %0) local_unn
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next16
   %15 = load ptr, ptr %14, align 8
   tail call void @free(ptr noundef %15)
-  %16 = icmp sgt i64 %indvars.iv15, 1
+  %16 = icmp samesign ugt i64 %indvars.iv15, 1
   br i1 %16, label %.preheader, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %12, %1
@@ -322,7 +322,7 @@ up_irq_restore.exit:                              ; preds = %32, %34
   br i1 %exitcond73.not, label %._crit_edge, label %36, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %36, %up_irq_restore.exit
-  call void @free(ptr noundef %12)
+  call void @free(ptr noundef nonnull %12)
   br label %48
 
 38:                                               ; preds = %27

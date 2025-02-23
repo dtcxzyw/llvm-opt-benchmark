@@ -881,29 +881,29 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
   %336 = fadd float %.0159258, %335
   %indvars.iv.next338 = add nsw i64 %indvars.iv337, 1
   %exitcond341.not = icmp eq i64 %indvars.iv.next338, %wide.trip.count340
-  br i1 %exitcond341.not, label %._crit_edge262, label %.lr.ph261, !llvm.loop !14
+  br i1 %exitcond341.not, label %.lr.ph267, label %.lr.ph261, !llvm.loop !14
 
-._crit_edge262:                                   ; preds = %.lr.ph261
+._crit_edge262..preheader223_crit_edge:           ; preds = %324
+  %.pre = load ptr, ptr %11, align 8
+  %.pre374 = sext i32 %275 to i64
+  br label %.preheader223
+
+.lr.ph267:                                        ; preds = %.lr.ph261
   %337 = sub nsw i32 %277, %275
   %338 = sitofp i32 %337 to float
   %339 = fdiv float %336, %338
-  %.pre = load ptr, ptr %11, align 8
+  %.pre376 = load ptr, ptr %11, align 8
   %340 = sext i32 %275 to i64
   %wide.trip.count349 = sext i32 %277 to i64
   br label %341
 
-._crit_edge262..preheader223_crit_edge:           ; preds = %324
-  %.pre376 = load ptr, ptr %11, align 8
-  %.pre374 = sext i32 %275 to i64
-  br label %.preheader223
-
 .preheader223:                                    ; preds = %351, %._crit_edge262..preheader223_crit_edge
-  %.pre377 = phi ptr [ %.pre376, %._crit_edge262..preheader223_crit_edge ], [ %.pre, %351 ]
+  %.pre378 = phi ptr [ %.pre, %._crit_edge262..preheader223_crit_edge ], [ %.pre376, %351 ]
   %.pre-phi = phi i64 [ %.pre374, %._crit_edge262..preheader223_crit_edge ], [ %340, %351 ]
   br label %352
 
-341:                                              ; preds = %._crit_edge262, %351
-  %indvars.iv346 = phi i64 [ %340, %._crit_edge262 ], [ %indvars.iv.next347, %351 ]
+341:                                              ; preds = %.lr.ph267, %351
+  %indvars.iv346 = phi i64 [ %340, %.lr.ph267 ], [ %indvars.iv.next347, %351 ]
   %342 = getelementptr inbounds %struct.t_atom, ptr %170, i64 %indvars.iv346, i32 1
   %343 = load float, ptr %342, align 4
   %344 = fsub float %343, %339
@@ -911,7 +911,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
 
 345:                                              ; preds = %341, %345
   %indvars.iv342 = phi i64 [ 0, %341 ], [ %indvars.iv.next343, %345 ]
-  %346 = getelementptr inbounds [3 x float], ptr %.pre, i64 %indvars.iv346, i64 %indvars.iv342
+  %346 = getelementptr inbounds [3 x float], ptr %.pre376, i64 %indvars.iv346, i64 %indvars.iv342
   %347 = load float, ptr %346, align 4
   %348 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv342
   %349 = load float, ptr %348, align 4
@@ -928,7 +928,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
 
 352:                                              ; preds = %.preheader223, %352
   %indvars.iv351 = phi i64 [ 0, %.preheader223 ], [ %indvars.iv.next352, %352 ]
-  %353 = getelementptr inbounds [3 x float], ptr %.pre377, i64 %.pre-phi, i64 %indvars.iv351
+  %353 = getelementptr inbounds [3 x float], ptr %.pre378, i64 %.pre-phi, i64 %indvars.iv351
   %354 = load float, ptr %353, align 4
   %355 = fneg float %354
   %356 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv351
@@ -948,7 +948,7 @@ _ZL12calc_com_pbciPK10t_topologyPA3_fP5t_pbcPKiPf7PbcType.exit: ; preds = %._cri
 
 357:                                              ; preds = %.preheader, %357
   %indvars.iv355 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next356, %357 ]
-  %358 = getelementptr inbounds [3 x float], ptr %.pre377, i64 %indvars.iv.next360, i64 %indvars.iv355
+  %358 = getelementptr inbounds [3 x float], ptr %.pre378, i64 %indvars.iv.next360, i64 %indvars.iv355
   %359 = load float, ptr %358, align 4
   %360 = fpext float %359 to double
   %361 = getelementptr inbounds nuw [3 x float], ptr %16, i64 0, i64 %indvars.iv355

@@ -441,20 +441,20 @@ ctype_raw.exit:                                   ; preds = %31
   br i1 %.not, label %39, label %37
 
 37:                                               ; preds = %ctype_raw.exit
-  %38 = tail call i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef nonnull %36) #9
+  %38 = tail call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %36) #9
   br label %45
 
 39:                                               ; preds = %ctype_raw.exit
   br i1 %.not31, label %43, label %40
 
 40:                                               ; preds = %39
-  %41 = tail call ptr @lj_ctype_repr(ptr noundef %0, i32 noundef %spec.select, ptr noundef null) #9
+  %41 = tail call ptr @lj_ctype_repr(ptr noundef nonnull %0, i32 noundef %spec.select, ptr noundef null) #9
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %0, i32 noundef 3415, ptr noundef nonnull %42) #10
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3415, ptr noundef nonnull %42) #10
   unreachable
 
 43:                                               ; preds = %39
-  %44 = tail call i32 @lj_cf_ffi_new(ptr noundef %0)
+  %44 = tail call i32 @lj_cf_ffi_new(ptr noundef nonnull %0)
   br label %45
 
 45:                                               ; preds = %25, %43, %37
@@ -659,7 +659,7 @@ ctype_rawchild.exit:                              ; preds = %39, %ctype_raw.exit
   %50 = getelementptr inbounds i8, ptr %5, i64 -8
   %51 = getelementptr inbounds nuw i8, ptr %.054, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !58
-  %53 = tail call ptr @lj_ctype_repr_complex(ptr noundef %0, ptr noundef nonnull %16, i32 noundef %52) #9
+  %53 = tail call ptr @lj_ctype_repr_complex(ptr noundef nonnull %0, ptr noundef nonnull %16, i32 noundef %52) #9
   %54 = ptrtoint ptr %53 to i64
   %55 = or i64 %54, -703687441776640
   store i64 %55, ptr %50, align 8, !tbaa !23
@@ -677,7 +677,7 @@ ctype_rawchild.exit:                              ; preds = %39, %ctype_raw.exit
   %62 = getelementptr inbounds i8, ptr %5, i64 -8
   %63 = load i64, ptr %16, align 8, !tbaa !59
   %64 = and i32 %46, 8388608
-  %65 = tail call ptr @lj_ctype_repr_int64(ptr noundef %0, i64 noundef %63, i32 noundef %64) #9
+  %65 = tail call ptr @lj_ctype_repr_int64(ptr noundef nonnull %0, i64 noundef %63, i32 noundef %64) #9
   %66 = ptrtoint ptr %65 to i64
   %67 = or i64 %66, -703687441776640
   store i64 %67, ptr %62, align 8, !tbaa !23
@@ -750,16 +750,16 @@ ctype_rawchild.exit72:                            ; preds = %84, %68
   br i1 %.not, label %.thread, label %102
 
 102:                                              ; preds = %95
-  %103 = tail call i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef nonnull %101) #9
+  %103 = tail call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %101) #9
   br label %116
 
 .thread:                                          ; preds = %95, %70, %72, %ctype_rawchild.exit72, %18
   %.063 = phi i32 [ %19, %18 ], [ %15, %ctype_rawchild.exit72 ], [ %15, %72 ], [ %15, %70 ], [ %15, %95 ]
   %.059 = phi ptr [ %16, %18 ], [ %.362, %ctype_rawchild.exit72 ], [ %75, %72 ], [ %71, %70 ], [ %.362, %95 ]
   %.056 = phi ptr [ @.str.6, %18 ], [ @.str.5, %ctype_rawchild.exit72 ], [ @.str.7, %72 ], [ @.str.5, %70 ], [ @.str.5, %95 ]
-  %104 = tail call ptr @lj_ctype_repr(ptr noundef %0, i32 noundef %.063, ptr noundef null) #9
+  %104 = tail call ptr @lj_ctype_repr(ptr noundef nonnull %0, i32 noundef %.063, ptr noundef null) #9
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  %106 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef %0, ptr noundef nonnull %.056, ptr noundef nonnull %105, ptr noundef %.059) #9
+  %106 = tail call ptr (ptr, ptr, ...) @lj_strfmt_pushf(ptr noundef nonnull %0, ptr noundef nonnull %.056, ptr noundef nonnull %105, ptr noundef %.059) #9
   br label %.thread79
 
 .thread79:                                        ; preds = %61, %49, %.thread
@@ -1377,7 +1377,7 @@ ctype_raw.exit:                                   ; preds = %25
   br i1 %.not, label %33, label %44
 
 33:                                               ; preds = %ctype_raw.exit
-  %34 = tail call ptr @lj_ctype_repr(ptr noundef %0, i32 noundef %spec.select, ptr noundef null) #9
+  %34 = tail call ptr @lj_ctype_repr(ptr noundef nonnull %0, i32 noundef %spec.select, ptr noundef null) #9
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i64, ptr %3, align 8, !tbaa !24
   %37 = inttoptr i64 %36 to ptr
@@ -1387,11 +1387,11 @@ ctype_raw.exit:                                   ; preds = %25
   %41 = load i64, ptr %40, align 8, !tbaa !25
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %0, i32 noundef 3566, ptr noundef nonnull %35, ptr noundef nonnull %43) #10
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %0, i32 noundef 3566, ptr noundef nonnull %35, ptr noundef nonnull %43) #10
   unreachable
 
 44:                                               ; preds = %ctype_raw.exit
-  %45 = tail call i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef nonnull %32) #9
+  %45 = tail call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %32) #9
   ret i32 %45
 }
 
@@ -1790,7 +1790,7 @@ ctype_raw.exit:                                   ; preds = %25
   br label %62
 
 60:                                               ; preds = %48
-  %61 = tail call ptr @lj_tab_setinth(ptr noundef %0, ptr noundef nonnull %50, i32 noundef %38) #9
+  %61 = tail call ptr @lj_tab_setinth(ptr noundef nonnull %0, ptr noundef nonnull %50, i32 noundef %38) #9
   br label %62
 
 62:                                               ; preds = %60, %54
@@ -1833,7 +1833,7 @@ ctype_raw.exit:                                   ; preds = %25
   br label %.critedge
 
 83:                                               ; preds = %42, %35, %31, %ctype_raw.exit
-  tail call void @lj_err_caller(ptr noundef %0, i32 noundef 3668) #10
+  tail call void @lj_err_caller(ptr noundef nonnull %0, i32 noundef 3668) #10
   unreachable
 
 .critedge:                                        ; preds = %64, %70, %78
@@ -1995,7 +1995,7 @@ ffi_checkctype.exit:                              ; preds = %31, %40, %43
   br i1 %48, label %46, label %ctype_raw.exit, !llvm.loop !54
 
 ctype_raw.exit:                                   ; preds = %46
-  %50 = call ptr @lj_lib_checkany(ptr noundef %0, i32 noundef 2) #9
+  %50 = call ptr @lj_lib_checkany(ptr noundef nonnull %0, i32 noundef 2) #9
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %51, ptr %12, align 8, !tbaa !4
   %52 = load i32, ptr %.0.i, align 8, !tbaa !52
@@ -3420,7 +3420,7 @@ ctype_raw.exit:                                   ; preds = %25
   %37 = inttoptr i64 %36 to ptr
   %38 = ashr i64 %35, 47
   %39 = trunc nsw i64 %38 to i32
-  tail call void @lj_cdata_setfin(ptr noundef nonnull %0, ptr noundef %12, ptr noundef %37, i32 noundef %39) #9
+  tail call void @lj_cdata_setfin(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %37, i32 noundef %39) #9
   %40 = load ptr, ptr %2, align 8, !tbaa !44
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %41, ptr %4, align 8, !tbaa !4

@@ -85,8 +85,8 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %12 = tail call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef %1) #5
-  %13 = tail call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef %1) #5
+  %12 = tail call ptr @ossl_quic_txpim_pkt_get_chunks(ptr noundef nonnull %1) #5
+  %13 = tail call i64 @ossl_quic_txpim_pkt_get_num_chunks(ptr noundef nonnull %1) #5
   %.not58 = icmp eq i64 %13, 0
   br i1 %.not58, label %._crit_edge57, label %.lr.ph56
 
@@ -144,7 +144,7 @@ define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %0, ptr noundef initializes((4
 ._crit_edge57:                                    ; preds = %42, %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !11
-  %46 = tail call i32 @ossl_ackm_on_tx_packet(ptr noundef %45, ptr noundef %1) #5
+  %46 = tail call i32 @ossl_ackm_on_tx_packet(ptr noundef %45, ptr noundef nonnull %1) #5
   br label %.loopexit
 
 .loopexit:                                        ; preds = %38, %32, %._crit_edge57
@@ -520,7 +520,7 @@ define internal void @on_acked(ptr noundef %0) #2 {
 ._crit_edge76:                                    ; preds = %.lr.ph75, %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !12
-  tail call void @ossl_quic_txpim_pkt_release(ptr noundef %68, ptr noundef %0) #5
+  tail call void @ossl_quic_txpim_pkt_release(ptr noundef %68, ptr noundef nonnull %0) #5
   ret void
 }
 
@@ -545,7 +545,7 @@ define internal void @on_discarded(ptr noundef %0) #2 {
 ._crit_edge:                                      ; preds = %.lr.ph, %1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  tail call void @ossl_quic_txpim_pkt_release(ptr noundef %10, ptr noundef %0) #5
+  tail call void @ossl_quic_txpim_pkt_release(ptr noundef %10, ptr noundef nonnull %0) #5
   ret void
 }
 

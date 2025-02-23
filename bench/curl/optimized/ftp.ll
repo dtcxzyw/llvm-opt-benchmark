@@ -1316,7 +1316,7 @@ define internal i32 @ftp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   %65 = load i8, ptr %64, align 2
   %66 = and i8 %65, 16
   %.not162 = icmp eq i8 %66, 0
-  br i1 %.not162, label %67, label %.thread237
+  br i1 %.not162, label %67, label %.thread231
 
 67:                                               ; preds = %60
   %68 = load i8, ptr %51, align 4, !tbaa !119
@@ -1349,7 +1349,7 @@ define internal i32 @ftp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   store ptr %82, ptr %62, align 8, !tbaa !146
   br label %85
 
-.thread237:                                       ; preds = %60
+.thread231:                                       ; preds = %60
   %83 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %84 = load ptr, ptr %8, align 8, !tbaa !7
   call void %83(ptr noundef %84) #10
@@ -1358,8 +1358,8 @@ define internal i32 @ftp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
 
 85:                                               ; preds = %79, %58
   %86 = phi ptr [ %82, %79 ], [ %.pre, %58 ]
-  %.not232 = icmp eq ptr %86, null
-  br i1 %.not232, label %99, label %87
+  %.not226 = icmp eq ptr %86, null
+  br i1 %.not226, label %99, label %87
 
 87:                                               ; preds = %85
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 2658
@@ -1384,9 +1384,9 @@ define internal i32 @ftp_done(ptr noundef %0, i32 noundef %1, i1 noundef zeroext
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.149, ptr noundef nonnull %86) #10
   br label %99
 
-99:                                               ; preds = %.thread237, %85, %98, %94, %87, %.thread
-  %.not161201 = phi i1 [ true, %85 ], [ true, %98 ], [ true, %94 ], [ true, %87 ], [ false, %.thread ], [ true, %.thread237 ]
-  %.1138199 = phi i32 [ 0, %85 ], [ 0, %98 ], [ 0, %94 ], [ 0, %87 ], [ %.1138200, %.thread ], [ 0, %.thread237 ]
+99:                                               ; preds = %.thread231, %85, %98, %94, %87, %.thread
+  %.not161201 = phi i1 [ true, %85 ], [ true, %98 ], [ true, %94 ], [ true, %87 ], [ false, %.thread ], [ true, %.thread231 ]
+  %.1138199 = phi i32 [ 0, %85 ], [ 0, %98 ], [ 0, %94 ], [ 0, %87 ], [ %.1138200, %.thread ], [ 0, %.thread231 ]
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 1280
   %101 = load ptr, ptr %100, align 8, !tbaa !139
   %.not.i = icmp eq ptr %101, null
@@ -1452,12 +1452,12 @@ freedirs.exit:                                    ; preds = %99, %._crit_edge.i
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %131 = load i64, ptr %130, align 8, !tbaa !148
   %132 = icmp sgt i64 %131, 0
-  br i1 %132, label %133, label %.thread203
+  br i1 %132, label %133, label %139
 
 133:                                              ; preds = %129
   %134 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.150) #10
   %.not168 = icmp eq i32 %134, 0
-  br i1 %.not168, label %.thread203, label %135
+  br i1 %.not168, label %139, label %135
 
 135:                                              ; preds = %133
   %136 = call ptr @curl_easy_strerror(i32 noundef %134) #10
@@ -1466,22 +1466,17 @@ freedirs.exit:                                    ; preds = %99, %._crit_edge.i
   %138 = and i8 %137, -5
   store i8 %138, ptr %126, align 2
   call void @Curl_conncontrol(ptr noundef nonnull %11, i32 noundef 1) #10
-  br label %.thread203
+  br label %139
 
-139:                                              ; preds = %125, %124
-  %.3 = phi i32 [ %.1138199, %124 ], [ 0, %125 ]
-  %.not.i195 = icmp eq ptr %0, null
-  br i1 %.not.i195, label %close_secondarysocket.exit, label %.thread203
-
-.thread203:                                       ; preds = %129, %135, %133, %139
-  %.3206 = phi i32 [ %.3, %139 ], [ 0, %129 ], [ 0, %133 ], [ %134, %135 ]
+139:                                              ; preds = %124, %125, %129, %135, %133
+  %.3 = phi i32 [ %.1138199, %124 ], [ %134, %135 ], [ 0, %133 ], [ 0, %129 ], [ 0, %125 ]
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %141 = load i64, ptr %140, align 2
   %142 = and i64 %141, 2147483648
   %.not14.i = icmp eq i64 %142, 0
   br i1 %.not14.i, label %close_secondarysocket.exit, label %143
 
-143:                                              ; preds = %.thread203
+143:                                              ; preds = %139
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %145 = load ptr, ptr %144, align 8, !tbaa !102
   %.not15.i = icmp eq ptr %145, null
@@ -1519,30 +1514,29 @@ freedirs.exit:                                    ; preds = %99, %._crit_edge.i
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.136, ptr noundef %162) #10
   br label %close_secondarysocket.exit
 
-close_secondarysocket.exit:                       ; preds = %139, %.thread203, %146, %152, %161
-  %.3207 = phi i32 [ %.3, %139 ], [ %.3206, %.thread203 ], [ %.3206, %146 ], [ %.3206, %152 ], [ %.3206, %161 ]
-  call void @Curl_conn_close(ptr noundef %0, i32 noundef 1) #10
+close_secondarysocket.exit:                       ; preds = %139, %146, %152, %161
+  call void @Curl_conn_close(ptr noundef nonnull %0, i32 noundef 1) #10
   %163 = load ptr, ptr %10, align 8, !tbaa !105
-  call void @Curl_conn_cf_discard_all(ptr noundef %0, ptr noundef %163, i32 noundef 1) #10
+  call void @Curl_conn_cf_discard_all(ptr noundef nonnull %0, ptr noundef %163, i32 noundef 1) #10
   br label %164
 
 164:                                              ; preds = %close_secondarysocket.exit, %freedirs.exit
-  %.2 = phi i32 [ %.3207, %close_secondarysocket.exit ], [ %.1138199, %freedirs.exit ]
+  %.2 = phi i32 [ %.3, %close_secondarysocket.exit ], [ %.1138199, %freedirs.exit ]
   %.not169 = icmp eq i32 %.2, 0
-  br i1 %.not169, label %165, label %.thread215
+  br i1 %.not169, label %165, label %.thread209
 
 165:                                              ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %167 = load i32, ptr %166, align 8, !tbaa !95
   %168 = icmp eq i32 %167, 0
-  br i1 %168, label %169, label %.thread212
+  br i1 %168, label %169, label %.thread206
 
 169:                                              ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %11, i64 1362
   %171 = load i8, ptr %170, align 2
   %172 = and i8 %171, 4
   %.not170 = icmp eq i8 %172, 0
-  br i1 %.not170, label %.thread212, label %173
+  br i1 %.not170, label %.thread206, label %173
 
 173:                                              ; preds = %169
   %174 = getelementptr inbounds nuw i8, ptr %11, i64 1096
@@ -1550,7 +1544,7 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %176 = trunc nuw i8 %175 to i1
   %.not192 = xor i1 %176, true
   %brmerge = or i1 %2, %.not192
-  br i1 %brmerge, label %.thread212, label %177
+  br i1 %brmerge, label %.thread206, label %177
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %11, i64 1144
@@ -1563,16 +1557,16 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   store i64 %182, ptr %180, align 8, !tbaa !145
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1136
   store i32 %183, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !147
-  %184 = call i32 @Curl_GetFTPResponse(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %184 = call i32 @Curl_GetFTPResponse(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   store i64 %179, ptr %178, align 8, !tbaa !150
   %185 = load i64, ptr %6, align 8, !tbaa !145
   %186 = icmp eq i64 %185, 0
   %187 = icmp eq i32 %184, 28
   %or.cond = select i1 %186, i1 %187, i1 false
-  br i1 %or.cond, label %.thread208, label %190
+  br i1 %or.cond, label %.thread203, label %190
 
-.thread208:                                       ; preds = %177
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.152) #10
+.thread203:                                       ; preds = %177
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.152) #10
   %188 = load i8, ptr %170, align 2
   %189 = and i8 %188, -5
   store i8 %189, ptr %170, align 2
@@ -1583,7 +1577,7 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %.not171 = icmp eq i32 %184, 0
   br i1 %.not171, label %195, label %191
 
-191:                                              ; preds = %.thread208, %190
+191:                                              ; preds = %.thread203, %190
   %192 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %193 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !128
@@ -1601,7 +1595,7 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %200 = load i64, ptr %199, align 8, !tbaa !148
   %201 = icmp sgt i64 %200, 0
-  br i1 %201, label %202, label %.thread212
+  br i1 %201, label %202, label %.thread206
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 2658
@@ -1633,23 +1627,23 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
 215:                                              ; preds = %195
   %216 = load i32, ptr %7, align 4, !tbaa !147
   switch i32 %216, label %218 [
-    i32 226, label %.thread212
-    i32 250, label %.thread212
+    i32 226, label %.thread206
+    i32 250, label %.thread206
     i32 552, label %217
   ]
 
 217:                                              ; preds = %215
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.154) #10
-  br label %.thread215
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.154) #10
+  br label %.thread209
 
 218:                                              ; preds = %215
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.155, i32 noundef %216) #10
-  br label %.thread215
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.155, i32 noundef %216) #10
+  br label %.thread209
 
-.thread212:                                       ; preds = %198, %215, %215, %173, %169, %165
-  br i1 %2, label %.thread215, label %219
+.thread206:                                       ; preds = %198, %215, %215, %173, %169, %165
+  br i1 %2, label %.thread209, label %219
 
-219:                                              ; preds = %.thread212
+219:                                              ; preds = %.thread206
   %220 = load i32, ptr %24, align 4
   %221 = and i32 %220, 524288
   %.not178 = icmp eq i32 %221, 0
@@ -1659,29 +1653,29 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 4536
   %224 = load i64, ptr %223, align 8, !tbaa !151
   %.not184 = icmp eq i64 %224, -1
-  br i1 %.not184, label %.thread215, label %225
+  br i1 %.not184, label %.thread209, label %225
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %227 = load i64, ptr %226, align 8, !tbaa !152
   %.not185 = icmp eq i64 %224, %227
-  br i1 %.not185, label %.thread215, label %228
+  br i1 %.not185, label %.thread209, label %228
 
 228:                                              ; preds = %225
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %230 = load i64, ptr %229, align 2
   %231 = and i64 %230, 256
   %.not186 = icmp eq i64 %231, 0
-  br i1 %.not186, label %232, label %.thread215
+  br i1 %.not186, label %232, label %.thread209
 
 232:                                              ; preds = %228
   %233 = load i32, ptr %166, align 8, !tbaa !95
   %234 = icmp eq i32 %233, 0
-  br i1 %234, label %235, label %.thread215
+  br i1 %234, label %235, label %.thread209
 
 235:                                              ; preds = %232
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.156, i64 noundef %227, i64 noundef %224) #10
-  br label %.thread215
+  br label %.thread209
 
 236:                                              ; preds = %219
   %237 = load i64, ptr %12, align 8, !tbaa !135
@@ -1702,29 +1696,29 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
 
 244:                                              ; preds = %241
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.157, i64 noundef %240) #10
-  br label %.thread215
+  br label %.thread209
 
 245:                                              ; preds = %241, %238, %236
   %246 = getelementptr inbounds nuw i8, ptr %11, i64 1362
   %247 = load i8, ptr %246, align 2
   %248 = and i8 %247, 2
   %.not182 = icmp eq i8 %248, 0
-  br i1 %.not182, label %249, label %.thread215
+  br i1 %.not182, label %249, label %.thread209
 
 249:                                              ; preds = %245
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %251 = load i64, ptr %250, align 8, !tbaa !153
   %.not183 = icmp eq i64 %251, 0
   %252 = icmp sgt i64 %237, 0
-  %or.cond231 = and i1 %252, %.not183
-  br i1 %or.cond231, label %253, label %.thread215
+  %or.cond225 = and i1 %252, %.not183
+  br i1 %or.cond225, label %253, label %.thread209
 
 253:                                              ; preds = %249
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.158) #10
-  br label %.thread215
+  br label %.thread209
 
-.thread215:                                       ; preds = %218, %217, %164, %.thread212, %235, %232, %228, %225, %222, %245, %249, %253, %244
-  %.7 = phi i32 [ 0, %.thread212 ], [ 0, %228 ], [ 18, %235 ], [ 0, %232 ], [ 0, %225 ], [ 0, %222 ], [ 18, %244 ], [ 0, %245 ], [ 0, %249 ], [ 19, %253 ], [ %.2, %164 ], [ 18, %218 ], [ 70, %217 ]
+.thread209:                                       ; preds = %218, %217, %164, %.thread206, %235, %232, %228, %225, %222, %245, %249, %253, %244
+  %.7 = phi i32 [ 0, %.thread206 ], [ 0, %228 ], [ 18, %235 ], [ 0, %232 ], [ 0, %225 ], [ 0, %222 ], [ 18, %244 ], [ 0, %245 ], [ 0, %249 ], [ 19, %253 ], [ %.2, %164 ], [ 18, %218 ], [ 70, %217 ]
   %254 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %254, align 8, !tbaa !95
   %255 = getelementptr inbounds nuw i8, ptr %11, i64 1362
@@ -1734,9 +1728,9 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %258 = or i32 %.7, %1
   %or.cond3.not = icmp ne i32 %258, 0
   %brmerge194 = or i1 %2, %or.cond3.not
-  br i1 %brmerge194, label %ftp_sendquote.exit, label %259
+  br i1 %brmerge194, label %ftp_sendquote.exit.thread, label %259
 
-259:                                              ; preds = %.thread215
+259:                                              ; preds = %.thread209
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %261 = load ptr, ptr %260, align 8, !tbaa !154
   %.not187 = icmp eq ptr %261, null
@@ -1803,13 +1797,13 @@ close_secondarysocket.exit:                       ; preds = %139, %.thread203, %
   %.not28.i = icmp eq ptr %282, null
   br i1 %.not28.i, label %ftp_sendquote.exit, label %264, !llvm.loop !158
 
-ftp_sendquote.exit:                               ; preds = %280, %.thread34.i, %.thread215
-  %.8 = phi i32 [ %.7, %.thread215 ], [ %.2.ph.i, %.thread34.i ], [ 0, %280 ]
+ftp_sendquote.exit:                               ; preds = %280, %.thread34.i
+  %.8 = phi i32 [ %.2.ph.i, %.thread34.i ], [ 0, %280 ]
   %.not188 = icmp eq ptr %0, null
   br i1 %.not188, label %306, label %ftp_sendquote.exit.thread
 
-ftp_sendquote.exit.thread:                        ; preds = %259, %ftp_sendquote.exit
-  %.8223 = phi i32 [ %.8, %ftp_sendquote.exit ], [ 0, %259 ]
+ftp_sendquote.exit.thread:                        ; preds = %259, %.thread209, %ftp_sendquote.exit
+  %.8217 = phi i32 [ %.8, %ftp_sendquote.exit ], [ 0, %259 ], [ %.7, %.thread209 ]
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %284 = load i64, ptr %283, align 2
   %285 = and i64 %284, 2147483648
@@ -1851,11 +1845,11 @@ ftp_sendquote.exit.thread:                        ; preds = %259, %ftp_sendquote
 
 304:                                              ; preds = %296, %298
   %305 = phi ptr [ %303, %298 ], [ @.str.8, %296 ]
-  call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.159, ptr noundef %305, i32 noundef %.8223) #10
+  call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.159, ptr noundef %305, i32 noundef %.8217) #10
   br label %306
 
 306:                                              ; preds = %ftp_sendquote.exit, %ftp_sendquote.exit.thread, %289, %295, %304
-  %.8224 = phi i32 [ %.8, %ftp_sendquote.exit ], [ %.8223, %ftp_sendquote.exit.thread ], [ %.8223, %289 ], [ %.8223, %295 ], [ %.8223, %304 ]
+  %.8218 = phi i32 [ %.8, %ftp_sendquote.exit ], [ %.8217, %ftp_sendquote.exit.thread ], [ %.8217, %289 ], [ %.8217, %295 ], [ %.8217, %304 ]
   %307 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
   %308 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %309 = load ptr, ptr %308, align 8, !tbaa !128
@@ -1864,7 +1858,7 @@ ftp_sendquote.exit.thread:                        ; preds = %259, %ftp_sendquote
   br label %310
 
 310:                                              ; preds = %191, %214, %3, %306
-  %.0 = phi i32 [ %.8224, %306 ], [ 0, %3 ], [ 0, %214 ], [ %184, %191 ]
+  %.0 = phi i32 [ %.8218, %306 ], [ 0, %3 ], [ 0, %214 ], [ %184, %191 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #10
@@ -4444,7 +4438,7 @@ switch.lookup:                                    ; preds = %3
   %spec.select113 = getelementptr inbounds nuw i8, ptr %24, i64 %spec.select113.idx
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 1348
   store i32 %spec.select, ptr %27, align 4, !tbaa !173
-  %28 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.51, ptr noundef nonnull %spec.select113) #10
+  %28 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.51, ptr noundef nonnull %spec.select113) #10
   %.not76 = icmp eq i32 %28, 0
   br i1 %.not76, label %29, label %ftp_state_cwd.exit
 
@@ -4452,240 +4446,236 @@ switch.lookup:                                    ; preds = %3
   %30 = load ptr, ptr %6, align 8, !tbaa !105
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 1358
   %32 = load i8, ptr %31, align 2, !tbaa !136
-  %33 = icmp ne i8 %32, %2
-  %34 = icmp ne ptr %0, null
-  %or.cond4.i = and i1 %34, %33
-  br i1 %or.cond4.i, label %35, label %.thread99
+  %.not114 = icmp eq i8 %32, %2
+  br i1 %.not114, label %.thread99, label %33
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %37 = load i64, ptr %36, align 2
-  %38 = and i64 %37, 2147483648
-  %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %.thread99, label %39
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %35 = load i64, ptr %34, align 2
+  %36 = and i64 %35, 2147483648
+  %.not.i = icmp eq i64 %36, 0
+  br i1 %.not.i, label %.thread99, label %37
 
-39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %41 = load ptr, ptr %40, align 8, !tbaa !102
-  %.not20.i = icmp eq ptr %41, null
-  br i1 %.not20.i, label %48, label %42
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %39 = load ptr, ptr %38, align 8, !tbaa !102
+  %.not20.i = icmp eq ptr %39, null
+  br i1 %.not20.i, label %46, label %40
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %44 = load i32, ptr %43, align 8, !tbaa !103
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i32, ptr %41, align 8, !tbaa !103
+  %43 = icmp sgt i32 %42, 0
+  %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
   %45 = icmp sgt i32 %44, 0
-  %46 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
-  %47 = icmp sgt i32 %46, 0
-  %or.cond.i = select i1 %45, i1 %47, i1 false
-  br i1 %or.cond.i, label %49, label %.thread99
+  %or.cond.i = select i1 %43, i1 %45, i1 false
+  br i1 %or.cond.i, label %47, label %.thread99
 
-48:                                               ; preds = %39
+46:                                               ; preds = %37
   %.old.i = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8, !tbaa !103
   %.old1.i = icmp sgt i32 %.old.i, 0
-  br i1 %.old1.i, label %49, label %.thread99
+  br i1 %.old1.i, label %47, label %.thread99
 
-49:                                               ; preds = %48, %42
-  %50 = zext i8 %32 to i64
-  %51 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !7
-  %53 = zext i8 %2 to i64
-  %54 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8, !tbaa !7
-  tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %52, ptr noundef %55) #10
+47:                                               ; preds = %46, %40
+  %48 = zext i8 %32 to i64
+  %49 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !7
+  %51 = zext i8 %2 to i64
+  %52 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !7
+  tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %50, ptr noundef %53) #10
   br label %.thread99
 
-.thread99:                                        ; preds = %49, %48, %42, %35, %29
+.thread99:                                        ; preds = %47, %46, %40, %33, %29
   store i8 %2, ptr %31, align 2, !tbaa !136
   br label %ftp_state_cwd.exit
 
 .thread95:                                        ; preds = %.thread, %14, %._crit_edge
-  switch i8 %2, label %56 [
+  switch i8 %2, label %54 [
     i8 15, label %ftp_state_cwd.exit
-    i8 13, label %95
-    i8 14, label %145
+    i8 13, label %93
+    i8 14, label %141
   ]
 
-56:                                               ; preds = %.thread95
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 1362
-  %58 = load i8, ptr %57, align 2
-  %59 = and i8 %58, 8
-  %.not.i83 = icmp eq i8 %59, 0
-  br i1 %.not.i83, label %62, label %60
+54:                                               ; preds = %.thread95
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 1362
+  %56 = load i8, ptr %55, align 2
+  %57 = and i8 %56, 8
+  %.not.i83 = icmp eq i8 %57, 0
+  br i1 %.not.i83, label %60, label %58
 
-60:                                               ; preds = %56
-  %61 = tail call fastcc i32 @ftp_state_mdtm(ptr noundef %0)
+58:                                               ; preds = %54
+  %59 = tail call fastcc i32 @ftp_state_mdtm(ptr noundef nonnull %0)
   br label %ftp_state_cwd.exit
 
-62:                                               ; preds = %56
-  %63 = getelementptr inbounds nuw i8, ptr %7, i64 1348
-  store i32 0, ptr %63, align 4, !tbaa !173
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 952
-  %65 = load i64, ptr %64, align 8
-  %66 = and i64 %65, 64
-  %.not26.i = icmp eq i64 %66, 0
-  br i1 %.not26.i, label %83, label %67
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 1348
+  store i32 0, ptr %61, align 4, !tbaa !173
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 952
+  %63 = load i64, ptr %62, align 8
+  %64 = and i64 %63, 64
+  %.not26.i = icmp eq i64 %64, 0
+  br i1 %.not26.i, label %81, label %65
 
-67:                                               ; preds = %62
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 1264
-  %69 = load ptr, ptr %68, align 8, !tbaa !165
-  %.not27.i = icmp eq ptr %69, null
-  br i1 %.not27.i, label %83, label %70
+65:                                               ; preds = %60
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 1264
+  %67 = load ptr, ptr %66, align 8, !tbaa !165
+  %.not27.i = icmp eq ptr %67, null
+  br i1 %.not27.i, label %81, label %68
 
-70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %7, i64 1336
-  %72 = load i32, ptr %71, align 8, !tbaa !140
-  %.not28.i = icmp eq i32 %72, 0
-  br i1 %.not28.i, label %79, label %73
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 1336
+  %70 = load i32, ptr %69, align 8, !tbaa !140
+  %.not28.i = icmp eq i32 %70, 0
+  br i1 %.not28.i, label %77, label %71
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %7, i64 1280
-  %75 = load ptr, ptr %74, align 8, !tbaa !139
-  %76 = load ptr, ptr %75, align 8, !tbaa !7
-  %77 = load i8, ptr %76, align 1, !tbaa !20
-  %78 = icmp eq i8 %77, 47
-  br i1 %78, label %83, label %79
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 1280
+  %73 = load ptr, ptr %72, align 8, !tbaa !139
+  %74 = load ptr, ptr %73, align 8, !tbaa !7
+  %75 = load i8, ptr %74, align 1, !tbaa !20
+  %76 = icmp eq i8 %75, 47
+  br i1 %76, label %81, label %77
 
-79:                                               ; preds = %73, %70
-  %80 = getelementptr inbounds nuw i8, ptr %7, i64 1340
-  store i32 0, ptr %80, align 4, !tbaa !180
-  %81 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.61, ptr noundef nonnull %69) #10
-  %.not29.i = icmp eq i32 %81, 0
-  br i1 %.not29.i, label %82, label %ftp_state_cwd.exit
+77:                                               ; preds = %71, %68
+  %78 = getelementptr inbounds nuw i8, ptr %7, i64 1340
+  store i32 0, ptr %78, align 4, !tbaa !180
+  %79 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.61, ptr noundef nonnull %67) #10
+  %.not29.i = icmp eq i32 %79, 0
+  br i1 %.not29.i, label %80, label %ftp_state_cwd.exit
 
-82:                                               ; preds = %79
-  tail call fastcc void @_ftp_state(ptr noundef %0, i8 noundef zeroext 16)
+80:                                               ; preds = %77
+  tail call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 16)
   br label %ftp_state_cwd.exit
 
-83:                                               ; preds = %73, %67, %62
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 1336
-  %85 = load i32, ptr %84, align 8, !tbaa !140
-  %.not30.i = icmp eq i32 %85, 0
-  br i1 %.not30.i, label %93, label %86
+81:                                               ; preds = %71, %65, %60
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 1336
+  %83 = load i32, ptr %82, align 8, !tbaa !140
+  %.not30.i = icmp eq i32 %83, 0
+  br i1 %.not30.i, label %91, label %84
 
-86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %7, i64 1340
-  store i32 1, ptr %87, align 4, !tbaa !180
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 1280
-  %89 = load ptr, ptr %88, align 8, !tbaa !139
-  %90 = load ptr, ptr %89, align 8, !tbaa !7
-  %91 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.61, ptr noundef %90) #10
-  %.not31.i = icmp eq i32 %91, 0
-  br i1 %.not31.i, label %92, label %ftp_state_cwd.exit
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 1340
+  store i32 1, ptr %85, align 4, !tbaa !180
+  %86 = getelementptr inbounds nuw i8, ptr %7, i64 1280
+  %87 = load ptr, ptr %86, align 8, !tbaa !139
+  %88 = load ptr, ptr %87, align 8, !tbaa !7
+  %89 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.61, ptr noundef %88) #10
+  %.not31.i = icmp eq i32 %89, 0
+  br i1 %.not31.i, label %90, label %ftp_state_cwd.exit
 
-92:                                               ; preds = %86
-  tail call fastcc void @_ftp_state(ptr noundef %0, i8 noundef zeroext 16)
+90:                                               ; preds = %84
+  tail call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 16)
   br label %ftp_state_cwd.exit
 
-93:                                               ; preds = %83
-  %94 = tail call fastcc i32 @ftp_state_mdtm(ptr noundef %0)
+91:                                               ; preds = %81
+  %92 = tail call fastcc i32 @ftp_state_mdtm(ptr noundef nonnull %0)
   br label %ftp_state_cwd.exit
 
-95:                                               ; preds = %.thread95
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %97 = load i32, ptr %96, align 8, !tbaa !95
-  %.not77 = icmp eq i32 %97, 0
-  br i1 %.not77, label %121, label %98
+93:                                               ; preds = %.thread95
+  %94 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %95 = load i32, ptr %94, align 8, !tbaa !95
+  %.not77 = icmp eq i32 %95, 0
+  br i1 %.not77, label %117, label %96
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 1358
-  %100 = load i8, ptr %99, align 2, !tbaa !136
-  %101 = icmp ne i8 %100, 0
-  %102 = icmp ne ptr %0, null
-  %or.cond4.i84 = and i1 %102, %101
-  br i1 %or.cond4.i84, label %103, label %_ftp_state.exit90
+96:                                               ; preds = %93
+  %97 = getelementptr inbounds nuw i8, ptr %7, i64 1358
+  %98 = load i8, ptr %97, align 2, !tbaa !136
+  %.not115 = icmp eq i8 %98, 0
+  br i1 %.not115, label %_ftp_state.exit90, label %99
 
-103:                                              ; preds = %98
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %105 = load i64, ptr %104, align 2
-  %106 = and i64 %105, 2147483648
-  %.not.i85 = icmp eq i64 %106, 0
-  br i1 %.not.i85, label %_ftp_state.exit90, label %107
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %101 = load i64, ptr %100, align 2
+  %102 = and i64 %101, 2147483648
+  %.not.i85 = icmp eq i64 %102, 0
+  br i1 %.not.i85, label %_ftp_state.exit90, label %103
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 4864
-  %109 = load ptr, ptr %108, align 8, !tbaa !102
-  %.not20.i86 = icmp eq ptr %109, null
-  br i1 %.not20.i86, label %116, label %110
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 4864
+  %105 = load ptr, ptr %104, align 8, !tbaa !102
+  %.not20.i86 = icmp eq ptr %105, null
+  br i1 %.not20.i86, label %112, label %106
 
-110:                                              ; preds = %107
-  %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !103
-  %113 = icmp sgt i32 %112, 0
-  %114 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
-  %115 = icmp sgt i32 %114, 0
-  %or.cond.i87 = select i1 %113, i1 %115, i1 false
-  br i1 %or.cond.i87, label %117, label %_ftp_state.exit90
+106:                                              ; preds = %103
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %108 = load i32, ptr %107, align 8, !tbaa !103
+  %109 = icmp sgt i32 %108, 0
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
+  %111 = icmp sgt i32 %110, 0
+  %or.cond.i87 = select i1 %109, i1 %111, i1 false
+  br i1 %or.cond.i87, label %113, label %_ftp_state.exit90
 
-116:                                              ; preds = %107
+112:                                              ; preds = %103
   %.old.i88 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8, !tbaa !103
   %.old1.i89 = icmp sgt i32 %.old.i88, 0
-  br i1 %.old1.i89, label %117, label %_ftp_state.exit90
+  br i1 %.old1.i89, label %113, label %_ftp_state.exit90
 
-117:                                              ; preds = %116, %110
-  %118 = zext i8 %100 to i64
-  %119 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %118
-  %120 = load ptr, ptr %119, align 8, !tbaa !7
-  tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %120, ptr noundef nonnull @.str.9) #10
+113:                                              ; preds = %112, %106
+  %114 = zext i8 %98 to i64
+  %115 = getelementptr inbounds nuw [35 x ptr], ptr @ftp_state_names, i64 0, i64 %114
+  %116 = load ptr, ptr %115, align 8, !tbaa !7
+  tail call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.7, ptr noundef %116, ptr noundef nonnull @.str.9) #10
   br label %_ftp_state.exit90
 
-_ftp_state.exit90:                                ; preds = %98, %103, %110, %116, %117
-  store i8 0, ptr %99, align 2, !tbaa !136
+_ftp_state.exit90:                                ; preds = %96, %99, %106, %112, %113
+  store i8 0, ptr %97, align 2, !tbaa !136
   br label %ftp_state_cwd.exit
 
-121:                                              ; preds = %95
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 1328
-  %123 = load i64, ptr %122, align 8, !tbaa !97
-  %.not78 = icmp eq i64 %123, -1
-  br i1 %.not78, label %127, label %124
+117:                                              ; preds = %93
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 1328
+  %119 = load i64, ptr %118, align 8, !tbaa !97
+  %.not78 = icmp eq i64 %119, -1
+  br i1 %.not78, label %123, label %120
 
-124:                                              ; preds = %121
-  tail call void @Curl_pgrsSetDownloadSize(ptr noundef %0, i64 noundef %123) #10
-  %125 = load i64, ptr %122, align 8, !tbaa !97
-  %126 = tail call fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %125)
+120:                                              ; preds = %117
+  tail call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %119) #10
+  %121 = load i64, ptr %118, align 8, !tbaa !97
+  %122 = tail call fastcc i32 @ftp_state_retr(ptr noundef nonnull %0, i64 noundef %121)
   br label %ftp_state_cwd.exit
 
-127:                                              ; preds = %121
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 2658
-  %129 = load i64, ptr %128, align 2
-  %130 = and i64 %129, 68719476736
-  %.not79 = icmp eq i64 %130, 0
-  br i1 %.not79, label %131, label %135
+123:                                              ; preds = %117
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 2658
+  %125 = load i64, ptr %124, align 2
+  %126 = and i64 %125, 68719476736
+  %.not79 = icmp eq i64 %126, 0
+  br i1 %.not79, label %127, label %131
 
-131:                                              ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 5036
-  %133 = load i32, ptr %132, align 4
-  %134 = and i32 %133, 16384
-  %.not80 = icmp eq i32 %134, 0
-  br i1 %.not80, label %140, label %135
+127:                                              ; preds = %123
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 5036
+  %129 = load i32, ptr %128, align 4
+  %130 = and i32 %129, 16384
+  %.not80 = icmp eq i32 %130, 0
+  br i1 %.not80, label %136, label %131
 
-135:                                              ; preds = %131, %127
-  %136 = getelementptr inbounds nuw i8, ptr %7, i64 1272
-  %137 = load ptr, ptr %136, align 8, !tbaa !143
-  %138 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.72, ptr noundef %137) #10
-  %.not82 = icmp eq i32 %138, 0
-  br i1 %.not82, label %139, label %ftp_state_cwd.exit
+131:                                              ; preds = %127, %123
+  %132 = getelementptr inbounds nuw i8, ptr %7, i64 1272
+  %133 = load ptr, ptr %132, align 8, !tbaa !143
+  %134 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.72, ptr noundef %133) #10
+  %.not82 = icmp eq i32 %134, 0
+  br i1 %.not82, label %135, label %ftp_state_cwd.exit
 
-139:                                              ; preds = %135
+135:                                              ; preds = %131
   tail call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 32)
   br label %ftp_state_cwd.exit
 
-140:                                              ; preds = %131
-  %141 = getelementptr inbounds nuw i8, ptr %7, i64 1272
-  %142 = load ptr, ptr %141, align 8, !tbaa !143
-  %143 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.73, ptr noundef %142) #10
-  %.not81 = icmp eq i32 %143, 0
-  br i1 %.not81, label %144, label %ftp_state_cwd.exit
+136:                                              ; preds = %127
+  %137 = getelementptr inbounds nuw i8, ptr %7, i64 1272
+  %138 = load ptr, ptr %137, align 8, !tbaa !143
+  %139 = tail call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull @.str.73, ptr noundef %138) #10
+  %.not81 = icmp eq i32 %139, 0
+  br i1 %.not81, label %140, label %ftp_state_cwd.exit
 
-144:                                              ; preds = %140
+140:                                              ; preds = %136
   tail call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 24)
   br label %ftp_state_cwd.exit
 
-145:                                              ; preds = %.thread95
-  %146 = tail call fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroext false)
+141:                                              ; preds = %.thread95
+  %142 = tail call fastcc i32 @ftp_state_ul_setup(ptr noundef nonnull %0, i1 noundef zeroext false)
   br label %ftp_state_cwd.exit
 
-ftp_state_cwd.exit:                               ; preds = %93, %92, %86, %82, %79, %60, %.thread99, %._crit_edge.thread, %_ftp_state.exit90, %139, %135, %144, %140, %124, %145, %.thread95
-  %.366 = phi i32 [ %146, %145 ], [ 0, %_ftp_state.exit90 ], [ %126, %124 ], [ %138, %135 ], [ 0, %139 ], [ %143, %140 ], [ 0, %144 ], [ 0, %.thread95 ], [ %28, %._crit_edge.thread ], [ 0, %.thread99 ], [ %61, %60 ], [ %91, %86 ], [ 0, %92 ], [ %94, %93 ], [ %81, %79 ], [ 0, %82 ]
+ftp_state_cwd.exit:                               ; preds = %91, %90, %84, %80, %77, %58, %.thread99, %._crit_edge.thread, %_ftp_state.exit90, %135, %131, %140, %136, %120, %141, %.thread95
+  %.366 = phi i32 [ %142, %141 ], [ 0, %_ftp_state.exit90 ], [ %122, %120 ], [ %134, %131 ], [ 0, %135 ], [ %139, %136 ], [ 0, %140 ], [ 0, %.thread95 ], [ %28, %._crit_edge.thread ], [ 0, %.thread99 ], [ %59, %58 ], [ %89, %84 ], [ 0, %90 ], [ %92, %91 ], [ %79, %77 ], [ 0, %80 ]
   ret i32 %.366
 }
 
@@ -5421,7 +5411,7 @@ define internal fastcc i32 @ftp_state_size_resp(ptr noundef %0, i32 noundef %1, 
   %39 = load i64, ptr %38, align 2
   %40 = or i64 %39, 134217728
   store i64 %40, ptr %38, align 2
-  %41 = call i32 @Curl_client_write(ptr noundef %0, i32 noundef 4, ptr noundef nonnull %5, i64 noundef %37) #10
+  %41 = call i32 @Curl_client_write(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %5, i64 noundef %37) #10
   %42 = and i64 %39, 134217728
   %43 = load i64, ptr %38, align 2
   %44 = and i64 %43, -134217729
@@ -5437,23 +5427,23 @@ define internal fastcc i32 @ftp_state_size_resp(ptr noundef %0, i32 noundef %1, 
 
 46:                                               ; preds = %._crit_edge, %33
   %47 = phi i64 [ %.pre, %._crit_edge ], [ -1, %33 ]
-  call void @Curl_pgrsSetDownloadSize(ptr noundef %0, i64 noundef %47) #10
+  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %47) #10
   %48 = load ptr, ptr %6, align 8, !tbaa !105
-  %49 = call fastcc i32 @ftp_state_rest(ptr noundef %0, ptr noundef %48)
+  %49 = call fastcc i32 @ftp_state_rest(ptr noundef nonnull %0, ptr noundef %48)
   br label %58
 
 50:                                               ; preds = %32
   %51 = load i64, ptr %4, align 8, !tbaa !145
-  call void @Curl_pgrsSetDownloadSize(ptr noundef %0, i64 noundef %51) #10
+  call void @Curl_pgrsSetDownloadSize(ptr noundef nonnull %0, i64 noundef %51) #10
   %52 = load i64, ptr %4, align 8, !tbaa !145
-  %53 = call fastcc i32 @ftp_state_retr(ptr noundef %0, i64 noundef %52)
+  %53 = call fastcc i32 @ftp_state_retr(ptr noundef nonnull %0, i64 noundef %52)
   br label %58
 
 54:                                               ; preds = %32
   %55 = load i64, ptr %4, align 8, !tbaa !145
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4472
   store i64 %55, ptr %56, align 8, !tbaa !197
-  %57 = call fastcc i32 @ftp_state_ul_setup(ptr noundef %0, i1 noundef zeroext true)
+  %57 = call fastcc i32 @ftp_state_ul_setup(ptr noundef nonnull %0, i1 noundef zeroext true)
   br label %58
 
 58:                                               ; preds = %46, %54, %50, %32, %35, %31

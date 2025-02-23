@@ -9243,7 +9243,7 @@ _ZL19calc_next_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEE.exit237: ; preds = %_ZL19cal
   br label %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit242
 
 _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit242: ; preds = %1016, %1027, %1032, %998
-  %1035 = icmp sgt i64 %.0176435.in, 1
+  %1035 = icmp samesign ugt i64 %.0176435.in, 1
   br i1 %1035, label %931, label %._crit_edge437
 
 ._crit_edge437:                                   ; preds = %_Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit242, %_ZL22calc_initial_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEES3_.exit233

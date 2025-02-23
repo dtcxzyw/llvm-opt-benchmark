@@ -50,7 +50,7 @@ define range(i32 0, 2) i32 @BN_GF2m_add(ptr noundef %0, ptr noundef readonly cap
   %21 = load ptr, ptr %., align 8, !tbaa !10
   %22 = load ptr, ptr %0, align 8, !tbaa !10
   %23 = zext nneg i32 %.028.lcssa to i64
-  %wide.trip.count42 = zext i32 %19 to i64
+  %wide.trip.count42 = zext nneg i32 %19 to i64
   br label %31
 
 24:                                               ; preds = %.lr.ph, %24
@@ -2257,7 +2257,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
   %46 = load ptr, ptr %..i, align 8, !tbaa !10
   %47 = load ptr, ptr %10, align 8, !tbaa !10
   %48 = zext nneg i32 %.028.lcssa.i to i64
-  %wide.trip.count42.i = zext i32 %44 to i64
+  %wide.trip.count42.i = zext nneg i32 %44 to i64
   br label %56
 
 49:                                               ; preds = %49, %.lr.ph.i
@@ -2285,7 +2285,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 .loopexit152:                                     ; preds = %56, %.preheader.i
   store i32 %44, ptr %24, align 8, !tbaa !3
-  tail call void @bn_correct_top(ptr noundef %10) #5
+  tail call void @bn_correct_top(ptr noundef nonnull %10) #5
   %60 = add nuw nsw i32 %.083157, 1
   %61 = load i32, ptr %2, align 4, !tbaa !16
   %62 = add nsw i32 %61, -1
@@ -2382,7 +2382,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
   %103 = load ptr, ptr %..i107, align 8, !tbaa !10
   %104 = load ptr, ptr %10, align 8, !tbaa !10
   %105 = zext nneg i32 %.028.lcssa.i111 to i64
-  %wide.trip.count42.i115 = zext i32 %101 to i64
+  %wide.trip.count42.i115 = zext nneg i32 %101 to i64
   br label %113
 
 106:                                              ; preds = %106, %.lr.ph.i119
@@ -2410,7 +2410,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
 
 .loopexit149:                                     ; preds = %113, %.preheader.i110
   store i32 %101, ptr %69, align 8, !tbaa !3
-  tail call void @bn_correct_top(ptr noundef %10) #5
+  tail call void @bn_correct_top(ptr noundef nonnull %10) #5
   %117 = load i32, ptr %71, align 8, !tbaa !3
   %118 = load i32, ptr %72, align 8, !tbaa !3
   %119 = icmp slt i32 %117, %118
@@ -2445,7 +2445,7 @@ define range(i32 0, 2) i32 @BN_GF2m_mod_solve_quad_arr(ptr noundef %0, ptr nound
   %132 = load ptr, ptr %..i125, align 8, !tbaa !10
   %133 = load ptr, ptr %11, align 8, !tbaa !10
   %134 = zext nneg i32 %.028.lcssa.i129 to i64
-  %wide.trip.count42.i133 = zext i32 %130 to i64
+  %wide.trip.count42.i133 = zext nneg i32 %130 to i64
   br label %142
 
 135:                                              ; preds = %135, %.lr.ph.i137

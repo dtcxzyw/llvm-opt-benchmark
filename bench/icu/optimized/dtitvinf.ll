@@ -1090,12 +1090,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %4 = load ptr, ptr %3, align 8
   %call.i = tail call noundef ptr @uhash_get_75(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(64) %skeleton)
   %cmp.not = icmp eq ptr %call.i, null
-  br i1 %cmp.not, label %if.then4, label %if.end15.thread
-
-if.end15.thread:                                  ; preds = %switch.lookup
-  %arrayidx12 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %call.i, i64 %switch.load
-  %call1613 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx12, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern)
-  br label %if.end21
+  br i1 %cmp.not, label %if.then4, label %if.end15
 
 if.then4:                                         ; preds = %switch.lookup
   %call5 = tail call noundef ptr @_ZN6icu_757UMemorynaEm(i64 noundef 584) #16
@@ -1114,23 +1109,28 @@ invoke.cont:                                      ; preds = %new.notnull, %invok
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
   %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 584
-  br i1 %arrayctor.done, label %if.end15, label %invoke.cont
+  br i1 %arrayctor.done, label %if.then18, label %invoke.cont
 
 if.then13:                                        ; preds = %if.then4
   store i32 7, ptr %status, align 4
   br label %if.end21
 
-if.end15:                                         ; preds = %invoke.cont
-  %.ptr = getelementptr inbounds nuw i8, ptr %call5, i64 8
-  %arrayidx = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %.ptr, i64 %switch.load
+if.end15:                                         ; preds = %switch.lookup
+  %arrayidx = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %call.i, i64 %switch.load
   %call16 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern)
+  br label %if.end21
+
+if.then18:                                        ; preds = %invoke.cont
+  %.ptr = getelementptr inbounds nuw i8, ptr %call5, i64 8
+  %arrayidx12 = getelementptr inbounds nuw %"class.icu_75::UnicodeString", ptr %.ptr, i64 %switch.load
+  %call1613 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx12, ptr noundef nonnull align 8 dereferenceable(64) %intervalPattern)
   %5 = load ptr, ptr %fIntervalPatterns, align 8
   %6 = load ptr, ptr %5, align 8
   %call.i8 = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 64) #16
   %new.isnull.i = icmp eq ptr %call.i8, null
   br i1 %new.isnull.i, label %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %new.notnull.i
 
-new.notnull.i:                                    ; preds = %if.end15
+new.notnull.i:                                    ; preds = %if.then18
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %call.i8, ptr noundef nonnull align 8 dereferenceable(64) %skeleton)
           to label %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %lpad.i
 
@@ -1140,11 +1140,11 @@ lpad.i:                                           ; preds = %new.notnull.i
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call.i8) #16
   resume { ptr, i32 } %7
 
-_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.end15, %new.notnull.i
+_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %if.then18, %new.notnull.i
   %call2.i = tail call noundef ptr @uhash_put_75(ptr noundef %6, ptr noundef %call.i8, ptr noundef nonnull %.ptr, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %if.end21
 
-if.end21:                                         ; preds = %sw.default.i, %entry, %if.end15.thread, %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %if.then13
+if.end21:                                         ; preds = %sw.default.i, %entry, %if.end15, %_ZN6icu_759Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, %if.then13
   ret void
 }
 

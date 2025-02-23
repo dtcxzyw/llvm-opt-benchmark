@@ -5037,7 +5037,7 @@ escape_quotes.exit:                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 2
   store i8 39, ptr %.013.lcssa, align 1
   store i8 0, ptr %11, align 1
-  tail call void @free(ptr noundef %2) #19
+  tail call void @free(ptr noundef nonnull %2) #19
   ret ptr %6
 }
 

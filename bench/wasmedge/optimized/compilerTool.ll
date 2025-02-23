@@ -1438,11 +1438,11 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit: ; 
 
 _ZN6spdlog5errorIJRKjEEEvN3fmt2v819basic_format_stringIcJDpNS4_13type_identityIT_E4typeEEEEDpOS7_.exit133: ; preds = %.noexc131
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  %.pre183 = load i8, ptr %15, align 8
+  %.pre187 = load i8, ptr %15, align 8
   br label %342
 
 342:                                              ; preds = %_ZN6spdlog5errorIJRKjEEEvN3fmt2v819basic_format_stringIcJDpNS4_13type_identityIT_E4typeEEEEDpOS7_.exit133, %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit
-  %343 = phi i8 [ %335, %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit ], [ %.pre183, %_ZN6spdlog5errorIJRKjEEEvN3fmt2v819basic_format_stringIcJDpNS4_13type_identityIT_E4typeEEEEDpOS7_.exit133 ]
+  %343 = phi i8 [ %335, %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit ], [ %.pre187, %_ZN6spdlog5errorIJRKjEEEvN3fmt2v819basic_format_stringIcJDpNS4_13type_identityIT_E4typeEEEEDpOS7_.exit133 ]
   %.sroa.0173.0 = phi ptr [ %338, %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EEaSEOS5_.exit ], [ null, %_ZN6spdlog5errorIJRKjEEEvN3fmt2v819basic_format_stringIcJDpNS4_13type_identityIT_E4typeEEEEDpOS7_.exit133 ]
   %344 = trunc i8 %343 to i1
   br i1 %344, label %345, label %_ZN5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEED2Ev.exit
@@ -1531,11 +1531,11 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %374 = load ptr, ptr %365, align 8
   %375 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %376 = icmp eq ptr %374, %375
-  br i1 %376, label %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit, label %377
+  br i1 %376, label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i, label %377
 
 377:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i
   %378 = load i64, ptr %371, align 8
-  br label %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit.sink.split
+  br label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.sink.split
 
 .critedge:                                        ; preds = %357
   call void @_ZN8WasmEdge9Validator11FormCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %349) #19
@@ -1823,32 +1823,32 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
   %485 = load ptr, ptr %476, align 8
   %486 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %487 = icmp eq ptr %485, %486
-  br i1 %487, label %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit, label %488
+  br i1 %487, label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i, label %488
 
 488:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i164
   %489 = load i64, ptr %482, align 8
-  br label %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit.sink.split
+  br label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.sink.split
 
-_ZN8WasmEdge9Validator9ValidatorD2Ev.exit.sink.split: ; preds = %377, %488
-  %.sink186 = phi i64 [ %489, %488 ], [ %378, %377 ]
-  %.sink184 = phi ptr [ %485, %488 ], [ %374, %377 ]
-  %.369.ph = phi i32 [ %not.cond3, %488 ], [ 1, %377 ]
-  %490 = shl i64 %.sink186, 3
-  call void @_ZdlPvm(ptr noundef %.sink184, i64 noundef %490) #23
-  br label %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit
-
-_ZN8WasmEdge9Validator9ValidatorD2Ev.exit:        ; preds = %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit.sink.split, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i164, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i, %_ZN5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEED2Ev.exit
-  %.369 = phi i32 [ 1, %_ZN5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEED2Ev.exit ], [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i ], [ %not.cond3, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i164 ], [ %.369.ph, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit.sink.split ]
+_ZN8WasmEdge9Validator9ValidatorD2Ev.exit:        ; preds = %_ZN5cxx208expectedISt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS4_EENS2_7ErrCodeEED2Ev.exit
   %.not.i = icmp eq ptr %.sroa.0173.0, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i
 
-_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i: ; preds = %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit
+_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.sink.split: ; preds = %377, %488
+  %.sink190 = phi i64 [ %489, %488 ], [ %378, %377 ]
+  %.sink188 = phi ptr [ %485, %488 ], [ %374, %377 ]
+  %.369185.ph = phi i32 [ %not.cond3, %488 ], [ 1, %377 ]
+  %490 = shl i64 %.sink190, 3
+  call void @_ZdlPvm(ptr noundef %.sink188, i64 noundef %490) #23
+  br label %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i
+
+_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i: ; preds = %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.sink.split, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i164, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit
+  %.369185 = phi i32 [ 1, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit ], [ 1, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i ], [ %not.cond3, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ESt4hashIS5_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i.i.i.i164 ], [ %.369185.ph, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i.sink.split ]
   call void @_ZN8WasmEdge3AST6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(705) %.sroa.0173.0) #19
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0173.0, i64 noundef 712) #23
   br label %_ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit, %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit
-  %.167 = phi i32 [ 1, %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit ], [ %.369, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit ], [ %.369, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i ]
+  %.167 = phi i32 [ 1, %_ZN5cxx208expectedISt6vectorIhSaIhEEN8WasmEdge7ErrCodeEED2Ev.exit ], [ 1, %_ZN8WasmEdge9Validator9ValidatorD2Ev.exit ], [ %.369185, %_ZNKSt14default_deleteIN8WasmEdge3AST6ModuleEEclEPS2_.exit.i ]
   %.not.i.i.i165 = icmp eq ptr %.sroa.0177.0, null
   br i1 %.not.i.i.i165, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %491
 

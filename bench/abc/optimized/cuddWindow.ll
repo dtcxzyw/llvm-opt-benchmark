@@ -30,7 +30,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %.01925.i = phi i32 [ %11, %6 ], [ %.1.i, %20 ]
   %.02024.i = phi i32 [ %1, %6 ], [ %13, %20 ]
   %13 = add nsw i32 %.02024.i, 1
-  %14 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i, i32 noundef %13) #5
+  %14 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i, i32 noundef %13) #4
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %ddWindow2.exit, label %16
 
@@ -39,7 +39,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not23.i, label %20, label %17
 
 17:                                               ; preds = %16
-  %18 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i, i32 noundef %13) #5
+  %18 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i, i32 noundef %13) #4
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %ddWindow2.exit, label %20
 
@@ -69,7 +69,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %.01925.i.i = phi i32 [ %30, %25 ], [ %.1.i.i, %39 ]
   %.02024.i.i = phi i32 [ %1, %25 ], [ %32, %39 ]
   %32 = add nsw i32 %.02024.i.i, 1
-  %33 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i, i32 noundef %32) #5
+  %33 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i, i32 noundef %32) #4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %ddWindow2.exit, label %35
 
@@ -78,7 +78,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not23.i.i, label %39, label %36
 
 36:                                               ; preds = %35
-  %37 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i, i32 noundef %32) #5
+  %37 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i, i32 noundef %32) #4
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %ddWindow2.exit, label %39
 
@@ -123,7 +123,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %.01925.i.i.i = phi i32 [ %55, %50 ], [ %.1.i.i.i, %64 ]
   %.02024.i.i.i = phi i32 [ %1, %50 ], [ %57, %64 ]
   %57 = add nsw i32 %.02024.i.i.i, 1
-  %58 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i.i, i32 noundef %57) #5
+  %58 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i.i, i32 noundef %57) #4
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %ddWindow2.exit, label %60
 
@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %.not23.i.i.i, label %64, label %61
 
 61:                                               ; preds = %60
-  %62 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i.i, i32 noundef %57) #5
+  %62 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.02024.i.i.i, i32 noundef %57) #4
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %ddWindow2.exit, label %64
 
@@ -185,7 +185,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %86 = add nsw i32 %81, -2
   %87 = zext nneg i32 %86 to i64
   %88 = shl nuw nsw i64 %87, 2
-  %89 = tail call noalias ptr @malloc(i64 noundef %88) #6
+  %89 = tail call noalias ptr @malloc(i64 noundef %88) #5
   %90 = icmp eq ptr %89, null
   br i1 %90, label %91, label %.lr.ph.i25
 
@@ -199,7 +199,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   %94 = add nsw i32 %81, -3
   %95 = add nsw i32 %81, -4
   %96 = sext i32 %95 to i64
-  %97 = sext i32 %94 to i64
+  %97 = zext nneg i32 %94 to i64
   %98 = sext i32 %93 to i64
   br label %.lr.ph139.us.i
 
@@ -265,7 +265,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %115
 
 115:                                              ; preds = %113, %111
-  %116 = icmp slt i64 %indvars.iv143.i, %97
+  %116 = icmp samesign ult i64 %indvars.iv143.i, %97
   br i1 %116, label %117, label %119
 
 117:                                              ; preds = %115
@@ -302,7 +302,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %131
 
 131:                                              ; preds = %129, %127
-  %132 = icmp slt i64 %indvars.iv143.i, %97
+  %132 = icmp samesign ult i64 %indvars.iv143.i, %97
   br i1 %132, label %133, label %135
 
 133:                                              ; preds = %131
@@ -377,7 +377,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br label %161
 
 161:                                              ; preds = %159, %157
-  %162 = icmp slt i64 %indvars.iv143.i, %97
+  %162 = icmp samesign ult i64 %indvars.iv143.i, %97
   br i1 %162, label %163, label %165
 
 163:                                              ; preds = %161
@@ -396,7 +396,7 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %168, label %.thread.us.sink.split.i, label %.thread.us.i
 
 169:                                              ; preds = %101
-  %170 = icmp slt i64 %indvars.iv143.i, %97
+  %170 = icmp samesign ult i64 %indvars.iv143.i, %97
   br i1 %170, label %171, label %173
 
 171:                                              ; preds = %169
@@ -443,11 +443,11 @@ define range(i32 0, 2) i32 @cuddWindowReorder(ptr noundef %0, i32 noundef %1, i3
   br i1 %exitcond.not.i26, label %.lr.ph139.us.preheader.i, label %.lr.ph.i25, !llvm.loop !32
 
 .split141.us.i:                                   ; preds = %101
-  tail call void @free(ptr noundef nonnull %89) #5
+  tail call void @free(ptr noundef nonnull %89) #4
   br label %ddWindow2.exit
 
 .split.us.i:                                      ; preds = %._crit_edge.us.i
-  tail call void @free(ptr noundef nonnull %89) #5
+  tail call void @free(ptr noundef nonnull %89) #4
   br label %ddWindow2.exit
 
 ddWindow2.exit:                                   ; preds = %.lr.ph.i, %70, %64, %61, %56, %67, %.preheader.i.i, %42, %.preheader.i, %39, %36, %31, %20, %17, %12, %.split.us.i, %.split141.us.i, %91, %83, %49, %24, %5, %76, %78, %4
@@ -467,7 +467,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
 6:                                                ; preds = %3
   %7 = zext nneg i32 %4 to i64
   %8 = shl nuw nsw i64 %7, 2
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #6
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #5
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %.preheader
 
@@ -491,7 +491,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %18 = load i32, ptr %17, align 8, !tbaa !24
   %19 = sub i32 %16, %18
   %20 = add nsw i32 %4, -1
-  %21 = sext i32 %20 to i64
+  %21 = zext nneg i32 %20 to i64
   %invariant.op = add i32 %1, 1
   br label %22
 
@@ -509,12 +509,12 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   %.reass = add i32 %invariant.op, %indvars82
   %26 = trunc i64 %indvars.iv80 to i32
   %27 = add i32 %1, %26
-  %28 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %27, i32 noundef %.reass) #5
+  %28 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %27, i32 noundef %.reass) #4
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %31
 
 30:                                               ; preds = %25
-  tail call void @free(ptr noundef nonnull %9) #5
+  tail call void @free(ptr noundef nonnull %9) #4
   br label %49
 
 31:                                               ; preds = %25
@@ -522,12 +522,12 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   br i1 %.not66, label %36, label %32
 
 32:                                               ; preds = %31
-  %33 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %27, i32 noundef %.reass) #5
+  %33 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %27, i32 noundef %.reass) #4
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %32
-  tail call void @free(ptr noundef nonnull %9) #5
+  tail call void @free(ptr noundef nonnull %9) #4
   br label %49
 
 36:                                               ; preds = %32, %31
@@ -536,7 +536,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   br i1 %37, label %38, label %45
 
 38:                                               ; preds = %36
-  %39 = icmp slt i64 %indvars.iv80, %21
+  %39 = icmp samesign ult i64 %indvars.iv80, %21
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %38
@@ -575,7 +575,7 @@ tailrecurse:                                      ; preds = %3, %tailrecurse
   br i1 %.not, label %48, label %.backedge
 
 48:                                               ; preds = %47
-  tail call void @free(ptr noundef nonnull %9) #5
+  tail call void @free(ptr noundef nonnull %9) #4
   br label %49
 
 49:                                               ; preds = %48, %35, %30, %11
@@ -597,7 +597,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %9 = add nsw i32 %4, -1
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #6
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #5
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %.lr.ph
 
@@ -610,9 +610,8 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   %16 = add nsw i32 %4, -2
   %17 = add nsw i32 %4, -3
   %18 = sext i32 %17 to i64
-  %19 = sext i32 %16 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
-  %wide.trip.count82 = zext nneg i32 %smax to i64
+  %19 = zext nneg i32 %16 to i64
+  %wide.trip.count82 = zext nneg i32 %9 to i64
   br label %.lr.ph75.us
 
 .lr.ph75.us:                                      ; preds = %.lr.ph75.us.backedge, %.lr.ph75.us.preheader
@@ -659,7 +658,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br label %35
 
 35:                                               ; preds = %33, %31
-  %36 = icmp slt i64 %indvars.iv79, %19
+  %36 = icmp samesign ult i64 %indvars.iv79, %19
   br i1 %36, label %37, label %39
 
 37:                                               ; preds = %35
@@ -678,7 +677,7 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br i1 %.not68.us, label %.thread.us, label %.thread.us.sink.split
 
 42:                                               ; preds = %22
-  %43 = icmp slt i64 %indvars.iv79, %19
+  %43 = icmp samesign ult i64 %indvars.iv79, %19
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
@@ -725,11 +724,11 @@ define internal fastcc range(i32 0, 2) i32 @ddWindowConv3(ptr noundef %0, i32 no
   br i1 %exitcond.not, label %.lr.ph75.us.preheader, label %.lr.ph, !llvm.loop !36
 
 .split77.us:                                      ; preds = %22
-  tail call void @free(ptr noundef nonnull %12) #5
+  tail call void @free(ptr noundef nonnull %12) #4
   br label %51
 
 .split.us:                                        ; preds = %._crit_edge.us
-  tail call void @free(ptr noundef nonnull %12) #5
+  tail call void @free(ptr noundef nonnull %12) #4
   br label %51
 
 51:                                               ; preds = %.split.us, %.split77.us, %14, %6
@@ -754,7 +753,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
   %7 = sub i32 %4, %6
   %8 = add nsw i32 %1, 1
   %9 = add nsw i32 %1, 2
-  %10 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %8) #5
+  %10 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %8) #4
   %11 = icmp slt i32 %10, %7
   br i1 %11, label %12, label %14
 
@@ -765,7 +764,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
 14:                                               ; preds = %12, %2
   %.056 = phi i32 [ %7, %2 ], [ %10, %12 ]
   %.0 = phi i32 [ 1, %2 ], [ 2, %12 ]
-  %15 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %15 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %16 = icmp slt i32 %15, %.056
   br i1 %16, label %17, label %19
 
@@ -776,7 +775,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
 19:                                               ; preds = %17, %14
   %.157 = phi i32 [ %.056, %14 ], [ %15, %17 ]
   %.1 = phi i32 [ %.0, %14 ], [ 3, %17 ]
-  %20 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %20 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %21 = icmp slt i32 %20, %.157
   br i1 %21, label %22, label %24
 
@@ -787,7 +786,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
 24:                                               ; preds = %22, %19
   %.258 = phi i32 [ %.157, %19 ], [ %20, %22 ]
   %.2 = phi i32 [ %.1, %19 ], [ 4, %22 ]
-  %25 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %25 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %26 = icmp slt i32 %25, %.258
   br i1 %26, label %27, label %29
 
@@ -798,7 +797,7 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
 29:                                               ; preds = %27, %24
   %.359 = phi i32 [ %.258, %24 ], [ %25, %27 ]
   %.3 = phi i32 [ %.2, %24 ], [ 5, %27 ]
-  %30 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %30 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %31 = icmp slt i32 %30, %.359
   br i1 %31, label %32, label %34
 
@@ -816,27 +815,27 @@ define internal fastcc range(i32 0, 7) i32 @ddPermuteWindow3(ptr noundef %0, i32
   ]
 
 35:                                               ; preds = %34
-  %36 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %36 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not68 = icmp eq i32 %36, 0
   br i1 %.not68, label %45, label %37
 
 37:                                               ; preds = %35, %34
-  %38 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %38 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not69 = icmp eq i32 %38, 0
   br i1 %.not69, label %45, label %39
 
 39:                                               ; preds = %37, %34
-  %40 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %40 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not70 = icmp eq i32 %40, 0
   br i1 %.not70, label %45, label %.thread
 
 41:                                               ; preds = %34
-  %42 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %42 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %45, label %43
 
 43:                                               ; preds = %34, %41
-  %44 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %44 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not67 = icmp eq i32 %44, 0
   br i1 %.not67, label %45, label %.thread
 
@@ -862,7 +861,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
   %8 = add nsw i32 %1, 1
   %9 = add nsw i32 %1, 2
   %10 = add nsw i32 %1, 3
-  %11 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %8) #5
+  %11 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %8) #4
   %12 = icmp slt i32 %11, %7
   br i1 %12, label %13, label %15
 
@@ -873,7 +872,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 15:                                               ; preds = %13, %2
   %.0328 = phi i32 [ %7, %2 ], [ %11, %13 ]
   %.0 = phi i32 [ 1, %2 ], [ 7, %13 ]
-  %16 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %16 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %17 = icmp slt i32 %16, %.0328
   br i1 %17, label %18, label %20
 
@@ -884,7 +883,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 20:                                               ; preds = %18, %15
   %.1329 = phi i32 [ %.0328, %15 ], [ %16, %18 ]
   %.1 = phi i32 [ %.0, %15 ], [ 13, %18 ]
-  %21 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %21 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %22 = icmp slt i32 %21, %.1329
   br i1 %22, label %26, label %23
 
@@ -901,7 +900,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 28:                                               ; preds = %26, %23
   %.2330 = phi i32 [ %.1329, %23 ], [ %21, %26 ]
   %.2 = phi i32 [ %.1, %23 ], [ 8, %26 ]
-  %29 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %29 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %30 = icmp slt i32 %29, %.2330
   br i1 %30, label %31, label %33
 
@@ -912,7 +911,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 33:                                               ; preds = %31, %28
   %.3331 = phi i32 [ %.2330, %28 ], [ %29, %31 ]
   %.3 = phi i32 [ %.2, %28 ], [ 14, %31 ]
-  %34 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %34 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %35 = icmp slt i32 %34, %.3331
   br i1 %35, label %39, label %36
 
@@ -929,7 +928,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 41:                                               ; preds = %39, %36
   %.4332 = phi i32 [ %.3331, %36 ], [ %34, %39 ]
   %.4 = phi i32 [ %.3, %36 ], [ 9, %39 ]
-  %42 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %42 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %43 = icmp slt i32 %42, %.4332
   br i1 %43, label %44, label %46
 
@@ -940,7 +939,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 46:                                               ; preds = %44, %41
   %.5333 = phi i32 [ %.4332, %41 ], [ %42, %44 ]
   %.5 = phi i32 [ %.4, %41 ], [ 15, %44 ]
-  %47 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %47 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %48 = icmp slt i32 %47, %.5333
   br i1 %48, label %49, label %51
 
@@ -951,7 +950,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 51:                                               ; preds = %49, %46
   %.6334 = phi i32 [ %.5333, %46 ], [ %47, %49 ]
   %.6 = phi i32 [ %.5, %46 ], [ 20, %49 ]
-  %52 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %52 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %53 = icmp slt i32 %52, %.6334
   br i1 %53, label %54, label %56
 
@@ -962,7 +961,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 56:                                               ; preds = %54, %51
   %.7335 = phi i32 [ %.6334, %51 ], [ %52, %54 ]
   %.7 = phi i32 [ %.6, %51 ], [ 23, %54 ]
-  %57 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %57 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %58 = icmp slt i32 %57, %.7335
   br i1 %58, label %62, label %59
 
@@ -979,7 +978,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 64:                                               ; preds = %62, %59
   %.8336 = phi i32 [ %.7335, %59 ], [ %57, %62 ]
   %.8 = phi i32 [ %.7, %59 ], [ 19, %62 ]
-  %65 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %65 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %66 = icmp slt i32 %65, %.8336
   br i1 %66, label %70, label %67
 
@@ -996,7 +995,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 72:                                               ; preds = %70, %67
   %.9337 = phi i32 [ %.8336, %67 ], [ %65, %70 ]
   %.9 = phi i32 [ %.8, %67 ], [ 21, %70 ]
-  %73 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %73 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %74 = icmp slt i32 %73, %.9337
   br i1 %74, label %75, label %77
 
@@ -1007,7 +1006,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 77:                                               ; preds = %75, %72
   %.10338 = phi i32 [ %.9337, %72 ], [ %73, %75 ]
   %.10 = phi i32 [ %.9, %72 ], [ 24, %75 ]
-  %78 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %78 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %79 = icmp slt i32 %78, %.10338
   br i1 %79, label %83, label %80
 
@@ -1024,7 +1023,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 85:                                               ; preds = %83, %80
   %.11339 = phi i32 [ %.10338, %80 ], [ %78, %83 ]
   %.11 = phi i32 [ %.10, %80 ], [ 22, %83 ]
-  %86 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %86 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %87 = icmp slt i32 %86, %.11339
   br i1 %87, label %91, label %88
 
@@ -1041,7 +1040,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 93:                                               ; preds = %91, %88
   %.12340 = phi i32 [ %.11339, %88 ], [ %86, %91 ]
   %.12 = phi i32 [ %.11, %88 ], [ 18, %91 ]
-  %94 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %94 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %95 = icmp slt i32 %94, %.12340
   br i1 %95, label %99, label %96
 
@@ -1058,7 +1057,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 101:                                              ; preds = %99, %96
   %.13341 = phi i32 [ %.12340, %96 ], [ %94, %99 ]
   %.13 = phi i32 [ %.12, %96 ], [ 12, %99 ]
-  %102 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %102 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %103 = icmp slt i32 %102, %.13341
   br i1 %103, label %107, label %104
 
@@ -1075,7 +1074,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 109:                                              ; preds = %107, %104
   %.14342 = phi i32 [ %.13341, %104 ], [ %102, %107 ]
   %.14 = phi i32 [ %.13, %104 ], [ 17, %107 ]
-  %110 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %110 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %111 = icmp slt i32 %110, %.14342
   br i1 %111, label %115, label %112
 
@@ -1092,7 +1091,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 117:                                              ; preds = %115, %112
   %.15343 = phi i32 [ %.14342, %112 ], [ %110, %115 ]
   %.15 = phi i32 [ %.14, %112 ], [ 11, %115 ]
-  %118 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %118 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %119 = icmp slt i32 %118, %.15343
   br i1 %119, label %123, label %120
 
@@ -1109,7 +1108,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 125:                                              ; preds = %123, %120
   %.16344 = phi i32 [ %.15343, %120 ], [ %118, %123 ]
   %.16 = phi i32 [ %.15, %120 ], [ 16, %123 ]
-  %126 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %126 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %127 = icmp slt i32 %126, %.16344
   br i1 %127, label %131, label %128
 
@@ -1126,7 +1125,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 133:                                              ; preds = %131, %128
   %.17345 = phi i32 [ %.16344, %128 ], [ %126, %131 ]
   %.17 = phi i32 [ %.16, %128 ], [ 10, %131 ]
-  %134 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %134 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %135 = icmp slt i32 %134, %.17345
   br i1 %135, label %139, label %136
 
@@ -1143,7 +1142,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 141:                                              ; preds = %139, %136
   %.18346 = phi i32 [ %.17345, %136 ], [ %134, %139 ]
   %.18 = phi i32 [ %.17, %136 ], [ 5, %139 ]
-  %142 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %142 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %143 = icmp slt i32 %142, %.18346
   br i1 %143, label %147, label %144
 
@@ -1160,7 +1159,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 149:                                              ; preds = %147, %144
   %.19347 = phi i32 [ %.18346, %144 ], [ %142, %147 ]
   %.19 = phi i32 [ %.18, %144 ], [ 3, %147 ]
-  %150 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %150 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %151 = icmp slt i32 %150, %.19347
   br i1 %151, label %155, label %152
 
@@ -1177,7 +1176,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 157:                                              ; preds = %155, %152
   %.20348 = phi i32 [ %.19347, %152 ], [ %150, %155 ]
   %.20 = phi i32 [ %.19, %152 ], [ 6, %155 ]
-  %158 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %158 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %159 = icmp slt i32 %158, %.20348
   br i1 %159, label %163, label %160
 
@@ -1194,7 +1193,7 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
 165:                                              ; preds = %163, %160
   %.21349 = phi i32 [ %.20348, %160 ], [ %158, %163 ]
   %.21 = phi i32 [ %.20, %160 ], [ 4, %163 ]
-  %166 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %166 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %167 = icmp slt i32 %166, %.21349
   br i1 %167, label %171, label %168
 
@@ -1237,137 +1236,137 @@ define internal fastcc range(i32 0, 25) i32 @ddPermuteWindow4(ptr noundef %0, i3
   ]
 
 174:                                              ; preds = %173
-  %175 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %175 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not410 = icmp eq i32 %175, 0
   br i1 %.not410, label %228, label %176
 
 176:                                              ; preds = %174, %173
-  %177 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %177 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not411 = icmp eq i32 %177, 0
   br i1 %.not411, label %228, label %178
 
 178:                                              ; preds = %176, %173
-  %179 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %179 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not412 = icmp eq i32 %179, 0
   br i1 %.not412, label %228, label %180
 
 180:                                              ; preds = %178, %173
-  %181 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %181 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not413 = icmp eq i32 %181, 0
   br i1 %.not413, label %228, label %182
 
 182:                                              ; preds = %180, %173
-  %183 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %183 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not414 = icmp eq i32 %183, 0
   br i1 %.not414, label %228, label %184
 
 184:                                              ; preds = %182, %173
-  %185 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %185 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not415 = icmp eq i32 %185, 0
   br i1 %.not415, label %228, label %.thread
 
 186:                                              ; preds = %173
-  %187 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %187 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not405 = icmp eq i32 %187, 0
   br i1 %.not405, label %228, label %188
 
 188:                                              ; preds = %186, %173
-  %189 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %189 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not406 = icmp eq i32 %189, 0
   br i1 %.not406, label %228, label %190
 
 190:                                              ; preds = %188, %173
-  %191 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %191 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not407 = icmp eq i32 %191, 0
   br i1 %.not407, label %228, label %192
 
 192:                                              ; preds = %190
-  %193 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %193 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not408 = icmp eq i32 %193, 0
   br i1 %.not408, label %228, label %194
 
 194:                                              ; preds = %192
-  %195 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %195 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not409 = icmp eq i32 %195, 0
   br i1 %.not409, label %228, label %.thread
 
 196:                                              ; preds = %173
-  %197 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %197 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not400 = icmp eq i32 %197, 0
   br i1 %.not400, label %228, label %198
 
 198:                                              ; preds = %196, %173
-  %199 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %199 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not401 = icmp eq i32 %199, 0
   br i1 %.not401, label %228, label %200
 
 200:                                              ; preds = %198, %173
-  %201 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %201 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not402 = icmp eq i32 %201, 0
   br i1 %.not402, label %228, label %202
 
 202:                                              ; preds = %200, %173
-  %203 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %203 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not403 = icmp eq i32 %203, 0
   br i1 %.not403, label %228, label %204
 
 204:                                              ; preds = %202, %173
-  %205 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %205 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not404 = icmp eq i32 %205, 0
   br i1 %.not404, label %228, label %.thread
 
 206:                                              ; preds = %173
-  %207 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %207 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not396 = icmp eq i32 %207, 0
   br i1 %.not396, label %228, label %208
 
 208:                                              ; preds = %206, %173
-  %209 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %209 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not397 = icmp eq i32 %209, 0
   br i1 %.not397, label %228, label %210
 
 210:                                              ; preds = %208, %173
-  %211 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %211 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not398 = icmp eq i32 %211, 0
   br i1 %.not398, label %228, label %212
 
 212:                                              ; preds = %210
-  %213 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %213 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not399 = icmp eq i32 %213, 0
   br i1 %.not399, label %228, label %.thread
 
 214:                                              ; preds = %173
-  %215 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %215 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not392 = icmp eq i32 %215, 0
   br i1 %.not392, label %228, label %216
 
 216:                                              ; preds = %214, %173
-  %217 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %217 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not393 = icmp eq i32 %217, 0
   br i1 %.not393, label %228, label %218
 
 218:                                              ; preds = %216, %173
-  %219 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #5
+  %219 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %9, i32 noundef %10) #4
   %.not394 = icmp eq i32 %219, 0
   br i1 %.not394, label %228, label %220
 
 220:                                              ; preds = %218, %173
-  %221 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %221 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not395 = icmp eq i32 %221, 0
   br i1 %.not395, label %228, label %.thread
 
 222:                                              ; preds = %173
-  %223 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %223 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not = icmp eq i32 %223, 0
   br i1 %.not, label %228, label %224
 
 224:                                              ; preds = %222, %173
-  %225 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #5
+  %225 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %8) #4
   %.not390 = icmp eq i32 %225, 0
   br i1 %.not390, label %228, label %226
 
 226:                                              ; preds = %224
-  %227 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #5
+  %227 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %8, i32 noundef %9) #4
   %.not391 = icmp eq i32 %227, 0
   br i1 %.not391, label %228, label %.thread
 
@@ -1383,16 +1382,12 @@ default.unreachable418:                           ; preds = %173
   ret i32 %.0350
 }
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind }
-attributes #6 = { nounwind allocsize(0) }
+attributes #4 = { nounwind }
+attributes #5 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

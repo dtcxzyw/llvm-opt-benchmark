@@ -4112,7 +4112,7 @@ define hidden void @_ZN9BlockList9values_doEP12ValueVisitor(ptr noundef nonnull 
   br i1 %.not.i, label %_ZN10BlockBegin15block_values_doEP12ValueVisitor.exit, label %11, !llvm.loop !24
 
 _ZN10BlockBegin15block_values_doEP12ValueVisitor.exit: ; preds = %11
-  %23 = icmp sgt i64 %indvars.iv, 1
+  %23 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %23, label %7, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %_ZN10BlockBegin15block_values_doEP12ValueVisitor.exit, %2

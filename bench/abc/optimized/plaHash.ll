@@ -956,16 +956,16 @@ Vec_WecSizeSize.exit.thread:                      ; preds = %Vec_WecSizeSize.exi
   %70 = add nuw nsw i32 %69, %.010.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Pla_CubeHashValue.exit.i, label %63, !llvm.loop !17
+  br i1 %exitcond.not.i.i, label %.lr.ph.i79, label %63, !llvm.loop !17
 
-Pla_CubeHashValue.exit.i:                         ; preds = %63
+.lr.ph.i79:                                       ; preds = %63
   %71 = trunc nuw nsw i64 %indvars.iv32.i to i32
   %72 = sext i32 %.pre.i to i64
   br label %73
 
-73:                                               ; preds = %73, %Pla_CubeHashValue.exit.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ %72, %Pla_CubeHashValue.exit.i ]
-  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %73 ], [ 0, %Pla_CubeHashValue.exit.i ]
+73:                                               ; preds = %73, %.lr.ph.i79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ %72, %.lr.ph.i79 ]
+  %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %73 ], [ 0, %.lr.ph.i79 ]
   %.val24.i = load ptr, ptr %62, align 8, !tbaa !11
   %74 = getelementptr inbounds nuw i32, ptr %.val24.i, i64 %indvars.iv.i80
   %75 = load i32, ptr %74, align 4, !tbaa !16

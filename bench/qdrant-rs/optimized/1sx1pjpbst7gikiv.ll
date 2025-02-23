@@ -562,7 +562,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
 
 .preheader.i.i.i.i.i.i:                           ; preds = %118, %110
   %.sroa.025.0140.i.i.i.i.i.i = phi i64 [ %106, %110 ], [ 0, %118 ]
-  %.2139.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %110 ], [ %.064141.i.i.i.i.i.i, %118 ]
+  %.2139.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %110 ], [ 0, %118 ]
   %106 = add nuw nsw i64 %.sroa.025.0140.i.i.i.i.i.i, 1
   %107 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0140.i.i.i.i.i.i
   %108 = load i16, ptr %107, align 2, !noalias !89, !noundef !5

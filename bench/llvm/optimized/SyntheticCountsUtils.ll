@@ -4470,51 +4470,47 @@ define linkonce_odr hidden void @_ZN4llvm18ModuleSummaryIndex13discoverNodesENS_
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !210
   %20 = load ptr, ptr %19, align 8, !tbaa !214
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load i32, ptr %21, align 8, !tbaa !216
-  %23 = icmp eq i32 %22, 1
-  %spec.select.i.i = select i1 %23, ptr %20, ptr null
-  %24 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !88
-  %26 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 72
-  %27 = load i32, ptr %26, align 8, !tbaa !90
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.std::pair.81", ptr %25, i64 %28
-  %.not1931 = icmp eq i32 %27, 0
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  %22 = load ptr, ptr %21, align 8, !tbaa !88
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 72
+  %24 = load i32, ptr %23, align 8, !tbaa !90
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw %"struct.std::pair.81", ptr %22, i64 %25
+  %.not1931 = icmp eq i32 %24, 0
   br i1 %.not1931, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %38
-  %.01832 = phi ptr [ %39, %38 ], [ %25, %15 ]
+.lr.ph:                                           ; preds = %15, %35
+  %.01832 = phi ptr [ %36, %35 ], [ %22, %15 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #17
   store i8 1, ptr %5, align 1, !tbaa !394
-  %30 = call { ptr, i8 } @_ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE7emplaceIJRS5_bEEES4_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %.01832, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %.fca.1.extract = extractvalue { ptr, i8 } %30, 1
+  %27 = call { ptr, i8 } @_ZNSt3mapIN4llvm9ValueInfoEbSt4lessIS1_ESaISt4pairIKS1_bEEE7emplaceIJRS5_bEEES4_ISt17_Rb_tree_iteratorIS6_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(8) %.01832, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %.fca.1.extract = extractvalue { ptr, i8 } %27, 1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #17
-  %31 = trunc nuw i8 %.fca.1.extract to i1
-  br i1 %31, label %36, label %32
+  %28 = trunc nuw i8 %.fca.1.extract to i1
+  br i1 %28, label %33, label %29
 
-32:                                               ; preds = %.lr.ph
-  %.fca.0.extract = extractvalue { ptr, i8 } %30, 0
-  %33 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 40
-  %34 = load i8, ptr %33, align 8, !tbaa !374, !range !127, !noundef !128
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %38, label %37
+29:                                               ; preds = %.lr.ph
+  %.fca.0.extract = extractvalue { ptr, i8 } %27, 0
+  %30 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 40
+  %31 = load i8, ptr %30, align 8, !tbaa !374, !range !127, !noundef !128
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %35, label %34
 
-36:                                               ; preds = %.lr.ph
+33:                                               ; preds = %.lr.ph
   %.sroa.0.0.copyload = load i64, ptr %.01832, align 8, !tbaa !196
   call void @_ZN4llvm18ModuleSummaryIndex13discoverNodesENS_9ValueInfoERSt3mapIS1_bSt4lessIS1_ESaISt4pairIKS1_bEEE(i64 %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  br label %38
+  br label %35
 
-37:                                               ; preds = %32
-  store i8 1, ptr %33, align 8, !tbaa !374
-  br label %38
+34:                                               ; preds = %29
+  store i8 1, ptr %30, align 8, !tbaa !374
+  br label %35
 
-38:                                               ; preds = %36, %37, %32
-  %39 = getelementptr inbounds nuw i8, ptr %.01832, i64 16
-  %.not19 = icmp eq ptr %39, %29
+35:                                               ; preds = %33, %34, %29
+  %36 = getelementptr inbounds nuw i8, ptr %.01832, i64 16
+  %.not19 = icmp eq ptr %36, %26
   br i1 %.not19, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %38, %15, %12, %2
+.loopexit:                                        ; preds = %35, %15, %12, %2
   ret void
 }
 

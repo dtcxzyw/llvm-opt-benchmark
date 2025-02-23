@@ -4410,7 +4410,7 @@ _ZN5boost9intrusive10slist_implINS0_8mhtraitsIN5folly5ArenaINS3_12SysAllocatorIc
   unreachable
 
 _ZN5folly5ArenaINS_12SysAllocatorIcEEED2Ev.exit:  ; preds = %.lr.ph.i.i.i3.i, %_ZN5boost9intrusive10slist_implINS0_8mhtraitsIN5folly5ArenaINS3_12SysAllocatorIcEEE10LargeBlockENS0_17slist_member_hookIJEEEXadL_ZNS8_4linkEEEEEmLm4EvED2Ev.exit.i
-  call void @_ZdlPvm(ptr noundef %1, i64 noundef 96) #38
+  call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 96) #38
   br label %18
 
 18:                                               ; preds = %_ZN5folly5ArenaINS_12SysAllocatorIcEEED2Ev.exit, %2

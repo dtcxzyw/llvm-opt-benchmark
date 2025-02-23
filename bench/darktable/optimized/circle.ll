@@ -1081,7 +1081,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %118 = load i32, ptr %117, align 16, !tbaa !110
   %119 = sitofp i32 %118 to double
-  %120 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %116, ptr noundef %30, double noundef %119, i32 noundef 3, ptr noundef nonnull %110, i64 noundef %108) #13
+  %120 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %116, ptr noundef nonnull %30, double noundef %119, i32 noundef 3, ptr noundef nonnull %110, i64 noundef %108) #13
   %.not388 = icmp eq i32 %120, 0
   br i1 %.not388, label %171, label %172
 
@@ -1399,7 +1399,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %16
 
 307:                                              ; preds = %295, %._crit_edge461
   %.3 = phi nsz double [ %.2, %._crit_edge461 ], [ %305, %295 ]
-  %308 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %116, ptr noundef %30, double noundef %119, i32 noundef 3, ptr noundef nonnull %268, i64 noundef %266) #13
+  %308 = tail call i32 @dt_dev_distort_backtransform_plus(ptr noundef %116, ptr noundef nonnull %30, double noundef %119, i32 noundef 3, ptr noundef nonnull %268, i64 noundef %266) #13
   %.not396 = icmp eq i32 %308, 0
   br i1 %.not396, label %309, label %310
 
@@ -1720,7 +1720,7 @@ define internal range(i32 0, 2) i32 @_circle_get_area(ptr noalias noundef readon
   %68 = sitofp i32 %67 to double
   %sext = shl i64 %33, 32
   %69 = ashr exact i64 %sext, 32
-  %70 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %65, ptr noundef %11, double noundef %68, i32 noundef 3, ptr noundef nonnull %35, i64 noundef %69) #13
+  %70 = tail call i32 @dt_dev_distort_transform_plus(ptr noundef %65, ptr noundef nonnull %11, double noundef %68, i32 noundef 3, ptr noundef nonnull %35, i64 noundef %69) #13
   %.not = icmp eq i32 %70, 0
   br i1 %.not, label %_points_to_transform.exit.sink.split, label %71
 

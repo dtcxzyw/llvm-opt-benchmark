@@ -56,14 +56,14 @@ _ZN11PaddedArrayIN4XCPU12XCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.e
   store i64 0, ptr %11, align 128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %3
-  br i1 %exitcond.not.i, label %_ZN11PaddedArrayIN4XCPU12XCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !6
 
-_ZN11PaddedArrayIN4XCPU12XCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit: ; preds = %.lr.ph.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i
   store ptr %10, ptr @_ZN4XCPU9_affinityE, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN11PaddedArrayIN4XCPU12XCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN11PaddedArrayIN4XCPU12XCPUAffinityEL8MEMFLAGS5ELm128EE17create_unfreeableEj.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %12 = load ptr, ptr @_ZN4XCPU9_affinityE, align 8
   %13 = getelementptr inbounds nuw %class.PaddedEnd, ptr %12, i64 %indvars.iv
   store ptr inttoptr (i64 -1 to ptr), ptr %13, align 8

@@ -6575,7 +6575,7 @@ define hidden void @_ZN7project6search11SearchQuery5regex17h06044fc189e8eaf0E(pt
 
 .preheader.i.i65:                                 ; preds = %120, %112
   %.sroa.025.048.i.i = phi i64 [ %108, %112 ], [ 0, %120 ]
-  %.sroa.011.247.i.i = phi i8 [ %.sroa.011.3.i.i, %112 ], [ %.sroa.011.049.i.i, %120 ]
+  %.sroa.011.247.i.i = phi i8 [ %.sroa.011.3.i.i, %112 ], [ 0, %120 ]
   %108 = add nuw nsw i64 %.sroa.025.048.i.i, 1
   %109 = getelementptr inbounds nuw [4 x i16], ptr %10, i64 0, i64 %.sroa.025.048.i.i
   %110 = load i16, ptr %109, align 2, !noalias !1598, !noundef !7

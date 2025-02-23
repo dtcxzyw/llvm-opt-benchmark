@@ -3389,7 +3389,7 @@ define internal void @Yuv444ToRgba_SSE2(ptr noalias noundef %0, ptr noalias noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %12 = shl nsw i64 %indvars.iv, 2
+  %12 = shl nuw nsw i64 %indvars.iv, 2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   tail call void @VP8YuvToRgba32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
@@ -3436,7 +3436,7 @@ define internal void @Yuv444ToBgra_SSE2(ptr noalias noundef %0, ptr noalias noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %12 = shl nsw i64 %indvars.iv, 2
+  %12 = shl nuw nsw i64 %indvars.iv, 2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   tail call void @VP8YuvToBgra32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32
@@ -3577,7 +3577,7 @@ define internal void @Yuv444ToArgb_SSE2(ptr noalias noundef %0, ptr noalias noun
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
-  %12 = shl nsw i64 %indvars.iv, 2
+  %12 = shl nuw nsw i64 %indvars.iv, 2
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %12
   tail call void @VP8YuvToArgb32_SSE2(ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %13) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 32

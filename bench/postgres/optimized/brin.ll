@@ -2004,7 +2004,7 @@ define dso_local noundef ptr @brin_build_desc(ptr noundef %0) local_unnamed_addr
   %15 = shl nsw i64 %14, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %16 = trunc i64 %indvars.iv.next to i16
-  %17 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %16, i16 noundef zeroext 1) #10
+  %17 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %16, i16 noundef zeroext 1) #10
   %.idx = mul nuw nsw i64 %indvars.iv, 100
   %gep = getelementptr i8, ptr %invariant.gep, i64 %15
   %18 = getelementptr i8, ptr %gep, i64 %.idx
@@ -2984,7 +2984,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr noundef readonly captur
   br i1 %59, label %.preheader, label %61
 
 .preheader:                                       ; preds = %54, %.preheader
-  %60 = tail call zeroext i1 @brinRevmapDesummarizeRange(ptr noundef %24, i32 noundef %19) #10
+  %60 = tail call zeroext i1 @brinRevmapDesummarizeRange(ptr noundef nonnull %24, i32 noundef %19) #10
   br i1 %60, label %.loopexit, label %.preheader, !llvm.loop !29
 
 61:                                               ; preds = %54
@@ -3000,7 +3000,7 @@ define dso_local noundef i64 @brin_desummarize_range(ptr noundef readonly captur
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %61, %63
-  tail call void @relation_close(ptr noundef %24, i32 noundef 4) #10
+  tail call void @relation_close(ptr noundef nonnull %24, i32 noundef 4) #10
   tail call void @relation_close(ptr noundef nonnull %.0, i32 noundef 4) #10
   ret i64 0
 }

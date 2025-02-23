@@ -936,7 +936,7 @@ _ZN6hermes3sem17SemanticValidator21scanDirectivePrologueERN4llvh12simple_ilistIN
 
 for.body.i.i:                                     ; preds = %_ZN6hermes3sem17SemanticValidator21scanDirectivePrologueERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit, %for.body.i.i
   %__begin4.i.i.sroa.0.013 = phi ptr [ %__begin4.i.i.sroa.0.0, %for.body.i.i ], [ %__begin4.i.i.sroa.0.011, %_ZN6hermes3sem17SemanticValidator21scanDirectivePrologueERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ]
-  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.i.sroa.0.013, ptr noundef %node)
+  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.i.sroa.0.013, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.i.sroa.0.013, i64 8
   %__begin4.i.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i8.not = icmp eq ptr %__begin4.i.i.sroa.0.0, %_body
@@ -5107,7 +5107,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin4.i.i.sroa.0.06 = phi ptr [ %__begin4.i.i.sroa.0.0, %for.body.i.i ], [ %__begin4.i.i.sroa.0.04, %entry ]
-  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.i.sroa.0.06, ptr noundef %block)
+  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.i.sroa.0.06, ptr noundef nonnull %block)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.i.sroa.0.06, i64 8
   %__begin4.i.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.i.sroa.0.0, %_body.i
@@ -5261,7 +5261,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin4.i.sroa.0.09.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.07.i, %entry ]
-  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef %switchStmt)
+  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef nonnull %switchStmt)
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_cases.i
@@ -5874,7 +5874,7 @@ entry:
 
 for.body.i.i:                                     ; preds = %entry, %for.body.i.i
   %__begin4.i.sroa.0.09.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.07.i, %entry ]
-  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef %AP) #22
+  %call5.i.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.09.i, ptr noundef nonnull %AP) #22
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_elements.i
@@ -5883,7 +5883,7 @@ for.body.i.i:                                     ; preds = %entry, %for.body.i.
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE13visitChildrenERS3_PNS0_16ArrayPatternNodeE.exit: ; preds = %for.body.i.i, %entry
   %_typeAnnotation.i = getelementptr inbounds nuw i8, ptr %AP, i64 64
   %0 = load ptr, ptr %_typeAnnotation.i, align 8
-  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %0, ptr noundef %AP) #22
+  %call.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %0, ptr noundef nonnull %AP) #22
   ret void
 }
 
@@ -6115,7 +6115,7 @@ _ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree21ImportDeclarationNodeELb1EE9
 
 for.body.i.i:                                     ; preds = %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree21ImportDeclarationNodeELb1EE9push_backERKS4_.exit, %for.body.i.i
   %__begin4.i.sroa.0.031.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.029.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree21ImportDeclarationNodeELb1EE9push_backERKS4_.exit ]
-  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.031.i, ptr noundef %importDecl)
+  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.031.i, ptr noundef nonnull %importDecl)
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.031.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers.i
@@ -6124,7 +6124,7 @@ for.body.i.i:                                     ; preds = %_ZN4llvh23SmallVect
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i: ; preds = %for.body.i.i, %_ZN4llvh23SmallVectorTemplateBaseIPN6hermes6ESTree21ImportDeclarationNodeELb1EE9push_backERKS4_.exit
   %_source.i = getelementptr inbounds nuw i8, ptr %importDecl, i64 64
   %14 = load ptr, ptr %_source.i, align 8
-  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %14, ptr noundef %importDecl)
+  %call.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %14, ptr noundef nonnull %importDecl)
   %_assertions.i = getelementptr inbounds nuw i8, ptr %importDecl, i64 72
   %Next.i.i.i.i24.i = getelementptr inbounds nuw i8, ptr %importDecl, i64 80
   %__begin4.i11.sroa.0.032.i = load ptr, ptr %Next.i.i.i.i24.i, align 8
@@ -6133,7 +6133,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i17.i:                                   ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i, %for.body.i17.i
   %__begin4.i11.sroa.0.034.i = phi ptr [ %__begin4.i11.sroa.0.0.i, %for.body.i17.i ], [ %__begin4.i11.sroa.0.032.i, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit.i ]
-  %call5.i19.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i11.sroa.0.034.i, ptr noundef %importDecl)
+  %call5.i19.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i11.sroa.0.034.i, ptr noundef nonnull %importDecl)
   %Next.i.i.i22.i = getelementptr inbounds nuw i8, ptr %__begin4.i11.sroa.0.034.i, i64 8
   %__begin4.i11.sroa.0.0.i = load ptr, ptr %Next.i.i.i22.i, align 8
   %cmp.i23.not.i = icmp eq ptr %__begin4.i11.sroa.0.0.i, %_assertions.i
@@ -6234,7 +6234,7 @@ if.end:                                           ; preds = %if.then, %entry
 
 for.body.i.i:                                     ; preds = %if.end, %for.body.i.i
   %__begin4.i.sroa.0.015.i = phi ptr [ %__begin4.i.sroa.0.0.i, %for.body.i.i ], [ %__begin4.i.sroa.0.013.i, %if.end ]
-  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.015.i, ptr noundef %exportDecl)
+  %call5.i.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin4.i.sroa.0.015.i, ptr noundef nonnull %exportDecl)
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015.i, i64 8
   %__begin4.i.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin4.i.sroa.0.0.i, %_specifiers.i
@@ -6243,7 +6243,7 @@ for.body.i.i:                                     ; preds = %if.end, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE13visitChildrenERS3_PNS0_26ExportNamedDeclarationNodeE.exit: ; preds = %for.body.i.i, %if.end
   %_source.i = getelementptr inbounds nuw i8, ptr %exportDecl, i64 72
   %4 = load ptr, ptr %_source.i, align 8
-  %call1.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %4, ptr noundef %exportDecl)
+  %call1.i = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %4, ptr noundef nonnull %exportDecl)
   ret void
 }
 
@@ -6574,7 +6574,7 @@ for.body.lr.ph:                                   ; preds = %sw.bb
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %__begin3.sroa.0.088 = phi ptr [ %__begin3.sroa.0.086, %for.body.lr.ph ], [ %__begin3.sroa.0.0, %for.body ]
   store i8 1, ptr %isFormalParams_, align 8
-  %call.i34 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.088, ptr noundef %node)
+  %call.i34 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin3.sroa.0.088, ptr noundef nonnull %node)
   store i8 %2, ptr %isFormalParams_, align 8
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.088, i64 8
   %__begin3.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
@@ -6629,7 +6629,7 @@ for.body23.lr.ph:                                 ; preds = %sw.bb9
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
   %__begin315.sroa.0.085 = phi ptr [ %__begin315.sroa.0.083, %for.body23.lr.ph ], [ %__begin315.sroa.0.0, %for.body23 ]
   store i8 1, ptr %isFormalParams_27, align 8
-  %call.i43 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin315.sroa.0.085, ptr noundef %node)
+  %call.i43 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull %__begin315.sroa.0.085, ptr noundef nonnull %node)
   store i8 %6, ptr %isFormalParams_27, align 8
   %Next.i.i.i46 = getelementptr inbounds nuw i8, ptr %__begin315.sroa.0.085, i64 8
   %__begin315.sroa.0.0 = load ptr, ptr %Next.i.i.i46, align 8
@@ -12089,7 +12089,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -12098,16 +12098,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef %node)
+  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12125,7 +12125,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -12134,16 +12134,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef %node)
+  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12161,7 +12161,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.027 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.025, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.027, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.027, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -12170,16 +12170,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %3 = load ptr, ptr %_returnType, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   %_predicate = getelementptr inbounds nuw i8, ptr %node, i64 120
   %4 = load ptr, ptr %_predicate, align 8
-  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef %node)
+  %call7 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12197,7 +12197,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -12206,13 +12206,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 96
   %1 = load ptr, ptr %_body, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 104
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 112
   %3 = load ptr, ptr %_rendersType, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12314,7 +12314,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_cases
@@ -12383,7 +12383,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -12422,7 +12422,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -12449,7 +12449,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_arguments
@@ -12560,7 +12560,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_consequent
@@ -12605,7 +12605,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.025 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.023, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.025, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.025, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.025, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_quasis
@@ -12620,7 +12620,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i11:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i11
   %__begin4.i5.sroa.0.028 = phi ptr [ %__begin4.i5.sroa.0.0, %for.body.i11 ], [ %__begin4.i5.sroa.0.026, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i13 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i5.sroa.0.028, ptr noundef %node)
+  %call5.i13 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i5.sroa.0.028, ptr noundef nonnull %node)
   %Next.i.i.i16 = getelementptr inbounds nuw i8, ptr %__begin4.i5.sroa.0.028, i64 8
   %__begin4.i5.sroa.0.0 = load ptr, ptr %Next.i.i.i16, align 8
   %cmp.i17.not = icmp eq ptr %__begin4.i5.sroa.0.0, %_expressions
@@ -12677,7 +12677,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.040, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.040, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
@@ -12692,7 +12692,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i28 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043, ptr noundef %node)
+  %call5.i28 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043, ptr noundef nonnull %node)
   %Next.i.i.i31 = getelementptr inbounds nuw i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
@@ -12701,7 +12701,7 @@ for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
-  %call8 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef %node)
+  %call8 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12728,7 +12728,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.040 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.038, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.040, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.040, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.040, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_implements
@@ -12743,7 +12743,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i26
   %__begin4.i20.sroa.0.043 = phi ptr [ %__begin4.i20.sroa.0.0, %for.body.i26 ], [ %__begin4.i20.sroa.0.041, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i28 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043, ptr noundef %node)
+  %call5.i28 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i20.sroa.0.043, ptr noundef nonnull %node)
   %Next.i.i.i31 = getelementptr inbounds nuw i8, ptr %__begin4.i20.sroa.0.043, i64 8
   %__begin4.i20.sroa.0.0 = load ptr, ptr %Next.i.i.i31, align 8
   %cmp.i32.not = icmp eq ptr %__begin4.i20.sroa.0.0, %_decorators
@@ -12752,7 +12752,7 @@ for.body.i26:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit30: ; preds = %for.body.i26, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %4 = load ptr, ptr %_body, align 8
-  %call8 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef %node)
+  %call8 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %4, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12821,7 +12821,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.031 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.029, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.031, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.031, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.031, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -12830,7 +12830,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_source, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   %_assertions = getelementptr inbounds nuw i8, ptr %node, i64 72
   %Next.i.i.i.i24 = getelementptr inbounds nuw i8, ptr %node, i64 80
   %__begin4.i11.sroa.0.032 = load ptr, ptr %Next.i.i.i.i24, align 8
@@ -12839,7 +12839,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i17:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i17
   %__begin4.i11.sroa.0.034 = phi ptr [ %__begin4.i11.sroa.0.0, %for.body.i17 ], [ %__begin4.i11.sroa.0.032, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i19 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i11.sroa.0.034, ptr noundef %node)
+  %call5.i19 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i11.sroa.0.034, ptr noundef nonnull %node)
   %Next.i.i.i22 = getelementptr inbounds nuw i8, ptr %__begin4.i11.sroa.0.034, i64 8
   %__begin4.i11.sroa.0.0 = load ptr, ptr %Next.i.i.i22, align 8
   %cmp.i23.not = icmp eq ptr %__begin4.i11.sroa.0.0, %_assertions
@@ -12887,7 +12887,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -12896,7 +12896,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12923,7 +12923,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
@@ -12932,7 +12932,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   ret void
 }
 
@@ -12947,7 +12947,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_elements
@@ -12956,7 +12956,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13010,7 +13010,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_attributes
@@ -13019,7 +13019,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeArguments = getelementptr inbounds nuw i8, ptr %node, i64 80
   %1 = load ptr, ptr %_typeArguments, align 8
-  %call2 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call2 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13049,7 +13049,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
@@ -13058,7 +13058,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_closingElement = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingElement, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13076,7 +13076,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_children
@@ -13085,7 +13085,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_closingFragment = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_closingFragment, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13100,7 +13100,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -13109,16 +13109,16 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_this = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_this, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_rest = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rest, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 88
   %3 = load ptr, ptr %_typeParameters, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13145,7 +13145,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -13154,13 +13154,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_rest, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_rendersType, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13304,7 +13304,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -13313,7 +13313,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_body, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13367,7 +13367,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -13376,7 +13376,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13430,7 +13430,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -13439,7 +13439,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_body, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13460,7 +13460,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.053 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.051, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.053, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.053, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.053, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -13475,7 +13475,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.056 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.054, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i25 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i17.sroa.0.056, ptr noundef %node)
+  %call5.i25 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i17.sroa.0.056, ptr noundef nonnull %node)
   %Next.i.i.i39 = getelementptr inbounds nuw i8, ptr %__begin4.i17.sroa.0.056, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i39, align 8
   %cmp.i40.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_implements
@@ -13490,7 +13490,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.059 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.057, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
-  %call5.i36 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i28.sroa.0.059, ptr noundef %node)
+  %call5.i36 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i28.sroa.0.059, ptr noundef nonnull %node)
   %Next.i.i.i42 = getelementptr inbounds nuw i8, ptr %__begin4.i28.sroa.0.059, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i42, align 8
   %cmp.i43.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_mixins
@@ -13499,7 +13499,7 @@ for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38: ; preds = %for.body.i34, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27
   %_body = getelementptr inbounds nuw i8, ptr %node, i64 112
   %2 = load ptr, ptr %_body, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13529,7 +13529,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.018 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.016, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.018, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.018, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -13538,13 +13538,13 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_rest = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_rest, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   %_rendersType = getelementptr inbounds nuw i8, ptr %node, i64 88
   %3 = load ptr, ptr %_rendersType, align 8
-  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef %node)
+  %call5 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %3, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13574,7 +13574,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_specifiers
@@ -13583,7 +13583,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_source = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_source, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13634,7 +13634,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.069 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.067, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.069, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.069, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.069, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_properties
@@ -13649,7 +13649,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i23:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit, %for.body.i23
   %__begin4.i17.sroa.0.072 = phi ptr [ %__begin4.i17.sroa.0.0, %for.body.i23 ], [ %__begin4.i17.sroa.0.070, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit ]
-  %call5.i25 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i17.sroa.0.072, ptr noundef %node)
+  %call5.i25 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i17.sroa.0.072, ptr noundef nonnull %node)
   %Next.i.i.i50 = getelementptr inbounds nuw i8, ptr %__begin4.i17.sroa.0.072, i64 8
   %__begin4.i17.sroa.0.0 = load ptr, ptr %Next.i.i.i50, align 8
   %cmp.i51.not = icmp eq ptr %__begin4.i17.sroa.0.0, %_indexers
@@ -13664,7 +13664,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i34:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27, %for.body.i34
   %__begin4.i28.sroa.0.075 = phi ptr [ %__begin4.i28.sroa.0.0, %for.body.i34 ], [ %__begin4.i28.sroa.0.073, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit27 ]
-  %call5.i36 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i28.sroa.0.075, ptr noundef %node)
+  %call5.i36 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i28.sroa.0.075, ptr noundef nonnull %node)
   %Next.i.i.i53 = getelementptr inbounds nuw i8, ptr %__begin4.i28.sroa.0.075, i64 8
   %__begin4.i28.sroa.0.0 = load ptr, ptr %Next.i.i.i53, align 8
   %cmp.i54.not = icmp eq ptr %__begin4.i28.sroa.0.0, %_callProperties
@@ -13679,7 +13679,7 @@ _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5vis
 
 for.body.i45:                                     ; preds = %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38, %for.body.i45
   %__begin4.i39.sroa.0.078 = phi ptr [ %__begin4.i39.sroa.0.0, %for.body.i45 ], [ %__begin4.i39.sroa.0.076, %_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit38 ]
-  %call5.i47 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i39.sroa.0.078, ptr noundef %node)
+  %call5.i47 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i39.sroa.0.078, ptr noundef nonnull %node)
   %Next.i.i.i56 = getelementptr inbounds nuw i8, ptr %__begin4.i39.sroa.0.078, i64 8
   %__begin4.i39.sroa.0.0 = load ptr, ptr %Next.i.i.i56, align 8
   %cmp.i57.not = icmp eq ptr %__begin4.i39.sroa.0.0, %_internalSlots
@@ -13898,7 +13898,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -13907,10 +13907,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -13925,7 +13925,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.012 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.010, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.012, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.012, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -13934,10 +13934,10 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_typeParameters, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -14009,7 +14009,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_extends
@@ -14018,7 +14018,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeParameters = getelementptr inbounds nuw i8, ptr %node, i64 80
   %2 = load ptr, ptr %_typeParameters, align 8
-  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef %node)
+  %call3 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %2, ptr noundef nonnull %node)
   ret void
 }
 
@@ -14048,7 +14048,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_members
@@ -14156,7 +14156,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.015 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.013, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.015, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.015, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -14165,7 +14165,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 72
   %1 = load ptr, ptr %_returnType, align 8
-  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef %node)
+  %call1 = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %1, ptr noundef nonnull %node)
   ret void
 }
 
@@ -14180,7 +14180,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_parameters
@@ -14189,7 +14189,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_typeAnnotation = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_typeAnnotation, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   ret void
 }
 
@@ -14204,7 +14204,7 @@ entry:
 
 for.body.i:                                       ; preds = %entry, %for.body.i
   %__begin4.i.sroa.0.09 = phi ptr [ %__begin4.i.sroa.0.0, %for.body.i ], [ %__begin4.i.sroa.0.07, %entry ]
-  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef %node)
+  %call5.i = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef nonnull %__begin4.i.sroa.0.09, ptr noundef nonnull %node)
   %Next.i.i.i = getelementptr inbounds nuw i8, ptr %__begin4.i.sroa.0.09, i64 8
   %__begin4.i.sroa.0.0 = load ptr, ptr %Next.i.i.i, align 8
   %cmp.i.not = icmp eq ptr %__begin4.i.sroa.0.0, %_params
@@ -14213,7 +14213,7 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_RN4llvh12simple_ilistINS0_4NodeEJEEEPS8_.exit: ; preds = %for.body.i, %entry
   %_returnType = getelementptr inbounds nuw i8, ptr %node, i64 64
   %0 = load ptr, ptr %_returnType, align 8
-  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef %node)
+  %call = tail call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_3sem17SemanticValidatorELb1EE5visitERS3_PNS0_4NodeES7_(ptr noundef nonnull align 8 dereferenceable(168) %v, ptr noundef %0, ptr noundef nonnull %node)
   ret void
 }
 
@@ -14780,7 +14780,7 @@ if.then:                                          ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit
 
 if.then.i.i:                                      ; preds = %if.then
   store i32 0, ptr %NumEntries.i.i, align 8
@@ -14797,31 +14797,28 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit, label %for.body.i.i.i, !llvm.loop !271
+  br i1 %cmp.not.i.i.i, label %if.end.i.i9, label %for.body.i.i.i, !llvm.loop !271
 
-if.end.i.i:                                       ; preds = %if.then
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit: ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.216", ptr %2, i64 %idx.ext.i.i
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #21
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
-  br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit
-
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit: ; preds = %for.body.i.i.i, %if.end.i.i
-  %5 = phi ptr [ %.pre, %if.end.i.i ], [ %call.i.i.i, %for.body.i.i.i ]
-  %.pr = phi i32 [ %.pr.pre, %if.end.i.i ], [ %4, %for.body.i.i.i ]
-  %cmp.i.i = icmp eq i32 %.pr, 0
+  %cmp.i.i = icmp eq i32 %.pr.pre, 0
   br i1 %cmp.i.i, label %if.end12, label %if.end.i.i9
 
-if.end.i.i9:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit
+if.end.i.i9:                                      ; preds = %for.body.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit
+  %.pr102 = phi i32 [ %.pr.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit ], [ %4, %for.body.i.i.i ]
+  %5 = phi ptr [ %.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit ], [ %call.i.i.i, %for.body.i.i.i ]
   %6 = load ptr, ptr %Lookup, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i.i.i.i = trunc i64 %7 to i32
   %shr.i.i.i.i = lshr i32 %conv.i.i.i.i, 4
   %shr2.i.i.i.i = lshr i32 %conv.i.i.i.i, 9
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %shr2.i.i.i.i
-  %sub.i.i10 = add i32 %.pr, -1
+  %sub.i.i10 = add i32 %.pr102, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i10
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
   %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.216", ptr %5, i64 %idx.ext20.i.i
@@ -14890,7 +14887,7 @@ if.then10:                                        ; preds = %if.else
   %call.i.i.i32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i31) #25
   store ptr %call.i.i.i32, ptr %this, align 8
   %tobool.not.i.i33 = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i33, label %if.then.i.i37, label %if.end.i.i34
+  br i1 %tobool.not.i.i33, label %if.then.i.i37, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47
 
 if.then.i.i37:                                    ; preds = %if.then10
   store i32 0, ptr %NumEntries.i.i, align 8
@@ -14906,31 +14903,28 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i44, align 8
   %incdec.ptr.i.i.i45 = getelementptr inbounds nuw i8, ptr %B.04.i.i.i44, i64 16
   %cmp.not.i.i.i46 = icmp eq ptr %incdec.ptr.i.i.i45, %add.ptr.i.i.i.i41
-  br i1 %cmp.not.i.i.i46, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47, label %for.body.i.i.i43, !llvm.loop !271
+  br i1 %cmp.not.i.i.i46, label %if.end.i.i50, label %for.body.i.i.i43, !llvm.loop !271
 
-if.end.i.i34:                                     ; preds = %if.then10
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47: ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.216", ptr %12, i64 %idx.ext.i.i35
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E18moveFromOldBucketsEPSJ_SM_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #21
   %.pr85.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre99 = load ptr, ptr %this, align 8
-  br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47
-
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47: ; preds = %for.body.i.i.i43, %if.end.i.i34
-  %15 = phi ptr [ %.pre99, %if.end.i.i34 ], [ %call.i.i.i32, %for.body.i.i.i43 ]
-  %.pr85 = phi i32 [ %.pr85.pre, %if.end.i.i34 ], [ %14, %for.body.i.i.i43 ]
-  %cmp.i.i49 = icmp eq i32 %.pr85, 0
+  %cmp.i.i49 = icmp eq i32 %.pr85.pre, 0
   br i1 %cmp.i.i49, label %if.end12, label %if.end.i.i50
 
-if.end.i.i50:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47
+if.end.i.i50:                                     ; preds = %for.body.i.i.i43, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47
+  %.pr85105 = phi i32 [ %.pr85.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47 ], [ %14, %for.body.i.i.i43 ]
+  %15 = phi ptr [ %.pre99, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorINS2_3sem12FunctionInfo7VarDeclELj4EEESt14default_deleteISB_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4growEj.exit47 ], [ %call.i.i.i32, %for.body.i.i.i43 ]
   %16 = load ptr, ptr %Lookup, align 8
   %17 = ptrtoint ptr %16 to i64
   %conv.i.i.i.i51 = trunc i64 %17 to i32
   %shr.i.i.i.i52 = lshr i32 %conv.i.i.i.i51, 4
   %shr2.i.i.i.i53 = lshr i32 %conv.i.i.i.i51, 9
   %xor.i.i.i.i54 = xor i32 %shr.i.i.i.i52, %shr2.i.i.i.i53
-  %sub.i.i55 = add i32 %.pr85, -1
+  %sub.i.i55 = add i32 %.pr85105, -1
   %BucketNo.019.i.i56 = and i32 %xor.i.i.i.i54, %sub.i.i55
   %idx.ext20.i.i57 = zext nneg i32 %BucketNo.019.i.i56 to i64
   %add.ptr21.i.i58 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.216", ptr %15, i64 %idx.ext20.i.i57
@@ -15145,7 +15139,7 @@ if.then:                                          ; preds = %entry
   %call.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #25
   store ptr %call.i.i.i, ptr %this, align 8
   %tobool.not.i.i = icmp eq ptr %2, null
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %if.end.i.i
+  br i1 %tobool.not.i.i, label %if.then.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit
 
 if.then.i.i:                                      ; preds = %if.then
   store i32 0, ptr %NumEntries.i.i, align 8
@@ -15162,31 +15156,28 @@ for.body.i.i.i:                                   ; preds = %if.then.i.i, %for.b
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i, align 8
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %B.04.i.i.i, i64 16
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i.i
-  br i1 %cmp.not.i.i.i, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit, label %for.body.i.i.i, !llvm.loop !273
+  br i1 %cmp.not.i.i.i, label %if.end.i.i9, label %for.body.i.i.i, !llvm.loop !273
 
-if.end.i.i:                                       ; preds = %if.then
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit: ; preds = %if.then
   %idx.ext.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.182", ptr %2, i64 %idx.ext.i.i
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %2, ptr noundef nonnull %add.ptr.i.i)
   tail call void @_ZdlPv(ptr noundef nonnull %2) #21
   %.pr.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre = load ptr, ptr %this, align 8
-  br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit
-
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit: ; preds = %for.body.i.i.i, %if.end.i.i
-  %5 = phi ptr [ %.pre, %if.end.i.i ], [ %call.i.i.i, %for.body.i.i.i ]
-  %.pr = phi i32 [ %.pr.pre, %if.end.i.i ], [ %4, %for.body.i.i.i ]
-  %cmp.i.i = icmp eq i32 %.pr, 0
+  %cmp.i.i = icmp eq i32 %.pr.pre, 0
   br i1 %cmp.i.i, label %if.end12, label %if.end.i.i9
 
-if.end.i.i9:                                      ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit
+if.end.i.i9:                                      ; preds = %for.body.i.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit
+  %.pr102 = phi i32 [ %.pr.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit ], [ %4, %for.body.i.i.i ]
+  %5 = phi ptr [ %.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit ], [ %call.i.i.i, %for.body.i.i.i ]
   %6 = load ptr, ptr %Lookup, align 8
   %7 = ptrtoint ptr %6 to i64
   %conv.i.i.i.i = trunc i64 %7 to i32
   %shr.i.i.i.i = lshr i32 %conv.i.i.i.i, 4
   %shr2.i.i.i.i = lshr i32 %conv.i.i.i.i, 9
   %xor.i.i.i.i = xor i32 %shr.i.i.i.i, %shr2.i.i.i.i
-  %sub.i.i10 = add i32 %.pr, -1
+  %sub.i.i10 = add i32 %.pr102, -1
   %BucketNo.019.i.i = and i32 %xor.i.i.i.i, %sub.i.i10
   %idx.ext20.i.i = zext nneg i32 %BucketNo.019.i.i to i64
   %add.ptr21.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.182", ptr %5, i64 %idx.ext20.i.i
@@ -15255,7 +15246,7 @@ if.then10:                                        ; preds = %if.else
   %call.i.i.i32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i31) #25
   store ptr %call.i.i.i32, ptr %this, align 8
   %tobool.not.i.i33 = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i33, label %if.then.i.i37, label %if.end.i.i34
+  br i1 %tobool.not.i.i33, label %if.then.i.i37, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47
 
 if.then.i.i37:                                    ; preds = %if.then10
   store i32 0, ptr %NumEntries.i.i, align 8
@@ -15271,31 +15262,28 @@ for.body.i.i.i43:                                 ; preds = %if.then.i.i37, %for
   store ptr inttoptr (i64 -8 to ptr), ptr %B.04.i.i.i44, align 8
   %incdec.ptr.i.i.i45 = getelementptr inbounds nuw i8, ptr %B.04.i.i.i44, i64 16
   %cmp.not.i.i.i46 = icmp eq ptr %incdec.ptr.i.i.i45, %add.ptr.i.i.i.i41
-  br i1 %cmp.not.i.i.i46, label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47, label %for.body.i.i.i43, !llvm.loop !273
+  br i1 %cmp.not.i.i.i46, label %if.end.i.i50, label %for.body.i.i.i43, !llvm.loop !273
 
-if.end.i.i34:                                     ; preds = %if.then10
+_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47: ; preds = %if.then10
   %idx.ext.i.i35 = zext i32 %1 to i64
   %add.ptr.i.i36 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.182", ptr %12, i64 %idx.ext.i.i35
   tail call void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E18moveFromOldBucketsEPSI_SL_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %12, ptr noundef nonnull %add.ptr.i.i36)
   tail call void @_ZdlPv(ptr noundef nonnull %12) #21
   %.pr85.pre = load i32, ptr %NumBuckets.i.i, align 8
   %.pre99 = load ptr, ptr %this, align 8
-  br label %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47
-
-_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47: ; preds = %for.body.i.i.i43, %if.end.i.i34
-  %15 = phi ptr [ %.pre99, %if.end.i.i34 ], [ %call.i.i.i32, %for.body.i.i.i43 ]
-  %.pr85 = phi i32 [ %.pr85.pre, %if.end.i.i34 ], [ %14, %for.body.i.i.i43 ]
-  %cmp.i.i49 = icmp eq i32 %.pr85, 0
+  %cmp.i.i49 = icmp eq i32 %.pr85.pre, 0
   br i1 %cmp.i.i49, label %if.end12, label %if.end.i.i50
 
-if.end.i.i50:                                     ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47
+if.end.i.i50:                                     ; preds = %for.body.i.i.i43, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47
+  %.pr85105 = phi i32 [ %.pr85.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47 ], [ %14, %for.body.i.i.i43 ]
+  %15 = phi ptr [ %.pre99, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPN6hermes6ESTree4NodeESt10unique_ptrINS_11SmallVectorIPNS3_23FunctionDeclarationNodeELj2EEESt14default_deleteISA_EENS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SD_EEEES5_SD_SF_SI_E4growEj.exit47 ], [ %call.i.i.i32, %for.body.i.i.i43 ]
   %16 = load ptr, ptr %Lookup, align 8
   %17 = ptrtoint ptr %16 to i64
   %conv.i.i.i.i51 = trunc i64 %17 to i32
   %shr.i.i.i.i52 = lshr i32 %conv.i.i.i.i51, 4
   %shr2.i.i.i.i53 = lshr i32 %conv.i.i.i.i51, 9
   %xor.i.i.i.i54 = xor i32 %shr.i.i.i.i52, %shr2.i.i.i.i53
-  %sub.i.i55 = add i32 %.pr85, -1
+  %sub.i.i55 = add i32 %.pr85105, -1
   %BucketNo.019.i.i56 = and i32 %xor.i.i.i.i54, %sub.i.i55
   %idx.ext20.i.i57 = zext nneg i32 %BucketNo.019.i.i56 to i64
   %add.ptr21.i.i58 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.182", ptr %15, i64 %idx.ext20.i.i57

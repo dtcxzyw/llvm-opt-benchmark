@@ -593,9 +593,9 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %49
   %69 = load i64, ptr %68, align 8, !tbaa !74, !noalias !86
   %.not.i.i.i.i = icmp eq i64 %69, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %66, label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %66, label %.lr.ph, !llvm.loop !98
 
-_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %66
+.lr.ph:                                           ; preds = %66
   %70 = shl i32 %64, 7
   %71 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %72 = shl nuw nsw i32 %71, 6
@@ -610,7 +610,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %66
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %79
 
-79:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, %93
+79:                                               ; preds = %.lr.ph, %93
   %80 = load i32, ptr %58, align 8, !tbaa !99
   %81 = zext i32 %80 to i64
   %82 = load ptr, ptr %1, align 8, !tbaa !102
@@ -3753,9 +3753,9 @@ _ZNSt6vectorISt4pairIjN4llvm7support6detail31packed_endian_specific_integralIjLN
   %58 = load i64, ptr %57, align 8, !tbaa !74, !noalias !235
   %.not.i.i.i.i = icmp eq i64 %58, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %55, label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, !llvm.loop !98
+  br i1 %.not.i.i.i.i, label %55, label %.lr.ph, !llvm.loop !98
 
-_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %55
+.lr.ph:                                           ; preds = %55
   %59 = shl i32 %53, 7
   %60 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %61 = shl nuw nsw i32 %60, 6
@@ -3987,7 +3987,7 @@ _ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #19
   br label %161
 
-138:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit
+138:                                              ; preds = %.lr.ph, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit
   %139 = load i32, ptr %48, align 8, !tbaa !99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
   %140 = zext i32 %139 to i64

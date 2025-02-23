@@ -217,7 +217,7 @@ destroy_lib_info.exit:                            ; preds = %10, %1
   br i1 %.not.i9, label %destroy_thread_info.exit, label %.lr.ph.i7, !llvm.loop !8
 
 destroy_thread_info.exit:                         ; preds = %.lr.ph.i7, %destroy_lib_info.exit
-  tail call void @free(ptr noundef %0) #22
+  tail call void @free(ptr noundef nonnull %0) #22
   ret void
 }
 

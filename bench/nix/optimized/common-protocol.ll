@@ -24807,7 +24807,7 @@ define linkonce_odr void @_ZN3nix25LengthPrefixedProtoHelperINS_11CommonProtoESt
   br i1 %71, label %_ZN3nix11CommonProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit, label %.lr.ph.i.i
 
 _ZN3nix11CommonProto9SerialiseISt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE5writeERKNS_14StoreDirConfigENS0_9WriteConnERKSC_.exit: ; preds = %.lr.ph.i.i, %44
-  %72 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.010) #32
+  %72 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.010) #32
   %73 = icmp eq ptr %72, %35
   br i1 %73, label %._crit_edge, label %44
 

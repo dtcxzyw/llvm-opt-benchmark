@@ -730,10 +730,12 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit: ; preds = %_ZN5Eigen8i
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %47 = icmp eq i32 %7, 0
-  %48 = sdiv i64 %8, 4
-  %49 = shl nsw i64 %48, 2
-  %50 = sdiv i64 %8, 2
-  %51 = shl nsw i64 %50, 1
+  %48 = sdiv i32 %7, 4
+  %.sext = sext i32 %48 to i64
+  %49 = shl nsw i64 %.sext, 2
+  %50 = sdiv i32 %7, 2
+  %.sext184 = sext i32 %50 to i64
+  %51 = shl nsw i64 %.sext184, 1
   %.off.i.i.i.i.i = add nsw i64 %8, 1
   %.not.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i, 3
   %52 = icmp sgt i32 %7, 3
@@ -1164,8 +1166,8 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 
 278:                                              ; preds = %272, %._crit_edge.i.i.i.i.i64, %248
   %.072.i.i.i.i.i58 = phi <2 x double> [ %251, %248 ], [ %277, %272 ], [ %257, %._crit_edge.i.i.i.i.i64 ]
-  %shift193 = shufflevector <2 x double> %.072.i.i.i.i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %279 = fadd <2 x double> %.072.i.i.i.i.i58, %shift193
+  %shift195 = shufflevector <2 x double> %.072.i.i.i.i.i58, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %279 = fadd <2 x double> %.072.i.i.i.i.i58, %shift195
   %280 = extractelement <2 x double> %279, i64 0
   br i1 %225, label %.lr.ph85.i.i.i.i.i60, label %.loopexit
 

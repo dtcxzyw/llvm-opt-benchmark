@@ -1111,10 +1111,10 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN2cv12RLByteStream8getByt
   resume { ptr, i32 } %.pn
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
-  %17 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %36, %._crit_edge ]
-  %.02133 = phi i32 [ 0, %.preheader.lr.ph ], [ %39, %._crit_edge ]
-  %.02232 = phi ptr [ %1, %.preheader.lr.ph ], [ %37, %._crit_edge ]
-  %.02331 = phi i32 [ %2, %.preheader.lr.ph ], [ %38, %._crit_edge ]
+  %17 = phi ptr [ %.pre, %.preheader.lr.ph ], [ %37, %._crit_edge ]
+  %.02133 = phi i32 [ 0, %.preheader.lr.ph ], [ %40, %._crit_edge ]
+  %.02232 = phi ptr [ %1, %.preheader.lr.ph ], [ %38, %._crit_edge ]
+  %.02331 = phi i32 [ %2, %.preheader.lr.ph ], [ %39, %._crit_edge ]
   %18 = load ptr, ptr %7, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = ptrtoint ptr %17 to i64
@@ -1140,20 +1140,20 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN2cv12RLByteStream8getByt
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.lcssa28 = phi ptr [ %17, %.preheader ], [ %28, %.lr.ph ]
   %.lcssa = phi i32 [ %22, %.preheader ], [ %32, %.lr.ph ]
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.02331, i32 %.lcssa)
-  %34 = zext nneg i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02232, ptr align 1 %.lcssa28, i64 %34, i1 false)
-  %35 = load ptr, ptr %8, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
-  store ptr %36, ptr %8, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %.02232, i64 %34
-  %38 = sub nsw i32 %.02331, %spec.select
-  %39 = add nuw nsw i32 %spec.select, %.02133
-  %40 = icmp sgt i32 %38, 0
-  br i1 %40, label %.preheader, label %._crit_edge34, !llvm.loop !6
+  %34 = tail call i32 @llvm.umin.i32(i32 %.02331, i32 %.lcssa)
+  %35 = zext nneg i32 %34 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02232, ptr align 1 %.lcssa28, i64 %35, i1 false)
+  %36 = load ptr, ptr %8, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %35
+  store ptr %37, ptr %8, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02232, i64 %35
+  %39 = sub nsw i32 %.02331, %34
+  %40 = add nuw nsw i32 %34, %.02133
+  %41 = icmp sgt i32 %39, 0
+  br i1 %41, label %.preheader, label %._crit_edge34, !llvm.loop !6
 
 ._crit_edge34:                                    ; preds = %._crit_edge, %.preheader27
-  %.021.lcssa = phi i32 [ 0, %.preheader27 ], [ %39, %._crit_edge ]
+  %.021.lcssa = phi i32 [ 0, %.preheader27 ], [ %40, %._crit_edge ]
   ret i32 %.021.lcssa
 }
 
@@ -2572,6 +2572,9 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

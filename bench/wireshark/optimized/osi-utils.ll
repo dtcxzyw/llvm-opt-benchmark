@@ -138,145 +138,128 @@ define hidden void @print_system_id_buf(ptr noundef readonly captures(none) %0, 
   %or.cond3 = icmp eq i32 %10, 6
   %11 = icmp eq i32 %1, 8
   %or.cond5 = or i1 %11, %or.cond3
-  br i1 %or.cond5, label %16, label %.preheader107
+  br i1 %or.cond5, label %43, label %.preheader107
 
 .preheader107:                                    ; preds = %9
   %.not = icmp samesign ult i32 %1, 4
   br i1 %.not, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader107
-  %12 = lshr i32 %1, 2
-  %13 = sext i32 %3 to i64
-  %14 = ptrtoint ptr %2 to i64
-  %.neg96 = add i64 %13, %14
-  %15 = zext nneg i32 %12 to i64
-  br label %61
-
-16:                                               ; preds = %9
-  %17 = sext i32 %3 to i64
-  %18 = load i8, ptr %0, align 1
-  %19 = zext i8 %18 to i32
-  %20 = getelementptr i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = zext i8 %21 to i32
-  %23 = getelementptr i8, ptr %0, i64 2
-  %24 = load i8, ptr %23, align 1
-  %25 = zext i8 %24 to i32
-  %26 = getelementptr i8, ptr %0, i64 3
-  %27 = load i8, ptr %26, align 1
-  %28 = zext i8 %27 to i32
-  %29 = getelementptr i8, ptr %0, i64 4
+  %12 = sext i32 %3 to i64
+  %13 = ptrtoint ptr %2 to i64
+  %.neg96 = add i64 %12, %13
+  %14 = load i8, ptr %0, align 1
+  %15 = zext i8 %14 to i32
+  %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %2, i64 noundef %12, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %15)
+  %17 = sext i32 %16 to i64
+  %18 = getelementptr i8, ptr %2, i64 %17
+  %19 = ptrtoint ptr %18 to i64
+  %20 = sub i64 %.neg96, %19
+  %21 = getelementptr i8, ptr %0, i64 1
+  %22 = load i8, ptr %21, align 1
+  %23 = zext i8 %22 to i32
+  %24 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %18, i64 noundef %20, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %23)
+  %25 = sext i32 %24 to i64
+  %26 = getelementptr i8, ptr %18, i64 %25
+  %27 = ptrtoint ptr %26 to i64
+  %28 = sub i64 %.neg96, %27
+  %29 = getelementptr i8, ptr %0, i64 2
   %30 = load i8, ptr %29, align 1
   %31 = zext i8 %30 to i32
-  %32 = getelementptr i8, ptr %0, i64 5
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i32
-  %35 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %2, i64 noundef %17, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1, i32 noundef %19, i32 noundef %22, i32 noundef %25, i32 noundef %28, i32 noundef %31, i32 noundef %34)
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr i8, ptr %2, i64 %36
-  %38 = add nsw i32 %1, -7
-  %or.cond7 = icmp ult i32 %38, 2
-  br i1 %or.cond7, label %39, label %47
-
-39:                                               ; preds = %16
-  %40 = sub nsw i64 %17, %36
-  %41 = getelementptr i8, ptr %0, i64 6
-  %42 = load i8, ptr %41, align 1
-  %43 = zext i8 %42 to i32
-  %44 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %37, i64 noundef %40, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2, i32 noundef %43)
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr i8, ptr %37, i64 %45
-  br label %47
-
-47:                                               ; preds = %16, %39
-  %.093 = phi ptr [ %46, %39 ], [ %37, %16 ]
-  br i1 %11, label %48, label %.loopexit
-
-48:                                               ; preds = %47
-  %49 = ptrtoint ptr %.093 to i64
-  %50 = ptrtoint ptr %2 to i64
-  %.neg100 = add i64 %17, %50
-  %51 = sub i64 %.neg100, %49
-  %52 = getelementptr i8, ptr %0, i64 7
-  %53 = load i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.093, i64 noundef %51, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.3, i32 noundef %54)
-  br label %.loopexit
-
-.preheader.loopexit:                              ; preds = %61
-  %56 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %32 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %26, i64 noundef %28, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %31)
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr i8, ptr %26, i64 %33
+  %35 = ptrtoint ptr %34 to i64
+  %36 = sub i64 %.neg96, %35
+  %37 = getelementptr i8, ptr %0, i64 3
+  %38 = load i8, ptr %37, align 1
+  %39 = zext i8 %38 to i32
+  %40 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %34, i64 noundef %36, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5, i32 noundef %39)
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr i8, ptr %34, i64 %41
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %.preheader107
-  %.194.lcssa = phi ptr [ %2, %.preheader107 ], [ %94, %.preheader.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %.preheader107 ], [ %56, %.preheader.loopexit ]
-  %57 = icmp slt i32 %.0.lcssa, %1
-  br i1 %57, label %.lr.ph113, label %.loopexit
+43:                                               ; preds = %9
+  %44 = sext i32 %3 to i64
+  %45 = load i8, ptr %0, align 1
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr i8, ptr %0, i64 1
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = getelementptr i8, ptr %0, i64 2
+  %51 = load i8, ptr %50, align 1
+  %52 = zext i8 %51 to i32
+  %53 = getelementptr i8, ptr %0, i64 3
+  %54 = load i8, ptr %53, align 1
+  %55 = zext i8 %54 to i32
+  %56 = getelementptr i8, ptr %0, i64 4
+  %57 = load i8, ptr %56, align 1
+  %58 = zext i8 %57 to i32
+  %59 = getelementptr i8, ptr %0, i64 5
+  %60 = load i8, ptr %59, align 1
+  %61 = zext i8 %60 to i32
+  %62 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %2, i64 noundef %44, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1, i32 noundef %46, i32 noundef %49, i32 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %61)
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr i8, ptr %2, i64 %63
+  %65 = add nsw i32 %1, -7
+  %or.cond7 = icmp ult i32 %65, 2
+  br i1 %or.cond7, label %66, label %74
+
+66:                                               ; preds = %43
+  %67 = sub nsw i64 %44, %63
+  %68 = getelementptr i8, ptr %0, i64 6
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i32
+  %71 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %64, i64 noundef %67, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2, i32 noundef %70)
+  %72 = sext i32 %71 to i64
+  %73 = getelementptr i8, ptr %64, i64 %72
+  br label %74
+
+74:                                               ; preds = %43, %66
+  %.093 = phi ptr [ %73, %66 ], [ %64, %43 ]
+  br i1 %11, label %75, label %.loopexit
+
+75:                                               ; preds = %74
+  %76 = ptrtoint ptr %.093 to i64
+  %77 = ptrtoint ptr %2 to i64
+  %.neg100 = add i64 %44, %77
+  %78 = sub i64 %.neg100, %76
+  %79 = getelementptr i8, ptr %0, i64 7
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.093, i64 noundef %78, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.3, i32 noundef %81)
+  br label %.loopexit
+
+.preheader:                                       ; preds = %.lr.ph, %.preheader107
+  %.194.lcssa = phi ptr [ %2, %.preheader107 ], [ %42, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %.preheader107 ], [ 4, %.lr.ph ]
+  %83 = icmp samesign ult i32 %.0.lcssa, %1
+  br i1 %83, label %.lr.ph113, label %.loopexit
 
 .lr.ph113:                                        ; preds = %.preheader
-  %58 = sext i32 %3 to i64
-  %59 = ptrtoint ptr %2 to i64
-  %.neg = add i64 %58, %59
-  %60 = zext nneg i32 %.0.lcssa to i64
+  %84 = sext i32 %3 to i64
+  %85 = ptrtoint ptr %2 to i64
+  %.neg = add i64 %84, %85
+  %86 = zext nneg i32 %.0.lcssa to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %96
+  br label %87
 
-61:                                               ; preds = %.lr.ph, %61
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
-  %.194108 = phi ptr [ %2, %.lr.ph ], [ %94, %61 ]
-  %62 = ptrtoint ptr %.194108 to i64
-  %63 = sub i64 %.neg96, %62
-  %64 = getelementptr i8, ptr %0, i64 %indvars.iv
-  %65 = load i8, ptr %64, align 1
-  %66 = zext i8 %65 to i32
-  %67 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.194108, i64 noundef %63, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %66)
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr i8, ptr %.194108, i64 %68
-  %70 = ptrtoint ptr %69 to i64
-  %71 = sub i64 %.neg96, %70
-  %72 = getelementptr i8, ptr %64, i64 1
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %69, i64 noundef %71, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %74)
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr i8, ptr %69, i64 %76
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %.neg96, %78
-  %80 = or disjoint i64 %indvars.iv, 3
-  %81 = getelementptr i8, ptr %64, i64 2
-  %82 = load i8, ptr %81, align 1
-  %83 = zext i8 %82 to i32
-  %84 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %77, i64 noundef %79, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %83)
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr i8, ptr %77, i64 %85
-  %87 = ptrtoint ptr %86 to i64
-  %88 = sub i64 %.neg96, %87
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %89 = getelementptr i8, ptr %0, i64 %80
-  %90 = load i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %86, i64 noundef %88, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5, i32 noundef %91)
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr i8, ptr %86, i64 %93
-  %95 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %95, label %61, label %.preheader.loopexit, !llvm.loop !6
-
-96:                                               ; preds = %.lr.ph113, %96
-  %indvars.iv116 = phi i64 [ %60, %.lr.ph113 ], [ %indvars.iv.next117, %96 ]
-  %.2111 = phi ptr [ %.194.lcssa, %.lr.ph113 ], [ %104, %96 ]
-  %97 = ptrtoint ptr %.2111 to i64
-  %98 = sub i64 %.neg, %97
+87:                                               ; preds = %.lr.ph113, %87
+  %indvars.iv116 = phi i64 [ %86, %.lr.ph113 ], [ %indvars.iv.next117, %87 ]
+  %.2111 = phi ptr [ %.194.lcssa, %.lr.ph113 ], [ %95, %87 ]
+  %88 = ptrtoint ptr %.2111 to i64
+  %89 = sub i64 %.neg, %88
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %99 = getelementptr i8, ptr %0, i64 %indvars.iv116
-  %100 = load i8, ptr %99, align 1
-  %101 = zext i8 %100 to i32
-  %102 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.2111, i64 noundef %98, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %101)
-  %103 = sext i32 %102 to i64
-  %104 = getelementptr i8, ptr %.2111, i64 %103
+  %90 = getelementptr i8, ptr %0, i64 %indvars.iv116
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i32
+  %93 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.2111, i64 noundef %89, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.4, i32 noundef %92)
+  %94 = sext i32 %93 to i64
+  %95 = getelementptr i8, ptr %.2111, i64 %94
   %exitcond.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %96, !llvm.loop !8
+  br i1 %exitcond.not, label %.loopexit, label %87, !llvm.loop !6
 
-.loopexit:                                        ; preds = %96, %.preheader, %48, %47, %6
+.loopexit:                                        ; preds = %87, %.preheader, %75, %74, %6
   ret void
 }
 
@@ -452,7 +435,7 @@ define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captu
   %.0119.lcssa = phi ptr [ %2, %.preheader137 ], [ %134, %.preheader.loopexit ]
   %.0.lcssa = phi i32 [ 0, %.preheader137 ], [ %95, %.preheader.loopexit ]
   %96 = lshr i32 %1, 1
-  %97 = icmp slt i32 %.0.lcssa, %96
+  %97 = icmp samesign ult i32 %.0.lcssa, %96
   br i1 %97, label %.lr.ph143, label %._crit_edge
 
 .lr.ph143:                                        ; preds = %.preheader
@@ -501,7 +484,7 @@ define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captu
   %133 = sext i32 %132 to i64
   %134 = getelementptr i8, ptr %126, i64 %133
   %135 = icmp samesign ult i64 %indvars.iv.next, %15
-  br i1 %135, label %101, label %.preheader.loopexit, !llvm.loop !9
+  br i1 %135, label %101, label %.preheader.loopexit, !llvm.loop !8
 
 136:                                              ; preds = %.lr.ph143, %136
   %indvars.iv151 = phi i64 [ %100, %.lr.ph143 ], [ %indvars.iv.next152, %136 ]
@@ -516,7 +499,7 @@ define internal fastcc void @print_address_prefix_buf(ptr noundef readonly captu
   %143 = sext i32 %142 to i64
   %144 = getelementptr i8, ptr %.1120141, i64 %143
   %exitcond.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge, label %136, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %136, %.preheader
   %.1120.lcssa = phi ptr [ %.0119.lcssa, %.preheader ], [ %144, %136 ]
@@ -610,4 +593,3 @@ attributes #8 = { nounwind willreturn memory(read) }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
-!10 = distinct !{!10, !7}

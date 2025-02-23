@@ -39040,7 +39040,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$9from_elem17h6f4c4227ac50485
 .preheader:                                       ; preds = %3, %.preheader
   %storemerge = phi i64 [ %43, %.preheader ], [ 0, %3 ]
   %.sroa.01.0 = phi i64 [ 1, %.preheader ], [ 0, %3 ]
-  %42 = icmp ult i64 %.sroa.01.0, %2
+  %42 = icmp samesign ult i64 %.sroa.01.0, %2
   %43 = add i64 %storemerge, 1
   br i1 %42, label %.preheader, label %44
 

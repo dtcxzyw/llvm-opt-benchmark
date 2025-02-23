@@ -660,18 +660,18 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node121NodeRef$LT$allo
 
 6:                                                ; preds = %6, %.lr.ph.i
   %.sroa.0.011.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select8.i, %6 ]
-  %7 = icmp uge i64 %.sroa.0.011.i, %4
+  %7 = icmp samesign uge i64 %.sroa.0.011.i, %4
   %not..i = xor i1 %7, true
   %8 = zext i1 %not..i to i64
-  %spec.select8.i = add nuw i64 %.sroa.0.011.i, %8
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %.sroa.0.011.i
+  %spec.select8.i = add nuw nsw i64 %.sroa.0.011.i, %8
+  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %.sroa.0.011.i
   %10 = load ptr, ptr %9, align 8, !noalias !187, !nonnull !28, !noundef !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 352
   store ptr %0, ptr %11, align 8, !noalias !194
   %12 = trunc i64 %.sroa.0.011.i to i16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 624
   store i16 %12, ptr %13, align 8, !noalias !194
-  %.not.i.i.i = icmp ugt i64 %spec.select8.i, %4
+  %.not.i.i.i = icmp samesign ugt i64 %spec.select8.i, %4
   %or.cond.i = select i1 %7, i1 true, i1 %.not.i.i.i
   br i1 %or.cond.i, label %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h73d08d3cbda5665cE.exit", label %6
 
@@ -1929,18 +1929,18 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 263:                                              ; preds = %263, %261
   %.sroa.0.011.i.i.i.i = phi i64 [ 0, %261 ], [ %spec.select8.i.i.i.i, %263 ]
-  %264 = icmp uge i64 %.sroa.0.011.i.i.i.i, %253
+  %264 = icmp samesign uge i64 %.sroa.0.011.i.i.i.i, %253
   %not..i.i.i.i = xor i1 %264, true
   %265 = zext i1 %not..i.i.i.i to i64
-  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %265
-  %266 = getelementptr inbounds ptr, ptr %254, i64 %.sroa.0.011.i.i.i.i
+  %spec.select8.i.i.i.i = add nuw nsw i64 %.sroa.0.011.i.i.i.i, %265
+  %266 = getelementptr inbounds nuw ptr, ptr %254, i64 %.sroa.0.011.i.i.i.i
   %267 = load ptr, ptr %266, align 8, !alias.scope !348, !noalias !351, !nonnull !28, !noundef !28
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 352
   store ptr %215, ptr %268, align 8, !noalias !358
   %269 = trunc i64 %.sroa.0.011.i.i.i.i to i16
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 624
   store i16 %269, ptr %270, align 8, !noalias !359
-  %.not.i.i.i.i.i.i = icmp ugt i64 %spec.select8.i.i.i.i, %253
+  %.not.i.i.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i.i.i, %253
   %or.cond.i.i.i.i = select i1 %264, i1 true, i1 %.not.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i, label %273, label %263
 
@@ -2589,7 +2589,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %.sink.i = phi i64 [ 632, %"_ZN5alloc11collections5btree4node119NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$30correct_childrens_parent_links17h3055d6654d83e102E.exit.i" ], [ 728, %.lr.ph.i53.i ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.8.0.copyload, i64 noundef %.sink.i, i64 noundef 8) #29, !noalias !448
   %77 = select i1 %trunc, i64 %25, i64 0
-  %.0 = add i64 %77, %3
+  %.0 = add nuw nsw i64 %77, %3
   store ptr %6, ptr %0, align 8
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7.0.copyload, ptr %78, align 8

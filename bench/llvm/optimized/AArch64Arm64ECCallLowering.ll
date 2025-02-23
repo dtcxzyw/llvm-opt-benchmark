@@ -3072,7 +3072,7 @@ _ZNK4llvm8Function6getArgEj.exit87.i:             ; preds = %1122, %1119
   %1129 = zext i32 %1128 to i64
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %72) #21
   store i16 257, ptr %455, align 8
-  %1130 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %63, ptr noundef %990, ptr noundef %1126, ptr %1127, i64 %1129, ptr noundef nonnull align 8 dereferenceable(34) %72, ptr noundef null)
+  %1130 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %63, ptr noundef nonnull %990, ptr noundef %1126, ptr %1127, i64 %1129, ptr noundef nonnull align 8 dereferenceable(34) %72, ptr noundef null)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %72) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %73) #21
   %.sroa.0.0.copyload.i88.i = load ptr, ptr %966, align 8, !tbaa !308
@@ -3448,7 +3448,7 @@ _ZN4llvm23SmallVectorTemplateBaseIZN12_GLOBAL__N_126AArch64Arm64ECCallLowering11
   br i1 %.not281, label %1536, label %1300
 
 1300:                                             ; preds = %_ZN4llvm23SmallVectorTemplateBaseIZN12_GLOBAL__N_126AArch64Arm64ECCallLowering11runOnModuleERNS_6ModuleEE9ThunkInfoLb1EE9push_backERKS5_.exit145
-  %1301 = getelementptr inbounds nuw i8, ptr %spec.select.i.i136, i64 32
+  %1301 = getelementptr inbounds nuw i8, ptr %1277, i64 32
   %1302 = load i32, ptr %1301, align 8
   %1303 = and i32 %1302, 768
   %1304 = icmp eq i32 %1303, 256

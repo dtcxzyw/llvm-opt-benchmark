@@ -4974,7 +4974,7 @@ define hidden void @_ZN8LIR_List6appendEP19LIR_InsertionBuffer(ptr noundef nonnu
 .loopexit:                                        ; preds = %.loopexit.loopexit, %._crit_edge
   %.2.lcssa = phi i32 [ %.124.lcssa, %._crit_edge ], [ %37, %.loopexit.loopexit ]
   %.1.lcssa = phi i32 [ %.02242, %._crit_edge ], [ %38, %.loopexit.loopexit ]
-  %39 = icmp sgt i64 %indvars.iv60, 1
+  %39 = icmp samesign ugt i64 %indvars.iv60, 1
   br i1 %39, label %40, label %.loopexit28, !llvm.loop !11
 
 40:                                               ; preds = %.lr.ph44, %.loopexit

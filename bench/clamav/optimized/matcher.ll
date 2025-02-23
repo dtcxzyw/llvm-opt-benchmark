@@ -1227,7 +1227,7 @@ define range(i32 0, 2) i32 @cli_check_fp(ptr noundef %0, ptr noundef %1) local_u
   %105 = phi i1 [ %104, %99 ], [ true, %93 ]
   %106 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %107 = load ptr, ptr %106, align 8, !tbaa !86
-  %108 = call ptr %107(ptr noundef %26, i64 noundef 0, i64 noundef %33, i32 noundef 0) #13
+  %108 = call ptr %107(ptr noundef nonnull %26, i64 noundef 0, i64 noundef %33, i32 noundef 0) #13
   %.not83 = icmp eq ptr %108, null
   br i1 %.not83, label %159, label %109
 

@@ -1203,7 +1203,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %41, %61
 .loopexit:                                        ; preds = %75, %67, %_ZNSt6vectorIfSaIfEEC2ERKS1_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #21
   store ptr %63, ptr %14, align 8, !tbaa !57
-  %80 = ashr exact i64 %58, 2
+  %80 = lshr exact i64 %58, 2
   %81 = icmp eq i64 %80, %43
   br i1 %81, label %105, label %82
 

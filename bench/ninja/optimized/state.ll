@@ -1980,7 +1980,7 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 der
   br i1 %.not.i, label %_ZNK4Pool4DumpEv.exit, label %.lr.ph.i, !llvm.loop !9
 
 _ZNK4Pool4DumpEv.exit:                            ; preds = %.lr.ph.i, %27, %.lr.ph23
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.021) #21
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.021) #21
   %.not15 = icmp eq ptr %41, %23
   br i1 %.not15, label %.loopexit, label %.lr.ph23, !llvm.loop !30
 

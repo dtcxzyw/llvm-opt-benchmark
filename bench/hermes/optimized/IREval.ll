@@ -479,9 +479,7 @@ entry:
   %cmp.i.i.i.i.i.i.i277 = icmp eq i8 %0, 112
   %cmp.i.i.i.i.i.i.i279 = icmp eq i8 %1, 112
   %cmp.i.i.i.i.i.i.i281 = icmp eq i8 %0, 116
-  %spec.select.i282 = select i1 %cmp.i.i.i.i.i.i.i281, ptr %lhs, ptr null
   %cmp.i.i.i.i.i.i.i283 = icmp eq i8 %1, 116
-  %spec.select.i284 = select i1 %cmp.i.i.i.i.i.i.i283, ptr %rhs, ptr null
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i, label %_ZN12_GLOBAL__N_15isNaNEPN6hermes7LiteralE.exit
 
 if.then.i:                                        ; preds = %entry
@@ -541,11 +539,10 @@ sw.bb25:                                          ; preds = %if.then, %if.then
   br label %return
 
 sw.bb28:                                          ; preds = %if.then
-  %tobool29.not = icmp eq ptr %spec.select.i282, null
-  br i1 %tobool29.not, label %if.end, label %if.then30
+  br i1 %cmp.i.i.i.i.i.i.i281, label %if.then30, label %if.end
 
 if.then30:                                        ; preds = %sw.bb28
-  %value.i = getelementptr inbounds nuw i8, ptr %spec.select.i282, i64 48
+  %value.i = getelementptr inbounds nuw i8, ptr %lhs, i64 48
   %retval.sroa.0.0.copyload.i290 = load ptr, ptr %value.i, align 8
   %retval.sroa.0.0.copyload.i291 = load ptr, ptr %retval.sroa.0.0.copyload.i290, align 8
   %retval.sroa.2.0.call.sroa_idx.i = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i290, i64 8
@@ -566,11 +563,10 @@ if.then.i.i.i:                                    ; preds = %if.then30
   br label %return
 
 if.end:                                           ; preds = %sw.bb28
-  %tobool38.not = icmp eq ptr %spec.select.i284, null
-  br i1 %tobool38.not, label %if.end51, label %if.then39
+  br i1 %cmp.i.i.i.i.i.i.i283, label %if.then39, label %if.end51
 
 if.then39:                                        ; preds = %if.end
-  %value.i294 = getelementptr inbounds nuw i8, ptr %spec.select.i284, i64 48
+  %value.i294 = getelementptr inbounds nuw i8, ptr %rhs, i64 48
   %retval.sroa.0.0.copyload.i295 = load ptr, ptr %value.i294, align 8
   %retval.sroa.0.0.copyload.i296 = load ptr, ptr %retval.sroa.0.0.copyload.i295, align 8
   %retval.sroa.2.0.call.sroa_idx.i297 = getelementptr inbounds nuw i8, ptr %retval.sroa.0.0.copyload.i295, i64 8

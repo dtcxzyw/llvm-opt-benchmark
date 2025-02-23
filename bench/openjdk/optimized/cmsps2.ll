@@ -1480,7 +1480,7 @@ define internal fastcc void @WriteCLUT(ptr noundef %0, ptr noundef %1, ptr nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %24
   %39 = tail call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.65) #9
-  %40 = call i32 @cmsStageSampleCLut16bit(ptr noundef %1, ptr noundef nonnull @OutputValueSampler, ptr noundef nonnull %9, i32 noundef 16777216) #9
+  %40 = call i32 @cmsStageSampleCLut16bit(ptr noundef nonnull %1, ptr noundef nonnull @OutputValueSampler, ptr noundef nonnull %9, i32 noundef 16777216) #9
   %41 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef %5) #9
   %42 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef %3) #9
   %43 = call i32 (ptr, ptr, ...) @_cmsIOPrintf(ptr noundef %0, ptr noundef nonnull @.str.23) #9

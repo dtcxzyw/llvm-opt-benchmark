@@ -5414,11 +5414,11 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   br i1 %12, label %._crit_edge, label %.lr.ph37
 
 13:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
-  %14 = icmp eq i64 %98, 0
+  %14 = icmp eq i64 %96, 0
   br i1 %14, label %._crit_edge, label %.lr.ph37, !llvm.loop !250
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.fr.i.i23.lcssa = phi i64 [ %7, %.lr.ph ], [ %138, %13 ]
+  %.fr.i.i23.lcssa = phi i64 [ %7, %.lr.ph ], [ %136, %13 ]
   %storemerge21.lcssa = phi ptr [ %.fr28, %.lr.ph ], [ %.sroa.014.1.i.i, %13 ]
   %15 = lshr i64 %.fr.i.i23.lcssa, 3
   %16 = add nsw i64 %15, -2
@@ -5516,202 +5516,205 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pair
   %60 = add nsw i64 %59, -1
   %61 = sdiv i64 %60, 2
   %62 = icmp sgt i64 %59, 2
-  br i1 %62, label %.lr.ph.i.i.i20.i, label %._crit_edge.i.i.i11.i
+  br i1 %62, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i
 
-.lr.ph.i.i.i20.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i20.i
-  %.039.i.i.i21.i = phi i64 [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i20.i ], [ 0, %.lr.ph.i9.i ]
-  %63 = shl i64 %.039.i.i.i21.i, 1
+.lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i19.i
+  %.039.i.i.i20.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i9.i ]
+  %63 = shl i64 %.039.i.i.i20.i, 1
   %64 = add i64 %63, 2
   %65 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %64
   %66 = or disjoint i64 %63, 1
   %67 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %66
-  %.sroa.01.0.copyload.i.i.i.i22.i = load ptr, ptr %65, align 8
-  %.sroa.0.0.copyload.i.i.i.i23.i = load ptr, ptr %67, align 8
+  %.sroa.01.0.copyload.i.i.i.i21.i = load ptr, ptr %65, align 8
+  %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %67, align 8
   %68 = load ptr, ptr %11, align 16, !tbaa !62
-  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i22.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i.i23.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  %spec.select.i.i.i24.i = select i1 %69, i64 %66, i64 %64
-  %70 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %spec.select.i.i.i24.i
-  %71 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.039.i.i.i21.i
+  %69 = tail call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i.i22.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  %spec.select.i.i.i23.i = select i1 %69, i64 %66, i64 %64
+  %70 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %spec.select.i.i.i23.i
+  %71 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.039.i.i.i20.i
   %72 = load i64, ptr %70, align 8
   store i64 %72, ptr %71, align 8
-  %73 = icmp slt i64 %spec.select.i.i.i24.i, %61
-  br i1 %73, label %.lr.ph.i.i.i20.i, label %._crit_edge.i.i.i11.i, !llvm.loop !251
+  %73 = icmp slt i64 %spec.select.i.i.i23.i, %61
+  br i1 %73, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i, !llvm.loop !251
 
-._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i20.i, %.lr.ph.i9.i
-  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i20.i ]
+._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i19.i, %.lr.ph.i9.i
+  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ]
   %74 = and i64 %58, 8
   %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %86
+  br i1 %75, label %76, label %85
 
 76:                                               ; preds = %._crit_edge.i.i.i11.i
   %77 = add nsw i64 %59, -2
   %78 = ashr exact i64 %77, 1
   %79 = icmp eq i64 %.0.lcssa.i.i.i12.i, %78
-  br i1 %79, label %80, label %86
+  br i1 %79, label %.thread.i.i.i, label %85
 
-80:                                               ; preds = %76
-  %81 = shl nsw i64 %.0.lcssa.i.i.i12.i, 1
-  %82 = or disjoint i64 %81, 1
-  %83 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %82
-  %84 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.0.lcssa.i.i.i12.i
-  %85 = load i64, ptr %83, align 8
-  store i64 %85, ptr %84, align 8
-  br label %86
+.thread.i.i.i:                                    ; preds = %76
+  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %81 = or disjoint i64 %80, 1
+  %82 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %81
+  %83 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.0.lcssa.i.i.i12.i
+  %84 = load i64, ptr %82, align 8
+  store i64 %84, ptr %83, align 8
+  br label %.lr.ph.i.i.i.i14.i.preheader
 
-86:                                               ; preds = %80, %76, %._crit_edge.i.i.i11.i
-  %.1.i.i.i13.i = phi i64 [ %82, %80 ], [ %.0.lcssa.i.i.i12.i, %76 ], [ %.0.lcssa.i.i.i12.i, %._crit_edge.i.i.i11.i ]
-  %87 = icmp sgt i64 %.1.i.i.i13.i, 0
-  br i1 %87, label %.lr.ph.i.i.i.i15.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i
+85:                                               ; preds = %76, %._crit_edge.i.i.i11.i
+  %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
+  br i1 %.not.i.i13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i.preheader
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %86, %91
-  %.010.i.i.i.i16.i = phi i64 [ %.0911.i.i89.i.i.i, %91 ], [ %.1.i.i.i13.i, %86 ]
-  %.0911.in.i.i.i.i17.i = add nsw i64 %.010.i.i.i.i16.i, -1
-  %.0911.i.i89.i.i.i = lshr i64 %.0911.in.i.i.i.i17.i, 1
-  %88 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %.0911.i.i89.i.i.i
-  %.sroa.01.0.copyload.i.i.i.i.i18.i = load ptr, ptr %88, align 8
-  %89 = load ptr, ptr %11, align 16, !tbaa !62
-  %90 = tail call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i.i18.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i.i10.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  br i1 %90, label %91, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i
+.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %85, %.thread.i.i.i
+  %.010.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i12.i, %85 ], [ %81, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i14.i
 
-91:                                               ; preds = %.lr.ph.i.i.i.i15.i
-  %92 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %.010.i.i.i.i16.i
-  %93 = load i64, ptr %88, align 8
+.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %89
+  %.010.i.i.i.i15.i = phi i64 [ %.0911.i.i1011.i.i.i, %89 ], [ %.010.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
+  %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
+  %.0911.i.i1011.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
+  %86 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %.0911.i.i1011.i.i.i
+  %.sroa.01.0.copyload.i.i.i.i.i17.i = load ptr, ptr %86, align 8
+  %87 = load ptr, ptr %11, align 16, !tbaa !62
+  %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i.i17.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i.i10.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  br i1 %88, label %89, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i
+
+89:                                               ; preds = %.lr.ph.i.i.i.i14.i
+  %90 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.010.i.i.i.i15.i
+  %91 = load i64, ptr %86, align 8
+  store i64 %91, ptr %90, align 8
+  %.not12.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !252
+
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i: ; preds = %89, %.lr.ph.i.i.i.i14.i, %85
+  %.0.lcssa.i.i.i.i18.i = phi i64 [ 0, %85 ], [ %.010.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %89 ]
+  %92 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.0.lcssa.i.i.i.i18.i
+  %93 = ptrtoint ptr %.sroa.03.0.copyload.i.i10.i to i64
   store i64 %93, ptr %92, align 8
-  %.not.i.i19.i = icmp ult i64 %.0911.in.i.i.i.i17.i, 2
-  br i1 %.not.i.i19.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i15.i, !llvm.loop !252
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i: ; preds = %91, %.lr.ph.i.i.i.i15.i, %86
-  %.0.lcssa.i.i.i.i14.i = phi i64 [ %.1.i.i.i13.i, %86 ], [ %.010.i.i.i.i16.i, %.lr.ph.i.i.i.i15.i ], [ 0, %91 ]
-  %94 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr24, i64 %.0.lcssa.i.i.i.i14.i
-  %95 = ptrtoint ptr %.sroa.03.0.copyload.i.i10.i to i64
-  store i64 %95, ptr %94, align 8
-  %96 = icmp sgt i64 %58, 8
-  br i1 %96, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !254
+  %94 = icmp sgt i64 %58, 8
+  br i1 %94, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !254
 
 .lr.ph37:                                         ; preds = %.lr.ph, %13
   %storemerge2136 = phi ptr [ %.sroa.014.1.i.i, %13 ], [ %.fr28, %.lr.ph ]
-  %.02235 = phi i64 [ %98, %13 ], [ %2, %.lr.ph ]
-  %97 = phi i64 [ %139, %13 ], [ %8, %.lr.ph ]
-  %98 = add nsw i64 %.02235, -1
-  %99 = lshr i64 %97, 1
-  %100 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %99
-  %101 = getelementptr inbounds i8, ptr %storemerge2136, i64 -8
+  %.02235 = phi i64 [ %96, %13 ], [ %2, %.lr.ph ]
+  %95 = phi i64 [ %137, %13 ], [ %8, %.lr.ph ]
+  %96 = add nsw i64 %.02235, -1
+  %97 = lshr i64 %95, 1
+  %98 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr24, i64 %97
+  %99 = getelementptr inbounds i8, ptr %storemerge2136, i64 -8
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %100, align 8
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %98, align 8
+  %100 = load ptr, ptr %11, align 16, !tbaa !62
+  %101 = tail call noundef zeroext i1 %100(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  %.sroa.0.0.copyload.i31.i.i = load ptr, ptr %99, align 8
   %102 = load ptr, ptr %11, align 16, !tbaa !62
-  %103 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  %.sroa.0.0.copyload.i31.i.i = load ptr, ptr %101, align 8
-  %104 = load ptr, ptr %11, align 16, !tbaa !62
-  br i1 %103, label %105, label %116
+  br i1 %101, label %103, label %114
 
-105:                                              ; preds = %.lr.ph37
-  %.sroa.01.0.copyload.i30.i.i = load ptr, ptr %100, align 8
-  %106 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i30.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i31.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  br i1 %106, label %107, label %109
+103:                                              ; preds = %.lr.ph37
+  %.sroa.01.0.copyload.i30.i.i = load ptr, ptr %98, align 8
+  %104 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i30.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i31.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  br i1 %104, label %105, label %107
 
-107:                                              ; preds = %105
+105:                                              ; preds = %103
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.fr24, align 8
-  %108 = load i64, ptr %100, align 8
-  store i64 %108, ptr %.fr24, align 8
-  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %100, align 8
+  %106 = load i64, ptr %98, align 8
+  store i64 %106, ptr %.fr24, align 8
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %98, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-109:                                              ; preds = %105
+107:                                              ; preds = %103
   %.sroa.01.0.copyload.i32.i.i = load ptr, ptr %10, align 8
-  %.sroa.0.0.copyload.i33.i.i = load ptr, ptr %101, align 8
-  %110 = load ptr, ptr %11, align 16, !tbaa !62
-  %111 = tail call noundef zeroext i1 %110(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i32.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i33.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  %.sroa.0.0.copyload.i33.i.i = load ptr, ptr %99, align 8
+  %108 = load ptr, ptr %11, align 16, !tbaa !62
+  %109 = tail call noundef zeroext i1 %108(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i32.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i33.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
   %.sroa.0.0.copyload.i.i34.i.i = load ptr, ptr %.fr24, align 8
-  br i1 %111, label %112, label %114
+  br i1 %109, label %110, label %112
 
-112:                                              ; preds = %109
-  %113 = load i64, ptr %101, align 8
-  store i64 %113, ptr %.fr24, align 8
-  store ptr %.sroa.0.0.copyload.i.i34.i.i, ptr %101, align 8
+110:                                              ; preds = %107
+  %111 = load i64, ptr %99, align 8
+  store i64 %111, ptr %.fr24, align 8
+  store ptr %.sroa.0.0.copyload.i.i34.i.i, ptr %99, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-114:                                              ; preds = %109
-  %115 = load i64, ptr %10, align 8
-  store i64 %115, ptr %.fr24, align 8
+112:                                              ; preds = %107
+  %113 = load i64, ptr %10, align 8
+  store i64 %113, ptr %.fr24, align 8
   store ptr %.sroa.0.0.copyload.i.i34.i.i, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-116:                                              ; preds = %.lr.ph37
+114:                                              ; preds = %.lr.ph37
   %.sroa.01.0.copyload.i36.i.i = load ptr, ptr %10, align 8
-  %117 = tail call noundef zeroext i1 %104(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i36.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i31.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  br i1 %117, label %118, label %120
+  %115 = tail call noundef zeroext i1 %102(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i36.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i31.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  br i1 %115, label %116, label %118
 
-118:                                              ; preds = %116
+116:                                              ; preds = %114
   %.sroa.0.0.copyload.i.i38.i.i = load ptr, ptr %.fr24, align 8
-  %119 = load i64, ptr %10, align 8
-  store i64 %119, ptr %.fr24, align 8
+  %117 = load i64, ptr %10, align 8
+  store i64 %117, ptr %.fr24, align 8
   store ptr %.sroa.0.0.copyload.i.i38.i.i, ptr %10, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-120:                                              ; preds = %116
-  %.sroa.01.0.copyload.i39.i.i = load ptr, ptr %100, align 8
-  %.sroa.0.0.copyload.i40.i.i = load ptr, ptr %101, align 8
-  %121 = load ptr, ptr %11, align 16, !tbaa !62
-  %122 = tail call noundef zeroext i1 %121(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i39.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i40.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+118:                                              ; preds = %114
+  %.sroa.01.0.copyload.i39.i.i = load ptr, ptr %98, align 8
+  %.sroa.0.0.copyload.i40.i.i = load ptr, ptr %99, align 8
+  %119 = load ptr, ptr %11, align 16, !tbaa !62
+  %120 = tail call noundef zeroext i1 %119(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i39.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i40.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
   %.sroa.0.0.copyload.i.i41.i.i = load ptr, ptr %.fr24, align 8
-  br i1 %122, label %123, label %125
+  br i1 %120, label %121, label %123
 
-123:                                              ; preds = %120
-  %124 = load i64, ptr %101, align 8
+121:                                              ; preds = %118
+  %122 = load i64, ptr %99, align 8
+  store i64 %122, ptr %.fr24, align 8
+  store ptr %.sroa.0.0.copyload.i.i41.i.i, ptr %99, align 8
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
+
+123:                                              ; preds = %118
+  %124 = load i64, ptr %98, align 8
   store i64 %124, ptr %.fr24, align 8
-  store ptr %.sroa.0.0.copyload.i.i41.i.i, ptr %101, align 8
+  store ptr %.sroa.0.0.copyload.i.i41.i.i, ptr %98, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-125:                                              ; preds = %120
-  %126 = load i64, ptr %100, align 8
-  store i64 %126, ptr %.fr24, align 8
-  store ptr %.sroa.0.0.copyload.i.i41.i.i, ptr %100, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader: ; preds = %125, %123, %118, %114, %112, %107
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader: ; preds = %123, %121, %116, %112, %110, %105
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader, %135
-  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %135 ], [ %storemerge2136, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
-  %.sroa.014.0.i.i = phi ptr [ %130, %135 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
-  br label %127
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader, %133
+  %.sroa.011.0.i.i = phi ptr [ %.sroa.011.1.i.i, %133 ], [ %storemerge2136, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
+  %.sroa.014.0.i.i = phi ptr [ %128, %133 ], [ %10, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
+  br label %125
 
-127:                                              ; preds = %127, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
-  %.sroa.014.1.i.i = phi ptr [ %.sroa.014.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i ], [ %130, %127 ]
+125:                                              ; preds = %125, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
+  %.sroa.014.1.i.i = phi ptr [ %.sroa.014.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i ], [ %128, %125 ]
   %.sroa.01.0.copyload.i.i12.i = load ptr, ptr %.sroa.014.1.i.i, align 8
   %.sroa.0.0.copyload.i.i13.i = load ptr, ptr %.fr24, align 8
-  %128 = load ptr, ptr %11, align 16, !tbaa !62
-  %129 = tail call noundef zeroext i1 %128(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i12.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i13.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
-  br i1 %129, label %127, label %.preheader.i.i, !llvm.loop !255
+  %126 = load ptr, ptr %11, align 16, !tbaa !62
+  %127 = tail call noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i12.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i13.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  %128 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
+  br i1 %127, label %125, label %.preheader.i.i, !llvm.loop !255
 
-.preheader.i.i:                                   ; preds = %127, %.preheader.i.i
-  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.i.i ], [ %.sroa.011.0.i.i, %127 ]
+.preheader.i.i:                                   ; preds = %125, %.preheader.i.i
+  %.sroa.011.0.pn.i.i = phi ptr [ %.sroa.011.1.i.i, %.preheader.i.i ], [ %.sroa.011.0.i.i, %125 ]
   %.sroa.011.1.i.i = getelementptr inbounds i8, ptr %.sroa.011.0.pn.i.i, i64 -8
   %.sroa.01.0.copyload.i9.i.i = load ptr, ptr %.fr24, align 8
   %.sroa.0.0.copyload.i10.i.i = load ptr, ptr %.sroa.011.1.i.i, align 8
-  %131 = load ptr, ptr %11, align 16, !tbaa !62
-  %132 = tail call noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i9.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i10.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
-  br i1 %132, label %.preheader.i.i, label %133, !llvm.loop !256
+  %129 = load ptr, ptr %11, align 16, !tbaa !62
+  %130 = tail call noundef zeroext i1 %129(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i9.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i10.i.i, ptr noundef nonnull align 16 dereferenceable(48) %3)
+  br i1 %130, label %.preheader.i.i, label %131, !llvm.loop !256
 
-133:                                              ; preds = %.preheader.i.i
-  %134 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
-  br i1 %134, label %135, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
+131:                                              ; preds = %.preheader.i.i
+  %132 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.011.1.i.i
+  br i1 %132, label %133, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
 
-135:                                              ; preds = %133
+133:                                              ; preds = %131
   %.sroa.0.0.copyload.i.i.i14.i = load ptr, ptr %.sroa.014.1.i.i, align 8
-  %136 = load i64, ptr %.sroa.011.1.i.i, align 8
-  store i64 %136, ptr %.sroa.014.1.i.i, align 8
+  %134 = load i64, ptr %.sroa.011.1.i.i, align 8
+  store i64 %134, ptr %.sroa.014.1.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i14.i, ptr %.sroa.011.1.i.i, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i, !llvm.loop !257
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit: ; preds = %133
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr nonnull %.sroa.014.1.i.i, ptr %storemerge2136, i64 noundef %98, ptr nonnull %3)
-  %137 = ptrtoint ptr %.sroa.014.1.i.i to i64
-  %138 = sub i64 %137, %5
-  %139 = ashr exact i64 %138, 3
-  %140 = icmp sgt i64 %139, 16
-  br i1 %140, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !250
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit: ; preds = %131
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr nonnull %.sroa.014.1.i.i, ptr %storemerge2136, i64 noundef %96, ptr nonnull %3)
+  %135 = ptrtoint ptr %.sroa.014.1.i.i to i64
+  %136 = sub i64 %135, %5
+  %137 = ashr exact i64 %136, 3
+  %138 = icmp sgt i64 %137, 16
+  br i1 %138, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !250
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, %4, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_NS4_8FunctionIKFbSK_SK_EEEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i
   ret void
@@ -5740,11 +5743,11 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
   br i1 %10, label %._crit_edge, label %.lr.ph28
 
 11:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
-  %12 = icmp eq i64 %112, 0
+  %12 = icmp eq i64 %110, 0
   br i1 %12, label %._crit_edge, label %.lr.ph28, !llvm.loop !258
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph
-  %.fr.i.i.i11.lcssa = phi i64 [ %6, %.lr.ph ], [ %146, %11 ]
+  %.fr.i.i.i11.lcssa = phi i64 [ %6, %.lr.ph ], [ %144, %11 ]
   %storemerge9.lcssa = phi ptr [ %.fr17, %.lr.ph ], [ %.sroa.013.1.i.i, %11 ]
   %13 = lshr i64 %.fr.i.i.i11.lcssa, 3
   %14 = add nsw i64 %13, -2
@@ -5880,8 +5883,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pair
   %70 = icmp sgt i64 %.fr.i.i.i11.lcssa, 8
   br i1 %70, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit
 
-.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i
-  %.sroa.0.03.i.i = phi ptr [ %71, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i ], [ %storemerge9.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i ]
+.lr.ph.i9.i:                                      ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i
+  %.sroa.0.03.i.i = phi ptr [ %71, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i ], [ %storemerge9.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i ]
   %71 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.03.0.copyload.i.i10.i = load ptr, ptr %71, align 8
   %72 = load i64, ptr %.fr12, align 8
@@ -5892,196 +5895,199 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pair
   %76 = add nsw i64 %75, -1
   %77 = sdiv i64 %76, 2
   %78 = icmp sgt i64 %75, 2
-  br i1 %78, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i11.i
+  br i1 %78, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i
 
-.lr.ph.i.i.i22.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i22.i
-  %.037.i.i.i23.i = phi i64 [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i22.i ], [ 0, %.lr.ph.i9.i ]
-  %79 = shl i64 %.037.i.i.i23.i, 1
+.lr.ph.i.i.i19.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i19.i
+  %.037.i.i.i20.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i9.i ]
+  %79 = shl i64 %.037.i.i.i20.i, 1
   %80 = add i64 %79, 2
   %81 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %80
   %82 = or disjoint i64 %79, 1
   %83 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %82
-  %.sroa.01.0.copyload.i.i.i.i24.i = load ptr, ptr %81, align 8
-  %.sroa.0.0.copyload.i.i.i.i25.i = load ptr, ptr %83, align 8
-  %84 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i24.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i.i25.i)
-  %spec.select.i.i.i26.i = select i1 %84, i64 %82, i64 %80
-  %85 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %spec.select.i.i.i26.i
-  %86 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.037.i.i.i23.i
+  %.sroa.01.0.copyload.i.i.i.i21.i = load ptr, ptr %81, align 8
+  %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %83, align 8
+  %84 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i.i22.i)
+  %spec.select.i.i.i23.i = select i1 %84, i64 %82, i64 %80
+  %85 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %spec.select.i.i.i23.i
+  %86 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.037.i.i.i20.i
   %87 = load i64, ptr %85, align 8
   store i64 %87, ptr %86, align 8
-  %88 = icmp slt i64 %spec.select.i.i.i26.i, %77
-  br i1 %88, label %.lr.ph.i.i.i22.i, label %._crit_edge.i.i.i11.i, !llvm.loop !259
+  %88 = icmp slt i64 %spec.select.i.i.i23.i, %77
+  br i1 %88, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i11.i, !llvm.loop !259
 
-._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i22.i, %.lr.ph.i9.i
-  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i26.i, %.lr.ph.i.i.i22.i ]
+._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i19.i, %.lr.ph.i9.i
+  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ]
   %89 = and i64 %74, 8
   %90 = icmp eq i64 %89, 0
-  br i1 %90, label %91, label %101
+  br i1 %90, label %91, label %100
 
 91:                                               ; preds = %._crit_edge.i.i.i11.i
   %92 = add nsw i64 %75, -2
   %93 = ashr exact i64 %92, 1
   %94 = icmp eq i64 %.0.lcssa.i.i.i12.i, %93
-  br i1 %94, label %95, label %101
+  br i1 %94, label %.thread.i.i.i, label %100
 
-95:                                               ; preds = %91
-  %96 = shl nsw i64 %.0.lcssa.i.i.i12.i, 1
-  %97 = or disjoint i64 %96, 1
-  %98 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %97
-  %99 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.0.lcssa.i.i.i12.i
-  %100 = load i64, ptr %98, align 8
-  store i64 %100, ptr %99, align 8
-  br label %101
+.thread.i.i.i:                                    ; preds = %91
+  %95 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %96 = or disjoint i64 %95, 1
+  %97 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %96
+  %98 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.0.lcssa.i.i.i12.i
+  %99 = load i64, ptr %97, align 8
+  store i64 %99, ptr %98, align 8
+  br label %.lr.ph.i.i.i.i14.i.preheader
 
-101:                                              ; preds = %95, %91, %._crit_edge.i.i.i11.i
-  %.1.i.i.i13.i = phi i64 [ %97, %95 ], [ %.0.lcssa.i.i.i12.i, %91 ], [ %.0.lcssa.i.i.i12.i, %._crit_edge.i.i.i11.i ]
-  %102 = icmp sgt i64 %.1.i.i.i13.i, 0
-  br i1 %102, label %.lr.ph.i.i.i.i16.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i
+100:                                              ; preds = %91, %._crit_edge.i.i.i11.i
+  %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
+  br i1 %.not.i.i13.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i.preheader
 
-.lr.ph.i.i.i.i16.i:                               ; preds = %101, %105
-  %.010.i.i.i.i17.i = phi i64 [ %.0911.i.i89.i.i19.i, %105 ], [ %.1.i.i.i13.i, %101 ]
-  %.0911.in.i.i.i.i18.i = add nsw i64 %.010.i.i.i.i17.i, -1
-  %.0911.i.i89.i.i19.i = lshr i64 %.0911.in.i.i.i.i18.i, 1
-  %103 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %.0911.i.i89.i.i19.i
-  %.sroa.01.0.copyload.i.i.i.i.i20.i = load ptr, ptr %103, align 8
-  %104 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i.i20.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i.i10.i)
-  br i1 %104, label %105, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i
+.lr.ph.i.i.i.i14.i.preheader:                     ; preds = %100, %.thread.i.i.i
+  %.010.i.i.i.i15.i.ph = phi i64 [ %.0.lcssa.i.i.i12.i, %100 ], [ %96, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i14.i
 
-105:                                              ; preds = %.lr.ph.i.i.i.i16.i
-  %106 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %.010.i.i.i.i17.i
-  %107 = load i64, ptr %103, align 8
+.lr.ph.i.i.i.i14.i:                               ; preds = %.lr.ph.i.i.i.i14.i.preheader, %103
+  %.010.i.i.i.i15.i = phi i64 [ %.0911.i.i89.i.i.i, %103 ], [ %.010.i.i.i.i15.i.ph, %.lr.ph.i.i.i.i14.i.preheader ]
+  %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
+  %.0911.i.i89.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
+  %101 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %.0911.i.i89.i.i.i
+  %.sroa.01.0.copyload.i.i.i.i.i17.i = load ptr, ptr %101, align 8
+  %102 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i.i.i17.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.03.0.copyload.i.i10.i)
+  br i1 %102, label %103, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i
+
+103:                                              ; preds = %.lr.ph.i.i.i.i14.i
+  %104 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.010.i.i.i.i15.i
+  %105 = load i64, ptr %101, align 8
+  store i64 %105, ptr %104, align 8
+  %.not10.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
+  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, label %.lr.ph.i.i.i.i14.i, !llvm.loop !260
+
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i: ; preds = %103, %.lr.ph.i.i.i.i14.i, %100
+  %.0.lcssa.i.i.i.i18.i = phi i64 [ 0, %100 ], [ %.010.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %103 ]
+  %106 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.0.lcssa.i.i.i.i18.i
+  %107 = ptrtoint ptr %.sroa.03.0.copyload.i.i10.i to i64
   store i64 %107, ptr %106, align 8
-  %.not.i.i21.i = icmp ult i64 %.0911.in.i.i.i.i18.i, 2
-  br i1 %.not.i.i21.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i, label %.lr.ph.i.i.i.i16.i, !llvm.loop !260
-
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i: ; preds = %105, %.lr.ph.i.i.i.i16.i, %101
-  %.0.lcssa.i.i.i.i15.i = phi i64 [ %.1.i.i.i13.i, %101 ], [ %.010.i.i.i.i17.i, %.lr.ph.i.i.i.i16.i ], [ 0, %105 ]
-  %108 = getelementptr inbounds %"class.std::reference_wrapper", ptr %.fr12, i64 %.0.lcssa.i.i.i.i15.i
-  %109 = ptrtoint ptr %.sroa.03.0.copyload.i.i10.i to i64
-  store i64 %109, ptr %108, align 8
-  %110 = icmp sgt i64 %74, 8
-  br i1 %110, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !262
+  %108 = icmp sgt i64 %74, 8
+  br i1 %108, label %.lr.ph.i9.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !262
 
 .lr.ph28:                                         ; preds = %.lr.ph, %11
   %storemerge927 = phi ptr [ %.sroa.013.1.i.i, %11 ], [ %.fr17, %.lr.ph ]
-  %.01026 = phi i64 [ %112, %11 ], [ %2, %.lr.ph ]
-  %111 = phi i64 [ %147, %11 ], [ %7, %.lr.ph ]
-  %112 = add nsw i64 %.01026, -1
-  %113 = lshr i64 %111, 1
-  %114 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %113
-  %115 = getelementptr inbounds i8, ptr %storemerge927, i64 -8
+  %.01026 = phi i64 [ %110, %11 ], [ %2, %.lr.ph ]
+  %109 = phi i64 [ %145, %11 ], [ %7, %.lr.ph ]
+  %110 = add nsw i64 %.01026, -1
+  %111 = lshr i64 %109, 1
+  %112 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.fr12, i64 %111
+  %113 = getelementptr inbounds i8, ptr %storemerge927, i64 -8
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %9, align 8
-  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %114, align 8
-  %116 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i)
-  %.sroa.0.0.copyload.i27.i.i = load ptr, ptr %115, align 8
-  br i1 %116, label %117, label %127
+  %.sroa.0.0.copyload.i.i.i = load ptr, ptr %112, align 8
+  %114 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i.i)
+  %.sroa.0.0.copyload.i27.i.i = load ptr, ptr %113, align 8
+  br i1 %114, label %115, label %125
 
-117:                                              ; preds = %.lr.ph28
-  %.sroa.01.0.copyload.i26.i.i = load ptr, ptr %114, align 8
-  %118 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i26.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i27.i.i)
-  br i1 %118, label %119, label %121
+115:                                              ; preds = %.lr.ph28
+  %.sroa.01.0.copyload.i26.i.i = load ptr, ptr %112, align 8
+  %116 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i26.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i27.i.i)
+  br i1 %116, label %117, label %119
 
-119:                                              ; preds = %117
+117:                                              ; preds = %115
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %.fr12, align 8
-  %120 = load i64, ptr %114, align 8
-  store i64 %120, ptr %.fr12, align 8
-  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %114, align 8
+  %118 = load i64, ptr %112, align 8
+  store i64 %118, ptr %.fr12, align 8
+  store ptr %.sroa.0.0.copyload.i.i.i.i, ptr %112, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-121:                                              ; preds = %117
+119:                                              ; preds = %115
   %.sroa.01.0.copyload.i28.i.i = load ptr, ptr %9, align 8
-  %.sroa.0.0.copyload.i29.i.i = load ptr, ptr %115, align 8
-  %122 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i28.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i29.i.i)
+  %.sroa.0.0.copyload.i29.i.i = load ptr, ptr %113, align 8
+  %120 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i28.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i29.i.i)
   %.sroa.0.0.copyload.i.i30.i.i = load ptr, ptr %.fr12, align 8
-  br i1 %122, label %123, label %125
+  br i1 %120, label %121, label %123
 
-123:                                              ; preds = %121
-  %124 = load i64, ptr %115, align 8
-  store i64 %124, ptr %.fr12, align 8
-  store ptr %.sroa.0.0.copyload.i.i30.i.i, ptr %115, align 8
+121:                                              ; preds = %119
+  %122 = load i64, ptr %113, align 8
+  store i64 %122, ptr %.fr12, align 8
+  store ptr %.sroa.0.0.copyload.i.i30.i.i, ptr %113, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-125:                                              ; preds = %121
-  %126 = load i64, ptr %9, align 8
-  store i64 %126, ptr %.fr12, align 8
+123:                                              ; preds = %119
+  %124 = load i64, ptr %9, align 8
+  store i64 %124, ptr %.fr12, align 8
   store ptr %.sroa.0.0.copyload.i.i30.i.i, ptr %9, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-127:                                              ; preds = %.lr.ph28
+125:                                              ; preds = %.lr.ph28
   %.sroa.01.0.copyload.i32.i.i = load ptr, ptr %9, align 8
-  %128 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i32.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i27.i.i)
-  br i1 %128, label %129, label %131
+  %126 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i32.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i27.i.i)
+  br i1 %126, label %127, label %129
 
-129:                                              ; preds = %127
+127:                                              ; preds = %125
   %.sroa.0.0.copyload.i.i34.i.i = load ptr, ptr %.fr12, align 8
-  %130 = load i64, ptr %9, align 8
-  store i64 %130, ptr %.fr12, align 8
+  %128 = load i64, ptr %9, align 8
+  store i64 %128, ptr %.fr12, align 8
   store ptr %.sroa.0.0.copyload.i.i34.i.i, ptr %9, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-131:                                              ; preds = %127
-  %.sroa.01.0.copyload.i35.i.i = load ptr, ptr %114, align 8
-  %.sroa.0.0.copyload.i36.i.i = load ptr, ptr %115, align 8
-  %132 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i35.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i36.i.i)
+129:                                              ; preds = %125
+  %.sroa.01.0.copyload.i35.i.i = load ptr, ptr %112, align 8
+  %.sroa.0.0.copyload.i36.i.i = load ptr, ptr %113, align 8
+  %130 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i35.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i36.i.i)
   %.sroa.0.0.copyload.i.i37.i.i = load ptr, ptr %.fr12, align 8
-  br i1 %132, label %133, label %135
+  br i1 %130, label %131, label %133
 
-133:                                              ; preds = %131
-  %134 = load i64, ptr %115, align 8
+131:                                              ; preds = %129
+  %132 = load i64, ptr %113, align 8
+  store i64 %132, ptr %.fr12, align 8
+  store ptr %.sroa.0.0.copyload.i.i37.i.i, ptr %113, align 8
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
+
+133:                                              ; preds = %129
+  %134 = load i64, ptr %112, align 8
   store i64 %134, ptr %.fr12, align 8
-  store ptr %.sroa.0.0.copyload.i.i37.i.i, ptr %115, align 8
+  store ptr %.sroa.0.0.copyload.i.i37.i.i, ptr %112, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
 
-135:                                              ; preds = %131
-  %136 = load i64, ptr %114, align 8
-  store i64 %136, ptr %.fr12, align 8
-  store ptr %.sroa.0.0.copyload.i.i37.i.i, ptr %114, align 8
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader: ; preds = %135, %133, %129, %125, %123, %119
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader: ; preds = %133, %131, %127, %123, %121, %117
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader, %143
-  %.sroa.010.0.i.i = phi ptr [ %.sroa.010.1.i.i, %143 ], [ %storemerge927, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
-  %.sroa.013.0.i.i = phi ptr [ %139, %143 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
-  br label %137
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader, %141
+  %.sroa.010.0.i.i = phi ptr [ %.sroa.010.1.i.i, %141 ], [ %storemerge927, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
+  %.sroa.013.0.i.i = phi ptr [ %137, %141 ], [ %9, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i.preheader ]
+  br label %135
 
-137:                                              ; preds = %137, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
-  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i ], [ %139, %137 ]
+135:                                              ; preds = %135, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i
+  %.sroa.013.1.i.i = phi ptr [ %.sroa.013.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i ], [ %137, %135 ]
   %.sroa.01.0.copyload.i.i12.i = load ptr, ptr %.sroa.013.1.i.i, align 8
   %.sroa.0.0.copyload.i.i13.i = load ptr, ptr %.fr12, align 8
-  %138 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i12.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i13.i)
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 8
-  br i1 %138, label %137, label %.preheader.i.i, !llvm.loop !263
+  %136 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i.i12.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i.i13.i)
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.013.1.i.i, i64 8
+  br i1 %136, label %135, label %.preheader.i.i, !llvm.loop !263
 
-.preheader.i.i:                                   ; preds = %137, %.preheader.i.i
-  %.sroa.010.0.pn.i.i = phi ptr [ %.sroa.010.1.i.i, %.preheader.i.i ], [ %.sroa.010.0.i.i, %137 ]
+.preheader.i.i:                                   ; preds = %135, %.preheader.i.i
+  %.sroa.010.0.pn.i.i = phi ptr [ %.sroa.010.1.i.i, %.preheader.i.i ], [ %.sroa.010.0.i.i, %135 ]
   %.sroa.010.1.i.i = getelementptr inbounds i8, ptr %.sroa.010.0.pn.i.i, i64 -8
   %.sroa.01.0.copyload.i8.i.i = load ptr, ptr %.fr12, align 8
   %.sroa.0.0.copyload.i9.i.i = load ptr, ptr %.sroa.010.1.i.i, align 8
-  %140 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i8.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i9.i.i)
-  br i1 %140, label %.preheader.i.i, label %141, !llvm.loop !264
+  %138 = tail call noundef zeroext i1 @_ZN5follyltERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.01.0.copyload.i8.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0.copyload.i9.i.i)
+  br i1 %138, label %.preheader.i.i, label %139, !llvm.loop !264
 
-141:                                              ; preds = %.preheader.i.i
-  %142 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.010.1.i.i
-  br i1 %142, label %143, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
+139:                                              ; preds = %.preheader.i.i
+  %140 = icmp ult ptr %.sroa.013.1.i.i, %.sroa.010.1.i.i
+  br i1 %140, label %141, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit
 
-143:                                              ; preds = %141
+141:                                              ; preds = %139
   %.sroa.0.0.copyload.i.i.i14.i = load ptr, ptr %.sroa.013.1.i.i, align 8
-  %144 = load i64, ptr %.sroa.010.1.i.i, align 8
-  store i64 %144, ptr %.sroa.013.1.i.i, align 8
+  %142 = load i64, ptr %.sroa.010.1.i.i, align 8
+  store i64 %142, ptr %.sroa.013.1.i.i, align 8
   store ptr %.sroa.0.0.copyload.i.i.i14.i, ptr %.sroa.010.1.i.i, align 8
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SO_SP_.exit.i, !llvm.loop !265
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit: ; preds = %141
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge927, i64 noundef %112)
-  %145 = ptrtoint ptr %.sroa.013.1.i.i to i64
-  %146 = sub i64 %145, %4
-  %147 = ashr exact i64 %146, 3
-  %148 = icmp sgt i64 %147, 16
-  br i1 %148, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !258
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit: ; preds = %139
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SP_SQ_(ptr nonnull %.sroa.013.1.i.i, ptr %storemerge927, i64 noundef %110)
+  %143 = ptrtoint ptr %.sroa.013.1.i.i to i64
+  %144 = sub i64 %143, %4
+  %145 = ashr exact i64 %144, 3
+  %146 = icmp sgt i64 %145, 16
+  br i1 %146, label %11, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit, !llvm.loop !258
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i14.i, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_SP_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEESO_SO_SO_SP_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_SO_RSP_.exit.i.i, %3, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIKSt4pairIKN5folly7dynamicES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZZNKS4_4json12_GLOBAL__N_17Printer11printObjectERS6_PKNSJ_7ContextEENKUlT_T0_RKT1_E_clISE_SE_St4lessIvEEEDaSO_SP_SS_EUlS9_S9_E_EEEvSO_SO_RSP_.exit.i.i
   ret void
 }
 

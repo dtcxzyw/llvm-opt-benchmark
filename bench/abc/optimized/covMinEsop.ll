@@ -586,12 +586,12 @@ Min_EsopAddCube.exit234.i.backedge:               ; preds = %Min_EsopAddCube.exi
   br label %264
 
 264:                                              ; preds = %264, %.thread300.i
-  %265 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
+  %265 = tail call i32 @Min_EsopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.1.i)
   %.not.i228.i = icmp eq i32 %265, 0
   br i1 %.not.i228.i, label %Min_EsopAddCube.exit.i, label %264, !llvm.loop !29
 
 Min_EsopAddCube.exit.i:                           ; preds = %264, %Min_EsopAddCube.exit.i
-  %266 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3308.i)
+  %266 = tail call i32 @Min_EsopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.3308.i)
   %.not.i229.i = icmp eq i32 %266, 0
   br i1 %.not.i229.i, label %Min_EsopAddCube.exit230.i, label %Min_EsopAddCube.exit.i, !llvm.loop !29
 
@@ -656,12 +656,12 @@ Min_EsopAddCube.exit230.i:                        ; preds = %Min_EsopAddCube.exi
   br label %307
 
 307:                                              ; preds = %307, %270
-  %308 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
+  %308 = tail call i32 @Min_EsopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.1.i)
   %.not.i231.i = icmp eq i32 %308, 0
   br i1 %.not.i231.i, label %Min_EsopAddCube.exit232.i, label %307, !llvm.loop !29
 
 Min_EsopAddCube.exit232.i:                        ; preds = %307, %Min_EsopAddCube.exit232.i
-  %309 = tail call i32 @Min_EsopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3308.i)
+  %309 = tail call i32 @Min_EsopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.3308.i)
   %.not.i233.i = icmp eq i32 %309, 0
   br i1 %.not.i233.i, label %Min_EsopAddCube.exit234.i.backedge, label %Min_EsopAddCube.exit232.i, !llvm.loop !29
 

@@ -5393,7 +5393,6 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %84 = zext nneg i32 %78 to i64
   %85 = icmp eq i32 %.fr, 2
   %. = select i1 %85, i64 4, i64 32
-  %.pn67 = select i1 %83, i64 %84, i64 %.
   %wide.trip.count105 = zext i32 %76 to i64
   br i1 %83, label %.lr.ph64.split.us, label %.lr.ph64.split
 
@@ -5409,7 +5408,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %91 = load ptr, ptr %90, align 8, !tbaa !78
   %92 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %91)
   %.3.us = add i64 %.2.us, %92
-  %93 = add i64 %.3.us, %.pn67
+  %93 = add i64 %.3.us, %84
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
   br i1 %exitcond106.not, label %.split.us, label %.lr.ph64.split.us, !llvm.loop !94
@@ -5427,7 +5426,7 @@ H5VM_limit_enc_size.exit:                         ; preds = %27, %33, %39, %45, 
   %100 = load ptr, ptr %99, align 8, !tbaa !78
   %101 = tail call fastcc i64 @H5O__dtype_size(ptr noundef %100)
   %.3 = add i64 %.2, %101
-  %102 = add i64 %.3, %.pn67
+  %102 = add i64 %.3, %.
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count105
   br i1 %exitcond101.not, label %.split.us, label %.lr.ph64.split, !llvm.loop !94

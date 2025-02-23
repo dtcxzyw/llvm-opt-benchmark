@@ -124,8 +124,8 @@ define dso_local void @find_bisection(ptr noundef captures(none) %0, ptr noundef
   store i32 0, ptr @commit_weight.2, align 8, !tbaa !4
   store ptr null, ptr @commit_weight.3, align 8, !tbaa !11
   %6 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not70 = icmp eq ptr %6, null
-  br i1 %.not70, label %.preheader261.i.thread, label %.lr.ph
+  %.not73 = icmp eq ptr %6, null
+  br i1 %.not73, label %.preheader261.i.thread, label %.lr.ph
 
 .preheader261.i.thread:                           ; preds = %4
   store i32 0, ptr %2, align 4, !tbaa !14
@@ -133,35 +133,35 @@ define dso_local void @find_bisection(ptr noundef captures(none) %0, ptr noundef
   br label %.preheader261.._crit_edge_crit_edge.i
 
 .lr.ph:                                           ; preds = %4, %19
-  %.074 = phi i32 [ %.1, %19 ], [ 0, %4 ]
-  %.03573 = phi i32 [ %.136, %19 ], [ 0, %4 ]
-  %.03772 = phi ptr [ %.138, %19 ], [ null, %4 ]
-  %.03971 = phi ptr [ %11, %19 ], [ %6, %4 ]
-  %8 = load ptr, ptr %.03971, align 8, !tbaa !15
+  %.077 = phi i32 [ %.1, %19 ], [ 0, %4 ]
+  %.03576 = phi i32 [ %.136, %19 ], [ 0, %4 ]
+  %.03775 = phi ptr [ %.138, %19 ], [ null, %4 ]
+  %.03974 = phi ptr [ %11, %19 ], [ %6, %4 ]
+  %8 = load ptr, ptr %.03974, align 8, !tbaa !15
   %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %.03971, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.03974, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !18
   %12 = and i32 %9, 32
   %.not46 = icmp eq i32 %12, 0
   br i1 %.not46, label %14, label %13
 
 13:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %.03971) #22
+  tail call void @free(ptr noundef nonnull %.03974) #22
   br label %19
 
 14:                                               ; preds = %.lr.ph
-  store ptr %.03772, ptr %10, align 8, !tbaa !18
+  store ptr %.03775, ptr %10, align 8, !tbaa !18
   %15 = lshr i32 %9, 6
   %16 = and i32 %15, 1
   %17 = xor i32 %16, 1
-  %spec.select = add nsw i32 %17, %.074
-  %18 = add nsw i32 %.03573, 1
+  %spec.select = add nsw i32 %17, %.077
+  %18 = add nsw i32 %.03576, 1
   br label %19
 
 19:                                               ; preds = %14, %13
-  %.138 = phi ptr [ %.03772, %13 ], [ %.03971, %14 ]
-  %.136 = phi i32 [ %.03573, %13 ], [ %18, %14 ]
-  %.1 = phi i32 [ %.074, %13 ], [ %spec.select, %14 ]
+  %.138 = phi ptr [ %.03775, %13 ], [ %.03974, %14 ]
+  %.136 = phi i32 [ %.03576, %13 ], [ %18, %14 ]
+  %.1 = phi i32 [ %.077, %13 ], [ %spec.select, %14 ]
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
@@ -486,16 +486,16 @@ weight_set.exit127.i:                             ; preds = %137, %133
   br i1 %.not.i, label %.preheader262.i, label %25, !llvm.loop !33
 
 .preheader261.i:                                  ; preds = %255, %._crit_edge
-  %.037.lcssa88 = phi ptr [ null, %._crit_edge ], [ %.138, %255 ]
+  %.037.lcssa91 = phi ptr [ null, %._crit_edge ], [ %.138, %255 ]
   %.279.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %.380.i, %255 ]
   %148 = icmp slt i32 %.279.lcssa.i, %.1
   br i1 %148, label %.preheader.lr.ph.i, label %.preheader261.._crit_edge_crit_edge.i
 
 .preheader261.._crit_edge_crit_edge.i:            ; preds = %.preheader261.i.thread, %.preheader261.i
-  %.037.lcssa88101 = phi ptr [ null, %.preheader261.i.thread ], [ %.037.lcssa88, %.preheader261.i ]
-  %.0.lcssa9099 = phi i32 [ 0, %.preheader261.i.thread ], [ %.1, %.preheader261.i ]
+  %.037.lcssa91104 = phi ptr [ null, %.preheader261.i.thread ], [ %.037.lcssa91, %.preheader261.i ]
+  %.0.lcssa93102 = phi i32 [ 0, %.preheader261.i.thread ], [ %.1, %.preheader261.i ]
   %149 = phi ptr [ %7, %.preheader261.i.thread ], [ %21, %.preheader261.i ]
-  %.not271.i9197 = phi i1 [ true, %.preheader261.i.thread ], [ %.not271.i, %.preheader261.i ]
+  %.not271.i94100 = phi i1 [ true, %.preheader261.i.thread ], [ %.not271.i, %.preheader261.i ]
   %.pre457.i = and i32 %3, 1
   br label %._crit_edge.i
 
@@ -723,15 +723,15 @@ weight.exit.i.i:                                  ; preds = %242, %237
   %251 = shl nsw i32 %250, 1
   %252 = sub nsw i32 %251, %.1
   switch i32 %252, label %approx_halfway.exit.i [
-    i32 -1, label %do_find_bisection.exit
-    i32 0, label %do_find_bisection.exit
-    i32 1, label %do_find_bisection.exit
+    i32 -1, label %do_find_bisection.exit.thread.thread
+    i32 0, label %do_find_bisection.exit.thread.thread
+    i32 1, label %do_find_bisection.exit.thread.thread
   ]
 
 approx_halfway.exit.i:                            ; preds = %weight.exit.i.i
   %253 = tail call i32 @llvm.abs.i32(i32 %252, i1 true)
   %.not258.i = icmp slt i32 %253, %24
-  br i1 %.not258.i, label %do_find_bisection.exit, label %approx_halfway.exit.thread.i
+  br i1 %.not258.i, label %do_find_bisection.exit.thread.thread, label %approx_halfway.exit.thread.i
 
 approx_halfway.exit.thread.i:                     ; preds = %approx_halfway.exit.i, %220, %clear_distance.exit.i
   %254 = add nsw i32 %.279278.i, 1
@@ -756,7 +756,7 @@ approx_halfway.exit.thread.i:                     ; preds = %approx_halfway.exit
   %.pre.i.i.i157356.i = phi ptr [ %.pre.i.i.i148.pre.pre.i, %.preheader.preheader.i ], [ %.pre.i.i.i157356.i.be, %.preheader.i.backedge ]
   %.pre.i.i.i148.i = phi ptr [ %.pre.i.i.i148.pre.pre.i, %.preheader.preheader.i ], [ %.pre.i.i.i148.i.be, %.preheader.i.backedge ]
   %.5287.i = phi i32 [ %.279.lcssa.i, %.preheader.preheader.i ], [ %.6.ph.i, %.preheader.i.backedge ]
-  %.283285.i = phi ptr [ %.037.lcssa88, %.preheader.preheader.i ], [ %.283285.i.be, %.preheader.i.backedge ]
+  %.283285.i = phi ptr [ %.037.lcssa91, %.preheader.preheader.i ], [ %.283285.i.be, %.preheader.i.backedge ]
   %259 = load ptr, ptr %.283285.i, align 8, !tbaa !15
   %260 = load i32, ptr %259, align 8
   %261 = getelementptr i8, ptr %259, i64 64
@@ -1249,15 +1249,15 @@ weight.exit.i212.i:                               ; preds = %458, %454
   %467 = shl nsw i32 %466, 1
   %468 = sub nsw i32 %467, %.1
   switch i32 %468, label %approx_halfway.exit214.i [
-    i32 -1, label %do_find_bisection.exit
-    i32 0, label %do_find_bisection.exit
-    i32 1, label %do_find_bisection.exit
+    i32 -1, label %do_find_bisection.exit.thread.thread
+    i32 0, label %do_find_bisection.exit.thread.thread
+    i32 1, label %do_find_bisection.exit.thread.thread
   ]
 
 approx_halfway.exit214.i:                         ; preds = %weight.exit.i212.i
   %469 = tail call i32 @llvm.abs.i32(i32 %468, i1 true)
   %.not259.i = icmp slt i32 %469, %152
-  br i1 %.not259.i, label %do_find_bisection.exit, label %approx_halfway.exit214.thread.i
+  br i1 %.not259.i, label %do_find_bisection.exit.thread.thread, label %approx_halfway.exit214.thread.i
 
 approx_halfway.exit214.thread.i:                  ; preds = %324, %323, %approx_halfway.exit214.i, %437, %436, %288, %weight.exit155.i
   %.pre.i.i.i148.pre442.i = phi ptr [ %.pre.i.i.i148.pre443.i, %weight.exit155.i ], [ %.pre.i.i.i148.pre430.i, %437 ], [ %.pre.i.i.i148.pre428.i, %approx_halfway.exit214.i ], [ %.pre.i.i.i148.pre430.i, %436 ], [ %.pre.i.i.i148.pre443.i, %288 ], [ %.pre.i.i.i148.pre427.i, %323 ], [ %.pre.i.i.i148.pre427.i, %324 ]
@@ -1278,25 +1278,25 @@ approx_halfway.exit214.thread.i:                  ; preds = %324, %323, %approx_
   %.pre.i.i.i193373.i.be = phi ptr [ %.pre.i.i.i193374.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
   %.pre.i.i.i157356.i.be = phi ptr [ %.pre.i.i.i157357.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
   %.pre.i.i.i148.i.be = phi ptr [ %.pre.i.i.i148340.i, %approx_halfway.exit214.thread.i ], [ %.pre.i.i.i148.pre442.i, %..loopexit_crit_edge.i ]
-  %.283285.i.be = phi ptr [ %471, %approx_halfway.exit214.thread.i ], [ %.037.lcssa88, %..loopexit_crit_edge.i ]
+  %.283285.i.be = phi ptr [ %471, %approx_halfway.exit214.thread.i ], [ %.037.lcssa91, %..loopexit_crit_edge.i ]
   br label %.preheader.i, !llvm.loop !38
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.i, %.preheader261.._crit_edge_crit_edge.i
-  %.037.lcssa88100 = phi ptr [ %.037.lcssa88101, %.preheader261.._crit_edge_crit_edge.i ], [ %.037.lcssa88, %..loopexit_crit_edge.i ]
-  %.0.lcssa9098 = phi i32 [ %.0.lcssa9099, %.preheader261.._crit_edge_crit_edge.i ], [ %.1, %..loopexit_crit_edge.i ]
+  %.037.lcssa91103 = phi ptr [ %.037.lcssa91104, %.preheader261.._crit_edge_crit_edge.i ], [ %.037.lcssa91, %..loopexit_crit_edge.i ]
+  %.0.lcssa93101 = phi i32 [ %.0.lcssa93102, %.preheader261.._crit_edge_crit_edge.i ], [ %.1, %..loopexit_crit_edge.i ]
   %472 = phi ptr [ %149, %.preheader261.._crit_edge_crit_edge.i ], [ %21, %..loopexit_crit_edge.i ]
-  %.not271.i9196 = phi i1 [ %.not271.i9197, %.preheader261.._crit_edge_crit_edge.i ], [ false, %..loopexit_crit_edge.i ]
+  %.not271.i9499 = phi i1 [ %.not271.i94100, %.preheader261.._crit_edge_crit_edge.i ], [ false, %..loopexit_crit_edge.i ]
   %.pre-phi.i = phi i32 [ %.pre457.i, %.preheader261.._crit_edge_crit_edge.i ], [ %151, %..loopexit_crit_edge.i ]
   %.not87.i = icmp eq i32 %.pre-phi.i, 0
   br i1 %.not87.i, label %473, label %510
 
 473:                                              ; preds = %._crit_edge.i
-  br i1 %.not271.i9196, label %do_find_bisection.exit.thread, label %.lr.ph.i215.i
+  br i1 %.not271.i9499, label %do_find_bisection.exit.thread65, label %.lr.ph.i215.i
 
 .lr.ph.i215.i:                                    ; preds = %473, %507
-  %.027.i.i = phi ptr [ %509, %507 ], [ %.037.lcssa88100, %473 ]
+  %.027.i.i = phi ptr [ %509, %507 ], [ %.037.lcssa91103, %473 ]
   %.01726.i.i = phi i32 [ %.1.i216.i, %507 ], [ -1, %473 ]
-  %.01825.i.i = phi ptr [ %.119.i.i, %507 ], [ %.037.lcssa88100, %473 ]
+  %.01825.i.i = phi ptr [ %.119.i.i, %507 ], [ %.037.lcssa91103, %473 ]
   %474 = load ptr, ptr %.027.i.i, align 8, !tbaa !15
   %475 = load i32, ptr %474, align 8
   %476 = and i32 %475, 64
@@ -1357,7 +1357,7 @@ weight.exit.i226.i:                               ; preds = %496, %491
   %502 = getelementptr inbounds nuw ptr, ptr %500, i64 %501
   %503 = load ptr, ptr %502, align 8, !tbaa !30
   %504 = load i32, ptr %503, align 4, !tbaa !14
-  %505 = sub nsw i32 %.0.lcssa9098, %504
+  %505 = sub nsw i32 %.0.lcssa93101, %504
   %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %505, i32 %504)
   %506 = icmp sgt i32 %spec.select.i.i, %.01726.i.i
   %.220.i.i = select i1 %506, ptr %.027.i.i, ptr %.01825.i.i
@@ -1373,14 +1373,14 @@ weight.exit.i226.i:                               ; preds = %496, %491
   br i1 %.not.i217.i, label %do_find_bisection.exit, label %.lr.ph.i215.i, !llvm.loop !39
 
 510:                                              ; preds = %._crit_edge.i
-  %511 = sext i32 %.0.lcssa9098 to i64
+  %511 = sext i32 %.0.lcssa93101 to i64
   %512 = tail call ptr @xcalloc(i64 noundef %511, i64 noundef 16) #22
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.read_bisect_paths.str, i64 24, i1 false)
-  br i1 %.not271.i9196, label %best_bisection_sorted.exit.i, label %.lr.ph.i227.i
+  br i1 %.not271.i9499, label %best_bisection_sorted.exit.i, label %.lr.ph.i227.i
 
 .lr.ph.i227.i:                                    ; preds = %510, %550
-  %.050.i.i = phi ptr [ %552, %550 ], [ %.037.lcssa88100, %510 ]
+  %.050.i.i = phi ptr [ %552, %550 ], [ %.037.lcssa91103, %510 ]
   %.04049.i.i = phi i32 [ %.141.i.i, %550 ], [ 0, %510 ]
   %513 = load ptr, ptr %.050.i.i, align 8, !tbaa !15
   %514 = load i32, ptr %513, align 8
@@ -1442,7 +1442,7 @@ weight.exit.i239.i:                               ; preds = %535, %530
   %541 = getelementptr inbounds nuw ptr, ptr %539, i64 %540
   %542 = load ptr, ptr %541, align 8, !tbaa !30
   %543 = load i32, ptr %542, align 4, !tbaa !14
-  %544 = sub nsw i32 %.0.lcssa9098, %543
+  %544 = sub nsw i32 %.0.lcssa93101, %543
   %spec.select.i240.i = tail call i32 @llvm.smin.i32(i32 %544, i32 %543)
   %545 = load ptr, ptr %.050.i.i, align 8, !tbaa !15
   %546 = sext i32 %.04049.i.i to i64
@@ -1483,7 +1483,7 @@ sane_qsort.exit.i.i:                              ; preds = %554, %._crit_edge.i
 
 561:                                              ; preds = %574, %.lr.ph53.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph53.i.i ], [ %indvars.iv.next.i.i, %574 ]
-  %.152.i.i = phi ptr [ %.037.lcssa88100, %.lr.ph53.i.i ], [ %.2.i229.i, %574 ]
+  %.152.i.i = phi ptr [ %.037.lcssa91103, %.lr.ph53.i.i ], [ %.2.i229.i, %574 ]
   %562 = getelementptr inbounds nuw %struct.commit_dist, ptr %512, i64 %indvars.iv.i.i
   %563 = load ptr, ptr %562, align 8, !tbaa !40
   store i64 0, ptr %557, align 8, !tbaa !44
@@ -1518,7 +1518,7 @@ strbuf_setlen.exit.i.i:                           ; preds = %565, %561
   br i1 %exitcond.not.i.i, label %._crit_edge54.i.i, label %561, !llvm.loop !49
 
 ._crit_edge54.i.i:                                ; preds = %574, %sane_qsort.exit.i.i
-  %.1.lcssa.i.i = phi ptr [ %.037.lcssa88100, %sane_qsort.exit.i.i ], [ %.2.i229.i, %574 ]
+  %.1.lcssa.i.i = phi ptr [ %.037.lcssa91103, %sane_qsort.exit.i.i ], [ %.2.i229.i, %574 ]
   %.not46.i.i = icmp eq ptr %.1.lcssa.i.i, null
   br i1 %.not46.i.i, label %best_bisection_sorted.exit.i, label %575
 
@@ -1535,114 +1535,116 @@ best_bisection_sorted.exit.i:                     ; preds = %575, %._crit_edge54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
   br label %do_find_bisection.exit
 
-do_find_bisection.exit:                           ; preds = %weight.exit.i.i, %weight.exit.i.i, %weight.exit.i.i, %approx_halfway.exit.i, %weight.exit.i212.i, %weight.exit.i212.i, %weight.exit.i212.i, %approx_halfway.exit214.i, %507, %best_bisection_sorted.exit.i
-  %578 = phi ptr [ %472, %best_bisection_sorted.exit.i ], [ %472, %507 ], [ %21, %approx_halfway.exit214.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %approx_halfway.exit.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ]
-  %.037.lcssa89 = phi ptr [ %.037.lcssa88100, %best_bisection_sorted.exit.i ], [ %.037.lcssa88100, %507 ], [ %.037.lcssa88, %approx_halfway.exit214.i ], [ %.037.lcssa88, %weight.exit.i212.i ], [ %.037.lcssa88, %weight.exit.i212.i ], [ %.037.lcssa88, %weight.exit.i212.i ], [ %.138, %approx_halfway.exit.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ]
-  %.0.i = phi ptr [ %.037.lcssa88100, %best_bisection_sorted.exit.i ], [ %.119.i.i, %507 ], [ %.283285.i, %approx_halfway.exit214.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.182276.i, %approx_halfway.exit.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ]
+do_find_bisection.exit:                           ; preds = %507, %best_bisection_sorted.exit.i
+  %.0.i = phi ptr [ %.037.lcssa91103, %best_bisection_sorted.exit.i ], [ %.119.i.i, %507 ]
   %.not44 = icmp eq ptr %.0.i, null
-  br i1 %.not44, label %do_find_bisection.exit.thread, label %579
+  br i1 %.not44, label %do_find_bisection.exit.thread65, label %do_find_bisection.exit.thread
 
-579:                                              ; preds = %do_find_bisection.exit
-  %580 = and i32 %3, 1
-  %.not45 = icmp eq i32 %580, 0
-  br i1 %.not45, label %581, label %585
+do_find_bisection.exit.thread:                    ; preds = %do_find_bisection.exit
+  %.pre86 = and i32 %3, 1
+  %578 = icmp eq i32 %.pre86, 0
+  br i1 %578, label %do_find_bisection.exit.thread.thread, label %583
 
-581:                                              ; preds = %579
-  %582 = load ptr, ptr %.0.i, align 8, !tbaa !15
-  store ptr %582, ptr %.037.lcssa89, align 8, !tbaa !15
-  %583 = getelementptr inbounds nuw i8, ptr %.037.lcssa89, i64 8
-  %584 = load ptr, ptr %583, align 8, !tbaa !18
-  call void @free_commit_list(ptr noundef %584) #22
-  store ptr null, ptr %583, align 8, !tbaa !18
-  br label %585
+do_find_bisection.exit.thread.thread:             ; preds = %weight.exit.i.i, %weight.exit.i.i, %weight.exit.i.i, %approx_halfway.exit.i, %weight.exit.i212.i, %weight.exit.i212.i, %weight.exit.i212.i, %approx_halfway.exit214.i, %do_find_bisection.exit.thread
+  %.0.i64109 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.283285.i, %approx_halfway.exit214.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.283285.i, %weight.exit.i212.i ], [ %.182276.i, %approx_halfway.exit.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ], [ %.182276.i, %weight.exit.i.i ]
+  %.037.lcssa92108 = phi ptr [ %.037.lcssa91103, %do_find_bisection.exit.thread ], [ %.037.lcssa91, %approx_halfway.exit214.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.037.lcssa91, %weight.exit.i212.i ], [ %.138, %approx_halfway.exit.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ], [ %.138, %weight.exit.i.i ]
+  %579 = phi ptr [ %472, %do_find_bisection.exit.thread ], [ %21, %approx_halfway.exit214.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %weight.exit.i212.i ], [ %21, %approx_halfway.exit.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ], [ %21, %weight.exit.i.i ]
+  %580 = load ptr, ptr %.0.i64109, align 8, !tbaa !15
+  store ptr %580, ptr %.037.lcssa92108, align 8, !tbaa !15
+  %581 = getelementptr inbounds nuw i8, ptr %.037.lcssa92108, i64 8
+  %582 = load ptr, ptr %581, align 8, !tbaa !18
+  call void @free_commit_list(ptr noundef %582) #22
+  store ptr null, ptr %581, align 8, !tbaa !18
+  br label %583
 
-585:                                              ; preds = %581, %579
-  %.141 = phi ptr [ %.0.i, %579 ], [ %.037.lcssa89, %581 ]
+583:                                              ; preds = %do_find_bisection.exit.thread.thread, %do_find_bisection.exit.thread
+  %584 = phi ptr [ %472, %do_find_bisection.exit.thread ], [ %579, %do_find_bisection.exit.thread.thread ]
+  %.141 = phi ptr [ %.0.i, %do_find_bisection.exit.thread ], [ %.037.lcssa92108, %do_find_bisection.exit.thread.thread ]
   %.141.val = load ptr, ptr %.141, align 8, !tbaa !15
-  %586 = getelementptr i8, ptr %.141.val, i64 64
-  %.141.val.val = load i32, ptr %586, align 8, !tbaa !21
-  %587 = udiv i32 %.141.val.val, 65532
-  %588 = urem i32 %.141.val.val, 65532
-  %589 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
-  %.not.i.i.i48 = icmp ugt i32 %589, %587
+  %585 = getelementptr i8, ptr %.141.val, i64 64
+  %.141.val.val = load i32, ptr %585, align 8, !tbaa !21
+  %586 = udiv i32 %.141.val.val, 65532
+  %587 = urem i32 %.141.val.val, 65532
+  %588 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
+  %.not.i.i.i48 = icmp ugt i32 %588, %586
   %.pre.i.i.i49 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
-  br i1 %.not.i.i.i48, label %599, label %590
+  br i1 %.not.i.i.i48, label %598, label %589
 
-590:                                              ; preds = %585
-  %591 = add nuw nsw i32 %587, 1
-  %592 = shl nuw nsw i32 %591, 3
-  %593 = zext nneg i32 %592 to i64
-  %594 = call ptr @xrealloc(ptr noundef %.pre.i.i.i49, i64 noundef %593) #22
-  store ptr %594, ptr @commit_weight.3, align 8, !tbaa !11
-  %595 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
-  %.not331.i.i.i50 = icmp ugt i32 %595, %587
+589:                                              ; preds = %583
+  %590 = add nuw nsw i32 %586, 1
+  %591 = shl nuw nsw i32 %590, 3
+  %592 = zext nneg i32 %591 to i64
+  %593 = call ptr @xrealloc(ptr noundef %.pre.i.i.i49, i64 noundef %592) #22
+  store ptr %593, ptr @commit_weight.3, align 8, !tbaa !11
+  %594 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
+  %.not331.i.i.i50 = icmp ugt i32 %594, %586
   br i1 %.not331.i.i.i50, label %._crit_edge.i.i.i54, label %.lr.ph.i.i.i51
 
-.lr.ph.i.i.i51:                                   ; preds = %590, %.lr.ph.i.i.i51
-  %.0302.i.i.i52 = phi i32 [ %598, %.lr.ph.i.i.i51 ], [ %595, %590 ]
-  %596 = zext i32 %.0302.i.i.i52 to i64
-  %597 = getelementptr inbounds nuw ptr, ptr %594, i64 %596
-  store ptr null, ptr %597, align 8, !tbaa !27
-  %598 = add i32 %.0302.i.i.i52, 1
-  %.not33.i.i.i53 = icmp ugt i32 %598, %587
+.lr.ph.i.i.i51:                                   ; preds = %589, %.lr.ph.i.i.i51
+  %.0302.i.i.i52 = phi i32 [ %597, %.lr.ph.i.i.i51 ], [ %594, %589 ]
+  %595 = zext i32 %.0302.i.i.i52 to i64
+  %596 = getelementptr inbounds nuw ptr, ptr %593, i64 %595
+  store ptr null, ptr %596, align 8, !tbaa !27
+  %597 = add i32 %.0302.i.i.i52, 1
+  %.not33.i.i.i53 = icmp ugt i32 %597, %586
   br i1 %.not33.i.i.i53, label %._crit_edge.i.i.i54, label %.lr.ph.i.i.i51, !llvm.loop !29
 
-._crit_edge.i.i.i54:                              ; preds = %.lr.ph.i.i.i51, %590
-  store i32 %591, ptr @commit_weight.2, align 8, !tbaa !4
-  br label %599
+._crit_edge.i.i.i54:                              ; preds = %.lr.ph.i.i.i51, %589
+  store i32 %590, ptr @commit_weight.2, align 8, !tbaa !4
+  br label %598
 
-599:                                              ; preds = %._crit_edge.i.i.i54, %585
-  %600 = phi ptr [ %594, %._crit_edge.i.i.i54 ], [ %.pre.i.i.i49, %585 ]
-  %601 = zext nneg i32 %587 to i64
-  %602 = getelementptr inbounds nuw ptr, ptr %600, i64 %601
-  %603 = load ptr, ptr %602, align 8, !tbaa !27
-  %.not34.i.i.i55 = icmp eq ptr %603, null
-  br i1 %.not34.i.i.i55, label %604, label %weight.exit
+598:                                              ; preds = %._crit_edge.i.i.i54, %583
+  %599 = phi ptr [ %593, %._crit_edge.i.i.i54 ], [ %.pre.i.i.i49, %583 ]
+  %600 = zext nneg i32 %586 to i64
+  %601 = getelementptr inbounds nuw ptr, ptr %599, i64 %600
+  %602 = load ptr, ptr %601, align 8, !tbaa !27
+  %.not34.i.i.i55 = icmp eq ptr %602, null
+  br i1 %.not34.i.i.i55, label %603, label %weight.exit
 
-604:                                              ; preds = %599
-  %605 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #22
-  %606 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
-  %607 = getelementptr inbounds nuw ptr, ptr %606, i64 %601
-  store ptr %605, ptr %607, align 8, !tbaa !27
+603:                                              ; preds = %598
+  %604 = call ptr @xcalloc(i64 noundef 65532, i64 noundef 8) #22
+  %605 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
+  %606 = getelementptr inbounds nuw ptr, ptr %605, i64 %600
+  store ptr %604, ptr %606, align 8, !tbaa !27
   br label %weight.exit
 
-weight.exit:                                      ; preds = %599, %604
-  %608 = phi ptr [ %603, %599 ], [ %605, %604 ]
-  %609 = zext nneg i32 %588 to i64
-  %610 = getelementptr inbounds nuw ptr, ptr %608, i64 %609
-  %611 = load ptr, ptr %610, align 8, !tbaa !30
-  %612 = load i32, ptr %611, align 4, !tbaa !14
-  store i32 %612, ptr %1, align 4, !tbaa !14
-  br label %do_find_bisection.exit.thread
+weight.exit:                                      ; preds = %598, %603
+  %607 = phi ptr [ %602, %598 ], [ %604, %603 ]
+  %608 = zext nneg i32 %587 to i64
+  %609 = getelementptr inbounds nuw ptr, ptr %607, i64 %608
+  %610 = load ptr, ptr %609, align 8, !tbaa !30
+  %611 = load i32, ptr %610, align 4, !tbaa !14
+  store i32 %611, ptr %1, align 4, !tbaa !14
+  br label %do_find_bisection.exit.thread65
 
-do_find_bisection.exit.thread:                    ; preds = %473, %weight.exit, %do_find_bisection.exit
-  %613 = phi ptr [ %578, %weight.exit ], [ %578, %do_find_bisection.exit ], [ %472, %473 ]
+do_find_bisection.exit.thread65:                  ; preds = %473, %weight.exit, %do_find_bisection.exit
+  %612 = phi ptr [ %584, %weight.exit ], [ %472, %do_find_bisection.exit ], [ %472, %473 ]
   %.040 = phi ptr [ %.141, %weight.exit ], [ null, %do_find_bisection.exit ], [ null, %473 ]
   store ptr %.040, ptr %0, align 8, !tbaa !12
-  call void @free(ptr noundef %613) #22
-  %614 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
-  %.not.i57 = icmp eq i32 %614, 0
+  call void @free(ptr noundef %612) #22
+  %613 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
+  %.not.i57 = icmp eq i32 %613, 0
   br i1 %.not.i57, label %clear_commit_weight.exit, label %.lr.ph.i58.preheader
 
-.lr.ph.i58.preheader:                             ; preds = %do_find_bisection.exit.thread
-  %615 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
-  %616 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
-  %617 = zext i32 %616 to i64
+.lr.ph.i58.preheader:                             ; preds = %do_find_bisection.exit.thread65
+  %614 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
+  %615 = load i32, ptr @commit_weight.2, align 8, !tbaa !4
+  %616 = zext i32 %615 to i64
   br label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %.lr.ph.i58
   %indvars.iv.i59 = phi i64 [ %indvars.iv.next.i60, %.lr.ph.i58 ], [ 0, %.lr.ph.i58.preheader ]
-  %618 = getelementptr inbounds nuw ptr, ptr %615, i64 %indvars.iv.i59
-  %619 = load ptr, ptr %618, align 8, !tbaa !27
-  call void @free(ptr noundef %619) #22
+  %617 = getelementptr inbounds nuw ptr, ptr %614, i64 %indvars.iv.i59
+  %618 = load ptr, ptr %617, align 8, !tbaa !27
+  call void @free(ptr noundef %618) #22
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
-  %620 = icmp samesign ult i64 %indvars.iv.next.i60, %617
-  br i1 %620, label %.lr.ph.i58, label %clear_commit_weight.exit, !llvm.loop !50
+  %619 = icmp samesign ult i64 %indvars.iv.next.i60, %616
+  br i1 %619, label %.lr.ph.i58, label %clear_commit_weight.exit, !llvm.loop !50
 
-clear_commit_weight.exit:                         ; preds = %.lr.ph.i58, %do_find_bisection.exit.thread
+clear_commit_weight.exit:                         ; preds = %.lr.ph.i58, %do_find_bisection.exit.thread65
   store i32 0, ptr @commit_weight.2, align 8, !tbaa !4
-  %621 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
-  call void @free(ptr noundef %621) #22
+  %620 = load ptr, ptr @commit_weight.3, align 8, !tbaa !11
+  call void @free(ptr noundef %620) #22
   store ptr null, ptr @commit_weight.3, align 8, !tbaa !11
   ret void
 }

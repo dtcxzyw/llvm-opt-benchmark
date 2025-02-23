@@ -999,7 +999,7 @@ define dso_local range(i32 0, 2) i32 @try_read_command_ascii(ptr noundef %0) #0 
   br i1 %.not37, label %25, label %24
 
 24:                                               ; preds = %22, %15
-  tail call void @conn_set_state(ptr noundef %0, i32 noundef 8) #13
+  tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 8) #13
   br label %.critedge
 
 25:                                               ; preds = %22, %20

@@ -6592,7 +6592,7 @@ _ZNSt16allocator_traitsISaISt5tupleIJiiEEEE8allocateERS2_m.exit.i.i.i.i: ; preds
   %106 = phi ptr [ null, %.noexc86.thread ], [ %96, %.lr.ph.i.i.i.i.i ]
   %.0.lcssa.i.i.i.i.i = phi ptr [ null, %.noexc86.thread ], [ %102, %.lr.ph.i.i.i.i.i ]
   store ptr %.0.lcssa.i.i.i.i.i, ptr %105, align 8
-  %107 = ashr exact i64 %90, 3
+  %107 = lshr exact i64 %90, 3
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %110 = load ptr, ptr %109, align 8

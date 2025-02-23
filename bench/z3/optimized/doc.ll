@@ -1081,7 +1081,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   %15 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i = add i32 %15, 1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %j.0.lcssa
   br i1 %exitcond.not.i, label %if.end17, label %for.body.i, !llvm.loop !12
 
@@ -1233,7 +1233,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   %17 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i = add i32 %17, 1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %j.0.lcssa
   br i1 %exitcond.not.i, label %if.end22, label %for.body.i, !llvm.loop !12
 
@@ -1730,7 +1730,7 @@ _ZN6bufferIP3tbvLb0ELj8EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3tbvLb0
   %14 = load i32, ptr %m_pos.i, align 8
   %inc.i.i = add i32 %14, 1
   store i32 %inc.i.i, ptr %m_pos.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sub9
   br i1 %exitcond.not.i, label %_ZN6bufferIP3tbvLb0ELj8EE6resizeEjRKS1_.exit, label %for.body.i, !llvm.loop !12
 

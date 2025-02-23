@@ -353,7 +353,7 @@ define hidden noundef i32 @_ZNK4ncnn15RMSNorm_x86_fma15forward_inplaceERNS_3MatE
   br i1 %131, label %.preheader433.i.us, label %.loopexit432.i.us
 
 .preheader433.i.us:                               ; preds = %.loopexit435.i.us
-  %174 = add nsw i32 %.2380.i.us, 7
+  %174 = add nuw nsw i32 %.2380.i.us, 7
   %175 = icmp slt i32 %174, %50
   br i1 %175, label %.lr.ph482.i.us, label %.preheader431.i.us
 
@@ -726,7 +726,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   br i1 %74, label %.preheader433, label %.loopexit432
 
 .preheader433:                                    ; preds = %.loopexit435
-  %118 = add nsw i32 %.2380, 7
+  %118 = add nuw nsw i32 %.2380, 7
   %119 = icmp slt i32 %118, %6
   br i1 %119, label %.lr.ph482, label %.preheader431
 

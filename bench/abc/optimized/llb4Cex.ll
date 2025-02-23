@@ -861,7 +861,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %2
   br i1 %exitcond.not, label %Vec_PtrCleanSimInfo.exit, label %28, !llvm.loop !63
 
 Vec_PtrCleanSimInfo.exit:                         ; preds = %28, %Vec_PtrAllocSimInfo.exit
-  tail call void @Aig_ManCleanMarkB(ptr noundef %0) #12
+  tail call void @Aig_ManCleanMarkB(ptr noundef nonnull %0) #12
   %31 = getelementptr i8, ptr %0, i64 48
   %.val107 = load ptr, ptr %31, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %.val107, i64 24
@@ -1204,7 +1204,7 @@ Vec_PtrFreeP.exit:                                ; preds = %214, %.thread.i
 
 215:                                              ; preds = %.thread, %Vec_PtrFreeP.exit, %212
   %.0126 = phi ptr [ null, %Vec_PtrFreeP.exit ], [ %23, %212 ], [ %23, %.thread ]
-  tail call void @Aig_ManCleanMarkB(ptr noundef %0) #12
+  tail call void @Aig_ManCleanMarkB(ptr noundef nonnull %0) #12
   ret ptr %.0126
 }
 

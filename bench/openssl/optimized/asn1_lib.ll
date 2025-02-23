@@ -399,37 +399,37 @@ define i32 @ASN1_object_size(i32 noundef %0, i32 noundef %1, i32 noundef %2) loc
 
 5:                                                ; preds = %3
   %6 = icmp sgt i32 %2, 30
-  br i1 %6, label %.preheader26, label %.loopexit27
+  br i1 %6, label %.preheader25, label %.loopexit26
 
-.preheader26:                                     ; preds = %5, %.preheader26
-  %.021 = phi i32 [ %7, %.preheader26 ], [ %2, %5 ]
-  %.1 = phi i32 [ %8, %.preheader26 ], [ 1, %5 ]
+.preheader25:                                     ; preds = %5, %.preheader25
+  %.021 = phi i32 [ %7, %.preheader25 ], [ %2, %5 ]
+  %.1 = phi i32 [ %8, %.preheader25 ], [ 1, %5 ]
   %7 = lshr i32 %.021, 7
   %8 = add nuw nsw i32 %.1, 1
   %.old1.not = icmp samesign ult i32 %.021, 128
-  br i1 %.old1.not, label %.loopexit27, label %.preheader26
+  br i1 %.old1.not, label %.loopexit26, label %.preheader25
 
-.loopexit27:                                      ; preds = %.preheader26, %5
-  %.020 = phi i32 [ 1, %5 ], [ %8, %.preheader26 ]
+.loopexit26:                                      ; preds = %.preheader25, %5
+  %.020 = phi i32 [ 1, %5 ], [ %8, %.preheader25 ]
   %9 = icmp eq i32 %0, 2
   br i1 %9, label %10, label %12
 
-10:                                               ; preds = %.loopexit27
+10:                                               ; preds = %.loopexit26
   %11 = add nsw i32 %.020, 3
   br label %.loopexit
 
-12:                                               ; preds = %.loopexit27
+12:                                               ; preds = %.loopexit26
   %13 = add nsw i32 %.020, 1
-  %14 = icmp sgt i32 %1, 127
+  %14 = icmp samesign ugt i32 %1, 127
   br i1 %14, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
-  %.029 = phi i32 [ %15, %.preheader ], [ %1, %12 ]
-  %.328 = phi i32 [ %16, %.preheader ], [ %13, %12 ]
-  %15 = lshr i32 %.029, 8
-  %16 = add nuw nsw i32 %.328, 1
-  %.not25 = icmp samesign ult i32 %.029, 256
-  br i1 %.not25, label %.loopexit, label %.preheader, !llvm.loop !21
+  %.028 = phi i32 [ %15, %.preheader ], [ %1, %12 ]
+  %.327 = phi i32 [ %16, %.preheader ], [ %13, %12 ]
+  %15 = lshr i32 %.028, 8
+  %16 = add nuw nsw i32 %.327, 1
+  %.not29 = icmp ult i32 %.028, 256
+  br i1 %.not29, label %.loopexit, label %.preheader, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.preheader, %12, %10
   %.2 = phi i32 [ %11, %10 ], [ %13, %12 ], [ %16, %.preheader ]

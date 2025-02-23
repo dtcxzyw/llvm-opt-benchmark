@@ -98,7 +98,7 @@ for.end:                                          ; preds = %for.body, %if.then1
   %j.0.lcssa = phi i32 [ 0, %if.then13 ], [ %firstLength, %for.body ]
   %7 = load ptr, ptr %src, align 8
   %sub18 = sub nsw i32 0, %call
-  %cmp2034 = icmp slt i32 %j.0.lcssa, %sub18
+  %cmp2034 = icmp samesign ult i32 %j.0.lcssa, %sub18
   br i1 %cmp2034, label %for.body21.lr.ph, label %for.end28
 
 for.body21.lr.ph:                                 ; preds = %for.end

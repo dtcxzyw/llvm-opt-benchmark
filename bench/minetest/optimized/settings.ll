@@ -12528,7 +12528,7 @@ for.body.i.i.i.i.i.i.i.prol.loopexit:             ; preds = %for.body.i.i.i.i.i.
   %__n.010.i.i.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %5, %for.body.i.i.i.i.i.i.i.prol ]
   %__result.addr.09.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ]
   %__first.addr.08.i.i.i.i.i.i.i.unr = phi ptr [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.i.i.prol, %for.body.i.i.i.i.i.i.i.prol ]
-  %8 = icmp ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 4
+  %8 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i.i.i, 4
   br i1 %8, label %_ZNSt6vectorISt4pairIPFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvES9_ESaISC_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKSC_SE_EE.exit, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i.prol.loopexit, %for.body.i.i.i.i.i.i.i

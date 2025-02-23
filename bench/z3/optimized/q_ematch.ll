@@ -7095,14 +7095,14 @@ invoke.cont30:                                    ; preds = %invoke.cont30.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp = icmp samesign uge i64 %indvars.iv.next, %36
   %.not = or i1 %cmp36, %cmp
-  br i1 %.not, label %for.end, label %invoke.cont30, !llvm.loop !33
+  br i1 %.not, label %invoke.cont48.lr.ph, label %invoke.cont30, !llvm.loop !33
 
 lpad23:                                           ; preds = %if.then.i.i.i24, %invoke.cont20
   %39 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
-for.end:                                          ; preds = %invoke.cont30
+invoke.cont48.lr.ph:                              ; preds = %invoke.cont30
   %40 = xor i1 %cmp36, true
   %41 = zext i1 %40 to i32
   %42 = load ptr, ptr %this, align 8
@@ -7118,9 +7118,9 @@ for.end:                                          ; preds = %invoke.cont30
   %wide.trip.count = zext i32 %34 to i64
   br label %invoke.cont48
 
-invoke.cont48:                                    ; preds = %for.end, %invoke.cont79
-  %indvars.iv90 = phi i64 [ 0, %for.end ], [ %indvars.iv.next91, %invoke.cont79 ]
-  %j.085 = phi i32 [ 0, %for.end ], [ %spec.select20, %invoke.cont79 ]
+invoke.cont48:                                    ; preds = %invoke.cont48.lr.ph, %invoke.cont79
+  %indvars.iv90 = phi i64 [ 0, %invoke.cont48.lr.ph ], [ %indvars.iv.next91, %invoke.cont79 ]
+  %j.085 = phi i32 [ 0, %invoke.cont48.lr.ph ], [ %spec.select20, %invoke.cont79 ]
   %44 = load i32, ptr %m_num_decls.i.i.i37, align 4
   %idx.ext.i.i.i38 = zext i32 %44 to i64
   %add.ptr.i.i.i39 = getelementptr inbounds nuw ptr, ptr %m_patterns_decls.i.i.i.i36, i64 %idx.ext.i.i.i38

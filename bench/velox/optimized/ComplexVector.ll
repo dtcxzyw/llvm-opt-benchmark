@@ -7468,18 +7468,18 @@ _ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocate
   %add.ptr21.i = getelementptr inbounds nuw %"struct.facebook::velox::BaseVector::CopyRange", ptr %call5.i.i.i.i65, i64 %conv
   br label %for.cond2.preheader.i.preheader
 
-for.cond2.preheader.i.preheader:                  ; preds = %invoke.cont, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i
-  %outRanges.sroa.17.0 = phi ptr [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
-  %outRanges.sroa.9.0 = phi ptr [ %call5.i.i.i.i65, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ], [ null, %invoke.cont ]
+for.cond2.preheader.i.preheader:                  ; preds = %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i, %invoke.cont
+  %outRanges.sroa.17.0.ph = phi ptr [ null, %invoke.cont ], [ %add.ptr21.i, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ]
+  %outRanges.sroa.9.0.ph = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i65, %_ZNSt12_Vector_baseIN8facebook5velox10BaseVector9CopyRangeESaIS3_EE11_M_allocateEm.exit.i ]
   %rawSizes_.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 128
   %rawOffsets_.i.i.i = getelementptr inbounds nuw i8, ptr %call3, i64 112
   br label %for.cond2.preheader.i
 
 for.cond2.preheader.i:                            ; preds = %for.cond2.preheader.i.preheader, %for.inc6.i
-  %outRanges.sroa.17.1 = phi ptr [ %outRanges.sroa.17.2, %for.inc6.i ], [ %outRanges.sroa.17.0, %for.cond2.preheader.i.preheader ]
+  %outRanges.sroa.17.1 = phi ptr [ %outRanges.sroa.17.2, %for.inc6.i ], [ %outRanges.sroa.17.0.ph, %for.cond2.preheader.i.preheader ]
   %childSize.0 = phi i32 [ %childSize.1, %for.inc6.i ], [ %26, %for.cond2.preheader.i.preheader ]
-  %outRanges.sroa.9.1 = phi ptr [ %outRanges.sroa.9.2, %for.inc6.i ], [ %outRanges.sroa.9.0, %for.cond2.preheader.i.preheader ]
-  %outRanges.sroa.0.2 = phi ptr [ %outRanges.sroa.0.3, %for.inc6.i ], [ %outRanges.sroa.9.0, %for.cond2.preheader.i.preheader ]
+  %outRanges.sroa.9.1 = phi ptr [ %outRanges.sroa.9.2, %for.inc6.i ], [ %outRanges.sroa.9.0.ph, %for.cond2.preheader.i.preheader ]
+  %outRanges.sroa.0.2 = phi ptr [ %outRanges.sroa.0.3, %for.inc6.i ], [ %outRanges.sroa.9.0.ph, %for.cond2.preheader.i.preheader ]
   %__begin2.04.i = phi ptr [ %incdec.ptr.i67, %for.inc6.i ], [ %28, %for.cond2.preheader.i.preheader ]
   %count.i66 = getelementptr inbounds nuw i8, ptr %__begin2.04.i, i64 8
   %53 = load i32, ptr %count.i66, align 4
@@ -15791,24 +15791,27 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   %sub17.i = add nsw i64 %sub.ptr.div.i, -2
   %div18.i = ashr exact i64 %sub17.i, 1
   %cmp19.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div18.i
-  br i1 %cmp19.i, label %if.then20.i, label %if.end33.i
+  br i1 %cmp19.i, label %if.end33.i.thread, label %if.end33.i
 
-if.then20.i:                                      ; preds = %land.lhs.true.i
-  %add21.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+if.end33.i.thread:                                ; preds = %land.lhs.true.i
+  %add21.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub24.i = or disjoint i64 %add21.i, 1
-  %add.ptr.i20.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i20.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %sub24.i
   %8 = load i32, ptr %add.ptr.i20.i, align 4
   %add.ptr.i21.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %8, ptr %add.ptr.i21.i, align 4
-  br label %if.end33.i
+  br label %land.rhs.i.i.preheader
 
-if.end33.i:                                       ; preds = %if.then20.i, %land.lhs.true.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub24.i, %if.then20.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp16.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SH_T1_T2_.exit
+if.end33.i:                                       ; preds = %land.lhs.true.i, %while.end.i
+  %cmp16.i.i.not = icmp eq i64 %__holeIndex.addr.0.lcssa.i, 0
+  br i1 %cmp16.i.i.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SH_T1_T2_.exit, label %land.rhs.i.i.preheader
 
-land.rhs.i.i:                                     ; preds = %if.end33.i, %while.body.i.i
-  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i34, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end33.i ]
+land.rhs.i.i.preheader:                           ; preds = %if.end33.i.thread, %if.end33.i
+  %__holeIndex.addr.017.i.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i, %if.end33.i ], [ %sub24.i, %if.end33.i.thread ]
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.017.i.i = phi i64 [ %__parent.018.i.i34, %while.body.i.i ], [ %__holeIndex.addr.017.i.i.ph, %land.rhs.i.i.preheader ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
   %__parent.018.i.i34 = lshr i64 %__parent.018.in.i.i, 1
   %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i34
@@ -15824,13 +15827,13 @@ land.rhs.i.i:                                     ; preds = %if.end33.i, %while.
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %12 = load i32, ptr %add.ptr.i.i.i, align 4
-  %add.ptr.i8.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
+  %add.ptr.i8.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
   store i32 %12, ptr %add.ptr.i8.i.i, align 4
   %cmp.i.i.not = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.i.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SH_T1_T2_.exit, label %land.rhs.i.i, !llvm.loop !118
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_NSA_12CompareFlagsEEUliiE_EEEvT_T0_SH_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end33.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.end33.i ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
   %add.ptr.i9.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %0, ptr %add.ptr.i9.i.i, align 4
   ret void
@@ -16492,31 +16495,31 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   %sub17.i = add nsw i64 %sub.ptr.div.i, -2
   %div18.i = ashr exact i64 %sub17.i, 1
   %cmp19.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div18.i
-  br i1 %cmp19.i, label %if.then20.i, label %if.end33.i
+  br i1 %cmp19.i, label %if.end33.i.thread, label %if.end33.i
 
-if.then20.i:                                      ; preds = %land.lhs.true.i
-  %add21.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+if.end33.i.thread:                                ; preds = %land.lhs.true.i
+  %add21.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub24.i = or disjoint i64 %add21.i, 1
-  %add.ptr.i20.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i20.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %sub24.i
   %11 = load i32, ptr %add.ptr.i20.i, align 4
   %add.ptr.i21.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   store i32 %11, ptr %add.ptr.i21.i, align 4
-  br label %if.end33.i
+  br label %land.rhs.lr.ph.i.i
 
-if.end33.i:                                       ; preds = %if.then20.i, %land.lhs.true.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub24.i, %if.then20.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
-  %cmp16.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  br i1 %cmp16.i.i, label %land.rhs.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_T0_SJ_T1_T2_.exit
+if.end33.i:                                       ; preds = %land.lhs.true.i, %while.end.i
+  %cmp16.i.i.not = icmp eq i64 %__holeIndex.addr.0.lcssa.i, 0
+  br i1 %cmp16.i.i.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_T0_SJ_T1_T2_.exit, label %land.rhs.lr.ph.i.i
 
-land.rhs.lr.ph.i.i:                               ; preds = %if.end33.i
+land.rhs.lr.ph.i.i:                               ; preds = %if.end33.i.thread, %if.end33.i
+  %__holeIndex.addr.1.i6 = phi i64 [ %sub24.i, %if.end33.i.thread ], [ %__holeIndex.addr.0.lcssa.i, %if.end33.i ]
   %idxprom2.i.i.i.i = sext i32 %0 to i64
   br label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %while.body.i.i, %land.rhs.lr.ph.i.i
-  %__holeIndex.addr.017.i.i = phi i64 [ %__holeIndex.addr.1.i, %land.rhs.lr.ph.i.i ], [ %__parent.018.i.i45, %while.body.i.i ]
+  %__holeIndex.addr.017.i.i = phi i64 [ %__holeIndex.addr.1.i6, %land.rhs.lr.ph.i.i ], [ %__parent.018.i.i78, %while.body.i.i ]
   %__parent.018.in.i.i = add nsw i64 %__holeIndex.addr.017.i.i, -1
-  %__parent.018.i.i45 = lshr i64 %__parent.018.in.i.i, 1
-  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i45
+  %__parent.018.i.i78 = lshr i64 %__parent.018.in.i.i, 1
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.018.i.i78
   %12 = load i32, ptr %add.ptr.i.i.i, align 4
   %13 = load ptr, ptr %agg.tmp6.sroa.0.sroa.2.0.copyload, align 8
   %idxprom.i.i.i.i = sext i32 %12 to i64
@@ -16535,13 +16538,13 @@ land.rhs.i.i:                                     ; preds = %while.body.i.i, %la
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
   %18 = load i32, ptr %add.ptr.i.i.i, align 4
-  %add.ptr.i8.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
+  %add.ptr.i8.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i
   store i32 %18, ptr %add.ptr.i8.i.i, align 4
   %cmp.i.i.not = icmp ult i64 %__parent.018.in.i.i, 2
   br i1 %cmp.i.i.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_T0_SJ_T1_T2_.exit, label %land.rhs.i.i, !llvm.loop !129
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox10BaseVector11sortIndicesERS5_PKiNSA_12CompareFlagsEEUliiE_EEEvT_T0_SJ_T1_T2_.exit: ; preds = %land.rhs.i.i, %while.body.i.i, %if.end33.i
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end33.i ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.end33.i ], [ 0, %while.body.i.i ], [ %__holeIndex.addr.017.i.i, %land.rhs.i.i ]
   %add.ptr.i9.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store i32 %0, ptr %add.ptr.i9.i.i, align 4
   ret void
@@ -18977,7 +18980,7 @@ while.body.i.i:                                   ; preds = %if.else, %while.bod
 
 "_ZSt22__chunk_insertion_sortIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_.exit.i": ; preds = %while.body.i.i
   tail call fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_"(ptr noundef nonnull %add.ptr.i.i, ptr noundef %add.ptr, ptr readonly %__comp.coerce)
-  %cmp14.i = icmp sgt i64 %sub.ptr.div, 14
+  %cmp14.i = icmp samesign ugt i64 %sub.ptr.div, 14
   br i1 %cmp14.i, label %while.body.i, label %"_ZSt24__merge_sort_with_bufferIPiS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_.exit"
 
 while.body.i:                                     ; preds = %"_ZSt22__chunk_insertion_sortIPilN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_T1_.exit.i", %while.body.i

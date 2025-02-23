@@ -2742,7 +2742,7 @@ while.cond:                                       ; preds = %if.end8, %while.con
   %scx.1 = phi ptr [ %incdec.ptr, %while.cond ], [ %scx.0, %if.end8 ]
   %8 = load i16, ptr %scx.1, align 2
   %conv12 = zext i16 %8 to i32
-  %cmp13 = icmp ugt i32 %sc, %conv12
+  %cmp13 = icmp samesign ugt i32 %sc, %conv12
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %scx.1, i64 2
   br i1 %cmp13, label %while.cond, label %while.end, !llvm.loop !6
 

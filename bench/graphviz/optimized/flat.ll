@@ -898,7 +898,7 @@ gv_recalloc.exit.._crit_edge_crit_edge.i:         ; preds = %gv_recalloc.exit.i
 
 make_vn_slot.exit:                                ; preds = %.lr.ph.i, %gv_recalloc.exit.._crit_edge_crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %gv_recalloc.exit.._crit_edge_crit_edge.i ], [ %136, %.lr.ph.i ]
-  %146 = tail call ptr @virtual_node(ptr noundef %16) #13
+  %146 = tail call ptr @virtual_node(ptr noundef nonnull %16) #13
   %147 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.pre-phi.i
   store ptr %146, ptr %147, align 8, !tbaa !12
   %148 = getelementptr inbounds nuw i8, ptr %146, i64 16

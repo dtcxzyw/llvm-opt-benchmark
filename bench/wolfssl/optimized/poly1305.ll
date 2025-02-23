@@ -542,7 +542,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef %0, i32 nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8, !tbaa !7
   %.not.i = icmp eq i64 %11, 0
-  br i1 %.not.i, label %.thread, label %12
+  br i1 %.not.i, label %.thread10, label %12
 
 12:                                               ; preds = %6
   %13 = sub i64 16, %11
@@ -564,55 +564,29 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes(ptr noundef %0, i32 nound
   br i1 %16, label %17, label %wc_Poly1305Update.exit
 
 17:                                               ; preds = %._crit_edge.i
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.i
-  %19 = trunc nuw nsw i64 %spec.select.i to i32
-  %20 = sub nuw nsw i32 16, %19
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %21, i64 noundef 16)
+  %18 = getelementptr i8, ptr %4, i64 %spec.select.i
+  %19 = sub nuw nsw i64 16, %spec.select.i
+  %20 = getelementptr i8, ptr %0, i64 72
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %20, i64 noundef 16)
   store i64 0, ptr %10, align 8, !tbaa !7
-  %22 = icmp eq i64 %11, 16
-  br i1 %22, label %.thread, label %27
+  br i1 %.not74.i, label %.thread10, label %21
 
-.thread:                                          ; preds = %6, %17
+.thread10:                                        ; preds = %17, %6
   %.053.i9 = phi ptr [ %18, %17 ], [ %4, %6 ]
-  %.061.i8 = phi i32 [ %20, %17 ], [ 16, %6 ]
-  %23 = and i32 %.061.i8, 16
-  %24 = zext nneg i32 %23 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9, i64 noundef %24)
-  %25 = and i32 %.061.i8, 15
-  %26 = getelementptr inbounds nuw i8, ptr %.053.i9, i64 %24
-  br label %27
-
-27:                                               ; preds = %.thread, %17
-  %.162.i = phi i32 [ %25, %.thread ], [ %20, %17 ]
-  %.154.i = phi ptr [ %26, %.thread ], [ %18, %17 ]
-  %.not71.i = icmp eq i32 %.162.i, 0
-  br i1 %.not71.i, label %wc_Poly1305Update.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %27
-  %28 = zext nneg i32 %.162.i to i64
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %30 = load i64, ptr %10, align 8, !tbaa !7
-  br label %31
-
-31:                                               ; preds = %31, %.preheader.i
-  %.16073.i = phi i64 [ 0, %.preheader.i ], [ %36, %31 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.154.i, i64 %.16073.i
-  %33 = load i8, ptr %32, align 1, !tbaa !10
-  %34 = add i64 %.16073.i, %30
-  %35 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 0, i64 %34
-  store i8 %33, ptr %35, align 1, !tbaa !10
-  %36 = add nuw nsw i64 %.16073.i, 1
-  %exitcond75.not.i = icmp eq i64 %36, %28
-  br i1 %exitcond75.not.i, label %37, label %31, !llvm.loop !13
-
-37:                                               ; preds = %31
-  %38 = add i64 %30, %28
-  store i64 %38, ptr %10, align 8, !tbaa !7
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9, i64 noundef 16)
   br label %wc_Poly1305Update.exit
 
-wc_Poly1305Update.exit:                           ; preds = %37, %27, %._crit_edge.i, %3
-  %.0 = phi i32 [ -173, %3 ], [ 0, %._crit_edge.i ], [ 0, %27 ], [ 0, %37 ]
+21:                                               ; preds = %17
+  %.not71.i = icmp ugt i64 %13, 15
+  br i1 %.not71.i, label %wc_Poly1305Update.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %21
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %18, i64 %19, i1 false), !tbaa !10
+  store i64 %19, ptr %10, align 8, !tbaa !7
+  br label %wc_Poly1305Update.exit
+
+wc_Poly1305Update.exit:                           ; preds = %.preheader.i, %21, %._crit_edge.i, %.thread10, %3
+  %.0 = phi i32 [ -173, %3 ], [ 0, %.thread10 ], [ 0, %._crit_edge.i ], [ 0, %21 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret i32 %.0
 }
@@ -631,7 +605,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef %0, i64 nou
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %.not.i = icmp eq i64 %9, 0
-  br i1 %.not.i, label %.thread, label %10
+  br i1 %.not.i, label %.thread10, label %10
 
 10:                                               ; preds = %6
   %11 = sub i64 16, %9
@@ -653,55 +627,29 @@ define range(i32 -173, 1) i32 @wc_Poly1305_EncodeSizes64(ptr noundef %0, i64 nou
   br i1 %14, label %15, label %wc_Poly1305Update.exit
 
 15:                                               ; preds = %._crit_edge.i
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.i
-  %17 = trunc nuw nsw i64 %spec.select.i to i32
-  %18 = sub nuw nsw i32 16, %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %19, i64 noundef 16)
+  %16 = getelementptr i8, ptr %4, i64 %spec.select.i
+  %17 = sub nuw nsw i64 16, %spec.select.i
+  %18 = getelementptr i8, ptr %0, i64 72
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %18, i64 noundef 16)
   store i64 0, ptr %8, align 8, !tbaa !7
-  %20 = icmp eq i64 %9, 16
-  br i1 %20, label %.thread, label %25
+  br i1 %.not74.i, label %.thread10, label %19
 
-.thread:                                          ; preds = %6, %15
+.thread10:                                        ; preds = %15, %6
   %.053.i9 = phi ptr [ %16, %15 ], [ %4, %6 ]
-  %.061.i8 = phi i32 [ %18, %15 ], [ 16, %6 ]
-  %21 = and i32 %.061.i8, 16
-  %22 = zext nneg i32 %21 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9, i64 noundef %22)
-  %23 = and i32 %.061.i8, 15
-  %24 = getelementptr inbounds nuw i8, ptr %.053.i9, i64 %22
-  br label %25
-
-25:                                               ; preds = %.thread, %15
-  %.162.i = phi i32 [ %23, %.thread ], [ %18, %15 ]
-  %.154.i = phi ptr [ %24, %.thread ], [ %16, %15 ]
-  %.not71.i = icmp eq i32 %.162.i, 0
-  br i1 %.not71.i, label %wc_Poly1305Update.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %25
-  %26 = zext nneg i32 %.162.i to i64
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %28 = load i64, ptr %8, align 8, !tbaa !7
-  br label %29
-
-29:                                               ; preds = %29, %.preheader.i
-  %.16073.i = phi i64 [ 0, %.preheader.i ], [ %34, %29 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.154.i, i64 %.16073.i
-  %31 = load i8, ptr %30, align 1, !tbaa !10
-  %32 = add i64 %.16073.i, %28
-  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 0, i64 %32
-  store i8 %31, ptr %33, align 1, !tbaa !10
-  %34 = add nuw nsw i64 %.16073.i, 1
-  %exitcond75.not.i = icmp eq i64 %34, %26
-  br i1 %exitcond75.not.i, label %35, label %29, !llvm.loop !13
-
-35:                                               ; preds = %29
-  %36 = add i64 %28, %26
-  store i64 %36, ptr %8, align 8, !tbaa !7
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9, i64 noundef 16)
   br label %wc_Poly1305Update.exit
 
-wc_Poly1305Update.exit:                           ; preds = %35, %25, %._crit_edge.i, %3
-  %.0 = phi i32 [ -173, %3 ], [ 0, %._crit_edge.i ], [ 0, %25 ], [ 0, %35 ]
+19:                                               ; preds = %15
+  %.not71.i = icmp ugt i64 %11, 15
+  br i1 %.not71.i, label %wc_Poly1305Update.exit, label %.preheader.i
+
+.preheader.i:                                     ; preds = %19
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %16, i64 %17, i1 false), !tbaa !10
+  store i64 %17, ptr %8, align 8, !tbaa !7
+  br label %wc_Poly1305Update.exit
+
+wc_Poly1305Update.exit:                           ; preds = %.preheader.i, %19, %._crit_edge.i, %.thread10, %3
+  %.0 = phi i32 [ -173, %3 ], [ 0, %.thread10 ], [ 0, %._crit_edge.i ], [ 0, %19 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #6
   ret i32 %.0
 }
@@ -716,7 +664,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %0, ptr noundef reado
   %or.cond3 = or i1 %or.cond, %11
   %12 = icmp ult i32 %6, 16
   %or.cond5 = or i1 %or.cond3, %12
-  br i1 %or.cond5, label %94, label %13
+  br i1 %or.cond5, label %78, label %13
 
 13:                                               ; preds = %7
   %.not = icmp eq i32 %2, 0
@@ -724,7 +672,7 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %0, ptr noundef reado
 
 14:                                               ; preds = %13
   %15 = icmp eq ptr %1, null
-  br i1 %15, label %94, label %16
+  br i1 %15, label %78, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -815,17 +763,17 @@ define range(i32 -173, 1) i32 @wc_Poly1305_MAC(ptr noundef %0, ptr noundef reado
 wc_Poly1305Update.exit:                           ; preds = %53, %43, %._crit_edge.i
   %55 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %0, i32 noundef %2)
   %.not43 = icmp eq i32 %55, 0
-  br i1 %.not43, label %56, label %94
+  br i1 %.not43, label %56, label %78
 
 56:                                               ; preds = %wc_Poly1305Update.exit, %13
-  %57 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %0, ptr noundef %3, i32 noundef %4)
+  %57 = tail call i32 @wc_Poly1305Update(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef %4)
   %.not44 = icmp eq i32 %57, 0
-  br i1 %.not44, label %58, label %94
+  br i1 %.not44, label %58, label %78
 
 58:                                               ; preds = %56
   %59 = tail call i32 @wc_Poly1305_Pad(ptr noundef nonnull %0, i32 noundef %4)
   %.not45 = icmp eq i32 %59, 0
-  br i1 %.not45, label %60, label %94
+  br i1 %.not45, label %60, label %78
 
 60:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
@@ -837,7 +785,7 @@ wc_Poly1305Update.exit:                           ; preds = %53, %43, %._crit_ed
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %65 = load i64, ptr %64, align 8, !tbaa !7
   %.not.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i, label %.thread.i, label %66
+  br i1 %.not.i.i, label %.thread10.i, label %66
 
 66:                                               ; preds = %60
   %67 = sub i64 16, %65
@@ -856,62 +804,37 @@ wc_Poly1305Update.exit:                           ; preds = %53, %43, %._crit_ed
   %69 = add i64 %spec.select.i.i, %65
   store i64 %69, ptr %64, align 8, !tbaa !7
   %70 = icmp ugt i64 %69, 15
-  br i1 %70, label %71, label %92
+  br i1 %70, label %71, label %76
 
 71:                                               ; preds = %._crit_edge.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 %spec.select.i.i
-  %73 = trunc nuw nsw i64 %spec.select.i.i to i32
-  %74 = sub nuw nsw i32 16, %73
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %75, i64 noundef 16)
+  %72 = getelementptr i8, ptr %8, i64 %spec.select.i.i
+  %73 = sub nuw nsw i64 16, %spec.select.i.i
+  %74 = getelementptr i8, ptr %0, i64 72
+  tail call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull readonly %74, i64 noundef 16)
   store i64 0, ptr %64, align 8, !tbaa !7
-  br i1 %.not74.i.i, label %.thread.i, label %80
+  br i1 %.not74.i.i, label %.thread10.i, label %75
 
-.thread.i:                                        ; preds = %71, %60
+.thread10.i:                                      ; preds = %71, %60
   %.053.i9.i = phi ptr [ %72, %71 ], [ %8, %60 ]
-  %.061.i8.i = phi i32 [ %74, %71 ], [ 16, %60 ]
-  %76 = and i32 %.061.i8.i, 16
-  %77 = zext nneg i32 %76 to i64
-  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9.i, i64 noundef %77)
-  %78 = and i32 %.061.i8.i, 15
-  %79 = getelementptr inbounds nuw i8, ptr %.053.i9.i, i64 %77
-  br label %80
+  call fastcc void @poly1305_blocks(ptr noundef nonnull %0, ptr noundef nonnull %.053.i9.i, i64 noundef 16)
+  br label %76
 
-80:                                               ; preds = %.thread.i, %71
-  %.162.i.i = phi i32 [ %78, %.thread.i ], [ %74, %71 ]
-  %.154.i.i = phi ptr [ %79, %.thread.i ], [ %72, %71 ]
-  %.not71.i.i = icmp eq i32 %.162.i.i, 0
-  br i1 %.not71.i.i, label %92, label %.preheader.i.i
+75:                                               ; preds = %71
+  %.not71.i.i = icmp ugt i64 %67, 15
+  br i1 %.not71.i.i, label %76, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %80
-  %81 = zext nneg i32 %.162.i.i to i64
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %83 = load i64, ptr %64, align 8, !tbaa !7
-  br label %84
+.preheader.i.i:                                   ; preds = %75
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %74, ptr align 1 %72, i64 %73, i1 false), !tbaa !10
+  store i64 %73, ptr %64, align 8, !tbaa !7
+  br label %76
 
-84:                                               ; preds = %84, %.preheader.i.i
-  %.16073.i.i = phi i64 [ 0, %.preheader.i.i ], [ %89, %84 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.154.i.i, i64 %.16073.i.i
-  %86 = load i8, ptr %85, align 1, !tbaa !10
-  %87 = add i64 %.16073.i.i, %83
-  %88 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 0, i64 %87
-  store i8 %86, ptr %88, align 1, !tbaa !10
-  %89 = add nuw nsw i64 %.16073.i.i, 1
-  %exitcond75.not.i.i = icmp eq i64 %89, %81
-  br i1 %exitcond75.not.i.i, label %90, label %84, !llvm.loop !13
-
-90:                                               ; preds = %84
-  %91 = add i64 %83, %81
-  store i64 %91, ptr %64, align 8, !tbaa !7
-  br label %92
-
-92:                                               ; preds = %90, %80, %._crit_edge.i.i
+76:                                               ; preds = %.preheader.i.i, %75, %.thread10.i, %._crit_edge.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #6
-  %93 = tail call i32 @wc_Poly1305Final(ptr noundef nonnull %0, ptr noundef %5)
-  br label %94
+  %77 = tail call i32 @wc_Poly1305Final(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  br label %78
 
-94:                                               ; preds = %58, %56, %wc_Poly1305Update.exit, %14, %7, %92
-  %.0 = phi i32 [ %93, %92 ], [ -173, %7 ], [ -173, %14 ], [ %55, %wc_Poly1305Update.exit ], [ %57, %56 ], [ %59, %58 ]
+78:                                               ; preds = %58, %56, %wc_Poly1305Update.exit, %14, %7, %76
+  %.0 = phi i32 [ %77, %76 ], [ -173, %7 ], [ -173, %14 ], [ %55, %wc_Poly1305Update.exit ], [ %57, %56 ], [ %59, %58 ]
   ret i32 %.0
 }
 

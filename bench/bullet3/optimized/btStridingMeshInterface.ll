@@ -824,7 +824,7 @@ define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSer
   %79 = load ptr, ptr %2, align 8, !tbaa !4
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load ptr, ptr %80, align 8
-  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %51, ptr noundef nonnull @.str, i32 noundef 1497453121, ptr noundef %78)
+  call void %81(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %51, ptr noundef nonnull @.str, i32 noundef 1497453121, ptr noundef %78)
   br label %155
 
 82:                                               ; preds = %.lr.ph172
@@ -881,7 +881,7 @@ define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSer
   %116 = load ptr, ptr %2, align 8, !tbaa !4
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 40
   %118 = load ptr, ptr %117, align 8
-  call void %118(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %87, ptr noundef nonnull @.str.1, i32 noundef 1497453121, ptr noundef %115)
+  call void %118(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %87, ptr noundef nonnull @.str.1, i32 noundef 1497453121, ptr noundef %115)
   br label %155
 
 119:                                              ; preds = %.lr.ph172
@@ -936,7 +936,7 @@ define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSer
   %152 = load ptr, ptr %2, align 8, !tbaa !4
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 40
   %154 = load ptr, ptr %153, align 8
-  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %124, ptr noundef nonnull @.str.2, i32 noundef 1497453121, ptr noundef %151)
+  call void %154(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %124, ptr noundef nonnull @.str.2, i32 noundef 1497453121, ptr noundef %151)
   br label %155
 
 155:                                              ; preds = %45, %._crit_edge160, %.lr.ph172, %119, %._crit_edge, %82, %._crit_edge156
@@ -979,7 +979,7 @@ define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSer
   %176 = load ptr, ptr %2, align 8, !tbaa !4
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 40
   %178 = load ptr, ptr %177, align 8
-  call void %178(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %163, ptr noundef nonnull @.str.3, i32 noundef 1497453121, ptr noundef %175)
+  call void %178(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %163, ptr noundef nonnull @.str.3, i32 noundef 1497453121, ptr noundef %175)
   br label %223
 
 179:                                              ; preds = %.lr.ph167, %179
@@ -1034,7 +1034,7 @@ define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSer
   %209 = load ptr, ptr %2, align 8, !tbaa !4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 40
   %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %196, ptr noundef nonnull @.str.4, i32 noundef 1497453121, ptr noundef %208)
+  call void %211(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %196, ptr noundef nonnull @.str.4, i32 noundef 1497453121, ptr noundef %208)
   br label %223
 
 212:                                              ; preds = %.lr.ph163, %212

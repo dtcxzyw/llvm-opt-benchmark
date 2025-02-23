@@ -125,66 +125,66 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 define dso_local noundef range(i32 0, 3) i32 @_ZN18btQuantizedBvhTree20_calc_splitting_axisER18GIM_BVH_DATA_ARRAYii(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = sub nsw i32 %3, %2
   %6 = icmp slt i32 %2, %3
-  br i1 %6, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %4
-  %7 = sitofp i32 %5 to float
-  br label %._crit_edge101
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load ptr, ptr %8, align 8, !tbaa !13
-  %10 = sext i32 %2 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = load ptr, ptr %7, align 8, !tbaa !13
+  %9 = sext i32 %2 to i64
   %wide.trip.count = sext i32 %3 to i64
-  br label %11
+  br label %10
 
-11:                                               ; preds = %.lr.ph, %11
-  %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %32, %11 ]
-  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %31, %11 ]
-  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %11 ]
-  %12 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %9, i64 %indvars.iv
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %14 = load float, ptr %13, align 4, !tbaa !15
-  %15 = load float, ptr %12, align 4, !tbaa !15
-  %16 = fadd float %14, %15
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  %18 = load float, ptr %17, align 4, !tbaa !15
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %20 = load float, ptr %19, align 4, !tbaa !15
-  %21 = fadd float %18, %20
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %23 = load float, ptr %22, align 4, !tbaa !15
-  %24 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %25 = load float, ptr %24, align 4, !tbaa !15
-  %26 = fadd float %23, %25
-  %27 = fmul float %16, 5.000000e-01
-  %28 = fmul float %21, 5.000000e-01
-  %29 = fmul float %26, 5.000000e-01
-  %30 = fadd float %.sroa.079.089, %27
-  %31 = fadd float %.sroa.882.090, %28
-  %32 = fadd float %.sroa.1485.091, %29
+10:                                               ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %.sroa.1485.091 = phi float [ 0.000000e+00, %.lr.ph ], [ %31, %10 ]
+  %.sroa.882.090 = phi float [ 0.000000e+00, %.lr.ph ], [ %30, %10 ]
+  %.sroa.079.089 = phi float [ 0.000000e+00, %.lr.ph ], [ %29, %10 ]
+  %11 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %13 = load float, ptr %12, align 4, !tbaa !15
+  %14 = load float, ptr %11, align 4, !tbaa !15
+  %15 = fadd float %13, %14
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  %17 = load float, ptr %16, align 4, !tbaa !15
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %19 = load float, ptr %18, align 4, !tbaa !15
+  %20 = fadd float %17, %19
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %22 = load float, ptr %21, align 4, !tbaa !15
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %24 = load float, ptr %23, align 4, !tbaa !15
+  %25 = fadd float %22, %24
+  %26 = fmul float %15, 5.000000e-01
+  %27 = fmul float %20, 5.000000e-01
+  %28 = fmul float %25, 5.000000e-01
+  %29 = fadd float %.sroa.079.089, %26
+  %30 = fadd float %.sroa.882.090, %27
+  %31 = fadd float %.sroa.1485.091, %28
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph100, label %10, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %11
+._crit_edge:                                      ; preds = %4
+  %32 = sitofp i32 %5 to float
+  br label %._crit_edge101
+
+.lr.ph100:                                        ; preds = %10
   %33 = sitofp i32 %5 to float
   %34 = fdiv float 1.000000e+00, %33
-  %35 = fmul float %34, %30
-  %36 = fmul float %34, %31
-  %37 = fmul float %34, %32
+  %35 = fmul float %34, %29
+  %36 = fmul float %34, %30
+  %37 = fmul float %34, %31
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !13
   %40 = sext i32 %2 to i64
   %wide.trip.count114 = sext i32 %3 to i64
   br label %41
 
-41:                                               ; preds = %._crit_edge, %41
-  %indvars.iv111 = phi i64 [ %40, %._crit_edge ], [ %indvars.iv.next112, %41 ]
-  %.sroa.14.097 = phi float [ 0.000000e+00, %._crit_edge ], [ %68, %41 ]
-  %.sroa.8.096 = phi float [ 0.000000e+00, %._crit_edge ], [ %67, %41 ]
-  %.sroa.069.095 = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %41 ]
+41:                                               ; preds = %.lr.ph100, %41
+  %indvars.iv111 = phi i64 [ %40, %.lr.ph100 ], [ %indvars.iv.next112, %41 ]
+  %.sroa.14.097 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %68, %41 ]
+  %.sroa.8.096 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %67, %41 ]
+  %.sroa.069.095 = phi float [ 0.000000e+00, %.lr.ph100 ], [ %66, %41 ]
   %42 = getelementptr inbounds %struct.GIM_BVH_DATA, ptr %39, i64 %indvars.iv111
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load float, ptr %43, align 4, !tbaa !15
@@ -216,11 +216,11 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN18btQuantizedBvhTree20_calc_spl
   %exitcond115.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count114
   br i1 %exitcond115.not, label %._crit_edge101, label %41, !llvm.loop !20
 
-._crit_edge101:                                   ; preds = %41, %._crit_edge.thread
-  %69 = phi float [ %7, %._crit_edge.thread ], [ %33, %41 ]
-  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %66, %41 ]
-  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %67, %41 ]
-  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %68, %41 ]
+._crit_edge101:                                   ; preds = %41, %._crit_edge
+  %69 = phi float [ %32, %._crit_edge ], [ %33, %41 ]
+  %.sroa.069.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %66, %41 ]
+  %.sroa.8.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %67, %41 ]
+  %.sroa.14.0.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %68, %41 ]
   %70 = fadd float %69, -1.000000e+00
   %71 = fdiv float 1.000000e+00, %70
   %72 = fmul float %71, %.sroa.069.0.lcssa
@@ -791,26 +791,26 @@ _ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i: ; pred
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !36
   %.not.i5.i.i = icmp eq ptr %67, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE7reserveEi.exit.i, label %68
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i, label %68
 
 68:                                               ; preds = %_ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %70 = load i8, ptr %69, align 8, !tbaa !46, !range !47, !noundef !48
   %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE7reserveEi.exit.i
+  br i1 %71, label %72, label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i
 
 72:                                               ; preds = %68
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %67)
-  br label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE7reserveEi.exit.i: ; preds = %72, %68, %_ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i: ; preds = %72, %68, %_ZNK20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE4copyEiiPS0_.exit.i.i
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %73, align 8, !tbaa !46
   store ptr %.0.i.i.i, ptr %66, align 8, !tbaa !36
   store i32 %46, ptr %51, align 8, !tbaa !43
   br label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE7reserveEi.exit.i, %50
+.lr.ph.i5:                                        ; preds = %_ZN20btAlignedObjectArrayI21BT_QUANTIZED_BVH_NODEE10deallocateEv.exit.i.i, %50
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = sext i32 %48 to i64
   %wide.trip.count.i6 = sext i32 %46 to i64
@@ -1171,12 +1171,7 @@ define dso_local void @_ZN21btGImpactQuantizedBvh8buildSetEv(ptr noundef nonnull
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0, i8 0, i64 32, i1 false)
   %14 = icmp sgt i32 %12, 0
-  br i1 %14, label %15, label %.loopexit.thread
-
-.loopexit.thread:                                 ; preds = %13
-  store i32 %12, ptr %5, align 4, !tbaa !4
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
-  br label %._crit_edge
+  br i1 %14, label %15, label %.loopexit
 
 15:                                               ; preds = %13
   %16 = zext nneg i32 %12 to i64
@@ -1242,15 +1237,20 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i.thread: ; preds 
   store i32 0, ptr %35, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %31, !llvm.loop !59
+  br i1 %exitcond.not.i, label %.lr.ph.preheader, label %31, !llvm.loop !59
 
-.loopexit:                                        ; preds = %31
+.loopexit:                                        ; preds = %13
+  store i32 %12, ptr %5, align 4, !tbaa !4
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
+  br label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %31
   store i32 %12, ptr %5, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0)
   %.pre15 = load ptr, ptr %4, align 8, !tbaa !13
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %49, %.loopexit.thread
+._crit_edge:                                      ; preds = %49, %.loopexit
   invoke void @_ZN18btQuantizedBvhTree10build_treeER18GIM_BVH_DATA_ARRAY(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(25) %2)
           to label %55 unwind label %36
 
@@ -1270,9 +1270,9 @@ _ZNK20btAlignedObjectArrayI12GIM_BVH_DATAE4copyEiiPS0_.exit.i.i.thread: ; preds 
           cleanup
   br label %64
 
-.lr.ph:                                           ; preds = %.loopexit, %49
-  %42 = phi ptr [ %.pre15, %.loopexit ], [ %50, %49 ]
-  %indvars.iv = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next, %49 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %49
+  %42 = phi ptr [ %.pre15, %.lr.ph.preheader ], [ %50, %49 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
   %43 = load ptr, ptr %7, align 8, !tbaa !50
   %44 = getelementptr inbounds nuw %struct.GIM_BVH_DATA, ptr %42, i64 %indvars.iv
   %45 = load ptr, ptr %43, align 8, !tbaa !53

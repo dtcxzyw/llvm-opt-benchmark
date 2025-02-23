@@ -766,9 +766,9 @@ list_length.exit103:                              ; preds = %list_length.exit105
 270:                                              ; preds = %250, %266, %.thread141
   %271 = phi i1 [ true, %266 ], [ false, %250 ], [ false, %.thread141 ]
   %.1197.i = phi i32 [ %269, %266 ], [ 0, %250 ], [ %.0196.i.lcssa159, %.thread141 ]
-  %272 = tail call ptr @create_append_path(ptr noundef %1, ptr noundef %198, ptr noundef null, ptr noundef %.0190.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.1197.i, i1 noundef zeroext %271, double noundef -1.000000e+00) #7
+  %272 = tail call ptr @create_append_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef null, ptr noundef %.0190.i.lcssa, ptr noundef null, ptr noundef null, i32 noundef %.1197.i, i1 noundef zeroext %271, double noundef -1.000000e+00) #7
   %273 = load ptr, ptr %201, align 8
-  %274 = tail call ptr @create_gather_path(ptr noundef %1, ptr noundef %198, ptr noundef %272, ptr noundef %273, ptr noundef null, ptr noundef null) #7
+  %274 = tail call ptr @create_gather_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef %272, ptr noundef %273, ptr noundef null, ptr noundef null) #7
   %275 = load i8, ptr %114, align 8, !range !6, !noundef !7
   %276 = trunc nuw i8 %275 to i1
   br i1 %276, label %324, label %279
@@ -791,16 +791,16 @@ list_length.exit103:                              ; preds = %list_length.exit105
 
 283:                                              ; preds = %279
   %284 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %113) #7
-  %285 = tail call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %284) #7
-  %286 = tail call ptr @create_agg_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %208, ptr noundef %285, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %282) #7
+  %285 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %284) #7
+  %286 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %208, ptr noundef %285, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %282) #7
   tail call void @add_path(ptr noundef nonnull %198, ptr noundef %286) #7
   %.not218.i = icmp eq ptr %.0199.i146, null
   br i1 %.not218.i, label %291, label %287
 
 287:                                              ; preds = %283
   %288 = tail call ptr @make_pathtarget_from_tlist(ptr noundef %113) #7
-  %289 = tail call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %288) #7
-  %290 = tail call ptr @create_agg_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %.0199.i146, ptr noundef %289, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %282) #7
+  %289 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %288) #7
+  %290 = tail call ptr @create_agg_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %.0199.i146, ptr noundef %289, i32 noundef 2, i32 noundef 0, ptr noundef %.0198.i, ptr noundef null, ptr noundef null, double noundef %282) #7
   tail call void @add_path(ptr noundef nonnull %198, ptr noundef %290) #7
   br label %291
 
@@ -812,8 +812,8 @@ list_length.exit103:                              ; preds = %list_length.exit105
   br i1 %.not219.i, label %296, label %293
 
 293:                                              ; preds = %292
-  %294 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef %1, ptr noundef nonnull %.0198.i, ptr noundef %113) #7
-  %295 = tail call ptr @create_sort_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %208, ptr noundef %294, double noundef -1.000000e+00) #7
+  %294 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef nonnull %.0198.i, ptr noundef %113) #7
+  %295 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %208, ptr noundef %294, double noundef -1.000000e+00) #7
   br label %296
 
 296:                                              ; preds = %293, %292
@@ -830,14 +830,14 @@ list_length.exit103:                              ; preds = %list_length.exit105
 
 list_length.exit101:                              ; preds = %296, %299
   %302 = phi i32 [ %301, %299 ], [ 0, %296 ]
-  %303 = tail call ptr @create_upper_unique_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %.0185.i, i32 noundef %302, double noundef %282) #7
+  %303 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %.0185.i, i32 noundef %302, double noundef %282) #7
   tail call void @add_path(ptr noundef nonnull %198, ptr noundef %303) #7
   %.not220.i = icmp eq ptr %.0199.i146, null
   br i1 %.not220.i, label %314, label %304
 
 304:                                              ; preds = %list_length.exit101
-  %305 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef %1, ptr noundef %.0198.i, ptr noundef %113) #7
-  %306 = tail call ptr @create_sort_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %.0199.i146, ptr noundef %305, double noundef -1.000000e+00) #7
+  %305 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %.0198.i, ptr noundef %113) #7
+  %306 = tail call ptr @create_sort_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %.0199.i146, ptr noundef %305, double noundef -1.000000e+00) #7
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 72
   %308 = load ptr, ptr %307, align 8
   %.not.i98 = icmp eq ptr %308, null
@@ -850,7 +850,7 @@ list_length.exit101:                              ; preds = %296, %299
 
 list_length.exit99:                               ; preds = %304, %309
   %312 = phi i32 [ %311, %309 ], [ 0, %304 ]
-  %313 = tail call ptr @create_upper_unique_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef nonnull %306, i32 noundef %312, double noundef %282) #7
+  %313 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef nonnull %306, i32 noundef %312, double noundef %282) #7
   tail call void @add_path(ptr noundef nonnull %198, ptr noundef %313) #7
   br label %314
 
@@ -861,7 +861,7 @@ list_length.exit99:                               ; preds = %304, %309
   br i1 %or.cond3.i, label %317, label %generate_union_paths.exit
 
 317:                                              ; preds = %314
-  %318 = tail call ptr @create_merge_append_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef %.0188.i.lcssa, ptr noundef %.0202.i, ptr noundef null) #7
+  %318 = tail call ptr @create_merge_append_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef %.0188.i.lcssa, ptr noundef %.0202.i, ptr noundef null) #7
   %.not.i97 = icmp eq ptr %113, null
   br i1 %.not.i97, label %list_length.exit, label %319
 
@@ -872,12 +872,12 @@ list_length.exit99:                               ; preds = %304, %309
 
 list_length.exit:                                 ; preds = %317, %319
   %322 = phi i32 [ %321, %319 ], [ 0, %317 ]
-  %323 = tail call ptr @create_upper_unique_path(ptr noundef %1, ptr noundef nonnull %198, ptr noundef %318, i32 noundef %322, double noundef %282) #7
+  %323 = tail call ptr @create_upper_unique_path(ptr noundef nonnull %1, ptr noundef nonnull %198, ptr noundef %318, i32 noundef %322, double noundef %282) #7
   tail call void @add_path(ptr noundef nonnull %198, ptr noundef %323) #7
   br label %generate_union_paths.exit
 
 324:                                              ; preds = %270
-  tail call void @add_path(ptr noundef nonnull %198, ptr noundef %208) #7
+  tail call void @add_path(ptr noundef nonnull %198, ptr noundef nonnull %208) #7
   %.not221.i = icmp eq ptr %274, null
   br i1 %.not221.i, label %generate_union_paths.exit, label %325
 
@@ -984,7 +984,7 @@ generate_setop_grouplist.exit122:                 ; preds = %.lr.ph8.i115, %list
   br i1 %371, label %382, label %385
 
 382:                                              ; preds = %381
-  %383 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef %1, ptr noundef %346, ptr noundef %344) #7
+  %383 = tail call ptr @make_pathkeys_for_sortclauses(ptr noundef nonnull %1, ptr noundef %346, ptr noundef %344) #7
   %384 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store ptr %383, ptr %384, align 8
   br label %385
@@ -999,7 +999,7 @@ generate_setop_grouplist.exit122:                 ; preds = %.lr.ph8.i115, %list
 389:                                              ; preds = %385
   %390 = load i8, ptr %13, align 1, !range !6, !noundef !7
   %391 = trunc nuw i8 %390 to i1
-  call fastcc void @build_setop_child_paths(ptr noundef %1, ptr noundef nonnull %335, i1 noundef zeroext %391, ptr noundef %343, ptr noundef %.0124.i, ptr noundef nonnull %16)
+  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %335, i1 noundef zeroext %391, ptr noundef %343, ptr noundef %.0124.i, ptr noundef nonnull %16)
   br label %395
 
 392:                                              ; preds = %385
@@ -1018,7 +1018,7 @@ generate_setop_grouplist.exit122:                 ; preds = %.lr.ph8.i115, %list
   %400 = load i8, ptr %14, align 1, !range !6, !noundef !7
   %401 = trunc nuw i8 %400 to i1
   %402 = load ptr, ptr %12, align 8
-  call fastcc void @build_setop_child_paths(ptr noundef %1, ptr noundef nonnull %340, i1 noundef zeroext %401, ptr noundef %402, ptr noundef %.0124.i, ptr noundef nonnull %17)
+  call fastcc void @build_setop_child_paths(ptr noundef nonnull %1, ptr noundef nonnull %340, i1 noundef zeroext %401, ptr noundef %402, ptr noundef %.0124.i, ptr noundef nonnull %17)
   br label %406
 
 403:                                              ; preds = %395
@@ -1213,7 +1213,7 @@ generate_union_paths.exit:                        ; preds = %325, %324, %list_le
   store i8 %505, ptr %7, align 1
   %506 = load ptr, ptr %6, align 8
   %507 = call ptr @make_pathtarget_from_tlist(ptr noundef %506) #7
-  %508 = call ptr @set_pathtarget_cost_width(ptr noundef %1, ptr noundef %507) #7
+  %508 = call ptr @set_pathtarget_cost_width(ptr noundef nonnull %1, ptr noundef %507) #7
   %509 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %510 = load ptr, ptr %509, align 8
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 4
@@ -1286,11 +1286,11 @@ generate_union_paths.exit:                        ; preds = %325, %324, %list_le
   br i1 %.not.i96, label %postprocess_setop_rel.exit, label %543
 
 543:                                              ; preds = %541
-  call void %542(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef %.1, ptr noundef null) #7
+  call void %542(ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull %.1, ptr noundef null) #7
   br label %postprocess_setop_rel.exit
 
 postprocess_setop_rel.exit:                       ; preds = %541, %543
-  call void @set_cheapest(ptr noundef %.1) #7
+  call void @set_cheapest(ptr noundef nonnull %.1) #7
   br label %548
 
 544:                                              ; preds = %8

@@ -209,15 +209,15 @@ define range(i32 0, 2) i32 @run_tests(ptr noundef %0) local_unnamed_addr #1 {
 
 .outer:                                           ; preds = %7, %1
   %.08.i.ph = phi ptr [ %8, %7 ], [ @.str.15, %1 ]
-  %.06.i.ph = phi ptr [ %.06.i.ph209, %7 ], [ @.str.15, %1 ]
+  %.06.i.ph = phi ptr [ %.06.i.ph210, %7 ], [ @.str.15, %1 ]
   %.0.i.ph = phi ptr [ %9, %7 ], [ null, %1 ]
-  br label %.outer208
+  br label %.outer209
 
-.outer208:                                        ; preds = %.outer, %10
-  %.06.i.ph209 = phi ptr [ %.06.i.ph, %.outer ], [ %11, %10 ]
+.outer209:                                        ; preds = %.outer, %10
+  %.06.i.ph210 = phi ptr [ %.06.i.ph, %.outer ], [ %11, %10 ]
   br label %4
 
-4:                                                ; preds = %.backedge, %.outer208
+4:                                                ; preds = %.backedge, %.outer209
   %5 = call i32 @opt_next() #13
   switch i32 %5, label %.backedge [
     i32 0, label %30
@@ -244,7 +244,7 @@ define range(i32 0, 2) i32 @run_tests(ptr noundef %0) local_unnamed_addr #1 {
   %12 = call ptr @opt_arg() #13
   %13 = call i32 @opt_int(ptr noundef %12, ptr noundef nonnull @single_iter) #13
   %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %.loopexit131, label %.outer208, !llvm.loop !15
+  br i1 %.not16.i, label %.loopexit131, label %.outer209, !llvm.loop !15
 
 14:                                               ; preds = %4
   %15 = call ptr @opt_arg() #13
@@ -370,7 +370,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 64:                                               ; preds = %57
   %65 = load ptr, ptr %60, align 16, !tbaa !7
-  %66 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.17, ptr noundef %.06.i.ph209, i32 noundef %56, ptr noundef %65) #13
+  %66 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.17, ptr noundef %.06.i.ph210, i32 noundef %56, ptr noundef %65) #13
   br label %.loopexit131
 
 67:                                               ; preds = %57
@@ -381,7 +381,7 @@ set_seed.exit.i:                                  ; preds = %26, %23
 
 70:                                               ; preds = %67
   %71 = load ptr, ptr %60, align 16, !tbaa !7
-  %72 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef %.06.i.ph209, i32 noundef %56, ptr noundef %71, i32 noundef 1, i32 noundef %62) #13
+  %72 = call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.18, ptr noundef %.06.i.ph210, i32 noundef %56, ptr noundef %71, i32 noundef 1, i32 noundef %62) #13
   br label %.loopexit131
 
 process_shared_options.exit:                      ; preds = %4
@@ -448,7 +448,7 @@ process_shared_options.exit:                      ; preds = %4
   %.b102 = load i1, ptr @rand_order, align 4
   %96 = icmp ne i32 %92, 1
   %or.cond161 = and i1 %.b102, %96
-  br i1 %or.cond161, label %.lr.ph142.preheader, label %.loopexit130
+  br i1 %or.cond161, label %.lr.ph142.preheader, label %.lr.ph158.preheader
 
 .lr.ph142.preheader:                              ; preds = %._crit_edge
   %97 = zext nneg i32 %92 to i64
@@ -474,16 +474,19 @@ process_shared_options.exit:                      ; preds = %4
   %.pre = load i32, ptr @num_tests, align 4, !tbaa !3
   br label %.loopexit130
 
-.loopexit130:                                     ; preds = %90, %.loopexit130.loopexit, %._crit_edge
-  %107 = phi i32 [ %.pre, %.loopexit130.loopexit ], [ 1, %._crit_edge ], [ %92, %90 ]
+.loopexit130:                                     ; preds = %90, %.loopexit130.loopexit
+  %107 = phi i32 [ %.pre, %.loopexit130.loopexit ], [ %92, %90 ]
   %.not152 = icmp eq i32 %107, 0
-  br i1 %.not152, label %._crit_edge159, label %.lr.ph158
+  br i1 %.not152, label %._crit_edge159, label %.lr.ph158.preheader
 
-.lr.ph158:                                        ; preds = %.loopexit130, %216
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %216 ], [ 0, %.loopexit130 ]
-  %.078156 = phi i32 [ %.1, %216 ], [ 0, %.loopexit130 ]
-  %.079155 = phi i32 [ %.180, %216 ], [ 0, %.loopexit130 ]
-  %.090153 = phi i32 [ %.191, %216 ], [ 0, %.loopexit130 ]
+.lr.ph158.preheader:                              ; preds = %._crit_edge, %.loopexit130
+  br label %.lr.ph158
+
+.lr.ph158:                                        ; preds = %.lr.ph158.preheader, %216
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %216 ], [ 0, %.lr.ph158.preheader ]
+  %.078156 = phi i32 [ %.1, %216 ], [ 0, %.lr.ph158.preheader ]
+  %.079155 = phi i32 [ %.180, %216 ], [ 0, %.lr.ph158.preheader ]
+  %.090153 = phi i32 [ %.191, %216 ], [ 0, %.lr.ph158.preheader ]
   %108 = getelementptr inbounds nuw [1024 x i32], ptr %3, i64 0, i64 %indvars.iv173
   %109 = load i32, ptr %108, align 4, !tbaa !3
   %110 = load i32, ptr @single_test, align 4, !tbaa !3
@@ -597,8 +600,8 @@ set_test_title.exit118:                           ; preds = %142, %143
   %.b = load i1, ptr @rand_order, align 4
   %.pre176 = load i32, ptr %115, align 8, !tbaa !12
   %162 = icmp sgt i32 %.pre176, 2
-  %or.cond194.not = select i1 %.b, i1 %162, i1 false
-  br i1 %or.cond194.not, label %.critedge, label %.loopexit
+  %or.cond195.not = select i1 %.b, i1 %162, i1 false
+  br i1 %or.cond195.not, label %.critedge, label %.loopexit
 
 .critedge:                                        ; preds = %161, %.critedge.backedge
   %163 = call i32 @test_random() #13

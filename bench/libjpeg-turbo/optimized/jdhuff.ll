@@ -2303,8 +2303,8 @@ process_restart.exit.thread:                      ; preds = %._crit_edge.i, %39,
   %.48668.i = phi ptr [ %.41661.i, %780 ], [ %.34654.i, %783 ]
   %.18619.i = phi i32 [ %782, %780 ], [ %.15616.i, %783 ]
   %.48.i = phi i64 [ %.41.i, %780 ], [ %.34.i, %783 ]
-  %.3680.i = add i32 %.2679825.i, 1
-  %786 = add i32 %.3680.i, %698
+  %.3680.i = add nsw i32 %.2679825.i, 1
+  %786 = add nsw i32 %.3680.i, %698
   %787 = icmp slt i32 %786, 64
   br i1 %787, label %568, label %.thread790.i, !llvm.loop !115
 

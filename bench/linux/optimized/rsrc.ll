@@ -2978,37 +2978,37 @@ define internal fastcc ptr @io_alloc_page_table(i64 noundef range(i64 0, 3435973
   %8 = icmp eq i64 %0, 0
   br i1 %8, label %.loopexit, label %.preheader2
 
-.preheader2:                                      ; preds = %7, %.thread
-  %9 = phi i64 [ %21, %.thread ], [ 0, %7 ]
-  %10 = phi i64 [ %20, %.thread ], [ %0, %7 ]
-  %11 = tail call i64 @llvm.umin.i64(i64 %10, i64 4096)
-  %12 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %11, i32 noundef 4197824) #15
-  %13 = getelementptr ptr, ptr %5, i64 %9
-  store ptr %12, ptr %13, align 8
-  %14 = icmp eq ptr %12, null
-  br i1 %14, label %.preheader, label %.thread
+9:                                                ; preds = %.preheader2
+  %10 = sub i64 %14, %15
+  %11 = add nuw nsw i64 %13, 1
+  %12 = icmp eq i64 %11, %3
+  br i1 %12, label %.loopexit, label %.preheader2, !llvm.loop !63
+
+.preheader2:                                      ; preds = %7, %9
+  %13 = phi i64 [ %11, %9 ], [ 0, %7 ]
+  %14 = phi i64 [ %10, %9 ], [ %0, %7 ]
+  %15 = tail call i64 @llvm.umin.i64(i64 %14, i64 4096)
+  %16 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %15, i32 noundef 4197824) #15
+  %17 = getelementptr ptr, ptr %5, i64 %13
+  store ptr %16, ptr %17, align 8
+  %18 = icmp eq ptr %16, null
+  br i1 %18, label %.preheader, label %9
 
 .preheader:                                       ; preds = %.preheader2, %.preheader
-  %15 = phi i64 [ %18, %.preheader ], [ 0, %.preheader2 ]
-  %16 = getelementptr ptr, ptr %5, i64 %15
-  %17 = load ptr, ptr %16, align 8
-  tail call void @kfree(ptr noundef %17) #12
-  %18 = add nuw nsw i64 %15, 1
-  %19 = icmp eq i64 %18, %3
-  br i1 %19, label %23, label %.preheader, !llvm.loop !41
+  %19 = phi i64 [ %22, %.preheader ], [ 0, %.preheader2 ]
+  %20 = getelementptr ptr, ptr %5, i64 %19
+  %21 = load ptr, ptr %20, align 8
+  tail call void @kfree(ptr noundef %21) #12
+  %22 = add nuw nsw i64 %19, 1
+  %23 = icmp eq i64 %22, %3
+  br i1 %23, label %.thread, label %.preheader, !llvm.loop !41
 
-.thread:                                          ; preds = %.preheader2
-  %20 = sub i64 %10, %11
-  %21 = add nuw nsw i64 %9, 1
-  %22 = icmp eq i64 %21, %3
-  br i1 %22, label %.loopexit, label %.preheader2, !llvm.loop !63
-
-23:                                               ; preds = %.preheader
+.thread:                                          ; preds = %.preheader
   tail call void @kfree(ptr noundef nonnull %5) #12
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %23, %7, %1
-  %24 = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %23 ], [ %5, %.thread ]
+.loopexit:                                        ; preds = %9, %.thread, %7, %1
+  %24 = phi ptr [ null, %1 ], [ %5, %7 ], [ null, %.thread ], [ %5, %9 ]
   ret ptr %24
 }
 

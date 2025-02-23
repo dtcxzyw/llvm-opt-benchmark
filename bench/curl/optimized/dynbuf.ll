@@ -359,7 +359,7 @@ define dso_local range(i32 0, 101) i32 @curlx_dyn_vaddf(ptr noundef captures(non
 
 dyn_nappend.exit:                                 ; preds = %15, %.thread.i, %33
   %.0.i = phi i32 [ 100, %15 ], [ 0, %33 ], [ 27, %.thread.i ]
-  tail call void @free(ptr noundef %4) #16
+  tail call void @free(ptr noundef nonnull %4) #16
   br label %38
 
 36:                                               ; preds = %3

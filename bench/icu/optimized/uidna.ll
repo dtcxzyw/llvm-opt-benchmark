@@ -332,7 +332,7 @@ if.end124:                                        ; preds = %if.end121
 
 if.else127:                                       ; preds = %for.cond.i
   store i32 66564, ptr %status, align 4
-  call void @uprv_syntaxError_75(ptr noundef nonnull %b1.2, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
+  call void @uprv_syntaxError_75(ptr noundef %b1.2, i32 noundef 0, i32 noundef %b1Len.1, ptr noundef %parseError)
   br label %CLEANUP
 
 if.end129:                                        ; preds = %if.end124, %if.then99

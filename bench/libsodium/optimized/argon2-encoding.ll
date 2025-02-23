@@ -112,13 +112,13 @@ sub_0176:                                         ; preds = %decode_decimal.exit
   br i1 %.not194, label %sub_1177, label %.thread
 
 sub_1177:                                         ; preds = %sub_0176
-  %50 = getelementptr inbounds nuw i8, ptr %spec.select174, i64 1
+  %50 = getelementptr i8, ptr %.02540.i, i64 2
   %51 = load i8, ptr %50, align 1
   %.not195 = icmp eq i8 %51, 109
   br i1 %.not195, label %.tail175, label %.thread
 
 .tail175:                                         ; preds = %sub_1177
-  %52 = getelementptr inbounds nuw i8, ptr %spec.select174, i64 2
+  %52 = getelementptr i8, ptr %.02540.i, i64 3
   %53 = load i8, ptr %52, align 1
   %54 = icmp eq i8 %53, 61
   br i1 %54, label %55, label %.thread

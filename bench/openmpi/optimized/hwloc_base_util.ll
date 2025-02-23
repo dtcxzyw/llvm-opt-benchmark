@@ -1731,7 +1731,7 @@ prte_hwloc_base_get_obj_by_type.exit30.i:         ; preds = %62, %prte_hwloc_bas
   br i1 %exitcond.not.i, label %.loopexit.i, label %prte_hwloc_base_get_obj_by_type.exit30.i, !llvm.loop !85
 
 .loopexit.i:                                      ; preds = %prte_hwloc_base_get_obj_by_type.exit30.i, %62, %prte_hwloc_base_get_obj_by_type.exit.i
-  tail call void @PMIx_Argv_free(ptr noundef %52) #18
+  tail call void @PMIx_Argv_free(ptr noundef nonnull %52) #18
   br label %76
 
 76:                                               ; preds = %46, %.loopexit.i

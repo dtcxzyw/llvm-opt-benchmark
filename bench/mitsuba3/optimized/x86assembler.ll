@@ -195,10 +195,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 53:                                               ; preds = %49
   %54 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 5, ptr noundef null)
-  br label %6035
+  br label %6024
 
 55:                                               ; preds = %49
-  br i1 %32, label %6031, label %56, !prof !37
+  br i1 %32, label %6020, label %56, !prof !37
 
 56:                                               ; preds = %55
   br i1 %38, label %57, label %72, !prof !37
@@ -228,7 +228,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 70:                                               ; preds = %63
   %71 = icmp eq i32 %64, 0
-  br i1 %71, label %72, label %6031, !prof !39
+  br i1 %71, label %72, label %6020, !prof !39
 
 72:                                               ; preds = %70, %65, %56
   %73 = phi ptr [ %12, %70 ], [ %66, %65 ], [ %12, %56 ]
@@ -269,7 +269,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #11
   %95 = icmp eq i32 %94, 0
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8) #11
-  br i1 %95, label %96, label %6031
+  br i1 %95, label %96, label %6020
 
 96:                                               ; preds = %78, %72
   %97 = load i32, ptr %16, align 4
@@ -287,7 +287,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %107 = and i32 %102, 65536
   %108 = or i32 %107, %106
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %6031, label %110, !prof !37
+  br i1 %109, label %6020, label %110, !prof !37
 
 110:                                              ; preds = %105
   %111 = icmp eq i32 %106, 0
@@ -299,7 +299,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %115 = and i32 %102, 131072
   %116 = icmp eq i32 %115, 0
   %117 = select i1 %114, i1 %116, i1 false
-  br i1 %117, label %6031, label %118, !prof !50
+  br i1 %117, label %6020, label %118, !prof !50
 
 118:                                              ; preds = %112
   %119 = and i32 %45, 131072
@@ -307,7 +307,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %121 = and i32 %102, 262144
   %122 = icmp eq i32 %121, 0
   %123 = select i1 %120, i1 %122, i1 false
-  br i1 %123, label %6031, label %124, !prof !50
+  br i1 %123, label %6020, label %124, !prof !50
 
 124:                                              ; preds = %118
   %125 = select i1 %114, i8 -14, i8 -13
@@ -330,7 +330,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 134:                                              ; preds = %130
   %135 = and i32 %102, 16384
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %6031, label %137, !prof !37
+  br i1 %136, label %6020, label %137, !prof !37
 
 137:                                              ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -345,7 +345,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %145 = load i32, ptr %144, align 4
   %146 = icmp ne i32 %145, 1
   %147 = select i1 %143, i1 true, i1 %146
-  br i1 %147, label %6031, label %148, !prof !52
+  br i1 %147, label %6020, label %148, !prof !52
 
 148:                                              ; preds = %141, %137
   %149 = and i32 %45, 32768
@@ -370,8 +370,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %165 = or i32 %159, %164
   %166 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %167 = load i8, ptr %166, align 4, !tbaa !56
-  switch i8 %167, label %6031 [
-    i8 0, label %6006
+  switch i8 %167, label %6020 [
+    i8 0, label %5995
     i8 1, label %4159
     i8 2, label %176
     i8 3, label %179
@@ -412,7 +412,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
     i8 38, label %1162
     i8 39, label %1175
     i8 40, label %1196
-    i8 41, label %5726
+    i8 41, label %5715
     i8 42, label %1200
     i8 43, label %1248
     i8 44, label %1260
@@ -436,7 +436,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
     i8 61, label %2318
     i8 63, label %4377
     i8 64, label %2412
-    i8 65, label %5313
+    i8 65, label %5302
     i8 66, label %2437
     i8 67, label %2461
     i8 68, label %2465
@@ -463,8 +463,8 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
     i8 89, label %2916
     i8 90, label %2937
     i8 91, label %2960
-    i8 92, label %5328
-    i8 93, label %5354
+    i8 92, label %5317
+    i8 93, label %5343
     i8 94, label %2968
     i8 95, label %3006
     i8 96, label %3016
@@ -560,7 +560,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %180 = load i32, ptr %2, align 4, !tbaa !31
   %181 = and i32 %180, 7
   %182 = icmp eq i32 %181, 3
-  br i1 %182, label %183, label %6031
+  br i1 %182, label %183, label %6020
 
 183:                                              ; preds = %179
   %184 = lshr i32 %159, 13
@@ -574,7 +574,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %190 = load i32, ptr %2, align 4, !tbaa !31
   %191 = and i32 %190, 7
   %192 = icmp eq i32 %191, 1
-  br i1 %192, label %193, label %6031, !prof !35
+  br i1 %192, label %193, label %6020, !prof !35
 
 193:                                              ; preds = %189
   %194 = lshr i32 %190, 3
@@ -593,7 +593,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4159
 
 206:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %4159
     i32 1, label %207
   ]
@@ -602,10 +602,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !58
   %210 = icmp eq i32 %209, 0
-  br i1 %210, label %4159, label %6031
+  br i1 %210, label %4159, label %6020
 
 211:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %4159
     i32 9, label %212
   ]
@@ -618,10 +618,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %217 = load i32, ptr %216, align 4
   %218 = icmp eq i32 %217, 0
   %219 = select i1 %215, i1 %218, i1 false
-  br i1 %219, label %4159, label %6031
+  br i1 %219, label %4159, label %6020
 
 220:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %4159
     i32 2, label %221
   ]
@@ -638,10 +638,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %230 = load i32, ptr %229, align 4
   %231 = icmp eq i32 %230, 0
   %232 = select i1 %228, i1 %231, i1 false
-  br i1 %232, label %4303, label %6031
+  br i1 %232, label %4303, label %6020
 
 233:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 3, label %234
     i32 25, label %238
   ]
@@ -656,7 +656,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %239 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %240 = load i32, ptr %239, align 4, !tbaa !58
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %242, label %6031
+  br i1 %241, label %242, label %6020
 
 242:                                              ; preds = %238
   %243 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -688,7 +688,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %261 = phi i32 [ %165, %153 ], [ %165, %246 ], [ %259, %252 ]
   %262 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %263 = load i32, ptr %262, align 4, !tbaa !58
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %4377
     i32 2, label %4514
   ]
@@ -698,7 +698,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br i1 %265, label %266, label %329
 
 266:                                              ; preds = %264
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %267
     i32 17, label %269
     i32 73, label %303
@@ -721,13 +721,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %276 = load i32, ptr %275, align 4, !tbaa !58
   %277 = icmp eq i32 %276, 0
   %278 = and i1 %274, %277
-  br i1 %278, label %279, label %6031, !prof !35
+  br i1 %278, label %279, label %6020, !prof !35
 
 279:                                              ; preds = %271
   %280 = load i32, ptr %3, align 4, !tbaa !47
   %281 = and i32 %280, -16773369
   %282 = icmp eq i32 %281, 16777217
-  br i1 %282, label %283, label %6031, !prof !35
+  br i1 %282, label %283, label %6020, !prof !35
 
 283:                                              ; preds = %279
   %284 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -755,7 +755,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %300 = load i32, ptr %299, align 4, !tbaa !58
   %301 = icmp eq i32 %300, 0
   %302 = and i1 %298, %301
-  br i1 %302, label %4514, label %6031, !prof !35
+  br i1 %302, label %4514, label %6020, !prof !35
 
 303:                                              ; preds = %266
   %304 = load i32, ptr %2, align 4, !tbaa !31
@@ -763,7 +763,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %306 = load i32, ptr %3, align 4, !tbaa !31
   %307 = lshr i32 %306, 24
   %308 = icmp eq i32 %305, %307
-  br i1 %308, label %309, label %6031, !prof !35
+  br i1 %308, label %309, label %6020, !prof !35
 
 309:                                              ; preds = %303
   %310 = and i32 %305, 15
@@ -781,7 +781,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %320 = load i32, ptr %3, align 4, !tbaa !31
   %321 = lshr i32 %320, 24
   %322 = icmp eq i32 %319, %321
-  br i1 %322, label %323, label %6031, !prof !35
+  br i1 %322, label %323, label %6020, !prof !35
 
 323:                                              ; preds = %317
   %324 = and i32 %319, 15
@@ -792,7 +792,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 329:                                              ; preds = %264, %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %330
     i32 2, label %351
   ]
@@ -829,7 +829,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 351:                                              ; preds = %329
   %352 = load i32, ptr %2, align 4, !tbaa !31
   %353 = icmp ult i32 %352, 16777216
-  br i1 %353, label %6031, label %354, !prof !37
+  br i1 %353, label %6020, label %354, !prof !37
 
 354:                                              ; preds = %351
   %355 = lshr i32 %352, 24
@@ -841,7 +841,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 361:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 74, label %362
     i32 2, label %4514
   ]
@@ -854,7 +854,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %367 = load i32, ptr %366, align 4, !tbaa !58
   %368 = icmp eq i32 %367, 2
   %369 = and i1 %365, %368
-  br i1 %369, label %370, label %6031
+  br i1 %369, label %370, label %6020
 
 370:                                              ; preds = %362
   %371 = load i32, ptr %4, align 4, !tbaa !31
@@ -864,11 +864,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %375 = load i32, ptr %374, align 4, !tbaa !58
   %376 = icmp eq i32 %375, 0
   %377 = and i1 %373, %376
-  br i1 %377, label %4514, label %6031
+  br i1 %377, label %4514, label %6020
 
 378:                                              ; preds = %153
   %379 = icmp eq i32 %31, 2
-  br i1 %379, label %4514, label %6031
+  br i1 %379, label %4514, label %6020
 
 380:                                              ; preds = %153
   switch i32 %31, label %399 [
@@ -909,7 +909,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %406 = getelementptr inbounds nuw [16 x i32], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 0, i64 %405
   %407 = load i32, ptr %406, align 4, !tbaa !47
   %408 = or i32 %407, 287
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %409
     i32 10, label %4514
   ]
@@ -921,7 +921,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 412:                                              ; preds = %153
   %413 = icmp eq i32 %31, 2
-  br i1 %413, label %414, label %6031
+  br i1 %413, label %414, label %6020
 
 414:                                              ; preds = %412
   %415 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -943,10 +943,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %431 = and i32 %423, 2
   %432 = icmp ne i32 %431, 0
   %433 = select i1 %430, i1 true, i1 %432, !prof !37
-  br i1 %433, label %6031, label %4451, !prof !37
+  br i1 %433, label %6020, label %4451, !prof !37
 
 434:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %435
     i32 1, label %454
   ]
@@ -959,7 +959,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %440 = load i32, ptr %439, align 4, !tbaa !58
   %441 = icmp eq i32 %440, 2
   %442 = and i1 %438, %441
-  br i1 %442, label %443, label %6031
+  br i1 %442, label %443, label %6020
 
 443:                                              ; preds = %435
   %444 = load i32, ptr %4, align 4, !tbaa !31
@@ -969,7 +969,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %448 = load i32, ptr %447, align 4, !tbaa !58
   %449 = icmp eq i32 %448, 0
   %450 = and i1 %446, %449
-  br i1 %450, label %451, label %6031
+  br i1 %450, label %451, label %6020
 
 451:                                              ; preds = %443
   %452 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -980,7 +980,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %455 = load i32, ptr %2, align 4, !tbaa !31
   %456 = and i32 %455, -16773121
   %457 = icmp eq i32 %456, 67108913
-  br i1 %457, label %458, label %6031
+  br i1 %457, label %458, label %6020
 
 458:                                              ; preds = %454
   %459 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -989,7 +989,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 461:                                              ; preds = %153
   %462 = icmp eq i32 %31, 1
-  br i1 %462, label %463, label %6031
+  br i1 %462, label %463, label %6020
 
 463:                                              ; preds = %461
   %464 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1008,7 +1008,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 474:                                              ; preds = %466, %153
   %475 = phi i32 [ %165, %153 ], [ %473, %466 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %476
     i32 17, label %481
   ]
@@ -1026,7 +1026,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 484:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %485
     i32 17, label %499
   ]
@@ -1083,7 +1083,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 519:                                              ; preds = %511, %153
   %520 = phi i32 [ %165, %153 ], [ %518, %511 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %521
     i32 10, label %526
   ]
@@ -1101,7 +1101,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 529:                                              ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %530
     i32 17, label %577
     i32 10, label %599
@@ -1120,7 +1120,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %538 = load i32, ptr %3, align 4, !tbaa !31
   %539 = lshr i32 %538, 24
   %540 = icmp eq i32 %532, %539
-  br i1 %540, label %541, label %6031
+  br i1 %540, label %541, label %6020
 
 541:                                              ; preds = %530
   %542 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1287,10 +1287,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 648:                                              ; preds = %642
   %649 = add i64 %626, 2147483648
   %650 = icmp ult i64 %649, 4294967296
-  br i1 %650, label %661, label %6031
+  br i1 %650, label %661, label %6020
 
 651:                                              ; preds = %644
-  br i1 %645, label %661, label %6031
+  br i1 %645, label %661, label %6020
 
 652:                                              ; preds = %644
   br i1 %645, label %653, label %661
@@ -1361,7 +1361,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 702:                                              ; preds = %529
   %703 = load i32, ptr %2, align 4, !tbaa !31
   %704 = icmp ult i32 %703, 16777216
-  br i1 %704, label %6031, label %705, !prof !37
+  br i1 %704, label %6020, label %705, !prof !37
 
 705:                                              ; preds = %702
   %706 = lshr i32 %703, 24
@@ -1392,13 +1392,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 730:                                              ; preds = %153
   %731 = icmp eq i32 %31, 1
-  br i1 %731, label %732, label %6031
+  br i1 %731, label %732, label %6020
 
 732:                                              ; preds = %730
   %733 = load i32, ptr %2, align 4, !tbaa !31
   %734 = lshr i32 %733, 24
   %735 = icmp eq i32 %734, 1
-  br i1 %735, label %6031, label %736, !prof !37
+  br i1 %735, label %6020, label %736, !prof !37
 
 736:                                              ; preds = %732
   %737 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1459,7 +1459,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %781 = or i32 %780, %774
   %782 = lshr i32 %781, 18
   %783 = and i32 %782, 7
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 25, label %784
     i32 26, label %787
   ]
@@ -1471,10 +1471,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 787:                                              ; preds = %767
   %788 = icmp ult i32 %775, 16777216
-  br i1 %788, label %6031, label %4514, !prof !37
+  br i1 %788, label %6020, label %4514, !prof !37
 
 789:                                              ; preds = %153
-  switch i32 %31, label %5726 [
+  switch i32 %31, label %5715 [
     i32 1, label %790
     i32 2, label %4514
   ]
@@ -1496,11 +1496,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %800 = load i32, ptr %799, align 4
   %801 = icmp eq i32 %800, 0
   %802 = select i1 %798, i1 %801, i1 false
-  br i1 %802, label %803, label %6031
+  br i1 %802, label %803, label %6020
 
 803:                                              ; preds = %795, %793
   %804 = phi i32 [ %31, %793 ], [ %27, %795 ]
-  switch i32 %804, label %6031 [
+  switch i32 %804, label %6020 [
     i32 9, label %805
     i32 10, label %844
   ]
@@ -1511,7 +1511,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %808 = load i32, ptr %3, align 4, !tbaa !31
   %809 = lshr i32 %808, 24
   %810 = icmp eq i32 %807, %809
-  br i1 %810, label %811, label %6031
+  br i1 %810, label %811, label %6020
 
 811:                                              ; preds = %805
   %812 = and i32 %807, 15
@@ -1591,7 +1591,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 865:                                              ; preds = %153
   %866 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 74, label %867
     i32 2, label %4514
   ]
@@ -1600,13 +1600,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %868 = load i32, ptr %5, align 4, !tbaa !31
   %869 = and i32 %868, 7
   %870 = icmp eq i32 %869, 1
-  br i1 %870, label %871, label %6031
+  br i1 %870, label %871, label %6020
 
 871:                                              ; preds = %867
   %872 = load i32, ptr %866, align 4, !tbaa !31
   %873 = and i32 %872, 7
   %874 = icmp eq i32 %873, 1
-  br i1 %874, label %4514, label %6031
+  br i1 %874, label %4514, label %6020
 
 875:                                              ; preds = %153
   %876 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1616,7 +1616,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %880 = icmp eq i32 %879, 134217728
   %881 = select i1 %880, i32 134217728, i32 0
   %882 = or i32 %881, %165
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %883
     i32 17, label %904
   ]
@@ -1663,7 +1663,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %906 = lshr i32 %905, 24
   %907 = trunc nuw i32 %906 to i8
   switch i8 %907, label %911 [
-    i8 0, label %6031
+    i8 0, label %6020
     i8 2, label %908
   ]
 
@@ -1684,7 +1684,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 918:                                              ; preds = %153
   %919 = icmp eq i32 %31, 27
-  br i1 %919, label %920, label %6031
+  br i1 %919, label %920, label %6020
 
 920:                                              ; preds = %918
   %921 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1770,7 +1770,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 985:                                              ; preds = %980
   %986 = lshr i32 %984, 24
   %987 = icmp eq i32 %986, %982
-  br i1 %987, label %988, label %6031
+  br i1 %987, label %988, label %6020
 
 988:                                              ; preds = %985
   %989 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1831,7 +1831,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4377
 
 1038:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 25, label %1039
     i32 9, label %1060
   ]
@@ -1840,7 +1840,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1040 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %1041 = load i32, ptr %1040, align 4, !tbaa !58
   %1042 = icmp eq i32 %1041, 0
-  br i1 %1042, label %1043, label %6031, !prof !35
+  br i1 %1042, label %1043, label %6020, !prof !35
 
 1043:                                             ; preds = %1039
   %1044 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1869,7 +1869,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1065 = load i32, ptr %1064, align 4
   %1066 = icmp ne i32 %1065, 2
   %1067 = select i1 %1063, i1 true, i1 %1066
-  br i1 %1067, label %6031, label %1068, !prof !62
+  br i1 %1067, label %6020, label %1068, !prof !62
 
 1068:                                             ; preds = %1060
   %1069 = load i32, ptr %2, align 4, !tbaa !31
@@ -1884,7 +1884,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1077:                                             ; preds = %153
   %1078 = icmp eq i32 %31, 10
-  br i1 %1078, label %1079, label %6031
+  br i1 %1078, label %1079, label %6020
 
 1079:                                             ; preds = %1077
   %1080 = load i32, ptr %2, align 4, !tbaa !31
@@ -1894,7 +1894,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1084 = load i32, ptr %1083, align 4
   %1085 = icmp eq i32 %1084, 7
   %1086 = select i1 %1082, i1 %1085, i1 false
-  br i1 %1086, label %1087, label %6031, !prof !63
+  br i1 %1086, label %1087, label %6020, !prof !63
 
 1087:                                             ; preds = %1079
   %1088 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1907,11 +1907,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1095 = load i32, ptr %1094, align 4
   %1096 = icmp ne i32 %1095, 2
   %1097 = select i1 %1093, i1 true, i1 %1096
-  br i1 %1097, label %6031, label %1098, !prof !64
+  br i1 %1097, label %6020, label %1098, !prof !64
 
 1098:                                             ; preds = %1087
   %1099 = icmp ult i32 %1080, 16777216
-  br i1 %1099, label %6031, label %1100, !prof !37
+  br i1 %1099, label %6020, label %1100, !prof !37
 
 1100:                                             ; preds = %1098
   %1101 = lshr i32 %1080, 24
@@ -1924,7 +1924,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4303
 
 1108:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %1109
     i32 2, label %1147
   ]
@@ -1984,7 +1984,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1147:                                             ; preds = %1108
   %1148 = load i32, ptr %2, align 4, !tbaa !31
   %1149 = icmp ult i32 %1148, 16777216
-  br i1 %1149, label %6031, label %1150
+  br i1 %1149, label %6020, label %1150
 
 1150:                                             ; preds = %1147
   %1151 = lshr i32 %1148, 24
@@ -1997,7 +1997,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1157:                                             ; preds = %153
   %1158 = icmp eq i32 %31, 3
-  br i1 %1158, label %1159, label %6031
+  br i1 %1158, label %1159, label %6020
 
 1159:                                             ; preds = %1157
   %1160 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2007,14 +2007,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1162:                                             ; preds = %153
   %1163 = and i32 %45, 192
   %1164 = icmp eq i32 %1163, 0
-  br i1 %1164, label %5726, label %1165
+  br i1 %1164, label %5715, label %1165
 
 1165:                                             ; preds = %1162
   %1166 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1167 = load i32, ptr %1166, align 8, !tbaa !60
   %1168 = and i32 %1167, 16
   %1169 = icmp eq i32 %1168, 0
-  br i1 %1169, label %5726, label %1170
+  br i1 %1169, label %5715, label %1170
 
 1170:                                             ; preds = %1165
   %1171 = and i32 %45, 64
@@ -2022,13 +2022,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1173 = select i1 %1172, i8 46, i8 62
   store i8 %1173, ptr %154, align 1, !tbaa !51
   %1174 = getelementptr inbounds nuw i8, ptr %154, i64 1
-  br label %5726
+  br label %5715
 
 1175:                                             ; preds = %153
   %1176 = load i32, ptr %2, align 4, !tbaa !47
   %1177 = and i32 %1176, 7
   %1178 = icmp eq i32 %1177, 1
-  br i1 %1178, label %1179, label %5726
+  br i1 %1178, label %1179, label %5715
 
 1179:                                             ; preds = %1175
   %1180 = and i32 %1176, 3841
@@ -2037,7 +2037,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1183 = load i32, ptr %1182, align 4, !tbaa !58
   %1184 = icmp eq i32 %1183, 1
   %1185 = and i1 %1181, %1184
-  br i1 %1185, label %1186, label %6031, !prof !35
+  br i1 %1185, label %1186, label %6020, !prof !35
 
 1186:                                             ; preds = %1179
   %1187 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2050,10 +2050,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 103, ptr %154, align 1, !tbaa !51
   %1194 = zext i1 %1193 to i64
   %1195 = getelementptr inbounds nuw i8, ptr %154, i64 %1194
-  br label %5726
+  br label %5715
 
 1196:                                             ; preds = %153
-  switch i32 %31, label %5726 [
+  switch i32 %31, label %5715 [
     i32 1, label %1197
     i32 2, label %4514
   ]
@@ -2064,7 +2064,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4377
 
 1200:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 2, label %1201
     i32 27, label %1227
   ]
@@ -2098,7 +2098,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1218 = icmp eq i8 %1217, 0
   %1219 = select i1 %1218, i32 8, i32 4
   %1220 = icmp eq i32 %1212, %1219
-  br i1 %1220, label %1221, label %6031
+  br i1 %1220, label %1221, label %6020
 
 1221:                                             ; preds = %1214, %1210, %1210, %1204
   %1222 = phi i32 [ %1209, %1204 ], [ %1212, %1214 ], [ %1212, %1210 ], [ %1212, %1210 ]
@@ -2113,19 +2113,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1229 = load i8, ptr %1228, align 8, !tbaa !42
   %1230 = and i8 %1229, 1
   %1231 = icmp eq i8 %1230, 0
-  br i1 %1231, label %6031, label %1232
+  br i1 %1231, label %6020, label %1232
 
 1232:                                             ; preds = %1227
   %1233 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %1234 = load i64, ptr %1233, align 4
   %1235 = icmp sgt i64 %1234, 65535
-  br i1 %1235, label %6031, label %1236
+  br i1 %1235, label %6020, label %1236
 
 1236:                                             ; preds = %1232
   %1237 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1238 = load i64, ptr %1237, align 4
   %1239 = icmp sgt i64 %1238, 4294967295
-  br i1 %1239, label %6031, label %1240
+  br i1 %1239, label %6020, label %1240
 
 1240:                                             ; preds = %1236
   %1241 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -2139,7 +2139,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1248:                                             ; preds = %153
   %1249 = icmp eq i32 %31, 17
-  br i1 %1249, label %1250, label %6031
+  br i1 %1249, label %1250, label %6020
 
 1250:                                             ; preds = %1248
   %1251 = load i32, ptr %2, align 4, !tbaa !31
@@ -2154,7 +2154,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 1260:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %1261
     i32 17, label %1360
     i32 10, label %1477
@@ -2182,7 +2182,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1274 = lshr i32 %1262, 24
   %1275 = lshr i32 %1269, 24
   %1276 = icmp eq i32 %1274, %1275
-  br i1 %1276, label %1277, label %6031
+  br i1 %1276, label %1277, label %6020
 
 1277:                                             ; preds = %1273
   %1278 = icmp eq i32 %1275, 1
@@ -2248,7 +2248,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1317:                                             ; preds = %1272
   %1318 = and i32 %1269, -16773121
-  switch i32 %1318, label %6031 [
+  switch i32 %1318, label %6020 [
     i32 33555865, label %1319
     i32 1697, label %1327
     i32 1961, label %4377
@@ -2283,11 +2283,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4377
 
 1338:                                             ; preds = %1261
-  br i1 %1271, label %1339, label %6031
+  br i1 %1271, label %1339, label %6020
 
 1339:                                             ; preds = %1338
   %1340 = and i32 %1262, -16773121
-  switch i32 %1340, label %6031 [
+  switch i32 %1340, label %6020 [
     i32 33555865, label %1341
     i32 1697, label %1349
     i32 1961, label %4377
@@ -2697,7 +2697,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1641:                                             ; preds = %1260
   %1642 = load i32, ptr %2, align 4, !tbaa !31
   %1643 = icmp ult i32 %1642, 16777216
-  br i1 %1643, label %6031, label %1644, !prof !37
+  br i1 %1643, label %6020, label %1644, !prof !37
 
 1644:                                             ; preds = %1641
   %1645 = lshr i32 %1642, 24
@@ -2715,7 +2715,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 1657:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 17, label %1658
     i32 10, label %1688
     i32 25, label %1715
@@ -2735,7 +2735,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1669 = icmp eq i32 %1668, 0
   %1670 = icmp eq i32 %1660, 0
   %1671 = select i1 %1669, i1 %1670, i1 false
-  br i1 %1671, label %1672, label %6031, !prof !86
+  br i1 %1671, label %1672, label %6020, !prof !86
 
 1672:                                             ; preds = %1658
   %1673 = load i32, ptr %3, align 4, !tbaa !31
@@ -2744,7 +2744,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1676 = and i32 %1673, 49152
   %1677 = icmp eq i32 %1676, 32768
   %1678 = or i1 %1675, %1677
-  br i1 %1678, label %6031, label %1679, !prof !62
+  br i1 %1678, label %6020, label %1679, !prof !62
 
 1679:                                             ; preds = %1672
   %1680 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2771,13 +2771,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1699 = icmp eq i32 %1698, 0
   %1700 = icmp eq i32 %1690, 0
   %1701 = select i1 %1699, i1 %1700, i1 false
-  br i1 %1701, label %1702, label %6031, !prof !86
+  br i1 %1701, label %1702, label %6020, !prof !86
 
 1702:                                             ; preds = %1688
   %1703 = load i32, ptr %2, align 4, !tbaa !31
   %1704 = and i32 %1703, 8184
   %1705 = icmp eq i32 %1704, 0
-  br i1 %1705, label %1706, label %6031, !prof !35
+  br i1 %1705, label %1706, label %6020, !prof !35
 
 1706:                                             ; preds = %1702
   %1707 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -2794,7 +2794,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1716 = load i32, ptr %2, align 4, !tbaa !31
   %1717 = and i32 %1716, -16773121
   %1718 = icmp eq i32 %1717, 134217785
-  br i1 %1718, label %1719, label %6031, !prof !35
+  br i1 %1718, label %1719, label %6020, !prof !35
 
 1719:                                             ; preds = %1715
   %1720 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2816,7 +2816,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1734 = getelementptr inbounds nuw [16 x i32], ptr @_ZZN6asmjit9_abi_1_103x866Opcode15addPrefixBySizeIjEERS2_T_E4mask, i64 0, i64 %1733
   %1735 = load i32, ptr %1734, align 4, !tbaa !47
   %1736 = or i32 %1729, %1735
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %1737
     i32 17, label %1753
   ]
@@ -2852,7 +2852,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1756:                                             ; preds = %153
   %1757 = icmp eq i32 %31, 10
-  br i1 %1757, label %1758, label %6031
+  br i1 %1757, label %1758, label %6020
 
 1758:                                             ; preds = %1756
   %1759 = load i32, ptr %3, align 4, !tbaa !31
@@ -2866,7 +2866,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1766:                                             ; preds = %153
   %1767 = icmp eq i32 %31, 18
-  br i1 %1767, label %1768, label %6031
+  br i1 %1767, label %1768, label %6020
 
 1768:                                             ; preds = %1766
   %1769 = load i32, ptr %2, align 4, !tbaa !31
@@ -2876,7 +2876,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1773 = and i32 %1769, 7936
   %1774 = or disjoint i32 %1772, %1773
   %1775 = icmp eq i32 %1774, 0
-  br i1 %1775, label %1776, label %6031, !prof !87
+  br i1 %1775, label %1776, label %6020, !prof !87
 
 1776:                                             ; preds = %1768
   %1777 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -2890,10 +2890,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1785 = or i32 %1778, %1784
   %1786 = or i32 %1785, %1783
   %1787 = icmp eq i32 %1786, 0
-  br i1 %1787, label %4514, label %6031, !prof !88
+  br i1 %1787, label %4514, label %6020, !prof !88
 
 1788:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 11, label %1789
     i32 9, label %1810
   ]
@@ -2902,7 +2902,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1790 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %1791 = load i32, ptr %1790, align 4, !tbaa !58
   %1792 = icmp eq i32 %1791, 0
-  br i1 %1792, label %1793, label %6031, !prof !35
+  br i1 %1792, label %1793, label %6020, !prof !35
 
 1793:                                             ; preds = %1789
   %1794 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -2931,7 +2931,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1815 = load i32, ptr %1814, align 4
   %1816 = icmp ne i32 %1815, 0
   %1817 = select i1 %1813, i1 true, i1 %1816
-  br i1 %1817, label %6031, label %1818, !prof !62
+  br i1 %1817, label %6020, label %1818, !prof !62
 
 1818:                                             ; preds = %1810
   %1819 = load i32, ptr %3, align 4, !tbaa !31
@@ -2950,7 +2950,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1830 = load i32, ptr %1829, align 4
   %1831 = icmp eq i32 %1830, 2
   %1832 = select i1 %1828, i1 %1831, i1 false
-  br i1 %1832, label %1833, label %6031, !prof !86
+  br i1 %1832, label %1833, label %6020, !prof !86
 
 1833:                                             ; preds = %1827
   %1834 = load i32, ptr %3, align 4, !tbaa !31
@@ -2960,7 +2960,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1838 = load i32, ptr %1837, align 4
   %1839 = icmp eq i32 %1838, 6
   %1840 = select i1 %1836, i1 %1839, i1 false
-  br i1 %1840, label %1841, label %6031
+  br i1 %1840, label %1841, label %6020
 
 1841:                                             ; preds = %1833
   %1842 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -2969,11 +2969,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1845 = icmp ne i32 %1844, 0
   %1846 = icmp eq i32 %1843, 0
   %1847 = and i1 %1845, %1846
-  br i1 %1847, label %1848, label %6031, !prof !89
+  br i1 %1847, label %1848, label %6020, !prof !89
 
 1848:                                             ; preds = %1841
   %1849 = icmp ult i32 %1834, 16777216
-  br i1 %1849, label %6031, label %1850, !prof !37
+  br i1 %1849, label %6020, label %1850, !prof !37
 
 1850:                                             ; preds = %1848
   %1851 = lshr i32 %1834, 24
@@ -2986,7 +2986,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4303
 
 1858:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %1859
     i32 3, label %1871
     i32 2, label %1911
@@ -3002,7 +3002,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1864 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %1865 = load i32, ptr %1864, align 4, !tbaa !58
   %1866 = icmp ugt i32 %1865, 6
-  br i1 %1866, label %6031, label %1867, !prof !37
+  br i1 %1866, label %6020, label %1867, !prof !37
 
 1867:                                             ; preds = %1863
   %1868 = zext nneg i32 %1865 to i64
@@ -3025,7 +3025,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4159
 
 1881:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %1882
     i32 2, label %1911
   ]
@@ -3042,7 +3042,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1889 = icmp eq i32 %1888, 2
   %1890 = icmp ugt i32 %1888, 6
   %1891 = or i1 %1889, %1890
-  br i1 %1891, label %6031, label %1892, !prof !37
+  br i1 %1891, label %6020, label %1892, !prof !37
 
 1892:                                             ; preds = %1886
   %1893 = zext nneg i32 %1888 to i64
@@ -3053,7 +3053,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1896:                                             ; preds = %1882, %1859
   %1897 = phi i32 [ %1883, %1882 ], [ %1860, %1859 ]
   %1898 = icmp ult i32 %1897, 33554432
-  br i1 %1898, label %6031, label %1899, !prof !37
+  br i1 %1898, label %6020, label %1899, !prof !37
 
 1899:                                             ; preds = %1896
   %1900 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -3073,7 +3073,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1912 = load i32, ptr %2, align 4, !tbaa !31
   %1913 = lshr i32 %1912, 24
   %1914 = icmp ult i32 %1912, 16777216
-  br i1 %1914, label %6031, label %1915, !prof !37
+  br i1 %1914, label %6020, label %1915, !prof !37
 
 1915:                                             ; preds = %1911
   %1916 = icmp eq i32 %1913, 2
@@ -3086,7 +3086,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1921 = icmp eq i8 %1920, 0
   %1922 = select i1 %1921, i32 8, i32 4
   %1923 = icmp eq i32 %1913, %1922
-  br i1 %1923, label %1924, label %6031, !prof !35
+  br i1 %1923, label %1924, label %6020, !prof !35
 
 1924:                                             ; preds = %1917, %1915
   %1925 = phi i32 [ 2097152, %1915 ], [ 0, %1917 ]
@@ -3094,7 +3094,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 1927:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %1928
     i32 3, label %1930
   ]
@@ -3155,7 +3155,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 1965:                                             ; preds = %1962, %1958, %1945
   %1966 = phi i32 [ %1964, %1962 ], [ %1953, %1958 ], [ %1953, %1945 ]
   %1967 = phi i32 [ %1963, %1962 ], [ %1961, %1958 ], [ %46, %1945 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %1968
     i32 25, label %1974
   ]
@@ -3164,7 +3164,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1969 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %1970 = load i32, ptr %1969, align 4, !tbaa !58
   %1971 = icmp eq i32 %1970, 1
-  br i1 %1971, label %1972, label %6031, !prof !35
+  br i1 %1971, label %1972, label %6020, !prof !35
 
 1972:                                             ; preds = %1968
   %1973 = add i32 %1951, 2
@@ -3186,7 +3186,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 1984:                                             ; preds = %1941
   %1985 = icmp ult i32 %1942, 16777216
-  br i1 %1985, label %6031, label %1986, !prof !37
+  br i1 %1985, label %6020, label %1986, !prof !37
 
 1986:                                             ; preds = %1984
   %1987 = lshr i32 %1942, 24
@@ -3195,7 +3195,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1990 = getelementptr inbounds nuw [16 x i32], ptr @_ZZN6asmjit9_abi_1_103x866Opcode14addArithBySizeIjEERS2_T_E4mask, i64 0, i64 %1989
   %1991 = load i32, ptr %1990, align 4, !tbaa !47
   %1992 = or i32 %1991, %165
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 10, label %1993
     i32 26, label %1999
   ]
@@ -3204,7 +3204,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %1994 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %1995 = load i32, ptr %1994, align 4, !tbaa !58
   %1996 = icmp eq i32 %1995, 1
-  br i1 %1996, label %1997, label %6031, !prof !35
+  br i1 %1996, label %1997, label %6020, !prof !35
 
 1997:                                             ; preds = %1993
   %1998 = add i32 %1992, 2
@@ -3225,7 +3225,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2009:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %2010
     i32 2, label %4514
   ]
@@ -3287,7 +3287,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 2050:                                             ; preds = %2023
   %2051 = add i32 %165, 1
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %2052
     i32 74, label %2068
   ]
@@ -3296,7 +3296,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2053 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %2054 = load i32, ptr %2053, align 4, !tbaa !58
   %2055 = icmp eq i32 %2054, 1
-  br i1 %2055, label %2056, label %6031, !prof !35
+  br i1 %2055, label %2056, label %6020, !prof !35
 
 2056:                                             ; preds = %2052
   %2057 = load i32, ptr %2, align 4, !tbaa !31
@@ -3316,7 +3316,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2069 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %2070 = load i32, ptr %2069, align 4, !tbaa !58
   %2071 = icmp eq i32 %2070, 1
-  br i1 %2071, label %2072, label %6031, !prof !35
+  br i1 %2071, label %2072, label %6020, !prof !35
 
 2072:                                             ; preds = %2068
   %2073 = load i32, ptr %3, align 4, !tbaa !31
@@ -3336,7 +3336,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2085 = load i32, ptr %2084, align 4
   %2086 = icmp eq i32 %2085, 0
   %2087 = select i1 %2083, i1 %2086, i1 false
-  br i1 %2087, label %2088, label %6031, !prof !86
+  br i1 %2087, label %2088, label %6020, !prof !86
 
 2088:                                             ; preds = %2082
   %2089 = load i32, ptr %2, align 4, !tbaa !47
@@ -3346,7 +3346,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2093 = load i32, ptr %2092, align 4, !tbaa !58
   %2094 = icmp ne i32 %2093, 0
   %2095 = or i1 %2091, %2094
-  br i1 %2095, label %6031, label %2096, !prof !37
+  br i1 %2095, label %6020, label %2096, !prof !37
 
 2096:                                             ; preds = %2088
   %2097 = lshr i32 %2089, 24
@@ -3355,7 +3355,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2100 = lshr i32 %2098, 24
   %2101 = icmp eq i32 %2100, %2097
   %2102 = or i1 %2099, %2101
-  br i1 %2102, label %2103, label %6031, !prof !90
+  br i1 %2102, label %2103, label %6020, !prof !90
 
 2103:                                             ; preds = %2096
   %2104 = and i32 %2097, 15
@@ -3371,7 +3371,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2112 = load i32, ptr %2111, align 4
   %2113 = icmp eq i32 %2112, 0
   %2114 = select i1 %2110, i1 %2113, i1 false
-  br i1 %2114, label %2115, label %6031, !prof !86
+  br i1 %2114, label %2115, label %6020, !prof !86
 
 2115:                                             ; preds = %2109
   %2116 = load i32, ptr %3, align 4, !tbaa !47
@@ -3381,7 +3381,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2120 = load i32, ptr %2119, align 4, !tbaa !58
   %2121 = icmp ne i32 %2120, 0
   %2122 = or i1 %2118, %2121
-  br i1 %2122, label %6031, label %2123, !prof !37
+  br i1 %2122, label %6020, label %2123, !prof !37
 
 2123:                                             ; preds = %2115
   %2124 = lshr i32 %2116, 24
@@ -3390,7 +3390,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2127 = lshr i32 %2125, 24
   %2128 = icmp eq i32 %2127, %2124
   %2129 = or i1 %2126, %2128
-  br i1 %2129, label %2130, label %6031, !prof !90
+  br i1 %2129, label %2130, label %6020, !prof !90
 
 2130:                                             ; preds = %2123
   %2131 = and i32 %2124, 15
@@ -3402,7 +3402,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 2136:                                             ; preds = %153
   %2137 = icmp eq i32 %31, 18
-  br i1 %2137, label %2138, label %6031
+  br i1 %2137, label %2138, label %6020
 
 2138:                                             ; preds = %2136
   %2139 = load i32, ptr %2, align 4, !tbaa !31
@@ -3410,7 +3410,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2141 = xor i32 %2140, %2139
   %2142 = and i32 %2141, 8184
   %2143 = icmp eq i32 %2142, 0
-  br i1 %2143, label %2144, label %6031, !prof !35
+  br i1 %2143, label %2144, label %6020, !prof !35
 
 2144:                                             ; preds = %2138
   %2145 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -3422,17 +3422,17 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2151 = select i1 %2150, i32 %2148, i32 0
   %2152 = or i32 %2151, %2146
   %2153 = icmp eq i32 %2152, 0
-  br i1 %2153, label %2154, label %6031, !prof !35
+  br i1 %2153, label %2154, label %6020, !prof !35
 
 2154:                                             ; preds = %2144
   %2155 = lshr i32 %2140, 24
   %2156 = icmp ult i32 %2140, 16777216
-  br i1 %2156, label %6031, label %2157, !prof !37
+  br i1 %2156, label %6020, label %2157, !prof !37
 
 2157:                                             ; preds = %2154
   %2158 = lshr i32 %2139, 24
   %2159 = icmp eq i32 %2158, %2155
-  br i1 %2159, label %2160, label %6031, !prof !35
+  br i1 %2159, label %2160, label %6020, !prof !35
 
 2160:                                             ; preds = %2157
   %2161 = and i32 %2155, 15
@@ -3456,7 +3456,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2172 = load i32, ptr %3, align 4, !tbaa !31
   %2173 = lshr i32 %2172, 24
   %2174 = icmp eq i32 %2171, %2173
-  br i1 %2174, label %2175, label %6031
+  br i1 %2174, label %2175, label %6020
 
 2175:                                             ; preds = %2169
   %2176 = and i32 %2171, 15
@@ -3542,7 +3542,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2234 = load i32, ptr %2233, align 4, !tbaa !47
   %2235 = lshr i32 %2234, 18
   %2236 = and i32 %2235, 7
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 25, label %2237
     i32 26, label %2282
   ]
@@ -3613,7 +3613,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2282:                                             ; preds = %2229
   %2283 = load i32, ptr %2, align 4, !tbaa !31
   %2284 = icmp ult i32 %2283, 16777216
-  br i1 %2284, label %6031, label %2285, !prof !37
+  br i1 %2284, label %6020, label %2285, !prof !37
 
 2285:                                             ; preds = %2282
   %2286 = lshr i32 %2283, 24
@@ -3629,7 +3629,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2296:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 17, label %2297
     i32 9, label %2319
     i32 10, label %2391
@@ -3665,7 +3665,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2318:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2319
     i32 10, label %2391
   ]
@@ -3680,7 +3680,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2326 = load i32, ptr %3, align 4, !tbaa !31
   %2327 = lshr i32 %2326, 24
   %2328 = icmp eq i32 %2325, %2327
-  br i1 %2328, label %2329, label %6031
+  br i1 %2328, label %2329, label %6020
 
 2329:                                             ; preds = %2319
   %2330 = icmp eq i32 %2325, 1
@@ -3806,7 +3806,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2412:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2413
     i32 17, label %2426
     i32 10, label %2429
@@ -3845,7 +3845,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2437:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2438
     i32 2, label %2456
   ]
@@ -3864,17 +3864,17 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2447 = and i32 %2446, 255
   %2448 = or disjoint i32 %2447, 221184
   %2449 = add i32 %2448, %2445
-  br label %5313
+  br label %5302
 
 2450:                                             ; preds = %2438
   %2451 = icmp eq i32 %2442, 0
-  br i1 %2451, label %2452, label %6031
+  br i1 %2451, label %2452, label %6020
 
 2452:                                             ; preds = %2450
   %2453 = and i32 %165, 255
   %2454 = or disjoint i32 %2453, 225280
   %2455 = add i32 %2454, %2440
-  br label %5313
+  br label %5302
 
 2456:                                             ; preds = %2461, %2437
   %2457 = load i32, ptr %2, align 4, !tbaa !31
@@ -3884,7 +3884,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2461:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %2444
     i32 1, label %2462
     i32 2, label %2456
@@ -3896,7 +3896,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %2444
 
 2465:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 2, label %2466
     i32 1, label %2492
   ]
@@ -3905,7 +3905,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2467 = load i32, ptr %2, align 4, !tbaa !31
   %2468 = lshr i32 %2467, 24
   %2469 = trunc nuw i32 %2468 to i8
-  switch i8 %2469, label %6031 [
+  switch i8 %2469, label %6020 [
     i8 4, label %2470
     i8 8, label %2474
     i8 10, label %2480
@@ -3915,13 +3915,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2471 = load i32, ptr %21, align 4, !tbaa !48
   %2472 = and i32 %2471, 4096
   %2473 = icmp eq i32 %2472, 0
-  br i1 %2473, label %6031, label %4514
+  br i1 %2473, label %6020, label %4514
 
 2474:                                             ; preds = %2466
   %2475 = load i32, ptr %21, align 4, !tbaa !48
   %2476 = and i32 %2475, 8192
   %2477 = icmp eq i32 %2476, 0
-  br i1 %2477, label %6031, label %2478
+  br i1 %2477, label %6020, label %2478
 
 2478:                                             ; preds = %2474
   %2479 = add i32 %165, 4
@@ -3931,7 +3931,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2481 = load i32, ptr %21, align 4, !tbaa !48
   %2482 = and i32 %2481, 2048
   %2483 = icmp eq i32 %2482, 0
-  br i1 %2483, label %6031, label %2484
+  br i1 %2483, label %6020, label %2484
 
 2484:                                             ; preds = %2480
   %2485 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -3944,7 +3944,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2492:                                             ; preds = %2465
-  switch i32 %1, label %6031 [
+  switch i32 %1, label %6020 [
     i32 206, label %2493
     i32 236, label %2497
     i32 239, label %2501
@@ -3954,30 +3954,30 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2494 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2495 = load i32, ptr %2494, align 4, !tbaa !58
   %2496 = add i32 %2495, 222400
-  br label %5313
+  br label %5302
 
 2497:                                             ; preds = %2492
   %2498 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2499 = load i32, ptr %2498, align 4, !tbaa !58
   %2500 = add i32 %2499, 226512
-  br label %5313
+  br label %5302
 
 2501:                                             ; preds = %2492
   %2502 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2503 = load i32, ptr %2502, align 4, !tbaa !58
   %2504 = add i32 %2503, 226520
-  br label %5313
+  br label %5302
 
 2505:                                             ; preds = %153
   %2506 = icmp eq i32 %31, 2
-  br i1 %2506, label %2507, label %6031
+  br i1 %2506, label %2507, label %6020
 
 2507:                                             ; preds = %2505
   %2508 = and i32 %165, -57345
   %2509 = load i32, ptr %2, align 4, !tbaa !31
   %2510 = lshr i32 %2509, 24
   %2511 = trunc nuw i32 %2510 to i8
-  switch i8 %2511, label %6031 [
+  switch i8 %2511, label %6020 [
     i8 2, label %2512
     i8 4, label %2518
     i8 8, label %2522
@@ -3987,7 +3987,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2513 = load i32, ptr %21, align 4, !tbaa !48
   %2514 = and i32 %2513, 2048
   %2515 = icmp eq i32 %2514, 0
-  br i1 %2515, label %6031, label %2516
+  br i1 %2515, label %6020, label %2516
 
 2516:                                             ; preds = %2512
   %2517 = add nuw nsw i32 %2508, 4
@@ -3997,13 +3997,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2519 = load i32, ptr %21, align 4, !tbaa !48
   %2520 = and i32 %2519, 4096
   %2521 = icmp eq i32 %2520, 0
-  br i1 %2521, label %6031, label %4514
+  br i1 %2521, label %6020, label %4514
 
 2522:                                             ; preds = %2507
   %2523 = load i32, ptr %21, align 4, !tbaa !48
   %2524 = and i32 %2523, 8192
   %2525 = icmp eq i32 %2524, 0
-  br i1 %2525, label %6031, label %2526
+  br i1 %2525, label %6020, label %2526
 
 2526:                                             ; preds = %2522
   %2527 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -4017,27 +4017,27 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2535:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 0, label %2536
     i32 1, label %2540
   ]
 
 2536:                                             ; preds = %2535
   %2537 = add i32 %165, 1
-  br label %5313
+  br label %5302
 
 2538:                                             ; preds = %153
   %2539 = icmp eq i32 %31, 1
-  br i1 %2539, label %2540, label %6031
+  br i1 %2539, label %2540, label %6020
 
 2540:                                             ; preds = %2538, %2535
   %2541 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2542 = load i32, ptr %2541, align 4, !tbaa !58
   %2543 = add i32 %2542, %165
-  br label %5313
+  br label %5302
 
 2544:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 1, label %2545
     i32 2, label %2555
   ]
@@ -4046,7 +4046,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2546 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2547 = load i32, ptr %2546, align 4, !tbaa !58
   %2548 = icmp eq i32 %2547, 0
-  br i1 %2548, label %2549, label %6031, !prof !35
+  br i1 %2548, label %2549, label %6020, !prof !35
 
 2549:                                             ; preds = %2545
   %2550 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -4054,14 +4054,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2552 = zext i8 %2551 to i64
   %2553 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %2552
   %2554 = load i32, ptr %2553, align 4, !tbaa !47
-  br label %5313
+  br label %5302
 
 2555:                                             ; preds = %2544
   %2556 = and i32 %165, -57345
   br label %4514
 
 2557:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %2558
     i32 202, label %2570
   ]
@@ -4098,7 +4098,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2585:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %2586
     i32 202, label %2598
   ]
@@ -4130,7 +4130,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2608:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2609
     i32 17, label %2624
     i32 10, label %2627
@@ -4180,7 +4180,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2638 = load i32, ptr %2, align 4, !tbaa !31
   %2639 = lshr i32 %2638, 24
   %2640 = icmp eq i32 %2639, 1
-  br i1 %2640, label %6031, label %2641
+  br i1 %2640, label %6020, label %2641
 
 2641:                                             ; preds = %2637
   %2642 = and i32 %2639, 15
@@ -4199,13 +4199,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2653 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %2652
   %2654 = load i32, ptr %2653, align 4, !tbaa !47
   %2655 = icmp eq i32 %31, 10
-  br i1 %2655, label %2656, label %6031
+  br i1 %2655, label %2656, label %6020
 
 2656:                                             ; preds = %2649
   %2657 = load i32, ptr %3, align 4, !tbaa !31
   %2658 = lshr i32 %2657, 24
   %2659 = icmp eq i32 %2658, 1
-  br i1 %2659, label %6031, label %2660
+  br i1 %2659, label %6020, label %2660
 
 2660:                                             ; preds = %2656
   %2661 = and i32 %2658, 15
@@ -4268,11 +4268,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2704:                                             ; preds = %2689
   %2705 = and i32 %2672, 3847
   %2706 = icmp eq i32 %2705, 1
-  br i1 %2706, label %4377, label %6031
+  br i1 %2706, label %4377, label %6020
 
 2707:                                             ; preds = %2689
   %2708 = icmp eq i32 %31, 10
-  br i1 %2708, label %4514, label %6031
+  br i1 %2708, label %4514, label %6020
 
 2709:                                             ; preds = %153
   switch i32 %31, label %2743 [
@@ -4357,7 +4357,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2752 = load i32, ptr %2751, align 4, !tbaa !58
   %2753 = icmp ne i32 %2752, 0
   %2754 = or i1 %2750, %2753
-  br i1 %2754, label %6031, label %2785, !prof !37
+  br i1 %2754, label %6020, label %2785, !prof !37
 
 2755:                                             ; preds = %153
   %2756 = load i32, ptr %4, align 4, !tbaa !31
@@ -4371,7 +4371,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2762 = load i32, ptr %2761, align 4
   %2763 = icmp eq i32 %2762, 7
   %2764 = select i1 %2760, i1 %2763, i1 false
-  br i1 %2764, label %2765, label %6031
+  br i1 %2764, label %2765, label %6020
 
 2765:                                             ; preds = %2758
   %2766 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -4380,7 +4380,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2769 = icmp ne i32 %2768, 0
   %2770 = icmp eq i32 %2767, 0
   %2771 = and i1 %2769, %2770
-  br i1 %2771, label %2785, label %6031, !prof !89
+  br i1 %2771, label %2785, label %6020, !prof !89
 
 2772:                                             ; preds = %153
   %2773 = load i32, ptr %3, align 4, !tbaa !31
@@ -4402,7 +4402,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2785:                                             ; preds = %2778, %2765, %2755, %2748, %2745, %153
   %2786 = phi i32 [ %165, %153 ], [ %2784, %2778 ], [ %165, %2745 ], [ %165, %2748 ], [ %165, %2755 ], [ %165, %2765 ]
   %2787 = phi i32 [ %31, %153 ], [ %31, %2778 ], [ %27, %2745 ], [ %27, %2748 ], [ %27, %2755 ], [ %27, %2765 ]
-  switch i32 %2787, label %6031 [
+  switch i32 %2787, label %6020 [
     i32 9, label %2788
     i32 17, label %2793
   ]
@@ -4420,7 +4420,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2796:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2797
     i32 17, label %2811
   ]
@@ -4452,7 +4452,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4514
 
 2819:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2820
     i32 17, label %2825
     i32 25, label %2828
@@ -4485,7 +4485,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4377
 
 2840:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2841
     i32 17, label %2855
     i32 25, label %2863
@@ -4539,7 +4539,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2880:                                             ; preds = %153
   %2881 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %2882 = load i64, ptr %2881, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %2883
     i32 209, label %2888
   ]
@@ -4559,7 +4559,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 2891:                                             ; preds = %153
   %2892 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %2893 = load i64, ptr %2892, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %2894
     i32 209, label %2908
   ]
@@ -4595,7 +4595,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2918 = load i32, ptr %2917, align 4, !tbaa !58
   %2919 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %2920 = load i32, ptr %2919, align 4, !tbaa !58
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %4377
     i32 217, label %2921
   ]
@@ -4627,7 +4627,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2943 = load i32, ptr %2942, align 4, !tbaa !58
   %2944 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %2945 = load i32, ptr %2944, align 4, !tbaa !58
-  switch i32 %2941, label %6031 [
+  switch i32 %2941, label %6020 [
     i32 9, label %4377
     i32 1737, label %2946
   ]
@@ -4653,7 +4653,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2962 = zext nneg i32 %2961 to i64
   %2963 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %2964 = load i32, ptr %2963, align 4, !tbaa !58
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2965
     i32 17, label %4514
   ]
@@ -4664,7 +4664,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   br label %4377
 
 2968:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %2969
     i32 17, label %2999
     i32 10, label %3002
@@ -4686,7 +4686,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2980 = zext i8 %2979 to i64
   %2981 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %2980
   %2982 = load i32, ptr %2981, align 4, !tbaa !47
-  br label %5354
+  br label %5343
 
 2983:                                             ; preds = %2969
   %2984 = load i32, ptr %2, align 4, !tbaa !47
@@ -4701,31 +4701,31 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %2991 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %2990
   %2992 = load i32, ptr %2991, align 4, !tbaa !47
   %2993 = add i32 %2992, 1
-  br label %5354
+  br label %5343
 
 2994:                                             ; preds = %2983
   %2995 = and i32 %45, 256
   %2996 = icmp eq i32 %2995, 0
-  br i1 %2996, label %5354, label %2997
+  br i1 %2996, label %5343, label %2997
 
 2997:                                             ; preds = %2994
   %2998 = add i32 %165, 1
-  br label %5354
+  br label %5343
 
 2999:                                             ; preds = %2968
   %3000 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3001 = load i32, ptr %3000, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3002:                                             ; preds = %2968
   %3003 = add i32 %165, 1
   %3004 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3005 = load i32, ptr %3004, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3006:                                             ; preds = %153
   %3007 = icmp eq i32 %31, 1
-  br i1 %3007, label %3008, label %6031
+  br i1 %3007, label %3008, label %6020
 
 3008:                                             ; preds = %3006
   %3009 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4735,15 +4735,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3013 = icmp eq i32 %3012, 134217785
   %3014 = select i1 %3013, i32 134217728, i32 0
   %3015 = or i32 %3014, %165
-  br label %5354
+  br label %5343
 
 3016:                                             ; preds = %153
   %3017 = icmp eq i32 %31, 2
-  br i1 %3017, label %5528, label %6031
+  br i1 %3017, label %5517, label %6020
 
 3018:                                             ; preds = %153
   %3019 = icmp eq i32 %31, 2
-  br i1 %3019, label %5528, label %6031
+  br i1 %3019, label %5517, label %6020
 
 3020:                                             ; preds = %153
   %3021 = load i32, ptr %2, align 4, !tbaa !31
@@ -4754,7 +4754,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3026 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6asmjit9_abi_1_103x86L16x86LLBySizeDiv16E, i64 0, i64 %3025
   %3027 = load i32, ptr %3026, align 4, !tbaa !47
   %3028 = or i32 %3027, %165
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %3029
     i32 10, label %3034
   ]
@@ -4764,16 +4764,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3031 = load i32, ptr %3030, align 4, !tbaa !58
   %3032 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3033 = load i32, ptr %3032, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3034:                                             ; preds = %3020
   %3035 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3036 = load i32, ptr %3035, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3037:                                             ; preds = %153
   %3038 = icmp eq i32 %31, 10
-  br i1 %3038, label %3039, label %6031
+  br i1 %3038, label %3039, label %6020
 
 3039:                                             ; preds = %3037
   %3040 = load i32, ptr %2, align 4, !tbaa !31
@@ -4791,7 +4791,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3052 = or i32 %3051, %165
   %3053 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3054 = load i32, ptr %3053, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3055:                                             ; preds = %153
   %3056 = icmp eq i32 %31, 201
@@ -4804,7 +4804,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3061 = load i32, ptr %3060, align 4, !tbaa !58
   %3062 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3063 = load i64, ptr %3062, align 4
-  br label %5354
+  br label %5343
 
 3064:                                             ; preds = %153
   %3065 = load i32, ptr %2, align 4, !tbaa !31
@@ -4821,7 +4821,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3074 = phi i32 [ %165, %153 ], [ %3072, %3064 ], [ %165, %3055 ]
   %3075 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3076 = load i64, ptr %3075, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3077
     i32 202, label %3082
   ]
@@ -4831,12 +4831,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3079 = load i32, ptr %3078, align 4, !tbaa !58
   %3080 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3081 = load i32, ptr %3080, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3082:                                             ; preds = %3073
   %3083 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3084 = load i32, ptr %3083, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3085:                                             ; preds = %153
   %3086 = load i32, ptr %4, align 4, !tbaa !31
@@ -4850,7 +4850,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3092 = load i32, ptr %3091, align 4
   %3093 = icmp eq i32 %3092, 7
   %3094 = select i1 %3090, i1 %3093, i1 false
-  br i1 %3094, label %3095, label %6031
+  br i1 %3094, label %3095, label %6020
 
 3095:                                             ; preds = %3088
   %3096 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -4859,7 +4859,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3099 = icmp ne i32 %3098, 0
   %3100 = icmp eq i32 %3097, 0
   %3101 = and i1 %3099, %3100
-  br i1 %3101, label %3158, label %6031, !prof !89
+  br i1 %3101, label %3158, label %6020, !prof !89
 
 3102:                                             ; preds = %153
   %3103 = load i32, ptr %2, align 4, !tbaa !31
@@ -4919,7 +4919,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3146 = load i32, ptr %3145, align 4, !tbaa !58
   %3147 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3148 = load i32, ptr %3147, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3149:                                             ; preds = %3127, %168
   %3150 = phi i32 [ %.pre, %168 ], [ %.pre145, %3127 ]
@@ -4935,7 +4935,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 3158:                                             ; preds = %3149, %3121, %3115, %3102, %3095, %3085, %153
   %3159 = phi i32 [ %165, %153 ], [ %3157, %3149 ], [ %3120, %3115 ], [ %3111, %3102 ], [ %165, %3085 ], [ %165, %3095 ], [ %3126, %3121 ]
   %3160 = phi i32 [ %31, %153 ], [ %31, %3149 ], [ %31, %3115 ], [ %31, %3102 ], [ %27, %3085 ], [ %27, %3095 ], [ %31, %3121 ]
-  switch i32 %3160, label %6031 [
+  switch i32 %3160, label %6020 [
     i32 9, label %3161
     i32 17, label %3166
   ]
@@ -4945,16 +4945,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3163 = load i32, ptr %3162, align 4, !tbaa !58
   %3164 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3165 = load i32, ptr %3164, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3166:                                             ; preds = %3158
   %3167 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3168 = load i32, ptr %3167, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3169:                                             ; preds = %153
   %3170 = icmp eq i32 %31, 17
-  br i1 %3170, label %3171, label %6031
+  br i1 %3170, label %3171, label %6020
 
 3171:                                             ; preds = %3169
   %3172 = load i32, ptr %3, align 4, !tbaa !31
@@ -4972,7 +4972,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3184 = or i32 %3183, %165
   %3185 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3186 = load i32, ptr %3185, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3187:                                             ; preds = %153
   %3188 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4980,37 +4980,37 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3190 = load i32, ptr %2, align 4, !tbaa !47
   %3191 = and i32 %3190, 3847
   %3192 = icmp eq i32 %3191, 257
-  br i1 %3192, label %3193, label %6031
+  br i1 %3192, label %3193, label %6020
 
 3193:                                             ; preds = %3187
   %3194 = load i32, ptr %3, align 4, !tbaa !47
   %3195 = and i32 %3194, 3847
   %3196 = icmp eq i32 %3195, 257
-  br i1 %3196, label %3197, label %6031
+  br i1 %3196, label %3197, label %6020
 
 3197:                                             ; preds = %3193
   %3198 = load i32, ptr %4, align 4, !tbaa !47
   %3199 = and i32 %3198, 3847
   %3200 = icmp eq i32 %3199, 257
-  br i1 %3200, label %3201, label %6031
+  br i1 %3200, label %3201, label %6020
 
 3201:                                             ; preds = %3197
   %3202 = load i32, ptr %5, align 4, !tbaa !47
   %3203 = and i32 %3202, 3847
   %3204 = icmp eq i32 %3203, 257
-  br i1 %3204, label %3205, label %6031
+  br i1 %3204, label %3205, label %6020
 
 3205:                                             ; preds = %3201
   %3206 = load i32, ptr %3188, align 4, !tbaa !47
   %3207 = and i32 %3206, 3847
   %3208 = icmp eq i32 %3207, 257
-  br i1 %3208, label %3209, label %6031
+  br i1 %3208, label %3209, label %6020
 
 3209:                                             ; preds = %3205
   %3210 = load i32, ptr %3189, align 4, !tbaa !31
   %3211 = and i32 %3210, 7
   %3212 = icmp eq i32 %3211, 2
-  br i1 %3212, label %3213, label %6031
+  br i1 %3212, label %3213, label %6020
 
 3213:                                             ; preds = %3209
   %3214 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5032,14 +5032,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3230 = or disjoint i32 %3215, 3
   %3231 = icmp ne i32 %3221, %3230
   %3232 = select i1 %3229, i1 true, i1 %3231
-  br i1 %3232, label %6031, label %3233, !prof !91
+  br i1 %3232, label %6020, label %3233, !prof !91
 
 3233:                                             ; preds = %3213
   %3234 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3235 = load i32, ptr %3234, align 4, !tbaa !58
   %3236 = shl i32 %3215, 7
   %3237 = add i32 %3235, %3236
-  br label %5528
+  br label %5517
 
 3238:                                             ; preds = %153
   %3239 = load i32, ptr %2, align 4, !tbaa !31
@@ -5068,7 +5068,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3258 = phi i32 [ %165, %153 ], [ %3256, %3248 ], [ %3247, %3238 ]
   %3259 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3260 = load i64, ptr %3259, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3261
     i32 209, label %3266
   ]
@@ -5078,16 +5078,16 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3263 = load i32, ptr %3262, align 4, !tbaa !58
   %3264 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3265 = load i32, ptr %3264, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3266:                                             ; preds = %3257
   %3267 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3268 = load i32, ptr %3267, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3269:                                             ; preds = %3314, %3298, %153
   %3270 = phi i32 [ %3323, %3314 ], [ %3307, %3298 ], [ %165, %153 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %3271
     i32 137, label %3281
   ]
@@ -5102,7 +5102,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3278 = add i32 %3277, %3274
   %3279 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3280 = load i32, ptr %3279, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3281:                                             ; preds = %3269
   %3282 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5111,7 +5111,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3285 = load i32, ptr %3284, align 4, !tbaa !58
   %3286 = shl i32 %3285, 7
   %3287 = add i32 %3286, %3283
-  br label %5528
+  br label %5517
 
 3288:                                             ; preds = %153
   %3289 = load i32, ptr %5, align 4, !tbaa !47
@@ -5125,7 +5125,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3295 = load i32, ptr %3294, align 4, !tbaa !58
   %3296 = icmp ne i32 %3295, 2
   %3297 = or i1 %3293, %3296
-  br i1 %3297, label %6031, label %3298
+  br i1 %3297, label %6020, label %3298
 
 3298:                                             ; preds = %3291, %3288, %153
   %3299 = load i32, ptr %2, align 4, !tbaa !31
@@ -5161,21 +5161,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 3324:                                             ; preds = %153
   %3325 = icmp eq i32 %31, 73
-  br i1 %3325, label %3326, label %6031
+  br i1 %3325, label %3326, label %6020
 
 3326:                                             ; preds = %3324
   %3327 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3328 = load i32, ptr %3327, align 4, !tbaa !58
   %3329 = and i32 %3328, 1
   %3330 = icmp eq i32 %3329, 0
-  br i1 %3330, label %3331, label %6031
+  br i1 %3330, label %3331, label %6020
 
 3331:                                             ; preds = %3326
   %3332 = or disjoint i32 %3328, 1
   %3333 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3334 = load i32, ptr %3333, align 4, !tbaa !58
   %3335 = icmp eq i32 %3332, %3334
-  br i1 %3335, label %3336, label %6031
+  br i1 %3335, label %3336, label %6020
 
 3336:                                             ; preds = %3331
   %3337 = load i32, ptr %4, align 4, !tbaa !31
@@ -5190,15 +5190,15 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3346 = add i32 %3345, %3328
   %3347 = load i32, ptr %5, align 4, !tbaa !31
   %3348 = and i32 %3347, 7
-  switch i32 %3348, label %6031 [
+  switch i32 %3348, label %6020 [
     i32 1, label %3349
-    i32 2, label %5528
+    i32 2, label %5517
   ]
 
 3349:                                             ; preds = %3336
   %3350 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %3351 = load i32, ptr %3350, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3352:                                             ; preds = %153
   %3353 = load i32, ptr %2, align 4, !tbaa !31
@@ -5221,7 +5221,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3368 = load i32, ptr %3367, align 4, !tbaa !58
   %3369 = shl i32 %3368, 4
   %3370 = zext i32 %3369 to i64
-  switch i32 %3366, label %6031 [
+  switch i32 %3366, label %6020 [
     i32 585, label %3371
     i32 649, label %3380
   ]
@@ -5235,7 +5235,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3377 = add i32 %3376, %3373
   %3378 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3379 = load i32, ptr %3378, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3380:                                             ; preds = %3361
   %3381 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5244,7 +5244,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3384 = load i32, ptr %3383, align 4, !tbaa !58
   %3385 = shl i32 %3384, 7
   %3386 = add i32 %3385, %3382
-  br label %5528
+  br label %5517
 
 3387:                                             ; preds = %153
   %3388 = load i32, ptr %2, align 4, !tbaa !31
@@ -5282,7 +5282,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3414 = or disjoint i32 %3413, %31
   %3415 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %3416 = load i64, ptr %3415, align 4
-  switch i32 %3414, label %6031 [
+  switch i32 %3414, label %6020 [
     i32 1609, label %3417
     i32 1673, label %3426
   ]
@@ -5296,7 +5296,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3423 = add i32 %3422, %3419
   %3424 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3425 = load i32, ptr %3424, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3426:                                             ; preds = %3409
   %3427 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5305,7 +5305,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3430 = load i32, ptr %3429, align 4, !tbaa !58
   %3431 = shl i32 %3430, 7
   %3432 = add i32 %3431, %3428
-  br label %5528
+  br label %5517
 
 3433:                                             ; preds = %153
   %3434 = load i32, ptr %2, align 4, !tbaa !31
@@ -5321,7 +5321,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 3443:                                             ; preds = %3433, %153
   %3444 = phi i32 [ %165, %153 ], [ %3442, %3433 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %3445
     i32 81, label %3454
   ]
@@ -5335,7 +5335,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3451 = add i32 %3450, %3447
   %3452 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3453 = load i32, ptr %3452, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3454:                                             ; preds = %3443
   %3455 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5344,10 +5344,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3458 = load i32, ptr %3457, align 4, !tbaa !58
   %3459 = shl i32 %3458, 7
   %3460 = add i32 %3459, %3456
-  br label %5528
+  br label %5517
 
 3461:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 17, label %3462
     i32 81, label %3485
   ]
@@ -5373,11 +5373,11 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3480 = or i32 %3479, %3467
   %3481 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3482 = load i32, ptr %3481, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3483:                                             ; preds = %153
   %3484 = icmp eq i32 %31, 81
-  br i1 %3484, label %3485, label %6031
+  br i1 %3484, label %3485, label %6020
 
 3485:                                             ; preds = %3483, %3461
   %3486 = load i32, ptr %3, align 4, !tbaa !31
@@ -5401,7 +5401,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3504 = load i32, ptr %3503, align 4, !tbaa !58
   %3505 = shl i32 %3504, 7
   %3506 = add i32 %3505, %3502
-  br label %5528
+  br label %5517
 
 3507:                                             ; preds = %153
   %3508 = load i32, ptr %5, align 4, !tbaa !31
@@ -5410,7 +5410,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3511 = or disjoint i32 %3510, %31
   %3512 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %3513 = load i64, ptr %3512, align 4
-  switch i32 %3511, label %6031 [
+  switch i32 %3511, label %6020 [
     i32 1609, label %3514
     i32 1617, label %3523
   ]
@@ -5424,7 +5424,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3520 = add i32 %3519, %3516
   %3521 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3522 = load i32, ptr %3521, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3523:                                             ; preds = %3507
   %3524 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5433,10 +5433,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3527 = load i32, ptr %3526, align 4, !tbaa !58
   %3528 = shl i32 %3527, 7
   %3529 = add i32 %3528, %3525
-  br label %5528
+  br label %5517
 
 3530:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %3531
     i32 17, label %3572
     i32 10, label %3580
@@ -5462,7 +5462,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3546 = load i32, ptr %3545, align 4, !tbaa !58
   %3547 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3548 = load i32, ptr %3547, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3549:                                             ; preds = %3531
   %3550 = load i32, ptr %3, align 4, !tbaa !47
@@ -5479,12 +5479,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3559 = load i32, ptr %3558, align 4, !tbaa !58
   %3560 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3561 = load i32, ptr %3560, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3562:                                             ; preds = %3549
   %3563 = and i32 %159, 268435456
   %3564 = icmp eq i32 %3563, 0
-  br i1 %3564, label %6031, label %3565
+  br i1 %3564, label %6020, label %3565
 
 3565:                                             ; preds = %3562
   %3566 = and i32 %159, -6299648
@@ -5493,7 +5493,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3569 = load i32, ptr %3568, align 4, !tbaa !58
   %3570 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3571 = load i32, ptr %3570, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3572:                                             ; preds = %3530
   %3573 = and i32 %159, 268435456
@@ -5503,7 +5503,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3577 = select i1 %3574, i32 %165, i32 %3576
   %3578 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3579 = load i32, ptr %3578, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3580:                                             ; preds = %3530
   %3581 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -5518,7 +5518,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3590 = select i1 %3587, i32 %3585, i32 %3589
   %3591 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3592 = load i32, ptr %3591, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3593:                                             ; preds = %153
   %3594 = load i32, ptr %2, align 4, !tbaa !31
@@ -5533,7 +5533,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 3602:                                             ; preds = %3593, %153
   %3603 = phi i32 [ %165, %153 ], [ %3601, %3593 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %3604
     i32 17, label %3609
     i32 10, label %3612
@@ -5544,12 +5544,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3606 = load i32, ptr %3605, align 4, !tbaa !58
   %3607 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3608 = load i32, ptr %3607, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3609:                                             ; preds = %3602
   %3610 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3611 = load i32, ptr %3610, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3612:                                             ; preds = %3602
   %3613 = and i32 %3603, 1610612736
@@ -5561,10 +5561,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3619 = or i32 %3618, %3613
   %3620 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3621 = load i32, ptr %3620, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3622:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %3623
     i32 81, label %3638
     i32 137, label %3645
@@ -5581,13 +5581,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3631 = load i32, ptr %3630, align 4, !tbaa !58
   %3632 = and i32 %45, 256
   %3633 = icmp eq i32 %3632, 0
-  br i1 %3633, label %5354, label %3634
+  br i1 %3633, label %5343, label %3634
 
 3634:                                             ; preds = %3623
   %3635 = or i32 %165, 134217728
   %3636 = shl i32 %3631, 7
   %3637 = add i32 %3636, %3625
-  br label %5354
+  br label %5343
 
 3638:                                             ; preds = %3622
   %3639 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5596,7 +5596,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3642 = load i32, ptr %3641, align 4, !tbaa !58
   %3643 = shl i32 %3642, 7
   %3644 = add i32 %3643, %3640
-  br label %5528
+  br label %5517
 
 3645:                                             ; preds = %3622
   %3646 = or i32 %165, 134217728
@@ -5606,7 +5606,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3650 = load i32, ptr %3649, align 4, !tbaa !58
   %3651 = shl i32 %3650, 7
   %3652 = add i32 %3651, %3648
-  br label %5528
+  br label %5517
 
 3653:                                             ; preds = %153
   %3654 = load i32, ptr %2, align 4, !tbaa !31
@@ -5635,7 +5635,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3670 = add i32 %3669, %3666
   %3671 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3672 = load i32, ptr %3671, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3673:                                             ; preds = %3662
   %3674 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5644,7 +5644,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3677 = load i32, ptr %3676, align 4, !tbaa !58
   %3678 = shl i32 %3677, 7
   %3679 = add i32 %3678, %3675
-  br label %5528
+  br label %5517
 
 3680:                                             ; preds = %3662
   %3681 = and i32 %3663, 1610612736
@@ -5656,7 +5656,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3687 = or i32 %3686, %3681
   %3688 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3689 = load i64, ptr %3688, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3690
     i32 209, label %3695
   ]
@@ -5666,12 +5666,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3692 = load i32, ptr %3691, align 4, !tbaa !58
   %3693 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3694 = load i32, ptr %3693, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3695:                                             ; preds = %3680
   %3696 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3697 = load i32, ptr %3696, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3698:                                             ; preds = %153
   switch i32 %31, label %3729 [
@@ -5691,13 +5691,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3707 = load i32, ptr %3706, align 4, !tbaa !58
   %3708 = and i32 %45, 256
   %3709 = icmp eq i32 %3708, 0
-  br i1 %3709, label %5354, label %3710
+  br i1 %3709, label %5343, label %3710
 
 3710:                                             ; preds = %3699
   %3711 = or i32 %165, 134217728
   %3712 = shl i32 %3707, 7
   %3713 = add i32 %3712, %3701
-  br label %5354
+  br label %5343
 
 3714:                                             ; preds = %3698
   %3715 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5706,7 +5706,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3718 = load i32, ptr %3717, align 4, !tbaa !58
   %3719 = shl i32 %3718, 7
   %3720 = add i32 %3719, %3716
-  br label %5528
+  br label %5517
 
 3721:                                             ; preds = %3698
   %3722 = or i32 %165, 134217728
@@ -5716,7 +5716,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3726 = load i32, ptr %3725, align 4, !tbaa !58
   %3727 = shl i32 %3726, 7
   %3728 = add i32 %3727, %3724
-  br label %5528
+  br label %5517
 
 3729:                                             ; preds = %3698
   %3730 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -5726,7 +5726,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3734 = load i32, ptr %3733, align 4, !tbaa !47
   %3735 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3736 = load i64, ptr %3735, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3737
     i32 209, label %3742
   ]
@@ -5736,12 +5736,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3739 = load i32, ptr %3738, align 4, !tbaa !58
   %3740 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3741 = load i32, ptr %3740, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3742:                                             ; preds = %3729
   %3743 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3744 = load i32, ptr %3743, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3745:                                             ; preds = %153
   switch i32 %31, label %3762 [
@@ -5758,7 +5758,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3752 = add i32 %3751, %3748
   %3753 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3754 = load i32, ptr %3753, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3755:                                             ; preds = %3745
   %3756 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5767,7 +5767,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3759 = load i32, ptr %3758, align 4, !tbaa !58
   %3760 = shl i32 %3759, 7
   %3761 = add i32 %3760, %3757
-  br label %5528
+  br label %5517
 
 3762:                                             ; preds = %3745
   %3763 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -5775,7 +5775,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3765 = zext i8 %3764 to i64
   %3766 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %3765
   %3767 = load i32, ptr %3766, align 4, !tbaa !47
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %3768
     i32 10, label %3773
   ]
@@ -5785,12 +5785,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3770 = load i32, ptr %3769, align 4, !tbaa !58
   %3771 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3772 = load i32, ptr %3771, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3773:                                             ; preds = %3762
   %3774 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3775 = load i32, ptr %3774, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 3776:                                             ; preds = %153
   %3777 = load i32, ptr %2, align 4, !tbaa !31
@@ -5805,7 +5805,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 3785:                                             ; preds = %3776, %153
   %3786 = phi i32 [ %165, %153 ], [ %3784, %3776 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %3787
     i32 137, label %3796
     i32 74, label %3803
@@ -5820,7 +5820,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3793 = add i32 %3792, %3789
   %3794 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3795 = load i32, ptr %3794, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3796:                                             ; preds = %3785
   %3797 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5829,7 +5829,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3800 = load i32, ptr %3799, align 4, !tbaa !58
   %3801 = shl i32 %3800, 7
   %3802 = add i32 %3801, %3798
-  br label %5528
+  br label %5517
 
 3803:                                             ; preds = %3785
   %3804 = and i32 %3786, 1610612736
@@ -5845,7 +5845,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3814 = load i32, ptr %3813, align 4, !tbaa !58
   %3815 = shl i32 %3814, 7
   %3816 = add i32 %3815, %3812
-  br label %5528
+  br label %5517
 
 3817:                                             ; preds = %153
   %3818 = load i32, ptr %3, align 4, !tbaa !31
@@ -5883,7 +5883,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3841 = add i32 %3840, %3837
   %3842 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %3843 = load i32, ptr %3842, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3844:                                             ; preds = %3833
   %3845 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5892,7 +5892,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3848 = load i32, ptr %3847, align 4, !tbaa !58
   %3849 = shl i32 %3848, 7
   %3850 = add i32 %3849, %3846
-  br label %5528
+  br label %5517
 
 3851:                                             ; preds = %3833
   %3852 = and i32 %3834, 1610616832
@@ -5906,7 +5906,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3860 = and i32 %3859, 7
   %3861 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3862 = load i64, ptr %3861, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3863
     i32 209, label %3870
   ]
@@ -5918,14 +5918,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3867 = or disjoint i32 %3866, %3860
   %3868 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3869 = load i32, ptr %3868, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3870:                                             ; preds = %3851
   %3871 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3872 = load i32, ptr %3871, align 4, !tbaa !58
   %3873 = shl i32 %3872, 7
   %3874 = or disjoint i32 %3873, %3860
-  br label %5528
+  br label %5517
 
 3875:                                             ; preds = %153
   %3876 = load i32, ptr %2, align 4, !tbaa !31
@@ -5941,7 +5941,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 3885:                                             ; preds = %3875, %153
   %3886 = phi i32 [ %165, %153 ], [ %3884, %3875 ]
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 9, label %3887
     i32 17, label %3894
   ]
@@ -5953,14 +5953,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3891 = or disjoint i32 %3890, %161
   %3892 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3893 = load i32, ptr %3892, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3894:                                             ; preds = %3885
   %3895 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3896 = load i32, ptr %3895, align 4, !tbaa !58
   %3897 = shl i32 %3896, 7
   %3898 = or disjoint i32 %3897, %161
-  br label %5528
+  br label %5517
 
 3899:                                             ; preds = %153
   %3900 = icmp eq i32 %31, 209
@@ -5985,7 +5985,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3915 = phi i8 [ 4, %3940 ], [ 1, %153 ], [ 1, %3903 ]
   %3916 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %3917 = load i64, ptr %3916, align 4
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 201, label %3918
     i32 209, label %3925
   ]
@@ -5997,14 +5997,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3922 = or disjoint i32 %3921, %161
   %3923 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %3924 = load i32, ptr %3923, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 3925:                                             ; preds = %3913
   %3926 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3927 = load i32, ptr %3926, align 4, !tbaa !58
   %3928 = shl i32 %3927, 7
   %3929 = or disjoint i32 %3928, %161
-  br label %5528
+  br label %5517
 
 3930:                                             ; preds = %153
   %3931 = load i32, ptr %2, align 4, !tbaa !31
@@ -6044,7 +6044,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3955 = shl i32 %3954, 9
   %3956 = and i32 %3955, 3584
   %3957 = or disjoint i32 %3956, %31
-  switch i32 %3957, label %6031 [
+  switch i32 %3957, label %6020 [
     i32 585, label %3974
     i32 1097, label %3958
     i32 649, label %3960
@@ -6068,7 +6068,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3971 = load i32, ptr %3970, align 4, !tbaa !58
   %3972 = shl i32 %3971, 4
   %3973 = zext i32 %3972 to i64
-  br label %5528
+  br label %5517
 
 3974:                                             ; preds = %3952
   %3975 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6083,14 +6083,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %3984 = load i32, ptr %3983, align 4, !tbaa !58
   %3985 = shl i32 %3984, 4
   %3986 = zext i32 %3985 to i64
-  br label %5354
+  br label %5343
 
 3987:                                             ; preds = %153
   %3988 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %3989 = load i32, ptr %3988, align 4, !tbaa !31
   %3990 = and i32 %3989, 7
   %3991 = icmp eq i32 %3990, 3
-  br i1 %3991, label %3992, label %6031, !prof !35
+  br i1 %3991, label %3992, label %6020, !prof !35
 
 3992:                                             ; preds = %3987
   %3993 = load i32, ptr %5, align 4, !tbaa !31
@@ -6111,7 +6111,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4008 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %4009 = load i64, ptr %4008, align 4
   %4010 = and i64 %4009, 15
-  switch i32 %3996, label %6031 [
+  switch i32 %3996, label %6020 [
     i32 585, label %4036
     i32 1097, label %4011
     i32 649, label %4024
@@ -6130,7 +6130,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4021 = shl i32 %4020, 4
   %4022 = zext i32 %4021 to i64
   %4023 = or disjoint i64 %4010, %4022
-  br label %5528
+  br label %5517
 
 4024:                                             ; preds = %3992
   %4025 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6144,7 +6144,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4033 = shl i32 %4032, 4
   %4034 = zext i32 %4033 to i64
   %4035 = or disjoint i64 %4010, %4034
-  br label %5528
+  br label %5517
 
 4036:                                             ; preds = %3992
   %4037 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6160,10 +6160,10 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4047 = shl i32 %4046, 4
   %4048 = zext i32 %4047 to i64
   %4049 = or disjoint i64 %4010, %4048
-  br label %5354
+  br label %5343
 
 4050:                                             ; preds = %153
-  switch i32 %31, label %6031 [
+  switch i32 %31, label %6020 [
     i32 73, label %3271
     i32 17, label %4051
     i32 10, label %4054
@@ -6172,7 +6172,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 4051:                                             ; preds = %4050
   %4052 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4053 = load i32, ptr %4052, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 4054:                                             ; preds = %4050
   %4055 = getelementptr inbounds nuw i8, ptr %16, i64 7
@@ -6182,7 +6182,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4059 = load i32, ptr %4058, align 4, !tbaa !47
   %4060 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4061 = load i32, ptr %4060, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 4062:                                             ; preds = %153
   %4063 = load i32, ptr %2, align 4, !tbaa !31
@@ -6201,7 +6201,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4074 = shl i32 %4073, 9
   %4075 = and i32 %4074, 3584
   %4076 = or disjoint i32 %4075, %31
-  switch i32 %4076, label %6031 [
+  switch i32 %4076, label %6020 [
     i32 585, label %4077
     i32 1097, label %4096
     i32 649, label %4098
@@ -6226,7 +6226,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4093 = getelementptr inbounds nuw i8, ptr %4087, i64 4
   %4094 = load i32, ptr %4093, align 4, !tbaa !58
   %4095 = zext i32 %4092 to i64
-  br label %5354
+  br label %5343
 
 4096:                                             ; preds = %4071
   %4097 = or i32 %4072, 134217728
@@ -6246,42 +6246,42 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4109 = load i32, ptr %4108, align 4, !tbaa !58
   %4110 = shl i32 %4109, 4
   %4111 = zext i32 %4110 to i64
-  br label %5528
+  br label %5517
 
 4112:                                             ; preds = %153
   %4113 = icmp eq i32 %31, 2
-  br i1 %4113, label %5528, label %6031
+  br i1 %4113, label %5517, label %6020
 
 4114:                                             ; preds = %153
   %4115 = icmp eq i32 %31, 1
-  br i1 %4115, label %4116, label %6031
+  br i1 %4115, label %4116, label %6020
 
 4116:                                             ; preds = %4114
   %4117 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4118 = load i32, ptr %4117, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 4119:                                             ; preds = %153
   %4120 = icmp eq i32 %31, 17
-  br i1 %4120, label %4121, label %6031
+  br i1 %4120, label %4121, label %6020
 
 4121:                                             ; preds = %4119
   %4122 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4123 = load i32, ptr %4122, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 4124:                                             ; preds = %153
   %4125 = icmp eq i32 %31, 10
-  br i1 %4125, label %4126, label %6031
+  br i1 %4125, label %4126, label %6020
 
 4126:                                             ; preds = %4124
   %4127 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4128 = load i32, ptr %4127, align 4, !tbaa !58
-  br label %5528
+  br label %5517
 
 4129:                                             ; preds = %153
   %4130 = icmp eq i32 %31, 73
-  br i1 %4130, label %4131, label %6031
+  br i1 %4130, label %4131, label %6020
 
 4131:                                             ; preds = %4129
   %4132 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -6292,7 +6292,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4137 = add i32 %4136, %4133
   %4138 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4139 = load i32, ptr %4138, align 4, !tbaa !58
-  br label %5354
+  br label %5343
 
 4140:                                             ; preds = %1706, %1679, %1576, %1459
   %4141 = phi i32 [ %1703, %1706 ], [ %1673, %1679 ], [ %1500, %1576 ], [ %1383, %1459 ]
@@ -6330,7 +6330,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4169, ptr %4160, align 1, !tbaa !51
   %4170 = or i32 %4162, %4161
   %4171 = icmp ugt i32 %4170, -2130706433
-  br i1 %4171, label %6031, label %4172, !prof !37
+  br i1 %4171, label %6020, label %4172, !prof !37
 
 4172:                                             ; preds = %4159
   %4173 = lshr i32 %4170, 24
@@ -6380,14 +6380,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4208 = phi i8 [ %4205, %4201 ], [ %4163, %4172 ]
   %4209 = phi i64 [ %4204, %4201 ], [ %4164, %4172 ]
   %4210 = icmp eq i8 %4208, 0
-  br i1 %4210, label %6006, label %4211
+  br i1 %4210, label %5995, label %4211
 
 4211:                                             ; preds = %4206
   %4212 = trunc i64 %4209 to i8
   store i8 %4212, ptr %4207, align 1, !tbaa !51
   %4213 = getelementptr inbounds nuw i8, ptr %4207, i64 1
   %4214 = icmp eq i8 %4208, 1
-  br i1 %4214, label %6006, label %4215
+  br i1 %4214, label %5995, label %4215
 
 4215:                                             ; preds = %4211
   %4216 = lshr i64 %4209, 8
@@ -6395,7 +6395,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4217, ptr %4213, align 1, !tbaa !51
   %4218 = getelementptr inbounds nuw i8, ptr %4207, i64 2
   %4219 = icmp eq i8 %4208, 2
-  br i1 %4219, label %6006, label %4220
+  br i1 %4219, label %5995, label %4220
 
 4220:                                             ; preds = %4215
   %4221 = lshr i64 %4209, 16
@@ -6403,14 +6403,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4222, ptr %4218, align 1, !tbaa !51
   %4223 = getelementptr inbounds nuw i8, ptr %4207, i64 3
   %4224 = icmp eq i8 %4208, 3
-  br i1 %4224, label %6006, label %4225
+  br i1 %4224, label %5995, label %4225
 
 4225:                                             ; preds = %4220
   %4226 = lshr i64 %4209, 24
   %4227 = trunc i64 %4226 to i8
   store i8 %4227, ptr %4223, align 1, !tbaa !51
   %4228 = getelementptr inbounds nuw i8, ptr %4207, i64 4
-  br label %6006
+  br label %5995
 
 4229:                                             ; preds = %2376, %2370, %1899, %1719, %1634, %1610, %736
   %4230 = phi i32 [ %1910, %1899 ], [ %1721, %1719 ], [ %1611, %1610 ], [ %1596, %1634 ], [ %738, %736 ], [ %2377, %2376 ], [ %2321, %2370 ]
@@ -6429,7 +6429,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4242 = lshr i32 %4230, 3
   %4243 = or i32 %4241, %4242
   %4244 = icmp samesign ugt i32 %4243, 128
-  br i1 %4244, label %6031, label %4245, !prof !37
+  br i1 %4244, label %6020, label %4245, !prof !37
 
 4245:                                             ; preds = %4229
   %4246 = icmp ne i32 %4236, 0
@@ -6480,14 +6480,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4282 = phi i8 [ %4279, %4275 ], [ %4233, %4245 ]
   %4283 = phi i64 [ %4278, %4275 ], [ %4234, %4245 ]
   %4284 = icmp eq i8 %4282, 0
-  br i1 %4284, label %6006, label %4285
+  br i1 %4284, label %5995, label %4285
 
 4285:                                             ; preds = %4280
   %4286 = trunc i64 %4283 to i8
   store i8 %4286, ptr %4281, align 1, !tbaa !51
   %4287 = getelementptr inbounds nuw i8, ptr %4281, i64 1
   %4288 = icmp eq i8 %4282, 1
-  br i1 %4288, label %6006, label %4289
+  br i1 %4288, label %5995, label %4289
 
 4289:                                             ; preds = %4285
   %4290 = lshr i64 %4283, 8
@@ -6495,7 +6495,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4291, ptr %4287, align 1, !tbaa !51
   %4292 = getelementptr inbounds nuw i8, ptr %4281, i64 2
   %4293 = icmp eq i8 %4282, 2
-  br i1 %4293, label %6006, label %4294
+  br i1 %4293, label %5995, label %4294
 
 4294:                                             ; preds = %4289
   %4295 = lshr i64 %4283, 16
@@ -6503,14 +6503,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4296, ptr %4292, align 1, !tbaa !51
   %4297 = getelementptr inbounds nuw i8, ptr %4281, i64 3
   %4298 = icmp eq i8 %4282, 3
-  br i1 %4298, label %6006, label %4299
+  br i1 %4298, label %5995, label %4299
 
 4299:                                             ; preds = %4294
   %4300 = lshr i64 %4283, 24
   %4301 = trunc i64 %4300 to i8
   store i8 %4301, ptr %4297, align 1, !tbaa !51
   %4302 = getelementptr inbounds nuw i8, ptr %4281, i64 4
-  br label %6006
+  br label %5995
 
 4303:                                             ; preds = %2160, %2130, %2103, %1850, %1100, %221
   %4304 = phi i32 [ 0, %1100 ], [ 0, %1850 ], [ 0, %2103 ], [ 0, %2130 ], [ %2167, %2160 ], [ 0, %221 ]
@@ -6533,7 +6533,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4321 = and i32 %4313, 2
   %4322 = icmp ne i32 %4321, 0
   %4323 = select i1 %4320, i1 true, i1 %4322, !prof !37
-  br i1 %4323, label %6031, label %4324, !prof !37
+  br i1 %4323, label %6020, label %4324, !prof !37
 
 4324:                                             ; preds = %4303
   %4325 = lshr i32 %4306, 21
@@ -6544,7 +6544,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4329, ptr %154, align 1, !tbaa !51
   %4330 = or i32 %4306, %46
   %4331 = icmp ugt i32 %4330, -2130706433
-  br i1 %4331, label %6031, label %4332, !prof !37
+  br i1 %4331, label %6020, label %4332, !prof !37
 
 4332:                                             ; preds = %4324
   %4333 = lshr i32 %4330, 24
@@ -6597,7 +6597,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4375 = trunc i32 %4306 to i8
   store i8 %4375, ptr %4374, align 1, !tbaa !51
   %4376 = getelementptr inbounds nuw i8, ptr %4374, i64 1
-  br label %6006
+  br label %5995
 
 4377:                                             ; preds = %2965, %2946, %2937, %2921, %2916, %2894, %2883, %2863, %2841, %2828, %2820, %2797, %2788, %2732, %2729, %2724, %2721, %2704, %2682, %2620, %2616, %2609, %2586, %2558, %2420, %2413, %2385, %2350, %2346, %2275, %2269, %2205, %2201, %2175, %2056, %2024, %2020, %2016, %1982, %1974, %1972, %1750, %1746, %1737, %1631, %1357, %1352, %1349, %1341, %1339, %1335, %1330, %1327, %1319, %1317, %1315, %1307, %1306, %1301, %1197, %1141, %1122, %1118, %1012, %988, %930, %901, %896, %892, %841, %837, %811, %790, %784, %745, %696, %575, %569, %521, %495, %493, %476, %463, %458, %451, %409, %381, %348, %344, %330, %309, %292, %288, %260, %183, %176, %153
   %4378 = phi ptr [ %154, %2965 ], [ %154, %2921 ], [ %154, %2916 ], [ %154, %2894 ], [ %154, %2883 ], [ %154, %2863 ], [ %154, %2841 ], [ %154, %2828 ], [ %154, %2820 ], [ %154, %2797 ], [ %154, %2788 ], [ %154, %2682 ], [ %154, %2724 ], [ %154, %2721 ], [ %154, %2732 ], [ %154, %2729 ], [ %154, %2616 ], [ %154, %2620 ], [ %154, %2609 ], [ %154, %2586 ], [ %154, %2558 ], [ %154, %2420 ], [ %154, %2413 ], [ %154, %2275 ], [ %154, %2269 ], [ %154, %2205 ], [ %154, %2201 ], [ %154, %2175 ], [ %154, %2056 ], [ %154, %2024 ], [ %154, %2020 ], [ %154, %2016 ], [ %154, %1982 ], [ %154, %1972 ], [ %154, %1750 ], [ %154, %1746 ], [ %154, %1737 ], [ %154, %1319 ], [ %154, %1327 ], [ %1336, %1335 ], [ %154, %1330 ], [ %154, %1341 ], [ %154, %1349 ], [ %1358, %1357 ], [ %154, %1352 ], [ %154, %1197 ], [ %154, %1122 ], [ %154, %1118 ], [ %154, %1141 ], [ %154, %309 ], [ %154, %292 ], [ %154, %288 ], [ %154, %348 ], [ %154, %344 ], [ %154, %330 ], [ %154, %1012 ], [ %154, %988 ], [ %154, %930 ], [ %154, %896 ], [ %154, %892 ], [ %902, %901 ], [ %154, %841 ], [ %154, %837 ], [ %154, %811 ], [ %154, %790 ], [ %154, %784 ], [ %154, %745 ], [ %154, %575 ], [ %154, %569 ], [ %154, %521 ], [ %494, %493 ], [ %154, %495 ], [ %154, %476 ], [ %154, %463 ], [ %154, %458 ], [ %154, %451 ], [ %154, %409 ], [ %154, %381 ], [ %154, %260 ], [ %154, %183 ], [ %154, %176 ], [ %154, %696 ], [ %154, %1631 ], [ %154, %153 ], [ %154, %2704 ], [ %154, %1306 ], [ %154, %1315 ], [ %154, %1301 ], [ %154, %1307 ], [ %154, %2385 ], [ %154, %2350 ], [ %154, %2346 ], [ %154, %2946 ], [ %154, %2937 ], [ %154, %1317 ], [ %154, %1339 ], [ %154, %1974 ]
@@ -6622,7 +6622,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4396 = or disjoint i32 %4395, %4393
   %4397 = or i32 %4396, %4391
   %4398 = icmp samesign ugt i32 %4397, 128
-  br i1 %4398, label %6031, label %4399, !prof !37
+  br i1 %4398, label %6020, label %4399, !prof !37
 
 4399:                                             ; preds = %4377
   %4400 = icmp ne i32 %4386, 0
@@ -6669,18 +6669,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4434 = trunc i64 %4384 to i32
   store i32 %4434, ptr %4431, align 1, !tbaa !51
   %4435 = getelementptr inbounds nuw i8, ptr %4424, i64 6
-  br label %6006
+  br label %5995
 
 4436:                                             ; preds = %4399
   %4437 = icmp eq i8 %4383, 0
-  br i1 %4437, label %6006, label %4438
+  br i1 %4437, label %5995, label %4438
 
 4438:                                             ; preds = %4436
   %4439 = trunc i64 %4384 to i8
   store i8 %4439, ptr %4431, align 1, !tbaa !51
   %4440 = getelementptr inbounds nuw i8, ptr %4424, i64 3
   %4441 = icmp eq i8 %4383, 1
-  br i1 %4441, label %6006, label %4442
+  br i1 %4441, label %5995, label %4442
 
 4442:                                             ; preds = %4438
   %4443 = lshr i64 %4384, 8
@@ -6688,14 +6688,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4444, ptr %4440, align 1, !tbaa !51
   %4445 = getelementptr inbounds nuw i8, ptr %4424, i64 4
   %4446 = icmp eq i8 %4383, 2
-  br i1 %4446, label %6006, label %4447
+  br i1 %4446, label %5995, label %4447
 
 4447:                                             ; preds = %4442
   %4448 = lshr i64 %4384, 16
   %4449 = trunc i64 %4448 to i8
   store i8 %4449, ptr %4445, align 1, !tbaa !51
   %4450 = getelementptr inbounds nuw i8, ptr %4424, i64 5
-  br label %6006
+  br label %5995
 
 4451:                                             ; preds = %414
   %4452 = lshr i32 %159, 21
@@ -6709,7 +6709,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4459 = lshr i32 %416, 3
   %4460 = or i32 %4459, %4458
   %4461 = icmp samesign ugt i32 %4460, 128
-  br i1 %4461, label %6031, label %4462, !prof !37
+  br i1 %4461, label %6020, label %4462, !prof !37
 
 4462:                                             ; preds = %4451
   %4463 = icmp ne i32 %4453, 0
@@ -6768,7 +6768,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4510 = or i8 %4509, -64
   store i8 %4510, ptr %4506, align 1, !tbaa !51
   %4511 = getelementptr inbounds nuw i8, ptr %4504, i64 2
-  br label %6006
+  br label %5995
 
 4512:                                             ; preds = %2733
   br label %4514
@@ -6832,7 +6832,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4564 = lshr i32 %4563, 24
   %4565 = or i32 %4562, %4564
   %4566 = icmp samesign ugt i32 %4565, 128
-  br i1 %4566, label %6031, label %4567, !prof !37
+  br i1 %4566, label %6020, label %4567, !prof !37
 
 4567:                                             ; preds = %4514
   %4568 = icmp ne i32 %4546, 0
@@ -6868,18 +6868,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4594 = getelementptr inbounds nuw i8, ptr %4592, i64 1
   br label %4595
 
-4595:                                             ; preds = %5716, %4567
-  %4596 = phi ptr [ %5719, %5716 ], [ %4594, %4567 ]
-  %4597 = phi i32 [ %5590, %5716 ], [ %4577, %4567 ]
-  %4598 = phi i32 [ %5564, %5716 ], [ %4551, %4567 ]
-  %4599 = phi i32 [ %46, %5716 ], [ %4517, %4567 ]
-  %4600 = phi i32 [ %5718, %5716 ], [ %4518, %4567 ]
-  %4601 = phi i8 [ %5531, %5716 ], [ %4519, %4567 ]
-  %4602 = phi i64 [ %5532, %5716 ], [ %4520, %4567 ]
-  %4603 = phi ptr [ %5550, %5716 ], [ %4538, %4567 ]
-  %4604 = phi i32 [ %5571, %5716 ], [ %4553, %4567 ]
-  %4605 = phi i32 [ %5540, %5716 ], [ %4528, %4567 ]
-  %4606 = phi ptr [ %5533, %5716 ], [ %4521, %4567 ]
+4595:                                             ; preds = %5705, %4567
+  %4596 = phi ptr [ %5708, %5705 ], [ %4594, %4567 ]
+  %4597 = phi i32 [ %5579, %5705 ], [ %4577, %4567 ]
+  %4598 = phi i32 [ %5553, %5705 ], [ %4551, %4567 ]
+  %4599 = phi i32 [ %46, %5705 ], [ %4517, %4567 ]
+  %4600 = phi i32 [ %5707, %5705 ], [ %4518, %4567 ]
+  %4601 = phi i8 [ %5520, %5705 ], [ %4519, %4567 ]
+  %4602 = phi i64 [ %5521, %5705 ], [ %4520, %4567 ]
+  %4603 = phi ptr [ %5539, %5705 ], [ %4538, %4567 ]
+  %4604 = phi i32 [ %5560, %5705 ], [ %4553, %4567 ]
+  %4605 = phi i32 [ %5529, %5705 ], [ %4528, %4567 ]
+  %4606 = phi ptr [ %5522, %5705 ], [ %4521, %4567 ]
   %4607 = ptrtoint ptr %4603 to i64
   %4608 = ptrtoint ptr %4596 to i64
   %4609 = and i32 %4605, 66
@@ -7011,7 +7011,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 4693:                                             ; preds = %4682
   %4694 = icmp eq i32 %4686, 2
-  br i1 %4694, label %6031, label %4695, !prof !37
+  br i1 %4694, label %6020, label %4695, !prof !37
 
 4695:                                             ; preds = %4693
   %4696 = trunc nuw nsw i32 %4597 to i8
@@ -7094,7 +7094,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4750 = phi ptr [ %4716, %4715 ], [ %4743, %4740 ], [ %4733, %4732 ]
   %4751 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %4708, ptr noundef nonnull %7, i32 noundef 4) #11
   %4752 = icmp eq i32 %4751, 0
-  br i1 %4752, label %4753, label %6031, !prof !35
+  br i1 %4752, label %4753, label %6020, !prof !35
 
 4753:                                             ; preds = %4748
   %4754 = trunc nuw nsw i32 %4597 to i8
@@ -7159,18 +7159,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4798 = trunc i64 %4602 to i32
   store i32 %4798, ptr %4795, align 1, !tbaa !51
   %4799 = getelementptr inbounds nuw i8, ptr %4596, i64 9
-  br label %6006
+  br label %5995
 
 4800:                                             ; preds = %4753
   %4801 = icmp eq i8 %4601, 0
-  br i1 %4801, label %6006, label %4802
+  br i1 %4801, label %5995, label %4802
 
 4802:                                             ; preds = %4800
   %4803 = trunc i64 %4602 to i8
   store i8 %4803, ptr %4795, align 1, !tbaa !51
   %4804 = getelementptr inbounds nuw i8, ptr %4596, i64 6
   %4805 = icmp eq i8 %4601, 1
-  br i1 %4805, label %6006, label %4806
+  br i1 %4805, label %5995, label %4806
 
 4806:                                             ; preds = %4802
   %4807 = lshr i64 %4602, 8
@@ -7178,14 +7178,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4808, ptr %4804, align 1, !tbaa !51
   %4809 = getelementptr inbounds nuw i8, ptr %4596, i64 7
   %4810 = icmp eq i8 %4601, 2
-  br i1 %4810, label %6006, label %4811
+  br i1 %4810, label %5995, label %4811
 
 4811:                                             ; preds = %4806
   %4812 = lshr i64 %4602, 16
   %4813 = trunc i64 %4812 to i8
   store i8 %4813, ptr %4809, align 1, !tbaa !51
   %4814 = getelementptr inbounds nuw i8, ptr %4596, i64 8
-  br label %6006
+  br label %5995
 
 4815:                                             ; preds = %4740
   %4816 = getelementptr inbounds nuw i8, ptr %4745, i64 16
@@ -7222,18 +7222,18 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4840 = trunc i64 %4602 to i32
   store i32 %4840, ptr %4837, align 1, !tbaa !51
   %4841 = getelementptr inbounds nuw i8, ptr %4596, i64 9
-  br label %6006
+  br label %5995
 
 4842:                                             ; preds = %4831
   %4843 = icmp eq i8 %4601, 0
-  br i1 %4843, label %6006, label %4844
+  br i1 %4843, label %5995, label %4844
 
 4844:                                             ; preds = %4842
   %4845 = trunc i64 %4602 to i8
   store i8 %4845, ptr %4837, align 1, !tbaa !51
   %4846 = getelementptr inbounds nuw i8, ptr %4596, i64 6
   %4847 = icmp eq i8 %4601, 1
-  br i1 %4847, label %6006, label %4848
+  br i1 %4847, label %5995, label %4848
 
 4848:                                             ; preds = %4844
   %4849 = lshr i64 %4602, 8
@@ -7241,25 +7241,25 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   store i8 %4850, ptr %4846, align 1, !tbaa !51
   %4851 = getelementptr inbounds nuw i8, ptr %4596, i64 7
   %4852 = icmp eq i8 %4601, 2
-  br i1 %4852, label %6006, label %4853
+  br i1 %4852, label %5995, label %4853
 
 4853:                                             ; preds = %4848
   %4854 = lshr i64 %4602, 16
   %4855 = trunc i64 %4854 to i8
   store i8 %4855, ptr %4851, align 1, !tbaa !51
   %4856 = getelementptr inbounds nuw i8, ptr %4596, i64 8
-  br label %6006
+  br label %5995
 
 4857:                                             ; preds = %4815
   %4858 = and i32 %4684, 49152
   %4859 = icmp eq i32 %4858, 32768
-  br i1 %4859, label %6031, label %4860
+  br i1 %4859, label %6020, label %4860
 
 4860:                                             ; preds = %4857, %4718, %4713, %4701
   br i1 %4705, label %4943, label %4861
 
 4861:                                             ; preds = %4860
-  br i1 %4706, label %4862, label %6031, !prof !35
+  br i1 %4706, label %4862, label %6020, !prof !35
 
 4862:                                             ; preds = %4861
   %4863 = load i8, ptr %4603, align 1, !tbaa !51
@@ -7440,7 +7440,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4976 = getelementptr inbounds nuw i8, ptr %4968, i64 96
   %4977 = call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %4975, ptr noundef nonnull %4976, i32 noundef 8, i32 noundef 1) #11
   %4978 = icmp eq i32 %4977, 0
-  br i1 %4978, label %._crit_edge147, label %6031, !prof !118
+  br i1 %4978, label %._crit_edge147, label %6020, !prof !118
 
 ._crit_edge147:                                   ; preds = %4974
   %.pre148 = load ptr, ptr %4967, align 8, !tbaa !36
@@ -7460,7 +7460,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4988 = getelementptr inbounds nuw i8, ptr %4980, i64 248
   %4989 = load i32, ptr %4988, align 8, !tbaa !117
   %4990 = icmp ugt i32 %4989, %4987
-  br i1 %4990, label %4991, label %6031
+  br i1 %4990, label %4991, label %6020
 
 4991:                                             ; preds = %4985
   %4992 = getelementptr inbounds nuw i8, ptr %4980, i64 240
@@ -7469,12 +7469,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %4995 = getelementptr inbounds nuw ptr, ptr %4994, i64 %4993
   %4996 = load ptr, ptr %4995, align 8, !tbaa !28
   %4997 = icmp eq ptr %4996, null
-  br i1 %4997, label %6031, label %4998, !prof !39
+  br i1 %4997, label %6020, label %4998, !prof !39
 
 4998:                                             ; preds = %4991
   %4999 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %4980, ptr noundef nonnull %7, i32 noundef 3) #11
   %5000 = icmp eq i32 %4999, 0
-  br i1 %5000, label %5001, label %6031, !prof !35
+  br i1 %5000, label %5001, label %6020, !prof !35
 
 5001:                                             ; preds = %4998
   %5002 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -7535,12 +7535,12 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5039:                                             ; preds = %5001
   %5040 = zext nneg i8 %4963 to i32
   %5041 = sub nuw nsw i32 -4, %5040
-  br label %5948
+  br label %5937
 
 5042:                                             ; preds = %4979
   %5043 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %4980, ptr noundef nonnull %7, i32 noundef 3) #11
   %5044 = icmp eq i32 %5043, 0
-  br i1 %5044, label %5045, label %6031, !prof !35
+  br i1 %5044, label %5045, label %6020, !prof !35
 
 5045:                                             ; preds = %5042
   %5046 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -7605,7 +7605,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5088 = getelementptr inbounds nuw i8, ptr %5085, i64 248
   %5089 = load i32, ptr %5088, align 8, !tbaa !117
   %5090 = icmp ugt i32 %5089, %5087
-  br i1 %5090, label %5091, label %6031
+  br i1 %5090, label %5091, label %6020
 
 5091:                                             ; preds = %5083
   %5092 = getelementptr inbounds nuw i8, ptr %5085, i64 240
@@ -7614,7 +7614,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5095 = getelementptr inbounds nuw ptr, ptr %5094, i64 %5093
   %5096 = load ptr, ptr %5095, align 8, !tbaa !28
   %5097 = icmp eq ptr %5096, null
-  br i1 %5097, label %6031, label %5098, !prof !39
+  br i1 %5097, label %6020, label %5098, !prof !39
 
 5098:                                             ; preds = %5091
   %5099 = zext nneg i8 %4601 to i32
@@ -7625,7 +7625,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5104 = getelementptr inbounds nuw i8, ptr %5096, i64 32
   %5105 = load ptr, ptr %5104, align 8, !tbaa !120
   %5106 = icmp eq ptr %5105, %5103
-  br i1 %5106, label %5107, label %5948
+  br i1 %5106, label %5107, label %5937
 
 5107:                                             ; preds = %5098
   %5108 = getelementptr inbounds nuw i8, ptr %5096, i64 24
@@ -7654,19 +7654,19 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 
 5124:                                             ; preds = %5121
   %5125 = icmp eq i32 %4604, 4
-  br i1 %5125, label %6031, label %5126, !prof !37
+  br i1 %5125, label %6020, label %5126, !prof !37
 
-5126:                                             ; preds = %5723, %5124
-  %5127 = phi ptr [ %5719, %5723 ], [ %4596, %5124 ]
-  %5128 = phi i32 [ %5590, %5723 ], [ %4597, %5124 ]
-  %5129 = phi i32 [ %5564, %5723 ], [ %4598, %5124 ]
-  %5130 = phi i32 [ %46, %5723 ], [ %4599, %5124 ]
-  %5131 = phi i32 [ %5718, %5723 ], [ %4600, %5124 ]
-  %5132 = phi i8 [ %5531, %5723 ], [ %4601, %5124 ]
-  %5133 = phi i64 [ %5532, %5723 ], [ %4602, %5124 ]
-  %5134 = phi i32 [ %5571, %5723 ], [ %4604, %5124 ]
-  %5135 = phi i32 [ %5540, %5723 ], [ %4605, %5124 ]
-  %5136 = phi ptr [ %5533, %5723 ], [ %4606, %5124 ]
+5126:                                             ; preds = %5712, %5124
+  %5127 = phi ptr [ %5708, %5712 ], [ %4596, %5124 ]
+  %5128 = phi i32 [ %5579, %5712 ], [ %4597, %5124 ]
+  %5129 = phi i32 [ %5553, %5712 ], [ %4598, %5124 ]
+  %5130 = phi i32 [ %46, %5712 ], [ %4599, %5124 ]
+  %5131 = phi i32 [ %5707, %5712 ], [ %4600, %5124 ]
+  %5132 = phi i8 [ %5520, %5712 ], [ %4601, %5124 ]
+  %5133 = phi i64 [ %5521, %5712 ], [ %4602, %5124 ]
+  %5134 = phi i32 [ %5560, %5712 ], [ %4604, %5124 ]
+  %5135 = phi i32 [ %5529, %5712 ], [ %4605, %5124 ]
+  %5136 = phi ptr [ %5522, %5712 ], [ %4606, %5124 ]
   %5137 = and i32 %5134, 7
   %5138 = and i32 %5135, 1
   %5139 = icmp eq i32 %5138, 0
@@ -7761,7 +7761,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5201 = load i8, ptr %5200, align 8, !tbaa !42
   %5202 = and i8 %5201, 1
   %5203 = icmp eq i8 %5202, 0
-  br i1 %5203, label %6031, label %5204
+  br i1 %5203, label %6020, label %5204
 
 5204:                                             ; preds = %5199
   %5205 = trunc nuw nsw i32 %5128 to i8
@@ -7799,7 +7799,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5229 = load i32, ptr %4606, align 4, !tbaa !31
   %5230 = and i32 %5229, 196608
   %5231 = icmp eq i32 %5230, 0
-  br i1 %5231, label %5232, label %6031, !prof !35
+  br i1 %5231, label %5232, label %6020, !prof !35
 
 5232:                                             ; preds = %5228
   %5233 = shl nuw nsw i32 %5225, 3
@@ -7820,7 +7820,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5244 = phi ptr [ %5242, %5237 ], [ %5236, %5232 ]
   %5245 = load i8, ptr %5244, align 1, !tbaa !51
   %5246 = icmp eq i8 %5245, -1
-  br i1 %5246, label %6031, label %5247, !prof !37
+  br i1 %5246, label %6020, label %5247, !prof !37
 
 5247:                                             ; preds = %5243
   %5248 = zext i8 %5245 to i32
@@ -7863,7 +7863,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
 5270:                                             ; preds = %5217
   %5271 = and i32 %4605, 48
   %5272 = icmp eq i32 %5271, 0
-  br i1 %5272, label %5273, label %6031
+  br i1 %5272, label %5273, label %6020
 
 5273:                                             ; preds = %5270
   %5274 = trunc nuw nsw i32 %4597 to i8
@@ -7880,1056 +7880,1043 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5_emitEjRKNS0_8O
   %5281 = phi i32 [ %5130, %5183 ], [ %4962, %5045 ], [ %4962, %5032 ], [ %5130, %5154 ], [ %5130, %5173 ], [ %5130, %5177 ], [ %4599, %5119 ], [ %4599, %5107 ], [ %4599, %4629 ], [ %4599, %4650 ], [ %4599, %4654 ], [ %4599, %4658 ], [ %4599, %4672 ], [ %4599, %4676 ], [ %4599, %4695 ], [ %4599, %4943 ], [ %4599, %5273 ], [ %4599, %5266 ], [ %4599, %5262 ], [ %4599, %5254 ]
   %5282 = phi i8 [ %5132, %5183 ], [ %4963, %5045 ], [ %4963, %5032 ], [ %5132, %5154 ], [ %5132, %5173 ], [ %5132, %5177 ], [ %4601, %5119 ], [ %4601, %5107 ], [ %4601, %4629 ], [ %4601, %4650 ], [ %4601, %4654 ], [ %4601, %4658 ], [ %4601, %4672 ], [ %4601, %4676 ], [ %4601, %4695 ], [ %4601, %4943 ], [ %4601, %5273 ], [ %4601, %5266 ], [ %4601, %5262 ], [ %4601, %5254 ]
   %5283 = phi i64 [ %5133, %5183 ], [ %4964, %5045 ], [ %4964, %5032 ], [ %5133, %5154 ], [ %5133, %5173 ], [ %5133, %5177 ], [ %4602, %5119 ], [ %4602, %5107 ], [ %4602, %4629 ], [ %4602, %4650 ], [ %4602, %4654 ], [ %4602, %4658 ], [ %4602, %4672 ], [ %4602, %4676 ], [ %4602, %4695 ], [ %4602, %4943 ], [ %4602, %5273 ], [ %4602, %5266 ], [ %4602, %5262 ], [ %4602, %5254 ]
-  %5284 = icmp ugt i8 %5282, 3
-  br i1 %5284, label %5285, label %5290
+  %5284 = icmp samesign ugt i8 %5282, 3
+  br i1 %5284, label %.thread, label %5287
 
-5285:                                             ; preds = %5279
-  %5286 = trunc i64 %5283 to i32
-  store i32 %5286, ptr %5280, align 1, !tbaa !51
-  %5287 = getelementptr inbounds nuw i8, ptr %5280, i64 4
-  %5288 = lshr i64 %5283, 32
-  %5289 = add i8 %5282, -4
-  br label %5290
+.thread:                                          ; preds = %5279
+  %5285 = trunc i64 %5283 to i32
+  store i32 %5285, ptr %5280, align 1, !tbaa !51
+  %5286 = getelementptr inbounds nuw i8, ptr %5280, i64 4
+  br label %5995
 
-5290:                                             ; preds = %5285, %5279
-  %5291 = phi ptr [ %5287, %5285 ], [ %5280, %5279 ]
-  %5292 = phi i8 [ %5289, %5285 ], [ %5282, %5279 ]
-  %5293 = phi i64 [ %5288, %5285 ], [ %5283, %5279 ]
-  %5294 = icmp eq i8 %5292, 0
-  br i1 %5294, label %6006, label %5295
+5287:                                             ; preds = %5279
+  %5288 = icmp eq i8 %5282, 0
+  br i1 %5288, label %5995, label %5289
 
-5295:                                             ; preds = %5290
-  %5296 = trunc i64 %5293 to i8
-  store i8 %5296, ptr %5291, align 1, !tbaa !51
-  %5297 = getelementptr inbounds nuw i8, ptr %5291, i64 1
-  %5298 = icmp eq i8 %5292, 1
-  br i1 %5298, label %6006, label %5299
+5289:                                             ; preds = %5287
+  %5290 = trunc i64 %5283 to i8
+  store i8 %5290, ptr %5280, align 1, !tbaa !51
+  %5291 = getelementptr inbounds nuw i8, ptr %5280, i64 1
+  %5292 = icmp eq i8 %5282, 1
+  br i1 %5292, label %5995, label %5293
 
-5299:                                             ; preds = %5295
-  %5300 = lshr i64 %5293, 8
-  %5301 = trunc i64 %5300 to i8
-  store i8 %5301, ptr %5297, align 1, !tbaa !51
-  %5302 = getelementptr inbounds nuw i8, ptr %5291, i64 2
-  %5303 = icmp eq i8 %5292, 2
-  br i1 %5303, label %6006, label %5304
+5293:                                             ; preds = %5289
+  %5294 = lshr i64 %5283, 8
+  %5295 = trunc i64 %5294 to i8
+  store i8 %5295, ptr %5291, align 1, !tbaa !51
+  %5296 = getelementptr inbounds nuw i8, ptr %5280, i64 2
+  %5297 = icmp eq i8 %5282, 2
+  br i1 %5297, label %5995, label %5298
 
-5304:                                             ; preds = %5299
-  %5305 = lshr i64 %5293, 16
-  %5306 = trunc i64 %5305 to i8
-  store i8 %5306, ptr %5302, align 1, !tbaa !51
-  %5307 = getelementptr inbounds nuw i8, ptr %5291, i64 3
-  %5308 = icmp eq i8 %5292, 3
-  br i1 %5308, label %6006, label %5309
+5298:                                             ; preds = %5293
+  %5299 = lshr i64 %5283, 16
+  %5300 = trunc i64 %5299 to i8
+  store i8 %5300, ptr %5296, align 1, !tbaa !51
+  %5301 = getelementptr inbounds nuw i8, ptr %5280, i64 3
+  br label %5995
 
-5309:                                             ; preds = %5304
-  %5310 = lshr i64 %5293, 24
-  %5311 = trunc i64 %5310 to i8
-  store i8 %5311, ptr %5307, align 1, !tbaa !51
-  %5312 = getelementptr inbounds nuw i8, ptr %5291, i64 4
-  br label %6006
+5302:                                             ; preds = %2549, %2540, %2536, %2501, %2497, %2493, %2452, %2444, %153
+  %5303 = phi i32 [ %2554, %2549 ], [ %2543, %2540 ], [ %2537, %2536 ], [ %2504, %2501 ], [ %2500, %2497 ], [ %2496, %2493 ], [ %2449, %2444 ], [ %2455, %2452 ], [ %165, %153 ]
+  %5304 = lshr i32 %5303, 21
+  %5305 = and i32 %5304, 7
+  %5306 = zext nneg i32 %5305 to i64
+  %5307 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodePPE, i64 0, i64 %5306
+  %5308 = load i8, ptr %5307, align 1, !tbaa !51
+  %5309 = icmp ne i32 %5305, 0
+  store i8 %5308, ptr %154, align 1, !tbaa !51
+  %5310 = zext i1 %5309 to i64
+  %5311 = getelementptr inbounds nuw i8, ptr %154, i64 %5310
+  %5312 = lshr i32 %5303, 10
+  %5313 = trunc i32 %5312 to i8
+  store i8 %5313, ptr %5311, align 1, !tbaa !51
+  %5314 = getelementptr inbounds nuw i8, ptr %5311, i64 1
+  %5315 = trunc i32 %5303 to i8
+  store i8 %5315, ptr %5314, align 1, !tbaa !51
+  %5316 = getelementptr inbounds nuw i8, ptr %5311, i64 2
+  br label %5995
 
-5313:                                             ; preds = %2549, %2540, %2536, %2501, %2497, %2493, %2452, %2444, %153
-  %5314 = phi i32 [ %2554, %2549 ], [ %2543, %2540 ], [ %2537, %2536 ], [ %2504, %2501 ], [ %2500, %2497 ], [ %2496, %2493 ], [ %2449, %2444 ], [ %2455, %2452 ], [ %165, %153 ]
-  %5315 = lshr i32 %5314, 21
-  %5316 = and i32 %5315, 7
-  %5317 = zext nneg i32 %5316 to i64
-  %5318 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x86L11x86OpcodePPE, i64 0, i64 %5317
-  %5319 = load i8, ptr %5318, align 1, !tbaa !51
-  %5320 = icmp ne i32 %5316, 0
-  store i8 %5319, ptr %154, align 1, !tbaa !51
-  %5321 = zext i1 %5320 to i64
-  %5322 = getelementptr inbounds nuw i8, ptr %154, i64 %5321
-  %5323 = lshr i32 %5314, 10
-  %5324 = trunc i32 %5323 to i8
-  store i8 %5324, ptr %5322, align 1, !tbaa !51
-  %5325 = getelementptr inbounds nuw i8, ptr %5322, i64 1
-  %5326 = trunc i32 %5314 to i8
-  store i8 %5326, ptr %5325, align 1, !tbaa !51
-  %5327 = getelementptr inbounds nuw i8, ptr %5322, i64 2
-  br label %6006
+5317:                                             ; preds = %153
+  %5318 = lshr i32 %159, 19
+  %5319 = and i32 %5318, 3072
+  %5320 = lshr i32 %159, 13
+  %5321 = and i32 %5320, 768
+  %5322 = or disjoint i32 %5319, %5321
+  %5323 = and i32 %45, 1024
+  %5324 = icmp eq i32 %5323, 0
+  br i1 %5324, label %5333, label %5325
 
-5328:                                             ; preds = %153
-  %5329 = lshr i32 %159, 19
-  %5330 = and i32 %5329, 3072
-  %5331 = lshr i32 %159, 13
-  %5332 = and i32 %5331, 768
-  %5333 = or disjoint i32 %5330, %5332
-  %5334 = and i32 %45, 1024
-  %5335 = icmp eq i32 %5334, 0
-  br i1 %5335, label %5344, label %5336
+5325:                                             ; preds = %5317
+  %5326 = shl nuw nsw i32 %5322, 8
+  %5327 = and i32 %159, 7936
+  %5328 = or disjoint i32 %5326, %5327
+  %5329 = shl i32 %165, 24
+  %5330 = or disjoint i32 %5329, 7921860
+  %5331 = xor i32 %5328, %5330
+  store i32 %5331, ptr %154, align 1, !tbaa !51
+  %5332 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  br label %5995
 
-5336:                                             ; preds = %5328
-  %5337 = shl nuw nsw i32 %5333, 8
-  %5338 = and i32 %159, 7936
-  %5339 = or disjoint i32 %5337, %5338
-  %5340 = shl i32 %165, 24
-  %5341 = or disjoint i32 %5340, 7921860
-  %5342 = xor i32 %5339, %5341
-  store i32 %5342, ptr %154, align 1, !tbaa !51
-  %5343 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  br label %6006
-
-5344:                                             ; preds = %5328
-  %5345 = and i32 %159, 7936
-  %5346 = xor i32 %5333, %5345
-  %5347 = lshr exact i32 %5346, 8
+5333:                                             ; preds = %5317
+  %5334 = and i32 %159, 7936
+  %5335 = xor i32 %5322, %5334
+  %5336 = lshr exact i32 %5335, 8
   store i8 -59, ptr %154, align 1, !tbaa !51
-  %5348 = getelementptr inbounds nuw i8, ptr %154, i64 1
-  %5349 = trunc nuw nsw i32 %5347 to i8
-  %5350 = xor i8 %5349, -7
-  store i8 %5350, ptr %5348, align 1, !tbaa !51
-  %5351 = getelementptr inbounds nuw i8, ptr %154, i64 2
-  %5352 = trunc i32 %165 to i8
-  store i8 %5352, ptr %5351, align 1, !tbaa !51
-  %5353 = getelementptr inbounds nuw i8, ptr %154, i64 3
-  br label %6006
+  %5337 = getelementptr inbounds nuw i8, ptr %154, i64 1
+  %5338 = trunc nuw nsw i32 %5336 to i8
+  %5339 = xor i8 %5338, -7
+  store i8 %5339, ptr %5337, align 1, !tbaa !51
+  %5340 = getelementptr inbounds nuw i8, ptr %154, i64 2
+  %5341 = trunc i32 %165 to i8
+  store i8 %5341, ptr %5340, align 1, !tbaa !51
+  %5342 = getelementptr inbounds nuw i8, ptr %154, i64 3
+  br label %5995
 
-5354:                                             ; preds = %4131, %4116, %4077, %4036, %3974, %3918, %3887, %3863, %3835, %3787, %3768, %3746, %3737, %3710, %3699, %3690, %3664, %3634, %3623, %3604, %3565, %3553, %3535, %3514, %3445, %3417, %3371, %3349, %3271, %3261, %3161, %3133, %3077, %3057, %3029, %3008, %2997, %2994, %2987, %2977, %153
-  %5355 = phi i32 [ %4137, %4131 ], [ %4118, %4116 ], [ %3278, %3271 ], [ %4042, %4036 ], [ %3980, %3974 ], [ %3922, %3918 ], [ %3891, %3887 ], [ %3867, %3863 ], [ %3841, %3835 ], [ %3793, %3787 ], [ %3770, %3768 ], [ %3752, %3746 ], [ %3739, %3737 ], [ %3713, %3710 ], [ %3705, %3699 ], [ %3692, %3690 ], [ %3670, %3664 ], [ %3637, %3634 ], [ %3629, %3623 ], [ %3606, %3604 ], [ %3546, %3535 ], [ %3559, %3553 ], [ %3569, %3565 ], [ %3451, %3445 ], [ %3263, %3261 ], [ %3163, %3161 ], [ %3146, %3133 ], [ %3079, %3077 ], [ %3059, %3057 ], [ %3031, %3029 ], [ %161, %3008 ], [ %2971, %2977 ], [ %2971, %2987 ], [ %2973, %2997 ], [ %2971, %2994 ], [ %161, %153 ], [ %3346, %3349 ], [ %3377, %3371 ], [ %3423, %3417 ], [ %3520, %3514 ], [ %4083, %4077 ]
-  %5356 = phi i32 [ %4139, %4131 ], [ 0, %4116 ], [ %3280, %3271 ], [ %4044, %4036 ], [ %3982, %3974 ], [ %3924, %3918 ], [ %3893, %3887 ], [ %3869, %3863 ], [ %3843, %3835 ], [ %3795, %3787 ], [ %3772, %3768 ], [ %3754, %3746 ], [ %3741, %3737 ], [ %3703, %3710 ], [ %3707, %3699 ], [ %3694, %3690 ], [ %3672, %3664 ], [ %3627, %3634 ], [ %3631, %3623 ], [ %3608, %3604 ], [ %3548, %3535 ], [ %3561, %3553 ], [ %3571, %3565 ], [ %3453, %3445 ], [ %3265, %3261 ], [ %3165, %3161 ], [ %3148, %3133 ], [ %3081, %3077 ], [ %3061, %3057 ], [ %3033, %3029 ], [ %3010, %3008 ], [ %2973, %2977 ], [ %2973, %2987 ], [ %2971, %2997 ], [ %2973, %2994 ], [ 0, %153 ], [ %3351, %3349 ], [ %3379, %3371 ], [ %3425, %3417 ], [ %3522, %3514 ], [ %4094, %4077 ]
-  %5357 = phi i32 [ %165, %4131 ], [ %165, %4116 ], [ %3272, %3271 ], [ %4007, %4036 ], [ %3953, %3974 ], [ %3914, %3918 ], [ %3886, %3887 ], [ %3858, %3863 ], [ %3834, %3835 ], [ %3786, %3787 ], [ %3767, %3768 ], [ %165, %3746 ], [ %3734, %3737 ], [ %3711, %3710 ], [ %165, %3699 ], [ %3687, %3690 ], [ %3663, %3664 ], [ %3635, %3634 ], [ %165, %3623 ], [ %3603, %3604 ], [ %3544, %3535 ], [ %3557, %3553 ], [ %3567, %3565 ], [ %3444, %3445 ], [ %3258, %3261 ], [ %3159, %3161 ], [ %3144, %3133 ], [ %3074, %3077 ], [ 2097605, %3057 ], [ %3028, %3029 ], [ %3015, %3008 ], [ %2982, %2977 ], [ %2993, %2987 ], [ %2998, %2997 ], [ %165, %2994 ], [ %165, %153 ], [ %3342, %3349 ], [ %3362, %3371 ], [ %3410, %3417 ], [ %165, %3514 ], [ %4088, %4077 ]
-  %5358 = phi i8 [ 0, %4131 ], [ 0, %4116 ], [ 0, %3271 ], [ 1, %4036 ], [ 1, %3974 ], [ %3915, %3918 ], [ 0, %3887 ], [ 1, %3863 ], [ 0, %3835 ], [ 0, %3787 ], [ 0, %3768 ], [ 0, %3746 ], [ 1, %3737 ], [ 0, %3710 ], [ 0, %3699 ], [ 1, %3690 ], [ 0, %3664 ], [ 0, %3634 ], [ 0, %3623 ], [ 0, %3604 ], [ 0, %3535 ], [ 0, %3553 ], [ 0, %3565 ], [ 0, %3445 ], [ 1, %3261 ], [ 0, %3161 ], [ 0, %3133 ], [ 1, %3077 ], [ 1, %3057 ], [ 0, %3029 ], [ 0, %3008 ], [ 0, %2977 ], [ 0, %2987 ], [ 0, %2997 ], [ 0, %2994 ], [ 0, %153 ], [ 0, %3349 ], [ 1, %3371 ], [ 1, %3417 ], [ 1, %3514 ], [ 1, %4077 ]
-  %5359 = phi i64 [ 0, %4131 ], [ 0, %4116 ], [ 0, %3271 ], [ %4049, %4036 ], [ %3986, %3974 ], [ %3917, %3918 ], [ 0, %3887 ], [ %3862, %3863 ], [ 0, %3835 ], [ 0, %3787 ], [ 0, %3768 ], [ 0, %3746 ], [ %3736, %3737 ], [ 0, %3710 ], [ 0, %3699 ], [ %3689, %3690 ], [ 0, %3664 ], [ 0, %3634 ], [ 0, %3623 ], [ 0, %3604 ], [ 0, %3535 ], [ 0, %3553 ], [ 0, %3565 ], [ 0, %3445 ], [ %3260, %3261 ], [ 0, %3161 ], [ 0, %3133 ], [ %3076, %3077 ], [ %3063, %3057 ], [ 0, %3029 ], [ 0, %3008 ], [ 0, %2977 ], [ 0, %2987 ], [ 0, %2997 ], [ 0, %2994 ], [ 0, %153 ], [ 0, %3349 ], [ %3370, %3371 ], [ %3416, %3417 ], [ %3513, %3514 ], [ %4095, %4077 ]
-  %5360 = shl i32 %5355, 4
-  %5361 = and i32 %5360, 63872
-  %5362 = shl i32 %5356, 2
-  %5363 = and i32 %5362, 96
-  %5364 = or disjoint i32 %5363, %5361
-  %5365 = and i32 %5357, 1610620672
-  %5366 = and i32 %45, 4096
-  %5367 = or i32 %5365, %5366
-  %5368 = lshr exact i32 %5367, 8
-  %5369 = or disjoint i32 %5364, %5368
-  %5370 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %5371 = load i32, ptr %5370, align 4, !tbaa !127
-  %5372 = shl i32 %5371, 16
-  %5373 = or i32 %5369, %5372
-  %5374 = and i32 %5355, 7
-  %5375 = and i32 %45, 9175040
-  %5376 = icmp eq i32 %5375, 0
-  br i1 %5376, label %5403, label %5377
+5343:                                             ; preds = %4131, %4116, %4077, %4036, %3974, %3918, %3887, %3863, %3835, %3787, %3768, %3746, %3737, %3710, %3699, %3690, %3664, %3634, %3623, %3604, %3565, %3553, %3535, %3514, %3445, %3417, %3371, %3349, %3271, %3261, %3161, %3133, %3077, %3057, %3029, %3008, %2997, %2994, %2987, %2977, %153
+  %5344 = phi i32 [ %4137, %4131 ], [ %4118, %4116 ], [ %3278, %3271 ], [ %4042, %4036 ], [ %3980, %3974 ], [ %3922, %3918 ], [ %3891, %3887 ], [ %3867, %3863 ], [ %3841, %3835 ], [ %3793, %3787 ], [ %3770, %3768 ], [ %3752, %3746 ], [ %3739, %3737 ], [ %3713, %3710 ], [ %3705, %3699 ], [ %3692, %3690 ], [ %3670, %3664 ], [ %3637, %3634 ], [ %3629, %3623 ], [ %3606, %3604 ], [ %3546, %3535 ], [ %3559, %3553 ], [ %3569, %3565 ], [ %3451, %3445 ], [ %3263, %3261 ], [ %3163, %3161 ], [ %3146, %3133 ], [ %3079, %3077 ], [ %3059, %3057 ], [ %3031, %3029 ], [ %161, %3008 ], [ %2971, %2977 ], [ %2971, %2987 ], [ %2973, %2997 ], [ %2971, %2994 ], [ %161, %153 ], [ %3346, %3349 ], [ %3377, %3371 ], [ %3423, %3417 ], [ %3520, %3514 ], [ %4083, %4077 ]
+  %5345 = phi i32 [ %4139, %4131 ], [ 0, %4116 ], [ %3280, %3271 ], [ %4044, %4036 ], [ %3982, %3974 ], [ %3924, %3918 ], [ %3893, %3887 ], [ %3869, %3863 ], [ %3843, %3835 ], [ %3795, %3787 ], [ %3772, %3768 ], [ %3754, %3746 ], [ %3741, %3737 ], [ %3703, %3710 ], [ %3707, %3699 ], [ %3694, %3690 ], [ %3672, %3664 ], [ %3627, %3634 ], [ %3631, %3623 ], [ %3608, %3604 ], [ %3548, %3535 ], [ %3561, %3553 ], [ %3571, %3565 ], [ %3453, %3445 ], [ %3265, %3261 ], [ %3165, %3161 ], [ %3148, %3133 ], [ %3081, %3077 ], [ %3061, %3057 ], [ %3033, %3029 ], [ %3010, %3008 ], [ %2973, %2977 ], [ %2973, %2987 ], [ %2971, %2997 ], [ %2973, %2994 ], [ 0, %153 ], [ %3351, %3349 ], [ %3379, %3371 ], [ %3425, %3417 ], [ %3522, %3514 ], [ %4094, %4077 ]
+  %5346 = phi i32 [ %165, %4131 ], [ %165, %4116 ], [ %3272, %3271 ], [ %4007, %4036 ], [ %3953, %3974 ], [ %3914, %3918 ], [ %3886, %3887 ], [ %3858, %3863 ], [ %3834, %3835 ], [ %3786, %3787 ], [ %3767, %3768 ], [ %165, %3746 ], [ %3734, %3737 ], [ %3711, %3710 ], [ %165, %3699 ], [ %3687, %3690 ], [ %3663, %3664 ], [ %3635, %3634 ], [ %165, %3623 ], [ %3603, %3604 ], [ %3544, %3535 ], [ %3557, %3553 ], [ %3567, %3565 ], [ %3444, %3445 ], [ %3258, %3261 ], [ %3159, %3161 ], [ %3144, %3133 ], [ %3074, %3077 ], [ 2097605, %3057 ], [ %3028, %3029 ], [ %3015, %3008 ], [ %2982, %2977 ], [ %2993, %2987 ], [ %2998, %2997 ], [ %165, %2994 ], [ %165, %153 ], [ %3342, %3349 ], [ %3362, %3371 ], [ %3410, %3417 ], [ %165, %3514 ], [ %4088, %4077 ]
+  %5347 = phi i8 [ 0, %4131 ], [ 0, %4116 ], [ 0, %3271 ], [ 1, %4036 ], [ 1, %3974 ], [ %3915, %3918 ], [ 0, %3887 ], [ 1, %3863 ], [ 0, %3835 ], [ 0, %3787 ], [ 0, %3768 ], [ 0, %3746 ], [ 1, %3737 ], [ 0, %3710 ], [ 0, %3699 ], [ 1, %3690 ], [ 0, %3664 ], [ 0, %3634 ], [ 0, %3623 ], [ 0, %3604 ], [ 0, %3535 ], [ 0, %3553 ], [ 0, %3565 ], [ 0, %3445 ], [ 1, %3261 ], [ 0, %3161 ], [ 0, %3133 ], [ 1, %3077 ], [ 1, %3057 ], [ 0, %3029 ], [ 0, %3008 ], [ 0, %2977 ], [ 0, %2987 ], [ 0, %2997 ], [ 0, %2994 ], [ 0, %153 ], [ 0, %3349 ], [ 1, %3371 ], [ 1, %3417 ], [ 1, %3514 ], [ 1, %4077 ]
+  %5348 = phi i64 [ 0, %4131 ], [ 0, %4116 ], [ 0, %3271 ], [ %4049, %4036 ], [ %3986, %3974 ], [ %3917, %3918 ], [ 0, %3887 ], [ %3862, %3863 ], [ 0, %3835 ], [ 0, %3787 ], [ 0, %3768 ], [ 0, %3746 ], [ %3736, %3737 ], [ 0, %3710 ], [ 0, %3699 ], [ %3689, %3690 ], [ 0, %3664 ], [ 0, %3634 ], [ 0, %3623 ], [ 0, %3604 ], [ 0, %3535 ], [ 0, %3553 ], [ 0, %3565 ], [ 0, %3445 ], [ %3260, %3261 ], [ 0, %3161 ], [ 0, %3133 ], [ %3076, %3077 ], [ %3063, %3057 ], [ 0, %3029 ], [ 0, %3008 ], [ 0, %2977 ], [ 0, %2987 ], [ 0, %2997 ], [ 0, %2994 ], [ 0, %153 ], [ 0, %3349 ], [ %3370, %3371 ], [ %3416, %3417 ], [ %3513, %3514 ], [ %4095, %4077 ]
+  %5349 = shl i32 %5344, 4
+  %5350 = and i32 %5349, 63872
+  %5351 = shl i32 %5345, 2
+  %5352 = and i32 %5351, 96
+  %5353 = or disjoint i32 %5352, %5350
+  %5354 = and i32 %5346, 1610620672
+  %5355 = and i32 %45, 4096
+  %5356 = or i32 %5354, %5355
+  %5357 = lshr exact i32 %5356, 8
+  %5358 = or disjoint i32 %5353, %5357
+  %5359 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %5360 = load i32, ptr %5359, align 4, !tbaa !127
+  %5361 = shl i32 %5360, 16
+  %5362 = or i32 %5358, %5361
+  %5363 = and i32 %5344, 7
+  %5364 = and i32 %45, 9175040
+  %5365 = icmp eq i32 %5364, 0
+  br i1 %5365, label %5392, label %5366
 
-5377:                                             ; preds = %5354
-  %5378 = and i32 %45, 8388608
-  %5379 = or i32 %5373, %5378
-  %5380 = and i32 %45, 786432
-  %5381 = icmp eq i32 %5380, 0
-  br i1 %5381, label %5403, label %5382
+5366:                                             ; preds = %5343
+  %5367 = and i32 %45, 8388608
+  %5368 = or i32 %5362, %5367
+  %5369 = and i32 %45, 786432
+  %5370 = icmp eq i32 %5369, 0
+  br i1 %5370, label %5392, label %5371
 
-5382:                                             ; preds = %5377
-  %5383 = and i32 %5373, 6291456
-  %5384 = icmp eq i32 %5383, 4194304
+5371:                                             ; preds = %5366
+  %5372 = and i32 %5362, 6291456
+  %5373 = icmp eq i32 %5372, 4194304
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.pre146 = load i32, ptr %.phi.trans.insert, align 4
-  %5385 = and i32 %.pre146, 112
-  %5386 = icmp eq i32 %5385, 0
-  %or.cond = select i1 %5384, i1 true, i1 %5386
-  br i1 %or.cond, label %._crit_edge, label %6031, !prof !90
+  %5374 = and i32 %.pre146, 112
+  %5375 = icmp eq i32 %5374, 0
+  %or.cond = select i1 %5373, i1 true, i1 %5375
+  br i1 %or.cond, label %._crit_edge, label %6020, !prof !90
 
-._crit_edge:                                      ; preds = %5382
-  %5387 = and i32 %45, 262144
+._crit_edge:                                      ; preds = %5371
+  %5376 = and i32 %45, 262144
+  %5377 = icmp eq i32 %5376, 0
+  br i1 %5377, label %5386, label %5378
+
+5378:                                             ; preds = %._crit_edge
+  %5379 = and i32 %.pre146, 4
+  %5380 = icmp eq i32 %5379, 0
+  br i1 %5380, label %6020, label %5381, !prof !37
+
+5381:                                             ; preds = %5378
+  %5382 = and i32 %5368, -7340033
+  %5383 = and i32 %45, 6291456
+  %5384 = or disjoint i32 %5383, %5382
+  %5385 = or disjoint i32 %5384, 1048576
+  br label %5392
+
+5386:                                             ; preds = %._crit_edge
+  %5387 = and i32 %.pre146, 8
   %5388 = icmp eq i32 %5387, 0
-  br i1 %5388, label %5397, label %5389
+  br i1 %5388, label %6020, label %5389, !prof !37
 
-5389:                                             ; preds = %._crit_edge
-  %5390 = and i32 %.pre146, 4
-  %5391 = icmp eq i32 %5390, 0
-  br i1 %5391, label %6031, label %5392, !prof !37
+5389:                                             ; preds = %5386
+  %5390 = and i32 %5368, -7340033
+  %5391 = or disjoint i32 %5390, 1048576
+  br label %5392
 
-5392:                                             ; preds = %5389
-  %5393 = and i32 %5379, -7340033
-  %5394 = and i32 %45, 6291456
-  %5395 = or disjoint i32 %5394, %5393
-  %5396 = or disjoint i32 %5395, 1048576
-  br label %5403
+5392:                                             ; preds = %5389, %5381, %5366, %5343
+  %5393 = phi i32 [ %5385, %5381 ], [ %5391, %5389 ], [ %5368, %5366 ], [ %5362, %5343 ]
+  %5394 = load i32, ptr %21, align 4, !tbaa !48
+  %5395 = and i32 %5394, 16777216
+  %5396 = icmp ne i32 %5395, 0
+  %5397 = and i32 %5393, 14123344
+  %5398 = and i32 %45, 3072
+  %5399 = or disjoint i32 %5393, 16
+  %5400 = or disjoint i32 %5397, %5398
+  %5401 = icmp eq i32 %5400, 0
+  %5402 = and i1 %5396, %5401
+  %5403 = select i1 %5402, i32 %5399, i32 %5393
+  %5404 = and i32 %5403, 14123344
+  %5405 = icmp eq i32 %5404, 0
+  br i1 %5405, label %5446, label %5406
 
-5397:                                             ; preds = %._crit_edge
-  %5398 = and i32 %.pre146, 8
-  %5399 = icmp eq i32 %5398, 0
-  br i1 %5399, label %6031, label %5400, !prof !37
+5406:                                             ; preds = %5392
+  %5407 = shl i32 %5403, 4
+  %5408 = and i32 %5407, 524288
+  %5409 = lshr i32 %5403, 4
+  %5410 = and i32 %5409, 16
+  %5411 = and i32 %5403, 16742639
+  %5412 = or disjoint i32 %5410, %5411
+  %5413 = or i32 %5412, %5408
+  %5414 = shl nuw i32 %5413, 8
+  %5415 = lshr i32 %5346, 4
+  %5416 = and i32 %5415, 8388608
+  %5417 = or disjoint i32 %5414, %5416
+  %5418 = lshr i32 %5346, 5
+  %5419 = and i32 %5418, 8585216
+  %5420 = or i32 %5417, %5419
+  %5421 = xor i32 %5420, 142405730
+  store i32 %5421, ptr %154, align 1, !tbaa !51
+  %5422 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  %5423 = trunc i32 %5346 to i8
+  store i8 %5423, ptr %5422, align 1, !tbaa !51
+  %5424 = getelementptr inbounds nuw i8, ptr %154, i64 5
+  %5425 = and i32 %5345, 7
+  %5426 = shl nuw nsw i32 %5363, 3
+  %5427 = or disjoint i32 %5426, %5425
+  %5428 = trunc nuw nsw i32 %5427 to i8
+  %5429 = or disjoint i8 %5428, -64
+  store i8 %5429, ptr %5424, align 1, !tbaa !51
+  %5430 = getelementptr inbounds nuw i8, ptr %154, i64 6
+  %5431 = icmp eq i8 %5347, 0
+  br i1 %5431, label %5995, label %5432
 
-5400:                                             ; preds = %5397
-  %5401 = and i32 %5379, -7340033
-  %5402 = or disjoint i32 %5401, 1048576
-  br label %5403
+5432:                                             ; preds = %5406
+  %5433 = trunc i64 %5348 to i8
+  store i8 %5433, ptr %5430, align 1, !tbaa !51
+  %5434 = getelementptr inbounds nuw i8, ptr %154, i64 7
+  %5435 = icmp eq i8 %5347, 1
+  br i1 %5435, label %5995, label %5436
 
-5403:                                             ; preds = %5400, %5392, %5377, %5354
-  %5404 = phi i32 [ %5396, %5392 ], [ %5402, %5400 ], [ %5379, %5377 ], [ %5373, %5354 ]
-  %5405 = load i32, ptr %21, align 4, !tbaa !48
-  %5406 = and i32 %5405, 16777216
-  %5407 = icmp ne i32 %5406, 0
-  %5408 = and i32 %5404, 14123344
-  %5409 = and i32 %45, 3072
-  %5410 = or disjoint i32 %5404, 16
-  %5411 = or disjoint i32 %5408, %5409
-  %5412 = icmp eq i32 %5411, 0
-  %5413 = and i1 %5407, %5412
-  %5414 = select i1 %5413, i32 %5410, i32 %5404
-  %5415 = and i32 %5414, 14123344
-  %5416 = icmp eq i32 %5415, 0
-  br i1 %5416, label %5457, label %5417
+5436:                                             ; preds = %5432
+  %5437 = lshr i64 %5348, 8
+  %5438 = trunc i64 %5437 to i8
+  store i8 %5438, ptr %5434, align 1, !tbaa !51
+  %5439 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %5440 = lshr i64 %5348, 16
+  %5441 = trunc i64 %5440 to i8
+  store i8 %5441, ptr %5439, align 1, !tbaa !51
+  %5442 = getelementptr inbounds nuw i8, ptr %154, i64 9
+  %5443 = lshr i64 %5348, 24
+  %5444 = trunc i64 %5443 to i8
+  store i8 %5444, ptr %5442, align 1, !tbaa !51
+  %5445 = getelementptr inbounds nuw i8, ptr %154, i64 10
+  br label %5995
 
-5417:                                             ; preds = %5403
-  %5418 = shl i32 %5414, 4
-  %5419 = and i32 %5418, 524288
-  %5420 = lshr i32 %5414, 4
-  %5421 = and i32 %5420, 16
-  %5422 = and i32 %5414, 16742639
-  %5423 = or disjoint i32 %5421, %5422
-  %5424 = or i32 %5423, %5419
-  %5425 = shl nuw i32 %5424, 8
-  %5426 = lshr i32 %5357, 4
-  %5427 = and i32 %5426, 8388608
-  %5428 = or disjoint i32 %5425, %5427
-  %5429 = lshr i32 %5357, 5
-  %5430 = and i32 %5429, 8585216
-  %5431 = or i32 %5428, %5430
-  %5432 = xor i32 %5431, 142405730
-  store i32 %5432, ptr %154, align 1, !tbaa !51
-  %5433 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %5434 = trunc i32 %5357 to i8
-  store i8 %5434, ptr %5433, align 1, !tbaa !51
-  %5435 = getelementptr inbounds nuw i8, ptr %154, i64 5
-  %5436 = and i32 %5356, 7
-  %5437 = shl nuw nsw i32 %5374, 3
-  %5438 = or disjoint i32 %5437, %5436
-  %5439 = trunc nuw nsw i32 %5438 to i8
-  %5440 = or disjoint i8 %5439, -64
-  store i8 %5440, ptr %5435, align 1, !tbaa !51
-  %5441 = getelementptr inbounds nuw i8, ptr %154, i64 6
-  %5442 = icmp eq i8 %5358, 0
-  br i1 %5442, label %6006, label %5443
+5446:                                             ; preds = %5392
+  %5447 = lshr i32 %5346, 12
+  %5448 = and i32 %5447, 32768
+  %5449 = lshr i32 %5346, 13
+  %5450 = and i32 %5449, 768
+  %5451 = lshr i32 %5403, 11
+  %5452 = and i32 %5451, 1024
+  %5453 = shl i32 %45, 21
+  %5454 = and i32 %5453, -2147483648
+  %5455 = or disjoint i32 %5450, %5454
+  %5456 = or disjoint i32 %5455, %5448
+  %5457 = or disjoint i32 %5456, %5452
+  %5458 = or i32 %5457, %5403
+  %5459 = and i32 %5458, -2147450834
+  %5460 = icmp eq i32 %5459, 0
+  %5461 = and i32 %5345, 7
+  %5462 = shl nuw nsw i32 %5363, 3
+  %5463 = or disjoint i32 %5462, %5461
+  %5464 = trunc nuw nsw i32 %5463 to i8
+  %5465 = or disjoint i8 %5464, -64
+  %5466 = icmp eq i8 %5347, 0
+  br i1 %5460, label %5493, label %5467
 
-5443:                                             ; preds = %5417
-  %5444 = trunc i64 %5359 to i8
-  store i8 %5444, ptr %5441, align 1, !tbaa !51
-  %5445 = getelementptr inbounds nuw i8, ptr %154, i64 7
-  %5446 = icmp eq i8 %5358, 1
-  br i1 %5446, label %6006, label %5447
+5467:                                             ; preds = %5446
+  %5468 = and i32 %5403, 15
+  %5469 = zext nneg i32 %5468 to i64
+  %5470 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 0, i64 %5469
+  %5471 = load i32, ptr %5470, align 4, !tbaa !47
+  %5472 = shl i32 %5346, 24
+  %5473 = or i32 %5471, %5472
+  %5474 = shl i32 %5458, 8
+  %5475 = and i32 %5474, 16776960
+  %5476 = xor i32 %5473, %5475
+  store i32 %5476, ptr %154, align 1, !tbaa !51
+  %5477 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  store i8 %5465, ptr %5477, align 1, !tbaa !51
+  %5478 = getelementptr inbounds nuw i8, ptr %154, i64 5
+  br i1 %5466, label %5995, label %5479
 
-5447:                                             ; preds = %5443
-  %5448 = lshr i64 %5359, 8
-  %5449 = trunc i64 %5448 to i8
-  store i8 %5449, ptr %5445, align 1, !tbaa !51
-  %5450 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %5451 = lshr i64 %5359, 16
-  %5452 = trunc i64 %5451 to i8
-  store i8 %5452, ptr %5450, align 1, !tbaa !51
-  %5453 = getelementptr inbounds nuw i8, ptr %154, i64 9
-  %5454 = lshr i64 %5359, 24
-  %5455 = trunc i64 %5454 to i8
-  store i8 %5455, ptr %5453, align 1, !tbaa !51
-  %5456 = getelementptr inbounds nuw i8, ptr %154, i64 10
-  br label %6006
+5479:                                             ; preds = %5467
+  %5480 = trunc i64 %5348 to i8
+  store i8 %5480, ptr %5478, align 1, !tbaa !51
+  %5481 = getelementptr inbounds nuw i8, ptr %154, i64 6
+  %5482 = icmp eq i8 %5347, 1
+  br i1 %5482, label %5995, label %5483
 
-5457:                                             ; preds = %5403
-  %5458 = lshr i32 %5357, 12
-  %5459 = and i32 %5458, 32768
-  %5460 = lshr i32 %5357, 13
-  %5461 = and i32 %5460, 768
-  %5462 = lshr i32 %5414, 11
-  %5463 = and i32 %5462, 1024
-  %5464 = shl i32 %45, 21
-  %5465 = and i32 %5464, -2147483648
-  %5466 = or disjoint i32 %5461, %5465
-  %5467 = or disjoint i32 %5466, %5459
-  %5468 = or disjoint i32 %5467, %5463
-  %5469 = or i32 %5468, %5414
-  %5470 = and i32 %5469, -2147450834
-  %5471 = icmp eq i32 %5470, 0
-  %5472 = and i32 %5356, 7
-  %5473 = shl nuw nsw i32 %5374, 3
-  %5474 = or disjoint i32 %5473, %5472
-  %5475 = trunc nuw nsw i32 %5474 to i8
-  %5476 = or disjoint i8 %5475, -64
-  %5477 = icmp eq i8 %5358, 0
-  br i1 %5471, label %5504, label %5478
-
-5478:                                             ; preds = %5457
-  %5479 = and i32 %5414, 15
-  %5480 = zext nneg i32 %5479 to i64
-  %5481 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 0, i64 %5480
-  %5482 = load i32, ptr %5481, align 4, !tbaa !47
-  %5483 = shl i32 %5357, 24
-  %5484 = or i32 %5482, %5483
-  %5485 = shl i32 %5469, 8
-  %5486 = and i32 %5485, 16776960
-  %5487 = xor i32 %5484, %5486
-  store i32 %5487, ptr %154, align 1, !tbaa !51
-  %5488 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  store i8 %5476, ptr %5488, align 1, !tbaa !51
-  %5489 = getelementptr inbounds nuw i8, ptr %154, i64 5
-  br i1 %5477, label %6006, label %5490
-
-5490:                                             ; preds = %5478
-  %5491 = trunc i64 %5359 to i8
+5483:                                             ; preds = %5479
+  %5484 = lshr i64 %5348, 8
+  %5485 = trunc i64 %5484 to i8
+  store i8 %5485, ptr %5481, align 1, !tbaa !51
+  %5486 = getelementptr inbounds nuw i8, ptr %154, i64 7
+  %5487 = lshr i64 %5348, 16
+  %5488 = trunc i64 %5487 to i8
+  store i8 %5488, ptr %5486, align 1, !tbaa !51
+  %5489 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %5490 = lshr i64 %5348, 24
+  %5491 = trunc i64 %5490 to i8
   store i8 %5491, ptr %5489, align 1, !tbaa !51
-  %5492 = getelementptr inbounds nuw i8, ptr %154, i64 6
-  %5493 = icmp eq i8 %5358, 1
-  br i1 %5493, label %6006, label %5494
+  %5492 = getelementptr inbounds nuw i8, ptr %154, i64 9
+  br label %5995
 
-5494:                                             ; preds = %5490
-  %5495 = lshr i64 %5359, 8
-  %5496 = trunc i64 %5495 to i8
-  store i8 %5496, ptr %5492, align 1, !tbaa !51
-  %5497 = getelementptr inbounds nuw i8, ptr %154, i64 7
-  %5498 = lshr i64 %5359, 16
-  %5499 = trunc i64 %5498 to i8
-  store i8 %5499, ptr %5497, align 1, !tbaa !51
-  %5500 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %5501 = lshr i64 %5359, 24
-  %5502 = trunc i64 %5501 to i8
-  store i8 %5502, ptr %5500, align 1, !tbaa !51
-  %5503 = getelementptr inbounds nuw i8, ptr %154, i64 9
-  br label %6006
-
-5504:                                             ; preds = %5457
-  %5505 = lshr i32 %5469, 8
-  %5506 = xor i32 %5505, %5469
+5493:                                             ; preds = %5446
+  %5494 = lshr i32 %5458, 8
+  %5495 = xor i32 %5494, %5458
   store i8 -59, ptr %154, align 1, !tbaa !51
-  %5507 = getelementptr inbounds nuw i8, ptr %154, i64 1
-  %5508 = trunc i32 %5506 to i8
-  %5509 = xor i8 %5508, -7
-  store i8 %5509, ptr %5507, align 1, !tbaa !51
-  %5510 = getelementptr inbounds nuw i8, ptr %154, i64 2
-  %5511 = trunc i32 %5357 to i8
-  store i8 %5511, ptr %5510, align 1, !tbaa !51
-  %5512 = getelementptr inbounds nuw i8, ptr %154, i64 3
-  store i8 %5476, ptr %5512, align 1, !tbaa !51
-  %5513 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  br i1 %5477, label %6006, label %5514
+  %5496 = getelementptr inbounds nuw i8, ptr %154, i64 1
+  %5497 = trunc i32 %5495 to i8
+  %5498 = xor i8 %5497, -7
+  store i8 %5498, ptr %5496, align 1, !tbaa !51
+  %5499 = getelementptr inbounds nuw i8, ptr %154, i64 2
+  %5500 = trunc i32 %5346 to i8
+  store i8 %5500, ptr %5499, align 1, !tbaa !51
+  %5501 = getelementptr inbounds nuw i8, ptr %154, i64 3
+  store i8 %5465, ptr %5501, align 1, !tbaa !51
+  %5502 = getelementptr inbounds nuw i8, ptr %154, i64 4
+  br i1 %5466, label %5995, label %5503
 
-5514:                                             ; preds = %5504
-  %5515 = trunc i64 %5359 to i8
+5503:                                             ; preds = %5493
+  %5504 = trunc i64 %5348 to i8
+  store i8 %5504, ptr %5502, align 1, !tbaa !51
+  %5505 = getelementptr inbounds nuw i8, ptr %154, i64 5
+  %5506 = icmp eq i8 %5347, 1
+  br i1 %5506, label %5995, label %5507
+
+5507:                                             ; preds = %5503
+  %5508 = lshr i64 %5348, 8
+  %5509 = trunc i64 %5508 to i8
+  store i8 %5509, ptr %5505, align 1, !tbaa !51
+  %5510 = getelementptr inbounds nuw i8, ptr %154, i64 6
+  %5511 = lshr i64 %5348, 16
+  %5512 = trunc i64 %5511 to i8
+  store i8 %5512, ptr %5510, align 1, !tbaa !51
+  %5513 = getelementptr inbounds nuw i8, ptr %154, i64 7
+  %5514 = lshr i64 %5348, 24
+  %5515 = trunc i64 %5514 to i8
   store i8 %5515, ptr %5513, align 1, !tbaa !51
-  %5516 = getelementptr inbounds nuw i8, ptr %154, i64 5
-  %5517 = icmp eq i8 %5358, 1
-  br i1 %5517, label %6006, label %5518
+  %5516 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  br label %5995
 
-5518:                                             ; preds = %5514
-  %5519 = lshr i64 %5359, 8
-  %5520 = trunc i64 %5519 to i8
-  store i8 %5520, ptr %5516, align 1, !tbaa !51
-  %5521 = getelementptr inbounds nuw i8, ptr %154, i64 6
-  %5522 = lshr i64 %5359, 16
-  %5523 = trunc i64 %5522 to i8
-  store i8 %5523, ptr %5521, align 1, !tbaa !51
-  %5524 = getelementptr inbounds nuw i8, ptr %154, i64 7
-  %5525 = lshr i64 %5359, 24
-  %5526 = trunc i64 %5525 to i8
-  store i8 %5526, ptr %5524, align 1, !tbaa !51
-  %5527 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  br label %6006
+5517:                                             ; preds = %4126, %4121, %4112, %4098, %4054, %4051, %4024, %4011, %3960, %3925, %3894, %3870, %3844, %3803, %3796, %3773, %3755, %3742, %3721, %3714, %3695, %3673, %3645, %3638, %3612, %3609, %3580, %3572, %3523, %3485, %3462, %3454, %3426, %3380, %3336, %3281, %3266, %3233, %3171, %3166, %3082, %3039, %3034, %3018, %3016, %3002, %2999
+  %5518 = phi i32 [ %4128, %4126 ], [ %4123, %4121 ], [ %161, %4112 ], [ %4061, %4054 ], [ %4053, %4051 ], [ %3929, %3925 ], [ %3898, %3894 ], [ %3874, %3870 ], [ %3850, %3844 ], [ %3816, %3803 ], [ %3802, %3796 ], [ %3775, %3773 ], [ %3761, %3755 ], [ %3744, %3742 ], [ %3728, %3721 ], [ %3720, %3714 ], [ %3697, %3695 ], [ %3679, %3673 ], [ %3652, %3645 ], [ %3644, %3638 ], [ %3621, %3612 ], [ %3611, %3609 ], [ %3592, %3580 ], [ %3579, %3572 ], [ %3529, %3523 ], [ %3506, %3485 ], [ %3482, %3462 ], [ %3460, %3454 ], [ %3432, %3426 ], [ %3386, %3380 ], [ %3287, %3281 ], [ %3268, %3266 ], [ %3186, %3171 ], [ %3168, %3166 ], [ %3084, %3082 ], [ %3054, %3039 ], [ %3036, %3034 ], [ %161, %3018 ], [ %161, %3016 ], [ %3005, %3002 ], [ %3001, %2999 ], [ %3237, %3233 ], [ %3969, %3960 ], [ %4107, %4098 ], [ %4018, %4011 ], [ %4030, %4024 ], [ %3346, %3336 ]
+  %5519 = phi i32 [ %165, %4126 ], [ %165, %4121 ], [ %165, %4112 ], [ %4059, %4054 ], [ %165, %4051 ], [ %3914, %3925 ], [ %3886, %3894 ], [ %3858, %3870 ], [ %3834, %3844 ], [ %3810, %3803 ], [ %3786, %3796 ], [ %3767, %3773 ], [ %165, %3755 ], [ %3734, %3742 ], [ %3722, %3721 ], [ %165, %3714 ], [ %3687, %3695 ], [ %3663, %3673 ], [ %3646, %3645 ], [ %165, %3638 ], [ %3619, %3612 ], [ %3603, %3609 ], [ %3590, %3580 ], [ %3577, %3572 ], [ %165, %3523 ], [ %3500, %3485 ], [ %3480, %3462 ], [ %3444, %3454 ], [ %3410, %3426 ], [ %3362, %3380 ], [ %3270, %3281 ], [ %3258, %3266 ], [ %3184, %3171 ], [ %3159, %3166 ], [ %3074, %3082 ], [ %3052, %3039 ], [ %3028, %3034 ], [ %165, %3018 ], [ %165, %3016 ], [ %3003, %3002 ], [ %165, %2999 ], [ %165, %3233 ], [ %3961, %3960 ], [ %4099, %4098 ], [ %4012, %4011 ], [ %4007, %4024 ], [ %3342, %3336 ]
+  %5520 = phi i8 [ 0, %4126 ], [ 0, %4121 ], [ 0, %4112 ], [ 0, %4054 ], [ 0, %4051 ], [ %3915, %3925 ], [ 0, %3894 ], [ 1, %3870 ], [ 0, %3844 ], [ 0, %3803 ], [ 0, %3796 ], [ 0, %3773 ], [ 0, %3755 ], [ 1, %3742 ], [ 0, %3721 ], [ 0, %3714 ], [ 1, %3695 ], [ 0, %3673 ], [ 0, %3645 ], [ 0, %3638 ], [ 0, %3612 ], [ 0, %3609 ], [ 0, %3580 ], [ 0, %3572 ], [ 1, %3523 ], [ 0, %3485 ], [ 0, %3462 ], [ 0, %3454 ], [ 1, %3426 ], [ 1, %3380 ], [ 0, %3281 ], [ 1, %3266 ], [ 0, %3171 ], [ 0, %3166 ], [ 1, %3082 ], [ 0, %3039 ], [ 0, %3034 ], [ 0, %3018 ], [ 0, %3016 ], [ 0, %3002 ], [ 0, %2999 ], [ 0, %3233 ], [ 1, %3960 ], [ 1, %4098 ], [ 1, %4011 ], [ 1, %4024 ], [ 0, %3336 ]
+  %5521 = phi i64 [ 0, %4126 ], [ 0, %4121 ], [ 0, %4112 ], [ 0, %4054 ], [ 0, %4051 ], [ %3917, %3925 ], [ 0, %3894 ], [ %3862, %3870 ], [ 0, %3844 ], [ 0, %3803 ], [ 0, %3796 ], [ 0, %3773 ], [ 0, %3755 ], [ %3736, %3742 ], [ 0, %3721 ], [ 0, %3714 ], [ %3689, %3695 ], [ 0, %3673 ], [ 0, %3645 ], [ 0, %3638 ], [ 0, %3612 ], [ 0, %3609 ], [ 0, %3580 ], [ 0, %3572 ], [ %3513, %3523 ], [ 0, %3485 ], [ 0, %3462 ], [ 0, %3454 ], [ %3416, %3426 ], [ %3370, %3380 ], [ 0, %3281 ], [ %3260, %3266 ], [ 0, %3171 ], [ 0, %3166 ], [ %3076, %3082 ], [ 0, %3039 ], [ 0, %3034 ], [ 0, %3018 ], [ 0, %3016 ], [ 0, %3002 ], [ 0, %2999 ], [ 0, %3233 ], [ %3973, %3960 ], [ %4111, %4098 ], [ %4023, %4011 ], [ %4035, %4024 ], [ 0, %3336 ]
+  %5522 = phi ptr [ %2, %4126 ], [ %3, %4121 ], [ %2, %4112 ], [ %2, %4054 ], [ %3, %4051 ], [ %3, %3925 ], [ %3, %3894 ], [ %3, %3870 ], [ %4, %3844 ], [ %2, %3803 ], [ %4, %3796 ], [ %2, %3773 ], [ %4, %3755 ], [ %3, %3742 ], [ %4, %3721 ], [ %3, %3714 ], [ %3, %3695 ], [ %4, %3673 ], [ %4, %3645 ], [ %3, %3638 ], [ %2, %3612 ], [ %3, %3609 ], [ %2, %3580 ], [ %3, %3572 ], [ %3, %3523 ], [ %3, %3485 ], [ %3, %3462 ], [ %3, %3454 ], [ %4, %3426 ], [ %4, %3380 ], [ %4, %3281 ], [ %3, %3266 ], [ %3, %3171 ], [ %3, %3166 ], [ %2, %3082 ], [ %2, %3039 ], [ %2, %3034 ], [ %2, %3018 ], [ %2, %3016 ], [ %2, %3002 ], [ %3, %2999 ], [ %3189, %3233 ], [ %3963, %3960 ], [ %4101, %4098 ], [ %5, %4011 ], [ %4, %4024 ], [ %5, %3336 ]
+  %5523 = load i32, ptr %5522, align 4, !tbaa !31
+  %5524 = lshr i32 %5523, 3
+  %5525 = and i32 %5524, 1023
+  %5526 = zext nneg i32 %5525 to i64
+  %5527 = getelementptr inbounds nuw [1024 x i8], ptr @_ZN6asmjit9_abi_1_103x86L10x86MemInfoE, i64 0, i64 %5526
+  %5528 = load i8, ptr %5527, align 1, !tbaa !51
+  %5529 = zext i8 %5528 to i32
+  %5530 = lshr i32 %5523, 18
+  %5531 = and i32 %5530, 7
+  %5532 = zext nneg i32 %5531 to i64
+  %5533 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86SegmentPrefixE, i64 0, i64 %5532
+  %5534 = load i8, ptr %5533, align 1, !tbaa !51
+  %5535 = icmp ne i32 %5531, 0
+  %5536 = icmp ne i32 %5531, 7
+  %5537 = and i1 %5535, %5536
+  store i8 %5534, ptr %154, align 1, !tbaa !51
+  %5538 = zext i1 %5537 to i64
+  %5539 = getelementptr inbounds nuw i8, ptr %154, i64 %5538
+  %5540 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5541 = load i32, ptr %5540, align 8, !tbaa !57
+  %5542 = and i32 %5541, %5529
+  %5543 = icmp ne i32 %5542, 0
+  store i8 103, ptr %5539, align 1, !tbaa !51
+  %5544 = zext i1 %5543 to i64
+  %5545 = getelementptr inbounds nuw i8, ptr %5539, i64 %5544
+  %5546 = load i32, ptr %5522, align 4, !tbaa !31
+  %5547 = and i32 %5546, 248
+  %5548 = icmp samesign ugt i32 %5547, 8
+  br i1 %5548, label %5549, label %5552
 
-5528:                                             ; preds = %4126, %4121, %4112, %4098, %4054, %4051, %4024, %4011, %3960, %3925, %3894, %3870, %3844, %3803, %3796, %3773, %3755, %3742, %3721, %3714, %3695, %3673, %3645, %3638, %3612, %3609, %3580, %3572, %3523, %3485, %3462, %3454, %3426, %3380, %3336, %3281, %3266, %3233, %3171, %3166, %3082, %3039, %3034, %3018, %3016, %3002, %2999
-  %5529 = phi i32 [ %4128, %4126 ], [ %4123, %4121 ], [ %161, %4112 ], [ %4061, %4054 ], [ %4053, %4051 ], [ %3929, %3925 ], [ %3898, %3894 ], [ %3874, %3870 ], [ %3850, %3844 ], [ %3816, %3803 ], [ %3802, %3796 ], [ %3775, %3773 ], [ %3761, %3755 ], [ %3744, %3742 ], [ %3728, %3721 ], [ %3720, %3714 ], [ %3697, %3695 ], [ %3679, %3673 ], [ %3652, %3645 ], [ %3644, %3638 ], [ %3621, %3612 ], [ %3611, %3609 ], [ %3592, %3580 ], [ %3579, %3572 ], [ %3529, %3523 ], [ %3506, %3485 ], [ %3482, %3462 ], [ %3460, %3454 ], [ %3432, %3426 ], [ %3386, %3380 ], [ %3287, %3281 ], [ %3268, %3266 ], [ %3186, %3171 ], [ %3168, %3166 ], [ %3084, %3082 ], [ %3054, %3039 ], [ %3036, %3034 ], [ %161, %3018 ], [ %161, %3016 ], [ %3005, %3002 ], [ %3001, %2999 ], [ %3237, %3233 ], [ %3969, %3960 ], [ %4107, %4098 ], [ %4018, %4011 ], [ %4030, %4024 ], [ %3346, %3336 ]
-  %5530 = phi i32 [ %165, %4126 ], [ %165, %4121 ], [ %165, %4112 ], [ %4059, %4054 ], [ %165, %4051 ], [ %3914, %3925 ], [ %3886, %3894 ], [ %3858, %3870 ], [ %3834, %3844 ], [ %3810, %3803 ], [ %3786, %3796 ], [ %3767, %3773 ], [ %165, %3755 ], [ %3734, %3742 ], [ %3722, %3721 ], [ %165, %3714 ], [ %3687, %3695 ], [ %3663, %3673 ], [ %3646, %3645 ], [ %165, %3638 ], [ %3619, %3612 ], [ %3603, %3609 ], [ %3590, %3580 ], [ %3577, %3572 ], [ %165, %3523 ], [ %3500, %3485 ], [ %3480, %3462 ], [ %3444, %3454 ], [ %3410, %3426 ], [ %3362, %3380 ], [ %3270, %3281 ], [ %3258, %3266 ], [ %3184, %3171 ], [ %3159, %3166 ], [ %3074, %3082 ], [ %3052, %3039 ], [ %3028, %3034 ], [ %165, %3018 ], [ %165, %3016 ], [ %3003, %3002 ], [ %165, %2999 ], [ %165, %3233 ], [ %3961, %3960 ], [ %4099, %4098 ], [ %4012, %4011 ], [ %4007, %4024 ], [ %3342, %3336 ]
-  %5531 = phi i8 [ 0, %4126 ], [ 0, %4121 ], [ 0, %4112 ], [ 0, %4054 ], [ 0, %4051 ], [ %3915, %3925 ], [ 0, %3894 ], [ 1, %3870 ], [ 0, %3844 ], [ 0, %3803 ], [ 0, %3796 ], [ 0, %3773 ], [ 0, %3755 ], [ 1, %3742 ], [ 0, %3721 ], [ 0, %3714 ], [ 1, %3695 ], [ 0, %3673 ], [ 0, %3645 ], [ 0, %3638 ], [ 0, %3612 ], [ 0, %3609 ], [ 0, %3580 ], [ 0, %3572 ], [ 1, %3523 ], [ 0, %3485 ], [ 0, %3462 ], [ 0, %3454 ], [ 1, %3426 ], [ 1, %3380 ], [ 0, %3281 ], [ 1, %3266 ], [ 0, %3171 ], [ 0, %3166 ], [ 1, %3082 ], [ 0, %3039 ], [ 0, %3034 ], [ 0, %3018 ], [ 0, %3016 ], [ 0, %3002 ], [ 0, %2999 ], [ 0, %3233 ], [ 1, %3960 ], [ 1, %4098 ], [ 1, %4011 ], [ 1, %4024 ], [ 0, %3336 ]
-  %5532 = phi i64 [ 0, %4126 ], [ 0, %4121 ], [ 0, %4112 ], [ 0, %4054 ], [ 0, %4051 ], [ %3917, %3925 ], [ 0, %3894 ], [ %3862, %3870 ], [ 0, %3844 ], [ 0, %3803 ], [ 0, %3796 ], [ 0, %3773 ], [ 0, %3755 ], [ %3736, %3742 ], [ 0, %3721 ], [ 0, %3714 ], [ %3689, %3695 ], [ 0, %3673 ], [ 0, %3645 ], [ 0, %3638 ], [ 0, %3612 ], [ 0, %3609 ], [ 0, %3580 ], [ 0, %3572 ], [ %3513, %3523 ], [ 0, %3485 ], [ 0, %3462 ], [ 0, %3454 ], [ %3416, %3426 ], [ %3370, %3380 ], [ 0, %3281 ], [ %3260, %3266 ], [ 0, %3171 ], [ 0, %3166 ], [ %3076, %3082 ], [ 0, %3039 ], [ 0, %3034 ], [ 0, %3018 ], [ 0, %3016 ], [ 0, %3002 ], [ 0, %2999 ], [ 0, %3233 ], [ %3973, %3960 ], [ %4111, %4098 ], [ %4023, %4011 ], [ %4035, %4024 ], [ 0, %3336 ]
-  %5533 = phi ptr [ %2, %4126 ], [ %3, %4121 ], [ %2, %4112 ], [ %2, %4054 ], [ %3, %4051 ], [ %3, %3925 ], [ %3, %3894 ], [ %3, %3870 ], [ %4, %3844 ], [ %2, %3803 ], [ %4, %3796 ], [ %2, %3773 ], [ %4, %3755 ], [ %3, %3742 ], [ %4, %3721 ], [ %3, %3714 ], [ %3, %3695 ], [ %4, %3673 ], [ %4, %3645 ], [ %3, %3638 ], [ %2, %3612 ], [ %3, %3609 ], [ %2, %3580 ], [ %3, %3572 ], [ %3, %3523 ], [ %3, %3485 ], [ %3, %3462 ], [ %3, %3454 ], [ %4, %3426 ], [ %4, %3380 ], [ %4, %3281 ], [ %3, %3266 ], [ %3, %3171 ], [ %3, %3166 ], [ %2, %3082 ], [ %2, %3039 ], [ %2, %3034 ], [ %2, %3018 ], [ %2, %3016 ], [ %2, %3002 ], [ %3, %2999 ], [ %3189, %3233 ], [ %3963, %3960 ], [ %4101, %4098 ], [ %5, %4011 ], [ %4, %4024 ], [ %5, %3336 ]
-  %5534 = load i32, ptr %5533, align 4, !tbaa !31
-  %5535 = lshr i32 %5534, 3
-  %5536 = and i32 %5535, 1023
-  %5537 = zext nneg i32 %5536 to i64
-  %5538 = getelementptr inbounds nuw [1024 x i8], ptr @_ZN6asmjit9_abi_1_103x86L10x86MemInfoE, i64 0, i64 %5537
-  %5539 = load i8, ptr %5538, align 1, !tbaa !51
-  %5540 = zext i8 %5539 to i32
-  %5541 = lshr i32 %5534, 18
-  %5542 = and i32 %5541, 7
-  %5543 = zext nneg i32 %5542 to i64
-  %5544 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6asmjit9_abi_1_103x86L16x86SegmentPrefixE, i64 0, i64 %5543
-  %5545 = load i8, ptr %5544, align 1, !tbaa !51
-  %5546 = icmp ne i32 %5542, 0
-  %5547 = icmp ne i32 %5542, 7
-  %5548 = and i1 %5546, %5547
-  store i8 %5545, ptr %154, align 1, !tbaa !51
-  %5549 = zext i1 %5548 to i64
-  %5550 = getelementptr inbounds nuw i8, ptr %154, i64 %5549
-  %5551 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %5552 = load i32, ptr %5551, align 8, !tbaa !57
-  %5553 = and i32 %5552, %5540
-  %5554 = icmp ne i32 %5553, 0
-  store i8 103, ptr %5550, align 1, !tbaa !51
-  %5555 = zext i1 %5554 to i64
-  %5556 = getelementptr inbounds nuw i8, ptr %5550, i64 %5555
-  %5557 = load i32, ptr %5533, align 4, !tbaa !31
-  %5558 = and i32 %5557, 248
-  %5559 = icmp samesign ugt i32 %5558, 8
-  br i1 %5559, label %5560, label %5563
+5549:                                             ; preds = %5517
+  %5550 = getelementptr inbounds nuw i8, ptr %5522, i64 4
+  %5551 = load i32, ptr %5550, align 4, !tbaa !58
+  br label %5552
 
-5560:                                             ; preds = %5528
-  %5561 = getelementptr inbounds nuw i8, ptr %5533, i64 4
-  %5562 = load i32, ptr %5561, align 4, !tbaa !58
-  br label %5563
+5552:                                             ; preds = %5549, %5517
+  %5553 = phi i32 [ %5551, %5549 ], [ 0, %5517 ]
+  %5554 = and i32 %5546, 7936
+  %5555 = icmp samesign ugt i32 %5554, 256
+  br i1 %5555, label %5556, label %5559
 
-5563:                                             ; preds = %5560, %5528
-  %5564 = phi i32 [ %5562, %5560 ], [ 0, %5528 ]
-  %5565 = and i32 %5557, 7936
-  %5566 = icmp samesign ugt i32 %5565, 256
-  br i1 %5566, label %5567, label %5570
+5556:                                             ; preds = %5552
+  %5557 = getelementptr inbounds nuw i8, ptr %5522, i64 8
+  %5558 = load i32, ptr %5557, align 4, !tbaa !47
+  br label %5559
 
-5567:                                             ; preds = %5563
-  %5568 = getelementptr inbounds nuw i8, ptr %5533, i64 8
-  %5569 = load i32, ptr %5568, align 4, !tbaa !47
-  br label %5570
+5559:                                             ; preds = %5556, %5552
+  %5560 = phi i32 [ %5558, %5556 ], [ 0, %5552 ]
+  %5561 = and i32 %5546, 14680064
+  %5562 = icmp eq i32 %5561, 0
+  %5563 = shl i32 %5518, 4
+  %5564 = and i32 %5563, 63872
+  %5565 = shl i32 %5560, 3
+  %5566 = and i32 %5565, 64
+  %5567 = shl i32 %5560, 15
+  %5568 = and i32 %5567, 524288
+  %5569 = shl i32 %5553, 2
+  %5570 = and i32 %5569, 32
+  %5571 = and i32 %5519, 1610620672
+  %5572 = and i32 %45, 4096
+  %5573 = or i32 %5571, %5572
+  %5574 = lshr exact i32 %5573, 8
+  %5575 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %5576 = load i32, ptr %5575, align 4, !tbaa !127
+  %5577 = shl i32 %5576, 16
+  %5578 = select i1 %5562, i32 0, i32 1048576
+  %5579 = and i32 %5518, 7
+  %5580 = load i32, ptr %21, align 4, !tbaa !48
+  %5581 = shl i32 %5580, 9
+  %5582 = and i32 %5581, -2147483648
+  %5583 = xor i32 %5582, -2147483648
+  %5584 = or disjoint i32 %5574, %5564
+  %5585 = or disjoint i32 %5584, %5578
+  %5586 = or disjoint i32 %5585, %5570
+  %5587 = or i32 %5586, %5566
+  %5588 = or i32 %5587, %5568
+  %5589 = or i32 %5588, %5577
+  %5590 = or i32 %5589, %5583
+  %5591 = and i32 %45, 9175040
+  %5592 = icmp eq i32 %5591, 0
+  br i1 %5592, label %5599, label %5593
 
-5570:                                             ; preds = %5567, %5563
-  %5571 = phi i32 [ %5569, %5567 ], [ 0, %5563 ]
-  %5572 = and i32 %5557, 14680064
-  %5573 = icmp eq i32 %5572, 0
-  %5574 = shl i32 %5529, 4
-  %5575 = and i32 %5574, 63872
-  %5576 = shl i32 %5571, 3
-  %5577 = and i32 %5576, 64
-  %5578 = shl i32 %5571, 15
-  %5579 = and i32 %5578, 524288
-  %5580 = shl i32 %5564, 2
-  %5581 = and i32 %5580, 32
-  %5582 = and i32 %5530, 1610620672
-  %5583 = and i32 %45, 4096
-  %5584 = or i32 %5582, %5583
-  %5585 = lshr exact i32 %5584, 8
-  %5586 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %5587 = load i32, ptr %5586, align 4, !tbaa !127
-  %5588 = shl i32 %5587, 16
-  %5589 = select i1 %5573, i32 0, i32 1048576
-  %5590 = and i32 %5529, 7
-  %5591 = load i32, ptr %21, align 4, !tbaa !48
-  %5592 = shl i32 %5591, 9
-  %5593 = and i32 %5592, -2147483648
-  %5594 = xor i32 %5593, -2147483648
-  %5595 = or disjoint i32 %5585, %5575
-  %5596 = or disjoint i32 %5595, %5589
-  %5597 = or disjoint i32 %5596, %5581
-  %5598 = or i32 %5597, %5577
-  %5599 = or i32 %5598, %5579
-  %5600 = or i32 %5599, %5588
-  %5601 = or i32 %5600, %5594
-  %5602 = and i32 %45, 9175040
-  %5603 = icmp eq i32 %5602, 0
-  br i1 %5603, label %5610, label %5604
+5593:                                             ; preds = %5559
+  %5594 = and i32 %45, 786432
+  %5595 = icmp eq i32 %5594, 0
+  br i1 %5595, label %5596, label %6020, !prof !35
 
-5604:                                             ; preds = %5570
-  %5605 = and i32 %45, 786432
-  %5606 = icmp eq i32 %5605, 0
-  br i1 %5606, label %5607, label %6031, !prof !35
+5596:                                             ; preds = %5593
+  %5597 = and i32 %45, 8388608
+  %5598 = or i32 %5590, %5597
+  br label %5599
 
-5607:                                             ; preds = %5604
-  %5608 = and i32 %45, 8388608
-  %5609 = or i32 %5601, %5608
-  br label %5610
+5599:                                             ; preds = %5596, %5559
+  %5600 = phi i32 [ %5598, %5596 ], [ %5590, %5559 ]
+  %5601 = and i32 %5580, 16777216
+  %5602 = icmp ne i32 %5601, 0
+  %5603 = and i32 %5600, -2132836080
+  %5604 = and i32 %45, 3072
+  %5605 = or disjoint i32 %5600, 16
+  %5606 = or disjoint i32 %5603, %5604
+  %5607 = icmp eq i32 %5606, 0
+  %5608 = and i1 %5602, %5607
+  %5609 = select i1 %5608, i32 %5605, i32 %5600
+  %5610 = and i32 %5609, -2132836080
+  %5611 = icmp eq i32 %5610, 0
+  br i1 %5611, label %5672, label %5612
 
-5610:                                             ; preds = %5607, %5570
-  %5611 = phi i32 [ %5609, %5607 ], [ %5601, %5570 ]
-  %5612 = and i32 %5591, 16777216
-  %5613 = icmp ne i32 %5612, 0
-  %5614 = and i32 %5611, -2132836080
-  %5615 = and i32 %45, 3072
-  %5616 = or disjoint i32 %5611, 16
-  %5617 = or disjoint i32 %5614, %5615
-  %5618 = icmp eq i32 %5617, 0
-  %5619 = and i1 %5613, %5618
-  %5620 = select i1 %5619, i32 %5616, i32 %5611
-  %5621 = and i32 %5620, -2132836080
-  %5622 = icmp eq i32 %5621, 0
-  br i1 %5622, label %5683, label %5623
+5612:                                             ; preds = %5599
+  %5613 = shl i32 %5609, 4
+  %5614 = and i32 %5613, 524288
+  %5615 = lshr i32 %5609, 4
+  %5616 = and i32 %5615, 16
+  %5617 = and i32 %5609, 16742639
+  %5618 = or disjoint i32 %5616, %5617
+  %5619 = or i32 %5618, %5614
+  %5620 = shl nuw i32 %5619, 8
+  %5621 = lshr i32 %5519, 4
+  %5622 = and i32 %5621, 8388608
+  %5623 = lshr i32 %5519, 5
+  %5624 = and i32 %5623, 8585216
+  %5625 = or i32 %5622, %5624
+  %5626 = or disjoint i32 %5625, %5620
+  %5627 = xor i32 %5626, 142405730
+  %5628 = and i32 %5609, 1048576
+  %5629 = icmp eq i32 %5628, 0
+  br i1 %5629, label %5654, label %5630
 
-5623:                                             ; preds = %5610
-  %5624 = shl i32 %5620, 4
-  %5625 = and i32 %5624, 524288
-  %5626 = lshr i32 %5620, 4
-  %5627 = and i32 %5626, 16
-  %5628 = and i32 %5620, 16742639
-  %5629 = or disjoint i32 %5627, %5628
-  %5630 = or i32 %5629, %5625
-  %5631 = shl nuw i32 %5630, 8
-  %5632 = lshr i32 %5530, 4
-  %5633 = and i32 %5632, 8388608
-  %5634 = lshr i32 %5530, 5
-  %5635 = and i32 %5634, 8585216
-  %5636 = or i32 %5633, %5635
-  %5637 = or disjoint i32 %5636, %5631
-  %5638 = xor i32 %5637, 142405730
-  %5639 = and i32 %5620, 1048576
-  %5640 = icmp eq i32 %5639, 0
-  br i1 %5640, label %5665, label %5641
+5630:                                             ; preds = %5612
+  %5631 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %5632 = load i32, ptr %5631, align 4
+  %5633 = lshr i32 %5632, 3
+  %5634 = and i32 %5633, 14
+  %5635 = icmp eq i32 %5634, 0
+  br i1 %5635, label %6020, label %5636, !prof !37
 
-5641:                                             ; preds = %5623
-  %5642 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  %5643 = load i32, ptr %5642, align 4
-  %5644 = lshr i32 %5643, 3
-  %5645 = and i32 %5644, 14
-  %5646 = icmp eq i32 %5645, 0
-  br i1 %5646, label %6031, label %5647, !prof !37
+5636:                                             ; preds = %5630
+  %5637 = lshr i32 %5546, 21
+  %5638 = and i32 %5637, 7
+  %5639 = shl nuw nsw i32 %5634, %5638
+  %5640 = call noundef i32 @llvm.cttz.i32(i32 %5639, i1 true), !range !128
+  %5641 = call noundef i32 @llvm.umax.i32(i32 %5640, i32 4)
+  %5642 = shl i32 %5641, 29
+  %5643 = xor i32 %5642, -2147483648
+  %5644 = icmp ugt i32 %5643, 1073741824
+  br i1 %5644, label %6020, label %5645
 
-5647:                                             ; preds = %5641
-  %5648 = lshr i32 %5557, 21
-  %5649 = and i32 %5648, 7
-  %5650 = shl nuw nsw i32 %5645, %5649
-  %5651 = call noundef i32 @llvm.cttz.i32(i32 %5650, i1 true), !range !128
-  %5652 = call noundef i32 @llvm.umax.i32(i32 %5651, i32 4)
-  %5653 = shl i32 %5652, 29
-  %5654 = xor i32 %5653, -2147483648
-  %5655 = icmp ugt i32 %5654, 1073741824
-  br i1 %5655, label %6031, label %5656
+5645:                                             ; preds = %5636
+  %5646 = and i32 %5620, 1610612736
+  %5647 = call noundef i32 @llvm.umax.i32(i32 %5646, i32 %5643)
+  %5648 = and i32 %5627, -1610612894
+  %5649 = or disjoint i32 %5647, %5648
+  %5650 = and i32 %5519, -57345
+  %5651 = call noundef i32 @llvm.cttz.i32(i32 %5634, i1 true), !range !128
+  %5652 = shl nuw nsw i32 %5651, 13
+  %5653 = or i32 %5652, %5650
+  br label %5667
 
-5656:                                             ; preds = %5647
-  %5657 = and i32 %5631, 1610612736
-  %5658 = call noundef i32 @llvm.umax.i32(i32 %5657, i32 %5654)
-  %5659 = and i32 %5638, -1610612894
-  %5660 = or disjoint i32 %5658, %5659
-  %5661 = and i32 %5530, -57345
-  %5662 = call noundef i32 @llvm.cttz.i32(i32 %5645, i1 true), !range !128
-  %5663 = shl nuw nsw i32 %5662, 13
-  %5664 = or i32 %5663, %5661
-  br label %5678
+5654:                                             ; preds = %5612
+  %5655 = lshr i32 %5519, 13
+  %5656 = and i32 %5655, 24
+  %5657 = lshr i32 %5519, 25
+  %5658 = and i32 %5657, 4
+  %5659 = or disjoint i32 %5656, %5658
+  %5660 = lshr i32 %5609, 21
+  %5661 = and i32 %5660, 3
+  %5662 = or disjoint i32 %5659, %5661
+  %5663 = zext nneg i32 %5662 to i64
+  %5664 = getelementptr inbounds nuw [32 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86CDisp8SHLE, i64 0, i64 %5663
+  %5665 = load i32, ptr %5664, align 4, !tbaa !47
+  %5666 = add i32 %5665, %5519
+  br label %5667
 
-5665:                                             ; preds = %5623
-  %5666 = lshr i32 %5530, 13
-  %5667 = and i32 %5666, 24
-  %5668 = lshr i32 %5530, 25
-  %5669 = and i32 %5668, 4
-  %5670 = or disjoint i32 %5667, %5669
-  %5671 = lshr i32 %5620, 21
-  %5672 = and i32 %5671, 3
-  %5673 = or disjoint i32 %5670, %5672
-  %5674 = zext nneg i32 %5673 to i64
-  %5675 = getelementptr inbounds nuw [32 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86CDisp8SHLE, i64 0, i64 %5674
-  %5676 = load i32, ptr %5675, align 4, !tbaa !47
-  %5677 = add i32 %5676, %5530
-  br label %5678
+5667:                                             ; preds = %5654, %5645
+  %5668 = phi i32 [ %5666, %5654 ], [ %5653, %5645 ]
+  %5669 = phi i32 [ %5627, %5654 ], [ %5649, %5645 ]
+  store i32 %5669, ptr %5545, align 1, !tbaa !51
+  %5670 = getelementptr inbounds nuw i8, ptr %5545, i64 4
+  %5671 = trunc i32 %5668 to i8
+  store i8 %5671, ptr %5670, align 1, !tbaa !51
+  br label %5705
 
-5678:                                             ; preds = %5665, %5656
-  %5679 = phi i32 [ %5677, %5665 ], [ %5664, %5656 ]
-  %5680 = phi i32 [ %5638, %5665 ], [ %5660, %5656 ]
-  store i32 %5680, ptr %5556, align 1, !tbaa !51
-  %5681 = getelementptr inbounds nuw i8, ptr %5556, i64 4
-  %5682 = trunc i32 %5679 to i8
-  store i8 %5682, ptr %5681, align 1, !tbaa !51
-  br label %5716
+5672:                                             ; preds = %5599
+  %5673 = lshr i32 %5519, 12
+  %5674 = and i32 %5673, 32768
+  %5675 = lshr i32 %5519, 13
+  %5676 = and i32 %5675, 768
+  %5677 = lshr i32 %5609, 11
+  %5678 = and i32 %5677, 1024
+  %5679 = shl i32 %45, 21
+  %5680 = and i32 %5679, -2147483648
+  %5681 = or disjoint i32 %5676, %5680
+  %5682 = or disjoint i32 %5681, %5674
+  %5683 = or disjoint i32 %5682, %5678
+  %5684 = or i32 %5683, %5609
+  %5685 = and i32 %5684, -2147450770
+  %5686 = icmp eq i32 %5685, 0
+  br i1 %5686, label %5697, label %5687
 
-5683:                                             ; preds = %5610
-  %5684 = lshr i32 %5530, 12
-  %5685 = and i32 %5684, 32768
-  %5686 = lshr i32 %5530, 13
-  %5687 = and i32 %5686, 768
-  %5688 = lshr i32 %5620, 11
-  %5689 = and i32 %5688, 1024
-  %5690 = shl i32 %45, 21
-  %5691 = and i32 %5690, -2147483648
-  %5692 = or disjoint i32 %5687, %5691
-  %5693 = or disjoint i32 %5692, %5685
-  %5694 = or disjoint i32 %5693, %5689
-  %5695 = or i32 %5694, %5620
-  %5696 = and i32 %5695, -2147450770
-  %5697 = icmp eq i32 %5696, 0
-  br i1 %5697, label %5708, label %5698
+5687:                                             ; preds = %5672
+  %5688 = and i32 %5609, 15
+  %5689 = zext nneg i32 %5688 to i64
+  %5690 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 0, i64 %5689
+  %5691 = load i32, ptr %5690, align 4, !tbaa !47
+  %5692 = shl i32 %5519, 24
+  %5693 = or i32 %5691, %5692
+  %5694 = shl i32 %5684, 8
+  %5695 = and i32 %5694, 16776960
+  %5696 = xor i32 %5693, %5695
+  store i32 %5696, ptr %5545, align 1, !tbaa !51
+  br label %5705
 
-5698:                                             ; preds = %5683
-  %5699 = and i32 %5620, 15
-  %5700 = zext nneg i32 %5699 to i64
-  %5701 = getelementptr inbounds nuw [16 x i32], ptr @_ZN6asmjit9_abi_1_103x86L12x86VEXPrefixE, i64 0, i64 %5700
-  %5702 = load i32, ptr %5701, align 4, !tbaa !47
-  %5703 = shl i32 %5530, 24
-  %5704 = or i32 %5702, %5703
-  %5705 = shl i32 %5695, 8
-  %5706 = and i32 %5705, 16776960
-  %5707 = xor i32 %5704, %5706
-  store i32 %5707, ptr %5556, align 1, !tbaa !51
-  br label %5716
+5697:                                             ; preds = %5672
+  %5698 = lshr i32 %5684, 8
+  %5699 = xor i32 %5698, %5684
+  store i8 -59, ptr %5545, align 1, !tbaa !51
+  %5700 = getelementptr inbounds nuw i8, ptr %5545, i64 1
+  %5701 = trunc i32 %5699 to i8
+  %5702 = xor i8 %5701, -7
+  store i8 %5702, ptr %5700, align 1, !tbaa !51
+  %5703 = getelementptr inbounds nuw i8, ptr %5545, i64 2
+  %5704 = trunc i32 %5519 to i8
+  store i8 %5704, ptr %5703, align 1, !tbaa !51
+  br label %5705
 
-5708:                                             ; preds = %5683
-  %5709 = lshr i32 %5695, 8
-  %5710 = xor i32 %5709, %5695
-  store i8 -59, ptr %5556, align 1, !tbaa !51
-  %5711 = getelementptr inbounds nuw i8, ptr %5556, i64 1
-  %5712 = trunc i32 %5710 to i8
-  %5713 = xor i8 %5712, -7
-  store i8 %5713, ptr %5711, align 1, !tbaa !51
-  %5714 = getelementptr inbounds nuw i8, ptr %5556, i64 2
-  %5715 = trunc i32 %5530 to i8
-  store i8 %5715, ptr %5714, align 1, !tbaa !51
-  br label %5716
+5705:                                             ; preds = %5697, %5687, %5667
+  %5706 = phi i64 [ 5, %5667 ], [ 4, %5687 ], [ 3, %5697 ]
+  %5707 = phi i32 [ %5668, %5667 ], [ 0, %5687 ], [ 0, %5697 ]
+  %5708 = getelementptr inbounds nuw i8, ptr %5545, i64 %5706
+  %5709 = load i32, ptr %21, align 4, !tbaa !48
+  %5710 = and i32 %5709, 1048576
+  %5711 = icmp eq i32 %5710, 0
+  br i1 %5711, label %4595, label %5712
 
-5716:                                             ; preds = %5708, %5698, %5678
-  %5717 = phi i64 [ 5, %5678 ], [ 4, %5698 ], [ 3, %5708 ]
-  %5718 = phi i32 [ %5679, %5678 ], [ 0, %5698 ], [ 0, %5708 ]
-  %5719 = getelementptr inbounds nuw i8, ptr %5556, i64 %5717
-  %5720 = load i32, ptr %21, align 4, !tbaa !48
-  %5721 = and i32 %5720, 1048576
-  %5722 = icmp eq i32 %5721, 0
-  br i1 %5722, label %4595, label %5723
+5712:                                             ; preds = %5705
+  %5713 = and i32 %5529, 2
+  %5714 = icmp eq i32 %5713, 0
+  br i1 %5714, label %6020, label %5126
 
-5723:                                             ; preds = %5716
-  %5724 = and i32 %5540, 2
-  %5725 = icmp eq i32 %5724, 0
-  br i1 %5725, label %6031, label %5126
+5715:                                             ; preds = %1196, %1186, %1175, %1170, %1165, %1162, %789, %153
+  %5716 = phi ptr [ %154, %153 ], [ %154, %789 ], [ %1174, %1170 ], [ %154, %1165 ], [ %154, %1162 ], [ %1195, %1186 ], [ %154, %1175 ], [ %154, %1196 ]
+  %5717 = phi i32 [ %161, %153 ], [ 0, %789 ], [ 0, %1170 ], [ 0, %1165 ], [ 0, %1162 ], [ 0, %1186 ], [ 0, %1175 ], [ 0, %1196 ]
+  %5718 = phi i32 [ %165, %153 ], [ 232, %789 ], [ %165, %1170 ], [ %165, %1165 ], [ %165, %1162 ], [ %165, %1186 ], [ %165, %1175 ], [ 233, %1196 ]
+  %5719 = phi ptr [ %2, %153 ], [ %2, %789 ], [ %2, %1170 ], [ %2, %1165 ], [ %2, %1162 ], [ %3, %1186 ], [ %2, %1175 ], [ %2, %1196 ]
+  %5720 = or i32 %5718, %46
+  %5721 = icmp ugt i32 %5720, -2130706433
+  br i1 %5721, label %6020, label %5722, !prof !37
 
-5726:                                             ; preds = %1196, %1186, %1175, %1170, %1165, %1162, %789, %153
-  %5727 = phi ptr [ %154, %153 ], [ %154, %789 ], [ %1174, %1170 ], [ %154, %1165 ], [ %154, %1162 ], [ %1195, %1186 ], [ %154, %1175 ], [ %154, %1196 ]
-  %5728 = phi i32 [ %161, %153 ], [ 0, %789 ], [ 0, %1170 ], [ 0, %1165 ], [ 0, %1162 ], [ 0, %1186 ], [ 0, %1175 ], [ 0, %1196 ]
-  %5729 = phi i32 [ %165, %153 ], [ 232, %789 ], [ %165, %1170 ], [ %165, %1165 ], [ %165, %1162 ], [ %165, %1186 ], [ %165, %1175 ], [ 233, %1196 ]
-  %5730 = phi ptr [ %2, %153 ], [ %2, %789 ], [ %2, %1170 ], [ %2, %1165 ], [ %2, %1162 ], [ %3, %1186 ], [ %2, %1175 ], [ %2, %1196 ]
-  %5731 = or i32 %5729, %46
-  %5732 = icmp ugt i32 %5731, -2130706433
-  br i1 %5732, label %6031, label %5733, !prof !37
-
-5733:                                             ; preds = %5726
-  %5734 = lshr i32 %5731, 24
-  %5735 = and i32 %5734, 127
-  %5736 = icmp ne i32 %5735, 0
-  %5737 = trunc nuw nsw i32 %5735 to i8
-  %5738 = or i8 %5737, 64
-  store i8 %5738, ptr %5727, align 1, !tbaa !51
-  %5739 = zext i1 %5736 to i64
-  %5740 = getelementptr inbounds nuw i8, ptr %5727, i64 %5739
-  %5741 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5742 = load ptr, ptr %5741, align 8, !tbaa !80
-  %5743 = ptrtoint ptr %5740 to i64
-  %5744 = ptrtoint ptr %5742 to i64
-  %5745 = sub i64 %5744, %5743
-  %5746 = getelementptr inbounds nuw i8, ptr %16, i64 7
-  %5747 = load i8, ptr %5746, align 1, !tbaa !61
-  %5748 = zext i8 %5747 to i64
-  %5749 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %5748
-  %5750 = load i32, ptr %5749, align 4, !tbaa !47
-  %5751 = icmp eq i32 %5728, 0
-  %5752 = select i1 %5751, i32 5, i32 6
-  %5753 = and i32 %5729, 7936
-  %5754 = icmp eq i32 %5753, 256
-  %5755 = zext i1 %5754 to i32
-  %5756 = add nuw nsw i32 %5752, %5755
-  %5757 = load i32, ptr %5730, align 4, !tbaa !31
-  %5758 = and i32 %5757, 7
-  switch i32 %5758, label %6031 [
-    i32 4, label %5759
-    i32 3, label %5809
+5722:                                             ; preds = %5715
+  %5723 = lshr i32 %5720, 24
+  %5724 = and i32 %5723, 127
+  %5725 = icmp ne i32 %5724, 0
+  %5726 = trunc nuw nsw i32 %5724 to i8
+  %5727 = or i8 %5726, 64
+  store i8 %5727, ptr %5716, align 1, !tbaa !51
+  %5728 = zext i1 %5725 to i64
+  %5729 = getelementptr inbounds nuw i8, ptr %5716, i64 %5728
+  %5730 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5731 = load ptr, ptr %5730, align 8, !tbaa !80
+  %5732 = ptrtoint ptr %5729 to i64
+  %5733 = ptrtoint ptr %5731 to i64
+  %5734 = sub i64 %5733, %5732
+  %5735 = getelementptr inbounds nuw i8, ptr %16, i64 7
+  %5736 = load i8, ptr %5735, align 1, !tbaa !61
+  %5737 = zext i8 %5736 to i64
+  %5738 = getelementptr inbounds nuw [0 x i32], ptr @_ZN6asmjit9_abi_1_103x866InstDB15_altOpcodeTableE, i64 0, i64 %5737
+  %5739 = load i32, ptr %5738, align 4, !tbaa !47
+  %5740 = icmp eq i32 %5717, 0
+  %5741 = select i1 %5740, i32 5, i32 6
+  %5742 = and i32 %5718, 7936
+  %5743 = icmp eq i32 %5742, 256
+  %5744 = zext i1 %5743 to i32
+  %5745 = add nuw nsw i32 %5741, %5744
+  %5746 = load i32, ptr %5719, align 4, !tbaa !31
+  %5747 = and i32 %5746, 7
+  switch i32 %5747, label %6020 [
+    i32 4, label %5748
+    i32 3, label %5798
   ]
 
-5759:                                             ; preds = %5733
-  %5760 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5761 = load ptr, ptr %5760, align 8, !tbaa !36
-  %5762 = getelementptr inbounds nuw i8, ptr %5730, i64 4
-  %5763 = load i32, ptr %5762, align 4, !tbaa !58
-  %5764 = getelementptr inbounds nuw i8, ptr %5761, i64 248
-  %5765 = load i32, ptr %5764, align 8, !tbaa !117
-  %5766 = icmp ugt i32 %5765, %5763
-  br i1 %5766, label %5767, label %6031
+5748:                                             ; preds = %5722
+  %5749 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5750 = load ptr, ptr %5749, align 8, !tbaa !36
+  %5751 = getelementptr inbounds nuw i8, ptr %5719, i64 4
+  %5752 = load i32, ptr %5751, align 4, !tbaa !58
+  %5753 = getelementptr inbounds nuw i8, ptr %5750, i64 248
+  %5754 = load i32, ptr %5753, align 8, !tbaa !117
+  %5755 = icmp ugt i32 %5754, %5752
+  br i1 %5755, label %5756, label %6020
 
-5767:                                             ; preds = %5759
-  %5768 = getelementptr inbounds nuw i8, ptr %5761, i64 240
-  %5769 = zext i32 %5763 to i64
-  %5770 = load ptr, ptr %5768, align 8, !tbaa !119
-  %5771 = getelementptr inbounds nuw ptr, ptr %5770, i64 %5769
-  %5772 = load ptr, ptr %5771, align 8, !tbaa !28
-  %5773 = icmp eq ptr %5772, null
-  br i1 %5773, label %6031, label %5774, !prof !39
+5756:                                             ; preds = %5748
+  %5757 = getelementptr inbounds nuw i8, ptr %5750, i64 240
+  %5758 = zext i32 %5752 to i64
+  %5759 = load ptr, ptr %5757, align 8, !tbaa !119
+  %5760 = getelementptr inbounds nuw ptr, ptr %5759, i64 %5758
+  %5761 = load ptr, ptr %5760, align 8, !tbaa !28
+  %5762 = icmp eq ptr %5761, null
+  br i1 %5762, label %6020, label %5763, !prof !39
 
-5774:                                             ; preds = %5767
-  %5775 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %5776 = load ptr, ptr %5775, align 8, !tbaa !38
-  %5777 = getelementptr inbounds nuw i8, ptr %5772, i64 32
-  %5778 = load ptr, ptr %5777, align 8, !tbaa !120
-  %5779 = icmp eq ptr %5778, %5776
-  br i1 %5779, label %5780, label %5786
+5763:                                             ; preds = %5756
+  %5764 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5765 = load ptr, ptr %5764, align 8, !tbaa !38
+  %5766 = getelementptr inbounds nuw i8, ptr %5761, i64 32
+  %5767 = load ptr, ptr %5766, align 8, !tbaa !120
+  %5768 = icmp eq ptr %5767, %5765
+  br i1 %5768, label %5769, label %5775
 
-5780:                                             ; preds = %5774
-  %5781 = getelementptr inbounds nuw i8, ptr %5772, i64 24
-  %5782 = load i64, ptr %5781, align 8, !tbaa !125
-  %5783 = zext nneg i32 %5756 to i64
-  %5784 = sub i64 %5745, %5783
-  %5785 = add i64 %5784, %5782
-  br label %5912
+5769:                                             ; preds = %5763
+  %5770 = getelementptr inbounds nuw i8, ptr %5761, i64 24
+  %5771 = load i64, ptr %5770, align 8, !tbaa !125
+  %5772 = zext nneg i32 %5745 to i64
+  %5773 = sub i64 %5734, %5772
+  %5774 = add i64 %5773, %5771
+  br label %5901
 
-5786:                                             ; preds = %5774
-  %5787 = icmp eq i32 %5750, 0
-  %5788 = icmp eq i32 %5729, 0
-  %5789 = and i32 %45, 16
-  %5790 = icmp ne i32 %5789, 0
-  %5791 = or i1 %5790, %5788
-  br i1 %5787, label %5796, label %5792
+5775:                                             ; preds = %5763
+  %5776 = icmp eq i32 %5739, 0
+  %5777 = icmp eq i32 %5718, 0
+  %5778 = and i32 %45, 16
+  %5779 = icmp ne i32 %5778, 0
+  %5780 = or i1 %5779, %5777
+  br i1 %5776, label %5785, label %5781
 
-5792:                                             ; preds = %5786
-  br i1 %5791, label %5793, label %5797
+5781:                                             ; preds = %5775
+  br i1 %5780, label %5782, label %5786
 
-5793:                                             ; preds = %5792
-  %5794 = trunc i32 %5750 to i8
-  store i8 %5794, ptr %5740, align 1, !tbaa !51
-  %5795 = getelementptr inbounds nuw i8, ptr %5740, i64 1
-  br label %5948
+5782:                                             ; preds = %5781
+  %5783 = trunc i32 %5739 to i8
+  store i8 %5783, ptr %5729, align 1, !tbaa !51
+  %5784 = getelementptr inbounds nuw i8, ptr %5729, i64 1
+  br label %5937
 
-5796:                                             ; preds = %5786
-  br i1 %5791, label %6031, label %5797, !prof !129
+5785:                                             ; preds = %5775
+  br i1 %5780, label %6020, label %5786, !prof !129
 
-5797:                                             ; preds = %5796, %5792
-  %5798 = icmp ne i32 %5753, 0
-  store i8 15, ptr %5740, align 1, !tbaa !51
-  %5799 = zext i1 %5798 to i64
-  %5800 = getelementptr inbounds nuw i8, ptr %5740, i64 %5799
-  %5801 = trunc i32 %5729 to i8
-  store i8 %5801, ptr %5800, align 1, !tbaa !51
-  %5802 = getelementptr inbounds nuw i8, ptr %5800, i64 1
-  %5803 = icmp ne i32 %5728, 0
-  %5804 = trunc nuw nsw i32 %5728 to i8
-  %5805 = shl nuw nsw i8 %5804, 3
-  %5806 = or disjoint i8 %5805, -64
-  store i8 %5806, ptr %5802, align 1, !tbaa !51
-  %5807 = zext i1 %5803 to i64
-  %5808 = getelementptr inbounds nuw i8, ptr %5802, i64 %5807
-  br label %5948
+5786:                                             ; preds = %5785, %5781
+  %5787 = icmp ne i32 %5742, 0
+  store i8 15, ptr %5729, align 1, !tbaa !51
+  %5788 = zext i1 %5787 to i64
+  %5789 = getelementptr inbounds nuw i8, ptr %5729, i64 %5788
+  %5790 = trunc i32 %5718 to i8
+  store i8 %5790, ptr %5789, align 1, !tbaa !51
+  %5791 = getelementptr inbounds nuw i8, ptr %5789, i64 1
+  %5792 = icmp ne i32 %5717, 0
+  %5793 = trunc nuw nsw i32 %5717 to i8
+  %5794 = shl nuw nsw i8 %5793, 3
+  %5795 = or disjoint i8 %5794, -64
+  store i8 %5795, ptr %5791, align 1, !tbaa !51
+  %5796 = zext i1 %5792 to i64
+  %5797 = getelementptr inbounds nuw i8, ptr %5791, i64 %5796
+  br label %5937
 
-5809:                                             ; preds = %5733
-  %5810 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5811 = load ptr, ptr %5810, align 8, !tbaa !36
-  %5812 = getelementptr inbounds nuw i8, ptr %5811, i64 40
-  %5813 = load i64, ptr %5812, align 8, !tbaa !65
-  %5814 = getelementptr inbounds nuw i8, ptr %5730, i64 8
-  %5815 = load i64, ptr %5814, align 4
-  %5816 = icmp eq i64 %5813, -1
-  br i1 %5816, label %5830, label %5817
+5798:                                             ; preds = %5722
+  %5799 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5800 = load ptr, ptr %5799, align 8, !tbaa !36
+  %5801 = getelementptr inbounds nuw i8, ptr %5800, i64 40
+  %5802 = load i64, ptr %5801, align 8, !tbaa !65
+  %5803 = getelementptr inbounds nuw i8, ptr %5719, i64 8
+  %5804 = load i64, ptr %5803, align 4
+  %5805 = icmp eq i64 %5802, -1
+  br i1 %5805, label %5819, label %5806
 
-5817:                                             ; preds = %5809
-  %5818 = zext nneg i32 %5756 to i64
-  %5819 = add i64 %5813, %5818
-  %5820 = sub i64 %5745, %5819
-  %5821 = add i64 %5820, %5815
-  %5822 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5823 = load i8, ptr %5822, align 8, !tbaa !42
-  %5824 = and i8 %5823, 1
-  %5825 = icmp ne i8 %5824, 0
-  %5826 = add i64 %5821, 2147483648
-  %5827 = icmp ult i64 %5826, 4294967296
-  %5828 = select i1 %5825, i1 true, i1 %5827
-  br i1 %5828, label %5912, label %5829
+5806:                                             ; preds = %5798
+  %5807 = zext nneg i32 %5745 to i64
+  %5808 = add i64 %5802, %5807
+  %5809 = sub i64 %5734, %5808
+  %5810 = add i64 %5809, %5804
+  %5811 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5812 = load i8, ptr %5811, align 8, !tbaa !42
+  %5813 = and i8 %5812, 1
+  %5814 = icmp ne i8 %5813, 0
+  %5815 = add i64 %5810, 2147483648
+  %5816 = icmp ult i64 %5815, 4294967296
+  %5817 = select i1 %5814, i1 true, i1 %5816
+  br i1 %5817, label %5901, label %5818
 
-5829:                                             ; preds = %5817
-  switch i32 %1, label %6031 [
-    i32 303, label %5830
-    i32 59, label %5830
+5818:                                             ; preds = %5806
+  switch i32 %1, label %6020 [
+    i32 303, label %5819
+    i32 59, label %5819
   ]
 
-5830:                                             ; preds = %5829, %5829, %5809
-  %5831 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %5811, ptr noundef nonnull %7, i32 noundef 4) #11
-  %5832 = icmp eq i32 %5831, 0
-  br i1 %5832, label %5833, label %6031, !prof !35
+5819:                                             ; preds = %5818, %5818, %5798
+  %5820 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newRelocEntryEPPNS0_10RelocEntryENS0_9RelocTypeE(ptr noundef nonnull align 8 dereferenceable(336) %5800, ptr noundef nonnull %7, i32 noundef 4) #11
+  %5821 = icmp eq i32 %5820, 0
+  br i1 %5821, label %5822, label %6020, !prof !35
 
-5833:                                             ; preds = %5830
-  %5834 = load ptr, ptr %11, align 8, !tbaa !29
-  %5835 = load ptr, ptr %5741, align 8, !tbaa !80
-  %5836 = ptrtoint ptr %5834 to i64
-  %5837 = ptrtoint ptr %5835 to i64
-  %5838 = sub i64 %5836, %5837
-  %5839 = load ptr, ptr %7, align 8, !tbaa !28
-  %5840 = getelementptr inbounds nuw i8, ptr %5839, i64 24
-  store i64 %5838, ptr %5840, align 8, !tbaa !100
-  %5841 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %5842 = load ptr, ptr %5841, align 8, !tbaa !38
-  %5843 = load i32, ptr %5842, align 8, !tbaa !94
-  %5844 = getelementptr inbounds nuw i8, ptr %5839, i64 16
-  store i32 %5843, ptr %5844, align 8, !tbaa !95
-  %5845 = getelementptr inbounds nuw i8, ptr %5839, i64 32
-  store i64 %5815, ptr %5845, align 8, !tbaa !109
-  %5846 = icmp eq i32 %5729, 0
-  br i1 %5846, label %5893, label %5847, !prof !37
+5822:                                             ; preds = %5819
+  %5823 = load ptr, ptr %11, align 8, !tbaa !29
+  %5824 = load ptr, ptr %5730, align 8, !tbaa !80
+  %5825 = ptrtoint ptr %5823 to i64
+  %5826 = ptrtoint ptr %5824 to i64
+  %5827 = sub i64 %5825, %5826
+  %5828 = load ptr, ptr %7, align 8, !tbaa !28
+  %5829 = getelementptr inbounds nuw i8, ptr %5828, i64 24
+  store i64 %5827, ptr %5829, align 8, !tbaa !100
+  %5830 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5831 = load ptr, ptr %5830, align 8, !tbaa !38
+  %5832 = load i32, ptr %5831, align 8, !tbaa !94
+  %5833 = getelementptr inbounds nuw i8, ptr %5828, i64 16
+  store i32 %5832, ptr %5833, align 8, !tbaa !95
+  %5834 = getelementptr inbounds nuw i8, ptr %5828, i64 32
+  store i64 %5804, ptr %5834, align 8, !tbaa !109
+  %5835 = icmp eq i32 %5718, 0
+  br i1 %5835, label %5882, label %5836, !prof !37
 
-5847:                                             ; preds = %5833
-  %5848 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5849 = load i8, ptr %5848, align 8, !tbaa !42
-  %5850 = and i8 %5849, 1
-  %5851 = icmp eq i8 %5850, 0
-  br i1 %5851, label %5852, label %5864
+5836:                                             ; preds = %5822
+  %5837 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5838 = load i8, ptr %5837, align 8, !tbaa !42
+  %5839 = and i8 %5838, 1
+  %5840 = icmp eq i8 %5839, 0
+  br i1 %5840, label %5841, label %5853
 
-5852:                                             ; preds = %5847
-  switch i32 %1, label %5864 [
-    i32 303, label %5853
-    i32 59, label %5853
+5841:                                             ; preds = %5836
+  switch i32 %1, label %5853 [
+    i32 303, label %5842
+    i32 59, label %5842
   ]
 
-5853:                                             ; preds = %5852, %5852
-  br i1 %5736, label %5856, label %5854
+5842:                                             ; preds = %5841, %5841
+  br i1 %5725, label %5845, label %5843
 
-5854:                                             ; preds = %5853
-  store i8 64, ptr %5740, align 1, !tbaa !51
-  %5855 = getelementptr inbounds nuw i8, ptr %5740, i64 1
-  br label %5856
+5843:                                             ; preds = %5842
+  store i8 64, ptr %5729, align 1, !tbaa !51
+  %5844 = getelementptr inbounds nuw i8, ptr %5729, i64 1
+  br label %5845
 
-5856:                                             ; preds = %5854, %5853
-  %5857 = phi ptr [ %5740, %5853 ], [ %5855, %5854 ]
-  %5858 = load ptr, ptr %5810, align 8, !tbaa !36
-  %5859 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder24addAddressToAddressTableEm(ptr noundef nonnull align 8 dereferenceable(336) %5858, i64 noundef %5815) #11
-  %5860 = icmp eq i32 %5859, 0
-  br i1 %5860, label %5861, label %6031, !prof !35
+5845:                                             ; preds = %5843, %5842
+  %5846 = phi ptr [ %5729, %5842 ], [ %5844, %5843 ]
+  %5847 = load ptr, ptr %5799, align 8, !tbaa !36
+  %5848 = call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder24addAddressToAddressTableEm(ptr noundef nonnull align 8 dereferenceable(336) %5847, i64 noundef %5804) #11
+  %5849 = icmp eq i32 %5848, 0
+  br i1 %5849, label %5850, label %6020, !prof !35
 
-5861:                                             ; preds = %5856
-  %5862 = load ptr, ptr %7, align 8, !tbaa !28
-  %5863 = getelementptr inbounds nuw i8, ptr %5862, i64 4
-  store i32 5, ptr %5863, align 4, !tbaa !130
-  br label %5864
+5850:                                             ; preds = %5845
+  %5851 = load ptr, ptr %7, align 8, !tbaa !28
+  %5852 = getelementptr inbounds nuw i8, ptr %5851, i64 4
+  store i32 5, ptr %5852, align 4, !tbaa !130
+  br label %5853
 
-5864:                                             ; preds = %5861, %5852, %5847
-  %5865 = phi ptr [ %5857, %5861 ], [ %5740, %5852 ], [ %5740, %5847 ]
-  %5866 = icmp ne i32 %5753, 0
-  store i8 15, ptr %5865, align 1, !tbaa !51
-  %5867 = zext i1 %5866 to i64
-  %5868 = getelementptr inbounds nuw i8, ptr %5865, i64 %5867
-  %5869 = trunc i32 %5729 to i8
-  store i8 %5869, ptr %5868, align 1, !tbaa !51
-  %5870 = getelementptr inbounds nuw i8, ptr %5868, i64 1
-  %5871 = icmp ne i32 %5728, 0
-  %5872 = trunc nuw nsw i32 %5728 to i8
-  %5873 = shl nuw nsw i8 %5872, 3
-  %5874 = or disjoint i8 %5873, -64
-  store i8 %5874, ptr %5870, align 1, !tbaa !51
-  %5875 = zext i1 %5871 to i64
-  %5876 = getelementptr inbounds nuw i8, ptr %5870, i64 %5875
-  %5877 = load ptr, ptr %7, align 8, !tbaa !28
-  %5878 = getelementptr inbounds nuw i8, ptr %5877, i64 8
-  store i8 0, ptr %5878, align 1, !tbaa !101
-  %5879 = getelementptr inbounds nuw i8, ptr %5877, i64 9
-  store i8 0, ptr %5879, align 1, !tbaa !102
-  %5880 = getelementptr inbounds nuw i8, ptr %5877, i64 10
-  %5881 = getelementptr inbounds nuw i8, ptr %5877, i64 11
-  store i8 4, ptr %5881, align 1, !tbaa !103
-  %5882 = getelementptr inbounds nuw i8, ptr %5877, i64 12
-  %5883 = getelementptr inbounds nuw i8, ptr %5877, i64 13
-  store i8 32, ptr %5883, align 1, !tbaa !104
-  %5884 = getelementptr inbounds nuw i8, ptr %5877, i64 14
-  store i8 0, ptr %5884, align 1, !tbaa !105
-  %5885 = getelementptr inbounds nuw i8, ptr %5877, i64 15
-  store i8 0, ptr %5885, align 1, !tbaa !106
-  %5886 = load ptr, ptr %11, align 8, !tbaa !29
-  %5887 = ptrtoint ptr %5876 to i64
-  %5888 = ptrtoint ptr %5886 to i64
-  %5889 = sub i64 %5887, %5888
-  %5890 = trunc i64 %5889 to i8
-  %5891 = add i8 %5890, 4
-  store i8 %5891, ptr %5880, align 1, !tbaa !107
-  store i8 %5890, ptr %5882, align 1, !tbaa !108
-  store i32 0, ptr %5876, align 1, !tbaa !51
-  %5892 = getelementptr inbounds nuw i8, ptr %5876, i64 4
-  br label %6006
+5853:                                             ; preds = %5850, %5841, %5836
+  %5854 = phi ptr [ %5846, %5850 ], [ %5729, %5841 ], [ %5729, %5836 ]
+  %5855 = icmp ne i32 %5742, 0
+  store i8 15, ptr %5854, align 1, !tbaa !51
+  %5856 = zext i1 %5855 to i64
+  %5857 = getelementptr inbounds nuw i8, ptr %5854, i64 %5856
+  %5858 = trunc i32 %5718 to i8
+  store i8 %5858, ptr %5857, align 1, !tbaa !51
+  %5859 = getelementptr inbounds nuw i8, ptr %5857, i64 1
+  %5860 = icmp ne i32 %5717, 0
+  %5861 = trunc nuw nsw i32 %5717 to i8
+  %5862 = shl nuw nsw i8 %5861, 3
+  %5863 = or disjoint i8 %5862, -64
+  store i8 %5863, ptr %5859, align 1, !tbaa !51
+  %5864 = zext i1 %5860 to i64
+  %5865 = getelementptr inbounds nuw i8, ptr %5859, i64 %5864
+  %5866 = load ptr, ptr %7, align 8, !tbaa !28
+  %5867 = getelementptr inbounds nuw i8, ptr %5866, i64 8
+  store i8 0, ptr %5867, align 1, !tbaa !101
+  %5868 = getelementptr inbounds nuw i8, ptr %5866, i64 9
+  store i8 0, ptr %5868, align 1, !tbaa !102
+  %5869 = getelementptr inbounds nuw i8, ptr %5866, i64 10
+  %5870 = getelementptr inbounds nuw i8, ptr %5866, i64 11
+  store i8 4, ptr %5870, align 1, !tbaa !103
+  %5871 = getelementptr inbounds nuw i8, ptr %5866, i64 12
+  %5872 = getelementptr inbounds nuw i8, ptr %5866, i64 13
+  store i8 32, ptr %5872, align 1, !tbaa !104
+  %5873 = getelementptr inbounds nuw i8, ptr %5866, i64 14
+  store i8 0, ptr %5873, align 1, !tbaa !105
+  %5874 = getelementptr inbounds nuw i8, ptr %5866, i64 15
+  store i8 0, ptr %5874, align 1, !tbaa !106
+  %5875 = load ptr, ptr %11, align 8, !tbaa !29
+  %5876 = ptrtoint ptr %5865 to i64
+  %5877 = ptrtoint ptr %5875 to i64
+  %5878 = sub i64 %5876, %5877
+  %5879 = trunc i64 %5878 to i8
+  %5880 = add i8 %5879, 4
+  store i8 %5880, ptr %5869, align 1, !tbaa !107
+  store i8 %5879, ptr %5871, align 1, !tbaa !108
+  store i32 0, ptr %5865, align 1, !tbaa !51
+  %5881 = getelementptr inbounds nuw i8, ptr %5865, i64 4
+  br label %5995
 
-5893:                                             ; preds = %5833
-  %5894 = trunc i32 %5750 to i8
-  store i8 %5894, ptr %5740, align 1, !tbaa !51
-  %5895 = getelementptr inbounds nuw i8, ptr %5740, i64 1
-  %5896 = load ptr, ptr %7, align 8, !tbaa !28
-  %5897 = getelementptr inbounds nuw i8, ptr %5896, i64 8
-  store i8 0, ptr %5897, align 1, !tbaa !101
-  %5898 = getelementptr inbounds nuw i8, ptr %5896, i64 9
-  store i8 0, ptr %5898, align 1, !tbaa !102
-  %5899 = getelementptr inbounds nuw i8, ptr %5896, i64 10
-  %5900 = getelementptr inbounds nuw i8, ptr %5896, i64 11
-  store i8 1, ptr %5900, align 1, !tbaa !103
-  %5901 = getelementptr inbounds nuw i8, ptr %5896, i64 12
-  %5902 = getelementptr inbounds nuw i8, ptr %5896, i64 13
-  store i8 8, ptr %5902, align 1, !tbaa !104
-  %5903 = getelementptr inbounds nuw i8, ptr %5896, i64 14
-  store i8 0, ptr %5903, align 1, !tbaa !105
-  %5904 = getelementptr inbounds nuw i8, ptr %5896, i64 15
-  store i8 0, ptr %5904, align 1, !tbaa !106
-  %5905 = load ptr, ptr %11, align 8, !tbaa !29
-  %5906 = ptrtoint ptr %5895 to i64
-  %5907 = ptrtoint ptr %5905 to i64
-  %5908 = sub i64 %5906, %5907
-  %5909 = trunc i64 %5908 to i8
-  %5910 = add i8 %5909, 1
-  store i8 %5910, ptr %5899, align 1, !tbaa !107
-  store i8 %5909, ptr %5901, align 1, !tbaa !108
-  store i8 0, ptr %5895, align 1, !tbaa !51
-  %5911 = getelementptr inbounds nuw i8, ptr %5740, i64 2
-  br label %6006
+5882:                                             ; preds = %5822
+  %5883 = trunc i32 %5739 to i8
+  store i8 %5883, ptr %5729, align 1, !tbaa !51
+  %5884 = getelementptr inbounds nuw i8, ptr %5729, i64 1
+  %5885 = load ptr, ptr %7, align 8, !tbaa !28
+  %5886 = getelementptr inbounds nuw i8, ptr %5885, i64 8
+  store i8 0, ptr %5886, align 1, !tbaa !101
+  %5887 = getelementptr inbounds nuw i8, ptr %5885, i64 9
+  store i8 0, ptr %5887, align 1, !tbaa !102
+  %5888 = getelementptr inbounds nuw i8, ptr %5885, i64 10
+  %5889 = getelementptr inbounds nuw i8, ptr %5885, i64 11
+  store i8 1, ptr %5889, align 1, !tbaa !103
+  %5890 = getelementptr inbounds nuw i8, ptr %5885, i64 12
+  %5891 = getelementptr inbounds nuw i8, ptr %5885, i64 13
+  store i8 8, ptr %5891, align 1, !tbaa !104
+  %5892 = getelementptr inbounds nuw i8, ptr %5885, i64 14
+  store i8 0, ptr %5892, align 1, !tbaa !105
+  %5893 = getelementptr inbounds nuw i8, ptr %5885, i64 15
+  store i8 0, ptr %5893, align 1, !tbaa !106
+  %5894 = load ptr, ptr %11, align 8, !tbaa !29
+  %5895 = ptrtoint ptr %5884 to i64
+  %5896 = ptrtoint ptr %5894 to i64
+  %5897 = sub i64 %5895, %5896
+  %5898 = trunc i64 %5897 to i8
+  %5899 = add i8 %5898, 1
+  store i8 %5899, ptr %5888, align 1, !tbaa !107
+  store i8 %5898, ptr %5890, align 1, !tbaa !108
+  store i8 0, ptr %5884, align 1, !tbaa !51
+  %5900 = getelementptr inbounds nuw i8, ptr %5729, i64 2
+  br label %5995
 
-5912:                                             ; preds = %5817, %5780
-  %5913 = phi i64 [ %5785, %5780 ], [ %5821, %5817 ]
-  %5914 = trunc i64 %5913 to i32
-  %5915 = add i32 %5756, %5914
-  %5916 = add i32 %5915, -130
-  %5917 = icmp ult i32 %5916, -256
-  %5918 = icmp eq i32 %5750, 0
-  %5919 = or i1 %5918, %5917
-  %5920 = and i32 %45, 32
-  %5921 = icmp ne i32 %5920, 0
-  %5922 = or i1 %5921, %5919
-  br i1 %5922, label %5930, label %5923
+5901:                                             ; preds = %5806, %5769
+  %5902 = phi i64 [ %5774, %5769 ], [ %5810, %5806 ]
+  %5903 = trunc i64 %5902 to i32
+  %5904 = add i32 %5745, %5903
+  %5905 = add i32 %5904, -130
+  %5906 = icmp ult i32 %5905, -256
+  %5907 = icmp eq i32 %5739, 0
+  %5908 = or i1 %5907, %5906
+  %5909 = and i32 %45, 32
+  %5910 = icmp ne i32 %5909, 0
+  %5911 = or i1 %5910, %5908
+  br i1 %5911, label %5919, label %5912
 
-5923:                                             ; preds = %5912
-  %5924 = or i32 %46, 16
-  %5925 = trunc i32 %5750 to i8
-  store i8 %5925, ptr %5740, align 1, !tbaa !51
-  %5926 = getelementptr inbounds nuw i8, ptr %5740, i64 1
-  %5927 = trunc i32 %5915 to i8
-  %5928 = add i8 %5927, -2
-  store i8 %5928, ptr %5926, align 1, !tbaa !51
-  %5929 = getelementptr inbounds nuw i8, ptr %5740, i64 2
-  br label %6006
+5912:                                             ; preds = %5901
+  %5913 = or i32 %46, 16
+  %5914 = trunc i32 %5739 to i8
+  store i8 %5914, ptr %5729, align 1, !tbaa !51
+  %5915 = getelementptr inbounds nuw i8, ptr %5729, i64 1
+  %5916 = trunc i32 %5904 to i8
+  %5917 = add i8 %5916, -2
+  store i8 %5917, ptr %5915, align 1, !tbaa !51
+  %5918 = getelementptr inbounds nuw i8, ptr %5729, i64 2
+  br label %5995
 
-5930:                                             ; preds = %5912
-  %5931 = icmp eq i32 %5729, 0
-  %5932 = and i32 %45, 16
-  %5933 = icmp ne i32 %5932, 0
-  %5934 = or i1 %5933, %5931
-  br i1 %5934, label %6031, label %5935, !prof !62
+5919:                                             ; preds = %5901
+  %5920 = icmp eq i32 %5718, 0
+  %5921 = and i32 %45, 16
+  %5922 = icmp ne i32 %5921, 0
+  %5923 = or i1 %5922, %5920
+  br i1 %5923, label %6020, label %5924, !prof !62
 
-5935:                                             ; preds = %5930
-  %5936 = icmp ne i32 %5753, 0
-  store i8 15, ptr %5740, align 1, !tbaa !51
-  %5937 = zext i1 %5936 to i64
-  %5938 = getelementptr inbounds nuw i8, ptr %5740, i64 %5937
-  %5939 = trunc i32 %5729 to i8
-  store i8 %5939, ptr %5938, align 1, !tbaa !51
-  %5940 = getelementptr inbounds nuw i8, ptr %5938, i64 1
-  %5941 = icmp ne i32 %5728, 0
-  %5942 = trunc nuw nsw i32 %5728 to i8
-  %5943 = shl nuw nsw i8 %5942, 3
-  %5944 = or disjoint i8 %5943, -64
-  store i8 %5944, ptr %5940, align 1, !tbaa !51
-  %5945 = zext i1 %5941 to i64
-  %5946 = getelementptr inbounds nuw i8, ptr %5940, i64 %5945
-  store i32 %5914, ptr %5946, align 1, !tbaa !51
-  %5947 = getelementptr inbounds nuw i8, ptr %5946, i64 4
-  br label %6006
+5924:                                             ; preds = %5919
+  %5925 = icmp ne i32 %5742, 0
+  store i8 15, ptr %5729, align 1, !tbaa !51
+  %5926 = zext i1 %5925 to i64
+  %5927 = getelementptr inbounds nuw i8, ptr %5729, i64 %5926
+  %5928 = trunc i32 %5718 to i8
+  store i8 %5928, ptr %5927, align 1, !tbaa !51
+  %5929 = getelementptr inbounds nuw i8, ptr %5927, i64 1
+  %5930 = icmp ne i32 %5717, 0
+  %5931 = trunc nuw nsw i32 %5717 to i8
+  %5932 = shl nuw nsw i8 %5931, 3
+  %5933 = or disjoint i8 %5932, -64
+  store i8 %5933, ptr %5929, align 1, !tbaa !51
+  %5934 = zext i1 %5930 to i64
+  %5935 = getelementptr inbounds nuw i8, ptr %5929, i64 %5934
+  store i32 %5903, ptr %5935, align 1, !tbaa !51
+  %5936 = getelementptr inbounds nuw i8, ptr %5935, i64 4
+  br label %5995
 
-5948:                                             ; preds = %5797, %5793, %5098, %5039
-  %5949 = phi ptr [ %4961, %5039 ], [ %4955, %5098 ], [ %5795, %5793 ], [ %5808, %5797 ]
-  %5950 = phi i32 [ %4962, %5039 ], [ %4599, %5098 ], [ %46, %5793 ], [ %46, %5797 ]
-  %5951 = phi i8 [ %4963, %5039 ], [ %4601, %5098 ], [ 0, %5793 ], [ 0, %5797 ]
-  %5952 = phi i64 [ %4964, %5039 ], [ %4602, %5098 ], [ 0, %5793 ], [ 0, %5797 ]
-  %5953 = phi i8 [ 4, %5039 ], [ 4, %5098 ], [ 1, %5793 ], [ 4, %5797 ]
-  %5954 = phi i32 [ %5041, %5039 ], [ %5101, %5098 ], [ -1, %5793 ], [ -4, %5797 ]
-  %5955 = phi ptr [ %4996, %5039 ], [ %5096, %5098 ], [ %5772, %5793 ], [ %5772, %5797 ]
-  %5956 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %5957 = load ptr, ptr %5956, align 8, !tbaa !80
-  %5958 = ptrtoint ptr %5949 to i64
-  %5959 = ptrtoint ptr %5957 to i64
-  %5960 = sub i64 %5958, %5959
+5937:                                             ; preds = %5786, %5782, %5098, %5039
+  %5938 = phi ptr [ %4961, %5039 ], [ %4955, %5098 ], [ %5784, %5782 ], [ %5797, %5786 ]
+  %5939 = phi i32 [ %4962, %5039 ], [ %4599, %5098 ], [ %46, %5782 ], [ %46, %5786 ]
+  %5940 = phi i8 [ %4963, %5039 ], [ %4601, %5098 ], [ 0, %5782 ], [ 0, %5786 ]
+  %5941 = phi i64 [ %4964, %5039 ], [ %4602, %5098 ], [ 0, %5782 ], [ 0, %5786 ]
+  %5942 = phi i8 [ 4, %5039 ], [ 4, %5098 ], [ 1, %5782 ], [ 4, %5786 ]
+  %5943 = phi i32 [ %5041, %5039 ], [ %5101, %5098 ], [ -1, %5782 ], [ -4, %5786 ]
+  %5944 = phi ptr [ %4996, %5039 ], [ %5096, %5098 ], [ %5761, %5782 ], [ %5761, %5786 ]
+  %5945 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %5946 = load ptr, ptr %5945, align 8, !tbaa !80
+  %5947 = ptrtoint ptr %5938 to i64
+  %5948 = ptrtoint ptr %5946 to i64
+  %5949 = sub i64 %5947, %5948
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
-  %5961 = zext nneg i8 %5953 to i64
+  %5950 = zext nneg i8 %5942 to i64
   store i8 0, ptr %10, align 1, !tbaa !101
-  %5962 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 0, ptr %5962, align 1, !tbaa !102
-  %5963 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  store i8 %5953, ptr %5963, align 1, !tbaa !107
-  %5964 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  store i8 %5953, ptr %5964, align 1, !tbaa !103
-  %5965 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i8 0, ptr %5965, align 1, !tbaa !108
-  %5966 = shl nuw nsw i8 %5953, 3
-  %5967 = getelementptr inbounds nuw i8, ptr %10, i64 5
-  store i8 %5966, ptr %5967, align 1, !tbaa !104
-  %5968 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  store i8 0, ptr %5968, align 1, !tbaa !105
-  %5969 = getelementptr inbounds nuw i8, ptr %10, i64 7
-  store i8 0, ptr %5969, align 1, !tbaa !106
-  %5970 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %5971 = load ptr, ptr %5970, align 8, !tbaa !36
-  %5972 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %5973 = load ptr, ptr %5972, align 8, !tbaa !38
-  %5974 = load i32, ptr %5973, align 8, !tbaa !94
-  %5975 = sext i32 %5954 to i64
-  %5976 = call noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder12newLabelLinkEPNS0_10LabelEntryEjmlRKNS0_12OffsetFormatE(ptr noundef nonnull align 8 dereferenceable(336) %5971, ptr noundef nonnull %5955, i32 noundef %5974, i64 noundef %5960, i64 noundef %5975, ptr noundef nonnull align 1 dereferenceable(8) %10) #11
-  %5977 = icmp eq ptr %5976, null
-  br i1 %5977, label %5984, label %5978, !prof !37
+  %5951 = getelementptr inbounds nuw i8, ptr %10, i64 1
+  store i8 0, ptr %5951, align 1, !tbaa !102
+  %5952 = getelementptr inbounds nuw i8, ptr %10, i64 2
+  store i8 %5942, ptr %5952, align 1, !tbaa !107
+  %5953 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  store i8 %5942, ptr %5953, align 1, !tbaa !103
+  %5954 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i8 0, ptr %5954, align 1, !tbaa !108
+  %5955 = shl nuw nsw i8 %5942, 3
+  %5956 = getelementptr inbounds nuw i8, ptr %10, i64 5
+  store i8 %5955, ptr %5956, align 1, !tbaa !104
+  %5957 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  store i8 0, ptr %5957, align 1, !tbaa !105
+  %5958 = getelementptr inbounds nuw i8, ptr %10, i64 7
+  store i8 0, ptr %5958, align 1, !tbaa !106
+  %5959 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %5960 = load ptr, ptr %5959, align 8, !tbaa !36
+  %5961 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %5962 = load ptr, ptr %5961, align 8, !tbaa !38
+  %5963 = load i32, ptr %5962, align 8, !tbaa !94
+  %5964 = sext i32 %5943 to i64
+  %5965 = call noundef ptr @_ZN6asmjit9_abi_1_1010CodeHolder12newLabelLinkEPNS0_10LabelEntryEjmlRKNS0_12OffsetFormatE(ptr noundef nonnull align 8 dereferenceable(336) %5960, ptr noundef nonnull %5944, i32 noundef %5963, i64 noundef %5949, i64 noundef %5964, ptr noundef nonnull align 1 dereferenceable(8) %10) #11
+  %5966 = icmp eq ptr %5965, null
+  br i1 %5966, label %5973, label %5967, !prof !37
 
-5978:                                             ; preds = %5948
-  %5979 = load ptr, ptr %7, align 8, !tbaa !28
-  %5980 = icmp eq ptr %5979, null
-  br i1 %5980, label %5985, label %5981
+5967:                                             ; preds = %5937
+  %5968 = load ptr, ptr %7, align 8, !tbaa !28
+  %5969 = icmp eq ptr %5968, null
+  br i1 %5969, label %5974, label %5970
 
-5981:                                             ; preds = %5978
-  %5982 = load i32, ptr %5979, align 8, !tbaa !131
-  %5983 = getelementptr inbounds nuw i8, ptr %5976, i64 12
-  store i32 %5982, ptr %5983, align 4, !tbaa !132
-  br label %5985
+5970:                                             ; preds = %5967
+  %5971 = load i32, ptr %5968, align 8, !tbaa !131
+  %5972 = getelementptr inbounds nuw i8, ptr %5965, i64 12
+  store i32 %5971, ptr %5972, align 4, !tbaa !132
+  br label %5974
 
-5984:                                             ; preds = %5948
+5973:                                             ; preds = %5937
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  br label %6031
-
-5985:                                             ; preds = %5981, %5978
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5949, i8 0, i64 %5961, i1 false)
-  %5986 = getelementptr inbounds nuw i8, ptr %5949, i64 %5961
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
-  %5987 = icmp samesign ugt i8 %5951, 3
-  br i1 %5987, label %5988, label %5991
-
-5988:                                             ; preds = %5985
-  %5989 = trunc i64 %5952 to i32
-  store i32 %5989, ptr %5986, align 1, !tbaa !51
-  %5990 = getelementptr inbounds nuw i8, ptr %5986, i64 4
-  br label %6006
-
-5991:                                             ; preds = %5985
-  %5992 = icmp eq i8 %5951, 0
-  br i1 %5992, label %6006, label %5993
-
-5993:                                             ; preds = %5991
-  %5994 = trunc i64 %5952 to i8
-  store i8 %5994, ptr %5986, align 1, !tbaa !51
-  %5995 = getelementptr inbounds nuw i8, ptr %5986, i64 1
-  %5996 = icmp eq i8 %5951, 1
-  br i1 %5996, label %6006, label %5997
-
-5997:                                             ; preds = %5993
-  %5998 = lshr i64 %5952, 8
-  %5999 = trunc i64 %5998 to i8
-  store i8 %5999, ptr %5995, align 1, !tbaa !51
-  %6000 = getelementptr inbounds nuw i8, ptr %5986, i64 2
-  %6001 = icmp eq i8 %5951, 2
-  br i1 %6001, label %6006, label %6002
-
-6002:                                             ; preds = %5997
-  %6003 = lshr i64 %5952, 16
-  %6004 = trunc i64 %6003 to i8
-  store i8 %6004, ptr %6000, align 1, !tbaa !51
-  %6005 = getelementptr inbounds nuw i8, ptr %5986, i64 3
-  br label %6006
-
-6006:                                             ; preds = %6002, %5997, %5993, %5991, %5988, %5935, %5923, %5893, %5864, %5518, %5514, %5504, %5494, %5490, %5478, %5447, %5443, %5417, %5344, %5336, %5313, %5309, %5304, %5299, %5295, %5290, %4853, %4848, %4844, %4842, %4839, %4811, %4806, %4802, %4800, %4797, %4462, %4447, %4442, %4438, %4436, %4433, %4332, %4299, %4294, %4289, %4285, %4280, %4225, %4220, %4215, %4211, %4206, %153
-  %6007 = phi ptr [ %5343, %5336 ], [ %5353, %5344 ], [ %5327, %5313 ], [ %4376, %4332 ], [ %4511, %4462 ], [ %154, %153 ], [ %4207, %4206 ], [ %4213, %4211 ], [ %4218, %4215 ], [ %4223, %4220 ], [ %4228, %4225 ], [ %4281, %4280 ], [ %4287, %4285 ], [ %4292, %4289 ], [ %4297, %4294 ], [ %4302, %4299 ], [ %4431, %4436 ], [ %4440, %4438 ], [ %4445, %4442 ], [ %4450, %4447 ], [ %4435, %4433 ], [ %5291, %5290 ], [ %5297, %5295 ], [ %5302, %5299 ], [ %5307, %5304 ], [ %5312, %5309 ], [ %5986, %5991 ], [ %5995, %5993 ], [ %6000, %5997 ], [ %6005, %6002 ], [ %5990, %5988 ], [ %5527, %5518 ], [ %5516, %5514 ], [ %5513, %5504 ], [ %5503, %5494 ], [ %5492, %5490 ], [ %5489, %5478 ], [ %5456, %5447 ], [ %5445, %5443 ], [ %5441, %5417 ], [ %5929, %5923 ], [ %5947, %5935 ], [ %5911, %5893 ], [ %5892, %5864 ], [ %4837, %4842 ], [ %4846, %4844 ], [ %4851, %4848 ], [ %4856, %4853 ], [ %4841, %4839 ], [ %4795, %4800 ], [ %4804, %4802 ], [ %4809, %4806 ], [ %4814, %4811 ], [ %4799, %4797 ]
-  %6008 = phi i32 [ %46, %5336 ], [ %46, %5344 ], [ %46, %5313 ], [ %46, %4332 ], [ %46, %4462 ], [ %46, %153 ], [ %4161, %4206 ], [ %4161, %4211 ], [ %4161, %4215 ], [ %4161, %4220 ], [ %4161, %4225 ], [ %4231, %4280 ], [ %4231, %4285 ], [ %4231, %4289 ], [ %4231, %4294 ], [ %4231, %4299 ], [ %4381, %4436 ], [ %4381, %4438 ], [ %4381, %4442 ], [ %4381, %4447 ], [ %4381, %4433 ], [ %5281, %5290 ], [ %5281, %5295 ], [ %5281, %5299 ], [ %5281, %5304 ], [ %5281, %5309 ], [ %5950, %5991 ], [ %5950, %5993 ], [ %5950, %5997 ], [ %5950, %6002 ], [ %5950, %5988 ], [ %46, %5518 ], [ %46, %5514 ], [ %46, %5504 ], [ %46, %5494 ], [ %46, %5490 ], [ %46, %5478 ], [ %46, %5447 ], [ %46, %5443 ], [ %46, %5417 ], [ %5924, %5923 ], [ %46, %5935 ], [ %46, %5893 ], [ %46, %5864 ], [ %4599, %4842 ], [ %4599, %4844 ], [ %4599, %4848 ], [ %4599, %4853 ], [ %4599, %4839 ], [ %4599, %4800 ], [ %4599, %4802 ], [ %4599, %4806 ], [ %4599, %4811 ], [ %4599, %4797 ]
-  %6009 = phi i8 [ 0, %5336 ], [ 0, %5344 ], [ 0, %5313 ], [ 0, %4332 ], [ 0, %4462 ], [ %167, %153 ], [ %4163, %4206 ], [ %4163, %4211 ], [ %4163, %4215 ], [ %4163, %4220 ], [ %4163, %4225 ], [ %4233, %4280 ], [ %4233, %4285 ], [ %4233, %4289 ], [ %4233, %4294 ], [ %4233, %4299 ], [ 0, %4436 ], [ 1, %4438 ], [ 2, %4442 ], [ 3, %4447 ], [ 4, %4433 ], [ %5282, %5290 ], [ %5282, %5295 ], [ %5282, %5299 ], [ %5282, %5304 ], [ %5282, %5309 ], [ 0, %5991 ], [ 1, %5993 ], [ 2, %5997 ], [ 3, %6002 ], [ 4, %5988 ], [ %5358, %5518 ], [ 1, %5514 ], [ 0, %5504 ], [ %5358, %5494 ], [ 1, %5490 ], [ 0, %5478 ], [ %5358, %5447 ], [ 1, %5443 ], [ 0, %5417 ], [ 0, %5923 ], [ 0, %5935 ], [ 0, %5893 ], [ 0, %5864 ], [ 0, %4842 ], [ 1, %4844 ], [ 2, %4848 ], [ 3, %4853 ], [ 4, %4839 ], [ 0, %4800 ], [ 1, %4802 ], [ 2, %4806 ], [ 3, %4811 ], [ 4, %4797 ]
-  %6010 = phi i8 [ 0, %5336 ], [ 0, %5344 ], [ 0, %5313 ], [ 0, %4332 ], [ 0, %4462 ], [ %167, %153 ], [ 0, %4206 ], [ 0, %4211 ], [ 0, %4215 ], [ 0, %4220 ], [ 0, %4225 ], [ 0, %4280 ], [ 0, %4285 ], [ 0, %4289 ], [ 0, %4294 ], [ 0, %4299 ], [ 0, %4436 ], [ 0, %4438 ], [ 0, %4442 ], [ 0, %4447 ], [ 0, %4433 ], [ 0, %5290 ], [ 0, %5295 ], [ 0, %5299 ], [ 0, %5304 ], [ 0, %5309 ], [ %5953, %5991 ], [ %5953, %5993 ], [ %5953, %5997 ], [ %5953, %6002 ], [ %5953, %5988 ], [ 0, %5518 ], [ 0, %5514 ], [ 0, %5504 ], [ 0, %5494 ], [ 0, %5490 ], [ 0, %5478 ], [ 0, %5447 ], [ 0, %5443 ], [ 0, %5417 ], [ 0, %5923 ], [ 0, %5935 ], [ 0, %5893 ], [ 0, %5864 ], [ 0, %4842 ], [ 0, %4844 ], [ 0, %4848 ], [ 0, %4853 ], [ 0, %4839 ], [ 0, %4800 ], [ 0, %4802 ], [ 0, %4806 ], [ 0, %4811 ], [ 0, %4797 ]
-  %6011 = and i32 %6008, 1
-  %6012 = icmp eq i32 %6011, 0
-  %6013 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %6014 = load ptr, ptr %6013, align 8
-  %6015 = icmp eq ptr %6014, null
-  %6016 = select i1 %6012, i1 true, i1 %6015
-  br i1 %6016, label %6020, label %6017
-
-6017:                                             ; preds = %6006
-  %6018 = zext nneg i8 %6010 to i32
-  %6019 = zext i8 %6009 to i32
-  call void @_ZN6asmjit9_abi_1_1012EmitterUtils21logInstructionEmittedEPNS0_13BaseAssemblerEjNS0_11InstOptionsERKNS0_8Operand_ES7_S7_PS6_jjPh(ptr noundef nonnull %0, i32 noundef %14, i32 noundef %6008, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %5, i32 noundef %6018, i32 noundef %6019, ptr noundef %6007)
   br label %6020
 
-6020:                                             ; preds = %6017, %6006
+5974:                                             ; preds = %5970, %5967
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %5938, i8 0, i64 %5950, i1 false)
+  %5975 = getelementptr inbounds nuw i8, ptr %5938, i64 %5950
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
+  %5976 = icmp samesign ugt i8 %5940, 3
+  br i1 %5976, label %5977, label %5980
+
+5977:                                             ; preds = %5974
+  %5978 = trunc i64 %5941 to i32
+  store i32 %5978, ptr %5975, align 1, !tbaa !51
+  %5979 = getelementptr inbounds nuw i8, ptr %5975, i64 4
+  br label %5995
+
+5980:                                             ; preds = %5974
+  %5981 = icmp eq i8 %5940, 0
+  br i1 %5981, label %5995, label %5982
+
+5982:                                             ; preds = %5980
+  %5983 = trunc i64 %5941 to i8
+  store i8 %5983, ptr %5975, align 1, !tbaa !51
+  %5984 = getelementptr inbounds nuw i8, ptr %5975, i64 1
+  %5985 = icmp eq i8 %5940, 1
+  br i1 %5985, label %5995, label %5986
+
+5986:                                             ; preds = %5982
+  %5987 = lshr i64 %5941, 8
+  %5988 = trunc i64 %5987 to i8
+  store i8 %5988, ptr %5984, align 1, !tbaa !51
+  %5989 = getelementptr inbounds nuw i8, ptr %5975, i64 2
+  %5990 = icmp eq i8 %5940, 2
+  br i1 %5990, label %5995, label %5991
+
+5991:                                             ; preds = %5986
+  %5992 = lshr i64 %5941, 16
+  %5993 = trunc i64 %5992 to i8
+  store i8 %5993, ptr %5989, align 1, !tbaa !51
+  %5994 = getelementptr inbounds nuw i8, ptr %5975, i64 3
+  br label %5995
+
+5995:                                             ; preds = %5298, %.thread, %5991, %5986, %5982, %5980, %5977, %5924, %5912, %5882, %5853, %5507, %5503, %5493, %5483, %5479, %5467, %5436, %5432, %5406, %5333, %5325, %5302, %5293, %5289, %5287, %4853, %4848, %4844, %4842, %4839, %4811, %4806, %4802, %4800, %4797, %4462, %4447, %4442, %4438, %4436, %4433, %4332, %4299, %4294, %4289, %4285, %4280, %4225, %4220, %4215, %4211, %4206, %153
+  %5996 = phi ptr [ %5332, %5325 ], [ %5342, %5333 ], [ %5316, %5302 ], [ %4376, %4332 ], [ %4511, %4462 ], [ %154, %153 ], [ %4207, %4206 ], [ %4213, %4211 ], [ %4218, %4215 ], [ %4223, %4220 ], [ %4228, %4225 ], [ %4281, %4280 ], [ %4287, %4285 ], [ %4292, %4289 ], [ %4297, %4294 ], [ %4302, %4299 ], [ %4431, %4436 ], [ %4440, %4438 ], [ %4445, %4442 ], [ %4450, %4447 ], [ %4435, %4433 ], [ %5280, %5287 ], [ %5291, %5289 ], [ %5296, %5293 ], [ %5301, %5298 ], [ %5975, %5980 ], [ %5984, %5982 ], [ %5989, %5986 ], [ %5994, %5991 ], [ %5979, %5977 ], [ %5516, %5507 ], [ %5505, %5503 ], [ %5502, %5493 ], [ %5492, %5483 ], [ %5481, %5479 ], [ %5478, %5467 ], [ %5445, %5436 ], [ %5434, %5432 ], [ %5430, %5406 ], [ %5918, %5912 ], [ %5936, %5924 ], [ %5900, %5882 ], [ %5881, %5853 ], [ %4837, %4842 ], [ %4846, %4844 ], [ %4851, %4848 ], [ %4856, %4853 ], [ %4841, %4839 ], [ %4795, %4800 ], [ %4804, %4802 ], [ %4809, %4806 ], [ %4814, %4811 ], [ %4799, %4797 ], [ %5286, %.thread ]
+  %5997 = phi i32 [ %46, %5325 ], [ %46, %5333 ], [ %46, %5302 ], [ %46, %4332 ], [ %46, %4462 ], [ %46, %153 ], [ %4161, %4206 ], [ %4161, %4211 ], [ %4161, %4215 ], [ %4161, %4220 ], [ %4161, %4225 ], [ %4231, %4280 ], [ %4231, %4285 ], [ %4231, %4289 ], [ %4231, %4294 ], [ %4231, %4299 ], [ %4381, %4436 ], [ %4381, %4438 ], [ %4381, %4442 ], [ %4381, %4447 ], [ %4381, %4433 ], [ %5281, %5287 ], [ %5281, %5289 ], [ %5281, %5293 ], [ %5281, %5298 ], [ %5939, %5980 ], [ %5939, %5982 ], [ %5939, %5986 ], [ %5939, %5991 ], [ %5939, %5977 ], [ %46, %5507 ], [ %46, %5503 ], [ %46, %5493 ], [ %46, %5483 ], [ %46, %5479 ], [ %46, %5467 ], [ %46, %5436 ], [ %46, %5432 ], [ %46, %5406 ], [ %5913, %5912 ], [ %46, %5924 ], [ %46, %5882 ], [ %46, %5853 ], [ %4599, %4842 ], [ %4599, %4844 ], [ %4599, %4848 ], [ %4599, %4853 ], [ %4599, %4839 ], [ %4599, %4800 ], [ %4599, %4802 ], [ %4599, %4806 ], [ %4599, %4811 ], [ %4599, %4797 ], [ %5281, %.thread ]
+  %5998 = phi i8 [ 0, %5325 ], [ 0, %5333 ], [ 0, %5302 ], [ 0, %4332 ], [ 0, %4462 ], [ %167, %153 ], [ %4163, %4206 ], [ %4163, %4211 ], [ %4163, %4215 ], [ %4163, %4220 ], [ %4163, %4225 ], [ %4233, %4280 ], [ %4233, %4285 ], [ %4233, %4289 ], [ %4233, %4294 ], [ %4233, %4299 ], [ 0, %4436 ], [ 1, %4438 ], [ 2, %4442 ], [ 3, %4447 ], [ 4, %4433 ], [ 0, %5287 ], [ 1, %5289 ], [ 2, %5293 ], [ 3, %5298 ], [ 0, %5980 ], [ 1, %5982 ], [ 2, %5986 ], [ 3, %5991 ], [ 4, %5977 ], [ %5347, %5507 ], [ 1, %5503 ], [ 0, %5493 ], [ %5347, %5483 ], [ 1, %5479 ], [ 0, %5467 ], [ %5347, %5436 ], [ 1, %5432 ], [ 0, %5406 ], [ 0, %5912 ], [ 0, %5924 ], [ 0, %5882 ], [ 0, %5853 ], [ 0, %4842 ], [ 1, %4844 ], [ 2, %4848 ], [ 3, %4853 ], [ 4, %4839 ], [ 0, %4800 ], [ 1, %4802 ], [ 2, %4806 ], [ 3, %4811 ], [ 4, %4797 ], [ 4, %.thread ]
+  %5999 = phi i8 [ 0, %5325 ], [ 0, %5333 ], [ 0, %5302 ], [ 0, %4332 ], [ 0, %4462 ], [ %167, %153 ], [ 0, %4206 ], [ 0, %4211 ], [ 0, %4215 ], [ 0, %4220 ], [ 0, %4225 ], [ 0, %4280 ], [ 0, %4285 ], [ 0, %4289 ], [ 0, %4294 ], [ 0, %4299 ], [ 0, %4436 ], [ 0, %4438 ], [ 0, %4442 ], [ 0, %4447 ], [ 0, %4433 ], [ 0, %5287 ], [ 0, %5289 ], [ 0, %5293 ], [ 0, %5298 ], [ %5942, %5980 ], [ %5942, %5982 ], [ %5942, %5986 ], [ %5942, %5991 ], [ %5942, %5977 ], [ 0, %5507 ], [ 0, %5503 ], [ 0, %5493 ], [ 0, %5483 ], [ 0, %5479 ], [ 0, %5467 ], [ 0, %5436 ], [ 0, %5432 ], [ 0, %5406 ], [ 0, %5912 ], [ 0, %5924 ], [ 0, %5882 ], [ 0, %5853 ], [ 0, %4842 ], [ 0, %4844 ], [ 0, %4848 ], [ 0, %4853 ], [ 0, %4839 ], [ 0, %4800 ], [ 0, %4802 ], [ 0, %4806 ], [ 0, %4811 ], [ 0, %4797 ], [ 0, %.thread ]
+  %6000 = and i32 %5997, 1
+  %6001 = icmp eq i32 %6000, 0
+  %6002 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6003 = load ptr, ptr %6002, align 8
+  %6004 = icmp eq ptr %6003, null
+  %6005 = select i1 %6001, i1 true, i1 %6004
+  br i1 %6005, label %6009, label %6006
+
+6006:                                             ; preds = %5995
+  %6007 = zext nneg i8 %5999 to i32
+  %6008 = zext i8 %5998 to i32
+  call void @_ZN6asmjit9_abi_1_1012EmitterUtils21logInstructionEmittedEPNS0_13BaseAssemblerEjNS0_11InstOptionsERKNS0_8Operand_ES7_S7_PS6_jjPh(ptr noundef nonnull %0, i32 noundef %14, i32 noundef %5997, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %5, i32 noundef %6007, i32 noundef %6008, ptr noundef %5996)
+  br label %6009
+
+6009:                                             ; preds = %6006, %5995
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %41, i8 0, i64 20, i1 false)
-  %6021 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %6022 = load ptr, ptr %6021, align 8, !tbaa !38
-  %6023 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %6024 = load ptr, ptr %6023, align 8, !tbaa !80
-  %6025 = ptrtoint ptr %6007 to i64
-  %6026 = ptrtoint ptr %6024 to i64
-  %6027 = sub i64 %6025, %6026
-  store ptr %6007, ptr %11, align 8, !tbaa !29
-  %6028 = getelementptr inbounds nuw i8, ptr %6022, i64 80
-  %6029 = load i64, ptr %6028, align 8, !tbaa !134
-  %6030 = call noundef i64 @llvm.umax.i64(i64 %6029, i64 %6027)
-  store i64 %6030, ptr %6028, align 8, !tbaa !135
-  br label %6035
+  %6010 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %6011 = load ptr, ptr %6010, align 8, !tbaa !38
+  %6012 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %6013 = load ptr, ptr %6012, align 8, !tbaa !80
+  %6014 = ptrtoint ptr %5996 to i64
+  %6015 = ptrtoint ptr %6013 to i64
+  %6016 = sub i64 %6014, %6015
+  store ptr %5996, ptr %11, align 8, !tbaa !29
+  %6017 = getelementptr inbounds nuw i8, ptr %6011, i64 80
+  %6018 = load i64, ptr %6017, align 8, !tbaa !134
+  %6019 = call noundef i64 @llvm.umax.i64(i64 %6018, i64 %6016)
+  store i64 %6019, ptr %6017, align 8, !tbaa !135
+  br label %6024
 
-6031:                                             ; preds = %5382, %5984, %5930, %5856, %5830, %5829, %5796, %5767, %5759, %5733, %5726, %5723, %5647, %5641, %5604, %5397, %5389, %5270, %5243, %5228, %5199, %5124, %5091, %5083, %5042, %4998, %4991, %4985, %4974, %4861, %4857, %4748, %4693, %4514, %4451, %4377, %4324, %4303, %4229, %4159, %4129, %4124, %4119, %4114, %4112, %4071, %4050, %3992, %3987, %3952, %3913, %3885, %3851, %3785, %3762, %3729, %3680, %3622, %3602, %3562, %3530, %3507, %3483, %3461, %3443, %3409, %3361, %3336, %3331, %3326, %3324, %3291, %3269, %3257, %3213, %3209, %3205, %3201, %3197, %3193, %3187, %3169, %3158, %3095, %3088, %3073, %3037, %3020, %3018, %3016, %3006, %2968, %2960, %2937, %2916, %2891, %2880, %2840, %2819, %2796, %2785, %2765, %2758, %2748, %2707, %2704, %2656, %2649, %2637, %2608, %2585, %2557, %2545, %2544, %2538, %2535, %2522, %2518, %2512, %2507, %2505, %2492, %2480, %2474, %2470, %2466, %2465, %2461, %2450, %2437, %2412, %2319, %2318, %2296, %2282, %2229, %2169, %2157, %2154, %2144, %2138, %2136, %2123, %2115, %2109, %2096, %2088, %2082, %2068, %2052, %2050, %2009, %1993, %1986, %1984, %1968, %1965, %1927, %1917, %1911, %1896, %1886, %1881, %1863, %1858, %1848, %1841, %1833, %1827, %1810, %1789, %1788, %1776, %1768, %1766, %1756, %1724, %1715, %1702, %1688, %1672, %1658, %1657, %1641, %1339, %1338, %1317, %1273, %1260, %1248, %1236, %1232, %1227, %1214, %1200, %1179, %1157, %1147, %1108, %1098, %1087, %1079, %1077, %1060, %1039, %1038, %985, %918, %904, %875, %871, %867, %865, %805, %803, %795, %787, %767, %732, %730, %702, %651, %648, %530, %529, %519, %484, %474, %461, %454, %443, %435, %434, %414, %412, %399, %378, %370, %362, %361, %351, %329, %317, %303, %295, %279, %271, %266, %260, %238, %233, %221, %220, %212, %211, %207, %206, %189, %179, %153, %141, %134, %118, %112, %105, %78, %70, %55
-  %6032 = phi i32 [ %4962, %5042 ], [ %4962, %4998 ], [ %46, %78 ], [ %46, %70 ], [ %5950, %5984 ], [ %4962, %4974 ], [ %4962, %4991 ], [ %4599, %5091 ], [ %46, %55 ], [ %46, %153 ], [ %46, %4129 ], [ %46, %5723 ], [ %46, %4124 ], [ %46, %4119 ], [ %46, %4114 ], [ %46, %4112 ], [ %46, %4050 ], [ %46, %3913 ], [ %46, %3885 ], [ %46, %3851 ], [ %46, %3762 ], [ %46, %3729 ], [ %46, %3680 ], [ %46, %3622 ], [ %46, %3483 ], [ %46, %3461 ], [ %46, %3443 ], [ %46, %3324 ], [ %46, %3269 ], [ %46, %3291 ], [ %46, %3257 ], [ %46, %3169 ], [ %46, %3158 ], [ %46, %3095 ], [ %46, %3073 ], [ %46, %3037 ], [ %46, %3020 ], [ %46, %3018 ], [ %46, %3016 ], [ %46, %3006 ], [ %46, %2968 ], [ %46, %2960 ], [ %46, %2916 ], [ %46, %2891 ], [ %46, %2880 ], [ %46, %2796 ], [ %46, %2785 ], [ %46, %2765 ], [ %46, %2748 ], [ %46, %2707 ], [ %46, %2637 ], [ %46, %2656 ], [ %46, %2649 ], [ %46, %2585 ], [ %46, %2557 ], [ %46, %2544 ], [ %46, %2545 ], [ %46, %2538 ], [ %46, %2535 ], [ %46, %2522 ], [ %46, %2505 ], [ %46, %2465 ], [ %46, %2492 ], [ %46, %2461 ], [ %46, %2437 ], [ %46, %2450 ], [ %46, %2412 ], [ %46, %2318 ], [ %46, %2296 ], [ %46, %2229 ], [ %46, %2144 ], [ %46, %4303 ], [ %46, %2138 ], [ %46, %2136 ], [ %46, %2115 ], [ %46, %2109 ], [ %46, %2088 ], [ %46, %2082 ], [ %46, %2050 ], [ %46, %2068 ], [ %46, %2052 ], [ %46, %2009 ], [ %1967, %1965 ], [ %1967, %1968 ], [ %46, %1986 ], [ %46, %1993 ], [ %46, %1927 ], [ %46, %1881 ], [ %46, %1917 ], [ %46, %1896 ], [ %46, %1858 ], [ %46, %1841 ], [ %46, %1827 ], [ %46, %1788 ], [ %46, %1810 ], [ %46, %1789 ], [ %46, %1766 ], [ %46, %1756 ], [ %46, %1724 ], [ %46, %1657 ], [ %46, %1715 ], [ %46, %1688 ], [ %46, %1658 ], [ %46, %1260 ], [ %46, %1338 ], [ %46, %1248 ], [ %46, %1200 ], [ %46, %1227 ], [ %46, %1179 ], [ %46, %1157 ], [ %46, %1108 ], [ %46, %1087 ], [ %46, %1077 ], [ %46, %1038 ], [ %46, %1060 ], [ %46, %1039 ], [ %46, %266 ], [ %46, %317 ], [ %46, %303 ], [ %46, %295 ], [ %46, %279 ], [ %46, %271 ], [ %46, %329 ], [ %46, %918 ], [ %46, %875 ], [ %46, %803 ], [ %46, %795 ], [ %46, %767 ], [ %46, %732 ], [ %46, %730 ], [ %46, %519 ], [ %46, %484 ], [ %46, %474 ], [ %46, %461 ], [ %46, %434 ], [ %46, %454 ], [ %46, %443 ], [ %46, %435 ], [ %46, %414 ], [ %46, %412 ], [ %46, %399 ], [ %46, %378 ], [ %46, %361 ], [ %46, %370 ], [ %46, %260 ], [ %46, %233 ], [ %46, %238 ], [ %46, %220 ], [ %46, %211 ], [ %46, %212 ], [ %46, %206 ], [ %46, %207 ], [ %46, %189 ], [ %46, %179 ], [ %46, %2480 ], [ %46, %105 ], [ %46, %134 ], [ %46, %141 ], [ %4161, %4159 ], [ %4231, %4229 ], [ %46, %4324 ], [ %4381, %4377 ], [ %46, %4451 ], [ %4517, %4514 ], [ %46, %5604 ], [ %5130, %5199 ], [ %46, %1702 ], [ %46, %1672 ], [ %4599, %5124 ], [ %46, %3326 ], [ %46, %3331 ], [ %46, %651 ], [ %46, %5641 ], [ %46, %5647 ], [ %46, %2169 ], [ %46, %985 ], [ %46, %805 ], [ %46, %530 ], [ %46, %2319 ], [ %46, %2154 ], [ %46, %2282 ], [ %46, %1984 ], [ %46, %1911 ], [ %46, %1147 ], [ %46, %904 ], [ %46, %787 ], [ %46, %351 ], [ %46, %3213 ], [ %46, %221 ], [ %46, %362 ], [ %46, %648 ], [ %46, %1079 ], [ %46, %1236 ], [ %46, %1232 ], [ %46, %1768 ], [ %46, %1776 ], [ %46, %1833 ], [ %46, %2157 ], [ %46, %2474 ], [ %46, %2470 ], [ %46, %2518 ], [ %46, %2512 ], [ %46, %2704 ], [ %46, %2758 ], [ %46, %3088 ], [ %46, %3209 ], [ %46, %3205 ], [ %46, %3201 ], [ %46, %3197 ], [ %46, %3193 ], [ %46, %3187 ], [ %46, %3361 ], [ %46, %3409 ], [ %46, %3507 ], [ %46, %3562 ], [ %46, %3952 ], [ %46, %3987 ], [ %46, %3992 ], [ %4599, %4693 ], [ %4962, %4985 ], [ %4599, %5083 ], [ %4599, %5270 ], [ %4599, %5243 ], [ %4599, %5228 ], [ %46, %5726 ], [ %46, %5796 ], [ %46, %5930 ], [ %46, %5767 ], [ %46, %5759 ], [ %46, %5856 ], [ %46, %5830 ], [ %4599, %4748 ], [ %46, %529 ], [ %46, %1317 ], [ %46, %1339 ], [ %46, %2466 ], [ %46, %2507 ], [ %46, %3336 ], [ %46, %5733 ], [ %4599, %4857 ], [ %4599, %4861 ], [ %46, %5829 ], [ %46, %112 ], [ %46, %118 ], [ %46, %702 ], [ %46, %865 ], [ %46, %871 ], [ %46, %867 ], [ %46, %1098 ], [ %46, %1214 ], [ %46, %1273 ], [ %46, %1641 ], [ %46, %1848 ], [ %46, %1863 ], [ %46, %1886 ], [ %46, %2096 ], [ %46, %2123 ], [ %46, %2608 ], [ %46, %2819 ], [ %46, %2840 ], [ %46, %2937 ], [ %46, %3530 ], [ %46, %3602 ], [ %46, %3785 ], [ %46, %4071 ], [ %46, %5397 ], [ %46, %5389 ], [ %46, %5382 ]
-  %6033 = phi i32 [ %5043, %5042 ], [ %4999, %4998 ], [ %94, %78 ], [ %64, %70 ], [ 1, %5984 ], [ 1, %4974 ], [ 12, %4991 ], [ 12, %5091 ], [ 26, %55 ], [ 26, %153 ], [ 26, %4129 ], [ 26, %5723 ], [ 26, %4124 ], [ 26, %4119 ], [ 26, %4114 ], [ 26, %4112 ], [ 26, %4050 ], [ 26, %3913 ], [ 26, %3885 ], [ 26, %3851 ], [ 26, %3762 ], [ 26, %3729 ], [ 26, %3680 ], [ 26, %3622 ], [ 26, %3483 ], [ 26, %3461 ], [ 26, %3443 ], [ 26, %3324 ], [ 26, %3269 ], [ 26, %3291 ], [ 26, %3257 ], [ 26, %3169 ], [ 26, %3158 ], [ 26, %3095 ], [ 26, %3073 ], [ 26, %3037 ], [ 26, %3020 ], [ 26, %3018 ], [ 26, %3016 ], [ 26, %3006 ], [ 26, %2968 ], [ 26, %2960 ], [ 26, %2916 ], [ 26, %2891 ], [ 26, %2880 ], [ 26, %2796 ], [ 26, %2785 ], [ 26, %2765 ], [ 26, %2748 ], [ 26, %2707 ], [ 26, %2637 ], [ 26, %2656 ], [ 26, %2649 ], [ 26, %2585 ], [ 26, %2557 ], [ 26, %2544 ], [ 26, %2545 ], [ 26, %2538 ], [ 26, %2535 ], [ 26, %2522 ], [ 26, %2505 ], [ 26, %2465 ], [ 26, %2492 ], [ 26, %2461 ], [ 26, %2437 ], [ 26, %2450 ], [ 26, %2412 ], [ 26, %2318 ], [ 26, %2296 ], [ 26, %2229 ], [ 26, %2144 ], [ 26, %4303 ], [ 26, %2138 ], [ 26, %2136 ], [ 26, %2115 ], [ 26, %2109 ], [ 26, %2088 ], [ 26, %2082 ], [ 26, %2050 ], [ 26, %2068 ], [ 26, %2052 ], [ 26, %2009 ], [ 26, %1965 ], [ 26, %1968 ], [ 26, %1986 ], [ 26, %1993 ], [ 26, %1927 ], [ 26, %1881 ], [ 26, %1917 ], [ 26, %1896 ], [ 26, %1858 ], [ 26, %1841 ], [ 26, %1827 ], [ 26, %1788 ], [ 26, %1810 ], [ 26, %1789 ], [ 26, %1766 ], [ 26, %1756 ], [ 26, %1724 ], [ 26, %1657 ], [ 26, %1715 ], [ 26, %1688 ], [ 26, %1658 ], [ 26, %1260 ], [ 26, %1338 ], [ 26, %1248 ], [ 26, %1200 ], [ 26, %1227 ], [ 26, %1179 ], [ 26, %1157 ], [ 26, %1108 ], [ 26, %1087 ], [ 26, %1077 ], [ 26, %1038 ], [ 26, %1060 ], [ 26, %1039 ], [ 26, %266 ], [ 26, %317 ], [ 26, %303 ], [ 26, %295 ], [ 26, %279 ], [ 26, %271 ], [ 26, %329 ], [ 26, %918 ], [ 26, %875 ], [ 26, %803 ], [ 26, %795 ], [ 26, %767 ], [ 26, %732 ], [ 26, %730 ], [ 26, %519 ], [ 26, %484 ], [ 26, %474 ], [ 26, %461 ], [ 26, %434 ], [ 26, %454 ], [ 26, %443 ], [ 26, %435 ], [ 26, %414 ], [ 26, %412 ], [ 26, %399 ], [ 26, %378 ], [ 26, %361 ], [ 26, %370 ], [ 26, %260 ], [ 26, %233 ], [ 26, %238 ], [ 26, %220 ], [ 26, %211 ], [ 26, %212 ], [ 26, %206 ], [ 26, %207 ], [ 26, %189 ], [ 26, %179 ], [ 26, %2480 ], [ 33, %105 ], [ 36, %134 ], [ 36, %141 ], [ 37, %4159 ], [ 37, %4229 ], [ 37, %4324 ], [ 37, %4377 ], [ 37, %4451 ], [ 37, %4514 ], [ 42, %5604 ], [ 43, %5199 ], [ 43, %1702 ], [ 43, %1672 ], [ 44, %5124 ], [ 29, %3326 ], [ 29, %3331 ], [ 50, %651 ], [ 41, %5641 ], [ 41, %5647 ], [ 53, %2169 ], [ 53, %985 ], [ 53, %805 ], [ 53, %530 ], [ 53, %2319 ], [ 52, %2154 ], [ 52, %2282 ], [ 52, %1984 ], [ 52, %1911 ], [ 52, %1147 ], [ 52, %904 ], [ 52, %787 ], [ 52, %351 ], [ 60, %3213 ], [ 26, %221 ], [ 26, %362 ], [ 50, %648 ], [ 26, %1079 ], [ 50, %1236 ], [ 50, %1232 ], [ 26, %1768 ], [ 26, %1776 ], [ 26, %1833 ], [ 53, %2157 ], [ 26, %2474 ], [ 26, %2470 ], [ 26, %2518 ], [ 26, %2512 ], [ 26, %2704 ], [ 26, %2758 ], [ 26, %3088 ], [ 26, %3209 ], [ 26, %3205 ], [ 26, %3201 ], [ 26, %3197 ], [ 26, %3193 ], [ 26, %3187 ], [ 26, %3361 ], [ 26, %3409 ], [ 26, %3507 ], [ 26, %3562 ], [ 26, %3952 ], [ 26, %3987 ], [ 26, %3992 ], [ 43, %4693 ], [ 12, %4985 ], [ 12, %5083 ], [ 43, %5270 ], [ 43, %5243 ], [ 43, %5228 ], [ 37, %5726 ], [ 48, %5796 ], [ 48, %5930 ], [ 12, %5767 ], [ 12, %5759 ], [ %5859, %5856 ], [ %5831, %5830 ], [ %4751, %4748 ], [ 26, %529 ], [ 26, %1317 ], [ 26, %1339 ], [ 26, %2466 ], [ 26, %2507 ], [ 26, %3336 ], [ 26, %5733 ], [ 43, %4857 ], [ 46, %4861 ], [ 48, %5829 ], [ 34, %112 ], [ 35, %118 ], [ 52, %702 ], [ 26, %865 ], [ 26, %871 ], [ 26, %867 ], [ 52, %1098 ], [ 43, %1214 ], [ 26, %1273 ], [ 52, %1641 ], [ 52, %1848 ], [ 49, %1863 ], [ 49, %1886 ], [ 53, %2096 ], [ 53, %2123 ], [ 26, %2608 ], [ 26, %2819 ], [ 26, %2840 ], [ 26, %2937 ], [ 26, %3530 ], [ 26, %3602 ], [ 26, %3785 ], [ 26, %4071 ], [ 42, %5397 ], [ 42, %5389 ], [ 42, %5382 ]
-  %6034 = call noundef i32 @_ZN6asmjit9_abi_1_1012EmitterUtils20logInstructionFailedEPNS0_11BaseEmitterEjjNS0_11InstOptionsERKNS0_8Operand_ES7_S7_PS6_(ptr noundef nonnull %0, i32 noundef %6033, i32 noundef %14, i32 noundef %6032, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %5)
-  br label %6035
+6020:                                             ; preds = %5371, %5973, %5919, %5845, %5819, %5818, %5785, %5756, %5748, %5722, %5715, %5712, %5636, %5630, %5593, %5386, %5378, %5270, %5243, %5228, %5199, %5124, %5091, %5083, %5042, %4998, %4991, %4985, %4974, %4861, %4857, %4748, %4693, %4514, %4451, %4377, %4324, %4303, %4229, %4159, %4129, %4124, %4119, %4114, %4112, %4071, %4050, %3992, %3987, %3952, %3913, %3885, %3851, %3785, %3762, %3729, %3680, %3622, %3602, %3562, %3530, %3507, %3483, %3461, %3443, %3409, %3361, %3336, %3331, %3326, %3324, %3291, %3269, %3257, %3213, %3209, %3205, %3201, %3197, %3193, %3187, %3169, %3158, %3095, %3088, %3073, %3037, %3020, %3018, %3016, %3006, %2968, %2960, %2937, %2916, %2891, %2880, %2840, %2819, %2796, %2785, %2765, %2758, %2748, %2707, %2704, %2656, %2649, %2637, %2608, %2585, %2557, %2545, %2544, %2538, %2535, %2522, %2518, %2512, %2507, %2505, %2492, %2480, %2474, %2470, %2466, %2465, %2461, %2450, %2437, %2412, %2319, %2318, %2296, %2282, %2229, %2169, %2157, %2154, %2144, %2138, %2136, %2123, %2115, %2109, %2096, %2088, %2082, %2068, %2052, %2050, %2009, %1993, %1986, %1984, %1968, %1965, %1927, %1917, %1911, %1896, %1886, %1881, %1863, %1858, %1848, %1841, %1833, %1827, %1810, %1789, %1788, %1776, %1768, %1766, %1756, %1724, %1715, %1702, %1688, %1672, %1658, %1657, %1641, %1339, %1338, %1317, %1273, %1260, %1248, %1236, %1232, %1227, %1214, %1200, %1179, %1157, %1147, %1108, %1098, %1087, %1079, %1077, %1060, %1039, %1038, %985, %918, %904, %875, %871, %867, %865, %805, %803, %795, %787, %767, %732, %730, %702, %651, %648, %530, %529, %519, %484, %474, %461, %454, %443, %435, %434, %414, %412, %399, %378, %370, %362, %361, %351, %329, %317, %303, %295, %279, %271, %266, %260, %238, %233, %221, %220, %212, %211, %207, %206, %189, %179, %153, %141, %134, %118, %112, %105, %78, %70, %55
+  %6021 = phi i32 [ %4962, %5042 ], [ %4962, %4998 ], [ %46, %78 ], [ %46, %70 ], [ %5939, %5973 ], [ %4962, %4974 ], [ %4962, %4991 ], [ %4599, %5091 ], [ %46, %55 ], [ %46, %153 ], [ %46, %4129 ], [ %46, %5712 ], [ %46, %4124 ], [ %46, %4119 ], [ %46, %4114 ], [ %46, %4112 ], [ %46, %4050 ], [ %46, %3913 ], [ %46, %3885 ], [ %46, %3851 ], [ %46, %3762 ], [ %46, %3729 ], [ %46, %3680 ], [ %46, %3622 ], [ %46, %3483 ], [ %46, %3461 ], [ %46, %3443 ], [ %46, %3324 ], [ %46, %3269 ], [ %46, %3291 ], [ %46, %3257 ], [ %46, %3169 ], [ %46, %3158 ], [ %46, %3095 ], [ %46, %3073 ], [ %46, %3037 ], [ %46, %3020 ], [ %46, %3018 ], [ %46, %3016 ], [ %46, %3006 ], [ %46, %2968 ], [ %46, %2960 ], [ %46, %2916 ], [ %46, %2891 ], [ %46, %2880 ], [ %46, %2796 ], [ %46, %2785 ], [ %46, %2765 ], [ %46, %2748 ], [ %46, %2707 ], [ %46, %2637 ], [ %46, %2656 ], [ %46, %2649 ], [ %46, %2585 ], [ %46, %2557 ], [ %46, %2544 ], [ %46, %2545 ], [ %46, %2538 ], [ %46, %2535 ], [ %46, %2522 ], [ %46, %2505 ], [ %46, %2465 ], [ %46, %2492 ], [ %46, %2461 ], [ %46, %2437 ], [ %46, %2450 ], [ %46, %2412 ], [ %46, %2318 ], [ %46, %2296 ], [ %46, %2229 ], [ %46, %2144 ], [ %46, %4303 ], [ %46, %2138 ], [ %46, %2136 ], [ %46, %2115 ], [ %46, %2109 ], [ %46, %2088 ], [ %46, %2082 ], [ %46, %2050 ], [ %46, %2068 ], [ %46, %2052 ], [ %46, %2009 ], [ %1967, %1965 ], [ %1967, %1968 ], [ %46, %1986 ], [ %46, %1993 ], [ %46, %1927 ], [ %46, %1881 ], [ %46, %1917 ], [ %46, %1896 ], [ %46, %1858 ], [ %46, %1841 ], [ %46, %1827 ], [ %46, %1788 ], [ %46, %1810 ], [ %46, %1789 ], [ %46, %1766 ], [ %46, %1756 ], [ %46, %1724 ], [ %46, %1657 ], [ %46, %1715 ], [ %46, %1688 ], [ %46, %1658 ], [ %46, %1260 ], [ %46, %1338 ], [ %46, %1248 ], [ %46, %1200 ], [ %46, %1227 ], [ %46, %1179 ], [ %46, %1157 ], [ %46, %1108 ], [ %46, %1087 ], [ %46, %1077 ], [ %46, %1038 ], [ %46, %1060 ], [ %46, %1039 ], [ %46, %266 ], [ %46, %317 ], [ %46, %303 ], [ %46, %295 ], [ %46, %279 ], [ %46, %271 ], [ %46, %329 ], [ %46, %918 ], [ %46, %875 ], [ %46, %803 ], [ %46, %795 ], [ %46, %767 ], [ %46, %732 ], [ %46, %730 ], [ %46, %519 ], [ %46, %484 ], [ %46, %474 ], [ %46, %461 ], [ %46, %434 ], [ %46, %454 ], [ %46, %443 ], [ %46, %435 ], [ %46, %414 ], [ %46, %412 ], [ %46, %399 ], [ %46, %378 ], [ %46, %361 ], [ %46, %370 ], [ %46, %260 ], [ %46, %233 ], [ %46, %238 ], [ %46, %220 ], [ %46, %211 ], [ %46, %212 ], [ %46, %206 ], [ %46, %207 ], [ %46, %189 ], [ %46, %179 ], [ %46, %2480 ], [ %46, %105 ], [ %46, %134 ], [ %46, %141 ], [ %4161, %4159 ], [ %4231, %4229 ], [ %46, %4324 ], [ %4381, %4377 ], [ %46, %4451 ], [ %4517, %4514 ], [ %46, %5593 ], [ %5130, %5199 ], [ %46, %1702 ], [ %46, %1672 ], [ %4599, %5124 ], [ %46, %3326 ], [ %46, %3331 ], [ %46, %651 ], [ %46, %5630 ], [ %46, %5636 ], [ %46, %2169 ], [ %46, %985 ], [ %46, %805 ], [ %46, %530 ], [ %46, %2319 ], [ %46, %2154 ], [ %46, %2282 ], [ %46, %1984 ], [ %46, %1911 ], [ %46, %1147 ], [ %46, %904 ], [ %46, %787 ], [ %46, %351 ], [ %46, %3213 ], [ %46, %221 ], [ %46, %362 ], [ %46, %648 ], [ %46, %1079 ], [ %46, %1236 ], [ %46, %1232 ], [ %46, %1768 ], [ %46, %1776 ], [ %46, %1833 ], [ %46, %2157 ], [ %46, %2474 ], [ %46, %2470 ], [ %46, %2518 ], [ %46, %2512 ], [ %46, %2704 ], [ %46, %2758 ], [ %46, %3088 ], [ %46, %3209 ], [ %46, %3205 ], [ %46, %3201 ], [ %46, %3197 ], [ %46, %3193 ], [ %46, %3187 ], [ %46, %3361 ], [ %46, %3409 ], [ %46, %3507 ], [ %46, %3562 ], [ %46, %3952 ], [ %46, %3987 ], [ %46, %3992 ], [ %4599, %4693 ], [ %4962, %4985 ], [ %4599, %5083 ], [ %4599, %5270 ], [ %4599, %5243 ], [ %4599, %5228 ], [ %46, %5715 ], [ %46, %5785 ], [ %46, %5919 ], [ %46, %5756 ], [ %46, %5748 ], [ %46, %5845 ], [ %46, %5819 ], [ %4599, %4748 ], [ %46, %529 ], [ %46, %1317 ], [ %46, %1339 ], [ %46, %2466 ], [ %46, %2507 ], [ %46, %3336 ], [ %46, %5722 ], [ %4599, %4857 ], [ %4599, %4861 ], [ %46, %5818 ], [ %46, %112 ], [ %46, %118 ], [ %46, %702 ], [ %46, %865 ], [ %46, %871 ], [ %46, %867 ], [ %46, %1098 ], [ %46, %1214 ], [ %46, %1273 ], [ %46, %1641 ], [ %46, %1848 ], [ %46, %1863 ], [ %46, %1886 ], [ %46, %2096 ], [ %46, %2123 ], [ %46, %2608 ], [ %46, %2819 ], [ %46, %2840 ], [ %46, %2937 ], [ %46, %3530 ], [ %46, %3602 ], [ %46, %3785 ], [ %46, %4071 ], [ %46, %5386 ], [ %46, %5378 ], [ %46, %5371 ]
+  %6022 = phi i32 [ %5043, %5042 ], [ %4999, %4998 ], [ %94, %78 ], [ %64, %70 ], [ 1, %5973 ], [ 1, %4974 ], [ 12, %4991 ], [ 12, %5091 ], [ 26, %55 ], [ 26, %153 ], [ 26, %4129 ], [ 26, %5712 ], [ 26, %4124 ], [ 26, %4119 ], [ 26, %4114 ], [ 26, %4112 ], [ 26, %4050 ], [ 26, %3913 ], [ 26, %3885 ], [ 26, %3851 ], [ 26, %3762 ], [ 26, %3729 ], [ 26, %3680 ], [ 26, %3622 ], [ 26, %3483 ], [ 26, %3461 ], [ 26, %3443 ], [ 26, %3324 ], [ 26, %3269 ], [ 26, %3291 ], [ 26, %3257 ], [ 26, %3169 ], [ 26, %3158 ], [ 26, %3095 ], [ 26, %3073 ], [ 26, %3037 ], [ 26, %3020 ], [ 26, %3018 ], [ 26, %3016 ], [ 26, %3006 ], [ 26, %2968 ], [ 26, %2960 ], [ 26, %2916 ], [ 26, %2891 ], [ 26, %2880 ], [ 26, %2796 ], [ 26, %2785 ], [ 26, %2765 ], [ 26, %2748 ], [ 26, %2707 ], [ 26, %2637 ], [ 26, %2656 ], [ 26, %2649 ], [ 26, %2585 ], [ 26, %2557 ], [ 26, %2544 ], [ 26, %2545 ], [ 26, %2538 ], [ 26, %2535 ], [ 26, %2522 ], [ 26, %2505 ], [ 26, %2465 ], [ 26, %2492 ], [ 26, %2461 ], [ 26, %2437 ], [ 26, %2450 ], [ 26, %2412 ], [ 26, %2318 ], [ 26, %2296 ], [ 26, %2229 ], [ 26, %2144 ], [ 26, %4303 ], [ 26, %2138 ], [ 26, %2136 ], [ 26, %2115 ], [ 26, %2109 ], [ 26, %2088 ], [ 26, %2082 ], [ 26, %2050 ], [ 26, %2068 ], [ 26, %2052 ], [ 26, %2009 ], [ 26, %1965 ], [ 26, %1968 ], [ 26, %1986 ], [ 26, %1993 ], [ 26, %1927 ], [ 26, %1881 ], [ 26, %1917 ], [ 26, %1896 ], [ 26, %1858 ], [ 26, %1841 ], [ 26, %1827 ], [ 26, %1788 ], [ 26, %1810 ], [ 26, %1789 ], [ 26, %1766 ], [ 26, %1756 ], [ 26, %1724 ], [ 26, %1657 ], [ 26, %1715 ], [ 26, %1688 ], [ 26, %1658 ], [ 26, %1260 ], [ 26, %1338 ], [ 26, %1248 ], [ 26, %1200 ], [ 26, %1227 ], [ 26, %1179 ], [ 26, %1157 ], [ 26, %1108 ], [ 26, %1087 ], [ 26, %1077 ], [ 26, %1038 ], [ 26, %1060 ], [ 26, %1039 ], [ 26, %266 ], [ 26, %317 ], [ 26, %303 ], [ 26, %295 ], [ 26, %279 ], [ 26, %271 ], [ 26, %329 ], [ 26, %918 ], [ 26, %875 ], [ 26, %803 ], [ 26, %795 ], [ 26, %767 ], [ 26, %732 ], [ 26, %730 ], [ 26, %519 ], [ 26, %484 ], [ 26, %474 ], [ 26, %461 ], [ 26, %434 ], [ 26, %454 ], [ 26, %443 ], [ 26, %435 ], [ 26, %414 ], [ 26, %412 ], [ 26, %399 ], [ 26, %378 ], [ 26, %361 ], [ 26, %370 ], [ 26, %260 ], [ 26, %233 ], [ 26, %238 ], [ 26, %220 ], [ 26, %211 ], [ 26, %212 ], [ 26, %206 ], [ 26, %207 ], [ 26, %189 ], [ 26, %179 ], [ 26, %2480 ], [ 33, %105 ], [ 36, %134 ], [ 36, %141 ], [ 37, %4159 ], [ 37, %4229 ], [ 37, %4324 ], [ 37, %4377 ], [ 37, %4451 ], [ 37, %4514 ], [ 42, %5593 ], [ 43, %5199 ], [ 43, %1702 ], [ 43, %1672 ], [ 44, %5124 ], [ 29, %3326 ], [ 29, %3331 ], [ 50, %651 ], [ 41, %5630 ], [ 41, %5636 ], [ 53, %2169 ], [ 53, %985 ], [ 53, %805 ], [ 53, %530 ], [ 53, %2319 ], [ 52, %2154 ], [ 52, %2282 ], [ 52, %1984 ], [ 52, %1911 ], [ 52, %1147 ], [ 52, %904 ], [ 52, %787 ], [ 52, %351 ], [ 60, %3213 ], [ 26, %221 ], [ 26, %362 ], [ 50, %648 ], [ 26, %1079 ], [ 50, %1236 ], [ 50, %1232 ], [ 26, %1768 ], [ 26, %1776 ], [ 26, %1833 ], [ 53, %2157 ], [ 26, %2474 ], [ 26, %2470 ], [ 26, %2518 ], [ 26, %2512 ], [ 26, %2704 ], [ 26, %2758 ], [ 26, %3088 ], [ 26, %3209 ], [ 26, %3205 ], [ 26, %3201 ], [ 26, %3197 ], [ 26, %3193 ], [ 26, %3187 ], [ 26, %3361 ], [ 26, %3409 ], [ 26, %3507 ], [ 26, %3562 ], [ 26, %3952 ], [ 26, %3987 ], [ 26, %3992 ], [ 43, %4693 ], [ 12, %4985 ], [ 12, %5083 ], [ 43, %5270 ], [ 43, %5243 ], [ 43, %5228 ], [ 37, %5715 ], [ 48, %5785 ], [ 48, %5919 ], [ 12, %5756 ], [ 12, %5748 ], [ %5848, %5845 ], [ %5820, %5819 ], [ %4751, %4748 ], [ 26, %529 ], [ 26, %1317 ], [ 26, %1339 ], [ 26, %2466 ], [ 26, %2507 ], [ 26, %3336 ], [ 26, %5722 ], [ 43, %4857 ], [ 46, %4861 ], [ 48, %5818 ], [ 34, %112 ], [ 35, %118 ], [ 52, %702 ], [ 26, %865 ], [ 26, %871 ], [ 26, %867 ], [ 52, %1098 ], [ 43, %1214 ], [ 26, %1273 ], [ 52, %1641 ], [ 52, %1848 ], [ 49, %1863 ], [ 49, %1886 ], [ 53, %2096 ], [ 53, %2123 ], [ 26, %2608 ], [ 26, %2819 ], [ 26, %2840 ], [ 26, %2937 ], [ 26, %3530 ], [ 26, %3602 ], [ 26, %3785 ], [ 26, %4071 ], [ 42, %5386 ], [ 42, %5378 ], [ 42, %5371 ]
+  %6023 = call noundef i32 @_ZN6asmjit9_abi_1_1012EmitterUtils20logInstructionFailedEPNS0_11BaseEmitterEjjNS0_11InstOptionsERKNS0_8Operand_ES7_S7_PS6_(ptr noundef nonnull %0, i32 noundef %6022, i32 noundef %14, i32 noundef %6021, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %5)
+  br label %6024
 
-6035:                                             ; preds = %6031, %6020, %53
-  %6036 = phi i32 [ %54, %53 ], [ %6034, %6031 ], [ 0, %6020 ]
+6024:                                             ; preds = %6020, %6009, %53
+  %6025 = phi i32 [ %54, %53 ], [ %6023, %6020 ], [ 0, %6009 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
-  ret i32 %6036
+  ret i32 %6025
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

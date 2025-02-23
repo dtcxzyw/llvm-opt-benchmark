@@ -100,7 +100,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %69 = fcmp olt double %61, %67
   %70 = zext i1 %69 to i64
   %.not265.us = icmp sgt i64 %indvars.iv361, %70
-  br i1 %.not265.us, label %.preheader270, label %.lr.ph283
+  br i1 %.not265.us, label %.preheader270.split297.us, label %.lr.ph283
 
 71:                                               ; preds = %37
   %72 = sext i32 %39 to i64
@@ -151,19 +151,15 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %82
   %91 = zext nneg i32 %.2 to i64
   %.not265 = icmp sgt i64 %indvars.iv361, %91
-  br i1 %.not265, label %.preheader270, label %101
+  br i1 %.not265, label %.lr.ph294.preheader, label %101
 
-.preheader270:                                    ; preds = %._crit_edge, %.lr.ph283
-  %.us-phi = phi double [ %67, %.lr.ph283 ], [ %.1255, %._crit_edge ]
-  br i1 %.not264273, label %.preheader270.split297.us, label %.lr.ph294.preheader
-
-.lr.ph294.preheader:                              ; preds = %.preheader270
+.lr.ph294.preheader:                              ; preds = %._crit_edge
   %92 = add nuw i32 %62, 1
   %wide.trip.count359 = zext i32 %92 to i64
   br label %.lr.ph294
 
-.preheader270.split297.us:                        ; preds = %.preheader271.split.us, %.preheader270
-  %.us-phi379 = phi double [ %.us-phi, %.preheader270 ], [ %47, %.preheader271.split.us ]
+.preheader270.split297.us:                        ; preds = %.lr.ph283, %.preheader271.split.us
+  %.us-phi379 = phi double [ %47, %.preheader271.split.us ], [ %67, %.lr.ph283 ]
   %93 = fcmp olt double %61, %48
   %.3.us300 = zext i1 %93 to i32
   %94 = zext i1 %93 to i64
@@ -213,7 +209,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 ._crit_edge295:                                   ; preds = %106
   %115 = zext nneg i32 %.5 to i64
-  %116 = icmp sgt i64 %indvars.iv361, %115
+  %116 = icmp samesign ugt i64 %indvars.iv361, %115
   br i1 %116, label %117, label %.split.us
 
 117:                                              ; preds = %._crit_edge295
@@ -226,11 +222,11 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br label %.split.us
 
 .split.us:                                        ; preds = %._crit_edge295, %.split.us.loopexit, %.preheader270.split297.us
-  %.us-phi378 = phi double [ %.us-phi379, %.preheader270.split297.us ], [ %.us-phi379, %.split.us.loopexit ], [ %.us-phi, %._crit_edge295 ]
+  %.us-phi378 = phi double [ %.us-phi379, %.preheader270.split297.us ], [ %.us-phi379, %.split.us.loopexit ], [ %.1255, %._crit_edge295 ]
   %.us-phi298 = phi double [ %48, %.preheader270.split297.us ], [ %96, %.split.us.loopexit ], [ %.1235, %._crit_edge295 ]
   %.us-phi299 = phi i32 [ %.3.us300, %.preheader270.split297.us ], [ %.3.us, %.split.us.loopexit ], [ %.5, %._crit_edge295 ]
   %120 = add nsw i32 %.0248311, 1
-  %121 = add nsw i64 %indvars.iv361, 1
+  %121 = add nuw nsw i64 %indvars.iv361, 1
   %122 = sext i32 %39 to i64
   %123 = getelementptr i32, ptr %15, i64 %122
   %124 = getelementptr i8, ptr %123, i64 -4
@@ -272,7 +268,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %132 = shl i32 %130, 1
   %133 = sext i32 %132 to i64
   %gep332.us = getelementptr i32, ptr %invariant.gep306, i64 %133
-  %invariant.gep392 = getelementptr i8, ptr %10, i64 -8
+  %invariant.gep391 = getelementptr i8, ptr %10, i64 -8
   br label %134
 
 134:                                              ; preds = %141, %.lr.ph340.split.us
@@ -281,9 +277,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.1241336.us = phi i32 [ %.3227, %.lr.ph340.split.us ], [ %137, %141 ]
   %135 = shl i32 %.1241336.us, 1
   %136 = sext i32 %135 to i64
-  %gep393 = getelementptr i32, ptr %invariant.gep392, i64 %136
-  %137 = load i32, ptr %gep393, align 4, !tbaa !3
-  store i32 0, ptr %gep393, align 4, !tbaa !3
+  %gep392 = getelementptr i32, ptr %invariant.gep391, i64 %136
+  %137 = load i32, ptr %gep392, align 4, !tbaa !3
+  store i32 0, ptr %gep392, align 4, !tbaa !3
   %138 = icmp eq i32 %.4228338.us, %.1241336.us
   br i1 %138, label %141, label %139
 

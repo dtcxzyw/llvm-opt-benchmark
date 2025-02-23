@@ -2793,7 +2793,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %161, %.lr.ph
   %.19131263 = phi ptr [ %173, %.lr.ph ], [ %spec.select, %161 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19131263, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19131263, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %173 = getelementptr inbounds nuw i8, ptr %.19131263, i64 16
   %174 = icmp ult ptr %173, %171
   br i1 %174, label %.lr.ph, label %.loopexit1262
@@ -2848,7 +2848,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
 
 .lr.ph1265:                                       ; preds = %192, %.lr.ph1265
   %.19111264 = phi ptr [ %204, %.lr.ph1265 ], [ %spec.select1248, %192 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19111264, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.19111264, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %204 = getelementptr inbounds nuw i8, ptr %.19111264, i64 16
   %205 = icmp ult ptr %204, %202
   br i1 %205, label %.lr.ph1265, label %.loopexit1261
@@ -4154,7 +4154,7 @@ define internal void @zend_file_cache_serialize_class(ptr noundef captures(none)
   br label %910
 
 910:                                              ; preds = %.sink.split1355, %868
-  %911 = getelementptr inbounds nuw i8, ptr %spec.select1254, i64 16
+  %911 = getelementptr inbounds nuw i8, ptr %830, i64 16
   %912 = load i32, ptr %911, align 8, !tbaa !200
   %.not1287 = icmp eq i32 %912, 0
   br i1 %.not1287, label %._crit_edge1279, label %.lr.ph1278
@@ -6124,7 +6124,7 @@ define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef init
 
 .lr.ph:                                           ; preds = %448, %.lr.ph
   %.1583819 = phi ptr [ %460, %.lr.ph ], [ %spec.select808, %448 ]
-  tail call void @zend_file_cache_serialize_zval(ptr noundef %.1583819, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call void @zend_file_cache_serialize_zval(ptr noundef %.1583819, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
   %460 = getelementptr inbounds nuw i8, ptr %.1583819, i64 16
   %461 = icmp ult ptr %460, %458
   br i1 %461, label %.lr.ph, label %._crit_edge.loopexit
@@ -7525,7 +7525,7 @@ define internal void @zend_file_cache_serialize_class_constant(ptr noundef captu
   br label %115
 
 115:                                              ; preds = %108, %94, %91
-  %116 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
+  %116 = getelementptr inbounds nuw i8, ptr %27, i64 40
   tail call fastcc void @zend_file_cache_serialize_type(ptr noundef nonnull %116, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   br label %117
 
@@ -8226,7 +8226,7 @@ define internal void @zend_file_cache_serialize_prop_info(ptr noundef captures(n
   br i1 %192, label %191, label %.loopexit
 
 .loopexit:                                        ; preds = %215, %168
-  %216 = getelementptr inbounds nuw i8, ptr %spec.select, i64 40
+  %216 = getelementptr inbounds nuw i8, ptr %27, i64 40
   tail call fastcc void @zend_file_cache_serialize_type(ptr noundef nonnull %216, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   br label %217
 
@@ -9017,7 +9017,7 @@ zend_file_cache_unserialize_interned.exit713:     ; preds = %75, %82, %92
 
 .lr.ph:                                           ; preds = %124, %.lr.ph
   %.0573755 = phi ptr [ %136, %.lr.ph ], [ %130, %124 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0573755, ptr noundef %1, ptr noundef %2)
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0573755, ptr noundef nonnull %1, ptr noundef %2)
   %136 = getelementptr inbounds nuw i8, ptr %.0573755, i64 16
   %137 = icmp ult ptr %136, %134
   br i1 %137, label %.lr.ph, label %.loopexit754
@@ -9046,7 +9046,7 @@ zend_file_cache_unserialize_interned.exit713:     ; preds = %75, %82, %92
 
 .lr.ph757:                                        ; preds = %140, %.lr.ph757
   %.0575756 = phi ptr [ %152, %.lr.ph757 ], [ %146, %140 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0575756, ptr noundef %1, ptr noundef %2)
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0575756, ptr noundef nonnull %1, ptr noundef %2)
   %152 = getelementptr inbounds nuw i8, ptr %.0575756, i64 16
   %153 = icmp ult ptr %152, %150
   br i1 %153, label %.lr.ph757, label %.loopexit753
@@ -11344,7 +11344,7 @@ zend_file_cache_unserialize_interned.exit505:     ; preds = %210, %216, %226
 
 .lr.ph:                                           ; preds = %313, %.lr.ph
   %.0525 = phi ptr [ %325, %.lr.ph ], [ %319, %313 ]
-  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0525, ptr noundef %1, ptr noundef %2)
+  tail call void @zend_file_cache_unserialize_zval(ptr noundef %.0525, ptr noundef nonnull %1, ptr noundef %2)
   %325 = getelementptr inbounds nuw i8, ptr %.0525, i64 16
   %326 = icmp ult ptr %325, %323
   br i1 %326, label %.lr.ph, label %.loopexit524

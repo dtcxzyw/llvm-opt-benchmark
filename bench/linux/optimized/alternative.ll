@@ -1663,7 +1663,7 @@ define dso_local void @apply_returns(ptr noundef %0, ptr noundef readnone %1) lo
 
 99:                                               ; preds = %.loopexit17
   %100 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, ptr noundef %17) #21
-  %101 = icmp sgt i32 %75, 1
+  %101 = icmp samesign ugt i32 %75, 1
   br i1 %101, label %102, label %.loopexit
 
 102:                                              ; preds = %99

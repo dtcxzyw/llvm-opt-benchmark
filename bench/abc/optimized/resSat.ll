@@ -118,7 +118,7 @@ define ptr @Res_SatProveUnsat(ptr noundef %0, ptr noundef readonly captures(none
   %.2.lcssa = phi i32 [ %.1.lcssa, %.critedge2.preheader ], [ %46, %.critedge4.loopexit ]
   %47 = tail call ptr @sat_solver_new() #7
   tail call void @sat_solver_store_alloc(ptr noundef %47) #7
-  %48 = tail call ptr @Abc_AigConst1(ptr noundef %0) #7
+  %48 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #7
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !10
   %51 = ptrtoint ptr %50 to i64

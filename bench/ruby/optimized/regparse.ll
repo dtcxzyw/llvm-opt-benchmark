@@ -10335,15 +10335,14 @@ CC_ESC_WARN.exit427:                              ; preds = %459, %454, %451, %1
   %166 = call fastcc i32 @fetch_token_in_cc(ptr noundef %2, ptr noundef %8, ptr noundef %4, ptr noundef nonnull %5)
   %167 = add nuw nsw i32 %.1276626, 1
   %exitcond.not = icmp eq i32 %167, %160
-  br i1 %exitcond.not, label %.loopexit574, label %.lr.ph628, !llvm.loop !157
+  br i1 %exitcond.not, label %.thread452, label %.lr.ph628, !llvm.loop !157
 
-.loopexit574:                                     ; preds = %.lr.ph628, %162
-  %.3311 = phi i32 [ %.1309, %162 ], [ 0, %.lr.ph628 ]
-  %.2277 = phi i32 [ %.0275.lcssa, %162 ], [ %160, %.lr.ph628 ]
-  %168 = icmp eq i32 %.2277, 1
+.loopexit574:                                     ; preds = %162
+  %168 = icmp eq i32 %.0275.lcssa, 1
   br i1 %168, label %.loopexit574.thread, label %.thread452
 
-.thread452:                                       ; preds = %.loopexit574
+.thread452:                                       ; preds = %.lr.ph628, %.loopexit574
+  %.3311691 = phi i32 [ %.1309, %.loopexit574 ], [ 0, %.lr.ph628 ]
   %169 = load ptr, ptr %99, align 8, !tbaa !84
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %171 = load ptr, ptr %170, align 8, !tbaa !69
@@ -10361,7 +10360,7 @@ CC_ESC_WARN.exit427:                              ; preds = %459, %454, %451, %1
   br label %187
 
 .loopexit574.thread:                              ; preds = %164, %.loopexit574
-  %.3311687 = phi i32 [ %.3311, %.loopexit574 ], [ 0, %164 ]
+  %.3311687 = phi i32 [ %.1309, %.loopexit574 ], [ 0, %164 ]
   %175 = load i8, ptr %14, align 1, !tbaa !13
   %176 = zext i8 %175 to i32
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %14) #25
@@ -10389,7 +10388,7 @@ CC_ESC_WARN.exit425:                              ; preds = %450, %445, %463, %4
 
 187:                                              ; preds = %.thread452, %.loopexit574.thread, %173, %184, %CC_ESC_WARN.exit427
   %.1318 = phi i32 [ %.5322, %184 ], [ %118, %CC_ESC_WARN.exit427 ], [ %174, %173 ], [ %176, %.loopexit574.thread ], [ %172, %.thread452 ]
-  %.0308 = phi i32 [ %.6314, %184 ], [ 0, %CC_ESC_WARN.exit427 ], [ 0, %173 ], [ %.3311687, %.loopexit574.thread ], [ %.3311, %.thread452 ]
+  %.0308 = phi i32 [ %.6314, %184 ], [ 0, %CC_ESC_WARN.exit427 ], [ 0, %173 ], [ %.3311687, %.loopexit574.thread ], [ %.3311691, %.thread452 ]
   %.2287 = phi i32 [ %186, %184 ], [ %.1286, %CC_ESC_WARN.exit427 ], [ 0, %173 ], [ 0, %.loopexit574.thread ], [ 1, %.thread452 ]
   %.0283 = phi i32 [ %.1284, %184 ], [ 0, %CC_ESC_WARN.exit427 ], [ 1, %173 ], [ 1, %.loopexit574.thread ], [ 1, %.thread452 ]
   %188 = call fastcc i32 @next_state_val(ptr noundef %.0303.ph, ptr noundef %.1295.ph, ptr noundef %7, i32 noundef %.1318, ptr noundef %13, i32 noundef %.0283, i32 noundef %.2287, ptr noundef %12, ptr noundef %11, ptr noundef nonnull %5)
@@ -13188,11 +13187,11 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %or.cond, label %48, label %50
 
 48:                                               ; preds = %47
-  %49 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull %9, ptr noundef %16, i32 noundef 0, ptr noundef %23, i32 noundef 0, ptr noundef %4, ptr noundef %2)
+  %49 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull %9, ptr noundef %16, i32 noundef 0, ptr noundef %23, i32 noundef 0, ptr noundef %4, ptr noundef nonnull %2)
   br label %91
 
 50:                                               ; preds = %47
-  %51 = call fastcc i32 @and_code_range_buf(ptr noundef %16, i32 noundef %12, ptr noundef %23, i32 noundef %19, ptr noundef %4, ptr noundef %2)
+  %51 = call fastcc i32 @and_code_range_buf(ptr noundef %16, i32 noundef %12, ptr noundef %23, i32 noundef %19, ptr noundef %4, ptr noundef nonnull %2)
   %52 = icmp eq i32 %51, 0
   %or.cond3 = and i1 %13, %52
   br i1 %or.cond3, label %53, label %91
@@ -13244,7 +13243,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %.not.i, label %83, label %81
 
 81:                                               ; preds = %71
-  %82 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %.03350.i, i32 noundef %80, i32 noundef 1)
+  %82 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %.03350.i, i32 noundef %80, i32 noundef 1)
   %.not44.i = icmp eq i32 %82, 0
   br i1 %.not44.i, label %83, label %not_code_range_buf.exit
 
@@ -13260,7 +13259,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
 
 .thread.sink.split.i:                             ; preds = %85, %56
   %.lcssa.sink.i = phi i32 [ %60, %56 ], [ %86, %85 ]
-  %87 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %.lcssa.sink.i, i32 noundef -1, i32 noundef 1)
+  %87 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %.lcssa.sink.i, i32 noundef -1, i32 noundef 1)
   br label %not_code_range_buf.exit
 
 not_code_range_buf.exit:                          ; preds = %81, %83, %.thread.sink.split.i
@@ -13491,7 +13490,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %exitcond152.not.i, label %and_code_range_buf.exit.thread, label %.lr.ph123.us.i, !llvm.loop !192
 
 86:                                               ; preds = %47
-  %87 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull %9, ptr noundef %16, i32 noundef %12, ptr noundef %23, i32 noundef %19, ptr noundef %4, ptr noundef %2)
+  %87 = call fastcc i32 @or_code_range_buf(ptr noundef nonnull %9, ptr noundef %16, i32 noundef %12, ptr noundef %23, i32 noundef %19, ptr noundef %4, ptr noundef nonnull %2)
   %88 = icmp eq i32 %87, 0
   %or.cond3 = and i1 %13, %88
   br i1 %or.cond3, label %89, label %and_code_range_buf.exit
@@ -13543,7 +13542,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
   br i1 %.not.i, label %119, label %117
 
 117:                                              ; preds = %107
-  %118 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %.03350.i, i32 noundef %116, i32 noundef 1)
+  %118 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %.03350.i, i32 noundef %116, i32 noundef 1)
   %.not44.i = icmp eq i32 %118, 0
   br i1 %.not44.i, label %119, label %not_code_range_buf.exit
 
@@ -13559,7 +13558,7 @@ bitset_invert.exit:                               ; preds = %.preheader, %bitset
 
 .thread.sink.split.i:                             ; preds = %121, %92
   %.lcssa.sink.i = phi i32 [ %96, %92 ], [ %122, %121 ]
-  %123 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %.lcssa.sink.i, i32 noundef -1, i32 noundef 1)
+  %123 = call fastcc i32 @add_code_range_to_buf0(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %.lcssa.sink.i, i32 noundef -1, i32 noundef 1)
   br label %not_code_range_buf.exit
 
 not_code_range_buf.exit:                          ; preds = %117, %119, %.thread.sink.split.i

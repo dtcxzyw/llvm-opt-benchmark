@@ -978,7 +978,7 @@ define dso_local void @_ZN4llvm22LoopIdiomVectorizePass3runERNS_4LoopERNS_15Anal
   store i8 1, ptr %30, align 4, !tbaa !32, !alias.scope !84
   store i32 1, ptr %22, align 4, !tbaa !30, !alias.scope !84, !noalias !87
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i, align 8, !tbaa !90, !alias.scope !84, !noalias !87
-  br label %416
+  br label %414
 
 31:                                               ; preds = %6
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1105,7 +1105,6 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE15getNumBackEdgesEv.exit.i.i: ; pre
   %104 = getelementptr inbounds i8, ptr %103, i64 -24
   %105 = load i8, ptr %104, align 8, !tbaa !150
   %.not264.i.i = icmp eq i8 %105, 84
-  %spec.select.i.i.i.i = select i1 %.not264.i.i, ptr %104, ptr null
   br i1 %.not264.i.i, label %106, label %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread
 
 106:                                              ; preds = %101
@@ -1204,9 +1203,9 @@ select.unfold.i.i:                                ; preds = %134, %130
 .lr.ph279.i.i:                                    ; preds = %.lr.ph282.i.i, %.thread245.i.i
   %.sroa.0223.0278.i.i = phi ptr [ %.sroa.0223.0.i.i, %.thread245.i.i ], [ %.sroa.0223.0276.i.i, %.lr.ph282.i.i ]
   %153 = getelementptr inbounds i8, ptr %.sroa.0223.0278.i.i, i64 -24
-  %.not129.i.i = icmp eq ptr %153, %spec.select.i.i.i.i
+  %.not129298.i.i = icmp eq ptr %103, %.sroa.0223.0278.i.i
   %.not130.i.i = icmp eq ptr %153, %.0115.i.i
-  %or.cond136.i.i = or i1 %.not129.i.i, %.not130.i.i
+  %or.cond136.i.i = or i1 %.not129298.i.i, %.not130.i.i
   br i1 %or.cond136.i.i, label %.thread245.i.i, label %154
 
 154:                                              ; preds = %.lr.ph279.i.i
@@ -1576,7 +1575,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_ty
   br i1 %341, label %342, label %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread16
 
 342:                                              ; preds = %_ZN4llvm12PatternMatch5matchINS_5ValueENS0_14CastInst_matchINS0_14specificval_tyENS_8ZExtInstEEEEEbPT_RKT0_.exit.i.i
-  %343 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 16
+  %343 = getelementptr inbounds i8, ptr %103, i64 -8
   %344 = load ptr, ptr %343, align 8, !tbaa !144
   %.not.i.i168.i.i = icmp eq ptr %344, null
   br i1 %.not.i.i168.i.i, label %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread16, label %_ZNK4llvm5Value9hasOneUseEv.exit.i.i
@@ -1685,15 +1684,12 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit183.i.i: ; pr
   br i1 %or.cond140.i.i, label %.critedge142.i.i, label %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread16
 
 .critedge142.i.i:                                 ; preds = %385, %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit183.i.i
-  %386 = icmp eq ptr %.sroa.0184.0285.i.i, null
-  %387 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0285.i.i, i64 24
-  %spec.select.i.i.i.i.i.i = select i1 %386, ptr null, ptr %387
-  %388 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 8
-  %389 = load ptr, ptr %388, align 8, !tbaa !155
-  %390 = getelementptr inbounds i8, ptr %389, i64 -24
-  %391 = load i8, ptr %390, align 8, !tbaa !150
-  %392 = icmp eq i8 %391, 84
-  %spec.select.i.i.i1.i.i.i = select i1 %392, ptr %390, ptr null
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.0184.0285.i.i, i64 32
+  %387 = load ptr, ptr %386, align 8, !tbaa !155
+  %388 = getelementptr inbounds i8, ptr %387, i64 -24
+  %389 = load i8, ptr %388, align 8, !tbaa !150
+  %390 = icmp eq i8 %389, 84
+  %spec.select.i.i.i1.i.i.i = select i1 %390, ptr %388, ptr null
   %.not271.i.i = icmp eq ptr %spec.select.i.i.i1.i.i.i, %355
   br i1 %.not271.i.i, label %.loopexit, label %357
 
@@ -1716,33 +1712,33 @@ _ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread16: ; preds =
 _ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread: ; preds = %.lr.ph.split.us.i.i, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.i.i, %177, %182, %168, %62, %141, %.critedge10.i.i, %114, %110, %71, %69, %101, %106, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE15getNumBackEdgesEv.exit.i.i, %93, %74, %67, %65, %31, %_ZNK4llvm8Function10hasOptSizeEv.exit.i, %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread16, %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread13
   %.ptr1.i10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %.ptr1.i10, ptr %0, align 8, !tbaa !28, !alias.scope !188
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %393, align 8, !tbaa !29, !alias.scope !188
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %395 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %395, align 8, !tbaa !31, !alias.scope !188
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %396, align 4, !tbaa !32, !alias.scope !188
-  %397 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %398 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %398, ptr %397, align 8, !tbaa !28, !alias.scope !188
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %399, align 8, !tbaa !29, !alias.scope !188
-  %400 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 0, ptr %400, align 4, !tbaa !30, !alias.scope !188
-  %401 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %401, align 8, !tbaa !31, !alias.scope !188
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %402, align 4, !tbaa !32, !alias.scope !188
-  store i32 1, ptr %394, align 4, !tbaa !30, !alias.scope !188, !noalias !191
+  %391 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %391, align 8, !tbaa !29, !alias.scope !188
+  %392 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %393 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %393, align 8, !tbaa !31, !alias.scope !188
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %394, align 4, !tbaa !32, !alias.scope !188
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %396, ptr %395, align 8, !tbaa !28, !alias.scope !188
+  %397 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %397, align 8, !tbaa !29, !alias.scope !188
+  %398 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 0, ptr %398, align 4, !tbaa !30, !alias.scope !188
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %399, align 8, !tbaa !31, !alias.scope !188
+  %400 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %400, align 4, !tbaa !32, !alias.scope !188
+  store i32 1, ptr %392, align 4, !tbaa !30, !alias.scope !188, !noalias !191
   store ptr @_ZN4llvm17PreservedAnalyses14AllAnalysesKeyE, ptr %.ptr1.i10, align 8, !tbaa !90, !alias.scope !188, !noalias !191
-  br label %415
+  br label %413
 
 .loopexit:                                        ; preds = %.critedge142.i.i, %352, %..critedge144_crit_edge.i.i
-  %403 = phi ptr [ %.pre.i.i, %..critedge144_crit_edge.i.i ], [ %.pre293.i.i, %352 ], [ %.pre293.i.i, %.critedge142.i.i ]
-  %404 = load ptr, ptr %12, align 8, !tbaa !94
-  %405 = load ptr, ptr %9, align 8, !tbaa !94
-  call fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef %245, ptr noundef %263, ptr noundef %403, ptr noundef %.0115.i.i, ptr noundef %.0114.i.i, ptr noundef %404, ptr noundef %405)
+  %401 = phi ptr [ %.pre.i.i, %..critedge144_crit_edge.i.i ], [ %.pre293.i.i, %352 ], [ %.pre293.i.i, %.critedge142.i.i ]
+  %402 = load ptr, ptr %12, align 8, !tbaa !94
+  %403 = load ptr, ptr %9, align 8, !tbaa !94
+  call fastcc void @_ZN12_GLOBAL__N_118LoopIdiomVectorize20transformByteCompareEPN4llvm17GetElementPtrInstES3_PNS1_7PHINodeEPNS1_5ValueEPNS1_11InstructionES7_bPNS1_10BasicBlockESB_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef %245, ptr noundef %263, ptr noundef %401, ptr noundef %.0115.i.i, ptr noundef %.0114.i.i, ptr noundef %402, ptr noundef %403)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #22
@@ -1750,30 +1746,30 @@ _ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
-  %406 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %406, i8 0, i64 64, i1 false), !alias.scope !194
-  %407 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %407, ptr %0, align 8, !tbaa !28, !alias.scope !194
-  %408 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 2, ptr %408, align 8, !tbaa !29, !alias.scope !194
-  %409 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 0, ptr %409, align 4, !tbaa !30, !alias.scope !194
-  %410 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i8 1, ptr %410, align 4, !tbaa !32, !alias.scope !194
-  %411 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %412, ptr %411, align 8, !tbaa !28, !alias.scope !194
-  %413 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 2, ptr %413, align 8, !tbaa !29, !alias.scope !194
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 60
-  store i8 1, ptr %414, align 4, !tbaa !32, !alias.scope !194
-  br label %415
+  %404 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %404, i8 0, i64 64, i1 false), !alias.scope !194
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %405, ptr %0, align 8, !tbaa !28, !alias.scope !194
+  %406 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 2, ptr %406, align 8, !tbaa !29, !alias.scope !194
+  %407 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 0, ptr %407, align 4, !tbaa !30, !alias.scope !194
+  %408 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i8 1, ptr %408, align 4, !tbaa !32, !alias.scope !194
+  %409 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %410 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %410, ptr %409, align 8, !tbaa !28, !alias.scope !194
+  %411 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 2, ptr %411, align 8, !tbaa !29, !alias.scope !194
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  store i8 1, ptr %412, align 4, !tbaa !32, !alias.scope !194
+  br label %413
 
-415:                                              ; preds = %.loopexit, %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread
+413:                                              ; preds = %.loopexit, %_ZN12_GLOBAL__N_118LoopIdiomVectorize3runEPN4llvm4LoopE.exit.thread
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %17) #22
-  br label %416
+  br label %414
 
-416:                                              ; preds = %415, %20
+414:                                              ; preds = %413, %20
   ret void
 }
 
@@ -7374,15 +7370,12 @@ _ZN4llvm5Value6addUseERNS_3UseE.exit.i.i.i.i.i43: ; preds = %129, %125
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.loopexit.sink.split, %.critedge59
-  %137 = icmp eq ptr %.sroa.049.070, null
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 24
-  %spec.select.i.i.i.i = select i1 %137, ptr null, ptr %138
-  %139 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !155
-  %141 = getelementptr inbounds i8, ptr %140, i64 -24
-  %142 = load i8, ptr %141, align 8, !tbaa !150
-  %143 = icmp eq i8 %142, 84
-  %spec.select.i.i.i1.i = select i1 %143, ptr %141, ptr null
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.049.070, i64 32
+  %138 = load ptr, ptr %137, align 8, !tbaa !155
+  %139 = getelementptr inbounds i8, ptr %138, i64 -24
+  %140 = load i8, ptr %139, align 8, !tbaa !150
+  %141 = icmp eq i8 %140, 84
+  %spec.select.i.i.i1.i = select i1 %141, ptr %139, ptr null
   %.not57 = icmp eq ptr %spec.select.i.i.i1.i, %7
   br i1 %.not57, label %._crit_edge, label %10
 }

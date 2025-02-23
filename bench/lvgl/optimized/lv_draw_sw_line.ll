@@ -247,7 +247,7 @@ define void @lv_draw_sw_line(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 .lr.ph71.split.i:                                 ; preds = %.lr.ph71.i, %.lr.ph71.split.i
   %.05469.i = phi i32 [ %142, %.lr.ph71.split.i ], [ %113, %.lr.ph71.i ]
   call void @lv_memset(ptr noundef %109, i8 noundef zeroext -1, i64 noundef %108) #6
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %13) #6
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %13) #6
   %138 = load i32, ptr %80, align 4, !tbaa !24
   %139 = add nsw i32 %138, 1
   store i32 %139, ptr %80, align 4, !tbaa !24
@@ -378,7 +378,7 @@ draw_line_hor.exit:                               ; preds = %64, %143
   %.not47.i = icmp slt i32 %.04153.i, %200
   %201 = add nsw i32 %.04153.i, 1
   %202 = select i1 %.not47.i, i32 %201, i32 1
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #6
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %11) #6
   %203 = load i32, ptr %161, align 4, !tbaa !24
   %204 = add nsw i32 %203, 1
   store i32 %204, ptr %161, align 4, !tbaa !24

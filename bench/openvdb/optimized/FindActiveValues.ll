@@ -18849,7 +18849,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIbLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIbLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -20750,7 +20750,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIiLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIiLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -24171,7 +24171,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIlLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIlLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -27124,7 +27124,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIfLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -30244,7 +30244,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEE9RootChildESaISF_EE17_M_realloc_insertIJNS1_4math5CoordEPKSB_EEEvN9__gnu_cxx17__normal_iteratorIPSF_SH_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeIdLj3EEELj4EEELj5EEEE9ChildIterIKS8_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENS8_10NodeStructEEENS8_11ChildOnPredEKS7_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -33363,7 +33363,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IfEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IfEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -36592,7 +36592,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IdEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IdEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, label %land.rhs.i.i.i7
 
@@ -39834,7 +39834,7 @@ _ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNod
 
 if.then.i.i:                                      ; preds = %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit, %if.then.i
   %10 = phi ptr [ %incdec.ptr.i84, %_ZNSt6vectorIN7openvdb5v11_05tools16FindActiveValuesINS1_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeINS1_4math4Vec3IiEELj3EEELj4EEELj5EEEEEEEE9RootChildESaISI_EE17_M_realloc_insertIJNS9_5CoordEPKSE_EEEvN9__gnu_cxx17__normal_iteratorIPSI_SK_EEDpOT_.exit ], [ %incdec.ptr.i, %if.then.i ]
-  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.3.0109) #29
+  %call.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.3.0109) #29
   %cmp.i.i.not2.i.i.i6 = icmp eq ptr %call.i.i.i, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not2.i.i.i6, label %_ZN7openvdb5v11_04tree8RootNodeINS1_12InternalNodeINS3_INS1_8LeafNodeINS0_4math4Vec3IiEELj3EEELj4EEELj5EEEE9ChildIterIKSB_St23_Rb_tree_const_iteratorISt4pairIKNS5_5CoordENSB_10NodeStructEEENSB_11ChildOnPredEKSA_EppEv.exit, label %land.rhs.i.i.i7
 

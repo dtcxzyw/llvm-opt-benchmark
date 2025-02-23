@@ -2263,43 +2263,43 @@ _ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappi
 
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %.loopexit146
   %.not.i.i.i.i = icmp eq i64 %155, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i
-
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i
 
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
-  %159 = mul nuw nsw i64 %155, 48
-  %160 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %159) #22
-  store ptr %160, ptr %9, align 8
-  %161 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %160, i64 %155
-  %162 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr %161, ptr %162, align 8
+  %158 = mul nuw nsw i64 %155, 48
+  %159 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %158) #22
+  store ptr %159, ptr %9, align 8
+  %160 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_Node", ptr %159, i64 %155
+  %161 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr %160, ptr %161, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i
-  %.08.i.i.i.i.i = phi ptr [ %166, %.lr.ph.i.i.i.i.i ], [ %160, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i ]
-  %.057.i.i.i.i.i = phi i64 [ %165, %.lr.ph.i.i.i.i.i ], [ %155, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i ]
-  %163 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 36
-  store i64 0, ptr %163, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
+  %.08.i.i.i.i.i = phi ptr [ %165, %.lr.ph.i.i.i.i.i ], [ %159, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i ]
+  %.057.i.i.i.i.i = phi i64 [ %164, %.lr.ph.i.i.i.i.i ], [ %155, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EEC2EmRKS3_.exit.i ]
+  %162 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 36
+  store i64 0, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %.08.i.i.i.i.i, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %164, i8 -1, i64 12, i1 false)
-  %165 = add i64 %.057.i.i.i.i.i, -1
-  %166 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i = icmp eq i64 %165, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %163, i8 -1, i64 12, i1 false)
+  %164 = add i64 %.057.i.i.i.i.i, -1
+  %165 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 48
+  %.not.i.i.i.i.i = icmp eq i64 %164, 0
+  br i1 %.not.i.i.i.i.i, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !26
 
-_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  br label %.loopexit
+
+_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
   %167 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr %166, ptr %167, align 8
+  store ptr %165, ptr %167, align 8
   %168 = mul nuw nsw i64 %155, 12
   %169 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %168) #22
           to label %.noexc109 unwind label %185
 
-.noexc109:                                        ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+.noexc109:                                        ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.i
   %170 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex_Graph::_UnsharedData", ptr %169, i64 %155
   br label %.lr.ph.i.i.i.i.i105
 
@@ -2318,14 +2318,14 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedD
   %.not.i.i.i.i.i106 = icmp eq i64 %175, 0
   br i1 %.not.i.i.i.i.i106, label %.loopexit, label %.lr.ph.i.i.i.i.i105, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i105, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread
-  %177 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %161, %.lr.ph.i.i.i.i.i105 ]
-  %178 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %166, %.lr.ph.i.i.i.i.i105 ]
-  %179 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %160, %.lr.ph.i.i.i.i.i105 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %169, %.lr.ph.i.i.i.i.i105 ]
-  %.sroa.11.0 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %170, %.lr.ph.i.i.i.i.i105 ]
-  %180 = phi ptr [ %158, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %167, %.lr.ph.i.i.i.i.i105 ]
-  %.0.lcssa.i.i.i.i.i107 = phi ptr [ null, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.thread ], [ %176, %.lr.ph.i.i.i.i.i105 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i105, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i
+  %177 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %160, %.lr.ph.i.i.i.i.i105 ]
+  %178 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %165, %.lr.ph.i.i.i.i.i105 ]
+  %179 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %159, %.lr.ph.i.i.i.i.i105 ]
+  %.sroa.0.0 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %169, %.lr.ph.i.i.i.i.i105 ]
+  %.sroa.11.0 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %170, %.lr.ph.i.i.i.i.i105 ]
+  %180 = phi ptr [ %166, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %167, %.lr.ph.i.i.i.i.i105 ]
+  %.0.lcssa.i.i.i.i.i107 = phi ptr [ null, %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %176, %.lr.ph.i.i.i.i.i105 ]
   %.not152 = icmp eq i64 %156, 0
   br i1 %.not152, label %._crit_edge, label %.lr.ph150
 
@@ -2341,7 +2341,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappi
   %184 = icmp eq i64 %183, 65535
   br i1 %184, label %_ZZN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph22_ApplyNodeIndexMappingERKSt6vectorImSaImEEENK21_ConvertOldToNewIndexclEm.exit112.thread, label %187
 
-185:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
+185:                                              ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph13_UnsharedDataESaIS2_EEC2EmRKS3_.exit.i
   %186 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__18PcpPrimIndex_Graph5_NodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #21

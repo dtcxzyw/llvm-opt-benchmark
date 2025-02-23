@@ -441,8 +441,8 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEES
 141:                                              ; preds = %.lr.ph
   %142 = icmp eq i64 %.sroa.31.2, 0
   %143 = icmp eq i32 %.sroa.0.0.extract.trunc, -1
-  %or.cond212 = select i1 %142, i1 true, i1 %143
-  br i1 %or.cond212, label %.loopexit.i.i37, label %144
+  %or.cond211 = select i1 %142, i1 true, i1 %143
+  br i1 %or.cond211, label %.loopexit.i.i37, label %144
 
 144:                                              ; preds = %141
   %145 = add i64 %.sroa.18.2, -1
@@ -494,7 +494,7 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEES
 
 _ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEEC2ERS4_m.exit.i75: ; preds = %.lr.ph.i.i.i70, %.loopexit.i.i37
   %.sroa.0.0.i76 = phi ptr [ null, %.loopexit.i.i37 ], [ %160, %.lr.ph.i.i.i70 ]
-  br i1 %156, label %._crit_edge31.i90, label %.lr.ph30.i78
+  br i1 %156, label %.noexc48, label %.lr.ph30.i78
 
 .lr.ph30.i78:                                     ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEEC2ERS4_m.exit.i75
   %164 = add i64 %157, -1
@@ -557,19 +557,15 @@ _ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEES
   %190 = phi i64 [ %166, %165 ], [ %.sroa.18.2, %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEE13insert_unsafeERS4_.exit.i88 ]
   %191 = add nuw i64 %.029.i79, 1
   %192 = icmp ult i64 %191, %190
-  br i1 %192, label %165, label %._crit_edge31.i90.thread, !llvm.loop !8
+  br i1 %192, label %165, label %.noexc48, !llvm.loop !8
 
-._crit_edge31.i90:                                ; preds = %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEEC2ERS4_m.exit.i75
-  %.not.i13.i91 = icmp eq ptr %.sroa.0.2, null
-  br i1 %.not.i13.i91, label %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i39, label %._crit_edge31.i90.thread
-
-._crit_edge31.i90.thread:                         ; preds = %189, %._crit_edge31.i90
+.noexc48:                                         ; preds = %189, %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEEC2ERS4_m.exit.i75
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2) #14
   br label %_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i39
 
-_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i39: ; preds = %147, %._crit_edge31.i90, %._crit_edge31.i90.thread, %.lr.ph
-  %.sroa.18.4 = phi i64 [ %.sroa.18.2, %.lr.ph ], [ %spec.select.i68, %._crit_edge31.i90.thread ], [ 16, %._crit_edge31.i90 ], [ %.sroa.18.2, %147 ]
-  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %.lr.ph ], [ %.sroa.0.0.i76, %._crit_edge31.i90.thread ], [ %.sroa.0.0.i76, %._crit_edge31.i90 ], [ %.sroa.0.2, %147 ]
+_ZN4Luau6detail14DenseHashTableIiSt4pairIiiES2_IKiiENS0_16ItemInterfaceMapIiiEESt4hashIiESt8equal_toIiEE14rehash_if_fullERS4_.exit.i39: ; preds = %147, %.noexc48, %.lr.ph
+  %.sroa.18.4 = phi i64 [ %.sroa.18.2, %.lr.ph ], [ %spec.select.i68, %.noexc48 ], [ %.sroa.18.2, %147 ]
+  %.sroa.0.4 = phi ptr [ %.sroa.0.2, %.lr.ph ], [ %.sroa.0.0.i76, %.noexc48 ], [ %.sroa.0.2, %147 ]
   %193 = add i64 %.sroa.18.4, -1
   %sext109 = shl i64 %138, 32
   %194 = ashr exact i64 %sext109, 32
@@ -882,14 +878,14 @@ _ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit: ; preds = %._crit_e
   br i1 %.not.i.i58, label %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit59, label %.loopexit.split-lp.thread
 
 .loopexit.split-lp.thread:                        ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %98, %220, %.loopexit.split-lp.loopexit, %.loopexit.split-lp
-  %.pn26198 = phi { ptr, i32 } [ %.pn26, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %99, %98 ], [ %.pn18, %220 ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ]
-  %.sroa.0.1197 = phi ptr [ %.sroa.0.1, %.loopexit.split-lp ], [ %.sroa.0.3, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0.3, %98 ], [ %.sroa.0.3, %220 ], [ %.sroa.0.2, %.loopexit.split-lp.loopexit ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1197) #14
+  %.pn26197 = phi { ptr, i32 } [ %.pn26, %.loopexit.split-lp ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %99, %98 ], [ %.pn18, %220 ], [ %lpad.loopexit112, %.loopexit.split-lp.loopexit ]
+  %.sroa.0.1196 = phi ptr [ %.sroa.0.1, %.loopexit.split-lp ], [ %.sroa.0.3, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %.sroa.0.3, %98 ], [ %.sroa.0.3, %220 ], [ %.sroa.0.2, %.loopexit.split-lp.loopexit ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.1196) #14
   br label %_ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit59
 
 _ZN4Luau12DenseHashMapIiiSt4hashIiESt8equal_toIiEED2Ev.exit59: ; preds = %.loopexit.split-lp, %.loopexit.split-lp.thread
-  %.pn26199 = phi { ptr, i32 } [ %.pn26, %.loopexit.split-lp ], [ %.pn26198, %.loopexit.split-lp.thread ]
-  resume { ptr, i32 } %.pn26199
+  %.pn26198 = phi { ptr, i32 } [ %.pn26, %.loopexit.split-lp ], [ %.pn26197, %.loopexit.split-lp.thread ]
+  resume { ptr, i32 } %.pn26198
 
 294:                                              ; preds = %285, %257, %112
   %295 = landingpad { ptr, i32 }

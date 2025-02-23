@@ -270,7 +270,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond706.not, label %.loopexit602, label %.lr.ph614, !llvm.loop !12
 
 .loopexit602:                                     ; preds = %.lr.ph614.lver.orig, %.lr.ph614, %96, %.lr.ph618
-  %114 = icmp sgt i64 %indvars.iv707, 2
+  %114 = icmp samesign ugt i64 %indvars.iv707, 2
   %indvar.next = add i64 %indvar, 1
   br i1 %114, label %.lr.ph618, label %.loopexit583, !llvm.loop !13
 
@@ -402,7 +402,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond724.not, label %.loopexit598, label %.lr.ph630, !llvm.loop !16
 
 .loopexit598:                                     ; preds = %.lr.ph630, %157, %150
-  %169 = icmp sgt i64 %indvars.iv725, 2
+  %169 = icmp samesign ugt i64 %indvars.iv725, 2
   br i1 %169, label %150, label %.loopexit583, !llvm.loop !17
 
 170:                                              ; preds = %115
@@ -532,7 +532,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond742.not, label %.loopexit594, label %.lr.ph642, !llvm.loop !20
 
 .loopexit594:                                     ; preds = %.lr.ph642, %209, %.lr.ph645
-  %221 = icmp sgt i64 %indvars.iv743, 2
+  %221 = icmp samesign ugt i64 %indvars.iv743, 2
   br i1 %221, label %.lr.ph645, label %.loopexit583, !llvm.loop !21
 
 222:                                              ; preds = %42
@@ -669,7 +669,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond760.not, label %.loopexit590, label %270, !llvm.loop !24
 
 .loopexit590:                                     ; preds = %270, %265, %.lr.ph659
-  %279 = icmp sgt i64 %indvars.iv761, 2
+  %279 = icmp samesign ugt i64 %indvars.iv761, 2
   br i1 %279, label %.lr.ph659, label %.loopexit583, !llvm.loop !25
 
 280:                                              ; preds = %224
@@ -800,7 +800,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond778.not, label %.loopexit586, label %325, !llvm.loop !28
 
 .loopexit586:                                     ; preds = %325, %321, %.lr.ph671
-  %334 = icmp sgt i64 %indvars.iv779, 2
+  %334 = icmp samesign ugt i64 %indvars.iv779, 2
   br i1 %334, label %.lr.ph671, label %.loopexit583, !llvm.loop !29
 
 335:                                              ; preds = %280
@@ -933,7 +933,7 @@ define void @dlasr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef 
   br i1 %exitcond796.not, label %.loopexit, label %384, !llvm.loop !32
 
 .loopexit:                                        ; preds = %384, %380, %373
-  %393 = icmp sgt i64 %indvars.iv797, 2
+  %393 = icmp samesign ugt i64 %indvars.iv797, 2
   br i1 %393, label %373, label %.loopexit583, !llvm.loop !33
 
 .loopexit583:                                     ; preds = %.loopexit604, %.loopexit602, %.loopexit600, %.loopexit598, %.loopexit596, %.loopexit594, %.loopexit592, %.loopexit590, %.loopexit588, %.loopexit586, %.loopexit584, %.loopexit, %48, %81, %119, %145, %174, %198, %228, %254, %284, %310, %339, %366, %143, %196, %170, %79, %252, %335, %364, %308, %222, %39, %.thread

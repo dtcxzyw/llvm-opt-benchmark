@@ -30,7 +30,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %.val30 = load ptr, ptr %11, align 8, !tbaa !19
   %12 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %14 = tail call ptr @Hop_ObjCreatePi(ptr noundef %3) #9
+  %14 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %3) #9
   store ptr %14, ptr %13, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %15 = load ptr, ptr %0, align 8, !tbaa !16
@@ -67,14 +67,14 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %32 = ptrtoint ptr %.val32 to i64
   %33 = and i64 %32, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef %3, ptr noundef %34, ptr noundef nonnull %19, i32 noundef 0, i32 noundef %1)
+  %35 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef nonnull %3, ptr noundef %34, ptr noundef nonnull %19, i32 noundef 0, i32 noundef %1)
   %.val33 = load ptr, ptr %31, align 8, !tbaa !28
   %36 = ptrtoint ptr %.val33 to i64
   %37 = and i64 %36, 1
   %38 = ptrtoint ptr %35 to i64
   %39 = xor i64 %37, %38
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @Hop_ObjCreatePo(ptr noundef %3, ptr noundef %40) #9
+  %41 = tail call ptr @Hop_ObjCreatePo(ptr noundef nonnull %3, ptr noundef %40) #9
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %42 = load ptr, ptr %23, align 8, !tbaa !27
   %43 = getelementptr i8, ptr %42, i64 4
@@ -370,7 +370,7 @@ Hop_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
-  %103 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef %0, ptr noundef %102, ptr noundef %2, i32 noundef %95, i32 noundef %4)
+  %103 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef %0, ptr noundef %102, ptr noundef nonnull %2, i32 noundef %95, i32 noundef %4)
   %104 = load ptr, ptr %94, align 8, !tbaa !19
   %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8, !tbaa !20

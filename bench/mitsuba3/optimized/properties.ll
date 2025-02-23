@@ -6515,7 +6515,7 @@ _ZNSt3__16__treeINS_12__value_typeINS_12basic_stringIcNS_11char_traitsIcEENS_9al
   %29 = add i64 %28, -1
   store i64 %29, ptr %27, align 8
   %30 = load ptr, ptr %14, align 8
-  tail call void @_ZNSt3__113__tree_removeB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %30, ptr noundef %.sroa.0.0.i.i) #28
+  tail call void @_ZNSt3__113__tree_removeB8ne190000IPNS_16__tree_node_baseIPvEEEEvT_S5_(ptr noundef %30, ptr noundef nonnull %.sroa.0.0.i.i) #28
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 320
   %33 = load ptr, ptr %32, align 32

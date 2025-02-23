@@ -223,7 +223,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond773.not, label %.loopexit571, label %.lr.ph660, !llvm.loop !7
 
 .loopexit571:                                     ; preds = %.lr.ph660.lver.orig, %.lr.ph660, %80, %.lr.ph664
-  %98 = icmp sgt i64 %indvars.iv774, 2
+  %98 = icmp samesign ugt i64 %indvars.iv774, 2
   %indvar.next849 = add i64 %indvar848, 1
   br i1 %98, label %.lr.ph664, label %.loopexit570, !llvm.loop !8
 
@@ -357,7 +357,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond755.not, label %.loopexit575, label %.lr.ph646, !llvm.loop !11
 
 .loopexit575:                                     ; preds = %.lr.ph646, %145, %134
-  %157 = icmp sgt i64 %indvars.iv756, 2
+  %157 = icmp samesign ugt i64 %indvars.iv756, 2
   br i1 %157, label %134, label %.loopexit570, !llvm.loop !12
 
 158:                                              ; preds = %22, %22
@@ -500,7 +500,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond737.not, label %.loopexit579, label %.lr.ph633, !llvm.loop !15
 
 .loopexit579:                                     ; preds = %.lr.ph633, %208, %.lr.ph636
-  %228 = icmp sgt i64 %indvars.iv738, 2
+  %228 = icmp samesign ugt i64 %indvars.iv738, 2
   br i1 %228, label %.lr.ph636, label %.loopexit570, !llvm.loop !16
 
 229:                                              ; preds = %20, %20
@@ -645,7 +645,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond719.not, label %.loopexit583, label %281, !llvm.loop !19
 
 .loopexit583:                                     ; preds = %281, %276, %.lr.ph623
-  %290 = icmp sgt i64 %indvars.iv720, 2
+  %290 = icmp samesign ugt i64 %indvars.iv720, 2
   br i1 %290, label %.lr.ph623, label %.loopexit570, !llvm.loop !20
 
 291:                                              ; preds = %229, %229
@@ -778,7 +778,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond701.not, label %.loopexit587, label %340, !llvm.loop !23
 
 .loopexit587:                                     ; preds = %340, %336, %.lr.ph609
-  %349 = icmp sgt i64 %indvars.iv702, 2
+  %349 = icmp samesign ugt i64 %indvars.iv702, 2
   br i1 %349, label %.lr.ph609, label %.loopexit570, !llvm.loop !24
 
 350:                                              ; preds = %229, %229
@@ -925,7 +925,7 @@ define void @slasr_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   br i1 %exitcond.not, label %.loopexit591, label %407, !llvm.loop !27
 
 .loopexit591:                                     ; preds = %407, %403, %.lr.ph597
-  %426 = icmp sgt i64 %indvars.iv684, 2
+  %426 = icmp samesign ugt i64 %indvars.iv684, 2
   br i1 %426, label %.lr.ph597, label %.loopexit570, !llvm.loop !28
 
 .loopexit570:                                     ; preds = %.loopexit591, %.loopexit589, %.loopexit587, %.loopexit585, %.loopexit583, %.loopexit581, %.loopexit579, %.loopexit577, %.loopexit575, %.loopexit573, %.loopexit571, %.loopexit, %389, %354, %322, %295, %262, %235, %194, %162, %130, %103, %62, %28, %350, %229, %291, %231, %20, %158, %22, %99, %24, %9, %17

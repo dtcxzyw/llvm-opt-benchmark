@@ -327,7 +327,7 @@ define internal noundef zeroext i1 @_client_writable(ptr noundef %0) #0 {
   %31 = load ptr, ptr %20, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 504
   %33 = load ptr, ptr %32, align 8
-  tail call void @list_append(ptr noundef %33, ptr noundef %0) #11
+  tail call void @list_append(ptr noundef %33, ptr noundef nonnull %0) #11
   br label %34
 
 34:                                               ; preds = %._crit_edge, %14
@@ -4546,7 +4546,7 @@ _task_build_message.exit.thread:                  ; preds = %58, %111
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %.0.i3745 = phi i32 [ %180, %.lr.ph47 ], [ 0, %.lr.ph47.preheader ]
   %179 = call ptr @list_dequeue(ptr noundef %175) #11
-  call fastcc void @_free_outgoing_msg(ptr noundef %179, ptr noundef %173)
+  call fastcc void @_free_outgoing_msg(ptr noundef %179, ptr noundef nonnull %173)
   %180 = add nuw nsw i32 %.0.i3745, 1
   %exitcond.not = icmp eq i32 %.0.i3745, %178
   br i1 %exitcond.not, label %_shrink_msg_cache.exit.loopexit, label %.lr.ph47, !llvm.loop !34

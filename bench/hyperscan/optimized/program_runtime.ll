@@ -16453,7 +16453,7 @@ expand64.exit280.i:                               ; preds = %for.end31.i243.i, %
   %retval.i220.0.i = phi i64 [ %and32.i244.i, %for.end31.i243.i ], [ 0, %do.end34.i8609 ]
   %shr.i8615 = lshr i32 %valid_data_mask.0.i, 8
   %conv38.i8616 = zext nneg i32 %shr.i8615 to i64
-  %tobool.i.not.i8617 = icmp ult i32 %valid_data_mask.0.i, 256
+  %tobool.i.not.i8617 = icmp samesign ult i32 %valid_data_mask.0.i, 256
   br i1 %tobool.i.not.i8617, label %expand64.exit.i8649, label %for.body.i.i8618
 
 for.body.i.i8618:                                 ; preds = %expand64.exit280.i, %for.body.i.i8618

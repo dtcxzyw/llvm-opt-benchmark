@@ -6082,7 +6082,7 @@ pg_time_now_lazy.exit.i.i:                        ; preds = %781, %778
   %792 = getelementptr inbounds nuw i8, ptr %707, i64 2112
   %793 = load ptr, ptr %792, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #25
-  %794 = call fastcc zeroext i1 @evaluateExpr(ptr noundef %208, ptr noundef %793, ptr noundef %16)
+  %794 = call fastcc zeroext i1 @evaluateExpr(ptr noundef nonnull %208, ptr noundef %793, ptr noundef %16)
   %795 = load ptr, ptr %710, align 8
   br i1 %794, label %800, label %796
 
@@ -6121,7 +6121,7 @@ putVariableValue.exit.i.i:                        ; preds = %800
   %812 = getelementptr inbounds nuw i8, ptr %707, i64 2112
   %813 = load ptr, ptr %812, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #25
-  %814 = call fastcc zeroext i1 @evaluateExpr(ptr noundef %208, ptr noundef %813, ptr noundef %17)
+  %814 = call fastcc zeroext i1 @evaluateExpr(ptr noundef nonnull %208, ptr noundef %813, ptr noundef %17)
   br i1 %814, label %815, label %832
 
 815:                                              ; preds = %811

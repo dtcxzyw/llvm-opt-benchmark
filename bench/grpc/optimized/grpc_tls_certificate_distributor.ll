@@ -450,7 +450,7 @@ if.then.i.i.i.i.i.i.i.i56:                        ; preds = %invoke.cont.i.i.i.i
   br label %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEED2Ev.exit57
 
 _ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEED2Ev.exit57: ; preds = %_ZNSt8optionalISt6vectorIN9grpc_core14PemKeyCertPairESaIS2_EEED2Ev.exit, %invoke.cont.i.i.i.i.i.i54, %if.then.i.i.i.i.i.i.i.i56
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0183) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0183) #22
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -716,7 +716,7 @@ if.then.i.i.i.i.i.i.i.i152:                       ; preds = %invoke.cont.i.i.i.i
 for.inc174:                                       ; preds = %land.rhs.i.i118, %if.then.i.i.i.i.i.i.i.i152, %invoke.cont.i.i.i.i.i.i150, %invoke.cont172, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125
   %pem_root_certs_to_report.sroa.2.1 = phi ptr [ %pem_root_certs_to_report.sroa.2.0186, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.2.2, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.2.2, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.2.2, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.2.0186, %land.rhs.i.i118 ]
   %pem_root_certs_to_report.sroa.0.1 = phi i64 [ %pem_root_certs_to_report.sroa.0.0187, %_ZSteqINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS7_ESC_.exit125 ], [ %pem_root_certs_to_report.sroa.0.2, %invoke.cont172 ], [ %pem_root_certs_to_report.sroa.0.2, %invoke.cont.i.i.i.i.i.i150 ], [ %pem_root_certs_to_report.sroa.0.2, %if.then.i.i.i.i.i.i.i.i152 ], [ %pem_root_certs_to_report.sroa.0.0187, %land.rhs.i.i118 ]
-  %call.i154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin290.sroa.0.0185) #22
+  %call.i154 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin290.sroa.0.0185) #22
   %cmp.i79.not = icmp eq ptr %call.i154, %add.ptr.i.i78
   br i1 %cmp.i79.not, label %for.end176, label %for.body98
 
@@ -1434,7 +1434,7 @@ terminate.lpad.i65:                               ; preds = %if.then.i.i64
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit66:         ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit61, %if.then.i.i64
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0219) #22
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0219) #22
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -1738,7 +1738,7 @@ terminate.lpad.i170:                              ; preds = %if.then.i.i169
   unreachable
 
 _ZN4absl12lts_202308026StatusD2Ev.exit171:        ; preds = %cleanup, %if.then.i.i169
-  %call.i172 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin277.sroa.0.0221) #22
+  %call.i172 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin277.sroa.0.0221) #22
   %cmp.i85.not = icmp eq ptr %call.i172, %add.ptr.i.i84
   br i1 %cmp.i85.not, label %for.end155, label %for.body85
 

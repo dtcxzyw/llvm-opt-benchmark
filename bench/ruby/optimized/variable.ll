@@ -933,7 +933,6 @@ define hidden void @rb_gvar_ractor_local(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq i32 %5, 0
   %6 = load i64, ptr %2, align 8
   %7 = inttoptr i64 %6 to ptr
-  %.0.i = select i1 %.not.i, ptr null, ptr %7
   %8 = load ptr, ptr @ruby_single_main_ractor, align 8, !tbaa !68
   %.not.i.i = icmp eq ptr %8, null
   br i1 %.not.i.i, label %rb_ractor_main_p.exit.i, label %rb_find_global_entry.exit
@@ -943,11 +942,12 @@ rb_ractor_main_p.exit.i:                          ; preds = %1
   br i1 %9, label %rb_find_global_entry.exit, label %10, !prof !70
 
 10:                                               ; preds = %rb_ractor_main_p.exit.i
-  %.not4.i = icmp eq ptr %.0.i, null
+  %.not4.i2 = icmp eq i64 %6, 0
+  %.not4.i = select i1 %.not.i, i1 true, i1 %.not4.i2
   br i1 %.not4.i, label %15, label %11
 
 11:                                               ; preds = %10
-  %12 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %13 = load i8, ptr %12, align 8, !tbaa !71, !range !38, !noundef !72
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %rb_find_global_entry.exit, label %15
@@ -960,7 +960,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %1
 
 rb_find_global_entry.exit:                        ; preds = %1, %rb_ractor_main_p.exit.i, %11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #27
-  %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i8 1, ptr %18, align 8, !tbaa !71
   ret void
 }
@@ -1023,7 +1023,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %1
   br i1 %.not4.i, label %14, label %10
 
 10:                                               ; preds = %9
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i8, ptr %11, align 8, !tbaa !71, !range !38, !noundef !72
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %rb_find_global_entry.exit.thread, label %14
@@ -1553,7 +1553,7 @@ rb_ractor_main_p.exit.i:                          ; preds = %20
   br i1 %.not4.i, label %32, label %28
 
 28:                                               ; preds = %27
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %30 = load i8, ptr %29, align 8, !tbaa !71, !range !38, !noundef !72
   %31 = trunc nuw i8 %30 to i1
   br i1 %31, label %rb_find_global_entry.exit.thread, label %32
@@ -3069,19 +3069,15 @@ RB_FL_TEST.exit:                                  ; preds = %8
   %47 = and i64 %10, 31
   %.not.i = icmp eq i64 %47, 27
   %48 = and i64 %10, 1024
-  %.not21 = icmp eq i64 %48, 0
-  %.not = or i1 %.not.i, %.not21
+  %.not18 = icmp eq i64 %48, 0
+  %.not = or i1 %.not.i, %.not18
   br i1 %.not, label %64, label %49
 
 49:                                               ; preds = %RB_FL_TEST.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   %50 = call i32 @rb_gen_ivtbl_get(i64 noundef %0, i64 noundef 0, ptr noundef nonnull %3)
   %.not10.not = icmp eq i32 %50, 0
-  br i1 %.not10.not, label %gen_ivtbl_count.exit.thread18, label %51
-
-gen_ivtbl_count.exit.thread18:                    ; preds = %49
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  br label %64
+  br i1 %.not10.not, label %gen_ivtbl_count.exit, label %51
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %3, align 8, !tbaa !94
@@ -3113,19 +3109,19 @@ gen_ivtbl_count.exit.thread18:                    ; preds = %49
   %spec.select.i14 = add i64 %.110.i, %63
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit, label %59, !llvm.loop !104
+  br i1 %exitcond.not.i, label %gen_ivtbl_count.exit.thread, label %59, !llvm.loop !104
 
-gen_ivtbl_count.exit.thread:                      ; preds = %56, %.preheader.i
-  %.1.ph = phi i64 [ 0, %.preheader.i ], [ %58, %56 ]
+gen_ivtbl_count.exit.thread:                      ; preds = %59, %56, %.preheader.i
+  %.1.ph = phi i64 [ 0, %.preheader.i ], [ %58, %56 ], [ %spec.select.i14, %59 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   br label %64
 
-gen_ivtbl_count.exit:                             ; preds = %59
+gen_ivtbl_count.exit:                             ; preds = %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   br label %64
 
-64:                                               ; preds = %RB_FL_TEST.exit, %gen_ivtbl_count.exit.thread18, %gen_ivtbl_count.exit, %gen_ivtbl_count.exit.thread, %1, %RCLASS_IV_COUNT.exit, %ROBJECT_IV_COUNT.exit
-  %.09 = phi i64 [ %spec.select.i14, %gen_ivtbl_count.exit ], [ %46, %RCLASS_IV_COUNT.exit ], [ %27, %ROBJECT_IV_COUNT.exit ], [ 0, %1 ], [ %.1.ph, %gen_ivtbl_count.exit.thread ], [ 0, %gen_ivtbl_count.exit.thread18 ], [ 0, %RB_FL_TEST.exit ]
+64:                                               ; preds = %RB_FL_TEST.exit, %gen_ivtbl_count.exit, %gen_ivtbl_count.exit.thread, %1, %RCLASS_IV_COUNT.exit, %ROBJECT_IV_COUNT.exit
+  %.09 = phi i64 [ %46, %RCLASS_IV_COUNT.exit ], [ %27, %ROBJECT_IV_COUNT.exit ], [ 0, %1 ], [ %.1.ph, %gen_ivtbl_count.exit.thread ], [ 0, %gen_ivtbl_count.exit ], [ 0, %RB_FL_TEST.exit ]
   ret i64 %.09
 }
 
@@ -9011,7 +9007,7 @@ define internal void @autoload_data_free(ptr noundef %0) #0 {
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !220
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @ruby_xfree(ptr noundef %0) #27
+  tail call void @ruby_xfree(ptr noundef nonnull %0) #27
   ret void
 }
 

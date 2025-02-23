@@ -1680,8 +1680,8 @@ define internal fastcc noundef i32 @_ZL19ClassifyConditionalRN5clang10ASTContext
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
   %14 = icmp eq i8 %13, 13
-  %.not.not7.i.i = icmp ne ptr %11, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %14
+  %.not7.i.i = icmp ne ptr %11, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %14
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %3
@@ -1704,8 +1704,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %3, %_ZNK5clang4Type
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i8, ptr %26, align 16
   %28 = icmp eq i8 %27, 13
-  %.not.not7.i.i25 = icmp ne ptr %25, null
-  %.not.not.not.i.i26 = and i1 %.not.not7.i.i25, %28
+  %.not7.i.i25 = icmp ne ptr %25, null
+  %.not.not.not.i.i26 = and i1 %.not7.i.i25, %28
   br i1 %.not.not.not.i.i26, label %_ZNK5clang4Type10isVoidTypeEv.exit28, label %_ZNK5clang4Type10isVoidTypeEv.exit28.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit28:             ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread

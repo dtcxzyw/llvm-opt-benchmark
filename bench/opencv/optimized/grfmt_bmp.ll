@@ -401,7 +401,7 @@ define hidden noundef zeroext i1 @_ZN2cv10BmpDecoder10readHeaderEv(ptr noundef n
   br i1 %exitcond.not.i, label %_ZN2cv10BmpDecoder8initMaskEv.exit, label %38, !llvm.loop !4
 
 _ZN2cv10BmpDecoder8initMaskEv.exit:               ; preds = %38
-  %41 = icmp sgt i32 %23, 35
+  %41 = icmp samesign ugt i32 %23, 35
   br i1 %41, label %42, label %153
 
 42:                                               ; preds = %_ZN2cv10BmpDecoder8initMaskEv.exit

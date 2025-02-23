@@ -721,7 +721,7 @@ define internal noundef i32 @get_text_gray_row(ptr noundef %0, ptr noundef reado
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.015 = phi ptr [ %18, %.lr.ph ], [ %13, %.lr.ph.preheader ]
   %.01214 = phi i32 [ %19, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %14 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %14 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %15 = zext i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !30
@@ -789,7 +789,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
 41:                                               ; preds = %.lr.ph106, %41
   %.0105 = phi ptr [ %24, %.lr.ph106 ], [ %48, %41 ]
   %.077104 = phi i32 [ %32, %.lr.ph106 ], [ %49, %41 ]
-  %42 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %42 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %43 = trunc i32 %42 to i8
   %44 = getelementptr inbounds i8, ptr %.0105, i64 %35
   store i8 %43, ptr %44, align 1, !tbaa !30
@@ -817,7 +817,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
 55:                                               ; preds = %.lr.ph102, %55
   %.1101 = phi ptr [ %24, %.lr.ph102 ], [ %61, %55 ]
   %.178100 = phi i32 [ %32, %.lr.ph102 ], [ %62, %55 ]
-  %56 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %56 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %57 = trunc i32 %56 to i8
   %58 = getelementptr inbounds i8, ptr %.1101, i64 %51
   store i8 %57, ptr %58, align 1, !tbaa !30
@@ -881,7 +881,7 @@ define internal noundef i32 @get_text_gray_rgb_row(ptr noundef %0, ptr noundef r
 89:                                               ; preds = %.lr.ph, %89
   %.394 = phi ptr [ %24, %.lr.ph ], [ %97, %89 ]
   %.38093 = phi i32 [ %32, %.lr.ph ], [ %98, %89 ]
-  %90 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %90 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw i8, ptr %6, i64 %91
   %93 = load i8, ptr %92, align 1, !tbaa !30
@@ -931,7 +931,7 @@ rgb_to_cmyk.exit.lr.ph:                           ; preds = %18
 rgb_to_cmyk.exit:                                 ; preds = %rgb_to_cmyk.exit.lr.ph, %rgb_to_cmyk.exit
   %.053 = phi ptr [ %11, %rgb_to_cmyk.exit.lr.ph ], [ %40, %rgb_to_cmyk.exit ]
   %.03752 = phi i32 [ %17, %rgb_to_cmyk.exit.lr.ph ], [ %41, %rgb_to_cmyk.exit ]
-  %20 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %20 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %21 = trunc i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %.053, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %.053, i64 2
@@ -971,7 +971,7 @@ rgb_to_cmyk.exit46.lr.ph:                         ; preds = %42
 rgb_to_cmyk.exit46:                               ; preds = %rgb_to_cmyk.exit46.lr.ph, %rgb_to_cmyk.exit46
   %.150 = phi ptr [ %11, %rgb_to_cmyk.exit46.lr.ph ], [ %66, %rgb_to_cmyk.exit46 ]
   %.13849 = phi i32 [ %17, %rgb_to_cmyk.exit46.lr.ph ], [ %67, %rgb_to_cmyk.exit46 ]
-  %44 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %44 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !30
@@ -1061,15 +1061,15 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
 41:                                               ; preds = %.lr.ph134, %41
   %.0133 = phi ptr [ %24, %.lr.ph134 ], [ %52, %41 ]
   %.0105132 = phi i32 [ %32, %.lr.ph134 ], [ %53, %41 ]
-  %42 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %42 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %43 = trunc i32 %42 to i8
   %44 = getelementptr inbounds i8, ptr %.0133, i64 %35
   store i8 %43, ptr %44, align 1, !tbaa !30
-  %45 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %45 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %46 = trunc i32 %45 to i8
   %47 = getelementptr inbounds i8, ptr %.0133, i64 %36
   store i8 %46, ptr %47, align 1, !tbaa !30
-  %48 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %48 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %49 = trunc i32 %48 to i8
   %50 = getelementptr inbounds i8, ptr %.0133, i64 %37
   store i8 %49, ptr %50, align 1, !tbaa !30
@@ -1093,15 +1093,15 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
 59:                                               ; preds = %.lr.ph130, %59
   %.1129 = phi ptr [ %24, %.lr.ph130 ], [ %69, %59 ]
   %.1106128 = phi i32 [ %32, %.lr.ph130 ], [ %70, %59 ]
-  %60 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %60 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %61 = trunc i32 %60 to i8
   %62 = getelementptr inbounds i8, ptr %.1129, i64 %55
   store i8 %61, ptr %62, align 1, !tbaa !30
-  %63 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %63 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %64 = trunc i32 %63 to i8
   %65 = getelementptr inbounds i8, ptr %.1129, i64 %56
   store i8 %64, ptr %65, align 1, !tbaa !30
-  %66 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %66 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %67 = trunc i32 %66 to i8
   %68 = getelementptr inbounds i8, ptr %.1129, i64 %57
   store i8 %67, ptr %68, align 1, !tbaa !30
@@ -1169,19 +1169,19 @@ define internal noundef i32 @get_text_rgb_row(ptr noundef %0, ptr noundef readon
 105:                                              ; preds = %.lr.ph, %105
   %.3122 = phi ptr [ %24, %.lr.ph ], [ %121, %105 ]
   %.3108121 = phi i32 [ %32, %.lr.ph ], [ %122, %105 ]
-  %106 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %106 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %107 = zext i32 %106 to i64
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !30
   %110 = getelementptr inbounds i8, ptr %.3122, i64 %101
   store i8 %109, ptr %110, align 1, !tbaa !30
-  %111 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %111 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %112 = zext i32 %111 to i64
   %113 = getelementptr inbounds nuw i8, ptr %6, i64 %112
   %114 = load i8, ptr %113, align 1, !tbaa !30
   %115 = getelementptr inbounds i8, ptr %.3122, i64 %102
   store i8 %114, ptr %115, align 1, !tbaa !30
-  %116 = tail call fastcc i32 @read_pbm_integer(ptr noundef %0, ptr noundef %4, i32 noundef %8)
+  %116 = tail call fastcc i32 @read_pbm_integer(ptr noundef nonnull %0, ptr noundef %4, i32 noundef %8)
   %117 = zext i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !30

@@ -4684,7 +4684,7 @@ dissect_openflow_group_desc_v5.exit:              ; preds = %.lr.ph.i155, %.lr.p
 dissect_openflow_meter_stats_v5.exit:             ; preds = %.lr.ph.i157, %.lr.ph206
   %.0.lcssa.i156 = phi i32 [ %662, %.lr.ph206 ], [ %672, %.lr.ph.i157 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
-  %674 = icmp slt i32 %.0.lcssa.i156, %38
+  %674 = icmp samesign ult i32 %.0.lcssa.i156, %38
   br i1 %674, label %.lr.ph206, label %.loopexit, !llvm.loop !30
 
 .lr.ph204:                                        ; preds = %.preheader177, %dissect_openflow_meter_config_v5.exit
@@ -5872,7 +5872,7 @@ dissect_openflow_action_header_v5.exit:           ; preds = %5, %20
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483644, -2147483648) i32 @dissect_openflow_instruction_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %7 = add nsw i32 %3, 2
   %8 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %7)
@@ -5979,7 +5979,7 @@ dissect_openflow_instruction_header_v5.exit:      ; preds = %5, %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_openflow_bucket_v5(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #4
   %7 = load i32, ptr @ett_openflow_v5_bucket, align 4

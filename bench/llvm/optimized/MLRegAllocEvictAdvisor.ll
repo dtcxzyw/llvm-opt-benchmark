@@ -7436,7 +7436,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
-  %40 = shl nsw i64 %.0.lcssa, 1
+  %40 = shl nuw nsw i64 %.0.lcssa, 1
   %41 = or disjoint i64 %40, 1
   %42 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %41
   %43 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.lcssa
@@ -7446,7 +7446,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
 44:                                               ; preds = %39, %35, %._crit_edge
   %.127 = phi i64 [ %41, %39 ], [ %.0.lcssa, %35 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.031.0.copyload = load i64, ptr %3, align 8, !tbaa !42
-  %45 = icmp sgt i64 %.127, %1
+  %45 = icmp samesign ugt i64 %.127, %1
   br i1 %45, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
 .lr.ph.i:                                         ; preds = %44

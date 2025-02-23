@@ -548,9 +548,9 @@ for.body.i.i.i.i.i.i87:                           ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i88 = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 56
   %cmp.not.i.i.i.i.i.i89 = icmp eq i64 %dec.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i89, label %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i, label %for.body.i.i.i.i.i.i87, !llvm.loop !13
+  br i1 %cmp.not.i.i.i.i.i.i89, label %for.body.lr.ph.i, label %for.body.i.i.i.i.i.i87, !llvm.loop !13
 
-_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i: ; preds = %for.body.i.i.i.i.i.i87
+for.body.lr.ph.i:                                 ; preds = %for.body.i.i.i.i.i.i87
   %_M_refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %disas.i, i64 8
   %_M_refcount3.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp142.i, i64 8
   %options_.i.i = getelementptr inbounds nuw i8, ptr %disas.i, i64 16
@@ -563,9 +563,9 @@ for.cond.i:                                       ; preds = %_ZNSt10unique_ptrIN
   %cmp.i98 = icmp ugt i64 %sub.ptr.div.i.i, %conv.i
   br i1 %cmp.i98, label %for.body.i, label %for.end165.i, !llvm.loop !14
 
-for.body.i:                                       ; preds = %for.cond.i, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i
-  %conv1027.i = phi i64 [ 0, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i ], [ %conv.i, %for.cond.i ]
-  %i.01026.i = phi i32 [ 0, %_ZNSt6vectorISt13unordered_mapIjjSt4hashIjESt8equal_toIjESaISt4pairIKjjEEESaIS9_EEC2EmRKSA_.exit.i ], [ %inc164.i, %for.cond.i ]
+for.body.i:                                       ; preds = %for.cond.i, %for.body.lr.ph.i
+  %conv1027.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %conv.i, %for.cond.i ]
+  %i.01026.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc164.i, %for.cond.i ]
   %add.ptr.i.i90 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %fileBufs.sroa.0.1, i64 %conv1027.i
   %34 = load ptr, ptr %add.ptr.i.i90, align 8
   %call.i.i91 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !15

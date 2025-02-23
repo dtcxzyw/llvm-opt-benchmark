@@ -3276,13 +3276,13 @@ Vec_StrGetI.exit714.i:                            ; preds = %._crit_edge.loopexi
   %1150 = getelementptr inbounds nuw i8, ptr %1098, i64 8
   store i32 %1149, ptr %1150, align 8, !tbaa !49
   %1151 = getelementptr inbounds nuw i8, ptr %1098, i64 24
-  call fastcc void @Abc_SclReadSurface(ptr noundef readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1151)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1151)
   %1152 = getelementptr inbounds nuw i8, ptr %1098, i64 200
-  call fastcc void @Abc_SclReadSurface(ptr noundef readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1152)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1152)
   %1153 = getelementptr inbounds nuw i8, ptr %1098, i64 376
-  call fastcc void @Abc_SclReadSurface(ptr noundef readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1153)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1153)
   %1154 = getelementptr inbounds nuw i8, ptr %1098, i64 552
-  call fastcc void @Abc_SclReadSurface(ptr noundef readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1154)
+  call fastcc void @Abc_SclReadSurface(ptr noundef nonnull readonly %0, ptr noundef nonnull %2, ptr noundef nonnull %1154)
   br label %1155
 
 1155:                                             ; preds = %Vec_StrGetI.exit714.i, %Vec_StrGetI.exit692.i

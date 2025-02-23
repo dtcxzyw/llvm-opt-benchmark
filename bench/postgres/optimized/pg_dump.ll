@@ -30773,7 +30773,7 @@ get_next_possible_free_pg_type_oid.exit:          ; preds = %.preheader43
   store i32 %39, ptr @get_next_possible_free_pg_type_oid.next_possible_free_oid, align 4
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef %6, ptr noundef nonnull @.str.865, i32 noundef %39) #14
   %40 = load ptr, ptr %6, align 8
-  %41 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %40) #14
+  %41 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef %40) #14
   %42 = tail call ptr @PQgetvalue(ptr noundef %41, i32 noundef 0, i32 noundef 0) #14
   %43 = load i8, ptr %42, align 1
   %44 = icmp eq i8 %43, 116
@@ -30790,7 +30790,7 @@ get_next_possible_free_pg_type_oid.exit41:        ; preds = %.preheader
   store i32 %48, ptr @get_next_possible_free_pg_type_oid.next_possible_free_oid, align 4
   tail call void (ptr, ptr, ...) @printfPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.865, i32 noundef %48) #14
   %49 = load ptr, ptr %6, align 8
-  %50 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef %0, ptr noundef %49) #14
+  %50 = tail call ptr @ExecuteSqlQueryForSingleRow(ptr noundef nonnull %0, ptr noundef %49) #14
   %51 = tail call ptr @PQgetvalue(ptr noundef %50, i32 noundef 0, i32 noundef 0) #14
   %52 = load i8, ptr %51, align 1
   %53 = icmp eq i8 %52, 116

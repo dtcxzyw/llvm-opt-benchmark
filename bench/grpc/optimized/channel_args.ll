@@ -4201,7 +4201,7 @@ terminate.lpad.i.i.i49:                           ; preds = %if.then.i.i.i.i48
 _ZN9grpc_core11ChannelArgsaSEOS0_.exit50:         ; preds = %invoke.cont56, %if.then.i.i.i.i48
   call void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp50) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp52) #30
-  %call.i51 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.061) #35
+  %call.i51 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.061) #35
   %cmp.i41.not = icmp eq ptr %call.i51, %0
   br i1 %cmp.i41.not, label %for.end61, label %for.body48
 

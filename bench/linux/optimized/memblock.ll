@@ -753,10 +753,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_remove_range(ptr 
   br i1 %16, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %.preheader, %8, %3
-  %17 = phi i32 [ %6, %3 ], [ 0, %8 ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
-  ret i32 %17
+  ret i32 %6
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -885,10 +884,9 @@ define internal fastcc noundef range(i32 -12, 1) i32 @memblock_setclr_flag(ptr n
   br label %30
 
 30:                                               ; preds = %.loopexit, %5
-  %31 = phi i32 [ 0, %.loopexit ], [ %8, %5 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
-  ret i32 %31
+  ret i32 %8
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -1725,10 +1723,9 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_set_node(i64 noundef %0
   br label %23
 
 23:                                               ; preds = %.loopexit, %4
-  %24 = phi i32 [ 0, %.loopexit ], [ %7, %4 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #20
-  ret i32 %24
+  ret i32 %7
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

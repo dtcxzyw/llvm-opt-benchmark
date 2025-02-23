@@ -245,7 +245,7 @@ calc_data_crc32.exit.i:                           ; preds = %77
   br i1 %92, label %cobs_decode.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %88
-  %.12630.i.i = add nuw i64 %.02535.i.i, 1
+  %.12630.i.i = add i64 %.02535.i.i, 1
   %93 = add i8 %89, -1
   %.not31.i.i = icmp eq i8 %93, 0
   br i1 %.not31.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i

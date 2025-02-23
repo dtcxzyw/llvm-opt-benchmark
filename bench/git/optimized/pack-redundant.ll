@@ -1380,7 +1380,7 @@ llist_sorted_difference_inplace.exit.i176:        ; preds = %llist_sorted_remove
   br i1 %.not.i35.i, label %llist_free.exit.i, label %.lr.ph.i34.i, !llvm.loop !81
 
 llist_free.exit.i:                                ; preds = %.lr.ph.i34.i, %454
-  call void @free(ptr noundef %450) #14
+  call void @free(ptr noundef nonnull %450) #14
   %.not4.i.i = icmp eq ptr %.0162.lcssa268.i, null
   br i1 %.not4.i.i, label %minimize.exit, label %.lr.ph.i36.i
 
@@ -1847,7 +1847,7 @@ pack_list_free.exit135.i:                         ; preds = %.lr.ph.i131.i, %._c
   br i1 %.not.i141.i, label %llist_free.exit143.i, label %.lr.ph.i139.i, !llvm.loop !81
 
 llist_free.exit143.i:                             ; preds = %.lr.ph.i139.i, %pack_list_free.exit135.i
-  call void @free(ptr noundef %461) #14
+  call void @free(ptr noundef nonnull %461) #14
   %594 = load ptr, ptr %450, align 8, !tbaa !32
   %.not6.i144.i = icmp eq ptr %594, null
   br i1 %.not6.i144.i, label %llist_free.exit151.i, label %.lr.ph.preheader.i145.i
@@ -1866,7 +1866,7 @@ llist_free.exit143.i:                             ; preds = %.lr.ph.i139.i, %pac
   br i1 %.not.i149.i, label %llist_free.exit151.i, label %.lr.ph.i147.i, !llvm.loop !81
 
 llist_free.exit151.i:                             ; preds = %.lr.ph.i147.i, %llist_free.exit143.i
-  call void @free(ptr noundef %450) #14
+  call void @free(ptr noundef nonnull %450) #14
   br label %minimize.exit
 
 minimize.exit:                                    ; preds = %.lr.ph.i36.i, %llist_free.exit.i, %llist_free.exit151.i
@@ -1909,15 +1909,15 @@ pack_list_size.exit:                              ; preds = %.lr.ph.i190, %597
   %610 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %606, ptr noundef nonnull @.str.11, ptr noundef nonnull %609) #18
   %.134.in.sroa.speculate.load. = load ptr, ptr %.134.in.sroa.speculated375, align 8, !tbaa !20
   %.not54 = icmp eq ptr %.134.in.sroa.speculate.load., null
-  br i1 %.not54, label %._crit_edge377, label %.lr.ph376, !llvm.loop !88
+  br i1 %.not54, label %.preheader16.i, label %.lr.ph376, !llvm.loop !88
 
-._crit_edge377:                                   ; preds = %.lr.ph376
+.preheader16.i:                                   ; preds = %.lr.ph376
   %611 = load ptr, ptr @stderr, align 8, !tbaa !11
   %612 = load ptr, ptr %.2241, align 8, !tbaa !30
   %.not1420.i = icmp eq ptr %612, null
   br i1 %.not1420.i, label %get_pack_redundancy.exit, label %.preheader.lr.ph.i195
 
-.preheader.lr.ph.i195:                            ; preds = %._crit_edge377
+.preheader.lr.ph.i195:                            ; preds = %.preheader16.i
   %613 = load ptr, ptr @the_repository, align 8, !tbaa !13
   %614 = getelementptr inbounds nuw i8, ptr %613, i64 400
   %615 = load ptr, ptr %614, align 8, !tbaa !34
@@ -2008,8 +2008,8 @@ sizeof_union.exit.loopexit.i:                     ; preds = %655, %653
   %.not15.i = icmp eq ptr %666, null
   br i1 %.not15.i, label %.loopexit.i, label %.lr.ph.i.i200, !llvm.loop !90
 
-get_pack_redundancy.exit:                         ; preds = %.loopexit.i, %._crit_edge377
-  %.011.i201 = phi i64 [ 0, %._crit_edge377 ], [ %.us-phi.i, %.loopexit.i ]
+get_pack_redundancy.exit:                         ; preds = %.loopexit.i, %.preheader16.i
+  %.011.i201 = phi i64 [ 0, %.preheader16.i ], [ %.us-phi.i, %.loopexit.i ]
   br label %.lr.ph.i205
 
 .lr.ph.i205:                                      ; preds = %get_pack_redundancy.exit, %.lr.ph.i205
@@ -2049,7 +2049,7 @@ pack_set_bytecount.exit:                          ; preds = %._crit_edge377.thre
   %687 = load ptr, ptr @local_packs, align 8, !tbaa !20
   %688 = call fastcc ptr @pack_list_difference(ptr noundef %687, ptr noundef %.2241)
   %.not55378 = icmp eq ptr %688, null
-  br i1 %.not55378, label %._crit_edge382.thread, label %.lr.ph381
+  br i1 %.not55378, label %._crit_edge382, label %.lr.ph381
 
 .lr.ph381:                                        ; preds = %686, %.lr.ph381
   %.235379 = phi ptr [ %698, %.lr.ph381 ], [ %688, %686 ]
@@ -2064,27 +2064,27 @@ pack_set_bytecount.exit:                          ; preds = %._crit_edge377.thre
   %697 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %694, ptr noundef nonnull %696)
   %698 = load ptr, ptr %.235379, align 8, !tbaa !30
   %.not55 = icmp eq ptr %698, null
-  br i1 %.not55, label %._crit_edge382, label %.lr.ph381, !llvm.loop !93
+  br i1 %.not55, label %._crit_edge382.thread, label %.lr.ph381, !llvm.loop !93
 
-._crit_edge382:                                   ; preds = %.lr.ph381
+._crit_edge382:                                   ; preds = %686
   %.b40 = load i1, ptr @verbose, align 4
-  br i1 %.b40, label %700, label %714
+  br i1 %.b40, label %699, label %714
 
-._crit_edge382.thread:                            ; preds = %686
+._crit_edge382.thread:                            ; preds = %.lr.ph381
   %.b40500 = load i1, ptr @verbose, align 4
-  br i1 %.b40500, label %.thread, label %pack_list_free.exit
+  br i1 %.b40500, label %.lr.ph.i210.preheader, label %.lr.ph.i218.preheader
 
-.thread:                                          ; preds = %._crit_edge382.thread
-  %699 = load ptr, ptr @stderr, align 8, !tbaa !11
+699:                                              ; preds = %._crit_edge382
+  %700 = load ptr, ptr @stderr, align 8, !tbaa !11
   br label %pack_set_bytecount.exit216
 
-700:                                              ; preds = %._crit_edge382
+.lr.ph.i210.preheader:                            ; preds = %._crit_edge382.thread
   %701 = load ptr, ptr @stderr, align 8, !tbaa !11
   br label %.lr.ph.i210
 
-.lr.ph.i210:                                      ; preds = %700, %.lr.ph.i210
-  %.09.i211 = phi i64 [ %709, %.lr.ph.i210 ], [ 0, %700 ]
-  %.068.i212 = phi ptr [ %710, %.lr.ph.i210 ], [ %688, %700 ]
+.lr.ph.i210:                                      ; preds = %.lr.ph.i210.preheader, %.lr.ph.i210
+  %.09.i211 = phi i64 [ %709, %.lr.ph.i210 ], [ 0, %.lr.ph.i210.preheader ]
+  %.068.i212 = phi ptr [ %710, %.lr.ph.i210 ], [ %688, %.lr.ph.i210.preheader ]
   %702 = getelementptr inbounds nuw i8, ptr %.068.i212, i64 8
   %703 = load ptr, ptr %702, align 8, !tbaa !74
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 48
@@ -2101,23 +2101,26 @@ pack_set_bytecount.exit216.loopexit:              ; preds = %.lr.ph.i210
   %711 = lshr i64 %709, 20
   br label %pack_set_bytecount.exit216
 
-pack_set_bytecount.exit216:                       ; preds = %.thread, %pack_set_bytecount.exit216.loopexit
-  %712 = phi ptr [ %701, %pack_set_bytecount.exit216.loopexit ], [ %699, %.thread ]
-  %.0.lcssa.i215 = phi i64 [ %711, %pack_set_bytecount.exit216.loopexit ], [ 0, %.thread ]
+pack_set_bytecount.exit216:                       ; preds = %699, %pack_set_bytecount.exit216.loopexit
+  %712 = phi ptr [ %700, %699 ], [ %701, %pack_set_bytecount.exit216.loopexit ]
+  %.0.lcssa.i215 = phi i64 [ 0, %699 ], [ %711, %pack_set_bytecount.exit216.loopexit ]
   %713 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %712, ptr noundef nonnull @.str.17, i64 noundef %.0.lcssa.i215) #18
   br label %714
 
 714:                                              ; preds = %pack_set_bytecount.exit216, %._crit_edge382
-  br i1 %.not55378, label %pack_list_free.exit, label %.lr.ph.i218
+  br i1 %.not55378, label %pack_list_free.exit, label %.lr.ph.i218.preheader
 
-.lr.ph.i218:                                      ; preds = %714, %.lr.ph.i218
-  %.05.i = phi ptr [ %715, %.lr.ph.i218 ], [ %688, %714 ]
+.lr.ph.i218.preheader:                            ; preds = %._crit_edge382.thread, %714
+  br label %.lr.ph.i218
+
+.lr.ph.i218:                                      ; preds = %.lr.ph.i218.preheader, %.lr.ph.i218
+  %.05.i = phi ptr [ %715, %.lr.ph.i218 ], [ %688, %.lr.ph.i218.preheader ]
   %715 = load ptr, ptr %.05.i, align 8, !tbaa !30
   call void @free(ptr noundef nonnull %.05.i) #14
   %.not.i219 = icmp eq ptr %715, null
   br i1 %.not.i219, label %pack_list_free.exit, label %.lr.ph.i218, !llvm.loop !82
 
-pack_list_free.exit:                              ; preds = %.lr.ph.i218, %._crit_edge382.thread, %714
+pack_list_free.exit:                              ; preds = %.lr.ph.i218, %714
   %.not4.i221 = icmp eq ptr %.2241, null
   br i1 %.not4.i221, label %pack_list_free.exit226, label %.lr.ph.i222
 
@@ -2147,7 +2150,7 @@ pack_list_free.exit226:                           ; preds = %.lr.ph.i222, %pack_
   br i1 %.not.i229, label %llist_free.exit, label %.lr.ph.i228, !llvm.loop !81
 
 llist_free.exit:                                  ; preds = %.lr.ph.i228, %pack_list_free.exit226
-  call void @free(ptr noundef %141) #14
+  call void @free(ptr noundef nonnull %141) #14
   call void @strbuf_release(ptr noundef nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %6) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #14

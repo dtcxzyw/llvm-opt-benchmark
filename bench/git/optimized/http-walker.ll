@@ -540,7 +540,7 @@ define internal void @cleanup(ptr noundef captures(none) %0) #0 {
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph25
   %12 = load ptr, ptr %.023, align 8, !tbaa !12
   tail call void @free(ptr noundef %12) #11
-  tail call void @free(ptr noundef %.023) #11
+  tail call void @free(ptr noundef nonnull %.023) #11
   %.not18 = icmp eq ptr %7, null
   br i1 %.not18, label %._crit_edge26, label %.lr.ph25, !llvm.loop !80
 

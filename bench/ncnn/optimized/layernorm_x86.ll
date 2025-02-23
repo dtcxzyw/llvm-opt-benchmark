@@ -151,8 +151,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %.01526.lcssa = phi float [ 0.000000e+00, %.preheader1967 ], [ %57, %.lr.ph1990 ]
   %60 = shufflevector <4 x float> %.01811.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %61 = fadd fast <4 x float> %60, %.01811.lcssa
-  %shift2435 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %62 = fadd fast <4 x float> %61, %shift2435
+  %shift2432 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %62 = fadd fast <4 x float> %61, %shift2432
   %63 = extractelement <4 x float> %62, i64 0
   %64 = fadd fast float %63, %.01526.lcssa
   %65 = fdiv fast float %64, %41
@@ -335,8 +335,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 152:                                              ; preds = %._crit_edge2029
   %153 = shufflevector <4 x float> %.01543.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %154 = fadd fast <4 x float> %153, %.01543.lcssa
-  %shift2436 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %155 = fadd fast <4 x float> %154, %shift2436
+  %shift2433 = shufflevector <4 x float> %154, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %155 = fadd fast <4 x float> %154, %shift2433
   %156 = extractelement <4 x float> %155, i64 0
   %157 = fadd fast float %156, %.01544.lcssa
   %158 = fmul fast float %157, %128
@@ -405,8 +405,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 186:                                              ; preds = %._crit_edge2043
   %187 = shufflevector <4 x float> %.01812.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %188 = fadd fast <4 x float> %187, %.01812.lcssa
-  %shift2437 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %189 = fadd fast <4 x float> %188, %shift2437
+  %shift2434 = shufflevector <4 x float> %188, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %189 = fadd fast <4 x float> %188, %shift2434
   %190 = extractelement <4 x float> %189, i64 0
   %191 = fadd fast float %190, %.01521.lcssa
   %192 = fmul fast float %191, %130
@@ -460,12 +460,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %213 = getelementptr inbounds nuw i8, ptr %.114862046, i64 4
   %214 = add nuw nsw i32 %199, 4
   %.not1867 = icmp sgt i32 %214, %118
-  br i1 %.not1867, label %.loopexit1960, label %.lr.ph2049, !llvm.loop !13
+  br i1 %.not1867, label %.thread1897, label %.lr.ph2049, !llvm.loop !13
 
-.loopexit1960:                                    ; preds = %.lr.ph2049, %198
-  %.01485 = phi ptr [ %17, %198 ], [ %213, %.lr.ph2049 ]
-  %.01481 = phi ptr [ %15, %198 ], [ %212, %.lr.ph2049 ]
-  %.01477 = phi ptr [ %138, %198 ], [ %211, %.lr.ph2049 ]
+.loopexit1960:                                    ; preds = %198
   br i1 %125, label %215, label %.thread1897
 
 215:                                              ; preds = %.loopexit1960
@@ -477,17 +474,17 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 
 .preheader1957:                                   ; preds = %.lr.ph2058, %215
   %.01490.lcssa = phi i32 [ 0, %215 ], [ %126, %.lr.ph2058 ]
-  %.21487.lcssa = phi ptr [ %.01485, %215 ], [ %229, %.lr.ph2058 ]
-  %.21483.lcssa = phi ptr [ %.01481, %215 ], [ %228, %.lr.ph2058 ]
-  %.21479.lcssa = phi ptr [ %.01477, %215 ], [ %227, %.lr.ph2058 ]
+  %.21487.lcssa = phi ptr [ %17, %215 ], [ %229, %.lr.ph2058 ]
+  %.21483.lcssa = phi ptr [ %15, %215 ], [ %228, %.lr.ph2058 ]
+  %.21479.lcssa = phi ptr [ %138, %215 ], [ %227, %.lr.ph2058 ]
   %218 = icmp slt i32 %.01490.lcssa, %118
   br i1 %218, label %.lr.ph2067, label %.thread1897
 
 .lr.ph2058:                                       ; preds = %215, %.lr.ph2058
   %219 = phi i32 [ %230, %.lr.ph2058 ], [ 4, %215 ]
-  %.214792056 = phi ptr [ %227, %.lr.ph2058 ], [ %.01477, %215 ]
-  %.214832055 = phi ptr [ %228, %.lr.ph2058 ], [ %.01481, %215 ]
-  %.214872054 = phi ptr [ %229, %.lr.ph2058 ], [ %.01485, %215 ]
+  %.214792056 = phi ptr [ %227, %.lr.ph2058 ], [ %138, %215 ]
+  %.214832055 = phi ptr [ %228, %.lr.ph2058 ], [ %15, %215 ]
+  %.214872054 = phi ptr [ %229, %.lr.ph2058 ], [ %17, %215 ]
   %220 = load <4 x float>, ptr %.214792056, align 1
   %221 = load <4 x float>, ptr %.214832055, align 1
   %222 = load <4 x float>, ptr %.214872054, align 1
@@ -562,7 +559,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %exitcond2288.not = icmp eq i32 %255, %118
   br i1 %exitcond2288.not, label %.thread1897, label %.lr.ph2076, !llvm.loop !12
 
-.thread1897:                                      ; preds = %.lr.ph2067, %.lr.ph2076, %.preheader1957, %.preheader1956, %.thread1870.thread, %.loopexit1960
+.thread1897:                                      ; preds = %.lr.ph2049, %.lr.ph2067, %.lr.ph2076, %.preheader1957, %.preheader1956, %.thread1870.thread, %.loopexit1960
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond2290.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond2290.not, label %._crit_edge2080, label %131, !llvm.loop !14
@@ -673,8 +670,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 315:                                              ; preds = %._crit_edge2155.us
   %316 = shufflevector <4 x float> %.01537.lcssa.us, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %317 = fadd fast <4 x float> %316, %.01537.lcssa.us
-  %shift2438 = shufflevector <4 x float> %317, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %318 = fadd fast <4 x float> %317, %shift2438
+  %shift2435 = shufflevector <4 x float> %317, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %318 = fadd fast <4 x float> %317, %shift2435
   %319 = extractelement <4 x float> %318, i64 0
   %320 = fadd fast float %319, %.01538.lcssa.us
   %321 = fmul fast float %320, %292
@@ -727,8 +724,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 342:                                              ; preds = %._crit_edge2169.us
   %343 = shufflevector <4 x float> %.01813.lcssa.us, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %344 = fadd fast <4 x float> %343, %.01813.lcssa.us
-  %shift2439 = shufflevector <4 x float> %344, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %345 = fadd fast <4 x float> %344, %shift2439
+  %shift2436 = shufflevector <4 x float> %344, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %345 = fadd fast <4 x float> %344, %shift2436
   %346 = extractelement <4 x float> %345, i64 0
   %347 = fadd fast float %346, %.01516.lcssa.us
   %348 = fmul fast float %347, %294
@@ -778,12 +775,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %369 = getelementptr inbounds nuw i8, ptr %.114712172.us, i64 4
   %370 = add nuw nsw i32 %355, 4
   %.not1861.us = icmp sgt i32 %370, %282
-  br i1 %.not1861.us, label %.loopexit.us, label %.lr.ph2175.us, !llvm.loop !13
+  br i1 %.not1861.us, label %.thread1915.us, label %.lr.ph2175.us, !llvm.loop !13
 
-.loopexit.us:                                     ; preds = %.lr.ph2175.us, %354
-  %.01470.us = phi ptr [ %17, %354 ], [ %369, %.lr.ph2175.us ]
-  %.01466.us = phi ptr [ %15, %354 ], [ %368, %.lr.ph2175.us ]
-  %.01462.us = phi ptr [ %306, %354 ], [ %367, %.lr.ph2175.us ]
+.loopexit.us:                                     ; preds = %354
   br i1 %286, label %371, label %.thread1915.us
 
 371:                                              ; preds = %.loopexit.us
@@ -795,9 +789,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 
 .lr.ph2184.us:                                    ; preds = %371, %.lr.ph2184.us
   %374 = phi i32 [ %385, %.lr.ph2184.us ], [ 4, %371 ]
-  %.214642182.us = phi ptr [ %382, %.lr.ph2184.us ], [ %.01462.us, %371 ]
-  %.214682181.us = phi ptr [ %383, %.lr.ph2184.us ], [ %.01466.us, %371 ]
-  %.214722180.us = phi ptr [ %384, %.lr.ph2184.us ], [ %.01470.us, %371 ]
+  %.214642182.us = phi ptr [ %382, %.lr.ph2184.us ], [ %306, %371 ]
+  %.214682181.us = phi ptr [ %383, %.lr.ph2184.us ], [ %15, %371 ]
+  %.214722180.us = phi ptr [ %384, %.lr.ph2184.us ], [ %17, %371 ]
   %375 = load <4 x float>, ptr %.214642182.us, align 1
   %376 = load <4 x float>, ptr %.214682181.us, align 1
   %377 = load <4 x float>, ptr %.214722180.us, align 1
@@ -854,7 +848,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %.not1860.us = icmp sgt i32 %405, %282
   br i1 %.not1860.us, label %.preheader.us, label %.lr.ph2197.us, !llvm.loop !11
 
-.thread1915.us:                                   ; preds = %.lr.ph2193.us, %.lr.ph2202.us, %.preheader1939.us, %.preheader.us, %.loopexit.us, %.thread1876.thread.us
+.thread1915.us:                                   ; preds = %.lr.ph2175.us, %.lr.ph2193.us, %.lr.ph2202.us, %.preheader1939.us, %.preheader.us, %.loopexit.us, %.thread1876.thread.us
   %indvars.iv.next2305 = add nuw nsw i64 %indvars.iv2304, 1
   %exitcond2308.not = icmp eq i64 %indvars.iv.next2305, %wide.trip.count2307
   br i1 %exitcond2308.not, label %._crit_edge2205.us, label %295, !llvm.loop !15
@@ -903,9 +897,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 
 .preheader1939.us:                                ; preds = %.lr.ph2184.us, %371
   %.01475.lcssa.us = phi i32 [ 0, %371 ], [ %290, %.lr.ph2184.us ]
-  %.21472.lcssa.us = phi ptr [ %.01470.us, %371 ], [ %384, %.lr.ph2184.us ]
-  %.21468.lcssa.us = phi ptr [ %.01466.us, %371 ], [ %383, %.lr.ph2184.us ]
-  %.21464.lcssa.us = phi ptr [ %.01462.us, %371 ], [ %382, %.lr.ph2184.us ]
+  %.21472.lcssa.us = phi ptr [ %17, %371 ], [ %384, %.lr.ph2184.us ]
+  %.21468.lcssa.us = phi ptr [ %15, %371 ], [ %383, %.lr.ph2184.us ]
+  %.21464.lcssa.us = phi ptr [ %306, %371 ], [ %382, %.lr.ph2184.us ]
   %422 = icmp slt i32 %.01475.lcssa.us, %282
   br i1 %422, label %.lr.ph2193.us, label %.thread1915.us
 
@@ -978,8 +972,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 445:                                              ; preds = %._crit_edge2093
   %446 = shufflevector <4 x float> %.01531.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %447 = fadd fast <4 x float> %446, %.01531.lcssa
-  %shift2440 = shufflevector <4 x float> %447, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %448 = fadd fast <4 x float> %447, %shift2440
+  %shift2437 = shufflevector <4 x float> %447, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %448 = fadd fast <4 x float> %447, %shift2437
   %449 = extractelement <4 x float> %448, i64 0
   %450 = fadd fast float %449, %.01532.lcssa
   %451 = fmul fast float %450, %276
@@ -1048,8 +1042,8 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 479:                                              ; preds = %._crit_edge2107
   %480 = shufflevector <4 x float> %.01814.lcssa, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %481 = fadd fast <4 x float> %480, %.01814.lcssa
-  %shift2441 = shufflevector <4 x float> %481, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %482 = fadd fast <4 x float> %481, %shift2441
+  %shift2438 = shufflevector <4 x float> %481, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %482 = fadd fast <4 x float> %481, %shift2438
   %483 = extractelement <4 x float> %482, i64 0
   %484 = fadd fast float %483, %.01511.lcssa
   %485 = fmul fast float %484, %278
@@ -1103,12 +1097,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %506 = getelementptr inbounds nuw i8, ptr %.114562110, i64 4
   %507 = add nuw nsw i32 %492, 4
   %.not1855 = icmp sgt i32 %507, %266
-  br i1 %.not1855, label %.loopexit1951, label %.lr.ph2113, !llvm.loop !13
+  br i1 %.not1855, label %.thread1933, label %.lr.ph2113, !llvm.loop !13
 
-.loopexit1951:                                    ; preds = %.lr.ph2113, %491
-  %.01455 = phi ptr [ %17, %491 ], [ %506, %.lr.ph2113 ]
-  %.01451 = phi ptr [ %15, %491 ], [ %505, %.lr.ph2113 ]
-  %.01449 = phi ptr [ %431, %491 ], [ %504, %.lr.ph2113 ]
+.loopexit1951:                                    ; preds = %491
   br i1 %273, label %508, label %.thread1933
 
 508:                                              ; preds = %.loopexit1951
@@ -1120,17 +1111,17 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
 
 .preheader1948:                                   ; preds = %.lr.ph2122, %508
   %.01460.lcssa = phi i32 [ 0, %508 ], [ %274, %.lr.ph2122 ]
-  %.21457.lcssa = phi ptr [ %.01455, %508 ], [ %522, %.lr.ph2122 ]
-  %.21453.lcssa = phi ptr [ %.01451, %508 ], [ %521, %.lr.ph2122 ]
-  %.2.lcssa = phi ptr [ %.01449, %508 ], [ %520, %.lr.ph2122 ]
+  %.21457.lcssa = phi ptr [ %17, %508 ], [ %522, %.lr.ph2122 ]
+  %.21453.lcssa = phi ptr [ %15, %508 ], [ %521, %.lr.ph2122 ]
+  %.2.lcssa = phi ptr [ %431, %508 ], [ %520, %.lr.ph2122 ]
   %511 = icmp slt i32 %.01460.lcssa, %266
   br i1 %511, label %.lr.ph2131, label %.thread1933
 
 .lr.ph2122:                                       ; preds = %508, %.lr.ph2122
   %512 = phi i32 [ %523, %.lr.ph2122 ], [ 4, %508 ]
-  %.22120 = phi ptr [ %520, %.lr.ph2122 ], [ %.01449, %508 ]
-  %.214532119 = phi ptr [ %521, %.lr.ph2122 ], [ %.01451, %508 ]
-  %.214572118 = phi ptr [ %522, %.lr.ph2122 ], [ %.01455, %508 ]
+  %.22120 = phi ptr [ %520, %.lr.ph2122 ], [ %431, %508 ]
+  %.214532119 = phi ptr [ %521, %.lr.ph2122 ], [ %15, %508 ]
+  %.214572118 = phi ptr [ %522, %.lr.ph2122 ], [ %17, %508 ]
   %513 = load <4 x float>, ptr %.22120, align 1
   %514 = load <4 x float>, ptr %.214532119, align 1
   %515 = load <4 x float>, ptr %.214572118, align 1
@@ -1205,7 +1196,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %exitcond2294.not = icmp eq i32 %548, %266
   br i1 %exitcond2294.not, label %.thread1933, label %.lr.ph2140, !llvm.loop !12
 
-.thread1933:                                      ; preds = %.lr.ph2131, %.lr.ph2140, %.preheader1948, %.preheader1947, %.thread1882.thread, %.loopexit1951
+.thread1933:                                      ; preds = %.lr.ph2113, %.lr.ph2131, %.lr.ph2140, %.preheader1948, %.preheader1947, %.thread1882.thread, %.loopexit1951
   %indvars.iv.next2296 = add nuw nsw i64 %indvars.iv2295, 1
   %exitcond2299.not = icmp eq i64 %indvars.iv.next2296, %wide.trip.count2298
   br i1 %exitcond2299.not, label %.loopexit1946, label %425, !llvm.loop !17

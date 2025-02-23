@@ -125,7 +125,7 @@ define internal fastcc void @submodule_cache_clear(ptr noundef %0) unnamed_addr 
   br i1 %.not8, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
-  call void @hashmap_clear_(ptr noundef %0, i64 noundef 0) #15
+  call void @hashmap_clear_(ptr noundef nonnull %0, i64 noundef 0) #15
   call void @hashmap_clear_(ptr noundef nonnull %7, i64 noundef 0) #15
   %28 = load i8, ptr %3, align 8
   %29 = and i8 %28, -4

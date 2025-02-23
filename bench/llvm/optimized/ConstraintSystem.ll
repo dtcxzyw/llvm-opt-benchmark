@@ -2507,19 +2507,19 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
 
 _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit: ; preds = %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit.loopexit, %10
   %.pre-phi = phi i64 [ %.pre15, %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit.loopexit ], [ %13, %10 ]
-  %19 = icmp ugt i64 %1, %.pre-phi
+  %19 = icmp samesign ugt i64 %1, %.pre-phi
   br i1 %19, label %.lr.ph.i.i.i, label %42
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RKT1_.exit
-  %20 = sub nuw i64 %1, %.pre-phi
-  %21 = load ptr, ptr %0, align 8, !tbaa !18
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %21, i64 %.pre-phi
+  %20 = load ptr, ptr %0, align 8, !tbaa !18
+  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.pre-phi
+  %22 = sub nuw nsw i64 %1, %.pre-phi
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %24
 
 24:                                               ; preds = %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %41, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
-  %.068.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %40, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
+  %.09.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %41, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
+  %.068.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %40, %_ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT_DpOT0_.exit.i.i.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 16
   store ptr %25, ptr %.09.i.i.i, align 8, !tbaa !37
   %26 = load ptr, ptr %2, align 8, !tbaa !43

@@ -212,7 +212,7 @@ sz_psz2u.exit:                                    ; preds = %7, %20
 base_map.exit.thread:                             ; preds = %47
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
-  br label %176
+  br label %174
 
 base_map.exit.thread60:                           ; preds = %47
   call void @je_pages_set_thp_state(ptr noundef nonnull %48, i64 noundef range(i64 0, -2097151) %43) #9
@@ -296,7 +296,7 @@ base_map.exit:                                    ; preds = %52, %tsd_fetch_impl
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #9
   %84 = icmp eq ptr %.0.i54, null
-  br i1 %84, label %176, label %85
+  br i1 %84, label %174, label %85
 
 85:                                               ; preds = %base_map.exit.thread60, %base_map.exit
   %.0.i5462 = phi ptr [ %48, %base_map.exit.thread60 ], [ %.0.i54, %base_map.exit ]
@@ -305,7 +305,7 @@ base_map.exit:                                    ; preds = %52, %tsd_fetch_impl
   %88 = load i32, ptr @je_init_system_thp_mode, align 4
   %89 = icmp eq i32 %88, 0
   %90 = select i1 %87, i1 %89, i1 false
-  br i1 %90, label %91, label %147
+  br i1 %90, label %91, label %145
 
 91:                                               ; preds = %85
   %92 = icmp eq i32 %86, 2
@@ -313,13 +313,13 @@ base_map.exit:                                    ; preds = %52, %tsd_fetch_impl
 
 93:                                               ; preds = %91
   %94 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5462, i64 noundef %43) #9
-  br label %147
+  br label %145
 
 95:                                               ; preds = %91
   %96 = icmp eq i32 %86, 1
   %97 = icmp ne ptr %1, null
   %or.cond = and i1 %97, %96
-  br i1 %or.cond, label %98, label %147
+  br i1 %or.cond, label %98, label %145
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -376,7 +376,7 @@ malloc_mutex_lock.exit:                           ; preds = %104, %110
 
 base_get_num_blocks.exit.i:                       ; preds = %.preheader63
   %122 = icmp eq i64 %.0.i.i, 2
-  br i1 %122, label %128, label %base_auto_thp_switch.exit
+  br i1 %122, label %128, label %base_auto_thp_switch.exit.thread65
 
 .preheader:                                       ; preds = %117, %.preheader
   %.05.i20.i = phi ptr [ %124, %.preheader ], [ %.val18.i, %117 ]
@@ -389,7 +389,7 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader63
 
 126:                                              ; preds = %.preheader
   %127 = icmp eq i64 %.0.i21.i, 5
-  br i1 %127, label %128, label %base_auto_thp_switch.exit
+  br i1 %127, label %128, label %base_auto_thp_switch.exit.thread65
 
 128:                                              ; preds = %126, %base_get_num_blocks.exit.i
   store i8 1, ptr %114, align 8, !tbaa !29
@@ -416,74 +416,70 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader63
   %140 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
   %.0.i58 = load ptr, ptr %140, align 8, !tbaa !53
   %.not16.i = icmp eq ptr %.0.i58, null
-  br i1 %.not16.i, label %base_auto_thp_switch.exit.loopexit, label %130, !llvm.loop !54
+  br i1 %.not16.i, label %base_auto_thp_switch.exit, label %130, !llvm.loop !54
 
-base_auto_thp_switch.exit.loopexit:               ; preds = %130
+base_auto_thp_switch.exit:                        ; preds = %130
   %.pre = load i8, ptr %114, align 8, !tbaa !29, !range !49
-  br label %base_auto_thp_switch.exit
-
-base_auto_thp_switch.exit:                        ; preds = %base_auto_thp_switch.exit.loopexit, %base_get_num_blocks.exit.i, %126
-  %141 = phi i8 [ %.pre, %base_auto_thp_switch.exit.loopexit ], [ %115, %base_get_num_blocks.exit.i ], [ %115, %126 ]
-  %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %base_auto_thp_switch.exit.thread, label %144
+  %141 = trunc nuw i8 %.pre to i1
+  br i1 %141, label %base_auto_thp_switch.exit.thread, label %base_auto_thp_switch.exit.thread65
 
 base_auto_thp_switch.exit.thread:                 ; preds = %128, %malloc_mutex_lock.exit, %base_auto_thp_switch.exit
-  %143 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5462, i64 noundef %43) #9
-  br label %144
+  %142 = call zeroext i1 @je_pages_huge(ptr noundef nonnull %.0.i5462, i64 noundef %43) #9
+  br label %base_auto_thp_switch.exit.thread65
 
-144:                                              ; preds = %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store atomic i8 0, ptr %145 monotonic, align 1
-  %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #9
-  br label %147
+base_auto_thp_switch.exit.thread65:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store atomic i8 0, ptr %143 monotonic, align 1
+  %144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #9
+  br label %145
 
-147:                                              ; preds = %93, %144, %95, %85
-  %148 = icmp ugt i64 %43, 8070450532247928832
-  br i1 %148, label %sz_psz2ind.exit, label %149, !prof !36
+145:                                              ; preds = %93, %base_auto_thp_switch.exit.thread65, %95, %85
+  %146 = icmp ugt i64 %43, 8070450532247928832
+  br i1 %146, label %sz_psz2ind.exit, label %147, !prof !36
 
-149:                                              ; preds = %147
-  %150 = icmp ne i64 %43, 0
-  call void @llvm.assume(i1 %150)
-  %151 = add nsw i64 %43, -1
-  %152 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %151, i1 true)
-  %153 = trunc nuw nsw i64 %152 to i32
-  %154 = call i32 @llvm.usub.sat.i32(i32 50, i32 %153)
-  %155 = add nuw nsw i32 %154, 11
-  %156 = zext nneg i32 %155 to i64
-  %157 = lshr i64 %151, %156
-  %158 = trunc i64 %157 to i32
-  %159 = and i32 %158, 3
-  %160 = shl nuw nsw i32 %154, 2
-  %161 = or disjoint i32 %159, %160
+147:                                              ; preds = %145
+  %148 = icmp ne i64 %43, 0
+  call void @llvm.assume(i1 %148)
+  %149 = add nsw i64 %43, -1
+  %150 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %149, i1 true)
+  %151 = trunc nuw nsw i64 %150 to i32
+  %152 = call i32 @llvm.usub.sat.i32(i32 50, i32 %151)
+  %153 = add nuw nsw i32 %152, 11
+  %154 = zext nneg i32 %153 to i64
+  %155 = lshr i64 %149, %154
+  %156 = trunc i64 %155 to i32
+  %157 = and i32 %156, 3
+  %158 = shl nuw nsw i32 %152, 2
+  %159 = or disjoint i32 %157, %158
   br label %sz_psz2ind.exit
 
-sz_psz2ind.exit:                                  ; preds = %147, %149
-  %.0.i = phi i32 [ %161, %149 ], [ 199, %147 ]
+sz_psz2ind.exit:                                  ; preds = %145, %147
+  %.0.i = phi i32 [ %159, %147 ], [ 199, %145 ]
   store i32 %.0.i, ptr %3, align 4, !tbaa !9
   store i64 %43, ptr %.0.i5462, align 8, !tbaa !18
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 8
-  store ptr null, ptr %162, align 8, !tbaa !51
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 16
-  %164 = ptrtoint ptr %.0.i5462 to i64
-  %165 = add i64 %164, 144
-  %166 = inttoptr i64 %165 to ptr
-  %167 = add i64 %43, -144
-  %168 = load i64, ptr %4, align 8, !tbaa !11
-  %169 = add i64 %168, 1
-  store i64 %169, ptr %4, align 8, !tbaa !11
-  %170 = load i64, ptr %163, align 8, !tbaa !17
-  %171 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 24
-  store ptr %166, ptr %171, align 8, !tbaa !13
-  %172 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 32
-  store i64 %167, ptr %172, align 8, !tbaa !16
-  %173 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 48
-  store i64 %168, ptr %173, align 8, !tbaa !55
-  %174 = and i64 %170, -268435456
-  %175 = or disjoint i64 %174, 246460415
-  store i64 %175, ptr %163, align 8, !tbaa !17
-  br label %176
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 8
+  store ptr null, ptr %160, align 8, !tbaa !51
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 16
+  %162 = ptrtoint ptr %.0.i5462 to i64
+  %163 = add i64 %162, 144
+  %164 = inttoptr i64 %163 to ptr
+  %165 = add i64 %43, -144
+  %166 = load i64, ptr %4, align 8, !tbaa !11
+  %167 = add i64 %166, 1
+  store i64 %167, ptr %4, align 8, !tbaa !11
+  %168 = load i64, ptr %161, align 8, !tbaa !17
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 24
+  store ptr %164, ptr %169, align 8, !tbaa !13
+  %170 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 32
+  store i64 %165, ptr %170, align 8, !tbaa !16
+  %171 = getelementptr inbounds nuw i8, ptr %.0.i5462, i64 48
+  store i64 %166, ptr %171, align 8, !tbaa !55
+  %172 = and i64 %168, -268435456
+  %173 = or disjoint i64 %172, 246460415
+  store i64 %173, ptr %161, align 8, !tbaa !17
+  br label %174
 
-176:                                              ; preds = %base_map.exit.thread, %base_map.exit, %sz_psz2ind.exit
+174:                                              ; preds = %base_map.exit.thread, %base_map.exit, %sz_psz2ind.exit
   %.0 = phi ptr [ %.0.i5462, %sz_psz2ind.exit ], [ null, %base_map.exit ], [ null, %base_map.exit.thread ]
   ret ptr %.0
 }

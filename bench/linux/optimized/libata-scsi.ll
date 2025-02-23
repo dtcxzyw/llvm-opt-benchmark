@@ -1918,7 +1918,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %8 = load i32, ptr %7, align 32
   %9 = and i32 %8, 3
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %180
+  br i1 %10, label %11, label %182
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -2110,7 +2110,7 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %107 = getelementptr inbounds nuw i8, ptr %96, i64 108
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %101, i8 0, i64 24, i1 false)
   store i32 512, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %108 = getelementptr inbounds nuw i8, ptr %95, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %108, i8 0, i64 32, i1 false)
   %109 = load ptr, ptr %1, align 64
   %110 = load ptr, ptr %109, align 64
@@ -2142,109 +2142,111 @@ define dso_local range(i32 0, 4183) i32 @__ata_scsi_queuecmd(ptr noundef %0, ptr
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, 2048
   %130 = icmp eq i32 %129, 0
-  br i1 %130, label %136, label %131
+  br i1 %130, label %138, label %131
 
 131:                                              ; preds = %90
-  store i64 64, ptr %102, align 8
-  br label %136
+  %132 = load i64, ptr %102, align 8
+  %133 = or i64 %132, 64
+  store i64 %133, ptr %102, align 8
+  br label %138
 
 .thread7:                                         ; preds = %75, %87
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %133 = load i32, ptr %132, align 8
-  %134 = and i32 %133, -16711936
-  %135 = or disjoint i32 %134, 40
-  store i32 %135, ptr %132, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %135 = load i32, ptr %134, align 8
+  %136 = and i32 %135, -16711936
+  %137 = or disjoint i32 %136, 40
+  store i32 %137, ptr %134, align 8
   tail call void @scsi_done(ptr noundef %0) #19
-  br label %180
+  br label %182
 
-136:                                              ; preds = %131, %90
-  %137 = icmp eq ptr %96, null
-  br i1 %137, label %180, label %138
+138:                                              ; preds = %131, %90
+  %139 = icmp eq ptr %96, null
+  br i1 %139, label %182, label %140
 
-138:                                              ; preds = %136
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %140 = load i32, ptr %139, align 8
-  %141 = add i32 %140, -1
-  %142 = icmp ult i32 %141, 2
-  br i1 %142, label %143, label %162
+140:                                              ; preds = %138
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %142 = load i32, ptr %141, align 8
+  %143 = add i32 %142, -1
+  %144 = icmp ult i32 %143, 2
+  br i1 %144, label %145, label %164
 
-143:                                              ; preds = %138
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %145 = load i32, ptr %144, align 8
-  %146 = icmp eq i32 %145, 0
-  br i1 %146, label %147, label %158, !prof !20
+145:                                              ; preds = %140
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %147 = load i32, ptr %146, align 8
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %160, !prof !20
 
-147:                                              ; preds = %143
-  %148 = load ptr, ptr %1, align 64
-  %149 = load ptr, ptr %148, align 64
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 36
-  %151 = load i32, ptr %150, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %153 = load i32, ptr %152, align 8
-  %154 = load i32, ptr %114, align 8
-  %155 = add i32 %154, %153
-  %156 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %151, i32 noundef %155) #22
+149:                                              ; preds = %145
+  %150 = load ptr, ptr %1, align 64
+  %151 = load ptr, ptr %150, align 64
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 36
+  %153 = load i32, ptr %152, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %155 = load i32, ptr %154, align 8
+  %156 = load i32, ptr %114, align 8
+  %157 = add i32 %156, %155
+  %158 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %153, i32 noundef %157) #22
   tail call void @ata_qc_free(ptr noundef nonnull %95) #19
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 458752, ptr %157, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 458752, ptr %159, align 8
   tail call void @scsi_done(ptr noundef %0) #19
-  br label %180
+  br label %182
 
-158:                                              ; preds = %143
-  %159 = load ptr, ptr %123, align 8
-  %160 = load i32, ptr %125, align 8
-  tail call void @ata_sg_init(ptr noundef nonnull %95, ptr noundef %159, i32 noundef %160) #19
-  %161 = load i32, ptr %139, align 8
-  store i32 %161, ptr %100, align 8
-  br label %162
+160:                                              ; preds = %145
+  %161 = load ptr, ptr %123, align 8
+  %162 = load i32, ptr %125, align 8
+  tail call void @ata_sg_init(ptr noundef nonnull %95, ptr noundef %161, i32 noundef %162) #19
+  %163 = load i32, ptr %141, align 8
+  store i32 %163, ptr %100, align 8
+  br label %164
 
-162:                                              ; preds = %158, %138
-  %163 = getelementptr inbounds nuw i8, ptr %96, i64 216
-  store ptr @ata_scsi_qc_complete, ptr %163, align 8
-  %164 = tail call i32 %.ph(ptr noundef nonnull %95) #19
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %175
+164:                                              ; preds = %160, %140
+  %165 = getelementptr inbounds nuw i8, ptr %96, i64 216
+  store ptr @ata_scsi_qc_complete, ptr %165, align 8
+  %166 = tail call i32 %.ph(ptr noundef nonnull %95) #19
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %177
 
-166:                                              ; preds = %162
-  %167 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = icmp eq ptr %169, null
-  br i1 %170, label %174, label %171
+168:                                              ; preds = %164
+  %169 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %170 = load ptr, ptr %169, align 8
+  %171 = load ptr, ptr %170, align 8
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %176, label %173
 
-171:                                              ; preds = %166
-  %172 = tail call i32 %169(ptr noundef nonnull %95) #19
-  %173 = icmp eq i32 %172, 0
-  br i1 %173, label %174, label %176
+173:                                              ; preds = %168
+  %174 = tail call i32 %171(ptr noundef nonnull %95) #19
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %178
 
-174:                                              ; preds = %171, %166
+176:                                              ; preds = %173, %168
   tail call void @ata_qc_issue(ptr noundef nonnull %95) #19
-  br label %180
+  br label %182
 
-175:                                              ; preds = %162
+177:                                              ; preds = %164
   tail call void @ata_qc_free(ptr noundef nonnull %95) #19
   tail call void @scsi_done(ptr noundef %0) #19
-  br label %180
+  br label %182
 
-176:                                              ; preds = %171
+178:                                              ; preds = %173
   tail call void @ata_qc_free(ptr noundef nonnull %95) #19
-  %177 = icmp eq i32 %172, 1
-  %178 = select i1 %177, i32 4182, i32 4181
-  br label %180
+  %179 = icmp eq i32 %174, 1
+  %180 = select i1 %179, i32 4182, i32 4181
+  br label %182
 
 ata_get_xlat_func.exit:                           ; preds = %69, %56, %44
   tail call void @ata_scsi_simulate(ptr noundef %1, ptr noundef %0)
-  br label %180
+  br label %182
 
 .thread5:                                         ; preds = %35, %28, %42, %18, %11
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i32 458752, ptr %179, align 8
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i32 458752, ptr %181, align 8
   tail call void @scsi_done(ptr noundef %0) #19
-  br label %180
+  br label %182
 
-180:                                              ; preds = %.thread7, %.thread5, %ata_get_xlat_func.exit, %176, %175, %174, %147, %136, %2
-  %181 = phi i32 [ 0, %.thread5 ], [ 0, %ata_get_xlat_func.exit ], [ 4182, %2 ], [ 0, %175 ], [ 0, %174 ], [ 0, %136 ], [ 0, %147 ], [ %178, %176 ], [ 0, %.thread7 ]
-  ret i32 %181
+182:                                              ; preds = %.thread7, %.thread5, %ata_get_xlat_func.exit, %178, %177, %176, %149, %138, %2
+  %183 = phi i32 [ 0, %.thread5 ], [ 0, %ata_get_xlat_func.exit ], [ 4182, %2 ], [ 0, %177 ], [ 0, %176 ], [ 0, %138 ], [ 0, %149 ], [ %180, %178 ], [ 0, %.thread7 ]
+  ret i32 %183
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

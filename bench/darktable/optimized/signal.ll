@@ -192,7 +192,7 @@ _signal_raise.exit:                               ; preds = %9
   %14 = load ptr, ptr %4, align 8, !tbaa !34
   tail call void @free(ptr noundef %14) #11
   tail call void @free(ptr noundef nonnull %4) #11
-  tail call void @g_cond_signal(ptr noundef %0) #11
+  tail call void @g_cond_signal(ptr noundef nonnull %0) #11
   tail call void @g_mutex_unlock(ptr noundef nonnull %2) #11
   ret i32 0
 }

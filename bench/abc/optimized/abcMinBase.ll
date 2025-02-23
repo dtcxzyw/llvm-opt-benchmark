@@ -2644,8 +2644,8 @@ Abc_NodeCollapse1.exit108.us:                     ; preds = %.critedge.i101.us, 
 .critedge.i:                                      ; preds = %.lr.ph.i96, %117
   %124 = getelementptr inbounds nuw i8, ptr %119, i64 56
   store ptr %115, ptr %124, align 8, !tbaa !38
-  tail call void @Abc_ObjTransferFanout(ptr noundef %111, ptr noundef %119) #15
-  tail call void @Abc_NtkDeleteObj_rec(ptr noundef %111, i32 noundef 1) #15
+  tail call void @Abc_ObjTransferFanout(ptr noundef nonnull %111, ptr noundef %119) #15
+  tail call void @Abc_NtkDeleteObj_rec(ptr noundef nonnull %111, i32 noundef 1) #15
   br label %Abc_NodeCollapse1.exit
 
 Abc_NodeCollapse1.exit:                           ; preds = %.lr.ph122.split, %.critedge.i
@@ -3225,8 +3225,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge.thread, %
   %162 = getelementptr inbounds nuw i8, ptr %157, i64 56
   store ptr %153, ptr %162, align 8, !tbaa !38
   %163 = tail call i32 @Abc_NodeMinimumBase(ptr noundef %157)
-  tail call void @Abc_ObjTransferFanout(ptr noundef %149, ptr noundef %157) #15
-  tail call void @Abc_NtkDeleteObj_rec(ptr noundef %149, i32 noundef 1) #15
+  tail call void @Abc_ObjTransferFanout(ptr noundef nonnull %149, ptr noundef %157) #15
+  tail call void @Abc_NtkDeleteObj_rec(ptr noundef nonnull %149, i32 noundef 1) #15
   br label %Abc_NodeCollapse.exit
 
 Abc_NodeCollapse.exit:                            ; preds = %147, %.critedge.i

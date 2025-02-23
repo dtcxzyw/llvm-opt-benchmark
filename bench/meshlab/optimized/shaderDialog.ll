@@ -2109,7 +2109,7 @@ _ZN7QStringD2Ev.exit366:                          ; preds = %_ZN7QStringD2Ev.exi
 
 .loopexit788:                                     ; preds = %337, %172, %332, %_ZN15UniformVariable13getVarsNumberEi.exit
   %477 = add nuw nsw i32 %.0148928, 1
-  %478 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0750.0927) #26
+  %478 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0750.0927) #26
   %479 = load ptr, ptr %113, align 8
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 24
   %.not782 = icmp eq ptr %478, %480
@@ -3658,7 +3658,7 @@ _ZN7QStringD2Ev.exit618:                          ; preds = %_ZN7QStringD2Ev.exi
           to label %936 unwind label %.loopexit
 
 936:                                              ; preds = %935
-  %937 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0688.0936) #26
+  %937 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0688.0936) #26
   %938 = load ptr, ptr %113, align 8
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 72
   %.not784 = icmp eq ptr %937, %939

@@ -2734,22 +2734,22 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.thread, label %.preheader6
+  br i1 %27, label %.loopexit6, label %.preheader5
 
-.preheader6:                                      ; preds = %24, %.thread5
-  %28 = phi ptr [ %34, %.thread5 ], [ %26, %24 ]
-  %29 = phi i64 [ %32, %.thread5 ], [ 0, %24 ]
+.preheader5:                                      ; preds = %24, %65
+  %28 = phi ptr [ %34, %65 ], [ %26, %24 ]
+  %29 = phi i64 [ %32, %65 ], [ 0, %24 ]
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %29
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = icmp ugt i64 %32, %4
-  br i1 %35, label %.thread, label %36
+  br i1 %35, label %.loopexit6, label %36
 
-36:                                               ; preds = %.preheader6
+36:                                               ; preds = %.preheader5
   %37 = icmp ult i64 %29, %1
-  br i1 %37, label %.thread5, label %38
+  br i1 %37, label %65, label %38
 
 38:                                               ; preds = %36
   %39 = tail call i32 @__SCT__might_resched() #13
@@ -2799,35 +2799,35 @@ define dso_local void @block_invalidate_folio(ptr noundef %0, i64 noundef %1, i6
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !16
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %28, i32 -5, ptr elementtype(i8) %28) #13, !srcloc !17
   tail call void @wake_up_bit(ptr noundef %28, i32 noundef 2) #13
-  br label %.thread5
+  br label %65
 
-.thread5:                                         ; preds = %.loopexit, %36
-  %65 = icmp eq ptr %34, %26
-  br i1 %65, label %66, label %.preheader6, !llvm.loop !114
+65:                                               ; preds = %.loopexit, %36
+  %66 = icmp eq ptr %34, %26
+  br i1 %66, label %67, label %.preheader5, !llvm.loop !114
 
-66:                                               ; preds = %.thread5
-  %67 = load volatile i64, ptr %0, align 8
-  %68 = and i64 %67, 64
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %74, label %70
+67:                                               ; preds = %65
+  %68 = load volatile i64, ptr %0, align 8
+  %69 = and i64 %68, 64
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %75, label %71
 
-70:                                               ; preds = %66
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %72 = load i64, ptr %71, align 16
-  %73 = and i64 %72, 255
-  br label %74
+71:                                               ; preds = %67
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %73 = load i64, ptr %72, align 16
+  %74 = and i64 %73, 255
+  br label %75
 
-74:                                               ; preds = %70, %66
-  %75 = phi i64 [ %73, %70 ], [ 0, %66 ]
-  %76 = shl i64 4096, %75
-  %77 = icmp eq i64 %76, %2
-  br i1 %77, label %78, label %.thread
+75:                                               ; preds = %71, %67
+  %76 = phi i64 [ %74, %71 ], [ 0, %67 ]
+  %77 = shl i64 4096, %76
+  %78 = icmp eq i64 %77, %2
+  br i1 %78, label %79, label %.loopexit6
 
-78:                                               ; preds = %74
-  %79 = tail call zeroext i1 @filemap_release_folio(ptr noundef %0, i32 noundef 0) #13
-  br label %.thread
+79:                                               ; preds = %75
+  %80 = tail call zeroext i1 @filemap_release_folio(ptr noundef %0, i32 noundef 0) #13
+  br label %.loopexit6
 
-.thread:                                          ; preds = %.preheader6, %78, %74, %24
+.loopexit6:                                       ; preds = %.preheader5, %79, %75, %24
   ret void
 }
 

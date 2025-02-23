@@ -7585,7 +7585,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZNSt8_Rb_treeIN4llvh9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit
 
 _ZNSt8_Rb_treeIN4llvh9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit: ; preds = %if.then10.i.i.i, %while.end.i.i.i, %if.then28.i.i.i, %if.else.i.i.i, %if.else37.i.i.i, %if.end.i.i
-  %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.else37.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.then10.i.i.i ]
+  %call5.i.i.i.i.sink.i.i = phi ptr [ %call5.i.i.i.i.i.i, %if.end.i.i ], [ %0, %if.then10.i.i.i ], [ %0, %while.end.i.i.i ], [ %0, %if.then28.i.i.i ], [ %0, %if.else.i.i.i ], [ %0, %if.else37.i.i.i ]
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__x, i64 32
   %_M_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.sink.i.i, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i, i64 24, i1 false)
@@ -7672,7 +7672,7 @@ if.end.i.i49:                                     ; preds = %while.body
   br label %_ZNSt8_Rb_treeIN4llvh9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit51
 
 _ZNSt8_Rb_treeIN4llvh9StringRefESt4pairIKS1_jESt10_Select1stIS4_ESt4lessIS1_ESaIS4_EE13_M_clone_nodeILb0ENSA_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS4_ESF_RT0_.exit51: ; preds = %if.then10.i.i.i37, %while.end.i.i.i44, %if.then28.i.i.i47, %if.else.i.i.i31, %if.else37.i.i.i48, %if.end.i.i49
-  %call5.i.i.i.i.sink.i.i33 = phi ptr [ %call5.i.i.i.i.i.i50, %if.end.i.i49 ], [ %9, %if.then28.i.i.i47 ], [ %9, %while.end.i.i.i44 ], [ %9, %if.else37.i.i.i48 ], [ %9, %if.else.i.i.i31 ], [ %9, %if.then10.i.i.i37 ]
+  %call5.i.i.i.i.sink.i.i33 = phi ptr [ %call5.i.i.i.i.i.i50, %if.end.i.i49 ], [ %9, %if.then10.i.i.i37 ], [ %9, %while.end.i.i.i44 ], [ %9, %if.then28.i.i.i47 ], [ %9, %if.else.i.i.i31 ], [ %9, %if.else37.i.i.i48 ]
   %_M_storage.i.i34 = getelementptr inbounds nuw i8, ptr %__x.addr.058, i64 32
   %_M_storage.i.i.i.i.i35 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.sink.i.i33, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i.i.i.i35, ptr noundef nonnull align 8 dereferenceable(24) %_M_storage.i.i34, i64 24, i1 false)

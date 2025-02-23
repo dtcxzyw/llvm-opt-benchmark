@@ -983,7 +983,7 @@ for.cond.i:                                       ; preds = %for.cond.i.preheade
 
 for.end.i:                                        ; preds = %for.cond.i
   %28 = load ptr, ptr %limit.i.i, align 8
-  %cmp3.i = icmp ult i32 %c.0, 65536
+  %cmp3.i = icmp samesign ult i32 %c.0, 65536
   %cond.i = select i1 %cmp3.i, i64 1, i64 2
   %add.ptr.i41 = getelementptr inbounds nuw i16, ptr %28, i64 %cond.i
   store ptr %add.ptr.i41, ptr %limit.i.i, align 8
@@ -1001,17 +1001,16 @@ do.body.i:                                        ; preds = %do.body.i, %for.end
   br i1 %cmp6.not.i, label %do.end.i, label %do.body.i, !llvm.loop !8
 
 do.end.i:                                         ; preds = %do.body.i
-  %cmp.i7.i = icmp slt i32 %c.0, 65536
-  br i1 %cmp.i7.i, label %if.then.i8.i, label %if.else.i.i
+  br i1 %cmp3.i, label %if.then.i8.i, label %if.else.i.i
 
 if.then.i8.i:                                     ; preds = %do.end.i
-  %conv.i.i = trunc i32 %c.0 to i16
+  %conv.i.i = trunc nuw i32 %c.0 to i16
   br label %_ZN6icu_7516ReorderingBuffer14writeCodePointEPDsi.exit.i
 
 if.else.i.i:                                      ; preds = %do.end.i
   %shr.i.i = lshr i32 %c.0, 10
   %31 = trunc i32 %shr.i.i to i16
-  %conv1.i.i = add i16 %31, -10304
+  %conv1.i.i = add nsw i16 %31, -10304
   %32 = trunc i32 %c.0 to i16
   %33 = and i16 %32, 1023
   %conv2.i.i = or disjoint i16 %33, -9216

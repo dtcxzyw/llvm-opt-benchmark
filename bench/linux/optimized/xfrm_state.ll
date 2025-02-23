@@ -2909,7 +2909,7 @@ define dso_local ptr @xfrm_state_find(ptr noundef readonly captures(none) %0, pt
   %649 = phi i32 [ %654, %.preheader95 ], [ -22, %636 ]
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 24
   %651 = load ptr, ptr %650, align 8
-  %652 = call i32 %651(ptr noundef %492, ptr noundef %3, ptr noundef %4) #15
+  %652 = call i32 %651(ptr noundef nonnull %492, ptr noundef %3, ptr noundef %4) #15
   %653 = icmp eq i32 %652, 0
   %654 = select i1 %653, i32 0, i32 %649
   %655 = load volatile ptr, ptr %648, align 8

@@ -615,7 +615,7 @@ _ZNK4llvm7DagInit13getArgNameStrEj.exit:          ; preds = %_ZNK4llvm7DagInit13
   br i1 %.not129, label %276, label %273
 
 273:                                              ; preds = %_ZNK4llvm7DagInit13getArgNameStrEj.exit
-  %274 = getelementptr inbounds nuw i8, ptr %spec.select.i.i184, i64 32
+  %274 = getelementptr inbounds nuw i8, ptr %.0116, i64 32
   %275 = load ptr, ptr %274, align 8, !tbaa !23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %275, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !tbaa !32

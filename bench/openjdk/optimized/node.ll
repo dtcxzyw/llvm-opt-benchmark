@@ -6837,7 +6837,7 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %38, %36
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %53 = getelementptr inbounds nuw i8, ptr %..i, i64 2408
-  %54 = getelementptr inbounds nuw i8, ptr %..i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %55
 
 55:                                               ; preds = %.loopexit.i, %_ZN9Node_List4pushEP4Node.exit.i

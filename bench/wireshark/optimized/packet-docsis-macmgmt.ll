@@ -4099,12 +4099,12 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %29 = add i32 %27, %28
   %30 = call fastcc ptr @dissect_multipart(ptr noundef %0, ptr noundef %1, ptr noundef %13, i32 noundef 5, i32 noundef %29, i32 noundef 3)
   %.not20 = icmp eq ptr %30, null
-  br i1 %.not20, label %183, label %31
+  br i1 %.not20, label %182, label %31
 
 31:                                               ; preds = %25
   %32 = call i32 @tvb_captured_length(ptr noundef nonnull %30)
   %.not21 = icmp eq i32 %32, 0
-  br i1 %.not21, label %183, label %33
+  br i1 %.not21, label %182, label %33
 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #6
@@ -4113,8 +4113,8 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %35 = icmp sgt i32 %34, 0
   br i1 %35, label %.lr.ph.i, label %dissect_rngrsp_tlv.exit
 
-.lr.ph.i:                                         ; preds = %33, %178
-  %.088.i = phi i32 [ %180, %178 ], [ 0, %33 ]
+.lr.ph.i:                                         ; preds = %33, %177
+  %.088.i = phi i32 [ %179, %177 ], [ 0, %33 ]
   %36 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %30, i32 noundef %.088.i)
   %37 = load i32, ptr @ett_docsis_rngrsptlv, align 4
   %38 = zext i8 %36 to i32
@@ -4137,7 +4137,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %51 = load i32, ptr %7, align 4
   %52 = add i32 %51, 2
   call void @proto_item_set_len(ptr noundef %50, i32 noundef %52)
-  switch i8 %36, label %174 [
+  switch i8 %36, label %173 [
     i8 1, label %53
     i8 2, label %59
     i8 3, label %65
@@ -4157,32 +4157,32 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 53:                                               ; preds = %.lr.ph.i
   %54 = load i32, ptr %7, align 4
   %55 = icmp eq i32 %54, 4
-  br i1 %55, label %56, label %178
+  br i1 %55, label %56, label %177
 
 56:                                               ; preds = %53
   %57 = load i32, ptr @hf_docsis_rngrsp_timing_adj, align 4
   %58 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %57, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 4, i32 noundef 0)
-  br label %178
+  br label %177
 
 59:                                               ; preds = %.lr.ph.i
   %60 = load i32, ptr %7, align 4
   %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %178
+  br i1 %61, label %62, label %177
 
 62:                                               ; preds = %59
   %63 = load i32, ptr @hf_docsis_rngrsp_power_adj, align 4
   %64 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %63, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 1, i32 noundef 0)
-  br label %178
+  br label %177
 
 65:                                               ; preds = %.lr.ph.i
   %66 = load i32, ptr %7, align 4
   %67 = icmp eq i32 %66, 2
-  br i1 %67, label %68, label %178
+  br i1 %67, label %68, label %177
 
 68:                                               ; preds = %65
   %69 = load i32, ptr @hf_docsis_rngrsp_freq_adj, align 4
   %70 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %69, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 2, i32 noundef 0)
-  br label %178
+  br label %177
 
 71:                                               ; preds = %.lr.ph.i
   %72 = load i32, ptr @hf_docsis_rngrsp_xmit_eq_adj, align 4
@@ -4191,37 +4191,37 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %75 = load i32, ptr %7, align 4
   %76 = trunc i32 %75 to i16
   call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef nonnull %30, ptr noundef %74, i32 noundef %49, i16 noundef zeroext %76)
-  br label %178
+  br label %177
 
 77:                                               ; preds = %.lr.ph.i
   %78 = load i32, ptr %7, align 4
   %79 = icmp eq i32 %78, 1
-  br i1 %79, label %80, label %178
+  br i1 %79, label %80, label %177
 
 80:                                               ; preds = %77
   %81 = load i32, ptr @hf_docsis_rngrsp_ranging_status, align 4
   %82 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %81, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 1, i32 noundef 0)
-  br label %178
+  br label %177
 
 83:                                               ; preds = %.lr.ph.i
   %84 = load i32, ptr %7, align 4
   %85 = icmp eq i32 %84, 4
-  br i1 %85, label %86, label %178
+  br i1 %85, label %86, label %177
 
 86:                                               ; preds = %83
   %87 = load i32, ptr @hf_docsis_rngrsp_down_freq_over, align 4
   %88 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %87, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 4, i32 noundef 0)
-  br label %178
+  br label %177
 
 89:                                               ; preds = %.lr.ph.i
   %90 = load i32, ptr %7, align 4
   %91 = icmp eq i32 %90, 1
-  br i1 %91, label %92, label %178
+  br i1 %91, label %92, label %177
 
 92:                                               ; preds = %89
   %93 = load i32, ptr @hf_docsis_rngrsp_upstream_ch_over, align 4
   %94 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %93, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 1, i32 noundef 0)
-  br label %178
+  br label %177
 
 95:                                               ; preds = %.lr.ph.i
   %96 = load i32, ptr @hf_docsis_rngrsp_xmit_eq_set, align 4
@@ -4230,7 +4230,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %99 = load i32, ptr %7, align 4
   %100 = trunc i32 %99 to i16
   call fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdma_tdma(ptr noundef nonnull %30, ptr noundef %98, i32 noundef %49, i16 noundef zeroext %100)
-  br label %178
+  br label %177
 
 101:                                              ; preds = %.lr.ph.i
   %102 = load i32, ptr %7, align 4
@@ -4240,12 +4240,12 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 104:                                              ; preds = %101
   %105 = load i32, ptr @hf_docsis_rngrsp_rngrsp_t4_timeout_multiplier, align 4
   %106 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %105, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 1, i32 noundef 0)
-  br label %178
+  br label %177
 
 107:                                              ; preds = %101
   %108 = load ptr, ptr %6, align 8
   %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %108, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2141, i32 noundef %102)
-  br label %178
+  br label %177
 
 110:                                              ; preds = %.lr.ph.i
   %111 = load i32, ptr %7, align 4
@@ -4255,24 +4255,24 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
 113:                                              ; preds = %110
   %114 = load i32, ptr @hf_docsis_rngrsp_dynamic_range_window_upper_edge, align 4
   %115 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %114, ptr noundef nonnull %30, i32 noundef %49, i32 noundef 1, i32 noundef 0)
-  br label %178
+  br label %177
 
 116:                                              ; preds = %110
   %117 = load ptr, ptr %6, align 8
   %118 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %117, ptr noundef nonnull @ei_docsis_mgmt_tlvlen_bad, ptr noundef nonnull @.str.2141, i32 noundef %111)
-  br label %178
+  br label %177
 
 119:                                              ; preds = %.lr.ph.i
   %120 = load i32, ptr %7, align 4
   %121 = trunc i32 %120 to i16
   call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef nonnull %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %121)
-  br label %178
+  br label %177
 
 122:                                              ; preds = %.lr.ph.i
   %123 = load i32, ptr %7, align 4
   %124 = trunc i32 %123 to i16
   call fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdma(ptr noundef nonnull %30, ptr noundef %40, i32 noundef %49, i16 noundef zeroext %124)
-  br label %178
+  br label %177
 
 125:                                              ; preds = %.lr.ph.i, %.lr.ph.i
   %126 = load i32, ptr %7, align 4
@@ -4290,8 +4290,8 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %136, label %.lr.ph43.i.i, label %dissect_rngrsp_commanded_power.exit.i
 
 .lr.ph43.i.i:                                     ; preds = %125, %.loopexit.i.i
-  %137 = phi i32 [ %172, %.loopexit.i.i ], [ %135, %125 ]
-  %.0.in42.i.i = phi i32 [ %171, %.loopexit.i.i ], [ %49, %125 ]
+  %137 = phi i32 [ %171, %.loopexit.i.i ], [ %135, %125 ]
+  %.0.in42.i.i = phi i32 [ %170, %.loopexit.i.i ], [ %49, %125 ]
   %.0.i.i = trunc i32 %.0.in42.i.i to i16
   %138 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %30, i32 noundef %137)
   %139 = load i32, ptr @ett_docsis_rngrsp_tlv_commanded_power_subtlv, align 4
@@ -4331,7 +4331,7 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %159
 
 159:                                              ; preds = %159, %.lr.ph.i.i
-  %160 = phi i32 [ 0, %.lr.ph.i.i ], [ %167, %159 ]
+  %160 = phi i32 [ 0, %.lr.ph.i.i ], [ %166, %159 ]
   %161 = load i32, ptr @hf_docsis_rngrsp_commanded_power_ucid, align 4
   %162 = add nuw nsw i32 %160, %158
   %163 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %161, ptr noundef nonnull %30, i32 noundef %162, i32 noundef 1, i32 noundef 0)
@@ -4339,45 +4339,44 @@ define internal i32 @dissect_rngrsp(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.reass.i.i = add nuw nsw i32 %invariant.op.i.i, %160
   %165 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %164, ptr noundef nonnull %30, i32 noundef %.reass.i.i, i32 noundef 2, i32 noundef 0)
   %166 = add nuw nsw i32 %160, 3
-  %167 = and i32 %166, 65535
-  %168 = icmp samesign ult i32 %167, %154
-  br i1 %168, label %159, label %.loopexit.i.i, !llvm.loop !8
+  %167 = icmp samesign ult i32 %166, %154
+  br i1 %167, label %159, label %.loopexit.i.i, !llvm.loop !8
 
 .loopexit.i.i:                                    ; preds = %159, %153, %149, %147, %.lr.ph43.i.i
-  %169 = zext i8 %145 to i32
-  %170 = zext i16 %146 to i32
-  %171 = add nuw nsw i32 %169, %170
-  %172 = and i32 %171, 65535
-  %173 = icmp ult i32 %172, %134
-  br i1 %173, label %.lr.ph43.i.i, label %dissect_rngrsp_commanded_power.exit.i, !llvm.loop !9
+  %168 = zext i8 %145 to i32
+  %169 = zext i16 %146 to i32
+  %170 = add nuw nsw i32 %168, %169
+  %171 = and i32 %170, 65535
+  %172 = icmp ult i32 %171, %134
+  br i1 %172, label %.lr.ph43.i.i, label %dissect_rngrsp_commanded_power.exit.i, !llvm.loop !9
 
 dissect_rngrsp_commanded_power.exit.i:            ; preds = %.loopexit.i.i, %125
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
-  br label %178
+  br label %177
 
-174:                                              ; preds = %.lr.ph.i
-  %175 = load i32, ptr @hf_docsis_rngrsp_tlv_unknown, align 4
-  %176 = load i32, ptr %7, align 4
-  %177 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %175, ptr noundef nonnull %30, i32 noundef %49, i32 noundef %176, i32 noundef 0)
-  br label %178
+173:                                              ; preds = %.lr.ph.i
+  %174 = load i32, ptr @hf_docsis_rngrsp_tlv_unknown, align 4
+  %175 = load i32, ptr %7, align 4
+  %176 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %174, ptr noundef nonnull %30, i32 noundef %49, i32 noundef %175, i32 noundef 0)
+  br label %177
 
-178:                                              ; preds = %174, %dissect_rngrsp_commanded_power.exit.i, %122, %119, %116, %113, %107, %104, %95, %92, %89, %86, %83, %80, %77, %71, %68, %65, %62, %59, %56, %53
-  %179 = load i32, ptr %7, align 4
-  %180 = add i32 %179, %49
-  %181 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %30, i32 noundef %180)
-  %182 = icmp sgt i32 %181, 0
-  br i1 %182, label %.lr.ph.i, label %dissect_rngrsp_tlv.exit, !llvm.loop !10
+177:                                              ; preds = %173, %dissect_rngrsp_commanded_power.exit.i, %122, %119, %116, %113, %107, %104, %95, %92, %89, %86, %83, %80, %77, %71, %68, %65, %62, %59, %56, %53
+  %178 = load i32, ptr %7, align 4
+  %179 = add i32 %178, %49
+  %180 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %30, i32 noundef %179)
+  %181 = icmp sgt i32 %180, 0
+  br i1 %181, label %.lr.ph.i, label %dissect_rngrsp_tlv.exit, !llvm.loop !10
 
-dissect_rngrsp_tlv.exit:                          ; preds = %178, %33
+dissect_rngrsp_tlv.exit:                          ; preds = %177, %33
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #6
-  br label %183
+  br label %182
 
-183:                                              ; preds = %dissect_rngrsp_tlv.exit, %31, %25
-  %184 = call i32 @tvb_captured_length(ptr noundef %0)
+182:                                              ; preds = %dissect_rngrsp_tlv.exit, %31, %25
+  %183 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
-  ret i32 %184
+  ret i32 %183
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

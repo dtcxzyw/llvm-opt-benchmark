@@ -859,7 +859,7 @@ define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %0, ptr
 .loopexit37:                                      ; preds = %.loopexit37.loopexit, %13, %16
   %.val3643 = phi i64 [ %.val, %16 ], [ %.val, %13 ], [ %.val3643.pre, %.loopexit37.loopexit ]
   %.2 = phi i64 [ %17, %16 ], [ %.02850, %13 ], [ %15, %.loopexit37.loopexit ]
-  %.13042 = add i64 %.02949, 1
+  %.13042 = add nuw i64 %.02949, 1
   %.not54 = icmp ult i64 %.val3643, 8589934592
   br i1 %.not54, label %.loopexit, label %.preheader
 

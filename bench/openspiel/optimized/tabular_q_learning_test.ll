@@ -4890,7 +4890,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %89 = mul i64 %7, 48
   %90 = add i64 %88, %89
   %91 = and i64 %90, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %91) #21
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %91) #21
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEE16initialize_slotsEv.exit, %._crit_edge

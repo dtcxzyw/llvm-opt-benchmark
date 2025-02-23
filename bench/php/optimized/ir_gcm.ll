@@ -721,7 +721,7 @@ ir_gcm_find_lca.exit:                             ; preds = %.lr.ph8.i, %.prehea
   %.3 = phi i32 [ %.2142, %.lr.ph ], [ %57, %53 ], [ %.020.lcssa.i, %.preheader.i ], [ %83, %.lr.ph8.i ]
   %87 = getelementptr inbounds nuw i8, ptr %.083143, i64 4
   %88 = getelementptr inbounds nuw i8, ptr %.082144, i64 4
-  %89 = icmp sgt i32 %.081145.in, 2
+  %89 = icmp samesign ugt i32 %.081145.in, 2
   br i1 %89, label %.lr.ph, label %ir_gcm_find_lca.exit106
 
 90:                                               ; preds = %36, %31

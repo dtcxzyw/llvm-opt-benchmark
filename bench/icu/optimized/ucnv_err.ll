@@ -547,7 +547,7 @@ if.end243:                                        ; preds = %while.body74, %whil
   store i32 0, ptr %err, align 4
   %idx.ext245 = sext i32 %valueStringLength.1 to i64
   %add.ptr246 = getelementptr inbounds i16, ptr %valueString, i64 %idx.ext245
-  call void @ucnv_cbFromUWriteUChars_75(ptr noundef %fromArgs, ptr noundef nonnull %myValueSource, ptr noundef nonnull %add.ptr246, i32 noundef 0, ptr noundef nonnull %err)
+  call void @ucnv_cbFromUWriteUChars_75(ptr noundef nonnull %fromArgs, ptr noundef nonnull %myValueSource, ptr noundef nonnull %add.ptr246, i32 noundef 0, ptr noundef nonnull %err)
   %15 = load ptr, ptr %converter, align 8
   %16 = load ptr, ptr %original, align 8
   %17 = load ptr, ptr %originalContext, align 8

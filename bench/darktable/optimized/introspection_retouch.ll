@@ -525,7 +525,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
   call void @gtk_color_chooser_set_rgba(ptr noundef %64, ptr noundef nonnull %4) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
-  call void @dt_dev_add_history_item(ptr noundef %65, ptr noundef %0, i32 noundef 1) #26
+  call void @dt_dev_add_history_item(ptr noundef %65, ptr noundef nonnull %0, i32 noundef 1) #26
   br label %66
 
 66:                                               ; preds = %24, %rt_get_selected_shape_index.exit.thread
@@ -3748,7 +3748,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
   %78 = icmp eq i32 %77, 4
   %79 = zext i1 %78 to i32
   tail call void @gtk_toggle_button_set_active(ptr noundef %76, i32 noundef %79) #26
-  tail call fastcc void @rt_show_hide_controls(ptr noundef %2)
+  tail call fastcc void @rt_show_hide_controls(ptr noundef nonnull %2)
   br i1 %.not87107, label %80, label %85
 
 80:                                               ; preds = %.thread99
@@ -3799,7 +3799,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
   br i1 %107, label %108, label %136
 
 108:                                              ; preds = %104
-  tail call void @dt_iop_request_focus(ptr noundef %2) #26
+  tail call void @dt_iop_request_focus(ptr noundef nonnull %2) #26
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %110 = load ptr, ptr %109, align 8, !tbaa !203
   %111 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef %57) #26
@@ -3859,7 +3859,7 @@ rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.
   %140 = add nsw i32 %139, -1
   store i32 %140, ptr %138, align 8, !tbaa !132
   %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
-  tail call void @dt_dev_add_history_item(ptr noundef %141, ptr noundef %2, i32 noundef 1) #26
+  tail call void @dt_dev_add_history_item(ptr noundef %141, ptr noundef nonnull %2, i32 noundef 1) #26
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %143 = load i32, ptr %142, align 8, !tbaa !275
   %144 = tail call i32 @gtk_accelerator_get_default_mod_mask() #26
@@ -5093,7 +5093,7 @@ define internal void @rt_gslider_changed(ptr noundef %0, ptr noundef %1) #1 {
 
 11:                                               ; preds = %13
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
-  call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef %1, i32 noundef 1) #26
+  call void @dt_dev_add_history_item(ptr noundef %12, ptr noundef nonnull %1, i32 noundef 1) #26
   br label %18
 
 13:                                               ; preds = %9, %13
@@ -5253,7 +5253,7 @@ rt_get_selected_shape_index.exit:                 ; preds = %.loopexit.loopexit.
   br label %rt_get_selected_shape_index.exit.thread
 
 rt_get_selected_shape_index.exit.thread:          ; preds = %.loopexit.loopexit.i.i, %7, %rt_get_selected_shape_index.exit, %43
-  call void @dt_dev_add_history_item(ptr noundef %30, ptr noundef %1, i32 noundef 1) #26
+  call void @dt_dev_add_history_item(ptr noundef nonnull %30, ptr noundef nonnull %1, i32 noundef 1) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #26
   br label %47
 
@@ -5383,7 +5383,7 @@ define internal void @rt_develop_ui_pipe_finished_callback(ptr readnone captures
 
 17:                                               ; preds = %20
   %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !61
-  tail call void @dt_dev_add_history_item(ptr noundef %18, ptr noundef %1, i32 noundef 1) #26
+  tail call void @dt_dev_add_history_item(ptr noundef %18, ptr noundef nonnull %1, i32 noundef 1) #26
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %8) #26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   br label %35
@@ -6415,7 +6415,7 @@ define void @process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not126, label %134, label %121
 
 121:                                              ; preds = %116
-  %122 = call i32 @dt_iop_has_focus(ptr noundef %0) #26
+  %122 = call i32 @dt_iop_has_focus(ptr noundef nonnull %0) #26
   %.not127 = icmp eq i32 %122, 0
   br i1 %.not127, label %130, label %123
 
@@ -9194,7 +9194,7 @@ rt_copy_in_to_out.exit37.loopexit:                ; preds = %74
 rt_copy_in_to_out.exit37:                         ; preds = %28, %rt_copy_in_to_out.exit37.loopexit, %rt_copy_in_to_out.exit
   %86 = phi i32 [ %.pre54, %rt_copy_in_to_out.exit37.loopexit ], [ %.pre51, %rt_copy_in_to_out.exit ], [ %34, %28 ]
   %87 = phi i32 [ %.pre53, %rt_copy_in_to_out.exit37.loopexit ], [ %.pre, %rt_copy_in_to_out.exit ], [ %29, %28 ]
-  tail call void @dt_heal(ptr noundef %17, ptr noundef %24, ptr noundef nonnull %2, i32 noundef %87, i32 noundef %86, i32 noundef 4, i32 noundef %7) #26
+  tail call void @dt_heal(ptr noundef nonnull %17, ptr noundef nonnull %24, ptr noundef nonnull %2, i32 noundef %87, i32 noundef %86, i32 noundef 4, i32 noundef %7) #26
   %88 = load i32, ptr %12, align 4, !tbaa !294
   %89 = icmp sgt i32 %88, 0
   br i1 %89, label %.lr.ph44.i, label %rt_copy_image_masked.exit

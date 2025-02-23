@@ -193,7 +193,7 @@ define void @Sbc_ManAddInternalToPath(ptr noundef %0, ptr noundef readonly captu
   br i1 %41, label %30, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %30, %22
-  %42 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %14, ptr noundef %1)
+  %42 = tail call i32 @Sbc_ManAddInternalToPath_rec(ptr noundef nonnull %0, i32 noundef %14, ptr noundef nonnull %1)
   %.val25.pre = load i32, ptr %3, align 8, !tbaa !37
   br label %43
 

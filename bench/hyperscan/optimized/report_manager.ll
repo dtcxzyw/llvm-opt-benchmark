@@ -2024,7 +2024,7 @@ if.end13.sink.split:                              ; preds = %call5.i.i.i.i.i.i.i
 
 if.end13:                                         ; preds = %if.end13.sink.split, %if.end12.i.i.i.i, %if.else, %if.end12.i.i.i, %if.then
   %23 = phi i64 [ %2, %if.end12.i.i.i ], [ %2, %if.end12.i.i.i.i ], [ 0, %if.else ], [ %2, %if.then ], [ %inc.i.i.i.sink, %if.end13.sink.split ]
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.047) #25
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.047) #25
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body, !llvm.loop !45
 }

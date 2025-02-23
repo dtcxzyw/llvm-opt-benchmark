@@ -1518,7 +1518,7 @@ UpdateIndexRelation.exit:                         ; preds = %516, %519
   %608 = trunc i64 %indvars.iv.next337 to i16
   %609 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv336
   %610 = load i64, ptr %609, align 8
-  %611 = call ptr @index_opclass_options(ptr noundef %374, i16 noundef signext %608, i64 noundef %610, i1 noundef zeroext true) #11
+  %611 = call ptr @index_opclass_options(ptr noundef nonnull %374, i16 noundef signext %608, i64 noundef %610, i1 noundef zeroext true) #11
   %612 = load i32, ptr %73, align 8
   %613 = sext i32 %612 to i64
   %614 = icmp slt i64 %indvars.iv.next337, %613
@@ -1544,11 +1544,11 @@ UpdateIndexRelation.exit:                         ; preds = %516, %519
   br label %622
 
 621:                                              ; preds = %618
-  call void @index_build(ptr noundef %0, ptr noundef %374, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext true)
+  call void @index_build(ptr noundef %0, ptr noundef nonnull %374, ptr noundef nonnull %6, i1 noundef zeroext false, i1 noundef zeroext true)
   br label %622
 
 622:                                              ; preds = %620, %621, %617
-  call void @index_close(ptr noundef %374, i32 noundef 0) #11
+  call void @index_close(ptr noundef nonnull %374, i32 noundef 0) #11
   br label %623
 
 623:                                              ; preds = %622, %134

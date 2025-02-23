@@ -3102,13 +3102,7 @@ invoke.cont.i.i:                                  ; preds = %if.then5.i
 
 _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %if.then.i, %if.else.i, %if.then5.i, %invoke.cont.i.i
   %cmp1829 = icmp sgt i32 %call4, 0
-  br i1 %cmp1829, label %for.body19.preheader, label %for.end.thread
-
-for.end.thread:                                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %16 = load ptr, ptr %parts, align 8
-  %add.ptr.i2550 = getelementptr inbounds ptr, ptr %16, i64 %i.039
-  %17 = load ptr, ptr %add.ptr.i2550, align 8
-  br label %for.inc46.sink.split
+  br i1 %cmp1829, label %for.body19.preheader, label %for.end
 
 for.body19.preheader:                             ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
   %wide.trip.count = zext nneg i32 %call4 to i64
@@ -3116,33 +3110,39 @@ for.body19.preheader:                             ; preds = %_ZNSt6vectorImSaImE
 
 for.body19:                                       ; preds = %for.body19.preheader, %for.body19
   %indvars.iv = phi i64 [ 0, %for.body19.preheader ], [ %indvars.iv.next, %for.body19 ]
-  %18 = load ptr, ptr %is, align 8
-  %19 = load ptr, ptr %parts, align 8
-  %add.ptr.i19 = getelementptr inbounds ptr, ptr %19, i64 %i.039
-  %20 = load ptr, ptr %add.ptr.i19, align 8
-  %chunkOffsets23 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  %21 = load ptr, ptr %chunkOffsets23, align 8
-  %add.ptr.i20 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv
+  %16 = load ptr, ptr %is, align 8
+  %17 = load ptr, ptr %parts, align 8
+  %add.ptr.i19 = getelementptr inbounds ptr, ptr %17, i64 %i.039
+  %18 = load ptr, ptr %add.ptr.i19, align 8
+  %chunkOffsets23 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  %19 = load ptr, ptr %chunkOffsets23, align 8
+  %add.ptr.i20 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %b.i21)
-  %vtable.i.i.i22 = load ptr, ptr %18, align 8
+  %vtable.i.i.i22 = load ptr, ptr %16, align 8
   %vfn.i.i.i23 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i22, i64 24
-  %22 = load ptr, ptr %vfn.i.i.i23, align 8
-  %call.i.i.i24 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef nonnull %b.i21, i32 noundef 8)
-  %23 = load i64, ptr %b.i21, align 8
-  store i64 %23, ptr %add.ptr.i20, align 8
+  %20 = load ptr, ptr %vfn.i.i.i23, align 8
+  %call.i.i.i24 = call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull %b.i21, i32 noundef 8)
+  %21 = load i64, ptr %b.i21, align 8
+  store i64 %21, ptr %add.ptr.i20, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %b.i21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body19, !llvm.loop !17
+  br i1 %exitcond.not, label %for.body31.lr.ph, label %for.body19, !llvm.loop !17
 
-for.end:                                          ; preds = %for.body19
+for.end:                                          ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
+  %22 = load ptr, ptr %parts, align 8
+  %add.ptr.i25 = getelementptr inbounds ptr, ptr %22, i64 %i.039
+  %23 = load ptr, ptr %add.ptr.i25, align 8
+  br label %for.inc46.sink.split
+
+for.body31.lr.ph:                                 ; preds = %for.body19
   %24 = load ptr, ptr %parts, align 8
-  %add.ptr.i25 = getelementptr inbounds ptr, ptr %24, i64 %i.039
-  %25 = load ptr, ptr %add.ptr.i25, align 8
-  %completed = getelementptr inbounds nuw i8, ptr %25, i64 104
-  store i8 1, ptr %completed, align 8
-  %.pre49 = load ptr, ptr %parts, align 8
-  %add.ptr.i26 = getelementptr inbounds ptr, ptr %.pre49, i64 %i.039
+  %add.ptr.i2550 = getelementptr inbounds ptr, ptr %24, i64 %i.039
+  %25 = load ptr, ptr %add.ptr.i2550, align 8
+  %completed51 = getelementptr inbounds nuw i8, ptr %25, i64 104
+  store i8 1, ptr %completed51, align 8
+  %.pre4952 = load ptr, ptr %parts, align 8
+  %add.ptr.i26 = getelementptr inbounds ptr, ptr %.pre4952, i64 %i.039
   %26 = load ptr, ptr %add.ptr.i26, align 8
   %chunkOffsets34 = getelementptr inbounds nuw i8, ptr %26, i64 80
   %27 = load ptr, ptr %chunkOffsets34, align 8
@@ -3154,24 +3154,24 @@ for.cond29:                                       ; preds = %for.body31
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
   br i1 %exitcond48.not, label %for.inc46, label %for.body31, !llvm.loop !18
 
-for.body31:                                       ; preds = %for.end, %for.cond29
-  %indvars.iv44 = phi i64 [ 0, %for.end ], [ %indvars.iv.next45, %for.cond29 ]
+for.body31:                                       ; preds = %for.body31.lr.ph, %for.cond29
+  %indvars.iv44 = phi i64 [ 0, %for.body31.lr.ph ], [ %indvars.iv.next45, %for.cond29 ]
   %add.ptr.i27 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv44
   %28 = load i64, ptr %add.ptr.i27, align 8
   %cmp37 = icmp eq i64 %28, 0
   br i1 %cmp37, label %for.inc46.sink.split, label %for.cond29
 
-for.inc46.sink.split:                             ; preds = %for.body31, %for.end.thread
-  %.sink55 = phi ptr [ %17, %for.end.thread ], [ %26, %for.body31 ]
-  %.sink = phi i8 [ 1, %for.end.thread ], [ 0, %for.body31 ]
-  %brokenPartsExist.1.ph = phi i1 [ %brokenPartsExist.041, %for.end.thread ], [ true, %for.body31 ]
-  %completed51 = getelementptr inbounds nuw i8, ptr %.sink55, i64 104
-  store i8 %.sink, ptr %completed51, align 8
-  %.pre4952 = load ptr, ptr %parts, align 8
+for.inc46.sink.split:                             ; preds = %for.body31, %for.end
+  %.sink56 = phi ptr [ %23, %for.end ], [ %26, %for.body31 ]
+  %.sink = phi i8 [ 1, %for.end ], [ 0, %for.body31 ]
+  %brokenPartsExist.1.ph = phi i1 [ %brokenPartsExist.041, %for.end ], [ true, %for.body31 ]
+  %completed = getelementptr inbounds nuw i8, ptr %.sink56, i64 104
+  store i8 %.sink, ptr %completed, align 8
+  %.pre49 = load ptr, ptr %parts, align 8
   br label %for.inc46
 
 for.inc46:                                        ; preds = %for.cond29, %for.inc46.sink.split
-  %29 = phi ptr [ %.pre4952, %for.inc46.sink.split ], [ %.pre49, %for.cond29 ]
+  %29 = phi ptr [ %.pre49, %for.inc46.sink.split ], [ %.pre4952, %for.cond29 ]
   %brokenPartsExist.1 = phi i1 [ %brokenPartsExist.1.ph, %for.inc46.sink.split ], [ %brokenPartsExist.041, %for.cond29 ]
   %inc47 = add nuw i64 %i.039, 1
   %30 = load ptr, ptr %_M_finish.i, align 8

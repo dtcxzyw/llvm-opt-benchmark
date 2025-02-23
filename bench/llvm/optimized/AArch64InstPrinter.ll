@@ -25788,7 +25788,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML14isMOVNMovAlias
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %6 = shl i64 65535, %indvars.iv.i
+  %6 = shl nuw i64 65535, %indvars.iv.i
   %7 = xor i64 %6, -1
   %8 = and i64 %0, %7
   %9 = icmp eq i64 %8, 0
@@ -25901,7 +25901,7 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm10AArch64_AML17isAnyMOVWMovAl
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %5 = shl i64 65535, %indvars.iv.i
+  %5 = shl nuw i64 65535, %indvars.iv.i
   %6 = xor i64 %5, -1
   %7 = and i64 %0, %6
   %8 = icmp eq i64 %7, 0
@@ -25923,7 +25923,7 @@ _ZN4llvm10AArch64_AML17isAnyMOVZMovAliasEmi.exit: ; preds = %.lr.ph.i
 
 .lr.ph.i11:                                       ; preds = %9, %.lr.ph.i11
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %.lr.ph.i11 ], [ 0, %9 ]
-  %11 = shl i64 65535, %indvars.iv.i12
+  %11 = shl nuw i64 65535, %indvars.iv.i12
   %12 = or i64 %11, %0
   %13 = icmp eq i64 %12, -1
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 16

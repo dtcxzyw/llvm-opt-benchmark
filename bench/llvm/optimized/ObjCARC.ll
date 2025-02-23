@@ -464,7 +464,6 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm10BasicBloc
   %19 = getelementptr inbounds i8, ptr %17, i64 -24
   %20 = load i8, ptr %19, align 8, !tbaa !25
   %.not = icmp eq i8 %20, 34
-  %spec.select.i.i19 = select i1 %.not, ptr %19, ptr null
   br i1 %.not, label %21, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit.thread
 
 21:                                               ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -534,7 +533,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %38, %_ZNK4llvm8C
   br i1 %.not8.i.i, label %_ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit, label %49
 
 _ZN4llvm7objcarc23hasAttachedCallOpBundleEPKNS_8CallBaseE.exit: ; preds = %.critedge.i.i
-  %58 = getelementptr inbounds i8, ptr %spec.select.i.i19, i64 -96
+  %58 = getelementptr inbounds i8, ptr %17, i64 -120
   %59 = load ptr, ptr %58, align 8, !tbaa !93
   %60 = call noundef ptr @_ZNK4llvm10BasicBlock20getSinglePredecessorEv(ptr noundef nonnull align 8 dereferenceable(80) %59) #14
   %.not18 = icmp eq ptr %60, null

@@ -9027,9 +9027,9 @@ define void @_ZN6LibRaw22minolta_rd175_load_rawEv(ptr noundef nonnull align 8 de
   %92 = shl nuw nsw i16 %91, 1
   %93 = load i16, ptr %5, align 2, !tbaa !98
   %94 = zext i16 %93 to i32
-  %95 = mul i32 %.02840, %94
+  %95 = mul nsw i32 %.02840, %94
   %96 = trunc nuw nsw i64 %indvars.iv to i32
-  %97 = add i32 %95, %96
+  %97 = add nsw i32 %95, %96
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw i16, ptr %84, i64 %98
   store i16 %92, ptr %99, align 2, !tbaa !86
@@ -9068,7 +9068,7 @@ define void @_ZN6LibRaw22quicktake_100_load_rawEv(ptr noundef nonnull align 8 de
   %11 = tail call ptr @__cxa_allocate_exception(i64 4) #13
   store i32 5, ptr %11, align 16, !tbaa !125
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #14
-          to label %316 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %315 unwind label %_ZNSt6vectorIhSaIhEED2Ev.exit.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZNSt6vectorIhSaIhEED2Ev.exit.loopexit:           ; preds = %293
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -9701,31 +9701,30 @@ _ZN6LibRaw10getbithuffEiPt.exit199:               ; preds = %224, %176, %230
   %302 = load i16, ptr %301, align 2, !tbaa !86
   %303 = load i16, ptr %259, align 2, !tbaa !98
   %304 = zext i16 %303 to i64
-  %305 = mul i64 %indvars.iv299, %304
-  %306 = add i64 %305, %indvars.iv296
-  %307 = and i64 %306, 4294967295
-  %308 = getelementptr inbounds nuw i16, ptr %296, i64 %307
-  store i16 %302, ptr %308, align 2, !tbaa !86
+  %305 = mul nuw nsw i64 %indvars.iv299, %304
+  %306 = getelementptr inbounds nuw i16, ptr %296, i64 %305
+  %307 = getelementptr inbounds nuw i16, ptr %306, i64 %indvars.iv296
+  store i16 %302, ptr %307, align 2, !tbaa !86
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
-  %309 = load i16, ptr %3, align 2, !tbaa !148
-  %310 = zext i16 %309 to i64
-  %311 = icmp samesign ult i64 %indvars.iv.next297, %310
-  br i1 %311, label %298, label %._crit_edge271, !llvm.loop !232
+  %308 = load i16, ptr %3, align 2, !tbaa !148
+  %309 = zext i16 %308 to i64
+  %310 = icmp samesign ult i64 %indvars.iv.next297, %309
+  br i1 %310, label %298, label %._crit_edge271, !llvm.loop !232
 
 ._crit_edge271:                                   ; preds = %298, %.preheader
   %indvars.iv.next300 = add nuw nsw i64 %indvars.iv299, 1
-  %312 = load i16, ptr %7, align 4, !tbaa !145
-  %313 = zext i16 %312 to i64
-  %314 = icmp samesign ult i64 %indvars.iv.next300, %313
-  br i1 %314, label %293, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
+  %311 = load i16, ptr %7, align 4, !tbaa !145
+  %312 = zext i16 %311 to i64
+  %313 = icmp samesign ult i64 %indvars.iv.next300, %312
+  br i1 %313, label %293, label %_ZNSt6vectorIhSaIhEED2Ev.exit201, !llvm.loop !233
 
 _ZNSt6vectorIhSaIhEED2Ev.exit201:                 ; preds = %._crit_edge271, %.preheader210, %.preheader209
-  %315 = getelementptr inbounds nuw i8, ptr %0, i64 153000
-  store i32 1023, ptr %315, align 8, !tbaa !96
+  %314 = getelementptr inbounds nuw i8, ptr %0, i64 153000
+  store i32 1023, ptr %314, align 8, !tbaa !96
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 311696) #17
   ret void
 
-316:                                              ; preds = %10
+315:                                              ; preds = %10
   unreachable
 }
 
@@ -11625,7 +11624,7 @@ define void @_ZN6LibRaw17samsung3_load_rawEv(ptr noundef nonnull align 8 derefer
   %51 = mul nsw i32 %48, %50
   %52 = and i32 %.083102, 1
   %53 = shl nuw nsw i32 %52, 1
-  %reass.sub106 = sub i32 %51, %53
+  %reass.sub106 = sub nsw i32 %51, %53
   %54 = add i32 %reass.sub106, 1
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds i16, ptr %47, i64 %55

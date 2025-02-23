@@ -7686,7 +7686,7 @@ session_handle_invalid_connection.exit:           ; preds = %63, %53, %48, %44, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_close_stream_on_goaway(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 1) i32 @session_close_stream_on_goaway(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca %struct.nghttp2_close_stream_on_goaway_arg, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   store ptr %0, ptr %4, align 8, !tbaa !221

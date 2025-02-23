@@ -4875,7 +4875,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit.i42: ; preds = %108
   %122 = shl nuw nsw i64 %121, 3
   %scevgep = getelementptr i8, ptr %117, i64 %122
   %123 = xor i32 %.0.lcssa.i45, -1
-  %124 = add i32 %.0.i.i.i.i.i23, %123
+  %124 = add nsw i32 %.0.i.i.i.i.i23, %123
   %125 = zext i32 %124 to i64
   %126 = shl nuw nsw i64 %125, 3
   %127 = add nuw nsw i64 %126, 8
@@ -5049,7 +5049,7 @@ _ZN19NullCheckEliminator7iterateEP10BlockBegin.exit31: ; preds = %.lr.ph.i.i27, 
   %.sroa.0139.2 = phi i32 [ %.sroa.0139.1188, %98 ], [ %131, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit.i26 ], [ %131, %.lr.ph.i.i27 ]
   %.sroa.19.2 = phi i32 [ %.sroa.19.1190, %98 ], [ %.sroa.19.6, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit.i26 ], [ %.sroa.19.6, %.lr.ph.i.i27 ]
   %.sroa.34.2 = phi ptr [ %.sroa.34.1191, %98 ], [ %.sroa.34.6, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit.i26 ], [ %.sroa.34.6, %.lr.ph.i.i27 ]
-  %205 = icmp sgt i64 %indvars.iv, 1
+  %205 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %205, label %98, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %_ZN19NullCheckEliminator7iterateEP10BlockBegin.exit31, %90
@@ -5123,7 +5123,7 @@ _ZN13GrowableArrayIP10BlockBeginE8allocateEv.exit.i76: ; preds = %224
   %238 = shl nuw nsw i64 %237, 3
   %scevgep210 = getelementptr i8, ptr %233, i64 %238
   %239 = xor i32 %.0.lcssa.i79, -1
-  %240 = add i32 %.0.i.i.i.i.i33, %239
+  %240 = add nsw i32 %.0.i.i.i.i.i33, %239
   %241 = zext i32 %240 to i64
   %242 = shl nuw nsw i64 %241, 3
   %243 = add nuw nsw i64 %242, 8
@@ -5154,7 +5154,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.ex
   %.sroa.0139.4 = phi i32 [ %.sroa.0139.3194, %.lr.ph198 ], [ %247, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit35 ]
   %.sroa.19.4 = phi i32 [ %.sroa.19.3196, %.lr.ph198 ], [ %.sroa.19.7, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit35 ]
   %.sroa.34.4 = phi ptr [ %.sroa.34.3197, %.lr.ph198 ], [ %.sroa.34.7, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit35 ]
-  %251 = icmp sgt i64 %indvars.iv211, 1
+  %251 = icmp samesign ugt i64 %indvars.iv211, 1
   br i1 %251, label %.lr.ph198, label %._crit_edge199, !llvm.loop !29
 
 ._crit_edge199:                                   ; preds = %250, %._crit_edge, %_ZNK8BlockEnd13number_of_suxEv.exit

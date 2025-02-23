@@ -37,7 +37,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %.val33 = load ptr, ptr %19, align 8, !tbaa !21
   %20 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !22
-  %22 = tail call ptr @Ivy_ObjCreatePi(ptr noundef %3) #9
+  %22 = tail call ptr @Ivy_ObjCreatePi(ptr noundef nonnull %3) #9
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, -2
   %25 = inttoptr i64 %24 to ptr
@@ -88,7 +88,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %3, ptr noundef %54, ptr noundef nonnull %36, i32 noundef 0, i32 noundef %1)
+  %55 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef nonnull %3, ptr noundef %54, ptr noundef nonnull %36, i32 noundef 0, i32 noundef %1)
   %56 = trunc i64 %52 to i32
   %57 = xor i32 %55, %56
   %.val36 = load ptr, ptr %44, align 8, !tbaa !31
@@ -103,7 +103,7 @@ define ptr @Ivy_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %65 = zext nneg i32 %63 to i64
   %66 = xor i64 %64, %65
   %67 = inttoptr i64 %66 to ptr
-  %68 = tail call ptr @Ivy_ObjCreatePo(ptr noundef %3, ptr noundef %67) #9
+  %68 = tail call ptr @Ivy_ObjCreatePo(ptr noundef nonnull %3, ptr noundef %67) #9
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %69 = load ptr, ptr %40, align 8, !tbaa !29
   %70 = getelementptr i8, ptr %69, i64 4
@@ -413,7 +413,7 @@ Ivy_NodeBalanceCone.exit:                         ; preds = %.critedge.i
   %108 = ptrtoint ptr %107 to i64
   %109 = and i64 %108, -2
   %110 = inttoptr i64 %109 to ptr
-  %111 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %110, ptr noundef %2, i32 noundef %102, i32 noundef %4)
+  %111 = tail call fastcc i32 @Ivy_NodeBalance_rec(ptr noundef %0, ptr noundef %110, ptr noundef nonnull %2, i32 noundef %102, i32 noundef %4)
   %112 = load ptr, ptr %101, align 8, !tbaa !21
   %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !22

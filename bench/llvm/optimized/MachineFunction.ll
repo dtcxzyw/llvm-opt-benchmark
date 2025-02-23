@@ -4236,7 +4236,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_5ValueElh.exit: ; preds = %9, %18
   br i1 %.not.i19, label %_ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit, label %29
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i18, i64 12
+  %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !595
   br label %_ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit
 

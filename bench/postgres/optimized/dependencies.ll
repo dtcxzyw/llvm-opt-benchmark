@@ -113,9 +113,9 @@ DependencyGenerator_next.exit:                    ; preds = %DependencyGenerator
   store i16 %45, ptr %46, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not.i, label %.lr.ph65.i, label %.lr.ph.i, !llvm.loop !4
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %64
+.lr.ph65.i:                                       ; preds = %.lr.ph.i, %64
   %indvars.iv77.i = phi i64 [ %indvars.iv.next78.i, %64 ], [ 0, %.lr.ph.i ]
   %47 = load ptr, ptr %8, align 8
   %48 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv77.i
@@ -131,7 +131,7 @@ DependencyGenerator_next.exit:                    ; preds = %DependencyGenerator
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %64
 
-59:                                               ; preds = %.preheader.i
+59:                                               ; preds = %.lr.ph65.i
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %61 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
   call void @llvm.assume(i1 %61)
@@ -140,14 +140,14 @@ DependencyGenerator_next.exit:                    ; preds = %DependencyGenerator
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 272, ptr noundef nonnull @__func__.dependency_degree) #8
   unreachable
 
-64:                                               ; preds = %.preheader.i
+64:                                               ; preds = %.lr.ph65.i
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %66 = load i32, ptr %65, align 8
   %67 = trunc nuw nsw i64 %indvars.iv77.i to i32
   call void @multi_sort_add_dimension(ptr noundef %38, i32 noundef %67, i32 noundef %57, i32 noundef %66) #8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %exitcond81.not.i = icmp eq i64 %indvars.iv.next78.i, %wide.trip.count.i
-  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.preheader.i, !llvm.loop !6
+  br i1 %exitcond81.not.i, label %._crit_edge.i, label %.lr.ph65.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %64, %36
   %68 = call ptr @build_sorted_items(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %38, i32 noundef %.03855, ptr noundef %39) #8

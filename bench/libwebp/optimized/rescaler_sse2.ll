@@ -352,7 +352,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 
 .lr.ph125.preheader:                              ; preds = %.preheader
   %24 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count146 = zext i32 %10 to i64
+  %wide.trip.count146 = zext nneg i32 %10 to i64
   br label %.lr.ph125
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
@@ -449,7 +449,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 .lr.ph119:                                        ; preds = %.preheader114
   %85 = zext i32 %75 to i64
   %86 = zext nneg i32 %.2.lcssa to i64
-  %wide.trip.count = zext i32 %10 to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %140
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -600,7 +600,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 .lr.ph128:                                        ; preds = %.preheader123
   %31 = zext i32 %18 to i64
   %32 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %10 to i64
+  %wide.trip.count = zext nneg i32 %10 to i64
   br label %84
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -717,7 +717,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 .lr.ph134:                                        ; preds = %.preheader
   %109 = zext i32 %20 to i64
   %110 = zext nneg i32 %.2.lcssa to i64
-  %wide.trip.count155 = zext i32 %10 to i64
+  %wide.trip.count155 = zext nneg i32 %10 to i64
   br label %138
 
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131

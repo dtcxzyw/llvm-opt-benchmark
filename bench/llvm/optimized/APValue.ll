@@ -2110,9 +2110,9 @@ _ZN5clang7APValue15setVectorUninitEj.exit.thread: ; preds = %3
   store i8 %19, ptr %17, align 4
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %21 = icmp eq ptr %20, %14
-  br i1 %21, label %_ZN5clang7APValue15setVectorUninitEj.exit, label %15
+  br i1 %21, label %.lr.ph, label %15
 
-_ZN5clang7APValue15setVectorUninitEj.exit:        ; preds = %15
+.lr.ph:                                           ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %22, align 8, !tbaa !88
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2121,7 +2121,7 @@ _ZN5clang7APValue15setVectorUninitEj.exit:        ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %_ZN5clang7APValue15setVectorUninitEj.exit
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %invariant.gep = getelementptr inbounds nuw i8, ptr %1, i64 4
   %invariant.gep9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   br label %_ZN5clang7APValueaSERKS0_.exit.us
@@ -2143,8 +2143,8 @@ _ZN5clang7APValueaSERKS0_.exit.us:                ; preds = %_ZN5clang7APValueaS
 ._crit_edge:                                      ; preds = %_ZN5clang7APValueD2Ev.exit.i, %_ZN5clang7APValueaSERKS0_.exit.us, %_ZN5clang7APValue15setVectorUninitEj.exit.thread
   ret void
 
-.lr.ph.split:                                     ; preds = %_ZN5clang7APValue15setVectorUninitEj.exit, %_ZN5clang7APValueD2Ev.exit.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5clang7APValueD2Ev.exit.i ], [ 0, %_ZN5clang7APValue15setVectorUninitEj.exit ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5clang7APValueD2Ev.exit.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5clang7APValueD2Ev.exit.i ], [ 0, %.lr.ph ]
   %30 = getelementptr inbounds nuw %"class.clang::APValue", ptr %1, i64 %indvars.iv
   %31 = getelementptr inbounds nuw %"class.clang::APValue", ptr %9, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #25
@@ -4335,8 +4335,8 @@ define dso_local void @_ZNK5clang7APValue11printPrettyERN4llvm11raw_ostreamERKNS
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i8, ptr %29, align 16
   %31 = icmp eq i8 %30, 13
-  %.not.not7.i.i = icmp ne ptr %28, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %31
+  %.not7.i.i = icmp ne ptr %28, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %31
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %5
@@ -4471,8 +4471,8 @@ _ZNK5clang4Type5getAsINS_10AtomicTypeEEEPKT_v.exit.thread: ; preds = %.thread, %
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i8, ptr %94, align 16
   %96 = icmp eq i8 %95, 13
-  %.not.not6.i = icmp ne ptr %93, null
-  %.not.not.not.i = and i1 %.not.not6.i, %96
+  %.not6.i = icmp ne ptr %93, null
+  %.not.not.not.i = and i1 %.not6.i, %96
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %86

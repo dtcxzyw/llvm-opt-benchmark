@@ -884,7 +884,7 @@ Vec_IntPush.exit.i:                               ; preds = %108, %Vec_IntGrow.e
   br i1 %117, label %83, label %Vec_IntAppendSkip.exit, !llvm.loop !47
 
 118:                                              ; preds = %78
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %46, ptr noundef %7)
+  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %46, ptr noundef nonnull %7)
   br label %Vec_IntAppendSkip.exit
 
 Vec_IntAppendSkip.exit:                           ; preds = %115, %80, %118
@@ -987,7 +987,7 @@ Vec_IntPush.exit.i110:                            ; preds = %150, %Vec_IntGrow.e
   br i1 %159, label %125, label %Vec_IntAppendSkip.exit117, !llvm.loop !47
 
 160:                                              ; preds = %Vec_IntAppendSkip.exit
-  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %48, ptr noundef %11)
+  tail call fastcc void @Vec_IntAppend(ptr noundef nonnull %48, ptr noundef nonnull %11)
   br label %Vec_IntAppendSkip.exit117
 
 Vec_IntAppendSkip.exit117:                        ; preds = %157, %122, %160

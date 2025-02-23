@@ -12535,7 +12535,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4415)
   %20 = load i8, ptr %17, align 8, !range !603, !alias.scope !4418, !noalias !4425, !noundef !4
   %21 = icmp eq i8 %20, 26
-  br i1 %21, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i, label %22
+  br i1 %21, label %.split44.us.i.i.preheader.i.i.i, label %22
 
 22:                                               ; preds = %19
   %23 = add nsw i8 %20, -24
@@ -12629,7 +12629,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i.i.i.i = phi i64 [ %58, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.sroa.0.2.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i, label %61
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.split44.i.i.preheader.i.i.i, label %61
 
 61:                                               ; preds = %60
   %62 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !4455, !noalias !4451, !noundef !4
@@ -12637,33 +12637,33 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %64 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i.i.i.i, i64 5)
   %65 = xor i64 %64, %63
   %66 = mul i64 %65, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
+  br label %.split44.i.i.preheader.i.i.i
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i: ; preds = %19
-  %67 = getelementptr inbounds i8, ptr %14, i64 -56
-  %68 = load i64, ptr %67, align 8, !alias.scope !4418, !noalias !4425, !noundef !4
-  %69 = xor i64 %68, 3429551472952562346
-  %storemerge.i.i.i.i23.i.i.i = mul i64 %69, 5871781006564002453
-  %70 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
-  %71 = trunc nuw nsw i64 %70 to i8
-  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %71, i64 0
-  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i.i.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %61, %60
+.split44.i.i.preheader.i.i.i:                     ; preds = %61, %60
   %.3.i.i.i.i.i.i.i.i.i = phi i64 [ %66, %61 ], [ %.2.i.i.i.i.i.i.i.i.i, %60 ]
-  %72 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
-  %73 = xor i64 %72, 255
-  %storemerge.i.i.i.i.i.i.i = mul i64 %73, 5871781006564002453
-  %74 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
-  %75 = trunc nuw nsw i64 %74 to i8
-  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %67 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
+  %68 = xor i64 %67, 255
+  %storemerge.i.i.i.i.i.i.i = mul i64 %68, 5871781006564002453
+  %69 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
+  %70 = trunc nuw nsw i64 %69 to i8
+  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %70, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %.split44.i.i.i.i.i
 
-.split44.us.i.i.i.i.i:                            ; preds = %81, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i
-  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
-  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
+.split44.us.i.i.preheader.i.i.i:                  ; preds = %19
+  %71 = getelementptr inbounds i8, ptr %14, i64 -56
+  %72 = load i64, ptr %71, align 8, !alias.scope !4418, !noalias !4425, !noundef !4
+  %73 = xor i64 %72, 3429551472952562346
+  %storemerge.i.i.i.i23.i.i.i = mul i64 %73, 5871781006564002453
+  %74 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
+  %75 = trunc nuw nsw i64 %74 to i8
+  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i.i.i.i
+
+.split44.us.i.i.i.i.i:                            ; preds = %81, %.split44.us.i.i.preheader.i.i.i
+  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %.split44.us.i.i.preheader.i.i.i ]
+  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %.split44.us.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.us.i.i.i.i.i = and i64 %.pn.i.us.i.i.i.i.i, %.val5.i.i.i
   %76 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.us.i.i.i.i.i
   %.0.copyload.i34.us.i.i.i.i.i = load <16 x i8>, ptr %76, align 1, !noalias !4456
@@ -12701,16 +12701,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %6
 95:                                               ; preds = %.lr.ph.us.i.i.i.i.i
   %96 = getelementptr inbounds i8, ptr %91, i64 -56
   %97 = load i64, ptr %96, align 8, !alias.scope !4467, !noalias !4476, !noundef !4
-  %98 = icmp eq i64 %68, %97
+  %98 = icmp eq i64 %72, %97
   br i1 %98, label %.loopexit.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h64e43286076fd57bE.exit.backedge.us.us.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h64e43286076fd57bE.exit.backedge.us.us.i.i.i.i.i": ; preds = %95, %.lr.ph.us.i.i.i.i.i
   %.not.i4.us.us.i.i.i.i.i = icmp eq i16 %87, 0
   br i1 %.not.i4.us.us.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h64e43286076fd57bE.exit._crit_edge.split.us.us.i.i.i.i.i", label %.lr.ph.us.i.i.i.i.i
 
-.split44.i.i.i.i.i:                               ; preds = %115, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
-  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
+.split44.i.i.i.i.i:                               ; preds = %115, %.split44.i.i.preheader.i.i.i
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %.split44.i.i.preheader.i.i.i ]
+  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %.split44.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %99 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i34.i.i.i.i.i = load <16 x i8>, ptr %99, align 1, !noalias !4482
@@ -13310,7 +13310,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4711)
   %20 = load i8, ptr %17, align 8, !range !603, !alias.scope !4714, !noalias !4721, !noundef !4
   %21 = icmp eq i8 %20, 26
-  br i1 %21, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i, label %22
+  br i1 %21, label %.split44.us.i.i.preheader.i.i.i, label %22
 
 22:                                               ; preds = %19
   %23 = add nsw i8 %20, -24
@@ -13404,7 +13404,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i.i.i.i = phi i64 [ %58, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.sroa.0.2.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i, label %61
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.split44.i.i.preheader.i.i.i, label %61
 
 61:                                               ; preds = %60
   %62 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !4751, !noalias !4747, !noundef !4
@@ -13412,33 +13412,33 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %64 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i.i.i.i, i64 5)
   %65 = xor i64 %64, %63
   %66 = mul i64 %65, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
+  br label %.split44.i.i.preheader.i.i.i
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i: ; preds = %19
-  %67 = getelementptr inbounds i8, ptr %14, i64 -48
-  %68 = load i64, ptr %67, align 8, !alias.scope !4714, !noalias !4721, !noundef !4
-  %69 = xor i64 %68, 3429551472952562346
-  %storemerge.i.i.i.i23.i.i.i = mul i64 %69, 5871781006564002453
-  %70 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
-  %71 = trunc nuw nsw i64 %70 to i8
-  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %71, i64 0
-  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i.i.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %61, %60
+.split44.i.i.preheader.i.i.i:                     ; preds = %61, %60
   %.3.i.i.i.i.i.i.i.i.i = phi i64 [ %66, %61 ], [ %.2.i.i.i.i.i.i.i.i.i, %60 ]
-  %72 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
-  %73 = xor i64 %72, 255
-  %storemerge.i.i.i.i.i.i.i = mul i64 %73, 5871781006564002453
-  %74 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
-  %75 = trunc nuw nsw i64 %74 to i8
-  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %67 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
+  %68 = xor i64 %67, 255
+  %storemerge.i.i.i.i.i.i.i = mul i64 %68, 5871781006564002453
+  %69 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
+  %70 = trunc nuw nsw i64 %69 to i8
+  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %70, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %.split44.i.i.i.i.i
 
-.split44.us.i.i.i.i.i:                            ; preds = %81, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i
-  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
-  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
+.split44.us.i.i.preheader.i.i.i:                  ; preds = %19
+  %71 = getelementptr inbounds i8, ptr %14, i64 -48
+  %72 = load i64, ptr %71, align 8, !alias.scope !4714, !noalias !4721, !noundef !4
+  %73 = xor i64 %72, 3429551472952562346
+  %storemerge.i.i.i.i23.i.i.i = mul i64 %73, 5871781006564002453
+  %74 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
+  %75 = trunc nuw nsw i64 %74 to i8
+  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i.i.i.i
+
+.split44.us.i.i.i.i.i:                            ; preds = %81, %.split44.us.i.i.preheader.i.i.i
+  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %.split44.us.i.i.preheader.i.i.i ]
+  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %.split44.us.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.us.i.i.i.i.i = and i64 %.pn.i.us.i.i.i.i.i, %.val5.i.i.i
   %76 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.us.i.i.i.i.i
   %.0.copyload.i34.us.i.i.i.i.i = load <16 x i8>, ptr %76, align 1, !noalias !4752
@@ -13476,16 +13476,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %6
 95:                                               ; preds = %.lr.ph.us.i.i.i.i.i
   %96 = getelementptr inbounds i8, ptr %91, i64 -48
   %97 = load i64, ptr %96, align 8, !alias.scope !4763, !noalias !4772, !noundef !4
-  %98 = icmp eq i64 %68, %97
+  %98 = icmp eq i64 %72, %97
   br i1 %98, label %.loopexit.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5513d289faf2eb31E.exit.backedge.us.us.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5513d289faf2eb31E.exit.backedge.us.us.i.i.i.i.i": ; preds = %95, %.lr.ph.us.i.i.i.i.i
   %.not.i4.us.us.i.i.i.i.i = icmp eq i16 %87, 0
   br i1 %.not.i4.us.us.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5513d289faf2eb31E.exit._crit_edge.split.us.us.i.i.i.i.i", label %.lr.ph.us.i.i.i.i.i
 
-.split44.i.i.i.i.i:                               ; preds = %115, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
-  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
+.split44.i.i.i.i.i:                               ; preds = %115, %.split44.i.i.preheader.i.i.i
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %.split44.i.i.preheader.i.i.i ]
+  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %.split44.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %99 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i34.i.i.i.i.i = load <16 x i8>, ptr %99, align 1, !noalias !4778
@@ -13889,7 +13889,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4921)
   %22 = load i8, ptr %19, align 8, !range !603, !alias.scope !4924, !noalias !4931, !noundef !4
   %23 = icmp eq i8 %22, 26
-  br i1 %23, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i, label %24
+  br i1 %23, label %.split44.us.i.i.preheader.i.i.i, label %24
 
 24:                                               ; preds = %20
   %25 = add nsw i8 %22, -24
@@ -13983,7 +13983,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i.i.i.i = phi i64 [ %60, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i.i.i.i, %54 ]
   %.sroa.0.2.i.i.i.i.i.i.i.i.i = phi ptr [ %61, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %54 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.split44.i.i.preheader.i.i.i, label %63
 
 63:                                               ; preds = %62
   %64 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !4961, !noalias !4957, !noundef !4
@@ -13991,33 +13991,33 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %66 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i.i.i.i, i64 5)
   %67 = xor i64 %66, %65
   %68 = mul i64 %67, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
+  br label %.split44.i.i.preheader.i.i.i
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i: ; preds = %20
-  %69 = getelementptr inbounds i8, ptr %16, i64 -24
-  %70 = load i64, ptr %69, align 8, !alias.scope !4924, !noalias !4931, !noundef !4
-  %71 = xor i64 %70, 3429551472952562346
-  %storemerge.i.i.i.i23.i.i.i = mul i64 %71, 5871781006564002453
-  %72 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
-  %73 = trunc nuw nsw i64 %72 to i8
-  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %73, i64 0
-  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i.i.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %63, %62
+.split44.i.i.preheader.i.i.i:                     ; preds = %63, %62
   %.3.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %63 ], [ %.2.i.i.i.i.i.i.i.i.i, %62 ]
-  %74 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
-  %75 = xor i64 %74, 255
-  %storemerge.i.i.i.i.i.i.i = mul i64 %75, 5871781006564002453
-  %76 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
-  %77 = trunc nuw nsw i64 %76 to i8
-  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %77, i64 0
+  %69 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
+  %70 = xor i64 %69, 255
+  %storemerge.i.i.i.i.i.i.i = mul i64 %70, 5871781006564002453
+  %71 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
+  %72 = trunc nuw nsw i64 %71 to i8
+  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %72, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %.split44.i.i.i.i.i
 
-.split44.us.i.i.i.i.i:                            ; preds = %83, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i
-  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %84, %83 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
-  %.pn.i.us.i.i.i.i.i = phi i64 [ %85, %83 ], [ %storemerge.i.i.i.i23.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
+.split44.us.i.i.preheader.i.i.i:                  ; preds = %20
+  %73 = getelementptr inbounds i8, ptr %16, i64 -24
+  %74 = load i64, ptr %73, align 8, !alias.scope !4924, !noalias !4931, !noundef !4
+  %75 = xor i64 %74, 3429551472952562346
+  %storemerge.i.i.i.i23.i.i.i = mul i64 %75, 5871781006564002453
+  %76 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
+  %77 = trunc nuw nsw i64 %76 to i8
+  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %77, i64 0
+  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i.i.i.i
+
+.split44.us.i.i.i.i.i:                            ; preds = %83, %.split44.us.i.i.preheader.i.i.i
+  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %84, %83 ], [ 0, %.split44.us.i.i.preheader.i.i.i ]
+  %.pn.i.us.i.i.i.i.i = phi i64 [ %85, %83 ], [ %storemerge.i.i.i.i23.i.i.i, %.split44.us.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.us.i.i.i.i.i = and i64 %.pn.i.us.i.i.i.i.i, %.val5.i.i.i
   %78 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.us.i.i.i.i.i
   %.0.copyload.i34.us.i.i.i.i.i = load <16 x i8>, ptr %78, align 1, !noalias !4962
@@ -14055,16 +14055,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %6
 97:                                               ; preds = %.lr.ph.us.i.i.i.i.i
   %98 = getelementptr inbounds i8, ptr %93, i64 -24
   %99 = load i64, ptr %98, align 8, !alias.scope !4973, !noalias !4982, !noundef !4
-  %100 = icmp eq i64 %70, %99
+  %100 = icmp eq i64 %74, %99
   br i1 %100, label %"_ZN4core4iter6traits8iterator8Iterator3all5check28_$u7b$$u7b$closure$u7d$$u7d$17h53c222bd95321499E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8cb61700a4aadca7E.exit.backedge.us.us.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8cb61700a4aadca7E.exit.backedge.us.us.i.i.i.i.i": ; preds = %97, %.lr.ph.us.i.i.i.i.i
   %.not.i4.us.us.i.i.i.i.i = icmp eq i16 %89, 0
   br i1 %.not.i4.us.us.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8cb61700a4aadca7E.exit._crit_edge.split.us.us.i.i.i.i.i", label %.lr.ph.us.i.i.i.i.i
 
-.split44.i.i.i.i.i:                               ; preds = %117, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %118, %117 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
-  %.pn.i.i.i.i.i.i = phi i64 [ %119, %117 ], [ %storemerge.i.i.i.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
+.split44.i.i.i.i.i:                               ; preds = %117, %.split44.i.i.preheader.i.i.i
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %118, %117 ], [ 0, %.split44.i.i.preheader.i.i.i ]
+  %.pn.i.i.i.i.i.i = phi i64 [ %119, %117 ], [ %storemerge.i.i.i.i.i.i.i, %.split44.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %101 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i34.i.i.i.i.i = load <16 x i8>, ptr %101, align 1, !noalias !4988
@@ -14280,7 +14280,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5051)
   %20 = load i8, ptr %17, align 8, !range !603, !alias.scope !5054, !noalias !5061, !noundef !4
   %21 = icmp eq i8 %20, 26
-  br i1 %21, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i, label %22
+  br i1 %21, label %.split44.us.i.i.preheader.i.i.i, label %22
 
 22:                                               ; preds = %19
   %23 = add nsw i8 %20, -24
@@ -14374,7 +14374,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i.i.i.i = phi i64 [ %58, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.sroa.0.2.i.i.i.i.i.i.i.i.i = phi ptr [ %59, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %52 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i, label %61
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.split44.i.i.preheader.i.i.i, label %61
 
 61:                                               ; preds = %60
   %62 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !5091, !noalias !5087, !noundef !4
@@ -14382,33 +14382,33 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %64 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i.i.i.i, i64 5)
   %65 = xor i64 %64, %63
   %66 = mul i64 %65, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
+  br label %.split44.i.i.preheader.i.i.i
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i: ; preds = %19
-  %67 = getelementptr inbounds i8, ptr %14, i64 -64
-  %68 = load i64, ptr %67, align 8, !alias.scope !5054, !noalias !5061, !noundef !4
-  %69 = xor i64 %68, 3429551472952562346
-  %storemerge.i.i.i.i23.i.i.i = mul i64 %69, 5871781006564002453
-  %70 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
-  %71 = trunc nuw nsw i64 %70 to i8
-  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %71, i64 0
-  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i.i.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %61, %60
+.split44.i.i.preheader.i.i.i:                     ; preds = %61, %60
   %.3.i.i.i.i.i.i.i.i.i = phi i64 [ %66, %61 ], [ %.2.i.i.i.i.i.i.i.i.i, %60 ]
-  %72 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
-  %73 = xor i64 %72, 255
-  %storemerge.i.i.i.i.i.i.i = mul i64 %73, 5871781006564002453
-  %74 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
-  %75 = trunc nuw nsw i64 %74 to i8
-  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %67 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
+  %68 = xor i64 %67, 255
+  %storemerge.i.i.i.i.i.i.i = mul i64 %68, 5871781006564002453
+  %69 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
+  %70 = trunc nuw nsw i64 %69 to i8
+  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %70, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %.split44.i.i.i.i.i
 
-.split44.us.i.i.i.i.i:                            ; preds = %81, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i
-  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
-  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
+.split44.us.i.i.preheader.i.i.i:                  ; preds = %19
+  %71 = getelementptr inbounds i8, ptr %14, i64 -64
+  %72 = load i64, ptr %71, align 8, !alias.scope !5054, !noalias !5061, !noundef !4
+  %73 = xor i64 %72, 3429551472952562346
+  %storemerge.i.i.i.i23.i.i.i = mul i64 %73, 5871781006564002453
+  %74 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
+  %75 = trunc nuw nsw i64 %74 to i8
+  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %75, i64 0
+  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i.i.i.i
+
+.split44.us.i.i.i.i.i:                            ; preds = %81, %.split44.us.i.i.preheader.i.i.i
+  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %82, %81 ], [ 0, %.split44.us.i.i.preheader.i.i.i ]
+  %.pn.i.us.i.i.i.i.i = phi i64 [ %83, %81 ], [ %storemerge.i.i.i.i23.i.i.i, %.split44.us.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.us.i.i.i.i.i = and i64 %.pn.i.us.i.i.i.i.i, %.val5.i.i.i
   %76 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.us.i.i.i.i.i
   %.0.copyload.i34.us.i.i.i.i.i = load <16 x i8>, ptr %76, align 1, !noalias !5092
@@ -14446,16 +14446,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %6
 95:                                               ; preds = %.lr.ph.us.i.i.i.i.i
   %96 = getelementptr inbounds i8, ptr %91, i64 -64
   %97 = load i64, ptr %96, align 8, !alias.scope !5103, !noalias !5112, !noundef !4
-  %98 = icmp eq i64 %68, %97
+  %98 = icmp eq i64 %72, %97
   br i1 %98, label %.loopexit.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1453152f4b51a2acE.exit.backedge.us.us.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1453152f4b51a2acE.exit.backedge.us.us.i.i.i.i.i": ; preds = %95, %.lr.ph.us.i.i.i.i.i
   %.not.i4.us.us.i.i.i.i.i = icmp eq i16 %87, 0
   br i1 %.not.i4.us.us.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h1453152f4b51a2acE.exit._crit_edge.split.us.us.i.i.i.i.i", label %.lr.ph.us.i.i.i.i.i
 
-.split44.i.i.i.i.i:                               ; preds = %115, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
-  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
+.split44.i.i.i.i.i:                               ; preds = %115, %.split44.i.i.preheader.i.i.i
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %116, %115 ], [ 0, %.split44.i.i.preheader.i.i.i ]
+  %.pn.i.i.i.i.i.i = phi i64 [ %117, %115 ], [ %storemerge.i.i.i.i.i.i.i, %.split44.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %99 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i34.i.i.i.i.i = load <16 x i8>, ptr %99, align 1, !noalias !5118
@@ -17238,7 +17238,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6265)
   %22 = load i8, ptr %19, align 8, !range !603, !alias.scope !6268, !noalias !6275, !noundef !4
   %23 = icmp eq i8 %22, 26
-  br i1 %23, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i, label %24
+  br i1 %23, label %.split44.us.i.i.preheader.i.i.i, label %24
 
 24:                                               ; preds = %21
   %25 = add nsw i8 %22, -24
@@ -17332,7 +17332,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i.i.i.i = phi i64 [ %60, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i.i.i.i, %54 ]
   %.sroa.0.2.i.i.i.i.i.i.i.i.i = phi ptr [ %61, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %54 ]
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i, label %63
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.split44.i.i.preheader.i.i.i, label %63
 
 63:                                               ; preds = %62
   %64 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i.i.i.i, align 1, !alias.scope !6305, !noalias !6301, !noundef !4
@@ -17340,33 +17340,33 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %66 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i.i.i.i, i64 5)
   %67 = xor i64 %66, %65
   %68 = mul i64 %67, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
+  br label %.split44.i.i.preheader.i.i.i
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i: ; preds = %21
-  %69 = getelementptr inbounds i8, ptr %16, i64 -40
-  %70 = load i64, ptr %69, align 8, !alias.scope !6268, !noalias !6275, !noundef !4
-  %71 = xor i64 %70, 3429551472952562346
-  %storemerge.i.i.i.i23.i.i.i = mul i64 %71, 5871781006564002453
-  %72 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
-  %73 = trunc nuw nsw i64 %72 to i8
-  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %73, i64 0
-  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i.i.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %63, %62
+.split44.i.i.preheader.i.i.i:                     ; preds = %63, %62
   %.3.i.i.i.i.i.i.i.i.i = phi i64 [ %68, %63 ], [ %.2.i.i.i.i.i.i.i.i.i, %62 ]
-  %74 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
-  %75 = xor i64 %74, 255
-  %storemerge.i.i.i.i.i.i.i = mul i64 %75, 5871781006564002453
-  %76 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
-  %77 = trunc nuw nsw i64 %76 to i8
-  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %77, i64 0
+  %69 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i.i.i.i, i64 5)
+  %70 = xor i64 %69, 255
+  %storemerge.i.i.i.i.i.i.i = mul i64 %70, 5871781006564002453
+  %71 = lshr i64 %storemerge.i.i.i.i.i.i.i, 57
+  %72 = trunc nuw nsw i64 %71 to i8
+  %.0.vec.insert.i.i.i.i.i.i = insertelement <16 x i8> poison, i8 %72, i64 0
   %.15.vec.insert.i.i.i.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %.split44.i.i.i.i.i
 
-.split44.us.i.i.i.i.i:                            ; preds = %83, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i
-  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %84, %83 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
-  %.pn.i.us.i.i.i.i.i = phi i64 [ %85, %83 ], [ %storemerge.i.i.i.i23.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread.i.i.i ]
+.split44.us.i.i.preheader.i.i.i:                  ; preds = %21
+  %73 = getelementptr inbounds i8, ptr %16, i64 -40
+  %74 = load i64, ptr %73, align 8, !alias.scope !6268, !noalias !6275, !noundef !4
+  %75 = xor i64 %74, 3429551472952562346
+  %storemerge.i.i.i.i23.i.i.i = mul i64 %75, 5871781006564002453
+  %76 = lshr i64 %storemerge.i.i.i.i23.i.i.i, 57
+  %77 = trunc nuw nsw i64 %76 to i8
+  %.0.vec.insert.i.i.i26.i.i.i = insertelement <16 x i8> poison, i8 %77, i64 0
+  %.15.vec.insert.i.i.i27.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i26.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i.i.i.i
+
+.split44.us.i.i.i.i.i:                            ; preds = %83, %.split44.us.i.i.preheader.i.i.i
+  %.sroa.9.0.i.us.i.i.i.i.i = phi i64 [ %84, %83 ], [ 0, %.split44.us.i.i.preheader.i.i.i ]
+  %.pn.i.us.i.i.i.i.i = phi i64 [ %85, %83 ], [ %storemerge.i.i.i.i23.i.i.i, %.split44.us.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.us.i.i.i.i.i = and i64 %.pn.i.us.i.i.i.i.i, %.val5.i.i.i
   %78 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.us.i.i.i.i.i
   %.0.copyload.i34.us.i.i.i.i.i = load <16 x i8>, ptr %78, align 1, !noalias !6306
@@ -17404,16 +17404,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i: ; preds = %6
 97:                                               ; preds = %.lr.ph.us.i.i.i.i.i
   %98 = getelementptr inbounds i8, ptr %93, i64 -40
   %99 = load i64, ptr %98, align 8, !alias.scope !6317, !noalias !6326, !noundef !4
-  %100 = icmp eq i64 %70, %99
+  %100 = icmp eq i64 %74, %99
   br i1 %100, label %.loopexit.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17haefa273a69d102f4E.exit.backedge.us.us.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17haefa273a69d102f4E.exit.backedge.us.us.i.i.i.i.i": ; preds = %97, %.lr.ph.us.i.i.i.i.i
   %.not.i4.us.us.i.i.i.i.i = icmp eq i16 %89, 0
   br i1 %.not.i4.us.us.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17haefa273a69d102f4E.exit._crit_edge.split.us.us.i.i.i.i.i", label %.lr.ph.us.i.i.i.i.i
 
-.split44.i.i.i.i.i:                               ; preds = %117, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i
-  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %118, %117 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
-  %.pn.i.i.i.i.i.i = phi i64 [ %119, %117 ], [ %storemerge.i.i.i.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.i.i.i ]
+.split44.i.i.i.i.i:                               ; preds = %117, %.split44.i.i.preheader.i.i.i
+  %.sroa.9.0.i.i.i.i.i.i = phi i64 [ %118, %117 ], [ 0, %.split44.i.i.preheader.i.i.i ]
+  %.pn.i.i.i.i.i.i = phi i64 [ %119, %117 ], [ %storemerge.i.i.i.i.i.i.i, %.split44.i.i.preheader.i.i.i ]
   %.sroa.01.0.i.i.i.i.i.i = and i64 %.pn.i.i.i.i.i.i, %.val5.i.i.i
   %101 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 %.sroa.01.0.i.i.i.i.i.i
   %.0.copyload.i34.i.i.i.i.i = load <16 x i8>, ptr %101, align 1, !noalias !6332
@@ -37190,7 +37190,7 @@ define hidden noundef align 4 dereferenceable_or_null(12) ptr @"_ZN9hashbrown3ma
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !range !603, !alias.scope !12310, !noalias !12317, !noundef !4
   %8 = icmp eq i8 %7, 26
-  br i1 %8, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread, label %9
+  br i1 %8, label %.split44.us.i.i.preheader, label %9
 
 9:                                                ; preds = %6
   %10 = add nsw i8 %7, -24
@@ -37284,7 +37284,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i = phi i64 [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i, %39 ]
   %.sroa.0.2.i.i.i.i.i.i = phi ptr [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i, %39 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit, label %48
+  br i1 %.not.i.i.i.i.i.i, label %.split44.i.i.preheader, label %48
 
 48:                                               ; preds = %47
   %49 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i, align 1, !alias.scope !12346, !noalias !12342, !noundef !4
@@ -37292,40 +37292,40 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %51 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i, i64 5)
   %52 = xor i64 %51, %50
   %53 = mul i64 %52, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit
+  br label %.split44.i.i.preheader
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread: ; preds = %6
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i64, ptr %54, align 8, !alias.scope !12310, !noalias !12317, !noundef !4
-  %56 = xor i64 %55, 3429551472952562346
-  %storemerge.i.i.i.i23 = mul i64 %56, 5871781006564002453
-  %.val24 = load ptr, ptr %0, align 8, !alias.scope !12347, !noalias !12352, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val525 = load i64, ptr %57, align 8, !alias.scope !12347, !noalias !12352, !noundef !4
-  %58 = lshr i64 %storemerge.i.i.i.i23, 57
-  %59 = trunc nuw nsw i64 %58 to i8
-  %.0.vec.insert.i.i.i26 = insertelement <16 x i8> poison, i8 %59, i64 0
-  %.15.vec.insert.i.i.i27 = shufflevector <16 x i8> %.0.vec.insert.i.i.i26, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit: ; preds = %47, %48
+.split44.i.i.preheader:                           ; preds = %48, %47
   %.3.i.i.i.i.i.i = phi i64 [ %53, %48 ], [ %.2.i.i.i.i.i.i, %47 ]
-  %60 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i, i64 5)
-  %61 = xor i64 %60, 255
-  %storemerge.i.i.i.i = mul i64 %61, 5871781006564002453
+  %54 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i, i64 5)
+  %55 = xor i64 %54, 255
+  %storemerge.i.i.i.i = mul i64 %55, 5871781006564002453
   %.val = load ptr, ptr %0, align 8, !alias.scope !12347, !noalias !12352, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %62, align 8, !alias.scope !12347, !noalias !12352, !noundef !4
-  %63 = lshr i64 %storemerge.i.i.i.i, 57
-  %64 = trunc nuw nsw i64 %63 to i8
-  %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %64, i64 0
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load i64, ptr %56, align 8, !alias.scope !12347, !noalias !12352, !noundef !4
+  %57 = lshr i64 %storemerge.i.i.i.i, 57
+  %58 = trunc nuw nsw i64 %57 to i8
+  %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %58, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.gep.i.i = getelementptr i8, ptr %.val, i64 -40
   br label %.split44.i.i
 
-.split44.us.i.i:                                  ; preds = %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread, %70
-  %.sroa.9.0.i.us.i.i = phi i64 [ %71, %70 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread ]
-  %.pn.i.us.i.i = phi i64 [ %72, %70 ], [ %storemerge.i.i.i.i23, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread ]
+.split44.us.i.i.preheader:                        ; preds = %6
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = load i64, ptr %59, align 8, !alias.scope !12310, !noalias !12317, !noundef !4
+  %61 = xor i64 %60, 3429551472952562346
+  %storemerge.i.i.i.i23 = mul i64 %61, 5871781006564002453
+  %.val24 = load ptr, ptr %0, align 8, !alias.scope !12347, !noalias !12352, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val525 = load i64, ptr %62, align 8, !alias.scope !12347, !noalias !12352, !noundef !4
+  %63 = lshr i64 %storemerge.i.i.i.i23, 57
+  %64 = trunc nuw nsw i64 %63 to i8
+  %.0.vec.insert.i.i.i26 = insertelement <16 x i8> poison, i8 %64, i64 0
+  %.15.vec.insert.i.i.i27 = shufflevector <16 x i8> %.0.vec.insert.i.i.i26, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i
+
+.split44.us.i.i:                                  ; preds = %.split44.us.i.i.preheader, %70
+  %.sroa.9.0.i.us.i.i = phi i64 [ %71, %70 ], [ 0, %.split44.us.i.i.preheader ]
+  %.pn.i.us.i.i = phi i64 [ %72, %70 ], [ %storemerge.i.i.i.i23, %.split44.us.i.i.preheader ]
   %.sroa.01.0.i.us.i.i = and i64 %.pn.i.us.i.i, %.val525
   %65 = getelementptr inbounds i8, ptr %.val24, i64 %.sroa.01.0.i.us.i.i
   %.0.copyload.i34.us.i.i = load <16 x i8>, ptr %65, align 1, !noalias !12355
@@ -37363,16 +37363,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit: ; preds = %47, %48
 84:                                               ; preds = %.lr.ph.us.i.i
   %85 = getelementptr inbounds i8, ptr %80, i64 -32
   %86 = load i64, ptr %85, align 8, !alias.scope !12366, !noalias !12375, !noundef !4
-  %87 = icmp eq i64 %55, %86
+  %87 = icmp eq i64 %60, %86
   br i1 %87, label %.split.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7ddec3f59e0028d0E.exit.backedge.us.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7ddec3f59e0028d0E.exit.backedge.us.us.i.i": ; preds = %84, %.lr.ph.us.i.i
   %.not.i4.us.us.i.i = icmp eq i16 %76, 0
   br i1 %.not.i4.us.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7ddec3f59e0028d0E.exit._crit_edge.split.us.us.i.i", label %.lr.ph.us.i.i
 
-.split44.i.i:                                     ; preds = %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit, %104
-  %.sroa.9.0.i.i.i = phi i64 [ %105, %104 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit ]
-  %.pn.i.i.i = phi i64 [ %106, %104 ], [ %storemerge.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit ]
+.split44.i.i:                                     ; preds = %.split44.i.i.preheader, %104
+  %.sroa.9.0.i.i.i = phi i64 [ %105, %104 ], [ 0, %.split44.i.i.preheader ]
+  %.pn.i.i.i = phi i64 [ %106, %104 ], [ %storemerge.i.i.i.i, %.split44.i.i.preheader ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %88 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i34.i.i = load <16 x i8>, ptr %88, align 1, !noalias !12381
@@ -37597,7 +37597,7 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map
 6:                                                ; preds = %2
   %7 = load i8, ptr %1, align 8, !range !603, !alias.scope !12419, !noalias !12426, !noundef !4
   %8 = icmp eq i8 %7, 26
-  br i1 %8, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread, label %9
+  br i1 %8, label %.split44.us.i.i.preheader, label %9
 
 9:                                                ; preds = %6
   %10 = add nsw i8 %7, -24
@@ -37691,7 +37691,7 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %.sroa.11.2.i.i.i.i.i.i = phi i64 [ %45, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i" ], [ %.sroa.11.1.i.i.i.i.i.i, %39 ]
   %.sroa.0.2.i.i.i.i.i.i = phi ptr [ %46, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h53c8b590a52ef316E.exit.i.i.i.i.i.i" ], [ %.sroa.0.1.i.i.i.i.i.i, %39 ]
   %.not.i.i.i.i.i.i = icmp eq i64 %.sroa.11.2.i.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit, label %48
+  br i1 %.not.i.i.i.i.i.i, label %.split44.i.i.preheader, label %48
 
 48:                                               ; preds = %47
   %49 = load i8, ptr %.sroa.0.2.i.i.i.i.i.i, align 1, !alias.scope !12455, !noalias !12451, !noundef !4
@@ -37699,40 +37699,40 @@ _ZN8smol_str4Repr6as_str17h6612cd4653de1669E.llvm.14358968814291841630.exit.i.i.
   %51 = tail call i64 @llvm.fshl.i64(i64 %.2.i.i.i.i.i.i, i64 %.2.i.i.i.i.i.i, i64 5)
   %52 = xor i64 %51, %50
   %53 = mul i64 %52, 5871781006564002453
-  br label %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit
+  br label %.split44.i.i.preheader
 
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread: ; preds = %6
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %55 = load i64, ptr %54, align 8, !alias.scope !12419, !noalias !12426, !noundef !4
-  %56 = xor i64 %55, 3429551472952562346
-  %storemerge.i.i.i.i23 = mul i64 %56, 5871781006564002453
-  %.val24 = load ptr, ptr %0, align 8, !alias.scope !12456, !noalias !12461, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val525 = load i64, ptr %57, align 8, !alias.scope !12456, !noalias !12461, !noundef !4
-  %58 = lshr i64 %storemerge.i.i.i.i23, 57
-  %59 = trunc nuw nsw i64 %58 to i8
-  %.0.vec.insert.i.i.i26 = insertelement <16 x i8> poison, i8 %59, i64 0
-  %.15.vec.insert.i.i.i27 = shufflevector <16 x i8> %.0.vec.insert.i.i.i26, <16 x i8> poison, <16 x i32> zeroinitializer
-  br label %.split44.us.i.i
-
-_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit: ; preds = %47, %48
+.split44.i.i.preheader:                           ; preds = %48, %47
   %.3.i.i.i.i.i.i = phi i64 [ %53, %48 ], [ %.2.i.i.i.i.i.i, %47 ]
-  %60 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i, i64 5)
-  %61 = xor i64 %60, 255
-  %storemerge.i.i.i.i = mul i64 %61, 5871781006564002453
+  %54 = tail call i64 @llvm.fshl.i64(i64 %.3.i.i.i.i.i.i, i64 %.3.i.i.i.i.i.i, i64 5)
+  %55 = xor i64 %54, 255
+  %storemerge.i.i.i.i = mul i64 %55, 5871781006564002453
   %.val = load ptr, ptr %0, align 8, !alias.scope !12456, !noalias !12461, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val5 = load i64, ptr %62, align 8, !alias.scope !12456, !noalias !12461, !noundef !4
-  %63 = lshr i64 %storemerge.i.i.i.i, 57
-  %64 = trunc nuw nsw i64 %63 to i8
-  %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %64, i64 0
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val5 = load i64, ptr %56, align 8, !alias.scope !12456, !noalias !12461, !noundef !4
+  %57 = lshr i64 %storemerge.i.i.i.i, 57
+  %58 = trunc nuw nsw i64 %57 to i8
+  %.0.vec.insert.i.i.i = insertelement <16 x i8> poison, i8 %58, i64 0
   %.15.vec.insert.i.i.i = shufflevector <16 x i8> %.0.vec.insert.i.i.i, <16 x i8> poison, <16 x i32> zeroinitializer
   %invariant.gep.i.i = getelementptr i8, ptr %.val, i64 -32
   br label %.split44.i.i
 
-.split44.us.i.i:                                  ; preds = %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread, %70
-  %.sroa.9.0.i.us.i.i = phi i64 [ %71, %70 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread ]
-  %.pn.i.us.i.i = phi i64 [ %72, %70 ], [ %storemerge.i.i.i.i23, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit.thread ]
+.split44.us.i.i.preheader:                        ; preds = %6
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %60 = load i64, ptr %59, align 8, !alias.scope !12419, !noalias !12426, !noundef !4
+  %61 = xor i64 %60, 3429551472952562346
+  %storemerge.i.i.i.i23 = mul i64 %61, 5871781006564002453
+  %.val24 = load ptr, ptr %0, align 8, !alias.scope !12456, !noalias !12461, !nonnull !4, !noundef !4
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val525 = load i64, ptr %62, align 8, !alias.scope !12456, !noalias !12461, !noundef !4
+  %63 = lshr i64 %storemerge.i.i.i.i23, 57
+  %64 = trunc nuw nsw i64 %63 to i8
+  %.0.vec.insert.i.i.i26 = insertelement <16 x i8> poison, i8 %64, i64 0
+  %.15.vec.insert.i.i.i27 = shufflevector <16 x i8> %.0.vec.insert.i.i.i26, <16 x i8> poison, <16 x i32> zeroinitializer
+  br label %.split44.us.i.i
+
+.split44.us.i.i:                                  ; preds = %.split44.us.i.i.preheader, %70
+  %.sroa.9.0.i.us.i.i = phi i64 [ %71, %70 ], [ 0, %.split44.us.i.i.preheader ]
+  %.pn.i.us.i.i = phi i64 [ %72, %70 ], [ %storemerge.i.i.i.i23, %.split44.us.i.i.preheader ]
   %.sroa.01.0.i.us.i.i = and i64 %.pn.i.us.i.i, %.val525
   %65 = getelementptr inbounds i8, ptr %.val24, i64 %.sroa.01.0.i.us.i.i
   %.0.copyload.i34.us.i.i = load <16 x i8>, ptr %65, align 1, !noalias !12464
@@ -37770,16 +37770,16 @@ _ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit: ; preds = %47, %48
 84:                                               ; preds = %.lr.ph.us.i.i
   %85 = getelementptr inbounds i8, ptr %80, i64 -24
   %86 = load i64, ptr %85, align 8, !alias.scope !12475, !noalias !12484, !noundef !4
-  %87 = icmp eq i64 %55, %86
+  %87 = icmp eq i64 %60, %86
   br i1 %87, label %.split.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h263d4f6e18e6e6daE.exit.backedge.us.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h263d4f6e18e6e6daE.exit.backedge.us.us.i.i": ; preds = %84, %.lr.ph.us.i.i
   %.not.i4.us.us.i.i = icmp eq i16 %76, 0
   br i1 %.not.i4.us.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h263d4f6e18e6e6daE.exit._crit_edge.split.us.us.i.i", label %.lr.ph.us.i.i
 
-.split44.i.i:                                     ; preds = %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit, %104
-  %.sroa.9.0.i.i.i = phi i64 [ %105, %104 ], [ 0, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit ]
-  %.pn.i.i.i = phi i64 [ %106, %104 ], [ %storemerge.i.i.i.i, %_ZN4core4hash11BuildHasher8hash_one17h79db42d4c6e9ef6bE.exit ]
+.split44.i.i:                                     ; preds = %.split44.i.i.preheader, %104
+  %.sroa.9.0.i.i.i = phi i64 [ %105, %104 ], [ 0, %.split44.i.i.preheader ]
+  %.pn.i.i.i = phi i64 [ %106, %104 ], [ %storemerge.i.i.i.i, %.split44.i.i.preheader ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %88 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i34.i.i = load <16 x i8>, ptr %88, align 1, !noalias !12490

@@ -172,7 +172,7 @@ for.end.i:                                        ; preds = %for.body3.i, %for.b
 
 if.end.i.i:                                       ; preds = %for.end.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %data.addr.032.i, i64 %div128.i.i
-  tail call void @llvm.memset.p0.i64(ptr align 1 %data.addr.032.i, i8 0, i64 %div128.i.i, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %data.addr.032.i, i8 0, i64 %div128.i.i, i1 false)
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, %if.end.i.i

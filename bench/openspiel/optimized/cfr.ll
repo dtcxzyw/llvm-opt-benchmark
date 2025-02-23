@@ -3286,13 +3286,13 @@ _ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %wide.trip.count.i = and i64 %141, 2147483647
   br label %163
 
-.preheader.i:                                     ; preds = %163
+.lr.ph18.i:                                       ; preds = %163
   %146 = fcmp ogt double %.1.i, 0.000000e+00
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br i1 %146, label %.lr.ph18.split.us.i, label %.lr.ph18.split.i
 
-.lr.ph18.split.us.i:                              ; preds = %.preheader.i, %.lr.ph18.split.us.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph18.split.us.i ], [ 0, %.preheader.i ]
+.lr.ph18.split.us.i:                              ; preds = %.lr.ph18.i, %.lr.ph18.split.us.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph18.split.us.i ], [ 0, %.lr.ph18.i ]
   %148 = load ptr, ptr %144, align 8
   %149 = getelementptr inbounds nuw double, ptr %148, i64 %indvars.iv24.i
   %150 = load double, ptr %149, align 8
@@ -3323,11 +3323,11 @@ _ZN4absl7debian27UniformIdRSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm
   %.1.i = select i1 %166, double %167, double %.01415.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %163, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.lr.ph18.i, label %163, !llvm.loop !46
 
-.lr.ph18.split.i:                                 ; preds = %.preheader.i, %.lr.ph18.split.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.lr.ph18.split.i ], [ 0, %.preheader.i ]
-  %168 = phi i64 [ %178, %.lr.ph18.split.i ], [ %140, %.preheader.i ]
+.lr.ph18.split.i:                                 ; preds = %.lr.ph18.i, %.lr.ph18.split.i
+  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.lr.ph18.split.i ], [ 0, %.lr.ph18.i ]
+  %168 = phi i64 [ %178, %.lr.ph18.split.i ], [ %140, %.lr.ph18.i ]
   %169 = ashr exact i64 %168, 3
   %170 = uitofp i64 %169 to double
   %171 = fdiv double 1.000000e+00, %170
@@ -3640,13 +3640,13 @@ _ZN10open_spiel10algorithms13CFRSolverBase28ApplyRegretMatchingPlusResetEv.exit:
   %wide.trip.count.i.i = and i64 %69, 2147483647
   br label %91
 
-.preheader.i.i:                                   ; preds = %91
+.lr.ph18.i.i:                                     ; preds = %91
   %74 = fcmp ogt double %.1.i.i, 0.000000e+00
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i, i64 112
   br i1 %74, label %.lr.ph18.split.us.i.i, label %.lr.ph18.split.i.i
 
-.lr.ph18.split.us.i.i:                            ; preds = %.preheader.i.i, %.lr.ph18.split.us.i.i
-  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %.lr.ph18.split.us.i.i ], [ 0, %.preheader.i.i ]
+.lr.ph18.split.us.i.i:                            ; preds = %.lr.ph18.i.i, %.lr.ph18.split.us.i.i
+  %indvars.iv24.i.i = phi i64 [ %indvars.iv.next25.i.i, %.lr.ph18.split.us.i.i ], [ 0, %.lr.ph18.i.i ]
   %76 = load ptr, ptr %72, align 8
   %77 = getelementptr inbounds nuw double, ptr %76, i64 %indvars.iv24.i.i
   %78 = load double, ptr %77, align 8
@@ -3677,11 +3677,11 @@ _ZN10open_spiel10algorithms13CFRSolverBase28ApplyRegretMatchingPlusResetEv.exit:
   %.1.i.i = select i1 %94, double %95, double %.01415.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.preheader.i.i, label %91, !llvm.loop !46
+  br i1 %exitcond.not.i.i, label %.lr.ph18.i.i, label %91, !llvm.loop !46
 
-.lr.ph18.split.i.i:                               ; preds = %.preheader.i.i, %.lr.ph18.split.i.i
-  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph18.split.i.i ], [ 0, %.preheader.i.i ]
-  %96 = phi i64 [ %106, %.lr.ph18.split.i.i ], [ %68, %.preheader.i.i ]
+.lr.ph18.split.i.i:                               ; preds = %.lr.ph18.i.i, %.lr.ph18.split.i.i
+  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph18.split.i.i ], [ 0, %.lr.ph18.i.i ]
+  %96 = phi i64 [ %106, %.lr.ph18.split.i.i ], [ %68, %.lr.ph18.i.i ]
   %97 = ashr exact i64 %96, 3
   %98 = uitofp i64 %97 to double
   %99 = fdiv double 1.000000e+00, %98
@@ -3823,13 +3823,13 @@ _ZN10open_spiel10algorithms13CFRSolverBase28ApplyRegretMatchingPlusResetEv.exit1
   %wide.trip.count.i.i27 = and i64 %165, 2147483647
   br label %187
 
-.preheader.i.i33:                                 ; preds = %187
+.lr.ph18.i.i33:                                   ; preds = %187
   %170 = fcmp ogt double %.1.i.i30, 0.000000e+00
   %171 = getelementptr inbounds nuw i8, ptr %.sroa.04.010.i22, i64 112
   br i1 %170, label %.lr.ph18.split.us.i.i38, label %.lr.ph18.split.i.i34
 
-.lr.ph18.split.us.i.i38:                          ; preds = %.preheader.i.i33, %.lr.ph18.split.us.i.i38
-  %indvars.iv24.i.i39 = phi i64 [ %indvars.iv.next25.i.i40, %.lr.ph18.split.us.i.i38 ], [ 0, %.preheader.i.i33 ]
+.lr.ph18.split.us.i.i38:                          ; preds = %.lr.ph18.i.i33, %.lr.ph18.split.us.i.i38
+  %indvars.iv24.i.i39 = phi i64 [ %indvars.iv.next25.i.i40, %.lr.ph18.split.us.i.i38 ], [ 0, %.lr.ph18.i.i33 ]
   %172 = load ptr, ptr %168, align 8
   %173 = getelementptr inbounds nuw double, ptr %172, i64 %indvars.iv24.i.i39
   %174 = load double, ptr %173, align 8
@@ -3860,11 +3860,11 @@ _ZN10open_spiel10algorithms13CFRSolverBase28ApplyRegretMatchingPlusResetEv.exit1
   %.1.i.i30 = select i1 %190, double %191, double %.01415.i.i29
   %indvars.iv.next.i.i31 = add nuw nsw i64 %indvars.iv.i.i28, 1
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, %wide.trip.count.i.i27
-  br i1 %exitcond.not.i.i32, label %.preheader.i.i33, label %187, !llvm.loop !46
+  br i1 %exitcond.not.i.i32, label %.lr.ph18.i.i33, label %187, !llvm.loop !46
 
-.lr.ph18.split.i.i34:                             ; preds = %.preheader.i.i33, %.lr.ph18.split.i.i34
-  %indvars.iv21.i.i35 = phi i64 [ %indvars.iv.next22.i.i36, %.lr.ph18.split.i.i34 ], [ 0, %.preheader.i.i33 ]
-  %192 = phi i64 [ %202, %.lr.ph18.split.i.i34 ], [ %164, %.preheader.i.i33 ]
+.lr.ph18.split.i.i34:                             ; preds = %.lr.ph18.i.i33, %.lr.ph18.split.i.i34
+  %indvars.iv21.i.i35 = phi i64 [ %indvars.iv.next22.i.i36, %.lr.ph18.split.i.i34 ], [ 0, %.lr.ph18.i.i33 ]
+  %192 = phi i64 [ %202, %.lr.ph18.split.i.i34 ], [ %164, %.lr.ph18.i.i33 ]
   %193 = ashr exact i64 %192, 3
   %194 = uitofp i64 %193 to double
   %195 = fdiv double 1.000000e+00, %194
@@ -3949,11 +3949,6 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %30
   %.not.i.i.i.i = icmp eq ptr %35, %36
   br i1 %.not.i.i.i.i, label %.loopexit.thread, label %43
 
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  br label %._crit_edge148
-
 43:                                               ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   %44 = ashr exact i64 %39, 1
   %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #29
@@ -3972,6 +3967,11 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %51 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #29
           to label %.lr.ph147 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit86.thread
+
+.loopexit.thread:                                 ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  br label %._crit_edge148
 
 .lr.ph147:                                        ; preds = %.noexc76
   store ptr %51, ptr %9, align 8
@@ -3994,7 +3994,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %30
   %61 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv152
   store double %60, ptr %61, align 8
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
-  %62 = icmp ugt i64 %40, %indvars.iv.next153
+  %62 = icmp samesign ugt i64 %40, %indvars.iv.next153
   br i1 %62, label %55, label %._crit_edge148.loopexit, !llvm.loop !49
 
 63:                                               ; preds = %43, %42
@@ -4727,13 +4727,13 @@ define void @_ZN10open_spiel10algorithms13CFRSolverBase19ApplyRegretMatchingEv(p
   %wide.trip.count.i = and i64 %10, 2147483647
   br label %32
 
-.preheader.i:                                     ; preds = %32
+.lr.ph18.i:                                       ; preds = %32
   %15 = fcmp ogt double %.1.i, 0.000000e+00
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.04.010, i64 112
   br i1 %15, label %.lr.ph18.split.us.i, label %.lr.ph18.split.i
 
-.lr.ph18.split.us.i:                              ; preds = %.preheader.i, %.lr.ph18.split.us.i
-  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph18.split.us.i ], [ 0, %.preheader.i ]
+.lr.ph18.split.us.i:                              ; preds = %.lr.ph18.i, %.lr.ph18.split.us.i
+  %indvars.iv24.i = phi i64 [ %indvars.iv.next25.i, %.lr.ph18.split.us.i ], [ 0, %.lr.ph18.i ]
   %17 = load ptr, ptr %13, align 8
   %18 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv24.i
   %19 = load double, ptr %18, align 8
@@ -4764,11 +4764,11 @@ define void @_ZN10open_spiel10algorithms13CFRSolverBase19ApplyRegretMatchingEv(p
   %.1.i = select i1 %35, double %36, double %.01415.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %32, !llvm.loop !46
+  br i1 %exitcond.not.i, label %.lr.ph18.i, label %32, !llvm.loop !46
 
-.lr.ph18.split.i:                                 ; preds = %.preheader.i, %.lr.ph18.split.i
-  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.lr.ph18.split.i ], [ 0, %.preheader.i ]
-  %37 = phi i64 [ %47, %.lr.ph18.split.i ], [ %9, %.preheader.i ]
+.lr.ph18.split.i:                                 ; preds = %.lr.ph18.i, %.lr.ph18.split.i
+  %indvars.iv21.i = phi i64 [ %indvars.iv.next22.i, %.lr.ph18.split.i ], [ 0, %.lr.ph18.i ]
+  %37 = phi i64 [ %47, %.lr.ph18.split.i ], [ %9, %.lr.ph18.i ]
   %38 = ashr exact i64 %37, 3
   %39 = uitofp i64 %38 to double
   %40 = fdiv double 1.000000e+00, %39

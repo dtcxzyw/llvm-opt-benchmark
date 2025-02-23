@@ -633,32 +633,35 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   br i1 %50, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !4
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
-  %51 = icmp eq i32 %48, 0
-  %52 = load float, ptr %13, align 4
-  %53 = icmp ugt i32 %48, 1
-  br i1 %53, label %.lr.ph49.i.i.i, label %.preheader.i.i.i
+  %51 = load float, ptr %13, align 4
+  %52 = icmp ugt i32 %48, 1
+  br i1 %52, label %.lr.ph49.i.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph49.i.i.i, %._crit_edge.i.i.i
-  %.043.lcssa.i.i.i = phi float [ %52, %._crit_edge.i.i.i ], [ %.sroa.speculated.i.i.i, %.lr.ph49.i.i.i ]
-  br i1 %51, label %._crit_edge59.i.i.i, label %.lr.ph53.i.i.i
+.preheader.i.i.i:                                 ; preds = %._crit_edge.i.i.i
+  %53 = icmp eq i32 %48, 0
+  br i1 %53, label %._crit_edge59.i.i.i, label %.lr.ph53.i.preheader.i.i
+
+.lr.ph53.i.preheader.i.i:                         ; preds = %.lr.ph49.i.i.i, %.preheader.i.i.i
+  %.043.lcssa.i15.i.i = phi float [ %51, %.preheader.i.i.i ], [ %.sroa.speculated.i.i.i, %.lr.ph49.i.i.i ]
+  br label %.lr.ph53.i.i.i
 
 .lr.ph49.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph49.i.i.i
   %.03747.i.i.i = phi i64 [ %57, %.lr.ph49.i.i.i ], [ 1, %._crit_edge.i.i.i ]
-  %.04346.i.i.i = phi float [ %.sroa.speculated.i.i.i, %.lr.ph49.i.i.i ], [ %52, %._crit_edge.i.i.i ]
+  %.04346.i.i.i = phi float [ %.sroa.speculated.i.i.i, %.lr.ph49.i.i.i ], [ %51, %._crit_edge.i.i.i ]
   %54 = getelementptr inbounds float, ptr %13, i64 %.03747.i.i.i
   %55 = load float, ptr %54, align 4
   %56 = fcmp olt float %.04346.i.i.i, %55
   %.sroa.speculated.i.i.i = select i1 %56, float %55, float %.04346.i.i.i
   %57 = add nuw i64 %.03747.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %57, %49
-  br i1 %exitcond.not.i.i.i, label %.preheader.i.i.i, label %.lr.ph49.i.i.i, !llvm.loop !6
+  br i1 %exitcond.not.i.i.i, label %.lr.ph53.i.preheader.i.i, label %.lr.ph49.i.i.i, !llvm.loop !6
 
-.lr.ph53.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph53.i.i.i
-  %.03652.i.i.i = phi i64 [ %63, %.lr.ph53.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %.03851.i.i.i = phi float [ %62, %.lr.ph53.i.i.i ], [ 0.000000e+00, %.preheader.i.i.i ]
+.lr.ph53.i.i.i:                                   ; preds = %.lr.ph53.i.i.i, %.lr.ph53.i.preheader.i.i
+  %.03652.i.i.i = phi i64 [ %63, %.lr.ph53.i.i.i ], [ 0, %.lr.ph53.i.preheader.i.i ]
+  %.03851.i.i.i = phi float [ %62, %.lr.ph53.i.i.i ], [ 0.000000e+00, %.lr.ph53.i.preheader.i.i ]
   %58 = getelementptr inbounds float, ptr %13, i64 %.03652.i.i.i
   %59 = load float, ptr %58, align 4
-  %60 = fsub float %59, %.043.lcssa.i.i.i
+  %60 = fsub float %59, %.043.lcssa.i15.i.i
   %61 = call float @expf(float noundef %60) #15
   store float %61, ptr %58, align 4
   %62 = fadd float %.03851.i.i.i, %61

@@ -330,7 +330,7 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %gep261.i = getelementptr inbounds nuw float, ptr %invariant.gep260.i, i64 %indvars.iv228.i
   store float %59, ptr %gep261.i, align 4
   %exitcond232.not.i = icmp eq i64 %indvars.iv.next229.i, %47
-  br i1 %exitcond232.not.i, label %.loopexit.i, label %.lr.ph210.i, !llvm.loop !8
+  br i1 %exitcond232.not.i, label %.preheader.us.preheader.i, label %.lr.ph210.i, !llvm.loop !8
 
 .lr.ph.i:                                         ; preds = %.preheader205.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader205.i ]
@@ -376,15 +376,15 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %93 = fcmp olt float %..2186.i, %92
   %94 = select i1 %93, float %92, float %..2186.i
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %47
-  br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !9
+  br i1 %exitcond.not.i, label %.preheader.us.preheader.i, label %.lr.ph.i, !llvm.loop !9
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph210.i
-  %.1185.i = phi float [ %.0184218.i, %.lr.ph210.i ], [ %94, %.lr.ph.i ]
-  br i1 %36, label %.preheader.us.i, label %.split217.us.i
+.preheader.us.preheader.i:                        ; preds = %.lr.ph.i, %.lr.ph210.i
+  %.1185.ph.i = phi float [ %.0184218.i, %.lr.ph210.i ], [ %94, %.lr.ph.i ]
+  br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %.loopexit.i, %.split.us.us.i
-  %95 = phi i1 [ false, %.split.us.us.i ], [ true, %.loopexit.i ]
-  %indvars.iv246.i = phi i64 [ 1, %.split.us.us.i ], [ 0, %.loopexit.i ]
+.preheader.us.i:                                  ; preds = %.split.us.us.i, %.preheader.us.preheader.i
+  %95 = phi i1 [ true, %.preheader.us.preheader.i ], [ false, %.split.us.us.i ]
+  %indvars.iv246.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ 1, %.split.us.us.i ]
   %96 = mul nuw nsw i64 %indvars.iv246.i, %47
   %.idx.i = mul nuw nsw i64 %indvars.iv246.i, 12
   %invariant.gep266.i = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
@@ -429,14 +429,14 @@ define hidden void @cvPOSIT(ptr noundef readonly %0, ptr noundef readonly %1, do
   %.pre253.i = load float, ptr %46, align 4
   br label %.split217.us.i
 
-.split217.us.i:                                   ; preds = %.split217.us.loopexit.i, %.loopexit.i, %.preheader204.i, %.preheader205.i
-  %.1185255.i = phi float [ %.1185.i, %.split217.us.loopexit.i ], [ %.1185.i, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ %.0184218.i, %.preheader204.i ]
-  %103 = phi float [ %.pre253.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
-  %104 = phi float [ %.pre252.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
-  %105 = phi float [ %.pre251.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
-  %106 = phi float [ %.pre250.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
-  %107 = phi float [ %.pre249.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
-  %108 = phi float [ %.pre.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.loopexit.i ], [ 0.000000e+00, %.preheader205.i ], [ 0.000000e+00, %.preheader204.i ]
+.split217.us.i:                                   ; preds = %.split217.us.loopexit.i, %.preheader204.i, %.preheader205.i
+  %.1185255.i = phi float [ %.1185.ph.i, %.split217.us.loopexit.i ], [ %.0184218.i, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %103 = phi float [ %.pre253.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %104 = phi float [ %.pre252.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %105 = phi float [ %.pre251.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %106 = phi float [ %.pre250.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %107 = phi float [ %.pre249.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
+  %108 = phi float [ %.pre.i, %.split217.us.loopexit.i ], [ 0.000000e+00, %.preheader204.i ], [ 0.000000e+00, %.preheader205.i ]
   %109 = fmul float %107, %107
   %110 = tail call float @llvm.fmuladd.f32(float %108, float %108, float %109)
   %111 = tail call float @llvm.fmuladd.f32(float %106, float %106, float %110)

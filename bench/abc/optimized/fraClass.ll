@@ -1105,37 +1105,37 @@ Vec_PtrPush.exit187:                              ; preds = %.Vec_PtrGrow.exit11
   %208 = getelementptr inbounds ptr, ptr %17, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !42
   %.not146201 = icmp eq ptr %209, %158
-  br i1 %.not146201, label %._crit_edge.thread, label %.lr.ph204
+  br i1 %.not146201, label %._crit_edge.._crit_edge211_crit_edge, label %.lr.ph204
 
-._crit_edge.thread:                               ; preds = %Vec_PtrPush.exit187
-  %210 = load ptr, ptr %142, align 8, !tbaa !36
-  %211 = getelementptr inbounds ptr, ptr %210, i64 %173
-  store ptr %158, ptr %211, align 8, !tbaa !42
+.lr.ph204:                                        ; preds = %Vec_PtrPush.exit187, %.lr.ph204
+  %.1127203 = phi i32 [ %214, %.lr.ph204 ], [ 1, %Vec_PtrPush.exit187 ]
+  %.1133202 = phi ptr [ %213, %.lr.ph204 ], [ %209, %Vec_PtrPush.exit187 ]
+  %210 = getelementptr i8, ptr %.1133202, i64 36
+  %.1133.val = load i32, ptr %210, align 4, !tbaa !45
+  %211 = sext i32 %.1133.val to i64
+  %212 = getelementptr inbounds ptr, ptr %17, i64 %211
+  %213 = load ptr, ptr %212, align 8, !tbaa !42
+  %214 = add nuw nsw i32 %.1127203, 1
+  %.not146 = icmp eq ptr %213, %158
+  br i1 %.not146, label %.lr.ph210, label %.lr.ph204, !llvm.loop !70
+
+._crit_edge.._crit_edge211_crit_edge:             ; preds = %Vec_PtrPush.exit187
+  %215 = load ptr, ptr %142, align 8, !tbaa !36
+  %216 = getelementptr inbounds ptr, ptr %215, i64 %173
+  store ptr %158, ptr %216, align 8, !tbaa !42
   %.pre236 = or disjoint i32 %172, 1
   br label %._crit_edge211
 
-.lr.ph204:                                        ; preds = %Vec_PtrPush.exit187, %.lr.ph204
-  %.1127203 = phi i32 [ %216, %.lr.ph204 ], [ 1, %Vec_PtrPush.exit187 ]
-  %.1133202 = phi ptr [ %215, %.lr.ph204 ], [ %209, %Vec_PtrPush.exit187 ]
-  %212 = getelementptr i8, ptr %.1133202, i64 36
-  %.1133.val = load i32, ptr %212, align 4, !tbaa !45
-  %213 = sext i32 %.1133.val to i64
-  %214 = getelementptr inbounds ptr, ptr %17, i64 %213
-  %215 = load ptr, ptr %214, align 8, !tbaa !42
-  %216 = add nuw nsw i32 %.1127203, 1
-  %.not146 = icmp eq ptr %215, %158
-  br i1 %.not146, label %._crit_edge, label %.lr.ph204, !llvm.loop !70
-
-._crit_edge:                                      ; preds = %.lr.ph204
+.lr.ph210:                                        ; preds = %.lr.ph204
   %217 = load ptr, ptr %142, align 8, !tbaa !36
   %218 = getelementptr inbounds ptr, ptr %217, i64 %173
   store ptr %158, ptr %218, align 8, !tbaa !42
-  %219 = add nsw i32 %216, %172
+  %219 = add nsw i32 %214, %172
   br label %220
 
-220:                                              ; preds = %._crit_edge, %220
-  %indvars.iv229 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next230, %220 ]
-  %.2134207 = phi ptr [ %209, %._crit_edge ], [ %232, %220 ]
+220:                                              ; preds = %.lr.ph210, %220
+  %indvars.iv229 = phi i64 [ 1, %.lr.ph210 ], [ %indvars.iv.next230, %220 ]
+  %.2134207 = phi ptr [ %209, %.lr.ph210 ], [ %232, %220 ]
   %221 = trunc nuw nsw i64 %indvars.iv229 to i32
   %222 = sub i32 %219, %221
   %223 = sext i32 %222 to i64
@@ -1162,10 +1162,10 @@ Vec_PtrPush.exit187:                              ; preds = %.Vec_PtrGrow.exit11
   %233 = trunc nsw i64 %indvars.iv.next230 to i32
   br label %._crit_edge211
 
-._crit_edge211:                                   ; preds = %._crit_edge.thread, %._crit_edge211.loopexit
-  %234 = phi ptr [ %210, %._crit_edge.thread ], [ %217, %._crit_edge211.loopexit ]
-  %.pre-phi = phi i32 [ %.pre236, %._crit_edge.thread ], [ %219, %._crit_edge211.loopexit ]
-  %.2128.lcssa = phi i32 [ 1, %._crit_edge.thread ], [ %233, %._crit_edge211.loopexit ]
+._crit_edge211:                                   ; preds = %._crit_edge.._crit_edge211_crit_edge, %._crit_edge211.loopexit
+  %234 = phi ptr [ %215, %._crit_edge.._crit_edge211_crit_edge ], [ %217, %._crit_edge211.loopexit ]
+  %.pre-phi = phi i32 [ %.pre236, %._crit_edge.._crit_edge211_crit_edge ], [ %219, %._crit_edge211.loopexit ]
+  %.2128.lcssa = phi i32 [ 1, %._crit_edge.._crit_edge211_crit_edge ], [ %233, %._crit_edge211.loopexit ]
   %235 = sext i32 %.pre-phi to i64
   %236 = getelementptr inbounds ptr, ptr %234, i64 %235
   store ptr null, ptr %236, align 8, !tbaa !42

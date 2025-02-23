@@ -334,7 +334,7 @@ define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112ba
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, i64 noundef 0, i8 noundef signext 0)
   br label %._crit_edge44
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph43.preheader:                               ; preds = %.lr.ph
   %8 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE14_M_replace_auxEmmmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, i64 noundef %11, i8 noundef signext 0)
   %9 = load ptr, ptr %0, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %5
@@ -347,14 +347,14 @@ define dso_local void @_ZN4absl16strings_internal12AppendPiecesEPNSt7__cxx1112ba
   %11 = add i64 %.sroa.029.0.copyload, %.038
   %12 = getelementptr inbounds nuw i8, ptr %.02337, i64 16
   %.not = icmp eq ptr %12, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph43.preheader, label %.lr.ph
 
 ._crit_edge44:                                    ; preds = %15, %._crit_edge.thread
   ret void
 
-.lr.ph43:                                         ; preds = %._crit_edge, %15
-  %.02441 = phi ptr [ %16, %15 ], [ %1, %._crit_edge ]
-  %.02540 = phi ptr [ %.1, %15 ], [ %10, %._crit_edge ]
+.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %15
+  %.02441 = phi ptr [ %16, %15 ], [ %1, %.lr.ph43.preheader ]
+  %.02540 = phi ptr [ %.1, %15 ], [ %10, %.lr.ph43.preheader ]
   %.sroa.0.0.copyload = load i64, ptr %.02441, align 8, !tbaa !17
   %.not28 = icmp eq i64 %.sroa.0.0.copyload, 0
   br i1 %.not28, label %15, label %13

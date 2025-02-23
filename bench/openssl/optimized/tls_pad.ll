@@ -122,7 +122,6 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   %45 = trunc i64 %7 to i32
   %46 = and i32 %45, 255
   %47 = xor i32 %46, -1
-  %umax = call i64 @llvm.umax.i64(i64 %6, i64 1)
   br label %70
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
@@ -197,7 +196,7 @@ define internal fastcc range(i32 0, 2) i32 @ssl3_cbc_copy_mac(ptr noundef captur
   %103 = and i64 %101, %102
   %isneg = icmp slt i64 %103, 0
   %104 = select i1 %isneg, i64 %89, i64 0
-  %exitcond103.not = icmp eq i64 %99, %umax
+  %exitcond103.not = icmp eq i64 %99, %6
   br i1 %exitcond103.not, label %.loopexit, label %70, !llvm.loop !17
 
 .loopexit:                                        ; preds = %70, %35, %31, %28, %26, %27, %19, %9
@@ -322,9 +321,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #4

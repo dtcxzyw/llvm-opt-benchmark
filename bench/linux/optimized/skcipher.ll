@@ -661,11 +661,11 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %60, align 8
   tail call void @kfree(ptr noundef %58) #9
   %63 = icmp eq ptr %59, %3
-  br i1 %63, label %.loopexit, label %.split, !llvm.loop !8
+  br i1 %63, label %.loopexit.thread, label %.split, !llvm.loop !8
 
-.loopexit:                                        ; preds = %.split, %52, %2
+.loopexit:                                        ; preds = %52, %2
   %64 = icmp eq i32 %1, 0
-  br i1 %64, label %65, label %75
+  br i1 %64, label %65, label %.loopexit.thread
 
 65:                                               ; preds = %.loopexit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -673,39 +673,39 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %67, %69
-  br i1 %70, label %75, label %71
+  br i1 %70, label %.loopexit.thread, label %71
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %73 = load i32, ptr %72, align 8
   %74 = zext i32 %73 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 1 %67, i64 %74, i1 false)
-  br label %75
+  br label %.loopexit.thread
 
-75:                                               ; preds = %71, %65, %.loopexit
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %77, %79
-  br i1 %80, label %82, label %81
+.loopexit.thread:                                 ; preds = %.split, %71, %65, %.loopexit
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %78 = load ptr, ptr %77, align 8
+  %79 = icmp eq ptr %76, %78
+  br i1 %79, label %81, label %80
 
-81:                                               ; preds = %75
-  tail call void @kfree(ptr noundef %77) #9
-  %.pr = load ptr, ptr %78, align 8
-  br label %82
+80:                                               ; preds = %.loopexit.thread
+  tail call void @kfree(ptr noundef %76) #9
+  %.pr = load ptr, ptr %77, align 8
+  br label %81
 
-82:                                               ; preds = %81, %75
-  %83 = phi ptr [ %.pr, %81 ], [ %77, %75 ]
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %87, label %85
+81:                                               ; preds = %80, %.loopexit.thread
+  %82 = phi ptr [ %.pr, %80 ], [ %76, %.loopexit.thread ]
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %86, label %84
 
-85:                                               ; preds = %82
-  %86 = ptrtoint ptr %83 to i64
-  tail call void @free_pages(i64 noundef %86, i32 noundef 0) #9
-  br label %87
+84:                                               ; preds = %81
+  %85 = ptrtoint ptr %82 to i64
+  tail call void @free_pages(i64 noundef %85, i32 noundef 0) #9
+  br label %86
 
-87:                                               ; preds = %85, %82
+86:                                               ; preds = %84, %81
   ret void
 }
 

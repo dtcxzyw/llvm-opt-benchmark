@@ -249,7 +249,7 @@ _ZL11argc_paramsP8ARG_list.exit:                  ; preds = %34, %._crit_edge.lo
   br label %.lr.ph
 
 59:                                               ; preds = %.loopexit303
-  %60 = tail call noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noundef 4096)
+  %60 = tail call noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef nonnull %0, i32 noundef 4096)
   br label %367
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge260

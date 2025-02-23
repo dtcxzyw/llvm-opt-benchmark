@@ -74,8 +74,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime25convertOpenCLS
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 16
   %18 = icmp eq i8 %17, 13
-  %.not.not7.i.i = icmp ne ptr %15, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %18
+  %.not7.i.i = icmp ne ptr %15, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %18
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isSamplerTEv.exit, label %_ZNK5clang4Type10isSamplerTEv.exit.thread
 
 _ZNK5clang4Type10isSamplerTEv.exit:               ; preds = %11

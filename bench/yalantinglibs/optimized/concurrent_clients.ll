@@ -4564,7 +4564,6 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   store i8 0, ptr %has_run_or_stop_, align 8
   %flag_ = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i32 0, ptr %flag_, align 4
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %pool_size, i64 1)
   %2 = load atomic i8, ptr @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7easylog6loggerILm0EE8instanceEv.exit, !prof !5
@@ -4598,6 +4597,7 @@ _ZN7easylog6loggerILm0EE8instanceEv.exit:         ; preds = %invoke.cont, %init.
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i21 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_end_of_storage.i22 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %umax = tail call i64 @llvm.umax.i64(i64 %pool_size, i64 1)
   br label %for.body
 
 lpad:                                             ; preds = %entry
@@ -5031,7 +5031,7 @@ if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN4asio10io_contextEED2Ev.exit:  ; preds = %_ZNSt10shared_ptrIN4asio10io_context4workEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.end8.sink.split.i.i.i.i63
   %inc = add nuw i64 %i.0120, 1
-  %exitcond.not = icmp eq i64 %inc, %spec.store.select
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !56
 
 lpad2:                                            ; preds = %for.body

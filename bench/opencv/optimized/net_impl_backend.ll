@@ -205,16 +205,16 @@ _ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaIS
   %57 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 32
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ult ptr %48, %58
-  br i1 %59, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEED2Ev.exit, label %60
+  br i1 %59, label %_ZN2cv3PtrINS_3dnn14dnn4_v2024052114BackendWrapperEED2Ev.exit, label %.lr.ph.i.i.i.i
 
-60:                                               ; preds = %_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE4findERSA_.exit
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE4findERSA_.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  br label %.lr.ph.i.i.i.i
+  br label %60
 
-.lr.ph.i.i.i.i:                                   ; preds = %60, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %.1.i.i.i.i, %.lr.ph.i.i.i.i ], [ %51, %60 ]
-  %.0811.i.i.i.i = phi ptr [ %.19.i.i.i.i, %.lr.ph.i.i.i.i ], [ %52, %60 ]
+60:                                               ; preds = %60, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %51, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %60 ]
+  %.0811.i.i.i.i = phi ptr [ %52, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %60 ]
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
   %62 = load ptr, ptr %61, align 8
   %63 = icmp ult ptr %62, %48
@@ -223,9 +223,9 @@ _ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaIS
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8
   %.not.i.i.i.i42 = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i42, label %_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE11lower_boundERSA_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i42, label %_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE11lower_boundERSA_.exit.i, label %60, !llvm.loop !6
 
-_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE11lower_boundERSA_.exit.i: ; preds = %.lr.ph.i.i.i.i
+_ZNSt3mapIPvN2cv3PtrINS1_3dnn14dnn4_v2024052114BackendWrapperEEESt4lessIS0_ESaISt4pairIKS0_S6_EEE11lower_boundERSA_.exit.i: ; preds = %60
   %64 = icmp eq ptr %.19.i.i.i.i, %52
   br i1 %64, label %.critedge.i, label %65
 

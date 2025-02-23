@@ -720,7 +720,7 @@ _.exit:                                           ; preds = %28, %30
   br i1 %.not47, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = tail call i32 @set_helper_option(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7)
+  %54 = tail call i32 @set_helper_option(ptr noundef nonnull %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.7)
   br label %55
 
 55:                                               ; preds = %53, %50, %47

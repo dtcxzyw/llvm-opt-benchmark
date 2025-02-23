@@ -8396,12 +8396,12 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
   %sub18.i.i = add nsw i64 %sub.ptr.div.i.i12, -2
   %div19.i.i = ashr exact i64 %sub18.i.i, 1
   %cmp20.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div19.i.i
-  br i1 %cmp20.i.i, label %if.then21.i.i, label %if.end35.i.i
+  br i1 %cmp20.i.i, label %if.end35.i.thread.i, label %if.end35.i.i
 
-if.then21.i.i:                                    ; preds = %land.lhs.true.i.i
-  %add22.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
+if.end35.i.thread.i:                              ; preds = %land.lhs.true.i.i
+  %add22.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
   %sub25.i.i = or disjoint i64 %add22.i.i, 1
-  %add.ptr.i20.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %sub25.i.i
+  %add.ptr.i20.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %sub25.i.i
   %add.ptr.i21.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   %17 = load ptr, ptr %add.ptr.i20.i.i, align 8
   store ptr %17, ptr %add.ptr.i21.i.i, align 8
@@ -8409,15 +8409,18 @@ if.then21.i.i:                                    ; preds = %land.lhs.true.i.i
   %18 = load double, ptr %second.i22.i.i, align 8
   %second3.i23.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i21.i.i, i64 8
   store double %18, ptr %second3.i23.i.i, align 8
-  br label %if.end35.i.i
+  br label %land.rhs.i.i.i.preheader
 
-if.end35.i.i:                                     ; preds = %if.then21.i.i, %land.lhs.true.i.i, %while.end.i.i
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub25.i.i, %if.then21.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i ]
-  %cmp6.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
-  br i1 %cmp6.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit
+if.end35.i.i:                                     ; preds = %land.lhs.true.i.i, %while.end.i.i
+  %cmp6.i.i.not.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, 0
+  br i1 %cmp6.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, label %land.rhs.i.i.i.preheader
 
-land.rhs.i.i.i:                                   ; preds = %if.end35.i.i, %while.body.i.i.i14
-  %__holeIndex.addr.07.i.i.i = phi i64 [ %__parent.08.i.i34.i, %while.body.i.i.i14 ], [ %__holeIndex.addr.1.i.i, %if.end35.i.i ]
+land.rhs.i.i.i.preheader:                         ; preds = %if.end35.i.i, %if.end35.i.thread.i
+  %__holeIndex.addr.07.i.i.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i.i, %if.end35.i.i ], [ %sub25.i.i, %if.end35.i.thread.i ]
+  br label %land.rhs.i.i.i
+
+land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.preheader, %while.body.i.i.i14
+  %__holeIndex.addr.07.i.i.i = phi i64 [ %__parent.08.i.i34.i, %while.body.i.i.i14 ], [ %__holeIndex.addr.07.i.i.i.ph, %land.rhs.i.i.i.preheader ]
   %__parent.08.in.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i, -1
   %__parent.08.i.i34.i = lshr i64 %__parent.08.in.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %__parent.08.i.i34.i
@@ -8427,7 +8430,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end35.i.i, %whil
   br i1 %cmp.i.i.i.i.i13, label %while.body.i.i.i14, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit
 
 while.body.i.i.i14:                               ; preds = %land.rhs.i.i.i
-  %add.ptr.i8.i.i.i = getelementptr inbounds nuw %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i
+  %add.ptr.i8.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i
   %20 = load ptr, ptr %add.ptr.i.i.i.i, align 8
   store ptr %20, ptr %add.ptr.i8.i.i.i, align 8
   %second3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i8.i.i.i, i64 8
@@ -8436,7 +8439,7 @@ while.body.i.i.i14:                               ; preds = %land.rhs.i.i.i
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !60
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_SI_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i14, %if.end35.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end35.i.i ], [ %__holeIndex.addr.07.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i14 ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %if.end35.i.i ], [ %__holeIndex.addr.07.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i14 ]
   %add.ptr.i9.i.i.i = getelementptr inbounds %"struct.std::pair.21", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store ptr %__value.sroa.0.0.copyload.i, ptr %add.ptr.i9.i.i.i, align 8
   %second3.i11.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i9.i.i.i, i64 8
@@ -8582,7 +8585,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   br label %while.body.i.i6, !llvm.loop !65
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEET_SI_SI_T0_.exit: ; preds = %while.end18.i.i
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_T1_(ptr %__first.sroa.0.1.i.i, ptr %storemerge3354, i64 noundef %dec)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIPN8proxygen15HTTPTransactionEdESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_18HTTP2PriorityQueue10nextEgressERSA_bE9WeightCmpEEEvT_SI_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge3354, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4

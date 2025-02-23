@@ -1301,7 +1301,7 @@ fmap_readn.exit103.thread:                        ; preds = %69, %fmap_readn.exi
 98:                                               ; preds = %97, %98
   %.065 = phi i32 [ 0, %97 ], [ %99, %98 ]
   %99 = add nuw nsw i32 %.065, 1
-  %100 = call fastcc i32 @parsehwp3_paragraph(ptr noundef %3, ptr noundef nonnull %.174, i32 noundef %.065, i32 noundef 0, ptr noundef %8, ptr noundef %9)
+  %100 = call fastcc i32 @parsehwp3_paragraph(ptr noundef nonnull %3, ptr noundef nonnull %.174, i32 noundef %.065, i32 noundef 0, ptr noundef %8, ptr noundef %9)
   %101 = icmp ne i32 %100, 0
   %102 = load i32, ptr %9, align 4
   %103 = icmp ne i32 %102, 0
@@ -1611,7 +1611,7 @@ thread-pre-split140.i:                            ; preds = %167
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %224 = mul nuw nsw i64 %indvars.iv.i, 617
   %.reass = add i64 %224, %invariant.op
-  %225 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.174, i64 noundef %.reass, i64 noundef 325, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %225 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.174, i64 noundef %.reass, i64 noundef 325, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %parsehwp3_infoblk_1.exit, label %.lr.ph.i
@@ -1694,7 +1694,7 @@ thread-pre-split140.i:                            ; preds = %167
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %261 = sub i64 %168, %.promoted
-  %262 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.174, i64 noundef %.promoted, i64 noundef %261, ptr noundef %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %262 = call i32 @cli_magic_scan_nested_fmap_type(ptr noundef nonnull %.174, i64 noundef %.promoted, i64 noundef %261, ptr noundef nonnull %3, i32 noundef 0, ptr noundef null, i32 noundef 0) #10
   br label %.critedge3
 
 parsehwp3_infoblk_1.exit:                         ; preds = %.lr.ph.i, %197, %198, %209, %210, %223, %226, %230, %240, %241, %246, %250, %252, %256, %258, %259, %155, %159

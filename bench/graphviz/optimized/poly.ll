@@ -1486,7 +1486,7 @@ gv_calloc.exit:                                   ; preds = %12
   %79 = zext i1 %78 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %47, %20, %._crit_edge.loopexit
+.loopexit:                                        ; preds = %57, %47, %._crit_edge.loopexit, %20
   %.036 = phi i32 [ %79, %._crit_edge.loopexit ], [ 0, %20 ], [ 1, %47 ], [ 1, %57 ]
   ret i32 %.036
 }

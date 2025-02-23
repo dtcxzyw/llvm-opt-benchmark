@@ -4136,25 +4136,25 @@ define internal void @die_nicely(ptr noundef %0, ptr noundef %1) #5 {
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %42 = icmp eq ptr %41, @cmd_hist
   %.str.54..str.55.i = select i1 %42, ptr @.str.54, ptr @.str.55
-  %43 = call i64 @fwrite(ptr nonnull %.str.54..str.55.i, i64 2, i64 1, ptr %13)
+  %43 = call i64 @fwrite(ptr nonnull %.str.54..str.55.i, i64 2, i64 1, ptr nonnull %13)
   %44 = getelementptr inbounds nuw i8, ptr %.07182.i, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !107
-  %46 = call i32 @fputs(ptr noundef %45, ptr noundef %13)
-  %47 = call i32 @fputc(i32 noundef 10, ptr noundef %13)
+  %46 = call i32 @fputs(ptr noundef %45, ptr noundef nonnull %13)
+  %47 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %13)
   %.071.i = load ptr, ptr %40, align 8, !tbaa !37
   %.not74.i = icmp eq ptr %.071.i, @cmd_hist
   br i1 %.not74.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !134
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %16
-  %48 = call i32 @fputc(i32 noundef 10, ptr noundef %13)
-  %49 = call i64 @fwrite(ptr nonnull @.str.56, i64 18, i64 1, ptr %13)
-  %50 = call i64 @fwrite(ptr nonnull @.str.57, i64 18, i64 1, ptr %13)
+  %48 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %13)
+  %49 = call i64 @fwrite(ptr nonnull @.str.56, i64 18, i64 1, ptr nonnull %13)
+  %50 = call i64 @fwrite(ptr nonnull @.str.57, i64 18, i64 1, ptr nonnull %13)
   %51 = load i64, ptr @cur_active_branches, align 8, !tbaa !9
   %52 = load i64, ptr @max_active_branches, align 8, !tbaa !9
-  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.58, i64 noundef %51, i64 noundef %52) #24
-  %54 = call i32 @fputc(i32 noundef 10, ptr noundef %13)
-  %55 = call i64 @fwrite(ptr nonnull @.str.59, i64 18, i64 1, ptr %13)
-  %56 = call i64 @fwrite(ptr nonnull @.str.60, i64 48, i64 1, ptr %13)
+  %53 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.58, i64 noundef %51, i64 noundef %52) #24
+  %54 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %13)
+  %55 = call i64 @fwrite(ptr nonnull @.str.59, i64 18, i64 1, ptr nonnull %13)
+  %56 = call i64 @fwrite(ptr nonnull @.str.60, i64 48, i64 1, ptr nonnull %13)
   %.06883.i = load ptr, ptr @active_branches, align 8, !tbaa !47
   %.not7584.i = icmp eq ptr %.06883.i, null
   br i1 %.not7584.i, label %._crit_edge89.i, label %.lr.ph88.i
@@ -4167,16 +4167,16 @@ define internal void @die_nicely(ptr noundef %0, ptr noundef %1) #5 {
   %59 = load i64, ptr %58, align 8, !tbaa !87
   %60 = getelementptr inbounds nuw i8, ptr %.06886.i, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !49
-  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.61, i64 noundef %57, i64 noundef %59, ptr noundef %61) #24
+  %62 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %13, ptr noundef nonnull @.str.61, i64 noundef %57, i64 noundef %59, ptr noundef %61) #24
   %63 = getelementptr inbounds nuw i8, ptr %.06886.i, i64 8
   %.068.i = load ptr, ptr %63, align 8, !tbaa !47
   %.not75.i = icmp eq ptr %.068.i, null
   br i1 %.not75.i, label %._crit_edge89.i, label %.lr.ph88.i, !llvm.loop !135
 
 ._crit_edge89.i:                                  ; preds = %.lr.ph88.i, %._crit_edge.i
-  %64 = call i32 @fputc(i32 noundef 10, ptr noundef %13)
-  %65 = call i64 @fwrite(ptr nonnull @.str.62, i64 18, i64 1, ptr %13)
-  %66 = call i64 @fwrite(ptr nonnull @.str.57, i64 18, i64 1, ptr %13)
+  %64 = call i32 @fputc(i32 noundef 10, ptr noundef nonnull %13)
+  %65 = call i64 @fwrite(ptr nonnull @.str.62, i64 18, i64 1, ptr nonnull %13)
+  %66 = call i64 @fwrite(ptr nonnull @.str.57, i64 18, i64 1, ptr nonnull %13)
   br label %67
 
 67:                                               ; preds = %._crit_edge95.i, %._crit_edge89.i

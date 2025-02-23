@@ -3101,7 +3101,7 @@ processTbl.exit:                                  ; preds = %._crit_edge167
   %273 = load ptr, ptr %271, align 8, !tbaa !172
   tail call void @free(ptr noundef %273) #23
   tail call void @free(ptr noundef %271) #23
-  %274 = add nuw i64 %.06.i.i, 1
+  %274 = add nuw nsw i64 %.06.i.i, 1
   %exitcond.not = icmp eq i64 %274, %.sroa.12.0.copyload
   br i1 %exitcond.not, label %rows_free.exit, label %.lr.ph.i.i, !llvm.loop !175
 

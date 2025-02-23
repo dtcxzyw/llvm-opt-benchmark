@@ -15633,7 +15633,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2892: ; preds = %_
 ._crit_edge3086:                                  ; preds = %.lr.ph3085, %.preheader
   %4934 = getelementptr inbounds nuw i8, ptr %4851, i64 64
   %4935 = load ptr, ptr %4934, align 8, !tbaa !118
-  call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterEi(ptr noundef %4935, ptr noundef %1, i32 noundef 0)
+  call void @_ZN5faiss11write_indexEPKNS_5IndexEPNS_8IOWriterEi(ptr noundef %4935, ptr noundef nonnull %1, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %171) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %169) #21
   br label %6452
@@ -15643,7 +15643,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2892: ; preds = %_
   %4936 = load ptr, ptr %4889, align 8, !tbaa !117
   %4937 = getelementptr inbounds nuw ptr, ptr %4936, i64 %indvars.iv
   %4938 = load ptr, ptr %4937, align 8, !tbaa !123
-  call void @_ZN5faiss21write_VectorTransformEPKNS_15VectorTransformEPNS_8IOWriterE(ptr noundef %4938, ptr noundef %1)
+  call void @_ZN5faiss21write_VectorTransformEPKNS_15VectorTransformEPNS_8IOWriterE(ptr noundef %4938, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4939 = load i32, ptr %171, align 4, !tbaa !4
   %4940 = sext i32 %4939 to i64

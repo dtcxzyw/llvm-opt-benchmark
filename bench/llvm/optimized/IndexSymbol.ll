@@ -941,8 +941,8 @@ define internal fastcc noundef zeroext i1 @_ZL10isUnitTestPKN5clang14ObjCMethodD
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 16
   %17 = icmp eq i8 %16, 13
-  %.not.not7.i.i = icmp ne ptr %14, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %17
+  %.not7.i.i = icmp ne ptr %14, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %17
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZL14isUnitTestCasePKN5clang17ObjCInterfaceDeclE.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %6

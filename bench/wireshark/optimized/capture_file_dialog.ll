@@ -822,7 +822,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %3
   br label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit
 
 _ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit: ; preds = %10, %.loopexit.i
-  tail call void @_ZdlPvm(ptr noundef %8, i64 noundef 40) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef 40) #25
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %3, %7, %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit, %_ZN9QtPrivate8RefCount5derefEv.exit, %1
@@ -9448,7 +9448,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %11
   br label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i
 
 _ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i: ; preds = %.loopexit.i.i, %18
-  tail call void @_ZdlPvm(ptr noundef %16, i64 noundef 40) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %16, i64 noundef 40) #25
   br label %_ZN5QHashI7QString5QListIS0_EE5clearEv.exit
 
 _ZN5QHashI7QString5QListIS0_EE5clearEv.exit:      ; preds = %3, %11, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %15, %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i
@@ -11137,7 +11137,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %61
   br label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i
 
 _ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i: ; preds = %.loopexit.i.i, %68
-  call void @_ZdlPvm(ptr noundef %66, i64 noundef 40) #25
+  call void @_ZdlPvm(ptr noundef nonnull %66, i64 noundef 40) #25
   br label %_ZN5QHashI7QString5QListIS0_EED2Ev.exit
 
 _ZN5QHashI7QString5QListIS0_EED2Ev.exit:          ; preds = %_ZN5QListI7QStringED2Ev.exit, %61, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %65, %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i
@@ -14173,7 +14173,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %45
   br label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit
 
 _ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit: ; preds = %49, %.loopexit.i
-  tail call void @_ZdlPvm(ptr noundef %0, i64 noundef 40) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 40) #25
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
 63:                                               ; preds = %44

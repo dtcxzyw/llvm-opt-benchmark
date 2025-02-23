@@ -19722,14 +19722,14 @@ define linkonce_odr noundef double @_ZN20colvar_grid_gradient7averageEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 1
-  br i1 %.not, label %4, label %61
+  br i1 %.not, label %4, label %60
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %61, label %_ZNK11colvar_gridIdE9new_indexEv.exit
+  br i1 %8, label %60, label %_ZNK11colvar_gridIdE9new_indexEv.exit
 
 _ZNK11colvar_gridIdE9new_indexEv.exit:            ; preds = %4
   %9 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #27, !noalias !153
@@ -19807,40 +19807,38 @@ _ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph.i.preh
 _ZNK11colvar_gridIdE4incrERSt6vectorIiSaIiEE.exit: ; preds = %.loopexit, %.lr.ph.i.i12.preheader
   %.1 = phi double [ %47, %.lr.ph.i.i12.preheader ], [ %.0779, %.loopexit ]
   %48 = add nuw nsw i32 %23, 1
-  %spec.store.select = tail call i32 @llvm.smin.i32(i32 %48, i32 %7)
+  %spec.store.select = tail call i32 @llvm.umin.i32(i32 %48, i32 %7)
   store i32 %spec.store.select, ptr %9, align 4
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %48, i32 %7)
-  %49 = icmp sgt i32 %spec.select, -1
-  %.not.i = icmp slt i32 %48, %7
-  %or.cond74 = and i1 %49, %.not.i
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %48, i32 %7)
+  %or.cond74 = icmp ult i32 %48, %7
   br i1 %or.cond74, label %_ZNK11colvar_gridIdE8index_okERKSt6vectorIiSaIiEE.exit, label %_ZNSt6vectorIiSaIiEED2Ev.exit40, !llvm.loop !156
 
 .lr.ph.i.i26.preheader:                           ; preds = %.lr.ph.i19.preheader, %.lr.ph.i.i26.preheader
-  %.381 = phi double [ %57, %.lr.ph.i.i26.preheader ], [ 0.000000e+00, %.lr.ph.i19.preheader ]
-  %50 = phi i32 [ %spec.select76, %.lr.ph.i.i26.preheader ], [ 0, %.lr.ph.i19.preheader ]
-  %51 = zext nneg i32 %50 to i64
-  %52 = load i32, ptr %20, align 4
-  %53 = sext i32 %52 to i64
-  %54 = mul nsw i64 %53, %51
-  %55 = getelementptr double, ptr %22, i64 %54
-  %56 = load double, ptr %55, align 8
-  %57 = fadd double %.381, %56
-  %58 = add nuw nsw i32 %50, 1
-  %spec.store.select75 = tail call i32 @llvm.umin.i32(i32 %58, i32 %7)
+  %.381 = phi double [ %56, %.lr.ph.i.i26.preheader ], [ 0.000000e+00, %.lr.ph.i19.preheader ]
+  %49 = phi i32 [ %spec.select76, %.lr.ph.i.i26.preheader ], [ 0, %.lr.ph.i19.preheader ]
+  %50 = zext nneg i32 %49 to i64
+  %51 = load i32, ptr %20, align 4
+  %52 = sext i32 %51 to i64
+  %53 = mul nsw i64 %52, %50
+  %54 = getelementptr double, ptr %22, i64 %53
+  %55 = load double, ptr %54, align 8
+  %56 = fadd double %.381, %55
+  %57 = add nuw nsw i32 %49, 1
+  %spec.store.select75 = tail call i32 @llvm.umin.i32(i32 %57, i32 %7)
   store i32 %spec.store.select75, ptr %9, align 4
-  %spec.select76 = tail call i32 @llvm.umin.i32(i32 %58, i32 %7)
-  %or.cond = icmp ult i32 %58, %7
+  %spec.select76 = tail call i32 @llvm.umin.i32(i32 %57, i32 %7)
+  %or.cond = icmp ult i32 %57, %7
   br i1 %or.cond, label %.lr.ph.i.i26.preheader, label %_ZNSt6vectorIiSaIiEED2Ev.exit40, !llvm.loop !157
 
 _ZNSt6vectorIiSaIiEED2Ev.exit40:                  ; preds = %_ZNK11colvar_gridIdE4incrERSt6vectorIiSaIiEE.exit, %.lr.ph.i.i26.preheader, %.lr.ph.i.preheader, %.lr.ph.i19.preheader
-  %.2 = phi double [ 0.000000e+00, %.lr.ph.i19.preheader ], [ 0.000000e+00, %.lr.ph.i.preheader ], [ %57, %.lr.ph.i.i26.preheader ], [ %.1, %_ZNK11colvar_gridIdE4incrERSt6vectorIiSaIiEE.exit ]
-  %59 = sitofp i32 %7 to double
-  %60 = fdiv double %.2, %59
+  %.2 = phi double [ 0.000000e+00, %.lr.ph.i19.preheader ], [ 0.000000e+00, %.lr.ph.i.preheader ], [ %56, %.lr.ph.i.i26.preheader ], [ %.1, %_ZNK11colvar_gridIdE4incrERSt6vectorIiSaIiEE.exit ]
+  %58 = sitofp i32 %7 to double
+  %59 = fdiv double %.2, %58
   tail call void @_ZdlPv(ptr noundef nonnull %9) #24
-  br label %61
+  br label %60
 
-61:                                               ; preds = %1, %4, %_ZNSt6vectorIiSaIiEED2Ev.exit40
-  %.0 = phi double [ %60, %_ZNSt6vectorIiSaIiEED2Ev.exit40 ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %1 ]
+60:                                               ; preds = %1, %4, %_ZNSt6vectorIiSaIiEED2Ev.exit40
+  %.0 = phi double [ %59, %_ZNSt6vectorIiSaIiEED2Ev.exit40 ], [ 0.000000e+00, %4 ], [ 0.000000e+00, %1 ]
   ret double %.0
 }
 
@@ -21141,15 +21139,15 @@ _ZN19integrate_potential6l2normERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i, %
   %101 = tail call double @llvm.fmuladd.f64(double %98, double %100, double %.0128)
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge131, label %.lr.ph130, !llvm.loop !171
+  br i1 %exitcond155.not, label %.lr.ph135, label %.lr.ph130, !llvm.loop !171
 
-._crit_edge131:                                   ; preds = %.lr.ph130
+.lr.ph135:                                        ; preds = %.lr.ph130
   %102 = fdiv double %.065.lcssa161, %101
   %103 = fneg double %102
   br label %104
 
-104:                                              ; preds = %._crit_edge131, %104
-  %indvars.iv156 = phi i64 [ 0, %._crit_edge131 ], [ %indvars.iv.next157, %104 ]
+104:                                              ; preds = %.lr.ph135, %104
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph135 ], [ %indvars.iv.next157, %104 ]
   %105 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv156
   %106 = load double, ptr %105, align 8
   %107 = load ptr, ptr %2, align 8
@@ -24405,9 +24403,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log.f64(double) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #20

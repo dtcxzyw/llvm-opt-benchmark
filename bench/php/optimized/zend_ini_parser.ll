@@ -143,7 +143,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @zend_ini_open_file_for_scanning(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @ini_parse() unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @ini_parse() unnamed_addr #0 {
   %1 = alloca %struct._zval_struct, align 8
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8

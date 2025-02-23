@@ -23002,7 +23002,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %74 = mul i64 %7, 72
   %75 = add i64 %73, %74
   %76 = and i64 %75, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %76) #24
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %76) #24
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiN10open_spiel13TabularPolicyEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE16initialize_slotsEv.exit, %._crit_edge
@@ -23306,11 +23306,11 @@ _ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit: ; p
           to label %37 unwind label %.thread
 
 .thread:                                          ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm46 = landingpad { ptr, i32 }
+  %lpad.thr_comm45 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %lpad.thr_comm46, 0
+  %35 = extractvalue { ptr, i32 } %lpad.thr_comm45, 0
   %36 = call ptr @__cxa_begin_catch(ptr %35) #25
-  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %.loopexit
 
 37:                                               ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -23362,7 +23362,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %53 = load ptr, ptr %22, align 8
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(64) %22) #25
-  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+  br label %.loopexit
 
 55:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10open_spiel13TabularPolicyES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -23370,7 +23370,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %56 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %57 = call ptr @__cxa_begin_catch(ptr %56) #25
   %.not4.i.i.i30 = icmp eq ptr %21, %39
-  br i1 %.not4.i.i.i30, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31
+  br i1 %.not4.i.i.i30, label %.loopexit, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %55, %.lr.ph.i.i.i31
   %.05.i.i.i32 = phi ptr [ %60, %.lr.ph.i.i.i31 ], [ %21, %55 ]
@@ -23379,15 +23379,15 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void %59(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i32) #25
   %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 64
   %.not.i.i.i33 = icmp eq ptr %.05.i.i.i32, %38
-  br i1 %.not.i.i.i33, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31, !llvm.loop !51
+  br i1 %.not.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i31, !llvm.loop !51
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+61:                                               ; preds = %.loopexit
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %63 unwind label %64
 
-_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %.lr.ph.i.i.i31, %55, %50, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i31, %.thread, %50, %55
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #24
   invoke void @__cxa_rethrow() #26
           to label %67 unwind label %61
@@ -23402,7 +23402,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
+67:                                               ; preds = %.loopexit
   unreachable
 }
 

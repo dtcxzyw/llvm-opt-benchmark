@@ -50,7 +50,7 @@ GetBranches.exit:                                 ; preds = %19
   %25 = tail call i64 @RectArea(ptr noundef nonnull %14) #6
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1584
   store i64 %25, ptr %26, align 8, !tbaa !17
-  tail call void @InitNode(ptr noundef %1) #6
+  tail call void @InitNode(ptr noundef nonnull %1) #6
   %27 = getelementptr i8, ptr %0, i64 1592
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 2112
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2116

@@ -1760,42 +1760,40 @@ _ntoa_long.exit:                                  ; preds = %88
   %98 = add i64 %81, 1
   %99 = icmp slt i32 %.1107.fr, 0
   %spec.select91.i = add nsw i32 %.0101, -2
-  %100 = tail call i32 @llvm.umin.i32(i32 %spec.select91.i, i32 32)
-  %invariant.umin102.i = zext nneg i32 %100 to i64
+  %invariant.umin102.i = zext nneg i32 %spec.select91.i to i64
   %or.cond11104.i = icmp samesign ult i64 %92, %invariant.umin102.i
-  br i1 %or.cond11104.i, label %.lr.ph106.preheader.i, label %.critedge.i
+  br i1 %or.cond11104.i, label %.critedge.i.thread, label %.critedge.i
 
-.lr.ph106.preheader.i:                            ; preds = %_ntoa_long.exit
+.critedge.i.thread:                               ; preds = %_ntoa_long.exit
   %scevgep112.i = getelementptr i8, ptr %9, i64 %92
-  %101 = sub nuw nsw i64 %invariant.umin102.i, %92
-  call void @llvm.memset.p0.i64(ptr align 1 %scevgep112.i, i8 48, i64 %101, i1 false), !tbaa !3
-  br label %.critedge.i
+  %100 = sub nuw nsw i64 %invariant.umin102.i, %92
+  call void @llvm.memset.p0.i64(ptr align 1 %scevgep112.i, i8 48, i64 %100, i1 false), !tbaa !3
+  br label %.thread.sink.split.i
 
-.critedge.i:                                      ; preds = %.lr.ph106.preheader.i, %_ntoa_long.exit
-  %.0.i118 = phi i64 [ %92, %_ntoa_long.exit ], [ %invariant.umin102.i, %.lr.ph106.preheader.i ]
-  %102 = icmp samesign ult i64 %.0.i118, 32
-  br i1 %102, label %.thread.sink.split.i, label %.lr.ph37.i.i.preheader
+.critedge.i:                                      ; preds = %_ntoa_long.exit
+  br i1 %96, label %.thread.sink.split.i, label %.lr.ph37.i.i.preheader
 
-.thread.sink.split.i:                             ; preds = %.critedge.i
-  %spec.select120 = select i1 %99, i8 45, i8 43
-  %103 = add nuw nsw i64 %.0.i118, 1
-  %104 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i118
-  store i8 %spec.select120, ptr %104, align 1, !tbaa !3
+.thread.sink.split.i:                             ; preds = %.critedge.i.thread, %.critedge.i
+  %.0.i118120 = phi i64 [ %invariant.umin102.i, %.critedge.i.thread ], [ %92, %.critedge.i ]
+  %spec.select122 = select i1 %99, i8 45, i8 43
+  %101 = add nuw nsw i64 %.0.i118120, 1
+  %102 = getelementptr inbounds nuw i8, ptr %9, i64 %.0.i118120
+  store i8 %spec.select122, ptr %102, align 1, !tbaa !3
   br label %.lr.ph37.i.i.preheader
 
 .lr.ph37.i.i.preheader:                           ; preds = %.thread.sink.split.i, %.critedge.i
-  %.02735.i.i.ph = phi i64 [ 32, %.critedge.i ], [ %103, %.thread.sink.split.i ]
+  %.02735.i.i.ph = phi i64 [ 32, %.critedge.i ], [ %101, %.thread.sink.split.i ]
   br label %.lr.ph37.i.i
 
 .lr.ph37.i.i:                                     ; preds = %.lr.ph37.i.i.preheader, %.lr.ph37.i.i
-  %.236.i.i = phi i64 [ %108, %.lr.ph37.i.i ], [ %98, %.lr.ph37.i.i.preheader ]
-  %.02735.i.i = phi i64 [ %105, %.lr.ph37.i.i ], [ %.02735.i.i.ph, %.lr.ph37.i.i.preheader ]
-  %105 = add nsw i64 %.02735.i.i, -1
-  %106 = getelementptr inbounds nuw i8, ptr %9, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !3
-  %108 = add i64 %.236.i.i, 1
-  tail call void %0(i8 noundef signext %107, ptr noundef %1, i64 noundef %.236.i.i, i64 noundef %3) #8, !callees !6
-  %.not29.i.i = icmp eq i64 %105, 0
+  %.236.i.i = phi i64 [ %106, %.lr.ph37.i.i ], [ %98, %.lr.ph37.i.i.preheader ]
+  %.02735.i.i = phi i64 [ %103, %.lr.ph37.i.i ], [ %.02735.i.i.ph, %.lr.ph37.i.i.preheader ]
+  %103 = add nsw i64 %.02735.i.i, -1
+  %104 = getelementptr inbounds nuw i8, ptr %9, i64 %103
+  %105 = load i8, ptr %104, align 1, !tbaa !3
+  %106 = add i64 %.236.i.i, 1
+  tail call void %0(i8 noundef signext %105, ptr noundef %1, i64 noundef %.236.i.i, i64 noundef %3) #8, !callees !6
+  %.not29.i.i = icmp eq i64 %103, 0
   br i1 %.not29.i.i, label %_ntoa_format.exit, label %.lr.ph37.i.i, !llvm.loop !36
 
 _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
@@ -1803,21 +1801,21 @@ _ntoa_format.exit:                                ; preds = %.lr.ph37.i.i
   br i1 %74, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %_ntoa_format.exit
-  %109 = zext i32 %6 to i64
-  %110 = sub i64 %108, %2
-  %111 = icmp ult i64 %110, %109
-  br i1 %111, label %.lr.ph, label %.loopexit
+  %107 = zext i32 %6 to i64
+  %108 = sub i64 %106, %2
+  %109 = icmp ult i64 %108, %107
+  br i1 %109, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.1103122 = phi i64 [ %112, %.lr.ph ], [ %108, %.preheader ]
-  %112 = add i64 %.1103122, 1
-  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.1103122, i64 noundef %3) #8, !callees !6
-  %113 = sub i64 %112, %2
-  %114 = icmp ult i64 %113, %109
-  br i1 %114, label %.lr.ph, label %.loopexit, !llvm.loop !42
+  %.1103124 = phi i64 [ %110, %.lr.ph ], [ %106, %.preheader ]
+  %110 = add i64 %.1103124, 1
+  tail call void %0(i8 noundef signext 32, ptr noundef %1, i64 noundef %.1103124, i64 noundef %3) #8, !callees !6
+  %111 = sub i64 %110, %2
+  %112 = icmp ult i64 %111, %107
+  br i1 %112, label %.lr.ph, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %72, %_ntoa_format.exit, %13
-  %.0 = phi i64 [ %14, %13 ], [ %108, %_ntoa_format.exit ], [ %81, %72 ], [ %108, %.preheader ], [ %112, %.lr.ph ]
+  %.0 = phi i64 [ %14, %13 ], [ %106, %_ntoa_format.exit ], [ %81, %72 ], [ %106, %.preheader ], [ %110, %.lr.ph ]
   ret i64 %.0
 }
 

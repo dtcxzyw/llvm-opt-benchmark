@@ -1924,10 +1924,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %17
   br i1 %exitcond192.not, label %.lr.ph173, label %.lr.ph.split.us, !llvm.loop !31
 
 .lr.ph173:                                        ; preds = %._crit_edge163.split, %.lr.ph.split.us
-  %.0106.lcssa = phi i32 [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %._crit_edge163.split ]
-  %.0104.lcssa = phi i32 [ %.1105.us, %.lr.ph.split.us ], [ %.1105, %._crit_edge163.split ]
-  %37 = sitofp i32 %.0106.lcssa to float
-  %38 = sub nsw i32 %.0106.lcssa, %.0104.lcssa
+  %.0104.lcssa212 = phi i32 [ %.1105.us, %.lr.ph.split.us ], [ %.1105, %._crit_edge163.split ]
+  %.0106.lcssa211 = phi i32 [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %._crit_edge163.split ]
+  %37 = sitofp i32 %.0106.lcssa211 to float
+  %38 = sub nsw i32 %.0106.lcssa211, %.0104.lcssa212
   %39 = sitofp i32 %38 to float
   %wide.trip.count196 = and i64 %14, 2147483647
   br label %66
@@ -1948,7 +1948,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %17
   %49 = sext i32 %47 to i64
   %50 = sext i32 %44 to i64
   %.pre202.pre = load i32, ptr %48, align 4
-  %invariant.gep216 = getelementptr i8, ptr %27, i64 %49
+  %invariant.gep219 = getelementptr i8, ptr %27, i64 %49
   br label %.preheader158
 
 .preheader158:                                    ; preds = %.preheader158.lr.ph, %._crit_edge
@@ -1957,19 +1957,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %17
   %51 = add nsw i64 %indvars.iv179, %50
   %52 = add nsw i64 %indvars.iv179, %34
   %53 = mul i64 %.pre.pre.pre, %51
-  %gep217 = getelementptr i8, ptr %invariant.gep216, i64 %53
+  %gep220 = getelementptr i8, ptr %invariant.gep219, i64 %53
   %54 = mul i64 %.pre.pre.pre, %52
-  %gep218 = getelementptr i8, ptr %invariant.gep, i64 %54
+  %gep221 = getelementptr i8, ptr %invariant.gep, i64 %54
   br label %55
 
 55:                                               ; preds = %.preheader158, %55
   %56 = phi i32 [ %.pre202, %.preheader158 ], [ %63, %55 ]
   %indvars.iv = phi i64 [ %31, %.preheader158 ], [ %indvars.iv.next, %55 ]
-  %gep = getelementptr i8, ptr %gep217, i64 %indvars.iv
+  %gep = getelementptr i8, ptr %gep220, i64 %indvars.iv
   %57 = load i8, ptr %gep, align 1
   %58 = zext i8 %57 to i32
-  %gep215 = getelementptr i8, ptr %gep218, i64 %indvars.iv
-  %59 = load i8, ptr %gep215, align 1
+  %gep218 = getelementptr i8, ptr %gep221, i64 %indvars.iv
+  %59 = load i8, ptr %gep218, align 1
   %60 = zext i8 %59 to i32
   %61 = sub nsw i32 %58, %60
   %62 = mul nsw i32 %61, %61
@@ -1999,7 +1999,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %17
   br i1 %exitcond187.not, label %.lr.ph173, label %.preheader158.lr.ph, !llvm.loop !31
 
 .preheader:                                       ; preds = %79, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
-  %.sroa.0.0205209 = phi ptr [ %19, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %19, %79 ]
+  %.sroa.0.0205210 = phi ptr [ %19, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit ], [ null, %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i ], [ %19, %79 ]
   br label %105
 
 66:                                               ; preds = %.lr.ph173, %79
@@ -2065,11 +2065,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %75
   %96 = fmul float %86, 2.000000e+00
   %97 = fcmp olt float %96, 0x3FC6571840000000
   %. = select i1 %97, i32 -1, i32 1
-  %.225 = select i1 %97, i32 0, i32 35
-  %.226 = select i1 %97, i32 35, i32 0
+  %.228 = select i1 %97, i32 0, i32 35
+  %.229 = select i1 %97, i32 35, i32 0
   %98 = add nsw i32 %.fr, %.
-  %.cmp156.not = icmp eq i32 %.fr, %.225
-  %99 = select i1 %.cmp156.not, i32 %.226, i32 %98
+  %.cmp156.not = icmp eq i32 %.fr, %.228
+  %99 = select i1 %.cmp156.not, i32 %.229, i32 %98
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr inbounds nuw float, ptr %7, i64 %100
   %102 = load float, ptr %101, align 4
@@ -2133,11 +2133,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %75
 
 139:                                              ; preds = %135, %137, %133
   %140 = phi float [ %134, %133 ], [ %138, %137 ], [ %131, %135 ]
-  %.not.i.i.i126 = icmp eq ptr %.sroa.0.0205209, null
+  %.not.i.i.i126 = icmp eq ptr %.sroa.0.0205210, null
   br i1 %.not.i.i.i126, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %141
 
 141:                                              ; preds = %139
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0205209) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0205210) #25
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %139, %141

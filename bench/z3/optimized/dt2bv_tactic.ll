@@ -3487,7 +3487,7 @@ while.end.loopexit:                               ; preds = %while.cond21.backed
 while.end:                                        ; preds = %sw.bb16, %while.end.loopexit
   %dec.i180.pre-phi = phi i32 [ %.pre325, %while.end.loopexit ], [ %sub.i, %sw.bb16 ]
   store i32 %dec.i180.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN12dt2bv_tactic8check_fdclEP3app(ptr noundef nonnull align 8 dereferenceable(16) %proc, ptr noundef %14)
+  invoke void @_ZN12dt2bv_tactic8check_fdclEP3app(ptr noundef nonnull align 8 dereferenceable(16) %proc, ptr noundef nonnull %14)
           to label %while.end.sw.epilog106_crit_edge unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 while.end.sw.epilog106_crit_edge:                 ; preds = %while.end

@@ -24959,9 +24959,9 @@ _ZSt4fillIPxiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i.prehea
   br i1 %13, label %.lr.ph.i, label %._crit_edge39
 
 .preheader.i:                                     ; preds = %._crit_edge.thread
-  br i1 %13, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread42, label %._crit_edge39
+  br i1 %13, label %.lr.ph23.preheader.i, label %._crit_edge39
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread42: ; preds = %.preheader.i
+.lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %14 = shl nuw i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %14, i1 false), !tbaa !31
   br label %.lr.ph38.preheader
@@ -24976,13 +24976,13 @@ _ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread42: ; preds = %.preheader.i
   store i64 %16, ptr %.01019.i, align 8, !tbaa !31
   %18 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %18, %5
-  br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !491
+  br i1 %exitcond.not.i, label %.lr.ph38.preheader, label %.lr.ph.i, !llvm.loop !491
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %._crit_edge
+_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %._crit_edge
   %19 = icmp sgt i64 %5, 0
   br i1 %19, label %.lr.ph38.preheader, label %._crit_edge39
 
-.lr.ph38.preheader:                               ; preds = %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread42, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
+.lr.ph38.preheader:                               ; preds = %.lr.ph.i, %.lr.ph23.preheader.i, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
   %.pre = load i64, ptr %6, align 8, !tbaa !31
   br label %.lr.ph38
 
@@ -25073,9 +25073,9 @@ define void @_ZNK6casadi11FmuFunction13check_hessianEPNS_9FmuMemoryEPKdPx(ptr no
   br i1 %26, label %.lr.ph.i, label %._crit_edge
 
 .preheader.i:                                     ; preds = %25
-  br i1 %26, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread396, label %._crit_edge
+  br i1 %26, label %.lr.ph23.preheader.i, label %._crit_edge
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread396: ; preds = %.preheader.i
+.lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %27 = shl nuw i64 %22, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %3, i8 0, i64 %27, i1 false), !tbaa !31
   br label %.lr.ph395
@@ -25090,13 +25090,13 @@ _ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread396: ; preds = %.preheader.i
   store i64 %29, ptr %.01019.i, align 8, !tbaa !31
   %31 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %31, %22
-  br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !491
+  br i1 %exitcond.not.i, label %.lr.ph395, label %.lr.ph.i, !llvm.loop !491
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %4
+_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %4
   %32 = icmp sgt i64 %22, 0
   br i1 %32, label %.lr.ph395, label %._crit_edge
 
-.lr.ph395:                                        ; preds = %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread396, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
+.lr.ph395:                                        ; preds = %.lr.ph.i, %.lr.ph23.preheader.i, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1368
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 1528
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1536
@@ -26317,9 +26317,9 @@ define void @_ZNK6casadi11FmuFunction14make_symmetricEPdPx(ptr noundef nonnull a
   br i1 %9, label %.lr.ph.i, label %._crit_edge
 
 .preheader.i:                                     ; preds = %8
-  br i1 %9, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread30, label %._crit_edge
+  br i1 %9, label %.lr.ph23.preheader.i, label %._crit_edge
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread30: ; preds = %.preheader.i
+.lr.ph23.preheader.i:                             ; preds = %.preheader.i
   %10 = shl nuw i64 %5, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %2, i8 0, i64 %10, i1 false), !tbaa !31
   br label %.lr.ph29.preheader
@@ -26334,13 +26334,13 @@ _ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread30: ; preds = %.preheader.i
   store i64 %12, ptr %.01019.i, align 8, !tbaa !31
   %14 = add nuw nsw i64 %.020.i, 1
   %exitcond.not.i = icmp eq i64 %14, %5
-  br i1 %exitcond.not.i, label %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit, label %.lr.ph.i, !llvm.loop !491
+  br i1 %exitcond.not.i, label %.lr.ph29.preheader, label %.lr.ph.i, !llvm.loop !491
 
-_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %.lr.ph.i, %3
+_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit:       ; preds = %3
   %15 = icmp sgt i64 %5, 0
   br i1 %15, label %.lr.ph29.preheader, label %._crit_edge
 
-.lr.ph29.preheader:                               ; preds = %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit.thread30, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
+.lr.ph29.preheader:                               ; preds = %.lr.ph.i, %.lr.ph23.preheader.i, %_ZN6casadi11casadi_copyIxEEvPKT_xPS1_.exit
   %.pre = load i64, ptr %6, align 8, !tbaa !31
   br label %.lr.ph29
 

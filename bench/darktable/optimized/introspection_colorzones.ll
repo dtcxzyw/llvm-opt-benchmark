@@ -2577,14 +2577,14 @@ dt_draw_curve_calc_value.exit:                    ; preds = %._crit_edge.i, %48
   br label %_delete_node.exit
 
 _delete_node.exit:                                ; preds = %._crit_edge.i60, %82
-  call void @dt_iop_color_picker_reset(ptr noundef %8, i32 noundef 1) #30
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %8, i32 noundef 1) #30
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %85 = load ptr, ptr %84, align 8, !tbaa !147
   %86 = tail call i64 @gtk_widget_get_type() #32
   %87 = call ptr @g_type_check_instance_cast(ptr noundef %85, i64 noundef %86) #30
   call void @gtk_widget_queue_draw(ptr noundef %87) #30
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef %8, i32 noundef 1) #30
+  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef nonnull %8, i32 noundef 1) #30
   br label %142
 
 89:                                               ; preds = %63
@@ -4516,7 +4516,7 @@ dt_draw_histogram_8_zoomed.exit:                  ; preds = %.split.i, %.split.u
   br label %645
 
 645:                                              ; preds = %592, %dt_draw_histogram_8_zoomed.exit, %574
-  call fastcc void @_draw_color_picker(ptr noundef %2, ptr noundef %280, ptr noundef %23, ptr noundef %32, i32 noundef %289, i32 noundef %290, ptr noundef %26, ptr noundef %27, ptr noundef %28)
+  call fastcc void @_draw_color_picker(ptr noundef nonnull %2, ptr noundef %280, ptr noundef %23, ptr noundef %32, i32 noundef %289, i32 noundef %290, ptr noundef %26, ptr noundef %27, ptr noundef %28)
   br label %646
 
 646:                                              ; preds = %645, %_draw_background.exit
@@ -5682,10 +5682,10 @@ _reset_nodes.exit:                                ; preds = %.lr.ph.split.i, %.l
   %203 = load ptr, ptr %202, align 8, !tbaa !193
   %204 = load i32, ptr %169, align 4, !tbaa !19
   tail call void @dt_bauhaus_combobox_set(ptr noundef %203, i32 noundef %204) #30
-  tail call void @dt_iop_color_picker_reset(ptr noundef %2, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #30
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
   %206 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  tail call void @dt_dev_add_history_item_target(ptr noundef %205, ptr noundef %2, i32 noundef 1, ptr noundef %206) #30
+  tail call void @dt_dev_add_history_item_target(ptr noundef %205, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %206) #30
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %208 = load ptr, ptr %207, align 8, !tbaa !147
   %209 = tail call i64 @gtk_widget_get_type() #32
@@ -8021,14 +8021,14 @@ define internal fastcc void @_delete_node(ptr noundef %0, ptr noundef captures(n
   br label %29
 
 29:                                               ; preds = %._crit_edge, %27, %8
-  tail call void @dt_iop_color_picker_reset(ptr noundef %0, i32 noundef 1) #30
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %0, i32 noundef 1) #30
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !147
   %32 = tail call i64 @gtk_widget_get_type() #32
   %33 = tail call ptr @g_type_check_instance_cast(ptr noundef %31, i64 noundef %32) #30
   tail call void @gtk_widget_queue_draw(ptr noundef %33) #30
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !158
-  tail call void @dt_dev_add_history_item(ptr noundef %34, ptr noundef %0, i32 noundef 1) #30
+  tail call void @dt_dev_add_history_item(ptr noundef %34, ptr noundef nonnull %0, i32 noundef 1) #30
   ret void
 }
 

@@ -1384,7 +1384,7 @@ pmix_obj_update.exit74:                           ; preds = %._crit_edge
 .lr.ph.i89:                                       ; preds = %251, %.lr.ph.i89
   %257 = phi ptr [ %259, %.lr.ph.i89 ], [ %256, %251 ]
   %.07.i90 = phi ptr [ %258, %.lr.ph.i89 ], [ %255, %251 ]
-  call void %257(ptr noundef %.063.lcssa) #15
+  call void %257(ptr noundef nonnull %.063.lcssa) #15
   %258 = getelementptr inbounds nuw i8, ptr %.07.i90, i64 8
   %259 = load ptr, ptr %258, align 8, !tbaa !41
   %.not.i91 = icmp eq ptr %259, null

@@ -1379,7 +1379,7 @@ define internal fastcc i32 @vsprintf_internal(ptr noundef %0, ptr noundef readon
   %625 = load ptr, ptr %6, align 8
   call void %625(ptr noundef %0, i32 noundef 48) #5
   %626 = add nsw i32 %.7483107, -1
-  %627 = icmp sgt i32 %626, %620
+  %627 = icmp samesign ugt i32 %626, %620
   br i1 %627, label %.lr.ph109, label %.preheader.loopexit, !llvm.loop !15
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114

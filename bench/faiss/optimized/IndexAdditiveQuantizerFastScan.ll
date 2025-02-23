@@ -576,7 +576,7 @@ _ZNSt16allocator_traitsISaIfEE8allocateERS0_m.exit.i.i.i.i: ; preds = %42
   br i1 %exitcond.not, label %.loopexit, label %61, !llvm.loop !77
 
 .loopexit:                                        ; preds = %61, %49, %.noexc44.thread
-  %66 = ashr exact i64 %41, 2
+  %66 = lshr exact i64 %41, 2
   %67 = icmp eq i64 %66, %21
   br i1 %67, label %.preheader, label %71
 

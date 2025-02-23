@@ -232,8 +232,8 @@ _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit40.i:
 
 _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit49.i: ; preds = %._crit_edge.loopexit.i48.i, %58
   %.0.lcssa.i42.i = phi double [ 0.000000e+00, %58 ], [ %70, %._crit_edge.loopexit.i48.i ]
-  %71 = sext i32 %54 to i64
-  %72 = getelementptr inbounds [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %71
+  %71 = zext nneg i32 %54 to i64
+  %72 = getelementptr inbounds nuw [23 x double], ptr @_ZN14arrow_vendored17double_conversionL19exact_powers_of_tenE, i64 0, i64 %71
   %73 = load double, ptr %72, align 8, !tbaa !3
   %74 = fmul double %.0.lcssa.i42.i, %73
   %75 = sext i32 %56 to i64
@@ -276,8 +276,8 @@ _ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i:
   br i1 %92, label %_ZN14arrow_vendored17double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, label %_ZN14arrow_vendored17double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i
 
 _ZN14arrow_vendored17double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: ; preds = %_ZN14arrow_vendored17double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %93 = sext i32 %.07.lcssa.i.i.i to i64
-  %94 = getelementptr inbounds i8, ptr %0, i64 %93
+  %93 = zext nneg i32 %.07.lcssa.i.i.i to i64
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !7
   %96 = icmp sgt i8 %95, 52
   %97 = zext i1 %96 to i64

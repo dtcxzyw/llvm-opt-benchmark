@@ -280,9 +280,9 @@ define hidden void @_ZN6Assimp14addFacesToMeshEP6aiMesh(ptr noundef captures(non
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = icmp eq ptr %16, %12
-  br i1 %17, label %.loopexit, label %13
+  br i1 %17, label %.lr.ph.preheader, label %13
 
-.loopexit:                                        ; preds = %13
+.lr.ph.preheader:                                 ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr %8, ptr %18, align 8
   br label %.lr.ph
@@ -290,9 +290,9 @@ define hidden void @_ZN6Assimp14addFacesToMeshEP6aiMesh(ptr noundef captures(non
 ._crit_edge:                                      ; preds = %23, %.loopexit.thread
   ret void
 
-.lr.ph:                                           ; preds = %.loopexit, %23
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %23 ], [ 0, %.loopexit ]
-  %.01519 = phi i32 [ %30, %23 ], [ 0, %.loopexit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %23
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next23, %23 ]
+  %.01519 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %23 ]
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw %struct.aiFace, ptr %19, i64 %indvars.iv22
   store i32 3, ptr %20, align 8
@@ -1016,16 +1016,16 @@ define hidden noundef zeroext i1 @_ZN6Assimp11STLImporter14LoadBinaryFileEv(ptr 
   store ptr null, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %121 = icmp eq ptr %120, %116
-  br i1 %121, label %.loopexit.i, label %117
+  br i1 %121, label %.lr.ph.preheader.i, label %117
 
-.loopexit.i:                                      ; preds = %117
+.lr.ph.preheader.i:                               ; preds = %117
   %122 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store ptr %112, ptr %122, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %127, %.loopexit.i
-  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %127 ], [ 0, %.loopexit.i ]
-  %.01519.i = phi i32 [ %134, %127 ], [ 0, %.loopexit.i ]
+.lr.ph.i:                                         ; preds = %127, %.lr.ph.preheader.i
+  %indvars.iv22.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next23.i, %127 ]
+  %.01519.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %134, %127 ]
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds nuw %struct.aiFace, ptr %123, i64 %indvars.iv22.i
   store i32 3, ptr %124, align 8
@@ -1175,7 +1175,7 @@ _ZN6Assimp14addFacesToMeshEP6aiMesh.exit:         ; preds = %127, %.loopexit.thr
 
 180:                                              ; preds = %._crit_edge, %162
   %181 = phi ptr [ %.pre194, %._crit_edge ], [ %163, %162 ]
-  %182 = mul i64 %indvars.iv, 3
+  %182 = mul nuw nsw i64 %indvars.iv, 3
   %183 = and i64 %182, 4294967295
   %184 = getelementptr inbounds nuw %class.aiColor4t, ptr %181, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 12
@@ -2685,16 +2685,16 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE5clearEv.exit228: ; preds = %.lr.ph999, %.lo
   store ptr null, ptr %477, align 8
   %478 = getelementptr inbounds nuw i8, ptr %476, i64 16
   %479 = icmp eq ptr %478, %474
-  br i1 %479, label %.loopexit.i, label %475
+  br i1 %479, label %.lr.ph.preheader.i, label %475
 
-.loopexit.i:                                      ; preds = %475
+.lr.ph.preheader.i:                               ; preds = %475
   %480 = getelementptr inbounds nuw i8, ptr %45, i64 208
   store ptr %470, ptr %480, align 8
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %485, %.loopexit.i
-  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %485 ], [ 0, %.loopexit.i ]
-  %.01519.i = phi i32 [ %492, %485 ], [ 0, %.loopexit.i ]
+.lr.ph.i:                                         ; preds = %485, %.lr.ph.preheader.i
+  %indvars.iv22.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next23.i, %485 ]
+  %.01519.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %492, %485 ]
   %481 = load ptr, ptr %480, align 8
   %482 = getelementptr inbounds nuw %struct.aiFace, ptr %481, i64 %indvars.iv22.i
   store i32 3, ptr %482, align 8
@@ -3857,7 +3857,7 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
   %8 = icmp ne ptr %1, null
   %9 = icmp sgt i32 %2, 0
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30
+  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #20
@@ -3960,7 +3960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %.not.i.i = icmp eq ptr %46, %41
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !52
 
-_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30: ; preds = %4
+_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit: ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %47, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3989,7 +3989,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #20
   br label %.critedge24
 
-.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
 55:                                               ; preds = %.noexc.i.i

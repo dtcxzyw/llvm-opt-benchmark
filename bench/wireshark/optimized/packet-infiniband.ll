@@ -3651,7 +3651,7 @@ define internal fastcc range(i32 -1, 27) i32 @find_next_header_sequence(i8 %.8.v
 2:                                                ; preds = %0
   %3 = trunc nuw i8 %.32.val to i1
   %4 = select i1 %3, i32 23, i32 13
-  br label %60
+  br label %59
 
 5:                                                ; preds = %0
   %6 = zext i8 %.8.val to i32
@@ -3668,7 +3668,7 @@ define internal fastcc range(i32 -1, 27) i32 @find_next_header_sequence(i8 %.8.v
   br i1 %or.cond.i, label %contains.exit, label %7, !llvm.loop !8
 
 contains.exit:                                    ; preds = %7
-  br i1 %10, label %60, label %.preheader10
+  br i1 %10, label %59, label %.preheader10
 
 .preheader10:                                     ; preds = %contains.exit, %.preheader10
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i31, %.preheader10 ], [ 0, %contains.exit ]
@@ -3681,7 +3681,7 @@ contains.exit:                                    ; preds = %7
   br i1 %or.cond.i33, label %contains.exit34, label %.preheader10, !llvm.loop !8
 
 contains.exit34:                                  ; preds = %.preheader10
-  br i1 %13, label %60, label %.preheader9
+  br i1 %13, label %59, label %.preheader9
 
 .preheader9:                                      ; preds = %contains.exit34, %.preheader9
   %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %.preheader9 ], [ 0, %contains.exit34 ]
@@ -3694,7 +3694,7 @@ contains.exit34:                                  ; preds = %.preheader10
   br i1 %or.cond.i38, label %contains.exit39, label %.preheader9, !llvm.loop !8
 
 contains.exit39:                                  ; preds = %.preheader9
-  br i1 %16, label %60, label %.preheader8
+  br i1 %16, label %59, label %.preheader8
 
 .preheader8:                                      ; preds = %contains.exit39, %.preheader8
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %.preheader8 ], [ 0, %contains.exit39 ]
@@ -3707,7 +3707,7 @@ contains.exit39:                                  ; preds = %.preheader9
   br i1 %or.cond.i43, label %contains.exit44, label %.preheader8, !llvm.loop !8
 
 contains.exit44:                                  ; preds = %.preheader8
-  br i1 %19, label %60, label %.preheader7
+  br i1 %19, label %59, label %.preheader7
 
 .preheader7:                                      ; preds = %contains.exit44, %.preheader7
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i46, %.preheader7 ], [ 0, %contains.exit44 ]
@@ -3720,7 +3720,7 @@ contains.exit44:                                  ; preds = %.preheader8
   br i1 %or.cond.i48, label %contains.exit49, label %.preheader7, !llvm.loop !8
 
 contains.exit49:                                  ; preds = %.preheader7
-  br i1 %22, label %60, label %.preheader6
+  br i1 %22, label %59, label %.preheader6
 
 .preheader6:                                      ; preds = %contains.exit49, %.preheader6
   %indvars.iv.i50 = phi i64 [ %indvars.iv.next.i51, %.preheader6 ], [ 0, %contains.exit49 ]
@@ -3733,7 +3733,7 @@ contains.exit49:                                  ; preds = %.preheader7
   br i1 %or.cond.i53, label %contains.exit54, label %.preheader6, !llvm.loop !8
 
 contains.exit54:                                  ; preds = %.preheader6
-  br i1 %25, label %60, label %.preheader5
+  br i1 %25, label %59, label %.preheader5
 
 .preheader5:                                      ; preds = %contains.exit54, %.preheader5
   %indvars.iv.i55 = phi i64 [ %indvars.iv.next.i56, %.preheader5 ], [ 0, %contains.exit54 ]
@@ -3746,7 +3746,7 @@ contains.exit54:                                  ; preds = %.preheader6
   br i1 %or.cond.i58, label %contains.exit59, label %.preheader5, !llvm.loop !8
 
 contains.exit59:                                  ; preds = %.preheader5
-  br i1 %28, label %60, label %.preheader4
+  br i1 %28, label %59, label %.preheader4
 
 .preheader4:                                      ; preds = %contains.exit59, %.preheader4
   %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.preheader4 ], [ 0, %contains.exit59 ]
@@ -3759,7 +3759,7 @@ contains.exit59:                                  ; preds = %.preheader5
   br i1 %or.cond.i63, label %contains.exit64, label %.preheader4, !llvm.loop !8
 
 contains.exit64:                                  ; preds = %.preheader4
-  br i1 %31, label %60, label %.preheader3
+  br i1 %31, label %59, label %.preheader3
 
 .preheader3:                                      ; preds = %contains.exit64, %.preheader3
   %indvars.iv.i65 = phi i64 [ %indvars.iv.next.i66, %.preheader3 ], [ 0, %contains.exit64 ]
@@ -3772,7 +3772,7 @@ contains.exit64:                                  ; preds = %.preheader4
   br i1 %or.cond.i68, label %contains.exit69, label %.preheader3, !llvm.loop !8
 
 contains.exit69:                                  ; preds = %.preheader3
-  br i1 %34, label %60, label %.preheader2
+  br i1 %34, label %59, label %.preheader2
 
 .preheader2:                                      ; preds = %contains.exit69, %.preheader2
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %.preheader2 ], [ 0, %contains.exit69 ]
@@ -3785,7 +3785,7 @@ contains.exit69:                                  ; preds = %.preheader3
   br i1 %or.cond.i73, label %contains.exit74, label %.preheader2, !llvm.loop !8
 
 contains.exit74:                                  ; preds = %.preheader2
-  br i1 %37, label %60, label %.preheader1
+  br i1 %37, label %59, label %.preheader1
 
 .preheader1:                                      ; preds = %contains.exit74, %.preheader1
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i76, %.preheader1 ], [ 0, %contains.exit74 ]
@@ -3798,7 +3798,7 @@ contains.exit74:                                  ; preds = %.preheader2
   br i1 %or.cond.i78, label %contains.exit79, label %.preheader1, !llvm.loop !8
 
 contains.exit79:                                  ; preds = %.preheader1
-  br i1 %40, label %60, label %.preheader
+  br i1 %40, label %59, label %.preheader
 
 .preheader:                                       ; preds = %contains.exit79, %.preheader
   %indvars.iv.i80 = phi i64 [ %indvars.iv.next.i81, %.preheader ], [ 0, %contains.exit79 ]
@@ -3811,11 +3811,11 @@ contains.exit79:                                  ; preds = %.preheader1
   br i1 %or.cond.i83, label %contains.exit84, label %.preheader, !llvm.loop !8
 
 contains.exit84:                                  ; preds = %.preheader
-  br i1 %43, label %60, label %44
+  br i1 %43, label %59, label %44
 
 44:                                               ; preds = %contains.exit84
-  switch i8 %.8.val, label %59 [
-    i8 17, label %60
+  switch i8 %.8.val, label %58 [
+    i8 17, label %59
     i8 12, label %45
     i8 18, label %46
     i8 78, label %47
@@ -3823,62 +3823,58 @@ contains.exit84:                                  ; preds = %.preheader
     i8 82, label %49
     i8 75, label %50
     i8 76, label %51
-    i8 85, label %52
-    i8 100, label %53
-    i8 101, label %54
-    i8 28, label %55
-    i8 92, label %56
-    i8 29, label %57
-    i8 93, label %58
+    i8 93, label %57
+    i8 100, label %52
+    i8 101, label %53
+    i8 28, label %54
+    i8 92, label %55
+    i8 29, label %56
   ]
 
 45:                                               ; preds = %44
-  br label %60
+  br label %59
 
 46:                                               ; preds = %44
-  br label %60
+  br label %59
 
 47:                                               ; preds = %44
-  br label %60
+  br label %59
 
 48:                                               ; preds = %44
-  br label %60
+  br label %59
 
 49:                                               ; preds = %44
-  br label %60
+  br label %59
 
 50:                                               ; preds = %44
-  br label %60
+  br label %59
 
 51:                                               ; preds = %44
-  br label %60
+  br label %59
 
 52:                                               ; preds = %44
-  br label %60
+  br label %59
 
 53:                                               ; preds = %44
-  br label %60
+  br label %59
 
 54:                                               ; preds = %44
-  br label %60
+  br label %59
 
 55:                                               ; preds = %44
-  br label %60
+  br label %59
 
 56:                                               ; preds = %44
-  br label %60
+  br label %59
 
 57:                                               ; preds = %44
-  br label %60
+  br label %59
 
 58:                                               ; preds = %44
-  br label %60
+  br label %59
 
-59:                                               ; preds = %44
-  br label %60
-
-60:                                               ; preds = %44, %contains.exit84, %contains.exit79, %contains.exit74, %contains.exit69, %contains.exit64, %contains.exit59, %contains.exit54, %contains.exit49, %contains.exit44, %contains.exit39, %contains.exit34, %contains.exit, %59, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %2
-  %.0 = phi i32 [ %4, %2 ], [ 17, %45 ], [ 20, %46 ], [ 6, %47 ], [ 7, %48 ], [ 8, %49 ], [ 3, %50 ], [ 4, %51 ], [ 10, %52 ], [ 11, %53 ], [ 12, %54 ], [ 24, %55 ], [ 25, %56 ], [ 15, %57 ], [ 26, %58 ], [ -1, %59 ], [ 13, %contains.exit ], [ 14, %contains.exit34 ], [ 0, %contains.exit39 ], [ 15, %contains.exit44 ], [ 5, %contains.exit49 ], [ 18, %contains.exit54 ], [ 2, %contains.exit59 ], [ 16, %contains.exit64 ], [ 1, %contains.exit69 ], [ 21, %contains.exit74 ], [ 22, %contains.exit79 ], [ 9, %contains.exit84 ], [ 19, %44 ]
+59:                                               ; preds = %44, %contains.exit84, %contains.exit79, %contains.exit74, %contains.exit69, %contains.exit64, %contains.exit59, %contains.exit54, %contains.exit49, %contains.exit44, %contains.exit39, %contains.exit34, %contains.exit, %58, %57, %56, %55, %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %2
+  %.0 = phi i32 [ %4, %2 ], [ 17, %45 ], [ 20, %46 ], [ 6, %47 ], [ 7, %48 ], [ 8, %49 ], [ 3, %50 ], [ 4, %51 ], [ 11, %52 ], [ 12, %53 ], [ 24, %54 ], [ 25, %55 ], [ 15, %56 ], [ 26, %57 ], [ -1, %58 ], [ 13, %contains.exit ], [ 14, %contains.exit34 ], [ 0, %contains.exit39 ], [ 15, %contains.exit44 ], [ 5, %contains.exit49 ], [ 18, %contains.exit54 ], [ 2, %contains.exit59 ], [ 16, %contains.exit64 ], [ 1, %contains.exit69 ], [ 21, %contains.exit74 ], [ 22, %contains.exit79 ], [ 9, %contains.exit84 ], [ 19, %44 ]
   ret i32 %.0
 }
 

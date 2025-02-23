@@ -1415,15 +1415,15 @@ define noundef i32 @_ZNK3gmx8BiasGrid12nearestIndexEPKd(ptr noundef nonnull read
   store i32 %16, ptr %17, align 4
   %18 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %18, %umax.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i.i, label %.lr.ph.i, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %._crit_edge.i
-  %.07.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.07.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %19 = getelementptr inbounds %"class.gmx::GridAxis", ptr %6, i64 %.07.i.i, i32 4
   %20 = load i32, ptr %19, align 8
   %21 = getelementptr inbounds [4 x i32], ptr %3, i64 0, i64 %.07.i.i
@@ -3945,15 +3945,15 @@ _ZN3gmxL22pointDistanceAlongAxisERKNS_8GridAxisEdd.exit.i138: ; preds = %259, %2
   store i32 %.0.i, ptr %282, align 4
   %283 = add nuw i64 %.08.i, 1
   %exitcond.not.i124 = icmp eq i64 %283, %umax.i
-  br i1 %exitcond.not.i124, label %._crit_edge.i, label %.lr.ph.i123, !llvm.loop !20
+  br i1 %exitcond.not.i124, label %.lr.ph.preheader.i.i, label %.lr.ph.i123, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %.noexc125
+.lr.ph.preheader.i.i:                             ; preds = %.noexc125
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %._crit_edge.i
-  %.07.i.i = phi i64 [ %287, %.lr.ph.i.i ], [ 0, %._crit_edge.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %.07.i.i = phi i64 [ %287, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %284 = getelementptr inbounds %"class.gmx::GridAxis", ptr %166, i64 %.07.i.i, i32 4
   %285 = load i32, ptr %284, align 8
   %286 = getelementptr inbounds [4 x i32], ptr %7, i64 0, i64 %.07.i.i

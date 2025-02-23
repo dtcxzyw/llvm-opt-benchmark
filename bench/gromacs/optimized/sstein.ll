@@ -417,10 +417,10 @@ define void @sstein_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv355 = phi i64 [ %indvars.iv.next356, %.lr.ph296 ], [ %222, %221 ]
   %223 = mul nsw i64 %indvars.iv355, %85
   %gep394 = getelementptr float, ptr %invariant.gep393, i64 %223
-  %224 = call float @sdot_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23, ptr noundef %gep394, ptr noundef nonnull %23)
+  %224 = call float @sdot_(ptr noundef nonnull %21, ptr noundef nonnull %9, ptr noundef nonnull %23, ptr noundef %gep394, ptr noundef nonnull %23)
   %225 = fneg float %224
   store float %225, ptr %18, align 4
-  call void @saxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep394, ptr noundef nonnull %23, ptr noundef %9, ptr noundef nonnull %23)
+  call void @saxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep394, ptr noundef nonnull %23, ptr noundef nonnull %9, ptr noundef nonnull %23)
   %indvars.iv.next356 = add nsw i64 %indvars.iv355, 1
   %226 = load i32, ptr %14, align 4
   %227 = sext i32 %226 to i64
@@ -428,7 +428,7 @@ define void @sstein_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not271.not, label %.lr.ph296, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph296, %221, %203
-  %228 = call i32 @isamax_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23)
+  %228 = call i32 @isamax_(ptr noundef nonnull %21, ptr noundef nonnull %9, ptr noundef nonnull %23)
   %229 = sext i32 %228 to i64
   %230 = getelementptr inbounds float, ptr %33, i64 %229
   %231 = load float, ptr %230, align 4

@@ -1485,7 +1485,7 @@ define internal noundef i32 @imap_disconnect(ptr noundef %0, ptr noundef %1, i1 
   br i1 %.not6.i, label %imap_perform_logout.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
-  %16 = tail call i32 @Curl_pp_statemach(ptr noundef %0, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext true) #7
+  %16 = tail call i32 @Curl_pp_statemach(ptr noundef nonnull %0, ptr noundef nonnull %13, i1 noundef zeroext true, i1 noundef zeroext true) #7
   %17 = load i32, ptr %14, align 8, !tbaa !110
   %18 = icmp ne i32 %17, 0
   %.not.i14 = icmp eq i32 %16, 0

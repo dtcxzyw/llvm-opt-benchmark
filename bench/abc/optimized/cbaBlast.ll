@@ -2824,7 +2824,7 @@ Vec_IntAlloc.exit135:                             ; preds = %Vec_IntAlloc.exit13
   br i1 %exitcond.not.i, label %Cba_BlastMinus.exit, label %.lr.ph.i, !llvm.loop !57
 
 Cba_BlastMinus.exit:                              ; preds = %.lr.ph.i, %Vec_IntAlloc.exit135
-  %86 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %17, ptr noundef readonly %3, i32 noundef %4)
+  %86 = tail call ptr @Cba_VecCopy(ptr noundef nonnull %17, ptr noundef nonnull readonly %3, i32 noundef %4)
   %87 = icmp sgt i32 %4, 0
   br i1 %87, label %.lr.ph.preheader.i136, label %Cba_BlastMinus.exit143
 
@@ -2848,11 +2848,11 @@ Cba_BlastMinus.exit:                              ; preds = %.lr.ph.i, %Vec_IntA
   br i1 %exitcond.not.i142, label %Cba_BlastMinus.exit143, label %.lr.ph.i138, !llvm.loop !57
 
 Cba_BlastMinus.exit143:                           ; preds = %.lr.ph.i138, %Cba_BlastMinus.exit
-  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 poison, i32 noundef %5, ptr noundef nonnull %27)
+  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 poison, i32 noundef %5, ptr noundef nonnull %27)
   %.val111 = load ptr, ptr %25, align 8, !tbaa !10
-  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %.val111, i32 poison, i32 noundef %5, ptr noundef nonnull %36)
+  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %.val111, i32 poison, i32 noundef %5, ptr noundef nonnull %36)
   %.val110 = load ptr, ptr %16, align 8, !tbaa !10
-  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef %.val110, i32 noundef %2, ptr noundef %3, i32 poison, i32 noundef %5, ptr noundef nonnull %44)
+  tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef %.val110, i32 noundef %2, ptr noundef nonnull %3, i32 poison, i32 noundef %5, ptr noundef nonnull %44)
   tail call void @Cba_BlastDivider(ptr noundef %0, ptr noundef %.val110, i32 noundef %2, ptr noundef %.val111, i32 poison, i32 noundef %5, ptr noundef nonnull %52)
   %95 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %95, align 4, !tbaa !12
@@ -5718,7 +5718,7 @@ Cba_BlastReduction.exit.loopexit:                 ; preds = %.lr.ph42.i
 
 Cba_BlastReduction.exit:                          ; preds = %Cba_BlastReduction.exit.loopexit, %882
   %.032.i = phi i32 [ 1, %882 ], [ %887, %Cba_BlastReduction.exit.loopexit ]
-  tail call fastcc void @Vec_IntFill(ptr noundef %67, i32 noundef 1, i32 noundef %.032.i)
+  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %67, i32 noundef 1, i32 noundef %.032.i)
   %888 = icmp sgt i32 %107, 1
   br i1 %888, label %.lr.ph1627, label %.critedge2thread-pre-split
 
@@ -5830,7 +5830,7 @@ Cba_BlastReduction.exit1153:                      ; preds = %.lr.ph42.i1148, %91
 Cba_BlastReduction.exit1162:                      ; preds = %.lr.ph42.i1157, %Cba_BlastReduction.exit1153
   %.032.i1154 = phi i32 [ 0, %Cba_BlastReduction.exit1153 ], [ %926, %.lr.ph42.i1157 ]
   %927 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %76, i32 noundef %.032.i1145, i32 noundef %.032.i1154) #21
-  tail call fastcc void @Vec_IntFill(ptr noundef %67, i32 noundef 1, i32 noundef %927)
+  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %67, i32 noundef 1, i32 noundef %927)
   %928 = icmp sgt i32 %107, 1
   br i1 %928, label %.lr.ph1625, label %.critedge2thread-pre-split
 
@@ -5942,7 +5942,7 @@ Cba_BlastReduction.exit1178:                      ; preds = %.lr.ph42.i1173, %95
 Cba_BlastReduction.exit1187:                      ; preds = %.lr.ph42.i1182, %Cba_BlastReduction.exit1178
   %.032.i1179 = phi i32 [ 0, %Cba_BlastReduction.exit1178 ], [ %966, %.lr.ph42.i1182 ]
   %967 = tail call i32 @Gia_ManHashOr(ptr noundef nonnull %76, i32 noundef %.032.i1170, i32 noundef %.032.i1179) #21
-  tail call fastcc void @Vec_IntFill(ptr noundef %67, i32 noundef 1, i32 noundef %967)
+  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %67, i32 noundef 1, i32 noundef %967)
   %968 = icmp sgt i32 %107, 1
   br i1 %968, label %.lr.ph1623, label %.critedge2thread-pre-split
 
@@ -6054,7 +6054,7 @@ Cba_BlastReduction.exit1203:                      ; preds = %.lr.ph42.i1198, %99
 Cba_BlastReduction.exit1212:                      ; preds = %.lr.ph42.i1207, %Cba_BlastReduction.exit1203
   %.032.i1204 = phi i32 [ 0, %Cba_BlastReduction.exit1203 ], [ %1006, %.lr.ph42.i1207 ]
   %1007 = tail call i32 @Gia_ManHashXor(ptr noundef nonnull %76, i32 noundef %.032.i1195, i32 noundef %.032.i1204) #21
-  tail call fastcc void @Vec_IntFill(ptr noundef %67, i32 noundef 1, i32 noundef %1007)
+  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %67, i32 noundef 1, i32 noundef %1007)
   %1008 = icmp sgt i32 %107, 1
   br i1 %1008, label %.lr.ph1621, label %.critedge2thread-pre-split
 
@@ -6160,7 +6160,7 @@ Vec_IntPush.exit1219:                             ; preds = %.Vec_IntGrow.exit10
   %.0940.lcssa = phi i32 [ 0, %1041 ], [ %1051, %.lr.ph1649 ]
   %1052 = zext i1 %1039 to i32
   %1053 = xor i32 %.0940.lcssa, %1052
-  tail call fastcc void @Vec_IntFill(ptr noundef %67, i32 noundef 1, i32 noundef %1053)
+  tail call fastcc void @Vec_IntFill(ptr noundef nonnull %67, i32 noundef 1, i32 noundef %1053)
   %1054 = icmp sgt i32 %107, 1
   br i1 %1054, label %.lr.ph1654, label %.critedge2thread-pre-split
 
@@ -6280,7 +6280,7 @@ Cba_BlastLess.exit:                               ; preds = %1096, %1098
 
 .lr.ph1645:                                       ; preds = %1100, %.lr.ph1645
   %.181643 = phi i32 [ %1104, %.lr.ph1645 ], [ 1, %1100 ]
-  tail call fastcc void @Vec_IntPush(ptr noundef %67, i32 noundef 0)
+  tail call fastcc void @Vec_IntPush(ptr noundef nonnull %67, i32 noundef 0)
   %1104 = add nuw nsw i32 %.181643, 1
   %exitcond1776.not = icmp eq i32 %1104, %107
   br i1 %exitcond1776.not, label %.critedge2thread-pre-split, label %.lr.ph1645, !llvm.loop !133
@@ -6300,7 +6300,7 @@ Cba_BlastLess.exit:                               ; preds = %1096, %1098
 
 .lr.ph1642:                                       ; preds = %1109, %.lr.ph1642
   %.191640 = phi i32 [ %1112, %.lr.ph1642 ], [ 1, %1109 ]
-  tail call fastcc void @Vec_IntPush(ptr noundef %67, i32 noundef 0)
+  tail call fastcc void @Vec_IntPush(ptr noundef nonnull %67, i32 noundef 0)
   %1112 = add nuw nsw i32 %.191640, 1
   %exitcond1775.not = icmp eq i32 %1112, %107
   br i1 %exitcond1775.not, label %.critedge2thread-pre-split, label %.lr.ph1642, !llvm.loop !134

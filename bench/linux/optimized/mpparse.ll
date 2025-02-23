@@ -601,7 +601,7 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
   br i1 %74, label %75, label %65, !llvm.loop !11
 
 75:                                               ; preds = %65
-  %76 = xor i32 %62, %73
+  %76 = xor i32 %73, %62
   %77 = and i32 %76, 255
   %78 = icmp eq i32 %77, 0
   %79 = select i1 %78, ptr @.str.44, ptr @.str.45
@@ -695,7 +695,7 @@ define internal noundef i32 @update_mp_table() #0 section ".init.text" align 16 
 
 131:                                              ; preds = %127, %28, %17, %13
   %132 = phi ptr [ %9, %13 ], [ %130, %127 ], [ %9, %28 ], [ %9, %17 ]
-  call void @early_memunmap(ptr noundef %132, i64 noundef 16) #10
+  call void @early_memunmap(ptr noundef nonnull %132, i64 noundef 16) #10
   br label %133
 
 133:                                              ; preds = %131, %11, %5, %0

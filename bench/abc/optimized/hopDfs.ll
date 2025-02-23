@@ -861,8 +861,8 @@ define ptr @Hop_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !41
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
-  tail call void @Hop_Transfer_rec(ptr noundef %1, ptr noundef %9)
-  tail call void @Hop_ConeUnmark_rec(ptr noundef %9)
+  tail call void @Hop_Transfer_rec(ptr noundef %1, ptr noundef nonnull %9)
+  tail call void @Hop_ConeUnmark_rec(ptr noundef nonnull %9)
   %34 = load ptr, ptr %9, align 8, !tbaa !29
   %35 = and i64 %7, 1
   %36 = ptrtoint ptr %34 to i64
@@ -1344,8 +1344,8 @@ define ptr @Hop_Permute(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noun
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !43
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
-  tail call void @Hop_Remap_rec(ptr noundef nonnull %0, ptr noundef %7)
-  tail call void @Hop_ConeUnmark_rec(ptr noundef %7)
+  tail call void @Hop_Remap_rec(ptr noundef nonnull %0, ptr noundef nonnull %7)
+  tail call void @Hop_ConeUnmark_rec(ptr noundef nonnull %7)
   %27 = load ptr, ptr %7, align 8, !tbaa !29
   %28 = and i64 %5, 1
   %29 = ptrtoint ptr %27 to i64

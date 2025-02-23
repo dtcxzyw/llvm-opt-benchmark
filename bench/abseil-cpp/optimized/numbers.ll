@@ -1725,11 +1725,13 @@ _ZN4abslL10SplitToSixEd.exit:                     ; preds = %126, %127
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %.loopexit
-  %246 = udiv i32 %spec.select232, 100
-  %.neg = mul nsw i32 %246, -100
+  %.lhs.trunc = trunc i32 %spec.select232 to i16
+  %246 = udiv i16 %.lhs.trunc, 100
+  %.zext = zext nneg i16 %246 to i32
+  %.neg = mul nsw i32 %.zext, -100
   %247 = add nsw i32 %.neg, %spec.select232
-  %248 = trunc i32 %246 to i8
-  %249 = add i8 %248, 48
+  %248 = trunc i16 %246 to i8
+  %249 = add nuw nsw i8 %248, 48
   %250 = getelementptr inbounds nuw i8, ptr %.15, i64 3
   store i8 %249, ptr %.16, align 1, !tbaa !8
   br label %251

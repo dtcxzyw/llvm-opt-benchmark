@@ -1520,14 +1520,14 @@ define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(n
   %112 = load i32, ptr %103, align 4
   %113 = sext i32 %112 to i64
   %114 = icmp slt i64 %indvars.iv.next156, %113
-  br i1 %114, label %.lr.ph146, label %.thread
+  br i1 %114, label %.lr.ph146, label %.thread.thread
 
-.thread:                                          ; preds = %.lr.ph133, %.lr.ph146, %86, %.lr.ph126
-  %.1 = phi ptr [ null, %86 ], [ null, %.lr.ph126 ], [ %111, %.lr.ph146 ], [ %95, %.lr.ph133 ]
+.thread:                                          ; preds = %.lr.ph133, %86, %.lr.ph126
+  %.1 = phi ptr [ null, %86 ], [ null, %.lr.ph126 ], [ %95, %.lr.ph133 ]
   br i1 %.097.lcssa, label %.thread117, label %.thread.thread
 
-.thread.thread:                                   ; preds = %.lr.ph138, %101, %.thread
-  %.1159 = phi ptr [ %.1, %.thread ], [ null, %101 ], [ null, %.lr.ph138 ]
+.thread.thread:                                   ; preds = %.lr.ph146, %.lr.ph138, %101, %.thread
+  %.1159 = phi ptr [ %.1, %.thread ], [ null, %.lr.ph138 ], [ null, %101 ], [ %111, %.lr.ph146 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #7
   call void @check_sql_fn_statements(ptr noundef %.1159) #7

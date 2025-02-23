@@ -639,11 +639,11 @@ define internal void @add_response_header(ptr noundef readonly captures(none) %0
   %29 = ptrtoint ptr %22 to i64
   %.neg = sub i64 %29, %28
   %30 = add i64 %.neg, %27
-  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef %21, i64 noundef %.182, ptr noundef nonnull %24, i64 noundef %30) #29
+  call void @add_assoc_stringl_ex(ptr noundef %1, ptr noundef nonnull %21, i64 noundef %.182, ptr noundef nonnull %24, i64 noundef %30) #29
   br i1 %15, label %31, label %.critedge78, !prof !64
 
 31:                                               ; preds = %26
-  call void @_efree(ptr noundef %21) #29
+  call void @_efree(ptr noundef nonnull %21) #29
   br label %.critedge78
 
 .critedge78:                                      ; preds = %.critedge2, %5, %26, %31, %2
@@ -741,7 +741,7 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 41:                                               ; preds = %37
   %.not516 = icmp eq i8 %38, 45
-  call void @free(ptr noundef %34) #29
+  call void @free(ptr noundef nonnull %34) #29
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   br i1 %.not516, label %.critedge4.thread, label %.lr.ph.split.us.preheader
 
@@ -3227,7 +3227,7 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %60
   br label %php_cgi_ini_activate_user_config.exit
 
 php_cgi_ini_activate_user_config.exit:            ; preds = %104, %80, %51, %42, %39
-  call void @_efree(ptr noundef %.074) #29
+  call void @_efree(ptr noundef nonnull %.074) #29
   br label %107
 
 107:                                              ; preds = %18, %20, %php_cgi_ini_activate_user_config.exit, %0

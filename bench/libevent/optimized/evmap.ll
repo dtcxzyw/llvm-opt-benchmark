@@ -154,7 +154,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1
   br i1 %.not30.i, label %13, label %.preheader.i, !llvm.loop !5
 
 13:                                               ; preds = %.preheader.i
-  %14 = icmp sgt i32 %.025.i, 268435455
+  %14 = icmp samesign ugt i32 %.025.i, 268435455
   br i1 %14, label %evmap_make_space.exit.thread, label %15
 
 15:                                               ; preds = %13
@@ -529,7 +529,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %0, i32 nounde
   br i1 %.not30.i, label %11, label %.preheader.i, !llvm.loop !5
 
 11:                                               ; preds = %.preheader.i
-  %12 = icmp sgt i32 %.025.i, 268435455
+  %12 = icmp samesign ugt i32 %.025.i, 268435455
   br i1 %12, label %evmap_make_space.exit.thread, label %13
 
 13:                                               ; preds = %11

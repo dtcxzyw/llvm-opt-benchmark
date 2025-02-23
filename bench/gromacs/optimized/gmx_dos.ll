@@ -521,13 +521,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   %173 = load i32, ptr %17, align 4
   %174 = icmp sgt i32 %173, 0
   %.pre = load ptr, ptr %18, align 8
-  br i1 %174, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  br label %.loopexit461
+  br i1 %174, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %142
   %175 = getelementptr inbounds nuw i8, ptr %9, i64 2328
@@ -547,7 +541,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   %184 = fadd double %.0301485, %183
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %177, !llvm.loop !5
+  br i1 %exitcond.not, label %.preheader1.preheader.i, label %177, !llvm.loop !5
 
 185:                                              ; preds = %122
   %186 = landingpad { ptr, i32 }
@@ -561,23 +555,29 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %29) #18
   br label %.body345
 
-._crit_edge:                                      ; preds = %177
-  %189 = getelementptr inbounds nuw i8, ptr %9, i64 2392
-  %190 = load i32, ptr %139, align 8
-  %.val = load i32, ptr %189, align 8
-  %191 = getelementptr inbounds nuw i8, ptr %9, i64 2400
-  %.val327 = load ptr, ptr %191, align 8
+._crit_edge:                                      ; preds = %142
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
-  %invariant.gep.i = getelementptr i8, ptr %.val327, i64 4
-  %192 = sext i32 %.val to i64
+  br label %.loopexit461
+
+.preheader1.preheader.i:                          ; preds = %177
+  %189 = getelementptr inbounds nuw i8, ptr %9, i64 2392
+  %190 = load i32, ptr %139, align 8
+  %.val606 = load i32, ptr %189, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %9, i64 2400
+  %.val327607 = load ptr, ptr %191, align 8
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
+  %invariant.gep.i608 = getelementptr i8, ptr %.val327607, i64 4
+  %192 = sext i32 %.val606 to i64
   br label %.preheader1.i
 
-.preheader1.i:                                    ; preds = %._crit_edge.i, %._crit_edge
-  %.02819.i = phi i32 [ %225, %._crit_edge.i ], [ 0, %._crit_edge ]
-  %.02918.i = phi i64 [ %indvars.iv.i, %._crit_edge.i ], [ 0, %._crit_edge ]
-  %.03017.i = phi i32 [ %.131.lcssa.i, %._crit_edge.i ], [ 0, %._crit_edge ]
+.preheader1.i:                                    ; preds = %._crit_edge.i, %.preheader1.preheader.i
+  %.02819.i = phi i32 [ %225, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
+  %.02918.i = phi i64 [ %indvars.iv.i, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
+  %.03017.i = phi i32 [ %.131.lcssa.i, %._crit_edge.i ], [ 0, %.preheader1.preheader.i ]
   %193 = sext i32 %.03017.i to i64
   %194 = getelementptr inbounds i32, ptr %.pre, i64 %193
   %195 = load i32, ptr %194, align 4
@@ -587,13 +587,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
 
 197:                                              ; preds = %203, %.preheader1.i
   %indvars.iv.i = phi i64 [ %196, %.preheader1.i ], [ %indvars.iv.next.i, %203 ]
-  %198 = getelementptr inbounds i32, ptr %.val327, i64 %indvars.iv.i
+  %198 = getelementptr inbounds i32, ptr %.val327607, i64 %indvars.iv.i
   %199 = load i32, ptr %198, align 4
   %200 = icmp sgt i32 %195, %199
   br i1 %200, label %203, label %.preheader.i
 
 .preheader.i:                                     ; preds = %197
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr i32, ptr %invariant.gep.i608, i64 %indvars.iv.i
   %201 = load i32, ptr %gep.i, align 4
   %202 = icmp slt i32 %199, %201
   br i1 %202, label %.lr.ph.preheader.i, label %._crit_edge.i
@@ -693,9 +693,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit341:       ; preds = %135, %138
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i) #18
   br label %.body345
 
-.loopexit461:                                     ; preds = %._crit_edge.i, %._crit_edge.thread
-  %.0301.lcssa609 = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %184, %._crit_edge.i ]
-  %.028.lcssa.i = phi i32 [ 0, %._crit_edge.thread ], [ %225, %._crit_edge.i ]
+.loopexit461:                                     ; preds = %._crit_edge.i, %._crit_edge
+  %.0301.lcssa609 = phi double [ 0.000000e+00, %._crit_edge ], [ %184, %._crit_edge.i ]
+  %.028.lcssa.i = phi i32 [ 0, %._crit_edge ], [ %225, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
@@ -762,7 +762,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   %indvars.iv572 = phi i64 [ %indvars.iv.next573, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %.0298 = phi double [ %.1299, %331 ], [ %172, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %.0296 = phi double [ %.1297, %331 ], [ 0.000000e+00, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
-  %.0281 = phi i32 [ %.1282611, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
+  %.0281 = phi i32 [ %.1282615, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %.0278 = phi i32 [ %.1279, %331 ], [ 0, %_ZNSt10filesystem7__cxx114pathD2Ev.exit349 ]
   %256 = load i8, ptr %244, align 8
   %257 = trunc i8 %256 to i1
@@ -875,7 +875,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit349:       ; preds = %238, %241
   br i1 %326, label %.lr.ph496, label %._crit_edge497, !llvm.loop !11
 
 ._crit_edge497:                                   ; preds = %.lr.ph496, %287, %.loopexit455
-  %.1282611 = phi i32 [ %.1282, %.loopexit455 ], [ %288, %287 ], [ %.1282, %.lr.ph496 ]
+  %.1282615 = phi i32 [ %.1282, %.loopexit455 ], [ %288, %287 ], [ %.1282, %.lr.ph496 ]
   %327 = load float, ptr %242, align 4
   %328 = load ptr, ptr %15, align 8
   %329 = load ptr, ptr %13, align 8

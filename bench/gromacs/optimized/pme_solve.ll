@@ -2835,12 +2835,9 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %indvars.iv.next728 = add nsw i64 %indvars.iv727, 1
   %278 = getelementptr inbounds nuw i8, ptr %.0517615.us, i64 8
   %279 = icmp slt i64 %indvars.iv.next728, %263
-  br i1 %279, label %.lr.ph618.us, label %.loopexit576.us, !llvm.loop !48
+  br i1 %279, label %.lr.ph618.us, label %.lr.ph645.us.preheader, !llvm.loop !48
 
-.loopexit576.us:                                  ; preds = %.lr.ph618.us, %.lr.ph635.us
-  br i1 %249, label %.lr.ph645.us.preheader, label %.loopexit.us
-
-.lr.ph645.us.preheader:                           ; preds = %.loopexit576.us
+.lr.ph645.us.preheader:                           ; preds = %.lr.ph618.us, %.lr.ph635.us
   %280 = sext i32 %128 to i64
   %281 = sext i32 %130 to i64
   br label %.lr.ph645.us
@@ -2901,7 +2898,7 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   store float %319, ptr %314, align 4
   %indvars.iv.next748 = add nsw i64 %indvars.iv747, 1
   %320 = icmp slt i64 %indvars.iv.next748, %451
-  br i1 %320, label %.lr.ph635.us, label %.loopexit576.us, !llvm.loop !50
+  br i1 %320, label %.lr.ph635.us, label %.lr.ph645.us.preheader, !llvm.loop !50
 
 .preheader577.us:                                 ; preds = %._crit_edge626.us, %.preheader577.us.backedge
   %indvars.iv743 = phi i64 [ %indvars.iv743.be, %.preheader577.us.backedge ], [ 0, %._crit_edge626.us ]
@@ -3119,14 +3116,14 @@ _ZL20calc_exponentials_ljiiN3gmx8ArrayRefINS_9SimdFloatEEES2_S2_.exit.us: ; pred
   %exitcond713.not = icmp eq i64 %indvars.iv.next710, %103
   br i1 %exitcond713.not, label %.preheader581.us, label %426, !llvm.loop !58
 
-.loopexit.us:                                     ; preds = %._crit_edge632.us.thread, %.lr.ph645.us, %._crit_edge614.us.thread, %.loopexit576.us
-  %.1537.lcssa.us = phi float [ %.0536653.us, %.loopexit576.us ], [ %.0536653.us, %._crit_edge614.us.thread ], [ %310, %.lr.ph645.us ], [ %.0536653.us, %._crit_edge632.us.thread ]
-  %.1534.lcssa.us = phi float [ %.0533654.us, %.loopexit576.us ], [ %.0533654.us, %._crit_edge614.us.thread ], [ %307, %.lr.ph645.us ], [ %.0533654.us, %._crit_edge632.us.thread ]
-  %.1531.lcssa.us = phi float [ %.0530655.us, %.loopexit576.us ], [ %.0530655.us, %._crit_edge614.us.thread ], [ %306, %.lr.ph645.us ], [ %.0530655.us, %._crit_edge632.us.thread ]
-  %.1528.lcssa.us = phi float [ %.0527656.us, %.loopexit576.us ], [ %.0527656.us, %._crit_edge614.us.thread ], [ %303, %.lr.ph645.us ], [ %.0527656.us, %._crit_edge632.us.thread ]
-  %.1525.lcssa.us = phi float [ %.0524657.us, %.loopexit576.us ], [ %.0524657.us, %._crit_edge614.us.thread ], [ %300, %.lr.ph645.us ], [ %.0524657.us, %._crit_edge632.us.thread ]
-  %.1522.lcssa.us = phi float [ %.0521658.us, %.loopexit576.us ], [ %.0521658.us, %._crit_edge614.us.thread ], [ %297, %.lr.ph645.us ], [ %.0521658.us, %._crit_edge632.us.thread ]
-  %.1519.lcssa.us = phi float [ %.0518659.us, %.loopexit576.us ], [ %.0518659.us, %._crit_edge614.us.thread ], [ %290, %.lr.ph645.us ], [ %.0518659.us, %._crit_edge632.us.thread ]
+.loopexit.us:                                     ; preds = %._crit_edge632.us.thread, %.lr.ph645.us, %._crit_edge614.us.thread
+  %.1537.lcssa.us = phi float [ %.0536653.us, %._crit_edge614.us.thread ], [ %310, %.lr.ph645.us ], [ %.0536653.us, %._crit_edge632.us.thread ]
+  %.1534.lcssa.us = phi float [ %.0533654.us, %._crit_edge614.us.thread ], [ %307, %.lr.ph645.us ], [ %.0533654.us, %._crit_edge632.us.thread ]
+  %.1531.lcssa.us = phi float [ %.0530655.us, %._crit_edge614.us.thread ], [ %306, %.lr.ph645.us ], [ %.0530655.us, %._crit_edge632.us.thread ]
+  %.1528.lcssa.us = phi float [ %.0527656.us, %._crit_edge614.us.thread ], [ %303, %.lr.ph645.us ], [ %.0527656.us, %._crit_edge632.us.thread ]
+  %.1525.lcssa.us = phi float [ %.0524657.us, %._crit_edge614.us.thread ], [ %300, %.lr.ph645.us ], [ %.0524657.us, %._crit_edge632.us.thread ]
+  %.1522.lcssa.us = phi float [ %.0521658.us, %._crit_edge614.us.thread ], [ %297, %.lr.ph645.us ], [ %.0521658.us, %._crit_edge632.us.thread ]
+  %.1519.lcssa.us = phi float [ %.0518659.us, %._crit_edge614.us.thread ], [ %290, %.lr.ph645.us ], [ %.0518659.us, %._crit_edge632.us.thread ]
   %450 = add nsw i32 %.0510660.us, 1
   %exitcond753.not = icmp eq i32 %450, %77
   br i1 %exitcond753.not, label %._crit_edge663.loopexit, label %.preheader582.us, !llvm.loop !59

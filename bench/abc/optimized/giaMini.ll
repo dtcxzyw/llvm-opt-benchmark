@@ -6151,39 +6151,39 @@ define noundef ptr @Gia_MiniAigSuperDerive(ptr noundef %0, i32 noundef %1) local
   %5 = getelementptr i8, ptr %3, i64 4
   %.val.i = load i32, ptr %5, align 4, !tbaa !13
   %6 = icmp sgt i32 %.val.i, 3
-  br i1 %6, label %.lr.ph.i, label %Mini_AigPiNum.exit.thread
-
-Mini_AigPiNum.exit.thread:                        ; preds = %2
-  %7 = tail call i32 @Gia_MiniAigSuperPreprocess(ptr nonnull poison, ptr noundef %4, i32 noundef 0, i32 noundef %1)
-  br label %Mini_AigPiNum.exit23
+  br i1 %6, label %.lr.ph.i, label %Mini_AigPiNum.exit
 
 .lr.ph.i:                                         ; preds = %2
-  %8 = lshr i32 %.val.i, 1
-  %9 = getelementptr i8, ptr %3, i64 16
-  %.val.i.i = load ptr, ptr %9, align 8, !tbaa !3
-  %wide.trip.count.i = zext nneg i32 %8 to i64
-  br label %10
+  %7 = lshr i32 %.val.i, 1
+  %8 = getelementptr i8, ptr %3, i64 16
+  %.val.i.i = load ptr, ptr %8, align 8, !tbaa !3
+  %wide.trip.count.i = zext nneg i32 %7 to i64
+  br label %9
 
-10:                                               ; preds = %10, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %10 ]
+9:                                                ; preds = %9, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
+  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %9 ]
   %.idx.i = shl nuw nsw i64 %indvars.iv.i, 3
-  %11 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i
-  %12 = load i32, ptr %11, align 4, !tbaa !10
-  %.not.i = icmp eq i32 %12, 2147483647
-  %13 = zext i1 %.not.i to i32
-  %spec.select.i = add nuw nsw i32 %.08.i, %13
+  %10 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i
+  %11 = load i32, ptr %10, align 4, !tbaa !10
+  %.not.i = icmp eq i32 %11, 2147483647
+  %12 = zext i1 %.not.i to i32
+  %spec.select.i = add nuw nsw i32 %.08.i, %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Mini_AigPiNum.exit, label %10, !llvm.loop !149
+  br i1 %exitcond.not.i, label %.lr.ph.i13, label %9, !llvm.loop !149
 
-Mini_AigPiNum.exit:                               ; preds = %10
-  %14 = tail call i32 @Gia_MiniAigSuperPreprocess(ptr poison, ptr noundef %4, i32 noundef %spec.select.i, i32 noundef %1)
+Mini_AigPiNum.exit:                               ; preds = %2
+  %13 = tail call i32 @Gia_MiniAigSuperPreprocess(ptr nonnull poison, ptr noundef %4, i32 noundef 0, i32 noundef %1)
+  br label %Mini_AigPiNum.exit23
+
+.lr.ph.i13:                                       ; preds = %9
+  %14 = tail call i32 @Gia_MiniAigSuperPreprocess(ptr nonnull poison, ptr noundef %4, i32 noundef %spec.select.i, i32 noundef %1)
   br label %15
 
-15:                                               ; preds = %15, %Mini_AigPiNum.exit
-  %indvars.iv.i16 = phi i64 [ 1, %Mini_AigPiNum.exit ], [ %indvars.iv.next.i21, %15 ]
-  %.08.i17 = phi i32 [ 0, %Mini_AigPiNum.exit ], [ %spec.select.i20, %15 ]
+15:                                               ; preds = %15, %.lr.ph.i13
+  %indvars.iv.i16 = phi i64 [ 1, %.lr.ph.i13 ], [ %indvars.iv.next.i21, %15 ]
+  %.08.i17 = phi i32 [ 0, %.lr.ph.i13 ], [ %spec.select.i20, %15 ]
   %.idx.i18 = shl nuw nsw i64 %indvars.iv.i16, 3
   %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.idx.i18
   %17 = load i32, ptr %16, align 4, !tbaa !10
@@ -6194,9 +6194,9 @@ Mini_AigPiNum.exit:                               ; preds = %10
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, %wide.trip.count.i
   br i1 %exitcond.not.i22, label %Mini_AigPiNum.exit23, label %15, !llvm.loop !149
 
-Mini_AigPiNum.exit23:                             ; preds = %15, %Mini_AigPiNum.exit.thread
-  %19 = phi i32 [ %7, %Mini_AigPiNum.exit.thread ], [ %14, %15 ]
-  %.0.lcssa.i12 = phi i32 [ 0, %Mini_AigPiNum.exit.thread ], [ %spec.select.i20, %15 ]
+Mini_AigPiNum.exit23:                             ; preds = %15, %Mini_AigPiNum.exit
+  %19 = phi i32 [ %13, %Mini_AigPiNum.exit ], [ %14, %15 ]
+  %.0.lcssa.i12 = phi i32 [ 0, %Mini_AigPiNum.exit ], [ %spec.select.i20, %15 ]
   %20 = tail call ptr @Gia_MiniAigSuperDeriveGia(ptr noundef %4, i32 noundef %.0.lcssa.i12, i32 noundef %19)
   %21 = load i32, ptr %4, align 8, !tbaa !135
   %22 = icmp sgt i32 %21, 0
@@ -6569,11 +6569,11 @@ Vec_IntStart.exit121:                             ; preds = %Vec_IntAlloc.exit.t
   %64 = zext nneg i32 %63 to i64
   br label %68
 
-.preheader:                                       ; preds = %68, %Vec_IntStart.exit121
+.preheader:                                       ; preds = %Vec_IntStart.exit121
   %65 = icmp sgt i32 %.val96, 0
   br i1 %65, label %.lr.ph149, label %.critedge5.preheader
 
-.lr.ph149:                                        ; preds = %.preheader
+.lr.ph149:                                        ; preds = %68, %.preheader
   %66 = getelementptr i8, ptr %50, i64 8
   %67 = getelementptr i8, ptr %52, i64 8
   br label %91
@@ -6607,7 +6607,7 @@ Vec_IntStart.exit121:                             ; preds = %Vec_IntAlloc.exit.t
   store i32 %87, ptr %85, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %88 = icmp samesign ult i64 %indvars.iv.next, %64
-  br i1 %88, label %68, label %.preheader, !llvm.loop !153
+  br i1 %88, label %68, label %.lr.ph149, !llvm.loop !153
 
 .critedge.preheader:                              ; preds = %149
   %.val90.pre = load i32, ptr %54, align 4, !tbaa !34
@@ -6998,7 +6998,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %31 ]
   %.val78.val = load i32, ptr %29, align 4, !tbaa !34
   %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = sub i32 %32, %.val7698
+  %33 = sub nsw i32 %32, %.val7698
   %34 = add i32 %33, %.val78.val
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %.val72.val, i64 %35
@@ -7182,7 +7182,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %31 ]
   %.val157.val = load i32, ptr %27, align 4, !tbaa !34
   %32 = trunc nuw nsw i64 %indvars.iv to i32
-  %33 = sub i32 %32, %.val140180
+  %33 = sub nsw i32 %32, %.val140180
   %34 = add i32 %33, %.val157.val
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i32, ptr %.val138.val, i64 %35

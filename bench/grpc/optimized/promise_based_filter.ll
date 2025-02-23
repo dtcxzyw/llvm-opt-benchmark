@@ -7057,16 +7057,16 @@ invoke.cont25:                                    ; preds = %invoke.cont20, %swi
   %recv_trailing_state_ = getelementptr inbounds nuw i8, ptr %this, i64 252
   %18 = load i32, ptr %recv_trailing_state_, align 4
   %19 = icmp ult i32 %18, 6
-  br i1 %19, label %switch.lookup92, label %_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit
+  br i1 %19, label %switch.lookup98, label %_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit
 
-switch.lookup92:                                  ; preds = %invoke.cont25
+switch.lookup98:                                  ; preds = %invoke.cont25
   %20 = zext nneg i32 %18 to i64
-  %switch.gep93 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData25RecvTrailingMetadataReadyEN4absl12lts_202308026StatusE, i64 0, i64 %20
-  %switch.load94 = load ptr, ptr %switch.gep93, align 8
+  %switch.gep99 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ClientCallData25RecvTrailingMetadataReadyEN4absl12lts_202308026StatusE, i64 0, i64 %20
+  %switch.load100 = load ptr, ptr %switch.gep99, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit
 
-_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit: ; preds = %invoke.cont25, %switch.lookup92
-  %retval.0.i50 = phi ptr [ %switch.load94, %switch.lookup92 ], [ @.str.24, %invoke.cont25 ]
+_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit: ; preds = %invoke.cont25, %switch.lookup98
+  %retval.0.i50 = phi ptr [ %switch.load100, %switch.lookup98 ], [ @.str.24, %invoke.cont25 ]
   store ptr %retval.0.i50, ptr %ref.tmp26, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
   %cmp.i.not.i.i.i.i = icmp eq ptr %captured.sroa.0.3, %captured.sroa.8.1
@@ -7095,7 +7095,7 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %
 
 if.then10.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, i64 noundef %result_size.0.lcssa.i.i.i.i)
-          to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
+          to label %invoke.cont.i.i.i.i unwind label %ehcleanup51.thread
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then10.i.i.i.i
   %call11.i.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
@@ -7126,11 +7126,11 @@ for.body21.i.i.i.i:                               ; preds = %for.body21.i.i.i.i,
   %cmp.i16.not.i.i.i.i = icmp eq ptr %incdec.ptr.i15.i.i.i.i, %captured.sroa.8.1
   br i1 %cmp.i16.not.i.i.i.i, label %invoke.cont29, label %for.body21.i.i.i.i, !llvm.loop !118
 
-lpad.i.i.i.i:                                     ; preds = %if.then10.i.i.i.i
+ehcleanup51.thread:                               ; preds = %if.then10.i.i.i.i
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
-  br label %ehcleanup51
+  br label %if.then.i.i.i74
 
 invoke.cont29:                                    ; preds = %for.body21.i.i.i.i, %invoke.cont.i.i.i.i, %for.end.i.i.i.i, %_ZN9grpc_core21promise_filter_detail14ClientCallData11StateStringENS1_17RecvTrailingStateE.exit
   %server_initial_metadata_pipe_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -7165,16 +7165,16 @@ invoke.cont39:                                    ; preds = %invoke.cont29
   %33 = load ptr, ptr %recv_initial_metadata_, align 16
   %34 = load i32, ptr %33, align 8
   %35 = icmp ult i32 %34, 10
-  br i1 %35, label %switch.lookup95, label %invoke.cont43
+  br i1 %35, label %switch.lookup101, label %invoke.cont43
 
-switch.lookup95:                                  ; preds = %invoke.cont39
+switch.lookup101:                                 ; preds = %invoke.cont39
   %36 = zext nneg i32 %34 to i64
-  %switch.gep96 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.69, i64 0, i64 %36
-  %switch.load97 = load ptr, ptr %switch.gep96, align 8
+  %switch.gep102 = getelementptr inbounds nuw [10 x ptr], ptr @switch.table._ZNK9grpc_core21promise_filter_detail14ClientCallData11DebugStringB5cxx11Ev.69, i64 0, i64 %36
+  %switch.load103 = load ptr, ptr %switch.gep102, align 8
   br label %invoke.cont43
 
-invoke.cont43:                                    ; preds = %invoke.cont39, %switch.lookup95
-  %retval.0.i65 = phi ptr [ %switch.load97, %switch.lookup95 ], [ @.str.24, %invoke.cont39 ]
+invoke.cont43:                                    ; preds = %invoke.cont39, %switch.lookup101
+  %retval.0.i65 = phi ptr [ %switch.load103, %switch.lookup101 ], [ @.str.24, %invoke.cont39 ]
   %call.i.i.i.i72 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i65) #33
   store i64 %call.i.i.i.i72, ptr %ref.tmp40, align 8
   %37 = getelementptr inbounds nuw i8, ptr %ref.tmp40, i64 8
@@ -7231,18 +7231,21 @@ ehcleanup50:                                      ; preds = %ehcleanup, %cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
   br label %ehcleanup51
 
-ehcleanup51:                                      ; preds = %lpad, %lpad.i.i.i.i, %ehcleanup50
-  %captured.sroa.0.2 = phi ptr [ %captured.sroa.0.3, %ehcleanup50 ], [ %captured.sroa.0.0, %lpad ], [ %captured.sroa.0.3, %lpad.i.i.i.i ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn90, %ehcleanup50 ], [ %1, %lpad ], [ %29, %lpad.i.i.i.i ]
+ehcleanup51:                                      ; preds = %lpad, %ehcleanup50
+  %captured.sroa.0.2 = phi ptr [ %captured.sroa.0.3, %ehcleanup50 ], [ %captured.sroa.0.0, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn90, %ehcleanup50 ], [ %1, %lpad ]
   %tobool.not.i.i.i73 = icmp eq ptr %captured.sroa.0.2, null
   br i1 %tobool.not.i.i.i73, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit75, label %if.then.i.i.i74
 
-if.then.i.i.i74:                                  ; preds = %ehcleanup51
-  call void @_ZdlPv(ptr noundef nonnull %captured.sroa.0.2) #36
+if.then.i.i.i74:                                  ; preds = %ehcleanup51.thread, %ehcleanup51
+  %.pn.pn96 = phi { ptr, i32 } [ %29, %ehcleanup51.thread ], [ %.pn.pn, %ehcleanup51 ]
+  %captured.sroa.0.295 = phi ptr [ %captured.sroa.0.3, %ehcleanup51.thread ], [ %captured.sroa.0.2, %ehcleanup51 ]
+  call void @_ZdlPv(ptr noundef nonnull %captured.sroa.0.295) #36
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit75
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit75: ; preds = %ehcleanup51, %if.then.i.i.i74
-  resume { ptr, i32 } %.pn.pn
+  %.pn.pn97 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup51 ], [ %.pn.pn96, %if.then.i.i.i74 ]
+  resume { ptr, i32 } %.pn.pn97
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -12768,16 +12771,16 @@ invoke.cont25:                                    ; preds = %invoke.cont20, %swi
   %send_trailing_state_ = getelementptr inbounds nuw i8, ptr %this, i64 284
   %18 = load i32, ptr %send_trailing_state_, align 4
   %19 = icmp ult i32 %18, 6
-  br i1 %19, label %switch.lookup85, label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
+  br i1 %19, label %switch.lookup91, label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 
-switch.lookup85:                                  ; preds = %invoke.cont25
+switch.lookup91:                                  ; preds = %invoke.cont25
   %20 = zext nneg i32 %18 to i64
-  %switch.gep86 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %20
-  %switch.load87 = load ptr, ptr %switch.gep86, align 8
+  %switch.gep92 = getelementptr inbounds nuw [6 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.74, i64 0, i64 %20
+  %switch.load93 = load ptr, ptr %switch.gep92, align 8
   br label %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
 
-_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit: ; preds = %invoke.cont25, %switch.lookup85
-  %retval.0.i50 = phi ptr [ %switch.load87, %switch.lookup85 ], [ @.str.24, %invoke.cont25 ]
+_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit: ; preds = %invoke.cont25, %switch.lookup91
+  %retval.0.i50 = phi ptr [ %switch.load93, %switch.lookup91 ], [ @.str.24, %invoke.cont25 ]
   store ptr %retval.0.i50, ptr %ref.tmp26, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
   %cmp.i.not.i.i.i.i = icmp eq ptr %captured.sroa.0.3, %captured.sroa.8.1
@@ -12806,7 +12809,7 @@ for.end.i.i.i.i:                                  ; preds = %for.body.i.i.i.i, %
 
 if.then10.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28, i64 noundef %result_size.0.lcssa.i.i.i.i)
-          to label %invoke.cont.i.i.i.i unwind label %lpad.i.i.i.i
+          to label %invoke.cont.i.i.i.i unwind label %ehcleanup49.thread
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then10.i.i.i.i
   %call11.i.i.i.i = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
@@ -12837,11 +12840,11 @@ for.body21.i.i.i.i:                               ; preds = %for.body21.i.i.i.i,
   %cmp.i16.not.i.i.i.i = icmp eq ptr %incdec.ptr.i15.i.i.i.i, %captured.sroa.8.1
   br i1 %cmp.i16.not.i.i.i.i, label %invoke.cont29, label %for.body21.i.i.i.i, !llvm.loop !118
 
-lpad.i.i.i.i:                                     ; preds = %if.then10.i.i.i.i
+ehcleanup49.thread:                               ; preds = %if.then10.i.i.i.i
   %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
-  br label %ehcleanup49
+  br label %if.then.i.i.i70
 
 invoke.cont29:                                    ; preds = %for.body21.i.i.i.i, %invoke.cont.i.i.i.i, %for.end.i.i.i.i, %_ZN9grpc_core21promise_filter_detail14ServerCallData11StateStringENS1_17SendTrailingStateE.exit
   %send_initial_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -12855,16 +12858,16 @@ invoke.cont35:                                    ; preds = %invoke.cont29
   store ptr @.str.126, ptr %31, align 8
   %32 = load i32, ptr %30, align 8
   %33 = icmp ult i32 %32, 7
-  br i1 %33, label %switch.lookup88, label %invoke.cont40
+  br i1 %33, label %switch.lookup94, label %invoke.cont40
 
-switch.lookup88:                                  ; preds = %invoke.cont35
+switch.lookup94:                                  ; preds = %invoke.cont35
   %34 = zext nneg i32 %32 to i64
-  %switch.gep89 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73, i64 0, i64 %34
-  %switch.load90 = load ptr, ptr %switch.gep89, align 8
+  %switch.gep95 = getelementptr inbounds nuw [7 x ptr], ptr @switch.table._ZN9grpc_core21promise_filter_detail14ServerCallData18WakeInsideCombinerEPNS0_12BaseCallData7FlusherE.73, i64 0, i64 %34
+  %switch.load96 = load ptr, ptr %switch.gep95, align 8
   br label %invoke.cont40
 
-invoke.cont40:                                    ; preds = %invoke.cont35, %switch.lookup88
-  %retval.0.i61 = phi ptr [ %switch.load90, %switch.lookup88 ], [ @.str.24, %invoke.cont35 ]
+invoke.cont40:                                    ; preds = %invoke.cont35, %switch.lookup94
+  %retval.0.i61 = phi ptr [ %switch.load96, %switch.lookup94 ], [ @.str.24, %invoke.cont35 ]
   %call.i.i.i.i68 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i61) #33
   store i64 %call.i.i.i.i68, ptr %ref.tmp36, align 8
   %35 = getelementptr inbounds nuw i8, ptr %ref.tmp36, i64 8
@@ -12920,18 +12923,21 @@ ehcleanup:                                        ; preds = %lpad44, %cleanup.ac
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp28) #33
   br label %ehcleanup49
 
-ehcleanup49:                                      ; preds = %lpad, %lpad.i.i.i.i, %ehcleanup
-  %captured.sroa.0.2 = phi ptr [ %captured.sroa.0.3, %ehcleanup ], [ %captured.sroa.0.0, %lpad ], [ %captured.sroa.0.3, %lpad.i.i.i.i ]
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ], [ %29, %lpad.i.i.i.i ]
+ehcleanup49:                                      ; preds = %lpad, %ehcleanup
+  %captured.sroa.0.2 = phi ptr [ %captured.sroa.0.3, %ehcleanup ], [ %captured.sroa.0.0, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %2, %lpad ]
   %tobool.not.i.i.i69 = icmp eq ptr %captured.sroa.0.2, null
   br i1 %tobool.not.i.i.i69, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit71, label %if.then.i.i.i70
 
-if.then.i.i.i70:                                  ; preds = %ehcleanup49
-  call void @_ZdlPv(ptr noundef nonnull %captured.sroa.0.2) #36
+if.then.i.i.i70:                                  ; preds = %ehcleanup49.thread, %ehcleanup49
+  %.pn.pn89 = phi { ptr, i32 } [ %29, %ehcleanup49.thread ], [ %.pn.pn, %ehcleanup49 ]
+  %captured.sroa.0.288 = phi ptr [ %captured.sroa.0.3, %ehcleanup49.thread ], [ %captured.sroa.0.2, %ehcleanup49 ]
+  call void @_ZdlPv(ptr noundef nonnull %captured.sroa.0.288) #36
   br label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit71
 
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit71: ; preds = %ehcleanup49, %if.then.i.i.i70
-  resume { ptr, i32 } %.pn.pn
+  %.pn.pn90 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup49 ], [ %.pn.pn89, %if.then.i.i.i70 ]
+  resume { ptr, i32 } %.pn.pn90
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

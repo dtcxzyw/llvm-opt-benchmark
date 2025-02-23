@@ -4772,8 +4772,8 @@ _ZN5Gluco3vecINS_3LitEE4pushEv.exit:              ; preds = %._ZN5Gluco3vecINS_3
   %.pre416 = load i64, ptr %70, align 4
   %.mask = and i64 %.pre416, -4294967296
   %71 = icmp eq i64 %.mask, 8589934592
-  %or.cond453 = select i1 %.not279, i1 %71, i1 false
-  br i1 %or.cond453, label %72, label %.critedge
+  %or.cond454 = select i1 %.not279, i1 %71, i1 false
+  br i1 %or.cond454, label %72, label %.critedge
 
 72:                                               ; preds = %67
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 12
@@ -5339,10 +5339,10 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215:       ; preds = %._ZN5Gluco3vecINS_3
 
 .sink.split:                                      ; preds = %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit212, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit
   %.sink = phi i32 [ %307, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ %362, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215 ], [ %337, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit212 ]
-  %.sink455 = phi ptr [ %308, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ %363, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215 ], [ %338, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit212 ]
+  %.sink456 = phi ptr [ %308, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ %363, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215 ], [ %338, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit212 ]
   %.2.ph = phi i32 [ %271, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit ], [ %.1327, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit215 ], [ %.1327, %_ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit212 ]
   %365 = sext i32 %.sink to i64
-  %366 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.sink455, i64 %365
+  %366 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.sink456, i64 %365
   store i32 %205, ptr %366, align 4, !tbaa !48
   br label %367
 

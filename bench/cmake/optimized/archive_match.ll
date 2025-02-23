@@ -208,7 +208,7 @@ match_list_free.exit32:                           ; preds = %.lr.ph.i29, %entry_
   br i1 %.not.i36, label %match_list_free.exit37, label %.lr.ph.i34, !llvm.loop !40
 
 match_list_free.exit37:                           ; preds = %.lr.ph.i34, %match_list_free.exit32
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef nonnull %0) #14
   br label %26
 
 26:                                               ; preds = %1, %3, %match_list_free.exit37

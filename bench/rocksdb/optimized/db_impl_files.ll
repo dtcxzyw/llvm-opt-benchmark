@@ -14146,11 +14146,11 @@ entry:
   %__value.i.i.i = alloca %"struct.rocksdb::JobContext::CandidateFileInfo", align 8
   %agg.tmp6.i.i.i = alloca %"struct.rocksdb::JobContext::CandidateFileInfo", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i115 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i116 = sub i64 %sub.ptr.lhs.cast.i115, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i117 = ashr exact i64 %sub.ptr.sub.i116, 6
-  %cmp118 = icmp sgt i64 %sub.ptr.div.i117, 16
-  br i1 %cmp118, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i93 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i94 = sub i64 %sub.ptr.lhs.cast.i93, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i95 = ashr exact i64 %sub.ptr.sub.i94, 6
+  %cmp96 = icmp sgt i64 %sub.ptr.div.i95, 16
+  br i1 %cmp96, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 64
@@ -14163,20 +14163,19 @@ while.body.lr.ph:                                 ; preds = %entry
   %file_path.i.i.i40.i.i = getelementptr inbounds nuw i8, ptr %__tmp.i.i39.i.i, i64 32
   %file_path.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__tmp.i.i.i.i, i64 32
   %file_path.i.i.i.i7.i = getelementptr inbounds nuw i8, ptr %__tmp.i.i.i5.i, i64 32
-  %cmp2360 = icmp eq i64 %__depth_limit, 0
-  br i1 %cmp2360, label %if.end.i.i.i, label %if.end
+  br label %while.body
 
-while.body:                                       ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit"
-  %cmp2 = icmp eq i64 %dec, 0
-  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !140
+while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit"
+  %sub.ptr.div.i99 = phi i64 [ %sub.ptr.div.i95, %while.body.lr.ph ], [ %sub.ptr.div.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit" ]
+  %__depth_limit.addr.098 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit" ]
+  %storemerge97 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit" ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.098, 0
+  br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
-if.end.i.i.i:                                     ; preds = %while.body, %while.body.lr.ph
-  %sub.ptr.div.i122.lcssa = phi i64 [ %sub.ptr.div.i117, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
-  %sub.ptr.sub.i121.lcssa = phi i64 [ %sub.ptr.sub.i116, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
-  %storemerge119.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+if.end.i.i.i:                                     ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp6.i.i.i)
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i122.lcssa, -2
+  %sub.i.i.i = add nsw i64 %sub.ptr.div.i99, -2
   %div45.i.i.i = lshr i64 %sub.i.i.i, 1
   %file_path.i.i.i.i = getelementptr inbounds nuw i8, ptr %__value.i.i.i, i64 32
   %file_path.i9.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp6.i.i.i, i64 32
@@ -14190,7 +14189,7 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp6.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__value.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i) #27
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i122.lcssa, ptr noundef %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i99, ptr noundef %agg.tmp6.i.i.i)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i9.i.i.i) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %agg.tmp6.i.i.i) #27
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
@@ -14202,16 +14201,12 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_RT0_.exit.i.i": ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp6.i.i.i)
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i121.lcssa, 64
-  br i1 %cmp4.i.i, label %while.body.i.i.preheader, label %while.end
-
-while.body.i.i.preheader:                         ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_RT0_.exit.i.i"
   %file_path.i.i = getelementptr inbounds nuw i8, ptr %__value.i, i64 32
   %file_path.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp7.i, i64 32
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge119.lcssa, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_RT0_.exit.i.i", %while.body.i.i
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %while.body.i.i ], [ %storemerge97, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -64
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %__value.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp7.i)
@@ -14233,16 +14228,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %__value.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %agg.tmp7.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i10, 64
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !141
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !140
 
-if.end:                                           ; preds = %while.body.lr.ph, %while.body
-  %storemerge119363 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
-  %__depth_limit.addr.0120362 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
-  %sub.ptr.div.i122361 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i117, %while.body.lr.ph ]
-  %dec = add nsw i64 %__depth_limit.addr.0120362, -1
-  %div.i1213 = lshr i64 %sub.ptr.div.i122361, 1
+if.end:                                           ; preds = %while.body
+  %dec = add nsw i64 %__depth_limit.addr.098, -1
+  %div.i1213 = lshr i64 %sub.ptr.div.i99, 1
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.rocksdb::JobContext::CandidateFileInfo", ptr %__first.coerce, i64 %div.i1213
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -64
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge97, i64 -64
   %call.i.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i2.i, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i.i)
           to label %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
@@ -14320,7 +14312,7 @@ _ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 if.else7.i.i10.i.i:                               ; preds = %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i8.i.i
   %file_path.i.i11.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
-  %file_path8.i.i12.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path8.i.i12.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call.i8.i.i13.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i11.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path8.i.i12.i.i)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit18.i.i" unwind label %terminate.lpad.i9.i.i14.i.i
 
@@ -14380,7 +14372,7 @@ _ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i7.i.i29.i.i, label %if.else27.i.i, label %if.else7.i.i30.i.i
 
 if.else7.i.i30.i.i:                               ; preds = %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i28.i.i
-  %file_path8.i.i32.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path8.i.i32.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call.i8.i.i33.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %file_path8.i.i32.i.i)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit38.i.i" unwind label %terminate.lpad.i9.i.i34.i.i
 
@@ -14400,7 +14392,7 @@ if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__tmp.i.i39.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.coerce) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i40.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i.i.i109.i.i) #27
   %call.i.i.i42.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i3.i) #27
-  %file_path3.i4.i.i43.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path3.i4.i.i43.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call4.i.i.i44.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i.i.i109.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i4.i.i43.i.i) #27
   %call.i5.i.i45.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(64) %__tmp.i.i39.i.i) #27
   %call4.i8.i.i46.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i4.i.i43.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i40.i.i) #27
@@ -14453,7 +14445,7 @@ _ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   br i1 %cmp.i7.i.i63.i.i, label %if.else44.i.i, label %if.else7.i.i64.i.i
 
 if.else7.i.i64.i.i:                               ; preds = %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i62.i.i
-  %file_path8.i.i66.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path8.i.i66.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call.i8.i.i67.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i.i5, ptr noundef nonnull align 8 dereferenceable(32) %file_path8.i.i66.i.i)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit72.i.i" unwind label %terminate.lpad.i9.i.i68.i.i
 
@@ -14513,7 +14505,7 @@ _ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
 
 if.else7.i.i90.i.i:                               ; preds = %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i88.i.i
   %file_path.i.i91.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 32
-  %file_path8.i.i92.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path8.i.i92.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call.i8.i.i93.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i91.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path8.i.i92.i.i)
           to label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit98.i.i" unwind label %terminate.lpad.i9.i.i94.i.i
 
@@ -14533,7 +14525,7 @@ if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__tmp.i.i99.i.i, ptr noundef nonnull align 8 dereferenceable(64) %__first.coerce) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i100.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i.i.i109.i.i) #27
   %call.i.i.i102.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i3.i) #27
-  %file_path3.i4.i.i103.i.i = getelementptr inbounds i8, ptr %storemerge119363, i64 -32
+  %file_path3.i4.i.i103.i.i = getelementptr inbounds i8, ptr %storemerge97, i64 -32
   %call4.i.i.i104.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i.i.i109.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i4.i.i103.i.i) #27
   %call.i5.i.i105.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(64) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(64) %__tmp.i.i99.i.i) #27
   %call4.i8.i.i106.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %file_path3.i4.i.i103.i.i, ptr noundef nonnull align 8 dereferenceable(32) %file_path.i.i.i100.i.i) #27
@@ -14561,7 +14553,7 @@ while.body.i.i6.preheader:                        ; preds = %if.else55.i.i, %if.
 
 while.body.i.i6:                                  ; preds = %while.body.i.i6.preheader, %if.end.i.i
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i23.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i6.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge119363, %while.body.i.i6.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge97, %while.body.i.i6.preheader ]
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.body7.i.i, %while.body.i.i6
@@ -14616,7 +14608,7 @@ terminate.lpad.i9.i.i.i20.i:                      ; preds = %if.else7.i.i.i17.i
 
 while.body7.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit.i21.i", %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i.i10.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 64
-  br label %while.cond3.i.i, !llvm.loop !142
+  br label %while.cond3.i.i, !llvm.loop !141
 
 while.cond10.i.i:                                 ; preds = %while.cond10.i.i.backedge, %while.cond10.i.i.preheader
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.0.i.i, %while.cond10.i.i.preheader ], [ %__last.sroa.0.1.i.i, %while.cond10.i.i.backedge ]
@@ -14667,7 +14659,7 @@ terminate.lpad.i9.i.i15.i.i:                      ; preds = %if.else7.i.i11.i.i
   br i1 %cmp.i10.i.i17.i.i, label %while.cond10.i.i.backedge, label %while.end18.i.i
 
 while.cond10.i.i.backedge:                        ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit19.i.i", %_ZStltIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i4.i.i
-  br label %while.cond10.i.i, !llvm.loop !143
+  br label %while.cond10.i.i, !llvm.loop !142
 
 while.end18.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN7rocksdb6DBImpl18PurgeObsoleteFilesERNS2_10JobContextEbE3$_0EclINS_17__normal_iteratorIPNS4_17CandidateFileInfoESt6vectorISA_SaISA_EEEESF_EEbT_T0_.exit19.i.i", %_ZStgtIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.i.i9.i.i
   %cmp.i.i.i7 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -14687,17 +14679,17 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %__tmp.i.i.i5.i) #27
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %__tmp.i.i.i5.i)
   %incdec.ptr.i23.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 64
-  br label %while.body.i.i6, !llvm.loop !144
+  br label %while.body.i.i6, !llvm.loop !143
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit": ; preds = %while.end18.i.i
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge119363, i64 noundef %dec)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge97, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 6
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !140
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !144
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit", %while.body.i.i, %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEEvT_SG_RT0_.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7rocksdb10JobContext17CandidateFileInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_6DBImpl18PurgeObsoleteFilesERS3_bE3$_0EEET_SG_SG_T0_.exit", %while.body.i.i, %entry
   ret void
 }
 

@@ -4512,7 +4512,7 @@ Cba_ObjName.exit:                                 ; preds = %33, %._crit_edge.i.
   br i1 %97, label %98, label %140
 
 98:                                               ; preds = %81
-  %99 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef %0, i32 noundef 87, i32 noundef 4, i32 noundef 1)
+  %99 = tail call fastcc i32 @Cba_ObjAlloc(ptr noundef nonnull %0, i32 noundef 87, i32 noundef 4, i32 noundef 1)
   %Prs_BoxSignals.V.val204 = load ptr, ptr @Prs_BoxSignals.V.2, align 8, !tbaa !27
   %100 = getelementptr inbounds nuw i8, ptr %Prs_BoxSignals.V.val204, i64 12
   %101 = load i32, ptr %100, align 4, !tbaa !33

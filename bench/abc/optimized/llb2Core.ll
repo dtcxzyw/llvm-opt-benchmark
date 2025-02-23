@@ -60,13 +60,13 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
   %.031.us.us = phi ptr [ %16, %.lr.ph.split.us.split.us ], [ %7, %.lr.ph.split.us ]
   %.02630.us.us = phi i32 [ %17, %.lr.ph.split.us.split.us ], [ 0, %.lr.ph.split.us ]
-  %12 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %.02630.us.us) #15
+  %12 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %.02630.us.us) #15
   %13 = ptrtoint ptr %12 to i64
   %14 = xor i64 %13, 1
   %15 = inttoptr i64 %14 to ptr
-  %16 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us.us, ptr noundef %15) #15
+  %16 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us.us, ptr noundef %15) #15
   tail call void @Cudd_Ref(ptr noundef %16) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031.us.us) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us.us) #15
   %17 = add nuw nsw i32 %.02630.us.us, 1
   %.val.us.us = load i32, ptr %8, align 4, !tbaa !24
   %18 = icmp slt i32 %17, %.val.us.us
@@ -78,13 +78,13 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   %.val28.us = load ptr, ptr %10, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i32, ptr %.val28.us, i64 %indvars.iv49
   %20 = load i32, ptr %19, align 4, !tbaa !29
-  %21 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %20) #15
+  %21 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %20) #15
   %22 = ptrtoint ptr %21 to i64
   %23 = xor i64 %22, 1
   %24 = inttoptr i64 %23 to ptr
-  %25 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us, ptr noundef %24) #15
+  %25 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us, ptr noundef %24) #15
   tail call void @Cudd_Ref(ptr noundef %25) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031.us) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us) #15
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %.val.us = load i32, ptr %8, align 4, !tbaa !24
   %26 = sext i32 %.val.us to i64
@@ -98,7 +98,7 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph.split.split.us ], [ 0, %.lr.ph.split ]
   %.031.us32 = phi ptr [ %37, %.lr.ph.split.split.us ], [ %7, %.lr.ph.split ]
   %28 = trunc nuw nsw i64 %indvars.iv46 to i32
-  %29 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %28) #15
+  %29 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %28) #15
   %30 = ptrtoint ptr %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv46
   %32 = load i8, ptr %31, align 1, !tbaa !30
@@ -106,9 +106,9 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   %34 = zext i1 %33 to i64
   %35 = xor i64 %34, %30
   %36 = inttoptr i64 %35 to ptr
-  %37 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us32, ptr noundef %36) #15
+  %37 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us32, ptr noundef %36) #15
   tail call void @Cudd_Ref(ptr noundef %37) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031.us32) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us32) #15
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %.val.us35 = load i32, ptr %8, align 4, !tbaa !24
   %38 = sext i32 %.val.us35 to i64
@@ -121,7 +121,7 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   %.val28 = load ptr, ptr %10, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i32, ptr %.val28, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !29
-  %42 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %41) #15
+  %42 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %41) #15
   %43 = ptrtoint ptr %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv
   %45 = load i8, ptr %44, align 1, !tbaa !30
@@ -129,9 +129,9 @@ define noundef ptr @Llb_CoreComputeCube(ptr noundef %0, ptr noundef readonly cap
   %47 = zext i1 %46 to i64
   %48 = xor i64 %47, %43
   %49 = inttoptr i64 %48 to ptr
-  %50 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031, ptr noundef %49) #15
+  %50 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031, ptr noundef %49) #15
   tail call void @Cudd_Ref(ptr noundef %50) #15
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031) #15
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4, !tbaa !24
   %51 = sext i32 %.val to i64

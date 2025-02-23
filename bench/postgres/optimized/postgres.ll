@@ -4433,7 +4433,7 @@ IsTransactionExitStmt.exit.thread.i73:            ; preds = %654, %651, %648, %6
 .loopexit.i:                                      ; preds = %787, %.thread217.i
   %.0160.i = phi ptr [ null, %.thread217.i ], [ %786, %787 ]
   call void @pq_getmsgend(ptr noundef nonnull %25) #22
-  %791 = call ptr @GetCachedPlan(ptr noundef %.0161.i, ptr noundef %.0167.i, ptr noundef null, ptr noundef null) #22
+  %791 = call ptr @GetCachedPlan(ptr noundef nonnull %.0161.i, ptr noundef %.0167.i, ptr noundef null, ptr noundef null) #22
   %792 = getelementptr inbounds nuw i8, ptr %.0161.i, i64 24
   %793 = load i32, ptr %792, align 8
   %794 = getelementptr inbounds nuw i8, ptr %791, i64 8

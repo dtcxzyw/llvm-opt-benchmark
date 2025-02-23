@@ -146,8 +146,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   br i1 %46, label %.preheader57.us.preheader, label %._crit_edge64
 
 .preheader57.us.preheader:                        ; preds = %Vec_PtrDup.exit
-  %smax = call i32 @llvm.smax.i32(i32 %21, i32 1)
-  %wide.trip.count80 = zext nneg i32 %smax to i64
+  %wide.trip.count80 = zext nneg i32 %21 to i64
   br label %.preheader57.us
 
 47:                                               ; preds = %.preheader57.us

@@ -816,7 +816,7 @@ define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) 
   %12 = load i32, ptr %11, align 4, !tbaa !66
   %13 = shl i32 %12, 1
   store i32 %13, ptr %11, align 4, !tbaa !66
-  br label %150
+  br label %149
 
 14:                                               ; preds = %1
   store ptr %calloc, ptr %2, align 8, !tbaa !64
@@ -946,7 +946,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 ._crit_edge131:                                   ; preds = %.lr.ph130, %.lr.ph133
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %.loopexit, label %.lr.ph133, !llvm.loop !81
+  br i1 %exitcond155.not, label %.loopexit.thread, label %.lr.ph133, !llvm.loop !81
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %._crit_edge124
   %indvars.iv146 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next147, %._crit_edge124 ]
@@ -995,7 +995,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 ._crit_edge124:                                   ; preds = %.lr.ph123, %.lr.ph126
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
-  br i1 %exitcond150.not, label %.loopexit, label %.lr.ph126, !llvm.loop !83
+  br i1 %exitcond150.not, label %.loopexit.thread, label %.lr.ph126, !llvm.loop !83
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next, %._crit_edge ]
@@ -1056,7 +1056,7 @@ ddLCHash.exit.loopexit.us.us:                     ; preds = %.lr.ph.i.us.us
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph119, !llvm.loop !85
+  br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph119, !llvm.loop !85
 
 .lr.ph140.split:                                  ; preds = %.lr.ph140, %._crit_edge138.split
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %._crit_edge138.split ], [ 0, %.lr.ph140 ]
@@ -1085,17 +1085,17 @@ ddLCHash.exit:                                    ; preds = %.lr.ph140.split, %d
 ._crit_edge138.split:                             ; preds = %ddLCHash.exit, %.lr.ph140.split
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %wide.trip.count164
-  br i1 %exitcond160.not, label %.loopexit, label %.lr.ph140.split, !llvm.loop !77
+  br i1 %exitcond160.not, label %.loopexit.thread, label %.lr.ph140.split, !llvm.loop !77
 
-.loopexit:                                        ; preds = %._crit_edge, %._crit_edge124, %._crit_edge131, %._crit_edge138.split, %._crit_edge138.split.us.us, %.preheader114, %.preheader112, %.preheader110, %.preheader
+.loopexit:                                        ; preds = %._crit_edge138.split.us.us, %.preheader114, %.preheader112, %.preheader110, %.preheader
   %.not108 = icmp eq ptr %3, null
-  br i1 %.not108, label %150, label %149
+  br i1 %.not108, label %149, label %.loopexit.thread
 
-149:                                              ; preds = %.loopexit
+.loopexit.thread:                                 ; preds = %._crit_edge, %._crit_edge124, %._crit_edge131, %._crit_edge138.split, %.loopexit
   tail call void @free(ptr noundef nonnull %3) #13
-  br label %150
+  br label %149
 
-150:                                              ; preds = %149, %.loopexit, %10
+149:                                              ; preds = %.loopexit.thread, %.loopexit, %10
   ret void
 }
 

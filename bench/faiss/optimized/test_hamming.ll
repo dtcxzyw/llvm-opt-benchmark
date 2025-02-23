@@ -4566,14 +4566,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %578 = ptrtoint ptr %576 to i64
   %579 = sub i64 %577, %578
   %.not417 = icmp eq ptr %575, %576
-  br i1 %.not417, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not417, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %574
   %580 = ashr exact i64 %579, 2
   %umax = call i64 @llvm.umax.i64(i64 %580, i64 1)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %574
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #26
   %581 = load ptr, ptr %366, align 8, !tbaa !59, !noalias !166
   %582 = load ptr, ptr %360, align 8, !tbaa !63, !noalias !166
@@ -4581,9 +4581,9 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %584 = ptrtoint ptr %582 to i64
   %585 = sub i64 %583, %584
   %586 = icmp eq i64 %579, %585
-  br i1 %586, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
+  br i1 %586, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
 
-._crit_edge.thread:                               ; preds = %574
+._crit_edge.thread:                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29) #26
   %587 = load ptr, ptr %366, align 8, !tbaa !59, !noalias !166
   %588 = load ptr, ptr %360, align 8, !tbaa !63, !noalias !166
@@ -4591,14 +4591,14 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %590 = ptrtoint ptr %588 to i64
   %591 = sub i64 %589, %590
   %592 = icmp eq i64 %579, %591
-  br i1 %592, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
+  br i1 %592, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
 
-_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238: ; preds = %._crit_edge
-  %bcmp.i.i.i.i.i.i.i239 = call i32 @bcmp(ptr nonnull %576, ptr %582, i64 %579), !noalias !166
+_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238: ; preds = %._crit_edge.thread
+  %bcmp.i.i.i.i.i.i.i239 = call i32 @bcmp(ptr nonnull %576, ptr %588, i64 %579), !noalias !166
   %.not9.i.i.i.i.i.i.i240 = icmp eq i32 %bcmp.i.i.i.i.i.i.i239, 0
   br i1 %.not9.i.i.i.i.i.i.i240, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241, label %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
 
-_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241: ; preds = %._crit_edge.thread, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238
+_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241: ; preds = %._crit_edge, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.i.i238
   invoke void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %29)
           to label %_ZN7testing8internal8EqHelper7CompareISt6vectorIiSaIiEES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit244 unwind label %599
 
@@ -4619,7 +4619,7 @@ _ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236: ; preds = %._crit_edge
   store i32 %596, ptr %594, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !171
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !171
 
 _ZN7testing8internal8EqHelper7CompareISt6vectorIiSaIiEES5_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSF_RKS7_RKS8_.exit244: ; preds = %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread.i.i241, %_ZSteqIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.thread6.i.i236
   %597 = load i8, ptr %29, align 8, !tbaa !38, !range !48, !noundef !49
@@ -8121,7 +8121,9 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !5
-  %22 = udiv i64 %20, %.zext
+  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %22 = udiv i32 %.lhs.trunc, %14
+  %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit
 
 23:                                               ; preds = %3
@@ -8167,7 +8169,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %39, %21
   %44 = phi i32 [ %8, %21 ], [ %8, %39 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %22, %21 ], [ %43, %39 ], [ %35, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %21 ], [ %43, %39 ], [ %35, %.loopexit.loopexit ]
   %45 = trunc i64 %.0 to i32
   %46 = add i32 %44, %45
   ret i32 %46

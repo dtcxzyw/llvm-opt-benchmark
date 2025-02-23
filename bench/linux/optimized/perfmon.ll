@@ -2549,7 +2549,7 @@ define internal noundef i32 @iommu_pmu_cpu_offline(i32 noundef %0, ptr noundef %
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %20 = getelementptr i8, ptr %1, i64 -840
   tail call void @perf_pmu_migrate_context(ptr noundef nonnull %20, i32 noundef %0, i32 noundef %12) #12
   store i32 %12, ptr %16, align 8
   br label %51
@@ -2597,7 +2597,7 @@ define internal noundef i32 @iommu_pmu_cpu_offline(i32 noundef %0, ptr noundef %
 47:                                               ; preds = %.thread
   %48 = and i64 %44, 4294967295
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @iommu_pmu_cpu_mask, i64 %48) #12, !srcloc !37
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %49 = getelementptr i8, ptr %1, i64 -840
   tail call void @perf_pmu_migrate_context(ptr noundef nonnull %49, i32 noundef %0, i32 noundef %43) #12
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 936
   store i32 %43, ptr %50, align 8

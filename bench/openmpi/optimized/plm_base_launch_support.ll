@@ -864,7 +864,7 @@ pmix_obj_update.exit:                             ; preds = %3
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %19 = phi ptr [ %21, %.lr.ph.i ], [ %18, %13 ]
   %.07.i = phi ptr [ %20, %.lr.ph.i ], [ %17, %13 ]
-  tail call void %19(ptr noundef %2) #17
+  tail call void %19(ptr noundef nonnull %2) #17
   %20 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !43
   %.not.i = icmp eq ptr %21, null
@@ -1901,7 +1901,7 @@ pmix_obj_update.exit:                             ; preds = %31
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
   %48 = phi ptr [ %50, %.lr.ph.i ], [ %47, %42 ]
   %.07.i = phi ptr [ %49, %.lr.ph.i ], [ %46, %42 ]
-  call void %48(ptr noundef %32) #17
+  call void %48(ptr noundef nonnull %32) #17
   %49 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !43
   %.not.i = icmp eq ptr %50, null
@@ -2389,7 +2389,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %171
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 136
   %191 = load ptr, ptr %190, align 8, !tbaa !100
   %192 = load ptr, ptr @prte_event_base, align 8, !tbaa !101
-  %193 = call i32 @prte_event_assign(ptr noundef %191, ptr noundef %192, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @stack_trace_timeout, ptr noundef %2) #17
+  %193 = call i32 @prte_event_assign(ptr noundef %191, ptr noundef %192, i32 noundef -1, i16 noundef signext 0, ptr noundef nonnull @stack_trace_timeout, ptr noundef nonnull %2) #17
   %194 = load i32, ptr @prte_stack_trace_wait_timeout, align 4, !tbaa !77
   %195 = sext i32 %194 to i64
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 120
@@ -3654,7 +3654,7 @@ pmix_obj_run_destructors.exit114:                 ; preds = %.lr.ph.i111, %213
   %230 = load i32, ptr %229, align 4, !tbaa !136
   %231 = add i32 %230, 1
   store i32 %231, ptr %229, align 4, !tbaa !136
-  %232 = tail call i32 @pthread_mutex_lock(ptr noundef %2) #17
+  %232 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
   %233 = icmp eq i32 %232, 35
   br i1 %233, label %234, label %pmix_obj_update.exit
 
@@ -4131,7 +4131,7 @@ pmix_obj_update.exit67:                           ; preds = %25
 .lr.ph.i:                                         ; preds = %36, %.lr.ph.i
   %42 = phi ptr [ %44, %.lr.ph.i ], [ %41, %36 ]
   %.07.i = phi ptr [ %43, %.lr.ph.i ], [ %40, %36 ]
-  call void %42(ptr noundef %26) #17
+  call void %42(ptr noundef nonnull %26) #17
   %43 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !43
   %.not.i = icmp eq ptr %44, null
@@ -4404,7 +4404,7 @@ pmix_obj_update.exit:                             ; preds = %161
 .lr.ph.i80:                                       ; preds = %171, %.lr.ph.i80
   %177 = phi ptr [ %179, %.lr.ph.i80 ], [ %176, %171 ]
   %.07.i81 = phi ptr [ %178, %.lr.ph.i80 ], [ %175, %171 ]
-  call void %177(ptr noundef %2) #17
+  call void %177(ptr noundef nonnull %2) #17
   %178 = getelementptr inbounds nuw i8, ptr %.07.i81, i64 8
   %179 = load ptr, ptr %178, align 8, !tbaa !43
   %.not.i82 = icmp eq ptr %179, null
@@ -10422,7 +10422,7 @@ pmix_obj_update.exit:                             ; preds = %87
 .lr.ph.i:                                         ; preds = %101, %.lr.ph.i
   %107 = phi ptr [ %109, %.lr.ph.i ], [ %106, %101 ]
   %.07.i = phi ptr [ %108, %.lr.ph.i ], [ %105, %101 ]
-  call void %107(ptr noundef %91) #17
+  call void %107(ptr noundef nonnull %91) #17
   %108 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !43
   %.not.i = icmp eq ptr %109, null
@@ -10619,7 +10619,7 @@ pmix_obj_update.exit:                             ; preds = %11
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %31 = phi ptr [ %33, %.lr.ph.i ], [ %30, %25 ]
   %.07.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %25 ]
-  call void %31(ptr noundef %15) #17
+  call void %31(ptr noundef nonnull %15) #17
   %32 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   %.not.i = icmp eq ptr %33, null

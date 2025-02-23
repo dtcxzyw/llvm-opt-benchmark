@@ -183,7 +183,7 @@ define dso_local noundef ptr @gistbuild(ptr noundef %0, ptr noundef %1, ptr noun
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.i
   %78 = phi ptr [ %83, %.lr.ph.i ], [ %77, %58 ]
-  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %5, ptr noundef %72, ptr noundef nonnull %78)
+  call fastcc void @gist_indexsortbuild_levelstate_add(ptr noundef nonnull %5, ptr noundef nonnull %72, ptr noundef nonnull %78)
   %79 = load ptr, ptr %20, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load ptr, ptr %80, align 8

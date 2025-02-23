@@ -111,7 +111,7 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %36 = load ptr, ptr %35, align 8
   %37 = load ptr, ptr %36, align 8
   %.not86104.i = icmp eq ptr %37, null
-  br i1 %.not86104.i, label %._crit_edge110.thread.i, label %.lr.ph109.i
+  br i1 %.not86104.i, label %._crit_edge110.i, label %.lr.ph109.i
 
 .lr.ph109.i:                                      ; preds = %32, %.lr.ph109.i
   %.1107.i = phi ptr [ %39, %.lr.ph109.i ], [ %33, %32 ]
@@ -122,37 +122,37 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %40 = add nuw nsw i32 %.173105.i, 1
   %41 = load ptr, ptr %38, align 8
   %.not86.i = icmp eq ptr %41, null
-  br i1 %.not86.i, label %._crit_edge110.i, label %.lr.ph109.i, !llvm.loop !11
+  br i1 %.not86.i, label %._crit_edge110.thread.i, label %.lr.ph109.i, !llvm.loop !11
 
-._crit_edge110.i:                                 ; preds = %.lr.ph109.i
+._crit_edge110.i:                                 ; preds = %32
+  %42 = icmp samesign ult i32 %30, 8
+  br i1 %42, label %copy_hostent.exit, label %46
+
+._crit_edge110.thread.i:                          ; preds = %.lr.ph109.i
   %.neg136.i = xor i32 %.173105.i, -1
-  %42 = shl i32 %.neg136.i, 3
-  %.neg91.i = add nsw i32 %30, -8
-  %43 = add i32 %.neg91.i, %42
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %copy_hostent.exit, label %47
-
-._crit_edge110.thread.i:                          ; preds = %32
-  %45 = icmp samesign ult i32 %30, 8
-  br i1 %45, label %copy_hostent.exit, label %.thread.i
-
-.thread.i:                                        ; preds = %._crit_edge110.thread.i
+  %43 = shl i32 %.neg136.i, 3
   %.neg91145.i = add nsw i32 %30, -8
-  %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
+  %44 = add i32 %.neg91145.i, %43
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %copy_hostent.exit, label %.lr.ph119.preheader.i
+
+46:                                               ; preds = %._crit_edge110.i
+  %.neg91.i = add nsw i32 %30, -8
+  %47 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   br label %._crit_edge120.i
 
-47:                                               ; preds = %._crit_edge110.i
+.lr.ph119.preheader.i:                            ; preds = %._crit_edge110.thread.i
   %48 = getelementptr inbounds nuw i8, ptr %.1107.i, i64 16
   %.pre.i = load i32, ptr %17, align 4
   br label %.lr.ph119.i
 
-.lr.ph119.i:                                      ; preds = %53, %47
-  %49 = phi i32 [ %55, %53 ], [ %.pre.i, %47 ]
-  %50 = phi ptr [ %60, %53 ], [ %37, %47 ]
-  %.2117.i = phi ptr [ %59, %53 ], [ %33, %47 ]
-  %.270116.i = phi ptr [ %58, %53 ], [ %36, %47 ]
-  %.075115.i = phi i32 [ %51, %53 ], [ %43, %47 ]
-  %.077114.i = phi ptr [ %57, %53 ], [ %48, %47 ]
+.lr.ph119.i:                                      ; preds = %53, %.lr.ph119.preheader.i
+  %49 = phi i32 [ %55, %53 ], [ %.pre.i, %.lr.ph119.preheader.i ]
+  %50 = phi ptr [ %60, %53 ], [ %37, %.lr.ph119.preheader.i ]
+  %.2117.i = phi ptr [ %59, %53 ], [ %33, %.lr.ph119.preheader.i ]
+  %.270116.i = phi ptr [ %58, %53 ], [ %36, %.lr.ph119.preheader.i ]
+  %.075115.i = phi i32 [ %51, %53 ], [ %44, %.lr.ph119.preheader.i ]
+  %.077114.i = phi ptr [ %57, %53 ], [ %48, %.lr.ph119.preheader.i ]
   %51 = sub nsw i32 %.075115.i, %49
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %copy_hostent.exit, label %53
@@ -170,10 +170,10 @@ define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i
   %.not87.i = icmp eq ptr %60, null
   br i1 %.not87.i, label %._crit_edge120.i, label %.lr.ph119.i, !llvm.loop !12
 
-._crit_edge120.i:                                 ; preds = %53, %.thread.i
-  %.077.lcssa.i = phi ptr [ %46, %.thread.i ], [ %57, %53 ]
-  %.075.lcssa.i = phi i32 [ %.neg91145.i, %.thread.i ], [ %51, %53 ]
-  %.2.lcssa.i = phi ptr [ %33, %.thread.i ], [ %59, %53 ]
+._crit_edge120.i:                                 ; preds = %53, %46
+  %.077.lcssa.i = phi ptr [ %47, %46 ], [ %57, %53 ]
+  %.075.lcssa.i = phi i32 [ %.neg91.i, %46 ], [ %51, %53 ]
+  %.2.lcssa.i = phi ptr [ %33, %46 ], [ %59, %53 ]
   store ptr null, ptr %.2.lcssa.i, align 8
   %61 = load ptr, ptr %22, align 8
   %62 = load ptr, ptr %21, align 8

@@ -504,7 +504,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
 22:                                               ; preds = %.lr.ph438, %31
   %.1436 = phi i32 [ %1, %.lr.ph438 ], [ %.0, %31 ]
   %23 = add nsw i32 %.1436, 1
-  %24 = tail call i32 @cuddZddSymmCheck(ptr noundef %0, i32 noundef %.1436, i32 noundef %23)
+  %24 = tail call i32 @cuddZddSymmCheck(ptr noundef nonnull %0, i32 noundef %.1436, i32 noundef %23)
   %.not376 = icmp eq i32 %24, 0
   br i1 %.not376, label %._crit_edge439, label %.preheader422
 
@@ -636,7 +636,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingAux(ptr noundef %0
 
 89:                                               ; preds = %.preheader412
   %90 = sub nsw i32 %.3, %83
-  %91 = tail call fastcc ptr @cuddZddSymmSifting_up(ptr noundef %0, i32 noundef %83, i32 noundef %2, i32 noundef %6)
+  %91 = tail call fastcc ptr @cuddZddSymmSifting_up(ptr noundef nonnull %0, i32 noundef %83, i32 noundef %2, i32 noundef %6)
   %magicptr396 = ptrtoint ptr %91 to i64
   switch i64 %magicptr396, label %93 [
     i64 1, label %.loopexit408
@@ -1391,7 +1391,7 @@ define range(i32 -2147483647, -2147483648) i32 @cuddZddSymmSiftingConv(ptr nound
 
 157:                                              ; preds = %.preheader372.i
   %158 = sub nsw i32 %.1.i, %151
-  %159 = tail call fastcc ptr @cuddZddSymmSifting_up(ptr noundef %0, i32 noundef %151, i32 noundef %1, i32 noundef %111)
+  %159 = tail call fastcc ptr @cuddZddSymmSifting_up(ptr noundef nonnull %0, i32 noundef %151, i32 noundef %1, i32 noundef %111)
   %magicptr355.i = ptrtoint ptr %159 to i64
   switch i64 %magicptr355.i, label %161 [
     i64 1, label %cuddZddSymmSiftingConvAux.exit.thread
@@ -1923,7 +1923,7 @@ define internal fastcc ptr @cuddZddSymmSifting_down(ptr noundef %0, i32 noundef 
   br i1 %.not85, label %18, label %14, !llvm.loop !103
 
 18:                                               ; preds = %14
-  %19 = tail call i32 @cuddZddSymmCheck(ptr noundef %0, i32 noundef %.07893, i32 noundef %.07794)
+  %19 = tail call i32 @cuddZddSymmCheck(ptr noundef nonnull %0, i32 noundef %.07893, i32 noundef %.07794)
   %.not86 = icmp eq i32 %19, 0
   %20 = load ptr, ptr %7, align 8, !tbaa !3
   %21 = sext i32 %.07893 to i64
@@ -2014,7 +2014,7 @@ define internal fastcc ptr @cuddZddSymmSifting_down(ptr noundef %0, i32 noundef 
 
 65:                                               ; preds = %64, %53, %31
   %.1 = phi i32 [ %.07695, %31 ], [ %spec.select, %53 ], [ %spec.select89, %64 ]
-  %66 = tail call i32 @cuddZddNextHigh(ptr noundef %0, i32 noundef %.0) #11
+  %66 = tail call i32 @cuddZddNextHigh(ptr noundef nonnull %0, i32 noundef %.0) #11
   %.not = icmp sgt i32 %66, %2
   br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !107
 
@@ -2192,7 +2192,7 @@ define internal fastcc range(i32 0, 2) i32 @cuddZddSymmSiftingBackward(ptr nound
 63:                                               ; preds = %60, %55
   %.2.i = phi i32 [ %.196.i, %60 ], [ %49, %55 ]
   store i32 %spec.select.i, ptr %58, align 4, !tbaa !24
-  %64 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %49, i32 noundef %.17395.i) #11
+  %64 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %.17395.i) #11
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %zdd_group_move_backward.exit, label %44
 
@@ -2349,7 +2349,7 @@ define internal fastcc ptr @cuddZddSymmSifting_up(ptr noundef %0, i32 noundef %1
 
 61:                                               ; preds = %60, %50, %25
   %.1 = phi i32 [ %.06582, %25 ], [ %spec.select, %50 ], [ %spec.select76, %60 ]
-  %62 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %13) #11
+  %62 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %13) #11
   %.not = icmp slt i32 %62, %2
   br i1 %.not, label %._crit_edge.loopexit, label %9, !llvm.loop !115
 
@@ -2482,7 +2482,7 @@ define internal fastcc i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 n
 41:                                               ; preds = %34, %38
   %.2 = phi i32 [ %.191125, %38 ], [ %27, %34 ]
   store i32 %spec.select, ptr %36, align 4, !tbaa !24
-  %42 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %27, i32 noundef %.1101123) #11
+  %42 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %27, i32 noundef %.1101123) #11
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %.loopexit116, label %22
 
@@ -2509,7 +2509,7 @@ define internal fastcc i32 @zdd_group_move(ptr noundef %0, i32 noundef %1, i32 n
 ._crit_edge135:                                   ; preds = %._crit_edge, %.preheader117
   %.088.lcssa = phi i32 [ -1, %.preheader117 ], [ %.189.lcssa, %._crit_edge ]
   %.0.lcssa = phi i32 [ -1, %.preheader117 ], [ %.1.lcssa, %._crit_edge ]
-  %47 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #11
+  %47 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit116, label %49
 

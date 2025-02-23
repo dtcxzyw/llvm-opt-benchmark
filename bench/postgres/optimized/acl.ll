@@ -7843,7 +7843,7 @@ define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr n
   br i1 %23, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph.split
-  br i1 %25, label %.lr.ph92, label %.thread
+  br i1 %25, label %.lr.ph91, label %.thread
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split
   br i1 %25, label %aclmask_direct.exit.us.us, label %.thread
@@ -7854,18 +7854,18 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   br label %.thread.sink.split
 
-.lr.ph92:                                         ; preds = %.lr.ph.split.split.preheader, %.thread61
-  %.sroa.6.06691 = phi i32 [ %62, %.thread61 ], [ 0, %.lr.ph.split.split.preheader ]
-  %.06790 = phi i32 [ %.164, %.thread61 ], [ 0, %.lr.ph.split.split.preheader ]
+.lr.ph91:                                         ; preds = %.lr.ph.split.split.preheader, %.thread82
+  %.sroa.6.06490 = phi i32 [ %62, %.thread82 ], [ 0, %.lr.ph.split.split.preheader ]
+  %.06589 = phi i32 [ %.1.ph, %.thread82 ], [ 0, %.lr.ph.split.split.preheader ]
   %28 = load ptr, ptr %14, align 8
-  %29 = sext i32 %.sroa.6.06691 to i64
+  %29 = sext i32 %.sroa.6.06490 to i64
   %30 = getelementptr inbounds %union.ListCell, ptr %28, i64 %29
   %31 = load i32, ptr %30, align 8
   tail call fastcc void @check_acl(ptr noundef nonnull readonly %2)
   %32 = icmp eq i32 %31, %3
   br i1 %32, label %.thread.sink.split, label %33
 
-33:                                               ; preds = %.lr.ph92
+33:                                               ; preds = %.lr.ph91
   %34 = load i32, ptr %16, align 4
   %35 = load i32, ptr %17, align 4
   %.not45.i = icmp eq i32 %35, 0
@@ -7887,7 +7887,7 @@ aclmask_direct.exit.us.us:                        ; preds = %.lr.ph.split.split.
   %45 = phi i64 [ %37, %36 ], [ %43, %38 ]
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 %45
   %47 = icmp sgt i32 %34, 0
-  br i1 %47, label %.lr.ph.preheader.i, label %.thread61
+  br i1 %47, label %.lr.ph.preheader.i, label %.thread82
 
 .lr.ph.preheader.i:                               ; preds = %44
   %wide.trip.count.i = zext nneg i32 %34 to i64
@@ -7921,7 +7921,7 @@ aclmask_direct.exit:                              ; preds = %.thread.i
 
 56:                                               ; preds = %aclmask_direct.exit
   %.not49 = icmp eq i64 %.350.i, 0
-  br i1 %.not49, label %.thread61, label %.preheader
+  br i1 %.not49, label %.thread82, label %.preheader
 
 .preheader:                                       ; preds = %56, %.preheader
   %.08.i = phi i32 [ %spec.select.i, %.preheader ], [ 0, %56 ]
@@ -7934,29 +7934,29 @@ aclmask_direct.exit:                              ; preds = %.thread.i
   br i1 %.not.i, label %count_one_bits.exit, label %.preheader, !llvm.loop !32
 
 count_one_bits.exit:                              ; preds = %.preheader
-  %60 = icmp sgt i32 %spec.select.i, %.06790
-  br i1 %60, label %61, label %.thread61
+  %60 = icmp sgt i32 %spec.select.i, %.06589
+  br i1 %60, label %61, label %.thread82
 
 61:                                               ; preds = %count_one_bits.exit
   store i32 %31, ptr %4, align 4
   store i64 %.350.i, ptr %5, align 8
-  br label %.thread61
+  br label %.thread82
 
-.thread61:                                        ; preds = %44, %count_one_bits.exit, %61, %56
-  %.164 = phi i32 [ %spec.select.i, %61 ], [ %.06790, %56 ], [ %.06790, %count_one_bits.exit ], [ %.06790, %44 ]
-  %62 = add nuw i32 %.sroa.6.06691, 1
+.thread82:                                        ; preds = %44, %56, %61, %count_one_bits.exit
+  %.1.ph = phi i32 [ %.06589, %count_one_bits.exit ], [ %spec.select.i, %61 ], [ %.06589, %56 ], [ %.06589, %44 ]
+  %62 = add nuw i32 %.sroa.6.06490, 1
   %63 = load i32, ptr %13, align 4
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %.lr.ph92, label %.thread
+  br i1 %64, label %.lr.ph91, label %.thread
 
-.thread.sink.split:                               ; preds = %aclmask_direct.exit, %.lr.ph92, %51, %aclmask_direct.exit.us.us, %6, %9
-  %.us-phi.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %3, %.lr.ph92 ], [ %31, %aclmask_direct.exit ]
-  %.us-phi71.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %.lr.ph92 ], [ %7, %aclmask_direct.exit ]
+.thread.sink.split:                               ; preds = %.lr.ph91, %aclmask_direct.exit, %51, %aclmask_direct.exit.us.us, %6, %9
+  %.us-phi.sink = phi i32 [ %3, %9 ], [ %3, %6 ], [ %27, %aclmask_direct.exit.us.us ], [ %31, %51 ], [ %31, %aclmask_direct.exit ], [ %3, %.lr.ph91 ]
+  %.us-phi69.sink = phi i64 [ %7, %9 ], [ %7, %6 ], [ 0, %aclmask_direct.exit.us.us ], [ %7, %51 ], [ %7, %aclmask_direct.exit ], [ %7, %.lr.ph91 ]
   store i32 %.us-phi.sink, ptr %4, align 4
-  store i64 %.us-phi71.sink, ptr %5, align 8
+  store i64 %.us-phi69.sink, ptr %5, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread61, %.lr.ph.split.split.preheader, %.thread.sink.split, %11, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us
+.thread:                                          ; preds = %.thread82, %.lr.ph.split.split.preheader, %.thread.sink.split, %11, %.lr.ph.split.split.us.split.us, %.lr.ph.split.us
   ret void
 }
 

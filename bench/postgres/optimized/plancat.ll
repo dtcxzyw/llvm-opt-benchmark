@@ -398,7 +398,7 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %155, %163
   store i32 %211, ptr %213, align 4
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
   %214 = trunc nuw nsw i64 %indvars.iv.next386 to i32
-  %215 = call zeroext i1 @index_can_return(ptr noundef %144, i32 noundef %214) #10
+  %215 = call zeroext i1 @index_can_return(ptr noundef nonnull %144, i32 noundef %214) #10
   %216 = load ptr, ptr %201, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 %indvars.iv385
   %218 = zext i1 %215 to i8

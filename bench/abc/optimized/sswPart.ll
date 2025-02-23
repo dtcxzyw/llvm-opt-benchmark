@@ -605,7 +605,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %92 = load ptr, ptr %91, align 8, !tbaa !17
   %93 = trunc nuw nsw i64 %indvars.iv128 to i32
   %94 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %93) #15
-  %95 = call ptr @Aig_ManRegCreatePart(ptr noundef %0, ptr noundef %92, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
+  %95 = call ptr @Aig_ManRegCreatePart(ptr noundef nonnull %0, ptr noundef %92, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null) #15
   call void @Ioa_WriteAiger(ptr noundef %95, ptr noundef nonnull %5, i32 noundef 0, i32 noundef 0) #15
   %96 = getelementptr i8, ptr %92, i64 4
   %.val102 = load i32, ptr %96, align 4, !tbaa !40
@@ -632,7 +632,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val112 = load ptr, ptr %106, align 8, !tbaa !76
   %107 = getelementptr i8, ptr %.val112, i64 4
   %.val112.val = load i32, ptr %107, align 4, !tbaa !14
-  call void @Aig_ManReprStart(ptr noundef %0, i32 noundef %.val112.val) #15
+  call void @Aig_ManReprStart(ptr noundef nonnull %0, i32 noundef %.val112.val) #15
   %.085.val123 = load i32, ptr %87, align 4, !tbaa !14
   %108 = icmp sgt i32 %.085.val123, 0
   br i1 %108, label %.lr.ph126, label %.critedge4

@@ -1857,7 +1857,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
   %.val64.val = load ptr, ptr %31, align 8, !tbaa !25
   %32 = getelementptr inbounds nuw ptr, ptr %.val64.val, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !27
-  %34 = tail call ptr @Abc_NtkDupObj(ptr noundef %6, ptr noundef %33, i32 noundef 0) #15
+  %34 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %6, ptr noundef %33, i32 noundef 0) #15
   %.val65 = load ptr, ptr %33, align 8, !tbaa !32
   %35 = getelementptr i8, ptr %33, i64 48
   %.val66 = load ptr, ptr %35, align 8, !tbaa !38
@@ -1870,7 +1870,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
   %39 = getelementptr inbounds ptr, ptr %.val65.val.val, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   %41 = tail call ptr @Abc_ObjName(ptr noundef %40) #15
-  %42 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %41) #15
+  %42 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef nonnull %6, ptr noundef %41) #15
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store ptr %42, ptr %43, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 64
@@ -1891,7 +1891,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
   %.val68.val = load ptr, ptr %49, align 8, !tbaa !25
   %50 = getelementptr inbounds nuw ptr, ptr %.val68.val, i64 %indvars.iv90
   %51 = load ptr, ptr %50, align 8, !tbaa !27
-  %52 = tail call ptr @Abc_NtkDupObj(ptr noundef %6, ptr noundef %51, i32 noundef 0) #15
+  %52 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %6, ptr noundef %51, i32 noundef 0) #15
   %.val69 = load ptr, ptr %51, align 8, !tbaa !32
   %53 = getelementptr i8, ptr %51, i64 32
   %.val70 = load ptr, ptr %53, align 8, !tbaa !35
@@ -1904,7 +1904,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
   %57 = getelementptr inbounds ptr, ptr %.val69.val.val, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !27
   %59 = tail call ptr @Abc_ObjName(ptr noundef %58) #15
-  %60 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %59) #15
+  %60 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef nonnull %6, ptr noundef %59) #15
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 64
   store ptr %60, ptr %61, align 8, !tbaa !28
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 64
@@ -1920,7 +1920,7 @@ Abc_UtilStrsav.exit74:                            ; preds = %Abc_UtilStrsav.exit
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
   store i32 -1, ptr %2, align 4, !tbaa !37
-  call void @Abc_NtkFlattenLogicHierarchy2_rec(ptr noundef %6, ptr noundef nonnull %0, ptr noundef nonnull %2)
+  call void @Abc_NtkFlattenLogicHierarchy2_rec(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef nonnull %2)
   %67 = load i32, ptr %2, align 4, !tbaa !37
   %68 = getelementptr i8, ptr %6, i64 136
   %.val71 = load i32, ptr %68, align 8, !tbaa !37
@@ -4169,7 +4169,7 @@ define ptr @Abc_NtkFlattenLogicHierarchy(ptr noundef %0) local_unnamed_addr #0 {
   %.val68.val = load ptr, ptr %21, align 8, !tbaa !25
   %22 = getelementptr inbounds nuw ptr, ptr %.val68.val, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !27
-  %24 = tail call ptr @Abc_NtkDupObj(ptr noundef %6, ptr noundef %23, i32 noundef 0) #15
+  %24 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %6, ptr noundef %23, i32 noundef 0) #15
   %.val69 = load ptr, ptr %23, align 8, !tbaa !32
   %25 = getelementptr i8, ptr %23, i64 48
   %.val70 = load ptr, ptr %25, align 8, !tbaa !38
@@ -4182,7 +4182,7 @@ define ptr @Abc_NtkFlattenLogicHierarchy(ptr noundef %0) local_unnamed_addr #0 {
   %29 = getelementptr inbounds ptr, ptr %.val69.val.val, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = tail call ptr @Abc_ObjName(ptr noundef %30) #15
-  %32 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %31) #15
+  %32 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef nonnull %6, ptr noundef %31) #15
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store ptr %32, ptr %33, align 8, !tbaa !28
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 64
@@ -4203,7 +4203,7 @@ define ptr @Abc_NtkFlattenLogicHierarchy(ptr noundef %0) local_unnamed_addr #0 {
   %.val72.val = load ptr, ptr %39, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw ptr, ptr %.val72.val, i64 %indvars.iv93
   %41 = load ptr, ptr %40, align 8, !tbaa !27
-  %42 = tail call ptr @Abc_NtkDupObj(ptr noundef %6, ptr noundef %41, i32 noundef 0) #15
+  %42 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %6, ptr noundef %41, i32 noundef 0) #15
   %.val73 = load ptr, ptr %41, align 8, !tbaa !32
   %43 = getelementptr i8, ptr %41, i64 32
   %.val74 = load ptr, ptr %43, align 8, !tbaa !35
@@ -4216,7 +4216,7 @@ define ptr @Abc_NtkFlattenLogicHierarchy(ptr noundef %0) local_unnamed_addr #0 {
   %47 = getelementptr inbounds ptr, ptr %.val73.val.val, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !27
   %49 = tail call ptr @Abc_ObjName(ptr noundef %48) #15
-  %50 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef %6, ptr noundef %49) #15
+  %50 = tail call ptr @Abc_NtkFindOrCreateNet(ptr noundef nonnull %6, ptr noundef %49) #15
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 64
   store ptr %50, ptr %51, align 8, !tbaa !28
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 64

@@ -3396,8 +3396,8 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLoweringD2Ev.exit29: ; preds = %_ZL20classi
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load i8, ptr %123, align 16
   %125 = icmp eq i8 %124, 13
-  %.not.not7.i.i.i = icmp ne ptr %122, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %125
+  %.not7.i.i.i = icmp ne ptr %122, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %125
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang12CanProxyBaseINS_4TypeEE10isVoidTypeEv.exit, label %_ZNK5clang12CanProxyBaseINS_4TypeEE10isVoidTypeEv.exit.thread
 
 _ZNK5clang12CanProxyBaseINS_4TypeEE10isVoidTypeEv.exit: ; preds = %118

@@ -21,17 +21,17 @@ define i32 @Abc_NtkRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not, label %.preheader49, label %.loopexit
 
 .preheader49:                                     ; preds = %5, %.preheader49
-  %7 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef 1, i32 noundef %3, i32 noundef %4)
+  %7 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %3, i32 noundef %4)
   %.not37 = icmp eq ptr %7, null
   br i1 %.not37, label %.loopexit, label %.preheader49, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.preheader49, %5
-  %8 = tail call ptr @Abc_NtkCollectLatchValues(ptr noundef %0) #9
+  %8 = tail call ptr @Abc_NtkCollectLatchValues(ptr noundef nonnull %0) #9
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %.loopexit
-  %9 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4)
+  %9 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %3, i32 noundef %4)
   %.not3950 = icmp eq ptr %9, null
   br i1 %.not3950, label %._crit_edge.thread, label %.lr.ph
 
@@ -47,7 +47,7 @@ define i32 @Abc_NtkRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %12 = phi ptr [ %14, %.lr.ph ], [ %9, %.preheader ]
   %.151 = phi ptr [ %13, %.lr.ph ], [ null, %.preheader ]
   %13 = tail call ptr @Abc_NtkAttachBottom(ptr noundef %.151, ptr noundef nonnull %12) #9
-  %14 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef %0, i32 noundef 0, i32 noundef %3, i32 noundef %4)
+  %14 = tail call fastcc ptr @Abc_NtkRetimeMinAreaOne(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %3, i32 noundef %4)
   %.not39 = icmp eq ptr %14, null
   br i1 %.not39, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
@@ -62,7 +62,7 @@ define i32 @Abc_NtkRetimeMinArea(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 
 17:                                               ; preds = %._crit_edge.thread, %.thread, %16, %._crit_edge
   %18 = phi ptr [ %11, %.thread ], [ %15, %16 ], [ %15, %._crit_edge ], [ %10, %._crit_edge.thread ]
-  tail call void @Abc_NtkInsertLatchValues(ptr noundef %0, ptr noundef %18) #9
+  tail call void @Abc_NtkInsertLatchValues(ptr noundef nonnull %0, ptr noundef %18) #9
   %.not41 = icmp eq ptr %18, null
   br i1 %.not41, label %23, label %19
 
@@ -99,7 +99,7 @@ Vec_IntFree.exit46:                               ; preds = %24, %27
   br label %28
 
 28:                                               ; preds = %Vec_IntFree.exit46, %23
-  %29 = tail call i32 @Abc_NtkCheck(ptr noundef %0) #9
+  %29 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %0) #9
   %.not43 = icmp eq i32 %29, 0
   br i1 %.not43, label %30, label %33
 

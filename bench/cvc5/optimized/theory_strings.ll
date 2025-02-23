@@ -20659,9 +20659,9 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit: ;
 133:                                              ; preds = %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit
   %134 = icmp eq i32 %132, 2
   %135 = zext i1 %134 to i64
-  %spec.select.i.i89 = add i64 %indvars.iv, %135
+  %spec.select.i.i89 = add nuw nsw i64 %indvars.iv, %135
   %136 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %sext244 = shl i64 %spec.select.i.i89, 32
+  %sext244 = shl nuw i64 %spec.select.i.i89, 32
   %137 = ashr exact i64 %sext244, 32
   %138 = getelementptr inbounds [0 x ptr], ptr %136, i64 0, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !17, !noalias !889
@@ -20671,7 +20671,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EE9push_backEOS3_.exit: ;
 
 141:                                              ; preds = %133
   %spec.select = select i1 %140, i1 true, i1 %.024
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %56, !llvm.loop !892
 
 142:                                              ; preds = %79

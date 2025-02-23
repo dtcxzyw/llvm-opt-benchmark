@@ -298,8 +298,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %12 = and i64 %.val.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %12, 0
   %13 = and i64 %.val.i.i.i.i.i.i.i, -8
-  %.not.not1.i.i.i.i.i.i.i.i = icmp ne i64 %13, 0
-  %.not.not.not.i.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not1.i.i.i.i.i.i.i.i
+  %.not1.i.i.i.i.i.i.i.i = icmp ne i64 %13, 0
+  %.not.not.not.i.i.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, %.not1.i.i.i.i.i.i.i.i
   br i1 %.not.not.not.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i
@@ -316,8 +316,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %19 = and i64 %.val.i16.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i17.i.i.i.i.i.i = icmp ne i64 %19, 0
   %20 = and i64 %.val.i16.i.i.i.i.i.i, -8
-  %.not.not1.i.i18.i.i.i.i.i.i = icmp ne i64 %20, 0
-  %.not.not.not.i.i19.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i17.i.i.i.i.i.i, %.not.not1.i.i18.i.i.i.i.i.i
+  %.not1.i.i18.i.i.i.i.i.i = icmp ne i64 %20, 0
+  %.not.not.not.i.i19.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i17.i.i.i.i.i.i, %.not1.i.i18.i.i.i.i.i.i
   br i1 %.not.not.not.i.i19.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i.i.i"
@@ -334,8 +334,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %26 = and i64 %.val.i22.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i23.i.i.i.i.i.i = icmp ne i64 %26, 0
   %27 = and i64 %.val.i22.i.i.i.i.i.i, -8
-  %.not.not1.i.i24.i.i.i.i.i.i = icmp ne i64 %27, 0
-  %.not.not.not.i.i25.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i23.i.i.i.i.i.i, %.not.not1.i.i24.i.i.i.i.i.i
+  %.not1.i.i24.i.i.i.i.i.i = icmp ne i64 %27, 0
+  %.not.not.not.i.i25.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i23.i.i.i.i.i.i, %.not1.i.i24.i.i.i.i.i.i
   br i1 %.not.not.not.i.i25.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit21.thread.i.i.i.i.i.i"
@@ -352,8 +352,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %33 = and i64 %.val.i28.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i29.i.i.i.i.i.i = icmp ne i64 %33, 0
   %34 = and i64 %.val.i28.i.i.i.i.i.i, -8
-  %.not.not1.i.i30.i.i.i.i.i.i = icmp ne i64 %34, 0
-  %.not.not.not.i.i31.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i29.i.i.i.i.i.i, %.not.not1.i.i30.i.i.i.i.i.i
+  %.not1.i.i30.i.i.i.i.i.i = icmp ne i64 %34, 0
+  %.not.not.not.i.i31.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i29.i.i.i.i.i.i, %.not1.i.i30.i.i.i.i.i.i
   br i1 %.not.not.not.i.i31.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit33.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit27.thread.i.i.i.i.i.i"
@@ -391,8 +391,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %45 = and i64 %.val.i34.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i35.i.i.i.i.i.i = icmp ne i64 %45, 0
   %46 = and i64 %.val.i34.i.i.i.i.i.i, -8
-  %.not.not1.i.i36.i.i.i.i.i.i = icmp ne i64 %46, 0
-  %.not.not.not.i.i37.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i35.i.i.i.i.i.i, %.not.not1.i.i36.i.i.i.i.i.i
+  %.not1.i.i36.i.i.i.i.i.i = icmp ne i64 %46, 0
+  %.not.not.not.i.i37.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i35.i.i.i.i.i.i, %.not1.i.i36.i.i.i.i.i.i
   br i1 %.not.not.not.i.i37.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit39.i.i.i.i.i.i": ; preds = %43
@@ -414,8 +414,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %54 = and i64 %.val.i40.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i41.i.i.i.i.i.i = icmp ne i64 %54, 0
   %55 = and i64 %.val.i40.i.i.i.i.i.i, -8
-  %.not.not1.i.i42.i.i.i.i.i.i = icmp ne i64 %55, 0
-  %.not.not.not.i.i43.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i41.i.i.i.i.i.i, %.not.not1.i.i42.i.i.i.i.i.i
+  %.not1.i.i42.i.i.i.i.i.i = icmp ne i64 %55, 0
+  %.not.not.not.i.i43.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i41.i.i.i.i.i.i, %.not1.i.i42.i.i.i.i.i.i
   br i1 %.not.not.not.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit45.i.i.i.i.i.i": ; preds = %52
@@ -437,8 +437,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %63 = and i64 %.val.i46.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i47.i.i.i.i.i.i = icmp ne i64 %63, 0
   %64 = and i64 %.val.i46.i.i.i.i.i.i, -8
-  %.not.not1.i.i48.i.i.i.i.i.i = icmp ne i64 %64, 0
-  %.not.not.not.i.i49.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i47.i.i.i.i.i.i, %.not.not1.i.i48.i.i.i.i.i.i
+  %.not1.i.i48.i.i.i.i.i.i = icmp ne i64 %64, 0
+  %.not.not.not.i.i49.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i47.i.i.i.i.i.i, %.not1.i.i48.i.i.i.i.i.i
   br i1 %.not.not.not.i.i49.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i", label %"_ZN4llvm8erase_ifISt6vectorIN5clang5index14DeclOccurrenceESaIS4_EEZNS3_15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EEvRT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit51.i.i.i.i.i.i": ; preds = %61
@@ -478,8 +478,8 @@ define dso_local void @_ZN5clang5index15FileIndexRecord23removeHeaderGuardMacros
   %74 = and i64 %.val.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i = icmp ne i64 %74, 0
   %75 = and i64 %.val.i.i.i.i.i, -8
-  %.not.not1.i.i.i.i.i.i = icmp ne i64 %75, 0
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not.not1.i.i.i.i.i.i
+  %.not1.i.i.i.i.i.i = icmp ne i64 %75, 0
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not.i.i.i.i.i.i.i.i.i.i, %.not1.i.i.i.i.i.i
   br i1 %.not.not.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang5index15FileIndexRecord23removeHeaderGuardMacrosEvE3$_0EclINS_17__normal_iteratorIPNS3_14DeclOccurrenceESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i
@@ -2697,7 +2697,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_.exit": ; preds = %.lr.ph.i
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_"(ptr nonnull %10, ptr %1)
-  %14 = icmp sgt i64 %6, 616
+  %14 = icmp samesign ugt i64 %6, 616
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_.exit"

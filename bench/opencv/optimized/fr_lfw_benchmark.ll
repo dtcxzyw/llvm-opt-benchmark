@@ -857,7 +857,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %316 = fadd double %.069341, %315
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.0179.0340, i64 8
   %.not = icmp eq ptr %.sroa.0179.0340, %.pn199
-  br i1 %.not, label %._crit_edge343, label %.lr.ph342, !llvm.loop !11
+  br i1 %.not, label %.lr.ph349.preheader, label %.lr.ph342, !llvm.loop !11
 
 ._crit_edge343.thread:                            ; preds = %.preheader, %176
   %.sroa.0183.0.lcssa395.ph = phi ptr [ %.sroa.0183.1, %.preheader ], [ null, %176 ]
@@ -870,7 +870,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %323 = fdiv double 0.000000e+00, %322
   br label %._crit_edge350
 
-._crit_edge343:                                   ; preds = %.lr.ph342
+.lr.ph349.preheader:                              ; preds = %.lr.ph342
   %324 = ptrtoint ptr %.sroa.10.1 to i64
   %325 = ptrtoint ptr %.sroa.0183.1 to i64
   %326 = sub i64 %324, %325
@@ -879,9 +879,9 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %329 = fdiv double %316, %328
   br label %.lr.ph349
 
-.lr.ph349:                                        ; preds = %._crit_edge343, %.lr.ph349
-  %.068347 = phi double [ %332, %.lr.ph349 ], [ 0.000000e+00, %._crit_edge343 ]
-  %.sroa.0174.0346 = phi ptr [ %333, %.lr.ph349 ], [ %.sroa.0183.1, %._crit_edge343 ]
+.lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
+  %.068347 = phi double [ %332, %.lr.ph349 ], [ 0.000000e+00, %.lr.ph349.preheader ]
+  %.sroa.0174.0346 = phi ptr [ %333, %.lr.ph349 ], [ %.sroa.0183.1, %.lr.ph349.preheader ]
   %330 = load double, ptr %.sroa.0174.0346, align 8
   %331 = fsub double %330, %329
   %332 = call double @llvm.fmuladd.f64(double %331, double %331, double %.068347)

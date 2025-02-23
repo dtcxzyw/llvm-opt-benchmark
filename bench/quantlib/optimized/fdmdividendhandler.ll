@@ -524,9 +524,17 @@ for.body.i.i.i.i:                                 ; preds = %call5.i.i.i.i.noexc
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i: ; preds = %for.body.i.i.i.i, %call5.i.i.i.i.noexc54
   %tobool.not.i.i48 = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i48, label %invoke.cont16, label %if.then.i.i49
+  br i1 %tobool.not.i.i48, label %invoke.cont16.thread269, label %invoke.cont16
 
-if.then.i.i49:                                    ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+invoke.cont16.thread269:                          ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
+  store ptr %call5.i.i.i.i55, ptr %dividendDates_, align 8, !tbaa !52
+  %add.ptr.i50274 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i55, i64 %sub.ptr.sub.i8.i46
+  store ptr %add.ptr.i50274, ptr %_M_finish.i.i44, align 8, !tbaa !53
+  %add.ptr21.i51275 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i55, i64 %sub.ptr.div.i35.pre-phi254
+  store ptr %add.ptr21.i51275, ptr %_M_end_of_storage.i.i38, align 8, !tbaa !51
+  br label %if.end.i62
+
+invoke.cont16:                                    ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %sub.ptr.sub.i.i41) #27
   %.pre226.pre = load ptr, ptr %_M_finish.i, align 8, !tbaa !45
   %.pre227.pre = load ptr, ptr %schedule, align 8, !tbaa !47
@@ -534,19 +542,12 @@ if.then.i.i49:                                    ; preds = %_ZNSt6vectorIN8Quan
   %.pre248 = ptrtoint ptr %.pre227.pre to i64
   %.pre249 = sub i64 %.pre247, %.pre248
   %.pre250 = ashr exact i64 %.pre249, 4
-  br label %invoke.cont16
-
-invoke.cont16:                                    ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i, %if.then.i.i49
-  %.pre242.pre-phi = phi i64 [ %.pre250, %if.then.i.i49 ], [ %sub.ptr.div.i35.pre-phi254, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
-  %.pre241.pre-phi = phi i64 [ %.pre249, %if.then.i.i49 ], [ %sub.ptr.sub.i34.pre-phi255, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
-  %.pre227 = phi ptr [ %.pre227.pre, %if.then.i.i49 ], [ %18, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
-  %.pre226 = phi ptr [ %.pre226.pre, %if.then.i.i49 ], [ %17, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i ]
   store ptr %call5.i.i.i.i55, ptr %dividendDates_, align 8, !tbaa !52
   %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i55, i64 %sub.ptr.sub.i8.i46
   store ptr %add.ptr.i50, ptr %_M_finish.i.i44, align 8, !tbaa !53
   %add.ptr21.i51 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i.i55, i64 %sub.ptr.div.i35.pre-phi254
   store ptr %add.ptr21.i51, ptr %_M_end_of_storage.i.i38, align 8, !tbaa !51
-  %cmp.i61 = icmp ugt i64 %.pre242.pre-phi, 1152921504606846975
+  %cmp.i61 = icmp ugt i64 %.pre250, 1152921504606846975
   br i1 %cmp.i61, label %if.then.i82.invoke, label %if.end.i62
 
 if.then.i82.invoke:                               ; preds = %invoke.cont16, %invoke.cont13, %_ZN5boost10shared_ptrIN8QuantLib9FdmMesherEEC2ERKS3_.exit
@@ -556,11 +557,11 @@ if.then.i82.invoke:                               ; preds = %invoke.cont16, %inv
 if.then.i82.cont:                                 ; preds = %if.then.i82.invoke
   unreachable
 
-if.end.i62:                                       ; preds = %if.end.i37, %invoke.cont16
-  %23 = phi ptr [ %.pre226, %invoke.cont16 ], [ %17, %if.end.i37 ]
-  %24 = phi ptr [ %.pre227, %invoke.cont16 ], [ %18, %if.end.i37 ]
-  %sub.ptr.sub.i59.pre-phi268 = phi i64 [ %.pre241.pre-phi, %invoke.cont16 ], [ %sub.ptr.sub.i34.pre-phi255, %if.end.i37 ]
-  %sub.ptr.div.i60.pre-phi267 = phi i64 [ %.pre242.pre-phi, %invoke.cont16 ], [ %sub.ptr.div.i35.pre-phi254, %if.end.i37 ]
+if.end.i62:                                       ; preds = %if.end.i37, %invoke.cont16.thread269, %invoke.cont16
+  %23 = phi ptr [ %.pre226.pre, %invoke.cont16 ], [ %17, %invoke.cont16.thread269 ], [ %17, %if.end.i37 ]
+  %24 = phi ptr [ %.pre227.pre, %invoke.cont16 ], [ %18, %invoke.cont16.thread269 ], [ %18, %if.end.i37 ]
+  %sub.ptr.sub.i59.pre-phi268 = phi i64 [ %.pre249, %invoke.cont16 ], [ %sub.ptr.sub.i34.pre-phi255, %invoke.cont16.thread269 ], [ %sub.ptr.sub.i34.pre-phi255, %if.end.i37 ]
+  %sub.ptr.div.i60.pre-phi267 = phi i64 [ %.pre250, %invoke.cont16 ], [ %sub.ptr.div.i35.pre-phi254, %invoke.cont16.thread269 ], [ %sub.ptr.div.i35.pre-phi254, %if.end.i37 ]
   %_M_end_of_storage.i.i63 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %25 = load ptr, ptr %_M_end_of_storage.i.i63, align 8, !tbaa !48
   %26 = load ptr, ptr %dividendTimes_, align 8, !tbaa !49

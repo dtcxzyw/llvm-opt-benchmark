@@ -4066,8 +4066,8 @@ _ZNK5clang8QualType16getTypePtrOrNullEv.exit:     ; preds = %_ZNK5clang17CXXConv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i8, ptr %29, align 16
   %31 = icmp eq i8 %30, 13
-  %.not.not6.i = icmp ne ptr %28, null
-  %.not.not.not.i = and i1 %.not.not6.i, %31
+  %.not6.i = icmp ne ptr %28, null
+  %.not.not.not.i = and i1 %.not6.i, %31
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %24

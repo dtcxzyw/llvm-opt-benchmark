@@ -2284,9 +2284,9 @@ thread-pre-split:                                 ; preds = %.loopexit532, %.loo
   store ptr null, ptr %796, align 8
   %797 = getelementptr inbounds nuw i8, ptr %795, i64 16
   %798 = icmp eq ptr %797, %793
-  br i1 %798, label %.loopexit530, label %794
+  br i1 %798, label %.lr.ph612.preheader, label %794
 
-.loopexit530:                                     ; preds = %794
+.lr.ph612.preheader:                              ; preds = %794
   %799 = getelementptr inbounds nuw i8, ptr %737, i64 208
   store ptr %.ptr, ptr %799, align 8
   %.ptr630 = getelementptr inbounds nuw i8, ptr %788, i64 %787
@@ -2296,9 +2296,9 @@ thread-pre-split:                                 ; preds = %.loopexit532, %.loo
   %.not176 = icmp eq ptr %800, %.ptr630
   br i1 %.not176, label %._crit_edge613, label %.lr.ph612, !llvm.loop !52
 
-.lr.ph612:                                        ; preds = %.loopexit530, %.loopexit
-  %.0142610 = phi i32 [ %809, %.loopexit ], [ 0, %.loopexit530 ]
-  %.0146609 = phi ptr [ %800, %.loopexit ], [ %.ptr, %.loopexit530 ]
+.lr.ph612:                                        ; preds = %.lr.ph612.preheader, %.loopexit
+  %.0142610 = phi i32 [ %809, %.loopexit ], [ 0, %.lr.ph612.preheader ]
+  %.0146609 = phi ptr [ %800, %.loopexit ], [ %.ptr, %.lr.ph612.preheader ]
   %800 = getelementptr inbounds nuw i8, ptr %.0146609, i64 16
   store i32 3, ptr %.0146609, align 8
   %801 = invoke noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #25
@@ -4528,7 +4528,7 @@ define linkonce_odr hidden void @_Z18ai_str_toprintableB5cxx11PKcic(ptr dead_on_
   %8 = icmp ne ptr %1, null
   %9 = icmp sgt i32 %2, 0
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30
+  br i1 %or.cond, label %10, label %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit
 
 10:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #22
@@ -4631,7 +4631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %.not.i.i = icmp eq ptr %46, %41
   br i1 %.not.i.i, label %.critedge, label %.lr.ph.i.i, !llvm.loop !93
 
-_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30: ; preds = %4
+_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit: ; preds = %4
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %47, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4660,7 +4660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
   br label %.critedge24
 
-.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit.thread30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.critedge24:                                      ; preds = %_Z18ai_str_toprintableRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   ret void
 
 55:                                               ; preds = %.noexc.i.i

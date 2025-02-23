@@ -1665,8 +1665,8 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit: ; preds = 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %31
 
-31:                                               ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit, %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit
-  %indvars.iv = phi i64 [ 0, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit ], [ %indvars.iv.next, %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit ]
+31:                                               ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit, %.sink.split.i
+  %indvars.iv = phi i64 [ 0, %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit ], [ %indvars.iv.next, %.sink.split.i ]
   %32 = load ptr, ptr %3, align 8
   %.not10.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not10.i.i.i.i.i, label %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i, label %.lr.ph.i.i.i.i.i
@@ -1704,7 +1704,7 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i: ; preds 
   %45 = getelementptr inbounds %"class.gmx::AwhEnergyBlock", ptr %44, i64 %43, i32 2
   %46 = load ptr, ptr %45, align 8
   %47 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %47, label %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit [
+  switch i32 %47, label %default.unreachable [
     i32 0, label %48
     i32 1, label %55
     i32 2, label %61
@@ -1737,14 +1737,14 @@ _ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i: ; preds 
   %62 = fptrunc double %.sroa.1.0.copyload.sink.i to float
   %63 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
   store float %62, ptr %63, align 4
-  br label %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit
-
-_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit: ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i, %.sink.split.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %64, label %31, !llvm.loop !23
 
-64:                                               ; preds = %_ZN3gmx10BiasWriter24transferMetaDataToWriterElNS_17AwhOutputMetaDataERKNS_4BiasE.exit
+default.unreachable:                              ; preds = %_ZNK3gmx10BiasWriter16getVarStartBlockENS_18AwhOutputEntryTypeE.exit.i
+  unreachable
+
+64:                                               ; preds = %.sink.split.i
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 24), align 8
   %.not51 = icmp eq ptr %65, getelementptr inbounds nuw (i8, ptr @_ZN3gmx12_GLOBAL__N_125outputTypeToNormalizationE, i64 8)
   br i1 %.not51, label %._crit_edge, label %.lr.ph53
@@ -1833,13 +1833,13 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %72, 
   br label %100
 
 100:                                              ; preds = %.lr.ph57, %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit
-  %.sroa.033.055 = phi ptr [ %97, %.lr.ph57 ], [ %154, %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit ]
+  %.sroa.033.055 = phi ptr [ %97, %.lr.ph57 ], [ %153, %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit ]
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.033.055, i64 8
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.033.055, i64 16
   %104 = load ptr, ptr %103, align 8
   %105 = load i32, ptr %.sroa.033.055, align 8
-  switch i32 %105, label %153 [
+  switch i32 %105, label %152 [
     i32 0, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit
     i32 1, label %.preheader.i
     i32 2, label %.preheader60.i
@@ -1935,35 +1935,35 @@ _ZNK3gmx10BiasWriter11hasVarBlockENS_18AwhOutputEntryTypeE.exit: ; preds = %72, 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %143 = fcmp ogt double %141, 0.000000e+00
-  br i1 %143, label %144, label %149
+  br i1 %143, label %144, label %.lr.ph69.preheader.i
 
 144:                                              ; preds = %._crit_edge.i
   %145 = getelementptr inbounds nuw i8, ptr %.sroa.033.055, i64 4
   %146 = load float, ptr %145, align 4
   %147 = fptrunc double %141 to float
   %148 = fdiv float %146, %147
-  br label %149
+  br label %.lr.ph69.preheader.i
 
-149:                                              ; preds = %144, %._crit_edge.i
-  %.038.i = phi float [ %148, %144 ], [ 0.000000e+00, %._crit_edge.i ]
+.lr.ph69.preheader.i:                             ; preds = %144, %._crit_edge.i
+  %.038.ph.i = phi float [ 0.000000e+00, %._crit_edge.i ], [ %148, %144 ]
   br label %.lr.ph69.i
 
-.lr.ph69.i:                                       ; preds = %.lr.ph69.i, %149
-  %.sroa.0.067.i = phi ptr [ %152, %.lr.ph69.i ], [ %102, %149 ]
-  %150 = load float, ptr %.sroa.0.067.i, align 4
-  %151 = fmul float %.038.i, %150
-  store float %151, ptr %.sroa.0.067.i, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.0.067.i, i64 4
-  %.not56.i = icmp eq ptr %152, %104
+.lr.ph69.i:                                       ; preds = %.lr.ph69.i, %.lr.ph69.preheader.i
+  %.sroa.0.067.i = phi ptr [ %151, %.lr.ph69.i ], [ %102, %.lr.ph69.preheader.i ]
+  %149 = load float, ptr %.sroa.0.067.i, align 4
+  %150 = fmul float %.038.ph.i, %149
+  store float %150, ptr %.sroa.0.067.i, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.0.067.i, i64 4
+  %.not56.i = icmp eq ptr %151, %104
   br i1 %.not56.i, label %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit, label %.lr.ph69.i
 
-153:                                              ; preds = %100
+152:                                              ; preds = %100
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.12, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasEENK3$_0clEv", ptr noundef nonnull @.str.10, i32 noundef 242) #25
   unreachable
 
 _ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit: ; preds = %.lr.ph69.i, %137, %113, %100, %.preheader62.i, %.preheader60.i, %.preheader.i
-  %154 = getelementptr inbounds nuw i8, ptr %.sroa.033.055, i64 32
-  %.not46 = icmp eq ptr %154, %98
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.033.055, i64 32
+  %.not46 = icmp eq ptr %153, %98
   br i1 %.not46, label %._crit_edge58, label %100
 
 ._crit_edge58:                                    ; preds = %_ZN3gmxL14normalizeBlockEPNS_14AwhEnergyBlockERKNS_4BiasE.exit, %._crit_edge

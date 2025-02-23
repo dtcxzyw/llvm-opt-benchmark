@@ -1028,8 +1028,8 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_10ReturnStmtEE10_checkStmt
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i8, ptr %42, align 16
   %44 = icmp eq i8 %43, 13
-  %.not.not7.i.i.i = icmp ne ptr %41, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %44
+  %.not7.i.i.i = icmp ne ptr %41, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %44
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %.critedge.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %34
@@ -1062,8 +1062,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %34
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i8, ptr %65, align 16
   %67 = icmp eq i8 %66, 13
-  %.not.not7.i.i23.i = icmp ne ptr %64, null
-  %.not.not.not.i.i24.i = and i1 %.not.not7.i.i23.i, %67
+  %.not7.i.i23.i = icmp ne ptr %64, null
+  %.not.not.not.i.i24.i = and i1 %.not7.i.i23.i, %67
   br i1 %.not.not.not.i.i24.i, label %_ZNK5clang4Type10isVoidTypeEv.exit26.i, label %.critedge.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit26.i:           ; preds = %56

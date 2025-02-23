@@ -590,7 +590,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %83 = getelementptr i8, ptr %51, i64 32
   call void @kvfree_call_rcu(ptr noundef nonnull %83, ptr noundef nonnull %53) #10
   br label %84
 
@@ -660,7 +660,7 @@ define dso_local noundef range(i32 -22, 1) i32 @netlbl_unlhsh_remove(ptr noundef
   br i1 %116, label %119, label %117
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %91, i64 64
+  %118 = getelementptr i8, ptr %88, i64 56
   call void @kvfree_call_rcu(ptr noundef nonnull %118, ptr noundef nonnull %90) #10
   br label %119
 

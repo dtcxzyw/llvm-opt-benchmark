@@ -533,7 +533,7 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr readnone captures(n
   call void @cmsDoTransform(ptr noundef %6, ptr noundef %0, ptr noundef nonnull %4, i32 noundef 1) #6
   %7 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph.preheader
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %7 to i64
@@ -547,42 +547,42 @@ define internal noundef i32 @EstimateTAC(ptr noundef %0, ptr readnone captures(n
   %10 = fadd float %.020, %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load float, ptr %11, align 8
-  %13 = fcmp ogt float %10, %12
-  br i1 %13, label %.lr.ph24, label %.loopexit
+  %13 = fcmp olt float %12, 0.000000e+00
+  br i1 %13, label %17, label %.loopexit
 
-._crit_edge.thread:                               ; preds = %3
+._crit_edge.thread:                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load float, ptr %14, align 8
-  %16 = fcmp olt float %15, 0.000000e+00
-  br i1 %16, label %.thread, label %.loopexit
+  %16 = fcmp ogt float %10, %15
+  br i1 %16, label %.lr.ph24, label %.loopexit
 
-.thread:                                          ; preds = %._crit_edge.thread
-  store float 0.000000e+00, ptr %14, align 8
+17:                                               ; preds = %._crit_edge
+  store float 0.000000e+00, ptr %11, align 8
   br label %.loopexit
 
-.lr.ph24:                                         ; preds = %._crit_edge
-  store float %10, ptr %11, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
+.lr.ph24:                                         ; preds = %._crit_edge.thread
+  store float %10, ptr %14, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %wide.trip.count30 = zext i32 %7 to i64
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.lr.ph24, %18
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %18 ]
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv27
-  %20 = load i16, ptr %19, align 2
-  %21 = uitofp i16 %20 to float
-  %22 = getelementptr inbounds nuw [16 x float], ptr %17, i64 0, i64 %indvars.iv27
-  store float %21, ptr %22, align 4
+19:                                               ; preds = %.lr.ph24, %19
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next28, %19 ]
+  %20 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv27
+  %21 = load i16, ptr %20, align 2
+  %22 = uitofp i16 %21 to float
+  %23 = getelementptr inbounds nuw [16 x float], ptr %18, i64 0, i64 %indvars.iv27
+  store float %22, ptr %23, align 4
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %exitcond31.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count30
-  br i1 %exitcond31.not, label %.loopexit, label %18, !llvm.loop !9
+  br i1 %exitcond31.not, label %.loopexit, label %19, !llvm.loop !9
 
-.loopexit:                                        ; preds = %18, %.thread, %._crit_edge.thread, %._crit_edge
+.loopexit:                                        ; preds = %19, %17, %._crit_edge.thread, %._crit_edge
   ret i32 1
 }
 

@@ -27454,14 +27454,14 @@ _ZNKSt6vectorISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE12_M_check_lenEmPK
   %29 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 16
   invoke void %28(ptr noundef nonnull %29, ptr noundef nonnull %30)
-          to label %.noexc unwind label %.thread54
+          to label %.noexc unwind label %.thread53
 
-.thread54:                                        ; preds = %_ZNKSt6vectorISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm56 = landingpad { ptr, i32 }
+.thread53:                                        ; preds = %_ZNKSt6vectorISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE12_M_check_lenEmPKc.exit
+  %lpad.thr_comm55 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %lpad.thr_comm56, 0
+  %31 = extractvalue { ptr, i32 } %lpad.thr_comm55, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #26
-  br label %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39
+  br label %.loopexit
 
 .noexc:                                           ; preds = %_ZNKSt6vectorISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE12_M_check_lenEmPKc.exit
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 48
@@ -27480,7 +27480,7 @@ _ZNKSt6vectorISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE12_M_check_lenEmPK
 .thread:                                          ; preds = %34
   %39 = extractvalue { ptr, i32 } %35, 0
   %40 = tail call ptr @__cxa_begin_catch(ptr %39) #26
-  br label %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39
+  br label %.loopexit
 
 41:                                               ; preds = %34
   %42 = landingpad { ptr, i32 }
@@ -27531,7 +27531,7 @@ _ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_dealloc
   %52 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #26
   tail call void @_ZNSt4pairIN2cv5gimpl6RcDescENS0_7GRunArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %22) #26
-  br label %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39
+  br label %.loopexit
 
 54:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEES6_SaIS5_EET0_T_S9_S8_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -27539,22 +27539,22 @@ _ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_dealloc
   %55 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %56 = tail call ptr @__cxa_begin_catch(ptr %55) #26
   %.not4.i.i.i33 = icmp eq ptr %21, %45
-  br i1 %.not4.i.i.i33, label %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39, label %.lr.ph.i.i.i34
+  br i1 %.not4.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %54, %.lr.ph.i.i.i34
   %.05.i.i.i35 = phi ptr [ %57, %.lr.ph.i.i.i34 ], [ %21, %54 ]
   tail call void @_ZNSt4pairIN2cv5gimpl6RcDescENS0_7GRunArgEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %.05.i.i.i35) #26
   %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 208
   %.not.i.i.i36 = icmp eq ptr %.05.i.i.i35, %44
-  br i1 %.not.i.i.i36, label %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39, label %.lr.ph.i.i.i34, !llvm.loop !405
+  br i1 %.not.i.i.i36, label %.loopexit, label %.lr.ph.i.i.i34, !llvm.loop !405
 
-58:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39
+58:                                               ; preds = %.loopexit
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %60 unwind label %61
 
-_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39: ; preds = %.lr.ph.i.i.i34, %54, %51, %.thread, %.thread54
+.loopexit:                                        ; preds = %.lr.ph.i.i.i34, %.thread53, %.thread, %51, %54
   tail call void @_ZdlPv(ptr noundef nonnull %21) #27
   invoke void @__cxa_rethrow() #28
           to label %64 unwind label %58
@@ -27569,7 +27569,7 @@ _ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_dealloc
   tail call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
-64:                                               ; preds = %_ZNSt12_Vector_baseISt4pairIN2cv5gimpl6RcDescENS1_7GRunArgEESaIS5_EE13_M_deallocateEPS5_m.exit39
+64:                                               ; preds = %.loopexit
   unreachable
 }
 

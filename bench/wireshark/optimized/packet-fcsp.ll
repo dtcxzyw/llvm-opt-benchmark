@@ -195,15 +195,15 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   switch i8 %5, label %dissect_fcsp_auth_negotiate.exit [
     i8 10, label %26
     i8 11, label %31
-    i8 24, label %161
-    i8 16, label %98
-    i8 17, label %135
-    i8 18, label %155
-    i8 19, label %161
-    i8 20, label %161
-    i8 21, label %161
-    i8 22, label %161
-    i8 23, label %161
+    i8 24, label %159
+    i8 16, label %96
+    i8 17, label %133
+    i8 18, label %153
+    i8 19, label %159
+    i8 20, label %159
+    i8 21, label %159
+    i8 22, label %159
+    i8 23, label %159
   ]
 
 26:                                               ; preds = %10
@@ -249,8 +249,8 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %dissect_fcsp_dhchap_auth_param.exit.i, %.lr.ph.preheader.i
-  %.054.i = phi i32 [ %97, %dissect_fcsp_dhchap_auth_param.exit.i ], [ 0, %.lr.ph.preheader.i ]
-  %.05053.i = phi i32 [ %96, %dissect_fcsp_dhchap_auth_param.exit.i ], [ %51, %.lr.ph.preheader.i ]
+  %.054.i = phi i32 [ %95, %dissect_fcsp_dhchap_auth_param.exit.i ], [ 0, %.lr.ph.preheader.i ]
+  %.05053.i = phi i32 [ %94, %dissect_fcsp_dhchap_auth_param.exit.i ], [ %51, %.lr.ph.preheader.i ]
   %52 = load i32, ptr @hf_auth_proto_param_len, align 4
   %53 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %52, ptr noundef %0, i32 noundef %.05053.i, i32 noundef 4, i32 noundef 0)
   %54 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.05053.i)
@@ -276,7 +276,7 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .lr.ph50.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph50.preheader.i.i
   %.03449.i.i = phi i32 [ %.2.i.i, %.loopexit.i.i ], [ %64, %.lr.ph50.preheader.i.i ]
-  %.03648.i.i = phi i32 [ %94, %.loopexit.i.i ], [ %65, %.lr.ph50.preheader.i.i ]
+  %.03648.i.i = phi i32 [ %92, %.loopexit.i.i ], [ %65, %.lr.ph50.preheader.i.i ]
   %66 = load i32, ptr @hf_auth_dhchap_param_tag, align 4
   %67 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %66, ptr noundef %0, i32 noundef %.03449.i.i, i32 noundef 2, i32 noundef 0)
   %68 = load i32, ptr @hf_auth_dhchap_param_len, align 4
@@ -285,9 +285,9 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.03449.i.i)
   %72 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %69)
   %73 = shl i16 %72, 2
-  switch i16 %71, label %92 [
+  switch i16 %71, label %90 [
     i16 1, label %74
-    i16 2, label %83
+    i16 2, label %82
   ]
 
 74:                                               ; preds = %.lr.ph50.i.i
@@ -298,141 +298,139 @@ define internal i32 @dissect_fcsp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not52.i.i, label %.loopexit.i.i, label %.lr.ph46.i.i
 
 .lr.ph46.i.i:                                     ; preds = %74, %.lr.ph46.i.i
-  %77 = phi i32 [ %81, %.lr.ph46.i.i ], [ 0, %74 ]
+  %77 = phi i32 [ %80, %.lr.ph46.i.i ], [ 0, %74 ]
   %.13545.i.i = phi i32 [ %.135.i.i, %.lr.ph46.i.i ], [ %.13544.i.i, %74 ]
   %78 = load i32, ptr @hf_auth_dhchap_hash_type, align 4
   %79 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %78, ptr noundef %0, i32 noundef %.13545.i.i, i32 noundef 4, i32 noundef 0)
   %80 = add nuw nsw i32 %77, 4
   %.135.i.i = add i32 %.13545.i.i, 4
-  %81 = and i32 %80, 65535
-  %82 = icmp samesign ult i32 %81, %76
-  br i1 %82, label %.lr.ph46.i.i, label %.loopexit.i.i, !llvm.loop !6
+  %81 = icmp samesign ult i32 %80, %76
+  br i1 %81, label %.lr.ph46.i.i, label %.loopexit.i.i, !llvm.loop !6
 
-83:                                               ; preds = %.lr.ph50.i.i
-  %84 = add nsw i32 %.03648.i.i, -4
-  %85 = zext i16 %73 to i32
+82:                                               ; preds = %.lr.ph50.i.i
+  %83 = add nsw i32 %.03648.i.i, -4
+  %84 = zext i16 %73 to i32
   %.342.i.i = add i32 %.03449.i.i, 4
   %.not.i.i = icmp eq i16 %73, 0
   br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %83, %.lr.ph.i.i
-  %86 = phi i32 [ %90, %.lr.ph.i.i ], [ 0, %83 ]
-  %.343.i.i = phi i32 [ %.3.i.i, %.lr.ph.i.i ], [ %.342.i.i, %83 ]
-  %87 = load i32, ptr @hf_auth_dhchap_group_type, align 4
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %87, ptr noundef %0, i32 noundef %.343.i.i, i32 noundef 4, i32 noundef 0)
-  %89 = add nuw nsw i32 %86, 4
+.lr.ph.i.i:                                       ; preds = %82, %.lr.ph.i.i
+  %85 = phi i32 [ %88, %.lr.ph.i.i ], [ 0, %82 ]
+  %.343.i.i = phi i32 [ %.3.i.i, %.lr.ph.i.i ], [ %.342.i.i, %82 ]
+  %86 = load i32, ptr @hf_auth_dhchap_group_type, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %86, ptr noundef %0, i32 noundef %.343.i.i, i32 noundef 4, i32 noundef 0)
+  %88 = add nuw nsw i32 %85, 4
   %.3.i.i = add i32 %.343.i.i, 4
-  %90 = and i32 %89, 65535
-  %91 = icmp samesign ult i32 %90, %85
-  br i1 %91, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !8
+  %89 = icmp samesign ult i32 %88, %84
+  br i1 %89, label %.lr.ph.i.i, label %.loopexit.i.i, !llvm.loop !8
 
-92:                                               ; preds = %.lr.ph50.i.i
-  %93 = icmp eq i16 %73, 0
-  br i1 %93, label %dissect_fcsp_dhchap_auth_param.exit.i, label %..loopexit_crit_edge.i.i
+90:                                               ; preds = %.lr.ph50.i.i
+  %91 = icmp eq i16 %73, 0
+  br i1 %91, label %dissect_fcsp_dhchap_auth_param.exit.i, label %..loopexit_crit_edge.i.i
 
-..loopexit_crit_edge.i.i:                         ; preds = %92
+..loopexit_crit_edge.i.i:                         ; preds = %90
   %.pre.i.i = zext i16 %73 to i32
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph46.i.i, %..loopexit_crit_edge.i.i, %83, %74
-  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %..loopexit_crit_edge.i.i ], [ 0, %83 ], [ 0, %74 ], [ %76, %.lr.ph46.i.i ], [ %85, %.lr.ph.i.i ]
-  %.137.i.i = phi i32 [ %.03648.i.i, %..loopexit_crit_edge.i.i ], [ %84, %83 ], [ %75, %74 ], [ %75, %.lr.ph46.i.i ], [ %84, %.lr.ph.i.i ]
-  %.2.i.i = phi i32 [ %.03449.i.i, %..loopexit_crit_edge.i.i ], [ %.342.i.i, %83 ], [ %.13544.i.i, %74 ], [ %.135.i.i, %.lr.ph46.i.i ], [ %.3.i.i, %.lr.ph.i.i ]
-  %94 = sub nsw i32 %.137.i.i, %.pre-phi.i.i
-  %95 = icmp sgt i32 %94, 0
-  br i1 %95, label %.lr.ph50.i.i, label %dissect_fcsp_dhchap_auth_param.exit.i, !llvm.loop !9
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i, %.lr.ph46.i.i, %..loopexit_crit_edge.i.i, %82, %74
+  %.pre-phi.i.i = phi i32 [ %.pre.i.i, %..loopexit_crit_edge.i.i ], [ 0, %82 ], [ 0, %74 ], [ %76, %.lr.ph46.i.i ], [ %84, %.lr.ph.i.i ]
+  %.137.i.i = phi i32 [ %.03648.i.i, %..loopexit_crit_edge.i.i ], [ %83, %82 ], [ %75, %74 ], [ %75, %.lr.ph46.i.i ], [ %83, %.lr.ph.i.i ]
+  %.2.i.i = phi i32 [ %.03449.i.i, %..loopexit_crit_edge.i.i ], [ %.342.i.i, %82 ], [ %.13544.i.i, %74 ], [ %.135.i.i, %.lr.ph46.i.i ], [ %.3.i.i, %.lr.ph.i.i ]
+  %92 = sub nsw i32 %.137.i.i, %.pre-phi.i.i
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %.lr.ph50.i.i, label %dissect_fcsp_dhchap_auth_param.exit.i, !llvm.loop !9
 
-dissect_fcsp_dhchap_auth_param.exit.i:            ; preds = %.loopexit.i.i, %92, %58, %.lr.ph.i
-  %96 = add i32 %56, %55
-  %97 = add nuw i32 %.054.i, 1
-  %exitcond.not.i = icmp eq i32 %97, %50
+dissect_fcsp_dhchap_auth_param.exit.i:            ; preds = %.loopexit.i.i, %90, %58, %.lr.ph.i
+  %94 = add i32 %56, %55
+  %95 = add nuw i32 %.054.i, 1
+  %exitcond.not.i = icmp eq i32 %95, %50
   br i1 %exitcond.not.i, label %dissect_fcsp_auth_negotiate.exit, label %.lr.ph.i, !llvm.loop !10
 
-98:                                               ; preds = %10
-  %99 = load i32, ptr @hf_auth_responder_name_type, align 4
-  %100 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %99, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %101 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %102 = load i32, ptr @hf_auth_responder_name_len, align 4
-  %103 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %102, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %104 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14)
-  %105 = icmp eq i16 %101, 1
-  br i1 %105, label %106, label %109
+96:                                               ; preds = %10
+  %97 = load i32, ptr @hf_auth_responder_name_type, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %97, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %99 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
+  %100 = load i32, ptr @hf_auth_responder_name_len, align 4
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %100, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %102 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 14)
+  %103 = icmp eq i16 %99, 1
+  br i1 %103, label %104, label %107
 
-106:                                              ; preds = %98
-  %107 = load i32, ptr @hf_auth_responder_wwn, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %107, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0)
-  %.pre.i41 = zext i16 %104 to i32
+104:                                              ; preds = %96
+  %105 = load i32, ptr @hf_auth_responder_wwn, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %105, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef 0)
+  %.pre.i41 = zext i16 %102 to i32
   br label %dissect_fcsp_dhchap_challenge.exit
 
-109:                                              ; preds = %98
-  %110 = load i32, ptr @hf_auth_responder_name, align 4
-  %111 = zext i16 %104 to i32
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %110, ptr noundef %0, i32 noundef 16, i32 noundef %111, i32 noundef 0)
+107:                                              ; preds = %96
+  %108 = load i32, ptr @hf_auth_responder_name, align 4
+  %109 = zext i16 %102 to i32
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %108, ptr noundef %0, i32 noundef 16, i32 noundef %109, i32 noundef 0)
   br label %dissect_fcsp_dhchap_challenge.exit
 
-dissect_fcsp_dhchap_challenge.exit:               ; preds = %106, %109
-  %.pre-phi.i40 = phi i32 [ %111, %109 ], [ %.pre.i41, %106 ]
-  %113 = add nuw nsw i32 %.pre-phi.i40, 16
-  %114 = load i32, ptr @hf_auth_dhchap_hash_type, align 4
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %114, ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef 0)
-  %116 = load i32, ptr @hf_auth_dhchap_group_type, align 4
-  %117 = add nuw nsw i32 %.pre-phi.i40, 20
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %116, ptr noundef %0, i32 noundef %117, i32 noundef 4, i32 noundef 0)
-  %119 = load i32, ptr @hf_auth_dhchap_chal_len, align 4
-  %120 = add nuw nsw i32 %.pre-phi.i40, 24
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %119, ptr noundef %0, i32 noundef %120, i32 noundef 4, i32 noundef 0)
-  %122 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %120)
-  %123 = load i32, ptr @hf_auth_dhchap_chal_value, align 4
-  %124 = add nuw nsw i32 %.pre-phi.i40, 28
-  %125 = and i32 %122, 65535
-  %126 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %123, ptr noundef %0, i32 noundef %124, i32 noundef %125, i32 noundef 0)
-  %127 = add nuw nsw i32 %125, %124
-  %128 = load i32, ptr @hf_auth_dhchap_val_len, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0)
-  %130 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %127)
-  %131 = load i32, ptr @hf_auth_dhchap_dhvalue, align 4
-  %132 = add nuw nsw i32 %127, 4
-  %133 = and i32 %130, 65535
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %131, ptr noundef %0, i32 noundef %132, i32 noundef %133, i32 noundef 0)
+dissect_fcsp_dhchap_challenge.exit:               ; preds = %104, %107
+  %.pre-phi.i40 = phi i32 [ %109, %107 ], [ %.pre.i41, %104 ]
+  %111 = add nuw nsw i32 %.pre-phi.i40, 16
+  %112 = load i32, ptr @hf_auth_dhchap_hash_type, align 4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %112, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef 0)
+  %114 = load i32, ptr @hf_auth_dhchap_group_type, align 4
+  %115 = add nuw nsw i32 %.pre-phi.i40, 20
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %114, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0)
+  %117 = load i32, ptr @hf_auth_dhchap_chal_len, align 4
+  %118 = add nuw nsw i32 %.pre-phi.i40, 24
+  %119 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %117, ptr noundef %0, i32 noundef %118, i32 noundef 4, i32 noundef 0)
+  %120 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %118)
+  %121 = load i32, ptr @hf_auth_dhchap_chal_value, align 4
+  %122 = add nuw nsw i32 %.pre-phi.i40, 28
+  %123 = and i32 %120, 65535
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %121, ptr noundef %0, i32 noundef %122, i32 noundef %123, i32 noundef 0)
+  %125 = add nuw nsw i32 %123, %122
+  %126 = load i32, ptr @hf_auth_dhchap_val_len, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0)
+  %128 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %125)
+  %129 = load i32, ptr @hf_auth_dhchap_dhvalue, align 4
+  %130 = add nuw nsw i32 %125, 4
+  %131 = and i32 %128, 65535
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %129, ptr noundef %0, i32 noundef %130, i32 noundef %131, i32 noundef 0)
   br label %dissect_fcsp_auth_negotiate.exit
 
-135:                                              ; preds = %10
-  %136 = load i32, ptr @hf_auth_dhchap_rsp_len, align 4
-  %137 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %136, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  %138 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
-  %139 = load i32, ptr @hf_auth_dhchap_rsp_value, align 4
-  %140 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %139, ptr noundef %0, i32 noundef 16, i32 noundef %138, i32 noundef 0)
-  %141 = add i32 %138, 16
-  %142 = load i32, ptr @hf_auth_dhchap_val_len, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef 0)
-  %144 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %141)
-  %145 = load i32, ptr @hf_auth_dhchap_dhvalue, align 4
-  %146 = add i32 %138, 20
-  %147 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %145, ptr noundef %0, i32 noundef %146, i32 noundef %144, i32 noundef 0)
-  %148 = add i32 %144, %146
-  %149 = load i32, ptr @hf_auth_dhchap_chal_len, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 4, i32 noundef 0)
-  %151 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %148)
-  %152 = load i32, ptr @hf_auth_dhchap_chal_value, align 4
-  %153 = add i32 %148, 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %152, ptr noundef %0, i32 noundef %153, i32 noundef %151, i32 noundef 0)
+133:                                              ; preds = %10
+  %134 = load i32, ptr @hf_auth_dhchap_rsp_len, align 4
+  %135 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %134, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %136 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
+  %137 = load i32, ptr @hf_auth_dhchap_rsp_value, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %137, ptr noundef %0, i32 noundef 16, i32 noundef %136, i32 noundef 0)
+  %139 = add i32 %136, 16
+  %140 = load i32, ptr @hf_auth_dhchap_val_len, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %140, ptr noundef %0, i32 noundef %139, i32 noundef 4, i32 noundef 0)
+  %142 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %139)
+  %143 = load i32, ptr @hf_auth_dhchap_dhvalue, align 4
+  %144 = add i32 %136, 20
+  %145 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %143, ptr noundef %0, i32 noundef %144, i32 noundef %142, i32 noundef 0)
+  %146 = add i32 %142, %144
+  %147 = load i32, ptr @hf_auth_dhchap_chal_len, align 4
+  %148 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %147, ptr noundef %0, i32 noundef %146, i32 noundef 4, i32 noundef 0)
+  %149 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %146)
+  %150 = load i32, ptr @hf_auth_dhchap_chal_value, align 4
+  %151 = add i32 %146, 4
+  %152 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %150, ptr noundef %0, i32 noundef %151, i32 noundef %149, i32 noundef 0)
   br label %dissect_fcsp_auth_negotiate.exit
 
-155:                                              ; preds = %10
-  %156 = load i32, ptr @hf_auth_dhchap_rsp_len, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %156, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
-  %158 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
-  %159 = load i32, ptr @hf_auth_dhchap_rsp_value, align 4
-  %160 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %159, ptr noundef %0, i32 noundef 16, i32 noundef %158, i32 noundef 0)
+153:                                              ; preds = %10
+  %154 = load i32, ptr @hf_auth_dhchap_rsp_len, align 4
+  %155 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %154, ptr noundef %0, i32 noundef 12, i32 noundef 4, i32 noundef 0)
+  %156 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 12)
+  %157 = load i32, ptr @hf_auth_dhchap_rsp_value, align 4
+  %158 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %157, ptr noundef %0, i32 noundef 16, i32 noundef %156, i32 noundef 0)
   br label %dissect_fcsp_auth_negotiate.exit
 
-161:                                              ; preds = %10, %10, %10, %10, %10, %10
-  %162 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_auth_fcap_undecoded, ptr noundef %0, i32 noundef 12, i32 noundef -1)
+159:                                              ; preds = %10, %10, %10, %10, %10, %10
+  %160 = tail call ptr @proto_tree_add_expert(ptr noundef %15, ptr noundef %1, ptr noundef nonnull @ei_auth_fcap_undecoded, ptr noundef %0, i32 noundef 12, i32 noundef -1)
   br label %dissect_fcsp_auth_negotiate.exit
 
-dissect_fcsp_auth_negotiate.exit:                 ; preds = %dissect_fcsp_dhchap_auth_param.exit.i, %46, %26, %dissect_fcsp_dhchap_challenge.exit, %135, %155, %161, %10, %4
-  %163 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %163
+dissect_fcsp_auth_negotiate.exit:                 ; preds = %dissect_fcsp_dhchap_auth_param.exit.i, %46, %26, %dissect_fcsp_dhchap_challenge.exit, %133, %153, %159, %10, %4
+  %161 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %161
 }
 
 ; Function Attrs: null_pointer_is_valid

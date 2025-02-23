@@ -89,9 +89,9 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
   br i1 %29, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader141
-  %.val112211 = load ptr, ptr %21, align 8, !tbaa !30
-  %.not99212 = icmp eq ptr %.val112211, null
-  br i1 %.not99212, label %.critedge, label %.lr.ph214
+  %.val112210 = load ptr, ptr %21, align 8, !tbaa !30
+  %.not99211 = icmp eq ptr %.val112210, null
+  br i1 %.not99211, label %.critedge, label %.lr.ph213
 
 .preheader140:                                    ; preds = %.critedge, %Abc_UtilStrsav.exit137..preheader140_crit_edge
   %.val120149 = phi i32 [ %.val120149.pre, %Abc_UtilStrsav.exit137..preheader140_crit_edge ], [ %.val101143190, %.critedge ]
@@ -106,10 +106,10 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
 .lr.ph:                                           ; preds = %Gia_ManAppendCi.exit
   %.val112 = load ptr, ptr %21, align 8, !tbaa !30
   %.not99 = icmp eq ptr %.val112, null
-  br i1 %.not99, label %.critedge, label %.lr.ph214, !llvm.loop !36
+  br i1 %.not99, label %.critedge, label %.lr.ph213, !llvm.loop !36
 
-.lr.ph214:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.084146213 = phi i32 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+.lr.ph213:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.084146212 = phi i32 [ %80, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %33 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %4)
   %34 = load i64, ptr %33, align 4
   %35 = or i64 %34, 2684354559
@@ -131,12 +131,12 @@ Abc_UtilStrsav.exit137..preheader140_crit_edge:   ; preds = %Abc_UtilStrsav.exit
   %47 = icmp eq i32 %45, %46
   br i1 %47, label %48, label %.Vec_IntGrow.exit10_crit_edge.i.i
 
-.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %.lr.ph214
+.Vec_IntGrow.exit10_crit_edge.i.i:                ; preds = %.lr.ph213
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !39
   br label %Gia_ManAppendCi.exit
 
-48:                                               ; preds = %.lr.ph214
+48:                                               ; preds = %.lr.ph213
   %49 = icmp slt i32 %45, 16
   br i1 %49, label %50, label %58
 
@@ -196,7 +196,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %78 = sext i32 %76 to i64
   %79 = getelementptr inbounds i32, ptr %70, i64 %78
   store i32 %75, ptr %79, align 4, !tbaa !40
-  %80 = add nuw nsw i32 %.084146213, 1
+  %80 = add nuw nsw i32 %.084146212, 1
   %.val101 = load i32, ptr %24, align 8, !tbaa !33
   %.val102 = load ptr, ptr %25, align 8, !tbaa !34
   %81 = getelementptr i8, ptr %.val102, i64 4

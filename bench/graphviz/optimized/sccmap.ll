@@ -603,7 +603,7 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !45
   store i64 %100, ptr %11, align 8, !tbaa !42
-  %108 = call ptr @agsubnode(ptr noundef %91, ptr noundef %107, i32 noundef 1) #14
+  %108 = call ptr @agsubnode(ptr noundef nonnull %91, ptr noundef %107, i32 noundef 1) #14
   %109 = getelementptr i8, ptr %107, i64 16
   %.val55 = load ptr, ptr %109, align 8, !tbaa !21
   %110 = getelementptr inbounds nuw i8, ptr %.val55, i64 16
@@ -617,8 +617,8 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   br i1 %.not50, label %114, label %98, !llvm.loop !59
 
 114:                                              ; preds = %98
-  %115 = call ptr @agroot(ptr noundef %91) #14
-  %116 = call ptr @agfstnode(ptr noundef %91) #14
+  %115 = call ptr @agroot(ptr noundef nonnull %91) #14
+  %116 = call ptr @agfstnode(ptr noundef nonnull %91) #14
   %.not38.i = icmp eq ptr %116, null
   br i1 %.not38.i, label %nodeInduce.exit, label %.lr.ph41.i
 
@@ -637,12 +637,12 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   %122 = select i1 %120, ptr %.02837.i, ptr %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 56
   %124 = load ptr, ptr %123, align 8, !tbaa !47
-  %125 = call ptr @agsubnode(ptr noundef %91, ptr noundef %124, i32 noundef 0) #14
+  %125 = call ptr @agsubnode(ptr noundef nonnull %91, ptr noundef %124, i32 noundef 0) #14
   %.not32.i = icmp eq ptr %125, null
   br i1 %.not32.i, label %128, label %126
 
 126:                                              ; preds = %.lr.ph.i
-  %127 = call ptr @agsubedge(ptr noundef %91, ptr noundef nonnull %.02837.i, i32 noundef 1) #14
+  %127 = call ptr @agsubedge(ptr noundef nonnull %91, ptr noundef nonnull %.02837.i, i32 noundef 1) #14
   br label %151
 
 128:                                              ; preds = %.lr.ph.i
@@ -688,7 +688,7 @@ node_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, 
   br i1 %.not31.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
 
 ._crit_edge.i:                                    ; preds = %151, %.lr.ph41.i
-  %153 = call ptr @agnxtnode(ptr noundef %91, ptr noundef nonnull %.039.i) #14
+  %153 = call ptr @agnxtnode(ptr noundef nonnull %91, ptr noundef nonnull %.039.i) #14
   %.not.i = icmp eq ptr %153, null
   br i1 %.not.i, label %nodeInduce.exit, label %.lr.ph41.i, !llvm.loop !61
 
@@ -698,7 +698,7 @@ nodeInduce.exit:                                  ; preds = %._crit_edge.i, %114
 
 154:                                              ; preds = %nodeInduce.exit
   %155 = load ptr, ptr @outfp, align 8, !tbaa !11
-  %156 = call i32 @agwrite(ptr noundef %91, ptr noundef %155) #14
+  %156 = call i32 @agwrite(ptr noundef nonnull %91, ptr noundef %155) #14
   br label %157
 
 157:                                              ; preds = %154, %nodeInduce.exit

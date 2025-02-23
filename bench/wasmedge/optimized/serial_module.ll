@@ -29109,18 +29109,17 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %33 = icmp eq i64 %2, 0
-  br i1 %33, label %.split.i.i.i, label %.lr.ph144
+  br label %33
 
-34:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit"
-  %35 = icmp eq i64 %47, 0
-  br i1 %35, label %.split.i.i.i, label %.lr.ph144, !llvm.loop !253
+33:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit"
+  %34 = phi i64 [ %21, %.lr.ph ], [ %198, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit" ]
+  %.047 = phi i64 [ %2, %.lr.ph ], [ %46, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit" ]
+  %storemerge46 = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit" ]
+  %35 = icmp eq i64 %.047, 0
+  br i1 %35, label %.split.i.i.i, label %45
 
-.split.i.i.i:                                     ; preds = %34, %.lr.ph
-  %.lcssa133 = phi i64 [ %21, %.lr.ph ], [ %199, %34 ]
-  %.lcssa124 = phi i64 [ %20, %.lr.ph ], [ %198, %34 ]
-  %storemerge55.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.010.1.i.i, %34 ]
-  %36 = add nsw i64 %.lcssa133, -2
+.split.i.i.i:                                     ; preds = %33
+  %36 = add nsw i64 %34, -2
   %37 = lshr i64 %36, 1
   br label %.split12.i.i.i
 
@@ -29130,247 +29129,240 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.sroa.03.0.copyload.i.i.i = load ptr, ptr %phi.call.i.i.i, align 8
   %.sroa.24.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 8
   %.sroa.24.0.copyload.i.i.i = load i8, ptr %.sroa.24.0..sroa_idx.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElS18_NS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_T0_S1O_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa133, ptr %.sroa.03.0.copyload.i.i.i, i8 %.sroa.24.0.copyload.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElS18_NS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_T0_S1O_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %34, ptr %.sroa.03.0.copyload.i.i.i, i8 %.sroa.24.0.copyload.i.i.i)
   %38 = icmp eq i64 %.0.i.i.i, 0
   %39 = add nsw i64 %.0.i.i.i, -1
-  br i1 %38, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_RT0_.exit.i.i", label %.split12.i.i.i, !llvm.loop !254
+  br i1 %38, label %.lr.ph.i9.i, label %.split12.i.i.i, !llvm.loop !253
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_RT0_.exit.i.i": ; preds = %.split12.i.i.i
-  %40 = icmp sgt i64 %.lcssa124, 16
-  br i1 %40, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit"
-
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %41, %.lr.ph.i9.i ], [ %storemerge55.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_RT0_.exit.i.i" ]
-  %41 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
-  %.sroa.03.0.copyload.i.i10.i = load ptr, ptr %41, align 8
+.lr.ph.i9.i:                                      ; preds = %.split12.i.i.i, %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %40, %.lr.ph.i9.i ], [ %storemerge46, %.split12.i.i.i ]
+  %40 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -16
+  %.sroa.03.0.copyload.i.i10.i = load ptr, ptr %40, align 8
   %.sroa.24.0..sroa_idx.i.i11.i = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.24.0.copyload.i.i12.i = load i8, ptr %.sroa.24.0..sroa_idx.i.i11.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %41, ptr noundef nonnull align 8 dereferenceable(9) %0, i64 9, i1 false)
-  %42 = ptrtoint ptr %41 to i64
-  %43 = sub i64 %42, %18
-  %44 = ashr exact i64 %43, 4
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElS18_NS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_T0_S1O_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %44, ptr %.sroa.03.0.copyload.i.i10.i, i8 %.sroa.24.0.copyload.i.i12.i)
-  %45 = icmp sgt i64 %43, 16
-  br i1 %45, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit", !llvm.loop !255
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %40, ptr noundef nonnull align 8 dereferenceable(9) %0, i64 9, i1 false)
+  %41 = ptrtoint ptr %40 to i64
+  %42 = sub i64 %41, %18
+  %43 = ashr exact i64 %42, 4
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElS18_NS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_T0_S1O_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %43, ptr %.sroa.03.0.copyload.i.i10.i, i8 %.sroa.24.0.copyload.i.i12.i)
+  %44 = icmp sgt i64 %42, 16
+  br i1 %44, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit", !llvm.loop !254
 
-.lr.ph144:                                        ; preds = %.lr.ph, %34
-  %storemerge55143 = phi ptr [ %.sroa.010.1.i.i, %34 ], [ %1, %.lr.ph ]
-  %.056142 = phi i64 [ %47, %34 ], [ %2, %.lr.ph ]
-  %46 = phi i64 [ %199, %34 ], [ %21, %.lr.ph ]
-  %47 = add nsw i64 %.056142, -1
-  %48 = lshr i64 %46, 1
-  %49 = getelementptr inbounds nuw %"class.std::variant", ptr %0, i64 %48
-  %50 = getelementptr inbounds i8, ptr %storemerge55143, i64 -16
+45:                                               ; preds = %33
+  %46 = add nsw i64 %.047, -1
+  %47 = lshr i64 %34, 1
+  %48 = getelementptr inbounds nuw %"class.std::variant", ptr %0, i64 %47
+  %49 = getelementptr inbounds i8, ptr %storemerge46, i64 -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %17)
-  %51 = load i8, ptr %24, align 8
-  %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  %55 = call noundef i64 %54(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %23)
-  %56 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %57 = load i8, ptr %56, align 8
-  %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = call noundef i64 %60(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %49)
-  %62 = icmp ult i64 %55, %61
+  %50 = load i8, ptr %24, align 8
+  %51 = zext i8 %50 to i64
+  %52 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = call noundef i64 %53(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %23)
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %56 = load i8, ptr %55, align 8
+  %57 = zext i8 %56 to i64
+  %58 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = call noundef i64 %59(ptr noundef nonnull align 1 dereferenceable(1) %17, ptr noundef nonnull align 8 dereferenceable(9) %48)
+  %61 = icmp ult i64 %54, %60
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %17)
-  %63 = getelementptr inbounds i8, ptr %storemerge55143, i64 -8
-  br i1 %62, label %64, label %112
+  %62 = getelementptr inbounds i8, ptr %storemerge46, i64 -8
+  br i1 %61, label %63, label %111
 
-64:                                               ; preds = %.lr.ph144
+63:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16)
-  %65 = load i8, ptr %56, align 8
-  %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %66
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef i64 %68(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(9) %49)
-  %70 = load i8, ptr %63, align 8
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %71
-  %73 = load ptr, ptr %72, align 8
-  %74 = call noundef i64 %73(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(9) %50)
-  %75 = icmp ult i64 %69, %74
+  %64 = load i8, ptr %55, align 8
+  %65 = zext i8 %64 to i64
+  %66 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %65
+  %67 = load ptr, ptr %66, align 8
+  %68 = call noundef i64 %67(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(9) %48)
+  %69 = load i8, ptr %62, align 8
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %70
+  %72 = load ptr, ptr %71, align 8
+  %73 = call noundef i64 %72(ptr noundef nonnull align 1 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(9) %49)
+  %74 = icmp ult i64 %68, %73
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
-  br i1 %75, label %76, label %84
+  br i1 %74, label %75, label %83
 
-76:                                               ; preds = %64
+75:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15)
   store ptr %0, ptr %15, align 8
-  store ptr %49, ptr %30, align 8
-  %77 = load i8, ptr %56, align 8
-  %78 = zext i8 %77 to i64
-  %79 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %78
-  %80 = load ptr, ptr %79, align 8
-  invoke void %80(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(9) %49)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i.i unwind label %81
+  store ptr %48, ptr %30, align 8
+  %76 = load i8, ptr %55, align 8
+  %77 = zext i8 %76 to i64
+  %78 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %77
+  %79 = load ptr, ptr %78, align 8
+  invoke void %79(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(9) %48)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i.i unwind label %80
 
-81:                                               ; preds = %76
-  %82 = landingpad { ptr, i32 }
+80:                                               ; preds = %75
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #22
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i.i: ; preds = %76
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i.i: ; preds = %75
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
-84:                                               ; preds = %64
+83:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %14)
-  %85 = load i8, ptr %24, align 8
-  %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %86
-  %88 = load ptr, ptr %87, align 8
-  %89 = call noundef i64 %88(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(9) %23)
-  %90 = load i8, ptr %63, align 8
-  %91 = zext i8 %90 to i64
-  %92 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %91
-  %93 = load ptr, ptr %92, align 8
-  %94 = call noundef i64 %93(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(9) %50)
-  %95 = icmp ult i64 %89, %94
+  %84 = load i8, ptr %24, align 8
+  %85 = zext i8 %84 to i64
+  %86 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %85
+  %87 = load ptr, ptr %86, align 8
+  %88 = call noundef i64 %87(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(9) %23)
+  %89 = load i8, ptr %62, align 8
+  %90 = zext i8 %89 to i64
+  %91 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %90
+  %92 = load ptr, ptr %91, align 8
+  %93 = call noundef i64 %92(ptr noundef nonnull align 1 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(9) %49)
+  %94 = icmp ult i64 %88, %93
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
-  br i1 %95, label %96, label %104
+  br i1 %94, label %95, label %103
 
-96:                                               ; preds = %84
+95:                                               ; preds = %83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   store ptr %0, ptr %13, align 8
-  store ptr %50, ptr %29, align 8
-  %97 = load i8, ptr %63, align 8
-  %98 = zext i8 %97 to i64
-  %99 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %98
-  %100 = load ptr, ptr %99, align 8
-  invoke void %100(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(9) %50)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit26.i.i unwind label %101
+  store ptr %49, ptr %29, align 8
+  %96 = load i8, ptr %62, align 8
+  %97 = zext i8 %96 to i64
+  %98 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %97
+  %99 = load ptr, ptr %98, align 8
+  invoke void %99(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(9) %49)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit26.i.i unwind label %100
 
-101:                                              ; preds = %96
-  %102 = landingpad { ptr, i32 }
+100:                                              ; preds = %95
+  %101 = landingpad { ptr, i32 }
           catch ptr null
-  %103 = extractvalue { ptr, i32 } %102, 0
-  call void @__clang_call_terminate(ptr %103) #22
+  %102 = extractvalue { ptr, i32 } %101, 0
+  call void @__clang_call_terminate(ptr %102) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit26.i.i: ; preds = %96
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit26.i.i: ; preds = %95
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
-104:                                              ; preds = %84
+103:                                              ; preds = %83
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %0, ptr %12, align 8
   store ptr %23, ptr %28, align 8
-  %105 = load i8, ptr %24, align 8
-  %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %106
-  %108 = load ptr, ptr %107, align 8
-  invoke void %108(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(9) %23)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit27.i.i unwind label %109
+  %104 = load i8, ptr %24, align 8
+  %105 = zext i8 %104 to i64
+  %106 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %105
+  %107 = load ptr, ptr %106, align 8
+  invoke void %107(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(9) %23)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit27.i.i unwind label %108
 
-109:                                              ; preds = %104
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %103
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #22
+  %110 = extractvalue { ptr, i32 } %109, 0
+  call void @__clang_call_terminate(ptr %110) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit27.i.i: ; preds = %104
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit27.i.i: ; preds = %103
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
-112:                                              ; preds = %.lr.ph144
+111:                                              ; preds = %45
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11)
-  %113 = load i8, ptr %24, align 8
-  %114 = zext i8 %113 to i64
-  %115 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %114
-  %116 = load ptr, ptr %115, align 8
-  %117 = call noundef i64 %116(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(9) %23)
-  %118 = load i8, ptr %63, align 8
-  %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %119
-  %121 = load ptr, ptr %120, align 8
-  %122 = call noundef i64 %121(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(9) %50)
-  %123 = icmp ult i64 %117, %122
+  %112 = load i8, ptr %24, align 8
+  %113 = zext i8 %112 to i64
+  %114 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %113
+  %115 = load ptr, ptr %114, align 8
+  %116 = call noundef i64 %115(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(9) %23)
+  %117 = load i8, ptr %62, align 8
+  %118 = zext i8 %117 to i64
+  %119 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %118
+  %120 = load ptr, ptr %119, align 8
+  %121 = call noundef i64 %120(ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 8 dereferenceable(9) %49)
+  %122 = icmp ult i64 %116, %121
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11)
-  br i1 %123, label %124, label %132
+  br i1 %122, label %123, label %131
 
-124:                                              ; preds = %112
+123:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %0, ptr %10, align 8
   store ptr %23, ptr %27, align 8
-  %125 = load i8, ptr %24, align 8
-  %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %126
-  %128 = load ptr, ptr %127, align 8
-  invoke void %128(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(9) %23)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit28.i.i unwind label %129
+  %124 = load i8, ptr %24, align 8
+  %125 = zext i8 %124 to i64
+  %126 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %125
+  %127 = load ptr, ptr %126, align 8
+  invoke void %127(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(9) %23)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit28.i.i unwind label %128
 
-129:                                              ; preds = %124
-  %130 = landingpad { ptr, i32 }
+128:                                              ; preds = %123
+  %129 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #22
+  %130 = extractvalue { ptr, i32 } %129, 0
+  call void @__clang_call_terminate(ptr %130) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit28.i.i: ; preds = %124
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit28.i.i: ; preds = %123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
-132:                                              ; preds = %112
+131:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
-  %133 = load i8, ptr %56, align 8
-  %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %134
-  %136 = load ptr, ptr %135, align 8
-  %137 = call noundef i64 %136(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(9) %49)
-  %138 = load i8, ptr %63, align 8
-  %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %139
-  %141 = load ptr, ptr %140, align 8
-  %142 = call noundef i64 %141(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(9) %50)
-  %143 = icmp ult i64 %137, %142
+  %132 = load i8, ptr %55, align 8
+  %133 = zext i8 %132 to i64
+  %134 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %133
+  %135 = load ptr, ptr %134, align 8
+  %136 = call noundef i64 %135(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(9) %48)
+  %137 = load i8, ptr %62, align 8
+  %138 = zext i8 %137 to i64
+  %139 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %138
+  %140 = load ptr, ptr %139, align 8
+  %141 = call noundef i64 %140(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 8 dereferenceable(9) %49)
+  %142 = icmp ult i64 %136, %141
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  br i1 %143, label %144, label %152
+  br i1 %142, label %143, label %151
 
-144:                                              ; preds = %132
+143:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr %0, ptr %8, align 8
-  store ptr %50, ptr %26, align 8
-  %145 = load i8, ptr %63, align 8
-  %146 = zext i8 %145 to i64
-  %147 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %146
-  %148 = load ptr, ptr %147, align 8
-  invoke void %148(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(9) %50)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit29.i.i unwind label %149
+  store ptr %49, ptr %26, align 8
+  %144 = load i8, ptr %62, align 8
+  %145 = zext i8 %144 to i64
+  %146 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %145
+  %147 = load ptr, ptr %146, align 8
+  invoke void %147(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(9) %49)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit29.i.i unwind label %148
 
-149:                                              ; preds = %144
-  %150 = landingpad { ptr, i32 }
+148:                                              ; preds = %143
+  %149 = landingpad { ptr, i32 }
           catch ptr null
-  %151 = extractvalue { ptr, i32 } %150, 0
-  call void @__clang_call_terminate(ptr %151) #22
+  %150 = extractvalue { ptr, i32 } %149, 0
+  call void @__clang_call_terminate(ptr %150) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit29.i.i: ; preds = %144
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit29.i.i: ; preds = %143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
-152:                                              ; preds = %132
+151:                                              ; preds = %131
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %0, ptr %7, align 8
-  store ptr %49, ptr %25, align 8
-  %153 = load i8, ptr %56, align 8
-  %154 = zext i8 %153 to i64
-  %155 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %154
-  %156 = load ptr, ptr %155, align 8
-  invoke void %156(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(9) %49)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit30.i.i unwind label %157
+  store ptr %48, ptr %25, align 8
+  %152 = load i8, ptr %55, align 8
+  %153 = zext i8 %152 to i64
+  %154 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %153
+  %155 = load ptr, ptr %154, align 8
+  invoke void %155(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(9) %48)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit30.i.i unwind label %156
 
-157:                                              ; preds = %152
-  %158 = landingpad { ptr, i32 }
+156:                                              ; preds = %151
+  %157 = landingpad { ptr, i32 }
           catch ptr null
-  %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #22
+  %158 = extractvalue { ptr, i32 } %157, 0
+  call void @__clang_call_terminate(ptr %158) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit30.i.i: ; preds = %152
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit30.i.i: ; preds = %151
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader"
 
@@ -29378,84 +29370,84 @@ _ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13Cus
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i"
 
 "_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader", %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i
-  %.sroa.010.0.i.i = phi ptr [ %173, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i ], [ %23, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i ], [ %storemerge55143, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader" ]
-  br label %160
+  %.sroa.010.0.i.i = phi ptr [ %172, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i ], [ %23, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i ], [ %storemerge46, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i.preheader" ]
+  br label %159
 
-160:                                              ; preds = %160, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i"
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i" ], [ %173, %160 ]
+159:                                              ; preds = %159, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i"
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i" ], [ %172, %159 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
-  %162 = load i8, ptr %161, align 8
-  %163 = zext i8 %162 to i64
-  %164 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %163
-  %165 = load ptr, ptr %164, align 8
-  %166 = call noundef i64 %165(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.010.1.i.i)
-  %167 = load i8, ptr %31, align 8
-  %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %168
-  %170 = load ptr, ptr %169, align 8
-  %171 = call noundef i64 %170(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(9) %0)
-  %172 = icmp ult i64 %166, %171
+  %160 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 8
+  %161 = load i8, ptr %160, align 8
+  %162 = zext i8 %161 to i64
+  %163 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %162
+  %164 = load ptr, ptr %163, align 8
+  %165 = call noundef i64 %164(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.010.1.i.i)
+  %166 = load i8, ptr %31, align 8
+  %167 = zext i8 %166 to i64
+  %168 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %167
+  %169 = load ptr, ptr %168, align 8
+  %170 = call noundef i64 %169(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(9) %0)
+  %171 = icmp ult i64 %165, %170
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
-  br i1 %172, label %160, label %.preheader.i.i, !llvm.loop !256
+  %172 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 16
+  br i1 %171, label %159, label %.preheader.i.i, !llvm.loop !255
 
-.preheader.i.i:                                   ; preds = %160, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %160 ]
+.preheader.i.i:                                   ; preds = %159, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %159 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %174 = load i8, ptr %31, align 8
-  %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %175
-  %177 = load ptr, ptr %176, align 8
-  %178 = call noundef i64 %177(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(9) %0)
-  %179 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
-  %180 = load i8, ptr %179, align 8
-  %181 = zext i8 %180 to i64
-  %182 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %181
-  %183 = load ptr, ptr %182, align 8
-  %184 = call noundef i64 %183(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0.1.i.i)
-  %185 = icmp ult i64 %178, %184
+  %173 = load i8, ptr %31, align 8
+  %174 = zext i8 %173 to i64
+  %175 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %174
+  %176 = load ptr, ptr %175, align 8
+  %177 = call noundef i64 %176(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(9) %0)
+  %178 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+  %179 = load i8, ptr %178, align 8
+  %180 = zext i8 %179 to i64
+  %181 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.243"], ptr @"_ZNSt8__detail9__variant12__gen_vtableINS0_21__deduce_visit_resultImEERZZNK8WasmEdge6Loader10Serializer15serializeModuleERKNS4_3AST6ModuleEENK3$_1clISt7variantIJPKNS7_13CustomSectionEPKNS7_11TypeSectionEPKNS7_13ImportSectionEPKNS7_15FunctionSectionEPKNS7_12TableSectionEPKNS7_13MemorySectionEPKNS7_13GlobalSectionEPKNS7_13ExportSectionEPKNS7_12StartSectionEPKNS7_14ElementSectionEPKNS7_11CodeSectionEPKNS7_11DataSectionEPKNS7_16DataCountSectionEEES1H_EEDaRT_RT0_EUlS1J_E_JRS1H_EE9_S_vtableE", i64 0, i64 %180
+  %182 = load ptr, ptr %181, align 8
+  %183 = call noundef i64 %182(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0.1.i.i)
+  %184 = icmp ult i64 %177, %183
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
-  br i1 %185, label %.preheader.i.i, label %186, !llvm.loop !257
+  br i1 %184, label %.preheader.i.i, label %185, !llvm.loop !256
 
-186:                                              ; preds = %.preheader.i.i
-  %187 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %187, label %188, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit"
+185:                                              ; preds = %.preheader.i.i
+  %186 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %186, label %187, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit"
 
-188:                                              ; preds = %186
-  %189 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
+187:                                              ; preds = %185
+  %188 = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr %.sroa.010.1.i.i, ptr %4, align 8
   store ptr %.sroa.0.1.i.i, ptr %32, align 8
-  %190 = load i8, ptr %189, align 8
-  %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %191
-  %193 = load ptr, ptr %192, align 8
-  invoke void %193(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0.1.i.i)
-          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i unwind label %194
+  %189 = load i8, ptr %188, align 8
+  %190 = zext i8 %189 to i64
+  %191 = getelementptr inbounds nuw [13 x %"struct.std::__detail::__variant::_Multi_array.246"], ptr @_ZNSt8__detail9__variant12__gen_vtableINS0_20__variant_idx_cookieEOZNSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS5_11TypeSectionEPKNS5_13ImportSectionEPKNS5_15FunctionSectionEPKNS5_12TableSectionEPKNS5_13MemorySectionEPKNS5_13GlobalSectionEPKNS5_13ExportSectionEPKNS5_12StartSectionEPKNS5_14ElementSectionEPKNS5_11CodeSectionEPKNS5_11DataSectionEPKNS5_16DataCountSectionEEE4swapERS19_EUlOT_T0_E_JS1A_EE9_S_vtableE, i64 0, i64 %190
+  %192 = load ptr, ptr %191, align 8
+  invoke void %192(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(9) %.sroa.0.1.i.i)
+          to label %_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i unwind label %193
 
-194:                                              ; preds = %188
-  %195 = landingpad { ptr, i32 }
+193:                                              ; preds = %187
+  %194 = landingpad { ptr, i32 }
           catch ptr null
-  %196 = extractvalue { ptr, i32 } %195, 0
-  call void @__clang_call_terminate(ptr %196) #22
+  %195 = extractvalue { ptr, i32 } %194, 0
+  call void @__clang_call_terminate(ptr %195) #22
   unreachable
 
-_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i: ; preds = %188
+_ZSt9iter_swapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEES1D_EvT_T0_.exit.i13.i: ; preds = %187
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i", !llvm.loop !258
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_S1N_T0_.exit.i", !llvm.loop !257
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit": ; preds = %186
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_T0_T1_"(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge55143, i64 noundef %47)
-  %197 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %198 = sub i64 %197, %18
-  %199 = ashr exact i64 %198, 4
-  %200 = icmp sgt i64 %199, 16
-  br i1 %200, label %34, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit", !llvm.loop !253
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit": ; preds = %185
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEElNS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_T0_T1_"(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge46, i64 noundef %46)
+  %196 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %197 = sub i64 %196, %18
+  %198 = ashr exact i64 %197, 4
+  %199 = icmp sgt i64 %198, 16
+  br i1 %199, label %33, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit", !llvm.loop !258
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit", %.lr.ph.i9.i, %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEEvT_S1N_S1N_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt7variantIJPKN8WasmEdge3AST13CustomSectionEPKNS4_11TypeSectionEPKNS4_13ImportSectionEPKNS4_15FunctionSectionEPKNS4_12TableSectionEPKNS4_13MemorySectionEPKNS4_13GlobalSectionEPKNS4_13ExportSectionEPKNS4_12StartSectionEPKNS4_14ElementSectionEPKNS4_11CodeSectionEPKNS4_11DataSectionEPKNS4_16DataCountSectionEEESt6vectorIS18_SaIS18_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_6Loader10Serializer15serializeModuleERKNS4_6ModuleEE3$_1EEET_S1N_S1N_T0_.exit", %.lr.ph.i9.i, %3
   ret void
 }
 

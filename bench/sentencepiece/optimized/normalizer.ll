@@ -1305,8 +1305,8 @@ define void @_ZNK13sentencepiece10normalizer10Normalizer15NormalizePrefixESt17ba
 15:                                               ; preds = %13
   %16 = call noundef i64 @_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %3, ptr noundef nonnull %5, i64 noundef 64, i64 noundef %2, i64 noundef 0)
   %17 = trunc i64 %16 to i32
-  %18 = icmp slt i32 %17, 1
-  br i1 %18, label %.sink.split, label %.lr.ph.preheader.i
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %.lr.ph.preheader.i, label %.sink.split
 
 .lr.ph.preheader.i:                               ; preds = %15
   %wide.trip.count.i = and i64 %16, 2147483647
@@ -1321,11 +1321,11 @@ define void @_ZNK13sentencepiece10normalizer10Normalizer15NormalizePrefixESt17ba
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.03536.i, i32 %21)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit.thread49, label %.lr.ph.i, !llvm.loop !23
 
-_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit: ; preds = %.lr.ph.i
+_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit.thread49: ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %5)
-  %22 = sext i32 %.sroa.speculated.i to i64
+  %22 = zext nneg i32 %.sroa.speculated.i to i64
   %.sroa.speculated.i17 = call i64 @llvm.umin.i64(i64 %2, i64 %22)
   store i64 %.sroa.speculated.i17, ptr %0, align 8
   %.sroa.225.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1341,34 +1341,34 @@ _ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_vie
 24:                                               ; preds = %.sink.split, %10
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8
-  %.not52 = icmp eq ptr %26, null
-  br i1 %.not52, label %.thread, label %27
+  %.not56 = icmp eq ptr %26, null
+  br i1 %.not56, label %.thread, label %27
 
 27:                                               ; preds = %24
   %28 = call noundef i64 @_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef %3, ptr noundef nonnull %6, i64 noundef 32, i64 noundef %2, i64 noundef 0)
-  %.not57 = icmp eq i64 %28, 0
-  br i1 %.not57, label %.thread, label %.lr.ph
+  %.not61 = icmp eq i64 %28, 0
+  br i1 %.not61, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %33
-  %.155 = phi i64 [ %.2, %33 ], [ 0, %27 ]
-  %.11454 = phi i32 [ %.215, %33 ], [ 0, %27 ]
-  %.01653 = phi i64 [ %34, %33 ], [ 0, %27 ]
-  %29 = icmp eq i64 %.155, 0
-  %.phi.trans.insert58 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653, i32 1
-  %.pre = load i64, ptr %.phi.trans.insert58, align 8
-  %30 = icmp ugt i64 %.pre, %.155
-  %or.cond63 = select i1 %29, i1 true, i1 %30
-  br i1 %or.cond63, label %.lr.ph._crit_edge, label %33
+  %.159 = phi i64 [ %.2, %33 ], [ 0, %27 ]
+  %.11458 = phi i32 [ %.215, %33 ], [ 0, %27 ]
+  %.01657 = phi i64 [ %34, %33 ], [ 0, %27 ]
+  %29 = icmp eq i64 %.159, 0
+  %.phi.trans.insert62 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01657, i32 1
+  %.pre = load i64, ptr %.phi.trans.insert62, align 8
+  %30 = icmp ugt i64 %.pre, %.159
+  %or.cond65 = select i1 %29, i1 true, i1 %30
+  br i1 %or.cond65, label %.lr.ph._crit_edge, label %33
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %31 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01653
+  %31 = getelementptr inbounds [32 x %"struct.Darts::DoubleArrayImpl<void, void, int, void>::result_pair_type"], ptr %6, i64 0, i64 %.01657
   %32 = load i32, ptr %31, align 16
   br label %33
 
 33:                                               ; preds = %.lr.ph, %.lr.ph._crit_edge
-  %.215 = phi i32 [ %32, %.lr.ph._crit_edge ], [ %.11454, %.lr.ph ]
-  %.2 = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %.155, %.lr.ph ]
-  %34 = add nuw i64 %.01653, 1
+  %.215 = phi i32 [ %32, %.lr.ph._crit_edge ], [ %.11458, %.lr.ph ]
+  %.2 = phi i64 [ %.pre, %.lr.ph._crit_edge ], [ %.159, %.lr.ph ]
+  %34 = add nuw i64 %.01657, 1
   %exitcond.not = icmp eq i64 %34, %28
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
@@ -1412,7 +1412,7 @@ _ZN13sentencepiece11string_util17IsValidDecodeUTF8ESt17basic_string_viewIcSt11ch
   store i32 %.sroa.9.0, ptr %.sroa.9.0..sroa_idx31, align 8
   br label %50
 
-50:                                               ; preds = %49, %_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit, %9
+50:                                               ; preds = %49, %_ZNK13sentencepiece10normalizer13PrefixMatcher11PrefixMatchESt17basic_string_viewIcSt11char_traitsIcEEPb.exit.thread49, %9
   ret void
 }
 
@@ -2333,25 +2333,25 @@ define void @_ZNK13sentencepiece10normalizer13PrefixMatcher13GlobalReplaceB5cxx1
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %30
-  %.sroa.5.014 = phi ptr [ %31, %30 ], [ %3, %6 ]
-  %.sroa.05.013 = phi i64 [ %32, %30 ], [ %2, %6 ]
+  %.sroa.5.018 = phi ptr [ %31, %30 ], [ %3, %6 ]
+  %.sroa.05.017 = phi i64 [ %32, %30 ], [ %2, %6 ]
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   %9 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i, label %.sink.split.sink.split, label %10
+  br i1 %.not.i.i, label %.thread.sink.split, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = invoke noundef i64 @_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %.sroa.5.014, ptr noundef nonnull %7, i64 noundef 64, i64 noundef %.sroa.05.013, i64 noundef 0)
+  %11 = invoke noundef i64 @_ZNK5Darts15DoubleArrayImplIvvivE18commonPrefixSearchINS1_16result_pair_typeEEEmPKcPT_mmm(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %.sroa.5.018, ptr noundef nonnull %7, i64 noundef 64, i64 noundef %.sroa.05.017, i64 noundef 0)
           to label %.noexc unwind label %19
 
 .noexc:                                           ; preds = %10
   %12 = trunc i64 %11 to i32
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.sink.split.sink.split, label %.preheader.i
+  br i1 %13, label %.thread.sink.split, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.noexc
   %14 = icmp sgt i32 %12, 0
-  br i1 %14, label %.lr.ph.preheader.i, label %.sink.split
+  br i1 %14, label %.lr.ph.preheader.i, label %.thread
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %wide.trip.count.i = and i64 %11, 2147483647
@@ -2366,26 +2366,26 @@ define void @_ZNK13sentencepiece10normalizer13PrefixMatcher13GlobalReplaceB5cxx1
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.03536.i, i32 %17)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !23
+  br i1 %exitcond.not.i, label %.thread13, label %.lr.ph.i, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph.i
+.thread13:                                        ; preds = %.lr.ph.i
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
   %18 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %5, i64 noundef %4)
-          to label %._crit_edge15 unwind label %19
+          to label %.thread13._crit_edge unwind label %19
 
-._crit_edge15:                                    ; preds = %.loopexit
-  %.pre = sext i32 %.sroa.speculated.i to i64
+.thread13._crit_edge:                             ; preds = %.thread13
+  %.pre = zext nneg i32 %.sroa.speculated.i to i64
   br label %30
 
-19:                                               ; preds = %10, %.sink.split, %.loopexit
+19:                                               ; preds = %10, %.thread, %.thread13
   %20 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   resume { ptr, i32 } %20
 
-.sink.split.sink.split:                           ; preds = %.noexc, %.lr.ph
-  %21 = trunc i64 %.sroa.05.013 to i32
-  %22 = load i8, ptr %.sroa.5.014, align 1
+.thread.sink.split:                               ; preds = %.noexc, %.lr.ph
+  %21 = trunc i64 %.sroa.05.017 to i32
+  %22 = load i8, ptr %.sroa.5.018, align 1
   %23 = lshr i8 %22, 4
   %24 = zext nneg i8 %23 to i64
   %25 = getelementptr inbounds nuw [17 x i8], ptr @.str.16, i64 0, i64 %24
@@ -2393,18 +2393,18 @@ define void @_ZNK13sentencepiece10normalizer13PrefixMatcher13GlobalReplaceB5cxx1
   %27 = sext i8 %26 to i32
   %.011.in.sroa.speculate.load..sroa.speculated.i = call i32 @llvm.smin.i32(i32 %27, i32 %21)
   %28 = sext i32 %.011.in.sroa.speculate.load..sroa.speculated.i to i64
-  br label %.sink.split
+  br label %.thread
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %.preheader.i
-  %.011.in.sroa.speculated.i11.ph = phi i64 [ 0, %.preheader.i ], [ %28, %.sink.split.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %.preheader.i
+  %.011.in.sroa.speculated.i11 = phi i64 [ 0, %.preheader.i ], [ %28, %.thread.sink.split ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.5.014, i64 noundef %.011.in.sroa.speculated.i11.ph)
+  %29 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %.sroa.5.018, i64 noundef %.011.in.sroa.speculated.i11)
           to label %30 unwind label %19
 
-30:                                               ; preds = %._crit_edge15, %.sink.split
-  %.pre-phi = phi i64 [ %.pre, %._crit_edge15 ], [ %.011.in.sroa.speculated.i11.ph, %.sink.split ]
-  %31 = getelementptr inbounds i8, ptr %.sroa.5.014, i64 %.pre-phi
-  %32 = sub i64 %.sroa.05.013, %.pre-phi
+30:                                               ; preds = %.thread13._crit_edge, %.thread
+  %.pre-phi = phi i64 [ %.pre, %.thread13._crit_edge ], [ %.011.in.sroa.speculated.i11, %.thread ]
+  %31 = getelementptr inbounds i8, ptr %.sroa.5.018, i64 %.pre-phi
+  %32 = sub i64 %.sroa.05.017, %.pre-phi
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
@@ -4759,14 +4759,14 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder5flushEj(ptr noundef non
   store i32 %54, ptr %52, align 4
   br label %206
 
-..preheader88_crit_edge:                          ; preds = %_ZN5Darts7Details11DawgBuilder11append_unitEv.exit
+.preheader88:                                     ; preds = %_ZN5Darts7Details11DawgBuilder11append_unitEv.exit
   %55 = load i64, ptr %15, align 8
   %56 = trunc i64 %55 to i32
   %57 = add i32 %56, -1
   br label %.lr.ph113.preheader
 
-.lr.ph113.preheader:                              ; preds = %.preheader89, %..preheader88_crit_edge
-  %.030.lcssa = phi i32 [ %57, %..preheader88_crit_edge ], [ 0, %.preheader89 ]
+.lr.ph113.preheader:                              ; preds = %.preheader88, %.preheader89
+  %.030.lcssa143 = phi i32 [ %57, %.preheader88 ], [ 0, %.preheader89 ]
   %.pre = load ptr, ptr %0, align 8
   br label %.lr.ph113
 
@@ -5075,12 +5075,12 @@ _ZN5Darts7Details11DawgBuilder11append_unitEv.exit: ; preds = %159, %.loopexit.i
   store i64 %165, ptr %21, align 8
   %166 = add nuw i32 %.029105, 1
   %exitcond.not = icmp eq i32 %.029105, %.0104
-  br i1 %exitcond.not, label %..preheader88_crit_edge, label %.lr.ph106, !llvm.loop !56
+  br i1 %exitcond.not, label %.preheader88, label %.lr.ph106, !llvm.loop !56
 
 .lr.ph113:                                        ; preds = %.lr.ph113.preheader, %_ZNK5Darts7Details8DawgNode4unitEv.exit
   %167 = phi ptr [ %197, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.pre, %.lr.ph113.preheader ]
   %.028112 = phi i32 [ %199, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %28, %.lr.ph113.preheader ]
-  %.1111 = phi i32 [ %196, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.030.lcssa, %.lr.ph113.preheader ]
+  %.1111 = phi i32 [ %196, %_ZNK5Darts7Details8DawgNode4unitEv.exit ], [ %.030.lcssa143, %.lr.ph113.preheader ]
   %168 = zext i32 %.028112 to i64
   %169 = getelementptr inbounds nuw %"class.Darts::Details::DawgNode", ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
@@ -6021,7 +6021,7 @@ define linkonce_odr void @_ZN5Darts7Details18DoubleArrayBuilder12expand_unitsEv(
 
 .lr.ph8.i:                                        ; preds = %21, %.lr.ph8.i
   %24 = phi i64 [ %28, %.lr.ph8.i ], [ %22, %21 ]
-  %25 = add nuw i64 %24, 1
+  %25 = add nuw nsw i64 %24, 1
   store i64 %25, ptr %3, align 8
   %26 = load ptr, ptr %2, align 8
   %27 = getelementptr inbounds %"class.Darts::Details::DoubleArrayBuilderUnit", ptr %26, i64 %24

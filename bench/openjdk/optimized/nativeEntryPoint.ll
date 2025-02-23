@@ -384,12 +384,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit60:        ; preds = %_ZN10JNIHandles7res
   %96 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %94, ptr %96, align 8
   %97 = icmp sgt i32 %90, 0
-  br i1 %97, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI9VMStorageEC2Ei.exit.thread
-
-_ZN13GrowableArrayI9VMStorageEC2Ei.exit.thread:   ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit60
-  %98 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 0, ptr %98, align 8
-  br label %._crit_edge
+  br i1 %97, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI9VMStorageEC2Ei.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit60
   %wide.trip.count.i.i = zext nneg i32 %90 to i64
@@ -397,25 +392,30 @@ _ZN13GrowableArrayI9VMStorageEC2Ei.exit.thread:   ; preds = %_ZN10JNIHandles7res
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %99 = getelementptr inbounds nuw %class.VMStorage, ptr %94, i64 %indvars.iv.i.i
-  store i8 -1, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
-  store i16 0, ptr %100, align 2
-  %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
-  store i32 0, ptr %101, align 4
+  %98 = getelementptr inbounds nuw %class.VMStorage, ptr %94, i64 %indvars.iv.i.i
+  store i8 -1, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 2
+  store i16 0, ptr %99, align 2
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
+  store i32 0, ptr %100, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI9VMStorageEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i, !llvm.loop !8
 
-_ZN13GrowableArrayI9VMStorageEC2Ei.exit:          ; preds = %.lr.ph.i.i
+_ZN13GrowableArrayI9VMStorageEC2Ei.exit:          ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit60
+  %101 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 0, ptr %101, align 8
+  br label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i
   %102 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %102, align 8
   %wide.trip.count = zext nneg i32 %90 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN13GrowableArrayI9VMStorageEC2Ei.exit, %141
-  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit ], [ %indvars.iv.next, %141 ]
-  %.051105 = phi i32 [ 0, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit ], [ %.1, %141 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %141
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %141 ]
+  %.051105 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %141 ]
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   %104 = call noundef ptr @_ZN27java_lang_invoke_MethodType5ptypeEP7oopDesci(ptr noundef %.0.i, i32 noundef %103) #6
   %105 = call noundef zeroext i8 @_ZN15java_lang_Class12as_BasicTypeEP7oopDescPP5Klass(ptr noundef %104, ptr noundef null) #6
@@ -487,8 +487,8 @@ _ZN26GrowableArrayWithAllocatorI9VMStorage13GrowableArrayIS0_EE4pushERKS0_.exit:
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %141, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit.thread
-  %142 = phi ptr [ %98, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit.thread ], [ %102, %141 ]
+._crit_edge:                                      ; preds = %141, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit
+  %142 = phi ptr [ %101, %_ZN13GrowableArrayI9VMStorageEC2Ei.exit ], [ %102, %141 ]
   %143 = load i8, ptr @UseCompressedClassPointers, align 1
   %144 = trunc i8 %143 to i1
   %145 = select i1 %144, i64 12, i64 16

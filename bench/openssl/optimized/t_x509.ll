@@ -1102,7 +1102,7 @@ declare i32 @X509_check_issued(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @X509_cmp_current_time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef returned %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %0, 0
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -1125,17 +1125,17 @@ define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef %0, ptr noundef %
   %16 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.42, ptr noundef nonnull %12, i32 noundef %13, i32 noundef %6, ptr noundef %15) #4
   %17 = tail call ptr @X509_STORE_CTX_get0_store(ptr noundef nonnull %1) #4
   %18 = tail call ptr @X509_STORE_get0_param(ptr noundef %17) #4
-  switch i32 %6, label %41 [
+  switch i32 %6, label %44 [
     i32 62, label %19
-    i32 63, label %29
-    i32 64, label %33
+    i32 63, label %32
+    i32 64, label %36
   ]
 
 19:                                               ; preds = %10
   %20 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.45) #4
   %21 = tail call ptr @X509_VERIFY_PARAM_get0_host(ptr noundef %18, i32 noundef 0) #4
   %.not7073 = icmp eq ptr %21, null
-  br i1 %.not7073, label %._crit_edge, label %.lr.ph
+  br i1 %.not7073, label %.thread75, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %.lr.ph
   %22 = phi ptr [ %27, %.lr.ph ], [ %21, %19 ]
@@ -1146,84 +1146,86 @@ define noundef i32 @X509_STORE_CTX_print_verify_cb(i32 noundef %0, ptr noundef %
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.46, ptr noundef nonnull %25, ptr noundef nonnull %22) #4
   %27 = tail call ptr @X509_VERIFY_PARAM_get0_host(ptr noundef %18, i32 noundef %23) #4
   %.not70 = icmp eq ptr %27, null
-  br i1 %.not70, label %._crit_edge, label %.lr.ph, !llvm.loop !57
+  br i1 %.not70, label %.thread75, label %.lr.ph, !llvm.loop !57
 
-._crit_edge:                                      ; preds = %.lr.ph, %19
+.thread75:                                        ; preds = %.lr.ph, %19
   %28 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.7) #4
-  br label %41
+  %29 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
+  %30 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
+  %31 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %8, ptr noundef %30, i64 noundef 256)
+  br label %57
 
-29:                                               ; preds = %10
-  %30 = tail call ptr @X509_VERIFY_PARAM_get0_email(ptr noundef %18) #4
-  %.not69 = icmp eq ptr %30, null
-  br i1 %.not69, label %.thread, label %31
+32:                                               ; preds = %10
+  %33 = tail call ptr @X509_VERIFY_PARAM_get0_email(ptr noundef %18) #4
+  %.not69 = icmp eq ptr %33, null
+  br i1 %.not69, label %.thread, label %34
 
-31:                                               ; preds = %29
-  %32 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.47, ptr noundef nonnull %30) #4
+34:                                               ; preds = %32
+  %35 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.47, ptr noundef nonnull %33) #4
   br label %.thread
 
-33:                                               ; preds = %10
-  %34 = tail call ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef %18) #4
-  %.not68 = icmp eq ptr %34, null
-  br i1 %.not68, label %37, label %35
+36:                                               ; preds = %10
+  %37 = tail call ptr @X509_VERIFY_PARAM_get1_ip_asc(ptr noundef %18) #4
+  %.not68 = icmp eq ptr %37, null
+  br i1 %.not68, label %40, label %38
 
-35:                                               ; preds = %33
-  %36 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.48, ptr noundef nonnull %34) #4
-  br label %37
+38:                                               ; preds = %36
+  %39 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.48, ptr noundef nonnull %37) #4
+  br label %40
 
-37:                                               ; preds = %35, %33
-  tail call void @CRYPTO_free(ptr noundef %34, ptr noundef nonnull @.str, i32 noundef 477) #4
+40:                                               ; preds = %38, %36
+  tail call void @CRYPTO_free(ptr noundef %37, ptr noundef nonnull @.str, i32 noundef 477) #4
   br label %.thread
 
-.thread:                                          ; preds = %29, %31, %37
-  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
-  %39 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
-  %40 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %8, ptr noundef %39, i64 noundef 256)
-  br label %54
+.thread:                                          ; preds = %32, %34, %40
+  %41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
+  %42 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
+  %43 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %8, ptr noundef %42, i64 noundef 256)
+  br label %57
 
-41:                                               ; preds = %10, %._crit_edge
-  %42 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
-  %43 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
-  %44 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %8, ptr noundef %43, i64 noundef 256)
-  switch i32 %6, label %54 [
-    i32 70, label %45
-    i32 33, label %45
-    i32 27, label %45
-    i32 20, label %45
-    i32 19, label %45
-    i32 18, label %45
-    i32 2, label %45
+44:                                               ; preds = %10
+  %45 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.49) #4
+  %46 = tail call ptr @X509_STORE_CTX_get_current_cert(ptr noundef nonnull %1) #4
+  %47 = tail call i32 @ossl_x509_print_ex_brief(ptr noundef nonnull %8, ptr noundef %46, i64 noundef 256)
+  switch i32 %6, label %57 [
+    i32 70, label %48
+    i32 33, label %48
+    i32 27, label %48
+    i32 20, label %48
+    i32 19, label %48
+    i32 18, label %48
+    i32 2, label %48
   ]
 
-45:                                               ; preds = %41, %41, %41, %41, %41, %41, %41
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.50) #4
-  %47 = tail call ptr @X509_STORE_CTX_get0_untrusted(ptr noundef nonnull %1) #4
-  tail call fastcc void @print_certs(ptr noundef %8, ptr noundef %47)
-  %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.51) #4
-  %49 = tail call ptr @X509_STORE_CTX_get0_store(ptr noundef nonnull %1) #4
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %52, label %50
+48:                                               ; preds = %44, %44, %44, %44, %44, %44, %44
+  %49 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.50) #4
+  %50 = tail call ptr @X509_STORE_CTX_get0_untrusted(ptr noundef nonnull %1) #4
+  tail call fastcc void @print_certs(ptr noundef %8, ptr noundef %50)
+  %51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.51) #4
+  %52 = tail call ptr @X509_STORE_CTX_get0_store(ptr noundef nonnull %1) #4
+  %.not.i = icmp eq ptr %52, null
+  br i1 %.not.i, label %55, label %53
 
-50:                                               ; preds = %45
-  %51 = tail call ptr @X509_STORE_get1_all_certs(ptr noundef nonnull %49) #4
-  tail call fastcc void @print_certs(ptr noundef nonnull %8, ptr noundef %51)
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %51, ptr noundef nonnull @X509_free) #4
-  br label %54
+53:                                               ; preds = %48
+  %54 = tail call ptr @X509_STORE_get1_all_certs(ptr noundef nonnull %52) #4
+  tail call fastcc void @print_certs(ptr noundef nonnull %8, ptr noundef %54)
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %54, ptr noundef nonnull @X509_free) #4
+  br label %57
 
-52:                                               ; preds = %45
-  %53 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.60) #4
-  br label %54
+55:                                               ; preds = %48
+  %56 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %8, ptr noundef nonnull @.str.60) #4
+  br label %57
 
-54:                                               ; preds = %41, %.thread, %50, %52
+57:                                               ; preds = %.thread75, %44, %.thread, %53, %55
   tail call void @ERR_new() #4
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 499, ptr noundef nonnull @__func__.X509_STORE_CTX_print_verify_cb) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 139, ptr noundef null) #4
   tail call void @ERR_add_error_mem_bio(ptr noundef nonnull @.str.7, ptr noundef nonnull %8) #4
-  %55 = tail call i32 @BIO_free(ptr noundef nonnull %8) #4
+  %58 = tail call i32 @BIO_free(ptr noundef nonnull %8) #4
   br label %.thread71
 
-.thread71:                                        ; preds = %2, %54, %5
-  %.1 = phi i32 [ 0, %5 ], [ 0, %54 ], [ %0, %2 ]
-  ret i32 %.1
+.thread71:                                        ; preds = %2, %57, %5
+  ret i32 %0
 }
 
 declare i32 @X509_STORE_CTX_get_error(ptr noundef) local_unnamed_addr #1

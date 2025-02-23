@@ -23154,7 +23154,7 @@ _Py_NewRef.exit.i75:                              ; preds = %407, %402
 413:                                              ; preds = %._crit_edge499.i
   %414 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %415 = load ptr, ptr %414, align 8, !tbaa !312
-  tail call fastcc void @missing_arguments(ptr noundef %0, ptr noundef %49, i64 noundef %spec.select344.i, i64 noundef %383, ptr noundef nonnull %32, ptr noundef %415)
+  tail call fastcc void @missing_arguments(ptr noundef %0, ptr noundef nonnull %49, i64 noundef %spec.select344.i, i64 noundef %383, ptr noundef nonnull %32, ptr noundef %415)
   br label %.loopexit81
 
 .thread400.i:                                     ; preds = %410, %392, %._crit_edge499.thread.i, %374

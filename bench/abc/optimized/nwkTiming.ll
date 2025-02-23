@@ -1558,7 +1558,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #4 {
   %10 = load i32, ptr %5, align 8, !tbaa !56
   %11 = tail call i32 @Nwk_ManGetFaninMax(ptr noundef nonnull %0) #12
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %10, i32 noundef %11)
-  br label %82
+  br label %81
 
 .critedge52:                                      ; preds = %1
   %13 = tail call i32 @Nwk_ManLevelMax(ptr noundef nonnull %0) #12
@@ -1638,58 +1638,57 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %54, label %.lr.ph62, label %._crit_edge
 
 .lr.ph62:                                         ; preds = %.critedge
-  %55 = select i1 %.not, ptr @.str.8, ptr @.str.7
-  %56 = getelementptr i8, ptr %0, i64 52
+  %55 = getelementptr i8, ptr %0, i64 52
   br i1 %.not, label %.lr.ph62.split.us, label %.lr.ph62.split
 
 .lr.ph62.split.us:                                ; preds = %.lr.ph62, %.lr.ph62.split.us
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
-  %.04460.us = phi i32 [ %59, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
-  %57 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv68
-  %58 = load i32, ptr %57, align 4, !tbaa !34
-  %59 = add nsw i32 %58, %.04460.us
+  %.04460.us = phi i32 [ %58, %.lr.ph62.split.us ], [ 0, %.lr.ph62 ]
+  %56 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv68
+  %57 = load i32, ptr %56, align 4, !tbaa !34
+  %58 = add nsw i32 %57, %.04460.us
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %60 = sitofp i32 %59 to double
-  %61 = fmul double %60, 1.000000e+02
-  %.val57.us = load i32, ptr %56, align 4, !tbaa !34
-  %62 = sitofp i32 %.val57.us to double
-  %63 = fdiv double %61, %62
-  %64 = trunc nuw nsw i64 %indvars.iv.next69 to i32
-  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %64, ptr noundef nonnull %55, i32 noundef %59, double noundef %63)
-  %66 = uitofp nneg i32 %64 to float
-  %67 = fcmp ogt float %16, %66
-  br i1 %67, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !66
+  %59 = sitofp i32 %58 to double
+  %60 = fmul double %59, 1.000000e+02
+  %.val57.us = load i32, ptr %55, align 4, !tbaa !34
+  %61 = sitofp i32 %.val57.us to double
+  %62 = fdiv double %60, %61
+  %63 = trunc nuw nsw i64 %indvars.iv.next69 to i32
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %63, ptr noundef nonnull @.str.8, i32 noundef %58, double noundef %62)
+  %65 = uitofp nneg i32 %63 to float
+  %66 = fcmp ogt float %16, %65
+  br i1 %66, label %.lr.ph62.split.us, label %._crit_edge.thread, !llvm.loop !66
 
 .lr.ph62.split:                                   ; preds = %.lr.ph62, %.lr.ph62.split
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
-  %.04460 = phi i32 [ %70, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
-  %68 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv65
-  %69 = load i32, ptr %68, align 4, !tbaa !34
-  %70 = add nsw i32 %69, %.04460
-  %71 = trunc nuw nsw i64 %indvars.iv65 to i32
-  %72 = mul i32 %71, 5
-  %73 = add i32 %72, 5
+  %.04460 = phi i32 [ %69, %.lr.ph62.split ], [ 0, %.lr.ph62 ]
+  %67 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv65
+  %68 = load i32, ptr %67, align 4, !tbaa !34
+  %69 = add nsw i32 %68, %.04460
+  %70 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %71 = mul i32 %70, 5
+  %72 = add i32 %71, 5
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
-  %74 = sitofp i32 %70 to double
-  %75 = fmul double %74, 1.000000e+02
-  %.val57 = load i32, ptr %56, align 4, !tbaa !34
-  %76 = sitofp i32 %.val57 to double
-  %77 = fdiv double %75, %76
-  %78 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %73, ptr noundef nonnull %55, i32 noundef %70, double noundef %77)
-  %79 = trunc nuw i64 %indvars.iv.next66 to i32
-  %80 = uitofp nneg i32 %79 to float
-  %81 = fcmp ogt float %16, %80
-  br i1 %81, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !66
+  %73 = sitofp i32 %69 to double
+  %74 = fmul double %73, 1.000000e+02
+  %.val57 = load i32, ptr %55, align 4, !tbaa !34
+  %75 = sitofp i32 %.val57 to double
+  %76 = fdiv double %74, %75
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %72, ptr noundef nonnull @.str.7, i32 noundef %69, double noundef %76)
+  %78 = trunc nuw i64 %indvars.iv.next66 to i32
+  %79 = uitofp nneg i32 %78 to float
+  %80 = fcmp ogt float %16, %79
+  br i1 %80, label %.lr.ph62.split, label %._crit_edge.thread, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %.critedge
   %.not49 = icmp eq ptr %20, null
-  br i1 %.not49, label %82, label %._crit_edge.thread
+  br i1 %.not49, label %81, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph62.split, %.lr.ph62.split.us, %._crit_edge
   tail call void @free(ptr noundef nonnull %20) #12
-  br label %82
+  br label %81
 
-82:                                               ; preds = %._crit_edge.thread, %._crit_edge, %9
+81:                                               ; preds = %._crit_edge.thread, %._crit_edge, %9
   ret void
 }
 

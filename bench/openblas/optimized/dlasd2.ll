@@ -200,7 +200,6 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %exitcond, label %._crit_edge506, label %.lr.ph505, !llvm.loop !12
 
 ._crit_edge506:                                   ; preds = %.lr.ph505, %._crit_edge501
-  store i32 %63, ptr %24, align 4, !tbaa !3
   %.not473507 = icmp sgt i32 %79, %63
   br i1 %.not473507, label %._crit_edge516, label %.lr.ph510.preheader
 
@@ -219,6 +218,7 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %exitcond596, label %.lr.ph515.preheader, label %.lr.ph510, !llvm.loop !13
 
 .lr.ph515.preheader:                              ; preds = %.lr.ph510
+  store i32 %63, ptr %24, align 4, !tbaa !3
   %115 = sext i32 %79 to i64
   %116 = add i32 %62, 2
   br label %.lr.ph515
@@ -607,9 +607,9 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %314, ptr %309, align 4, !tbaa !3
   %indvars.iv.next631 = add nuw nsw i64 %indvars.iv630, 1
   %exitcond634.not = icmp eq i64 %indvars.iv.next631, %wide.trip.count633
-  br i1 %exitcond634.not, label %._crit_edge560, label %.lr.ph559, !llvm.loop !18
+  br i1 %exitcond634.not, label %.lr.ph570.preheader, label %.lr.ph559, !llvm.loop !18
 
-._crit_edge560:                                   ; preds = %.lr.ph559
+.lr.ph570.preheader:                              ; preds = %.lr.ph559
   store i32 %283, ptr %24, align 4, !tbaa !3
   %invariant.gep563 = getelementptr i8, ptr %36, i64 8
   %invariant.gep565 = getelementptr i8, ptr %43, i64 8
@@ -618,8 +618,8 @@ define void @dlasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %invariant.gep672 = getelementptr double, ptr %46, i64 %316
   br label %.lr.ph570
 
-.lr.ph570:                                        ; preds = %._crit_edge560, %.lr.ph570
-  %indvars.iv635 = phi i64 [ 2, %._crit_edge560 ], [ %indvars.iv.next636, %.lr.ph570 ]
+.lr.ph570:                                        ; preds = %.lr.ph570.preheader, %.lr.ph570
+  %indvars.iv635 = phi i64 [ 2, %.lr.ph570.preheader ], [ %indvars.iv.next636, %.lr.ph570 ]
   %317 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv635
   %318 = load i32, ptr %317, align 4, !tbaa !3
   %319 = sext i32 %318 to i64

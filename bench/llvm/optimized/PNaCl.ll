@@ -190,8 +190,8 @@ define dso_local void @_ZNK12PNaClABIInfo18classifyReturnTypeEN5clang8QualTypeE(
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 16
   %13 = icmp eq i8 %12, 13
-  %.not.not7.i.i = icmp ne ptr %10, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %13
+  %.not7.i.i = icmp ne ptr %10, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %13
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %3

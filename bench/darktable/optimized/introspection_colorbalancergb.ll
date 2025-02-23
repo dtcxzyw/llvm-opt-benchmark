@@ -4855,7 +4855,7 @@ _clip_chroma_black.exit.i.i:                      ; preds = %_clip_chroma_black.
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
   %175 = fcmp reassoc nsz arcp contract afn ogt float %..i.i, 0x3FC99999A0000000
   %176 = select reassoc nsz arcp contract afn i1 %175, float 0x3FC99999A0000000, float %..i.i
-  call fastcc void @_YchToRGB(ptr noundef %4, float noundef %176, float noundef %136, ptr noundef readonly %.1)
+  call fastcc void @_YchToRGB(ptr noundef %4, float noundef %176, float noundef %136, ptr noundef nonnull readonly %.1)
   %177 = load ptr, ptr %101, align 8, !tbaa !198
   %178 = load float, ptr %4, align 16, !tbaa !64
   %179 = load float, ptr %102, align 4, !tbaa !64
@@ -4881,22 +4881,22 @@ paint_hue_sliders.exit:                           ; preds = %_clip_chroma_black.
   %186 = load ptr, ptr %185, align 8, !tbaa !199
   %187 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %188 = load float, ptr %187, align 4, !tbaa !178
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %186, float noundef %188)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %186, float noundef %188)
   %189 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %190 = load ptr, ptr %189, align 8, !tbaa !201
   %191 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %192 = load float, ptr %191, align 4, !tbaa !180
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %190, float noundef %192)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %190, float noundef %192)
   %193 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %194 = load ptr, ptr %193, align 8, !tbaa !203
   %195 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %196 = load float, ptr %195, align 4, !tbaa !186
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %194, float noundef %196)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %194, float noundef %196)
   %197 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %198 = load ptr, ptr %197, align 8, !tbaa !205
   %199 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %200 = load float, ptr %199, align 4, !tbaa !183
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %198, float noundef %200)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %198, float noundef %200)
   br label %244
 
 201:                                              ; preds = %paint_hue_sliders.exit
@@ -4911,7 +4911,7 @@ paint_hue_sliders.exit:                           ; preds = %_clip_chroma_black.
   %207 = load ptr, ptr %206, align 8, !tbaa !199
   %208 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %209 = load float, ptr %208, align 4, !tbaa !178
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %207, float noundef %209)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %207, float noundef %209)
   br label %.thread68
 
 .thread68:                                        ; preds = %201, %205
@@ -4925,7 +4925,7 @@ paint_hue_sliders.exit:                           ; preds = %_clip_chroma_black.
   %214 = load ptr, ptr %213, align 8, !tbaa !201
   %215 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %216 = load float, ptr %215, align 4, !tbaa !180
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %214, float noundef %216)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %214, float noundef %216)
   br label %.thread70
 
 .thread70:                                        ; preds = %.thread68, %212
@@ -4940,7 +4940,7 @@ paint_hue_sliders.exit:                           ; preds = %_clip_chroma_black.
   %222 = load ptr, ptr %221, align 8, !tbaa !203
   %223 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %224 = load float, ptr %223, align 4, !tbaa !186
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %222, float noundef %224)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %222, float noundef %224)
   br label %.thread72
 
 .thread72:                                        ; preds = %.thread70, %220
@@ -4955,7 +4955,7 @@ paint_hue_sliders.exit:                           ; preds = %_clip_chroma_black.
   %230 = load ptr, ptr %229, align 8, !tbaa !205
   %231 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %232 = load float, ptr %231, align 4, !tbaa !183
-  call fastcc void @paint_chroma_slider(ptr noundef %.1, ptr noundef %10, ptr noundef %230, float noundef %232)
+  call fastcc void @paint_chroma_slider(ptr noundef nonnull %.1, ptr noundef %10, ptr noundef %230, float noundef %232)
   br label %.thread74
 
 .thread74:                                        ; preds = %.thread72, %228

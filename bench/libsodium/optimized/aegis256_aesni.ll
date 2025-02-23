@@ -471,10 +471,10 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   br i1 %98, label %.preheader, label %.preheader145
 
 .preheader145:                                    ; preds = %97
-  br i1 %.not67206, label %.loopexit146, label %.lr.ph197
+  br i1 %.not67206, label %.loopexit.thread, label %.lr.ph197
 
 .preheader:                                       ; preds = %97
-  br i1 %.not67206, label %.loopexit.thread, label %.lr.ph214
+  br i1 %.not67206, label %.loopexit, label %.lr.ph214
 
 .lr.ph214:                                        ; preds = %.preheader, %.lr.ph214
   %99 = phi i64 [ %114, %.lr.ph214 ], [ 16, %.preheader ]
@@ -530,9 +530,21 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %128 = xor <2 x i64> %127, %121
   %129 = add i64 %115, 16
   %.not66 = icmp ugt i64 %129, %2
-  br i1 %.not66, label %.loopexit146, label %.lr.ph197, !llvm.loop !25
+  br i1 %.not66, label %.loopexit.thread, label %.lr.ph197, !llvm.loop !25
 
-.loopexit146:                                     ; preds = %.lr.ph197, %.preheader145
+.loopexit:                                        ; preds = %.lr.ph214, %.preheader
+  %.sroa.105.4 = phi <2 x i64> [ %.sroa.105.2, %.preheader ], [ %107, %.lr.ph214 ]
+  %.sroa.83.4 = phi <2 x i64> [ %.sroa.83.2, %.preheader ], [ %108, %.lr.ph214 ]
+  %.sroa.61.4 = phi <2 x i64> [ %.sroa.61.2, %.preheader ], [ %109, %.lr.ph214 ]
+  %.sroa.40.4 = phi <2 x i64> [ %.sroa.40.2, %.preheader ], [ %110, %.lr.ph214 ]
+  %.sroa.19.4 = phi <2 x i64> [ %.sroa.19.2, %.preheader ], [ %111, %.lr.ph214 ]
+  %.sroa.0.4 = phi <2 x i64> [ %.sroa.0.2, %.preheader ], [ %113, %.lr.ph214 ]
+  %.3 = phi i64 [ 0, %.preheader ], [ %99, %.lr.ph214 ]
+  %130 = and i64 %2, 15
+  %.not68 = icmp eq i64 %130, 0
+  br i1 %.not68, label %171, label %132
+
+.loopexit.thread:                                 ; preds = %.lr.ph197, %.preheader145
   %.lcssa188 = phi <2 x i64> [ undef, %.preheader145 ], [ %121, %.lr.ph197 ]
   %.sroa.105.5.lcssa = phi <2 x i64> [ %.sroa.105.2, %.preheader145 ], [ %122, %.lr.ph197 ]
   %.sroa.83.5.lcssa = phi <2 x i64> [ %.sroa.83.2, %.preheader145 ], [ %123, %.lr.ph197 ]
@@ -542,165 +554,140 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   %.sroa.0.5.lcssa = phi <2 x i64> [ %.sroa.0.2, %.preheader145 ], [ %128, %.lr.ph197 ]
   %.4.lcssa = phi i64 [ 0, %.preheader145 ], [ %115, %.lr.ph197 ]
   store <2 x i64> %.lcssa188, ptr %13, align 16
-  br label %.loopexit
+  %131 = and i64 %2, 15
+  %.not68269 = icmp eq i64 %131, 0
+  br i1 %.not68269, label %171, label %.thread
 
-.loopexit:                                        ; preds = %.lr.ph214, %.loopexit146
-  %.sroa.105.4 = phi <2 x i64> [ %.sroa.105.5.lcssa, %.loopexit146 ], [ %107, %.lr.ph214 ]
-  %.sroa.83.4 = phi <2 x i64> [ %.sroa.83.5.lcssa, %.loopexit146 ], [ %108, %.lr.ph214 ]
-  %.sroa.61.4 = phi <2 x i64> [ %.sroa.61.5.lcssa, %.loopexit146 ], [ %109, %.lr.ph214 ]
-  %.sroa.40.4 = phi <2 x i64> [ %.sroa.40.5.lcssa, %.loopexit146 ], [ %110, %.lr.ph214 ]
-  %.sroa.19.4 = phi <2 x i64> [ %.sroa.19.5.lcssa, %.loopexit146 ], [ %111, %.lr.ph214 ]
-  %.sroa.0.4 = phi <2 x i64> [ %.sroa.0.5.lcssa, %.loopexit146 ], [ %113, %.lr.ph214 ]
-  %.3 = phi i64 [ %.4.lcssa, %.loopexit146 ], [ %99, %.lr.ph214 ]
-  %130 = and i64 %2, 15
-  %.not68 = icmp eq i64 %130, 0
-  br i1 %.not68, label %172, label %131
-
-.loopexit.thread:                                 ; preds = %.preheader
-  %.not68269 = icmp eq i64 %2, 0
-  br i1 %.not68269, label %172, label %.thread
-
-131:                                              ; preds = %.loopexit
-  br i1 %98, label %.thread, label %152
-
-.thread:                                          ; preds = %.loopexit.thread, %131
-  %.sroa.105.4270290 = phi <2 x i64> [ %.sroa.105.4, %131 ], [ %.sroa.105.2, %.loopexit.thread ]
-  %.sroa.83.4271289 = phi <2 x i64> [ %.sroa.83.4, %131 ], [ %.sroa.83.2, %.loopexit.thread ]
-  %.sroa.61.4272288 = phi <2 x i64> [ %.sroa.61.4, %131 ], [ %.sroa.61.2, %.loopexit.thread ]
-  %.sroa.40.4273287 = phi <2 x i64> [ %.sroa.40.4, %131 ], [ %.sroa.40.2, %.loopexit.thread ]
-  %.sroa.19.4274286 = phi <2 x i64> [ %.sroa.19.4, %131 ], [ %.sroa.19.2, %.loopexit.thread ]
-  %.sroa.0.4275285 = phi <2 x i64> [ %.sroa.0.4, %131 ], [ %.sroa.0.2, %.loopexit.thread ]
-  %.3276284 = phi i64 [ %.3, %131 ], [ 0, %.loopexit.thread ]
-  %132 = phi i64 [ %130, %131 ], [ %2, %.loopexit.thread ]
-  %133 = getelementptr i8, ptr %0, i64 %.3276284
-  %134 = getelementptr i8, ptr %1, i64 %.3276284
+132:                                              ; preds = %.loopexit
+  %133 = getelementptr i8, ptr %0, i64 %.3
+  %134 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
-  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %134, i64 noundef range(i64 1, 16) %132, i64 noundef 16) #8, !alias.scope !26
+  %135 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %134, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !26
   %136 = load <2 x i64>, ptr %11, align 16
-  %137 = and <2 x i64> %.sroa.40.4273287, %.sroa.61.4272288
+  %137 = and <2 x i64> %.sroa.40.4, %.sroa.61.4
   %138 = xor <2 x i64> %137, %136
-  %139 = xor <2 x i64> %138, %.sroa.105.4270290
-  %140 = xor <2 x i64> %139, %.sroa.83.4271289
-  %141 = xor <2 x i64> %140, %.sroa.19.4274286
+  %139 = xor <2 x i64> %138, %.sroa.105.4
+  %140 = xor <2 x i64> %139, %.sroa.83.4
+  %141 = xor <2 x i64> %140, %.sroa.19.4
   store <2 x i64> %141, ptr %11, align 16
-  %142 = getelementptr i8, ptr %11, i64 %132
-  %143 = sub nuw nsw i64 16, %132
+  %142 = getelementptr i8, ptr %11, i64 %130
+  %143 = sub nuw nsw i64 16, %130
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %142, i8 noundef 0, i64 noundef %143, i1 noundef false) #8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %133, ptr noundef nonnull align 16 %11, i64 noundef range(i64 1, 16) %132, i1 noundef false) #8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %133, ptr noundef nonnull align 16 %11, i64 noundef range(i64 1, 16) %130, i1 noundef false) #8
   %144 = load <2 x i64>, ptr %11, align 16
-  %145 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.4271289, <2 x i64> %.sroa.105.4270290)
-  %146 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.4272288, <2 x i64> %.sroa.83.4271289)
-  %147 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.40.4273287, <2 x i64> %.sroa.61.4272288)
-  %148 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.19.4274286, <2 x i64> %.sroa.40.4273287)
-  %149 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.4275285, <2 x i64> %.sroa.19.4274286)
-  %150 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.4270290, <2 x i64> %.sroa.0.4275285)
+  %145 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.4, <2 x i64> %.sroa.105.4)
+  %146 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.4, <2 x i64> %.sroa.83.4)
+  %147 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.40.4, <2 x i64> %.sroa.61.4)
+  %148 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.19.4, <2 x i64> %.sroa.40.4)
+  %149 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.4, <2 x i64> %.sroa.19.4)
+  %150 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.4, <2 x i64> %.sroa.0.4)
   %151 = xor <2 x i64> %150, %144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #8
-  br label %172
+  br label %171
 
-152:                                              ; preds = %131
-  %153 = getelementptr i8, ptr %1, i64 %.3
+.thread:                                          ; preds = %.loopexit.thread
+  %152 = getelementptr i8, ptr %1, i64 %.4.lcssa
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 noundef 0, i64 noundef 16, i1 noundef false) #8
-  %154 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %153, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !30
-  %155 = load <2 x i64>, ptr %10, align 16
-  %156 = and <2 x i64> %.sroa.40.4, %.sroa.61.4
-  %157 = xor <2 x i64> %156, %155
-  %158 = xor <2 x i64> %157, %.sroa.105.4
-  %159 = xor <2 x i64> %158, %.sroa.83.4
-  %160 = xor <2 x i64> %159, %.sroa.19.4
-  store <2 x i64> %160, ptr %10, align 16
-  %161 = getelementptr i8, ptr %10, i64 %130
-  %162 = sub nuw nsw i64 16, %130
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %161, i8 noundef 0, i64 noundef %162, i1 noundef false) #8
-  %163 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 16) %130, i64 noundef 16) #8, !alias.scope !34
-  %164 = load <2 x i64>, ptr %10, align 16
-  %165 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.4, <2 x i64> %.sroa.105.4)
-  %166 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.4, <2 x i64> %.sroa.83.4)
-  %167 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.40.4, <2 x i64> %.sroa.61.4)
-  %168 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.19.4, <2 x i64> %.sroa.40.4)
-  %169 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.4, <2 x i64> %.sroa.19.4)
-  %170 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.4, <2 x i64> %.sroa.0.4)
-  %171 = xor <2 x i64> %170, %164
+  %153 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %152, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !30
+  %154 = load <2 x i64>, ptr %10, align 16
+  %155 = and <2 x i64> %.sroa.40.5.lcssa, %.sroa.61.5.lcssa
+  %156 = xor <2 x i64> %155, %154
+  %157 = xor <2 x i64> %156, %.sroa.105.5.lcssa
+  %158 = xor <2 x i64> %157, %.sroa.83.5.lcssa
+  %159 = xor <2 x i64> %158, %.sroa.19.5.lcssa
+  store <2 x i64> %159, ptr %10, align 16
+  %160 = getelementptr i8, ptr %10, i64 %131
+  %161 = sub nuw nsw i64 16, %131
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %160, i8 noundef 0, i64 noundef %161, i1 noundef false) #8
+  %162 = call ptr @__memcpy_chk(ptr noundef nonnull %13, ptr noundef nonnull %10, i64 noundef range(i64 1, 16) %131, i64 noundef 16) #8, !alias.scope !34
+  %163 = load <2 x i64>, ptr %10, align 16
+  %164 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.83.5.lcssa, <2 x i64> %.sroa.105.5.lcssa)
+  %165 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.61.5.lcssa, <2 x i64> %.sroa.83.5.lcssa)
+  %166 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.40.5.lcssa, <2 x i64> %.sroa.61.5.lcssa)
+  %167 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.19.5.lcssa, <2 x i64> %.sroa.40.5.lcssa)
+  %168 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.0.5.lcssa, <2 x i64> %.sroa.19.5.lcssa)
+  %169 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %.sroa.105.5.lcssa, <2 x i64> %.sroa.0.5.lcssa)
+  %170 = xor <2 x i64> %169, %163
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #8
-  br label %172
+  br label %171
 
-172:                                              ; preds = %.loopexit.thread, %.thread, %152, %.loopexit
-  %.sroa.105.6 = phi <2 x i64> [ %.sroa.105.4, %.loopexit ], [ %145, %.thread ], [ %165, %152 ], [ %.sroa.105.2, %.loopexit.thread ]
-  %.sroa.83.6 = phi <2 x i64> [ %.sroa.83.4, %.loopexit ], [ %146, %.thread ], [ %166, %152 ], [ %.sroa.83.2, %.loopexit.thread ]
-  %.sroa.61.6 = phi <2 x i64> [ %.sroa.61.4, %.loopexit ], [ %147, %.thread ], [ %167, %152 ], [ %.sroa.61.2, %.loopexit.thread ]
-  %.sroa.40.6 = phi <2 x i64> [ %.sroa.40.4, %.loopexit ], [ %148, %.thread ], [ %168, %152 ], [ %.sroa.40.2, %.loopexit.thread ]
-  %.sroa.19.6 = phi <2 x i64> [ %.sroa.19.4, %.loopexit ], [ %149, %.thread ], [ %169, %152 ], [ %.sroa.19.2, %.loopexit.thread ]
-  %.sroa.0.6 = phi <2 x i64> [ %.sroa.0.4, %.loopexit ], [ %151, %.thread ], [ %171, %152 ], [ %.sroa.0.2, %.loopexit.thread ]
-  %173 = shl i64 %2, 3
-  %174 = shl i64 %6, 3
-  %175 = insertelement <2 x i64> poison, i64 %174, i64 0
-  %176 = insertelement <2 x i64> %175, i64 %173, i64 1
-  %invariant.op = xor <2 x i64> %176, %.sroa.61.6
-  br label %177
+171:                                              ; preds = %.loopexit.thread, %132, %.thread, %.loopexit
+  %.sroa.105.6 = phi <2 x i64> [ %.sroa.105.4, %.loopexit ], [ %145, %132 ], [ %164, %.thread ], [ %.sroa.105.5.lcssa, %.loopexit.thread ]
+  %.sroa.83.6 = phi <2 x i64> [ %.sroa.83.4, %.loopexit ], [ %146, %132 ], [ %165, %.thread ], [ %.sroa.83.5.lcssa, %.loopexit.thread ]
+  %.sroa.61.6 = phi <2 x i64> [ %.sroa.61.4, %.loopexit ], [ %147, %132 ], [ %166, %.thread ], [ %.sroa.61.5.lcssa, %.loopexit.thread ]
+  %.sroa.40.6 = phi <2 x i64> [ %.sroa.40.4, %.loopexit ], [ %148, %132 ], [ %167, %.thread ], [ %.sroa.40.5.lcssa, %.loopexit.thread ]
+  %.sroa.19.6 = phi <2 x i64> [ %.sroa.19.4, %.loopexit ], [ %149, %132 ], [ %168, %.thread ], [ %.sroa.19.5.lcssa, %.loopexit.thread ]
+  %.sroa.0.6 = phi <2 x i64> [ %.sroa.0.4, %.loopexit ], [ %151, %132 ], [ %170, %.thread ], [ %.sroa.0.5.lcssa, %.loopexit.thread ]
+  %172 = shl i64 %2, 3
+  %173 = shl i64 %6, 3
+  %174 = insertelement <2 x i64> poison, i64 %173, i64 0
+  %175 = insertelement <2 x i64> %174, i64 %172, i64 1
+  %invariant.op = xor <2 x i64> %175, %.sroa.61.6
+  br label %176
 
-177:                                              ; preds = %177, %172
-  %.044.i = phi i32 [ 0, %172 ], [ %190, %177 ]
-  %178 = phi <2 x i64> [ %.sroa.105.6, %172 ], [ %184, %177 ]
-  %179 = phi <2 x i64> [ %.sroa.83.6, %172 ], [ %185, %177 ]
-  %180 = phi <2 x i64> [ %.sroa.61.6, %172 ], [ %186, %177 ]
-  %181 = phi <2 x i64> [ %.sroa.40.6, %172 ], [ %187, %177 ]
-  %182 = phi <2 x i64> [ %.sroa.19.6, %172 ], [ %188, %177 ]
-  %183 = phi <2 x i64> [ %.sroa.0.6, %172 ], [ %.reass.i.reass.reass, %177 ]
+176:                                              ; preds = %176, %171
+  %.044.i = phi i32 [ 0, %171 ], [ %189, %176 ]
+  %177 = phi <2 x i64> [ %.sroa.105.6, %171 ], [ %183, %176 ]
+  %178 = phi <2 x i64> [ %.sroa.83.6, %171 ], [ %184, %176 ]
+  %179 = phi <2 x i64> [ %.sroa.61.6, %171 ], [ %185, %176 ]
+  %180 = phi <2 x i64> [ %.sroa.40.6, %171 ], [ %186, %176 ]
+  %181 = phi <2 x i64> [ %.sroa.19.6, %171 ], [ %187, %176 ]
+  %182 = phi <2 x i64> [ %.sroa.0.6, %171 ], [ %.reass.i.reass.reass, %176 ]
+  %183 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %178, <2 x i64> %177)
   %184 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %179, <2 x i64> %178)
   %185 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %180, <2 x i64> %179)
   %186 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %181, <2 x i64> %180)
   %187 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %182, <2 x i64> %181)
-  %188 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %183, <2 x i64> %182)
-  %189 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %178, <2 x i64> %183)
-  %.reass.i.reass.reass = xor <2 x i64> %189, %invariant.op
-  %190 = add nuw nsw i32 %.044.i, 1
-  %exitcond.not.i78 = icmp eq i32 %190, 7
-  br i1 %exitcond.not.i78, label %191, label %177, !llvm.loop !17
+  %188 = call <2 x i64> @llvm.x86.aesni.aesenc(<2 x i64> %177, <2 x i64> %182)
+  %.reass.i.reass.reass = xor <2 x i64> %188, %invariant.op
+  %189 = add nuw nsw i32 %.044.i, 1
+  %exitcond.not.i78 = icmp eq i32 %189, 7
+  br i1 %exitcond.not.i78, label %190, label %176, !llvm.loop !17
 
-191:                                              ; preds = %177
+190:                                              ; preds = %176
   switch i64 %4, label %aegis256_mac.exit [
-    i64 16, label %193
-    i64 32, label %200
+    i64 16, label %192
+    i64 32, label %199
   ]
 
-aegis256_mac.exit:                                ; preds = %191
-  %192 = call ptr @__memset_chk(ptr noundef nonnull %14, i32 noundef 0, i64 noundef %4, i64 noundef 32) #8
-  br label %207
+aegis256_mac.exit:                                ; preds = %190
+  %191 = call ptr @__memset_chk(ptr noundef nonnull %14, i32 noundef 0, i64 noundef %4, i64 noundef 32) #8
+  br label %206
 
-193:                                              ; preds = %191
-  %194 = xor <2 x i64> %185, %184
+192:                                              ; preds = %190
+  %193 = xor <2 x i64> %184, %183
+  %194 = xor <2 x i64> %193, %185
   %195 = xor <2 x i64> %194, %186
   %196 = xor <2 x i64> %195, %187
-  %197 = xor <2 x i64> %196, %188
-  %198 = xor <2 x i64> %197, %.reass.i.reass.reass
-  store <2 x i64> %198, ptr %14, align 16
-  %199 = call i32 @crypto_verify_16(ptr noundef nonnull %14, ptr noundef %3) #8
-  br label %207
+  %197 = xor <2 x i64> %196, %.reass.i.reass.reass
+  store <2 x i64> %197, ptr %14, align 16
+  %198 = call i32 @crypto_verify_16(ptr noundef nonnull %14, ptr noundef %3) #8
+  br label %206
 
-200:                                              ; preds = %191
-  %201 = xor <2 x i64> %188, %187
-  %202 = xor <2 x i64> %201, %.reass.i.reass.reass
-  store <2 x i64> %202, ptr %14, align 16
-  %203 = xor <2 x i64> %185, %184
-  %204 = xor <2 x i64> %203, %186
-  %205 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store <2 x i64> %204, ptr %205, align 16
-  %206 = call i32 @crypto_verify_32(ptr noundef nonnull %14, ptr noundef %3) #8
-  br label %207
+199:                                              ; preds = %190
+  %200 = xor <2 x i64> %187, %186
+  %201 = xor <2 x i64> %200, %.reass.i.reass.reass
+  store <2 x i64> %201, ptr %14, align 16
+  %202 = xor <2 x i64> %184, %183
+  %203 = xor <2 x i64> %202, %185
+  %204 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store <2 x i64> %203, ptr %204, align 16
+  %205 = call i32 @crypto_verify_32(ptr noundef nonnull %14, ptr noundef %3) #8
+  br label %206
 
-207:                                              ; preds = %aegis256_mac.exit, %193, %200
-  %.0 = phi i32 [ %199, %193 ], [ %206, %200 ], [ -1, %aegis256_mac.exit ]
-  %208 = icmp ne i32 %.0, 0
-  %or.cond = and i1 %98, %208
-  br i1 %or.cond, label %209, label %210
+206:                                              ; preds = %aegis256_mac.exit, %192, %199
+  %.0 = phi i32 [ %198, %192 ], [ %205, %199 ], [ -1, %aegis256_mac.exit ]
+  %207 = icmp ne i32 %.0, 0
+  %or.cond = and i1 %98, %207
+  br i1 %or.cond, label %208, label %209
 
-209:                                              ; preds = %207
+208:                                              ; preds = %206
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %0, i8 noundef 0, i64 noundef %2, i1 noundef false) #8
-  br label %210
+  br label %209
 
-210:                                              ; preds = %209, %207
+209:                                              ; preds = %208, %206
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #8

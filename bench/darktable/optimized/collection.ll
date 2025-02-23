@@ -6587,7 +6587,7 @@ _property_is_collection_criterion.exit:           ; preds = %11
 _property_is_collection_criterion.exit.thread:    ; preds = %2, %_property_is_collection_criterion.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %15, align 8, !tbaa !18
-  %16 = call fastcc i32 @_dt_collection_compute_count(ptr noundef %0, i32 noundef 1)
+  %16 = call fastcc i32 @_dt_collection_compute_count(ptr noundef nonnull %0, i32 noundef 1)
   store i32 %16, ptr %4, align 4, !tbaa !19
   br label %17
 

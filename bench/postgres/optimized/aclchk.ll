@@ -5549,7 +5549,7 @@ merge_acl_with_grant.exit.thread:                 ; preds = %.lr.ph.i, %39, %mer
 merge_acl_with_grant.exit.thread53:               ; preds = %35, %merge_acl_with_grant.exit.thread, %merge_acl_with_grant.exit
   %.052 = phi ptr [ %.051, %merge_acl_with_grant.exit.thread ], [ null, %merge_acl_with_grant.exit ], [ null, %35 ]
   %59 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  call void @CatalogTupleDelete(ptr noundef %13, ptr noundef nonnull %59) #9
+  call void @CatalogTupleDelete(ptr noundef nonnull %13, ptr noundef nonnull %59) #9
   br label %67
 
 60:                                               ; preds = %merge_acl_with_grant.exit.thread
@@ -5567,7 +5567,7 @@ merge_acl_with_grant.exit.thread53:               ; preds = %35, %merge_acl_with
   %64 = load ptr, ptr %23, align 8
   %65 = call ptr @heap_modify_tuple(ptr noundef nonnull %20, ptr noundef %64, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #9
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %13, ptr noundef nonnull %66, ptr noundef %65) #9
+  call void @CatalogTupleUpdate(ptr noundef nonnull %13, ptr noundef nonnull %66, ptr noundef %65) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %12) #9
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %11) #9
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #9

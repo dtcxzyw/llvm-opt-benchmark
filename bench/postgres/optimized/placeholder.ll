@@ -431,7 +431,7 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
   %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #5
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void @add_vars_to_targetlist(ptr noundef %0, ptr noundef %15, ptr noundef %17) #5
+  tail call void @add_vars_to_targetlist(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #5
   tail call void @list_free(ptr noundef %15) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %4, align 4
@@ -475,7 +475,7 @@ define dso_local void @rebuild_placeholder_attr_needed(ptr noundef %0) local_unn
   %15 = tail call ptr @pull_var_clause(ptr noundef %14, i32 noundef 26) #5
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %17 = load ptr, ptr %16, align 8
-  tail call void @add_vars_to_attr_needed(ptr noundef %0, ptr noundef %15, ptr noundef %17) #5
+  tail call void @add_vars_to_attr_needed(ptr noundef nonnull %0, ptr noundef %15, ptr noundef %17) #5
   tail call void @list_free(ptr noundef %15) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %4, align 4

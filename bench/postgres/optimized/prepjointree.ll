@@ -920,7 +920,7 @@ pull_up_simple_union_all.exit:                    ; preds = %.lr.ph137, %.prehea
   tail call void @CombineRangeTables(ptr noundef nonnull %119, ptr noundef nonnull %120, ptr noundef %103, ptr noundef %122) #7
   %123 = getelementptr inbounds nuw i8, ptr %93, i64 248
   %124 = load ptr, ptr %123, align 8
-  tail call fastcc void @pull_up_union_leaf_queries(ptr noundef %124, ptr noundef nonnull %0, i32 noundef %92, ptr noundef %93, i32 noundef %100)
+  tail call fastcc void @pull_up_union_leaf_queries(ptr noundef %124, ptr noundef nonnull %0, i32 noundef %92, ptr noundef nonnull %93, i32 noundef %100)
   %125 = getelementptr inbounds nuw i8, ptr %24, i64 32
   store i8 1, ptr %125, align 8
   br label %common.ret145
@@ -1045,7 +1045,7 @@ pull_up_simple_values.exit:                       ; preds = %._crit_edge.i, %166
   %182 = tail call ptr @palloc0(i64 noundef %181) #7
   %183 = getelementptr inbounds nuw i8, ptr %8, i64 56
   store ptr %182, ptr %183, align 8
-  call fastcc void @perform_pullup_replace_vars(ptr noundef %0, ptr noundef %8, ptr noundef null)
+  call fastcc void @perform_pullup_replace_vars(ptr noundef nonnull %0, ptr noundef %8, ptr noundef null)
   %184 = call noundef ptr @palloc0(i64 noundef 224) #7
   store i32 101, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24

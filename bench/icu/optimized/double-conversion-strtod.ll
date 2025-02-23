@@ -246,8 +246,8 @@ while.end.loopexit.i51.i:                         ; preds = %while.body.i40.i
 
 _ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit52.i: ; preds = %while.end.loopexit.i51.i, %if.then22.i
   %result.0.lcssa.i38.i = phi double [ 0.000000e+00, %if.then22.i ], [ %13, %while.end.loopexit.i51.i ]
-  %idxprom26.i = sext i32 %sub17.i to i64
-  %arrayidx27.i = getelementptr inbounds [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom26.i
+  %idxprom26.i = zext nneg i32 %sub17.i to i64
+  %arrayidx27.i = getelementptr inbounds nuw [23 x double], ptr @_ZN6icu_7517double_conversionL19exact_powers_of_tenE, i64 0, i64 %idxprom26.i
   %14 = load double, ptr %arrayidx27.i, align 8
   %mul28.i = fmul double %result.0.lcssa.i38.i, %14
   %idxprom30.i = sext i32 %sub20.i to i64
@@ -297,8 +297,8 @@ _ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i: ; preds 
   br i1 %cmp.i.i11, label %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, label %_ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i
 
 _ZN6icu_7517double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: ; preds = %_ZN6icu_7517double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %idxprom.i.i.i = sext i32 %i.0.lcssa.i.i.i to i64
-  %arrayidx.i.i.i12 = getelementptr inbounds i8, ptr %trimmed.coerce0, i64 %idxprom.i.i.i
+  %idxprom.i.i.i = zext nneg i32 %i.0.lcssa.i.i.i to i64
+  %arrayidx.i.i.i12 = getelementptr inbounds nuw i8, ptr %trimmed.coerce0, i64 %idxprom.i.i.i
   %20 = load i8, ptr %arrayidx.i.i.i12, align 1
   %cmp3.i.i = icmp sgt i8 %20, 52
   %inc.i.i = zext i1 %cmp3.i.i to i64

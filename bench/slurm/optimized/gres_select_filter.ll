@@ -776,13 +776,13 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   %wide.trip.count.i = and i64 %90, 2147483647
   br label %.lr.ph.i
 
-.preheader1.i:                                    ; preds = %.lr.ph.i
+.lr.ph7.split.us.preheader.i:                     ; preds = %.lr.ph.i
   %104 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %105 = getelementptr inbounds nuw i8, ptr %73, i64 72
   br label %.lr.ph7.split.us.i
 
-.lr.ph7.split.us.i:                               ; preds = %..loopexit_crit_edge.us.i, %.preheader1.i
-  %indvars.iv19.i = phi i64 [ 0, %.preheader1.i ], [ %indvars.iv.next20.i, %..loopexit_crit_edge.us.i ]
+.lr.ph7.split.us.i:                               ; preds = %..loopexit_crit_edge.us.i, %.lr.ph7.split.us.preheader.i
+  %indvars.iv19.i = phi i64 [ 0, %.lr.ph7.split.us.preheader.i ], [ %indvars.iv.next20.i, %..loopexit_crit_edge.us.i ]
   %106 = load ptr, ptr %81, align 8
   %107 = getelementptr inbounds ptr, ptr %106, i64 %84
   %108 = load ptr, ptr %107, align 8
@@ -830,7 +830,7 @@ define dso_local i32 @gres_select_filter_select_and_set(ptr noundef readonly cap
   store i32 %125, ptr %124, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader1.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.lr.ph7.split.us.preheader.i, label %.lr.ph.i, !llvm.loop !20
 
 ._crit_edge.i:                                    ; preds = %..loopexit_crit_edge.us.i, %99
   store ptr %101, ptr @sorting_links_cnt, align 8
@@ -2606,7 +2606,7 @@ _get_task_cnt_node.exit:                          ; preds = %_get_task_cnt_node.
   br label %43
 
 43:                                               ; preds = %41, %_get_task_cnt_node.exit
-  call fastcc void @_pick_shared_gres(ptr noundef %11, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %0, i1 noundef zeroext %16, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %3, i32 noundef %2, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %10)
+  call fastcc void @_pick_shared_gres(ptr noundef %11, ptr noundef nonnull %5, ptr noundef nonnull %1, i32 noundef %0, i1 noundef zeroext %16, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %3, i32 noundef %2, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %10)
   %44 = load i64, ptr %11, align 8
   %.not83 = icmp eq i64 %44, 0
   br i1 %.not83, label %47, label %45
@@ -3302,21 +3302,21 @@ _get_task_cnt_node.exit.thread:                   ; preds = %.preheader.i
   %52 = add i32 %51, %.0811.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_get_task_cnt_node.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %exitcond.not.i, label %.lr.ph95, label %.lr.ph.i, !llvm.loop !42
 
-_get_task_cnt_node.exit:                          ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %54 = load i64, ptr %53, align 8
-  %55 = zext i32 %52 to i64
-  %56 = mul i64 %54, %55
+.lr.ph95:                                         ; preds = %.lr.ph.i
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  %55 = load i64, ptr %54, align 8
+  %56 = mul i64 %55, %53
   %57 = zext i32 %4 to i64
   %58 = sub i64 %56, %57
   %wide.trip.count108 = zext nneg i32 %46 to i64
   br label %59
 
-59:                                               ; preds = %_get_task_cnt_node.exit, %70
-  %indvars.iv105 = phi i64 [ 0, %_get_task_cnt_node.exit ], [ %indvars.iv.next106, %70 ]
-  %.094 = phi i64 [ %58, %_get_task_cnt_node.exit ], [ %.1, %70 ]
+59:                                               ; preds = %.lr.ph95, %70
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next106, %70 ]
+  %.094 = phi i64 [ %58, %.lr.ph95 ], [ %.1, %70 ]
   %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv105
   %61 = load i32, ptr %60, align 4
   %.not74 = icmp eq i32 %61, 0
@@ -3324,7 +3324,7 @@ _get_task_cnt_node.exit:                          ; preds = %.lr.ph.i
 
 62:                                               ; preds = %59
   %63 = zext i32 %61 to i64
-  %64 = load i64, ptr %53, align 8
+  %64 = load i64, ptr %54, align 8
   %65 = mul i64 %64, %63
   %.0. = tail call i64 @llvm.umin.i64(i64 %.094, i64 %65)
   %66 = trunc i64 %.0. to i32
@@ -3340,7 +3340,7 @@ _get_task_cnt_node.exit:                          ; preds = %.lr.ph.i
   br i1 %exitcond109.not, label %._crit_edge, label %59, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %70, %_get_task_cnt_node.exit.thread
-  %71 = phi ptr [ %47, %_get_task_cnt_node.exit.thread ], [ %53, %70 ]
+  %71 = phi ptr [ %47, %_get_task_cnt_node.exit.thread ], [ %54, %70 ]
   %.0.lcssa = phi i64 [ %49, %_get_task_cnt_node.exit.thread ], [ %.1, %70 ]
   %.not71 = icmp eq i64 %.0.lcssa, 0
   br i1 %.not71, label %.thread, label %72

@@ -244,13 +244,13 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
   br i1 %.not.i.i, label %.split.us.split.us, label %.split.us.split
 
 .split.us.split.us:                               ; preds = %.split.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us
-  %.014.us.us = phi i16 [ %48, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us ], [ 0, %.split.us ]
+  %.013.us.us = phi i16 [ %48, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us ], [ 0, %.split.us ]
   br label %.lr.ph.i.i.i.us.us
 
 .lr.ph.i.i.i.us.us:                               ; preds = %.lr.ph.i.i.i.us.us, %.split.us.split.us
   %10 = phi i32 [ %21, %.lr.ph.i.i.i.us.us ], [ 1, %.split.us.split.us ]
   %11 = phi i32 [ %19, %.lr.ph.i.i.i.us.us ], [ 128, %.split.us.split.us ]
-  %.024.i.i.i.us.us = phi i16 [ %.1.i.i.i.us.us, %.lr.ph.i.i.i.us.us ], [ %.014.us.us, %.split.us.split.us ]
+  %.024.i.i.i.us.us = phi i16 [ %.1.i.i.i.us.us, %.lr.ph.i.i.i.us.us ], [ %.013.us.us, %.split.us.split.us ]
   %.01723.i.i.i.us.us = phi i32 [ %20, %.lr.ph.i.i.i.us.us ], [ 1, %.split.us.split.us ]
   %12 = or i32 %.01723.i.i.i.us.us, %11
   %13 = trunc i32 %12 to i16
@@ -287,7 +287,7 @@ define linkonce_odr void @_ZN5boost6detail31make_partial_xor_products_tableILi8E
 .lr.ph.i.i9.us.us:                                ; preds = %.lr.ph.i.us.us, %.lr.ph.i.i9.us.us
   %33 = phi i32 [ %44, %.lr.ph.i.i9.us.us ], [ 1, %.lr.ph.i.us.us ]
   %34 = phi i32 [ %42, %.lr.ph.i.i9.us.us ], [ 128, %.lr.ph.i.us.us ]
-  %.024.i.i.us.us = phi i16 [ %.1.i.i11.us.us, %.lr.ph.i.i9.us.us ], [ %.014.us.us, %.lr.ph.i.us.us ]
+  %.024.i.i.us.us = phi i16 [ %.1.i.i11.us.us, %.lr.ph.i.i9.us.us ], [ %.013.us.us, %.lr.ph.i.us.us ]
   %.01723.i.i.us.us = phi i32 [ %43, %.lr.ph.i.i9.us.us ], [ 1, %.lr.ph.i.us.us ]
   %35 = or i32 %.01723.i.i.us.us, %34
   %36 = trunc i32 %35 to i16
@@ -308,18 +308,18 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %
   %46 = zext i16 %.1.i.i11.us.us to i64
   %47 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %46
   store i32 %30, ptr %47, align 4, !tbaa !16
-  %48 = add nuw nsw i16 %.014.us.us, 1
-  %exitcond23.not = icmp eq i16 %48, 256
-  br i1 %exitcond23.not, label %.split16.us, label %.split.us.split.us, !llvm.loop !21
+  %48 = add nuw nsw i16 %.013.us.us, 1
+  %exitcond22.not = icmp eq i16 %48, 256
+  br i1 %exitcond22.not, label %.split15.us, label %.split.us.split.us, !llvm.loop !21
 
 .split.us.split:                                  ; preds = %.split.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us
-  %.014.us = phi i16 [ %95, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us ], [ 0, %.split.us ]
+  %.013.us = phi i16 [ %95, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us ], [ 0, %.split.us ]
   br label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us, %.split.us.split
   %49 = phi i32 [ %60, %.lr.ph.i.i.i.us ], [ 1, %.split.us.split ]
   %50 = phi i32 [ %58, %.lr.ph.i.i.i.us ], [ 128, %.split.us.split ]
-  %.024.i.i.i.us = phi i16 [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.014.us, %.split.us.split ]
+  %.024.i.i.i.us = phi i16 [ %.1.i.i.i.us, %.lr.ph.i.i.i.us ], [ %.013.us, %.split.us.split ]
   %.01723.i.i.i.us = phi i32 [ %59, %.lr.ph.i.i.i.us ], [ 1, %.split.us.split ]
   %51 = or i32 %.01723.i.i.i.us, %50
   %52 = trunc i32 %51 to i16
@@ -373,7 +373,7 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us: ; preds = %
 .lr.ph.i.i9.us:                                   ; preds = %.lr.ph.i.i.us, %.lr.ph.i.i9.us
   %80 = phi i32 [ %91, %.lr.ph.i.i9.us ], [ 1, %.lr.ph.i.i.us ]
   %81 = phi i32 [ %89, %.lr.ph.i.i9.us ], [ 128, %.lr.ph.i.i.us ]
-  %.024.i.i.us = phi i16 [ %.1.i.i11.us, %.lr.ph.i.i9.us ], [ %.014.us, %.lr.ph.i.i.us ]
+  %.024.i.i.us = phi i16 [ %.1.i.i11.us, %.lr.ph.i.i9.us ], [ %.013.us, %.lr.ph.i.i.us ]
   %.01723.i.i.us = phi i32 [ %90, %.lr.ph.i.i9.us ], [ 1, %.lr.ph.i.i.us ]
   %82 = or i32 %.01723.i.i.us, %81
   %83 = trunc i32 %82 to i16
@@ -394,11 +394,11 @@ _ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us: ; preds = %.lr
   %93 = zext i16 %.1.i.i11.us to i64
   %94 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 0, i64 %93
   store i32 %.1.i.i.us, ptr %94, align 4, !tbaa !16
-  %95 = add nuw nsw i16 %.014.us, 1
-  %exitcond22.not = icmp eq i16 %95, 256
-  br i1 %exitcond22.not, label %.split16.us, label %.split.us.split, !llvm.loop !21
+  %95 = add nuw nsw i16 %.013.us, 1
+  %exitcond21.not = icmp eq i16 %95, 256
+  br i1 %exitcond21.not, label %.split15.us, label %.split.us.split, !llvm.loop !21
 
-.split16.us:                                      ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us
+.split15.us:                                      ; preds = %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us, %_ZN5boost6detail18reflect_optionallyItEET_S2_bi.exit.loopexit.us.us
   ret void
 
 .split:                                           ; preds = %4, %_ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit
@@ -449,7 +449,7 @@ _ZN5boost6detail22crc_modulo_word_updateIjtEEviRT_T0_S2_ib.exit: ; preds = %.lr.
   store i32 %117, ptr %120, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  br i1 %exitcond.not, label %.split16.us, label %.split, !llvm.loop !21
+  br i1 %exitcond.not, label %.split15.us, label %.split, !llvm.loop !21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

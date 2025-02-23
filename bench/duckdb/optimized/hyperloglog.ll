@@ -859,7 +859,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit223:               ; preds = %163, %167, %170, %1
   br i1 %or.cond5, label %191, label %._crit_edge308
 
 191:                                              ; preds = %188
-  %192 = getelementptr inbounds i8, ptr %spec.store.select, i64 %190
+  %192 = getelementptr inbounds i8, ptr %53, i64 %190
   %193 = ptrtoint ptr %.ptr291 to i64
   %194 = ptrtoint ptr %spec.store.select to i64
   %195 = sub i64 %193, %194

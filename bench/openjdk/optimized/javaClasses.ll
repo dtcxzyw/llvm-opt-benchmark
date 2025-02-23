@@ -6775,7 +6775,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %56, %58
   %78 = load ptr, ptr %72, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 176
   %80 = load ptr, ptr %79, align 8
-  call void %80(ptr noundef nonnull align 8 dereferenceable(464) %72, ptr noundef %1) #19
+  call void %80(ptr noundef nonnull align 8 dereferenceable(464) %72, ptr noundef nonnull %1) #19
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %82 = load ptr, ptr %81, align 8
   %.not = icmp eq ptr %82, null
@@ -6783,7 +6783,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %56, %58
 
 83:                                               ; preds = %77, %71
   %84 = load i32, ptr %62, align 8
-  %85 = call ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaThread(ptr noundef nonnull %72, i32 noundef %84, ptr noundef %1) #19
+  %85 = call ptr @_ZN10oopFactory19new_objArray_handleEP5KlassiP10JavaThread(ptr noundef nonnull %72, i32 noundef %84, ptr noundef nonnull %1) #19
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not43 = icmp eq ptr %87, null

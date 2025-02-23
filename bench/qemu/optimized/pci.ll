@@ -6827,7 +6827,7 @@ vfio_std_cap_max_size.exit:                       ; preds = %3, %._crit_edge.loo
   br i1 %.not, label %32, label %30
 
 30:                                               ; preds = %vfio_std_cap_max_size.exit
-  %31 = call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef %0, i8 noundef zeroext %22, ptr noundef %spec.select)
+  %31 = call fastcc zeroext i1 @vfio_add_std_cap(ptr noundef nonnull %0, i8 noundef zeroext %22, ptr noundef nonnull %spec.select)
   br i1 %31, label %41, label %vfio_setup_pcie_cap.exit.thread
 
 32:                                               ; preds = %vfio_std_cap_max_size.exit
@@ -6841,7 +6841,7 @@ vfio_std_cap_max_size.exit:                       ; preds = %3, %._crit_edge.loo
   %38 = load i8, ptr %37, align 1
   %39 = or i8 %38, 16
   store i8 %39, ptr %37, align 1
-  %40 = call zeroext i1 @vfio_add_virt_caps(ptr noundef %0, ptr noundef %spec.select) #26
+  %40 = call zeroext i1 @vfio_add_virt_caps(ptr noundef nonnull %0, ptr noundef nonnull %spec.select) #26
   br i1 %40, label %41, label %vfio_setup_pcie_cap.exit.thread
 
 41:                                               ; preds = %32, %30
@@ -6907,7 +6907,7 @@ vfio_std_cap_max_size.exit93:                     ; preds = %41, %._crit_edge.lo
 63:                                               ; preds = %55
   %64 = tail call ptr @__errno_location() #28
   %65 = load i32, ptr %64, align 4
-  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1348, ptr noundef nonnull @__func__.vfio_msi_setup, i32 noundef %65, ptr noundef nonnull @.str.203) #26
+  call void (ptr, ptr, i32, ptr, i32, ptr, ...) @error_setg_errno_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1348, ptr noundef nonnull @__func__.vfio_msi_setup, i32 noundef %65, ptr noundef nonnull @.str.203) #26
   br label %vfio_setup_pcie_cap.exit
 
 66:                                               ; preds = %55
@@ -6969,7 +6969,7 @@ trace_vfio_msi_setup.exit.i:                      ; preds = %93, %87, %81, %79, 
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef %spec.select, ptr noundef %99, ptr noundef nonnull @.str.204) #26
+  call void (ptr, ptr, ptr, ...) @error_propagate_prepend(ptr noundef nonnull %spec.select, ptr noundef %99, ptr noundef nonnull @.str.204) #26
   br label %vfio_setup_pcie_cap.exit
 
 100:                                              ; preds = %trace_vfio_msi_setup.exit.i
@@ -7049,7 +7049,7 @@ vfio_check_pcie_flr.exit:                         ; preds = %105, %trace_vfio_ch
 
 135:                                              ; preds = %vfio_check_pcie_flr.exit
   %136 = zext nneg i16 %134 to i32
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1991, ptr noundef nonnull @__func__.vfio_setup_pcie_cap, ptr noundef nonnull @.str.209, i32 noundef %136) #26
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.11, i32 noundef 1991, ptr noundef nonnull @__func__.vfio_setup_pcie_cap, ptr noundef nonnull @.str.209, i32 noundef %136) #26
   br label %vfio_setup_pcie_cap.exit.thread115
 
 137:                                              ; preds = %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit, %vfio_check_pcie_flr.exit
@@ -7348,7 +7348,7 @@ vfio_pci_enable_rp_atomics.exit.i:                ; preds = %294, %290, %288, %2
   br label %313
 
 313:                                              ; preds = %300, %297
-  %314 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 16, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %314 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 16, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
   %315 = icmp slt i32 %314, 0
   br i1 %315, label %vfio_setup_pcie_cap.exit.thread115, label %316
 
@@ -7423,7 +7423,7 @@ vfio_msix_setup.exit.thread:                      ; preds = %354, %359, %355
   br label %vfio_setup_pcie_cap.exit.thread
 
 vfio_msix_setup.exit:                             ; preds = %351
-  call void @error_propagate(ptr noundef %spec.select, ptr noundef %353) #26
+  call void @error_propagate(ptr noundef nonnull %spec.select, ptr noundef %353) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #26
   br label %vfio_setup_pcie_cap.exit.thread115
 
@@ -7483,7 +7483,7 @@ trace_vfio_check_pm_reset.exit.i:                 ; preds = %384, %378, %372, %3
 vfio_check_pm_reset.exit:                         ; preds = %361, %trace_vfio_check_pm_reset.exit.i
   %386 = getelementptr inbounds nuw i8, ptr %0, i64 3748
   store i8 %1, ptr %386, align 4
-  %387 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %387 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 1, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
   %388 = icmp sgt i32 %387, -1
   br i1 %388, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
 
@@ -7541,12 +7541,12 @@ trace_vfio_check_af_flr.exit.i:                   ; preds = %412, %406, %400, %3
   br label %vfio_check_af_flr.exit
 
 vfio_check_af_flr.exit:                           ; preds = %389, %trace_vfio_check_af_flr.exit.i
-  %414 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %414 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
   %415 = icmp sgt i32 %414, -1
   br i1 %415, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
 
 416:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %417 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 9, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %417 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext 9, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
   %418 = icmp sgt i32 %417, -1
   br i1 %418, label %419, label %vfio_setup_pcie_cap.exit.thread115
 
@@ -7571,7 +7571,7 @@ vfio_check_af_flr.exit:                           ; preds = %389, %trace_vfio_ch
   br label %vfio_setup_pcie_cap.exit.thread
 
 433:                                              ; preds = %vfio_std_cap_max_size.exit93
-  %434 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext %19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef %spec.select) #26
+  %434 = call i32 @pci_add_capability(ptr noundef nonnull %0, i8 noundef zeroext %19, i8 noundef zeroext %1, i8 noundef zeroext %49, ptr noundef nonnull %spec.select) #26
   %435 = icmp sgt i32 %434, -1
   br i1 %435, label %vfio_setup_pcie_cap.exit.thread, label %vfio_setup_pcie_cap.exit.thread115
 
@@ -7587,7 +7587,7 @@ vfio_setup_pcie_cap.exit:                         ; preds = %98, %63
 
 vfio_setup_pcie_cap.exit.thread115:               ; preds = %416, %313, %135, %vfio_msix_setup.exit, %vfio_setup_pcie_cap.exit, %vfio_check_pm_reset.exit, %vfio_check_af_flr.exit, %433
   %436 = zext i8 %49 to i32
-  call void (ptr, ptr, ...) @error_prepend(ptr noundef %spec.select, ptr noundef nonnull @.str.202, i32 noundef %54, i32 noundef %436, i32 noundef %20) #26
+  call void (ptr, ptr, ...) @error_prepend(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.202, i32 noundef %54, i32 noundef %436, i32 noundef %20) #26
   br label %vfio_setup_pcie_cap.exit.thread
 
 vfio_setup_pcie_cap.exit.thread:                  ; preds = %424, %419, %156, %._crit_edge.i, %316, %vfio_msix_setup.exit.thread, %vfio_setup_pcie_cap.exit.thread119, %vfio_check_pm_reset.exit, %vfio_check_af_flr.exit, %433, %vfio_setup_pcie_cap.exit.thread115, %32, %30

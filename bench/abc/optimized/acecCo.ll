@@ -755,7 +755,7 @@ Vec_BitStart.exit:                                ; preds = %5, %18
   %wide.trip.count = zext nneg i32 %.val92 to i64
   br label %32
 
-.critedge.preheader:                              ; preds = %32
+.critedge.preheader211:                           ; preds = %32
   %28 = getelementptr i8, ptr %3, i64 8
   %29 = getelementptr i8, ptr %2, i64 8
   %30 = getelementptr i8, ptr %1, i64 8
@@ -782,13 +782,13 @@ Vec_BitStart.exit:                                ; preds = %5, %18
   store i32 %41, ptr %39, align 4, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %32, !llvm.loop !51
+  br i1 %exitcond.not, label %.critedge.preheader211, label %32, !llvm.loop !51
 
-.critedge:                                        ; preds = %.critedge.preheader, %.critedge2
-  %.val239 = phi i32 [ %.val, %.critedge2 ], [ %.val92, %.critedge.preheader ]
-  %42 = phi ptr [ %.pre.i235, %.critedge2 ], [ %8, %.critedge.preheader ]
-  %.079 = phi i32 [ %.281, %.critedge2 ], [ -1, %.critedge.preheader ]
-  %.076 = phi i32 [ %.278, %.critedge2 ], [ -1, %.critedge.preheader ]
+.critedge:                                        ; preds = %.critedge.preheader211, %.critedge2
+  %.val239 = phi i32 [ %.val, %.critedge2 ], [ %.val92, %.critedge.preheader211 ]
+  %42 = phi ptr [ %.pre.i235, %.critedge2 ], [ %8, %.critedge.preheader211 ]
+  %.079 = phi i32 [ %.281, %.critedge2 ], [ -1, %.critedge.preheader211 ]
+  %.076 = phi i32 [ %.278, %.critedge2 ], [ -1, %.critedge.preheader211 ]
   %43 = icmp sgt i32 %.val239, 0
   br i1 %43, label %.lr.ph203, label %.critedge2
 
@@ -2450,8 +2450,8 @@ Vec_BitStart.exit:                                ; preds = %3, %16
   %64 = load i32, ptr %63, align 4, !tbaa !32
   %65 = getelementptr i8, ptr %33, i64 16
   %66 = load i32, ptr %65, align 4, !tbaa !32
-  tail call void @Gia_PolynCoreCollect_rec(ptr noundef %0, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %14)
-  tail call void @Gia_PolynCoreCollect_rec(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %4, ptr noundef nonnull %14)
+  tail call void @Gia_PolynCoreCollect_rec(ptr noundef nonnull %0, i32 noundef %64, ptr noundef nonnull %4, ptr noundef nonnull %14)
+  tail call void @Gia_PolynCoreCollect_rec(ptr noundef nonnull %0, i32 noundef %66, ptr noundef nonnull %4, ptr noundef nonnull %14)
   %67 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %67, label %28, label %.critedge.loopexit, !llvm.loop !68
 

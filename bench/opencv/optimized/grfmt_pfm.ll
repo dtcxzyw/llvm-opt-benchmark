@@ -892,7 +892,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %39, %48
   br label %124
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %57
-  %83 = icmp sgt i64 %indvars.iv34, 1
+  %83 = icmp samesign ugt i64 %indvars.iv34, 1
   br i1 %83, label %39, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %22
@@ -1542,7 +1542,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %114
           to label %_ZNSt6vectorIfSaIfEED2Ev.exit unwind label %.loopexit
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %110, %144, %143, %148
-  %156 = icmp sgt i64 %indvars.iv61, 1
+  %156 = icmp samesign ugt i64 %indvars.iv61, 1
   br i1 %156, label %110, label %._crit_edge59, !llvm.loop !10
 
 ._crit_edge59:                                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %104

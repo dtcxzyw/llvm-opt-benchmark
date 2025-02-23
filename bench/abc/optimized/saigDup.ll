@@ -3474,7 +3474,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val85 = load ptr, ptr %15, align 8, !tbaa !29
   %58 = getelementptr inbounds nuw ptr, ptr %.val85, i64 %indvars.iv120
   %59 = load ptr, ptr %58, align 8, !tbaa !30
-  tail call void @Saig_ManDupCones_rec(ptr noundef %0, ptr noundef %59, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %12)
+  tail call void @Saig_ManDupCones_rec(ptr noundef nonnull %0, ptr noundef %59, ptr noundef nonnull %4, ptr noundef nonnull %8, ptr noundef nonnull %12)
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %.val80 = load i32, ptr %13, align 4, !tbaa !26
   %60 = sext i32 %.val80 to i64

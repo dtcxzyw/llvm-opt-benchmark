@@ -957,8 +957,8 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not39, label %._crit_edge48, label %24
 
 ._crit_edge48:                                    ; preds = %24
-  tail call fastcc void @_init_treeview(ptr noundef %0, i32 noundef 0)
-  tail call fastcc void @_raise_signal_tag_changed(ptr noundef %0)
+  tail call fastcc void @_init_treeview(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @_raise_signal_tag_changed(ptr noundef nonnull %0)
   tail call void @dt_image_synch_xmp(i32 noundef -1) #16
   br label %.critedge
 
@@ -3321,8 +3321,8 @@ define internal void @_event_dnd_received(ptr noundef %0, ptr noundef %1, i32 no
   %73 = getelementptr inbounds nuw i8, ptr %16, i64 1192
   %74 = load i32, ptr %73, align 8, !tbaa !36
   call fastcc void @_update_attached_count(i32 noundef %70, ptr noundef %72, i32 noundef %74)
-  call fastcc void @_init_treeview(ptr noundef %7, i32 noundef 0)
-  call fastcc void @_raise_signal_tag_changed(ptr noundef %7)
+  call fastcc void @_init_treeview(ptr noundef nonnull %7, i32 noundef 0)
+  call fastcc void @_raise_signal_tag_changed(ptr noundef nonnull %7)
   call void @dt_image_synch_xmp(i32 noundef -1) #16
   %75 = load ptr, ptr %12, align 8, !tbaa !113
   call void @gtk_tree_path_free(ptr noundef %75) #16
@@ -6331,12 +6331,12 @@ define internal void @_pop_menu_dictionary_delete_tag(ptr readnone captures(none
 
 _delete_tree_tag.exit:                            ; preds = %120, %129, %130
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
-  call fastcc void @_init_treeview(ptr noundef %1, i32 noundef 0)
+  call fastcc void @_init_treeview(ptr noundef nonnull %1, i32 noundef 0)
   call void @dt_image_synch_xmps(ptr noundef %105) #16
   call void @g_list_free(ptr noundef %105) #16
   %134 = load ptr, ptr %7, align 8, !tbaa !31
   call void @g_free(ptr noundef %134) #16
-  call fastcc void @_raise_signal_tag_changed(ptr noundef %1)
+  call fastcc void @_raise_signal_tag_changed(ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %135

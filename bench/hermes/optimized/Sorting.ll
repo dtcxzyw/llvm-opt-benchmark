@@ -73,7 +73,7 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp3, label %cleanup, label %if.else
 
 if.else:                                          ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit, %for.end
-  %i.028.i = add i32 %begin, 1
+  %i.028.i = add nuw i32 %begin, 1
   %cmp1.not29.i = icmp eq i32 %i.028.i, %end
   br i1 %cmp1.not29.i, label %if.then.i.i.i, label %for.cond2.preheader.i
 

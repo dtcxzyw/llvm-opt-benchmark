@@ -325,7 +325,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdge
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds float, ptr %.0.val, i64 %28
   %30 = icmp sgt i32 %2, 2
-  br i1 %30, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit
+  br i1 %30, label %.lr.ph.i.preheader, label %.thread
 
 .lr.ph.i.preheader:                               ; preds = %23
   %31 = load float, ptr %8, align 4
@@ -345,18 +345,19 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdge
   store float %26, ptr %37, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, label %.lr.ph.i, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !5
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit: ; preds = %.lr.ph.i, %23
+.thread:                                          ; preds = %.lr.ph.i, %23
   %38 = add nsw i32 %.1, %11
-  br label %39
+  br label %40
 
-39:                                               ; preds = %22, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, %6
-  %.0 = phi i32 [ %38, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit ], [ %.1, %22 ], [ 0, %6 ]
+39:                                               ; preds = %22, %6
+  %.0 = phi i32 [ %.1, %22 ], [ 0, %6 ]
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %64, label %40
 
-40:                                               ; preds = %39
+40:                                               ; preds = %.thread, %39
+  %.07 = phi i32 [ %38, %.thread ], [ %.0, %39 ]
   %41 = add nsw i32 %1, 1
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %43 = load i16, ptr %42, align 2
@@ -365,7 +366,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %7, i32 noundef %45, ptr noundef nonnull %9)
   %46 = load float, ptr %9, align 4
   %47 = fadd float %4, %46
-  %48 = mul nsw i32 %.0, %.8.val
+  %48 = mul nsw i32 %.07, %.8.val
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds float, ptr %.0.val, i64 %49
   %51 = icmp sgt i32 %12, 0
@@ -397,7 +398,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT
   br i1 %exitcond.not.i54, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, label %.lr.ph.i53, !llvm.loop !7
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit: ; preds = %.lr.ph.i53, %40
-  %63 = add nsw i32 %.0, %12
+  %63 = add nsw i32 %.07, %12
   br label %64
 
 64:                                               ; preds = %39, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit
@@ -707,7 +708,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdge
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds double, ptr %.0.val, i64 %28
   %30 = icmp sgt i32 %2, 2
-  br i1 %30, label %.lr.ph.i.preheader, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit
+  br i1 %30, label %.lr.ph.i.preheader, label %.thread
 
 .lr.ph.i.preheader:                               ; preds = %23
   %31 = load double, ptr %8, align 16
@@ -727,18 +728,19 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub17getRingEdge
   store double %26, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next, %34
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, label %.lr.ph.i, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !10
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit: ; preds = %.lr.ph.i, %23
+.thread:                                          ; preds = %.lr.ph.i, %23
   %38 = add nsw i32 %.1, %11
-  br label %39
+  br label %40
 
-39:                                               ; preds = %22, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, %6
-  %.0 = phi i32 [ %38, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit ], [ %.1, %22 ], [ 0, %6 ]
+39:                                               ; preds = %22, %6
+  %.0 = phi i32 [ %.1, %22 ], [ 0, %6 ]
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %64, label %40
 
-40:                                               ; preds = %39
+40:                                               ; preds = %.thread, %39
+  %.07 = phi i32 [ %38, %.thread ], [ %.0, %39 ]
   %41 = add nsw i32 %1, 1
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %43 = load i16, ptr %42, align 2
@@ -747,7 +749,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %7, i32 noundef %45, ptr noundef nonnull %9)
   %46 = load double, ptr %9, align 16
   %47 = fadd double %4, %46
-  %48 = mul nsw i32 %.0, %.8.val
+  %48 = mul nsw i32 %.07, %.8.val
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds double, ptr %.0.val, i64 %49
   %51 = icmp sgt i32 %12, 0
@@ -779,7 +781,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT
   br i1 %exitcond.not.i54, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit, label %.lr.ph.i53, !llvm.loop !11
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit: ; preds = %.lr.ph.i53, %40
-  %63 = add nsw i32 %.0, %12
+  %63 = add nsw i32 %.07, %12
   br label %64
 
 64:                                               ; preds = %39, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit
@@ -1059,45 +1061,45 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_G
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %115 = fadd float %95, %.0812.i.i.i22
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %indvars.iv.next.i18
-  br i1 %exitcond.not.i.i.i24, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, label %.lr.ph.i.i.i20, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i24, label %.lr.ph.preheader.i.i.i25, label %.lr.ph.i.i.i20, !llvm.loop !5
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i20
-  %116 = mul nsw i64 %indvars.iv.next.i18, %97
-  %117 = getelementptr inbounds float, ptr %104, i64 %116
-  %118 = fneg float %.0315.i
-  %119 = tail call float @llvm.fmuladd.f32(float %118, float 2.000000e+00, float 1.000000e+00)
+.lr.ph.preheader.i.i.i25:                         ; preds = %.lr.ph.i.i.i20
+  %116 = fneg float %.0315.i
+  %117 = tail call float @llvm.fmuladd.f32(float %116, float 2.000000e+00, float 1.000000e+00)
+  %118 = mul nsw i64 %indvars.iv.next.i18, %97
+  %119 = getelementptr inbounds float, ptr %104, i64 %118
   br label %.lr.ph.i34.i.i
 
-.lr.ph.i34.i.i:                                   ; preds = %.lr.ph.i34.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i
-  %indvars.iv.i.i.i25 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %indvars.iv.next.i.i.i26, %.lr.ph.i34.i.i ]
-  %.0103.i.i.i = phi float [ %119, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %123, %.lr.ph.i34.i.i ]
-  %.0112.i.i.i = phi float [ %.0307.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %124, %.lr.ph.i34.i.i ]
-  %120 = mul nsw i64 %indvars.iv.i.i.i25, %97
-  %121 = getelementptr inbounds float, ptr %117, i64 %120
+.lr.ph.i34.i.i:                                   ; preds = %.lr.ph.i34.i.i, %.lr.ph.preheader.i.i.i25
+  %indvars.iv.i.i.i26 = phi i64 [ 0, %.lr.ph.preheader.i.i.i25 ], [ %indvars.iv.next.i.i.i27, %.lr.ph.i34.i.i ]
+  %.0103.i.i.i = phi float [ %117, %.lr.ph.preheader.i.i.i25 ], [ %123, %.lr.ph.i34.i.i ]
+  %.0112.i.i.i = phi float [ %.0307.i, %.lr.ph.preheader.i.i.i25 ], [ %124, %.lr.ph.i34.i.i ]
+  %120 = mul nsw i64 %indvars.iv.i.i.i26, %97
+  %121 = getelementptr inbounds float, ptr %119, i64 %120
   store float %.0103.i.i.i, ptr %121, align 4
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store float %.0112.i.i.i, ptr %122, align 4
-  %indvars.iv.next.i.i.i26 = add nuw nsw i64 %indvars.iv.i.i.i25, 1
+  %indvars.iv.next.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i26, 1
   %123 = fsub float %.0103.i.i.i, %95
   %124 = fadd float %95, %.0112.i.i.i
-  %exitcond.not.i35.i.i = icmp eq i64 %indvars.iv.next.i.i.i26, %indvars.iv.next.i18
-  br i1 %exitcond.not.i35.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !8
+  %exitcond.not.i35.i.i = icmp eq i64 %indvars.iv.next.i.i.i27, %indvars.iv.next.i18
+  br i1 %exitcond.not.i35.i.i, label %.lr.ph.preheader.i36.i.i, label %.lr.ph.i34.i.i, !llvm.loop !8
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i34.i.i
+.lr.ph.preheader.i36.i.i:                         ; preds = %.lr.ph.i34.i.i
   %125 = mul i64 %99, %indvars.iv.next.i18
   %126 = getelementptr inbounds float, ptr %104, i64 %125
   br label %.lr.ph.i38.i.i
 
-.lr.ph.i38.i.i:                                   ; preds = %.lr.ph.i38.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i
-  %indvars.iv.i39.i.i = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i ], [ %indvars.iv.next.i40.i.i, %.lr.ph.i38.i.i ]
-  %.082.i.i.i27 = phi float [ %110, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i ], [ %130, %.lr.ph.i38.i.i ]
+.lr.ph.i38.i.i:                                   ; preds = %.lr.ph.i38.i.i, %.lr.ph.preheader.i36.i.i
+  %indvars.iv.i39.i.i = phi i64 [ 0, %.lr.ph.preheader.i36.i.i ], [ %indvars.iv.next.i40.i.i, %.lr.ph.i38.i.i ]
+  %.082.i.i.i28 = phi float [ %110, %.lr.ph.preheader.i36.i.i ], [ %130, %.lr.ph.i38.i.i ]
   %127 = mul nsw i64 %indvars.iv.i39.i.i, %97
   %128 = getelementptr inbounds float, ptr %126, i64 %127
   store float %.0315.i, ptr %128, align 4
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
-  store float %.082.i.i.i27, ptr %129, align 4
+  store float %.082.i.i.i28, ptr %129, align 4
   %indvars.iv.next.i40.i.i = add nuw nsw i64 %indvars.iv.i39.i.i, 1
-  %130 = fsub float %.082.i.i.i27, %95
+  %130 = fsub float %.082.i.i.i28, %95
   %exitcond.not.i41.i.i = icmp eq i64 %indvars.iv.next.i40.i.i, %indvars.iv.next.i18
   br i1 %exitcond.not.i41.i.i, label %.loopexit.i, label %.lr.ph.i38.i.i, !llvm.loop !7
 
@@ -1121,8 +1123,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   %140 = load i32, ptr %139, align 8
   %.fr.i = freeze i32 %.sroa.0.0.copyload
   %141 = sdiv i32 %140, 2
-  %.off.i28 = add i32 %140, 1
-  %142 = icmp ult i32 %.off.i28, 3
+  %.off.i29 = add i32 %140, 1
+  %142 = icmp ult i32 %.off.i29, 3
   br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %143
 
 143:                                              ; preds = %138
@@ -1130,9 +1132,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   %145 = fdiv float 1.000000e+00, %144
   %.0345.i = add nsw i32 %140, -2
   %146 = icmp sgt i32 %140, 1
-  br i1 %146, label %.lr.ph.i31, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %146, label %.lr.ph.i32, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
-.lr.ph.i31:                                       ; preds = %143
+.lr.ph.i32:                                       ; preds = %143
   %147 = lshr i32 %.fr.i, 16
   %.not4.i.i = icmp ult i32 %.fr.i, 65536
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -1147,14 +1149,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIfEEiNS2_11Coord2ArrayIT_E
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 4
   br i1 %.not4.i.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.preheader.i
 
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i31
+.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i32
   %156 = tail call float @llvm.fmuladd.f32(float %145, float -5.000000e-01, float 5.000000e-01)
   %157 = and i32 %140, 1
   %.not44.i.i = icmp eq i32 %157, 0
   %158 = select i1 %.not44.i.i, float 5.000000e-01, float %156
   br label %.lr.ph.split.i
 
-.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i31
+.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i32
   %invariant.gep.i = getelementptr float, ptr %1, i64 %151
   br i1 %.not.i.i, label %.lr.ph.split.us.split.us.split.us.i, label %.lr.ph.split.us.split.us.split.i
 
@@ -1230,12 +1232,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %exitcond31.not.i = icmp eq i32 %177, %141
   br i1 %exitcond31.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.us.split.us.split.i, !llvm.loop !16
 
-.lr.ph.split.i:                                   ; preds = %236, %.lr.ph.split.preheader.i
-  %.03411.i = phi i32 [ %.034.i, %236 ], [ %.0345.i, %.lr.ph.split.preheader.i ]
-  %.0299.i = phi float [ %238, %236 ], [ %145, %.lr.ph.split.preheader.i ]
-  %.0328.i = phi i32 [ %237, %236 ], [ 0, %.lr.ph.split.preheader.i ]
-  %.0337.i = phi i32 [ %.1.i34, %236 ], [ 0, %.lr.ph.split.preheader.i ]
-  %.034.in6.i = phi i32 [ %.03411.i, %236 ], [ %140, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %238, %.lr.ph.split.preheader.i
+  %.03411.i = phi i32 [ %.034.i, %238 ], [ %.0345.i, %.lr.ph.split.preheader.i ]
+  %.0299.i = phi float [ %240, %238 ], [ %145, %.lr.ph.split.preheader.i ]
+  %.0328.i = phi i32 [ %239, %238 ], [ 0, %.lr.ph.split.preheader.i ]
+  %.0337.i = phi i32 [ %.1.i35, %238 ], [ 0, %.lr.ph.split.preheader.i ]
+  %.034.in6.i = phi i32 [ %.03411.i, %238 ], [ %140, %.lr.ph.split.preheader.i ]
   %178 = mul nsw i32 %.0337.i, %13
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds float, ptr %1, i64 %179
@@ -1249,7 +1251,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 4
   store float 5.000000e-01, ptr %182, align 4
   %183 = add nsw i32 %.0337.i, 1
-  br label %236
+  br label %238
 
 .noexc.preheader.i:                               ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1258,10 +1260,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.noexc.i, %.noexc.preheader.i
-  %indvars.iv.i.i32 = phi i64 [ %indvars.iv.next.i.i33, %.noexc.i ], [ 0, %.noexc.preheader.i ]
-  %184 = trunc nuw nsw i64 %indvars.iv.i.i32 to i32
+  %indvars.iv.i.i33 = phi i64 [ %indvars.iv.next.i.i34, %.noexc.i ], [ 0, %.noexc.preheader.i ]
+  %184 = trunc nuw nsw i64 %indvars.iv.i.i33 to i32
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %6, i32 noundef %184, ptr noundef nonnull %7)
-  %185 = mul nsw i64 %indvars.iv.i.i32, %149
+  %185 = mul nsw i64 %indvars.iv.i.i33, %149
   %186 = getelementptr inbounds float, ptr %180, i64 %185
   %187 = load float, ptr %7, align 4
   %188 = fadd float %.0299.i, %187
@@ -1270,8 +1272,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   store float %188, ptr %186, align 4
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 4
   store float %190, ptr %191, align 4
-  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i32, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i33, %wide.trip.count.i.i
+  %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i33, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i34, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.noexc.i, !llvm.loop !17
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i
@@ -1289,24 +1291,24 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   %197 = add nsw i32 %196, %.0337.i
-  br label %236
+  br label %238
 
 .lr.ph.i49.preheader.i:                           ; preds = %.lr.ph.split.i
   %198 = add nsw i32 %.034.in6.i, -3
   %199 = sdiv i32 %198, 2
   %200 = sub nsw i32 %198, %199
   %201 = icmp ugt i32 %.03411.i, 2
+  %.not.i53.i = icmp eq i32 %198, 0
   %202 = icmp sgt i32 %.034.in6.i, 4
   %203 = zext i32 %199 to i64
   %204 = add nsw i32 %199, 1
-  %.not.i53.i = icmp eq i32 %198, 0
   %205 = icmp sgt i32 %200, 0
   %wide.trip.count.i.i.i = zext nneg i32 %200 to i64
   br label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %.noexc52.i, %.lr.ph.i49.preheader.i
-  %.04.i.i = phi i32 [ %234, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
-  %.0113.i.i = phi i32 [ %.pre.i, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
+  %.04.i.i = phi i32 [ %236, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
+  %.0113.i.i = phi i32 [ %.pre-phi.i, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
   %206 = mul nsw i32 %.04.i.i, %13
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds float, ptr %180, i64 %207
@@ -1322,11 +1324,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   store float %210, ptr %208, align 4
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 4
   store float %212, ptr %213, align 4
-  br i1 %201, label %214, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
+  br i1 %201, label %214, label %219
 
 214:                                              ; preds = %.lr.ph.i49.i
   %215 = getelementptr inbounds float, ptr %208, i64 %149
-  br i1 %202, label %.lr.ph.i.i.i41, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
+  br i1 %202, label %.lr.ph.i.i.i41, label %.noexc57.i
 
 .lr.ph.i.i.i41:                                   ; preds = %214, %.lr.ph.i.i.i41
   %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i55.i, %.lr.ph.i.i.i41 ], [ 0, %214 ]
@@ -1339,70 +1341,75 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16Parameterizatio
   store float %212, ptr %218, align 4
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i54.i, 1
   %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i55.i, %203
-  br i1 %exitcond.not.i.i.i43, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36, label %.lr.ph.i.i.i41, !llvm.loop !5
+  br i1 %exitcond.not.i.i.i43, label %.noexc57.i, label %.lr.ph.i.i.i41, !llvm.loop !5
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36: ; preds = %.lr.ph.i.i.i41, %214, %.lr.ph.i49.i
-  %.0.i.i = phi i32 [ 1, %.lr.ph.i49.i ], [ %204, %214 ], [ %204, %.lr.ph.i.i.i41 ]
+219:                                              ; preds = %.lr.ph.i49.i
+  br i1 %.not.i53.i, label %..noexc52_crit_edge.i, label %.noexc57.i
+
+..noexc52_crit_edge.i:                            ; preds = %219
   %.pre.i = add nuw nsw i32 %.0113.i.i, 1
-  br i1 %.not.i53.i, label %.noexc52.i, label %.noexc57.i
+  br label %.noexc52.i
 
-.noexc57.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
-  %219 = load i16, ptr %154, align 2
-  %220 = zext i16 %219 to i32
-  %221 = urem i32 %.pre.i, %220
-  call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %221, ptr noundef nonnull %5)
-  %222 = load float, ptr %5, align 4
-  %223 = fadd float %.0299.i, %222
-  %224 = mul nsw i32 %.0.i.i, %13
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds float, ptr %208, i64 %225
+.noexc57.i:                                       ; preds = %.lr.ph.i.i.i41, %219, %214
+  %.07.i.i = phi i32 [ 1, %219 ], [ %204, %214 ], [ %204, %.lr.ph.i.i.i41 ]
+  %220 = add nuw nsw i32 %.0113.i.i, 1
+  %221 = load i16, ptr %154, align 2
+  %222 = zext i16 %221 to i32
+  %223 = urem i32 %220, %222
+  call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIfEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %223, ptr noundef nonnull %5)
+  %224 = load float, ptr %5, align 4
+  %225 = fadd float %.0299.i, %224
+  %226 = mul nsw i32 %.07.i.i, %13
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds float, ptr %208, i64 %227
   br i1 %205, label %.lr.ph.preheader.i.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i
 
 .lr.ph.preheader.i.i.i37:                         ; preds = %.noexc57.i
-  %227 = load float, ptr %155, align 4
-  %228 = fadd float %158, %227
+  %229 = load float, ptr %155, align 4
+  %230 = fadd float %158, %229
   br label %.lr.ph.i53.i.i
 
 .lr.ph.i53.i.i:                                   ; preds = %.lr.ph.i53.i.i, %.lr.ph.preheader.i.i.i37
   %indvars.iv.i.i.i38 = phi i64 [ 0, %.lr.ph.preheader.i.i.i37 ], [ %indvars.iv.next.i.i.i40, %.lr.ph.i53.i.i ]
-  %.082.i.i.i39 = phi float [ %228, %.lr.ph.preheader.i.i.i37 ], [ %232, %.lr.ph.i53.i.i ]
-  %229 = mul nsw i64 %indvars.iv.i.i.i38, %149
-  %230 = getelementptr inbounds float, ptr %226, i64 %229
-  store float %223, ptr %230, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 4
-  store float %.082.i.i.i39, ptr %231, align 4
+  %.082.i.i.i39 = phi float [ %230, %.lr.ph.preheader.i.i.i37 ], [ %234, %.lr.ph.i53.i.i ]
+  %231 = mul nsw i64 %indvars.iv.i.i.i38, %149
+  %232 = getelementptr inbounds float, ptr %228, i64 %231
+  store float %225, ptr %232, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 4
+  store float %.082.i.i.i39, ptr %233, align 4
   %indvars.iv.next.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
-  %232 = fsub float %.082.i.i.i39, %145
+  %234 = fsub float %.082.i.i.i39, %145
   %exitcond.not.i54.i.i = icmp eq i64 %indvars.iv.next.i.i.i40, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i54.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, label %.lr.ph.i53.i.i, !llvm.loop !7
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i53.i.i, %.noexc57.i
-  %233 = add nsw i32 %.0.i.i, %200
+  %235 = add nsw i32 %.07.i.i, %200
   br label %.noexc52.i
 
-.noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
-  %.2.i.i = phi i32 [ %233, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %.0.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36 ]
+.noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %..noexc52_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %..noexc52_crit_edge.i ], [ %220, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
+  %.2.i.i = phi i32 [ 1, %..noexc52_crit_edge.i ], [ %235, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIfEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %234 = add nsw i32 %.2.i.i, %.04.i.i
-  %exitcond.not.i50.i = icmp eq i32 %.pre.i, %147
+  %236 = add nsw i32 %.2.i.i, %.04.i.i
+  %exitcond.not.i50.i = icmp eq i32 %.pre-phi.i, %147
   br i1 %exitcond.not.i50.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, label %.lr.ph.i49.i, !llvm.loop !18
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i: ; preds = %.noexc52.i
-  %235 = add nsw i32 %234, %.0337.i
-  br label %236
+  %237 = add nsw i32 %236, %.0337.i
+  br label %238
 
-236:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, %195, %181
-  %.1.i34 = phi i32 [ %183, %181 ], [ %197, %195 ], [ %235, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i ]
-  %237 = add nuw nsw i32 %.0328.i, 1
-  %238 = fadd float %145, %.0299.i
+238:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, %195, %181
+  %.1.i35 = phi i32 [ %183, %181 ], [ %197, %195 ], [ %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i ]
+  %239 = add nuw nsw i32 %.0328.i, 1
+  %240 = fadd float %145, %.0299.i
   %.034.i = add nsw i32 %.03411.i, -2
-  %exitcond.not.i35 = icmp eq i32 %237, %141
-  br i1 %exitcond.not.i35, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !16
+  %exitcond.not.i36 = icmp eq i32 %239, %141
+  br i1 %exitcond.not.i36, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !16
 
-_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %236, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
-  %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.us.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %.1.i34, %236 ]
+_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIfEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %238, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
+  %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIfEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.us.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIfEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %.1.i35, %238 ]
   ret i32 %.0
 }
 
@@ -1675,45 +1682,45 @@ _ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_G
   %indvars.iv.next.i.i23 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %115 = fadd double %95, %.0812.i.i.i22
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i23, %indvars.iv.next.i18
-  br i1 %exitcond.not.i.i.i24, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, label %.lr.ph.i.i.i20, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i24, label %.lr.ph.preheader.i.i.i25, label %.lr.ph.i.i.i20, !llvm.loop !10
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i20
-  %116 = mul nsw i64 %indvars.iv.next.i18, %97
-  %117 = getelementptr inbounds double, ptr %104, i64 %116
-  %118 = fneg double %.0315.i
-  %119 = tail call double @llvm.fmuladd.f64(double %118, double 2.000000e+00, double 1.000000e+00)
+.lr.ph.preheader.i.i.i25:                         ; preds = %.lr.ph.i.i.i20
+  %116 = fneg double %.0315.i
+  %117 = tail call double @llvm.fmuladd.f64(double %116, double 2.000000e+00, double 1.000000e+00)
+  %118 = mul nsw i64 %indvars.iv.next.i18, %97
+  %119 = getelementptr inbounds double, ptr %104, i64 %118
   br label %.lr.ph.i34.i.i
 
-.lr.ph.i34.i.i:                                   ; preds = %.lr.ph.i34.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i
-  %indvars.iv.i.i.i25 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %indvars.iv.next.i.i.i26, %.lr.ph.i34.i.i ]
-  %.0103.i.i.i = phi double [ %119, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %123, %.lr.ph.i34.i.i ]
-  %.0112.i.i.i = phi double [ %.0307.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %124, %.lr.ph.i34.i.i ]
-  %120 = mul nsw i64 %indvars.iv.i.i.i25, %97
-  %121 = getelementptr inbounds double, ptr %117, i64 %120
+.lr.ph.i34.i.i:                                   ; preds = %.lr.ph.i34.i.i, %.lr.ph.preheader.i.i.i25
+  %indvars.iv.i.i.i26 = phi i64 [ 0, %.lr.ph.preheader.i.i.i25 ], [ %indvars.iv.next.i.i.i27, %.lr.ph.i34.i.i ]
+  %.0103.i.i.i = phi double [ %117, %.lr.ph.preheader.i.i.i25 ], [ %123, %.lr.ph.i34.i.i ]
+  %.0112.i.i.i = phi double [ %.0307.i, %.lr.ph.preheader.i.i.i25 ], [ %124, %.lr.ph.i34.i.i ]
+  %120 = mul nsw i64 %indvars.iv.i.i.i26, %97
+  %121 = getelementptr inbounds double, ptr %119, i64 %120
   store double %.0103.i.i.i, ptr %121, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store double %.0112.i.i.i, ptr %122, align 8
-  %indvars.iv.next.i.i.i26 = add nuw nsw i64 %indvars.iv.i.i.i25, 1
+  %indvars.iv.next.i.i.i27 = add nuw nsw i64 %indvars.iv.i.i.i26, 1
   %123 = fsub double %.0103.i.i.i, %95
   %124 = fadd double %95, %.0112.i.i.i
-  %exitcond.not.i35.i.i = icmp eq i64 %indvars.iv.next.i.i.i26, %indvars.iv.next.i18
-  br i1 %exitcond.not.i35.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i, label %.lr.ph.i34.i.i, !llvm.loop !12
+  %exitcond.not.i35.i.i = icmp eq i64 %indvars.iv.next.i.i.i27, %indvars.iv.next.i18
+  br i1 %exitcond.not.i35.i.i, label %.lr.ph.preheader.i36.i.i, label %.lr.ph.i34.i.i, !llvm.loop !12
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i34.i.i
+.lr.ph.preheader.i36.i.i:                         ; preds = %.lr.ph.i34.i.i
   %125 = mul i64 %99, %indvars.iv.next.i18
   %126 = getelementptr inbounds double, ptr %104, i64 %125
   br label %.lr.ph.i38.i.i
 
-.lr.ph.i38.i.i:                                   ; preds = %.lr.ph.i38.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i
-  %indvars.iv.i39.i.i = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i ], [ %indvars.iv.next.i40.i.i, %.lr.ph.i38.i.i ]
-  %.082.i.i.i27 = phi double [ %110, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_S5_.exit.i.i ], [ %130, %.lr.ph.i38.i.i ]
+.lr.ph.i38.i.i:                                   ; preds = %.lr.ph.i38.i.i, %.lr.ph.preheader.i36.i.i
+  %indvars.iv.i39.i.i = phi i64 [ 0, %.lr.ph.preheader.i36.i.i ], [ %indvars.iv.next.i40.i.i, %.lr.ph.i38.i.i ]
+  %.082.i.i.i28 = phi double [ %110, %.lr.ph.preheader.i36.i.i ], [ %130, %.lr.ph.i38.i.i ]
   %127 = mul nsw i64 %indvars.iv.i39.i.i, %97
   %128 = getelementptr inbounds double, ptr %126, i64 %127
   store double %.0315.i, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
-  store double %.082.i.i.i27, ptr %129, align 8
+  store double %.082.i.i.i28, ptr %129, align 8
   %indvars.iv.next.i40.i.i = add nuw nsw i64 %indvars.iv.i39.i.i, 1
-  %130 = fsub double %.082.i.i.i27, %95
+  %130 = fsub double %.082.i.i.i28, %95
   %exitcond.not.i41.i.i = icmp eq i64 %indvars.iv.next.i40.i.i, %indvars.iv.next.i18
   br i1 %exitcond.not.i41.i.i, label %.loopexit.i, label %.lr.ph.i38.i.i, !llvm.loop !11
 
@@ -1737,8 +1744,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   %140 = load i32, ptr %139, align 8
   %.fr.i = freeze i32 %.sroa.0.0.copyload
   %141 = sdiv i32 %140, 2
-  %.off.i28 = add i32 %140, 1
-  %142 = icmp ult i32 %.off.i28, 3
+  %.off.i29 = add i32 %140, 1
+  %142 = icmp ult i32 %.off.i29, 3
   br i1 %142, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %143
 
 143:                                              ; preds = %138
@@ -1746,9 +1753,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   %145 = fdiv double 1.000000e+00, %144
   %.0345.i = add nsw i32 %140, -2
   %146 = icmp sgt i32 %140, 1
-  br i1 %146, label %.lr.ph.i31, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
+  br i1 %146, label %.lr.ph.i32, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit
 
-.lr.ph.i31:                                       ; preds = %143
+.lr.ph.i32:                                       ; preds = %143
   %147 = lshr i32 %.fr.i, 16
   %.not4.i.i = icmp ult i32 %.fr.i, 65536
   %148 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1763,14 +1770,14 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendUVLineIdEEiNS2_11Coord2ArrayIT_E
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not4.i.i, label %.lr.ph.split.us.split.us.i, label %.lr.ph.split.preheader.i
 
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i31
+.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i32
   %156 = tail call double @llvm.fmuladd.f64(double %145, double -5.000000e-01, double 5.000000e-01)
   %157 = and i32 %140, 1
   %.not44.i.i = icmp eq i32 %157, 0
   %158 = select i1 %.not44.i.i, double 5.000000e-01, double %156
   br label %.lr.ph.split.i
 
-.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i31
+.lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.i32
   %invariant.gep.i = getelementptr double, ptr %1, i64 %151
   br i1 %.not.i.i, label %.lr.ph.split.us.split.us.split.us.i, label %.lr.ph.split.us.split.us.split.i
 
@@ -1846,12 +1853,12 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %exitcond31.not.i = icmp eq i32 %177, %141
   br i1 %exitcond31.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.us.split.us.split.i, !llvm.loop !21
 
-.lr.ph.split.i:                                   ; preds = %236, %.lr.ph.split.preheader.i
-  %.03411.i = phi i32 [ %.034.i, %236 ], [ %.0345.i, %.lr.ph.split.preheader.i ]
-  %.0299.i = phi double [ %238, %236 ], [ %145, %.lr.ph.split.preheader.i ]
-  %.0328.i = phi i32 [ %237, %236 ], [ 0, %.lr.ph.split.preheader.i ]
-  %.0337.i = phi i32 [ %.1.i34, %236 ], [ 0, %.lr.ph.split.preheader.i ]
-  %.034.in6.i = phi i32 [ %.03411.i, %236 ], [ %140, %.lr.ph.split.preheader.i ]
+.lr.ph.split.i:                                   ; preds = %238, %.lr.ph.split.preheader.i
+  %.03411.i = phi i32 [ %.034.i, %238 ], [ %.0345.i, %.lr.ph.split.preheader.i ]
+  %.0299.i = phi double [ %240, %238 ], [ %145, %.lr.ph.split.preheader.i ]
+  %.0328.i = phi i32 [ %239, %238 ], [ 0, %.lr.ph.split.preheader.i ]
+  %.0337.i = phi i32 [ %.1.i35, %238 ], [ 0, %.lr.ph.split.preheader.i ]
+  %.034.in6.i = phi i32 [ %.03411.i, %238 ], [ %140, %.lr.ph.split.preheader.i ]
   %178 = mul nsw i32 %.0337.i, %13
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds double, ptr %1, i64 %179
@@ -1865,7 +1872,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store double 5.000000e-01, ptr %182, align 8
   %183 = add nsw i32 %.0337.i, 1
-  br label %236
+  br label %238
 
 .noexc.preheader.i:                               ; preds = %.lr.ph.split.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -1874,10 +1881,10 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   br label %.noexc.i
 
 .noexc.i:                                         ; preds = %.noexc.i, %.noexc.preheader.i
-  %indvars.iv.i.i32 = phi i64 [ %indvars.iv.next.i.i33, %.noexc.i ], [ 0, %.noexc.preheader.i ]
-  %184 = trunc nuw nsw i64 %indvars.iv.i.i32 to i32
+  %indvars.iv.i.i33 = phi i64 [ %indvars.iv.next.i.i34, %.noexc.i ], [ 0, %.noexc.preheader.i ]
+  %184 = trunc nuw nsw i64 %indvars.iv.i.i33 to i32
   call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %6, i32 noundef %184, ptr noundef nonnull %7)
-  %185 = mul nsw i64 %indvars.iv.i.i32, %149
+  %185 = mul nsw i64 %indvars.iv.i.i33, %149
   %186 = getelementptr inbounds double, ptr %180, i64 %185
   %187 = load double, ptr %7, align 16
   %188 = fadd double %.0299.i, %187
@@ -1886,8 +1893,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   store double %188, ptr %186, align 8
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 8
   store double %190, ptr %191, align 8
-  %indvars.iv.next.i.i33 = add nuw nsw i64 %indvars.iv.i.i32, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i33, %wide.trip.count.i.i
+  %indvars.iv.next.i.i34 = add nuw nsw i64 %indvars.iv.i.i33, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i34, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.noexc.i, !llvm.loop !22
 
 ._crit_edge.i.i:                                  ; preds = %.noexc.i
@@ -1905,24 +1912,24 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %197 = add nsw i32 %196, %.0337.i
-  br label %236
+  br label %238
 
 .lr.ph.i49.preheader.i:                           ; preds = %.lr.ph.split.i
   %198 = add nsw i32 %.034.in6.i, -3
   %199 = sdiv i32 %198, 2
   %200 = sub nsw i32 %198, %199
   %201 = icmp ugt i32 %.03411.i, 2
+  %.not.i53.i = icmp eq i32 %198, 0
   %202 = icmp sgt i32 %.034.in6.i, 4
   %203 = zext i32 %199 to i64
   %204 = add nsw i32 %199, 1
-  %.not.i53.i = icmp eq i32 %198, 0
   %205 = icmp sgt i32 %200, 0
   %wide.trip.count.i.i.i = zext nneg i32 %200 to i64
   br label %.lr.ph.i49.i
 
 .lr.ph.i49.i:                                     ; preds = %.noexc52.i, %.lr.ph.i49.preheader.i
-  %.04.i.i = phi i32 [ %234, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
-  %.0113.i.i = phi i32 [ %.pre.i, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
+  %.04.i.i = phi i32 [ %236, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
+  %.0113.i.i = phi i32 [ %.pre-phi.i, %.noexc52.i ], [ 0, %.lr.ph.i49.preheader.i ]
   %206 = mul nsw i32 %.04.i.i, %13
   %207 = sext i32 %206 to i64
   %208 = getelementptr inbounds double, ptr %180, i64 %207
@@ -1938,11 +1945,11 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   store double %210, ptr %208, align 8
   %213 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store double %212, ptr %213, align 8
-  br i1 %201, label %214, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
+  br i1 %201, label %214, label %219
 
 214:                                              ; preds = %.lr.ph.i49.i
   %215 = getelementptr inbounds double, ptr %208, i64 %149
-  br i1 %202, label %.lr.ph.i.i.i41, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
+  br i1 %202, label %.lr.ph.i.i.i41, label %.noexc57.i
 
 .lr.ph.i.i.i41:                                   ; preds = %214, %.lr.ph.i.i.i41
   %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i55.i, %.lr.ph.i.i.i41 ], [ 0, %214 ]
@@ -1955,70 +1962,75 @@ _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16Parameterizatio
   store double %212, ptr %218, align 8
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i54.i, 1
   %exitcond.not.i.i.i43 = icmp eq i64 %indvars.iv.next.i55.i, %203
-  br i1 %exitcond.not.i.i.i43, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36, label %.lr.ph.i.i.i41, !llvm.loop !10
+  br i1 %exitcond.not.i.i.i43, label %.noexc57.i, label %.lr.ph.i.i.i41, !llvm.loop !10
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36: ; preds = %.lr.ph.i.i.i41, %214, %.lr.ph.i49.i
-  %.0.i.i = phi i32 [ 1, %.lr.ph.i49.i ], [ %204, %214 ], [ %204, %.lr.ph.i.i.i41 ]
+219:                                              ; preds = %.lr.ph.i49.i
+  br i1 %.not.i53.i, label %..noexc52_crit_edge.i, label %.noexc57.i
+
+..noexc52_crit_edge.i:                            ; preds = %219
   %.pre.i = add nuw nsw i32 %.0113.i.i, 1
-  br i1 %.not.i53.i, label %.noexc52.i, label %.noexc57.i
+  br label %.noexc52.i
 
-.noexc57.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
-  %219 = load i16, ptr %154, align 2
-  %220 = zext i16 %219 to i32
-  %221 = urem i32 %.pre.i, %220
-  call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %221, ptr noundef nonnull %5)
-  %222 = load double, ptr %5, align 16
-  %223 = fadd double %.0299.i, %222
-  %224 = mul nsw i32 %.0.i.i, %13
-  %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds double, ptr %208, i64 %225
+.noexc57.i:                                       ; preds = %.lr.ph.i.i.i41, %219, %214
+  %.07.i.i = phi i32 [ 1, %219 ], [ %204, %214 ], [ %204, %.lr.ph.i.i.i41 ]
+  %220 = add nuw nsw i32 %.0113.i.i, 1
+  %221 = load i16, ptr %154, align 2
+  %222 = zext i16 %221 to i32
+  %223 = urem i32 %220, %222
+  call void @_ZNK10OpenSubdiv6v3_6_03Bfr16Parameterization14GetVertexCoordIdEEviPT_(ptr noundef nonnull align 2 dereferenceable(4) %3, i32 noundef %223, ptr noundef nonnull %5)
+  %224 = load double, ptr %5, align 16
+  %225 = fadd double %.0299.i, %224
+  %226 = mul nsw i32 %.07.i.i, %13
+  %227 = sext i32 %226 to i64
+  %228 = getelementptr inbounds double, ptr %208, i64 %227
   br i1 %205, label %.lr.ph.preheader.i.i.i37, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i
 
 .lr.ph.preheader.i.i.i37:                         ; preds = %.noexc57.i
-  %227 = load double, ptr %155, align 8
-  %228 = fadd double %158, %227
+  %229 = load double, ptr %155, align 8
+  %230 = fadd double %158, %229
   br label %.lr.ph.i53.i.i
 
 .lr.ph.i53.i.i:                                   ; preds = %.lr.ph.i53.i.i, %.lr.ph.preheader.i.i.i37
   %indvars.iv.i.i.i38 = phi i64 [ 0, %.lr.ph.preheader.i.i.i37 ], [ %indvars.iv.next.i.i.i40, %.lr.ph.i53.i.i ]
-  %.082.i.i.i39 = phi double [ %228, %.lr.ph.preheader.i.i.i37 ], [ %232, %.lr.ph.i53.i.i ]
-  %229 = mul nsw i64 %indvars.iv.i.i.i38, %149
-  %230 = getelementptr inbounds double, ptr %226, i64 %229
-  store double %223, ptr %230, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
-  store double %.082.i.i.i39, ptr %231, align 8
+  %.082.i.i.i39 = phi double [ %230, %.lr.ph.preheader.i.i.i37 ], [ %234, %.lr.ph.i53.i.i ]
+  %231 = mul nsw i64 %indvars.iv.i.i.i38, %149
+  %232 = getelementptr inbounds double, ptr %228, i64 %231
+  store double %225, ptr %232, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  store double %.082.i.i.i39, ptr %233, align 8
   %indvars.iv.next.i.i.i40 = add nuw nsw i64 %indvars.iv.i.i.i38, 1
-  %232 = fsub double %.082.i.i.i39, %145
+  %234 = fsub double %.082.i.i.i39, %145
   %exitcond.not.i54.i.i = icmp eq i64 %indvars.iv.next.i.i.i40, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i54.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, label %.lr.ph.i53.i.i, !llvm.loop !11
 
 _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i: ; preds = %.lr.ph.i53.i.i, %.noexc57.i
-  %233 = add nsw i32 %.0.i.i, %200
+  %235 = add nsw i32 %.07.i.i, %200
   br label %.noexc52.i
 
-.noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36
-  %.2.i.i = phi i32 [ %233, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ], [ %.0.i.i, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendVIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i36 ]
+.noexc52.i:                                       ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i, %..noexc52_crit_edge.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %..noexc52_crit_edge.i ], [ %220, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
+  %.2.i.i = phi i32 [ 1, %..noexc52_crit_edge.i ], [ %235, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_114appendUIsoLineIdEEiNS2_11Coord2ArrayIT_EEiS5_S5_S5_.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %234 = add nsw i32 %.2.i.i, %.04.i.i
-  %exitcond.not.i50.i = icmp eq i32 %.pre.i, %147
+  %236 = add nsw i32 %.2.i.i, %.04.i.i
+  %exitcond.not.i50.i = icmp eq i32 %.pre-phi.i, %147
   br i1 %exitcond.not.i50.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, label %.lr.ph.i49.i, !llvm.loop !23
 
 _ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i: ; preds = %.noexc52.i
-  %235 = add nsw i32 %234, %.0337.i
-  br label %236
+  %237 = add nsw i32 %236, %.0337.i
+  br label %238
 
-236:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, %195, %181
-  %.1.i34 = phi i32 [ %183, %181 ], [ %197, %195 ], [ %235, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i ]
-  %237 = add nuw nsw i32 %.0328.i, 1
-  %238 = fadd double %145, %.0299.i
+238:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i, %195, %181
+  %.1.i35 = phi i32 [ %183, %181 ], [ %197, %195 ], [ %237, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.loopexit.i ]
+  %239 = add nuw nsw i32 %.0328.i, 1
+  %240 = fadd double %145, %.0299.i
   %.034.i = add nsw i32 %.03411.i, -2
-  %exitcond.not.i35 = icmp eq i32 %237, %141
-  br i1 %exitcond.not.i35, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !21
+  %exitcond.not.i36 = icmp eq i32 %239, %141
+  br i1 %exitcond.not.i36, label %_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit, label %.lr.ph.split.i, !llvm.loop !21
 
-_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %236, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
-  %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.us.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %.1.i34, %236 ]
+_ZN10OpenSubdiv6v3_6_03Bfr4quad17GetInteriorCoordsIdEEiPKiNS1_12_GLOBAL__N_111Coord2ArrayIT_EE.exit: ; preds = %238, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i, %134, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i, %11, %21, %15, %93, %88, %143, %138, %2, %10
+  %.0 = phi i32 [ 1, %10 ], [ %9, %2 ], [ 0, %11 ], [ 0, %15 ], [ 0, %21 ], [ 0, %88 ], [ 0, %93 ], [ 0, %138 ], [ 0, %143 ], [ %84, %_ZN10OpenSubdiv6v3_6_03Bfr4quad21getInteriorRingCoordsIdEEiiiT_S4_S4_S4_NS1_12_GLOBAL__N_111Coord2ArrayIS4_EE.exit.i ], [ %.1.i, %134 ], [ %.1.us.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.us.i ], [ %.1.us.us.i, %_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInteriorRingCoordsIdEEiNS1_16ParameterizationEiT_S5_NS1_12_GLOBAL__N_111Coord2ArrayIS5_EE.exit.us.us.i ], [ %.1.i35, %238 ]
   ret i32 %.0
 }
 
@@ -4869,50 +4881,50 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub16GetUniformF
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.not.i = icmp eq i32 %0, 3
-  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i, label %13
+  br i1 %.not.i, label %.critedge.i, label %8
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i: ; preds = %7
-  %8 = sext i32 %.sroa.2.0.copyload to i64
-  %9 = getelementptr i32, ptr %.sroa.0.0.copyload, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 -4
-  store i32 -1, ptr %10, align 4
-  store i32 0, ptr %.sroa.0.0.copyload, align 4
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
-  store i32 1, ptr %11, align 4
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
-  store i32 2, ptr %12, align 4
-  br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit
-
-13:                                               ; preds = %7
+8:                                                ; preds = %7
   %.not17.i.i = icmp slt i32 %0, 1
   br i1 %.not17.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %13
-  %14 = sext i32 %.sroa.2.0.copyload to i64
-  %15 = sext i32 %.sroa.4.0.copyload to i64
-  %16 = zext nneg i32 %0 to i64
-  br label %17
+.lr.ph.i.i:                                       ; preds = %8
+  %9 = sext i32 %.sroa.2.0.copyload to i64
+  %10 = sext i32 %.sroa.4.0.copyload to i64
+  %11 = zext nneg i32 %0 to i64
+  br label %12
 
-17:                                               ; preds = %17, %.lr.ph.i.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 1, %.lr.ph.i.i ]
-  %18 = add nsw i64 %indvars.iv.i, -1
-  %19 = mul nsw i64 %18, %15
-  %20 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %19
-  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.i.i = add i32 %21, -1
-  %22 = icmp samesign ult i64 %indvars.iv.i, %16
-  %23 = select i1 %22, i32 %21, i32 0
-  %24 = getelementptr i32, ptr %20, i64 %14
+12:                                               ; preds = %12, %.lr.ph.i.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %12 ], [ 1, %.lr.ph.i.i ]
+  %13 = add nsw i64 %indvars.iv.i, -1
+  %14 = mul nsw i64 %13, %10
+  %15 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %14
+  %16 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %.reass.i.i = add i32 %16, -1
+  %17 = icmp samesign ult i64 %indvars.iv.i, %11
+  %18 = select i1 %17, i32 %16, i32 0
+  %19 = getelementptr i32, ptr %15, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 -4
+  store i32 -1, ptr %20, align 4
+  store i32 %.reass.i.i, ptr %15, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 %18, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 %0, ptr %22, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i, %11
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %12, !llvm.loop !30
+
+.critedge.i:                                      ; preds = %7
+  %23 = sext i32 %.sroa.2.0.copyload to i64
+  %24 = getelementptr i32, ptr %.sroa.0.0.copyload, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -4
   store i32 -1, ptr %25, align 4
-  store i32 %.reass.i.i, ptr %20, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 %23, ptr %26, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 %0, ptr %27, align 4
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i, %16
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %17, !llvm.loop !30
+  store i32 0, ptr %.sroa.0.0.copyload, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
+  store i32 1, ptr %26, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
+  store i32 2, ptr %27, align 4
+  br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit
 
 28:                                               ; preds = %4
   %29 = icmp sgt i32 %1, 0
@@ -4951,8 +4963,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   %exitcond.not = icmp eq i32 %47, %31
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %36, !llvm.loop !84
 
-_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %36, %17, %28, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i, %13
-  %.021 = phi i32 [ 1, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i ], [ %0, %13 ], [ 0, %28 ], [ %0, %17 ], [ %44, %36 ]
+_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %36, %12, %28, %8, %.critedge.i
+  %.021 = phi i32 [ 1, %.critedge.i ], [ %0, %8 ], [ 0, %28 ], [ %0, %12 ], [ %44, %36 ]
   ret i32 %.021
 }
 
@@ -6188,17 +6200,13 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorR
   store i32 %136, ptr %139, align 4
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 8
   store i32 %67, ptr %140, align 4
-  br i1 %.not5172.i, label %.loopexit, label %.lr.ph.i60.preheader
+  br i1 %.not5172.i, label %.loopexit, label %.lr.ph.i60
 
-.lr.ph.i60.preheader:                             ; preds = %.loopexit228
-  %smax237 = tail call i32 @llvm.smax.i32(i32 %62, i32 1)
-  br label %.lr.ph.i60
-
-.lr.ph.i60:                                       ; preds = %.lr.ph.i60.preheader, %.lr.ph.i60
-  %indvars.iv234 = phi i64 [ 3, %.lr.ph.i60.preheader ], [ %indvars.iv.next235, %.lr.ph.i60 ]
-  %.14675.i62 = phi i32 [ %136, %.lr.ph.i60.preheader ], [ %141, %.lr.ph.i60 ]
-  %.04774.i63 = phi i32 [ 1, %.lr.ph.i60.preheader ], [ %158, %.lr.ph.i60 ]
-  %.04873.i64 = phi i32 [ %67, %.lr.ph.i60.preheader ], [ %143, %.lr.ph.i60 ]
+.lr.ph.i60:                                       ; preds = %.loopexit228, %.lr.ph.i60
+  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %.lr.ph.i60 ], [ 3, %.loopexit228 ]
+  %.14675.i62 = phi i32 [ %141, %.lr.ph.i60 ], [ %136, %.loopexit228 ]
+  %.04774.i63 = phi i32 [ %158, %.lr.ph.i60 ], [ 1, %.loopexit228 ]
+  %.04873.i64 = phi i32 [ %143, %.lr.ph.i60 ], [ %67, %.loopexit228 ]
   %141 = add nsw i32 %.14675.i62, 1
   %142 = icmp slt i32 %.04774.i63, %62
   %143 = add nsw i32 %.04873.i64, 1
@@ -6226,7 +6234,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorR
   store i32 %144, ptr %157, align 4
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 2
   %158 = add nuw i32 %.04774.i63, 1
-  %exitcond238.not = icmp eq i32 %.04774.i63, %smax237
+  %exitcond238.not = icmp eq i32 %.04774.i63, %62
   br i1 %exitcond238.not, label %.loopexit.loopexit, label %.lr.ph.i60, !llvm.loop !67
 
 .loopexit.loopexit:                               ; preds = %.lr.ph.i60
@@ -6275,17 +6283,13 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorR
   store i32 %183, ptr %186, align 4
   %187 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i32 %114, ptr %187, align 4
-  br i1 %.not5172.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit90, label %.lr.ph.i79.preheader
+  br i1 %.not5172.i, label %_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit90, label %.lr.ph.i79
 
-.lr.ph.i79.preheader:                             ; preds = %.loopexit
-  %smax242 = tail call i32 @llvm.smax.i32(i32 %62, i32 1)
-  br label %.lr.ph.i79
-
-.lr.ph.i79:                                       ; preds = %.lr.ph.i79.preheader, %.lr.ph.i79
-  %indvars.iv239 = phi i64 [ 3, %.lr.ph.i79.preheader ], [ %indvars.iv.next240, %.lr.ph.i79 ]
-  %.14675.i81 = phi i32 [ %183, %.lr.ph.i79.preheader ], [ %188, %.lr.ph.i79 ]
-  %.04774.i82 = phi i32 [ 1, %.lr.ph.i79.preheader ], [ %205, %.lr.ph.i79 ]
-  %.04873.i83 = phi i32 [ %114, %.lr.ph.i79.preheader ], [ %190, %.lr.ph.i79 ]
+.lr.ph.i79:                                       ; preds = %.loopexit, %.lr.ph.i79
+  %indvars.iv239 = phi i64 [ %indvars.iv.next240, %.lr.ph.i79 ], [ 3, %.loopexit ]
+  %.14675.i81 = phi i32 [ %188, %.lr.ph.i79 ], [ %183, %.loopexit ]
+  %.04774.i82 = phi i32 [ %205, %.lr.ph.i79 ], [ 1, %.loopexit ]
+  %.04873.i83 = phi i32 [ %190, %.lr.ph.i79 ], [ %114, %.loopexit ]
   %188 = add nsw i32 %.14675.i81, 1
   %189 = icmp slt i32 %.04774.i82, %62
   %190 = add nsw i32 %.04873.i83, 1
@@ -6313,7 +6317,7 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr3tri21getInteriorR
   store i32 %191, ptr %204, align 4
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 2
   %205 = add nuw i32 %.04774.i82, 1
-  %exitcond243.not = icmp eq i32 %.04774.i82, %smax242
+  %exitcond243.not = icmp eq i32 %.04774.i82, %62
   br i1 %exitcond243.not, label %_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit90.loopexit, label %.lr.ph.i79, !llvm.loop !67
 
 _ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110FacetStrip18connectUniformTrisENS2_10FacetArrayE.exit90.loopexit: ; preds = %.lr.ph.i79
@@ -6348,55 +6352,55 @@ define internal fastcc noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21getInterior
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 12
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4
   %.not.i = icmp eq i32 %0, 3
-  br i1 %.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i, label %19
+  br i1 %.not.i, label %.critedge.i, label %12
 
-_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i: ; preds = %11
-  %12 = add nsw i32 %2, 1
-  %13 = add nsw i32 %2, 2
-  %14 = sext i32 %.sroa.2.0.copyload to i64
-  %15 = getelementptr i32, ptr %.sroa.0.0.copyload, i64 %14
-  %16 = getelementptr i8, ptr %15, i64 -4
-  store i32 -1, ptr %16, align 4
-  store i32 %2, ptr %.sroa.0.0.copyload, align 4
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
-  store i32 %12, ptr %17, align 4
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
-  store i32 %13, ptr %18, align 4
-  br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit
-
-19:                                               ; preds = %11
+12:                                               ; preds = %11
   %invariant.op.i.i = add i32 %2, -1
   %.not17.i.i = icmp slt i32 %0, 1
   br i1 %.not17.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %19
-  %20 = add nsw i32 %2, %0
-  %21 = sext i32 %.sroa.2.0.copyload to i64
-  %22 = sext i32 %.sroa.4.0.copyload to i64
-  %23 = zext nneg i32 %0 to i64
-  br label %24
+.lr.ph.i.i:                                       ; preds = %12
+  %13 = add nsw i32 %2, %0
+  %14 = sext i32 %.sroa.2.0.copyload to i64
+  %15 = sext i32 %.sroa.4.0.copyload to i64
+  %16 = zext nneg i32 %0 to i64
+  br label %17
 
-24:                                               ; preds = %24, %.lr.ph.i.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %24 ], [ 1, %.lr.ph.i.i ]
-  %25 = add nsw i64 %indvars.iv.i, -1
-  %26 = mul nsw i64 %25, %22
-  %27 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %26
-  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.i.i = add i32 %invariant.op.i.i, %28
-  %29 = icmp samesign ult i64 %indvars.iv.i, %23
-  %30 = select i1 %29, i32 %28, i32 0
-  %31 = add nsw i32 %30, %2
-  %32 = getelementptr i32, ptr %27, i64 %21
+17:                                               ; preds = %17, %.lr.ph.i.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %17 ], [ 1, %.lr.ph.i.i ]
+  %18 = add nsw i64 %indvars.iv.i, -1
+  %19 = mul nsw i64 %18, %15
+  %20 = getelementptr inbounds i32, ptr %.sroa.0.0.copyload, i64 %19
+  %21 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %.reass.i.i = add i32 %invariant.op.i.i, %21
+  %22 = icmp samesign ult i64 %indvars.iv.i, %16
+  %23 = select i1 %22, i32 %21, i32 0
+  %24 = add nsw i32 %23, %2
+  %25 = getelementptr i32, ptr %20, i64 %14
+  %26 = getelementptr i8, ptr %25, i64 -4
+  store i32 -1, ptr %26, align 4
+  store i32 %.reass.i.i, ptr %20, align 4
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 %24, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i32 %13, ptr %28, align 4
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i, %16
+  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %17, !llvm.loop !30
+
+.critedge.i:                                      ; preds = %11
+  %29 = add nsw i32 %2, 1
+  %30 = add nsw i32 %2, 2
+  %31 = sext i32 %.sroa.2.0.copyload to i64
+  %32 = getelementptr i32, ptr %.sroa.0.0.copyload, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -4
   store i32 -1, ptr %33, align 4
-  store i32 %.reass.i.i, ptr %27, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  store i32 %31, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %20, ptr %35, align 4
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.i, %23
-  br i1 %exitcond.not.i.i, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %24, !llvm.loop !30
+  store i32 %2, ptr %.sroa.0.0.copyload, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 4
+  store i32 %29, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 8
+  store i32 %30, ptr %35, align 4
+  br label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit
 
 36:                                               ; preds = %9
   %37 = add nsw i32 %1, -2
@@ -6471,8 +6475,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.
   %exitcond.not = icmp eq i32 %74, %0
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit, label %54, !llvm.loop !161
 
-_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %65, %24, %36, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i, %19, %5
-  %.036 = phi i32 [ 0, %5 ], [ 1, %_ZN10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_112appendTriFanENS2_10FacetArrayEii.exit.thread.i ], [ %0, %19 ], [ 0, %36 ], [ %0, %24 ], [ %73, %65 ]
+_ZN10OpenSubdiv6v3_6_03Bfr4qsub15getCenterFacetsEiiNS1_12_GLOBAL__N_110FacetArrayE.exit: ; preds = %65, %17, %36, %12, %.critedge.i, %5
+  %.036 = phi i32 [ 0, %5 ], [ 1, %.critedge.i ], [ %0, %12 ], [ 0, %36 ], [ %0, %17 ], [ %73, %65 ]
   ret i32 %.036
 }
 

@@ -1518,8 +1518,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco8fit_quadERKNS0_18Detecto
   %66 = load ptr, ptr %23, align 8
   tail call fastcc void @_ZN2cv5arucoL6ptsortEPNS0_2ptEi(ptr noundef %66, i32 noundef %.val294)
   %.val302 = load ptr, ptr %23, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %.val294, i32 2)
-  %wide.trip.count369 = zext nneg i32 %smax to i64
+  %wide.trip.count369 = zext nneg i32 %.val294 to i64
   br label %.lr.ph343
 
 .lr.ph343:                                        ; preds = %.lr.ph343.preheader, %84

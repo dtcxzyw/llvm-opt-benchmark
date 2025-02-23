@@ -842,11 +842,7 @@ common.resume:                                    ; preds = %160, %14
   %22 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.1, i32 noundef 109, i64 noundef range(i64 -2147483648, 2147483648) %19, i64 noundef 8)
   store ptr %22, ptr %21, align 8
   %23 = icmp sgt i32 %1, 0
-  br i1 %23, label %.lr.ph.i, label %_Z8init_nnbP8t_nextnbii.exit.thread
-
-_Z8init_nnbP8t_nextnbii.exit.thread:              ; preds = %16
-  call void @_Z7gen_nnbP8t_nextnbN3gmx8ArrayRefI18InteractionsOfTypeEE(ptr noundef nonnull %9, ptr %2, ptr poison)
-  br label %_ZL18sort_and_purge_nnbP8t_nextnb.exit
+  br i1 %23, label %.lr.ph.i, label %_Z8init_nnbP8t_nextnbii.exit
 
 .lr.ph.i:                                         ; preds = %16
   %24 = add nuw nsw i32 %0, 1
@@ -864,16 +860,20 @@ _Z8init_nnbP8t_nextnbii.exit.thread:              ; preds = %16
   store ptr %30, ptr %29, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_Z8init_nnbP8t_nextnbii.exit, label %26, !llvm.loop !5
+  br i1 %exitcond.not.i, label %.preheader77.lr.ph.i, label %26, !llvm.loop !5
 
-_Z8init_nnbP8t_nextnbii.exit:                     ; preds = %26
+_Z8init_nnbP8t_nextnbii.exit:                     ; preds = %16
+  call void @_Z7gen_nnbP8t_nextnbN3gmx8ArrayRefI18InteractionsOfTypeEE(ptr noundef nonnull %9, ptr %2, ptr poison)
+  br label %_ZL18sort_and_purge_nnbP8t_nextnb.exit
+
+.preheader77.lr.ph.i:                             ; preds = %26
   call void @_Z7gen_nnbP8t_nextnbN3gmx8ArrayRefI18InteractionsOfTypeEE(ptr noundef nonnull %9, ptr %2, ptr poison)
   %narrow = add nuw i32 %0, 1
   %31 = zext i32 %narrow to i64
   br label %.preheader77.i
 
-.preheader77.i:                                   ; preds = %_Z8init_nnbP8t_nextnbii.exit, %._crit_edge97.i
-  %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %._crit_edge97.i ], [ 0, %_Z8init_nnbP8t_nextnbii.exit ]
+.preheader77.i:                                   ; preds = %.preheader77.lr.ph.i, %._crit_edge97.i
+  %indvars.iv117.i = phi i64 [ %indvars.iv.next118.i, %._crit_edge97.i ], [ 0, %.preheader77.lr.ph.i ]
   %32 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv117.i
   %33 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv117.i
   br label %.lr.ph96.i
@@ -1027,7 +1027,7 @@ _Z8init_nnbP8t_nextnbii.exit:                     ; preds = %26
   %exitcond30.not = icmp eq i64 %indvars.iv.next118.i, %wide.trip.count.i
   br i1 %exitcond30.not, label %_ZL18sort_and_purge_nnbP8t_nextnb.exit, label %.preheader77.i, !llvm.loop !24
 
-_ZL18sort_and_purge_nnbP8t_nextnb.exit:           ; preds = %._crit_edge97.i, %_Z8init_nnbP8t_nextnbii.exit.thread
+_ZL18sort_and_purge_nnbP8t_nextnb.exit:           ; preds = %._crit_edge97.i, %_Z8init_nnbP8t_nextnbii.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)

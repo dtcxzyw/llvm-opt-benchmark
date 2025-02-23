@@ -3703,13 +3703,13 @@ for.body:                                         ; preds = %invoke.cont17, %for
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %invoke.cont17 ]
   %arrayidx = getelementptr inbounds nuw [11 x %struct.callback_ent], ptr @_ZL19transcode_callbacks, i64 0, i64 %indvars.iv
   %15 = load ptr, ptr %arrayidx, align 8
-  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %cond, ptr noundef nonnull @.str.71, ptr noundef %15)
+  %call22 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.71, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 11
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.body
-  %call24 = call i32 @fputc(i32 noundef 10, ptr noundef %cond)
+  %call24 = call i32 @fputc(i32 noundef 10, ptr noundef %1)
   br label %if.end26
 
 if.end26:                                         ; preds = %invoke.cont17, %for.end, %invoke.cont10

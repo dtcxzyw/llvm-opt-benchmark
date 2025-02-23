@@ -711,7 +711,7 @@ Aig_ObjLevelNew.exit:                             ; preds = %26, %47
   br i1 %exitcond.not.i, label %Vec_VecClear.exit, label %63, !llvm.loop !44
 
 Vec_VecClear.exit:                                ; preds = %63, %59
-  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %18, i32 noundef %22, ptr noundef %1)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %18, i32 noundef %22, ptr noundef nonnull %1)
   %67 = load i64, ptr %19, align 8
   %68 = or i64 %67, 16
   store i64 %68, ptr %19, align 8
@@ -1345,7 +1345,7 @@ Aig_ObjReverseLevel.exit:                         ; preds = %17, %._crit_edge.i.
   br i1 %exitcond.not.i, label %Vec_VecClear.exit, label %74, !llvm.loop !44
 
 Vec_VecClear.exit:                                ; preds = %74, %69
-  tail call fastcc void @Vec_VecPush(ptr noundef %70, i32 noundef %66, ptr noundef nonnull %1)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %70, i32 noundef %66, ptr noundef nonnull %1)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %79 = load i64, ptr %78, align 8
   %80 = or i64 %79, 16

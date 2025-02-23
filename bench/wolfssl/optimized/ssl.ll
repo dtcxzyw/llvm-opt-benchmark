@@ -10536,8 +10536,8 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %30, label %.lr.ph43.preheader
 
-.lr.ph43.preheader:                               ; preds = %._crit_edge, %12
-  %.029 = phi ptr [ %4, %._crit_edge ], [ %13, %12 ]
+.lr.ph43.preheader:                               ; preds = %12, %._crit_edge
+  %.029.ph = phi ptr [ %13, %12 ], [ %4, %._crit_edge ]
   %wide.trip.count49 = zext nneg i32 %2 to i64
   br label %.lr.ph43
 
@@ -10545,7 +10545,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   %indvars.iv46 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next47, %.lr.ph43 ]
   %.03140 = phi i32 [ 0, %.lr.ph43.preheader ], [ %22, %.lr.ph43 ]
   %14 = sext i32 %.03140 to i64
-  %15 = getelementptr inbounds i8, ptr %.029, i64 %14
+  %15 = getelementptr inbounds i8, ptr %.029.ph, i64 %14
   %16 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %indvars.iv46
   %17 = load ptr, ptr %16, align 8, !tbaa !242
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -10559,7 +10559,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
   br i1 %exitcond50.not, label %._crit_edge44, label %.lr.ph43, !llvm.loop !243
 
 ._crit_edge44:                                    ; preds = %.lr.ph43, %3
-  %.02953 = phi ptr [ %4, %3 ], [ %.029, %.lr.ph43 ]
+  %.02954 = phi ptr [ %4, %3 ], [ %.029.ph, %.lr.ph43 ]
   %23 = phi i64 [ 0, %3 ], [ %10, %.lr.ph43 ]
   %24 = phi i1 [ true, %3 ], [ %11, %.lr.ph43 ]
   %25 = icmp eq ptr %0, null
@@ -10568,7 +10568,7 @@ define range(i32 -303, -2147483648) i32 @wolfSSL_writev(ptr noundef %0, ptr noun
 26:                                               ; preds = %._crit_edge44
   %27 = tail call ptr @__errno_location() #24
   store i32 0, ptr %27, align 4, !tbaa !3
-  %28 = call i32 @SendData(ptr noundef nonnull %0, ptr noundef nonnull %.02953, i64 noundef %23) #22
+  %28 = call i32 @SendData(ptr noundef nonnull %0, ptr noundef nonnull %.02954, i64 noundef %23) #22
   %..i = call i32 @llvm.smax.i32(i32 %28, i32 -1)
   br label %wolfSSL_write_internal.exit
 
@@ -10577,7 +10577,7 @@ wolfSSL_write_internal.exit:                      ; preds = %._crit_edge44, %26
   br i1 %24, label %30, label %29
 
 29:                                               ; preds = %wolfSSL_write_internal.exit
-  call void @wolfSSL_Free(ptr noundef nonnull %.02953) #22
+  call void @wolfSSL_Free(ptr noundef nonnull %.02954) #22
   br label %30
 
 30:                                               ; preds = %wolfSSL_write_internal.exit, %29, %12

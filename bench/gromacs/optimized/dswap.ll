@@ -32,7 +32,7 @@ define void @dswap_(ptr noundef readonly captures(none) %0, ptr noundef captures
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader77
   %.0.lcssa = phi i32 [ 0, %.preheader77 ], [ %16, %.preheader.loopexit ]
-  %17 = icmp slt i32 %.0.lcssa, %6
+  %17 = icmp samesign ult i32 %.0.lcssa, %6
   br i1 %17, label %.lr.ph85.preheader, label %.loopexit
 
 .lr.ph85.preheader:                               ; preds = %.preheader

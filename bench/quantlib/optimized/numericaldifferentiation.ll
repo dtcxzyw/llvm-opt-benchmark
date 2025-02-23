@@ -377,7 +377,6 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %cond.true.i
   %mul.i.i262 = mul nsw i64 %34, %sub258
   %add.ptr.i.i263 = getelementptr inbounds double, ptr %add.ptr.i1.i252, i64 %mul.i.i262
   %35 = load i64, ptr %add.ptr3.i.i88, align 8, !tbaa !7
-  %umax354 = call i64 @llvm.umax.i64(i64 %0, i64 1)
   br label %invoke.cont262
 
 lpad31:                                           ; preds = %_ZN5boost6detail11multi_array10extent_genILm2EEixEl.exit
@@ -509,7 +508,7 @@ invoke.cont262:                                   ; preds = %_ZN8QuantLib5ArrayC
   %arrayidx.i273 = getelementptr inbounds nuw double, ptr %call.i96, i64 %i.0350
   store double %54, ptr %arrayidx.i273, align 8, !tbaa !48
   %inc271 = add nuw i64 %i.0350, 1
-  %exitcond355.not = icmp eq i64 %inc271, %umax354
+  %exitcond355.not = icmp eq i64 %inc271, %0
   br i1 %exitcond355.not, label %nrvo.skipdtor, label %invoke.cont262, !llvm.loop !67
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont262
@@ -1626,9 +1625,6 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #17
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

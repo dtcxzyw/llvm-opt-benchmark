@@ -4575,8 +4575,8 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %Abc_Cloc
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %20, ptr %24, align 8, !tbaa !85
   store i32 1, ptr %21, align 4, !tbaa !86
-  %25 = call i32 @Gia_ManLevelNum(ptr noundef %11) #26
-  call void @Gia_ManCreateRefs(ptr noundef %11) #26
+  %25 = call i32 @Gia_ManLevelNum(ptr noundef nonnull %11) #26
+  call void @Gia_ManCreateRefs(ptr noundef nonnull %11) #26
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !35
   %28 = getelementptr i8, ptr %27, i64 4
@@ -9843,11 +9843,7 @@ define ptr @Gia_ManCofStructure(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %4
   %7 = call ptr @Gia_ManFindEquivClasses(ptr noundef nonnull %5)
   %.not7 = icmp eq ptr %7, null
-  br i1 %.not7, label %.thread22.thread33, label %8
-
-.thread22.thread33:                               ; preds = %6
-  call void @Gia_ManStopP(ptr noundef nonnull %2) #26
-  br label %31
+  br i1 %.not7, label %.thread35, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -9886,98 +9882,98 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %8, %12
   %23 = getelementptr i8, ptr %3, i64 4
   %.val = load i32, ptr %23, align 4, !tbaa !34
   %24 = icmp slt i32 %.09.i, %.val
-  br i1 %24, label %25, label %.thread22
+  br i1 %24, label %.thread29, label %.thread35
 
-Vec_WecFreeP.exit.thread:                         ; preds = %1, %4
+.thread29:                                        ; preds = %Vec_IntFindMax.exit
+  %25 = load ptr, ptr %2, align 8, !tbaa !144
+  %26 = getelementptr i8, ptr %0, i64 72
+  %.val8 = load ptr, ptr %26, align 8, !tbaa !35
+  %27 = getelementptr i8, ptr %.val8, i64 4
+  %.val8.val = load i32, ptr %27, align 4, !tbaa !34
+  call void @Gia_ManFindDerive(ptr noundef %25, i32 noundef %.val8.val, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7)
+  %28 = load ptr, ptr %2, align 8, !tbaa !144
+  %29 = call ptr @Gia_ManCleanup(ptr noundef %28) #26
+  store ptr %29, ptr %2, align 8, !tbaa !144
+  call void @Gia_ManStop(ptr noundef %28) #26
+  br label %30
+
+.thread35:                                        ; preds = %Vec_IntFindMax.exit, %6
+  call void @Gia_ManStopP(ptr noundef nonnull %2) #26
+  br label %30
+
+Vec_WecFreeP.exit.thread:                         ; preds = %4, %1
   call void @Gia_ManStopP(ptr noundef nonnull %2) #26
   br label %Vec_IntFreeP.exit
 
-.thread22:                                        ; preds = %Vec_IntFindMax.exit
-  call void @Gia_ManStopP(ptr noundef nonnull %2) #26
-  br label %31
+30:                                               ; preds = %.thread35, %.thread29
+  %31 = load i32, ptr %5, align 8, !tbaa !82
+  %32 = icmp sgt i32 %31, 0
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i.i = load ptr, ptr %33, align 8, !tbaa !84
+  br i1 %32, label %.lr.ph.i.i.i.preheader, label %._crit_edge.i.i.i
 
-25:                                               ; preds = %Vec_IntFindMax.exit
-  %26 = load ptr, ptr %2, align 8, !tbaa !144
-  %27 = getelementptr i8, ptr %0, i64 72
-  %.val8 = load ptr, ptr %27, align 8, !tbaa !35
-  %28 = getelementptr i8, ptr %.val8, i64 4
-  %.val8.val = load i32, ptr %28, align 4, !tbaa !34
-  call void @Gia_ManFindDerive(ptr noundef %26, i32 noundef %.val8.val, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %7)
-  %29 = load ptr, ptr %2, align 8, !tbaa !144
-  %30 = call ptr @Gia_ManCleanup(ptr noundef %29) #26
-  store ptr %30, ptr %2, align 8, !tbaa !144
-  call void @Gia_ManStop(ptr noundef %29) #26
-  br label %31
-
-31:                                               ; preds = %25, %.thread22, %.thread22.thread33
-  %32 = load i32, ptr %5, align 8, !tbaa !82
-  %33 = icmp sgt i32 %32, 0
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i.i.i = load ptr, ptr %34, align 8, !tbaa !84
-  br i1 %33, label %.lr.ph.i.i.i.preheader, label %._crit_edge.i.i.i
-
-.lr.ph.i.i.i.preheader:                           ; preds = %31
-  %35 = zext nneg i32 %32 to i64
+.lr.ph.i.i.i.preheader:                           ; preds = %30
+  %34 = zext nneg i32 %31 to i64
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %40
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %40 ], [ 0, %.lr.ph.i.i.i.preheader ]
-  %36 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i, i32 2
-  %37 = load ptr, ptr %36, align 8, !tbaa !55
-  %.not15.i.i.i = icmp eq ptr %37, null
-  br i1 %.not15.i.i.i, label %40, label %38
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %39
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %39 ], [ 0, %.lr.ph.i.i.i.preheader ]
+  %35 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i, i32 2
+  %36 = load ptr, ptr %35, align 8, !tbaa !55
+  %.not15.i.i.i = icmp eq ptr %36, null
+  br i1 %.not15.i.i.i, label %39, label %37
 
-38:                                               ; preds = %.lr.ph.i.i.i
-  call void @free(ptr noundef nonnull %37) #26
-  %39 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i, i32 2
-  store ptr null, ptr %39, align 8, !tbaa !55
-  br label %40
+37:                                               ; preds = %.lr.ph.i.i.i
+  call void @free(ptr noundef nonnull %36) #26
+  %38 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.pre.i.i.i, i64 %indvars.iv.i.i.i, i32 2
+  store ptr null, ptr %38, align 8, !tbaa !55
+  br label %39
 
-40:                                               ; preds = %38, %.lr.ph.i.i.i
+39:                                               ; preds = %37, %.lr.ph.i.i.i
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %41 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %35
-  br i1 %41, label %.lr.ph.i.i.i, label %._crit_edge.thread.i.i.i, !llvm.loop !87
+  %40 = icmp samesign ult i64 %indvars.iv.next.i.i.i, %34
+  br i1 %40, label %.lr.ph.i.i.i, label %._crit_edge.thread.i.i.i, !llvm.loop !87
 
-._crit_edge.i.i.i:                                ; preds = %31
+._crit_edge.i.i.i:                                ; preds = %30
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not.i.i.i, label %Vec_WecFree.exit.i, label %._crit_edge.thread.i.i.i
+  br i1 %.not.i.i.i, label %Vec_WecFreeP.exit, label %._crit_edge.thread.i.i.i
 
-._crit_edge.thread.i.i.i:                         ; preds = %40, %._crit_edge.i.i.i
+._crit_edge.thread.i.i.i:                         ; preds = %39, %._crit_edge.i.i.i
   call void @free(ptr noundef nonnull %.pre.i.i.i) #26
-  br label %Vec_WecFree.exit.i
+  br label %Vec_WecFreeP.exit
 
-Vec_WecFree.exit.i:                               ; preds = %._crit_edge.thread.i.i.i, %._crit_edge.i.i.i
+Vec_WecFreeP.exit:                                ; preds = %._crit_edge.i.i.i, %._crit_edge.thread.i.i.i
   call void @free(ptr noundef nonnull %5) #26
-  br i1 %.not7, label %Vec_IntFreeP.exit, label %42
+  br i1 %.not7, label %Vec_IntFreeP.exit, label %41
 
-42:                                               ; preds = %Vec_WecFree.exit.i
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !55
-  %.not.i = icmp eq ptr %44, null
-  br i1 %.not.i, label %45, label %.thread.i
+41:                                               ; preds = %Vec_WecFreeP.exit
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !55
+  %.not.i = icmp eq ptr %43, null
+  br i1 %.not.i, label %44, label %.thread.i
 
-.thread.i:                                        ; preds = %42
-  call void @free(ptr noundef nonnull %44) #26
-  br label %45
+.thread.i:                                        ; preds = %41
+  call void @free(ptr noundef nonnull %43) #26
+  br label %44
 
-45:                                               ; preds = %.thread.i, %42
+44:                                               ; preds = %.thread.i, %41
   call void @free(ptr noundef nonnull %7) #26
   br label %Vec_IntFreeP.exit
 
-Vec_IntFreeP.exit:                                ; preds = %Vec_WecFreeP.exit.thread, %Vec_WecFree.exit.i, %45
-  br i1 %.not, label %Vec_IntFreeP.exit11, label %Vec_IntFreeP.exit.thread
+Vec_IntFreeP.exit:                                ; preds = %Vec_WecFreeP.exit.thread, %Vec_WecFreeP.exit, %44
+  br i1 %.not, label %Vec_IntFreeP.exit11, label %45
 
-Vec_IntFreeP.exit.thread:                         ; preds = %Vec_IntFreeP.exit
+45:                                               ; preds = %Vec_IntFreeP.exit
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !55
   %.not.i9 = icmp eq ptr %47, null
   br i1 %.not.i9, label %48, label %.thread.i10
 
-.thread.i10:                                      ; preds = %Vec_IntFreeP.exit.thread
+.thread.i10:                                      ; preds = %45
   call void @free(ptr noundef nonnull %47) #26
   br label %48
 
-48:                                               ; preds = %.thread.i10, %Vec_IntFreeP.exit.thread
+48:                                               ; preds = %.thread.i10, %45
   call void @free(ptr noundef nonnull %3) #26
   br label %Vec_IntFreeP.exit11
 

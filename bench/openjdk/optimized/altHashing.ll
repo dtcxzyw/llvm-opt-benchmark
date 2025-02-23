@@ -258,7 +258,7 @@ define hidden noundef i32 @_ZN10AltHashing14halfsiphash_32EmPKvi(i64 noundef %0,
 _ZL19halfsiphash_adddataPjji.exit:                ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %54 = xor i32 %46, %30
-  %55 = icmp sgt i32 %.059, 7
+  %55 = icmp samesign ugt i32 %.059, 7
   br i1 %55, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %_ZL19halfsiphash_adddataPjji.exit

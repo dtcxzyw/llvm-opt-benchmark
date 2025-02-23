@@ -2525,7 +2525,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   tail call void @scratch_buffer_append(ptr noundef %31) #6
   %32 = tail call ptr @scratch_buffer_to_string() #6
   %33 = tail call ptr @scratch_buffer_to_string() #6
-  %34 = tail call ptr @llvm_emit_string_const(ptr noundef %0, ptr noundef %31, ptr noundef %33) #6
+  %34 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33) #6
   %35 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv144
   store ptr %34, ptr %35, align 8
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
@@ -2539,7 +2539,7 @@ define internal fastcc ptr @llvm_get_introspection_for_enum(ptr noundef %0, ptr 
   tail call void @scratch_buffer_append_unsigned_int(i64 noundef %indvars.iv) #6
   %36 = tail call ptr @scratch_buffer_to_string() #6
   %37 = tail call ptr @scratch_buffer_to_string() #6
-  %38 = tail call ptr @llvm_emit_string_const(ptr noundef %0, ptr noundef %36, ptr noundef %37) #6
+  %38 = tail call ptr @llvm_emit_string_const(ptr noundef nonnull %0, ptr noundef %36, ptr noundef %37) #6
   %39 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
   store ptr %38, ptr %39, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2836,7 +2836,7 @@ define internal fastcc ptr @llvm_get_introspection_for_fault(ptr noundef %0, ptr
 
 ._crit_edge73:                                    ; preds = %.lr.ph72, %11
   %.pre-phi = phi i64 [ 0, %11 ], [ %wide.trip.count80, %.lr.ph72 ]
-  %76 = call fastcc ptr @llvm_generate_introspection_global(ptr noundef %0, ptr noundef %16, ptr noundef %1, i32 noundef 9, ptr noundef null, i64 noundef %.pre-phi, ptr noundef null, i1 noundef zeroext false)
+  %76 = call fastcc ptr @llvm_generate_introspection_global(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %1, i32 noundef 9, ptr noundef null, i64 noundef %.pre-phi, ptr noundef null, i1 noundef zeroext false)
   ret ptr %76
 }
 

@@ -687,17 +687,17 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %148, %151
 
 .body58:                                          ; preds = %85, %189
   %.pn28.pn.pn = phi { ptr, i32 } [ %.pn28.pn, %189 ], [ %86, %85 ]
-  call void @free(ptr noundef %72) #15
+  call void @free(ptr noundef nonnull %72) #15
   br label %.body55
 
 .body55:                                          ; preds = %77, %.body58
   %.pn28.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn, %.body58 ], [ %78, %77 ]
-  call void @free(ptr noundef %62) #15
+  call void @free(ptr noundef nonnull %62) #15
   br label %.body51
 
 .body51:                                          ; preds = %69, %.body55
   %.pn28.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn, %.body55 ], [ %70, %69 ]
-  call void @free(ptr noundef %52) #15
+  call void @free(ptr noundef nonnull %52) #15
   br label %.body45
 
 .body45:                                          ; preds = %59, %.body51
@@ -714,12 +714,12 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %148, %151
 
 .body39:                                          ; preds = %37, %.body42
   %.pn28.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn.pn.pn, %.body42 ], [ %38, %37 ]
-  call void @free(ptr noundef %25) #15
+  call void @free(ptr noundef nonnull %25) #15
   br label %.body
 
 .body:                                            ; preds = %29, %.body39
   %.pn28.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn.pn.pn.pn, %.body39 ], [ %30, %29 ]
-  call void @free(ptr noundef %17) #15
+  call void @free(ptr noundef nonnull %17) #15
   resume { ptr, i32 } %.pn28.pn.pn.pn.pn.pn.pn.pn.pn
 }
 

@@ -1725,7 +1725,7 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackM
   %26 = ashr exact i64 %25, 4
   %27 = sub nsw i64 %18, %26
   %.not = icmp ult i64 %27, %16
-  br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread, label %28
+  br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit, label %28
 
 28:                                               ; preds = %4
   %29 = add nsw i64 %26, %16
@@ -1751,7 +1751,7 @@ define void @_ZN8WasmEdge8Executor8Executor14runTableGrowOpERNS_7Runtime12StackM
 
 _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %36, %34, %32, %31
   %37 = icmp eq i32 %.sroa.0.0.extract.trunc, 0
-  br i1 %37, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread.sink.split, label %38
+  br i1 %37, label %.loopexit, label %38
 
 38:                                               ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %39 = load ptr, ptr %20, align 16
@@ -1764,7 +1764,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %36, %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.06.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %42, %39
-  br i1 %.not.i.i.i.i.i.i, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !37
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !37
 
 43:                                               ; preds = %31
   %44 = landingpad { ptr, i32 }
@@ -1773,17 +1773,13 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %36, %34
   tail call void @__clang_call_terminate(ptr %45) #23
   unreachable
 
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %.lr.ph.i.i.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %46 = add i32 %10, %.sroa.0.0.extract.trunc
-  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread.sink.split
+  store i32 %46, ptr %9, align 4
+  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
 
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread.sink.split: ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
-  %.sink = phi i32 [ %46, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit ], [ %10, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i ]
-  store i32 %.sink, ptr %9, align 4
-  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread
-
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread: ; preds = %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread.sink.split, %4
-  %storemerge = phi i32 [ -1, %4 ], [ %10, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread.sink.split ]
+_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %4, %.loopexit
+  %storemerge = phi i32 [ %10, %.loopexit ], [ -1, %4 ]
   store i32 %storemerge, ptr %8, align 16
   store i64 1, ptr %0, align 4
   ret void

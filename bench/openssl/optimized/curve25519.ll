@@ -2722,7 +2722,7 @@ fe_neg.exit63:                                    ; preds = %46
   br i1 %.not55, label %69, label %57
 
 57:                                               ; preds = %55
-  %58 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %53, ptr noundef %2, i64 noundef 32) #9
+  %58 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %53, ptr noundef nonnull %2, i64 noundef 32) #9
   %.not56 = icmp eq i32 %58, 0
   br i1 %.not56, label %69, label %59
 
@@ -2745,7 +2745,7 @@ fe_neg.exit63:                                    ; preds = %46
   call fastcc void @x25519_sc_reduce(ptr noundef %16)
   call fastcc void @ge_double_scalarmult_vartime(ptr noundef %14, ptr noundef %16, ptr noundef %12, ptr noundef nonnull %24)
   call fastcc void @ge_tobytes(ptr noundef %15, ptr noundef %14)
-  %66 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef %2, i64 noundef 32) #9
+  %66 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %15, ptr noundef nonnull %2, i64 noundef 32) #9
   %67 = icmp eq i32 %66, 0
   %68 = zext i1 %67 to i32
   br label %69

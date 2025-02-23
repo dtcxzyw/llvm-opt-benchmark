@@ -3163,9 +3163,9 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   store i64 %14, ptr %6, align 8, !alias.scope !938
   %15 = icmp ne ptr %12, null
   %16 = getelementptr i8, ptr %12, i64 -8
-  %.not.not9 = icmp ne ptr %16, null
-  %.not.not.not = and i1 %15, %.not.not9
-  br i1 %.not.not.not, label %17, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit.thread"
+  %.not7 = icmp ne ptr %16, null
+  %.not = and i1 %15, %.not7
+  br i1 %.not, label %17, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit.thread"
 
 17:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit"
   %.val5 = load i32, ptr %16, align 4, !range !947, !noundef !4
@@ -3262,8 +3262,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %23, label %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit.thread", label %9
 
 "_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit.thread": ; preds = %9, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit", %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h08446744827ebce5E.exit"
-  %.not.not.not15 = phi i1 [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit" ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h08446744827ebce5E.exit" ], [ false, %9 ]
-  ret i1 %.not.not.not15
+  %.not15 = phi i1 [ false, %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc4ae98ea4f4df6c1E.exit" ], [ true, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h08446744827ebce5E.exit" ], [ false, %9 ]
+  ret i1 %.not15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3865,7 +3865,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 
 .preheader.i:                                     ; preds = %74, %90
   %.sroa.025.0141.i = phi i64 [ %86, %90 ], [ 0, %74 ]
-  %.2140.i = phi i8 [ %.3.i, %90 ], [ %.064142.i, %74 ]
+  %.2140.i = phi i8 [ %.3.i, %90 ], [ 0, %74 ]
   %86 = add nuw nsw i64 %.sroa.025.0141.i, 1
   %87 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0141.i
   %88 = load i16, ptr %87, align 2, !noalias !1050, !noundef !4

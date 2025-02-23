@@ -7340,82 +7340,70 @@ define hidden void @_ZN5tokio7runtime4time5wheel5level5Level15next_expiration17h
 _ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i: ; preds = %.lr.ph.i.i.i
   %23 = mul i64 %spec.select.i.i.i, %21
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %25, label %26, !prof !686
+  br i1 %24, label %25, label %.lr.ph.i.i.i8.preheader, !prof !686
 
 25:                                               ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @str.1.llvm.5542961546488995764, i64 noundef 25, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a04ce7f5fe84a8ff0b9c5affd729a942.133.llvm.5542961546488995764) #35, !noalias !683
   unreachable
 
-26:                                               ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i
-  %27 = udiv i64 %2, %23
-  %28 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %27)
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %28, i1 true)
-  %30 = add i64 %29, %27
-  switch i32 %10, label %.lr.ph.i.i.i8 [
-    i32 0, label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
-    i32 1, label %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20
-  ]
+.lr.ph.i.i.i8.preheader:                          ; preds = %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit.i
+  %26 = udiv i64 %2, %23
+  %27 = tail call i64 @llvm.fshr.i64(i64 %5, i64 %5, i64 %26)
+  %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %27, i1 true)
+  %29 = add i64 %28, %26
+  br label %.lr.ph.i.i.i8
 
-_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20: ; preds = %26
-  br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
-
-.lr.ph.i.i.i8:                                    ; preds = %26, %.lr.ph.i.i.i8
-  %.017.i.i.i9 = phi i32 [ %33, %.lr.ph.i.i.i8 ], [ %10, %26 ]
-  %.01216.i.i.i10 = phi i64 [ %34, %.lr.ph.i.i.i8 ], [ 64, %26 ]
-  %.01315.i.i.i11 = phi i64 [ %spec.select.i.i.i13, %.lr.ph.i.i.i8 ], [ 1, %26 ]
-  %31 = and i32 %.017.i.i.i9, 1
-  %.not.i.i.i12 = icmp eq i32 %31, 0
-  %32 = select i1 %.not.i.i.i12, i64 1, i64 %.01216.i.i.i10
-  %spec.select.i.i.i13 = mul i64 %32, %.01315.i.i.i11
-  %33 = lshr i32 %.017.i.i.i9, 1
-  %34 = mul i64 %.01216.i.i.i10, %.01216.i.i.i10
-  %35 = icmp ugt i32 %.017.i.i.i9, 3
-  br i1 %35, label %.lr.ph.i.i.i8, label %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit
+.lr.ph.i.i.i8:                                    ; preds = %.lr.ph.i.i.i8.preheader, %.lr.ph.i.i.i8
+  %.017.i.i.i9 = phi i32 [ %32, %.lr.ph.i.i.i8 ], [ %10, %.lr.ph.i.i.i8.preheader ]
+  %.01216.i.i.i10 = phi i64 [ %33, %.lr.ph.i.i.i8 ], [ 64, %.lr.ph.i.i.i8.preheader ]
+  %.01315.i.i.i11 = phi i64 [ %spec.select.i.i.i13, %.lr.ph.i.i.i8 ], [ 1, %.lr.ph.i.i.i8.preheader ]
+  %30 = and i32 %.017.i.i.i9, 1
+  %.not.i.i.i12 = icmp eq i32 %30, 0
+  %31 = select i1 %.not.i.i.i12, i64 1, i64 %.01216.i.i.i10
+  %spec.select.i.i.i13 = mul i64 %31, %.01315.i.i.i11
+  %32 = lshr i32 %.017.i.i.i9, 1
+  %33 = mul i64 %.01216.i.i.i10, %.01216.i.i.i10
+  %34 = icmp ugt i32 %.017.i.i.i9, 3
+  br i1 %34, label %.lr.ph.i.i.i8, label %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit
 
 _ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit: ; preds = %.lr.ph.i.i.i8
-  %36 = shl i64 %34, 6
-  %37 = mul i64 %spec.select.i.i.i13, %36
-  switch i32 %10, label %.lr.ph.i.i [
-    i32 0, label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
-    i32 1, label %._crit_edge.i.i
-  ]
+  %35 = shl i64 %33, 6
+  br label %.lr.ph.i.i
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
-  %38 = mul i64 %spec.select.i.i, %42
-  br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
-
-._crit_edge.i.i:                                  ; preds = %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit
+  %36 = mul i64 %35, %spec.select.i.i.i13
+  %37 = mul i64 %spec.select.i.i, %41
   br label %_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit, %.lr.ph.i.i
-  %.017.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ %10, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
-  %.01216.i.i = phi i64 [ %42, %.lr.ph.i.i ], [ 64, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
+  %.017.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ %10, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
+  %.01216.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 64, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
   %.01315.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 1, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ]
-  %39 = and i32 %.017.i.i, 1
-  %.not.i.i = icmp eq i32 %39, 0
-  %40 = select i1 %.not.i.i, i64 1, i64 %.01216.i.i
-  %spec.select.i.i = mul i64 %40, %.01315.i.i
-  %41 = lshr i32 %.017.i.i, 1
-  %42 = mul i64 %.01216.i.i, %.01216.i.i
-  %43 = icmp ugt i32 %.017.i.i, 3
-  br i1 %43, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
+  %38 = and i32 %.017.i.i, 1
+  %.not.i.i = icmp eq i32 %38, 0
+  %39 = select i1 %.not.i.i, i64 1, i64 %.01216.i.i
+  %spec.select.i.i = mul i64 %39, %.01315.i.i
+  %40 = lshr i32 %.017.i.i, 1
+  %41 = mul i64 %.01216.i.i, %.01216.i.i
+  %42 = icmp ugt i32 %.017.i.i, 3
+  br i1 %42, label %.lr.ph.i.i, label %._crit_edge.i.loopexit.i
 
-_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %26, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit, %._crit_edge.i.loopexit.i, %._crit_edge.i.i
-  %.in = phi i64 [ %30, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ], [ %30, %._crit_edge.i.loopexit.i ], [ %30, %._crit_edge.i.i ], [ %30, %26 ], [ %13, %.thread ], [ %17, %.thread28 ], [ %30, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20 ]
-  %.011.i.i.i19 = phi i64 [ %37, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ], [ %37, %._crit_edge.i.loopexit.i ], [ %37, %._crit_edge.i.i ], [ 64, %26 ], [ 64, %.thread ], [ 4096, %.thread28 ], [ 4096, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20 ]
-  %.011.i.i = phi i64 [ 1, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit ], [ %38, %._crit_edge.i.loopexit.i ], [ 64, %._crit_edge.i.i ], [ 1, %26 ], [ 1, %.thread ], [ 64, %.thread28 ], [ 64, %_ZN5tokio7runtime4time5wheel5level11level_range17h7d675a0dfbae8bfdE.llvm.5542961546488995764.exit.thread20 ]
-  %44 = and i64 %.in, 63
-  %45 = sub i64 0, %.011.i.i.i19
-  %46 = and i64 %2, %45
-  %47 = mul i64 %.011.i.i, %44
-  %48 = add i64 %47, %46
-  %.not = icmp ugt i64 %48, %2
-  %49 = select i1 %.not, i64 0, i64 %.011.i.i.i19
-  %spec.select = add i64 %49, %48
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %9, ptr %50, align 8
+_ZN5tokio7runtime4time5wheel5level10slot_range17hc43b05a78e71c0f5E.llvm.5542961546488995764.exit: ; preds = %.thread28, %.thread, %._crit_edge.i.loopexit.i
+  %.in = phi i64 [ %29, %._crit_edge.i.loopexit.i ], [ %13, %.thread ], [ %17, %.thread28 ]
+  %.011.i.i.i19 = phi i64 [ %36, %._crit_edge.i.loopexit.i ], [ 64, %.thread ], [ 4096, %.thread28 ]
+  %.011.i.i = phi i64 [ %37, %._crit_edge.i.loopexit.i ], [ 1, %.thread ], [ 64, %.thread28 ]
+  %43 = and i64 %.in, 63
+  %44 = sub i64 0, %.011.i.i.i19
+  %45 = and i64 %2, %44
+  %46 = mul i64 %.011.i.i, %43
+  %47 = add i64 %46, %45
+  %.not = icmp ugt i64 %47, %2
+  %48 = select i1 %.not, i64 0, i64 %.011.i.i.i19
+  %spec.select = add i64 %48, %47
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %9, ptr %49, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %44, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %43, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.54.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %spec.select, ptr %.sroa.54.0..sroa_idx, align 8
   br label %_ZN5tokio7runtime4time5wheel5level5Level18next_occupied_slot17h188c833cb630d615E.llvm.5542961546488995764.exit.thread

@@ -3711,7 +3711,7 @@ _ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit: ; preds = %4, %7, %11
   store i32 0, ptr %12, align 4, !tbaa !16
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 0, ptr %14, align 8, !tbaa !17
-  br label %.loopexit70
+  br label %.loopexit69
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -3771,7 +3771,7 @@ _ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit65: ; preds = %33, %36, %
   %45 = icmp eq i32 %spec.select, 0
   %46 = icmp eq i32 %.052, 0
   %or.cond = select i1 %45, i1 true, i1 %46
-  br i1 %or.cond, label %.loopexit70, label %47
+  br i1 %or.cond, label %.loopexit69, label %47
 
 47:                                               ; preds = %44
   %48 = mul nsw i32 %.052, %spec.select
@@ -3823,52 +3823,52 @@ _ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %70 = load ptr, ptr %69, align 8, !tbaa !15
   %.not.i5.i.i = icmp eq ptr %70, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE7reserveEi.exit.i, label %71
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i, label %71
 
 71:                                               ; preds = %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %73 = load i8, ptr %72, align 8, !tbaa !7, !range !46, !noundef !47
   %74 = trunc nuw i8 %73 to i1
-  br i1 %74, label %75, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE7reserveEi.exit.i
+  br i1 %74, label %75, label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i
 
 75:                                               ; preds = %71
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %70)
-  br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE7reserveEi.exit.i: ; preds = %75, %71, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i: ; preds = %75, %71, %_ZNK20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE4copyEiiPS1_.exit.i.i
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i8 1, ptr %76, align 8, !tbaa !7
   store ptr %.0.i.i.i, ptr %69, align 8, !tbaa !15
   store i32 %48, ptr %53, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
 
-_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit: ; preds = %52, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE7reserveEi.exit.i, %47
+_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit: ; preds = %52, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE10deallocateEv.exit.i.i, %47
   store i32 %48, ptr %49, align 4, !tbaa !16
   %77 = icmp sgt i32 %.052, 0
-  br i1 %77, label %.lr.ph89, label %.loopexit70
+  br i1 %77, label %.lr.ph88, label %.loopexit69
 
-.lr.ph89:                                         ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
+.lr.ph88:                                         ; preds = %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit
   %78 = icmp sgt i32 %spec.select, 0
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %78, label %.lr.ph.us.preheader, label %.loopexit70
+  br i1 %78, label %.lr.ph.us.preheader, label %.loopexit69
 
-.lr.ph.us.preheader:                              ; preds = %.lr.ph89
+.lr.ph.us.preheader:                              ; preds = %.lr.ph88
   %80 = zext nneg i32 %1 to i64
   %81 = zext nneg i32 %spec.select to i64
-  %wide.trip.count107 = zext nneg i32 %.052 to i64
-  br label %.lr.ph81.us.preheader
+  %wide.trip.count106 = zext nneg i32 %.052 to i64
+  br label %.lr.ph80.us.preheader
 
-.lr.ph81.us.preheader:                            ; preds = %._crit_edge87.us, %.lr.ph.us.preheader
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next105, %._crit_edge87.us ]
-  %82 = mul nuw nsw i64 %indvars.iv104, %80
-  %83 = mul nuw nsw i64 %indvars.iv104, %81
+.lr.ph80.us.preheader:                            ; preds = %._crit_edge86.us, %.lr.ph.us.preheader
+  %indvars.iv103 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next104, %._crit_edge86.us ]
+  %82 = mul nuw nsw i64 %indvars.iv103, %80
+  %83 = mul nuw nsw i64 %indvars.iv103, %81
   %84 = trunc nuw i64 %82 to i32
   %85 = trunc i64 %82 to i32
   %86 = add i32 %1, %85
-  br label %.lr.ph81.split.us96.preheader
+  br label %.lr.ph80.split.us95.preheader
 
-.lr.ph81.split.us96.preheader:                    ; preds = %._crit_edge.us, %.lr.ph81.us.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph81.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
+.lr.ph80.split.us95.preheader:                    ; preds = %._crit_edge.us, %.lr.ph80.us.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph80.us.preheader ], [ %indvars.iv.next, %._crit_edge.us ]
   %87 = mul nuw nsw i64 %indvars.iv, %80
   %88 = load ptr, ptr %0, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 136
@@ -3877,70 +3877,70 @@ _ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exi
   %92 = tail call noundef float %90(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %91, i32 noundef %84)
   %93 = trunc i64 %87 to i32
   %94 = add i32 %1, %93
-  br label %.lr.ph81.split.us96
+  br label %.lr.ph80.split.us95
 
-.lr.ph81.split.us96:                              ; preds = %.lr.ph81.split.us96.preheader, %..loopexit_crit_edge.us
-  %.05179.us91 = phi i32 [ %108, %..loopexit_crit_edge.us ], [ %84, %.lr.ph81.split.us96.preheader ]
-  %.sroa.0.078.us = phi float [ %.sroa.0.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph81.split.us96.preheader ]
-  %.sroa.6.077.us = phi float [ %.sroa.6.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph81.split.us96.preheader ]
+.lr.ph80.split.us95:                              ; preds = %.lr.ph80.split.us95.preheader, %..loopexit_crit_edge.us
+  %.05178.us90 = phi i32 [ %108, %..loopexit_crit_edge.us ], [ %84, %.lr.ph80.split.us95.preheader ]
+  %.sroa.0.077.us = phi float [ %.sroa.0.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph80.split.us95.preheader ]
+  %.sroa.6.076.us = phi float [ %.sroa.6.1.us, %..loopexit_crit_edge.us ], [ %92, %.lr.ph80.split.us95.preheader ]
   %95 = load i32, ptr %20, align 8, !tbaa !29
-  %.not59.us92 = icmp slt i32 %.05179.us91, %95
-  br i1 %.not59.us92, label %.preheader.us94, label %..loopexit_crit_edge.us
+  %.not59.us91 = icmp slt i32 %.05178.us90, %95
+  br i1 %.not59.us91, label %.preheader.us93, label %..loopexit_crit_edge.us
 
-.preheader.us94:                                  ; preds = %.lr.ph81.split.us96, %106
-  %.05074.us = phi i32 [ %107, %106 ], [ %91, %.lr.ph81.split.us96 ]
-  %.sroa.0.273.us = phi float [ %.sroa.0.3.us, %106 ], [ %.sroa.0.078.us, %.lr.ph81.split.us96 ]
-  %.sroa.6.272.us = phi float [ %.sroa.6.3.us, %106 ], [ %.sroa.6.077.us, %.lr.ph81.split.us96 ]
+.preheader.us93:                                  ; preds = %.lr.ph80.split.us95, %106
+  %.05073.us = phi i32 [ %107, %106 ], [ %91, %.lr.ph80.split.us95 ]
+  %.sroa.0.272.us = phi float [ %.sroa.0.3.us, %106 ], [ %.sroa.0.077.us, %.lr.ph80.split.us95 ]
+  %.sroa.6.271.us = phi float [ %.sroa.6.3.us, %106 ], [ %.sroa.6.076.us, %.lr.ph80.split.us95 ]
   %96 = load i32, ptr %17, align 4, !tbaa !28
-  %.not61.us = icmp slt i32 %.05074.us, %96
+  %.not61.us = icmp slt i32 %.05073.us, %96
   br i1 %.not61.us, label %97, label %106
 
-97:                                               ; preds = %.preheader.us94
+97:                                               ; preds = %.preheader.us93
   %98 = load ptr, ptr %0, align 8, !tbaa !4
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 136
   %100 = load ptr, ptr %99, align 8
-  %101 = tail call noundef float %100(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %.05074.us, i32 noundef %.05179.us91)
-  %102 = fcmp olt float %101, %.sroa.0.273.us
+  %101 = tail call noundef float %100(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %.05073.us, i32 noundef %.05178.us90)
+  %102 = fcmp olt float %101, %.sroa.0.272.us
   br i1 %102, label %106, label %103
 
 103:                                              ; preds = %97
-  %104 = fcmp ogt float %101, %.sroa.6.272.us
+  %104 = fcmp ogt float %101, %.sroa.6.271.us
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %103
   br label %106
 
-106:                                              ; preds = %105, %103, %97, %.preheader.us94
-  %.sroa.6.3.us = phi float [ %101, %105 ], [ %.sroa.6.272.us, %103 ], [ %.sroa.6.272.us, %.preheader.us94 ], [ %.sroa.6.272.us, %97 ]
-  %.sroa.0.3.us = phi float [ %.sroa.0.273.us, %105 ], [ %.sroa.0.273.us, %103 ], [ %.sroa.0.273.us, %.preheader.us94 ], [ %101, %97 ]
-  %107 = add nuw nsw i32 %.05074.us, 1
-  %.not60.us.not = icmp slt i32 %.05074.us, %94
-  br i1 %.not60.us.not, label %.preheader.us94, label %..loopexit_crit_edge.us, !llvm.loop !94
+106:                                              ; preds = %105, %103, %97, %.preheader.us93
+  %.sroa.6.3.us = phi float [ %101, %105 ], [ %.sroa.6.271.us, %103 ], [ %.sroa.6.271.us, %.preheader.us93 ], [ %.sroa.6.271.us, %97 ]
+  %.sroa.0.3.us = phi float [ %.sroa.0.272.us, %105 ], [ %.sroa.0.272.us, %103 ], [ %.sroa.0.272.us, %.preheader.us93 ], [ %101, %97 ]
+  %107 = add nuw nsw i32 %.05073.us, 1
+  %.not60.us.not = icmp slt i32 %.05073.us, %94
+  br i1 %.not60.us.not, label %.preheader.us93, label %..loopexit_crit_edge.us, !llvm.loop !94
 
-..loopexit_crit_edge.us:                          ; preds = %106, %.lr.ph81.split.us96
-  %.sroa.6.1.us = phi float [ %.sroa.6.077.us, %.lr.ph81.split.us96 ], [ %.sroa.6.3.us, %106 ]
-  %.sroa.0.1.us = phi float [ %.sroa.0.078.us, %.lr.ph81.split.us96 ], [ %.sroa.0.3.us, %106 ]
-  %108 = add nuw nsw i32 %.05179.us91, 1
-  %.not58.us93.not = icmp slt i32 %.05179.us91, %86
-  br i1 %.not58.us93.not, label %.lr.ph81.split.us96, label %._crit_edge.us, !llvm.loop !95
+..loopexit_crit_edge.us:                          ; preds = %106, %.lr.ph80.split.us95
+  %.sroa.6.1.us = phi float [ %.sroa.6.076.us, %.lr.ph80.split.us95 ], [ %.sroa.6.3.us, %106 ]
+  %.sroa.0.1.us = phi float [ %.sroa.0.077.us, %.lr.ph80.split.us95 ], [ %.sroa.0.3.us, %106 ]
+  %108 = add nuw nsw i32 %.05178.us90, 1
+  %.not58.us92.not = icmp slt i32 %.05178.us90, %86
+  br i1 %.not58.us92.not, label %.lr.ph80.split.us95, label %._crit_edge.us, !llvm.loop !95
 
 ._crit_edge.us:                                   ; preds = %..loopexit_crit_edge.us
   %109 = load ptr, ptr %79, align 8, !tbaa !15
   %110 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %109, i64 %indvars.iv
   %111 = getelementptr inbounds nuw %"struct.btHeightfieldTerrainShape::Range", ptr %110, i64 %83
   store float %.sroa.0.1.us, ptr %111, align 4
-  %.sroa_idx67.us97 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store float %.sroa.6.1.us, ptr %.sroa_idx67.us97, align 4
+  %.sroa_idx67.us96 = getelementptr inbounds nuw i8, ptr %111, i64 4
+  store float %.sroa.6.1.us, ptr %.sroa_idx67.us96, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %81
-  br i1 %exitcond.not, label %._crit_edge87.us, label %.lr.ph81.split.us96.preheader, !llvm.loop !96
+  br i1 %exitcond.not, label %._crit_edge86.us, label %.lr.ph80.split.us95.preheader, !llvm.loop !96
 
-._crit_edge87.us:                                 ; preds = %._crit_edge.us
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count107
-  br i1 %exitcond108.not, label %.loopexit70, label %.lr.ph81.us.preheader, !llvm.loop !97
+._crit_edge86.us:                                 ; preds = %._crit_edge.us
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count106
+  br i1 %exitcond107.not, label %.loopexit69, label %.lr.ph80.us.preheader, !llvm.loop !97
 
-.loopexit70:                                      ; preds = %._crit_edge87.us, %.lr.ph89, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %44, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
+.loopexit69:                                      ; preds = %._crit_edge86.us, %.lr.ph88, %_ZN20btAlignedObjectArrayIN25btHeightfieldTerrainShape5RangeEE6resizeEiRKS1_.exit, %44, %_ZN25btHeightfieldTerrainShape16clearAcceleratorEv.exit
   ret void
 }
 

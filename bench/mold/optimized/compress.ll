@@ -735,7 +735,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIlSaIlE
   %add.ptr.i17 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %i.028
   store i64 %add, ptr %add.ptr.i17, align 8
   %inc = add nuw nsw i64 %i.028, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  %cmp = icmp samesign ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !17
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit.thread, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit
@@ -1107,7 +1107,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %add.ptr.i15 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i.i, i64 %i.026
   store i64 %add, ptr %add.ptr.i15, align 8
   %inc = add nuw nsw i64 %i.026, 1
-  %cmp = icmp ult i64 %inc, %sub.ptr.div.i
+  %cmp = icmp samesign ult i64 %inc, %sub.ptr.div.i
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit.thread, %_ZNSt6vectorIlSaIlEEC2EmRKS0_.exit

@@ -2567,7 +2567,7 @@ Abc_Clock.exit201:                                ; preds = %25, %30
   br i1 %exitcond.not.i, label %Ssw_RarManPrepareRandom.exit, label %.lr.ph.i, !llvm.loop !12
 
 Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %58
-  %63 = call fastcc ptr @Ssw_RarManStart(ptr noundef %0, ptr noundef %1)
+  %63 = call fastcc ptr @Ssw_RarManStart(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %64 = getelementptr i8, ptr %0, i64 104
   %.val198 = load i32, ptr %64, align 8, !tbaa !50
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2679,7 +2679,7 @@ Abc_Clock.exit203:                                ; preds = %Vec_IntStart.exit, 
 
 114:                                              ; preds = %.lr.ph, %112
   %115 = phi ptr [ %113, %112 ], [ null, %.lr.ph ]
-  call void @Ssw_RarManSimulate(ptr noundef %63, ptr noundef %115, i32 noundef 0, i32 noundef 0)
+  call void @Ssw_RarManSimulate(ptr noundef nonnull %63, ptr noundef %115, i32 noundef 0, i32 noundef 0)
   %116 = load ptr, ptr %63, align 8, !tbaa !33
   %117 = load i32, ptr %116, align 8, !tbaa !3
   %118 = mul nsw i32 %117, %.0148
@@ -3057,7 +3057,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
 
 299:                                              ; preds = %._crit_edge
   %300 = load ptr, ptr %79, align 8, !tbaa !130
-  call fastcc void @Ssw_RarTransferPatterns(ptr noundef %63, ptr noundef %300)
+  call fastcc void @Ssw_RarTransferPatterns(ptr noundef nonnull %63, ptr noundef %300)
   br label %301
 
 301:                                              ; preds = %299, %Vec_IntFill.exit
@@ -3211,7 +3211,7 @@ Abc_Clock.exit231:                                ; preds = %358, %365
   br label %375
 
 375:                                              ; preds = %346, %349, %Abc_Clock.exit231, %352, %344
-  call fastcc void @Ssw_RarManStop(ptr noundef %63)
+  call fastcc void @Ssw_RarManStop(ptr noundef nonnull %63)
   ret i32 %.5
 }
 
@@ -4123,7 +4123,7 @@ Abc_Clock.exit155:                                ; preds = %19, %24
   br i1 %exitcond.not.i, label %Ssw_RarManPrepareRandom.exit, label %.lr.ph.i, !llvm.loop !12
 
 Ssw_RarManPrepareRandom.exit:                     ; preds = %.lr.ph.i, %56
-  %61 = call fastcc ptr @Ssw_RarManStart(ptr noundef %0, ptr noundef %1)
+  %61 = call fastcc ptr @Ssw_RarManStart(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %63 = load ptr, ptr %62, align 8, !tbaa !174
   %.not133 = icmp eq ptr %63, null

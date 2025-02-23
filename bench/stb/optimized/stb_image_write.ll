@@ -505,7 +505,7 @@ stbiw__write1.exit34:                             ; preds = %52, %55
   %92 = sext i32 %91 to i64
   %93 = add nsw i64 %92, 3
   %94 = icmp ult i64 %93, 65
-  br i1 %94, label %stbiw__write3.exit35, label %95
+  br i1 %94, label %.thread, label %95
 
 95:                                               ; preds = %79
   %96 = load ptr, ptr %0, align 8, !tbaa !7
@@ -513,9 +513,9 @@ stbiw__write1.exit34:                             ; preds = %52, %55
   %98 = load ptr, ptr %97, align 8, !tbaa !10
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void %96(ptr noundef %98, ptr noundef nonnull %99, i32 noundef %91) #26
-  br label %stbiw__write3.exit35
+  br label %.thread
 
-stbiw__write3.exit35:                             ; preds = %79, %95
+.thread:                                          ; preds = %95, %79
   %100 = phi i32 [ 0, %95 ], [ %91, %79 ]
   %101 = add nsw i32 %100, 3
   store i32 %101, ptr %90, align 8, !tbaa !14
@@ -528,7 +528,7 @@ stbiw__write3.exit35:                             ; preds = %79, %95
   %107 = getelementptr inbounds [64 x i8], ptr %102, i64 0, i64 %106
   store i8 %85, ptr %107, align 1, !tbaa !11
   %108 = add nsw i32 %100, 2
-  br label %.sink.split
+  br label %.sink.split44
 
 109:                                              ; preds = %62, %29
   %110 = sub nsw i32 1, %1
@@ -571,9 +571,9 @@ stbiw__write3.exit36:                             ; preds = %109, %125
   %138 = add nsw i32 %130, 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %stbiw__write3.exit35, %stbiw__write3.exit36, %stbiw__write1.exit34, %stbiw__write3.exit
-  %.sink43 = phi i32 [ %51, %stbiw__write3.exit ], [ %60, %stbiw__write1.exit34 ], [ %138, %stbiw__write3.exit36 ], [ %108, %stbiw__write3.exit35 ]
-  %.sink = phi i8 [ %31, %stbiw__write3.exit ], [ %31, %stbiw__write1.exit34 ], [ %119, %stbiw__write3.exit36 ], [ %89, %stbiw__write3.exit35 ]
+.sink.split:                                      ; preds = %stbiw__write3.exit36, %stbiw__write1.exit34, %stbiw__write3.exit
+  %.sink43 = phi i32 [ %51, %stbiw__write3.exit ], [ %60, %stbiw__write1.exit34 ], [ %138, %stbiw__write3.exit36 ]
+  %.sink = phi i8 [ %31, %stbiw__write3.exit ], [ %31, %stbiw__write1.exit34 ], [ %119, %stbiw__write3.exit36 ]
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = sext i32 %.sink43 to i64
   %141 = getelementptr inbounds [64 x i8], ptr %139, i64 0, i64 %140
@@ -606,15 +606,20 @@ stbiw__write3.exit36:                             ; preds = %109, %125
 
 stbiw__write1.exit37:                             ; preds = %144, %154
   %159 = phi i32 [ 0, %154 ], [ %150, %144 ]
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %161 = add nsw i32 %159, 1
-  store i32 %161, ptr %149, align 8, !tbaa !14
-  %162 = sext i32 %159 to i64
-  %163 = getelementptr inbounds [64 x i8], ptr %160, i64 0, i64 %162
-  store i8 %148, ptr %163, align 1, !tbaa !11
+  %160 = add nsw i32 %159, 1
+  store i32 %160, ptr %149, align 8, !tbaa !14
+  br label %.sink.split44
+
+.sink.split44:                                    ; preds = %stbiw__write1.exit37, %.thread
+  %.sink49 = phi i32 [ %108, %.thread ], [ %159, %stbiw__write1.exit37 ]
+  %.sink45 = phi i8 [ %89, %.thread ], [ %148, %stbiw__write1.exit37 ]
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %162 = sext i32 %.sink49 to i64
+  %163 = getelementptr inbounds [64 x i8], ptr %161, i64 0, i64 %162
+  store i8 %.sink45, ptr %163, align 1, !tbaa !11
   br label %164
 
-164:                                              ; preds = %stbiw__write1.exit37, %142
+164:                                              ; preds = %.sink.split44, %142
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %7) #26
   ret void
 }
@@ -842,10 +847,10 @@ define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, i32 noundef %1, 
   %.0108 = select i1 %.not116, i32 -1, i32 %2
   %.0107 = select i1 %.not116, i64 4294967295, i64 1
   %.0105 = select i1 %.not116, i32 %28, i32 0
-  %.not117161 = icmp eq i32 %.0105, %.0108
-  br i1 %.not117161, label %._crit_edge165, label %.lr.ph164
+  %.not117164 = icmp eq i32 %.0105, %.0108
+  br i1 %.not117164, label %._crit_edge168, label %.lr.ph167
 
-.lr.ph164:                                        ; preds = %22
+.lr.ph167:                                        ; preds = %22
   %29 = mul i32 %3, %1
   %30 = icmp sgt i32 %1, 0
   %31 = add nsw i32 %1, -1
@@ -854,42 +859,42 @@ define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, i32 noundef %1, 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = zext nneg i32 %3 to i64
-  br i1 %30, label %.lr.ph159.us.preheader, label %._crit_edge165
+  br i1 %30, label %.lr.ph162.us.preheader, label %._crit_edge168
 
-.lr.ph159.us.preheader:                           ; preds = %.lr.ph164
+.lr.ph162.us.preheader:                           ; preds = %.lr.ph167
   %37 = zext nneg i32 %1 to i64
   %38 = zext i32 %.0105 to i64
-  br label %.lr.ph159.us
+  br label %.lr.ph162.us
 
-.lr.ph159.us:                                     ; preds = %.lr.ph159.us.preheader, %._crit_edge160.us
-  %indvars.iv175 = phi i64 [ %38, %.lr.ph159.us.preheader ], [ %indvars.iv.next176, %._crit_edge160.us ]
-  %39 = trunc i64 %indvars.iv175 to i32
+.lr.ph162.us:                                     ; preds = %.lr.ph162.us.preheader, %._crit_edge163.us
+  %indvars.iv178 = phi i64 [ %38, %.lr.ph162.us.preheader ], [ %indvars.iv.next179, %._crit_edge163.us ]
+  %39 = trunc i64 %indvars.iv178 to i32
   %40 = mul i32 %29, %39
   %41 = sext i32 %40 to i64
   %42 = getelementptr inbounds i8, ptr %4, i64 %41
   br label %43
 
-43:                                               ; preds = %.lr.ph159.us, %stbiw__write_pixel.exit137.us
-  %.0103156.us = phi i32 [ 0, %.lr.ph159.us ], [ %198, %stbiw__write_pixel.exit137.us ]
-  %44 = mul nsw i32 %.0103156.us, %3
+43:                                               ; preds = %.lr.ph162.us, %stbiw__write_pixel.exit140.us
+  %.0103159.us = phi i32 [ 0, %.lr.ph162.us ], [ %198, %stbiw__write_pixel.exit140.us ]
+  %44 = mul nsw i32 %.0103159.us, %3
   %45 = sext i32 %44 to i64
   %46 = getelementptr inbounds i8, ptr %42, i64 %45
-  %47 = icmp slt i32 %.0103156.us, %31
-  br i1 %47, label %48, label %.loopexit143.us
+  %47 = icmp slt i32 %.0103159.us, %31
+  br i1 %47, label %48, label %.loopexit146.us
 
 48:                                               ; preds = %43
-  %49 = add nsw i32 %.0103156.us, 1
+  %49 = add nsw i32 %.0103159.us, 1
   %50 = mul nsw i32 %49, %3
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i8, ptr %42, i64 %51
   %bcmp122.us = tail call i32 @bcmp(ptr %46, ptr %52, i64 %32)
   %.not118.us = icmp eq i32 %bcmp122.us, 0
-  %53 = add nsw i32 %.0103156.us, 2
+  %53 = add nsw i32 %.0103159.us, 2
   %54 = icmp slt i32 %53, %1
   br i1 %.not118.us, label %132, label %55
 
 55:                                               ; preds = %48
-  br i1 %54, label %.lr.ph.us.preheader, label %.loopexit143.us
+  br i1 %54, label %.lr.ph.us.preheader, label %.loopexit146.us
 
 .lr.ph.us.preheader:                              ; preds = %55
   %56 = sext i32 %53 to i64
@@ -897,28 +902,28 @@ define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, i32 noundef %1, 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %59
   %indvars.iv = phi i64 [ %56, %.lr.ph.us.preheader ], [ %indvars.iv.next, %59 ]
-  %.0101147.us = phi ptr [ %46, %.lr.ph.us.preheader ], [ %60, %59 ]
-  %.1146.us = phi i32 [ 2, %.lr.ph.us.preheader ], [ %61, %59 ]
+  %.0101150.us = phi ptr [ %46, %.lr.ph.us.preheader ], [ %60, %59 ]
+  %.1149.us = phi i32 [ 2, %.lr.ph.us.preheader ], [ %61, %59 ]
   %57 = mul nsw i64 %indvars.iv, %32
   %58 = getelementptr inbounds i8, ptr %42, i64 %57
-  %bcmp120.us = tail call i32 @bcmp(ptr %.0101147.us, ptr %58, i64 %32)
+  %bcmp120.us = tail call i32 @bcmp(ptr %.0101150.us, ptr %58, i64 %32)
   %.not121.us = icmp eq i32 %bcmp120.us, 0
   br i1 %.not121.us, label %65, label %59
 
 59:                                               ; preds = %.lr.ph.us
-  %60 = getelementptr inbounds i8, ptr %.0101147.us, i64 %32
-  %61 = add nuw nsw i32 %.1146.us, 1
+  %60 = getelementptr inbounds i8, ptr %.0101150.us, i64 %32
+  %61 = add nuw nsw i32 %.1149.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %62 = icmp slt i64 %indvars.iv.next, %37
-  %63 = icmp samesign ult i32 %.1146.us, 127
+  %63 = icmp samesign ult i32 %.1149.us, 127
   %64 = select i1 %62, i1 %63, i1 false
-  br i1 %64, label %.lr.ph.us, label %.loopexit143.us, !llvm.loop !18
+  br i1 %64, label %.lr.ph.us, label %.loopexit146.us, !llvm.loop !18
 
 65:                                               ; preds = %.lr.ph.us
-  %66 = add nsw i32 %.1146.us, -1
-  br label %.loopexit143.us
+  %66 = add nsw i32 %.1149.us, -1
+  br label %.loopexit146.us
 
-.loopexit143.us:                                  ; preds = %59, %55, %65, %43
+.loopexit146.us:                                  ; preds = %59, %55, %65, %43
   %.0104.ph.us = phi i32 [ %66, %65 ], [ 1, %43 ], [ 2, %55 ], [ %61, %59 ]
   %67 = trunc i32 %.0104.ph.us to i8
   %68 = add i8 %67, -1
@@ -928,29 +933,29 @@ define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %0, i32 noundef %1, 
   %72 = icmp ult i64 %71, 65
   br i1 %72, label %stbiw__write1.exit.us, label %73
 
-73:                                               ; preds = %.loopexit143.us
+73:                                               ; preds = %.loopexit146.us
   %74 = load ptr, ptr %0, align 8, !tbaa !7
   %75 = load ptr, ptr %34, align 8, !tbaa !10
   tail call void %74(ptr noundef %75, ptr noundef nonnull %35, i32 noundef %69) #26
   br label %stbiw__write1.exit.us
 
-stbiw__write1.exit.us:                            ; preds = %73, %.loopexit143.us
-  %76 = phi i32 [ 0, %73 ], [ %69, %.loopexit143.us ]
+stbiw__write1.exit.us:                            ; preds = %73, %.loopexit146.us
+  %76 = phi i32 [ 0, %73 ], [ %69, %.loopexit146.us ]
   %77 = add nsw i32 %76, 1
   store i32 %77, ptr %33, align 8, !tbaa !14
   %78 = sext i32 %76 to i64
   %79 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %78
   store i8 %68, ptr %79, align 1, !tbaa !11
   %80 = icmp sgt i32 %.0104.ph.us, 0
-  br i1 %80, label %.lr.ph149.us.preheader, label %stbiw__write_pixel.exit137.us
+  br i1 %80, label %.lr.ph152.us.preheader, label %stbiw__write_pixel.exit140.us
 
-.lr.ph149.us.preheader:                           ; preds = %stbiw__write1.exit.us
+.lr.ph152.us.preheader:                           ; preds = %stbiw__write1.exit.us
   %wide.trip.count = zext nneg i32 %.0104.ph.us to i64
-  br label %.lr.ph149.us
+  br label %.lr.ph152.us
 
-.lr.ph149.us:                                     ; preds = %.lr.ph149.us.preheader, %stbiw__write_pixel.exit.us
-  %indvars.iv169 = phi i64 [ 0, %.lr.ph149.us.preheader ], [ %indvars.iv.next170, %stbiw__write_pixel.exit.us ]
-  %81 = mul nsw i64 %indvars.iv169, %32
+.lr.ph152.us:                                     ; preds = %.lr.ph152.us.preheader, %stbiw__write_pixel.exit.us
+  %indvars.iv172 = phi i64 [ 0, %.lr.ph152.us.preheader ], [ %indvars.iv.next173, %stbiw__write_pixel.exit.us ]
+  %81 = mul nsw i64 %indvars.iv172, %32
   %82 = getelementptr inbounds i8, ptr %46, i64 %81
   switch i32 %3, label %stbiw__write_pixel.exit.us [
     i32 2, label %104
@@ -959,7 +964,7 @@ stbiw__write1.exit.us:                            ; preds = %73, %.loopexit143.u
     i32 3, label %83
   ]
 
-83:                                               ; preds = %.lr.ph149.us, %.lr.ph149.us
+83:                                               ; preds = %.lr.ph152.us, %.lr.ph152.us
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 2
   %85 = load i8, ptr %84, align 1, !tbaa !11
   %86 = getelementptr inbounds nuw i8, ptr %82, i64 1
@@ -991,7 +996,7 @@ stbiw__write3.exit36.i.us:                        ; preds = %93, %83
   %103 = add nsw i32 %96, 2
   br label %.sink.split.i.us
 
-104:                                              ; preds = %.lr.ph149.us, %.lr.ph149.us
+104:                                              ; preds = %.lr.ph152.us, %.lr.ph152.us
   %105 = load i8, ptr %82, align 1, !tbaa !11
   %106 = load i32, ptr %33, align 8, !tbaa !14
   %107 = sext i32 %106 to i64
@@ -1047,29 +1052,29 @@ stbiw__write1.exit37.i.us:                        ; preds = %125, %117
   store i8 %120, ptr %131, align 1, !tbaa !11
   br label %stbiw__write_pixel.exit.us
 
-stbiw__write_pixel.exit.us:                       ; preds = %stbiw__write1.exit37.i.us, %.sink.split.i.us, %.lr.ph149.us
-  %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next170, %wide.trip.count
-  br i1 %exitcond.not, label %stbiw__write_pixel.exit137.us, label %.lr.ph149.us, !llvm.loop !19
+stbiw__write_pixel.exit.us:                       ; preds = %stbiw__write1.exit37.i.us, %.sink.split.i.us, %.lr.ph152.us
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count
+  br i1 %exitcond.not, label %stbiw__write_pixel.exit140.us, label %.lr.ph152.us, !llvm.loop !19
 
 132:                                              ; preds = %48
-  br i1 %54, label %.lr.ph152.us.preheader, label %._crit_edge.us
+  br i1 %54, label %.lr.ph155.us.preheader, label %._crit_edge.us
 
-.lr.ph152.us.preheader:                           ; preds = %132
+.lr.ph155.us.preheader:                           ; preds = %132
   %133 = sext i32 %53 to i64
-  br label %.lr.ph152.us
+  br label %.lr.ph155.us
 
-.lr.ph152.us:                                     ; preds = %.lr.ph152.us.preheader, %200
-  %indvars.iv172 = phi i64 [ %133, %.lr.ph152.us.preheader ], [ %indvars.iv.next173, %200 ]
-  %.3151.us = phi i32 [ 2, %.lr.ph152.us.preheader ], [ %201, %200 ]
-  %134 = mul nsw i64 %indvars.iv172, %32
+.lr.ph155.us:                                     ; preds = %.lr.ph155.us.preheader, %200
+  %indvars.iv175 = phi i64 [ %133, %.lr.ph155.us.preheader ], [ %indvars.iv.next176, %200 ]
+  %.3154.us = phi i32 [ 2, %.lr.ph155.us.preheader ], [ %201, %200 ]
+  %134 = mul nsw i64 %indvars.iv175, %32
   %135 = getelementptr inbounds i8, ptr %42, i64 %134
   %bcmp.us = tail call i32 @bcmp(ptr %46, ptr %135, i64 %32)
   %.not119.us = icmp eq i32 %bcmp.us, 0
   br i1 %.not119.us, label %200, label %._crit_edge.us
 
-._crit_edge.us:                                   ; preds = %.lr.ph152.us, %200, %132
-  %.3.lcssa.us = phi i32 [ 2, %132 ], [ %201, %200 ], [ %.3151.us, %.lr.ph152.us ]
+._crit_edge.us:                                   ; preds = %.lr.ph155.us, %200, %132
+  %.3.lcssa.us = phi i32 [ 2, %132 ], [ %201, %200 ], [ %.3154.us, %.lr.ph155.us ]
   %136 = trunc i32 %.3.lcssa.us to i8
   %137 = add i8 %136, 127
   %138 = load i32, ptr %33, align 8, !tbaa !14
@@ -1091,7 +1096,7 @@ stbiw__write1.exit124.us:                         ; preds = %142, %._crit_edge.u
   %147 = sext i32 %145 to i64
   %148 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %147
   store i8 %137, ptr %148, align 1, !tbaa !11
-  switch i32 %3, label %stbiw__write_pixel.exit137.us [
+  switch i32 %3, label %stbiw__write_pixel.exit140.us [
     i32 2, label %170
     i32 1, label %170
     i32 4, label %149
@@ -1136,27 +1141,27 @@ stbiw__write3.exit36.i125.us:                     ; preds = %159, %149
   %173 = sext i32 %172 to i64
   %174 = add nsw i64 %173, 1
   %175 = icmp ult i64 %174, 65
-  br i1 %175, label %stbiw__write1.exit34.i136.us, label %176
+  br i1 %175, label %stbiw__write1.exit34.i139.us, label %176
 
 176:                                              ; preds = %170
   %177 = load ptr, ptr %0, align 8, !tbaa !7
   %178 = load ptr, ptr %34, align 8, !tbaa !10
   tail call void %177(ptr noundef %178, ptr noundef nonnull %35, i32 noundef %172) #26
-  br label %stbiw__write1.exit34.i136.us
+  br label %stbiw__write1.exit34.i139.us
 
-stbiw__write1.exit34.i136.us:                     ; preds = %176, %170
+stbiw__write1.exit34.i139.us:                     ; preds = %176, %170
   %179 = phi i32 [ 0, %176 ], [ %172, %170 ]
   %180 = add nsw i32 %179, 1
   store i32 %180, ptr %33, align 8, !tbaa !14
   br label %.sink.split.i126.us
 
-.sink.split.i126.us:                              ; preds = %stbiw__write1.exit34.i136.us, %stbiw__write3.exit36.i125.us
-  %.sink43.i127.us = phi i32 [ %179, %stbiw__write1.exit34.i136.us ], [ %169, %stbiw__write3.exit36.i125.us ]
-  %.sink.i128.us = phi i8 [ %171, %stbiw__write1.exit34.i136.us ], [ %154, %stbiw__write3.exit36.i125.us ]
+.sink.split.i126.us:                              ; preds = %stbiw__write1.exit34.i139.us, %stbiw__write3.exit36.i125.us
+  %.sink43.i127.us = phi i32 [ %179, %stbiw__write1.exit34.i139.us ], [ %169, %stbiw__write3.exit36.i125.us ]
+  %.sink.i128.us = phi i8 [ %171, %stbiw__write1.exit34.i139.us ], [ %154, %stbiw__write3.exit36.i125.us ]
   %181 = sext i32 %.sink43.i127.us to i64
   %182 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %181
   store i8 %.sink.i128.us, ptr %182, align 1, !tbaa !11
-  switch i32 %3, label %stbiw__write_pixel.exit137.us [
+  switch i32 %3, label %stbiw__write_pixel.exit140.us [
     i32 4, label %183
     i32 2, label %183
   ]
@@ -1184,35 +1189,35 @@ stbiw__write1.exit37.i129.us:                     ; preds = %191, %183
   %196 = sext i32 %194 to i64
   %197 = getelementptr inbounds [64 x i8], ptr %35, i64 0, i64 %196
   store i8 %186, ptr %197, align 1, !tbaa !11
-  br label %stbiw__write_pixel.exit137.us
+  br label %stbiw__write_pixel.exit140.us
 
-stbiw__write_pixel.exit137.us:                    ; preds = %stbiw__write_pixel.exit.us, %stbiw__write1.exit.us, %stbiw__write1.exit124.us, %.sink.split.i126.us, %stbiw__write1.exit37.i129.us
-  %.0104142.us = phi i32 [ %.3.lcssa.us, %stbiw__write1.exit37.i129.us ], [ %.3.lcssa.us, %.sink.split.i126.us ], [ %.3.lcssa.us, %stbiw__write1.exit124.us ], [ %.0104.ph.us, %stbiw__write1.exit.us ], [ %.0104.ph.us, %stbiw__write_pixel.exit.us ]
-  %198 = add nsw i32 %.0104142.us, %.0103156.us
+stbiw__write_pixel.exit140.us:                    ; preds = %stbiw__write_pixel.exit.us, %stbiw__write1.exit.us, %stbiw__write1.exit124.us, %.sink.split.i126.us, %stbiw__write1.exit37.i129.us
+  %.0104145.us = phi i32 [ %.3.lcssa.us, %stbiw__write1.exit37.i129.us ], [ %.3.lcssa.us, %.sink.split.i126.us ], [ %.3.lcssa.us, %stbiw__write1.exit124.us ], [ %.0104.ph.us, %stbiw__write1.exit.us ], [ %.0104.ph.us, %stbiw__write_pixel.exit.us ]
+  %198 = add nsw i32 %.0104145.us, %.0103159.us
   %199 = icmp slt i32 %198, %1
-  br i1 %199, label %43, label %._crit_edge160.us, !llvm.loop !20
+  br i1 %199, label %43, label %._crit_edge163.us, !llvm.loop !20
 
-200:                                              ; preds = %.lr.ph152.us
-  %201 = add nuw nsw i32 %.3151.us, 1
-  %indvars.iv.next173 = add nsw i64 %indvars.iv172, 1
-  %202 = icmp slt i64 %indvars.iv.next173, %37
-  %203 = icmp samesign ult i32 %.3151.us, 127
+200:                                              ; preds = %.lr.ph155.us
+  %201 = add nuw nsw i32 %.3154.us, 1
+  %indvars.iv.next176 = add nsw i64 %indvars.iv175, 1
+  %202 = icmp slt i64 %indvars.iv.next176, %37
+  %203 = icmp samesign ult i32 %.3154.us, 127
   %204 = select i1 %202, i1 %203, i1 false
-  br i1 %204, label %.lr.ph152.us, label %._crit_edge.us, !llvm.loop !21
+  br i1 %204, label %.lr.ph155.us, label %._crit_edge.us, !llvm.loop !21
 
-._crit_edge160.us:                                ; preds = %stbiw__write_pixel.exit137.us
-  %indvars.iv.next176 = add i64 %indvars.iv175, %.0107
-  %205 = trunc i64 %indvars.iv.next176 to i32
+._crit_edge163.us:                                ; preds = %stbiw__write_pixel.exit140.us
+  %indvars.iv.next179 = add i64 %indvars.iv178, %.0107
+  %205 = trunc i64 %indvars.iv.next179 to i32
   %.not117.us = icmp eq i32 %.0108, %205
-  br i1 %.not117.us, label %._crit_edge165, label %.lr.ph159.us, !llvm.loop !22
+  br i1 %.not117.us, label %._crit_edge168, label %.lr.ph162.us, !llvm.loop !22
 
-._crit_edge165:                                   ; preds = %._crit_edge160.us, %.lr.ph164, %22
+._crit_edge168:                                   ; preds = %._crit_edge163.us, %.lr.ph167, %22
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %207 = load i32, ptr %206, align 8, !tbaa !14
-  %.not.i138 = icmp eq i32 %207, 0
-  br i1 %.not.i138, label %stbiw__write_flush.exit, label %208
+  %.not.i141 = icmp eq i32 %207, 0
+  br i1 %.not.i141, label %stbiw__write_flush.exit, label %208
 
-208:                                              ; preds = %._crit_edge165
+208:                                              ; preds = %._crit_edge168
   %209 = load ptr, ptr %0, align 8, !tbaa !7
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !10
@@ -1221,8 +1226,8 @@ stbiw__write_pixel.exit137.us:                    ; preds = %stbiw__write_pixel.
   store i32 0, ptr %206, align 8, !tbaa !14
   br label %stbiw__write_flush.exit
 
-stbiw__write_flush.exit:                          ; preds = %208, %._crit_edge165, %5, %17
-  %.0 = phi i32 [ %21, %17 ], [ 0, %5 ], [ 1, %._crit_edge165 ], [ 1, %208 ]
+stbiw__write_flush.exit:                          ; preds = %208, %._crit_edge168, %5, %17
+  %.0 = phi i32 [ %21, %17 ], [ 0, %5 ], [ 1, %._crit_edge168 ], [ 1, %208 ]
   ret i32 %.0
 }
 
@@ -2440,7 +2445,7 @@ stbiw__sbgrowf.exit.i298:                         ; preds = %186, %177, %168
   store i8 %188, ptr %193, align 1, !tbaa !11
   %194 = lshr i32 %.12680, 8
   %195 = add nsw i32 %.12651, -8
-  %196 = icmp sgt i32 %.12651, 15
+  %196 = icmp samesign ugt i32 %.12651, 15
   br i1 %196, label %.lr.ph.i293, label %stbiw__zlib_flushf.exit300, !llvm.loop !35
 
 197:                                              ; preds = %154
@@ -2523,7 +2528,7 @@ stbiw__sbgrowf.exit.i315:                         ; preds = %228, %219, %210
   store i8 %230, ptr %235, align 1, !tbaa !11
   %236 = lshr i32 %.14682, 8
   %237 = add nsw i32 %.14653, -8
-  %238 = icmp sgt i32 %.14653, 15
+  %238 = icmp samesign ugt i32 %.14653, 15
   br i1 %238, label %.lr.ph.i310, label %stbiw__zlib_flushf.exit300, !llvm.loop !35
 
 stbiw__zlib_flushf.exit300:                       ; preds = %stbiw__sbgrowf.exit.i315, %stbiw__sbgrowf.exit.i298, %stbiw__zlib_bitrev.exit307, %stbiw__zlib_bitrev.exit
@@ -2605,7 +2610,7 @@ stbiw__sbgrowf.exit.i325:                         ; preds = %272, %263, %254
   store i8 %274, ptr %279, align 1, !tbaa !11
   %280 = lshr i32 %.16684, 8
   %281 = add nsw i32 %.16655, -8
-  %282 = icmp sgt i32 %.16655, 15
+  %282 = icmp samesign ugt i32 %.16655, 15
   br i1 %282, label %.lr.ph.i320, label %stbiw__zlib_flushf.exit327, !llvm.loop !35
 
 stbiw__zlib_flushf.exit327:                       ; preds = %stbiw__sbgrowf.exit.i325, %241, %stbiw__zlib_flushf.exit300
@@ -2702,7 +2707,7 @@ stbiw__sbgrowf.exit.i342:                         ; preds = %316, %307, %298
   store i8 %318, ptr %323, align 1, !tbaa !11
   %324 = lshr i32 %.18686, 8
   %325 = add nsw i32 %.18657, -8
-  %326 = icmp sgt i32 %.18657, 15
+  %326 = icmp samesign ugt i32 %.18657, 15
   br i1 %326, label %.lr.ph.i337, label %stbiw__zlib_flushf.exit344, !llvm.loop !35
 
 stbiw__zlib_flushf.exit344:                       ; preds = %stbiw__sbgrowf.exit.i342, %stbiw__zlib_bitrev.exit334
@@ -2783,7 +2788,7 @@ stbiw__sbgrowf.exit.i352:                         ; preds = %359, %350, %341
   store i8 %361, ptr %366, align 1, !tbaa !11
   %367 = lshr i32 %.20688, 8
   %368 = add nsw i32 %.20659, -8
-  %369 = icmp sgt i32 %.20659, 15
+  %369 = icmp samesign ugt i32 %.20659, 15
   br i1 %369, label %.lr.ph.i347, label %stbiw__zlib_flushf.exit354, !llvm.loop !35
 
 .thread706:                                       ; preds = %stbiw__zlib_countm.exit287, %stbiw__sbgrowf.exit276
@@ -2871,7 +2876,7 @@ stbiw__sbgrowf.exit.i369:                         ; preds = %403, %394, %385
   store i8 %405, ptr %410, align 1, !tbaa !11
   %411 = lshr i32 %.22690, 8
   %412 = add nsw i32 %.22661, -8
-  %413 = icmp sgt i32 %.22661, 15
+  %413 = icmp samesign ugt i32 %.22661, 15
   br i1 %413, label %.lr.ph.i364, label %stbiw__zlib_flushf.exit354, !llvm.loop !35
 
 414:                                              ; preds = %.thread706
@@ -2953,7 +2958,7 @@ stbiw__sbgrowf.exit.i386:                         ; preds = %444, %435, %426
   store i8 %446, ptr %451, align 1, !tbaa !11
   %452 = lshr i32 %.24692, 8
   %453 = add nsw i32 %.24663, -8
-  %454 = icmp sgt i32 %.24663, 15
+  %454 = icmp samesign ugt i32 %.24663, 15
   br i1 %454, label %.lr.ph.i381, label %stbiw__zlib_flushf.exit354, !llvm.loop !35
 
 stbiw__zlib_flushf.exit354:                       ; preds = %stbiw__sbgrowf.exit.i352, %stbiw__sbgrowf.exit.i386, %stbiw__sbgrowf.exit.i369, %stbiw__zlib_bitrev.exit361, %stbiw__zlib_bitrev.exit378, %327, %stbiw__zlib_flushf.exit344
@@ -4427,7 +4432,7 @@ stbiw__wpcrc.exit:                                ; preds = %.lr.ph.i.i
   %139 = sext i32 %57 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %138, ptr nonnull align 1 %55, i64 %139, i1 false)
   %140 = getelementptr inbounds i8, ptr %138, i64 %139
-  tail call void @free(ptr noundef %55) #26
+  tail call void @free(ptr noundef nonnull %55) #26
   %141 = icmp sgt i32 %57, -4
   br i1 %141, label %.lr.ph.preheader.i.i, label %stbiw__wpcrc.exit119
 

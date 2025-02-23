@@ -1183,26 +1183,18 @@ if.else.i.i:                                      ; preds = %if.end.i.i
 while.body.i.i:                                   ; preds = %if.else.i.i, %while.body.i.i
   %new_allocated.133.i.i = phi i32 [ %add15.i.i, %while.body.i.i ], [ %9, %if.else.i.i ]
   %shr14.i.i = lshr i32 %new_allocated.133.i.i, 1
-  %add.i.i = add i32 %new_allocated.133.i.i, 8
-  %add15.i.i = add i32 %add.i.i, %shr14.i.i
+  %add.i.i = add nuw i32 %new_allocated.133.i.i, 8
+  %add15.i.i = add nuw i32 %add.i.i, %shr14.i.i
   %cmp13.i.i = icmp ugt i32 %cond.i, %add15.i.i
   br i1 %cmp13.i.i, label %while.body.i.i, label %lor.rhs.i.i, !llvm.loop !11
 
 lor.rhs.i.i:                                      ; preds = %while.body.i.i, %if.then2.i.i
   %new_allocated.028.i.i = phi i32 [ %.sroa.speculated.i.i, %if.then2.i.i ], [ %add15.i.i, %while.body.i.i ]
   %11 = icmp ugt i32 %new_allocated.028.i.i, 536870911
-  br i1 %11, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, label %if.end23.i.i
+  br i1 %11, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
-if.end23.i.i:                                     ; preds = %lor.rhs.i.i
-  %tobool.not.i.i.i = icmp eq i32 %new_allocated.028.i.i, 0
+_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %lor.rhs.i.i
   %12 = load ptr, ptr %arrayZ.i.i, align 8
-  br i1 %tobool.not.i.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-
-_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %if.end23.i.i
-  tail call void @free(ptr noundef %12) #16
-  br label %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i
-
-_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %if.end23.i.i
   %13 = shl nuw i32 %new_allocated.028.i.i, 3
   %mul.i.i.i = zext i32 %13 to i64
   %call.i.i.i = tail call ptr @realloc(ptr noundef %12, i64 noundef %mul.i.i.i) #18
@@ -1220,9 +1212,8 @@ _ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.thread17.i: ; p
   store i32 %new_allocated.028.sink.i.ph.i, ptr %page_map, align 8
   br label %if.then12.i
 
-_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i
-  %retval.0.i32.i.i = phi ptr [ null, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i ], [ %call.i.i.i, %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i ]
-  store ptr %retval.0.i32.i.i, ptr %arrayZ.i.i, align 8
+_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
+  store ptr %call.i.i.i, ptr %arrayZ.i.i, align 8
   store i32 %new_allocated.028.i.i, ptr %page_map, align 8
   br label %if.end.i3
 
@@ -1232,14 +1223,14 @@ if.end.i3:                                        ; preds = %_ZN11hb_vector_tIN1
   br i1 %cmp3.i5, label %if.then6.i, label %if.end24
 
 if.then6.i:                                       ; preds = %if.end.i3
-  %sub.i.i = sub nuw i32 %cond.i, %15
+  %sub.i.i = sub nuw nsw i32 %cond.i, %15
   %mul.i.i = shl i32 %sub.i.i, 3
   %tobool.not.i.i9.i = icmp eq i32 %mul.i.i, 0
   br i1 %tobool.not.i.i9.i, label %if.end24, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then6.i
   %16 = load ptr, ptr %arrayZ.i.i, align 8
-  %idx.ext.i.i = zext i32 %15 to i64
+  %idx.ext.i.i = zext nneg i32 %15 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %16, i64 %idx.ext.i.i
   %conv.i.i.i = zext i32 %mul.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i.i, i8 0, i64 %conv.i.i.i, i1 false)
@@ -1328,8 +1319,8 @@ if.else.i:                                        ; preds = %if.end.i
 while.body.i:                                     ; preds = %if.else.i, %while.body.i
   %new_allocated.133.i = phi i32 [ %add15.i, %while.body.i ], [ %0, %if.else.i ]
   %shr14.i = lshr i32 %new_allocated.133.i, 1
-  %add.i = add i32 %new_allocated.133.i, 8
-  %add15.i = add i32 %add.i, %shr14.i
+  %add.i = add nuw i32 %new_allocated.133.i, 8
+  %add15.i = add nuw i32 %add.i, %shr14.i
   %cmp13.i = icmp ugt i32 %cond, %add15.i
   br i1 %cmp13.i, label %while.body.i, label %lor.rhs.i, !llvm.loop !12
 
@@ -1380,7 +1371,7 @@ if.end:                                           ; preds = %if.then28.i, %if.el
   br i1 %brmerge.not, label %if.then6, label %if.end15
 
 if.then6:                                         ; preds = %if.end
-  %sub.i = sub nuw i32 %cond, %5
+  %sub.i = sub nuw nsw i32 %cond, %5
   %mul.i = mul i32 %sub.i, 72
   %tobool.not.i.i9 = icmp eq i32 %mul.i, 0
   br i1 %tobool.not.i.i9, label %if.end15, label %if.end.i.i
@@ -1388,7 +1379,7 @@ if.then6:                                         ; preds = %if.end
 if.end.i.i:                                       ; preds = %if.then6
   %arrayZ.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load ptr, ptr %arrayZ.i, align 8
-  %idx.ext.i = zext i32 %5 to i64
+  %idx.ext.i = zext nneg i32 %5 to i64
   %add.ptr.i = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %6, i64 %idx.ext.i
   %conv.i.i10 = zext i32 %mul.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.i, i8 0, i64 %conv.i.i10, i1 false)

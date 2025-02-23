@@ -553,12 +553,7 @@ Vec_BitFree.exit:                                 ; preds = %.critedge, %166
   %.val6.i = load i32, ptr %152, align 4, !tbaa !29
   %168 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val6.i)
   %169 = icmp sgt i32 %.val6.i, 0
-  br i1 %169, label %.lr.ph.i.preheader, label %Vec_IntPrint.exit.thread
-
-Vec_IntPrint.exit.thread:                         ; preds = %Vec_BitFree.exit
-  %puts.i240 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  store i32 0, ptr %3, align 4, !tbaa !28
-  br label %.critedge2
+  br i1 %169, label %.lr.ph.i.preheader, label %Vec_IntPrint.exit
 
 .lr.ph.i.preheader:                               ; preds = %Vec_BitFree.exit
   %.val7.i155 = load ptr, ptr %154, align 8, !tbaa !31
@@ -572,15 +567,20 @@ Vec_IntPrint.exit.thread:                         ; preds = %Vec_BitFree.exit
   %173 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %172)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %170
-  br i1 %exitcond.not, label %Vec_IntPrint.exit, label %.lr.ph.i, !llvm.loop !42
+  br i1 %exitcond.not, label %.lr.ph188.preheader, label %.lr.ph.i, !llvm.loop !42
 
-Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
+Vec_IntPrint.exit:                                ; preds = %Vec_BitFree.exit
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  store i32 0, ptr %3, align 4, !tbaa !28
+  br label %.critedge2
+
+.lr.ph188.preheader:                              ; preds = %.lr.ph.i
+  %puts.i240 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   %wide.trip.count = zext nneg i32 %.val6.i to i64
   br label %.lr.ph188
 
-.lr.ph188:                                        ; preds = %Vec_IntPrint.exit, %174
-  %indvars.iv217 = phi i64 [ 0, %Vec_IntPrint.exit ], [ %indvars.iv.next218, %174 ]
+.lr.ph188:                                        ; preds = %.lr.ph188.preheader, %174
+  %indvars.iv217 = phi i64 [ 0, %.lr.ph188.preheader ], [ %indvars.iv.next218, %174 ]
   %.val118 = load ptr, ptr %25, align 8, !tbaa !3
   %.not98 = icmp eq ptr %.val118, null
   br i1 %.not98, label %.critedge2, label %174
@@ -614,7 +614,7 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i
   %exitcond220.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count
   br i1 %exitcond220.not, label %.critedge2, label %.lr.ph188, !llvm.loop !43
 
-.critedge2:                                       ; preds = %.lr.ph188, %174, %Vec_IntPrint.exit.thread
+.critedge2:                                       ; preds = %.lr.ph188, %174, %Vec_IntPrint.exit
   %.val136190 = load i32, ptr %80, align 4, !tbaa !29
   %194 = icmp sgt i32 %.val136190, 4
   br i1 %194, label %.lr.ph192, label %.preheader169

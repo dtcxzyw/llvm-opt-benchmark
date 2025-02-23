@@ -3826,8 +3826,8 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %38 = add i32 %23, %37
   br label %.backedge
 
-.backedge:                                        ; preds = %._crit_edge, %170, %181, %174, %33, %46, %62
-  %.0203.be = phi i32 [ %38, %33 ], [ %50, %46 ], [ %66, %62 ], [ %190, %181 ], [ %177, %174 ], [ %.1.lcssa, %170 ], [ %.1.lcssa, %._crit_edge ]
+.backedge:                                        ; preds = %._crit_edge, %._crit_edge.thread, %180, %173, %33, %46, %62
+  %.0203.be = phi i32 [ %38, %33 ], [ %50, %46 ], [ %66, %62 ], [ %189, %180 ], [ %176, %173 ], [ %.1.lcssa228, %._crit_edge.thread ], [ %.1.lcssa, %._crit_edge ]
   %.0.be = add i32 %.0220, 1
   %39 = sub i32 %.0203.be, %3
   %40 = icmp ult i32 %39, %4
@@ -3876,7 +3876,7 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %61 = load ptr, ptr %8, align 8
   call void @proto_item_set_len(ptr noundef %61, i32 noundef 1)
   %.not.us = icmp eq i8 %59, 0
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph217.split.us, !llvm.loop !10
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph217.split.us, !llvm.loop !10
 
 62:                                               ; preds = %51
   %63 = add i32 %45, -1
@@ -4065,48 +4065,49 @@ define hidden noundef zeroext i16 @de_nas_5gs_sm_qos_rules(ptr noundef %0, ptr n
   %.not = icmp eq i8 %166, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph217.split, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %.loopexit, %.lr.ph217.split.us, %.preheader
-  %.1.lcssa = phi i32 [ %30, %.preheader ], [ %58, %.lr.ph217.split.us ], [ %.3.lcssa, %.loopexit ]
-  br i1 %42, label %.backedge, label %170
+._crit_edge:                                      ; preds = %.loopexit, %.preheader
+  %.1.lcssa = phi i32 [ %30, %.preheader ], [ %.3.lcssa, %.loopexit ]
+  br i1 %42, label %.backedge, label %._crit_edge.thread
 
-170:                                              ; preds = %._crit_edge
-  %171 = sub i32 %.1.lcssa, %23
-  %172 = load i32, ptr %13, align 4
-  %173 = icmp ult i32 %171, %172
-  br i1 %173, label %174, label %.backedge
+._crit_edge.thread:                               ; preds = %.lr.ph217.split.us, %._crit_edge
+  %.1.lcssa228 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %58, %.lr.ph217.split.us ]
+  %170 = sub i32 %.1.lcssa228, %23
+  %171 = load i32, ptr %13, align 4
+  %172 = icmp ult i32 %170, %171
+  br i1 %172, label %173, label %.backedge
 
-174:                                              ; preds = %170
-  %175 = load i32, ptr @hf_nas_5gs_sm_qos_rule_precedence, align 4
-  %176 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %175, ptr noundef %0, i32 noundef %.1.lcssa, i32 noundef 1, i32 noundef 0)
-  %177 = add i32 %.1.lcssa, 1
-  %178 = sub i32 %177, %23
-  %179 = load i32, ptr %13, align 4
-  %180 = icmp ult i32 %178, %179
-  br i1 %180, label %181, label %.backedge
+173:                                              ; preds = %._crit_edge.thread
+  %174 = load i32, ptr @hf_nas_5gs_sm_qos_rule_precedence, align 4
+  %175 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %174, ptr noundef %0, i32 noundef %.1.lcssa228, i32 noundef 1, i32 noundef 0)
+  %176 = add i32 %.1.lcssa228, 1
+  %177 = sub i32 %176, %23
+  %178 = load i32, ptr %13, align 4
+  %179 = icmp ult i32 %177, %178
+  br i1 %179, label %180, label %.backedge
 
-181:                                              ; preds = %174
-  %182 = load i32, ptr @hf_nas_5gs_spare_b7, align 4
-  %183 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %182, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
-  %184 = load i32, ptr %14, align 8
-  %185 = icmp eq i32 %184, 0
+180:                                              ; preds = %173
+  %181 = load i32, ptr @hf_nas_5gs_spare_b7, align 4
+  %182 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %181, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %183 = load i32, ptr %14, align 8
+  %184 = icmp eq i32 %183, 0
   %hf_nas_5gs_sm_segregation.val = load i32, ptr @hf_nas_5gs_sm_segregation, align 4
   %hf_nas_5gs_spare_b6.val = load i32, ptr @hf_nas_5gs_spare_b6, align 4
-  %186 = select i1 %185, i32 %hf_nas_5gs_sm_segregation.val, i32 %hf_nas_5gs_spare_b6.val
-  %187 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %186, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
-  %188 = load i32, ptr @hf_nas_5gs_sm_qfi, align 4
-  %189 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %188, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0)
-  %190 = add i32 %.1.lcssa, 2
+  %185 = select i1 %184, i32 %hf_nas_5gs_sm_segregation.val, i32 %hf_nas_5gs_spare_b6.val
+  %186 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %185, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %187 = load i32, ptr @hf_nas_5gs_sm_qfi, align 4
+  %188 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %187, ptr noundef %0, i32 noundef %176, i32 noundef 1, i32 noundef 0)
+  %189 = add i32 %.1.lcssa228, 2
   br label %.backedge
 
 ._crit_edge223:                                   ; preds = %.backedge, %7
-  %191 = trunc i32 %4 to i16
+  %190 = trunc i32 %4 to i16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  ret i16 %191
+  ret i16 %190
 }
 
 ; Function Attrs: null_pointer_is_valid

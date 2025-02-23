@@ -3866,11 +3866,7 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
   %74 = shl nsw i64 %73, 3
   %75 = tail call ptr @palloc(i64 noundef %74) #13
   %76 = icmp sgt i32 %2, 0
-  br i1 %76, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %71
-  tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #13
-  br label %._crit_edge257.thread
+  br i1 %76, label %.lr.ph, label %._crit_edge257.thread
 
 .lr.ph:                                           ; preds = %71
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3896,9 +3892,13 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
   store ptr %89, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !16
+  br i1 %exitcond.not, label %.lr.ph256, label %78, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %78
+._crit_edge257.thread:                            ; preds = %71
+  tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #13
+  br label %290
+
+.lr.ph256:                                        ; preds = %78
   tail call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #13
   %91 = sub nsw i64 8168, %72
   %92 = and i32 %4, 4
@@ -3916,11 +3916,11 @@ define dso_local void @heap_multi_insert(ptr noundef %0, ptr noundef readonly ca
   %100 = ptrtoint ptr %8 to i64
   br label %101
 
-101:                                              ; preds = %._crit_edge, %287
-  %.0179254 = phi i32 [ 0, %._crit_edge ], [ %.lcssa, %287 ]
-  %.0180253 = phi i1 [ false, %._crit_edge ], [ %156, %287 ]
-  %.0183252 = phi i32 [ 0, %._crit_edge ], [ %.1184, %287 ]
-  %.0187251 = phi i32 [ 0, %._crit_edge ], [ %.1188, %287 ]
+101:                                              ; preds = %.lr.ph256, %287
+  %.0179254 = phi i32 [ 0, %.lr.ph256 ], [ %.lcssa, %287 ]
+  %.0180253 = phi i1 [ false, %.lr.ph256 ], [ %156, %287 ]
+  %.0183252 = phi i32 [ 0, %.lr.ph256 ], [ %.1184, %287 ]
+  %.0187251 = phi i32 [ 0, %.lr.ph256 ], [ %.1188, %287 ]
   %102 = load volatile i32, ptr @InterruptPending, align 4
   %.not205 = icmp eq i32 %102, 0
   br i1 %.not205, label %104, label %103, !prof !11
@@ -4303,47 +4303,47 @@ log_heap_new_cid.exit:                            ; preds = %186, %202
 ._crit_edge257:                                   ; preds = %287
   %.pre = load i32, ptr %9, align 4
   %.not204 = icmp eq i32 %.pre, 0
-  br i1 %.not204, label %._crit_edge257.thread, label %289
+  br i1 %.not204, label %290, label %289
 
 289:                                              ; preds = %._crit_edge257
   call void @ReleaseBuffer(i32 noundef %.pre) #13
-  br label %._crit_edge257.thread
+  br label %290
 
-._crit_edge257.thread:                            ; preds = %._crit_edge.thread, %289, %._crit_edge257
+290:                                              ; preds = %._crit_edge257.thread, %289, %._crit_edge257
   call void @CheckForSerializableConflictIn(ptr noundef nonnull %0, ptr noundef null, i32 noundef -1) #13
-  %290 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #13
-  %or.cond = and i1 %290, %76
+  %291 = call zeroext i1 @IsCatalogRelation(ptr noundef nonnull %0) #13
+  %or.cond = and i1 %291, %76
   br i1 %or.cond, label %.lr.ph259.preheader, label %.loopexit
 
-.lr.ph259.preheader:                              ; preds = %._crit_edge257.thread
+.lr.ph259.preheader:                              ; preds = %290
   %wide.trip.count279 = zext nneg i32 %2 to i64
   br label %.lr.ph259
 
 .lr.ph259:                                        ; preds = %.lr.ph259.preheader, %.lr.ph259
   %indvars.iv276 = phi i64 [ 0, %.lr.ph259.preheader ], [ %indvars.iv.next277, %.lr.ph259 ]
-  %291 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv276
-  %292 = load ptr, ptr %291, align 8
-  call void @CacheInvalidateHeapTuple(ptr noundef nonnull %0, ptr noundef %292, ptr noundef null) #13
+  %292 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv276
+  %293 = load ptr, ptr %292, align 8
+  call void @CacheInvalidateHeapTuple(ptr noundef nonnull %0, ptr noundef %293, ptr noundef null) #13
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
-  br i1 %exitcond280.not, label %.loopexit, label %.lr.ph259, !llvm.loop !21
+  br i1 %exitcond280.not, label %.lr.ph262.preheader, label %.lr.ph259, !llvm.loop !21
 
-.loopexit:                                        ; preds = %.lr.ph259, %._crit_edge257.thread
+.loopexit:                                        ; preds = %290
   br i1 %76, label %.lr.ph262.preheader, label %._crit_edge263
 
-.lr.ph262.preheader:                              ; preds = %.loopexit
+.lr.ph262.preheader:                              ; preds = %.lr.ph259, %.loopexit
   %wide.trip.count284 = zext nneg i32 %2 to i64
   br label %.lr.ph262
 
 .lr.ph262:                                        ; preds = %.lr.ph262.preheader, %.lr.ph262
   %indvars.iv281 = phi i64 [ 0, %.lr.ph262.preheader ], [ %indvars.iv.next282, %.lr.ph262 ]
-  %293 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv281
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 48
-  %296 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv281
-  %297 = load ptr, ptr %296, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %297, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %295, ptr noundef nonnull align 4 dereferenceable(6) %298, i64 6, i1 false)
+  %294 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv281
+  %295 = load ptr, ptr %294, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 48
+  %297 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv281
+  %298 = load ptr, ptr %297, align 8
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %296, ptr noundef nonnull align 4 dereferenceable(6) %299, i64 6, i1 false)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %._crit_edge263, label %.lr.ph262, !llvm.loop !22

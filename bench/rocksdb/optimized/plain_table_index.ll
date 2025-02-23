@@ -468,13 +468,7 @@ _ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit: ; preds = %lor.lhs.fa
   store i32 %add.i, ptr %index_size_5.i, align 8
   %conv = zext i32 %add.i to i64
   %cmp.not.i.i.i.i = icmp eq i32 %add.i, 0
-  br i1 %cmp.not.i.i.i.i, label %invoke.cont.thread, label %if.end.i.i.i.i.i.i.i
-
-invoke.cont.thread:                               ; preds = %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hash_to_offsets, i8 0, i64 24, i1 false)
-  %_M_finish.i.i4.i17 = getelementptr inbounds nuw i8, ptr %entries_per_bucket, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries_per_bucket, i8 0, i64 24, i1 false)
-  br label %invoke.cont8
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit.thread, %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit
   %conv39 = phi i64 [ 1, %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit.thread ], [ %conv, %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit ]
@@ -493,6 +487,12 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZN7rocksdb22PlainT
   %call5.i.i.i.i2.i.i19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i7) #20
           to label %call5.i.i.i.i2.i.i.noexc18 unwind label %ehcleanup22.thread
 
+_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i: ; preds = %_ZN7rocksdb22PlainTableIndexBuilder13AllocateIndexEv.exit
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %hash_to_offsets, i8 0, i64 24, i1 false)
+  %_M_finish.i.i4.i17 = getelementptr inbounds nuw i8, ptr %entries_per_bucket, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %entries_per_bucket, i8 0, i64 24, i1 false)
+  br label %invoke.cont8
+
 call5.i.i.i.i2.i.i.noexc18:                       ; preds = %if.end.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i19, ptr %entries_per_bucket, align 8
   %_M_finish.i.i.i8 = getelementptr inbounds nuw i8, ptr %entries_per_bucket, i64 8
@@ -503,12 +503,12 @@ call5.i.i.i.i2.i.i.noexc18:                       ; preds = %if.end.i.i.i.i.i.i.
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %call5.i.i.i.i2.i.i19, i8 0, i64 %mul.i.i.i.i.i.i7, i1 false)
   br label %invoke.cont8
 
-invoke.cont8:                                     ; preds = %call5.i.i.i.i2.i.i.noexc18, %invoke.cont.thread
-  %3 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i2.i.i19, %call5.i.i.i.i2.i.i.noexc18 ]
-  %4 = phi ptr [ null, %invoke.cont.thread ], [ %call5.i.i.i.i2.i.i4, %call5.i.i.i.i2.i.i.noexc18 ]
-  %index_size_5.i3748 = phi ptr [ %index_size_5.i, %invoke.cont.thread ], [ %index_size_5.i38, %call5.i.i.i.i2.i.i.noexc18 ]
-  %_M_finish.i.i7.i15 = phi ptr [ %_M_finish.i.i4.i17, %invoke.cont.thread ], [ %_M_finish.i.i.i8, %call5.i.i.i.i2.i.i.noexc18 ]
-  %5 = phi ptr [ null, %invoke.cont.thread ], [ %add.ptr.i.i.i9, %call5.i.i.i.i2.i.i.noexc18 ]
+invoke.cont8:                                     ; preds = %call5.i.i.i.i2.i.i.noexc18, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i
+  %3 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %call5.i.i.i.i2.i.i19, %call5.i.i.i.i2.i.i.noexc18 ]
+  %4 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %call5.i.i.i.i2.i.i4, %call5.i.i.i.i2.i.i.noexc18 ]
+  %index_size_5.i3748 = phi ptr [ %index_size_5.i, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %index_size_5.i38, %call5.i.i.i.i2.i.i.noexc18 ]
+  %_M_finish.i.i7.i15 = phi ptr [ %_M_finish.i.i4.i17, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %_M_finish.i.i.i8, %call5.i.i.i.i2.i.i.noexc18 ]
+  %5 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i ], [ %add.ptr.i.i.i9, %call5.i.i.i.i2.i.i.noexc18 ]
   store ptr %5, ptr %_M_finish.i.i7.i15, align 8
   %record_list_.i = getelementptr inbounds nuw i8, ptr %this, i64 1840
   %groups_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1856

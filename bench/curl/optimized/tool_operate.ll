@@ -539,7 +539,7 @@ sub_0:                                            ; preds = %15
   %75 = load ptr, ptr %46, align 8, !tbaa !15
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %75, ptr %76, align 8, !tbaa !40
-  %77 = tail call fastcc i32 @run_all_transfers(ptr noundef %0, ptr noundef nonnull %48, i32 noundef %69)
+  %77 = tail call fastcc i32 @run_all_transfers(ptr noundef nonnull %0, ptr noundef nonnull %48, i32 noundef %69)
   %78 = load ptr, ptr %60, align 8, !tbaa !33
   %.not88 = icmp eq ptr %78, null
   br i1 %.not88, label %87, label %79

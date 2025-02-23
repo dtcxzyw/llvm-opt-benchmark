@@ -35,7 +35,7 @@ define ptr @Res_WndStrash(ptr noundef readonly captures(none) %0) local_unnamed_
   %.val106 = load ptr, ptr %14, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw ptr, ptr %.val106, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !32
-  %17 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 2) #7
+  %17 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 2) #7
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 64
   store ptr %17, ptr %18, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -61,7 +61,7 @@ define ptr @Res_WndStrash(ptr noundef readonly captures(none) %0) local_unnamed_
   %.val107 = load ptr, ptr %28, align 8, !tbaa !31
   %29 = getelementptr inbounds nuw ptr, ptr %.val107, i64 %indvars.iv171
   %30 = load ptr, ptr %29, align 8, !tbaa !32
-  %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef %2, i32 noundef 2) #7
+  %31 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %2, i32 noundef 2) #7
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 64
   store ptr %31, ptr %32, align 8, !tbaa !33
   %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1

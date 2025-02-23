@@ -22202,7 +22202,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.sroa.03.1.i12 = phi i64 [ %91, %84 ], [ %.sroa.03.0.i10, %81 ]
   %.sroa.0.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.0.0.i11, %81 ]
-  %93 = icmp ult i64 %.sroa.03.1.i12, %44
+  %93 = icmp samesign ult i64 %.sroa.03.1.i12, %44
   br i1 %93, label %94, label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 
 94:                                               ; preds = %92
@@ -22214,7 +22214,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.03.1.i12, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.0.1.i13
   br label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 
@@ -27696,7 +27696,6 @@ define hidden void @_ZN9collab_ui10chat_panel9ChatPanel14render_message17hf8c5ee
   %345 = load i32, ptr %344, align 8, !noundef !5
   %346 = icmp eq i32 %345, 0
   %.sroa.012.0.sroa.gep = getelementptr inbounds nuw i8, ptr %335, i64 128
-  %. = select i1 %346, ptr null, ptr %344
   br i1 %346, label %347, label %348
 
 347:                                              ; preds = %4
@@ -27875,7 +27874,7 @@ define hidden void @_ZN9collab_ui10chat_panel9ChatPanel14render_message17hf8c5ee
 
 .noexc85:                                         ; preds = %416
   %418 = load i32, ptr %344, align 8, !range !1864, !alias.scope !7792, !noalias !7795, !noundef !5
-  %419 = getelementptr inbounds nuw i8, ptr %., i64 4
+  %419 = getelementptr inbounds nuw i8, ptr %1, i64 276
   %420 = load i32, ptr %419, align 4, !alias.scope !7792, !noalias !7795, !noundef !5
   %421 = invoke noundef align 8 dereferenceable_or_null(16) ptr @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$3get17haa5c2718e53f78bcE.llvm.12460255737169583717"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %417, i32 noundef %418, i32 noundef %420)
           to label %.noexc86 unwind label %.loopexit.split-lp.thread

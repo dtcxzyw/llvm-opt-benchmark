@@ -17,26 +17,26 @@ define range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP(ptr noundef %0, i32 nound
 define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   %11 = add nsw i32 %2, -1
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
   %12 = icmp eq ptr %7, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @EVP_sha1() #6
+  %14 = tail call ptr @EVP_sha1() #5
   br label %15
 
 15:                                               ; preds = %13, %9
   %.068 = phi ptr [ %14, %13 ], [ %7, %9 ]
   %16 = icmp eq ptr %8, null
   %spec.select = select i1 %16, ptr %.068, ptr %8
-  %17 = tail call i32 @EVP_MD_get_size(ptr noundef %.068) #6
+  %17 = tail call i32 @EVP_MD_get_size(ptr noundef %.068) #5
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 181, ptr noundef null) #6
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 181, ptr noundef null) #5
   br label %77
 
 20:                                               ; preds = %15
@@ -47,9 +47,9 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   br i1 %24, label %25, label %26
 
 25:                                               ; preds = %20
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 99, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #6
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 99, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #5
   br label %77
 
 26:                                               ; preds = %20
@@ -58,9 +58,9 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   br i1 %.not, label %29, label %28
 
 28:                                               ; preds = %26
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 120, ptr noundef null) #6
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 104, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 120, ptr noundef null) #5
   br label %77
 
 29:                                               ; preds = %26
@@ -70,7 +70,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %34 = sext i32 %6 to i64
-  %35 = tail call i32 @EVP_Digest(ptr noundef %5, i64 noundef %34, ptr noundef nonnull %33, ptr noundef null, ptr noundef %.068, ptr noundef null) #6
+  %35 = tail call i32 @EVP_Digest(ptr noundef %5, i64 noundef %34, ptr noundef nonnull %33, ptr noundef null, ptr noundef %.068, ptr noundef null) #5
   %.not80 = icmp eq i32 %35, 0
   br i1 %.not80, label %.loopexit, label %36
 
@@ -94,14 +94,14 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   %51 = getelementptr inbounds i8, ptr %49, i64 %50
   %52 = zext i32 %4 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %51, ptr align 1 %3, i64 %52, i1 false)
-  %53 = tail call i32 @RAND_bytes_ex(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %31, i32 noundef 0) #6
+  %53 = tail call i32 @RAND_bytes_ex(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %31, i32 noundef 0) #5
   %54 = icmp slt i32 %53, 1
   br i1 %54, label %.loopexit, label %55
 
 55:                                               ; preds = %36
   %56 = sub nsw i32 %11, %17
   %57 = sext i32 %56 to i64
-  %58 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %57, ptr noundef nonnull @.str, i32 noundef 126) #6
+  %58 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %57, ptr noundef nonnull @.str, i32 noundef 126) #5
   %59 = icmp eq ptr %58, null
   br i1 %59, label %.loopexit, label %60
 
@@ -136,8 +136,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   br i1 %70, label %.loopexit, label %.lr.ph84.preheader
 
 .lr.ph84.preheader:                               ; preds = %._crit_edge
-  %smax = call i32 @llvm.smax.i32(i32 %17, i32 1)
-  %wide.trip.count89 = zext nneg i32 %smax to i64
+  %wide.trip.count89 = zext nneg i32 %17 to i64
   br label %.lr.ph84
 
 .lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
@@ -156,14 +155,14 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_OAEP_mgf1_ex(ptr noundef 
   %.070 = phi i32 [ 0, %36 ], [ 0, %55 ], [ 0, %60 ], [ 0, %._crit_edge ], [ 0, %29 ], [ 1, %.lr.ph84 ]
   %.067 = phi ptr [ null, %36 ], [ null, %55 ], [ %58, %60 ], [ %58, %._crit_edge ], [ null, %29 ], [ %58, %.lr.ph84 ]
   %.0 = phi i32 [ 0, %36 ], [ %56, %55 ], [ %56, %60 ], [ %56, %._crit_edge ], [ 0, %29 ], [ %56, %.lr.ph84 ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
   %76 = sext i32 %.0 to i64
-  call void @CRYPTO_clear_free(ptr noundef %.067, i64 noundef %76, ptr noundef nonnull @.str, i32 noundef 147) #6
+  call void @CRYPTO_clear_free(ptr noundef %.067, i64 noundef %76, ptr noundef nonnull @.str, i32 noundef 147) #5
   br label %77
 
 77:                                               ; preds = %.loopexit, %28, %25, %19
   %.066 = phi i32 [ 0, %19 ], [ 0, %25 ], [ 0, %28 ], [ %.070, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
   ret i32 %.066
 }
 
@@ -196,14 +195,14 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 define range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #6
-  %8 = tail call ptr @EVP_MD_CTX_new() #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #6
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #5
+  %8 = tail call ptr @EVP_MD_CTX_new() #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #5
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @EVP_MD_get_size(ptr noundef %4) #6
+  %11 = tail call i32 @EVP_MD_get_size(ptr noundef %4) #5
   %12 = icmp slt i32 %11, 1
   br i1 %12, label %.loopexit, label %.preheader
 
@@ -232,17 +231,17 @@ define range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i64 noundef %1, ptr noun
   store i8 %24, ptr %15, align 1, !tbaa !3
   %25 = trunc i64 %.03143 to i8
   store i8 %25, ptr %16, align 1, !tbaa !3
-  %26 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %4, ptr noundef null) #6
+  %26 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %8, ptr noundef %4, ptr noundef null) #5
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %.loopexit, label %27
 
 27:                                               ; preds = %18
-  %28 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3) #6
+  %28 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef %2, i64 noundef %3) #5
   %.not37 = icmp eq i32 %28, 0
   br i1 %.not37, label %.loopexit, label %29
 
 29:                                               ; preds = %27
-  %30 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4) #6
+  %30 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef nonnull %6, i64 noundef 4) #5
   %.not38 = icmp eq i32 %30, 0
   br i1 %.not38, label %.loopexit, label %31
 
@@ -253,12 +252,12 @@ define range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i64 noundef %1, ptr noun
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.03242
-  %35 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %8, ptr noundef %34, ptr noundef null) #6
+  %35 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %8, ptr noundef %34, ptr noundef null) #5
   %.not41 = icmp eq i32 %35, 0
   br i1 %.not41, label %.loopexit, label %40
 
 36:                                               ; preds = %31
-  %37 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef null) #6
+  %37 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef null) #5
   %.not40 = icmp eq i32 %37, 0
   br i1 %.not40, label %.loopexit, label %.thread
 
@@ -275,10 +274,10 @@ define range(i32 -1, 1) i32 @PKCS1_MGF1(ptr noundef %0, i64 noundef %1, ptr noun
 
 .loopexit:                                        ; preds = %29, %27, %18, %33, %40, %36, %.thread, %.preheader, %10, %5
   %.0 = phi i32 [ -1, %5 ], [ -1, %10 ], [ 0, %.preheader ], [ -1, %36 ], [ 0, %.thread ], [ -1, %29 ], [ -1, %27 ], [ -1, %18 ], [ -1, %33 ], [ 0, %40 ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #6
-  call void @EVP_MD_CTX_free(ptr noundef %8) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #6
+  call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #5
+  call void @EVP_MD_CTX_free(ptr noundef %8) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #5
   ret i32 %.0
 }
 
@@ -305,26 +304,26 @@ define i32 @RSA_padding_check_PKCS1_OAEP(ptr noundef captures(none) %0, i32 noun
 define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca [64 x i8], align 16
   %11 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #6
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #6
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10) #5
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11) #5
   %12 = icmp eq ptr %7, null
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @EVP_sha1() #6
+  %14 = tail call ptr @EVP_sha1() #5
   br label %15
 
 15:                                               ; preds = %13, %9
   %.0142 = phi ptr [ %14, %13 ], [ %7, %9 ]
   %16 = icmp eq ptr %8, null
   %spec.select = select i1 %16, ptr %.0142, ptr %8
-  %17 = tail call i32 @EVP_MD_get_size(ptr noundef %.0142) #6
+  %17 = tail call i32 @EVP_MD_get_size(ptr noundef %.0142) #5
   %18 = icmp slt i32 %1, 1
   %19 = icmp slt i32 %3, 1
   %or.cond = or i1 %18, %19
   %20 = icmp slt i32 %17, 1
   %or.cond3 = select i1 %or.cond, i1 true, i1 %20
-  br i1 %or.cond3, label %156, label %21
+  br i1 %or.cond3, label %155, label %21
 
 21:                                               ; preds = %15
   %22 = icmp slt i32 %4, %3
@@ -337,22 +336,22 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %23, %21
-  tail call void @ERR_new() #6
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 222, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_OAEP_mgf1) #6
-  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 121, ptr noundef null) #6
-  br label %156
+  tail call void @ERR_new() #5
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 222, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_OAEP_mgf1) #5
+  tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 121, ptr noundef null) #5
+  br label %155
 
 28:                                               ; preds = %23
   %29 = xor i32 %17, -1
   %30 = add nsw i32 %4, %29
   %31 = sext i32 %30 to i64
-  %32 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 227) #6
+  %32 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 227) #5
   %33 = icmp eq ptr %32, null
   %.pre229 = zext nneg i32 %4 to i64
   br i1 %33, label %._crit_edge228, label %34
 
 34:                                               ; preds = %28
-  %35 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.pre229, ptr noundef nonnull @.str, i32 noundef 231) #6
+  %35 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.pre229, ptr noundef nonnull @.str, i32 noundef 231) #5
   %36 = icmp eq ptr %35, null
   br i1 %36, label %._crit_edge228, label %.lr.ph.preheader
 
@@ -387,32 +386,28 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
   %49 = getelementptr inbounds nuw i8, ptr %.1178, i64 %48
   %50 = call i32 @PKCS1_MGF1(ptr noundef nonnull %10, i64 noundef %48, ptr noundef nonnull %49, i64 noundef %31, ptr noundef %spec.select)
   %.not = icmp eq i32 %50, 0
-  br i1 %.not, label %.preheader175, label %._crit_edge228
+  br i1 %.not, label %.lr.ph181, label %._crit_edge228
 
-.preheader175:                                    ; preds = %._crit_edge
-  %51 = icmp sgt i32 %17, 0
-  br i1 %51, label %.lr.ph181, label %._crit_edge182
-
-.lr.ph181:                                        ; preds = %.preheader175, %.lr.ph181
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph181 ], [ 0, %.preheader175 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.1178, i64 %indvars.iv
-  %53 = load i8, ptr %52, align 1, !tbaa !3
-  %54 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1, !tbaa !3
-  %56 = xor i8 %55, %53
-  store i8 %56, ptr %54, align 1, !tbaa !3
+.lr.ph181:                                        ; preds = %._crit_edge, %.lr.ph181
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph181 ], [ 0, %._crit_edge ]
+  %51 = getelementptr inbounds nuw i8, ptr %.1178, i64 %indvars.iv
+  %52 = load i8, ptr %51, align 1, !tbaa !3
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %10, i64 0, i64 %indvars.iv
+  %54 = load i8, ptr %53, align 1, !tbaa !3
+  %55 = xor i8 %54, %52
+  store i8 %55, ptr %53, align 1, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond211.not = icmp eq i64 %indvars.iv.next, %48
   br i1 %exitcond211.not, label %._crit_edge182, label %.lr.ph181, !llvm.loop !11
 
-._crit_edge182:                                   ; preds = %.lr.ph181, %.preheader175
-  %57 = call i32 @PKCS1_MGF1(ptr noundef nonnull %32, i64 noundef %31, ptr noundef nonnull %10, i64 noundef %48, ptr noundef %spec.select)
-  %.not163 = icmp eq i32 %57, 0
+._crit_edge182:                                   ; preds = %.lr.ph181
+  %56 = call i32 @PKCS1_MGF1(ptr noundef nonnull %32, i64 noundef %31, ptr noundef nonnull %10, i64 noundef %48, ptr noundef %spec.select)
+  %.not163 = icmp eq i32 %56, 0
   br i1 %.not163, label %.preheader174, label %._crit_edge228
 
 .preheader174:                                    ; preds = %._crit_edge182
-  %58 = icmp sgt i32 %30, 0
-  br i1 %58, label %.lr.ph184.preheader, label %._crit_edge185
+  %57 = icmp sgt i32 %30, 0
+  br i1 %57, label %.lr.ph184.preheader, label %._crit_edge185
 
 .lr.ph184.preheader:                              ; preds = %.preheader174
   %wide.trip.count215 = zext nneg i32 %30 to i64
@@ -420,189 +415,189 @@ define i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef captures(none) %0, i32
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv212 = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next213, %.lr.ph184 ]
-  %59 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv212
-  %60 = load i8, ptr %59, align 1, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv212
-  %62 = load i8, ptr %61, align 1, !tbaa !3
-  %63 = xor i8 %62, %60
-  store i8 %63, ptr %61, align 1, !tbaa !3
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv212
+  %59 = load i8, ptr %58, align 1, !tbaa !3
+  %60 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv212
+  %61 = load i8, ptr %60, align 1, !tbaa !3
+  %62 = xor i8 %61, %59
+  store i8 %62, ptr %60, align 1, !tbaa !3
   %indvars.iv.next213 = add nuw nsw i64 %indvars.iv212, 1
   %exitcond216.not = icmp eq i64 %indvars.iv.next213, %wide.trip.count215
   br i1 %exitcond216.not, label %._crit_edge185, label %.lr.ph184, !llvm.loop !12
 
 ._crit_edge185:                                   ; preds = %.lr.ph184, %.preheader174
-  %64 = sext i32 %6 to i64
-  %65 = call i32 @EVP_Digest(ptr noundef %5, i64 noundef %64, ptr noundef nonnull %11, ptr noundef null, ptr noundef %.0142, ptr noundef null) #6
-  %.not164 = icmp eq i32 %65, 0
-  br i1 %.not164, label %._crit_edge228, label %66
+  %63 = sext i32 %6 to i64
+  %64 = call i32 @EVP_Digest(ptr noundef %5, i64 noundef %63, ptr noundef nonnull %11, ptr noundef null, ptr noundef %.0142, ptr noundef null) #5
+  %.not164 = icmp eq i32 %64, 0
+  br i1 %.not164, label %._crit_edge228, label %65
 
-66:                                               ; preds = %._crit_edge185
-  %67 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %32, ptr noundef nonnull %11, i64 noundef %48) #6
-  %68 = icmp eq i32 %67, 0
-  %69 = and i1 %47, %68
-  %70 = sext i1 %69 to i32
-  %71 = icmp slt i32 %17, %30
-  br i1 %71, label %.lr.ph191, label %._crit_edge192
+65:                                               ; preds = %._crit_edge185
+  %66 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %32, ptr noundef nonnull %11, i64 noundef %48) #5
+  %67 = icmp eq i32 %66, 0
+  %68 = and i1 %47, %67
+  %69 = sext i1 %68 to i32
+  %70 = icmp slt i32 %17, %30
+  br i1 %70, label %.lr.ph191, label %._crit_edge192
 
-.lr.ph191:                                        ; preds = %66, %.lr.ph191
-  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph191 ], [ %48, %66 ]
-  %.0143189 = phi i32 [ %85, %.lr.ph191 ], [ 0, %66 ]
-  %.1145188 = phi i32 [ %87, %.lr.ph191 ], [ %70, %66 ]
-  %.0147187 = phi i32 [ %84, %.lr.ph191 ], [ 0, %66 ]
-  %72 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv217
-  %73 = load i8, ptr %72, align 1, !tbaa !3
-  %74 = icmp eq i8 %73, 1
-  %75 = icmp eq i8 %73, 0
-  %76 = xor i32 %.0143189, -1
-  %77 = select i1 %74, i32 %76, i32 0
-  %78 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %77) #7, !srcloc !13
-  %79 = trunc nuw i64 %indvars.iv217 to i32
-  %80 = and i32 %78, %79
-  %81 = xor i32 %77, -1
-  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %81) #7, !srcloc !13
-  %83 = and i32 %82, %.0147187
-  %84 = or i32 %83, %80
-  %85 = select i1 %74, i32 -1, i32 %.0143189
-  %86 = select i1 %75, i32 -1, i32 %85
-  %87 = and i32 %86, %.1145188
+.lr.ph191:                                        ; preds = %65, %.lr.ph191
+  %indvars.iv217 = phi i64 [ %indvars.iv.next218, %.lr.ph191 ], [ %48, %65 ]
+  %.0143189 = phi i32 [ %84, %.lr.ph191 ], [ 0, %65 ]
+  %.1145188 = phi i32 [ %86, %.lr.ph191 ], [ %69, %65 ]
+  %.0147187 = phi i32 [ %83, %.lr.ph191 ], [ 0, %65 ]
+  %71 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv217
+  %72 = load i8, ptr %71, align 1, !tbaa !3
+  %73 = icmp eq i8 %72, 1
+  %74 = icmp eq i8 %72, 0
+  %75 = xor i32 %.0143189, -1
+  %76 = select i1 %73, i32 %75, i32 0
+  %77 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %76) #6, !srcloc !13
+  %78 = trunc nuw i64 %indvars.iv217 to i32
+  %79 = and i32 %77, %78
+  %80 = xor i32 %76, -1
+  %81 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %80) #6, !srcloc !13
+  %82 = and i32 %81, %.0147187
+  %83 = or i32 %82, %79
+  %84 = select i1 %73, i32 -1, i32 %.0143189
+  %85 = select i1 %74, i32 -1, i32 %84
+  %86 = and i32 %85, %.1145188
   %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
-  %88 = trunc nuw i64 %indvars.iv.next218 to i32
-  %89 = icmp sgt i32 %30, %88
-  br i1 %89, label %.lr.ph191, label %._crit_edge192, !llvm.loop !14
+  %87 = trunc nuw i64 %indvars.iv.next218 to i32
+  %88 = icmp sgt i32 %30, %87
+  br i1 %88, label %.lr.ph191, label %._crit_edge192, !llvm.loop !14
 
-._crit_edge192:                                   ; preds = %.lr.ph191, %66
-  %.0147.lcssa = phi i32 [ 0, %66 ], [ %84, %.lr.ph191 ]
-  %.1145.lcssa = phi i32 [ %70, %66 ], [ %87, %.lr.ph191 ]
-  %.0143.lcssa = phi i32 [ 0, %66 ], [ %85, %.lr.ph191 ]
+._crit_edge192:                                   ; preds = %.lr.ph191, %65
+  %.0147.lcssa = phi i32 [ 0, %65 ], [ %83, %.lr.ph191 ]
+  %.1145.lcssa = phi i32 [ %69, %65 ], [ %86, %.lr.ph191 ]
+  %.0143.lcssa = phi i32 [ 0, %65 ], [ %84, %.lr.ph191 ]
   %.neg = xor i32 %.0147.lcssa, -1
-  %90 = add i32 %30, %.neg
-  %91 = sub i32 %1, %90
-  %92 = or i32 %91, %90
-  %isnotneg.i.inv = icmp slt i32 %92, 0
-  %93 = select i1 %isnotneg.i.inv, i32 0, i32 %.0143.lcssa
-  %94 = and i32 %93, %.1145.lcssa
-  %95 = add i32 %30, %29
-  %96 = sub i32 %95, %1
-  %97 = sub i32 %17, %30
-  %98 = and i32 %96, %97
-  %.neg.i.i168 = ashr i32 %98, 31
-  %99 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.neg.i.i168) #7, !srcloc !13
-  %100 = and i32 %99, %95
-  %101 = xor i32 %.neg.i.i168, -1
-  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %101) #7, !srcloc !13
-  %103 = and i32 %102, %1
-  %104 = or i32 %103, %100
-  %105 = icmp sgt i32 %95, 1
-  br i1 %105, label %.lr.ph203, label %.preheader
+  %89 = add i32 %30, %.neg
+  %90 = sub i32 %1, %89
+  %91 = or i32 %90, %89
+  %isnotneg.i.inv = icmp slt i32 %91, 0
+  %92 = select i1 %isnotneg.i.inv, i32 0, i32 %.0143.lcssa
+  %93 = and i32 %92, %.1145.lcssa
+  %94 = add i32 %30, %29
+  %95 = sub i32 %94, %1
+  %96 = sub i32 %17, %30
+  %97 = and i32 %95, %96
+  %.neg.i.i168 = ashr i32 %97, 31
+  %98 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.neg.i.i168) #6, !srcloc !13
+  %99 = and i32 %98, %94
+  %100 = xor i32 %.neg.i.i168, -1
+  %101 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %100) #6, !srcloc !13
+  %102 = and i32 %101, %1
+  %103 = or i32 %102, %99
+  %104 = icmp sgt i32 %94, 1
+  br i1 %104, label %.lr.ph203, label %.preheader
 
 .lr.ph203:                                        ; preds = %._crit_edge192
-  %106 = sub i32 %.0147.lcssa, %17
+  %105 = sub i32 %.0147.lcssa, %17
   %.4196 = add nuw nsw i32 %17, 1
-  %107 = zext nneg i32 %.4196 to i64
-  br label %110
+  %106 = zext nneg i32 %.4196 to i64
+  br label %109
 
 .preheader:                                       ; preds = %._crit_edge200, %._crit_edge192
-  %108 = icmp sgt i32 %104, 0
-  br i1 %108, label %.lr.ph205, label %._crit_edge206
+  %107 = icmp sgt i32 %103, 0
+  br i1 %107, label %.lr.ph205, label %._crit_edge206
 
 .lr.ph205:                                        ; preds = %.preheader
   %invariant.gep = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %109 = and i32 %94, 255
-  %wide.trip.count226 = zext nneg i32 %104 to i64
+  %108 = and i32 %93, 255
+  %wide.trip.count226 = zext nneg i32 %103 to i64
   %invariant.gep236 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %48
-  br label %133
+  br label %132
 
-110:                                              ; preds = %.lr.ph203, %._crit_edge200
-  %.0146201 = phi i32 [ 1, %.lr.ph203 ], [ %131, %._crit_edge200 ]
-  %111 = sub nsw i32 %30, %.0146201
-  %112 = icmp slt i32 %.4196, %111
-  br i1 %112, label %.lr.ph199, label %._crit_edge200
+109:                                              ; preds = %.lr.ph203, %._crit_edge200
+  %.0146201 = phi i32 [ 1, %.lr.ph203 ], [ %130, %._crit_edge200 ]
+  %110 = sub nsw i32 %30, %.0146201
+  %111 = icmp slt i32 %.4196, %110
+  br i1 %111, label %.lr.ph199, label %._crit_edge200
 
-.lr.ph199:                                        ; preds = %110
-  %113 = and i32 %.0146201, %106
-  %.not171 = icmp eq i32 %113, 0
-  %114 = select i1 %.not171, i32 0, i32 255
-  %115 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %114) #7, !srcloc !13
-  %116 = xor i32 %114, -1
-  %117 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %116) #7, !srcloc !13
-  %118 = sext i32 %.0146201 to i64
-  %119 = sext i32 %111 to i64
-  %invariant.gep234 = getelementptr i8, ptr %32, i64 %118
-  br label %120
+.lr.ph199:                                        ; preds = %109
+  %112 = and i32 %.0146201, %105
+  %.not171 = icmp eq i32 %112, 0
+  %113 = select i1 %.not171, i32 0, i32 255
+  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %113) #6, !srcloc !13
+  %115 = xor i32 %113, -1
+  %116 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %115) #6, !srcloc !13
+  %117 = sext i32 %.0146201 to i64
+  %118 = sext i32 %110 to i64
+  %invariant.gep234 = getelementptr i8, ptr %32, i64 %117
+  br label %119
 
-120:                                              ; preds = %.lr.ph199, %120
-  %indvars.iv220 = phi i64 [ %107, %.lr.ph199 ], [ %indvars.iv.next221, %120 ]
+119:                                              ; preds = %.lr.ph199, %119
+  %indvars.iv220 = phi i64 [ %106, %.lr.ph199 ], [ %indvars.iv.next221, %119 ]
   %gep235 = getelementptr i8, ptr %invariant.gep234, i64 %indvars.iv220
-  %121 = load i8, ptr %gep235, align 1, !tbaa !3
-  %122 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv220
-  %123 = load i8, ptr %122, align 1, !tbaa !3
-  %124 = zext i8 %121 to i32
-  %125 = zext i8 %123 to i32
-  %126 = and i32 %115, %124
-  %127 = and i32 %117, %125
-  %128 = or i32 %127, %126
-  %129 = trunc nuw i32 %128 to i8
-  store i8 %129, ptr %122, align 1, !tbaa !3
+  %120 = load i8, ptr %gep235, align 1, !tbaa !3
+  %121 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv220
+  %122 = load i8, ptr %121, align 1, !tbaa !3
+  %123 = zext i8 %120 to i32
+  %124 = zext i8 %122 to i32
+  %125 = and i32 %114, %123
+  %126 = and i32 %116, %124
+  %127 = or i32 %126, %125
+  %128 = trunc nuw i32 %127 to i8
+  store i8 %128, ptr %121, align 1, !tbaa !3
   %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
-  %130 = icmp slt i64 %indvars.iv.next221, %119
-  br i1 %130, label %120, label %._crit_edge200, !llvm.loop !15
+  %129 = icmp slt i64 %indvars.iv.next221, %118
+  br i1 %129, label %119, label %._crit_edge200, !llvm.loop !15
 
-._crit_edge200:                                   ; preds = %120, %110
-  %131 = shl i32 %.0146201, 1
-  %132 = icmp slt i32 %131, %95
-  br i1 %132, label %110, label %.preheader, !llvm.loop !16
+._crit_edge200:                                   ; preds = %119, %109
+  %130 = shl i32 %.0146201, 1
+  %131 = icmp slt i32 %130, %94
+  br i1 %131, label %109, label %.preheader, !llvm.loop !16
 
-133:                                              ; preds = %.lr.ph205, %133
-  %indvars.iv223 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next224, %133 ]
-  %134 = trunc nuw nsw i64 %indvars.iv223 to i32
-  %135 = sub i32 %134, %90
-  %136 = or i32 %135, %90
-  %isneg = icmp slt i32 %136, 0
+132:                                              ; preds = %.lr.ph205, %132
+  %indvars.iv223 = phi i64 [ 0, %.lr.ph205 ], [ %indvars.iv.next224, %132 ]
+  %133 = trunc nuw nsw i64 %indvars.iv223 to i32
+  %134 = sub i32 %133, %89
+  %135 = or i32 %134, %89
+  %isneg = icmp slt i32 %135, 0
   %gep237 = getelementptr inbounds nuw i8, ptr %invariant.gep236, i64 %indvars.iv223
-  %137 = load i8, ptr %gep237, align 1, !tbaa !3
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv223
-  %139 = load i8, ptr %138, align 1, !tbaa !3
-  %140 = select i1 %isneg, i32 %109, i32 0
-  %141 = zext i8 %137 to i32
-  %142 = zext i8 %139 to i32
-  %143 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %140) #7, !srcloc !13
-  %144 = and i32 %143, %141
-  %145 = xor i32 %140, -1
-  %146 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %145) #7, !srcloc !13
-  %147 = and i32 %146, %142
-  %148 = or i32 %147, %144
-  %149 = trunc nuw i32 %148 to i8
-  store i8 %149, ptr %138, align 1, !tbaa !3
+  %136 = load i8, ptr %gep237, align 1, !tbaa !3
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv223
+  %138 = load i8, ptr %137, align 1, !tbaa !3
+  %139 = select i1 %isneg, i32 %108, i32 0
+  %140 = zext i8 %136 to i32
+  %141 = zext i8 %138 to i32
+  %142 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %139) #6, !srcloc !13
+  %143 = and i32 %142, %140
+  %144 = xor i32 %139, -1
+  %145 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %144) #6, !srcloc !13
+  %146 = and i32 %145, %141
+  %147 = or i32 %146, %143
+  %148 = trunc nuw i32 %147 to i8
+  store i8 %148, ptr %137, align 1, !tbaa !3
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
   %exitcond227.not = icmp eq i64 %indvars.iv.next224, %wide.trip.count226
-  br i1 %exitcond227.not, label %._crit_edge206, label %133, !llvm.loop !17
+  br i1 %exitcond227.not, label %._crit_edge206, label %132, !llvm.loop !17
 
-._crit_edge206:                                   ; preds = %133, %.preheader
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_OAEP_mgf1) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 121, ptr noundef null) #6
-  %150 = and i32 %94, 1
-  call void @err_clear_last_constant_time(i32 noundef %150) #6
+._crit_edge206:                                   ; preds = %132, %.preheader
+  call void @ERR_new() #5
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 332, ptr noundef nonnull @__func__.RSA_padding_check_PKCS1_OAEP_mgf1) #5
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 121, ptr noundef null) #5
+  %149 = and i32 %93, 1
+  call void @err_clear_last_constant_time(i32 noundef %149) #5
   br label %._crit_edge228
 
 ._crit_edge228:                                   ; preds = %28, %._crit_edge185, %._crit_edge182, %._crit_edge, %34, %._crit_edge206
-  %.0148 = phi i32 [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ %90, %._crit_edge206 ], [ -1, %28 ]
-  %.0144 = phi i32 [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ %94, %._crit_edge206 ], [ 0, %28 ]
+  %.0148 = phi i32 [ -1, %._crit_edge185 ], [ -1, %._crit_edge182 ], [ -1, %._crit_edge ], [ -1, %34 ], [ %89, %._crit_edge206 ], [ -1, %28 ]
+  %.0144 = phi i32 [ %.neg.i.i165, %._crit_edge185 ], [ %.neg.i.i165, %._crit_edge182 ], [ %.neg.i.i165, %._crit_edge ], [ 0, %34 ], [ %93, %._crit_edge206 ], [ 0, %28 ]
   %.0140 = phi ptr [ %45, %._crit_edge185 ], [ %45, %._crit_edge182 ], [ %45, %._crit_edge ], [ null, %34 ], [ %45, %._crit_edge206 ], [ null, %28 ]
-  call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #6
-  call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 337) #6
-  call void @CRYPTO_clear_free(ptr noundef %.0140, i64 noundef %.pre229, ptr noundef nonnull @.str, i32 noundef 338) #6
-  %151 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0144) #7, !srcloc !13
-  %152 = and i32 %151, %.0148
-  %153 = xor i32 %.0144, -1
-  %154 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %153) #7, !srcloc !13
-  %155 = or i32 %154, %152
-  br label %156
+  call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef 64) #5
+  call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %31, ptr noundef nonnull @.str, i32 noundef 337) #5
+  call void @CRYPTO_clear_free(ptr noundef %.0140, i64 noundef %.pre229, ptr noundef nonnull @.str, i32 noundef 338) #5
+  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %.0144) #6, !srcloc !13
+  %151 = and i32 %150, %.0148
+  %152 = xor i32 %.0144, -1
+  %153 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %152) #6, !srcloc !13
+  %154 = or i32 %153, %151
+  br label %155
 
-156:                                              ; preds = %15, %._crit_edge228, %27
-  %.0 = phi i32 [ -1, %27 ], [ %155, %._crit_edge228 ], [ -1, %15 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #6
+155:                                              ; preds = %15, %._crit_edge228, %27
+  %.0 = phi i32 [ -1, %27 ], [ %154, %._crit_edge228 ], [ -1, %15 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #5
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10) #5
   ret i32 %.0
 }
 
@@ -620,17 +615,13 @@ declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unn
 
 declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
-attributes #7 = { nounwind memory(none) }
+attributes #5 = { nounwind }
+attributes #6 = { nounwind memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

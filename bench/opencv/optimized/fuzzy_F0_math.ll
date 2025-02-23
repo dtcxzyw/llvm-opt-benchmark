@@ -247,8 +247,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc233
   %82 = sext i32 %44 to i64
   %83 = add nsw i64 %82, 1
   %84 = sext i32 %1 to i64
-  %85 = sext i32 %78 to i64
-  %86 = sext i32 %76 to i64
+  %85 = zext nneg i32 %78 to i64
+  %86 = zext nneg i32 %76 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge360.us
@@ -1100,8 +1100,8 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc234
   %82 = sext i32 %44 to i64
   %83 = add nsw i64 %82, 1
   %84 = sext i32 %1 to i64
-  %85 = sext i32 %78 to i64
-  %86 = sext i32 %76 to i64
+  %85 = zext nneg i32 %78 to i64
+  %86 = zext nneg i32 %76 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge361.us

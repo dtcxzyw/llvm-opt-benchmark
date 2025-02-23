@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp eq i64 %2, 0
-  br i1 %7, label %36, label %.preheader62
+  br i1 %7, label %35, label %.preheader62
 
 .preheader62:                                     ; preds = %6
   %8 = icmp ugt i64 %2, 15
@@ -39,7 +39,7 @@ define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr n
 
 ._crit_edge:                                      ; preds = %.preheader61
   %.not = icmp eq i64 %18, 0
-  br i1 %.not, label %34, label %.preheader60.preheader
+  br i1 %.not, label %33, label %.preheader60.preheader
 
 .preheader60.preheader:                           ; preds = %.preheader62, %._crit_edge
   %.0.lcssa87 = phi ptr [ %.05365, %._crit_edge ], [ %4, %.preheader62 ]
@@ -48,47 +48,43 @@ define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr n
   %.055.lcssa84 = phi i64 [ %18, %._crit_edge ], [ %2, %.preheader62 ]
   br label %.preheader60
 
-.preheader:                                       ; preds = %.preheader60
-  %22 = icmp samesign ult i64 %.14971, 15
-  br i1 %22, label %.lr.ph, label %._crit_edge73
-
 .preheader60:                                     ; preds = %.preheader60.preheader, %.preheader60
-  %.14971 = phi i64 [ %29, %.preheader60 ], [ 0, %.preheader60.preheader ]
-  %23 = getelementptr inbounds nuw i8, ptr %.051.lcssa86, i64 %.14971
-  %24 = load i8, ptr %23, align 1, !tbaa !9
-  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.14971
-  %26 = load i8, ptr %25, align 1, !tbaa !9
-  %27 = xor i8 %26, %24
-  %28 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.14971
-  store i8 %27, ptr %28, align 1, !tbaa !9
-  %29 = add nuw nsw i64 %.14971, 1
-  %exitcond.not = icmp eq i64 %29, %.055.lcssa84
-  br i1 %exitcond.not, label %.preheader, label %.preheader60, !llvm.loop !10
+  %.14971 = phi i64 [ %28, %.preheader60 ], [ 0, %.preheader60.preheader ]
+  %22 = getelementptr inbounds nuw i8, ptr %.051.lcssa86, i64 %.14971
+  %23 = load i8, ptr %22, align 1, !tbaa !9
+  %24 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.14971
+  %25 = load i8, ptr %24, align 1, !tbaa !9
+  %26 = xor i8 %25, %23
+  %27 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.14971
+  store i8 %26, ptr %27, align 1, !tbaa !9
+  %28 = add nuw nsw i64 %.14971, 1
+  %exitcond.not = icmp eq i64 %28, %.055.lcssa84
+  br i1 %exitcond.not, label %.lr.ph, label %.preheader60, !llvm.loop !10
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.25072 = phi i64 [ %33, %.lr.ph ], [ %.055.lcssa84, %.preheader ]
-  %30 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.25072
-  %31 = load i8, ptr %30, align 1, !tbaa !9
-  %32 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.25072
-  store i8 %31, ptr %32, align 1, !tbaa !9
-  %33 = add i64 %.25072, 1
-  %exitcond78.not = icmp eq i64 %33, 16
+.lr.ph:                                           ; preds = %.preheader60, %.lr.ph
+  %.25072 = phi i64 [ %32, %.lr.ph ], [ %.055.lcssa84, %.preheader60 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.0.lcssa87, i64 %.25072
+  %30 = load i8, ptr %29, align 1, !tbaa !9
+  %31 = getelementptr inbounds nuw i8, ptr %.053.lcssa85, i64 %.25072
+  store i8 %30, ptr %31, align 1, !tbaa !9
+  %32 = add i64 %.25072, 1
+  %exitcond78.not = icmp eq i64 %32, 16
   br i1 %exitcond78.not, label %._crit_edge73, label %.lr.ph, !llvm.loop !11
 
-._crit_edge73:                                    ; preds = %.lr.ph, %.preheader
+._crit_edge73:                                    ; preds = %.lr.ph
   tail call void %5(ptr noundef nonnull %.053.lcssa85, ptr noundef nonnull %.053.lcssa85, ptr noundef %3) #3
-  br label %34
+  br label %33
 
-34:                                               ; preds = %._crit_edge73, %._crit_edge
+33:                                               ; preds = %._crit_edge73, %._crit_edge
   %.2 = phi ptr [ %.053.lcssa85, %._crit_edge73 ], [ %.05365, %._crit_edge ]
   %.not59 = icmp eq ptr %4, %.2
-  br i1 %.not59, label %36, label %35
+  br i1 %.not59, label %35, label %34
 
-35:                                               ; preds = %34
+34:                                               ; preds = %33
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %4, ptr noundef nonnull align 1 dereferenceable(16) %.2, i64 16, i1 false)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %34, %35, %6
+35:                                               ; preds = %33, %34, %6
   ret void
 }
 
@@ -191,39 +187,35 @@ define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %
   %.176138 = phi ptr [ %.176, %.loopexit100 ], [ %1, %.preheader99 ], [ %1, %.preheader101 ]
   %.181137 = phi i64 [ %.181, %.loopexit100 ], [ %2, %.preheader99 ], [ %2, %.preheader101 ]
   call void %5(ptr noundef %.1139, ptr noundef nonnull %7, ptr noundef %3) #3
-  br label %41
+  br label %40
 
-.preheader:                                       ; preds = %41
-  %40 = icmp samesign ult i64 %.287118, 15
-  br i1 %40, label %.lr.ph120, label %.loopexit
+40:                                               ; preds = %.loopexit100.thread, %40
+  %.287118 = phi i64 [ 0, %.loopexit100.thread ], [ %49, %40 ]
+  %41 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.287118
+  %42 = load i8, ptr %41, align 1, !tbaa !9
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.287118
+  %44 = load i8, ptr %43, align 1, !tbaa !9
+  %45 = getelementptr inbounds nuw i8, ptr %4, i64 %.287118
+  %46 = load i8, ptr %45, align 1, !tbaa !9
+  %47 = xor i8 %46, %44
+  %48 = getelementptr inbounds nuw i8, ptr %.176138, i64 %.287118
+  store i8 %47, ptr %48, align 1, !tbaa !9
+  store i8 %42, ptr %45, align 1, !tbaa !9
+  %49 = add nuw nsw i64 %.287118, 1
+  %exitcond.not = icmp eq i64 %49, %.181137
+  br i1 %exitcond.not, label %.lr.ph120, label %40, !llvm.loop !14
 
-41:                                               ; preds = %.loopexit100.thread, %41
-  %.287118 = phi i64 [ 0, %.loopexit100.thread ], [ %50, %41 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.287118
-  %43 = load i8, ptr %42, align 1, !tbaa !9
-  %44 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 0, i64 %.287118
-  %45 = load i8, ptr %44, align 1, !tbaa !9
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 %.287118
-  %47 = load i8, ptr %46, align 1, !tbaa !9
-  %48 = xor i8 %47, %45
-  %49 = getelementptr inbounds nuw i8, ptr %.176138, i64 %.287118
-  store i8 %48, ptr %49, align 1, !tbaa !9
-  store i8 %43, ptr %46, align 1, !tbaa !9
-  %50 = add nuw nsw i64 %.287118, 1
-  %exitcond.not = icmp eq i64 %50, %.181137
-  br i1 %exitcond.not, label %.preheader, label %41, !llvm.loop !14
+.lr.ph120:                                        ; preds = %40, %.lr.ph120
+  %.388119 = phi i64 [ %53, %.lr.ph120 ], [ %.181137, %40 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.388119
+  %51 = load i8, ptr %50, align 1, !tbaa !9
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 %.388119
+  store i8 %51, ptr %52, align 1, !tbaa !9
+  %53 = add nuw nsw i64 %.388119, 1
+  %54 = icmp samesign ult i64 %.388119, 15
+  br i1 %54, label %.lr.ph120, label %.loopexit, !llvm.loop !15
 
-.lr.ph120:                                        ; preds = %.preheader, %.lr.ph120
-  %.388119 = phi i64 [ %54, %.lr.ph120 ], [ %.181137, %.preheader ]
-  %51 = getelementptr inbounds nuw i8, ptr %.1139, i64 %.388119
-  %52 = load i8, ptr %51, align 1, !tbaa !9
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %.388119
-  store i8 %52, ptr %53, align 1, !tbaa !9
-  %54 = add nuw nsw i64 %.388119, 1
-  %55 = icmp samesign ult i64 %.388119, 15
-  br i1 %55, label %.lr.ph120, label %.loopexit, !llvm.loop !15
-
-.loopexit:                                        ; preds = %.lr.ph120, %.preheader, %.loopexit100, %6
+.loopexit:                                        ; preds = %.lr.ph120, %.loopexit100, %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #3
   ret void
 }

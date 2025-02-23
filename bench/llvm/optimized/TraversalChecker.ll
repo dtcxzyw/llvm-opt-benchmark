@@ -780,8 +780,8 @@ define internal void @_ZN5clang4ento5check8PostCall10_checkCallIN12_GLOBAL__N_11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i8, ptr %28, align 16
   %30 = icmp eq i8 %29, 13
-  %.not.not7.i.i.i = icmp ne ptr %27, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %30
+  %.not7.i.i.i = icmp ne ptr %27, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %30
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %17

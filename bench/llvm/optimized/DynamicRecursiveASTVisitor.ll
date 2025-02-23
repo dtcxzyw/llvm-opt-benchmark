@@ -34982,11 +34982,10 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26.i: ; preds = %41
   %.lobit.i.i.i.i.i.i.i.i = and i32 %48, 1
   %49 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
   %50 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 8, !tbaa !626
-  %.not.i23.i = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %spec.select.i.i = select i1 %.not.i23.i, ptr null, ptr %52
-  br i1 %.not.i23.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %50, align 8, !tbaa !626
+  %.not.i29.i = icmp eq i32 %52, 0
+  br i1 %.not.i29.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -35005,7 +35004,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang10Memb
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %spec.select.i.i, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %51, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !376
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
@@ -38294,11 +38293,10 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26.i: ; preds = %41
   %.lobit.i.i.i.i.i.i.i.i = and i32 %48, 1
   %49 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 8, !tbaa !626
-  %.not.i23.i = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %spec.select.i.i = select i1 %.not.i23.i, ptr null, ptr %52
-  br i1 %.not.i23.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %50, align 8, !tbaa !626
+  %.not.i29.i = icmp eq i32 %52, 0
+  br i1 %.not.i29.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -38317,7 +38315,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang11Dec
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %spec.select.i.i, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %51, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !376
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
@@ -77443,8 +77441,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE29WalkUpFromFunctionN
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp eq i8 %35, 26
-  %.not.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
-  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i.i, %36
+  %.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
+  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i.i, %36
   br i1 %.not.not.not.i.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i: ; preds = %32
@@ -77552,8 +77550,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb0EEEE27WalkUpFromFunctionP
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp eq i8 %35, 26
-  %.not.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
-  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i.i, %36
+  %.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
+  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i.i, %36
   br i1 %.not.not.not.i.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i: ; preds = %32
@@ -110401,11 +110399,10 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26.i: ; preds = %41
   %.lobit.i.i.i.i.i.i.i.i = and i32 %48, 1
   %49 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
   %50 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 8, !tbaa !626
-  %.not.i23.i = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %spec.select.i.i = select i1 %.not.i23.i, ptr null, ptr %52
-  br i1 %.not.i23.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %50, align 8, !tbaa !626
+  %.not.i29.i = icmp eq i32 %52, 0
+  br i1 %.not.i29.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i
 
 _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i26.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -110424,7 +110421,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang10Memb
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %spec.select.i.i, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %51, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !376
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
@@ -113713,11 +113710,10 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26.i: ; preds = %41
   %.lobit.i.i.i.i.i.i.i.i = and i32 %48, 1
   %49 = zext nneg i32 %.lobit.i.i.i.i.i.i.i.i to i64
   %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
-  %51 = load i32, ptr %50, align 8, !tbaa !626
-  %.not.i23.i = icmp eq i32 %51, 0
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %spec.select.i.i = select i1 %.not.i23.i, ptr null, ptr %52
-  br i1 %.not.i23.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %52 = load i32, ptr %50, align 8, !tbaa !626
+  %.not.i29.i = icmp eq i32 %52, 0
+  br i1 %.not.i29.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.thread.i, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i
 
 _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i26.i
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 12
@@ -113736,7 +113732,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit.i: ; preds = %_ZNK5clang11Dec
 
 .lr.ph.i.i:                                       ; preds = %56, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %56 ]
-  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %spec.select.i.i, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %51, i64 %indvars.iv.i.i
   %58 = load ptr, ptr %0, align 8, !tbaa !376
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
   %60 = load ptr, ptr %59, align 8
@@ -152862,8 +152858,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE29WalkUpFromFunctionN
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp eq i8 %35, 26
-  %.not.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
-  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i.i, %36
+  %.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
+  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i.i, %36
   br i1 %.not.not.not.i.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i: ; preds = %32
@@ -152971,8 +152967,8 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_14ImplILb1EEEE27WalkUpFromFunctionP
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp eq i8 %35, 26
-  %.not.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
-  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not.not6.i.i.i.i.i.i.i, %36
+  %.not6.i.i.i.i.i.i.i = icmp ne ptr %1, null
+  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not6.i.i.i.i.i.i.i, %36
   br i1 %.not.not.not.i.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i.i: ; preds = %32

@@ -900,7 +900,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIjSaIjEESt4lessIS3_ESaISt
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %276, %281, %287
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #23
   %291 = icmp ult i32 %277, %129
-  %292 = icmp ult i32 %.187, 2
+  %292 = icmp samesign ult i32 %.187, 2
   %293 = select i1 %291, i1 %292, i1 false
   br i1 %293, label %152, label %._crit_edge, !llvm.loop !99
 

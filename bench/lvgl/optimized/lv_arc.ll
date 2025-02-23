@@ -210,7 +210,7 @@ define internal void @lv_arc_event(ptr readnone captures(none) %0, ptr noundef %
   %92 = udiv i32 %91, %89
   %93 = uitofp i32 %92 to float
   %94 = load i8, ptr %33, align 8
-  %95 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef %17, float noundef %.1250.lcssa, float noundef %93)
+  %95 = call fastcc zeroext i1 @lv_arc_angle_within_bg_bounds(ptr noundef nonnull %17, float noundef %.1250.lcssa, float noundef %93)
   br i1 %95, label %96, label %186
 
 96:                                               ; preds = %._crit_edge343

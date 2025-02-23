@@ -1618,7 +1618,7 @@ _update_params.exit.thread:                       ; preds = %94, %88, %86
 .lr.ph78:                                         ; preds = %231, %.lr.ph78
   %235 = load ptr, ptr %8, align 8, !tbaa !63
   %236 = call ptr @sqlite3_column_text(ptr noundef %235, i32 noundef 0) #19
-  call void @dt_action_define_preset(ptr noundef %0, ptr noundef %236) #19
+  call void @dt_action_define_preset(ptr noundef nonnull %0, ptr noundef %236) #19
   %237 = load ptr, ptr %8, align 8, !tbaa !63
   %238 = call i32 @sqlite3_step(ptr noundef %237) #19
   %239 = icmp eq i32 %238, 100

@@ -723,7 +723,7 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 173
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 60
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 28
-  %77 = call i32 @IsAtLeastTLSv1_2(ptr noundef %0) #17
+  %77 = call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 724
   %79 = load i8, ptr %78, align 2, !tbaa !44
   %80 = zext i8 %79 to i32
@@ -7047,615 +7047,610 @@ TLSX_SupportExtensions.exit.thread:               ; preds = %4, %53, %45, %TLSX_
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4) unnamed_addr #13 {
-  %6 = icmp eq i8 %3, 6
-  %7 = icmp eq i8 %3, 1
-  %8 = and i8 %3, -5
-  %or.cond.i62 = icmp eq i8 %8, 2
-  %9 = add i8 %3, -3
-  %or.cond.i = icmp ult i8 %9, -2
+  %6 = icmp eq i8 %3, 1
+  %7 = and i8 %3, -5
+  %or.cond.i62 = icmp eq i8 %7, 2
+  %8 = add i8 %3, -3
+  %or.cond.i = icmp ult i8 %8, -2
   %spec.select = select i1 %or.cond.i, i32 -394, i32 0
   br label %.outer
 
 .outer:                                           ; preds = %TLSX_SupportedVersions_Write.exit, %5
   %.080.ph = phi i16 [ %.282, %TLSX_SupportedVersions_Write.exit ], [ 0, %5 ]
-  %.0.ph = phi ptr [ %11, %TLSX_SupportedVersions_Write.exit ], [ %0, %5 ]
-  %.not94 = icmp eq ptr %.0.ph, null
-  br i1 %.not94, label %.loopexit, label %.lr.ph
+  %.0.ph = phi ptr [ %10, %TLSX_SupportedVersions_Write.exit ], [ %0, %5 ]
+  %.not93 = icmp eq ptr %.0.ph, null
+  br i1 %.not93, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.outer, %.backedge
-  %.095 = phi ptr [ %11, %.backedge ], [ %.0.ph, %.outer ]
-  %10 = getelementptr inbounds nuw i8, ptr %.095, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !63
-  switch i8 %3, label %12 [
-    i8 13, label %15
-    i8 1, label %15
+  %.094 = phi ptr [ %10, %.backedge ], [ %.0.ph, %.outer ]
+  %9 = getelementptr inbounds nuw i8, ptr %.094, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !63
+  switch i8 %3, label %11 [
+    i8 13, label %14
+    i8 1, label %14
   ]
 
-12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.095, i64 20
-  %14 = load i8, ptr %13, align 4, !tbaa !83
-  %.not46 = icmp eq i8 %14, 0
-  br i1 %.not46, label %.backedge, label %15
+11:                                               ; preds = %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.094, i64 20
+  %13 = load i8, ptr %12, align 4, !tbaa !83
+  %.not46 = icmp eq i8 %13, 0
+  br i1 %.not46, label %.backedge, label %14
 
-.backedge:                                        ; preds = %12, %15
-  %.not = icmp eq ptr %11, null
+.backedge:                                        ; preds = %11, %14
+  %.not = icmp eq ptr %10, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !194
 
-15:                                               ; preds = %.lr.ph, %.lr.ph, %12
-  %16 = load i32, ptr %.095, align 8, !tbaa !60
-  %17 = trunc i32 %16 to i16
-  %cond.i = icmp eq i16 %17, -255
-  %..i = select i1 %cond.i, i16 63, i16 %17
-  %18 = lshr i16 %..i, 3
-  %19 = zext nneg i16 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 %19
-  %21 = load i8, ptr %20, align 1, !tbaa !51
-  %22 = trunc i16 %..i to i8
-  %23 = and i8 %22, 7
-  %24 = shl nuw i8 1, %23
-  %25 = and i8 %24, %21
-  %.not47 = icmp eq i8 %25, 0
-  br i1 %.not47, label %26, label %.backedge
+14:                                               ; preds = %.lr.ph, %.lr.ph, %11
+  %15 = load i32, ptr %.094, align 8, !tbaa !60
+  %16 = trunc i32 %15 to i16
+  %cond.i = icmp eq i16 %16, -255
+  %..i = select i1 %cond.i, i16 63, i16 %16
+  %17 = lshr i16 %..i, 3
+  %18 = zext nneg i16 %17 to i64
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
+  %20 = load i8, ptr %19, align 1, !tbaa !51
+  %21 = trunc i16 %..i to i8
+  %22 = and i8 %21, 7
+  %23 = shl nuw i8 1, %22
+  %24 = and i8 %23, %20
+  %.not47 = icmp eq i8 %24, 0
+  br i1 %.not47, label %25, label %.backedge
 
-26:                                               ; preds = %15
-  %27 = zext i16 %.080.ph to i64
-  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %27
-  %29 = lshr i32 %16, 8
-  %30 = trunc i32 %29 to i8
-  store i8 %30, ptr %28, align 1, !tbaa !51
-  %31 = trunc i32 %16 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %31, ptr %32, align 1, !tbaa !51
-  %33 = add i16 %.080.ph, 4
-  %34 = load i32, ptr %.095, align 8, !tbaa !60
-  switch i32 %34, label %TLSX_SupportedVersions_Write.exit [
-    i32 0, label %35
-    i32 22, label %176
-    i32 13, label %106
-    i32 50, label %296
-    i32 43, label %252
-    i32 10, label %71
-    i32 11, label %92
-    i32 51, label %177
+25:                                               ; preds = %14
+  %26 = zext i16 %.080.ph to i64
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
+  %28 = lshr i32 %15, 8
+  %29 = trunc i32 %28 to i8
+  store i8 %29, ptr %27, align 1, !tbaa !51
+  %30 = trunc i32 %15 to i8
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store i8 %30, ptr %31, align 1, !tbaa !51
+  %32 = add i16 %.080.ph, 4
+  %33 = load i32, ptr %.094, align 8, !tbaa !60
+  switch i32 %33, label %TLSX_SupportedVersions_Write.exit [
+    i32 0, label %34
+    i32 22, label %175
+    i32 13, label %105
+    i32 50, label %294
+    i32 43, label %250
+    i32 10, label %70
+    i32 11, label %91
+    i32 51, label %176
   ]
 
-35:                                               ; preds = %26
+34:                                               ; preds = %25
   switch i8 %3, label %TLSX_SupportedVersions_Write.exit [
-    i8 13, label %36
-    i8 1, label %36
+    i8 13, label %35
+    i8 1, label %35
   ]
 
-36:                                               ; preds = %35, %35
-  %37 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !82
-  %39 = zext i16 %33 to i64
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
-  %.not20.i = icmp eq ptr %38, null
+35:                                               ; preds = %34, %34
+  %36 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !82
+  %38 = zext i16 %32 to i64
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 %38
+  %.not20.i = icmp eq ptr %37, null
   br i1 %.not20.i, label %TLSX_SNI_Write.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %36, %64
-  %.022.i = phi i16 [ %.1.i, %64 ], [ 2, %36 ]
-  %.01921.i = phi ptr [ %42, %64 ], [ %38, %36 ]
-  %41 = getelementptr inbounds nuw i8, ptr %.01921.i, i64 16
-  %42 = load ptr, ptr %41, align 8, !tbaa !85
-  %43 = load i8, ptr %.01921.i, align 8, !tbaa !88
-  %44 = add i16 %.022.i, 1
-  %45 = zext i16 %.022.i to i64
-  %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
-  store i8 %43, ptr %46, align 1, !tbaa !51
-  %cond.i51 = icmp eq i8 %43, 0
-  br i1 %cond.i51, label %47, label %64
+.lr.ph.i:                                         ; preds = %35, %63
+  %.022.i = phi i16 [ %.1.i, %63 ], [ 2, %35 ]
+  %.01921.i = phi ptr [ %41, %63 ], [ %37, %35 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01921.i, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !85
+  %42 = load i8, ptr %.01921.i, align 8, !tbaa !88
+  %43 = add i16 %.022.i, 1
+  %44 = zext i16 %.022.i to i64
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 %44
+  store i8 %42, ptr %45, align 1, !tbaa !51
+  %cond.i51 = icmp eq i8 %42, 0
+  br i1 %cond.i51, label %46, label %63
 
-47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds nuw i8, ptr %.01921.i, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !51
-  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %49) #18
-  %51 = trunc i64 %50 to i16
-  %52 = zext i16 %44 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %40, i64 %52
-  %54 = lshr i64 %50, 8
-  %55 = trunc i64 %54 to i8
-  store i8 %55, ptr %53, align 1, !tbaa !51
-  %56 = trunc i64 %50 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %53, i64 1
-  store i8 %56, ptr %57, align 1, !tbaa !51
-  %58 = add i16 %.022.i, 3
-  %59 = zext i16 %58 to i64
-  %60 = getelementptr inbounds nuw i8, ptr %40, i64 %59
-  %61 = load ptr, ptr %48, align 8, !tbaa !51
-  %62 = and i64 %50, 65535
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %60, ptr align 1 %61, i64 %62, i1 false)
-  %63 = add i16 %58, %51
-  br label %64
+46:                                               ; preds = %.lr.ph.i
+  %47 = getelementptr inbounds nuw i8, ptr %.01921.i, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !51
+  %49 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #18
+  %50 = trunc i64 %49 to i16
+  %51 = zext i16 %43 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %39, i64 %51
+  %53 = lshr i64 %49, 8
+  %54 = trunc i64 %53 to i8
+  store i8 %54, ptr %52, align 1, !tbaa !51
+  %55 = trunc i64 %49 to i8
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store i8 %55, ptr %56, align 1, !tbaa !51
+  %57 = add i16 %.022.i, 3
+  %58 = zext i16 %57 to i64
+  %59 = getelementptr inbounds nuw i8, ptr %39, i64 %58
+  %60 = load ptr, ptr %47, align 8, !tbaa !51
+  %61 = and i64 %49, 65535
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %59, ptr align 1 %60, i64 %61, i1 false)
+  %62 = add i16 %57, %50
+  br label %63
 
-64:                                               ; preds = %47, %.lr.ph.i
-  %.1.i = phi i16 [ %63, %47 ], [ %44, %.lr.ph.i ]
-  %.not.i = icmp eq ptr %42, null
+63:                                               ; preds = %46, %.lr.ph.i
+  %.1.i = phi i16 [ %62, %46 ], [ %43, %.lr.ph.i ]
+  %.not.i = icmp eq ptr %41, null
   br i1 %.not.i, label %TLSX_SNI_Write.exit, label %.lr.ph.i, !llvm.loop !195
 
-TLSX_SNI_Write.exit:                              ; preds = %64, %36
-  %.0.lcssa.i = phi i16 [ 2, %36 ], [ %.1.i, %64 ]
-  %65 = add i16 %.0.lcssa.i, -2
-  %66 = lshr i16 %65, 8
-  %67 = trunc nuw i16 %66 to i8
-  store i8 %67, ptr %40, align 1, !tbaa !51
-  %68 = trunc i16 %65 to i8
-  %69 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 %68, ptr %69, align 1, !tbaa !51
-  %70 = add i16 %.0.lcssa.i, %33
+TLSX_SNI_Write.exit:                              ; preds = %63, %35
+  %.0.lcssa.i = phi i16 [ 2, %35 ], [ %.1.i, %63 ]
+  %64 = add i16 %.0.lcssa.i, -2
+  %65 = lshr i16 %64, 8
+  %66 = trunc nuw i16 %65 to i8
+  store i8 %66, ptr %39, align 1, !tbaa !51
+  %67 = trunc i16 %64 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %39, i64 1
+  store i8 %67, ptr %68, align 1, !tbaa !51
+  %69 = add i16 %.0.lcssa.i, %32
   br label %TLSX_SupportedVersions_Write.exit
 
-71:                                               ; preds = %26
-  %72 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !82
-  %74 = zext i16 %33 to i64
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 %74
-  %.not9.i = icmp eq ptr %73, null
+70:                                               ; preds = %25
+  %71 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !82
+  %73 = zext i16 %32 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %73
+  %.not9.i = icmp eq ptr %72, null
   br i1 %.not9.i, label %TLSX_SupportedCurve_Write.exit, label %.lr.ph.i52
 
-.lr.ph.i52:                                       ; preds = %71, %.lr.ph.i52
-  %.011.i = phi i16 [ %83, %.lr.ph.i52 ], [ 2, %71 ]
-  %.0810.i = phi ptr [ %85, %.lr.ph.i52 ], [ %73, %71 ]
-  %76 = load i16, ptr %.0810.i, align 8, !tbaa !110
-  %77 = zext i16 %.011.i to i64
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
-  %79 = lshr i16 %76, 8
-  %80 = trunc nuw i16 %79 to i8
-  store i8 %80, ptr %78, align 1, !tbaa !51
-  %81 = trunc i16 %76 to i8
-  %82 = getelementptr inbounds nuw i8, ptr %78, i64 1
-  store i8 %81, ptr %82, align 1, !tbaa !51
-  %83 = add i16 %.011.i, 2
-  %84 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !90
-  %.not.i53 = icmp eq ptr %85, null
+.lr.ph.i52:                                       ; preds = %70, %.lr.ph.i52
+  %.011.i = phi i16 [ %82, %.lr.ph.i52 ], [ 2, %70 ]
+  %.0810.i = phi ptr [ %84, %.lr.ph.i52 ], [ %72, %70 ]
+  %75 = load i16, ptr %.0810.i, align 8, !tbaa !110
+  %76 = zext i16 %.011.i to i64
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
+  %78 = lshr i16 %75, 8
+  %79 = trunc nuw i16 %78 to i8
+  store i8 %79, ptr %77, align 1, !tbaa !51
+  %80 = trunc i16 %75 to i8
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  store i8 %80, ptr %81, align 1, !tbaa !51
+  %82 = add i16 %.011.i, 2
+  %83 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !90
+  %.not.i53 = icmp eq ptr %84, null
   br i1 %.not.i53, label %TLSX_SupportedCurve_Write.exit, label %.lr.ph.i52, !llvm.loop !196
 
-TLSX_SupportedCurve_Write.exit:                   ; preds = %.lr.ph.i52, %71
-  %.0.lcssa.i54 = phi i16 [ 2, %71 ], [ %83, %.lr.ph.i52 ]
-  %86 = add i16 %.0.lcssa.i54, -2
-  %87 = lshr i16 %86, 8
-  %88 = trunc nuw i16 %87 to i8
-  store i8 %88, ptr %75, align 1, !tbaa !51
-  %89 = trunc i16 %86 to i8
-  %90 = getelementptr inbounds nuw i8, ptr %75, i64 1
-  store i8 %89, ptr %90, align 1, !tbaa !51
-  %91 = add i16 %.0.lcssa.i54, %33
+TLSX_SupportedCurve_Write.exit:                   ; preds = %.lr.ph.i52, %70
+  %.0.lcssa.i54 = phi i16 [ 2, %70 ], [ %82, %.lr.ph.i52 ]
+  %85 = add i16 %.0.lcssa.i54, -2
+  %86 = lshr i16 %85, 8
+  %87 = trunc nuw i16 %86 to i8
+  store i8 %87, ptr %74, align 1, !tbaa !51
+  %88 = trunc i16 %85 to i8
+  %89 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  store i8 %88, ptr %89, align 1, !tbaa !51
+  %90 = add i16 %.0.lcssa.i54, %32
   br label %TLSX_SupportedVersions_Write.exit
 
-92:                                               ; preds = %26
-  %93 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !82
-  %95 = zext i16 %33 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 %95
-  %.not8.i = icmp eq ptr %94, null
+91:                                               ; preds = %25
+  %92 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %93 = load ptr, ptr %92, align 8, !tbaa !82
+  %94 = zext i16 %32 to i64
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %94
+  %.not8.i = icmp eq ptr %93, null
   br i1 %.not8.i, label %TLSX_PointFormat_Write.exit, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %92, %.lr.ph.i55
-  %.010.i = phi i16 [ %98, %.lr.ph.i55 ], [ 1, %92 ]
-  %.079.i = phi ptr [ %102, %.lr.ph.i55 ], [ %94, %92 ]
-  %97 = load i8, ptr %.079.i, align 8, !tbaa !138
-  %98 = add i16 %.010.i, 1
-  %99 = zext i16 %.010.i to i64
-  %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
-  store i8 %97, ptr %100, align 1, !tbaa !51
-  %101 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
-  %102 = load ptr, ptr %101, align 8, !tbaa !94
-  %.not.i56 = icmp eq ptr %102, null
+.lr.ph.i55:                                       ; preds = %91, %.lr.ph.i55
+  %.010.i = phi i16 [ %97, %.lr.ph.i55 ], [ 1, %91 ]
+  %.079.i = phi ptr [ %101, %.lr.ph.i55 ], [ %93, %91 ]
+  %96 = load i8, ptr %.079.i, align 8, !tbaa !138
+  %97 = add i16 %.010.i, 1
+  %98 = zext i16 %.010.i to i64
+  %99 = getelementptr inbounds nuw i8, ptr %95, i64 %98
+  store i8 %96, ptr %99, align 1, !tbaa !51
+  %100 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
+  %101 = load ptr, ptr %100, align 8, !tbaa !94
+  %.not.i56 = icmp eq ptr %101, null
   br i1 %.not.i56, label %TLSX_PointFormat_Write.exit, label %.lr.ph.i55, !llvm.loop !197
 
-TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %92
-  %.0.lcssa.i57 = phi i16 [ 1, %92 ], [ %98, %.lr.ph.i55 ]
-  %103 = trunc i16 %.0.lcssa.i57 to i8
-  %104 = add i8 %103, -1
-  store i8 %104, ptr %96, align 1, !tbaa !51
-  %105 = add i16 %.0.lcssa.i57, %33
+TLSX_PointFormat_Write.exit:                      ; preds = %.lr.ph.i55, %91
+  %.0.lcssa.i57 = phi i16 [ 1, %91 ], [ %97, %.lr.ph.i55 ]
+  %102 = trunc i16 %.0.lcssa.i57 to i8
+  %103 = add i8 %102, -1
+  store i8 %103, ptr %95, align 1, !tbaa !51
+  %104 = add i16 %.0.lcssa.i57, %32
   br label %TLSX_SupportedVersions_Write.exit
 
-106:                                              ; preds = %26
-  %107 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !82
-  %109 = zext i16 %33 to i64
-  %110 = getelementptr inbounds nuw i8, ptr %1, i64 %109
-  %111 = load ptr, ptr %108, align 8, !tbaa !147
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  %113 = load ptr, ptr %112, align 8, !tbaa !185
-  %.not.i58 = icmp eq ptr %113, null
-  br i1 %.not.i58, label %114, label %118
+105:                                              ; preds = %25
+  %106 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %107 = load ptr, ptr %106, align 8, !tbaa !82
+  %108 = zext i16 %32 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 %108
+  %110 = load ptr, ptr %107, align 8, !tbaa !147
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !185
+  %.not.i58 = icmp eq ptr %112, null
+  br i1 %.not.i58, label %113, label %117
 
-114:                                              ; preds = %106
-  %115 = load ptr, ptr %111, align 16, !tbaa !102
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 152
-  %117 = load ptr, ptr %116, align 8, !tbaa !186
-  br label %118
+113:                                              ; preds = %105
+  %114 = load ptr, ptr %110, align 16, !tbaa !102
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 152
+  %116 = load ptr, ptr %115, align 8, !tbaa !186
+  br label %117
 
-118:                                              ; preds = %114, %106
-  %119 = phi ptr [ %117, %114 ], [ %113, %106 ]
-  %120 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %121 = load i16, ptr %120, align 8, !tbaa !64
-  %122 = icmp eq i16 %121, 0
-  br i1 %122, label %123, label %134
+117:                                              ; preds = %113, %105
+  %118 = phi ptr [ %116, %113 ], [ %112, %105 ]
+  %119 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %120 = load i16, ptr %119, align 8, !tbaa !64
+  %121 = icmp eq i16 %120, 0
+  br i1 %121, label %122, label %133
 
-123:                                              ; preds = %118
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 2
-  %125 = load i16, ptr %124, align 2, !tbaa !187
-  %126 = lshr i16 %125, 8
-  %127 = trunc nuw i16 %126 to i8
-  store i8 %127, ptr %110, align 1, !tbaa !51
-  %128 = trunc i16 %125 to i8
-  %129 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store i8 %128, ptr %129, align 1, !tbaa !51
-  %130 = getelementptr inbounds nuw i8, ptr %110, i64 2
-  %131 = getelementptr inbounds nuw i8, ptr %119, i64 304
-  %132 = load i16, ptr %124, align 2, !tbaa !187
-  %133 = zext i16 %132 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %130, ptr nonnull align 2 %131, i64 %133, i1 false)
-  br label %143
+122:                                              ; preds = %117
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 2
+  %124 = load i16, ptr %123, align 2, !tbaa !187
+  %125 = lshr i16 %124, 8
+  %126 = trunc nuw i16 %125 to i8
+  store i8 %126, ptr %109, align 1, !tbaa !51
+  %127 = trunc i16 %124 to i8
+  %128 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %127, ptr %128, align 1, !tbaa !51
+  %129 = getelementptr inbounds nuw i8, ptr %109, i64 2
+  %130 = getelementptr inbounds nuw i8, ptr %118, i64 304
+  %131 = load i16, ptr %123, align 2, !tbaa !187
+  %132 = zext i16 %131 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 2 %130, i64 %132, i1 false)
+  br label %142
 
-134:                                              ; preds = %118
-  %135 = lshr i16 %121, 8
-  %136 = trunc nuw i16 %135 to i8
-  store i8 %136, ptr %110, align 1, !tbaa !51
-  %137 = trunc i16 %121 to i8
-  %138 = getelementptr inbounds nuw i8, ptr %110, i64 1
-  store i8 %137, ptr %138, align 1, !tbaa !51
-  %139 = getelementptr inbounds nuw i8, ptr %110, i64 2
-  %140 = getelementptr inbounds nuw i8, ptr %108, i64 10
-  %141 = load i16, ptr %120, align 8, !tbaa !64
-  %142 = zext i16 %141 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr nonnull readonly align 2 %140, i64 %142, i1 false)
-  br label %143
+133:                                              ; preds = %117
+  %134 = lshr i16 %120, 8
+  %135 = trunc nuw i16 %134 to i8
+  store i8 %135, ptr %109, align 1, !tbaa !51
+  %136 = trunc i16 %120 to i8
+  %137 = getelementptr inbounds nuw i8, ptr %109, i64 1
+  store i8 %136, ptr %137, align 1, !tbaa !51
+  %138 = getelementptr inbounds nuw i8, ptr %109, i64 2
+  %139 = getelementptr inbounds nuw i8, ptr %107, i64 10
+  %140 = load i16, ptr %119, align 8, !tbaa !64
+  %141 = zext i16 %140 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %138, ptr nonnull readonly align 2 %139, i64 %141, i1 false)
+  br label %142
 
-143:                                              ; preds = %134, %123
-  %.0.in.i = phi ptr [ %124, %123 ], [ %120, %134 ]
+142:                                              ; preds = %133, %122
+  %.0.in.i = phi ptr [ %123, %122 ], [ %119, %133 ]
   %.0.i = load i16, ptr %.0.in.i, align 2, !tbaa !64
-  %144 = getelementptr inbounds nuw i8, ptr %110, i64 2
-  %145 = and i16 %.0.i, 1
-  %.not.i.i = icmp eq i16 %145, 0
-  br i1 %.not.i.i, label %146, label %TLSX_SignatureAlgorithms_Write.exit
+  %143 = getelementptr inbounds nuw i8, ptr %109, i64 2
+  %144 = and i16 %.0.i, 1
+  %.not.i.i = icmp eq i16 %144, 0
+  br i1 %.not.i.i, label %145, label %TLSX_SignatureAlgorithms_Write.exit
 
-146:                                              ; preds = %143
-  %147 = load ptr, ptr %108, align 8, !tbaa !147
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 1106
-  store i16 0, ptr %148, align 2, !tbaa !198
+145:                                              ; preds = %142
+  %146 = load ptr, ptr %107, align 8, !tbaa !147
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 1106
+  store i16 0, ptr %147, align 2, !tbaa !198
   %.not26.i.i = icmp eq i16 %.0.i, 0
   br i1 %.not26.i.i, label %TLSX_SignatureAlgorithms_Write.exit, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %146
-  %149 = zext i16 %.0.i to i64
+.lr.ph.preheader.i.i:                             ; preds = %145
+  %148 = zext i16 %.0.i to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i.i, %.lr.ph.preheader.i.i
-  %150 = phi i16 [ 0, %.lr.ph.preheader.i.i ], [ %172, %.thread.i.i ]
+  %149 = phi i16 [ 0, %.lr.ph.preheader.i.i ], [ %171, %.thread.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.thread.i.i ]
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 %indvars.iv.i.i
-  %152 = load i8, ptr %151, align 1, !tbaa !51
-  %153 = icmp eq i8 %152, 8
-  br i1 %153, label %154, label %.thread.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %143, i64 %indvars.iv.i.i
+  %151 = load i8, ptr %150, align 1, !tbaa !51
+  %152 = icmp eq i8 %151, 8
+  br i1 %152, label %153, label %.thread.i.i
 
-154:                                              ; preds = %.lr.ph.i.i
-  %155 = getelementptr inbounds nuw i8, ptr %151, i64 1
-  %156 = load i8, ptr %155, align 1, !tbaa !51
-  %157 = icmp ult i8 %156, 7
-  br i1 %157, label %158, label %.thread29.i.i
+153:                                              ; preds = %.lr.ph.i.i
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 1
+  %155 = load i8, ptr %154, align 1, !tbaa !51
+  %156 = icmp ult i8 %155, 7
+  br i1 %156, label %157, label %.thread29.i.i
 
-158:                                              ; preds = %154
-  %159 = zext nneg i8 %156 to i32
-  %160 = shl nuw nsw i32 1, %159
-  %161 = trunc nuw i32 %160 to i16
-  %162 = or i16 %150, %161
-  store i16 %162, ptr %148, align 2, !tbaa !198
-  %.pr.pre.i.i = load i8, ptr %151, align 1, !tbaa !51
-  %163 = icmp eq i8 %.pr.pre.i.i, 8
-  br i1 %163, label %..thread29.i_crit_edge.i, label %.thread.i.i
+157:                                              ; preds = %153
+  %158 = zext nneg i8 %155 to i32
+  %159 = shl nuw nsw i32 1, %158
+  %160 = trunc nuw i32 %159 to i16
+  %161 = or i16 %149, %160
+  store i16 %161, ptr %147, align 2, !tbaa !198
+  %.pr.pre.i.i = load i8, ptr %150, align 1, !tbaa !51
+  %162 = icmp eq i8 %.pr.pre.i.i, 8
+  br i1 %162, label %..thread29.i_crit_edge.i, label %.thread.i.i
 
-..thread29.i_crit_edge.i:                         ; preds = %158
-  %.pre.i = load i8, ptr %155, align 1, !tbaa !51
+..thread29.i_crit_edge.i:                         ; preds = %157
+  %.pre.i = load i8, ptr %154, align 1, !tbaa !51
   br label %.thread29.i.i
 
-.thread29.i.i:                                    ; preds = %..thread29.i_crit_edge.i, %154
-  %164 = phi i8 [ %.pre.i, %..thread29.i_crit_edge.i ], [ %156, %154 ]
-  %165 = phi i16 [ %162, %..thread29.i_crit_edge.i ], [ %150, %154 ]
-  %166 = add i8 %164, -9
-  %or.cond.i.i = icmp ult i8 %166, 3
-  br i1 %or.cond.i.i, label %167, label %.thread.i.i
+.thread29.i.i:                                    ; preds = %..thread29.i_crit_edge.i, %153
+  %163 = phi i8 [ %.pre.i, %..thread29.i_crit_edge.i ], [ %155, %153 ]
+  %164 = phi i16 [ %161, %..thread29.i_crit_edge.i ], [ %149, %153 ]
+  %165 = add i8 %163, -9
+  %or.cond.i.i = icmp ult i8 %165, 3
+  br i1 %or.cond.i.i, label %166, label %.thread.i.i
 
-167:                                              ; preds = %.thread29.i.i
-  %168 = zext nneg i8 %164 to i32
-  %169 = shl nuw nsw i32 1, %168
-  %170 = trunc nuw i32 %169 to i16
-  %171 = or i16 %165, %170
-  store i16 %171, ptr %148, align 2, !tbaa !198
+166:                                              ; preds = %.thread29.i.i
+  %167 = zext nneg i8 %163 to i32
+  %168 = shl nuw nsw i32 1, %167
+  %169 = trunc nuw i32 %168 to i16
+  %170 = or i16 %164, %169
+  store i16 %170, ptr %147, align 2, !tbaa !198
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %167, %.thread29.i.i, %158, %.lr.ph.i.i
-  %172 = phi i16 [ %150, %.lr.ph.i.i ], [ %162, %158 ], [ %165, %.thread29.i.i ], [ %171, %167 ]
+.thread.i.i:                                      ; preds = %166, %.thread29.i.i, %157, %.lr.ph.i.i
+  %171 = phi i16 [ %149, %.lr.ph.i.i ], [ %161, %157 ], [ %164, %.thread29.i.i ], [ %170, %166 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %173 = icmp samesign ult i64 %indvars.iv.next.i.i, %149
-  br i1 %173, label %.lr.ph.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !199
+  %172 = icmp samesign ult i64 %indvars.iv.next.i.i, %148
+  br i1 %172, label %.lr.ph.i.i, label %TLSX_SignatureAlgorithms_Write.exit, !llvm.loop !199
 
-TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %143, %146
-  %174 = add i16 %.080.ph, 6
-  %175 = add i16 %174, %.0.i
+TLSX_SignatureAlgorithms_Write.exit:              ; preds = %.thread.i.i, %142, %145
+  %173 = add i16 %.080.ph, 6
+  %174 = add i16 %173, %.0.i
   br label %TLSX_SupportedVersions_Write.exit
 
-176:                                              ; preds = %26
+175:                                              ; preds = %25
   br label %TLSX_SupportedVersions_Write.exit
 
-177:                                              ; preds = %26
-  %178 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %179 = load ptr, ptr %178, align 8, !tbaa !82
-  %180 = zext i16 %33 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 %180
-  br i1 %6, label %182, label %184
+176:                                              ; preds = %25
+  %177 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %178 = load ptr, ptr %177, align 8, !tbaa !82
+  %179 = zext i16 %32 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 %179
+  switch i8 %3, label %.outer.i [
+    i8 6, label %181
+    i8 1, label %.split35.us.i
+  ]
 
-182:                                              ; preds = %177
-  %183 = load i16, ptr %179, align 8, !tbaa !148
+181:                                              ; preds = %176
+  %182 = load i16, ptr %178, align 8, !tbaa !148
   br label %.sink.split.i
 
-184:                                              ; preds = %177
-  br i1 %7, label %.split35.us.i, label %.outer.i
-
-.split35.us.i:                                    ; preds = %184
-  %.not.us.us37.i = icmp eq ptr %179, null
+.split35.us.i:                                    ; preds = %176
+  %.not.us.us37.i = icmp eq ptr %178, null
   br i1 %.not.us.us37.i, label %.split.us.thread.i, label %.split32.us.us.i
 
 .split32.us.us.i:                                 ; preds = %.split35.us.i, %.split32.us.us.i
-  %.028.ph.us39.i = phi ptr [ %186, %.split32.us.us.i ], [ %179, %.split35.us.i ]
-  %.1.ph.us38.i = phi i16 [ %212, %.split32.us.us.i ], [ 2, %.split35.us.i ]
-  %185 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 72
-  %186 = load ptr, ptr %185, align 8, !tbaa !176
-  %187 = load i16, ptr %.028.ph.us39.i, align 8, !tbaa !148
-  %188 = zext i16 %.1.ph.us38.i to i64
-  %189 = getelementptr inbounds nuw i8, ptr %181, i64 %188
-  %190 = lshr i16 %187, 8
-  %191 = trunc nuw i16 %190 to i8
-  store i8 %191, ptr %189, align 1, !tbaa !51
-  %192 = trunc i16 %187 to i8
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 1
-  store i8 %192, ptr %193, align 1, !tbaa !51
-  %194 = add i16 %.1.ph.us38.i, 2
-  %195 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 48
-  %196 = load i32, ptr %195, align 8, !tbaa !154
-  %197 = zext i16 %194 to i64
-  %198 = getelementptr inbounds nuw i8, ptr %181, i64 %197
-  %199 = lshr i32 %196, 8
-  %200 = trunc i32 %199 to i8
-  store i8 %200, ptr %198, align 1, !tbaa !51
-  %201 = trunc i32 %196 to i8
-  %202 = getelementptr inbounds nuw i8, ptr %198, i64 1
-  store i8 %201, ptr %202, align 1, !tbaa !51
-  %203 = add i16 %.1.ph.us38.i, 4
-  %204 = zext i16 %203 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %181, i64 %204
-  %206 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 40
-  %207 = load ptr, ptr %206, align 8, !tbaa !152
-  %208 = load i32, ptr %195, align 8, !tbaa !154
-  %209 = zext i32 %208 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %205, ptr align 1 %207, i64 %209, i1 false)
-  %210 = load i32, ptr %195, align 8, !tbaa !154
-  %211 = trunc i32 %210 to i16
-  %212 = add i16 %203, %211
-  %.not.us.us.i = icmp eq ptr %186, null
-  br i1 %.not.us.us.i, label %.split.us.i, label %.split32.us.us.i, !llvm.loop !200
+  %.028.ph.us39.i = phi ptr [ %184, %.split32.us.us.i ], [ %178, %.split35.us.i ]
+  %.1.ph.us38.i = phi i16 [ %210, %.split32.us.us.i ], [ 2, %.split35.us.i ]
+  %183 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 72
+  %184 = load ptr, ptr %183, align 8, !tbaa !176
+  %185 = load i16, ptr %.028.ph.us39.i, align 8, !tbaa !148
+  %186 = zext i16 %.1.ph.us38.i to i64
+  %187 = getelementptr inbounds nuw i8, ptr %180, i64 %186
+  %188 = lshr i16 %185, 8
+  %189 = trunc nuw i16 %188 to i8
+  store i8 %189, ptr %187, align 1, !tbaa !51
+  %190 = trunc i16 %185 to i8
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 1
+  store i8 %190, ptr %191, align 1, !tbaa !51
+  %192 = add i16 %.1.ph.us38.i, 2
+  %193 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 48
+  %194 = load i32, ptr %193, align 8, !tbaa !154
+  %195 = zext i16 %192 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %180, i64 %195
+  %197 = lshr i32 %194, 8
+  %198 = trunc i32 %197 to i8
+  store i8 %198, ptr %196, align 1, !tbaa !51
+  %199 = trunc i32 %194 to i8
+  %200 = getelementptr inbounds nuw i8, ptr %196, i64 1
+  store i8 %199, ptr %200, align 1, !tbaa !51
+  %201 = add i16 %.1.ph.us38.i, 4
+  %202 = zext i16 %201 to i64
+  %203 = getelementptr inbounds nuw i8, ptr %180, i64 %202
+  %204 = getelementptr inbounds nuw i8, ptr %.028.ph.us39.i, i64 40
+  %205 = load ptr, ptr %204, align 8, !tbaa !152
+  %206 = load i32, ptr %193, align 8, !tbaa !154
+  %207 = zext i32 %206 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %203, ptr align 1 %205, i64 %207, i1 false)
+  %208 = load i32, ptr %193, align 8, !tbaa !154
+  %209 = trunc i32 %208 to i16
+  %210 = add i16 %201, %209
+  %.not.us.us.i = icmp eq ptr %184, null
+  br i1 %.not.us.us.i, label %.split.us.thread.i, label %.split32.us.us.i, !llvm.loop !200
 
-.outer.i:                                         ; preds = %184, %.split32.i
-  %.1.ph.i = phi i16 [ %245, %.split32.i ], [ 0, %184 ]
-  %.028.ph.i = phi ptr [ %216, %.split32.i ], [ %179, %184 ]
-  br label %213
+.outer.i:                                         ; preds = %176, %.split32.i
+  %.1.ph.i = phi i16 [ %243, %.split32.i ], [ 0, %176 ]
+  %.028.ph.i = phi ptr [ %214, %.split32.i ], [ %178, %176 ]
+  br label %211
 
-213:                                              ; preds = %214, %.outer.i
-  %.028.i = phi ptr [ %216, %214 ], [ %.028.ph.i, %.outer.i ]
+211:                                              ; preds = %212, %.outer.i
+  %.028.i = phi ptr [ %214, %212 ], [ %.028.ph.i, %.outer.i ]
   %.not.i60 = icmp eq ptr %.028.i, null
-  br i1 %.not.i60, label %.split.us.i, label %214
+  br i1 %.not.i60, label %TLSX_KeyShare_Write.exit, label %212
 
-214:                                              ; preds = %213
-  %215 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
-  %216 = load ptr, ptr %215, align 8, !tbaa !176
-  %217 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
-  %218 = load ptr, ptr %217, align 8, !tbaa !152
-  %219 = icmp eq ptr %218, null
-  br i1 %219, label %213, label %.split32.i, !llvm.loop !200
+212:                                              ; preds = %211
+  %213 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
+  %214 = load ptr, ptr %213, align 8, !tbaa !176
+  %215 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
+  %216 = load ptr, ptr %215, align 8, !tbaa !152
+  %217 = icmp eq ptr %216, null
+  br i1 %217, label %211, label %.split32.i, !llvm.loop !200
 
-.split32.i:                                       ; preds = %214
-  %220 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
-  %221 = load i16, ptr %.028.i, align 8, !tbaa !148
-  %222 = zext i16 %.1.ph.i to i64
-  %223 = getelementptr inbounds nuw i8, ptr %181, i64 %222
-  %224 = lshr i16 %221, 8
-  %225 = trunc nuw i16 %224 to i8
-  store i8 %225, ptr %223, align 1, !tbaa !51
-  %226 = trunc i16 %221 to i8
-  %227 = getelementptr inbounds nuw i8, ptr %223, i64 1
-  store i8 %226, ptr %227, align 1, !tbaa !51
-  %228 = add i16 %.1.ph.i, 2
-  %229 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
-  %230 = load i32, ptr %229, align 8, !tbaa !154
-  %231 = zext i16 %228 to i64
-  %232 = getelementptr inbounds nuw i8, ptr %181, i64 %231
-  %233 = lshr i32 %230, 8
-  %234 = trunc i32 %233 to i8
-  store i8 %234, ptr %232, align 1, !tbaa !51
-  %235 = trunc i32 %230 to i8
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 1
-  store i8 %235, ptr %236, align 1, !tbaa !51
-  %237 = add i16 %.1.ph.i, 4
-  %238 = zext i16 %237 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %181, i64 %238
-  %240 = load ptr, ptr %220, align 8, !tbaa !152
-  %241 = load i32, ptr %229, align 8, !tbaa !154
-  %242 = zext i32 %241 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %239, ptr align 1 %240, i64 %242, i1 false)
-  %243 = load i32, ptr %229, align 8, !tbaa !154
-  %244 = trunc i32 %243 to i16
-  %245 = add i16 %237, %244
+.split32.i:                                       ; preds = %212
+  %218 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
+  %219 = load i16, ptr %.028.i, align 8, !tbaa !148
+  %220 = zext i16 %.1.ph.i to i64
+  %221 = getelementptr inbounds nuw i8, ptr %180, i64 %220
+  %222 = lshr i16 %219, 8
+  %223 = trunc nuw i16 %222 to i8
+  store i8 %223, ptr %221, align 1, !tbaa !51
+  %224 = trunc i16 %219 to i8
+  %225 = getelementptr inbounds nuw i8, ptr %221, i64 1
+  store i8 %224, ptr %225, align 1, !tbaa !51
+  %226 = add i16 %.1.ph.i, 2
+  %227 = getelementptr inbounds nuw i8, ptr %.028.i, i64 48
+  %228 = load i32, ptr %227, align 8, !tbaa !154
+  %229 = zext i16 %226 to i64
+  %230 = getelementptr inbounds nuw i8, ptr %180, i64 %229
+  %231 = lshr i32 %228, 8
+  %232 = trunc i32 %231 to i8
+  store i8 %232, ptr %230, align 1, !tbaa !51
+  %233 = trunc i32 %228 to i8
+  %234 = getelementptr inbounds nuw i8, ptr %230, i64 1
+  store i8 %233, ptr %234, align 1, !tbaa !51
+  %235 = add i16 %.1.ph.i, 4
+  %236 = zext i16 %235 to i64
+  %237 = getelementptr inbounds nuw i8, ptr %180, i64 %236
+  %238 = load ptr, ptr %218, align 8, !tbaa !152
+  %239 = load i32, ptr %227, align 8, !tbaa !154
+  %240 = zext i32 %239 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %237, ptr align 1 %238, i64 %240, i1 false)
+  %241 = load i32, ptr %227, align 8, !tbaa !154
+  %242 = trunc i32 %241 to i16
+  %243 = add i16 %235, %242
   br label %.outer.i, !llvm.loop !200
 
-.split.us.i:                                      ; preds = %.split32.us.us.i, %213
-  %.us-phi.i = phi i16 [ %.1.ph.i, %213 ], [ %212, %.split32.us.us.i ]
-  br i1 %7, label %.split.us.thread.i, label %TLSX_KeyShare_Write.exit
-
-.split.us.thread.i:                               ; preds = %.split.us.i, %.split35.us.i
-  %.us-phi44.i = phi i16 [ %.us-phi.i, %.split.us.i ], [ 2, %.split35.us.i ]
-  %246 = add i16 %.us-phi44.i, -2
+.split.us.thread.i:                               ; preds = %.split32.us.us.i, %.split35.us.i
+  %.us-phi44.i = phi i16 [ 2, %.split35.us.i ], [ %210, %.split32.us.us.i ]
+  %244 = add i16 %.us-phi44.i, -2
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %.split.us.thread.i, %182
-  %.sink.i = phi i16 [ %246, %.split.us.thread.i ], [ %183, %182 ]
-  %.0.ph.i = phi i16 [ %.us-phi44.i, %.split.us.thread.i ], [ 2, %182 ]
-  %247 = lshr i16 %.sink.i, 8
-  %248 = trunc nuw i16 %247 to i8
-  store i8 %248, ptr %181, align 1, !tbaa !51
-  %249 = trunc i16 %.sink.i to i8
-  %250 = getelementptr inbounds nuw i8, ptr %181, i64 1
-  store i8 %249, ptr %250, align 1, !tbaa !51
+.sink.split.i:                                    ; preds = %.split.us.thread.i, %181
+  %.sink.i = phi i16 [ %244, %.split.us.thread.i ], [ %182, %181 ]
+  %.0.ph.i = phi i16 [ %.us-phi44.i, %.split.us.thread.i ], [ 2, %181 ]
+  %245 = lshr i16 %.sink.i, 8
+  %246 = trunc nuw i16 %245 to i8
+  store i8 %246, ptr %180, align 1, !tbaa !51
+  %247 = trunc i16 %.sink.i to i8
+  %248 = getelementptr inbounds nuw i8, ptr %180, i64 1
+  store i8 %247, ptr %248, align 1, !tbaa !51
   br label %TLSX_KeyShare_Write.exit
 
-TLSX_KeyShare_Write.exit:                         ; preds = %.split.us.i, %.sink.split.i
-  %.0.i61 = phi i16 [ %.us-phi.i, %.split.us.i ], [ %.0.ph.i, %.sink.split.i ]
-  %251 = add i16 %.0.i61, %33
+TLSX_KeyShare_Write.exit:                         ; preds = %211, %.sink.split.i
+  %.0.i61 = phi i16 [ %.0.ph.i, %.sink.split.i ], [ %.1.ph.i, %211 ]
+  %249 = add i16 %.0.i61, %32
   br label %TLSX_SupportedVersions_Write.exit
 
-252:                                              ; preds = %26
-  %253 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %254 = load ptr, ptr %253, align 8, !tbaa !82
-  %255 = zext i16 %33 to i64
-  %256 = getelementptr inbounds nuw i8, ptr %1, i64 %255
-  br i1 %7, label %257, label %288
+250:                                              ; preds = %25
+  %251 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %252 = load ptr, ptr %251, align 8, !tbaa !82
+  %253 = zext i16 %32 to i64
+  %254 = getelementptr inbounds nuw i8, ptr %1, i64 %253
+  br i1 %6, label %255, label %286
 
-257:                                              ; preds = %252
-  %258 = load ptr, ptr %254, align 16, !tbaa !102
-  %259 = load ptr, ptr %258, align 8, !tbaa !53
-  %260 = load i8, ptr %259, align 1, !tbaa !141
-  %261 = getelementptr inbounds nuw i8, ptr %256, i64 1
-  store i8 0, ptr %256, align 1, !tbaa !51
-  %262 = getelementptr inbounds nuw i8, ptr %254, i64 1047
-  %263 = load i8, ptr %262, align 1, !tbaa !144
-  %264 = icmp ugt i8 %263, 4
-  br i1 %264, label %268, label %265
+255:                                              ; preds = %250
+  %256 = load ptr, ptr %252, align 16, !tbaa !102
+  %257 = load ptr, ptr %256, align 8, !tbaa !53
+  %258 = load i8, ptr %257, align 1, !tbaa !141
+  %259 = getelementptr inbounds nuw i8, ptr %254, i64 1
+  store i8 0, ptr %254, align 1, !tbaa !51
+  %260 = getelementptr inbounds nuw i8, ptr %252, i64 1047
+  %261 = load i8, ptr %260, align 1, !tbaa !144
+  %262 = icmp ugt i8 %261, 4
+  br i1 %262, label %266, label %263
 
-265:                                              ; preds = %257
-  store i8 2, ptr %256, align 1, !tbaa !51
-  %266 = getelementptr inbounds nuw i8, ptr %256, i64 2
-  store i8 %260, ptr %261, align 1, !tbaa !51
-  %267 = getelementptr inbounds nuw i8, ptr %256, i64 3
-  store i8 4, ptr %266, align 1, !tbaa !51
-  br label %268
+263:                                              ; preds = %255
+  store i8 2, ptr %254, align 1, !tbaa !51
+  %264 = getelementptr inbounds nuw i8, ptr %254, i64 2
+  store i8 %258, ptr %259, align 1, !tbaa !51
+  %265 = getelementptr inbounds nuw i8, ptr %254, i64 3
+  store i8 4, ptr %264, align 1, !tbaa !51
+  br label %266
 
-268:                                              ; preds = %265, %257
-  %269 = phi i8 [ 2, %265 ], [ 0, %257 ]
-  %.041.i = phi ptr [ %267, %265 ], [ %261, %257 ]
-  %270 = getelementptr inbounds nuw i8, ptr %254, i64 1024
-  %271 = load i64, ptr %270, align 8
-  %272 = and i64 %271, 1024
-  %.not43.i = icmp eq i64 %272, 0
-  br i1 %.not43.i, label %.thread.i, label %273
+266:                                              ; preds = %263, %255
+  %267 = phi i8 [ 2, %263 ], [ 0, %255 ]
+  %.041.i = phi ptr [ %265, %263 ], [ %259, %255 ]
+  %268 = getelementptr inbounds nuw i8, ptr %252, i64 1024
+  %269 = load i64, ptr %268, align 8
+  %270 = and i64 %269, 1024
+  %.not43.i = icmp eq i64 %270, 0
+  br i1 %.not43.i, label %.thread.i, label %271
 
-273:                                              ; preds = %268
-  %274 = load i8, ptr %262, align 1, !tbaa !144
-  %275 = icmp ugt i8 %274, 3
-  br i1 %275, label %.thread.i, label %276
+271:                                              ; preds = %266
+  %272 = load i8, ptr %260, align 1, !tbaa !144
+  %273 = icmp ugt i8 %272, 3
+  br i1 %273, label %.thread.i, label %274
 
-276:                                              ; preds = %273
-  %277 = add nuw nsw i8 %269, 2
-  store i8 %277, ptr %256, align 1, !tbaa !51
-  %278 = getelementptr inbounds nuw i8, ptr %.041.i, i64 1
-  store i8 %260, ptr %.041.i, align 1, !tbaa !51
-  store i8 3, ptr %278, align 1, !tbaa !51
-  %.pre.i64 = load i8, ptr %262, align 1, !tbaa !144
-  %.pre47.pre.i = load i8, ptr %256, align 1, !tbaa !51
-  %279 = icmp ugt i8 %.pre.i64, 2
-  br i1 %279, label %.thread.i, label %280
+274:                                              ; preds = %271
+  %275 = add nuw nsw i8 %267, 2
+  store i8 %275, ptr %254, align 1, !tbaa !51
+  %276 = getelementptr inbounds nuw i8, ptr %.041.i, i64 1
+  store i8 %258, ptr %.041.i, align 1, !tbaa !51
+  store i8 3, ptr %276, align 1, !tbaa !51
+  %.pre.i64 = load i8, ptr %260, align 1, !tbaa !144
+  %.pre47.pre.i = load i8, ptr %254, align 1, !tbaa !51
+  %277 = icmp ugt i8 %.pre.i64, 2
+  br i1 %277, label %.thread.i, label %278
 
-280:                                              ; preds = %276
-  %281 = getelementptr inbounds nuw i8, ptr %.041.i, i64 2
-  %282 = add i8 %.pre47.pre.i, 2
-  store i8 %282, ptr %256, align 1, !tbaa !51
-  %283 = getelementptr inbounds nuw i8, ptr %.041.i, i64 3
-  store i8 %260, ptr %281, align 1, !tbaa !51
-  store i8 2, ptr %283, align 1, !tbaa !51
-  %.pre46.i = load i8, ptr %256, align 1, !tbaa !51
+278:                                              ; preds = %274
+  %279 = getelementptr inbounds nuw i8, ptr %.041.i, i64 2
+  %280 = add i8 %.pre47.pre.i, 2
+  store i8 %280, ptr %254, align 1, !tbaa !51
+  %281 = getelementptr inbounds nuw i8, ptr %.041.i, i64 3
+  store i8 %258, ptr %279, align 1, !tbaa !51
+  store i8 2, ptr %281, align 1, !tbaa !51
+  %.pre46.i = load i8, ptr %254, align 1, !tbaa !51
   br label %.thread.i
 
-.thread.i:                                        ; preds = %280, %276, %273, %268
-  %284 = phi i8 [ %.pre47.pre.i, %276 ], [ %.pre46.i, %280 ], [ %269, %268 ], [ %269, %273 ]
-  %285 = zext i8 %284 to i16
-  %286 = add i16 %.080.ph, 5
-  %287 = add i16 %286, %285
+.thread.i:                                        ; preds = %278, %274, %271, %266
+  %282 = phi i8 [ %.pre47.pre.i, %274 ], [ %.pre46.i, %278 ], [ %267, %266 ], [ %267, %271 ]
+  %283 = zext i8 %282 to i16
+  %284 = add i16 %.080.ph, 5
+  %285 = add i16 %284, %283
   br label %TLSX_SupportedVersions_Write.exit
 
-288:                                              ; preds = %252
-  br i1 %or.cond.i62, label %289, label %TLSX_SupportedVersions_Write.exit
+286:                                              ; preds = %250
+  br i1 %or.cond.i62, label %287, label %TLSX_SupportedVersions_Write.exit
 
-289:                                              ; preds = %288
-  %290 = getelementptr inbounds nuw i8, ptr %254, i64 710
-  %291 = load i8, ptr %290, align 2, !tbaa !75
-  store i8 %291, ptr %256, align 1, !tbaa !51
-  %292 = getelementptr inbounds nuw i8, ptr %254, i64 711
-  %293 = load i8, ptr %292, align 1, !tbaa !76
-  %294 = getelementptr inbounds nuw i8, ptr %256, i64 1
-  store i8 %293, ptr %294, align 1, !tbaa !51
-  %295 = add i16 %.080.ph, 6
+287:                                              ; preds = %286
+  %288 = getelementptr inbounds nuw i8, ptr %252, i64 710
+  %289 = load i8, ptr %288, align 2, !tbaa !75
+  store i8 %289, ptr %254, align 1, !tbaa !51
+  %290 = getelementptr inbounds nuw i8, ptr %252, i64 711
+  %291 = load i8, ptr %290, align 1, !tbaa !76
+  %292 = getelementptr inbounds nuw i8, ptr %254, i64 1
+  store i8 %291, ptr %292, align 1, !tbaa !51
+  %293 = add i16 %.080.ph, 6
   br label %TLSX_SupportedVersions_Write.exit
 
-296:                                              ; preds = %26
-  %297 = getelementptr inbounds nuw i8, ptr %.095, i64 8
-  %298 = load ptr, ptr %297, align 8, !tbaa !82
-  %299 = zext i16 %33 to i64
-  %300 = getelementptr inbounds nuw i8, ptr %1, i64 %299
-  %301 = getelementptr inbounds nuw i8, ptr %298, i64 1108
-  %302 = load i16, ptr %301, align 4, !tbaa !182
-  %303 = lshr i16 %302, 8
-  %304 = trunc nuw i16 %303 to i8
-  store i8 %304, ptr %300, align 1, !tbaa !51
-  %305 = trunc i16 %302 to i8
-  %306 = getelementptr inbounds nuw i8, ptr %300, i64 1
-  store i8 %305, ptr %306, align 1, !tbaa !51
-  %307 = getelementptr inbounds nuw i8, ptr %300, i64 2
-  %308 = getelementptr inbounds nuw i8, ptr %298, i64 1110
-  %309 = load i16, ptr %301, align 4, !tbaa !182
-  %310 = zext i16 %309 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %307, ptr nonnull readonly align 2 %308, i64 %310, i1 false)
-  %311 = load i16, ptr %301, align 4, !tbaa !182
-  %312 = add i16 %.080.ph, 6
-  %313 = add i16 %312, %311
+294:                                              ; preds = %25
+  %295 = getelementptr inbounds nuw i8, ptr %.094, i64 8
+  %296 = load ptr, ptr %295, align 8, !tbaa !82
+  %297 = zext i16 %32 to i64
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 %297
+  %299 = getelementptr inbounds nuw i8, ptr %296, i64 1108
+  %300 = load i16, ptr %299, align 4, !tbaa !182
+  %301 = lshr i16 %300, 8
+  %302 = trunc nuw i16 %301 to i8
+  store i8 %302, ptr %298, align 1, !tbaa !51
+  %303 = trunc i16 %300 to i8
+  %304 = getelementptr inbounds nuw i8, ptr %298, i64 1
+  store i8 %303, ptr %304, align 1, !tbaa !51
+  %305 = getelementptr inbounds nuw i8, ptr %298, i64 2
+  %306 = getelementptr inbounds nuw i8, ptr %296, i64 1110
+  %307 = load i16, ptr %299, align 4, !tbaa !182
+  %308 = zext i16 %307 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %305, ptr nonnull readonly align 2 %306, i64 %308, i1 false)
+  %309 = load i16, ptr %299, align 4, !tbaa !182
+  %310 = add i16 %.080.ph, 6
+  %311 = add i16 %310, %309
   br label %TLSX_SupportedVersions_Write.exit
 
-TLSX_SupportedVersions_Write.exit:                ; preds = %176, %288, %289, %.thread.i, %35, %26, %TLSX_SNI_Write.exit, %296, %TLSX_KeyShare_Write.exit, %TLSX_SignatureAlgorithms_Write.exit, %TLSX_PointFormat_Write.exit, %TLSX_SupportedCurve_Write.exit
-  %.282 = phi i16 [ %175, %TLSX_SignatureAlgorithms_Write.exit ], [ %251, %TLSX_KeyShare_Write.exit ], [ %105, %TLSX_PointFormat_Write.exit ], [ %91, %TLSX_SupportedCurve_Write.exit ], [ %313, %296 ], [ %33, %35 ], [ %70, %TLSX_SNI_Write.exit ], [ %33, %288 ], [ %295, %289 ], [ %287, %.thread.i ], [ %33, %26 ], [ %33, %176 ]
-  %.2 = phi i32 [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %296 ], [ 0, %35 ], [ 0, %TLSX_SNI_Write.exit ], [ -394, %288 ], [ 0, %289 ], [ 0, %.thread.i ], [ 0, %26 ], [ %spec.select, %176 ]
-  %314 = sub i16 %.282, %33
-  %315 = zext i16 %33 to i64
-  %316 = getelementptr inbounds nuw i8, ptr %1, i64 %315
-  %317 = getelementptr inbounds i8, ptr %316, i64 -2
-  %318 = lshr i16 %314, 8
-  %319 = trunc nuw i16 %318 to i8
-  store i8 %319, ptr %317, align 1, !tbaa !51
-  %320 = trunc i16 %314 to i8
-  %321 = getelementptr inbounds i8, ptr %316, i64 -1
-  store i8 %320, ptr %321, align 1, !tbaa !51
-  %322 = load i32, ptr %.095, align 8, !tbaa !60
-  %323 = trunc i32 %322 to i16
-  %cond.i65 = icmp eq i16 %323, -255
-  %..i66 = select i1 %cond.i65, i16 63, i16 %323
-  %324 = trunc i16 %..i66 to i8
-  %325 = and i8 %324, 7
-  %326 = shl nuw i8 1, %325
-  %327 = lshr i16 %..i66, 3
-  %328 = zext nneg i16 %327 to i64
-  %329 = getelementptr inbounds nuw i8, ptr %2, i64 %328
-  %330 = load i8, ptr %329, align 1, !tbaa !51
-  %331 = or i8 %326, %330
-  store i8 %331, ptr %329, align 1, !tbaa !51
+TLSX_SupportedVersions_Write.exit:                ; preds = %175, %286, %287, %.thread.i, %34, %25, %TLSX_SNI_Write.exit, %294, %TLSX_KeyShare_Write.exit, %TLSX_SignatureAlgorithms_Write.exit, %TLSX_PointFormat_Write.exit, %TLSX_SupportedCurve_Write.exit
+  %.282 = phi i16 [ %174, %TLSX_SignatureAlgorithms_Write.exit ], [ %249, %TLSX_KeyShare_Write.exit ], [ %104, %TLSX_PointFormat_Write.exit ], [ %90, %TLSX_SupportedCurve_Write.exit ], [ %311, %294 ], [ %32, %34 ], [ %69, %TLSX_SNI_Write.exit ], [ %32, %286 ], [ %293, %287 ], [ %285, %.thread.i ], [ %32, %25 ], [ %32, %175 ]
+  %.2 = phi i32 [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %294 ], [ 0, %34 ], [ 0, %TLSX_SNI_Write.exit ], [ -394, %286 ], [ 0, %287 ], [ 0, %.thread.i ], [ 0, %25 ], [ %spec.select, %175 ]
+  %312 = sub i16 %.282, %32
+  %313 = zext i16 %32 to i64
+  %314 = getelementptr inbounds nuw i8, ptr %1, i64 %313
+  %315 = getelementptr inbounds i8, ptr %314, i64 -2
+  %316 = lshr i16 %312, 8
+  %317 = trunc nuw i16 %316 to i8
+  store i8 %317, ptr %315, align 1, !tbaa !51
+  %318 = trunc i16 %312 to i8
+  %319 = getelementptr inbounds i8, ptr %314, i64 -1
+  store i8 %318, ptr %319, align 1, !tbaa !51
+  %320 = load i32, ptr %.094, align 8, !tbaa !60
+  %321 = trunc i32 %320 to i16
+  %cond.i65 = icmp eq i16 %321, -255
+  %..i66 = select i1 %cond.i65, i16 63, i16 %321
+  %322 = trunc i16 %..i66 to i8
+  %323 = and i8 %322, 7
+  %324 = shl nuw i8 1, %323
+  %325 = lshr i16 %..i66, 3
+  %326 = zext nneg i16 %325 to i64
+  %327 = getelementptr inbounds nuw i8, ptr %2, i64 %326
+  %328 = load i8, ptr %327, align 1, !tbaa !51
+  %329 = or i8 %324, %328
+  store i8 %329, ptr %327, align 1, !tbaa !51
   %.not48 = icmp eq i32 %.2, 0
   br i1 %.not48, label %.outer, label %.loopexit, !llvm.loop !194
 
 .loopexit:                                        ; preds = %TLSX_SupportedVersions_Write.exit, %.outer, %.backedge
   %.181 = phi i16 [ %.080.ph, %.backedge ], [ %.080.ph, %.outer ], [ %.282, %TLSX_SupportedVersions_Write.exit ]
   %.1 = phi i32 [ 0, %.backedge ], [ 0, %.outer ], [ %.2, %TLSX_SupportedVersions_Write.exit ]
-  %332 = load i16, ptr %4, align 2, !tbaa !64
-  %333 = add i16 %332, %.181
-  store i16 %333, ptr %4, align 2, !tbaa !64
+  %330 = load i16, ptr %4, align 2, !tbaa !64
+  %331 = add i16 %330, %.181
+  store i16 %331, ptr %4, align 2, !tbaa !64
   ret i32 %.1
 }
 

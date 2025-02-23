@@ -1271,7 +1271,7 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
   %51 = zext nneg i32 %49 to i64
   %52 = xor i64 %51, %50
   %53 = inttoptr i64 %52 to ptr
-  %54 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %41, ptr noundef %53) #12
+  %54 = tail call ptr @Ivy_And(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %53) #12
   %55 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %54, ptr %55, align 8, !tbaa !51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1291,8 +1291,8 @@ define internal fastcc void @Ivy_GraphUpdateNetwork(ptr noundef %0, ptr noundef 
 Ivy_GraphToNetwork.exit:                          ; preds = %5, %20, %.critedge.i
   %.025.in.i = phi i64 [ %10, %5 ], [ %28, %20 ], [ %62, %.critedge.i ]
   %.025.i = inttoptr i64 %.025.in.i to ptr
-  tail call void @Ivy_ObjReplace(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.025.i, i32 noundef 1, i32 noundef 0, i32 noundef 1) #12
-  %63 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef %0, i32 noundef 1) #12
+  tail call void @Ivy_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.025.i, i32 noundef 1, i32 noundef 0, i32 noundef 1) #12
+  %63 = tail call i32 @Ivy_ManPropagateBuffers(ptr noundef nonnull %0, i32 noundef 1) #12
   ret void
 }
 
@@ -1636,7 +1636,7 @@ define void @Ivy_GraphUpdateNetwork3(ptr noundef %0, ptr noundef %1, ptr noundef
 Ivy_GraphToNetwork.exit:                          ; preds = %40, %55, %.critedge.i
   %.025.in.i = phi i64 [ %45, %40 ], [ %63, %55 ], [ %97, %.critedge.i ]
   %.025.i = inttoptr i64 %.025.in.i to ptr
-  tail call void @Ivy_ObjReplace(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %.025.i, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
+  tail call void @Ivy_ObjReplace(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %.025.i, i32 noundef 0, i32 noundef 0, i32 noundef 1) #12
   %98 = load ptr, ptr %6, align 8, !tbaa !9
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 144
   %100 = load ptr, ptr %99, align 8, !tbaa !89

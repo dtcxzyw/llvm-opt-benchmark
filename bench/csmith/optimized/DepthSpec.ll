@@ -255,9 +255,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   %spec.select.i.i = select i1 %10, ptr %.ptr, ptr %.sroa.02.110.i.i
   %.add = add nuw nsw i64 %.idx, 4
   %.not.i.i25 = icmp eq i64 %.add, 12
-  br i1 %.not.i.i25, label %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread, label %.lr.ph.i.i, !llvm.loop !8
+  br i1 %.not.i.i25, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !8
 
-_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEET_S7_S7_.exit.thread: ; preds = %.lr.ph.i.i
+_ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph.i.i
   %12 = load i32, ptr %spec.select.i.i, align 4, !tbaa !4
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #13
   ret i32 %12

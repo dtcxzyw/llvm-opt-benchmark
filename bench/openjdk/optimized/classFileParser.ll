@@ -19268,7 +19268,7 @@ define internal fastcc noundef range(i32 4, -2147483648) i32 @_ZL21skip_annotati
   %.048 = phi i32 [ %28, %.lr.ph49 ], [ %27, %.lr.ph49.preheader ]
   %.147 = phi i32 [ %29, %.lr.ph49 ], [ %19, %.lr.ph49.preheader ]
   %28 = add nsw i32 %.048, -1
-  %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef %0, i32 noundef %1, i32 noundef %.147)
+  %29 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePKhii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.147)
   %30 = icmp samesign ugt i32 %.048, 1
   %31 = icmp samesign ult i32 %29, %1
   %32 = select i1 %30, i1 %31, i1 false

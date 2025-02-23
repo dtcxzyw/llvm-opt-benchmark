@@ -169,8 +169,8 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   %44 = phi ptr [ %.pre, %.init.exit_crit_edge ], [ %43, %41 ]
   %45 = call ptr @newIngraph(ptr noundef nonnull %4, ptr noundef %44) #20
   %46 = call ptr @nextGraph(ptr noundef nonnull %4) #20
-  %.not12 = icmp eq ptr %46, null
-  br i1 %.not12, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %46, null
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %init.exit
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -180,8 +180,8 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
 
 50:                                               ; preds = %.lr.ph, %process.exit
   %51 = phi ptr [ %46, %.lr.ph ], [ %127, %process.exit ]
-  %.014 = phi i32 [ 0, %.lr.ph ], [ %126, %process.exit ]
-  %.0713 = phi i32 [ 0, %.lr.ph ], [ %124, %process.exit ]
+  %.013 = phi i32 [ 0, %.lr.ph ], [ %126, %process.exit ]
+  %.0712 = phi i32 [ 0, %.lr.ph ], [ %124, %process.exit ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #20
   call void @aginit(ptr noundef nonnull %51, i32 noundef 1, ptr noundef nonnull @.str.8, i32 noundef 32, i32 noundef 1) #20
   call void @aginit(ptr noundef nonnull %51, i32 noundef 2, ptr noundef nonnull @.str.8, i32 noundef 16, i32 noundef 1) #20
@@ -212,7 +212,7 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
 ._crit_edge.i:                                    ; preds = %59
   %.pre.i = load ptr, ptr %48, align 8, !tbaa !32
   %.not4862.i = icmp eq ptr %.pre.i, null
-  br i1 %.not4862.i, label %._crit_edge66.i.thread, label %.lr.ph65.i
+  br i1 %.not4862.i, label %._crit_edge66.i, label %.lr.ph65.i
 
 .lr.ph65.i:                                       ; preds = %._crit_edge.i, %.lr.ph65.i
   %.04363.i = phi ptr [ %65, %.lr.ph65.i ], [ %.pre.i, %._crit_edge.i ]
@@ -222,28 +222,28 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !42
   %.not48.i = icmp eq ptr %65, null
-  br i1 %.not48.i, label %._crit_edge66.i, label %.lr.ph65.i, !llvm.loop !44
+  br i1 %.not48.i, label %._crit_edge66.i.thread, label %.lr.ph65.i, !llvm.loop !44
 
-._crit_edge66.i:                                  ; preds = %.lr.ph65.i
+._crit_edge66.i:                                  ; preds = %._crit_edge.i
   %66 = load i32, ptr @external, align 4, !tbaa !4
   %.not49.i = icmp eq i32 %66, 0
-  br i1 %.not49.i, label %74, label %.lr.ph70.i
+  br i1 %.not49.i, label %74, label %.loopexit.i
 
-._crit_edge66.i.thread:                           ; preds = %._crit_edge.i
+._crit_edge66.i.thread:                           ; preds = %.lr.ph65.i
   %67 = load i32, ptr @external, align 4, !tbaa !4
-  %.not49.i10 = icmp eq i32 %67, 0
-  br i1 %.not49.i10, label %74, label %.loopexit.i
+  %.not49.i16 = icmp eq i32 %67, 0
+  br i1 %.not49.i16, label %74, label %.lr.ph70.i
 
 ._crit_edge66.thread.i:                           ; preds = %50
   %68 = load i32, ptr @external, align 4, !tbaa !4
   %.not4991.i = icmp eq i32 %68, 0
   br i1 %.not4991.i, label %74, label %.loopexit.i
 
-.lr.ph70.i:                                       ; preds = %._crit_edge66.i, %.lr.ph70.i
-  %.04069.i = phi i32 [ %69, %.lr.ph70.i ], [ 0, %._crit_edge66.i ]
-  %.14468.i = phi ptr [ %73, %.lr.ph70.i ], [ %.pre.i, %._crit_edge66.i ]
+.lr.ph70.i:                                       ; preds = %._crit_edge66.i.thread, %.lr.ph70.i
+  %.04069.i = phi i32 [ %69, %.lr.ph70.i ], [ 0, %._crit_edge66.i.thread ]
+  %.14468.i = phi ptr [ %73, %.lr.ph70.i ], [ %.pre.i, %._crit_edge66.i.thread ]
   %69 = add nuw nsw i32 %.04069.i, 1
-  call fastcc void @gwrite(ptr noundef nonnull %.14468.i, i32 noundef %.014, i32 noundef %.04069.i)
+  call fastcc void @gwrite(ptr noundef nonnull %.14468.i, i32 noundef %.013, i32 noundef %.04069.i)
   %70 = getelementptr inbounds nuw i8, ptr %.14468.i, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !36
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -252,14 +252,14 @@ init.exit:                                        ; preds = %.init.exit_crit_edg
   br i1 %.not50.i, label %.loopexit.i, label %.lr.ph70.i, !llvm.loop !45
 
 74:                                               ; preds = %._crit_edge66.i.thread, %._crit_edge66.thread.i, %._crit_edge66.i
-  %75 = phi ptr [ null, %._crit_edge66.thread.i ], [ %.pre.i, %._crit_edge66.i ], [ null, %._crit_edge66.i.thread ]
-  %.not48628994.i = phi i1 [ true, %._crit_edge66.thread.i ], [ false, %._crit_edge66.i ], [ true, %._crit_edge66.i.thread ]
-  call fastcc void @gwrite(ptr noundef nonnull %51, i32 noundef %.014, i32 noundef 0)
+  %75 = phi ptr [ null, %._crit_edge66.thread.i ], [ %.pre.i, %._crit_edge66.i ], [ %.pre.i, %._crit_edge66.i.thread ]
+  %.not48628994.i = phi i1 [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %._crit_edge66.i.thread ]
+  call fastcc void @gwrite(ptr noundef nonnull %51, i32 noundef %.013, i32 noundef 0)
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %.lr.ph70.i, %._crit_edge66.i.thread, %74, %._crit_edge66.thread.i
-  %76 = phi ptr [ %75, %74 ], [ null, %._crit_edge66.thread.i ], [ null, %._crit_edge66.i.thread ], [ %.pre.i, %.lr.ph70.i ]
-  %.not48628993.i = phi i1 [ %.not48628994.i, %74 ], [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i.thread ], [ false, %.lr.ph70.i ]
+.loopexit.i:                                      ; preds = %.lr.ph70.i, %._crit_edge66.i, %74, %._crit_edge66.thread.i
+  %76 = phi ptr [ %75, %74 ], [ null, %._crit_edge66.thread.i ], [ null, %._crit_edge66.i ], [ %.pre.i, %.lr.ph70.i ]
+  %.not48628993.i = phi i1 [ %.not48628994.i, %74 ], [ true, %._crit_edge66.thread.i ], [ true, %._crit_edge66.i ], [ false, %.lr.ph70.i ]
   %77 = load i32, ptr @doTree, align 4, !tbaa !4
   %.not51.i = icmp eq i32 %77, 0
   br i1 %.not51.i, label %99, label %78
@@ -306,7 +306,7 @@ addCutPts.exit.i:                                 ; preds = %92, %.lr.ph74.i
   br i1 %.not52.i, label %._crit_edge75.i, label %.lr.ph74.i, !llvm.loop !48
 
 ._crit_edge75.i:                                  ; preds = %addCutPts.exit.i, %78
-  call fastcc void @gwrite(ptr noundef %80, i32 noundef %.014, i32 noundef -1)
+  call fastcc void @gwrite(ptr noundef %80, i32 noundef %.013, i32 noundef -1)
   %98 = call i32 @agclose(ptr noundef %80) #20
   br label %99
 
@@ -377,9 +377,9 @@ addCutPts.exit.i:                                 ; preds = %92, %.lr.ph74.i
 process.exit:                                     ; preds = %118, %123
   %.042.i = phi i32 [ 0, %123 ], [ 1, %118 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #20
-  %124 = or i32 %.042.i, %.0713
+  %124 = or i32 %.042.i, %.0712
   %125 = call i32 @agclose(ptr noundef nonnull %51) #20
-  %126 = add nuw nsw i32 %.014, 1
+  %126 = add nuw nsw i32 %.013, 1
   %127 = call ptr @nextGraph(ptr noundef nonnull %4) #20
   %.not = icmp eq ptr %127, null
   br i1 %.not, label %._crit_edge, label %50, !llvm.loop !52
@@ -693,7 +693,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %139 = getelementptr inbounds i8, ptr %135, i64 %.idx61
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 56
   %141 = load ptr, ptr %140, align 8, !tbaa !55
-  %142 = call ptr @agsubnode(ptr noundef %118, ptr noundef %141, i32 noundef 1) #20
+  %142 = call ptr @agsubnode(ptr noundef nonnull %118, ptr noundef %141, i32 noundef 1) #20
   %143 = load i32, ptr %135, align 8
   %144 = and i32 %143, 3
   %145 = icmp eq i32 %144, 3
@@ -701,7 +701,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   %146 = getelementptr inbounds nuw i8, ptr %135, i64 %.idx62
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 56
   %148 = load ptr, ptr %147, align 8, !tbaa !55
-  %149 = call ptr @agsubnode(ptr noundef %118, ptr noundef %148, i32 noundef 1) #20
+  %149 = call ptr @agsubnode(ptr noundef nonnull %118, ptr noundef %148, i32 noundef 1) #20
   %.not63 = icmp eq ptr %135, %.05473
   br i1 %.not63, label %.loopexit, label %126, !llvm.loop !64
 

@@ -135,7 +135,7 @@ do.body38:                                        ; preds = %do.end, %do.body38
   store i32 %inc50, ptr %arrayidx53, align 4
   %add.ptr54 = getelementptr inbounds nuw i8, ptr %offsets.1, i64 32
   %dec56 = add nsw i32 %loops.0, -1
-  %cmp57 = icmp sgt i32 %loops.0, 1
+  %cmp57 = icmp samesign ugt i32 %loops.0, 1
   br i1 %cmp57, label %do.body38, label %if.end60, !llvm.loop !6
 
 if.end60:                                         ; preds = %do.body38, %if.end

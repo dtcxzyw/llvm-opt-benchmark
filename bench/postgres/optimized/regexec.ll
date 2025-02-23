@@ -4004,11 +4004,11 @@ lacon.exit.thread:                                ; preds = %189, %getladfa.exit
   %344 = icmp eq i32 %343, 1
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %346 = load ptr, ptr %345, align 8
-  br i1 %344, label %hash.exit.thread313, label %347
+  br i1 %344, label %hash.exit.thread, label %347
 
 347:                                              ; preds = %._crit_edge255
   %348 = icmp sgt i32 %343, 0
-  br i1 %348, label %.lr.ph.preheader.i, label %hash.exit.thread
+  br i1 %348, label %.lr.ph.preheader.i, label %hash.exit
 
 .lr.ph.preheader.i:                               ; preds = %347
   %wide.trip.count.i = zext nneg i32 %343 to i64
@@ -4024,152 +4024,134 @@ lacon.exit.thread:                                ; preds = %189, %getladfa.exit
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %hash.exit, label %.lr.ph.i, !llvm.loop !27
 
-hash.exit:                                        ; preds = %.lr.ph.i
-  %352 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %353 = load ptr, ptr %352, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %355 = load i32, ptr %354, align 4
-  %356 = icmp sgt i32 %355, 0
-  br i1 %356, label %.lr.ph264, label %._crit_edge265
+hash.exit:                                        ; preds = %.lr.ph.i, %347
+  %352 = phi i32 [ 0, %347 ], [ %351, %.lr.ph.i ]
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %356 = load i32, ptr %355, align 4
+  %357 = icmp sgt i32 %356, 0
+  br i1 %357, label %.lr.ph264, label %._crit_edge265
 
-hash.exit.thread313:                              ; preds = %._crit_edge255
-  %357 = load i32, ptr %346, align 4
-  %358 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %359 = load ptr, ptr %358, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %361 = load i32, ptr %360, align 4
-  %362 = icmp sgt i32 %361, 0
-  br i1 %362, label %.lr.ph264.split.us, label %._crit_edge265
-
-hash.exit.thread:                                 ; preds = %347
-  %363 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %364 = load ptr, ptr %363, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %366 = load i32, ptr %365, align 4
-  %367 = icmp sgt i32 %366, 0
-  br i1 %367, label %.lr.ph264.thread, label %._crit_edge265
-
-.lr.ph264.thread:                                 ; preds = %hash.exit.thread
-  %368 = sext i32 %343 to i64
-  br label %.lr.ph264.split.preheader
+hash.exit.thread:                                 ; preds = %._crit_edge255
+  %358 = load i32, ptr %346, align 4
+  %359 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %362 = load i32, ptr %361, align 4
+  %363 = icmp sgt i32 %362, 0
+  br i1 %363, label %.lr.ph264.split.us, label %._crit_edge265
 
 .lr.ph264:                                        ; preds = %hash.exit
-  %369 = zext nneg i32 %343 to i64
-  br label %.lr.ph264.split.preheader
-
-.lr.ph264.split.preheader:                        ; preds = %.lr.ph264, %.lr.ph264.thread
-  %.in = phi i64 [ %368, %.lr.ph264.thread ], [ %369, %.lr.ph264 ]
-  %370 = phi i32 [ 0, %.lr.ph264.thread ], [ %351, %.lr.ph264 ]
-  %371 = phi ptr [ %364, %.lr.ph264.thread ], [ %353, %.lr.ph264 ]
-  %372 = phi i32 [ %366, %.lr.ph264.thread ], [ %355, %.lr.ph264 ]
-  %373 = shl nsw i64 %.in, 2
+  %364 = sext i32 %343 to i64
+  %365 = shl nsw i64 %364, 2
   br label %.lr.ph264.split
 
-.lr.ph264.split.us:                               ; preds = %hash.exit.thread313, %377
-  %.0135263.us = phi ptr [ %378, %377 ], [ %359, %hash.exit.thread313 ]
-  %.3142262.us = phi i32 [ %379, %377 ], [ %361, %hash.exit.thread313 ]
-  %374 = getelementptr inbounds nuw i8, ptr %.0135263.us, i64 8
-  %375 = load i32, ptr %374, align 8
-  %376 = icmp eq i32 %375, %357
-  br i1 %376, label %.thread178, label %377
+.lr.ph264.split.us:                               ; preds = %hash.exit.thread, %369
+  %.0135263.us = phi ptr [ %370, %369 ], [ %360, %hash.exit.thread ]
+  %.3142262.us = phi i32 [ %371, %369 ], [ %362, %hash.exit.thread ]
+  %366 = getelementptr inbounds nuw i8, ptr %.0135263.us, i64 8
+  %367 = load i32, ptr %366, align 8
+  %368 = icmp eq i32 %367, %358
+  br i1 %368, label %.thread178, label %369
 
-377:                                              ; preds = %.lr.ph264.split.us
-  %378 = getelementptr inbounds nuw i8, ptr %.0135263.us, i64 56
-  %379 = add nsw i32 %.3142262.us, -1
-  %380 = icmp sgt i32 %.3142262.us, 1
-  br i1 %380, label %.lr.ph264.split.us, label %._crit_edge265.thread, !llvm.loop !37
+369:                                              ; preds = %.lr.ph264.split.us
+  %370 = getelementptr inbounds nuw i8, ptr %.0135263.us, i64 56
+  %371 = add nsw i32 %.3142262.us, -1
+  %372 = icmp sgt i32 %.3142262.us, 1
+  br i1 %372, label %.lr.ph264.split.us, label %._crit_edge265.thread, !llvm.loop !37
 
-.lr.ph264.split:                                  ; preds = %.lr.ph264.split.preheader, %387
-  %.0135263 = phi ptr [ %388, %387 ], [ %371, %.lr.ph264.split.preheader ]
-  %.3142262 = phi i32 [ %389, %387 ], [ %372, %.lr.ph264.split.preheader ]
-  %381 = getelementptr inbounds nuw i8, ptr %.0135263, i64 8
-  %382 = load i32, ptr %381, align 8
-  %383 = icmp eq i32 %382, %370
-  br i1 %383, label %384, label %387
+.lr.ph264.split:                                  ; preds = %.lr.ph264, %379
+  %.0135263 = phi ptr [ %380, %379 ], [ %354, %.lr.ph264 ]
+  %.3142262 = phi i32 [ %381, %379 ], [ %356, %.lr.ph264 ]
+  %373 = getelementptr inbounds nuw i8, ptr %.0135263, i64 8
+  %374 = load i32, ptr %373, align 8
+  %375 = icmp eq i32 %374, %352
+  br i1 %375, label %376, label %379
 
-384:                                              ; preds = %.lr.ph264.split
-  %385 = load ptr, ptr %.0135263, align 8
-  %bcmp = tail call i32 @bcmp(ptr %346, ptr %385, i64 %373)
-  %386 = icmp eq i32 %bcmp, 0
-  br i1 %386, label %.thread178, label %387
+376:                                              ; preds = %.lr.ph264.split
+  %377 = load ptr, ptr %.0135263, align 8
+  %bcmp = tail call i32 @bcmp(ptr %346, ptr %377, i64 %365)
+  %378 = icmp eq i32 %bcmp, 0
+  br i1 %378, label %.thread178, label %379
 
-387:                                              ; preds = %.lr.ph264.split, %384
-  %388 = getelementptr inbounds nuw i8, ptr %.0135263, i64 56
-  %389 = add nsw i32 %.3142262, -1
-  %390 = icmp sgt i32 %.3142262, 1
-  br i1 %390, label %.lr.ph264.split, label %._crit_edge265.thread, !llvm.loop !37
+379:                                              ; preds = %.lr.ph264.split, %376
+  %380 = getelementptr inbounds nuw i8, ptr %.0135263, i64 56
+  %381 = add nsw i32 %.3142262, -1
+  %382 = icmp sgt i32 %.3142262, 1
+  br i1 %382, label %.lr.ph264.split, label %._crit_edge265.thread, !llvm.loop !37
 
-._crit_edge265:                                   ; preds = %hash.exit.thread313, %hash.exit.thread, %hash.exit
-  %391 = phi i32 [ %351, %hash.exit ], [ 0, %hash.exit.thread ], [ %357, %hash.exit.thread313 ]
-  %.3142.lcssa = phi i32 [ %355, %hash.exit ], [ %366, %hash.exit.thread ], [ %361, %hash.exit.thread313 ]
-  %.0135.lcssa = phi ptr [ %353, %hash.exit ], [ %364, %hash.exit.thread ], [ %359, %hash.exit.thread313 ]
-  %392 = icmp eq i32 %.3142.lcssa, 0
-  br i1 %392, label %._crit_edge265.thread, label %.thread178
+._crit_edge265:                                   ; preds = %hash.exit.thread, %hash.exit
+  %383 = phi i32 [ %352, %hash.exit ], [ %358, %hash.exit.thread ]
+  %.3142.lcssa = phi i32 [ %356, %hash.exit ], [ %362, %hash.exit.thread ]
+  %.0135.lcssa = phi ptr [ %354, %hash.exit ], [ %360, %hash.exit.thread ]
+  %384 = icmp eq i32 %.3142.lcssa, 0
+  br i1 %384, label %._crit_edge265.thread, label %.thread178
 
-._crit_edge265.thread:                            ; preds = %387, %377, %._crit_edge265
-  %393 = phi i32 [ %391, %._crit_edge265 ], [ %357, %377 ], [ %370, %387 ]
-  %394 = tail call fastcc ptr @getvacant(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  %395 = icmp eq ptr %394, null
-  br i1 %395, label %.loopexit179, label %.preheader
+._crit_edge265.thread:                            ; preds = %379, %369, %._crit_edge265
+  %385 = phi i32 [ %383, %._crit_edge265 ], [ %358, %369 ], [ %352, %379 ]
+  %386 = tail call fastcc ptr @getvacant(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %387 = icmp eq ptr %386, null
+  br i1 %387, label %.loopexit179, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge265.thread
-  %396 = load i32, ptr %18, align 8
-  %397 = icmp sgt i32 %396, 0
-  br i1 %397, label %.lr.ph273, label %._crit_edge274
+  %388 = load i32, ptr %18, align 8
+  %389 = icmp sgt i32 %388, 0
+  br i1 %389, label %.lr.ph273, label %._crit_edge274
 
 .lr.ph273:                                        ; preds = %.preheader
-  %398 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br label %399
+  %390 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br label %391
 
-399:                                              ; preds = %.lr.ph273, %399
-  %indvars.iv295 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next296, %399 ]
-  %400 = load ptr, ptr %398, align 8
-  %401 = getelementptr inbounds nuw i32, ptr %400, i64 %indvars.iv295
-  %402 = load i32, ptr %401, align 4
-  %403 = load ptr, ptr %394, align 8
-  %404 = getelementptr inbounds nuw i32, ptr %403, i64 %indvars.iv295
-  store i32 %402, ptr %404, align 4
+391:                                              ; preds = %.lr.ph273, %391
+  %indvars.iv295 = phi i64 [ 0, %.lr.ph273 ], [ %indvars.iv.next296, %391 ]
+  %392 = load ptr, ptr %390, align 8
+  %393 = getelementptr inbounds nuw i32, ptr %392, i64 %indvars.iv295
+  %394 = load i32, ptr %393, align 4
+  %395 = load ptr, ptr %386, align 8
+  %396 = getelementptr inbounds nuw i32, ptr %395, i64 %indvars.iv295
+  store i32 %394, ptr %396, align 4
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %405 = load i32, ptr %18, align 8
-  %406 = sext i32 %405 to i64
-  %407 = icmp slt i64 %indvars.iv.next296, %406
-  br i1 %407, label %399, label %._crit_edge274, !llvm.loop !38
+  %397 = load i32, ptr %18, align 8
+  %398 = sext i32 %397 to i64
+  %399 = icmp slt i64 %indvars.iv.next296, %398
+  br i1 %399, label %391, label %._crit_edge274, !llvm.loop !38
 
-._crit_edge274:                                   ; preds = %399, %.preheader
-  %408 = getelementptr inbounds nuw i8, ptr %394, i64 8
-  store i32 %393, ptr %408, align 8
+._crit_edge274:                                   ; preds = %391, %.preheader
+  %400 = getelementptr inbounds nuw i8, ptr %386, i64 8
+  store i32 %385, ptr %400, align 8
   %.not153 = icmp eq i32 %.5130.lcssa, 0
-  %409 = select i1 %.not153, i32 0, i32 2
-  %410 = getelementptr inbounds nuw i8, ptr %394, i64 12
-  store i32 %409, ptr %410, align 4
+  %401 = select i1 %.not153, i32 0, i32 2
+  %402 = getelementptr inbounds nuw i8, ptr %386, i64 12
+  store i32 %401, ptr %402, align 4
   %.not154 = icmp eq i32 %.4124.lcssa, 0
-  br i1 %.not154, label %.thread178, label %411
+  br i1 %.not154, label %.thread178, label %403
 
-411:                                              ; preds = %._crit_edge274
-  %412 = or disjoint i32 %409, 8
-  store i32 %412, ptr %410, align 4
+403:                                              ; preds = %._crit_edge274
+  %404 = or disjoint i32 %401, 8
+  store i32 %404, ptr %402, align 4
   br label %.thread178
 
-.thread178:                                       ; preds = %384, %.lr.ph264.split.us, %._crit_edge274, %411, %._crit_edge265
-  %.1136 = phi ptr [ %394, %411 ], [ %394, %._crit_edge274 ], [ %.0135.lcssa, %._crit_edge265 ], [ %.0135263.us, %.lr.ph264.split.us ], [ %.0135263, %384 ]
-  br i1 %.0.lcssa, label %413, label %.loopexit179
+.thread178:                                       ; preds = %376, %.lr.ph264.split.us, %._crit_edge274, %403, %._crit_edge265
+  %.1136 = phi ptr [ %386, %403 ], [ %386, %._crit_edge274 ], [ %.0135.lcssa, %._crit_edge265 ], [ %.0135263.us, %.lr.ph264.split.us ], [ %.0135263, %376 ]
+  br i1 %.0.lcssa, label %405, label %.loopexit179
 
-413:                                              ; preds = %.thread178
-  %414 = load ptr, ptr %9, align 8
-  %415 = getelementptr inbounds ptr, ptr %414, i64 %11
-  store ptr %.1136, ptr %415, align 8
-  %416 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %417 = load ptr, ptr %416, align 8
-  %418 = getelementptr inbounds %struct.arcp, ptr %417, i64 %11
-  %419 = getelementptr inbounds nuw i8, ptr %.1136, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %418, ptr noundef nonnull align 8 dereferenceable(16) %419, i64 16, i1 false)
-  store ptr %2, ptr %419, align 8
-  %420 = getelementptr inbounds nuw i8, ptr %.1136, i64 24
-  store i16 %3, ptr %420, align 8
+405:                                              ; preds = %.thread178
+  %406 = load ptr, ptr %9, align 8
+  %407 = getelementptr inbounds ptr, ptr %406, i64 %11
+  store ptr %.1136, ptr %407, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %409 = load ptr, ptr %408, align 8
+  %410 = getelementptr inbounds %struct.arcp, ptr %409, i64 %11
+  %411 = getelementptr inbounds nuw i8, ptr %.1136, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, ptr noundef nonnull align 8 dereferenceable(16) %411, i64 16, i1 false)
+  store ptr %2, ptr %411, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %.1136, i64 24
+  store i16 %3, ptr %412, align 8
   br label %.loopexit179
 
-.loopexit179:                                     ; preds = %317, %lacon.exit.thread, %._crit_edge, %lacon.exit.thread.thread, %.thread178, %413, %._crit_edge265.thread, %._crit_edge218, %6
-  %.0134 = phi ptr [ %13, %6 ], [ null, %._crit_edge218 ], [ null, %._crit_edge265.thread ], [ %.1136, %413 ], [ %.1136, %.thread178 ], [ null, %lacon.exit.thread.thread ], [ null, %._crit_edge ], [ null, %lacon.exit.thread ], [ null, %317 ]
+.loopexit179:                                     ; preds = %317, %lacon.exit.thread, %._crit_edge, %lacon.exit.thread.thread, %.thread178, %405, %._crit_edge265.thread, %._crit_edge218, %6
+  %.0134 = phi ptr [ %13, %6 ], [ null, %._crit_edge218 ], [ null, %._crit_edge265.thread ], [ %.1136, %405 ], [ %.1136, %.thread178 ], [ null, %lacon.exit.thread.thread ], [ null, %._crit_edge ], [ null, %lacon.exit.thread ], [ null, %317 ]
   ret ptr %.0134
 }
 

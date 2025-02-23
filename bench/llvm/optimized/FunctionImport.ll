@@ -12381,7 +12381,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   br i1 %112, label %_ZL30shouldSkipLocalInAnotherModulePKN4llvm18GlobalValueSummaryEmNS_9StringRefE.exit.thread, label %113
 
 113:                                              ; preds = %102
-  %114 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %98, i64 12
   %115 = load i16, ptr %114, align 4
   %116 = and i16 %115, 15
   %117 = add nsw i16 %116, -7
@@ -12389,9 +12389,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfo
   br i1 %spec.select.i.i46, label %118, label %_ZL30shouldSkipLocalInAnotherModulePKN4llvm18GlobalValueSummaryEmNS_9StringRefE.exit.thread
 
 118:                                              ; preds = %113
-  %119 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %.sroa.0.0.copyload.i.i = load ptr, ptr %119, align 8, !tbaa !52
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %98, i64 32
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !53
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i
   br i1 %.not.i.i.i, label %120, label %.critedge
@@ -21066,7 +21066,7 @@ _ZN4llvm9SetVectorImNS_11SmallVectorImLj0EEENS_8DenseSetImNS_12DenseMapInfoImvEE
   br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph25
-  %32 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.017.024) #33
+  %32 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.024) #33
   %.not = icmp eq ptr %32, %28
   br i1 %.not, label %._crit_edge26, label %.lr.ph25
 

@@ -137,7 +137,7 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
   %57 = load i32, ptr %56, align 8, !tbaa !31
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 3584
   store i32 %57, ptr %58, align 8, !tbaa !34
-  %59 = icmp slt i32 %5, 4
+  %59 = icmp samesign ult i32 %5, 4
   br i1 %59, label %.lr.ph59.preheader, label %._crit_edge60
 
 .lr.ph59.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge

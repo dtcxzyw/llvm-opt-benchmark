@@ -8224,7 +8224,6 @@ _ZN2cv3Mat2atIiEERT_i.exit38.thread:              ; preds = %72, %_ZN2cv3Mat2atI
   %195 = load i32, ptr %194, align 4
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %197 = load ptr, ptr %196, align 8
-  %umax = call i32 @llvm.umax.i32(i32 %31, i32 3)
   br label %198
 
 198:                                              ; preds = %_ZNK2cv4MatxIdLi3ELi1EE3dotERKS1_.exit, %.lr.ph
@@ -8356,7 +8355,7 @@ _ZNK2cv4MatxIdLi3ELi1EE3dotERKS1_.exit:           ; preds = %268
   %274 = call noundef double @llvm.fabs.f64(double %273)
   %275 = fcmp ule double %274, 0x3EB0C6F7A0B5ED8D
   %276 = add nuw i32 %.069, 1
-  %exitcond.not = icmp ne i32 %276, %umax
+  %exitcond.not = icmp ne i32 %276, %31
   %or.cond.not = select i1 %275, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %198, label %_ZN2cvdVIdLi3EEERNS_3VecIT_XT0_EEES4_d.exit._crit_edge, !llvm.loop !135
 
@@ -10492,9 +10491,6 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

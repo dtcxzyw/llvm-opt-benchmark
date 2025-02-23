@@ -2941,106 +2941,106 @@ _ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iterator
   br label %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader.i.i:             ; preds = %32, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i
-  %33 = phi ptr [ %15, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ], [ %.pre.i, %32 ]
-  %.pre-phi.i.i = phi i64 [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ], [ %.pre13.i.i, %32 ]
-  %34 = phi i32 [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ], [ %.pre12.i.i, %32 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %.pre-phi.i.i
+  %33 = phi ptr [ %.pre.i, %32 ], [ %15, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ]
+  %.pre-phi.i.ph.i = phi i64 [ %.pre13.i.i, %32 ], [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ]
+  %.ph.i = phi i32 [ %.pre12.i.i, %32 ], [ 0, %_ZSt8distanceIN4llvm16pointer_iteratorISt16reverse_iteratorINS0_14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEEPS6_EEENSt15iterator_traitsIT_E15difference_typeESD_SD_.exit.i.i ]
+  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.pre-phi.i.ph.i
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i
-  %.in.i.i.i.i.i.i.i.i.i = phi i64 [ %40, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %35, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
-  %36 = inttoptr i64 %.in.i.i.i.i.i.i.i.i.i to ptr
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %36, align 8
-  %37 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
-  %38 = inttoptr i64 %37 to ptr
-  store ptr %38, ptr %.07.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !354
-  %39 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i = load i64, ptr %36, align 8
-  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i, -8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %40, %28
+  %.in.i.i.i.i.i.i.i.i.i = phi i64 [ %39, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %27, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+  %.07.i.i.i.i.i.i.i.i.i.i = phi ptr [ %38, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %34, %.lr.ph.i.i.i.i.i.i.i.i.preheader.i.i ]
+  %35 = inttoptr i64 %.in.i.i.i.i.i.i.i.i.i to ptr
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %35, align 8
+  %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
+  %37 = inttoptr i64 %36 to ptr
+  store ptr %37, ptr %.07.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !354
+  %38 = getelementptr inbounds nuw i8, ptr %.07.i.i.i.i.i.i.i.i.i.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i = load i64, ptr %35, align 8
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i3.i.i.i.i.i.i.i.i.i.i, -8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %39, %28
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i.i, !llvm.loop !355
 
 _ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %41 = trunc i64 %30 to i32
-  %42 = add i32 %34, %41
-  store i32 %42, ptr %16, align 8, !tbaa !26
-  %.not.i39 = icmp eq i32 %42, 0
+  %40 = trunc i64 %30 to i32
+  %41 = add i32 %.ph.i, %40
+  store i32 %41, ptr %16, align 8, !tbaa !26
+  %.not.i39 = icmp eq i32 %41, 0
   br i1 %.not.i39, label %.loopexit, label %.lr.ph
 
-thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %60, %60, %60, %53
-  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %49, %60 ], [ %49, %60 ], [ %49, %60 ], [ %49, %53 ]
+thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %59, %59, %59, %52
+  %.pr = phi i32 [ %.pr.pre, %.thread-pre-split_crit_edge ], [ %48, %59 ], [ %48, %59 ], [ %48, %59 ], [ %48, %52 ]
   %.not.i = icmp eq i32 %.pr, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %thread-pre-split
-  %43 = phi i32 [ %.pr, %thread-pre-split ], [ %42, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ]
-  %44 = load ptr, ptr %5, align 8, !tbaa !25
-  %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 -8
-  %48 = load ptr, ptr %47, align 8, !tbaa !354
-  %49 = add i32 %43, -1
-  store i32 %49, ptr %16, align 8, !tbaa !26
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 68
-  %51 = load i16, ptr %50, align 4, !tbaa !333
-  %52 = icmp ugt i16 %51, 305
-  br i1 %52, label %53, label %60
+  %42 = phi i32 [ %.pr, %thread-pre-split ], [ %41, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ]
+  %43 = load ptr, ptr %5, align 8, !tbaa !25
+  %44 = zext i32 %42 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %46 = getelementptr inbounds i8, ptr %45, i64 -8
+  %47 = load ptr, ptr %46, align 8, !tbaa !354
+  %48 = add i32 %42, -1
+  store i32 %48, ptr %16, align 8, !tbaa !26
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  %50 = load i16, ptr %49, align 4, !tbaa !333
+  %51 = icmp ugt i16 %50, 305
+  br i1 %51, label %52, label %59
 
-53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !328
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load i64, ptr %56, align 8, !tbaa !329
-  %58 = and i64 %57, 1
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %thread-pre-split, label %61, !llvm.loop !356
+52:                                               ; preds = %.lr.ph
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !328
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %56 = load i64, ptr %55, align 8, !tbaa !329
+  %57 = and i64 %56, 1
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %thread-pre-split, label %60, !llvm.loop !356
 
-60:                                               ; preds = %.lr.ph
-  switch i16 %51, label %61 [
+59:                                               ; preds = %.lr.ph
+  switch i16 %50, label %60 [
     i16 10, label %thread-pre-split
     i16 2, label %thread-pre-split
     i16 1, label %thread-pre-split
   ]
 
-61:                                               ; preds = %60, %53
-  %62 = call noundef zeroext i1 @_ZN4llvm13RegBankSelect11assignInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(70) %48)
-  br i1 %62, label %.thread-pre-split_crit_edge, label %63
+60:                                               ; preds = %59, %52
+  %61 = call noundef zeroext i1 @_ZN4llvm13RegBankSelect11assignInstrERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(70) %47)
+  br i1 %61, label %.thread-pre-split_crit_edge, label %62
 
-.thread-pre-split_crit_edge:                      ; preds = %61
+.thread-pre-split_crit_edge:                      ; preds = %60
   %.pr.pre = load i32, ptr %16, align 8, !tbaa !26
   br label %thread-pre-split
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr %18, align 8, !tbaa !222
-  %65 = load ptr, ptr %19, align 8, !tbaa !232
-  call void @_ZN4llvm18reportGISelFailureERNS_15MachineFunctionERKNS_16TargetPassConfigERNS_32MachineOptimizationRemarkEmitterEPKcNS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(134) %64, ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull @.str.6, ptr nonnull @.str.7, i64 25, ptr noundef nonnull align 8 dereferenceable(70) %48) #23
+62:                                               ; preds = %60
+  %63 = load ptr, ptr %18, align 8, !tbaa !222
+  %64 = load ptr, ptr %19, align 8, !tbaa !232
+  call void @_ZN4llvm18reportGISelFailureERNS_15MachineFunctionERKNS_16TargetPassConfigERNS_32MachineOptimizationRemarkEmitterEPKcNS_9StringRefERKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1065) %1, ptr noundef nonnull align 8 dereferenceable(134) %63, ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull @.str.6, ptr nonnull @.str.7, i64 25, ptr noundef nonnull align 8 dereferenceable(70) %47) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %thread-pre-split, %21, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %63
-  %.not.i37 = phi i1 [ false, %63 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
-  %66 = load ptr, ptr %5, align 8, !tbaa !25
-  %67 = icmp eq ptr %66, %15
-  br i1 %67, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, label %68
+.loopexit:                                        ; preds = %thread-pre-split, %21, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit, %62
+  %.not.i37 = phi i1 [ false, %62 ], [ true, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EEC2INS_16pointer_iteratorISt16reverse_iteratorINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS1_Lb1ELb1EvLb0EvEELb0ELb0EEEES2_EEEERKNS_14iterator_rangeIT_EE.exit ], [ true, %21 ], [ true, %thread-pre-split ]
+  %65 = load ptr, ptr %5, align 8, !tbaa !25
+  %66 = icmp eq ptr %65, %15
+  br i1 %66, label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit, label %67
 
-68:                                               ; preds = %.loopexit
-  call void @free(ptr noundef %66) #23
+67:                                               ; preds = %.loopexit
+  call void @free(ptr noundef %65) #23
   br label %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit: ; preds = %.loopexit, %68
+_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit: ; preds = %.loopexit, %67
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #23
   br i1 %.not.i37, label %20, label %.critedge
 
 .critedge:                                        ; preds = %20, %_ZN4llvm11SmallVectorIPNS_12MachineInstrELj6EED2Ev.exit
-  %69 = load ptr, ptr %3, align 8, !tbaa !25
-  %70 = icmp eq ptr %69, %6
-  br i1 %70, label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit, label %71
+  %68 = load ptr, ptr %3, align 8, !tbaa !25
+  %69 = icmp eq ptr %68, %6
+  br i1 %69, label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit, label %70
 
-71:                                               ; preds = %.critedge
-  call void @free(ptr noundef %69) #23
+70:                                               ; preds = %.critedge
+  call void @free(ptr noundef %68) #23
   br label %_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit
 
-_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %.critedge, %71
+_ZN4llvm25ReversePostOrderTraversalIPNS_15MachineFunctionENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds = %.critedge, %70
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %3) #23
   ret i1 %.not
 }

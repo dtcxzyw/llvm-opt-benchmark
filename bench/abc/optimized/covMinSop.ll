@@ -582,7 +582,7 @@ Min_CoverContainsCube.exit309.i:                  ; preds = %224, %230
   br label %251
 
 251:                                              ; preds = %251, %237
-  %252 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.1.i)
+  %252 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.1.i)
   %.not.i310.i = icmp eq i32 %252, 0
   br i1 %.not.i310.i, label %.outer.i.backedge, label %251, !llvm.loop !32
 
@@ -824,12 +824,12 @@ Min_CoverContainsCube.exit344.i:                  ; preds = %._crit_edge.i338.i
   br label %367
 
 367:                                              ; preds = %367, %.critedge.i
-  %368 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %368 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.2.i)
   %.not.i345.i = icmp eq i32 %368, 0
   br i1 %.not.i345.i, label %.outer.i.backedge, label %367, !llvm.loop !32
 
 369:                                              ; preds = %369, %Min_CoverContainsCube.exit344.i
-  %370 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %370 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.2.i)
   %.not.i347.i = icmp eq i32 %370, 0
   br i1 %.not.i347.i, label %Min_SopAddCube.exit348.i, label %369, !llvm.loop !32
 
@@ -839,7 +839,7 @@ Min_SopAddCube.exit348.i:                         ; preds = %369
   br i1 %.not251.i, label %373, label %.preheader.i
 
 .preheader.i:                                     ; preds = %Min_SopAddCube.exit348.i, %.preheader.i
-  %372 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i)
+  %372 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.3.i)
   %.not.i349.i = icmp eq i32 %372, 0
   br i1 %.not.i349.i, label %.outer.i.backedge, label %.preheader.i, !llvm.loop !32
 
@@ -878,12 +878,12 @@ Min_SopAddCube.exit348.i:                         ; preds = %369
   br label %399
 
 399:                                              ; preds = %399, %373
-  %400 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %400 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.2.i)
   %.not.i351.i = icmp eq i32 %400, 0
   br i1 %.not.i351.i, label %Min_SopAddCube.exit352.i, label %399, !llvm.loop !32
 
 Min_SopAddCube.exit352.i:                         ; preds = %399, %Min_SopAddCube.exit352.i
-  %401 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.3.i)
+  %401 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.3.i)
   %.not.i353.i = icmp eq i32 %401, 0
   br i1 %.not.i353.i, label %.outer.i.backedge, label %Min_SopAddCube.exit352.i, !llvm.loop !32
 
@@ -981,7 +981,7 @@ Min_CubeIsContained.exit.i367.i:                  ; preds = %424, %416
   br label %446
 
 446:                                              ; preds = %446, %.loopexit.i
-  %447 = tail call i32 @Min_SopAddCubeInt(ptr noundef %0, ptr noundef nonnull %.2.i)
+  %447 = tail call i32 @Min_SopAddCubeInt(ptr noundef nonnull %0, ptr noundef nonnull %.2.i)
   %.not.i377.i = icmp eq i32 %447, 0
   br i1 %.not.i377.i, label %.outer.i.backedge, label %446, !llvm.loop !32
 

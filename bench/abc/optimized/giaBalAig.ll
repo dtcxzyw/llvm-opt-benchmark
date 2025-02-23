@@ -8216,7 +8216,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMux.exit.t
   %.val66 = load ptr, ptr %8, align 8, !tbaa !16
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val66, i64 %127
-  tail call void @Dam_ManMultiAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %128)
+  tail call void @Dam_ManMultiAig_rec(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %128)
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 4, !tbaa !47
   %131 = load i32, ptr %124, align 4, !tbaa !11
@@ -8234,7 +8234,7 @@ Gia_ObjIsXor.exit.thread:                         ; preds = %Gia_ObjIsMux.exit.t
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 960
   %137 = load ptr, ptr %136, align 8, !tbaa !36
   %138 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %139 = tail call i32 @Gia_ManBalanceGate(ptr noundef %1, ptr noundef %3, ptr noundef %137, ptr noundef nonnull %138, i32 noundef %.lcssa)
+  %139 = tail call i32 @Gia_ManBalanceGate(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %137, ptr noundef nonnull %138, i32 noundef %.lcssa)
   store i32 %139, ptr %5, align 4, !tbaa !47
   br label %140
 
@@ -9893,7 +9893,7 @@ Gia_ManAppendAnd.exit:                            ; preds = %218, %215, %Gia_Man
   %.095167 = phi i32 [ %235, %.lr.ph ], [ 0, %Gia_ManAppendAnd.exit ]
   %232 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
   %233 = load i32, ptr %232, align 4, !tbaa !11
-  %234 = tail call i32 @Dam_ManUpdateNode(ptr noundef nonnull %0, i32 noundef %233, i32 noundef %14, i32 noundef %16, i32 noundef %.094, ptr noundef %5)
+  %234 = tail call i32 @Dam_ManUpdateNode(ptr noundef nonnull %0, i32 noundef %233, i32 noundef %14, i32 noundef %16, i32 noundef %.094, ptr noundef nonnull %5)
   %235 = add nuw nsw i32 %234, %.095167
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %236 = load i32, ptr %.0.i, align 4, !tbaa !11

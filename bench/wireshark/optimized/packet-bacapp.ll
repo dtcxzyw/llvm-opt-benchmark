@@ -6559,7 +6559,7 @@ define internal fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1,
   %11 = load i32, ptr %8, align 4
   %12 = add i32 %11, -1
   %or.cond.i = icmp ult i32 %12, 8
-  br i1 %or.cond.i, label %.lr.ph.i, label %fUnsigned64.exit.thread
+  br i1 %or.cond.i, label %.lr.ph.i, label %fUnsigned64.exit
 
 .lr.ph.i:                                         ; preds = %5, %.lr.ph.i
   %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph.i ], [ 0, %5 ]
@@ -6571,29 +6571,29 @@ define internal fastcc i32 @fUnsignedTag(ptr noundef nonnull %0, ptr noundef %1,
   %17 = or disjoint i64 %15, %16
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %11
-  br i1 %exitcond.not, label %fUnsigned64.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not, label %18, label %.lr.ph.i, !llvm.loop !29
 
-fUnsigned64.exit:                                 ; preds = %.lr.ph.i
-  %18 = add nuw nsw i32 %11, %9
-  %19 = load i32, ptr @ett_bacapp_tag, align 4
-  %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %18, i32 noundef %19, ptr noundef null, ptr noundef nonnull @.str.2609, ptr noundef %4, i64 noundef %17)
-  br label %24
+18:                                               ; preds = %.lr.ph.i
+  %19 = add nuw nsw i32 %11, %9
+  %20 = load i32, ptr @ett_bacapp_tag, align 4
+  %21 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %19, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.2609, ptr noundef %4, i64 noundef %17)
+  br label %25
 
-fUnsigned64.exit.thread:                          ; preds = %5
-  %21 = add i32 %11, %9
-  %22 = load i32, ptr @ett_bacapp_tag, align 4
-  %23 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %21, i32 noundef %22, ptr noundef null, ptr noundef nonnull @.str.2610, ptr noundef %4, i32 noundef %11)
-  br label %24
+fUnsigned64.exit:                                 ; preds = %5
+  %22 = add i32 %11, %9
+  %23 = load i32, ptr @ett_bacapp_tag, align 4
+  %24 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.2610, ptr noundef %4, i32 noundef %11)
+  br label %25
 
-24:                                               ; preds = %fUnsigned64.exit.thread, %fUnsigned64.exit
-  %.0 = phi ptr [ %20, %fUnsigned64.exit ], [ %23, %fUnsigned64.exit.thread ]
-  %25 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
-  %26 = load i32, ptr %8, align 4
-  %27 = add i32 %26, %10
+25:                                               ; preds = %fUnsigned64.exit, %18
+  %.0 = phi ptr [ %21, %18 ], [ %24, %fUnsigned64.exit ]
+  %26 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
+  %27 = load i32, ptr %8, align 4
+  %28 = add i32 %27, %10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #6
-  ret i32 %27
+  ret i32 %28
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -6609,7 +6609,7 @@ define internal fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, p
   %11 = load i32, ptr %8, align 4
   %12 = add i32 %11, -1
   %or.cond.i = icmp ult i32 %12, 7
-  br i1 %or.cond.i, label %13, label %fSigned64.exit.thread24
+  br i1 %or.cond.i, label %13, label %fSigned64.exit
 
 13:                                               ; preds = %5
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %10)
@@ -6618,7 +6618,7 @@ define internal fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, p
   %.not21.i = icmp slt i8 %14, 0
   %.018.i = select i1 %.not21.i, i64 %16, i64 %15
   %17 = icmp samesign ugt i32 %11, 1
-  br i1 %17, label %.lr.ph.i, label %fSigned64.exit.thread
+  br i1 %17, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %13, %.lr.ph.i
   %.023.i = phi i32 [ %23, %.lr.ph.i ], [ 1, %13 ]
@@ -6630,23 +6630,23 @@ define internal fastcc i32 @fSignedTag(ptr noundef nonnull %0, ptr noundef %1, p
   %22 = or disjoint i64 %20, %21
   %23 = add nuw nsw i32 %.023.i, 1
   %exitcond.not.i = icmp eq i32 %23, %11
-  br i1 %exitcond.not.i, label %fSigned64.exit.thread, label %.lr.ph.i, !llvm.loop !30
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !30
 
-fSigned64.exit.thread:                            ; preds = %.lr.ph.i, %13
-  %.02123 = phi i64 [ %.018.i, %13 ], [ %22, %.lr.ph.i ]
+.loopexit:                                        ; preds = %.lr.ph.i, %13
+  %.021.ph = phi i64 [ %.018.i, %13 ], [ %22, %.lr.ph.i ]
   %24 = add nuw nsw i32 %11, %9
   %25 = load i32, ptr @ett_bacapp_tag, align 4
-  %26 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %24, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.2611, ptr noundef %4, i64 noundef %.02123)
+  %26 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %24, i32 noundef %25, ptr noundef null, ptr noundef nonnull @.str.2611, ptr noundef %4, i64 noundef %.021.ph)
   br label %30
 
-fSigned64.exit.thread24:                          ; preds = %5
+fSigned64.exit:                                   ; preds = %5
   %27 = add i32 %11, %9
   %28 = load i32, ptr @ett_bacapp_tag, align 4
   %29 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %27, i32 noundef %28, ptr noundef null, ptr noundef nonnull @.str.2612, ptr noundef %4, i32 noundef %11)
   br label %30
 
-30:                                               ; preds = %fSigned64.exit.thread24, %fSigned64.exit.thread
-  %.0 = phi ptr [ %26, %fSigned64.exit.thread ], [ %29, %fSigned64.exit.thread24 ]
+30:                                               ; preds = %fSigned64.exit, %.loopexit
+  %.0 = phi ptr [ %26, %.loopexit ], [ %29, %fSigned64.exit ]
   %31 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %.0, i32 noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8)
   %32 = load i32, ptr %8, align 4
   %33 = add i32 %32, %10
@@ -16214,20 +16214,20 @@ define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #6
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #6
   %10 = call fastcc range(i32 1, 8) i32 @fTagHeaderTree(ptr noundef nonnull %0, ptr noundef %1, ptr noundef null, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  switch i32 %5, label %default.unreachable173 [
+  switch i32 %5, label %default.unreachable172 [
     i32 0, label %11
     i32 1, label %16
     i32 2, label %30
-    i32 3, label %42
-    i32 4, label %60
-    i32 5, label %68
-    i32 6, label %75
-    i32 7, label %81
-    i32 8, label %83
-    i32 9, label %85
-    i32 10, label %114
-    i32 11, label %116
-    i32 12, label %118
+    i32 3, label %43
+    i32 4, label %61
+    i32 5, label %69
+    i32 6, label %76
+    i32 7, label %82
+    i32 8, label %84
+    i32 9, label %86
+    i32 10, label %115
+    i32 11, label %117
+    i32 12, label %119
   ]
 
 11:                                               ; preds = %6
@@ -16235,7 +16235,7 @@ define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1
   %13 = load i32, ptr %7, align 4
   %14 = add i32 %13, %10
   %15 = tail call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %12, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %14, ptr noundef nonnull @.str.3770)
-  br label %fUnsigned64.exit.thread
+  br label %fUnsigned64.exit
 
 16:                                               ; preds = %6
   %17 = load i8, ptr %9, align 1
@@ -16258,18 +16258,18 @@ define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1
   %27 = load i32, ptr @hf_bacapp_present_value_bool, align 4
   %28 = zext i32 %26 to i64
   %29 = tail call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %27, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %.0135, i64 noundef %28)
-  br label %fUnsigned64.exit.thread
+  br label %fUnsigned64.exit
 
 30:                                               ; preds = %6
   %31 = add i32 %10, %3
   %32 = load i32, ptr %7, align 4
   %33 = add i32 %32, -1
   %or.cond.i = icmp ult i32 %33, 8
-  br i1 %or.cond.i, label %.lr.ph.i, label %.fUnsigned64.exit.thread_crit_edge
+  br i1 %or.cond.i, label %.lr.ph.i, label %.fUnsigned64.exit_crit_edge
 
-.fUnsigned64.exit.thread_crit_edge:               ; preds = %30
-  %.pre168 = add i32 %32, %10
-  br label %fUnsigned64.exit.thread.thread
+.fUnsigned64.exit_crit_edge:                      ; preds = %30
+  %.pre167 = add i32 %32, %10
+  br label %fUnsigned64.exit.thread
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.i
   %indvars.iv = phi i32 [ %indvars.iv.next, %.lr.ph.i ], [ 0, %30 ]
@@ -16281,207 +16281,207 @@ define internal fastcc i32 @fPresentValue(ptr noundef nonnull %0, ptr noundef %1
   %38 = or disjoint i64 %36, %37
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %32
-  br i1 %exitcond.not, label %fUnsigned64.exit, label %.lr.ph.i, !llvm.loop !29
+  br i1 %exitcond.not, label %39, label %.lr.ph.i, !llvm.loop !29
 
-fUnsigned64.exit:                                 ; preds = %.lr.ph.i
-  %39 = load i32, ptr @hf_bacapp_present_value_unsigned, align 4
-  %40 = add nuw nsw i32 %32, %10
-  %41 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %39, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %40, i64 noundef %38)
+39:                                               ; preds = %.lr.ph.i
+  %40 = load i32, ptr @hf_bacapp_present_value_unsigned, align 4
+  %41 = add nuw nsw i32 %32, %10
+  %42 = tail call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %40, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %41, i64 noundef %38)
+  br label %fUnsigned64.exit
+
+43:                                               ; preds = %6
+  %44 = add i32 %10, %3
+  %45 = load i32, ptr %7, align 4
+  %46 = add i32 %45, -1
+  %or.cond.i141 = icmp ult i32 %46, 7
+  br i1 %or.cond.i141, label %47, label %.fSigned64.exit_crit_edge
+
+.fSigned64.exit_crit_edge:                        ; preds = %43
+  %.pre168 = add i32 %45, %10
   br label %fUnsigned64.exit.thread
 
-42:                                               ; preds = %6
-  %43 = add i32 %10, %3
-  %44 = load i32, ptr %7, align 4
-  %45 = add i32 %44, -1
-  %or.cond.i141 = icmp ult i32 %45, 7
-  br i1 %or.cond.i141, label %46, label %.fSigned64.exit.thread155_crit_edge
+47:                                               ; preds = %43
+  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %44)
+  %49 = zext i8 %48 to i64
+  %50 = or disjoint i64 %49, -256
+  %.not21.i = icmp slt i8 %48, 0
+  %.018.i142 = select i1 %.not21.i, i64 %50, i64 %49
+  %51 = icmp samesign ugt i32 %45, 1
+  br i1 %51, label %.lr.ph.i144, label %.loopexit
 
-.fSigned64.exit.thread155_crit_edge:              ; preds = %42
-  %.pre169 = add i32 %44, %10
-  br label %fUnsigned64.exit.thread.thread
+.lr.ph.i144:                                      ; preds = %47, %.lr.ph.i144
+  %.023.i = phi i32 [ %57, %.lr.ph.i144 ], [ 1, %47 ]
+  %.122.i = phi i64 [ %56, %.lr.ph.i144 ], [ %.018.i142, %47 ]
+  %52 = add i32 %.023.i, %44
+  %53 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %52)
+  %54 = shl i64 %.122.i, 8
+  %55 = zext i8 %53 to i64
+  %56 = or disjoint i64 %54, %55
+  %57 = add nuw nsw i32 %.023.i, 1
+  %exitcond.not.i = icmp eq i32 %57, %45
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i144, !llvm.loop !30
 
-46:                                               ; preds = %42
-  %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %43)
-  %48 = zext i8 %47 to i64
-  %49 = or disjoint i64 %48, -256
-  %.not21.i = icmp slt i8 %47, 0
-  %.018.i142 = select i1 %.not21.i, i64 %49, i64 %48
-  %50 = icmp samesign ugt i32 %44, 1
-  br i1 %50, label %.lr.ph.i144, label %fSigned64.exit.thread
+.loopexit:                                        ; preds = %.lr.ph.i144, %47
+  %.0150.ph = phi i64 [ %.018.i142, %47 ], [ %56, %.lr.ph.i144 ]
+  %58 = load i32, ptr @hf_bacapp_present_value_signed, align 4
+  %59 = add nuw nsw i32 %45, %10
+  %60 = tail call ptr @proto_tree_add_int64(ptr noundef %2, i32 noundef %58, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %59, i64 noundef %.0150.ph)
+  br label %fUnsigned64.exit
 
-.lr.ph.i144:                                      ; preds = %46, %.lr.ph.i144
-  %.023.i = phi i32 [ %56, %.lr.ph.i144 ], [ 1, %46 ]
-  %.122.i = phi i64 [ %55, %.lr.ph.i144 ], [ %.018.i142, %46 ]
-  %51 = add i32 %.023.i, %43
-  %52 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %51)
-  %53 = shl i64 %.122.i, 8
-  %54 = zext i8 %52 to i64
-  %55 = or disjoint i64 %53, %54
-  %56 = add nuw nsw i32 %.023.i, 1
-  %exitcond.not.i = icmp eq i32 %56, %44
-  br i1 %exitcond.not.i, label %fSigned64.exit.thread, label %.lr.ph.i144, !llvm.loop !30
+61:                                               ; preds = %6
+  %62 = add i32 %10, %3
+  %63 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %62)
+  %64 = fpext float %63 to double
+  %65 = load i32, ptr @hf_bacapp_present_value_real, align 4
+  %66 = load i32, ptr %7, align 4
+  %67 = add i32 %66, %10
+  %68 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %65, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %67, double noundef %64)
+  br label %fUnsigned64.exit
 
-fSigned64.exit.thread:                            ; preds = %.lr.ph.i144, %46
-  %.0150154 = phi i64 [ %.018.i142, %46 ], [ %55, %.lr.ph.i144 ]
-  %57 = load i32, ptr @hf_bacapp_present_value_signed, align 4
-  %58 = add nuw nsw i32 %44, %10
-  %59 = tail call ptr @proto_tree_add_int64(ptr noundef %2, i32 noundef %57, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %58, i64 noundef %.0150154)
-  br label %fUnsigned64.exit.thread
+69:                                               ; preds = %6
+  %70 = add i32 %10, %3
+  %71 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %70)
+  %72 = load i32, ptr @hf_bacapp_present_value_double, align 4
+  %73 = load i32, ptr %7, align 4
+  %74 = add i32 %73, %10
+  %75 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %72, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %74, double noundef %71)
+  br label %fUnsigned64.exit
 
-60:                                               ; preds = %6
-  %61 = add i32 %10, %3
-  %62 = tail call float @tvb_get_ntohieee_float(ptr noundef nonnull %0, i32 noundef %61)
-  %63 = fpext float %62 to double
-  %64 = load i32, ptr @hf_bacapp_present_value_real, align 4
-  %65 = load i32, ptr %7, align 4
-  %66 = add i32 %65, %10
-  %67 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %64, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %66, double noundef %63)
-  br label %fUnsigned64.exit.thread
+76:                                               ; preds = %6
+  %77 = load i32, ptr %7, align 4
+  %.not140 = icmp eq i32 %77, 0
+  br i1 %.not140, label %fUnsigned64.exit.thread, label %78
 
-68:                                               ; preds = %6
-  %69 = add i32 %10, %3
-  %70 = tail call double @tvb_get_ntohieee_double(ptr noundef nonnull %0, i32 noundef %69)
-  %71 = load i32, ptr @hf_bacapp_present_value_double, align 4
-  %72 = load i32, ptr %7, align 4
-  %73 = add i32 %72, %10
-  %74 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %71, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %73, double noundef %70)
-  br label %fUnsigned64.exit.thread
+78:                                               ; preds = %76
+  %79 = load i32, ptr @hf_bacapp_present_value_octet_string, align 4
+  %80 = add i32 %77, %10
+  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %80, i32 noundef 0)
+  br label %fUnsigned64.exit
 
-75:                                               ; preds = %6
-  %76 = load i32, ptr %7, align 4
-  %.not140 = icmp eq i32 %76, 0
-  br i1 %.not140, label %fUnsigned64.exit.thread.thread, label %77
-
-77:                                               ; preds = %75
-  %78 = load i32, ptr @hf_bacapp_present_value_octet_string, align 4
-  %79 = add i32 %76, %10
-  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %78, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %79, i32 noundef 0)
-  br label %fUnsigned64.exit.thread
-
-81:                                               ; preds = %6
-  %82 = tail call fastcc i32 @fCharacterStringBase(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
+82:                                               ; preds = %6
+  %83 = tail call fastcc i32 @fCharacterStringBase(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.thread
 
-83:                                               ; preds = %6
-  %84 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
+84:                                               ; preds = %6
+  %85 = tail call fastcc i32 @fBitStringTagVSBase(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, ptr noundef null, i1 noundef zeroext true)
   br label %.thread
 
-85:                                               ; preds = %6
-  %86 = add i32 %10, %3
-  %87 = load i32, ptr %7, align 4
-  switch i32 %87, label %fUnsigned32.exit [
-    i32 1, label %88
-    i32 2, label %91
-    i32 3, label %94
-    i32 4, label %96
+86:                                               ; preds = %6
+  %87 = add i32 %10, %3
+  %88 = load i32, ptr %7, align 4
+  switch i32 %88, label %fUnsigned32.exit [
+    i32 1, label %89
+    i32 2, label %92
+    i32 3, label %95
+    i32 4, label %97
   ]
 
-88:                                               ; preds = %85
-  %89 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %86)
-  %90 = zext i8 %89 to i32
-  br label %98
+89:                                               ; preds = %86
+  %90 = tail call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %87)
+  %91 = zext i8 %90 to i32
+  br label %99
 
-91:                                               ; preds = %85
-  %92 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %0, i32 noundef %86)
-  %93 = zext i16 %92 to i32
-  br label %98
+92:                                               ; preds = %86
+  %93 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef nonnull %0, i32 noundef %87)
+  %94 = zext i16 %93 to i32
+  br label %99
 
-94:                                               ; preds = %85
-  %95 = tail call i32 @tvb_get_ntoh24(ptr noundef nonnull %0, i32 noundef %86)
-  br label %98
+95:                                               ; preds = %86
+  %96 = tail call i32 @tvb_get_ntoh24(ptr noundef nonnull %0, i32 noundef %87)
+  br label %99
 
-96:                                               ; preds = %85
-  %97 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %0, i32 noundef %86)
-  br label %98
+97:                                               ; preds = %86
+  %98 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %0, i32 noundef %87)
+  br label %99
 
-98:                                               ; preds = %96, %94, %91, %88
-  %.0149.ph = phi i32 [ %90, %88 ], [ %93, %91 ], [ %95, %94 ], [ %97, %96 ]
+99:                                               ; preds = %97, %95, %92, %89
+  %.0149.ph = phi i32 [ %91, %89 ], [ %94, %92 ], [ %96, %95 ], [ %98, %97 ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %108, label %99
+  br i1 %.not, label %109, label %100
 
-99:                                               ; preds = %98
-  %100 = add nuw nsw i32 %87, %10
-  %101 = load i32, ptr @ett_bacapp_tag, align 4
-  %102 = tail call ptr @val_to_str(i32 noundef %.0149.ph, ptr noundef nonnull %4, ptr noundef nonnull @Vendor_Proprietary_Fmt)
-  %103 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %100, i32 noundef %101, ptr noundef null, ptr noundef nonnull @.str.3771, ptr noundef %102)
-  %104 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
-  %105 = tail call ptr @proto_tree_add_uint(ptr noundef %103, i32 noundef %104, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %100, i32 noundef %.0149.ph)
-  %106 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %103, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  %107 = icmp eq ptr %103, null
+100:                                              ; preds = %99
+  %101 = add nuw nsw i32 %88, %10
+  %102 = load i32, ptr @ett_bacapp_tag, align 4
+  %103 = tail call ptr @val_to_str(i32 noundef %.0149.ph, ptr noundef nonnull %4, ptr noundef nonnull @Vendor_Proprietary_Fmt)
+  %104 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %101, i32 noundef %102, ptr noundef null, ptr noundef nonnull @.str.3771, ptr noundef %103)
+  %105 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
+  %106 = tail call ptr @proto_tree_add_uint(ptr noundef %104, i32 noundef %105, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %101, i32 noundef %.0149.ph)
+  %107 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %104, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %108 = icmp eq ptr %104, null
   %.pre = load i32, ptr %7, align 4
   br label %fUnsigned32.exit
 
-108:                                              ; preds = %98
-  %109 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
-  %110 = add nuw nsw i32 %87, %10
-  %111 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %109, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %110, i32 noundef %.0149.ph)
+109:                                              ; preds = %99
+  %110 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
+  %111 = add nuw nsw i32 %88, %10
+  %112 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %110, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %111, i32 noundef %.0149.ph)
   br label %fUnsigned32.exit
 
-fUnsigned32.exit:                                 ; preds = %85, %99, %108
-  %112 = phi i32 [ %.pre, %99 ], [ %87, %108 ], [ %87, %85 ]
-  %.1137 = phi i1 [ %107, %99 ], [ true, %108 ], [ true, %85 ]
-  %.4 = phi ptr [ null, %99 ], [ %111, %108 ], [ null, %85 ]
-  %113 = add i32 %112, %10
-  br label %fUnsigned64.exit.thread
+fUnsigned32.exit:                                 ; preds = %86, %100, %109
+  %113 = phi i32 [ %.pre, %100 ], [ %88, %109 ], [ %88, %86 ]
+  %.1137 = phi i1 [ %108, %100 ], [ true, %109 ], [ true, %86 ]
+  %.4 = phi ptr [ null, %100 ], [ %112, %109 ], [ null, %86 ]
+  %114 = add i32 %113, %10
+  br label %fUnsigned64.exit
 
-114:                                              ; preds = %6
-  %115 = tail call fastcc i32 @fDate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.3055)
+115:                                              ; preds = %6
+  %116 = tail call fastcc i32 @fDate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.3055)
   br label %.thread
 
-116:                                              ; preds = %6
-  %117 = tail call fastcc i32 @fTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.3056)
+117:                                              ; preds = %6
+  %118 = tail call fastcc i32 @fTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull @.str.3056)
   br label %.thread
 
-118:                                              ; preds = %6
-  %119 = add i32 %10, %3
-  %120 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %0, i32 noundef %119)
-  %121 = lshr i32 %120, 22
-  store i32 %121, ptr @object_type, align 4
-  %122 = add nuw nsw i32 %10, 4
-  %123 = load i32, ptr @ett_bacapp_tag, align 4
-  %124 = icmp ult i32 %120, 536870912
-  %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i = select i1 %124, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
-  %125 = tail call ptr @val_to_str(i32 noundef %121, ptr noundef nonnull @BACnetObjectType, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i)
-  %126 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %122, i32 noundef %123, ptr noundef null, ptr noundef nonnull @.str.3771, ptr noundef %125)
-  %127 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
-  %128 = load i32, ptr %7, align 4
-  %129 = add i32 %128, %10
-  %130 = load i32, ptr @object_type, align 4
-  %131 = tail call ptr @proto_tree_add_uint(ptr noundef %126, i32 noundef %127, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %129, i32 noundef %130)
-  %132 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %126, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
-  %133 = load i32, ptr %7, align 4
-  %134 = add i32 %119, %133
+119:                                              ; preds = %6
+  %120 = add i32 %10, %3
+  %121 = tail call i32 @tvb_get_ntohl(ptr noundef nonnull %0, i32 noundef %120)
+  %122 = lshr i32 %121, 22
+  store i32 %122, ptr @object_type, align 4
+  %123 = add nuw nsw i32 %10, 4
+  %124 = load i32, ptr @ett_bacapp_tag, align 4
+  %125 = icmp ult i32 %121, 536870912
+  %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i = select i1 %125, ptr @ASHRAE_Reserved_Fmt, ptr @Vendor_Proprietary_Fmt
+  %126 = tail call ptr @val_to_str(i32 noundef %122, ptr noundef nonnull @BACnetObjectType, ptr noundef nonnull %ASHRAE_Reserved_Fmt.Vendor_Proprietary_Fmt.i)
+  %127 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %2, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %123, i32 noundef %124, ptr noundef null, ptr noundef nonnull @.str.3771, ptr noundef %126)
+  %128 = load i32, ptr @hf_bacapp_present_value_enum_index, align 4
+  %129 = load i32, ptr %7, align 4
+  %130 = add i32 %129, %10
+  %131 = load i32, ptr @object_type, align 4
+  %132 = tail call ptr @proto_tree_add_uint(ptr noundef %127, i32 noundef %128, ptr noundef nonnull %0, i32 noundef %3, i32 noundef %130, i32 noundef %131)
+  %133 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %127, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
+  %134 = load i32, ptr %7, align 4
+  %135 = add i32 %120, %134
   br label %.thread
 
-default.unreachable173:                           ; preds = %6
+default.unreachable172:                           ; preds = %6
   unreachable
 
-fUnsigned64.exit.thread.thread:                   ; preds = %.fUnsigned64.exit.thread_crit_edge, %.fSigned64.exit.thread155_crit_edge, %75
-  %.pn.ph = phi i32 [ %10, %75 ], [ %.pre169, %.fSigned64.exit.thread155_crit_edge ], [ %.pre168, %.fUnsigned64.exit.thread_crit_edge ]
-  %.0177 = add i32 %.pn.ph, %3
+fUnsigned64.exit.thread:                          ; preds = %.fUnsigned64.exit_crit_edge, %.fSigned64.exit_crit_edge, %76
+  %.pn.ph = phi i32 [ %10, %76 ], [ %.pre168, %.fSigned64.exit_crit_edge ], [ %.pre167, %.fUnsigned64.exit_crit_edge ]
+  %.0176 = add i32 %.pn.ph, %3
   br label %.thread
 
-fUnsigned64.exit.thread:                          ; preds = %77, %fSigned64.exit.thread, %fUnsigned64.exit, %fUnsigned32.exit, %68, %60, %25, %11
-  %.0136 = phi i1 [ %.1137, %fUnsigned32.exit ], [ true, %68 ], [ true, %60 ], [ true, %25 ], [ true, %11 ], [ true, %fUnsigned64.exit ], [ true, %fSigned64.exit.thread ], [ true, %77 ]
-  %.0134 = phi ptr [ %.4, %fUnsigned32.exit ], [ %74, %68 ], [ %67, %60 ], [ %29, %25 ], [ %15, %11 ], [ %41, %fUnsigned64.exit ], [ %59, %fSigned64.exit.thread ], [ %80, %77 ]
-  %.pn = phi i32 [ %113, %fUnsigned32.exit ], [ %73, %68 ], [ %66, %60 ], [ %.0135, %25 ], [ 1, %11 ], [ %40, %fUnsigned64.exit ], [ %58, %fSigned64.exit.thread ], [ %79, %77 ]
+fUnsigned64.exit:                                 ; preds = %78, %.loopexit, %39, %fUnsigned32.exit, %69, %61, %25, %11
+  %.0136 = phi i1 [ %.1137, %fUnsigned32.exit ], [ true, %69 ], [ true, %61 ], [ true, %25 ], [ true, %11 ], [ true, %39 ], [ true, %.loopexit ], [ true, %78 ]
+  %.0134 = phi ptr [ %.4, %fUnsigned32.exit ], [ %75, %69 ], [ %68, %61 ], [ %29, %25 ], [ %15, %11 ], [ %42, %39 ], [ %60, %.loopexit ], [ %81, %78 ]
+  %.pn = phi i32 [ %114, %fUnsigned32.exit ], [ %74, %69 ], [ %67, %61 ], [ %.0135, %25 ], [ 1, %11 ], [ %41, %39 ], [ %59, %.loopexit ], [ %80, %78 ]
   %.0 = add i32 %.pn, %3
-  %135 = icmp ne ptr %.0134, null
-  %or.cond3 = and i1 %.0136, %135
-  br i1 %or.cond3, label %136, label %.thread
+  %136 = icmp ne ptr %.0134, null
+  %or.cond3 = and i1 %.0136, %136
+  br i1 %or.cond3, label %137, label %.thread
 
-136:                                              ; preds = %fUnsigned64.exit.thread
-  %137 = load i32, ptr @ett_bacapp_value, align 4
-  %138 = tail call ptr @proto_item_add_subtree(ptr noundef nonnull %.0134, i32 noundef %137)
-  %139 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %138, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
+137:                                              ; preds = %fUnsigned64.exit
+  %138 = load i32, ptr @ett_bacapp_value, align 4
+  %139 = tail call ptr @proto_item_add_subtree(ptr noundef nonnull %.0134, i32 noundef %138)
+  %140 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %139, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7)
   br label %.thread
 
-.thread:                                          ; preds = %fUnsigned64.exit.thread.thread, %81, %83, %114, %116, %118, %136, %fUnsigned64.exit.thread
-  %.0164 = phi i32 [ %.0, %136 ], [ %.0, %fUnsigned64.exit.thread ], [ %82, %81 ], [ %84, %83 ], [ %115, %114 ], [ %117, %116 ], [ %134, %118 ], [ %.0177, %fUnsigned64.exit.thread.thread ]
+.thread:                                          ; preds = %fUnsigned64.exit.thread, %82, %84, %115, %117, %119, %137, %fUnsigned64.exit
+  %.0163 = phi i32 [ %.0, %137 ], [ %.0, %fUnsigned64.exit ], [ %83, %82 ], [ %85, %84 ], [ %116, %115 ], [ %118, %117 ], [ %135, %119 ], [ %.0176, %fUnsigned64.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
-  ret i32 %.0164
+  ret i32 %.0163
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

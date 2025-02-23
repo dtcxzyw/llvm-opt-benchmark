@@ -502,8 +502,6 @@ _ZN8rawspeed10ArwDecoder11SonyDecryptENS_10Array1DRefIKhEENS1_IhEEij.exit: ; pre
   %96 = icmp samesign ule i32 %95, %27
   tail call void @llvm.assume(i1 %96)
   %97 = getelementptr inbounds nuw i8, ptr %25, i64 862144
-  %.not.i.i.i.i = icmp ne i32 %22, 0
-  tail call void @llvm.assume(i1 %.not.i.i.i.i)
   %98 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %84) #30
           to label %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit100 unwind label %235
 
@@ -516,7 +514,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit100:            ; preds = %94
   %102 = shl nuw nsw i32 %101, 2
   %103 = icmp eq i32 %23, %102
   tail call void @llvm.assume(i1 %103)
-  %104 = icmp ult i32 %22, 2
+  %104 = icmp samesign ult i32 %22, 2
   br i1 %104, label %154, label %105
 
 105:                                              ; preds = %_ZNSt6vectorIhSaIhEEC2EmRKS0_.exit100
@@ -5373,10 +5371,10 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158: ; preds = %_ZNKSt8_Rb_treeI
           to label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread.sink.split unwind label %201
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread.sink.split: ; preds = %210, %184
-  %.sink297.in = phi ptr [ %180, %184 ], [ %206, %210 ]
+  %.sink300.in = phi ptr [ %180, %184 ], [ %206, %210 ]
   %.sink = phi float [ %187, %184 ], [ %213, %210 ]
-  %.sink297 = load ptr, ptr %.sink297.in, align 8, !tbaa !30
-  %214 = getelementptr inbounds nuw i8, ptr %.sink297, i64 264
+  %.sink300 = load ptr, ptr %.sink300.in, align 8, !tbaa !30
+  %214 = getelementptr inbounds nuw i8, ptr %.sink300, i64 264
   store float %.sink, ptr %214, align 4, !tbaa !192
   br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread
 
@@ -5400,14 +5398,14 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread: ; preds = %_ZNK8raws
 
 _ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168: ; preds = %.lr.ph.i.i.i.i160
   %218 = icmp eq ptr %.19.i.i.i.i163, %147
-  br i1 %218, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171
+  br i1 %218, label %.lr.ph.i.i.i.i173.preheader, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171: ; preds = %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168
   %.19.i.i.i.i163.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %217, ptr %.0811.i.i.i.i162, ptr %.012.i.i.i.i161
   %.19.i.i.i.i163.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i163.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %219 = load i16, ptr %.19.i.i.i.i163.sroa.sel.v.sroa.sel.v.sroa.sel, align 2, !tbaa !196
   %220 = icmp ugt i16 %219, 29456
-  br i1 %220, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread, label %221
+  br i1 %220, label %.lr.ph.i.i.i.i173.preheader, label %221
 
 221:                                              ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171
   %222 = invoke noundef ptr @_ZNK8rawspeed7TiffIFD8getEntryENS_7TiffTagE(ptr noundef nonnull align 8 dereferenceable(104) %7, i16 noundef zeroext 29456)
@@ -5472,25 +5470,25 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171: ; preds = %_ZNKSt8_Rb_treeI
   store i32 %251, ptr %252, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread.loopexit, label %245, !llvm.loop !200
+  br i1 %exitcond.not, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread, label %245, !llvm.loop !200
 
 253:                                              ; preds = %245
   %254 = landingpad { ptr, i32 }
           cleanup
   br label %333
 
-_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread.loopexit: ; preds = %248
+_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread: ; preds = %248
   %.pr266.pre = load ptr, ptr %145, align 8, !tbaa !47
-  br label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread
+  %.not10.i.i.i.i172 = icmp eq ptr %.pr266.pre, null
+  br i1 %.not10.i.i.i.i172, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184.thread, label %.lr.ph.i.i.i.i173.preheader
 
-_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread: ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread.loopexit, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171
-  %.pr266 = phi ptr [ %.pr266.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread.loopexit ], [ %.pr, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168 ], [ %.pr, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171 ]
-  %.not10.i.i.i.i172 = icmp eq ptr %.pr266, null
-  br i1 %.not10.i.i.i.i172, label %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184.thread, label %.lr.ph.i.i.i.i173
+.lr.ph.i.i.i.i173.preheader:                      ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread
+  %.pr266291 = phi ptr [ %.pr266.pre, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread ], [ %.pr, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i168 ], [ %.pr, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171 ]
+  br label %.lr.ph.i.i.i.i173
 
-.lr.ph.i.i.i.i173:                                ; preds = %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread, %.lr.ph.i.i.i.i173
-  %.012.i.i.i.i174 = phi ptr [ %.1.i.i.i.i179, %.lr.ph.i.i.i.i173 ], [ %.pr266, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread ]
-  %.0811.i.i.i.i175 = phi ptr [ %.19.i.i.i.i176, %.lr.ph.i.i.i.i173 ], [ %147, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread ]
+.lr.ph.i.i.i.i173:                                ; preds = %.lr.ph.i.i.i.i173.preheader, %.lr.ph.i.i.i.i173
+  %.012.i.i.i.i174 = phi ptr [ %.1.i.i.i.i179, %.lr.ph.i.i.i.i173 ], [ %.pr266291, %.lr.ph.i.i.i.i173.preheader ]
+  %.0811.i.i.i.i175 = phi ptr [ %.19.i.i.i.i176, %.lr.ph.i.i.i.i173 ], [ %147, %.lr.ph.i.i.i.i173.preheader ]
   %255 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i174, i64 32
   %256 = load i16, ptr %255, align 2, !tbaa !196
   %257 = icmp ult i16 %256, 30847
@@ -5560,7 +5558,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184: ; preds = %_ZNKSt8_Rb_treeI
   br label %333
 
 _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184.thread: ; preds = %143, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i181, %272, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184
-  %282 = phi ptr [ null, %143 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread ], [ %.pr266, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i181 ], [ %.pre, %272 ], [ %.pr266, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184 ]
+  %282 = phi ptr [ null, %143 ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit158.thread ], [ null, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit171.thread ], [ %.pr266291, %_ZNKSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS9_EPKSt18_Rb_tree_node_baseRS3_.exit.i.i.i181 ], [ %.pre, %272 ], [ %.pr266291, %_ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit184 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN8rawspeed7TiffIFDE, i64 16), ptr %7, align 8, !tbaa !43
   %283 = getelementptr inbounds nuw i8, ptr %7, i64 56
   invoke void @_ZNSt8_Rb_treeIN8rawspeed7TiffTagESt4pairIKS1_St10unique_ptrINS0_9TiffEntryESt14default_deleteIS5_EEESt10_Select1stIS9_ESt4lessIS1_ESaIS9_EE8_M_eraseEPSt13_Rb_tree_nodeIS9_E(ptr noundef nonnull align 8 dereferenceable(48) %283, ptr noundef %282)

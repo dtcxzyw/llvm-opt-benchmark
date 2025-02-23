@@ -608,13 +608,7 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %81, %79, %85
   br i1 %100, label %.preheader, label %_ZN2cv6bgsegmL18normalizeHistogramEPfi.exit90
 
 .preheader:                                       ; preds = %_ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit
-  br i1 %80, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader
-  %101 = load double, ptr %36, align 8
-  %102 = fptrunc double %101 to float
-  %103 = load i32, ptr %37, align 8
-  br label %.thread.i
+  br i1 %80, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %61 to i64
@@ -622,26 +616,32 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %81, %79, %85
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %104 = load double, ptr %36, align 8
-  %105 = fsub double 1.000000e+00, %104
-  %106 = fptrunc double %105 to float
-  %107 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
-  %108 = load float, ptr %107, align 4
-  %109 = fmul float %108, %106
-  store float %109, ptr %107, align 4
+  %101 = load double, ptr %36, align 8
+  %102 = fsub double 1.000000e+00, %101
+  %103 = fptrunc double %102 to float
+  %104 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
+  %105 = load float, ptr %104, align 4
+  %106 = fmul float %105, %103
+  store float %106, ptr %104, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph.preheader.i54, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.preheader
+  %107 = load double, ptr %36, align 8
+  %108 = fptrunc double %107 to float
+  %109 = load i32, ptr %37, align 8
+  br label %.thread.i
+
+.lr.ph.preheader.i54:                             ; preds = %.lr.ph
   %110 = load double, ptr %36, align 8
   %111 = fptrunc double %110 to float
   %112 = load i32, ptr %37, align 8
   %wide.trip.count.i55 = zext nneg i32 %61 to i64
   br label %.lr.ph.i56
 
-.lr.ph.i56:                                       ; preds = %116, %._crit_edge
-  %indvars.iv.i57 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i58, %116 ]
+.lr.ph.i56:                                       ; preds = %116, %.lr.ph.preheader.i54
+  %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.preheader.i54 ], [ %indvars.iv.next.i58, %116 ]
   %113 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i57
   %114 = load i32, ptr %113, align 4
   %115 = icmp eq i32 %76, %114
@@ -662,9 +662,9 @@ _ZN2cv6bgsegmL11findFeatureEiPKiPKfi.exit:        ; preds = %81, %79, %85
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %121, ptr nonnull align 4 %66, i64 %123, i1 false)
   br label %_ZN2cv6bgsegmL13insertFeatureEifPiPfRii.exit
 
-.thread.i:                                        ; preds = %116, %._crit_edge.thread
-  %124 = phi i32 [ %103, %._crit_edge.thread ], [ %112, %116 ]
-  %125 = phi float [ %102, %._crit_edge.thread ], [ %111, %116 ]
+.thread.i:                                        ; preds = %116, %._crit_edge
+  %124 = phi i32 [ %109, %._crit_edge ], [ %112, %116 ]
+  %125 = phi float [ %108, %._crit_edge ], [ %111, %116 ]
   %126 = icmp eq i32 %61, %124
   br i1 %126, label %127, label %133
 

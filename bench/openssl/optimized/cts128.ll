@@ -61,7 +61,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp ult i64 %2, 16
   br i1 %7, label %25, label %8
 
@@ -167,7 +167,7 @@ define range(i64 16, 1) i64 @CRYPTO_nistcts128_encrypt(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i64 33, 16) i64 @CRYPTO_cts128_decrypt_block(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon.1, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #5
   %8 = icmp ult i64 %2, 17

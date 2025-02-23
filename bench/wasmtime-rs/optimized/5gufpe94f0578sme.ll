@@ -83,7 +83,7 @@ default.unreachable17:                            ; preds = %tailrecurse
 
 .lr.ph11:                                         ; preds = %11, %.lr.ph11
   %32 = phi ptr [ %33, %.lr.ph11 ], [ %22, %11 ]
-  call void @_ZN14cranelift_isle3ast7Pattern5terms17h37d5985ce11ca323E(ptr nonnull align 16 %32, ptr align 1 %1, ptr align 8 %2)
+  call void @_ZN14cranelift_isle3ast7Pattern5terms17h37d5985ce11ca323E(ptr nonnull align 16 %32, ptr align 1 %1, ptr nonnull align 8 %2)
   %33 = call align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfba2b9cebf8f0d4E"(ptr nonnull align 8 %5)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %.loopexit, label %.lr.ph11
@@ -621,7 +621,7 @@ default.unreachable6:                             ; preds = %3
 
 .lr.ph5:                                          ; preds = %8, %.lr.ph5
   %29 = phi ptr [ %30, %.lr.ph5 ], [ %19, %8 ]
-  call void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr nonnull align 16 %29, ptr align 1 %1, ptr align 8 %2)
+  call void @_ZN14cranelift_isle3ast4Expr5terms17h91248d50fb7319c4E(ptr nonnull align 16 %29, ptr align 1 %1, ptr nonnull align 8 %2)
   %30 = call align 16 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h64ea978ad71fdb74E"(ptr nonnull align 8 %5)
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit, label %.lr.ph5

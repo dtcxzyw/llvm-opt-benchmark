@@ -1108,7 +1108,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %102 = mul i32 %92, %101
   %103 = sext i32 %102 to i64
   %104 = getelementptr i8, ptr %98, i64 %103
-  tail call void @ieee80211_txq_init(ptr noundef %0, ptr noundef %13, ptr noundef %104, i32 noundef %101) #18
+  tail call void @ieee80211_txq_init(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %104, i32 noundef %101) #18
   %105 = add nuw nsw i64 %100, 1
   %106 = icmp eq i64 %105, 17
   br i1 %106, label %107, label %.preheader, !llvm.loop !39
@@ -1308,7 +1308,7 @@ define internal fastcc ptr @__sta_info_alloc(ptr noundef %0, ptr noundef readonl
   %225 = getelementptr inbounds nuw i8, ptr %13, i64 1736
   %226 = load ptr, ptr %225, align 8
   tail call void @free_percpu(ptr noundef %226) #18
-  tail call void @kfree(ptr noundef %13) #18
+  tail call void @kfree(ptr noundef nonnull %13) #18
   br label %227
 
 227:                                              ; preds = %.thread, %214, %5

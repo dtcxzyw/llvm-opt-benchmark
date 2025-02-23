@@ -1131,7 +1131,7 @@ define dso_local i32 @stbtt_FindGlyphIndex(ptr noundef readonly captures(none) %
   %146 = shl nuw nsw i32 %145, 8
   %147 = zext i8 %.val158 to i32
   %148 = or disjoint i32 %146, %147
-  %149 = add nuw i32 %148, %1
+  %149 = add nuw nsw i32 %148, %1
   %150 = and i32 %149, 65535
   br label %.loopexit
 
@@ -3708,29 +3708,29 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %85, %77, %67, %59,
   tail call void @free(ptr noundef nonnull %29) #28
   br label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %.split.us.i, %._crit_edge.i, %12, %26
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread: ; preds = %._crit_edge.i, %.split.us.i, %26, %12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   br label %1347
 
 _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
-  br i1 %.not.i87.us.i, label %1347, label %.lr.ph.preheader.i23
+  br i1 %.not.i87.us.i, label %1347, label %.lr.ph.preheader.i22
 
-.lr.ph.preheader.i23:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
+.lr.ph.preheader.i22:                             ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit
   %93 = fneg float %5
-  br label %.lr.ph.i25
+  br label %.lr.ph.i24
 
-.lr.ph.i25:                                       ; preds = %.lr.ph.i25, %.lr.ph.preheader.i23
-  %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.preheader.i23 ], [ %indvars.iv.next.i27, %.lr.ph.i25 ]
-  %.0854.i = phi i32 [ 0, %.lr.ph.preheader.i23 ], [ %96, %.lr.ph.i25 ]
-  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i26
+.lr.ph.i24:                                       ; preds = %.lr.ph.i24, %.lr.ph.preheader.i22
+  %indvars.iv.i25 = phi i64 [ 0, %.lr.ph.preheader.i22 ], [ %indvars.iv.next.i26, %.lr.ph.i24 ]
+  %.0854.i = phi i32 [ 0, %.lr.ph.preheader.i22 ], [ %96, %.lr.ph.i24 ]
+  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i25
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %95, %.0854.i
-  %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, %27
-  br i1 %exitcond.not.i28, label %._crit_edge.i29, label %.lr.ph.i25, !llvm.loop !20
+  %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
+  %exitcond.not.i27 = icmp eq i64 %indvars.iv.next.i26, %27
+  br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i24, !llvm.loop !20
 
-._crit_edge.i29:                                  ; preds = %.lr.ph.i25
+._crit_edge.i28:                                  ; preds = %.lr.ph.i24
   %.not.i = icmp eq i32 %10, 0
   %97 = select i1 %.not.i, float %5, float %93
   %98 = add nsw i32 %96, 1
@@ -3738,15 +3738,15 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %100 = mul nsw i64 %99, 20
   %101 = tail call noalias noundef ptr @malloc(i64 noundef %100) #27
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, label %.preheader.i30
+  br i1 %102, label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit, label %.preheader.i
 
-.preheader.i30:                                   ; preds = %._crit_edge.i29
+.preheader.i:                                     ; preds = %._crit_edge.i28
   br i1 %.not.i, label %.lr.ph15.split.us.i, label %.lr.ph15.split.i
 
-.lr.ph15.split.us.i:                              ; preds = %.preheader.i30, %._crit_edge10.split.us.us.i
-  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i30 ]
-  %.114.us.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i30 ]
-  %.08812.us.i = phi i32 [ %107, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i30 ]
+.lr.ph15.split.us.i:                              ; preds = %.preheader.i, %._crit_edge10.split.us.us.i
+  %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i ]
+  %.114.us.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i ]
+  %.08812.us.i = phi i32 [ %107, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i ]
   %103 = sext i32 %.08812.us.i to i64
   %104 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %103
   %105 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv40.i
@@ -3818,10 +3818,10 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %exitcond39.not.i = icmp eq i64 %indvars.iv.next36.i, %wide.trip.count38.i
   br i1 %exitcond39.not.i, label %._crit_edge10.split.us.us.i, label %.lr.ph9.us.i, !llvm.loop !22
 
-.lr.ph15.split.i:                                 ; preds = %.preheader.i30, %._crit_edge10.split.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge10.split.i ], [ 0, %.preheader.i30 ]
-  %.114.i = phi i32 [ %.2.lcssa.i, %._crit_edge10.split.i ], [ 0, %.preheader.i30 ]
-  %.08812.i = phi i32 [ %141, %._crit_edge10.split.i ], [ 0, %.preheader.i30 ]
+.lr.ph15.split.i:                                 ; preds = %.preheader.i, %._crit_edge10.split.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %._crit_edge10.split.i ], [ 0, %.preheader.i ]
+  %.114.i = phi i32 [ %.2.lcssa.i, %._crit_edge10.split.i ], [ 0, %.preheader.i ]
+  %.08812.i = phi i32 [ %141, %._crit_edge10.split.i ], [ 0, %.preheader.i ]
   %137 = sext i32 %.08812.i to i64
   %138 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %137
   %139 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv30.i
@@ -3853,9 +3853,9 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %154 = fcmp ogt float %146, %148
   %sext57.i = shl i64 %indvars.iv25.i, 32
-  %.pre.i31 = ashr exact i64 %sext57.i, 32
-  %..pre.i = select i1 %154, i64 %144, i64 %.pre.i31
-  %.pre..i = select i1 %154, i64 %.pre.i31, i64 %144
+  %.pre.i29 = ashr exact i64 %sext57.i, 32
+  %..pre.i = select i1 %154, i64 %144, i64 %.pre.i29
+  %.pre..i = select i1 %154, i64 %.pre.i29, i64 %144
   %.67.i = zext i1 %154 to i32
   store i32 %.67.i, ptr %153, align 4
   %155 = getelementptr inbounds %struct.stbtt__point, ptr %138, i64 %..pre.i
@@ -5901,7 +5901,7 @@ _ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i: ;
   call void @free(ptr noundef nonnull %101) #28
   br label %_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit
 
-_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit: ; preds = %._crit_edge.i29, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i
+_ZL16stbtt__rasterizeP13stbtt__bitmapP12stbtt__pointPiiffffiiiPv.exit: ; preds = %._crit_edge.i28, %_ZL29stbtt__rasterize_sorted_edgesP13stbtt__bitmapP11stbtt__edgeiiiiPv.exit.i
   call void @free(ptr noundef %29) #28
   call void @free(ptr noundef nonnull %.183.us.i) #28
   br label %1347

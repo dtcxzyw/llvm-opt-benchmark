@@ -11423,7 +11423,7 @@ _ZNSt6vectorISt4pairIbPN4cvc58internal4expr9NodeValueEESaIS6_EE9push_backEOS6_.e
   %.sroa.0203.9 = phi ptr [ %299, %_ZNSt6vectorISt4pairIbPN4cvc58internal4expr9NodeValueEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i126 ], [ %.sroa.0203.7, %286 ]
   %.sroa.11.6 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i124.pn, i64 16
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.6)
-  %305 = add i32 %.0, 1
+  %305 = add nuw i32 %.0, 1
   br label %256, !llvm.loop !186
 
 306:                                              ; preds = %274

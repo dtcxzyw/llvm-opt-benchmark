@@ -1305,7 +1305,6 @@ _ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %52, %56
   %62 = add nsw i16 %61, -37
   %63 = icmp ult i16 %62, -4
   %64 = getelementptr inbounds i8, ptr %58, i64 -72
-  %spec.select.i.i = select i1 %63, ptr null, ptr %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #18
   br i1 %63, label %.critedge, label %65
 
@@ -1408,7 +1407,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %65, %72
 
 120:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #18
-  %121 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 120
+  %121 = getelementptr inbounds nuw i8, ptr %58, i64 48
   %122 = load ptr, ptr %121, align 8, !tbaa !813
   %123 = load ptr, ptr %122, align 8, !tbaa !849
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 40
@@ -5324,8 +5323,8 @@ _ZNK5clang14ObjCObjectType12getInterfaceEv.exit.thread: ; preds = %298, %_ZNK5cl
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %321 = load i8, ptr %320, align 16
   %322 = icmp eq i8 %321, 13
-  %.not.not7.i.i = icmp ne ptr %319, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %322
+  %.not7.i.i = icmp ne ptr %319, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %322
   br i1 %.not.not.not.i.i, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit, label %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread
 
 _ZNK5clang14ObjCObjectType8isObjCIdEv.exit:       ; preds = %314
@@ -5346,8 +5345,8 @@ _ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread: ; preds = %_ZNK5clang14Ob
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %331 = load i8, ptr %330, align 16
   %332 = icmp eq i8 %331, 13
-  %.not.not7.i.i601 = icmp ne ptr %329, null
-  %.not.not.not.i.i602 = and i1 %.not.not7.i.i601, %332
+  %.not7.i.i601 = icmp ne ptr %329, null
+  %.not.not.not.i.i602 = and i1 %.not7.i.i601, %332
   br i1 %.not.not.not.i.i602, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit604, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit604.thread
 
 _ZNK5clang14ObjCObjectType8isObjCIdEv.exit604:    ; preds = %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit.thread
@@ -5357,7 +5356,7 @@ _ZNK5clang14ObjCObjectType8isObjCIdEv.exit604:    ; preds = %_ZNK5clang14ObjCObj
   br i1 %335, label %336, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit604.thread
 
 336:                                              ; preds = %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit604
-  %337 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %337 = getelementptr inbounds nuw i8, ptr %290, i64 16
   %338 = load ptr, ptr %337, align 8, !tbaa !923
   %339 = load i64, ptr %338, align 8, !tbaa !926
   %340 = and i64 %339, 4294967295
@@ -6089,8 +6088,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %648, %661
   %671 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %672 = load i8, ptr %671, align 16
   %673 = icmp eq i8 %672, 13
-  %.not.not7.i.i659 = icmp ne ptr %670, null
-  %.not.not.not.i.i660 = and i1 %.not.not7.i.i659, %673
+  %.not7.i.i659 = icmp ne ptr %670, null
+  %.not.not.not.i.i660 = and i1 %.not7.i.i659, %673
   br i1 %.not.not.not.i.i660, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit662, label %_ZNK5clang14ObjCObjectType11isObjCClassEv.exit673.thread
 
 _ZNK5clang14ObjCObjectType8isObjCIdEv.exit662:    ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
@@ -13490,8 +13489,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %_ZNK5clang4T
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 16
   %40 = icmp eq i8 %39, 13
-  %.not.not7.i.i = icmp ne ptr %37, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %40
+  %.not7.i.i = icmp ne ptr %37, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %40
   br i1 %.not.not.not.i.i, label %_ZNK5clang14ObjCObjectType8isObjCIdEv.exit, label %_ZNK5clang4Type5getAsINS_21ObjCObjectPointerTypeEEEPKT_v.exit.thread
 
 _ZNK5clang14ObjCObjectType8isObjCIdEv.exit:       ; preds = %_ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit
@@ -14269,8 +14268,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type19isExtVectorBoolT
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not6.i = icmp ne ptr %17, null
-  %.not.not.not.i = and i1 %.not.not6.i, %20
+  %.not6.i = icmp ne ptr %17, null
+  %.not.not.not.i = and i1 %.not6.i, %20
   br i1 %.not.not.not.i, label %21, label %_ZNK5clang4Type13isBooleanTypeEv.exit
 
 21:                                               ; preds = %9
@@ -15451,8 +15450,8 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %1, %_ZNK5
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i8, ptr %21, align 16
   %23 = icmp eq i8 %22, 13
-  %.not.not7.i = icmp ne ptr %20, null
-  %.not.not.not.i = and i1 %.not.not7.i, %23
+  %.not7.i = icmp ne ptr %20, null
+  %.not.not.not.i = and i1 %.not7.i, %23
   br i1 %.not.not.not.i, label %24, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit
 
 24:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread

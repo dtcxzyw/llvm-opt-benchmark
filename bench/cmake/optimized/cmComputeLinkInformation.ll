@@ -11244,13 +11244,13 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmComputeLinkI
   %698 = icmp slt i32 %.0.i.i.i.i.i.i230, 0
   %699 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %spec.select.i231 = select i1 %698, ptr null, ptr %699
-  %700 = getelementptr inbounds nuw i8, ptr %spec.select.i231, i64 48
+  %700 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 112
   %701 = load i64, ptr %700, align 8, !tbaa !309
   %702 = icmp eq i64 %701, 0
   br i1 %702, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit225.thread339, label %703
 
 703:                                              ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmComputeLinkInformation17FeatureDescriptorESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i
-  %704 = getelementptr inbounds nuw i8, ptr %spec.select.i231, i64 40
+  %704 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 104
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33) #26
   store ptr %203, ptr %34, align 8, !tbaa !307
   %705 = load ptr, ptr %704, align 8, !tbaa !308
@@ -11591,7 +11591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit269: ; preds = %_Z
   br label %1030
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit225.thread339: ; preds = %670, %662, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmComputeLinkInformation17FeatureDescriptorESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit227, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit225
-  %.573 = phi ptr [ %699, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmComputeLinkInformation17FeatureDescriptorESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i ], [ %699, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %.472, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit227 ], [ %.472, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit225 ], [ %.472, %662 ], [ %.472, %670 ]
+  %.573 = phi ptr [ %spec.select.i231, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN24cmComputeLinkInformation17FeatureDescriptorESt4lessIS5_ESaISt4pairIKS5_S7_EEE4findERSB_.exit.i ], [ %spec.select.i231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit266 ], [ %.472, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit227 ], [ %.472, %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit225 ], [ %.472, %662 ], [ %.472, %670 ]
   %829 = load i32, ptr %236, align 8, !tbaa !638
   %830 = icmp eq i32 %829, 2
   br i1 %830, label %831, label %832

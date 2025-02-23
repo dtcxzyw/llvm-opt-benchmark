@@ -289,7 +289,7 @@ zend_object_dtor_dynamic_properties.exit:         ; preds = %11, %14, %18, %24
 
 33:                                               ; preds = %33, %30
   %.1 = phi ptr [ %25, %30 ], [ %34, %33 ]
-  tail call void @zend_object_dtor_property(ptr noundef %0, ptr noundef nonnull %.1)
+  tail call void @zend_object_dtor_property(ptr noundef nonnull %0, ptr noundef nonnull %.1)
   %34 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %.not25 = icmp eq ptr %34, %32
   br i1 %.not25, label %.loopexit.loopexit, label %33
@@ -1152,7 +1152,7 @@ zend_objects_new.exit:                            ; preds = %7, %30
   br i1 %.not17, label %.loopexit, label %46
 
 .loopexit:                                        ; preds = %46, %zend_objects_new.exit
-  tail call void @zend_objects_clone_members(ptr noundef nonnull %20, ptr noundef %0)
+  tail call void @zend_objects_clone_members(ptr noundef nonnull %20, ptr noundef nonnull %0)
   br label %49
 
 49:                                               ; preds = %.loopexit, %5

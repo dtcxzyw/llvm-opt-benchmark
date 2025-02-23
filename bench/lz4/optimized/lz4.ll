@@ -17967,7 +17967,7 @@ read_long_length_no_check.exit7.i:                ; preds = %.preheader.i73
 221:                                              ; preds = %217
   %.neg.i.i = sub nsw i64 %215, %201
   %222 = getelementptr inbounds i8, ptr %75, i64 %.neg.i.i
-  %diff.neg = sub i64 0, %.neg.i.i
+  %diff.neg = sub nsw i64 0, %.neg.i.i
   %223 = icmp ult i64 %212, %diff.neg
   br i1 %223, label %224, label %225
 

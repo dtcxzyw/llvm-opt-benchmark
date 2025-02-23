@@ -405,7 +405,7 @@ _ZNSt6vectorI14plic_context_tSaIS0_EE9push_backEOS0_.exit33: ; preds = %_ZNSt6ve
   br label %91
 
 88:                                               ; preds = %_ZNSt6vectorI14plic_context_tSaIS0_EE9push_backEOS0_.exit33, %54
-  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.056.065) #31
+  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.056.065) #31
   %90 = icmp eq ptr %89, %20
   br i1 %90, label %._crit_edge, label %26
 

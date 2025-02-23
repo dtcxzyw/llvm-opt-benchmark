@@ -3552,7 +3552,7 @@ _ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE8ScanTask5claimE
   br i1 %.not.i.i.i.i, label %"_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE11visit_nodesIZN9G1CardSet18iterate_containersEPNS4_19ContainerPtrClosureEbE3$_0EEbPNS2_6BucketERT_.exit.i.i.i", label %.lr.ph.i.i.i.i, !llvm.loop !32
 
 "_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE11visit_nodesIZN9G1CardSet18iterate_containersEPNS4_19ContainerPtrClosureEbE3$_0EEbPNS2_6BucketERT_.exit.i.i.i": ; preds = %.lr.ph.i.i.i.i, %54, %.lr.ph.i.i.i
-  %70 = add nuw i64 %.0910.i.i.i, 1
+  %70 = add i64 %.0910.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %70, %.1.i.i
   br i1 %exitcond.not.i.i.i, label %"_ZN19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE17do_scan_for_rangeIZN9G1CardSet18iterate_containersEPNS4_19ContainerPtrClosureEbE3$_0EEbRT_mmPNS2_13InternalTableE.exit.i.i", label %.lr.ph.i.i.i, !llvm.loop !33
 

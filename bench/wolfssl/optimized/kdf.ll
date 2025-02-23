@@ -299,7 +299,7 @@ XorWords.exit.i:                                  ; preds = %.lr.ph.i.i, %._crit
   br i1 %exitcond.not.i, label %.preheader23.i, label %.lr.ph38.i, !llvm.loop !12
 
 .preheader23.i:                                   ; preds = %.lr.ph38.i, %47
-  %53 = icmp ugt i32 %1, 7
+  %53 = icmp samesign ugt i32 %1, 7
   br i1 %53, label %.lr.ph29.i, label %.preheader.i42
 
 .preheader.i42:                                   ; preds = %.lr.ph29.i, %.preheader23.i

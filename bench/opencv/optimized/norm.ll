@@ -763,7 +763,7 @@ _ZN2cv3hal11normHammingEPKhii.exit203.us:         ; preds = %188
 _ZN2cv3hal11normHammingEPKhii.exit203:            ; preds = %.lr.ph.i197, %196
   %.024.i194 = phi i32 [ 0, %196 ], [ %204, %.lr.ph.i197 ]
   %205 = add nsw i32 %.024.i194, %.0136
-  %206 = add i64 %.0137, 1
+  %206 = add nuw i64 %.0137, 1
   %207 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %18)
           to label %.split281 unwind label %.loopexit.split, !llvm.loop !19
 
@@ -2141,7 +2141,7 @@ _ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii.exit:       ; preds = %.lr.ph.i.i.i, %142
 _ZN2cv3hal11normHammingEPKhS2_ii.exit:            ; preds = %.lr.ph.i, %260, %258
   %.028.i = phi i32 [ 0, %260 ], [ %259, %258 ], [ %270, %.lr.ph.i ]
   %271 = add nsw i32 %.028.i, %.0159
-  %272 = add i64 %.0160, 1
+  %272 = add nuw i64 %.0160, 1
   %273 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cv15NAryMatIteratorppEv(ptr noundef nonnull align 8 dereferenceable(64) %25)
           to label %252 unwind label %.loopexit, !llvm.loop !43
 

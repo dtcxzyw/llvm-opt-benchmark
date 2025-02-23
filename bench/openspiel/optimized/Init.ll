@@ -992,7 +992,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   br i1 %exitcond115.not, label %51, label %44, !llvm.loop !30
 
 51:                                               ; preds = %44
-  %52 = icmp sgt i64 %indvars.iv116, 2
+  %52 = icmp samesign ugt i64 %indvars.iv116, 2
   br i1 %52, label %.preheader, label %.preheader79, !llvm.loop !31
 
 53:                                               ; preds = %.preheader79, %53

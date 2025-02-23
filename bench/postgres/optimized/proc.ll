@@ -1916,7 +1916,7 @@ CheckDeadLock.exit:                               ; preds = %107
   call void @initStringInfo(ptr noundef nonnull %7) #14
   call void @initStringInfo(ptr noundef nonnull %8) #14
   call void @initStringInfo(ptr noundef nonnull %9) #14
-  call void @DescribeLockTag(ptr noundef nonnull %7, ptr noundef %0) #14
+  call void @DescribeLockTag(ptr noundef nonnull %7, ptr noundef nonnull %0) #14
   %172 = load i8, ptr %58, align 1
   %173 = zext i8 %172 to i16
   %174 = call ptr @GetLockmodeName(i16 noundef zeroext %173, i32 noundef %14) #14

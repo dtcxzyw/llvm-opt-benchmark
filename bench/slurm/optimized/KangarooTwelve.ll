@@ -276,7 +276,7 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 
 26:                                               ; preds = %right_encode.exit, %.split
   %phi.call = phi i64 [ 1, %.split ], [ %wide.trip.count.i, %right_encode.exit ]
-  %27 = call i32 @KangarooTwelve_Update(ptr noundef %0, ptr noundef nonnull %5, i64 noundef %phi.call)
+  %27 = call i32 @KangarooTwelve_Update(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %phi.call)
   %.not38 = icmp eq i32 %27, 0
   br i1 %.not38, label %28, label %.critedge48
 
@@ -356,20 +356,20 @@ right_encode.exit:                                ; preds = %.lr.ph22.i
 right_encode.exit64:                              ; preds = %.lr.ph22.i56, %43
   %.017.lcssa29.i61 = phi i32 [ 0, %43 ], [ %47, %.lr.ph22.i56 ]
   %.pre-phi26.i62 = phi i32 [ 1, %43 ], [ %46, %.lr.ph22.i56 ]
-  %.pre-phi.i63 = zext i32 %.017.lcssa29.i61 to i64
+  %.pre-phi.i63 = zext nneg i32 %.017.lcssa29.i61 to i64
   %58 = trunc i32 %.017.lcssa29.i61 to i8
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi.i63
   store i8 %58, ptr %59, align 1
-  %60 = add i32 %.pre-phi26.i62, 1
-  %61 = zext i32 %.pre-phi26.i62 to i64
+  %60 = add nuw nsw i32 %.pre-phi26.i62, 1
+  %61 = zext nneg i32 %.pre-phi26.i62 to i64
   %62 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %61
   store i8 -1, ptr %62, align 1
-  %63 = add i32 %.pre-phi26.i62, 2
-  %64 = zext i32 %60 to i64
+  %63 = add nuw nsw i32 %.pre-phi26.i62, 2
+  %64 = zext nneg i32 %60 to i64
   %65 = getelementptr inbounds nuw [11 x i8], ptr %5, i64 0, i64 %64
   store i8 -1, ptr %65, align 1
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %67 = zext i32 %63 to i64
+  %67 = zext nneg i32 %63 to i64
   %68 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %66, ptr noundef nonnull %5, i64 noundef %67) #4
   %.not43 = icmp eq i32 %68, 0
   br i1 %.not43, label %69, label %.critedge48

@@ -109,7 +109,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %11 = select i1 %10, i32 1, i32 3
   %12 = tail call fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef 0, i32 noundef %11)
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread6.sink.split, label %14
+  br i1 %13, label %.thread.sink.split, label %14
 
 14:                                               ; preds = %8
   %15 = and i32 %1, 1
@@ -134,7 +134,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %30 = getelementptr i8, ptr %12, i64 7
   tail call void asm sideeffect "movb $0,$1", "q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %29, ptr elementtype(i8) %30) #13, !srcloc !5
   %31 = icmp eq i32 %3, 0
-  br i1 %31, label %.thread6, label %32
+  br i1 %31, label %.thread, label %32
 
 32:                                               ; preds = %14
   %33 = getelementptr i8, ptr %12, i64 8
@@ -148,11 +148,11 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %38 = add i32 %36, -1
   %39 = getelementptr i8, ptr %35, i64 1
   %40 = icmp eq i32 %38, 0
-  br i1 %40, label %.thread6, label %34, !llvm.loop !7
+  br i1 %40, label %.thread, label %34, !llvm.loop !7
 
 41:                                               ; preds = %5
   %42 = icmp ugt i32 %2, 512
-  br i1 %42, label %.thread6.sink.split, label %43
+  br i1 %42, label %.thread.sink.split, label %43
 
 43:                                               ; preds = %41
   %44 = load i32, ptr @cis_width, align 4
@@ -164,7 +164,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %50 = select i1 %47, i32 %48, i32 %46
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %52 = icmp eq i32 %3, 0
-  br i1 %52, label %.thread6, label %53
+  br i1 %52, label %.thread, label %53
 
 53:                                               ; preds = %43
   %54 = zext i1 %47 to i32
@@ -181,7 +181,7 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %63 = phi i32 [ 0, %.loopexit ], [ %55, %53 ]
   %64 = tail call fastcc ptr @set_cis_map(ptr noundef %0, i32 noundef %60, i32 noundef %50)
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.thread6.sink.split, label %66
+  br i1 %65, label %.thread.sink.split, label %66
 
 66:                                               ; preds = %59
   %67 = load i32, ptr %51, align 4
@@ -221,16 +221,16 @@ define dso_local noundef range(i32 -1, 1) i32 @pcmcia_read_cis_mem(ptr noundef %
   %89 = phi ptr [ %61, %66 ], [ %82, %.loopexit.loopexit ]
   %90 = add i32 %87, %60
   %91 = icmp eq i32 %88, 0
-  br i1 %91, label %.thread6, label %59, !llvm.loop !11
+  br i1 %91, label %.thread, label %59, !llvm.loop !11
 
-.thread6.sink.split:                              ; preds = %59, %41, %8
-  %.sink19 = phi i32 [ %3, %8 ], [ %3, %41 ], [ %62, %59 ]
-  %92 = zext i32 %.sink19 to i64
+.thread.sink.split:                               ; preds = %59, %41, %8
+  %.sink18 = phi i32 [ %3, %8 ], [ %3, %41 ], [ %62, %59 ]
+  %92 = zext i32 %.sink18 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %4, i8 -1, i64 %92, i1 false)
-  br label %.thread6
+  br label %.thread
 
-.thread6:                                         ; preds = %34, %.loopexit, %.thread6.sink.split, %43, %14
-  %93 = phi i32 [ 0, %14 ], [ 0, %43 ], [ -1, %.thread6.sink.split ], [ 0, %.loopexit ], [ 0, %34 ]
+.thread:                                          ; preds = %34, %.loopexit, %.thread.sink.split, %14, %43
+  %93 = phi i32 [ 0, %43 ], [ 0, %14 ], [ -1, %.thread.sink.split ], [ 0, %.loopexit ], [ 0, %34 ]
   ret i32 %93
 }
 

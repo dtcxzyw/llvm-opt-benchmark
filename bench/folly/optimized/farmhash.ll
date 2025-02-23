@@ -2675,7 +2675,7 @@ _ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit: ; pre
   %336 = add i64 %334, %328
   %337 = add i64 %336, %331
   %storemerge = mul i64 %335, -4348849565147123417
-  %338 = icmp ult i64 %311, %262
+  %338 = icmp samesign ult i64 %311, %262
   br i1 %338, label %310, label %._crit_edge, !llvm.loop !24
 
 339:                                              ; preds = %._crit_edge, %_ZN5folly8external8farmhash10farmhashccL10CityMurmurEPKcmSt4pairImmE.exit

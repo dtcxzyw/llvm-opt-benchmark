@@ -2007,7 +2007,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %14 = load i32, ptr @hf_gsm_a_bssmap_be_cell_id_disc, align 4
   %15 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %14, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0)
   %16 = icmp ult i32 %4, 2
-  br i1 %16, label %65, label %17
+  br i1 %16, label %63, label %17
 
 17:                                               ; preds = %7
   %18 = add i32 %3, 1
@@ -2033,7 +2033,7 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %30 = icmp ne i32 %4, %29
   %31 = icmp ne i16 %24, 0
   %32 = and i1 %31, %30
-  br i1 %32, label %.thread.us, label %.split82.us, !llvm.loop !8
+  br i1 %32, label %.thread.us, label %.split82.us.thread, !llvm.loop !8
 
 .split:                                           ; preds = %17, %42
   %.065 = phi i8 [ %46, %42 ], [ 0, %17 ]
@@ -2066,38 +2066,33 @@ define hidden zeroext i16 @be_cell_id_list(ptr noundef %0, ptr noundef %1, ptr n
   %50 = and i1 %49, %48
   br i1 %50, label %.split, label %.split82.us, !llvm.loop !8
 
-.split82.us:                                      ; preds = %42, %.thread.us
-  %.us-phi = phi i32 [ %29, %.thread.us ], [ %47, %42 ]
-  %.us-phi83 = phi i32 [ %27, %.thread.us ], [ %45, %42 ]
-  %.us-phi84 = phi i8 [ %28, %.thread.us ], [ %46, %42 ]
-  %.us-phi86 = phi i8 [ %.065.us, %.thread.us ], [ %.065, %42 ]
-  %51 = sub i32 %4, %.us-phi
-  br i1 %.not, label %58, label %52
+.split82.us:                                      ; preds = %42
+  %51 = sext i32 %6 to i64
+  %52 = zext i8 %46 to i32
+  %53 = icmp eq i8 %.065, 0
+  %54 = select i1 %53, ptr @.str.137, ptr @.str.138
+  %55 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef %51, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.136, i32 noundef %52, ptr noundef nonnull %54)
+  br label %.split82.us.thread
 
-52:                                               ; preds = %.split82.us
-  %53 = sext i32 %6 to i64
-  %54 = zext i8 %.us-phi84 to i32
-  %55 = icmp eq i8 %.us-phi86, 0
-  %56 = select i1 %55, ptr @.str.137, ptr @.str.138
-  %57 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef %53, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.136, i32 noundef %54, ptr noundef nonnull %56)
-  br label %58
+.split82.us.thread:                               ; preds = %.thread.us, %.split82.us
+  %.us-phi8399 = phi i32 [ %45, %.split82.us ], [ %27, %.thread.us ]
+  %.us-phi98 = phi i32 [ %47, %.split82.us ], [ %29, %.thread.us ]
+  %56 = icmp ugt i32 %4, %.us-phi98
+  br i1 %56, label %57, label %61
 
-58:                                               ; preds = %52, %.split82.us
-  %59 = icmp ugt i32 %4, %.us-phi
-  br i1 %59, label %60, label %63
+57:                                               ; preds = %.split82.us.thread
+  %58 = sub nuw i32 %4, %.us-phi98
+  %59 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi8399, i32 noundef %58)
+  %60 = add i32 %58, %.us-phi8399
+  br label %61
 
-60:                                               ; preds = %58
-  %61 = call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_extraneous_data, ptr noundef %0, i32 noundef %.us-phi83, i32 noundef %51)
-  %62 = add i32 %51, %.us-phi83
+61:                                               ; preds = %57, %.split82.us.thread
+  %.1 = phi i32 [ %60, %57 ], [ %.us-phi8399, %.split82.us.thread ]
+  %62 = sub i32 %.1, %3
   br label %63
 
-63:                                               ; preds = %60, %58
-  %.1 = phi i32 [ %62, %60 ], [ %.us-phi83, %58 ]
-  %64 = sub i32 %.1, %3
-  br label %65
-
-65:                                               ; preds = %7, %63
-  %.066.in = phi i32 [ %64, %63 ], [ %4, %7 ]
+63:                                               ; preds = %7, %61
+  %.066.in = phi i32 [ %62, %61 ], [ %4, %7 ]
   %.066 = trunc i32 %.066.in to i16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #4
   ret i16 %.066

@@ -2733,7 +2733,7 @@ terminate.lpad.i:                                 ; preds = %_ZN5boost10shared_p
 _ZNSt6vectorIN8QuantLib14DefaultProbKeyESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i232, %if.then.i.i.i234
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp145) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp130) #33
-  %inc = add i64 %i.0, 1
+  %inc = add nuw i64 %i.0, 1
   br label %for.cond, !llvm.loop !135
 
 lpad131:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i152, %cond.false.i.i153, %cond.false.i146, %cond.false.i142, %cond.false.i136, %invoke.cont140
@@ -5093,7 +5093,7 @@ terminate.lpad.i:                                 ; preds = %_ZN5boost10shared_p
 _ZNSt6vectorIN8QuantLib14DefaultProbKeyESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i237, %if.then.i.i.i239
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp140) #33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp125) #33
-  %inc = add i64 %i.0, 1
+  %inc = add nuw i64 %i.0, 1
   br label %for.cond, !llvm.loop !146
 
 lpad126:                                          ; preds = %_ZNK5boost10shared_ptrIN8QuantLib4PoolEEptEv.exit.i157, %cond.false.i.i158, %cond.false.i151, %cond.false.i147, %cond.false.i141, %invoke.cont135
@@ -11832,7 +11832,15 @@ while.cond.i:                                     ; preds = %if.then10.i, %while
   %_M_right20.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 24
   %4 = load ptr, ptr %_M_right20.i, align 8, !tbaa !209
   %tobool21.not.i = icmp eq ptr %4, null
-  br i1 %tobool21.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, label %while.cond.i, !llvm.loop !229
+  br i1 %tobool21.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !229
+
+while.end.i:                                      ; preds = %while.cond.i
+  %_M_left26.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
+  %5 = load ptr, ptr %_M_left26.i, align 8, !tbaa !210
+  %tobool27.not.i = icmp eq ptr %5, null
+  %spec.store.select.i = select i1 %tobool27.not.i, ptr %storemerge.i, ptr %5
+  store ptr %spec.store.select.i, ptr %_M_nodes.i, align 8
+  br label %if.then
 
 if.else.i:                                        ; preds = %if.then8.i
   %_M_left35.i = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11843,15 +11851,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8, !tbaa !220
   br label %if.then
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit: ; preds = %while.cond.i
-  %_M_left26.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
-  %5 = load ptr, ptr %_M_left26.i, align 8, !tbaa !210
-  %tobool27.not.i = icmp eq ptr %5, null
-  %spec.store.select.i = select i1 %tobool27.not.i, ptr %storemerge.i, ptr %5
-  store ptr %spec.store.select.i, ptr %_M_nodes.i, align 8
-  br label %if.then
-
-if.then:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.else.i, %if.else37.i
   %_M_t = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64

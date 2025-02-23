@@ -337,27 +337,27 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %190 = sext i32 %189 to i64
   %191 = getelementptr double, ptr %36, i64 %190
   %. = select i1 %188, i64 8, i64 16
-  %.958 = select i1 %188, i64 24, i64 32
-  %.959 = select i1 %188, i64 32, i64 24
-  %.961 = select i1 %188, ptr %23, ptr %166
+  %.959 = select i1 %188, i64 24, i64 32
+  %.960 = select i1 %188, i64 32, i64 24
+  %.962 = select i1 %188, ptr %23, ptr %166
   %192 = getelementptr i8, ptr %191, i64 %.
   %193 = load double, ptr %192, align 8, !tbaa !7
   store double %193, ptr %18, align 8, !tbaa !7
-  %194 = getelementptr i8, ptr %191, i64 %.958
-  %195 = getelementptr i8, ptr %191, i64 %.959
+  %194 = getelementptr i8, ptr %191, i64 %.959
+  %195 = getelementptr i8, ptr %191, i64 %.960
   %.0602 = load double, ptr %194, align 8, !tbaa !7
-  %.0604 = load i32, ptr %.961, align 4, !tbaa !3
+  %.0604 = load i32, ptr %.962, align 4, !tbaa !3
   %.sink = load double, ptr %195, align 8, !tbaa !7
   store double %.sink, ptr %19, align 8, !tbaa !7
   %196 = icmp slt i32 %.0604, 0
   br i1 %196, label %203, label %197
 
 197:                                              ; preds = %185
-  %.960 = select i1 %188, i64 16, i64 8
-  %198 = getelementptr i8, ptr %191, i64 %.960
-  %.962 = select i1 %188, ptr %172, ptr %169
+  %.961 = select i1 %188, i64 16, i64 8
+  %198 = getelementptr i8, ptr %191, i64 %.961
+  %.963 = select i1 %188, ptr %172, ptr %169
   %.0600 = load double, ptr %198, align 8, !tbaa !7
-  %.0598 = load i32, ptr %.962, align 4, !tbaa !3
+  %.0598 = load i32, ptr %.963, align 4, !tbaa !3
   %199 = icmp sge i32 %.0604, %189
   %200 = icmp slt i32 %.0598, 1
   %201 = icmp sgt i32 %.0598, %189
@@ -370,10 +370,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.critedge.thread
 
 204:                                              ; preds = %._crit_edge
-  switch i32 %.1622, label %209 [
-    i32 2, label %205
-    i32 1, label %208
-  ]
+  %switch = icmp eq i32 %.1622, 2
+  br i1 %switch, label %205, label %208
 
 205:                                              ; preds = %204
   %206 = load double, ptr %3, align 8, !tbaa !7
@@ -386,13 +384,13 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %208, %205
-  %.sink956 = phi double [ %207, %205 ], [ %144, %208 ]
-  store double %.sink956, ptr %19, align 8, !tbaa !7
+  %.sink957 = phi double [ %207, %205 ], [ %144, %208 ]
+  store double %.sink957, ptr %19, align 8, !tbaa !7
   br label %209
 
-209:                                              ; preds = %.sink.split, %204, %197
-  %.1603 = phi double [ %.0602, %197 ], [ undef, %204 ], [ undef, %.sink.split ]
-  %.1601 = phi double [ %.0600, %197 ], [ undef, %204 ], [ undef, %.sink.split ]
+209:                                              ; preds = %.sink.split, %197
+  %.1603 = phi double [ %.0602, %197 ], [ undef, %.sink.split ]
+  %.1601 = phi double [ %.0600, %197 ], [ undef, %.sink.split ]
   store i32 0, ptr %15, align 4, !tbaa !3
   store i32 0, ptr %24, align 4, !tbaa !3
   %210 = load i32, ptr %13, align 4, !tbaa !3
@@ -400,7 +398,7 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not684787, label %._crit_edge795, label %.lr.ph794
 
 .lr.ph794:                                        ; preds = %209
-  %211 = icmp sgt i32 %.1622, 1
+  %211 = icmp samesign ugt i32 %.1622, 1
   %212 = icmp eq i32 %.1622, 1
   %213 = add nuw i32 %210, 1
   %wide.trip.count884 = zext i32 %213 to i64
@@ -1154,8 +1152,8 @@ define void @dlarrd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %exitcond931.not, label %.loopexit, label %.lr.ph859, !llvm.loop !24
 
 .loopexit:                                        ; preds = %._crit_edge853.thread, %530, %527, %.thread732
-  %spec.store.select957 = select i1 %.1610, i32 0, i32 2
-  store i32 %spec.store.select957, ptr %24, align 4
+  %spec.store.select958 = select i1 %.1610, i32 0, i32 2
+  store i32 %spec.store.select958, ptr %24, align 4
   br label %.critedge.thread
 
 default.unreachable:                              ; preds = %97

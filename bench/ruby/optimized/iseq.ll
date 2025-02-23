@@ -3753,10 +3753,10 @@ iseq_load.exit:                                   ; preds = %154, %156
   %160 = select i1 %.not, ptr null, ptr %159
   %161 = trunc i64 %.0.i70.i to i32
   %162 = trunc i64 %.0.i107.i to i32
-  call fastcc void @prepare_iseq_build(ptr noundef %8, i64 noundef %29, i64 noundef %31, i64 noundef %37, i32 noundef %161, ptr noundef nonnull %6, i32 noundef %162, ptr noundef %160, i32 noundef 0, i32 noundef %.0.i71.ph.i, i64 noundef 4, ptr noundef nonnull %5)
-  call void @rb_iseq_build_from_ary(ptr noundef %8, i64 noundef %27, i64 noundef %47, i64 noundef %49, i64 noundef %51, i64 noundef %53) #20
-  call fastcc void @finish_iseq_build(ptr noundef %8)
-  %163 = call fastcc i64 @iseqw_new(ptr noundef %8)
+  call fastcc void @prepare_iseq_build(ptr noundef nonnull %8, i64 noundef %29, i64 noundef %31, i64 noundef %37, i32 noundef %161, ptr noundef nonnull %6, i32 noundef %162, ptr noundef %160, i32 noundef 0, i32 noundef %.0.i71.ph.i, i64 noundef 4, ptr noundef nonnull %5)
+  call void @rb_iseq_build_from_ary(ptr noundef nonnull %8, i64 noundef %27, i64 noundef %47, i64 noundef %49, i64 noundef %51, i64 noundef %53) #20
+  call fastcc void @finish_iseq_build(ptr noundef nonnull %8)
+  %163 = call fastcc i64 @iseqw_new(ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret i64 %163
@@ -11885,7 +11885,7 @@ rb_array_len.exit528:                             ; preds = %535
 rb_array_len.exit528.thread:                      ; preds = %535
   %543 = lshr i64 %538, 15
   %544 = and i64 %543, 127
-  %545 = icmp slt i64 %.0338, %544
+  %545 = icmp samesign ult i64 %.0338, %544
   br i1 %545, label %.thread656, label %694
 
 .thread656:                                       ; preds = %rb_array_len.exit528.thread
@@ -12229,7 +12229,7 @@ RARRAY_LENINT.exit:                               ; preds = %rb_array_len.exit.i
   %691 = trunc i64 %.0.i.i580 to i32
   %692 = add i32 %.0341, %691
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  %693 = add i64 %.0338, 1
+  %693 = add nuw nsw i64 %.0338, 1
   %.pre837 = load i64, ptr %2, align 8, !tbaa !42
   br label %535, !llvm.loop !397
 

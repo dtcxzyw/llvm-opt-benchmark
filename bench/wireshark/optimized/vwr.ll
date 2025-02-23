@@ -285,9 +285,9 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   %137 = add nuw nsw i32 %136, 48
   %138 = add nuw nsw i32 %137, %129
   %139 = icmp eq i32 %.0.i.i, %138
-  br i1 %139, label %.thread138.i, label %140
+  br i1 %139, label %.thread138.i, label %decode_msg.exit.thread.i
 
-140:                                              ; preds = %133, %120
+140:                                              ; preds = %120
   br i1 %121, label %decode_msg.exit.thread.i, label %.thread138.split.loop.exit151.i
 
 .thread138.split.loop.exit151.i:                  ; preds = %140
@@ -302,8 +302,8 @@ decode_msg.exit.i:                                ; preds = %32, %31, %23, %23, 
   call void @g_free(ptr noundef %12)
   br i1 %145, label %vwr_get_fpga_version.exit.thread, label %vwr_get_fpga_version.exit
 
-decode_msg.exit.thread.i:                         ; preds = %140, %43, %decode_msg.exit.i, %23
-  %.1.i = phi i1 [ %.0.i, %140 ], [ %.0.i, %decode_msg.exit.i ], [ %.0.i, %23 ], [ true, %43 ]
+decode_msg.exit.thread.i:                         ; preds = %140, %133, %43, %decode_msg.exit.i, %23
+  %.1.i = phi i1 [ %.0.i, %140 ], [ %.0.i, %decode_msg.exit.i ], [ %.0.i, %23 ], [ true, %43 ], [ %.0.i, %133 ]
   %146 = add nuw nsw i64 %.0102.i, 16
   %147 = icmp samesign ugt i64 %.0102.i, 1073741807
   br i1 %147, label %vwr_get_fpga_version.exit.thread46, label %20, !llvm.loop !11
@@ -2633,31 +2633,28 @@ get_signature_ts.exit.i43:                        ; preds = %785, %783, %find_si
   %.1728.i = phi i8 [ %narrow.i62, %1039 ], [ %1038, %1033 ], [ 0, %1031 ], [ 0, %1021 ]
   %.1702.i = phi i32 [ 1, %1039 ], [ 0, %1033 ], [ 0, %1031 ], [ 0, %1021 ]
   %1044 = icmp eq i32 %4, 1
-  br i1 %1044, label %.split.us.i, label %.split.preheader.i
-
-.split.preheader.i:                               ; preds = %1043
-  %scevgep.i = getelementptr i8, ptr %1023, i64 4
-  %1045 = load i32, ptr %scevgep.i, align 1
-  store i32 %1045, ptr %9, align 4
-  br label %.split973.us.i
+  br i1 %1044, label %.split.us.i, label %.split973.us.i
 
 .split.us.i:                                      ; preds = %1043, %.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.split.us.i ], [ 0, %1043 ]
-  %1046 = or disjoint i64 %indvars.iv.i, 4
-  %1047 = getelementptr i8, ptr %1023, i64 %1046
-  %1048 = load i8, ptr %1047, align 1
-  %1049 = and i8 %1048, 127
-  %1050 = sub nsw i8 0, %1049
-  %.not762955.us.i = icmp slt i8 %1048, 0
-  %1051 = select i1 %.not762955.us.i, i8 %1050, i8 %1048
-  %1052 = getelementptr [4 x i8], ptr %9, i64 0, i64 %indvars.iv.i
-  store i8 %1051, ptr %1052, align 1
+  %1045 = or disjoint i64 %indvars.iv.i, 4
+  %1046 = getelementptr i8, ptr %1023, i64 %1045
+  %1047 = load i8, ptr %1046, align 1
+  %1048 = and i8 %1047, 127
+  %1049 = sub nsw i8 0, %1048
+  %.not762955.us.i = icmp slt i8 %1047, 0
+  %1050 = select i1 %.not762955.us.i, i8 %1049, i8 %1047
+  %1051 = getelementptr [4 x i8], ptr %9, i64 0, i64 %indvars.iv.i
+  store i8 %1050, ptr %1051, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %.split973.us.i, label %.split.us.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.split973.us.thread.i, label %.split.us.i, !llvm.loop !13
 
-.split973.us.i:                                   ; preds = %.split.us.i, %.split.preheader.i
-  switch i32 %4, label %._crit_edge.i [
+.split973.us.i:                                   ; preds = %1043
+  %scevgep.i = getelementptr i8, ptr %1023, i64 4
+  %1052 = load i32, ptr %scevgep.i, align 1
+  store i32 %1052, ptr %9, align 4
+  switch i32 %4, label %.split973.us.thread.i [
     i32 4, label %1053
     i32 0, label %1053
   ]
@@ -2665,10 +2662,10 @@ get_signature_ts.exit.i43:                        ; preds = %785, %783, %find_si
 1053:                                             ; preds = %.split973.us.i, %.split973.us.i
   %1054 = getelementptr i8, ptr %1023, i64 8
   %1055 = load i8, ptr %1054, align 1
-  br label %._crit_edge.i
+  br label %.split973.us.thread.i
 
-._crit_edge.i:                                    ; preds = %1053, %.split973.us.i
-  %.1708.i = phi i8 [ %1055, %1053 ], [ 0, %.split973.us.i ]
+.split973.us.thread.i:                            ; preds = %.split.us.i, %1053, %.split973.us.i
+  %.1708.i = phi i8 [ %1055, %1053 ], [ 0, %.split973.us.i ], [ 0, %.split.us.i ]
   %1056 = getelementptr i8, ptr %1023, i64 9
   %1057 = load i8, ptr %1056, align 1
   %1058 = zext i8 %1057 to i32
@@ -2693,13 +2690,13 @@ get_signature_ts.exit.i43:                        ; preds = %785, %783, %find_si
   %1075 = icmp ugt i32 %.1731.i, %1074
   br i1 %1075, label %1076, label %1078
 
-1076:                                             ; preds = %._crit_edge.i
+1076:                                             ; preds = %.split973.us.thread.i
   %1077 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %.1731.i)
   store ptr %1077, ptr %7, align 8
   store i32 -13, ptr %6, align 4
   br label %vwr_read_s3_W_rec.exit
 
-1078:                                             ; preds = %._crit_edge.i
+1078:                                             ; preds = %.split973.us.thread.i
   %1079 = getelementptr i8, ptr %1026, i64 32
   %1080 = load i8, ptr %1079, align 1
   %1081 = getelementptr i8, ptr %1026, i64 33

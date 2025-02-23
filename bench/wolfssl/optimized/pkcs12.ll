@@ -2671,7 +2671,7 @@ ForceZero.exit93:                                 ; preds = %.lr.ph29.i84
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %55
-  %59 = call i32 @wc_HmacUpdate(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %2) #9
+  %59 = call i32 @wc_HmacUpdate(ptr noundef nonnull %7, ptr noundef nonnull %1, i32 noundef %2) #9
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %.thread
 

@@ -808,7 +808,7 @@ define dso_local void @GenerationStats(ptr noundef %0, ptr noundef readonly %1, 
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #15
   %33 = sub i64 %.039.lcssa, %.040.lcssa
   %34 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.039.lcssa, i64 noundef %.0.lcssa, i64 noundef %.037.lcssa, i64 noundef %.040.lcssa, i64 noundef %.038.lcssa, i64 noundef %33) #15
-  call void %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #15
+  call void %1(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #15
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #15
   br label %35
 

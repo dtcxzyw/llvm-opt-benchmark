@@ -796,8 +796,8 @@ _ZN5Block9dominatesEPS_.exit323:                  ; preds = %.lr.ph.i319, %.preh
   br i1 %421, label %428, label %_ZN5Block9dominatesEPS_.exit323.thread
 
 _ZN5Block9dominatesEPS_.exit323.thread:           ; preds = %401, %_ZN5Block9dominatesEPS_.exit323
-  call void @_ZN5Block11find_removeEPK4Node(ptr noundef nonnull align 8 dereferenceable(144) %411, ptr noundef %405) #8
-  call void @_ZN5Block8add_instEP4Node(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %405)
+  call void @_ZN5Block11find_removeEPK4Node(ptr noundef nonnull align 8 dereferenceable(144) %411, ptr noundef nonnull %405) #8
+  call void @_ZN5Block8add_instEP4Node(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull %405)
   %422 = load i32, ptr %406, align 8
   %423 = load i32, ptr %400, align 8
   %.not.i.i324 = icmp ult i32 %422, %423
@@ -3265,15 +3265,15 @@ _ZN8PhaseCFG17map_node_to_blockEPK4NodeP5Block.exit: ; preds = %188, %193
   %238 = add i32 %.012.i61, 1
   %239 = load i32, ptr %224, align 4
   %.not.i62 = icmp ugt i32 %238, %239
-  br i1 %.not.i62, label %_ZN7RegMask2ORERKS_.exit63, label %.lr.ph.i60, !llvm.loop !31
+  br i1 %.not.i62, label %_ZN7RegMask2ORERKS_.exit63.thread, label %.lr.ph.i60, !llvm.loop !31
 
-_ZN7RegMask2ORERKS_.exit63.thread:                ; preds = %230, %210
+_ZN7RegMask2ORERKS_.exit63.thread:                ; preds = %.lr.ph.i60, %230, %210
   %240 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 156
   %241 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 152
   br label %.split.i.preheader
 
-_ZN7RegMask2ORERKS_.exit63:                       ; preds = %.lr.ph.i60, %.thread, %206
-  %.05170 = phi ptr [ %.05169, %.thread ], [ %.051, %206 ], [ %.051, %.lr.ph.i60 ]
+_ZN7RegMask2ORERKS_.exit63:                       ; preds = %.thread, %206
+  %.05170 = phi ptr [ %.05169, %.thread ], [ %.051, %206 ]
   %242 = icmp eq i32 %151, 51
   %243 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
   %244 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 156

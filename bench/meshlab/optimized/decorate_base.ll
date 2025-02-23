@@ -10921,7 +10921,7 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   %.sroa.0.4.vec.insert17.i = insertelement <2 x float> %.sroa.0.0.vec.insert12.i, float %.sroa.speculated.i.i.i, i64 1
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.016.033.i.i, i64 48
   %.not27.i.i = icmp eq ptr %127, %101
-  br i1 %.not27.i.i, label %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit, label %.lr.ph34.i.i, !llvm.loop !191
+  br i1 %.not27.i.i, label %.lr.ph1063, label %.lr.ph34.i.i, !llvm.loop !191
 
 .lr.ph.i.i:                                       ; preds = %.preheader28.i.i, %150
   %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.1.i, %150 ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader28.i.i ]
@@ -10974,14 +10974,14 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %90, %_ZN9QtPrivate8
   %.not.i.i239 = icmp eq ptr %151, %101
   br i1 %.not.i.i239, label %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit, label %.lr.ph.i.i, !llvm.loop !192
 
-_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit: ; preds = %150, %.lr.ph34.i.i
-  %.sroa.0.3.i = phi <2 x float> [ %.sroa.0.4.vec.insert17.i, %.lr.ph34.i.i ], [ %.sroa.0.1.i, %150 ]
-  %.sroa.020.3.i = phi <2 x float> [ %.sroa.020.4.vec.insert31.i, %.lr.ph34.i.i ], [ %.sroa.020.1.i, %150 ]
-  %.sroa.0137.4.vec.extract = extractelement <2 x float> %.sroa.020.3.i, i64 1
-  %.sroa.2138.12.vec.extract = extractelement <2 x float> %.sroa.0.3.i, i64 1
-  br i1 %.not2732.i.i, label %_ZN7QStringD2Ev.exit494, label %.lr.ph1063
+_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit: ; preds = %150
+  %.sroa.0137.4.vec.extract = extractelement <2 x float> %.sroa.020.1.i, i64 1
+  %.sroa.2138.12.vec.extract = extractelement <2 x float> %.sroa.0.1.i, i64 1
+  br label %.lr.ph1063
 
-.lr.ph1063:                                       ; preds = %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit
+.lr.ph1063:                                       ; preds = %.lr.ph34.i.i, %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit
+  %.sroa.2138.12.vec.extract1110 = phi float [ %.sroa.2138.12.vec.extract, %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit ], [ %.sroa.speculated.i.i.i, %.lr.ph34.i.i ]
+  %.sroa.0137.4.vec.extract1109 = phi float [ %.sroa.0137.4.vec.extract, %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit ], [ %.sroa.speculated13.i.i.i, %.lr.ph34.i.i ]
   %152 = getelementptr inbounds nuw i8, ptr %47, i64 16
   br label %153
 
@@ -11088,13 +11088,13 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %194 = ashr exact i64 %sext.i, 27
   %195 = getelementptr inbounds i8, ptr %193, i64 %194
   %196 = load float, ptr %195, align 4
-  %197 = fmul float %.sroa.0137.4.vec.extract, %196
+  %197 = fmul float %.sroa.0137.4.vec.extract1109, %196
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %199 = load float, ptr %198, align 4
-  %200 = fmul float %.sroa.0137.4.vec.extract, %199
+  %200 = fmul float %.sroa.0137.4.vec.extract1109, %199
   %201 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %202 = load float, ptr %201, align 4
-  %203 = fmul float %.sroa.0137.4.vec.extract, %202
+  %203 = fmul float %.sroa.0137.4.vec.extract1109, %202
   %204 = fmul float %84, %197
   %205 = fmul float %84, %200
   %206 = fmul float %84, %203
@@ -11276,13 +11276,13 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exi
   %275 = getelementptr inbounds i8, ptr %273, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 12
   %277 = load float, ptr %276, align 4
-  %278 = fmul float %.sroa.2138.12.vec.extract, %277
+  %278 = fmul float %.sroa.2138.12.vec.extract1110, %277
   %279 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %280 = load float, ptr %279, align 4
-  %281 = fmul float %.sroa.2138.12.vec.extract, %280
+  %281 = fmul float %.sroa.2138.12.vec.extract1110, %280
   %282 = getelementptr inbounds nuw i8, ptr %275, i64 20
   %283 = load float, ptr %282, align 4
-  %284 = fmul float %.sroa.2138.12.vec.extract, %283
+  %284 = fmul float %.sroa.2138.12.vec.extract1110, %283
   %285 = fmul float %84, %278
   %286 = fmul float %84, %281
   %287 = fmul float %84, %284
@@ -11841,7 +11841,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i489: ; preds = %_ZN9QtPrivate8RefCo
   call void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef %517, i64 noundef 2, i64 noundef 8) #29
   br label %_ZN7QStringD2Ev.exit494
 
-_ZN7QStringD2Ev.exit494:                          ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit488, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit349, %.preheader.i.i, %.preheader28.i.i, %333, %_ZN3vcg3tri4StatI6CMeshOE34ComputePerVertexCurvatureDirMinMaxERKS2_.exit, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i489, %_ZN9QtPrivate8RefCount5derefEv.exit.i490, %.critedge, %_ZN7QStringD2Ev.exit238
+_ZN7QStringD2Ev.exit494:                          ; preds = %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit488, %_ZNSt6vectorISt4pairIN3vcg6Point3IfEENS1_6Color4IhEEESaIS6_EE9push_backEOS6_.exit349, %.preheader.i.i, %.preheader28.i.i, %333, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i489, %_ZN9QtPrivate8RefCount5derefEv.exit.i490, %.critedge, %_ZN7QStringD2Ev.exit238
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
   %518 = call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.92, i32 noundef 41), !noalias !228
   store ptr %518, ptr %11, align 8, !alias.scope !228

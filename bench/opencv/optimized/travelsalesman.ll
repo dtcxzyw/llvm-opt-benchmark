@@ -956,7 +956,6 @@ define linkonce_odr hidden noundef i32 @_ZN2cv2ml24simulatedAnnealingSolverI14Tr
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %4, i64 1)
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %199
@@ -1132,7 +1131,7 @@ _ZNK14TravelSalesman6energyEv.exit74:             ; preds = %139, %_ZN14TravelSa
   %.244 = phi double [ %.06.lcssa.i73, %156 ], [ %.06.lcssa.i73, %178 ], [ %.14376, %180 ]
   %.241 = phi i32 [ %157, %156 ], [ %179, %178 ], [ %.14077, %180 ]
   %198 = add nuw i64 %.03878, 1
-  %exitcond.not = icmp eq i64 %198, %umax
+  %exitcond.not = icmp eq i64 %198, %4
   br i1 %exitcond.not, label %199, label %83, !llvm.loop !10
 
 199:                                              ; preds = %197

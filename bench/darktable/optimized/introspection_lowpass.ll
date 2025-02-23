@@ -386,7 +386,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .thread:                                          ; preds = %41
   %43 = load i32, ptr %9, align 4, !tbaa !60
   %44 = sext i32 %43 to i64
-  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %44, ptr noundef %4, ptr noundef %5) #20
+  call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %44, ptr noundef nonnull %4, ptr noundef %5) #20
   br label %.loopexit
 
 45:                                               ; preds = %41
@@ -402,7 +402,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .thread137:                                       ; preds = %46
   %48 = load i32, ptr %9, align 4, !tbaa !60
   %49 = sext i32 %48 to i64
-  tail call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %49, ptr noundef %4, ptr noundef %5) #20
+  tail call void @dt_iop_copy_image_roi(ptr noundef %3, ptr noundef %2, i64 noundef %49, ptr noundef nonnull %4, ptr noundef %5) #20
   br label %.loopexit
 
 50:                                               ; preds = %46

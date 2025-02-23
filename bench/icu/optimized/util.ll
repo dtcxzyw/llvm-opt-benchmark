@@ -537,12 +537,12 @@ while.body:                                       ; preds = %if.end5, %while.bod
   %div = udiv i32 %nn.029, %radix
   %mul = mul nuw nsw i32 %r.030, %radix
   %dec = add nsw i32 %minDigits.addr.028, -1
-  %cmp6.not = icmp slt i32 %div, %radix
+  %cmp6.not = icmp samesign ult i32 %div, %radix
   br i1 %cmp6.not, label %while.cond7.preheader, label %while.body, !llvm.loop !4
 
 while.cond13.preheader:                           ; preds = %while.body10, %while.cond7.preheader
-  %cmp1434 = icmp sgt i32 %r.0.lcssa, 0
-  br i1 %cmp1434, label %while.body15, label %return
+  %cmp1434.not = icmp eq i32 %r.0.lcssa, 0
+  br i1 %cmp1434.not, label %return, label %while.body15
 
 while.body10:                                     ; preds = %while.cond7.preheader, %while.body10
   %minDigits.addr.133 = phi i32 [ %dec8, %while.body10 ], [ %minDigits.addr.0.lcssa, %while.cond7.preheader ]

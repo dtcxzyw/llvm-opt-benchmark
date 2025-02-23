@@ -716,7 +716,7 @@ define dso_local void @onig_vsnprintf_with_pattern(ptr noundef %0, i32 noundef %
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph99
   %.3.lcssa = phi ptr [ %.298, %.lr.ph99 ], [ %57, %.lr.ph ]
-  %46 = icmp sgt i32 %.in, 1
+  %46 = icmp samesign ugt i32 %.in, 1
   br i1 %46, label %.lr.ph99, label %.loopexit89, !llvm.loop !31
 
 .lr.ph99:                                         ; preds = %.preheader92, %.loopexit

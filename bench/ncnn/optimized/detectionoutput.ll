@@ -773,9 +773,9 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc230
   store float %331, ptr %332, align 4
   %333 = add nuw i64 %.03561.i, 1
   %exitcond.not.i = icmp eq i64 %333, %umax.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !7
+  br i1 %exitcond.not.i, label %.lr.ph70.i, label %.lr.ph.i, !llvm.loop !7
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+.lr.ph70.i:                                       ; preds = %.lr.ph.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
   %.sroa.14.2 = phi ptr [ %.sroa.14.3, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
   %.sroa.8.2 = phi ptr [ %.sroa.8.3, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
   %.sroa.0325.2 = phi ptr [ %.sroa.0325.3, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
@@ -790,7 +790,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc230
   %341 = icmp sgt i32 %340, 0
   br i1 %341, label %.lr.ph64.i, label %._crit_edge.thread.i
 
-.lr.ph64.i:                                       ; preds = %.preheader.i
+.lr.ph64.i:                                       ; preds = %.lr.ph70.i
   %342 = getelementptr inbounds %"struct.ncnn::BBoxRect", ptr %335, i64 %storemerge69.i
   %343 = load float, ptr %342, align 4
   %344 = getelementptr inbounds nuw i8, ptr %342, i64 8
@@ -873,7 +873,7 @@ _ZN4ncnnL17intersection_areaERKNS_8BBoxRectES2_.exit.i: ; preds = %370, %365, %3
   %388 = icmp eq i32 %.1.i, 0
   br i1 %388, label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.lr.ph70.i
   %.not.i.i228 = icmp eq ptr %334, %.sroa.14.2
   br i1 %.not.i.i228, label %391, label %389
 
@@ -935,7 +935,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZNSt6vectorImSaImE
   %406 = phi ptr [ %334, %._crit_edge.i ], [ %403, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %390, %389 ]
   %407 = add nuw i64 %storemerge69.i, 1
   %exitcond77.not.i = icmp eq i64 %407, %umax.i
-  br i1 %exitcond77.not.i, label %_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit, label %.preheader.i, !llvm.loop !9
+  br i1 %exitcond77.not.i, label %_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit, label %.lr.ph70.i, !llvm.loop !9
 
 _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]

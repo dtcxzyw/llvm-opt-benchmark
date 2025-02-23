@@ -14543,7 +14543,7 @@ _ZN5boost7runtime3cla14argv_traverser13current_tokenEv.exit105.thread: ; preds =
   br label %342
 
 342:                                              ; preds = %337, %341
-  %.sroa.0151.2 = phi ptr [ %spec.store.select.i91, %337 ], [ %spec.select, %341 ]
+  %.sroa.0151.2 = phi ptr [ %99, %337 ], [ %spec.select, %341 ]
   %.sroa.13.2 = phi ptr [ %99, %337 ], [ %spec.select525, %341 ]
   %343 = phi i1 [ true, %337 ], [ false, %341 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %37) #31
@@ -41054,7 +41054,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trie
   br label %_ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EED2Ev.exit230
 
 _ZNSt6vectorIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEESaIS6_EE9push_backERKS6_.exit183: ; preds = %.noexc182, %_ZNSt16allocator_traitsISaIN5boost10shared_ptrINS0_7runtime3cla13rt_cla_detail14parameter_trieEEEEE9constructIS6_JRKS6_EEEvRS7_PT_DpOT0_.exit.i181, %_ZN5boost10shared_ptrINS_7runtime3cla13rt_cla_detail14parameter_trieEED2Ev.exit177
-  %232 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0370.0452) #34
+  %232 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0370.0452) #34
   %233 = icmp eq ptr %232, %103
   br i1 %233, label %.critedge2, label %.lr.ph, !llvm.loop !755
 

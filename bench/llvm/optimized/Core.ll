@@ -8965,19 +8965,16 @@ define dso_local ptr @LLVMGetLastGlobal(ptr noundef readonly %0) local_unnamed_a
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !297
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -56
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextGlobal(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !297
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -56
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -9223,19 +9220,16 @@ define dso_local ptr @LLVMGetLastGlobalAlias(ptr noundef readonly %0) local_unna
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !297
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -48
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextGlobalAlias(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !297
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -48
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -9352,19 +9346,16 @@ define dso_local ptr @LLVMGetLastFunction(ptr noundef readonly %0) local_unnamed
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !297
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -56
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextFunction(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !297
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -56
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -10156,19 +10147,16 @@ define dso_local ptr @LLVMGetLastGlobalIFunc(ptr noundef readonly %0) local_unna
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !297
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -56
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextGlobalIFunc(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !297
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -56
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -10582,19 +10570,16 @@ define dso_local ptr @LLVMGetLastBasicBlock(ptr noundef readonly %0) local_unnam
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !153
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %7 = load ptr, ptr %6, align 8, !tbaa !329
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -24
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextBasicBlock(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !153
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %5 = load ptr, ptr %4, align 8, !tbaa !329
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -24
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -10888,19 +10873,16 @@ define dso_local ptr @LLVMGetLastInstruction(ptr noundef readonly %0) local_unna
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly %0) local_unnamed_addr #15 {
-  %2 = icmp eq ptr %0, null
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %spec.select.i.i.i = select i1 %2, ptr null, ptr %3
-  %4 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 8
-  %5 = load ptr, ptr %4, align 8, !tbaa !359
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %7 = load ptr, ptr %6, align 8, !tbaa !358
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  %9 = icmp eq ptr %5, %8
-  %10 = getelementptr inbounds i8, ptr %5, i64 -24
-  %spec.select = select i1 %9, ptr null, ptr %10
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local ptr @LLVMGetNextInstruction(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %3 = load ptr, ptr %2, align 8, !tbaa !359
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %5 = load ptr, ptr %4, align 8, !tbaa !358
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %7 = icmp eq ptr %3, %6
+  %8 = getelementptr inbounds i8, ptr %3, i64 -24
+  %spec.select = select i1 %7, ptr null, ptr %8
   ret ptr %spec.select
 }
 
@@ -18140,7 +18122,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase17CreatePointerCa
 9:                                                ; preds = %4
   %10 = load i8, ptr %1, align 8, !tbaa !207
   %11 = icmp ult i8 %10, 22
-  br i1 %11, label %12, label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18
+  br i1 %11, label %12, label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -18182,7 +18164,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm13IRBuilderBase17CreatePointerCa
   %.not.i.i.i = icmp eq ptr %36, %32
   br i1 %.not.i.i.i, label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread, label %.lr.ph.i.i.i
 
-_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18: ; preds = %9
+_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #35
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i16 257, ptr %37, align 8
@@ -18205,8 +18187,8 @@ _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18: ; preds =
   %.not10.i.i = icmp eq i32 %47, 0
   br i1 %.not10.i.i, label %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18, %.lr.ph.i.i
-  %.011.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %45, %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18 ]
+.lr.ph.i.i:                                       ; preds = %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit, %.lr.ph.i.i
+  %.011.i.i = phi ptr [ %53, %.lr.ph.i.i ], [ %45, %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit ]
   %50 = load i32, ptr %.011.i.i, align 8, !tbaa !223
   %51 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !228
@@ -18215,7 +18197,7 @@ _ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18: ; preds =
   %.not.i.i = icmp eq ptr %53, %49
   br i1 %.not.i.i, label %_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit, label %.lr.ph.i.i
 
-_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds = %.lr.ph.i.i, %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread18
+_ZNK4llvm13IRBuilderBase6InsertINS_8CastInstEEEPT_S4_RKNS_5TwineE.exit: ; preds = %.lr.ph.i.i, %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #35
   br label %_ZNK4llvm13IRBuilderBase6InsertEPNS_5ValueERKNS_5TwineE.exit.thread
 

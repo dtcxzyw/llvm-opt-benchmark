@@ -1329,7 +1329,7 @@ _ZL5clenSPKdiddddPdS1_.exit:                      ; preds = %41
   br label %70
 
 68:                                               ; preds = %_ZL5clenSPKdiddddPdS1_.exit
-  %69 = tail call i32 @proj_errno_set(ptr noundef %2, i32 noundef 2050)
+  %69 = tail call i32 @proj_errno_set(ptr noundef nonnull %2, i32 noundef 2050)
   br label %70
 
 70:                                               ; preds = %68, %57

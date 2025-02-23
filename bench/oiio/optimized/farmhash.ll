@@ -1817,7 +1817,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add6.i.i123 = add i64 %cond.i.i10.i.i121, %add.i.i115
   %add9.i.i124 = add i64 %add6.i.i123, %cond.i.i.i.i118
   %storemerge = mul i64 %add7.i.i122, -4348849565147123417
-  %cmp124 = icmp ult i64 %add125, %sub
+  %cmp124 = icmp samesign ult i64 %add125, %sub
   br i1 %cmp124, label %for.body, label %for.end, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %do.end

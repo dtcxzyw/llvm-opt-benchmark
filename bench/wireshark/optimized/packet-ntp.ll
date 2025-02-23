@@ -1968,7 +1968,7 @@ proto_item_set_generated.exit:                    ; preds = %53, %50, %47, %4, %
   br label %216
 
 216:                                              ; preds = %213, %._crit_edge
-  %217 = add i32 %.0160.lcssa, 4
+  %217 = add nuw i32 %.0160.lcssa, 4
   %218 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %217)
   %.not179 = icmp eq i32 %218, 0
   br i1 %.not179, label %222, label %219

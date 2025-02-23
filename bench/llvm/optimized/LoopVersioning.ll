@@ -954,7 +954,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit35:     ; preds = %_ZN4llvm10BasicBloc
   %spec.select.i.i33 = select i1 %226, ptr %223, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %227 = getelementptr inbounds nuw i8, ptr %spec.select.i.i33, i64 24
-  %228 = getelementptr inbounds nuw i8, ptr %spec.select.i.i33, i64 40
+  %228 = getelementptr inbounds nuw i8, ptr %221, i64 16
   %229 = load ptr, ptr %228, align 8, !tbaa !297
   store ptr %229, ptr %215, align 8, !tbaa !299
   %230 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -1135,7 +1135,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit38:     ; preds = %262, %276
   %spec.select.i.i39 = select i1 %317, ptr %314, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %318 = getelementptr inbounds nuw i8, ptr %spec.select.i.i39, i64 24
-  %319 = getelementptr inbounds nuw i8, ptr %spec.select.i.i39, i64 40
+  %319 = getelementptr inbounds nuw i8, ptr %312, i64 16
   %320 = load ptr, ptr %319, align 8, !tbaa !297
   store ptr %320, ptr %215, align 8, !tbaa !299
   %321 = getelementptr inbounds nuw i8, ptr %14, i64 56

@@ -13286,7 +13286,7 @@ mark_color_as_moved.exit.i:                       ; preds = %1551, %.preheader.i
   br i1 %.not50.i.i, label %1586, label %1582
 
 1582:                                             ; preds = %1581
-  %1583 = getelementptr inbounds nuw i8, ptr %spec.select.i.i182, i64 28
+  %1583 = getelementptr inbounds nuw i8, ptr %gep.i.i, i64 28
   %1584 = load i32, ptr %1583, align 4, !tbaa !54
   %.not51.i.i = icmp eq i32 %1584, 28
   br i1 %.not51.i.i, label %1586, label %1585
@@ -18924,11 +18924,11 @@ count_lines.exit57.i.i:                           ; preds = %._crit_edge.i56.i.i
   %584 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.a_name, i64 16), align 8, !tbaa !24
   %585 = load i64, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.a_name, i64 8), align 8, !tbaa !65
   %586 = trunc i64 %585 to i32
-  call fastcc void @emit_diff_symbol(ptr noundef %7, i32 noundef 23, ptr noundef %584, i32 noundef %586, i32 noundef 0)
+  call fastcc void @emit_diff_symbol(ptr noundef nonnull %7, i32 noundef 23, ptr noundef %584, i32 noundef %586, i32 noundef 0)
   %587 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.b_name, i64 16), align 8, !tbaa !24
   %588 = load i64, ptr getelementptr inbounds nuw (i8, ptr @emit_rewrite_diff.b_name, i64 8), align 8, !tbaa !65
   %589 = trunc i64 %588 to i32
-  call fastcc void @emit_diff_symbol(ptr noundef %7, i32 noundef 22, ptr noundef %587, i32 noundef %589, i32 noundef 0)
+  call fastcc void @emit_diff_symbol(ptr noundef nonnull %7, i32 noundef 22, ptr noundef %587, i32 noundef %589, i32 noundef 0)
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull @.str.440, i64 noundef 4) #32
   %590 = getelementptr inbounds nuw i8, ptr %7, i64 264
   %591 = load i32, ptr %590, align 8, !tbaa !434
@@ -21160,7 +21160,7 @@ diff_delta.exit:                                  ; preds = %28
   %48 = load i64, ptr %47, align 8, !tbaa !493
   store i64 %48, ptr %6, align 8, !tbaa !16
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %4) #32
-  call void @free(ptr noundef %32) #32
+  call void @free(ptr noundef nonnull %32) #32
   %.not57 = icmp eq ptr %38, null
   br i1 %.not57, label %.thread, label %49
 
@@ -22285,7 +22285,7 @@ get_compact_summary.exit:                         ; preds = %66, %68, %76, %91, 
 104:                                              ; preds = %101
   %105 = or i8 %61, 1
   store i8 %105, ptr %58, align 8
-  br label %diff_free_filespec_data.exit120
+  br label %311
 
 106:                                              ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 82
@@ -22637,66 +22637,66 @@ fill_mmfile.exit.thread:                          ; preds = %203, %190
   %281 = load i16, ptr %107, align 2
   %282 = and i16 %281, 6
   %or.cond.i.i = icmp eq i16 %282, 0
-  br i1 %or.cond.i.i, label %diff_free_filespec_data.exit, label %283
+  br i1 %or.cond.i.i, label %286, label %283
 
 283:                                              ; preds = %280
   %284 = and i16 %281, -7
   store i16 %284, ptr %107, align 2
   %285 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr null, ptr %285, align 8, !tbaa !107
-  br label %diff_free_filespec_data.exit
+  br label %286
 
-diff_free_filespec_data.exit:                     ; preds = %280, %283
-  %286 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %287 = load ptr, ptr %286, align 8, !tbaa !125
-  call void @free(ptr noundef %287) #32
-  store ptr null, ptr %286, align 8, !tbaa !125
-  %288 = getelementptr inbounds nuw i8, ptr %3, i64 82
-  %289 = load i16, ptr %288, align 2
-  %290 = and i16 %289, 2
-  %.not.i.i116 = icmp eq i16 %290, 0
-  br i1 %.not.i.i116, label %294, label %291
+286:                                              ; preds = %283, %280
+  %287 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %288 = load ptr, ptr %287, align 8, !tbaa !125
+  call void @free(ptr noundef %288) #32
+  store ptr null, ptr %287, align 8, !tbaa !125
+  %289 = getelementptr inbounds nuw i8, ptr %3, i64 82
+  %290 = load i16, ptr %289, align 2
+  %291 = and i16 %290, 2
+  %.not.i.i116 = icmp eq i16 %291, 0
+  br i1 %.not.i.i116, label %295, label %292
 
-291:                                              ; preds = %diff_free_filespec_data.exit
-  %292 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %293 = load ptr, ptr %292, align 8, !tbaa !107
-  call void @free(ptr noundef %293) #32
-  br label %302
+292:                                              ; preds = %286
+  %293 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %294 = load ptr, ptr %293, align 8, !tbaa !107
+  call void @free(ptr noundef %294) #32
+  br label %303
 
-294:                                              ; preds = %diff_free_filespec_data.exit
-  %295 = and i16 %289, 4
-  %.not10.i.i119 = icmp eq i16 %295, 0
-  br i1 %.not10.i.i119, label %302, label %296
+295:                                              ; preds = %286
+  %296 = and i16 %290, 4
+  %.not10.i.i119 = icmp eq i16 %296, 0
+  br i1 %.not10.i.i119, label %303, label %297
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %298 = load ptr, ptr %297, align 8, !tbaa !107
-  %299 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  %300 = load i64, ptr %299, align 8, !tbaa !108
-  %301 = call i32 @munmap(ptr noundef %298, i64 noundef %300) #32
-  br label %302
+297:                                              ; preds = %295
+  %298 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %299 = load ptr, ptr %298, align 8, !tbaa !107
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %301 = load i64, ptr %300, align 8, !tbaa !108
+  %302 = call i32 @munmap(ptr noundef %299, i64 noundef %301) #32
+  br label %303
 
-302:                                              ; preds = %296, %294, %291
-  %303 = load i16, ptr %288, align 2
-  %304 = and i16 %303, 6
-  %or.cond.i.i117 = icmp eq i16 %304, 0
-  br i1 %or.cond.i.i117, label %diff_free_filespec_blob.exit.i118, label %305
+303:                                              ; preds = %297, %295, %292
+  %304 = load i16, ptr %289, align 2
+  %305 = and i16 %304, 6
+  %or.cond.i.i117 = icmp eq i16 %305, 0
+  br i1 %or.cond.i.i117, label %diff_free_filespec_data.exit120, label %306
 
-305:                                              ; preds = %302
-  %306 = and i16 %303, -7
-  store i16 %306, ptr %288, align 2
-  %307 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr null, ptr %307, align 8, !tbaa !107
-  br label %diff_free_filespec_blob.exit.i118
-
-diff_free_filespec_blob.exit.i118:                ; preds = %305, %302
-  %308 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  %309 = load ptr, ptr %308, align 8, !tbaa !125
-  call void @free(ptr noundef %309) #32
-  store ptr null, ptr %308, align 8, !tbaa !125
+306:                                              ; preds = %303
+  %307 = and i16 %304, -7
+  store i16 %307, ptr %289, align 2
+  %308 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr null, ptr %308, align 8, !tbaa !107
   br label %diff_free_filespec_data.exit120
 
-diff_free_filespec_data.exit120:                  ; preds = %diff_free_filespec_blob.exit.i118, %104
+diff_free_filespec_data.exit120:                  ; preds = %303, %306
+  %309 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %310 = load ptr, ptr %309, align 8, !tbaa !125
+  call void @free(ptr noundef %310) #32
+  store ptr null, ptr %309, align 8, !tbaa !125
+  br label %311
+
+311:                                              ; preds = %diff_free_filespec_data.exit120, %104
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #32
   ret void

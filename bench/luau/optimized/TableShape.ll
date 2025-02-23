@@ -1841,47 +1841,47 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ShapeVisitor
   %6 = load i32, ptr %5, align 8
   %7 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
   %8 = icmp eq i32 %6, %7
-  %..i = select i1 %8, ptr %4, ptr null
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %7
-  %..i15 = select i1 %13, ptr %10, ptr null
-  %14 = icmp ne ptr %..i, null
-  %15 = icmp ne ptr %..i15, null
-  %or.cond = and i1 %14, %15
-  br i1 %or.cond, label %16, label %33
+  %14 = icmp ne ptr %4, null
+  %15 = and i1 %14, %8
+  %16 = icmp ne ptr %10, null
+  %17 = and i1 %16, %13
+  %or.cond = and i1 %15, %17
+  br i1 %or.cond, label %18, label %35
 
-16:                                               ; preds = %2
-  %17 = getelementptr inbounds nuw i8, ptr %..i, i64 32
-  %18 = load double, ptr %17, align 8
-  %19 = fcmp oeq double %18, 1.000000e+00
-  br i1 %19, label %20, label %33
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %20 = load double, ptr %19, align 8
+  %21 = fcmp oeq double %20, 1.000000e+00
+  br i1 %21, label %22, label %35
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %..i15, i64 32
-  %22 = load double, ptr %21, align 8
-  %23 = fcmp ult double %22, 1.000000e+00
-  %24 = fcmp ugt double %22, 1.600000e+01
-  %or.cond14 = or i1 %23, %24
-  br i1 %or.cond14, label %33, label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %24 = load double, ptr %23, align 8
+  %25 = fcmp ult double %24, 1.000000e+00
+  %26 = fcmp ugt double %24, 1.600000e+01
+  %or.cond14 = or i1 %25, %26
+  br i1 %or.cond14, label %35, label %27
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %27 = load ptr, ptr %26, align 8
-  %.not = icmp eq ptr %27, null
-  br i1 %.not, label %28, label %33
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %29 = load ptr, ptr %28, align 8
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %30, label %35
 
-28:                                               ; preds = %25
-  %29 = fptoui double %22 to i32
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
-  store i32 %29, ptr %32, align 4
-  br label %33
+30:                                               ; preds = %27
+  %31 = fptoui double %24 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %34 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalEjNS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(8) %33)
+  store i32 %31, ptr %34, align 4
+  br label %35
 
-33:                                               ; preds = %28, %25, %20, %16, %2
+35:                                               ; preds = %30, %27, %22, %18, %2
   ret i1 true
 }
 

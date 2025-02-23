@@ -1011,16 +1011,14 @@ for.cond26.preheader:                             ; preds = %if.end16
   br i1 %cmp1930.not, label %return, label %for.body28.preheader
 
 for.body28.preheader:                             ; preds = %for.cond26.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %stringCount, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %stringCount to i64
   br label %for.body28
 
 for.cond.preheader:                               ; preds = %if.end16
   br i1 %cmp1930.not, label %return, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.cond.preheader
-  %smax37 = tail call i32 @llvm.smax.i32(i32 %stringCount, i32 1)
-  %wide.trip.count38 = zext nneg i32 %smax37 to i64
+  %wide.trip.count38 = zext nneg i32 %stringCount to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %invoke.cont23
@@ -1252,9 +1250,6 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

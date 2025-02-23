@@ -12280,15 +12280,13 @@ if.else.lr.ph:                                    ; preds = %_ZNK6vectorI6symbol
   br i1 %cmp33.not.not, label %if.else.us, label %if.else
 
 if.else.us:                                       ; preds = %if.else.lr.ph, %if.else.us
-  %i.098.us = phi i32 [ %inc.us, %if.else.us ], [ 0, %if.else.lr.ph ]
   call void @_ZN4smt26parser18parse_next_cmd_argEv(ptr noundef nonnull align 8 dereferenceable(2168) %this)
-  %inc.us = add i32 %i.098.us, 1
   %24 = load i32, ptr %m_curr.i, align 8
   %cmp.i23.us = icmp eq i32 %24, 2
-  br i1 %cmp.i23.us, label %if.then16, label %if.else.us, !llvm.loop !26
+  br i1 %cmp.i23.us, label %if.end20, label %if.else.us, !llvm.loop !26
 
-if.then16:                                        ; preds = %if.end40, %if.else.us, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
-  %i.0.lcssa = phi i32 [ 0, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit ], [ %inc.us, %if.else.us ], [ %inc, %if.end40 ]
+if.then16:                                        ; preds = %if.end40, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit
+  %i.0.lcssa = phi i32 [ 0, %_ZNK6vectorI6symbolLb0EjE4sizeEv.exit ], [ %inc, %if.end40 ]
   %cmp17.not = icmp ne i32 %call5, -1
   %cmp18 = icmp ult i32 %i.0.lcssa, %call5
   %or.cond = select i1 %cmp17.not, i1 %cmp18, i1 false
@@ -12308,7 +12306,7 @@ lpad:                                             ; preds = %if.then19
           cleanup
   br label %eh.resume
 
-if.end20:                                         ; preds = %if.then16
+if.end20:                                         ; preds = %if.else.us, %if.then16
   %26 = load ptr, ptr %m_curr_cmd, align 8
   %27 = load ptr, ptr %this, align 8
   %vtable23 = load ptr, ptr %26, align 8

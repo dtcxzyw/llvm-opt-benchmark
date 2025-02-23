@@ -2238,37 +2238,37 @@ define void @_ZN8LightGBM13DCGCalculator13CheckMetadataERKNS_8MetadataEi(ptr nou
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = load ptr, ptr %5, align 8
-  %7 = icmp eq ptr %4, %6
-  %spec.select.i = select i1 %7, ptr null, ptr %4
+  %7 = icmp ne ptr %4, %6
   %8 = icmp sgt i32 %1, 0
-  %9 = icmp ne ptr %spec.select.i, null
-  %or.cond = and i1 %8, %9
+  %9 = icmp ne ptr %4, null
+  %10 = and i1 %9, %7
+  %or.cond = and i1 %8, %10
   br i1 %or.cond, label %.preheader.preheader, label %.loopexit
 
 .preheader.preheader:                             ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %17
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
+.preheader:                                       ; preds = %.preheader.preheader, %18
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw i32, ptr %spec.select.i, i64 %indvars.iv.next
-  %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds nuw i32, ptr %spec.select.i, i64 %indvars.iv
-  %13 = load i32, ptr %12, align 4
-  %14 = sub nsw i32 %11, %13
-  %15 = icmp sgt i32 %14, 10000
-  br i1 %15, label %16, label %17
+  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next
+  %12 = load i32, ptr %11, align 4
+  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4
+  %15 = sub nsw i32 %12, %14
+  %16 = icmp sgt i32 %15, 10000
+  br i1 %16, label %17, label %18
 
-16:                                               ; preds = %.preheader
-  tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.8, i32 noundef %14, i32 noundef 10000)
-  br label %17
+17:                                               ; preds = %.preheader
+  tail call void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.8, i32 noundef %15, i32 noundef 10000)
+  br label %18
 
-17:                                               ; preds = %.preheader, %16
+18:                                               ; preds = %.preheader, %17
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !38
 
-.loopexit:                                        ; preds = %17, %2
+.loopexit:                                        ; preds = %18, %2
   ret void
 }
 

@@ -4679,7 +4679,7 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortISt15_Deque_iteratorINSt7
   %8 = load ptr, ptr %0, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = icmp eq ptr %8, %9
-  br i1 %10, label %90, label %11
+  br i1 %10, label %91, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4716,7 +4716,7 @@ define linkonce_odr dso_local void @_ZSt13__stable_sortISt15_Deque_iteratorINSt7
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %42 = icmp sgt i64 %37, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  br i1 %42, label %.lr.ph.preheader.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread
+  br i1 %42, label %.lr.ph.preheader.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %11
   %43 = tail call i64 @llvm.umin.i64(i64 %39, i64 288230376151711743)
@@ -4733,17 +4733,17 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %46 = add nuw nsw i64 %storemerge26.i.i, 1
   %47 = lshr i64 %46, 1
   %.not10.i.i = icmp samesign ult i64 %storemerge26.i.i, 2
-  br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread, label %.lr.ph.i.i, !llvm.loop !47
+  br i1 %.not10.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit, label %.lr.ph.i.i, !llvm.loop !47
 
 48:                                               ; preds = %.lr.ph.i.i
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 %44
   %50 = icmp eq i64 %storemerge26.i.i, 0
-  br i1 %50, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16, label %51
+  br i1 %50, label %71, label %51
 
 51:                                               ; preds = %48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull align 8 dereferenceable(32) %8) #20
   %.not17.i.i.i = icmp eq i64 %storemerge26.i.i, 1
-  br i1 %.not17.i.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit, label %.lr.ph.i.i.preheader.i
+  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %51
   %.01316.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -4756,14 +4756,14 @@ select.unfold.i.i:                                ; preds = %.lr.ph.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 32
   %.013.i.i.i = getelementptr inbounds nuw i8, ptr %.01319.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %.013.i.i.i, %49
-  br i1 %.not.i.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit, label %.lr.ph.i.i.i, !llvm.loop !48
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !48
 
-_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit: ; preds = %.lr.ph.i.i.i, %51
+._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %51
   %.0.lcssa.i.i.i = phi ptr [ %45, %51 ], [ %52, %.lr.ph.i.i.i ]
   %53 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %.0.lcssa.i.i.i) #20
-  br label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16
+  br label %71
 
-_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread: ; preds = %select.unfold.i.i, %11
+_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit: ; preds = %select.unfold.i.i, %11
   %54 = load ptr, ptr %0, align 8
   store ptr %54, ptr %4, align 8
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4788,62 +4788,65 @@ _ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char
   %68 = load ptr, ptr %15, align 8
   store ptr %68, ptr %67, align 8
   invoke void @_ZSt21__inplace_stable_sortISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_EN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SD_T0_(ptr noundef nonnull %4, ptr noundef nonnull %5)
-          to label %86 unwind label %69
+          to label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit unwind label %69
 
-69:                                               ; preds = %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread
+69:                                               ; preds = %71, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit
   %70 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #20
   resume { ptr, i32 } %70
 
-_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16: ; preds = %48, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit
+71:                                               ; preds = %._crit_edge.i.i.i, %48
   store ptr %45, ptr %41, align 8
   store i64 %storemerge26.i.i, ptr %40, align 8
-  %71 = load ptr, ptr %0, align 8
-  store ptr %71, ptr %6, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %73 = load ptr, ptr %12, align 8
-  store ptr %73, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %75 = load ptr, ptr %13, align 8
-  store ptr %75, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %77 = load ptr, ptr %14, align 8
-  store ptr %77, ptr %76, align 8
-  %78 = load ptr, ptr %1, align 8
-  store ptr %78, ptr %7, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %80 = load ptr, ptr %25, align 8
-  store ptr %80, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %81, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %85 = load ptr, ptr %15, align 8
-  store ptr %85, ptr %84, align 8
+  %72 = load ptr, ptr %0, align 8
+  store ptr %72, ptr %6, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %74 = load ptr, ptr %12, align 8
+  store ptr %74, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %76 = load ptr, ptr %13, align 8
+  store ptr %76, ptr %75, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %78 = load ptr, ptr %14, align 8
+  store ptr %78, ptr %77, align 8
+  %79 = load ptr, ptr %1, align 8
+  store ptr %79, ptr %7, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %81 = load ptr, ptr %25, align 8
+  store ptr %81, ptr %80, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %84 = load ptr, ptr %83, align 8
+  store ptr %84, ptr %82, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %86 = load ptr, ptr %15, align 8
+  store ptr %86, ptr %85, align 8
   invoke void @_ZSt22__stable_sort_adaptiveISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES8_lN9__gnu_cxx5__ops15_Iter_less_iterEEvT_SD_T0_T1_T2_(ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %45, i64 noundef %storemerge26.i.i)
-          to label %86 unwind label %69
+          to label %87 unwind label %69
 
-86:                                               ; preds = %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread
-  %.pre.i14 = phi ptr [ %45, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16 ], [ null, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread ]
-  %87 = phi i64 [ %storemerge26.i.i, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread16 ], [ 0, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit.thread ]
-  %88 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre.i14, i64 %87
-  %.not4.i.i.i = icmp eq i64 %87, 0
+87:                                               ; preds = %71
+  %88 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %45, i64 %storemerge26.i.i
+  %.not4.i.i.i = icmp eq i64 %storemerge26.i.i, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit, label %.lr.ph.i.i.i1
 
-.lr.ph.i.i.i1:                                    ; preds = %86, %.lr.ph.i.i.i1
-  %.05.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i1 ], [ %.pre.i14, %86 ]
+.lr.ph.i.i.i1:                                    ; preds = %87, %.lr.ph.i.i.i1
+  %.05.i.i.i = phi ptr [ %89, %.lr.ph.i.i.i1 ], [ %45, %87 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i) #20
   %89 = getelementptr inbounds nuw i8, ptr %.05.i.i.i, i64 32
   %.not.i.i.i2 = icmp eq ptr %89, %88
-  br i1 %.not.i.i.i2, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit, label %.lr.ph.i.i.i1, !llvm.loop !41
+  br i1 %.not.i.i.i2, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.loopexit.i, label %.lr.ph.i.i.i1, !llvm.loop !41
 
-_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit: ; preds = %.lr.ph.i.i.i1, %86
-  call void @_ZdlPv(ptr noundef %.pre.i14) #20
-  br label %90
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i1
+  %.pre.i = load ptr, ptr %41, align 8
+  br label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit
 
-90:                                               ; preds = %2, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit
+_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit: ; preds = %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit, %87, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.loopexit.i
+  %90 = phi ptr [ %.pre.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.loopexit.i ], [ %45, %87 ], [ null, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_EC2ES9_l.exit ]
+  call void @_ZdlPv(ptr noundef %90) #20
+  br label %91
+
+91:                                               ; preds = %2, %_ZNSt17_Temporary_bufferISt15_Deque_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS6_PS6_ES6_ED2Ev.exit
   ret void
 }
 

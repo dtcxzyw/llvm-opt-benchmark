@@ -19470,7 +19470,6 @@ if.end11:                                         ; preds = %do.end
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 200
   %7 = load i8, ptr %_M_index.i.i.i, align 8
   %cmp.i.i.not = icmp eq i8 %7, 1
-  %spec.select.i.i = select i1 %cmp.i.i.not, ptr %action, ptr null
   br i1 %cmp.i.i.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
@@ -19830,7 +19829,7 @@ lpad32.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then
 
 do.end35:                                         ; preds = %do.body28
   %40 = load ptr, ptr %action, align 8
-  %_M_finish.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %_M_finish.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 96
   %41 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i29.not260 = icmp eq ptr %40, %41
   br i1 %cmp.i29.not260, label %if.then62, label %for.body.lr.ph

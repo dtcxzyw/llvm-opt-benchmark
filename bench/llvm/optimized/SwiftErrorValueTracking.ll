@@ -3322,7 +3322,7 @@ _ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPKNS_11InstructionEPKNS_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPKNS_11InstructionEPKNS_17MachineBasicBlockEPKNS_5ValueE.exit93, %110, %108, %104, %_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPKNS_11InstructionEPKNS_17MachineBasicBlockEPKNS_5ValueE.exit77, %70, %68, %._crit_edge
+.critedge:                                        ; preds = %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %22, %_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPKNS_11InstructionEPKNS_17MachineBasicBlockEPKNS_5ValueE.exit93, %110, %108, %104, %_ZN4llvm23SwiftErrorValueTracking20getOrCreateVRegUseAtEPKNS_11InstructionEPKNS_17MachineBasicBlockEPKNS_5ValueE.exit77, %70, %68, %._crit_edge
   %148 = getelementptr inbounds nuw i8, ptr %.sroa.094.0117, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !215
   %.not = icmp eq ptr %149, %4

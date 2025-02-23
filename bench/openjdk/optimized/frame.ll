@@ -635,14 +635,14 @@ define hidden noundef ptr @_ZNK5frame6raw_pcEv(ptr noundef nonnull readonly alig
   br i1 %13, label %14, label %19
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %..i, i64 172
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 172
   %16 = load i32, ptr %15, align 4
   %17 = sext i32 %16 to i64
   %18 = getelementptr inbounds i8, ptr %..i, i64 %17
   br label %27
 
 19:                                               ; preds = %5
-  %20 = getelementptr inbounds nuw i8, ptr %..i, i64 168
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %21 = load i32, ptr %20, align 8
   %22 = sext i32 %21 to i64
   %23 = getelementptr inbounds i8, ptr %..i, i64 %22

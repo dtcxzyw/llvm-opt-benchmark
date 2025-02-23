@@ -1024,201 +1024,201 @@ define hidden void @_ZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayI
   %.not1.us.i = icmp eq ptr %11, null
   br i1 %.not1.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i
 
-._crit_edge.split.us.us.i:                        ; preds = %24, %.lr.ph5.split.us.i
+._crit_edge.split.us.us.i:                        ; preds = %25, %.lr.ph5.split.us.i
   %indvars.iv.next11.i = add nuw nsw i64 %indvars.iv10.i, 1
   %exitcond14.not.i = icmp eq i64 %indvars.iv.next11.i, %wide.trip.count13.i
   br i1 %exitcond14.not.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEE6IsDeadEEvPT_.exit, label %.lr.ph5.split.us.i, !llvm.loop !18
 
-.lr.ph.us.i:                                      ; preds = %.lr.ph5.split.us.i, %24
-  %12 = phi ptr [ %25, %24 ], [ %11, %.lr.ph5.split.us.i ]
-  %.0142.us.us.i = phi ptr [ %.1.us.us.i, %24 ], [ %10, %.lr.ph5.split.us.i ]
+.lr.ph.us.i:                                      ; preds = %.lr.ph5.split.us.i, %25
+  %12 = phi ptr [ %26, %25 ], [ %11, %.lr.ph5.split.us.i ]
+  %.0142.us.us.i = phi ptr [ %.1.us.us.i, %25 ], [ %10, %.lr.ph5.split.us.i ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %16 = tail call noundef ptr %15(ptr noundef %14) #11
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i, label %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.us.us.i
-
-_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.us.us.i: ; preds = %.lr.ph.us.i
-  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  br label %24
+  br i1 %17, label %19, label %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i
 
 _ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i: ; preds = %.lr.ph.us.i
-  %19 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %19) #11
-  %20 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %21 = load ptr, ptr %20, align 8
-  store ptr %21, ptr %.0142.us.us.i, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %12) #11
-  %22 = load i32, ptr %8, align 8
-  %23 = add nsw i32 %22, -1
-  store i32 %23, ptr %8, align 8
-  br label %24
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  br label %25
 
-24:                                               ; preds = %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.us.us.i
-  %.1.us.us.i = phi ptr [ %.0142.us.us.i, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i ], [ %18, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.us.us.i ]
-  %25 = load ptr, ptr %.1.us.us.i, align 8
-  %.not.us.us.i = icmp eq ptr %25, null
+19:                                               ; preds = %.lr.ph.us.i
+  %20 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %20) #11
+  %21 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %22 = load ptr, ptr %21, align 8
+  store ptr %22, ptr %.0142.us.us.i, align 8
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %12) #11
+  %23 = load i32, ptr %8, align 8
+  %24 = add nsw i32 %23, -1
+  store i32 %24, ptr %8, align 8
+  br label %25
+
+25:                                               ; preds = %19, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i
+  %.1.us.us.i = phi ptr [ %.0142.us.us.i, %19 ], [ %18, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.us.us.i ]
+  %26 = load ptr, ptr %.1.us.us.i, align 8
+  %.not.us.us.i = icmp eq ptr %26, null
   br i1 %.not.us.us.i, label %._crit_edge.split.us.us.i, label %.lr.ph.us.i, !llvm.loop !19
 
 .lr.ph5.split.i:                                  ; preds = %.lr.ph5.i, %._crit_edge.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.split.i ], [ 0, %.lr.ph5.i ]
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
-  %28 = load ptr, ptr %27, align 8
-  %.not1.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %29 = load ptr, ptr %28, align 8
+  %.not1.i = icmp eq ptr %29, null
   br i1 %.not1.i, label %._crit_edge.split.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph5.split.i, %95
-  %29 = phi ptr [ %96, %95 ], [ %28, %.lr.ph5.split.i ]
-  %.0142.i = phi ptr [ %.1.i, %95 ], [ %27, %.lr.ph5.split.i ]
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %32 = load i64, ptr %31, align 8
-  %33 = load ptr, ptr %30, align 8
-  %34 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %35 = tail call noundef ptr %34(ptr noundef %33) #11
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.i
+.lr.ph.i:                                         ; preds = %.lr.ph5.split.i, %96
+  %30 = phi ptr [ %97, %96 ], [ %29, %.lr.ph5.split.i ]
+  %.0142.i = phi ptr [ %.1.i, %96 ], [ %28, %.lr.ph5.split.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %33 = load i64, ptr %32, align 8
+  %34 = load ptr, ptr %31, align 8
+  %35 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %36 = tail call noundef ptr %35(ptr noundef %34) #11
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.i
 
-37:                                               ; preds = %.lr.ph.i
-  %38 = load i32, ptr %1, align 8
-  %39 = load i32, ptr %5, align 4
-  %40 = icmp eq i32 %38, %39
-  br i1 %40, label %41, label %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i
+38:                                               ; preds = %.lr.ph.i
+  %39 = load i32, ptr %1, align 8
+  %40 = load i32, ptr %5, align 4
+  %41 = icmp eq i32 %39, %40
+  br i1 %41, label %42, label %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i
 
-._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i: ; preds = %37
+._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i: ; preds = %38
   %.pre.i = load ptr, ptr %7, align 8
   br label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i
 
-41:                                               ; preds = %37
-  %42 = add nsw i32 %38, 1
-  %43 = icmp sgt i32 %38, -1
-  %44 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %42)
-  %45 = icmp samesign ult i32 %44, 2
-  %or.cond.i.i.i.i.i.i = select i1 %43, i1 %45, i1 false
-  %46 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
-  %47 = sub nuw nsw i32 32, %46
-  %48 = shl nuw i32 1, %47
-  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %42, i32 %48
+42:                                               ; preds = %38
+  %43 = add nsw i32 %39, 1
+  %44 = icmp sgt i32 %39, -1
+  %45 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
+  %46 = icmp samesign ult i32 %45, 2
+  %or.cond.i.i.i.i.i.i = select i1 %44, i1 %46, i1 false
+  %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
+  %48 = sub nuw nsw i32 32, %47
+  %49 = shl nuw i32 1, %48
+  %.0.i.i.i.i.i.i = select i1 %or.cond.i.i.i.i.i.i, i32 %43, i32 %49
   store i32 %.0.i.i.i.i.i.i, ptr %5, align 4
-  %49 = load i64, ptr %6, align 8
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %51, label %53
+  %50 = load i64, ptr %6, align 8
+  %51 = icmp eq i64 %50, 0
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %41
-  %52 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8) #11
+52:                                               ; preds = %42
+  %53 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8) #11
   br label %_ZN13GrowableArrayIlE8allocateEv.exit.i.i
 
-53:                                               ; preds = %41
-  %54 = and i64 %49, 1
-  %.not.i.i.i = icmp eq i64 %54, 0
-  br i1 %.not.i.i.i, label %59, label %55
+54:                                               ; preds = %42
+  %55 = and i64 %50, 1
+  %.not.i.i.i = icmp eq i64 %55, 0
+  br i1 %.not.i.i.i, label %60, label %56
 
-55:                                               ; preds = %53
-  %56 = lshr i64 %49, 1
-  %57 = trunc i64 %56 to i8
-  %58 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8, i8 noundef zeroext %57) #11
+56:                                               ; preds = %54
+  %57 = lshr i64 %50, 1
+  %58 = trunc i64 %57 to i8
+  %59 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8, i8 noundef zeroext %58) #11
   br label %_ZN13GrowableArrayIlE8allocateEv.exit.i.i
 
-59:                                               ; preds = %53
-  %60 = inttoptr i64 %49 to ptr
-  %61 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8, ptr noundef nonnull %60) #11
+60:                                               ; preds = %54
+  %61 = inttoptr i64 %50 to ptr
+  %62 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %.0.i.i.i.i.i.i, i32 noundef 8, ptr noundef nonnull %61) #11
   br label %_ZN13GrowableArrayIlE8allocateEv.exit.i.i
 
-_ZN13GrowableArrayIlE8allocateEv.exit.i.i:        ; preds = %59, %55, %51
-  %.0.i.i.i = phi ptr [ %52, %51 ], [ %58, %55 ], [ %61, %59 ]
-  %62 = load i32, ptr %1, align 8
-  %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph.i.i, label %.preheader16.i.i
+_ZN13GrowableArrayIlE8allocateEv.exit.i.i:        ; preds = %60, %56, %52
+  %.0.i.i.i = phi ptr [ %53, %52 ], [ %59, %56 ], [ %62, %60 ]
+  %63 = load i32, ptr %1, align 8
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph.i.i, label %.preheader16.i.i
 
 .preheader16.loopexit.i.i:                        ; preds = %.lr.ph.i.i
-  %64 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
+  %65 = trunc nuw nsw i64 %indvars.iv.next.i.i to i32
   br label %.preheader16.i.i
 
 .preheader16.i.i:                                 ; preds = %.preheader16.loopexit.i.i, %_ZN13GrowableArrayIlE8allocateEv.exit.i.i
-  %.0.lcssa.i.i = phi i32 [ 0, %_ZN13GrowableArrayIlE8allocateEv.exit.i.i ], [ %64, %.preheader16.loopexit.i.i ]
-  %65 = load i32, ptr %5, align 4
-  %66 = icmp slt i32 %.0.lcssa.i.i, %65
-  br i1 %66, label %.lr.ph19.preheader.i.i, label %.preheader.i.i
+  %.0.lcssa.i.i = phi i32 [ 0, %_ZN13GrowableArrayIlE8allocateEv.exit.i.i ], [ %65, %.preheader16.loopexit.i.i ]
+  %66 = load i32, ptr %5, align 4
+  %67 = icmp slt i32 %.0.lcssa.i.i, %66
+  br i1 %67, label %.lr.ph19.preheader.i.i, label %.preheader.i.i
 
 .lr.ph19.preheader.i.i:                           ; preds = %.preheader16.i.i
-  %67 = zext nneg i32 %.0.lcssa.i.i to i64
+  %68 = zext nneg i32 %.0.lcssa.i.i to i64
   br label %.lr.ph19.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN13GrowableArrayIlE8allocateEv.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN13GrowableArrayIlE8allocateEv.exit.i.i ]
-  %68 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv.i.i
-  %69 = load ptr, ptr %7, align 8
-  %70 = getelementptr inbounds nuw i64, ptr %69, i64 %indvars.iv.i.i
-  %71 = load i64, ptr %70, align 8
-  store i64 %71, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv.i.i
+  %70 = load ptr, ptr %7, align 8
+  %71 = getelementptr inbounds nuw i64, ptr %70, i64 %indvars.iv.i.i
+  %72 = load i64, ptr %71, align 8
+  store i64 %72, ptr %69, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %72 = load i32, ptr %1, align 8
-  %73 = sext i32 %72 to i64
-  %74 = icmp slt i64 %indvars.iv.next.i.i, %73
-  br i1 %74, label %.lr.ph.i.i, label %.preheader16.loopexit.i.i, !llvm.loop !20
+  %73 = load i32, ptr %1, align 8
+  %74 = sext i32 %73 to i64
+  %75 = icmp slt i64 %indvars.iv.next.i.i, %74
+  br i1 %75, label %.lr.ph.i.i, label %.preheader16.loopexit.i.i, !llvm.loop !20
 
 .preheader.i.i:                                   ; preds = %.lr.ph19.i.i, %.preheader16.i.i
-  %75 = load ptr, ptr %7, align 8
-  %.not.i16.i = icmp eq ptr %75, null
-  br i1 %.not.i16.i, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i, label %80
+  %76 = load ptr, ptr %7, align 8
+  %.not.i16.i = icmp eq ptr %76, null
+  br i1 %.not.i16.i, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i, label %81
 
 .lr.ph19.i.i:                                     ; preds = %.lr.ph19.i.i, %.lr.ph19.preheader.i.i
-  %indvars.iv21.i.i = phi i64 [ %67, %.lr.ph19.preheader.i.i ], [ %indvars.iv.next22.i.i, %.lr.ph19.i.i ]
-  %76 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv21.i.i
-  store i64 0, ptr %76, align 8
+  %indvars.iv21.i.i = phi i64 [ %68, %.lr.ph19.preheader.i.i ], [ %indvars.iv.next22.i.i, %.lr.ph19.i.i ]
+  %77 = getelementptr inbounds nuw i64, ptr %.0.i.i.i, i64 %indvars.iv21.i.i
+  store i64 0, ptr %77, align 8
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
-  %77 = load i32, ptr %5, align 4
-  %78 = trunc nuw i64 %indvars.iv.next22.i.i to i32
-  %79 = icmp sgt i32 %77, %78
-  br i1 %79, label %.lr.ph19.i.i, label %.preheader.i.i, !llvm.loop !21
+  %78 = load i32, ptr %5, align 4
+  %79 = trunc nuw i64 %indvars.iv.next22.i.i to i32
+  %80 = icmp sgt i32 %78, %79
+  br i1 %80, label %.lr.ph19.i.i, label %.preheader.i.i, !llvm.loop !21
 
-80:                                               ; preds = %.preheader.i.i
-  %81 = load i64, ptr %6, align 8
-  %82 = and i64 %81, 1
-  %.not.i15.i.i = icmp eq i64 %82, 0
-  br i1 %.not.i15.i.i, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i, label %83
+81:                                               ; preds = %.preheader.i.i
+  %82 = load i64, ptr %6, align 8
+  %83 = and i64 %82, 1
+  %.not.i15.i.i = icmp eq i64 %83, 0
+  br i1 %.not.i15.i.i, label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i, label %84
 
-83:                                               ; preds = %80
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %75) #11
+84:                                               ; preds = %81
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %76) #11
   br label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i
 
-_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i: ; preds = %83, %80, %.preheader.i.i
+_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i: ; preds = %84, %81, %.preheader.i.i
   store ptr %.0.i.i.i, ptr %7, align 8
   %.pre.i.i.i = load i32, ptr %1, align 8
   br label %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i
 
 _ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i: ; preds = %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i, %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i
-  %84 = phi ptr [ %.0.i.i.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i ], [ %.pre.i, %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i ]
-  %85 = phi i32 [ %.pre.i.i.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i ], [ %38, %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i ]
-  %86 = add nsw i32 %85, 1
-  store i32 %86, ptr %1, align 8
-  %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i64, ptr %84, i64 %87
-  store i64 %32, ptr %88, align 8
-  %89 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
-  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef %89) #11
-  %90 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %.0142.i, align 8
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %29) #11
-  %92 = load i32, ptr %8, align 8
-  %93 = add nsw i32 %92, -1
-  store i32 %93, ptr %8, align 8
-  br label %95
+  %85 = phi ptr [ %.0.i.i.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i ], [ %.pre.i, %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i ]
+  %86 = phi i32 [ %.pre.i.i.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE9expand_toEi.exit.i ], [ %39, %._ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i_crit_edge.i ]
+  %87 = add nsw i32 %86, 1
+  store i32 %87, ptr %1, align 8
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i64, ptr %85, i64 %88
+  store i64 %33, ptr %89, align 8
+  %90 = tail call noundef ptr @_ZN11JvmtiExport16weak_tag_storageEv() #11
+  tail call void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %90) #11
+  %91 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %92 = load ptr, ptr %91, align 8
+  store ptr %92, ptr %.0142.i, align 8
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %30) #11
+  %93 = load i32, ptr %8, align 8
+  %94 = add nsw i32 %93, -1
+  store i32 %94, ptr %8, align 8
+  br label %96
 
-_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.i: ; preds = %.lr.ph.i
-  %94 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  br label %95
+_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.i: ; preds = %.lr.ph.i
+  %95 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  br label %96
 
-95:                                               ; preds = %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i
-  %.1.i = phi ptr [ %.0142.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i ], [ %94, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.thread.i ]
-  %96 = load ptr, ptr %.1.i, align 8
-  %.not.i = icmp eq ptr %96, null
+96:                                               ; preds = %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i
+  %.1.i = phi ptr [ %.0142.i, %_ZN26GrowableArrayWithAllocatorIl13GrowableArrayIlEE6appendERKl.exit.i.i ], [ %95, %_ZZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEEN6IsDead8do_entryER14JvmtiTagMapKeyl.exit.i ]
+  %97 = load ptr, ptr %.1.i, align 8
+  %.not.i = icmp eq ptr %97, null
   br i1 %.not.i, label %._crit_edge.split.i, label %.lr.ph.i, !llvm.loop !19
 
-._crit_edge.split.i:                              ; preds = %95, %.lr.ph5.split.i
+._crit_edge.split.i:                              ; preds = %96, %.lr.ph5.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count13.i
   br i1 %exitcond.not.i, label %_ZN21ResourceHashtableBaseI34ResizeableResourceHashtableStorageI14JvmtiTagMapKeylLN6AnyObj15allocation_typeE2EL8MEMFLAGS23EES1_lLS3_2ELS4_23EXadL_ZNS1_8get_hashERKS1_EEXadL_ZNS1_6equalsES7_S7_EEE6unlinkIZN16JvmtiTagMapTable19remove_dead_entriesEP13GrowableArrayIlEE6IsDeadEEvPT_.exit, label %.lr.ph5.split.i, !llvm.loop !18

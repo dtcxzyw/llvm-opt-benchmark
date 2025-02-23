@@ -4561,7 +4561,7 @@ _ZN4llvm7support6endian19writeAtBitAlignmentIhLNS_10endiannessE1ELm1EEEvPvT_m.ex
   %85 = trunc i32 %notmask29.i55 to i8
   %86 = xor i8 %85, -1
   %87 = and i8 %2, %86
-  %88 = zext i8 %87 to i32
+  %88 = zext nneg i8 %87 to i32
   %89 = shl nuw nsw i32 %88, %80
   %90 = trunc i32 %89 to i8
   %91 = or i8 %83, %90

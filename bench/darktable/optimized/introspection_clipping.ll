@@ -681,7 +681,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
   store i32 %35, ptr %24, align 4, !tbaa !96
   store i32 %37, ptr %30, align 4, !tbaa !98
   %181 = load ptr, ptr %31, align 16, !tbaa !99
-  call void %181(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
+  call void %181(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
   br label %182
 
 182:                                              ; preds = %180, %._crit_edge
@@ -1081,7 +1081,7 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
   store i32 %35, ptr %24, align 4, !tbaa !96
   store i32 %37, ptr %30, align 4, !tbaa !98
   %185 = load ptr, ptr %31, align 16, !tbaa !99
-  call void %185(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
+  call void %185(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #27
   br label %186
 
 186:                                              ; preds = %184, %._crit_edge

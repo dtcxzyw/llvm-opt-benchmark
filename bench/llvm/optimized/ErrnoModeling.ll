@@ -2029,8 +2029,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i.i.i.i: ; preds = %27, %23
   %31 = and i32 %30, 127
   %32 = add nsw i32 %31, -38
   %33 = icmp ult i32 %32, 7
-  %.not.not15.i.i.i.i.i.i.i = icmp ne ptr %.1.i.i.i.i.i.i.i, null
-  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not.not15.i.i.i.i.i.i.i, %33
+  %.not15.i.i.i.i.i.i.i = icmp ne ptr %.1.i.i.i.i.i.i.i, null
+  %.not.not.not.i.i.i.i.i.i.i = and i1 %.not15.i.i.i.i.i.i.i, %33
   br i1 %.not.not.not.i.i.i.i.i.i.i, label %34, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_113ErrnoModeling12checkASTDeclEPKN5clang19TranslationUnitDeclERNS4_4ento15AnalysisManagerERNS8_11BugReporterEE3$_0EclINS4_12DeclListNode8iteratorEEEbT_.exit.thread.i.i.i.i.i"
 
 34:                                               ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit.i.i.i.i.i.i

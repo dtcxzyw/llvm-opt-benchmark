@@ -48494,7 +48494,7 @@ define internal fastcc void @sinfl_build(ptr noundef nonnull captures(none) %0, 
 .preheader55.lr.ph.i:                             ; preds = %48, %._crit_edge.i
   %54 = phi i32 [ %53, %._crit_edge.i ], [ 1, %48 ]
   %.sroa.17.067 = phi i32 [ %52, %._crit_edge.i ], [ %50, %48 ]
-  %55 = shl nuw i32 1, %54
+  %55 = shl nuw nsw i32 1, %54
   %56 = zext nneg i32 %2 to i64
   br label %.preheader55.i
 
@@ -49103,7 +49103,7 @@ sdefl_build_tree.exit:                            ; preds = %142
   %193 = load i32, ptr %192, align 4
   %194 = add i32 %193, 2
   store i32 %194, ptr %192, align 4
-  %195 = icmp sgt i64 %indvars.iv.i41, 1
+  %195 = icmp samesign ugt i64 %indvars.iv.i41, 1
   br i1 %195, label %.lr.ph.i40, label %sdefl_gen_len_cnt.exit
 
 sdefl_gen_len_cnt.exit:                           ; preds = %.loopexit.i, %sdefl_build_tree.exit

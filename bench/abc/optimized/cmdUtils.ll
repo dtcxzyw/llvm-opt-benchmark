@@ -1527,7 +1527,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv33
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = call i32 @st__lookup(ptr noundef %0, ptr noundef %15, ptr noundef nonnull %4) #24
+  %16 = call i32 @st__lookup(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %4) #24
   %17 = load ptr, ptr @stdout, align 8, !tbaa !67
   %18 = load ptr, ptr %14, align 8, !tbaa !3
   %19 = load ptr, ptr %4, align 8, !tbaa !3
@@ -1550,7 +1550,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph.split ], [ 0, %.lr.ph ]
   %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv30
   %25 = load ptr, ptr %24, align 8, !tbaa !3
-  %26 = call i32 @st__lookup(ptr noundef %0, ptr noundef %25, ptr noundef nonnull %4) #24
+  %26 = call i32 @st__lookup(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %4) #24
   %27 = call ptr (...) @Abc_FrameGetGlobalFrame() #24
   %28 = load ptr, ptr %4, align 8, !tbaa !3
   call void @CmdCommandAliasPrint(ptr noundef %27, ptr noundef %28) #24

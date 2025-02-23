@@ -6636,9 +6636,9 @@ _ZNSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EE12emplace_backIJmEEERS2_Dp
   %497 = load ptr, ptr %13, align 8, !tbaa !154
   %498 = load ptr, ptr %19, align 8, !tbaa !154
   %.not4679 = icmp eq ptr %497, %498
-  br i1 %.not4679, label %._crit_edge82.thread, label %.lr.ph81
+  br i1 %.not4679, label %.thread, label %.lr.ph81
 
-._crit_edge82.thread:                             ; preds = %_ZNSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EE12emplace_backIJmEEERS2_DpOT_.exit
+.thread:                                          ; preds = %_ZNSt5dequeIN5clang8internal15CFGIntervalNodeESaIS2_EE12emplace_backIJmEEERS2_DpOT_.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %499 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -6694,7 +6694,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang8internal15CFGIntervalNodeENS_13SmallDens
   %.not = icmp eq ptr %.sroa.043.2, %441
   br i1 %.not, label %._crit_edge, label %501
 
-._crit_edge82:                                    ; preds = %512
+.lr.ph87.preheader:                               ; preds = %512
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   br label %.lr.ph87
@@ -6708,7 +6708,7 @@ _ZN4llvm6detail12DenseSetImplIPKN5clang8internal15CFGIntervalNodeENS_13SmallDens
   store ptr %496, ptr %515, align 8, !tbaa !100
   %516 = getelementptr inbounds nuw i8, ptr %.sroa.039.080, i64 8
   %.not46 = icmp eq ptr %516, %498
-  br i1 %.not46, label %._crit_edge82, label %512
+  br i1 %.not46, label %.lr.ph87.preheader, label %512
 
 ._crit_edge88:                                    ; preds = %.lr.ph87
   %517 = icmp ugt i64 %540, 1152921504606846975
@@ -6733,10 +6733,10 @@ _ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; p
   store ptr %524, ptr %520, align 8, !tbaa !48
   br label %_ZNSt6vectorIPKN5clang8CFGBlockESaIS3_EE7reserveEm.exit
 
-_ZNSt6vectorIPKN5clang8CFGBlockESaIS3_EE7reserveEm.exit: ; preds = %._crit_edge82.thread, %519, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i
-  %525 = phi ptr [ %520, %519 ], [ %520, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %499, %._crit_edge82.thread ]
-  %526 = phi ptr [ null, %519 ], [ %524, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %._crit_edge82.thread ]
-  %527 = phi ptr [ null, %519 ], [ %523, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %._crit_edge82.thread ]
+_ZNSt6vectorIPKN5clang8CFGBlockESaIS3_EE7reserveEm.exit: ; preds = %.thread, %519, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i
+  %525 = phi ptr [ %520, %519 ], [ %520, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ %499, %.thread ]
+  %526 = phi ptr [ null, %519 ], [ %524, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %.thread ]
+  %527 = phi ptr [ null, %519 ], [ %523, %_ZNSt12_Vector_baseIPKN5clang8CFGBlockESaIS3_EE13_M_deallocateEPS3_m.exit.i ], [ null, %.thread ]
   %528 = load ptr, ptr %13, align 8, !tbaa !154
   %529 = load ptr, ptr %19, align 8, !tbaa !154
   %.not4889 = icmp eq ptr %528, %529
@@ -6746,9 +6746,9 @@ _ZNSt6vectorIPKN5clang8CFGBlockESaIS3_EE7reserveEm.exit: ; preds = %._crit_edge8
   %530 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %571
 
-.lr.ph87:                                         ; preds = %._crit_edge82, %.lr.ph87
-  %.085 = phi i64 [ %540, %.lr.ph87 ], [ 0, %._crit_edge82 ]
-  %.sroa.035.084 = phi ptr [ %541, %.lr.ph87 ], [ %497, %._crit_edge82 ]
+.lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
+  %.085 = phi i64 [ %540, %.lr.ph87 ], [ 0, %.lr.ph87.preheader ]
+  %.sroa.035.084 = phi ptr [ %541, %.lr.ph87 ], [ %497, %.lr.ph87.preheader ]
   %531 = load ptr, ptr %.sroa.035.084, align 8, !tbaa !100
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 8
   %533 = getelementptr inbounds nuw i8, ptr %531, i64 16

@@ -162,7 +162,7 @@ for.body:                                         ; preds = %if.end10, %for.body
 
 for.end:                                          ; preds = %for.body
   %conv19 = sext i16 %add17 to i32
-  switch i16 %add17, label %if.end71 [
+  switch i16 %add17, label %do.body.preheader [
     i16 0, label %if.then26
     i16 1, label %if.then38
   ]
@@ -186,13 +186,13 @@ if.then38:                                        ; preds = %for.end
   %conv44 = ashr exact i32 %sext, 16
   %8 = add nsw i32 %conv44, 8192
   %or.cond = icmp ult i32 %8, 16384
-  br i1 %or.cond, label %if.then50, label %if.end71
+  br i1 %or.cond, label %if.then50, label %do.body.preheader
 
 if.then50:                                        ; preds = %if.then38
   %conv52 = shl i32 %sub42, 2
   %conv53 = and i32 %conv52, 65532
   %cmp60 = icmp samesign ult i32 %conv53, 65520
-  br i1 %cmp60, label %if.then62, label %if.end71
+  br i1 %cmp60, label %if.then62, label %do.body.preheader
 
 if.then62:                                        ; preds = %if.then50
   %9 = load ptr, ptr @sprepTrie, align 8
@@ -206,15 +206,15 @@ if.then66:                                        ; preds = %if.then62
   tail call void @exit(i32 noundef 1) #16
   unreachable
 
-if.end71:                                         ; preds = %for.end, %if.then38, %if.then50
+do.body.preheader:                                ; preds = %if.then50, %if.then38, %for.end
   %add73 = add nsw i32 %conv19, 1
   %conv74 = sext i32 %add73 to i64
   %call75 = tail call noalias ptr @uprv_calloc_75(i64 noundef %conv74, i64 noundef 2) #14
   br label %do.body
 
-do.body:                                          ; preds = %if.end71, %for.inc108
-  %j.055 = phi i16 [ %inc104, %for.inc108 ], [ 0, %if.end71 ]
-  %i.154 = phi i16 [ %inc109, %for.inc108 ], [ 0, %if.end71 ]
+do.body:                                          ; preds = %do.body.preheader, %for.inc108
+  %j.055 = phi i16 [ %inc104, %for.inc108 ], [ 0, %do.body.preheader ]
+  %i.154 = phi i16 [ %inc109, %for.inc108 ], [ 0, %do.body.preheader ]
   %idxprom81 = sext i16 %i.154 to i64
   %arrayidx82 = getelementptr inbounds i32, ptr %mapping, i64 %idxprom81
   %12 = load i32, ptr %arrayidx82, align 4

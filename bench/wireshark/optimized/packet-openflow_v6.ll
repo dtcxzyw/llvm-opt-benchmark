@@ -4992,7 +4992,7 @@ dissect_openflow_group_desc_v6.exit:              ; preds = %.lr.ph.i160, %.lr.p
 dissect_openflow_meter_stats_v6.exit:             ; preds = %.lr.ph.i162, %.lr.ph212
   %.0.lcssa.i161 = phi i32 [ %620, %.lr.ph212 ], [ %630, %.lr.ph.i162 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #4
-  %632 = icmp slt i32 %.0.lcssa.i161, %51
+  %632 = icmp samesign ult i32 %.0.lcssa.i161, %51
   br i1 %632, label %.lr.ph212, label %.loopexit, !llvm.loop !29
 
 .lr.ph210:                                        ; preds = %.preheader180, %dissect_openflow_meter_desc_v6.exit
@@ -6782,7 +6782,7 @@ dissect_openflow_instruction_header_v6.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_openflow_bucket_v6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %6 = load i32, ptr @ett_openflow_v6_bucket, align 4

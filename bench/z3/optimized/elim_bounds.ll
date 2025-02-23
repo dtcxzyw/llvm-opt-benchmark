@@ -1663,7 +1663,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i456: ; preds = %_ZN6bufferIP4e
   %120 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i459 = add i32 %120, 1
   store i32 %inc.i.i459, ptr %m_pos.i.i, align 8
-  %inc.i460 = add nuw i32 %i.013.i, 1
+  %inc.i460 = add i32 %i.013.i, 1
   %exitcond.not.i461 = icmp eq i32 %inc.i460, %j.1
   br i1 %exitcond.not.i461, label %invoke.cont159, label %for.body.i432, !llvm.loop !11
 

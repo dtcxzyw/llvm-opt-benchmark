@@ -73099,7 +73099,6 @@ _ZN4gpui6window11FocusHandle10is_focused17h3a20e87fba5342d0E.exit: ; preds = %54
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %75 = load i64, ptr %74, align 8, !range !1919, !noundef !9
   %76 = icmp eq i64 %75, 2
-  %.45 = select i1 %76, ptr null, ptr %74
   br i1 %76, label %_ZN4gpui6window8HitboxId10is_hovered17hd292ee8eb0cec627E.exit, label %80
 
 _ZN4gpui6window8HitboxId10is_hovered17hd292ee8eb0cec627E.exit: ; preds = %96, %101, %82, %73
@@ -73146,7 +73145,7 @@ _ZN4gpui6window8HitboxId10is_hovered17hd292ee8eb0cec627E.exit: ; preds = %96, %1
   br i1 %100, label %101, label %96
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i8, ptr %.45, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %103 = load ptr, ptr %102, align 8, !nonnull !9, !align !890, !noundef !9
   invoke void @"_ZN61_$LT$gpui..style..Style$u20$as$u20$refineable..Refineable$GT$6refine17h0edfa908f850e14cE"(ptr noalias noundef nonnull align 8 dereferenceable(552) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(568) %103)
           to label %_ZN4gpui6window8HitboxId10is_hovered17hd292ee8eb0cec627E.exit unwind label %36

@@ -1183,7 +1183,7 @@ strview_str.exit:                                 ; preds = %22, %19
 
 .thread162:                                       ; preds = %.lr.ph.i.i, %54
   tail call void @free(ptr noundef %.sroa.075.0190) #27
-  br label %104
+  br label %103
 
 59:                                               ; preds = %strview_str.exit, %43, %37
   %.sroa.38.3 = phi i64 [ %.sroa.38.0187, %strview_str.exit ], [ %spec.select.i.i, %43 ], [ %spec.select.i.i, %37 ]
@@ -1228,7 +1228,7 @@ tok_next.exit:                                    ; preds = %65
 
 ._crit_edge:                                      ; preds = %.lr.ph207
   %.not57 = icmp eq i64 %.143, 0
-  br i1 %.not57, label %._crit_edge.thread, label %78
+  br i1 %.not57, label %._crit_edge.thread, label %.lr.ph211.preheader
 
 .lr.ph207:                                        ; preds = %.preheader, %.lr.ph207
   %.041206 = phi i64 [ %77, %.lr.ph207 ], [ 0, %.preheader ]
@@ -1244,60 +1244,60 @@ tok_next.exit:                                    ; preds = %65
   %exitcond234.not = icmp eq i64 %.041206, %.sroa.25.0188
   br i1 %exitcond234.not, label %._crit_edge, label %.lr.ph207, !llvm.loop !119
 
-78:                                               ; preds = %._crit_edge
-  %79 = uitofp i64 %.143 to double
-  %80 = fdiv double %.145161, %79
+.lr.ph211.preheader:                              ; preds = %._crit_edge
+  %78 = uitofp i64 %.143 to double
+  %79 = fdiv double %.145161, %78
   br label %.lr.ph211
 
-.lr.ph211:                                        ; preds = %78, %87
-  %.039209 = phi i64 [ %88, %87 ], [ 0, %78 ]
-  %81 = add i64 %.039209, %.sroa.15.4
-  %82 = urem i64 %81, %.sroa.38.3
-  %83 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %82, i32 1
-  %84 = load double, ptr %83, align 8, !tbaa !120
-  %85 = fcmp ugt double %84, 0.000000e+00
-  br i1 %85, label %87, label %86
+.lr.ph211:                                        ; preds = %.lr.ph211.preheader, %86
+  %.039209 = phi i64 [ %87, %86 ], [ 0, %.lr.ph211.preheader ]
+  %80 = add i64 %.039209, %.sroa.15.4
+  %81 = urem i64 %80, %.sroa.38.3
+  %82 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %81, i32 1
+  %83 = load double, ptr %82, align 8, !tbaa !120
+  %84 = fcmp ugt double %83, 0.000000e+00
+  br i1 %84, label %86, label %85
 
-86:                                               ; preds = %.lr.ph211
-  store double %80, ptr %83, align 8, !tbaa !120
-  br label %87
+85:                                               ; preds = %.lr.ph211
+  store double %79, ptr %82, align 8, !tbaa !120
+  br label %86
 
-87:                                               ; preds = %86, %.lr.ph211
-  %88 = add nuw i64 %.039209, 1
+86:                                               ; preds = %85, %.lr.ph211
+  %87 = add nuw i64 %.039209, 1
   %exitcond235.not = icmp eq i64 %.039209, %.sroa.25.0188
   br i1 %exitcond235.not, label %.loopexit, label %.lr.ph211, !llvm.loop !122
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
   %.sroa.25.1157252263282 = phi i64 [ %63, %._crit_edge ], [ 0, %.preheader ]
-  %89 = add i64 %.sroa.15.4, -1
-  %90 = add i64 %89, %.sroa.25.1157252263282
-  %91 = urem i64 %90, %.sroa.38.3
-  %92 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %91, i32 1
-  %93 = load double, ptr %92, align 8, !tbaa !120
-  %94 = fadd double %.145161, %93
-  store double %94, ptr %92, align 8, !tbaa !120
+  %88 = add i64 %.sroa.15.4, -1
+  %89 = add i64 %88, %.sroa.25.1157252263282
+  %90 = urem i64 %89, %.sroa.38.3
+  %91 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %90, i32 1
+  %92 = load double, ptr %91, align 8, !tbaa !120
+  %93 = fadd double %.145161, %92
+  store double %93, ptr %91, align 8, !tbaa !120
   br label %.loopexit
 
-.loopexit:                                        ; preds = %87, %._crit_edge.thread, %.thread146
-  %.sroa.25.1157251 = phi i64 [ %.sroa.25.1157252263282, %._crit_edge.thread ], [ %63, %.thread146 ], [ %63, %87 ]
+.loopexit:                                        ; preds = %86, %._crit_edge.thread, %.thread146
+  %.sroa.25.1157251 = phi i64 [ %.sroa.25.1157252263282, %._crit_edge.thread ], [ %63, %.thread146 ], [ %63, %86 ]
   %invariant.op = add i64 %.sroa.15.4, -1
-  br label %95
+  br label %94
 
-95:                                               ; preds = %97, %.loopexit
-  %.sroa.25.3 = phi i64 [ %.sroa.25.1157251, %.loopexit ], [ %98, %97 ]
-  %96 = icmp eq i64 %.sroa.25.3, 0
-  br i1 %96, label %103, label %97
+94:                                               ; preds = %96, %.loopexit
+  %.sroa.25.3 = phi i64 [ %.sroa.25.1157251, %.loopexit ], [ %97, %96 ]
+  %95 = icmp eq i64 %.sroa.25.3, 0
+  br i1 %95, label %102, label %96
 
-97:                                               ; preds = %95
-  %98 = add i64 %.sroa.25.3, -1
+96:                                               ; preds = %94
+  %97 = add i64 %.sroa.25.3, -1
   %.reass = add i64 %.sroa.25.3, %invariant.op
-  %99 = urem i64 %.reass, %.sroa.38.3
-  %100 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %99, i32 1
-  %101 = load double, ptr %100, align 8, !tbaa !120
-  %102 = fcmp ogt double %101, 0.000000e+00
-  br i1 %102, label %103, label %95, !llvm.loop !123
+  %98 = urem i64 %.reass, %.sroa.38.3
+  %99 = getelementptr inbounds nuw %struct.colorseg_t, ptr %.sroa.075.3, i64 %98, i32 1
+  %100 = load double, ptr %99, align 8, !tbaa !120
+  %101 = fcmp ogt double %100, 0.000000e+00
+  br i1 %101, label %102, label %94, !llvm.loop !123
 
-103:                                              ; preds = %97, %95
+102:                                              ; preds = %96, %94
   store ptr %.sroa.075.3, ptr %1, align 8, !tbaa !124
   %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sroa.15.4, ptr %.sroa.15.0..sroa_idx, align 8, !tbaa !125
@@ -1305,10 +1305,10 @@ tok_next.exit:                                    ; preds = %65
   store i64 %.sroa.25.3, ptr %.sroa.25.0..sroa_idx, align 8, !tbaa !125
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 %.sroa.38.3, ptr %.sroa.38.0..sroa_idx, align 8, !tbaa !125
-  br label %104
+  br label %103
 
-104:                                              ; preds = %.thread162, %103
-  %.3 = phi i32 [ %.251, %103 ], [ %.4, %.thread162 ]
+103:                                              ; preds = %.thread162, %102
+  %.3 = phi i32 [ %.251, %102 ], [ %.4, %.thread162 ]
   ret i32 %.3
 }
 
@@ -4278,14 +4278,14 @@ emit_background.exit.i:                           ; preds = %._crit_edge.thread1
 .lr.ph.i.i:                                       ; preds = %857, %.lr.ph.i.i
   %.096126.i.i = phi ptr [ %859, %.lr.ph.i.i ], [ %858, %857 ]
   call fastcc void @emit_node(ptr noundef nonnull %0, ptr noundef nonnull %.096126.i.i)
-  %859 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.096126.i.i) #27
+  %859 = call ptr @agnxtnode(ptr noundef nonnull %1, ptr noundef nonnull %.096126.i.i) #27
   %.not111.i.i = icmp eq ptr %859, null
   br i1 %.not111.i.i, label %._crit_edge.i97.i, label %.lr.ph.i.i, !llvm.loop !273
 
 ._crit_edge.i97.i:                                ; preds = %.lr.ph.i.i, %857
   call void @gvrender_end_nodes(ptr noundef nonnull %0) #27
   call void @gvrender_begin_edges(ptr noundef nonnull %0) #27
-  %860 = call ptr @agfstnode(ptr noundef %1) #27
+  %860 = call ptr @agfstnode(ptr noundef nonnull %1) #27
   %.not112132.i.i = icmp eq ptr %860, null
   br i1 %.not112132.i.i, label %._crit_edge136.i.i, label %.lr.ph135.i.i
 

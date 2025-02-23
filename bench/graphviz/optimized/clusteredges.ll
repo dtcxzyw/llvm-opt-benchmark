@@ -200,8 +200,8 @@ raiseLevel.exit46.i:                              ; preds = %.lr.ph.i41.i
   %.23260.i = phi ptr [ %101, %.lr.ph.i ], [ %.131.i, %100 ]
   %101 = phi ptr [ %108, %.lr.ph.i ], [ %.0..promoted.i, %100 ]
   %102 = phi ptr [ %114, %.lr.ph.i ], [ %.0..promoted57.i, %100 ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %101, ptr noundef null, ptr noundef %.23260.i, ptr noundef %1)
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %102, ptr noundef %.261.i, ptr noundef null, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %101, ptr noundef null, ptr noundef nonnull %.23260.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %102, ptr noundef nonnull %.261.i, ptr noundef null, ptr noundef %1)
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !16, !noalias !43
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 160
@@ -221,7 +221,7 @@ objectList.exit:                                  ; preds = %.lr.ph.i, %100
   %.lcssa58.i = phi ptr [ %.0..promoted57.i, %100 ], [ %114, %.lr.ph.i ]
   %.232.lcssa.i = phi ptr [ %.131.i, %100 ], [ %101, %.lr.ph.i ]
   %.2.lcssa.i = phi ptr [ %.1.i, %100 ], [ %102, %.lr.ph.i ]
-  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.lcssa58.i, ptr noundef %.2.lcssa.i, ptr noundef %.232.lcssa.i, ptr noundef %1)
+  call fastcc void @addGraphObjs(ptr noundef nonnull align 8 %6, ptr noundef %.lcssa58.i, ptr noundef nonnull %.2.lcssa.i, ptr noundef nonnull %.232.lcssa.i, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %.promoted.i = load i64, ptr %10, align 8, !tbaa !64

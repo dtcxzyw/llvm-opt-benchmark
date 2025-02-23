@@ -113,7 +113,7 @@ define dso_local i64 @reftable_merged_table_min_update_index(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @merged_table_init_iter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @merged_table_init_iter(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %.not = icmp eq i64 %5, 0
@@ -212,13 +212,13 @@ declare void @reftable_iterator_destroy(ptr noundef) local_unnamed_addr #2
 declare void @reftable_record_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_merged_table_init_ref_iterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_init_ref_iterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @merged_table_init_iter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 114)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_merged_table_init_log_iterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @reftable_merged_table_init_log_iterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @merged_table_init_iter(ptr noundef %0, ptr noundef %1, i8 noundef zeroext 103)
   ret i32 %3
 }

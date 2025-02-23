@@ -186,17 +186,17 @@ define void @dporfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %91, ptr %92, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.thread:                               ; preds = %.lr.ph
   %93 = add nuw i32 %86, 1
   br i1 %.not, label %.lr.ph437.preheader, label %.lr.ph427.preheader
 
-.lr.ph427.preheader:                              ; preds = %._crit_edge
+.lr.ph427.preheader:                              ; preds = %._crit_edge.thread
   %wide.trip.count502 = zext i32 %93 to i64
   br label %.lr.ph427
 
-.lr.ph437.preheader:                              ; preds = %._crit_edge
+.lr.ph437.preheader:                              ; preds = %._crit_edge.thread
   %94 = zext nneg i32 %86 to i64
   %wide.trip.count513 = zext i32 %93 to i64
   br label %.lr.ph437

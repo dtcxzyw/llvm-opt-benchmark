@@ -613,32 +613,34 @@ while.cond:                                       ; preds = %entry.cont, %while.
   br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !9
 
 while.end:                                        ; preds = %while.cond
-  br i1 %cmp, label %if.end5, label %while.end.else
+  br i1 %cmp, label %if.else, label %while.end.else
 
 while.end.else:                                   ; preds = %while.end
   store ptr %tmp.0, ptr %end, align 8
-  br label %if.end5
+  br label %if.else
 
-if.end5:                                          ; preds = %while.end.else, %while.end, %entry.cont
-  %endptr.0 = phi ptr [ null, %entry.cont ], [ null, %while.end.else ], [ %tmp.0, %while.end ]
+if.end5:                                          ; preds = %entry.cont
   %cmp6 = icmp eq ptr %l, null
-  %call.i = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
-  %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp6, label %if.then7, label %if.else
 
 if.then7:                                         ; preds = %if.end5
+  %call.i = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
+  %cmp.i = icmp eq ptr %call.i, null
   br i1 %cmp.i, label %if.end10, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7
   store ptr %str, ptr %call.i, align 8
   br label %if.end10.sink.split
 
-if.else:                                          ; preds = %if.end5
-  br i1 %cmp.i, label %pkg_prependToList.exit20, label %if.end.i18
+if.else:                                          ; preds = %while.end, %while.end.else, %if.end5
+  %endptr.028 = phi ptr [ null, %if.end5 ], [ %tmp.0, %while.end ], [ null, %while.end.else ]
+  %call.i16 = tail call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
+  %cmp.i17 = icmp eq ptr %call.i16, null
+  br i1 %cmp.i17, label %pkg_prependToList.exit20, label %if.end.i18
 
 if.end.i18:                                       ; preds = %if.else
-  store ptr %str, ptr %call.i, align 8
-  %next.i19 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
+  store ptr %str, ptr %call.i16, align 8
+  %next.i19 = getelementptr inbounds nuw i8, ptr %call.i16, i64 8
   store ptr null, ptr %next.i19, align 8
   br label %pkg_prependToList.exit20
 
@@ -650,14 +652,16 @@ pkg_prependToList.exit20.else:                    ; preds = %pkg_prependToList.e
   br label %if.end10.sink.split
 
 if.end10.sink.split:                              ; preds = %pkg_prependToList.exit20.else, %pkg_prependToList.exit20, %if.end.i
-  %call.i.sink = phi ptr [ %call.i, %if.end.i ], [ %endptr.0, %pkg_prependToList.exit20 ], [ %.else.val, %pkg_prependToList.exit20.else ]
-  %.sink = phi ptr [ null, %if.end.i ], [ %call.i, %pkg_prependToList.exit20 ], [ %call.i, %pkg_prependToList.exit20.else ]
+  %call.i.sink = phi ptr [ %call.i, %if.end.i ], [ %endptr.028, %pkg_prependToList.exit20 ], [ %.else.val, %pkg_prependToList.exit20.else ]
+  %.sink = phi ptr [ null, %if.end.i ], [ %call.i16, %pkg_prependToList.exit20 ], [ %call.i16, %pkg_prependToList.exit20.else ]
+  %endptr.027.ph = phi ptr [ null, %if.end.i ], [ %endptr.028, %pkg_prependToList.exit20 ], [ %endptr.028, %pkg_prependToList.exit20.else ]
   %l.addr.0.ph = phi ptr [ %call.i, %if.end.i ], [ %l, %pkg_prependToList.exit20 ], [ %l, %pkg_prependToList.exit20.else ]
   %next.i = getelementptr inbounds nuw i8, ptr %call.i.sink, i64 8
   store ptr %.sink, ptr %next.i, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.sink.split, %if.then7
+  %endptr.027 = phi ptr [ null, %if.then7 ], [ %endptr.027.ph, %if.end10.sink.split ]
   %l.addr.0 = phi ptr [ null, %if.then7 ], [ %l.addr.0.ph, %if.end10.sink.split ]
   br i1 %cmp, label %if.end10.cont, label %if.end10.else
 
@@ -666,7 +670,7 @@ if.end10.else:                                    ; preds = %if.end10
   br label %if.end10.cont
 
 if.end10.cont:                                    ; preds = %if.end10, %if.end10.else
-  %2 = phi ptr [ %endptr.0, %if.end10 ], [ %.else.val22, %if.end10.else ]
+  %2 = phi ptr [ %endptr.027, %if.end10 ], [ %.else.val22, %if.end10.else ]
   %tobool11.not = icmp eq ptr %2, null
   br i1 %tobool11.not, label %if.end15, label %if.then12
 
@@ -784,31 +788,33 @@ while.cond.i:                                     ; preds = %entry.cont.i, %whil
   br i1 %tobool.not.i17, label %while.end.i, label %while.cond.i, !llvm.loop !9
 
 while.end.i:                                      ; preds = %while.cond.i
-  br i1 %cmp.i, label %if.end5.i, label %while.end.else.i
+  br i1 %cmp.i, label %if.else.i, label %while.end.else.i
 
 while.end.else.i:                                 ; preds = %while.end.i
   store ptr %tmp.0.i, ptr %end, align 8
-  br label %if.end5.i
+  br label %if.else.i
 
-if.end5.i:                                        ; preds = %while.end.else.i, %while.end.i, %entry.cont.i
-  %endptr.0.i = phi ptr [ null, %entry.cont.i ], [ null, %while.end.else.i ], [ %tmp.0.i, %while.end.i ]
-  %call.i.i = call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
-  %cmp.i.i = icmp eq ptr %call.i.i, null
+if.end5.i:                                        ; preds = %entry.cont.i
   br i1 %tobool.not3.i13, label %if.then7.i, label %if.else.i
 
 if.then7.i:                                       ; preds = %if.end5.i
+  %call.i.i = call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
+  %cmp.i.i = icmp eq ptr %call.i.i, null
   br i1 %cmp.i.i, label %if.end10.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then7.i
   store ptr %call18, ptr %call.i.i, align 8
   br label %if.end10.sink.split.i
 
-if.else.i:                                        ; preds = %if.end5.i
-  br i1 %cmp.i.i, label %pkg_prependToList.exit20.i, label %if.end.i18.i
+if.else.i:                                        ; preds = %if.end5.i, %while.end.else.i, %while.end.i
+  %endptr.028.i = phi ptr [ null, %if.end5.i ], [ %tmp.0.i, %while.end.i ], [ null, %while.end.else.i ]
+  %call.i16.i = call noalias dereferenceable_or_null(16) ptr @uprv_malloc_75(i64 noundef 16) #14
+  %cmp.i17.i = icmp eq ptr %call.i16.i, null
+  br i1 %cmp.i17.i, label %pkg_prependToList.exit20.i, label %if.end.i18.i
 
 if.end.i18.i:                                     ; preds = %if.else.i
-  store ptr %call18, ptr %call.i.i, align 8
-  %next.i19.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
+  store ptr %call18, ptr %call.i16.i, align 8
+  %next.i19.i = getelementptr inbounds nuw i8, ptr %call.i16.i, i64 8
   store ptr null, ptr %next.i19.i, align 8
   br label %pkg_prependToList.exit20.i
 
@@ -820,14 +826,16 @@ pkg_prependToList.exit20.else.i:                  ; preds = %pkg_prependToList.e
   br label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %pkg_prependToList.exit20.else.i, %pkg_prependToList.exit20.i, %if.end.i.i
-  %call.i.sink.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %endptr.0.i, %pkg_prependToList.exit20.i ], [ %.else.val.i, %pkg_prependToList.exit20.else.i ]
-  %.sink.i = phi ptr [ null, %if.end.i.i ], [ %call.i.i, %pkg_prependToList.exit20.i ], [ %call.i.i, %pkg_prependToList.exit20.else.i ]
+  %call.i.sink.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %endptr.028.i, %pkg_prependToList.exit20.i ], [ %.else.val.i, %pkg_prependToList.exit20.else.i ]
+  %.sink.i = phi ptr [ null, %if.end.i.i ], [ %call.i16.i, %pkg_prependToList.exit20.i ], [ %call.i16.i, %pkg_prependToList.exit20.else.i ]
+  %endptr.027.ph.i = phi ptr [ null, %if.end.i.i ], [ %endptr.028.i, %pkg_prependToList.exit20.i ], [ %endptr.028.i, %pkg_prependToList.exit20.else.i ]
   %l.addr.0.ph.i = phi ptr [ %call.i.i, %if.end.i.i ], [ %l, %pkg_prependToList.exit20.i ], [ %l, %pkg_prependToList.exit20.else.i ]
   %next.i.i = getelementptr inbounds nuw i8, ptr %call.i.sink.i, i64 8
   store ptr %.sink.i, ptr %next.i.i, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end10.sink.split.i, %if.then7.i
+  %endptr.027.i = phi ptr [ null, %if.then7.i ], [ %endptr.027.ph.i, %if.end10.sink.split.i ]
   %l.addr.0.i = phi ptr [ null, %if.then7.i ], [ %l.addr.0.ph.i, %if.end10.sink.split.i ]
   br i1 %cmp.i, label %if.end10.cont.i, label %if.end10.else.i
 
@@ -836,7 +844,7 @@ if.end10.else.i:                                  ; preds = %if.end10.i
   br label %if.end10.cont.i
 
 if.end10.cont.i:                                  ; preds = %if.end10.else.i, %if.end10.i
-  %5 = phi ptr [ %endptr.0.i, %if.end10.i ], [ %.else.val22.i, %if.end10.else.i ]
+  %5 = phi ptr [ %endptr.027.i, %if.end10.i ], [ %.else.val22.i, %if.end10.else.i ]
   %tobool11.not.i = icmp eq ptr %5, null
   br i1 %tobool11.not.i, label %if.end15.i, label %if.then12.i
 

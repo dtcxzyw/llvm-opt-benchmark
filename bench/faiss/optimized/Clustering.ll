@@ -1898,8 +1898,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc300, %_ZNSt6v
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i294, label %.lr.ph37.preheader.i
 
 .lr.ph37.preheader.i:                             ; preds = %.preheader.i293
-  %smax.i = call i32 @llvm.smax.i32(i32 %700, i32 1)
-  %wide.trip.count44.i = zext nneg i32 %smax.i to i64
+  %wide.trip.count44.i = and i64 %699, 2147483647
   br label %.lr.ph37.i
 
 .lr.ph.i297:                                      ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i, %.lr.ph.i297
@@ -1942,7 +1941,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i:          ; preds = %.noexc300, %_ZNSt6v
 720:                                              ; preds = %._crit_edge.thread.i, %._crit_edge.i294
   %.020.lcssa52.i = phi double [ 0.000000e+00, %._crit_edge.i294 ], [ %.020.lcssa51.i, %._crit_edge.thread.i ]
   %.021.lcssa50.i = phi double [ 0.000000e+00, %._crit_edge.i294 ], [ %.021.lcssa49.i, %._crit_edge.thread.i ]
-  %721 = sitofp i32 %700 to double
+  %721 = uitofp nneg i32 %700 to double
   %722 = fmul double %.020.lcssa52.i, %721
   %723 = fmul double %.021.lcssa50.i, %.021.lcssa50.i
   %724 = fdiv double %722, %723
@@ -5171,9 +5170,6 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #23

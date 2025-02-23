@@ -2775,7 +2775,7 @@ _ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15dele
   br i1 %cmp.i.i.not.i.i.i.i.i.i, label %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_.exit.i.i.i, label %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_9edge_nodeEEEvPKT_.exit.i.i.i.i.i.i, !llvm.loop !109
 
 _ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_.exit.i.i.i: ; preds = %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_9edge_nodeEEEvPKT_.exit.i.i.i.i.i.i, %delete.notnull.i.i.i.i
-  call void @_ZdlPv(ptr noundef %it.sroa.0.06.i.i.i) #25
+  call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.06.i.i.i) #25
   %cmp.i.i.not.i.i.i = icmp eq ptr %138, %m_header.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i.i, label %_ZN3ue29RdfaGraphD2Ev.exit, label %delete.notnull.i.i.i.i, !llvm.loop !110
 
@@ -4825,7 +4825,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGrap
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RdfaGraphENS0_15RdfaVertexPropsENS0_13RdfaEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i, %if.then.i16
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin0.sroa.0.071) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin0.sroa.0.071) #28
   %cmp.i.not = icmp eq ptr %call.i, %0
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -5565,7 +5565,7 @@ _ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15dele
   br i1 %cmp.i.i.not.i.i.i.i.i, label %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_.exit.i.i, label %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_9edge_nodeEEEvPKT_.exit.i.i.i.i.i, !llvm.loop !109
 
 _ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_11vertex_nodeEEEvPKT_.exit.i.i: ; preds = %_ZNK3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEE15delete_disposerclINS4_9edge_nodeEEEvPKT_.exit.i.i.i.i.i, %delete.notnull.i.i.i
-  tail call void @_ZdlPv(ptr noundef %it.sroa.0.06.i.i) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %it.sroa.0.06.i.i) #25
   %cmp.i.i.not.i.i = icmp eq ptr %1, %m_header.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %_ZN3ue29ue2_graphINS_9RdfaGraphENS_15RdfaVertexPropsENS_13RdfaEdgePropsEED2Ev.exit, label %delete.notnull.i.i.i, !llvm.loop !110
 
@@ -10600,7 +10600,16 @@ lor.lhs.false.us:                                 ; preds = %for.cond51.for.end_
 if.then75.us:                                     ; preds = %lor.lhs.false.us, %for.cond51.for.end_crit_edge.us
   %conv76.us = trunc i32 %spec.select.us to i16
   %cmp78.us = icmp eq i32 %spec.select.us, %conv29.pre-phi
-  br i1 %cmp78.us, label %for.end85, label %for.inc82.us
+  br i1 %cmp78.us, label %for.end85.thread71, label %for.inc82.us
+
+for.end85.thread71:                               ; preds = %if.then75.us
+  %daddy74 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
+  store i16 %43, ptr %daddy74, align 8
+  %extra75 = getelementptr inbounds nuw i8, ptr %info, i64 24
+  %extra.val5076 = load ptr, ptr %extra75, align 8
+  %add.ptr.i5777 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val5076, i64 %conv38
+  store i16 %conv76.us, ptr %add.ptr.i5777, align 2
+  br label %if.end93
 
 for.body55.us:                                    ; preds = %if.end47.us, %for.body55.us
   %indvars.iv = phi i64 [ 0, %if.end47.us ], [ %indvars.iv.next, %for.body55.us ]
@@ -10637,20 +10646,20 @@ for.end85.thread:                                 ; preds = %invoke.cont, %invok
   store i16 0, ptr %add.ptr.i5769, align 2
   br label %cleanup
 
-for.end85:                                        ; preds = %for.inc82.us, %if.then75.us
-  %best_daddy.1 = phi i16 [ %best_daddy.2.us, %for.inc82.us ], [ %43, %if.then75.us ]
-  %best_score.1 = phi i16 [ %best_score.2.us, %for.inc82.us ], [ %conv76.us, %if.then75.us ]
+for.end85:                                        ; preds = %for.inc82.us
   %daddy = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 24
-  store i16 %best_daddy.1, ptr %daddy, align 8
+  store i16 %best_daddy.2.us, ptr %daddy, align 8
   %extra = getelementptr inbounds nuw i8, ptr %info, i64 24
   %extra.val50 = load ptr, ptr %extra, align 8
   %add.ptr.i57 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %extra.val50, i64 %conv38
-  store i16 %best_score.1, ptr %add.ptr.i57, align 2
-  %cmp91 = icmp eq i16 %best_daddy.1, 0
+  store i16 %best_score.2.us, ptr %add.ptr.i57, align 2
+  %cmp91 = icmp eq i16 %best_daddy.2.us, 0
   br i1 %cmp91, label %cleanup, label %if.end93
 
-if.end93:                                         ; preds = %for.end85
-  %conv94 = zext i16 %best_score.1 to i32
+if.end93:                                         ; preds = %for.end85.thread71, %for.end85
+  %extra80 = phi ptr [ %extra75, %for.end85.thread71 ], [ %extra, %for.end85 ]
+  %best_score.179 = phi i16 [ %conv76.us, %for.end85.thread71 ], [ %best_score.2.us, %for.end85 ]
+  %conv94 = zext i16 %best_score.179 to i32
   %add96 = add nuw nsw i32 %cond, %conv94
   %cmp98 = icmp samesign ult i32 %add96, %conv29.pre-phi
   br i1 %cmp98, label %cleanup, label %if.end100
@@ -10684,7 +10693,7 @@ for.end120:                                       ; preds = %for.body106
   br i1 %cmp121, label %cleanup, label %if.end126
 
 if.end126:                                        ; preds = %for.end120
-  %info.val = load ptr, ptr %extra, align 8
+  %info.val = load ptr, ptr %extra80, align 8
   %sheng_id.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::dstate_extra", ptr %info.val, i64 %conv38, i32 3
   %56 = load i8, ptr %sheng_id.i, align 2
   %cmp.i61.not = icmp eq i8 %56, -1

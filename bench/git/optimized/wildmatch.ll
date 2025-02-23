@@ -266,7 +266,7 @@ sane_iscase.exit422.thread.us570:                 ; preds = %87, %.lr.ph553.spli
 
 .critedge.us.thread:                              ; preds = %sane_iscase.exit422.thread.us570, %sane_iscase.exit422.thread.us.us, %.critedge.us
   %.5256.lcssa.us667 = phi ptr [ %.5256.lcssa.us, %.critedge.us ], [ %.5256552.us.us, %sane_iscase.exit422.thread.us.us ], [ %.5256552.us569, %sane_iscase.exit422.thread.us570 ]
-  %99 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500662, ptr noundef %.5256.lcssa.us667, i32 noundef %2)
+  %99 = tail call fastcc i32 @dowild(ptr noundef nonnull %.4246500662, ptr noundef nonnull %.5256.lcssa.us667, i32 noundef %2)
   %.not351.us = icmp eq i32 %99, 1
   br i1 %.not351.us, label %102, label %100
 

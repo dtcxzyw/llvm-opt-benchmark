@@ -13929,8 +13929,8 @@ _ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit: ; preds = %_ZNK5clang4Typ
   %514 = getelementptr inbounds nuw i8, ptr %513, i64 16
   %515 = load i8, ptr %514, align 16
   %516 = icmp eq i8 %515, 13
-  %.not.not7.i.i = icmp ne ptr %513, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %516
+  %.not7.i.i = icmp ne ptr %513, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %516
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang4Type6castAsINS_12FunctionTypeEEEPKT_v.exit

@@ -1851,11 +1851,7 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   %14 = load ptr, ptr @spl_ce_SplFixedArray, align 8
   %15 = icmp ne ptr %0, null
   %.not = icmp eq ptr %0, %14
-  br i1 %.not, label %._crit_edge.thread.i, label %.lr.ph.i
-
-._crit_edge.thread.i:                             ; preds = %1
-  tail call void @llvm.assume(i1 %15)
-  br label %spl_fixedarray_object_new_ex.exit
+  br i1 %.not, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.029.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %1 ]
@@ -1864,9 +1860,13 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   %18 = icmp ne ptr %17, null
   %19 = icmp ne ptr %17, %14
   %or.cond.not.i = and i1 %18, %19
-  br i1 %or.cond.not.i, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %or.cond.not.i, label %.lr.ph.i, label %zend_hash_find_ptr.exit.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+._crit_edge.i:                                    ; preds = %1
+  tail call void @llvm.assume(i1 %15)
+  br label %spl_fixedarray_object_new_ex.exit
+
+zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   tail call void @llvm.assume(i1 %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
@@ -1884,7 +1884,7 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   store ptr %spec.store.select.i, ptr %29, align 8, !tbaa !103
   br label %spl_fixedarray_object_new_ex.exit
 
-spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.thread.i, %._crit_edge.i
+spl_fixedarray_object_new_ex.exit:                ; preds = %._crit_edge.i, %zend_hash_find_ptr.exit.i
   ret ptr %13
 }
 
@@ -2670,7 +2670,7 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
   %17 = getelementptr inbounds i8, ptr %1, i64 -32
   %18 = load i64, ptr %17, align 8, !tbaa !46
   %19 = icmp sgt i64 %18, 0
-  br i1 %19, label %.lr.ph.preheader.i.i.i, label %26
+  br i1 %19, label %.lr.ph.preheader.i.i.i, label %spl_fixedarray_init.exit.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %16
   store i64 0, ptr %14, align 8, !tbaa !46
@@ -2689,89 +2689,86 @@ define internal fastcc noundef nonnull ptr @spl_fixedarray_object_new_ex(ptr nou
   %25 = getelementptr inbounds nuw i8, ptr %.02.i.i.i, i64 8
   store i32 1, ptr %25, align 8, !tbaa !8
   %.not.i5.i.i = icmp eq ptr %24, %23
-  br i1 %.not.i5.i.i, label %spl_fixedarray_init.exit.i, label %.lr.ph.i.i.i
+  br i1 %.not.i5.i.i, label %.lr.ph.i.preheader.i, label %.lr.ph.i.i.i
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 16
+spl_fixedarray_init.exit.i:                       ; preds = %16
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %14, i8 0, i64 16, i1 false)
-  store i64 -1, ptr %27, align 8, !tbaa !47
-  br label %spl_fixedarray_init.exit.i
-
-spl_fixedarray_init.exit.i:                       ; preds = %.lr.ph.i.i.i, %26
-  %.val9.i = phi ptr [ null, %26 ], [ %20, %.lr.ph.i.i.i ]
+  store i64 -1, ptr %26, align 8, !tbaa !47
   %.not.i26 = icmp eq i64 %18, 0
-  br i1 %.not.i26, label %spl_fixedarray_copy_ctor.exit, label %28
+  br i1 %.not.i26, label %spl_fixedarray_copy_ctor.exit, label %.lr.ph.i.preheader.i
 
-28:                                               ; preds = %spl_fixedarray_init.exit.i
-  %29 = getelementptr inbounds i8, ptr %1, i64 -24
-  %30 = load ptr, ptr %29, align 8, !tbaa !44
-  %31 = getelementptr inbounds %struct._zval_struct, ptr %30, i64 %18
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.i.i, %spl_fixedarray_init.exit.i
+  %.val9.i = phi ptr [ null, %spl_fixedarray_init.exit.i ], [ %20, %.lr.ph.i.i.i ]
+  %27 = getelementptr inbounds i8, ptr %1, i64 -24
+  %28 = load ptr, ptr %27, align 8, !tbaa !44
+  %29 = getelementptr inbounds %struct._zval_struct, ptr %28, i64 %18
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %42, %28
-  %.03.i.i = phi ptr [ %33, %42 ], [ %30, %28 ]
-  %.0182.i.i = phi ptr [ %32, %42 ], [ %.val9.i, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.0182.i.i, i64 16
-  %33 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 16
-  %34 = load ptr, ptr %.03.i.i, align 8, !tbaa !8
-  %35 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
-  %36 = load i32, ptr %35, align 8, !tbaa !8
-  store ptr %34, ptr %.0182.i.i, align 8, !tbaa !8
-  %37 = getelementptr inbounds nuw i8, ptr %.0182.i.i, i64 8
-  store i32 %36, ptr %37, align 8, !tbaa !8
-  %38 = and i32 %36, 65280
-  %.not19.i.i = icmp eq i32 %38, 0
-  br i1 %.not19.i.i, label %42, label %39
+.lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.preheader.i
+  %.03.i.i = phi ptr [ %31, %40 ], [ %28, %.lr.ph.i.preheader.i ]
+  %.0182.i.i = phi ptr [ %30, %40 ], [ %.val9.i, %.lr.ph.i.preheader.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %.0182.i.i, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 16
+  %32 = load ptr, ptr %.03.i.i, align 8, !tbaa !8
+  %33 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 8
+  %34 = load i32, ptr %33, align 8, !tbaa !8
+  store ptr %32, ptr %.0182.i.i, align 8, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %.0182.i.i, i64 8
+  store i32 %34, ptr %35, align 8, !tbaa !8
+  %36 = and i32 %34, 65280
+  %.not19.i.i = icmp eq i32 %36, 0
+  br i1 %.not19.i.i, label %40, label %37
 
-39:                                               ; preds = %.lr.ph.i.i
-  %40 = load i32, ptr %34, align 4, !tbaa !58
-  %41 = add i32 %40, 1
-  store i32 %41, ptr %34, align 4, !tbaa !58
-  br label %42
+37:                                               ; preds = %.lr.ph.i.i
+  %38 = load i32, ptr %32, align 4, !tbaa !58
+  %39 = add i32 %38, 1
+  store i32 %39, ptr %32, align 4, !tbaa !58
+  br label %40
 
-42:                                               ; preds = %39, %.lr.ph.i.i
-  %.not.i.i = icmp eq ptr %33, %31
+40:                                               ; preds = %37, %.lr.ph.i.i
+  %.not.i.i = icmp eq ptr %31, %29
   br i1 %.not.i.i, label %spl_fixedarray_copy_ctor.exit, label %.lr.ph.i.i
 
-spl_fixedarray_copy_ctor.exit:                    ; preds = %42, %spl_fixedarray_init.exit.i, %3
-  %43 = load ptr, ptr @spl_ce_SplFixedArray, align 8
-  %44 = icmp ne ptr %0, null
-  %45 = icmp ne ptr %0, %43
-  %or.cond.not28 = select i1 %44, i1 %45, i1 false
-  br i1 %or.cond.not28, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %spl_fixedarray_copy_ctor.exit
-  tail call void @llvm.assume(i1 %44)
-  br label %60
+spl_fixedarray_copy_ctor.exit:                    ; preds = %40, %spl_fixedarray_init.exit.i, %3
+  %41 = load ptr, ptr @spl_ce_SplFixedArray, align 8
+  %42 = icmp ne ptr %0, null
+  %43 = icmp ne ptr %0, %41
+  %or.cond.not28 = select i1 %42, i1 %43, i1 false
+  br i1 %or.cond.not28, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %spl_fixedarray_copy_ctor.exit, %.lr.ph
-  %.029 = phi ptr [ %47, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
-  %46 = getelementptr inbounds nuw i8, ptr %.029, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !8
-  %48 = icmp ne ptr %47, null
-  %49 = icmp ne ptr %47, %43
-  %or.cond.not = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge
+  %.029 = phi ptr [ %45, %.lr.ph ], [ %0, %spl_fixedarray_copy_ctor.exit ]
+  %44 = getelementptr inbounds nuw i8, ptr %.029, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !8
+  %46 = icmp ne ptr %45, null
+  %47 = icmp ne ptr %45, %41
+  %or.cond.not = select i1 %46, i1 %47, i1 false
+  br i1 %or.cond.not, label %.lr.ph, label %zend_hash_find_ptr.exit
 
-._crit_edge:                                      ; preds = %.lr.ph
-  tail call void @llvm.assume(i1 %48)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 576
-  %53 = load ptr, ptr %52, align 8, !tbaa !83
-  %54 = tail call ptr @zend_hash_find(ptr noundef nonnull %50, ptr noundef %53) #12
-  %.not.i = icmp ne ptr %54, null
+._crit_edge:                                      ; preds = %spl_fixedarray_copy_ctor.exit
+  tail call void @llvm.assume(i1 %42)
+  br label %58
+
+zend_hash_find_ptr.exit:                          ; preds = %.lr.ph
+  tail call void @llvm.assume(i1 %46)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %49 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 576
+  %51 = load ptr, ptr %50, align 8, !tbaa !83
+  %52 = tail call ptr @zend_hash_find(ptr noundef nonnull %48, ptr noundef %51) #12
+  %.not.i = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %.not.i)
-  %55 = load ptr, ptr %54, align 8, !tbaa !8, !nonnull !66, !noundef !66
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8, !tbaa !8
-  %58 = icmp eq ptr %57, %47
-  %spec.store.select = select i1 %58, ptr null, ptr %55
-  %59 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr %spec.store.select, ptr %59, align 8, !tbaa !103
-  br label %60
+  %53 = load ptr, ptr %52, align 8, !tbaa !8, !nonnull !66, !noundef !66
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8, !tbaa !8
+  %56 = icmp eq ptr %55, %45
+  %spec.store.select = select i1 %56, ptr null, ptr %53
+  %57 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr %spec.store.select, ptr %57, align 8, !tbaa !103
+  br label %58
 
-60:                                               ; preds = %._crit_edge.thread, %._crit_edge
+58:                                               ; preds = %._crit_edge, %zend_hash_find_ptr.exit
   ret ptr %15
 }
 

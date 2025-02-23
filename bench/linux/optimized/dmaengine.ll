@@ -2445,7 +2445,7 @@ define dso_local void @dmaengine_unmap_put(ptr noundef %0) #1 align 16 {
   %51 = load i8, ptr %50, align 1
   %52 = zext i8 %51 to i32
   %53 = add nuw nsw i32 %35, %52
-  %54 = icmp ult i32 %49, %53
+  %54 = icmp samesign ult i32 %49, %53
   br i1 %54, label %55, label %.loopexit
 
 55:                                               ; preds = %.loopexit14

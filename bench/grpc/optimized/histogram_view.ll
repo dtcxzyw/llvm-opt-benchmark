@@ -160,16 +160,16 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 
 _ZNK9grpc_core13HistogramView5CountEv.exit:       ; preds = %for.body.i
   %cmp = fcmp oeq double %add.i, 0.000000e+00
-  br i1 %cmp, label %return, label %if.end
+  br i1 %cmp, label %return, label %for.body.lr.ph.i3
 
-if.end:                                           ; preds = %_ZNK9grpc_core13HistogramView5CountEv.exit
+for.body.lr.ph.i3:                                ; preds = %_ZNK9grpc_core13HistogramView5CountEv.exit
   %mul = fmul double %p, %add.i
   %div = fdiv double %mul, 1.000000e+02
   br label %for.body.i6
 
-for.body.i6:                                      ; preds = %for.inc.i, %if.end
-  %indvars.iv.i7 = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i11, %for.inc.i ]
-  %count_so_far.018.i = phi double [ 0.000000e+00, %if.end ], [ %add.i10, %for.inc.i ]
+for.body.i6:                                      ; preds = %for.inc.i, %for.body.lr.ph.i3
+  %indvars.iv.i7 = phi i64 [ 0, %for.body.lr.ph.i3 ], [ %indvars.iv.next.i11, %for.inc.i ]
+  %count_so_far.018.i = phi double [ 0.000000e+00, %for.body.lr.ph.i3 ], [ %add.i10, %for.inc.i ]
   %arrayidx.i8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i7
   %3 = load i64, ptr %arrayidx.i8, align 8
   %conv.i9 = uitofp i64 %3 to double

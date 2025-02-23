@@ -350,7 +350,7 @@ compute_channel_noise.exit.i:                     ; preds = %.split.us30.i.i, %.
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph76.i
   %111 = lshr i32 %109, 1
-  %112 = sext i32 %101 to i64
+  %112 = zext nneg i32 %101 to i64
   %wide.trip.count.i = zext nneg i32 %111 to i64
   br label %.lr.ph.us.i
 
@@ -379,7 +379,7 @@ compute_channel_noise.exit.i:                     ; preds = %.split.us30.i.i, %.
 
 ._crit_edge.us.i:                                 ; preds = %117
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 2
-  %124 = icmp slt i64 %indvars.iv.next93.i, %112
+  %124 = icmp samesign ult i64 %indvars.iv.next93.i, %112
   br i1 %124, label %.lr.ph.us.i, label %._crit_edge77.i
 
 ._crit_edge77.i:                                  ; preds = %._crit_edge.us.i, %.lr.ph76.i, %compute_channel_noise.exit.i
@@ -1311,10 +1311,10 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %73, ptr %74, align 8, !tbaa !114
   %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %73, i64 noundef 80) #21
-  tail call void @g_object_set_data(ptr noundef %75, ptr noundef nonnull @.str.15, ptr noundef %0) #21
+  tail call void @g_object_set_data(ptr noundef %75, ptr noundef nonnull @.str.15, ptr noundef nonnull %0) #21
   %76 = load ptr, ptr %74, align 8, !tbaa !114
   %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %76, i64 noundef %13) #21
-  %78 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.16, ptr noundef %77, ptr noundef null) #21
+  %78 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.16, ptr noundef %77, ptr noundef null) #21
   %79 = tail call i64 @gtk_box_get_type() #22
   %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %69, i64 noundef %79) #21
   %81 = load ptr, ptr %12, align 8, !tbaa !119
@@ -1326,23 +1326,23 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   tail call void @gtk_box_pack_start(ptr noundef %83, ptr noundef %85, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   %86 = load ptr, ptr %74, align 8, !tbaa !114
   %87 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef 80) #21
-  %88 = tail call i64 @g_signal_connect_data(ptr noundef %87, ptr noundef nonnull @.str.17, ptr noundef nonnull @rawdenoise_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %88 = tail call i64 @g_signal_connect_data(ptr noundef %87, ptr noundef nonnull @.str.17, ptr noundef nonnull @rawdenoise_draw, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %89 = load ptr, ptr %74, align 8, !tbaa !114
   %90 = tail call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef 80) #21
-  %91 = tail call i64 @g_signal_connect_data(ptr noundef %90, ptr noundef nonnull @.str.18, ptr noundef nonnull @rawdenoise_button_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %91 = tail call i64 @g_signal_connect_data(ptr noundef %90, ptr noundef nonnull @.str.18, ptr noundef nonnull @rawdenoise_button_press, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %92 = load ptr, ptr %74, align 8, !tbaa !114
   %93 = tail call ptr @g_type_check_instance_cast(ptr noundef %92, i64 noundef 80) #21
-  %94 = tail call i64 @g_signal_connect_data(ptr noundef %93, ptr noundef nonnull @.str.19, ptr noundef nonnull @rawdenoise_button_release, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %94 = tail call i64 @g_signal_connect_data(ptr noundef %93, ptr noundef nonnull @.str.19, ptr noundef nonnull @rawdenoise_button_release, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %95 = load ptr, ptr %74, align 8, !tbaa !114
   %96 = tail call ptr @g_type_check_instance_cast(ptr noundef %95, i64 noundef 80) #21
-  %97 = tail call i64 @g_signal_connect_data(ptr noundef %96, ptr noundef nonnull @.str.20, ptr noundef nonnull @rawdenoise_motion_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %97 = tail call i64 @g_signal_connect_data(ptr noundef %96, ptr noundef nonnull @.str.20, ptr noundef nonnull @rawdenoise_motion_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %98 = load ptr, ptr %74, align 8, !tbaa !114
   %99 = tail call ptr @g_type_check_instance_cast(ptr noundef %98, i64 noundef 80) #21
-  %100 = tail call i64 @g_signal_connect_data(ptr noundef %99, ptr noundef nonnull @.str.21, ptr noundef nonnull @rawdenoise_leave_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %100 = tail call i64 @g_signal_connect_data(ptr noundef %99, ptr noundef nonnull @.str.21, ptr noundef nonnull @rawdenoise_leave_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %101 = load ptr, ptr %74, align 8, !tbaa !114
   %102 = tail call ptr @g_type_check_instance_cast(ptr noundef %101, i64 noundef 80) #21
-  %103 = tail call i64 @g_signal_connect_data(ptr noundef %102, ptr noundef nonnull @.str.22, ptr noundef nonnull @rawdenoise_scrolled, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
-  %104 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.23) #21
+  %103 = tail call i64 @g_signal_connect_data(ptr noundef %102, ptr noundef nonnull @.str.22, ptr noundef nonnull @rawdenoise_scrolled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
+  %104 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #21
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %104, ptr %105, align 8, !tbaa !127
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %104, float noundef 0x3FB99999A0000000) #21
@@ -2199,7 +2199,7 @@ define internal range(i32 0, 2) i32 @rawdenoise_button_press(ptr noundef %0, ptr
 27:                                               ; preds = %34
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !189
   %29 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %23
-  tail call void @dt_dev_add_history_item_target(ptr noundef %28, ptr noundef %2, i32 noundef 1, ptr noundef %29) #21
+  tail call void @dt_dev_add_history_item_target(ptr noundef %28, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %29) #21
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !114
   %32 = tail call i64 @gtk_widget_get_type() #22
@@ -2508,7 +2508,7 @@ dt_iop_rawdenoise_get_params.exit:                ; preds = %77, %55
   %98 = load i32, ptr %97, align 8, !tbaa !118
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw %struct._GtkWidget, ptr %0, i64 %99
-  call void @dt_dev_add_history_item_target(ptr noundef %96, ptr noundef %2, i32 noundef 1, ptr noundef %100) #21
+  call void @dt_dev_add_history_item_target(ptr noundef %96, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %100) #21
   br label %103
 
 101:                                              ; preds = %48

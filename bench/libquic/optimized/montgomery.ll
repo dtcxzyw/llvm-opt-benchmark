@@ -524,7 +524,7 @@ define internal fastcc range(i32 0, 2) i32 @BN_from_montgomery_word(ptr noundef 
 
 .lr.ph121.preheader:                              ; preds = %.preheader
   %72 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph121
 
 .lr.ph118:                                        ; preds = %.lr.ph118.preheader, %.lr.ph118

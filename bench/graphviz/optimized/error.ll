@@ -111,7 +111,7 @@ define void @errorv(ptr noundef %0, i32 noundef %1, ptr noundef readonly capture
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %27 = load ptr, ptr @stderr, align 8, !tbaa !14
-  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.3, i32 noundef %.023) #12
+  %28 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.3, i32 noundef %1) #12
   br label %57
 
 29:                                               ; preds = %19

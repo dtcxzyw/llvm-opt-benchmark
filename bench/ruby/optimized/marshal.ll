@@ -2084,8 +2084,8 @@ shortlen.exit:                                    ; preds = %BIGNUM_DIGITS.exit,
 
 336:                                              ; preds = %shortlen.exit
   %337 = select i1 %.not264, i8 45, i8 43
-  call fastcc void @w_byte(i8 noundef signext %337, ptr noundef %1)
-  call fastcc void @w_long(i64 noundef %332, ptr noundef %1)
+  call fastcc void @w_byte(i8 noundef signext %337, ptr noundef nonnull %1)
+  call fastcc void @w_long(i64 noundef %332, ptr noundef nonnull %1)
   %.not276 = icmp eq i64 %.0.i193243, 0
   br i1 %.not276, label %.loopexit, label %.lr.ph275
 
@@ -6009,7 +6009,7 @@ r_entry0.exit546:                                 ; preds = %r_long.exit543, %63
 667:                                              ; preds = %667, %662
   %.not.i658 = phi i1 [ true, %662 ], [ false, %667 ]
   %.0.i659 = phi i32 [ 0, %662 ], [ 1, %667 ]
-  %668 = tail call fastcc i32 @r_byte(ptr noundef %0)
+  %668 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %trunc.i660 = trunc nuw i32 %668 to i8
   switch i8 %trunc.i660, label %669 [
     i8 73, label %667
@@ -6023,7 +6023,7 @@ r_entry0.exit546:                                 ; preds = %r_long.exit543, %63
   unreachable
 
 671:                                              ; preds = %667
-  %672 = tail call fastcc i64 @r_symreal(ptr noundef %0, i32 noundef %.0.i659)
+  %672 = tail call fastcc i64 @r_symreal(ptr noundef nonnull %0, i32 noundef %.0.i659)
   br label %r_symbol.exit662
 
 673:                                              ; preds = %667
@@ -6035,7 +6035,7 @@ r_entry0.exit546:                                 ; preds = %r_long.exit543, %63
   unreachable
 
 676:                                              ; preds = %673
-  %677 = tail call fastcc i64 @r_symlink(ptr noundef %0)
+  %677 = tail call fastcc i64 @r_symlink(ptr noundef nonnull %0)
   br label %r_symbol.exit662
 
 r_symbol.exit662:                                 ; preds = %671, %676
@@ -6060,7 +6060,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i548:       ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 path2class.exit549:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i547
-  %688 = tail call fastcc i32 @r_byte(ptr noundef %0)
+  %688 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %sext.i550 = shl nuw i32 %688, 24
   %689 = ashr exact i32 %sext.i550, 24
   %690 = icmp eq i32 %688, 0
@@ -6086,7 +6086,7 @@ path2class.exit549:                               ; preds = %rbimpl_RB_TYPE_P_fa
 699:                                              ; preds = %699, %.preheader.i556
   %.042.i557 = phi i64 [ 0, %.preheader.i556 ], [ %705, %699 ]
   %.03241.i558 = phi i64 [ 0, %.preheader.i556 ], [ %704, %699 ]
-  %700 = tail call fastcc i32 @r_byte(ptr noundef %0)
+  %700 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %701 = zext nneg i32 %700 to i64
   %702 = shl nuw nsw i64 %.042.i557, 3
   %703 = shl i64 %701, %702
@@ -6117,7 +6117,7 @@ path2class.exit549:                               ; preds = %rbimpl_RB_TYPE_P_fa
   %716 = shl i64 255, %715
   %717 = xor i64 %716, -1
   %718 = and i64 %.239.i553, %717
-  %719 = tail call fastcc i32 @r_byte(ptr noundef %0)
+  %719 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %720 = zext nneg i32 %719 to i64
   %721 = shl i64 %720, %715
   %722 = or i64 %721, %718
@@ -6247,7 +6247,7 @@ RARRAY_AREF.exit:                                 ; preds = %776, %779
 784:                                              ; preds = %784, %RARRAY_AREF.exit
   %.not.i568 = phi i1 [ true, %RARRAY_AREF.exit ], [ false, %784 ]
   %.0.i569 = phi i32 [ 0, %RARRAY_AREF.exit ], [ 1, %784 ]
-  %785 = call fastcc i32 @r_byte(ptr noundef %0)
+  %785 = call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %trunc.i = trunc nuw i32 %785 to i8
   switch i8 %trunc.i, label %786 [
     i8 73, label %784
@@ -6261,7 +6261,7 @@ RARRAY_AREF.exit:                                 ; preds = %776, %779
   unreachable
 
 788:                                              ; preds = %784
-  %789 = call fastcc i64 @r_symreal(ptr noundef %0, i32 noundef %.0.i569)
+  %789 = call fastcc i64 @r_symreal(ptr noundef nonnull %0, i32 noundef %.0.i569)
   br label %r_symbol.exit
 
 790:                                              ; preds = %784
@@ -6273,7 +6273,7 @@ RARRAY_AREF.exit:                                 ; preds = %776, %779
   unreachable
 
 793:                                              ; preds = %790
-  %794 = call fastcc i64 @r_symlink(ptr noundef %0)
+  %794 = call fastcc i64 @r_symlink(ptr noundef nonnull %0)
   br label %r_symbol.exit
 
 r_symbol.exit:                                    ; preds = %788, %793
@@ -6305,14 +6305,14 @@ RARRAY_AREF.exit572:                              ; preds = %800, %803
   %.0.i.i571 = phi ptr [ %804, %803 ], [ %774, %800 ]
   %805 = getelementptr i64, ptr %.0.i.i571, i64 %.0386803
   %806 = load i64, ptr %805, align 8, !tbaa !7
-  %807 = call fastcc i32 @r_byte(ptr noundef %0)
-  %808 = call fastcc i64 @r_object_for(ptr noundef %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %807)
+  %807 = call fastcc i32 @r_byte(ptr noundef nonnull %0)
+  %808 = call fastcc i64 @r_object_for(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %807)
   %809 = call i64 @rb_hash_aset(i64 noundef %.0380, i64 noundef %806, i64 noundef %808) #22
   br label %814
 
 810:                                              ; preds = %799
-  %811 = call fastcc i32 @r_byte(ptr noundef %0)
-  %812 = call fastcc i64 @r_object_for(ptr noundef %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %811)
+  %811 = call fastcc i32 @r_byte(ptr noundef nonnull %0)
+  %812 = call fastcc i64 @r_object_for(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %811)
   %813 = call i64 @rb_ary_push(i64 noundef %766, i64 noundef %812) #22
   br label %814
 
@@ -6674,7 +6674,7 @@ r_post_proc.exit:                                 ; preds = %947, %950
 968:                                              ; preds = %968, %963
   %.not.i673 = phi i1 [ true, %963 ], [ false, %968 ]
   %.0.i674 = phi i32 [ 0, %963 ], [ 1, %968 ]
-  %969 = tail call fastcc i32 @r_byte(ptr noundef %0)
+  %969 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %trunc.i675 = trunc nuw i32 %969 to i8
   switch i8 %trunc.i675, label %970 [
     i8 73, label %968
@@ -6688,7 +6688,7 @@ r_post_proc.exit:                                 ; preds = %947, %950
   unreachable
 
 972:                                              ; preds = %968
-  %973 = tail call fastcc i64 @r_symreal(ptr noundef %0, i32 noundef %.0.i674)
+  %973 = tail call fastcc i64 @r_symreal(ptr noundef nonnull %0, i32 noundef %.0.i674)
   br label %r_symbol.exit677
 
 974:                                              ; preds = %968
@@ -6700,7 +6700,7 @@ r_post_proc.exit:                                 ; preds = %947, %950
   unreachable
 
 977:                                              ; preds = %974
-  %978 = tail call fastcc i64 @r_symlink(ptr noundef %0)
+  %978 = tail call fastcc i64 @r_symlink(ptr noundef nonnull %0)
   br label %r_symbol.exit677
 
 r_symbol.exit677:                                 ; preds = %972, %977
@@ -6725,7 +6725,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i.i:        ; preds = %rbimpl_RB_TYPE_P_fa
   unreachable
 
 obj_alloc_by_path.exit:                           ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i
-  %989 = tail call fastcc i64 @obj_alloc_by_klass(i64 noundef %979, ptr noundef %0, ptr noundef null)
+  %989 = tail call fastcc i64 @obj_alloc_by_klass(i64 noundef %979, ptr noundef nonnull %0, ptr noundef null)
   %990 = icmp eq i64 %989, 0
   %991 = and i64 %989, 7
   %992 = icmp ne i64 %991, 0
@@ -8535,7 +8535,7 @@ r_symbol.exit:                                    ; preds = %90, %95
   %97 = tail call fastcc i32 @r_byte(ptr noundef nonnull %0)
   %98 = tail call fastcc i64 @r_object_for(ptr noundef nonnull %0, i1 noundef zeroext false, ptr noundef null, i64 noundef 4, i32 noundef %97)
   %99 = tail call fastcc i32 @sym2encidx(i64 noundef %.06.i, i64 noundef %98)
-  %100 = icmp sgt i64 %.048, 1
+  %100 = icmp samesign ugt i64 %.048, 1
   br i1 %100, label %.lr.ph, label %._crit_edge, !llvm.loop !176
 
 ._crit_edge:                                      ; preds = %r_symbol.exit

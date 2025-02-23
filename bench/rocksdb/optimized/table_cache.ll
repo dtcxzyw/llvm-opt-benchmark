@@ -1304,7 +1304,7 @@ _ZN7rocksdb12_GLOBAL__N_114AppendVarint64EPNS_7IterKeyEm.exit: ; preds = %if.els
   store i64 %add.i.i, ptr %key_size_.i, align 8
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %buf.i)
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %buf.i12)
-  %cmp6.i.i13 = icmp ugt i64 %cache_entry_seq_no.0, 127
+  %cmp6.i.i13 = icmp samesign ugt i64 %cache_entry_seq_no.0, 127
   br i1 %cmp6.i.i13, label %while.body.i.i44, label %if.else.i.i35
 
 while.body.i.i44:                                 ; preds = %_ZN7rocksdb12_GLOBAL__N_114AppendVarint64EPNS_7IterKeyEm.exit, %while.body.i.i44

@@ -1208,7 +1208,7 @@ Vec_PtrGrow.exit.i161:                            ; preds = %165, %Vec_PtrGrow.e
   %indvars.iv197 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next198, %177 ]
   %178 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv197
   %179 = load ptr, ptr %178, align 8, !tbaa !28
-  %180 = tail call ptr @Abc_NtkDupObj(ptr noundef %0, ptr noundef %179, i32 noundef 0) #32
+  %180 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %0, ptr noundef %179, i32 noundef 0) #32
   %indvars.iv.next198 = add nuw nsw i64 %indvars.iv197, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next198, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph187, label %177, !llvm.loop !54
@@ -6444,7 +6444,7 @@ define void @Abc_NtkFinLocalSetup(ptr noundef readonly captures(none) %0, ptr no
   %19 = getelementptr inbounds %struct.Vec_Int_t_, ptr %.val17, i64 %18
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   tail call fastcc void @Vec_IntPushTwo(ptr noundef %19, i32 noundef %13, i32 noundef %20)
-  tail call fastcc void @Vec_IntPushTwo(ptr noundef %3, i32 noundef %13, i32 noundef %20)
+  tail call fastcc void @Vec_IntPushTwo(ptr noundef nonnull %3, i32 noundef %13, i32 noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val16 = load i32, ptr %6, align 4, !tbaa !37
   %21 = sext i32 %.val16 to i64
@@ -6696,7 +6696,7 @@ Vec_IntGrow.exit.i:                               ; preds = %90, %Vec_IntAlloc.e
 Vec_IntFill.exit:                                 ; preds = %96, %Vec_IntAlloc.exit.thread, %Vec_IntGrow.exit.i
   %98 = phi ptr [ %94, %Vec_IntGrow.exit.i ], [ %78, %Vec_IntAlloc.exit.thread ], [ %94, %96 ]
   store i32 %.val134, ptr %73, align 4, !tbaa !37
-  tail call void @Abc_NtkFinSimulateOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef nonnull %71, ptr noundef nonnull %25, i32 noundef %21, ptr noundef %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
+  tail call void @Abc_NtkFinSimulateOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %7, ptr noundef nonnull %71, ptr noundef nonnull %25, i32 noundef %21, ptr noundef %5, ptr noundef nonnull %12, i32 noundef 0, i32 noundef 1)
   %99 = load ptr, ptr %98, align 8, !tbaa !36
   %.not.i152 = icmp eq ptr %99, null
   br i1 %.not.i152, label %Vec_IntFree.exit, label %100
@@ -6765,7 +6765,7 @@ Vec_IntFree.exit:                                 ; preds = %Vec_IntFill.exit, %
   %133 = load i32, ptr %132, align 4, !tbaa !34
   store i32 %133, ptr %68, align 4, !tbaa !34
   %134 = add nsw i32 %.1113200, 1
-  %135 = call ptr @Abc_NtkFinCheckPair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %37)
+  %135 = call ptr @Abc_NtkFinCheckPair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %37)
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %139
 
@@ -6995,7 +6995,7 @@ Vec_IntDrop.exit:                                 ; preds = %227, %Vec_IntPushTw
 
 246:                                              ; preds = %139
   %247 = sdiv i32 %.0114199, 2
-  tail call void @Abc_NtkFinSimulateOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %7, ptr noundef nonnull %135, ptr noundef nonnull %25, i32 noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef %111, i32 noundef %247)
+  tail call void @Abc_NtkFinSimulateOne(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %7, ptr noundef nonnull %135, ptr noundef nonnull %25, i32 noundef %21, ptr noundef nonnull %5, ptr noundef nonnull %12, i32 noundef %111, i32 noundef %247)
   br label %Vec_IntDrop.exit170
 
 Vec_IntDrop.exit170:                              ; preds = %239, %Vec_IntDrop.exit, %246

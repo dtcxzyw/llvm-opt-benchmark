@@ -668,7 +668,7 @@ define void @Res_UpdateNetwork(ptr noundef %0, ptr noundef readonly captures(non
   %.val12 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !28
-  tail call void @Abc_ObjAddFanin(ptr noundef %6, ptr noundef %13) #13
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %6, ptr noundef %13) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4, !tbaa !79
   %14 = sext i32 %.val to i64
@@ -676,7 +676,7 @@ define void @Res_UpdateNetwork(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %15, label %11, label %.critedge, !llvm.loop !80
 
 .critedge:                                        ; preds = %11, %4
-  tail call void @Abc_NtkUpdate(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %3) #13
+  tail call void @Abc_NtkUpdate(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %3) #13
   ret void
 }
 
@@ -1194,7 +1194,7 @@ Abc_Clock.exit214:                                ; preds = %Abc_Clock.exit212, 
   %.val12.i = load ptr, ptr %302, align 8, !tbaa !66
   %304 = getelementptr inbounds nuw ptr, ptr %.val12.i, i64 %indvars.iv.i
   %305 = load ptr, ptr %304, align 8, !tbaa !28
-  call void @Abc_ObjAddFanin(ptr noundef %299, ptr noundef %305) #13
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %299, ptr noundef %305) #13
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %296, align 4, !tbaa !79
   %306 = sext i32 %.val.i to i64
@@ -1202,7 +1202,7 @@ Abc_Clock.exit214:                                ; preds = %Abc_Clock.exit212, 
   br i1 %307, label %303, label %Res_UpdateNetwork.exit, !llvm.loop !80
 
 Res_UpdateNetwork.exit:                           ; preds = %303, %291
-  call void @Abc_NtkUpdate(ptr noundef nonnull %104, ptr noundef %299, ptr noundef %297) #13
+  call void @Abc_NtkUpdate(ptr noundef nonnull %104, ptr noundef nonnull %299, ptr noundef %297) #13
   br label %.critedge2
 
 308:                                              ; preds = %276
@@ -1451,7 +1451,7 @@ Abc_Clock.exit230:                                ; preds = %407, %415
   %.val12.i234 = load ptr, ptr %428, align 8, !tbaa !66
   %430 = getelementptr inbounds nuw ptr, ptr %.val12.i234, i64 %indvars.iv.i233
   %431 = load ptr, ptr %430, align 8, !tbaa !28
-  call void @Abc_ObjAddFanin(ptr noundef %424, ptr noundef %431) #13
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %424, ptr noundef %431) #13
   %indvars.iv.next.i235 = add nuw nsw i64 %indvars.iv.i233, 1
   %.val.i236 = load i32, ptr %426, align 4, !tbaa !79
   %432 = sext i32 %.val.i236 to i64
@@ -1459,7 +1459,7 @@ Abc_Clock.exit230:                                ; preds = %407, %415
   br i1 %433, label %429, label %Res_UpdateNetwork.exit237, !llvm.loop !80
 
 Res_UpdateNetwork.exit237:                        ; preds = %429, %Abc_Clock.exit230
-  call void @Abc_NtkUpdate(ptr noundef nonnull %104, ptr noundef %424, ptr noundef %422) #13
+  call void @Abc_NtkUpdate(ptr noundef nonnull %104, ptr noundef nonnull %424, ptr noundef %422) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   %434 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #13
   %435 = icmp slt i32 %434, 0

@@ -714,7 +714,7 @@ define range(i32 0, 2) i32 @ossl_cipher_generic_block_update(ptr noundef %0, ptr
   %55 = load ptr, ptr %54, align 8, !tbaa !23
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !35
-  %58 = tail call i32 %57(ptr noundef %0, ptr noundef %1, ptr noundef %4, i64 noundef %50) #6
+  %58 = tail call i32 %57(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4, i64 noundef %50) #6
   %.not124 = icmp eq i32 %58, 0
   br i1 %.not124, label %59, label %60
 

@@ -1439,8 +1439,8 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph196
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %41, i64 24
+.lr.ph198.preheader:                              ; preds = %.lr.ph196
+  %invariant.gep243 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %wide.trip.count224 = zext nneg i32 %.0149.lcssa to i64
   br label %.lr.ph198
 
@@ -1453,7 +1453,7 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   %87 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv.next217
   store double %86, ptr %87, align 8, !tbaa !30
   %exitcond220.not = icmp eq i64 %indvars.iv.next217, %wide.trip.count219
-  br i1 %exitcond220.not, label %.preheader, label %.lr.ph196
+  br i1 %exitcond220.not, label %.lr.ph198.preheader, label %.lr.ph196
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %._crit_edge
   call void @tonecurve_create(ptr noundef nonnull %26, ptr noundef nonnull %38, ptr noundef nonnull %39, i32 noundef %50) #24
@@ -1487,10 +1487,10 @@ define internal fastcc void @process_data(ptr noundef captures(none) %0, ptr nou
   %wide.trip.count229 = zext i32 %46 to i64
   br label %127
 
-.lr.ph198:                                        ; preds = %.preheader, %.lr.ph198
-  %indvars.iv221 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next222, %.lr.ph198 ]
+.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
+  %indvars.iv221 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next222, %.lr.ph198 ]
   %gep.idx = mul nuw nsw i64 %indvars.iv221, 48
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %gep.idx
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep243, i64 %gep.idx
   %106 = load double, ptr %gep, align 8, !tbaa !30
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %107 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv.next222

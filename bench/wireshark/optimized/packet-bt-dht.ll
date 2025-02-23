@@ -1212,7 +1212,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   %.123.us = phi i32 [ %49, %.lr.ph.split.us ], [ %22, %.lr.ph ]
   %28 = add i32 %.024.us, 1
   %29 = load i32, ptr @hf_bt_dht_node, align 4
-  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %29, ptr noundef %0, i32 noundef %.123.us, i32 noundef %spec.store.select, i32 noundef 0)
+  %30 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %29, ptr noundef %0, i32 noundef %.123.us, i32 noundef 38, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.79, i32 noundef %28)
   %31 = load i32, ptr @ett_bt_dht_peers, align 4
   %32 = call ptr @proto_item_add_subtree(ptr noundef %30, i32 noundef %31)
@@ -1234,10 +1234,10 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   %46 = zext i16 %45 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.81, i32 noundef %46)
   %47 = load i32, ptr %7, align 4
-  %48 = sub i32 %47, %spec.store.select
+  %48 = add i32 %47, -38
   store i32 %48, ptr %7, align 4
-  %49 = add i32 %.123.us, %spec.store.select
-  %.not.us = icmp ult i32 %48, %spec.store.select
+  %49 = add i32 %.123.us, 38
+  %.not.us = icmp ult i32 %48, 38
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
@@ -1245,7 +1245,7 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   %.123 = phi i32 [ %71, %.lr.ph.split ], [ %22, %.lr.ph ]
   %50 = add i32 %.024, 1
   %51 = load i32, ptr @hf_bt_dht_node, align 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %0, i32 noundef %.123, i32 noundef %spec.store.select, i32 noundef 0)
+  %52 = call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %51, ptr noundef %0, i32 noundef %.123, i32 noundef 26, i32 noundef 0)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.79, i32 noundef %50)
   %53 = load i32, ptr @ett_bt_dht_peers, align 4
   %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53)
@@ -1267,10 +1267,10 @@ define internal fastcc i32 @dissect_bt_dht_nodes(ptr noundef %0, ptr noundef rea
   %68 = zext i16 %67 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %52, ptr noundef nonnull @.str.81, i32 noundef %68)
   %69 = load i32, ptr %7, align 4
-  %70 = sub i32 %69, %spec.store.select
+  %70 = add i32 %69, -26
   store i32 %70, ptr %7, align 4
-  %71 = add i32 %.123, %spec.store.select
-  %.not = icmp ult i32 %70, %spec.store.select
+  %71 = add i32 %.123, 26
+  %.not = icmp ult i32 %70, 26
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %21

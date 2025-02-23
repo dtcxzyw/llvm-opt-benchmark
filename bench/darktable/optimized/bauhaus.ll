@@ -12518,7 +12518,7 @@ define internal noundef i32 @_combobox_idle_value_changed(ptr noundef %0) #0 {
   br label %4
 
 4:                                                ; preds = %4, %1
-  %5 = tail call i32 @g_idle_remove_by_data(ptr noundef %0) #19
+  %5 = tail call i32 @g_idle_remove_by_data(ptr noundef nonnull %0) #19
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %4
 

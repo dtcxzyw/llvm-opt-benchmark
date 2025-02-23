@@ -3453,9 +3453,9 @@ define dso_local noundef nonnull ptr @sxe_object_new(ptr noundef %0) #1 {
   %.not.i = icmp eq ptr %5, null
   %6 = icmp eq ptr %5, %2
   %or.cond.i = select i1 %.not.i, i1 true, i1 %6
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %or.cond.i, label %zend_hash_find_ptr.exit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %8 = load ptr, ptr @zend_known_strings, align 8, !tbaa !154
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 576
@@ -3470,8 +3470,8 @@ define dso_local noundef nonnull ptr @sxe_object_new(ptr noundef %0) #1 {
   %spec.store.select.i = select i1 %15, ptr null, ptr %12
   br label %php_sxe_find_fptr_count.exit
 
-php_sxe_find_fptr_count.exit:                     ; preds = %1, %._crit_edge.i
-  %.09.i = phi ptr [ %spec.store.select.i, %._crit_edge.i ], [ null, %1 ]
+php_sxe_find_fptr_count.exit:                     ; preds = %1, %zend_hash_find_ptr.exit.i
+  %.09.i = phi ptr [ %spec.store.select.i, %zend_hash_find_ptr.exit.i ], [ null, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !96
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -3592,9 +3592,9 @@ define hidden void @zif_simplexml_load_file(ptr noundef readonly captures(none) 
   %.not.i24 = icmp eq ptr %54, null
   %55 = icmp eq ptr %54, %49
   %or.cond.i = or i1 %.not.i24, %55
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %or.cond.i, label %zend_hash_find_ptr.exit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 64
   %57 = load ptr, ptr @zend_known_strings, align 8, !tbaa !154
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 576
@@ -3610,9 +3610,9 @@ define hidden void @zif_simplexml_load_file(ptr noundef readonly captures(none) 
   %.pre = load ptr, ptr %7, align 8, !tbaa !4
   br label %php_sxe_find_fptr_count.exit
 
-php_sxe_find_fptr_count.exit:                     ; preds = %._crit_edge.i, %51, %50
-  %65 = phi ptr [ %49, %50 ], [ %.pre, %._crit_edge.i ], [ %48, %51 ]
-  %.0 = phi ptr [ null, %50 ], [ %spec.store.select.i, %._crit_edge.i ], [ null, %51 ]
+php_sxe_find_fptr_count.exit:                     ; preds = %zend_hash_find_ptr.exit.i, %51, %50
+  %65 = phi ptr [ %49, %50 ], [ %.pre, %zend_hash_find_ptr.exit.i ], [ %48, %51 ]
+  %.0 = phi ptr [ null, %50 ], [ %spec.store.select.i, %zend_hash_find_ptr.exit.i ], [ null, %51 ]
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load i32, ptr %66, align 8, !tbaa !96
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 28
@@ -3823,9 +3823,9 @@ define hidden void @zif_simplexml_load_string(ptr noundef readonly captures(none
   %.not.i24 = icmp eq ptr %70, null
   %71 = icmp eq ptr %70, %65
   %or.cond.i = or i1 %.not.i24, %71
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %or.cond.i, label %zend_hash_find_ptr.exit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %73 = load ptr, ptr @zend_known_strings, align 8, !tbaa !154
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 576
@@ -3841,9 +3841,9 @@ define hidden void @zif_simplexml_load_string(ptr noundef readonly captures(none
   %.pre = load ptr, ptr %7, align 8, !tbaa !4
   br label %php_sxe_find_fptr_count.exit
 
-php_sxe_find_fptr_count.exit:                     ; preds = %._crit_edge.i, %67, %66
-  %81 = phi ptr [ %65, %66 ], [ %.pre, %._crit_edge.i ], [ %64, %67 ]
-  %.0 = phi ptr [ null, %66 ], [ %spec.store.select.i, %._crit_edge.i ], [ null, %67 ]
+php_sxe_find_fptr_count.exit:                     ; preds = %zend_hash_find_ptr.exit.i, %67, %66
+  %81 = phi ptr [ %65, %66 ], [ %.pre, %zend_hash_find_ptr.exit.i ], [ %64, %67 ]
+  %.0 = phi ptr [ null, %66 ], [ %spec.store.select.i, %zend_hash_find_ptr.exit.i ], [ null, %67 ]
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load i32, ptr %82, align 8, !tbaa !96
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 28
@@ -4750,9 +4750,9 @@ define hidden void @zif_simplexml_import_dom(ptr noundef readonly captures(none)
   %.not.i = icmp eq ptr %39, null
   %40 = icmp eq ptr %39, %34
   %or.cond.i = or i1 %.not.i, %40
-  br i1 %or.cond.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %or.cond.i, label %zend_hash_find_ptr.exit.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+zend_hash_find_ptr.exit.i:                        ; preds = %.lr.ph.i
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 64
   %42 = load ptr, ptr @zend_known_strings, align 8, !tbaa !154
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 576
@@ -4768,9 +4768,9 @@ define hidden void @zif_simplexml_import_dom(ptr noundef readonly captures(none)
   %.pre30 = load ptr, ptr %4, align 8, !tbaa !4
   br label %php_sxe_find_fptr_count.exit
 
-php_sxe_find_fptr_count.exit:                     ; preds = %._crit_edge.i, %36, %35
-  %50 = phi ptr [ %34, %35 ], [ %.pre30, %._crit_edge.i ], [ %33, %36 ]
-  %.021 = phi ptr [ null, %35 ], [ %spec.store.select.i, %._crit_edge.i ], [ null, %36 ]
+php_sxe_find_fptr_count.exit:                     ; preds = %zend_hash_find_ptr.exit.i, %36, %35
+  %50 = phi ptr [ %34, %35 ], [ %.pre30, %zend_hash_find_ptr.exit.i ], [ %33, %36 ]
+  %.021 = phi ptr [ null, %35 ], [ %spec.store.select.i, %zend_hash_find_ptr.exit.i ], [ null, %36 ]
   %51 = load ptr, ptr %3, align 8, !tbaa !162
   %52 = load ptr, ptr %51, align 8, !tbaa !9
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24

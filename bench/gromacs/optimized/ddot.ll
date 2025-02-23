@@ -59,7 +59,7 @@ define double @ddot_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .preheader:                                       ; preds = %.lr.ph, %28
   %.1.lcssa = phi double [ 0.000000e+00, %28 ], [ %37, %.lr.ph ]
-  %30 = icmp slt i32 %29, %.fr100
+  %30 = icmp samesign ult i32 %29, %.fr100
   br i1 %30, label %.lr.ph78.preheader, label %.loopexit
 
 .lr.ph78.preheader:                               ; preds = %.preheader

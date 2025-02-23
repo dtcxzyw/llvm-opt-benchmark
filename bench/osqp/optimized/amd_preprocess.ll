@@ -8,6 +8,10 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
   %8 = icmp sgt i64 %0, 0
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
 
+._crit_edge.thread:                               ; preds = %7
+  store i64 0, ptr %3, align 8, !tbaa !3
+  br label %._crit_edge91
+
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.06976 = phi i64 [ %11, %.lr.ph ], [ 0, %7 ]
   %9 = getelementptr inbounds nuw i64, ptr %5, i64 %.06976
@@ -53,10 +57,6 @@ define void @amd_l_preprocess(i64 noundef %0, ptr noundef readonly captures(none
   %27 = add nsw i64 %.077, 1
   %exitcond92.not = icmp eq i64 %27, %14
   br i1 %exitcond92.not, label %.loopexit74, label %.lr.ph78, !llvm.loop !10
-
-._crit_edge.thread:                               ; preds = %7
-  store i64 0, ptr %3, align 8, !tbaa !3
-  br label %._crit_edge91
 
 ._crit_edge:                                      ; preds = %.loopexit74
   store i64 0, ptr %3, align 8, !tbaa !3

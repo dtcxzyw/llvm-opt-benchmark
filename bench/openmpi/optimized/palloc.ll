@@ -1361,7 +1361,7 @@ pmix_obj_run_constructors.exit509:                ; preds = %.lr.ph.i506, %503
   %514 = call i32 @pthread_cond_init(ptr noundef nonnull %513, ptr noundef null) #16
   %515 = getelementptr inbounds nuw i8, ptr %11, i64 216
   store volatile i8 1, ptr %515, align 8, !tbaa !64
-  %516 = call i32 @PMIx_Register_event_handler(ptr noundef null, i64 noundef 0, ptr noundef %496, i64 noundef 2, ptr noundef nonnull @defhandler, ptr noundef nonnull @regcbfunc, ptr noundef nonnull %11) #16
+  %516 = call i32 @PMIx_Register_event_handler(ptr noundef null, i64 noundef 0, ptr noundef nonnull %496, i64 noundef 2, ptr noundef nonnull @defhandler, ptr noundef nonnull @regcbfunc, ptr noundef nonnull %11) #16
   %517 = getelementptr inbounds nuw i8, ptr %11, i64 128
   %518 = call i32 @pthread_mutex_lock(ptr noundef nonnull %517) #16
   %519 = load volatile i8, ptr %515, align 8, !tbaa !64, !range !65, !noundef !66
@@ -1395,12 +1395,12 @@ pmix_obj_run_constructors.exit509:                ; preds = %.lr.ph.i506, %503
 
 pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i511, %._crit_edge629
   %532 = call i32 @pthread_cond_destroy(ptr noundef nonnull %513) #16
-  call void @PMIx_Info_free(ptr noundef %496, i64 noundef 2) #16
+  call void @PMIx_Info_free(ptr noundef nonnull %496, i64 noundef 2) #16
   %533 = getelementptr inbounds nuw i8, ptr %467, i64 560
   %534 = load ptr, ptr %533, align 8, !tbaa !44
   %535 = getelementptr inbounds nuw i8, ptr %467, i64 568
   %536 = load i64, ptr %535, align 8, !tbaa !63
-  %537 = call i32 @PMIx_Allocation_request_nb(i8 noundef zeroext %.1210576580, ptr noundef %534, i64 noundef %536, ptr noundef nonnull @cbfunc, ptr noundef %467) #16
+  %537 = call i32 @PMIx_Allocation_request_nb(i8 noundef zeroext %.1210576580, ptr noundef %534, i64 noundef %536, ptr noundef nonnull @cbfunc, ptr noundef nonnull %467) #16
   switch i32 %537, label %566 [
     i32 0, label %570
     i32 -157, label %538

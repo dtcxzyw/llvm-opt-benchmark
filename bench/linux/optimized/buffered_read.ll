@@ -1085,7 +1085,7 @@ define dso_local i32 @netfs_read_folio(ptr noundef %0, ptr noundef %1) #0 align 
   %180 = tail call i32 @netfs_begin_read(ptr noundef %56, i1 noundef zeroext true) #9
   br label %192
 
-181:                                              ; preds = %168, %.loopexit
+181:                                              ; preds = %.loopexit, %168
   %182 = phi i32 [ %169, %168 ], [ %165, %.loopexit ]
   %183 = getelementptr inbounds nuw i8, ptr %56, i64 120
   %184 = zext i32 %182 to i64

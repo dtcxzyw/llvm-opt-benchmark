@@ -4804,19 +4804,15 @@ rb_uniform_is_less.exit.i:                        ; preds = %.lr.ph43.i
   %53 = add nsw i64 %49, -1
   br label %54
 
-._crit_edge.i:                                    ; preds = %54
-  %.not1922.i = icmp eq i64 %53, 0
-  br i1 %.not1922.i, label %rb_uniform_insertionsort_2.exit, label %.lr.ph25.i
-
 54:                                               ; preds = %54, %.lr.ph.i
   %.01721.i = phi i64 [ %52, %.lr.ph.i ], [ %55, %54 ]
   %55 = add nsw i64 %.01721.i, -1
   tail call fastcc void @rb_uniform_heap_down_2(ptr noundef %0, i64 noundef %55, i64 noundef %53)
   %.not.i = icmp eq i64 %55, 0
-  br i1 %.not.i, label %._crit_edge.i, label %54, !llvm.loop !107
+  br i1 %.not.i, label %.lr.ph25.i, label %54, !llvm.loop !107
 
-.lr.ph25.i:                                       ; preds = %._crit_edge.i, %.lr.ph25.i
-  %.023.i = phi i64 [ %57, %.lr.ph25.i ], [ %53, %._crit_edge.i ]
+.lr.ph25.i:                                       ; preds = %54, %.lr.ph25.i
+  %.023.i = phi i64 [ %57, %.lr.ph25.i ], [ %53, %54 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !103
   %56 = getelementptr %struct.rb_uniform_sort_data, ptr %0, i64 %.023.i
@@ -5126,7 +5122,7 @@ rb_uniform_is_less.exit95:                        ; preds = %149
   %180 = icmp sgt i64 %179, 16
   br i1 %180, label %tailrecurse, label %rb_uniform_insertionsort_2.exit
 
-rb_uniform_insertionsort_2.exit:                  ; preds = %177, %.lr.ph25.i, %.loopexit.i, %._crit_edge.i, %tailrecurse._crit_edge
+rb_uniform_insertionsort_2.exit:                  ; preds = %177, %.lr.ph25.i, %.loopexit.i, %tailrecurse._crit_edge
   ret void
 }
 

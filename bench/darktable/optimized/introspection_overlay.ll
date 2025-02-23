@@ -1573,11 +1573,11 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %86 = load ptr, ptr %8, align 16, !tbaa !160
   %87 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef %41) #20
   tail call void @gtk_box_pack_start(ptr noundef %87, ptr noundef %67, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
-  %88 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.28) #20
+  %88 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.28) #20
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 96
   store ptr %88, ptr %89, align 8, !tbaa !170
   tail call void @dt_bauhaus_slider_set_digits(ptr noundef %88, i32 noundef 3) #20
-  %90 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.29) #20
+  %90 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #20
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store ptr %90, ptr %91, align 8, !tbaa !171
   tail call void @dt_bauhaus_slider_set_digits(ptr noundef %90, i32 noundef 3) #20
@@ -1617,7 +1617,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   tail call void @gtk_grid_attach(ptr noundef %108, ptr noundef %110, i32 noundef %112, i32 noundef %.zext79, i32 noundef 1, i32 noundef 1) #20
   %114 = load ptr, ptr %107, align 8, !tbaa !152
   %115 = tail call ptr @g_type_check_instance_cast(ptr noundef %114, i64 noundef 80) #20
-  %116 = tail call i64 @g_signal_connect_data(ptr noundef %115, ptr noundef nonnull @.str.27, ptr noundef nonnull @_alignment_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %116 = tail call i64 @g_signal_connect_data(ptr noundef %115, ptr noundef nonnull @.str.27, ptr noundef nonnull @_alignment_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %85, label %103

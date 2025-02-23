@@ -2752,7 +2752,7 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
   %indvars.iv152 = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next153, %231 ]
   %232 = getelementptr inbounds nuw ptr, ptr %.val94, i64 %indvars.iv152
   %233 = load ptr, ptr %232, align 8, !tbaa !31
-  %234 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 3) #12
+  %234 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 3) #12
   tail call void @Abc_ObjAddFanin(ptr noundef %234, ptr noundef %233) #12
   %235 = tail call ptr @Abc_ObjName(ptr noundef %234) #12
   %236 = tail call ptr @Abc_ObjAssignName(ptr noundef %234, ptr noundef %235, ptr noundef null) #12
@@ -2762,12 +2762,12 @@ Vec_IntPush.exit135:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %.critedge2, label %231, !llvm.loop !101
 
 .critedge2:                                       ; preds = %231, %229
-  tail call void @Abc_NtkOrderCisCos(ptr noundef %4) #12
-  %237 = tail call i32 @Abc_NtkCleanup(ptr noundef %4, i32 noundef %1) #12
-  %238 = call ptr @Abc_NtkRetimeWithClassesNtk(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef %1)
+  tail call void @Abc_NtkOrderCisCos(ptr noundef nonnull %4) #12
+  %237 = tail call i32 @Abc_NtkCleanup(ptr noundef nonnull %4, i32 noundef %1) #12
+  %238 = call ptr @Abc_NtkRetimeWithClassesNtk(ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef nonnull %3, i32 noundef %1)
   %239 = load ptr, ptr %3, align 8, !tbaa !93
-  tail call void @Abc_NtkTransformBack(ptr noundef %4, ptr noundef %238, ptr noundef nonnull %5, ptr noundef %239)
-  tail call void @Abc_NtkDelete(ptr noundef %4) #12
+  tail call void @Abc_NtkTransformBack(ptr noundef nonnull %4, ptr noundef %238, ptr noundef nonnull %5, ptr noundef %239)
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %4) #12
   %240 = load ptr, ptr %8, align 8, !tbaa !29
   %.not.i = icmp eq ptr %240, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %241

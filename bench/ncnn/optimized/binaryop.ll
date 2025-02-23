@@ -3498,7 +3498,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %1695 = getelementptr inbounds nuw float, ptr %.019853.i.i, i64 %1688
   %indvars.iv.next96.i.i = add nuw nsw i64 %indvars.iv95.i.i, 1
   %exitcond99.not.i.i = icmp eq i64 %indvars.iv.next96.i.i, %wide.trip.count98.i.i
-  br i1 %exitcond99.not.i.i, label %._crit_edge.i.i, label %1689, !llvm.loop !4
+  br i1 %exitcond99.not.i.i, label %.critedge, label %1689, !llvm.loop !4
 
 1696:                                             ; preds = %1674
   %1697 = icmp sgt i32 %1680, 0
@@ -3564,7 +3564,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %exitcond94.not.i.i = icmp eq i64 %indvars.iv.next91.i.i, %wide.trip.count93.i.i
   br i1 %exitcond94.not.i.i, label %._crit_edge.i.i, label %.lr.ph59.us.i.i, !llvm.loop !7
 
-._crit_edge.i.i:                                  ; preds = %._crit_edge60.us.i.i, %1689, %1674
+._crit_edge.i.i:                                  ; preds = %._crit_edge60.us.i.i, %1674
   %1731 = add i32 %1676, -3
   %or.cond.i.i = icmp ult i32 %1731, 2
   %1732 = icmp sgt i32 %1667, 0
@@ -3727,7 +3727,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %1814 = getelementptr inbounds nuw float, ptr %.019853.i114.i, i64 %1807
   %indvars.iv.next96.i115.i = add nuw nsw i64 %indvars.iv95.i112.i, 1
   %exitcond99.not.i116.i = icmp eq i64 %indvars.iv.next96.i115.i, %wide.trip.count98.i111.i
-  br i1 %exitcond99.not.i116.i, label %._crit_edge.i75.i, label %1808, !llvm.loop !12
+  br i1 %exitcond99.not.i116.i, label %.critedge, label %1808, !llvm.loop !12
 
 1815:                                             ; preds = %1793
   %1816 = icmp sgt i32 %1799, 0
@@ -3793,7 +3793,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %exitcond94.not.i74.i = icmp eq i64 %indvars.iv.next91.i73.i, %wide.trip.count93.i61.i
   br i1 %exitcond94.not.i74.i, label %._crit_edge.i75.i, label %.lr.ph59.us.i63.i, !llvm.loop !14
 
-._crit_edge.i75.i:                                ; preds = %._crit_edge60.us.i72.i, %1808, %1793
+._crit_edge.i75.i:                                ; preds = %._crit_edge60.us.i72.i, %1793
   %1850 = add i32 %1795, -3
   %or.cond.i76.i = icmp ult i32 %1850, 2
   %1851 = icmp sgt i32 %1667, 0
@@ -3957,7 +3957,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %1934 = getelementptr inbounds nuw float, ptr %.019853.i172.i, i64 %1926
   %indvars.iv.next96.i173.i = add nuw nsw i64 %indvars.iv95.i170.i, 1
   %exitcond99.not.i174.i = icmp eq i64 %indvars.iv.next96.i173.i, %wide.trip.count98.i169.i
-  br i1 %exitcond99.not.i174.i, label %._crit_edge.i133.i, label %1927, !llvm.loop !19
+  br i1 %exitcond99.not.i174.i, label %.critedge, label %1927, !llvm.loop !19
 
 1935:                                             ; preds = %1912
   %1936 = icmp sgt i32 %1918, 0
@@ -4024,7 +4024,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %exitcond94.not.i132.i = icmp eq i64 %indvars.iv.next91.i131.i, %wide.trip.count93.i119.i
   br i1 %exitcond94.not.i132.i, label %._crit_edge.i133.i, label %.lr.ph59.us.i121.i, !llvm.loop !21
 
-._crit_edge.i133.i:                               ; preds = %._crit_edge60.us.i130.i, %1927, %1912
+._crit_edge.i133.i:                               ; preds = %._crit_edge60.us.i130.i, %1912
   %1971 = add i32 %1914, -3
   %or.cond.i134.i = icmp ult i32 %1971, 2
   %1972 = icmp sgt i32 %1667, 0
@@ -4185,7 +4185,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %2055 = getelementptr inbounds nuw float, ptr %.019853.i230.i, i64 %2047
   %indvars.iv.next96.i231.i = add nuw nsw i64 %indvars.iv95.i228.i, 1
   %exitcond99.not.i232.i = icmp eq i64 %indvars.iv.next96.i231.i, %wide.trip.count98.i227.i
-  br i1 %exitcond99.not.i232.i, label %._crit_edge.i191.i, label %2048, !llvm.loop !26
+  br i1 %exitcond99.not.i232.i, label %.critedge, label %2048, !llvm.loop !26
 
 2056:                                             ; preds = %2033
   %2057 = icmp sgt i32 %2039, 0
@@ -4252,7 +4252,7 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   %exitcond94.not.i190.i = icmp eq i64 %indvars.iv.next91.i189.i, %wide.trip.count93.i177.i
   br i1 %exitcond94.not.i190.i, label %._crit_edge.i191.i, label %.lr.ph59.us.i179.i, !llvm.loop !28
 
-._crit_edge.i191.i:                               ; preds = %._crit_edge60.us.i188.i, %2048, %2033
+._crit_edge.i191.i:                               ; preds = %._crit_edge60.us.i188.i, %2033
   %2092 = add i32 %2035, -3
   %or.cond.i192.i = icmp ult i32 %2092, 2
   %2093 = icmp sgt i32 %1667, 0
@@ -4397,8 +4397,8 @@ thread-pre-split1222:                             ; preds = %1314, %1386
   call fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2EEEvRKNS_3MatES4_RS2_RKNS_6OptionE(ptr noundef nonnull readonly align 8 dereferenceable(72) %6, ptr noundef nonnull readonly align 8 dereferenceable(72) %5, ptr noundef nonnull readonly align 8 dereferenceable(72) %1651)
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge76.split.us.us.us.i210.i, %._crit_edge76.split.us.us.us.i152.i, %._crit_edge76.split.us.us.us.i94.i, %._crit_edge76.split.us.us.us.i.i, %2159, %2158, %2157, %2156, %2155, %2154, %.lr.ph79.i194.i, %._crit_edge.i191.i, %.lr.ph63.i175.i, %2056, %2042, %.lr.ph79.i136.i, %._crit_edge.i133.i, %.lr.ph63.i117.i, %1935, %1921, %1911, %.lr.ph79.i78.i, %._crit_edge.i75.i, %.lr.ph63.i59.i, %1815, %1802, %1792, %.lr.ph79.i.i, %._crit_edge.i.i, %.lr.ph63.i.i, %1696, %1683, %1671, %1663, %1650
-  %.0766 = phi i32 [ -100, %1650 ], [ -100, %1663 ], [ 0, %1671 ], [ 0, %1683 ], [ 0, %1696 ], [ 0, %.lr.ph63.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph79.i.i ], [ 0, %1792 ], [ 0, %1802 ], [ 0, %1815 ], [ 0, %.lr.ph63.i59.i ], [ 0, %._crit_edge.i75.i ], [ 0, %.lr.ph79.i78.i ], [ 0, %1911 ], [ 0, %1921 ], [ 0, %1935 ], [ 0, %.lr.ph63.i117.i ], [ 0, %._crit_edge.i133.i ], [ 0, %.lr.ph79.i136.i ], [ 0, %2042 ], [ 0, %2056 ], [ 0, %.lr.ph63.i175.i ], [ 0, %._crit_edge.i191.i ], [ 0, %.lr.ph79.i194.i ], [ 0, %2154 ], [ 0, %2155 ], [ 0, %2156 ], [ 0, %2157 ], [ 0, %2158 ], [ 0, %2159 ], [ 0, %._crit_edge76.split.us.us.us.i.i ], [ 0, %._crit_edge76.split.us.us.us.i94.i ], [ 0, %._crit_edge76.split.us.us.us.i152.i ], [ 0, %._crit_edge76.split.us.us.us.i210.i ]
+.critedge:                                        ; preds = %2048, %._crit_edge76.split.us.us.us.i210.i, %1927, %._crit_edge76.split.us.us.us.i152.i, %1808, %._crit_edge76.split.us.us.us.i94.i, %1689, %._crit_edge76.split.us.us.us.i.i, %2159, %2158, %2157, %2156, %2155, %2154, %.lr.ph79.i194.i, %._crit_edge.i191.i, %.lr.ph63.i175.i, %2056, %2042, %.lr.ph79.i136.i, %._crit_edge.i133.i, %.lr.ph63.i117.i, %1935, %1921, %1911, %.lr.ph79.i78.i, %._crit_edge.i75.i, %.lr.ph63.i59.i, %1815, %1802, %1792, %.lr.ph79.i.i, %._crit_edge.i.i, %.lr.ph63.i.i, %1696, %1683, %1671, %1663, %1650
+  %.0766 = phi i32 [ -100, %1650 ], [ -100, %1663 ], [ 0, %1671 ], [ 0, %1683 ], [ 0, %1696 ], [ 0, %.lr.ph63.i.i ], [ 0, %._crit_edge.i.i ], [ 0, %.lr.ph79.i.i ], [ 0, %1792 ], [ 0, %1802 ], [ 0, %1815 ], [ 0, %.lr.ph63.i59.i ], [ 0, %._crit_edge.i75.i ], [ 0, %.lr.ph79.i78.i ], [ 0, %1911 ], [ 0, %1921 ], [ 0, %1935 ], [ 0, %.lr.ph63.i117.i ], [ 0, %._crit_edge.i133.i ], [ 0, %.lr.ph79.i136.i ], [ 0, %2042 ], [ 0, %2056 ], [ 0, %.lr.ph63.i175.i ], [ 0, %._crit_edge.i191.i ], [ 0, %.lr.ph79.i194.i ], [ 0, %2154 ], [ 0, %2155 ], [ 0, %2156 ], [ 0, %2157 ], [ 0, %2158 ], [ 0, %2159 ], [ 0, %._crit_edge76.split.us.us.us.i.i ], [ 0, %1689 ], [ 0, %._crit_edge76.split.us.us.us.i94.i ], [ 0, %1808 ], [ 0, %._crit_edge76.split.us.us.us.i152.i ], [ 0, %1927 ], [ 0, %._crit_edge76.split.us.us.us.i210.i ], [ 0, %2048 ]
   %.not1162 = icmp eq ptr %1653, null
   br i1 %.not1162, label %2170, label %2160
 
@@ -5323,7 +5323,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !57
+  br i1 %exitcond99.not, label %.loopexit, label %27, !llvm.loop !57
 
 34:                                               ; preds = %3
   %35 = icmp sgt i32 %9, 0
@@ -5403,7 +5403,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph59.us, !llvm.loop !59
 
-._crit_edge:                                      ; preds = %._crit_edge60.us, %27, %3
+._crit_edge:                                      ; preds = %._crit_edge60.us, %3
   %83 = add i32 %5, -3
   %or.cond = icmp ult i32 %83, 2
   %84 = icmp sgt i32 %13, 0
@@ -5552,7 +5552,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_subEE
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %.loopexit, label %.preheader.lr.ph.us.us, !llvm.loop !63
 
-.loopexit:                                        ; preds = %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
+.loopexit:                                        ; preds = %27, %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
   ret void
 }
 
@@ -5605,7 +5605,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !64
+  br i1 %exitcond99.not, label %.loopexit, label %27, !llvm.loop !64
 
 34:                                               ; preds = %3
   %35 = icmp sgt i32 %9, 0
@@ -5685,7 +5685,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph59.us, !llvm.loop !66
 
-._crit_edge:                                      ; preds = %._crit_edge60.us, %27, %3
+._crit_edge:                                      ; preds = %._crit_edge60.us, %3
   %83 = add i32 %5, -3
   %or.cond = icmp ult i32 %83, 2
   %84 = icmp sgt i32 %13, 0
@@ -5834,7 +5834,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_divEE
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %.loopexit, label %.preheader.lr.ph.us.us, !llvm.loop !70
 
-.loopexit:                                        ; preds = %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
+.loopexit:                                        ; preds = %27, %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
   ret void
 }
 
@@ -5887,7 +5887,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !71
+  br i1 %exitcond99.not, label %.loopexit, label %27, !llvm.loop !71
 
 34:                                               ; preds = %3
   %35 = icmp sgt i32 %9, 0
@@ -5967,7 +5967,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph59.us, !llvm.loop !73
 
-._crit_edge:                                      ; preds = %._crit_edge60.us, %27, %3
+._crit_edge:                                      ; preds = %._crit_edge60.us, %3
   %83 = add i32 %5, -3
   %or.cond = icmp ult i32 %83, 2
   %84 = icmp sgt i32 %13, 0
@@ -6116,7 +6116,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_13binary_op_powEE
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %.loopexit, label %.preheader.lr.ph.us.us, !llvm.loop !77
 
-.loopexit:                                        ; preds = %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
+.loopexit:                                        ; preds = %27, %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
   ret void
 }
 
@@ -6169,7 +6169,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %33 = getelementptr inbounds nuw float, ptr %.019853, i64 %26
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
-  br i1 %exitcond99.not, label %._crit_edge, label %27, !llvm.loop !78
+  br i1 %exitcond99.not, label %.loopexit, label %27, !llvm.loop !78
 
 34:                                               ; preds = %3
   %35 = icmp sgt i32 %9, 0
@@ -6249,7 +6249,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
   br i1 %exitcond94.not, label %._crit_edge, label %.lr.ph59.us, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %._crit_edge60.us, %27, %3
+._crit_edge:                                      ; preds = %._crit_edge60.us, %3
   %83 = add i32 %5, -3
   %or.cond = icmp ult i32 %83, 2
   %84 = icmp sgt i32 %13, 0
@@ -6398,7 +6398,7 @@ define internal fastcc void @_ZN4ncnnL19binary_op_broadcastINS_15binary_op_atan2
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
   br i1 %exitcond111.not, label %.loopexit, label %.preheader.lr.ph.us.us, !llvm.loop !84
 
-.loopexit:                                        ; preds = %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
+.loopexit:                                        ; preds = %27, %._crit_edge76.split.us.us.us, %14, %34, %.lr.ph63, %.lr.ph79, %._crit_edge
   ret void
 }
 

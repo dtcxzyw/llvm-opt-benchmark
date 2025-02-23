@@ -1258,8 +1258,8 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %_ZNK5clang4Type5get
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i8, ptr %122, align 16
   %124 = icmp eq i8 %123, 13
-  %.not.not8.i = icmp ne ptr %121, null
-  %.not.not.not.i = and i1 %.not.not8.i, %124
+  %.not8.i = icmp ne ptr %121, null
+  %.not.not.not.i = and i1 %.not8.i, %124
   br i1 %.not.not.not.i, label %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit, label %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit: ; preds = %114
@@ -1733,8 +1733,8 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit336.thread: ; preds = %347, %
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %371 = load i8, ptr %370, align 16
   %372 = icmp eq i8 %371, 13
-  %.not.not7.i.i = icmp ne ptr %369, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %372
+  %.not7.i.i = icmp ne ptr %369, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %372
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit336.thread
@@ -1770,8 +1770,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %_ZNK5clang4Type5get
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i8, ptr %385, align 16
   %387 = icmp eq i8 %386, 13
-  %.not.not7.i.i342 = icmp ne ptr %384, null
-  %.not.not.not.i.i343 = and i1 %.not.not7.i.i342, %387
+  %.not7.i.i342 = icmp ne ptr %384, null
+  %.not.not.not.i.i343 = and i1 %.not7.i.i342, %387
   br i1 %.not.not.not.i.i343, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %383
@@ -1884,8 +1884,8 @@ _ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread: ; preds = %_ZNK
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 16
   %444 = load i8, ptr %443, align 16
   %445 = icmp eq i8 %444, 13
-  %.not.not7.i.i362 = icmp ne ptr %442, null
-  %.not.not.not.i.i363 = and i1 %.not.not7.i.i362, %445
+  %.not7.i.i362 = icmp ne ptr %442, null
+  %.not.not.not.i.i363 = and i1 %.not7.i.i362, %445
   br i1 %.not.not.not.i.i363, label %_ZNK5clang4Type10isVoidTypeEv.exit365, label %.critedge2
 
 _ZNK5clang4Type10isVoidTypeEv.exit365:            ; preds = %437
@@ -3390,22 +3390,19 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpe
   br i1 %.not88.not, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %7 = phi ptr [ %34, %.critedge ], [ %6, %2 ]
+  %7 = phi ptr [ %32, %.critedge ], [ %6, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 16, !tbaa !470
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8, !tbaa !475
-  %12 = and i64 %11, 7
-  %13 = icmp eq i64 %12, 0
-  %14 = and i64 %11, -8
-  %15 = inttoptr i64 %14 to ptr
-  %.0.i.i = select i1 %13, ptr %15, ptr null
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !477
-  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %19 = load i64, ptr %17, align 8, !tbaa !480
-  %20 = and i64 %19, 4294967295
-  %trunc = trunc i64 %19 to i32
+  %12 = and i64 %11, -8
+  %13 = inttoptr i64 %12 to ptr
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !477
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i64, ptr %15, align 8, !tbaa !480
+  %18 = and i64 %17, 4294967295
+  %trunc = trunc i64 %17 to i32
   switch i32 %trunc, label %.critedge [
     i32 6, label %_ZN4llvmeqENS_9StringRefES0_.exit
     i32 7, label %_ZN4llvmeqENS_9StringRefES0_.exit33
@@ -3414,63 +3411,63 @@ define dso_local noundef zeroext i1 @_ZN5clang21analyze_format_string15FormatSpe
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull @.str.58, i64 %20)
-  %21 = icmp eq i32 %bcmp.i, 0
-  br i1 %21, label %.critedge.thread.sink.split, label %.critedge
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.58, i64 %18)
+  %19 = icmp eq i32 %bcmp.i, 0
+  br i1 %19, label %.critedge.thread.sink.split, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit33:              ; preds = %.lr.ph
-  %bcmp.i32 = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull @.str.59, i64 %20)
-  %22 = icmp eq i32 %bcmp.i32, 0
-  br i1 %22, label %.critedge.thread.sink.split, label %.critedge
+  %bcmp.i32 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.59, i64 %18)
+  %20 = icmp eq i32 %bcmp.i32, 0
+  br i1 %20, label %.critedge.thread.sink.split, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit39:              ; preds = %.lr.ph
-  %bcmp.i38 = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull @.str.60, i64 %20)
-  %23 = icmp eq i32 %bcmp.i38, 0
-  br i1 %23, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69
+  %bcmp.i38 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.60, i64 %18)
+  %21 = icmp eq i32 %bcmp.i38, 0
+  br i1 %21, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69
 
 _ZN4llvmeqENS_9StringRefES0_.exit39.thread69:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39
-  %cond = icmp eq i64 %20, 9
+  %cond = icmp eq i64 %18, 9
   br i1 %cond, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit45:              ; preds = %.lr.ph
-  %bcmp.i44 = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull @.str.61, i64 %20)
-  %24 = icmp eq i32 %bcmp.i44, 0
-  br i1 %24, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
+  %bcmp.i44 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.61, i64 %18)
+  %22 = icmp eq i32 %bcmp.i44, 0
+  br i1 %22, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
 
 _ZN4llvmeqENS_9StringRefES0_.exit45.thread92:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69
-  %bcmp.i4493 = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull @.str.61, i64 %20)
-  %25 = icmp eq i32 %bcmp.i4493, 0
-  br i1 %25, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit51
+  %bcmp.i4493 = tail call i32 @bcmp(ptr nonnull %16, ptr nonnull @.str.61, i64 %18)
+  %23 = icmp eq i32 %bcmp.i4493, 0
+  br i1 %23, label %.critedge.thread.sink.split, label %_ZN4llvmeqENS_9StringRefES0_.exit51
 
 _ZN4llvmeqENS_9StringRefES0_.exit45.thread72:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45
-  %.not.i48 = icmp eq i64 %20, 9
+  %.not.i48 = icmp eq i64 %18, 9
   br i1 %.not.i48, label %_ZN4llvmeqENS_9StringRefES0_.exit51, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit51:              ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72
-  %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %18, ptr noundef nonnull dereferenceable(9) @.str.62, i64 9)
-  %26 = icmp eq i32 %bcmp.i50, 0
-  br i1 %26, label %.critedge.thread.sink.split, label %.critedge
+  %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %16, ptr noundef nonnull dereferenceable(9) @.str.62, i64 9)
+  %24 = icmp eq i32 %bcmp.i50, 0
+  br i1 %24, label %.critedge.thread.sink.split, label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit39.thread69, %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread72, %_ZN4llvmeqENS_9StringRefES0_.exit51
-  %27 = getelementptr inbounds nuw i8, ptr %9, i64 80
-  %.0.copyload.i.i.i.i.i52 = load i64, ptr %27, align 8
-  %28 = and i64 %.0.copyload.i.i.i.i.i52, -8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = shl i64 %.0.copyload.i.i.i.i.i52, 1
-  %.sroa.0.0.in.idx.i = and i64 %30, 8
-  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.0.0.in.idx.i
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 80
+  %.0.copyload.i.i.i.i.i52 = load i64, ptr %25, align 8
+  %26 = and i64 %.0.copyload.i.i.i.i.i52, -8
+  %27 = inttoptr i64 %26 to ptr
+  %28 = shl i64 %.0.copyload.i.i.i.i.i52, 1
+  %.sroa.0.0.in.idx.i = and i64 %28, 8
+  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %27, i64 %.sroa.0.0.in.idx.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !8
-  %31 = and i64 %.sroa.0.0.i, -16
-  %32 = inttoptr i64 %31 to ptr
-  %33 = load ptr, ptr %32, align 16, !tbaa !55
-  %34 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %33) #17
-  %.not.not = icmp eq ptr %34, null
+  %29 = and i64 %.sroa.0.0.i, -16
+  %30 = inttoptr i64 %29 to ptr
+  %31 = load ptr, ptr %30, align 16, !tbaa !55
+  %32 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %31) #17
+  %.not.not = icmp eq ptr %32, null
   br i1 %.not.not, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread.sink.split:                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit51, %_ZN4llvmeqENS_9StringRefES0_.exit45, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92, %_ZN4llvmeqENS_9StringRefES0_.exit39, %_ZN4llvmeqENS_9StringRefES0_.exit33, %_ZN4llvmeqENS_9StringRefES0_.exit
   %.sink = phi i32 [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 8, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit39 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45.thread92 ], [ 7, %_ZN4llvmeqENS_9StringRefES0_.exit45 ], [ 9, %_ZN4llvmeqENS_9StringRefES0_.exit51 ]
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %.sink, ptr %35, align 8, !tbaa !449
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %.sink, ptr %33, align 8, !tbaa !449
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.critedge.thread.sink.split, %2

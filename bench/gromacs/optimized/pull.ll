@@ -3858,7 +3858,7 @@ define void @_Z15pull_constraintP6pull_tN3gmx8ArrayRefIKfEERK5t_pbcPK9t_commrecd
 
 190:                                              ; preds = %.loopexit443.i
   call void @_ZNSt10filesystem7__cxx114pathC2IA122_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef nonnull align 1 dereferenceable(122) @.str.9, i8 noundef zeroext 2)
-  %191 = add i64 %.0252485.i, 1
+  %191 = add nuw i64 %.0252485.i, 1
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %26, i32 noundef 916, ptr noundef nonnull @.str.40, i64 noundef %191) #27
           to label %192 unwind label %193
 
@@ -8598,11 +8598,11 @@ _ZNKSt6vectorI17pull_group_work_tSaIS0_EE12_M_check_lenEmPKc.exit: ; preds = %6
           to label %_ZNSt16allocator_traitsISaI17pull_group_work_tEE9constructIS0_JRK12t_pull_groupN3gmx12LocalAtomSetERKbRKiEEEvRS1_PT_DpOT0_.exit unwind label %.thread
 
 .thread:                                          ; preds = %_ZNKSt6vectorI17pull_group_work_tSaIS0_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm49 = landingpad { ptr, i32 }
+  %lpad.thr_comm48 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %lpad.thr_comm49, 0
+  %28 = extractvalue { ptr, i32 } %lpad.thr_comm48, 0
   %29 = tail call ptr @__cxa_begin_catch(ptr %28) #19
-  br label %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+  br label %.loopexit
 
 _ZNSt16allocator_traitsISaI17pull_group_work_tEE9constructIS0_JRK12t_pull_groupN3gmx12LocalAtomSetERKbRKiEEEvRS1_PT_DpOT0_.exit: ; preds = %_ZNKSt6vectorI17pull_group_work_tSaIS0_EE12_M_check_lenEmPKc.exit
   %30 = invoke noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIP17pull_group_work_tES2_ET0_T_S5_S4_(ptr %9, ptr %1, ptr noundef nonnull %23)
@@ -8646,7 +8646,7 @@ _ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %38 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
   %39 = tail call ptr @__cxa_begin_catch(ptr %38) #19
   tail call void @_ZN17pull_group_work_tD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %24) #19
-  br label %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+  br label %.loopexit
 
 40:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIP17pull_group_work_tS1_SaIS0_EET0_T_S4_S3_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -8654,22 +8654,22 @@ _ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit: ; pre
   %41 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %42 = tail call ptr @__cxa_begin_catch(ptr %41) #19
   %.not4.i.i.i33 = icmp eq ptr %23, %31
-  br i1 %.not4.i.i.i33, label %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39, label %.lr.ph.i.i.i34
+  br i1 %.not4.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %40, %.lr.ph.i.i.i34
   %.05.i.i.i35 = phi ptr [ %43, %.lr.ph.i.i.i34 ], [ %23, %40 ]
   tail call void @_ZN17pull_group_work_tD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %.05.i.i.i35) #19
   %43 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 272
   %.not.i.i.i36 = icmp eq ptr %.05.i.i.i35, %30
-  br i1 %.not.i.i.i36, label %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39, label %.lr.ph.i.i.i34, !llvm.loop !93
+  br i1 %.not.i.i.i36, label %.loopexit, label %.lr.ph.i.i.i34, !llvm.loop !93
 
-44:                                               ; preds = %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+44:                                               ; preds = %.loopexit
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %46 unwind label %47
 
-_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39: ; preds = %.lr.ph.i.i.i34, %40, %37, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i34, %.thread, %37, %40
   tail call void @_ZdlPv(ptr noundef nonnull %23) #30
   invoke void @__cxa_rethrow() #27
           to label %50 unwind label %44
@@ -8684,7 +8684,7 @@ _ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39: ; p
   tail call void @__clang_call_terminate(ptr %49) #28
   unreachable
 
-50:                                               ; preds = %_ZNSt12_Vector_baseI17pull_group_work_tSaIS0_EE13_M_deallocateEPS0_m.exit39
+50:                                               ; preds = %.loopexit
   unreachable
 }
 

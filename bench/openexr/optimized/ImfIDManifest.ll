@@ -2864,7 +2864,7 @@ for.body154.preheader:                            ; preds = %_ZSt4sortIN9__gnu_c
 for.cond160.preheader:                            ; preds = %for.body154, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit
   %i147.0.lcssa = phi i64 [ 0, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit ], [ %umax, %for.body154 ]
   %invariant.umin1156 = call i64 @llvm.umin.i64(i64 %.pre1306, i64 16384)
-  %46 = icmp ult i64 %i147.0.lcssa, %invariant.umin1156
+  %46 = icmp samesign ult i64 %i147.0.lcssa, %invariant.umin1156
   br i1 %46, label %for.body166, label %for.cond172.preheader
 
 for.body154:                                      ; preds = %for.body154.preheader, %for.body154
@@ -2878,7 +2878,7 @@ for.body154:                                      ; preds = %for.body154.prehead
 for.cond172.preheader:                            ; preds = %for.body166, %for.cond160.preheader
   %i147.1.lcssa = phi i64 [ %i147.0.lcssa, %for.cond160.preheader ], [ %invariant.umin1156, %for.body166 ]
   %invariant.umin1160 = call i64 @llvm.umin.i64(i64 %.pre1306, i64 2097152)
-  %47 = icmp ult i64 %i147.1.lcssa, %invariant.umin1160
+  %47 = icmp samesign ult i64 %i147.1.lcssa, %invariant.umin1160
   br i1 %47, label %for.body178, label %for.cond184.preheader
 
 for.body166:                                      ; preds = %for.cond160.preheader, %for.body166
@@ -2892,7 +2892,7 @@ for.body166:                                      ; preds = %for.cond160.prehead
 for.cond184.preheader:                            ; preds = %for.body178, %for.cond172.preheader
   %i147.2.lcssa = phi i64 [ %i147.1.lcssa, %for.cond172.preheader ], [ %invariant.umin1160, %for.body178 ]
   %invariant.umin1164 = call i64 @llvm.umin.i64(i64 %.pre1306, i64 268435456)
-  %48 = icmp ult i64 %i147.2.lcssa, %invariant.umin1164
+  %48 = icmp samesign ult i64 %i147.2.lcssa, %invariant.umin1164
   br i1 %48, label %for.body190, label %for.cond196.preheader
 
 for.body178:                                      ; preds = %for.cond172.preheader, %for.body178
@@ -4041,7 +4041,7 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %for.b
 
 _ZN7Imf_3_212_GLOBAL__N_126writeVariableLengthIntegerERPcm.exit.i: ; preds = %do.body.i.i
   store ptr %incdec.ptr.i.i712, ptr %outPtr, align 8
-  %call.i.i713 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.026.i) #35
+  %call.i.i713 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.026.i) #35
   %cmp.i.not.i714 = icmp eq ptr %call.i.i713, %add.ptr.i.i.i706
   br i1 %cmp.i.not.i714, label %for.end.loopexit.i, label %for.body.i707, !llvm.loop !64
 
@@ -4084,7 +4084,7 @@ _ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_PKci.exit.i.loopexit: ; preds = %wh
   br label %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_PKci.exit.i
 
 _ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_PKci.exit.i: ; preds = %_ZN7Imf_3_23Xdr5writeINS_9CharPtrIOEPcEEvRT0_PKci.exit.i.loopexit, %for.body20.i
-  %call.i19.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i12.sroa.0.028.i) #35
+  %call.i19.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i12.sroa.0.028.i) #35
   %cmp.i14.not.i = icmp eq ptr %call.i19.i, %add.ptr.i.i.i706
   br i1 %cmp.i14.not.i, label %invoke.cont456, label %for.body20.i, !llvm.loop !65
 
@@ -8186,7 +8186,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8
   br label %if.then
 
-if.then:                                          ; preds = %if.then28.i, %while.end.i, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.then28.i, %if.else.i, %if.else37.i
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__arg)

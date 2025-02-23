@@ -3705,7 +3705,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 621:                                              ; preds = %628
   %622 = or disjoint i64 %indvars.iv258.i, 1
-  %.idx304.i = shl nsw i64 %622, 4
+  %.idx304.i = shl nuw nsw i64 %622, 4
   %invariant.gep326.i = getelementptr inbounds nuw i8, ptr %620, i64 %.idx304.i
   %invariant.gep328.i = getelementptr inbounds nuw i16, ptr %616, i64 %622
   br label %625
@@ -3953,7 +3953,7 @@ define dso_local void @jtransform_execute_transform(ptr noundef %0, ptr noundef 
 
 733:                                              ; preds = %740
   %734 = or disjoint i64 %indvars.iv158.i, 1
-  %.idx176.i = shl nsw i64 %734, 4
+  %.idx176.i = shl nuw nsw i64 %734, 4
   %invariant.gep190.i = getelementptr inbounds nuw i8, ptr %732, i64 %.idx176.i
   %invariant.gep192.i = getelementptr inbounds nuw i16, ptr %728, i64 %734
   br label %737
@@ -6339,7 +6339,7 @@ define dso_local void @jcopy_markers_setup(ptr noundef %0, i32 noundef %1) local
   tail call void @jpeg_save_markers(ptr noundef %0, i32 noundef %8, i32 noundef 65535) #8
   %9 = add nuw nsw i32 %.017.us, 1
   %exitcond.not = icmp eq i32 %9, 16
-  br i1 %exitcond.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !254
+  br i1 %exitcond.not, label %.loopexit.thread, label %.preheader.split.us, !llvm.loop !254
 
 .preheader.split:                                 ; preds = %.preheader, %13
   %.017 = phi i32 [ %14, %13 ], [ 0, %.preheader ]
@@ -6356,15 +6356,15 @@ define dso_local void @jcopy_markers_setup(ptr noundef %0, i32 noundef %1) local
   %exitcond19.not = icmp eq i32 %14, 16
   br i1 %exitcond19.not, label %.loopexit, label %.preheader.split, !llvm.loop !254
 
-.loopexit:                                        ; preds = %.preheader.split.us, %13, %5
+.loopexit:                                        ; preds = %13, %5
   %15 = icmp eq i32 %1, 4
-  br i1 %15, label %16, label %17
+  br i1 %15, label %16, label %.loopexit.thread
 
 16:                                               ; preds = %.loopexit
   tail call void @jpeg_save_markers(ptr noundef %0, i32 noundef 226, i32 noundef 65535) #8
-  br label %17
+  br label %.loopexit.thread
 
-17:                                               ; preds = %16, %.loopexit
+.loopexit.thread:                                 ; preds = %.preheader.split.us, %16, %.loopexit
   ret void
 }
 

@@ -247,7 +247,7 @@ archive_entry_copy_mac_metadata.exit:             ; preds = %57, %63
   %68 = load ptr, ptr %67, align 8, !tbaa !37
   %69 = getelementptr inbounds nuw i8, ptr %.05964, i64 24
   %70 = load i64, ptr %69, align 8, !tbaa !38
-  tail call void @archive_entry_xattr_add_entry(ptr noundef %3, ptr noundef %66, ptr noundef %68, i64 noundef %70) #21
+  tail call void @archive_entry_xattr_add_entry(ptr noundef nonnull %3, ptr noundef %66, ptr noundef %68, i64 noundef %70) #21
   %.059 = load ptr, ptr %.05964, align 8, !tbaa !34
   %.not = icmp eq ptr %.059, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -264,7 +264,7 @@ archive_entry_copy_mac_metadata.exit:             ; preds = %57, %63
   %73 = load i64, ptr %72, align 8, !tbaa !42
   %74 = getelementptr inbounds nuw i8, ptr %.05867, i64 16
   %75 = load i64, ptr %74, align 8, !tbaa !44
-  tail call void @archive_entry_sparse_add_entry(ptr noundef %3, i64 noundef %73, i64 noundef %75) #21
+  tail call void @archive_entry_sparse_add_entry(ptr noundef nonnull %3, i64 noundef %73, i64 noundef %75) #21
   %.058 = load ptr, ptr %.05867, align 8, !tbaa !41
   %.not61 = icmp eq ptr %.058, null
   br i1 %.not61, label %archive_entry_new2.exit.thread, label %.lr.ph69, !llvm.loop !45

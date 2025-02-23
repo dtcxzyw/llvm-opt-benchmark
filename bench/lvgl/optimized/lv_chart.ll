@@ -354,7 +354,7 @@ get_index_from_x.exit:                            ; preds = %19, %34, %38, %42, 
   store float %136, ptr %125, align 4, !tbaa !47
   store float %136, ptr %127, align 4, !tbaa !48
   store i32 %130, ptr %128, align 4, !tbaa !49
-  call void @lv_draw_line(ptr noundef %65, ptr noundef nonnull %13) #8
+  call void @lv_draw_line(ptr noundef nonnull %65, ptr noundef nonnull %13) #8
   %137 = add i16 %.098.i, 1
   %138 = sext i16 %137 to i32
   %139 = icmp sgt i32 %122, %138
@@ -441,7 +441,7 @@ get_index_from_x.exit:                            ; preds = %19, %34, %38, %42, 
   store float %186, ptr %149, align 8, !tbaa !44
   store float %186, ptr %154, align 8, !tbaa !46
   store i32 %180, ptr %178, align 4, !tbaa !49
-  call void @lv_draw_line(ptr noundef %65, ptr noundef nonnull %13) #8
+  call void @lv_draw_line(ptr noundef nonnull %65, ptr noundef nonnull %13) #8
   %187 = add i16 %.199.i, 1
   %188 = sext i16 %187 to i32
   %189 = icmp sgt i32 %174, %188

@@ -768,7 +768,7 @@ define ptr @createConstrained0LiveConeWithDSC(ptr noundef %0, ptr noundef readon
   %24 = ptrtoint ptr %22 to i64
   %25 = xor i64 %23, %24
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.023, ptr noundef %26) #10
+  %27 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.023, ptr noundef %26) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
@@ -782,7 +782,7 @@ define ptr @createConstrained0LiveConeWithDSC(ptr noundef %0, ptr noundef readon
   %32 = ptrtoint ptr %.0.lcssa to i64
   %33 = xor i64 %32, 1
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @Aig_Or(ptr noundef %0, ptr noundef %34, ptr noundef %31) #10
+  %35 = tail call ptr @Aig_Or(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %31) #10
   ret ptr %35
 }
 
@@ -1129,12 +1129,12 @@ define ptr @createAndGateForMonotonicityVerification(ptr noundef %0, ptr noundef
   %.val20 = load ptr, ptr %11, align 8, !tbaa !10
   %15 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !11
-  %17 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %7, ptr noundef %16) #10
+  %17 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %7, ptr noundef %16) #10
   %18 = ptrtoint ptr %17 to i64
   %19 = xor i64 %18, 1
   %20 = inttoptr i64 %19 to ptr
-  %21 = tail call ptr @Aig_Or(ptr noundef %0, ptr noundef %20, ptr noundef %14) #10
-  %22 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.01924, ptr noundef %21) #10
+  %21 = tail call ptr @Aig_Or(ptr noundef nonnull %0, ptr noundef %20, ptr noundef %14) #10
+  %22 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.01924, ptr noundef %21) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4, !tbaa !3
   %23 = sext i32 %.val to i64

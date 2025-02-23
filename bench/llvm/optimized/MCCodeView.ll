@@ -572,7 +572,7 @@ _ZNSt6vectorIN4llvm16MCCVFunctionInfoESaIS1_EE6resizeEm.exit: ; preds = %_ZSt8_D
 
 _ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit: ; preds = %38, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit
   %42 = phi i32 [ %57, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit ], [ %2, %38 ]
-  %.022 = phi ptr [ %51, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit ], [ %35, %38 ]
+  %.022 = phi ptr [ %spec.select.i, %_ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit ], [ %35, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %.022, i64 4
   %.sroa.0.0.copyload6 = load i32, ptr %43, align 4, !tbaa !69
   %.sroa.6.0..sroa_idx8 = getelementptr inbounds nuw i8, ptr %.022, i64 8
@@ -592,7 +592,7 @@ _ZN4llvm15CodeViewContext17getCVFunctionInfoEj.exit: ; preds = %38, %_ZN4llvm15C
   %52 = load i32, ptr %51, align 8, !tbaa !124
   %53 = icmp eq i32 %52, 0
   %spec.select.i = select i1 %53, ptr null, ptr %51
-  %54 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %55 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_16MCCVFunctionInfo8LineInfoENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj(ptr noundef nonnull align 1 dereferenceable(1) %54, ptr noundef nonnull align 4 dereferenceable(4) %7)
   store i32 %.sroa.0.0.copyload6, ptr %55, align 4, !tbaa !69
   %.sroa.6.0..sroa_idx10 = getelementptr inbounds nuw i8, ptr %55, i64 4

@@ -1915,7 +1915,7 @@ type_flatten.exit374.i:                           ; preds = %type_flatten.exit37
   %.pre-phi.i = phi i64 [ %.pre.i, %.._crit_edge_crit_edge.i ], [ %514, %.lr.ph497.i ]
   %519 = getelementptr inbounds nuw ptr, ptr %509, i64 %.pre-phi.i
   store ptr %471, ptr %519, align 8
-  %520 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %283, ptr noundef %471, i1 noundef zeroext true, ptr noundef null) #7
+  %520 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %283, ptr noundef nonnull %471, i1 noundef zeroext true, ptr noundef null) #7
   br i1 %520, label %469, label %sema_expr_analyse_designated_initializer.exit
 
 ._crit_edge503.i:                                 ; preds = %469, %467
@@ -2881,7 +2881,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_struct_plain_initia
   %102 = getelementptr inbounds ptr, ptr %97, i64 %indvars.iv401
   store ptr %101, ptr %102, align 8
   %indvars.iv.next402 = add nsw i64 %indvars.iv401, -1
-  %103 = icmp sgt i64 %indvars.iv.next402, %indvars.iv
+  %103 = icmp samesign ugt i64 %indvars.iv.next402, %indvars.iv
   %104 = trunc nuw nsw i64 %indvars.iv401 to i32
   br i1 %103, label %.lr.ph351, label %._crit_edge352, !llvm.loop !21
 

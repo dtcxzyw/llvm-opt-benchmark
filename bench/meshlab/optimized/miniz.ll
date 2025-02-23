@@ -121,7 +121,7 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   br label %.lr.ph
 
 .preheader.loopexit:                              ; preds = %.lr.ph
-  %11 = zext i32 %53 to i64
+  %11 = zext nneg i32 %53 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader67
@@ -180,10 +180,10 @@ define range(i64 0, 4294967296) i64 @mz_adler32(i64 noundef %0, ptr noundef read
   %50 = zext i8 %49 to i32
   %51 = add i32 %46, %50
   %52 = add i32 %47, %51
-  %53 = add nuw i32 %.05870, 8
+  %53 = add nuw nsw i32 %.05870, 8
   %54 = getelementptr inbounds nuw i8, ptr %.16269, i64 8
   %55 = or disjoint i32 %53, 7
-  %56 = icmp ult i32 %55, %10
+  %56 = icmp samesign ult i32 %55, %10
   br i1 %56, label %.lr.ph, label %.preheader.loopexit
 
 .lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
@@ -311,7 +311,7 @@ define range(i64 0, 4294967296) i64 @mz_crc32(i64 noundef %0, ptr noundef readon
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @mz_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %0) #31
   ret void
 }
 
@@ -321,7 +321,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @miniz_def_alloc_func(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2) #3 {
   %4 = mul i64 %2, %1
-  %5 = tail call noalias ptr @malloc(i64 noundef %4) #31
+  %5 = tail call noalias ptr @malloc(i64 noundef %4) #32
   ret ptr %5
 }
 
@@ -330,14 +330,14 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @miniz_def_free_func(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #1 {
-  tail call void @free(ptr noundef %1) #30
+  tail call void @free(ptr noundef %1) #31
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @miniz_def_realloc_func(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) #1 {
   %5 = mul i64 %3, %2
-  %6 = tail call ptr @realloc(ptr noundef %1, i64 noundef %5) #32
+  %6 = tail call ptr @realloc(ptr noundef %1, i64 noundef %5) #33
   ret ptr %6
 }
 
@@ -453,7 +453,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %18, %20, %21, %23, 
 49:                                               ; preds = %48, %44
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %51 = load ptr, ptr %50, align 8
-  %52 = tail call ptr %45(ptr noundef %51, i64 noundef 1, i64 noundef 319352) #30
+  %52 = tail call ptr %45(ptr noundef %51, i64 noundef 1, i64 noundef 319352) #31
   %.not37 = icmp eq ptr %52, null
   br i1 %.not37, label %92, label %53
 
@@ -684,7 +684,7 @@ define range(i32 -2, 1) i32 @mz_deflateEnd(ptr noundef %0) local_unnamed_addr #7
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef nonnull %4) #30
+  tail call void %7(ptr noundef %9, ptr noundef nonnull %4) #31
   store ptr null, ptr %3, align 8
   br label %10
 
@@ -1313,7 +1313,7 @@ define range(i32 -10000, 1) i32 @mz_compress2(ptr noundef %0, ptr noundef captur
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %27 = load ptr, ptr %26, align 8
-  call void %25(ptr noundef %27, ptr noundef nonnull %22) #30
+  call void %25(ptr noundef %27, ptr noundef nonnull %22) #31
   br label %mz_deflateEnd.exit
 
 mz_deflateEnd.exit:                               ; preds = %20, %23
@@ -1335,7 +1335,7 @@ mz_deflateEnd.exit:                               ; preds = %20, %23
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %39 = load ptr, ptr %38, align 8
-  call void %37(ptr noundef %39, ptr noundef nonnull %34) #30
+  call void %37(ptr noundef %39, ptr noundef nonnull %34) #31
   br label %mz_deflateEnd.exit17
 
 mz_deflateEnd.exit17:                             ; preds = %35, %30, %11, %5, %mz_deflateEnd.exit
@@ -1377,7 +1377,7 @@ define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef capture
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @miniz_def_free_func, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %21 = tail call noalias noundef dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
+  %21 = tail call noalias noundef dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
   %.not37.i = icmp eq ptr %21, null
   br i1 %.not37.i, label %mz_compress2.exit, label %22
 
@@ -1446,7 +1446,7 @@ define range(i32 -10000, 1) i32 @mz_compress(ptr noundef %0, ptr noundef capture
 53:                                               ; preds = %51
   %54 = load ptr, ptr %19, align 8
   %55 = load ptr, ptr %20, align 8
-  call void %54(ptr noundef %55, ptr noundef nonnull %52) #30
+  call void %54(ptr noundef %55, ptr noundef nonnull %52) #31
   br label %mz_deflateEnd.exit.i
 
 mz_deflateEnd.exit.i:                             ; preds = %53, %51
@@ -1464,7 +1464,7 @@ mz_deflateEnd.exit.i:                             ; preds = %53, %51
 61:                                               ; preds = %58
   %62 = load ptr, ptr %19, align 8
   %63 = load ptr, ptr %20, align 8
-  call void %62(ptr noundef %63, ptr noundef nonnull %60) #30
+  call void %62(ptr noundef %63, ptr noundef nonnull %60) #31
   br label %mz_compress2.exit
 
 mz_compress2.exit:                                ; preds = %10, %4, %mz_deflateEnd.exit.i, %58, %61
@@ -1529,7 +1529,7 @@ define range(i32 -10000, 1) i32 @mz_inflateInit2(ptr noundef %0, i32 noundef %1)
 17:                                               ; preds = %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
-  %20 = tail call ptr %13(ptr noundef %19, i64 noundef 1, i64 noundef 43792) #30
+  %20 = tail call ptr %13(ptr noundef %19, i64 noundef 1, i64 noundef 43792) #31
   %.not33 = icmp eq ptr %20, null
   br i1 %.not33, label %29, label %21
 
@@ -1593,7 +1593,7 @@ define range(i32 -4, 1) i32 @mz_inflateInit(ptr noundef %0) local_unnamed_addr #
 15:                                               ; preds = %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call ptr %11(ptr noundef %17, i64 noundef 1, i64 noundef 43792) #30
+  %18 = tail call ptr %11(ptr noundef %17, i64 noundef 1, i64 noundef 43792) #31
   %.not33.i = icmp eq ptr %18, null
   br i1 %.not33.i, label %mz_inflateInit2.exit, label %19
 
@@ -4264,7 +4264,7 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   br label %.lr.ph1814
 
 .preheader.loopexit:                              ; preds = %.lr.ph1814
-  %1037 = zext i32 %1079 to i64
+  %1037 = zext nneg i32 %1079 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader1719
@@ -4323,10 +4323,10 @@ define range(i32 -4, 3) i32 @tinfl_decompress(ptr noundef %0, ptr noundef %1, pt
   %1076 = zext i8 %1075 to i32
   %1077 = add i32 %1072, %1076
   %1078 = add i32 %1073, %1077
-  %1079 = add nuw i32 %.08291811, 8
+  %1079 = add nuw nsw i32 %.08291811, 8
   %1080 = getelementptr inbounds nuw i8, ptr %.18331810, i64 8
   %1081 = or disjoint i32 %1079, 7
-  %1082 = icmp ult i32 %1081, %1036
+  %1082 = icmp samesign ult i32 %1081, %1036
   br i1 %1082, label %.lr.ph1814, label %.preheader.loopexit
 
 .lr.ph1823:                                       ; preds = %.lr.ph1823.preheader, %.lr.ph1823
@@ -4402,7 +4402,7 @@ define range(i32 -2, 1) i32 @mz_inflateEnd(ptr noundef %0) local_unnamed_addr #7
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8
-  tail call void %7(ptr noundef %9, ptr noundef nonnull %4) #30
+  tail call void %7(ptr noundef %9, ptr noundef nonnull %4) #31
   store ptr null, ptr %3, align 8
   br label %10
 
@@ -4439,7 +4439,7 @@ define range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %0, ptr noundef captu
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr @miniz_def_free_func, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %20 = tail call noalias noundef dereferenceable_or_null(43792) ptr @malloc(i64 noundef 43792) #31
+  %20 = tail call noalias noundef dereferenceable_or_null(43792) ptr @malloc(i64 noundef 43792) #32
   %.not33.i.i = icmp eq ptr %20, null
   br i1 %.not33.i.i, label %mz_inflateInit.exit, label %21
 
@@ -4471,7 +4471,7 @@ define range(i32 -10000, 1) i32 @mz_uncompress(ptr noundef %0, ptr noundef captu
 32:                                               ; preds = %30
   %33 = load ptr, ptr %18, align 8
   %34 = load ptr, ptr %19, align 8
-  call void %33(ptr noundef %34, ptr noundef nonnull %31) #30
+  call void %33(ptr noundef %34, ptr noundef nonnull %31) #31
   br label %mz_inflateEnd.exit
 
 mz_inflateEnd.exit:                               ; preds = %30, %32
@@ -4492,7 +4492,7 @@ mz_inflateEnd.exit:                               ; preds = %30, %32
 42:                                               ; preds = %39
   %43 = load ptr, ptr %18, align 8
   %44 = load ptr, ptr %19, align 8
-  call void %43(ptr noundef %44, ptr noundef nonnull %41) #30
+  call void %43(ptr noundef %44, ptr noundef nonnull %41) #31
   br label %mz_inflateInit.exit
 
 mz_inflateInit.exit:                              ; preds = %42, %39, %10, %4, %mz_inflateEnd.exit
@@ -6776,7 +6776,7 @@ define internal fastcc i32 @tdefl_flush_block(ptr noundef nonnull %0, i32 nounde
   %414 = getelementptr inbounds nuw i8, ptr %0, i64 234154
   %415 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %416 = load ptr, ptr %415, align 8
-  %417 = tail call i32 %413(ptr noundef nonnull %414, i32 noundef %400, ptr noundef %416) #30
+  %417 = tail call i32 %413(ptr noundef nonnull %414, i32 noundef %400, ptr noundef %416) #31
   %.not326 = icmp eq i32 %417, 0
   br i1 %.not326, label %418, label %444
 
@@ -6861,7 +6861,7 @@ define range(i32 0, 2) i32 @tdefl_compress_mem_to_output(ptr noundef %0, i64 nou
   br i1 %or.cond3, label %10, label %54
 
 10:                                               ; preds = %5
-  %11 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
+  %11 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %54, label %12
 
@@ -6946,7 +6946,7 @@ tdefl_init.exit:                                  ; preds = %12, %28
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %52 = icmp eq i32 %51, 1
   %53 = zext i1 %52 to i32
-  call void @free(ptr noundef nonnull %11) #30
+  call void @free(ptr noundef nonnull %11) #31
   br label %54
 
 54:                                               ; preds = %10, %5, %tdefl_init.exit
@@ -7012,7 +7012,7 @@ define internal range(i32 0, 2) i32 @tdefl_output_buffer_putter(ptr noundef read
 16:                                               ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %14) #32
+  %19 = tail call ptr @realloc(ptr noundef %18, i64 noundef %14) #33
   %.not29 = icmp eq ptr %19, null
   br i1 %.not29, label %25, label %20
 
@@ -7066,7 +7066,7 @@ define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 nound
   %11 = alloca %struct.tdefl_output_buffer, align 8
   %12 = alloca i32, align 4
   %13 = alloca [41 x i8], align 16
-  %14 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
+  %14 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
   %15 = mul nsw i32 %3, %1
   store i64 0, ptr %4, align 8
   %.not = icmp eq ptr %14, null
@@ -7083,7 +7083,7 @@ define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 nound
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %22, ptr %23, align 8
-  %24 = tail call noalias ptr @malloc(i64 noundef %22) #31
+  %24 = tail call noalias ptr @malloc(i64 noundef %22) #32
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %24, ptr %25, align 8
   %26 = icmp eq ptr %24, null
@@ -7094,7 +7094,7 @@ define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 nound
   br label %28
 
 27:                                               ; preds = %16
-  tail call void @free(ptr noundef nonnull %14) #30
+  tail call void @free(ptr noundef nonnull %14) #31
   br label %253
 
 28:                                               ; preds = %.preheader, %tdefl_output_buffer_putter.exit
@@ -7121,7 +7121,7 @@ define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 nound
   br i1 %39, label %.preheader.i, label %40
 
 40:                                               ; preds = %.preheader.i
-  %41 = tail call ptr @realloc(ptr noundef %31, i64 noundef %38) #32
+  %41 = tail call ptr @realloc(ptr noundef %31, i64 noundef %38) #33
   %.not29.i = icmp eq ptr %41, null
   br i1 %.not29.i, label %tdefl_output_buffer_putter.exit, label %42
 
@@ -7261,9 +7261,9 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   br i1 %.not59, label %108, label %106
 
 106:                                              ; preds = %._crit_edge
-  call void @free(ptr noundef nonnull %14) #30
+  call void @free(ptr noundef nonnull %14) #31
   %107 = load ptr, ptr %25, align 8
-  call void @free(ptr noundef %107) #30
+  call void @free(ptr noundef %107) #31
   br label %253
 
 108:                                              ; preds = %._crit_edge
@@ -7392,7 +7392,7 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
   br i1 %186, label %.preheader.i71, label %187
 
 187:                                              ; preds = %.preheader.i71
-  %188 = call ptr @realloc(ptr noundef nonnull %178, i64 noundef %185) #32
+  %188 = call ptr @realloc(ptr noundef nonnull %178, i64 noundef %185) #33
   %.not29.i73 = icmp eq ptr %188, null
   br i1 %.not29.i73, label %._crit_edge134, label %189
 
@@ -7409,8 +7409,8 @@ mz_crc32.exit:                                    ; preds = %.lr.ph.i
 190:                                              ; preds = %._crit_edge134, %182
   %191 = phi ptr [ %.pre135, %._crit_edge134 ], [ %178, %182 ]
   store i64 0, ptr %4, align 8
-  call void @free(ptr noundef %14) #30
-  call void @free(ptr noundef %191) #30
+  call void @free(ptr noundef nonnull %14) #31
+  call void @free(ptr noundef %191) #31
   br label %253
 
 192:                                              ; preds = %177, %189
@@ -7519,7 +7519,7 @@ mz_crc32.exit99:                                  ; preds = %.lr.ph42.i78, %.pre
   %250 = load i64, ptr %4, align 8
   %251 = add i64 %250, 57
   store i64 %251, ptr %4, align 8
-  call void @free(ptr noundef %14) #30
+  call void @free(ptr noundef nonnull %14) #31
   %252 = load ptr, ptr %25, align 8
   br label %253
 
@@ -7536,13 +7536,13 @@ define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef 
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @tdefl_compressor_alloc() local_unnamed_addr #3 {
-  %1 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #31
+  %1 = tail call noalias dereferenceable_or_null(319352) ptr @malloc(i64 noundef 319352) #32
   ret ptr %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @tdefl_compressor_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %0) #31
   ret void
 }
 
@@ -7599,12 +7599,12 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
   %28 = add i64 %22, %.031
   %29 = shl i64 %.030, 1
   %spec.store.select = call i64 @llvm.umax.i64(i64 %29, i64 128)
-  %30 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #32
+  %30 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #33
   %.not35 = icmp eq ptr %30, null
   br i1 %.not35, label %.loopexit.sink.split, label %10
 
 .loopexit.sink.split:                             ; preds = %27, %18
-  call void @free(ptr noundef %.032) #30
+  call void @free(ptr noundef %.032) #31
   store i64 0, ptr %2, align 8
   br label %.loopexit
 
@@ -7635,7 +7635,7 @@ define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, pt
   %6 = alloca %struct.tinfl_decompressor_tag, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
-  %9 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #31
+  %9 = tail call noalias dereferenceable_or_null(32768) ptr @malloc(i64 noundef 32768) #32
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %32, label %10
 
@@ -7663,7 +7663,7 @@ define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, pt
 
 22:                                               ; preds = %12
   %23 = trunc i64 %21 to i32
-  %24 = call i32 %2(ptr noundef nonnull %17, i32 noundef %23, ptr noundef %3) #30
+  %24 = call i32 %2(ptr noundef nonnull %17, i32 noundef %23, ptr noundef %3) #31
   %.not29 = icmp eq i32 %24, 0
   br i1 %.not29, label %.loopexit, label %25
 
@@ -7683,7 +7683,7 @@ define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, pt
 
 .loopexit:                                        ; preds = %22, %26
   %.024 = phi i32 [ %28, %26 ], [ 0, %22 ]
-  call void @free(ptr noundef %9) #30
+  call void @free(ptr noundef %9) #31
   store i64 %20, ptr %1, align 8
   br label %32
 
@@ -7694,7 +7694,7 @@ define range(i32 -1, 2) i32 @tinfl_decompress_mem_to_callback(ptr noundef %0, pt
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @tinfl_decompressor_alloc() local_unnamed_addr #15 {
-  %1 = tail call noalias dereferenceable_or_null(11000) ptr @malloc(i64 noundef 11000) #31
+  %1 = tail call noalias dereferenceable_or_null(11000) ptr @malloc(i64 noundef 11000) #32
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %2
 
@@ -7708,7 +7708,7 @@ define noalias noundef ptr @tinfl_decompressor_alloc() local_unnamed_addr #15 {
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @tinfl_decompressor_free(ptr noundef captures(none) %0) local_unnamed_addr #1 {
-  tail call void @free(ptr noundef %0) #30
+  tail call void @free(ptr noundef %0) #31
   ret void
 }
 
@@ -7774,19 +7774,19 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_end_internal(ptr nound
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
   %21 = load ptr, ptr %5, align 8
-  tail call void %11(ptr noundef %20, ptr noundef %21) #30
+  tail call void %11(ptr noundef %20, ptr noundef %21) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %23 = load ptr, ptr %10, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef %24, ptr noundef %25) #30
+  tail call void %23(ptr noundef %24, ptr noundef %25) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %27 = load ptr, ptr %10, align 8
   %28 = load ptr, ptr %19, align 8
   %29 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef %28, ptr noundef %29) #30
+  tail call void %27(ptr noundef %28, ptr noundef %29) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %31 = load ptr, ptr %30, align 8
@@ -7822,7 +7822,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_end_internal(ptr nound
   %.1 = phi i32 [ %.2, %42 ], [ 1, %18 ]
   %44 = load ptr, ptr %10, align 8
   %45 = load ptr, ptr %19, align 8
-  tail call void %44(ptr noundef %45, ptr noundef nonnull %5) #30
+  tail call void %44(ptr noundef %45, ptr noundef nonnull %5) #31
   store i32 0, ptr %13, align 4
   br label %46
 
@@ -7901,7 +7901,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init(ptr noundef %0, i64 noundef %1, i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %33 = load ptr, ptr %32, align 8
-  %34 = tail call ptr %22(ptr noundef %33, i64 noundef 1, i64 noundef 152) #30
+  %34 = tail call ptr %22(ptr noundef %33, i64 noundef 1, i64 noundef 152) #31
   store ptr %34, ptr %10, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
@@ -7962,19 +7962,19 @@ define range(i32 0, 2) i32 @mz_zip_reader_init(ptr noundef %0, i64 noundef %1, i
   store ptr null, ptr %10, align 8
   %61 = load ptr, ptr %32, align 8
   %62 = load ptr, ptr %53, align 8
-  tail call void %57(ptr noundef %61, ptr noundef %62) #30
+  tail call void %57(ptr noundef %61, ptr noundef %62) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 0, i64 32, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %64 = load ptr, ptr %23, align 8
   %65 = load ptr, ptr %32, align 8
   %66 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef %65, ptr noundef %66) #30
+  tail call void %64(ptr noundef %65, ptr noundef %66) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %68 = load ptr, ptr %23, align 8
   %69 = load ptr, ptr %32, align 8
   %70 = load ptr, ptr %67, align 8
-  tail call void %68(ptr noundef %69, ptr noundef %70) #30
+  tail call void %68(ptr noundef %69, ptr noundef %70) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 112
   %72 = load ptr, ptr %71, align 8
@@ -7997,7 +7997,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init(ptr noundef %0, i64 noundef %1, i
 79:                                               ; preds = %78, %60
   %80 = load ptr, ptr %23, align 8
   %81 = load ptr, ptr %32, align 8
-  tail call void %80(ptr noundef %81, ptr noundef nonnull %53) #30
+  tail call void %80(ptr noundef %81, ptr noundef nonnull %53) #31
   store i32 0, ptr %13, align 4
   br label %.critedge
 
@@ -8033,7 +8033,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   %spec.select434446.i = tail call i64 @llvm.umin.i64(i64 %17, i64 4096)
   %18 = load ptr, ptr %15, align 8
   %19 = load ptr, ptr %16, align 8
-  %20 = call i64 %18(ptr noundef %19, i64 noundef %spec.select.i, ptr noundef nonnull %3, i64 noundef %spec.select434446.i) #30
+  %20 = call i64 %18(ptr noundef %19, i64 noundef %spec.select.i, ptr noundef nonnull %3, i64 noundef %spec.select434446.i) #31
   %.not47.i = icmp eq i64 %20, %spec.select434446.i
   br i1 %.not47.i, label %.lr.ph50.i, label %.loopexit382
 
@@ -8043,7 +8043,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   %spec.select4344.i = call i64 @llvm.umin.i64(i64 %23, i64 4096)
   %24 = load ptr, ptr %15, align 8
   %25 = load ptr, ptr %16, align 8
-  %26 = call i64 %24(ptr noundef %25, i64 noundef %22, ptr noundef nonnull %3, i64 noundef %spec.select4344.i) #30
+  %26 = call i64 %24(ptr noundef %25, i64 noundef %22, ptr noundef nonnull %3, i64 noundef %spec.select4344.i) #31
   %.not.i = icmp eq i64 %26, %spec.select4344.i
   br i1 %.not.i, label %.lr.ph50.i, label %.loopexit382
 
@@ -8097,7 +8097,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3)
   %46 = load ptr, ptr %15, align 8
   %47 = load ptr, ptr %16, align 8
-  %48 = call i64 %46(ptr noundef %47, i64 noundef %35, ptr noundef nonnull %4, i64 noundef 22) #30
+  %48 = call i64 %46(ptr noundef %47, i64 noundef %35, ptr noundef nonnull %4, i64 noundef 22) #31
   %.not329 = icmp eq i64 %48, 22
   br i1 %.not329, label %51, label %49
 
@@ -8124,7 +8124,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   %58 = load ptr, ptr %15, align 8
   %59 = load ptr, ptr %16, align 8
   %60 = add nsw i64 %35, -20
-  %61 = call i64 %58(ptr noundef %59, i64 noundef %60, ptr noundef nonnull %5, i64 noundef 20) #30
+  %61 = call i64 %58(ptr noundef %59, i64 noundef %60, ptr noundef nonnull %5, i64 noundef 20) #31
   %62 = icmp eq i64 %61, 20
   %63 = load i32, ptr %5, align 16
   %64 = icmp eq i32 %63, 117853008
@@ -8153,7 +8153,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
 79:                                               ; preds = %65
   %80 = load ptr, ptr %15, align 8
   %81 = load ptr, ptr %16, align 8
-  %82 = call i64 %80(ptr noundef %81, i64 noundef %73, ptr noundef nonnull %6, i64 noundef 56) #30
+  %82 = call i64 %80(ptr noundef %81, i64 noundef %73, ptr noundef nonnull %6, i64 noundef 56) #31
   %83 = icmp eq i64 %82, 56
   %84 = load i32, ptr %6, align 16
   %85 = icmp eq i32 %84, 101075792
@@ -8339,7 +8339,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_reader_read_central_dir(ptr n
   %187 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %188 = load i32, ptr %187, align 8
   %189 = zext i32 %188 to i64
-  %190 = call ptr %183(ptr noundef %185, ptr noundef %186, i64 noundef %189, i64 noundef %169) #30
+  %190 = call ptr %183(ptr noundef %185, ptr noundef %186, i64 noundef %189, i64 noundef %169) #31
   %191 = icmp eq ptr %190, null
   br i1 %191, label %mz_zip_array_ensure_capacity.exit366, label %mz_zip_array_ensure_capacity.exit
 
@@ -8369,7 +8369,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %181
   %206 = getelementptr inbounds nuw i8, ptr %193, i64 56
   %207 = load i32, ptr %206, align 8
   %208 = zext i32 %207 to i64
-  %209 = call ptr %202(ptr noundef %204, ptr noundef %205, i64 noundef %208, i64 noundef %195) #30
+  %209 = call ptr %202(ptr noundef %204, ptr noundef %205, i64 noundef %208, i64 noundef %195) #31
   %210 = icmp eq ptr %209, null
   br i1 %210, label %mz_zip_array_ensure_capacity.exit366, label %211
 
@@ -8407,7 +8407,7 @@ mz_zip_array_ensure_capacity.exit366:             ; preds = %181, %199
   %228 = getelementptr inbounds nuw i8, ptr %215, i64 88
   %229 = load i32, ptr %228, align 8
   %230 = zext i32 %229 to i64
-  %231 = call ptr %224(ptr noundef %226, ptr noundef %227, i64 noundef %230, i64 noundef %217) #30
+  %231 = call ptr %224(ptr noundef %226, ptr noundef %227, i64 noundef %230, i64 noundef %217) #31
   %232 = icmp eq ptr %231, null
   br i1 %232, label %mz_zip_array_ensure_capacity.exit370, label %233
 
@@ -8431,7 +8431,7 @@ mz_zip_array_ensure_capacity.exit370:             ; preds = %221
   %238 = load ptr, ptr %16, align 8
   %239 = load ptr, ptr %109, align 8
   %240 = load ptr, ptr %239, align 8
-  %241 = call i64 %237(ptr noundef %238, i64 noundef %.0307, ptr noundef %240, i64 noundef %169) #30
+  %241 = call i64 %237(ptr noundef %238, i64 noundef %.0307, ptr noundef %240, i64 noundef %169) #31
   %.not345 = icmp eq i64 %241, %169
   br i1 %.not345, label %244, label %242
 
@@ -8767,7 +8767,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_mem(ptr noundef %0, ptr noundef %
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call ptr %27(ptr noundef %38, i64 noundef 1, i64 noundef 152) #30
+  %39 = tail call ptr %27(ptr noundef %38, i64 noundef 1, i64 noundef 152) #31
   store ptr %39, ptr %15, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %42
@@ -8840,19 +8840,19 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_mem(ptr noundef %0, ptr noundef %
   store ptr null, ptr %15, align 8
   %73 = load ptr, ptr %37, align 8
   %74 = load ptr, ptr %65, align 8
-  tail call void %69(ptr noundef %73, ptr noundef %74) #30
+  tail call void %69(ptr noundef %73, ptr noundef %74) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %65, i8 0, i64 32, i1 false)
   %75 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %76 = load ptr, ptr %28, align 8
   %77 = load ptr, ptr %37, align 8
   %78 = load ptr, ptr %75, align 8
-  tail call void %76(ptr noundef %77, ptr noundef %78) #30
+  tail call void %76(ptr noundef %77, ptr noundef %78) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   %79 = getelementptr inbounds nuw i8, ptr %65, i64 64
   %80 = load ptr, ptr %28, align 8
   %81 = load ptr, ptr %37, align 8
   %82 = load ptr, ptr %79, align 8
-  tail call void %80(ptr noundef %81, ptr noundef %82) #30
+  tail call void %80(ptr noundef %81, ptr noundef %82) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, i8 0, i64 32, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %65, i64 112
   %84 = load ptr, ptr %83, align 8
@@ -8875,7 +8875,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_mem(ptr noundef %0, ptr noundef %
 91:                                               ; preds = %90, %72
   %92 = load ptr, ptr %28, align 8
   %93 = load ptr, ptr %37, align 8
-  tail call void %92(ptr noundef %93, ptr noundef nonnull %65) #30
+  tail call void %92(ptr noundef %93, ptr noundef nonnull %65) #31
   store i32 0, ptr %18, align 4
   br label %mz_zip_reader_end_internal.exit
 
@@ -9016,7 +9016,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_file_v2(ptr noundef %0, ptr nound
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr %39(ptr noundef %50, i64 noundef 1, i64 noundef 152) #30
+  %51 = tail call ptr %39(ptr noundef %50, i64 noundef 1, i64 noundef 152) #31
   store ptr %51, ptr %27, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %53, label %56
@@ -9225,7 +9225,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_cfile(ptr noundef %0, ptr noundef
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr %35(ptr noundef %46, i64 noundef 1, i64 noundef 152) #30
+  %47 = tail call ptr %35(ptr noundef %46, i64 noundef 1, i64 noundef 152) #31
   store ptr %47, ptr %23, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %50
@@ -9296,19 +9296,19 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_cfile(ptr noundef %0, ptr noundef
   store ptr null, ptr %23, align 8
   %80 = load ptr, ptr %45, align 8
   %81 = load ptr, ptr %72, align 8
-  tail call void %76(ptr noundef %80, ptr noundef %81) #30
+  tail call void %76(ptr noundef %80, ptr noundef %81) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %72, i8 0, i64 32, i1 false)
   %82 = getelementptr inbounds nuw i8, ptr %72, i64 32
   %83 = load ptr, ptr %36, align 8
   %84 = load ptr, ptr %45, align 8
   %85 = load ptr, ptr %82, align 8
-  tail call void %83(ptr noundef %84, ptr noundef %85) #30
+  tail call void %83(ptr noundef %84, ptr noundef %85) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %82, i8 0, i64 32, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %72, i64 64
   %87 = load ptr, ptr %36, align 8
   %88 = load ptr, ptr %45, align 8
   %89 = load ptr, ptr %86, align 8
-  tail call void %87(ptr noundef %88, ptr noundef %89) #30
+  tail call void %87(ptr noundef %88, ptr noundef %89) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 32, i1 false)
   %90 = getelementptr inbounds nuw i8, ptr %72, i64 112
   %91 = load ptr, ptr %90, align 8
@@ -9331,7 +9331,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_init_cfile(ptr noundef %0, ptr noundef
 98:                                               ; preds = %97, %79
   %99 = load ptr, ptr %36, align 8
   %100 = load ptr, ptr %45, align 8
-  tail call void %99(ptr noundef %100, ptr noundef nonnull %72) #30
+  tail call void %99(ptr noundef %100, ptr noundef nonnull %72) #31
   store i32 0, ptr %26, align 4
   br label %mz_zip_reader_end_internal.exit
 
@@ -9578,7 +9578,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load i32, ptr %35, align 8
-  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #33
+  %37 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #34
   %38 = trunc i64 %37 to i32
   br i1 %.not, label %40, label %39
 
@@ -9683,12 +9683,12 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   br label %.critedge
 
 86:                                               ; preds = %24, %20, %15
-  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
+  %87 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %88 = icmp ugt i64 %87, 65535
   br i1 %88, label %91, label %93
 
 .thread:                                          ; preds = %28
-  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
+  %89 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %90 = icmp ugt i64 %89, 65535
   br i1 %90, label %91, label %.preheader202
 
@@ -9702,7 +9702,7 @@ define range(i32 0, 2) i32 @mz_zip_reader_locate_file_v2(ptr noundef %0, ptr nou
   br i1 %.not167, label %.preheader202, label %.thread194
 
 .thread194:                                       ; preds = %93
-  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
+  %94 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #34
   %95 = freeze i64 %94
   %96 = icmp ugt i64 %95, 65535
   br i1 %96, label %173, label %.preheader202
@@ -10198,7 +10198,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
   %72 = load ptr, ptr %23, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %74 = load ptr, ptr %73, align 8
-  %75 = call i64 %72(ptr noundef %74, i64 noundef %71, ptr noundef nonnull %9, i64 noundef 30) #30
+  %75 = call i64 %72(ptr noundef %74, i64 noundef %71, ptr noundef nonnull %9, i64 noundef 30) #31
   %.not180 = icmp eq i64 %75, 30
   br i1 %.not180, label %78, label %76
 
@@ -10247,7 +10247,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
 101:                                              ; preds = %98
   %102 = load ptr, ptr %23, align 8
   %103 = load ptr, ptr %73, align 8
-  %104 = call i64 %102(ptr noundef %103, i64 noundef %91, ptr noundef %2, i64 noundef %65) #30
+  %104 = call i64 %102(ptr noundef %103, i64 noundef %91, ptr noundef %2, i64 noundef %65) #31
   %.not182 = icmp eq i64 %104, %65
   br i1 %.not182, label %107, label %105
 
@@ -10297,7 +10297,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
   %127 = load ptr, ptr %126, align 8
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %129 = load ptr, ptr %128, align 8
-  %130 = call ptr %127(ptr noundef %129, i64 noundef 1, i64 noundef %125) #30
+  %130 = call ptr %127(ptr noundef %129, i64 noundef 1, i64 noundef %125) #31
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %134
 
@@ -10340,7 +10340,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
   %145 = call i64 @llvm.umin.i64(i64 %.0154, i64 %.1158)
   %146 = load ptr, ptr %23, align 8
   %147 = load ptr, ptr %73, align 8
-  %148 = call i64 %146(ptr noundef %147, i64 noundef %.0160, ptr noundef %.0150, i64 noundef %145) #30
+  %148 = call i64 %146(ptr noundef %147, i64 noundef %.0160, ptr noundef %.0150, i64 noundef %145) #31
   %.not188 = icmp eq i64 %148, %145
   br i1 %.not188, label %149, label %.loopexit.sink.split
 
@@ -10403,7 +10403,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %27
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %178 = load ptr, ptr %177, align 8
-  call void %176(ptr noundef %178, ptr noundef %.0150) #30
+  call void %176(ptr noundef %178, ptr noundef %.0150) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %mz_zip_reader_file_stat.exit.thread, %.loopexit, %174, %123, %107, %108, %40, %mz_zip_reader_file_stat.exit, %25, %7, %132, %114, %105, %96, %80, %76, %67, %60, %51
@@ -10554,7 +10554,7 @@ define ptr @mz_zip_reader_extract_to_heap(ptr noundef %0, i32 noundef %1, ptr no
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8
-  %37 = tail call ptr %34(ptr noundef %36, i64 noundef 1, i64 noundef %32) #30
+  %37 = tail call ptr %34(ptr noundef %36, i64 noundef 1, i64 noundef %32) #31
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %41
 
@@ -10572,7 +10572,7 @@ define ptr @mz_zip_reader_extract_to_heap(ptr noundef %0, i32 noundef %1, ptr no
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %35, align 8
-  tail call void %45(ptr noundef %46, ptr noundef nonnull %37) #30
+  tail call void %45(ptr noundef %46, ptr noundef nonnull %37) #31
   br label %49
 
 47:                                               ; preds = %41
@@ -10664,7 +10664,7 @@ define ptr @mz_zip_reader_extract_file_to_heap(ptr noundef %0, ptr noundef %1, p
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %42 = load ptr, ptr %41, align 8
-  %43 = call ptr %40(ptr noundef %42, i64 noundef 1, i64 noundef %38) #30
+  %43 = call ptr %40(ptr noundef %42, i64 noundef 1, i64 noundef %38) #31
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %47
 
@@ -10682,7 +10682,7 @@ define ptr @mz_zip_reader_extract_file_to_heap(ptr noundef %0, ptr noundef %1, p
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %41, align 8
-  call void %51(ptr noundef %52, ptr noundef nonnull %43) #30
+  call void %51(ptr noundef %52, ptr noundef nonnull %43) #31
   br label %mz_zip_reader_extract_to_heap.exit
 
 53:                                               ; preds = %47
@@ -10793,7 +10793,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %59 = load ptr, ptr %17, align 8
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %61 = load ptr, ptr %60, align 8
-  %62 = call i64 %59(ptr noundef %61, i64 noundef %58, ptr noundef nonnull %7, i64 noundef 30) #30
+  %62 = call i64 %59(ptr noundef %61, i64 noundef %58, ptr noundef nonnull %7, i64 noundef 30) #31
   %.not231 = icmp eq i64 %62, 30
   br i1 %.not231, label %65, label %63
 
@@ -10850,7 +10850,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %96 = load ptr, ptr %95, align 8
-  %97 = call ptr %94(ptr noundef %96, i64 noundef 1, i64 noundef %92) #30
+  %97 = call ptr %94(ptr noundef %96, i64 noundef 1, i64 noundef %92) #31
   %98 = icmp eq ptr %97, null
   br i1 %98, label %99, label %101
 
@@ -10896,13 +10896,13 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %111 = call i64 @llvm.umin.i64(i64 %.0209, i64 %.1201287.us)
   %112 = load ptr, ptr %17, align 8
   %113 = load ptr, ptr %60, align 8
-  %114 = call i64 %112(ptr noundef %113, i64 noundef %.0194289.us, ptr noundef %.0193, i64 noundef %111) #30
+  %114 = call i64 %112(ptr noundef %113, i64 noundef %.0194289.us, ptr noundef %.0193, i64 noundef %111) #31
   %.not236.us = icmp eq i64 %114, %111
   br i1 %.not236.us, label %115, label %.thread.sink.split
 
 115:                                              ; preds = %.lr.ph.split.us
   %116 = call i64 @mz_crc32(i64 noundef %.1211286.us, ptr noundef %.0193, i64 noundef %111)
-  %117 = call i64 %2(ptr noundef %3, i64 noundef %.0197288.us, ptr noundef %.0193, i64 noundef %111) #30
+  %117 = call i64 %2(ptr noundef %3, i64 noundef %.0197288.us, ptr noundef %.0193, i64 noundef %111) #31
   %.not238.us = icmp eq i64 %117, %111
   br i1 %.not238.us, label %118, label %.thread.sink.split
 
@@ -10914,7 +10914,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   br i1 %.not235.us, label %.thread260.loopexit, label %.lr.ph.split.us
 
 122:                                              ; preds = %107
-  %123 = call i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0193, i64 noundef %104) #30
+  %123 = call i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0193, i64 noundef %104) #31
   %124 = load i64, ptr %38, align 8
   %.not239 = icmp eq i64 %123, %124
   br i1 %.not239, label %125, label %.thread.sink.split
@@ -10934,12 +10934,12 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %128 = call i64 @llvm.umin.i64(i64 %.0209, i64 %.1201287)
   %129 = load ptr, ptr %17, align 8
   %130 = load ptr, ptr %60, align 8
-  %131 = call i64 %129(ptr noundef %130, i64 noundef %.0194289, ptr noundef %.0193, i64 noundef %128) #30
+  %131 = call i64 %129(ptr noundef %130, i64 noundef %.0194289, ptr noundef %.0193, i64 noundef %128) #31
   %.not236 = icmp eq i64 %131, %128
   br i1 %.not236, label %132, label %.thread.sink.split
 
 132:                                              ; preds = %.lr.ph.split
-  %133 = call i64 %2(ptr noundef %3, i64 noundef %.0197288, ptr noundef %.0193, i64 noundef %128) #30
+  %133 = call i64 %2(ptr noundef %3, i64 noundef %.0197288, ptr noundef %.0193, i64 noundef %128) #31
   %.not238 = icmp eq i64 %133, %128
   br i1 %.not238, label %134, label %.thread.sink.split
 
@@ -10956,7 +10956,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %140 = load ptr, ptr %139, align 8
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %142 = load ptr, ptr %141, align 8
-  %143 = call ptr %140(ptr noundef %142, i64 noundef 1, i64 noundef 32768) #30
+  %143 = call ptr %140(ptr noundef %142, i64 noundef 1, i64 noundef 32768) #31
   %144 = icmp eq ptr %143, null
   br i1 %144, label %.thread.sink.split, label %.preheader
 
@@ -10989,7 +10989,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %155 = call i64 @llvm.umin.i64(i64 %.0209, i64 %.2202)
   %156 = load ptr, ptr %17, align 8
   %157 = load ptr, ptr %60, align 8
-  %158 = call i64 %156(ptr noundef %157, i64 noundef %.1195, ptr noundef %.0193, i64 noundef %155) #30
+  %158 = call i64 %156(ptr noundef %157, i64 noundef %.1195, ptr noundef %.0193, i64 noundef %155) #31
   %.not243 = icmp eq i64 %158, %155
   br i1 %.not243, label %159, label %.thread.sink.split
 
@@ -11016,7 +11016,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   br i1 %.not245, label %179, label %170
 
 170:                                              ; preds = %162
-  %171 = call i64 %2(ptr noundef %3, i64 noundef %.2199, ptr noundef nonnull %148, i64 noundef %169) #30
+  %171 = call i64 %2(ptr noundef %3, i64 noundef %.2199, ptr noundef nonnull %148, i64 noundef %169) #31
   %.not246 = icmp eq i64 %171, %169
   br i1 %.not246, label %172, label %.thread.sink.split
 
@@ -11086,7 +11086,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %197 = load ptr, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %199 = load ptr, ptr %198, align 8
-  call void %197(ptr noundef %199, ptr noundef %.0193) #30
+  call void %197(ptr noundef %199, ptr noundef %.0193) #31
   br label %200
 
 200:                                              ; preds = %195, %.thread
@@ -11098,7 +11098,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %21
   %203 = load ptr, ptr %202, align 8
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %205 = load ptr, ptr %204, align 8
-  call void %203(ptr noundef %205, ptr noundef nonnull %.0192258) #30
+  call void %203(ptr noundef %205, ptr noundef nonnull %.0192258) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %mz_zip_reader_file_stat.exit.thread, %200, %201, %34, %mz_zip_reader_file_stat.exit, %19, %5, %99, %83, %67, %63, %54, %45
@@ -11210,7 +11210,7 @@ mz_zip_reader_file_stat.exit:                     ; preds = %10
   store i64 %47, ptr %5, align 8
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8
-  %49 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #30
+  %49 = call i32 @utime(ptr noundef readonly %2, ptr noundef nonnull %5) #31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %mz_zip_reader_file_stat.exit.thread
 
@@ -11498,7 +11498,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %67 = load ptr, ptr %19, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %69 = load ptr, ptr %68, align 8
-  %70 = call i64 %67(ptr noundef %69, i64 noundef %66, ptr noundef nonnull %6, i64 noundef 30) #30
+  %70 = call i64 %67(ptr noundef %69, i64 noundef %66, ptr noundef nonnull %6, i64 noundef 30) #31
   %.not257 = icmp eq i64 %70, 30
   br i1 %.not257, label %73, label %71
 
@@ -11535,7 +11535,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %92 = load i16, ptr %91, align 2
   %93 = zext i16 %79 to i64
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #33
+  %95 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %94) #34
   %.not259 = icmp eq i64 %95, %93
   br i1 %.not259, label %98, label %96
 
@@ -11572,7 +11572,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %117 = load ptr, ptr %116, align 8
-  %118 = call ptr %115(ptr noundef %117, ptr noundef null, i64 noundef 1, i64 noundef %113) #30
+  %118 = call ptr %115(ptr noundef %117, ptr noundef null, i64 noundef 1, i64 noundef %113) #31
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %.critedge278
 
@@ -11589,7 +11589,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
 122:                                              ; preds = %.critedge278
   %123 = load ptr, ptr %19, align 8
   %124 = load ptr, ptr %68, align 8
-  %125 = call i64 %123(ptr noundef %124, i64 noundef %99, ptr noundef %.sroa.0.0, i64 noundef %93) #30
+  %125 = call i64 %123(ptr noundef %124, i64 noundef %99, ptr noundef %.sroa.0.0, i64 noundef %93) #31
   %.not263 = icmp eq i64 %125, %93
   br i1 %.not263, label %126, label %219
 
@@ -11611,7 +11611,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
 131:                                              ; preds = %128
   %132 = load ptr, ptr %19, align 8
   %133 = load ptr, ptr %68, align 8
-  %134 = call i64 %132(ptr noundef %133, i64 noundef %100, ptr noundef %.sroa.0.0, i64 noundef %101) #30
+  %134 = call i64 %132(ptr noundef %133, i64 noundef %100, ptr noundef %.sroa.0.0, i64 noundef %101) #31
   %.not266 = icmp eq i64 %134, %101
   br i1 %.not266, label %.preheader, label %219
 
@@ -11684,7 +11684,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %172 = load i64, ptr %103, align 8
   %173 = add i64 %172, %102
   %174 = select i1 %169, i64 24, i64 16
-  %175 = call i64 %170(ptr noundef %171, i64 noundef %173, ptr noundef nonnull %8, i64 noundef %174) #30
+  %175 = call i64 %170(ptr noundef %171, i64 noundef %173, ptr noundef nonnull %8, i64 noundef %174) #31
   %.not268 = icmp eq i64 %175, %174
   br i1 %.not268, label %176, label %219
 
@@ -11753,7 +11753,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %206 = load ptr, ptr %16, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %208 = load ptr, ptr %207, align 8
-  call void %206(ptr noundef %208, ptr noundef %.sroa.0.0) #30
+  call void %206(ptr noundef %208, ptr noundef %.sroa.0.0) #31
   %209 = and i32 %2, 8192
   %210 = icmp eq i32 %209, 0
   br i1 %210, label %211, label %.critedge
@@ -11782,7 +11782,7 @@ define range(i32 0, 2) i32 @mz_zip_validate_file(ptr noundef %0, i32 noundef %1,
   %221 = load ptr, ptr %16, align 8
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %223 = load ptr, ptr %222, align 8
-  call void %221(ptr noundef %223, ptr noundef %.sroa.0.0) #30
+  call void %221(ptr noundef %223, ptr noundef %.sroa.0.0) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %205, %213, %211, %41, %39, %21, %3, %219, %217, %144, %136, %120, %108, %96, %75, %71, %62, %57, %51, %27
@@ -11876,7 +11876,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_file_stat_internal(ptr nounde
   %58 = shl nuw nsw i32 %38, 1
   %59 = and i32 %58, 62
   store i32 %59, ptr %6, align 8
-  %60 = call noundef i64 @mktime(ptr noundef nonnull %6) #30
+  %60 = call noundef i64 @mktime(ptr noundef nonnull %6) #31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %60, ptr %61, align 8
@@ -12488,19 +12488,19 @@ define range(i32 0, 2) i32 @mz_zip_validate_mem_archive(ptr noundef %0, i64 noun
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %18, align 8
-  call void %23(ptr noundef %28, ptr noundef %29) #30
+  call void %23(ptr noundef %28, ptr noundef %29) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, i8 0, i64 32, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %31 = load ptr, ptr %22, align 8
   %32 = load ptr, ptr %27, align 8
   %33 = load ptr, ptr %30, align 8
-  call void %31(ptr noundef %32, ptr noundef %33) #30
+  call void %31(ptr noundef %32, ptr noundef %33) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %35 = load ptr, ptr %22, align 8
   %36 = load ptr, ptr %27, align 8
   %37 = load ptr, ptr %34, align 8
-  call void %35(ptr noundef %36, ptr noundef %37) #30
+  call void %35(ptr noundef %36, ptr noundef %37) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %34, i8 0, i64 32, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %39 = load ptr, ptr %38, align 8
@@ -12556,19 +12556,19 @@ define range(i32 0, 2) i32 @mz_zip_validate_mem_archive(ptr noundef %0, i64 noun
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %54, align 8
-  call void %59(ptr noundef %64, ptr noundef %65) #30
+  call void %59(ptr noundef %64, ptr noundef %65) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 32, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %67 = load ptr, ptr %58, align 8
   %68 = load ptr, ptr %63, align 8
   %69 = load ptr, ptr %66, align 8
-  call void %67(ptr noundef %68, ptr noundef %69) #30
+  call void %67(ptr noundef %68, ptr noundef %69) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false)
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %71 = load ptr, ptr %58, align 8
   %72 = load ptr, ptr %63, align 8
   %73 = load ptr, ptr %70, align 8
-  call void %71(ptr noundef %72, ptr noundef %73) #30
+  call void %71(ptr noundef %72, ptr noundef %73) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %70, i8 0, i64 32, i1 false)
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 112
   %75 = load ptr, ptr %74, align 8
@@ -12595,7 +12595,7 @@ mz_zip_reader_end_internal.exit:                  ; preds = %62, %82
   %.1.i39 = phi i1 [ %.2.i38, %82 ], [ false, %62 ]
   %83 = load ptr, ptr %58, align 8
   %84 = load ptr, ptr %63, align 8
-  call void %83(ptr noundef %84, ptr noundef nonnull %54) #30
+  call void %83(ptr noundef %84, ptr noundef nonnull %54) #31
   %.pre59 = load i32, ptr %51, align 4
   %.not30 = icmp eq i32 %.fr, 0
   %spec.select57 = select i1 %.not30, i32 %.pre59, i32 %.fr
@@ -12605,7 +12605,7 @@ mz_zip_reader_end_internal.exit.thread:           ; preds = %26, %49
   %.1.i = phi i1 [ %50, %49 ], [ false, %26 ]
   %85 = load ptr, ptr %22, align 8
   %86 = load ptr, ptr %27, align 8
-  call void %85(ptr noundef %86, ptr noundef nonnull %18) #30
+  call void %85(ptr noundef %86, ptr noundef nonnull %18) #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.1.i, label %mz_zip_reader_end_internal.exit.thread.thread, label %88
@@ -12686,19 +12686,19 @@ define range(i32 0, 2) i32 @mz_zip_validate_file_archive(ptr noundef %0, i32 nou
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %15, align 8
-  call void %20(ptr noundef %25, ptr noundef %26) #30
+  call void %20(ptr noundef %25, ptr noundef %26) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %28 = load ptr, ptr %19, align 8
   %29 = load ptr, ptr %24, align 8
   %30 = load ptr, ptr %27, align 8
-  call void %28(ptr noundef %29, ptr noundef %30) #30
+  call void %28(ptr noundef %29, ptr noundef %30) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %32 = load ptr, ptr %19, align 8
   %33 = load ptr, ptr %24, align 8
   %34 = load ptr, ptr %31, align 8
-  call void %32(ptr noundef %33, ptr noundef %34) #30
+  call void %32(ptr noundef %33, ptr noundef %34) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, i8 0, i64 32, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %36 = load ptr, ptr %35, align 8
@@ -12754,19 +12754,19 @@ define range(i32 0, 2) i32 @mz_zip_validate_file_archive(ptr noundef %0, i32 nou
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %61 = load ptr, ptr %60, align 8
   %62 = load ptr, ptr %51, align 8
-  call void %56(ptr noundef %61, ptr noundef %62) #30
+  call void %56(ptr noundef %61, ptr noundef %62) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %64 = load ptr, ptr %55, align 8
   %65 = load ptr, ptr %60, align 8
   %66 = load ptr, ptr %63, align 8
-  call void %64(ptr noundef %65, ptr noundef %66) #30
+  call void %64(ptr noundef %65, ptr noundef %66) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %63, i8 0, i64 32, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %51, i64 64
   %68 = load ptr, ptr %55, align 8
   %69 = load ptr, ptr %60, align 8
   %70 = load ptr, ptr %67, align 8
-  call void %68(ptr noundef %69, ptr noundef %70) #30
+  call void %68(ptr noundef %69, ptr noundef %70) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
   %71 = getelementptr inbounds nuw i8, ptr %51, i64 112
   %72 = load ptr, ptr %71, align 8
@@ -12793,7 +12793,7 @@ mz_zip_reader_end_internal.exit:                  ; preds = %59, %79
   %.1.i36 = phi i1 [ %.2.i35, %79 ], [ false, %59 ]
   %80 = load ptr, ptr %55, align 8
   %81 = load ptr, ptr %60, align 8
-  call void %80(ptr noundef %81, ptr noundef nonnull %51) #30
+  call void %80(ptr noundef %81, ptr noundef nonnull %51) #31
   %.pre55 = load i32, ptr %48, align 4
   %.not27 = icmp eq i32 %.fr, 0
   %spec.select53 = select i1 %.not27, i32 %.pre55, i32 %.fr
@@ -12803,7 +12803,7 @@ mz_zip_reader_end_internal.exit.thread:           ; preds = %23, %46
   %.1.i = phi i1 [ %47, %46 ], [ false, %23 ]
   %82 = load ptr, ptr %19, align 8
   %83 = load ptr, ptr %24, align 8
-  call void %82(ptr noundef %83, ptr noundef nonnull %15) #30
+  call void %82(ptr noundef %83, ptr noundef nonnull %15) #31
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 28
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br i1 %.1.i, label %mz_zip_reader_end_internal.exit.thread.thread, label %85
@@ -12926,7 +12926,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_v2(ptr noundef %0, i64 noundef %1
   store i32 0, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr %34(ptr noundef %46, i64 noundef 1, i64 noundef 152) #30
+  %47 = tail call ptr %34(ptr noundef %46, i64 noundef 1, i64 noundef 152) #31
   store ptr %47, ptr %6, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %51
@@ -13042,7 +13042,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init(ptr noundef %0, i64 noundef %1) l
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr %25(ptr noundef %37, i64 noundef 1, i64 noundef 152) #30
+  %38 = tail call ptr %25(ptr noundef %37, i64 noundef 1, i64 noundef 152) #31
   store ptr %38, ptr %4, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -13113,7 +13113,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_heap_v2(ptr noundef initializes((
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call ptr %18(ptr noundef %20, i64 noundef 1, i64 noundef %15) #30
+  %21 = tail call ptr %18(ptr noundef %20, i64 noundef 1, i64 noundef %15) #31
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 128
@@ -13177,7 +13177,7 @@ define internal noundef i64 @mz_zip_heap_write_func(ptr noundef captures(none) %
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call ptr %20(ptr noundef %22, ptr noundef %24, i64 noundef 1, i64 noundef %.0) #30
+  %25 = tail call ptr %20(ptr noundef %22, ptr noundef %24, i64 noundef 1, i64 noundef %.0) #31
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
@@ -13247,19 +13247,19 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %5, align 8
-  tail call void %11(ptr noundef %21, ptr noundef %22) #30
+  tail call void %11(ptr noundef %21, ptr noundef %22) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %24 = load ptr, ptr %10, align 8
   %25 = load ptr, ptr %20, align 8
   %26 = load ptr, ptr %23, align 8
-  tail call void %24(ptr noundef %25, ptr noundef %26) #30
+  tail call void %24(ptr noundef %25, ptr noundef %26) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %23, i8 0, i64 32, i1 false)
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %28 = load ptr, ptr %10, align 8
   %29 = load ptr, ptr %20, align 8
   %30 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef %29, ptr noundef %30) #30
+  tail call void %28(ptr noundef %29, ptr noundef %30) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %32 = load ptr, ptr %31, align 8
@@ -13307,14 +13307,14 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr nound
 51:                                               ; preds = %48
   %52 = load ptr, ptr %10, align 8
   %53 = load ptr, ptr %20, align 8
-  tail call void %52(ptr noundef %53, ptr noundef nonnull %50) #30
+  tail call void %52(ptr noundef %53, ptr noundef nonnull %50) #31
   store ptr null, ptr %49, align 8
   br label %54
 
 54:                                               ; preds = %51, %48, %44
   %55 = load ptr, ptr %10, align 8
   %56 = load ptr, ptr %20, align 8
-  tail call void %55(ptr noundef %56, ptr noundef nonnull %5) #30
+  tail call void %55(ptr noundef %56, ptr noundef nonnull %5) #31
   store i32 0, ptr %13, align 4
   br label %.thread
 
@@ -13398,7 +13398,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef initializes((80,
   store i32 0, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %37 = load ptr, ptr %36, align 8
-  %38 = tail call ptr %25(ptr noundef %37, i64 noundef 1, i64 noundef 152) #30
+  %38 = tail call ptr %25(ptr noundef %37, i64 noundef 1, i64 noundef 152) #31
   store ptr %38, ptr %7, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %42
@@ -13435,7 +13435,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef initializes((80,
 55:                                               ; preds = %42
   %56 = load ptr, ptr %21, align 8
   %57 = load ptr, ptr %36, align 8
-  %58 = tail call ptr %56(ptr noundef %57, i64 noundef 1, i64 noundef %54) #30
+  %58 = tail call ptr %56(ptr noundef %57, i64 noundef 1, i64 noundef %54) #31
   %59 = load ptr, ptr %7, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 128
   store ptr %58, ptr %60, align 8
@@ -13518,7 +13518,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_file_v2(ptr noundef initializes((
   %27 = call i64 @llvm.umin.i64(i64 %.038, i64 4096)
   %28 = load ptr, ptr %6, align 8
   %29 = load ptr, ptr %12, align 8
-  %30 = call i64 %28(ptr noundef %29, i64 noundef %.037, ptr noundef nonnull %5, i64 noundef %27) #30
+  %30 = call i64 %28(ptr noundef %29, i64 noundef %.037, ptr noundef nonnull %5, i64 noundef %27) #31
   %.not46 = icmp eq i64 %30, %27
   br i1 %.not46, label %33, label %31
 
@@ -13745,7 +13745,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader_v2(ptr noundef %0, pt
   br label %.critedge
 
 51:                                               ; preds = %48
-  %52 = tail call ptr @freopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %38) #30
+  %52 = tail call ptr @freopen(ptr noundef nonnull %1, ptr noundef nonnull @.str.18, ptr noundef nonnull %38) #31
   store ptr %52, ptr %37, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.sink.split
@@ -13811,7 +13811,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_from_reader_v2(ptr noundef %0, pt
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %80, align 8
-  tail call void %82(ptr noundef %84, ptr noundef %85) #30
+  tail call void %82(ptr noundef %84, ptr noundef %85) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %80, i8 0, i64 32, i1 false)
   store i32 2, ptr %8, align 4
   br label %.critedge
@@ -13992,14 +13992,14 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   br i1 %.not433, label %77, label %79
 
 77:                                               ; preds = %mz_zip_writer_validate_archive_name.exit
-  %78 = call i64 @time(ptr noundef nonnull %23) #30
+  %78 = call i64 @time(ptr noundef nonnull %23) #31
   br label %79
 
 79:                                               ; preds = %mz_zip_writer_validate_archive_name.exit, %77
   %.sink479 = phi ptr [ %23, %77 ], [ %9, %mz_zip_writer_validate_archive_name.exit ]
   %80 = load i64, ptr %.sink479, align 8
   call fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %80, ptr noundef %17, ptr noundef %18)
-  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
+  %81 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %82 = icmp ugt i64 %81, 65535
   br i1 %82, label %83, label %85
 
@@ -14129,7 +14129,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %153 = load ptr, ptr %152, align 8
-  %154 = call ptr %151(ptr noundef %153, i64 noundef 1, i64 noundef 319352) #30
+  %154 = call ptr %151(ptr noundef %153, i64 noundef 1, i64 noundef 319352) #31
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %158
 
@@ -14149,7 +14149,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %164 = load ptr, ptr %163, align 8
-  call void %162(ptr noundef %164, ptr noundef %.0396) #30
+  call void %162(ptr noundef %164, ptr noundef %.0396) #31
   br label %470
 
 165:                                              ; preds = %158
@@ -14244,7 +14244,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %220 = load ptr, ptr %219, align 8
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %222 = load ptr, ptr %221, align 8
-  %223 = call i64 %220(ptr noundef %222, i64 noundef %168, ptr noundef nonnull %21, i64 noundef 30) #30
+  %223 = call i64 %220(ptr noundef %222, i64 noundef %168, ptr noundef nonnull %21, i64 noundef 30) #31
   %.not446 = icmp eq i64 %223, 30
   br i1 %.not446, label %226, label %224
 
@@ -14257,7 +14257,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %227 = add i64 %169, 30
   %228 = load ptr, ptr %219, align 8
   %229 = load ptr, ptr %221, align 8
-  %230 = call i64 %228(ptr noundef %229, i64 noundef %227, ptr noundef nonnull %1, i64 noundef %81) #30
+  %230 = call i64 %228(ptr noundef %229, i64 noundef %227, ptr noundef nonnull %1, i64 noundef %81) #31
   %.not447 = icmp eq i64 %230, %81
   br i1 %.not447, label %237, label %231
 
@@ -14266,7 +14266,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %235 = load ptr, ptr %234, align 8
-  call void %233(ptr noundef %235, ptr noundef %.0396) #30
+  call void %233(ptr noundef %235, ptr noundef %.0396) #31
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 19, ptr %236, align 4
   br label %470
@@ -14280,7 +14280,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %240 = load ptr, ptr %219, align 8
   %241 = load ptr, ptr %221, align 8
   %242 = zext i32 %.0390 to i64
-  %243 = call i64 %240(ptr noundef %241, i64 noundef %238, ptr noundef nonnull %22, i64 noundef %242) #30
+  %243 = call i64 %240(ptr noundef %241, i64 noundef %238, ptr noundef nonnull %22, i64 noundef %242) #31
   %.not449 = icmp eq i64 %243, %242
   br i1 %.not449, label %246, label %244
 
@@ -14362,7 +14362,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %293 = load ptr, ptr %292, align 8
-  %294 = call i64 %291(ptr noundef %293, i64 noundef %168, ptr noundef nonnull %21, i64 noundef 30) #30
+  %294 = call i64 %291(ptr noundef %293, i64 noundef %168, ptr noundef nonnull %21, i64 noundef 30) #31
   %.not444 = icmp eq i64 %294, 30
   br i1 %.not444, label %297, label %295
 
@@ -14375,7 +14375,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %298 = add nuw nsw i64 %169, 30
   %299 = load ptr, ptr %290, align 8
   %300 = load ptr, ptr %292, align 8
-  %301 = call i64 %299(ptr noundef %300, i64 noundef %298, ptr noundef nonnull %1, i64 noundef %81) #30
+  %301 = call i64 %299(ptr noundef %300, i64 noundef %298, ptr noundef nonnull %1, i64 noundef %81) #31
   %.not445 = icmp eq i64 %301, %81
   br i1 %.not445, label %308, label %302
 
@@ -14384,7 +14384,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %304 = load ptr, ptr %303, align 8
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %306 = load ptr, ptr %305, align 8
-  call void %304(ptr noundef %306, ptr noundef %.0396) #30
+  call void %304(ptr noundef %306, ptr noundef %.0396) #31
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 19, ptr %307, align 4
   br label %470
@@ -14408,7 +14408,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %317 = load ptr, ptr %316, align 8
   %318 = zext i32 %11 to i64
-  %319 = call i64 %315(ptr noundef %317, i64 noundef %.0398, ptr noundef %10, i64 noundef %318) #30
+  %319 = call i64 %315(ptr noundef %317, i64 noundef %.0398, ptr noundef %10, i64 noundef %318) #31
   %.not451 = icmp eq i64 %319, %318
   br i1 %.not451, label %322, label %320
 
@@ -14439,7 +14439,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %330 = load ptr, ptr %329, align 8
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %332 = load ptr, ptr %331, align 8
-  %333 = call i64 %330(ptr noundef %332, i64 noundef %.1399, ptr noundef %2, i64 noundef %3) #30
+  %333 = call i64 %330(ptr noundef %332, i64 noundef %.1399, ptr noundef %2, i64 noundef %3) #31
   %.not453 = icmp eq i64 %333, %3
   br i1 %.not453, label %340, label %334
 
@@ -14448,7 +14448,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %85, %88
   %336 = load ptr, ptr %335, align 8
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %338 = load ptr, ptr %337, align 8
-  call void %336(ptr noundef %338, ptr noundef %.0396) #30
+  call void %336(ptr noundef %338, ptr noundef %.0396) #31
   %339 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 19, ptr %339, align 4
   br label %470
@@ -14483,7 +14483,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %325
   %354 = load ptr, ptr %353, align 8
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %356 = load ptr, ptr %355, align 8
-  call void %354(ptr noundef %356, ptr noundef %.0396) #30
+  call void %354(ptr noundef %356, ptr noundef %.0396) #31
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 12, ptr %357, align 4
   br label %470
@@ -14501,7 +14501,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %325
   %363 = load ptr, ptr %362, align 8
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %365 = load ptr, ptr %364, align 8
-  call void %363(ptr noundef %365, ptr noundef %.0396) #30
+  call void %363(ptr noundef %365, ptr noundef %.0396) #31
   %366 = load i64, ptr %16, align 8
   %.not454 = icmp eq i64 %366, 0
   br i1 %.not454, label %454, label %367
@@ -14640,7 +14640,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %325
   %448 = load ptr, ptr %447, align 8
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %450 = load ptr, ptr %449, align 8
-  %451 = call i64 %448(ptr noundef %450, i64 noundef %.2400, ptr noundef nonnull %25, i64 noundef %.0) #30
+  %451 = call i64 %448(ptr noundef %450, i64 noundef %.2400, ptr noundef nonnull %25, i64 noundef %.0) #31
   %.not456 = icmp eq i64 %451, %.0
   br i1 %.not456, label %452, label %470
 
@@ -14691,7 +14691,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %325
 define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 2)) %2) unnamed_addr #7 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
-  %5 = call ptr @localtime(ptr noundef nonnull %4) #30
+  %5 = call ptr @localtime(ptr noundef nonnull %4) #31
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 11
@@ -14744,7 +14744,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_write_zeros(ptr nounde
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   %13 = zext nneg i32 %10 to i64
-  %14 = call i64 %11(ptr noundef %12, i64 noundef %.01925, ptr noundef nonnull %4, i64 noundef %13) #30
+  %14 = call i64 %11(ptr noundef %12, i64 noundef %.01925, ptr noundef nonnull %4, i64 noundef %13) #31
   %.not22 = icmp eq i64 %14, %13
   br i1 %.not22, label %17, label %15
 
@@ -14919,7 +14919,7 @@ define internal range(i32 0, 2) i32 @mz_zip_writer_add_put_buf_callback(ptr noun
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load i64, ptr %9, align 8
   %11 = sext i32 %1 to i64
-  %12 = tail call i64 %6(ptr noundef %8, i64 noundef %10, ptr noundef %0, i64 noundef %11) #30
+  %12 = tail call i64 %6(ptr noundef %8, i64 noundef %10, ptr noundef %0, i64 noundef %11) #31
   %13 = trunc i64 %12 to i32
   %.not = icmp eq i32 %1, %13
   br i1 %.not, label %14, label %20
@@ -15140,7 +15140,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_add_to_central_dir(ptr
   %112 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %113 = load i32, ptr %112, align 8
   %114 = zext i32 %113 to i64
-  %115 = tail call ptr %108(ptr noundef %110, ptr noundef %111, i64 noundef %114, i64 noundef %.1.i) #30
+  %115 = tail call ptr %108(ptr noundef %110, ptr noundef %111, i64 noundef %114, i64 noundef %.1.i) #31
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.critedge, label %mz_zip_array_ensure_capacity.exit
 
@@ -15187,7 +15187,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %.loopexit.i
   %136 = load ptr, ptr %22, align 8
   %137 = load i32, ptr %118, align 8
   %138 = zext i32 %137 to i64
-  %139 = tail call ptr %133(ptr noundef %135, ptr noundef %136, i64 noundef %138, i64 noundef %.1.i265) #30
+  %139 = tail call ptr %133(ptr noundef %135, ptr noundef %136, i64 noundef %138, i64 noundef %.1.i265) #31
   %140 = icmp eq ptr %139, null
   br i1 %140, label %.critedge, label %mz_zip_array_ensure_capacity.exit267
 
@@ -15233,7 +15233,7 @@ mz_zip_array_ensure_capacity.exit267:             ; preds = %.loopexit.i266
   %159 = load ptr, ptr %22, align 8
   %160 = load i32, ptr %118, align 8
   %161 = zext i32 %160 to i64
-  %162 = tail call ptr %156(ptr noundef %158, ptr noundef %159, i64 noundef %161, i64 noundef %.1.i271) #30
+  %162 = tail call ptr %156(ptr noundef %158, ptr noundef %159, i64 noundef %161, i64 noundef %.1.i271) #31
   %163 = icmp eq ptr %162, null
   br i1 %163, label %.critedge, label %mz_zip_array_ensure_capacity.exit273
 
@@ -15279,7 +15279,7 @@ mz_zip_array_ensure_capacity.exit273:             ; preds = %.loopexit.i272
   %182 = load ptr, ptr %22, align 8
   %183 = load i32, ptr %118, align 8
   %184 = zext i32 %183 to i64
-  %185 = tail call ptr %179(ptr noundef %181, ptr noundef %182, i64 noundef %184, i64 noundef %.1.i277) #30
+  %185 = tail call ptr %179(ptr noundef %181, ptr noundef %182, i64 noundef %184, i64 noundef %.1.i277) #31
   %186 = icmp eq ptr %185, null
   br i1 %186, label %.critedge, label %mz_zip_array_ensure_capacity.exit279
 
@@ -15325,7 +15325,7 @@ mz_zip_array_ensure_capacity.exit279:             ; preds = %.loopexit.i278
   %205 = load ptr, ptr %22, align 8
   %206 = load i32, ptr %118, align 8
   %207 = zext i32 %206 to i64
-  %208 = tail call ptr %202(ptr noundef %204, ptr noundef %205, i64 noundef %207, i64 noundef %.1.i283) #30
+  %208 = tail call ptr %202(ptr noundef %204, ptr noundef %205, i64 noundef %207, i64 noundef %.1.i283) #31
   %209 = icmp eq ptr %208, null
   br i1 %209, label %.critedge, label %mz_zip_array_ensure_capacity.exit285
 
@@ -15371,7 +15371,7 @@ mz_zip_array_ensure_capacity.exit285:             ; preds = %.loopexit.i284
   %232 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %233 = load i32, ptr %232, align 8
   %234 = zext i32 %233 to i64
-  %235 = tail call ptr %228(ptr noundef %230, ptr noundef %231, i64 noundef %234, i64 noundef %.1.i289) #30
+  %235 = tail call ptr %228(ptr noundef %230, ptr noundef %231, i64 noundef %234, i64 noundef %.1.i289) #31
   %236 = icmp eq ptr %235, null
   br i1 %236, label %.critedge, label %237
 
@@ -15405,7 +15405,7 @@ mz_zip_array_ensure_capacity.exit285:             ; preds = %.loopexit.i284
   %252 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %253 = load i32, ptr %252, align 8
   %254 = zext i32 %253 to i64
-  %255 = tail call ptr %248(ptr noundef %250, ptr noundef %251, i64 noundef %254, i64 noundef %24) #30
+  %255 = tail call ptr %248(ptr noundef %250, ptr noundef %251, i64 noundef %254, i64 noundef %24) #31
   %256 = icmp eq ptr %255, null
   br i1 %256, label %mz_zip_array_ensure_capacity.exit295.thread, label %mz_zip_array_ensure_capacity.exit295
 
@@ -15551,7 +15551,7 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
 
 67:                                               ; preds = %64, %66, %60
   %.not421 = phi i1 [ true, %64 ], [ false, %66 ], [ false, %60 ]
-  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
+  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #34
   %69 = icmp ugt i64 %68, 65535
   br i1 %69, label %70, label %72
 
@@ -15720,7 +15720,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %164 = load ptr, ptr %163, align 8
-  %165 = call i64 %162(ptr noundef %164, i64 noundef %113, ptr noundef nonnull %19, i64 noundef 30) #30
+  %165 = call i64 %162(ptr noundef %164, i64 noundef %113, ptr noundef nonnull %19, i64 noundef 30) #31
   %.not427 = icmp eq i64 %165, 30
   br i1 %.not427, label %168, label %166
 
@@ -15733,7 +15733,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %169 = add i64 %113, 30
   %170 = load ptr, ptr %161, align 8
   %171 = load ptr, ptr %163, align 8
-  %172 = call i64 %170(ptr noundef %171, i64 noundef %169, ptr noundef nonnull %1, i64 noundef %68) #30
+  %172 = call i64 %170(ptr noundef %171, i64 noundef %169, ptr noundef nonnull %1, i64 noundef %68) #31
   %.not428 = icmp eq i64 %172, %68
   br i1 %.not428, label %175, label %173
 
@@ -15747,7 +15747,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %177 = load ptr, ptr %161, align 8
   %178 = load ptr, ptr %163, align 8
   %179 = zext i32 %.0386 to i64
-  %180 = call i64 %177(ptr noundef %178, i64 noundef %176, ptr noundef nonnull %20, i64 noundef %179) #30
+  %180 = call i64 %177(ptr noundef %178, i64 noundef %176, ptr noundef nonnull %20, i64 noundef %179) #31
   %.not429 = icmp eq i64 %180, %179
   br i1 %.not429, label %183, label %181
 
@@ -15828,7 +15828,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %229 = load ptr, ptr %228, align 8
-  %230 = call i64 %227(ptr noundef %229, i64 noundef %113, ptr noundef nonnull %19, i64 noundef 30) #30
+  %230 = call i64 %227(ptr noundef %229, i64 noundef %113, ptr noundef nonnull %19, i64 noundef 30) #31
   %.not425 = icmp eq i64 %230, 30
   br i1 %.not425, label %233, label %231
 
@@ -15841,7 +15841,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %234 = add nuw nsw i64 %113, 30
   %235 = load ptr, ptr %226, align 8
   %236 = load ptr, ptr %228, align 8
-  %237 = call i64 %235(ptr noundef %236, i64 noundef %234, ptr noundef nonnull %1, i64 noundef %68) #30
+  %237 = call i64 %235(ptr noundef %236, i64 noundef %234, ptr noundef nonnull %1, i64 noundef %68) #31
   %.not426 = icmp eq i64 %237, %68
   br i1 %.not426, label %240, label %238
 
@@ -15869,7 +15869,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %249 = load ptr, ptr %248, align 8
   %250 = zext i32 %9 to i64
-  %251 = call i64 %247(ptr noundef %249, i64 noundef %.0391, ptr noundef %8, i64 noundef %250) #30
+  %251 = call i64 %247(ptr noundef %249, i64 noundef %.0391, ptr noundef %8, i64 noundef %250) #31
   %.not431 = icmp eq i64 %251, %250
   br i1 %.not431, label %254, label %252
 
@@ -15893,7 +15893,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %260 = load ptr, ptr %259, align 8
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %262 = load ptr, ptr %261, align 8
-  %263 = call ptr %260(ptr noundef %262, i64 noundef 1, i64 noundef 65536) #30
+  %263 = call ptr %260(ptr noundef %262, i64 noundef 1, i64 noundef 65536) #31
   %.not433 = icmp eq ptr %263, null
   br i1 %.not433, label %264, label %266
 
@@ -15922,7 +15922,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
 272:                                              ; preds = %269
   %273 = load ptr, ptr %267, align 8
   %274 = load ptr, ptr %268, align 8
-  %275 = call i64 %273(ptr noundef %274, i64 noundef %.3394464, ptr noundef nonnull %263, i64 noundef %270) #30
+  %275 = call i64 %273(ptr noundef %274, i64 noundef %.3394464, ptr noundef nonnull %263, i64 noundef %270) #31
   %.not436 = icmp eq i64 %275, %270
   br i1 %.not436, label %281, label %276
 
@@ -15930,7 +15930,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %278 = load ptr, ptr %277, align 8
   %279 = load ptr, ptr %261, align 8
-  call void %278(ptr noundef %279, ptr noundef nonnull %263) #30
+  call void %278(ptr noundef %279, ptr noundef nonnull %263) #31
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %280, align 4
   br label %450
@@ -15950,7 +15950,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
 287:                                              ; preds = %266
   %288 = load ptr, ptr %259, align 8
   %289 = load ptr, ptr %261, align 8
-  %290 = call ptr %288(ptr noundef %289, i64 noundef 1, i64 noundef 319352) #30
+  %290 = call ptr %288(ptr noundef %289, i64 noundef 1, i64 noundef 319352) #31
   %.not437 = icmp eq ptr %290, null
   br i1 %.not437, label %291, label %tdefl_create_comp_flags_from_zip_params.exit
 
@@ -15958,7 +15958,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %72, %75
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %293 = load ptr, ptr %292, align 8
   %294 = load ptr, ptr %261, align 8
-  call void %293(ptr noundef %294, ptr noundef nonnull %263) #30
+  call void %293(ptr noundef %294, ptr noundef nonnull %263) #31
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 16, ptr %295, align 4
   br label %450
@@ -15998,7 +15998,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %287
 
 315:                                              ; preds = %311
   %316 = load ptr, ptr %307, align 8
-  %317 = call i32 %314(ptr noundef %316) #30
+  %317 = call i32 %314(ptr noundef %316) #31
   %.not440 = icmp eq i32 %317, 0
   %spec.select450 = select i1 %.not440, i32 0, i32 3
   br label %318
@@ -16023,17 +16023,17 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %287
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %324 = load ptr, ptr %323, align 8
   %325 = load ptr, ptr %261, align 8
-  call void %324(ptr noundef %325, ptr noundef nonnull %290) #30
+  call void %324(ptr noundef %325, ptr noundef nonnull %290) #31
   %326 = load ptr, ptr %323, align 8
   %327 = load ptr, ptr %261, align 8
-  call void %326(ptr noundef %327, ptr noundef nonnull %263) #30
+  call void %326(ptr noundef %327, ptr noundef nonnull %263) #31
   br label %450
 
 328:                                              ; preds = %318
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %330 = load ptr, ptr %329, align 8
   %331 = load ptr, ptr %261, align 8
-  call void %330(ptr noundef %331, ptr noundef nonnull %290) #30
+  call void %330(ptr noundef %331, ptr noundef nonnull %290) #31
   %332 = load i64, ptr %297, align 8
   store i64 %332, ptr %18, align 8
   %333 = load i64, ptr %296, align 8
@@ -16046,7 +16046,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %287
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %336 = load ptr, ptr %335, align 8
   %337 = load ptr, ptr %261, align 8
-  call void %336(ptr noundef %337, ptr noundef nonnull %263) #30
+  call void %336(ptr noundef %337, ptr noundef nonnull %263) #31
   br label %338
 
 338:                                              ; preds = %334, %256
@@ -16192,7 +16192,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %287
   %429 = load ptr, ptr %428, align 8
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %431 = load ptr, ptr %430, align 8
-  %432 = call i64 %429(ptr noundef %431, i64 noundef %.2393, ptr noundef nonnull %22, i64 noundef %.0) #30
+  %432 = call i64 %429(ptr noundef %431, i64 noundef %.2393, ptr noundef nonnull %22, i64 noundef %.0) #31
   %.not445 = icmp eq i64 %432, %.0
   br i1 %.not445, label %433, label %450
 
@@ -16241,7 +16241,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %
   %7 = alloca %struct.stat, align 8
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %7)
-  %9 = call i32 @stat(ptr noundef readonly %2, ptr noundef nonnull %7) #30
+  %9 = call i32 @stat(ptr noundef readonly %2, ptr noundef nonnull %7) #31
   %.not.i = icmp eq i32 %9, 0
   br i1 %.not.i, label %13, label %10
 
@@ -16450,7 +16450,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %96 = load ptr, ptr %16, align 8
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %98 = load ptr, ptr %97, align 8
-  %99 = call i64 %96(ptr noundef %98, i64 noundef %94, ptr noundef nonnull %5, i64 noundef 30) #30
+  %99 = call i64 %96(ptr noundef %98, i64 noundef %94, ptr noundef nonnull %5, i64 noundef 30) #31
   %.not783 = icmp eq i64 %99, 30
   br i1 %.not783, label %102, label %100
 
@@ -16501,7 +16501,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %131 = load ptr, ptr %130, align 8
-  %132 = call ptr %129(ptr noundef %131, ptr noundef null, i64 noundef 1, i64 noundef %127) #30
+  %132 = call ptr %129(ptr noundef %131, ptr noundef null, i64 noundef 1, i64 noundef %127) #31
   %133 = icmp eq ptr %132, null
   br i1 %133, label %141, label %.critedge831
 
@@ -16512,7 +16512,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %137 = zext i16 %109 to i64
   %138 = add nuw nsw i64 %137, 30
   %139 = add i64 %138, %136
-  %140 = call i64 %134(ptr noundef %135, i64 noundef %139, ptr noundef nonnull %132, i64 noundef %127) #30
+  %140 = call i64 %134(ptr noundef %135, i64 noundef %139, ptr noundef nonnull %132, i64 noundef %127) #31
   %.not788 = icmp eq i64 %140, %127
   br i1 %.not788, label %.preheader942, label %143
 
@@ -16525,7 +16525,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %130, align 8
-  call void %145(ptr noundef %146, ptr noundef nonnull %132) #30
+  call void %145(ptr noundef %146, ptr noundef nonnull %132) #31
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %147, align 4
   br label %.critedge
@@ -16540,7 +16540,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %151 = load ptr, ptr %150, align 8
   %152 = load ptr, ptr %130, align 8
-  call void %151(ptr noundef %152, ptr noundef nonnull %132) #30
+  call void %151(ptr noundef %152, ptr noundef nonnull %132) #31
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %153, align 4
   br label %.critedge
@@ -16557,7 +16557,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %130, align 8
-  call void %162(ptr noundef %163, ptr noundef nonnull %132) #30
+  call void %162(ptr noundef %163, ptr noundef nonnull %132) #31
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %164, align 4
   br label %.critedge
@@ -16575,7 +16575,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %172 = load ptr, ptr %171, align 8
   %173 = load ptr, ptr %130, align 8
-  call void %172(ptr noundef %173, ptr noundef nonnull %132) #30
+  call void %172(ptr noundef %173, ptr noundef nonnull %132) #31
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 9, ptr %174, align 4
   br label %.critedge
@@ -16591,7 +16591,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %180 = load ptr, ptr %179, align 8
   %181 = load ptr, ptr %130, align 8
-  call void %180(ptr noundef %181, ptr noundef nonnull %132) #30
+  call void %180(ptr noundef %181, ptr noundef nonnull %132) #31
   br label %182
 
 182:                                              ; preds = %119, %.loopexit, %106
@@ -16628,7 +16628,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %203 = load ptr, ptr %202, align 8
-  %204 = call i64 %201(ptr noundef %203, i64 noundef %199, ptr noundef nonnull %5, i64 noundef 30) #30
+  %204 = call i64 %201(ptr noundef %203, i64 noundef %199, ptr noundef nonnull %5, i64 noundef 30) #31
   %.not792 = icmp eq i64 %204, 30
   br i1 %.not792, label %207, label %205
 
@@ -16644,7 +16644,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %211 = load ptr, ptr %210, align 8
   %212 = call i64 @llvm.umin.i64(i64 %118, i64 65536)
   %213 = call i64 @llvm.umax.i64(i64 %212, i64 32)
-  %214 = call ptr %209(ptr noundef %211, i64 noundef 1, i64 noundef %213) #30
+  %214 = call ptr %209(ptr noundef %211, i64 noundef 1, i64 noundef %213) #31
   %215 = icmp eq ptr %214, null
   br i1 %215, label %217, label %.preheader
 
@@ -16665,7 +16665,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %219 = call i64 @llvm.umin.i64(i64 %.0732954, i64 65536)
   %220 = load ptr, ptr %16, align 8
   %221 = load ptr, ptr %97, align 8
-  %222 = call i64 %220(ptr noundef %221, i64 noundef %.0731955, ptr noundef %214, i64 noundef %219) #30
+  %222 = call i64 %220(ptr noundef %221, i64 noundef %.0731955, ptr noundef %214, i64 noundef %219) #31
   %.not828 = icmp eq i64 %222, %219
   br i1 %.not828, label %228, label %223
 
@@ -16673,7 +16673,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %225 = load ptr, ptr %224, align 8
   %226 = load ptr, ptr %210, align 8
-  call void %225(ptr noundef %226, ptr noundef %214) #30
+  call void %225(ptr noundef %226, ptr noundef %214) #31
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %227, align 4
   br label %.critedge
@@ -16681,7 +16681,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
 228:                                              ; preds = %.lr.ph
   %229 = load ptr, ptr %200, align 8
   %230 = load ptr, ptr %202, align 8
-  %231 = call i64 %229(ptr noundef %230, i64 noundef %.0729956, ptr noundef %214, i64 noundef %219) #30
+  %231 = call i64 %229(ptr noundef %230, i64 noundef %.0729956, ptr noundef %214, i64 noundef %219) #31
   %.not829 = icmp eq i64 %231, %219
   br i1 %.not829, label %237, label %232
 
@@ -16689,7 +16689,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %234 = load ptr, ptr %233, align 8
   %235 = load ptr, ptr %210, align 8
-  call void %234(ptr noundef %235, ptr noundef %214) #30
+  call void %234(ptr noundef %235, ptr noundef %214) #31
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 19, ptr %236, align 4
   br label %.critedge
@@ -16727,7 +16727,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br i1 %or.cond3, label %253, label %264
 
 253:                                              ; preds = %246
-  %254 = call i64 %251(ptr noundef %252, i64 noundef %.0731.lcssa, ptr noundef %214, i64 noundef 24) #30
+  %254 = call i64 %251(ptr noundef %252, i64 noundef %.0731.lcssa, ptr noundef %214, i64 noundef 24) #31
   %.not797 = icmp eq i64 %254, 24
   br i1 %.not797, label %260, label %255
 
@@ -16735,7 +16735,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %257 = load ptr, ptr %256, align 8
   %258 = load ptr, ptr %210, align 8
-  call void %257(ptr noundef %258, ptr noundef %214) #30
+  call void %257(ptr noundef %258, ptr noundef %214) #31
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %259, align 4
   br label %.critedge
@@ -16747,7 +16747,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   br label %325
 
 264:                                              ; preds = %246
-  %265 = call i64 %251(ptr noundef %252, i64 noundef %.0731.lcssa, ptr noundef %214, i64 noundef 16) #30
+  %265 = call i64 %251(ptr noundef %252, i64 noundef %.0731.lcssa, ptr noundef %214, i64 noundef 16) #31
   %.not795 = icmp eq i64 %265, 16
   br i1 %.not795, label %271, label %266
 
@@ -16755,7 +16755,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %267 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %268 = load ptr, ptr %267, align 8
   %269 = load ptr, ptr %210, align 8
-  call void %268(ptr noundef %269, ptr noundef %214) #30
+  call void %268(ptr noundef %269, ptr noundef %214) #31
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 20, ptr %270, align 4
   br label %.critedge
@@ -16845,7 +16845,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %326 = load ptr, ptr %200, align 8
   %327 = load ptr, ptr %202, align 8
   %328 = zext nneg i32 %.sink to i64
-  %329 = call i64 %326(ptr noundef %327, i64 noundef %.0729.lcssa, ptr noundef nonnull %214, i64 noundef %328) #30
+  %329 = call i64 %326(ptr noundef %327, i64 noundef %.0729.lcssa, ptr noundef nonnull %214, i64 noundef %328) #31
   %.not798 = icmp eq i64 %329, %328
   br i1 %.not798, label %335, label %330
 
@@ -16853,7 +16853,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %332 = load ptr, ptr %331, align 8
   %333 = load ptr, ptr %210, align 8
-  call void %332(ptr noundef %333, ptr noundef nonnull %214) #30
+  call void %332(ptr noundef %333, ptr noundef nonnull %214) #31
   %334 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 19, ptr %334, align 4
   br label %.critedge
@@ -16867,7 +16867,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %339 = load ptr, ptr %338, align 8
   %340 = load ptr, ptr %210, align 8
-  call void %339(ptr noundef %340, ptr noundef %214) #30
+  call void %339(ptr noundef %340, ptr noundef %214) #31
   %341 = load i64, ptr %60, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %6, ptr noundef nonnull align 1 dereferenceable(46) %41, i64 46, i1 false)
   %342 = load i32, ptr %78, align 4
@@ -16894,7 +16894,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %351 = load ptr, ptr %338, align 8
   %352 = load ptr, ptr %210, align 8
   %353 = load ptr, ptr %8, align 8
-  call void %351(ptr noundef %352, ptr noundef %353) #30
+  call void %351(ptr noundef %352, ptr noundef %353) #31
   br label %.critedge
 
 354:                                              ; preds = %343
@@ -16939,7 +16939,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %378 = load ptr, ptr %338, align 8
   %379 = load ptr, ptr %210, align 8
   %380 = load ptr, ptr %8, align 8
-  call void %378(ptr noundef %379, ptr noundef %380) #30
+  call void %378(ptr noundef %379, ptr noundef %380) #31
   %381 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 16, ptr %381, align 4
   br label %.critedge
@@ -16969,7 +16969,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %395 = load ptr, ptr %338, align 8
   %396 = load ptr, ptr %210, align 8
   %397 = load ptr, ptr %8, align 8
-  call void %395(ptr noundef %396, ptr noundef %397) #30
+  call void %395(ptr noundef %396, ptr noundef %397) #31
   %398 = load i64, ptr %362, align 8
   %399 = icmp ugt i64 %341, %398
   br i1 %399, label %400, label %409
@@ -16981,7 +16981,7 @@ mz_zip_writer_compute_padding_needed_for_file_alignment.exit: ; preds = %68, %71
   %404 = load ptr, ptr %11, align 8
   %405 = load i32, ptr %368, align 8
   %406 = zext i32 %405 to i64
-  %407 = call ptr %402(ptr noundef %403, ptr noundef %404, i64 noundef %406, i64 noundef %341) #30
+  %407 = call ptr %402(ptr noundef %403, ptr noundef %404, i64 noundef %406, i64 noundef %341) #31
   %408 = icmp eq ptr %407, null
   br i1 %408, label %mz_zip_array_ensure_capacity.exit865.thread, label %mz_zip_array_ensure_capacity.exit865
 
@@ -17025,7 +17025,7 @@ mz_zip_array_ensure_capacity.exit865.thread:      ; preds = %400, %409
 .critedge837:                                     ; preds = %411
   %426 = load ptr, ptr %338, align 8
   %427 = load ptr, ptr %210, align 8
-  call void %426(ptr noundef %427, ptr noundef %390) #30
+  call void %426(ptr noundef %427, ptr noundef %390) #31
   %428 = load i64, ptr %362, align 8
   %429 = icmp ugt i64 %341, %428
   br i1 %429, label %430, label %439
@@ -17037,7 +17037,7 @@ mz_zip_array_ensure_capacity.exit865.thread:      ; preds = %400, %409
   %434 = load ptr, ptr %11, align 8
   %435 = load i32, ptr %368, align 8
   %436 = zext i32 %435 to i64
-  %437 = call ptr %432(ptr noundef %433, ptr noundef %434, i64 noundef %436, i64 noundef %341) #30
+  %437 = call ptr %432(ptr noundef %433, ptr noundef %434, i64 noundef %436, i64 noundef %341) #31
   %438 = icmp eq ptr %437, null
   br i1 %438, label %mz_zip_array_ensure_capacity.exit869.thread, label %mz_zip_array_ensure_capacity.exit869
 
@@ -17071,13 +17071,13 @@ mz_zip_array_ensure_capacity.exit869.thread:      ; preds = %430, %439
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %447, ptr nonnull align 1 %420, i64 %448, i1 false)
   %449 = load ptr, ptr %338, align 8
   %450 = load ptr, ptr %210, align 8
-  call void %449(ptr noundef %450, ptr noundef %390) #30
+  call void %449(ptr noundef %450, ptr noundef %390) #31
   br label %522
 
 .critedge839:                                     ; preds = %441
   %451 = load ptr, ptr %338, align 8
   %452 = load ptr, ptr %210, align 8
-  call void %451(ptr noundef %452, ptr noundef %390) #30
+  call void %451(ptr noundef %452, ptr noundef %390) #31
   %453 = load i64, ptr %362, align 8
   %454 = icmp ugt i64 %341, %453
   br i1 %454, label %455, label %464
@@ -17089,7 +17089,7 @@ mz_zip_array_ensure_capacity.exit869.thread:      ; preds = %430, %439
   %459 = load ptr, ptr %11, align 8
   %460 = load i32, ptr %368, align 8
   %461 = zext i32 %460 to i64
-  %462 = call ptr %457(ptr noundef %458, ptr noundef %459, i64 noundef %461, i64 noundef %341) #30
+  %462 = call ptr %457(ptr noundef %458, ptr noundef %459, i64 noundef %461, i64 noundef %341) #31
   %463 = icmp eq ptr %462, null
   br i1 %463, label %mz_zip_array_ensure_capacity.exit873.thread, label %mz_zip_array_ensure_capacity.exit873
 
@@ -17202,7 +17202,7 @@ mz_zip_array_ensure_capacity.exit873.thread:      ; preds = %455, %464
   %515 = load ptr, ptr %11, align 8
   %516 = load i32, ptr %489, align 8
   %517 = zext i32 %516 to i64
-  %518 = call ptr %513(ptr noundef %514, ptr noundef %515, i64 noundef %517, i64 noundef %341) #30
+  %518 = call ptr %513(ptr noundef %514, ptr noundef %515, i64 noundef %517, i64 noundef %341) #31
   %519 = icmp eq ptr %518, null
   br i1 %519, label %mz_zip_array_ensure_capacity.exit877.thread, label %mz_zip_array_ensure_capacity.exit877
 
@@ -17239,7 +17239,7 @@ mz_zip_array_ensure_capacity.exit877.thread:      ; preds = %511, %520
   %534 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %535 = load i32, ptr %534, align 8
   %536 = zext i32 %535 to i64
-  %537 = call ptr %531(ptr noundef %532, ptr noundef %533, i64 noundef %536, i64 noundef %341) #30
+  %537 = call ptr %531(ptr noundef %532, ptr noundef %533, i64 noundef %536, i64 noundef %341) #31
   %538 = icmp eq ptr %537, null
   br i1 %538, label %mz_zip_array_ensure_capacity.exit881.thread, label %mz_zip_array_ensure_capacity.exit881
 
@@ -17304,7 +17304,7 @@ mz_zip_array_ensure_capacity.exit881.thread:      ; preds = %529, %539
   %569 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %570 = load i32, ptr %569, align 8
   %571 = zext i32 %570 to i64
-  %572 = call ptr %566(ptr noundef %567, ptr noundef %568, i64 noundef %571, i64 noundef %341) #30
+  %572 = call ptr %566(ptr noundef %567, ptr noundef %568, i64 noundef %571, i64 noundef %341) #31
   %573 = icmp eq ptr %572, null
   br i1 %573, label %mz_zip_array_ensure_capacity.exit885.thread, label %mz_zip_array_ensure_capacity.exit885
 
@@ -17346,7 +17346,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_update_zip64_extension
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = tail call ptr %15(ptr noundef %17, ptr noundef %18, i64 noundef %21, i64 noundef %9) #30
+  %22 = tail call ptr %15(ptr noundef %17, ptr noundef %18, i64 noundef %21, i64 noundef %9) #31
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit
 
@@ -17487,7 +17487,7 @@ mz_zip_array_ensure_capacity.exit:                ; preds = %13
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %81 = load i32, ptr %80, align 8
   %82 = zext i32 %81 to i64
-  %83 = tail call ptr %76(ptr noundef %78, ptr noundef %79, i64 noundef %82, i64 noundef %.1.i) #30
+  %83 = tail call ptr %76(ptr noundef %78, ptr noundef %79, i64 noundef %82, i64 noundef %.1.i) #31
   %84 = icmp eq ptr %83, null
   br i1 %84, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit261
 
@@ -17559,7 +17559,7 @@ mz_zip_array_ensure_capacity.exit261:             ; preds = %.loopexit.i
   %113 = load ptr, ptr %0, align 8
   %114 = load i32, ptr %86, align 8
   %115 = zext i32 %114 to i64
-  %116 = tail call ptr %111(ptr noundef %112, ptr noundef %113, i64 noundef %115, i64 noundef %.1.i265) #30
+  %116 = tail call ptr %111(ptr noundef %112, ptr noundef %113, i64 noundef %115, i64 noundef %.1.i265) #31
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.loopexit.sink.split, label %mz_zip_array_ensure_capacity.exit267
 
@@ -17678,7 +17678,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %5, align 8
-  %44 = tail call i64 %40(ptr noundef %42, i64 noundef %.pre293.pre, ptr noundef %43, i64 noundef %34) #30
+  %44 = tail call i64 %40(ptr noundef %42, i64 noundef %.pre293.pre, ptr noundef %43, i64 noundef %34) #31
   %.not281 = icmp eq i64 %44, %34
   br i1 %.not281, label %47, label %45
 
@@ -17819,7 +17819,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %127 = load ptr, ptr %126, align 8
-  %128 = call i64 %125(ptr noundef %127, i64 noundef %.pre293, ptr noundef nonnull %2, i64 noundef 56) #30
+  %128 = call i64 %125(ptr noundef %127, i64 noundef %.pre293, ptr noundef nonnull %2, i64 noundef 56) #31
   %.not284 = icmp eq i64 %128, 56
   br i1 %.not284, label %131, label %129
 
@@ -17870,7 +17870,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local
   store i8 0, ptr %153, align 2
   %154 = load ptr, ptr %124, align 8
   %155 = load ptr, ptr %126, align 8
-  %156 = call i64 %154(ptr noundef %155, i64 noundef %137, ptr noundef nonnull %2, i64 noundef 20) #30
+  %156 = call i64 %154(ptr noundef %155, i64 noundef %137, ptr noundef nonnull %2, i64 noundef 20) #31
   %.not286 = icmp eq i64 %156, 20
   br i1 %.not286, label %159, label %157
 
@@ -17945,7 +17945,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_finalize_archive(ptr noundef %0) local
   %200 = load ptr, ptr %199, align 8
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %202 = load ptr, ptr %201, align 8
-  %203 = call i64 %200(ptr noundef %202, i64 noundef %163, ptr noundef nonnull %2, i64 noundef 22) #30
+  %203 = call i64 %200(ptr noundef %202, i64 noundef %163, ptr noundef nonnull %2, i64 noundef 22) #31
   %.not287 = icmp eq i64 %203, 22
   br i1 %.not287, label %206, label %204
 
@@ -18128,7 +18128,7 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr nound
   br label %171
 
 mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
-  %31 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %10) #30
+  %31 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %10) #31
   %.not61 = icmp ne i32 %31, 0
   br i1 %.not61, label %32, label %91
 
@@ -18211,7 +18211,7 @@ mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %9, i8 0, i64 20, i1 false)
   %68 = load ptr, ptr %67, align 8
-  %69 = call ptr %58(ptr noundef %68, i64 noundef 1, i64 noundef 152) #30
+  %69 = call ptr %58(ptr noundef %68, i64 noundef 1, i64 noundef 152) #31
   store ptr %69, ptr %41, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %mz_zip_writer_init_v2.exit.thread, label %71
@@ -18341,19 +18341,19 @@ mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, 
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %128 = load ptr, ptr %127, align 8
   %129 = load ptr, ptr %114, align 8
-  call void %119(ptr noundef %128, ptr noundef %129) #30
+  call void %119(ptr noundef %128, ptr noundef %129) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %114, i8 0, i64 32, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %114, i64 32
   %131 = load ptr, ptr %118, align 8
   %132 = load ptr, ptr %127, align 8
   %133 = load ptr, ptr %130, align 8
-  call void %131(ptr noundef %132, ptr noundef %133) #30
+  call void %131(ptr noundef %132, ptr noundef %133) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 32, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %135 = load ptr, ptr %118, align 8
   %136 = load ptr, ptr %127, align 8
   %137 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef %136, ptr noundef %137) #30
+  call void %135(ptr noundef %136, ptr noundef %137) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %134, i8 0, i64 32, i1 false)
   %138 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %139 = load ptr, ptr %138, align 8
@@ -18400,14 +18400,14 @@ mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, 
 158:                                              ; preds = %155
   %159 = load ptr, ptr %118, align 8
   %160 = load ptr, ptr %127, align 8
-  call void %159(ptr noundef %160, ptr noundef nonnull %157) #30
+  call void %159(ptr noundef %160, ptr noundef nonnull %157) #31
   store ptr null, ptr %156, align 8
   br label %mz_zip_writer_end_internal.exit
 
 mz_zip_writer_end_internal.exit:                  ; preds = %151, %155, %158
   %161 = load ptr, ptr %118, align 8
   %162 = load ptr, ptr %127, align 8
-  call void %161(ptr noundef %162, ptr noundef nonnull %114) #30
+  call void %161(ptr noundef %162, ptr noundef nonnull %114) #31
   store i32 0, ptr %121, align 4
   %.pre = load i32, ptr %108, align 4
   %spec.select102 = select i1 %.0.i79, i32 0, i32 %.051
@@ -18425,7 +18425,7 @@ mz_zip_writer_end_internal.exit.thread:           ; preds = %125, %124, %mz_zip_
   br i1 %or.cond7, label %167, label %169
 
 167:                                              ; preds = %mz_zip_writer_end_internal.exit.thread
-  %168 = call i32 @remove(ptr noundef nonnull %0) #30
+  %168 = call i32 @remove(ptr noundef nonnull %0) #31
   br label %169
 
 169:                                              ; preds = %167, %mz_zip_writer_end_internal.exit.thread
@@ -18541,7 +18541,7 @@ define ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef %0, ptr noundef %
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %53 = load ptr, ptr %52, align 8
-  %54 = call ptr %51(ptr noundef %53, i64 noundef 1, i64 noundef %49) #30
+  %54 = call ptr %51(ptr noundef %53, i64 noundef 1, i64 noundef %49) #31
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %58
 
@@ -18559,7 +18559,7 @@ define ptr @mz_zip_extract_archive_file_to_heap_v2(ptr noundef %0, ptr noundef %
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %52, align 8
-  call void %62(ptr noundef %63, ptr noundef nonnull %54) #30
+  call void %62(ptr noundef %63, ptr noundef nonnull %54) #31
   br label %mz_zip_reader_extract_to_heap.exit
 
 64:                                               ; preds = %58
@@ -18604,19 +18604,19 @@ mz_zip_reader_extract_to_heap.exit:               ; preds = %65, %64, %60, %56, 
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %81 = load ptr, ptr %80, align 8
   %82 = load ptr, ptr %68, align 8
-  call void %73(ptr noundef %81, ptr noundef %82) #30
+  call void %73(ptr noundef %81, ptr noundef %82) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %68, i8 0, i64 32, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %84 = load ptr, ptr %72, align 8
   %85 = load ptr, ptr %80, align 8
   %86 = load ptr, ptr %83, align 8
-  call void %84(ptr noundef %85, ptr noundef %86) #30
+  call void %84(ptr noundef %85, ptr noundef %86) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %83, i8 0, i64 32, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %68, i64 64
   %88 = load ptr, ptr %72, align 8
   %89 = load ptr, ptr %80, align 8
   %90 = load ptr, ptr %87, align 8
-  call void %88(ptr noundef %89, ptr noundef %90) #30
+  call void %88(ptr noundef %89, ptr noundef %90) #31
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 32, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %68, i64 112
   %92 = load ptr, ptr %91, align 8
@@ -18647,7 +18647,7 @@ mz_zip_reader_extract_to_heap.exit:               ; preds = %65, %64, %60, %56, 
 103:                                              ; preds = %102, %79
   %104 = load ptr, ptr %72, align 8
   %105 = load ptr, ptr %80, align 8
-  call void %104(ptr noundef %105, ptr noundef nonnull %68) #30
+  call void %104(ptr noundef %105, ptr noundef nonnull %68) #31
   br label %mz_zip_reader_end_internal.exit
 
 mz_zip_reader_end_internal.exit:                  ; preds = %76, %77, %103
@@ -18925,7 +18925,7 @@ define i64 @mz_zip_read_archive_data(ptr noundef %0, i64 noundef %1, ptr noundef
 15:                                               ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i64 %12(ptr noundef %17, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3) #30
+  %18 = tail call i64 %12(ptr noundef %17, i64 noundef %1, ptr noundef nonnull %2, i64 noundef %3) #31
   br label %.critedge
 
 .critedge:                                        ; preds = %13, %4, %15
@@ -19047,19 +19047,19 @@ define range(i32 0, 2) i32 @mz_zip_end(ptr noundef %0) local_unnamed_addr #7 {
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %7, align 8
-  tail call void %13(ptr noundef %18, ptr noundef %19) #30
+  tail call void %13(ptr noundef %18, ptr noundef %19) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %21 = load ptr, ptr %12, align 8
   %22 = load ptr, ptr %17, align 8
   %23 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef %22, ptr noundef %23) #30
+  tail call void %21(ptr noundef %22, ptr noundef %23) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, i8 0, i64 32, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %25 = load ptr, ptr %12, align 8
   %26 = load ptr, ptr %17, align 8
   %27 = load ptr, ptr %24, align 8
-  tail call void %25(ptr noundef %26, ptr noundef %27) #30
+  tail call void %25(ptr noundef %26, ptr noundef %27) #31
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %29 = load ptr, ptr %28, align 8
@@ -19091,7 +19091,7 @@ define range(i32 0, 2) i32 @mz_zip_end(ptr noundef %0) local_unnamed_addr #7 {
   %.1.i = phi i32 [ %.2.i, %39 ], [ 1, %16 ]
   %41 = load ptr, ptr %12, align 8
   %42 = load ptr, ptr %17, align 8
-  tail call void %41(ptr noundef %42, ptr noundef nonnull %7) #30
+  tail call void %41(ptr noundef %42, ptr noundef nonnull %7) #31
   store i32 0, ptr %3, align 4
   br label %mz_zip_reader_end_internal.exit
 
@@ -20533,8 +20533,8 @@ tdefl_compress_lz_codes.exit:                     ; preds = %671, %._crit_edge17
   ret i32 %.0.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #12 {
+; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 19, 289) %2, i32 noundef range(i32 7, 16) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #26 {
   %6 = alloca [512 x i32], align 16
   %7 = alloca [256 x i32], align 16
   %8 = alloca [33 x i32], align 16
@@ -20599,7 +20599,7 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2048) %6, i8 0, i64 2048, i1 false)
   %.not.i = icmp eq i32 %.173, 0
-  br i1 %.not.i, label %.preheader45.split.preheader.i, label %.lr.ph.preheader.i
+  br i1 %.not.i, label %.critedge.preheader.split55.i.preheader, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %34
   %wide.trip.count.i = zext i32 %.173 to i64
@@ -20610,10 +20610,8 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 16
   %35 = freeze i32 %.pre.i
   %36 = icmp eq i32 %.173, %35
-  br i1 %36, label %.preheader45.split.preheader.i, label %.critedge.preheader.i
-
-.preheader45.split.preheader.i:                   ; preds = %.preheader45.i, %34
-  br label %.critedge.preheader.i
+  %spec.select.i = select i1 %36, i64 1, i64 2
+  br label %.critedge.preheader.split55.us.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -20637,19 +20635,11 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.preheader45.i, label %.lr.ph.i
 
-.critedge.preheader.i:                            ; preds = %.preheader45.split.preheader.i, %.preheader45.i
-  %.us-phi.i = phi i64 [ 2, %.preheader45.i ], [ 1, %.preheader45.split.preheader.i ]
-  br i1 %.not.i, label %.critedge.preheader.split55.i, label %.critedge.preheader.split55.us.preheader.i
-
-.critedge.preheader.split55.us.preheader.i:       ; preds = %.critedge.preheader.i
-  %wide.trip.count68.i = zext i32 %.173 to i64
-  br label %.critedge.preheader.split55.us.i
-
-.critedge.preheader.split55.us.i:                 ; preds = %._crit_edge.us.i, %.critedge.preheader.split55.us.preheader.i
-  %indvars.iv70.i = phi i64 [ 0, %.critedge.preheader.split55.us.preheader.i ], [ %indvars.iv.next71.i, %._crit_edge.us.i ]
-  %.03854.us.i = phi i32 [ 0, %.critedge.preheader.split55.us.preheader.i ], [ %70, %._crit_edge.us.i ]
-  %.04052.us.i = phi ptr [ %11, %.critedge.preheader.split55.us.preheader.i ], [ %.04151.us.i, %._crit_edge.us.i ]
-  %.04151.us.i = phi ptr [ %10, %.critedge.preheader.split55.us.preheader.i ], [ %.04052.us.i, %._crit_edge.us.i ]
+.critedge.preheader.split55.us.i:                 ; preds = %._crit_edge.us.i, %.preheader45.i
+  %indvars.iv70.i = phi i64 [ 0, %.preheader45.i ], [ %indvars.iv.next71.i, %._crit_edge.us.i ]
+  %.03854.us.i = phi i32 [ 0, %.preheader45.i ], [ %70, %._crit_edge.us.i ]
+  %.04052.us.i = phi ptr [ %11, %.preheader45.i ], [ %.04151.us.i, %._crit_edge.us.i ]
+  %.04151.us.i = phi ptr [ %10, %.preheader45.i ], [ %.04052.us.i, %._crit_edge.us.i ]
   %51 = shl nuw nsw i64 %indvars.iv70.i, 8
   %52 = getelementptr inbounds nuw [512 x i32], ptr %6, i64 0, i64 %51
   br label %65
@@ -20671,7 +20661,7 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
   %64 = load i32, ptr %53, align 4
   store i32 %64, ptr %63, align 4
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
-  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
+  %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count.i
   br i1 %exitcond69.not.i, label %._crit_edge.us.i, label %.preheader.us.i
 
 65:                                               ; preds = %65, %.critedge.preheader.split55.us.i
@@ -20689,388 +20679,380 @@ define internal fastcc void @tdefl_optimize_huffman_table(ptr noundef nonnull ca
 ._crit_edge.us.i:                                 ; preds = %.preheader.us.i
   %indvars.iv.next71.i = add nuw nsw i64 %indvars.iv70.i, 1
   %70 = add nuw nsw i32 %.03854.us.i, 8
-  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %.us-phi.i
+  %exitcond74.not.i = icmp eq i64 %indvars.iv.next71.i, %spec.select.i
   br i1 %exitcond74.not.i, label %tdefl_radix_sort_syms.exit, label %.critedge.preheader.split55.us.i
 
-.critedge.preheader.split55.i:                    ; preds = %.critedge.preheader.i, %.preheader.i
-  %indvars.iv79.i = phi i64 [ %indvars.iv.next80.i, %.preheader.i ], [ 0, %.critedge.preheader.i ]
-  %.04052.i = phi ptr [ %.04151.i, %.preheader.i ], [ %11, %.critedge.preheader.i ]
-  %.04151.i = phi ptr [ %.04052.i, %.preheader.i ], [ %10, %.critedge.preheader.i ]
-  %71 = shl nuw nsw i64 %indvars.iv79.i, 8
-  %72 = getelementptr inbounds nuw [512 x i32], ptr %6, i64 0, i64 %71
-  br label %73
-
-.preheader.i:                                     ; preds = %73
-  %indvars.iv.next80.i = add nuw nsw i64 %indvars.iv79.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next80.i, %.us-phi.i
-  br i1 %exitcond83.not.i, label %tdefl_radix_sort_syms.exit, label %.critedge.preheader.split55.i
-
-73:                                               ; preds = %73, %.critedge.preheader.split55.i
-  %indvars.iv75.i = phi i64 [ 0, %.critedge.preheader.split55.i ], [ %indvars.iv.next76.i, %73 ]
-  %.03748.i = phi i32 [ 0, %.critedge.preheader.split55.i ], [ %77, %73 ]
-  %74 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv75.i
-  store i32 %.03748.i, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv75.i
-  %76 = load i32, ptr %75, align 4
-  %77 = add i32 %76, %.03748.i
+.critedge.preheader.split55.i.preheader:          ; preds = %34, %.critedge.preheader.split55.i.preheader
+  %indvars.iv75.i = phi i64 [ %indvars.iv.next76.i, %.critedge.preheader.split55.i.preheader ], [ 0, %34 ]
+  %.03748.i = phi i32 [ %74, %.critedge.preheader.split55.i.preheader ], [ 0, %34 ]
+  %71 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 0, i64 %indvars.iv75.i
+  store i32 %.03748.i, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv75.i
+  %73 = load i32, ptr %72, align 4
+  %74 = add i32 %73, %.03748.i
   %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next76.i, 256
-  br i1 %exitcond78.not.i, label %.preheader.i, label %73
+  br i1 %exitcond78.not.i, label %tdefl_radix_sort_syms.exit.thread, label %.critedge.preheader.split55.i.preheader
 
-tdefl_radix_sort_syms.exit:                       ; preds = %._crit_edge.us.i, %.preheader.i
-  %.us-phi56.i = phi ptr [ %.04052.i, %.preheader.i ], [ %.04052.us.i, %._crit_edge.us.i ]
+tdefl_radix_sort_syms.exit.thread:                ; preds = %.critedge.preheader.split55.i.preheader
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
-  switch i32 %.173, label %78 [
+  br label %tdefl_huffman_enforce_max_code_size.exit
+
+tdefl_radix_sort_syms.exit:                       ; preds = %._crit_edge.us.i
+  call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7)
+  switch i32 %.173, label %75 [
     i32 0, label %tdefl_huffman_enforce_max_code_size.exit
-    i32 1, label %tdefl_calculate_minimum_redundancy.exit.thread
+    i32 1, label %tdefl_calculate_minimum_redundancy.exit.thread161
   ]
 
-tdefl_calculate_minimum_redundancy.exit.thread:   ; preds = %tdefl_radix_sort_syms.exit
-  store i16 1, ptr %.us-phi56.i, align 2
+tdefl_calculate_minimum_redundancy.exit.thread161: ; preds = %tdefl_radix_sort_syms.exit
+  store i16 1, ptr %.04052.us.i, align 2
   br label %.lr.ph.preheader
 
-78:                                               ; preds = %tdefl_radix_sort_syms.exit
-  %79 = getelementptr inbounds nuw i8, ptr %.us-phi56.i, i64 4
-  %80 = load i16, ptr %79, align 2
-  %81 = load i16, ptr %.us-phi56.i, align 2
-  %82 = add i16 %81, %80
-  store i16 %82, ptr %.us-phi56.i, align 2
-  %83 = add i32 %.173, -1
-  %84 = icmp sgt i32 %.173, 2
-  br i1 %84, label %.lr.ph.preheader.i82, label %._crit_edge.thread.i
+75:                                               ; preds = %tdefl_radix_sort_syms.exit
+  %76 = getelementptr inbounds nuw i8, ptr %.04052.us.i, i64 4
+  %77 = load i16, ptr %76, align 2
+  %78 = load i16, ptr %.04052.us.i, align 2
+  %79 = add i16 %78, %77
+  store i16 %79, ptr %.04052.us.i, align 2
+  %80 = add i32 %.173, -1
+  %81 = icmp sgt i32 %.173, 2
+  br i1 %81, label %.lr.ph.preheader.i82, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %78
-  %85 = add nsw i32 %.173, -2
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %86
-  store i16 0, ptr %87, align 2
+._crit_edge.thread.i:                             ; preds = %75
+  %82 = add nsw i32 %.173, -2
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %83
+  store i16 0, ptr %84, align 2
   br label %.preheader.i81.preheader
 
-.lr.ph.preheader.i82:                             ; preds = %78
-  %wide.trip.count.i83 = zext nneg i32 %83 to i64
+.lr.ph.preheader.i82:                             ; preds = %75
+  %wide.trip.count.i83 = zext nneg i32 %80 to i64
   br label %.lr.ph.i84
 
-.lr.ph.i84:                                       ; preds = %126, %.lr.ph.preheader.i82
-  %indvars.iv.i85 = phi i64 [ 1, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i87, %126 ]
-  %.07992.i = phi i32 [ 2, %.lr.ph.preheader.i82 ], [ %.281.i, %126 ]
-  %.08291.i = phi i32 [ 0, %.lr.ph.preheader.i82 ], [ %.284.i, %126 ]
+.lr.ph.i84:                                       ; preds = %123, %.lr.ph.preheader.i82
+  %indvars.iv.i85 = phi i64 [ 1, %.lr.ph.preheader.i82 ], [ %indvars.iv.next.i87, %123 ]
+  %.07992.i = phi i32 [ 2, %.lr.ph.preheader.i82 ], [ %.281.i, %123 ]
+  %.08291.i = phi i32 [ 0, %.lr.ph.preheader.i82 ], [ %.284.i, %123 ]
   %.not.i86 = icmp slt i32 %.07992.i, %.173
-  %88 = sext i32 %.08291.i to i64
-  %89 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %88
-  %90 = load i16, ptr %89, align 2
-  br i1 %.not.i86, label %91, label %.lr.ph._crit_edge.i
+  %85 = sext i32 %.08291.i to i64
+  %86 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %85
+  %87 = load i16, ptr %86, align 2
+  br i1 %.not.i86, label %88, label %.lr.ph._crit_edge.i
 
-91:                                               ; preds = %.lr.ph.i84
-  %92 = sext i32 %.07992.i to i64
-  %93 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %92
-  %94 = load i16, ptr %93, align 2
-  %95 = icmp ult i16 %90, %94
-  br i1 %95, label %.lr.ph._crit_edge.i, label %99
+88:                                               ; preds = %.lr.ph.i84
+  %89 = sext i32 %.07992.i to i64
+  %90 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %89
+  %91 = load i16, ptr %90, align 2
+  %92 = icmp ult i16 %87, %91
+  br i1 %92, label %.lr.ph._crit_edge.i, label %96
 
-.lr.ph._crit_edge.i:                              ; preds = %91, %.lr.ph.i84
-  %96 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv.i85
-  store i16 %90, ptr %96, align 2
-  %97 = trunc i64 %indvars.iv.i85 to i16
-  %98 = add nsw i32 %.08291.i, 1
-  store i16 %97, ptr %89, align 2
-  %.pre = sext i32 %98 to i64
-  br label %102
+.lr.ph._crit_edge.i:                              ; preds = %88, %.lr.ph.i84
+  %93 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv.i85
+  store i16 %87, ptr %93, align 2
+  %94 = trunc i64 %indvars.iv.i85 to i16
+  %95 = add nsw i32 %.08291.i, 1
+  store i16 %94, ptr %86, align 2
+  %.pre = sext i32 %95 to i64
+  br label %99
 
-99:                                               ; preds = %91
-  %100 = add nsw i32 %.07992.i, 1
-  %101 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv.i85
-  store i16 %94, ptr %101, align 2
-  br label %102
+96:                                               ; preds = %88
+  %97 = add nsw i32 %.07992.i, 1
+  %98 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv.i85
+  store i16 %91, ptr %98, align 2
+  br label %99
 
-102:                                              ; preds = %99, %.lr.ph._crit_edge.i
-  %.pre-phi = phi i64 [ %88, %99 ], [ %.pre, %.lr.ph._crit_edge.i ]
-  %.183.i = phi i32 [ %.08291.i, %99 ], [ %98, %.lr.ph._crit_edge.i ]
-  %.180.i = phi i32 [ %100, %99 ], [ %.07992.i, %.lr.ph._crit_edge.i ]
+99:                                               ; preds = %96, %.lr.ph._crit_edge.i
+  %.pre-phi = phi i64 [ %85, %96 ], [ %.pre, %.lr.ph._crit_edge.i ]
+  %.183.i = phi i32 [ %.08291.i, %96 ], [ %95, %.lr.ph._crit_edge.i ]
+  %.180.i = phi i32 [ %97, %96 ], [ %.07992.i, %.lr.ph._crit_edge.i ]
   %.not88.i = icmp slt i32 %.180.i, %.173
-  br i1 %.not88.i, label %103, label %._crit_edge127.i
+  br i1 %.not88.i, label %100, label %._crit_edge127.i
 
-._crit_edge127.i:                                 ; preds = %102
-  %.phi.trans.insert129.i = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %.pre-phi
+._crit_edge127.i:                                 ; preds = %99
+  %.phi.trans.insert129.i = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %.pre-phi
   %.pre130.i = load i16, ptr %.phi.trans.insert129.i, align 2
-  br label %112
+  br label %109
 
-103:                                              ; preds = %102
-  %104 = icmp sgt i64 %indvars.iv.i85, %.pre-phi
-  br i1 %104, label %105, label %._crit_edge123.i
+100:                                              ; preds = %99
+  %101 = icmp sgt i64 %indvars.iv.i85, %.pre-phi
+  br i1 %101, label %102, label %._crit_edge123.i
 
-._crit_edge123.i:                                 ; preds = %103
+._crit_edge123.i:                                 ; preds = %100
   %.phi.trans.insert124.i = sext i32 %.180.i to i64
-  %.phi.trans.insert125.i = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %.phi.trans.insert124.i
+  %.phi.trans.insert125.i = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %.phi.trans.insert124.i
   %.pre126.i = load i16, ptr %.phi.trans.insert125.i, align 2
-  br label %120
+  br label %117
 
-105:                                              ; preds = %103
-  %106 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %.pre-phi
+102:                                              ; preds = %100
+  %103 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %.pre-phi
+  %104 = load i16, ptr %103, align 2
+  %105 = sext i32 %.180.i to i64
+  %106 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %105
   %107 = load i16, ptr %106, align 2
-  %108 = sext i32 %.180.i to i64
-  %109 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %108
-  %110 = load i16, ptr %109, align 2
-  %111 = icmp ult i16 %107, %110
-  br i1 %111, label %112, label %120
+  %108 = icmp ult i16 %104, %107
+  br i1 %108, label %109, label %117
 
-112:                                              ; preds = %105, %._crit_edge127.i
-  %113 = phi i16 [ %.pre130.i, %._crit_edge127.i ], [ %107, %105 ]
-  %114 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv.i85
-  %115 = load i16, ptr %114, align 2
-  %116 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %.pre-phi
-  %117 = add i16 %115, %113
-  store i16 %117, ptr %114, align 2
-  %118 = trunc i64 %indvars.iv.i85 to i16
-  %119 = add nsw i32 %.183.i, 1
-  store i16 %118, ptr %116, align 2
-  br label %126
+109:                                              ; preds = %102, %._crit_edge127.i
+  %110 = phi i16 [ %.pre130.i, %._crit_edge127.i ], [ %104, %102 ]
+  %111 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv.i85
+  %112 = load i16, ptr %111, align 2
+  %113 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %.pre-phi
+  %114 = add i16 %112, %110
+  store i16 %114, ptr %111, align 2
+  %115 = trunc i64 %indvars.iv.i85 to i16
+  %116 = add nsw i32 %.183.i, 1
+  store i16 %115, ptr %113, align 2
+  br label %123
 
-120:                                              ; preds = %105, %._crit_edge123.i
-  %121 = phi i16 [ %.pre126.i, %._crit_edge123.i ], [ %110, %105 ]
-  %122 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv.i85
-  %123 = load i16, ptr %122, align 2
-  %124 = add nsw i32 %.180.i, 1
-  %125 = add i16 %123, %121
-  store i16 %125, ptr %122, align 2
-  br label %126
+117:                                              ; preds = %102, %._crit_edge123.i
+  %118 = phi i16 [ %.pre126.i, %._crit_edge123.i ], [ %107, %102 ]
+  %119 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv.i85
+  %120 = load i16, ptr %119, align 2
+  %121 = add nsw i32 %.180.i, 1
+  %122 = add i16 %120, %118
+  store i16 %122, ptr %119, align 2
+  br label %123
 
-126:                                              ; preds = %120, %112
-  %.284.i = phi i32 [ %119, %112 ], [ %.183.i, %120 ]
-  %.281.i = phi i32 [ %.180.i, %112 ], [ %124, %120 ]
+123:                                              ; preds = %117, %109
+  %.284.i = phi i32 [ %116, %109 ], [ %.183.i, %117 ]
+  %.281.i = phi i32 [ %.180.i, %109 ], [ %121, %117 ]
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i83
   br i1 %exitcond.not.i88, label %._crit_edge.i, label %.lr.ph.i84
 
-._crit_edge.i:                                    ; preds = %126
-  %127 = add nsw i32 %.173, -2
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %128
-  store i16 0, ptr %129, align 2
-  %130 = add nsw i32 %.173, -3
-  %131 = zext nneg i32 %130 to i64
+._crit_edge.i:                                    ; preds = %123
+  %124 = add nsw i32 %.173, -2
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %125
+  store i16 0, ptr %126, align 2
+  %127 = add nsw i32 %.173, -3
+  %128 = zext nneg i32 %127 to i64
   br label %.lr.ph96.i
 
 .lr.ph96.i:                                       ; preds = %.lr.ph96.i, %._crit_edge.i
-  %indvars.iv115.i = phi i64 [ %131, %._crit_edge.i ], [ %indvars.iv.next116.i, %.lr.ph96.i ]
-  %132 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv115.i
+  %indvars.iv115.i = phi i64 [ %128, %._crit_edge.i ], [ %indvars.iv.next116.i, %.lr.ph96.i ]
+  %129 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv115.i
+  %130 = load i16, ptr %129, align 2
+  %131 = zext i16 %130 to i64
+  %132 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %131
   %133 = load i16, ptr %132, align 2
-  %134 = zext i16 %133 to i64
-  %135 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %134
-  %136 = load i16, ptr %135, align 2
-  %137 = add i16 %136, 1
-  store i16 %137, ptr %132, align 2
+  %134 = add i16 %133, 1
+  store i16 %134, ptr %129, align 2
   %indvars.iv.next116.i = add nsw i64 %indvars.iv115.i, -1
   %.not133.i = icmp eq i64 %indvars.iv115.i, 0
   br i1 %.not133.i, label %.preheader.i81.preheader, label %.lr.ph96.i
 
 .preheader.i81.preheader:                         ; preds = %.lr.ph96.i, %._crit_edge.thread.i
-  %.385110.i.ph = phi i32 [ %85, %._crit_edge.thread.i ], [ %127, %.lr.ph96.i ]
+  %.385110.i.ph = phi i32 [ %82, %._crit_edge.thread.i ], [ %124, %.lr.ph96.i ]
   br label %.preheader.i81
 
 .preheader.i81:                                   ; preds = %.preheader.i81.preheader, %._crit_edge108.i
-  %.0113.i = phi i32 [ %157, %._crit_edge108.i ], [ 0, %.preheader.i81.preheader ]
-  %.075112.i = phi i32 [ %156, %._crit_edge108.i ], [ 1, %.preheader.i81.preheader ]
-  %.2111.i = phi i32 [ %.3.lcssa.i, %._crit_edge108.i ], [ %83, %.preheader.i81.preheader ]
+  %.0113.i = phi i32 [ %154, %._crit_edge108.i ], [ 0, %.preheader.i81.preheader ]
+  %.075112.i = phi i32 [ %153, %._crit_edge108.i ], [ 1, %.preheader.i81.preheader ]
+  %.2111.i = phi i32 [ %.3.lcssa.i, %._crit_edge108.i ], [ %80, %.preheader.i81.preheader ]
   %.385110.i = phi i32 [ %.4.lcssa.i, %._crit_edge108.i ], [ %.385110.i.ph, %.preheader.i81.preheader ]
-  %138 = icmp sgt i32 %.385110.i, -1
-  br i1 %138, label %.lr.ph99.preheader.i, label %.critedge.i
+  %135 = icmp sgt i32 %.385110.i, -1
+  br i1 %135, label %.lr.ph99.preheader.i, label %.critedge.i
 
 .lr.ph99.preheader.i:                             ; preds = %.preheader.i81
-  %139 = add nuw nsw i32 %.385110.i, 1
+  %136 = add nuw nsw i32 %.385110.i, 1
   br label %.lr.ph99.i
 
-.lr.ph99.i:                                       ; preds = %145, %.lr.ph99.preheader.i
-  %.198.i = phi i32 [ %146, %145 ], [ 0, %.lr.ph99.preheader.i ]
-  %.497.i = phi i32 [ %147, %145 ], [ %.385110.i, %.lr.ph99.preheader.i ]
-  %140 = zext nneg i32 %.497.i to i64
-  %141 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %140
-  %142 = load i16, ptr %141, align 2
-  %143 = zext i16 %142 to i32
-  %144 = icmp eq i32 %.0113.i, %143
-  br i1 %144, label %145, label %.critedge.i
+.lr.ph99.i:                                       ; preds = %142, %.lr.ph99.preheader.i
+  %.198.i = phi i32 [ %143, %142 ], [ 0, %.lr.ph99.preheader.i ]
+  %.497.i = phi i32 [ %144, %142 ], [ %.385110.i, %.lr.ph99.preheader.i ]
+  %137 = zext nneg i32 %.497.i to i64
+  %138 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %137
+  %139 = load i16, ptr %138, align 2
+  %140 = zext i16 %139 to i32
+  %141 = icmp eq i32 %.0113.i, %140
+  br i1 %141, label %142, label %.critedge.i
 
-145:                                              ; preds = %.lr.ph99.i
-  %146 = add nuw i32 %.198.i, 1
-  %147 = add nsw i32 %.497.i, -1
+142:                                              ; preds = %.lr.ph99.i
+  %143 = add nuw i32 %.198.i, 1
+  %144 = add nsw i32 %.497.i, -1
   %exitcond118.not.i = icmp eq i32 %.198.i, %.385110.i
   br i1 %exitcond118.not.i, label %.critedge.i, label %.lr.ph99.i
 
-.critedge.i:                                      ; preds = %145, %.lr.ph99.i, %.preheader.i81
-  %.4.lcssa.i = phi i32 [ %.385110.i, %.preheader.i81 ], [ %.497.i, %.lr.ph99.i ], [ -1, %145 ]
-  %.1.lcssa.i = phi i32 [ 0, %.preheader.i81 ], [ %.198.i, %.lr.ph99.i ], [ %139, %145 ]
-  %148 = icmp sgt i32 %.075112.i, %.1.lcssa.i
-  br i1 %148, label %.lr.ph107.i, label %._crit_edge108.i
+.critedge.i:                                      ; preds = %142, %.lr.ph99.i, %.preheader.i81
+  %.4.lcssa.i = phi i32 [ %.385110.i, %.preheader.i81 ], [ %.497.i, %.lr.ph99.i ], [ -1, %142 ]
+  %.1.lcssa.i = phi i32 [ 0, %.preheader.i81 ], [ %.198.i, %.lr.ph99.i ], [ %136, %142 ]
+  %145 = icmp sgt i32 %.075112.i, %.1.lcssa.i
+  br i1 %145, label %.lr.ph107.i, label %._crit_edge108.i
 
 .lr.ph107.i:                                      ; preds = %.critedge.i
-  %149 = trunc i32 %.0113.i to i16
-  %150 = sext i32 %.2111.i to i64
-  br label %151
+  %146 = trunc i32 %.0113.i to i16
+  %147 = sext i32 %.2111.i to i64
+  br label %148
 
-151:                                              ; preds = %151, %.lr.ph107.i
-  %indvars.iv119.i = phi i64 [ %150, %.lr.ph107.i ], [ %indvars.iv.next120.i, %151 ]
-  %.176106.i = phi i32 [ %.075112.i, %.lr.ph107.i ], [ %153, %151 ]
+148:                                              ; preds = %148, %.lr.ph107.i
+  %indvars.iv119.i = phi i64 [ %147, %.lr.ph107.i ], [ %indvars.iv.next120.i, %148 ]
+  %.176106.i = phi i32 [ %.075112.i, %.lr.ph107.i ], [ %150, %148 ]
   %indvars.iv.next120.i = add nsw i64 %indvars.iv119.i, -1
-  %152 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv119.i
-  store i16 %149, ptr %152, align 2
-  %153 = add nsw i32 %.176106.i, -1
-  %154 = icmp sgt i32 %153, %.1.lcssa.i
-  br i1 %154, label %151, label %._crit_edge108.loopexit.i
+  %149 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv119.i
+  store i16 %146, ptr %149, align 2
+  %150 = add nsw i32 %.176106.i, -1
+  %151 = icmp sgt i32 %150, %.1.lcssa.i
+  br i1 %151, label %148, label %._crit_edge108.loopexit.i
 
-._crit_edge108.loopexit.i:                        ; preds = %151
-  %155 = trunc nsw i64 %indvars.iv.next120.i to i32
+._crit_edge108.loopexit.i:                        ; preds = %148
+  %152 = trunc nsw i64 %indvars.iv.next120.i to i32
   br label %._crit_edge108.i
 
 ._crit_edge108.i:                                 ; preds = %._crit_edge108.loopexit.i, %.critedge.i
-  %.3.lcssa.i = phi i32 [ %.2111.i, %.critedge.i ], [ %155, %._crit_edge108.loopexit.i ]
-  %156 = shl nuw nsw i32 %.1.lcssa.i, 1
-  %157 = add nuw nsw i32 %.0113.i, 1
+  %.3.lcssa.i = phi i32 [ %.2111.i, %.critedge.i ], [ %152, %._crit_edge108.loopexit.i ]
+  %153 = shl nuw nsw i32 %.1.lcssa.i, 1
+  %154 = add nuw nsw i32 %.0113.i, 1
   %.not89.i = icmp eq i32 %.1.lcssa.i, 0
   br i1 %.not89.i, label %tdefl_calculate_minimum_redundancy.exit, label %.preheader.i81
 
 tdefl_calculate_minimum_redundancy.exit:          ; preds = %._crit_edge108.i
-  %158 = icmp sgt i32 %.173, 0
-  br i1 %158, label %.lr.ph.preheader, label %tdefl_huffman_enforce_max_code_size.exit
+  %155 = icmp sgt i32 %.173, 0
+  br i1 %155, label %.lr.ph.preheader, label %tdefl_huffman_enforce_max_code_size.exit
 
-.lr.ph.preheader:                                 ; preds = %tdefl_calculate_minimum_redundancy.exit.thread, %tdefl_calculate_minimum_redundancy.exit
+.lr.ph.preheader:                                 ; preds = %tdefl_calculate_minimum_redundancy.exit.thread161, %tdefl_calculate_minimum_redundancy.exit
   %wide.trip.count134 = zext nneg i32 %.173 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv130 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next131, %.lr.ph ]
-  %159 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv130
-  %160 = load i16, ptr %159, align 2
-  %161 = zext i16 %160 to i64
-  %162 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %161
-  %163 = load i32, ptr %162, align 4
-  %164 = add nsw i32 %163, 1
-  store i32 %164, ptr %162, align 4
+  %156 = getelementptr inbounds nuw %struct.tdefl_sym_freq, ptr %.04052.us.i, i64 %indvars.iv130
+  %157 = load i16, ptr %156, align 2
+  %158 = zext i16 %157 to i64
+  %159 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %158
+  %160 = load i32, ptr %159, align 4
+  %161 = add nsw i32 %160, 1
+  store i32 %161, ptr %159, align 4
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
   %exitcond135.not = icmp eq i64 %indvars.iv.next131, %wide.trip.count134
   br i1 %exitcond135.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %165 = icmp slt i32 %.173, 2
-  br i1 %165, label %tdefl_huffman_enforce_max_code_size.exit, label %.preheader35.i
+  %162 = icmp eq i32 %.173, 1
+  br i1 %162, label %tdefl_huffman_enforce_max_code_size.exit, label %.preheader35.i
 
 .preheader35.i:                                   ; preds = %._crit_edge
-  %166 = zext nneg i32 %3 to i64
-  %167 = getelementptr inbounds nuw i32, ptr %8, i64 %166
-  %.promoted.i = load i32, ptr %167, align 4
-  br label %168
+  %163 = zext nneg i32 %3 to i64
+  %164 = getelementptr inbounds nuw i32, ptr %8, i64 %163
+  %.promoted.i = load i32, ptr %164, align 4
+  br label %165
 
-168:                                              ; preds = %168, %.preheader35.i
-  %indvars.iv.i89 = phi i64 [ %166, %.preheader35.i ], [ %indvars.iv.next.i90, %168 ]
-  %169 = phi i32 [ %.promoted.i, %.preheader35.i ], [ %172, %168 ]
+165:                                              ; preds = %165, %.preheader35.i
+  %indvars.iv.i89 = phi i64 [ %163, %.preheader35.i ], [ %indvars.iv.next.i90, %165 ]
+  %166 = phi i32 [ %.promoted.i, %.preheader35.i ], [ %169, %165 ]
   %indvars.iv.next.i90 = add nuw nsw i64 %indvars.iv.i89, 1
-  %170 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i90
-  %171 = load i32, ptr %170, align 4
-  %172 = add nsw i32 %171, %169
-  store i32 %172, ptr %167, align 4
+  %167 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next.i90
+  %168 = load i32, ptr %167, align 4
+  %169 = add nsw i32 %168, %166
+  store i32 %169, ptr %164, align 4
   %exitcond.not.i91 = icmp eq i64 %indvars.iv.next.i90, 32
-  br i1 %exitcond.not.i91, label %.preheader34.i, label %168
+  br i1 %exitcond.not.i91, label %.preheader34.i, label %165
 
 .preheader.i92:                                   ; preds = %.preheader34.i
-  %173 = shl nuw nsw i64 1, %166
-  %174 = zext i32 %180 to i64
-  %.not42.i = icmp eq i64 %173, %174
+  %170 = shl nuw nsw i64 1, %163
+  %171 = zext i32 %177 to i64
+  %.not42.i = icmp eq i64 %170, %171
   br i1 %.not42.i, label %tdefl_huffman_enforce_max_code_size.exit, label %.lr.ph.i93
 
-.preheader34.i:                                   ; preds = %168, %.preheader34.i
-  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.preheader34.i ], [ %166, %168 ]
-  %.040.i = phi i32 [ %180, %.preheader34.i ], [ 0, %168 ]
-  %175 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i
-  %176 = load i32, ptr %175, align 4
-  %177 = trunc i64 %indvars.iv48.i to i32
-  %178 = sub i32 %3, %177
-  %179 = shl i32 %176, %178
-  %180 = add i32 %179, %.040.i
+.preheader34.i:                                   ; preds = %165, %.preheader34.i
+  %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.preheader34.i ], [ %163, %165 ]
+  %.040.i = phi i32 [ %177, %.preheader34.i ], [ 0, %165 ]
+  %172 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i
+  %173 = load i32, ptr %172, align 4
+  %174 = trunc i64 %indvars.iv48.i to i32
+  %175 = sub i32 %3, %174
+  %176 = shl i32 %173, %175
+  %177 = add i32 %176, %.040.i
   %indvars.iv.next49.i = add nsw i64 %indvars.iv48.i, -1
-  %181 = icmp sgt i64 %indvars.iv48.i, 1
-  br i1 %181, label %.preheader34.i, label %.preheader.i92
+  %178 = icmp samesign ugt i64 %indvars.iv48.i, 1
+  br i1 %178, label %.preheader34.i, label %.preheader.i92
 
 .lr.ph.i93:                                       ; preds = %.preheader.i92, %.loopexit.i
-  %.143.i = phi i32 [ %196, %.loopexit.i ], [ %180, %.preheader.i92 ]
-  %182 = load i32, ptr %167, align 4
-  %183 = add nsw i32 %182, -1
-  store i32 %183, ptr %167, align 4
-  br label %184
+  %.143.i = phi i32 [ %193, %.loopexit.i ], [ %177, %.preheader.i92 ]
+  %179 = load i32, ptr %164, align 4
+  %180 = add nsw i32 %179, -1
+  store i32 %180, ptr %164, align 4
+  br label %181
 
-184:                                              ; preds = %186, %.lr.ph.i93
-  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %186 ], [ %166, %.lr.ph.i93 ]
-  %185 = icmp sgt i64 %indvars.iv51.i, 1
-  br i1 %185, label %186, label %.loopexit.i
+181:                                              ; preds = %183, %.lr.ph.i93
+  %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %183 ], [ %163, %.lr.ph.i93 ]
+  %182 = icmp sgt i64 %indvars.iv51.i, 1
+  br i1 %182, label %183, label %.loopexit.i
 
-186:                                              ; preds = %184
+183:                                              ; preds = %181
   %indvars.iv.next52.i = add nsw i64 %indvars.iv51.i, -1
-  %187 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next52.i
-  %188 = load i32, ptr %187, align 4
-  %.not32.i = icmp eq i32 %188, 0
-  br i1 %.not32.i, label %184, label %189
+  %184 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next52.i
+  %185 = load i32, ptr %184, align 4
+  %.not32.i = icmp eq i32 %185, 0
+  br i1 %.not32.i, label %181, label %186
 
-189:                                              ; preds = %186
-  %190 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next52.i
-  %191 = add nsw i32 %188, -1
-  store i32 %191, ptr %190, align 4
-  %192 = and i64 %indvars.iv51.i, 4294967295
-  %193 = getelementptr inbounds nuw i32, ptr %8, i64 %192
-  %194 = load i32, ptr %193, align 4
-  %195 = add nsw i32 %194, 2
-  store i32 %195, ptr %193, align 4
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.next52.i
+  %188 = add nsw i32 %185, -1
+  store i32 %188, ptr %187, align 4
+  %189 = and i64 %indvars.iv51.i, 4294967295
+  %190 = getelementptr inbounds nuw i32, ptr %8, i64 %189
+  %191 = load i32, ptr %190, align 4
+  %192 = add nsw i32 %191, 2
+  store i32 %192, ptr %190, align 4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %184, %189
-  %196 = add i32 %.143.i, -1
-  %197 = zext i32 %196 to i64
-  %.not.i94 = icmp eq i64 %173, %197
+.loopexit.i:                                      ; preds = %181, %186
+  %193 = add i32 %.143.i, -1
+  %194 = zext i32 %193 to i64
+  %.not.i94 = icmp eq i64 %170, %194
   br i1 %.not.i94, label %tdefl_huffman_enforce_max_code_size.exit, label %.lr.ph.i93
 
-tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl_radix_sort_syms.exit, %tdefl_calculate_minimum_redundancy.exit, %._crit_edge, %.preheader.i92
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 36682
-  %199 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %198, i64 0, i64 %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %199, i8 0, i64 288, i1 false)
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 34954
-  %201 = getelementptr inbounds nuw [3 x [288 x i16]], ptr %200, i64 0, i64 %12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(576) %201, i8 0, i64 576, i1 false)
-  %202 = add nuw nsw i32 %3, 1
-  %wide.trip.count142 = zext nneg i32 %202 to i64
-  br label %203
+tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl_radix_sort_syms.exit, %tdefl_radix_sort_syms.exit.thread, %tdefl_calculate_minimum_redundancy.exit, %._crit_edge, %.preheader.i92
+  %.us-phi56.i158160165 = phi ptr [ %.04052.us.i, %._crit_edge ], [ %.04052.us.i, %.preheader.i92 ], [ %.04052.us.i, %tdefl_calculate_minimum_redundancy.exit ], [ %.04052.us.i, %tdefl_radix_sort_syms.exit ], [ %11, %tdefl_radix_sort_syms.exit.thread ], [ %.04052.us.i, %.loopexit.i ]
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 36682
+  %196 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %195, i64 0, i64 %12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(288) %196, i8 0, i64 288, i1 false)
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 34954
+  %198 = getelementptr inbounds nuw [3 x [288 x i16]], ptr %197, i64 0, i64 %12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(576) %198, i8 0, i64 576, i1 false)
+  %199 = add nuw nsw i32 %3, 1
+  %wide.trip.count142 = zext nneg i32 %199 to i64
+  br label %200
 
-203:                                              ; preds = %tdefl_huffman_enforce_max_code_size.exit, %._crit_edge109
+200:                                              ; preds = %tdefl_huffman_enforce_max_code_size.exit, %._crit_edge109
   %indvars.iv139 = phi i64 [ 1, %tdefl_huffman_enforce_max_code_size.exit ], [ %indvars.iv.next140, %._crit_edge109 ]
   %.069110 = phi i32 [ %.173, %tdefl_huffman_enforce_max_code_size.exit ], [ %.170.lcssa, %._crit_edge109 ]
-  %204 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %indvars.iv139
-  %205 = load i32, ptr %204, align 4
-  %206 = icmp sgt i32 %205, 0
-  br i1 %206, label %.lr.ph108, label %._crit_edge109
+  %201 = getelementptr inbounds nuw [33 x i32], ptr %8, i64 0, i64 %indvars.iv139
+  %202 = load i32, ptr %201, align 4
+  %203 = icmp sgt i32 %202, 0
+  br i1 %203, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph108:                                        ; preds = %203
-  %207 = trunc i64 %indvars.iv139 to i8
-  %208 = sext i32 %.069110 to i64
-  br label %209
+.lr.ph108:                                        ; preds = %200
+  %204 = trunc i64 %indvars.iv139 to i8
+  %205 = sext i32 %.069110 to i64
+  br label %206
 
-209:                                              ; preds = %.lr.ph108, %209
-  %indvars.iv136 = phi i64 [ %208, %.lr.ph108 ], [ %indvars.iv.next137, %209 ]
-  %.074105 = phi i32 [ %205, %.lr.ph108 ], [ %214, %209 ]
+206:                                              ; preds = %.lr.ph108, %206
+  %indvars.iv136 = phi i64 [ %205, %.lr.ph108 ], [ %indvars.iv.next137, %206 ]
+  %.074105 = phi i32 [ %202, %.lr.ph108 ], [ %211, %206 ]
   %indvars.iv.next137 = add nsw i64 %indvars.iv136, -1
-  %210 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i, i64 %indvars.iv.next137, i32 1
-  %211 = load i16, ptr %210, align 2
-  %212 = zext i16 %211 to i64
-  %213 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %198, i64 0, i64 %12, i64 %212
-  store i8 %207, ptr %213, align 1
-  %214 = add nsw i32 %.074105, -1
-  %215 = icmp samesign ugt i32 %.074105, 1
-  br i1 %215, label %209, label %._crit_edge109.loopexit
+  %207 = getelementptr inbounds %struct.tdefl_sym_freq, ptr %.us-phi56.i158160165, i64 %indvars.iv.next137, i32 1
+  %208 = load i16, ptr %207, align 2
+  %209 = zext i16 %208 to i64
+  %210 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %195, i64 0, i64 %12, i64 %209
+  store i8 %204, ptr %210, align 1
+  %211 = add nsw i32 %.074105, -1
+  %212 = icmp samesign ugt i32 %.074105, 1
+  br i1 %212, label %206, label %._crit_edge109.loopexit
 
-._crit_edge109.loopexit:                          ; preds = %209
-  %216 = trunc nsw i64 %indvars.iv.next137 to i32
+._crit_edge109.loopexit:                          ; preds = %206
+  %213 = trunc nsw i64 %indvars.iv.next137 to i32
   br label %._crit_edge109
 
-._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %203
-  %.170.lcssa = phi i32 [ %.069110, %203 ], [ %216, %._crit_edge109.loopexit ]
+._crit_edge109:                                   ; preds = %._crit_edge109.loopexit, %200
+  %.170.lcssa = phi i32 [ %.069110, %200 ], [ %213, %._crit_edge109.loopexit ]
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %exitcond143.not = icmp eq i64 %indvars.iv.next140, %wide.trip.count142
-  br i1 %exitcond143.not, label %.loopexit, label %203
+  br i1 %exitcond143.not, label %.loopexit, label %200
 
 .loopexit.loopexit119:                            ; preds = %14
   %.pre154 = add nuw nsw i32 %3, 1
@@ -21079,71 +21061,71 @@ tdefl_huffman_enforce_max_code_size.exit:         ; preds = %.loopexit.i, %tdefl
 
 .loopexit:                                        ; preds = %._crit_edge109, %.loopexit.loopexit119
   %wide.trip.count147.pre-phi = phi i64 [ %.pre156, %.loopexit.loopexit119 ], [ %wide.trip.count142, %._crit_edge109 ]
-  %217 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %217, align 4
-  br label %221
+  %214 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %214, align 4
+  br label %218
 
-.preheader:                                       ; preds = %221
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 36682
-  %219 = zext nneg i32 %1 to i64
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 34954
+.preheader:                                       ; preds = %218
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 36682
+  %216 = zext nneg i32 %1 to i64
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 34954
   %wide.trip.count152 = zext nneg i32 %2 to i64
-  br label %228
+  br label %225
 
-221:                                              ; preds = %.loopexit, %221
-  %indvars.iv144 = phi i64 [ 2, %.loopexit ], [ %indvars.iv.next145, %221 ]
-  %.271112 = phi i32 [ 0, %.loopexit ], [ %226, %221 ]
-  %222 = add nsw i64 %indvars.iv144, -1
-  %223 = getelementptr inbounds [33 x i32], ptr %8, i64 0, i64 %222
-  %224 = load i32, ptr %223, align 4
-  %225 = add nsw i32 %224, %.271112
-  %226 = shl i32 %225, 1
-  %227 = getelementptr inbounds nuw [33 x i32], ptr %9, i64 0, i64 %indvars.iv144
-  store i32 %226, ptr %227, align 4
+218:                                              ; preds = %.loopexit, %218
+  %indvars.iv144 = phi i64 [ 2, %.loopexit ], [ %indvars.iv.next145, %218 ]
+  %.271112 = phi i32 [ 0, %.loopexit ], [ %223, %218 ]
+  %219 = add nsw i64 %indvars.iv144, -1
+  %220 = getelementptr inbounds [33 x i32], ptr %8, i64 0, i64 %219
+  %221 = load i32, ptr %220, align 4
+  %222 = add nsw i32 %221, %.271112
+  %223 = shl i32 %222, 1
+  %224 = getelementptr inbounds nuw [33 x i32], ptr %9, i64 0, i64 %indvars.iv144
+  store i32 %223, ptr %224, align 4
   %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next145, %wide.trip.count147.pre-phi
-  br i1 %exitcond148.not, label %.preheader, label %221
+  br i1 %exitcond148.not, label %.preheader, label %218
 
-228:                                              ; preds = %.preheader, %248
-  %indvars.iv149 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next150, %248 ]
-  %229 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %218, i64 0, i64 %219, i64 %indvars.iv149
-  %230 = load i8, ptr %229, align 1
-  %231 = icmp eq i8 %230, 0
-  br i1 %231, label %248, label %232
+225:                                              ; preds = %.preheader, %245
+  %indvars.iv149 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next150, %245 ]
+  %226 = getelementptr inbounds nuw [3 x [288 x i8]], ptr %215, i64 0, i64 %216, i64 %indvars.iv149
+  %227 = load i8, ptr %226, align 1
+  %228 = icmp eq i8 %227, 0
+  br i1 %228, label %245, label %229
 
-232:                                              ; preds = %228
-  %233 = zext i8 %230 to i32
-  %234 = zext i8 %230 to i64
-  %235 = getelementptr inbounds nuw [33 x i32], ptr %9, i64 0, i64 %234
-  %236 = load i32, ptr %235, align 4
-  %237 = add i32 %236, 1
-  store i32 %237, ptr %235, align 4
-  br label %238
+229:                                              ; preds = %225
+  %230 = zext i8 %227 to i32
+  %231 = zext i8 %227 to i64
+  %232 = getelementptr inbounds nuw [33 x i32], ptr %9, i64 0, i64 %231
+  %233 = load i32, ptr %232, align 4
+  %234 = add i32 %233, 1
+  store i32 %234, ptr %232, align 4
+  br label %235
 
-238:                                              ; preds = %232, %238
-  %.067116 = phi i32 [ %236, %232 ], [ %243, %238 ]
-  %.068115 = phi i32 [ 0, %232 ], [ %241, %238 ]
-  %.175114 = phi i32 [ %233, %232 ], [ %242, %238 ]
-  %239 = shl i32 %.068115, 1
-  %240 = and i32 %.067116, 1
-  %241 = or disjoint i32 %240, %239
-  %242 = add nsw i32 %.175114, -1
-  %243 = lshr i32 %.067116, 1
-  %244 = icmp samesign ugt i32 %.175114, 1
-  br i1 %244, label %238, label %245
+235:                                              ; preds = %229, %235
+  %.067116 = phi i32 [ %233, %229 ], [ %240, %235 ]
+  %.068115 = phi i32 [ 0, %229 ], [ %238, %235 ]
+  %.175114 = phi i32 [ %230, %229 ], [ %239, %235 ]
+  %236 = shl i32 %.068115, 1
+  %237 = and i32 %.067116, 1
+  %238 = or disjoint i32 %237, %236
+  %239 = add nsw i32 %.175114, -1
+  %240 = lshr i32 %.067116, 1
+  %241 = icmp samesign ugt i32 %.175114, 1
+  br i1 %241, label %235, label %242
 
-245:                                              ; preds = %238
-  %246 = trunc i32 %241 to i16
-  %247 = getelementptr inbounds nuw [3 x [288 x i16]], ptr %220, i64 0, i64 %219, i64 %indvars.iv149
-  store i16 %246, ptr %247, align 2
-  br label %248
+242:                                              ; preds = %235
+  %243 = trunc i32 %238 to i16
+  %244 = getelementptr inbounds nuw [3 x [288 x i16]], ptr %217, i64 0, i64 %216, i64 %indvars.iv149
+  store i16 %243, ptr %244, align 2
+  br label %245
 
-248:                                              ; preds = %228, %245
+245:                                              ; preds = %225, %242
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %exitcond153.not = icmp eq i64 %indvars.iv.next150, %wide.trip.count152
-  br i1 %exitcond153.not, label %249, label %228
+  br i1 %exitcond153.not, label %246, label %225
 
-249:                                              ; preds = %248
+246:                                              ; preds = %245
   ret void
 }
 
@@ -21506,7 +21488,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #26
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @mz_zip_array_ensure_capacity(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
@@ -21539,7 +21521,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_array_ensure_capacity(ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %18 = load i32, ptr %17, align 8
   %19 = zext i32 %18 to i64
-  %20 = tail call ptr %13(ptr noundef %15, ptr noundef %16, i64 noundef %19, i64 noundef %.0) #30
+  %20 = tail call ptr %13(ptr noundef %15, ptr noundef %16, i64 noundef %19, i64 noundef %.0) #31
   %21 = icmp eq ptr %20, null
   br i1 %21, label %23, label %22
 
@@ -21557,40 +21539,40 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_array_ensure_capacity(ptr nou
 declare ptr @localtime(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #27
+declare i32 @llvm.umin.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #27
+declare i64 @llvm.umax.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #27
+declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #27
+declare i32 @llvm.umax.i32(i32, i32) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #27
+declare i64 @llvm.umin.i64(i64, i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umax.i16(i16, i16) #27
+declare i16 @llvm.umax.i16(i16, i16) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.umin.i16(i16, i16) #27
+declare i16 @llvm.umin.i16(i16, i16) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #27
+declare i64 @llvm.ctpop.i64(i64) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #29
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smax.i64(i64, i64) #27
+declare i64 @llvm.smax.i64(i64, i64) #28
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -21618,14 +21600,15 @@ attributes #22 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protec
 attributes #23 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #26 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #27 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #28 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #29 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #30 = { nounwind }
-attributes #31 = { nounwind allocsize(0) }
-attributes #32 = { nounwind allocsize(1) }
-attributes #33 = { nounwind willreturn memory(read) }
+attributes #26 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #27 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #28 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #29 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #30 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #31 = { nounwind }
+attributes #32 = { nounwind allocsize(0) }
+attributes #33 = { nounwind allocsize(1) }
+attributes #34 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

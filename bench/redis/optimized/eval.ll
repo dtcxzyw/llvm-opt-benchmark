@@ -1501,12 +1501,12 @@ luaScriptsLRUAdd.exit:                            ; preds = %105, %._crit_edge.i
 
 136:                                              ; preds = %luaScriptsLRUAdd.exit
   %137 = call i64 @sdsZmallocSize(ptr noundef %110) #19
-  %138 = call i64 @getStringObjectSdsUsedMemory(ptr noundef %1) #19
+  %138 = call i64 @getStringObjectSdsUsedMemory(ptr noundef nonnull %1) #19
   %139 = add i64 %138, %137
   %140 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
   %141 = add i64 %139, %140
   store i64 %141, ptr getelementptr inbounds nuw (i8, ptr @lctx, i64 32), align 8, !tbaa !64
-  call void @incrRefCount(ptr noundef %1) #19
+  call void @incrRefCount(ptr noundef nonnull %1) #19
   %142 = load ptr, ptr @lctx, align 8, !tbaa !74
   call void @luaGC(ptr noundef %142, ptr noundef nonnull @gc_count) #19
   br label %143

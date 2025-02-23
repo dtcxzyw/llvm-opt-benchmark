@@ -1517,7 +1517,7 @@ list_length.exit.lr.ph:                           ; preds = %._crit_edge
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %.098109.i to i64
   %45 = getelementptr inbounds ptr, ptr %21, i64 %44
-  %46 = call ptr %43(ptr noundef %23, ptr noundef %27, ptr noundef %45, ptr noundef null, ptr noundef nonnull %4) #12
+  %46 = call ptr %43(ptr noundef %23, ptr noundef nonnull %27, ptr noundef %45, ptr noundef null, ptr noundef nonnull %4) #12
   %47 = add i32 %40, %.098109.i
   %48 = load i32, ptr %4, align 4
   %49 = icmp slt i32 %48, 1
@@ -1547,7 +1547,7 @@ list_length.exit.lr.ph:                           ; preds = %._crit_edge
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 56
   store i32 %58, ptr %61, align 8
   %62 = load ptr, ptr %37, align 8
-  call void @ExecARInsertTriggers(ptr noundef %23, ptr noundef %27, ptr noundef %60, ptr noundef null, ptr noundef %62) #12
+  call void @ExecARInsertTriggers(ptr noundef %23, ptr noundef nonnull %27, ptr noundef %60, ptr noundef null, ptr noundef %62) #12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %63 = load i32, ptr %4, align 4
   %64 = sext i32 %63 to i64

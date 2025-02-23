@@ -1811,7 +1811,7 @@ latencyResetEvent.exit.loopexit:                  ; preds = %.lr.ph.split.us.i
 latencyResetEvent.exit:                           ; preds = %latencyResetEvent.exit.loopexit, %130
   %.0.lcssa.i = phi i64 [ 0, %130 ], [ %140, %latencyResetEvent.exit.loopexit ]
   tail call void @dictReleaseIterator(ptr noundef %132) #14
-  tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %.0.lcssa.i) #14
+  tail call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %.0.lcssa.i) #14
   br label %180
 
 .lr.ph:                                           ; preds = %128, %.lr.ph

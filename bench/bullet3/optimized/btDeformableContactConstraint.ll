@@ -177,9 +177,14 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConst
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 256
   %58 = load ptr, ptr %57, align 8, !tbaa !59
   %59 = icmp sgt i32 %47, -6
-  br i1 %59, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %59, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %43
+.lr.ph.preheader:                                 ; preds = %43
+  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %43
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load float, ptr %60, align 4, !tbaa !37
   %62 = fmul float %61, 0.000000e+00
@@ -191,12 +196,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConst
   %68 = fmul float %67, 0.000000e+00
   br label %._crit_edge102
 
-.lr.ph.preheader:                                 ; preds = %43
-  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph101.preheader:                              ; preds = %.lr.ph
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load float, ptr %69, align 4, !tbaa !37
   %71 = fmul float %85, %70
@@ -223,13 +223,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConst
   %85 = tail call float @llvm.fmuladd.f32(float %82, float %84, float %.09596)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.lr.ph101.preheader, label %.lr.ph, !llvm.loop !60
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge.thread
-  %86 = phi float [ %68, %._crit_edge.thread ], [ %77, %.lr.ph101 ]
-  %87 = phi float [ %65, %._crit_edge.thread ], [ %74, %.lr.ph101 ]
-  %88 = phi float [ %62, %._crit_edge.thread ], [ %71, %.lr.ph101 ]
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %108, %.lr.ph101 ]
+._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge
+  %86 = phi float [ %68, %._crit_edge ], [ %77, %.lr.ph101 ]
+  %87 = phi float [ %65, %._crit_edge ], [ %74, %.lr.ph101 ]
+  %88 = phi float [ %62, %._crit_edge ], [ %71, %.lr.ph101 ]
+  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %108, %.lr.ph101 ]
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %90 = load float, ptr %89, align 4, !tbaa !37
   %91 = fmul float %.1.lcssa, %90
@@ -249,9 +249,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK32btDeformableNodeAnchorConst
   %wide.trip.count123 = zext nneg i32 %smax122 to i64
   br label %.lr.ph107
 
-.lr.ph101:                                        ; preds = %._crit_edge, %.lr.ph101
-  %indvars.iv113 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next114, %.lr.ph101 ]
-  %.198 = phi float [ 0.000000e+00, %._crit_edge ], [ %108, %.lr.ph101 ]
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next114, %.lr.ph101 ]
+  %.198 = phi float [ 0.000000e+00, %.lr.ph101.preheader ], [ %108, %.lr.ph101 ]
   %101 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv113
   %102 = load float, ptr %101, align 4, !tbaa !37
   %103 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv113
@@ -833,9 +833,14 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %57 = getelementptr inbounds nuw i8, ptr %45, i64 256
   %58 = load ptr, ptr %57, align 8, !tbaa !59
   %59 = icmp sgt i32 %47, -6
-  br i1 %59, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %59, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %43
+.lr.ph.preheader:                                 ; preds = %43
+  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %43
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %61 = load float, ptr %60, align 4, !tbaa !37
   %62 = fmul float %61, 0.000000e+00
@@ -847,12 +852,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %68 = fmul float %67, 0.000000e+00
   br label %._crit_edge102
 
-.lr.ph.preheader:                                 ; preds = %43
-  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph101.preheader:                              ; preds = %.lr.ph
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load float, ptr %69, align 4, !tbaa !37
   %71 = fmul float %85, %70
@@ -879,13 +879,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %85 = tail call float @llvm.fmuladd.f32(float %82, float %84, float %.09596)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !84
+  br i1 %exitcond.not, label %.lr.ph101.preheader, label %.lr.ph, !llvm.loop !84
 
-._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge.thread
-  %86 = phi float [ %68, %._crit_edge.thread ], [ %77, %.lr.ph101 ]
-  %87 = phi float [ %65, %._crit_edge.thread ], [ %74, %.lr.ph101 ]
-  %88 = phi float [ %62, %._crit_edge.thread ], [ %71, %.lr.ph101 ]
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %108, %.lr.ph101 ]
+._crit_edge102:                                   ; preds = %.lr.ph101, %._crit_edge
+  %86 = phi float [ %68, %._crit_edge ], [ %77, %.lr.ph101 ]
+  %87 = phi float [ %65, %._crit_edge ], [ %74, %.lr.ph101 ]
+  %88 = phi float [ %62, %._crit_edge ], [ %71, %.lr.ph101 ]
+  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %108, %.lr.ph101 ]
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %90 = load float, ptr %89, align 4, !tbaa !37
   %91 = fmul float %.1.lcssa, %90
@@ -905,9 +905,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %wide.trip.count123 = zext nneg i32 %smax122 to i64
   br label %.lr.ph107
 
-.lr.ph101:                                        ; preds = %._crit_edge, %.lr.ph101
-  %indvars.iv113 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next114, %.lr.ph101 ]
-  %.198 = phi float [ 0.000000e+00, %._crit_edge ], [ %108, %.lr.ph101 ]
+.lr.ph101:                                        ; preds = %.lr.ph101.preheader, %.lr.ph101
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next114, %.lr.ph101 ]
+  %.198 = phi float [ 0.000000e+00, %.lr.ph101.preheader ], [ %108, %.lr.ph101 ]
   %101 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv113
   %102 = load float, ptr %101, align 4, !tbaa !37
   %103 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv113
@@ -1032,9 +1032,14 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %55 = getelementptr inbounds nuw i8, ptr %45, i64 224
   %56 = load ptr, ptr %55, align 8, !tbaa !59
   %57 = icmp sgt i32 %47, -6
-  br i1 %57, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %57, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %43
+.lr.ph.preheader:                                 ; preds = %43
+  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %43
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = load float, ptr %58, align 4, !tbaa !37
   %60 = fmul float %59, 0.000000e+00
@@ -1046,12 +1051,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %66 = fmul float %65, 0.000000e+00
   br label %._crit_edge95
 
-.lr.ph.preheader:                                 ; preds = %43
-  %smax = tail call i32 @llvm.smax.i32(i32 %48, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph94.preheader:                               ; preds = %.lr.ph
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %68 = load float, ptr %67, align 4, !tbaa !37
   %69 = fmul float %80, %68
@@ -1075,13 +1075,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %80 = tail call float @llvm.fmuladd.f32(float %77, float %79, float %.08889)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !87
+  br i1 %exitcond.not, label %.lr.ph94.preheader, label %.lr.ph, !llvm.loop !87
 
-._crit_edge95:                                    ; preds = %.lr.ph94, %._crit_edge.thread
-  %81 = phi float [ %66, %._crit_edge.thread ], [ %75, %.lr.ph94 ]
-  %82 = phi float [ %63, %._crit_edge.thread ], [ %72, %.lr.ph94 ]
-  %83 = phi float [ %60, %._crit_edge.thread ], [ %69, %.lr.ph94 ]
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %100, %.lr.ph94 ]
+._crit_edge95:                                    ; preds = %.lr.ph94, %._crit_edge
+  %81 = phi float [ %66, %._crit_edge ], [ %75, %.lr.ph94 ]
+  %82 = phi float [ %63, %._crit_edge ], [ %72, %.lr.ph94 ]
+  %83 = phi float [ %60, %._crit_edge ], [ %69, %.lr.ph94 ]
+  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %100, %.lr.ph94 ]
   %84 = getelementptr inbounds nuw i8, ptr %3, i64 816
   %85 = load float, ptr %84, align 4, !tbaa !37
   %86 = fmul float %.1.lcssa, %85
@@ -1101,9 +1101,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK34btDeformableRigidContactCon
   %wide.trip.count116 = zext nneg i32 %smax115 to i64
   br label %.lr.ph100
 
-.lr.ph94:                                         ; preds = %._crit_edge, %.lr.ph94
-  %indvars.iv106 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next107, %.lr.ph94 ]
-  %.191 = phi float [ 0.000000e+00, %._crit_edge ], [ %100, %.lr.ph94 ]
+.lr.ph94:                                         ; preds = %.lr.ph94.preheader, %.lr.ph94
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph94.preheader ], [ %indvars.iv.next107, %.lr.ph94 ]
+  %.191 = phi float [ 0.000000e+00, %.lr.ph94.preheader ], [ %100, %.lr.ph94 ]
   %96 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv106
   %97 = load float, ptr %96, align 4, !tbaa !37
   %98 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv106

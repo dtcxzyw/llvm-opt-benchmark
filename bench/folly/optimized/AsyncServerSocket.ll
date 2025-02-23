@@ -12224,7 +12224,7 @@ _ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_
   %50 = load ptr, ptr %26, align 8, !tbaa !12
   %51 = load ptr, ptr %50, align 8
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(210) %26) #40
-  br label %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37.thread
+  br label %.loopexit
 
 52:                                               ; preds = %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit, %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %.0.ph = phi ptr [ %36, %_ZSt34__uninitialized_move_if_noexcept_aIPN5folly17AsyncServerSocket18ServerEventHandlerES3_SaIS2_EET0_T_S6_S5_RT1_.exit ], [ %25, %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE11_M_allocateEm.exit ]
@@ -12233,7 +12233,7 @@ _ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_
   %53 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %54 = tail call ptr @__cxa_begin_catch(ptr %53) #40
   %.not4.i.i.i33 = icmp eq ptr %25, %.0.ph
-  br i1 %.not4.i.i.i33, label %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37.thread, label %.lr.ph.i.i.i34
+  br i1 %.not4.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %52, %.lr.ph.i.i.i34
   %.05.i.i.i35 = phi ptr [ %57, %.lr.ph.i.i.i34 ], [ %25, %52 ]
@@ -12242,24 +12242,17 @@ _ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(210) %.05.i.i.i35) #40
   %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 216
   %.not.i.i.i36 = icmp eq ptr %57, %.0.ph
-  br i1 %.not.i.i.i36, label %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37, label %.lr.ph.i.i.i34, !llvm.loop !135
+  br i1 %.not.i.i.i36, label %.loopexit, label %.lr.ph.i.i.i34, !llvm.loop !135
 
-58:                                               ; preds = %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_deallocateEPS2_m.exit39
+58:                                               ; preds = %.loopexit
   %59 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %61 unwind label %62
 
-_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37: ; preds = %.lr.ph.i.i.i34
-  %.not.i38 = icmp eq ptr %25, null
-  br i1 %.not.i38, label %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_deallocateEPS2_m.exit39, label %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37.thread
-
-_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37.thread: ; preds = %47, %52, %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37
+.loopexit:                                        ; preds = %.lr.ph.i.i.i34, %47, %52
   %60 = mul nuw nsw i64 %19, 216
   tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %60) #52
-  br label %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_deallocateEPS2_m.exit39
-
-_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_deallocateEPS2_m.exit39: ; preds = %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37.thread, %_ZSt8_DestroyIPN5folly17AsyncServerSocket18ServerEventHandlerES2_EvT_S4_RSaIT0_E.exit37
   invoke void @__cxa_rethrow() #53
           to label %65 unwind label %58
 
@@ -12273,7 +12266,7 @@ _ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_
   tail call void @__clang_call_terminate(ptr %64) #50
   unreachable
 
-65:                                               ; preds = %_ZNSt12_Vector_baseIN5folly17AsyncServerSocket18ServerEventHandlerESaIS2_EE13_M_deallocateEPS2_m.exit39
+65:                                               ; preds = %.loopexit
   unreachable
 }
 

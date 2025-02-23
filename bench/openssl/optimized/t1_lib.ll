@@ -2971,7 +2971,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %.lr.ph.i
   br i1 %or.cond, label %39, label %42
 
 39:                                               ; preds = %tls1_lookup_sigalg.exit
-  %40 = getelementptr inbounds nuw i8, ptr %..0.i, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %.03.i, i64 20
   %41 = load i32, ptr %40, align 4, !tbaa !183
   br label %42
 
@@ -2999,7 +2999,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %.lr.ph.i
   br i1 %or.cond123, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %..0.i, i64 12
+  %52 = getelementptr inbounds nuw i8, ptr %.03.i, i64 12
   %53 = load i32, ptr %52, align 4, !tbaa !178
   switch i32 %53, label %54 [
     i32 64, label %.thread141
@@ -3007,7 +3007,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %.lr.ph.i
   ]
 
 54:                                               ; preds = %51, %48, %47
-  %55 = getelementptr inbounds nuw i8, ptr %..0.i, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %.03.i, i64 20
   %56 = load i32, ptr %55, align 4, !tbaa !183
   %.not103 = icmp eq i32 %.188, %56
   br i1 %.not103, label %60, label %57
@@ -3041,7 +3041,7 @@ tls1_lookup_sigalg.exit:                          ; preds = %.lr.ph.i
   br i1 %.not104, label %72, label %67
 
 67:                                               ; preds = %.thread144
-  %68 = getelementptr inbounds nuw i8, ptr %..0.i, i64 24
+  %68 = getelementptr inbounds nuw i8, ptr %.03.i, i64 24
   %69 = load i32, ptr %68, align 8, !tbaa !188
   %70 = load i64, ptr %6, align 8, !tbaa !105
   %71 = trunc i64 %70 to i32
@@ -3156,7 +3156,7 @@ tls1_check_pkey_comp.exit:                        ; preds = %.lr.ph.i129, %.thre
 
 117:                                              ; preds = %108, %111
   %118 = call i32 @ssl_get_EC_curve_nid(ptr noundef %2)
-  %119 = getelementptr inbounds nuw i8, ptr %..0.i, i64 32
+  %119 = getelementptr inbounds nuw i8, ptr %.03.i, i64 32
   %120 = load i32, ptr %119, align 8, !tbaa !190
   %.not111 = icmp eq i32 %120, 0
   %.not112 = icmp eq i32 %118, %120
@@ -3264,7 +3264,7 @@ tls1_check_pkey_comp.exit:                        ; preds = %.lr.ph.i129, %.thre
   br i1 %155, label %._crit_edge.thread, label %165
 
 ._crit_edge.thread:                               ; preds = %152, %._crit_edge
-  %156 = getelementptr inbounds nuw i8, ptr %..0.i, i64 12
+  %156 = getelementptr inbounds nuw i8, ptr %.03.i, i64 12
   %157 = load i32, ptr %156, align 4, !tbaa !178
   %.not117 = icmp eq i32 %157, 64
   br i1 %.not117, label %158, label %164
@@ -3285,14 +3285,14 @@ tls1_check_pkey_comp.exit:                        ; preds = %.lr.ph.i129, %.thre
   br label %189
 
 165:                                              ; preds = %._crit_edge
-  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %..0.i, i64 12
+  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %.03.i, i64 12
   %.pre165 = load i32, ptr %.phi.trans.insert164, align 4, !tbaa !178
   %166 = icmp eq i32 %.pre165, 0
   br i1 %166, label %172, label %.thread168
 
 .thread168:                                       ; preds = %158, %165
   %167 = load ptr, ptr %24, align 8, !tbaa !126
-  %168 = getelementptr inbounds nuw i8, ptr %..0.i, i64 16
+  %168 = getelementptr inbounds nuw i8, ptr %.03.i, i64 16
   %169 = load i32, ptr %168, align 8, !tbaa !180
   %170 = call ptr @ssl_md(ptr noundef %167, i32 noundef %169) #14
   %171 = icmp eq ptr %170, null

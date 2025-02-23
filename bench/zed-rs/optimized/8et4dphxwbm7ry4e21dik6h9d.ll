@@ -16982,7 +16982,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2f538571bbff0843E
 
 .preheader.i.i54.i.i:                             ; preds = %83, %98
   %.sroa.025.047.i.i.i.i = phi i64 [ %94, %98 ], [ 0, %83 ]
-  %.sroa.011.246.i.i.i.i = phi i8 [ %.sroa.011.3.i.i.i.i, %98 ], [ %.sroa.011.048.i.i.i.i, %83 ]
+  %.sroa.011.246.i.i.i.i = phi i8 [ %.sroa.011.3.i.i.i.i, %98 ], [ 0, %83 ]
   %94 = add nuw nsw i64 %.sroa.025.047.i.i.i.i, 1
   %95 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.047.i.i.i.i
   %96 = load i16, ptr %95, align 2, !noalias !1238, !noundef !4

@@ -5607,7 +5607,7 @@ thread-pre-split:                                 ; preds = %25, %34
   tail call void @dt_bauhaus_combobox_set(ptr noundef %164, i32 noundef %165) #21
   %166 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %167 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
-  tail call void @dt_dev_add_history_item_target(ptr noundef %166, ptr noundef %2, i32 noundef 1, ptr noundef %167) #21
+  tail call void @dt_dev_add_history_item_target(ptr noundef %166, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %167) #21
   %168 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %169 = load ptr, ptr %168, align 8, !tbaa !130
   %170 = tail call i64 @gtk_widget_get_type() #23
@@ -5704,7 +5704,7 @@ thread-pre-split:                                 ; preds = %25, %34
   tail call void @gtk_widget_queue_draw(ptr noundef %219) #21
   %220 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %221 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %16
-  tail call void @dt_dev_add_history_item_target(ptr noundef %220, ptr noundef %2, i32 noundef 1, ptr noundef %221) #21
+  tail call void @dt_dev_add_history_item_target(ptr noundef %220, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %221) #21
   br label %230
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6773,7 +6773,7 @@ dt_iop_tonecurve_sanity_check.exit:               ; preds = %36, %63, %66, %._cr
   tail call void @gtk_widget_queue_draw(ptr noundef %1) #21
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !224
   %81 = getelementptr inbounds %struct._GtkWidget, ptr %1, i64 %12
-  tail call void @dt_dev_add_history_item_target(ptr noundef %80, ptr noundef %0, i32 noundef 1, ptr noundef %81) #21
+  tail call void @dt_dev_add_history_item_target(ptr noundef %80, ptr noundef nonnull %0, i32 noundef 1, ptr noundef %81) #21
   ret void
 }
 

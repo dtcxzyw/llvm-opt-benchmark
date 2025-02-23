@@ -15666,7 +15666,7 @@ if.then:                                          ; preds = %_ZNKSt6vectorIN7roc
   %15 = extractvalue { ptr, i32 } %14, 0
   %16 = tail call ptr @__cxa_begin_catch(ptr %15) #24
   tail call void @_ZN7rocksdb17CompactionOutputs6OutputD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %add.ptr) #24
-  br label %if.then.i31
+  br label %invoke.cont31
 
 if.else:                                          ; preds = %invoke.cont20
   %17 = landingpad { ptr, i32 }
@@ -15674,22 +15674,22 @@ if.else:                                          ; preds = %invoke.cont20
   %18 = extractvalue { ptr, i32 } %17, 0
   %19 = tail call ptr @__cxa_begin_catch(ptr %18) #24
   %cmp.not3.i.i.i24 = icmp eq ptr %call5.i.i.i, %incdec.ptr
-  br i1 %cmp.not3.i.i.i24, label %if.then.i31, label %for.body.i.i.i25
+  br i1 %cmp.not3.i.i.i24, label %invoke.cont31, label %for.body.i.i.i25
 
 for.body.i.i.i25:                                 ; preds = %if.else, %for.body.i.i.i25
   %__first.addr.04.i.i.i26 = phi ptr [ %incdec.ptr.i.i.i27, %for.body.i.i.i25 ], [ %call5.i.i.i, %if.else ]
   tail call void @_ZN7rocksdb17CompactionOutputs6OutputD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %__first.addr.04.i.i.i26) #24
   %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i26, i64 392
   %cmp.not.i.i.i28 = icmp eq ptr %__first.addr.04.i.i.i26, %call.i.i.i.i20
-  br i1 %cmp.not.i.i.i28, label %if.then.i31, label %for.body.i.i.i25, !llvm.loop !24
+  br i1 %cmp.not.i.i.i28, label %invoke.cont31, label %for.body.i.i.i25, !llvm.loop !24
 
-lpad29:                                           ; preds = %if.then.i31
+lpad29:                                           ; preds = %invoke.cont31
   %20 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %eh.resume unwind label %terminate.lpad
 
-if.then.i31:                                      ; preds = %for.body.i.i.i25, %if.then, %if.else
+invoke.cont31:                                    ; preds = %for.body.i.i.i25, %if.then, %if.else
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i) #23
   invoke void @__cxa_rethrow() #25
           to label %unreachable unwind label %lpad29
@@ -15704,7 +15704,7 @@ terminate.lpad:                                   ; preds = %lpad29
   tail call void @__clang_call_terminate(ptr %22) #27
   unreachable
 
-unreachable:                                      ; preds = %if.then.i31
+unreachable:                                      ; preds = %invoke.cont31
   unreachable
 }
 

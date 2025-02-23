@@ -1041,7 +1041,7 @@ define dso_local void @IssueCommandPerBlob(ptr noundef %0, ptr noundef readonly 
   %.027.us = phi ptr [ %16, %.lr.ph.split.us ], [ %7, %.lr.ph ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   store i8 0, ptr %15, align 1
-  %17 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %.027.us, ptr noundef %3) #11
+  %17 = tail call i32 (ptr, ptr, ...) @ahprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, ptr noundef %2, ptr noundef nonnull %.027.us, ptr noundef %3) #11
   %18 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 10) #14
   %.not.us = icmp eq ptr %18, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9

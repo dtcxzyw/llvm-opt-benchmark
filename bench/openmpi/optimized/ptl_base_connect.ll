@@ -1101,7 +1101,7 @@ pmix_obj_new_tma.exit304:                         ; preds = %.lr.ph.i.i301, %228
   %246 = load volatile i64, ptr %179, align 8, !tbaa !76
   %247 = add i64 %246, 1
   store volatile i64 %247, ptr %179, align 8, !tbaa !76
-  call void @free(ptr noundef %221) #14
+  call void @free(ptr noundef nonnull %221) #14
   br label %248
 
 248:                                              ; preds = %pmix_ptl_base_get_cmd_line.exit.thread, %pmix_obj_new_tma.exit304, %pmix_ptl_base_get_cmd_line.exit

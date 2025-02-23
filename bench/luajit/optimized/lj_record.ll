@@ -5431,7 +5431,7 @@ rec_upvalue_constify.exit.thread141:              ; preds = %ctype_raw.exit.i, %
   %84 = icmp ult i64 %.pre-phi164, -14
   %85 = xor i32 %77, -1
   %.0.i.i137 = select i1 %84, i32 14, i32 %85
-  %86 = tail call i32 @lj_ir_kgc(ptr noundef %0, ptr noundef %83, i32 noundef %.0.i.i137) #8
+  %86 = tail call i32 @lj_ir_kgc(ptr noundef nonnull %0, ptr noundef %83, i32 noundef %.0.i.i137) #8
   br label %lj_record_constify.exit
 
 87:                                               ; preds = %75
@@ -5439,7 +5439,7 @@ rec_upvalue_constify.exit.thread141:              ; preds = %ctype_raw.exit.i, %
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %87
-  %90 = tail call i32 @lj_ir_knumint(ptr noundef %0, double noundef %80) #8
+  %90 = tail call i32 @lj_ir_knumint(ptr noundef nonnull %0, double noundef %80) #8
   br label %lj_record_constify.exit
 
 91:                                               ; preds = %87
@@ -5612,7 +5612,7 @@ rec_upvalue_constify.exit.thread144:              ; preds = %lj_record_constify.
   store i16 %192, ptr %197, align 8, !tbaa !4
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 186
   store i16 %196, ptr %199, align 2, !tbaa !4
-  %200 = tail call i32 @lj_opt_fold(ptr noundef %0) #8
+  %200 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
   br label %201
 
 201:                                              ; preds = %191, %166
@@ -6097,7 +6097,7 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
 
 .loopexit275:                                     ; preds = %125, %110, %146
   %.0203 = phi i64 [ 0, %146 ], [ %19, %110 ], [ %19, %125 ]
-  %151 = icmp slt i64 %.0203, %2
+  %151 = icmp samesign ult i64 %.0203, %2
   br i1 %151, label %.lr.ph278, label %._crit_edge
 
 .lr.ph278:                                        ; preds = %.loopexit275
@@ -7587,7 +7587,7 @@ define internal fastcc void @rec_func_lua(ptr noundef %0) unnamed_addr #0 {
 
 rec_func_setup.exit:                              ; preds = %27, %20
   store i32 %6, ptr %21, align 4, !tbaa !36
-  tail call fastcc void @check_call_unroll(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @check_call_unroll(ptr noundef nonnull %0, i32 noundef 0)
   ret void
 }
 

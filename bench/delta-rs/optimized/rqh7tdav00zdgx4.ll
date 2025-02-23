@@ -9347,10 +9347,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
 
 146:                                              ; preds = %81
   %147 = load i64, ptr %19, align 8, !range !751, !noundef !9
-  %trunc = trunc nuw i64 %147 to i1
   %148 = load ptr, ptr %50, align 8, !nonnull !9, !align !26
   %149 = load i64, ptr %51, align 8
-  %.sroa.439.0 = select i1 %trunc, i64 undef, i64 %149
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   %150 = load ptr, ptr %52, align 8, !nonnull !9, !noundef !9
   %151 = load i64, ptr %53, align 8, !noundef !9
@@ -9359,14 +9357,16 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
           to label %152 unwind label %144
 
 152:                                              ; preds = %146
+  %trunc = trunc nuw i64 %147 to i1
   %153 = load i64, ptr %18, align 8, !range !751, !noundef !9
   %trunc46 = trunc nuw i64 %153 to i1
   %154 = load ptr, ptr %54, align 8, !nonnull !9, !align !26
   %155 = load i64, ptr %55, align 8
-  %.sroa.442.0 = select i1 %trunc46, i64 undef, i64 %155
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %or.cond = select i1 %trunc, i1 true, i1 %trunc46
-  %.not.i75 = icmp ult i64 %.sroa.439.0, 7
+  %.not.i75135 = icmp ult i64 %149, 7
+  %not.trunc = xor i1 %trunc, true
+  %.not.i75 = select i1 %not.trunc, i1 %.not.i75135, i1 false
   %or.cond134 = select i1 %or.cond, i1 true, i1 %.not.i75
   br i1 %or.cond134, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef1de54ee22b8961E.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17hef1de54ee22b8961E.exit"
 
@@ -9426,8 +9426,8 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
   %175 = extractvalue { i64, ptr } %164, 0
   store i64 %175, ptr %26, align 8, !alias.scope !1794, !noalias !1802
   store ptr %165, ptr %.sroa.4.0..sroa_idx.i76, align 8, !alias.scope !1794, !noalias !1802
-  store i64 %.sroa.439.0, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !1794, !noalias !1802
-  invoke void @"_ZN90_$LT$object_store..gcp..builder..GoogleConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h69946efc5da2a88bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %27, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %.sroa.439.0)
+  store i64 %149, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !1794, !noalias !1802
+  invoke void @"_ZN90_$LT$object_store..gcp..builder..GoogleConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h69946efc5da2a88bE"(ptr noalias noundef nonnull sret({ i64, [9 x i64] }) align 8 captures(none) dereferenceable(80) %27, ptr noalias noundef nonnull readonly align 1 %165, i64 noundef %149)
           to label %178 unwind label %176
 
 "_ZN4core3ptr114drop_in_place$LT$core..result..Result$LT$object_store..gcp..builder..GoogleConfigKey$C$object_store..Error$GT$$GT$17he7243cd9e80f4e17E.exit80": ; preds = %186, %190, %176
@@ -9449,7 +9449,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
   %182 = load i8, ptr %56, align 8, !range !1803, !noundef !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  %183 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h96c98151810f5821E"(i64 noundef %.sroa.442.0, i1 noundef zeroext false)
+  %183 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h96c98151810f5821E"(i64 noundef %155, i1 noundef zeroext false)
           to label %191 unwind label %186
 
 184:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdeaf2b35720a3dfbE.exit.i", %195
@@ -9478,10 +9478,10 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.76080
   %193 = extractvalue { i64, ptr } %183, 1
   %194 = icmp ne ptr %193, null
   call void @llvm.assume(i1 %194)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr nonnull align 1 %154, i64 %.sroa.442.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %193, ptr nonnull align 1 %154, i64 %155, i1 false)
   store i64 %192, ptr %24, align 8
   store ptr %193, ptr %.sroa.426.0..sroa_idx, align 8
-  store i64 %.sroa.442.0, ptr %.sroa.527.0..sroa_idx, align 8
+  store i64 %155, ptr %.sroa.527.0..sroa_idx, align 8
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h785e1d0a1755dc27E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull align 8 dereferenceable(48) %33, i8 noundef %182, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %24)
           to label %195 unwind label %186
 

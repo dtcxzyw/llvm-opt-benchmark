@@ -1446,7 +1446,7 @@ _ZNK4llvm15ScopedHashTableIPKNS_4SCEVE9LoadValueNS_12DenseMapInfoIS3_vEENS_15Mal
 119:                                              ; preds = %_ZNK4llvm15ScopedHashTableIPKNS_4SCEVE9LoadValueNS_12DenseMapInfoIS3_vEENS_15MallocAllocatorEE6lookupERKS3_.exit
   %120 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !105
-  %122 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 8
+  %122 = getelementptr inbounds i8, ptr %.sroa.085.0122, i64 -16
   %123 = load ptr, ptr %122, align 8, !tbaa !105
   %.not18.i = icmp eq ptr %121, %123
   br i1 %.not18.i, label %124, label %_Z16getMatchingValue9LoadValuePN4llvm8LoadInstEjRNS0_14BatchAAResultsENS0_12function_refIFPNS0_9MemorySSAEvEEE.exit.thread
@@ -1571,7 +1571,7 @@ _Z16getMatchingValue9LoadValuePN4llvm8LoadInstEjRNS0_14BatchAAResultsENS0_12func
 196:                                              ; preds = %_Z16getMatchingValue9LoadValuePN4llvm8LoadInstEjRNS0_14BatchAAResultsENS0_12function_refIFPNS0_9MemorySSAEvEEE.exit.thread103
   %197 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 40
   %198 = load ptr, ptr %197, align 8, !tbaa !192
-  %199 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
+  %199 = getelementptr inbounds nuw i8, ptr %.sroa.085.0122, i64 16
   %200 = load ptr, ptr %199, align 8, !tbaa !192
   %201 = icmp eq ptr %198, %200
   br i1 %201, label %.loopexit, label %202
@@ -3171,7 +3171,6 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:       ; preds = %_ZN4llvm10BasicBloc
   %102 = getelementptr inbounds i8, ptr %100, i64 -24
   %103 = load i8, ptr %102, align 8, !tbaa !176
   %.not1088 = icmp eq i8 %103, 31
-  %spec.select.i.i397 = select i1 %.not1088, ptr %102, ptr null
   br i1 %.not1088, label %104, label %216
 
 104:                                              ; preds = %_ZN4llvm10BasicBlock13getTerminatorEv.exit
@@ -3348,7 +3347,7 @@ _ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit: ; preds = %160, %162, %.
 
 177:                                              ; preds = %_ZSt3gcdIjjENSt11common_typeIJT_T0_EE4typeES1_S2_.exit, %157
   %178 = load ptr, ptr %20, align 8, !tbaa !66
-  %179 = getelementptr inbounds i8, ptr %spec.select.i.i397, i64 -32
+  %179 = getelementptr inbounds i8, ptr %100, i64 -56
   %180 = load ptr, ptr %179, align 8, !tbaa !177
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 56
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 76
@@ -7685,15 +7684,12 @@ _ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit: ; preds = %
   br i1 %26, label %.critedge, label %27
 
 27:                                               ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit
-  %28 = icmp eq ptr %.sroa.013.017, null
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 24
-  %spec.select.i.i.i.i = select i1 %28, ptr null, ptr %29
-  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !171
-  %32 = getelementptr inbounds i8, ptr %31, i64 -24
-  %33 = load i8, ptr %32, align 8, !tbaa !176
-  %34 = icmp eq i8 %33, 84
-  %spec.select.i.i.i1.i = select i1 %34, ptr %32, ptr null
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 32
+  %29 = load ptr, ptr %28, align 8, !tbaa !171
+  %30 = getelementptr inbounds i8, ptr %29, i64 -24
+  %31 = load i8, ptr %30, align 8, !tbaa !176
+  %32 = icmp eq i8 %31, 84
+  %spec.select.i.i.i1.i = select i1 %32, ptr %30, ptr null
   %.not19 = icmp eq ptr %spec.select.i.i.i1.i, %8
   br i1 %.not19, label %.critedge, label %.lr.ph
 

@@ -222,8 +222,8 @@ str_is_nonascii.exit.i:                           ; preds = %44
 56:                                               ; preds = %54, %25
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %.070104.i = load ptr, ptr %57, align 8, !tbaa !96
-  %.not108.i = icmp eq ptr %.070104.i, null
-  br i1 %.not108.i, label %123, label %.lr.ph.i
+  %.not107.i = icmp eq ptr %.070104.i, null
+  br i1 %.not107.i, label %123, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %37, i64 2056
@@ -240,11 +240,11 @@ str_is_nonascii.exit.i:                           ; preds = %44
   br label %69
 
 69:                                               ; preds = %118, %.lr.ph.i
-  %.070106.i = phi ptr [ %.070104.i, %.lr.ph.i ], [ %.070.i, %118 ]
-  %70 = load ptr, ptr %.070106.i, align 8, !tbaa !97
+  %.070105.i = phi ptr [ %.070104.i, %.lr.ph.i ], [ %.070.i, %118 ]
+  %70 = load ptr, ptr %.070105.i, align 8, !tbaa !97
   %71 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %70, i32 noundef 61) #10
   %.not81.i = icmp eq ptr %71, null
-  br i1 %.not81.i, label %._crit_edge.thread119.i.sink.split, label %72
+  br i1 %.not81.i, label %._crit_edge.thread118.i.sink.split, label %72
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 1
@@ -265,7 +265,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   %78 = ptrtoint ptr %71 to i64
   %79 = ptrtoint ptr %70 to i64
   %80 = sub i64 %78, %79
-  switch i64 %80, label %._crit_edge.thread119.i.sink.split [
+  switch i64 %80, label %._crit_edge.thread118.i.sink.split [
     i64 5, label %81
     i64 8, label %84
     i64 7, label %87
@@ -276,7 +276,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 81:                                               ; preds = %77
   %82 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.4, i64 noundef 5) #9
   %.not89.i = icmp eq i32 %82, 0
-  br i1 %.not89.i, label %._crit_edge.thread119.i, label %83
+  br i1 %.not89.i, label %._crit_edge.thread118.i, label %83
 
 83:                                               ; preds = %81
   store ptr %73, ptr %67, align 8, !tbaa !99
@@ -286,7 +286,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 84:                                               ; preds = %77
   %85 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.5, i64 noundef 8) #9
   %.not88.i = icmp eq i32 %85, 0
-  br i1 %.not88.i, label %._crit_edge.thread119.i, label %86
+  br i1 %.not88.i, label %._crit_edge.thread118.i, label %86
 
 86:                                               ; preds = %84
   store ptr %73, ptr %65, align 8, !tbaa !100
@@ -296,13 +296,13 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 87:                                               ; preds = %77
   %88 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.6, i64 noundef 7) #9
   %.not86.i = icmp eq i32 %88, 0
-  br i1 %.not86.i, label %._crit_edge.thread119.i, label %89
+  br i1 %.not86.i, label %._crit_edge.thread118.i, label %89
 
 89:                                               ; preds = %87
   %90 = load ptr, ptr %63, align 8, !tbaa !95
   %91 = call ptr @curl_slist_append(ptr noundef %90, ptr noundef nonnull %73) #9
   %.not87.i = icmp eq ptr %91, null
-  br i1 %.not87.i, label %._crit_edge.thread119.i, label %92
+  br i1 %.not87.i, label %._crit_edge.thread118.i, label %92
 
 92:                                               ; preds = %89
   store ptr %91, ptr %63, align 8, !tbaa !95
@@ -312,7 +312,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 93:                                               ; preds = %77
   %94 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.7, i64 noundef 2) #9
   %.not84.i = icmp eq i32 %94, 0
-  br i1 %.not84.i, label %._crit_edge.thread119.i, label %95
+  br i1 %.not84.i, label %._crit_edge.thread118.i, label %95
 
 95:                                               ; preds = %93
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #9
@@ -348,7 +348,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br i1 %.not85.i, label %.thread97.i, label %111
 
 .thread97.i:                                      ; preds = %109, %98, %95
-  %110 = load ptr, ptr %.070106.i, align 8, !tbaa !97
+  %110 = load ptr, ptr %.070105.i, align 8, !tbaa !97
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %110) #9
   br label %111
 
@@ -360,7 +360,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 112:                                              ; preds = %77
   %113 = call i32 @curl_strnequal(ptr noundef nonnull %70, ptr noundef nonnull @.str.9, i64 noundef 6) #9
   %.not82.i = icmp eq i32 %113, 0
-  br i1 %.not82.i, label %._crit_edge.thread119.i, label %114
+  br i1 %.not82.i, label %._crit_edge.thread118.i, label %114
 
 114:                                              ; preds = %112
   %115 = call i64 @strtol(ptr noundef nonnull captures(none) %73, ptr noundef null, i32 noundef 10) #9
@@ -375,7 +375,7 @@ str_is_nonascii.exit93.i:                         ; preds = %74
 
 118:                                              ; preds = %117, %114, %111, %92, %86, %83, %str_is_nonascii.exit93.i
   %.172.i = phi i32 [ 0, %str_is_nonascii.exit93.i ], [ %.2.i, %111 ], [ 0, %92 ], [ 0, %86 ], [ 0, %83 ], [ 0, %117 ], [ 0, %114 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.070106.i, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %.070105.i, i64 8
   %.070.i = load ptr, ptr %119, align 8, !tbaa !96
   %120 = icmp ne ptr %.070.i, null
   %.not80.i = icmp eq i32 %.172.i, 0
@@ -383,16 +383,16 @@ str_is_nonascii.exit93.i:                         ; preds = %74
   br i1 %121, label %69, label %._crit_edge.i, !llvm.loop !104
 
 ._crit_edge.i:                                    ; preds = %118
-  br i1 %.not80.i, label %123, label %._crit_edge.thread119.i
+  br i1 %.not80.i, label %123, label %._crit_edge.thread118.i
 
-._crit_edge.thread119.i.sink.split:               ; preds = %69, %77
+._crit_edge.thread118.i.sink.split:               ; preds = %69, %77
   %.str.8.sink = phi ptr [ @.str.10, %77 ], [ @.str.8, %69 ]
-  %.071.lcssa122.i.ph = phi i32 [ 48, %77 ], [ 49, %69 ]
+  %.071.lcssa121.i.ph = phi i32 [ 48, %77 ], [ 49, %69 ]
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.8.sink, ptr noundef nonnull %70) #9
-  br label %._crit_edge.thread119.i
+  br label %._crit_edge.thread118.i
 
-._crit_edge.thread119.i:                          ; preds = %112, %93, %89, %87, %84, %81, %._crit_edge.thread119.i.sink.split, %._crit_edge.i
-  %.071.lcssa122.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa122.i.ph, %._crit_edge.thread119.i.sink.split ], [ 48, %112 ], [ 48, %93 ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ]
+._crit_edge.thread118.i:                          ; preds = %112, %93, %89, %87, %84, %81, %._crit_edge.thread118.i.sink.split, %._crit_edge.i
+  %.071.lcssa121.i = phi i32 [ %.172.i, %._crit_edge.i ], [ %.071.lcssa121.i.ph, %._crit_edge.thread118.i.sink.split ], [ 48, %112 ], [ 48, %93 ], [ 48, %87 ], [ 27, %89 ], [ 48, %84 ], [ 48, %81 ]
   %122 = load ptr, ptr %63, align 8, !tbaa !95
   call void @curl_slist_free_all(ptr noundef %122) #9
   store ptr null, ptr %63, align 8, !tbaa !95
@@ -2199,8 +2199,8 @@ telrcv.exit.thread:                               ; preds = %198, %211, %825, %1
   call void @Curl_xfer_setup_nop(ptr noundef %0) #9
   br label %init_telnet.exit
 
-init_telnet.exit:                                 ; preds = %._crit_edge.thread119.i, %.thread.i, %2, %.loopexit
-  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.071.lcssa122.i, %._crit_edge.thread119.i ], [ %.0.ph.i, %.thread.i ]
+init_telnet.exit:                                 ; preds = %._crit_edge.thread118.i, %.thread.i, %2, %.loopexit
+  %.0 = phi i32 [ %.2, %.loopexit ], [ 27, %2 ], [ %.071.lcssa121.i, %._crit_edge.thread118.i ], [ %.0.ph.i, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %18) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #9

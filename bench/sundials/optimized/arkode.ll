@@ -402,7 +402,7 @@ define void @arkProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   %35 = load ptr, ptr %34, align 8, !tbaa !49
   %36 = getelementptr inbounds nuw i8, ptr %.021.i, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !51
-  call void %35(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %13, i32 noundef range(i32 100, 99) %1, ptr noundef %37, ptr noundef %29) #16
+  call void %35(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %13, i32 noundef range(i32 100, 99) %1, ptr noundef %37, ptr noundef nonnull %29) #16
   %.0.i = load ptr, ptr %.021.i, align 8, !tbaa !48
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i

@@ -1404,7 +1404,7 @@ define internal fastcc void @Ivy_GraphUpdateNetworkSeq(ptr noundef %0, ptr nound
 .lr.ph79.i:                                       ; preds = %16, %.lr.ph79.i
   %22 = phi ptr [ %23, %.lr.ph79.i ], [ %.pre88.i, %16 ]
   %.077.i = phi i32 [ %24, %.lr.ph79.i ], [ 0, %16 ]
-  %23 = tail call ptr @Ivy_Latch(ptr noundef %0, ptr noundef %22, i32 noundef 3) #19
+  %23 = tail call ptr @Ivy_Latch(ptr noundef nonnull %0, ptr noundef %22, i32 noundef 3) #19
   store ptr %23, ptr %.phi.trans.insert.i, align 8, !tbaa !50
   %24 = add nuw nsw i32 %.077.i, 1
   %25 = load i32, ptr %20, align 8

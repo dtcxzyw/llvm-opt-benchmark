@@ -13270,7 +13270,7 @@ for.body.i.i.i66.prol:                            ; preds = %for.body.i.i.i66.pr
 for.body.i.i.i66.prol.loopexit:                   ; preds = %for.body.i.i.i66.prol, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i67.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i71.prol, %for.body.i.i.i66.prol ]
   %__n.addr.05.i.i.i68.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr4core5arrayIfEESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i66.prol ]
-  %7 = icmp ult i64 %__n, 8
+  %7 = icmp samesign ult i64 %__n, 8
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr4core5arrayIfEEmS3_ET_S5_T0_RSaIT1_E.exit74, label %for.body.i.i.i66
 
 for.body.i.i.i66:                                 ; preds = %for.body.i.i.i66.prol.loopexit, %for.body.i.i.i66

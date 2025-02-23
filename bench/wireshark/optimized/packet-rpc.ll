@@ -2659,7 +2659,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %15 = add nuw i32 %.03640.us.us, 1
   %.0.us.us = add i32 %.041.us.us, 4
   %exitcond54.not = icmp eq i32 %15, %5
-  br i1 %exitcond54.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !15
+  br i1 %exitcond54.not, label %._crit_edge.thread, label %.lr.ph.split.us.split.us, !llvm.loop !15
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split
   %.041.us = phi i32 [ %.0.us, %.lr.ph.split.us.split ], [ %.039, %.lr.ph.split.us ]
@@ -2670,7 +2670,7 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %19 = add nuw i32 %.03640.us, 1
   %.0.us = add i32 %.041.us, 4
   %exitcond.not = icmp eq i32 %19, %5
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph.split.us.split, !llvm.loop !15
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split.preheader
@@ -2757,8 +2757,8 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   %exitcond55.not = icmp eq i32 %47, %5
   br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %46, %31
-  %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
+._crit_edge:                                      ; preds = %46, %31
+  %.0.lcssa = phi i32 [ %.0.us44, %31 ], [ %.0, %46 ]
   br i1 %or.cond, label %48, label %._crit_edge.thread
 
 48:                                               ; preds = %._crit_edge
@@ -2766,8 +2766,8 @@ define internal fastcc noundef i32 @dissect_rpc_authunix_groups(ptr noundef %0, 
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %49, ptr noundef nonnull @.str.268)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %48, %._crit_edge
-  %.0.lcssa67 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ]
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.us, %13, %48, %._crit_edge
+  %.0.lcssa67 = phi i32 [ %.0.lcssa, %48 ], [ %.0.lcssa, %._crit_edge ], [ %.039, %13 ], [ %.0.us.us, %.lr.ph.split.us.split.us ], [ %.0.us, %.lr.ph.split.us.split ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #17
   ret i32 %.0.lcssa67
 }

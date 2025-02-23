@@ -6106,7 +6106,7 @@ _ZN4Luau6Parser13restoreLocalsEj.exit70:          ; preds = %343, %341, %339, %3
           to label %.noexc91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc91:                                         ; preds = %.loopexit
-  invoke void @_ZN4Luau12AstStatForInC1ERKNS_8LocationERKNS_8AstArrayIPNS_8AstLocalEEERKNS4_IPNS_7AstExprEEEPNS_12AstStatBlockEbS3_bS3_(ptr noundef nonnull align 8 dereferenceable(112) %397, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %279, i1 noundef zeroext %.not.i20, ptr noundef nonnull align 4 dereferenceable(16) %14, i1 noundef zeroext %.not.i27, ptr noundef nonnull align 4 dereferenceable(16) %346)
+  invoke void @_ZN4Luau12AstStatForInC1ERKNS_8LocationERKNS_8AstArrayIPNS_8AstLocalEEERKNS4_IPNS_7AstExprEEEPNS_12AstStatBlockEbS3_bS3_(ptr noundef nonnull align 8 dereferenceable(112) %397, ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %279, i1 noundef zeroext %.not.i20, ptr noundef nonnull align 4 dereferenceable(16) %14, i1 noundef zeroext %.not.i27, ptr noundef nonnull align 4 dereferenceable(16) %346)
           to label %_ZN4Luau9Allocator5allocINS_12AstStatForInEJNS_8LocationENS_8AstArrayIPNS_8AstLocalEEENS4_IPNS_7AstExprEEERPNS_12AstStatBlockERbRS3_SE_SF_EEEPT_DpOT0_.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN4Luau9Allocator5allocINS_12AstStatForInEJNS_8LocationENS_8AstArrayIPNS_8AstLocalEEENS4_IPNS_7AstExprEEERPNS_12AstStatBlockERbRS3_SE_SF_EEEPT_DpOT0_.exit: ; preds = %.noexc91
@@ -6341,7 +6341,7 @@ _ZN4Luau6Parser13restoreLocalsEj.exit:            ; preds = %70, %72, %74, %76
   %81 = load i64, ptr %80, align 4
   store i64 %81, ptr %79, align 8
   %82 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %78, i64 noundef 56)
-  call void @_ZN4Luau13AstStatRepeatC1ERKNS_8LocationEPNS_7AstExprEPNS_12AstStatBlockEb(ptr noundef nonnull align 8 dereferenceable(49) %82, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %48, ptr noundef %20, i1 noundef zeroext %.0.i)
+  call void @_ZN4Luau13AstStatRepeatC1ERKNS_8LocationEPNS_7AstExprEPNS_12AstStatBlockEb(ptr noundef nonnull align 8 dereferenceable(49) %82, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef %48, ptr noundef nonnull %20, i1 noundef zeroext %.0.i)
   ret ptr %82
 }
 
@@ -19971,7 +19971,7 @@ _ZN4Luau6Parser21expectMatchAndConsumeEcRKNS0_11MatchLexemeEb.exit: ; preds = %.
           to label %.noexc7 unwind label %46
 
 .noexc7:                                          ; preds = %.loopexit
-  invoke void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %81, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %11, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %12)
+  invoke void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %81, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %11, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %12)
           to label %_ZN4Luau9Allocator5allocINS_11AstExprCallEJNS_8LocationERPNS_7AstExprENS_8AstArrayIS5_EERbS3_EEEPT_DpOT0_.exit unwind label %46
 
 _ZN4Luau9Allocator5allocINS_11AstExprCallEJNS_8LocationERPNS_7AstExprENS_8AstArrayIS5_EERbS3_EEEPT_DpOT0_.exit: ; preds = %.noexc7
@@ -20012,7 +20012,7 @@ _ZN4Luau9Allocator5allocINS_11AstExprCallEJNS_8LocationERPNS_7AstExprENS_8AstArr
   %102 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 %92, ptr %102, align 8
   %103 = tail call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %94, i64 noundef 80)
-  call void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %103, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %15)
+  call void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %103, ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %14, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %15)
   br label %_ZN4Luau10TempVectorIPNS_7AstExprEED2Ev.exit11
 
 104:                                              ; preds = %3, %3
@@ -20060,7 +20060,7 @@ _ZN4Luau6Parser11parseStringEv.exit:              ; preds = %109, %113
   %123 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store i64 1, ptr %123, align 8
   %124 = call noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(16) %116, i64 noundef 80)
-  call void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %124, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %16)
+  call void @_ZN4Luau11AstExprCallC1ERKNS_8LocationEPNS_7AstExprERKNS_8AstArrayIS5_EEbS3_(ptr noundef nonnull align 8 dereferenceable(76) %124, ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(16) %18, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(16) %16)
   br label %_ZN4Luau10TempVectorIPNS_7AstExprEED2Ev.exit11
 
 125:                                              ; preds = %3

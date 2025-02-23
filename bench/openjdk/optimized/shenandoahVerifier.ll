@@ -2161,15 +2161,15 @@ _ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i: ; 
   %156 = load ptr, ptr %155, align 8
   call void %156(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #13
   %.not.i5.i.i = icmp eq ptr %153, null
-  br i1 %.not.i5.i.i, label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i, label %.lr.ph.i3.i.i, !llvm.loop !13
+  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !13
 
-_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i: ; preds = %.lr.ph.i3.i.i
-  %157 = load i64, ptr %20, align 8
+.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i3.i.i
+  %.pre.i.i = load i64, ptr %20, align 8
   br label %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit
 
-_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit: ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i
-  %.sink.i.i = phi i64 [ %157, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i ], [ %147, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
-  store i64 %.sink.i.i, ptr %23, align 8
+_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EED2Ev.exit: ; preds = %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i, %.loopexit.loopexit.i.i
+  %157 = phi i64 [ %.pre.i.i, %.loopexit.loopexit.i.i ], [ %147, %_ZN5StackI22ShenandoahVerifierTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i ]
+  store i64 %157, ptr %23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, i8 0, i64 32, i1 false)
   %158 = load ptr, ptr %13, align 8
   %.not.i.i.i.i = icmp eq ptr %158, null

@@ -2530,7 +2530,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang13CXXMethodDeclENS1_9ValueDeclEEEDaPT0_.exit.i
   br i1 %.not23.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.thread.i, label %52
 
 52:                                               ; preds = %.critedge.i
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i30.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !97
   %.not.i.i31.i = icmp eq ptr %54, null
   br i1 %.not.i.i31.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclENS1_9ValueDeclEEEDaPT0_.exit.thread.i, label %55

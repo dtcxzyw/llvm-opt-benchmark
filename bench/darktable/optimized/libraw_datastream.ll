@@ -1004,7 +1004,7 @@ define internal void @_ZL18lr_skip_input_dataP22jpeg_decompress_structl(ptr noun
   %.014 = phi i64 [ %1, %.lr.ph ], [ %12, %10 ]
   %12 = sub nsw i64 %.014, %11
   %13 = load ptr, ptr %9, align 8, !tbaa !95
-  %14 = tail call noundef i32 %13(ptr noundef %0)
+  %14 = tail call noundef i32 %13(ptr noundef nonnull %0)
   %15 = load i64, ptr %6, align 8, !tbaa !94
   %16 = icmp sgt i64 %12, %15
   br i1 %16, label %10, label %._crit_edge, !llvm.loop !96

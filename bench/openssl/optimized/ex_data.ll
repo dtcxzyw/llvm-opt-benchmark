@@ -505,8 +505,8 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   %26 = load ptr, ptr %7, align 8, !tbaa !26
   %27 = tail call i32 @OPENSSL_sk_num(ptr noundef %26) #9
   %spec.select = tail call i32 @llvm.smin.i32(i32 %27, i32 %25)
-  %28 = icmp slt i32 %spec.select, 1
-  br i1 %28, label %.loopexit80, label %29
+  %28 = icmp sgt i32 %spec.select, 0
+  br i1 %28, label %29, label %.loopexit80
 
 29:                                               ; preds = %20
   %30 = icmp samesign ult i32 %spec.select, 10
@@ -538,44 +538,39 @@ define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %0, ptr noundef initi
   store ptr %39, ptr %40, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit80, label %.lr.ph, !llvm.loop !31
+  br i1 %exitcond.not, label %44, label %.lr.ph, !llvm.loop !31
 
-.loopexit80:                                      ; preds = %.lr.ph, %20
-  %.056 = phi ptr [ null, %20 ], [ %.194, %.lr.ph ]
+.loopexit80:                                      ; preds = %20
   %41 = load ptr, ptr %11, align 8, !tbaa !3
   %42 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %41) #9
   %43 = icmp eq i32 %spec.select, 0
-  br i1 %43, label %get_and_lock.exit.thread, label %44
+  %spec.select99 = zext i1 %43 to i32
+  br label %get_and_lock.exit.thread
 
-44:                                               ; preds = %.loopexit80
-  %45 = icmp eq ptr %.056, null
-  br i1 %45, label %get_and_lock.exit.thread, label %46
-
-46:                                               ; preds = %44
+44:                                               ; preds = %.lr.ph
+  %45 = load ptr, ptr %11, align 8, !tbaa !3
+  %46 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %45) #9
   %47 = add nsw i32 %spec.select, -1
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !26
   %50 = icmp eq ptr %49, null
   br i1 %50, label %CRYPTO_get_ex_data.exit, label %51
 
-51:                                               ; preds = %46
-  %52 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %49) #9
+51:                                               ; preds = %44
+  %52 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %49) #9
   %.not.i.not = icmp sgt i32 %spec.select, %52
   br i1 %.not.i.not, label %CRYPTO_get_ex_data.exit, label %53
 
 53:                                               ; preds = %51
   %54 = load ptr, ptr %48, align 8, !tbaa !26
-  %55 = call ptr @OPENSSL_sk_value(ptr noundef %54, i32 noundef %47) #9
+  %55 = tail call ptr @OPENSSL_sk_value(ptr noundef %54, i32 noundef %47) #9
   br label %CRYPTO_get_ex_data.exit
 
-CRYPTO_get_ex_data.exit:                          ; preds = %46, %51, %53
-  %.0.i70 = phi ptr [ %55, %53 ], [ null, %51 ], [ null, %46 ]
-  %56 = call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %1, i32 noundef %47, ptr noundef %.0.i70)
+CRYPTO_get_ex_data.exit:                          ; preds = %44, %51, %53
+  %.0.i70 = phi ptr [ %55, %53 ], [ null, %51 ], [ null, %44 ]
+  %56 = tail call i32 @CRYPTO_set_ex_data(ptr noundef nonnull %1, i32 noundef %47, ptr noundef %.0.i70)
   %.not65 = icmp eq i32 %56, 0
-  %brmerge = or i1 %.not65, %28
-  %not..not65 = xor i1 %.not65, true
-  %.mux = zext i1 %not..not65 to i32
-  br i1 %brmerge, label %.loopexit, label %.lr.ph83.preheader
+  br i1 %.not65, label %.loopexit, label %.lr.ph83.preheader
 
 .lr.ph83.preheader:                               ; preds = %CRYPTO_get_ex_data.exit
   %wide.trip.count90 = zext nneg i32 %spec.select to i64
@@ -602,7 +597,7 @@ CRYPTO_get_ex_data.exit:                          ; preds = %46, %51, %53
 CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
   %.0.i72 = phi ptr [ %65, %62 ], [ null, %59 ], [ null, %.lr.ph83 ]
   store ptr %.0.i72, ptr %4, align 8, !tbaa !32
-  %66 = getelementptr inbounds nuw ptr, ptr %.056, i64 %indvars.iv87
+  %66 = getelementptr inbounds nuw ptr, ptr %.194, i64 %indvars.iv87
   %67 = load ptr, ptr %66, align 8, !tbaa !27
   %.not66 = icmp eq ptr %67, null
   br i1 %.not66, label %77, label %68
@@ -635,16 +630,16 @@ CRYPTO_get_ex_data.exit73:                        ; preds = %.lr.ph83, %59, %62
   br i1 %exitcond91.not, label %.loopexit, label %.lr.ph83, !llvm.loop !33
 
 .loopexit:                                        ; preds = %71, %77, %CRYPTO_get_ex_data.exit
-  %.054 = phi i32 [ %.mux, %CRYPTO_get_ex_data.exit ], [ 0, %71 ], [ 1, %77 ]
-  %.not69 = icmp eq ptr %.056, %5
+  %.054 = phi i32 [ 0, %CRYPTO_get_ex_data.exit ], [ 0, %71 ], [ 1, %77 ]
+  %.not69 = icmp eq ptr %.194, %5
   br i1 %.not69, label %get_and_lock.exit.thread, label %81
 
 81:                                               ; preds = %.loopexit
-  call void @CRYPTO_free(ptr noundef nonnull %.056, ptr noundef nonnull @.str, i32 noundef 337) #9
+  call void @CRYPTO_free(ptr noundef nonnull %.194, ptr noundef nonnull @.str, i32 noundef 337) #9
   br label %get_and_lock.exit.thread
 
-get_and_lock.exit.thread:                         ; preds = %18, %15, %14, %.thread77, %.loopexit, %81, %44, %.loopexit80, %10, %3
-  %.0 = phi i32 [ 1, %3 ], [ 0, %10 ], [ 1, %.loopexit80 ], [ 0, %44 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %.thread77 ], [ 0, %14 ], [ 0, %15 ], [ 0, %18 ]
+get_and_lock.exit.thread:                         ; preds = %.loopexit80, %18, %15, %14, %.thread77, %.loopexit, %81, %10, %3
+  %.0 = phi i32 [ 1, %3 ], [ 0, %10 ], [ %.054, %81 ], [ %.054, %.loopexit ], [ 0, %.thread77 ], [ 0, %14 ], [ 0, %15 ], [ 0, %18 ], [ %spec.select99, %.loopexit80 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   ret i32 %.0
@@ -780,8 +775,7 @@ define void @CRYPTO_free_ex_data(i32 noundef %0, ptr noundef %1, ptr noundef %2)
   %37 = zext nneg i32 %20 to i64
   call void @qsort(ptr noundef nonnull %.14779, i64 noundef %37, i64 noundef 16, ptr noundef nonnull @ex_callback_compare) #9
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %smax74 = call i32 @llvm.smax.i32(i32 %20, i32 1)
-  %wide.trip.count75 = zext nneg i32 %smax74 to i64
+  %wide.trip.count75 = zext nneg i32 %20 to i64
   br label %39
 
 39:                                               ; preds = %.lr.ph68, %60
@@ -983,9 +977,6 @@ declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #2
 
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #2
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #7

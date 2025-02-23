@@ -3538,7 +3538,7 @@ find_syllable.exit65:                             ; preds = %46
   br i1 %.not.i.i.i, label %98, label %_dawg_decode_node.exit.preheader.i
 
 _dawg_decode_node.exit.preheader.i:               ; preds = %98
-  %108 = add i32 %.024175.i, 1
+  %108 = add nuw i32 %.024175.i, 1
   br label %_dawg_decode_node.exit.i
 
 _dawg_decode_node.exit.i:                         ; preds = %_dawg_decode_edge.exit.i, %_dawg_decode_node.exit.preheader.i

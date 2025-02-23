@@ -1631,9 +1631,9 @@ if.then.i586:                                     ; preds = %land.rhs.i.i583
   %pRangeEnd.1.i.i578.sroa.sel768.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i578.sroa.sel768.v.sroa.sel.v.sroa.sel.v, i64 32
   br label %while.body.lr.ph.i.i.i595
 
-while.body.lr.ph.i.i.i595:                        ; preds = %while.end.i.i581, %land.rhs.i.i583, %if.then.i586
-  %storemerge.i588 = phi ptr [ %pRangeEnd.1.i.i578.sroa.sel768.v.sroa.sel.v.sroa.sel, %if.then.i586 ], [ %mNode2.i, %land.rhs.i.i583 ], [ %mNode2.i, %while.end.i.i581 ]
-  %mValue.i.i596 = getelementptr inbounds nuw i8, ptr %storemerge.i588, i64 16
+while.body.lr.ph.i.i.i595:                        ; preds = %if.then.i586, %land.rhs.i.i583, %while.end.i.i581
+  %storemerge.i588.ph = phi ptr [ %mNode2.i, %while.end.i.i581 ], [ %mNode2.i, %land.rhs.i.i583 ], [ %pRangeEnd.1.i.i578.sroa.sel768.v.sroa.sel.v.sroa.sel, %if.then.i586 ]
+  %mValue.i.i596 = getelementptr inbounds nuw i8, ptr %storemerge.i588.ph, i64 16
   %177 = load i32, ptr %mValue.i.i596, align 4, !noalias !91
   br label %while.body.i.i.i597
 
@@ -1860,21 +1860,21 @@ invoke.cont403:                                   ; preds = %invoke.cont399
   %cmp.i.not.i653 = icmp ne ptr %204, %testStringMap
   %mValue.i.i655 = getelementptr inbounds nuw i8, ptr %204, i64 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %baseIter.i)
-  %cmp.i659848 = icmp ne ptr %mValue.i.i655, %mNode2.i644
-  %cmp.i659 = select i1 %cmp.i.not.i653, i1 %cmp.i659848, i1 false
+  %cmp.i659849 = icmp ne ptr %mValue.i.i655, %mNode2.i644
+  %cmp.i659 = select i1 %cmp.i.not.i653, i1 %cmp.i659849, i1 false
   %call408 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i659, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 203, ptr noundef nonnull @.str.31)
           to label %invoke.cont407 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont407:                                   ; preds = %invoke.cont403
-  %mNode2.i644.sroa.gep801 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 87
-  %mValue.i.i655.sroa.gep802 = getelementptr inbounds nuw i8, ptr %204, i64 71
-  %storemerge.i656.sroa.sel803 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep802, ptr %mNode2.i644.sroa.gep801
-  %205 = load i8, ptr %storemerge.i656.sroa.sel803, align 1
+  %mNode2.i644.sroa.gep802 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 87
+  %mValue.i.i655.sroa.gep803 = getelementptr inbounds nuw i8, ptr %204, i64 71
+  %storemerge.i656.sroa.sel804 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep803, ptr %mNode2.i644.sroa.gep802
+  %205 = load i8, ptr %storemerge.i656.sroa.sel804, align 1
   %tobool.i.i.i.i = icmp slt i8 %205, 0
-  %mNode2.i644.sroa.gep804 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 72
-  %mValue.i.i655.sroa.gep805 = getelementptr inbounds nuw i8, ptr %204, i64 56
-  %storemerge.i656.sroa.sel806 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep805, ptr %mNode2.i644.sroa.gep804
-  %206 = load i64, ptr %storemerge.i656.sroa.sel806, align 8
+  %mNode2.i644.sroa.gep805 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 72
+  %mValue.i.i655.sroa.gep806 = getelementptr inbounds nuw i8, ptr %204, i64 56
+  %storemerge.i656.sroa.sel807 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep806, ptr %mNode2.i644.sroa.gep805
+  %206 = load i64, ptr %storemerge.i656.sroa.sel807, align 8
   %conv.i.i.i.i = zext nneg i8 %205 to i64
   %sub.i.i.i.i = sub nsw i64 23, %conv.i.i.i.i
   %cond.i.i.i = select i1 %tobool.i.i.i.i, i64 %206, i64 %sub.i.i.i.i
@@ -1897,10 +1897,10 @@ _ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exi
           to label %invoke.cont414 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont414:                                   ; preds = %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit
-  %mNode2.i644.sroa.gep807 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 88
-  %mValue.i.i655.sroa.gep808 = getelementptr inbounds nuw i8, ptr %204, i64 72
-  %storemerge.i656.sroa.sel809 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep808, ptr %mNode2.i644.sroa.gep807
-  %209 = load i32, ptr %storemerge.i656.sroa.sel809, align 8
+  %mNode2.i644.sroa.gep808 = getelementptr inbounds nuw i8, ptr %testStringMap, i64 88
+  %mValue.i.i655.sroa.gep809 = getelementptr inbounds nuw i8, ptr %204, i64 72
+  %storemerge.i656.sroa.sel810 = select i1 %cmp.i.not.i653, ptr %mValue.i.i655.sroa.gep809, ptr %mNode2.i644.sroa.gep808
+  %209 = load i32, ptr %storemerge.i656.sroa.sel810, align 8
   %cmp418 = icmp eq i32 %209, 750
   %call420 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp418, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 205, ptr noundef nonnull @.str.33)
           to label %invoke.cont419 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
@@ -1915,8 +1915,8 @@ invoke.cont423:                                   ; preds = %invoke.cont419
   %cmp.i.not.i667 = icmp eq ptr %210, %testStringMap
   %mValue.i.i669 = getelementptr inbounds nuw i8, ptr %210, i64 32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %baseIter.i666)
-  %cmp.i673782 = icmp eq ptr %mValue.i.i669, %mNode2.i644
-  %cmp.i673 = select i1 %cmp.i.not.i667, i1 true, i1 %cmp.i673782
+  %cmp.i673783 = icmp eq ptr %mValue.i.i669, %mNode2.i644
+  %cmp.i673 = select i1 %cmp.i.not.i667, i1 true, i1 %cmp.i673783
   %call428 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp.i673, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @.str.35)
           to label %invoke.cont427 unwind label %lpad387.loopexit.split-lp.loopexit.split-lp
 
@@ -2027,12 +2027,12 @@ lpad387.loopexit:                                 ; preds = %while.body19.i
   br label %ehcleanup
 
 lpad387.loopexit.split-lp.loopexit:               ; preds = %while.body.i
-  %lpad.loopexit783 = landingpad { ptr, i32 }
+  %lpad.loopexit784 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad387.loopexit.split-lp.loopexit.split-lp:      ; preds = %invoke.cont427, %invoke.cont419, %invoke.cont399, %invoke.cont429, %invoke.cont423, %invoke.cont414, %_ZN5eastleqIcNS_9allocatorEEEbRKNS_12basic_stringIT_T0_EEPKNS5_10value_typeE.exit, %invoke.cont403, %_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit
-  %lpad.loopexit.split-lp784 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp785 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -2053,7 +2053,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i689: ; preds = %if.then.i.i687
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad387.loopexit, %lpad387.loopexit.split-lp.loopexit.split-lp, %lpad387.loopexit.split-lp.loopexit, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i689, %if.then.i.i687, %lpad394
-  %.pn = phi { ptr, i32 } [ %220, %lpad394 ], [ %220, %if.then.i.i687 ], [ %220, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i689 ], [ %lpad.loopexit, %lpad387.loopexit ], [ %lpad.loopexit783, %lpad387.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp784, %lpad387.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %220, %lpad394 ], [ %220, %if.then.i.i687 ], [ %220, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i689 ], [ %lpad.loopexit, %lpad387.loopexit ], [ %lpad.loopexit784, %lpad387.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp785, %lpad387.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5eastl8list_mapINS_12basic_stringIcNS_9allocatorEEEjNS_4lessIS3_EES2_ED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %testStringMap) #15
   br label %eh.resume
 
@@ -2795,7 +2795,7 @@ lor.lhs.false2.i:                                 ; preds = %if.then
 
 _ZN5eastl6rbtreeIjNS_13list_map_dataINS_4pairIKjmEEEENS_4lessIjEENS_9allocatorENS_15use_value_firstIS5_EELb1ELb1EE17DoInsertValueImplEPNS_16rbtree_node_baseEbRS3_PNS_11rbtree_nodeIS5_EE.exit: ; preds = %if.then, %lor.lhs.false2.i
   %side.0.i = phi i32 [ 0, %if.then ], [ %spec.select.i, %lor.lhs.false2.i ]
-  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %call.i.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i), !noalias !143
+  tail call void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef nonnull %call.i.i.i.i, ptr noundef nonnull %retval.0.i13, ptr noundef nonnull align 8 dereferenceable(41) %this, i32 noundef %side.0.i), !noalias !143
   %mnSize.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %7 = load i64, ptr %mnSize.i, align 8, !noalias !143
   %inc.i = add i64 %7, 1

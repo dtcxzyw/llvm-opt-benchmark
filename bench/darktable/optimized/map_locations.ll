@@ -1934,7 +1934,7 @@ define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeon
   %6 = shl nsw i64 %5, 3
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #13
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %39, label %.preheader
+  br i1 %.not, label %43, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not5054 = icmp eq ptr %0, null
@@ -1960,70 +1960,79 @@ define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeon
   %15 = load ptr, ptr %14, align 8, !tbaa !80
   %16 = getelementptr inbounds nuw i8, ptr %.04255.us, i64 8
   %.not50.us = icmp eq ptr %15, null
-  br i1 %.not50.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not50.us, label %._crit_edge.thread, label %.lr.ph.split.us
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
-  %.sroa.13.0.lcssa = phi float [ 9.000000e+01, %.preheader ], [ 9.000000e+01, %.lr.ph.split.us ], [ %32, %.lr.ph.split ]
-  %.sroa.10.0.lcssa = phi float [ -1.800000e+02, %.preheader ], [ -1.800000e+02, %.lr.ph.split.us ], [ %27, %.lr.ph.split ]
-  %.sroa.7.0.lcssa = phi float [ -9.000000e+01, %.preheader ], [ -9.000000e+01, %.lr.ph.split.us ], [ %30, %.lr.ph.split ]
-  %.sroa.0.0.lcssa = phi float [ 1.800000e+02, %.preheader ], [ 1.800000e+02, %.lr.ph.split.us ], [ %..sroa.0.0, %.lr.ph.split ]
-  %.041.lcssa = phi ptr [ null, %.preheader ], [ %13, %.lr.ph.split.us ], [ %23, %.lr.ph.split ]
-  %17 = tail call ptr @g_list_reverse(ptr noundef %.041.lcssa) #10
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us
+  %17 = tail call ptr @g_list_reverse(ptr noundef %13) #10
+  br label %40
+
+._crit_edge:                                      ; preds = %.preheader
+  %18 = tail call ptr @g_list_reverse(ptr noundef null) #10
   %.not51 = icmp eq ptr %1, null
-  br i1 %.not51, label %37, label %36
+  br i1 %.not51, label %40, label %38
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.04061 = phi ptr [ %34, %.lr.ph.split ], [ %0, %.lr.ph ]
-  %.04160 = phi ptr [ %23, %.lr.ph.split ], [ null, %.lr.ph ]
+  %.04061 = phi ptr [ %35, %.lr.ph.split ], [ %0, %.lr.ph ]
+  %.04160 = phi ptr [ %24, %.lr.ph.split ], [ null, %.lr.ph ]
   %.sroa.0.059 = phi float [ %..sroa.0.0, %.lr.ph.split ], [ 1.800000e+02, %.lr.ph ]
-  %.sroa.7.058 = phi float [ %30, %.lr.ph.split ], [ -9.000000e+01, %.lr.ph ]
-  %.sroa.10.057 = phi float [ %27, %.lr.ph.split ], [ -1.800000e+02, %.lr.ph ]
-  %.sroa.13.056 = phi float [ %32, %.lr.ph.split ], [ 9.000000e+01, %.lr.ph ]
-  %.04255 = phi ptr [ %35, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %18 = load ptr, ptr %.04061, align 8, !tbaa !77
-  %19 = load float, ptr %18, align 4, !tbaa !91
-  store float %19, ptr %.04255, align 4, !tbaa !91
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %21 = load float, ptr %20, align 4, !tbaa !89
-  %22 = getelementptr inbounds nuw i8, ptr %.04255, i64 4
-  store float %21, ptr %22, align 4, !tbaa !89
-  %23 = tail call ptr @g_list_prepend(ptr noundef %.04160, ptr noundef nonnull %.04255) #10
-  %24 = load float, ptr %20, align 4, !tbaa !89
-  %25 = fcmp reassoc nsz arcp contract afn olt float %24, %.sroa.0.059
-  %..sroa.0.0 = select reassoc nsz arcp contract afn i1 %25, float %24, float %.sroa.0.059
-  %26 = fcmp reassoc nsz arcp contract afn ogt float %24, %.sroa.10.057
-  %27 = select reassoc nsz arcp contract afn i1 %26, float %24, float %.sroa.10.057
-  %28 = load float, ptr %18, align 4, !tbaa !91
-  %29 = fcmp reassoc nsz arcp contract afn ogt float %28, %.sroa.7.058
-  %30 = select reassoc nsz arcp contract afn i1 %29, float %28, float %.sroa.7.058
-  %31 = fcmp reassoc nsz arcp contract afn olt float %28, %.sroa.13.056
-  %32 = select reassoc nsz arcp contract afn i1 %31, float %28, float %.sroa.13.056
-  %33 = getelementptr inbounds nuw i8, ptr %.04061, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !80
-  %35 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
-  %.not50 = icmp eq ptr %34, null
-  br i1 %.not50, label %._crit_edge, label %.lr.ph.split
+  %.sroa.7.058 = phi float [ %31, %.lr.ph.split ], [ -9.000000e+01, %.lr.ph ]
+  %.sroa.10.057 = phi float [ %28, %.lr.ph.split ], [ -1.800000e+02, %.lr.ph ]
+  %.sroa.13.056 = phi float [ %33, %.lr.ph.split ], [ 9.000000e+01, %.lr.ph ]
+  %.04255 = phi ptr [ %36, %.lr.ph.split ], [ %7, %.lr.ph ]
+  %19 = load ptr, ptr %.04061, align 8, !tbaa !77
+  %20 = load float, ptr %19, align 4, !tbaa !91
+  store float %20, ptr %.04255, align 4, !tbaa !91
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %22 = load float, ptr %21, align 4, !tbaa !89
+  %23 = getelementptr inbounds nuw i8, ptr %.04255, i64 4
+  store float %22, ptr %23, align 4, !tbaa !89
+  %24 = tail call ptr @g_list_prepend(ptr noundef %.04160, ptr noundef nonnull %.04255) #10
+  %25 = load float, ptr %21, align 4, !tbaa !89
+  %26 = fcmp reassoc nsz arcp contract afn olt float %25, %.sroa.0.059
+  %..sroa.0.0 = select reassoc nsz arcp contract afn i1 %26, float %25, float %.sroa.0.059
+  %27 = fcmp reassoc nsz arcp contract afn ogt float %25, %.sroa.10.057
+  %28 = select reassoc nsz arcp contract afn i1 %27, float %25, float %.sroa.10.057
+  %29 = load float, ptr %19, align 4, !tbaa !91
+  %30 = fcmp reassoc nsz arcp contract afn ogt float %29, %.sroa.7.058
+  %31 = select reassoc nsz arcp contract afn i1 %30, float %29, float %.sroa.7.058
+  %32 = fcmp reassoc nsz arcp contract afn olt float %29, %.sroa.13.056
+  %33 = select reassoc nsz arcp contract afn i1 %32, float %29, float %.sroa.13.056
+  %34 = getelementptr inbounds nuw i8, ptr %.04061, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !80
+  %36 = getelementptr inbounds nuw i8, ptr %.04255, i64 8
+  %.not50 = icmp eq ptr %35, null
+  br i1 %.not50, label %._crit_edge.thread81, label %.lr.ph.split
 
-36:                                               ; preds = %._crit_edge
-  store float %.sroa.0.0.lcssa, ptr %1, align 4
+._crit_edge.thread81:                             ; preds = %.lr.ph.split
+  %37 = tail call ptr @g_list_reverse(ptr noundef %24) #10
+  br label %38
+
+38:                                               ; preds = %._crit_edge.thread81, %._crit_edge
+  %39 = phi ptr [ %37, %._crit_edge.thread81 ], [ %18, %._crit_edge ]
+  %.sroa.0.0.lcssa91 = phi float [ %..sroa.0.0, %._crit_edge.thread81 ], [ 1.800000e+02, %._crit_edge ]
+  %.sroa.7.0.lcssa90 = phi float [ %31, %._crit_edge.thread81 ], [ -9.000000e+01, %._crit_edge ]
+  %.sroa.10.0.lcssa89 = phi float [ %28, %._crit_edge.thread81 ], [ -1.800000e+02, %._crit_edge ]
+  %.sroa.13.0.lcssa88 = phi float [ %33, %._crit_edge.thread81 ], [ 9.000000e+01, %._crit_edge ]
+  store float %.sroa.0.0.lcssa91, ptr %1, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store float %.sroa.7.0.lcssa, ptr %.sroa.7.0..sroa_idx, align 4
+  store float %.sroa.7.0.lcssa90, ptr %.sroa.7.0..sroa_idx, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store float %.sroa.10.0.lcssa, ptr %.sroa.10.0..sroa_idx, align 4
+  store float %.sroa.10.0.lcssa89, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store float %.sroa.13.0.lcssa, ptr %.sroa.13.0..sroa_idx, align 4
-  br label %37
+  store float %.sroa.13.0.lcssa88, ptr %.sroa.13.0..sroa_idx, align 4
+  br label %40
 
-37:                                               ; preds = %36, %._crit_edge
+40:                                               ; preds = %._crit_edge.thread, %38, %._crit_edge
+  %41 = phi ptr [ %17, %._crit_edge.thread ], [ %39, %38 ], [ %18, %._crit_edge ]
   %.not52 = icmp eq ptr %2, null
-  br i1 %.not52, label %39, label %38
+  br i1 %.not52, label %43, label %42
 
-38:                                               ; preds = %37
+42:                                               ; preds = %40
   store i32 %4, ptr %2, align 4, !tbaa !11
-  br label %39
+  br label %43
 
-39:                                               ; preds = %37, %38, %3
-  %.0 = phi ptr [ null, %3 ], [ %17, %38 ], [ %17, %37 ]
+43:                                               ; preds = %40, %42, %3
+  %.0 = phi ptr [ null, %3 ], [ %41, %42 ], [ %41, %40 ]
   ret ptr %.0
 }
 

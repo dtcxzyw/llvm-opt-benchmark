@@ -211,7 +211,7 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
 
 .preheader.i.i:                                   ; preds = %89, %104
   %.sroa.025.082.i.i = phi i64 [ %100, %104 ], [ 0, %89 ]
-  %.281.i.i = phi i8 [ %.3.i.i, %104 ], [ %.06183.i.i, %89 ]
+  %.281.i.i = phi i8 [ %.3.i.i, %104 ], [ 0, %89 ]
   %100 = call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17h3a214a5ecf7f8240E"(i64 %.sroa.025.082.i.i, i64 1)
   %101 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.025.082.i.i
   %102 = load i16, ptr %101, align 2, !noundef !3

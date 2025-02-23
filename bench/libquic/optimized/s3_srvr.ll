@@ -3373,7 +3373,7 @@ define hidden i32 @ssl3_get_client_key_exchange(ptr noundef %0) local_unnamed_ad
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %223 = load ptr, ptr %222, align 8, !tbaa !79
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  %225 = call i32 @tls1_generate_master_secret(ptr noundef %0, ptr noundef nonnull %224, ptr noundef %221, i64 noundef %220) #10
+  %225 = call i32 @tls1_generate_master_secret(ptr noundef nonnull %0, ptr noundef nonnull %224, ptr noundef %221, i64 noundef %220) #10
   %226 = load ptr, ptr %222, align 8, !tbaa !79
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 12
   store i32 %225, ptr %227, align 4, !tbaa !151

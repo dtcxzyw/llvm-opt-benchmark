@@ -3733,7 +3733,7 @@ define void @minimalSwapAndFlipIVar_superFast_moreThen5_noEBFC(ptr noundef captu
 
 arrangeQuoters_superFast_moreThen5.exit:          ; preds = %40, %24
   %52 = shl nsw i64 %27, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr nonnull align 16 %6, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %0, ptr nonnull align 16 %6, i64 %52, i1 false)
   %53 = load i32, ptr %4, align 4, !tbaa !6
   %54 = tail call i32 @adjustInfoAfterSwap(ptr noundef %3, i32 noundef %53, i32 noundef %1, i32 noundef 4) #9
   store i32 %54, ptr %4, align 4, !tbaa !6

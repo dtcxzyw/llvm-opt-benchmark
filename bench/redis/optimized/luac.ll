@@ -502,7 +502,7 @@ combine.exit:                                     ; preds = %21, %._crit_edge.i
 98:                                               ; preds = %94
   %.b26 = load i1, ptr @stripping, align 4
   %99 = zext i1 %.b26 to i32
-  %100 = tail call i32 @luaU_dump(ptr noundef %0, ptr noundef %.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %95, i32 noundef %99) #11
+  %100 = tail call i32 @luaU_dump(ptr noundef nonnull %0, ptr noundef %.0.i, ptr noundef nonnull @writer, ptr noundef nonnull %95, i32 noundef %99) #11
   %101 = tail call i32 @ferror(ptr noundef nonnull %95) #11
   %.not28 = icmp eq i32 %101, 0
   br i1 %.not28, label %103, label %102

@@ -1783,7 +1783,7 @@ if.end109:                                        ; preds = %invoke.cont106, %la
   %numErrors.3 = phi i64 [ %inc108, %invoke.cont106 ], [ %numErrors.2, %land.lhs.true ], [ %numErrors.2, %if.end69 ]
   %32 = load i64, ptr %second, align 8
   %add112 = add i64 %32, %freeListTotalBytes.085
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %iter.sroa.0.084) #19
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %iter.sroa.0.084) #19
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %while.end, label %while.body, !llvm.loop !14
 

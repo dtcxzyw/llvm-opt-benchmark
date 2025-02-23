@@ -3330,7 +3330,7 @@ define hidden void @phpdbg_try_file_init(ptr noundef %0, i64 %1, i1 noundef zero
   br i1 %2, label %21, label %22
 
 21:                                               ; preds = %20
-  call void @free(ptr noundef %0) #26
+  call void @free(ptr noundef nonnull %0) #26
   br label %22
 
 22:                                               ; preds = %20, %21, %7, %3

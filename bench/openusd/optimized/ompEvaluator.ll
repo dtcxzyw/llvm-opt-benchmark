@@ -677,8 +677,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.threa
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %23)
-  %.not78189.i = icmp eq i32 %75, 0
-  br i1 %.not78189.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread.i
+  %.not78188.i = icmp eq i32 %75, 0
+  br i1 %.not78188.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread.i
 
 .thread.i:                                        ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i
   tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL32Osd_adjustBSplineBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
@@ -1185,10 +1185,10 @@ _ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.
   br i1 %.not.i94, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %594
 
 _ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i: ; preds = %191
-  %.not190.i = icmp eq i32 %75, 0
-  br i1 %.not190.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread191.i
+  %.not189.i = icmp eq i32 %75, 0
+  br i1 %.not189.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit, label %.thread190.i
 
-.thread191.i:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i
+.thread190.i:                                     ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i
   tail call fastcc void @_ZN10OpenSubdiv6v3_6_03OsdL37Osd_adjustBoxSplineTriBoundaryWeightsEiPf(i32 noundef range(i32 1, 0) %75, ptr noundef nonnull %4)
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
@@ -1311,8 +1311,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit.i.i: ; preds = %
   %648 = fmul float %627, 6.000000e+00
   store float %648, ptr %16, align 16
   %649 = tail call float @llvm.fmuladd.f32(float %.082, float 1.800000e+01, float -1.200000e+01)
-  %.sroa.gep.i93.i = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store float %649, ptr %.sroa.gep.i93.i, align 4
+  %.sroa.gep.i92.i = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store float %649, ptr %.sroa.gep.i92.i, align 4
   %650 = tail call float @llvm.fmuladd.f32(float %.082, float -1.800000e+01, float 6.000000e+00)
   %.sroa.gep125.i.i = getelementptr inbounds nuw i8, ptr %16, i64 8
   store float %650, ptr %.sroa.gep125.i.i, align 8
@@ -1463,13 +1463,10 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   store float %752, ptr %753, align 4
   %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 1
   %exitcond167.not.i.i = icmp eq i64 %indvars.iv.next165.i.i, 12
-  br i1 %exitcond167.not.i.i, label %.preheader.i92.i, label %.split.us.i.i, !llvm.loop !16
+  br i1 %exitcond167.not.i.i, label %.preheader.split152.us.i.i, label %.split.us.i.i, !llvm.loop !16
 
-.preheader.i92.i:                                 ; preds = %.split.i.i, %.split.us.i.i
-  br i1 %spec.select.i.i, label %.preheader.split152.us.i.i, label %.preheader.split152.i.i
-
-.preheader.split152.us.i.i:                       ; preds = %.preheader.i92.i, %.preheader.split152.us.i.i
-  %indvars.iv172.i.i = phi i64 [ %indvars.iv.next173.i.i, %.preheader.split152.us.i.i ], [ 0, %.preheader.i92.i ]
+.preheader.split152.us.i.i:                       ; preds = %.split.us.i.i, %.preheader.split152.us.i.i
+  %indvars.iv172.i.i = phi i64 [ %indvars.iv.next173.i.i, %.preheader.split152.us.i.i ], [ 0, %.split.us.i.i ]
   %754 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 0, i64 %indvars.iv172.i.i
   %755 = load i32, ptr %754, align 4
   %756 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 0, i64 %indvars.iv172.i.i
@@ -1544,10 +1541,10 @@ _ZN10OpenSubdiv6v3_6_03OsdL19Osd_evalBezierCurveEfPfS2_S2_.exit124.i.i: ; preds 
   store float %811, ptr %812, align 4
   %indvars.iv.next161.i.i = add nuw nsw i64 %indvars.iv160.i.i, 1
   %exitcond163.not.i.i = icmp eq i64 %indvars.iv.next161.i.i, 12
-  br i1 %exitcond163.not.i.i, label %.preheader.i92.i, label %.split.i.i, !llvm.loop !16
+  br i1 %exitcond163.not.i.i, label %.preheader.split152.i.i, label %.split.i.i, !llvm.loop !16
 
-.preheader.split152.i.i:                          ; preds = %.preheader.i92.i, %.preheader.split152.i.i
-  %indvars.iv168.i.i = phi i64 [ %indvars.iv.next169.i.i, %.preheader.split152.i.i ], [ 0, %.preheader.i92.i ]
+.preheader.split152.i.i:                          ; preds = %.split.i.i, %.preheader.split152.i.i
+  %indvars.iv168.i.i = phi i64 [ %indvars.iv.next169.i.i, %.preheader.split152.i.i ], [ 0, %.split.i.i ]
   %813 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorGregory, i64 0, i64 %indvars.iv168.i.i
   %814 = load i32, ptr %813, align 4
   %815 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_E15interiorBezTRow, i64 0, i64 %indvars.iv168.i.i
@@ -1683,8 +1680,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float %875, ptr %905, align 4
   %906 = icmp ne ptr %5, null
   %907 = icmp ne ptr %6, null
-  %or.cond.i94.i = and i1 %906, %907
-  br i1 %or.cond.i94.i, label %908, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond.i93.i = and i1 %906, %907
+  br i1 %or.cond.i93.i, label %908, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 908:                                              ; preds = %838
   %909 = fmul float %855, -4.000000e+00
@@ -1819,10 +1816,10 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float %951, ptr %1002, align 4
   %1003 = icmp ne ptr %7, null
   %1004 = icmp ne ptr %8, null
-  %or.cond3.i95.i = and i1 %1003, %1004
+  %or.cond3.i94.i = and i1 %1003, %1004
   %1005 = icmp ne ptr %9, null
-  %or.cond5.i96.i = and i1 %or.cond3.i95.i, %1005
-  br i1 %or.cond5.i96.i, label %1006, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond5.i95.i = and i1 %or.cond3.i94.i, %1005
+  br i1 %or.cond5.i95.i, label %1006, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 1006:                                             ; preds = %908
   %1007 = fsub float %858, %855
@@ -2007,8 +2004,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float %1125, ptr %1126, align 4
   %1127 = icmp ne ptr %5, null
   %1128 = icmp ne ptr %6, null
-  %or.cond.i97.i = and i1 %1127, %1128
-  br i1 %or.cond.i97.i, label %1129, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond.i96.i = and i1 %1127, %1128
+  br i1 %or.cond.i96.i, label %1129, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 1129:                                             ; preds = %1117
   %1130 = fneg float %1119
@@ -2031,22 +2028,22 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float %1118, ptr %1139, align 4
   %1140 = icmp ne ptr %7, null
   %1141 = icmp ne ptr %8, null
-  %or.cond3.i98.i = and i1 %1140, %1141
+  %or.cond3.i97.i = and i1 %1140, %1141
   %1142 = icmp ne ptr %9, null
-  %or.cond5.i99.i = and i1 %or.cond3.i98.i, %1142
-  br i1 %or.cond5.i99.i, label %.preheader.i100.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond5.i98.i = and i1 %or.cond3.i97.i, %1142
+  br i1 %or.cond5.i98.i, label %.preheader.i99.i, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
-.preheader.i100.i:                                ; preds = %1129, %.preheader.i100.i
-  %indvars.iv.i101.i = phi i64 [ %indvars.iv.next.i102.i, %.preheader.i100.i ], [ 0, %1129 ]
-  %1143 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i101.i
+.preheader.i99.i:                                 ; preds = %1129, %.preheader.i99.i
+  %indvars.iv.i100.i = phi i64 [ %indvars.iv.next.i101.i, %.preheader.i99.i ], [ 0, %1129 ]
+  %1143 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i100.i
   store float 0.000000e+00, ptr %1143, align 4
-  %1144 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i101.i
+  %1144 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i100.i
   store float 0.000000e+00, ptr %1144, align 4
-  %indvars.iv.next.i102.i = add nuw nsw i64 %indvars.iv.i101.i, 1
-  %exitcond.not.i103.i = icmp eq i64 %indvars.iv.next.i102.i, 4
-  br i1 %exitcond.not.i103.i, label %1145, label %.preheader.i100.i, !llvm.loop !18
+  %indvars.iv.next.i101.i = add nuw nsw i64 %indvars.iv.i100.i, 1
+  %exitcond.not.i102.i = icmp eq i64 %indvars.iv.next.i101.i, 4
+  br i1 %exitcond.not.i102.i, label %1145, label %.preheader.i99.i, !llvm.loop !18
 
-1145:                                             ; preds = %.preheader.i100.i
+1145:                                             ; preds = %.preheader.i99.i
   store float 1.000000e+00, ptr %8, align 4
   %1146 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store float -1.000000e+00, ptr %1146, align 4
@@ -2066,8 +2063,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float %.082, ptr %1153, align 4
   %1154 = icmp ne ptr %5, null
   %1155 = icmp ne ptr %6, null
-  %or.cond.i104.i = and i1 %1154, %1155
-  br i1 %or.cond.i104.i, label %1156, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond.i103.i = and i1 %1154, %1155
+  br i1 %or.cond.i103.i, label %1156, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 1156:                                             ; preds = %1149
   store float -1.000000e+00, ptr %5, align 4
@@ -2082,10 +2079,10 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float 1.000000e+00, ptr %1160, align 4
   %1161 = icmp ne ptr %7, null
   %1162 = icmp ne ptr %8, null
-  %or.cond3.i105.i = and i1 %1161, %1162
+  %or.cond3.i104.i = and i1 %1161, %1162
   %1163 = icmp ne ptr %9, null
-  %or.cond5.i106.i = and i1 %or.cond3.i105.i, %1163
-  br i1 %or.cond5.i106.i, label %1164, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+  %or.cond5.i105.i = and i1 %or.cond3.i104.i, %1163
+  br i1 %or.cond5.i105.i, label %1164, label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
 1164:                                             ; preds = %1156
   %1165 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2105,9 +2102,9 @@ _ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i: ; 
   store float 0.000000e+00, ptr %9, align 4
   br label %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
 
-_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit: ; preds = %73, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i, %.thread.i, %189, %190, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i, %.thread191.i, %594, %595, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, %838, %908, %1006, %1117, %1129, %1145, %1149, %1156, %1164
-  %1171 = phi i1 [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ true, %.thread.i ], [ true, %189 ], [ true, %190 ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ true, %.thread191.i ], [ true, %594 ], [ true, %595 ], [ true, %838 ], [ true, %908 ], [ true, %1006 ], [ true, %1117 ], [ true, %1129 ], [ true, %1145 ], [ true, %1149 ], [ true, %1156 ], [ true, %1164 ], [ false, %73 ]
-  %.0.i = phi i32 [ 16, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i ], [ 12, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i ], [ 20, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i ], [ 16, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ 16, %.thread.i ], [ 16, %189 ], [ 16, %190 ], [ 12, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ 12, %.thread191.i ], [ 12, %594 ], [ 12, %595 ], [ 18, %838 ], [ 18, %908 ], [ 18, %1006 ], [ 4, %1117 ], [ 4, %1129 ], [ 4, %1145 ], [ 3, %1149 ], [ 3, %1156 ], [ 3, %1164 ], [ 0, %73 ]
+_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit: ; preds = %73, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i, %.thread.i, %189, %190, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i, %.thread190.i, %594, %595, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i, %838, %908, %1006, %1117, %1129, %1145, %1149, %1156, %1164
+  %1171 = phi i1 [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ true, %.thread.i ], [ true, %189 ], [ true, %190 ], [ true, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ true, %.thread190.i ], [ true, %594 ], [ true, %595 ], [ true, %838 ], [ true, %908 ], [ true, %1006 ], [ true, %1117 ], [ true, %1129 ], [ true, %1145 ], [ true, %1149 ], [ true, %1156 ], [ true, %1164 ], [ false, %73 ]
+  %.0.i = phi i32 [ 16, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.i ], [ 12, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.i ], [ 20, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisGregoryEffPfS2_S2_S2_S2_S2_.exit.i ], [ 16, %_ZN10OpenSubdiv6v3_6_03OsdL20Osd_EvalBasisBSplineEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ 16, %.thread.i ], [ 16, %189 ], [ 16, %190 ], [ 12, %_ZN10OpenSubdiv6v3_6_03OsdL25Osd_EvalBasisBoxSplineTriEffPfS2_S2_S2_S2_S2_.exit.thread.i ], [ 12, %.thread190.i ], [ 12, %594 ], [ 12, %595 ], [ 18, %838 ], [ 18, %908 ], [ 18, %1006 ], [ 4, %1117 ], [ 4, %1129 ], [ 4, %1145 ], [ 3, %1149 ], [ 3, %1156 ], [ 3, %1164 ], [ 0, %73 ]
   %1172 = icmp ne ptr %5, null
   %1173 = icmp ne ptr %6, null
   %or.cond5 = and i1 %1172, %1173
@@ -2152,32 +2149,32 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
 1188:                                             ; preds = %._crit_edge
   %1189 = fmul float %.083, %1178
   %1190 = fmul float %1178, %1189
-  br i1 %1171, label %.lr.ph111.preheader, label %.loopexit
+  br i1 %1171, label %.lr.ph110.preheader, label %.loopexit
 
-.lr.ph111.preheader:                              ; preds = %1188
-  %umax118 = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 1)
-  %wide.trip.count119 = zext nneg i32 %umax118 to i64
-  br label %.lr.ph111
+.lr.ph110.preheader:                              ; preds = %1188
+  %umax116 = tail call i32 @llvm.umax.i32(i32 %.0.i, i32 1)
+  %wide.trip.count117 = zext nneg i32 %umax116 to i64
+  br label %.lr.ph110
 
-.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
-  %indvars.iv115 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next116, %.lr.ph111 ]
-  %1191 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv115
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
+  %indvars.iv113 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next114, %.lr.ph110 ]
+  %1191 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv113
   %1192 = load float, ptr %1191, align 4
   %1193 = fmul float %1190, %1192
   store float %1193, ptr %1191, align 4
-  %1194 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv115
+  %1194 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv113
   %1195 = load float, ptr %1194, align 4
   %1196 = fmul float %1190, %1195
   store float %1196, ptr %1194, align 4
-  %1197 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv115
+  %1197 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv113
   %1198 = load float, ptr %1197, align 4
   %1199 = fmul float %1190, %1198
   store float %1199, ptr %1197, align 4
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count119
-  br i1 %exitcond120.not, label %.loopexit, label %.lr.ph111, !llvm.loop !20
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count117
+  br i1 %exitcond118.not, label %.loopexit, label %.lr.ph110, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph111, %1188, %._crit_edge, %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
+.loopexit:                                        ; preds = %.lr.ph110, %1188, %._crit_edge, %_ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchParamEffPfS3_S3_S3_S3_S3_.exit
   ret i32 %.0.i
 }
 

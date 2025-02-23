@@ -404,7 +404,7 @@ if.then:                                          ; preds = %entry, %_ZNSt8_Rb_t
 
 do.end:                                           ; preds = %_ZNSt3mapIjN3zmq8server_t9outpipe_tESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit, %if.then
   %retval.sroa.0.0.i.i6 = phi ptr [ %__y.addr.1.i.i.i, %_ZNSt3mapIjN3zmq8server_t9outpipe_tESt4lessIjESaISt4pairIKjS2_EEE4findERS6_.exit ], [ %add.ptr.i.i.i, %if.then ]
-  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %retval.sroa.0.0.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #14
+  %call.i1.i.i = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %retval.sroa.0.0.i.i6, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %call.i1.i.i) #17
   %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1920
   %5 = load i64, ptr %_M_node_count.i.i.i, align 8

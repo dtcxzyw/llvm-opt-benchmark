@@ -349,7 +349,7 @@ define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, i32 nounde
   %35 = load ptr, ptr %34, align 8, !tbaa !80
   %36 = getelementptr inbounds nuw i8, ptr %.021.i, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !82
-  call void %35(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %13, i32 noundef range(i32 100, 99) %1, ptr noundef %37, ptr noundef %29) #14
+  call void %35(i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %13, i32 noundef range(i32 100, 99) %1, ptr noundef %37, ptr noundef nonnull %29) #14
   %.0.i = load ptr, ptr %.021.i, align 8, !tbaa !79
   %.not18.i = icmp eq ptr %.0.i, null
   br i1 %.not18.i, label %SUNHandleErrWithMsg.exit, label %.lr.ph.i
@@ -2908,10 +2908,8 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   %.lcssa = phi i32 [ %47, %39 ], [ %57, %53 ]
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 1, ptr %60, align 4, !tbaa !45
-  switch i32 %1, label %.thread [
-    i32 1, label %61
-    i32 2, label %65
-  ]
+  %switch = icmp eq i32 %1, 1
+  br i1 %switch, label %61, label %65
 
 61:                                               ; preds = %._crit_edge108
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 1752
@@ -2984,8 +2982,8 @@ define range(i32 -40, 1) i32 @IDASensReInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -15, i32 noundef 1643, ptr noundef nonnull @__func__.IDASensReInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.21)
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge108, %61, %65, %92, %32, %._crit_edge, %93, %85, %81, %26, %18, %14, %11, %6
-  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -21, %81 ], [ -21, %85 ], [ -15, %93 ], [ -28, %._crit_edge ], [ -28, %32 ], [ 0, %92 ], [ 0, %65 ], [ 0, %61 ], [ 0, %._crit_edge108 ]
+.thread:                                          ; preds = %61, %65, %92, %32, %._crit_edge, %93, %85, %81, %26, %18, %14, %11, %6
+  %.078 = phi i32 [ -20, %6 ], [ -40, %11 ], [ -22, %14 ], [ -22, %18 ], [ -22, %26 ], [ -21, %81 ], [ -21, %85 ], [ -15, %93 ], [ -28, %._crit_edge ], [ -28, %32 ], [ 0, %92 ], [ 0, %65 ], [ 0, %61 ]
   ret i32 %.078
 }
 
@@ -8886,7 +8884,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %108 = fsub double %106, %107
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp ugt double %109, %50
-  br i1 %110, label %.lr.ph310.i, label %.lr.ph321.i.critedge
+  br i1 %110, label %.lr.ph310.i, label %.loopexit263.i..lr.ph321.i_crit_edge.critedge
 
 .lr.ph310.i:                                      ; preds = %.preheader265.i
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1984
@@ -9189,7 +9187,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   store double %268, ptr %269, align 8, !tbaa !87
   %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
   %exitcond355.not.i = icmp eq i64 %indvars.iv.next351.i, %wide.trip.count338.i
-  br i1 %exitcond355.not.i, label %.loopexit263.loopexit.i, label %266
+  br i1 %exitcond355.not.i, label %.loopexit263.thread.i, label %266
 
 270:                                              ; preds = %261
   store double %.1244.i, ptr %105, align 8, !tbaa !227
@@ -9221,48 +9219,55 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %282 = fcmp ugt double %280, %281
   br i1 %282, label %.backedge.i, label %.loopexit263.i.loopexit
 
-.loopexit263.loopexit.i:                          ; preds = %266
+.loopexit263.thread.i:                            ; preds = %266
   %.pre368.i = load double, ptr %20, align 8, !tbaa !256
-  br label %.lr.ph321.i.critedge
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  store double %.pre368.i, ptr %283, align 8, !tbaa !257
+  br label %.lr.ph321.i
 
 .loopexit263.i.loopexit:                          ; preds = %._crit_edge300.loopexit.i, %.backedge.i, %._crit_edge304.i
   %.ph = phi double [ %278, %._crit_edge304.i ], [ %259, %.backedge.i ], [ %.pre.i, %._crit_edge300.loopexit.i ]
-  %283 = icmp sgt i32 %200, 0
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  store double %.ph, ptr %284, align 8, !tbaa !257
-  br i1 %283, label %.lr.ph321.i, label %._crit_edge.thread.thread112
-
-._crit_edge.thread.thread112:                     ; preds = %.loopexit263.i.loopexit
+  %284 = icmp sgt i32 %200, 0
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  %286 = load double, ptr %285, align 8, !tbaa !257
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 1944
-  store double %286, ptr %287, align 8, !tbaa !227
+  store double %.ph, ptr %285, align 8, !tbaa !257
+  br i1 %284, label %.loopexit263.i..lr.ph321.i_crit_edge, label %._crit_edge.thread.thread116
+
+._crit_edge.thread.thread116:                     ; preds = %.loopexit263.i.loopexit
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  %287 = load double, ptr %286, align 8, !tbaa !257
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 1944
+  store double %287, ptr %288, align 8, !tbaa !227
   br label %372
 
-.lr.ph321.i.critedge:                             ; preds = %.preheader265.i, %.loopexit263.loopexit.i
-  %.ph158 = phi double [ %106, %.preheader265.i ], [ %.pre368.i, %.loopexit263.loopexit.i ]
-  %288 = getelementptr inbounds nuw i8, ptr %0, i64 1960
-  store double %.ph158, ptr %288, align 8, !tbaa !257
+.loopexit263.i..lr.ph321.i_crit_edge.critedge:    ; preds = %.preheader265.i
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1960
+  store double %106, ptr %289, align 8, !tbaa !257
+  br label %.loopexit263.i..lr.ph321.i_crit_edge
+
+.loopexit263.i..lr.ph321.i_crit_edge:             ; preds = %.loopexit263.i..lr.ph321.i_crit_edge.critedge, %.loopexit263.i.loopexit
+  %.pre106 = load ptr, ptr %31, align 8, !tbaa !205
+  %.phi.trans.insert107 = getelementptr inbounds nuw i8, ptr %0, i64 1984
+  %.pre108 = load ptr, ptr %.phi.trans.insert107, align 8, !tbaa !206
+  %.pre109 = load ptr, ptr %58, align 8, !tbaa !209
   br label %.lr.ph321.i
 
-.lr.ph321.i:                                      ; preds = %.lr.ph321.i.critedge, %.loopexit263.i.loopexit
-  %289 = load ptr, ptr %31, align 8, !tbaa !205
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 1984
-  %291 = load ptr, ptr %290, align 8, !tbaa !206
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 1928
-  %293 = load ptr, ptr %292, align 8, !tbaa !207
-  %294 = load ptr, ptr %58, align 8, !tbaa !209
+.lr.ph321.i:                                      ; preds = %.loopexit263.i..lr.ph321.i_crit_edge, %.loopexit263.thread.i
+  %290 = phi ptr [ %.pre109, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %202, %.loopexit263.thread.i ]
+  %291 = phi ptr [ %.pre108, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %264, %.loopexit263.thread.i ]
+  %292 = phi ptr [ %.pre106, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %265, %.loopexit263.thread.i ]
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 1928
+  %294 = load ptr, ptr %293, align 8, !tbaa !207
   br label %295
 
 295:                                              ; preds = %333, %.lr.ph321.i
   %indvars.iv356.i = phi i64 [ 0, %.lr.ph321.i ], [ %indvars.iv.next357.i, %333 ]
-  %296 = getelementptr inbounds nuw double, ptr %289, i64 %indvars.iv356.i
+  %296 = getelementptr inbounds nuw double, ptr %292, i64 %indvars.iv356.i
   %297 = load double, ptr %296, align 8, !tbaa !87
   %298 = getelementptr inbounds nuw double, ptr %291, i64 %indvars.iv356.i
   store double %297, ptr %298, align 8, !tbaa !87
-  %299 = getelementptr inbounds nuw i32, ptr %293, i64 %indvars.iv356.i
+  %299 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv356.i
   store i32 0, ptr %299, align 4, !tbaa !85
-  %300 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv356.i
+  %300 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv356.i
   %301 = load i32, ptr %300, align 4, !tbaa !85
   %.not255.i = icmp eq i32 %301, 0
   br i1 %.not255.i, label %333, label %302
@@ -9358,11 +9363,11 @@ IDARootfind.exit:                                 ; preds = %333, %145, %._crit_
 
 352:                                              ; preds = %347
   store i32 1, ptr %345, align 4, !tbaa !85
-  %.pre106 = load i32, ptr %52, align 8, !tbaa !137
+  %.pre110 = load i32, ptr %52, align 8, !tbaa !137
   br label %353
 
 353:                                              ; preds = %343, %347, %352
-  %354 = phi i32 [ %344, %343 ], [ %344, %347 ], [ %.pre106, %352 ]
+  %354 = phi i32 [ %344, %343 ], [ %344, %347 ], [ %.pre110, %352 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %355 = sext i32 %354 to i64
   %356 = icmp slt i64 %indvars.iv.next, %355
@@ -9404,8 +9409,8 @@ IDARootfind.exit:                                 ; preds = %333, %145, %._crit_
 ._crit_edge79:                                    ; preds = %368, %._crit_edge
   br i1 %338, label %IDARootfind.exit.thread, label %372
 
-372:                                              ; preds = %._crit_edge.thread.thread112, %._crit_edge.thread, %._crit_edge79
-  %373 = phi ptr [ %357, %._crit_edge.thread ], [ %360, %._crit_edge79 ], [ %285, %._crit_edge.thread.thread112 ]
+372:                                              ; preds = %._crit_edge.thread.thread116, %._crit_edge.thread, %._crit_edge79
+  %373 = phi ptr [ %357, %._crit_edge.thread ], [ %360, %._crit_edge79 ], [ %286, %._crit_edge.thread.thread116 ]
   %374 = load double, ptr %373, align 8, !tbaa !257
   %375 = load ptr, ptr %21, align 8, !tbaa !210
   %376 = load ptr, ptr %23, align 8, !tbaa !211

@@ -4176,7 +4176,7 @@ _ZNSt5dequeImSaImEE9push_backERKm.exit.i.i:       ; preds = %_ZNSt5dequeImSaImEE
   br i1 %1550, label %.lr.ph.i.i.i220.i, label %_ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i, !llvm.loop !227
 
 _ZNSt11_Deque_baseImSaImEE16_M_destroy_nodesEPPmS3_.exit.i.i.i: ; preds = %.lr.ph.i.i.i220.i, %._crit_edge562.i
-  call void @_ZdlPvm(ptr noundef %.sroa.0344.8652.i, i64 noundef %.sroa.6345.8650.i) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0344.8652.i, i64 noundef %.sroa.6345.8650.i) #20
   br label %"_ZZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_1clERKNS1_11SmallVectorImLj4EEEm.exit.i"
 
 .lr.ph561.i:                                      ; preds = %_ZNSt15_Deque_iteratorImRmPmEppEv.exit.i, %.lr.ph561.preheader.i
@@ -5017,7 +5017,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i27
 
 _ZN12_GLOBAL__N_120DFAPacketizerEmitter18emitForItinerariesERN4llvm11raw_ostreamERSt6vectorIPKNS1_16CodeGenProcModelESaIS7_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %.lr.ph.i.i.i283.i, %1948
   %1955 = shl i64 %.sroa.9.1.lcssa.i, 3
-  call void @_ZdlPvm(ptr noundef %.sroa.0370.1.lcssa.i, i64 noundef %1955) #20
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0370.1.lcssa.i, i64 noundef %1955) #20
   call void @_ZN4llvm10DfaEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %25) #18
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %25) #18
   %1956 = load ptr, ptr %24, align 8, !tbaa !168

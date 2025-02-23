@@ -979,7 +979,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i: ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 %26
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 %26
   %29 = call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf7Message6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %28, ptr noundef nonnull align 8 dereferenceable(72) %3), !noalias !55
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3) #29, !noalias !55
   br i1 %29, label %_ZN5arrow6StatusD2Ev.exit11.thread, label %_ZN5arrow6StatusD2Ev.exit
@@ -2411,7 +2411,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i: ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %11, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 %22
   %25 = call noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf7Message6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(72) %4), !noalias !146
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #29, !noalias !146
   br i1 %25, label %_ZN5arrow6StatusD2Ev.exit.thread, label %_ZN5arrow6StatusD2Ev.exit
@@ -4789,7 +4789,7 @@ _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEb
   br label %69
 
 _ZN5arrow3ipc8internal17VerifyFlatbuffersIN3org6apache5arrow7flatbuf7MessageEEEbPKhl.exit.i: ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %52, i64 %65
+  %67 = getelementptr inbounds nuw i8, ptr %53, i64 %65
   %68 = invoke noundef zeroext i1 @_ZNK3org6apache5arrow7flatbuf7Message6VerifyERN22arrow_vendored_private11flatbuffers8VerifierE(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 8 dereferenceable(72) %2)
           to label %.noexc unwind label %121
 

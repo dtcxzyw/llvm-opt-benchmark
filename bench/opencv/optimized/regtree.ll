@@ -1968,7 +1968,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN2cv6Point_IfEESt6vectorIS4_SaIS4_EEE
 
 140:                                              ; preds = %35, %136
   %.1 = phi i64 [ %138, %136 ], [ %.02148, %35 ]
-  %141 = add nuw i64 %.049, 1
+  %141 = add i64 %.049, 1
   %exitcond.not = icmp eq i64 %141, %4
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !23
 

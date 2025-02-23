@@ -9242,7 +9242,7 @@ set_cb_buffer.exit.us.i:                          ; preds = %160
   store i16 0, ptr %69, align 2
   %169 = load ptr, ptr %70, align 32
   %170 = load i8, ptr %47, align 4
-  call fastcc void @decode_partition(ptr noundef %1, ptr noundef nonnull %6, i32 noundef %.048.us.i, i32 noundef %.04147.us.i, ptr noundef %169, i8 noundef zeroext %170, i32 noundef 1)
+  call fastcc void @decode_partition(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %.048.us.i, i32 noundef %.04147.us.i, ptr noundef %169, i8 noundef zeroext %170, i32 noundef 1)
   %171 = load ptr, ptr %70, align 32
   %172 = call i32 @aom_reader_has_overflowed(ptr noundef %171) #16
   %.not42.us.i = icmp eq i32 %172, 0
@@ -9758,7 +9758,7 @@ set_cb_buffer.exit.i:                             ; preds = %419
 sync_read.exit.i:                                 ; preds = %._crit_edge.i.i, %429, %set_cb_buffer.exit.i
   %450 = load ptr, ptr %70, align 32
   %451 = load i8, ptr %47, align 4
-  call fastcc void @decode_partition(ptr noundef %1, ptr noundef %6, i32 noundef %343, i32 noundef %.035.i, ptr noundef %450, i8 noundef zeroext %451, i32 noundef 2)
+  call fastcc void @decode_partition(ptr noundef nonnull %1, ptr noundef nonnull %6, i32 noundef %343, i32 noundef %.035.i, ptr noundef %450, i8 noundef zeroext %451, i32 noundef 2)
   %452 = load i32, ptr %401, align 8
   %453 = icmp slt i32 %.02933.i, %406
   br i1 %453, label %455, label %.thread.i.i
@@ -13556,7 +13556,7 @@ set_offsets.exit.i:                               ; preds = %.split.split.i.i.i,
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 1
   store i8 %5, ptr %184, align 1
-  tail call void @av1_read_mode_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %..i, i32 noundef %21) #16
+  tail call void @av1_read_mode_info(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, i32 noundef %..i, i32 noundef %21) #16
   %185 = icmp ugt i8 %6, 2
   br i1 %185, label %186, label %decode_mbmi_block.exit
 
@@ -14096,7 +14096,7 @@ set_offsets_for_pred_and_recon.exit:              ; preds = %39
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1312
   tail call void @av1_setup_dst_planes(ptr noundef nonnull %37, i8 noundef zeroext %6, ptr noundef nonnull %59, i32 noundef %2, i32 noundef %3, i32 noundef 0, i32 noundef %16) #16
-  tail call fastcc void @decode_token_recon_block(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %4, i8 noundef zeroext %6)
+  tail call fastcc void @decode_token_recon_block(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %4, i8 noundef zeroext %6)
   ret void
 }
 
@@ -15769,7 +15769,7 @@ set_cb_buffer.exit:                               ; preds = %94
   store i16 0, ptr %80, align 2
   %101 = load ptr, ptr %81, align 32
   %102 = load i8, ptr %82, align 4
-  call fastcc void @decode_partition(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.043, i32 noundef %.03642, ptr noundef %101, i8 noundef zeroext %102, i32 noundef 3)
+  call fastcc void @decode_partition(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.043, i32 noundef %.03642, ptr noundef %101, i8 noundef zeroext %102, i32 noundef 3)
   %103 = load ptr, ptr %81, align 32
   %104 = call i32 @aom_reader_has_overflowed(ptr noundef %103) #16
   %.not37 = icmp eq i32 %104, 0

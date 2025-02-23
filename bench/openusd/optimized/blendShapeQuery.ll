@@ -6957,7 +6957,7 @@ _ZSt22__move_median_to_firstIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendS
   br label %_ZSt22__move_median_to_firstIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_S9_T0_.exit.i, !llvm.loop !68
 
 _ZSt27__unguarded_partition_pivotIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEET_S9_S9_T0_.exit: ; preds = %56
-  tail call void @_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_T0_T1_(ptr noundef %.1.i.i, ptr noundef %.020, i64 noundef %23)
+  tail call void @_ZSt16__introsort_loopIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeElN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_T0_T1_(ptr noundef nonnull %.1.i.i, ptr noundef %.020, i64 noundef %23)
   %59 = ptrtoint ptr %.1.i.i to i64
   %60 = sub i64 %59, %11
   %61 = icmp sgt i64 %60, 192
@@ -7178,51 +7178,54 @@ define linkonce_odr void @_ZSt14__partial_sortIPN32pxrInternal_v0_24__pxrReserve
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %26 = and i64 %11, 1
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %37
+  br i1 %27, label %28, label %36
 
 28:                                               ; preds = %._crit_edge.i.i.i
   %29 = add nsw i64 %11, -2
   %30 = ashr exact i64 %29, 1
   %31 = icmp eq i64 %.0.lcssa.i.i.i, %30
-  br i1 %31, label %32, label %37
+  br i1 %31, label %.thread.i.i, label %36
 
-32:                                               ; preds = %28
-  %33 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %36, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
-  br label %37
+.thread.i.i:                                      ; preds = %28
+  %32 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %33 = or disjoint i64 %32, 1
+  %34 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %33
+  %35 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %35, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false)
+  br label %.lr.ph.i.i.i.i.preheader
 
-37:                                               ; preds = %32, %28, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %34, %32 ], [ %.0.lcssa.i.i.i, %28 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %38 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %38, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i
+36:                                               ; preds = %28, %._crit_edge.i.i.i
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %37, %43
-  %.01317.i.i.i.i = phi i64 [ %.018.i.i1213.i.i, %43 ], [ %.1.i.i.i, %37 ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %36, %.thread.i.i
+  %.01317.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %36 ], [ %33, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %41
+  %.01317.i.i.i.i = phi i64 [ %.018.i.i1213.i.i, %41 ], [ %.01317.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i1213.i.i = lshr i64 %.018.in.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.018.i.i1213.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load float, ptr %40, align 4
-  %42 = fcmp olt float %41, %.sroa.25.0.copyload.i.i
-  br i1 %42, label %43, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i
+  %37 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.018.i.i1213.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load float, ptr %38, align 4
+  %40 = fcmp olt float %39, %.sroa.25.0.copyload.i.i
+  br i1 %40, label %41, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i
 
-43:                                               ; preds = %.lr.ph.i.i.i.i
-  %44 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.01317.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false)
-  %.not.i.i = icmp ult i64 %.018.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !74
+41:                                               ; preds = %.lr.ph.i.i.i.i
+  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.01317.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %37, i64 12, i1 false)
+  %.not14.i.i = icmp ult i64 %.018.in.i.i.i.i, 2
+  br i1 %.not14.i.i, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !74
 
-_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i: ; preds = %43, %.lr.ph.i.i.i.i, %37
-  %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %37 ], [ 0, %43 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %45 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.i
-  store i64 %.sroa.04.0.copyload.i.i, ptr %45, align 4
-  %.sroa.2.0..sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 8
+_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i: ; preds = %41, %.lr.ph.i.i.i.i, %36
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %36 ], [ 0, %41 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %43 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.i
+  store i64 %.sroa.04.0.copyload.i.i, ptr %43, align 4
+  %.sroa.2.0..sroa_idx14.i.i.i.i = getelementptr inbounds nuw i8, ptr %43, i64 8
   store float %.sroa.25.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx14.i.i.i.i, align 4
-  %46 = icmp sgt i64 %10, 12
-  br i1 %46, label %.lr.ph.i, label %_ZSt11__sort_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_RT0_.exit, !llvm.loop !75
+  %44 = icmp sgt i64 %10, 12
+  br i1 %44, label %.lr.ph.i, label %_ZSt11__sort_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_RT0_.exit, !llvm.loop !75
 
 _ZSt11__sort_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_RT0_.exit: ; preds = %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.i, %3
   ret void
@@ -7252,17 +7255,17 @@ define linkonce_odr void @_ZSt13__heap_selectIPN32pxrInternal_v0_24__pxrReserved
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %18 = or disjoint i64 %16, 1
-  %19 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %18
   %20 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %17
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %.011.us = phi ptr [ %47, %46 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %44
+  %.011.us = phi ptr [ %45, %44 ], [ %1, %.lr.ph.split.us.preheader ]
   %21 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
   %22 = load float, ptr %21, align 4
   %23 = load float, ptr %6, align 4
   %24 = fcmp olt float %22, %23
-  br i1 %24, label %.lr.ph.i.i.preheader.us, label %46
+  br i1 %24, label %.lr.ph.i.i.preheader.us, label %44
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.04.0.copyload.i.us = load i64, ptr %.011.us, align 4
@@ -7287,133 +7290,136 @@ define linkonce_odr void @_ZSt13__heap_selectIPN32pxrInternal_v0_24__pxrReserved
   br i1 %35, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !73
 
 36:                                               ; preds = %._crit_edge.i.i.loopexit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
+
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 4 dereferenceable(12) %19, i64 12, i1 false)
-  br label %37
+  br label %.lr.ph.i.i.i.us.preheader
 
-37:                                               ; preds = %36, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %18, %36 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %36
+  %.01317.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %36 ], [ %18, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %43
-  %.01317.i.i.i.us = phi i64 [ %.018.i.i1213.i.us, %43 ], [ %.1.i.i.us, %37 ]
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %41
+  %.01317.i.i.i.us = phi i64 [ %.018.i.i1213.i.us, %41 ], [ %.01317.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.018.in.i.i.i.us = add nsw i64 %.01317.i.i.i.us, -1
   %.018.i.i1213.i.us = lshr i64 %.018.in.i.i.i.us, 1
-  %39 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.018.i.i1213.i.us
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %41 = load float, ptr %40, align 4
-  %42 = fcmp olt float %41, %22
-  br i1 %42, label %43, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us
+  %37 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.018.i.i1213.i.us
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %39 = load float, ptr %38, align 4
+  %40 = fcmp olt float %39, %22
+  br i1 %40, label %41, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us
 
-43:                                               ; preds = %.lr.ph.i.i.i.us
-  %44 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.01317.i.i.i.us
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false)
-  %.not.i.us = icmp ult i64 %.018.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !74
+41:                                               ; preds = %.lr.ph.i.i.i.us
+  %42 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.01317.i.i.i.us
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %37, i64 12, i1 false)
+  %.not14.i.us = icmp ult i64 %.018.in.i.i.i.us, 2
+  br i1 %.not14.i.us, label %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !74
 
-_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %43, %37
-  %.013.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.01317.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %43 ]
-  %45 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.us
-  store i64 %.sroa.04.0.copyload.i.us, ptr %45, align 4
-  %.sroa.2.0..sroa_idx14.i.i.i.us = getelementptr inbounds nuw i8, ptr %45, i64 8
+_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %41, %36
+  %.013.lcssa.i.i.i.us = phi i64 [ 0, %36 ], [ %.01317.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %41 ]
+  %43 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.us
+  store i64 %.sroa.04.0.copyload.i.us, ptr %43, align 4
+  %.sroa.2.0..sroa_idx14.i.i.i.us = getelementptr inbounds nuw i8, ptr %43, i64 8
   store float %22, ptr %.sroa.2.0..sroa_idx14.i.i.i.us, align 4
-  br label %46
+  br label %44
 
-46:                                               ; preds = %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.011.us, i64 12
-  %48 = icmp ult ptr %47, %2
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !76
+44:                                               ; preds = %_ZSt10__pop_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_S9_S9_RT0_.exit.us, %.lr.ph.split.us
+  %45 = getelementptr inbounds nuw i8, ptr %.011.us, i64 12
+  %46 = icmp ult ptr %45, %2
+  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !76
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %49 = icmp eq i64 %spec.select.i.i.us, %17
-  %or.cond = select i1 %15, i1 %49, i1 false
-  br i1 %or.cond, label %36, label %37
+  %47 = icmp eq i64 %spec.select.i.i.us, %17
+  %or.cond = select i1 %15, i1 %47, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %36
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br i1 %15, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %51 = icmp eq i64 %16, 0
-  br i1 %51, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %49 = icmp eq i64 %16, 0
+  br i1 %49, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %59
-  %.011.us12.us = phi ptr [ %60, %59 ], [ %1, %.lr.ph.split.split.us ]
-  %52 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
-  %53 = load float, ptr %52, align 4
-  %54 = load float, ptr %6, align 4
-  %55 = fcmp olt float %53, %54
-  br i1 %55, label %._crit_edge.i.i.us13.us, label %59
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %57
+  %.011.us12.us = phi ptr [ %58, %57 ], [ %1, %.lr.ph.split.split.us ]
+  %50 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
+  %51 = load float, ptr %50, align 4
+  %52 = load float, ptr %6, align 4
+  %53 = fcmp olt float %51, %52
+  br i1 %53, label %._crit_edge.i.i.us13.us, label %57
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.04.0.copyload.i.us14.us = load i64, ptr %.011.us12.us, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.011.us12.us, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %50, i64 12, i1 false)
-  %56 = load float, ptr %6, align 4
-  %57 = fcmp uge float %56, %53
-  %.013.lcssa.i.i.i.ph.us26.us = zext i1 %57 to i64
-  %58 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.ph.us26.us
-  store i64 %.sroa.04.0.copyload.i.us14.us, ptr %58, align 4
-  %.sroa.2.0..sroa_idx14.i.i.i.us23.us = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store float %53, ptr %.sroa.2.0..sroa_idx14.i.i.i.us23.us, align 4
-  br label %59
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %48, i64 12, i1 false)
+  %54 = load float, ptr %6, align 4
+  %55 = fcmp uge float %54, %51
+  %.013.lcssa.i.i.i.ph.us25.us = zext i1 %55 to i64
+  %56 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.013.lcssa.i.i.i.ph.us25.us
+  store i64 %.sroa.04.0.copyload.i.us14.us, ptr %56, align 4
+  %.sroa.2.0..sroa_idx14.i.i.i.us23.us = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store float %51, ptr %.sroa.2.0..sroa_idx14.i.i.i.us23.us, align 4
+  br label %57
 
-59:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
-  %60 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 12
-  %61 = icmp ult ptr %60, %2
-  br i1 %61, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !76
+57:                                               ; preds = %._crit_edge.i.i.us13.us, %.lr.ph.split.split.us.split.us
+  %58 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 12
+  %59 = icmp ult ptr %58, %2
+  br i1 %59, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !76
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us
-  %.pre32 = load float, ptr %6, align 4
-  br label %62
+  %.pre31 = load float, ptr %6, align 4
+  br label %60
 
-62:                                               ; preds = %67, %.lr.ph.split.split.us.split
-  %63 = phi float [ %.pre32, %.lr.ph.split.split.us.split ], [ %68, %67 ]
-  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %69, %67 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
-  %65 = load float, ptr %64, align 4
-  %66 = fcmp olt float %65, %63
-  br i1 %66, label %._crit_edge.i.i.us13, label %67
+60:                                               ; preds = %65, %.lr.ph.split.split.us.split
+  %61 = phi float [ %.pre31, %.lr.ph.split.split.us.split ], [ %66, %65 ]
+  %.011.us12 = phi ptr [ %1, %.lr.ph.split.split.us.split ], [ %67, %65 ]
+  %62 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
+  %63 = load float, ptr %62, align 4
+  %64 = fcmp olt float %63, %61
+  br i1 %64, label %._crit_edge.i.i.us13, label %65
 
-._crit_edge.i.i.us13:                             ; preds = %62
+._crit_edge.i.i.us13:                             ; preds = %60
   %.sroa.04.0.copyload.i.us14 = load i64, ptr %.011.us12, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.011.us12, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   store i64 %.sroa.04.0.copyload.i.us14, ptr %0, align 4
-  store float %65, ptr %6, align 4
-  br label %67
+  store float %63, ptr %6, align 4
+  br label %65
 
-67:                                               ; preds = %._crit_edge.i.i.us13, %62
-  %68 = phi float [ %65, %._crit_edge.i.i.us13 ], [ %63, %62 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 12
-  %70 = icmp ult ptr %69, %2
-  br i1 %70, label %62, label %._crit_edge, !llvm.loop !76
+65:                                               ; preds = %._crit_edge.i.i.us13, %60
+  %66 = phi float [ %63, %._crit_edge.i.i.us13 ], [ %61, %60 ]
+  %67 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 12
+  %68 = icmp ult ptr %67, %2
+  br i1 %68, label %60, label %._crit_edge, !llvm.loop !76
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %.pre = load float, ptr %6, align 4
-  br label %71
+  br label %69
 
-71:                                               ; preds = %.lr.ph.split.split, %76
-  %72 = phi float [ %.pre, %.lr.ph.split.split ], [ %77, %76 ]
-  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %78, %76 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %74 = load float, ptr %73, align 4
-  %75 = fcmp olt float %74, %72
-  br i1 %75, label %._crit_edge.i.i, label %76
+69:                                               ; preds = %.lr.ph.split.split, %74
+  %70 = phi float [ %.pre, %.lr.ph.split.split ], [ %75, %74 ]
+  %.011 = phi ptr [ %1, %.lr.ph.split.split ], [ %76, %74 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %72 = load float, ptr %71, align 4
+  %73 = fcmp olt float %72, %70
+  br i1 %73, label %._crit_edge.i.i, label %74
 
-._crit_edge.i.i:                                  ; preds = %71
+._crit_edge.i.i:                                  ; preds = %69
   %.sroa.04.0.copyload.i = load i64, ptr %.011, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.011, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   store i64 %.sroa.04.0.copyload.i, ptr %0, align 4
-  store float %74, ptr %6, align 4
-  br label %76
+  store float %72, ptr %6, align 4
+  br label %74
 
-76:                                               ; preds = %71, %._crit_edge.i.i
-  %77 = phi float [ %72, %71 ], [ %74, %._crit_edge.i.i ]
-  %78 = getelementptr inbounds nuw i8, ptr %.011, i64 12
-  %79 = icmp ult ptr %78, %2
-  br i1 %79, label %71, label %._crit_edge, !llvm.loop !76
+74:                                               ; preds = %69, %._crit_edge.i.i
+  %75 = phi float [ %70, %69 ], [ %72, %._crit_edge.i.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %.011, i64 12
+  %77 = icmp ult ptr %76, %2
+  br i1 %77, label %69, label %._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %76, %67, %59, %46, %3
+._crit_edge:                                      ; preds = %74, %65, %57, %44, %3
   ret void
 }
 
@@ -7465,16 +7471,16 @@ define linkonce_odr void @_ZSt11__make_heapIPN32pxrInternal_v0_24__pxrReserved__
   br i1 %or.cond, label %30, label %35
 
 30:                                               ; preds = %._crit_edge.i
-  %31 = shl nsw i64 %.0.lcssa.i, 1
+  %31 = shl nuw nsw i64 %.0.lcssa.i, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %32
   %34 = getelementptr inbounds %"struct.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShapeQuery::_SubShape", ptr %0, i64 %.0.lcssa.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %34, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false)
   br label %35
 
 35:                                               ; preds = %30, %._crit_edge.i
   %.1.i = phi i64 [ %32, %30 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %36 = icmp sgt i64 %.1.i, %10
+  %36 = icmp samesign ugt i64 %.1.i, %10
   br i1 %36, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery9_SubShapeElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_24_SubShapeCompareByWeightEEEEvT_T0_SA_T1_T2_.exit
 
 .lr.ph.i.i:                                       ; preds = %35, %41

@@ -461,7 +461,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %239 = load i32, ptr %9, align 4, !tbaa !16
   %240 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %239, i32 noundef %.1201.i, i32 noundef %227) #5
   store i32 %240, ptr %147, align 8, !tbaa !28
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %241 = add nsw i32 %.1201.i, 1
   %242 = load i32, ptr %130, align 4, !tbaa !18
   %243 = icmp slt i32 %241, %242
@@ -493,7 +493,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %252 = load i32, ptr %9, align 4, !tbaa !16
   %253 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %252, i32 noundef %.2.i, i32 noundef %227) #5
   store i32 %253, ptr %147, align 8, !tbaa !28
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %254 = load i32, ptr %246, align 4, !tbaa !20
   %.not174.not.i = icmp slt i32 %.2.i, %254
   br i1 %.not174.not.i, label %251, label %.loopexit197.i, !llvm.loop !32
@@ -536,7 +536,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %272 = load i32, ptr %9, align 4, !tbaa !16
   %273 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %272, i32 noundef %.3206.i, i32 noundef %260) #5
   store i32 %273, ptr %147, align 8, !tbaa !28
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %274 = add nsw i32 %.3206.i, 1
   %275 = load i32, ptr %130, align 4, !tbaa !18
   %276 = icmp slt i32 %274, %275
@@ -568,7 +568,7 @@ draw_border_simple.exit:                          ; preds = %98, %102
   %285 = load i32, ptr %9, align 4, !tbaa !16
   %286 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %109, i32 noundef %285, i32 noundef %.4.i, i32 noundef %260) #5
   store i32 %286, ptr %147, align 8, !tbaa !28
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %5) #5
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   %287 = load i32, ptr %279, align 4, !tbaa !20
   %.not175.not.i = icmp slt i32 %.4.i, %287
   br i1 %.not175.not.i, label %284, label %.loopexit.i, !llvm.loop !34

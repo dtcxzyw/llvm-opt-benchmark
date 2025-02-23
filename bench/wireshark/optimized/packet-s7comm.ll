@@ -9201,7 +9201,7 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %14, ptr noundef nonnull @.str.2433, i32 noundef %35, i32 noundef %36)
   %37 = add i32 %.05660.us, 8
   %exitcond77.not = icmp eq i32 %35, %9
-  br i1 %exitcond77.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !37
+  br i1 %exitcond77.not, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !37
 
 .lr.ph.split.us62:                                ; preds = %.lr.ph, %.lr.ph.split.us62
   %indvars.iv = phi i32 [ %42, %.lr.ph.split.us62 ], [ 0, %.lr.ph ]
@@ -9218,8 +9218,8 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
   %exitcond.not = icmp eq i32 %42, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us62, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph.split.us62, %.lr.ph.split.us, %.lr.ph
-  %.056.lcssa = phi i32 [ %11, %.lr.ph ], [ %37, %.lr.ph.split.us ], [ %45, %.lr.ph.split.us62 ]
+._crit_edge:                                      ; preds = %.lr.ph.split.us62, %.lr.ph
+  %.056.lcssa = phi i32 [ %11, %.lr.ph ], [ %45, %.lr.ph.split.us62 ]
   %46 = icmp ne i8 %3, 2
   %47 = and i32 %9, 1
   %.not = icmp eq i32 %47, 0
@@ -9228,12 +9228,12 @@ define internal fastcc noundef i32 @s7comm_decode_message_service_ar_send_args(p
 
 48:                                               ; preds = %._crit_edge
   %49 = load i32, ptr @hf_s7comm_data_fillbyte, align 4
-  %50 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.056.lcssa, i32 noundef 1, i32 noundef 0)
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %.056.lcssa, i32 noundef 1, i32 noundef 0)
   %51 = add i32 %.056.lcssa, 1
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %5, %48, %._crit_edge
-  %.2 = phi i32 [ %51, %48 ], [ %.056.lcssa, %._crit_edge ], [ %11, %5 ]
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %5, %48, %._crit_edge
+  %.2 = phi i32 [ %51, %48 ], [ %.056.lcssa, %._crit_edge ], [ %11, %5 ], [ %37, %.lr.ph.split.us ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #8
   ret i32 %.2
 }

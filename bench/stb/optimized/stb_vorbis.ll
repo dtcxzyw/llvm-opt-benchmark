@@ -10434,7 +10434,7 @@ get_bits.exit.thread:                             ; preds = %.critedge.i, %63, %
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %740 = tail call i32 @get8_packet_raw(ptr noundef %0)
+  %740 = tail call i32 @get8_packet_raw(ptr noundef nonnull %0)
   %.not.i418 = icmp eq i32 %740, -1
   br i1 %.not.i418, label %flush_packet.exit, label %.preheader, !llvm.loop !84
 
@@ -12534,7 +12534,7 @@ setup_temp_free.exit1197:                         ; preds = %650, %657, %477
 
 714:                                              ; preds = %.lr.ph1490, %714
   %indvars.iv1702 = phi i64 [ 0, %.lr.ph1490 ], [ %indvars.iv.next1703, %714 ]
-  %715 = call i32 @get_bits(ptr noundef %0, i32 noundef 8)
+  %715 = call i32 @get_bits(ptr noundef nonnull %0, i32 noundef 8)
   %716 = trunc i32 %715 to i8
   %717 = getelementptr inbounds nuw [16 x i8], ptr %713, i64 0, i64 %indvars.iv1702
   store i8 %716, ptr %717, align 1, !tbaa !23
@@ -12576,7 +12576,7 @@ setup_temp_free.exit1197:                         ; preds = %650, %657, %477
 734:                                              ; preds = %.lr.ph1410, %734
   %indvars.iv1622 = phi i64 [ 0, %.lr.ph1410 ], [ %indvars.iv.next1623, %734 ]
   %.010211407 = phi i32 [ -1, %.lr.ph1410 ], [ %spec.select, %734 ]
-  %735 = call i32 @get_bits(ptr noundef %0, i32 noundef 4)
+  %735 = call i32 @get_bits(ptr noundef nonnull %0, i32 noundef 4)
   %736 = trunc i32 %735 to i8
   %737 = getelementptr inbounds nuw [32 x i8], ptr %728, i64 0, i64 %indvars.iv1622
   store i8 %736, ptr %737, align 1, !tbaa !23
@@ -12590,12 +12590,12 @@ setup_temp_free.exit1197:                         ; preds = %650, %657, %477
 
 742:                                              ; preds = %.lr.ph1418, %._crit_edge1415
   %indvars.iv1628 = phi i64 [ 0, %.lr.ph1418 ], [ %indvars.iv.next1629, %._crit_edge1415 ]
-  %743 = call i32 @get_bits(ptr noundef %0, i32 noundef 3)
+  %743 = call i32 @get_bits(ptr noundef nonnull %0, i32 noundef 3)
   %744 = trunc i32 %743 to i8
   %745 = add i8 %744, 1
   %746 = getelementptr inbounds nuw [16 x i8], ptr %729, i64 0, i64 %indvars.iv1628
   store i8 %745, ptr %746, align 1, !tbaa !23
-  %747 = call i32 @get_bits(ptr noundef %0, i32 noundef 2)
+  %747 = call i32 @get_bits(ptr noundef nonnull %0, i32 noundef 2)
   %748 = trunc i32 %747 to i8
   %749 = getelementptr inbounds nuw [16 x i8], ptr %730, i64 0, i64 %indvars.iv1628
   store i8 %748, ptr %749, align 1, !tbaa !23
@@ -13467,7 +13467,7 @@ neighbors.exit:                                   ; preds = %857
   br label %.critedge
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
-  %1174 = call i32 @get8_packet_raw(ptr noundef %0)
+  %1174 = call i32 @get8_packet_raw(ptr noundef nonnull %0)
   %.not.i1201 = icmp eq i32 %1174, -1
   br i1 %.not.i1201, label %flush_packet.exit, label %.preheader, !llvm.loop !84
 
@@ -14298,7 +14298,7 @@ define i32 @vorbis_search_for_page_pushdata(ptr noundef captures(none) %0, ptr n
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !283
 
 ._crit_edge:                                      ; preds = %8
-  %10 = icmp slt i32 %5, 4
+  %10 = icmp samesign ult i32 %5, 4
   br i1 %10, label %._crit_edge.thread, label %.lr.ph200
 
 ._crit_edge.thread:                               ; preds = %3, %._crit_edge
@@ -15236,7 +15236,7 @@ get8.exit99:                                      ; preds = %134, %135, %142, %1
   br i1 %.not79, label %158, label %156
 
 156:                                              ; preds = %155
-  %157 = tail call i32 @stb_vorbis_get_file_offset(ptr noundef %0)
+  %157 = tail call i32 @stb_vorbis_get_file_offset(ptr noundef nonnull %0)
   store i32 %157, ptr %1, align 4, !tbaa !21
   br label %158
 
@@ -15253,7 +15253,7 @@ get8.exit99:                                      ; preds = %134, %135, %142, %1
 
 161:                                              ; preds = %.sink.split, %158
   %162 = add i32 %.0.i83, -1
-  %163 = tail call i32 @set_file_offset(ptr noundef %0, i32 noundef %162)
+  %163 = tail call i32 @set_file_offset(ptr noundef nonnull %0, i32 noundef %162)
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %129, %161

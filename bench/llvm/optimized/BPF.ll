@@ -401,8 +401,8 @@ define internal void @_ZNK12_GLOBAL__N_110BPFABIInfo11computeInfoERN5clang7CodeG
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i8, ptr %13, align 16, !noalias !33
   %15 = icmp eq i8 %14, 13
-  %.not.not7.i.i.i = icmp ne ptr %12, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %15
+  %.not7.i.i.i = icmp ne ptr %12, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %15
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %2

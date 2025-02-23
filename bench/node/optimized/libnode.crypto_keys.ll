@@ -4683,16 +4683,16 @@ if.then31:                                        ; preds = %_ZN4node6crypto12_G
   %13 = load ptr, ptr %pkey, align 8
   store ptr %call33, ptr %pkey, align 8
   %tobool.not.i.i34 = icmp eq ptr %13, null
-  br i1 %tobool.not.i.i34, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45, label %if.then.i.i35
+  br i1 %tobool.not.i.i34, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, label %if.then.i.i35
 
 if.then.i.i35:                                    ; preds = %if.then31
   call void @EVP_PKEY_free(ptr noundef nonnull %13) #23
-  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45
+  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread
 
 if.else34:                                        ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.thread.i, %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i, %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
   %call36 = tail call ptr @d2i_PKCS8_PRIV_KEY_INFO_bio(ptr noundef nonnull %call26, ptr noundef null) #23
   %cmp.i37.not = icmp eq ptr %call36, null
-  br i1 %cmp.i37.not, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45, label %if.then38
+  br i1 %cmp.i37.not, label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, label %if.then38
 
 if.then38:                                        ; preds = %if.else34
   %call40 = tail call ptr @EVP_PKCS82PKEY(ptr noundef nonnull %call36) #23
@@ -4707,9 +4707,9 @@ if.then.i.i39:                                    ; preds = %if.then38
 
 if.then.i42:                                      ; preds = %if.then.i.i39, %if.then38
   tail call void @PKCS8_PRIV_KEY_INFO_free(ptr noundef nonnull %call36) #23
-  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45
+  br label %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread
 
-_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45: ; preds = %if.then31, %if.then.i.i35, %if.else34, %if.then.i42
+_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread: ; preds = %if.then31, %if.then.i.i35, %if.else34, %if.then.i42
   call void @BIO_free_all(ptr noundef nonnull %call26) #23
   br label %if.end64
 
@@ -4745,7 +4745,7 @@ if.then.i.i47:                                    ; preds = %do.end59
   call void @EVP_PKEY_free(ptr noundef nonnull %17) #23
   br label %if.end64
 
-if.end64:                                         ; preds = %if.then.i.i47, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45, %if.then.i.i29, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
+if.end64:                                         ; preds = %if.then.i.i47, %do.end59, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit45.thread, %if.then.i.i29, %if.then17, %_ZNSt10unique_ptrI6bio_stN4node15FunctionDeleterIS0_XadL_Z12BIO_free_allEEEEED2Ev.exit.thread
   %call65 = call i64 @ERR_peek_error() #23
   %cmp66.not = icmp eq i64 %call65, 0
   br i1 %cmp66.not, label %if.end68, label %if.then67
@@ -4778,8 +4778,8 @@ if.then76:                                        ; preds = %if.end71
 if.end81:                                         ; preds = %if.then76, %if.end71
   br label %return
 
-return:                                           ; preds = %if.then, %if.then23, %if.then76, %if.end68, %if.end81
-  %retval.1 = phi i32 [ 3, %if.end81 ], [ 0, %if.end68 ], [ 2, %if.then76 ], [ 3, %if.then23 ], [ 3, %if.then ]
+return:                                           ; preds = %if.then23, %if.then, %if.then76, %if.end68, %if.end81
+  %retval.1 = phi i32 [ 3, %if.end81 ], [ 0, %if.end68 ], [ 2, %if.then76 ], [ 3, %if.then ], [ 3, %if.then23 ]
   ret i32 %retval.1
 }
 

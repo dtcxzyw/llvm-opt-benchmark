@@ -1335,7 +1335,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit.us.i.i: ; preds = %457
           to label %503 unwind label %498
 
 503:                                              ; preds = %._crit_edge.i.i
-  %504 = invoke noundef zeroext i1 @_ZN5ZXing17ReedSolomonDecodeERKNS_9GenericGFERSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(56) %502, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef %365)
+  %504 = invoke noundef zeroext i1 @_ZN5ZXing17ReedSolomonDecodeERKNS_9GenericGFERSt6vectorIiSaIiEEi(ptr noundef nonnull align 8 dereferenceable(56) %502, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 5)
           to label %505 unwind label %498
 
 505:                                              ; preds = %503

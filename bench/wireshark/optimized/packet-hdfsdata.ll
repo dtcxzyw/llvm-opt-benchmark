@@ -627,25 +627,24 @@ decode_vint_size.exit.i:                          ; preds = %3
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.039.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %17, %.lr.ph.i ]
   %.037.lcssa.i = phi i32 [ 1, %.preheader.i ], [ %.0.i.i, %.lr.ph.i ]
-  %18 = icmp slt i8 %5, -120
-  %19 = sext i1 %18 to i32
-  %20 = xor i32 %.039.lcssa.i, %19
+  %18 = sext i1 %8 to i32
+  %19 = xor i32 %.039.lcssa.i, %18
   br label %dissect_variable_length_long.exit
 
 dissect_variable_length_long.exit:                ; preds = %3, %decode_vint_size.exit.i, %._crit_edge.i
   %.037.lcssa.sink50.i = phi i32 [ %.037.lcssa.i, %._crit_edge.i ], [ 1, %3 ], [ 1, %decode_vint_size.exit.i ]
-  %.0.i = phi i32 [ %20, %._crit_edge.i ], [ %6, %3 ], [ %6, %decode_vint_size.exit.i ]
-  %21 = load i32, ptr @hf_hdfsdata_clientlen, align 4
-  %22 = load i32, ptr %2, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %21, ptr noundef %0, i32 noundef %22, i32 noundef %.037.lcssa.sink50.i, i32 noundef 0)
-  %24 = load i32, ptr %2, align 4
-  %25 = add i32 %24, %.037.lcssa.sink50.i
-  store i32 %25, ptr %2, align 4
-  %26 = load i32, ptr @hf_hdfsdata_clientid, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %25, i32 noundef %.0.i, i32 noundef 0)
-  %28 = load i32, ptr %2, align 4
-  %29 = add i32 %28, %.0.i
-  store i32 %29, ptr %2, align 4
+  %.0.i = phi i32 [ %19, %._crit_edge.i ], [ %6, %3 ], [ %6, %decode_vint_size.exit.i ]
+  %20 = load i32, ptr @hf_hdfsdata_clientlen, align 4
+  %21 = load i32, ptr %2, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %.037.lcssa.sink50.i, i32 noundef 0)
+  %23 = load i32, ptr %2, align 4
+  %24 = add i32 %23, %.037.lcssa.sink50.i
+  store i32 %24, ptr %2, align 4
+  %25 = load i32, ptr @hf_hdfsdata_clientid, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %25, ptr noundef %0, i32 noundef %24, i32 noundef %.0.i, i32 noundef 0)
+  %27 = load i32, ptr %2, align 4
+  %28 = add i32 %27, %.0.i
+  store i32 %28, ptr %2, align 4
   ret void
 }
 

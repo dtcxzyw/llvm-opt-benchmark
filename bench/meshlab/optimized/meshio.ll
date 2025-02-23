@@ -2746,7 +2746,7 @@ define void @_ZN17ExtraMeshIOPlugin12loadFromNodeER9MeshModelRiRN3vcg3tri2io8_3d
 
 .lr.ph.i:                                         ; preds = %.split, %.lr.ph.i
   %.027.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.025.i, %.split ]
-  tail call void @_ZN3vcg3tri2io11Importer3DSI6CMeshOE12LoadNodeMaskEP10Lib3dsFileP10Lib3dsNodeRNS1_8_3dsInfoE(ptr noundef %4, ptr noundef nonnull %.027.i, ptr noundef nonnull align 8 dereferenceable(28) %3)
+  tail call void @_ZN3vcg3tri2io11Importer3DSI6CMeshOE12LoadNodeMaskEP10Lib3dsFileP10Lib3dsNodeRNS1_8_3dsInfoE(ptr noundef nonnull %4, ptr noundef nonnull %.027.i, ptr noundef nonnull align 8 dereferenceable(28) %3)
   %22 = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
   %.0.i = load ptr, ptr %22, align 8
   %.not24.i = icmp eq ptr %.0.i, null

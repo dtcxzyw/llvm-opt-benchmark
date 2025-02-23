@@ -727,7 +727,7 @@ define hidden void @ir_dump_cfg(ptr noundef readonly captures(none) %0, ptr noun
   %.pn36 = phi ptr [ %.0, %.lr.ph37 ], [ %4, %.preheader ]
   %.02435 = phi i32 [ %19, %.lr.ph37 ], [ 1, %.preheader ]
   %.0 = getelementptr inbounds nuw i8, ptr %.pn36, i64 52
-  tail call fastcc void @ir_dump_cfg_block(ptr noundef %0, ptr noundef %1, i32 noundef %.02435, ptr noundef nonnull %.0)
+  tail call fastcc void @ir_dump_cfg_block(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.02435, ptr noundef nonnull %.0)
   %19 = add i32 %.02435, 1
   %.not28 = icmp ugt i32 %19, %7
   br i1 %.not28, label %.loopexit, label %.lr.ph37

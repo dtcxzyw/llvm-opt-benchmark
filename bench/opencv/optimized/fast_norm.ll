@@ -132,8 +132,8 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %16
   br i1 %19, label %21, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread
 
 common.resume:                                    ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35
-  %.pn81 = phi { ptr, i32 } [ %.pn80, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread ], [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ]
-  resume { ptr, i32 } %.pn81
+  %.pn76 = phi { ptr, i32 } [ %.pn75, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread ], [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ]
+  resume { ptr, i32 } %.pn76
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %.sroa.042.056 = phi ptr [ %18, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ null, %5 ]
@@ -155,8 +155,8 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %24
-  %.not73 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not73, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66, label %.lr.ph.i.preheader
+  %.not68 = icmp eq i32 %spec.select.i, 0
+  br i1 %.not68, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %wide.trip.count = zext nneg i32 %spec.select.i to i64
@@ -170,24 +170,24 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   %27 = mul nsw i32 %26, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !4
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66: ; preds = %.lr.ph.i, %.preheader.i
-  %.024.i70 = phi i32 [ 1, %.preheader.i ], [ %27, %.lr.ph.i ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i, %.preheader.i
+  %.024.i = phi i32 [ 1, %.preheader.i ], [ %27, %.lr.ph.i ]
   %spec.store.select.i = select i1 %23, i32 0, i32 %22
   %28 = icmp sgt i32 %spec.store.select.i, -1
   br i1 %28, label %29, label %.invoke
 
-29:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66
-  %.not.i21 = icmp sgt i32 %spec.store.select.i, %.val
+29:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
+  %.not.i21 = icmp samesign ugt i32 %spec.store.select.i, %.val
   br i1 %.not.i21, label %.invoke, label %33
 
-.invoke:                                          ; preds = %29, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66, %24, %21
-  %30 = phi i32 [ 0, %21 ], [ %spec.select.i, %24 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66 ], [ %spec.store.select.i, %29 ]
-  %31 = phi i32 [ %spec.select.i, %21 ], [ %.val, %24 ], [ %spec.store.select.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66 ], [ %.val, %29 ]
-  %32 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %21 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %24 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread66 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %29 ]
+.invoke:                                          ; preds = %29, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, %24, %21
+  %30 = phi i32 [ 0, %21 ], [ %spec.select.i, %24 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ %spec.store.select.i, %29 ]
+  %31 = phi i32 [ %spec.select.i, %21 ], [ %.val, %24 ], [ %spec.store.select.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ %.val, %29 ]
+  %32 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %21 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %24 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %29 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %30, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(48) %32) #17
-          to label %.cont unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83
+          to label %.cont unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -224,11 +224,11 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32: ; preds = %_ZN2c
   store float %44, ptr %9, align 4
   store i32 0, ptr %10, align 4
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.024.i70, ptr %45, align 4
+  store i32 %.024.i, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %47 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
-          to label %48 unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83
+          to label %48 unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78
 
 48:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -246,7 +246,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32: ; preds = %_ZN2c
   store ptr %47, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatERS6_fmbE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %49, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatERS6_fmbE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %46, align 8
-  %50 = sext i32 %.024.i70 to i64
+  %50 = sext i32 %.024.i to i64
   %51 = mul nsw i64 %.024.i24, %50
   %52 = uitofp i64 %51 to double
   %53 = fmul double %52, 0x3F50000000000000
@@ -291,7 +291,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %54, %56
   call void @__clang_call_terminate(ptr %68) #19
   unreachable
 
-_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83: ; preds = %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32
+_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78: ; preds = %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit32
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread
@@ -302,10 +302,10 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35:      ; preds = %_ZN2cv3dnn14dnn4_v2
   %.not.i.i.i36 = icmp eq ptr %.sroa.042.056, null
   br i1 %.not.i.i.i36, label %common.resume, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread
 
-_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread: ; preds = %64, %61, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35
-  %.pn80 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ], [ %lpad.thr_comm, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83 ], [ %62, %61 ], [ %62, %64 ]
-  %.sroa.042.05479 = phi ptr [ %.sroa.042.056, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ], [ %18, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread83 ], [ %18, %61 ], [ %18, %64 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.042.05479) #20
+_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread: ; preds = %64, %61, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35
+  %.pn75 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ], [ %lpad.thr_comm, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78 ], [ %62, %61 ], [ %62, %64 ]
+  %.sroa.042.05474 = phi ptr [ %.sroa.042.056, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35 ], [ %18, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit35.thread78 ], [ %18, %61 ], [ %18, %64 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.042.05474) #20
   br label %common.resume
 }
 
@@ -505,8 +505,8 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %14
   br i1 %17, label %19, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread
 
 common.resume:                                    ; preds = %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36
-  %.pn82 = phi { ptr, i32 } [ %.pn81, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread ], [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ]
-  resume { ptr, i32 } %.pn82
+  %.pn77 = phi { ptr, i32 } [ %.pn76, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread ], [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ]
+  resume { ptr, i32 } %.pn77
 
 _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i
   %.sroa.043.057 = phi ptr [ %16, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i ], [ null, %5 ]
@@ -528,8 +528,8 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %22
-  %.not74 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not74, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67, label %.lr.ph.i.preheader
+  %.not69 = icmp eq i32 %spec.select.i, 0
+  br i1 %.not69, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %wide.trip.count = zext nneg i32 %spec.select.i to i64
@@ -543,24 +543,24 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit.thread: ; preds = %5, %_ZNSt12
   %25 = mul nsw i32 %24, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !4
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67: ; preds = %.lr.ph.i, %.preheader.i
-  %.024.i71 = phi i32 [ 1, %.preheader.i ], [ %25, %.lr.ph.i ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i, %.preheader.i
+  %.024.i = phi i32 [ 1, %.preheader.i ], [ %25, %.lr.ph.i ]
   %spec.store.select.i = select i1 %21, i32 0, i32 %20
   %26 = icmp sgt i32 %spec.store.select.i, -1
   br i1 %26, label %27, label %.invoke
 
-27:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67
-  %.not.i22 = icmp sgt i32 %spec.store.select.i, %.val
+27:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
+  %.not.i22 = icmp samesign ugt i32 %spec.store.select.i, %.val
   br i1 %.not.i22, label %.invoke, label %31
 
-.invoke:                                          ; preds = %27, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67, %22, %19
-  %28 = phi i32 [ 0, %19 ], [ %spec.select.i, %22 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67 ], [ %spec.store.select.i, %27 ]
-  %29 = phi i32 [ %spec.select.i, %19 ], [ %.val, %22 ], [ %spec.store.select.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67 ], [ %.val, %27 ]
-  %30 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %19 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %22 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread67 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %27 ]
+.invoke:                                          ; preds = %27, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, %22, %19
+  %28 = phi i32 [ 0, %19 ], [ %spec.select.i, %22 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ %spec.store.select.i, %27 ]
+  %29 = phi i32 [ %spec.select.i, %19 ], [ %.val, %22 ], [ %spec.store.select.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ %.val, %27 ]
+  %30 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %19 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %22 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %27 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %28, i32 noundef %29, ptr noundef nonnull align 8 dereferenceable(48) %30) #17
-          to label %.cont unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84
+          to label %.cont unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79
 
 .cont:                                            ; preds = %.invoke
   unreachable
@@ -597,11 +597,11 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33: ; preds = %_ZN2c
   store float %42, ptr %8, align 4
   store i32 0, ptr %9, align 4
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %.024.i71, ptr %43, align 4
+  store i32 %.024.i, ptr %43, align 4
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   %45 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #18
-          to label %46 unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84
+          to label %46 unwind label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79
 
 46:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -619,7 +619,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33: ; preds = %_ZN2c
   store ptr %45, ptr %10, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatES8_RS6_fmE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %47, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatES8_RS6_fmE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %44, align 8
-  %48 = sext i32 %.024.i71 to i64
+  %48 = sext i32 %.024.i to i64
   %49 = mul nsw i64 %.024.i25, %48
   %50 = uitofp i64 %49 to double
   %51 = fmul double %50, 0x3F50000000000000
@@ -664,7 +664,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %52, %54
   call void @__clang_call_terminate(ptr %66) #19
   unreachable
 
-_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84: ; preds = %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33
+_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79: ; preds = %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit33
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread
@@ -675,10 +675,10 @@ _ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36:      ; preds = %_ZN2cv3dnn14dnn4_v2
   %.not.i.i.i37 = icmp eq ptr %.sroa.043.057, null
   br i1 %.not.i.i.i37, label %common.resume, label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread
 
-_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread: ; preds = %62, %59, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36
-  %.pn81 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ], [ %lpad.thr_comm, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84 ], [ %60, %59 ], [ %60, %62 ]
-  %.sroa.043.05580 = phi ptr [ %.sroa.043.057, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ], [ %16, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread84 ], [ %16, %59 ], [ %16, %62 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.043.05580) #20
+_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread: ; preds = %62, %59, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36
+  %.pn76 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ], [ %lpad.thr_comm, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79 ], [ %60, %59 ], [ %60, %62 ]
+  %.sroa.043.05575 = phi ptr [ %.sroa.043.057, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36 ], [ %16, %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit36.thread79 ], [ %16, %59 ], [ %16, %62 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.043.05575) #20
   br label %common.resume
 }
 
@@ -724,9 +724,9 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
   %21 = sub i64 %19, %20
   %22 = ashr exact i64 %21, 2
   %23 = icmp ult i64 %5, %22
-  br i1 %23, label %26, label %.invoke67
+  br i1 %23, label %26, label %.invoke65
 
-24:                                               ; preds = %.invoke67, %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38, %34, %32, %28, %26
+24:                                               ; preds = %.invoke65, %.invoke, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38, %34, %32, %28, %26
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt8functionIFvRKN2cv5RangeEEED2Ev.exit41
@@ -749,16 +749,16 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
 
 34:                                               ; preds = %32
   %35 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %2)
-          to label %.invoke67 unwind label %24
+          to label %.invoke65 unwind label %24
 
-.invoke67:                                        ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, %34
+.invoke65:                                        ; preds = %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit, %34
   %36 = phi i64 [ %33, %34 ], [ %5, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ]
   %37 = phi i64 [ %35, %34 ], [ %22, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ]
   %38 = phi ptr [ @_ZZN2cv3dnn8fastNormERKNS_3MatES3_S3_RS1_fmE14__cv_check__84, %34 ], [ @_ZZN2cv3dnn8fastNormERKNS_3MatES3_S3_RS1_fmE14__cv_check__83, %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit ]
   invoke void @_ZN2cv6detail17check_failed_autoEmmRKNS0_12CheckContextE(i64 noundef %36, i64 noundef %37, ptr noundef nonnull align 8 dereferenceable(48) %38) #17
-          to label %.cont68 unwind label %24
+          to label %.cont66 unwind label %24
 
-.cont68:                                          ; preds = %.invoke67
+.cont66:                                          ; preds = %.invoke65
   unreachable
 
 39:                                               ; preds = %30
@@ -779,8 +779,8 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
   br i1 %.not28.i, label %.invoke, label %.preheader.i
 
 .preheader.i:                                     ; preds = %46
-  %.not63 = icmp eq i32 %spec.select.i, 0
-  br i1 %.not63, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58, label %.lr.ph.i.preheader
+  %.not61 = icmp eq i32 %spec.select.i, 0
+  br i1 %.not61, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
   %wide.trip.count = zext nneg i32 %spec.select.i to i64
@@ -794,22 +794,22 @@ _ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE.exit: ; preds = %6, %_ZNSt12_Vector
   %49 = mul nsw i32 %48, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58, label %.lr.ph.i, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i, !llvm.loop !4
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58: ; preds = %.lr.ph.i, %.preheader.i
-  %.024.i60 = phi i32 [ 1, %.preheader.i ], [ %49, %.lr.ph.i ]
+.loopexit:                                        ; preds = %.lr.ph.i, %.preheader.i
+  %.024.i.ph = phi i32 [ 1, %.preheader.i ], [ %49, %.lr.ph.i ]
   %spec.store.select.i = select i1 %45, i32 0, i32 %40
   %50 = icmp sgt i32 %spec.store.select.i, -1
   br i1 %50, label %51, label %.invoke
 
-51:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58
-  %.not.i27 = icmp sgt i32 %spec.store.select.i, %44
+51:                                               ; preds = %.loopexit
+  %.not.i27 = icmp samesign ugt i32 %spec.store.select.i, %44
   br i1 %.not.i27, label %.invoke, label %55
 
-.invoke:                                          ; preds = %51, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58, %46, %42
-  %52 = phi i32 [ 0, %42 ], [ %spec.select.i, %46 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58 ], [ %spec.store.select.i, %51 ]
-  %53 = phi i32 [ %spec.select.i, %42 ], [ %44, %46 ], [ %spec.store.select.i, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58 ], [ %44, %51 ]
-  %54 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %42 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %46 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread58 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %51 ]
+.invoke:                                          ; preds = %51, %.loopexit, %46, %42
+  %52 = phi i32 [ 0, %42 ], [ %spec.select.i, %46 ], [ 0, %.loopexit ], [ %spec.store.select.i, %51 ]
+  %53 = phi i32 [ %spec.select.i, %42 ], [ %44, %46 ], [ %spec.store.select.i, %.loopexit ], [ %44, %51 ]
+  %54 = phi ptr [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %42 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173, %46 ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__171, %.loopexit ], [ @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__172, %51 ]
   invoke void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %52, i32 noundef %53, ptr noundef nonnull align 8 dereferenceable(48) %54) #17
           to label %.cont unwind label %24
 
@@ -839,8 +839,8 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit: ; preds
   %63 = sext i32 %60 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit, %39, %55
-  %.024.i57 = phi i32 [ %.024.i60, %55 ], [ 0, %39 ], [ %.024.i60, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit ]
+_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit, %55, %39
+  %.024.i58 = phi i32 [ %.024.i.ph, %55 ], [ 0, %39 ], [ %.024.i.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit ]
   %.024.i30 = phi i64 [ 1, %55 ], [ 0, %39 ], [ %63, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38.loopexit ]
   store i64 %.024.i30, ptr %8, align 8
   %64 = uitofp i64 %.024.i30 to double
@@ -849,7 +849,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38: ; preds = %_ZN2c
   store float %66, ptr %9, align 4
   store i32 0, ptr %10, align 4
   %67 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %.024.i57, ptr %67, align 4
+  store i32 %.024.i58, ptr %67, align 4
   %68 = getelementptr inbounds nuw i8, ptr %11, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
   %69 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
@@ -873,7 +873,7 @@ _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit38: ; preds = %_ZN2c
   store ptr %69, ptr %11, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatES8_S8_RS6_fmE3$_0E9_M_invokeERKSt9_Any_dataS3_", ptr %71, align 8
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNormERKNS0_3MatES8_S8_RS6_fmE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %68, align 8
-  %72 = sext i32 %.024.i57 to i64
+  %72 = sext i32 %.024.i58 to i64
   %73 = mul nsw i64 %.024.i30, %72
   %74 = uitofp i64 %73 to double
   %75 = fmul double %74, 0x3F50000000000000

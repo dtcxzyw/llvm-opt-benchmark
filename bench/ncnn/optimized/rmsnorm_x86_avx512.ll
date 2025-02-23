@@ -454,7 +454,7 @@ define internal fastcc void @_ZN4ncnnL7rmsnormEPfPKffii(ptr noundef captures(non
   br i1 %118, label %.preheader795, label %.loopexit793
 
 .preheader795:                                    ; preds = %.loopexit797
-  %161 = add nsw i32 %.2714, 15
+  %161 = add nuw nsw i32 %.2714, 15
   %162 = icmp slt i32 %161, %6
   br i1 %162, label %.lr.ph852, label %.preheader794
 

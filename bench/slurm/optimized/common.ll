@@ -3136,7 +3136,7 @@ switch.lookup:                                    ; preds = %1
 
 .lr.ph:                                           ; preds = %switch.lookup, %.lr.ph
   call void @gdk_threads_enter() #16
-  call void %switch.load(ptr noundef %0) #16
+  call void %switch.load(ptr noundef nonnull %0) #16
   call void @gdk_threads_leave() #16
   %9 = load i16, ptr getelementptr inbounds nuw (i8, ptr @working_sview_config, i64 506), align 2
   %10 = zext i16 %9 to i32

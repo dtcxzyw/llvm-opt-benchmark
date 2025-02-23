@@ -69,7 +69,7 @@ define hidden i32 @_sodium_argon2_ctx(ptr noundef %0, i32 noundef %1) local_unna
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  call void @_sodium_argon2_finalize(ptr noundef %0, ptr noundef nonnull %3) #9
+  call void @_sodium_argon2_finalize(ptr noundef nonnull %0, ptr noundef nonnull %3) #9
   br label %34
 
 34:                                               ; preds = %7, %5, %2, %._crit_edge

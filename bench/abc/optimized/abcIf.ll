@@ -935,7 +935,7 @@ thread-pre-split:                                 ; preds = %31
   br i1 %exitcond111.not, label %.loopexit, label %.lr.ph99, !llvm.loop !97
 
 .loopexit:                                        ; preds = %.lr.ph99, %.preheader, %61, %.loopexit94
-  %67 = tail call ptr @Abc_NtkToIf(ptr noundef %0, ptr noundef %1)
+  %67 = tail call ptr @Abc_NtkToIf(ptr noundef %0, ptr noundef nonnull %1)
   %68 = icmp eq ptr %67, null
   br i1 %68, label %255, label %69
 
@@ -2458,7 +2458,7 @@ If_CutTruthW.exit:                                ; preds = %.lr.ph.i.i, %.lr.ph
   %.val232 = load i64, ptr %15, align 4
   %75 = trunc i64 %.val232 to i32
   %76 = lshr i32 %75, 24
-  %77 = tail call ptr @If_CutArrTimeProfile(ptr noundef %1, ptr noundef nonnull %8) #19
+  %77 = tail call ptr @If_CutArrTimeProfile(ptr noundef nonnull %1, ptr noundef nonnull %8) #19
   %78 = call ptr @Abc_ExactBuildNode(ptr noundef %39, i32 noundef %76, ptr noundef %77, ptr noundef nonnull %5, ptr noundef %0) #19
   store ptr %78, ptr %6, align 8, !tbaa !108
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #19

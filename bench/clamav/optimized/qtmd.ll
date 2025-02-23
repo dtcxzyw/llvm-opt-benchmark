@@ -2821,105 +2821,104 @@ define internal fastcc void @qtmd_update_model(ptr noundef nonnull captures(none
   %wide.trip.count = zext nneg i32 %20 to i64
   %.phi.trans.insert87 = getelementptr inbounds nuw i8, ptr %23, i64 2
   %.pre88 = load i16, ptr %.phi.trans.insert87, align 2, !tbaa !40
-  br label %26
+  br label %25
 
-.preheader56:                                     ; preds = %26
-  %24 = add nsw i32 %20, -1
-  %.not94 = icmp eq i32 %20, 1
-  br i1 %.not94, label %.preheader, label %.lr.ph67
+.preheader56:                                     ; preds = %25
+  %.not96 = icmp eq i32 %20, 1
+  br i1 %.not96, label %.lr.ph69, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.preheader56
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %41
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %40
 
-26:                                               ; preds = %.lr.ph63, %26
-  %27 = phi i16 [ %.pre88, %.lr.ph63 ], [ %29, %26 ]
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next74, %26 ]
+25:                                               ; preds = %.lr.ph63, %25
+  %26 = phi i16 [ %.pre88, %.lr.ph63 ], [ %28, %25 ]
+  %indvars.iv73 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next74, %25 ]
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %28 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %23, i64 %indvars.iv.next74, i32 1
-  %29 = load i16, ptr %28, align 2, !tbaa !40
-  %30 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %23, i64 %indvars.iv73, i32 1
-  %reass.sub = sub i16 %27, %29
-  %31 = add i16 %reass.sub, 1
-  %32 = lshr i16 %31, 1
-  store i16 %32, ptr %30, align 2, !tbaa !40
+  %27 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %23, i64 %indvars.iv.next74, i32 1
+  %28 = load i16, ptr %27, align 2, !tbaa !40
+  %29 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %23, i64 %indvars.iv73, i32 1
+  %reass.sub = sub i16 %26, %28
+  %30 = add i16 %reass.sub, 1
+  %31 = lshr i16 %30, 1
+  store i16 %31, ptr %29, align 2, !tbaa !40
   %exitcond.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader56, label %26
+  br i1 %exitcond.not, label %.preheader56, label %25
 
-.loopexit55:                                      ; preds = %60, %41
-  %33 = phi i32 [ %42, %41 ], [ %61, %60 ]
-  %34 = add nsw i32 %33, -1
-  %35 = sext i32 %34 to i64
-  %36 = icmp slt i64 %indvars.iv.next82, %35
+.loopexit55:                                      ; preds = %59, %40
+  %32 = phi i32 [ %41, %40 ], [ %60, %59 ]
+  %33 = add nsw i32 %32, -1
+  %34 = sext i32 %33 to i64
+  %35 = icmp slt i64 %indvars.iv.next82, %34
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  br i1 %36, label %41, label %.preheader
+  br i1 %35, label %40, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit55, %.preheader56
-  %.lcssa = phi i32 [ %24, %.preheader56 ], [ %34, %.loopexit55 ]
-  %37 = icmp sgt i32 %.lcssa, -1
-  br i1 %37, label %.lr.ph69, label %.loopexit
+.preheader:                                       ; preds = %.loopexit55
+  %36 = icmp sgt i32 %32, 0
+  br i1 %36, label %.lr.ph69, label %.loopexit
 
-.lr.ph69:                                         ; preds = %.preheader
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !37
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %39, i64 6
-  %40 = zext nneg i32 %.lcssa to i64
-  br label %65
+.lr.ph69:                                         ; preds = %.preheader56, %.preheader
+  %.lcssa91 = phi i32 [ %33, %.preheader ], [ 0, %.preheader56 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !37
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %38, i64 6
+  %39 = zext nneg i32 %.lcssa91 to i64
+  br label %64
 
-41:                                               ; preds = %.lr.ph67, %.loopexit55
-  %42 = phi i32 [ %20, %.lr.ph67 ], [ %33, %.loopexit55 ]
+40:                                               ; preds = %.lr.ph67, %.loopexit55
+  %41 = phi i32 [ %20, %.lr.ph67 ], [ %32, %.loopexit55 ]
   %indvars.iv81 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next82, %.loopexit55 ]
   %indvars.iv76 = phi i64 [ 1, %.lr.ph67 ], [ %indvars.iv.next77, %.loopexit55 ]
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %43 = sext i32 %42 to i64
-  %44 = icmp slt i64 %indvars.iv.next82, %43
-  br i1 %44, label %.lr.ph65, label %.loopexit55
+  %42 = sext i32 %41 to i64
+  %43 = icmp slt i64 %indvars.iv.next82, %42
+  br i1 %43, label %.lr.ph65, label %.loopexit55
 
-.lr.ph65:                                         ; preds = %41, %60
-  %45 = phi i32 [ %61, %60 ], [ %42, %41 ]
-  %46 = phi i32 [ %62, %60 ], [ %42, %41 ]
-  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %60 ], [ %indvars.iv76, %41 ]
-  %47 = load ptr, ptr %25, align 8, !tbaa !37
-  %48 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %47, i64 %indvars.iv81
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 2
-  %50 = load i16, ptr %49, align 2, !tbaa !40
-  %51 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %47, i64 %indvars.iv78, i32 1
-  %52 = load i16, ptr %51, align 2, !tbaa !40
-  %53 = icmp ult i16 %50, %52
-  br i1 %53, label %54, label %60
+.lr.ph65:                                         ; preds = %40, %59
+  %44 = phi i32 [ %60, %59 ], [ %41, %40 ]
+  %45 = phi i32 [ %61, %59 ], [ %41, %40 ]
+  %indvars.iv78 = phi i64 [ %indvars.iv.next79, %59 ], [ %indvars.iv76, %40 ]
+  %46 = load ptr, ptr %24, align 8, !tbaa !37
+  %47 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %46, i64 %indvars.iv81
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
+  %49 = load i16, ptr %48, align 2, !tbaa !40
+  %50 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %46, i64 %indvars.iv78, i32 1
+  %51 = load i16, ptr %50, align 2, !tbaa !40
+  %52 = icmp ult i16 %49, %51
+  br i1 %52, label %53, label %59
 
-54:                                               ; preds = %.lr.ph65
-  %55 = load i32, ptr %48, align 2
-  %56 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %47, i64 %indvars.iv78
-  %57 = load i32, ptr %56, align 2
-  store i32 %57, ptr %48, align 2
-  %58 = load ptr, ptr %25, align 8, !tbaa !37
-  %59 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %58, i64 %indvars.iv78
-  store i32 %55, ptr %59, align 2
+53:                                               ; preds = %.lr.ph65
+  %54 = load i32, ptr %47, align 2
+  %55 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %46, i64 %indvars.iv78
+  %56 = load i32, ptr %55, align 2
+  store i32 %56, ptr %47, align 2
+  %57 = load ptr, ptr %24, align 8, !tbaa !37
+  %58 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %57, i64 %indvars.iv78
+  store i32 %54, ptr %58, align 2
   %.pre89 = load i32, ptr %19, align 4, !tbaa !36
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.lr.ph65, %54
-  %61 = phi i32 [ %45, %.lr.ph65 ], [ %.pre89, %54 ]
-  %62 = phi i32 [ %46, %.lr.ph65 ], [ %.pre89, %54 ]
+59:                                               ; preds = %.lr.ph65, %53
+  %60 = phi i32 [ %44, %.lr.ph65 ], [ %.pre89, %53 ]
+  %61 = phi i32 [ %45, %.lr.ph65 ], [ %.pre89, %53 ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next79, %63
-  br i1 %64, label %.lr.ph65, label %.loopexit55
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next79, %62
+  br i1 %63, label %.lr.ph65, label %.loopexit55
 
-65:                                               ; preds = %.lr.ph69, %65
-  %indvars.iv84 = phi i64 [ %40, %.lr.ph69 ], [ %indvars.iv.next85, %65 ]
+64:                                               ; preds = %.lr.ph69, %64
+  %indvars.iv84 = phi i64 [ %39, %.lr.ph69 ], [ %indvars.iv.next85, %64 ]
   %gep = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %invariant.gep, i64 %indvars.iv84
-  %66 = load i16, ptr %gep, align 2, !tbaa !40
-  %67 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %39, i64 %indvars.iv84, i32 1
-  %68 = load i16, ptr %67, align 2, !tbaa !40
-  %69 = add i16 %68, %66
-  store i16 %69, ptr %67, align 2, !tbaa !40
+  %65 = load i16, ptr %gep, align 2, !tbaa !40
+  %66 = getelementptr inbounds nuw %struct.qtmd_modelsym, ptr %38, i64 %indvars.iv84, i32 1
+  %67 = load i16, ptr %66, align 2, !tbaa !40
+  %68 = add i16 %67, %65
+  store i16 %68, ptr %66, align 2, !tbaa !40
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  %.not95 = icmp eq i64 %indvars.iv84, 0
-  br i1 %.not95, label %.loopexit, label %65
+  %.not97 = icmp eq i64 %indvars.iv84, 0
+  br i1 %.not97, label %.loopexit, label %64
 
-.loopexit:                                        ; preds = %11, %65, %18, %4, %.preheader
+.loopexit:                                        ; preds = %11, %64, %18, %4, %.preheader
   ret void
 }
 

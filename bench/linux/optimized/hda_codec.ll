@@ -1920,7 +1920,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
   %7 = icmp eq ptr %0, null
   %8 = icmp ugt i32 %2, 15
   %9 = or i1 %7, %8
-  br i1 %9, label %.thread, label %10
+  br i1 %9, label %76, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 816
@@ -1945,7 +1945,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 984
   store ptr %22, ptr %23, align 8
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.thread, label %25
+  br i1 %24, label %76, label %25
 
 25:                                               ; preds = %21, %10
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 824
@@ -1956,13 +1956,13 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
   %31 = getelementptr inbounds nuw i8, ptr %3, i64 1144
   store ptr %30, ptr %31, align 8
   %32 = icmp eq ptr %30, null
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %76, label %33
 
 33:                                               ; preds = %25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(31) %6, i8 0, i64 31, i1 false), !annotation !9
   %34 = load i32, ptr %26, align 8
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %.thread4, label %36
+  br i1 %35, label %.loopexit, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 828
@@ -1981,14 +1981,14 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
   %47 = add i16 %40, 1
   %48 = load i32, ptr %26, align 8
   %49 = icmp ult i32 %46, %48
-  br i1 %49, label %39, label %.thread4, !llvm.loop !29
+  br i1 %49, label %39, label %.loopexit, !llvm.loop !29
 
-.thread4:                                         ; preds = %39, %33
+.loopexit:                                        ; preds = %39, %33
   %50 = tail call fastcc i32 @read_pin_defaults(ptr noundef %3)
   %51 = icmp slt i32 %50, 0
-  br i1 %51, label %.thread, label %52
+  br i1 %51, label %76, label %52
 
-52:                                               ; preds = %.thread4
+52:                                               ; preds = %.loopexit
   %53 = tail call fastcc i32 @hda_set_power_state(ptr noundef %3, i32 noundef 0)
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store i32 0, ptr %54, align 8
@@ -2007,7 +2007,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
 65:                                               ; preds = %52
   %66 = call i32 @snd_device_new(ptr noundef %1, i32 noundef 3, ptr noundef %3, ptr noundef nonnull @snd_hda_codec_device_new.dev_ops) #24
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %.thread, label %68
+  br i1 %67, label %76, label %68
 
 68:                                               ; preds = %65, %52
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 440
@@ -2018,17 +2018,17 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr nou
 
 73:                                               ; preds = %68
   call void @pm_runtime_forbid(ptr noundef %3) #24
-  br label %.thread
+  br label %76
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 432
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %75, ptr nonnull elementtype(i32) %75) #24, !srcloc !23
-  br label %.thread
+  br label %76
 
-.thread:                                          ; preds = %25, %74, %73, %65, %.thread4, %21, %5
-  %76 = phi i32 [ -22, %5 ], [ -12, %21 ], [ %50, %.thread4 ], [ %66, %65 ], [ 0, %74 ], [ 0, %73 ], [ -12, %25 ]
+76:                                               ; preds = %25, %74, %73, %65, %.loopexit, %21, %5
+  %77 = phi i32 [ -22, %5 ], [ -12, %21 ], [ %50, %.loopexit ], [ %66, %65 ], [ 0, %74 ], [ 0, %73 ], [ -12, %25 ]
   call void @llvm.lifetime.end.p0(i64 31, ptr nonnull %6) #24
-  ret i32 %76
+  ret i32 %77
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2579,7 +2579,7 @@ declare dso_local void @pm_runtime_forbid(ptr noundef) local_unnamed_addr #4
 define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_update_widgets(ptr noundef %0) #0 align 16 {
   %2 = tail call i32 @snd_hdac_refresh_widgets(ptr noundef %0) #24
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %.thread, label %4
+  br i1 %3, label %32, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -2592,12 +2592,12 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_update_widgets(ptr
   %11 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %10, i32 noundef 3264) #25
   store ptr %11, ptr %5, align 8
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %.thread, label %13
+  br i1 %12, label %32, label %13
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %7, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread1, label %16
+  br i1 %15, label %.loopexit, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 828
@@ -2616,17 +2616,17 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_update_widgets(ptr
   %27 = add i16 %20, 1
   %28 = load i32, ptr %7, align 8
   %29 = icmp ult i32 %26, %28
-  br i1 %29, label %19, label %.thread1, !llvm.loop !29
+  br i1 %29, label %19, label %.loopexit, !llvm.loop !29
 
-.thread1:                                         ; preds = %19, %13
+.loopexit:                                        ; preds = %19, %13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   tail call void @snd_array_free(ptr noundef nonnull %30) #24
   %31 = tail call fastcc i32 @read_pin_defaults(ptr noundef %0)
-  br label %.thread
+  br label %32
 
-.thread:                                          ; preds = %4, %.thread1, %1
-  %32 = phi i32 [ %31, %.thread1 ], [ %2, %1 ], [ -12, %4 ]
-  ret i32 %32
+32:                                               ; preds = %4, %.loopexit, %1
+  %33 = phi i32 [ %31, %.loopexit ], [ %2, %1 ], [ -12, %4 ]
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid

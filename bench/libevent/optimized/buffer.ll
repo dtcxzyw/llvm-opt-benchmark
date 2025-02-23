@@ -994,7 +994,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %15 = tail call i32 @evbuffer_expand_fast_(ptr noundef %0, i64 noundef %14, i32 noundef 2)
+  %15 = tail call i32 @evbuffer_expand_fast_(ptr noundef nonnull %0, i64 noundef %14, i32 noundef 2)
   %16 = icmp sgt i32 %15, -1
   br i1 %16, label %.lr.ph34.preheader, label %.loopexit
 
@@ -1009,7 +1009,7 @@ define i64 @evbuffer_add_iovec(ptr noundef %0, ptr noundef readonly captures(non
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call i32 @evbuffer_add(ptr noundef %0, ptr noundef %18, i64 noundef %20)
+  %21 = tail call i32 @evbuffer_add(ptr noundef nonnull %0, ptr noundef %18, i64 noundef %20)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.loopexit, label %23
 

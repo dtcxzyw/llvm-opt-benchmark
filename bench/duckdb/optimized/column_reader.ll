@@ -30038,7 +30038,7 @@ _ZN6duckdb19UUIDValueConversion9PlainReadILb0EEENS_9hugeint_tERNS_10ByteBufferER
   br label %57
 
 57:                                               ; preds = %_ZN6duckdb19UUIDValueConversion9PlainReadILb0EEENS_9hugeint_tERNS_10ByteBufferERNS_12ColumnReaderE.exit.i, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit.i
-  %58 = add nuw i64 %.015.i, 1
+  %58 = add i64 %.015.i, 1
   %exitcond.not.i = icmp eq i64 %58, %14
   br i1 %exitcond.not.i, label %_ZN6duckdb12ColumnReader22PlainTemplatedInternalINS_9hugeint_tENS_19UUIDValueConversionELb1ELb0EEEvRNS_10ByteBufferEPKhmmRNS_6VectorE.exit, label %18, !llvm.loop !1020
 
@@ -30164,7 +30164,7 @@ _ZN6duckdb19UUIDValueConversion9PlainReadILb1EEENS_9hugeint_tERNS_10ByteBufferER
   br label %59
 
 59:                                               ; preds = %_ZN6duckdb19UUIDValueConversion9PlainReadILb1EEENS_9hugeint_tERNS_10ByteBufferERNS_12ColumnReaderE.exit, %_ZN6duckdb21TemplatedValidityMaskImE10SetInvalidEm.exit
-  %60 = add nuw i64 %.015, 1
+  %60 = add i64 %.015, 1
   %exitcond.not = icmp eq i64 %60, %10
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !1021
 }
@@ -30242,7 +30242,7 @@ _ZN6duckdb19UUIDValueConversion9PlainReadILb1EEENS_9hugeint_tERNS_10ByteBufferER
   store i64 %30, ptr %35, align 8, !tbaa !241
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !241
-  %36 = add nuw i64 %.011, 1
+  %36 = add i64 %.011, 1
   %exitcond.not = icmp eq i64 %36, %9
   br i1 %exitcond.not, label %._crit_edge, label %12, !llvm.loop !1022
 }

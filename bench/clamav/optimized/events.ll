@@ -2918,7 +2918,7 @@ define range(i32 0, 2) i32 @cli_event_diff_all(ptr noundef %0, ptr noundef %1, p
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.01828.us = phi i32 [ %9, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.01926.us = phi i32 [ %10, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %.01926.us)
+  %8 = tail call i32 @cli_event_diff(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %.01926.us)
   %9 = add i32 %8, %.01828.us
   %10 = add nuw i32 %.01926.us, 1
   %11 = load i32, ptr %4, align 8, !tbaa !3

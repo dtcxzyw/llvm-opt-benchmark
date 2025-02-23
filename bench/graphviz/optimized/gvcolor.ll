@@ -281,14 +281,24 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   store double %107, ptr %105, align 8, !tbaa !28
   %108 = add nuw i64 %.1116160.i, 1
   %exitcond.not.i = icmp eq i64 %108, %64
-  br i1 %exitcond.not.i, label %.loopexit155.i, label %.lr.ph161.i, !llvm.loop !34
+  br i1 %exitcond.not.i, label %.loopexit155.thread.i, label %.lr.ph161.i, !llvm.loop !34
 
-.loopexit155.i:                                   ; preds = %.lr.ph161.i, %._crit_edge.i
+.loopexit155.thread.i:                            ; preds = %.lr.ph161.i
+  call void @qsort(ptr noundef nonnull %77, i64 noundef %64, i64 noundef 8, ptr noundef nonnull @cmpf) #18
+  br label %.lr.ph177.i.preheader
+
+.lr.ph177.i.preheader:                            ; preds = %.loopexit155.i, %.loopexit155.thread.i
+  br label %.lr.ph177.i
+
+.loopexit155.i:                                   ; preds = %._crit_edge.i
   call void @qsort(ptr noundef %77, i64 noundef %64, i64 noundef 8, ptr noundef nonnull @cmpf) #18
-  br i1 %.not.i.i, label %color.exit, label %.lr.ph177.i
+  br i1 %.not.i.i, label %color.exit, label %.lr.ph177.i.preheader
 
-.lr.ph177.i:                                      ; preds = %.loopexit155.i, %.loopexit.i
-  %.2117175.i = phi i64 [ %165, %.loopexit.i ], [ 0, %.loopexit155.i ]
+.preheader.i:                                     ; preds = %.loopexit.i
+  br i1 %.not.i.i, label %color.exit, label %.lr.ph181.i
+
+.lr.ph177.i:                                      ; preds = %.lr.ph177.i.preheader, %.loopexit.i
+  %.2117175.i = phi i64 [ %165, %.loopexit.i ], [ 0, %.lr.ph177.i.preheader ]
   %109 = getelementptr inbounds nuw ptr, ptr %77, i64 %.2117175.i
   %110 = load ptr, ptr %109, align 8, !tbaa !16
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
@@ -314,7 +324,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 .preheader153.preheader.i:                        ; preds = %119
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false), !tbaa !14
-  %120 = call ptr @agfstedge(ptr noundef nonnull %28, ptr noundef %110) #18
+  %120 = call ptr @agfstedge(ptr noundef nonnull %28, ptr noundef nonnull %110) #18
   %.not145167.i = icmp eq ptr %120, null
   br i1 %.not145167.i, label %.loopexit.i, label %.lr.ph171.i
 
@@ -379,7 +389,7 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 
 155:                                              ; preds = %152, %133
   %.4126.i = phi i32 [ %.3125.i, %152 ], [ %.2124169.i, %133 ]
-  %156 = call ptr @agnxtedge(ptr noundef nonnull %28, ptr noundef nonnull %.0128168.i, ptr noundef %110) #18
+  %156 = call ptr @agnxtedge(ptr noundef nonnull %28, ptr noundef nonnull %.0128168.i, ptr noundef nonnull %110) #18
   %.not145.i = icmp eq ptr %156, null
   br i1 %.not145.i, label %._crit_edge172.i, label %.lr.ph171.i, !llvm.loop !39
 
@@ -407,10 +417,10 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
 .loopexit.i:                                      ; preds = %160, %._crit_edge172.i, %.preheader153.preheader.i, %119
   %165 = add nuw i64 %.2117175.i, 1
   %exitcond200.not.i = icmp eq i64 %165, %64
-  br i1 %exitcond200.not.i, label %.lr.ph181.i, label %.lr.ph177.i, !llvm.loop !41
+  br i1 %exitcond200.not.i, label %.preheader.i, label %.lr.ph177.i, !llvm.loop !41
 
-.lr.ph181.i:                                      ; preds = %.loopexit.i, %198
-  %.3180.i = phi i64 [ %201, %198 ], [ 0, %.loopexit.i ]
+.lr.ph181.i:                                      ; preds = %.preheader.i, %198
+  %.3180.i = phi i64 [ %201, %198 ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
   %166 = getelementptr inbounds nuw ptr, ptr %77, i64 %.3180.i
   %167 = load ptr, ptr %166, align 8, !tbaa !16
@@ -472,13 +482,13 @@ gv_calloc.exit.i:                                 ; preds = %70, %.thread.i.i
   %.0111.in.i = phi ptr [ %194, %190 ], [ getelementptr inbounds nuw (i8, ptr @Defcolor, i64 16), %195 ]
   %.0111.i = load double, ptr %.0111.in.i, align 8, !tbaa !14
   %199 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 64, ptr noundef nonnull @.str.16, double noundef %.0113.i, double noundef %.2.i, double noundef %.0111.i) #18
-  %200 = call i32 @agset(ptr noundef %167, ptr noundef nonnull @.str.15, ptr noundef nonnull %8) #18
+  %200 = call i32 @agset(ptr noundef nonnull %167, ptr noundef nonnull @.str.15, ptr noundef nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #18
   %201 = add nuw i64 %.3180.i, 1
   %exitcond205.not.i = icmp eq i64 %201, %64
   br i1 %exitcond205.not.i, label %color.exit, label %.lr.ph181.i, !llvm.loop !43
 
-color.exit:                                       ; preds = %198, %.loopexit155.i
+color.exit:                                       ; preds = %198, %.loopexit155.i, %.preheader.i
   call void @free(ptr noundef %77) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18

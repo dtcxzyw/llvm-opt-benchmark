@@ -406,7 +406,7 @@ do_xor.exit:                                      ; preds = %.lr.ph.i
   %49 = load ptr, ptr %32, align 8, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !21
-  %52 = call i32 %51(ptr noundef %0, ptr noundef nonnull %.042, ptr noundef nonnull %6, i64 noundef 16) #7
+  %52 = call i32 %51(ptr noundef nonnull %0, ptr noundef nonnull %.042, ptr noundef nonnull %6, i64 noundef 16) #7
   %.not48 = icmp eq i32 %52, 0
   br i1 %.not48, label %54, label %53
 
@@ -549,7 +549,7 @@ define internal fastcc i64 @cts128_cs3_decrypt(ptr noundef %0, ptr noundef %1, p
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 %.08.i55
   store i8 %56, ptr %57, align 1, !tbaa !23
   %58 = add nuw nsw i64 %.08.i55, 1
-  %exitcond.not.i56 = icmp eq i64 %58, %spec.store.select
+  %exitcond.not.i56 = icmp eq i64 %58, %18
   br i1 %exitcond.not.i56, label %do_xor.exit, label %.lr.ph.i54, !llvm.loop !24
 
 do_xor.exit:                                      ; preds = %.lr.ph.i54, %.lr.ph.i
@@ -557,7 +557,7 @@ do_xor.exit:                                      ; preds = %.lr.ph.i54, %.lr.ph
   %59 = load ptr, ptr %33, align 8, !tbaa !20
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !21
-  %62 = call i32 %61(ptr noundef %0, ptr noundef nonnull %.0, ptr noundef nonnull %6, i64 noundef 16) #7
+  %62 = call i32 %61(ptr noundef nonnull %0, ptr noundef nonnull %.0, ptr noundef nonnull %6, i64 noundef 16) #7
   %.not52 = icmp eq i32 %62, 0
   br i1 %.not52, label %64, label %63
 

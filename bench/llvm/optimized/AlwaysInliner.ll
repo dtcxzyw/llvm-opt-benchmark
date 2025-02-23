@@ -1278,7 +1278,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8FunctionELb1EE9push_backES2_.exit: ; pred
   %406 = icmp eq ptr %405, null
   %407 = getelementptr inbounds nuw i8, ptr %405, i64 56
   %spec.select.i.i.i.i.us = select i1 %406, ptr null, ptr %407
-  %408 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.us, i64 8
+  %408 = getelementptr inbounds nuw i8, ptr %405, i64 64
   %409 = getelementptr inbounds i8, ptr %spec.select.i.i.i.i.us, i64 -56
   call void @_ZN4llvm21SymbolTableListTraitsINS_8FunctionEJEE18removeNodeFromListEPS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %409) #16
   %410 = load ptr, ptr %407, align 8, !tbaa !189

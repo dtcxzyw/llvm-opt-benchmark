@@ -575,7 +575,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_VecClear.exit, 
   %255 = or i32 %254, %250
   store i32 %255, ptr %253, align 4, !tbaa !32
   %.val95 = load i32, ptr %240, align 4, !tbaa !19
-  tail call fastcc void @Vec_VecPush(ptr noundef %7, i32 noundef %.val95, ptr noundef %248)
+  tail call fastcc void @Vec_VecPush(ptr noundef nonnull %7, i32 noundef %.val95, ptr noundef %248)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val80 = load i32, ptr %9, align 4, !tbaa !3
   %256 = sext i32 %.val80 to i64

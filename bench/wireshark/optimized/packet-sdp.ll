@@ -1599,9 +1599,9 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
   br i1 %.not114, label %.lr.ph84, label %.lr.ph87
 
 .lr.ph84:                                         ; preds = %._crit_edge
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select, i64 10
-  %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 4
-  %17 = getelementptr inbounds nuw i8, ptr %spec.select, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %20, i64 10
+  %16 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %18 = zext i32 %1 to i64
   %wide.trip.count = zext i32 %9 to i64
   br label %29
@@ -1615,7 +1615,8 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
   br i1 %19, label %.lr.ph, label %.lr.ph87
 
 .lr.ph:                                           ; preds = %.lr.ph79
-  %20 = getelementptr %struct.media_description_t, ptr %11, i64 %indvars.iv95
+  %.idx115 = mul i64 %indvars.iv95, 176
+  %20 = getelementptr i8, ptr %11, i64 %.idx115
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 10
   %22 = load i16, ptr %21, align 2
   br label %23
@@ -1634,7 +1635,8 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 
 29:                                               ; preds = %.lr.ph84, %.loopexit
   %indvars.iv98 = phi i64 [ %18, %.lr.ph84 ], [ %indvars.iv.next99, %.loopexit ]
-  %30 = getelementptr %struct.media_description_t, ptr %11, i64 %indvars.iv98
+  %.idx = mul i64 %indvars.iv98, 176
+  %30 = getelementptr i8, ptr %11, i64 %.idx
   %31 = load i16, ptr %15, align 2
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 10
   %33 = load i16, ptr %32, align 2
@@ -1644,7 +1646,7 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i8 1, ptr %36, align 8
-  %.not72 = icmp eq ptr %30, %spec.select
+  %.not72 = icmp eq i64 %.idx, %.idx115
   br i1 %.not72, label %.loopexit, label %37
 
 37:                                               ; preds = %35

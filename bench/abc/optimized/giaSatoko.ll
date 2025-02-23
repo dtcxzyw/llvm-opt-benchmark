@@ -56,7 +56,7 @@ define void @Gia_ManCollectVars_rec(i32 noundef %0, ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %19 ]
   %23 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !10
-  tail call void @Gia_ManCollectVars_rec(i32 noundef %24, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call void @Gia_ManCollectVars_rec(i32 noundef %24, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %21, align 4, !tbaa !10
   %26 = sext i32 %25 to i64

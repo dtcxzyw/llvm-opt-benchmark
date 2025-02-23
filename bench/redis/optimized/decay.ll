@@ -380,7 +380,7 @@ decay_npurge_after_interval.exit64:               ; preds = %.preheader74
 
 .preheader:                                       ; preds = %decay_npurge_after_interval.exit64
   %52 = add nuw nsw i64 %39, %2
-  %53 = icmp ult i64 %52, %50
+  %53 = icmp samesign ult i64 %52, %50
   br i1 %53, label %.lr.ph.i, label %._crit_edge
 
 54:                                               ; preds = %decay_npurge_after_interval.exit64

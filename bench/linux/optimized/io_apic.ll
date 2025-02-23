@@ -1967,7 +1967,7 @@ define dso_local void @print_IO_APICs() local_unnamed_addr #8 section ".init.tex
   br label %.thread
 
 .thread:                                          ; preds = %38, %.loopexit, %45, %41, %33
-  %61 = add i32 %27, 1
+  %61 = add nuw i32 %27, 1
   %62 = tail call i32 @irq_get_next_irq(i32 noundef %61) #25
   %63 = load i32, ptr @nr_irqs, align 4
   %64 = icmp ult i32 %62, %63

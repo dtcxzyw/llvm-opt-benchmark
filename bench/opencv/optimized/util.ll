@@ -300,7 +300,7 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = 
 
 17:                                               ; preds = %.lr.ph, %17
   %.01016 = phi i64 [ 0, %.lr.ph ], [ %24, %17 ]
-  %18 = getelementptr inbounds %"class.cv::UMat", ptr %6, i64 %.01016, i32 8
+  %18 = getelementptr inbounds nuw %"class.cv::UMat", ptr %6, i64 %.01016, i32 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4
@@ -309,10 +309,10 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds = 
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = zext i32 %21 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %23 = getelementptr inbounds %"class.cv::Size_", ptr %13, i64 %.01016
+  %23 = getelementptr inbounds nuw %"class.cv::Size_", ptr %13, i64 %.01016
   store i64 %.sroa.0.0.insert.insert.i, ptr %23, align 4
-  %24 = add nuw i64 %.01016, 1
-  %25 = icmp ult i64 %24, %10
+  %24 = add nuw nsw i64 %.01016, 1
+  %25 = icmp samesign ult i64 %24, %10
   br i1 %25, label %17, label %._crit_edge, !llvm.loop !8
 
 26:                                               ; preds = %._crit_edge

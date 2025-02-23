@@ -226,7 +226,7 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %33, label %34, label %.loopexit.thread
 
 34:                                               ; preds = %.loopexit
-  call void @jitter_d(ptr noundef %2, i32 noundef %3, i32 noundef 3) #22
+  call void @jitter_d(ptr noundef nonnull %2, i32 noundef %3, i32 noundef 3) #22
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %34, %.loopexit
@@ -239,7 +239,7 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not54, label %84, label %38
 
 38:                                               ; preds = %37
-  %39 = call ptr @agxget(ptr noundef %2, ptr noundef nonnull %1) #22
+  %39 = call ptr @agxget(ptr noundef nonnull %2, ptr noundef nonnull %1) #22
   %40 = call zeroext i1 @mapbool(ptr noundef %39) #22
   br i1 %40, label %41, label %84
 
@@ -293,7 +293,7 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not51, label %72, label %61
 
 61:                                               ; preds = %59
-  %62 = call ptr @agxget(ptr noundef %2, ptr noundef nonnull %60) #22
+  %62 = call ptr @agxget(ptr noundef nonnull %2, ptr noundef nonnull %60) #22
   %.not52 = icmp eq ptr %62, null
   br i1 %.not52, label %72, label %63
 
@@ -310,11 +310,11 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.sink = select i1 %68, double %70, double %69
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %.sink, ptr %71, align 8, !tbaa !45
-  call void @jitter_d(ptr noundef %2, i32 noundef %3, i32 noundef 3) #22
+  call void @jitter_d(ptr noundef nonnull %2, i32 noundef %3, i32 noundef 3) #22
   br label %.loopexit58.thread
 
 72:                                               ; preds = %63, %61, %59
-  call void @jitter3d(ptr noundef %2, i32 noundef %3) #22
+  call void @jitter3d(ptr noundef nonnull %2, i32 noundef %3) #22
   br label %.loopexit58.thread
 
 .loopexit58.thread:                               ; preds = %.preheader57, %66, %72, %.loopexit58
@@ -327,7 +327,7 @@ define noundef zeroext i1 @user_pos(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %.not53, label %84, label %76
 
 76:                                               ; preds = %75
-  %77 = call ptr @agxget(ptr noundef %2, ptr noundef nonnull %1) #22
+  %77 = call ptr @agxget(ptr noundef nonnull %2, ptr noundef nonnull %1) #22
   %78 = call zeroext i1 @mapbool(ptr noundef %77) #22
   br i1 %78, label %79, label %84
 
@@ -2105,18 +2105,18 @@ define internal fastcc void @neato_init_graph(ptr noundef %0) unnamed_addr #0 {
   tail call void @neato_init_node(ptr noundef nonnull %.024.i)
   %25 = load ptr, ptr @N_pos, align 8, !tbaa !49
   %26 = tail call zeroext i1 @user_pos(ptr noundef %25, ptr noundef %23, ptr noundef nonnull %.024.i, i32 noundef %21)
-  %27 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.024.i) #22
+  %27 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.024.i) #22
   %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !129
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %28 = tail call ptr @agfstnode(ptr noundef %0) #22
+  %28 = tail call ptr @agfstnode(ptr noundef nonnull %0) #22
   %.not2130.i = icmp eq ptr %28, null
   br i1 %.not2130.i, label %neato_init_node_edge.exit, label %.lr.ph33.i
 
 .lr.ph33.i:                                       ; preds = %._crit_edge.i, %._crit_edge29.i
   %.131.i = phi ptr [ %37, %._crit_edge29.i ], [ %28, %._crit_edge.i ]
-  %29 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.131.i) #22
+  %29 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.131.i) #22
   %.not2225.i = icmp eq ptr %29, null
   br i1 %.not2225.i, label %._crit_edge29.i, label %.lr.ph28.i
 
@@ -2130,12 +2130,12 @@ define internal fastcc void @neato_init_graph(ptr noundef %0) unnamed_addr #0 {
   %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 176
   store double %32, ptr %35, align 8, !tbaa !130
-  %36 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02026.i) #22
+  %36 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02026.i) #22
   %.not22.i = icmp eq ptr %36, null
   br i1 %.not22.i, label %._crit_edge29.i, label %.lr.ph28.i, !llvm.loop !131
 
 ._crit_edge29.i:                                  ; preds = %.lr.ph28.i, %.lr.ph33.i
-  %37 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.131.i) #22
+  %37 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.131.i) #22
   %.not21.i = icmp eq ptr %37, null
   br i1 %.not21.i, label %neato_init_node_edge.exit, label %.lr.ph33.i, !llvm.loop !132
 
@@ -2253,7 +2253,7 @@ define internal fastcc void @neatoLayout(ptr noundef %0, ptr noundef %1, i32 nou
 subset_model.exit.i:                              ; preds = %45
   %46 = load ptr, ptr %31, align 8, !tbaa !134
   tail call void @free(ptr noundef %46) #22
-  tail call void @free(ptr noundef %31) #22
+  tail call void @free(ptr noundef nonnull %31) #22
   tail call void @freeGraphData(ptr noundef %30) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #22
   br label %mds_model.exit.i

@@ -1537,7 +1537,7 @@ define ptr @Saig_ManRetimeDupInitState(ptr noundef %0, ptr noundef readonly capt
   %.val24 = load ptr, ptr %11, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw ptr, ptr %.val24, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #13
+  %19 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #13
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %19, ptr %20, align 8, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

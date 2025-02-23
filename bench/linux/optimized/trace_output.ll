@@ -466,7 +466,7 @@ define dso_local ptr @trace_print_hex_seq(ptr noundef %0, ptr noundef %1, i32 no
   %13 = tail call i32 @llvm.smin.i32(i32 %12, i32 16)
   %14 = sext i32 %11 to i64
   %15 = getelementptr i8, ptr %1, i64 %14
-  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %13, ptr noundef %15) #10
+  tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %13, ptr noundef %15) #10
   %16 = add i32 %11, 16
   %17 = icmp slt i32 %16, %2
   br i1 %17, label %.preheader.split.us, label %.loopexit, !llvm.loop !19

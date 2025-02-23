@@ -407,7 +407,7 @@ try_skip_sfx.exit:                                ; preds = %42, %39
   br i1 %65, label %66, label %70
 
 66:                                               ; preds = %62
-  %67 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 8) #15
+  %67 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef 8) #15
   %68 = icmp eq i64 %67, 8
   br i1 %68, label %69, label %.loopexit
 

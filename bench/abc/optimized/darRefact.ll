@@ -1623,7 +1623,7 @@ Abc_Clock.exit137:                                ; preds = %Vec_VecClear.exit, 
   %103 = trunc nuw i64 %102 to i32
   %104 = and i32 %103, 16777215
   %105 = call i32 @llvm.usub.sat.i32(i32 %104, i32 10)
-  %106 = call i32 @Aig_NodeMffcSupp(ptr noundef %0, ptr noundef nonnull %65, i32 noundef %105, ptr noundef %27) #21
+  %106 = call i32 @Aig_NodeMffcSupp(ptr noundef nonnull %0, ptr noundef nonnull %65, i32 noundef %105, ptr noundef %27) #21
   %107 = load ptr, ptr %11, align 8, !tbaa !22
   %108 = load i32, ptr %107, align 4, !tbaa !3
   %109 = icmp slt i32 %106, %108
@@ -1712,7 +1712,7 @@ Abc_Clock.exit139:                                ; preds = %110, %113
   br i1 %exitcond.not.i145, label %.loopexit, label %140, !llvm.loop !101
 
 .loopexit:                                        ; preds = %149, %138
-  %150 = call i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef nonnull %65, ptr noundef %27, ptr noundef %29) #21
+  %150 = call i32 @Aig_NodeMffcExtendCut(ptr noundef nonnull %0, ptr noundef nonnull %65, ptr noundef %27, ptr noundef %29) #21
   %.not112 = icmp eq i32 %150, 0
   br i1 %.not112, label %154, label %151
 

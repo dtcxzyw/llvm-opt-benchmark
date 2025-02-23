@@ -12874,7 +12874,7 @@ Cba_NtkCollectGroupStats.exit:                    ; preds = %38, %Cba_ManRoot.ex
   %59 = add nsw i32 %.val42, %.0.lcssa.i
   %60 = getelementptr i8, ptr %28, i64 12
   %.val44 = load i32, ptr %60, align 4, !tbaa !61
-  %61 = tail call fastcc ptr @Cba_NtkAlloc(ptr noundef %18, i32 noundef %.val44, i32 noundef %.val42, i32 noundef %.val41, i32 noundef %57, i32 noundef %58, i32 noundef %59)
+  %61 = tail call fastcc ptr @Cba_NtkAlloc(ptr noundef nonnull %18, i32 noundef %.val44, i32 noundef %.val42, i32 noundef %.val41, i32 noundef %57, i32 noundef %58, i32 noundef %59)
   %62 = getelementptr i8, ptr %18, i64 32
   %.val45 = load ptr, ptr %62, align 8, !tbaa !118
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
@@ -13006,7 +13006,7 @@ Cba_NtkCleanFonNames.exit:                        ; preds = %Vec_IntGrow.exit.i.
   br label %117
 
 117:                                              ; preds = %Cba_NtkCleanFonNames.exit, %94
-  call void @Cba_ManExtractGroupInt(ptr noundef nonnull %61, ptr noundef nonnull %28, ptr noundef %1, ptr noundef nonnull %29, ptr noundef nonnull %30)
+  call void @Cba_ManExtractGroupInt(ptr noundef nonnull %61, ptr noundef nonnull %28, ptr noundef nonnull %1, ptr noundef nonnull %29, ptr noundef nonnull %30)
   call fastcc void @Cba_NtkMissingFonNames(ptr noundef nonnull %61, ptr noundef nonnull @.str.46)
   %118 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !30

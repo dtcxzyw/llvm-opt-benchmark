@@ -7278,7 +7278,7 @@ Vec_IntSum.exit.loopexit.us.us:                   ; preds = %._crit_edge.us.us
 .preheader:                                       ; preds = %Vec_IntStart.exit, %.preheader
   %.01217 = phi i32 [ %29, %.preheader ], [ 0, %Vec_IntStart.exit ]
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef 0)
-  tail call void @Gia_ManSimOneBit(ptr noundef %0, ptr noundef nonnull %4)
+  tail call void @Gia_ManSimOneBit(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %29 = add nuw nsw i32 %.01217, 1
   %exitcond.not = icmp eq i32 %29, 10
   br i1 %exitcond.not, label %.split.us, label %.preheader, !llvm.loop !169

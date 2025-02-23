@@ -63,7 +63,7 @@ define range(i32 0, 2) i32 @nextSwap(ptr noundef captures(none) %0) local_unname
   %39 = sub nsw i32 0, %38
   store i32 %39, ptr %37, align 4, !tbaa !14
   %40 = add nsw i32 %.04858, -1
-  %41 = icmp sgt i32 %40, %.04957
+  %41 = icmp samesign ugt i32 %40, %.04957
   br i1 %41, label %.lr.ph59, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph59, %19
@@ -131,69 +131,70 @@ setSwapInfoPtr.exit:                              ; preds = %.lr.ph.i
 
 .lr.ph.i13.preheader.lr.ph:                       ; preds = %setSwapInfoPtr.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = sext i32 %3 to i64
+  %22 = zext nneg i32 %4 to i64
+  %23 = sext i32 %3 to i64
   br label %.lr.ph.i13.preheader.us
 
 .lr.ph.i13.preheader.us:                          ; preds = %.loopexit.us, %.lr.ph.i13.preheader.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.us ], [ %22, %.lr.ph.i13.preheader.lr.ph ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %.loopexit.us ], [ %23, %.lr.ph.i13.preheader.lr.ph ]
+  %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
   br label %.lr.ph.i13.us
 
-.lr.ph.i13.us:                                    ; preds = %33, %.lr.ph.i13.preheader.us
-  %.04957.i.us = phi i32 [ %34, %33 ], [ %4, %.lr.ph.i13.preheader.us ]
-  %23 = zext nneg i32 %.04957.i.us to i64
-  %24 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %23
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !12
-  %27 = load i32, ptr %24, align 4, !tbaa !14
-  %28 = add nsw i32 %27, %26
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i32, ptr %10, i64 %29
-  %31 = load i32, ptr %30, align 4, !tbaa !15
-  %32 = icmp sgt i32 %.04957.i.us, %31
-  br i1 %32, label %36, label %33
+.lr.ph.i13.us:                                    ; preds = %34, %.lr.ph.i13.preheader.us
+  %.04957.i.us = phi i32 [ %35, %34 ], [ %4, %.lr.ph.i13.preheader.us ]
+  %24 = zext nneg i32 %.04957.i.us to i64
+  %25 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !12
+  %28 = load i32, ptr %25, align 4, !tbaa !14
+  %29 = add nsw i32 %28, %27
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds i32, ptr %10, i64 %30
+  %32 = load i32, ptr %31, align 4, !tbaa !15
+  %33 = icmp sgt i32 %.04957.i.us, %32
+  br i1 %33, label %37, label %34
 
-33:                                               ; preds = %.lr.ph.i13.us
-  %34 = add nsw i32 %.04957.i.us, -1
-  %35 = icmp sgt i32 %.04957.i.us, 2
-  br i1 %35, label %.lr.ph.i13.us, label %.loopexit16, !llvm.loop !20
+34:                                               ; preds = %.lr.ph.i13.us
+  %35 = add nsw i32 %.04957.i.us, -1
+  %36 = icmp sgt i32 %.04957.i.us, 2
+  br i1 %36, label %.lr.ph.i13.us, label %.loopexit16, !llvm.loop !20
 
-36:                                               ; preds = %.lr.ph.i13.us
-  %37 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %38 = getelementptr inbounds i32, ptr %10, i64 %29
-  store i32 %28, ptr %37, align 4, !tbaa !12
-  %39 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %23, i32 1
-  store i32 %.04957.i.us, ptr %38, align 4, !tbaa !15
-  %40 = sext i32 %26 to i64
-  %41 = getelementptr inbounds i32, ptr %10, i64 %40
-  store i32 %31, ptr %41, align 4, !tbaa !15
-  %42 = sext i32 %31 to i64
-  %43 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %42, i32 1
-  store i32 %26, ptr %43, align 4, !tbaa !12
-  %44 = icmp sgt i32 %4, %.04957.i.us
-  br i1 %44, label %.lr.ph59.i.us, label %.loopexit.us
+37:                                               ; preds = %.lr.ph.i13.us
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %39 = getelementptr inbounds i32, ptr %10, i64 %30
+  store i32 %29, ptr %38, align 4, !tbaa !12
+  %40 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %24, i32 1
+  store i32 %.04957.i.us, ptr %39, align 4, !tbaa !15
+  %41 = sext i32 %27 to i64
+  %42 = getelementptr inbounds i32, ptr %10, i64 %41
+  store i32 %32, ptr %42, align 4, !tbaa !15
+  %43 = sext i32 %32 to i64
+  %44 = getelementptr inbounds %struct.varInfo, ptr %8, i64 %43, i32 1
+  store i32 %27, ptr %44, align 4, !tbaa !12
+  %45 = icmp sgt i32 %4, %.04957.i.us
+  br i1 %45, label %.lr.ph59.i.us, label %.loopexit.us
 
-.lr.ph59.i.us:                                    ; preds = %36, %.lr.ph59.i.us
-  %.04858.i.us = phi i32 [ %49, %.lr.ph59.i.us ], [ %4, %36 ]
-  %45 = zext nneg i32 %.04858.i.us to i64
-  %46 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %45
+.lr.ph59.i.us:                                    ; preds = %37, %.lr.ph59.i.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph59.i.us ], [ %22, %37 ]
+  %46 = getelementptr inbounds nuw %struct.varInfo, ptr %8, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !14
   %48 = sub nsw i32 0, %47
   store i32 %48, ptr %46, align 4, !tbaa !14
-  %49 = add nsw i32 %.04858.i.us, -1
-  %50 = icmp sgt i32 %49, %.04957.i.us
-  br i1 %50, label %.lr.ph59.i.us, label %.loopexit.us, !llvm.loop !16
+  %indvars.iv.next = add nsw i64 %indvars.iv, -1
+  %indvars = trunc i64 %indvars.iv.next to i32
+  %49 = icmp samesign ult i32 %.04957.i.us, %indvars
+  br i1 %49, label %.lr.ph59.i.us, label %.loopexit.us, !llvm.loop !16
 
-.loopexit.us:                                     ; preds = %.lr.ph59.i.us, %36
-  %51 = load i32, ptr %39, align 4, !tbaa !12
-  %52 = load ptr, ptr %21, align 8, !tbaa !25
-  %53 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv.next
-  %.lcssa52. = tail call i32 @llvm.smin.i32(i32 %26, i32 %51)
-  %54 = add nsw i32 %.lcssa52., -1
-  store i32 %54, ptr %53, align 4, !tbaa !15
+.loopexit.us:                                     ; preds = %.lr.ph59.i.us, %37
+  %50 = load i32, ptr %40, align 4, !tbaa !12
+  %51 = load ptr, ptr %21, align 8, !tbaa !25
+  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.next48
+  %.lcssa56. = tail call i32 @llvm.smin.i32(i32 %27, i32 %50)
+  %53 = add nsw i32 %.lcssa56., -1
+  store i32 %53, ptr %52, align 4, !tbaa !15
   br label %.lr.ph.i13.preheader.us
 
-.loopexit16:                                      ; preds = %33, %1, %setSwapInfoPtr.exit
+.loopexit16:                                      ; preds = %34, %1, %setSwapInfoPtr.exit
   tail call void @free(ptr noundef %8) #11
   tail call void @free(ptr noundef nonnull %10) #11
   ret void

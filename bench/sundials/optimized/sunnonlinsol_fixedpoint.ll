@@ -493,7 +493,7 @@ define i32 @SUNNonlinSolSolve_FixedPoint(ptr noundef %0, ptr readnone captures(n
 
 .loopexit2.i:                                     ; preds = %.lr.ph35.i, %.preheader1.i, %116, %80
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %26, i32 %31)
-  %190 = tail call i32 @N_VDotProdMulti(i32 noundef %spec.select.i, ptr noundef %53, ptr noundef %43, ptr noundef %51) #12
+  %190 = tail call i32 @N_VDotProdMulti(i32 noundef %spec.select.i, ptr noundef %53, ptr noundef nonnull %43, ptr noundef %51) #12
   store double 1.000000e+00, ptr %45, align 8, !tbaa !51
   store ptr %12, ptr %47, align 8, !tbaa !50
   %191 = add i32 %spec.select.i, -1

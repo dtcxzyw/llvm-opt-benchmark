@@ -574,7 +574,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val63 = load ptr, ptr %41, align 8, !tbaa !10
   %42 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %indvars.iv92
   %43 = load ptr, ptr %42, align 8, !tbaa !18
-  %44 = tail call ptr @Hop_ObjCreatePi(ptr noundef %15) #10
+  %44 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %15) #10
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %44, ptr %45, align 8, !tbaa !19
   %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1

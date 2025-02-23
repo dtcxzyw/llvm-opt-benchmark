@@ -636,7 +636,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %63 = getelementptr i32, ptr %.val28, i64 %indvars.iv
   %64 = getelementptr i32, ptr %63, i64 %22
   %65 = load i32, ptr %64, align 4, !tbaa !31
-  tail call void @Acec_ManCountXorTreeInputs_rec(ptr noundef %0, i32 noundef %65, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
+  tail call void @Acec_ManCountXorTreeInputs_rec(ptr noundef nonnull %0, i32 noundef %65, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %66, label %62, !llvm.loop !42
@@ -2807,9 +2807,9 @@ Vec_IntStartFull.exit.i:                          ; preds = %13, %Vec_IntAlloc.e
   br i1 %exitcond.not, label %Acec_ManCreateCarryMap.exit, label %20, !llvm.loop !32
 
 Acec_ManCreateCarryMap.exit:                      ; preds = %20, %Vec_IntStartFull.exit.i
-  %25 = tail call ptr @Acec_ManCollectCarryRoots(ptr noundef %0, ptr noundef %1)
-  %26 = tail call ptr @Acec_ManCollectXorRoots(ptr noundef %0, ptr noundef %2)
-  %27 = tail call ptr @Acec_ManCollectCarryRootSets(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %26, ptr noundef %25)
+  %25 = tail call ptr @Acec_ManCollectCarryRoots(ptr noundef nonnull %0, ptr noundef nonnull %1)
+  %26 = tail call ptr @Acec_ManCollectXorRoots(ptr noundef nonnull %0, ptr noundef %2)
+  %27 = tail call ptr @Acec_ManCollectCarryRootSets(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %2, ptr noundef %26, ptr noundef %25)
   %.val55 = load i32, ptr %16, align 4, !tbaa !30
   %28 = sdiv i32 %.val55, 6
   %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
@@ -2943,7 +2943,7 @@ Vec_IntFree.exit69:                               ; preds = %Vec_IntFree.exit, %
   %.val56 = load ptr, ptr %81, align 8, !tbaa !29
   %83 = getelementptr inbounds nuw i32, ptr %.val56, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !31
-  tail call void @Acec_ManCollectBoxSets_rec(ptr noundef %0, i32 noundef %84, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %76, ptr noundef nonnull %29)
+  tail call void @Acec_ManCollectBoxSets_rec(ptr noundef nonnull %0, i32 noundef %84, i32 noundef 1, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %76, ptr noundef nonnull %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val54 = load i32, ptr %79, align 4, !tbaa !30
   %85 = sext i32 %.val54 to i64
@@ -2951,7 +2951,7 @@ Vec_IntFree.exit69:                               ; preds = %Vec_IntFree.exit, %
   br i1 %86, label %82, label %.critedge, !llvm.loop !65
 
 .critedge:                                        ; preds = %82, %72
-  tail call void @Acec_ManCollectInsOuts(ptr poison, ptr noundef %1, ptr noundef nonnull %76, ptr noundef nonnull %29, ptr noundef nonnull %46, ptr noundef nonnull %55, ptr noundef nonnull %77, ptr noundef nonnull %78)
+  tail call void @Acec_ManCollectInsOuts(ptr nonnull poison, ptr noundef nonnull %1, ptr noundef nonnull %76, ptr noundef nonnull %29, ptr noundef nonnull %46, ptr noundef nonnull %55, ptr noundef nonnull %77, ptr noundef nonnull %78)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %87 = mul nuw nsw i64 %indvars.iv.next84, 5
   %.val57 = load i32, ptr %69, align 4, !tbaa !43

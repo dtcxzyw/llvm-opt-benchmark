@@ -968,7 +968,7 @@ dt_colormatrix_mul.exit64.i:                      ; preds = %dt_colormatrix_mul.
   %137 = getelementptr inbounds nuw [3 x float], ptr %75, i64 0, i64 %.04994.i
   %138 = load float, ptr %137, align 4, !tbaa !60
   %139 = getelementptr inbounds nuw [3 x [2 x float]], ptr %12, i64 0, i64 %.04994.i
-  call void @dt_rotate_and_scale_primary(ptr noundef %.0.i143, float noundef %136, float noundef %138, i64 noundef %.04994.i, ptr noundef nonnull %139) #22
+  call void @dt_rotate_and_scale_primary(ptr noundef nonnull %.0.i143, float noundef %136, float noundef %138, i64 noundef %.04994.i, ptr noundef nonnull %139) #22
   %140 = add nuw nsw i64 %.04994.i, 1
   %exitcond103.not.i = icmp eq i64 %140, 3
   br i1 %exitcond103.not.i, label %102, label %dt_colormatrix_mul.exit64.i

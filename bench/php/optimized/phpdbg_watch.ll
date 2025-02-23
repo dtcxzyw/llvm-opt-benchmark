@@ -2833,7 +2833,7 @@ define hidden void @phpdbg_dequeue_elements_for_recreation() local_unnamed_addr 
 
 .loopexit:                                        ; preds = %35, %38, %41
   %.1 = phi ptr [ %40, %38 ], [ %1, %41 ], [ %.030, %35 ]
-  %43 = call zeroext i1 @phpdbg_try_re_adding_watch_element(ptr noundef nonnull %.1, ptr noundef %14)
+  %43 = call zeroext i1 @phpdbg_try_re_adding_watch_element(ptr noundef nonnull %.1, ptr noundef nonnull %14)
   br i1 %43, label %67, label %.preheader44
 
 .preheader44:                                     ; preds = %.loopexit, %46
@@ -2875,7 +2875,7 @@ define hidden void @phpdbg_dequeue_elements_for_recreation() local_unnamed_addr 
   br label %phpdbg_automatic_dequeue_free.exit
 
 phpdbg_automatic_dequeue_free.exit:               ; preds = %.critedge.i, %54
-  tail call void @phpdbg_free_watch_element_tree(ptr noundef %14)
+  tail call void @phpdbg_free_watch_element_tree(ptr noundef nonnull %14)
   br label %67
 
 67:                                               ; preds = %phpdbg_automatic_dequeue_free.exit, %.loopexit

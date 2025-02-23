@@ -1172,7 +1172,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br i1 %42, label %.lr.ph4.preheader, label %.loopexit
 
 .lr.ph4.preheader:                                ; preds = %36
-  %invariant.op7 = add nsw i32 %.0138, -9
+  %invariant.op7 = add nsw i32 %spec.select, -9
   br label %.lr.ph4
 
 .lr.ph4:                                          ; preds = %.lr.ph4.preheader, %.lr.ph4
@@ -1204,7 +1204,7 @@ define internal fastcc i32 @dissect_ipv4_bvlc(ptr noundef %0, ptr noundef %1, pt
   br i1 %62, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %56
-  %invariant.op = add nsw i32 %.0138, -9
+  %invariant.op = add nsw i32 %spec.select, -9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

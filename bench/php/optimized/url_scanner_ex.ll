@@ -1171,41 +1171,35 @@ smart_str_appendc_ex.exit174:                     ; preds = %341, %347
   store i8 %360, ptr %361, align 1, !tbaa !18
   %362 = udiv i64 %.0.i253, 10
   %.not.i254 = icmp samesign ult i64 %.0.i253, 10
-  br i1 %.not.i254, label %zend_print_ulong_to_buf.exit, label %357
+  br i1 %.not.i254, label %363, label %357
 
-zend_print_ulong_to_buf.exit:                     ; preds = %357
-  %363 = ptrtoint ptr %356 to i64
-  %364 = ptrtoint ptr %361 to i64
-  %365 = sub i64 %363, %364
-  %.not.i.i249 = icmp eq ptr %352, null
-  br i1 %.not.i.i249, label %371, label %366, !prof !15
-
-366:                                              ; preds = %zend_print_ulong_to_buf.exit
+363:                                              ; preds = %357
+  %364 = ptrtoint ptr %356 to i64
+  %365 = ptrtoint ptr %361 to i64
+  %366 = sub i64 %364, %365
   %367 = load i64, ptr %353, align 8, !tbaa !11
-  %368 = add i64 %367, %365
+  %368 = add i64 %367, %366
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %370 = load i64, ptr %369, align 8, !tbaa !16
   %.not12.i.i250 = icmp ult i64 %368, %370
   br i1 %.not12.i.i250, label %smart_str_append_unsigned_ex.exit, label %371, !prof !17
 
-371:                                              ; preds = %366, %zend_print_ulong_to_buf.exit
-  %.0.i.i251 = phi i64 [ %365, %zend_print_ulong_to_buf.exit ], [ %368, %366 ]
-  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %.0.i.i251) #19
+371:                                              ; preds = %363
+  call void @smart_str_erealloc(ptr noundef nonnull %1, i64 noundef %368) #19
   %.pre295 = load ptr, ptr %1, align 8, !tbaa !4
   %.phi.trans.insert296 = getelementptr inbounds nuw i8, ptr %.pre295, i64 16
   %.pre297 = load i64, ptr %.phi.trans.insert296, align 8, !tbaa !11
   br label %smart_str_append_unsigned_ex.exit
 
-smart_str_append_unsigned_ex.exit:                ; preds = %366, %371
-  %372 = phi i64 [ %.pre297, %371 ], [ %367, %366 ]
-  %373 = phi ptr [ %.pre295, %371 ], [ %352, %366 ]
-  %.1.i.i252 = phi i64 [ %.0.i.i251, %371 ], [ %368, %366 ]
+smart_str_append_unsigned_ex.exit:                ; preds = %363, %371
+  %372 = phi i64 [ %367, %363 ], [ %.pre297, %371 ]
+  %373 = phi ptr [ %352, %363 ], [ %.pre295, %371 ]
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 %372
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %375, ptr noundef nonnull align 1 dereferenceable(1) %361, i64 %365, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %375, ptr noundef nonnull align 1 dereferenceable(1) %361, i64 %366, i1 false)
   %376 = load ptr, ptr %1, align 8, !tbaa !4
   %377 = getelementptr inbounds nuw i8, ptr %376, i64 16
-  store i64 %.1.i.i252, ptr %377, align 8, !tbaa !11
+  store i64 %368, ptr %377, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #19
   br label %378
 

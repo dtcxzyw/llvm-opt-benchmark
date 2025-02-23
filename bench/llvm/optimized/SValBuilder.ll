@@ -1156,8 +1156,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder23getRegionValueSymbolV
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 16
   %17 = icmp eq i8 %16, 13
-  %.not.not7.i.i = icmp ne ptr %14, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %17
+  %.not7.i.i = icmp ne ptr %14, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %17
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %2
@@ -1323,8 +1323,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder16conjureSymbolValEPKvP
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
   %16 = icmp eq i8 %15, 13
-  %.not.not7.i.i = icmp ne ptr %13, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %16
+  %.not7.i.i = icmp ne ptr %13, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %16
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %5
@@ -1382,8 +1382,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder16conjureSymbolValEPKvP
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 16
   %21 = icmp eq i8 %20, 13
-  %.not.not7.i.i = icmp ne ptr %18, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %21
+  %.not7.i.i = icmp ne ptr %18, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %21
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %6
@@ -1476,8 +1476,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder16conjureSymbolValEPKNS
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not7.i.i = icmp ne ptr %17, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %20
+  %.not7.i.i = icmp ne ptr %17, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %20
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %5
@@ -1572,8 +1572,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder24getConjuredHeapSymbol
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not7.i.i.i = icmp ne ptr %17, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %20
+  %.not7.i.i.i = icmp ne ptr %17, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %20
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread.i
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit.i:          ; preds = %4
@@ -1633,8 +1633,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder24getConjuredHeapSymbol
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not7.i.i = icmp ne ptr %17, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %20
+  %.not7.i.i = icmp ne ptr %17, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %20
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %5
@@ -1872,8 +1872,8 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder30getDerivedRegionValue
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 16
   %19 = icmp eq i8 %18, 13
-  %.not.not7.i.i = icmp ne ptr %16, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %19
+  %.not7.i.i = icmp ne ptr %16, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %19
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %3
@@ -3834,8 +3834,8 @@ _ZL23shouldBeModeledWithNoOpRN5clang10ASTContextENS_8QualTypeES2_.exit.thread200
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load i8, ptr %103, align 16
   %105 = icmp eq i8 %104, 13
-  %.not.not7.i.i.i = icmp ne ptr %102, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %105
+  %.not7.i.i.i = icmp ne ptr %102, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %105
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZL23shouldBeModeledWithNoOpRN5clang10ASTContextENS_8QualTypeES2_.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %95
@@ -3894,8 +3894,8 @@ _ZL23shouldBeModeledWithNoOpRN5clang10ASTContextENS_8QualTypeES2_.exit: ; preds 
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i8, ptr %120, align 16
   %122 = icmp eq i8 %121, 13
-  %.not.not6.i.i122 = icmp ne ptr %119, null
-  %.not.not.not.i.i123 = and i1 %.not.not6.i.i122, %122
+  %.not6.i.i122 = icmp ne ptr %119, null
+  %.not.not.not.i.i123 = and i1 %.not6.i.i122, %122
   br i1 %.not.not.not.i.i123, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i141, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i124
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i141:       ; preds = %112
@@ -4196,8 +4196,8 @@ _ZN4llvm5APIntD2Ev.exit34.i:                      ; preds = %228, %225, %_ZNK5cl
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
   %240 = load i8, ptr %239, align 16
   %241 = icmp eq i8 %240, 13
-  %.not.not6.i.i98 = icmp ne ptr %238, null
-  %.not.not.not.i.i99 = and i1 %.not.not6.i.i98, %241
+  %.not6.i.i98 = icmp ne ptr %238, null
+  %.not.not.not.i.i99 = and i1 %.not6.i.i98, %241
   br i1 %.not.not.not.i.i99, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i114, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i100
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i114:       ; preds = %231
@@ -4355,8 +4355,8 @@ _ZN12_GLOBAL__N_115EvalCastVisitor14VisitGotoLabelEN5clang4ento3loc9GotoLabelE.e
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
   %315 = load i8, ptr %314, align 16
   %316 = icmp eq i8 %315, 13
-  %.not.not6.i.i65 = icmp ne ptr %313, null
-  %.not.not.not.i.i66 = and i1 %.not.not6.i.i65, %316
+  %.not6.i.i65 = icmp ne ptr %313, null
+  %.not.not.not.i.i66 = and i1 %.not6.i.i65, %316
   br i1 %.not.not.not.i.i66, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i78, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i67
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i78:        ; preds = %306
@@ -4668,8 +4668,8 @@ _ZN4llvm5APIntD2Ev.exit43.i:                      ; preds = %422, %419, %_ZZN12_
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load i8, ptr %431, align 16
   %433 = icmp eq i8 %432, 13
-  %.not.not6.i.i40 = icmp ne ptr %430, null
-  %.not.not.not.i.i41 = and i1 %.not.not6.i.i40, %433
+  %.not6.i.i40 = icmp ne ptr %430, null
+  %.not.not.not.i.i41 = and i1 %.not6.i.i40, %433
   br i1 %.not.not.not.i.i41, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i42, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i42.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i42:        ; preds = %423
@@ -5016,8 +5016,8 @@ _ZN12_GLOBAL__N_115EvalCastVisitor17VisitLocAsIntegerEN5clang4ento6nonloc12LocAs
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 16
   %599 = load i8, ptr %598, align 16
   %600 = icmp eq i8 %599, 13
-  %.not.not6.i.i = icmp ne ptr %597, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %600
+  %.not6.i.i = icmp ne ptr %597, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %600
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i:          ; preds = %590
@@ -6519,8 +6519,8 @@ define internal fastcc { ptr, i8 } @_ZN12_GLOBAL__N_115EvalCastVisitor17VisitMem
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not6.i = icmp ne ptr %17, null
-  %.not.not.not.i = and i1 %.not.not6.i, %20
+  %.not6.i = icmp ne ptr %17, null
+  %.not.not.not.i = and i1 %.not6.i, %20
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %3
@@ -6540,7 +6540,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %3
   br i1 %.not132, label %42, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %30 = load ptr, ptr %29, align 8, !tbaa !875
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
   %32 = load i32, ptr %31, align 4
@@ -7070,8 +7070,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5cl
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i8, ptr %60, align 16
   %62 = icmp eq i8 %61, 13
-  %.not.not8.i.i = icmp ne ptr %59, null
-  %.not.not.not.i.i = and i1 %.not.not8.i.i, %62
+  %.not8.i.i = icmp ne ptr %59, null
+  %.not.not.not.i.i = and i1 %.not8.i.i, %62
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24

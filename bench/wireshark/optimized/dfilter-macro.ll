@@ -465,14 +465,14 @@ g_string_append_c_inline.exit222:                 ; preds = %200, %206
   br i1 %.not201293, label %._crit_edge295, label %.lr.ph294
 
 .lr.ph294:                                        ; preds = %.preheader243, %.lr.ph294
-  %216 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef %.0168, i32 noundef 0)
+  %216 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0)
   tail call void @g_free(ptr noundef %216)
   %217 = load i32, ptr %214, align 8
   %.not201 = icmp eq i32 %217, 0
   br i1 %.not201, label %._crit_edge295, label %.lr.ph294, !llvm.loop !8
 
 ._crit_edge295:                                   ; preds = %.lr.ph294, %.preheader243
-  %218 = tail call ptr @g_ptr_array_free(ptr noundef %.0168, i32 noundef 1)
+  %218 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
   br label %219
 
 219:                                              ; preds = %._crit_edge295, %213
@@ -638,14 +638,14 @@ close_char.exit:                                  ; preds = %250, %251
   br i1 %.not196292, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader244, %.lr.ph
-  %291 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef %.0168, i32 noundef 0)
+  %291 = tail call ptr @g_ptr_array_remove_index_fast(ptr noundef nonnull %.0168, i32 noundef 0)
   tail call void @g_free(ptr noundef %291)
   %292 = load i32, ptr %289, align 8
   %.not196 = icmp eq i32 %292, 0
   br i1 %.not196, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader244
-  %293 = tail call ptr @g_ptr_array_free(ptr noundef %.0168, i32 noundef 1)
+  %293 = tail call ptr @g_ptr_array_free(ptr noundef nonnull %.0168, i32 noundef 1)
   br label %g_string_append_c_inline.exit.backedge
 
 294:                                              ; preds = %221

@@ -934,7 +934,7 @@ if.else.i:                                        ; preds = %_ZL27is_default_ini
   store ptr %outgoing.i, ptr %stats.i, align 8
   %outbuf.i53 = getelementptr inbounds nuw i8, ptr %write_context.val.i, i64 1064
   call void @_ZN9grpc_core15HPackCompressor13EncodeHeadersI19grpc_metadata_batchEEvRKNS0_19EncodeHeaderOptionsERKT_P17grpc_slice_buffer(ptr noundef nonnull align 8 dereferenceable(344) %hpack_compressor.i50, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(568) %60, ptr noundef nonnull %outbuf.i53)
-  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
+  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef nonnull %write_context.val.i)
   %109 = load i32, ptr %initial_metadata_writes_.i.i, align 4
   %inc.i.i = add nsw i32 %109, 1
   store i32 %inc.i.i, ptr %initial_metadata_writes_.i.i, align 4
@@ -948,7 +948,7 @@ if.end31.i:                                       ; preds = %if.else.i, %_ZN12_G
   store i8 1, ptr %early_results_scheduled.i.i, align 2
   %send_initial_metadata_finished.i = getelementptr inbounds nuw i8, ptr %51, i64 160
   store i64 0, ptr %agg.tmp.i39, align 8, !alias.scope !13
-  invoke void @_Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE(ptr noundef %write_context.val.i, ptr noundef nonnull %51, ptr noundef nonnull %send_initial_metadata_finished.i, ptr noundef nonnull %agg.tmp.i39, ptr noundef nonnull @.str.10)
+  invoke void @_Z33grpc_chttp2_complete_closure_stepP21grpc_chttp2_transportP18grpc_chttp2_streamPP12grpc_closureN4absl12lts_202308026StatusEPKcN9grpc_core13DebugLocationE(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51, ptr noundef nonnull %send_initial_metadata_finished.i, ptr noundef nonnull %agg.tmp.i39, ptr noundef nonnull @.str.10)
           to label %invoke.cont41.i unwind label %lpad.i
 
 invoke.cont41.i:                                  ; preds = %if.end31.i
@@ -1325,7 +1325,7 @@ _ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i: ; preds = %lor.rhs.i.i.
 
 while.end.i:                                      ; preds = %_ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i, %_ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i
   %data_send_context.sroa.27.0.lcssa.i = phi i1 [ %177, %_ZN12_GLOBAL__N_115DataSendContext10FlushBytesEv.exit.i ], [ %data_send_context.sroa.27.061.i, %_ZNK12_GLOBAL__N_115DataSendContext12max_outgoingEv.exit.i ]
-  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
+  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef nonnull %write_context.val.i)
   br i1 %data_send_context.sroa.27.0.lcssa.i, label %if.then35.i, label %if.end36.i
 
 if.then35.i:                                      ; preds = %while.end.i
@@ -1333,7 +1333,7 @@ if.then35.i:                                      ; preds = %while.end.i
   br label %if.end36.i
 
 if.end36.critedge.i:                              ; preds = %while.cond.preheader.i
-  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef %write_context.val.i)
+  call void @_Z28grpc_chttp2_reset_ping_clockP21grpc_chttp2_transport(ptr noundef nonnull %write_context.val.i)
   br label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end36.critedge.i, %if.then35.i, %while.end.i
@@ -1343,7 +1343,7 @@ if.end36.i:                                       ; preds = %if.end36.critedge.i
   %on_flow_controlled_cbs.i.i = getelementptr inbounds nuw i8, ptr %51, i64 2128
   %flow_controlled_bytes_flowed.i.i = getelementptr inbounds nuw i8, ptr %51, i64 208
   store i64 0, ptr %agg.tmp.i.i, align 8, !alias.scope !25
-  %call.i49.i = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef %write_context.val.i, ptr noundef nonnull %51, i64 noundef %sub.i.i, ptr noundef nonnull %on_flow_controlled_cbs.i.i, ptr noundef nonnull %flow_controlled_bytes_flowed.i.i, ptr noundef %agg.tmp.i.i)
+  %call.i49.i = invoke fastcc noundef zeroext i1 @_ZL11update_listP21grpc_chttp2_transportP18grpc_chttp2_streamlPP20grpc_chttp2_write_cbPlN4absl12lts_202308026StatusE(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51, i64 noundef %sub.i.i, ptr noundef nonnull %on_flow_controlled_cbs.i.i, ptr noundef nonnull %flow_controlled_bytes_flowed.i.i, ptr noundef %agg.tmp.i.i)
           to label %_ZN4absl12lts_202308026StatusD2Ev.exit.i.i unwind label %lpad.i.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i.i:       ; preds = %if.end36.i
@@ -1368,7 +1368,7 @@ _ZN12_GLOBAL__N_115DataSendContext13CallCallbacksEv.exit.i: ; preds = %if.then.i
 
 if.then41.i:                                      ; preds = %_ZN12_GLOBAL__N_115DataSendContext13CallCallbacksEv.exit.i
   call void @_Z22grpc_chttp2_stream_refP18grpc_chttp2_stream(ptr noundef nonnull %51)
-  %call45.i = call noundef zeroext i1 @_Z36grpc_chttp2_list_add_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %write_context.val.i, ptr noundef nonnull %51)
+  %call45.i = call noundef zeroext i1 @_Z36grpc_chttp2_list_add_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef nonnull %write_context.val.i, ptr noundef nonnull %51)
   br label %if.end46.i
 
 if.end46.i:                                       ; preds = %if.then41.i, %_ZN12_GLOBAL__N_115DataSendContext13CallCallbacksEv.exit.i

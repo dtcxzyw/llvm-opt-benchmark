@@ -2401,8 +2401,8 @@ define dso_local void @_ZN4llvm9LTOModule12parseSymbolsEv(ptr noundef nonnull al
   %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8, !tbaa !166
-  %.not64 = icmp eq ptr %7, %9
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq ptr %7, %9
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2440,10 +2440,10 @@ _ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE5begin
   %.sroa.0.1.i = phi ptr [ %19, %._crit_edge ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %25 = zext i32 %21 to i64
   %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %25
-  %.not6066 = icmp eq ptr %.sroa.0.1.i, %26
-  br i1 %.not6066, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %.lr.ph68
+  %.not6167 = icmp eq ptr %.sroa.0.1.i, %26
+  br i1 %.not6167, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %.lr.ph69
 
-.lr.ph68:                                         ; preds = %_ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE5beginEv.exit
+.lr.ph69:                                         ; preds = %_ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE5beginEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -2453,25 +2453,25 @@ _ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE5begin
   br label %79
 
 32:                                               ; preds = %.lr.ph, %77
-  %.065 = phi ptr [ %7, %.lr.ph ], [ %78, %77 ]
-  %33 = load i64, ptr %.065, align 8
-  %34 = and i64 %33, 4
-  %35 = icmp eq i64 %34, 0
-  %36 = and i64 %33, -8
-  %37 = inttoptr i64 %36 to ptr
-  %.0.i.i = select i1 %35, ptr %37, ptr null
-  %38 = call noundef i32 @_ZNK4llvm17ModuleSymbolTable14getSymbolFlagsENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %5, i64 %33) #17
-  %39 = and i32 %38, 128
-  %.not33 = icmp eq i32 %39, 0
-  br i1 %.not33, label %40, label %77
+  %.066 = phi ptr [ %7, %.lr.ph ], [ %78, %77 ]
+  %33 = load i64, ptr %.066, align 8
+  %34 = and i64 %33, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = call noundef i32 @_ZNK4llvm17ModuleSymbolTable14getSymbolFlagsENS_12PointerUnionIJPNS_11GlobalValueEPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %5, i64 %33) #17
+  %37 = and i32 %36, 128
+  %.not33 = icmp eq i32 %37, 0
+  br i1 %.not33, label %38, label %77
 
-40:                                               ; preds = %32
-  %41 = and i32 %38, 1
+38:                                               ; preds = %32
+  %39 = and i64 %33, 4
+  %40 = icmp ne i64 %39, 0
+  %41 = and i32 %36, 1
   %.not34 = icmp eq i32 %41, 0
-  %.not35 = icmp eq ptr %.0.i.i, null
+  %.not3560 = icmp eq i64 %34, 0
+  %.not35 = or i1 %40, %.not3560
   br i1 %.not35, label %42, label %61
 
-42:                                               ; preds = %40
+42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #17
   store ptr %10, ptr %2, align 8, !tbaa !168
   store i64 0, ptr %11, align 8, !tbaa !170
@@ -2512,7 +2512,7 @@ _ZN4llvm11SmallStringILj64EE5c_strEv.exit:        ; preds = %42, %46
   br label %57
 
 53:                                               ; preds = %_ZN4llvm11SmallStringILj64EE5c_strEv.exit
-  %54 = and i32 %38, 2
+  %54 = and i32 %36, 2
   %.not36 = icmp eq i32 %54, 0
   br i1 %.not36, label %56, label %55
 
@@ -2537,8 +2537,8 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %57, %60
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #17
   br label %77
 
-61:                                               ; preds = %40
-  %62 = load i8, ptr %37, align 8, !tbaa !181
+61:                                               ; preds = %38
+  %62 = load i8, ptr %35, align 8, !tbaa !181
   %63 = icmp eq i8 %62, 0
   br i1 %.not34, label %65, label %64
 
@@ -2562,7 +2562,7 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %57, %60
   br label %77
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 -32
+  %71 = getelementptr inbounds i8, ptr %35, i64 -32
   %72 = load ptr, ptr %71, align 8, !tbaa !186
   %73 = load i8, ptr %72, align 8, !tbaa !181
   %74 = icmp eq i8 %73, 0
@@ -2577,20 +2577,20 @@ _ZN4llvm11SmallVectorIcLj64EED2Ev.exit:           ; preds = %57, %60
   br label %77
 
 77:                                               ; preds = %_ZN4llvm11SmallVectorIcLj64EED2Ev.exit, %75, %76, %69, %66, %64, %32
-  %78 = getelementptr inbounds nuw i8, ptr %.065, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.066, i64 8
   %.not = icmp eq ptr %78, %9
   br i1 %.not, label %._crit_edge, label %32
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit: ; preds = %.critedge.i.i
-  %.not60 = icmp eq ptr %storemerge.i, %26
-  br i1 %.not60, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %79, !llvm.loop !191
+  %.not61 = icmp eq ptr %storemerge.i, %26
+  br i1 %.not61, label %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %79, !llvm.loop !191
 
 _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit._crit_edge: ; preds = %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit, %_ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE5beginEv.exit
   ret void
 
-79:                                               ; preds = %.lr.ph68, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit
-  %80 = phi ptr [ %.pre, %.lr.ph68 ], [ %118, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
-  %.sroa.042.067 = phi ptr [ %.sroa.0.1.i, %.lr.ph68 ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
+79:                                               ; preds = %.lr.ph69, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit
+  %80 = phi ptr [ %.pre, %.lr.ph69 ], [ %118, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
+  %.sroa.042.068 = phi ptr [ %.sroa.0.1.i, %.lr.ph69 ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttributesEEENS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
   %82 = load i64, ptr %80, align 8, !tbaa !40
   %83 = call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr nonnull %81, i64 %82) #17
@@ -2600,12 +2600,12 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorINS_9LTOModule17NameAndAttribu
   %87 = zext i32 %86 to i64
   %88 = sext i32 %84 to i64
   %89 = icmp eq i64 %88, %87
-  %.not63 = select i1 %85, i1 true, i1 %89
-  br i1 %.not63, label %90, label %.critedge.i.i.preheader
+  %.not64 = select i1 %85, i1 true, i1 %89
+  br i1 %.not64, label %90, label %.critedge.i.i.preheader
 
 90:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %91 = load ptr, ptr %.sroa.042.067, align 8, !tbaa !38
+  %91 = load ptr, ptr %.sroa.042.068, align 8, !tbaa !38
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %92, i64 32, i1 false), !tbaa.struct !192
   %93 = load ptr, ptr %30, align 8, !tbaa !196
@@ -2682,7 +2682,7 @@ _ZNSt6vectorIN4llvm9LTOModule17NameAndAttributesESaIS2_EE9push_backERKS2_.exit: 
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %.critedge.i.i.preheader
-  %.pn.i = phi ptr [ %.sroa.042.067, %.critedge.i.i.preheader ], [ %storemerge.i, %.critedge.i.i.backedge ]
+  %.pn.i = phi ptr [ %.sroa.042.068, %.critedge.i.i.preheader ], [ %storemerge.i, %.critedge.i.i.backedge ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %118 = load ptr, ptr %storemerge.i, align 8, !tbaa !38
   %magicptr.i.i = ptrtoint ptr %118 to i64
@@ -4446,7 +4446,7 @@ _ZN4llvm11SmallStringILj64EE5c_strEv.exit:        ; preds = %3, %20
   %37 = and i64 %1, -8
   %38 = inttoptr i64 %37 to ptr
   %.0.i.i = select i1 %36, ptr %38, ptr null
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = and i32 %40, 15
   %42 = icmp eq i32 %41, 9

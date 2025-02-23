@@ -687,8 +687,7 @@ _ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i: ; preds = %if.then.i.i.i, 
 
 for.inc.lr.ph:                                    ; preds = %land.lhs.true, %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i
   %buffer.i18 = getelementptr inbounds nuw i8, ptr %other, i64 32
-  %smax = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %5 to i64
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.lr.ph, %for.inc
@@ -965,9 +964,9 @@ if.then.i.i.i:                                    ; preds = %do.end.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i9.i.i, 3
   %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #19
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.then5.i.i.i
+  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.end14.i.i.i
 
-if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
+if.end14.i.i.i:                                   ; preds = %if.then.i.i.i
   %6 = load i32, ptr %capacity.i.i.i, align 8
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %6)
   %length.addr.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %capacity.1.i.i)
@@ -980,11 +979,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %tobool.not.i.i.i.i = icmp eq i8 %8, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then5.i.i.i
+if.then.i.i.i.i:                                  ; preds = %if.end14.i.i.i
   tail call void @uprv_free_75(ptr noundef %7)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then5.i.i.i
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.end14.i.i.i
   store ptr %call.i.i.i, ptr %buffer.i.i, align 8
   store i32 %capacity.1.i.i, ptr %capacity.i.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i.i, align 4
@@ -1540,9 +1539,9 @@ if.then.i.i.i:                                    ; preds = %do.end.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i9.i.i, 3
   %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #19
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.then5.i.i.i
+  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.end14.i.i.i
 
-if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
+if.end14.i.i.i:                                   ; preds = %if.then.i.i.i
   %4 = load i32, ptr %capacity.i.i.i, align 8
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %1, i32 %4)
   %length.addr.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %capacity.1.i.i)
@@ -1555,11 +1554,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %tobool.not.i.i.i.i = icmp eq i8 %6, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then5.i.i.i
+if.then.i.i.i.i:                                  ; preds = %if.end14.i.i.i
   tail call void @uprv_free_75(ptr noundef %5)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then5.i.i.i
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.end14.i.i.i
   store ptr %call.i.i.i, ptr %buffer.i.i, align 8
   store i32 %capacity.1.i.i, ptr %capacity.i.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i.i, align 4
@@ -1618,9 +1617,9 @@ if.then.i.i.i130:                                 ; preds = %do.end.i.i127
   %mul.i.i.i132 = shl nuw nsw i64 %conv.i9.i.i131, 3
   %call.i.i.i133 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i132) #19
   %cmp2.not.i.i.i134 = icmp eq ptr %call.i.i.i133, null
-  br i1 %cmp2.not.i.i.i134, label %if.then16.i.i129, label %if.then5.i.i.i135
+  br i1 %cmp2.not.i.i.i134, label %if.then16.i.i129, label %if.end14.i.i.i135
 
-if.then5.i.i.i135:                                ; preds = %if.then.i.i.i130
+if.end14.i.i.i135:                                ; preds = %if.then.i.i.i130
   %12 = load i32, ptr %capacity.i.i.i117, align 8
   %spec.select.i.i.i136 = tail call i32 @llvm.smin.i32(i32 %9, i32 %12)
   %length.addr.1.i.i.i137 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i136, i32 %capacity.1.i.i125)
@@ -1633,11 +1632,11 @@ if.then5.i.i.i135:                                ; preds = %if.then.i.i.i130
   %tobool.not.i.i.i.i141 = icmp eq i8 %14, 0
   br i1 %tobool.not.i.i.i.i141, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i143, label %if.then.i.i.i.i142
 
-if.then.i.i.i.i142:                               ; preds = %if.then5.i.i.i135
+if.then.i.i.i.i142:                               ; preds = %if.end14.i.i.i135
   tail call void @uprv_free_75(ptr noundef %13)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i143
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i143: ; preds = %if.then.i.i.i.i142, %if.then5.i.i.i135
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i143: ; preds = %if.then.i.i.i.i142, %if.end14.i.i.i135
   store ptr %call.i.i.i133, ptr %buffer.i.i116, align 8
   store i32 %capacity.1.i.i125, ptr %capacity.i.i.i117, align 8
   store i8 1, ptr %needToRelease.i.i.i.i140, align 4
@@ -1980,7 +1979,7 @@ do.body51:                                        ; preds = %do.body51.preheader
   %arrayidx.i.i256 = getelementptr inbounds i64, ptr %52, i64 %conv.i255
   store i64 %50, ptr %arrayidx.i.i256, align 8
   %dec55 = add nsw i32 %length45.0, -1
-  %cmp56 = icmp sgt i32 %length45.0, 1
+  %cmp56 = icmp samesign ugt i32 %length45.0, 1
   br i1 %cmp56, label %do.body51, label %return, !llvm.loop !10
 
 sw.bb59:                                          ; preds = %while.body
@@ -2397,9 +2396,9 @@ if.then.i.i.i341:                                 ; preds = %do.end.i.i338
   %mul.i.i.i343 = shl nuw nsw i64 %conv.i9.i.i342, 3
   %call.i.i.i344 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i343) #19
   %cmp2.not.i.i.i345 = icmp eq ptr %call.i.i.i344, null
-  br i1 %cmp2.not.i.i.i345, label %if.then16.i.i340, label %if.then5.i.i.i346
+  br i1 %cmp2.not.i.i.i345, label %if.then16.i.i340, label %if.end14.i.i.i346
 
-if.then5.i.i.i346:                                ; preds = %if.then.i.i.i341
+if.end14.i.i.i346:                                ; preds = %if.then.i.i.i341
   %112 = load i32, ptr %capacity.i.i.i327, align 8
   %spec.select.i.i.i347 = tail call i32 @llvm.smin.i32(i32 %109, i32 %112)
   %length.addr.1.i.i.i348 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i347, i32 %capacity.1.i.i336)
@@ -2412,11 +2411,11 @@ if.then5.i.i.i346:                                ; preds = %if.then.i.i.i341
   %tobool.not.i.i.i.i352 = icmp eq i8 %114, 0
   br i1 %tobool.not.i.i.i.i352, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i354, label %if.then.i.i.i.i353
 
-if.then.i.i.i.i353:                               ; preds = %if.then5.i.i.i346
+if.then.i.i.i.i353:                               ; preds = %if.end14.i.i.i346
   tail call void @uprv_free_75(ptr noundef %113)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i354
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i354: ; preds = %if.then.i.i.i.i353, %if.then5.i.i.i346
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i354: ; preds = %if.then.i.i.i.i353, %if.end14.i.i.i346
   store ptr %call.i.i.i344, ptr %buffer.i.i326, align 8
   store i32 %capacity.1.i.i336, ptr %capacity.i.i.i327, align 8
   store i8 1, ptr %needToRelease.i.i.i.i351, align 4
@@ -2799,9 +2798,9 @@ if.then.i.i.i506:                                 ; preds = %do.end.i.i503
   %mul.i.i.i508 = shl nuw nsw i64 %conv.i9.i.i507, 3
   %call.i.i.i509 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i508) #19
   %cmp2.not.i.i.i510 = icmp eq ptr %call.i.i.i509, null
-  br i1 %cmp2.not.i.i.i510, label %if.then16.i.i505, label %if.then5.i.i.i511
+  br i1 %cmp2.not.i.i.i510, label %if.then16.i.i505, label %if.end14.i.i.i511
 
-if.then5.i.i.i511:                                ; preds = %if.then.i.i.i506
+if.end14.i.i.i511:                                ; preds = %if.then.i.i.i506
   %177 = load i32, ptr %capacity.i.i.i492, align 8
   %spec.select.i.i.i512 = tail call i32 @llvm.smin.i32(i32 %174, i32 %177)
   %length.addr.1.i.i.i513 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i512, i32 %capacity.1.i.i501)
@@ -2814,11 +2813,11 @@ if.then5.i.i.i511:                                ; preds = %if.then.i.i.i506
   %tobool.not.i.i.i.i517 = icmp eq i8 %179, 0
   br i1 %tobool.not.i.i.i.i517, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i519, label %if.then.i.i.i.i518
 
-if.then.i.i.i.i518:                               ; preds = %if.then5.i.i.i511
+if.then.i.i.i.i518:                               ; preds = %if.end14.i.i.i511
   tail call void @uprv_free_75(ptr noundef %178)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i519
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i519: ; preds = %if.then.i.i.i.i518, %if.then5.i.i.i511
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i519: ; preds = %if.then.i.i.i.i518, %if.end14.i.i.i511
   store ptr %call.i.i.i509, ptr %buffer.i.i491, align 8
   store i32 %capacity.1.i.i501, ptr %capacity.i.i.i492, align 8
   store i8 1, ptr %needToRelease.i.i.i.i516, align 4
@@ -2892,9 +2891,9 @@ if.then.i.i.i547:                                 ; preds = %do.end.i.i544
   %mul.i.i.i549 = shl nuw nsw i64 %conv.i9.i.i548, 3
   %call.i.i.i550 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i549) #19
   %cmp2.not.i.i.i551 = icmp eq ptr %call.i.i.i550, null
-  br i1 %cmp2.not.i.i.i551, label %if.then16.i.i546, label %if.then5.i.i.i552
+  br i1 %cmp2.not.i.i.i551, label %if.then16.i.i546, label %if.end14.i.i.i552
 
-if.then5.i.i.i552:                                ; preds = %if.then.i.i.i547
+if.end14.i.i.i552:                                ; preds = %if.then.i.i.i547
   %186 = load i32, ptr %capacity.i.i.i533, align 8
   %spec.select.i.i.i553 = tail call i32 @llvm.smin.i32(i32 %183, i32 %186)
   %length.addr.1.i.i.i554 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i553, i32 %capacity.1.i.i542)
@@ -2907,11 +2906,11 @@ if.then5.i.i.i552:                                ; preds = %if.then.i.i.i547
   %tobool.not.i.i.i.i558 = icmp eq i8 %188, 0
   br i1 %tobool.not.i.i.i.i558, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i560, label %if.then.i.i.i.i559
 
-if.then.i.i.i.i559:                               ; preds = %if.then5.i.i.i552
+if.then.i.i.i.i559:                               ; preds = %if.end14.i.i.i552
   tail call void @uprv_free_75(ptr noundef %187)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i560
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i560: ; preds = %if.then.i.i.i.i559, %if.then5.i.i.i552
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i560: ; preds = %if.then.i.i.i.i559, %if.end14.i.i.i552
   store ptr %call.i.i.i550, ptr %buffer.i.i532, align 8
   store i32 %capacity.1.i.i542, ptr %capacity.i.i.i533, align 8
   store i8 1, ptr %needToRelease.i.i.i.i557, align 4
@@ -2991,9 +2990,9 @@ if.then.i.i.i594:                                 ; preds = %do.end.i.i591
   %mul.i.i.i596 = shl nuw nsw i64 %conv.i9.i.i595, 3
   %call.i.i.i597 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i596) #19
   %cmp2.not.i.i.i598 = icmp eq ptr %call.i.i.i597, null
-  br i1 %cmp2.not.i.i.i598, label %if.then16.i.i593, label %if.then5.i.i.i599
+  br i1 %cmp2.not.i.i.i598, label %if.then16.i.i593, label %if.end14.i.i.i599
 
-if.then5.i.i.i599:                                ; preds = %if.then.i.i.i594
+if.end14.i.i.i599:                                ; preds = %if.then.i.i.i594
   %194 = load i32, ptr %capacity.i.i.i580, align 8
   %spec.select.i.i.i600 = tail call i32 @llvm.smin.i32(i32 %191, i32 %194)
   %length.addr.1.i.i.i601 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i600, i32 %capacity.1.i.i589)
@@ -3006,11 +3005,11 @@ if.then5.i.i.i599:                                ; preds = %if.then.i.i.i594
   %tobool.not.i.i.i.i605 = icmp eq i8 %196, 0
   br i1 %tobool.not.i.i.i.i605, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i607, label %if.then.i.i.i.i606
 
-if.then.i.i.i.i606:                               ; preds = %if.then5.i.i.i599
+if.then.i.i.i.i606:                               ; preds = %if.end14.i.i.i599
   tail call void @uprv_free_75(ptr noundef %195)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i607
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i607: ; preds = %if.then.i.i.i.i606, %if.then5.i.i.i599
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i607: ; preds = %if.then.i.i.i.i606, %if.end14.i.i.i599
   store ptr %call.i.i.i597, ptr %buffer.i.i579, align 8
   store i32 %capacity.1.i.i589, ptr %capacity.i.i.i580, align 8
   store i8 1, ptr %needToRelease.i.i.i.i604, align 4
@@ -5538,9 +5537,9 @@ if.then.i.i.i:                                    ; preds = %do.end.i.i
   %mul.i.i.i = shl nuw nsw i64 %conv.i9.i.i, 3
   %call.i.i.i = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i) #19
   %cmp2.not.i.i.i = icmp eq ptr %call.i.i.i, null
-  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.then5.i.i.i
+  br i1 %cmp2.not.i.i.i, label %if.then16.i.i, label %if.end14.i.i.i
 
-if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
+if.end14.i.i.i:                                   ; preds = %if.then.i.i.i
   %7 = load i32, ptr %capacity.i.i.i, align 8
   %spec.select.i.i.i = tail call i32 @llvm.smin.i32(i32 %4, i32 %7)
   %length.addr.1.i.i.i = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i, i32 %capacity.1.i.i)
@@ -5553,11 +5552,11 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   %tobool.not.i.i.i.i = icmp eq i8 %9, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i, label %if.then.i.i.i.i
 
-if.then.i.i.i.i:                                  ; preds = %if.then5.i.i.i
+if.then.i.i.i.i:                                  ; preds = %if.end14.i.i.i
   tail call void @uprv_free_75(ptr noundef %8)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.then5.i.i.i
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i: ; preds = %if.then.i.i.i.i, %if.end14.i.i.i
   store ptr %call.i.i.i, ptr %buffer.i.i, align 8
   store i32 %capacity.1.i.i, ptr %capacity.i.i.i, align 8
   store i8 1, ptr %needToRelease.i.i.i.i, align 4
@@ -5633,9 +5632,9 @@ if.then.i.i.i84:                                  ; preds = %do.end.i.i81
   %mul.i.i.i86 = shl nuw nsw i64 %conv.i9.i.i85, 3
   %call.i.i.i87 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i86) #19
   %cmp2.not.i.i.i88 = icmp eq ptr %call.i.i.i87, null
-  br i1 %cmp2.not.i.i.i88, label %if.then16.i.i83, label %if.then5.i.i.i89
+  br i1 %cmp2.not.i.i.i88, label %if.then16.i.i83, label %if.end14.i.i.i89
 
-if.then5.i.i.i89:                                 ; preds = %if.then.i.i.i84
+if.end14.i.i.i89:                                 ; preds = %if.then.i.i.i84
   %18 = load i32, ptr %capacity.i.i.i71, align 8
   %spec.select.i.i.i90 = tail call i32 @llvm.smin.i32(i32 %15, i32 %18)
   %length.addr.1.i.i.i91 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i90, i32 %capacity.1.i.i79)
@@ -5648,11 +5647,11 @@ if.then5.i.i.i89:                                 ; preds = %if.then.i.i.i84
   %tobool.not.i.i.i.i95 = icmp eq i8 %20, 0
   br i1 %tobool.not.i.i.i.i95, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i97, label %if.then.i.i.i.i96
 
-if.then.i.i.i.i96:                                ; preds = %if.then5.i.i.i89
+if.then.i.i.i.i96:                                ; preds = %if.end14.i.i.i89
   tail call void @uprv_free_75(ptr noundef %19)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i97
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i97: ; preds = %if.then.i.i.i.i96, %if.then5.i.i.i89
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i97: ; preds = %if.then.i.i.i.i96, %if.end14.i.i.i89
   store ptr %call.i.i.i87, ptr %buffer.i.i70, align 8
   store i32 %capacity.1.i.i79, ptr %capacity.i.i.i71, align 8
   store i8 1, ptr %needToRelease.i.i.i.i94, align 4
@@ -5731,9 +5730,9 @@ if.then.i.i.i124:                                 ; preds = %do.end.i.i121
   %mul.i.i.i126 = shl nuw nsw i64 %conv.i9.i.i125, 3
   %call.i.i.i127 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i126) #19
   %cmp2.not.i.i.i128 = icmp eq ptr %call.i.i.i127, null
-  br i1 %cmp2.not.i.i.i128, label %if.then16.i.i123, label %if.then5.i.i.i129
+  br i1 %cmp2.not.i.i.i128, label %if.then16.i.i123, label %if.end14.i.i.i129
 
-if.then5.i.i.i129:                                ; preds = %if.then.i.i.i124
+if.end14.i.i.i129:                                ; preds = %if.then.i.i.i124
   %29 = load i32, ptr %capacity.i.i.i111, align 8
   %spec.select.i.i.i130 = tail call i32 @llvm.smin.i32(i32 %26, i32 %29)
   %length.addr.1.i.i.i131 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i130, i32 %capacity.1.i.i119)
@@ -5746,11 +5745,11 @@ if.then5.i.i.i129:                                ; preds = %if.then.i.i.i124
   %tobool.not.i.i.i.i135 = icmp eq i8 %31, 0
   br i1 %tobool.not.i.i.i.i135, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i137, label %if.then.i.i.i.i136
 
-if.then.i.i.i.i136:                               ; preds = %if.then5.i.i.i129
+if.then.i.i.i.i136:                               ; preds = %if.end14.i.i.i129
   tail call void @uprv_free_75(ptr noundef %30)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i137
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i137: ; preds = %if.then.i.i.i.i136, %if.then5.i.i.i129
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i137: ; preds = %if.then.i.i.i.i136, %if.end14.i.i.i129
   store ptr %call.i.i.i127, ptr %buffer.i.i110, align 8
   store i32 %capacity.1.i.i119, ptr %capacity.i.i.i111, align 8
   store i8 1, ptr %needToRelease.i.i.i.i134, align 4
@@ -5872,9 +5871,9 @@ if.then.i.i.i164:                                 ; preds = %do.end.i.i161
   %mul.i.i.i166 = shl nuw nsw i64 %conv.i9.i.i165, 3
   %call.i.i.i167 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i166) #19
   %cmp2.not.i.i.i168 = icmp eq ptr %call.i.i.i167, null
-  br i1 %cmp2.not.i.i.i168, label %if.then16.i.i163, label %if.then5.i.i.i169
+  br i1 %cmp2.not.i.i.i168, label %if.then16.i.i163, label %if.end14.i.i.i169
 
-if.then5.i.i.i169:                                ; preds = %if.then.i.i.i164
+if.end14.i.i.i169:                                ; preds = %if.then.i.i.i164
   %44 = load i32, ptr %capacity.i.i.i151, align 8
   %spec.select.i.i.i170 = tail call i32 @llvm.smin.i32(i32 %41, i32 %44)
   %length.addr.1.i.i.i171 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i170, i32 %capacity.1.i.i159)
@@ -5886,11 +5885,11 @@ if.then5.i.i.i169:                                ; preds = %if.then.i.i.i164
   %tobool.not.i.i.i.i175 = icmp eq i8 %46, 0
   br i1 %tobool.not.i.i.i.i175, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i177, label %if.then.i.i.i.i176
 
-if.then.i.i.i.i176:                               ; preds = %if.then5.i.i.i169
+if.then.i.i.i.i176:                               ; preds = %if.end14.i.i.i169
   tail call void @uprv_free_75(ptr noundef %45)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i177
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i177: ; preds = %if.then.i.i.i.i176, %if.then5.i.i.i169
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i177: ; preds = %if.then.i.i.i.i176, %if.end14.i.i.i169
   store ptr %call.i.i.i167, ptr %buffer.i.i150, align 8
   store i32 %capacity.1.i.i159, ptr %capacity.i.i.i151, align 8
   store i8 1, ptr %needToRelease.i.i.i.i174, align 4
@@ -5978,9 +5977,9 @@ if.then.i.i.i204:                                 ; preds = %do.end.i.i201
   %mul.i.i.i206 = shl nuw nsw i64 %conv.i9.i.i205, 3
   %call.i.i.i207 = tail call noalias ptr @uprv_malloc_75(i64 noundef %mul.i.i.i206) #19
   %cmp2.not.i.i.i208 = icmp eq ptr %call.i.i.i207, null
-  br i1 %cmp2.not.i.i.i208, label %if.then16.i.i203, label %if.then5.i.i.i209
+  br i1 %cmp2.not.i.i.i208, label %if.then16.i.i203, label %if.end14.i.i.i209
 
-if.then5.i.i.i209:                                ; preds = %if.then.i.i.i204
+if.end14.i.i.i209:                                ; preds = %if.then.i.i.i204
   %55 = load i32, ptr %capacity.i.i.i191, align 8
   %spec.select.i.i.i210 = tail call i32 @llvm.smin.i32(i32 %52, i32 %55)
   %length.addr.1.i.i.i211 = tail call i32 @llvm.smin.i32(i32 %spec.select.i.i.i210, i32 %capacity.1.i.i199)
@@ -5993,11 +5992,11 @@ if.then5.i.i.i209:                                ; preds = %if.then.i.i.i204
   %tobool.not.i.i.i.i215 = icmp eq i8 %57, 0
   br i1 %tobool.not.i.i.i.i215, label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i217, label %if.then.i.i.i.i216
 
-if.then.i.i.i.i216:                               ; preds = %if.then5.i.i.i209
+if.then.i.i.i.i216:                               ; preds = %if.end14.i.i.i209
   tail call void @uprv_free_75(ptr noundef %56)
   br label %_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i217
 
-_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i217: ; preds = %if.then.i.i.i.i216, %if.then5.i.i.i209
+_ZN6icu_7515MaybeStackArrayIlLi40EE6resizeEii.exit.i.i217: ; preds = %if.then.i.i.i.i216, %if.end14.i.i.i209
   store ptr %call.i.i.i207, ptr %buffer.i.i190, align 8
   store i32 %capacity.1.i.i199, ptr %capacity.i.i.i191, align 8
   store i8 1, ptr %needToRelease.i.i.i.i214, align 4
@@ -6742,9 +6741,6 @@ declare noundef signext i8 @_ZN6icu_759UVector3214expandCapacityEiR10UErrorCode(
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17

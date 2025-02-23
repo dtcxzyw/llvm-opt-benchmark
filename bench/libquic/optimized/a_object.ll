@@ -362,7 +362,7 @@ define hidden i32 @a2d_ASN1_OBJECT(ptr noundef writeonly %0, i32 noundef %1, ptr
 
 106:                                              ; preds = %.thread172, %._crit_edge259
   %.2121 = phi i32 [ %103, %._crit_edge259 ], [ %89, %.thread172 ]
-  %107 = icmp slt i32 %.3131.ph, 1
+  %107 = icmp eq i32 %.3131.ph, 0
   br i1 %107, label %._crit_edge270, label %28
 
 ._crit_edge270:                                   ; preds = %106

@@ -266,7 +266,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %25, label %26, label %33, !prof !36
 
 26:                                               ; preds = %23
-  %27 = add i64 %.034.i, 2
+  %27 = add nsw i64 %.034.i, 2
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 %10
   %29 = load i8, ptr %28, align 1, !tbaa !37
   %30 = zext i8 %29 to i64

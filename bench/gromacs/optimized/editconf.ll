@@ -595,7 +595,7 @@ switch.edge:                                      ; preds = %141
   store i8 0, ptr @_ZZ12gmx_editconfiPPcE6bGrasp, align 1
   br label %165
 
-.loopexit409:                                     ; preds = %.lr.ph.i375
+.loopexit409:                                     ; preds = %.lr.ph.i376
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body307
@@ -615,7 +615,7 @@ switch.edge:                                      ; preds = %141
           cleanup
   br label %.body307
 
-.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1867, %1865, %1862, %._crit_edge38.i, %._crit_edge.i376, %._crit_edge.thread.i, %.noexc380, %1742, %1658, %.loopexit414, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit344, %1485, %1023, %803, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit, %716, %.noexc305, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %.noexc303, %438, %.noexc301, %419, %286, %196, %1870, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit393, %1861, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit346, %1848, %1846, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit361._crit_edge, %_ZL17set_pdb_conf_bfaciiP7t_atomsiPdPib.exit, %1532, %1530, %1527, %1506, %1473, %1469, %1463, %1460, %1453, %.loopexit, %1429, %1422, %1418, %1415, %1408, %1385, %1382, %1189, %1156, %1091, %1029, %.thread400, %._crit_edge468, %802, %798, %767, %710, %709, %705, %644, %457, %453, %449, %412, %406, %279, %262, %215, %208, %207, %201, %186, %185, %180, %170
+.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %1867, %1865, %1862, %._crit_edge38.i, %.preheader.preheader.i, %._crit_edge.i373, %.noexc380, %1742, %1658, %.loopexit414, %_ZL14gmx_sfree_implIcEvPKcS1_iPT_.exit344, %1485, %1023, %803, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit, %716, %.noexc305, %_ZNSt10filesystem7__cxx114pathD2Ev.exit.i, %.noexc303, %438, %.noexc301, %419, %286, %196, %1870, %_ZL14gmx_sfree_implIA3_fEvPKcS2_iPT_.exit393, %1861, %_ZL14gmx_sfree_implIiEvPKcS1_iPT_.exit346, %1848, %1846, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit361._crit_edge, %_ZL17set_pdb_conf_bfaciiP7t_atomsiPdPib.exit, %1532, %1530, %1527, %1506, %1473, %1469, %1463, %1460, %1453, %.loopexit, %1429, %1422, %1418, %1415, %1408, %1385, %1382, %1189, %1156, %1091, %1029, %.thread400, %._crit_edge468, %802, %798, %767, %710, %709, %705, %644, %457, %453, %449, %412, %406, %279, %262, %215, %208, %207, %201, %186, %185, %180, %170
   %lpad.loopexit.split-lp419 = landingpad { ptr, i32 }
           cleanup
   br label %.body307
@@ -3744,47 +3744,47 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1693, %_ZL14gmx_sfr
 
 .preheader4.i:                                    ; preds = %._crit_edge27.split.us.us.us.i, %.preheader8.lr.ph.i, %.noexc381
   %1786 = icmp sgt i32 %1730, 0
-  br i1 %1786, label %.lr.ph.preheader.i373, label %._crit_edge.thread.i
+  br i1 %1786, label %.lr.ph.preheader.i374, label %._crit_edge.i373
 
-._crit_edge.thread.i:                             ; preds = %.preheader4.i
-  %1787 = invoke noundef ptr @_Z22compact_unitcell_edgesv()
+.lr.ph.preheader.i374:                            ; preds = %.preheader4.i
+  %wide.trip.count.i375 = zext nneg i32 %1743 to i64
+  br label %.lr.ph.i376
+
+.lr.ph.i376:                                      ; preds = %.noexc382, %.lr.ph.preheader.i374
+  %indvars.iv57.i = phi i64 [ 0, %.lr.ph.preheader.i374 ], [ %indvars.iv.next58.i, %.noexc382 ]
+  %indvars59.i = trunc i64 %indvars.iv57.i to i32
+  %1787 = udiv i32 %indvars59.i, 24
+  %1788 = trunc i32 %1787 to i8
+  %1789 = add i8 %1788, 75
+  %1790 = add nsw i32 %1719, %indvars59.i
+  %1791 = getelementptr inbounds nuw [3 x float], ptr %1745, i64 %indvars.iv57.i
+  %1792 = load float, ptr %1791, align 4
+  %1793 = fmul float %1792, 1.000000e+01
+  %1794 = getelementptr inbounds nuw i8, ptr %1791, i64 4
+  %1795 = load float, ptr %1794, align 4
+  %1796 = fmul float %1795, 1.000000e+01
+  %1797 = getelementptr inbounds nuw i8, ptr %1791, i64 8
+  %1798 = load float, ptr %1797, align 4
+  %1799 = fmul float %1798, 1.000000e+01
+  %1800 = add i32 %1720, %indvars59.i
+  %1801 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %1508, i32 noundef 0, i32 noundef %1800, ptr noundef nonnull @.str.201, i8 noundef signext 32, ptr noundef nonnull @.str.222, i8 noundef signext %1789, i32 noundef %1790, i8 noundef signext 32, float noundef %1793, float noundef %1796, float noundef %1799, float noundef 1.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.73)
+          to label %.noexc382 unwind label %.loopexit409
+
+.noexc382:                                        ; preds = %.lr.ph.i376
+  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
+  %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i375
+  br i1 %exitcond60.not.i, label %.preheader.preheader.i, label %.lr.ph.i376, !llvm.loop !47
+
+._crit_edge.i373:                                 ; preds = %.preheader4.i
+  %1802 = invoke noundef ptr @_Z22compact_unitcell_edgesv()
           to label %._crit_edge38.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.lr.ph.preheader.i373:                            ; preds = %.preheader4.i
-  %wide.trip.count.i374 = zext nneg i32 %1743 to i64
-  br label %.lr.ph.i375
-
-.lr.ph.i375:                                      ; preds = %.noexc383, %.lr.ph.preheader.i373
-  %indvars.iv57.i = phi i64 [ 0, %.lr.ph.preheader.i373 ], [ %indvars.iv.next58.i, %.noexc383 ]
-  %indvars59.i = trunc i64 %indvars.iv57.i to i32
-  %1788 = udiv i32 %indvars59.i, 24
-  %1789 = trunc i32 %1788 to i8
-  %1790 = add i8 %1789, 75
-  %1791 = add nsw i32 %1719, %indvars59.i
-  %1792 = getelementptr inbounds nuw [3 x float], ptr %1745, i64 %indvars.iv57.i
-  %1793 = load float, ptr %1792, align 4
-  %1794 = fmul float %1793, 1.000000e+01
-  %1795 = getelementptr inbounds nuw i8, ptr %1792, i64 4
-  %1796 = load float, ptr %1795, align 4
-  %1797 = fmul float %1796, 1.000000e+01
-  %1798 = getelementptr inbounds nuw i8, ptr %1792, i64 8
-  %1799 = load float, ptr %1798, align 4
-  %1800 = fmul float %1799, 1.000000e+01
-  %1801 = add i32 %1720, %indvars59.i
-  %1802 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %1508, i32 noundef 0, i32 noundef %1801, ptr noundef nonnull @.str.201, i8 noundef signext 32, ptr noundef nonnull @.str.222, i8 noundef signext %1790, i32 noundef %1791, i8 noundef signext 32, float noundef %1794, float noundef %1797, float noundef %1800, float noundef 1.000000e+00, float noundef 0.000000e+00, ptr noundef nonnull @.str.73)
-          to label %.noexc383 unwind label %.loopexit409
-
-.noexc383:                                        ; preds = %.lr.ph.i375
-  %indvars.iv.next58.i = add nuw nsw i64 %indvars.iv57.i, 1
-  %exitcond60.not.i = icmp eq i64 %indvars.iv.next58.i, %wide.trip.count.i374
-  br i1 %exitcond60.not.i, label %._crit_edge.i376, label %.lr.ph.i375, !llvm.loop !47
-
-._crit_edge.i376:                                 ; preds = %.noexc383
+.preheader.preheader.i:                           ; preds = %.noexc382
   %1803 = invoke noundef ptr @_Z22compact_unitcell_edgesv()
           to label %.preheader.i377 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.preheader.i377:                                  ; preds = %._crit_edge.i376, %1816
-  %.437.i = phi i32 [ %1817, %1816 ], [ 0, %._crit_edge.i376 ]
+.preheader.i377:                                  ; preds = %.preheader.preheader.i, %1816
+  %.437.i = phi i32 [ %1817, %1816 ], [ 0, %.preheader.preheader.i ]
   %1804 = mul nuw nsw i32 %.437.i, 24
   %1805 = add nsw i32 %1804, %1720
   br label %1806
@@ -3809,7 +3809,7 @@ _ZL10pdb_legendP8_IO_FILEiiP7t_atomsPA3_f.exit:   ; preds = %1693, %_ZL14gmx_sfr
   %exitcond65.not.i = icmp eq i32 %1817, %1730
   br i1 %exitcond65.not.i, label %._crit_edge38.i, label %.preheader.i377, !llvm.loop !49
 
-._crit_edge38.i:                                  ; preds = %1816, %._crit_edge.thread.i
+._crit_edge38.i:                                  ; preds = %1816, %._crit_edge.i373
   invoke void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.221, ptr noundef nonnull @.str.142, i32 noundef 445, ptr noundef %1745)
           to label %_ZL13visualize_boxP8_IO_FILEiiPA3_fPKf.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

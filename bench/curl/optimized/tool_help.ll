@@ -718,7 +718,7 @@ is_debug.exit.thread:                             ; preds = %3, %0, %is_debug.ex
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %51
   %putchar40 = tail call i32 @putchar(i32 10)
-  tail call void @free(ptr noundef %50) #16
+  tail call void @free(ptr noundef nonnull %50) #16
   br label %59
 
 59:                                               ; preds = %46, %._crit_edge55, %43

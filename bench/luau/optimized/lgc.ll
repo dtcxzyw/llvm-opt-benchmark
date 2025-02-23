@@ -855,7 +855,7 @@ define hidden void @_Z11luaC_fullgcP9lua_State(ptr noundef %0) local_unnamed_add
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %11 = tail call fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 noundef -1)
+  %11 = tail call fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef nonnull %0, i64 noundef -1)
   %12 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %12, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
@@ -877,13 +877,13 @@ define hidden void @_Z11luaC_fullgcP9lua_State(ptr noundef %0) local_unnamed_add
   br i1 %.not35, label %._crit_edge43, label %.lr.ph42, !llvm.loop !18
 
 ._crit_edge43:                                    ; preds = %.lr.ph42, %._crit_edge
-  tail call fastcc void @_ZL8markrootP9lua_State(ptr noundef %0)
+  tail call fastcc void @_ZL8markrootP9lua_State(ptr noundef nonnull %0)
   %17 = load i8, ptr %4, align 1
   %.not3644 = icmp eq i8 %17, 0
   br i1 %.not3644, label %._crit_edge47, label %.lr.ph46
 
 .lr.ph46:                                         ; preds = %._crit_edge43, %.lr.ph46
-  %18 = tail call fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef %0, i64 noundef -1)
+  %18 = tail call fastcc noundef i64 @_ZL6gcstepP9lua_Statem(ptr noundef nonnull %0, i64 noundef -1)
   %19 = load i8, ptr %4, align 1
   %.not36 = icmp eq i8 %19, 0
   br i1 %.not36, label %._crit_edge47, label %.lr.ph46, !llvm.loop !19
@@ -910,7 +910,7 @@ define hidden void @_Z11luaC_fullgcP9lua_State(ptr noundef %0) local_unnamed_add
   br i1 %.not.i, label %_ZL17shrinkbuffersfullP9lua_State.exit, label %32
 
 32:                                               ; preds = %31
-  tail call void @_Z11luaS_resizeP9lua_Statei(ptr noundef %0, i32 noundef %.0.i)
+  tail call void @_Z11luaS_resizeP9lua_Statei(ptr noundef nonnull %0, i32 noundef %.0.i)
   br label %_ZL17shrinkbuffersfullP9lua_State.exit
 
 _ZL17shrinkbuffersfullP9lua_State.exit:           ; preds = %31, %32

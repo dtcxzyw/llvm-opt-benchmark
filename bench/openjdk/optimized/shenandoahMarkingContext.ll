@@ -100,17 +100,17 @@ _ZN27ShenandoahObjToScanQueueSetC2Ei.exit.thread: ; preds = %7
   store ptr null, ptr %30, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %24
-  br i1 %exitcond.not.i.i.i, label %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, label %.lr.ph.i.i.i, !llvm.loop !7
+  br i1 %exitcond.not.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i, !llvm.loop !7
 
-_ZN27ShenandoahObjToScanQueueSetC2Ei.exit:        ; preds = %.lr.ph.i.i.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 88
   store volatile i32 0, ptr %31, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV27ShenandoahObjToScanQueueSet, i64 16), ptr %22, align 8
   store ptr %22, ptr %21, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN27ShenandoahObjToScanQueueSetC2Ei.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1624, i8 noundef zeroext 5, i32 noundef 0) #5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1624) %32, i8 0, i64 1624, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
@@ -229,16 +229,16 @@ _ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i: 
   %36 = load ptr, ptr %35, align 8
   tail call void %36(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr noundef nonnull %.06.i4.i.i.i.i.i, i64 noundef %.pre-phi3.i.i.i.i) #5
   %.not.i5.i.i.i.i.i = icmp eq ptr %33, null
-  br i1 %.not.i5.i.i.i.i.i, label %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i5.i.i.i.i.i, label %.loopexit.loopexit.i.i.i.i.i, label %.lr.ph.i3.i.i.i.i.i, !llvm.loop !10
 
-_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i: ; preds = %.lr.ph.i3.i.i.i.i.i
-  %37 = load i64, ptr %16, align 8
+.loopexit.loopexit.i.i.i.i.i:                     ; preds = %.lr.ph.i3.i.i.i.i.i
+  %.pre.i.i.i.i.i = load i64, ptr %16, align 8
   br label %_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit
 
-_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i
-  %.sink.i.i.i.i.i = phi i64 [ %37, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i.i ], [ %27, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i ]
+_ZN6PaddedI25BufferedOverflowTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EELm128EED2Ev.exit: ; preds = %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i
+  %37 = phi i64 [ %.pre.i.i.i.i.i, %.loopexit.loopexit.i.i.i.i.i ], [ %27, %_ZN5StackI18ShenandoahMarkTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i.i ]
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 672
-  store i64 %.sink.i.i.i.i.i, ptr %38, align 8
+  store i64 %37, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 384

@@ -5960,7 +5960,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3setIS6_St4lessIS6_ESaIS6_EEESaISC_EE17_M_initialize_mapEm.exit
-  %39 = icmp ugt i64 %.0.lcssa.i.i23, 5
+  %39 = icmp samesign ugt i64 %.0.lcssa.i.i23, 5
   tail call void @llvm.assume(i1 %39)
   br label %40
 

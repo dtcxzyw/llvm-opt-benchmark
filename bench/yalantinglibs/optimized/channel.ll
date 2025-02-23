@@ -7222,8 +7222,8 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
-  %rem.i.i.i23 = phi i64 [ %rem.i.i.i, %do.body ], [ %__urng.promoted, %if.then ]
-  %mul.i.i.i = mul i64 %rem.i.i.i23, 16807
+  %rem.i.i.i24 = phi i64 [ %rem.i.i.i, %do.body ], [ %__urng.promoted, %if.then ]
+  %mul.i.i.i = mul i64 %rem.i.i.i24, 16807
   %rem.i.i.i = urem i64 %mul.i.i.i, 2147483647
   %sub4 = add nsw i64 %rem.i.i.i, -1
   %cmp5.not = icmp ult i64 %sub4, %mul
@@ -7231,7 +7231,9 @@ do.body:                                          ; preds = %do.body, %if.then
 
 do.end:                                           ; preds = %do.body
   store i64 %rem.i.i.i, ptr %__urng, align 8
-  %div6 = udiv i64 %sub4, %div.zext
+  %div6.lhs.trunc = trunc nsw i64 %sub4 to i32
+  %div623 = udiv i32 %div6.lhs.trunc, %div22
+  %div6.zext = zext nneg i32 %div623 to i64
   br label %if.end23
 
 if.else:                                          ; preds = %entry
@@ -7268,7 +7270,7 @@ if.else20:                                        ; preds = %if.else
   br label %if.end23
 
 if.end23:                                         ; preds = %do.body9, %if.else20, %do.end
-  %__ret.0 = phi i64 [ %div6, %do.end ], [ %sub22, %if.else20 ], [ %add15, %do.body9 ]
+  %__ret.0 = phi i64 [ %div6.zext, %do.end ], [ %sub22, %if.else20 ], [ %add15, %do.body9 ]
   %5 = load i64, ptr %__param, align 8
   %add25 = add i64 %5, %__ret.0
   ret i64 %add25
@@ -49701,8 +49703,8 @@ if.then:                                          ; preds = %entry
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.then
-  %rem.i.i.i23 = phi i64 [ %rem.i.i.i, %do.body ], [ %__urng.promoted, %if.then ]
-  %mul.i.i.i = mul i64 %rem.i.i.i23, 16807
+  %rem.i.i.i24 = phi i64 [ %rem.i.i.i, %do.body ], [ %__urng.promoted, %if.then ]
+  %mul.i.i.i = mul i64 %rem.i.i.i24, 16807
   %rem.i.i.i = urem i64 %mul.i.i.i, 2147483647
   %sub5 = add nsw i64 %rem.i.i.i, -1
   %cmp6.not = icmp ult i64 %sub5, %mul
@@ -49710,7 +49712,9 @@ do.body:                                          ; preds = %do.body, %if.then
 
 do.end:                                           ; preds = %do.body
   store i64 %rem.i.i.i, ptr %__urng, align 8
-  %div7 = udiv i64 %sub5, %div.zext
+  %div7.lhs.trunc = trunc nsw i64 %sub5 to i32
+  %div723 = udiv i32 %div7.lhs.trunc, %div22
+  %div7.zext = zext nneg i32 %div723 to i64
   br label %if.end26
 
 if.else:                                          ; preds = %entry
@@ -49749,7 +49753,7 @@ if.else23:                                        ; preds = %if.else
   br label %if.end26
 
 if.end26:                                         ; preds = %do.body10, %if.else23, %do.end
-  %__ret.0 = phi i64 [ %div7, %do.end ], [ %sub25, %if.else23 ], [ %add18, %do.body10 ]
+  %__ret.0 = phi i64 [ %div7.zext, %do.end ], [ %sub25, %if.else23 ], [ %add18, %do.body10 ]
   %5 = load i32, ptr %__param, align 4
   %6 = trunc i64 %__ret.0 to i32
   %conv30 = add i32 %5, %6
@@ -77016,7 +77020,6 @@ invoke.cont:                                      ; preds = %invoke.cont.i
   store i8 0, ptr %has_run_or_stop_, align 8
   %flag_ = getelementptr inbounds nuw i8, ptr %this, i64 108
   store i32 0, ptr %flag_, align 4
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %pool_size, i64 1)
   %2 = load atomic i8, ptr @_ZGVZN7easylog6loggerILm0EE8instanceEvE8instance acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %2, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN7easylog6loggerILm0EE8instanceEv.exit, !prof !5
@@ -77050,6 +77053,7 @@ _ZN7easylog6loggerILm0EE8instanceEv.exit:         ; preds = %invoke.cont, %init.
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %_M_finish.i21 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_end_of_storage.i22 = getelementptr inbounds nuw i8, ptr %this, i64 64
+  %umax = tail call i64 @llvm.umax.i64(i64 %pool_size, i64 1)
   br label %for.body
 
 lpad:                                             ; preds = %entry
@@ -77483,7 +77487,7 @@ if.end8.sink.split.i.i.i.i63:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN4asio10io_contextEED2Ev.exit:  ; preds = %_ZNSt10shared_ptrIN4asio10io_context4workEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i50, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i60, %if.end8.sink.split.i.i.i.i63
   %inc = add nuw i64 %i.0120, 1
-  %exitcond.not = icmp eq i64 %inc, %spec.store.select
+  %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !795
 
 lpad2:                                            ; preds = %for.body

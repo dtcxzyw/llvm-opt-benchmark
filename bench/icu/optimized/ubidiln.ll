@@ -2787,7 +2787,7 @@ if.then97:                                        ; preds = %for.end94
 for.inc103:                                       ; preds = %for.end94, %if.then97
   %k.3 = phi i32 [ %dec98, %if.then97 ], [ %k.2.lcssa, %for.end94 ]
   %markFound.5 = phi i32 [ %dec101, %if.then97 ], [ %markFound.4.fr, %for.end94 ]
-  %cmp58 = icmp sgt i64 %indvars.iv185, 1
+  %cmp58 = icmp samesign ugt i64 %indvars.iv185, 1
   %cmp59 = icmp sgt i32 %markFound.5, 0
   %26 = select i1 %cmp58, i1 %cmp59, i1 false
   br i1 %26, label %for.body60, label %if.end197, !llvm.loop !56

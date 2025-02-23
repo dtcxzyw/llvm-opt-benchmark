@@ -1314,7 +1314,7 @@ define internal fastcc i64 @Convert(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 .preheader:                                       ; preds = %.lr.ph, %40
   %.lcssa = phi i64 [ %41, %40 ], [ %47, %.lr.ph ]
-  %42 = icmp sgt i64 %.056, 1970
+  %42 = icmp samesign ugt i64 %.056, 1970
   br i1 %42, label %.lr.ph69, label %._crit_edge
 
 .lr.ph:                                           ; preds = %40, %.lr.ph

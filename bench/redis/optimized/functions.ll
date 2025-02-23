@@ -2142,7 +2142,7 @@ sdslen.exit:                                      ; preds = %9, %20, %23, %27, %
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !132
   store ptr null, ptr %135, align 8, !tbaa !132
-  call fastcc void @libraryLink(ptr noundef %77, ptr noundef %136)
+  call fastcc void @libraryLink(ptr noundef nonnull %77, ptr noundef %136)
   call void @listDelNode(ptr noundef nonnull %.05292.i, ptr noundef %134) #12
   %137 = load i64, ptr %132, align 8, !tbaa !130
   %.not68.i = icmp eq i64 %137, 0

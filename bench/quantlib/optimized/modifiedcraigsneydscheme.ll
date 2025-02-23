@@ -966,7 +966,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit159:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit156, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i158
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhs) #21
-  %inc = add i64 %i.0, 1
+  %inc = add nuw i64 %i.0, 1
   br label %for.cond, !llvm.loop !55
 
 lpad72:                                           ; preds = %cond.false.i127, %invoke.cont73
@@ -1644,7 +1644,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib5ArrayD2Ev.exit328:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit325, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i327
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %rhs179) #21
-  %inc217 = add i64 %i166.0, 1
+  %inc217 = add nuw i64 %i166.0, 1
   br label %for.cond167, !llvm.loop !65
 
 lpad186:                                          ; preds = %cond.false.i295, %invoke.cont187

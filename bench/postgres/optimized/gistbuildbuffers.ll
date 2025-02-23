@@ -147,7 +147,7 @@ define dso_local ptr @gistGetNodeBuffer(ptr noundef captures(none) %0, ptr readn
   %38 = sext i32 %3 to i64
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = call ptr @lcons(ptr noundef %9, ptr noundef %40) #6
+  %41 = call ptr @lcons(ptr noundef nonnull %9, ptr noundef %40) #6
   %42 = load ptr, ptr %36, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %38
   store ptr %41, ptr %43, align 8
@@ -746,7 +746,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   br i1 %43, label %.lr.ph124, label %._crit_edge122
 
 ._crit_edge122:                                   ; preds = %.lr.ph124, %.lr.ph
-  %44 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
+  %44 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
   br i1 %44, label %.lr.ph142, label %._crit_edge143
 
 ._crit_edge122.thread:                            ; preds = %29
@@ -789,7 +789,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   %57 = getelementptr inbounds %struct.RelocationBufferInfo, ptr %39, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1064
   %59 = load ptr, ptr %58, align 8
-  call void @gistPushItupToNodeBuffer(ptr noundef %0, ptr noundef %59, ptr noundef %49)
+  call void @gistPushItupToNodeBuffer(ptr noundef nonnull %0, ptr noundef %59, ptr noundef %49)
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 1056
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -808,7 +808,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
 
 69:                                               ; preds = %65, %._crit_edge137.us
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %13) #6
-  %70 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
+  %70 = call zeroext i1 @gistPopItupFromNodeBuffer(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %9)
   br i1 %70, label %.lr.ph136.us, label %._crit_edge143, !llvm.loop !9
 
 71:                                               ; preds = %.lr.ph129.us, %100
@@ -900,7 +900,7 @@ define dso_local void @gistRelocateBuildBuffersOnSplit(ptr noundef captures(none
   call void @gistDeCompressAtt(ptr noundef %1, ptr noundef %2, ptr noundef %113, ptr noundef null, i16 noundef zeroext 0, ptr noundef %114, ptr noundef nonnull %115) #6
   %116 = load i32, ptr %111, align 8
   %117 = call i32 @BufferGetBlockNumber(i32 noundef %116) #6
-  %118 = call ptr @gistGetNodeBuffer(ptr noundef %0, ptr poison, i32 noundef %117, i32 noundef %3)
+  %118 = call ptr @gistGetNodeBuffer(ptr noundef nonnull %0, ptr poison, i32 noundef %117, i32 noundef %3)
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 1064
   store ptr %118, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 1056

@@ -397,13 +397,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %105 = load ptr, ptr %12, align 8
   %106 = load ptr, ptr %11, align 8
   %107 = load i32, ptr %3, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef %105, i32 noundef %98, i32 noundef %100, i32 noundef %102, ptr noundef %0, ptr noundef %106, ptr noundef %104, i32 noundef %107, i32 noundef 0)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef %105, i32 noundef %98, i32 noundef %100, i32 noundef %102, ptr noundef %0, ptr noundef %106, ptr noundef %104, i32 noundef %107, i32 noundef 0)
           to label %108 unwind label %125
 
 108:                                              ; preds = %103
   %109 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %110 = load ptr, ptr %109, align 8
-  invoke fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePNS_8IOStreamEj(ptr noundef %110, ptr noundef %23, i32 noundef 0)
+  invoke fastcc void @_ZN6Assimp16AssxmlFileWriterL9WriteNodeEPK6aiNodePNS_8IOStreamEj(ptr noundef %110, ptr noundef nonnull %23, i32 noundef 0)
           to label %111 unwind label %125
 
 111:                                              ; preds = %108
@@ -415,7 +415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %.not469.i, label %214, label %114
 
 114:                                              ; preds = %111
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.4, i32 noundef %113)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.4, i32 noundef %113)
           to label %.preheader604.i unwind label %127
 
 .preheader604.i:                                  ; preds = %114
@@ -428,7 +428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br label %129
 
 ._crit_edge631.i:                                 ; preds = %210, %.preheader604.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.13)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.13)
           to label %214 unwind label %127
 
 117:                                              ; preds = %.noexc.i521.i
@@ -479,7 +479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %138 = phi i32 [ %137, %136 ], [ -1, %129 ]
   %139 = phi ptr [ @.str.7, %136 ], [ @.str.6, %129 ]
   %140 = phi i32 [ %134, %136 ], [ -1, %129 ]
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.5, i32 noundef %138, i32 noundef %140, ptr noundef nonnull %139)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.5, i32 noundef %138, i32 noundef %140, ptr noundef nonnull %139)
           to label %141 unwind label %147
 
 141:                                              ; preds = %.thread.i
@@ -487,7 +487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 
 142:                                              ; preds = %141
   %143 = load i32, ptr %132, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.8, i32 noundef %143)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.8, i32 noundef %143)
           to label %144 unwind label %147
 
 144:                                              ; preds = %142
@@ -513,7 +513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 %indvars.iv724.i
   %152 = load i8, ptr %151, align 1
   %153 = zext i8 %152 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.9, i32 noundef %153)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.9, i32 noundef %153)
           to label %154 unwind label %158
 
 154:                                              ; preds = %149
@@ -525,7 +525,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %or.cond.i, label %157, label %160
 
 157:                                              ; preds = %154
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.10)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.10)
           to label %160 unwind label %158
 
 158:                                              ; preds = %149, %157
@@ -548,7 +548,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %167 = load i32, ptr %133, align 4
   %168 = shl i32 %166, 2
   %169 = mul i32 %168, %167
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.8, i32 noundef %169)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.8, i32 noundef %169)
           to label %.preheader602.i unwind label %147
 
 .preheader602.i:                                  ; preds = %165
@@ -599,7 +599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %193 = getelementptr inbounds nuw i8, ptr %184, i64 3
   %194 = load i8, ptr %193, align 1
   %195 = zext i8 %194 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.11, i32 noundef %187, i32 noundef %190, i32 noundef %192, i32 noundef %195)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.11, i32 noundef %187, i32 noundef %190, i32 noundef %192, i32 noundef %195)
           to label %196 unwind label %204
 
 196:                                              ; preds = %.lr.ph625.i
@@ -612,7 +612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %196
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.10)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.10)
           to label %._crit_edge803.i unwind label %204
 
 ._crit_edge803.i:                                 ; preds = %203
@@ -632,7 +632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %209, label %.lr.ph625.i, label %._crit_edge.loopexit.i, !llvm.loop !8
 
 .loopexit601.i:                                   ; preds = %._crit_edge.i, %160, %.preheader599.lr.ph.i, %.preheader602.i, %164, %.preheader600.i, %144
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.12)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.12)
           to label %210 unwind label %147
 
 210:                                              ; preds = %.loopexit601.i
@@ -649,7 +649,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %.not470.i, label %402, label %217
 
 217:                                              ; preds = %214
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.14, i32 noundef %216)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.14, i32 noundef %216)
           to label %.preheader598.i unwind label %127
 
 .preheader598.i:                                  ; preds = %217
@@ -666,7 +666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br label %224
 
 ._crit_edge643.i:                                 ; preds = %398, %.preheader598.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.32)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.32)
           to label %402 unwind label %127
 
 224:                                              ; preds = %398, %.lr.ph642.i
@@ -674,13 +674,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   %225 = load ptr, ptr %219, align 8
   %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %indvars.iv742.i
   %227 = load ptr, ptr %226, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.15)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.15)
           to label %228 unwind label %232
 
 228:                                              ; preds = %224
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %230 = load i32, ptr %229, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.16, i32 noundef %230)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.16, i32 noundef %230)
           to label %.preheader597.i unwind label %232
 
 .preheader597.i:                                  ; preds = %228
@@ -689,7 +689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
   br i1 %.not696.i, label %._crit_edge640.i, label %.lr.ph639.i
 
 ._crit_edge640.i:                                 ; preds = %393, %.preheader597.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.30)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.30)
           to label %397 unwind label %232
 
 232:                                              ; preds = %224, %228, %._crit_edge640.i, %397
@@ -725,7 +725,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %245 = getelementptr inbounds nuw i8, ptr %236, i64 4
   %246 = getelementptr inbounds nuw i8, ptr %236, i64 1032
   %247 = load i32, ptr %246, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.22, ptr noundef nonnull %245, ptr noundef nonnull %.0451.i, ptr noundef %243, i32 noundef %247)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.22, ptr noundef nonnull %245, ptr noundef nonnull %.0451.i, ptr noundef %243, i32 noundef %247)
           to label %248 unwind label %256
 
 248:                                              ; preds = %244
@@ -741,7 +741,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %251 = getelementptr inbounds nuw i8, ptr %236, i64 1036
   %252 = load i32, ptr %251, align 4
   %253 = lshr i32 %252, 2
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.23, i32 noundef %253)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.23, i32 noundef %253)
           to label %.preheader591.i unwind label %256
 
 .preheader591.i:                                  ; preds = %250
@@ -765,7 +765,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 %260
   %262 = load float, ptr %261, align 4
   %263 = fpext float %262 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.24, double noundef %263)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.24, double noundef %263)
           to label %264 unwind label %269
 
 264:                                              ; preds = %258
@@ -785,7 +785,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %272 = getelementptr inbounds nuw i8, ptr %236, i64 1036
   %273 = load i32, ptr %272, align 4
   %274 = lshr i32 %273, 2
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.23, i32 noundef %274)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.23, i32 noundef %274)
           to label %.preheader593.i unwind label %256
 
 .preheader593.i:                                  ; preds = %271
@@ -803,7 +803,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %279 = shl nuw nsw i64 %indvars.iv733.i, 2
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 %279
   %281 = load i32, ptr %280, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.25, i32 noundef %281)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.25, i32 noundef %281)
           to label %282 unwind label %287
 
 282:                                              ; preds = %277
@@ -822,7 +822,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
 289:                                              ; preds = %248
   %290 = getelementptr inbounds nuw i8, ptr %236, i64 1036
   %291 = load i32, ptr %290, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.23, i32 noundef %291)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.23, i32 noundef %291)
           to label %.preheader595.i unwind label %256
 
 .preheader595.i:                                  ; preds = %289
@@ -840,7 +840,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 %indvars.iv730.i
   %297 = load i8, ptr %296, align 1
   %298 = sext i8 %297 to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.26, i32 noundef %298)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.26, i32 noundef %298)
           to label %299 unwind label %304
 
 299:                                              ; preds = %294
@@ -852,7 +852,7 @@ switch.lookup:                                    ; preds = %.lr.ph639.i
   br i1 %or.cond518.i, label %303, label %306
 
 303:                                              ; preds = %299
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.27)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.27)
           to label %306 unwind label %304
 
 304:                                              ; preds = %294, %303
@@ -1023,7 +1023,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i.i, %.preheader.i.i
   %363 = load ptr, ptr %14, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.28, ptr noundef %363)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.28, ptr noundef %363)
           to label %364 unwind label %379
 
 364:                                              ; preds = %_ZN6Assimp16AssxmlFileWriterL9encodeXMLERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -1114,7 +1114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br label %971
 
 .loopexit592.i:                                   ; preds = %306, %282, %264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit530.i, %.preheader595.i, %.preheader593.i, %.preheader591.i, %248
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.29)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.29)
           to label %393 unwind label %256
 
 393:                                              ; preds = %.loopexit592.i
@@ -1125,7 +1125,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br i1 %396, label %.lr.ph639.i, label %._crit_edge640.i, !llvm.loop !17
 
 397:                                              ; preds = %._crit_edge640.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.31)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.31)
           to label %398 unwind label %232
 
 398:                                              ; preds = %397
@@ -1142,7 +1142,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br i1 %.not471.i, label %576, label %405
 
 405:                                              ; preds = %402
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.33, i32 noundef %404)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.33, i32 noundef %404)
           to label %.preheader590.i unwind label %127
 
 .preheader590.i:                                  ; preds = %405
@@ -1156,7 +1156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br label %409
 
 ._crit_edge658.i:                                 ; preds = %572, %.preheader590.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.49)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.49)
           to label %576 unwind label %127
 
 409:                                              ; preds = %572, %.lr.ph657.i
@@ -1169,7 +1169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   %414 = load double, ptr %413, align 8
   %415 = getelementptr inbounds nuw i8, ptr %412, i64 1040
   %416 = load double, ptr %415, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.34, ptr noundef nonnull %408, double noundef %414, double noundef %416)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.34, ptr noundef nonnull %408, double noundef %414, double noundef %416)
           to label %417 unwind label %423
 
 417:                                              ; preds = %409
@@ -1179,7 +1179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br i1 %.not490.i, label %571, label %420
 
 420:                                              ; preds = %417
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.35, i32 noundef %419)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.35, i32 noundef %419)
           to label %.preheader589.i unwind label %423
 
 .preheader589.i:                                  ; preds = %420
@@ -1192,7 +1192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit536.i: ; preds = %
   br label %425
 
 ._crit_edge655.i:                                 ; preds = %567, %.preheader589.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.47)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.47)
           to label %571 unwind label %423
 
 423:                                              ; preds = %409, %420, %._crit_edge655.i, %571
@@ -1319,7 +1319,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %483 = phi i64 [ %431, %._crit_edge.loopexit.i.i ], [ 0, %425 ]
   %484 = getelementptr inbounds nuw [1024 x i8], ptr %408, i64 0, i64 %483
   store i8 0, ptr %484, align 1
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.36, ptr noundef nonnull %408)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.36, ptr noundef nonnull %408)
           to label %485 unwind label %492
 
 485:                                              ; preds = %482
@@ -1332,7 +1332,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %.not491.i, label %513, label %489
 
 489:                                              ; preds = %486
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.37, i32 noundef %488)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.37, i32 noundef %488)
           to label %.preheader588.i unwind label %492
 
 .preheader588.i:                                  ; preds = %489
@@ -1345,7 +1345,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %494
 
 ._crit_edge646.i:                                 ; preds = %507, %.preheader588.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.39)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.39)
           to label %513 unwind label %492
 
 492:                                              ; preds = %482, %489, %._crit_edge646.i, %516, %._crit_edge649.i, %541, %._crit_edge652.i, %566
@@ -1367,7 +1367,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %504 = getelementptr inbounds nuw i8, ptr %496, i64 16
   %505 = load float, ptr %504, align 8
   %506 = fpext float %505 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.38, double noundef %497, double noundef %500, double noundef %503, double noundef %506)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.38, double noundef %497, double noundef %500, double noundef %503, double noundef %506)
           to label %507 unwind label %511
 
 507:                                              ; preds = %494
@@ -1389,7 +1389,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %.not492.i, label %538, label %516
 
 516:                                              ; preds = %513
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.40, i32 noundef %515)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.40, i32 noundef %515)
           to label %.preheader587.i unwind label %492
 
 .preheader587.i:                                  ; preds = %516
@@ -1402,7 +1402,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %519
 
 ._crit_edge649.i:                                 ; preds = %532, %.preheader587.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.42)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.42)
           to label %538 unwind label %492
 
 519:                                              ; preds = %532, %.lr.ph648.i
@@ -1419,7 +1419,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %529 = getelementptr inbounds nuw i8, ptr %521, i64 16
   %530 = load float, ptr %529, align 8
   %531 = fpext float %530 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.41, double noundef %522, double noundef %525, double noundef %528, double noundef %531)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.41, double noundef %522, double noundef %525, double noundef %528, double noundef %531)
           to label %532 unwind label %536
 
 532:                                              ; preds = %519
@@ -1441,7 +1441,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %.not493.i, label %566, label %541
 
 541:                                              ; preds = %538
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.43, i32 noundef %540)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.43, i32 noundef %540)
           to label %.preheader586.i unwind label %492
 
 .preheader586.i:                                  ; preds = %541
@@ -1454,7 +1454,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %544
 
 ._crit_edge652.i:                                 ; preds = %560, %.preheader586.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.45)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.45)
           to label %566 unwind label %492
 
 544:                                              ; preds = %560, %.lr.ph651.i
@@ -1474,7 +1474,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %557 = fpext float %556 to double
   %558 = load float, ptr %548, align 8
   %559 = fpext float %558 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.44, double noundef %547, double noundef %551, double noundef %554, double noundef %557, double noundef %559)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.44, double noundef %547, double noundef %551, double noundef %554, double noundef %557, double noundef %559)
           to label %560 unwind label %564
 
 560:                                              ; preds = %544
@@ -1490,7 +1490,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %971
 
 566:                                              ; preds = %._crit_edge652.i, %538, %485
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.46)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.46)
           to label %567 unwind label %492
 
 567:                                              ; preds = %566
@@ -1501,7 +1501,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %570, label %425, label %._crit_edge655.i, !llvm.loop !23
 
 571:                                              ; preds = %._crit_edge655.i, %417
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.48)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.48)
           to label %572 unwind label %423
 
 572:                                              ; preds = %571
@@ -1518,7 +1518,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %.not472.i, label %957, label %579
 
 579:                                              ; preds = %576
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.50, i32 noundef %578)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.50, i32 noundef %578)
           to label %.preheader585.i unwind label %127
 
 .preheader585.i:                                  ; preds = %579
@@ -1532,7 +1532,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %583
 
 ._crit_edge689.i:                                 ; preds = %953, %.preheader585.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.84)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.84)
           to label %957 unwind label %127
 
 583:                                              ; preds = %953, %.lr.ph688.i
@@ -1555,7 +1555,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   %595 = select i1 %.not476.i, ptr @.str.17, ptr @.str.55
   %596 = getelementptr inbounds nuw i8, ptr %586, i64 232
   %597 = load i32, ptr %596, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.51, ptr noundef nonnull %589, ptr noundef nonnull %591, ptr noundef nonnull %593, ptr noundef nonnull %595, i32 noundef %597)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.51, ptr noundef nonnull %589, ptr noundef nonnull %591, ptr noundef nonnull %593, ptr noundef nonnull %595, i32 noundef %597)
           to label %598 unwind label %604
 
 598:                                              ; preds = %583
@@ -1565,7 +1565,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br i1 %.not477.i, label %741, label %601
 
 601:                                              ; preds = %598
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.56, i32 noundef %600)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.56, i32 noundef %600)
           to label %.preheader584.i unwind label %604
 
 .preheader584.i:                                  ; preds = %601
@@ -1578,7 +1578,7 @@ _ZN8aiString6AppendEPKc.exit.i.i:                 ; preds = %470, %467, %464, %4
   br label %606
 
 ._crit_edge664.i:                                 ; preds = %737, %.preheader584.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.62)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.62)
           to label %741 unwind label %604
 
 604:                                              ; preds = %583, %601, %._crit_edge664.i, %745, %._crit_edge670.i, %777, %.loopexit582.i, %802, %.loopexit580.i, %827, %.loopexit578.i, %846, %.loopexit576.i, %952
@@ -1753,7 +1753,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %711 = getelementptr inbounds nuw i8, ptr %609, i64 1116
   %712 = load float, ptr %711, align 4
   %713 = fpext float %712 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.57, ptr noundef nonnull %582, double noundef %668, double noundef %671, double noundef %674, double noundef %677, double noundef %680, double noundef %683, double noundef %686, double noundef %689, double noundef %692, double noundef %695, double noundef %698, double noundef %701, double noundef %704, double noundef %707, double noundef %710, double noundef %713)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.57, ptr noundef nonnull %582, double noundef %668, double noundef %671, double noundef %674, double noundef %677, double noundef %680, double noundef %683, double noundef %686, double noundef %689, double noundef %692, double noundef %695, double noundef %698, double noundef %701, double noundef %704, double noundef %707, double noundef %710, double noundef %713)
           to label %714 unwind label %721
 
 714:                                              ; preds = %663
@@ -1766,7 +1766,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br i1 %.not486.i, label %736, label %718
 
 718:                                              ; preds = %715
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.58, i32 noundef %717)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.58, i32 noundef %717)
           to label %.preheader574.i unwind label %721
 
 .preheader574.i:                                  ; preds = %718
@@ -1779,7 +1779,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %723
 
 ._crit_edge661.i:                                 ; preds = %730, %.preheader574.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.60)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.60)
           to label %736 unwind label %721
 
 721:                                              ; preds = %663, %718, %._crit_edge661.i, %736
@@ -1795,7 +1795,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %727 = getelementptr inbounds nuw i8, ptr %725, i64 4
   %728 = load float, ptr %727, align 4
   %729 = fpext float %728 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.59, i32 noundef %726, double noundef %729)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.59, i32 noundef %726, double noundef %729)
           to label %730 unwind label %734
 
 730:                                              ; preds = %723
@@ -1811,7 +1811,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %971
 
 736:                                              ; preds = %._crit_edge661.i, %715, %714
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.61)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.61)
           to label %737 unwind label %721
 
 737:                                              ; preds = %736
@@ -1831,7 +1831,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br i1 %.not478.i, label %770, label %745
 
 745:                                              ; preds = %742
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.63, i32 noundef %744)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.63, i32 noundef %744)
           to label %.preheader583.i unwind label %604
 
 .preheader583.i:                                  ; preds = %745
@@ -1844,7 +1844,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %748
 
 ._crit_edge670.i:                                 ; preds = %766, %.preheader583.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.67)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.67)
           to label %770 unwind label %604
 
 748:                                              ; preds = %766, %.lr.ph669.i
@@ -1852,7 +1852,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %749 = load ptr, ptr %747, align 8
   %750 = getelementptr inbounds nuw %struct.aiFace, ptr %749, i64 %indvars.iv769.i
   %751 = load i32, ptr %750, align 8
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.64, i32 noundef %751)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.64, i32 noundef %751)
           to label %.preheader573.i unwind label %754
 
 .preheader573.i:                                  ; preds = %748
@@ -1865,7 +1865,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %756
 
 ._crit_edge667.i:                                 ; preds = %760, %.preheader573.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.66)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.66)
           to label %766 unwind label %754
 
 754:                                              ; preds = %748, %._crit_edge667.i
@@ -1878,7 +1878,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %757 = load ptr, ptr %753, align 8
   %758 = getelementptr inbounds nuw i32, ptr %757, i64 %indvars.iv766.i
   %759 = load i32, ptr %758, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.65, i32 noundef %759)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.65, i32 noundef %759)
           to label %760 unwind label %764
 
 760:                                              ; preds = %756
@@ -1911,7 +1911,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br i1 %776, label %777, label %796
 
 777:                                              ; preds = %770
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.68, i32 noundef %774)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.68, i32 noundef %774)
           to label %778 unwind label %604
 
 778:                                              ; preds = %777
@@ -1934,7 +1934,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %787 = getelementptr inbounds nuw i8, ptr %781, i64 8
   %788 = load float, ptr %787, align 4
   %789 = fpext float %788 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.69, double noundef %783, double noundef %786, double noundef %789)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, double noundef %783, double noundef %786, double noundef %789)
           to label %790 unwind label %794
 
 790:                                              ; preds = %.lr.ph672.i
@@ -1950,7 +1950,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %971
 
 .loopexit582.i:                                   ; preds = %790, %.preheader581.i, %778
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.70)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.70)
           to label %.loopexit582._crit_edge.i unwind label %604
 
 .loopexit582._crit_edge.i:                        ; preds = %.loopexit582.i
@@ -1967,7 +1967,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br i1 %801, label %802, label %821
 
 802:                                              ; preds = %796
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.71, i32 noundef %797)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.71, i32 noundef %797)
           to label %803 unwind label %604
 
 803:                                              ; preds = %802
@@ -1990,7 +1990,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   %812 = getelementptr inbounds nuw i8, ptr %806, i64 8
   %813 = load float, ptr %812, align 4
   %814 = fpext float %813 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.69, double noundef %808, double noundef %811, double noundef %814)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, double noundef %808, double noundef %811, double noundef %814)
           to label %815 unwind label %819
 
 815:                                              ; preds = %.lr.ph674.i
@@ -2006,7 +2006,7 @@ _ZN8aiString6AppendEPKc.exit.i542.i:              ; preds = %651, %648, %645, %6
   br label %971
 
 .loopexit580.i:                                   ; preds = %815, %.preheader579.i, %803
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.72)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.72)
           to label %821 unwind label %604
 
 821:                                              ; preds = %.loopexit580.i, %796
@@ -2025,7 +2025,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   br i1 %.not567.i, label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i, label %827
 
 827:                                              ; preds = %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.73, i32 noundef %826)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.73, i32 noundef %826)
           to label %828 unwind label %604
 
 828:                                              ; preds = %827
@@ -2048,7 +2048,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   %837 = getelementptr inbounds nuw i8, ptr %831, i64 8
   %838 = load float, ptr %837, align 4
   %839 = fpext float %838 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.69, double noundef %833, double noundef %836, double noundef %839)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, double noundef %833, double noundef %836, double noundef %839)
           to label %840 unwind label %844
 
 840:                                              ; preds = %.lr.ph676.i
@@ -2064,12 +2064,12 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   br label %971
 
 .loopexit578.i:                                   ; preds = %840, %.preheader577.i, %828
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.74)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.74)
           to label %846 unwind label %604
 
 846:                                              ; preds = %.loopexit578.i
   %847 = load i32, ptr %773, align 4
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.75, i32 noundef %847)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.75, i32 noundef %847)
           to label %848 unwind label %604
 
 848:                                              ; preds = %846
@@ -2092,7 +2092,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   %857 = getelementptr inbounds nuw i8, ptr %851, i64 8
   %858 = load float, ptr %857, align 4
   %859 = fpext float %858 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.69, double noundef %853, double noundef %856, double noundef %859)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, double noundef %853, double noundef %856, double noundef %859)
           to label %860 unwind label %864
 
 860:                                              ; preds = %.lr.ph678.i
@@ -2108,7 +2108,7 @@ _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i:   ; preds = %821
   br label %971
 
 .loopexit576.i:                                   ; preds = %860, %.preheader575.i, %848
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.76)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.76)
           to label %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i unwind label %604
 
 _ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.thread.i: ; preds = %.loopexit576.i, %_ZNK6aiMesh24HasTangentsAndBitangentsEv.exit.i, %821
@@ -2143,7 +2143,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %880 = getelementptr inbounds nuw [8 x i32], ptr %868, i64 0, i64 %indvars.iv790.i
   %881 = load i32, ptr %880, align 4
   %882 = trunc nuw nsw i64 %indvars.iv790.i to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.77, i32 noundef %873, i32 noundef %882, ptr noundef nonnull %879, i32 noundef %881)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.77, i32 noundef %873, i32 noundef %882, ptr noundef nonnull %879, i32 noundef %881)
           to label %883 unwind label %888
 
 883:                                              ; preds = %_ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i
@@ -2179,7 +2179,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %897 = getelementptr inbounds nuw i8, ptr %891, i64 8
   %898 = load float, ptr %897, align 4
   %899 = fpext float %898 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.69, double noundef %893, double noundef %896, double noundef %899)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.69, double noundef %893, double noundef %896, double noundef %899)
           to label %900 unwind label %904
 
 900:                                              ; preds = %.lr.ph682.i
@@ -2203,7 +2203,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %910 = getelementptr inbounds nuw i8, ptr %907, i64 4
   %911 = load float, ptr %910, align 4
   %912 = fpext float %911 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.78, double noundef %909, double noundef %912)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.78, double noundef %909, double noundef %912)
           to label %913 unwind label %917
 
 913:                                              ; preds = %.lr.ph680.i
@@ -2219,7 +2219,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   br label %971
 
 .loopexit570.i:                                   ; preds = %913, %900, %.preheader569.i, %.preheader571.i, %883
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.79)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.79)
           to label %919 unwind label %888
 
 919:                                              ; preds = %.loopexit570.i
@@ -2241,7 +2241,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
 925:                                              ; preds = %922
   %926 = load i32, ptr %773, align 4
   %927 = trunc nuw nsw i64 %indvars.iv796.i to i32
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.80, i32 noundef %926, i32 noundef %927)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.80, i32 noundef %926, i32 noundef %927)
           to label %928 unwind label %930
 
 928:                                              ; preds = %925
@@ -2272,7 +2272,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   %942 = getelementptr inbounds nuw i8, ptr %933, i64 12
   %943 = load float, ptr %942, align 4
   %944 = fpext float %943 to double
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.81, double noundef %935, double noundef %938, double noundef %941, double noundef %944)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.81, double noundef %935, double noundef %938, double noundef %941, double noundef %944)
           to label %945 unwind label %949
 
 945:                                              ; preds = %.lr.ph685.i
@@ -2288,7 +2288,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   br label %971
 
 .loopexit.i:                                      ; preds = %945, %.preheader.i, %928
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.82)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.82)
           to label %951 unwind label %930
 
 951:                                              ; preds = %.loopexit.i
@@ -2297,7 +2297,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   br i1 %exitcond799.not.i, label %952, label %922, !llvm.loop !37
 
 952:                                              ; preds = %951, %922
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.83)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.83)
           to label %953 unwind label %604
 
 953:                                              ; preds = %952
@@ -2308,7 +2308,7 @@ _ZNK6aiMesh20HasTextureCoordsNameEj.exit.thread.i: ; preds = %_ZNK6aiMesh20HasTe
   br i1 %956, label %583, label %._crit_edge689.i, !llvm.loop !38
 
 957:                                              ; preds = %._crit_edge689.i, %576
-  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef %23, ptr noundef nonnull @.str.85)
+  invoke void (ptr, ptr, ...) @_ZN6Assimp16AssxmlFileWriterL8ioprintfEPNS_8IOStreamEPKcz(ptr noundef nonnull %23, ptr noundef nonnull @.str.85)
           to label %958 unwind label %127
 
 958:                                              ; preds = %957

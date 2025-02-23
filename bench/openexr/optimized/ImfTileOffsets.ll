@@ -3106,8 +3106,8 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tile
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp9.i.i.i, label %while.body.i.i, label %while.body.i.i.i, !llvm.loop !66
 
-while.body.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
-  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i ], [ %storemerge14, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i ]
+while.body.i.i:                                   ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i
+  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i ], [ %storemerge14, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit.i.i.i ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -24
   %__value.sroa.0.0.copyload.i.i3.i = load i64, ptr %incdec.ptr.i.i2.i, align 8
   %__value.sroa.2.0.__result.sroa.0.0.__result.val.sroa_idx.i.i4.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -16
@@ -3120,71 +3120,74 @@ while.body.i.i:                                   ; preds = %_ZSt13__adjust_heap
   %sub.i.i.i8.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -1
   %div.i.i.i9.i = sdiv i64 %sub.i.i.i8.i, 2
   %cmp29.i.i.i10.i = icmp sgt i64 %sub.ptr.sub.i.i.i6.i, 48
-  br i1 %cmp29.i.i.i10.i, label %while.body.i.i.i38.i, label %while.end.i.i.i11.i
+  br i1 %cmp29.i.i.i10.i, label %while.body.i.i.i39.i, label %while.end.i.i.i11.i
 
-while.body.i.i.i38.i:                             ; preds = %while.body.i.i, %while.body.i.i.i38.i
-  %__holeIndex.addr.030.i.i.i39.i = phi i64 [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ], [ 0, %while.body.i.i ]
-  %add.i.i.i40.i = shl i64 %__holeIndex.addr.030.i.i.i39.i, 1
-  %mul.i.i.i41.i = add i64 %add.i.i.i40.i, 2
-  %add.ptr.i.i.i.i42.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %mul.i.i.i41.i
-  %sub3.i.i.i43.i = or disjoint i64 %add.i.i.i40.i, 1
-  %add.ptr.i22.i.i.i44.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %sub3.i.i.i43.i
-  %call.val.i.i.i.i45.i = load i64, ptr %add.ptr.i.i.i.i42.i, align 8
-  %call3.val.i.i.i.i46.i = load i64, ptr %add.ptr.i22.i.i.i44.i, align 8
-  %cmp.i.i.i.i.i47.i = icmp ult i64 %call.val.i.i.i.i45.i, %call3.val.i.i.i.i46.i
-  %spec.select.i.i.i48.i = select i1 %cmp.i.i.i.i.i47.i, i64 %sub3.i.i.i43.i, i64 %mul.i.i.i41.i
-  %add.ptr.i23.i.i.i49.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %spec.select.i.i.i48.i
-  %add.ptr.i24.i.i.i50.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.030.i.i.i39.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i24.i.i.i50.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i23.i.i.i49.i, i64 24, i1 false)
-  %cmp.i.i.i51.i = icmp slt i64 %spec.select.i.i.i48.i, %div.i.i.i9.i
-  br i1 %cmp.i.i.i51.i, label %while.body.i.i.i38.i, label %while.end.i.i.i11.i, !llvm.loop !64
+while.body.i.i.i39.i:                             ; preds = %while.body.i.i, %while.body.i.i.i39.i
+  %__holeIndex.addr.030.i.i.i40.i = phi i64 [ %spec.select.i.i.i49.i, %while.body.i.i.i39.i ], [ 0, %while.body.i.i ]
+  %add.i.i.i41.i = shl i64 %__holeIndex.addr.030.i.i.i40.i, 1
+  %mul.i.i.i42.i = add i64 %add.i.i.i41.i, 2
+  %add.ptr.i.i.i.i43.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %mul.i.i.i42.i
+  %sub3.i.i.i44.i = or disjoint i64 %add.i.i.i41.i, 1
+  %add.ptr.i22.i.i.i45.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %sub3.i.i.i44.i
+  %call.val.i.i.i.i46.i = load i64, ptr %add.ptr.i.i.i.i43.i, align 8
+  %call3.val.i.i.i.i47.i = load i64, ptr %add.ptr.i22.i.i.i45.i, align 8
+  %cmp.i.i.i.i.i48.i = icmp ult i64 %call.val.i.i.i.i46.i, %call3.val.i.i.i.i47.i
+  %spec.select.i.i.i49.i = select i1 %cmp.i.i.i.i.i48.i, i64 %sub3.i.i.i44.i, i64 %mul.i.i.i42.i
+  %add.ptr.i23.i.i.i50.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %spec.select.i.i.i49.i
+  %add.ptr.i24.i.i.i51.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.030.i.i.i40.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i24.i.i.i51.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i23.i.i.i50.i, i64 24, i1 false)
+  %cmp.i.i.i52.i = icmp slt i64 %spec.select.i.i.i49.i, %div.i.i.i9.i
+  br i1 %cmp.i.i.i52.i, label %while.body.i.i.i39.i, label %while.end.i.i.i11.i, !llvm.loop !64
 
-while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i38.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i48.i, %while.body.i.i.i38.i ]
+while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i39.i, %while.body.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i49.i, %while.body.i.i.i39.i ]
   %and.i.i.i13.i = and i64 %sub.ptr.div.i.i.i7.i, 1
   %cmp16.i.i.i14.i = icmp eq i64 %and.i.i.i13.i, 0
   br i1 %cmp16.i.i.i14.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i15.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
-  %sub17.i.i.i32.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -2
-  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i32.i, 1
-  %cmp19.i.i.i33.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div18.i.i.i.i
-  br i1 %cmp19.i.i.i33.i, label %if.then20.i.i.i34.i, label %if.end33.i.i.i15.i
+  %sub17.i.i.i33.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -2
+  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i33.i, 1
+  %cmp19.i.i.i34.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div18.i.i.i.i
+  br i1 %cmp19.i.i.i34.i, label %if.end33.i.thread.i.i35.i, label %if.end33.i.i.i15.i
 
-if.then20.i.i.i34.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
-  %sub24.i.i.i35.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i25.i.i.i36.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %sub24.i.i.i35.i
-  %add.ptr.i26.i.i.i37.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i26.i.i.i37.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i25.i.i.i36.i, i64 24, i1 false)
-  br label %if.end33.i.i.i15.i
+if.end33.i.thread.i.i35.i:                        ; preds = %land.lhs.true.i.i.i.i
+  %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
+  %sub24.i.i.i36.i = or disjoint i64 %add21.i.i.i.i, 1
+  %add.ptr.i25.i.i.i37.i = getelementptr inbounds nuw %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %sub24.i.i.i36.i
+  %add.ptr.i26.i.i.i38.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i26.i.i.i38.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i25.i.i.i37.i, i64 24, i1 false)
+  br label %land.rhs.i.i.i.i19.i.preheader
 
-if.end33.i.i.i15.i:                               ; preds = %if.then20.i.i.i34.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
-  %__holeIndex.addr.1.i.i.i16.i = phi i64 [ %sub24.i.i.i35.i, %if.then20.i.i.i34.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
-  %cmp3.i.i.i.i17.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i16.i, 0
-  br i1 %cmp3.i.i.i.i17.i, label %land.rhs.i.i.i.i22.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
+if.end33.i.i.i15.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
+  %cmp3.i.i.not.i.i16.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 0
+  br i1 %cmp3.i.i.not.i.i16.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i, label %land.rhs.i.i.i.i19.i.preheader
 
-land.rhs.i.i.i.i22.i:                             ; preds = %if.end33.i.i.i15.i, %while.body.i.i.i.i29.i
-  %__holeIndex.addr.04.i.i.i.i23.i = phi i64 [ %__parent.05.i.i12.i.i25.i, %while.body.i.i.i.i29.i ], [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ]
-  %__parent.05.in.i.i.i.i24.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i23.i, -1
-  %__parent.05.i.i12.i.i25.i = lshr i64 %__parent.05.in.i.i.i.i24.i, 1
-  %add.ptr.i.i.i.i.i26.i = getelementptr inbounds nuw %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i25.i
-  %call.val.i.i.i.i.i27.i = load i64, ptr %add.ptr.i.i.i.i.i26.i, align 8
-  %cmp.i.i.i.i.i.i28.i = icmp ult i64 %call.val.i.i.i.i.i27.i, %__value.sroa.0.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i28.i, label %while.body.i.i.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i
+land.rhs.i.i.i.i19.i.preheader:                   ; preds = %if.end33.i.i.i15.i, %if.end33.i.thread.i.i35.i
+  %__holeIndex.addr.04.i.i.i.i20.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %if.end33.i.i.i15.i ], [ %sub24.i.i.i36.i, %if.end33.i.thread.i.i35.i ]
+  br label %land.rhs.i.i.i.i19.i
 
-while.body.i.i.i.i29.i:                           ; preds = %land.rhs.i.i.i.i22.i
-  %add.ptr.i11.i.i.i.i30.i = getelementptr inbounds nuw %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i23.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i11.i.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i26.i, i64 24, i1 false)
-  %cmp.i.i.not.i.i31.i = icmp ult i64 %__parent.05.in.i.i.i.i24.i, 2
-  br i1 %cmp.i.i.not.i.i31.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i, label %land.rhs.i.i.i.i22.i, !llvm.loop !65
+land.rhs.i.i.i.i19.i:                             ; preds = %land.rhs.i.i.i.i19.i.preheader, %while.body.i.i.i.i30.i
+  %__holeIndex.addr.04.i.i.i.i20.i = phi i64 [ %__parent.05.i.i12.i.i22.i, %while.body.i.i.i.i30.i ], [ %__holeIndex.addr.04.i.i.i.i20.i.ph, %land.rhs.i.i.i.i19.i.preheader ]
+  %__parent.05.in.i.i.i.i21.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i20.i, -1
+  %__parent.05.i.i12.i.i22.i = lshr i64 %__parent.05.in.i.i.i.i21.i, 1
+  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds nuw %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i22.i
+  %call.val.i.i.i.i.i24.i = load i64, ptr %add.ptr.i.i.i.i.i23.i, align 8
+  %cmp.i.i.i.i.i.i25.i = icmp ult i64 %call.val.i.i.i.i.i24.i, %__value.sroa.0.0.copyload.i.i3.i
+  br i1 %cmp.i.i.i.i.i.i25.i, label %while.body.i.i.i.i30.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i: ; preds = %while.body.i.i.i.i29.i, %land.rhs.i.i.i.i22.i, %if.end33.i.i.i15.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i19.i = phi i64 [ %__holeIndex.addr.1.i.i.i16.i, %if.end33.i.i.i15.i ], [ %__holeIndex.addr.04.i.i.i.i23.i, %land.rhs.i.i.i.i22.i ], [ 0, %while.body.i.i.i.i29.i ]
-  %add.ptr.i12.i.i.i.i20.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i19.i
-  store i64 %__value.sroa.0.0.copyload.i.i3.i, ptr %add.ptr.i12.i.i.i.i20.i, align 8
-  %agg.tmp3627.sroa.5.0.add.ptr.i12.i.sroa_idx.i.i.i21.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i20.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3627.sroa.5.0.add.ptr.i12.i.sroa_idx.i.i.i21.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63.sroa.4.i.i1.i, i64 16, i1 false)
+while.body.i.i.i.i30.i:                           ; preds = %land.rhs.i.i.i.i19.i
+  %add.ptr.i11.i.i.i.i31.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i20.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i11.i.i.i.i31.i, ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i.i.i.i.i23.i, i64 24, i1 false)
+  %cmp.i.i.not.i.i32.i = icmp ult i64 %__parent.05.in.i.i.i.i21.i, 2
+  br i1 %cmp.i.i.not.i.i32.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i, label %land.rhs.i.i.i.i19.i, !llvm.loop !65
+
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i: ; preds = %while.body.i.i.i.i30.i, %land.rhs.i.i.i.i19.i, %if.end33.i.i.i15.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i27.i = phi i64 [ 0, %if.end33.i.i.i15.i ], [ %__holeIndex.addr.04.i.i.i.i20.i, %land.rhs.i.i.i.i19.i ], [ 0, %while.body.i.i.i.i30.i ]
+  %add.ptr.i12.i.i.i.i28.i = getelementptr inbounds %"struct.Imf_3_2::(anonymous namespace)::tilepos", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i27.i
+  store i64 %__value.sroa.0.0.copyload.i.i3.i, ptr %add.ptr.i12.i.i.i.i28.i, align 8
+  %agg.tmp3627.sroa.5.0.add.ptr.i12.i.sroa_idx.i.i.i29.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i28.i, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp3627.sroa.5.0.add.ptr.i12.i.sroa_idx.i.i.i29.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp63.sroa.4.i.i1.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp63.sroa.4.i.i1.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i6.i, 24
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !67
@@ -3306,7 +3309,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GL
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 384
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !71
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i18.i, %entry
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEET_SC_SC_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN7Imf_3_212_GLOBAL__N_17tileposESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit.i26.i, %entry
   ret void
 }
 

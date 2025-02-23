@@ -1980,11 +1980,11 @@ _iop_gui_alloc.exit:                              ; preds = %1, %6
   %145 = load ptr, ptr %11, align 16, !tbaa !189
   %146 = call ptr @g_type_check_instance_cast(ptr noundef %145, i64 noundef %101) #19
   call void @gtk_box_pack_start(ptr noundef %146, ptr noundef %126, i32 noundef 0, i32 noundef 0, i32 noundef 0) #19
-  %147 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.48) #19
+  %147 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.48) #19
   %148 = getelementptr inbounds nuw i8, ptr %5, i64 112
   store ptr %147, ptr %148, align 8, !tbaa !201
   call void @dt_bauhaus_slider_set_digits(ptr noundef %147, i32 noundef 3) #19
-  %149 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.49) #19
+  %149 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.49) #19
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store ptr %149, ptr %150, align 8, !tbaa !202
   call void @dt_bauhaus_slider_set_digits(ptr noundef %149, i32 noundef 3) #19
@@ -1997,19 +1997,19 @@ _iop_gui_alloc.exit:                              ; preds = %1, %6
   %155 = load ptr, ptr %113, align 8, !tbaa !199
   %156 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.52, i32 noundef 5) #19
   call void @gtk_widget_set_tooltip_text(ptr noundef %155, ptr noundef %156) #19
-  call fastcc void @_refresh_watermarks(ptr noundef %0)
+  call fastcc void @_refresh_watermarks(ptr noundef nonnull %0)
   %157 = load ptr, ptr %5, align 8, !tbaa !182
   %158 = call ptr @g_type_check_instance_cast(ptr noundef %157, i64 noundef 80) #19
-  %159 = call i64 @g_signal_connect_data(ptr noundef %158, ptr noundef nonnull @.str.53, ptr noundef nonnull @_watermark_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #19
+  %159 = call i64 @g_signal_connect_data(ptr noundef %158, ptr noundef nonnull @.str.53, ptr noundef nonnull @_watermark_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #19
   %160 = load ptr, ptr %30, align 8, !tbaa !196
   %161 = call ptr @g_type_check_instance_cast(ptr noundef %160, i64 noundef 80) #19
-  %162 = call i64 @g_signal_connect_data(ptr noundef %161, ptr noundef nonnull @.str.54, ptr noundef nonnull @_refresh_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #19
+  %162 = call i64 @g_signal_connect_data(ptr noundef %161, ptr noundef nonnull @.str.54, ptr noundef nonnull @_refresh_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #19
   %163 = load ptr, ptr %82, align 8, !tbaa !135
   %164 = call ptr @g_type_check_instance_cast(ptr noundef %163, i64 noundef 80) #19
-  %165 = call i64 @g_signal_connect_data(ptr noundef %164, ptr noundef nonnull @.str.55, ptr noundef nonnull @_colorpick_color_set, ptr noundef %0, ptr noundef null, i32 noundef 0) #19
+  %165 = call i64 @g_signal_connect_data(ptr noundef %164, ptr noundef nonnull @.str.55, ptr noundef nonnull @_colorpick_color_set, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #19
   %166 = load ptr, ptr %54, align 8, !tbaa !184
   %167 = call ptr @g_type_check_instance_cast(ptr noundef %166, i64 noundef 80) #19
-  %168 = call i64 @g_signal_connect_data(ptr noundef %167, ptr noundef nonnull @.str.56, ptr noundef nonnull @_fontsel_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #19
+  %168 = call i64 @g_signal_connect_data(ptr noundef %167, ptr noundef nonnull @.str.56, ptr noundef nonnull @_fontsel_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %3) #19
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %2) #19
@@ -2034,7 +2034,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %6
   call void @gtk_grid_attach(ptr noundef %174, ptr noundef %176, i32 noundef %178, i32 noundef %.zext135, i32 noundef 1, i32 noundef 1) #19
   %180 = load ptr, ptr %173, align 8, !tbaa !178
   %181 = call ptr @g_type_check_instance_cast(ptr noundef %180, i64 noundef 80) #19
-  %182 = call i64 @g_signal_connect_data(ptr noundef %181, ptr noundef nonnull @.str.47, ptr noundef nonnull @_alignment_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #19
+  %182 = call i64 @g_signal_connect_data(ptr noundef %181, ptr noundef nonnull @.str.47, ptr noundef nonnull @_alignment_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %144, label %169

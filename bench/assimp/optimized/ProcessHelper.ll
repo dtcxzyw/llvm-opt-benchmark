@@ -1750,9 +1750,9 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   store ptr null, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
   %169 = icmp eq ptr %168, %164
-  br i1 %169, label %.loopexit277, label %165
+  br i1 %169, label %.lr.ph301, label %165
 
-.loopexit277:                                     ; preds = %165
+.lr.ph301:                                        ; preds = %165
   %170 = getelementptr inbounds nuw i8, ptr %4, i64 208
   store ptr %161, ptr %170, align 8
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -1777,9 +1777,9 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %_ZNK6aiMesh16HasTex
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %217
 
-180:                                              ; preds = %.loopexit277, %._crit_edge298
-  %181 = phi i64 [ 0, %.loopexit277 ], [ %199, %._crit_edge298 ]
-  %.0187299 = phi i32 [ 0, %.loopexit277 ], [ %198, %._crit_edge298 ]
+180:                                              ; preds = %.lr.ph301, %._crit_edge298
+  %181 = phi i64 [ 0, %.lr.ph301 ], [ %199, %._crit_edge298 ]
+  %.0187299 = phi i32 [ 0, %.lr.ph301 ], [ %198, %._crit_edge298 ]
   %182 = load ptr, ptr %171, align 8
   %183 = load ptr, ptr %1, align 8
   %184 = getelementptr inbounds nuw i32, ptr %183, i64 %181

@@ -1296,7 +1296,7 @@ ruby_nonempty_memcpy.exit199.i:                   ; preds = %73, %72
   br label %select.unfold210.i
 
 .preheader64:                                     ; preds = %127, %.preheader64
-  %131 = call fastcc i32 @rb_trans_conv(ptr noundef %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %24, ptr noundef %10)
+  %131 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %24, ptr noundef %10)
   %132 = icmp eq i32 %131, 5
   br i1 %132, label %.preheader64, label %select.unfold210.i, !llvm.loop !86
 

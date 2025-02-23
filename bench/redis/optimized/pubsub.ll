@@ -1193,7 +1193,7 @@ define dso_local i32 @pubsubUnsubscribeAllPatterns(ptr noundef %0, i32 noundef %
   %13 = phi ptr [ %17, %.lr.ph ], [ %12, %10 ]
   %.117 = phi i32 [ %16, %.lr.ph ], [ 0, %10 ]
   %14 = tail call ptr @dictGetKey(ptr noundef nonnull %13) #9
-  %15 = tail call i32 @pubsubUnsubscribePattern(ptr noundef %0, ptr noundef %14, i32 noundef %1)
+  %15 = tail call i32 @pubsubUnsubscribePattern(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %1)
   %16 = add nuw nsw i32 %15, %.117
   %17 = tail call ptr @dictNext(ptr noundef %11) #9
   %.not15 = icmp eq ptr %17, null
@@ -1212,7 +1212,7 @@ define dso_local i32 @pubsubUnsubscribeAllPatterns(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %21, label %22
 
 21:                                               ; preds = %18
-  tail call void @addReplyPubsubPatUnsubscribed(ptr noundef %0, ptr noundef null)
+  tail call void @addReplyPubsubPatUnsubscribed(ptr noundef nonnull %0, ptr noundef null)
   br label %22
 
 22:                                               ; preds = %21, %18

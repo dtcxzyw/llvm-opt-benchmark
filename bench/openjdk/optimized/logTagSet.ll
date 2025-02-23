@@ -516,7 +516,7 @@ _ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58:     ; preds = %.lr.ph.i55, %94
   br label %105
 
 105:                                              ; preds = %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit58, %_ZN9LogTagSet3logEN8LogLevel4typeEPKc.exit53
-  call void @free(ptr noundef %72) #11
+  call void @free(ptr noundef nonnull %72) #11
   br label %135
 
 106:                                              ; preds = %71

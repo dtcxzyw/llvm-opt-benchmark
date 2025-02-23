@@ -1907,7 +1907,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iblock_root_double(ptr noundef %0, i64 no
   %273 = getelementptr inbounds nuw i64, ptr %270, i64 %272
   %274 = load i64, ptr %273, align 8, !tbaa !48
   %275 = shl i64 %274, 1
-  %276 = call i32 @H5HF__hdr_adjust_heap(ptr noundef %0, i64 noundef %275, i64 noundef %.0106.lcssa) #6
+  %276 = call i32 @H5HF__hdr_adjust_heap(ptr noundef nonnull %0, i64 noundef %275, i64 noundef %.0106.lcssa) #6
   %277 = icmp slt i32 %276, 0
   br i1 %277, label %278, label %282
 
@@ -2192,7 +2192,7 @@ define noundef range(i32 -1, 1) i32 @H5HF__man_iblock_detach(ptr noundef %0, i32
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %14, i64 272
   %67 = load i64, ptr %66, align 8, !tbaa !55
-  %68 = tail call ptr @H5HF__man_dblock_protect(ptr noundef %14, i64 noundef %59, i64 noundef %67, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #6
+  %68 = tail call ptr @H5HF__man_dblock_protect(ptr noundef nonnull %14, i64 noundef %59, i64 noundef %67, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0) #6
   %69 = icmp eq ptr %68, null
   br i1 %69, label %133, label %70
 

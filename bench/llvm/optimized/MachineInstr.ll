@@ -17889,98 +17889,95 @@ define dso_local { i64, i8 } @_ZNK4llvm12MachineInstr18getFoldedSpillSizeEPKNS_1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
-23:                                               ; preds = %60, %.lr.ph.i
-  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %.4.ph.i, %60 ]
-  %.01617.i = phi ptr [ %.val, %.lr.ph.i ], [ %61, %60 ]
+23:                                               ; preds = %59, %.lr.ph.i
+  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %.4.ph.i, %59 ]
+  %.01617.i = phi ptr [ %.val, %.lr.ph.i ], [ %60, %59 ]
   %24 = load ptr, ptr %.01617.i, align 8, !tbaa !232
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %24, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
-  %.not.i.i.i.i.i = icmp eq i64 %25, 0
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %27 = inttoptr i64 %26 to ptr
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %27
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !686
-  %30 = load i32, ptr %22, align 8, !tbaa !665
-  %31 = add i32 %30, %29
-  %32 = zext i32 %31 to i64
-  %33 = load ptr, ptr %21, align 8, !tbaa !682
-  %34 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %33, i64 %32, i32 4
-  %35 = load i8, ptr %34, align 2, !tbaa !683, !range !237, !noundef !238
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %60
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !686
+  %29 = load i32, ptr %22, align 8, !tbaa !665
+  %30 = add i32 %29, %28
+  %31 = zext i32 %30 to i64
+  %32 = load ptr, ptr %21, align 8, !tbaa !682
+  %33 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %32, i64 %31, i32 4
+  %34 = load i8, ptr %33, align 2, !tbaa !683, !range !237, !noundef !238
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %59
 
-37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, -7
-  %spec.select.i.not.i.i = icmp eq i64 %40, 0
-  br i1 %spec.select.i.not.i.i, label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, label %41
+36:                                               ; preds = %23
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, -7
+  %spec.select.i.not.i.i = icmp eq i64 %39, 0
+  br i1 %spec.select.i.not.i.i, label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, label %40
 
-41:                                               ; preds = %37
-  %42 = and i64 %39, 2
-  %43 = and i64 %39, 6
-  %44 = icmp eq i64 %43, 2
-  %45 = and i64 %39, 1
-  %46 = icmp ne i64 %45, 0
-  %or.cond8.i.i.i.i = or i1 %46, %44
-  br i1 %or.cond8.i.i.i.i, label %47, label %48
+40:                                               ; preds = %36
+  %41 = and i64 %38, 2
+  %42 = and i64 %38, 6
+  %43 = icmp eq i64 %42, 2
+  %44 = and i64 %38, 1
+  %45 = icmp ne i64 %44, 0
+  %or.cond8.i.i.i.i = or i1 %45, %43
+  br i1 %or.cond8.i.i.i.i, label %46, label %47
 
-47:                                               ; preds = %41
-  %.not.i.i.i.i.not.i.i = icmp eq i64 %42, 0
+46:                                               ; preds = %40
+  %.not.i.i.i.i.not.i.i = icmp eq i64 %41, 0
   %.0.in.v.i.i.i.i.i = select i1 %.not.i.i.i.i.not.i.i, i64 32, i64 48
-  %.0.in.i.i.i.i.i = lshr i64 %39, %.0.in.v.i.i.i.i.i
-  br label %55
+  %.0.in.i.i.i.i.i = lshr i64 %38, %.0.in.v.i.i.i.i.i
+  br label %54
 
-48:                                               ; preds = %41
-  %49 = lshr i64 %39, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %49, 65535
-  %.not.i.i1.i.i.not.i.i = icmp eq i64 %42, 0
+47:                                               ; preds = %40
+  %48 = lshr i64 %38, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %48, 65535
+  %.not.i.i1.i.i.not.i.i = icmp eq i64 %41, 0
   %.0.in.v.i3.i.i.i.i = select i1 %.not.i.i1.i.i.not.i.i, i64 32, i64 48
-  %.0.in.i4.i.i.i.i = lshr i64 %39, %.0.in.v.i3.i.i.i.i
-  %50 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %51 = and i64 %50, 4294967295
-  %52 = trunc i64 %39 to i8
-  %53 = lshr i8 %52, 3
-  %54 = and i8 %53, 1
-  br label %55
+  %.0.in.i4.i.i.i.i = lshr i64 %38, %.0.in.v.i3.i.i.i.i
+  %49 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %50 = and i64 %49, 4294967295
+  %51 = trunc i64 %38 to i8
+  %52 = lshr i8 %51, 3
+  %53 = and i8 %52, 1
+  br label %54
 
-55:                                               ; preds = %48, %47
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %47 ], [ %51, %48 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %47 ], [ %54, %48 ]
-  %56 = add nuw nsw i64 %.sroa.06.0.i.i.i.i, 7
-  %57 = lshr i64 %56, 3
+54:                                               ; preds = %47, %46
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %46 ], [ %50, %47 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %46 ], [ %53, %47 ]
+  %55 = add nuw nsw i64 %.sroa.06.0.i.i.i.i, 7
+  %56 = lshr i64 %55, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
-  store i64 %57, ptr %3, align 8
+  store i64 %56, ptr %3, align 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %58 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #25
-  %59 = add i64 %58, %.018.i
+  %57 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #25
+  %58 = add i64 %57, %.018.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  br label %60
+  br label %59
 
-60:                                               ; preds = %55, %23
-  %.4.ph.i = phi i64 [ %59, %55 ], [ %.018.i, %23 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.01617.i, i64 8
-  %.not.i = icmp eq ptr %61, %14
+59:                                               ; preds = %54, %23
+  %.4.ph.i = phi i64 [ %58, %54 ], [ %.018.i, %23 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.01617.i, i64 8
+  %.not.i = icmp eq ptr %60, %14
   br i1 %.not.i, label %._crit_edge.i, label %23
 
-._crit_edge.i:                                    ; preds = %60
-  %62 = icmp ugt i64 %.4.ph.i, 4611686018427387899
-  %spec.select.i = select i1 %62, i64 -4611686018427387906, i64 %.4.ph.i
+._crit_edge.i:                                    ; preds = %59
+  %61 = icmp ugt i64 %.4.ph.i, 4611686018427387899
+  %spec.select.i = select i1 %61, i64 -4611686018427387906, i64 %.4.ph.i
   br label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
 
-_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit: ; preds = %37, %2, %._crit_edge.i, %12
-  %.sroa.03.0 = phi i64 [ 0, %12 ], [ %spec.select.i, %._crit_edge.i ], [ undef, %2 ], [ -1, %37 ]
-  %.sroa.2.0 = phi i8 [ 1, %12 ], [ 1, %._crit_edge.i ], [ 0, %2 ], [ 1, %37 ]
-  %63 = load ptr, ptr %4, align 8, !tbaa !206
-  %64 = icmp eq ptr %63, %5
-  br i1 %64, label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit, label %65
+_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit: ; preds = %36, %2, %._crit_edge.i, %12
+  %.sroa.03.0 = phi i64 [ 0, %12 ], [ %spec.select.i, %._crit_edge.i ], [ undef, %2 ], [ -1, %36 ]
+  %.sroa.2.0 = phi i8 [ 1, %12 ], [ 1, %._crit_edge.i ], [ 0, %2 ], [ 1, %36 ]
+  %62 = load ptr, ptr %4, align 8, !tbaa !206
+  %63 = icmp eq ptr %62, %5
+  br i1 %63, label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit, label %64
 
-65:                                               ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
-  call void @free(ptr noundef %63) #25
+64:                                               ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
+  call void @free(ptr noundef %62) #25
   br label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit: ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, %65
+_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit: ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, %64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
@@ -18127,98 +18124,95 @@ define dso_local { i64, i8 } @_ZNK4llvm12MachineInstr20getFoldedRestoreSizeEPKNS
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
-23:                                               ; preds = %60, %.lr.ph.i
-  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %.4.ph.i, %60 ]
-  %.01617.i = phi ptr [ %.val, %.lr.ph.i ], [ %61, %60 ]
+23:                                               ; preds = %59, %.lr.ph.i
+  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %.4.ph.i, %59 ]
+  %.01617.i = phi ptr [ %.val, %.lr.ph.i ], [ %60, %59 ]
   %24 = load ptr, ptr %.01617.i, align 8, !tbaa !232
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %24, align 8
-  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
-  %.not.i.i.i.i.i = icmp eq i64 %25, 0
-  %26 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %27 = inttoptr i64 %26 to ptr
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, ptr null, ptr %27
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 16
-  %29 = load i32, ptr %28, align 8, !tbaa !686
-  %30 = load i32, ptr %22, align 8, !tbaa !665
-  %31 = add i32 %30, %29
-  %32 = zext i32 %31 to i64
-  %33 = load ptr, ptr %21, align 8, !tbaa !682
-  %34 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %33, i64 %32, i32 4
-  %35 = load i8, ptr %34, align 2, !tbaa !683, !range !237, !noundef !238
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %60
+  %25 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i32, ptr %27, align 8, !tbaa !686
+  %29 = load i32, ptr %22, align 8, !tbaa !665
+  %30 = add i32 %29, %28
+  %31 = zext i32 %30 to i64
+  %32 = load ptr, ptr %21, align 8, !tbaa !682
+  %33 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %32, i64 %31, i32 4
+  %34 = load i8, ptr %33, align 2, !tbaa !683, !range !237, !noundef !238
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %59
 
-37:                                               ; preds = %23
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, -7
-  %spec.select.i.not.i.i = icmp eq i64 %40, 0
-  br i1 %spec.select.i.not.i.i, label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, label %41
+36:                                               ; preds = %23
+  %37 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %38 = load i64, ptr %37, align 8
+  %39 = and i64 %38, -7
+  %spec.select.i.not.i.i = icmp eq i64 %39, 0
+  br i1 %spec.select.i.not.i.i, label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, label %40
 
-41:                                               ; preds = %37
-  %42 = and i64 %39, 2
-  %43 = and i64 %39, 6
-  %44 = icmp eq i64 %43, 2
-  %45 = and i64 %39, 1
-  %46 = icmp ne i64 %45, 0
-  %or.cond8.i.i.i.i = or i1 %46, %44
-  br i1 %or.cond8.i.i.i.i, label %47, label %48
+40:                                               ; preds = %36
+  %41 = and i64 %38, 2
+  %42 = and i64 %38, 6
+  %43 = icmp eq i64 %42, 2
+  %44 = and i64 %38, 1
+  %45 = icmp ne i64 %44, 0
+  %or.cond8.i.i.i.i = or i1 %45, %43
+  br i1 %or.cond8.i.i.i.i, label %46, label %47
 
-47:                                               ; preds = %41
-  %.not.i.i.i.i.not.i.i = icmp eq i64 %42, 0
+46:                                               ; preds = %40
+  %.not.i.i.i.i.not.i.i = icmp eq i64 %41, 0
   %.0.in.v.i.i.i.i.i = select i1 %.not.i.i.i.i.not.i.i, i64 32, i64 48
-  %.0.in.i.i.i.i.i = lshr i64 %39, %.0.in.v.i.i.i.i.i
-  br label %55
+  %.0.in.i.i.i.i.i = lshr i64 %38, %.0.in.v.i.i.i.i.i
+  br label %54
 
-48:                                               ; preds = %41
-  %49 = lshr i64 %39, 8
-  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %49, 65535
-  %.not.i.i1.i.i.not.i.i = icmp eq i64 %42, 0
+47:                                               ; preds = %40
+  %48 = lshr i64 %38, 8
+  %.sroa.0.0.insert.ext.i.i.i.i.i.i = and i64 %48, 65535
+  %.not.i.i1.i.i.not.i.i = icmp eq i64 %41, 0
   %.0.in.v.i3.i.i.i.i = select i1 %.not.i.i1.i.i.not.i.i, i64 32, i64 48
-  %.0.in.i4.i.i.i.i = lshr i64 %39, %.0.in.v.i3.i.i.i.i
-  %50 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
-  %51 = and i64 %50, 4294967295
-  %52 = trunc i64 %39 to i8
-  %53 = lshr i8 %52, 3
-  %54 = and i8 %53, 1
-  br label %55
+  %.0.in.i4.i.i.i.i = lshr i64 %38, %.0.in.v.i3.i.i.i.i
+  %49 = mul nuw nsw i64 %.0.in.i4.i.i.i.i, %.sroa.0.0.insert.ext.i.i.i.i.i.i
+  %50 = and i64 %49, 4294967295
+  %51 = trunc i64 %38 to i8
+  %52 = lshr i8 %51, 3
+  %53 = and i8 %52, 1
+  br label %54
 
-55:                                               ; preds = %48, %47
-  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %47 ], [ %51, %48 ]
-  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %47 ], [ %54, %48 ]
-  %56 = add nuw nsw i64 %.sroa.06.0.i.i.i.i, 7
-  %57 = lshr i64 %56, 3
+54:                                               ; preds = %47, %46
+  %.sroa.06.0.i.i.i.i = phi i64 [ %.0.in.i.i.i.i.i, %46 ], [ %50, %47 ]
+  %.sroa.3.0.i.i.i.i = phi i8 [ 0, %46 ], [ %53, %47 ]
+  %55 = add nuw nsw i64 %.sroa.06.0.i.i.i.i, 7
+  %56 = lshr i64 %55, 3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #25
-  store i64 %57, ptr %3, align 8
+  store i64 %56, ptr %3, align 8
   store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %58 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #25
-  %59 = add i64 %58, %.018.i
+  %57 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #25
+  %58 = add i64 %57, %.018.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  br label %60
+  br label %59
 
-60:                                               ; preds = %55, %23
-  %.4.ph.i = phi i64 [ %59, %55 ], [ %.018.i, %23 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.01617.i, i64 8
-  %.not.i = icmp eq ptr %61, %14
+59:                                               ; preds = %54, %23
+  %.4.ph.i = phi i64 [ %58, %54 ], [ %.018.i, %23 ]
+  %60 = getelementptr inbounds nuw i8, ptr %.01617.i, i64 8
+  %.not.i = icmp eq ptr %60, %14
   br i1 %.not.i, label %._crit_edge.i, label %23
 
-._crit_edge.i:                                    ; preds = %60
-  %62 = icmp ugt i64 %.4.ph.i, 4611686018427387899
-  %spec.select.i = select i1 %62, i64 -4611686018427387906, i64 %.4.ph.i
+._crit_edge.i:                                    ; preds = %59
+  %61 = icmp ugt i64 %.4.ph.i, 4611686018427387899
+  %spec.select.i = select i1 %61, i64 -4611686018427387906, i64 %.4.ph.i
   br label %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
 
-_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit: ; preds = %37, %2, %._crit_edge.i, %12
-  %.sroa.03.0 = phi i64 [ 0, %12 ], [ %spec.select.i, %._crit_edge.i ], [ undef, %2 ], [ -1, %37 ]
-  %.sroa.2.0 = phi i8 [ 1, %12 ], [ 1, %._crit_edge.i ], [ 0, %2 ], [ 1, %37 ]
-  %63 = load ptr, ptr %4, align 8, !tbaa !206
-  %64 = icmp eq ptr %63, %5
-  br i1 %64, label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit, label %65
+_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit: ; preds = %36, %2, %._crit_edge.i, %12
+  %.sroa.03.0 = phi i64 [ 0, %12 ], [ %spec.select.i, %._crit_edge.i ], [ undef, %2 ], [ -1, %36 ]
+  %.sroa.2.0 = phi i8 [ 1, %12 ], [ 1, %._crit_edge.i ], [ 0, %2 ], [ 1, %36 ]
+  %62 = load ptr, ptr %4, align 8, !tbaa !206
+  %63 = icmp eq ptr %62, %5
+  br i1 %63, label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit, label %64
 
-65:                                               ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
-  call void @free(ptr noundef %63) #25
+64:                                               ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit
+  call void @free(ptr noundef %62) #25
   br label %_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit: ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, %65
+_ZN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EED2Ev.exit: ; preds = %_ZL16getSpillSlotSizeRKN4llvm11SmallVectorIPKNS_17MachineMemOperandELj2EEERKNS_16MachineFrameInfoE.exit, %64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1

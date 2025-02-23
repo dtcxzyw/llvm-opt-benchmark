@@ -56354,7 +56354,7 @@ define linkonce_odr hidden void @_ZN6casadi17SerializingStream4packINSt7__cxx111
   br i1 %.not.i, label %_ZN6casadi17SerializingStream4packImEEvRKSt6vectorIT_SaIS3_EE.exit, label %.lr.ph.i
 
 _ZN6casadi17SerializingStream4packImEEvRKSt6vectorIT_SaIS3_EE.exit: ; preds = %.lr.ph.i, %.lr.ph
-  %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.011) #36
+  %21 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.07.011) #36
   %.not = icmp eq ptr %21, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }

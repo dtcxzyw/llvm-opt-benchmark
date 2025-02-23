@@ -1444,7 +1444,7 @@ define dso_local void @i9xx_enable_pll(ptr noundef readonly captures(none) %0) l
   %80 = load ptr, ptr %39, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load i32, ptr %81, align 4
-  %83 = add i32 %82, %45
+  %83 = add i32 %82, 24596
   %84 = load ptr, ptr %32, align 8
   tail call void %84(ptr noundef nonnull %31, i32 %83, i32 noundef %5, i1 noundef zeroext true) #11
   %85 = load ptr, ptr %39, align 8
@@ -1463,7 +1463,7 @@ define dso_local void @i9xx_enable_pll(ptr noundef readonly captures(none) %0) l
   %94 = load ptr, ptr %39, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %96 = load i32, ptr %95, align 4
-  %97 = add i32 %96, %45
+  %97 = add i32 %96, %44
   %98 = load ptr, ptr %32, align 8
   tail call void %98(ptr noundef nonnull %31, i32 %97, i32 noundef %5, i1 noundef zeroext true) #11
   %99 = load ptr, ptr %39, align 8

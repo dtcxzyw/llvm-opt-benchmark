@@ -4025,17 +4025,17 @@ _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt4pairIKS1_St6v
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %211 = load i32, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4
   %212 = icmp sgt i32 %211, 2
-  br i1 %212, label %.thread, label %213
+  br i1 %212, label %.thread, label %.lr.ph.i.i.i.i82
 
-213:                                              ; preds = %210
+.lr.ph.i.i.i.i82:                                 ; preds = %210
   store i32 2, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
-  br label %.lr.ph.i.i.i.i82
+  br label %213
 
-.lr.ph.i.i.i.i82:                                 ; preds = %213, %.lr.ph.i.i.i.i82
-  %.012.i.i.i.i83 = phi ptr [ %.1.i.i.i.i88, %.lr.ph.i.i.i.i82 ], [ %205, %213 ]
-  %.0811.i.i.i.i84 = phi ptr [ %.19.i.i.i.i85, %.lr.ph.i.i.i.i82 ], [ %53, %213 ]
+213:                                              ; preds = %213, %.lr.ph.i.i.i.i82
+  %.012.i.i.i.i83 = phi ptr [ %205, %.lr.ph.i.i.i.i82 ], [ %.1.i.i.i.i88, %213 ]
+  %.0811.i.i.i.i84 = phi ptr [ %53, %.lr.ph.i.i.i.i82 ], [ %.19.i.i.i.i85, %213 ]
   %214 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i83, i64 32
   %215 = load i32, ptr %214, align 4
   %216 = icmp slt i32 %215, 2
@@ -4044,9 +4044,9 @@ _ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt4pairIKS1_St6v
   %.1.in.i.i.i.i87 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i83, i64 %.1.in.v.i.i.i.i86
   %.1.i.i.i.i88 = load ptr, ptr %.1.in.i.i.i.i87, align 8
   %.not.i.i.i.i89 = icmp eq ptr %.1.i.i.i.i88, null
-  br i1 %.not.i.i.i.i89, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt6vectorISt4pairIdNS0_7VtValueEESaIS5_EESt4lessIS1_ESaIS3_IKS1_S7_EEE11lower_boundERSA_.exit.i90, label %.lr.ph.i.i.i.i82, !llvm.loop !58
+  br i1 %.not.i.i.i.i89, label %_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt6vectorISt4pairIdNS0_7VtValueEESaIS5_EESt4lessIS1_ESaIS3_IKS1_S7_EEE11lower_boundERSA_.exit.i90, label %213, !llvm.loop !58
 
-_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt6vectorISt4pairIdNS0_7VtValueEESaIS5_EESt4lessIS1_ESaIS3_IKS1_S7_EEE11lower_boundERSA_.exit.i90: ; preds = %.lr.ph.i.i.i.i82
+_ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__10TsKnotTypeESt6vectorISt4pairIdNS0_7VtValueEESaIS5_EESt4lessIS1_ESaIS3_IKS1_S7_EEE11lower_boundERSA_.exit.i90: ; preds = %213
   %217 = icmp eq ptr %.19.i.i.i.i85, %53
   br i1 %217, label %.critedge.i92, label %218
 

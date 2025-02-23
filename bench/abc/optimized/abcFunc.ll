@@ -1226,7 +1226,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %150 = load ptr, ptr %14, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #17
   store i32 0, ptr %9, align 4, !tbaa !6
-  call void @Abc_ConvertZddToSop_rec(ptr noundef %1, ptr noundef %150, ptr noundef %.1, i32 noundef %4, ptr noundef nonnull %6, i32 noundef %.0113, ptr noundef nonnull %9)
+  call void @Abc_ConvertZddToSop_rec(ptr noundef %1, ptr noundef %150, ptr noundef nonnull %.1, i32 noundef %4, ptr noundef nonnull %6, i32 noundef %.0113, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #17
   %151 = load ptr, ptr %14, align 8, !tbaa !10
   call void @Cudd_RecursiveDerefZdd(ptr noundef %1, ptr noundef %151) #17
@@ -2659,8 +2659,8 @@ define ptr @Abc_ConvertSopToAigInternal(ptr noundef %0, ptr noundef %1) local_un
 .lr.ph:                                           ; preds = %9, %.lr.ph
   %.03750 = phi ptr [ %12, %.lr.ph ], [ %8, %9 ]
   %.03949 = phi i32 [ %13, %.lr.ph ], [ 0, %9 ]
-  %11 = tail call ptr @Hop_IthVar(ptr noundef %0, i32 noundef %.03949) #17
-  %12 = tail call ptr @Hop_Exor(ptr noundef %0, ptr noundef %.03750, ptr noundef %11) #17
+  %11 = tail call ptr @Hop_IthVar(ptr noundef nonnull %0, i32 noundef %.03949) #17
+  %12 = tail call ptr @Hop_Exor(ptr noundef nonnull %0, ptr noundef %.03750, ptr noundef %11) #17
   %13 = add nuw nsw i32 %.03949, 1
   %exitcond.not = icmp eq i32 %13, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
@@ -4040,8 +4040,8 @@ define ptr @Abc_ConvertAigToAig(ptr noundef %0, ptr noundef readonly captures(no
   br i1 %32, label %18, label %.critedge, !llvm.loop !140
 
 .critedge:                                        ; preds = %18, %.preheader
-  tail call void @Abc_ConvertAigToAig_rec(ptr noundef %0, ptr noundef %10)
-  tail call void @Hop_ConeUnmark_rec(ptr noundef %10) #17
+  tail call void @Abc_ConvertAigToAig_rec(ptr noundef %0, ptr noundef nonnull %10)
+  tail call void @Hop_ConeUnmark_rec(ptr noundef nonnull %10) #17
   %33 = load ptr, ptr %10, align 8, !tbaa !3
   br label %34
 

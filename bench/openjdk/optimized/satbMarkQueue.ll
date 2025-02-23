@@ -213,13 +213,13 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i: ; preds = %9, %2
 
 .backedge.i.i:                                    ; preds = %.backedge.i.i.backedge, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i
   %.011.i.i = phi ptr [ %14, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit.i ], [ %.011.i.i.be, %.backedge.i.i.backedge ]
-  %.not.i.i.not.not.not.not = icmp ne ptr %.011.i.i, null
-  br i1 %.not.i.i.not.not.not.not, label %.thread.i.i, label %15
+  %.not.i.i.not.not.not.not.not = icmp ne ptr %.011.i.i, null
+  br i1 %.not.i.i.not.not.not.not.not, label %.thread.i.i, label %15
 
 15:                                               ; preds = %.backedge.i.i
   %16 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr null, ptr null, ptr nonnull align 8 dereferenceable(8) %13) #10, !srcloc !10
   %.not14.i.i = icmp eq ptr %16, null
-  br i1 %.not14.i.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread, label %.backedge.i.i.backedge
+  br i1 %.not14.i.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit, label %.backedge.i.i.backedge
 
 .thread.i.i:                                      ; preds = %.backedge.i.i
   %17 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 8
@@ -241,11 +241,6 @@ _ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread.i: 
   %22 = load volatile i64, ptr %21, align 8
   br label %23
 
-_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread: ; preds = %15
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
-  store volatile i64 %6, ptr %5, align 8
-  br label %37
-
 23:                                               ; preds = %23, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread.i
   %.0.i.i = phi i64 [ %22, %_ZN13LockFreeStackI10BufferNodeXadL_ZNS0_8next_ptrERS0_EEE3popEv.exit.thread.i ], [ %26, %23 ]
   %24 = add i64 %.0.i.i, -2
@@ -253,25 +248,30 @@ _ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread: ; preds = %15
   %spec.store.select.i.i = select i1 %25, i64 0, i64 %24
   %26 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %spec.store.select.i.i, i64 %.0.i.i, ptr nonnull %21) #10, !srcloc !10
   %.not.i3.i = icmp eq i64 %26, %.0.i.i
-  br i1 %.not.i3.i, label %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit, label %23, !llvm.loop !13
+  br i1 %.not.i3.i, label %27, label %23, !llvm.loop !13
 
-_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit: ; preds = %23
-  %27 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %28 = load i32, ptr %19, align 8
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %32 = load i32, ptr %31, align 4
-  %33 = zext i32 %32 to i64
-  %34 = sub nsw i64 %33, %29
-  %35 = load ptr, ptr %1, align 8
-  %36 = load ptr, ptr %35, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %30, i64 noundef %34) #10
+_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit: ; preds = %15
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !12
+  store volatile i64 %6, ptr %5, align 8
+  br label %38
+
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %29 = load i32, ptr %19, align 8
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %33 = load i32, ptr %32, align 4
+  %34 = zext i32 %33 to i64
+  %35 = sub nsw i64 %34, %30
+  %36 = load ptr, ptr %1, align 8
+  %37 = load ptr, ptr %36, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %31, i64 noundef %35) #10
   tail call void @_ZN11PtrQueueSet17deallocate_bufferEP10BufferNode(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %19) #10
-  br label %37
+  br label %38
 
-37:                                               ; preds = %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit.thread, %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit
-  ret i1 %.not.i.i.not.not.not.not
+38:                                               ; preds = %_ZN16SATBMarkQueueSet20get_completed_bufferEv.exit, %27
+  ret i1 %.not.i.i.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

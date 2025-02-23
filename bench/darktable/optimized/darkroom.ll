@@ -690,7 +690,7 @@ define void @expose(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 
   %58 = fmul reassoc nsz arcp contract afn float %49, 5.000000e-01
   %59 = fadd reassoc nsz arcp contract afn float %58, -5.000000e-01
   %60 = fadd reassoc nsz arcp contract afn float %56, -5.000000e-01
-  call void @dt_view_set_scrollbar(ptr noundef %0, float noundef %50, float noundef %59, float noundef 5.000000e-01, float noundef %58, float noundef %57, float noundef %60, float noundef 5.000000e-01, float noundef %56) #19
+  call void @dt_view_set_scrollbar(ptr noundef nonnull %0, float noundef %50, float noundef %59, float noundef 5.000000e-01, float noundef %58, float noundef %57, float noundef %60, float noundef 5.000000e-01, float noundef %56) #19
   %61 = getelementptr inbounds nuw i8, ptr %20, i64 2704
   %62 = load ptr, ptr %61, align 8, !tbaa !120
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 352
@@ -1067,7 +1067,7 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
 
 255:                                              ; preds = %253, %250
   %256 = phi ptr [ %.pre307, %253 ], [ %240, %250 ]
-  call fastcc void @_darkroom_pickers_draw(ptr noundef %0, ptr noundef %1, float noundef %219, ptr noundef %256, i32 noundef 0)
+  call fastcc void @_darkroom_pickers_draw(ptr noundef nonnull %0, ptr noundef %1, float noundef %219, ptr noundef %256, i32 noundef 0)
   br label %257
 
 257:                                              ; preds = %255, %247, %244, %210
@@ -1094,7 +1094,7 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
   store ptr %267, ptr %17, align 8, !tbaa !190
   %268 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr null, ptr %268, align 8, !tbaa !192
-  call fastcc void @_darkroom_pickers_draw(ptr noundef %0, ptr noundef %1, float noundef %219, ptr noundef nonnull %17, i32 noundef 1)
+  call fastcc void @_darkroom_pickers_draw(ptr noundef nonnull %0, ptr noundef %1, float noundef %219, ptr noundef nonnull %17, i32 noundef 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
   br label %269
 

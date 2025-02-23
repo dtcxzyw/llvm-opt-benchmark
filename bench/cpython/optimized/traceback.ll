@@ -3470,8 +3470,8 @@ write_thread_id.exit:                             ; preds = %42
   br label %62
 
 62:                                               ; preds = %60, %55, %write_thread_id.exit
-  call fastcc void @dump_traceback(i32 noundef %0, ptr noundef %.028, i32 noundef 0)
-  %63 = call ptr @PyThreadState_Next(ptr noundef %.028) #10
+  call fastcc void @dump_traceback(i32 noundef %0, ptr noundef nonnull %.028, i32 noundef 0)
+  %63 = call ptr @PyThreadState_Next(ptr noundef nonnull %.028) #10
   %64 = add nuw nsw i32 %.0, 1
   %.not40 = icmp eq ptr %63, null
   br i1 %.not40, label %tstate_is_freed.exit.thread, label %28, !llvm.loop !147

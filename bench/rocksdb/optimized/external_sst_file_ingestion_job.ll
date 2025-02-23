@@ -16202,7 +16202,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8
   br label %if.then
 
-if.then:                                          ; preds = %if.then28.i, %while.end.i, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.then28.i, %if.else.i, %if.else37.i
   %_M_t = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -17691,11 +17691,7 @@ if.then:                                          ; preds = %while.body
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
   %sub.i.i.i.i = sub i64 %16, %agg.tmp.sroa.4.0.copyload.fr.i55
   %cmp.i.i.i = icmp slt i64 %sub.i.i.i.i, 2
-  br i1 %cmp.i.i.i, label %invoke.cont.i.i.thread62, label %if.end.i.i.i
-
-invoke.cont.i.i.thread62:                         ; preds = %if.then
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
-  br label %while.end
+  br i1 %cmp.i.i.i, label %invoke.cont.i.i, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %if.then
   %sub.i.i.i = add nsw i64 %sub.i.i.i.i, -2
@@ -17736,6 +17732,10 @@ if.end9.split.i.i.i:                              ; preds = %if.end.i.i.i, %if.e
   call fastcc void @"_ZSt13__adjust_heapIN7rocksdb10autovectorIPKNS0_16IngestedFileInfoELm8EE13iterator_implIS5_S4_EElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_27ExternalSstFileIngestionJob7PrepareERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EESM_SM_RKNS0_11TemperatureEmPNS0_12SuperVersionEE3$_0EEEvT_T0_SV_T1_T2_"(ptr noundef %agg.tmp.i.i.i, i64 noundef %dec.i.i.i, i64 noundef %sub.i.i.i.i, ptr noundef %24, ptr readonly %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp7.i.i.i, label %while.body.lr.ph.i.i, label %if.end9.split.i.i.i, !llvm.loop !129
+
+invoke.cont.i.i:                                  ; preds = %if.then
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
+  br label %while.end
 
 while.body.lr.ph.i.i:                             ; preds = %if.end9.split.i.i.i, %if.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i)
@@ -18178,7 +18178,7 @@ invoke.cont14:                                    ; preds = %while.end15.i.i
   %cmp = icmp sgt i64 %sub.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !140
 
-while.end:                                        ; preds = %invoke.cont14, %while.body.i.i, %while.body.i.us.i, %invoke.cont.i.i.thread62, %entry
+while.end:                                        ; preds = %invoke.cont14, %while.body.i.i, %while.body.i.us.i, %invoke.cont.i.i, %entry
   ret void
 }
 

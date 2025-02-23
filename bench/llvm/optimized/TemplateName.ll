@@ -1059,7 +1059,7 @@ define dso_local void @_ZNK5clang12TemplateName29getTemplateDeclAndDefaultArgsEv
 _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
   %.not = icmp eq i64 %7, 2
   %spec.select = select i1 %.not, ptr %10, ptr null
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8
   br label %.split.i
 
@@ -1364,8 +1364,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(p
   %4 = icmp ne i64 %3, 0
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %6 = inttoptr i64 %5 to ptr
-  %.not28 = icmp eq i64 %5, 0
-  %.not = or i1 %4, %.not28
+  %.not29 = icmp eq i64 %5, 0
+  %.not = or i1 %4, %.not29
   br i1 %.not, label %select.unfold, label %7
 
 7:                                                ; preds = %1
@@ -1378,8 +1378,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(p
 
 select.unfold:                                    ; preds = %7, %1
   %13 = icmp ne i64 %3, 4
-  %.not16.not27 = icmp eq i64 %5, 0
-  %.not16.not = or i1 %13, %.not16.not27
+  %.not1627 = icmp eq i64 %5, 0
+  %.not16.not = or i1 %13, %.not1627
   br i1 %.not16.not, label %17, label %14
 
 14:                                               ; preds = %select.unfold
@@ -1578,7 +1578,7 @@ _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %11
   %.not96 = icmp eq i64 %6, 2
   %spec.select95 = select i1 %.not96, ptr %9, ptr null
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
-  %78 = getelementptr inbounds nuw i8, ptr %spec.select95, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.sroa.0.0.copyload.i39 = load i64, ptr %78, align 8
   store i64 %.sroa.0.0.copyload.i39, ptr %5, align 8
   %79 = call noundef zeroext i8 @_ZNK5clang12TemplateName13getDependenceEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -2231,22 +2231,20 @@ _ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit: ; preds = %278
   br label %.critedge
 
 _ZNK5clang12TemplateName23getAsOverloadedTemplateEv.exit: ; preds = %278
-  %306 = icmp eq i32 %282, 0
-  %..i.i159 = select i1 %306, ptr %13, ptr null
-  %307 = getelementptr inbounds nuw i8, ptr %..i.i159, i64 8
-  %308 = load ptr, ptr %307, align 8, !tbaa !30
-  %309 = load ptr, ptr %308, align 8, !tbaa !97
-  %310 = getelementptr inbounds nuw i8, ptr %309, i64 88
-  %311 = load ptr, ptr %310, align 8
-  tail call void %311(ptr noundef nonnull align 8 dereferenceable(48) %308, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
+  %306 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %307 = load ptr, ptr %306, align 8, !tbaa !30
+  %308 = load ptr, ptr %307, align 8, !tbaa !97
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 88
+  %310 = load ptr, ptr %309, align 8
+  tail call void %310(ptr noundef nonnull align 8 dereferenceable(48) %307, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   br label %.critedge
 
 .critedge93:                                      ; preds = %174, %172
   %.0.i.i11.i116 = phi ptr [ %173, %172 ], [ %166, %174 ]
-  %312 = load i32, ptr %162, align 4
-  %313 = lshr i32 %312, 20
-  %314 = zext nneg i32 %313 to i64
-  %315 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i11.i116, i64 noundef %314) #19
+  %311 = load i32, ptr %162, align 4
+  %312 = lshr i32 %311, 20
+  %313 = zext nneg i32 %312 to i64
+  %314 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i11.i116, i64 noundef %313) #19
   br label %.critedge
 
 .critedge:                                        ; preds = %275, %274, %272, %_ZN4llvm11raw_ostreamlsEPKc.exit132, %245, %244, %242, %205, %199, %201, %202, %"_ZZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyENS0_9QualifiedEENK3$_0clEPNS_12TemplateDeclES3_.exit", %_ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit, %_ZNK5clang12TemplateName24getAsAssumedTemplateNameEv.exit, %_ZNK5clang12TemplateName23getAsOverloadedTemplateEv.exit, %_ZNK5clang12TemplateName24getAsDeducedTemplateNameEv.exit, %_ZNK5clang12TemplateName34getAsSubstTemplateTemplateParmPackEv.exit, %88, %87, %.critedge93

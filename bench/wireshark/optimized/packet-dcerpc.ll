@@ -1204,16 +1204,16 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %18 = getelementptr i8, ptr %4, i64 8
   br label %19
 
-19:                                               ; preds = %38, %6
-  %.020.i = phi ptr [ null, %6 ], [ %43, %38 ]
-  %.0.i = phi i32 [ 0, %6 ], [ %.1.lcssa.i, %38 ]
+19:                                               ; preds = %._crit_edge.thread.i, %6
+  %.020.i = phi ptr [ null, %6 ], [ %42, %._crit_edge.thread.i ]
+  %.0.i = phi i32 [ 0, %6 ], [ %.1.lcssa29.i, %._crit_edge.thread.i ]
   %20 = load ptr, ptr %18, align 8
   %.not23.i = icmp eq ptr %20, null
+  %.not21.i = icmp eq ptr %.020.i, null
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19
-  %.not22.i = icmp eq ptr %.020.i, null
-  br i1 %.not22.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
+  br i1 %.not21.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %.125.us.i = phi i32 [ %21, %.lr.ph.split.us.i ], [ %.0.i, %.lr.ph.i ]
@@ -1224,7 +1224,7 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %gep.i = getelementptr %struct._dcerpc_sub_dissector, ptr %18, i64 %23
   %24 = load ptr, ptr %gep.i, align 8
   %.not.us.i = icmp eq ptr %24, null
-  br i1 %.not.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !9
+  br i1 %.not.us.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %25 = phi ptr [ %36, %.lr.ph.split.i ], [ %18, %.lr.ph.i ]
@@ -1244,31 +1244,30 @@ define void @dcerpc_init_uuid(i32 noundef %0, i32 noundef %1, ptr noundef readon
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %.not.i = icmp eq ptr %37, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !9
+  br i1 %.not.i, label %value_string_from_subdissectors.exit, label %.lr.ph.split.i, !llvm.loop !9
 
-._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %19
-  %.1.lcssa.i = phi i32 [ %.0.i, %19 ], [ %21, %.lr.ph.split.us.i ], [ %.0.i, %.lr.ph.split.i ]
-  %.not21.i = icmp eq ptr %.020.i, null
-  br i1 %.not21.i, label %38, label %value_string_from_subdissectors.exit
+._crit_edge.i:                                    ; preds = %19
+  br i1 %.not21.i, label %._crit_edge.thread.i, label %value_string_from_subdissectors.exit
 
-38:                                               ; preds = %._crit_edge.i
-  %39 = tail call ptr @wmem_epan_scope()
-  %40 = add i32 %.1.lcssa.i, 1
-  %41 = sext i32 %40 to i64
-  %42 = shl nsw i64 %41, 4
-  %43 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef %42) #18
+._crit_edge.thread.i:                             ; preds = %.lr.ph.split.us.i, %._crit_edge.i
+  %.1.lcssa29.i = phi i32 [ %.0.i, %._crit_edge.i ], [ %21, %.lr.ph.split.us.i ]
+  %38 = tail call ptr @wmem_epan_scope()
+  %39 = add i32 %.1.lcssa29.i, 1
+  %40 = sext i32 %39 to i64
+  %41 = shl nsw i64 %40, 4
+  %42 = tail call noalias ptr @wmem_alloc(ptr noundef %38, i64 noundef %41) #18
   br label %19
 
-value_string_from_subdissectors.exit:             ; preds = %._crit_edge.i
-  %44 = sext i32 %.1.lcssa.i to i64
-  %45 = getelementptr %struct._value_string, ptr %.020.i, i64 %44
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr null, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr %.020.i, ptr %47, align 8
-  %48 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dcerpc_guid, i32 noundef %0)
-  tail call fastcc void @dcerpc_init_finalize(ptr noundef %48, ptr noundef %7, ptr noundef %8)
+value_string_from_subdissectors.exit:             ; preds = %._crit_edge.i, %.lr.ph.split.i
+  %43 = sext i32 %.0.i to i64
+  %44 = getelementptr %struct._value_string, ptr %.020.i, i64 %43
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr null, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr %.020.i, ptr %46, align 8
+  %47 = tail call ptr @create_dissector_handle(ptr noundef nonnull @dissect_dcerpc_guid, i32 noundef %0)
+  tail call fastcc void @dcerpc_init_finalize(ptr noundef %47, ptr noundef %7, ptr noundef %8)
   ret void
 }
 
@@ -1286,16 +1285,16 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
   %2 = getelementptr i8, ptr %0, i64 8
   br label %3
 
-3:                                                ; preds = %22, %1
-  %.020 = phi ptr [ null, %1 ], [ %27, %22 ]
-  %.0 = phi i32 [ 0, %1 ], [ %.1.lcssa, %22 ]
+3:                                                ; preds = %._crit_edge.thread, %1
+  %.020 = phi ptr [ null, %1 ], [ %26, %._crit_edge.thread ]
+  %.0 = phi i32 [ 0, %1 ], [ %.1.lcssa29, %._crit_edge.thread ]
   %4 = load ptr, ptr %2, align 8
   %.not23 = icmp eq ptr %4, null
+  %.not21 = icmp eq ptr %.020, null
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %.not22 = icmp eq ptr %.020, null
-  br i1 %.not22, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not21, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.125.us = phi i32 [ %5, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
@@ -1306,7 +1305,7 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
   %gep = getelementptr %struct._dcerpc_sub_dissector, ptr %2, i64 %7
   %8 = load ptr, ptr %gep, align 8
   %.not.us = icmp eq ptr %8, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  br i1 %.not.us, label %._crit_edge.thread, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %9 = phi ptr [ %20, %.lr.ph.split ], [ %2, %.lr.ph ]
@@ -1326,27 +1325,26 @@ define hidden nonnull ptr @value_string_from_subdissectors(ptr noundef readonly 
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  br i1 %.not, label %._crit_edge.thread30, label %.lr.ph.split, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %3
-  %.1.lcssa = phi i32 [ %.0, %3 ], [ %5, %.lr.ph.split.us ], [ %.0, %.lr.ph.split ]
-  %.not21 = icmp eq ptr %.020, null
-  br i1 %.not21, label %22, label %28
+._crit_edge:                                      ; preds = %3
+  br i1 %.not21, label %._crit_edge.thread, label %._crit_edge.thread30
 
-22:                                               ; preds = %._crit_edge
-  %23 = tail call ptr @wmem_epan_scope()
-  %24 = add i32 %.1.lcssa, 1
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 4
-  %27 = tail call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef %26) #18
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
+  %.1.lcssa29 = phi i32 [ %.0, %._crit_edge ], [ %5, %.lr.ph.split.us ]
+  %22 = tail call ptr @wmem_epan_scope()
+  %23 = add i32 %.1.lcssa29, 1
+  %24 = sext i32 %23 to i64
+  %25 = shl nsw i64 %24, 4
+  %26 = tail call noalias ptr @wmem_alloc(ptr noundef %22, i64 noundef %25) #18
   br label %3
 
-28:                                               ; preds = %._crit_edge
-  %29 = sext i32 %.1.lcssa to i64
-  %30 = getelementptr %struct._value_string, ptr %.020, i64 %29
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr null, ptr %31, align 8
+._crit_edge.thread30:                             ; preds = %._crit_edge, %.lr.ph.split
+  %27 = sext i32 %.0 to i64
+  %28 = getelementptr %struct._value_string, ptr %.020, i64 %27
+  store i32 0, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr null, ptr %29, align 8
   ret ptr %.020
 }
 

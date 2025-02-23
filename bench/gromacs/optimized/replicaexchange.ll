@@ -2680,7 +2680,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %769 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %770 = load ptr, ptr %769, align 8
   %771 = icmp sgt i32 %763, 0
-  br i1 %771, label %.lr.ph.preheader.i.i, label %._crit_edge.thread.i.i
+  br i1 %771, label %.lr.ph.preheader.i.i, label %._crit_edge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge367.i
   %wide.trip.count.i.i = zext nneg i32 %763 to i64
@@ -2707,18 +2707,18 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   store i32 %779, ptr %780, align 4
   %indvars.iv.next44.i.i = add nuw nsw i64 %indvars.iv43.i.i, 1
   %exitcond47.not.i.i = icmp eq i64 %indvars.iv.next44.i.i, %wide.trip.count.i.i
-  br i1 %exitcond47.not.i.i, label %._crit_edge.i.i, label %.lr.ph33.i.i, !llvm.loop !35
+  br i1 %exitcond47.not.i.i, label %.lr.ph36.preheader.i.i, label %.lr.ph33.i.i, !llvm.loop !35
 
-._crit_edge.thread.i.i:                           ; preds = %._crit_edge367.i
+._crit_edge.i.i:                                  ; preds = %._crit_edge367.i
   %781 = call i64 @fwrite(ptr nonnull @.str.84, i64 23, i64 1, ptr %0)
   br label %._crit_edge37.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph33.i.i
+.lr.ph36.preheader.i.i:                           ; preds = %.lr.ph33.i.i
   %782 = call i64 @fwrite(ptr nonnull @.str.84, i64 23, i64 1, ptr %0)
   br label %.lr.ph36.i.i
 
-.lr.ph36.i.i:                                     ; preds = %.lr.ph36.i.i, %._crit_edge.i.i
-  %indvars.iv48.i.i = phi i64 [ 0, %._crit_edge.i.i ], [ %indvars.iv.next49.i.i, %.lr.ph36.i.i ]
+.lr.ph36.i.i:                                     ; preds = %.lr.ph36.i.i, %.lr.ph36.preheader.i.i
+  %indvars.iv48.i.i = phi i64 [ 0, %.lr.ph36.preheader.i.i ], [ %indvars.iv.next49.i.i, %.lr.ph36.i.i ]
   %783 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv48.i.i
   %784 = load i32, ptr %783, align 4
   %785 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.85, i32 noundef %784) #21
@@ -2726,7 +2726,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %exitcond52.not.i.i = icmp eq i64 %indvars.iv.next49.i.i, %wide.trip.count.i.i
   br i1 %exitcond52.not.i.i, label %._crit_edge37.i.i, label %.lr.ph36.i.i, !llvm.loop !36
 
-._crit_edge37.i.i:                                ; preds = %.lr.ph36.i.i, %._crit_edge.thread.i.i
+._crit_edge37.i.i:                                ; preds = %.lr.ph36.i.i, %._crit_edge.i.i
   %fputc.i.i = call i32 @fputc(i32 10, ptr %0)
   %786 = call i64 @fwrite(ptr nonnull @.str.86, i64 22, i64 1, ptr %0)
   br i1 %771, label %.lr.ph40.preheader.i.i, label %_ZL18print_allswitchindP8_IO_FILEiPiS1_S1_.exit.i
@@ -3110,12 +3110,12 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   br label %1028
 
 1027:                                             ; preds = %1028
-  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i52, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i
+  %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i52, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit, label %1028, !llvm.loop !42
 
 1028:                                             ; preds = %1027, %.lr.ph.i51
-  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i66, %1027 ]
+  %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i65, %1027 ]
   %1029 = getelementptr inbounds nuw i32, ptr %1024, i64 %indvars.iv.i52
   %1030 = load i32, ptr %1029, align 4
   %1031 = getelementptr inbounds nuw i32, ptr %1026, i64 %indvars.iv.i52
@@ -3169,13 +3169,13 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   %1051 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %1052 = load ptr, ptr %1051, align 8
   %1053 = icmp sgt i32 %1048, 0
-  br i1 %1053, label %.lr.ph71.split.us.preheader.i.i, label %._crit_edge.thread.i.i58
+  br i1 %1053, label %.lr.ph71.split.us.preheader.i.i, label %._crit_edge.thread.i.i
 
 .lr.ph71.split.us.preheader.i.i:                  ; preds = %._crit_edge61.i
   %1054 = zext nneg i32 %1048 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %1052, i8 0, i64 %1054, i1 false)
   %1055 = add nuw i32 %1048, 1
-  %wide.trip.count.i.i60 = zext i32 %1055 to i64
+  %wide.trip.count.i.i59 = zext i32 %1055 to i64
   br label %.lr.ph71.split.us.i.i
 
 .lr.ph71.split.us.i.i:                            ; preds = %..loopexit_crit_edge.us.i.i, %.lr.ph71.split.us.preheader.i.i
@@ -3195,7 +3195,7 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   br label %1062
 
 1062:                                             ; preds = %1068, %.lr.ph67.us.i.i
-  %indvars.iv.i.i61 = phi i64 [ 1, %.lr.ph67.us.i.i ], [ %indvars.iv.next.i.i62, %1068 ]
+  %indvars.iv.i.i60 = phi i64 [ 1, %.lr.ph67.us.i.i ], [ %indvars.iv.next.i.i61, %1068 ]
   %.05266.us.i.i = phi i32 [ %1061, %.lr.ph67.us.i.i ], [ %1065, %1068 ]
   %1063 = sext i32 %.05266.us.i.i to i64
   %1064 = getelementptr inbounds i32, ptr %.pre.i57, i64 %1063
@@ -3206,19 +3206,19 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
 
 1068:                                             ; preds = %1062
   %1069 = load ptr, ptr %1059, align 8
-  %1070 = getelementptr inbounds nuw i32, ptr %1069, i64 %indvars.iv.i.i61
+  %1070 = getelementptr inbounds nuw i32, ptr %1069, i64 %indvars.iv.i.i60
   store i32 %1065, ptr %1070, align 4
   %1071 = sext i32 %1065 to i64
   %1072 = getelementptr inbounds i8, ptr %1052, i64 %1071
   store i8 1, ptr %1072, align 1
-  %indvars.iv.next.i.i62 = add nuw nsw i64 %indvars.iv.i.i61, 1
-  %exitcond.not.i.i63 = icmp eq i64 %indvars.iv.next.i.i62, %wide.trip.count.i.i60
-  br i1 %exitcond.not.i.i63, label %..loopexit_crit_edge.us.i.i, label %1062, !llvm.loop !46
+  %indvars.iv.next.i.i61 = add nuw nsw i64 %indvars.iv.i.i60, 1
+  %exitcond.not.i.i62 = icmp eq i64 %indvars.iv.next.i.i61, %wide.trip.count.i.i59
+  br i1 %exitcond.not.i.i62, label %..loopexit_crit_edge.us.i.i, label %1062, !llvm.loop !46
 
 1073:                                             ; preds = %1062
-  %1074 = trunc nuw nsw i64 %indvars.iv.i.i61 to i32
+  %1074 = trunc nuw nsw i64 %indvars.iv.i.i60 to i32
   %1075 = load ptr, ptr %1059, align 8
-  %1076 = and i64 %indvars.iv.i.i61, 4294967295
+  %1076 = and i64 %indvars.iv.i.i60, 4294967295
   %1077 = getelementptr inbounds nuw i32, ptr %1075, i64 %1076
   store i32 -1, ptr %1077, align 4
   %spec.select.us.i.i = call i32 @llvm.smax.i32(i32 %1074, i32 %.070.us.i.i)
@@ -3232,21 +3232,21 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   %.1.us.i.i = phi i32 [ %.070.us.i.i, %1078 ], [ %spec.select.us.i.i, %1073 ], [ %.070.us.i.i, %1068 ]
   %indvars.iv.next84.i.i = add nuw nsw i64 %indvars.iv83.i.i, 1
   %exitcond87.not.i.i = icmp eq i64 %indvars.iv.next84.i.i, %1054
-  br i1 %exitcond87.not.i.i, label %._crit_edge.i.i64, label %.lr.ph71.split.us.i.i, !llvm.loop !47
+  br i1 %exitcond87.not.i.i, label %._crit_edge.i.i63, label %.lr.ph71.split.us.i.i, !llvm.loop !47
 
-._crit_edge.i.i64:                                ; preds = %..loopexit_crit_edge.us.i.i
+._crit_edge.i.i63:                                ; preds = %..loopexit_crit_edge.us.i.i
   %1079 = add nsw i32 %.1.us.i.i, -1
   %1080 = load ptr, ptr @debug, align 8
-  %.not.i.i65 = icmp eq ptr %1080, null
-  br i1 %.not.i.i65, label %_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i, label %.lr.ph74.us.i.i
+  %.not.i.i64 = icmp eq ptr %1080, null
+  br i1 %.not.i.i64, label %_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i, label %.lr.ph74.us.i.i
 
-._crit_edge.thread.i.i58:                         ; preds = %._crit_edge61.i
+._crit_edge.thread.i.i:                           ; preds = %._crit_edge61.i
   %1081 = load ptr, ptr @debug, align 8
   %.not99.i.i = icmp eq ptr %1081, null
   br i1 %.not99.i.i, label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit, label %._crit_edge79.i.i
 
-.lr.ph74.us.i.i:                                  ; preds = %._crit_edge.i.i64, %._crit_edge75.us.i.i
-  %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %._crit_edge75.us.i.i ], [ 0, %._crit_edge.i.i64 ]
+.lr.ph74.us.i.i:                                  ; preds = %._crit_edge.i.i63, %._crit_edge75.us.i.i
+  %indvars.iv93.i.i = phi i64 [ %indvars.iv.next94.i.i, %._crit_edge75.us.i.i ], [ 0, %._crit_edge.i.i63 ]
   %1082 = load ptr, ptr @debug, align 8
   %1083 = trunc nuw nsw i64 %indvars.iv93.i.i to i32
   %1084 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1082, ptr noundef nonnull @.str.95, i32 noundef %1083) #21
@@ -3279,14 +3279,14 @@ _ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_
   %.pre.i.i = load ptr, ptr @debug, align 8
   br label %._crit_edge79.i.i
 
-._crit_edge79.i.i:                                ; preds = %._crit_edge79.loopexit.i.i, %._crit_edge.thread.i.i58
-  %.1 = phi i32 [ %1079, %._crit_edge79.loopexit.i.i ], [ 0, %._crit_edge.thread.i.i58 ]
-  %1095 = phi ptr [ %.pre.i.i, %._crit_edge79.loopexit.i.i ], [ %1081, %._crit_edge.thread.i.i58 ]
+._crit_edge79.i.i:                                ; preds = %._crit_edge79.loopexit.i.i, %._crit_edge.thread.i.i
+  %.1 = phi i32 [ %1079, %._crit_edge79.loopexit.i.i ], [ 0, %._crit_edge.thread.i.i ]
+  %1095 = phi ptr [ %.pre.i.i, %._crit_edge79.loopexit.i.i ], [ %1081, %._crit_edge.thread.i.i ]
   %1096 = call i32 @fflush(ptr noundef %1095)
   br label %_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i
 
-_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, %._crit_edge.i.i64
-  %.2 = phi i32 [ %1079, %._crit_edge.i.i64 ], [ %.1, %._crit_edge79.i.i ]
+_ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, %._crit_edge.i.i63
+  %.2 = phi i32 [ %1079, %._crit_edge.i.i63 ], [ %.1, %._crit_edge79.i.i ]
   %1097 = load ptr, ptr %1033, align 8
   %1098 = load ptr, ptr %1034, align 8
   %1099 = load i32, ptr %151, align 4
@@ -3384,13 +3384,13 @@ _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, 
   br i1 %1100, label %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge, label %.lr.ph69.split.i.i
 
 .lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge:   ; preds = %.lr.ph69.i.i
-  %.pre129 = zext nneg i32 %1099 to i64
-  %.pre130 = zext nneg i32 %.2 to i64
+  %.pre128 = zext nneg i32 %1099 to i64
+  %.pre129 = zext nneg i32 %.2 to i64
   br label %.lr.ph.us.preheader.i.i
 
 .lr.ph.us.preheader.i.i:                          ; preds = %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge, %.lr.ph69.i.thread.i
-  %wide.trip.count88.i.i.pre-phi = phi i64 [ %.pre130, %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge ], [ %wide.trip.count82.i.i, %.lr.ph69.i.thread.i ]
-  %wide.trip.count93.i.i.pre-phi = phi i64 [ %.pre129, %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge ], [ %wide.trip.count.i44.i, %.lr.ph69.i.thread.i ]
+  %wide.trip.count88.i.i.pre-phi = phi i64 [ %.pre129, %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge ], [ %wide.trip.count82.i.i, %.lr.ph69.i.thread.i ]
+  %wide.trip.count93.i.i.pre-phi = phi i64 [ %.pre128, %.lr.ph69.i.i..lr.ph.us.preheader.i.i_crit_edge ], [ %wide.trip.count.i44.i, %.lr.ph69.i.thread.i ]
   br label %.lr.ph.us.i.i
 
 .lr.ph.us.i.i:                                    ; preds = %._crit_edge.us.i.i, %.lr.ph.us.preheader.i.i
@@ -3428,7 +3428,7 @@ _ZL20cyclic_decompositionPKiPPiPbiS1_.exit.i:     ; preds = %._crit_edge79.i.i, 
   %1150 = load ptr, ptr @debug, align 8
   %1151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1150, ptr noundef nonnull @.str.98, i32 noundef %.267.i.i) #21
   %1152 = load ptr, ptr @debug, align 8
-  %fputc.i.i59 = call i32 @fputc(i32 10, ptr %1152)
+  %fputc.i.i58 = call i32 @fputc(i32 10, ptr %1152)
   %1153 = add nuw nsw i32 %.267.i.i, 1
   %exitcond84.not.i.i = icmp eq i32 %1153, %1099
   br i1 %exitcond84.not.i.i, label %._crit_edge70.i.i, label %.lr.ph69.split.i.i, !llvm.loop !54
@@ -3466,40 +3466,40 @@ _ZL22compute_exchange_orderPPiS0_ii.exit.i:       ; preds = %._crit_edge70.i.i, 
   store i8 1, ptr %20, align 1
   br label %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
 
-_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %1027, %1161, %._crit_edge.thread.i.i58, %1165, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
-  %1166 = phi i8 [ 0, %24 ], [ 1, %1165 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ 0, %1161 ], [ 0, %1027 ]
-  %.075 = phi i32 [ 0, %24 ], [ %.2, %1165 ], [ %.2, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i58 ], [ %.2, %1161 ], [ 0, %1027 ]
-  %.044 = phi i32 [ 0, %24 ], [ %29, %1165 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i58 ], [ %29, %1161 ], [ %29, %1027 ]
+_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit: ; preds = %1027, %1161, %._crit_edge.thread.i.i, %1165, %_ZL22compute_exchange_orderPPiS0_ii.exit.i, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit, %24
+  %1166 = phi i8 [ 0, %24 ], [ 1, %1165 ], [ 0, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ 0, %1161 ], [ 0, %1027 ]
+  %.074 = phi i32 [ 0, %24 ], [ %.2, %1165 ], [ %.2, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ 0, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ 0, %._crit_edge.thread.i.i ], [ %.2, %1161 ], [ 0, %1027 ]
+  %.044 = phi i32 [ 0, %24 ], [ %29, %1165 ], [ %29, %_ZL22compute_exchange_orderPPiS0_ii.exit.i ], [ %29, %_ZL25test_for_replica_exchangeP8_IO_FILEPK14gmx_multisim_tP11gmx_repl_exPK14gmx_enerdata_tflf.exit ], [ %29, %._crit_edge.thread.i.i ], [ %29, %1161 ], [ %29, %1027 ]
   %1167 = getelementptr i8, ptr %1, i64 96
   %.val = load ptr, ptr %1167, align 8
-  %.not76 = icmp eq ptr %.val, null
-  br i1 %.not76, label %1173, label %1168
+  %.not75 = icmp eq ptr %.val, null
+  br i1 %.not75, label %1173, label %1168
 
 1168:                                             ; preds = %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
   %1169 = load ptr, ptr @TMPI_BYTE, align 8
   %1170 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %1171 = load ptr, ptr %1170, align 8
   %1172 = call noundef i32 @_Z10tMPI_BcastPviP14tmpi_datatype_iP10tmpi_comm_(ptr noundef nonnull %20, i32 noundef 1, ptr noundef %1169, i32 noundef 0, ptr noundef %1171)
-  %.pre126 = load i8, ptr %20, align 1
+  %.pre125 = load i8, ptr %20, align 1
   br label %1173
 
 1173:                                             ; preds = %1168, %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit
-  %1174 = phi i8 [ %.pre126, %1168 ], [ %1166, %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit ]
+  %1174 = phi i8 [ %.pre125, %1168 ], [ %1166, %_ZL22prepare_to_do_exchangeP11gmx_repl_exiPiPb.exit ]
   %1175 = trunc i8 %1174 to i1
-  br i1 %1175, label %1176, label %_ZL17copy_state_serialPK7t_statePS_.exit72
+  br i1 %1175, label %1176, label %_ZL17copy_state_serialPK7t_statePS_.exit71
 
 1176:                                             ; preds = %1173
   %.val49 = load ptr, ptr %1167, align 8
-  %.not77 = icmp eq ptr %.val49, null
-  br i1 %.not77, label %1178, label %1177
+  %.not76 = icmp eq ptr %.val49, null
+  br i1 %.not76, label %1178, label %1177
 
 1177:                                             ; preds = %1176
   call void @_Z16dd_collect_stateP12gmx_domdec_tPK7t_statePS1_(ptr noundef nonnull %.val49, ptr noundef %6, ptr noundef %4)
   br label %_ZL17copy_state_serialPK7t_statePS_.exit
 
 1178:                                             ; preds = %1176
-  %.not.i67 = icmp eq ptr %4, %6
-  br i1 %.not.i67, label %_ZL17copy_state_serialPK7t_statePS_.exit, label %1179
+  %.not.i66 = icmp eq ptr %4, %6
+  br i1 %.not.i66, label %_ZL17copy_state_serialPK7t_statePS_.exit, label %1179
 
 1179:                                             ; preds = %1178
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL17copy_state_serialPK7t_statePS_ENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 640) #20
@@ -3517,7 +3517,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1178, %1177
   br i1 %1185, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %1186
 
 1186:                                             ; preds = %1182, %_ZL17copy_state_serialPK7t_statePS_.exit
-  %1187 = icmp sgt i32 %.075, 0
+  %1187 = icmp sgt i32 %.074, 0
   br i1 %1187, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1186
@@ -3544,7 +3544,7 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1178, %1177
   %1208 = getelementptr inbounds nuw i8, ptr %4, i64 392
   %1209 = getelementptr inbounds nuw i8, ptr %4, i64 416
   %1210 = getelementptr inbounds nuw i8, ptr %4, i64 456
-  %wide.trip.count = zext nneg i32 %.075 to i64
+  %wide.trip.count = zext nneg i32 %.074 to i64
   br label %1211
 
 1211:                                             ; preds = %.lr.ph, %1251
@@ -3653,10 +3653,10 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1178, %1177
   %1271 = fdiv float %1263, %1270
   %1272 = call noundef float @sqrtf(float noundef %1271) #21
   %.not10.i = icmp eq ptr %1256, %1258
-  br i1 %.not10.i, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %.lr.ph.i68
+  br i1 %.not10.i, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %.lr.ph.i67
 
-.lr.ph.i68:                                       ; preds = %1254, %.lr.ph.i68
-  %.sroa.0.011.i = phi ptr [ %1281, %.lr.ph.i68 ], [ %1256, %1254 ]
+.lr.ph.i67:                                       ; preds = %1254, %.lr.ph.i67
+  %.sroa.0.011.i = phi ptr [ %1281, %.lr.ph.i67 ], [ %1256, %1254 ]
   %1273 = load float, ptr %.sroa.0.011.i, align 4
   %1274 = fmul float %1272, %1273
   store float %1274, ptr %.sroa.0.011.i, align 4
@@ -3669,27 +3669,27 @@ _ZL17copy_state_serialPK7t_statePS_.exit:         ; preds = %1178, %1177
   %1280 = fmul float %1272, %1279
   store float %1280, ptr %1278, align 4
   %1281 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i, i64 12
-  %.not.i69 = icmp eq ptr %1281, %1258
-  br i1 %.not.i69, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %.lr.ph.i68
+  %.not.i68 = icmp eq ptr %1281, %1258
+  br i1 %.not.i68, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit, label %.lr.ph.i67
 
-_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit: ; preds = %.lr.ph.i68, %1254, %._crit_edge, %1182
+_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit: ; preds = %.lr.ph.i67, %1254, %._crit_edge, %1182
   %.val50 = load ptr, ptr %1167, align 8
   %1282 = icmp ne ptr %.val50, null
-  %.not.i71 = icmp eq ptr %6, %4
-  %or.cond = or i1 %.not.i71, %1282
-  br i1 %or.cond, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit72_crit_edge, label %1283
+  %.not.i70 = icmp eq ptr %6, %4
+  %or.cond = or i1 %.not.i70, %1282
+  br i1 %or.cond, label %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit71_crit_edge, label %1283
 
-_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit72_crit_edge: ; preds = %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit
-  %.pre127 = load i8, ptr %20, align 1
-  %.pre128 = trunc i8 %.pre127 to i1
-  br label %_ZL17copy_state_serialPK7t_statePS_.exit72
+_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit71_crit_edge: ; preds = %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit
+  %.pre126 = load i8, ptr %20, align 1
+  %.pre127 = trunc i8 %.pre126 to i1
+  br label %_ZL17copy_state_serialPK7t_statePS_.exit71
 
 1283:                                             ; preds = %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.99, ptr noundef nonnull @.str.100, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL17copy_state_serialPK7t_statePS_ENK3$_0clEv", ptr noundef nonnull @.str.1, i32 noundef 640) #20
   unreachable
 
-_ZL17copy_state_serialPK7t_statePS_.exit72:       ; preds = %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit72_crit_edge, %1173
-  %.pre-phi = phi i1 [ %.pre128, %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit72_crit_edge ], [ false, %1173 ]
+_ZL17copy_state_serialPK7t_statePS_.exit71:       ; preds = %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit71_crit_edge, %1173
+  %.pre-phi = phi i1 [ %.pre127, %_ZL16scale_velocitiesN3gmx8ArrayRefINS_11BasicVectorIfEEEEf.exit._ZL17copy_state_serialPK7t_statePS_.exit71_crit_edge ], [ false, %1173 ]
   ret i1 %.pre-phi
 }
 
@@ -4769,7 +4769,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %fputc.i94 = call i32 @fputc(i32 10, ptr %0)
   %138 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   %139 = icmp sgt i32 %132, 0
-  br i1 %139, label %.lr.ph.i95, label %._crit_edge5.thread.critedge.i
+  br i1 %139, label %.lr.ph.i95, label %._crit_edge5.critedge.i
 
 .lr.ph.i95:                                       ; preds = %130, %.lr.ph.i95
   %.0331.i = phi i32 [ %141, %.lr.ph.i95 ], [ 0, %130 ]
@@ -4783,28 +4783,28 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %143 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   br label %.lr.ph4.i
 
-._crit_edge5.thread.critedge.i:                   ; preds = %130
-  %144 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
-  %145 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
-  %fputc3722.i = call i32 @fputc(i32 10, ptr %0)
+.lr.ph4.i:                                        ; preds = %.lr.ph4.i, %._crit_edge.i
+  %.12.i = phi i32 [ %144, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
+  %144 = add nuw nsw i32 %.12.i, 1
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef %144) #21
+  %exitcond14.not.i = icmp eq i32 %144, %132
+  br i1 %exitcond14.not.i, label %.lr.ph12.i, label %.lr.ph4.i, !llvm.loop !64
+
+._crit_edge5.critedge.i:                          ; preds = %130
+  %146 = call i64 @fwrite(ptr nonnull @.str.111, i64 28, i64 1, ptr %0)
+  %147 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
+  %fputc37.i = call i32 @fputc(i32 10, ptr %0)
   br label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit
 
-.lr.ph4.i:                                        ; preds = %.lr.ph4.i, %._crit_edge.i
-  %.12.i = phi i32 [ %146, %.lr.ph4.i ], [ 0, %._crit_edge.i ]
-  %146 = add nuw nsw i32 %.12.i, 1
-  %147 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.112, i32 noundef %146) #21
-  %exitcond14.not.i = icmp eq i32 %146, %132
-  br i1 %exitcond14.not.i, label %._crit_edge5.i, label %.lr.ph4.i, !llvm.loop !64
-
-._crit_edge5.i:                                   ; preds = %.lr.ph4.i
-  %fputc37.i = call i32 @fputc(i32 10, ptr %0)
+.lr.ph12.i:                                       ; preds = %.lr.ph4.i
+  %fputc3722.i = call i32 @fputc(i32 10, ptr %0)
   %148 = sitofp i32 %137 to double
   %149 = fmul double %148, 2.000000e+00
   %wide.trip.count20.i = zext nneg i32 %132 to i64
   br label %.lr.ph8.us.i
 
-.lr.ph8.us.i:                                     ; preds = %._crit_edge9.us.i, %._crit_edge5.i
-  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %._crit_edge9.us.i ], [ 0, %._crit_edge5.i ]
+.lr.ph8.us.i:                                     ; preds = %._crit_edge9.us.i, %.lr.ph12.i
+  %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %._crit_edge9.us.i ], [ 0, %.lr.ph12.i ]
   %150 = call i64 @fwrite(ptr nonnull @.str.109, i64 4, i64 1, ptr %0)
   %151 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv17.i
   br label %152
@@ -4832,7 +4832,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
   %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
   br i1 %exitcond21.not.i, label %_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit, label %.lr.ph8.us.i, !llvm.loop !66
 
-_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit: ; preds = %._crit_edge9.us.i, %._crit_edge5.thread.critedge.i
+_ZL23print_transition_matrixP8_IO_FILEiPPiPKi.exit: ; preds = %._crit_edge9.us.i, %._crit_edge5.critedge.i
   ret void
 }
 

@@ -195,7 +195,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %34 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %33, i32 noundef %1)
   %35 = and i32 %34, 65535
   %.not.not9 = icmp eq i32 %35, 408
-  br i1 %.not.not9, label %.lr.ph, label %.thread1
+  br i1 %.not.not9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader3
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -208,7 +208,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %40 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef nonnull %23, i16 noundef zeroext %39, i32 noundef 1)
   %41 = and i32 %40, 65535
   %.not.not7811 = icmp eq i32 %41, 0
-  br i1 %.not.not7811, label %.lr.ph12, label %._crit_edge
+  br i1 %.not.not7811, label %.lr.ph12, label %._crit_edge13
 
 .lr.ph12:                                         ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -258,7 +258,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   %66 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %63, i16 noundef zeroext %65, i32 noundef 1)
   %67 = and i32 %66, 65535
   %.not.not78 = icmp eq i32 %67, 0
-  br i1 %.not.not78, label %45, label %._crit_edge
+  br i1 %.not.not78, label %45, label %._crit_edge13
 
 .thread:                                          ; preds = %59
   %68 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -268,7 +268,7 @@ BufferGetPage.exit:                               ; preds = %11, %17
   store i32 0, ptr %28, align 4
   br label %199
 
-._crit_edge:                                      ; preds = %61, %.preheader
+._crit_edge13:                                    ; preds = %61, %.preheader
   %.lcssa = phi i32 [ %41, %.preheader ], [ %67, %61 ]
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 0, ptr %70, align 4
@@ -388,13 +388,13 @@ BufferGetPage.exit.i:                             ; preds = %114, %108
   %132 = getelementptr inbounds nuw i8, ptr %90, i64 12
   %133 = load i8, ptr %132, align 4, !range !5, !noundef !6
   %134 = trunc nuw i8 %133 to i1
-  br i1 %134, label %135, label %_hash_readprev.exit.thread
+  br i1 %134, label %135, label %.thread1
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %90, i64 13
   %137 = load i8, ptr %136, align 1, !range !5, !noundef !6
   %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %139, label %_hash_readprev.exit.thread
+  br i1 %138, label %139, label %.thread1
 
 139:                                              ; preds = %135
   %140 = load i32, ptr %92, align 4
@@ -454,7 +454,7 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   %164 = phi i32 [ %106, %126 ], [ %106, %130 ], [ %.pre, %._crit_edge.i ]
   %165 = phi ptr [ %123, %126 ], [ %123, %130 ], [ %163, %._crit_edge.i ]
   %.not = icmp eq i32 %164, 0
-  br i1 %.not, label %_hash_readprev.exit.thread, label %166
+  br i1 %.not, label %.thread1, label %166
 
 166:                                              ; preds = %_hash_readprev.exit
   store i32 %164, ptr %28, align 4
@@ -466,48 +466,48 @@ _hash_readprev.exit:                              ; preds = %126, %130, %._crit_
   %171 = tail call fastcc i32 @_hash_load_qualified_items(ptr noundef nonnull %0, ptr noundef %168, i16 noundef zeroext %170, i32 noundef %1)
   %172 = and i32 %171, 65535
   %.not.not = icmp eq i32 %172, 408
-  br i1 %.not.not, label %72, label %.thread1
+  br i1 %.not.not, label %72, label %._crit_edge
 
-.thread1:                                         ; preds = %166, %.preheader3
-  %.lcssa6 = phi i32 [ %35, %.preheader3 ], [ %172, %166 ]
-  %173 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  store i32 %.lcssa6, ptr %173, align 4
-  br label %176
-
-_hash_readprev.exit.thread:                       ; preds = %135, %131, %_hash_readprev.exit
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  store i32 -1, ptr %174, align 4
-  %175 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  store i32 %.1, ptr %175, align 4
+.thread1:                                         ; preds = %135, %131, %_hash_readprev.exit
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  store i32 -1, ptr %173, align 4
+  %174 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  store i32 %.1, ptr %174, align 4
   store i32 0, ptr %28, align 4
   br label %199
 
-176:                                              ; preds = %.thread1, %._crit_edge
-  %.sink33 = phi i32 [ 407, %.thread1 ], [ %71, %._crit_edge ]
-  %.sink = phi i32 [ 407, %.thread1 ], [ 0, %._crit_edge ]
+._crit_edge:                                      ; preds = %166, %.preheader3
+  %.lcssa6 = phi i32 [ %35, %.preheader3 ], [ %172, %166 ]
+  %175 = getelementptr inbounds nuw i8, ptr %9, i64 44
+  store i32 %.lcssa6, ptr %175, align 4
+  br label %176
+
+176:                                              ; preds = %._crit_edge, %._crit_edge13
+  %.sink34 = phi i32 [ 407, %._crit_edge ], [ %71, %._crit_edge13 ]
+  %.sink = phi i32 [ 407, %._crit_edge ], [ 0, %._crit_edge13 ]
   %177 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  store i32 %.sink33, ptr %177, align 4
+  store i32 %.sink34, ptr %177, align 4
   %178 = getelementptr inbounds nuw i8, ptr %9, i64 52
   store i32 %.sink, ptr %178, align 4
   %179 = load i32, ptr %28, align 4
   %180 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %181 = load i32, ptr %180, align 4
   %182 = icmp eq i32 %179, %181
-  br i1 %182, label %._crit_edge22, label %183
+  br i1 %182, label %._crit_edge23, label %183
 
-._crit_edge22:                                    ; preds = %176
-  %.pre23 = load ptr, ptr %5, align 8
+._crit_edge23:                                    ; preds = %176
+  %.pre24 = load ptr, ptr %5, align 8
   br label %187
 
 183:                                              ; preds = %176
   %184 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %185 = load i32, ptr %184, align 8
   %186 = icmp eq i32 %179, %185
-  %.pre24 = load ptr, ptr %5, align 8
+  %.pre25 = load ptr, ptr %5, align 8
   br i1 %186, label %187, label %193
 
-187:                                              ; preds = %._crit_edge22, %183
-  %188 = phi ptr [ %.pre23, %._crit_edge22 ], [ %.pre24, %183 ]
+187:                                              ; preds = %._crit_edge23, %183
+  %188 = phi ptr [ %.pre24, %._crit_edge23 ], [ %.pre25, %183 ]
   %189 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 -1, ptr %189, align 4
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 4
@@ -518,10 +518,10 @@ _hash_readprev.exit.thread:                       ; preds = %135, %131, %_hash_r
   br label %199
 
 193:                                              ; preds = %183
-  %194 = load i32, ptr %.pre24, align 4
+  %194 = load i32, ptr %.pre25, align 4
   %195 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 %194, ptr %195, align 4
-  %196 = getelementptr inbounds nuw i8, ptr %.pre24, i64 4
+  %196 = getelementptr inbounds nuw i8, ptr %.pre25, i64 4
   %197 = load i32, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %9, i64 36
   store i32 %197, ptr %198, align 4
@@ -529,8 +529,8 @@ _hash_readprev.exit.thread:                       ; preds = %135, %131, %_hash_r
   store i32 0, ptr %28, align 4
   br label %199
 
-199:                                              ; preds = %_hash_readprev.exit.thread, %.thread, %187, %193
-  %.170 = phi i1 [ false, %_hash_readprev.exit.thread ], [ true, %193 ], [ true, %187 ], [ false, %.thread ]
+199:                                              ; preds = %.thread1, %.thread, %187, %193
+  %.170 = phi i1 [ true, %193 ], [ true, %187 ], [ false, %.thread ], [ false, %.thread1 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #6

@@ -2455,72 +2455,42 @@ declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) 
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 -1, -9223372036854775808) i64 @_Py_write(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call fastcc i64 @_Py_write_impl(i32 noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 1)
-  ret i64 %4
-}
+  %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %2, i64 9223372036854775807)
+  br label %.preheader39.i
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -1, -9223372036854775808) i64 @_Py_write_impl(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
-  %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 9223372036854775807)
-  %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %.preheader, label %.preheader33
-
-.preheader:                                       ; preds = %4
+.preheader39.i:                                   ; preds = %10, %3
+  %4 = tail call ptr @PyEval_SaveThread() #17
   %5 = tail call ptr @__errno_location() #19
-  br label %14
-
-.preheader33:                                     ; preds = %4, %12
-  %6 = tail call ptr @PyEval_SaveThread() #17
-  %7 = tail call ptr @__errno_location() #19
-  store i32 0, ptr %7, align 4, !tbaa !180
-  %8 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %spec.store.select) #17
-  %9 = load i32, ptr %7, align 4, !tbaa !180
-  tail call void @PyEval_RestoreThread(ptr noundef %6) #17
-  %10 = icmp slt i64 %8, 0
-  %11 = icmp eq i32 %9, 4
-  %or.cond = select i1 %10, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %.loopexit
-
-12:                                               ; preds = %.preheader33
-  %13 = tail call i32 @PyErr_CheckSignals() #17
-  %.not25 = icmp eq i32 %13, 0
-  br i1 %.not25, label %.preheader33, label %.critedge, !llvm.loop !192
-
-14:                                               ; preds = %.preheader, %14
   store i32 0, ptr %5, align 4, !tbaa !180
-  %15 = tail call i64 @write(i32 noundef %0, ptr noundef %1, i64 noundef %spec.store.select) #17
-  %16 = load i32, ptr %5, align 4, !tbaa !180
-  %17 = icmp slt i64 %15, 0
-  %18 = icmp eq i32 %16, 4
-  %19 = select i1 %17, i1 %18, i1 false
-  br i1 %19, label %14, label %.loopexit, !llvm.loop !193
+  %6 = tail call i64 @write(i32 noundef %0, ptr noundef readonly %1, i64 noundef %spec.store.select.i) #17
+  %7 = load i32, ptr %5, align 4, !tbaa !180
+  tail call void @PyEval_RestoreThread(ptr noundef %4) #17
+  %8 = icmp slt i64 %6, 0
+  %9 = icmp eq i32 %7, 4
+  %or.cond.i = select i1 %8, i1 %9, i1 false
+  br i1 %or.cond.i, label %10, label %12
 
-.critedge:                                        ; preds = %12
-  store i32 4, ptr %7, align 4, !tbaa !180
-  br label %27
+10:                                               ; preds = %.preheader39.i
+  %11 = tail call i32 @PyErr_CheckSignals() #17
+  %.not25.i = icmp eq i32 %11, 0
+  br i1 %.not25.i, label %.preheader39.i, label %_Py_write_impl.exit.sink.split, !llvm.loop !192
 
-.loopexit:                                        ; preds = %.preheader33, %14
-  %.022.ph = phi i64 [ %15, %14 ], [ %8, %.preheader33 ]
-  %.021.ph = phi i32 [ %16, %14 ], [ %9, %.preheader33 ]
-  %20 = icmp slt i64 %.022.ph, 0
-  br i1 %20, label %21, label %27
+12:                                               ; preds = %.preheader39.i
+  br i1 %8, label %13, label %_Py_write_impl.exit
 
-21:                                               ; preds = %.loopexit
-  br i1 %.not, label %25, label %22
+13:                                               ; preds = %12
+  %14 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
+  %15 = tail call ptr @PyErr_SetFromErrno(ptr noundef %14) #17
+  br label %_Py_write_impl.exit.sink.split
 
-22:                                               ; preds = %21
-  %23 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !188
-  %24 = tail call ptr @PyErr_SetFromErrno(ptr noundef %23) #17
-  br label %25
+_Py_write_impl.exit.sink.split:                   ; preds = %10, %13
+  %.sink = phi i32 [ %7, %13 ], [ 4, %10 ]
+  store i32 %.sink, ptr %5, align 4, !tbaa !180
+  br label %_Py_write_impl.exit
 
-25:                                               ; preds = %22, %21
-  %26 = tail call ptr @__errno_location() #19
-  store i32 %.021.ph, ptr %26, align 4, !tbaa !180
-  br label %27
-
-27:                                               ; preds = %.loopexit, %25, %.critedge
-  %.0 = phi i64 [ -1, %.critedge ], [ -1, %25 ], [ %.022.ph, %.loopexit ]
-  ret i64 %.0
+_Py_write_impl.exit:                              ; preds = %_Py_write_impl.exit.sink.split, %12
+  %.0.i = phi i64 [ %6, %12 ], [ -1, %_Py_write_impl.exit.sink.split ]
+  ret i64 %.0.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -2536,9 +2506,9 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @_Py_write_noraise(i32 
   %8 = icmp slt i64 %6, 0
   %9 = icmp eq i32 %7, 4
   %10 = select i1 %8, i1 %9, i1 false
-  br i1 %10, label %5, label %.loopexit.i, !llvm.loop !193
+  br i1 %10, label %5, label %.thread.i, !llvm.loop !193
 
-.loopexit.i:                                      ; preds = %5
+.thread.i:                                        ; preds = %5
   %spec.select = select i1 %8, i64 -1, i64 %6
   ret i64 %spec.select
 }

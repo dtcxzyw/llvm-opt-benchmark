@@ -4783,16 +4783,11 @@ _ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit46: ; preds = %27
   store i64 9223372036854775807, ptr %4, align 8
   %30 = load atomic i32, ptr %6 acquire, align 8
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread83, label %32, !prof !120
+  br i1 %31, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit, label %32, !prof !120
 
 32:                                               ; preds = %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit46
   %33 = call noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(9) %9) #20
-  br label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread83
-
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread83: ; preds = %32, %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit46
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
-  br label %46
+  br label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit
 
 34:                                               ; preds = %25
   %35 = load atomic i64, ptr %15 monotonic, align 64
@@ -4817,7 +4812,12 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %34, %_ZN5folly16Th
   %45 = extractvalue { i64, i1 } %44, 1
   br i1 %45, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i
 
-46:                                               ; preds = %19, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread83
+_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit: ; preds = %32, %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit46
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #20
+  br label %46
+
+46:                                               ; preds = %19, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit
   %47 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
   %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 64, !tbaa !80
   %48 = load i64, ptr %0, align 64, !tbaa !80
@@ -4859,77 +4859,72 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %34, %_ZN5folly16Th
   store i64 %storemerge37, ptr %16, align 64, !tbaa !80
   %65 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #20
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %1, align 8, !tbaa !80
-  %66 = icmp sge i64 %65, %.sroa.0.0.copyload.i2.i.i
-  %67 = load atomic i64, ptr %15 monotonic, align 64
-  %.08.in.in17.i.i53 = and i64 %67, 4294967295
-  br i1 %66, label %68, label %79
+  %.not85 = icmp slt i64 %65, %.sroa.0.0.copyload.i2.i.i
+  %66 = load atomic i64, ptr %15 monotonic, align 64
+  %.08.in.in14.i = and i64 %66, 4294967295
+  br i1 %.not85, label %78, label %67
 
-68:                                               ; preds = %64
-  %.08.in18.i.i54 = icmp ne i64 %.08.in.in17.i.i53, 0
+67:                                               ; preds = %64
+  %.08.in18.i.i54 = icmp ne i64 %.08.in.in14.i, 0
   %.neg19.i.i55 = sext i1 %.08.in18.i.i54 to i64
-  %69 = add i64 %67, -8589934592
-  %70 = add i64 %69, %.neg19.i.i55
-  %71 = cmpxchg weak ptr %15, i64 %67, i64 %70 seq_cst monotonic, align 8
-  %72 = extractvalue { i64, i1 } %71, 1
-  br i1 %72, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
+  %68 = add i64 %66, -8589934592
+  %69 = add i64 %68, %.neg19.i.i55
+  %70 = cmpxchg weak ptr %15, i64 %66, i64 %69 seq_cst monotonic, align 8
+  %71 = extractvalue { i64, i1 } %70, 1
+  br i1 %71, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
 
-_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56: ; preds = %68, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
-  %73 = phi { i64, i1 } [ %77, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56 ], [ %71, %68 ]
-  %74 = extractvalue { i64, i1 } %73, 0
-  %.08.in.in.i.i57 = and i64 %74, 4294967295
+_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56: ; preds = %67, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
+  %72 = phi { i64, i1 } [ %76, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56 ], [ %70, %67 ]
+  %73 = extractvalue { i64, i1 } %72, 0
+  %.08.in.in.i.i57 = and i64 %73, 4294967295
   %.08.in.i.i58 = icmp ne i64 %.08.in.in.i.i57, 0
   %.neg.i.i59 = sext i1 %.08.in.i.i58 to i64
-  %75 = add i64 %74, -8589934592
-  %76 = add i64 %75, %.neg.i.i59
-  %77 = cmpxchg weak ptr %15, i64 %74, i64 %76 seq_cst monotonic, align 8
-  %78 = extractvalue { i64, i1 } %77, 1
-  br i1 %78, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
+  %74 = add i64 %73, -8589934592
+  %75 = add i64 %74, %.neg.i.i59
+  %76 = cmpxchg weak ptr %15, i64 %73, i64 %75 seq_cst monotonic, align 8
+  %77 = extractvalue { i64, i1 } %76, 1
+  br i1 %77, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56
 
-79:                                               ; preds = %64
-  %.08.in15.not.i = icmp eq i64 %.08.in.in17.i.i53, 0
-  br i1 %.08.in15.not.i, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61, label %.lr.ph.i
+78:                                               ; preds = %64
+  %.08.in15.not.i = icmp eq i64 %.08.in.in14.i, 0
+  br i1 %.08.in15.not.i, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %79, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
-  %.016.i = phi i64 [ %83, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %67, %79 ]
-  %80 = add i64 %.016.i, -8589934593
-  %81 = cmpxchg weak ptr %15, i64 %.016.i, i64 %80 seq_cst monotonic, align 8
-  %82 = extractvalue { i64, i1 } %81, 1
-  br i1 %82, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
+.lr.ph.i:                                         ; preds = %78, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
+  %.016.i = phi i64 [ %82, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %66, %78 ]
+  %79 = add i64 %.016.i, -8589934593
+  %80 = cmpxchg weak ptr %15, i64 %.016.i, i64 %79 seq_cst monotonic, align 8
+  %81 = extractvalue { i64, i1 } %80, 1
+  br i1 %81, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
 
 _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i:  ; preds = %.lr.ph.i
-  %83 = extractvalue { i64, i1 } %81, 0
-  %.08.in.in.i = and i64 %83, 4294967295
+  %82 = extractvalue { i64, i1 } %80, 0
+  %.08.in.in.i = and i64 %82, 4294967295
   %.08.in.not.i = icmp eq i64 %.08.in.in.i, 0
-  br i1 %.08.in.not.i, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61, label %.lr.ph.i
+  br i1 %.08.in.not.i, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %.lr.ph.i
 
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56, %79
-  %84 = phi i1 [ false, %79 ], [ %.08.in.i.i58, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
-  %brmerge = or i1 %66, %84
-  br i1 %brmerge, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
+_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56, %.lr.ph.i, %67
+  %83 = phi i1 [ %.08.in18.i.i54, %67 ], [ true, %.lr.ph.i ], [ %.08.in.i.i58, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i56 ]
+  %84 = call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EENS_13invoke_detail6traitsIRKSG_E6resultIEESG_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %0)
+  %.not = icmp eq ptr %84, null
+  br i1 %.not, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %85
 
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread: ; preds = %.lr.ph.i, %68, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61
-  %85 = phi i1 [ %84, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61 ], [ %.08.in18.i.i54, %68 ], [ true, %.lr.ph.i ]
-  %86 = call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EENS_13invoke_detail6traitsIRKSG_E6resultIEESG_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %0)
-  %.not = icmp eq ptr %86, null
-  br i1 %.not, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %87
+85:                                               ; preds = %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread
+  %86 = cmpxchg ptr %84, i32 0, i32 1 release monotonic, align 4
+  %87 = extractvalue { i32, i1 } %86, 1
+  br i1 %87, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %88
 
-87:                                               ; preds = %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread
-  %88 = cmpxchg ptr %86, i32 0, i32 1 release monotonic, align 4
-  %89 = extractvalue { i32, i1 } %88, 1
-  br i1 %89, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %90
-
-90:                                               ; preds = %87
-  %91 = extractvalue { i32, i1 } %88, 0
-  call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %86, i32 noundef %91) #20
+88:                                               ; preds = %85
+  %89 = extractvalue { i32, i1 } %86, 0
+  call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %84, i32 noundef %89) #20
   br label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
 
-_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i, %87, %34, %90, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61
-  %.133 = phi i1 [ false, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread ], [ true, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61 ], [ false, %90 ], [ false, %34 ], [ false, %87 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
-  %.2 = phi i1 [ %85, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread ], [ %.0, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61 ], [ %85, %90 ], [ %.08.in18.i.i, %34 ], [ %85, %87 ], [ %.08.in.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
+_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %78, %85, %34, %88, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread
+  %.133 = phi i1 [ false, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread ], [ false, %88 ], [ false, %34 ], [ false, %85 ], [ true, %78 ], [ true, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
+  %.2 = phi i1 [ %83, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit61.thread ], [ %83, %88 ], [ %.08.in18.i.i, %34 ], [ %83, %85 ], [ %.0, %78 ], [ %.0, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %.08.in.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #20
-  br i1 %.133, label %19, label %92, !llvm.loop !276
+  br i1 %.133, label %19, label %90, !llvm.loop !276
 
-92:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
+90:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #20
   ret i1 %.2
 }

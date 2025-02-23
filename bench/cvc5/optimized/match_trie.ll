@@ -2301,7 +2301,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i538: ; preds = %925
   br i1 %939, label %940, label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543
 
 940:                                              ; preds = %.noexc545
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %937, ptr align 4 %.sroa.0793.01205, i64 %928, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %937, ptr nonnull align 4 %.sroa.0793.01205, i64 %928, i1 false)
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543: ; preds = %940, %.noexc545

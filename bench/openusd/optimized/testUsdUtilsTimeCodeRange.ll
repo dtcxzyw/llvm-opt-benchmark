@@ -3497,7 +3497,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE9push_back
   br i1 %.not.i18, label %_ZN32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange14const_iteratorppEv.exit, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__11UsdTimeCodeESaIS1_EE9push_backERKS1_.exit
-  %40 = add i64 %.sroa.6.093, 1
+  %40 = add nuw i64 %.sroa.6.093, 1
   %41 = load double, ptr %.sroa.032.092, align 8
   %42 = fcmp uno double %41, 0.000000e+00
   br i1 %42, label %43, label %44

@@ -3007,7 +3007,7 @@ Vec_WecSizeUsed.exit:                             ; preds = %339, %.split42
   br label %.split
 
 .split:                                           ; preds = %336, %Vec_WecSizeUsed.exit
-  %345 = tail call ptr @Gia_ManFalseRebuild(ptr noundef %0, ptr noundef nonnull %238, i32 poison, i32 noundef %4)
+  %345 = tail call ptr @Gia_ManFalseRebuild(ptr noundef nonnull %0, ptr noundef nonnull %238, i32 poison, i32 noundef %4)
   %346 = icmp sgt i32 %spec.store.select.i.i, 0
   br i1 %346, label %.lr.ph.i.i.preheader, label %._crit_edge.i.i
 

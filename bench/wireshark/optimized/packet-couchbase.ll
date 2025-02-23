@@ -3450,7 +3450,7 @@ proto_item_set_generated.exit473:                 ; preds = %103, %112, %115
   %124 = tail call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 8, i32 noundef 0)
   %125 = add i32 %.0434515, 10
   %126 = icmp slt i32 %125, %104
-  br i1 %126, label %.lr.ph516, label %.loopexit, !llvm.loop !15
+  br i1 %126, label %.lr.ph516, label %.thread497, !llvm.loop !15
 
 127:                                              ; preds = %97
   %128 = add i8 %6, -7
@@ -3522,7 +3522,7 @@ has_json_value.exit.thread475:                    ; preds = %has_json_value.exit
   %154 = tail call ptr @proto_tree_add_item(ptr noundef %151, i32 noundef %153, ptr noundef %0, i32 noundef %.0433521, i32 noundef 2, i32 noundef 0)
   %155 = add i32 %.0433521, 2
   %156 = icmp slt i32 %155, %147
-  br i1 %156, label %.lr.ph522, label %.loopexit, !llvm.loop !16
+  br i1 %156, label %.lr.ph522, label %.thread497, !llvm.loop !16
 
 157:                                              ; preds = %144
   %158 = icmp ne i8 %6, -38
@@ -3589,39 +3589,39 @@ has_json_value.exit.thread475:                    ; preds = %has_json_value.exit
   %194 = tail call ptr @proto_item_add_subtree(ptr noundef %192, i32 noundef %193)
   %195 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %190, i32 noundef %186, i8 noundef zeroext 61)
   %196 = icmp eq i32 %195, -1
-  br i1 %196, label %.lr.ph520._crit_edge, label %.lr.ph559
+  br i1 %196, label %.lr.ph520._crit_edge, label %.lr.ph557
 
 .lr.ph520:                                        ; preds = %217
   %197 = add nuw i32 %213, 1
   %198 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %197, i32 noundef %221, i8 noundef zeroext 61)
   %199 = icmp eq i32 %198, -1
-  br i1 %199, label %.lr.ph520._crit_edge, label %.lr.ph559, !llvm.loop !17
+  br i1 %199, label %.lr.ph520._crit_edge, label %.lr.ph557, !llvm.loop !17
 
 .lr.ph520._crit_edge:                             ; preds = %.lr.ph520, %.lr.ph520.preheader
   %.3517.lcssa = phi ptr [ %192, %.lr.ph520.preheader ], [ %204, %.lr.ph520 ]
   %200 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.3517.lcssa, ptr noundef nonnull @ei_illegal_value, ptr noundef nonnull @.str.796)
   br label %.loopexit
 
-.lr.ph559:                                        ; preds = %.lr.ph520.preheader, %.lr.ph520
+.lr.ph557:                                        ; preds = %.lr.ph520.preheader, %.lr.ph520
   %201 = phi i32 [ %198, %.lr.ph520 ], [ %195, %.lr.ph520.preheader ]
-  %.0425518558 = phi i32 [ %221, %.lr.ph520 ], [ %186, %.lr.ph520.preheader ]
-  %.1519557 = phi i32 [ %197, %.lr.ph520 ], [ %190, %.lr.ph520.preheader ]
+  %.0425518556 = phi i32 [ %221, %.lr.ph520 ], [ %186, %.lr.ph520.preheader ]
+  %.1519555 = phi i32 [ %197, %.lr.ph520 ], [ %190, %.lr.ph520.preheader ]
   %202 = load i32, ptr @hf_config_key, align 4
-  %203 = sub i32 %201, %.1519557
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %202, ptr noundef %0, i32 noundef %.1519557, i32 noundef %203, i32 noundef 0)
+  %203 = sub i32 %201, %.1519555
+  %204 = tail call ptr @proto_tree_add_item(ptr noundef %194, i32 noundef %202, ptr noundef %0, i32 noundef %.1519555, i32 noundef %203, i32 noundef 0)
   %205 = load i32, ptr @ett_config_key, align 4
   %206 = tail call ptr @proto_item_add_subtree(ptr noundef %204, i32 noundef %205)
   %.neg = xor i32 %203, -1
-  %207 = add i32 %.0425518558, %.neg
+  %207 = add i32 %.0425518556, %.neg
   %208 = add nuw i32 %201, 1
   %209 = icmp slt i32 %207, 1
   br i1 %209, label %210, label %212
 
-210:                                              ; preds = %.lr.ph559
+210:                                              ; preds = %.lr.ph557
   %211 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %204, ptr noundef nonnull @ei_illegal_value, ptr noundef nonnull @.str.797)
   br label %.loopexit
 
-212:                                              ; preds = %.lr.ph559
+212:                                              ; preds = %.lr.ph557
   %213 = tail call i32 @tvb_find_uint8(ptr noundef %0, i32 noundef %208, i32 noundef %207, i8 noundef zeroext 59)
   %214 = icmp eq i32 %213, -1
   br i1 %214, label %215, label %217
@@ -3777,8 +3777,8 @@ has_json_value.exit.thread475:                    ; preds = %has_json_value.exit
   %293 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %282, ptr noundef nonnull @ei_compression_error, ptr noundef nonnull @.str.804)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.lr.ph514, %.lr.ph516, %217, %.lr.ph522, %proto_item_set_generated.exit, %has_json_value.exit.thread, %142, %167, %227, %280, %132, %129, %71, %.lr.ph520._crit_edge, %210, %215, %287, %289, %292
-  %.0426.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3517.lcssa, %.lr.ph520._crit_edge ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ null, %227 ], [ %171, %167 ], [ null, %142 ], [ %137, %has_json_value.exit.thread ], [ %81, %proto_item_set_generated.exit ], [ %149, %.lr.ph522 ], [ %204, %217 ], [ %111, %.lr.ph516 ], [ %81, %.lr.ph514 ], [ %14, %36 ]
+.loopexit:                                        ; preds = %36, %.lr.ph514, %217, %proto_item_set_generated.exit, %has_json_value.exit.thread, %142, %167, %227, %280, %132, %129, %71, %.lr.ph520._crit_edge, %210, %215, %287, %289, %292
+  %.0426.ph = phi ptr [ %282, %292 ], [ %282, %289 ], [ %282, %287 ], [ %204, %215 ], [ %204, %210 ], [ %.3517.lcssa, %.lr.ph520._crit_edge ], [ null, %71 ], [ %131, %129 ], [ %131, %132 ], [ %282, %280 ], [ null, %227 ], [ %171, %167 ], [ null, %142 ], [ %137, %has_json_value.exit.thread ], [ %81, %proto_item_set_generated.exit ], [ %204, %217 ], [ %81, %.lr.ph514 ], [ %14, %36 ]
   switch i8 %6, label %.thread497 [
     i8 0, label %294
     i8 9, label %294
@@ -3841,7 +3841,7 @@ has_json_value.exit.thread475:                    ; preds = %has_json_value.exit
   %303 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0426, ptr noundef nonnull @ei_value_missing, ptr noundef nonnull @.str.806, ptr noundef %302, ptr noundef nonnull @.str.264)
   br label %.thread497
 
-.thread497:                                       ; preds = %146, %proto_item_set_generated.exit473, %11, %188, %177, %44, %60, %246, %264, %277, %235, %231, %159, %101, %39, %42, %.loopexit, %294, %295, %300, %301, %.thread491
+.thread497:                                       ; preds = %.lr.ph516, %.lr.ph522, %146, %proto_item_set_generated.exit473, %11, %188, %177, %44, %60, %246, %264, %277, %235, %231, %159, %101, %39, %42, %.loopexit, %294, %295, %300, %301, %.thread491
   ret void
 }
 

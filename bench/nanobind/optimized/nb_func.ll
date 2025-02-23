@@ -2238,7 +2238,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %80, %92
   br i1 %.not76, label %100, label %98
 
 98:                                               ; preds = %97
-  %99 = call noundef ptr %.063(ptr noundef %0, ptr noundef %1, i64 noundef %10, ptr noundef %3) #24, !callees !30
+  %99 = call noundef ptr %.063(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %10, ptr noundef %3) #24, !callees !30
   br label %100
 
 100:                                              ; preds = %98, %97

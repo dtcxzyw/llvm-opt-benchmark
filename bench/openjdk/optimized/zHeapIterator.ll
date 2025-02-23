@@ -821,23 +821,23 @@ define hidden void @_ZN13ZHeapIteratorD2Ev(ptr noundef nonnull align 8 dereferen
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %2, align 8
-  %.not28 = icmp eq i64 %5, 0
-  br i1 %.not28, label %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
+  %.not29 = icmp eq i64 %5, 0
+  br i1 %.not29, label %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader, label %.lr.ph
 
 _ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader: ; preds = %14, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
-  %.not34 = icmp eq i32 %7, 0
-  br i1 %.not34, label %.preheader, label %.lr.ph31
+  %.not35 = icmp eq i32 %7, 0
+  br i1 %.not35, label %.preheader, label %.lr.ph32
 
-.lr.ph31:                                         ; preds = %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader
+.lr.ph32:                                         ; preds = %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %18
 
 .lr.ph:                                           ; preds = %1, %14
-  %.sroa.0.029 = phi i64 [ %9, %14 ], [ 0, %1 ]
-  %9 = add nuw i64 %.sroa.0.029, 1
-  %10 = getelementptr inbounds ptr, ptr %4, i64 %.sroa.0.029
+  %.sroa.0.030 = phi i64 [ %9, %14 ], [ 0, %1 ]
+  %9 = add nuw i64 %.sroa.0.030, 1
+  %10 = getelementptr inbounds ptr, ptr %4, i64 %.sroa.0.030
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %14, label %13
@@ -854,16 +854,16 @@ _ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader: ; 
 .preheader:                                       ; preds = %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit.preheader
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i32, ptr %15, align 8
-  %.not35 = icmp eq i32 %16, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph33
+  %.not36 = icmp eq i32 %16, 0
+  br i1 %.not36, label %._crit_edge, label %.lr.ph34
 
-.lr.ph33:                                         ; preds = %.preheader
+.lr.ph34:                                         ; preds = %.preheader
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %57
 
-18:                                               ; preds = %.lr.ph31, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit
-  %19 = phi i32 [ %7, %.lr.ph31 ], [ %54, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph31 ], [ %indvars.iv.next, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit ]
+18:                                               ; preds = %.lr.ph32, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit
+  %19 = phi i32 [ %7, %.lr.ph32 ], [ %54, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next, %_ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit ]
   %20 = load ptr, ptr %8, align 8
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
@@ -920,16 +920,16 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i: ; preds = 
   %48 = load ptr, ptr %47, align 8
   tail call void %48(ptr noundef nonnull align 8 dereferenceable(72) %25, ptr noundef nonnull %.06.i4.i.i.i, i64 noundef %.pre-phi3.i.i) #13
   %.not.i5.i.i.i = icmp eq ptr %45, null
-  br i1 %.not.i5.i.i.i, label %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i, label %.lr.ph.i3.i.i.i, !llvm.loop !12
+  br i1 %.not.i5.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i3.i.i.i, !llvm.loop !12
 
-_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i: ; preds = %.lr.ph.i3.i.i.i
-  %49 = load i64, ptr %28, align 8
+.loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i3.i.i.i
+  %.pre.i.i.i = load i64, ptr %28, align 8
   br label %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit
 
-_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i
-  %.sink.i.i.i = phi i64 [ %49, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i ], [ %39, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i ]
+_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i, %.loopexit.loopexit.i.i.i
+  %49 = phi i64 [ %.pre.i.i.i, %.loopexit.loopexit.i.i.i ], [ %39, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i ]
   %50 = getelementptr inbounds nuw i8, ptr %22, i64 672
-  store i64 %.sink.i.i.i, ptr %50, align 8
+  store i64 %49, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %22, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %51, i8 0, i64 32, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %22, i64 384
@@ -946,11 +946,11 @@ _ZN18ZArrayIteratorImplIP19ZHeapIteratorBitMapLb0EE4nextEPS1_.exit: ; preds = %1
   %56 = icmp samesign ult i64 %indvars.iv.next, %55
   br i1 %56, label %18, label %.preheader, !llvm.loop !13
 
-57:                                               ; preds = %.lr.ph33, %93
-  %58 = phi i32 [ %16, %.lr.ph33 ], [ %94, %93 ]
-  %indvars.iv37 = phi i64 [ 0, %.lr.ph33 ], [ %indvars.iv.next38, %93 ]
+57:                                               ; preds = %.lr.ph34, %93
+  %58 = phi i32 [ %16, %.lr.ph34 ], [ %94, %93 ]
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next39, %93 ]
   %59 = load ptr, ptr %17, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv37
+  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv38
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %93, label %63
@@ -1005,30 +1005,30 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i: ; preds = %_ZN5
   %87 = load ptr, ptr %86, align 8
   tail call void %87(ptr noundef nonnull align 8 dereferenceable(72) %64, ptr noundef nonnull %.06.i4.i.i.i20, i64 noundef %.pre-phi3.i.i17) #13
   %.not.i5.i.i.i21 = icmp eq ptr %84, null
-  br i1 %.not.i5.i.i.i21, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i, label %.lr.ph.i3.i.i.i19, !llvm.loop !14
+  br i1 %.not.i5.i.i.i21, label %.loopexit.loopexit.i.i.i22, label %.lr.ph.i3.i.i.i19, !llvm.loop !14
 
-_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i: ; preds = %.lr.ph.i3.i.i.i19
-  %88 = load i64, ptr %67, align 8
+.loopexit.loopexit.i.i.i22:                       ; preds = %.lr.ph.i3.i.i.i19
+  %.pre.i.i.i23 = load i64, ptr %67, align 8
   br label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit
 
-_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i
-  %.sink.i.i.i22 = phi i64 [ %88, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i ], [ %78, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i ]
+_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i, %.loopexit.loopexit.i.i.i22
+  %88 = phi i64 [ %.pre.i.i.i23, %.loopexit.loopexit.i.i.i22 ], [ %78, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i ]
   %89 = getelementptr inbounds nuw i8, ptr %61, i64 672
-  store i64 %.sink.i.i.i22, ptr %89, align 8
+  store i64 %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %61, i64 680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, i8 0, i64 32, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %61, i64 384
   %92 = load ptr, ptr %91, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %92) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %61) #13
-  %.pre40 = load i32, ptr %15, align 8
+  %.pre41 = load i32, ptr %15, align 8
   br label %93
 
 93:                                               ; preds = %57, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit
-  %94 = phi i32 [ %58, %57 ], [ %.pre40, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit ]
-  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %94 = phi i32 [ %58, %57 ], [ %.pre41, %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit ]
+  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %95 = zext i32 %94 to i64
-  %96 = icmp samesign ult i64 %indvars.iv.next38, %95
+  %96 = icmp samesign ult i64 %indvars.iv.next39, %95
   br i1 %96, label %57, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %93, %.preheader

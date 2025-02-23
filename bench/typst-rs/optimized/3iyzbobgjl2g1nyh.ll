@@ -1317,7 +1317,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i.i.i.i.i: ; preds = %11
 175:                                              ; preds = %167, %164
   %.118.i13.i.i.i.i.i = phi i64 [ %174, %167 ], [ %.017.i11.i.i.i.i.i, %164 ]
   %.1.i14.i.i.i.i.i = phi i64 [ %173, %167 ], [ %.0.i12.i.i.i.i.i, %164 ]
-  %176 = icmp ult i64 %.118.i13.i.i.i.i.i, %133
+  %176 = icmp samesign ult i64 %.118.i13.i.i.i.i.i, %133
   br i1 %176, label %177, label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E.exit.i.i.i"
 
 177:                                              ; preds = %175
@@ -1329,7 +1329,7 @@ _ZN9siphasher6sip1289u8to64_le17h147299064db59429E.exit.i.i.i.i.i: ; preds = %11
   %182 = zext i8 %181 to i64
   %183 = shl nuw nsw i64 %.118.i13.i.i.i.i.i, 3
   %184 = and i64 %183, 56
-  %185 = shl nuw i64 %182, %184
+  %185 = shl nuw nsw i64 %182, %184
   %186 = or i64 %185, %.1.i14.i.i.i.i.i
   br label %"_ZN69_$LT$siphasher..sip128..SipHasher13$u20$as$u20$core..hash..Hasher$GT$5write17h78a1e76b796f8b37E.exit.i.i.i"
 

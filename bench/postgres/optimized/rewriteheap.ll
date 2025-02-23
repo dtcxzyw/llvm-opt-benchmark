@@ -226,7 +226,7 @@ define dso_local void @end_heap_rewrite(ptr noundef captures(none) %0) local_unn
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i16 0, ptr %14, align 2
   %15 = load ptr, ptr %8, align 8
-  call fastcc void @raw_heap_insert(ptr noundef %0, ptr noundef %15)
+  call fastcc void @raw_heap_insert(ptr noundef nonnull %0, ptr noundef %15)
   %16 = call ptr @hash_seq_search(ptr noundef nonnull %3) #13
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6

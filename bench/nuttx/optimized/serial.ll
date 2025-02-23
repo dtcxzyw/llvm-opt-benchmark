@@ -1456,11 +1456,11 @@ uart_datasent.exit:                               ; preds = %.lr.ph.i.i, %108, %
 122:                                              ; preds = %106, %uart_datasent.exit
   %123 = and i64 %100, 512
   %.not.i98 = icmp eq i64 %123, 0
-  br i1 %.not.i98, label %up_irq_restore.exit99.thread, label %124
+  br i1 %.not.i98, label %up_irq_restore.exit99.thread.thread, label %124
 
 124:                                              ; preds = %122
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #5, !srcloc !10
-  br label %up_irq_restore.exit99.thread
+  br label %up_irq_restore.exit99.thread.thread
 
 125:                                              ; preds = %.thread
   %126 = tail call fastcc i32 @uart_tcdrain(ptr noundef nonnull %12, i64 noundef 10000000)
@@ -1550,8 +1550,8 @@ up_irq_restore.exit99:                            ; preds = %178, %151, %125, %1
     i32 0, label %up_irq_restore.exit99.thread
   ]
 
-up_irq_restore.exit99.thread:                     ; preds = %124, %122, %.thread, %up_irq_restore.exit99, %up_irq_restore.exit99
-  %.0106 = phi i32 [ %.0, %up_irq_restore.exit99 ], [ %.0, %up_irq_restore.exit99 ], [ 0, %124 ], [ 0, %122 ], [ -25, %.thread ]
+up_irq_restore.exit99.thread:                     ; preds = %.thread, %up_irq_restore.exit99, %up_irq_restore.exit99
+  %.0106 = phi i32 [ %.0, %up_irq_restore.exit99 ], [ %.0, %up_irq_restore.exit99 ], [ -25, %.thread ]
   switch i32 %1, label %up_irq_restore.exit99.thread.thread [
     i32 257, label %180
     i32 258, label %191
@@ -1595,8 +1595,8 @@ up_irq_restore.exit99.thread:                     ; preds = %124, %122, %.thread
   store i32 %200, ptr %201, align 4
   br label %up_irq_restore.exit99.thread.thread
 
-up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit97, %up_irq_restore.exit95, %up_irq_restore.exit, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
-  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %192 ], [ 0, %181 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit97 ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit ], [ -25, %127 ], [ -25, %153 ]
+up_irq_restore.exit99.thread.thread:              ; preds = %up_irq_restore.exit97, %up_irq_restore.exit95, %up_irq_restore.exit, %122, %124, %127, %153, %191, %180, %up_irq_restore.exit99, %up_irq_restore.exit99.thread, %181, %192
+  %.1 = phi i32 [ %.0106, %up_irq_restore.exit99.thread ], [ 0, %192 ], [ 0, %181 ], [ %.0, %up_irq_restore.exit99 ], [ -22, %180 ], [ -22, %191 ], [ 0, %up_irq_restore.exit97 ], [ 0, %up_irq_restore.exit95 ], [ 0, %up_irq_restore.exit ], [ 0, %122 ], [ 0, %124 ], [ -25, %127 ], [ -25, %153 ]
   ret i32 %.1
 }
 

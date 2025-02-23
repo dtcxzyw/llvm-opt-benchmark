@@ -813,11 +813,15 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %21, %_ZNSt6vectorIf
   %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count127
   br i1 %exitcond123.not, label %.critedge60.preheader, label %.lr.ph.us, !llvm.loop !88
 
-.critedge60.preheader:                            ; preds = %..critedge_crit_edge.us, %.critedge, %28
-  %.pre135 = load float, ptr %11, align 8
-  br i1 %.not.i.i.i.i, label %.critedge62, label %.lr.ph
+.critedge60.preheader:                            ; preds = %..critedge_crit_edge.us, %28
+  br i1 %.not.i.i.i.i, label %.critedge60.preheader..critedge62_crit_edge, label %.lr.ph
+
+.critedge60.preheader..critedge62_crit_edge:      ; preds = %.critedge, %.critedge60.preheader
+  %.pre135 = load float, ptr %11, align 8, !tbaa !38
+  br label %.critedge62
 
 .lr.ph:                                           ; preds = %.critedge60.preheader
+  %.promoted = load float, ptr %11, align 8
   %64 = load ptr, ptr %16, align 8, !tbaa !37
   %wide.trip.count132 = zext i8 %10 to i64
   br label %68
@@ -835,11 +839,11 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit71: ; preds = %_ZNSt6vecto
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %27, ptr align 1 %67, i64 %38, i1 false)
   %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
-  br i1 %exitcond128.not, label %.critedge60.preheader, label %.critedge, !llvm.loop !88
+  br i1 %exitcond128.not, label %.critedge60.preheader..critedge62_crit_edge, label %.critedge, !llvm.loop !88
 
 68:                                               ; preds = %.lr.ph, %.critedge60
   %indvars.iv129 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next130, %.critedge60 ]
-  %69 = phi float [ %.pre135, %.lr.ph ], [ %81, %.critedge60 ]
+  %69 = phi float [ %.promoted, %.lr.ph ], [ %81, %.critedge60 ]
   %70 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv129
   %71 = load float, ptr %70, align 4, !tbaa !39
   %72 = tail call float @llvm.fabs.f32(float %71)
@@ -868,8 +872,8 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit71: ; preds = %_ZNSt6vecto
   %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
   br i1 %exitcond133.not, label %.critedge62, label %68, !llvm.loop !89
 
-.critedge62:                                      ; preds = %.critedge60, %.critedge60.preheader
-  %82 = phi float [ %.pre135, %.critedge60.preheader ], [ %81, %.critedge60 ]
+.critedge62:                                      ; preds = %.critedge60, %.critedge60.preheader..critedge62_crit_edge
+  %82 = phi float [ %.pre135, %.critedge60.preheader..critedge62_crit_edge ], [ %81, %.critedge60 ]
   %83 = fcmp oeq float %82, 0.000000e+00
   br i1 %83, label %84, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65
 

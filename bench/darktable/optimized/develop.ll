@@ -7377,7 +7377,7 @@ define void @dt_dev_pop_history_items_ext(ptr noundef %0, i32 noundef %1) local_
   br i1 %102, label %.lr.ph115, label %._crit_edge116
 
 103:                                              ; preds = %._crit_edge116
-  tail call void @dt_masks_replace_current_forms(ptr noundef %0, ptr noundef %.082.lcssa) #24
+  tail call void @dt_masks_replace_current_forms(ptr noundef nonnull %0, ptr noundef %.082.lcssa) #24
   br label %.critedge
 
 .critedge:                                        ; preds = %89, %103, %._crit_edge116

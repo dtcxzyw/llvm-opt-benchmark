@@ -607,7 +607,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %.l
   %153 = load i64, ptr %152, align 4
   %154 = and i64 %153, 8
   %.not.i5 = icmp eq i64 %154, 0
-  br i1 %.not.i5, label %_ZN6Gluco26Clause6shrinkEi.exit, label %155
+  br i1 %.not.i5, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %155
 
 155:                                              ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
   %156 = lshr i64 %153, 32
@@ -615,9 +615,9 @@ _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %.l
   %158 = getelementptr inbounds nuw [0 x %union.anon], ptr %157, i64 0, i64 %156
   %159 = load i32, ptr %158, align 4, !tbaa !109
   store i32 %159, ptr %157, align 4, !tbaa !109
-  br label %_ZN6Gluco26Clause6shrinkEi.exit
+  br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
 
-_ZN6Gluco26Clause6shrinkEi.exit:                  ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, %155
+_ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, %155
   %160 = and i64 %153, 4294967295
   store i64 %160, ptr %152, align 4
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 1376
@@ -6375,10 +6375,10 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251:      ; preds = %._ZN6Gluco23vecINS_
 
 .sink.split:                                      ; preds = %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244
   %.sink = phi i32 [ %368, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %423, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %398, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
-  %.sink576 = phi ptr [ %369, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %424, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %399, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
+  %.sink577 = phi ptr [ %369, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %424, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %399, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
   %.2.ph = phi i32 [ %331, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit244 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit251 ], [ %.1408, %_ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit248 ]
   %426 = sext i32 %.sink to i64
-  %427 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.sink576, i64 %426
+  %427 = getelementptr inbounds %"struct.Gluco2::Lit", ptr %.sink577, i64 %426
   store i32 %233, ptr %427, align 4, !tbaa !55
   br label %428
 
@@ -13569,7 +13569,7 @@ _ZN6Gluco26Solver13ResetJustDataEb.exit:          ; preds = %151, %_ZN6Gluco23ve
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1288
   %169 = load i32, ptr %168, align 8, !tbaa !110
   %.not = icmp eq i32 %169, -1
-  br i1 %.not, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %.lr.ph.preheader.i
+  br i1 %.not, label %196, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN6Gluco26Solver13ResetJustDataEb.exit
   store i32 -1, ptr %168, align 8, !tbaa !110
@@ -13613,7 +13613,7 @@ _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %.l
   %188 = load i64, ptr %187, align 4
   %189 = and i64 %188, 8
   %.not.i36 = icmp eq i64 %189, 0
-  br i1 %.not.i36, label %_ZN6Gluco26Clause6shrinkEi.exit, label %190
+  br i1 %.not.i36, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit, label %190
 
 190:                                              ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit
   %191 = lshr i64 %188, 32
@@ -13621,18 +13621,18 @@ _ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit: ; preds = %.l
   %193 = getelementptr inbounds nuw [0 x %union.anon], ptr %192, i64 0, i64 %191
   %194 = load i32, ptr %193, align 4, !tbaa !109
   store i32 %194, ptr %192, align 4, !tbaa !109
-  br label %_ZN6Gluco26Clause6shrinkEi.exit
-
-_ZN6Gluco26Clause6shrinkEi.exit:                  ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, %190
-  %195 = and i64 %188, 4294967295
-  store i64 %195, ptr %187, align 4
   br label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
 
-_ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %_ZN6Gluco26Clause6shrinkEi.exit, %_ZN6Gluco26Solver13ResetJustDataEb.exit
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 1392
-  store i32 0, ptr %196, align 8, !tbaa !116
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1376
-  store i32 0, ptr %197, align 8, !tbaa !111
+_ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %_ZN6Gluco215ClauseAllocator5allocINS_3vecINS_3LitEEEEEjRKT_b.exit, %190
+  %195 = and i64 %188, 4294967295
+  store i64 %195, ptr %187, align 4
+  br label %196
+
+196:                                              ; preds = %_ZN6Gluco23vecINS_3LitEED2Ev.exit, %_ZN6Gluco26Solver13ResetJustDataEb.exit
+  %197 = getelementptr inbounds nuw i8, ptr %0, i64 1392
+  store i32 0, ptr %197, align 8, !tbaa !116
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 1376
+  store i32 0, ptr %198, align 8, !tbaa !111
   ret void
 }
 

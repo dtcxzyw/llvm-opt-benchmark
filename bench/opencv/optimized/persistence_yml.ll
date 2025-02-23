@@ -2672,14 +2672,14 @@ _Z10cv_isalnumc.exit.thread:                      ; preds = %191, %187, %.thread
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 168
   %212 = load ptr, ptr %211, align 8
-  %213 = call noundef double %212(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef %.5, ptr noundef nonnull %8)
+  %213 = call noundef double %212(ptr noundef nonnull align 8 dereferenceable(8) %209, ptr noundef nonnull %.5, ptr noundef nonnull %8)
   store double %213, ptr %13, align 8
   call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 2, ptr noundef nonnull %13, i32 noundef -1)
   br label %217
 
 214:                                              ; preds = %206, %164
   %.4 = phi ptr [ %146, %164 ], [ %.0295436, %206 ]
-  %215 = call i64 @strtol(ptr noundef %.4, ptr noundef nonnull %8, i32 noundef 0) #14
+  %215 = call i64 @strtol(ptr noundef nonnull %.4, ptr noundef nonnull %8, i32 noundef 0) #14
   %216 = trunc i64 %215 to i32
   store i32 %216, ptr %14, align 4
   call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 1, ptr noundef nonnull %14, i32 noundef -1)

@@ -2325,7 +2325,7 @@ define internal fastcc void @compute_postnum_recursive(ptr noundef captures(none
   %15 = load ptr, ptr %8, align 8, !tbaa !90
   %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !34
-  tail call fastcc void @compute_postnum_recursive(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %17)
+  tail call fastcc void @compute_postnum_recursive(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %12, align 4, !tbaa !91
   %19 = sext i32 %18 to i64

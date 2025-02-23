@@ -221,7 +221,7 @@ define void @Aig_ManSpeedupNode(ptr readnone captures(none) %0, ptr noundef %1, 
   %45 = ptrtoint ptr %44 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
-  %48 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef %1, ptr noundef %47, ptr noundef nonnull %25)
+  %48 = tail call i32 @Aig_ManSpeedupNode_rec(ptr noundef nonnull %1, ptr noundef %47, ptr noundef nonnull %25)
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %49, label %52
 
@@ -360,7 +360,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %.lr.ph154, %94
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %106
   %114 = phi ptr [ %113, %106 ], [ null, %Aig_ObjChild0Copy.exit ]
-  %115 = tail call ptr @Aig_And(ptr noundef %1, ptr noundef %102, ptr noundef %114) #13
+  %115 = tail call ptr @Aig_And(ptr noundef nonnull %1, ptr noundef %102, ptr noundef %114) #13
   %116 = getelementptr inbounds nuw i8, ptr %90, i64 40
   store ptr %115, ptr %116, align 8, !tbaa !40
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
@@ -433,7 +433,7 @@ Vec_PtrFree.exit137:                              ; preds = %._crit_edge, %131
   %150 = load ptr, ptr %149, align 8, !tbaa !44
   %151 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %indvars.iv191
   %152 = load ptr, ptr %151, align 16, !tbaa !44
-  %153 = tail call ptr @Aig_Mux(ptr noundef %1, ptr noundef %147, ptr noundef %150, ptr noundef %152) #13
+  %153 = tail call ptr @Aig_Mux(ptr noundef nonnull %1, ptr noundef %147, ptr noundef %150, ptr noundef %152) #13
   store ptr %153, ptr %151, align 16, !tbaa !44
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, %141
   %154 = icmp slt i64 %indvars.iv.next192, %134

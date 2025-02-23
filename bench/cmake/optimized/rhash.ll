@@ -356,7 +356,7 @@ define dso_local noundef i32 @rhash_final(ptr noundef captures(none) %0, ptr nou
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !22
-  call void %17(ptr noundef %19, ptr noundef %.01516) #15
+  call void %17(ptr noundef %19, ptr noundef nonnull %.01516) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr %9, align 8, !tbaa !4
   %21 = zext i32 %20 to i64
@@ -527,7 +527,7 @@ rhash_update.exit:                                ; preds = %38, %29, %32
   %61 = load ptr, ptr %60, align 8, !tbaa !32
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !22
-  call void %61(ptr noundef %63, ptr noundef %.01516.i) #15
+  call void %61(ptr noundef %63, ptr noundef nonnull %.01516.i) #15
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %64 = load i32, ptr %53, align 8, !tbaa !4
   %65 = zext i32 %64 to i64
@@ -799,7 +799,7 @@ rhash_init.exit:                                  ; preds = %16, %28
   %50 = load ptr, ptr %49, align 8, !tbaa !32
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !22
-  call void %50(ptr noundef %52, ptr noundef %.01516.i) #15
+  call void %50(ptr noundef %52, ptr noundef nonnull %.01516.i) #15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %53 = load i32, ptr %42, align 8, !tbaa !4
   %54 = zext i32 %53 to i64

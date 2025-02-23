@@ -1503,7 +1503,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit: ; preds = %89, %
   %.sroa.9.0.i = phi i16 [ %138, %89 ], [ %187, %139 ]
   store <15 x i16> %.sroa.0.i.sroa.0.0, ptr %57, align 2, !noalias !283
   store i16 %.sroa.9.0.i, ptr %67, align 2, !noalias !283
-  %188 = add i64 %54, 1
+  %188 = add nuw i64 %54, 1
   %189 = add i64 %188, %49
   %190 = icmp ult i64 %189, %.val2401
   br i1 %190, label %192, label %328, !prof !278

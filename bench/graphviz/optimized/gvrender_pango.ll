@@ -746,7 +746,7 @@ cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !74
 
 28:                                               ; preds = %._crit_edge
-  tail call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef %6, i32 noundef %3, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef nonnull %6, i32 noundef %3, ptr noundef nonnull %1, i64 noundef %2)
   br label %39
 
 29:                                               ; preds = %._crit_edge
@@ -845,7 +845,7 @@ cairogen_set_penstyle.exit:                       ; preds = %11, %12, %13
   br i1 %38, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
 39:                                               ; preds = %._crit_edge
-  tail call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef %6, i32 noundef %3, ptr noundef nonnull %1, i64 noundef %2)
+  tail call fastcc void @cairo_gradient_fill(ptr noundef %8, ptr noundef nonnull %6, i32 noundef %3, ptr noundef nonnull %1, i64 noundef %2)
   br label %50
 
 40:                                               ; preds = %._crit_edge

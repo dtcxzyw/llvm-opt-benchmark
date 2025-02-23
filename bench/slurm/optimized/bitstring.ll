@@ -3495,7 +3495,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %19, %
 
 .critedge.preheader.i:                            ; preds = %.lr.ph.i, %29
   %.017.lcssa.i = phi i64 [ %30, %29 ], [ %34, %.lr.ph.i ]
-  %.not1825.i24 = icmp sgt i64 %.017.lcssa.i, %31
+  %.not1825.i24 = icmp samesign ugt i64 %.017.lcssa.i, %31
   br i1 %.not1825.i24, label %.critedge2.i27, label %.lr.ph27.i25
 
 .lr.ph.i:                                         ; preds = %29, %.lr.ph.i

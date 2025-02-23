@@ -864,7 +864,7 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
   %.not23 = icmp eq ptr %4, %0
   br i1 %.not23, label %._crit_edge34, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph33:                                         ; preds = %.lr.ph
   %5 = add i64 %.sroa.speculated, 4
   %invariant.gep = getelementptr i8, ptr %1, i64 16
   br label %11
@@ -879,13 +879,13 @@ define void @_ZNK3g2o28OptimizationAlgorithmFactory11listSolversERSo(ptr noundef
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %.02125, i64 %9)
   %10 = load ptr, ptr %.sroa.014.024, align 8, !tbaa !19
   %.not = icmp eq ptr %10, %0
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !44
+  br i1 %.not, label %.lr.ph33, label %.lr.ph, !llvm.loop !44
 
 ._crit_edge34:                                    ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %2
   ret void
 
-11:                                               ; preds = %._crit_edge, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
-  %.sroa.09.031 = phi ptr [ %4, %._crit_edge ], [ %51, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
+11:                                               ; preds = %.lr.ph33, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit
+  %.sroa.09.031 = phi ptr [ %4, %.lr.ph33 ], [ %51, %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit ]
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.09.031, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8

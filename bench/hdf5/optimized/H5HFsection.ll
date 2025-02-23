@@ -1017,7 +1017,7 @@ define internal ptr @H5HF__sect_row_deserialize(ptr noundef readonly captures(no
   %47 = zext i8 %46 to i32
   %48 = shl nuw nsw i32 %47, 8
   %49 = or disjoint i32 %48, %44
-  %50 = tail call fastcc ptr @H5HF__sect_indirect_new(ptr noundef %15, i64 noundef %2, i64 noundef %3, ptr noundef null, i64 noundef %.052.lcssa.i, i32 noundef %33, i32 noundef %41, i32 noundef %49)
+  %50 = tail call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %15, i64 noundef %2, i64 noundef %3, ptr noundef null, i64 noundef %.052.lcssa.i, i32 noundef %33, i32 noundef %41, i32 noundef %49)
   %51 = icmp eq ptr %50, null
   br i1 %51, label %52, label %56
 
@@ -1040,7 +1040,7 @@ define internal ptr @H5HF__sect_row_deserialize(ptr noundef readonly captures(no
   %66 = load i32, ptr %65, align 8, !tbaa !26
   %67 = getelementptr inbounds nuw i8, ptr %50, i64 36
   %68 = load i32, ptr %67, align 4, !tbaa !26
-  %69 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef %15, ptr noundef %50, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %66, i32 noundef %68, i32 noundef %63, i32 noundef %64)
+  %69 = tail call fastcc i32 @H5HF__sect_indirect_init_rows(ptr noundef nonnull %15, ptr noundef %50, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, i32 noundef %66, i32 noundef %68, i32 noundef %63, i32 noundef %64)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %71, label %H5HF__sect_indirect_deserialize.exit
 
@@ -1189,7 +1189,7 @@ tailrecurse.i:                                    ; preds = %17, %tailrecurse.i
   br i1 %.not.i, label %H5HF__sect_indirect_top.exit, label %tailrecurse.i
 
 H5HF__sect_indirect_top.exit:                     ; preds = %tailrecurse.i
-  %22 = tail call fastcc i32 @H5HF__sect_indirect_shrink(ptr noundef %6, ptr noundef nonnull %.tr.i)
+  %22 = tail call fastcc i32 @H5HF__sect_indirect_shrink(ptr noundef nonnull %6, ptr noundef nonnull %.tr.i)
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %H5HF__sect_indirect_merge_row.exit
 
@@ -1546,7 +1546,7 @@ H5HF__sect_node_free.exit.i.i.i:                  ; preds = %200
 231:                                              ; preds = %224
   %232 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 2, ptr %232, align 8, !tbaa !20
-  %233 = tail call i32 @H5HF__space_add(ptr noundef %6, ptr noundef nonnull %1, i32 noundef 4) #13
+  %233 = tail call i32 @H5HF__space_add(ptr noundef nonnull %6, ptr noundef nonnull %1, i32 noundef 4) #13
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %235, label %H5HF__sect_row_free.exit.thread.i
 
@@ -1593,7 +1593,7 @@ H5HF__sect_row_free.exit.thread.i:                ; preds = %231, %H5HF__sect_no
 
 260:                                              ; preds = %250
   %261 = load i64, ptr %.tr.i.i, align 8, !tbaa !23
-  %262 = call i32 @H5HF__man_iblock_parent_info(ptr noundef %6, i64 noundef %261, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
+  %262 = call i32 @H5HF__man_iblock_parent_info(ptr noundef nonnull %6, i64 noundef %261, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %263 = icmp slt i32 %262, 0
   br i1 %263, label %264, label %._crit_edge.i.i
 
@@ -1617,7 +1617,7 @@ H5HF__sect_row_free.exit.thread.i:                ; preds = %231, %H5HF__sect_no
   %274 = load i64, ptr %.tr.i.i, align 8, !tbaa !23
   %275 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   %276 = load i64, ptr %275, align 8, !tbaa !24
-  %277 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef %6, i64 noundef %274, i64 noundef %276, ptr noundef %254, i64 noundef %269, i32 noundef %272, i32 noundef %273, i32 noundef 1)
+  %277 = call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %6, i64 noundef %274, i64 noundef %276, ptr noundef %254, i64 noundef %269, i32 noundef %272, i32 noundef %273, i32 noundef 1)
   %278 = icmp eq ptr %277, null
   br i1 %278, label %279, label %283
 
@@ -3059,7 +3059,7 @@ define range(i32 -1, 1) i32 @H5HF__sect_indirect_add(ptr noundef %0, ptr noundef
   %33 = zext i32 %16 to i64
   %34 = mul i64 %32, %33
   %35 = add i64 %34, %.045.lcssa
-  %36 = tail call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %35, i64 noundef 0, ptr noundef %1, i64 noundef %22, i32 noundef %15, i32 noundef %16, i32 noundef %3)
+  %36 = tail call fastcc ptr @H5HF__sect_indirect_new(ptr noundef nonnull %0, i64 noundef %35, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %22, i32 noundef %15, i32 noundef %16, i32 noundef %3)
   %37 = icmp eq ptr %36, null
   br i1 %37, label %38, label %42
 
@@ -4245,7 +4245,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_revive(ptr noun
   %44 = load ptr, ptr %18, align 8, !tbaa !26
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 264
   %46 = load ptr, ptr %45, align 8, !tbaa !72
-  %47 = tail call fastcc i32 @H5HF__sect_indirect_revive(ptr noundef %0, ptr noundef nonnull %38, ptr noundef %46)
+  %47 = tail call fastcc i32 @H5HF__sect_indirect_revive(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef %46)
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %49, label %53
 

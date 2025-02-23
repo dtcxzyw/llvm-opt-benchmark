@@ -2745,7 +2745,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 52:                                               ; preds = %zend_dump_op_array_name.exit
   %53 = load ptr, ptr @stderr, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %spec.select195, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.0145, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !108
   %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.75, i32 noundef %55) #11
   br label %57
@@ -2873,7 +2873,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
   br i1 %.not166, label %.loopexit202, label %126
 
 126:                                              ; preds = %125
-  %127 = getelementptr inbounds nuw i8, ptr %spec.select195, i64 72
+  %127 = getelementptr inbounds nuw i8, ptr %.0145, i64 72
   %128 = load ptr, ptr %127, align 8, !tbaa !50
   %.not177 = icmp eq ptr %128, null
   br i1 %.not177, label %.loopexit202, label %.preheader201
@@ -2940,7 +2940,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 .lr.ph205:                                        ; preds = %147, %.lr.ph205
   %.0150204 = phi ptr [ %158, %.lr.ph205 ], [ %153, %147 ]
-  tail call void @zend_dump_op_line(ptr noundef %0, ptr noundef %143, ptr noundef %.0150204, i32 noundef %1, ptr noundef %.0145)
+  tail call void @zend_dump_op_line(ptr noundef nonnull %0, ptr noundef nonnull %143, ptr noundef %.0150204, i32 noundef %1, ptr noundef %.0145)
   %158 = getelementptr inbounds nuw i8, ptr %.0150204, i64 32
   %159 = icmp ult ptr %158, %157
   br i1 %159, label %.lr.ph205, label %.loopexit200
@@ -3135,7 +3135,7 @@ zend_dump_op_array_name.exit:                     ; preds = %29, %34, %37
 
 .lr.ph216:                                        ; preds = %268, %.lr.ph216
   %.0146214 = phi ptr [ %274, %.lr.ph216 ], [ %270, %268 ]
-  tail call void @zend_dump_op_line(ptr noundef %0, ptr noundef null, ptr noundef %.0146214, i32 noundef %1, ptr noundef %.0145)
+  tail call void @zend_dump_op_line(ptr noundef nonnull %0, ptr noundef null, ptr noundef %.0146214, i32 noundef %1, ptr noundef %.0145)
   %274 = getelementptr inbounds nuw i8, ptr %.0146214, i64 32
   %275 = icmp ult ptr %274, %273
   br i1 %275, label %.lr.ph216, label %._crit_edge217
@@ -4125,25 +4125,25 @@ zend_dump_op_array_name.exit:                     ; preds = %14, %19, %22
   %39 = mul i32 %38, %.020
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i64, ptr %37, i64 %40
-  tail call fastcc void @zend_dump_var_set(ptr noundef %0, ptr noundef nonnull @.str.113, ptr noundef %41)
+  tail call fastcc void @zend_dump_var_set(ptr noundef nonnull %0, ptr noundef nonnull @.str.113, ptr noundef %41)
   %42 = load ptr, ptr %31, align 8, !tbaa !170
   %43 = load i32, ptr %30, align 4, !tbaa !169
   %44 = mul i32 %43, %.020
   %45 = zext i32 %44 to i64
   %46 = getelementptr inbounds nuw i64, ptr %42, i64 %45
-  tail call fastcc void @zend_dump_var_set(ptr noundef %0, ptr noundef nonnull @.str.114, ptr noundef %46)
+  tail call fastcc void @zend_dump_var_set(ptr noundef nonnull %0, ptr noundef nonnull @.str.114, ptr noundef %46)
   %47 = load ptr, ptr %32, align 8, !tbaa !171
   %48 = load i32, ptr %30, align 4, !tbaa !169
   %49 = mul i32 %48, %.020
   %50 = zext i32 %49 to i64
   %51 = getelementptr inbounds nuw i64, ptr %47, i64 %50
-  tail call fastcc void @zend_dump_var_set(ptr noundef %0, ptr noundef nonnull @.str.115, ptr noundef %51)
+  tail call fastcc void @zend_dump_var_set(ptr noundef nonnull %0, ptr noundef nonnull @.str.115, ptr noundef %51)
   %52 = load ptr, ptr %33, align 8, !tbaa !172
   %53 = load i32, ptr %30, align 4, !tbaa !169
   %54 = mul i32 %53, %.020
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i64, ptr %52, i64 %55
-  tail call fastcc void @zend_dump_var_set(ptr noundef %0, ptr noundef nonnull @.str.116, ptr noundef %56)
+  tail call fastcc void @zend_dump_var_set(ptr noundef nonnull %0, ptr noundef nonnull @.str.116, ptr noundef %56)
   %57 = add nuw nsw i32 %.020, 1
   %58 = load i32, ptr %1, align 8, !tbaa !114
   %59 = icmp slt i32 %57, %58

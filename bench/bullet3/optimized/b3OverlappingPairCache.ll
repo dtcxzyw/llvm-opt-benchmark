@@ -268,27 +268,27 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %20, %_ZNK20b3Aligne
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %.not.i16.i.i = icmp eq ptr %25, null
-  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i, label %26
+  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i, label %26
 
 26:                                               ; preds = %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load i8, ptr %27, align 8, !tbaa !25, !range !33, !noundef !34
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
+  br i1 %29, label %30, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 30:                                               ; preds = %26
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %25)
-  br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
+  br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i:    ; preds = %30, %26, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
+_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %30, %26, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 1, ptr %31, align 8, !tbaa !25
   store ptr %.0.i18.i.i, ptr %24, align 8, !tbaa !26
   store i32 %.0.i.i, ptr %8, align 8, !tbaa !28
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
-  %32 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i18.i.i, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i ]
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %32 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i18.i.i, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = sext i32 %5 to i64
   %wide.trip.count.i = sext i32 %3 to i64
@@ -356,27 +356,27 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33: ; preds = %52, %_ZNK20b3Alig
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %57 = load ptr, ptr %56, align 8, !tbaa !26
   %.not.i16.i.i36 = icmp eq ptr %57, null
-  br i1 %.not.i16.i.i36, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37, label %58
+  br i1 %.not.i16.i.i36, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37, label %58
 
 58:                                               ; preds = %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %60 = load i8, ptr %59, align 8, !tbaa !25, !range !33, !noundef !34
   %61 = trunc nuw i8 %60 to i1
-  br i1 %61, label %62, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37
+  br i1 %61, label %62, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37
 
 62:                                               ; preds = %58
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %57)
-  br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37
+  br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37
 
-_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37:  ; preds = %62, %58, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33
+_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37: ; preds = %62, %58, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i33
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %63, align 8, !tbaa !25
   store ptr %.0.i18.i.i34, ptr %56, align 8, !tbaa !26
   store i32 %.0.i.i35, ptr %42, align 8, !tbaa !28
   br label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %..lr.ph.i24_crit_edge, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37
-  %64 = phi ptr [ %.pre57, %..lr.ph.i24_crit_edge ], [ %.0.i18.i.i34, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i37 ]
+.lr.ph.i24:                                       ; preds = %..lr.ph.i24_crit_edge, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37
+  %64 = phi ptr [ %.pre57, %..lr.ph.i24_crit_edge ], [ %.0.i18.i.i34, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i37 ]
   %65 = sext i32 %39 to i64
   %66 = shl nsw i64 %65, 2
   %scevgep52 = getelementptr i8, ptr %64, i64 %66

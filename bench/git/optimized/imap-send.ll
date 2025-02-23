@@ -3407,7 +3407,7 @@ define internal fastcc ptr @issue_imap_cmd(ptr noundef %0, ptr noundef readonly 
   br i1 %.not5364, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %21 = tail call fastcc i32 @get_cmd_result(ptr noundef %0, ptr noundef null)
+  %21 = tail call fastcc i32 @get_cmd_result(ptr noundef nonnull %0, ptr noundef null)
   %22 = load i32, ptr %19, align 4, !tbaa !113
   %.not53 = icmp eq i32 %22, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph, !llvm.loop !114

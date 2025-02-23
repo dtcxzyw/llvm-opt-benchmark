@@ -3757,12 +3757,7 @@ if.then.i.i:                                      ; preds = %entry
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %bestByClub_, i8 0, i64 24, i1 false)
   %cmp.not.i.i.i.i = icmp eq i64 %totalClubs, 0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i33.thread, label %if.end.i.i.i.i.i.i.i
-
-_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i33.thread: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  %worstByClub_148 = getelementptr inbounds nuw i8, ptr %this, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bestByClub_, i8 0, i64 48, i1 false)
-  br label %invoke.cont6
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i45, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %totalClubs, 3
@@ -3782,6 +3777,11 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.end.i.i.i.i.i.i.
   %call5.i.i.i.i2.i.i49 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #26
           to label %call5.i.i.i.i2.i.i.noexc48 unwind label %lpad5
 
+_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i45: ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+  %worstByClub_148 = getelementptr inbounds nuw i8, ptr %this, i64 192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %bestByClub_, i8 0, i64 48, i1 false)
+  br label %invoke.cont6
+
 call5.i.i.i.i2.i.i.noexc48:                       ; preds = %call5.i.i.i.i2.i.i.noexc
   store ptr %call5.i.i.i.i2.i.i49, ptr %worstByClub_, align 8, !tbaa !165
   %add.ptr.i.i.i37 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i49, i64 %totalClubs
@@ -3790,9 +3790,9 @@ call5.i.i.i.i2.i.i.noexc48:                       ; preds = %call5.i.i.i.i2.i.i.
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i49, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !43
   br label %invoke.cont6
 
-invoke.cont6:                                     ; preds = %call5.i.i.i.i2.i.i.noexc48, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i33.thread
-  %worstByClub_149 = phi ptr [ %worstByClub_148, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i33.thread ], [ %worstByClub_, %call5.i.i.i.i2.i.i.noexc48 ]
-  %retval.0.i.i.i.i.i.i.i43 = phi ptr [ null, %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i33.thread ], [ %add.ptr.i.i.i37, %call5.i.i.i.i2.i.i.noexc48 ]
+invoke.cont6:                                     ; preds = %call5.i.i.i.i2.i.i.noexc48, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i45
+  %worstByClub_149 = phi ptr [ %worstByClub_148, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i45 ], [ %worstByClub_, %call5.i.i.i.i2.i.i.noexc48 ]
+  %retval.0.i.i.i.i.i.i.i43 = phi ptr [ null, %_ZNSt12_Vector_baseImSaImEEC2EmRKS0_.exit.thread.i45 ], [ %add.ptr.i.i.i37, %call5.i.i.i.i2.i.i.noexc48 ]
   %_M_finish.i.i7.i44 = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr %retval.0.i.i.i.i.i.i.i43, ptr %_M_finish.i.i7.i44, align 8, !tbaa !167
   %generator_ = getelementptr inbounds nuw i8, ptr %this, i64 216

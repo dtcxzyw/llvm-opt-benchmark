@@ -12137,7 +12137,7 @@ _ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.preheader.i.i: ; pred
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %342) #19, !noalias !815
   %359 = load ptr, ptr %14, align 8, !tbaa !399, !noalias !815
   %.not.i.i.i.i.i63 = icmp eq ptr %359, null
-  br i1 %.not.i.i.i.i.i63, label %_ZN4llvm4json5ArrayD2Ev.exit.i, label %360
+  br i1 %.not.i.i.i.i.i63, label %.lr.ph.i.i.i.i.i10.preheader.i, label %360
 
 360:                                              ; preds = %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.preheader.i.i
   %361 = load ptr, ptr %359, align 8, !tbaa !227, !noalias !815
@@ -12160,9 +12160,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %359, i64 noundef 32) #22, !noalias !815
-  br label %_ZN4llvm4json5ArrayD2Ev.exit.i
+  br label %.lr.ph.i.i.i.i.i10.preheader.i
 
-_ZN4llvm4json5ArrayD2Ev.exit.i:                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i, %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.preheader.i.i
+.lr.ph.i.i.i.i.i10.preheader.i:                   ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i.i, %_ZN4llvm4json6ObjectC2ESt16initializer_listINS1_2KVEE.exit.preheader.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14) #19, !noalias !815
   call void @_ZNSt6vectorIN4llvm4json5ValueESaIS2_EE17_M_realloc_insertIJNS1_6ObjectEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %13)
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_4json9ObjectKeyENS2_5ValueENS_12DenseMapInfoINS_9StringRefEvEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S7_SA_E10destroyAllEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
@@ -12175,8 +12175,8 @@ _ZN4llvm4json5ArrayD2Ev.exit.i:                   ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #19, !noalias !815
   br label %.lr.ph.i.i.i.i.i10.i
 
-.lr.ph.i.i.i.i.i10.i:                             ; preds = %.lr.ph.i.i.i.i.i10.i, %_ZN4llvm4json5ArrayD2Ev.exit.i
-  %.05.i.i.i.i.i11.i = phi ptr [ %374, %.lr.ph.i.i.i.i.i10.i ], [ %333, %_ZN4llvm4json5ArrayD2Ev.exit.i ]
+.lr.ph.i.i.i.i.i10.i:                             ; preds = %.lr.ph.i.i.i.i.i10.i, %.lr.ph.i.i.i.i.i10.preheader.i
+  %.05.i.i.i.i.i11.i = phi ptr [ %374, %.lr.ph.i.i.i.i.i10.i ], [ %333, %.lr.ph.i.i.i.i.i10.preheader.i ]
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i.i.i11.i) #19
   %374 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i11.i, i64 40
   %.not.i.i.i.i.i12.i = icmp eq ptr %374, %335

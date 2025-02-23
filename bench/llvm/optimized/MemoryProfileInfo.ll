@@ -1489,7 +1489,7 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %63 = icmp eq i8 %62, 17
   %spec.select.i.i.i = select i1 %63, ptr %61, ptr null
   %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
-  %65 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !139
   %67 = icmp ult i32 %66, 65
   %68 = load ptr, ptr %64, align 8
@@ -1602,7 +1602,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %.thread, %99
   br i1 %.not.i.i35, label %114, label %111
 
 111:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %112 = getelementptr inbounds i8, ptr %spec.select.i.i.i34, i64 -32
+  %112 = getelementptr inbounds i8, ptr %105, i64 -32
   %113 = load ptr, ptr %112, align 8, !tbaa !25
   br label %_ZNK4llvm6MDNode10getOperandEj.exit37
 
@@ -1625,7 +1625,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit37:            ; preds = %111, %114
   %124 = icmp eq i8 %123, 17
   %spec.select.i.i.i40 = select i1 %124, ptr %122, ptr null
   %125 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i40, i64 24
-  %126 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i40, i64 32
+  %126 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %127 = load i32, ptr %126, align 8, !tbaa !139
   %128 = icmp ult i32 %127, 65
   %129 = load ptr, ptr %125, align 8
@@ -1634,7 +1634,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit37:            ; preds = %111, %114
   br i1 %.not.i.i35, label %133, label %130
 
 130:                                              ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit37
-  %131 = getelementptr inbounds i8, ptr %spec.select.i.i.i34, i64 -32
+  %131 = getelementptr inbounds i8, ptr %105, i64 -32
   %132 = load ptr, ptr %131, align 8, !tbaa !25
   br label %_ZNK4llvm6MDNode10getOperandEj.exit46
 
@@ -1658,7 +1658,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit46:            ; preds = %130, %133
   %144 = icmp eq i8 %143, 17
   %spec.select.i.i.i49 = select i1 %144, ptr %142, ptr null
   %145 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i49, i64 24
-  %146 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i49, i64 32
+  %146 = getelementptr inbounds nuw i8, ptr %142, i64 32
   %147 = load i32, ptr %146, align 8, !tbaa !139
   %148 = icmp ult i32 %147, 65
   %149 = load ptr, ptr %145, align 8
@@ -2887,7 +2887,7 @@ _ZN4llvm7mdconst11dyn_extractINS_11ConstantIntERKNS_9MDOperandEEENSt9enable_ifIX
   %8 = icmp eq i8 %7, 17
   %spec.select.i.i.i = select i1 %8, ptr %6, ptr null
   %9 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
-  %10 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !139
   %12 = icmp ult i32 %11, 65
   %13 = load ptr, ptr %9, align 8
@@ -2937,7 +2937,7 @@ _ZNK4llvm6MDNode8operandsEv.exit:                 ; preds = %6, %12
   %26 = icmp eq i8 %25, 17
   %spec.select.i.i.i = select i1 %26, ptr %24, ptr null
   %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
-  %28 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !139
   %30 = icmp ult i32 %29, 65
   %31 = load ptr, ptr %27, align 8

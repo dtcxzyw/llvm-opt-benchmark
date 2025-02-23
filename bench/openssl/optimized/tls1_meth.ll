@@ -552,9 +552,9 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %umax345 = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   br label %77
 
-77:                                               ; preds = %70, %149
-  %.0252339 = phi i32 [ 0, %70 ], [ %.2254322, %149 ]
-  %.1256337 = phi i64 [ 0, %70 ], [ %150, %149 ]
+77:                                               ; preds = %70, %147
+  %.0252339 = phi i32 [ 0, %70 ], [ %.2254322, %147 ]
+  %.1256337 = phi i64 [ 0, %70 ], [ %148, %147 ]
   %78 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.1256337
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i64, ptr %79, align 8, !tbaa !47
@@ -564,7 +564,7 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
   %83 = call i64 @EVP_CIPHER_get_flags(ptr noundef %82) #5
   %84 = and i64 %83, 2097152
   %.not297 = icmp eq i64 %84, 0
-  br i1 %.not297, label %123, label %85
+  br i1 %.not297, label %121, label %85
 
 85:                                               ; preds = %77
   %86 = load i32, ptr %71, align 8, !tbaa !48
@@ -632,426 +632,424 @@ define internal range(i32 0, 2) i32 @tls1_cipher(ptr noundef %0, ptr noundef %1,
 .thread318.thread324:                             ; preds = %118
   %119 = zext nneg i32 %115 to i64
   %120 = add i64 %.pre350, %119
-  store i64 %120, ptr %81, align 8, !tbaa !25
-  %121 = load i64, ptr %79, align 8, !tbaa !47
-  %122 = add i64 %121, %119
-  store i64 %122, ptr %79, align 8, !tbaa !47
-  br label %149
+  br label %.sink.split
 
-123:                                              ; preds = %77
-  br i1 %or.cond8, label %.thread318, label %124
+121:                                              ; preds = %77
+  br i1 %or.cond8, label %.thread318, label %122
 
-124:                                              ; preds = %123
-  %125 = load i64, ptr %81, align 8, !tbaa !25
-  %126 = urem i64 %125, %60
-  %127 = sub i64 %60, %126
-  %128 = icmp ugt i64 %127, 256
-  br i1 %128, label %129, label %130
+122:                                              ; preds = %121
+  %123 = load i64, ptr %81, align 8, !tbaa !25
+  %124 = urem i64 %123, %60
+  %125 = sub i64 %60, %124
+  %126 = icmp ugt i64 %125, 256
+  br i1 %126, label %127, label %128
 
-129:                                              ; preds = %124
+127:                                              ; preds = %122
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
   br label %.critedge305
 
-130:                                              ; preds = %124
-  %131 = trunc i64 %127 to i8
-  %132 = add i8 %131, -1
-  %133 = add i64 %125, %127
-  %134 = icmp ult i64 %125, %133
-  br i1 %134, label %.lr.ph, label %._crit_edge
+128:                                              ; preds = %122
+  %129 = trunc i64 %125 to i8
+  %130 = add i8 %129, -1
+  %131 = add i64 %123, %125
+  %132 = icmp ult i64 %123, %131
+  br i1 %132, label %.lr.ph, label %.sink.split
 
-.lr.ph:                                           ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %78, i64 40
-  br label %136
+.lr.ph:                                           ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %78, i64 40
+  br label %134
 
-136:                                              ; preds = %.lr.ph, %136
-  %.0261336 = phi i64 [ %125, %.lr.ph ], [ %139, %136 ]
-  %137 = load ptr, ptr %135, align 8, !tbaa !46
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 %.0261336
-  store i8 %132, ptr %138, align 1, !tbaa !51
-  %139 = add nuw i64 %.0261336, 1
-  %140 = load i64, ptr %81, align 8, !tbaa !25
-  %141 = add i64 %140, %127
-  %142 = icmp ult i64 %139, %141
-  br i1 %142, label %136, label %._crit_edge, !llvm.loop !52
+134:                                              ; preds = %.lr.ph, %134
+  %.0261336 = phi i64 [ %123, %.lr.ph ], [ %137, %134 ]
+  %135 = load ptr, ptr %133, align 8, !tbaa !46
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %.0261336
+  store i8 %130, ptr %136, align 1, !tbaa !51
+  %137 = add nuw i64 %.0261336, 1
+  %138 = load i64, ptr %81, align 8, !tbaa !25
+  %139 = add i64 %138, %125
+  %140 = icmp ult i64 %137, %139
+  br i1 %140, label %134, label %.sink.split, !llvm.loop !52
 
-._crit_edge:                                      ; preds = %136, %130
-  %.lcssa = phi i64 [ %133, %130 ], [ %141, %136 ]
-  store i64 %.lcssa, ptr %81, align 8, !tbaa !25
-  %143 = load i64, ptr %79, align 8, !tbaa !47
-  %144 = add i64 %143, %127
-  store i64 %144, ptr %79, align 8, !tbaa !47
-  br label %.thread318
-
-.thread318:                                       ; preds = %123, %._crit_edge
-  br i1 %29, label %.thread318..thread318.thread_crit_edge, label %149
+.thread318:                                       ; preds = %121
+  br i1 %29, label %.thread318..thread318.thread_crit_edge, label %147
 
 .thread318..thread318.thread_crit_edge:           ; preds = %.thread318
   %.pre = load i64, ptr %81, align 8, !tbaa !25
   br label %.thread318.thread
 
 .thread318.thread:                                ; preds = %.thread318..thread318.thread_crit_edge, %118
-  %145 = phi i64 [ %.pre, %.thread318..thread318.thread_crit_edge ], [ %.pre350, %118 ]
+  %141 = phi i64 [ %.pre, %.thread318..thread318.thread_crit_edge ], [ %.pre350, %118 ]
   %.2254323 = phi i32 [ %.0252339, %.thread318..thread318.thread_crit_edge ], [ %115, %118 ]
-  %146 = icmp eq i64 %145, 0
-  br i1 %146, label %.critedge305, label %147
+  %142 = icmp eq i64 %141, 0
+  br i1 %142, label %.critedge305, label %143
 
-147:                                              ; preds = %.thread318.thread
-  %148 = urem i64 %145, %60
-  %.not303 = icmp eq i64 %148, 0
-  br i1 %.not303, label %149, label %.critedge305
+143:                                              ; preds = %.thread318.thread
+  %144 = urem i64 %141, %60
+  %.not303 = icmp eq i64 %144, 0
+  br i1 %.not303, label %147, label %.critedge305
 
-149:                                              ; preds = %.thread318.thread324, %.thread318, %147
-  %.2254322 = phi i32 [ %.0252339, %.thread318 ], [ %.2254323, %147 ], [ %115, %.thread318.thread324 ]
-  %150 = add nuw i64 %.1256337, 1
-  %exitcond346.not = icmp eq i64 %150, %umax345
-  br i1 %exitcond346.not, label %151, label %77, !llvm.loop !53
+.sink.split:                                      ; preds = %134, %128, %.thread318.thread324
+  %.lcssa.sink = phi i64 [ %120, %.thread318.thread324 ], [ %131, %128 ], [ %139, %134 ]
+  %.sink355 = phi i64 [ %119, %.thread318.thread324 ], [ %125, %128 ], [ %125, %134 ]
+  %.2254322.ph = phi i32 [ %115, %.thread318.thread324 ], [ %.0252339, %128 ], [ %.0252339, %134 ]
+  store i64 %.lcssa.sink, ptr %81, align 8, !tbaa !25
+  %145 = load i64, ptr %79, align 8, !tbaa !47
+  %146 = add i64 %145, %.sink355
+  store i64 %146, ptr %79, align 8, !tbaa !47
+  br label %147
 
-151:                                              ; preds = %149
-  br i1 %.not284, label %172, label %.preheader329
+147:                                              ; preds = %.sink.split, %.thread318, %143
+  %.2254322 = phi i32 [ %.0252339, %.thread318 ], [ %.2254323, %143 ], [ %.2254322.ph, %.sink.split ]
+  %148 = add nuw i64 %.1256337, 1
+  %exitcond346.not = icmp eq i64 %148, %umax345
+  br i1 %exitcond346.not, label %149, label %77, !llvm.loop !53
 
-.preheader329:                                    ; preds = %151, %.preheader329
-  %.2257340 = phi i64 [ %155, %.preheader329 ], [ 0, %151 ]
-  %152 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.2257340, i32 5
-  %153 = load ptr, ptr %152, align 8, !tbaa !44
-  %154 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.2257340
-  store ptr %153, ptr %154, align 8, !tbaa !54
-  %155 = add nuw i64 %.2257340, 1
-  %exitcond347.not = icmp eq i64 %155, %umax345
-  br i1 %exitcond347.not, label %156, label %.preheader329, !llvm.loop !55
+149:                                              ; preds = %147
+  br i1 %.not284, label %170, label %.preheader329
 
-156:                                              ; preds = %.preheader329
-  %157 = trunc i64 %2 to i32
-  %158 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 34, i32 noundef %157, ptr noundef nonnull %9) #5
-  %159 = icmp slt i32 %158, 1
-  br i1 %159, label %160, label %.preheader328
+.preheader329:                                    ; preds = %149, %.preheader329
+  %.2257340 = phi i64 [ %153, %.preheader329 ], [ 0, %149 ]
+  %150 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.2257340, i32 5
+  %151 = load ptr, ptr %150, align 8, !tbaa !44
+  %152 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.2257340
+  store ptr %151, ptr %152, align 8, !tbaa !54
+  %153 = add nuw i64 %.2257340, 1
+  %exitcond347.not = icmp eq i64 %153, %umax345
+  br i1 %exitcond347.not, label %154, label %.preheader329, !llvm.loop !55
 
-160:                                              ; preds = %156
+154:                                              ; preds = %.preheader329
+  %155 = trunc i64 %2 to i32
+  %156 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 34, i32 noundef %155, ptr noundef nonnull %9) #5
+  %157 = icmp slt i32 %156, 1
+  br i1 %157, label %158, label %.preheader328
+
+158:                                              ; preds = %154
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 322, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #5
   br label %.critedge305
 
-.preheader328:                                    ; preds = %156, %.preheader328
-  %.3258341 = phi i64 [ %164, %.preheader328 ], [ 0, %156 ]
-  %161 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.3258341, i32 6
-  %162 = load ptr, ptr %161, align 8, !tbaa !46
-  %163 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.3258341
-  store ptr %162, ptr %163, align 8, !tbaa !54
-  %164 = add nuw i64 %.3258341, 1
-  %exitcond348.not = icmp eq i64 %164, %umax345
-  br i1 %exitcond348.not, label %165, label %.preheader328, !llvm.loop !56
+.preheader328:                                    ; preds = %154, %.preheader328
+  %.3258341 = phi i64 [ %162, %.preheader328 ], [ 0, %154 ]
+  %159 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.3258341, i32 6
+  %160 = load ptr, ptr %159, align 8, !tbaa !46
+  %161 = getelementptr inbounds nuw [32 x ptr], ptr %9, i64 0, i64 %.3258341
+  store ptr %160, ptr %161, align 8, !tbaa !54
+  %162 = add nuw i64 %.3258341, 1
+  %exitcond348.not = icmp eq i64 %162, %umax345
+  br i1 %exitcond348.not, label %163, label %.preheader328, !llvm.loop !56
 
-165:                                              ; preds = %.preheader328
-  %166 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 35, i32 noundef %157, ptr noundef nonnull %9) #5
-  %167 = icmp slt i32 %166, 1
-  br i1 %167, label %171, label %168
+163:                                              ; preds = %.preheader328
+  %164 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 35, i32 noundef %155, ptr noundef nonnull %9) #5
+  %165 = icmp slt i32 %164, 1
+  br i1 %165, label %169, label %166
 
-168:                                              ; preds = %165
-  %169 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 36, i32 noundef %157, ptr noundef nonnull %7) #5
-  %170 = icmp slt i32 %169, 1
-  br i1 %170, label %171, label %172
+166:                                              ; preds = %163
+  %167 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 36, i32 noundef %155, ptr noundef nonnull %7) #5
+  %168 = icmp slt i32 %167, 1
+  br i1 %168, label %169, label %170
 
-171:                                              ; preds = %168, %165
+169:                                              ; preds = %166, %163
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 333, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef %0, i32 noundef 80, i32 noundef 406, ptr noundef null) #5
   br label %.critedge305
 
-172:                                              ; preds = %168, %151
-  %173 = load i32, ptr %71, align 8, !tbaa !48
-  %.not285 = icmp eq i32 %173, 0
-  br i1 %.not285, label %174, label %.critedge307
+170:                                              ; preds = %166, %149
+  %171 = load i32, ptr %71, align 8, !tbaa !48
+  %.not285 = icmp eq i32 %171, 0
+  br i1 %.not285, label %172, label %.critedge307
 
-174:                                              ; preds = %172
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 4280
-  %176 = load i32, ptr %175, align 8, !tbaa !57
-  %.not286 = icmp eq i32 %176, 0
-  br i1 %.not286, label %.critedge307, label %177
+172:                                              ; preds = %170
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 4280
+  %174 = load i32, ptr %173, align 8, !tbaa !57
+  %.not286 = icmp eq i32 %174, 0
+  br i1 %.not286, label %.critedge307, label %175
 
-177:                                              ; preds = %174
-  br i1 %29, label %181, label %178
+175:                                              ; preds = %172
+  br i1 %29, label %179, label %176
 
-178:                                              ; preds = %177
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 4272
-  %180 = load i32, ptr %179, align 8, !tbaa !58
-  %.not287 = icmp eq i32 %180, 0
+176:                                              ; preds = %175
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 4272
+  %178 = load i32, ptr %177, align 8, !tbaa !58
+  %.not287 = icmp eq i32 %178, 0
   %spec.select = zext i1 %.not287 to i32
-  br label %181
+  br label %179
 
-181:                                              ; preds = %178, %177
-  %.0251 = phi i32 [ 0, %177 ], [ %spec.select, %178 ]
-  %182 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 42, i32 noundef %.0251, ptr noundef nonnull %74) #5
-  %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %.critedge307, label %184
+179:                                              ; preds = %176, %175
+  %.0251 = phi i32 [ 0, %175 ], [ %spec.select, %176 ]
+  %180 = call i32 @EVP_CIPHER_CTX_ctrl(ptr noundef nonnull %25, i32 noundef 42, i32 noundef %.0251, ptr noundef nonnull %74) #5
+  %181 = icmp sgt i32 %180, 0
+  br i1 %181, label %.critedge307, label %182
 
-184:                                              ; preds = %181
+182:                                              ; preds = %179
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 352, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
   br label %.critedge305
 
-.critedge307:                                     ; preds = %181, %174, %172
-  br i1 %57, label %185, label %233
+.critedge307:                                     ; preds = %179, %172, %170
+  br i1 %57, label %183, label %231
 
-185:                                              ; preds = %.critedge307
+183:                                              ; preds = %.critedge307
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #5
-  br i1 %.not284, label %187, label %186
+  br i1 %.not284, label %185, label %184
 
-186:                                              ; preds = %185
+184:                                              ; preds = %183
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 362, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
   br label %.critedge311
 
-187:                                              ; preds = %185
-  %188 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %189 = load ptr, ptr %188, align 8, !tbaa !44
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %191 = load ptr, ptr %190, align 8, !tbaa !46
-  %192 = load i64, ptr %7, align 16, !tbaa !25
-  %193 = trunc i64 %192 to i32
-  %194 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %25, ptr noundef %189, ptr noundef nonnull %10, ptr noundef %191, i32 noundef %193) #5
-  %.not293 = icmp eq i32 %194, 0
-  br i1 %.not293, label %.critedge311, label %195
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %187 = load ptr, ptr %186, align 8, !tbaa !44
+  %188 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %189 = load ptr, ptr %188, align 8, !tbaa !46
+  %190 = load i64, ptr %7, align 16, !tbaa !25
+  %191 = trunc i64 %190 to i32
+  %192 = call i32 @EVP_CipherUpdate(ptr noundef nonnull %25, ptr noundef %187, ptr noundef nonnull %10, ptr noundef %189, i32 noundef %191) #5
+  %.not293 = icmp eq i32 %192, 0
+  br i1 %.not293, label %.critedge311, label %193
 
-195:                                              ; preds = %187
-  %196 = load i32, ptr %10, align 4, !tbaa !59
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %197, ptr %198, align 8, !tbaa !47
-  br i1 %29, label %199, label %232
+193:                                              ; preds = %185
+  %194 = load i32, ptr %10, align 4, !tbaa !59
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %195, ptr %196, align 8, !tbaa !47
+  br i1 %29, label %197, label %230
 
-199:                                              ; preds = %195
-  %200 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
-  %201 = icmp eq i32 %200, 6
-  br i1 %201, label %202, label %207
+197:                                              ; preds = %193
+  %198 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %199 = icmp eq i32 %198, 6
+  br i1 %199, label %200, label %205
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr %188, align 8, !tbaa !44
+200:                                              ; preds = %197
+  %201 = load ptr, ptr %186, align 8, !tbaa !44
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  store ptr %202, ptr %186, align 8, !tbaa !44
+  %203 = load ptr, ptr %188, align 8, !tbaa !46
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  store ptr %204, ptr %188, align 8, !tbaa !44
-  %205 = load ptr, ptr %190, align 8, !tbaa !46
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr %206, ptr %190, align 8, !tbaa !46
-  br label %226
+  store ptr %204, ptr %188, align 8, !tbaa !46
+  br label %224
 
-207:                                              ; preds = %199
-  %208 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
-  %209 = icmp eq i32 %208, 7
-  br i1 %209, label %210, label %215
+205:                                              ; preds = %197
+  %206 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %207 = icmp eq i32 %206, 7
+  br i1 %207, label %208, label %213
 
-210:                                              ; preds = %207
-  %211 = load ptr, ptr %188, align 8, !tbaa !44
+208:                                              ; preds = %205
+  %209 = load ptr, ptr %186, align 8, !tbaa !44
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  store ptr %210, ptr %186, align 8, !tbaa !44
+  %211 = load ptr, ptr %188, align 8, !tbaa !46
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store ptr %212, ptr %188, align 8, !tbaa !44
-  %213 = load ptr, ptr %190, align 8, !tbaa !46
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store ptr %214, ptr %190, align 8, !tbaa !46
-  br label %226
+  store ptr %212, ptr %188, align 8, !tbaa !46
+  br label %224
 
-215:                                              ; preds = %207
-  br i1 %76, label %226, label %216
+213:                                              ; preds = %205
+  br i1 %76, label %224, label %214
 
-216:                                              ; preds = %215
-  %217 = load i32, ptr %75, align 4, !tbaa !38
-  switch i32 %217, label %226 [
-    i32 770, label %218
-    i32 771, label %218
-    i32 256, label %218
-    i32 65279, label %218
-    i32 65277, label %218
+214:                                              ; preds = %213
+  %215 = load i32, ptr %75, align 4, !tbaa !38
+  switch i32 %215, label %224 [
+    i32 770, label %216
+    i32 771, label %216
+    i32 256, label %216
+    i32 65279, label %216
+    i32 65277, label %216
   ]
 
-218:                                              ; preds = %216, %216, %216, %216, %216
-  %219 = load ptr, ptr %188, align 8, !tbaa !44
+216:                                              ; preds = %214, %214, %214, %214, %214
+  %217 = load ptr, ptr %186, align 8, !tbaa !44
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 %60
+  store ptr %218, ptr %186, align 8, !tbaa !44
+  %219 = load ptr, ptr %188, align 8, !tbaa !46
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 %60
-  store ptr %220, ptr %188, align 8, !tbaa !44
-  %221 = load ptr, ptr %190, align 8, !tbaa !46
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 %60
-  store ptr %222, ptr %190, align 8, !tbaa !46
-  %223 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %224 = load i64, ptr %223, align 8, !tbaa !60
-  %225 = sub i64 %224, %60
-  store i64 %225, ptr %223, align 8, !tbaa !60
-  br label %226
+  store ptr %220, ptr %188, align 8, !tbaa !46
+  %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %222 = load i64, ptr %221, align 8, !tbaa !60
+  %223 = sub i64 %222, %60
+  store i64 %223, ptr %221, align 8, !tbaa !60
+  br label %224
 
-226:                                              ; preds = %216, %210, %218, %215, %202
+224:                                              ; preds = %214, %208, %216, %213, %200
   %.not295 = icmp eq ptr %4, null
-  br i1 %.not295, label %232, label %227
+  br i1 %.not295, label %230, label %225
 
-227:                                              ; preds = %226
+225:                                              ; preds = %224
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #5
-  %228 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 0, ptr %228, align 8, !tbaa !61
-  %229 = getelementptr inbounds nuw i8, ptr %11, i64 40
+  %226 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 0, ptr %226, align 8, !tbaa !61
+  %227 = getelementptr inbounds nuw i8, ptr %11, i64 40
   call void @OSSL_PARAM_construct_octet_ptr(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %11, ptr noundef nonnull @.str.2, ptr noundef nonnull %4, i64 noundef %5) #5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #5
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12) #5
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %229, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !63
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %227, ptr noundef nonnull align 8 dereferenceable(40) %12, i64 40, i1 false), !tbaa.struct !63
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #5
-  %230 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef nonnull %25, ptr noundef nonnull %11) #5
-  %.not296.not = icmp eq i32 %230, 0
-  br i1 %.not296.not, label %231, label %.critedge309
+  %228 = call i32 @EVP_CIPHER_CTX_get_params(ptr noundef nonnull %25, ptr noundef nonnull %11) #5
+  %.not296.not = icmp eq i32 %228, 0
+  br i1 %.not296.not, label %229, label %.critedge309
 
-231:                                              ; preds = %227
+229:                                              ; preds = %225
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 404, ptr noundef nonnull @__func__.tls1_cipher) #5
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null) #5
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #5
   br label %.critedge311
 
-.critedge309:                                     ; preds = %227
+.critedge309:                                     ; preds = %225
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %11) #5
-  br label %232
+  br label %230
 
-232:                                              ; preds = %.critedge309, %226, %195
+230:                                              ; preds = %.critedge309, %224, %193
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   br label %.critedge305
 
-233:                                              ; preds = %.critedge307
-  %234 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %235 = load ptr, ptr %234, align 8, !tbaa !44
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %237 = load ptr, ptr %236, align 8, !tbaa !46
-  %238 = load i64, ptr %7, align 16, !tbaa !25
-  %239 = trunc i64 %238 to i32
-  %240 = call i32 @EVP_Cipher(ptr noundef nonnull %25, ptr noundef %235, ptr noundef %237, i32 noundef %239) #5
-  %241 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
-  %242 = call i64 @EVP_CIPHER_get_flags(ptr noundef %241) #5
-  %243 = and i64 %242, 1048576
-  %.not288 = icmp eq i64 %243, 0
-  br i1 %.not288, label %246, label %244
+231:                                              ; preds = %.critedge307
+  %232 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %233 = load ptr, ptr %232, align 8, !tbaa !44
+  %234 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %235 = load ptr, ptr %234, align 8, !tbaa !46
+  %236 = load i64, ptr %7, align 16, !tbaa !25
+  %237 = trunc i64 %236 to i32
+  %238 = call i32 @EVP_Cipher(ptr noundef nonnull %25, ptr noundef %233, ptr noundef %235, i32 noundef %237) #5
+  %239 = call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef nonnull %25) #5
+  %240 = call i64 @EVP_CIPHER_get_flags(ptr noundef %239) #5
+  %241 = and i64 %240, 1048576
+  %.not288 = icmp eq i64 %241, 0
+  br i1 %.not288, label %244, label %242
 
-244:                                              ; preds = %233
-  %245 = icmp sgt i32 %240, -1
-  %brmerge314.not = and i1 %29, %245
+242:                                              ; preds = %231
+  %243 = icmp sgt i32 %238, -1
+  %brmerge314.not = and i1 %29, %243
   br i1 %brmerge314.not, label %.preheader, label %.critedge305
 
-246:                                              ; preds = %233
-  %247 = icmp ne i32 %240, 0
-  %brmerge.not = and i1 %29, %247
+244:                                              ; preds = %231
+  %245 = icmp ne i32 %238, 0
+  %brmerge.not = and i1 %29, %245
   br i1 %brmerge.not, label %.preheader, label %.critedge305
 
-.preheader:                                       ; preds = %246, %244
+.preheader:                                       ; preds = %244, %242
   %.not290 = icmp eq ptr %4, null
   %.not291 = icmp eq i32 %.2254322, 0
-  %248 = sext i32 %.2254322 to i64
-  %249 = select i1 %.not291, i64 %5, i64 %248
-  br label %252
+  %246 = sext i32 %.2254322 to i64
+  %247 = select i1 %.not291, i64 %5, i64 %246
+  br label %250
 
-250:                                              ; preds = %299
-  %251 = add nuw i64 %.4259342, 1
-  %exitcond349.not = icmp eq i64 %251, %umax345
-  br i1 %exitcond349.not, label %.critedge305, label %252, !llvm.loop !65
+248:                                              ; preds = %297
+  %249 = add nuw i64 %.4259342, 1
+  %exitcond349.not = icmp eq i64 %249, %umax345
+  br i1 %exitcond349.not, label %.critedge305, label %250, !llvm.loop !65
 
-252:                                              ; preds = %.preheader, %250
-  %.4259342 = phi i64 [ 0, %.preheader ], [ %251, %250 ]
-  %253 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
-  %254 = icmp eq i32 %253, 6
-  br i1 %254, label %255, label %266
+250:                                              ; preds = %.preheader, %248
+  %.4259342 = phi i64 [ 0, %.preheader ], [ %249, %248 ]
+  %251 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %252 = icmp eq i32 %251, 6
+  br i1 %252, label %253, label %264
 
-255:                                              ; preds = %252
-  %256 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 32
-  %258 = load ptr, ptr %257, align 8, !tbaa !44
-  %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
-  store ptr %259, ptr %257, align 8, !tbaa !44
-  %260 = getelementptr inbounds nuw i8, ptr %256, i64 40
-  %261 = load ptr, ptr %260, align 8, !tbaa !46
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  store ptr %262, ptr %260, align 8, !tbaa !46
-  %263 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %264 = load i64, ptr %263, align 8, !tbaa !47
-  %265 = add i64 %264, -8
-  store i64 %265, ptr %263, align 8, !tbaa !47
-  br label %299
+253:                                              ; preds = %250
+  %254 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 32
+  %256 = load ptr, ptr %255, align 8, !tbaa !44
+  %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
+  store ptr %257, ptr %255, align 8, !tbaa !44
+  %258 = getelementptr inbounds nuw i8, ptr %254, i64 40
+  %259 = load ptr, ptr %258, align 8, !tbaa !46
+  %260 = getelementptr inbounds nuw i8, ptr %259, i64 8
+  store ptr %260, ptr %258, align 8, !tbaa !46
+  %261 = getelementptr inbounds nuw i8, ptr %254, i64 8
+  %262 = load i64, ptr %261, align 8, !tbaa !47
+  %263 = add i64 %262, -8
+  store i64 %263, ptr %261, align 8, !tbaa !47
+  br label %297
 
-266:                                              ; preds = %252
-  %267 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
-  %268 = icmp eq i32 %267, 7
-  br i1 %268, label %269, label %280
+264:                                              ; preds = %250
+  %265 = call i32 @EVP_CIPHER_get_mode(ptr noundef nonnull %28) #5
+  %266 = icmp eq i32 %265, 7
+  br i1 %266, label %267, label %278
 
-269:                                              ; preds = %266
-  %270 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 32
-  %272 = load ptr, ptr %271, align 8, !tbaa !44
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  store ptr %273, ptr %271, align 8, !tbaa !44
-  %274 = getelementptr inbounds nuw i8, ptr %270, i64 40
-  %275 = load ptr, ptr %274, align 8, !tbaa !46
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  store ptr %276, ptr %274, align 8, !tbaa !46
-  %277 = getelementptr inbounds nuw i8, ptr %270, i64 8
-  %278 = load i64, ptr %277, align 8, !tbaa !47
-  %279 = add i64 %278, -8
-  store i64 %279, ptr %277, align 8, !tbaa !47
-  br label %299
+267:                                              ; preds = %264
+  %268 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %269 = getelementptr inbounds nuw i8, ptr %268, i64 32
+  %270 = load ptr, ptr %269, align 8, !tbaa !44
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
+  store ptr %271, ptr %269, align 8, !tbaa !44
+  %272 = getelementptr inbounds nuw i8, ptr %268, i64 40
+  %273 = load ptr, ptr %272, align 8, !tbaa !46
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  store ptr %274, ptr %272, align 8, !tbaa !46
+  %275 = getelementptr inbounds nuw i8, ptr %268, i64 8
+  %276 = load i64, ptr %275, align 8, !tbaa !47
+  %277 = add i64 %276, -8
+  store i64 %277, ptr %275, align 8, !tbaa !47
+  br label %297
 
-280:                                              ; preds = %266
-  br i1 %76, label %299, label %281
+278:                                              ; preds = %264
+  br i1 %76, label %297, label %279
 
-281:                                              ; preds = %280
-  %282 = load i32, ptr %75, align 4, !tbaa !38
-  switch i32 %282, label %299 [
-    i32 770, label %283
-    i32 771, label %283
-    i32 256, label %283
-    i32 65279, label %283
-    i32 65277, label %283
+279:                                              ; preds = %278
+  %280 = load i32, ptr %75, align 4, !tbaa !38
+  switch i32 %280, label %297 [
+    i32 770, label %281
+    i32 771, label %281
+    i32 256, label %281
+    i32 65279, label %281
+    i32 65277, label %281
   ]
 
-283:                                              ; preds = %281, %281, %281, %281, %281
-  %284 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
-  %286 = load i64, ptr %285, align 8, !tbaa !47
-  %287 = icmp ult i64 %286, %60
-  br i1 %287, label %.critedge305, label %288
+281:                                              ; preds = %279, %279, %279, %279, %279
+  %282 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
+  %284 = load i64, ptr %283, align 8, !tbaa !47
+  %285 = icmp ult i64 %284, %60
+  br i1 %285, label %.critedge305, label %286
 
-288:                                              ; preds = %283
-  %289 = getelementptr inbounds nuw i8, ptr %284, i64 32
-  %290 = load ptr, ptr %289, align 8, !tbaa !44
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 %60
-  store ptr %291, ptr %289, align 8, !tbaa !44
-  %292 = getelementptr inbounds nuw i8, ptr %284, i64 40
-  %293 = load ptr, ptr %292, align 8, !tbaa !46
-  %294 = getelementptr inbounds nuw i8, ptr %293, i64 %60
-  store ptr %294, ptr %292, align 8, !tbaa !46
-  %295 = sub nuw i64 %286, %60
-  store i64 %295, ptr %285, align 8, !tbaa !47
-  %296 = getelementptr inbounds nuw i8, ptr %284, i64 16
-  %297 = load i64, ptr %296, align 8, !tbaa !60
-  %298 = sub i64 %297, %60
-  store i64 %298, ptr %296, align 8, !tbaa !60
-  br label %299
+286:                                              ; preds = %281
+  %287 = getelementptr inbounds nuw i8, ptr %282, i64 32
+  %288 = load ptr, ptr %287, align 8, !tbaa !44
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 %60
+  store ptr %289, ptr %287, align 8, !tbaa !44
+  %290 = getelementptr inbounds nuw i8, ptr %282, i64 40
+  %291 = load ptr, ptr %290, align 8, !tbaa !46
+  %292 = getelementptr inbounds nuw i8, ptr %291, i64 %60
+  store ptr %292, ptr %290, align 8, !tbaa !46
+  %293 = sub nuw i64 %284, %60
+  store i64 %293, ptr %283, align 8, !tbaa !47
+  %294 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %295 = load i64, ptr %294, align 8, !tbaa !60
+  %296 = sub i64 %295, %60
+  store i64 %296, ptr %294, align 8, !tbaa !60
+  br label %297
 
-299:                                              ; preds = %281, %269, %288, %280, %255
-  %300 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
-  %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
-  %302 = getelementptr inbounds nuw i8, ptr %300, i64 16
-  %303 = load i64, ptr %302, align 8, !tbaa !60
-  %304 = getelementptr inbounds nuw i8, ptr %300, i64 32
-  %305 = load ptr, ptr %304, align 8, !tbaa !44
-  %306 = getelementptr inbounds nuw %struct.ssl_mac_buf_st, ptr %4, i64 %.4259342
+297:                                              ; preds = %279, %267, %286, %278, %253
+  %298 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %1, i64 %.4259342
+  %299 = getelementptr inbounds nuw i8, ptr %298, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %298, i64 16
+  %301 = load i64, ptr %300, align 8, !tbaa !60
+  %302 = getelementptr inbounds nuw i8, ptr %298, i64 32
+  %303 = load ptr, ptr %302, align 8, !tbaa !44
+  %304 = getelementptr inbounds nuw %struct.ssl_mac_buf_st, ptr %4, i64 %.4259342
+  %305 = select i1 %.not290, ptr null, ptr %304
+  %306 = getelementptr inbounds nuw i8, ptr %304, i64 8
   %307 = select i1 %.not290, ptr null, ptr %306
-  %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
-  %309 = select i1 %.not290, ptr null, ptr %308
-  %310 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %28) #5
-  %311 = trunc i64 %310 to i32
-  %312 = lshr i32 %311, 21
-  %313 = and i32 %312, 1
-  %314 = load ptr, ptr %0, align 8, !tbaa !36
-  %315 = call i32 @tls1_cbc_remove_padding_and_mac(ptr noundef nonnull %301, i64 noundef %303, ptr noundef %305, ptr noundef %307, ptr noundef %309, i64 noundef %60, i64 noundef %249, i32 noundef %313, ptr noundef %314) #5
-  %.not292 = icmp eq i32 %315, 0
-  br i1 %.not292, label %.critedge305, label %250
+  %308 = call i64 @EVP_CIPHER_get_flags(ptr noundef nonnull %28) #5
+  %309 = trunc i64 %308 to i32
+  %310 = lshr i32 %309, 21
+  %311 = and i32 %310, 1
+  %312 = load ptr, ptr %0, align 8, !tbaa !36
+  %313 = call i32 @tls1_cbc_remove_padding_and_mac(ptr noundef nonnull %299, i64 noundef %301, ptr noundef %303, ptr noundef %305, ptr noundef %307, i64 noundef %60, i64 noundef %247, i32 noundef %311, ptr noundef %312) #5
+  %.not292 = icmp eq i32 %313, 0
+  br i1 %.not292, label %.critedge305, label %248
 
-.critedge311:                                     ; preds = %231, %187, %186
+.critedge311:                                     ; preds = %229, %185, %184
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #5
   br label %.critedge305
 
-.critedge305:                                     ; preds = %93, %.thread318.thread, %147, %250, %299, %283, %117, %244, %246, %184, %23, %48, %53, %232, %.critedge311, %171, %160, %129, %69, %62, %54, %26, %14
-  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %129 ], [ false, %160 ], [ false, %171 ], [ false, %184 ], [ false, %54 ], [ false, %26 ], [ false, %23 ], [ false, %.critedge311 ], [ %247, %246 ], [ %245, %244 ], [ true, %232 ], [ false, %53 ], [ false, %48 ], [ false, %117 ], [ true, %250 ], [ false, %299 ], [ false, %283 ], [ false, %147 ], [ false, %.thread318.thread ], [ false, %93 ]
+.critedge305:                                     ; preds = %93, %.thread318.thread, %143, %248, %297, %281, %117, %242, %244, %182, %23, %48, %53, %230, %.critedge311, %169, %158, %127, %69, %62, %54, %26, %14
+  %.0.shrunk = phi i1 [ false, %14 ], [ false, %62 ], [ false, %69 ], [ false, %127 ], [ false, %158 ], [ false, %169 ], [ false, %182 ], [ false, %54 ], [ false, %26 ], [ false, %23 ], [ false, %.critedge311 ], [ %245, %244 ], [ %243, %242 ], [ true, %230 ], [ false, %53 ], [ false, %48 ], [ false, %117 ], [ true, %248 ], [ false, %297 ], [ false, %281 ], [ false, %143 ], [ false, %.thread318.thread ], [ false, %93 ]
   %.0 = zext i1 %.0.shrunk to i32
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 416, ptr nonnull %8) #5

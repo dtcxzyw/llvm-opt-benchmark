@@ -1622,27 +1622,24 @@ _ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i: ; preds
   call void @llvm.assume(i1 %75)
   %76 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %77 = load i64, ptr %76, align 8, !tbaa !160
-  %78 = and i64 %77, 7
-  %79 = icmp eq i64 %78, 0
-  %80 = and i64 %77, -8
-  %81 = inttoptr i64 %80 to ptr
-  %.0.i.i5.i = select i1 %79, ptr %81, ptr null
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i.i5.i, i64 16
-  %83 = load ptr, ptr %82, align 8, !tbaa !162
-  %84 = load i64, ptr %83, align 8, !tbaa !165
-  %85 = and i64 %84, 4294967295
-  %86 = load i64, ptr %6, align 8, !tbaa !24
-  %87 = sub i64 4611686018427387903, %86
-  %88 = icmp ult i64 %87, %85
-  br i1 %88, label %89, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
+  %78 = and i64 %77, -8
+  %79 = inttoptr i64 %78 to ptr
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8, !tbaa !162
+  %82 = load i64, ptr %81, align 8, !tbaa !165
+  %83 = and i64 %82, 4294967295
+  %84 = load i64, ptr %6, align 8, !tbaa !24
+  %85 = sub i64 4611686018427387903, %84
+  %86 = icmp ult i64 %85, %83
+  br i1 %86, label %87, label %_ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit
 
-89:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i
+87:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.35) #17
   unreachable
 
 _ZN4llvmpLERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9StringRefE.exit: ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.i
-  %90 = getelementptr inbounds nuw i8, ptr %83, i64 16
-  %91 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %90, i64 noundef %85) #14
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  %89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %88, i64 noundef %83) #14
   ret void
 }
 

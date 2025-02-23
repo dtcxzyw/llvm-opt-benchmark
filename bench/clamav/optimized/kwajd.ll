@@ -445,7 +445,7 @@ define internal void @kwajd_close(ptr noundef %0, ptr noundef %1) #0 {
 ; Function Attrs: nounwind uwtable
 define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %76, label %4
+  br i1 %.not, label %74, label %4
 
 4:                                                ; preds = %3
   %.not75 = icmp eq ptr %1, null
@@ -454,7 +454,7 @@ define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
 5:                                                ; preds = %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 1, ptr %6, align 8, !tbaa !18
-  br label %76
+  br label %74
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -472,7 +472,7 @@ define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 5, ptr %18, align 8, !tbaa !18
-  br label %76
+  br label %74
 
 19:                                               ; preds = %7
   %20 = load ptr, ptr %9, align 8, !tbaa !19
@@ -483,17 +483,17 @@ define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
 
 23:                                               ; preds = %19
   store i32 2, ptr %22, align 8, !tbaa !18
-  br label %76
+  br label %74
 
 24:                                               ; preds = %19
   store i32 0, ptr %22, align 8, !tbaa !18
   %25 = load i16, ptr %1, align 8, !tbaa !29
-  switch i16 %25, label %72 [
+  switch i16 %25, label %70 [
     i16 0, label %26
     i16 1, label %26
-    i16 2, label %51
-    i16 3, label %53
-    i16 4, label %66
+    i16 2, label %49
+    i16 3, label %51
+    i16 4, label %64
   ]
 
 26:                                               ; preds = %24, %24
@@ -501,7 +501,7 @@ define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
   %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = tail call ptr %28(ptr noundef nonnull %9, i64 noundef 2048) #6
   %.not80 = icmp eq ptr %29, null
-  br i1 %.not80, label %50, label %.preheader86
+  br i1 %.not80, label %48, label %.preheader86
 
 .preheader86:                                     ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -537,96 +537,93 @@ define internal i32 @kwajd_extract(ptr noundef %0, ptr noundef readonly %1, ptr 
   %42 = load ptr, ptr %31, align 8, !tbaa !39
   %43 = tail call i32 %42(ptr noundef nonnull %21, ptr noundef nonnull %29, i32 noundef %34) #6
   %.not81 = icmp eq i32 %43, %34
-  br i1 %.not81, label %32, label %44
+  br i1 %.not81, label %32, label %.sink.split
 
-44:                                               ; preds = %.loopexit
-  store i32 4, ptr %22, align 8, !tbaa !18
-  br label %.loopexit87
+.loopexit87:                                      ; preds = %32
+  %44 = icmp slt i32 %34, 0
+  br i1 %44, label %.sink.split, label %45
 
-.loopexit87:                                      ; preds = %32, %44
-  %45 = icmp slt i32 %34, 0
-  br i1 %45, label %46, label %47
+.sink.split:                                      ; preds = %.loopexit, %.loopexit87
+  %.sink = phi i32 [ 3, %.loopexit87 ], [ 4, %.loopexit ]
+  store i32 %.sink, ptr %22, align 8, !tbaa !18
+  br label %45
 
-46:                                               ; preds = %.loopexit87
-  store i32 3, ptr %22, align 8, !tbaa !18
-  br label %47
-
-47:                                               ; preds = %46, %.loopexit87
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 64
-  %49 = load ptr, ptr %48, align 8, !tbaa !38
-  tail call void %49(ptr noundef nonnull %29) #6
+45:                                               ; preds = %.sink.split, %.loopexit87
+  %46 = getelementptr inbounds nuw i8, ptr %9, i64 64
+  %47 = load ptr, ptr %46, align 8, !tbaa !38
+  tail call void %47(ptr noundef nonnull %29) #6
   br label %lzh_free.exit
 
-50:                                               ; preds = %26
+48:                                               ; preds = %26
   store i32 6, ptr %22, align 8, !tbaa !18
+  br label %lzh_free.exit
+
+49:                                               ; preds = %24
+  %50 = tail call i32 @lzss_decompress(ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %21, i32 noundef 2048, i32 noundef 2) #6
+  store i32 %50, ptr %22, align 8, !tbaa !18
   br label %lzh_free.exit
 
 51:                                               ; preds = %24
-  %52 = tail call i32 @lzss_decompress(ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %21, i32 noundef 2048, i32 noundef 2) #6
-  store i32 %52, ptr %22, align 8, !tbaa !18
-  br label %lzh_free.exit
-
-53:                                               ; preds = %24
   %.not85 = icmp eq ptr %11, null
-  br i1 %.not85, label %.split66, label %54
+  br i1 %.not85, label %.split66, label %52
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %9, i64 56
-  %56 = load ptr, ptr %55, align 8, !tbaa !3
-  %57 = tail call ptr %56(ptr noundef nonnull %9, i64 noundef 13240) #6
-  %.not.i = icmp eq ptr %57, null
-  br i1 %.not.i, label %.split66, label %58
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %54 = load ptr, ptr %53, align 8, !tbaa !3
+  %55 = tail call ptr %54(ptr noundef nonnull %9, i64 noundef 13240) #6
+  %.not.i = icmp eq ptr %55, null
+  br i1 %.not.i, label %.split66, label %56
 
-.split66:                                         ; preds = %53, %54
+.split66:                                         ; preds = %51, %52
   store i32 6, ptr %22, align 8, !tbaa !18
   br label %lzh_free.exit
 
-58:                                               ; preds = %54
-  store ptr %9, ptr %57, align 8, !tbaa !40
-  %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %11, ptr %59, align 8, !tbaa !42
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store ptr %21, ptr %60, align 8, !tbaa !43
-  %61 = tail call fastcc i32 @lzh_decompress(ptr noundef %57)
-  store i32 %61, ptr %22, align 8, !tbaa !18
-  %62 = load ptr, ptr %57, align 8, !tbaa !40
-  %.not6.i = icmp eq ptr %62, null
-  br i1 %.not6.i, label %lzh_free.exit, label %63
+56:                                               ; preds = %52
+  store ptr %9, ptr %55, align 8, !tbaa !40
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %11, ptr %57, align 8, !tbaa !42
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store ptr %21, ptr %58, align 8, !tbaa !43
+  %59 = tail call fastcc i32 @lzh_decompress(ptr noundef %55)
+  store i32 %59, ptr %22, align 8, !tbaa !18
+  %60 = load ptr, ptr %55, align 8, !tbaa !40
+  %.not6.i = icmp eq ptr %60, null
+  br i1 %.not6.i, label %lzh_free.exit, label %61
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %65 = load ptr, ptr %64, align 8, !tbaa !38
-  tail call void %65(ptr noundef nonnull %57) #6
+61:                                               ; preds = %56
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 64
+  %63 = load ptr, ptr %62, align 8, !tbaa !38
+  tail call void %63(ptr noundef nonnull %55) #6
   br label %lzh_free.exit
 
-66:                                               ; preds = %24
-  %67 = tail call ptr @mszipd_init(ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %21, i32 noundef 2048, i32 noundef 0) #6
-  %.not78 = icmp eq ptr %67, null
-  br i1 %.not78, label %70, label %68
+64:                                               ; preds = %24
+  %65 = tail call ptr @mszipd_init(ptr noundef nonnull %9, ptr noundef %11, ptr noundef nonnull %21, i32 noundef 2048, i32 noundef 0) #6
+  %.not78 = icmp eq ptr %65, null
+  br i1 %.not78, label %68, label %66
 
-68:                                               ; preds = %66
-  %69 = tail call i32 @mszipd_decompress_kwaj(ptr noundef nonnull %67) #6
-  br label %70
+66:                                               ; preds = %64
+  %67 = tail call i32 @mszipd_decompress_kwaj(ptr noundef nonnull %65) #6
+  br label %68
 
-70:                                               ; preds = %66, %68
-  %71 = phi i32 [ %69, %68 ], [ 6, %66 ]
-  store i32 %71, ptr %22, align 8, !tbaa !18
-  tail call void @mszipd_free(ptr noundef %67) #6
+68:                                               ; preds = %64, %66
+  %69 = phi i32 [ %67, %66 ], [ 6, %64 ]
+  store i32 %69, ptr %22, align 8, !tbaa !18
+  tail call void @mszipd_free(ptr noundef %65) #6
   br label %lzh_free.exit
 
-72:                                               ; preds = %24
+70:                                               ; preds = %24
   store i32 8, ptr %22, align 8, !tbaa !18
   br label %lzh_free.exit
 
-lzh_free.exit:                                    ; preds = %63, %58, %.split66, %47, %50, %51, %70, %72
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %74 = load ptr, ptr %73, align 8, !tbaa !20
-  tail call void %74(ptr noundef nonnull %21) #6
-  %75 = load i32, ptr %22, align 8, !tbaa !18
-  br label %76
+lzh_free.exit:                                    ; preds = %61, %56, %.split66, %45, %48, %49, %68, %70
+  %71 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !20
+  tail call void %72(ptr noundef nonnull %21) #6
+  %73 = load i32, ptr %22, align 8, !tbaa !18
+  br label %74
 
-76:                                               ; preds = %3, %lzh_free.exit, %23, %17, %5
-  %.0 = phi i32 [ 5, %17 ], [ %75, %lzh_free.exit ], [ 2, %23 ], [ 1, %5 ], [ 1, %3 ]
+74:                                               ; preds = %3, %lzh_free.exit, %23, %17, %5
+  %.0 = phi i32 [ 5, %17 ], [ %73, %lzh_free.exit ], [ 2, %23 ], [ 1, %5 ], [ 1, %3 ]
   ret i32 %.0
 }
 

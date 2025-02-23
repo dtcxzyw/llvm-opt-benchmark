@@ -2152,10 +2152,10 @@ if.end61:                                         ; preds = %if.end48
 while.body:                                       ; preds = %while.body.backedge, %if.end61
   %28 = phi i32 [ %inc, %if.end61 ], [ %.be, %while.body.backedge ]
   %state.0 = phi i8 [ %1, %if.end61 ], [ %state.0.be, %while.body.backedge ]
-  %cached_accept_id.3 = phi i32 [ %cached_accept_id.0, %if.end61 ], [ %cached_accept_id.4, %while.body.backedge ]
-  %cached_accept_state.3 = phi i8 [ %cached_accept_state.0, %if.end61 ], [ %cached_accept_state.4, %while.body.backedge ]
+  %cached_accept_id.3 = phi i32 [ %cached_accept_id.0, %if.end61 ], [ %cached_accept_id.43449, %while.body.backedge ]
+  %cached_accept_state.3 = phi i8 [ %cached_accept_state.0, %if.end61 ], [ %cached_accept_state.43450, %while.body.backedge ]
   %cur_buf.1 = phi ptr [ %cur_buf.0, %if.end61 ], [ %cur_buf.2, %while.body.backedge ]
-  %cur_start.0 = phi i64 [ %24, %if.end61 ], [ %cur_start.1, %while.body.backedge ]
+  %cur_start.0 = phi i64 [ %24, %if.end61 ], [ %cur_start.13451, %while.body.backedge ]
   %idxprom.i3333 = zext i32 %28 to i64
   %location.i3335.idx = mul nuw nsw i64 %idxprom.i3333, 24
   %gep2900 = getelementptr inbounds nuw i8, ptr %invariant.gep2899, i64 %location.i3335.idx
@@ -2429,7 +2429,7 @@ sheng4_nm.exit:                                   ; preds = %sheng4_nm.exit.loop
   %cur_state.i4110.0.in.lcssa = phi <16 x i8> [ %vecinit15.i.i4156, %if.else9.i ], [ %81, %sheng4_nm.exit.loopexit ]
   %cur_buf.i4106.0.lcssa = phi ptr [ %add.ptr93, %if.else9.i ], [ %add.ptr282.i4193, %sheng4_nm.exit.loopexit ]
   %cmp.i4289.not2777 = icmp eq ptr %cur_buf.i4106.0.lcssa, %add.ptr94
-  br i1 %cmp.i4289.not2777, label %sheng_nm.exit, label %while.body.i4295
+  br i1 %cmp.i4289.not2777, label %if.end154.thread, label %while.body.i4295
 
 while.body.i4295:                                 ; preds = %sheng4_nm.exit, %while.body.i4295
   %cur_buf.i4264.02779 = phi ptr [ %incdec.ptr.i4301, %while.body.i4295 ], [ %cur_buf.i4106.0.lcssa, %sheng4_nm.exit ]
@@ -2441,12 +2441,12 @@ while.body.i4295:                                 ; preds = %sheng4_nm.exit, %wh
   %84 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> %83, <16 x i8> %cur_state.i4265.0.in2778)
   %incdec.ptr.i4301 = getelementptr inbounds nuw i8, ptr %cur_buf.i4264.02779, i64 1
   %cmp.i4289.not = icmp eq ptr %incdec.ptr.i4301, %add.ptr94
-  br i1 %cmp.i4289.not, label %sheng_nm.exit, label %while.body.i4295, !llvm.loop !17
+  br i1 %cmp.i4289.not, label %if.end154.thread, label %while.body.i4295, !llvm.loop !17
 
-sheng_nm.exit:                                    ; preds = %while.body.i4295, %sheng4_nm.exit
+if.end154.thread:                                 ; preds = %while.body.i4295, %sheng4_nm.exit
   %cur_state.i4265.0.in.lcssa = phi <16 x i8> [ %cur_state.i4110.0.in.lcssa, %sheng4_nm.exit ], [ %84, %while.body.i4295 ]
   %conv46.i4294 = extractelement <16 x i8> %cur_state.i4265.0.in.lcssa, i64 0
-  br label %if.end154
+  br label %if.end181
 
 if.then98:                                        ; preds = %if.then86
   %85 = load ptr, ptr %cb99, align 8
@@ -3297,8 +3297,8 @@ if.end11.i:                                       ; preds = %if.then215.i, %if.e
   %178 = and i8 %state.5, 32
   %tobool.i899.not = icmp ne i8 %178, 0
   %cmp.i902.not2667 = icmp eq ptr %scanned.2, %add.ptr103
-  %or.cond3662 = select i1 %tobool.i899.not, i1 true, i1 %cmp.i902.not2667
-  br i1 %or.cond3662, label %if.end154, label %while.body.i907.lr.ph
+  %or.cond3670 = select i1 %tobool.i899.not, i1 true, i1 %cmp.i902.not2667
+  br i1 %or.cond3670, label %if.end154, label %while.body.i907.lr.ph
 
 while.body.i907.lr.ph:                            ; preds = %if.end11.i
   %vecinit.i2930 = insertelement <16 x i8> poison, i8 %state.5, i64 0
@@ -4404,17 +4404,17 @@ if.then85.i4438:                                  ; preds = %while.body.i4416
 if.end99.i:                                       ; preds = %if.then85.i4438
   %307 = and i8 %conv50.i4426, 16
   %tobool101.i.not = icmp eq i8 %307, 0
-  br i1 %tobool101.i.not, label %if.end114.i, label %do.end134.loopexit3451.split.loop.exit
+  br i1 %tobool101.i.not, label %if.end114.i, label %do.end134.loopexit3460.split.loop.exit
 
 if.end114.i:                                      ; preds = %if.end99.i
   %308 = and i8 %conv55.i4429, 16
   %tobool116.i.not = icmp eq i8 %308, 0
-  br i1 %tobool116.i.not, label %if.end129.i, label %do.end134.loopexit3451.split.loop.exit3606
+  br i1 %tobool116.i.not, label %if.end129.i, label %do.end134.loopexit3460.split.loop.exit3614
 
 if.end129.i:                                      ; preds = %if.end114.i
   %and.i317.i = and i8 %conv60.i4432, 16
   %tobool131.i.not = icmp eq i8 %and.i317.i, 0
-  br i1 %tobool131.i.not, label %if.end144.i, label %do.end134.loopexit3451.split.loop.exit3610
+  br i1 %tobool131.i.not, label %if.end144.i, label %do.end134.loopexit3460.split.loop.exit3618
 
 if.end144.i:                                      ; preds = %if.end129.i
   %and.i280.i = and i8 %conv60.i4432, 32
@@ -4518,17 +4518,17 @@ if.then85.i4617:                                  ; preds = %while.body.i4584
 if.end99.i4619:                                   ; preds = %if.then85.i4617
   %327 = and i8 %conv50.i4594, 16
   %tobool101.i4620.not = icmp eq i8 %327, 0
-  br i1 %tobool101.i4620.not, label %if.end114.i4621, label %do.end134.loopexit3474.split.loop.exit
+  br i1 %tobool101.i4620.not, label %if.end114.i4621, label %do.end134.loopexit3483.split.loop.exit
 
 if.end114.i4621:                                  ; preds = %if.end99.i4619
   %328 = and i8 %conv55.i4597, 16
   %tobool116.i4622.not = icmp eq i8 %328, 0
-  br i1 %tobool116.i4622.not, label %if.end129.i4623, label %do.end134.loopexit3474.split.loop.exit3620
+  br i1 %tobool116.i4622.not, label %if.end129.i4623, label %do.end134.loopexit3483.split.loop.exit3628
 
 if.end129.i4623:                                  ; preds = %if.end114.i4621
   %and.i311.i = and i8 %conv60.i4601, 16
   %tobool131.i4624.not = icmp eq i8 %and.i311.i, 0
-  br i1 %tobool131.i4624.not, label %if.end144.i4625, label %do.end134.loopexit3474.split.loop.exit3624
+  br i1 %tobool131.i4624.not, label %if.end144.i4625, label %do.end134.loopexit3483.split.loop.exit3632
 
 if.end144.i4625:                                  ; preds = %if.end129.i4623
   %329 = and i8 %conv60.i4601, 32
@@ -4548,8 +4548,8 @@ if.end15.i:                                       ; preds = %if.then156.i, %if.e
   %330 = and i8 %state.15, 32
   %tobool.i4704.not = icmp ne i8 %330, 0
   %cmp.i4723.not2837 = icmp eq ptr %scanned.8, %add.ptr120
-  %or.cond3663 = select i1 %tobool.i4704.not, i1 true, i1 %cmp.i4723.not2837
-  br i1 %or.cond3663, label %if.end154, label %while.body.i4728.preheader
+  %or.cond3671 = select i1 %tobool.i4704.not, i1 true, i1 %cmp.i4723.not2837
+  br i1 %or.cond3671, label %if.end154, label %while.body.i4728.preheader
 
 while.body.i4728.preheader:                       ; preds = %if.end15.i
   %vecinit.i.i4706 = insertelement <16 x i8> poison, i8 %state.15, i64 0
@@ -4670,12 +4670,12 @@ if.end99.i4942:                                   ; preds = %if.then85.i4937
 if.end114.i4947:                                  ; preds = %if.end99.i4942
   %354 = and i8 %conv55.i4914, 16
   %tobool116.i4951.not = icmp eq i8 %354, 0
-  br i1 %tobool116.i4951.not, label %if.end129.i4952, label %do.end134.loopexit.split.loop.exit3634
+  br i1 %tobool116.i4951.not, label %if.end129.i4952, label %do.end134.loopexit.split.loop.exit3642
 
 if.end129.i4952:                                  ; preds = %if.end114.i4947
   %and.i311.i4954 = and i8 %conv60.i4918, 16
   %tobool131.i4956.not = icmp eq i8 %and.i311.i4954, 0
-  br i1 %tobool131.i4956.not, label %if.end144.i4957, label %do.end134.loopexit.split.loop.exit3638
+  br i1 %tobool131.i4956.not, label %if.end144.i4957, label %do.end134.loopexit.split.loop.exit3646
 
 if.end144.i4957:                                  ; preds = %if.end129.i4952
   %cmp151.i4959 = icmp ule ptr %cur_buf.i4834.12858, %min_accel_dist.i4835.2.ph2871
@@ -4769,17 +4769,17 @@ if.then85.i5171:                                  ; preds = %while.body.i5135
 if.end99.i5176:                                   ; preds = %if.then85.i5171
   %372 = and i8 %conv50.i5145, 16
   %tobool101.i5178.not = icmp eq i8 %372, 0
-  br i1 %tobool101.i5178.not, label %if.end114.i5179, label %do.end134.loopexit3467.split.loop.exit
+  br i1 %tobool101.i5178.not, label %if.end114.i5179, label %do.end134.loopexit3476.split.loop.exit
 
 if.end114.i5179:                                  ; preds = %if.end99.i5176
   %373 = and i8 %conv55.i5148, 16
   %tobool116.i5180.not = icmp eq i8 %373, 0
-  br i1 %tobool116.i5180.not, label %if.end129.i5181, label %do.end134.loopexit3467.split.loop.exit3648
+  br i1 %tobool116.i5180.not, label %if.end129.i5181, label %do.end134.loopexit3476.split.loop.exit3656
 
 if.end129.i5181:                                  ; preds = %if.end114.i5179
   %374 = and i8 %conv60.i5152, 16
   %tobool131.i5182.not = icmp eq i8 %374, 0
-  br i1 %tobool131.i5182.not, label %if.end183.i5166, label %do.end134.loopexit3467.split.loop.exit3652
+  br i1 %tobool131.i5182.not, label %if.end183.i5166, label %do.end134.loopexit3476.split.loop.exit3660
 
 if.end183.i5166:                                  ; preds = %if.end129.i5181, %while.body.i5135
   %add.ptr223.i5169 = getelementptr inbounds nuw i8, ptr %cur_buf.i5075.02893, i64 4
@@ -4821,53 +4821,53 @@ do.end134.loopexit.split.loop.exit:               ; preds = %if.end99.i4942
   %add.ptr40.i4900.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4834.12858, i64 1
   br label %do.end134
 
-do.end134.loopexit.split.loop.exit3634:           ; preds = %if.end114.i4947
+do.end134.loopexit.split.loop.exit3642:           ; preds = %if.end114.i4947
   %add.ptr41.i4901.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4834.12858, i64 2
   br label %do.end134
 
-do.end134.loopexit.split.loop.exit3638:           ; preds = %if.end129.i4952
+do.end134.loopexit.split.loop.exit3646:           ; preds = %if.end129.i4952
   %add.ptr42.i4902.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4834.12858, i64 3
   br label %do.end134
 
-do.end134.loopexit3451.split.loop.exit:           ; preds = %if.end99.i
+do.end134.loopexit3460.split.loop.exit:           ; preds = %if.end99.i
   %add.ptr40.i4417.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4359.12799, i64 1
   br label %do.end134
 
-do.end134.loopexit3451.split.loop.exit3606:       ; preds = %if.end114.i
+do.end134.loopexit3460.split.loop.exit3614:       ; preds = %if.end114.i
   %add.ptr41.i4418.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4359.12799, i64 2
   br label %do.end134
 
-do.end134.loopexit3451.split.loop.exit3610:       ; preds = %if.end129.i
+do.end134.loopexit3460.split.loop.exit3618:       ; preds = %if.end129.i
   %add.ptr42.i4419.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4359.12799, i64 3
   br label %do.end134
 
-do.end134.loopexit3467.split.loop.exit:           ; preds = %if.end99.i5176
+do.end134.loopexit3476.split.loop.exit:           ; preds = %if.end99.i5176
   %add.ptr40.i5136.le = getelementptr inbounds nuw i8, ptr %cur_buf.i5075.02893, i64 1
   br label %do.end134
 
-do.end134.loopexit3467.split.loop.exit3648:       ; preds = %if.end114.i5179
+do.end134.loopexit3476.split.loop.exit3656:       ; preds = %if.end114.i5179
   %add.ptr41.i5137.le = getelementptr inbounds nuw i8, ptr %cur_buf.i5075.02893, i64 2
   br label %do.end134
 
-do.end134.loopexit3467.split.loop.exit3652:       ; preds = %if.end129.i5181
+do.end134.loopexit3476.split.loop.exit3660:       ; preds = %if.end129.i5181
   %add.ptr42.i5138.le = getelementptr inbounds nuw i8, ptr %cur_buf.i5075.02893, i64 3
   br label %do.end134
 
-do.end134.loopexit3474.split.loop.exit:           ; preds = %if.end99.i4619
+do.end134.loopexit3483.split.loop.exit:           ; preds = %if.end99.i4619
   %add.ptr40.i4585.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4522.02834, i64 1
   br label %do.end134
 
-do.end134.loopexit3474.split.loop.exit3620:       ; preds = %if.end114.i4621
+do.end134.loopexit3483.split.loop.exit3628:       ; preds = %if.end114.i4621
   %add.ptr41.i4586.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4522.02834, i64 2
   br label %do.end134
 
-do.end134.loopexit3474.split.loop.exit3624:       ; preds = %if.end129.i4623
+do.end134.loopexit3483.split.loop.exit3632:       ; preds = %if.end129.i4623
   %add.ptr42.i4587.le = getelementptr inbounds nuw i8, ptr %cur_buf.i4522.02834, i64 3
   br label %do.end134
 
-do.end134:                                        ; preds = %if.then85.i4617, %while.body.i4728, %if.then85.i5171, %while.body.i5280, %if.then85.i4438, %if.then85.i4937, %do.end134.loopexit3474.split.loop.exit, %do.end134.loopexit3474.split.loop.exit3620, %do.end134.loopexit3474.split.loop.exit3624, %do.end134.loopexit3467.split.loop.exit, %do.end134.loopexit3467.split.loop.exit3648, %do.end134.loopexit3467.split.loop.exit3652, %do.end134.loopexit3451.split.loop.exit, %do.end134.loopexit3451.split.loop.exit3606, %do.end134.loopexit3451.split.loop.exit3610, %do.end134.loopexit.split.loop.exit, %do.end134.loopexit.split.loop.exit3634, %do.end134.loopexit.split.loop.exit3638
-  %scanned.102334 = phi ptr [ %add.ptr40.i4900.le, %do.end134.loopexit.split.loop.exit ], [ %add.ptr41.i4901.le, %do.end134.loopexit.split.loop.exit3634 ], [ %add.ptr42.i4902.le, %do.end134.loopexit.split.loop.exit3638 ], [ %add.ptr40.i4417.le, %do.end134.loopexit3451.split.loop.exit ], [ %add.ptr41.i4418.le, %do.end134.loopexit3451.split.loop.exit3606 ], [ %add.ptr42.i4419.le, %do.end134.loopexit3451.split.loop.exit3610 ], [ %add.ptr40.i5136.le, %do.end134.loopexit3467.split.loop.exit ], [ %add.ptr41.i5137.le, %do.end134.loopexit3467.split.loop.exit3648 ], [ %add.ptr42.i5138.le, %do.end134.loopexit3467.split.loop.exit3652 ], [ %add.ptr40.i4585.le, %do.end134.loopexit3474.split.loop.exit ], [ %add.ptr41.i4586.le, %do.end134.loopexit3474.split.loop.exit3620 ], [ %add.ptr42.i4587.le, %do.end134.loopexit3474.split.loop.exit3624 ], [ %cur_buf.i4834.12858, %if.then85.i4937 ], [ %cur_buf.i4359.12799, %if.then85.i4438 ], [ %cur_buf.i5249.02897, %while.body.i5280 ], [ %cur_buf.i5075.02893, %if.then85.i5171 ], [ %cur_buf.i4694.02838, %while.body.i4728 ], [ %cur_buf.i4522.02834, %if.then85.i4617 ]
-  %state.172333 = phi i8 [ %conv50.i4910, %do.end134.loopexit.split.loop.exit ], [ %conv55.i4914, %do.end134.loopexit.split.loop.exit3634 ], [ %conv60.i4918, %do.end134.loopexit.split.loop.exit3638 ], [ %conv50.i4426, %do.end134.loopexit3451.split.loop.exit ], [ %conv55.i4429, %do.end134.loopexit3451.split.loop.exit3606 ], [ %conv60.i4432, %do.end134.loopexit3451.split.loop.exit3610 ], [ %conv50.i5145, %do.end134.loopexit3467.split.loop.exit ], [ %conv55.i5148, %do.end134.loopexit3467.split.loop.exit3648 ], [ %conv60.i5152, %do.end134.loopexit3467.split.loop.exit3652 ], [ %conv50.i4594, %do.end134.loopexit3474.split.loop.exit ], [ %conv55.i4597, %do.end134.loopexit3474.split.loop.exit3620 ], [ %conv60.i4601, %do.end134.loopexit3474.split.loop.exit3624 ], [ %conv45.i4906, %if.then85.i4937 ], [ %conv45.i4423, %if.then85.i4438 ], [ %conv10.i5284, %while.body.i5280 ], [ %conv45.i5142, %if.then85.i5171 ], [ %conv10.i4732, %while.body.i4728 ], [ %conv45.i4591, %if.then85.i4617 ]
+do.end134:                                        ; preds = %if.then85.i4617, %while.body.i4728, %if.then85.i5171, %while.body.i5280, %if.then85.i4438, %if.then85.i4937, %do.end134.loopexit3483.split.loop.exit, %do.end134.loopexit3483.split.loop.exit3628, %do.end134.loopexit3483.split.loop.exit3632, %do.end134.loopexit3476.split.loop.exit, %do.end134.loopexit3476.split.loop.exit3656, %do.end134.loopexit3476.split.loop.exit3660, %do.end134.loopexit3460.split.loop.exit, %do.end134.loopexit3460.split.loop.exit3614, %do.end134.loopexit3460.split.loop.exit3618, %do.end134.loopexit.split.loop.exit, %do.end134.loopexit.split.loop.exit3642, %do.end134.loopexit.split.loop.exit3646
+  %scanned.102334 = phi ptr [ %add.ptr40.i4900.le, %do.end134.loopexit.split.loop.exit ], [ %add.ptr41.i4901.le, %do.end134.loopexit.split.loop.exit3642 ], [ %add.ptr42.i4902.le, %do.end134.loopexit.split.loop.exit3646 ], [ %add.ptr40.i4417.le, %do.end134.loopexit3460.split.loop.exit ], [ %add.ptr41.i4418.le, %do.end134.loopexit3460.split.loop.exit3614 ], [ %add.ptr42.i4419.le, %do.end134.loopexit3460.split.loop.exit3618 ], [ %add.ptr40.i5136.le, %do.end134.loopexit3476.split.loop.exit ], [ %add.ptr41.i5137.le, %do.end134.loopexit3476.split.loop.exit3656 ], [ %add.ptr42.i5138.le, %do.end134.loopexit3476.split.loop.exit3660 ], [ %add.ptr40.i4585.le, %do.end134.loopexit3483.split.loop.exit ], [ %add.ptr41.i4586.le, %do.end134.loopexit3483.split.loop.exit3628 ], [ %add.ptr42.i4587.le, %do.end134.loopexit3483.split.loop.exit3632 ], [ %cur_buf.i4834.12858, %if.then85.i4937 ], [ %cur_buf.i4359.12799, %if.then85.i4438 ], [ %cur_buf.i5249.02897, %while.body.i5280 ], [ %cur_buf.i5075.02893, %if.then85.i5171 ], [ %cur_buf.i4694.02838, %while.body.i4728 ], [ %cur_buf.i4522.02834, %if.then85.i4617 ]
+  %state.172333 = phi i8 [ %conv50.i4910, %do.end134.loopexit.split.loop.exit ], [ %conv55.i4914, %do.end134.loopexit.split.loop.exit3642 ], [ %conv60.i4918, %do.end134.loopexit.split.loop.exit3646 ], [ %conv50.i4426, %do.end134.loopexit3460.split.loop.exit ], [ %conv55.i4429, %do.end134.loopexit3460.split.loop.exit3614 ], [ %conv60.i4432, %do.end134.loopexit3460.split.loop.exit3618 ], [ %conv50.i5145, %do.end134.loopexit3476.split.loop.exit ], [ %conv55.i5148, %do.end134.loopexit3476.split.loop.exit3656 ], [ %conv60.i5152, %do.end134.loopexit3476.split.loop.exit3660 ], [ %conv50.i4594, %do.end134.loopexit3483.split.loop.exit ], [ %conv55.i4597, %do.end134.loopexit3483.split.loop.exit3628 ], [ %conv60.i4601, %do.end134.loopexit3483.split.loop.exit3632 ], [ %conv45.i4906, %if.then85.i4937 ], [ %conv45.i4423, %if.then85.i4438 ], [ %conv10.i5284, %while.body.i5280 ], [ %conv45.i5142, %if.then85.i5171 ], [ %conv10.i4732, %while.body.i4728 ], [ %conv45.i4591, %if.then85.i4617 ]
   %380 = load i32, ptr %cur.i3344, align 8
   %dec = add i32 %380, -1
   store i32 %dec, ptr %cur.i3344, align 8
@@ -4886,11 +4886,11 @@ do.end134:                                        ; preds = %if.then85.i4617, %w
   store i8 %state.172333, ptr %382, align 1
   br label %return
 
-if.end154:                                        ; preds = %if.end44.i, %if.end44.i2188, %if.end31.i4737, %if.end31.i5292, %if.end34.i, %if.end.i2167, %if.end15.i, %if.end11.i, %while.end.i3956, %sheng_nm.exit, %if.end.i3367, %while.body
-  %state.1 = phi i8 [ %state.0, %while.body ], [ %conv46.i3957, %while.end.i3956 ], [ %conv46.i4294, %sheng_nm.exit ], [ %state.2, %if.end.i3367 ], [ %state.5, %if.end11.i ], [ %state.15, %if.end15.i ], [ %state.11, %if.end.i2167 ], [ %state.21, %if.end34.i ], [ %conv10.i5284, %if.end31.i5292 ], [ %conv10.i4732, %if.end31.i4737 ], [ %conv10.i2182, %if.end44.i2188 ], [ %conv10.i910, %if.end44.i ]
-  %cached_accept_id.4 = phi i32 [ %cached_accept_id.3, %while.body ], [ %cached_accept_id.3, %while.end.i3956 ], [ %cached_accept_id.3, %sheng_nm.exit ], [ %cached_accept_id.3, %if.end.i3367 ], [ %cached_accept_id.17, %if.end11.i ], [ %cached_accept_id.3, %if.end15.i ], [ %cached_accept_id.46, %if.end.i2167 ], [ %cached_accept_id.3, %if.end34.i ], [ %cached_accept_id.3, %if.end31.i5292 ], [ %cached_accept_id.3, %if.end31.i4737 ], [ %cached_accept_id.60, %if.end44.i2188 ], [ %cached_accept_id.32, %if.end44.i ]
-  %cached_accept_state.4 = phi i8 [ %cached_accept_state.3, %while.body ], [ %cached_accept_state.3, %while.end.i3956 ], [ %cached_accept_state.3, %sheng_nm.exit ], [ %cached_accept_state.3, %if.end.i3367 ], [ %cached_accept_state.17, %if.end11.i ], [ %cached_accept_state.3, %if.end15.i ], [ %cached_accept_state.46, %if.end.i2167 ], [ %cached_accept_state.3, %if.end34.i ], [ %cached_accept_state.3, %if.end31.i5292 ], [ %cached_accept_state.3, %if.end31.i4737 ], [ %cached_accept_state.60, %if.end44.i2188 ], [ %cached_accept_state.32, %if.end44.i ]
-  %cur_start.1 = phi i64 [ %cur_start.0, %while.body ], [ %cur_end.0, %while.end.i3956 ], [ %cur_end.0, %sheng_nm.exit ], [ %cur_end.0, %if.end.i3367 ], [ %cur_end.0, %if.end11.i ], [ %cur_end.0, %if.end15.i ], [ %cur_end.0, %if.end.i2167 ], [ %cur_end.0, %if.end34.i ], [ %cur_end.0, %if.end31.i5292 ], [ %cur_end.0, %if.end31.i4737 ], [ %cur_end.0, %if.end44.i2188 ], [ %cur_end.0, %if.end44.i ]
+if.end154:                                        ; preds = %if.end44.i, %if.end44.i2188, %if.end31.i4737, %if.end31.i5292, %if.end34.i, %if.end.i2167, %if.end15.i, %if.end11.i, %while.end.i3956, %if.end.i3367, %while.body
+  %state.1 = phi i8 [ %state.0, %while.body ], [ %conv46.i3957, %while.end.i3956 ], [ %state.2, %if.end.i3367 ], [ %state.5, %if.end11.i ], [ %state.15, %if.end15.i ], [ %state.11, %if.end.i2167 ], [ %state.21, %if.end34.i ], [ %conv10.i5284, %if.end31.i5292 ], [ %conv10.i4732, %if.end31.i4737 ], [ %conv10.i2182, %if.end44.i2188 ], [ %conv10.i910, %if.end44.i ]
+  %cached_accept_id.4 = phi i32 [ %cached_accept_id.3, %while.body ], [ %cached_accept_id.3, %while.end.i3956 ], [ %cached_accept_id.3, %if.end.i3367 ], [ %cached_accept_id.17, %if.end11.i ], [ %cached_accept_id.3, %if.end15.i ], [ %cached_accept_id.46, %if.end.i2167 ], [ %cached_accept_id.3, %if.end34.i ], [ %cached_accept_id.3, %if.end31.i5292 ], [ %cached_accept_id.3, %if.end31.i4737 ], [ %cached_accept_id.60, %if.end44.i2188 ], [ %cached_accept_id.32, %if.end44.i ]
+  %cached_accept_state.4 = phi i8 [ %cached_accept_state.3, %while.body ], [ %cached_accept_state.3, %while.end.i3956 ], [ %cached_accept_state.3, %if.end.i3367 ], [ %cached_accept_state.17, %if.end11.i ], [ %cached_accept_state.3, %if.end15.i ], [ %cached_accept_state.46, %if.end.i2167 ], [ %cached_accept_state.3, %if.end34.i ], [ %cached_accept_state.3, %if.end31.i5292 ], [ %cached_accept_state.3, %if.end31.i4737 ], [ %cached_accept_state.60, %if.end44.i2188 ], [ %cached_accept_state.32, %if.end44.i ]
+  %cur_start.1 = phi i64 [ %cur_start.0, %while.body ], [ %cur_end.0, %while.end.i3956 ], [ %cur_end.0, %if.end.i3367 ], [ %cur_end.0, %if.end11.i ], [ %cur_end.0, %if.end15.i ], [ %cur_end.0, %if.end.i2167 ], [ %cur_end.0, %if.end34.i ], [ %cur_end.0, %if.end31.i5292 ], [ %cur_end.0, %if.end31.i4737 ], [ %cur_end.0, %if.end44.i2188 ], [ %cur_end.0, %if.end44.i ]
   br i1 %cmp49.not, label %land.lhs.true157, label %if.end181
 
 land.lhs.true157:                                 ; preds = %if.end154
@@ -4916,8 +4916,12 @@ do.end167:                                        ; preds = %land.lhs.true157
   store i8 %state.1, ptr %386, align 1
   br label %return
 
-if.end181:                                        ; preds = %land.lhs.true157, %if.end154
-  %cmp182 = icmp eq i64 %cur_start.1, 0
+if.end181:                                        ; preds = %if.end154.thread, %land.lhs.true157, %if.end154
+  %cur_start.13451 = phi i64 [ %cur_end.0, %if.end154.thread ], [ %cur_start.1, %land.lhs.true157 ], [ %cur_start.1, %if.end154 ]
+  %cached_accept_state.43450 = phi i8 [ %cached_accept_state.3, %if.end154.thread ], [ %cached_accept_state.4, %land.lhs.true157 ], [ %cached_accept_state.4, %if.end154 ]
+  %cached_accept_id.43449 = phi i32 [ %cached_accept_id.3, %if.end154.thread ], [ %cached_accept_id.4, %land.lhs.true157 ], [ %cached_accept_id.4, %if.end154 ]
+  %state.13448 = phi i8 [ %conv46.i4294, %if.end154.thread ], [ %state.1, %land.lhs.true157 ], [ %state.1, %if.end154 ]
+  %cmp182 = icmp eq i64 %cur_start.13451, 0
   br i1 %cmp182, label %do.end188, label %if.end190
 
 do.end188:                                        ; preds = %if.end181
@@ -4941,21 +4945,21 @@ if.end194:                                        ; preds = %if.end190
 
 sw.bb:                                            ; preds = %if.end194
   %389 = load ptr, ptr %state1, align 8
-  store i8 %state.1, ptr %389, align 1
+  store i8 %state.13448, ptr %389, align 1
   %390 = load i32, ptr %cur.i3344, align 8
   %inc198 = add i32 %390, 1
   store i32 %inc198, ptr %cur.i3344, align 8
   br i1 %tobool.i.not, label %return, label %if.then202
 
 if.then202:                                       ; preds = %sw.bb
-  %391 = lshr i8 %state.1, 5
+  %391 = lshr i8 %state.13448, 5
   %.lobit = and i8 %391, 1
   %conv207 = xor i8 %.lobit, 1
   br label %return
 
 sw.bb209:                                         ; preds = %if.end194
   %392 = load i64, ptr %offset101, align 8
-  %add211 = sub i64 0, %cur_start.1
+  %add211 = sub i64 0, %cur_start.13451
   %cmp212 = icmp eq i64 %392, %add211
   br i1 %cmp212, label %do.end216, label %if.else217
 
@@ -4965,7 +4969,7 @@ do.end216:                                        ; preds = %sw.bb209
 
 if.else217:                                       ; preds = %sw.bb209
   %394 = load i32, ptr %aux_offset.i.i2511, align 4
-  %395 = shl i8 %state.1, 4
+  %395 = shl i8 %state.13448, 4
   %mul.i = zext i8 %395 to i32
   %sub.i = add nsw i32 %mul.i, -64
   %add.i = add i32 %sub.i, %394
@@ -4976,14 +4980,14 @@ if.else217:                                       ; preds = %sw.bb209
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.end194, %do.end216, %if.else217
-  %state.24 = phi i8 [ %state.1, %if.end194 ], [ %393, %do.end216 ], [ %conv219, %if.else217 ]
+  %state.24 = phi i8 [ %state.13448, %if.end194 ], [ %393, %do.end216 ], [ %conv219, %if.else217 ]
   %inc224 = add i32 %.pre.pre, 1
   store i32 %inc224, ptr %cur.i3344, align 8
   br label %while.body.backedge
 
 while.body.backedge:                              ; preds = %sw.epilog, %if.end190
   %.be = phi i32 [ %.pre.pre, %if.end190 ], [ %inc224, %sw.epilog ]
-  %state.0.be = phi i8 [ %state.1, %if.end190 ], [ %state.24, %sw.epilog ]
+  %state.0.be = phi i8 [ %state.13448, %if.end190 ], [ %state.24, %sw.epilog ]
   br label %while.body
 
 return:                                           ; preds = %for.body.i, %if.then.i.i603, %if.then.i349.i680, %if.then.i419.i757, %if.then.i489.i834, %fireReports.exit.i579, %if.then187.i608, %fireReports.exit354.i656, %if.then157.i685, %fireReports.exit424.i733, %if.then127.i762, %fireReports.exit494.i810, %if.then98.i839, %if.then.i.i971, %fireReports.exit.i948, %if.then30.i976, %if.then.i.i1863, %if.then.i349.i1940, %if.then.i419.i2017, %if.then.i489.i2094, %fireReports.exit.i1839, %if.then187.i1868, %fireReports.exit354.i1916, %if.then157.i1945, %fireReports.exit424.i1993, %if.then127.i2022, %fireReports.exit494.i2070, %if.then98.i2099, %if.then.i.i2252, %fireReports.exit.i2228, %if.then30.i2257, %if.then.i.i, %if.then.i349.i, %if.then.i419.i, %if.then.i489.i, %fireReports.exit.i, %if.then187.i, %fireReports.exit354.i, %if.then157.i, %fireReports.exit424.i, %if.then127.i, %fireReports.exit494.i, %if.then98.i, %for.body.i471.i816, %for.body.i401.i739, %for.body.i331.i662, %for.body.i.i585, %for.body.i.i953, %if.then.i.i1291, %if.then.i349.i1368, %if.then.i419.i1445, %if.then.i489.i1522, %fireReports.exit.i1267, %if.then187.i1296, %fireReports.exit354.i1344, %if.then157.i1373, %fireReports.exit424.i1421, %if.then127.i1450, %fireReports.exit494.i1498, %if.then98.i1527, %for.body.i471.i2076, %for.body.i401.i1999, %for.body.i331.i1922, %for.body.i.i1845, %for.body.i.i2234, %for.body.i471.i, %for.body.i401.i, %for.body.i331.i, %for.body.i.i, %for.body.i471.i1504, %for.body.i401.i1427, %for.body.i331.i1350, %for.body.i.i1273, %if.then21.i, %if.then.i239, %if.then15, %sw.bb, %if.then202, %do.end167, %do.end134, %do.end60

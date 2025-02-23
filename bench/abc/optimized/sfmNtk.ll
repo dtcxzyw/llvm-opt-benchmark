@@ -522,7 +522,7 @@ Sfm_ObjLevelNewR.exit.us:                         ; preds = %Sfm_ObjLevelNewR.ex
   %.0.lcssa.i.us = phi i32 [ 1, %Sfm_ObjAddsLevelArray.exit.us ], [ %38, %Sfm_ObjLevelNewR.exit.us.loopexit ]
   %39 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv.next26
   store i32 %.0.lcssa.i.us, ptr %39, align 4, !tbaa !16
-  %40 = icmp sgt i64 %indvars.iv25, 1
+  %40 = icmp samesign ugt i64 %indvars.iv25, 1
   br i1 %40, label %Sfm_ObjAddsLevelArray.exit.us, label %.critedge, !llvm.loop !31
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -568,7 +568,7 @@ Sfm_ObjLevelNewR.exit:                            ; preds = %51, %Sfm_ObjAddsLev
   %58 = add nuw nsw i32 %.0.lcssa.i, %47
   %59 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv.next
   store i32 %58, ptr %59, align 4, !tbaa !16
-  %60 = icmp sgt i64 %indvars.iv, 1
+  %60 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %60, label %Sfm_ObjAddsLevelArray.exit, label %.critedge, !llvm.loop !31
 
 .critedge:                                        ; preds = %Sfm_ObjLevelNewR.exit, %Sfm_ObjLevelNewR.exit.us, %Vec_IntFill.exit

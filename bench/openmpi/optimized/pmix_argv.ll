@@ -574,7 +574,7 @@ define range(i32 -27, 1) i32 @pmix_argv_insert_element(ptr noundef %0, i32 nound
 
 ._crit_edge:                                      ; preds = %31, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre, %.._crit_edge_crit_edge ], [ %29, %31 ]
-  %33 = sext i32 %12 to i64
+  %33 = zext nneg i32 %12 to i64
   %34 = getelementptr ptr, ptr %24, i64 %33
   %35 = getelementptr i8, ptr %34, i64 8
   store ptr null, ptr %35, align 8, !tbaa !10

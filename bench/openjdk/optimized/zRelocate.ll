@@ -3733,7 +3733,7 @@ _ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit: ; preds = %_ZNK5ZPage
 
 156:                                              ; preds = %155
   %157 = inttoptr i64 %146 to ptr
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr align 8 %3, i64 %59, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %157, ptr nonnull align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
 158:                                              ; preds = %148
@@ -3805,7 +3805,7 @@ _ZNK23ZRelocateSmallAllocator12alloc_objectEP5ZPagem.exit: ; preds = %_ZNK5ZPage
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
 190:                                              ; preds = %158
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %159, ptr align 8 %3, i64 %59, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %159, ptr nonnull align 8 %3, i64 %59, i1 false)
   br label %_ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit
 
 _ZN6ZUtils20object_copy_conjointE8zaddressS0_m.exit: ; preds = %190, %188, %158, %156, %155

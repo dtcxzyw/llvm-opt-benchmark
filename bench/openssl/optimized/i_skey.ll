@@ -168,11 +168,11 @@ define void @IDEA_set_decrypt_key(ptr noundef readonly captures(none) %0, ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   br label %4
 
-4:                                                ; preds = %50, %2
-  %.045 = phi i32 [ 0, %2 ], [ %59, %50 ]
-  %.02844 = phi ptr [ %1, %2 ], [ %58, %50 ]
-  %.02943 = phi ptr [ %3, %2 ], [ %52, %50 ]
-  %5 = load i32, ptr %.02943, align 4, !tbaa !6
+4:                                                ; preds = %2, %50
+  %.029 = phi ptr [ %3, %2 ], [ %52, %50 ]
+  %.028 = phi ptr [ %1, %2 ], [ %58, %50 ]
+  %.0 = phi i32 [ 0, %2 ], [ %59, %50 ]
+  %5 = load i32, ptr %.029, align 4, !tbaa !6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %inverse.exit, label %7
 
@@ -210,21 +210,21 @@ define void @IDEA_set_decrypt_key(ptr noundef readonly captures(none) %0, ptr no
 
 inverse.exit:                                     ; preds = %7, %.thread.i, %4
   %.019.i = phi i32 [ 0, %4 ], [ 1, %7 ], [ %13, %.thread.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %.02844, i64 4
-  store i32 %.019.i, ptr %.02844, align 4, !tbaa !6
-  %22 = getelementptr inbounds nuw i8, ptr %.02943, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.028, i64 4
+  store i32 %.019.i, ptr %.028, align 4, !tbaa !6
+  %22 = getelementptr inbounds nuw i8, ptr %.029, i64 8
   %23 = load i32, ptr %22, align 4, !tbaa !6
   %24 = sub i32 0, %23
   %25 = and i32 %24, 65535
-  %26 = getelementptr inbounds nuw i8, ptr %.02844, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   store i32 %25, ptr %21, align 4, !tbaa !6
-  %27 = getelementptr inbounds nuw i8, ptr %.02943, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.029, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !6
   %29 = sub i32 0, %28
   %30 = and i32 %29, 65535
-  %31 = getelementptr inbounds nuw i8, ptr %.02844, i64 12
+  %31 = getelementptr inbounds nuw i8, ptr %.028, i64 12
   store i32 %30, ptr %26, align 4, !tbaa !6
-  %32 = getelementptr inbounds nuw i8, ptr %.02943, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %.029, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !6
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %inverse.exit41, label %35
@@ -264,36 +264,36 @@ inverse.exit:                                     ; preds = %7, %.thread.i, %4
 inverse.exit41:                                   ; preds = %35, %.thread.i37, %inverse.exit
   %.019.i40 = phi i32 [ 0, %inverse.exit ], [ 1, %35 ], [ %41, %.thread.i37 ]
   store i32 %.019.i40, ptr %31, align 4, !tbaa !6
-  %49 = icmp eq i32 %.045, 8
-  br i1 %49, label %split, label %50
+  %49 = icmp eq i32 %.0, 8
+  br i1 %49, label %60, label %50
 
 50:                                               ; preds = %inverse.exit41
-  %51 = getelementptr inbounds nuw i8, ptr %.02844, i64 16
-  %52 = getelementptr inbounds i8, ptr %.02943, i64 -24
-  %53 = getelementptr inbounds i8, ptr %.02943, i64 -8
+  %51 = getelementptr inbounds nuw i8, ptr %.028, i64 16
+  %52 = getelementptr inbounds i8, ptr %.029, i64 -24
+  %53 = getelementptr inbounds i8, ptr %.029, i64 -8
   %54 = load i32, ptr %53, align 4, !tbaa !6
-  %55 = getelementptr inbounds nuw i8, ptr %.02844, i64 20
+  %55 = getelementptr inbounds nuw i8, ptr %.028, i64 20
   store i32 %54, ptr %51, align 4, !tbaa !6
-  %56 = getelementptr inbounds i8, ptr %.02943, i64 -4
+  %56 = getelementptr inbounds i8, ptr %.029, i64 -4
   %57 = load i32, ptr %56, align 4, !tbaa !6
-  %58 = getelementptr inbounds nuw i8, ptr %.02844, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %.028, i64 24
   store i32 %57, ptr %55, align 4, !tbaa !6
-  %59 = add nuw nsw i32 %.045, 1
-  br label %4
+  %59 = add nuw nsw i32 %.0, 1
+  br label %4, !llvm.loop !11
 
-split:                                            ; preds = %inverse.exit41
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %61 = load i32, ptr %60, align 4, !tbaa !6
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %63 = load i32, ptr %62, align 4, !tbaa !6
-  store i32 %63, ptr %60, align 4, !tbaa !6
-  store i32 %61, ptr %62, align 4, !tbaa !6
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 196
-  %65 = load i32, ptr %64, align 4, !tbaa !6
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %67 = load i32, ptr %66, align 4, !tbaa !6
-  store i32 %67, ptr %64, align 4, !tbaa !6
-  store i32 %65, ptr %66, align 4, !tbaa !6
+60:                                               ; preds = %inverse.exit41
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %62 = load i32, ptr %61, align 4, !tbaa !6
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %64 = load i32, ptr %63, align 4, !tbaa !6
+  store i32 %64, ptr %61, align 4, !tbaa !6
+  store i32 %62, ptr %63, align 4, !tbaa !6
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 196
+  %66 = load i32, ptr %65, align 4, !tbaa !6
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %68 = load i32, ptr %67, align 4, !tbaa !6
+  store i32 %68, ptr %65, align 4, !tbaa !6
+  store i32 %66, ptr %67, align 4, !tbaa !6
   ret void
 }
 
@@ -312,3 +312,4 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = distinct !{!10, !9}
+!11 = distinct !{!11, !9}

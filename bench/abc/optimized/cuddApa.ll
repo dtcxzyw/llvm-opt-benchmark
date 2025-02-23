@@ -1025,7 +1025,7 @@ Cudd_ApaSetToLiteral.exit:                        ; preds = %35, %.lr.ph.prehead
 
 Cudd_ApaSubtract.exit:                            ; preds = %.lr.ph.i, %.lr.ph.preheader.i74, %83, %68
   tail call void @free(ptr noundef nonnull %18) #19
-  tail call void @free(ptr noundef %32) #19
+  tail call void @free(ptr noundef nonnull %32) #19
   %85 = tail call i32 @st__foreach(ptr noundef nonnull %41, ptr noundef nonnull @cuddApaStCountfree, ptr noundef null) #19
   tail call void @st__free_table(ptr noundef nonnull %41) #19
   %86 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -1202,7 +1202,7 @@ define internal fastcc ptr @cuddApaCountMintermAux(ptr noundef %0, i32 noundef %
 
 Cudd_ApaAdd.exit:                                 ; preds = %.lr.ph.i71, %.lr.ph.i75
   %invariant.gep.i = getelementptr i8, ptr %43, i64 -8
-  %88 = icmp sgt i32 %1, 1
+  %88 = icmp samesign ugt i32 %1, 1
   br i1 %88, label %.lr.ph.preheader.i79, label %Cudd_ApaShiftRight.exit
 
 .lr.ph.preheader.i79:                             ; preds = %Cudd_ApaAdd.exit
@@ -1231,7 +1231,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br i1 %99, label %100, label %101
 
 100:                                              ; preds = %Cudd_ApaShiftRight.exit
-  call void @free(ptr noundef %27) #19
+  call void @free(ptr noundef nonnull %27) #19
   br label %101
 
 101:                                              ; preds = %100, %Cudd_ApaShiftRight.exit
@@ -1241,7 +1241,7 @@ Cudd_ApaShiftRight.exit:                          ; preds = %.lr.ph.i80, %58, %7
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %101
-  call void @free(ptr noundef %33) #19
+  call void @free(ptr noundef nonnull %33) #19
   br label %106
 
 106:                                              ; preds = %105, %101

@@ -4161,7 +4161,7 @@ terminate.lpad.i.i.i.i28:                         ; preds = %if.end.i.i.i27
 _ZN9grpc_core12experimental4JsonD2Ev.exit30:      ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit, %.noexc.i.i29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i24)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp11) #24
-  %call.i31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.0411) #30
+  %call.i31 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.0411) #30
   %cmp.i.not = icmp eq ptr %call.i31, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 
@@ -4661,7 +4661,7 @@ terminate.lpad.i.i.i.i111:                        ; preds = %if.end.i.i.i110
 _ZN9grpc_core12experimental4JsonD2Ev.exit113:     ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12experimental4JsonEED2Ev.exit106, %.noexc.i.i112
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i.i107)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp82) #24
-  %call.i114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin365.sroa.0.0413) #30
+  %call.i114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin365.sroa.0.0413) #30
   %cmp.i57.not = icmp eq ptr %call.i114, %add.ptr.i.i56
   br i1 %cmp.i57.not, label %for.end134, label %for.body73
 
@@ -5674,23 +5674,20 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIlN9grpc_c
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i3.i = icmp slt i64 %1, %4
-  br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont7
+  br i1 %cmp.i3.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %invoke.cont5
   %__y.addr.0.lcssa.i.i.i11.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %invoke.cont5 ]
   %call.i.i2 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN9grpc_core13RefCountedPtrINS2_8channelz10SocketNodeEEEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJS0_IlS6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %child_sockets_, ptr %__y.addr.0.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %if.then.i.invoke.cont7_crit_edge unwind label %lpad6
+          to label %invoke.cont7 unwind label %lpad6
 
-if.then.i.invoke.cont7_crit_edge:                 ; preds = %if.then.i
+invoke.cont7:                                     ; preds = %if.then.i
   %.pre = load ptr, ptr %second.i.i, align 8
-  br label %invoke.cont7
-
-invoke.cont7:                                     ; preds = %if.then.i.invoke.cont7_crit_edge, %lor.rhs.i
-  %5 = phi ptr [ %.pre, %if.then.i.invoke.cont7_crit_edge ], [ %0, %lor.rhs.i ]
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %cmp.not.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i, label %_ZNSt4pairIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEEED2Ev.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %invoke.cont7
+if.then.i.i:                                      ; preds = %lor.rhs.i, %invoke.cont7
+  %5 = phi ptr [ %.pre, %invoke.cont7 ], [ %0, %lor.rhs.i ]
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 1
@@ -5902,23 +5899,20 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIlN9grpc_c
   %_M_storage.i.i.i = getelementptr inbounds nuw i8, ptr %__y.addr.1.i.i.i.i, i64 32
   %4 = load i64, ptr %_M_storage.i.i.i, align 8
   %cmp.i3.i = icmp slt i64 %1, %4
-  br i1 %cmp.i3.i, label %if.then.i, label %invoke.cont7
+  br i1 %cmp.i3.i, label %if.then.i, label %if.then.i.i
 
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %invoke.cont5
   %__y.addr.0.lcssa.i.i.i11.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %invoke.cont5 ]
   %call.i.i2 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN9grpc_core13RefCountedPtrINS2_8channelz16ListenSocketNodeEEEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJS0_IlS6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %child_listen_sockets_, ptr %__y.addr.0.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %if.then.i.invoke.cont7_crit_edge unwind label %lpad6
+          to label %invoke.cont7 unwind label %lpad6
 
-if.then.i.invoke.cont7_crit_edge:                 ; preds = %if.then.i
+invoke.cont7:                                     ; preds = %if.then.i
   %.pre = load ptr, ptr %second.i.i, align 8
-  br label %invoke.cont7
-
-invoke.cont7:                                     ; preds = %if.then.i.invoke.cont7_crit_edge, %lor.rhs.i
-  %5 = phi ptr [ %.pre, %if.then.i.invoke.cont7_crit_edge ], [ %0, %lor.rhs.i ]
-  %cmp.not.i.i = icmp eq ptr %5, null
+  %cmp.not.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i, label %_ZNSt4pairIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEEED2Ev.exit, label %if.then.i.i
 
-if.then.i.i:                                      ; preds = %invoke.cont7
+if.then.i.i:                                      ; preds = %lor.rhs.i, %invoke.cont7
+  %5 = phi ptr [ %.pre, %invoke.cont7 ], [ %0, %lor.rhs.i ]
   %refs_.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = atomicrmw sub ptr %refs_.i.i.i, i64 1 acq_rel, align 8
   %cmp.i.i.i.i = icmp eq i64 %6, 1
@@ -16016,7 +16010,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8
   br label %if.then
 
-if.then:                                          ; preds = %if.then28.i, %while.end.i, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.then28.i, %if.else.i, %if.else37.i
   %_M_t = getelementptr inbounds nuw i8, ptr %this, i64 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp.i.i.i.i)
   %_M_index.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112

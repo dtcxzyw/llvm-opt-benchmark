@@ -8408,12 +8408,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 512
   switch i64 %6, label %.thread [
-    i64 1, label %.split.split.us
-    i64 2, label %.split.split.us13
-    i64 4, label %.split.split
+    i64 1, label %.split9.split.us
+    i64 2, label %.split9.split.us12
+    i64 4, label %.split9.split
   ]
 
-.split.split.us:                                  ; preds = %26, %45
+.split9.split.us:                                 ; preds = %26, %45
   %28 = phi i64 [ %47, %45 ], [ 0, %26 ]
   %29 = phi i32 [ %46, %45 ], [ 0, %26 ]
   %30 = getelementptr i8, ptr %2, i64 %28
@@ -8423,12 +8423,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %34 = icmp sgt i32 %33, -1
   br i1 %34, label %38, label %35
 
-35:                                               ; preds = %.split.split.us
+35:                                               ; preds = %.split9.split.us
   %36 = load i32, ptr %7, align 4
   %37 = mul i32 %36, %29
   br label %40
 
-38:                                               ; preds = %.split.split.us
+38:                                               ; preds = %.split9.split.us
   %39 = shl i32 %29, %33
   br label %40
 
@@ -8443,9 +8443,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %46 = add i32 %29, 1
   %47 = sext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.split.split.us, label %.thread, !llvm.loop !89
+  br i1 %48, label %.split9.split.us, label %.thread, !llvm.loop !89
 
-.split.split.us13:                                ; preds = %26, %67
+.split9.split.us12:                               ; preds = %26, %67
   %49 = phi i64 [ %69, %67 ], [ 0, %26 ]
   %50 = phi i32 [ %68, %67 ], [ 0, %26 ]
   %51 = shl nsw i64 %49, 1
@@ -8456,12 +8456,12 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %60, label %57
 
-57:                                               ; preds = %.split.split.us13
+57:                                               ; preds = %.split9.split.us12
   %58 = load i32, ptr %7, align 4
   %59 = mul i32 %58, %50
   br label %62
 
-60:                                               ; preds = %.split.split.us13
+60:                                               ; preds = %.split9.split.us12
   %61 = shl i32 %50, %55
   br label %62
 
@@ -8476,9 +8476,9 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %68 = add i32 %50, 1
   %69 = sext i32 %68 to i64
   %70 = icmp ugt i64 %3, %69
-  br i1 %70, label %.split.split.us13, label %.thread, !llvm.loop !89
+  br i1 %70, label %.split9.split.us12, label %.thread, !llvm.loop !89
 
-.split.split:                                     ; preds = %26, %88
+.split9.split:                                    ; preds = %26, %88
   %71 = phi i64 [ %90, %88 ], [ 0, %26 ]
   %72 = phi i32 [ %89, %88 ], [ 0, %26 ]
   %73 = shl nsw i64 %71, 2
@@ -8488,11 +8488,11 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %77 = icmp sgt i32 %76, -1
   br i1 %77, label %78, label %80
 
-78:                                               ; preds = %.split.split
+78:                                               ; preds = %.split9.split
   %79 = shl i32 %72, %76
   br label %83
 
-80:                                               ; preds = %.split.split
+80:                                               ; preds = %.split9.split
   %81 = load i32, ptr %7, align 4
   %82 = mul i32 %81, %72
   br label %83
@@ -8508,7 +8508,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %89 = add i32 %72, 1
   %90 = sext i32 %89 to i64
   %91 = icmp ugt i64 %3, %90
-  br i1 %91, label %.split.split, label %.thread, !llvm.loop !89
+  br i1 %91, label %.split9.split, label %.thread, !llvm.loop !89
 
 .thread:                                          ; preds = %88, %83, %67, %62, %40, %45, %26, %20
   %92 = phi i32 [ 0, %20 ], [ -22, %26 ], [ %43, %40 ], [ 0, %45 ], [ %65, %62 ], [ 0, %67 ], [ %86, %83 ], [ 0, %88 ]
@@ -8516,7 +8516,7 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
   %94 = load ptr, ptr %93, align 8
   %95 = load ptr, ptr %23, align 8
   tail call void %94(ptr noundef %95) #24
-  br label %114
+  br label %112
 
 96:                                               ; preds = %16
   %97 = mul i64 %6, %3
@@ -8528,79 +8528,75 @@ define dso_local i32 @regmap_bulk_write(ptr noundef %0, i32 noundef %1, ptr noun
 
 102:                                              ; preds = %96
   %103 = icmp eq i64 %97, 0
-  br i1 %103, label %.thread9, label %.preheader
-
-.thread9:                                         ; preds = %102
-  %104 = tail call i32 @regmap_raw_write(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %100, i64 noundef 0)
-  tail call void @kfree(ptr noundef nonnull %100) #24
-  br label %114
+  br i1 %103, label %.split, label %.preheader
 
 .preheader:                                       ; preds = %102, %.preheader
-  %105 = phi i64 [ %110, %.preheader ], [ 0, %102 ]
-  %106 = load ptr, ptr %17, align 8
-  %107 = getelementptr i8, ptr %100, i64 %105
-  tail call void %106(ptr noundef %107) #24
-  %108 = add i64 %105, %6
-  %109 = shl i64 %108, 32
-  %110 = ashr exact i64 %109, 32
-  %111 = icmp ult i64 %110, %97
-  br i1 %111, label %.preheader, label %112, !llvm.loop !90
+  %104 = phi i64 [ %109, %.preheader ], [ 0, %102 ]
+  %105 = load ptr, ptr %17, align 8
+  %106 = getelementptr i8, ptr %100, i64 %104
+  tail call void %105(ptr noundef %106) #24
+  %107 = add i64 %104, %6
+  %108 = shl i64 %107, 32
+  %109 = ashr exact i64 %108, 32
+  %110 = icmp ult i64 %109, %97
+  br i1 %110, label %.preheader, label %.split, !llvm.loop !90
 
-112:                                              ; preds = %.preheader
-  %113 = tail call i32 @regmap_raw_write(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %100, i64 noundef %97)
+.split:                                           ; preds = %.preheader, %102
+  %.sink = phi i64 [ 0, %102 ], [ %97, %.preheader ]
+  %111 = tail call i32 @regmap_raw_write(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %100, i64 noundef %.sink)
   tail call void @kfree(ptr noundef nonnull %100) #24
-  br label %114
+  br label %112
 
-114:                                              ; preds = %112, %.thread9, %.thread
-  %115 = phi i32 [ %113, %112 ], [ %92, %.thread ], [ %104, %.thread9 ]
-  %116 = icmp eq i32 %115, 0
-  br i1 %116, label %117, label %.thread8
+112:                                              ; preds = %.split, %.thread
+  %113 = phi i32 [ %111, %.split ], [ %92, %.thread ]
+  %114 = icmp eq i32 %113, 0
+  br i1 %114, label %115, label %.thread8
 
-117:                                              ; preds = %114
-  %118 = mul i64 %6, %3
-  %119 = trunc i64 %118 to i32
+115:                                              ; preds = %112
+  %116 = mul i64 %6, %3
+  %117 = trunc i64 %116 to i32
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_write, i64 8), i32 2) #24
-          to label %.thread8 [label %120], !srcloc !49
+          to label %.thread8 [label %118], !srcloc !49
 
-120:                                              ; preds = %117
-  %121 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #24, !srcloc !91
-  %122 = zext i32 %121 to i64
-  %123 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %122) #24, !srcloc !51
-  %124 = icmp ult i8 %123, 2
-  tail call void @llvm.assume(i1 %124)
-  %125 = icmp eq i8 %123, 0
-  br i1 %125, label %.thread8, label %126
+118:                                              ; preds = %115
+  %119 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #24, !srcloc !91
+  %120 = zext i32 %119 to i64
+  %121 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @__cpu_online_mask, i64 %120) #24, !srcloc !51
+  %122 = icmp ult i8 %121, 2
+  tail call void @llvm.assume(i1 %122)
+  %123 = icmp eq i8 %121, 0
+  br i1 %123, label %.thread8, label %124
 
-126:                                              ; preds = %120
+124:                                              ; preds = %118
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #24, !srcloc !52
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !92
-  %127 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_write, i64 72), align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %133, label %129
+  %125 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_regmap_bulk_write, i64 72), align 8
+  %126 = icmp eq ptr %125, null
+  br i1 %126, label %131, label %127
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
-  %131 = load ptr, ptr %130, align 8
-  %132 = tail call i32 @__SCT__tp_func_regmap_bulk_write(ptr noundef %131, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %119) #24
-  br label %133
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = tail call i32 @__SCT__tp_func_regmap_bulk_write(ptr noundef %129, ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %117) #24
+  br label %131
 
-133:                                              ; preds = %129, %126
+131:                                              ; preds = %127, %124
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !93
-  %134 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #24, !srcloc !55
-  %135 = icmp ult i8 %134, 2
-  tail call void @llvm.assume(i1 %135)
-  %136 = icmp eq i8 %134, 0
-  br i1 %136, label %.thread8, label %137, !prof !25
+  %132 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #24, !srcloc !55
+  %133 = icmp ult i8 %132, 2
+  tail call void @llvm.assume(i1 %133)
+  %134 = icmp eq i8 %132, 0
+  br i1 %134, label %.thread8, label %135, !prof !25
 
-137:                                              ; preds = %133
-  %138 = tail call i64 @llvm.read_register.i64(metadata !0)
-  %139 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %138) #24, !srcloc !94
-  tail call void @llvm.write_register.i64(metadata !0, i64 %139)
+135:                                              ; preds = %131
+  %136 = tail call i64 @llvm.read_register.i64(metadata !0)
+  %137 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %136) #24, !srcloc !94
+  tail call void @llvm.write_register.i64(metadata !0, i64 %137)
   br label %.thread8
 
-.thread8:                                         ; preds = %96, %137, %133, %120, %117, %114, %4
-  %140 = phi i32 [ -22, %4 ], [ %115, %114 ], [ 0, %117 ], [ 0, %120 ], [ 0, %133 ], [ 0, %137 ], [ -12, %96 ]
-  ret i32 %140
+.thread8:                                         ; preds = %96, %135, %131, %118, %115, %112, %4
+  %138 = phi i32 [ -22, %4 ], [ %113, %112 ], [ 0, %115 ], [ 0, %118 ], [ 0, %131 ], [ 0, %135 ], [ -12, %96 ]
+  ret i32 %138
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)

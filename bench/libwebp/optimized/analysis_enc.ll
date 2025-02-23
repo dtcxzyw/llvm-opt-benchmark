@@ -163,7 +163,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   br label %91
 
 91:                                               ; preds = %.thread, %MergeJobs.exit, %62
-  %.04362 = phi i32 [ 0, %.thread ], [ %73, %MergeJobs.exit ], [ 0, %62 ]
+  %.04362 = phi i32 [ 0, %.thread ], [ 1, %MergeJobs.exit ], [ 0, %62 ]
   call void @llvm.lifetime.end.p0(i64 4936, ptr nonnull %8) #6
   br label %109
 
@@ -254,21 +254,21 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %134 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv161.i
   %135 = load i32, ptr %134, align 4, !tbaa !47
   %136 = icmp eq i32 %135, 0
-  br i1 %136, label %137, label %.critedge2.loopexit.split.loop.exit204.i
+  br i1 %136, label %137, label %.critedge2.loopexit.split.loop.exit205.i
 
 137:                                              ; preds = %.lr.ph.i
   %indvars.iv.next162.i = add nsw i64 %indvars.iv161.i, -1
   %138 = icmp ugt i64 %indvars.iv.next162.i, %indvars.iv.i53
   br i1 %138, label %.lr.ph.i, label %.critedge2.i, !llvm.loop !56
 
-.critedge2.loopexit.split.loop.exit204.i:         ; preds = %.lr.ph.i
+.critedge2.loopexit.split.loop.exit205.i:         ; preds = %.lr.ph.i
   %139 = trunc nuw nsw i64 %indvars.iv161.i to i32
   br label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %131, %137, %.critedge2.loopexit.split.loop.exit204.i, %.critedge.i
-  %.096.lcssa190.i = phi i32 [ %132, %.critedge.i ], [ %132, %.critedge2.loopexit.split.loop.exit204.i ], [ %132, %137 ], [ 256, %131 ]
-  %.197.lcssa.i = phi i32 [ 255, %.critedge.i ], [ %139, %.critedge2.loopexit.split.loop.exit204.i ], [ %132, %137 ], [ 255, %131 ]
-  %140 = sub nsw i32 %.197.lcssa.i, %.096.lcssa190.i
+.critedge2.i:                                     ; preds = %131, %137, %.critedge2.loopexit.split.loop.exit205.i, %.critedge.i
+  %.096.lcssa191.i = phi i32 [ %132, %.critedge.i ], [ %132, %.critedge2.loopexit.split.loop.exit205.i ], [ %132, %137 ], [ 256, %131 ]
+  %.197.lcssa.i = phi i32 [ 255, %.critedge.i ], [ %139, %.critedge2.loopexit.split.loop.exit205.i ], [ %132, %137 ], [ 255, %131 ]
+  %140 = sub nsw i32 %.197.lcssa.i, %.096.lcssa191.i
   %141 = icmp sgt i32 %126, 0
   br i1 %141, label %.lr.ph132.i, label %.critedge2.i..preheader122.i_crit_edge
 
@@ -283,14 +283,14 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 .preheader122.i:                                  ; preds = %150, %.critedge2.i..preheader122.i_crit_edge
   %wide.trip.count183.i.pre-phi = phi i64 [ %.pre, %.critedge2.i..preheader122.i_crit_edge ], [ %wide.trip.count.i, %150 ]
-  %.not135.i = icmp sgt i32 %.096.lcssa190.i, %.197.lcssa.i
+  %.not135.i = icmp sgt i32 %.096.lcssa191.i, %.197.lcssa.i
   %143 = add i32 %spec.select.i, -1
   %144 = zext i32 %143 to i64
   %145 = shl nuw nsw i64 %144, 2
   %146 = add nuw nsw i64 %145, 4
   %147 = sext i32 %spec.select.i to i64
-  %148 = zext nneg i32 %.096.lcssa190.i to i64
-  %smax177.i = call i32 @llvm.smax.i32(i32 %.197.lcssa.i, i32 %.096.lcssa190.i)
+  %148 = zext nneg i32 %.096.lcssa191.i to i64
+  %smax177.i = call i32 @llvm.smax.i32(i32 %.197.lcssa.i, i32 %.096.lcssa191.i)
   %149 = add nuw nsw i32 %smax177.i, 1
   %wide.trip.count178.i = zext i32 %149 to i64
   br label %.preheader121.i
@@ -300,7 +300,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %.298131.i = phi i32 [ 1, %.lr.ph132.i ], [ %155, %150 ]
   %151 = mul nsw i32 %.298131.i, %140
   %152 = sdiv i32 %151, %142
-  %153 = add nsw i32 %152, %.096.lcssa190.i
+  %153 = add nsw i32 %152, %.096.lcssa191.i
   %154 = getelementptr inbounds nuw [4 x i32], ptr %3, i64 0, i64 %indvars.iv164.i
   store i32 %153, ptr %154, align 4, !tbaa !47
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
@@ -688,21 +688,21 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %.240.i.i = call i32 @llvm.smax.i32(i32 %.13948.i.i, i32 %355)
   %indvars.iv.next.i117.i = add nuw nsw i64 %indvars.iv.i116.i, 1
   %exitcond.not.i118.i = icmp eq i64 %indvars.iv.next.i117.i, %wide.trip.count.i115.i
-  br i1 %exitcond.not.i118.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !73
+  br i1 %exitcond.not.i118.i, label %.lr.ph.i.i, label %.preheader.i.i, !llvm.loop !73
 
-.loopexit.i.i:                                    ; preds = %.preheader.i.i, %SmoothSegmentMap.exit.i
-  %.038.i.i = phi i32 [ %352, %SmoothSegmentMap.exit.i ], [ %.240.i.i, %.preheader.i.i ]
-  %.0.i.i = phi i32 [ %352, %SmoothSegmentMap.exit.i ], [ %spec.select.i.i, %.preheader.i.i ]
-  %356 = icmp sgt i32 %351, 0
+.loopexit.i.i:                                    ; preds = %SmoothSegmentMap.exit.i
+  %356 = icmp eq i32 %351, 1
   br i1 %356, label %.lr.ph.i.i, label %.loopexit
 
-.lr.ph.i.i:                                       ; preds = %.loopexit.i.i
-  %357 = icmp eq i32 %.038.i.i, %.0.i.i
-  %358 = add nsw i32 %.0.i.i, 1
-  %spec.select46.i.i = select i1 %357, i32 %358, i32 %.038.i.i
-  %359 = sub nsw i32 %spec.select46.i.i, %.0.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.loopexit.i.i
+  %wide.trip.count55.i.pre-phi.i = phi i64 [ 1, %.loopexit.i.i ], [ %wide.trip.count.i115.i, %.preheader.i.i ]
+  %.060.i.i = phi i32 [ %352, %.loopexit.i.i ], [ %spec.select.i.i, %.preheader.i.i ]
+  %.03859.i.i = phi i32 [ %352, %.loopexit.i.i ], [ %.240.i.i, %.preheader.i.i ]
+  %357 = icmp eq i32 %.03859.i.i, %.060.i.i
+  %358 = add nsw i32 %.060.i.i, 1
+  %spec.select46.i.i = select i1 %357, i32 %358, i32 %.03859.i.i
+  %359 = sub nsw i32 %spec.select46.i.i, %.060.i.i
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %wide.trip.count55.i.i = zext nneg i32 %351 to i64
   br label %361
 
 361:                                              ; preds = %361, %.lr.ph.i.i
@@ -712,7 +712,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %364 = sub nsw i32 %363, %206
   %365 = mul nsw i32 %364, 255
   %366 = sdiv i32 %365, %359
-  %367 = sub nsw i32 %363, %.0.i.i
+  %367 = sub nsw i32 %363, %.060.i.i
   %368 = mul nsw i32 %367, 255
   %369 = sdiv i32 %368, %359
   %370 = call i32 @llvm.smin.i32(i32 %366, i32 127)
@@ -725,7 +725,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %376 = getelementptr inbounds nuw i8, ptr %372, i64 676
   store i32 %375, ptr %376, align 4, !tbaa !77
   %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
-  %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count55.i.i
+  %exitcond56.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count55.i.pre-phi.i
   br i1 %exitcond56.not.i.i, label %.loopexit, label %361, !llvm.loop !78
 
 .loopexit:                                        ; preds = %361, %.loopexit.i.i
@@ -883,13 +883,13 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %47
-  call void @VP8SetIntra16Mode(ptr noundef %1, i32 noundef 0) #6
+  call void @VP8SetIntra16Mode(ptr noundef nonnull %1, i32 noundef 0) #6
   br label %FastMBAnalyze.exit.i
 
 55:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  call void @VP8SetIntra4Mode(ptr noundef %1, ptr noundef nonnull %6) #6
+  call void @VP8SetIntra4Mode(ptr noundef nonnull %1, ptr noundef nonnull %6) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   br label %FastMBAnalyze.exit.i
 
@@ -944,7 +944,7 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
 
 75:                                               ; preds = %MBAnalyzeBestIntra16Mode.exit.i, %FastMBAnalyze.exit.i
   %.0.i = phi i32 [ 2, %FastMBAnalyze.exit.i ], [ %74, %MBAnalyzeBestIntra16Mode.exit.i ]
-  call void @VP8MakeChroma8Preds(ptr noundef %1) #6
+  call void @VP8MakeChroma8Preds(ptr noundef nonnull %1) #6
   br label %76
 
 76:                                               ; preds = %GetAlpha.exit.i22.i, %75

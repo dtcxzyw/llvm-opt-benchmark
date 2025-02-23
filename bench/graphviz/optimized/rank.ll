@@ -1380,8 +1380,8 @@ edgelabel_ranks.exit:                             ; preds = %1, %._crit_edge22.i
 
 minmax_edges.exit:                                ; preds = %29, %.loopexit.i
   %.sroa.0.0.insert.insert.i = phi i64 [ %70, %.loopexit.i ], [ 0, %29 ]
-  tail call void @decompose(ptr noundef %0, i32 noundef 0) #15
-  tail call void @acyclic(ptr noundef %0) #15
+  tail call void @decompose(ptr noundef nonnull %0, i32 noundef 0) #15
+  tail call void @acyclic(ptr noundef nonnull %0) #15
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.0.0.insert.insert.i to i32
   %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.0.0.insert.insert.i, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw nsw i64 %.sroa.2.0.extract.shift.i to i32

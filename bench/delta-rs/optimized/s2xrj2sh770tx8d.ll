@@ -43775,7 +43775,6 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   br i1 %16, label %_ZN11arrow_arith9aggregate24aggregate_nonnull_simple17hddf8c9a608267b45E.exit, label %17
 
 17:                                               ; preds = %1
-  %. = select i1 %.not.i.not, ptr null, ptr %7
   %.not = icmp eq i64 %..sroa.5.0.i, 0
   br i1 %.not, label %18, label %20
 
@@ -43791,7 +43790,7 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !13912
   store i64 %15, ptr %6, align 8, !noalias !13912
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !13912
-  %21 = getelementptr inbounds nuw i8, ptr %., i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = load i64, ptr %21, align 8, !alias.scope !13910, !noalias !13907, !noundef !4
   store i64 %22, ptr %5, align 8, !noalias !13912
   %23 = icmp eq i64 %15, %22
@@ -43813,11 +43812,11 @@ define hidden { i64, i64 } @_ZN11arrow_arith9aggregate9aggregate17h7e9296e13cb60
   %26 = and i64 %15, 2305843009213693888
   %27 = getelementptr inbounds nuw i64, ptr %12, i64 %26
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3), !noalias !13912
-  %28 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %29 = load ptr, ptr %28, align 8, !alias.scope !13910, !noalias !13907, !noundef !4
-  %30 = getelementptr inbounds nuw i8, ptr %., i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i64, ptr %30, align 8, !alias.scope !13910, !noalias !13907, !noundef !4
-  %32 = getelementptr inbounds nuw i8, ptr %., i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %33 = load i64, ptr %32, align 8, !alias.scope !13910, !noalias !13907, !noundef !4
   call void @_ZN12arrow_buffer4util18bit_chunk_iterator9BitChunks3new17hd927779e7baf4b25E(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, i64, i64 }) align 8 captures(none) dereferenceable(40) %3, ptr noalias noundef nonnull readonly align 1 %29, i64 noundef %31, i64 noundef %33, i64 noundef range(i64 0, 2305843009213693952) %15), !noalias !13912
   %34 = load ptr, ptr %3, align 8, !noalias !13912, !nonnull !4, !align !56, !noundef !4
@@ -87047,7 +87046,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.118.i15 = phi i64 [ %90, %84 ], [ %.017.i13, %81 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %81 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20
 
 94:                                               ; preds = %92
@@ -87059,7 +87058,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.118.i15
   br label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20
 

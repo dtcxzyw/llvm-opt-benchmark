@@ -3249,8 +3249,8 @@ pgstat_snapshot_entry_hash.exit:                  ; preds = %.preheader67
   %64 = icmp ugt i64 %3, %63
   br i1 %64, label %.lr.ph, label %.lr.ph79.preheader, !llvm.loop !25
 
-.lr.ph79.preheader:                               ; preds = %.lr.ph, %pgstat_snapshot_entry_hash.exit, %61
-  %.05177.ph = phi i32 [ 0, %61 ], [ %.070, %pgstat_snapshot_entry_hash.exit ], [ %.070, %.lr.ph ]
+.lr.ph79.preheader:                               ; preds = %61, %.lr.ph, %pgstat_snapshot_entry_hash.exit
+  %.05177.ph = phi i32 [ %.070, %pgstat_snapshot_entry_hash.exit ], [ %.070, %.lr.ph ], [ 0, %61 ]
   br label %.lr.ph79
 
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %101

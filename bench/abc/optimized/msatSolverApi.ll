@@ -954,7 +954,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !69
-  tail call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %9, i32 noundef 0) #11
+  tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %9, i32 noundef 0) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
@@ -978,7 +978,7 @@ define void @Msat_SolverFree(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv96 = phi i64 [ 0, %.lr.ph85.preheader ], [ %indvars.iv.next97, %.lr.ph85 ]
   %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv96
   %18 = load ptr, ptr %17, align 8, !tbaa !69
-  tail call void @Msat_ClauseFree(ptr noundef %0, ptr noundef %18, i32 noundef 0) #11
+  tail call void @Msat_ClauseFree(ptr noundef nonnull %0, ptr noundef %18, i32 noundef 0) #11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %._crit_edge86, label %.lr.ph85, !llvm.loop !79

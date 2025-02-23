@@ -1631,7 +1631,7 @@ find_tail.exit.i:                                 ; preds = %._crit_edge.i.i
 
 188:                                              ; preds = %find_tail.exit.i
   %189 = select i1 %85, i16 %168, i16 %86
-  %190 = zext i16 %189 to i64
+  %190 = zext nneg i16 %189 to i64
   %191 = getelementptr ptr, ptr %.010.i.i, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
@@ -1720,7 +1720,7 @@ init_frag.exit160.i:                              ; preds = %218
   %.b21.i161.i = load i1, ptr @MAX_TSN, align 4
   %238 = select i1 %.b21.i161.i, i16 16383, i16 63
   %239 = select i1 %85, i16 %238, i16 %86
-  %240 = zext i16 %239 to i64
+  %240 = zext nneg i16 %239 to i64
   %241 = getelementptr ptr, ptr %.010.i.i, i64 %240
   %242 = load ptr, ptr %241, align 8
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8

@@ -1271,7 +1271,7 @@ _ZL13gmx_snew_implIPdEvPKcS2_iRPT_m.exit426:      ; preds = %374
   %388 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %389 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %390 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %391 = icmp slt i32 %.0.lcssa, 2
+  %391 = icmp sgt i32 %.0.lcssa, 1
   %392 = sitofp i32 %.0288.lcssa803 to double
   %.not330 = icmp eq ptr %.0258, null
   %393 = sext i32 %384 to i64
@@ -1661,11 +1661,11 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %565
   %or.cond.not = or i1 %576, %.not
   br i1 %or.cond.not, label %.loopexit, label %.lr.ph615
 
-.preheader547:                                    ; preds = %.lr.ph615
-  br i1 %391, label %.loopexit, label %.preheader543.us
+.preheader543.lr.ph:                              ; preds = %.lr.ph615
+  br i1 %391, label %.preheader543.us, label %.loopexit
 
-.preheader543.us:                                 ; preds = %.preheader547, %..critedge_crit_edge.us
-  %indvars.iv748 = phi i64 [ %indvars.iv.next749, %..critedge_crit_edge.us ], [ %412, %.preheader547 ]
+.preheader543.us:                                 ; preds = %.preheader543.lr.ph, %..critedge_crit_edge.us
+  %indvars.iv748 = phi i64 [ %indvars.iv.next749, %..critedge_crit_edge.us ], [ %412, %.preheader543.lr.ph ]
   %577 = sub nsw i64 %indvars.iv748, %412
   %578 = getelementptr inbounds [3 x float], ptr %.0536, i64 %577
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 4
@@ -1750,9 +1750,9 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %565
   %636 = fmul float %627, %633
   store float %636, ptr %629, align 4
   %exitcond744.not = icmp eq i64 %indvars.iv.next741, %418
-  br i1 %exitcond744.not, label %.preheader547, label %.lr.ph615
+  br i1 %exitcond744.not, label %.preheader543.lr.ph, label %.lr.ph615
 
-.loopexit:                                        ; preds = %..critedge_crit_edge.us, %.preheader547, %.loopexit549
+.loopexit:                                        ; preds = %..critedge_crit_edge.us, %.preheader543.lr.ph, %.loopexit549
   %exitcond757.not = icmp eq i64 %indvars.iv.next754, %wide.trip.count756
   br i1 %exitcond757.not, label %._crit_edge624, label %.lr.ph623, !llvm.loop !27
 
@@ -1924,7 +1924,7 @@ _ZL10gyro_eigenPPdS_S0_Pi.exit:                   ; preds = %565
   br i1 %.not, label %764, label %.preheader551
 
 .preheader551:                                    ; preds = %718
-  br i1 %391, label %._crit_edge644.thread, label %.lr.ph643
+  br i1 %391, label %.lr.ph643, label %._crit_edge644.thread
 
 .lr.ph643:                                        ; preds = %.preheader551, %.lr.ph643.backedge
   %indvars.iv778 = phi i64 [ %indvars.iv778.be, %.lr.ph643.backedge ], [ 0, %.preheader551 ]

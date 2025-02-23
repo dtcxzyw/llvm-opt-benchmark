@@ -170,42 +170,42 @@ define void @Wlc_NtkDumpDot(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %49 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 26, i64 1, ptr nonnull %40)
   %50 = tail call i64 @fwrite(ptr nonnull @.str.14, i64 26, i64 1, ptr nonnull %40)
   %51 = icmp sgt i32 %.0355, -1
-  br i1 %51, label %.lr.ph546, label %._crit_edge547.thread
-
-._crit_edge547.thread:                            ; preds = %39
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
-  br label %._crit_edge551
+  br i1 %51, label %.lr.ph546, label %._crit_edge547
 
 .lr.ph546:                                        ; preds = %39, %.lr.ph546
-  %.0348544 = phi i32 [ %56, %.lr.ph546 ], [ %.0355, %39 ]
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %.0348544) #8
-  %54 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 10, i64 1, ptr nonnull %40)
+  %.0348544 = phi i32 [ %55, %.lr.ph546 ], [ %.0355, %39 ]
+  %52 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %.0348544) #8
+  %53 = tail call i64 @fwrite(ptr nonnull @.str.16, i64 10, i64 1, ptr nonnull %40)
   %fputc412 = tail call i32 @fputc(i32 34, ptr nonnull %40)
   %fputc413 = tail call i32 @fputc(i32 34, ptr nonnull %40)
-  %55 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %40)
-  %56 = add nsw i32 %.0348544, -1
+  %54 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 3, i64 1, ptr nonnull %40)
+  %55 = add nsw i32 %.0348544, -1
   %.not657 = icmp eq i32 %.0348544, 0
-  br i1 %.not657, label %._crit_edge547, label %.lr.ph546, !llvm.loop !26
+  br i1 %.not657, label %.lr.ph550.preheader, label %.lr.ph546, !llvm.loop !26
 
-._crit_edge547:                                   ; preds = %.lr.ph546
+._crit_edge547:                                   ; preds = %39
+  %56 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
+  br label %._crit_edge551
+
+.lr.ph550.preheader:                              ; preds = %.lr.ph546
   %57 = tail call i64 @fwrite(ptr nonnull @.str.19, i64 32, i64 1, ptr nonnull %40)
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %.0355) #8
   %.not410658 = icmp eq i32 %.0355, 0
   br i1 %.not410658, label %._crit_edge551.loopexit, label %.lr.ph550
 
-.lr.ph550:                                        ; preds = %._crit_edge547, %.lr.ph550
-  %.1349548659 = phi i32 [ %60, %.lr.ph550 ], [ %.0355, %._crit_edge547 ]
+.lr.ph550:                                        ; preds = %.lr.ph550.preheader, %.lr.ph550
+  %.1349548659 = phi i32 [ %60, %.lr.ph550 ], [ %.0355, %.lr.ph550.preheader ]
   %59 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr nonnull %40)
   %60 = add nsw i32 %.1349548659, -1
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %40, ptr noundef nonnull @.str.15, i32 noundef %60) #8
   %.not410 = icmp eq i32 %60, 0
   br i1 %.not410, label %._crit_edge551.loopexit, label %.lr.ph550, !llvm.loop !27
 
-._crit_edge551.loopexit:                          ; preds = %.lr.ph550, %._crit_edge547
+._crit_edge551.loopexit:                          ; preds = %.lr.ph550, %.lr.ph550.preheader
   %fputc411 = tail call i32 @fputc(i32 59, ptr nonnull %40)
   br label %._crit_edge551
 
-._crit_edge551:                                   ; preds = %._crit_edge547.thread, %._crit_edge551.loopexit
+._crit_edge551:                                   ; preds = %._crit_edge547, %._crit_edge551.loopexit
   %fputc367 = tail call i32 @fputc(i32 10, ptr nonnull %40)
   %fputc368 = tail call i32 @fputc(i32 125, ptr nonnull %40)
   %fputc369 = tail call i32 @fputc(i32 10, ptr nonnull %40)

@@ -1102,7 +1102,7 @@ define internal range(i32 -30, 1) i32 @_archive_read_close(ptr noundef %0) #0 {
 tree_pop.exit.i:                                  ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %43, i64 24
   tail call void @archive_string_free(ptr noundef nonnull %60) #17
-  tail call void @free(ptr noundef %43) #17
+  tail call void @free(ptr noundef nonnull %43) #17
   %61 = load ptr, ptr %9, align 8, !tbaa !61
   %.not24.i = icmp eq ptr %61, null
   br i1 %.not24.i, label %._crit_edge.i, label %29, !llvm.loop !103
@@ -1588,7 +1588,7 @@ tree_append.exit66.i.i:                           ; preds = %138, %134, %.crited
 tree_pop.exit.i.i:                                ; preds = %191
   %195 = getelementptr inbounds nuw i8, ptr %178, i64 24
   call void @archive_string_free(ptr noundef nonnull %195) #17
-  call void @free(ptr noundef %178) #17
+  call void @free(ptr noundef nonnull %178) #17
   br label %.loopexit.sink.split.i.i
 
 196:                                              ; preds = %169, %168, %163
@@ -1658,7 +1658,7 @@ tree_pop.exit.i.i:                                ; preds = %191
 tree_pop.exit72.i.i:                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %213, i64 24
   call void @archive_string_free(ptr noundef nonnull %230) #17
-  call void @free(ptr noundef %213) #17
+  call void @free(ptr noundef nonnull %213) #17
   %.not52.i.i = icmp eq i32 %208, 0
   %231 = select i1 %.not52.i.i, i32 3, i32 %208
   br label %.loopexit.sink.split.i.i
@@ -1705,7 +1705,7 @@ tree_pop.exit72.i.i:                              ; preds = %226
 tree_pop.exit76.i.i:                              ; preds = %250
   %254 = getelementptr inbounds nuw i8, ptr %237, i64 24
   call void @archive_string_free(ptr noundef nonnull %254) #17
-  call void @free(ptr noundef %237) #17
+  call void @free(ptr noundef nonnull %237) #17
   %255 = load i32, ptr %28, align 8, !tbaa !43
   %256 = and i32 %255, -49
   store i32 %256, ptr %28, align 8, !tbaa !43
@@ -2988,7 +2988,7 @@ tree_enter_initial_dir.exit.thread:               ; preds = %47, %42, %38, %15
   br label %setup_suitable_read_buffer.exit.thread
 
 90:                                               ; preds = %.loopexit.i
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.38) #17
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.38) #17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 32768, ptr %91, align 4, !tbaa !25
   br label %157
@@ -3023,7 +3023,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %59, %83, %tree_ente
 111:                                              ; preds = %107
   %112 = tail call ptr @__errno_location() #21
   %113 = load i32, ptr %112, align 4, !tbaa !90
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %113, ptr noundef nonnull @.str.36) #17
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %113, ptr noundef nonnull @.str.36) #17
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 32768, ptr %114, align 4, !tbaa !25
   br label %157
@@ -3054,7 +3054,7 @@ setup_suitable_read_buffer.exit.thread:           ; preds = %59, %83, %tree_ente
 128:                                              ; preds = %123
   %129 = tail call ptr @__errno_location() #21
   %130 = load i32, ptr %129, align 4, !tbaa !90
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef %130, ptr noundef nonnull @.str.37) #17
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %130, ptr noundef nonnull @.str.37) #17
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 32768, ptr %131, align 4, !tbaa !25
   br label %157
@@ -3398,7 +3398,7 @@ tree_dup.exit:                                    ; preds = %9, %12
 tree_pop.exit:                                    ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @archive_string_free(ptr noundef nonnull %44) #17
-  tail call void @free(ptr noundef %25) #17
+  tail call void @free(ptr noundef nonnull %25) #17
   %45 = tail call ptr @__errno_location() #21
   %46 = load i32, ptr %45, align 4, !tbaa !90
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40

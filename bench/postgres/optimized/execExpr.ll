@@ -6525,7 +6525,7 @@ define dso_local noundef ptr @ExecBuildAggTrans(ptr noundef %0, ptr noundef read
   br label %30
 
 ._crit_edge:                                      ; preds = %30, %5
-  call fastcc void @ExecPushExprSetupSteps(ptr noundef %7, ptr noundef %6)
+  call fastcc void @ExecPushExprSetupSteps(ptr noundef nonnull %7, ptr noundef %6)
   %19 = load i32, ptr %15, align 4
   %20 = icmp sgt i32 %19, 0
   br i1 %20, label %.lr.ph498, label %._crit_edge499
@@ -6665,7 +6665,7 @@ ExecReadyExpr.exit:                               ; preds = %ExprEvalPushStep.ex
   br i1 %brmerge, label %113, label %89
 
 89:                                               ; preds = %81
-  call fastcc void @ExecInitExprRec(ptr noundef nonnull %88, ptr noundef %7, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @ExecInitExprRec(ptr noundef nonnull %88, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %90 = ptrtoint ptr %.sroa.29.0488 to i64
   %.sroa.29.0.insert.insert = or i64 %90, 4294967295
   %91 = inttoptr i64 %.sroa.29.0.insert.insert to ptr
@@ -6746,7 +6746,7 @@ ExecReadyExpr.exit:                               ; preds = %ExprEvalPushStep.ex
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %124 = load ptr, ptr %123, align 8
   %125 = getelementptr inbounds nuw i8, ptr %85, i64 56
-  call fastcc void @ExecInitExprRec(ptr noundef %124, ptr noundef %7, ptr noundef nonnull %115, ptr noundef nonnull %125)
+  call fastcc void @ExecInitExprRec(ptr noundef %124, ptr noundef nonnull %7, ptr noundef nonnull %115, ptr noundef nonnull %125)
   br label %.thread430
 
 126:                                              ; preds = %114
@@ -6756,7 +6756,7 @@ ExecReadyExpr.exit:                               ; preds = %ExprEvalPushStep.ex
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %132 = getelementptr inbounds nuw i8, ptr %128, i64 40
-  call fastcc void @ExecInitExprRec(ptr noundef %130, ptr noundef %7, ptr noundef nonnull %131, ptr noundef nonnull %132)
+  call fastcc void @ExecInitExprRec(ptr noundef %130, ptr noundef nonnull %7, ptr noundef nonnull %131, ptr noundef nonnull %132)
   %133 = getelementptr inbounds nuw i8, ptr %128, i64 48
   store i64 0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 56
@@ -6873,7 +6873,7 @@ ExprEvalPushStep.exit228:                         ; preds = %143, %._crit_edge.i
   %indvars.iv.next507 = add nuw nsw i64 %indvars.iv506, 1
   %188 = getelementptr inbounds nuw [0 x %struct.NullableDatum], ptr %170, i64 0, i64 %indvars.iv.next507
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  call fastcc void @ExecInitExprRec(ptr noundef %187, ptr noundef %7, ptr noundef nonnull %188, ptr noundef nonnull %189)
+  call fastcc void @ExecInitExprRec(ptr noundef %187, ptr noundef nonnull %7, ptr noundef nonnull %188, ptr noundef nonnull %189)
   %190 = load i32, ptr %175, align 4
   %191 = sext i32 %190 to i64
   %192 = icmp slt i64 %indvars.iv.next507, %191
@@ -6894,7 +6894,7 @@ ExprEvalPushStep.exit228:                         ; preds = %143, %._crit_edge.i
   %202 = load ptr, ptr %.val220, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load ptr, ptr %203, align 8
-  call fastcc void @ExecInitExprRec(ptr noundef %204, ptr noundef %7, ptr noundef nonnull %13, ptr noundef nonnull %14)
+  call fastcc void @ExecInitExprRec(ptr noundef %204, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %14)
   br label %.thread430
 
 205:                                              ; preds = %193
@@ -6926,7 +6926,7 @@ ExprEvalPushStep.exit228:                         ; preds = %143, %._crit_edge.i
   %223 = load ptr, ptr %222, align 8
   %224 = getelementptr inbounds nuw i64, ptr %209, i64 %indvars.iv511
   %225 = getelementptr inbounds nuw i8, ptr %211, i64 %indvars.iv511
-  call fastcc void @ExecInitExprRec(ptr noundef %223, ptr noundef %7, ptr noundef %224, ptr noundef %225)
+  call fastcc void @ExecInitExprRec(ptr noundef %223, ptr noundef nonnull %7, ptr noundef %224, ptr noundef %225)
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
   %226 = load i32, ptr %215, align 4
   %227 = sext i32 %226 to i64

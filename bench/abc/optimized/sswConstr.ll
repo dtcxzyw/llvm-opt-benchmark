@@ -93,7 +93,7 @@ define ptr @Ssw_FramesWithConstraints(ptr noundef readonly captures(none) %0, i3
   %.val79 = load ptr, ptr %40, align 8, !tbaa !26
   %41 = getelementptr inbounds nuw ptr, ptr %.val79, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !27
-  %43 = tail call ptr @Aig_ObjCreateCi(ptr noundef %6) #11
+  %43 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %6) #11
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %43, ptr %44, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

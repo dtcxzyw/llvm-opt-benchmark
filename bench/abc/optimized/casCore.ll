@@ -107,7 +107,7 @@ define range(i32 0, 2) i32 @Abc_CascadeExperiment(ptr noundef readonly captures(
 
 .lr.ph79.preheader:                               ; preds = %.preheader
   %31 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count93 = zext i32 %28 to i64
+  %wide.trip.count93 = zext nneg i32 %28 to i64
   br label %.lr.ph79
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
@@ -307,20 +307,20 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr noundef readonly
   %indvars.iv54 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next55, %.lr.ph51 ]
   %.04548 = phi ptr [ %20, %.lr.ph51.preheader ], [ %29, %.lr.ph51 ]
   %21 = trunc nuw nsw i64 %indvars.iv54 to i32
-  %22 = call ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %21, i32 noundef %4, ptr noundef %3, i32 noundef 1) #14
+  %22 = call ptr @Extra_bddBitsToCube(ptr noundef nonnull %0, i32 noundef %21, i32 noundef %4, ptr noundef %3, i32 noundef 1) #14
   call void @Cudd_Ref(ptr noundef %22) #14
   %23 = getelementptr inbounds nuw [1024 x i32], ptr %7, i64 0, i64 %indvars.iv54
   %24 = load i32, ptr %23, align 4, !tbaa !19
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %1, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !3
-  %28 = call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %22, ptr noundef %27) #14
+  %28 = call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %27) #14
   call void @Cudd_Ref(ptr noundef %28) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %22) #14
-  %29 = call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %28, ptr noundef %.04548) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %22) #14
+  %29 = call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %.04548) #14
   call void @Cudd_Ref(ptr noundef %29) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.04548) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %28) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.04548) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %28) #14
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
   br i1 %exitcond58.not, label %._crit_edge52, label %.lr.ph51, !llvm.loop !36
@@ -336,9 +336,9 @@ define noundef ptr @GetSingleOutputFunction(ptr noundef %0, ptr noundef readonly
   br label %33
 
 33:                                               ; preds = %30, %._crit_edge52
-  %34 = call ptr @Cudd_BddToAdd(ptr noundef %0, ptr noundef %.045.lcssa) #14
+  %34 = call ptr @Cudd_BddToAdd(ptr noundef nonnull %0, ptr noundef %.045.lcssa) #14
   call void @Cudd_Ref(ptr noundef %34) #14
-  call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.045.lcssa) #14
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.045.lcssa) #14
   br i1 %.not, label %38, label %35
 
 35:                                               ; preds = %33

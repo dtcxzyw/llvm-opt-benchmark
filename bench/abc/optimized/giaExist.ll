@@ -2026,16 +2026,16 @@ Vec_IntPushUnique.exit:                           ; preds = %114, %Vec_IntPush.e
 .critedge2:                                       ; preds = %151, %.preheader
   %.071.lcssa135 = phi ptr [ %.072111, %.preheader ], [ %.071.lcssa134, %151 ]
   %.072.lcssa132 = phi ptr [ %.071112, %.preheader ], [ %.072.lcssa133, %151 ]
-  %157 = call i32 @Gia_ManHashAndMulti(ptr noundef %22, ptr noundef nonnull %.071.lcssa135) #17
+  %157 = call i32 @Gia_ManHashAndMulti(ptr noundef nonnull %22, ptr noundef nonnull %.071.lcssa135) #17
   %158 = xor i32 %157, 1
   store i32 %158, ptr %6, align 4, !tbaa !29
   call fastcc void @Vec_IntFree(ptr noundef nonnull %.071.lcssa135)
-  call fastcc void @Vec_IntFree(ptr noundef %.072.lcssa132)
+  call fastcc void @Vec_IntFree(ptr noundef nonnull %.072.lcssa132)
   %159 = load i32, ptr %6, align 4, !tbaa !29
-  call fastcc void @Gia_ManAppendCo(ptr noundef %22, i32 noundef %159)
+  call fastcc void @Gia_ManAppendCo(ptr noundef nonnull %22, i32 noundef %159)
   %160 = load ptr, ptr %5, align 8, !tbaa !56
-  %161 = call i32 @Gia_ManDupConeBack(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %160) #17
-  call void @Gia_ManStop(ptr noundef %22) #17
+  %161 = call i32 @Gia_ManDupConeBack(ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef %160) #17
+  call void @Gia_ManStop(ptr noundef nonnull %22) #17
   %162 = load ptr, ptr %5, align 8, !tbaa !56
   call fastcc void @Vec_IntFree(ptr noundef %162)
   br label %163
@@ -2656,12 +2656,12 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntGrow.exit.i,
   %.val110 = load ptr, ptr %66, align 8, !tbaa !37
   %73 = getelementptr inbounds nuw i32, ptr %.val110, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !29
-  %75 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %13)
+  %75 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %13)
   %.val119 = load ptr, ptr %67, align 8, !tbaa !37
   %76 = sext i32 %74 to i64
   %77 = getelementptr inbounds i32, ptr %.val119, i64 %76
   store i32 %75, ptr %77, align 4, !tbaa !29
-  tail call void @Gia_ManQuantSetSuppZero(ptr noundef %13)
+  tail call void @Gia_ManQuantSetSuppZero(ptr noundef nonnull %13)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val100 = load i32, ptr %7, align 4, !tbaa !36
   %78 = sext i32 %.val100 to i64
@@ -2690,17 +2690,17 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntGrow.exit.i,
   %.val109 = load ptr, ptr %69, align 8, !tbaa !37
   %84 = getelementptr inbounds nuw i32, ptr %.val109, i64 %indvars.iv142
   %85 = load i32, ptr %84, align 4, !tbaa !29
-  %86 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %13)
+  %86 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %13)
   %.val118 = load ptr, ptr %70, align 8, !tbaa !37
   %87 = sext i32 %85 to i64
   %88 = getelementptr inbounds i32, ptr %.val118, i64 %87
   store i32 %86, ptr %88, align 4, !tbaa !29
-  tail call void @Gia_ManQuantSetSuppZero(ptr noundef %13)
+  tail call void @Gia_ManQuantSetSuppZero(ptr noundef nonnull %13)
   %89 = ashr i32 %86, 1
   %.val92 = load ptr, ptr %71, align 8, !tbaa !30
   %90 = sext i32 %89 to i64
   %91 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val92, i64 %90
-  tail call void @Gia_ManQuantSetSuppCi(ptr noundef %13, ptr noundef %91)
+  tail call void @Gia_ManQuantSetSuppCi(ptr noundef nonnull %13, ptr noundef %91)
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %.val99 = load i32, ptr %8, align 4, !tbaa !36
   %92 = sext i32 %.val99 to i64
@@ -2737,7 +2737,7 @@ Vec_IntFillExtra.exit:                            ; preds = %Vec_IntGrow.exit.i,
   %115 = trunc nuw nsw i64 %114 to i32
   %116 = and i32 %115, 1
   %117 = xor i32 %116, %110
-  %118 = tail call i32 @Gia_ManHashAnd(ptr noundef %13, i32 noundef %113, i32 noundef %117) #17
+  %118 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %13, i32 noundef %113, i32 noundef %117) #17
   %.val117 = load ptr, ptr %83, align 8, !tbaa !37
   %119 = getelementptr inbounds i32, ptr %.val117, i64 %96
   store i32 %118, ptr %119, align 4, !tbaa !29

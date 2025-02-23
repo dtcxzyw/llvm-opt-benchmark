@@ -520,7 +520,7 @@ Vec_IntPush.exit104:                              ; preds = %.Vec_IntGrow.exit10
   %.val2.i106 = load ptr, ptr %118, align 8, !tbaa !21
   %119 = getelementptr inbounds nuw i32, ptr %.val2.i106, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4, !tbaa !22
-  tail call void @Sfm_NtkDfs_rec(ptr noundef nonnull %0, i32 noundef %120, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  tail call void @Sfm_NtkDfs_rec(ptr noundef nonnull %0, i32 noundef %120, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val82 = load ptr, ptr %115, align 8, !tbaa !19
   %121 = getelementptr %struct.Vec_Int_t_, ptr %.val82, i64 %11, i32 1
@@ -657,7 +657,7 @@ Vec_IntAlloc.exit:                                ; preds = %5, %12
   %25 = getelementptr %struct.Vec_Int_t_, ptr %.val, i64 %indvars.iv, i32 2
   %.val27 = load ptr, ptr %25, align 8, !tbaa !21
   %26 = load i32, ptr %.val27, align 4, !tbaa !22
-  tail call void @Sfm_NtkDfs_rec(ptr noundef %0, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3)
+  tail call void @Sfm_NtkDfs_rec(ptr noundef nonnull %0, i32 noundef %26, ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val29 = load i32, ptr %21, align 4, !tbaa !36
   %27 = sext i32 %.val29 to i64
@@ -683,7 +683,7 @@ Vec_IntAlloc.exit:                                ; preds = %5, %12
   %37 = getelementptr %struct.Vec_Int_t_, ptr %.val28, i64 %indvars.iv35, i32 2
   %.val2.i = load ptr, ptr %37, align 8, !tbaa !21
   %38 = load i32, ptr %.val2.i, align 4, !tbaa !22
-  tail call void @Sfm_NtkDfs_rec(ptr noundef nonnull %0, i32 noundef %38, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  tail call void @Sfm_NtkDfs_rec(ptr noundef nonnull %0, i32 noundef %38, ptr noundef nonnull %9, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3)
   %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
   %39 = load i32, ptr %7, align 4, !tbaa !35
   %40 = sext i32 %39 to i64

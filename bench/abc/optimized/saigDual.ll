@@ -654,9 +654,9 @@ define void @Saig_ManBlockPo(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
   %.035 = phi i32 [ %11, %.lr.ph ], [ 0, %2 ]
   %.02534 = phi ptr [ %10, %.lr.ph ], [ %.val28, %2 ]
   %.02633 = phi ptr [ %9, %.lr.ph ], [ %.val28, %2 ]
-  %8 = tail call ptr @Aig_ObjCreateCo(ptr noundef %0, ptr noundef %.02633) #8
-  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #8
-  %10 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.02534, ptr noundef %9) #8
+  %8 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %0, ptr noundef %.02633) #8
+  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #8
+  %10 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.02534, ptr noundef %9) #8
   %11 = add nuw nsw i32 %.035, 1
   %exitcond.not = icmp eq i32 %11, %1
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !46

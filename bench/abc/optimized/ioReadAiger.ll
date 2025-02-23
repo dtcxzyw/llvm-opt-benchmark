@@ -108,7 +108,7 @@ Vec_IntPush.exit:                                 ; preds = %Io_ReadAigerDecode.
 
 .lr.ph:                                           ; preds = %Vec_IntPush.exit, %Vec_IntPush.exit35
   %36 = phi ptr [ %.pre.i3148, %Vec_IntPush.exit35 ], [ %34, %Vec_IntPush.exit ]
-  %.042 = phi i32 [ %79, %Vec_IntPush.exit35 ], [ 1, %Vec_IntPush.exit ]
+  %.042 = phi i32 [ %69, %Vec_IntPush.exit35 ], [ 1, %Vec_IntPush.exit ]
   %.01641 = phi i32 [ %57, %Vec_IntPush.exit35 ], [ %27, %Vec_IntPush.exit ]
   %.promoted.i18 = load ptr, ptr %0, align 8, !tbaa !11
   %37 = getelementptr inbounds nuw i8, ptr %.promoted.i18, i64 1
@@ -154,55 +154,29 @@ Io_ReadAigerDecode.exit28:                        ; preds = %.lr.ph, %._crit_edg
   %58 = load i32, ptr %5, align 4, !tbaa !16
   %59 = load i32, ptr %3, align 8, !tbaa !3
   %60 = icmp eq i32 %58, %59
-  br i1 %60, label %61, label %Vec_IntPush.exit35
+  br i1 %60, label %Vec_IntPush.exit35.sink.split, label %Vec_IntPush.exit35
 
-61:                                               ; preds = %Io_ReadAigerDecode.exit28
-  %62 = icmp slt i32 %58, 16
-  br i1 %62, label %63, label %68
-
-63:                                               ; preds = %61
-  %.not9.i.i33 = icmp eq ptr %36, null
-  br i1 %.not9.i.i33, label %66, label %64
-
-64:                                               ; preds = %63
-  %65 = tail call dereferenceable_or_null(64) ptr @realloc(ptr noundef nonnull %36, i64 noundef 64) #13
-  br label %Vec_IntPush.exit35.sink.split
-
-66:                                               ; preds = %63
-  %67 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #12
-  br label %Vec_IntPush.exit35.sink.split
-
-68:                                               ; preds = %61
-  %69 = shl nuw nsw i32 %58, 1
-  %.not9.i9.i32 = icmp eq ptr %36, null
-  %70 = zext nneg i32 %69 to i64
-  %71 = shl nuw nsw i64 %70, 2
-  br i1 %.not9.i9.i32, label %74, label %72
-
-72:                                               ; preds = %68
-  %73 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %71) #13
-  br label %Vec_IntPush.exit35.sink.split
-
-74:                                               ; preds = %68
-  %75 = tail call noalias ptr @malloc(i64 noundef %71) #12
-  br label %Vec_IntPush.exit35.sink.split
-
-Vec_IntPush.exit35.sink.split:                    ; preds = %72, %74, %64, %66
-  %.sink55 = phi ptr [ %65, %64 ], [ %67, %66 ], [ %73, %72 ], [ %75, %74 ]
-  %.sink = phi i32 [ 16, %64 ], [ 16, %66 ], [ %69, %72 ], [ %69, %74 ]
-  store ptr %.sink55, ptr %11, align 8, !tbaa !10
+Vec_IntPush.exit35.sink.split:                    ; preds = %Io_ReadAigerDecode.exit28
+  %61 = icmp slt i32 %58, 16
+  %62 = shl nuw nsw i32 %58, 1
+  %63 = zext nneg i32 %62 to i64
+  %64 = shl nuw nsw i64 %63, 2
+  %.sink56 = select i1 %61, i64 64, i64 %64
+  %.sink = select i1 %61, i32 16, i32 %62
+  %65 = tail call ptr @realloc(ptr noundef nonnull %36, i64 noundef %.sink56) #13
+  store ptr %65, ptr %11, align 8, !tbaa !10
   store i32 %.sink, ptr %3, align 8, !tbaa !3
   br label %Vec_IntPush.exit35
 
 Vec_IntPush.exit35:                               ; preds = %Vec_IntPush.exit35.sink.split, %Io_ReadAigerDecode.exit28
-  %.pre.i3148 = phi ptr [ %36, %Io_ReadAigerDecode.exit28 ], [ %.sink55, %Vec_IntPush.exit35.sink.split ]
-  %76 = add nsw i32 %58, 1
-  store i32 %76, ptr %5, align 4, !tbaa !16
-  %77 = sext i32 %58 to i64
-  %78 = getelementptr inbounds i32, ptr %.pre.i3148, i64 %77
-  store i32 %57, ptr %78, align 4, !tbaa !17
-  %79 = add nuw nsw i32 %.042, 1
-  %exitcond.not = icmp eq i32 %79, %1
+  %.pre.i3148 = phi ptr [ %36, %Io_ReadAigerDecode.exit28 ], [ %65, %Vec_IntPush.exit35.sink.split ]
+  %66 = add nsw i32 %58, 1
+  store i32 %66, ptr %5, align 4, !tbaa !16
+  %67 = sext i32 %58 to i64
+  %68 = getelementptr inbounds i32, ptr %.pre.i3148, i64 %67
+  store i32 %57, ptr %68, align 4, !tbaa !17
+  %69 = add nuw nsw i32 %.042, 1
+  %exitcond.not = icmp eq i32 %69, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %Vec_IntPush.exit35, %Vec_IntPush.exit

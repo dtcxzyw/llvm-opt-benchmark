@@ -1339,7 +1339,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %15
-  call void %9(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2) #22
+  call void %9(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   br label %63
 
@@ -1490,7 +1490,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %34
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
   %76 = load ptr, ptr %9, align 8, !tbaa !128
-  tail call void %76(ptr noundef %0, ptr noundef %41, i64 noundef %2, i32 noundef %.0) #22
+  tail call void %76(ptr noundef nonnull %0, ptr noundef %41, i64 noundef %2, i32 noundef %.0) #22
   tail call void @free(ptr noundef %41) #22
   br label %77
 
@@ -1663,7 +1663,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %26
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
-  tail call void %9(ptr noundef %0, ptr noundef %33, i64 noundef %2, i32 noundef %3) #22
+  tail call void %9(ptr noundef nonnull %0, ptr noundef %33, i64 noundef %2, i32 noundef %3) #22
   tail call void @free(ptr noundef %33) #22
   br label %68
 
@@ -1796,7 +1796,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %25
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
-  tail call void %8(ptr noundef %0, ptr noundef %32, i64 noundef %2) #22
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %32, i64 noundef %2) #22
   tail call void @free(ptr noundef %32) #22
   br label %67
 

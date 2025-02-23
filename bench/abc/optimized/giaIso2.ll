@@ -2743,7 +2743,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val20 = load ptr, ptr %47, align 8, !tbaa !32
   %49 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv30
   %50 = load i32, ptr %49, align 4, !tbaa !34
-  tail call void @Gia_Iso2ManCollectOrder_rec(ptr noundef %0, i32 noundef %50, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
+  tail call void @Gia_Iso2ManCollectOrder_rec(ptr noundef %0, i32 noundef %50, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5)
   %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
   %.val = load i32, ptr %7, align 4, !tbaa !28
   %51 = sext i32 %.val to i64
@@ -4459,11 +4459,11 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %.
   br i1 %.not40, label %63, label %61
 
 61:                                               ; preds = %60
-  %62 = call ptr @Gia_Iso2ManCheckIsoClasses(ptr noundef nonnull %0, ptr noundef %21)
+  %62 = call ptr @Gia_Iso2ManCheckIsoClasses(ptr noundef nonnull %0, ptr noundef nonnull %21)
   br label %65
 
 63:                                               ; preds = %60
-  %64 = call ptr @Gia_Iso2ManCheckIsoClassesSkip(ptr noundef nonnull %0, ptr noundef %21)
+  %64 = call ptr @Gia_Iso2ManCheckIsoClassesSkip(ptr noundef nonnull %0, ptr noundef nonnull %21)
   br label %65
 
 65:                                               ; preds = %63, %61

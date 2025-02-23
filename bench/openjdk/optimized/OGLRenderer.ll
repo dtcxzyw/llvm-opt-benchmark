@@ -205,14 +205,14 @@ define hidden void @OGLRenderer_DrawPoly(ptr noundef readnone %0, i32 noundef %1
 
 32:                                               ; preds = %._crit_edge
   %33 = add nsw i32 %1, -1
-  %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %5, i64 %34
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i32, ptr %5, i64 %34
   %36 = load i32, ptr %35, align 4
   %.not = icmp eq i32 %36, %14
   br i1 %.not, label %37, label %40
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds i32, ptr %6, i64 %34
+  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %34
   %39 = load i32, ptr %38, align 4
   %.not54 = icmp eq i32 %39, %15
   br i1 %.not54, label %60, label %40

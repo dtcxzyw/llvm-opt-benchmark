@@ -722,7 +722,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %.pre.i = load i32, ptr %111, align 8
   br label %134
 
-.preheader138.i:                                  ; preds = %134
+.lr.ph143.i:                                      ; preds = %134
   %124 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %125 = sext i32 %32 to i64
   %126 = mul nsw i64 %125, 36
@@ -750,7 +750,7 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %143 = load i32, ptr %111, align 8
   %144 = add nsw i32 %143, %.0126139.i
   %exitcond.not.i = icmp eq i32 %142, %30
-  br i1 %exitcond.not.i, label %.preheader138.i, label %134, !llvm.loop !10
+  br i1 %exitcond.not.i, label %.lr.ph143.i, label %134, !llvm.loop !10
 
 .preheader137.i:                                  ; preds = %186
   %145 = icmp sgt i32 %32, 0
@@ -791,9 +791,9 @@ define void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind noalias 
   %exitcond165.not.i = icmp eq i32 %159, %30
   br i1 %exitcond165.not.i, label %._crit_edge149.i, label %.preheader136.us.i, !llvm.loop !12
 
-160:                                              ; preds = %186, %.preheader138.i
-  %indvars.iv.i = phi i64 [ %133, %.preheader138.i ], [ %indvars.iv.next.i, %186 ]
-  %.1142.i = phi i32 [ 0, %.preheader138.i ], [ %187, %186 ]
+160:                                              ; preds = %186, %.lr.ph143.i
+  %indvars.iv.i = phi i64 [ %133, %.lr.ph143.i ], [ %indvars.iv.next.i, %186 ]
+  %.1142.i = phi i32 [ 0, %.lr.ph143.i ], [ %187, %186 ]
   %161 = load ptr, ptr %16, align 8
   %162 = getelementptr inbounds %struct.t_atom, ptr %161, i64 %indvars.iv.i
   %163 = load ptr, ptr %124, align 8

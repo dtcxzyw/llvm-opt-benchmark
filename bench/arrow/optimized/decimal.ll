@@ -12300,7 +12300,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %80, i8 0, i64 24, i1 false), !alias.scope !475
   store i64 %79, ptr %16, align 8, !tbaa !155, !alias.scope !475
   %81 = icmp slt i32 %76, 24
-  br i1 %81, label %82, label %112
+  br i1 %81, label %82, label %113
 
 82:                                               ; preds = %74
   %83 = sub nsw i32 24, %76
@@ -12315,7 +12315,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %16, i32 noundef %83)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #26
-  br label %118
+  br label %119
 
 .lr.ph.preheader:                                 ; preds = %82
   %89 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 2176))
@@ -12325,64 +12325,64 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.074 = phi i32 [ %92, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03373 = phi i32 [ %97, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.06872 = phi i32 [ %98, %.lr.ph ], [ %83, %.lr.ph.preheader ]
-  %.06971 = phi i32 [ %102, %.lr.ph ], [ %91, %.lr.ph.preheader ]
-  %.sroa.speculated52 = call i32 @llvm.smin.i32(i32 %.sroa.speculated46, i32 %.06971)
-  %92 = add nuw nsw i32 %.074, %.sroa.speculated52
-  %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %93
-  %95 = load i32, ptr %94, align 4, !tbaa !63
-  %96 = sub nsw i32 %95, %.03373
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %.06872)
-  %97 = add nsw i32 %.sroa.speculated, %.03373
+  %.074 = phi i32 [ %93, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03373 = phi i32 [ %98, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06872 = phi i32 [ %99, %.lr.ph ], [ %83, %.lr.ph.preheader ]
+  %.06971 = phi i32 [ %103, %.lr.ph ], [ %91, %.lr.ph.preheader ]
+  %92 = call i32 @llvm.umin.i32(i32 %.sroa.speculated46, i32 %.06971)
+  %93 = add nuw nsw i32 %.074, %92
+  %94 = zext nneg i32 %93 to i64
+  %95 = getelementptr inbounds nuw [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %94
+  %96 = load i32, ptr %95, align 4, !tbaa !63
+  %97 = sub nsw i32 %96, %.03373
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %97, i32 %.06872)
+  %98 = add nsw i32 %.sroa.speculated, %.03373
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #26
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %16, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #26
-  %98 = sub nsw i32 %.06872, %.sroa.speculated
-  %99 = zext nneg i32 %.sroa.speculated52 to i64
-  %100 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %99
-  %101 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %100)
-  %102 = sub nsw i32 %.06971, %.sroa.speculated52
-  %103 = icmp sgt i32 %102, 0
-  %104 = icmp sgt i32 %98, 0
-  %105 = select i1 %103, i1 %104, i1 false
-  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !478
+  %99 = sub nsw i32 %.06872, %.sroa.speculated
+  %100 = zext nneg i32 %92 to i64
+  %101 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %100
+  %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %101)
+  %103 = sub nsw i32 %.06971, %92
+  %104 = icmp sgt i32 %103, 0
+  %105 = icmp sgt i32 %99, 0
+  %106 = select i1 %104, i1 %105, i1 false
+  br i1 %106, label %.lr.ph, label %._crit_edge, !llvm.loop !478
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %103, label %106, label %110
+  br i1 %104, label %107, label %111
 
-106:                                              ; preds = %._crit_edge
-  %107 = zext nneg i32 %102 to i64
-  %108 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %107
-  %109 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %108)
-  br label %110
+107:                                              ; preds = %._crit_edge
+  %108 = zext nneg i32 %103 to i64
+  %109 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %108
+  %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %109)
+  br label %111
 
-110:                                              ; preds = %106, %._crit_edge
-  br i1 %104, label %111, label %118
+111:                                              ; preds = %107, %._crit_edge
+  br i1 %105, label %112, label %119
 
-111:                                              ; preds = %110
+112:                                              ; preds = %111
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #26
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %16, i32 noundef %98)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %16, i32 noundef %99)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #26
-  br label %118
+  br label %119
 
-112:                                              ; preds = %74
-  %113 = add nsw i32 %76, -24
-  %114 = zext nneg i32 %3 to i64
-  %115 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %114
-  %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %115)
-  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %113)
-  br label %118
+113:                                              ; preds = %74
+  %114 = add nsw i32 %76, -24
+  %115 = zext nneg i32 %3 to i64
+  %116 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %115
+  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %116)
+  %118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %114)
+  br label %119
 
-118:                                              ; preds = %85, %111, %110, %112
-  %119 = call noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %2)
-  br i1 %119, label %127, label %120
+119:                                              ; preds = %85, %112, %111, %113
+  %120 = call noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %2)
+  br i1 %120, label %128, label %121
 
-120:                                              ; preds = %118
+121:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -12395,35 +12395,35 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @_ZN5arrow6ResultINS_10Decimal256EEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %20) #26
-  %121 = load ptr, ptr %20, align 8, !tbaa !24
-  %.not.i42 = icmp eq ptr %121, null
-  br i1 %.not.i42, label %_ZN5arrow6StatusD2Ev.exit43, label %122, !prof !28
+  %122 = load ptr, ptr %20, align 8, !tbaa !24
+  %.not.i42 = icmp eq ptr %122, null
+  br i1 %.not.i42, label %_ZN5arrow6StatusD2Ev.exit43, label %123, !prof !28
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 1
-  %124 = load i8, ptr %123, align 1, !tbaa !29, !range !38, !noundef !39
-  %125 = trunc nuw i8 %124 to i1
-  br i1 %125, label %_ZN5arrow6StatusD2Ev.exit43, label %126
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 1
+  %125 = load i8, ptr %124, align 1, !tbaa !29, !range !38, !noundef !39
+  %126 = trunc nuw i8 %125 to i1
+  br i1 %126, label %_ZN5arrow6StatusD2Ev.exit43, label %127
 
-126:                                              ; preds = %122
+127:                                              ; preds = %123
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #26
   br label %_ZN5arrow6StatusD2Ev.exit43
 
-_ZN5arrow6StatusD2Ev.exit43:                      ; preds = %120, %122, %126
+_ZN5arrow6StatusD2Ev.exit43:                      ; preds = %121, %123, %127
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #26
-  br label %129
+  br label %130
 
-127:                                              ; preds = %118
+128:                                              ; preds = %119
   store ptr null, ptr %0, align 8, !tbaa !24
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
-  br label %129
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %16, i64 32, i1 false)
+  br label %130
 
-129:                                              ; preds = %127, %_ZN5arrow6StatusD2Ev.exit43
+130:                                              ; preds = %128, %_ZN5arrow6StatusD2Ev.exit43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #26
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_10Decimal256EEET_ii.exit
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_10Decimal256EEET_ii.exit: ; preds = %42, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %129
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIfEENS_6ResultINS_10Decimal256EEET_ii.exit: ; preds = %42, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %130
   ret void
 }
 
@@ -12734,7 +12734,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false), !alias.scope !499
   store i64 %77, ptr %17, align 8, !tbaa !155, !alias.scope !499
   %80 = icmp slt i32 %78, 53
-  br i1 %80, label %81, label %111
+  br i1 %80, label %81, label %112
 
 81:                                               ; preds = %74
   %82 = sub nsw i32 53, %78
@@ -12749,7 +12749,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %17, i32 noundef %82)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #26
-  br label %117
+  br label %118
 
 .lr.ph.preheader:                                 ; preds = %81
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds nuw (i8, ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 1920))
@@ -12759,64 +12759,64 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.073 = phi i32 [ %91, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.03372 = phi i32 [ %96, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.06771 = phi i32 [ %97, %.lr.ph ], [ %82, %.lr.ph.preheader ]
-  %.06870 = phi i32 [ %101, %.lr.ph ], [ %90, %.lr.ph.preheader ]
-  %.sroa.speculated52 = call i32 @llvm.smin.i32(i32 %.sroa.speculated46, i32 %.06870)
-  %91 = add nuw nsw i32 %.073, %.sroa.speculated52
-  %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %92
-  %94 = load i32, ptr %93, align 4, !tbaa !63
-  %95 = sub nsw i32 %94, %.03372
-  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %95, i32 %.06771)
-  %96 = add nsw i32 %.sroa.speculated, %.03372
+  %.073 = phi i32 [ %92, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.03372 = phi i32 [ %97, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06771 = phi i32 [ %98, %.lr.ph ], [ %82, %.lr.ph.preheader ]
+  %.06870 = phi i32 [ %102, %.lr.ph ], [ %90, %.lr.ph.preheader ]
+  %91 = call i32 @llvm.umin.i32(i32 %.sroa.speculated46, i32 %.06870)
+  %92 = add nuw nsw i32 %.073, %91
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw [77 x i32], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 0, i64 %93
+  %95 = load i32, ptr %94, align 4, !tbaa !63
+  %96 = sub nsw i32 %95, %.03372
+  %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %.06771)
+  %97 = add nsw i32 %.sroa.speculated, %.03372
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %19) #26
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %19, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %17, i32 noundef %.sroa.speculated)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #26
-  %97 = sub nsw i32 %.06771, %.sroa.speculated
-  %98 = zext nneg i32 %.sroa.speculated52 to i64
-  %99 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %98
-  %100 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %99)
-  %101 = sub nsw i32 %.06870, %.sroa.speculated52
-  %102 = icmp sgt i32 %101, 0
-  %103 = icmp sgt i32 %97, 0
-  %104 = select i1 %102, i1 %103, i1 false
-  br i1 %104, label %.lr.ph, label %._crit_edge, !llvm.loop !502
+  %98 = sub nsw i32 %.06771, %.sroa.speculated
+  %99 = zext nneg i32 %91 to i64
+  %100 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %99
+  %101 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %100)
+  %102 = sub nsw i32 %.06870, %91
+  %103 = icmp sgt i32 %102, 0
+  %104 = icmp sgt i32 %98, 0
+  %105 = select i1 %103, i1 %104, i1 false
+  br i1 %105, label %.lr.ph, label %._crit_edge, !llvm.loop !502
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %102, label %105, label %109
+  br i1 %103, label %106, label %110
 
-105:                                              ; preds = %._crit_edge
-  %106 = zext nneg i32 %101 to i64
-  %107 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %106
-  %108 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %107)
-  br label %109
+106:                                              ; preds = %._crit_edge
+  %107 = zext nneg i32 %102 to i64
+  %108 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %107
+  %109 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %108)
+  br label %110
 
-109:                                              ; preds = %105, %._crit_edge
-  br i1 %103, label %110, label %117
+110:                                              ; preds = %106, %._crit_edge
+  br i1 %104, label %111, label %118
 
-110:                                              ; preds = %109
+111:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #26
-  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %17, i32 noundef %97)
+  call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %20, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %17, i32 noundef %98)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %20, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %20) #26
-  br label %117
+  br label %118
 
-111:                                              ; preds = %74
-  %112 = add nsw i32 %78, -53
-  %113 = zext nneg i32 %3 to i64
-  %114 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %113
-  %115 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %114)
-  %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %112)
-  br label %117
+112:                                              ; preds = %74
+  %113 = add nsw i32 %78, -53
+  %114 = zext nneg i32 %3 to i64
+  %115 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %114
+  %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %115)
+  %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %113)
+  br label %118
 
-117:                                              ; preds = %84, %110, %109, %111
-  %118 = call noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %2)
-  br i1 %118, label %126, label %119
+118:                                              ; preds = %84, %111, %110, %112
+  %119 = call noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %2)
+  br i1 %119, label %127, label %120
 
-119:                                              ; preds = %117
+120:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #26
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -12829,36 +12829,36 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @_ZN5arrow6ResultINS_10Decimal256EEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %21) #26
-  %120 = load ptr, ptr %21, align 8, !tbaa !24
-  %.not.i42 = icmp eq ptr %120, null
-  br i1 %.not.i42, label %_ZN5arrow6StatusD2Ev.exit43, label %121, !prof !28
+  %121 = load ptr, ptr %21, align 8, !tbaa !24
+  %.not.i42 = icmp eq ptr %121, null
+  br i1 %.not.i42, label %_ZN5arrow6StatusD2Ev.exit43, label %122, !prof !28
 
-121:                                              ; preds = %119
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 1
-  %123 = load i8, ptr %122, align 1, !tbaa !29, !range !38, !noundef !39
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %_ZN5arrow6StatusD2Ev.exit43, label %125
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %121, i64 1
+  %124 = load i8, ptr %123, align 1, !tbaa !29, !range !38, !noundef !39
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %_ZN5arrow6StatusD2Ev.exit43, label %126
 
-125:                                              ; preds = %121
+126:                                              ; preds = %122
   call void @_ZN5arrow6Status11DeleteStateEv(ptr noundef nonnull align 8 dereferenceable(8) %21) #26
   br label %_ZN5arrow6StatusD2Ev.exit43
 
-_ZN5arrow6StatusD2Ev.exit43:                      ; preds = %119, %121, %125
+_ZN5arrow6StatusD2Ev.exit43:                      ; preds = %120, %122, %126
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #26
-  br label %128
+  br label %129
 
-126:                                              ; preds = %117
+127:                                              ; preds = %118
   store ptr null, ptr %0, align 8, !tbaa !24
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %127, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
-  br label %128
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
+  br label %129
 
-128:                                              ; preds = %126, %_ZN5arrow6StatusD2Ev.exit43
+129:                                              ; preds = %127, %_ZN5arrow6StatusD2Ev.exit43
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #26
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_10Decimal256EEET_ii.exit
 
-_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_10Decimal256EEET_ii.exit: ; preds = %42, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %128
+_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion22FromPositiveRealApproxIdEENS_6ResultINS_10Decimal256EEET_ii.exit: ; preds = %42, %_ZN5arrow6StatusD2Ev.exit.i, %_ZN5arrow6StatusD2Ev.exit, %129
   ret void
 }
 
@@ -13154,6 +13154,9 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #24

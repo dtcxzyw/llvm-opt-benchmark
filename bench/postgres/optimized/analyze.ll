@@ -179,7 +179,7 @@ define dso_local ptr @parse_analyze_fixedparams(ptr noundef readonly captures(no
 
 transformTopLevelStmt.exit:                       ; preds = %10, %.critedge.i.i, %30
   %.0.i.i = phi ptr [ %19, %10 ], [ %31, %30 ], [ %19, %.critedge.i.i ]
-  %37 = tail call ptr @transformStmt(ptr noundef %6, ptr noundef nonnull %.0.i.i)
+  %37 = tail call ptr @transformStmt(ptr noundef nonnull %6, ptr noundef nonnull %.0.i.i)
   %38 = load i32, ptr @compute_query_id, align 4
   switch i32 %38, label %IsQueryIdEnabled.exit [
     i32 0, label %IsQueryIdEnabled.exit.thread19
@@ -202,11 +202,11 @@ IsQueryIdEnabled.exit.thread19:                   ; preds = %transformTopLevelSt
   br i1 %.not, label %44, label %43
 
 43:                                               ; preds = %IsQueryIdEnabled.exit.thread19
-  tail call void %42(ptr noundef %6, ptr noundef %37, ptr noundef %.0) #11
+  tail call void %42(ptr noundef nonnull %6, ptr noundef %37, ptr noundef %.0) #11
   br label %44
 
 44:                                               ; preds = %43, %IsQueryIdEnabled.exit.thread19
-  tail call void @free_parsestate(ptr noundef %6) #11
+  tail call void @free_parsestate(ptr noundef nonnull %6) #11
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %46 = load i64, ptr %45, align 8
   tail call void @pgstat_report_query_id(i64 noundef %46, i1 noundef zeroext false) #11
@@ -275,7 +275,7 @@ define dso_local ptr @transformTopLevelStmt(ptr noundef initializes((16, 24)) %0
 
 transformOptionalSelectInto.exit:                 ; preds = %2, %.critedge.i, %21
   %.0.i = phi ptr [ %10, %2 ], [ %22, %21 ], [ %10, %.critedge.i ]
-  %28 = tail call ptr @transformStmt(ptr noundef %0, ptr noundef nonnull %.0.i)
+  %28 = tail call ptr @transformStmt(ptr noundef nonnull %0, ptr noundef nonnull %.0.i)
   ret ptr %28
 }
 
@@ -349,8 +349,8 @@ define dso_local noundef ptr @parse_analyze_varparams(ptr noundef readonly captu
 
 transformTopLevelStmt.exit:                       ; preds = %5, %.critedge.i.i, %27
   %.0.i.i = phi ptr [ %16, %5 ], [ %28, %27 ], [ %16, %.critedge.i.i ]
-  %34 = tail call ptr @transformStmt(ptr noundef %6, ptr noundef nonnull %.0.i.i)
-  tail call void @check_variable_parameters(ptr noundef %6, ptr noundef %34) #11
+  %34 = tail call ptr @transformStmt(ptr noundef nonnull %6, ptr noundef nonnull %.0.i.i)
+  tail call void @check_variable_parameters(ptr noundef nonnull %6, ptr noundef %34) #11
   %35 = load i32, ptr @compute_query_id, align 4
   switch i32 %35, label %IsQueryIdEnabled.exit [
     i32 0, label %IsQueryIdEnabled.exit.thread20
@@ -373,11 +373,11 @@ IsQueryIdEnabled.exit.thread20:                   ; preds = %transformTopLevelSt
   br i1 %.not, label %41, label %40
 
 40:                                               ; preds = %IsQueryIdEnabled.exit.thread20
-  tail call void %39(ptr noundef %6, ptr noundef %34, ptr noundef %.0) #11
+  tail call void %39(ptr noundef nonnull %6, ptr noundef %34, ptr noundef %.0) #11
   br label %41
 
 41:                                               ; preds = %40, %IsQueryIdEnabled.exit.thread20
-  tail call void @free_parsestate(ptr noundef %6) #11
+  tail call void @free_parsestate(ptr noundef nonnull %6) #11
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %43 = load i64, ptr %42, align 8
   tail call void @pgstat_report_query_id(i64 noundef %43, i1 noundef zeroext false) #11
@@ -449,7 +449,7 @@ define dso_local ptr @parse_analyze_withcb(ptr noundef readonly captures(none) %
 
 transformTopLevelStmt.exit:                       ; preds = %5, %.critedge.i.i, %27
   %.0.i.i = phi ptr [ %16, %5 ], [ %28, %27 ], [ %16, %.critedge.i.i ]
-  %34 = tail call ptr @transformStmt(ptr noundef %6, ptr noundef nonnull %.0.i.i)
+  %34 = tail call ptr @transformStmt(ptr noundef nonnull %6, ptr noundef nonnull %.0.i.i)
   %35 = load i32, ptr @compute_query_id, align 4
   switch i32 %35, label %IsQueryIdEnabled.exit [
     i32 0, label %IsQueryIdEnabled.exit.thread18
@@ -472,11 +472,11 @@ IsQueryIdEnabled.exit.thread18:                   ; preds = %transformTopLevelSt
   br i1 %.not, label %41, label %40
 
 40:                                               ; preds = %IsQueryIdEnabled.exit.thread18
-  tail call void %39(ptr noundef %6, ptr noundef %34, ptr noundef %.0) #11
+  tail call void %39(ptr noundef nonnull %6, ptr noundef %34, ptr noundef %.0) #11
   br label %41
 
 41:                                               ; preds = %40, %IsQueryIdEnabled.exit.thread18
-  tail call void @free_parsestate(ptr noundef %6) #11
+  tail call void @free_parsestate(ptr noundef nonnull %6) #11
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %43 = load i64, ptr %42, align 8
   tail call void @pgstat_report_query_id(i64 noundef %43, i1 noundef zeroext false) #11
@@ -867,12 +867,12 @@ list_length.exit:                                 ; preds = %._crit_edge156
   br i1 %186, label %.lr.ph174, label %._crit_edge156
 
 list_length.exit.thread:                          ; preds = %._crit_edge156, %list_length.exit
-  %187 = call zeroext i1 @contain_vars_of_level(ptr noundef %168, i32 noundef 0) #11
+  %187 = call zeroext i1 @contain_vars_of_level(ptr noundef nonnull %168, i32 noundef 0) #11
   br label %188
 
 188:                                              ; preds = %list_length.exit.thread, %list_length.exit
   %.0217.i = phi i1 [ false, %list_length.exit ], [ %187, %list_length.exit.thread ]
-  %189 = call ptr @addRangeTableEntryForValues(ptr noundef nonnull %0, ptr noundef %168, ptr noundef %.0214.i.lcssa, ptr noundef %.0215.i.lcssa, ptr noundef %.0216.i.lcssa, ptr noundef null, i1 noundef zeroext %.0217.i, i1 noundef zeroext true) #11
+  %189 = call ptr @addRangeTableEntryForValues(ptr noundef nonnull %0, ptr noundef nonnull %168, ptr noundef %.0214.i.lcssa, ptr noundef %.0215.i.lcssa, ptr noundef %.0216.i.lcssa, ptr noundef null, i1 noundef zeroext %.0217.i, i1 noundef zeroext true) #11
   call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef %189, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false) #11
   %190 = call ptr @expandNSItemVars(ptr noundef nonnull %0, ptr noundef %189, i32 noundef 0, i32 noundef -1, ptr noundef null) #11
   br label %.sink.split
@@ -1995,7 +1995,7 @@ list_head.exit.i:                                 ; preds = %711
   br i1 %826, label %.lr.ph181.i, label %._crit_edge.i50
 
 ._crit_edge.i50:                                  ; preds = %.lr.ph181.i, %.lr.ph178.i, %783
-  tail call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef %649) #11
+  tail call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef nonnull %649) #11
   %827 = load i8, ptr %819, align 8, !range !5, !noundef !4
   %828 = trunc nuw i8 %827 to i1
   br i1 %828, label %841, label %835
@@ -2005,7 +2005,7 @@ list_head.exit.i:                                 ; preds = %711
   %829 = load ptr, ptr %824, align 8
   %830 = getelementptr inbounds nuw %union.ListCell, ptr %829, i64 %indvars.iv.i54
   %831 = load ptr, ptr %830, align 8
-  tail call fastcc void @transformLockingClause(ptr noundef nonnull %0, ptr noundef %649, ptr noundef %831, i1 noundef zeroext false)
+  tail call fastcc void @transformLockingClause(ptr noundef nonnull %0, ptr noundef nonnull %649, ptr noundef %831, i1 noundef zeroext false)
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %832 = load i32, ptr %823, align 4
   %833 = sext i32 %832 to i64
@@ -2028,7 +2028,7 @@ list_head.exit.i:                                 ; preds = %711
   br i1 %.not165.i53, label %transformDeleteStmt.exit, label %841
 
 841:                                              ; preds = %839, %837, %835, %._crit_edge.i50
-  tail call void @parseCheckAggregates(ptr noundef nonnull %0, ptr noundef %649) #11
+  tail call void @parseCheckAggregates(ptr noundef nonnull %0, ptr noundef nonnull %649) #11
   br label %transformDeleteStmt.exit
 
 842:                                              ; preds = %2
@@ -2852,7 +2852,7 @@ define internal fastcc noundef ptr @transformSelectStmt(ptr noundef %0, ptr noun
   br i1 %125, label %.lr.ph118, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph118, %.lr.ph, %98
-  tail call void @assign_query_collations(ptr noundef %0, ptr noundef %3) #11
+  tail call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   %126 = load i8, ptr %118, align 8, !range !5, !noundef !4
   %127 = trunc nuw i8 %126 to i1
   br i1 %127, label %140, label %134
@@ -2862,7 +2862,7 @@ define internal fastcc noundef ptr @transformSelectStmt(ptr noundef %0, ptr noun
   %128 = load ptr, ptr %123, align 8
   %129 = getelementptr inbounds nuw %union.ListCell, ptr %128, i64 %indvars.iv
   %130 = load ptr, ptr %129, align 8
-  tail call fastcc void @transformLockingClause(ptr noundef %0, ptr noundef %3, ptr noundef %130, i1 noundef zeroext false)
+  tail call fastcc void @transformLockingClause(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %130, i1 noundef zeroext false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = load i32, ptr %122, align 4
   %132 = sext i32 %131 to i64
@@ -2885,7 +2885,7 @@ define internal fastcc noundef ptr @transformSelectStmt(ptr noundef %0, ptr noun
   br i1 %.not112, label %141, label %140
 
 140:                                              ; preds = %138, %136, %134, %._crit_edge
-  tail call void @parseCheckAggregates(ptr noundef nonnull %0, ptr noundef %3) #11
+  tail call void @parseCheckAggregates(ptr noundef nonnull %0, ptr noundef nonnull %3) #11
   br label %141
 
 141:                                              ; preds = %140, %138
@@ -4324,7 +4324,7 @@ list_length.exit:                                 ; preds = %3, %12
   store ptr %18, ptr %37, align 8
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 44
   store i32 %2, ptr %38, align 4
-  tail call void @addNSItemToQuery(ptr noundef %0, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
+  tail call void @addNSItemToQuery(ptr noundef nonnull %0, ptr noundef nonnull %23, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext false) #11
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

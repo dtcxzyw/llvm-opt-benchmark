@@ -7172,7 +7172,7 @@ for.body273:                                      ; preds = %for.body260, %for.b
   br i1 %cmp.i146.not, label %for.inc281, label %for.body273
 
 for.inc281:                                       ; preds = %for.body273, %for.body260
-  %call.i147 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1252.sroa.0.0183) #27
+  %call.i147 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1252.sroa.0.0183) #27
   %cmp.i144.not = icmp eq ptr %call.i147, %1
   br i1 %cmp.i144.not, label %for.end283, label %for.body260
 

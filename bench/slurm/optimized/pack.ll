@@ -3214,7 +3214,7 @@ pack32.exit:                                      ; preds = %12, %18, %24, %26, 
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %41 = trunc i64 %40 to i32
   %42 = add i32 %41, 1
-  call void @packmem(ptr noundef nonnull %4, i32 noundef %42, ptr noundef %2)
+  call void @packmem(ptr noundef nonnull %4, i32 noundef %42, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

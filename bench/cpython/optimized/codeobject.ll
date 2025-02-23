@@ -1736,9 +1736,9 @@ write_signed_varint.exit.i:                       ; preds = %write_signed_varint
 122:                                              ; preds = %write_signed_varint.exit.i, %83
   %.338.i = phi ptr [ %84, %83 ], [ %121, %write_signed_varint.exit.i ]
   %.val.i = load i64, ptr %61, align 8, !tbaa !117
-  %123 = add i64 %.03157.i, 1
+  %123 = add nsw i64 %.03157.i, 1
   %smax.i = call i64 @llvm.smax.i64(i64 %.val.i, i64 %123)
-  %124 = add i64 %smax.i, -1
+  %124 = add nsw i64 %smax.i, -1
   br label %125
 
 125:                                              ; preds = %126, %122
@@ -1747,7 +1747,7 @@ write_signed_varint.exit.i:                       ; preds = %write_signed_varint
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %126
 
 126:                                              ; preds = %125
-  %.233.i = add i64 %.233.in.i, 1
+  %.233.i = add nsw i64 %.233.in.i, 1
   %127 = getelementptr i8, ptr %54, i64 %.233.i
   %128 = load i8, ptr %127, align 1, !tbaa !97
   %129 = icmp sgt i8 %128, -1

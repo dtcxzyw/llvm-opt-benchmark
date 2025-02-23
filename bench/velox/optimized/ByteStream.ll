@@ -1401,7 +1401,7 @@ if.then.i59:                                      ; preds = %_ZN8facebook5velox4
 
 if.end:                                           ; preds = %if.then.i59, %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit, %for.end
   %i.1 = phi i64 [ %i.0.lcssa, %for.end ], [ %add4, %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit ], [ %add4, %if.then.i59 ]
-  %add10 = add i64 %i.1, 16
+  %add10 = add nuw i64 %i.1, 16
   %cmp11.not = icmp ugt i64 %add10, %numBits
   br i1 %cmp11.not, label %if.end19, label %if.then12
 

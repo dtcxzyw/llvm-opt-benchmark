@@ -1468,19 +1468,19 @@ define dso_local void @_ZNK4Luau10Constraint24getMaybeMutatedFreeTypesEv(ptr dea
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load ptr, ptr %25, align 8
-  %.not83100 = icmp eq ptr %24, %26
-  br i1 %.not83100, label %.loopexit, label %.lr.ph
+  %.not83102 = icmp eq ptr %24, %26
+  br i1 %.not83102, label %.loopexit, label %.lr.ph104
 
-.lr.ph:                                           ; preds = %22, %28
-  %.sroa.077.0101 = phi ptr [ %29, %28 ], [ %24, %22 ]
-  %27 = load ptr, ptr %.sroa.077.0101, align 8
+.lr.ph104:                                        ; preds = %22, %28
+  %.sroa.077.0103 = phi ptr [ %29, %28 ], [ %24, %22 ]
+  %27 = load ptr, ptr %.sroa.077.0103, align 8
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %27)
-          to label %28 unwind label %.loopexit.split-lp.loopexit
+          to label %28 unwind label %.loopexit95
 
-28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.077.0101, i64 8
+28:                                               ; preds = %.lr.ph104
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.077.0103, i64 8
   %.not83 = icmp eq ptr %29, %26
-  br i1 %.not83, label %.loopexit, label %.lr.ph
+  br i1 %.not83, label %.loopexit, label %.lr.ph104
 
 30:                                               ; preds = %2
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -1520,19 +1520,19 @@ define dso_local void @_ZNK4Luau10Constraint24getMaybeMutatedFreeTypesEv(ptr dea
   %45 = load ptr, ptr %11, align 8
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %47 = load ptr, ptr %46, align 8
-  %.not93102 = icmp eq ptr %45, %47
-  br i1 %.not93102, label %.loopexit, label %.lr.ph104
+  %.not93100 = icmp eq ptr %45, %47
+  br i1 %.not93100, label %.loopexit, label %.lr.ph
 
-.lr.ph104:                                        ; preds = %44, %49
-  %.sroa.073.0103 = phi ptr [ %50, %49 ], [ %45, %44 ]
-  %48 = load ptr, ptr %.sroa.073.0103, align 8
+.lr.ph:                                           ; preds = %44, %49
+  %.sroa.073.0101 = phi ptr [ %50, %49 ], [ %45, %44 ]
+  %48 = load ptr, ptr %.sroa.073.0101, align 8
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %48)
-          to label %49 unwind label %.loopexit95
+          to label %49 unwind label %.loopexit.split-lp.loopexit
 
-49:                                               ; preds = %.lr.ph104
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.073.0103, i64 8
+49:                                               ; preds = %.lr.ph
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.073.0101, i64 8
   %.not93 = icmp eq ptr %50, %47
-  br i1 %.not93, label %.loopexit, label %.lr.ph104
+  br i1 %.not93, label %.loopexit, label %.lr.ph
 
 .invoke:                                          ; preds = %2, %20, %30
   %.in = phi ptr [ %31, %30 ], [ %21, %20 ], [ %11, %2 ]
@@ -1540,7 +1540,7 @@ define dso_local void @_ZNK4Luau10Constraint24getMaybeMutatedFreeTypesEv(ptr dea
   invoke void @_ZN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEE8traverseEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef %51)
           to label %.loopexit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.loopexit:                                        ; preds = %49, %28, %2, %.invoke107, %.invoke, %22, %44
+.loopexit:                                        ; preds = %49, %28, %.invoke107, %.invoke, %44, %22, %2
   store ptr getelementptr inbounds nuw inrange(-16, 248) (i8, ptr @_ZTVN4Luau18GenericTypeVisitorINS_12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS2_EEEEE, i64 16), ptr %3, align 8
   %52 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i71 = icmp eq ptr %52, null

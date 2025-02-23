@@ -2250,8 +2250,9 @@ _ZN2cvL9mapSymbolEc.exit34:                       ; preds = %54, %58, %60, %61, 
   %indvars.iv.i.i36 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i37, %.lr.ph.i.i35 ]
   %75 = trunc nuw nsw i64 %indvars.iv.i.i36 to i32
   %76 = ashr i32 %72, %75
-  %77 = srem i32 %76, 2
-  %78 = trunc nsw i32 %77 to i8
+  %.lhs.trunc = trunc nsw i32 %76 to i16
+  %77 = srem i16 %.lhs.trunc, 2
+  %78 = trunc nsw i16 %77 to i8
   %79 = xor i64 %indvars.iv.i.i36, -1
   %80 = getelementptr i8, ptr %74, i64 %79
   store i8 %78, ptr %80, align 1
@@ -2359,8 +2360,9 @@ _ZN2cvL9mapSymbolEc.exit44.thread:                ; preds = %103, %99, %105, %10
   %indvars.iv.i.i46 = phi i64 [ 0, %_ZN2cvL9mapSymbolEc.exit44.thread ], [ %indvars.iv.next.i.i47, %.lr.ph.i.i45 ]
   %116 = trunc nuw nsw i64 %indvars.iv.i.i46 to i32
   %117 = ashr i32 %.0.i4352, %116
-  %118 = srem i32 %117, 2
-  %119 = trunc nsw i32 %118 to i8
+  %.lhs.trunc55 = trunc nsw i32 %117 to i16
+  %118 = srem i16 %.lhs.trunc55, 2
+  %119 = trunc nsw i16 %118 to i8
   %120 = xor i64 %indvars.iv.i.i46, -1
   %121 = getelementptr i8, ptr %115, i64 %120
   store i8 %119, ptr %121, align 1
@@ -2511,9 +2513,9 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %.lr.ph.i.i
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %17, ptr nonnull %4, ptr nonnull %5)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit unwind label %18
 
-common.resume:                                    ; preds = %43, %18
-  %.lcssa.sink = phi ptr [ %29, %43 ], [ %4, %18 ]
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %19, %18 ]
+common.resume:                                    ; preds = %42, %18
+  %.lcssa.sink = phi ptr [ %29, %42 ], [ %4, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %19, %18 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.lcssa.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -2552,27 +2554,27 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit: ; preds = %_ZN2cvL8decToBinEi
   %indvars.iv.i.i12 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i13, %.lr.ph.i.i11 ]
   %31 = trunc nuw nsw i64 %indvars.iv.i.i12 to i32
   %32 = lshr i32 %28, %31
-  %33 = trunc nuw i32 %32 to i8
-  %34 = and i8 %33, 1
-  %35 = xor i64 %indvars.iv.i.i12, -1
-  %36 = getelementptr i8, ptr %30, i64 %35
-  store i8 %34, ptr %36, align 1
+  %.lhs.trunc17 = trunc nuw i32 %32 to i8
+  %33 = and i8 %.lhs.trunc17, 1
+  %34 = xor i64 %indvars.iv.i.i12, -1
+  %35 = getelementptr i8, ptr %30, i64 %34
+  store i8 %33, ptr %35, align 1
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i12, 1
   %exitcond.not.i.i14 = icmp eq i64 %indvars.iv.next.i.i13, 8
   br i1 %exitcond.not.i.i14, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i15, label %.lr.ph.i.i11, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i15:   ; preds = %.lr.ph.i.i11
-  %37 = load ptr, ptr %11, align 8
-  %38 = load ptr, ptr %2, align 8
+  %36 = load ptr, ptr %11, align 8
+  %37 = load ptr, ptr %2, align 8
+  %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %38, i64 %41
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %42, ptr nonnull %29, ptr nonnull %30)
-          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit16 unwind label %43
+  %40 = sub i64 %38, %39
+  %41 = getelementptr inbounds i8, ptr %37, i64 %40
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %41, ptr nonnull %29, ptr nonnull %30)
+          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit16 unwind label %42
 
-43:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i15
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i15
+  %43 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -2705,8 +2707,9 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit: ; preds = %_ZN2cvL8decToBinEi
   %indvars.iv.i.i61 = phi i64 [ 0, %50 ], [ %indvars.iv.next.i.i62, %.lr.ph.i.i60 ]
   %67 = trunc nuw nsw i64 %indvars.iv.i.i61 to i32
   %68 = ashr i32 %64, %67
-  %69 = srem i32 %68, 2
-  %70 = trunc nsw i32 %69 to i8
+  %.lhs.trunc = trunc nsw i32 %68 to i16
+  %69 = srem i16 %.lhs.trunc, 2
+  %70 = trunc nsw i16 %69 to i8
   %71 = xor i64 %indvars.iv.i.i61, -1
   %72 = getelementptr i8, ptr %66, i64 %71
   store i8 %70, ptr %72, align 1
@@ -2951,9 +2954,9 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %.lr.ph.i.i
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %17, ptr nonnull %4, ptr nonnull %5)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit unwind label %18
 
-common.resume:                                    ; preds = %58, %18
-  %.lcssa.sink = phi ptr [ %44, %58 ], [ %4, %18 ]
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %19, %18 ]
+common.resume:                                    ; preds = %57, %18
+  %.lcssa.sink = phi ptr [ %44, %57 ], [ %4, %18 ]
+  %common.resume.op = phi { ptr, i32 } [ %58, %57 ], [ %19, %18 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.lcssa.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -3012,35 +3015,35 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit: ; preds = %_ZN2cvL8decToBinEi
   %indvars.iv.i.i35 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i.i36, %.lr.ph.i.i34 ]
   %46 = trunc nuw nsw i64 %indvars.iv.i.i35 to i32
   %47 = lshr i32 %43, %46
-  %48 = trunc i32 %47 to i8
-  %49 = and i8 %48, 1
-  %50 = xor i64 %indvars.iv.i.i35, -1
-  %51 = getelementptr i8, ptr %45, i64 %50
-  store i8 %49, ptr %51, align 1
+  %.lhs.trunc40 = trunc i32 %47 to i8
+  %48 = and i8 %.lhs.trunc40, 1
+  %49 = xor i64 %indvars.iv.i.i35, -1
+  %50 = getelementptr i8, ptr %45, i64 %49
+  store i8 %48, ptr %50, align 1
   %indvars.iv.next.i.i36 = add nuw nsw i64 %indvars.iv.i.i35, 1
   %exitcond.not.i.i37 = icmp eq i64 %indvars.iv.next.i.i36, 13
   br i1 %exitcond.not.i.i37, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38, label %.lr.ph.i.i34, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38:   ; preds = %.lr.ph.i.i34
-  %52 = load ptr, ptr %11, align 8
-  %53 = load ptr, ptr %2, align 8
+  %51 = load ptr, ptr %11, align 8
+  %52 = load ptr, ptr %2, align 8
+  %53 = ptrtoint ptr %51 to i64
   %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = getelementptr inbounds i8, ptr %53, i64 %56
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %57, ptr nonnull %44, ptr nonnull %45)
-          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39 unwind label %58
+  %55 = sub i64 %53, %54
+  %56 = getelementptr inbounds i8, ptr %52, i64 %55
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %56, ptr nonnull %44, ptr nonnull %45)
+          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39 unwind label %57
 
-58:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i38
   tail call void @_ZdlPv(ptr noundef nonnull %44) #29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %60 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !17
+  %59 = icmp samesign ult i64 %indvars.iv.next, %27
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit39, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit
   ret i1 true
@@ -3080,9 +3083,9 @@ _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i:     ; preds = %.lr.ph.i.i
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %18, ptr nonnull %4, ptr nonnull %5)
           to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit unwind label %19
 
-common.resume:                                    ; preds = %76, %57, %38, %19
-  %.sink = phi ptr [ %62, %76 ], [ %43, %57 ], [ %24, %38 ], [ %4, %19 ]
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %58, %57 ], [ %39, %38 ], [ %20, %19 ]
+common.resume:                                    ; preds = %73, %55, %37, %19
+  %.sink = phi ptr [ %60, %73 ], [ %42, %55 ], [ %24, %37 ], [ %4, %19 ]
+  %common.resume.op = phi { ptr, i32 } [ %74, %73 ], [ %56, %55 ], [ %38, %37 ], [ %20, %19 ]
   tail call void @_ZdlPv(ptr noundef nonnull %.sink) #29
   resume { ptr, i32 } %common.resume.op
 
@@ -3105,136 +3108,136 @@ _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit: ; preds = %_ZN2cvL8decToBinEi
   %indvars.iv.i.i8 = phi i64 [ 0, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit ], [ %indvars.iv.next.i.i9, %.lr.ph.i.i7 ]
   %26 = trunc nuw nsw i64 %indvars.iv.i.i8 to i32
   %27 = lshr i32 %23, %26
-  %28 = trunc nuw i32 %27 to i8
-  %29 = and i8 %28, 1
-  %30 = xor i64 %indvars.iv.i.i8, -1
-  %31 = getelementptr i8, ptr %25, i64 %30
-  store i8 %29, ptr %31, align 1
+  %.lhs.trunc = trunc nuw i32 %27 to i8
+  %28 = and i8 %.lhs.trunc, 1
+  %29 = xor i64 %indvars.iv.i.i8, -1
+  %30 = getelementptr i8, ptr %25, i64 %29
+  store i8 %28, ptr %30, align 1
   %indvars.iv.next.i.i9 = add nuw nsw i64 %indvars.iv.i.i8, 1
   %exitcond.not.i.i10 = icmp eq i64 %indvars.iv.next.i.i9, 4
   br i1 %exitcond.not.i.i10, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i11, label %.lr.ph.i.i7, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i11:   ; preds = %.lr.ph.i.i7
-  %32 = load ptr, ptr %12, align 8
-  %33 = load ptr, ptr %2, align 8
+  %31 = load ptr, ptr %12, align 8
+  %32 = load ptr, ptr %2, align 8
+  %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
-  %35 = ptrtoint ptr %33 to i64
-  %36 = sub i64 %34, %35
-  %37 = getelementptr inbounds i8, ptr %33, i64 %36
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %37, ptr nonnull %24, ptr nonnull %25)
-          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit12 unwind label %38
+  %35 = sub i64 %33, %34
+  %36 = getelementptr inbounds i8, ptr %32, i64 %35
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %36, ptr nonnull %24, ptr nonnull %25)
+          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit12 unwind label %37
 
-38:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i11
-  %39 = landingpad { ptr, i32 }
+37:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i11
+  %38 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit12: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i11
   tail call void @_ZdlPv(ptr noundef nonnull %24) #29
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 338
-  %41 = load i8, ptr %40, align 2
-  %42 = zext i8 %41 to i32
-  %43 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 0, ptr %43, align 1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 338
+  %40 = load i8, ptr %39, align 2
+  %41 = zext i8 %40 to i32
+  %42 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 0, ptr %42, align 1
   br label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %.lr.ph.i.i13, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit12
   %indvars.iv.i.i14 = phi i64 [ 0, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit12 ], [ %indvars.iv.next.i.i15, %.lr.ph.i.i13 ]
-  %45 = trunc nuw nsw i64 %indvars.iv.i.i14 to i32
-  %46 = lshr i32 %42, %45
-  %47 = trunc nuw i32 %46 to i8
-  %48 = and i8 %47, 1
-  %49 = xor i64 %indvars.iv.i.i14, -1
-  %50 = getelementptr i8, ptr %44, i64 %49
-  store i8 %48, ptr %50, align 1
+  %44 = trunc nuw nsw i64 %indvars.iv.i.i14 to i32
+  %45 = lshr i32 %41, %44
+  %.lhs.trunc25 = trunc nuw i32 %45 to i8
+  %46 = and i8 %.lhs.trunc25, 1
+  %47 = xor i64 %indvars.iv.i.i14, -1
+  %48 = getelementptr i8, ptr %43, i64 %47
+  store i8 %46, ptr %48, align 1
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i14, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, 4
   br i1 %exitcond.not.i.i16, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i17, label %.lr.ph.i.i13, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i17:   ; preds = %.lr.ph.i.i13
-  %51 = load ptr, ptr %12, align 8
-  %52 = load ptr, ptr %2, align 8
-  %53 = ptrtoint ptr %51 to i64
-  %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = getelementptr inbounds i8, ptr %52, i64 %55
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %56, ptr nonnull %43, ptr nonnull %44)
-          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit18 unwind label %57
+  %49 = load ptr, ptr %12, align 8
+  %50 = load ptr, ptr %2, align 8
+  %51 = ptrtoint ptr %49 to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = getelementptr inbounds i8, ptr %50, i64 %53
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %54, ptr nonnull %42, ptr nonnull %43)
+          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit18 unwind label %55
 
-57:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i17
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i17
+  %56 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit18: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i17
-  tail call void @_ZdlPv(ptr noundef nonnull %43) #29
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %60 = load i8, ptr %59, align 8
-  %61 = zext i8 %60 to i32
-  %62 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i64 0, ptr %62, align 1
+  tail call void @_ZdlPv(ptr noundef nonnull %42) #29
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %58 = load i8, ptr %57, align 8
+  %59 = zext i8 %58 to i32
+  %60 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i64 0, ptr %60, align 1
   br label %.lr.ph.i.i19
 
 .lr.ph.i.i19:                                     ; preds = %.lr.ph.i.i19, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit18
   %indvars.iv.i.i20 = phi i64 [ 0, %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit18 ], [ %indvars.iv.next.i.i21, %.lr.ph.i.i19 ]
-  %64 = trunc nuw nsw i64 %indvars.iv.i.i20 to i32
-  %65 = lshr i32 %61, %64
-  %66 = trunc nuw i32 %65 to i8
-  %67 = and i8 %66, 1
-  %68 = xor i64 %indvars.iv.i.i20, -1
-  %69 = getelementptr i8, ptr %63, i64 %68
-  store i8 %67, ptr %69, align 1
+  %62 = trunc nuw nsw i64 %indvars.iv.i.i20 to i32
+  %63 = lshr i32 %59, %62
+  %.lhs.trunc27 = trunc nuw i32 %63 to i8
+  %64 = and i8 %.lhs.trunc27, 1
+  %65 = xor i64 %indvars.iv.i.i20, -1
+  %66 = getelementptr i8, ptr %61, i64 %65
+  store i8 %64, ptr %66, align 1
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, 8
   br i1 %exitcond.not.i.i22, label %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i23, label %.lr.ph.i.i19, !llvm.loop !10
 
 _ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i23:   ; preds = %.lr.ph.i.i19
-  %70 = load ptr, ptr %12, align 8
-  %71 = load ptr, ptr %2, align 8
-  %72 = ptrtoint ptr %70 to i64
-  %73 = ptrtoint ptr %71 to i64
-  %74 = sub i64 %72, %73
-  %75 = getelementptr inbounds i8, ptr %71, i64 %74
-  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %75, ptr nonnull %62, ptr nonnull %63)
-          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24 unwind label %76
+  %67 = load ptr, ptr %12, align 8
+  %68 = load ptr, ptr %2, align 8
+  %69 = ptrtoint ptr %67 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = getelementptr inbounds i8, ptr %68, i64 %71
+  invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %72, ptr nonnull %60, ptr nonnull %61)
+          to label %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24 unwind label %73
 
-76:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i23
-  %77 = landingpad { ptr, i32 }
+73:                                               ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i23
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 _ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24: ; preds = %_ZN2cvL8decToBinEiiRSt6vectorIhSaIhEE.exit.i23
-  tail call void @_ZdlPv(ptr noundef nonnull %62) #29
-  %78 = tail call noundef i32 @_ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  switch i32 %78, label %default.unreachable [
-    i32 1, label %79
-    i32 2, label %81
-    i32 3, label %83
-    i32 4, label %85
+  tail call void @_ZdlPv(ptr noundef nonnull %60) #29
+  %75 = tail call noundef i32 @_ZNK2cv17QRCodeEncoderImpl14autoEncodeModeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readonly align 8 poison, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  switch i32 %75, label %default.unreachable [
+    i32 1, label %76
+    i32 2, label %78
+    i32 3, label %80
+    i32 4, label %82
   ]
 
-79:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
-  %80 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl13encodeNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+76:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
+  %77 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl13encodeNumericERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit
 
-81:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
-  %82 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl11encodeAlphaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+78:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
+  %79 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl11encodeAlphaERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit
 
-83:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
-  %84 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl10encodeByteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+80:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
+  %81 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl10encodeByteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit
 
-85:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
-  %86 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl10encodeByteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+82:                                               ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
+  %83 = tail call noundef zeroext i1 @_ZN2cv17QRCodeEncoderImpl10encodeByteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull readonly align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   br label %_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit
 
 default.unreachable:                              ; preds = %_ZN2cvL14writeDecNumberEiiRSt6vectorIhSaIhEE.exit24
   unreachable
 
-_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit: ; preds = %79, %81, %83, %85
+_ZN2cv17QRCodeEncoderImpl10encodeAutoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEEPNS_13QRCodeEncoder10EncodeModeE.exit: ; preds = %76, %78, %80, %82
   ret i1 true
 }
 

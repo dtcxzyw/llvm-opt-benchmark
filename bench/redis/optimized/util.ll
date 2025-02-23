@@ -2680,7 +2680,7 @@ sdslen.exit38:                                    ; preds = %117, %120, %123, %1
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %sdslen.exit38
   %.0.lcssa = phi i64 [ -2, %sdslen.exit38 ], [ %136, %._crit_edge.loopexit ]
-  call void @sdsrange(ptr noundef %.027, i64 noundef 0, i64 noundef %.0.lcssa) #29
+  call void @sdsrange(ptr noundef nonnull %.027, i64 noundef 0, i64 noundef %.0.lcssa) #29
   br label %sdslen.exit36.thread.backedge
 
 .critedge:                                        ; preds = %sdslen.exit36.thread, %91, %88, %sdslen.exit34, %94

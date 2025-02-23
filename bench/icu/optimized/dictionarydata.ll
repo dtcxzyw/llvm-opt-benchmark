@@ -942,7 +942,7 @@ if.then67:                                        ; preds = %if.end62
   %15 = load ptr, ptr %swapArray16, align 8
   %add.ptr69 = getelementptr inbounds nuw i8, ptr %add.ptr38, i64 32
   %sub70 = add nsw i32 %14, -32
-  %add.ptr72 = getelementptr inbounds nuw i8, ptr %cond, i64 32
+  %add.ptr72 = getelementptr inbounds nuw i8, ptr %add.ptr41, i64 32
   %call73 = tail call noundef i32 %15(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr69, i32 noundef %sub70, ptr noundef nonnull %add.ptr72, ptr noundef nonnull %pErrorCode)
   br label %if.end81
 

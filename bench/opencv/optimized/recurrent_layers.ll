@@ -6917,7 +6917,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit95:        ; preds = %_ZNSt6vectorIiSaIiE
   store ptr %187, ptr %170, align 8
   %189 = getelementptr inbounds nuw i32, ptr %183, i64 %181
   store ptr %189, ptr %171, align 8
-  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull %187, ptr nonnull %.sroa.0276.2, ptr %.sroa.10.0)
+  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull %187, ptr nonnull %.sroa.0276.2, ptr nonnull %.sroa.10.0)
           to label %190 unwind label %88
 
 190:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit95
@@ -14722,7 +14722,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit59:        ; preds = %_ZNKSt6vectorIiSaIi
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %113, ptr %105, align 8
   %114 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull %114, ptr nonnull %.sroa.0288.2, ptr %.sroa.10.0)
+  invoke void @_ZNSt6vectorIiSaIiEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPiS1_EEEEvS6_T_S7_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr nonnull %114, ptr nonnull %.sroa.0288.2, ptr nonnull %.sroa.10.0)
           to label %115 unwind label %64
 
 115:                                              ; preds = %_ZNSt6vectorIiSaIiEE9push_backERKi.exit59

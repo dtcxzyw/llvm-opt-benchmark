@@ -2006,30 +2006,30 @@ _ZN4absl13base_internal8SpinLock6UnlockEv.exit.i.i: ; preds = %341, %337, %_ZN4a
   br label %360
 
 360:                                              ; preds = %372, %347
-  %.04066.i.i.i = phi i64 [ 0, %347 ], [ %375, %372 ]
-  %.04165.i.i.i = phi i1 [ false, %347 ], [ %.142.i.i.i, %372 ]
-  %.04364.i.i.i = phi i64 [ 0, %347 ], [ %.144.i.i.i, %372 ]
-  %.04563.i.i.i = phi i32 [ 0, %347 ], [ %.146.i.i.i, %372 ]
-  %361 = getelementptr inbounds nuw [4 x ptr], ptr %358, i64 0, i64 %.04066.i.i.i
+  %.04067.i.i.i = phi i64 [ 0, %347 ], [ %375, %372 ]
+  %.04166.i.i.i = phi i1 [ false, %347 ], [ %.142.i.i.i, %372 ]
+  %.04365.i.i.i = phi i64 [ 0, %347 ], [ %.144.i.i.i, %372 ]
+  %.04564.i.i.i = phi i32 [ 0, %347 ], [ %.146.i.i.i, %372 ]
+  %361 = getelementptr inbounds nuw [4 x ptr], ptr %358, i64 0, i64 %.04067.i.i.i
   %362 = load ptr, ptr %361, align 8, !tbaa !32
   %363 = icmp eq ptr %362, null
-  br i1 %363, label %.preheader.i.i.i.preheader, label %372
+  br i1 %363, label %.preheader60.i.i.i.preheader, label %372
 
-.preheader.i.i.i.preheader:                       ; preds = %360
-  %364 = getelementptr inbounds nuw [4 x ptr], ptr %358, i64 0, i64 %.04066.i.i.i
-  br label %.preheader.i.i.i
+.preheader60.i.i.i.preheader:                     ; preds = %360
+  %364 = getelementptr inbounds nuw [4 x ptr], ptr %358, i64 0, i64 %.04067.i.i.i
+  br label %.preheader60.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
-  %.0.idx1.i.i.i.i = phi i64 [ %.0.add.i.i.i.i, %.preheader.i.i.i ], [ 64, %.preheader.i.i.i.preheader ]
+.preheader60.i.i.i:                               ; preds = %.preheader60.i.i.i.preheader, %.preheader60.i.i.i
+  %.0.idx1.i.i.i.i = phi i64 [ %.0.add.i.i.i.i, %.preheader60.i.i.i ], [ 64, %.preheader60.i.i.i.preheader ]
   %.0.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %358, i64 %.0.idx1.i.i.i.i
   %365 = load i32, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
   %366 = add i32 %365, 1
   store i32 %366, ptr %.0.ptr.i.i.i.i, align 4, !tbaa !10
   %.0.add.i.i.i.i = add nuw nsw i64 %.0.idx1.i.i.i.i, 4
   %.not.i.i77.i.i = icmp eq i64 %.0.add.i.i.i.i, 80
-  br i1 %.not.i.i77.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader.i.i.i
+  br i1 %.not.i.i77.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i, label %.preheader60.i.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %.preheader.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i: ; preds = %.preheader60.i.i.i
   store ptr %0, ptr %364, align 8, !tbaa !32
   %367 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %71) #26
   %368 = add i64 %367, 1
@@ -2044,34 +2044,34 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15Symbol
   unreachable
 
 372:                                              ; preds = %360
-  %373 = getelementptr inbounds nuw [4 x i32], ptr %359, i64 0, i64 %.04066.i.i.i
+  %373 = getelementptr inbounds nuw [4 x i32], ptr %359, i64 0, i64 %.04067.i.i.i
   %374 = load i32, ptr %373, align 4, !tbaa !10
-  %.not49.i.i.i = icmp uge i32 %374, %.04563.i.i.i
-  %.146.i.i.i = call i32 @llvm.umax.i32(i32 %374, i32 %.04563.i.i.i)
-  %.144.i.i.i = select i1 %.not49.i.i.i, i64 %.04066.i.i.i, i64 %.04364.i.i.i
-  %.142.i.i.i = select i1 %.not49.i.i.i, i1 true, i1 %.04165.i.i.i
-  %375 = add nuw nsw i64 %.04066.i.i.i, 1
+  %.not49.i.i.i = icmp uge i32 %374, %.04564.i.i.i
+  %.146.i.i.i = call i32 @llvm.umax.i32(i32 %374, i32 %.04564.i.i.i)
+  %.144.i.i.i = select i1 %.not49.i.i.i, i64 %.04067.i.i.i, i64 %.04365.i.i.i
+  %.142.i.i.i = select i1 %.not49.i.i.i, i1 true, i1 %.04166.i.i.i
+  %375 = add nuw nsw i64 %.04067.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %375, 4
-  br i1 %exitcond.i.i.i, label %.thread.i.i.i, label %360, !llvm.loop !97
+  br i1 %exitcond.i.i.i, label %.preheader.i.i.i, label %360, !llvm.loop !97
 
 376:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %370, ptr nonnull readonly align 2 %71, i64 %368, i1 false)
   %377 = getelementptr inbounds nuw i8, ptr %358, i64 32
-  %378 = getelementptr inbounds nuw [4 x ptr], ptr %377, i64 0, i64 %.04066.i.i.i
+  %378 = getelementptr inbounds nuw [4 x ptr], ptr %377, i64 0, i64 %.04067.i.i.i
   store ptr %370, ptr %378, align 8, !tbaa !4
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 
-.thread.i.i.i:                                    ; preds = %372, %.thread.i.i.i
-  %.0.idx1.i51.i.i.i = phi i64 [ %.0.add.i53.i.i.i, %.thread.i.i.i ], [ 64, %372 ]
+.preheader.i.i.i:                                 ; preds = %372, %.preheader.i.i.i
+  %.0.idx1.i51.i.i.i = phi i64 [ %.0.add.i53.i.i.i, %.preheader.i.i.i ], [ 64, %372 ]
   %.0.ptr.i52.i.i.i = getelementptr inbounds nuw i8, ptr %358, i64 %.0.idx1.i51.i.i.i
   %379 = load i32, ptr %.0.ptr.i52.i.i.i, align 4, !tbaa !10
   %380 = add i32 %379, 1
   store i32 %380, ptr %.0.ptr.i52.i.i.i, align 4, !tbaa !10
   %.0.add.i53.i.i.i = add nuw nsw i64 %.0.idx1.i51.i.i.i, 4
   %.not.i54.i.i.i = icmp eq i64 %.0.add.i53.i.i.i, 80
-  br i1 %.not.i54.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i, label %.thread.i.i.i
+  br i1 %.not.i54.i.i.i, label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i, label %.preheader.i.i.i
 
-_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i: ; preds = %.thread.i.i.i
+_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i: ; preds = %.preheader.i.i.i
   br i1 %.142.i.i.i, label %382, label %381, !prof !98
 
 381:                                              ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10AgeSymbolsEPNS1_15SymbolCacheLineE.exit55.i.i.i
@@ -2103,9 +2103,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i
 
 _ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer19InsertSymbolInCacheEPKvPKc.exit.i.i: ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i, %376
-  %.04066.lcssa70.sink.i.i.i = phi i64 [ %.04066.i.i.i, %376 ], [ %.144.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
+  %.04067.lcssa71.sink.i.i.i = phi i64 [ %.04067.i.i.i, %376 ], [ %.144.i.i.i, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
   %.1.i.i.i = phi ptr [ %370, %376 ], [ %390, %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer10CopyStringEPKc.exit58.i.i.i ]
-  %392 = getelementptr inbounds nuw [4 x i32], ptr %359, i64 0, i64 %.04066.lcssa70.sink.i.i.i
+  %392 = getelementptr inbounds nuw [4 x i32], ptr %359, i64 0, i64 %.04067.lcssa71.sink.i.i.i
   store i32 0, ptr %392, align 4, !tbaa !10
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_110Symbolizer9GetSymbolEPKv.exit
 

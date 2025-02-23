@@ -382,13 +382,13 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   store i8 123, ptr %28, align 1
   %29 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %8, ptr noundef nonnull dereferenceable(16) %10, i64 16)
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %130, label %31
+  br i1 %30, label %131, label %31
 
 31:                                               ; preds = %6
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 96), align 16
   %33 = tail call noalias align 8 dereferenceable_or_null(2168) ptr @kmalloc_trace(ptr noundef %32, i32 noundef 3520, i64 noundef 2168) #18
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %130, label %35
+  br i1 %34, label %131, label %35
 
 35:                                               ; preds = %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %33, ptr align 2 %0, i64 %3, i1 false)
@@ -400,7 +400,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %40 = ashr exact i64 %39, 32
   %41 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %40, i32 noundef 3264) #20
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %128, label %43
+  br i1 %42, label %129, label %43
 
 43:                                               ; preds = %35
   %44 = ashr exact i64 %38, 32
@@ -422,7 +422,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %58 = load ptr, ptr %57, align 8
   %59 = tail call ptr @efivarfs_get_inode(ptr noundef %4, ptr noundef %58, i32 noundef 33188, i32 noundef 0, i1 noundef zeroext %49) #17
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %126, label %61
+  br i1 %60, label %127, label %61
 
 61:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #17
@@ -433,9 +433,9 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %64, ptr %65, align 4
   %66 = tail call zeroext i1 @efivarfs_valid_name(ptr noundef nonnull %41, i32 noundef %64) #17
-  br i1 %66, label %67, label %.thread.thread
+  br i1 %66, label %67, label %.thread9
 
-.thread.thread:                                   ; preds = %61
+.thread9:                                         ; preds = %61
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
   br label %.thread5
 
@@ -445,7 +445,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %70 = icmp ugt i32 %64, 36
   br i1 %70, label %.preheader6, label %75
 
-.thread9:                                         ; preds = %.preheader6
+.thread:                                          ; preds = %.preheader6
   %71 = add i64 %63, 4294967259
   %72 = and i64 %71, 4294967295
   %73 = getelementptr i8, ptr %41, i64 %72
@@ -456,10 +456,10 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %76 = icmp eq i32 %69, 0
   br i1 %76, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %.thread9, %75
-  %.ph = phi i32 [ %69, %75 ], [ 35, %.thread9 ]
-  %.ph12 = phi ptr [ %41, %75 ], [ %74, %.thread9 ]
-  %.ph13 = phi i64 [ %68, %75 ], [ %87, %.thread9 ]
+.preheader.preheader:                             ; preds = %.thread, %75
+  %.ph = phi i32 [ %69, %75 ], [ 35, %.thread ]
+  %.ph12 = phi ptr [ %41, %75 ], [ %74, %.thread ]
+  %.ph13 = phi i64 [ %68, %75 ], [ %87, %.thread ]
   br label %.preheader
 
 .preheader6:                                      ; preds = %67, %.preheader6
@@ -476,7 +476,7 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %87 = mul i64 %86, 11
   %88 = add i32 %77, -1
   %89 = icmp ugt i32 %77, 36
-  br i1 %89, label %.preheader6, label %.thread9, !llvm.loop !6
+  br i1 %89, label %.preheader6, label %.thread, !llvm.loop !6
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %90 = phi i32 [ %93, %.preheader ], [ %.ph, %.preheader.preheader ]
@@ -509,49 +509,49 @@ define internal i32 @efivarfs_callback(ptr noundef readonly captures(none) %0, i
   %113 = call ptr @d_alloc(ptr noundef %13, ptr noundef nonnull %7) #17
   %114 = icmp eq ptr %113, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #17
-  br i1 %114, label %.thread5, label %.thread
+  br i1 %114, label %.thread5, label %115
 
-.thread:                                          ; preds = %.loopexit
-  %115 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
-  br i1 %115, label %.thread5, label %119
+115:                                              ; preds = %.loopexit
+  %116 = icmp ugt ptr %113, inttoptr (i64 -4096 to ptr)
+  br i1 %116, label %.thread5, label %120
 
-.thread5:                                         ; preds = %.loopexit, %.thread.thread, %.thread
-  %116 = phi ptr [ %113, %.thread ], [ inttoptr (i64 -22 to ptr), %.thread.thread ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
-  %117 = ptrtoint ptr %116 to i64
-  %118 = trunc i64 %117 to i32
+.thread5:                                         ; preds = %.loopexit, %.thread9, %115
+  %117 = phi ptr [ %113, %115 ], [ inttoptr (i64 -22 to ptr), %.thread9 ], [ inttoptr (i64 -12 to ptr), %.loopexit ]
+  %118 = ptrtoint ptr %117 to i64
+  %119 = trunc i64 %118 to i32
   call void @iput(ptr noundef nonnull %59) #17
-  br label %126
+  br label %127
 
-119:                                              ; preds = %.thread
-  %120 = call i32 @__efivar_entry_get(ptr noundef nonnull %33, ptr noundef null, ptr noundef nonnull %9, ptr noundef null) #17
+120:                                              ; preds = %115
+  %121 = call i32 @__efivar_entry_get(ptr noundef nonnull %33, ptr noundef null, ptr noundef nonnull %9, ptr noundef null) #17
   call void @__efivar_entry_add(ptr noundef nonnull %33, ptr noundef %5) #17
   call void @kfree(ptr noundef nonnull %41) #17
-  %121 = getelementptr inbounds nuw i8, ptr %59, i64 160
-  call void @down_write(ptr noundef nonnull %121) #17
-  %122 = getelementptr inbounds nuw i8, ptr %59, i64 592
-  store ptr %33, ptr %122, align 8
-  %123 = load i64, ptr %9, align 8
-  %124 = add i64 %123, 4
-  %125 = getelementptr inbounds nuw i8, ptr %59, i64 80
-  store i64 %124, ptr %125, align 8
-  call void @up_write(ptr noundef nonnull %121) #17
+  %122 = getelementptr inbounds nuw i8, ptr %59, i64 160
+  call void @down_write(ptr noundef nonnull %122) #17
+  %123 = getelementptr inbounds nuw i8, ptr %59, i64 592
+  store ptr %33, ptr %123, align 8
+  %124 = load i64, ptr %9, align 8
+  %125 = add i64 %124, 4
+  %126 = getelementptr inbounds nuw i8, ptr %59, i64 80
+  store i64 %125, ptr %126, align 8
+  call void @up_write(ptr noundef nonnull %122) #17
   call void @d_add(ptr noundef nonnull %113, ptr noundef nonnull %59) #17
-  br label %130
+  br label %131
 
-126:                                              ; preds = %.thread5, %43
-  %127 = phi i32 [ %118, %.thread5 ], [ -12, %43 ]
+127:                                              ; preds = %.thread5, %43
+  %128 = phi i32 [ %119, %.thread5 ], [ -12, %43 ]
   call void @kfree(ptr noundef nonnull %41) #17
-  br label %128
+  br label %129
 
-128:                                              ; preds = %126, %35
-  %129 = phi i32 [ %127, %126 ], [ -12, %35 ]
+129:                                              ; preds = %127, %35
+  %130 = phi i32 [ %128, %127 ], [ -12, %35 ]
   call void @kfree(ptr noundef nonnull %33) #17
-  br label %130
+  br label %131
 
-130:                                              ; preds = %128, %119, %31, %6
-  %131 = phi i32 [ %129, %128 ], [ 0, %119 ], [ 0, %6 ], [ -12, %31 ]
+131:                                              ; preds = %129, %120, %31, %6
+  %132 = phi i32 [ %130, %129 ], [ 0, %120 ], [ 0, %6 ], [ -12, %31 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #17
-  ret i32 %131
+  ret i32 %132
 }
 
 ; Function Attrs: null_pointer_is_valid

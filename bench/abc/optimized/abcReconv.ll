@@ -1122,7 +1122,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv36 = phi i64 [ 0, %.lr.ph34.preheader ], [ %indvars.iv.next37, %.lr.ph34 ]
   %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv36
   %56 = load ptr, ptr %55, align 8, !tbaa !54
-  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %56, ptr noundef %3)
+  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %56, ptr noundef nonnull %3)
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph34, !llvm.loop !55
@@ -1325,7 +1325,7 @@ define noundef ptr @Abc_NodeConeBdd(ptr noundef %0, ptr noundef readonly capture
 Abc_NodesMark.exit.i:                             ; preds = %9, %5
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %17, align 4, !tbaa !11
-  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %2, ptr noundef %4)
+  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %2, ptr noundef nonnull %4)
   %.val6.i18.i = load i32, ptr %6, align 4, !tbaa !11
   %18 = icmp sgt i32 %.val6.i18.i, 0
   br i1 %18, label %.lr.ph.i19.i, label %Abc_NodesUnmark.exit.i
@@ -1547,7 +1547,7 @@ Abc_NodesMark.exit.i:                             ; preds = %14, %6
   %indvars.iv36.i = phi i64 [ 0, %.lr.ph34.preheader.i ], [ %indvars.iv.next37.i, %.lr.ph34.i ]
   %24 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv36.i
   %25 = load ptr, ptr %24, align 8, !tbaa !54
-  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %25, ptr noundef %5)
+  tail call fastcc void @Abc_NodeConeMarkCollect_rec(ptr noundef %25, ptr noundef nonnull %5)
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph34.i, !llvm.loop !55
@@ -1721,12 +1721,12 @@ Abc_NodeConeCollect.exit:                         ; preds = %Abc_NodeConeCollect
   %100 = load ptr, ptr %99, align 8, !tbaa !59
   %101 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv105
   %102 = load ptr, ptr %101, align 8, !tbaa !57
-  %103 = tail call ptr @Cudd_bddXnor(ptr noundef %0, ptr noundef %100, ptr noundef %102) #13
+  %103 = tail call ptr @Cudd_bddXnor(ptr noundef nonnull %0, ptr noundef %100, ptr noundef %102) #13
   tail call void @Cudd_Ref(ptr noundef %103) #13
-  %104 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.07595, ptr noundef %103) #13
+  %104 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.07595, ptr noundef %103) #13
   tail call void @Cudd_Ref(ptr noundef %104) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.07595) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %103) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.07595) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %103) #13
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %.val80 = load i32, ptr %9, align 4, !tbaa !11
   %105 = sext i32 %.val80 to i64
@@ -1740,7 +1740,7 @@ Abc_NodeConeCollect.exit:                         ; preds = %Abc_NodeConeCollect
   %108 = load ptr, ptr %107, align 8, !tbaa !15
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 64
   %110 = load ptr, ptr %109, align 8, !tbaa !59
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %110) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %110) #13
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.val79 = load i32, ptr %22, align 4, !tbaa !11
   %111 = sext i32 %.val79 to i64
@@ -1755,15 +1755,15 @@ Abc_NodeConeCollect.exit:                         ; preds = %Abc_NodeConeCollect
   %113 = phi i32 [ %.pre, %.critedge6.loopexit ], [ %94, %.critedge4.preheader ]
   %114 = load i32, ptr %11, align 4, !tbaa !11
   %115 = add nsw i32 %114, %113
-  %116 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef %113, i32 noundef %115) #13
+  %116 = tail call ptr @Extra_bddComputeRangeCube(ptr noundef nonnull %0, i32 noundef %113, i32 noundef %115) #13
   tail call void @Cudd_Ref(ptr noundef %116) #13
-  %117 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %.075.lcssa, ptr noundef %116) #13
+  %117 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %.075.lcssa, ptr noundef %116) #13
   tail call void @Cudd_Ref(ptr noundef %117) #13
   %118 = ptrtoint ptr %117 to i64
   %119 = xor i64 %118, 1
   %120 = inttoptr i64 %119 to ptr
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %116) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.075.lcssa) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %116) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.075.lcssa) #13
   tail call void @Cudd_Deref(ptr noundef %120) #13
   ret ptr %120
 }

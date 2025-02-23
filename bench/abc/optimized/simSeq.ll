@@ -118,7 +118,7 @@ define ptr @Sim_SimulateSeqRandom(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %.264 = phi i32 [ 0, %.lr.ph65 ], [ %60, %.critedge2 ]
   %58 = icmp slt i32 %.264, %36
   %59 = zext i1 %58 to i32
-  tail call fastcc void @Sim_SimulateSeqFrame(ptr noundef %7, ptr noundef %0, i32 noundef %.264, i32 noundef %2, i32 noundef %59)
+  tail call fastcc void @Sim_SimulateSeqFrame(ptr noundef %7, ptr noundef nonnull %0, i32 noundef %.264, i32 noundef %2, i32 noundef %59)
   %60 = add nuw nsw i32 %.264, 1
   %exitcond.not = icmp eq i32 %60, %1
   br i1 %exitcond.not, label %.critedge2._crit_edge, label %.critedge2, !llvm.loop !37

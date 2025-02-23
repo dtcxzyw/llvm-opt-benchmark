@@ -545,8 +545,8 @@ thread-pre-split:                                 ; preds = %22, %4
 
 260:                                              ; preds = %236
   %261 = icmp ne i32 %.0215, 0
-  %262 = add i32 %.2221, -1
-  %263 = icmp ult i32 %262, 2
+  %262 = add nsw i32 %.2221, -1
+  %263 = icmp samesign ult i32 %262, 2
   %or.cond10 = or i1 %261, %263
   br i1 %or.cond10, label %266, label %264
 

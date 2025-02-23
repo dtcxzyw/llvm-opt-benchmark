@@ -5986,7 +5986,7 @@ define hidden zeroext i16 @de_plmn_list(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %20, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %21 = add i32 %11, 3
+  %21 = add nuw i32 %11, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %7

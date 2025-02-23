@@ -1481,14 +1481,14 @@ define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(pt
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond149.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count148
-  br i1 %exitcond149.not, label %.loopexit97, label %.lr.ph108, !llvm.loop !30
+  br i1 %exitcond149.not, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader, label %.lr.ph108, !llvm.loop !30
 
-.loopexit97:                                      ; preds = %.lr.ph108, %.loopexit99
-  %63 = getelementptr inbounds nuw i8, ptr %41, i64 1128
+.loopexit97:                                      ; preds = %.loopexit99
   %.not134 = icmp eq i32 %.fr133, 0
   br i1 %.not134, label %.split123.us, label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader
 
-_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader: ; preds = %.loopexit97
+_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us.preheader: ; preds = %.lr.ph108, %.loopexit97
+  %63 = getelementptr inbounds nuw i8, ptr %41, i64 1128
   %wide.trip.count153 = zext i32 %.fr133 to i64
   br label %_ZNK10aiAnimMesh16HasTextureCoordsEj.exit.us
 

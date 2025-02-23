@@ -5916,7 +5916,7 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv
   %89 = or disjoint i32 %88, %87
   %90 = or disjoint i32 %89, 16777216
   %91 = zext nneg i32 %90 to i64
-  br i1 %.not100, label %.thread147, label %225
+  br i1 %.not100, label %.thread147, label %230
 
 92:                                               ; preds = %._crit_edge
   %93 = add i32 %.288.ph, %19
@@ -5964,225 +5964,233 @@ _ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv
   %113 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -4
   %114 = icmp ult ptr %113, %.0.i.i
-  br i1 %114, label %.lr.ph.i.i108, label %_ZSt7reverseIPjEvT_S1_.exit, !llvm.loop !379
+  br i1 %114, label %.lr.ph.i.i108, label %_ZSt7reverseIPjEvT_S1_.exit.thread, !llvm.loop !379
 
-_ZSt7reverseIPjEvT_S1_.exit:                      ; preds = %.lr.ph.i.i108, %107
+_ZSt7reverseIPjEvT_S1_.exit.thread:               ; preds = %.lr.ph.i.i108
   %115 = shl i32 %.267.ph, 10
   %116 = and i32 %115, 7168
   %117 = zext nneg i32 %116 to i64
   %118 = or i64 %.276, %117
+  br label %.lr.ph.i
+
+_ZSt7reverseIPjEvT_S1_.exit:                      ; preds = %107
+  %119 = shl nuw nsw i32 %.267.ph, 10
+  %120 = zext nneg i32 %119 to i64
+  %121 = or i64 %.276, %120
   %.not.i109 = icmp eq i32 %.267.ph, 0
   br i1 %.not.i109, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZSt7reverseIPjEvT_S1_.exit
+.lr.ph.i:                                         ; preds = %_ZSt7reverseIPjEvT_S1_.exit.thread, %_ZSt7reverseIPjEvT_S1_.exit
+  %122 = phi i64 [ %118, %_ZSt7reverseIPjEvT_S1_.exit.thread ], [ %121, %_ZSt7reverseIPjEvT_S1_.exit ]
   %.val.i110 = load i8, ptr %16, align 8, !tbaa !122, !range !52, !noundef !53
-  %119 = trunc nuw i8 %.val.i110 to i1
-  %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111 = select i1 %119, ptr @_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs, ptr @_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs
-  %120 = load i16, ptr %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111, align 2, !tbaa !376
-  %.not1.i.i112 = icmp eq i16 %120, 0
+  %123 = trunc nuw i8 %.val.i110 to i1
+  %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111 = select i1 %123, ptr @_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs, ptr @_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs
+  %124 = load i16, ptr %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111, align 2, !tbaa !376
+  %.not1.i.i112 = icmp eq i16 %124, 0
   br i1 %.not1.i.i112, label %.thread147, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i
   %indvars.iv.i113 = phi i64 [ %indvars.iv.next.i118, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i ], [ 0, %.lr.ph.i ]
-  %121 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv.i113
-  %122 = load i32, ptr %121, align 4, !tbaa !47
+  %125 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv.i113
+  %126 = load i32, ptr %125, align 4, !tbaa !47
   br label %.lr.ph.i.i114
 
-.lr.ph.i.i114:                                    ; preds = %126, %.lr.ph.i.preheader.i
-  %123 = phi i16 [ %129, %126 ], [ %120, %.lr.ph.i.preheader.i ]
-  %.083.i.i115 = phi i32 [ %128, %126 ], [ 1, %.lr.ph.i.preheader.i ]
-  %.092.i.i116 = phi ptr [ %127, %126 ], [ %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111, %.lr.ph.i.preheader.i ]
-  %124 = zext i16 %123 to i32
-  %125 = icmp eq i32 %122, %124
-  br i1 %125, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i, label %126
+.lr.ph.i.i114:                                    ; preds = %130, %.lr.ph.i.preheader.i
+  %127 = phi i16 [ %133, %130 ], [ %124, %.lr.ph.i.preheader.i ]
+  %.083.i.i115 = phi i32 [ %132, %130 ], [ 1, %.lr.ph.i.preheader.i ]
+  %.092.i.i116 = phi ptr [ %131, %130 ], [ %_ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU64BitRegs._ZZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEjE11CU32BitRegs.i.i111, %.lr.ph.i.preheader.i ]
+  %128 = zext i16 %127 to i32
+  %129 = icmp eq i32 %126, %128
+  br i1 %129, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i, label %130
 
-126:                                              ; preds = %.lr.ph.i.i114
-  %127 = getelementptr inbounds nuw i8, ptr %.092.i.i116, i64 2
-  %128 = add nuw nsw i32 %.083.i.i115, 1
-  %129 = load i16, ptr %127, align 2, !tbaa !376
-  %.not.i.i117 = icmp eq i16 %129, 0
+130:                                              ; preds = %.lr.ph.i.i114
+  %131 = getelementptr inbounds nuw i8, ptr %.092.i.i116, i64 2
+  %132 = add nuw nsw i32 %.083.i.i115, 1
+  %133 = load i16, ptr %131, align 2, !tbaa !376
+  %.not.i.i117 = icmp eq i16 %133, 0
   br i1 %.not.i.i117, label %.thread147, label %.lr.ph.i.i114, !llvm.loop !377
 
 _ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i: ; preds = %.lr.ph.i.i114
-  store i32 %.083.i.i115, ptr %121, align 4, !tbaa !47
+  store i32 %.083.i.i115, ptr %125, align 4, !tbaa !47
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i113, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i118, %108
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i.preheader.i, !llvm.loop !380
 
 ._crit_edge.i:                                    ; preds = %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i, %_ZSt7reverseIPjEvT_S1_.exit
+  %134 = phi i64 [ %121, %_ZSt7reverseIPjEvT_S1_.exit ], [ %122, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend22getCompactUnwindRegNumEj.exit.i ]
   %.012.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 236
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %._crit_edge.i
   %.014.i.i.i = phi ptr [ %.0.i.i.i, %.lr.ph.i.i.i ], [ %.012.i.i.i, %._crit_edge.i ]
-  %.0913.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i ], [ %.ptr, %._crit_edge.i ]
-  %130 = load i32, ptr %.0913.i.i.i, align 4, !tbaa !47
-  %131 = load i32, ptr %.014.i.i.i, align 4, !tbaa !47
-  store i32 %131, ptr %.0913.i.i.i, align 4, !tbaa !47
-  store i32 %130, ptr %.014.i.i.i, align 4, !tbaa !47
-  %132 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 4
+  %.0913.i.i.i = phi ptr [ %137, %.lr.ph.i.i.i ], [ %.ptr, %._crit_edge.i ]
+  %135 = load i32, ptr %.0913.i.i.i, align 4, !tbaa !47
+  %136 = load i32, ptr %.014.i.i.i, align 4, !tbaa !47
+  store i32 %136, ptr %.0913.i.i.i, align 4, !tbaa !47
+  store i32 %135, ptr %.014.i.i.i, align 4, !tbaa !47
+  %137 = getelementptr inbounds nuw i8, ptr %.0913.i.i.i, i64 4
   %.0.i.i.i = getelementptr inbounds i8, ptr %.014.i.i.i, i64 -4
-  %133 = icmp ult ptr %132, %.0.i.i.i
-  br i1 %133, label %.lr.ph.i.i.i, label %_ZSt7reverseIPjEvT_S1_.exit.i, !llvm.loop !379
+  %138 = icmp ult ptr %137, %.0.i.i.i
+  br i1 %138, label %.lr.ph.i.i.i, label %_ZSt7reverseIPjEvT_S1_.exit.i, !llvm.loop !379
 
 _ZSt7reverseIPjEvT_S1_.exit.i:                    ; preds = %.lr.ph.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #26
-  %134 = sub i32 6, %.267.ph
-  %135 = icmp ult i32 %134, 6
-  br i1 %135, label %.preheader.preheader.i, label %._crit_edge53.i
+  %139 = sub i32 6, %.267.ph
+  %140 = icmp ult i32 %139, 6
+  br i1 %140, label %.preheader.preheader.i, label %._crit_edge53.i
 
 .preheader.preheader.i:                           ; preds = %_ZSt7reverseIPjEvT_S1_.exit.i
-  %136 = zext nneg i32 %134 to i64
+  %141 = zext nneg i32 %139 to i64
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge51.i, %.preheader.preheader.i
-  %indvars.iv60.i = phi i64 [ %136, %.preheader.preheader.i ], [ %indvars.iv.next61.i, %._crit_edge51.i ]
-  %137 = icmp samesign ugt i64 %indvars.iv60.i, %136
-  %138 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv60.i
-  %139 = load i32, ptr %138, align 4, !tbaa !47
-  br i1 %137, label %.lr.ph50.i, label %._crit_edge51.i
+  %indvars.iv60.i = phi i64 [ %141, %.preheader.preheader.i ], [ %indvars.iv.next61.i, %._crit_edge51.i ]
+  %142 = icmp samesign ugt i64 %indvars.iv60.i, %141
+  %143 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv60.i
+  %144 = load i32, ptr %143, align 4, !tbaa !47
+  br i1 %142, label %.lr.ph50.i, label %._crit_edge51.i
 
 ._crit_edge53.i:                                  ; preds = %._crit_edge51.i, %_ZSt7reverseIPjEvT_S1_.exit.i
   switch i32 %.267.ph, label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159 [
-    i32 6, label %149
-    i32 5, label %167
-    i32 4, label %186
-    i32 3, label %201
-    i32 2, label %212
-    i32 1, label %219
+    i32 6, label %154
+    i32 5, label %172
+    i32 4, label %191
+    i32 3, label %206
+    i32 2, label %217
+    i32 1, label %224
   ]
 
 _ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159: ; preds = %._crit_edge53.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
-  br label %225
+  br label %230
 
 ._crit_edge51.loopexit.i:                         ; preds = %.lr.ph50.i
-  %140 = xor i32 %spec.select.i120, -1
+  %145 = xor i32 %spec.select.i120, -1
   br label %._crit_edge51.i
 
 ._crit_edge51.i:                                  ; preds = %._crit_edge51.loopexit.i, %.preheader.i
-  %.032.lcssa.i = phi i32 [ %140, %._crit_edge51.loopexit.i ], [ -1, %.preheader.i ]
-  %141 = add i32 %.032.lcssa.i, %139
-  %142 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv60.i
-  store i32 %141, ptr %142, align 4, !tbaa !47
+  %.032.lcssa.i = phi i32 [ %145, %._crit_edge51.loopexit.i ], [ -1, %.preheader.i ]
+  %146 = add i32 %.032.lcssa.i, %144
+  %147 = getelementptr inbounds nuw [6 x i32], ptr %4, i64 0, i64 %indvars.iv60.i
+  store i32 %146, ptr %147, align 4, !tbaa !47
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
-  %143 = and i64 %indvars.iv.next61.i, 4294967295
-  %exitcond64.not.i = icmp eq i64 %143, 6
+  %148 = and i64 %indvars.iv.next61.i, 4294967295
+  %exitcond64.not.i = icmp eq i64 %148, 6
   br i1 %exitcond64.not.i, label %._crit_edge53.i, label %.preheader.i, !llvm.loop !381
 
 .lr.ph50.i:                                       ; preds = %.preheader.i, %.lr.ph50.i
-  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph50.i ], [ %136, %.preheader.i ]
+  %indvars.iv56.i = phi i64 [ %indvars.iv.next57.i, %.lr.ph50.i ], [ %141, %.preheader.i ]
   %.03248.i = phi i32 [ %spec.select.i120, %.lr.ph50.i ], [ 0, %.preheader.i ]
-  %144 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv56.i
-  %145 = load i32, ptr %144, align 4, !tbaa !47
-  %146 = icmp ult i32 %145, %139
-  %147 = zext i1 %146 to i32
-  %spec.select.i120 = add i32 %.03248.i, %147
+  %149 = getelementptr inbounds nuw [6 x i32], ptr %.ptr, i64 0, i64 %indvars.iv56.i
+  %150 = load i32, ptr %149, align 4, !tbaa !47
+  %151 = icmp ult i32 %150, %144
+  %152 = zext i1 %151 to i32
+  %spec.select.i120 = add i32 %.03248.i, %152
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
-  %148 = and i64 %indvars.iv.next57.i, 4294967295
-  %exitcond59.not.i = icmp eq i64 %148, %indvars.iv60.i
+  %153 = and i64 %indvars.iv.next57.i, 4294967295
+  %exitcond59.not.i = icmp eq i64 %153, %indvars.iv60.i
   br i1 %exitcond59.not.i, label %._crit_edge51.loopexit.i, label %.lr.ph50.i, !llvm.loop !382
 
-149:                                              ; preds = %._crit_edge53.i
-  %150 = load i32, ptr %4, align 16, !tbaa !47
-  %151 = mul i32 %150, 120
-  %152 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %153 = load i32, ptr %152, align 4, !tbaa !47
-  %154 = mul i32 %153, 24
-  %155 = add i32 %154, %151
-  %156 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %157 = load i32, ptr %156, align 8, !tbaa !47
-  %158 = mul i32 %157, 6
-  %159 = add i32 %155, %158
-  %160 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %161 = load i32, ptr %160, align 4, !tbaa !47
-  %162 = shl i32 %161, 1
-  %163 = add i32 %159, %162
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %165 = load i32, ptr %164, align 16, !tbaa !47
-  %166 = add i32 %163, %165
+154:                                              ; preds = %._crit_edge53.i
+  %155 = load i32, ptr %4, align 16, !tbaa !47
+  %156 = mul i32 %155, 120
+  %157 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %158 = load i32, ptr %157, align 4, !tbaa !47
+  %159 = mul i32 %158, 24
+  %160 = add i32 %159, %156
+  %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %162 = load i32, ptr %161, align 8, !tbaa !47
+  %163 = mul i32 %162, 6
+  %164 = add i32 %160, %163
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %166 = load i32, ptr %165, align 4, !tbaa !47
+  %167 = shl i32 %166, 1
+  %168 = add i32 %164, %167
+  %169 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %170 = load i32, ptr %169, align 16, !tbaa !47
+  %171 = add i32 %168, %170
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-167:                                              ; preds = %._crit_edge53.i
-  %168 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !47
-  %170 = mul i32 %169, 120
-  %171 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %172 = load i32, ptr %171, align 8, !tbaa !47
-  %173 = mul i32 %172, 24
-  %174 = add i32 %173, %170
-  %175 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %176 = load i32, ptr %175, align 4, !tbaa !47
-  %177 = mul i32 %176, 6
-  %178 = add i32 %174, %177
-  %179 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %180 = load i32, ptr %179, align 16, !tbaa !47
-  %181 = shl i32 %180, 1
-  %182 = add i32 %178, %181
-  %183 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %184 = load i32, ptr %183, align 4, !tbaa !47
-  %185 = add i32 %182, %184
+172:                                              ; preds = %._crit_edge53.i
+  %173 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %174 = load i32, ptr %173, align 4, !tbaa !47
+  %175 = mul i32 %174, 120
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %177 = load i32, ptr %176, align 8, !tbaa !47
+  %178 = mul i32 %177, 24
+  %179 = add i32 %178, %175
+  %180 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %181 = load i32, ptr %180, align 4, !tbaa !47
+  %182 = mul i32 %181, 6
+  %183 = add i32 %179, %182
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %185 = load i32, ptr %184, align 16, !tbaa !47
+  %186 = shl i32 %185, 1
+  %187 = add i32 %183, %186
+  %188 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %189 = load i32, ptr %188, align 4, !tbaa !47
+  %190 = add i32 %187, %189
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-186:                                              ; preds = %._crit_edge53.i
-  %187 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %188 = load i32, ptr %187, align 8, !tbaa !47
-  %189 = mul i32 %188, 60
-  %190 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %191 = load i32, ptr %190, align 4, !tbaa !47
-  %192 = mul i32 %191, 12
-  %193 = add i32 %192, %189
-  %194 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %195 = load i32, ptr %194, align 16, !tbaa !47
-  %196 = mul i32 %195, 3
-  %197 = add i32 %193, %196
-  %198 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %199 = load i32, ptr %198, align 4, !tbaa !47
-  %200 = add i32 %197, %199
+191:                                              ; preds = %._crit_edge53.i
+  %192 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %193 = load i32, ptr %192, align 8, !tbaa !47
+  %194 = mul i32 %193, 60
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %196 = load i32, ptr %195, align 4, !tbaa !47
+  %197 = mul i32 %196, 12
+  %198 = add i32 %197, %194
+  %199 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %200 = load i32, ptr %199, align 16, !tbaa !47
+  %201 = mul i32 %200, 3
+  %202 = add i32 %198, %201
+  %203 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %204 = load i32, ptr %203, align 4, !tbaa !47
+  %205 = add i32 %202, %204
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-201:                                              ; preds = %._crit_edge53.i
-  %202 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %203 = load i32, ptr %202, align 4, !tbaa !47
-  %204 = mul i32 %203, 20
-  %205 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %206 = load i32, ptr %205, align 16, !tbaa !47
-  %207 = shl i32 %206, 2
-  %208 = add i32 %207, %204
-  %209 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %210 = load i32, ptr %209, align 4, !tbaa !47
-  %211 = add i32 %208, %210
+206:                                              ; preds = %._crit_edge53.i
+  %207 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %208 = load i32, ptr %207, align 4, !tbaa !47
+  %209 = mul i32 %208, 20
+  %210 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %211 = load i32, ptr %210, align 16, !tbaa !47
+  %212 = shl i32 %211, 2
+  %213 = add i32 %212, %209
+  %214 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %215 = load i32, ptr %214, align 4, !tbaa !47
+  %216 = add i32 %213, %215
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-212:                                              ; preds = %._crit_edge53.i
-  %213 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %214 = load i32, ptr %213, align 16, !tbaa !47
-  %215 = mul i32 %214, 5
-  %216 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %217 = load i32, ptr %216, align 4, !tbaa !47
-  %218 = add i32 %215, %217
+217:                                              ; preds = %._crit_edge53.i
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %219 = load i32, ptr %218, align 16, !tbaa !47
+  %220 = mul i32 %219, 5
+  %221 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %222 = load i32, ptr %221, align 4, !tbaa !47
+  %223 = add i32 %220, %222
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-219:                                              ; preds = %._crit_edge53.i
-  %220 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  %221 = load i32, ptr %220, align 4, !tbaa !47
+224:                                              ; preds = %._crit_edge53.i
+  %225 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  %226 = load i32, ptr %225, align 4, !tbaa !47
   br label %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit
 
-_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit: ; preds = %149, %167, %186, %201, %212, %219
-  %.0.i119 = phi i32 [ %221, %219 ], [ %218, %212 ], [ %211, %201 ], [ %200, %186 ], [ %185, %167 ], [ %166, %149 ]
+_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit: ; preds = %154, %172, %191, %206, %217, %224
+  %.0.i119 = phi i32 [ %226, %224 ], [ %223, %217 ], [ %216, %206 ], [ %205, %191 ], [ %190, %172 ], [ %171, %154 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #26
   %.not96 = icmp eq i32 %.0.i119, -1
-  %222 = and i32 %.0.i119, 1023
-  %223 = zext nneg i32 %222 to i64
-  %224 = or i64 %118, %223
-  br i1 %.not96, label %.thread147, label %225
+  %227 = and i32 %.0.i119, 1023
+  %228 = zext nneg i32 %227 to i64
+  %229 = or i64 %134, %228
+  br i1 %.not96, label %.thread147, label %230
 
-225:                                              ; preds = %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit
-  %.175 = phi i64 [ %91, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit ], [ %224, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit ], [ %118, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159 ]
+230:                                              ; preds = %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit
+  %.175 = phi i64 [ %91, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit ], [ %229, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit ], [ %134, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit.thread159 ]
   br label %.thread147
 
-.thread147:                                       ; preds = %27, %38, %24, %126, %77, %.lr.ph.i, %225, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit, %59, %61, %98, %14, %3
-  %.0 = phi i64 [ 0, %3 ], [ 67108864, %14 ], [ %.175, %225 ], [ 67108864, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit ], [ 67108864, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit ], [ 67108864, %59 ], [ 67108864, %61 ], [ 67108864, %98 ], [ 67108864, %.lr.ph.i ], [ 67108864, %77 ], [ 67108864, %126 ], [ 67108864, %24 ], [ 67108864, %38 ], [ 67108864, %27 ]
+.thread147:                                       ; preds = %27, %38, %24, %130, %77, %.lr.ph.i, %230, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit, %59, %61, %98, %14, %3
+  %.0 = phi i64 [ 0, %3 ], [ 67108864, %14 ], [ %.175, %230 ], [ 67108864, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend37encodeCompactUnwindRegistersWithFrameEv.exit ], [ 67108864, %_ZNK12_GLOBAL__N_119DarwinX86AsmBackend40encodeCompactUnwindRegistersWithoutFrameEj.exit ], [ 67108864, %59 ], [ 67108864, %61 ], [ 67108864, %98 ], [ 67108864, %.lr.ph.i ], [ 67108864, %77 ], [ 67108864, %130 ], [ 67108864, %24 ], [ 67108864, %38 ], [ 67108864, %27 ]
   ret i64 %.0
 }
 

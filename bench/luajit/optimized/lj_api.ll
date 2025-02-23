@@ -8202,7 +8202,7 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   br i1 %.not42, label %198, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %89 = load i8, ptr %88, align 8, !tbaa !17
   %90 = and i8 %89, 3
   %.not43 = icmp eq i8 %90, 0
@@ -8240,7 +8240,7 @@ index2adr.exit:                                   ; preds = %4, %13, %20, %26, %
   br i1 %.not39, label %198, label %110
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %111 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %112 = load i8, ptr %111, align 8, !tbaa !17
   %113 = and i8 %112, 3
   %.not40 = icmp eq i8 %113, 0
@@ -8797,7 +8797,7 @@ api_call_base.exit:                               ; preds = %.lr.ph.i, %3
   store i64 -1, ptr %.0.lcssa.i, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
   %15 = add nsw i32 %2, 1
-  tail call void @lj_vm_call(ptr noundef %0, ptr noundef nonnull %14, i32 noundef %15) #13
+  tail call void @lj_vm_call(ptr noundef nonnull %0, ptr noundef nonnull %14, i32 noundef %15) #13
   ret void
 }
 
@@ -8875,7 +8875,7 @@ api_call_base.exit:                               ; preds = %.lr.ph.i, %34
   store i64 -1, ptr %.0.lcssa.i, align 8, !tbaa !17
   %45 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 8
   %46 = add nsw i32 %2, 1
-  %47 = tail call i32 @lj_vm_pcall(ptr noundef %0, ptr noundef nonnull %45, i32 noundef %46, i64 noundef %.0) #13
+  %47 = tail call i32 @lj_vm_pcall(ptr noundef nonnull %0, ptr noundef nonnull %45, i32 noundef %46, i64 noundef %.0) #13
   %.not = icmp eq i32 %47, 0
   br i1 %.not, label %52, label %48
 
@@ -9263,7 +9263,7 @@ api_call_base.exit:                               ; preds = %.lr.ph.i, %17
 
 24:                                               ; preds = %10, %api_call_base.exit
   %25 = phi ptr [ %23, %api_call_base.exit ], [ %16, %10 ]
-  %26 = tail call i32 @lj_vm_resume(ptr noundef %0, ptr noundef %25, i32 noundef 0, i64 noundef 0) #13
+  %26 = tail call i32 @lj_vm_resume(ptr noundef nonnull %0, ptr noundef %25, i32 noundef 0, i64 noundef 0) #13
   br label %40
 
 27:                                               ; preds = %6, %2

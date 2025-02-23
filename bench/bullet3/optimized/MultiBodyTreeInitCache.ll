@@ -783,27 +783,27 @@ _ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i: ; preds = %20, %_ZNK20b3Aligne
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %.not.i16.i.i = icmp eq ptr %25, null
-  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i, label %26
+  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i, label %26
 
 26:                                               ; preds = %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i8, ptr %27, align 8, !tbaa !21, !range !56, !noundef !57
   %29 = trunc nuw i8 %28 to i1
-  br i1 %29, label %30, label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
+  br i1 %29, label %30, label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
 
 30:                                               ; preds = %26
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %25)
-  br label %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
+  br label %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i:    ; preds = %30, %26, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
+_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %30, %26, %_ZNK20b3AlignedObjectArrayIiE4copyEiiPi.exit.i.i
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %31, align 8, !tbaa !21
   store ptr %.0.i18.i.i, ptr %24, align 8, !tbaa !25
   store i32 %.0.i.i, ptr %8, align 8, !tbaa !27
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i
-  %32 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i18.i.i, %_ZN20b3AlignedObjectArrayIiE7reserveEi.exit.i ]
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i
+  %32 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i18.i.i, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i ]
   %33 = sext i32 %5 to i64
   %wide.trip.count.i = sext i32 %3 to i64
   %34 = shl nsw i64 %33, 2

@@ -2169,7 +2169,7 @@ _ZN2cv4Mat_IfEC2Eii.exit72._crit_edge:            ; preds = %_ZN2cv4Mat_IfEC2Eii
   %128 = load ptr, ptr %117, align 8
   %129 = load ptr, ptr %118, align 8
   %130 = load i64, ptr %129, align 8
-  %131 = mul nuw i64 %130, %indvars.iv93
+  %131 = mul nuw nsw i64 %130, %indvars.iv93
   %132 = getelementptr inbounds i8, ptr %128, i64 %131
   %133 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv85
   store float %127, ptr %133, align 4
@@ -7505,7 +7505,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #11
 define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::MatExpr", align 8
   %5 = icmp sgt i32 %1, 0
-  br i1 %5, label %.lr.ph.preheader, label %._crit_edge60.thread
+  br i1 %5, label %.lr.ph.preheader, label %._crit_edge60
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -7523,18 +7523,18 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
   %11 = fadd float %.04653, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !147
+  br i1 %exitcond.not, label %.lr.ph59.preheader, label %.lr.ph, !llvm.loop !147
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %12 = sitofp i32 %1 to float
+.lr.ph59.preheader:                               ; preds = %.lr.ph
+  %12 = uitofp nneg i32 %1 to float
   %13 = fdiv float %8, %12
   %14 = fdiv float %11, %12
   %wide.trip.count72 = zext nneg i32 %1 to i64
   br label %.lr.ph59
 
-.lr.ph59:                                         ; preds = %._crit_edge, %.lr.ph59
-  %indvars.iv69 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next70, %.lr.ph59 ]
-  %.05056 = phi float [ 0.000000e+00, %._crit_edge ], [ %24, %.lr.ph59 ]
+.lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next70, %.lr.ph59 ]
+  %.05056 = phi float [ 0.000000e+00, %.lr.ph59.preheader ], [ %24, %.lr.ph59 ]
   %15 = getelementptr inbounds nuw %"class.cv::Point_", ptr %2, i64 %indvars.iv69
   %16 = load float, ptr %15, align 4
   %17 = fsub float %16, %13
@@ -7550,9 +7550,9 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
   %24 = fadd float %.05056, %sqrt
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %._crit_edge60, label %.lr.ph59, !llvm.loop !148
+  br i1 %exitcond73.not, label %.lr.ph64.preheader, label %.lr.ph59, !llvm.loop !148
 
-._crit_edge60.thread:                             ; preds = %3
+._crit_edge60:                                    ; preds = %3
   %25 = sitofp i32 %1 to float
   %26 = fdiv float 0.000000e+00, %25
   %27 = fdiv float 0.000000e+00, %25
@@ -7560,14 +7560,14 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
   %29 = fdiv float 0x3FF6A09E60000000, %28
   br label %._crit_edge65
 
-._crit_edge60:                                    ; preds = %.lr.ph59
+.lr.ph64.preheader:                               ; preds = %.lr.ph59
   %30 = fdiv float %24, %12
   %31 = fdiv float 0x3FF6A09E60000000, %30
   %wide.trip.count77 = zext nneg i32 %1 to i64
   br label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %._crit_edge60, %.lr.ph64
-  %indvars.iv74 = phi i64 [ 0, %._crit_edge60 ], [ %indvars.iv.next75, %.lr.ph64 ]
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next75, %.lr.ph64 ]
   %32 = getelementptr inbounds nuw %"class.cv::Point_", ptr %2, i64 %indvars.iv74
   %33 = load float, ptr %32, align 4
   %34 = fmul float %31, %33
@@ -7580,10 +7580,10 @@ define internal fastcc void @_ZN2cv9videostabL15normalizePointsEiPNS_6Point_IfEE
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge65, label %.lr.ph64, !llvm.loop !149
 
-._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge60.thread
-  %38 = phi float [ %29, %._crit_edge60.thread ], [ %31, %.lr.ph64 ]
-  %39 = phi float [ %27, %._crit_edge60.thread ], [ %13, %.lr.ph64 ]
-  %40 = phi float [ %26, %._crit_edge60.thread ], [ %14, %.lr.ph64 ]
+._crit_edge65:                                    ; preds = %.lr.ph64, %._crit_edge60
+  %38 = phi float [ %29, %._crit_edge60 ], [ %31, %.lr.ph64 ]
+  %39 = phi float [ %26, %._crit_edge60 ], [ %13, %.lr.ph64 ]
+  %40 = phi float [ %27, %._crit_edge60 ], [ %14, %.lr.ph64 ]
   call void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %4, i32 noundef 3, i32 noundef 3, i32 noundef 5)
   invoke void @_ZN2cv4Mat_IfEC2EONS_7MatExprE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(352) %4)
           to label %41 unwind label %64

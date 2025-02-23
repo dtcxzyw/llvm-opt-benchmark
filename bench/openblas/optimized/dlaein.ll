@@ -79,13 +79,13 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 .lr.ph:                                           ; preds = %55
   %56 = mul nsw i64 %indvars.iv1053, %51
   %57 = mul nsw i64 %indvars.iv1053, %52
-  %invariant.gep1218 = getelementptr double, ptr %31, i64 %56
+  %invariant.gep = getelementptr double, ptr %31, i64 %56
   %invariant.gep1220 = getelementptr double, ptr %36, i64 %57
   br label %58
 
 58:                                               ; preds = %.lr.ph, %58
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %gep1219 = getelementptr double, ptr %invariant.gep1218, i64 %indvars.iv
+  %gep1219 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
   %59 = load double, ptr %gep1219, align 8, !tbaa !7
   %gep1221 = getelementptr double, ptr %invariant.gep1220, i64 %indvars.iv
   store double %59, ptr %gep1221, align 8, !tbaa !7
@@ -573,9 +573,9 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %249 = getelementptr inbounds double, ptr %36, i64 %248
   store double 0.000000e+00, ptr %249, align 8, !tbaa !7
   %exitcond1066.not = icmp eq i64 %indvars.iv.next1063, %wide.trip.count1065
-  br i1 %exitcond1066.not, label %._crit_edge915, label %.lr.ph914, !llvm.loop !23
+  br i1 %exitcond1066.not, label %.lr.ph929.preheader, label %.lr.ph914, !llvm.loop !23
 
-._crit_edge915:                                   ; preds = %.lr.ph914
+.lr.ph929.preheader:                              ; preds = %.lr.ph914
   %250 = add nsw i32 %245, -1
   store i32 %250, ptr %17, align 4, !tbaa !3
   %251 = sext i32 %29 to i64
@@ -585,10 +585,10 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %ident.check1333.not = icmp eq i32 %34, 1
   br label %.lr.ph929
 
-.lr.ph929:                                        ; preds = %._crit_edge915, %351
-  %indvar1326 = phi i64 [ 0, %._crit_edge915 ], [ %indvar.next1327, %351 ]
-  %indvars.iv1080 = phi i64 [ 1, %._crit_edge915 ], [ %indvars.iv.next1081, %351 ]
-  %indvars.iv1067 = phi i64 [ 2, %._crit_edge915 ], [ %indvars.iv.next1068, %351 ]
+.lr.ph929:                                        ; preds = %.lr.ph929.preheader, %351
+  %indvar1326 = phi i64 [ 0, %.lr.ph929.preheader ], [ %indvar.next1327, %351 ]
+  %indvars.iv1080 = phi i64 [ 1, %.lr.ph929.preheader ], [ %indvars.iv.next1081, %351 ]
+  %indvars.iv1067 = phi i64 [ 2, %.lr.ph929.preheader ], [ %indvars.iv.next1068, %351 ]
   %252 = shl nuw nsw i64 %indvar1326, 4
   %gep1366 = getelementptr i8, ptr %invariant.gep1365, i64 %252
   %253 = shl nuw nsw i64 %indvar1326, 4
@@ -891,8 +891,8 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %invariant.gep1238 = getelementptr double, ptr %36, i64 %392
   br label %.lr.ph934
 
-.preheader898:                                    ; preds = %.lr.ph934
-  %invariant.gep = getelementptr i8, ptr %36, i64 8
+.lr.ph946.preheader:                              ; preds = %.lr.ph934
+  %invariant.gep1207 = getelementptr i8, ptr %36, i64 8
   %393 = sext i32 %34 to i64
   %394 = zext nneg i32 %384 to i64
   %invariant.gep1256 = getelementptr double, ptr %36, i64 %393
@@ -911,11 +911,11 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   store double 0.000000e+00, ptr %gep1239, align 8, !tbaa !7
   %indvars.iv.next1084 = add nuw nsw i64 %indvars.iv1083, 1
   %exitcond1088.not = icmp eq i64 %indvars.iv.next1084, %wide.trip.count1087
-  br i1 %exitcond1088.not, label %.preheader898, label %.lr.ph934, !llvm.loop !27
+  br i1 %exitcond1088.not, label %.lr.ph946.preheader, label %.lr.ph934, !llvm.loop !27
 
-.lr.ph946:                                        ; preds = %.preheader898, %498
-  %indvar1310 = phi i64 [ 0, %.preheader898 ], [ %indvar.next1311, %498 ]
-  %indvars.iv1102 = phi i64 [ %394, %.preheader898 ], [ %indvars.iv.next1103, %498 ]
+.lr.ph946:                                        ; preds = %.lr.ph946.preheader, %498
+  %indvar1310 = phi i64 [ 0, %.lr.ph946.preheader ], [ %indvar.next1311, %498 ]
+  %indvars.iv1102 = phi i64 [ %394, %.lr.ph946.preheader ], [ %indvars.iv.next1103, %498 ]
   %400 = shl i64 %indvar1310, 3
   %401 = sub i64 %398, %400
   %scevgep1319 = getelementptr i8, ptr %9, i64 %401
@@ -1125,7 +1125,7 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 498:                                              ; preds = %._crit_edge939, %._crit_edge944
   store i32 %indvars1104, ptr %17, align 4, !tbaa !3
   store i32 %indvars1104, ptr %18, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %409
+  %gep = getelementptr double, ptr %invariant.gep1207, i64 %409
   %499 = call double @dasum_(ptr noundef nonnull %17, ptr noundef %gep, ptr noundef nonnull @c__1) #5
   %gep1257 = getelementptr double, ptr %invariant.gep1256, i64 %414
   %500 = call double @dasum_(ptr noundef nonnull %18, ptr noundef %gep1257, ptr noundef nonnull %10) #5
@@ -1292,15 +1292,15 @@ define void @dlaein_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %exitcond1116.not, label %.loopexit895.sink.split, label %565, !llvm.loop !32
 
 .loopexit895.sink.split:                          ; preds = %549, %565
-  %.lcssa1214.sink = phi double [ %577, %565 ], [ %561, %549 ]
-  %.lcssa1213.sink = phi double [ %580, %565 ], [ %564, %549 ]
-  store double %.lcssa1214.sink, ptr %26, align 8, !tbaa !7
-  store double %.lcssa1213.sink, ptr %25, align 8, !tbaa !7
+  %.lcssa1215.sink = phi double [ %577, %565 ], [ %561, %549 ]
+  %.lcssa1214.sink = phi double [ %580, %565 ], [ %564, %549 ]
+  store double %.lcssa1215.sink, ptr %26, align 8, !tbaa !7
+  store double %.lcssa1214.sink, ptr %25, align 8, !tbaa !7
   br label %.loopexit895
 
 .loopexit895:                                     ; preds = %.loopexit895.sink.split, %543, %.preheader
-  %581 = phi double [ %538, %543 ], [ %538, %.preheader ], [ %.lcssa1213.sink, %.loopexit895.sink.split ]
-  %582 = phi double [ %536, %543 ], [ %536, %.preheader ], [ %.lcssa1214.sink, %.loopexit895.sink.split ]
+  %581 = phi double [ %538, %543 ], [ %538, %.preheader ], [ %.lcssa1214.sink, %.loopexit895.sink.split ]
+  %582 = phi double [ %536, %543 ], [ %536, %.preheader ], [ %.lcssa1215.sink, %.loopexit895.sink.split ]
   %583 = mul nsw i32 %.11969, %34
   %584 = add nsw i32 %583, %.11969
   %585 = sext i32 %584 to i64

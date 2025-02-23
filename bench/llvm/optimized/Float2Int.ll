@@ -5478,23 +5478,23 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !197
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not55 = icmp eq ptr %10, %11
-  br i1 %.not55, label %._crit_edge, label %.lr.ph57
+  %.not54 = icmp eq ptr %10, %11
+  br i1 %.not54, label %._crit_edge, label %.lr.ph56
 
 ._crit_edge:                                      ; preds = %.loopexit, %2
   ret ptr %0
 
-.lr.ph57:                                         ; preds = %2, %.loopexit
-  %.sroa.040.056 = phi ptr [ %91, %.loopexit ], [ %10, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.040.056, i64 40
+.lr.ph56:                                         ; preds = %2, %.loopexit
+  %.sroa.040.055 = phi ptr [ %92, %.loopexit ], [ %10, %2 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.040.055, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !202
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 1
   %.not43 = icmp eq i64 %15, 0
   br i1 %.not43, label %.loopexit, label %16
 
-16:                                               ; preds = %.lr.ph57
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.040.056, i64 48
+16:                                               ; preds = %.lr.ph56
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.040.055, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !84
   %.02022.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !191
   %.not23.i.i.i.i = icmp eq ptr %.02022.i.i.i.i, null
@@ -5557,13 +5557,12 @@ _ZNSt8_Rb_treeIN4llvm18EquivalenceClassesIPNS0_11InstructionESt4lessIS3_EE7ECVal
   %39 = load i64, ptr %8, align 8, !tbaa !203
   %40 = add i64 %39, 1
   store i64 %40, ptr %8, align 8, !tbaa !203
-  %.sroa.034.0.in.in.in.in48.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.040.056, i64 40
-  %.sroa.034.0.in.in.in49.pre = load ptr, ptr %.sroa.034.0.in.in.in.in48.phi.trans.insert, align 8, !tbaa !202
-  %.pre = ptrtoint ptr %.sroa.034.0.in.in.in49.pre to i64
+  %.sroa.034.0.in.in.in48.pre = load ptr, ptr %12, align 8, !tbaa !202
+  %.pre = ptrtoint ptr %.sroa.034.0.in.in.in48.pre to i64
   br label %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit
 
 _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit: ; preds = %26, %_ZNSt8_Rb_treeIN4llvm18EquivalenceClassesIPNS0_11InstructionESt4lessIS3_EE7ECValueES7_St9_IdentityIS7_ENS6_17ECValueComparatorESaIS7_EE10_M_insert_IS7_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
-  %.sroa.034.0.in.in50.pre-phi = phi i64 [ %14, %26 ], [ %.pre, %_ZNSt8_Rb_treeIN4llvm18EquivalenceClassesIPNS0_11InstructionESt4lessIS3_EE7ECValueES7_St9_IdentityIS7_ENS6_17ECValueComparatorESaIS7_EE10_M_insert_IS7_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i ]
+  %.sroa.034.0.in.in49.pre-phi = phi i64 [ %14, %26 ], [ %.pre, %_ZNSt8_Rb_treeIN4llvm18EquivalenceClassesIPNS0_11InstructionESt4lessIS3_EE7ECValueES7_St9_IdentityIS7_ENS6_17ECValueComparatorESaIS7_EE10_M_insert_IS7_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i ]
   %.sroa.011.0.i.i.i = phi ptr [ %.sroa.05.0.i.i.i.i, %26 ], [ %35, %_ZNSt8_Rb_treeIN4llvm18EquivalenceClassesIPNS0_11InstructionESt4lessIS3_EE7ECValueES7_St9_IdentityIS7_ENS6_17ECValueComparatorESaIS7_EE10_M_insert_IS7_NSC_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS7_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.i.i.i, i64 32
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.011.0.i.i.i, i64 40
@@ -5572,14 +5571,14 @@ _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit: 
   %45 = and i64 %44, 1
   %.not.i10 = icmp eq i64 %45, 0
   %spec.select.i11 = select i1 %.not.i10, ptr null, ptr %41
-  %.sroa.034.0.in51 = and i64 %.sroa.034.0.in.in50.pre-phi, -2
-  %.not4453 = icmp eq i64 %.sroa.034.0.in51, 0
-  br i1 %.not4453, label %.loopexit, label %.lr.ph
+  %.sroa.034.0.in50 = and i64 %.sroa.034.0.in.in49.pre-phi, -2
+  %.not4452 = icmp eq i64 %.sroa.034.0.in50, 0
+  br i1 %.not4452, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit
-  %.sroa.034.054.in = phi i64 [ %.sroa.034.0.in, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit ], [ %.sroa.034.0.in51, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit ]
-  %.sroa.034.054 = inttoptr i64 %.sroa.034.054.in to ptr
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.034.054, i64 16
+  %.sroa.034.053.in = phi i64 [ %.sroa.034.0.in, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit ], [ %.sroa.034.0.in50, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit ]
+  %.sroa.034.053 = inttoptr i64 %.sroa.034.053.in to ptr
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.034.053, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !84
   %.02022.i.i.i.i12 = load ptr, ptr %3, align 8, !tbaa !191
   %.not23.i.i.i.i13 = icmp eq ptr %.02022.i.i.i.i12, null
@@ -5678,17 +5677,17 @@ _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31
   br label %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit
 
 _ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit: ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit31, %76
-  %.sroa.034.0.in.in.in.in = getelementptr inbounds nuw i8, ptr %.sroa.034.054, i64 8
-  %.sroa.034.0.in.in.in = load ptr, ptr %.sroa.034.0.in.in.in.in, align 8, !tbaa !202
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.034.053, i64 8
+  %.sroa.034.0.in.in.in = load ptr, ptr %91, align 8, !tbaa !202
   %.sroa.034.0.in.in = ptrtoint ptr %.sroa.034.0.in.in.in to i64
   %.sroa.034.0.in = and i64 %.sroa.034.0.in.in, -2
   %.not44 = icmp eq i64 %.sroa.034.0.in, 0
   br i1 %.not44, label %.loopexit, label %.lr.ph, !llvm.loop !448
 
-.loopexit:                                        ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit, %.lr.ph57
-  %91 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.040.056) #23
-  %.not = icmp eq ptr %91, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph57, !llvm.loop !449
+.loopexit:                                        ; preds = %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE9unionSetsENS5_15member_iteratorES6_.exit, %_ZN4llvm18EquivalenceClassesIPNS_11InstructionESt4lessIS2_EE6insertERKS2_.exit, %.lr.ph56
+  %92 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.040.055) #23
+  %.not = icmp eq ptr %92, %11
+  br i1 %.not, label %._crit_edge, label %.lr.ph56, !llvm.loop !449
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

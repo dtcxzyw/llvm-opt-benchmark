@@ -1204,9 +1204,9 @@ define linkonce_odr hidden void @_ZN5boost6locale28localization_backend_manager4
 .lr.ph.i:                                         ; preds = %3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !16
-  %.fr10 = freeze i64 %22
+  %.fr9 = freeze i64 %22
   %23 = load ptr, ptr %1, align 8
-  %24 = icmp eq i64 %.fr10, 0
+  %24 = icmp eq i64 %.fr9, 0
   br i1 %24, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i.us
@@ -1225,12 +1225,12 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.sroa.014.021.i = phi ptr [ %34, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i ], [ %6, %.lr.ph.i ]
   %29 = getelementptr inbounds nuw i8, ptr %.sroa.014.021.i, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !16
-  %31 = icmp eq i64 %30, %.fr10
+  %31 = icmp eq i64 %30, %.fr9
   br i1 %31, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph.i.split
   %32 = load ptr, ptr %.sroa.014.021.i, align 8, !tbaa !13
-  %bcmp.i.i = tail call i32 @bcmp(ptr %32, ptr %23, i64 %.fr10)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %32, ptr %23, i64 %.fr9)
   %33 = icmp eq i32 %bcmp.i.i, 0
   br i1 %33, label %_ZNK5boost6locale28localization_backend_manager4impl12find_backendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread17.i
 

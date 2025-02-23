@@ -35,7 +35,7 @@ define void @Abc_NtkMfsUpdateNetwork(ptr noundef readonly captures(none) %0, ptr
   %.val12 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw ptr, ptr %.val12, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !17
-  tail call void @Abc_ObjAddFanin(ptr noundef %6, ptr noundef %13) #11
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %6, ptr noundef %13) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %8, align 4, !tbaa !14
   %14 = sext i32 %.val to i64
@@ -45,7 +45,7 @@ define void @Abc_NtkMfsUpdateNetwork(ptr noundef readonly captures(none) %0, ptr
 .critedge:                                        ; preds = %11, %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %17 = load ptr, ptr %16, align 8, !tbaa !20
-  tail call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef %6, ptr noundef %17) #11
+  tail call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef %17) #11
   ret void
 }
 
@@ -543,7 +543,7 @@ Abc_Clock.exit:                                   ; preds = %198, %201
   %.val12.i = load ptr, ptr %214, align 8, !tbaa !16
   %216 = getelementptr inbounds nuw ptr, ptr %.val12.i, i64 %indvars.iv.i188
   %217 = load ptr, ptr %216, align 8, !tbaa !17
-  call void @Abc_ObjAddFanin(ptr noundef %210, ptr noundef %217) #11
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %210, ptr noundef %217) #11
   %indvars.iv.next.i189 = add nuw nsw i64 %indvars.iv.i188, 1
   %.val.i190 = load i32, ptr %212, align 4, !tbaa !14
   %218 = sext i32 %.val.i190 to i64
@@ -553,7 +553,7 @@ Abc_Clock.exit:                                   ; preds = %198, %201
 Abc_NtkMfsUpdateNetwork.exit:                     ; preds = %215, %207
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %221 = load ptr, ptr %220, align 8, !tbaa !20
-  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef %210, ptr noundef %221) #11
+  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef nonnull %210, ptr noundef %221) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #11
   %222 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #11
   %223 = icmp slt i32 %222, 0
@@ -1376,7 +1376,7 @@ Abc_Clock.exit:                                   ; preds = %189, %198
   %.val12.i = load ptr, ptr %211, align 8, !tbaa !16
   %213 = getelementptr inbounds nuw ptr, ptr %.val12.i, i64 %indvars.iv.i226
   %214 = load ptr, ptr %213, align 8, !tbaa !17
-  call void @Abc_ObjAddFanin(ptr noundef %207, ptr noundef %214) #11
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %207, ptr noundef %214) #11
   %indvars.iv.next.i227 = add nuw nsw i64 %indvars.iv.i226, 1
   %.val.i228 = load i32, ptr %209, align 4, !tbaa !14
   %215 = sext i32 %.val.i228 to i64
@@ -1386,7 +1386,7 @@ Abc_Clock.exit:                                   ; preds = %189, %198
 Abc_NtkMfsUpdateNetwork.exit:                     ; preds = %212, %204
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %218 = load ptr, ptr %217, align 8, !tbaa !20
-  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef %207, ptr noundef %218) #11
+  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef nonnull %207, ptr noundef %218) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #11
   %219 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #11
   %220 = icmp slt i32 %219, 0
@@ -2076,7 +2076,7 @@ Vec_PtrPush.exit268:                              ; preds = %.Vec_PtrGrow.exit11
   %.val12.i272 = load ptr, ptr %544, align 8, !tbaa !16
   %546 = getelementptr inbounds nuw ptr, ptr %.val12.i272, i64 %indvars.iv.i271
   %547 = load ptr, ptr %546, align 8, !tbaa !17
-  call void @Abc_ObjAddFanin(ptr noundef %540, ptr noundef %547) #11
+  call void @Abc_ObjAddFanin(ptr noundef nonnull %540, ptr noundef %547) #11
   %indvars.iv.next.i273 = add nuw nsw i64 %indvars.iv.i271, 1
   %.val.i274 = load i32, ptr %542, align 4, !tbaa !14
   %548 = sext i32 %.val.i274 to i64
@@ -2086,7 +2086,7 @@ Vec_PtrPush.exit268:                              ; preds = %.Vec_PtrGrow.exit11
 Abc_NtkMfsUpdateNetwork.exit275:                  ; preds = %545, %Vec_PtrPush.exit268
   %550 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %551 = load ptr, ptr %550, align 8, !tbaa !20
-  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef %540, ptr noundef %551) #11
+  call void @Abc_NtkUpdate(ptr noundef nonnull %1, ptr noundef nonnull %540, ptr noundef %551) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
   %552 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #11
   %553 = icmp slt i32 %552, 0

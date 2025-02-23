@@ -2811,8 +2811,8 @@ define dso_local noundef ptr @_ZN4llvm16TruncInstCombine17getReducedOperandEPNS_
   %7 = and i32 %6, 255
   %8 = add nsw i32 %7, -19
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, -2
-  %.not.not1.i = icmp eq ptr %.val, null
-  %.not.not.i = or i1 %.not.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
+  %.not1.i = icmp eq ptr %.val, null
+  %.not.not.i = or i1 %.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit, label %9
 
 9:                                                ; preds = %3
@@ -3016,8 +3016,8 @@ define dso_local void @_ZN4llvm16TruncInstCombine21ReduceExpressionGraphEPNS_4Ty
   %59 = and i32 %58, 255
   %60 = add nsw i32 %59, -19
   %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %60, -2
-  %.not.not1.i = icmp eq ptr %.val125, null
-  %.not.not.i = or i1 %.not.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
+  %.not1.i = icmp eq ptr %.val125, null
+  %.not.not.i = or i1 %.not1.i, %spec.select.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit, label %61
 
 61:                                               ; preds = %55
@@ -3587,8 +3587,8 @@ _ZNK4llvm4User10getOperandEj.exit161:             ; preds = %320, %323
   %337 = and i32 %336, 255
   %338 = add nsw i32 %337, -19
   %spec.select.i.i.i.i.i.i.i.i.i162 = icmp ult i32 %338, -2
-  %.not.not1.i163 = icmp eq ptr %.val, null
-  %.not.not.i164 = or i1 %.not.not1.i163, %spec.select.i.i.i.i.i.i.i.i.i162
+  %.not1.i163 = icmp eq ptr %.val, null
+  %.not.not.i164 = or i1 %.not1.i163, %spec.select.i.i.i.i.i.i.i.i.i162
   br i1 %.not.not.i164, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit169, label %339
 
 339:                                              ; preds = %333
@@ -3752,8 +3752,8 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit:         ; preds = %386, %389
   %413 = and i32 %412, 255
   %414 = add nsw i32 %413, -19
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %414, -2
-  %.not.not1.i.i = icmp eq ptr %.val.i, null
-  %.not.not.i.i = or i1 %.not.not1.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
+  %.not1.i.i = icmp eq ptr %.val.i, null
+  %.not.not.i.i = or i1 %.not1.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i, label %_ZL14getReducedTypePN4llvm5ValueEPNS_4TypeE.exit.i, label %415
 
 415:                                              ; preds = %408

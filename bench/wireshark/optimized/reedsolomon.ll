@@ -437,8 +437,7 @@ modnn.exit249:                                    ; preds = %.lr.ph.i247, %52
   br i1 %.not382, label %.loopexit312.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %modnn.exit249
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 2)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .loopexit311:                                     ; preds = %93
@@ -1087,9 +1086,6 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4

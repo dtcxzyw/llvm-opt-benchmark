@@ -127,7 +127,7 @@ define internal fastcc i32 @_local_send_recv_rc_msgs(ptr noundef %0, i32 noundef
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %17
   %.2 = phi i32 [ -1, %17 ], [ 0, %.preheader ], [ %spec.select, %.lr.ph ]
   store ptr null, ptr %7, align 8
-  tail call void @slurm_free_msg(ptr noundef %4) #6
+  tail call void @slurm_free_msg(ptr noundef nonnull %4) #6
   ret i32 %.2
 }
 

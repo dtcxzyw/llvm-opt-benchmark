@@ -181,7 +181,7 @@ Extra_TruthNot.exit82:                            ; preds = %select.unfold.i79, 
   %88 = ptrtoint ptr %86 to i64
   %89 = xor i64 %87, %88
   %90 = inttoptr i64 %89 to ptr
-  %91 = tail call ptr @Hop_And(ptr noundef %1, ptr noundef %81, ptr noundef %90) #11
+  %91 = tail call ptr @Hop_And(ptr noundef nonnull %1, ptr noundef %81, ptr noundef %90) #11
   tail call void @Bdc_FuncSetCopy(ptr noundef %72, ptr noundef %91) #11
   %.1 = add i32 %.187, 1
   %exitcond93.not = icmp eq i32 %.1, %70

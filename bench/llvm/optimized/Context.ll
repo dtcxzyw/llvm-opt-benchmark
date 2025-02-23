@@ -861,8 +861,8 @@ define dso_local noundef zeroext i1 @_ZN5clang6interp7Context21evaluateAsInitial
   %39 = and i32 %38, 127
   %40 = add nsw i32 %39, -38
   %41 = icmp ult i32 %40, 7
-  %.not.not7.i = icmp ne ptr %2, null
-  %.not.not.not.i = and i1 %.not.not7.i, %41
+  %.not7.i = icmp ne ptr %2, null
+  %.not.not.not.i = and i1 %.not7.i, %41
   br i1 %.not.not.not.i, label %42, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit.thread15
 
 42:                                               ; preds = %4
@@ -1023,8 +1023,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang6interp7Context8classif
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
   %12 = icmp eq i8 %11, 13
-  %.not.not6.i = icmp ne ptr %9, null
-  %.not.not.not.i = and i1 %.not.not6.i, %12
+  %.not6.i = icmp ne ptr %9, null
+  %.not.not.not.i = and i1 %.not6.i, %12
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %16
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %2
@@ -1093,8 +1093,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %2
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i8, ptr %41, align 16
   %43 = icmp eq i8 %42, 13
-  %.not.not7.i.i = icmp ne ptr %40, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %43
+  %.not7.i.i = icmp ne ptr %40, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %43
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %35
@@ -1117,8 +1117,8 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %35, %_ZNK5clang4Typ
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i8, ptr %54, align 16
   %56 = icmp eq i8 %55, 13
-  %.not.not7.i = icmp ne ptr %53, null
-  %.not.not.not.i23 = and i1 %.not.not7.i, %56
+  %.not7.i = icmp ne ptr %53, null
+  %.not.not.not.i23 = and i1 %.not7.i, %56
   br i1 %.not.not.not.i23, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit, label %60
 
 _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit:    ; preds = %48
@@ -1194,8 +1194,8 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit:    ; preds = %48
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   %93 = load i8, ptr %92, align 16
   %94 = icmp eq i8 %93, 13
-  %.not.not8.i = icmp ne ptr %91, null
-  %.not.not.not.i42 = and i1 %.not.not8.i, %94
+  %.not8.i = icmp ne ptr %91, null
+  %.not.not.not.i42 = and i1 %.not8.i, %94
   br i1 %.not.not.not.i42, label %_ZNK5clang4Type16isFixedPointTypeEv.exit, label %_ZNK5clang4Type16isFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit:         ; preds = %87

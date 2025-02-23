@@ -10121,8 +10121,8 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
   %377 = and i32 %376, 4
   %.not.i102 = icmp eq i32 %377, 0
   call void @llvm.assume(i1 %.not.i102)
-  %.not4769.i = icmp eq i32 %372, 0
-  br i1 %.not4769.i, label %preload_move_user_functions.exit, label %.lr.ph.i103
+  %.not4770.i = icmp eq i32 %372, 0
+  br i1 %.not4770.i, label %preload_move_user_functions.exit, label %.lr.ph.i103
 
 .lr.ph.i103:                                      ; preds = %preload_remove_empty_includes.exit
   %378 = zext i32 %372 to i64
@@ -10134,12 +10134,12 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
   br label %384
 
 384:                                              ; preds = %459, %.lr.ph.i103
-  %.03873.i = phi ptr [ null, %.lr.ph.i103 ], [ %.1.i106, %459 ]
-  %.03972.i = phi i1 [ false, %.lr.ph.i103 ], [ %.140.i, %459 ]
-  %.04371.i = phi i32 [ %372, %.lr.ph.i103 ], [ %460, %459 ]
-  %.04470.i = phi ptr [ %379, %.lr.ph.i103 ], [ %385, %459 ]
-  %385 = getelementptr inbounds i8, ptr %.04470.i, i64 -32
-  %386 = getelementptr inbounds i8, ptr %.04470.i, i64 -24
+  %.03874.i = phi ptr [ null, %.lr.ph.i103 ], [ %.1.i106, %459 ]
+  %.03973.i = phi i1 [ false, %.lr.ph.i103 ], [ %.140.i, %459 ]
+  %.04372.i = phi i32 [ %372, %.lr.ph.i103 ], [ %460, %459 ]
+  %.04471.i = phi ptr [ %379, %.lr.ph.i103 ], [ %385, %459 ]
+  %385 = getelementptr inbounds i8, ptr %.04471.i, i64 -32
+  %386 = getelementptr inbounds i8, ptr %.04471.i, i64 -24
   %387 = load i8, ptr %386, align 8, !tbaa !64
   %388 = icmp eq i8 %387, 0
   br i1 %388, label %459, label %389, !prof !53
@@ -10153,7 +10153,7 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
 393:                                              ; preds = %389
   %394 = getelementptr inbounds nuw i8, ptr %390, i64 168
   %395 = load ptr, ptr %394, align 8, !tbaa !64
-  %.not48.i = icmp eq ptr %395, %.03873.i
+  %.not48.i = icmp eq ptr %395, %.03874.i
   br i1 %.not48.i, label %419, label %396
 
 396:                                              ; preds = %393
@@ -10163,8 +10163,8 @@ preload_remove_empty_includes.exit:               ; preds = %.preheader.i, %.loo
 397:                                              ; preds = %396
   %398 = load ptr, ptr @preload_scripts, align 8, !tbaa !231
   %399 = call ptr @zend_hash_find(ptr noundef %398, ptr noundef nonnull %395) #26
-  %.not75.i = icmp eq ptr %399, null
-  br i1 %.not75.i, label %400, label %.thread59.i
+  %.not69.i = icmp eq ptr %399, null
+  br i1 %.not69.i, label %400, label %.thread59.i
 
 400:                                              ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %395, i64 16
@@ -10200,15 +10200,15 @@ preload_try_strip_filename.exit.i:                ; preds = %.preheader.i.i
 416:                                              ; preds = %preload_try_strip_filename.exit.i
   %417 = load ptr, ptr @preload_scripts, align 8, !tbaa !231
   %418 = call ptr @zend_hash_str_find(ptr noundef %417, ptr noundef nonnull %405, i64 noundef range(i64 1, 0) %411) #26
-  %.not79.i = icmp eq ptr %418, null
-  br i1 %.not79.i, label %.thread.i, label %.thread59.i
+  %.not76.i = icmp eq ptr %418, null
+  br i1 %.not76.i, label %.thread.i, label %.thread59.i
 
 419:                                              ; preds = %393
-  br i1 %.03972.i, label %.thread59.i, label %.thread.i
+  br i1 %.03973.i, label %.thread59.i, label %.thread.i
 
 .thread59.i:                                      ; preds = %419, %416, %397
-  %.263.i = phi ptr [ %.03873.i, %419 ], [ %395, %397 ], [ %395, %416 ]
-  %420 = getelementptr inbounds i8, ptr %.04470.i, i64 -8
+  %.263.i = phi ptr [ %.03874.i, %419 ], [ %395, %397 ], [ %395, %416 ]
+  %420 = getelementptr inbounds i8, ptr %.04471.i, i64 -8
   %421 = load ptr, ptr %420, align 8, !tbaa !258
   %422 = load i32, ptr %367, align 8, !tbaa !223
   %423 = add i32 %422, 1
@@ -10275,7 +10275,7 @@ _zend_hash_append_ptr.exit.i:                     ; preds = %441, %zend_string_a
   br label %.thread64.i
 
 .thread.i:                                        ; preds = %419, %416, %preload_try_strip_filename.exit.i, %404, %400, %396
-  %.258.i = phi ptr [ %.03873.i, %419 ], [ null, %396 ], [ %395, %404 ], [ %395, %400 ], [ %395, %416 ], [ %395, %preload_try_strip_filename.exit.i ]
+  %.258.i = phi ptr [ %.03874.i, %419 ], [ null, %396 ], [ %395, %preload_try_strip_filename.exit.i ], [ %395, %404 ], [ %395, %400 ], [ %395, %416 ]
   call void %366(ptr noundef nonnull %385) #26
   br label %.thread64.i
 
@@ -10286,9 +10286,9 @@ _zend_hash_append_ptr.exit.i:                     ; preds = %441, %zend_string_a
   br label %459
 
 459:                                              ; preds = %.thread64.i, %384
-  %.140.i = phi i1 [ %.03972.i, %384 ], [ %.24155.i, %.thread64.i ]
-  %.1.i106 = phi ptr [ %.03873.i, %384 ], [ %.257.i, %.thread64.i ]
-  %460 = add i32 %.04371.i, -1
+  %.140.i = phi i1 [ %.03973.i, %384 ], [ %.24155.i, %.thread64.i ]
+  %.1.i106 = phi ptr [ %.03874.i, %384 ], [ %.257.i, %.thread64.i ]
+  %460 = add i32 %.04372.i, -1
   %.not47.i = icmp eq i32 %460, 0
   br i1 %.not47.i, label %preload_move_user_functions.exit, label %384
 
@@ -10316,8 +10316,8 @@ preload_move_user_functions.exit:                 ; preds = %389, %459, %preload
   %478 = and i32 %477, 4
   %.not.i108 = icmp eq i32 %478, 0
   call void @llvm.assume(i1 %.not.i108)
-  %.not4259.i = icmp eq i32 %472, %473
-  br i1 %.not4259.i, label %preload_move_user_classes.exit, label %.lr.ph.i109
+  %.not4260.i = icmp eq i32 %472, %473
+  br i1 %.not4260.i, label %preload_move_user_classes.exit, label %.lr.ph.i109
 
 .lr.ph.i109:                                      ; preds = %preload_move_user_functions.exit
   %479 = zext i32 %472 to i64
@@ -10329,22 +10329,22 @@ preload_move_user_functions.exit:                 ; preds = %389, %459, %preload
   br label %485
 
 485:                                              ; preds = %561, %.lr.ph.i109
-  %.064.i = phi ptr [ null, %.lr.ph.i109 ], [ %.1.i112, %561 ]
-  %.03663.i = phi i1 [ false, %.lr.ph.i109 ], [ %.137.i, %561 ]
-  %.03960.i = phi ptr [ %480, %.lr.ph.i109 ], [ %562, %561 ]
-  %486 = getelementptr inbounds nuw i8, ptr %.03960.i, i64 8
+  %.065.i = phi ptr [ null, %.lr.ph.i109 ], [ %.1.i112, %561 ]
+  %.03664.i = phi i1 [ false, %.lr.ph.i109 ], [ %.137.i, %561 ]
+  %.03961.i = phi ptr [ %480, %.lr.ph.i109 ], [ %562, %561 ]
+  %486 = getelementptr inbounds nuw i8, ptr %.03961.i, i64 8
   %487 = load i8, ptr %486, align 8, !tbaa !64
   %488 = icmp eq i8 %487, 0
   br i1 %488, label %561, label %489, !prof !53
 
 489:                                              ; preds = %485
-  %490 = load ptr, ptr %.03960.i, align 8, !tbaa !64
+  %490 = load ptr, ptr %.03961.i, align 8, !tbaa !64
   %491 = load i8, ptr %490, align 8, !tbaa !267
   %492 = icmp eq i8 %491, 2
   call void @llvm.assume(i1 %492)
   %493 = getelementptr inbounds nuw i8, ptr %490, i64 504
   %494 = load ptr, ptr %493, align 8, !tbaa !64
-  %.not43.i = icmp eq ptr %494, %.064.i
+  %.not43.i = icmp eq ptr %494, %.065.i
   br i1 %.not43.i, label %518, label %495
 
 495:                                              ; preds = %489
@@ -10354,8 +10354,8 @@ preload_move_user_functions.exit:                 ; preds = %389, %459, %preload
 496:                                              ; preds = %495
   %497 = load ptr, ptr @preload_scripts, align 8, !tbaa !231
   %498 = call ptr @zend_hash_find(ptr noundef %497, ptr noundef nonnull %494) #26
-  %.not65.i = icmp eq ptr %498, null
-  br i1 %.not65.i, label %499, label %.thread54.i
+  %.not59.i = icmp eq ptr %498, null
+  br i1 %.not59.i, label %499, label %.thread54.i
 
 499:                                              ; preds = %496
   %500 = getelementptr inbounds nuw i8, ptr %494, i64 16
@@ -10391,15 +10391,15 @@ preload_try_strip_filename.exit.i122:             ; preds = %.preheader.i.i119
 515:                                              ; preds = %preload_try_strip_filename.exit.i122
   %516 = load ptr, ptr @preload_scripts, align 8, !tbaa !231
   %517 = call ptr @zend_hash_str_find(ptr noundef %516, ptr noundef nonnull %504, i64 noundef range(i64 1, 0) %510) #26
-  %.not69.i = icmp eq ptr %517, null
-  br i1 %.not69.i, label %.thread.i116, label %.thread54.i
+  %.not66.i = icmp eq ptr %517, null
+  br i1 %.not66.i, label %.thread.i116, label %.thread54.i
 
 518:                                              ; preds = %489
-  br i1 %.03663.i, label %.thread54.i, label %.thread.i116
+  br i1 %.03664.i, label %.thread54.i, label %.thread.i116
 
 .thread54.i:                                      ; preds = %518, %515, %496
-  %.258.i110 = phi ptr [ %.064.i, %518 ], [ %494, %496 ], [ %494, %515 ]
-  %519 = getelementptr inbounds nuw i8, ptr %.03960.i, i64 24
+  %.258.i110 = phi ptr [ %.065.i, %518 ], [ %494, %496 ], [ %494, %515 ]
+  %519 = getelementptr inbounds nuw i8, ptr %.03961.i, i64 24
   %520 = load ptr, ptr %519, align 8, !tbaa !258
   %521 = load i32, ptr %465, align 8, !tbaa !223
   %522 = add i32 %521, 1
@@ -10407,7 +10407,7 @@ preload_try_strip_filename.exit.i122:             ; preds = %.preheader.i.i119
   %523 = load ptr, ptr %481, align 8, !tbaa !64
   %524 = zext i32 %521 to i64
   %525 = getelementptr inbounds nuw %struct._Bucket, ptr %523, i64 %524
-  %526 = load ptr, ptr %.03960.i, align 8, !tbaa !64
+  %526 = load ptr, ptr %.03961.i, align 8, !tbaa !64
   %527 = load i32, ptr %486, align 8, !tbaa !64
   store ptr %526, ptr %525, align 8, !tbaa !64
   %528 = getelementptr inbounds nuw i8, ptr %525, i64 8
@@ -10468,20 +10468,20 @@ _zend_hash_append.exit.i:                         ; preds = %542, %zend_string_a
   br label %560
 
 .thread.i116:                                     ; preds = %518, %515, %preload_try_strip_filename.exit.i122, %503, %499, %495
-  %.253.i = phi ptr [ %.064.i, %518 ], [ null, %495 ], [ %494, %503 ], [ %494, %499 ], [ %494, %515 ], [ %494, %preload_try_strip_filename.exit.i122 ]
-  call void %464(ptr noundef nonnull %.03960.i) #26
+  %.253.i = phi ptr [ %.065.i, %518 ], [ null, %495 ], [ %494, %preload_try_strip_filename.exit.i122 ], [ %494, %503 ], [ %494, %499 ], [ %494, %515 ]
+  call void %464(ptr noundef nonnull %.03961.i) #26
   br label %560
 
 560:                                              ; preds = %.thread.i116, %_zend_hash_append.exit.i
   %.252.i = phi ptr [ %.253.i, %.thread.i116 ], [ %.258.i110, %_zend_hash_append.exit.i ]
   %.23850.i = phi i1 [ false, %.thread.i116 ], [ true, %_zend_hash_append.exit.i ]
-  call void @zend_hash_del_bucket(ptr noundef %461, ptr noundef nonnull %.03960.i) #26
+  call void @zend_hash_del_bucket(ptr noundef %461, ptr noundef nonnull %.03961.i) #26
   br label %561
 
 561:                                              ; preds = %560, %485
-  %.137.i = phi i1 [ %.23850.i, %560 ], [ %.03663.i, %485 ]
-  %.1.i112 = phi ptr [ %.252.i, %560 ], [ %.064.i, %485 ]
-  %562 = getelementptr inbounds nuw i8, ptr %.03960.i, i64 32
+  %.137.i = phi i1 [ %.23850.i, %560 ], [ %.03664.i, %485 ]
+  %.1.i112 = phi ptr [ %.252.i, %560 ], [ %.065.i, %485 ]
+  %562 = getelementptr inbounds nuw i8, ptr %.03961.i, i64 32
   %.not42.i = icmp eq ptr %562, %475
   br i1 %.not42.i, label %preload_move_user_classes.exit, label %485
 

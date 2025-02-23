@@ -2762,14 +2762,14 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit:     ; preds = %2
   store i64 1, ptr %10, align 8
   %16 = load ptr, ptr %.phi.trans.insert, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph53
+  br i1 %17, label %_ZN5StackIP5KlassL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph54
 
-.lr.ph53:                                         ; preds = %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit
+.lr.ph54:                                         ; preds = %_ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %19
 
-19:                                               ; preds = %.lr.ph53, %.loopexit
-  %20 = phi ptr [ %16, %.lr.ph53 ], [ %130, %.loopexit ]
+19:                                               ; preds = %.lr.ph54, %.loopexit
+  %20 = phi ptr [ %16, %.lr.ph54 ], [ %130, %.loopexit ]
   %21 = load i64, ptr %10, align 8
   %22 = add i64 %21, -1
   store i64 %22, ptr %10, align 8
@@ -3000,8 +3000,8 @@ _ZN5StackIP5KlassL8MEMFLAGS5EE4pushES1_.exit50:   ; preds = %._crit_edge.i39, %_
   call void @_ZN13InstanceKlass30clean_weak_instanceklass_linksEv(ptr noundef nonnull align 8 dereferenceable(464) %24) #21
   %125 = getelementptr inbounds nuw i8, ptr %24, i64 376
   %126 = load ptr, ptr %125, align 8
-  %.not2052 = icmp eq ptr %126, null
-  br i1 %.not2052, label %.loopexit, label %.lr.ph
+  %.not2053 = icmp eq ptr %126, null
+  br i1 %.not2053, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %124, %.lr.ph
   %127 = phi ptr [ %129, %.lr.ph ], [ %126, %124 ]

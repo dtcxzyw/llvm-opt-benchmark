@@ -1676,8 +1676,7 @@ define range(i32 -2, 1) i32 @ossl_aria_set_decrypt_key(ptr noundef %0, i32 nound
   br label %150
 
 150:                                              ; preds = %3, %._crit_edge
-  %.0 = phi i32 [ 0, %._crit_edge ], [ %4, %3 ]
-  ret i32 %.0
+  ret i32 %4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

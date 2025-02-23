@@ -3717,7 +3717,7 @@ define internal fastcc i32 @http_req_set_reader(ptr noundef %0, i32 noundef %1, 
   %.1.i.i = phi ptr [ %spec.select.i.i, %54 ], [ %.0.i.i, %50 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %59 = load ptr, ptr %58, align 8, !tbaa !165
-  %60 = tail call i32 @curl_mime_headers(ptr noundef %44, ptr noundef %59, i32 noundef 0) #11
+  %60 = tail call i32 @curl_mime_headers(ptr noundef nonnull %44, ptr noundef %59, i32 noundef 0) #11
   %61 = load ptr, ptr %42, align 8, !tbaa !184
   %62 = tail call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %.1.i.i, ptr noundef null, i32 noundef 1) #11
   %.not61.i.i = icmp eq i32 %62, 0

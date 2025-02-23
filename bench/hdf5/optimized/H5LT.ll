@@ -4732,7 +4732,7 @@ indentation.exit:                                 ; preds = %47, %48
 
 ._crit_edge153:                                   ; preds = %.lr.ph152
   call void @free(ptr noundef nonnull %25) #20
-  call void @free(ptr noundef %27) #20
+  call void @free(ptr noundef nonnull %27) #20
   br label %.thread141.sink.split
 
 .loopexit.thread:                                 ; preds = %5

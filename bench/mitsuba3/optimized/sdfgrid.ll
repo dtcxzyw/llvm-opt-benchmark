@@ -3768,7 +3768,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1212:              ; preds = %_ZN5drjit9dr_vector
   %176 = mul i32 %65, %174
   %177 = add i32 %176, %61
   %178 = mul i32 %177, %175
-  %.sroa.01169.0.vec.extract = add i32 %58, 1
+  %.sroa.01169.0.vec.extract = add nuw i32 %58, 1
   %179 = add i32 %.sroa.01169.0.vec.extract, %178
   tail call void @_ZdaPv(ptr noundef nonnull %166) #36, !noalias !67
   %180 = zext i32 %179 to i64
@@ -3813,7 +3813,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1218:              ; preds = %_ZN5drjit9dr_vector
   %196 = phi i32 [ %195, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
   %197 = phi i32 [ %194, %_ZN5drjit9dr_vectorImED2Ev.exit1218.loopexit ], [ undef, %.noexc1216 ]
   %198 = mul i32 %65, %196
-  %.sroa.01171.4.vec.extract = add i32 %61, 1
+  %.sroa.01171.4.vec.extract = add nuw i32 %61, 1
   %199 = add i32 %.sroa.01171.4.vec.extract, %198
   %200 = mul i32 %199, %197
   %201 = add i32 %200, %58
@@ -4605,7 +4605,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1209:              ; preds = %_ZN5drjit9dr_vector
   %175 = mul i32 %64, %173
   %176 = add i32 %175, %60
   %177 = mul i32 %176, %174
-  %.sroa.01166.0.vec.extract = add i32 %57, 1
+  %.sroa.01166.0.vec.extract = add nuw i32 %57, 1
   %178 = add i32 %.sroa.01166.0.vec.extract, %177
   tail call void @_ZdaPv(ptr noundef nonnull %165) #36, !noalias !71
   %179 = zext i32 %178 to i64
@@ -4650,7 +4650,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1215:              ; preds = %_ZN5drjit9dr_vector
   %195 = phi i32 [ %194, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
   %196 = phi i32 [ %193, %_ZN5drjit9dr_vectorImED2Ev.exit1215.loopexit ], [ undef, %.noexc1213 ]
   %197 = mul i32 %64, %195
-  %.sroa.01168.4.vec.extract = add i32 %60, 1
+  %.sroa.01168.4.vec.extract = add nuw i32 %60, 1
   %198 = add i32 %.sroa.01168.4.vec.extract, %197
   %199 = mul i32 %198, %196
   %200 = add i32 %199, %57
@@ -6481,7 +6481,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2631:              ; preds = %_ZN5drjit9dr_vector
   %652 = mul i32 %221, %650
   %653 = add i32 %652, %217
   %654 = mul i32 %653, %651
-  %.sroa.02513.0.vec.extract = add i32 %214, 1
+  %.sroa.02513.0.vec.extract = add nuw i32 %214, 1
   %655 = add i32 %.sroa.02513.0.vec.extract, %654
   tail call void @_ZdaPv(ptr noundef nonnull %642) #36, !noalias !77
   %656 = zext i32 %655 to i64
@@ -6526,7 +6526,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2637:              ; preds = %_ZN5drjit9dr_vector
   %672 = phi i32 [ %671, %_ZN5drjit9dr_vectorImED2Ev.exit2637.loopexit ], [ undef, %.noexc2635 ]
   %673 = phi i32 [ %670, %_ZN5drjit9dr_vectorImED2Ev.exit2637.loopexit ], [ undef, %.noexc2635 ]
   %674 = mul i32 %221, %672
-  %.sroa.02515.4.vec.extract = add i32 %217, 1
+  %.sroa.02515.4.vec.extract = add nuw i32 %217, 1
   %675 = add i32 %.sroa.02515.4.vec.extract, %674
   %676 = mul i32 %675, %673
   %677 = add i32 %676, %214
@@ -8362,7 +8362,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2629:              ; preds = %_ZN5drjit9dr_vector
   %651 = mul i32 %220, %649
   %652 = add i32 %651, %216
   %653 = mul i32 %652, %650
-  %.sroa.02511.0.vec.extract = add i32 %213, 1
+  %.sroa.02511.0.vec.extract = add nuw i32 %213, 1
   %654 = add i32 %.sroa.02511.0.vec.extract, %653
   tail call void @_ZdaPv(ptr noundef nonnull %641) #36, !noalias !211
   %655 = zext i32 %654 to i64
@@ -8407,7 +8407,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2635:              ; preds = %_ZN5drjit9dr_vector
   %671 = phi i32 [ %670, %_ZN5drjit9dr_vectorImED2Ev.exit2635.loopexit ], [ undef, %.noexc2633 ]
   %672 = phi i32 [ %669, %_ZN5drjit9dr_vectorImED2Ev.exit2635.loopexit ], [ undef, %.noexc2633 ]
   %673 = mul i32 %220, %671
-  %.sroa.02513.4.vec.extract = add i32 %216, 1
+  %.sroa.02513.4.vec.extract = add nuw i32 %216, 1
   %674 = add i32 %.sroa.02513.4.vec.extract, %673
   %675 = mul i32 %674, %672
   %676 = add i32 %675, %213
@@ -10232,7 +10232,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2715:              ; preds = %_ZN5drjit9dr_vector
   %649 = mul i32 %221, %647
   %650 = add i32 %649, %217
   %651 = mul i32 %650, %648
-  %.sroa.02597.0.vec.extract = add i32 %214, 1
+  %.sroa.02597.0.vec.extract = add nuw i32 %214, 1
   %652 = add i32 %.sroa.02597.0.vec.extract, %651
   tail call void @_ZdaPv(ptr noundef nonnull %639) #36, !noalias !324
   %653 = zext i32 %652 to i64
@@ -10277,7 +10277,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2721:              ; preds = %_ZN5drjit9dr_vector
   %669 = phi i32 [ %668, %_ZN5drjit9dr_vectorImED2Ev.exit2721.loopexit ], [ undef, %.noexc2719 ]
   %670 = phi i32 [ %667, %_ZN5drjit9dr_vectorImED2Ev.exit2721.loopexit ], [ undef, %.noexc2719 ]
   %671 = mul i32 %221, %669
-  %.sroa.02599.4.vec.extract = add i32 %217, 1
+  %.sroa.02599.4.vec.extract = add nuw i32 %217, 1
   %672 = add i32 %.sroa.02599.4.vec.extract, %671
   %673 = mul i32 %672, %670
   %674 = add i32 %673, %214
@@ -12088,7 +12088,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2713:              ; preds = %_ZN5drjit9dr_vector
   %648 = mul i32 %220, %646
   %649 = add i32 %648, %216
   %650 = mul i32 %649, %647
-  %.sroa.02595.0.vec.extract = add i32 %213, 1
+  %.sroa.02595.0.vec.extract = add nuw i32 %213, 1
   %651 = add i32 %.sroa.02595.0.vec.extract, %650
   tail call void @_ZdaPv(ptr noundef nonnull %638) #36, !noalias !458
   %652 = zext i32 %651 to i64
@@ -12133,7 +12133,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2719:              ; preds = %_ZN5drjit9dr_vector
   %668 = phi i32 [ %667, %_ZN5drjit9dr_vectorImED2Ev.exit2719.loopexit ], [ undef, %.noexc2717 ]
   %669 = phi i32 [ %666, %_ZN5drjit9dr_vectorImED2Ev.exit2719.loopexit ], [ undef, %.noexc2717 ]
   %670 = mul i32 %220, %668
-  %.sroa.02597.4.vec.extract = add i32 %216, 1
+  %.sroa.02597.4.vec.extract = add nuw i32 %216, 1
   %671 = add i32 %.sroa.02597.4.vec.extract, %670
   %672 = mul i32 %671, %669
   %673 = add i32 %672, %213
@@ -13936,7 +13936,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2718:              ; preds = %_ZN5drjit9dr_vector
   %649 = mul i32 %221, %647
   %650 = add i32 %649, %217
   %651 = mul i32 %650, %648
-  %.sroa.02600.0.vec.extract = add i32 %214, 1
+  %.sroa.02600.0.vec.extract = add nuw i32 %214, 1
   %652 = add i32 %.sroa.02600.0.vec.extract, %651
   tail call void @_ZdaPv(ptr noundef nonnull %639) #36, !noalias !571
   %653 = zext i32 %652 to i64
@@ -13981,7 +13981,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2724:              ; preds = %_ZN5drjit9dr_vector
   %669 = phi i32 [ %668, %_ZN5drjit9dr_vectorImED2Ev.exit2724.loopexit ], [ undef, %.noexc2722 ]
   %670 = phi i32 [ %667, %_ZN5drjit9dr_vectorImED2Ev.exit2724.loopexit ], [ undef, %.noexc2722 ]
   %671 = mul i32 %221, %669
-  %.sroa.02602.4.vec.extract = add i32 %217, 1
+  %.sroa.02602.4.vec.extract = add nuw i32 %217, 1
   %672 = add i32 %.sroa.02602.4.vec.extract, %671
   %673 = mul i32 %672, %670
   %674 = add i32 %673, %214
@@ -15792,7 +15792,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2716:              ; preds = %_ZN5drjit9dr_vector
   %648 = mul i32 %220, %646
   %649 = add i32 %648, %216
   %650 = mul i32 %649, %647
-  %.sroa.02598.0.vec.extract = add i32 %213, 1
+  %.sroa.02598.0.vec.extract = add nuw i32 %213, 1
   %651 = add i32 %.sroa.02598.0.vec.extract, %650
   tail call void @_ZdaPv(ptr noundef nonnull %638) #36, !noalias !705
   %652 = zext i32 %651 to i64
@@ -15837,7 +15837,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit2722:              ; preds = %_ZN5drjit9dr_vector
   %668 = phi i32 [ %667, %_ZN5drjit9dr_vectorImED2Ev.exit2722.loopexit ], [ undef, %.noexc2720 ]
   %669 = phi i32 [ %666, %_ZN5drjit9dr_vectorImED2Ev.exit2722.loopexit ], [ undef, %.noexc2720 ]
   %670 = mul i32 %220, %668
-  %.sroa.02600.4.vec.extract = add i32 %216, 1
+  %.sroa.02600.4.vec.extract = add nuw i32 %216, 1
   %671 = add i32 %.sroa.02600.4.vec.extract, %670
   %672 = mul i32 %671, %669
   %673 = add i32 %672, %213
@@ -21317,8 +21317,8 @@ _ZNK5drjit7TextureIfLm3EE5indexINS_5ArrayIiLm3EEEEENS_6detail14replace_scalarINS
   %shift = shufflevector <4 x i32> %.sroa.0.0.in.i, <4 x i32> poison, <4 x i32> <i32 poison, i32 2, i32 poison, i32 poison>
   %86 = mul <4 x i32> %22, %shift
   %87 = add <4 x i32> %86, %.sroa.0.0.in.i
-  %shift547 = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %88 = mul <4 x i32> %shift547, %22
+  %shift537 = shufflevector <4 x i32> %87, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %88 = mul <4 x i32> %shift537, %22
   %89 = add <4 x i32> %88, %.sroa.0.0.in.i
   %90 = extractelement <4 x i32> %89, i64 0
   %91 = mul i32 %90, %17
@@ -21473,9 +21473,9 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368: ; pred
   store float %161, ptr %159, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge446, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368, !llvm.loop !874
+  br i1 %exitcond.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368, !llvm.loop !874
 
-._crit_edge446:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368
   %.sroa.0326.4.vec.extract = extractelement <8 x i32> %142, i64 1
   %.sroa.0328.0.vec.extract = extractelement <4 x float> %146, i64 0
   %162 = fmul contract float %.sroa.0328.0.vec.extract, %.sroa.0.4.vec.extract
@@ -21484,8 +21484,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit368: ; pred
   %wide.trip.count476 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370: ; preds = %._crit_edge446, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370
-  %indvars.iv473 = phi i64 [ 0, %._crit_edge446 ], [ %indvars.iv.next474, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370
+  %indvars.iv473 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370.lr.ph ], [ %indvars.iv.next474, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370 ]
   %165 = trunc nuw i64 %indvars.iv473 to i32
   %166 = add i32 %.sroa.0326.4.vec.extract, %165
   %167 = zext i32 %166 to i64
@@ -21501,9 +21501,9 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370: ; pred
   store float %175, ptr %173, align 4
   %indvars.iv.next474 = add nuw nsw i64 %indvars.iv473, 1
   %exitcond477.not = icmp eq i64 %indvars.iv.next474, %wide.trip.count476
-  br i1 %exitcond477.not, label %._crit_edge448, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370, !llvm.loop !875
+  br i1 %exitcond477.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370, !llvm.loop !875
 
-._crit_edge448:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370
   %.sroa.0326.8.vec.extract = extractelement <8 x i32> %142, i64 2
   %.sroa.0328.4.vec.extract = extractelement <4 x float> %146, i64 1
   %176 = fmul contract float %.sroa.0328.4.vec.extract, %.sroa.0.0.vec.extract
@@ -21512,8 +21512,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit370: ; pred
   %wide.trip.count481 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372: ; preds = %._crit_edge448, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372
-  %indvars.iv478 = phi i64 [ 0, %._crit_edge448 ], [ %indvars.iv.next479, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372
+  %indvars.iv478 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372.lr.ph ], [ %indvars.iv.next479, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372 ]
   %179 = trunc nuw i64 %indvars.iv478 to i32
   %180 = add i32 %.sroa.0326.8.vec.extract, %179
   %181 = zext i32 %180 to i64
@@ -21529,9 +21529,9 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372: ; pred
   store float %189, ptr %187, align 4
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond482.not = icmp eq i64 %indvars.iv.next479, %wide.trip.count481
-  br i1 %exitcond482.not, label %._crit_edge450, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372, !llvm.loop !876
+  br i1 %exitcond482.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372, !llvm.loop !876
 
-._crit_edge450:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372
   %.sroa.0326.12.vec.extract = extractelement <8 x i32> %142, i64 3
   %190 = fmul contract float %.sroa.0328.0.vec.extract, %.sroa.0328.4.vec.extract
   %191 = fmul contract float %190, %.sroa.0.8.vec.extract
@@ -21539,8 +21539,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit372: ; pred
   %wide.trip.count486 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374: ; preds = %._crit_edge450, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374
-  %indvars.iv483 = phi i64 [ 0, %._crit_edge450 ], [ %indvars.iv.next484, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374
+  %indvars.iv483 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374.lr.ph ], [ %indvars.iv.next484, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374 ]
   %193 = trunc nuw i64 %indvars.iv483 to i32
   %194 = add i32 %.sroa.0326.12.vec.extract, %193
   %195 = zext i32 %194 to i64
@@ -21556,9 +21556,9 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374: ; pred
   store float %203, ptr %201, align 4
   %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
   %exitcond487.not = icmp eq i64 %indvars.iv.next484, %wide.trip.count486
-  br i1 %exitcond487.not, label %._crit_edge452, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374, !llvm.loop !877
+  br i1 %exitcond487.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374, !llvm.loop !877
 
-._crit_edge452:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374
   %.sroa.0326.16.vec.extract = extractelement <8 x i32> %142, i64 4
   %.sroa.0328.8.vec.extract = extractelement <4 x float> %146, i64 2
   %204 = fmul contract float %.sroa.0328.8.vec.extract, %148
@@ -21566,8 +21566,8 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit374: ; pred
   %wide.trip.count491 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376: ; preds = %._crit_edge452, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376
-  %indvars.iv488 = phi i64 [ 0, %._crit_edge452 ], [ %indvars.iv.next489, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376
+  %indvars.iv488 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376.lr.ph ], [ %indvars.iv.next489, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376 ]
   %206 = trunc nuw i64 %indvars.iv488 to i32
   %207 = add i32 %.sroa.0326.16.vec.extract, %206
   %208 = zext i32 %207 to i64
@@ -21583,17 +21583,17 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376: ; pred
   store float %216, ptr %214, align 4
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %exitcond492.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count491
-  br i1 %exitcond492.not, label %._crit_edge454, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376, !llvm.loop !878
+  br i1 %exitcond492.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376, !llvm.loop !878
 
-._crit_edge454:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit376
   %.sroa.0326.20.vec.extract = extractelement <8 x i32> %142, i64 5
   %217 = fmul contract float %.sroa.0328.8.vec.extract, %162
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count496 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378: ; preds = %._crit_edge454, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378
-  %indvars.iv493 = phi i64 [ 0, %._crit_edge454 ], [ %indvars.iv.next494, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378
+  %indvars.iv493 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378.lr.ph ], [ %indvars.iv.next494, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378 ]
   %219 = trunc nuw i64 %indvars.iv493 to i32
   %220 = add i32 %.sroa.0326.20.vec.extract, %219
   %221 = zext i32 %220 to i64
@@ -21609,17 +21609,17 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378: ; pred
   store float %229, ptr %227, align 4
   %indvars.iv.next494 = add nuw nsw i64 %indvars.iv493, 1
   %exitcond497.not = icmp eq i64 %indvars.iv.next494, %wide.trip.count496
-  br i1 %exitcond497.not, label %._crit_edge456, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378, !llvm.loop !879
+  br i1 %exitcond497.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378, !llvm.loop !879
 
-._crit_edge456:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit378
   %.sroa.0326.24.vec.extract = extractelement <8 x i32> %142, i64 6
   %230 = fmul contract float %.sroa.0328.8.vec.extract, %176
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count501 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380: ; preds = %._crit_edge456, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380
-  %indvars.iv498 = phi i64 [ 0, %._crit_edge456 ], [ %indvars.iv.next499, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380
+  %indvars.iv498 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380.lr.ph ], [ %indvars.iv.next499, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380 ]
   %232 = trunc nuw i64 %indvars.iv498 to i32
   %233 = add i32 %.sroa.0326.24.vec.extract, %232
   %234 = zext i32 %233 to i64
@@ -21635,17 +21635,17 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380: ; pred
   store float %242, ptr %240, align 4
   %indvars.iv.next499 = add nuw nsw i64 %indvars.iv498, 1
   %exitcond502.not = icmp eq i64 %indvars.iv.next499, %wide.trip.count501
-  br i1 %exitcond502.not, label %._crit_edge458, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380, !llvm.loop !880
+  br i1 %exitcond502.not, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382.lr.ph, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380, !llvm.loop !880
 
-._crit_edge458:                                   ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382.lr.ph: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit380
   %.sroa.0326.28.vec.extract = extractelement <8 x i32> %142, i64 7
   %243 = fmul contract float %.sroa.0328.8.vec.extract, %190
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count506 = and i64 %16, 4294967295
   br label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382
 
-_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382: ; preds = %._crit_edge458, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382
-  %indvars.iv503 = phi i64 [ 0, %._crit_edge458 ], [ %indvars.iv.next504, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382 ]
+_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382: ; preds = %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382.lr.ph, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382
+  %indvars.iv503 = phi i64 [ 0, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382.lr.ph ], [ %indvars.iv.next504, %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit382 ]
   %245 = trunc nuw i64 %indvars.iv503 to i32
   %246 = add i32 %.sroa.0326.28.vec.extract, %245
   %247 = zext i32 %246 to i64

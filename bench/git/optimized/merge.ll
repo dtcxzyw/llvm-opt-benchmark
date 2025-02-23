@@ -856,14 +856,21 @@ sub_0:                                            ; preds = %183
   %236 = getelementptr inbounds nuw i8, ptr %.0189408, i64 8
   %237 = load ptr, ptr %236, align 8, !tbaa !40
   %.not232 = icmp eq ptr %237, null
-  br i1 %.not232, label %.loopexit, label %.lr.ph, !llvm.loop !44
+  br i1 %.not232, label %.loopexit.thread, label %.lr.ph, !llvm.loop !44
 
-.loopexit:                                        ; preds = %.lr.ph, %229
+.loopexit.thread:                                 ; preds = %.lr.ph
   call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull @.str.15, i64 noundef 5) #17
-  br i1 %.not232407, label %._crit_edge, label %.lr.ph411
+  br label %.lr.ph411.preheader
 
-.lr.ph411:                                        ; preds = %.loopexit, %.lr.ph411
-  %.1190410 = phi ptr [ %242, %.lr.ph411 ], [ %231, %.loopexit ]
+.loopexit:                                        ; preds = %229
+  call void @strbuf_add(ptr noundef nonnull %13, ptr noundef nonnull @.str.15, i64 noundef 5) #17
+  br i1 %.not232407, label %._crit_edge, label %.lr.ph411.preheader
+
+.lr.ph411.preheader:                              ; preds = %.loopexit.thread, %.loopexit
+  br label %.lr.ph411
+
+.lr.ph411:                                        ; preds = %.lr.ph411.preheader, %.lr.ph411
+  %.1190410 = phi ptr [ %242, %.lr.ph411 ], [ %231, %.lr.ph411.preheader ]
   %238 = load ptr, ptr %.1190410, align 8, !tbaa !43
   %239 = call ptr @merge_remote_util(ptr noundef %238) #17
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8

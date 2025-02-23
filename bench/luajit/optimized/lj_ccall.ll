@@ -218,7 +218,7 @@ ctype_rawchild.exit.i:                            ; preds = %51
   %70 = load i32, ptr %69, align 4, !tbaa !23
   %71 = zext i32 %70 to i64
   %72 = add nuw nsw i64 %71, 16
-  %73 = tail call ptr @lj_mem_newgco(ptr noundef %0, i64 noundef %72) #7
+  %73 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %0, i64 noundef %72) #7
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 9
   store i8 10, ptr %74, align 1, !tbaa !50
   %75 = trunc i32 %.pre.i to i16

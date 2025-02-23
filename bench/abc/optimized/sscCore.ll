@@ -1102,9 +1102,9 @@ Abc_Clock.exit191:                                ; preds = %72, %75
 .critedge:                                        ; preds = %.lr.ph.split, %Abc_Clock.exit191
   call void @Gia_ManHashStart(ptr noundef %.pre) #19
   %113 = load i32, ptr %2, align 4, !tbaa !3
-  call void @Ssc_GiaResetPiPattern(ptr noundef %0, i32 noundef %113) #19
+  call void @Ssc_GiaResetPiPattern(ptr noundef nonnull %0, i32 noundef %113) #19
   %114 = load ptr, ptr %47, align 8, !tbaa !27
-  call void @Ssc_GiaSavePiPattern(ptr noundef %0, ptr noundef %114) #19
+  call void @Ssc_GiaSavePiPattern(ptr noundef nonnull %0, ptr noundef %114) #19
   %115 = load i32, ptr %50, align 8, !tbaa !108
   %116 = icmp sgt i32 %115, 0
   br i1 %116, label %.lr.ph248, label %.critedge2
@@ -2101,7 +2101,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %144, %136
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
   %153 = add i32 %.val45, %10
   %154 = sub i32 %.val46.val, %153
-  %155 = tail call ptr @Gia_ManDupCones(ptr noundef %0, ptr noundef %148, i32 noundef %154, i32 noundef 0) #19
+  %155 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %148, i32 noundef %154, i32 noundef 0) #19
   %.val = load i32, ptr %137, align 8, !tbaa !102
   %.val42 = load ptr, ptr %138, align 8, !tbaa !103
   %156 = getelementptr i8, ptr %.val42, i64 4
@@ -2113,7 +2113,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   %161 = sext i32 %160 to i64
   %162 = sub nsw i64 0, %161
   %163 = getelementptr inbounds i32, ptr %159, i64 %162
-  %164 = tail call ptr @Gia_ManDupCones(ptr noundef %0, ptr noundef %163, i32 noundef %160, i32 noundef 0) #19
+  %164 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %163, i32 noundef %160, i32 noundef 0) #19
   %165 = load ptr, ptr %149, align 8, !tbaa !14
   %.not.i58 = icmp eq ptr %165, null
   br i1 %.not.i58, label %Vec_IntFree.exit, label %166

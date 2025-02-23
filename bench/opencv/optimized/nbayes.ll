@@ -1730,8 +1730,8 @@ define linkonce_odr hidden void @_ZN2cv2ml25NormalBayesClassifierImpl4readERKNS_
   invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(96) %53, ptr noundef nonnull align 8 dereferenceable(96) %11)
           to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit unwind label %54
 
-common.resume:                                    ; preds = %51, %70, %201, %192, %188, %184, %180, %176, %172, %57, %54
-  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %58, %57 ], [ %173, %172 ], [ %177, %176 ], [ %181, %180 ], [ %185, %184 ], [ %189, %188 ], [ %193, %192 ], [ %202, %201 ], [ %.pn35, %51 ], [ %.pn, %70 ]
+common.resume:                                    ; preds = %51, %70, %200, %191, %187, %183, %179, %175, %171, %57, %54
+  %common.resume.op = phi { ptr, i32 } [ %55, %54 ], [ %58, %57 ], [ %172, %171 ], [ %176, %175 ], [ %180, %179 ], [ %184, %183 ], [ %188, %187 ], [ %192, %191 ], [ %201, %200 ], [ %.pn35, %51 ], [ %.pn, %70 ]
   resume { ptr, i32 } %common.resume.op
 
 54:                                               ; preds = %52
@@ -2007,16 +2007,16 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit62:   ; preds = %146, %148, %150, %_
 162:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit62
   %163 = sub nuw nsw i64 %73, %160
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %153, i64 noundef %163)
-  br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68
+  br label %.lr.ph.preheader
 
 164:                                              ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit62
   %165 = icmp ult i64 %73, %160
-  br i1 %165, label %166, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68
+  br i1 %165, label %166, label %.lr.ph.preheader
 
 166:                                              ; preds = %164
   %167 = getelementptr inbounds nuw %"class.cv::Mat", ptr %156, i64 %73
   %.not.i.i63 = icmp eq ptr %155, %167
-  br i1 %.not.i.i63, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68, label %.lr.ph.i.i.i.i.i64
+  br i1 %.not.i.i63, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i64
 
 .lr.ph.i.i.i.i.i64:                               ; preds = %166, %.lr.ph.i.i.i.i.i64
   %.05.i.i.i.i.i65 = phi ptr [ %168, %.lr.ph.i.i.i.i.i64 ], [ %167, %166 ]
@@ -2027,28 +2027,24 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit62:   ; preds = %146, %148, %150, %_
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i67: ; preds = %.lr.ph.i.i.i.i.i64
   store ptr %167, ptr %154, align 8
-  br label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68
+  br label %.lr.ph.preheader
 
-_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68:   ; preds = %162, %164, %166, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i67
-  %169 = icmp sgt i32 %60, 0
-  br i1 %169, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68
+.lr.ph.preheader:                                 ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i67, %166, %164, %162
   %wide.trip.count = and i64 %59, 2147483647
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74 ]
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %31, ptr noundef nonnull align 8 dereferenceable(48) %19)
-  %170 = load ptr, ptr %72, align 8
-  %171 = getelementptr inbounds nuw %"class.cv::Mat", ptr %170, i64 %indvars.iv
+  %169 = load ptr, ptr %72, align 8
+  %170 = getelementptr inbounds nuw %"class.cv::Mat", ptr %169, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %9)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(96) %171, ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit69 unwind label %172
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(96) %170, ptr noundef nonnull align 8 dereferenceable(96) %9)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit69 unwind label %171
 
-172:                                              ; preds = %.lr.ph
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %.lr.ph
+  %172 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   br label %common.resume
@@ -2057,15 +2053,15 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit69:    ; preds = %.lr.ph
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %9) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %9)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %32, ptr noundef nonnull align 8 dereferenceable(48) %21)
-  %174 = load ptr, ptr %89, align 8
-  %175 = getelementptr inbounds nuw %"class.cv::Mat", ptr %174, i64 %indvars.iv
+  %173 = load ptr, ptr %89, align 8
+  %174 = getelementptr inbounds nuw %"class.cv::Mat", ptr %173, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %8)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(96) %175, ptr noundef nonnull align 8 dereferenceable(96) %8)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit70 unwind label %176
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(96) %174, ptr noundef nonnull align 8 dereferenceable(96) %8)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit70 unwind label %175
 
-176:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit69
-  %177 = landingpad { ptr, i32 }
+175:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit69
+  %176 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   br label %common.resume
@@ -2074,15 +2070,15 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit70:    ; preds = %_ZN2cvrsINS_3MatEEE
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %8)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %33, ptr noundef nonnull align 8 dereferenceable(48) %23)
-  %178 = load ptr, ptr %105, align 8
-  %179 = getelementptr inbounds nuw %"class.cv::Mat", ptr %178, i64 %indvars.iv
+  %177 = load ptr, ptr %105, align 8
+  %178 = getelementptr inbounds nuw %"class.cv::Mat", ptr %177, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(96) %179, ptr noundef nonnull align 8 dereferenceable(96) %7)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit71 unwind label %180
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(96) %178, ptr noundef nonnull align 8 dereferenceable(96) %7)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit71 unwind label %179
 
-180:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit70
-  %181 = landingpad { ptr, i32 }
+179:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit70
+  %180 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
   br label %common.resume
@@ -2091,15 +2087,15 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit71:    ; preds = %_ZN2cvrsINS_3MatEEE
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %34, ptr noundef nonnull align 8 dereferenceable(48) %25)
-  %182 = load ptr, ptr %121, align 8
-  %183 = getelementptr inbounds nuw %"class.cv::Mat", ptr %182, i64 %indvars.iv
+  %181 = load ptr, ptr %121, align 8
+  %182 = getelementptr inbounds nuw %"class.cv::Mat", ptr %181, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(96) %183, ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit72 unwind label %184
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(96) %182, ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit72 unwind label %183
 
-184:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit71
-  %185 = landingpad { ptr, i32 }
+183:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit71
+  %184 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   br label %common.resume
@@ -2108,15 +2104,15 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit72:    ; preds = %_ZN2cvrsINS_3MatEEE
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %6)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %35, ptr noundef nonnull align 8 dereferenceable(48) %27)
-  %186 = load ptr, ptr %137, align 8
-  %187 = getelementptr inbounds nuw %"class.cv::Mat", ptr %186, i64 %indvars.iv
+  %185 = load ptr, ptr %137, align 8
+  %186 = getelementptr inbounds nuw %"class.cv::Mat", ptr %185, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(96) %187, ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit73 unwind label %188
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(96) %186, ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit73 unwind label %187
 
-188:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit72
-  %189 = landingpad { ptr, i32 }
+187:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit72
+  %188 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   br label %common.resume
@@ -2125,15 +2121,15 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit73:    ; preds = %_ZN2cvrsINS_3MatEEE
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %36, ptr noundef nonnull align 8 dereferenceable(48) %29)
-  %190 = load ptr, ptr %153, align 8
-  %191 = getelementptr inbounds nuw %"class.cv::Mat", ptr %190, i64 %indvars.iv
+  %189 = load ptr, ptr %153, align 8
+  %190 = getelementptr inbounds nuw %"class.cv::Mat", ptr %189, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(96) %191, ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74 unwind label %192
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(96) %190, ptr noundef nonnull align 8 dereferenceable(96) %4)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74 unwind label %191
 
-192:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit73
-  %193 = landingpad { ptr, i32 }
+191:                                              ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit73
+  %192 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   br label %common.resume
@@ -2142,25 +2138,25 @@ _ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74:    ; preds = %_ZN2cvrsINS_3MatEEE
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #19
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %194 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
-  %195 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %21)
-  %196 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
-  %197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %25)
-  %198 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
-  %199 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
+  %193 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %19)
+  %194 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %21)
+  %195 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
+  %196 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %25)
+  %197 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %27)
+  %198 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIteratorppEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit68
+._crit_edge:                                      ; preds = %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit74
   call void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %37, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull @.str.12)
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 208
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
-  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(96) %200, ptr noundef nonnull align 8 dereferenceable(96) %3)
-          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit75 unwind label %201
+  invoke void @_ZN2cv4readERKNS_8FileNodeERNS_3MatERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(96) %199, ptr noundef nonnull align 8 dereferenceable(96) %3)
+          to label %_ZN2cvrsINS_3MatEEEvRKNS_8FileNodeERT_.exit75 unwind label %200
 
-201:                                              ; preds = %._crit_edge
-  %202 = landingpad { ptr, i32 }
+200:                                              ; preds = %._crit_edge
+  %201 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #19
   br label %common.resume

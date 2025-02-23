@@ -264,8 +264,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86:    ; preds = %7, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83, %54
   %.sroa.0.0.i.i.i85 = phi ptr [ %10, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i83 ], [ %spec.select.i.i.i84, %54 ], [ %10, %7 ]
-  %.not266 = icmp eq ptr %.sroa.0.0.i.i.i85, %10
-  %spec.select = select i1 %.not266, i32 0, i32 3
+  %.not262 = icmp eq ptr %.sroa.0.0.i.i.i85, %10
+  %spec.select = select i1 %.not262, i32 0, i32 3
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
 58:                                               ; preds = %4, %4
@@ -440,8 +440,8 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164:   ; preds = %58, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161, %105
   %.sroa.0.0.i.i.i163 = phi ptr [ %61, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i161 ], [ %spec.select.i.i.i162, %105 ], [ %61, %58 ]
-  %.not260 = icmp eq ptr %.sroa.0.0.i.i.i163, %61
-  %spec.select21 = select i1 %.not260, i32 0, i32 3
+  %.not256 = icmp eq ptr %.sroa.0.0.i.i.i163, %61
+  %spec.select21 = select i1 %.not256, i32 0, i32 3
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
 109:                                              ; preds = %4
@@ -471,10 +471,10 @@ _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174
   %117 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i169, i64 32
   %118 = load i32, ptr %117, align 4
-  %119 = icmp slt i32 %118, 50
-  br i1 %119, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i179.preheader
+  %119 = icmp sgt i32 %118, 49
+  br i1 %119, label %.lr.ph.i.i.i.i179.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i179.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174
+.lr.ph.i.i.i.i179.preheader:                      ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i174, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177
   br label %.lr.ph.i.i.i.i179
 
 .lr.ph.i.i.i.i179:                                ; preds = %.lr.ph.i.i.i.i179.preheader, %.lr.ph.i.i.i.i179
@@ -492,15 +492,15 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177:   ; preds = %_ZNKSt8_Rb_treeIN3g
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187: ; preds = %.lr.ph.i.i.i.i179
   %123 = icmp eq ptr %.19.i.i.i.i182, %112
-  br i1 %123, label %.lr.ph.i.i.i.i192.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
+  br i1 %123, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187
   %124 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i182, i64 32
   %125 = load i32, ptr %124, align 4
-  %126 = icmp slt i32 %125, 49
-  br i1 %126, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i192.preheader
+  %126 = icmp sgt i32 %125, 48
+  br i1 %126, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i192.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i187, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
 127:                                              ; preds = %4
@@ -525,19 +525,19 @@ _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190:   ; preds = %_ZNKSt8_Rb_treeIN3g
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213: ; preds = %.lr.ph.i.i.i.i205
   %134 = icmp eq ptr %.19.i.i.i.i208, %130
-  br i1 %134, label %.lr.ph.i.i.i.i218.preheader, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
+  br i1 %134, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216:   ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213
   %135 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i208, i64 32
   %136 = load i32, ptr %135, align 4
-  %137 = icmp slt i32 %136, 53
-  br i1 %137, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203, label %.lr.ph.i.i.i.i218.preheader
+  %137 = icmp sgt i32 %136, 52
+  br i1 %137, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-.lr.ph.i.i.i.i218.preheader:                      ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i213, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216
   br label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203:   ; preds = %.lr.ph.i.i.i.i218.preheader, %.lr.ph.i.i.i.i192.preheader, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %127, %109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %25, %76, %4, %1
-  %.0 = phi i32 [ %78, %76 ], [ %28, %25 ], [ 0, %1 ], [ 10, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit ], [ 7, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47 ], [ 6, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73 ], [ %spec.select, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86 ], [ 9, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99 ], [ %., %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151 ], [ %spec.select21, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164 ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177 ], [ 11, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190 ], [ 13, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216 ], [ 0, %109 ], [ 0, %127 ], [ 0, %.lr.ph.i.i.i.i192.preheader ], [ 0, %.lr.ph.i.i.i.i218.preheader ], [ 0, %4 ]
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit203:   ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread, %127, %109, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit, %25, %76, %4, %1
+  %.0 = phi i32 [ %78, %76 ], [ %28, %25 ], [ 0, %1 ], [ 10, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit ], [ 7, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit47 ], [ 6, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit60 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit73 ], [ %spec.select, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit86 ], [ 9, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit99 ], [ %., %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit138 ], [ 4, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit151 ], [ %spec.select21, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit164 ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit177 ], [ 11, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190 ], [ 13, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216 ], [ 0, %109 ], [ 0, %127 ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit190.thread ], [ 0, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit216.thread ], [ 0, %4 ]
   ret i32 %.0
 }
 

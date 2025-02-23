@@ -359,9 +359,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %67 = load i32, ptr %59, align 4
   %68 = icmp sgt i32 %67, 0
   %69 = zext i32 %67 to i64
-  br i1 %68, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader
+  br i1 %68, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader
 
-_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader: ; preds = %.lr.ph
+_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader: ; preds = %.lr.ph
   %70 = add nsw i32 %64, -1
   %71 = zext nneg i32 %70 to i64
   %72 = shl nuw nsw i64 %71, 2
@@ -378,7 +378,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us
   %.0100.us = phi i32 [ %107, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ 0, %.lr.ph ]
   %.299.us = phi ptr [ %106, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ %.172110, %.lr.ph ]
-  %.27598.us = phi ptr [ %93, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ %.174109, %.lr.ph ]
+  %.27598.us = phi ptr [ %103, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ %.174109, %.lr.ph ]
   %.27897.us = phi ptr [ %105, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ %.177108, %.lr.ph ]
   %.28196.us = phi ptr [ %104, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ], [ %.180107, %.lr.ph ]
   %73 = load i32, ptr %.299.us, align 4
@@ -421,27 +421,27 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   br i1 %exitcond131.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit91.us, label %.lr.ph.i88.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit91.us: ; preds = %.lr.ph.i88.us
-  %93 = getelementptr inbounds nuw i8, ptr %.27598.us, i64 4
-  %94 = load i32, ptr %.299.us, align 4
-  %95 = load float, ptr %.27897.us, align 4
-  %96 = mul nsw i32 %94, %66
-  %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds float, ptr %31, i64 %97
+  %93 = load i32, ptr %.299.us, align 4
+  %94 = load float, ptr %.27897.us, align 4
+  %95 = mul nsw i32 %93, %66
+  %96 = sext i32 %95 to i64
+  %97 = getelementptr inbounds float, ptr %31, i64 %96
   br label %.lr.ph.i92.us
 
 .lr.ph.i92.us:                                    ; preds = %.lr.ph.i92.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit91.us
   %indvars.iv.i93.us = phi i64 [ %indvars.iv.next.i94.us, %.lr.ph.i92.us ], [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit91.us ]
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %indvars.iv.i93.us
-  %100 = load float, ptr %99, align 4
-  %101 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i93.us
-  %102 = load float, ptr %101, align 4
-  %103 = tail call float @llvm.fmuladd.f32(float %100, float %95, float %102)
-  store float %103, ptr %101, align 4
+  %98 = getelementptr inbounds nuw float, ptr %97, i64 %indvars.iv.i93.us
+  %99 = load float, ptr %98, align 4
+  %100 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv.i93.us
+  %101 = load float, ptr %100, align 4
+  %102 = tail call float @llvm.fmuladd.f32(float %99, float %94, float %101)
+  store float %102, ptr %100, align 4
   %indvars.iv.next.i94.us = add nuw nsw i64 %indvars.iv.i93.us, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next.i94.us, %69
   br i1 %exitcond132.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us, label %.lr.ph.i92.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us: ; preds = %.lr.ph.i92.us
+  %103 = getelementptr inbounds nuw i8, ptr %.27598.us, i64 4
   %104 = getelementptr inbounds nuw i8, ptr %.28196.us, i64 4
   %105 = getelementptr inbounds nuw i8, ptr %.27897.us, i64 4
   %106 = getelementptr inbounds nuw i8, ptr %.299.us, i64 4
@@ -449,11 +449,11 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %exitcond133.not = icmp eq i32 %107, %64
   br i1 %exitcond133.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader, %63
-  %.281.lcssa = phi ptr [ %.180107, %63 ], [ %scevgep126, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %104, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
-  %.278.lcssa = phi ptr [ %.177108, %63 ], [ %scevgep128, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %105, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
-  %.275.lcssa = phi ptr [ %.174109, %63 ], [ %scevgep124, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %93, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
-  %.2.lcssa = phi ptr [ %.172110, %63 ], [ %scevgep130, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %106, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
+._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader, %63
+  %.281.lcssa = phi ptr [ %.180107, %63 ], [ %scevgep126, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader ], [ %104, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
+  %.278.lcssa = phi ptr [ %.177108, %63 ], [ %scevgep128, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader ], [ %105, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
+  %.275.lcssa = phi ptr [ %.174109, %63 ], [ %scevgep124, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader ], [ %103, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
+  %.2.lcssa = phi ptr [ %.172110, %63 ], [ %scevgep130, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.preheader ], [ %106, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit95.loopexit.us ]
   %.val86 = load i32, ptr %41, align 4
   %.val87 = load i32, ptr %60, align 4
   %108 = mul nsw i32 %.val87, %.069112
@@ -569,9 +569,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %91 = getelementptr inbounds float, ptr %89, i64 %90
   %92 = sub nsw i32 %24, %23
   %93 = icmp sgt i32 %92, 0
-  br i1 %93, label %.lr.ph213, label %._crit_edge214
+  br i1 %93, label %.lr.ph204, label %._crit_edge205
 
-.lr.ph213:                                        ; preds = %40
+.lr.ph204:                                        ; preds = %40
   %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -582,18 +582,18 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %102
 
-102:                                              ; preds = %.lr.ph213, %._crit_edge
-  %.0120211 = phi i32 [ 0, %.lr.ph213 ], [ %210, %._crit_edge ]
-  %.1210 = phi ptr [ %.0121, %.lr.ph213 ], [ %211, %._crit_edge ]
-  %.1123209 = phi ptr [ %.0122, %.lr.ph213 ], [ %.2.lcssa, %._crit_edge ]
-  %.1125208 = phi ptr [ %.0124, %.lr.ph213 ], [ %.2126.lcssa, %._crit_edge ]
-  %.1128207 = phi ptr [ %.0127, %.lr.ph213 ], [ %.2129.lcssa, %._crit_edge ]
-  %.1131206 = phi ptr [ %.0130, %.lr.ph213 ], [ %.2132.lcssa, %._crit_edge ]
-  %.1134205 = phi ptr [ %.0133, %.lr.ph213 ], [ %.2135.lcssa, %._crit_edge ]
-  %.1137204 = phi ptr [ %.0136, %.lr.ph213 ], [ %.2138.lcssa, %._crit_edge ]
-  %.1140203 = phi ptr [ %.0139, %.lr.ph213 ], [ %.2141.lcssa, %._crit_edge ]
+102:                                              ; preds = %.lr.ph204, %._crit_edge
+  %.0120202 = phi i32 [ 0, %.lr.ph204 ], [ %210, %._crit_edge ]
+  %.1201 = phi ptr [ %.0121, %.lr.ph204 ], [ %211, %._crit_edge ]
+  %.1123200 = phi ptr [ %.0122, %.lr.ph204 ], [ %.2.lcssa, %._crit_edge ]
+  %.1125199 = phi ptr [ %.0124, %.lr.ph204 ], [ %.2126.lcssa, %._crit_edge ]
+  %.1128198 = phi ptr [ %.0127, %.lr.ph204 ], [ %.2129.lcssa, %._crit_edge ]
+  %.1131197 = phi ptr [ %.0130, %.lr.ph204 ], [ %.2132.lcssa, %._crit_edge ]
+  %.1134196 = phi ptr [ %.0133, %.lr.ph204 ], [ %.2135.lcssa, %._crit_edge ]
+  %.1137195 = phi ptr [ %.0136, %.lr.ph204 ], [ %.2138.lcssa, %._crit_edge ]
+  %.1140194 = phi ptr [ %.0139, %.lr.ph204 ], [ %.2141.lcssa, %._crit_edge ]
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %81, i8 0, i64 %80, i1 false)
-  %103 = load i32, ptr %.1210, align 4
+  %103 = load i32, ptr %.1201, align 4
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %._crit_edge
 
@@ -602,39 +602,39 @@ define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuEvalStencilsEPKfRKNS1_16BufferDescri
   %106 = load i32, ptr %95, align 4
   %107 = icmp sgt i32 %106, 0
   %108 = zext i32 %106 to i64
-  br i1 %107, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader
+  br i1 %107, label %.lr.ph.i.preheader.us, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader
 
-_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader: ; preds = %.lr.ph
+_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader: ; preds = %.lr.ph
   %109 = add nsw i32 %103, -1
   %110 = zext nneg i32 %109 to i64
   %111 = shl nuw nsw i64 %110, 2
-  %scevgep230 = getelementptr i8, ptr %.1140203, i64 4
-  %scevgep232 = getelementptr i8, ptr %.1137204, i64 4
-  %scevgep234 = getelementptr i8, ptr %.1134205, i64 4
-  %scevgep236 = getelementptr i8, ptr %.1131206, i64 4
-  %scevgep238 = getelementptr i8, ptr %.1128207, i64 4
-  %scevgep240 = getelementptr i8, ptr %.1123209, i64 4
-  %scevgep = getelementptr i8, ptr %.1125208, i64 4
-  %scevgep229 = getelementptr i8, ptr %scevgep, i64 %111
-  %scevgep231 = getelementptr i8, ptr %scevgep230, i64 %111
-  %scevgep233 = getelementptr i8, ptr %scevgep232, i64 %111
-  %scevgep235 = getelementptr i8, ptr %scevgep234, i64 %111
-  %scevgep237 = getelementptr i8, ptr %scevgep236, i64 %111
-  %scevgep239 = getelementptr i8, ptr %scevgep238, i64 %111
-  %scevgep241 = getelementptr i8, ptr %scevgep240, i64 %111
+  %scevgep221 = getelementptr i8, ptr %.1131197, i64 4
+  %scevgep223 = getelementptr i8, ptr %.1137195, i64 4
+  %scevgep225 = getelementptr i8, ptr %.1140194, i64 4
+  %scevgep227 = getelementptr i8, ptr %.1134196, i64 4
+  %scevgep229 = getelementptr i8, ptr %.1128198, i64 4
+  %scevgep231 = getelementptr i8, ptr %.1123200, i64 4
+  %scevgep = getelementptr i8, ptr %.1125199, i64 4
+  %scevgep220 = getelementptr i8, ptr %scevgep, i64 %111
+  %scevgep222 = getelementptr i8, ptr %scevgep221, i64 %111
+  %scevgep224 = getelementptr i8, ptr %scevgep223, i64 %111
+  %scevgep226 = getelementptr i8, ptr %scevgep225, i64 %111
+  %scevgep228 = getelementptr i8, ptr %scevgep227, i64 %111
+  %scevgep230 = getelementptr i8, ptr %scevgep229, i64 %111
+  %scevgep232 = getelementptr i8, ptr %scevgep231, i64 %111
   br label %._crit_edge
 
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us
-  %.0190.us = phi i32 [ %179, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ 0, %.lr.ph ]
-  %.2189.us = phi ptr [ %178, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1123209, %.lr.ph ]
-  %.2126188.us = phi ptr [ %132, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1125208, %.lr.ph ]
-  %.2129187.us = phi ptr [ %177, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1128207, %.lr.ph ]
-  %.2132186.us = phi ptr [ %176, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1131206, %.lr.ph ]
-  %.2135185.us = phi ptr [ %165, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1134205, %.lr.ph ]
-  %.2138184.us = phi ptr [ %154, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1137204, %.lr.ph ]
-  %.2141183.us = phi ptr [ %143, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1140203, %.lr.ph ]
-  %112 = load i32, ptr %.2189.us, align 4
-  %113 = load float, ptr %.2126188.us, align 4
+  %.0181.us = phi i32 [ %179, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ 0, %.lr.ph ]
+  %.2180.us = phi ptr [ %178, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1123200, %.lr.ph ]
+  %.2126179.us = phi ptr [ %172, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1125199, %.lr.ph ]
+  %.2129178.us = phi ptr [ %177, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1128198, %.lr.ph ]
+  %.2132177.us = phi ptr [ %173, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1131197, %.lr.ph ]
+  %.2135176.us = phi ptr [ %176, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1134196, %.lr.ph ]
+  %.2138175.us = phi ptr [ %174, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1137195, %.lr.ph ]
+  %.2141174.us = phi ptr [ %175, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ], [ %.1140194, %.lr.ph ]
+  %112 = load i32, ptr %.2180.us, align 4
+  %113 = load float, ptr %.2126179.us, align 4
   %114 = mul nsw i32 %105, %112
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds float, ptr %43, i64 %115
@@ -653,8 +653,8 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   br i1 %exitcond.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.us, label %.lr.ph.i.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.us: ; preds = %.lr.ph.i.us
-  %122 = load i32, ptr %.2189.us, align 4
-  %123 = load float, ptr %.2141183.us, align 4
+  %122 = load i32, ptr %.2180.us, align 4
+  %123 = load float, ptr %.2141174.us, align 4
   %124 = mul nsw i32 %122, %105
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds float, ptr %43, i64 %125
@@ -669,112 +669,112 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   %131 = tail call float @llvm.fmuladd.f32(float %128, float %123, float %130)
   store float %131, ptr %129, align 4
   %indvars.iv.next.i156.us = add nuw nsw i64 %indvars.iv.i155.us, 1
-  %exitcond242.not = icmp eq i64 %indvars.iv.next.i156.us, %108
-  br i1 %exitcond242.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit157.us, label %.lr.ph.i154.us, !llvm.loop !12
+  %exitcond233.not = icmp eq i64 %indvars.iv.next.i156.us, %108
+  br i1 %exitcond233.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit157.us, label %.lr.ph.i154.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit157.us: ; preds = %.lr.ph.i154.us
-  %132 = getelementptr inbounds nuw i8, ptr %.2126188.us, i64 4
-  %133 = load i32, ptr %.2189.us, align 4
-  %134 = load float, ptr %.2138184.us, align 4
-  %135 = mul nsw i32 %133, %105
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds float, ptr %43, i64 %136
+  %132 = load i32, ptr %.2180.us, align 4
+  %133 = load float, ptr %.2138175.us, align 4
+  %134 = mul nsw i32 %132, %105
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds float, ptr %43, i64 %135
   br label %.lr.ph.i158.us
 
 .lr.ph.i158.us:                                   ; preds = %.lr.ph.i158.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit157.us
   %indvars.iv.i159.us = phi i64 [ %indvars.iv.next.i160.us, %.lr.ph.i158.us ], [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit157.us ]
-  %138 = getelementptr inbounds nuw float, ptr %137, i64 %indvars.iv.i159.us
-  %139 = load float, ptr %138, align 4
-  %140 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i159.us
-  %141 = load float, ptr %140, align 4
-  %142 = tail call float @llvm.fmuladd.f32(float %139, float %134, float %141)
-  store float %142, ptr %140, align 4
+  %137 = getelementptr inbounds nuw float, ptr %136, i64 %indvars.iv.i159.us
+  %138 = load float, ptr %137, align 4
+  %139 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv.i159.us
+  %140 = load float, ptr %139, align 4
+  %141 = tail call float @llvm.fmuladd.f32(float %138, float %133, float %140)
+  store float %141, ptr %139, align 4
   %indvars.iv.next.i160.us = add nuw nsw i64 %indvars.iv.i159.us, 1
-  %exitcond243.not = icmp eq i64 %indvars.iv.next.i160.us, %108
-  br i1 %exitcond243.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit161.us, label %.lr.ph.i158.us, !llvm.loop !12
+  %exitcond234.not = icmp eq i64 %indvars.iv.next.i160.us, %108
+  br i1 %exitcond234.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit161.us, label %.lr.ph.i158.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit161.us: ; preds = %.lr.ph.i158.us
-  %143 = getelementptr inbounds nuw i8, ptr %.2141183.us, i64 4
-  %144 = load i32, ptr %.2189.us, align 4
-  %145 = load float, ptr %.2135185.us, align 4
-  %146 = mul nsw i32 %144, %105
-  %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds float, ptr %43, i64 %147
+  %142 = load i32, ptr %.2180.us, align 4
+  %143 = load float, ptr %.2135176.us, align 4
+  %144 = mul nsw i32 %142, %105
+  %145 = sext i32 %144 to i64
+  %146 = getelementptr inbounds float, ptr %43, i64 %145
   br label %.lr.ph.i162.us
 
 .lr.ph.i162.us:                                   ; preds = %.lr.ph.i162.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit161.us
   %indvars.iv.i163.us = phi i64 [ %indvars.iv.next.i164.us, %.lr.ph.i162.us ], [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit161.us ]
-  %149 = getelementptr inbounds nuw float, ptr %148, i64 %indvars.iv.i163.us
+  %147 = getelementptr inbounds nuw float, ptr %146, i64 %indvars.iv.i163.us
+  %148 = load float, ptr %147, align 4
+  %149 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i163.us
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i163.us
-  %152 = load float, ptr %151, align 4
-  %153 = tail call float @llvm.fmuladd.f32(float %150, float %145, float %152)
-  store float %153, ptr %151, align 4
+  %151 = tail call float @llvm.fmuladd.f32(float %148, float %143, float %150)
+  store float %151, ptr %149, align 4
   %indvars.iv.next.i164.us = add nuw nsw i64 %indvars.iv.i163.us, 1
-  %exitcond244.not = icmp eq i64 %indvars.iv.next.i164.us, %108
-  br i1 %exitcond244.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit165.us, label %.lr.ph.i162.us, !llvm.loop !12
+  %exitcond235.not = icmp eq i64 %indvars.iv.next.i164.us, %108
+  br i1 %exitcond235.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit165.us, label %.lr.ph.i162.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit165.us: ; preds = %.lr.ph.i162.us
-  %154 = getelementptr inbounds nuw i8, ptr %.2138184.us, i64 4
-  %155 = load i32, ptr %.2189.us, align 4
-  %156 = load float, ptr %.2132186.us, align 4
-  %157 = mul nsw i32 %155, %105
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds float, ptr %43, i64 %158
+  %152 = load i32, ptr %.2180.us, align 4
+  %153 = load float, ptr %.2132177.us, align 4
+  %154 = mul nsw i32 %152, %105
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds float, ptr %43, i64 %155
   br label %.lr.ph.i166.us
 
 .lr.ph.i166.us:                                   ; preds = %.lr.ph.i166.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit165.us
   %indvars.iv.i167.us = phi i64 [ %indvars.iv.next.i168.us, %.lr.ph.i166.us ], [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit165.us ]
-  %160 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv.i167.us
-  %161 = load float, ptr %160, align 4
-  %162 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i167.us
-  %163 = load float, ptr %162, align 4
-  %164 = tail call float @llvm.fmuladd.f32(float %161, float %156, float %163)
-  store float %164, ptr %162, align 4
+  %157 = getelementptr inbounds nuw float, ptr %156, i64 %indvars.iv.i167.us
+  %158 = load float, ptr %157, align 4
+  %159 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i167.us
+  %160 = load float, ptr %159, align 4
+  %161 = tail call float @llvm.fmuladd.f32(float %158, float %153, float %160)
+  store float %161, ptr %159, align 4
   %indvars.iv.next.i168.us = add nuw nsw i64 %indvars.iv.i167.us, 1
-  %exitcond245.not = icmp eq i64 %indvars.iv.next.i168.us, %108
-  br i1 %exitcond245.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit169.us, label %.lr.ph.i166.us, !llvm.loop !12
+  %exitcond236.not = icmp eq i64 %indvars.iv.next.i168.us, %108
+  br i1 %exitcond236.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit169.us, label %.lr.ph.i166.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit169.us: ; preds = %.lr.ph.i166.us
-  %165 = getelementptr inbounds nuw i8, ptr %.2135185.us, i64 4
-  %166 = load i32, ptr %.2189.us, align 4
-  %167 = load float, ptr %.2129187.us, align 4
-  %168 = mul nsw i32 %166, %105
-  %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds float, ptr %43, i64 %169
+  %162 = load i32, ptr %.2180.us, align 4
+  %163 = load float, ptr %.2129178.us, align 4
+  %164 = mul nsw i32 %162, %105
+  %165 = sext i32 %164 to i64
+  %166 = getelementptr inbounds float, ptr %43, i64 %165
   br label %.lr.ph.i170.us
 
 .lr.ph.i170.us:                                   ; preds = %.lr.ph.i170.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit169.us
   %indvars.iv.i171.us = phi i64 [ %indvars.iv.next.i172.us, %.lr.ph.i170.us ], [ 0, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit169.us ]
-  %171 = getelementptr inbounds nuw float, ptr %170, i64 %indvars.iv.i171.us
-  %172 = load float, ptr %171, align 4
-  %173 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i171.us
-  %174 = load float, ptr %173, align 4
-  %175 = tail call float @llvm.fmuladd.f32(float %172, float %167, float %174)
-  store float %175, ptr %173, align 4
+  %167 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv.i171.us
+  %168 = load float, ptr %167, align 4
+  %169 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i171.us
+  %170 = load float, ptr %169, align 4
+  %171 = tail call float @llvm.fmuladd.f32(float %168, float %163, float %170)
+  store float %171, ptr %169, align 4
   %indvars.iv.next.i172.us = add nuw nsw i64 %indvars.iv.i171.us, 1
-  %exitcond246.not = icmp eq i64 %indvars.iv.next.i172.us, %108
-  br i1 %exitcond246.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us, label %.lr.ph.i170.us, !llvm.loop !12
+  %exitcond237.not = icmp eq i64 %indvars.iv.next.i172.us, %108
+  br i1 %exitcond237.not, label %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us, label %.lr.ph.i170.us, !llvm.loop !12
 
 _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us: ; preds = %.lr.ph.i170.us
-  %176 = getelementptr inbounds nuw i8, ptr %.2132186.us, i64 4
-  %177 = getelementptr inbounds nuw i8, ptr %.2129187.us, i64 4
-  %178 = getelementptr inbounds nuw i8, ptr %.2189.us, i64 4
-  %179 = add nuw nsw i32 %.0190.us, 1
-  %exitcond247.not = icmp eq i32 %179, %103
-  br i1 %exitcond247.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !17
+  %172 = getelementptr inbounds nuw i8, ptr %.2126179.us, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %.2132177.us, i64 4
+  %174 = getelementptr inbounds nuw i8, ptr %.2138175.us, i64 4
+  %175 = getelementptr inbounds nuw i8, ptr %.2141174.us, i64 4
+  %176 = getelementptr inbounds nuw i8, ptr %.2135176.us, i64 4
+  %177 = getelementptr inbounds nuw i8, ptr %.2129178.us, i64 4
+  %178 = getelementptr inbounds nuw i8, ptr %.2180.us, i64 4
+  %179 = add nuw nsw i32 %.0181.us, 1
+  %exitcond238.not = icmp eq i32 %179, %103
+  br i1 %exitcond238.not, label %._crit_edge, label %.lr.ph.i.preheader.us, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader, %102
-  %.2141.lcssa = phi ptr [ %.1140203, %102 ], [ %scevgep231, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %143, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2138.lcssa = phi ptr [ %.1137204, %102 ], [ %scevgep233, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %154, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2135.lcssa = phi ptr [ %.1134205, %102 ], [ %scevgep235, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %165, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2132.lcssa = phi ptr [ %.1131206, %102 ], [ %scevgep237, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %176, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2129.lcssa = phi ptr [ %.1128207, %102 ], [ %scevgep239, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %177, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2126.lcssa = phi ptr [ %.1125208, %102 ], [ %scevgep229, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %132, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
-  %.2.lcssa = phi ptr [ %.1123209, %102 ], [ %scevgep241, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit.thread.preheader ], [ %178, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader, %102
+  %.2141.lcssa = phi ptr [ %.1140194, %102 ], [ %scevgep226, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %175, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2138.lcssa = phi ptr [ %.1137195, %102 ], [ %scevgep224, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %174, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2135.lcssa = phi ptr [ %.1134196, %102 ], [ %scevgep228, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %176, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2132.lcssa = phi ptr [ %.1131197, %102 ], [ %scevgep222, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %173, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2129.lcssa = phi ptr [ %.1128198, %102 ], [ %scevgep230, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %177, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2126.lcssa = phi ptr [ %.1125199, %102 ], [ %scevgep220, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %172, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
+  %.2.lcssa = phi ptr [ %.1123200, %102 ], [ %scevgep232, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.preheader ], [ %178, %_ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit173.loopexit.us ]
   %.val152 = load i32, ptr %62, align 4
   %.val153 = load i32, ptr %96, align 4
-  %180 = mul nsw i32 %.val153, %.0120211
+  %180 = mul nsw i32 %.val153, %.0120202
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds float, ptr %46, i64 %181
   %183 = sext i32 %.val152 to i64
@@ -782,7 +782,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %182, ptr nonnull readonly align 16 %81, i64 %184, i1 false)
   %.val150 = load i32, ptr %64, align 4
   %.val151 = load i32, ptr %97, align 4
-  %185 = mul nsw i32 %.val151, %.0120211
+  %185 = mul nsw i32 %.val151, %.0120202
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds float, ptr %49, i64 %186
   %188 = sext i32 %.val150 to i64
@@ -790,7 +790,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %187, ptr nonnull readonly align 4 %83, i64 %189, i1 false)
   %.val148 = load i32, ptr %67, align 4
   %.val149 = load i32, ptr %98, align 4
-  %190 = mul nsw i32 %.val149, %.0120211
+  %190 = mul nsw i32 %.val149, %.0120202
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds float, ptr %52, i64 %191
   %193 = sext i32 %.val148 to i64
@@ -798,7 +798,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %192, ptr nonnull readonly align 4 %85, i64 %194, i1 false)
   %.val146 = load i32, ptr %70, align 4
   %.val147 = load i32, ptr %99, align 4
-  %195 = mul nsw i32 %.val147, %.0120211
+  %195 = mul nsw i32 %.val147, %.0120202
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds float, ptr %55, i64 %196
   %198 = sext i32 %.val146 to i64
@@ -806,7 +806,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %197, ptr nonnull readonly align 4 %87, i64 %199, i1 false)
   %.val144 = load i32, ptr %73, align 4
   %.val145 = load i32, ptr %100, align 4
-  %200 = mul nsw i32 %.val145, %.0120211
+  %200 = mul nsw i32 %.val145, %.0120202
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds float, ptr %58, i64 %201
   %203 = sext i32 %.val144 to i64
@@ -814,18 +814,18 @@ _ZN10OpenSubdiv6v3_6_03OsdL13addWithWeightEPfPKfifRKNS1_16BufferDescriptorE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %202, ptr nonnull readonly align 4 %89, i64 %204, i1 false)
   %.val = load i32, ptr %76, align 4
   %.val143 = load i32, ptr %101, align 4
-  %205 = mul nsw i32 %.val143, %.0120211
+  %205 = mul nsw i32 %.val143, %.0120202
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds float, ptr %61, i64 %206
   %208 = sext i32 %.val to i64
   %209 = shl nsw i64 %208, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %207, ptr nonnull readonly align 4 %91, i64 %209, i1 false)
-  %210 = add nuw nsw i32 %.0120211, 1
-  %211 = getelementptr inbounds nuw i8, ptr %.1210, i64 4
-  %exitcond248.not = icmp eq i32 %210, %92
-  br i1 %exitcond248.not, label %._crit_edge214, label %102, !llvm.loop !18
+  %210 = add nuw nsw i32 %.0120202, 1
+  %211 = getelementptr inbounds nuw i8, ptr %.1201, i64 4
+  %exitcond239.not = icmp eq i32 %210, %92
+  br i1 %exitcond239.not, label %._crit_edge205, label %102, !llvm.loop !18
 
-._crit_edge214:                                   ; preds = %._crit_edge, %40
+._crit_edge205:                                   ; preds = %._crit_edge, %40
   ret void
 }
 

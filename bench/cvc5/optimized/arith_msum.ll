@@ -3036,7 +3036,7 @@ _ZN4cvc58internal8RationalD2Ev.exit190:           ; preds = %523, %_ZN4cvc58inte
   br label %540
 
 534:                                              ; preds = %.critedge95, %_ZN4cvc58internal8RationalD2Ev.exit148
-  %535 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0197.0242) #23
+  %535 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0197.0242) #23
   %.not = icmp eq ptr %535, %214
   br i1 %.not, label %.loopexit, label %271, !llvm.loop !89
 

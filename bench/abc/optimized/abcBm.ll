@@ -1148,9 +1148,9 @@ define void @initMatchList(ptr noundef readonly captures(none) %0, ptr noundef r
 
 .lr.ph143:                                        ; preds = %.lr.ph143.preheader, %.lr.ph143
   %indvars.iv180 = phi i64 [ 0, %.lr.ph143.preheader ], [ %indvars.iv.next181, %.lr.ph143 ]
-  %calloc215 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
+  %calloc219 = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv180
-  store ptr %calloc215, ptr %24, align 8, !tbaa !30
+  store ptr %calloc219, ptr %24, align 8, !tbaa !30
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count
   br i1 %exitcond.not, label %.preheader136, label %.lr.ph143, !llvm.loop !42
@@ -1314,15 +1314,18 @@ Vec_IntFree.exit:                                 ; preds = %70, %73
   %.val107.val = load i32, ptr %88, align 4, !tbaa !24
   %89 = sext i32 %.val107.val to i64
   %.not96.not = icmp slt i64 %indvars.iv189, %89
-  br i1 %.not96.not, label %.lr.ph156, label %._crit_edge157, !llvm.loop !45
+  br i1 %.not96.not, label %.lr.ph156, label %._crit_edge157.thread, !llvm.loop !45
 
-._crit_edge157:                                   ; preds = %87, %.preheader135
-  %.0.lcssa = phi i32 [ 0, %.preheader135 ], [ %.1, %87 ]
-  store i32 %.0.lcssa, ptr %6, align 4, !tbaa !34
+._crit_edge157.thread:                            ; preds = %87
+  store i32 %.1, ptr %6, align 4, !tbaa !34
+  br label %90
+
+._crit_edge157:                                   ; preds = %.preheader135
+  store i32 0, ptr %6, align 4, !tbaa !34
   %.not97 = icmp eq ptr %20, null
   br i1 %.not97, label %.loopexit, label %90
 
-90:                                               ; preds = %._crit_edge157
+90:                                               ; preds = %._crit_edge157.thread, %._crit_edge157
   tail call void @free(ptr noundef nonnull %20) #12
   br label %.loopexit
 
@@ -1600,15 +1603,18 @@ Vec_IntFree.exit133:                              ; preds = %184, %187
   %.val.val = load i32, ptr %202, align 4, !tbaa !24
   %203 = sext i32 %.val.val to i64
   %.not99.not = icmp slt i64 %indvars.iv203, %203
-  br i1 %.not99.not, label %.lr.ph176, label %._crit_edge177, !llvm.loop !50
+  br i1 %.not99.not, label %.lr.ph176, label %._crit_edge177.thread, !llvm.loop !50
 
-._crit_edge177:                                   ; preds = %201, %.preheader
-  %.2.lcssa = phi i32 [ 0, %.preheader ], [ %.3, %201 ]
-  store i32 %.2.lcssa, ptr %4, align 4, !tbaa !34
+._crit_edge177.thread:                            ; preds = %201
+  store i32 %.3, ptr %4, align 4, !tbaa !34
+  br label %204
+
+._crit_edge177:                                   ; preds = %.preheader
+  store i32 0, ptr %4, align 4, !tbaa !34
   %.not100 = icmp eq ptr %134, null
   br i1 %.not100, label %205, label %204
 
-204:                                              ; preds = %._crit_edge177
+204:                                              ; preds = %._crit_edge177.thread, %._crit_edge177
   tail call void @free(ptr noundef nonnull %134) #12
   br label %205
 
@@ -5873,7 +5879,7 @@ define ptr @Abc_NtkMiterBm(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   %.val111.val = load ptr, ptr %29, align 8, !tbaa !27
   %30 = getelementptr inbounds nuw ptr, ptr %.val111.val, i64 %indvars.iv214
   %31 = load ptr, ptr %30, align 8, !tbaa !28
-  %32 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 2) #12
+  %32 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %6, i32 noundef 2) #12
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 64
   store ptr %32, ptr %33, align 8, !tbaa !29
   %.val110 = load ptr, ptr %27, align 8, !tbaa !72
@@ -5895,7 +5901,7 @@ define ptr @Abc_NtkMiterBm(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
 
 43:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %44 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 2) #12
+  %44 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %6, i32 noundef 2) #12
   %.val109 = load ptr, ptr %23, align 8, !tbaa !27
   %45 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !28
@@ -5916,7 +5922,7 @@ define ptr @Abc_NtkMiterBm(ptr noundef %0, ptr noundef %1, ptr noundef readonly 
   br i1 %55, label %43, label %.critedge, !llvm.loop !111
 
 .critedge:                                        ; preds = %43, %28, %.preheader188, %.preheader187
-  %56 = call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 3) #12
+  %56 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %6, i32 noundef 3) #12
   %57 = call ptr @Abc_ObjAssignName(ptr noundef %56, ptr noundef nonnull @.str.2, ptr noundef null) #12
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !77
@@ -11711,8 +11717,8 @@ Abc_Clock.exit:                                   ; preds = %3, %14
   br i1 %exitcond437.not, label %._crit_edge, label %.lr.ph410, !llvm.loop !188
 
 ._crit_edge:                                      ; preds = %.lr.ph410, %.preheader407
-  %108 = call ptr @Abc_NtkStrash(ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
-  %109 = call ptr @Abc_NtkStrash(ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %108 = call ptr @Abc_NtkStrash(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
+  %109 = call ptr @Abc_NtkStrash(ptr noundef nonnull %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #12
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   call void @getDependencies(ptr noundef %108, ptr noundef %22, ptr noundef %27)
   call void @getDependencies(ptr noundef %109, ptr noundef %32, ptr noundef %37)

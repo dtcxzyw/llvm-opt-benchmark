@@ -2232,7 +2232,7 @@ do_smart_wakeup_zero.exit.thread3:                ; preds = %12
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %68 = load volatile ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %67
-  br i1 %69, label %.thread6, label %73
+  br i1 %69, label %.thread5, label %73
 
 do_smart_wakeup_zero.exit.thread:                 ; preds = %7
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -2262,7 +2262,7 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
   %.pre = load i32, ptr %.phi.trans.insert, align 8
   %82 = icmp sgt i32 %.pre, 0
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  br i1 %82, label %.preheader, label %.thread6
+  br i1 %82, label %.preheader, label %.thread5
 
 .preheader:                                       ; preds = %.thread4, %.preheader
   %84 = phi i32 [ %88, %.preheader ], [ 0, %.thread4 ]
@@ -2296,44 +2296,33 @@ do_smart_wakeup_zero.exit.thread:                 ; preds = %7
   %106 = icmp eq i64 %105, %81
   br i1 %106, label %.thread5, label %91, !llvm.loop !47
 
-.thread5:                                         ; preds = %103, %.preheader, %do_smart_wakeup_zero.exit.thread, %78, %73
-  %107 = phi i32 [ %76, %73 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %87, %.preheader ], [ %104, %103 ]
+.thread5:                                         ; preds = %103, %.preheader, %do_smart_wakeup_zero.exit.thread3, %do_smart_wakeup_zero.exit.thread, %.thread4, %78, %73
+  %107 = phi i32 [ %76, %73 ], [ %63, %.thread4 ], [ %63, %78 ], [ %3, %do_smart_wakeup_zero.exit.thread ], [ %3, %do_smart_wakeup_zero.exit.thread3 ], [ %87, %.preheader ], [ %104, %103 ]
   %108 = icmp eq i32 %107, 0
-  br i1 %108, label %125, label %112
+  br i1 %108, label %120, label %109
 
-.thread6:                                         ; preds = %do_smart_wakeup_zero.exit.thread3, %.thread4
-  %109 = phi i32 [ %63, %.thread4 ], [ %3, %do_smart_wakeup_zero.exit.thread3 ]
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %125, label %.thread7
+109:                                              ; preds = %.thread5
+  %110 = tail call i64 @ktime_get_real_seconds() #12
+  br i1 %6, label %111, label %113
 
-.thread7:                                         ; preds = %.thread6
-  %111 = tail call i64 @ktime_get_real_seconds() #12
-  br label %114
+111:                                              ; preds = %109
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  br label %118
 
-112:                                              ; preds = %.thread5
-  %113 = tail call i64 @ktime_get_real_seconds() #12
-  br i1 %6, label %114, label %117
+113:                                              ; preds = %109
+  %114 = load i16, ptr %1, align 2
+  %115 = zext i16 %114 to i64
+  %.idx = shl nuw nsw i64 %115, 6
+  %116 = getelementptr i8, ptr %0, i64 312
+  %117 = getelementptr i8, ptr %116, i64 %.idx
+  br label %118
 
-114:                                              ; preds = %.thread7, %112
-  %115 = phi i64 [ %111, %.thread7 ], [ %113, %112 ]
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  br label %122
+118:                                              ; preds = %113, %111
+  %119 = phi ptr [ %117, %113 ], [ %112, %111 ]
+  store i64 %110, ptr %119, align 8
+  br label %120
 
-117:                                              ; preds = %112
-  %118 = load i16, ptr %1, align 2
-  %119 = zext i16 %118 to i64
-  %.idx = shl nuw nsw i64 %119, 6
-  %120 = getelementptr i8, ptr %0, i64 312
-  %121 = getelementptr i8, ptr %120, i64 %.idx
-  br label %122
-
-122:                                              ; preds = %117, %114
-  %123 = phi i64 [ %113, %117 ], [ %115, %114 ]
-  %124 = phi ptr [ %121, %117 ], [ %116, %114 ]
-  store i64 %123, ptr %124, align 8
-  br label %125
-
-125:                                              ; preds = %.thread6, %122, %.thread5
+120:                                              ; preds = %118, %.thread5
   ret void
 }
 

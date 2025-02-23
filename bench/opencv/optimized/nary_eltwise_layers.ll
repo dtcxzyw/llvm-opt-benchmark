@@ -72696,16 +72696,16 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
   store i32 1, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %59, %57
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !905
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph56, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !905
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+.lr.ph56:                                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   store ptr %57, ptr %56, align 8
   %60 = load ptr, ptr %1, align 8
   %61 = load ptr, ptr %9, align 8
   %62 = icmp eq ptr %60, %61
   br i1 %62, label %._crit_edge57, label %.lr.ph56.split.preheader
 
-.lr.ph56.split.preheader:                         ; preds = %.loopexit
+.lr.ph56.split.preheader:                         ; preds = %.lr.ph56
   %umax = call i64 @llvm.umax.i64(i64 %44, i64 1)
   br label %.lr.ph52
 
@@ -72777,7 +72777,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %77, %75
   %exitcond.not = icmp eq i64 %85, %umax
   br i1 %exitcond.not, label %._crit_edge57, label %.lr.ph52, !llvm.loop !906
 
-._crit_edge57:                                    ; preds = %._crit_edge53, %.loopexit, %.loopexit.thread
+._crit_edge57:                                    ; preds = %._crit_edge53, %.lr.ph56, %.loopexit.thread
   ret void
 
 86:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %19

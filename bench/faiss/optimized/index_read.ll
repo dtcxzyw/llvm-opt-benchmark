@@ -20275,7 +20275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526: ; preds = %_
   br label %4620
 
 ._crit_edge:                                      ; preds = %4620, %4615
-  %4618 = call noundef ptr @_ZN5faiss10read_indexEPNS_8IOReaderEi(ptr noundef %0, i32 noundef %1)
+  %4618 = call noundef ptr @_ZN5faiss10read_indexEPNS_8IOReaderEi(ptr noundef nonnull %0, i32 noundef %1)
   %4619 = getelementptr inbounds nuw i8, ptr %4573, i64 64
   store ptr %4618, ptr %4619, align 8, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %138) #27
@@ -20284,7 +20284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2526: ; preds = %_
 4620:                                             ; preds = %.lr.ph, %4620
   %.015812729 = phi i32 [ 0, %.lr.ph ], [ %4622, %4620 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %140) #27
-  %4621 = call noundef ptr @_ZN5faiss20read_VectorTransformEPNS_8IOReaderE(ptr noundef %0)
+  %4621 = call noundef ptr @_ZN5faiss20read_VectorTransformEPNS_8IOReaderE(ptr noundef nonnull %0)
   store ptr %4621, ptr %140, align 8, !tbaa !214
   call void @_ZNSt6vectorIPN5faiss15VectorTransformESaIS2_EE9push_backEOS2_(ptr noundef nonnull align 8 dereferenceable(24) %4617, ptr noundef nonnull align 8 dereferenceable(8) %140)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %140) #27

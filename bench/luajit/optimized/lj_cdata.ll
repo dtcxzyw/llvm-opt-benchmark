@@ -226,7 +226,7 @@ ctype_raw.exit:                                   ; preds = %29
   %45 = load ptr, ptr %0, align 8, !tbaa !57
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !58
-  %48 = tail call ptr %45(ptr noundef %47, ptr noundef %1, i64 noundef range(i64 0, 4294967312) %41, i64 noundef 0) #4
+  %48 = tail call ptr %45(ptr noundef %47, ptr noundef nonnull %1, i64 noundef range(i64 0, 4294967312) %41, i64 noundef 0) #4
   br label %69
 
 49:                                               ; preds = %20

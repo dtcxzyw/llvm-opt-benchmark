@@ -7609,8 +7609,8 @@ default.unreachable:                              ; preds = %if.end.i.i.i
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
   %retval.0.i.i.i = phi i32 [ %11, %sw.bb7.i.i.i ], [ %sub.i.i.i, %sw.bb5.i.i.i ], [ %add.i.i.i, %sw.bb3.i.i.i ]
-  %cmp128.not = icmp eq i32 %retval.0.i.i.i, 0
-  br i1 %cmp128.not, label %for.end, label %for.body.preheader
+  %cmp133.not = icmp eq i32 %retval.0.i.i.i, 0
+  br i1 %cmp133.not, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZNK4goal4sizeEv.exit
   %wide.trip.count = zext i32 %retval.0.i.i.i to i64
@@ -7833,7 +7833,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i
 
 entry.if.end_crit_edge.i.i:                       ; preds = %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i
   %.pre.i.i = load ptr, ptr %result, align 8
-  br label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
+  br label %if.end42.thread
 
 if.then.i.i35:                                    ; preds = %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i
   %shl.i.i.i = shl i32 %42, 1
@@ -7881,9 +7881,9 @@ _ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i:    ; preds = %.noexc38, %for.end.
   %.pre1.i.i = phi i32 [ %43, %for.end.i.i.i ], [ %.pre1.pre.i.i, %.noexc38 ]
   store ptr %call.i.i.i37, ptr %result, align 8
   store i32 %shl.i.i.i, ptr %m_capacity.i.i, align 4
-  br label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
+  br label %if.end42.thread
 
-_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit: ; preds = %entry.if.end_crit_edge.i.i, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i
+if.end42.thread:                                  ; preds = %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i, %entry.if.end_crit_edge.i.i
   %45 = phi i32 [ %41, %entry.if.end_crit_edge.i.i ], [ %.pre1.i.i, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i ]
   %46 = phi ptr [ %.pre.i.i, %entry.if.end_crit_edge.i.i ], [ %call.i.i.i37, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i ]
   %idx.ext.i.i = zext i32 %45 to i64
@@ -7892,7 +7892,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
   %47 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i = add i32 %47, 1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
-  br label %if.end42
+  br label %if.then.i.i111
 
 if.else.if.then.i.i.i40_crit_edge:                ; preds = %if.then
   %.pre = load i32, ptr %m_ref_count.i.i.i, align 8
@@ -7911,7 +7911,7 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i
 
 entry.if.end_crit_edge.i.i73:                     ; preds = %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i43
   %.pre.i.i74 = load ptr, ptr %result, align 8
-  br label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit78
+  br label %if.end42
 
 if.then.i.i47:                                    ; preds = %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE7inc_refEPS0_.exit.i43
   %shl.i.i.i48 = shl i32 %50, 1
@@ -7959,9 +7959,9 @@ _ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i68:  ; preds = %.noexc77, %for.end.
   %.pre1.i.i69 = phi i32 [ %51, %for.end.i.i.i61 ], [ %.pre1.pre.i.i67, %.noexc77 ]
   store ptr %call.i.i.i76, ptr %result, align 8
   store i32 %shl.i.i.i48, ptr %m_capacity.i.i45, align 4
-  br label %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit78
+  br label %if.end42
 
-_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit78: ; preds = %entry.if.end_crit_edge.i.i73, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i68
+if.end42:                                         ; preds = %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i68, %entry.if.end_crit_edge.i.i73
   %53 = phi i32 [ %49, %entry.if.end_crit_edge.i.i73 ], [ %.pre1.i.i69, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i68 ]
   %54 = phi ptr [ %.pre.i.i74, %entry.if.end_crit_edge.i.i73 ], [ %call.i.i.i76, %_ZN6bufferIP4goalLb0ELj16EE6expandEv.exit.i.i68 ]
   %idx.ext.i.i70 = zext i32 %53 to i64
@@ -7970,9 +7970,6 @@ _ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
   %55 = load i32, ptr %m_pos.i.i44, align 8
   %inc.i.i72 = add i32 %55, 1
   store i32 %inc.i.i72, ptr %m_pos.i.i44, align 8
-  br label %if.end42
-
-if.end42:                                         ; preds = %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit78, %_ZN15ref_buffer_coreI4goal21ref_unmanaged_wrapperIS0_ELj16EE9push_backEPS0_.exit
   %56 = load ptr, ptr %g, align 8
   %m_models_enabled.i = getelementptr inbounds nuw i8, ptr %56, i64 120
   %bf.load.i79 = load i32, ptr %m_models_enabled.i, align 8
@@ -8115,7 +8112,7 @@ lpad52:                                           ; preds = %if.then.i.i.i.i, %i
   call void @_ZN3refI5modelED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %abstr_model) #20
   br label %ehcleanup57
 
-if.then.i.i111:                                   ; preds = %if.end42, %_ZN3refI9ackr_infoED2Ev.exit, %if.then.i.i103, %if.then.i.i.i107
+if.then.i.i111:                                   ; preds = %if.end42, %if.end42.thread, %_ZN3refI9ackr_infoED2Ev.exit, %if.then.i.i103, %if.then.i.i.i107
   %78 = load i32, ptr %m_ref_count.i.i.i, align 8
   %dec.i.i.i113 = add i32 %78, -1
   store i32 %dec.i.i.i113, ptr %m_ref_count.i.i.i, align 8

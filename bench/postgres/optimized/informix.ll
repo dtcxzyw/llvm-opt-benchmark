@@ -920,7 +920,7 @@ define range(i32 -1, 1) i32 @rfmtlong(i64 noundef %0, ptr noundef readonly %1, p
   br i1 %exitcond.not.i, label %.loopexit177, label %.lr.ph.i, !llvm.loop !6
 
 38:                                               ; preds = %26
-  tail call void @free(ptr noundef %7) #16
+  tail call void @free(ptr noundef nonnull %7) #16
   %39 = tail call ptr @__errno_location() #15
   store i32 12, ptr %39, align 4
   br label %169

@@ -407,7 +407,7 @@ Abc_TtOrAnd.exit.us:                              ; preds = %Abc_TtOrAnd.exit.us
   store i64 %26, ptr %.val, align 8, !tbaa !49
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
-  br i1 %exitcond77.not, label %.critedge, label %Abc_TtOrAnd.exit.us, !llvm.loop !56
+  br i1 %exitcond77.not, label %.lr.ph.preheader.i60, label %Abc_TtOrAnd.exit.us, !llvm.loop !56
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %27 = icmp sgt i32 %.pre, 0
@@ -455,11 +455,11 @@ Abc_TtOrAnd.exit.loopexit.us:                     ; preds = %.lr.ph.i.us
   %puts52 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %76
 
-.critedge:                                        ; preds = %Abc_TtOrAnd.exit.loopexit.us, %Abc_TtOrAnd.exit.us, %.preheader66
+.critedge:                                        ; preds = %Abc_TtOrAnd.exit.loopexit.us, %.preheader66
   %47 = icmp sgt i32 %.pre, 0
   br i1 %47, label %.lr.ph.preheader.i60, label %Abc_TtCountOnesVec.exit
 
-.lr.ph.preheader.i60:                             ; preds = %.critedge
+.lr.ph.preheader.i60:                             ; preds = %Abc_TtOrAnd.exit.us, %.critedge
   %wide.trip.count.i61 = zext nneg i32 %.pre to i64
   br label %.lr.ph.i62
 
@@ -913,17 +913,17 @@ Abc_TtIsConst0.exit:                              ; preds = %.lr.ph.i, %.lr.ph.i
   store i64 %136, ptr %132, align 8, !tbaa !49
   %indvars.iv.next.i164 = add nuw nsw i64 %indvars.iv.i163, 1
   %exitcond.not.i165 = icmp eq i64 %indvars.iv.next.i164, %wide.trip.count.i
-  br i1 %exitcond.not.i165, label %Abc_TtOr.exit166, label %.lr.ph.i162, !llvm.loop !59
+  br i1 %exitcond.not.i165, label %.lr.ph.preheader.i167, label %.lr.ph.i162, !llvm.loop !59
 
-Abc_TtOr.exit166:                                 ; preds = %.lr.ph.i162
+.lr.ph.preheader.i167:                            ; preds = %.lr.ph.i162
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %139 = load ptr, ptr %138, align 8, !tbaa !46
   %140 = load ptr, ptr %137, align 8, !tbaa !46
   br label %.lr.ph.i169
 
-.lr.ph.i169:                                      ; preds = %.lr.ph.i169, %Abc_TtOr.exit166
-  %indvars.iv.i170 = phi i64 [ 0, %Abc_TtOr.exit166 ], [ %indvars.iv.next.i171, %.lr.ph.i169 ]
+.lr.ph.i169:                                      ; preds = %.lr.ph.i169, %.lr.ph.preheader.i167
+  %indvars.iv.i170 = phi i64 [ 0, %.lr.ph.preheader.i167 ], [ %indvars.iv.next.i171, %.lr.ph.i169 ]
   %141 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv.i170
   %142 = load i64, ptr %141, align 8, !tbaa !49
   %143 = getelementptr inbounds nuw i64, ptr %140, i64 %indvars.iv.i170

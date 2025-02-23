@@ -3109,7 +3109,7 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %39 = add i32 %.08896.us, 4
   %40 = add nuw nsw i32 %.08995.us, 1
   %exitcond113.not = icmp eq i32 %40, %29
-  br i1 %exitcond113.not, label %._crit_edge99, label %.lr.ph.us, !llvm.loop !18
+  br i1 %exitcond113.not, label %._crit_edge99.thread, label %.lr.ph.us, !llvm.loop !18
 
 .lr.ph98.split:                                   ; preds = %.lr.ph98, %._crit_edge
   %.08896 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 16, %.lr.ph98 ]
@@ -3144,10 +3144,10 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %exitcond112.not = icmp eq i32 %57, %29
   br i1 %exitcond112.not, label %._crit_edge99, label %.lr.ph98.split, !llvm.loop !18
 
-._crit_edge99:                                    ; preds = %._crit_edge, %.lr.ph.us, %19
-  %.088.lcssa = phi i32 [ 16, %19 ], [ %39, %.lr.ph.us ], [ %.2.lcssa, %._crit_edge ]
+._crit_edge99:                                    ; preds = %._crit_edge, %19
+  %.088.lcssa = phi i32 [ 16, %19 ], [ %.2.lcssa, %._crit_edge ]
   %58 = icmp ugt i32 %5, 3
-  br i1 %58, label %59, label %75
+  br i1 %58, label %59, label %._crit_edge99.thread
 
 59:                                               ; preds = %._crit_edge99
   %60 = add i32 %.088.lcssa, %.087
@@ -3178,12 +3178,12 @@ dissect_sflow_245_address_type.exit:              ; preds = %7, %12, %14, %16
   %72 = add i32 %.4.lcssa, %.087
   %73 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %72, i32 noundef 4, i32 noundef 0)
   %74 = add i32 %.4.in.lcssa, 8
-  br label %75
+  br label %._crit_edge99.thread
 
-75:                                               ; preds = %._crit_edge106, %._crit_edge99
-  %.3 = phi i32 [ %74, %._crit_edge106 ], [ %.088.lcssa, %._crit_edge99 ]
-  %76 = add i32 %.3, %.087
-  ret i32 %76
+._crit_edge99.thread:                             ; preds = %.lr.ph.us, %._crit_edge106, %._crit_edge99
+  %.3 = phi i32 [ %74, %._crit_edge106 ], [ %.088.lcssa, %._crit_edge99 ], [ %39, %.lr.ph.us ]
+  %75 = add i32 %.3, %.087
+  ret i32 %75
 }
 
 ; Function Attrs: null_pointer_is_valid

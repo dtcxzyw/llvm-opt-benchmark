@@ -1286,7 +1286,7 @@ Vec_PtrPush.exit:                                 ; preds = %26, %Abc_Clock.exit
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge, %44
   call void @free(ptr noundef nonnull %15) #13
-  %45 = call ptr @Dch_ComputeChoices(ptr noundef %37, ptr noundef %1) #13
+  %45 = call ptr @Dch_ComputeChoices(ptr noundef %37, ptr noundef nonnull %1) #13
   call void @Aig_ManStop(ptr noundef %37) #13
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %47 = load ptr, ptr %46, align 8, !tbaa !55

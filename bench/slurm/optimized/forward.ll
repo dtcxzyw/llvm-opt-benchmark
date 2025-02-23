@@ -1686,7 +1686,7 @@ _forward_get_addr.exit:                           ; preds = %._forward_get_addr.
   call void @free(ptr noundef nonnull %152) #10
   %157 = call ptr @hostlist_shift(ptr noundef %9) #10
   %.not242 = icmp eq ptr %157, null
-  br i1 %.not242, label %.loopexit, label %.lr.ph, !llvm.loop !19
+  br i1 %.not242, label %.thread269, label %.lr.ph, !llvm.loop !19
 
 158:                                              ; preds = %138
   %159 = load i16, ptr %15, align 2
@@ -1933,13 +1933,13 @@ split:                                            ; preds = %163, %._crit_edge44
   call void @free(ptr noundef %18) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %43, %.lr.ph, %.thread264
-  %.1182 = phi i32 [ %.2262268, %.thread264 ], [ %50, %.lr.ph ], [ %.0181.ph, %43 ]
+.loopexit:                                        ; preds = %43, %.thread264
+  %.1182 = phi i32 [ %.2262268, %.thread264 ], [ %.0181.ph, %43 ]
   %249 = icmp sgt i32 %.1182, -1
   br i1 %249, label %.thread269, label %.thread272
 
-.thread269:                                       ; preds = %177, %124, %146, %.loopexit
-  %.1182271 = phi i32 [ %.1182, %.loopexit ], [ %50, %146 ], [ %50, %124 ], [ %50, %177 ]
+.thread269:                                       ; preds = %177, %124, %.lr.ph, %146, %.loopexit
+  %.1182271 = phi i32 [ %.1182, %.loopexit ], [ %50, %146 ], [ %50, %.lr.ph ], [ %50, %124 ], [ %50, %177 ]
   %250 = call i32 @close(i32 noundef %.1182271) #10
   %251 = icmp slt i32 %250, 0
   br i1 %251, label %252, label %.thread272

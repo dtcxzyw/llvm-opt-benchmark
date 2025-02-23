@@ -1263,11 +1263,11 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit.i:  ; preds = %9, %_ZNSt12_Vector_
 
 .lr.ph.i:                                         ; preds = %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit.i, %.lr.ph.i
   %.08.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit.i ]
-  %29 = getelementptr inbounds %"class.cv::Mat", ptr %12, i64 %.08.i
-  %30 = getelementptr inbounds ptr, ptr %28, i64 %.08.i
+  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %12, i64 %.08.i
+  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %.08.i
   store ptr %29, ptr %30, align 8
-  %31 = add nuw i64 %.08.i, 1
-  %32 = icmp ult i64 %31, %16
+  %31 = add nuw nsw i64 %.08.i, 1
+  %32 = icmp samesign ult i64 %31, %16
   br i1 %32, label %.lr.ph.i, label %_ZN2cv3dnn14dnn4_v20240521L9vecToPVecINS_3MatEEEvRKSt6vectorIT_SaIS5_EERS4_IPS5_SaISA_EE.exit, !llvm.loop !11
 
 _ZN2cv3dnn14dnn4_v20240521L9vecToPVecINS_3MatEEEvRKSt6vectorIT_SaIS5_EERS4_IPS5_SaISA_EE.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit.i
@@ -2282,7 +2282,7 @@ _ZSt6fill_nIPPN2cv3MatEmS2_ET_S4_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.n
   %283 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv
   store ptr %282, ptr %283, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %284 = icmp ugt i64 %270, %indvars.iv.next
+  %284 = icmp samesign ugt i64 %270, %indvars.iv.next
   br i1 %284, label %.lr.ph, label %._crit_edge, !llvm.loop !27
 
 285:                                              ; preds = %262, %261, %260

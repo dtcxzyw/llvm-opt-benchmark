@@ -2905,8 +2905,8 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread49: ; preds = %40, %_Z
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load i8, ptr %54, align 16
   %56 = icmp eq i8 %55, 13
-  %.not.not7.i.i = icmp ne ptr %53, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %56
+  %.not7.i.i = icmp ne ptr %53, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %56
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %.critedge23
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread49
@@ -3398,8 +3398,8 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread59: ; preds = %38, %_Z
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i8, ptr %52, align 16
   %54 = icmp eq i8 %53, 13
-  %.not.not7.i.i = icmp ne ptr %51, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %54
+  %.not7.i.i = icmp ne ptr %51, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %54
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %.critedge
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread59
@@ -7146,8 +7146,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i: ; preds = %1253, %_ZN
   %1267 = getelementptr inbounds nuw i8, ptr %1266, i64 16
   %1268 = load i8, ptr %1267, align 16
   %1269 = icmp eq i8 %1268, 13
-  %.not.not7.i.i.i.i = icmp ne ptr %1266, null
-  %.not.not.not.i.i.i.i = and i1 %.not.not7.i.i.i.i, %1269
+  %.not7.i.i.i.i = icmp ne ptr %1266, null
+  %.not.not.not.i.i.i.i = and i1 %.not7.i.i.i.i, %1269
   br i1 %.not.not.not.i.i.i.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit: ; preds = %1258
@@ -7193,8 +7193,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i222: ; preds = %1281, %
   %1295 = getelementptr inbounds nuw i8, ptr %1294, i64 16
   %1296 = load i8, ptr %1295, align 16
   %1297 = icmp eq i8 %1296, 13
-  %.not.not7.i.i.i.i226 = icmp ne ptr %1294, null
-  %.not.not.not.i.i.i.i227 = and i1 %.not.not7.i.i.i.i226, %1297
+  %.not7.i.i.i.i226 = icmp ne ptr %1294, null
+  %.not.not.not.i.i.i.i227 = and i1 %.not7.i.i.i.i226, %1297
   br i1 %.not.not.not.i.i.i.i227, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit228, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit228.thread
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit228: ; preds = %1286
@@ -9761,35 +9761,35 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge: ; preds = %_Z
 58:                                               ; preds = %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge, %48
   %59 = phi i32 [ %.pre, %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge ], [ %52, %48 ]
   %60 = and i32 %59, 65535
-  %.not48 = icmp eq i32 %60, 0
-  br i1 %.not48, label %.loopexit, label %.lr.ph
+  %.not49 = icmp eq i32 %60, 0
+  br i1 %.not49, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %58
-  %61 = and i32 %59, 16777216
-  %.not.i30 = icmp eq i32 %61, 0
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %63 = load i64, ptr %62, align 8
-  %64 = inttoptr i64 %63 to ptr
-  %.0.i31 = select i1 %.not.i30, ptr null, ptr %64
-  %.0.i31.fr = freeze ptr %.0.i31
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = load i64, ptr %61, align 8
+  %63 = inttoptr i64 %62 to ptr
+  %64 = and i32 %59, 16777216
+  %.not.i30 = icmp eq i32 %64, 0
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.not26 = icmp eq ptr %.0.i31.fr, null
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i31.fr, i64 96
+  %.not2644 = icmp eq i64 %62, 0
+  %.not26 = select i1 %.not.i30, i1 true, i1 %.not2644
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 96
+  %.not26.fr = freeze i1 %.not26
   %67 = zext nneg i32 %60 to i64
-  br i1 %.not26, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not26.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %72
-  %indvars.iv61 = phi i64 [ %indvars.iv.next62, %72 ], [ 0, %.lr.ph ]
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %72 ], [ 0, %.lr.ph ]
   %68 = load ptr, ptr %0, align 8, !tbaa !9
-  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv61
+  %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv62
   %70 = load ptr, ptr %69, align 8, !tbaa !788
   %71 = call fastcc noundef ptr @_ZN5clangL17findCapturingExprERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17504) %68, ptr noundef %70, ptr noundef nonnull align 8 dereferenceable(21) %5)
   %.not25.us = icmp eq ptr %71, null
   br i1 %.not25.us, label %72, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread
 
 72:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %.not.us = icmp eq i64 %indvars.iv.next62, %67
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
+  %.not.us = icmp eq i64 %indvars.iv.next63, %67
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !1325
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %99
@@ -9835,8 +9835,8 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit._crit_edge: ; preds = %_Z
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i, !llvm.loop !1331
 
 _ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not44 = icmp eq ptr %.sroa.07.1.i.i.i.i, %90
-  br i1 %.not44, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread, label %99
+  %.not45 = icmp eq ptr %.sroa.07.1.i.i.i.i, %90
+  br i1 %.not45, label %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread, label %99
 
 _ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit.thread: ; preds = %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit, %77, %84, %95, %.lr.ph.split.us
   %97 = phi ptr [ %71, %.lr.ph.split.us ], [ %76, %95 ], [ %76, %84 ], [ %76, %77 ], [ %76, %_ZNK5clang4Decl7hasAttrINS_12NoEscapeAttrEEEbv.exit ]
@@ -12273,8 +12273,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %382, %_Z
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 16
   %397 = load i8, ptr %396, align 16
   %398 = icmp eq i8 %397, 13
-  %.not.not7.i.i.i.i.i = icmp ne ptr %395, null
-  %.not.not.not.i.i.i.i.i = and i1 %.not.not7.i.i.i.i.i, %398
+  %.not7.i.i.i.i.i = icmp ne ptr %395, null
+  %.not.not.not.i.i.i.i.i = and i1 %.not7.i.i.i.i.i, %398
   br i1 %.not.not.not.i.i.i.i.i, label %_ZNK5clang4Type12isObjCIdTypeEv.exit, label %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread
 
 _ZNK5clang4Type12isObjCIdTypeEv.exit:             ; preds = %387
@@ -15042,8 +15042,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %335, %_Z
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 16
   %350 = load i8, ptr %349, align 16
   %351 = icmp eq i8 %350, 13
-  %.not.not7.i.i.i.i.i = icmp ne ptr %348, null
-  %.not.not.not.i.i.i.i.i = and i1 %.not.not7.i.i.i.i.i, %351
+  %.not7.i.i.i.i.i = icmp ne ptr %348, null
+  %.not.not.not.i.i.i.i.i = and i1 %.not7.i.i.i.i.i, %351
   br i1 %.not.not.not.i.i.i.i.i, label %_ZNK5clang4Type12isObjCIdTypeEv.exit, label %_ZNK5clang4Type12isObjCIdTypeEv.exit.thread
 
 _ZNK5clang4Type12isObjCIdTypeEv.exit:             ; preds = %340
@@ -27979,8 +27979,8 @@ define dso_local noundef zeroext i1 @_ZN5clang8SemaObjC16isSignedCharBoolENS_8Qu
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
   %12 = icmp eq i8 %11, 13
-  %.not.not7.i = icmp ne ptr %9, null
-  %.not.not.not.i = and i1 %.not.not7.i, %12
+  %.not7.i = icmp ne ptr %9, null
+  %.not.not.not.i = and i1 %.not7.i, %12
   br i1 %.not.not.not.i, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread
 
 _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit:    ; preds = %2

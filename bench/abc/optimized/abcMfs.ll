@@ -2174,7 +2174,7 @@ define ptr @Abc_NtkUnrollAndDrop(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %.val104.val = load ptr, ptr %16, align 8, !tbaa !26
   %17 = getelementptr inbounds nuw ptr, ptr %.val104.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !27
-  %19 = tail call ptr @Abc_NtkCreateObj(ptr noundef %9, i32 noundef 2) #16
+  %19 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %9, i32 noundef 2) #16
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %19, ptr %20, align 8, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

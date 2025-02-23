@@ -1997,7 +1997,7 @@ define range(i32 -128, 128) i32 @xSAT_SolverSolve(ptr noundef %0) local_unnamed_
   br label %25
 
 25:                                               ; preds = %.preheader, %25
-  %26 = tail call signext i8 @xSAT_SolverSearch(ptr noundef %0) #18
+  %26 = tail call signext i8 @xSAT_SolverSearch(ptr noundef nonnull %0) #18
   %27 = icmp eq i8 %26, 0
   br i1 %27, label %25, label %28, !llvm.loop !107
 

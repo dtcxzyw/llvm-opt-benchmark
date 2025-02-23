@@ -741,7 +741,7 @@ WebRates.exit.critedge:                           ; preds = %dotprod.exit.i
   store double %72, ptr %71, align 8, !tbaa !31
   %124 = getelementptr inbounds nuw [20 x [20 x ptr]], ptr %28, i64 0, i64 %indvars.iv117, i64 %indvars.iv120
   %125 = load ptr, ptr %124, align 8, !tbaa !19
-  %126 = call i64 @SUNDlsMat_denseGETRF(ptr noundef %43, i64 noundef 2, i64 noundef 2, ptr noundef %125) #12
+  %126 = call i64 @SUNDlsMat_denseGETRF(ptr noundef nonnull %43, i64 noundef 2, i64 noundef 2, ptr noundef %125) #12
   %.not96 = icmp eq i64 %126, 0
   br i1 %.not96, label %37, label %.loopexit
 

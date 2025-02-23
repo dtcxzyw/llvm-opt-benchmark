@@ -69995,11 +69995,11 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   br label %14
 
 14:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit
-  %15 = phi i64 [ %9, %.lr.ph ], [ %113, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %63, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit ]
+  %15 = phi i64 [ %9, %.lr.ph ], [ %111, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %61, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit ]
   %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.011.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit ]
   %16 = icmp eq i64 %.022, 0
-  br i1 %16, label %17, label %62
+  br i1 %16, label %17, label %60
 
 17:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -70044,170 +70044,177 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
   %38 = and i64 %21, 8
   %39 = icmp eq i64 %38, 0
-  br i1 %39, label %40, label %50
+  br i1 %39, label %40, label %49
 
 40:                                               ; preds = %._crit_edge.i.i.i.i
   %41 = add nsw i64 %22, -2
   %42 = ashr exact i64 %41, 1
   %43 = icmp eq i64 %.0.lcssa.i.i.i.i, %42
-  br i1 %43, label %44, label %50
+  br i1 %43, label %.thread.i.i.i, label %49
 
-44:                                               ; preds = %40
-  %45 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
-  %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %46
-  %48 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %.0.lcssa.i.i.i.i
-  %49 = load i64, ptr %47, align 4
-  store i64 %49, ptr %48, align 4
-  br label %50
+.thread.i.i.i:                                    ; preds = %40
+  %44 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %45 = or disjoint i64 %44, 1
+  %46 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %45
+  %47 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %48 = load i64, ptr %46, align 4
+  store i64 %48, ptr %47, align 4
+  %.sroa.2.0.extract.shift.i.i12.i.i.i = lshr i64 %.sroa.03.0.copyload.i.i.i, 32
+  %.sroa.2.0.extract.trunc.i.i13.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i12.i.i.i to i32
+  br label %.lr.ph.i.i.preheader.i.i.i
 
-50:                                               ; preds = %44, %40, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %46, %44 ], [ %.0.lcssa.i.i.i.i, %40 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+49:                                               ; preds = %40, %._crit_edge.i.i.i.i
   %.sroa.2.0.extract.shift.i.i.i.i.i = lshr i64 %.sroa.03.0.copyload.i.i.i, 32
   %.sroa.2.0.extract.trunc.i.i.i.i.i = trunc nuw i64 %.sroa.2.0.extract.shift.i.i.i.i.i to i32
-  %51 = bitcast i32 %.sroa.2.0.extract.trunc.i.i.i.i.i to float
-  %52 = icmp sgt i64 %.1.i.i.i.i, 0
-  br i1 %52, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %50, %57
-  %.020.i.i.i.i.i = phi i64 [ %.0921.i.i89.i.i.i, %57 ], [ %.1.i.i.i.i, %50 ]
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %49, %.thread.i.i.i
+  %.sroa.2.0.extract.trunc.i.i16.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i13.i.i.i, %.thread.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %49 ]
+  %.1.i15.i.i.i = phi i64 [ %45, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %49 ]
+  %50 = bitcast i32 %.sroa.2.0.extract.trunc.i.i16.i.i.i to float
+  br label %.lr.ph.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i:                                 ; preds = %55, %.lr.ph.i.i.preheader.i.i.i
+  %.020.i.i.i.i.i = phi i64 [ %.0921.i.i89.i.i.i, %55 ], [ %.1.i15.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
   %.0921.in.i.i.i.i.i = add nsw i64 %.020.i.i.i.i.i, -1
   %.0921.i.i89.i.i.i = lshr i64 %.0921.in.i.i.i.i.i, 1
-  %53 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %.0921.i.i89.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = load float, ptr %54, align 4
-  %56 = fcmp ogt float %55, %51
-  br i1 %56, label %57, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i
+  %51 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %.0921.i.i89.i.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %53 = load float, ptr %52, align 4
+  %54 = fcmp ogt float %53, %50
+  br i1 %54, label %55, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i
 
-57:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %58 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %.020.i.i.i.i.i
-  %59 = load i64, ptr %53, align 4
-  store i64 %59, ptr %58, align 4
-  %.not.i.i.i = icmp ult i64 %.0921.in.i.i.i.i.i, 2
-  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !833
+55:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %56 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %.020.i.i.i.i.i
+  %57 = load i64, ptr %51, align 4
+  store i64 %57, ptr %56, align 4
+  %.not10.i.i.i = icmp ult i64 %.0921.in.i.i.i.i.i, 2
+  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !833
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i: ; preds = %57, %.lr.ph.i.i.i.i.i, %50
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %50 ], [ %.020.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %57 ]
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i: ; preds = %55, %.lr.ph.i.i.i.i.i, %49
+  %.sroa.2.0.extract.trunc.i.i17.i.i.i = phi i32 [ %.sroa.2.0.extract.trunc.i.i.i.i.i, %49 ], [ %.sroa.2.0.extract.trunc.i.i16.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.sroa.2.0.extract.trunc.i.i16.i.i.i, %55 ]
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %49 ], [ 0, %55 ], [ %.020.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %.sroa.012.0.extract.trunc.i.i.i.i.i = trunc i64 %.sroa.03.0.copyload.i.i.i to i32
-  %60 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %.sroa.012.0.extract.trunc.i.i.i.i.i, ptr %60, align 4
-  %.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 %.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %.sroa.0.0..sroa_idx.i.i.i.i.i, align 4
-  %61 = icmp sgt i64 %21, 8
-  br i1 %61, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_T0_.exit, !llvm.loop !834
+  %58 = getelementptr inbounds %struct.boneIndexWeightPair, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %.sroa.012.0.extract.trunc.i.i.i.i.i, ptr %58, align 4
+  %.sroa.0.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 %.sroa.2.0.extract.trunc.i.i17.i.i.i, ptr %.sroa.0.0..sroa_idx.i.i.i.i.i, align 4
+  %59 = icmp sgt i64 %21, 8
+  br i1 %59, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_T0_.exit, !llvm.loop !834
 
-62:                                               ; preds = %14
-  %63 = add nsw i64 %.022, -1
-  %64 = lshr i64 %15, 1
-  %65 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %64
-  %66 = getelementptr inbounds i8, ptr %storemerge21, i64 -8
-  %67 = load float, ptr %12, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  %69 = load float, ptr %68, align 4
-  %70 = fcmp ogt float %67, %69
-  %71 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
-  %72 = load float, ptr %71, align 4
-  br i1 %70, label %73, label %85
+60:                                               ; preds = %14
+  %61 = add nsw i64 %.022, -1
+  %62 = lshr i64 %15, 1
+  %63 = getelementptr inbounds nuw %struct.boneIndexWeightPair, ptr %0, i64 %62
+  %64 = getelementptr inbounds i8, ptr %storemerge21, i64 -8
+  %65 = load float, ptr %12, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %67 = load float, ptr %66, align 4
+  %68 = fcmp ogt float %65, %67
+  %69 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
+  %70 = load float, ptr %69, align 4
+  br i1 %68, label %71, label %83
 
-73:                                               ; preds = %62
-  %74 = fcmp ogt float %69, %72
-  br i1 %74, label %75, label %78
+71:                                               ; preds = %60
+  %72 = fcmp ogt float %67, %70
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %73
-  %76 = load i64, ptr %0, align 4
-  %77 = load i64, ptr %65, align 4
-  store i64 %77, ptr %0, align 4
-  store i64 %76, ptr %65, align 4
+73:                                               ; preds = %71
+  %74 = load i64, ptr %0, align 4
+  %75 = load i64, ptr %63, align 4
+  store i64 %75, ptr %0, align 4
+  store i64 %74, ptr %63, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-78:                                               ; preds = %73
-  %79 = fcmp ogt float %67, %72
-  %80 = load i64, ptr %0, align 4
-  br i1 %79, label %81, label %83
+76:                                               ; preds = %71
+  %77 = fcmp ogt float %65, %70
+  %78 = load i64, ptr %0, align 4
+  br i1 %77, label %79, label %81
 
-81:                                               ; preds = %78
-  %82 = load i64, ptr %66, align 4
+79:                                               ; preds = %76
+  %80 = load i64, ptr %64, align 4
+  store i64 %80, ptr %0, align 4
+  store i64 %78, ptr %64, align 4
+  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
+
+81:                                               ; preds = %76
+  %82 = load i64, ptr %11, align 4
   store i64 %82, ptr %0, align 4
-  store i64 %80, ptr %66, align 4
+  store i64 %78, ptr %11, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-83:                                               ; preds = %78
-  %84 = load i64, ptr %11, align 4
-  store i64 %84, ptr %0, align 4
-  store i64 %80, ptr %11, align 4
+83:                                               ; preds = %60
+  %84 = fcmp ogt float %65, %70
+  br i1 %84, label %85, label %88
+
+85:                                               ; preds = %83
+  %86 = load i64, ptr %0, align 4
+  %87 = load i64, ptr %11, align 4
+  store i64 %87, ptr %0, align 4
+  store i64 %86, ptr %11, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-85:                                               ; preds = %62
-  %86 = fcmp ogt float %67, %72
-  br i1 %86, label %87, label %90
+88:                                               ; preds = %83
+  %89 = fcmp ogt float %67, %70
+  %90 = load i64, ptr %0, align 4
+  br i1 %89, label %91, label %93
 
-87:                                               ; preds = %85
-  %88 = load i64, ptr %0, align 4
-  %89 = load i64, ptr %11, align 4
-  store i64 %89, ptr %0, align 4
-  store i64 %88, ptr %11, align 4
+91:                                               ; preds = %88
+  %92 = load i64, ptr %64, align 4
+  store i64 %92, ptr %0, align 4
+  store i64 %90, ptr %64, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-90:                                               ; preds = %85
-  %91 = fcmp ogt float %69, %72
-  %92 = load i64, ptr %0, align 4
-  br i1 %91, label %93, label %95
-
-93:                                               ; preds = %90
-  %94 = load i64, ptr %66, align 4
+93:                                               ; preds = %88
+  %94 = load i64, ptr %63, align 4
   store i64 %94, ptr %0, align 4
-  store i64 %92, ptr %66, align 4
+  store i64 %90, ptr %63, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
 
-95:                                               ; preds = %90
-  %96 = load i64, ptr %65, align 4
-  store i64 %96, ptr %0, align 4
-  store i64 %92, ptr %65, align 4
-  br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader
-
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader: ; preds = %95, %93, %87, %83, %81, %75
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader: ; preds = %93, %91, %85, %81, %79, %73
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader, %108
-  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.1.i.i, %108 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader ]
-  %.sroa.011.0.i.i = phi ptr [ %102, %108 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader ]
-  %97 = load float, ptr %13, align 4
-  br label %98
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader, %106
+  %.sroa.08.0.i.i = phi ptr [ %.sroa.08.1.i.i, %106 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader ]
+  %.sroa.011.0.i.i = phi ptr [ %100, %106 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i.preheader ]
+  %95 = load float, ptr %13, align 4
+  br label %96
 
-98:                                               ; preds = %98, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i
-  %.sroa.011.1.i.i = phi ptr [ %.sroa.011.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i ], [ %102, %98 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 4
-  %100 = load float, ptr %99, align 4
-  %101 = fcmp ogt float %100, %97
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 8
-  br i1 %101, label %98, label %.preheader.i.i, !llvm.loop !835
+96:                                               ; preds = %96, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i
+  %.sroa.011.1.i.i = phi ptr [ %.sroa.011.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i ], [ %100, %96 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 4
+  %98 = load float, ptr %97, align 4
+  %99 = fcmp ogt float %98, %95
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.011.1.i.i, i64 8
+  br i1 %99, label %96, label %.preheader.i.i, !llvm.loop !835
 
-.preheader.i.i:                                   ; preds = %98, %.preheader.i.i
-  %.sroa.08.0.pn.i.i = phi ptr [ %.sroa.08.1.i.i, %.preheader.i.i ], [ %.sroa.08.0.i.i, %98 ]
+.preheader.i.i:                                   ; preds = %96, %.preheader.i.i
+  %.sroa.08.0.pn.i.i = phi ptr [ %.sroa.08.1.i.i, %.preheader.i.i ], [ %.sroa.08.0.i.i, %96 ]
   %.sroa.08.1.i.i = getelementptr inbounds i8, ptr %.sroa.08.0.pn.i.i, i64 -8
-  %103 = getelementptr inbounds i8, ptr %.sroa.08.0.pn.i.i, i64 -4
-  %104 = load float, ptr %103, align 4
-  %105 = fcmp ogt float %97, %104
-  br i1 %105, label %.preheader.i.i, label %106, !llvm.loop !836
+  %101 = getelementptr inbounds i8, ptr %.sroa.08.0.pn.i.i, i64 -4
+  %102 = load float, ptr %101, align 4
+  %103 = fcmp ogt float %95, %102
+  br i1 %103, label %.preheader.i.i, label %104, !llvm.loop !836
 
-106:                                              ; preds = %.preheader.i.i
-  %107 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.08.1.i.i
-  br i1 %107, label %108, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit
+104:                                              ; preds = %.preheader.i.i
+  %105 = icmp ult ptr %.sroa.011.1.i.i, %.sroa.08.1.i.i
+  br i1 %105, label %106, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit
 
-108:                                              ; preds = %106
-  %109 = load i64, ptr %.sroa.011.1.i.i, align 4
-  %110 = load i64, ptr %.sroa.08.1.i.i, align 4
-  store i64 %110, ptr %.sroa.011.1.i.i, align 4
-  store i64 %109, ptr %.sroa.08.1.i.i, align 4
+106:                                              ; preds = %104
+  %107 = load i64, ptr %.sroa.011.1.i.i, align 4
+  %108 = load i64, ptr %.sroa.08.1.i.i, align 4
+  store i64 %108, ptr %.sroa.011.1.i.i, align 4
+  store i64 %107, ptr %.sroa.08.1.i.i, align 4
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_SB_T0_.exit.i, !llvm.loop !837
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit: ; preds = %106
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_T0_T1_(ptr %.sroa.011.1.i.i, ptr %storemerge21, i64 noundef %63, i64 %3)
-  %111 = ptrtoint ptr %.sroa.011.1.i.i to i64
-  %112 = sub i64 %111, %6
-  %113 = ashr exact i64 %112, 3
-  %114 = icmp sgt i64 %113, 16
-  br i1 %114, label %14, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_T0_.exit, !llvm.loop !838
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit: ; preds = %104
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEElNS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_T0_T1_(ptr nonnull %.sroa.011.1.i.i, ptr %storemerge21, i64 noundef %61, i64 %3)
+  %109 = ptrtoint ptr %.sroa.011.1.i.i to i64
+  %110 = sub i64 %109, %6
+  %111 = ashr exact i64 %110, 3
+  %112 = icmp sgt i64 %111, 16
+  br i1 %112, label %14, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_T0_.exit, !llvm.loop !838
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEET_SB_SB_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIP19boneIndexWeightPairSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIS2_EEEvT_SB_SB_RT0_.exit.i.i, %4
   ret void

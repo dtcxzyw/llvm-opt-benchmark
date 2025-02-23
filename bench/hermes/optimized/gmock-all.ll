@@ -8642,7 +8642,7 @@ terminate.lpad.i.i:                               ; preds = %delete.notnull
   unreachable
 
 _ZN7testing8SequenceD2Ev.exit:                    ; preds = %_ZN7testing8internal19linked_ptr_internal6departEv.exit.i.i.i, %if.then.i.i.i, %delete.notnull.i.i.i
-  tail call void @_ZdlPv(ptr noundef %1) #30
+  tail call void @_ZdlPv(ptr noundef nonnull %1) #30
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN7testing8SequenceD2Ev.exit, %invoke.cont

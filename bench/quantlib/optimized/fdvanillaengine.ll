@@ -1763,12 +1763,12 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   store double %mul.i, ptr %arrayidx.i7.i, align 8, !tbaa !67, !noalias !70
   %inc.i = add nuw i64 %j.09.i, 1
   %exitcond.not.i = icmp eq i64 %j.09.i, %sub
-  br i1 %exitcond.not.i, label %_ZN8QuantLib14BoundedLogGridEddm.exit, label %for.body.i, !llvm.loop !73
+  br i1 %exitcond.not.i, label %if.then.i.i.i.i.i.i.i.i, label %for.body.i, !llvm.loop !73
 
-_ZN8QuantLib14BoundedLogGridEddm.exit:            ; preds = %for.body.i, %_ZN8QuantLib5ArrayC2Em.exit.i
+_ZN8QuantLib14BoundedLogGridEddm.exit:            ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
   br i1 %cmp.not.i.i, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i.i, label %if.then.i.i.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i.i.i:                          ; preds = %_ZN8QuantLib14BoundedLogGridEddm.exit
+if.then.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i, %_ZN8QuantLib14BoundedLogGridEddm.exit
   %4 = icmp ugt i64 %0, 2305843009213693951
   %5 = shl i64 %0, 3
   %6 = select i1 %4, i64 -1, i64 %5

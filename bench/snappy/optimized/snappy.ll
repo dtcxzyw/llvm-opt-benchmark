@@ -1202,17 +1202,17 @@ while.body20:                                     ; preds = %if.else, %while.bod
   %vfn22 = getelementptr inbounds nuw i8, ptr %vtable21, i64 24
   %14 = load ptr, ptr %vfn22, align 8
   %call23 = call noundef ptr %14(ptr noundef nonnull align 8 dereferenceable(8) %reader, ptr noundef nonnull %fragment_size) #19
-  %sub = sub nuw i64 %.sroa.speculated60, %bytes_read.071
+  %sub = sub nuw nsw i64 %.sroa.speculated60, %bytes_read.071
   %15 = load i64, ptr %fragment_size, align 8
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %sub, i64 %15)
   %add.ptr = getelementptr inbounds i8, ptr %add.ptr.i, i64 %bytes_read.071
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr align 1 %call23, i64 %.sroa.speculated, i1 false)
-  %add25 = add i64 %.sroa.speculated, %bytes_read.071
+  %add25 = add nuw nsw i64 %.sroa.speculated, %bytes_read.071
   %vtable26 = load ptr, ptr %reader, align 8
   %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 32
   %16 = load ptr, ptr %vfn27, align 8
   call void %16(ptr noundef nonnull align 8 dereferenceable(8) %reader, i64 noundef %.sroa.speculated) #19
-  %cmp19 = icmp ult i64 %add25, %.sroa.speculated60
+  %cmp19 = icmp samesign ult i64 %add25, %.sroa.speculated60
   br i1 %cmp19, label %while.body20, label %if.end, !llvm.loop !19
 
 if.end:                                           ; preds = %while.body20, %while.body
@@ -1240,8 +1240,10 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %mul.i = zext nneg i32 %18 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %call5.i.i, i8 0, i64 %mul.i, i1 false)
   %add.i = add nuw nsw i64 %.sroa.speculated60, 32
-  %div.i = udiv i64 %.sroa.speculated60, 6
-  %add1.i = add nuw nsw i64 %add.i, %div.i
+  %div.i.lhs.trunc = trunc nuw nsw i64 %.sroa.speculated60 to i32
+  %div.i75 = udiv i32 %div.i.lhs.trunc, 6
+  %div.i.zext = zext nneg i32 %div.i75 to i64
+  %add1.i = add nuw nsw i64 %add.i, %div.i.zext
   %vtable33 = load ptr, ptr %writer, align 8
   %vfn34 = getelementptr inbounds nuw i8, ptr %vtable33, i64 24
   %19 = load ptr, ptr %vfn34, align 8

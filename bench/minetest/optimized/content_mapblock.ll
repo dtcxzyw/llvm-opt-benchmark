@@ -9928,7 +9928,6 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %wide.trip.count = select i1 %offset_top_only, i64 2, i64 0
   br i1 %offset_top_only, label %for.body.epil, label %for.cond40.preheader.unr-lcssa
 
 for.cond40.preheader.unr-lcssa:                   ; preds = %if.end
@@ -9945,7 +9944,7 @@ for.body.epil:                                    ; preds = %if.end, %for.body.e
   store float %add.epil, ptr %Z37.epil, align 4, !tbaa !50
   %indvars.iv.next.epil = add nuw nsw i64 %indvars.iv.epil, 1
   %epil.iter.next = add i64 %epil.iter, 1
-  %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %wide.trip.count
+  %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, 2
   br i1 %epil.iter.cmp.not, label %for.cond40.preheader.loopexit, label %for.body.epil, !llvm.loop !175
 
 for.cond40.preheader.loopexit:                    ; preds = %for.body.epil

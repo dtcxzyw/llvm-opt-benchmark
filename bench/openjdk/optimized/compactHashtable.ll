@@ -443,9 +443,9 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   br label %12
 
-12:                                               ; preds = %.lr.ph37, %60
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next45, %60 ]
-  %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %60 ]
+12:                                               ; preds = %.lr.ph37, %59
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next45, %59 ]
+  %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %59 ]
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv44
   %15 = load ptr, ptr %14, align 8
@@ -474,7 +474,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %32 = load i32, ptr %11, align 4
   %33 = add nsw i32 %32, 1
   store i32 %33, ptr %11, align 4
-  br label %60
+  br label %59
 
 34:                                               ; preds = %12
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -511,50 +511,50 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   store i32 %.sroa.2.0.extract.trunc, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %39, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %39, %34
-  %.2.lcssa = phi i32 [ %.02235, %34 ], [ %49, %39 ]
+._crit_edge:                                      ; preds = %34
   %53 = icmp eq i32 %16, 0
-  br i1 %53, label %54, label %57
+  br i1 %53, label %54, label %._crit_edge.thread
 
 54:                                               ; preds = %._crit_edge
   %55 = load i32, ptr %10, align 8
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %10, align 8
-  br label %60
+  br label %59
 
-57:                                               ; preds = %._crit_edge
-  %58 = load i32, ptr %9, align 8
-  %59 = add nsw i32 %58, 1
-  store i32 %59, ptr %9, align 8
-  br label %60
+._crit_edge.thread:                               ; preds = %39, %._crit_edge
+  %.2.lcssa48 = phi i32 [ %.02235, %._crit_edge ], [ %49, %39 ]
+  %57 = load i32, ptr %9, align 8
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %9, align 8
+  br label %59
 
-60:                                               ; preds = %54, %57, %20
-  %.1 = phi i32 [ %28, %20 ], [ %.2.lcssa, %54 ], [ %.2.lcssa, %57 ]
-  %61 = sitofp i32 %16 to double
-  %62 = load ptr, ptr %1, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %64 = load ptr, ptr %63, align 8
-  tail call void %64(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %61) #14
+59:                                               ; preds = %54, %._crit_edge.thread, %20
+  %.1 = phi i32 [ %28, %20 ], [ %.02235, %54 ], [ %.2.lcssa48, %._crit_edge.thread ]
+  %60 = sitofp i32 %16 to double
+  %61 = load ptr, ptr %1, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(72) %1, double noundef %60) #14
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %65 = load i32, ptr %3, align 4
-  %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next45, %66
-  br i1 %67, label %12, label %._crit_edge38.loopexit, !llvm.loop !12
+  %64 = load i32, ptr %3, align 4
+  %65 = sext i32 %64 to i64
+  %66 = icmp slt i64 %indvars.iv.next45, %65
+  br i1 %66, label %12, label %._crit_edge38.loopexit, !llvm.loop !12
 
-._crit_edge38.loopexit:                           ; preds = %60
-  %68 = or i32 %.1, -1073741824
+._crit_edge38.loopexit:                           ; preds = %59
+  %67 = or i32 %.1, -1073741824
   br label %._crit_edge38
 
 ._crit_edge38:                                    ; preds = %.._crit_edge38_crit_edge, %._crit_edge38.loopexit
-  %.pre-phi = phi i64 [ %.pre, %.._crit_edge38_crit_edge ], [ %66, %._crit_edge38.loopexit ]
-  %.022.lcssa = phi i32 [ -1073741824, %.._crit_edge38_crit_edge ], [ %68, %._crit_edge38.loopexit ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %72 = getelementptr inbounds i32, ptr %71, i64 %.pre-phi
-  store i32 %.022.lcssa, ptr %72, align 4
+  %.pre-phi = phi i64 [ %.pre, %.._crit_edge38_crit_edge ], [ %65, %._crit_edge38.loopexit ]
+  %.022.lcssa = phi i32 [ -1073741824, %.._crit_edge38_crit_edge ], [ %67, %._crit_edge38.loopexit ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %69 = load ptr, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %71 = getelementptr inbounds i32, ptr %70, i64 %.pre-phi
+  store i32 %.022.lcssa, ptr %71, align 4
   ret void
 }
 

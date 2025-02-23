@@ -1822,7 +1822,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i25
 _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %invoke.cont20.thread, %invoke.cont20, %if.then.i.i25
   %sub = sub i64 %8, %add17
   %cmp = icmp ugt i64 %sub, 3
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !26
+  br i1 %cmp, label %while.body, label %if.then.i.i28, !llvm.loop !26
 
 ehcleanup.thread.loopexit:                        ; preds = %_ZNKSt6vectorIN4absl12lts_202308026StatusESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1839,11 +1839,11 @@ ehcleanup.thread:                                 ; preds = %ehcleanup.thread.lo
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #23
   br label %if.then.i.i31
 
-while.end:                                        ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %invoke.cont2
+while.end:                                        ; preds = %invoke.cont2
   %cmp.not.i.i27 = icmp eq ptr %call.i.i10, null
   br i1 %cmp.not.i.i27, label %_ZN3upb5ArenaD2Ev.exit, label %if.then.i.i28
 
-if.then.i.i28:                                    ; preds = %while.end
+if.then.i.i28:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit, %while.end
   invoke void @upb_Arena_Free(ptr noundef nonnull %call.i.i10)
           to label %_ZN3upb5ArenaD2Ev.exit unwind label %terminate.lpad.i.i
 

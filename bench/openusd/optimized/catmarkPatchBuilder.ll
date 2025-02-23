@@ -3199,7 +3199,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %98 = fadd float %97, %73
   store float %98, ptr %96, align 4
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %59
-  br i1 %exitcond110.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !19
+  br i1 %exitcond110.not, label %.lr.ph103, label %.lr.ph.split.us, !llvm.loop !19
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -3211,19 +3211,21 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   store float %57, ptr %102, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %59
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !19
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit
-  br i1 %9, label %103, label %.loopexit
+._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit
+  br i1 %9, label %.thread, label %.loopexit
 
-103:                                              ; preds = %._crit_edge
+.thread:                                          ; preds = %._crit_edge
+  %103 = load float, ptr %2, align 4
+  store float %103, ptr %3, align 4
+  store float %103, ptr %4, align 4
+  br label %.loopexit
+
+.lr.ph103:                                        ; preds = %.lr.ph.split.us
   %104 = load float, ptr %2, align 4
   store float %104, ptr %3, align 4
   store float %104, ptr %4, align 4
-  %.not100 = icmp slt i32 %0, 1
-  br i1 %.not100, label %.loopexit, label %.lr.ph103
-
-.lr.ph103:                                        ; preds = %103
   %105 = add nsw i32 %0, -1
   %106 = sub nsw i32 %0, %1
   %107 = add i32 %105, %106
@@ -3269,7 +3271,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIfLj64ELb1EEC2Ej.exit: ; preds =
   %exitcond117.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count116
   br i1 %exitcond117.not, label %.loopexit, label %119, !llvm.loop !20
 
-.loopexit:                                        ; preds = %119, %103, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph.split, %119, %.thread, %._crit_edge
   %137 = load ptr, ptr %41, align 8
   call void @_ZdlPv(ptr noundef %137) #16
   ret void
@@ -8902,7 +8904,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %90 = call double @llvm.fmuladd.f64(double %68, double 2.000000e+00, double %89)
   store double %90, ptr %88, align 8
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %56
-  br i1 %exitcond110.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %exitcond110.not, label %.lr.ph103, label %.lr.ph.split.us, !llvm.loop !49
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -8914,19 +8916,21 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   store double %14, ptr %94, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %56
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !49
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit
-  br i1 %9, label %95, label %.loopexit
+._crit_edge:                                      ; preds = %_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit
+  br i1 %9, label %.thread, label %.loopexit
 
-95:                                               ; preds = %._crit_edge
+.thread:                                          ; preds = %._crit_edge
+  %95 = load double, ptr %2, align 8
+  store double %95, ptr %3, align 8
+  store double %95, ptr %4, align 8
+  br label %.loopexit
+
+.lr.ph103:                                        ; preds = %.lr.ph.split.us
   %96 = load double, ptr %2, align 8
   store double %96, ptr %3, align 8
   store double %96, ptr %4, align 8
-  %.not100 = icmp slt i32 %0, 1
-  br i1 %.not100, label %.loopexit, label %.lr.ph103
-
-.lr.ph103:                                        ; preds = %95
   %97 = add nsw i32 %0, -1
   %98 = sub nsw i32 %0, %1
   %99 = add i32 %97, %98
@@ -8972,7 +8976,7 @@ _ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferIdLj64ELb1EEC2Ej.exit: ; preds =
   %exitcond117.not = icmp eq i64 %indvars.iv.next112, %wide.trip.count116
   br i1 %exitcond117.not, label %.loopexit, label %111, !llvm.loop !50
 
-.loopexit:                                        ; preds = %111, %95, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph.split, %111, %.thread, %._crit_edge
   %129 = load ptr, ptr %41, align 8
   call void @_ZdlPv(ptr noundef %129) #16
   ret void

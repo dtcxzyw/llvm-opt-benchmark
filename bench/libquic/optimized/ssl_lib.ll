@@ -4668,7 +4668,7 @@ cbb_add_hex.exit20:                               ; preds = %45
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 632
   %70 = load ptr, ptr %69, align 8, !tbaa !234
   %71 = load ptr, ptr %9, align 8, !tbaa !186
-  call void %70(ptr noundef %0, ptr noundef %71) #21
+  call void %70(ptr noundef nonnull %0, ptr noundef %71) #21
   %72 = load ptr, ptr %9, align 8, !tbaa !186
   call void @free(ptr noundef %72) #21
   br label %73
@@ -4832,7 +4832,7 @@ cbb_add_hex.exit21:                               ; preds = %44
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 632
   %69 = load ptr, ptr %68, align 8, !tbaa !234
   %70 = load ptr, ptr %9, align 8, !tbaa !186
-  call void %69(ptr noundef %0, ptr noundef %70) #21
+  call void %69(ptr noundef nonnull %0, ptr noundef %70) #21
   %71 = load ptr, ptr %9, align 8, !tbaa !186
   call void @free(ptr noundef %71) #21
   br label %72

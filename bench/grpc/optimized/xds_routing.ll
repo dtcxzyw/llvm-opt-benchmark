@@ -202,11 +202,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc36
-  %best_match_type.074 = phi i32 [ 4, %for.body.lr.ph ], [ %best_match_type.1.lcssa97, %for.inc36 ]
-  %longest_match.073 = phi i64 [ 0, %for.body.lr.ph ], [ %longest_match.1.lcssa96, %for.inc36 ]
+  %best_match_type.074 = phi i32 [ 4, %for.body.lr.ph ], [ %best_match_type.1.lcssa98, %for.inc36 ]
+  %longest_match.073 = phi i64 [ 0, %for.body.lr.ph ], [ %longest_match.1.lcssa97, %for.inc36 ]
   %storemerge72 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc36 ]
-  %retval.sroa.2.071 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.2.2.lcssa94, %for.inc36 ]
-  %retval.sroa.0.070 = phi i64 [ undef, %for.body.lr.ph ], [ %retval.sroa.0.2.lcssa92, %for.inc36 ]
+  %retval.sroa.2.071 = phi i8 [ 0, %for.body.lr.ph ], [ %retval.sroa.2.2.lcssa95, %for.inc36 ]
+  %retval.sroa.0.070 = phi i64 [ undef, %for.body.lr.ph ], [ %retval.sroa.0.2.lcssa93, %for.inc36 ]
   %vtable1 = load ptr, ptr %vhost_iterator, align 8
   %vfn2 = getelementptr inbounds nuw i8, ptr %vtable1, i64 24
   %3 = load ptr, ptr %vfn2, align 8
@@ -347,7 +347,7 @@ for.body.i13.i:                                   ; preds = %invoke.cont15.i, %f
   br i1 %cmp.i.not.i21.i, label %invoke.cont31.i, label %for.body.i13.i, !llvm.loop !6
 
 invoke.cont31.i:                                  ; preds = %for.body.i13.i, %invoke.cont15.i
-  switch i32 %retval.0.i.ph, label %default.unreachable [
+  switch i32 %retval.0.i.ph, label %default.unreachable85 [
     i32 0, label %if.then.i
     i32 1, label %if.then37.i
     i32 2, label %if.then53.i
@@ -379,7 +379,7 @@ if.end.i.i.i:                                     ; preds = %land.rhs.i.i
   br i1 %23, label %if.end27.thread, label %for.inc
 
 if.end27.thread:                                  ; preds = %if.end.i.i.i
-  %call2885 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.058) #22
+  %call2886 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.058) #22
   br label %for.end37
 
 lpad.i:                                           ; preds = %if.end21
@@ -442,7 +442,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i36.i: ; preds = %land.rhs.i34.i
   %cmp.i.i38.i = icmp eq i32 %bcmp.i37.i, 0
   br i1 %cmp.i.i38.i, label %if.end27, label %for.inc.critedge
 
-default.unreachable:                              ; preds = %invoke.cont31.i
+default.unreachable85:                            ; preds = %invoke.cont31.i
   unreachable
 
 eh.resume.i:                                      ; preds = %lpad2.i, %lpad.i
@@ -483,10 +483,10 @@ for.end:                                          ; preds = %for.inc
   br i1 %cmp33, label %for.end37, label %for.inc36
 
 for.inc36:                                        ; preds = %for.body, %for.end
-  %best_match_type.1.lcssa97 = phi i32 [ %best_match_type.3, %for.end ], [ %best_match_type.074, %for.body ]
-  %longest_match.1.lcssa96 = phi i64 [ %longest_match.3, %for.end ], [ %longest_match.073, %for.body ]
-  %retval.sroa.2.2.lcssa94 = phi i8 [ %retval.sroa.2.4, %for.end ], [ %retval.sroa.2.071, %for.body ]
-  %retval.sroa.0.2.lcssa92 = phi i64 [ %retval.sroa.0.4, %for.end ], [ %retval.sroa.0.070, %for.body ]
+  %best_match_type.1.lcssa98 = phi i32 [ %best_match_type.3, %for.end ], [ %best_match_type.074, %for.body ]
+  %longest_match.1.lcssa97 = phi i64 [ %longest_match.3, %for.end ], [ %longest_match.073, %for.body ]
+  %retval.sroa.2.2.lcssa95 = phi i8 [ %retval.sroa.2.4, %for.end ], [ %retval.sroa.2.071, %for.body ]
+  %retval.sroa.0.2.lcssa93 = phi i64 [ %retval.sroa.0.4, %for.end ], [ %retval.sroa.0.070, %for.body ]
   %inc = add nuw i64 %storemerge72, 1
   %vtable = load ptr, ptr %vhost_iterator, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
@@ -496,8 +496,8 @@ for.inc36:                                        ; preds = %for.body, %for.end
   br i1 %cmp, label %for.body, label %for.end37, !llvm.loop !7
 
 for.end37:                                        ; preds = %for.inc36, %for.end, %if.end27, %if.end27.thread, %entry
-  %retval.sroa.0.1 = phi i64 [ undef, %entry ], [ %storemerge72, %if.end27.thread ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.2.lcssa92, %for.inc36 ], [ %retval.sroa.0.4, %for.end ]
-  %retval.sroa.2.1 = phi i8 [ 0, %entry ], [ 1, %if.end27.thread ], [ 1, %if.end27 ], [ %retval.sroa.2.2.lcssa94, %for.inc36 ], [ %retval.sroa.2.4, %for.end ]
+  %retval.sroa.0.1 = phi i64 [ undef, %entry ], [ %storemerge72, %if.end27.thread ], [ %storemerge72, %if.end27 ], [ %retval.sroa.0.2.lcssa93, %for.inc36 ], [ %retval.sroa.0.4, %for.end ]
+  %retval.sroa.2.1 = phi i8 [ 0, %entry ], [ 1, %if.end27.thread ], [ 1, %if.end27 ], [ %retval.sroa.2.2.lcssa95, %for.inc36 ], [ %retval.sroa.2.4, %for.end ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert

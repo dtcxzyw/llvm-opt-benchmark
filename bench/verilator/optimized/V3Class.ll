@@ -1295,22 +1295,22 @@ _ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit:    ; preds = %_ZN7AstNode9private
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.copyload, i64 112
   %44 = load i32, ptr %43, align 8
   %45 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  %46 = icmp eq i32 %44, %45
+  %46 = icmp ne i32 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.copyload, i64 104
   %48 = load i64, ptr %47, align 8
   %49 = inttoptr i64 %48 to ptr
-  %.sroa.0.0.i.i = select i1 %46, ptr %49, ptr null
-  %.not.i52 = icmp eq ptr %.sroa.0.0.i.i, null
+  %.not.i52221 = icmp eq i64 %48, 0
+  %.not.i52 = select i1 %46, i1 true, i1 %.not.i52221
   br i1 %.not.i52, label %_ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit, label %50
 
 50:                                               ; preds = %42
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %.sroa.0.0.copyload.i.i.i53 = load i16, ptr %51, align 8
   %.not6.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i53, 49
   br i1 %.not6.i, label %_ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 64
   %54 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.6, i32 noundef 2428, i1 noundef zeroext true)
           to label %.noexc54 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1335,7 +1335,7 @@ _ZN7AstNode9privateIsI6AstVarKPS_EEbPKS_.exit:    ; preds = %_ZN7AstNode9private
           to label %.noexc101.invoke unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 _ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit: ; preds = %50, %42
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 160
+  %62 = getelementptr inbounds nuw i8, ptr %49, i64 160
   store ptr %.sroa.236.0.copyload, ptr %62, align 8
   %63 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(176) %49, ptr noundef null)
           to label %_ZN11AstVarScope12unlinkFrBackEP10VNRelinker.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1737,8 +1737,8 @@ _ZNSt5queueIP21AstNodeUOrStructDTypeSt5dequeIS1_SaIS1_EEE4pushERKS1_.exit: ; pre
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.not164210239 = icmp eq ptr %237, %238
-  br i1 %.not164210239, label %._crit_edge214.thread, label %.lr.ph213.split.us.preheader
+  %.not164210240 = icmp eq ptr %237, %238
+  br i1 %.not164210240, label %._crit_edge214.thread, label %.lr.ph213.split.us.preheader
 
 .lr.ph213:                                        ; preds = %._crit_edge208
   %.not10.i.i.i = icmp eq ptr %230, null
@@ -1855,13 +1855,13 @@ _ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   br label %.thread155
 
 .thread155:                                       ; preds = %_ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i, %272, %274
-  %276 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0133.0211) #19
+  %276 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0133.0211) #19
   %.not164 = icmp eq ptr %276, %234
   br i1 %.not164, label %._crit_edge214, label %.lr.ph213.split
 
 ._crit_edge214:                                   ; preds = %.thread155, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us, %._crit_edge208
   %277 = phi ptr [ %231, %._crit_edge208 ], [ %239, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %231, %.thread155 ]
-  %.pre.pre241 = phi ptr [ %230, %._crit_edge208 ], [ null, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %230, %.thread155 ]
+  %.pre.pre242 = phi ptr [ %230, %._crit_edge208 ], [ null, %_ZN7AstNode9privateAsI21AstNodeUOrStructDTypeP12AstNodeDTypeEEPT_PS_.exit.us ], [ %230, %.thread155 ]
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %280 = load ptr, ptr %279, align 8
@@ -1874,11 +1874,11 @@ _ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %284 = load ptr, ptr %283, align 8
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  %.not165216246 = icmp eq ptr %284, %285
-  br i1 %.not165216246, label %._crit_edge220, label %.thread159.us.preheader
+  %.not165216247 = icmp eq ptr %284, %285
+  br i1 %.not165216247, label %._crit_edge220, label %.thread159.us.preheader
 
 .lr.ph219:                                        ; preds = %._crit_edge214
-  %.not10.i.i.i107 = icmp eq ptr %.pre.pre241, null
+  %.not10.i.i.i107 = icmp eq ptr %.pre.pre242, null
   br i1 %.not10.i.i.i107, label %.thread159.us.preheader, label %.lr.ph.i.i.i108.preheader
 
 .thread159.us.preheader:                          ; preds = %._crit_edge214.thread, %.lr.ph219
@@ -1894,7 +1894,7 @@ _ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   %291 = load ptr, ptr %290, align 8
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 208
   store ptr null, ptr %292, align 8
-  %293 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0217.us) #19
+  %293 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0217.us) #19
   %.not165.us = icmp eq ptr %293, %289
   br i1 %.not165.us, label %._crit_edge220, label %.thread159.us
 
@@ -1905,7 +1905,7 @@ _ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   br label %.lr.ph.i.i.i108
 
 .lr.ph.i.i.i108:                                  ; preds = %.lr.ph.i.i.i108.preheader, %.lr.ph.i.i.i108
-  %.012.i.i.i109 = phi ptr [ %.1.i.i.i114, %.lr.ph.i.i.i108 ], [ %.pre.pre241, %.lr.ph.i.i.i108.preheader ]
+  %.012.i.i.i109 = phi ptr [ %.1.i.i.i114, %.lr.ph.i.i.i108 ], [ %.pre.pre242, %.lr.ph.i.i.i108.preheader ]
   %.0811.i.i.i110 = phi ptr [ %.19.i.i.i111, %.lr.ph.i.i.i108 ], [ %108, %.lr.ph.i.i.i108.preheader ]
   %296 = getelementptr inbounds nuw i8, ptr %.012.i.i.i109, i64 32
   %297 = load ptr, ptr %296, align 8
@@ -1934,15 +1934,15 @@ _ZNKSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
   br label %303
 
 303:                                              ; preds = %300, %.thread159
-  %304 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0128.0217) #19
+  %304 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0128.0217) #19
   %.not165 = icmp eq ptr %304, %281
   br i1 %.not165, label %._crit_edge220, label %.lr.ph.i.i.i108.preheader
 
 ._crit_edge220:                                   ; preds = %303, %.thread159.us, %._crit_edge214.thread, %._crit_edge214
   %305 = phi ptr [ %282, %._crit_edge214.thread ], [ %278, %._crit_edge214 ], [ %287, %.thread159.us ], [ %278, %303 ]
-  %.pre.pre241248 = phi ptr [ null, %._crit_edge214.thread ], [ %.pre.pre241, %._crit_edge214 ], [ null, %.thread159.us ], [ %.pre.pre241, %303 ]
+  %.pre.pre242249 = phi ptr [ null, %._crit_edge214.thread ], [ %.pre.pre242, %._crit_edge214 ], [ null, %.thread159.us ], [ %.pre.pre242, %303 ]
   %306 = phi ptr [ %235, %._crit_edge214.thread ], [ %277, %._crit_edge214 ], [ %286, %.thread159.us ], [ %277, %303 ]
-  invoke void @_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %.pre.pre241248)
+  invoke void @_ZNSt8_Rb_treeIP21AstNodeUOrStructDTypeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef %.pre.pre242249)
           to label %_ZNSt3setIP21AstNodeUOrStructDTypeSt4lessIS1_ESaIS1_EED2Ev.exit unwind label %307
 
 307:                                              ; preds = %._crit_edge220

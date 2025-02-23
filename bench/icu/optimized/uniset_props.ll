@@ -2717,7 +2717,7 @@ entry:
 
 while.cond.outer:                                 ; preds = %if.end10, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.end10 ], [ 0, %entry ]
-  %src.addr.0.ph = phi ptr [ %.us-phi, %if.end10 ], [ %src, %entry ]
+  %src.addr.0.ph = phi ptr [ %.us-phi37, %if.end10 ], [ %src, %entry ]
   %cmp3 = icmp eq i64 %indvars.iv, 0
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   br i1 %cmp3, label %while.cond.us, label %while.cond
@@ -2726,7 +2726,7 @@ while.cond.us:                                    ; preds = %while.cond.outer, %
   %src.addr.0.us = phi ptr [ %incdec.ptr.us, %while.cond.us ], [ %src.addr.0.ph, %while.cond.outer ]
   %incdec.ptr.us = getelementptr inbounds nuw i8, ptr %src.addr.0.us, i64 1
   %0 = load i8, ptr %src.addr.0.us, align 1
-  switch i8 %0, label %if.end [
+  switch i8 %0, label %if.end10 [
     i8 0, label %if.end22
     i8 32, label %while.cond.us
   ], !llvm.loop !11
@@ -2745,16 +2745,16 @@ land.lhs.true:                                    ; preds = %while.cond
   %cmp7 = icmp eq i8 %2, 32
   br i1 %cmp7, label %while.cond, label %if.end, !llvm.loop !11
 
-if.end:                                           ; preds = %land.lhs.true, %while.cond, %while.cond.us
-  %.us-phi = phi ptr [ %incdec.ptr.us, %while.cond.us ], [ %incdec.ptr, %while.cond ], [ %incdec.ptr, %land.lhs.true ]
-  %.us-phi21 = phi i8 [ %0, %while.cond.us ], [ 32, %land.lhs.true ], [ %1, %while.cond ]
+if.end:                                           ; preds = %land.lhs.true, %while.cond
   %exitcond = icmp eq i64 %indvars.iv, 127
   br i1 %exitcond, label %return, label %if.end10
 
-if.end10:                                         ; preds = %if.end
+if.end10:                                         ; preds = %while.cond.us, %if.end
+  %.us-phi2138 = phi i8 [ %1, %if.end ], [ %0, %while.cond.us ]
+  %.us-phi37 = phi ptr [ %incdec.ptr, %if.end ], [ %incdec.ptr.us, %while.cond.us ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %arrayidx12 = getelementptr inbounds nuw i8, ptr %dst, i64 %indvars.iv
-  store i8 %.us-phi21, ptr %arrayidx12, align 1
+  store i8 %.us-phi2138, ptr %arrayidx12, align 1
   br label %while.cond.outer, !llvm.loop !11
 
 land.lhs.true14:                                  ; preds = %while.cond

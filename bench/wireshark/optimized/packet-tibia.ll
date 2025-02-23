@@ -1027,11 +1027,11 @@ define internal void @rsa_parse_uat() #0 {
   %5 = load ptr, ptr @rsakeys, align 8
   tail call void @g_hash_table_remove_all(ptr noundef %5)
   %6 = load i32, ptr @nrsakeys, align 4
-  %.not52 = icmp eq i32 %6, 0
-  br i1 %.not52, label %.loopexit, label %.lr.ph
+  %.not51 = icmp eq i32 %6, 0
+  br i1 %.not51, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %0, %55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %0 ]
+.lr.ph:                                           ; preds = %0, %56
+  %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %0 ]
   %7 = load ptr, ptr @rsakeylist_uats, align 8
   %8 = getelementptr %struct.rsakeys_assoc, ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -1080,28 +1080,22 @@ define internal void @rsa_parse_uat() #0 {
   %.039 = phi ptr [ %20, %19 ], [ %23, %22 ], [ %.039.ph, %.sink.split ]
   %27 = call i32 @fclose(ptr noundef nonnull %11)
   %.not47.not = icmp eq ptr %.039, null
-  br i1 %.not47.not, label %.thread, label %29
+  br i1 %.not47.not, label %54, label %28
 
-.thread:                                          ; preds = %26
-  %28 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.379, ptr noundef %28)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
-  br label %.loopexit
-
-29:                                               ; preds = %26
+28:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  %30 = call ptr @rsa_privkey_to_sexp(ptr noundef nonnull %.039, ptr noundef nonnull %3)
-  %.not48 = icmp eq ptr %30, null
-  br i1 %.not48, label %.thread49, label %33
+  %29 = call ptr @rsa_privkey_to_sexp(ptr noundef nonnull %.039, ptr noundef nonnull %3)
+  %.not48 = icmp eq ptr %29, null
+  br i1 %.not48, label %30, label %33
 
-.thread49:                                        ; preds = %29
+30:                                               ; preds = %28
   %31 = load ptr, ptr %3, align 8
   call void @g_free(ptr noundef %31)
   %32 = load ptr, ptr %9, align 8
   call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.380, ptr noundef %32)
-  br label %55
+  br label %56
 
-33:                                               ; preds = %29
+33:                                               ; preds = %28
   %34 = call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #18
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -1124,39 +1118,45 @@ define internal void @rsa_parse_uat() #0 {
   store ptr %45, ptr %1, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %46, label %40, !llvm.loop !8
+  br i1 %exitcond.not.i, label %ipv4tonl.exit, label %40, !llvm.loop !8
 
-46:                                               ; preds = %40
-  %47 = load i32, ptr %2, align 4
+ipv4tonl.exit:                                    ; preds = %40
+  %46 = load i32, ptr %2, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  store i32 %47, ptr %4, align 4
+  store i32 %46, ptr %4, align 4
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   store i32 2, ptr %34, align 8
-  %48 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #19
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store ptr %48, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %48, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 4, ptr %51, align 4
-  %52 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr %30, ptr %52, align 8
-  %53 = load ptr, ptr @rsakeys, align 8
-  %54 = call i32 @g_hash_table_insert(ptr noundef %53, ptr noundef %34, ptr noundef nonnull %30)
-  br label %55
+  %47 = call dereferenceable_or_null(4) ptr @wmem_memdup(ptr noundef null, ptr noundef nonnull %4, i64 noundef 4) #19
+  %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr %47, ptr %49, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 4, ptr %50, align 4
+  %51 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store ptr %29, ptr %51, align 8
+  %52 = load ptr, ptr @rsakeys, align 8
+  %53 = call i32 @g_hash_table_insert(ptr noundef %52, ptr noundef %34, ptr noundef nonnull %29)
+  br label %56
 
-55:                                               ; preds = %46, %.thread49
+54:                                               ; preds = %26
+  %55 = load ptr, ptr %9, align 8
+  call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.379, ptr noundef %55)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  br label %.loopexit
+
+56:                                               ; preds = %30, %ipv4tonl.exit
   call void @gnutls_x509_privkey_deinit(ptr noundef nonnull %.039)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr @nrsakeys, align 4
-  %57 = zext i32 %56 to i64
-  %58 = icmp samesign ult i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  %57 = load i32, ptr @nrsakeys, align 4
+  %58 = zext i32 %57 to i64
+  %59 = icmp samesign ult i64 %indvars.iv.next, %58
+  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %55, %0, %.thread, %.critedge
+.loopexit:                                        ; preds = %56, %0, %54, %.critedge
   ret void
 }
 

@@ -4148,51 +4148,51 @@ entry:
   %bf.cast.not.i = icmp eq i8 %4, 0
   %scope_.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %scope_.i, align 8
-  %cond.i = select i1 %bf.cast.not.i, ptr null, ptr %5
-  %containing_type_.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
+  %containing_type_.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load ptr, ptr %containing_type_.i, align 8
   %oneof_decls_.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %7 = load ptr, ptr %oneof_decls_.i, align 8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %cond.i to i64
+  %8 = ptrtoint ptr %5 to i64
+  %sub.ptr.lhs.cast.i = select i1 %bf.cast.not.i, i64 0, i64 %8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = sdiv exact i64 %sub.ptr.sub.i, 56
   %conv.i = trunc i64 %sub.ptr.div.i to i32
   tail call void @_ZN6google8protobuf8compiler4java30WriteUInt32ToUtf16CharSequenceEjPSt6vectorItSaItEE(i32 noundef %conv.i, ptr noundef %output)
-  %8 = load ptr, ptr %descriptor_, align 8
-  %merged_features_.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 72
-  %9 = load ptr, ptr %merged_features_.i.i.i.i, align 8
-  %10 = load i32, ptr @_ZN2pb4javaE, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2pb4javaE, i64 8), align 8
-  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %11, i32 noundef %10, ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %9 = load ptr, ptr %descriptor_, align 8
+  %merged_features_.i.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %10 = load ptr, ptr %merged_features_.i.i.i.i, align 8
+  %11 = load i32, ptr @_ZN2pb4javaE, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2pb4javaE, i64 8), align 8
+  %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8protobuf8internal12ExtensionSet10GetMessageEiRKNS0_11MessageLiteE(ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef %11, ptr noundef nonnull align 8 dereferenceable(32) %13)
   %legacy_closed_enum_.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 24
-  %13 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
-  %tobool.i.i.i = trunc i8 %13 to i1
+  %14 = load i8, ptr %legacy_closed_enum_.i.i.i, align 8
+  %tobool.i.i.i = trunc i8 %14 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %call3.i = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %8)
+  %call3.i = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %9)
   %cmp.not.i = icmp eq ptr %call3.i, null
   br i1 %cmp.not.i, label %if.then, label %_ZN6google8protobuf8compiler4java23SupportUnknownEnumValueEPKNS0_15FieldDescriptorE.exit
 
 _ZN6google8protobuf8compiler4java23SupportUnknownEnumValueEPKNS0_15FieldDescriptorE.exit: ; preds = %if.end.i
-  %call4.i = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %8)
+  %call4.i = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %9)
   %call5.i = tail call noundef zeroext i1 @_ZNK6google8protobuf14EnumDescriptor9is_closedEv(ptr noundef nonnull align 8 dereferenceable(88) %call4.i)
   br i1 %call5.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %if.end.i, %entry, %_ZN6google8protobuf8compiler4java23SupportUnknownEnumValueEPKNS0_15FieldDescriptorE.exit
-  %14 = load ptr, ptr %descriptor_, align 8
+  %15 = load ptr, ptr %descriptor_, align 8
   %variables_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 2, ptr %agg.tmp10, align 8
   %_M_str.i4 = getelementptr inbounds nuw i8, ptr %agg.tmp10, i64 8
   store ptr @.str.27, ptr %_M_str.i4, align 8
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %15 = load ptr, ptr %context_, align 8
-  %enforce_lite.i = getelementptr inbounds nuw i8, ptr %15, i64 75
-  %16 = load i8, ptr %enforce_lite.i, align 1
-  %tobool.i = trunc i8 %16 to i1
-  tail call void @_ZN6google8protobuf8compiler4java22PrintEnumVerifierLogicEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSE_SaIcEEENSA_18container_internal10StringHashENSK_8StringEqESaISt4pairIKSF_SJ_EEEESF_SF_b(ptr noundef %printer, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 6, ptr nonnull @.str.26, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp10, i1 noundef zeroext %tobool.i)
+  %16 = load ptr, ptr %context_, align 8
+  %enforce_lite.i = getelementptr inbounds nuw i8, ptr %16, i64 75
+  %17 = load i8, ptr %enforce_lite.i, align 1
+  %tobool.i = trunc i8 %17 to i1
+  tail call void @_ZN6google8protobuf8compiler4java22PrintEnumVerifierLogicEPNS0_2io7PrinterEPKNS0_15FieldDescriptorERKN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSE_SaIcEEENSA_18container_internal10StringHashENSK_8StringEqESaISt4pairIKSF_SJ_EEEESF_SF_b(ptr noundef %printer, ptr noundef %15, ptr noundef nonnull align 8 dereferenceable(32) %variables_, i64 6, ptr nonnull @.str.26, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp10, i1 noundef zeroext %tobool.i)
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %_ZN6google8protobuf8compiler4java23SupportUnknownEnumValueEPKNS0_15FieldDescriptorE.exit

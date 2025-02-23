@@ -185,7 +185,7 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   %71 = getelementptr inbounds nuw [81 x i8], ptr %13, i64 0, i64 %70
   store i8 0, ptr %71, align 1, !tbaa !8
   %.not160 = icmp eq i64 %70, 0
-  br i1 %.not160, label %._crit_edge.thread, label %.lr.ph144
+  br i1 %.not160, label %._crit_edge, label %.lr.ph144
 
 .lr.ph144:                                        ; preds = %69
   %72 = tail call ptr @__ctype_b_loc() #10
@@ -206,21 +206,20 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   store i8 %spec.select132, ptr %81, align 1, !tbaa !8
   %82 = add nuw i64 %.1111143, 1
   %exitcond162.not = icmp eq i64 %82, %70
-  br i1 %exitcond162.not, label %._crit_edge, label %73, !llvm.loop !15
+  br i1 %exitcond162.not, label %._crit_edge.thread, label %73, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %73
+._crit_edge:                                      ; preds = %69
   %83 = icmp ne i64 %.0114, 0
   %or.cond3 = and i1 %49, %83
-  br i1 %or.cond3, label %.lr.ph148.preheader, label %95
+  br i1 %or.cond3, label %._crit_edge149, label %95
 
-._crit_edge.thread:                               ; preds = %69
+._crit_edge.thread:                               ; preds = %73
   %84 = icmp ne i64 %.0114, 0
   %or.cond3164 = and i1 %49, %84
-  br i1 %or.cond3164, label %._crit_edge149, label %95
+  br i1 %or.cond3164, label %.lr.ph148.preheader, label %95
 
-.lr.ph148.preheader:                              ; preds = %._crit_edge
+.lr.ph148.preheader:                              ; preds = %._crit_edge.thread
   %85 = call i64 @llvm.umin.i64(i64 %.0114, i64 %70)
-  %umax = call i64 @llvm.umax.i64(i64 %85, i64 1)
   br label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.lr.ph148.preheader, %.lr.ph148
@@ -236,16 +235,16 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
   %91 = getelementptr inbounds nuw [81 x i8], ptr %14, i64 0, i64 %.3145
   store i8 %spec.select166, ptr %91, align 1, !tbaa !8
   %92 = add nuw i64 %.3145, 1
-  %exitcond163.not = icmp eq i64 %92, %umax
+  %exitcond163.not = icmp eq i64 %92, %85
   br i1 %exitcond163.not, label %._crit_edge149.loopexit, label %.lr.ph148, !llvm.loop !16
 
 ._crit_edge149.loopexit:                          ; preds = %.lr.ph148
   %93 = icmp ne i32 %spec.select167, 0
   br label %._crit_edge149
 
-._crit_edge149:                                   ; preds = %._crit_edge.thread, %._crit_edge149.loopexit
-  %.3.lcssa = phi i64 [ %umax, %._crit_edge149.loopexit ], [ 0, %._crit_edge.thread ]
-  %.1108.lcssa = phi i1 [ %93, %._crit_edge149.loopexit ], [ false, %._crit_edge.thread ]
+._crit_edge149:                                   ; preds = %._crit_edge, %._crit_edge149.loopexit
+  %.3.lcssa = phi i64 [ %85, %._crit_edge149.loopexit ], [ 0, %._crit_edge ]
+  %.1108.lcssa = phi i1 [ %93, %._crit_edge149.loopexit ], [ false, %._crit_edge ]
   %94 = getelementptr inbounds nuw [81 x i8], ptr %14, i64 0, i64 %.3.lcssa
   store i8 0, ptr %94, align 1, !tbaa !8
   br label %95
@@ -253,7 +252,7 @@ test_string_null_empty.exit134:                   ; preds = %33, %35
 95:                                               ; preds = %._crit_edge.thread, %.thread, %._crit_edge149, %._crit_edge
   %96 = phi i1 [ true, %._crit_edge149 ], [ %49, %._crit_edge ], [ false, %.thread ], [ %49, %._crit_edge.thread ]
   %97 = phi i1 [ true, %._crit_edge149 ], [ %83, %._crit_edge ], [ %68, %.thread ], [ %84, %._crit_edge.thread ]
-  %.0113140 = phi i64 [ %70, %._crit_edge149 ], [ %70, %._crit_edge ], [ 0, %.thread ], [ 0, %._crit_edge.thread ]
+  %.0113140 = phi i64 [ %70, %._crit_edge149 ], [ %70, %._crit_edge ], [ 0, %.thread ], [ %70, %._crit_edge.thread ]
   %.2112 = phi i1 [ true, %._crit_edge149 ], [ false, %._crit_edge ], [ false, %.thread ], [ false, %._crit_edge.thread ]
   %.0107 = phi i1 [ %.1108.lcssa, %._crit_edge149 ], [ false, %._crit_edge ], [ false, %.thread ], [ false, %._crit_edge.thread ]
   %98 = icmp ne i64 %.0114, %.0113140

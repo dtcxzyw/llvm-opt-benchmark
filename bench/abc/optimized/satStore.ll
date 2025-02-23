@@ -137,20 +137,16 @@ define noalias noundef ptr @Sto_ManAlloc() local_unnamed_addr #6 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @Sto_ManFree(ptr noundef %0) local_unnamed_addr #3 {
+define void @Sto_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %Sto_ManMemoryStop.exit.thread, label %.preheader.i
+  br i1 %4, label %8, label %.preheader.i
 
 .preheader.i:                                     ; preds = %1
   %5 = load ptr, ptr %3, align 8, !tbaa !13
   %.not10.i = icmp eq ptr %5, null
-  br i1 %.not10.i, label %Sto_ManMemoryStop.exit.thread4, label %.lr.ph.i
-
-Sto_ManMemoryStop.exit.thread4:                   ; preds = %.preheader.i
-  tail call void @free(ptr noundef nonnull %3) #17
-  br label %Sto_ManMemoryStop.exit.thread
+  br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %6 = phi ptr [ %7, %.lr.ph.i ], [ %5, %.preheader.i ]
@@ -158,18 +154,15 @@ Sto_ManMemoryStop.exit.thread4:                   ; preds = %.preheader.i
   tail call void @free(ptr noundef nonnull %.011.i) #17
   %7 = load ptr, ptr %6, align 8, !tbaa !13
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %Sto_ManMemoryStop.exit, label %.lr.ph.i, !llvm.loop !14
+  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
 
-Sto_ManMemoryStop.exit:                           ; preds = %.lr.ph.i
-  tail call void @free(ptr noundef nonnull %6) #17
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %8, label %Sto_ManMemoryStop.exit.thread
-
-Sto_ManMemoryStop.exit.thread:                    ; preds = %1, %Sto_ManMemoryStop.exit.thread4, %Sto_ManMemoryStop.exit
-  tail call void @free(ptr noundef nonnull %0) #17
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
+  %.0.lcssa.i = phi ptr [ %3, %.preheader.i ], [ %6, %.lr.ph.i ]
+  tail call void @free(ptr noundef nonnull %.0.lcssa.i) #17
   br label %8
 
-8:                                                ; preds = %Sto_ManMemoryStop.exit, %Sto_ManMemoryStop.exit.thread
+8:                                                ; preds = %1, %._crit_edge.i
+  tail call void @free(ptr noundef nonnull %0) #17
   ret void
 }
 
@@ -584,8 +577,8 @@ define noundef ptr @Sto_ManLoadClauses(ptr noundef %0) local_unnamed_addr #3 {
   %11 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 4
   %12 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   %13 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 1024, ptr noundef nonnull %3)
-  %.not73 = icmp eq ptr %13, null
-  br i1 %.not73, label %.outer.preheader, label %.lr.ph
+  %.not72 = icmp eq ptr %13, null
+  br i1 %.not72, label %.outer.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.backedge
   %14 = load i8, ptr %2, align 16, !tbaa !37
@@ -756,7 +749,7 @@ lit_read.exit:                                    ; preds = %53, %56
 .preheader.i.i:                                   ; preds = %72
   %77 = load ptr, ptr %75, align 8, !tbaa !13
   %.not10.i.i = icmp eq ptr %77, null
-  br i1 %.not10.i.i, label %Sto_ManFree.exit.sink.split, label %.lr.ph.i.i
+  br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %78 = phi ptr [ %79, %.lr.ph.i.i ], [ %77, %.preheader.i.i ]
@@ -764,14 +757,14 @@ lit_read.exit:                                    ; preds = %53, %56
   call void @free(ptr noundef nonnull %.011.i.i) #17
   %79 = load ptr, ptr %78, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i, label %Sto_ManFree.exit.sink.split, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !14
 
-Sto_ManFree.exit.sink.split:                      ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sink = phi ptr [ %75, %.preheader.i.i ], [ %78, %.lr.ph.i.i ]
-  call void @free(ptr noundef nonnull %.sink) #17
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
+  %.0.lcssa.i.i = phi ptr [ %75, %.preheader.i.i ], [ %78, %.lr.ph.i.i ]
+  call void @free(ptr noundef nonnull %.0.lcssa.i.i) #17
   br label %Sto_ManFree.exit
 
-Sto_ManFree.exit:                                 ; preds = %Sto_ManFree.exit.sink.split, %72
+Sto_ManFree.exit:                                 ; preds = %72, %._crit_edge.i.i
   call void @free(ptr noundef nonnull %calloc.i) #17
   br label %84
 

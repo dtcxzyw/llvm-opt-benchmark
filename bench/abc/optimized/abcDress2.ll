@@ -83,7 +83,7 @@ define ptr @Aig_ManCreateDualOutputMiter(ptr noundef readonly captures(none) %0,
   %.val71 = load ptr, ptr %20, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = tail call ptr @Aig_ObjCreateCi(ptr noundef %8) #21
+  %23 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %8) #21
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   store ptr %23, ptr %24, align 8, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

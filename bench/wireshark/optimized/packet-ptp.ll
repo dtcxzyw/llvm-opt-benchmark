@@ -6353,7 +6353,7 @@ proto_item_set_generated.exit754:                 ; preds = %952, %1006, %1009
   store i32 %1400, ptr %9, align 4
   %1401 = add i32 %1399, 16
   %.not731 = icmp sgt i32 %1401, %1394
-  br i1 %.not731, label %dissect_ptp_v2_text.exit756, label %.lr.ph, !llvm.loop !11
+  br i1 %.not731, label %dissect_ptp_v2_text.exit756.thread, label %.lr.ph, !llvm.loop !11
 
 1402:                                             ; preds = %23
   %1403 = load i32, ptr %9, align 4
@@ -6619,8 +6619,8 @@ proto_item_set_generated.exit754:                 ; preds = %952, %1006, %1009
   store i32 %1621, ptr %9, align 4
   br label %dissect_ptp_v2_text.exit756.thread
 
-dissect_ptp_v2_text.exit756:                      ; preds = %.lr.ph, %813, %1016, %1015, %1056, %1020, %1019, %1096, %1097, %1199, %1262, %1263, %1264, %.loopexit
-  %.2 = phi i8 [ %.0775, %.loopexit ], [ %.0775, %813 ], [ %.0775, %1264 ], [ %.0775, %1263 ], [ %.0775, %1262 ], [ %.0775, %1199 ], [ %.0775, %1097 ], [ %.0775, %1096 ], [ %.0775, %1019 ], [ %.0775, %1056 ], [ %.0775, %1020 ], [ %.4, %1015 ], [ %.4, %1016 ], [ %.0775, %.lr.ph ]
+dissect_ptp_v2_text.exit756:                      ; preds = %813, %1016, %1015, %1056, %1020, %1019, %1096, %1097, %1199, %1262, %1263, %1264, %.loopexit
+  %.2 = phi i8 [ %.0775, %.loopexit ], [ %.0775, %813 ], [ %.0775, %1264 ], [ %.0775, %1263 ], [ %.0775, %1262 ], [ %.0775, %1199 ], [ %.0775, %1097 ], [ %.0775, %1096 ], [ %.0775, %1019 ], [ %.0775, %1056 ], [ %.0775, %1020 ], [ %.4, %1015 ], [ %.4, %1016 ]
   %1622 = load i32, ptr %9, align 4
   %1623 = icmp eq i32 %1622, %24
   %1624 = icmp eq i16 %26, 3
@@ -6651,9 +6651,9 @@ dissect_ptp_v2_text.exit756:                      ; preds = %.lr.ph, %813, %1016
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %16) #9
   br label %dissect_ptp_v2_text.exit756.thread
 
-dissect_ptp_v2_text.exit756.thread:               ; preds = %1380, %1352, %dissect_ptp_v2_text.exit750, %808, %759, %1342, %1334, %23, %1457, %1458, %1490, %1450, %1541, %1536, %1402, %1435, %1625, %1630, %dissect_ptp_v2_text.exit756
-  %1638 = phi i1 [ true, %1625 ], [ true, %1630 ], [ %1624, %dissect_ptp_v2_text.exit756 ], [ false, %1435 ], [ false, %1402 ], [ false, %1536 ], [ false, %1541 ], [ false, %1450 ], [ false, %1490 ], [ false, %1458 ], [ false, %1457 ], [ false, %23 ], [ false, %1334 ], [ false, %1342 ], [ false, %759 ], [ false, %808 ], [ false, %dissect_ptp_v2_text.exit750 ], [ false, %1352 ], [ false, %1380 ]
-  %.2759 = phi i8 [ %.2, %1625 ], [ %.2, %1630 ], [ %.2, %dissect_ptp_v2_text.exit756 ], [ %.0775, %1435 ], [ %.0775, %1402 ], [ %.0775, %1536 ], [ %.0775, %1541 ], [ %.0775, %1450 ], [ %.0775, %1490 ], [ %.0775, %1458 ], [ %.0775, %1457 ], [ %.0775, %23 ], [ %.0775, %1334 ], [ %.0775, %1342 ], [ %.0775, %759 ], [ %.0775, %808 ], [ %.0775, %dissect_ptp_v2_text.exit750 ], [ %.0775, %1352 ], [ %.0775, %1380 ]
+dissect_ptp_v2_text.exit756.thread:               ; preds = %.lr.ph, %1380, %1352, %dissect_ptp_v2_text.exit750, %808, %759, %1342, %1334, %23, %1457, %1458, %1490, %1450, %1541, %1536, %1402, %1435, %1625, %1630, %dissect_ptp_v2_text.exit756
+  %1638 = phi i1 [ true, %1625 ], [ true, %1630 ], [ %1624, %dissect_ptp_v2_text.exit756 ], [ false, %1435 ], [ false, %1402 ], [ false, %1536 ], [ false, %1541 ], [ false, %1450 ], [ false, %1490 ], [ false, %1458 ], [ false, %1457 ], [ false, %23 ], [ false, %1334 ], [ false, %1342 ], [ false, %759 ], [ false, %808 ], [ false, %dissect_ptp_v2_text.exit750 ], [ false, %1352 ], [ false, %1380 ], [ false, %.lr.ph ]
+  %.2759 = phi i8 [ %.2, %1625 ], [ %.2, %1630 ], [ %.2, %dissect_ptp_v2_text.exit756 ], [ %.0775, %1435 ], [ %.0775, %1402 ], [ %.0775, %1536 ], [ %.0775, %1541 ], [ %.0775, %1450 ], [ %.0775, %1490 ], [ %.0775, %1458 ], [ %.0775, %1457 ], [ %.0775, %23 ], [ %.0775, %1334 ], [ %.0775, %1342 ], [ %.0775, %759 ], [ %.0775, %808 ], [ %.0775, %dissect_ptp_v2_text.exit750 ], [ %.0775, %1352 ], [ %.0775, %1380 ], [ %.0775, %.lr.ph ]
   %1639 = load i32, ptr %9, align 4
   %1640 = icmp eq i32 %1639, %24
   %1641 = zext i16 %29 to i32

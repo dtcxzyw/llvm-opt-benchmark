@@ -278,13 +278,17 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %58, %
   %144 = tail call double @llvm.log2.f64(double %.06.i), !tbaa !12
   %145 = add nuw nsw i32 %.045.i, 1
   %146 = fcmp ult double %144, 1.000000e+00
-  br i1 %146, label %math_logstar_n.exit, label %.lr.ph.i, !llvm.loop !47
+  br i1 %146, label %math_logstar_n.exit.thread, label %.lr.ph.i, !llvm.loop !47
 
-math_logstar_n.exit:                              ; preds = %.lr.ph.i
-  %.not40 = icmp samesign ugt i32 %.03578, %.045.i
-  br i1 %.not40, label %.lr.ph.i53, label %147
+math_logstar_n.exit57.thread:                     ; preds = %init_query_structure.exit
+  %.pre = sitofp i32 %0 to double
+  br label %math_N.exit63
 
-147:                                              ; preds = %math_logstar_n.exit
+math_logstar_n.exit.thread:                       ; preds = %.lr.ph.i
+  %.not4065 = icmp samesign ugt i32 %.03578, %.045.i
+  br i1 %.not4065, label %.lr.ph.i53, label %147
+
+147:                                              ; preds = %math_logstar_n.exit.thread
   %148 = icmp samesign ugt i32 %.03578, 1
   br i1 %148, label %.lr.ph.i45.preheader, label %math_N.exit
 
@@ -376,24 +380,20 @@ find_new_roots.exit:                              ; preds = %166, %171
   %185 = add nuw nsw i32 %.03578, 1
   br label %.lr.ph.preheader.i
 
-.lr.ph.i53:                                       ; preds = %math_logstar_n.exit, %.lr.ph.i53
-  %.06.i54 = phi double [ %186, %.lr.ph.i53 ], [ %138, %math_logstar_n.exit ]
-  %.045.i55 = phi i32 [ %187, %.lr.ph.i53 ], [ 0, %math_logstar_n.exit ]
+.lr.ph.i53:                                       ; preds = %math_logstar_n.exit.thread, %.lr.ph.i53
+  %.06.i54 = phi double [ %186, %.lr.ph.i53 ], [ %138, %math_logstar_n.exit.thread ]
+  %.045.i55 = phi i32 [ %187, %.lr.ph.i53 ], [ 0, %math_logstar_n.exit.thread ]
   %186 = tail call double @llvm.log2.f64(double %.06.i54), !tbaa !12
   %187 = add nuw nsw i32 %.045.i55, 1
   %188 = fcmp ult double %186, 1.000000e+00
   br i1 %188, label %math_logstar_n.exit57, label %.lr.ph.i53, !llvm.loop !47
-
-math_logstar_n.exit57.thread:                     ; preds = %init_query_structure.exit
-  %.pre = sitofp i32 %0 to double
-  br label %math_N.exit63
 
 math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
   %.not67 = icmp eq i32 %.045.i55, 0
   br i1 %.not67, label %math_N.exit63, label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %math_logstar_n.exit57, %.lr.ph.i59
-  %.08.i60 = phi double [ %189, %.lr.ph.i59 ], [ %139, %math_logstar_n.exit57 ]
+  %.08.i60 = phi double [ %189, %.lr.ph.i59 ], [ %138, %math_logstar_n.exit57 ]
   %.067.i61 = phi i32 [ %190, %.lr.ph.i59 ], [ 0, %math_logstar_n.exit57 ]
   %189 = tail call double @log2(double noundef %.08.i60) #17, !tbaa !12
   %190 = add nuw nsw i32 %.067.i61, 1
@@ -402,8 +402,8 @@ math_logstar_n.exit57:                            ; preds = %.lr.ph.i53
 
 math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_logstar_n.exit57.thread, %math_logstar_n.exit57
   %.072 = phi i32 [ %.079, %math_logstar_n.exit57 ], [ 2, %math_logstar_n.exit57.thread ], [ %.079, %.lr.ph.i59 ]
-  %191 = phi double [ %139, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %139, %.lr.ph.i59 ]
-  %.0.lcssa.i58 = phi double [ %139, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %189, %.lr.ph.i59 ]
+  %191 = phi double [ %138, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %138, %.lr.ph.i59 ]
+  %.0.lcssa.i58 = phi double [ %138, %math_logstar_n.exit57 ], [ %.pre, %math_logstar_n.exit57.thread ], [ %189, %.lr.ph.i59 ]
   %192 = fdiv double %191, %.0.lcssa.i58
   %193 = tail call double @llvm.ceil.f64(double %192)
   %194 = fptosi double %193 to i32
@@ -421,7 +421,7 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
   %196 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv97
   %197 = load i32, ptr %196, align 4, !tbaa !12
-  call fastcc void @add_segment(i32 noundef %197, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  call fastcc void @add_segment(i32 noundef %197, ptr noundef nonnull %1, ptr noundef %4, ptr noundef %5)
   %exitcond100.not = icmp eq i32 %.3, %0
   br i1 %exitcond100.not, label %._crit_edge84, label %.lr.ph83, !llvm.loop !53
 

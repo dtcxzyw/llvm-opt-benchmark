@@ -3750,7 +3750,7 @@ LockReassignOwner.exit:                           ; preds = %.lr.ph25, %._crit_e
 
 68:                                               ; preds = %64
   store ptr %5, ptr %67, align 8
-  tail call void @ResourceOwnerRememberLock(ptr noundef %5, ptr noundef %49) #17
+  tail call void @ResourceOwnerRememberLock(ptr noundef %5, ptr noundef nonnull %49) #17
   br label %82
 
 69:                                               ; preds = %64
@@ -3775,7 +3775,7 @@ LockReassignOwner.exit:                           ; preds = %.lr.ph25, %._crit_e
 
 82:                                               ; preds = %79, %69, %68
   %83 = load ptr, ptr @CurrentResourceOwner, align 8
-  tail call void @ResourceOwnerForgetLock(ptr noundef %83, ptr noundef %49) #17
+  tail call void @ResourceOwnerForgetLock(ptr noundef %83, ptr noundef nonnull %49) #17
   br label %LockReassignOwner.exit21
 
 LockReassignOwner.exit21:                         ; preds = %.lr.ph, %._crit_edge.i20, %82

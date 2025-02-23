@@ -54,7 +54,7 @@ define ptr @Cudd_addMatrixMultiply(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 24:                                               ; preds = %.preheader, %24
   store i32 0, ptr %18, align 8, !tbaa !30
-  %25 = tail call ptr @addMMRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef -1, ptr noundef nonnull %10)
+  %25 = tail call ptr @addMMRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef -1, ptr noundef nonnull %10)
   %26 = load i32, ptr %18, align 8, !tbaa !30
   %27 = icmp eq i32 %26, 1
   br i1 %27, label %24, label %28, !llvm.loop !31
@@ -619,7 +619,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph48, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %.lr.ph48, %.preheader
-  %24 = tail call ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef %3, ptr noundef null, i32 noundef %4) #7
+  %24 = tail call ptr @Cudd_addComputeCube(ptr noundef nonnull %0, ptr noundef %3, ptr noundef null, i32 noundef %4) #7
   %25 = icmp eq ptr %24, null
   br i1 %25, label %26, label %27
 
@@ -640,7 +640,7 @@ define ptr @Cudd_addTriangle(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 35:                                               ; preds = %35, %27
   store i32 0, ptr %34, align 8, !tbaa !30
-  %36 = tail call fastcc ptr @addTriangleRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %24)
+  %36 = tail call fastcc ptr @addTriangleRecur(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %10, ptr noundef %24)
   %37 = load i32, ptr %34, align 8, !tbaa !30
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %35, label %39, !llvm.loop !43

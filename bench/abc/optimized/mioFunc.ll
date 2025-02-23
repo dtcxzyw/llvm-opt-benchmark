@@ -377,9 +377,9 @@ sub_0:                                            ; preds = %._crit_edge
   %.199136 = phi ptr [ %94, %.preheader122 ], [ %77, %.preheader122.lr.ph ]
   %94 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.199136) #12
   %.not106 = icmp eq ptr %94, null
-  br i1 %.not106, label %.preheader, label %.preheader122, !llvm.loop !53
+  br i1 %.not106, label %._crit_edge141, label %.preheader122, !llvm.loop !53
 
-.preheader:                                       ; preds = %.preheader122, %..loopexit_crit_edge.us, %.split
+.preheader:                                       ; preds = %..loopexit_crit_edge.us, %.split
   %95 = icmp sgt i32 %57, 0
   br i1 %95, label %.lr.ph140.preheader, label %._crit_edge141
 
@@ -405,7 +405,7 @@ sub_0:                                            ; preds = %._crit_edge
   %102 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef nonnull %98, ptr noundef %100, ptr noundef %101)
   br label %355
 
-._crit_edge141:                                   ; preds = %96, %.preheader
+._crit_edge141:                                   ; preds = %.preheader122, %96, %.preheader
   %103 = sext i32 %57 to i64
   %104 = shl nsw i64 %103, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %4, ptr nonnull align 16 %5, i64 %104, i1 false)

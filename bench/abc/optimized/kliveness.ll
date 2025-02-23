@@ -574,7 +574,7 @@ define range(i32 0, 2) i32 @flipConePdr(ptr noundef %0, i32 noundef %1, i32 noun
   %44 = sext i32 %2 to i64
   %45 = getelementptr inbounds ptr, ptr %.val, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !23
-  call void @free(ptr noundef %7) #17
+  call void @free(ptr noundef nonnull %7) #17
   %.val43 = load i32, ptr %23, align 8, !tbaa !40
   %47 = icmp sgt i32 %.val43, 0
   br i1 %47, label %.lr.ph48, label %._crit_edge49

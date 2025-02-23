@@ -69,7 +69,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
 23:                                               ; preds = %15, %12
   %.118.i13.i.i.i = phi i64 [ %22, %15 ], [ %.017.i11.i.i.i, %12 ]
   %.1.i14.i.i.i = phi i64 [ %21, %15 ], [ %.0.i12.i.i.i, %12 ]
-  %24 = icmp ult i64 %.118.i13.i.i.i, %6
+  %24 = icmp samesign ult i64 %.118.i13.i.i.i, %6
   br i1 %24, label %25, label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h56fa4d7b0ff8d739E.exit"
 
 25:                                               ; preds = %23
@@ -81,7 +81,7 @@ define internal fastcc void @_ZN10phf_shared4hash17h98a7cd66616affbcE(ptr noalia
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %.118.i13.i.i.i, 3
   %32 = and i64 %31, 56
-  %33 = shl nuw i64 %30, %32
+  %33 = shl nuw nsw i64 %30, %32
   %34 = or i64 %33, %.1.i14.i.i.i
   br label %"_ZN43_$LT$str$u20$as$u20$phf_shared..PhfHash$GT$8phf_hash17h56fa4d7b0ff8d739E.exit"
 

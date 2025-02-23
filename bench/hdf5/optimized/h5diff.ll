@@ -2507,7 +2507,7 @@ free_exclude_path_list.exit:                      ; preds = %.lr.ph.i144, %._cri
 
 ; Function Attrs: nounwind uwtable
 define i64 @diff_match(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
-sub_0101:
+sub_0100:
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.diff_args_t, align 4
@@ -2520,30 +2520,30 @@ sub_0101:
   %12 = load i32, ptr %11, align 8, !tbaa !26
   %13 = load i8, ptr %1, align 1
   %.not133 = icmp eq i8 %13, 47
-  br i1 %.not133, label %sub_1102, label %.tail100
+  br i1 %.not133, label %sub_1101, label %.tail99
 
-sub_1102:                                         ; preds = %sub_0101
+sub_1101:                                         ; preds = %sub_0100
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %15 = load i8, ptr %14, align 1
   %16 = icmp eq i8 %15, 0
   %17 = select i1 %16, ptr @.str.40, ptr %1
-  br label %.tail100
+  br label %.tail99
 
-.tail100:                                         ; preds = %sub_0101, %sub_1102
-  %.not = phi ptr [ %1, %sub_0101 ], [ %17, %sub_1102 ]
+.tail99:                                          ; preds = %sub_0100, %sub_1101
+  %.not = phi ptr [ %1, %sub_0100 ], [ %17, %sub_1101 ]
   %18 = load i8, ptr %4, align 1
   %.not134 = icmp eq i8 %18, 47
   br i1 %.not134, label %sub_1, label %.tail
 
-sub_1:                                            ; preds = %.tail100
+sub_1:                                            ; preds = %.tail99
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %20 = load i8, ptr %19, align 1
   %21 = icmp eq i8 %20, 0
   %22 = select i1 %21, ptr @.str.40, ptr %4
   br label %.tail
 
-.tail:                                            ; preds = %.tail100, %sub_1
-  %.not84 = phi ptr [ %4, %.tail100 ], [ %22, %sub_1 ]
+.tail:                                            ; preds = %.tail99, %sub_1
+  %.not84 = phi ptr [ %4, %.tail99 ], [ %22, %sub_1 ]
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 92
   %24 = load i32, ptr %23, align 4, !tbaa !71
   %.not85 = icmp eq i32 %24, 0
@@ -2566,7 +2566,7 @@ sub_1:                                            ; preds = %.tail100
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !56
   %.not135 = icmp eq i64 %34, 0
-  br i1 %.not135, label %.loopexit, label %.lr.ph
+  br i1 %.not135, label %.loopexit103, label %.lr.ph
 
 .lr.ph:                                           ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -2632,7 +2632,7 @@ sub_1:                                            ; preds = %.tail100
 69:                                               ; preds = %64
   %70 = load i32, ptr @enable_error_stack, align 4, !tbaa !28
   %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %72, label %.loopexit
+  br i1 %71, label %72, label %.loopexit103
 
 72:                                               ; preds = %69
   %73 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !29
@@ -2646,14 +2646,14 @@ sub_1:                                            ; preds = %.tail100
   %78 = load i64, ptr @H5E_tools_g, align 8, !tbaa !29
   %79 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !29
   %80 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %73, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.diff_match, i32 noundef 1194, i64 noundef %75, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.21) #14
-  br label %.loopexit
+  br label %.loopexit103
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr @stderr, align 8, !tbaa !30
   %83 = call i64 @fwrite(ptr nonnull @.str.21, i64 29, i64 1, ptr %82) #15
   %84 = load ptr, ptr @stderr, align 8, !tbaa !30
   %fputc97 = call i32 @fputc(i32 10, ptr %84)
-  br label %.loopexit
+  br label %.loopexit103
 
 85:                                               ; preds = %64
   %86 = load ptr, ptr %49, align 8, !tbaa !59
@@ -2677,7 +2677,7 @@ sub_1:                                            ; preds = %.tail100
 95:                                               ; preds = %85
   %96 = load i32, ptr @enable_error_stack, align 4, !tbaa !28
   %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %98, label %.loopexit
+  br i1 %97, label %98, label %.loopexit103
 
 98:                                               ; preds = %95
   %99 = load i64, ptr @H5tools_ERR_STACK_g, align 8, !tbaa !29
@@ -2691,14 +2691,14 @@ sub_1:                                            ; preds = %.tail100
   %104 = load i64, ptr @H5E_tools_g, align 8, !tbaa !29
   %105 = load i64, ptr @H5E_tools_min_id_g, align 8, !tbaa !29
   %106 = call i32 (i64, ptr, ptr, i32, i64, i64, i64, ptr, ...) @H5Epush2(i64 noundef %99, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.diff_match, i32 noundef 1196, i64 noundef %101, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.21) #14
-  br label %.loopexit
+  br label %.loopexit103
 
 107:                                              ; preds = %98
   %108 = load ptr, ptr @stderr, align 8, !tbaa !30
   %109 = call i64 @fwrite(ptr nonnull @.str.21, i64 29, i64 1, ptr %108) #15
   %110 = load ptr, ptr @stderr, align 8, !tbaa !30
   %fputc = call i32 @fputc(i32 10, ptr %110)
-  br label %.loopexit
+  br label %.loopexit103
 
 111:                                              ; preds = %.lr.ph114, %114
   %112 = phi ptr [ %93, %.lr.ph114 ], [ %117, %114 ]
@@ -2794,9 +2794,9 @@ sub_1:                                            ; preds = %.tail100
   %149 = zext i32 %148 to i64
   %150 = load i64, ptr %33, align 8, !tbaa !56
   %151 = icmp ugt i64 %150, %149
-  br i1 %151, label %55, label %.loopexit, !llvm.loop !89
+  br i1 %151, label %55, label %.loopexit103, !llvm.loop !89
 
-.loopexit:                                        ; preds = %147, %32, %103, %107, %95, %77, %81, %69
+.loopexit103:                                     ; preds = %147, %32, %103, %107, %95, %77, %81, %69
   %.070108 = phi i64 [ %.070127, %69 ], [ %.070127, %81 ], [ %.070127, %77 ], [ %.070127, %95 ], [ %.070127, %107 ], [ %.070127, %103 ], [ 0, %32 ], [ %.171, %147 ]
   %.0 = phi i32 [ 2, %69 ], [ 2, %81 ], [ 2, %77 ], [ 2, %95 ], [ 2, %107 ], [ 2, %103 ], [ %12, %32 ], [ %12, %147 ]
   %152 = load ptr, ptr %8, align 8, !tbaa !15
@@ -2809,25 +2809,18 @@ sub_1:                                            ; preds = %.tail100
   %156 = getelementptr i8, ptr %7, i64 112
   %.val = load ptr, ptr %156, align 8, !tbaa !90
   %.not1.i = icmp eq ptr %.val, null
-  br i1 %.not1.i, label %free_exclude_attr_list.exit.thread, label %.lr.ph.i
+  br i1 %.not1.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
-  %.02.i = phi ptr [ %158, %.lr.ph.i ], [ %.val, %.loopexit ]
+.lr.ph.i:                                         ; preds = %.loopexit103, %.lr.ph.i
+  %.02.i = phi ptr [ %158, %.lr.ph.i ], [ %.val, %.loopexit103 ]
   %157 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !81
   call void @free(ptr noundef nonnull %.02.i) #14
   %.not.i = icmp eq ptr %158, null
-  br i1 %.not.i, label %free_exclude_attr_list.exit, label %.lr.ph.i, !llvm.loop !91
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !91
 
-free_exclude_attr_list.exit:                      ; preds = %.lr.ph.i
-  %.not98 = icmp eq ptr %6, null
-  br i1 %.not98, label %159, label %free_exclude_attr_list.exit.thread
-
-free_exclude_attr_list.exit.thread:               ; preds = %.loopexit, %free_exclude_attr_list.exit
+.loopexit:                                        ; preds = %.lr.ph.i, %.loopexit103
   call void @trav_table_free(ptr noundef nonnull %6) #14
-  br label %159
-
-159:                                              ; preds = %free_exclude_attr_list.exit, %free_exclude_attr_list.exit.thread
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14

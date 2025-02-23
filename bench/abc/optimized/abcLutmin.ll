@@ -1379,20 +1379,20 @@ define ptr @Abc_NtkBddCurtis(ptr noundef %0, ptr noundef readonly captures(none)
   %107 = load ptr, ptr %106, align 8, !tbaa !33
   %108 = tail call ptr @Extra_bddMove(ptr noundef %9, ptr noundef %107, i32 noundef %104) #20
   tail call void @Cudd_Ref(ptr noundef %108) #20
-  %109 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %9, ptr noundef %11, ptr noundef %108) #20
+  %109 = tail call ptr @Extra_TransferLevelByLevel(ptr noundef %9, ptr noundef nonnull %11, ptr noundef %108) #20
   tail call void @Cudd_Ref(ptr noundef %109) #20
   tail call void @Cudd_RecursiveDeref(ptr noundef %9, ptr noundef %108) #20
   %110 = trunc nuw nsw i64 %indvars.iv204 to i32
-  %111 = tail call ptr @Extra_bddBitsToCube(ptr noundef %11, i32 noundef %110, i32 noundef %.09.i134, ptr noundef %101, i32 noundef 0) #20
+  %111 = tail call ptr @Extra_bddBitsToCube(ptr noundef nonnull %11, i32 noundef %110, i32 noundef %.09.i134, ptr noundef %101, i32 noundef 0) #20
   tail call void @Cudd_Ref(ptr noundef %111) #20
-  %112 = tail call ptr @Cudd_bddAnd(ptr noundef %11, ptr noundef %111, ptr noundef %109) #20
+  %112 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %11, ptr noundef %111, ptr noundef %109) #20
   tail call void @Cudd_Ref(ptr noundef %112) #20
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %111) #20
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %109) #20
-  %113 = tail call ptr @Cudd_bddOr(ptr noundef %11, ptr noundef %.0119160, ptr noundef %112) #20
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %111) #20
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %109) #20
+  %113 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %11, ptr noundef %.0119160, ptr noundef %112) #20
   tail call void @Cudd_Ref(ptr noundef %113) #20
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %.0119160) #20
-  tail call void @Cudd_RecursiveDeref(ptr noundef %11, ptr noundef %112) #20
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %.0119160) #20
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %11, ptr noundef %112) #20
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %.val126 = load i32, ptr %17, align 4, !tbaa !3
   %114 = sext i32 %.val126 to i64
@@ -1712,7 +1712,7 @@ Vec_IntStartNatural.exit.thread:                  ; preds = %Vec_IntAlloc.exit.i
 
 Vec_IntRandomizeOrder.exit:                       ; preds = %.lr.ph.i39, %Vec_IntStartNatural.exit, %Vec_IntStartNatural.exit.thread
   %.not44 = phi i1 [ true, %Vec_IntStartNatural.exit ], [ %.not42, %Vec_IntStartNatural.exit.thread ], [ false, %.lr.ph.i39 ]
-  %28 = tail call ptr @Extra_TransferPermute(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %17) #20
+  %28 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %1, ptr noundef %17) #20
   tail call void @Cudd_Ref(ptr noundef %28) #20
   br i1 %.not44, label %31, label %29
 

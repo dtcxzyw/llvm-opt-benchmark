@@ -114,12 +114,12 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %45 = load ptr, ptr %2, align 8, !tbaa !18
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !18
-  %48 = tail call i32 @compute_y_coords(ptr noundef %0, i32 noundef %1, ptr noundef %47, i32 noundef %1) #11
+  %48 = tail call i32 @compute_y_coords(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %47, i32 noundef %1) #11
   %.not499 = icmp eq i32 %48, 0
   br i1 %.not499, label %49, label %.thread576
 
 49:                                               ; preds = %.loopexit599
-  %50 = call i32 @compute_hierarchy(ptr noundef %0, i32 noundef %1, double noundef 1.000000e-02, double noundef 1.000000e-01, ptr noundef %47, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
+  %50 = call i32 @compute_hierarchy(ptr noundef nonnull %0, i32 noundef %1, double noundef 1.000000e-02, double noundef 1.000000e-01, ptr noundef %47, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %12) #11
   %.not500 = icmp eq i32 %50, 0
   br i1 %.not500, label %51, label %.thread576
 
@@ -131,7 +131,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 54:                                               ; preds = %51
   %55 = load ptr, ptr %11, align 8, !tbaa !3
   call void @free(ptr noundef %55) #11
-  %56 = call i32 @stress_majorization_kD_mkernel(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #11
+  %56 = call i32 @stress_majorization_kD_mkernel(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #11
   br label %.thread557
 
 57:                                               ; preds = %51
@@ -209,7 +209,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 97:                                               ; preds = %.loopexit597
   %98 = load double, ptr @Epsilon, align 8, !tbaa !20
-  %99 = call i32 @IMDS_given_dim(ptr noundef %0, i32 noundef %1, ptr noundef %47, ptr noundef %45, double noundef %98) #11
+  %99 = call i32 @IMDS_given_dim(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %47, ptr noundef %45, double noundef %98) #11
   %.not501 = icmp eq i32 %99, 0
   br i1 %.not501, label %103, label %.thread576
 
@@ -804,7 +804,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   %318 = load ptr, ptr %10, align 8, !tbaa !3
   %319 = load ptr, ptr %11, align 8, !tbaa !3
   %320 = load i32, ptr %12, align 4, !tbaa !23
-  %321 = call ptr @initConstrainedMajorization(ptr noundef %.1477, i32 noundef %1, ptr noundef %318, ptr noundef %319, i32 noundef %320) #11
+  %321 = call ptr @initConstrainedMajorization(ptr noundef nonnull %.1477, i32 noundef %1, ptr noundef %318, ptr noundef %319, i32 noundef %320) #11
   %322 = icmp slt i32 %7, 1
   br i1 %322, label %._crit_edge729, label %.lr.ph728
 
@@ -828,7 +828,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   %.3443727 = phi i32 [ 0, %.lr.ph728 ], [ %403, %._crit_edge725 ]
   %.0470726 = phi double [ 0x7FEFFFFFFFFFFFFF, %.lr.ph728 ], [ %.1469.lcssa, %._crit_edge725 ]
   call void @set_vector_val(i32 noundef %1, double noundef 0.000000e+00, ptr noundef nonnull %241) #11
-  call void @sqrt_vecf(i32 noundef %150, ptr noundef %.1477, ptr noundef %317) #11
+  call void @sqrt_vecf(i32 noundef %150, ptr noundef nonnull %.1477, ptr noundef %317) #11
   br i1 %247, label %.lr.ph704, label %.lr.ph708.preheader
 
 .lr.ph708.preheader:                              ; preds = %._crit_edge698, %327
@@ -962,7 +962,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   %367 = load ptr, ptr %366, align 8, !tbaa !39
   %368 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv892
   %369 = load ptr, ptr %368, align 8, !tbaa !39
-  call void @right_mult_with_vector_ff(ptr noundef %317, i32 noundef %1, ptr noundef %367, ptr noundef %369) #11
+  call void @right_mult_with_vector_ff(ptr noundef nonnull %317, i32 noundef %1, ptr noundef %367, ptr noundef %369) #11
   %indvars.iv.next893 = add nuw nsw i64 %indvars.iv892, 1
   %exitcond896.not = icmp eq i64 %indvars.iv.next893, %wide.trip.count895
   br i1 %exitcond896.not, label %.lr.ph713, label %.lr.ph710, !llvm.loop !51
@@ -978,19 +978,19 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   %375 = fadd double %.0468711, %374
   %indvars.iv.next898 = add nuw nsw i64 %indvars.iv897, 1
   %exitcond901.not = icmp eq i64 %indvars.iv.next898, %wide.trip.count900
-  br i1 %exitcond901.not, label %._crit_edge714, label %.lr.ph713, !llvm.loop !52
+  br i1 %exitcond901.not, label %.lr.ph719.preheader, label %.lr.ph713, !llvm.loop !52
 
-._crit_edge714:                                   ; preds = %.lr.ph713
+.lr.ph719.preheader:                              ; preds = %.lr.ph713
   %376 = fmul double %375, 2.000000e+00
   %377 = fadd double %376, %323
   br label %.lr.ph719
 
-.lr.ph719:                                        ; preds = %._crit_edge714, %.lr.ph719
-  %indvars.iv902 = phi i64 [ %indvars.iv.next903, %.lr.ph719 ], [ 0, %._crit_edge714 ]
-  %.1469716 = phi double [ %382, %.lr.ph719 ], [ %377, %._crit_edge714 ]
+.lr.ph719:                                        ; preds = %.lr.ph719.preheader, %.lr.ph719
+  %indvars.iv902 = phi i64 [ 0, %.lr.ph719.preheader ], [ %indvars.iv.next903, %.lr.ph719 ]
+  %.1469716 = phi double [ %377, %.lr.ph719.preheader ], [ %382, %.lr.ph719 ]
   %378 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv902
   %379 = load ptr, ptr %378, align 8, !tbaa !39
-  call void @right_mult_with_vector_ff(ptr noundef %.1477, i32 noundef %1, ptr noundef %379, ptr noundef nonnull %292) #11
+  call void @right_mult_with_vector_ff(ptr noundef nonnull %.1477, i32 noundef %1, ptr noundef %379, ptr noundef nonnull %292) #11
   %380 = load ptr, ptr %378, align 8, !tbaa !39
   %381 = call double @vectors_inner_productf(i32 noundef %1, ptr noundef %380, ptr noundef nonnull %292) #11
   %382 = fsub double %.1469716, %381
@@ -1027,7 +1027,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
   %398 = load ptr, ptr %397, align 8, !tbaa !39
   %399 = getelementptr inbounds nuw ptr, ptr %291, i64 %indvars.iv907
   %400 = load ptr, ptr %399, align 8, !tbaa !39
-  %401 = call i32 @conjugate_gradient_mkernel(ptr noundef %.1477, ptr noundef %398, ptr noundef %400, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #11
+  %401 = call i32 @conjugate_gradient_mkernel(ptr noundef nonnull %.1477, ptr noundef %398, ptr noundef %400, i32 noundef %1, double noundef 1.000000e-03, i32 noundef %1) #11
   %.not513 = icmp eq i32 %401, 0
   br i1 %.not513, label %402, label %.loopexit
 
@@ -1083,7 +1083,7 @@ gv_calloc.exit550:                                ; preds = %.thread.i549, %310
 ._crit_edge735:                                   ; preds = %._crit_edge733.us, %.preheader582
   %414 = load ptr, ptr %232, align 8, !tbaa !39
   call void @free(ptr noundef %414) #11
-  call void @free(ptr noundef %232) #11
+  call void @free(ptr noundef nonnull %232) #11
   br label %415
 
 415:                                              ; preds = %._crit_edge735, %._crit_edge729

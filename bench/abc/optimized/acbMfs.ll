@@ -2838,7 +2838,7 @@ define void @Acb_NtkDivisors_rec(ptr noundef readonly captures(none) %0, i32 nou
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.next
   %28 = load i32, ptr %27, align 4, !tbaa !19
-  tail call void @Acb_NtkDivisors_rec(ptr noundef %0, i32 noundef %28, i32 noundef %25, ptr noundef %3)
+  tail call void @Acb_NtkDivisors_rec(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %25, ptr noundef %3)
   %29 = load i32, ptr %22, align 4, !tbaa !19
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
@@ -3309,7 +3309,7 @@ Vec_IntPush.exit:                                 ; preds = %5, %Acb_NtkCleanObj
   %.val15 = load ptr, ptr %39, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i32, ptr %.val15, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !19
-  tail call void @Acb_ObjMarkTfo_rec(ptr noundef %0, i32 noundef %42, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %6)
+  tail call void @Acb_ObjMarkTfo_rec(ptr noundef nonnull %0, i32 noundef %42, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %37, align 4, !tbaa !15
   %43 = sext i32 %.val to i64
@@ -4555,7 +4555,7 @@ define void @Acb_NtkCollectNewTfi1_rec(ptr noundef readonly captures(none) %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv.next
   %21 = load i32, ptr %20, align 4, !tbaa !19
-  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef %0, i32 noundef %21, ptr noundef %2)
+  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef nonnull %0, i32 noundef %21, ptr noundef %2)
   %22 = load i32, ptr %17, align 4, !tbaa !19
   %23 = sext i32 %22 to i64
   %24 = icmp slt i64 %indvars.iv.next, %23
@@ -4678,7 +4678,7 @@ define void @Acb_NtkCollectNewTfi2_rec(ptr noundef readonly captures(none) %0, i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next
   %25 = load i32, ptr %24, align 4, !tbaa !19
-  tail call void @Acb_NtkCollectNewTfi2_rec(ptr noundef %0, i32 noundef %25, ptr noundef %2)
+  tail call void @Acb_NtkCollectNewTfi2_rec(ptr noundef nonnull %0, i32 noundef %25, ptr noundef %2)
   %26 = load i32, ptr %21, align 4, !tbaa !19
   %27 = sext i32 %26 to i64
   %28 = icmp slt i64 %indvars.iv.next, %27
@@ -4836,7 +4836,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %5, %Acb_NtkCleanObj
   %.val30 = load ptr, ptr %36, align 8, !tbaa !18
   %38 = getelementptr inbounds nuw i32, ptr %.val30, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !19
-  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef %0, i32 noundef %39, ptr noundef nonnull %6)
+  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef nonnull %0, i32 noundef %39, ptr noundef nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val28 = load i32, ptr %34, align 4, !tbaa !15
   %40 = sext i32 %.val28 to i64
@@ -4844,7 +4844,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %5, %Acb_NtkCleanObj
   br i1 %41, label %37, label %.critedge, !llvm.loop !94
 
 .critedge:                                        ; preds = %37, %Acb_NtkIncTravId.exit
-  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %6)
+  tail call void @Acb_NtkCollectNewTfi1_rec(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %6)
   %42 = load i32, ptr %7, align 4, !tbaa !15
   %43 = add nsw i32 %42, -1
   store i32 %43, ptr %7, align 4, !tbaa !15
@@ -4863,7 +4863,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %5, %Acb_NtkCleanObj
   %.val29 = load ptr, ptr %46, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv37
   %49 = load i32, ptr %48, align 4, !tbaa !19
-  tail call void @Acb_NtkCollectNewTfi2_rec(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %6)
+  tail call void @Acb_NtkCollectNewTfi2_rec(ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %6)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %.val = load i32, ptr %44, align 4, !tbaa !15
   %50 = sext i32 %.val to i64
@@ -5422,7 +5422,7 @@ Acb_ObjMarkTfo2.exit.thread:                      ; preds = %48, %Acb_ObjMarkTfo
 
 Vec_IntFree.exit:                                 ; preds = %Acb_ObjMarkTfo2.exit, %Acb_ObjMarkTfo2.exit.thread
   tail call void @free(ptr noundef nonnull %16) #25
-  %53 = tail call ptr @Acb_NtkCollectNewTfi(ptr noundef %0, i32 noundef %1, ptr noundef %14, ptr noundef %18, ptr noundef %6)
+  %53 = tail call ptr @Acb_NtkCollectNewTfi(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %14, ptr noundef %18, ptr noundef %6)
   %54 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !18
   %.not.i45 = icmp eq ptr %55, null
@@ -5446,7 +5446,7 @@ Vec_IntFree.exit46:                               ; preds = %Vec_IntFree.exit, %
 Vec_IntFree.exit48:                               ; preds = %Vec_IntFree.exit46, %59
   tail call void @free(ptr noundef nonnull %14) #25
   %60 = load ptr, ptr %9, align 8, !tbaa !87
-  %61 = tail call ptr @Acb_NtkCollectWindow(ptr noundef %0, i32 poison, ptr noundef %53, ptr noundef %17, ptr noundef %60)
+  %61 = tail call ptr @Acb_NtkCollectWindow(ptr noundef nonnull %0, i32 poison, ptr noundef %53, ptr noundef %17, ptr noundef %60)
   %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !18
   %.not.i49 = icmp eq ptr %63, null
@@ -7858,7 +7858,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
   %55 = getelementptr inbounds i32, ptr %48, i64 %54
   %56 = trunc nuw nsw i64 %indvars.iv187 to i32
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %56)
-  br i1 %17, label %.lr.ph, label %._crit_edge132.thread.critedge
+  br i1 %17, label %.lr.ph, label %._crit_edge132.critedge
 
 .lr.ph:                                           ; preds = %45, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %19, %45 ]
@@ -7874,29 +7874,29 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %56)
   br label %.lr.ph131
 
-._crit_edge132.thread.critedge:                   ; preds = %45
-  %putchar111.c = tail call i32 @putchar(i32 10)
-  %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %56)
-  %putchar112221 = tail call i32 @putchar(i32 10)
-  br label %._crit_edge136
-
 .lr.ph131:                                        ; preds = %._crit_edge, %.lr.ph131
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %.lr.ph131 ], [ %19, %._crit_edge ]
-  %63 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv177
-  %64 = load i32, ptr %63, align 4, !tbaa !19
-  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %64)
+  %62 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv177
+  %63 = load i32, ptr %62, align 4, !tbaa !19
+  %64 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %63)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !147
+  br i1 %exitcond181.not, label %.lr.ph135, label %.lr.ph131, !llvm.loop !147
 
-._crit_edge132:                                   ; preds = %.lr.ph131
+._crit_edge132.critedge:                          ; preds = %45
+  %putchar111.c = tail call i32 @putchar(i32 10)
+  %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %56)
   %putchar112 = tail call i32 @putchar(i32 10)
+  br label %._crit_edge136
+
+.lr.ph135:                                        ; preds = %.lr.ph131
+  %putchar112221 = tail call i32 @putchar(i32 10)
   %66 = getelementptr inbounds nuw [64 x i64], ptr %7, i64 0, i64 %indvars.iv187
   %67 = getelementptr inbounds nuw [64 x i64], ptr %8, i64 0, i64 %indvars.iv187
   br label %68
 
-68:                                               ; preds = %._crit_edge132, %84
-  %indvars.iv182 = phi i64 [ %19, %._crit_edge132 ], [ %indvars.iv.next183, %84 ]
+68:                                               ; preds = %.lr.ph135, %84
+  %indvars.iv182 = phi i64 [ %19, %.lr.ph135 ], [ %indvars.iv.next183, %84 ]
   %69 = getelementptr inbounds i32, ptr %52, i64 %indvars.iv182
   %70 = load i32, ptr %69, align 4, !tbaa !19
   %.not113 = icmp eq i32 %70, 0
@@ -7929,7 +7929,7 @@ define void @Acb_NtkOptNodeAnalyze(ptr noundef readnone captures(none) %0, i32 n
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
   br i1 %exitcond186.not, label %._crit_edge136, label %68, !llvm.loop !148
 
-._crit_edge136:                                   ; preds = %84, %._crit_edge132.thread.critedge
+._crit_edge136:                                   ; preds = %84, %._crit_edge132.critedge
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count190
   br i1 %exitcond191.not, label %.preheader125.us.preheader, label %45, !llvm.loop !149
@@ -9440,13 +9440,13 @@ Acb_NtkObjMffcEstimate.exit429.thread:            ; preds = %Abc_Clock.exit437.A
   store i32 -1, ptr %695, align 4, !tbaa !19
   %indvars.iv.next.i459 = add nuw nsw i64 %indvars.iv.i458, 1
   %exitcond562.not = icmp eq i64 %indvars.iv.next.i459, %689
-  br i1 %exitcond562.not, label %Acb_NtkWindowUndo.exit, label %690, !llvm.loop !53
+  br i1 %exitcond562.not, label %Acb_NtkWindowUndo.exit.thread, label %690, !llvm.loop !53
 
-Acb_NtkWindowUndo.exit:                           ; preds = %690, %678
+Acb_NtkWindowUndo.exit:                           ; preds = %678
   %696 = icmp eq ptr %41, null
   br i1 %696, label %Vec_IntFreeP.exit, label %Acb_NtkWindowUndo.exit.thread
 
-Acb_NtkWindowUndo.exit.thread:                    ; preds = %685, %Acb_NtkWindowUndo.exit
+Acb_NtkWindowUndo.exit.thread:                    ; preds = %690, %685, %Acb_NtkWindowUndo.exit
   %697 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %698 = load ptr, ptr %697, align 8, !tbaa !18
   %.not.i461 = icmp eq ptr %698, null

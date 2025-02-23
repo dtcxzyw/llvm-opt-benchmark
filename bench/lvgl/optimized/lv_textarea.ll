@@ -951,8 +951,8 @@ lv_textarea_get_password_bullet.exit:             ; preds = %14, %17
   %32 = load ptr, ptr %8, align 8, !tbaa !22
   call void @lv_label_set_text(ptr noundef %32, ptr noundef %24) #10
   call void @lv_free(ptr noundef %24) #10
-  %33 = call zeroext i1 @lv_anim_delete(ptr noundef %0, ptr noundef nonnull @pwd_char_hider_anim) #10
-  call fastcc void @refr_cursor_area(ptr noundef %0)
+  %33 = call zeroext i1 @lv_anim_delete(ptr noundef nonnull %0, ptr noundef nonnull @pwd_char_hider_anim) #10
+  call fastcc void @refr_cursor_area(ptr noundef nonnull %0)
   br label %34
 
 34:                                               ; preds = %29, %7, %1

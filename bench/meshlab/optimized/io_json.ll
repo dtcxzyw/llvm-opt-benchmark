@@ -2554,7 +2554,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %74, %_ZN9QtPrivate8
           to label %.preheader271.preheader unwind label %.loopexit.split-lp.loopexit
 
 .preheader271.preheader:                          ; preds = %624
-  %632 = add i64 %.0155326, 1
+  %632 = add nuw i64 %.0155326, 1
   %umax = call i64 @llvm.umax.i64(i64 %.sroa.speculated, i64 %632)
   %633 = add i64 %umax, -1
   br label %.preheader271

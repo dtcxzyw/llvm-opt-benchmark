@@ -29,7 +29,7 @@ up_irq_restore.exit.i:                            ; preds = %8, %2
 .lr.ph.i:                                         ; preds = %up_irq_restore.exit.i, %.lr.ph.i
   %.010.i = phi ptr [ %9, %.lr.ph.i ], [ %6, %up_irq_restore.exit.i ]
   %9 = load ptr, ptr %.010.i, align 8
-  call void @mm_delayfree(ptr noundef %0, ptr noundef nonnull %.010.i, i1 noundef zeroext false) #4
+  call void @mm_delayfree(ptr noundef nonnull %0, ptr noundef nonnull %.010.i, i1 noundef zeroext false) #4
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %free_delaylist.exit, label %.lr.ph.i, !llvm.loop !9
 
@@ -41,7 +41,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   br i1 %12, label %61, label %13
 
 13:                                               ; preds = %free_delaylist.exit
-  %14 = call i32 @mm_lock(ptr noundef %0) #4
+  %14 = call i32 @mm_lock(ptr noundef nonnull %0) #4
   %15 = call i32 @mm_size2ndx(i64 noundef %11) #4
   %16 = sext i32 %15 to i64
   %.idx = shl nsw i64 %16, 5
@@ -97,7 +97,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
   %43 = or disjoint i64 %42, %11
   store i64 %43, ptr %25, align 8
   store i64 %36, ptr %35, align 8
-  call void @mm_addfreechunk(ptr noundef %0, ptr noundef nonnull %39) #4
+  call void @mm_addfreechunk(ptr noundef nonnull %0, ptr noundef nonnull %39) #4
   br label %48
 
 44:                                               ; preds = %34
@@ -131,7 +131,7 @@ free_delaylist.exit:                              ; preds = %.lr.ph.i, %up_irq_r
 
 .thread:                                          ; preds = %22, %13, %58
   %.050 = phi ptr [ %26, %58 ], [ null, %13 ], [ null, %22 ]
-  call void @mm_unlock(ptr noundef %0) #4
+  call void @mm_unlock(ptr noundef nonnull %0) #4
   br label %61
 
 61:                                               ; preds = %free_delaylist.exit, %.thread

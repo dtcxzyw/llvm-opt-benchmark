@@ -1893,7 +1893,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %280
   call void @Abc_ObjAddFanin(ptr noundef %349, ptr noundef %348) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
   %350 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.4414598) #15
-  %351 = call ptr @Abc_ObjName(ptr noundef %299) #15
+  %351 = call ptr @Abc_ObjName(ptr noundef nonnull %299) #15
   %352 = call ptr @Abc_ObjAssignName(ptr noundef %349, ptr noundef %351, ptr noundef nonnull %3) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
   %353 = add nuw nsw i32 %.4414598, 1
@@ -2056,7 +2056,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %280
   call void @Abc_ObjAddFanin(ptr noundef %419, ptr noundef %418) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #15
   %420 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.5415622) #15
-  %421 = call ptr @Abc_ObjName(ptr noundef %369) #15
+  %421 = call ptr @Abc_ObjName(ptr noundef nonnull %369) #15
   %422 = call ptr @Abc_ObjAssignName(ptr noundef %419, ptr noundef %421, ptr noundef nonnull %2) #15
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #15
   %423 = add nuw nsw i32 %.5415622, 1
@@ -2683,7 +2683,7 @@ define ptr @Abc_NtkSkeletonBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %.val240.val = load ptr, ptr %20, align 8, !tbaa !32
   %21 = getelementptr inbounds nuw ptr, ptr %.val240.val, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !33
-  %23 = tail call ptr @Abc_NtkDupObj(ptr noundef %5, ptr noundef %22, i32 noundef 0) #15
+  %23 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %5, ptr noundef %22, i32 noundef 0) #15
   %.val217 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr i8, ptr %22, i64 48
   %.val218 = load ptr, ptr %24, align 8, !tbaa !43
@@ -2695,7 +2695,7 @@ define ptr @Abc_NtkSkeletonBlifMv(ptr noundef %0) local_unnamed_addr #0 {
   %27 = sext i32 %.val218.val to i64
   %28 = getelementptr inbounds ptr, ptr %.val217.val.val, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !33
-  %30 = tail call ptr @Abc_NtkDupObj(ptr noundef %5, ptr noundef %29, i32 noundef 1) #15
+  %30 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %5, ptr noundef %29, i32 noundef 1) #15
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %32 = load ptr, ptr %31, align 8, !tbaa !48
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 64
@@ -3338,11 +3338,11 @@ Abc_NodeSetTravIdCurrent.exit275:                 ; preds = %279, %._crit_edge.i
 
 .lr.ph303:                                        ; preds = %Abc_NodeSetTravIdCurrent.exit275, %.lr.ph303
   %.1193302 = phi i32 [ %335, %.lr.ph303 ], [ 0, %Abc_NodeSetTravIdCurrent.exit275 ]
-  %333 = tail call ptr @Abc_NtkCreateObj(ptr noundef %5, i32 noundef 5) #15
-  %334 = tail call ptr @Abc_NtkCreateObj(ptr noundef %5, i32 noundef 6) #15
+  %333 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %5, i32 noundef 5) #15
+  %334 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %5, i32 noundef 6) #15
   tail call void @Abc_ObjAddFanin(ptr noundef %333, ptr noundef %13) #15
   tail call void @Abc_ObjAddFanin(ptr noundef %334, ptr noundef %333) #15
-  tail call void @Abc_ObjAddFanin(ptr noundef %328, ptr noundef %334) #15
+  tail call void @Abc_ObjAddFanin(ptr noundef nonnull %328, ptr noundef %334) #15
   %335 = add nuw nsw i32 %.1193302, 1
   %exitcond324.not = icmp eq i32 %335, %.09.i276
   br i1 %exitcond324.not, label %._crit_edge304, label %.lr.ph303, !llvm.loop !106
@@ -3350,7 +3350,7 @@ Abc_NodeSetTravIdCurrent.exit275:                 ; preds = %279, %._crit_edge.i
 ._crit_edge304:                                   ; preds = %.lr.ph303, %Abc_NodeSetTravIdCurrent.exit275
   %336 = getelementptr inbounds nuw i8, ptr %231, i64 64
   %337 = load ptr, ptr %336, align 8, !tbaa !48
-  tail call void @Abc_ObjAddFanin(ptr noundef %337, ptr noundef %328) #15
+  tail call void @Abc_ObjAddFanin(ptr noundef %337, ptr noundef nonnull %328) #15
   br label %.critedge6
 
 .critedge6:                                       ; preds = %Abc_NodeIsTravIdCurrent.exit, %._crit_edge304
@@ -3963,7 +3963,7 @@ define i32 @Abc_NodeEvalMvCost(i32 noundef %0, ptr noundef readonly captures(non
 
 Abc_NodeEvalMvCostInternal.exit:                  ; preds = %.lr.ph.i, %3
   %.0.lcssa.i = phi i32 [ 0, %3 ], [ %10, %.lr.ph.i ]
-  tail call void @free(ptr noundef %4) #15
+  tail call void @free(ptr noundef nonnull %4) #15
   ret i32 %.0.lcssa.i
 }
 

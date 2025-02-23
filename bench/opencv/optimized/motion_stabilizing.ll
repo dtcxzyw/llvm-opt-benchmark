@@ -254,15 +254,14 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
   %61 = add nsw i64 %.057.i.i.i.i.i66, -1
   %62 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i65, i64 96
   %.not.i.i.i.i.i67 = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i.i.i67, label %.loopexit98, label %.lr.ph.i.i.i.i.i64, !llvm.loop !4
+  br i1 %.not.i.i.i.i.i67, label %.lr.ph104, label %.lr.ph.i.i.i.i.i64, !llvm.loop !4
 
-.loopexit98:                                      ; preds = %.lr.ph.i.i.i.i.i64
+.lr.ph104:                                        ; preds = %.lr.ph.i.i.i.i.i64
   store ptr %62, ptr %58, align 8
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 208
   %64 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %65 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %85
 
 .preheader95:                                     ; preds = %_ZN2cv3MataSERKNS_7MatExprE.exit, %_ZNSt6vectorIN2cv3MatESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i61
@@ -296,8 +295,8 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i63: ; preds = %_ZNSt6vector
   %wide.trip.count131 = zext nneg i32 %84 to i64
   br label %96
 
-85:                                               ; preds = %.loopexit98, %_ZN2cv3MataSERKNS_7MatExprE.exit
-  %indvars.iv = phi i64 [ 0, %.loopexit98 ], [ %indvars.iv.next, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
+85:                                               ; preds = %.lr.ph104, %_ZN2cv3MataSERKNS_7MatExprE.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next, %_ZN2cv3MataSERKNS_7MatExprE.exit ]
   invoke void @_ZN2cv3Mat3eyeEiii(ptr dead_on_unwind nonnull writable sret(%"class.cv::MatExpr") align 8 %9, i32 noundef 3, i32 noundef 3, i32 noundef 5)
           to label %86 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

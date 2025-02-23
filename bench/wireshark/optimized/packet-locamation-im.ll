@@ -802,7 +802,7 @@ define internal fastcc i32 @dissect_samples_im(i1 noundef zeroext %0, ptr nounde
 
 add_rms_values.exit:                              ; preds = %129
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15) #8
-  br label %167
+  br label %.critedge
 
 135:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16) #8
@@ -837,7 +837,7 @@ add_rms_values.exit:                              ; preds = %129
 
 add_rms_values.exit121:                           ; preds = %145
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16) #8
-  br label %167
+  br label %.critedge
 
 151:                                              ; preds = %108
   br i1 %34, label %152, label %.critedge
@@ -872,228 +872,221 @@ add_rms_values.exit121:                           ; preds = %145
   %166 = add i32 %162, 4
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, 8
-  br i1 %exitcond.not.i125, label %add_rms_values.exit126, label %161, !llvm.loop !6
+  br i1 %exitcond.not.i125, label %167, label %161, !llvm.loop !6
 
-add_rms_values.exit126:                           ; preds = %161
+167:                                              ; preds = %161
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17) #8
-  br label %167
-
-167:                                              ; preds = %add_rms_values.exit126, %add_rms_values.exit, %add_rms_values.exit121
-  %168 = phi i32 [ %166, %add_rms_values.exit126 ], [ %134, %add_rms_values.exit ], [ %150, %add_rms_values.exit121 ]
-  br i1 %34, label %169, label %.critedge
+  %168 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %166, i32 noundef 84)
+  br i1 %168, label %169, label %.critedge
 
 169:                                              ; preds = %167
-  %170 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %1, i32 noundef %168, i32 noundef 84)
-  br i1 %170, label %171, label %.critedge
-
-171:                                              ; preds = %169
-  %172 = load i32, ptr @ett_samples_timestamps, align 4
-  %173 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %172)
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %168, i32 noundef 84)
-  %174 = load i32, ptr @hf_samples_timestamps, align 4
-  %175 = tail call ptr @proto_tree_add_item(ptr noundef %173, i32 noundef %174, ptr noundef %1, i32 noundef %168, i32 noundef 84, i32 noundef 0)
-  %176 = load i32, ptr @ett_samples_timestamps_set, align 4
-  %177 = tail call ptr @proto_item_add_subtree(ptr noundef %175, i32 noundef %176)
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %168, i32 noundef 1)
-  %178 = load i32, ptr @hf_samples_timestamps_version, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %178, ptr noundef %1, i32 noundef %168, i32 noundef 1, i32 noundef 0)
-  %180 = add i32 %168, 1
-  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %180, i32 noundef 3)
-  %181 = load i32, ptr @hf_samples_timestamps_reserved, align 4
-  %182 = tail call ptr @proto_tree_add_item(ptr noundef %177, i32 noundef %181, ptr noundef %1, i32 noundef %180, i32 noundef 3, i32 noundef 0)
-  %183 = add i32 %168, 4
+  %170 = load i32, ptr @ett_samples_timestamps, align 4
+  %171 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %170)
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %166, i32 noundef 84)
+  %172 = load i32, ptr @hf_samples_timestamps, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %171, i32 noundef %172, ptr noundef %1, i32 noundef %166, i32 noundef 84, i32 noundef 0)
+  %174 = load i32, ptr @ett_samples_timestamps_set, align 4
+  %175 = tail call ptr @proto_item_add_subtree(ptr noundef %173, i32 noundef %174)
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %166, i32 noundef 1)
+  %176 = load i32, ptr @hf_samples_timestamps_version, align 4
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %176, ptr noundef %1, i32 noundef %166, i32 noundef 1, i32 noundef 0)
+  %178 = add i32 %162, 5
+  tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %178, i32 noundef 3)
+  %179 = load i32, ptr @hf_samples_timestamps_reserved, align 4
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %175, i32 noundef %179, ptr noundef %1, i32 noundef %178, i32 noundef 3, i32 noundef 0)
+  %181 = add i32 %162, 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %18) #8
-  %184 = load i32, ptr @hf_samples_timestamps_sample_1, align 4
-  store i32 %184, ptr %18, align 16
-  %185 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %186 = load i32, ptr @hf_samples_timestamps_sample_2, align 4
-  store i32 %186, ptr %185, align 4
-  %187 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %188 = load i32, ptr @hf_samples_timestamps_sample_3, align 4
-  store i32 %188, ptr %187, align 8
-  %189 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  %190 = load i32, ptr @hf_samples_timestamps_sample_4, align 4
-  store i32 %190, ptr %189, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %192 = load i32, ptr @hf_samples_timestamps_sample_5, align 4
-  store i32 %192, ptr %191, align 16
-  %193 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %194 = load i32, ptr @hf_samples_timestamps_sample_6, align 4
-  store i32 %194, ptr %193, align 4
-  %195 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %196 = load i32, ptr @hf_samples_timestamps_sample_7, align 4
-  store i32 %196, ptr %195, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %18, i64 28
-  %198 = load i32, ptr @hf_samples_timestamps_sample_8, align 4
-  store i32 %198, ptr %197, align 4
-  br label %199
+  %182 = load i32, ptr @hf_samples_timestamps_sample_1, align 4
+  store i32 %182, ptr %18, align 16
+  %183 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %184 = load i32, ptr @hf_samples_timestamps_sample_2, align 4
+  store i32 %184, ptr %183, align 4
+  %185 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %186 = load i32, ptr @hf_samples_timestamps_sample_3, align 4
+  store i32 %186, ptr %185, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  %188 = load i32, ptr @hf_samples_timestamps_sample_4, align 4
+  store i32 %188, ptr %187, align 4
+  %189 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %190 = load i32, ptr @hf_samples_timestamps_sample_5, align 4
+  store i32 %190, ptr %189, align 16
+  %191 = getelementptr inbounds nuw i8, ptr %18, i64 20
+  %192 = load i32, ptr @hf_samples_timestamps_sample_6, align 4
+  store i32 %192, ptr %191, align 4
+  %193 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %194 = load i32, ptr @hf_samples_timestamps_sample_7, align 4
+  store i32 %194, ptr %193, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %18, i64 28
+  %196 = load i32, ptr @hf_samples_timestamps_sample_8, align 4
+  store i32 %196, ptr %195, align 4
+  br label %197
 
-199:                                              ; preds = %add_timestamp_sample.exit.i, %171
-  %200 = phi i32 [ %183, %171 ], [ %291, %add_timestamp_sample.exit.i ]
-  %indvars.iv.i128 = phi i64 [ 0, %171 ], [ %indvars.iv.next.i129, %add_timestamp_sample.exit.i ]
-  %.01617.i = phi i32 [ 0, %171 ], [ %200, %add_timestamp_sample.exit.i ]
-  %201 = icmp eq i64 %indvars.iv.i128, 0
-  %202 = getelementptr i32, ptr %18, i64 %indvars.iv.i128
-  %203 = load i32, ptr %202, align 4
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %200, i32 noundef 10)
-  %204 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %200)
-  %205 = add i32 %200, 2
+197:                                              ; preds = %add_timestamp_sample.exit.i, %169
+  %198 = phi i32 [ %181, %169 ], [ %289, %add_timestamp_sample.exit.i ]
+  %indvars.iv.i128 = phi i64 [ 0, %169 ], [ %indvars.iv.next.i129, %add_timestamp_sample.exit.i ]
+  %.01617.i = phi i32 [ 0, %169 ], [ %198, %add_timestamp_sample.exit.i ]
+  %199 = icmp eq i64 %indvars.iv.i128, 0
+  %200 = getelementptr i32, ptr %18, i64 %indvars.iv.i128
+  %201 = load i32, ptr %200, align 4
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %198, i32 noundef 10)
+  %202 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %198)
+  %203 = add i32 %198, 2
+  %204 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %203, i32 noundef 0)
+  %205 = add i32 %198, 6
   %206 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %205, i32 noundef 0)
-  %207 = add i32 %200, 6
-  %208 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %207, i32 noundef 0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
-  %209 = zext i32 %206 to i64
-  store i64 %209, ptr %6, align 8
-  %210 = call ptr @gmtime(ptr noundef nonnull %6) #8
-  %211 = zext i8 %204 to i32
-  %212 = call ptr @val_to_str(i32 noundef %211, ptr noundef nonnull @samples_timestamps_sample_sync_status, ptr noundef nonnull @.str.182)
+  %207 = zext i32 %204 to i64
+  store i64 %207, ptr %6, align 8
+  %208 = call ptr @gmtime(ptr noundef nonnull %6) #8
+  %209 = zext i8 %202 to i32
+  %210 = call ptr @val_to_str(i32 noundef %209, ptr noundef nonnull @samples_timestamps_sample_sync_status, ptr noundef nonnull @.str.182)
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %7) #8
-  %.not.i.i = icmp eq ptr %210, null
-  br i1 %.not.i.i, label %215, label %213
+  %.not.i.i = icmp eq ptr %208, null
+  br i1 %.not.i.i, label %213, label %211
 
-213:                                              ; preds = %199
-  %214 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 240, ptr noundef nonnull @.str.183, ptr noundef nonnull %210) #8
-  br label %218
+211:                                              ; preds = %197
+  %212 = call i64 @strftime(ptr noundef nonnull %7, i64 noundef 240, ptr noundef nonnull @.str.183, ptr noundef nonnull %208) #8
+  br label %216
 
-215:                                              ; preds = %199
-  %216 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 240, i32 noundef 2, i64 noundef 240, ptr noundef nonnull @.str.184)
-  %217 = sext i32 %216 to i64
-  br label %218
+213:                                              ; preds = %197
+  %214 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 240, i32 noundef 2, i64 noundef 240, ptr noundef nonnull @.str.184)
+  %215 = sext i32 %214 to i64
+  br label %216
 
-218:                                              ; preds = %215, %213
-  %.0.i.i = phi i64 [ %214, %213 ], [ %217, %215 ]
-  %219 = getelementptr [240 x i8], ptr %7, i64 0, i64 %.0.i.i
-  %220 = sub i64 240, %.0.i.i
-  %221 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0.i.i)
-  %222 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %219, i64 noundef %220, i32 noundef 2, i64 noundef %221, ptr noundef nonnull @.str.185, i32 noundef %208)
+216:                                              ; preds = %213, %211
+  %.0.i.i = phi i64 [ %212, %211 ], [ %215, %213 ]
+  %217 = getelementptr [240 x i8], ptr %7, i64 0, i64 %.0.i.i
+  %218 = sub i64 240, %.0.i.i
+  %219 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0.i.i)
+  %220 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %217, i64 noundef %218, i32 noundef 2, i64 noundef %219, ptr noundef nonnull @.str.185, i32 noundef %206)
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %8) #8
-  %223 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 240, i32 noundef 2, i64 noundef 240, ptr noundef nonnull @.str.186, ptr noundef nonnull %7, ptr noundef %212)
-  %224 = sext i32 %223 to i64
-  br i1 %201, label %266, label %.cont.i
+  %221 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 240, i32 noundef 2, i64 noundef 240, ptr noundef nonnull @.str.186, ptr noundef nonnull %7, ptr noundef %210)
+  %222 = sext i32 %221 to i64
+  br i1 %199, label %264, label %.cont.i
 
-.cont.i:                                          ; preds = %218
-  %225 = add i32 %.01617.i, 2
+.cont.i:                                          ; preds = %216
+  %223 = add i32 %.01617.i, 2
+  %224 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %223, i32 noundef 0)
+  %225 = add i32 %.01617.i, 6
   %226 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %225, i32 noundef 0)
-  %227 = add i32 %.01617.i, 6
-  %228 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %227, i32 noundef 0)
+  %227 = zext i32 %224 to i64
+  %228 = mul nuw nsw i64 %227, 1000000000
   %229 = zext i32 %226 to i64
-  %230 = mul nuw nsw i64 %229, 1000000000
-  %231 = zext i32 %228 to i64
-  %232 = add nuw nsw i64 %230, %231
-  %233 = mul nuw nsw i64 %209, 1000000000
-  %234 = zext i32 %208 to i64
-  %235 = add nuw nsw i64 %233, %234
+  %230 = add nuw nsw i64 %228, %229
+  %231 = mul nuw nsw i64 %207, 1000000000
+  %232 = zext i32 %206 to i64
+  %233 = add nuw nsw i64 %231, %232
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9) #8
   store i16 0, ptr %9, align 2
-  %236 = icmp samesign ugt i64 %235, %232
-  br i1 %236, label %237, label %239
+  %234 = icmp samesign ugt i64 %233, %230
+  br i1 %234, label %235, label %237
+
+235:                                              ; preds = %.cont.i
+  %236 = sub nuw nsw i64 %233, %230
+  br label %241
 
 237:                                              ; preds = %.cont.i
-  %238 = sub nuw nsw i64 %235, %232
-  br label %243
+  %238 = icmp samesign ult i64 %233, %230
+  br i1 %238, label %239, label %.thread.i.i
 
-239:                                              ; preds = %.cont.i
-  %240 = icmp samesign ult i64 %235, %232
-  br i1 %240, label %241, label %.thread.i.i
+239:                                              ; preds = %237
+  %240 = sub nuw nsw i64 %230, %233
+  br label %241
 
-241:                                              ; preds = %239
-  %242 = sub nuw nsw i64 %232, %235
-  br label %243
-
-243:                                              ; preds = %241, %237
-  %storemerge.i.i = phi i8 [ 45, %241 ], [ 0, %237 ]
-  %.0114.i.i = phi i64 [ %242, %241 ], [ %238, %237 ]
+241:                                              ; preds = %239, %235
+  %storemerge.i.i = phi i8 [ 45, %239 ], [ 0, %235 ]
+  %.0114.i.i = phi i64 [ %240, %239 ], [ %236, %235 ]
   store i8 %storemerge.i.i, ptr %9, align 2
   %.not123.i.i = icmp eq i64 %.0114.i.i, 0
-  %244 = uitofp nneg i64 %.0114.i.i to double
-  %245 = fmul double %244, 1.000000e-09
-  %246 = fdiv double 1.000000e+00, %245
-  br i1 %.not123.i.i, label %247, label %.thread.i.i
+  %242 = uitofp nneg i64 %.0114.i.i to double
+  %243 = fmul double %242, 1.000000e-09
+  %244 = fdiv double 1.000000e+00, %243
+  br i1 %.not123.i.i, label %245, label %.thread.i.i
 
-247:                                              ; preds = %243
+245:                                              ; preds = %241
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %247, %243, %239
-  %.0114126.i.i = phi i64 [ %.0114.i.i, %243 ], [ 0, %247 ], [ 0, %239 ]
-  %248 = phi double [ %246, %243 ], [ 0.000000e+00, %247 ], [ 0.000000e+00, %239 ]
-  %249 = getelementptr [240 x i8], ptr %8, i64 0, i64 %224
-  %250 = sub nsw i64 240, %224
-  %251 = icmp ugt i32 %223, 240
-  %252 = select i1 %251, i64 0, i64 %250
-  %253 = icmp ne i64 %252, -1
-  call void @llvm.assume(i1 %253)
-  %254 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %249, i64 noundef %250, i32 noundef 2, i64 noundef %252, ptr noundef nonnull @.str.187, ptr noundef nonnull %9, i64 noundef %.0114126.i.i)
-  %255 = sext i32 %254 to i64
-  %256 = add nsw i64 %255, %224
-  %257 = fcmp une double %248, 0.000000e+00
-  br i1 %257, label %258, label %265
+.thread.i.i:                                      ; preds = %245, %241, %237
+  %.0114126.i.i = phi i64 [ %.0114.i.i, %241 ], [ 0, %245 ], [ 0, %237 ]
+  %246 = phi double [ %244, %241 ], [ 0.000000e+00, %245 ], [ 0.000000e+00, %237 ]
+  %247 = getelementptr [240 x i8], ptr %8, i64 0, i64 %222
+  %248 = sub nsw i64 240, %222
+  %249 = icmp ugt i32 %221, 240
+  %250 = select i1 %249, i64 0, i64 %248
+  %251 = icmp ne i64 %250, -1
+  call void @llvm.assume(i1 %251)
+  %252 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %247, i64 noundef %248, i32 noundef 2, i64 noundef %250, ptr noundef nonnull @.str.187, ptr noundef nonnull %9, i64 noundef %.0114126.i.i)
+  %253 = sext i32 %252 to i64
+  %254 = add nsw i64 %253, %222
+  %255 = fcmp une double %246, 0.000000e+00
+  br i1 %255, label %256, label %263
 
-258:                                              ; preds = %.thread.i.i
-  %259 = getelementptr [240 x i8], ptr %8, i64 0, i64 %256
-  %260 = sub nsw i64 240, %256
-  %261 = call i64 @llvm.usub.sat.i64(i64 240, i64 %256)
-  %262 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %259, i64 noundef %260, i32 noundef 2, i64 noundef %261, ptr noundef nonnull @.str.188, double noundef %248)
-  %263 = sext i32 %262 to i64
-  %264 = add nsw i64 %256, %263
-  br label %265
+256:                                              ; preds = %.thread.i.i
+  %257 = getelementptr [240 x i8], ptr %8, i64 0, i64 %254
+  %258 = sub nsw i64 240, %254
+  %259 = call i64 @llvm.usub.sat.i64(i64 240, i64 %254)
+  %260 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %257, i64 noundef %258, i32 noundef 2, i64 noundef %259, ptr noundef nonnull @.str.188, double noundef %246)
+  %261 = sext i32 %260 to i64
+  %262 = add nsw i64 %254, %261
+  br label %263
 
-265:                                              ; preds = %258, %.thread.i.i
-  %.1.i.i = phi i64 [ %264, %258 ], [ %256, %.thread.i.i ]
+263:                                              ; preds = %256, %.thread.i.i
+  %.1.i.i = phi i64 [ %262, %256 ], [ %254, %.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9) #8
-  br label %266
+  br label %264
 
-266:                                              ; preds = %265, %218
-  %.0113.i.i = phi i64 [ %.1.i.i, %265 ], [ %224, %218 ]
-  %267 = getelementptr [240 x i8], ptr %8, i64 0, i64 %.0113.i.i
-  %268 = sub nsw i64 240, %.0113.i.i
-  %269 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0113.i.i)
-  %270 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %267, i64 noundef %268, i32 noundef 2, i64 noundef %269, ptr noundef nonnull @.str.189)
-  %271 = call ptr @proto_tree_add_string(ptr noundef %177, i32 noundef %203, ptr noundef %1, i32 noundef %200, i32 noundef 10, ptr noundef nonnull %8)
-  %272 = load i32, ptr @ett_samples_timestamps_sample, align 4
-  %273 = call ptr @proto_item_add_subtree(ptr noundef %271, i32 noundef %272)
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %200, i32 noundef 1)
-  %274 = load i32, ptr @hf_samples_timestamps_sample_sync_status, align 4
-  %275 = call ptr @proto_tree_add_item(ptr noundef %273, i32 noundef %274, ptr noundef %1, i32 noundef %200, i32 noundef 1, i32 noundef 0)
-  %276 = add i32 %200, 1
-  %277 = icmp ugt i8 %204, 2
-  br i1 %277, label %278, label %add_timestamp_sample.exit.i
+264:                                              ; preds = %263, %216
+  %.0113.i.i = phi i64 [ %.1.i.i, %263 ], [ %222, %216 ]
+  %265 = getelementptr [240 x i8], ptr %8, i64 0, i64 %.0113.i.i
+  %266 = sub nsw i64 240, %.0113.i.i
+  %267 = call i64 @llvm.usub.sat.i64(i64 240, i64 %.0113.i.i)
+  %268 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %265, i64 noundef %266, i32 noundef 2, i64 noundef %267, ptr noundef nonnull @.str.189)
+  %269 = call ptr @proto_tree_add_string(ptr noundef %175, i32 noundef %201, ptr noundef %1, i32 noundef %198, i32 noundef 10, ptr noundef nonnull %8)
+  %270 = load i32, ptr @ett_samples_timestamps_sample, align 4
+  %271 = call ptr @proto_item_add_subtree(ptr noundef %269, i32 noundef %270)
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %198, i32 noundef 1)
+  %272 = load i32, ptr @hf_samples_timestamps_sample_sync_status, align 4
+  %273 = call ptr @proto_tree_add_item(ptr noundef %271, i32 noundef %272, ptr noundef %1, i32 noundef %198, i32 noundef 1, i32 noundef 0)
+  %274 = add i32 %198, 1
+  %275 = icmp ugt i8 %202, 2
+  br i1 %275, label %276, label %add_timestamp_sample.exit.i
 
-278:                                              ; preds = %266
-  %279 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %275, ptr noundef nonnull @ei_samples_timestamp_sync_status_invalid)
+276:                                              ; preds = %264
+  %277 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %273, ptr noundef nonnull @ei_samples_timestamp_sync_status_invalid)
   br label %add_timestamp_sample.exit.i
 
-add_timestamp_sample.exit.i:                      ; preds = %278, %266
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %276, i32 noundef 1)
-  %280 = load i32, ptr @hf_samples_timestamps_sample_additional_status, align 4
-  %281 = load i32, ptr @ett_samples_timestamps_sample_reserved, align 4
-  %282 = call ptr @proto_tree_add_bitmask(ptr noundef %273, ptr noundef %1, i32 noundef %276, i32 noundef %280, i32 noundef %281, ptr noundef nonnull @timestamp_additional_status_bits, i32 noundef 0)
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %205, i32 noundef 8)
-  %283 = load i32, ptr @hf_samples_timestamps_sample_timestamp, align 4
-  %284 = call ptr @proto_tree_add_string(ptr noundef %273, i32 noundef %283, ptr noundef %1, i32 noundef %205, i32 noundef 8, ptr noundef nonnull %7)
-  %285 = load i32, ptr @ett_samples_timestamps_sample_timestamp, align 4
-  %286 = call ptr @proto_item_add_subtree(ptr noundef %284, i32 noundef %285)
+add_timestamp_sample.exit.i:                      ; preds = %276, %264
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %274, i32 noundef 1)
+  %278 = load i32, ptr @hf_samples_timestamps_sample_additional_status, align 4
+  %279 = load i32, ptr @ett_samples_timestamps_sample_reserved, align 4
+  %280 = call ptr @proto_tree_add_bitmask(ptr noundef %271, ptr noundef %1, i32 noundef %274, i32 noundef %278, i32 noundef %279, ptr noundef nonnull @timestamp_additional_status_bits, i32 noundef 0)
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %203, i32 noundef 8)
+  %281 = load i32, ptr @hf_samples_timestamps_sample_timestamp, align 4
+  %282 = call ptr @proto_tree_add_string(ptr noundef %271, i32 noundef %281, ptr noundef %1, i32 noundef %203, i32 noundef 8, ptr noundef nonnull %7)
+  %283 = load i32, ptr @ett_samples_timestamps_sample_timestamp, align 4
+  %284 = call ptr @proto_item_add_subtree(ptr noundef %282, i32 noundef %283)
+  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %203, i32 noundef 4)
+  %285 = load i32, ptr @hf_samples_timestamps_sample_timestamp_seconds, align 4
+  %286 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %285, ptr noundef %1, i32 noundef %203, i32 noundef 4, i32 noundef 0)
   call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %205, i32 noundef 4)
-  %287 = load i32, ptr @hf_samples_timestamps_sample_timestamp_seconds, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %287, ptr noundef %1, i32 noundef %205, i32 noundef 4, i32 noundef 0)
-  call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %207, i32 noundef 4)
-  %289 = load i32, ptr @hf_samples_timestamps_sample_timestamp_nanoseconds, align 4
-  %290 = call ptr @proto_tree_add_item(ptr noundef %286, i32 noundef %289, ptr noundef %1, i32 noundef %207, i32 noundef 4, i32 noundef 0)
-  %291 = add i32 %200, 10
+  %287 = load i32, ptr @hf_samples_timestamps_sample_timestamp_nanoseconds, align 4
+  %288 = call ptr @proto_tree_add_item(ptr noundef %284, i32 noundef %287, ptr noundef %1, i32 noundef %205, i32 noundef 4, i32 noundef 0)
+  %289 = add i32 %198, 10
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %indvars.iv.next.i129 = add nuw nsw i64 %indvars.iv.i128, 1
   %exitcond.not.i130 = icmp eq i64 %indvars.iv.next.i129, 8
-  br i1 %exitcond.not.i130, label %add_timestamps_set.exit, label %199, !llvm.loop !8
+  br i1 %exitcond.not.i130, label %add_timestamps_set.exit, label %197, !llvm.loop !8
 
 add_timestamps_set.exit:                          ; preds = %add_timestamp_sample.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %151, %add_timestamps_set.exit, %169, %167
-  %292 = call i32 @tvb_captured_length(ptr noundef %1)
+.critedge:                                        ; preds = %add_rms_values.exit121, %add_rms_values.exit, %151, %add_timestamps_set.exit, %167
+  %290 = call i32 @tvb_captured_length(ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
-  ret i32 %292
+  ret i32 %290
 }
 
 ; Function Attrs: null_pointer_is_valid

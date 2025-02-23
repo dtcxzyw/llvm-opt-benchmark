@@ -42733,7 +42733,6 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6682)
   %34 = load i64, ptr %1, align 8, !range !21, !alias.scope !6682, !noundef !8
   %35 = icmp eq i64 %34, -9223372036854775808
-  %..i = select i1 %35, ptr null, ptr %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6685)
   br i1 %35, label %._crit_edge, label %36
 
@@ -42777,9 +42776,9 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 
 "_ZN74_$LT$proto..ApplyCodeActionResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17he3de70f67b8c8d4aE.llvm.4489484971173406073.exit": ; preds = %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %59, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i" ], [ 0, %36 ]
-  %60 = getelementptr inbounds nuw i8, ptr %..i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8, !alias.scope !6697, !nonnull !8, !noundef !8
-  %62 = getelementptr inbounds nuw i8, ptr %..i, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !6697, !noundef !8
   %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !6697
@@ -79152,7 +79151,6 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21023)
   %34 = load i64, ptr %1, align 8, !range !21, !alias.scope !21023, !noundef !8
   %35 = icmp eq i64 %34, -9223372036854775808
-  %..i = select i1 %35, ptr null, ptr %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21026)
   br i1 %35, label %._crit_edge, label %36
 
@@ -79196,9 +79194,9 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 
 "_ZN72_$LT$proto..PerformRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hd0f371e59c567386E.llvm.4489484971173406073.exit": ; preds = %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %59, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i" ], [ 0, %36 ]
-  %60 = getelementptr inbounds nuw i8, ptr %..i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8, !alias.scope !21038, !nonnull !8, !noundef !8
-  %62 = getelementptr inbounds nuw i8, ptr %..i, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !21038, !noundef !8
   %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !21038
@@ -80628,7 +80626,6 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21580)
   %34 = load i64, ptr %1, align 8, !range !21, !alias.scope !21580, !noundef !8
   %35 = icmp eq i64 %34, -9223372036854775808
-  %..i = select i1 %35, ptr null, ptr %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21583)
   br i1 %35, label %._crit_edge, label %36
 
@@ -80672,9 +80669,9 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 
 "_ZN72_$LT$proto..FormatBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h0c0d13d7d85b193fE.llvm.4489484971173406073.exit": ; preds = %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %59, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i" ], [ 0, %36 ]
-  %60 = getelementptr inbounds nuw i8, ptr %..i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8, !alias.scope !21595, !nonnull !8, !noundef !8
-  %62 = getelementptr inbounds nuw i8, ptr %..i, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !21595, !noundef !8
   %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !21595
@@ -81553,7 +81550,6 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21959)
   %34 = load i64, ptr %1, align 8, !range !21, !alias.scope !21959, !noundef !8
   %35 = icmp eq i64 %34, -9223372036854775808
-  %..i = select i1 %35, ptr null, ptr %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21962)
   br i1 %35, label %._crit_edge, label %36
 
@@ -81597,9 +81593,9 @@ _ZN5prost8encoding10encode_key17h1071341dc09d10b7E.llvm.4489484971173406073.exit
 
 "_ZN72_$LT$proto..ReloadBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3ce4da8d38f9d46cE.llvm.4489484971173406073.exit": ; preds = %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i"
   %.sroa.0.0.i.i.i.i.i.i = phi i64 [ %59, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i.i" ], [ 0, %36 ]
-  %60 = getelementptr inbounds nuw i8, ptr %..i, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %61 = load ptr, ptr %60, align 8, !alias.scope !21974, !nonnull !8, !noundef !8
-  %62 = getelementptr inbounds nuw i8, ptr %..i, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load i64, ptr %62, align 8, !alias.scope !21974, !noundef !8
   %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %61, i64 %63
   %65 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %61, ptr noundef nonnull readonly %64, i64 noundef 0), !noalias !21974
@@ -116362,7 +116358,6 @@ define hidden noundef i64 @"_ZN72_$LT$proto..DevServerInstructions$u20$as$u20$pr
 define hidden noundef i64 @"_ZN72_$LT$proto..FormatBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h0c0d13d7d85b193fE.llvm.4489484971173406073"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !21, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %. = select i1 %3, ptr null, ptr %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30082)
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h777df52e9788bae7E.llvm.4489484971173406073.exit", label %4
 
@@ -116406,9 +116401,9 @@ define hidden noundef i64 @"_ZN72_$LT$proto..FormatBuffersResponse$u20$as$u20$pr
 
 "_ZN72_$LT$proto..FormatBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h93c3a89c63bf556cE.llvm.4489484971173406073.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i", %4
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i" ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %., i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !alias.scope !30094, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %., i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !30094, !noundef !8
   %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !30094
@@ -116730,7 +116725,6 @@ define hidden noundef i64 @"_ZN72_$LT$proto..MultiLspQueryResponse$u20$as$u20$pr
 define hidden noundef i64 @"_ZN72_$LT$proto..PerformRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hd0f371e59c567386E.llvm.4489484971173406073"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !21, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %. = select i1 %3, ptr null, ptr %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30134)
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17he20b9002eaccf22cE.llvm.4489484971173406073.exit", label %4
 
@@ -116774,9 +116768,9 @@ define hidden noundef i64 @"_ZN72_$LT$proto..PerformRenameResponse$u20$as$u20$pr
 
 "_ZN72_$LT$proto..PerformRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h77666a4539798453E.llvm.4489484971173406073.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i", %4
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i" ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %., i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !alias.scope !30146, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %., i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !30146, !noundef !8
   %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !30146
@@ -117340,7 +117334,6 @@ define hidden noundef i64 @"_ZN72_$LT$proto..RejoinedChannelBuffer$u20$as$u20$pr
 define hidden noundef i64 @"_ZN72_$LT$proto..ReloadBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h3ce4da8d38f9d46cE.llvm.4489484971173406073"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !21, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %. = select i1 %3, ptr null, ptr %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30212)
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17had2f46268c152c6fE.llvm.4489484971173406073.exit", label %4
 
@@ -117384,9 +117377,9 @@ define hidden noundef i64 @"_ZN72_$LT$proto..ReloadBuffersResponse$u20$as$u20$pr
 
 "_ZN72_$LT$proto..ReloadBuffersResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h45a5e7cbcebd6221E.llvm.4489484971173406073.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i", %4
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i" ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %., i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !alias.scope !30224, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %., i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !30224, !noundef !8
   %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !30224
@@ -118375,7 +118368,6 @@ define hidden noundef i64 @"_ZN73_$LT$proto..UpdateWorktreeSettings$u20$as$u20$p
 define hidden noundef i64 @"_ZN74_$LT$proto..ApplyCodeActionResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17he3de70f67b8c8d4aE.llvm.4489484971173406073"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !21, !noundef !8
   %3 = icmp eq i64 %2, -9223372036854775808
-  %. = select i1 %3, ptr null, ptr %0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30314)
   br i1 %3, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h913ebba68ee960b7E.llvm.4489484971173406073.exit", label %4
 
@@ -118419,9 +118411,9 @@ define hidden noundef i64 @"_ZN74_$LT$proto..ApplyCodeActionResponse$u20$as$u20$
 
 "_ZN74_$LT$proto..ApplyCodeActionResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h8767865ed28133edE.llvm.4489484971173406073.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i", %4
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b53b14016e9ee30E.llvm.4489484971173406073.exit.i.i.i.i.i" ], [ 0, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %., i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !alias.scope !30326, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %., i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load i64, ptr %30, align 8, !alias.scope !30326, !noundef !8
   %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [2 x i32] }, [1 x i32] }, ptr %29, i64 %31
   %33 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8e129afdd3aab0b3E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %29, ptr noundef nonnull readonly %32, i64 noundef 0), !noalias !30326

@@ -2618,13 +2618,13 @@ _ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit.loopexit: ; preds = %.lr.ph.i
 
 _ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit: ; preds = %_ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit.loopexit, %9
   %.pre-phi = phi i64 [ %.pre15, %_ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit.loopexit ], [ %12, %9 ]
-  %19 = icmp ugt i64 %1, %.pre-phi
+  %19 = icmp samesign ugt i64 %1, %.pre-phi
   br i1 %19, label %.lr.ph.i.i.i, label %51
 
 .lr.ph.i.i.i:                                     ; preds = %_ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit
-  %20 = sub nuw i64 %1, %.pre-phi
-  %21 = load ptr, ptr %0, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw %"class.llvm::ShapeT", ptr %21, i64 %.pre-phi
+  %20 = load ptr, ptr %0, align 8, !tbaa !20
+  %21 = getelementptr inbounds nuw %"class.llvm::ShapeT", ptr %20, i64 %.pre-phi
+  %22 = sub nuw nsw i64 %1, %.pre-phi
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -2632,8 +2632,8 @@ _ZSt6fill_nIPN4llvm6ShapeTEmS1_ET_S3_T0_RKT1_.exit: ; preds = %_ZSt6fill_nIPN4ll
   br label %27
 
 27:                                               ; preds = %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %.09.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i ], [ %40, %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i ]
-  %.068.i.i.i = phi i64 [ %20, %.lr.ph.i.i.i ], [ %50, %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i ]
+  %.09.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %40, %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i ]
+  %.068.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i ], [ %50, %_ZSt10_ConstructIN4llvm6ShapeTEJRKS1_EEvPT_DpOT0_.exit.i.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.09.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 32, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 32
   %29 = getelementptr inbounds nuw i8, ptr %.09.i.i.i, i64 48

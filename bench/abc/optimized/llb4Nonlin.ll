@@ -1673,13 +1673,13 @@ define noundef ptr @Llb_Nonlin4ComputeInitState(ptr noundef %0, ptr noundef read
   %21 = sext i32 %.val26.us to i64
   %22 = getelementptr inbounds i32, ptr %.val.us, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !30
-  %24 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %23) #18
+  %24 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %23) #18
   %25 = ptrtoint ptr %24 to i64
   %26 = xor i64 %25, 1
   %27 = inttoptr i64 %26 to ptr
-  %28 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.034.us, ptr noundef %27) #18
+  %28 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.034.us, ptr noundef %27) #18
   tail call void @Cudd_Ref(ptr noundef %28) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.034.us) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.034.us) #18
   %29 = add nuw nsw i32 %.02533.us, 1
   %.val27.us = load i32, ptr %8, align 8, !tbaa !45
   %30 = icmp slt i32 %29, %.val27.us
@@ -1702,13 +1702,13 @@ define noundef ptr @Llb_Nonlin4ComputeInitState(ptr noundef %0, ptr noundef read
   %37 = sext i32 %.val26 to i64
   %38 = getelementptr inbounds i32, ptr %.val, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !30
-  %40 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %39) #18
+  %40 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %39) #18
   %41 = ptrtoint ptr %40 to i64
   %42 = xor i64 %41, 1
   %43 = inttoptr i64 %42 to ptr
-  %44 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.034, ptr noundef %43) #18
+  %44 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.034, ptr noundef %43) #18
   tail call void @Cudd_Ref(ptr noundef %44) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.034) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.034) #18
   %45 = add nuw nsw i32 %.02533, 1
   %.val27 = load i32, ptr %8, align 8, !tbaa !45
   %46 = icmp slt i32 %45, %.val27
@@ -1767,7 +1767,7 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr noundef readonly 
   %27 = sext i32 %spec.select.val.us to i64
   %28 = getelementptr inbounds i32, ptr %.val37.us, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !30
-  %30 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %29) #18
+  %30 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %29) #18
   %.val.us = load ptr, ptr %15, align 8, !tbaa !27
   %31 = getelementptr i8, ptr %25, i64 36
   %spec.select36.val.us = load i32, ptr %31, align 4, !tbaa !29
@@ -1782,9 +1782,9 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr noundef readonly 
   %39 = xor i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
   %.033.us = select i1 %.not35.us, ptr %30, ptr %40
-  %41 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03444.us, ptr noundef %.033.us) #18
+  %41 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.03444.us, ptr noundef %.033.us) #18
   tail call void @Cudd_Ref(ptr noundef %41) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03444.us) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03444.us) #18
   %42 = add nuw nsw i32 %.03145.us, 1
   %.val38.us = load i32, ptr %9, align 8, !tbaa !45
   %43 = icmp slt i32 %42, %.val38.us
@@ -1815,7 +1815,7 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr noundef readonly 
   %55 = sext i32 %spec.select.val to i64
   %56 = getelementptr inbounds i32, ptr %.val37, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !30
-  %58 = tail call ptr @Cudd_bddIthVar(ptr noundef %0, i32 noundef %57) #18
+  %58 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %0, i32 noundef %57) #18
   %.val = load ptr, ptr %15, align 8, !tbaa !27
   %59 = getelementptr i8, ptr %48, i64 36
   %spec.select36.val = load i32, ptr %59, align 4, !tbaa !29
@@ -1830,9 +1830,9 @@ define noundef ptr @Llb_Nonlin4ComputeCube(ptr noundef %0, ptr noundef readonly 
   %67 = xor i64 %66, 1
   %68 = inttoptr i64 %67 to ptr
   %.033 = select i1 %.not35, ptr %58, ptr %68
-  %69 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.03444, ptr noundef %.033) #18
+  %69 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.03444, ptr noundef %.033) #18
   tail call void @Cudd_Ref(ptr noundef %69) #18
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.03444) #18
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03444) #18
   %70 = add nuw nsw i32 %.03145, 1
   %.val38 = load i32, ptr %9, align 8, !tbaa !45
   %71 = icmp slt i32 %70, %.val38
@@ -3771,7 +3771,7 @@ Vec_IntCountPositive.exit:                        ; preds = %Vec_IntCountPositiv
   %57 = load i64, ptr %23, align 8, !tbaa !116
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 752
   store i64 %57, ptr %58, align 8, !tbaa !70
-  %59 = call ptr @Llb_Nonlin4DerivePartitions(ptr noundef %55, ptr noundef %0, ptr noundef %41)
+  %59 = call ptr @Llb_Nonlin4DerivePartitions(ptr noundef %55, ptr noundef %0, ptr noundef nonnull %41)
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %59, ptr %60, align 8, !tbaa !99
   br label %61

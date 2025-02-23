@@ -2083,7 +2083,7 @@ _ZN11duckdb_zstdL24ZSTD_rollingHash_computeEPKvm.exit.i: ; preds = %_ZN11duckdb_
   %209 = add i64 %208, %206
   %210 = and i64 %209, %132
   %211 = icmp eq i64 %210, %132
-  %212 = add i64 %.181.i, 1
+  %212 = add nuw i64 %.181.i, 1
   br i1 %211, label %_ZN11duckdb_zstdL24findSynchronizationPointEPKNS_13ZSTDMT_CCtx_sENS_15ZSTD_inBuffer_sE.exit, label %213
 
 213:                                              ; preds = %.lr.ph.i

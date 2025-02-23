@@ -894,15 +894,15 @@ _ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit: ; preds = %245, %232
   store float %267, ptr %265, align 4, !tbaa !35
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i58
-  br i1 %exitcond.not.i61, label %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit62, label %262, !llvm.loop !109
+  br i1 %exitcond.not.i61, label %.lr.ph.i63, label %262, !llvm.loop !109
 
-_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit62: ; preds = %262
+.lr.ph.i63:                                       ; preds = %262
   %268 = getelementptr inbounds nuw i8, ptr %227, i64 656
   %269 = load ptr, ptr %268, align 8, !tbaa !96
   br label %270
 
-270:                                              ; preds = %270, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit62
-  %indvars.iv.i66 = phi i64 [ 0, %_ZN11btMultiBody22applyDeltaVeeMultiDof2EPKff.exit62 ], [ %indvars.iv.next.i67, %270 ]
+270:                                              ; preds = %270, %.lr.ph.i63
+  %indvars.iv.i66 = phi i64 [ 0, %.lr.ph.i63 ], [ %indvars.iv.next.i67, %270 ]
   %271 = getelementptr inbounds nuw float, ptr %269, i64 %indvars.iv.i66
   %272 = load float, ptr %271, align 4, !tbaa !35
   %273 = getelementptr inbounds nuw float, ptr %259, i64 %indvars.iv.i66
@@ -1609,9 +1609,14 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 256
   %62 = load ptr, ptr %61, align 8, !tbaa !96
   %63 = icmp sgt i32 %53, -6
-  br i1 %63, label %.lr.ph.preheader, label %._crit_edge.thread
+  br i1 %63, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %49
+.lr.ph.preheader:                                 ; preds = %49
+  %smax = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
+  %wide.trip.count = zext nneg i32 %smax to i64
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %49
   %64 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %65 = load float, ptr %64, align 4, !tbaa !35
   %66 = fmul float %65, 0.000000e+00
@@ -1623,12 +1628,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %72 = fmul float %71, 0.000000e+00
   br label %._crit_edge94
 
-.lr.ph.preheader:                                 ; preds = %49
-  %smax = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
-  br label %.lr.ph
-
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph93.preheader:                               ; preds = %.lr.ph
   %73 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %74 = load float, ptr %73, align 4, !tbaa !35
   %75 = fmul float %86, %74
@@ -1652,13 +1652,13 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %86 = tail call float @llvm.fmuladd.f32(float %83, float %85, float %.08688)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !208
+  br i1 %exitcond.not, label %.lr.ph93.preheader, label %.lr.ph, !llvm.loop !208
 
-._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge.thread
-  %87 = phi float [ %72, %._crit_edge.thread ], [ %81, %.lr.ph93 ]
-  %88 = phi float [ %69, %._crit_edge.thread ], [ %78, %.lr.ph93 ]
-  %89 = phi float [ %66, %._crit_edge.thread ], [ %75, %.lr.ph93 ]
-  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %106, %.lr.ph93 ]
+._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge
+  %87 = phi float [ %72, %._crit_edge ], [ %81, %.lr.ph93 ]
+  %88 = phi float [ %69, %._crit_edge ], [ %78, %.lr.ph93 ]
+  %89 = phi float [ %66, %._crit_edge ], [ %75, %.lr.ph93 ]
+  %.1.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %106, %.lr.ph93 ]
   %90 = getelementptr inbounds nuw i8, ptr %44, i64 816
   %91 = load float, ptr %90, align 4, !tbaa !35
   %92 = fmul float %.1.lcssa, %91
@@ -1678,9 +1678,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK45btReducedDeformableNodeRigi
   %wide.trip.count115 = zext nneg i32 %smax114 to i64
   br label %.lr.ph99
 
-.lr.ph93:                                         ; preds = %._crit_edge, %.lr.ph93
-  %indvars.iv105 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next106, %.lr.ph93 ]
-  %.190 = phi float [ 0.000000e+00, %._crit_edge ], [ %106, %.lr.ph93 ]
+.lr.ph93:                                         ; preds = %.lr.ph93.preheader, %.lr.ph93
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph93.preheader ], [ %indvars.iv.next106, %.lr.ph93 ]
+  %.190 = phi float [ 0.000000e+00, %.lr.ph93.preheader ], [ %106, %.lr.ph93 ]
   %102 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv105
   %103 = load float, ptr %102, align 4, !tbaa !35
   %104 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv105

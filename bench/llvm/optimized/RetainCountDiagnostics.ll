@@ -3819,8 +3819,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit169:              ; preds = %716, %718
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 16
   %731 = load i8, ptr %730, align 16
   %732 = icmp eq i8 %731, 13
-  %.not.not7.i.i = icmp ne ptr %729, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %732
+  %.not7.i.i = icmp ne ptr %729, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %732
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %722

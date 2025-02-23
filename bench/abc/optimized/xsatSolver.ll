@@ -2022,7 +2022,7 @@ xSAT_SolverReadClause.exit:                       ; preds = %18, %21
 
 52:                                               ; preds = %46, %40
   store i32 0, ptr %12, align 4, !tbaa !23
-  br i1 %16, label %.lr.ph95, label %._crit_edge.thread
+  br i1 %16, label %.lr.ph95, label %._crit_edge
 
 .lr.ph95:                                         ; preds = %52
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2230,58 +2230,51 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
   br i1 %exitcond101.not, label %._crit_edge, label %56, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %168
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %169, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %52, %._crit_edge
+._crit_edge:                                      ; preds = %168, %52
   call void @free(ptr noundef nonnull %15) #20
-  br label %169
-
-169:                                              ; preds = %._crit_edge, %._crit_edge.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #20
-  %170 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
-  %171 = icmp slt i32 %170, 0
-  br i1 %171, label %Abc_Clock.exit85, label %172
+  %169 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #20
+  %170 = icmp slt i32 %169, 0
+  br i1 %170, label %Abc_Clock.exit85, label %171
 
-172:                                              ; preds = %169
-  %173 = load i64, ptr %2, align 8, !tbaa !89
-  %174 = mul nsw i64 %173, 1000000
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %176 = load i64, ptr %175, align 8, !tbaa !91
-  %177 = sdiv i64 %176, 1000
-  %178 = add nsw i64 %177, %174
+171:                                              ; preds = %._crit_edge
+  %172 = load i64, ptr %2, align 8, !tbaa !89
+  %173 = mul nsw i64 %172, 1000000
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %175 = load i64, ptr %174, align 8, !tbaa !91
+  %176 = sdiv i64 %175, 1000
+  %177 = add nsw i64 %176, %173
   br label %Abc_Clock.exit85
 
-Abc_Clock.exit85:                                 ; preds = %169, %172
-  %.0.i84 = phi i64 [ %178, %172 ], [ -1, %169 ]
+Abc_Clock.exit85:                                 ; preds = %._crit_edge, %171
+  %.0.i84 = phi i64 [ %177, %171 ], [ -1, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #20
-  %179 = add i64 %.0.i84, %.0.i.neg
-  %180 = load i64, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
-  %181 = add nsw i64 %179, %180
-  store i64 %181, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %183 = load i8, ptr %182, align 8, !tbaa !100
-  %.not65 = icmp eq i8 %183, 0
-  br i1 %.not65, label %194, label %184
+  %178 = add i64 %.0.i84, %.0.i.neg
+  %179 = load i64, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
+  %180 = add nsw i64 %178, %179
+  store i64 %180, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %182 = load i8, ptr %181, align 8, !tbaa !100
+  %.not65 = icmp eq i8 %182, 0
+  br i1 %.not65, label %193, label %183
 
-184:                                              ; preds = %Abc_Clock.exit85
-  %185 = load ptr, ptr %10, align 8, !tbaa !49
-  %186 = getelementptr i8, ptr %185, i64 4
-  %.val70 = load i32, ptr %186, align 4, !tbaa !23
-  %187 = sitofp i32 %.val70 to double
-  %188 = fmul double %187, 1.000000e+02
-  %189 = sitofp i32 %.val72 to double
-  %190 = fdiv double %188, %189
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.val70, i32 noundef %.val72, double noundef %190)
-  %191 = load i64, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
+183:                                              ; preds = %Abc_Clock.exit85
+  %184 = load ptr, ptr %10, align 8, !tbaa !49
+  %185 = getelementptr i8, ptr %184, i64 4
+  %.val70 = load i32, ptr %185, align 4, !tbaa !23
+  %186 = sitofp i32 %.val70 to double
+  %187 = fmul double %186, 1.000000e+02
+  %188 = sitofp i32 %.val72 to double
+  %189 = fdiv double %187, %188
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.val70, i32 noundef %.val72, double noundef %189)
+  %190 = load i64, ptr @xSAT_SolverReduceDB.TimeTotal, align 8, !tbaa !99
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1)
-  %192 = sitofp i64 %191 to double
-  %193 = fdiv double %192, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %193)
-  br label %194
+  %191 = sitofp i64 %190 to double
+  %192 = fdiv double %191, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %192)
+  br label %193
 
-194:                                              ; preds = %184, %Abc_Clock.exit85
+193:                                              ; preds = %183, %Abc_Clock.exit85
   call void @xSAT_SolverGarbageCollect(ptr noundef nonnull %0)
   ret void
 }
@@ -2711,10 +2704,10 @@ define void @xSAT_SolverGarbageCollect(ptr noundef captures(none) %0) local_unna
   %8 = phi i32 [ %14, %.lr.ph.i.i ], [ 0, %1 ]
   %9 = lshr i32 %8, 1
   %10 = lshr i32 %8, 3
-  %11 = add nuw i32 %9, %10
-  %12 = and i32 %11, -2
-  %13 = add i32 %8, 2
-  %14 = add i32 %13, %12
+  %11 = add nuw nsw i32 %9, %10
+  %12 = and i32 %11, 2147483646
+  %13 = add nuw i32 %8, 2
+  %14 = add nuw i32 %13, %12
   %15 = icmp ult i32 %14, %spec.store.select.i
   br i1 %15, label %.lr.ph.i.i, label %xSAT_MemAlloc.exit, !llvm.loop !45
 
@@ -3931,17 +3924,17 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
   %419 = or i32 %418, %.0129.i.i
   %indvars.iv.next.i210.i = add nuw nsw i64 %indvars.iv.i209.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i210.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %410, !llvm.loop !140
+  br i1 %exitcond.not.i.i, label %.lr.ph.i.i200.i, label %410, !llvm.loop !140
 
-._crit_edge.i.i:                                  ; preds = %410, %405
-  %.0.lcssa.i.i = phi i32 [ 0, %405 ], [ %419, %410 ]
-  %420 = load ptr, ptr %26, align 8, !tbaa !141
-  %421 = icmp sgt i32 %.val98.i.i, 0
-  br i1 %421, label %.lr.ph.i.i200.i, label %.thread.i.i
+._crit_edge.i.i:                                  ; preds = %405
+  %420 = icmp eq i32 %.val98.i.i, 1
+  br i1 %420, label %.lr.ph.i.i200.i, label %.thread.i.i
 
-.lr.ph.i.i200.i:                                  ; preds = %._crit_edge.i.i
-  %422 = getelementptr inbounds nuw i8, ptr %420, i64 4
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %420, i64 8
+.lr.ph.i.i200.i:                                  ; preds = %410, %._crit_edge.i.i
+  %.0.lcssa169.i.i = phi i32 [ 0, %._crit_edge.i.i ], [ %419, %410 ]
+  %421 = load ptr, ptr %26, align 8, !tbaa !141
+  %422 = getelementptr inbounds nuw i8, ptr %421, i64 4
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %421, i64 8
   br label %423
 
 423:                                              ; preds = %Vec_IntPush.exit.i.i.i, %.lr.ph.i.i200.i
@@ -3950,7 +3943,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
   %424 = getelementptr inbounds nuw i32, ptr %.val6.i.i.i, i64 %indvars.iv.i.i201.i
   %425 = load i32, ptr %424, align 4, !tbaa !30
   %426 = load i32, ptr %422, align 4, !tbaa !23
-  %427 = load i32, ptr %420, align 8, !tbaa !26
+  %427 = load i32, ptr %421, align 8, !tbaa !26
   %428 = icmp eq i32 %426, %427
   br i1 %428, label %429, label %.Vec_IntGrow.exit10_crit_edge.i.i.i.i
 
@@ -3978,7 +3971,7 @@ Vec_IntPush.exit197.i:                            ; preds = %378, %Vec_IntGrow.e
 Vec_IntGrow.exit.i.i.i.i:                         ; preds = %435, %433
   %437 = phi ptr [ %434, %433 ], [ %436, %435 ]
   store ptr %437, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !27
-  store i32 16, ptr %420, align 8, !tbaa !26
+  store i32 16, ptr %421, align 8, !tbaa !26
   br label %Vec_IntPush.exit.i.i.i
 
 438:                                              ; preds = %429
@@ -4000,7 +3993,7 @@ Vec_IntGrow.exit.i.i.i.i:                         ; preds = %435, %433
 447:                                              ; preds = %445, %443
   %448 = phi ptr [ %444, %443 ], [ %446, %445 ]
   store ptr %448, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !27
-  store i32 %439, ptr %420, align 8, !tbaa !26
+  store i32 %439, ptr %421, align 8, !tbaa !26
   br label %Vec_IntPush.exit.i.i.i
 
 Vec_IntPush.exit.i.i.i:                           ; preds = %447, %Vec_IntGrow.exit.i.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i.i.i
@@ -4197,7 +4190,7 @@ xSAT_SolverReadClause.exit.i.i205.i:              ; preds = %503, %.lr.ph100.i.i
 548:                                              ; preds = %543
   %549 = and i32 %542, 31
   %550 = shl nuw i32 1, %549
-  %551 = and i32 %550, %.0.lcssa.i.i
+  %551 = and i32 %550, %.0.lcssa169.i.i
   %.not61.i.i.i = icmp eq i32 %551, 0
   br i1 %.not61.i.i.i, label %621, label %552
 
@@ -4437,7 +4430,7 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   br i1 %660, label %.lr.ph.i118.i.i, label %xSAT_SolverClaCalcLBD2.exit.thread.i.i
 
 .lr.ph.i118.i.i:                                  ; preds = %657, %.thread.i.i
-  %.085.lcssa169171.i.i = phi i32 [ 1, %.thread.i.i ], [ %.186.i.i, %657 ]
+  %.085.lcssa173175.i.i = phi i32 [ 1, %.thread.i.i ], [ %.186.i.i, %657 ]
   %661 = load ptr, ptr %19, align 8, !tbaa !51
   %.val16.i.i.i = load ptr, ptr %.phi.trans.insert.i192.i, align 8, !tbaa !27
   %662 = getelementptr i8, ptr %661, i64 8
@@ -4448,7 +4441,7 @@ xSAT_SolverIsLitRemovable.exit.thread.i.i:        ; preds = %.critedge64.loopexi
   br label %665
 
 665:                                              ; preds = %678, %.lr.ph.i118.i.i
-  %.val24.i.i.i = phi i32 [ %.085.lcssa169171.i.i, %.lr.ph.i118.i.i ], [ %.val.i121.i.i, %678 ]
+  %.val24.i.i.i = phi i32 [ %.085.lcssa173175.i.i, %.lr.ph.i118.i.i ], [ %.val.i121.i.i, %678 ]
   %indvars.iv.i119.i.i = phi i64 [ 0, %.lr.ph.i118.i.i ], [ %indvars.iv.next.i122.i.i, %678 ]
   %.01421.i.i.i = phi i32 [ 0, %.lr.ph.i118.i.i ], [ %.1.i.i.i, %678 ]
   %666 = getelementptr inbounds nuw i32, ptr %.val16.i.i.i, i64 %indvars.iv.i119.i.i

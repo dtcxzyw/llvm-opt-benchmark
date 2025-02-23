@@ -423,17 +423,17 @@ define noalias noundef ptr @stb_include_string(ptr noundef %0, ptr noundef %1, p
 
 stb_include_itoa.exit:                            ; preds = %stb_include_itoa.exit73, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %stb_include_itoa.exit73 ]
-  %.043110 = phi i64 [ 0, %.lr.ph ], [ %70, %stb_include_itoa.exit73 ]
-  %.044109 = phi ptr [ null, %.lr.ph ], [ %66, %stb_include_itoa.exit73 ]
-  %.0107 = phi i64 [ 0, %.lr.ph ], [ %65, %stb_include_itoa.exit73 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.043110
+  %.043109 = phi i64 [ 0, %.lr.ph ], [ %71, %stb_include_itoa.exit73 ]
+  %.044108 = phi ptr [ null, %.lr.ph ], [ %67, %stb_include_itoa.exit73 ]
+  %.0106 = phi i64 [ 0, %.lr.ph ], [ %66, %stb_include_itoa.exit73 ]
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %.043109
   %16 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv
   %17 = load i32, ptr %16, align 8, !tbaa !8
   %18 = sext i32 %17 to i64
-  %19 = sub nsw i64 %18, %.043110
-  %20 = add i64 %19, %.0107
-  %21 = call ptr @realloc(ptr noundef %.044109, i64 noundef %20) #15
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.0107
+  %19 = sub nsw i64 %18, %.043109
+  %20 = add i64 %19, %.0106
+  %21 = call ptr @realloc(ptr noundef %.044108, i64 noundef %20) #15
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %.0106
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull readonly align 1 %15, i64 %19, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %7, ptr noundef nonnull align 1 dereferenceable(7) @.str.3, i64 7, i1 false) #16
   store i64 2319670605422534688, ptr %12, align 2
@@ -468,7 +468,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   br i1 %25, label %33, label %39
 
 33:                                               ; preds = %28
-  br i1 %.not61, label %52, label %34
+  br i1 %.not61, label %53, label %34
 
 34:                                               ; preds = %33
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
@@ -476,7 +476,7 @@ stb_include_itoa.exit:                            ; preds = %stb_include_itoa.ex
   %37 = call ptr @realloc(ptr noundef %31, i64 noundef %36) #15
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr nonnull readonly align 1 %1, i64 %35, i1 false)
-  br label %52
+  br label %53
 
 39:                                               ; preds = %28
   %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %2) #16
@@ -503,7 +503,7 @@ stb_include_file.exit:                            ; preds = %39
   call void @free(ptr noundef nonnull %42) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   %.not = icmp eq ptr %45, null
-  br i1 %.not, label %.lr.ph.i.preheader, label %.thread
+  br i1 %.not, label %.lr.ph.i.preheader, label %48
 
 .lr.ph.i.preheader:                               ; preds = %stb_include_file.exit, %stb_include_file.exit.thread
   br label %.lr.ph.i
@@ -515,73 +515,73 @@ stb_include_file.exit:                            ; preds = %39
   call void @free(ptr noundef %47) #16
   %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i65, 1
   %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count
-  br i1 %exitcond.not.i67, label %stb_include_free_includes.exit80, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i67, label %.thread, label %.lr.ph.i, !llvm.loop !16
 
-.thread:                                          ; preds = %stb_include_file.exit
-  %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #17
-  %49 = add i64 %48, %30
-  %50 = call ptr @realloc(ptr noundef %31, i64 noundef %49) #15
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %30
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull readonly align 1 %45, i64 %48, i1 false)
+48:                                               ; preds = %stb_include_file.exit
+  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #17
+  %50 = add i64 %49, %30
+  %51 = call ptr @realloc(ptr noundef %31, i64 noundef %50) #15
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %30
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr nonnull readonly align 1 %45, i64 %49, i1 false)
   call void @free(ptr noundef nonnull %45) #16
-  br label %52
+  br label %53
 
-52:                                               ; preds = %.thread, %33, %34
-  %.1 = phi i64 [ %30, %33 ], [ %36, %34 ], [ %49, %.thread ]
-  %.145 = phi ptr [ %31, %33 ], [ %37, %34 ], [ %50, %.thread ]
+53:                                               ; preds = %48, %33, %34
+  %.1 = phi i64 [ %30, %33 ], [ %36, %34 ], [ %50, %48 ]
+  %.145 = phi ptr [ %31, %33 ], [ %37, %34 ], [ %51, %48 ]
   store i64 9118724144243466, ptr %7, align 16
-  %53 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 3
-  %54 = load i32, ptr %53, align 8, !tbaa !15
+  %54 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 3
+  %55 = load i32, ptr %54, align 8, !tbaa !15
   store i64 2314885530818453536, ptr %12, align 2
   store i8 0, ptr %13, align 2, !tbaa !7
-  br label %55
+  br label %56
 
-55:                                               ; preds = %55, %52
-  %indvars.iv.i68 = phi i64 [ 1, %52 ], [ %indvars.iv.next.i71, %55 ]
-  %.01215.i69 = phi i32 [ %54, %52 ], [ %57, %55 ]
-  %56 = srem i32 %.01215.i69, 10
-  %57 = sdiv i32 %.01215.i69, 10
-  %58 = trunc nsw i32 %56 to i8
-  %59 = add nsw i8 %58, 48
-  %60 = sub nuw nsw i64 7, %indvars.iv.i68
-  %61 = getelementptr inbounds nuw i8, ptr %12, i64 %60
-  store i8 %59, ptr %61, align 1, !tbaa !7
+56:                                               ; preds = %56, %53
+  %indvars.iv.i68 = phi i64 [ 1, %53 ], [ %indvars.iv.next.i71, %56 ]
+  %.01215.i69 = phi i32 [ %55, %53 ], [ %58, %56 ]
+  %57 = srem i32 %.01215.i69, 10
+  %58 = sdiv i32 %.01215.i69, 10
+  %59 = trunc nsw i32 %57 to i8
+  %60 = add nsw i8 %59, 48
+  %61 = sub nuw nsw i64 7, %indvars.iv.i68
+  %62 = getelementptr inbounds nuw i8, ptr %12, i64 %61
+  store i8 %60, ptr %62, align 1, !tbaa !7
   %.012.off.i70 = add i32 %.01215.i69, 9
-  %62 = icmp ult i32 %.012.off.i70, 19
+  %63 = icmp ult i32 %.012.off.i70, 19
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, 8
-  %or.cond = select i1 %62, i1 true, i1 %exitcond.not.i72
-  br i1 %or.cond, label %stb_include_itoa.exit73, label %55, !llvm.loop !27
+  %or.cond = select i1 %63, i1 true, i1 %exitcond.not.i72
+  br i1 %or.cond, label %stb_include_itoa.exit73, label %56, !llvm.loop !27
 
-stb_include_itoa.exit73:                          ; preds = %55
+stb_include_itoa.exit73:                          ; preds = %56
   %strlen62 = call i64 @strlen(ptr nonnull dereferenceable(1) %7)
   %endptr63 = getelementptr inbounds i8, ptr %7, i64 %strlen62
   store i16 32, ptr %endptr63, align 1
-  %63 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %14) #16
-  %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
-  %65 = add i64 %64, %.1
-  %66 = call ptr @realloc(ptr noundef %.145, i64 noundef %65) #15
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr nonnull readonly align 16 %7, i64 %64, i1 false)
-  %68 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
-  %69 = load i32, ptr %68, align 4, !tbaa !13
-  %70 = sext i32 %69 to i64
+  %64 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %14) #16
+  %65 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  %66 = add i64 %65, %.1
+  %67 = call ptr @realloc(ptr noundef %.145, i64 noundef %66) #15
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 %.1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr nonnull readonly align 16 %7, i64 %65, i1 false)
+  %69 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv, i32 1
+  %70 = load i32, ptr %69, align 4, !tbaa !13
+  %71 = sext i32 %70 to i64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %stb_include_itoa.exit, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %stb_include_itoa.exit73, %5
-  %.0.lcssa = phi i64 [ 0, %5 ], [ %65, %stb_include_itoa.exit73 ]
-  %.044.lcssa = phi ptr [ null, %5 ], [ %66, %stb_include_itoa.exit73 ]
-  %.043.lcssa = phi i64 [ 0, %5 ], [ %70, %stb_include_itoa.exit73 ]
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 %.043.lcssa
-  %72 = sub i64 %10, %.043.lcssa
-  %73 = add i64 %72, 1
-  %74 = add i64 %73, %.0.lcssa
-  %75 = call ptr @realloc(ptr noundef %.044.lcssa, i64 noundef %74) #15
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %76, ptr nonnull readonly align 1 %71, i64 %73, i1 false)
-  br i1 %11, label %.lr.ph.preheader.i74, label %stb_include_free_includes.exit80
+  %.0.lcssa = phi i64 [ 0, %5 ], [ %66, %stb_include_itoa.exit73 ]
+  %.044.lcssa = phi ptr [ null, %5 ], [ %67, %stb_include_itoa.exit73 ]
+  %.043.lcssa = phi i64 [ 0, %5 ], [ %71, %stb_include_itoa.exit73 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.043.lcssa
+  %73 = sub i64 %10, %.043.lcssa
+  %74 = add i64 %73, 1
+  %75 = add i64 %74, %.0.lcssa
+  %76 = call ptr @realloc(ptr noundef %.044.lcssa, i64 noundef %75) #15
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull readonly align 1 %72, i64 %74, i1 false)
+  br i1 %11, label %.lr.ph.preheader.i74, label %.thread
 
 .lr.ph.preheader.i74:                             ; preds = %._crit_edge
   %wide.trip.count.i75 = zext nneg i32 %9 to i64
@@ -589,15 +589,15 @@ stb_include_itoa.exit73:                          ; preds = %55
 
 .lr.ph.i76:                                       ; preds = %.lr.ph.i76, %.lr.ph.preheader.i74
   %indvars.iv.i77 = phi i64 [ 0, %.lr.ph.preheader.i74 ], [ %indvars.iv.next.i78, %.lr.ph.i76 ]
-  %77 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i77, i32 2
-  %78 = load ptr, ptr %77, align 8, !tbaa !14
-  call void @free(ptr noundef %78) #16
+  %78 = getelementptr inbounds nuw %struct.include_info, ptr %.pre, i64 %indvars.iv.i77, i32 2
+  %79 = load ptr, ptr %78, align 8, !tbaa !14
+  call void @free(ptr noundef %79) #16
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i77, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %wide.trip.count.i75
-  br i1 %exitcond.not.i79, label %stb_include_free_includes.exit80, label %.lr.ph.i76, !llvm.loop !16
+  br i1 %exitcond.not.i79, label %.thread, label %.lr.ph.i76, !llvm.loop !16
 
-stb_include_free_includes.exit80:                 ; preds = %.lr.ph.i, %.lr.ph.i76, %._crit_edge
-  %.3 = phi ptr [ %75, %._crit_edge ], [ %75, %.lr.ph.i76 ], [ null, %.lr.ph.i ]
+.thread:                                          ; preds = %.lr.ph.i, %.lr.ph.i76, %._crit_edge
+  %.3 = phi ptr [ %76, %._crit_edge ], [ %76, %.lr.ph.i76 ], [ null, %.lr.ph.i ]
   call void @free(ptr noundef %.pre) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %7) #16
@@ -643,11 +643,7 @@ define noalias noundef ptr @stb_include_file(ptr noundef %0, ptr noundef %1, ptr
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #6 {
   %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %6
-  %8 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #14
-  br label %._crit_edge32
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -655,24 +651,28 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.027 = phi i64 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %10 = load ptr, ptr %9, align 8, !tbaa !29
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #17
-  %12 = add i64 %11, %.027
+  %.027 = phi i64 [ 0, %.lr.ph.preheader ], [ %11, %.lr.ph ]
+  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = load ptr, ptr %8, align 8, !tbaa !29
+  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %11 = add i64 %10, %.027
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph31.preheader, label %.lr.ph, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %13 = add i64 %12, 1
+._crit_edge:                                      ; preds = %6
+  %12 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #14
+  br label %._crit_edge32
+
+.lr.ph31.preheader:                               ; preds = %.lr.ph
+  %13 = add i64 %11, 1
   %14 = tail call noalias ptr @malloc(i64 noundef %13) #14
   %wide.trip.count37 = zext nneg i32 %1 to i64
   br label %.lr.ph31
 
-.lr.ph31:                                         ; preds = %._crit_edge, %.lr.ph31
-  %indvars.iv34 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next35, %.lr.ph31 ]
-  %.129 = phi i64 [ 0, %._crit_edge ], [ %20, %.lr.ph31 ]
+.lr.ph31:                                         ; preds = %.lr.ph31.preheader, %.lr.ph31
+  %indvars.iv34 = phi i64 [ 0, %.lr.ph31.preheader ], [ %indvars.iv.next35, %.lr.ph31 ]
+  %.129 = phi i64 [ 0, %.lr.ph31.preheader ], [ %20, %.lr.ph31 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.129
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv34
   %17 = load ptr, ptr %16, align 8, !tbaa !29
@@ -683,8 +683,8 @@ define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(no
   %exitcond38.not = icmp eq i64 %indvars.iv.next35, %wide.trip.count37
   br i1 %exitcond38.not, label %._crit_edge32, label %.lr.ph31, !llvm.loop !31
 
-._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge.thread
-  %21 = phi ptr [ %8, %._crit_edge.thread ], [ %14, %.lr.ph31 ]
+._crit_edge32:                                    ; preds = %.lr.ph31, %._crit_edge
+  %21 = phi ptr [ %12, %._crit_edge ], [ %14, %.lr.ph31 ]
   %22 = tail call ptr @stb_include_string(ptr noundef %21, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
   tail call void @free(ptr noundef %21) #16
   ret ptr %22

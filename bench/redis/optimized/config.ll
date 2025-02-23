@@ -2636,7 +2636,7 @@ lookupConfig.exit.thread:                         ; preds = %17, %lookupConfig.e
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %._crit_edge52
   tail call void @dictReleaseIterator(ptr noundef %47) #26
-  tail call void @dictRelease(ptr noundef %2) #26
+  tail call void @dictRelease(ptr noundef nonnull %2) #26
   ret void
 }
 

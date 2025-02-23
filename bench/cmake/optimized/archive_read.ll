@@ -1372,7 +1372,7 @@ define dso_local i32 @archive_read_data_skip(ptr noundef %0) local_unnamed_addr 
   br label %.loopexit
 
 .preheader:                                       ; preds = %6, %.preheader
-  %13 = call i32 @archive_read_data_block(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
+  %13 = call i32 @archive_read_data_block(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #15
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %.preheader, label %.loopexit, !llvm.loop !96
 
@@ -2939,7 +2939,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %25, %clo
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %69 = load ptr, ptr %68, align 8, !tbaa !36
   tail call void @free(ptr noundef %69) #15
-  tail call void @free(ptr noundef %0) #15
+  tail call void @free(ptr noundef nonnull %0) #15
   br label %70
 
 70:                                               ; preds = %1, %3, %._crit_edge

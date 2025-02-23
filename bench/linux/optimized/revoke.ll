@@ -183,120 +183,106 @@ define dso_local noundef range(i32 -12, 1) i32 @jbd2_journal_init_revoke(ptr nou
   store volatile ptr %39, ptr %40, align 8
   %41 = add nuw nsw i64 %38, 1
   %42 = icmp eq i64 %41, %31
-  br i1 %42, label %jbd2_journal_init_revoke_table.exit, label %.preheader8, !llvm.loop !20
+  br i1 %42, label %43, label %.preheader8, !llvm.loop !20
 
 jbd2_journal_init_revoke_table.exit.thread:       ; preds = %36, %14
   store ptr null, ptr %3, align 8
-  br label %89
+  br label %87
 
-jbd2_journal_init_revoke_table.exit:              ; preds = %.preheader8
+43:                                               ; preds = %.preheader8
   store ptr %16, ptr %3, align 8
-  %43 = load ptr, ptr @jbd2_revoke_table_cache, align 8
-  %44 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %43, i32 noundef 3264) #8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %jbd2_journal_init_revoke_table.exit7.thread, label %46
+  %44 = load ptr, ptr @jbd2_revoke_table_cache, align 8
+  %45 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %44, i32 noundef 3264) #8
+  %46 = icmp eq ptr %45, null
+  br i1 %46, label %68, label %47
 
-46:                                               ; preds = %jbd2_journal_init_revoke_table.exit
+47:                                               ; preds = %43
   br i1 %19, label %.thread.i6, label %.preheader.i4
 
-.thread.i6:                                       ; preds = %46
-  store i32 %1, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 0, ptr %47, align 4
-  br label %57
-
-.preheader.i4:                                    ; preds = %46, %.preheader.i4
-  %48 = phi i32 [ %50, %.preheader.i4 ], [ %1, %46 ]
-  %49 = phi i32 [ %51, %.preheader.i4 ], [ 0, %46 ]
+.preheader.i4:                                    ; preds = %47, %.preheader.i4
+  %48 = phi i32 [ %50, %.preheader.i4 ], [ %1, %47 ]
+  %49 = phi i32 [ %51, %.preheader.i4 ], [ 0, %47 ]
   %50 = ashr i32 %48, 1
   %51 = add i32 %49, 1
   %52 = icmp ult i32 %50, 2
-  br i1 %52, label %53, label %.preheader.i4, !llvm.loop !16
+  br i1 %52, label %.thread.i6, label %.preheader.i4, !llvm.loop !16
 
-53:                                               ; preds = %.preheader.i4
-  store i32 %1, ptr %44, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 %51, ptr %54, align 4
-  %55 = icmp slt i32 %1, 0
-  br i1 %55, label %.thread2.i5, label %57, !prof !19
+.thread.i6:                                       ; preds = %.preheader.i4, %47
+  %.lcssa.sink = phi i32 [ 0, %47 ], [ %51, %.preheader.i4 ]
+  store i32 %1, ptr %45, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 %.lcssa.sink, ptr %53, align 4
+  %54 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
+  %55 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %54, ptr %55, align 8
+  %56 = icmp eq ptr %54, null
+  br i1 %56, label %57, label %.preheader
 
-.thread2.i5:                                      ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr null, ptr %56, align 8
-  br label %61
+57:                                               ; preds = %.thread.i6
+  %58 = load ptr, ptr @jbd2_revoke_table_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %58, ptr noundef nonnull %45) #8
+  br label %68
 
-57:                                               ; preds = %53, %.thread.i6
-  %58 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %32, i32 noundef 3264) #10
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %58, ptr %59, align 8
-  %60 = icmp eq ptr %58, null
-  br i1 %60, label %61, label %.preheader
+.preheader:                                       ; preds = %.thread.i6, %.preheader
+  %59 = phi i64 [ %62, %.preheader ], [ 0, %.thread.i6 ]
+  %60 = getelementptr %struct.list_head, ptr %54, i64 %59
+  store volatile ptr %60, ptr %60, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store volatile ptr %60, ptr %61, align 8
+  %62 = add nuw nsw i64 %59, 1
+  %63 = icmp eq i64 %62, %31
+  br i1 %63, label %64, label %.preheader, !llvm.loop !20
 
-61:                                               ; preds = %57, %.thread2.i5
-  %62 = load ptr, ptr @jbd2_revoke_table_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %62, ptr noundef nonnull %44) #8
-  br label %jbd2_journal_init_revoke_table.exit7.thread
+64:                                               ; preds = %.preheader
+  %65 = getelementptr i8, ptr %0, i64 1176
+  store ptr %45, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  store ptr %45, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  store i32 0, ptr %67, align 8
+  br label %87
 
-.preheader:                                       ; preds = %57, %.preheader
-  %63 = phi i64 [ %66, %.preheader ], [ 0, %57 ]
-  %64 = getelementptr %struct.list_head, ptr %58, i64 %63
-  store volatile ptr %64, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store volatile ptr %64, ptr %65, align 8
-  %66 = add nuw nsw i64 %63, 1
-  %67 = icmp eq i64 %66, %31
-  br i1 %67, label %jbd2_journal_init_revoke_table.exit7, label %.preheader, !llvm.loop !20
+68:                                               ; preds = %57, %43
+  %69 = getelementptr i8, ptr %0, i64 1176
+  store ptr null, ptr %69, align 8
+  %70 = load ptr, ptr %3, align 8
+  %71 = load i32, ptr %70, align 8
+  %72 = icmp sgt i32 %71, 0
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %74 = load ptr, ptr %73, align 8
+  br i1 %72, label %75, label %.loopexit
 
-jbd2_journal_init_revoke_table.exit7.thread:      ; preds = %61, %jbd2_journal_init_revoke_table.exit
-  %68 = getelementptr i8, ptr %0, i64 1176
-  store ptr null, ptr %68, align 8
-  %69 = load ptr, ptr %3, align 8
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp sgt i32 %70, 0
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %73 = load ptr, ptr %72, align 8
-  br i1 %71, label %77, label %.loopexit
+75:                                               ; preds = %68
+  %76 = zext nneg i32 %71 to i64
+  br label %80
 
-jbd2_journal_init_revoke_table.exit7:             ; preds = %.preheader
-  %74 = getelementptr i8, ptr %0, i64 1176
-  store ptr %44, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  store ptr %44, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  store i32 0, ptr %76, align 8
-  br label %89
+77:                                               ; preds = %80
+  %78 = add nuw nsw i64 %81, 1
+  %79 = icmp eq i64 %78, %76
+  br i1 %79, label %.loopexit, label %80, !llvm.loop !21
 
-77:                                               ; preds = %jbd2_journal_init_revoke_table.exit7.thread
-  %78 = zext nneg i32 %70 to i64
-  br label %82
+80:                                               ; preds = %77, %75
+  %81 = phi i64 [ %78, %77 ], [ 0, %75 ]
+  %82 = getelementptr %struct.list_head, ptr %74, i64 %81
+  %83 = load volatile ptr, ptr %82, align 8
+  %84 = icmp eq ptr %83, %82
+  br i1 %84, label %77, label %85, !prof !5
 
-79:                                               ; preds = %82
-  %80 = add nuw nsw i64 %83, 1
-  %81 = icmp eq i64 %80, %78
-  br i1 %81, label %.loopexit, label %82, !llvm.loop !21
-
-82:                                               ; preds = %79, %77
-  %83 = phi i64 [ %80, %79 ], [ 0, %77 ]
-  %84 = getelementptr %struct.list_head, ptr %73, i64 %83
-  %85 = load volatile ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %84
-  br i1 %86, label %79, label %87, !prof !5
-
-87:                                               ; preds = %82
+85:                                               ; preds = %80
   tail call void asm sideeffect "418: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 418b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 418) #8, !srcloc !22
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 255, i32 0, i64 12) #8, !srcloc !23
   unreachable
 
-.loopexit:                                        ; preds = %79, %jbd2_journal_init_revoke_table.exit7.thread
-  tail call void @kfree(ptr noundef %73) #8
-  %88 = load ptr, ptr @jbd2_revoke_table_cache, align 8
-  tail call void @kmem_cache_free(ptr noundef %88, ptr noundef %69) #8
+.loopexit:                                        ; preds = %77, %68
+  tail call void @kfree(ptr noundef %74) #8
+  %86 = load ptr, ptr @jbd2_revoke_table_cache, align 8
+  tail call void @kmem_cache_free(ptr noundef %86, ptr noundef %70) #8
   store ptr null, ptr %3, align 8
-  br label %89
+  br label %87
 
-89:                                               ; preds = %jbd2_journal_init_revoke_table.exit.thread, %.loopexit, %jbd2_journal_init_revoke_table.exit7
-  %90 = phi i32 [ 0, %jbd2_journal_init_revoke_table.exit7 ], [ -12, %.loopexit ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ]
-  ret i32 %90
+87:                                               ; preds = %jbd2_journal_init_revoke_table.exit.thread, %.loopexit, %64
+  %88 = phi i32 [ 0, %64 ], [ -12, %.loopexit ], [ -12, %jbd2_journal_init_revoke_table.exit.thread ]
+  ret i32 %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

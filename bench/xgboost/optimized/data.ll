@@ -72491,7 +72491,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager7RunInitISt23_Rb_tree
   br label %88
 
 51:                                               ; preds = %45, %42
-  %52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %25) #34
+  %52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %25) #34
   %53 = icmp eq ptr %52, %16
   br i1 %53, label %18, label %.preheader12
 
@@ -72556,7 +72556,7 @@ define linkonce_odr void @_ZNK4dmlc9parameter12ParamManager7RunInitISt23_Rb_tree
   br label %88
 
 85:                                               ; preds = %79, %76
-  %86 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %59) #34
+  %86 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %59) #34
   %87 = icmp eq ptr %86, %16
   br i1 %87, label %.loopexit, label %.preheader10, !llvm.loop !1012
 

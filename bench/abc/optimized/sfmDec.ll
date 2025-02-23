@@ -4947,7 +4947,7 @@ Vec_IntPush.exit473:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond29.not.i.us, label %Abc_TtAndSharp.exit.us, label %.lr.ph22.i.us, !llvm.loop !193
 
 Abc_TtAndSharp.exit.us:                           ; preds = %.lr.ph22.i.us
-  %656 = icmp slt i32 %648, 8
+  %656 = icmp samesign ult i32 %648, 8
   br i1 %656, label %.lr.ph585.us.preheader, label %._crit_edge586.us
 
 .lr.ph585.us.preheader:                           ; preds = %.preheader.i.us, %Abc_TtAndSharp.exit.us
@@ -5000,7 +5000,7 @@ Abc_TtAndSharp.exit.us:                           ; preds = %.lr.ph22.i.us
   br i1 %exitcond.not.i482, label %Abc_TtAndSharp.exit, label %.lr.ph.i479, !llvm.loop !195
 
 Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i479
-  %680 = icmp slt i32 %671, 8
+  %680 = icmp samesign ult i32 %671, 8
   br i1 %680, label %.lr.ph585.preheader, label %._crit_edge586
 
 .lr.ph585.preheader:                              ; preds = %.preheader18.i, %Abc_TtAndSharp.exit
@@ -5030,7 +5030,7 @@ Abc_TtAndSharp.exit:                              ; preds = %.lr.ph.i479
   %.sroa.0.0..sroa.0.0. = load i32, ptr %.sroa.0, align 8
   %694 = select i1 %.not.i476.not, i32 0, i32 %.sroa.0.0..sroa.0.0.
   %695 = add i32 %638, %694
-  %696 = call i32 @Sfm_DecPeformDec_rec(ptr noundef %0, ptr noundef nonnull %indvars.iv684.sroa.phi798, ptr noundef nonnull %indvars.iv684.sroa.phi794, ptr noundef %3, i32 noundef %634, ptr noundef nonnull %19, i32 noundef %.0343, i32 noundef %695)
+  %696 = call i32 @Sfm_DecPeformDec_rec(ptr noundef nonnull %0, ptr noundef nonnull %indvars.iv684.sroa.phi798, ptr noundef nonnull %indvars.iv684.sroa.phi794, ptr noundef %3, i32 noundef %634, ptr noundef nonnull %19, i32 noundef %.0343, i32 noundef %695)
   store i32 %696, ptr %indvars.iv684.sroa.phi, align 4, !tbaa !96
   %697 = icmp eq i32 %696, -2
   br i1 %697, label %.loopexit, label %639

@@ -7040,13 +7040,13 @@ define hidden noundef ptr @"_ZN126_$LT$mini_lsm_mvcc..iterators..merge_iterator.
   %76 = landingpad { ptr, i32 }
           cleanup
   store ptr %.fca.0.extract12, ptr %5, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.fca.1.extract14, ptr %77, align 8
   br label %.thread123
 
 .thread132:                                       ; preds = %74
   store ptr %.fca.0.extract12, ptr %5, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.fca.1.extract14, ptr %78, align 8
   br label %"_ZN4core3ptr177drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$mini_lsm_mvcc..iterators..merge_iterator..HeapWrapper$LT$mini_lsm_mvcc..table..iterator..SsTableIterator$GT$$GT$$GT$17h96b4eec060e803b0E.exit87"
 
@@ -7381,7 +7381,7 @@ common.resume:                                    ; preds = %.body87, %.body, %6
 84:                                               ; preds = %82
   %85 = landingpad { ptr, i32 }
           cleanup
-  %86 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.14689451251361528239"(ptr noalias noundef nonnull readonly align 1 %86, ptr noundef nonnull %83, i64 noundef 8, i64 noundef 216)
           to label %.body87 unwind label %87
 
@@ -7404,7 +7404,7 @@ common.resume:                                    ; preds = %.body87, %.body, %6
 .body87:                                          ; preds = %84, %90
   %eh.lpad-body88 = phi { ptr, i32 } [ %91, %90 ], [ %85, %84 ]
   store ptr %.fca.0.extract12, ptr %5, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.fca.1.extract14, ptr %92, align 8
   br label %common.resume
 
@@ -7828,7 +7828,7 @@ common.resume:                                    ; preds = %.body105, %.body, %
 107:                                              ; preds = %105
   %108 = landingpad { ptr, i32 }
           cleanup
-  %109 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.14689451251361528239"(ptr noalias noundef nonnull readonly align 1 %109, ptr noundef nonnull %106, i64 noundef 8, i64 noundef 144)
           to label %.body105 unwind label %110
 
@@ -7851,7 +7851,7 @@ common.resume:                                    ; preds = %.body105, %.body, %
 .body105:                                         ; preds = %107, %113
   %eh.lpad-body106 = phi { ptr, i32 } [ %114, %113 ], [ %108, %107 ]
   store ptr %.fca.0.extract12, ptr %5, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.fca.1.extract14, ptr %115, align 8
   br label %common.resume
 

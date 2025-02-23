@@ -447,11 +447,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %mc.i)
   store i32 1396985944, ptr %mc.i, align 4
   %cmp.i = icmp eq i32 %0, 1396985944
-  br i1 %cmp.i, label %if.end.thread, label %if.else.i
-
-if.end.thread:                                    ; preds = %entry
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mc.i)
-  br label %return
+  br i1 %cmp.i, label %if.end, label %if.else.i
 
 if.else.i:                                        ; preds = %entry
   %add.ptr1.i.i = getelementptr inbounds nuw i8, ptr %mc.i, i64 3
@@ -476,6 +472,10 @@ _ZN3dpx6Header16ValidMagicCookieEj.exit:          ; preds = %for.body.i.i
   %cmp1.i = icmp eq i32 %0, %3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mc.i)
   br i1 %cmp1.i, label %if.then4, label %return
+
+if.end:                                           ; preds = %entry
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %mc.i)
+  br label %return
 
 if.then4:                                         ; preds = %_ZN3dpx6Header16ValidMagicCookieEj.exit
   %imageOffset = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -1333,8 +1333,8 @@ for.body.i424:                                    ; preds = %for.body.i424, %_ZN
   %cmp.not.i431 = icmp eq i64 %dec.i430, 0
   br i1 %cmp.not.i431, label %return, label %for.body.i424, !llvm.loop !6
 
-return:                                           ; preds = %for.body.i424, %if.end.thread, %_ZN3dpx6Header16ValidMagicCookieEj.exit
-  %retval.0.i434 = phi i1 [ false, %_ZN3dpx6Header16ValidMagicCookieEj.exit ], [ true, %if.end.thread ], [ true, %for.body.i424 ]
+return:                                           ; preds = %for.body.i424, %if.end, %_ZN3dpx6Header16ValidMagicCookieEj.exit
+  %retval.0.i434 = phi i1 [ true, %if.end ], [ false, %_ZN3dpx6Header16ValidMagicCookieEj.exit ], [ true, %for.body.i424 ]
   ret i1 %retval.0.i434
 }
 

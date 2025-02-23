@@ -1889,10 +1889,10 @@ _ZN5ImGui21TableGetBoundSettingsEP10ImGuiTable.exit: ; preds = %.thread.i, %38, 
   %.not73 = icmp eq i64 %.068.lcssa108, %67
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 108
   %.pre102 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !207
+  %68 = icmp sgt i32 %.pre102, 0
   br i1 %.not73, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %66
-  %68 = icmp sgt i32 %.pre102, 0
   br i1 %68, label %.lr.ph88, label %_ZN5ImGui21TableSettingsFindByIDEj.exit.thread
 
 .lr.ph88:                                         ; preds = %.preheader
@@ -1996,33 +1996,32 @@ _ZN5ImGui21TableGetBoundSettingsEP10ImGuiTable.exit: ; preds = %.thread.i, %38, 
   store i16 %124, ptr %125, align 2, !tbaa !308
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %123, !llvm.loop !340
+  br i1 %exitcond.not, label %.lr.ph91, label %123, !llvm.loop !340
 
-.loopexit:                                        ; preds = %123, %66
-  %126 = icmp sgt i32 %.pre102, 0
-  br i1 %126, label %.lr.ph91, label %_ZN5ImGui21TableSettingsFindByIDEj.exit.thread
+.loopexit:                                        ; preds = %66
+  br i1 %68, label %.lr.ph91, label %_ZN5ImGui21TableSettingsFindByIDEj.exit.thread
 
-.lr.ph91:                                         ; preds = %.loopexit
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %129 = load ptr, ptr %128, align 8, !tbaa !271
-  %130 = load ptr, ptr %127, align 8, !tbaa !275
+.lr.ph91:                                         ; preds = %123, %.loopexit
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %128 = load ptr, ptr %127, align 8, !tbaa !271
+  %129 = load ptr, ptr %126, align 8, !tbaa !275
   %wide.trip.count100 = zext nneg i32 %.pre102 to i64
-  br label %131
+  br label %130
 
-131:                                              ; preds = %.lr.ph91, %131
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next98, %131 ]
-  %132 = trunc i64 %indvars.iv97 to i16
-  %133 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %129, i64 %indvars.iv97, i32 19
-  %134 = load i16, ptr %133, align 2, !tbaa !308
-  %135 = sext i16 %134 to i64
-  %136 = getelementptr inbounds i16, ptr %130, i64 %135
-  store i16 %132, ptr %136, align 2, !tbaa !298
+130:                                              ; preds = %.lr.ph91, %130
+  %indvars.iv97 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next98, %130 ]
+  %131 = trunc i64 %indvars.iv97 to i16
+  %132 = getelementptr inbounds nuw %struct.ImGuiTableColumn, ptr %128, i64 %indvars.iv97, i32 19
+  %133 = load i16, ptr %132, align 2, !tbaa !308
+  %134 = sext i16 %133 to i64
+  %135 = getelementptr inbounds i16, ptr %129, i64 %134
+  store i16 %131, ptr %135, align 2, !tbaa !298
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %_ZN5ImGui21TableSettingsFindByIDEj.exit.thread, label %131, !llvm.loop !341
+  br i1 %exitcond101.not, label %_ZN5ImGui21TableSettingsFindByIDEj.exit.thread, label %130, !llvm.loop !341
 
-_ZN5ImGui21TableSettingsFindByIDEj.exit.thread:   ; preds = %select.unfold.i, %131, %.preheader, %.loopexit, %11, %1
+_ZN5ImGui21TableSettingsFindByIDEj.exit.thread:   ; preds = %select.unfold.i, %130, %.preheader, %.loopexit, %11, %1
   ret void
 }
 

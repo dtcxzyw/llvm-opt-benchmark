@@ -4923,7 +4923,7 @@ ExplainIndentText.exit767:                        ; preds = %518, %525
 
 ._crit_edge.i:                                    ; preds = %.lr.ph10.i, %.lr.ph.i769, %559
   %.0.lcssa.i = phi ptr [ null, %559 ], [ null, %.lr.ph.i769 ], [ %577, %.lr.ph10.i ]
-  call void @ExplainPropertyList(ptr noundef nonnull @.str.257, ptr noundef %.0.lcssa.i, ptr noundef readonly %4)
+  call void @ExplainPropertyList(ptr noundef nonnull @.str.257, ptr noundef %.0.lcssa.i, ptr noundef nonnull readonly %4)
   br label %show_plan_tlist.exit
 
 .lr.ph10.i:                                       ; preds = %.lr.ph.i769, %.lr.ph10.i
@@ -5043,7 +5043,7 @@ show_scan_qual.exit:                              ; preds = %603
   %608 = load ptr, ptr %607, align 8
   %609 = call ptr @set_deparse_context_plan(ptr noundef %608, ptr noundef %.val.i.i, ptr noundef %1) #13
   %610 = call ptr @deparse_expression(ptr noundef %606, ptr noundef %609, i1 noundef zeroext %604, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %610, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %610, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1146 = load ptr, ptr %595, align 8
   %611 = icmp eq ptr %.pre1146, null
   br i1 %611, label %show_scan_qual.exit.thread, label %612
@@ -5077,7 +5077,7 @@ show_scan_qual.exit.thread:                       ; preds = %603, %612, %show_sc
   %627 = load ptr, ptr %626, align 8
   %628 = call ptr @set_deparse_context_plan(ptr noundef %627, ptr noundef %.val.i.i772, ptr noundef %1) #13
   %629 = call ptr @deparse_expression(ptr noundef %625, ptr noundef %628, i1 noundef zeroext %622, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %629, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %629, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1147 = load ptr, ptr %53, align 8
   %.pre1148 = load i32, ptr %.pre1147, align 4
   br label %show_scan_qual.exit773
@@ -5106,7 +5106,7 @@ show_scan_qual.exit775:                           ; preds = %637
   %642 = load ptr, ptr %641, align 8
   %643 = call ptr @set_deparse_context_plan(ptr noundef %642, ptr noundef %.val.i.i774, ptr noundef %1) #13
   %644 = call ptr @deparse_expression(ptr noundef %640, ptr noundef %643, i1 noundef zeroext %638, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %644, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %644, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1149 = load ptr, ptr %631, align 8
   %645 = icmp eq ptr %.pre1149, null
   br i1 %645, label %show_scan_qual.exit783, label %646
@@ -5140,7 +5140,7 @@ show_scan_qual.exit775:                           ; preds = %637
   %662 = load ptr, ptr %661, align 8
   %663 = call ptr @set_deparse_context_plan(ptr noundef %662, ptr noundef %.val.i.i776, ptr noundef %1) #13
   %664 = call ptr @deparse_expression(ptr noundef %660, ptr noundef %663, i1 noundef zeroext %657, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %664, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %664, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit777
 
 show_scan_qual.exit777:                           ; preds = %656, %659
@@ -5150,7 +5150,7 @@ show_scan_qual.exit777:                           ; preds = %656, %659
   br i1 %.not735, label %668, label %667
 
 667:                                              ; preds = %show_scan_qual.exit777
-  call fastcc void @show_instrumentation_count(ptr noundef nonnull @.str.213, i32 noundef 2, ptr noundef nonnull %0, ptr noundef %4)
+  call fastcc void @show_instrumentation_count(ptr noundef nonnull @.str.213, i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %4)
   br label %668
 
 668:                                              ; preds = %667, %show_scan_qual.exit777
@@ -5178,7 +5178,7 @@ show_scan_qual.exit777:                           ; preds = %656, %659
   %683 = load ptr, ptr %682, align 8
   %684 = call ptr @set_deparse_context_plan(ptr noundef %683, ptr noundef %.val.i.i778, ptr noundef %1) #13
   %685 = call ptr @deparse_expression(ptr noundef %681, ptr noundef %684, i1 noundef zeroext %678, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %685, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef %685, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1143 = load ptr, ptr %53, align 8
   %.pre1144 = load i32, ptr %.pre1143, align 4
   br label %show_scan_qual.exit779
@@ -5207,7 +5207,7 @@ show_scan_qual.exit781:                           ; preds = %693
   %698 = load ptr, ptr %697, align 8
   %699 = call ptr @set_deparse_context_plan(ptr noundef %698, ptr noundef %.val.i.i780, ptr noundef %1) #13
   %700 = call ptr @deparse_expression(ptr noundef %696, ptr noundef %699, i1 noundef zeroext %694, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %700, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %700, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1145 = load ptr, ptr %687, align 8
   %701 = icmp eq ptr %.pre1145, null
   br i1 %701, label %show_scan_qual.exit781.thread, label %702
@@ -5253,7 +5253,7 @@ show_scan_qual.exit781.thread:                    ; preds = %693, %702, %show_sc
   %724 = load ptr, ptr %723, align 8
   %725 = call ptr @set_deparse_context_plan(ptr noundef %724, ptr noundef %.val.i.i782, ptr noundef %1) #13
   %726 = call ptr @deparse_expression(ptr noundef %722, ptr noundef %725, i1 noundef zeroext %719, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %726, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.212, ptr noundef null, ptr noundef %726, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit783
 
 727:                                              ; preds = %thread-pre-split960
@@ -5281,7 +5281,7 @@ show_scan_qual.exit785:                           ; preds = %736
   %741 = load ptr, ptr %740, align 8
   %742 = call ptr @set_deparse_context_plan(ptr noundef %741, ptr noundef %.val.i.i784, ptr noundef %1) #13
   %743 = call ptr @deparse_expression(ptr noundef %739, ptr noundef %742, i1 noundef zeroext %737, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.218, ptr noundef null, ptr noundef %743, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.218, ptr noundef null, ptr noundef %743, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1141 = load ptr, ptr %728, align 8
   %744 = icmp eq ptr %.pre1141, null
   br i1 %744, label %show_scan_qual.exit785.thread, label %745
@@ -5315,7 +5315,7 @@ show_scan_qual.exit787:                           ; preds = %754
   %759 = load ptr, ptr %758, align 8
   %760 = call ptr @set_deparse_context_plan(ptr noundef %759, ptr noundef %.val.i.i786, ptr noundef %1) #13
   %761 = call ptr @deparse_expression(ptr noundef %757, ptr noundef %760, i1 noundef zeroext %755, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %761, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %761, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1142 = load ptr, ptr %746, align 8
   %762 = icmp eq ptr %.pre1142, null
   br i1 %762, label %show_scan_qual.exit787.thread, label %763
@@ -5701,7 +5701,7 @@ show_scan_qual.exit805:                           ; preds = %947
   %952 = load ptr, ptr %951, align 8
   %953 = call ptr @set_deparse_context_plan(ptr noundef %952, ptr noundef %.val.i.i804, ptr noundef %1) #13
   %954 = call ptr @deparse_expression(ptr noundef %950, ptr noundef %953, i1 noundef zeroext %948, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %954, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %954, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1140 = load ptr, ptr %939, align 8
   %955 = icmp eq ptr %.pre1140, null
   br i1 %955, label %show_instrumentation_count.exit, label %956
@@ -5793,7 +5793,7 @@ show_scan_qual.exit809:                           ; preds = %990
   %995 = load ptr, ptr %994, align 8
   %996 = call ptr @set_deparse_context_plan(ptr noundef %995, ptr noundef %.val.i.i808, ptr noundef %1) #13
   %997 = call ptr @deparse_expression(ptr noundef %993, ptr noundef %996, i1 noundef zeroext %991, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %997, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %997, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1139 = load ptr, ptr %982, align 8
   %998 = icmp eq ptr %.pre1139, null
   br i1 %998, label %show_scan_qual.exit809.thread, label %999
@@ -5808,7 +5808,7 @@ show_scan_qual.exit809.thread:                    ; preds = %990, %999, %show_sc
   %1002 = sext i32 %1001 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %45) #13
   %1003 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %45, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1002) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %45, i1 noundef zeroext true, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %45, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %45) #13
   %1004 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1005 = trunc nuw i8 %1004 to i1
@@ -5862,7 +5862,7 @@ show_scan_qual.exit811:                           ; preds = %1027
   %1032 = load ptr, ptr %1031, align 8
   %1033 = call ptr @set_deparse_context_plan(ptr noundef %1032, ptr noundef %.val.i.i810, ptr noundef %1) #13
   %1034 = call ptr @deparse_expression(ptr noundef %1030, ptr noundef %1033, i1 noundef zeroext %1028, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1034, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1034, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1138 = load ptr, ptr %1019, align 8
   %1035 = icmp eq ptr %.pre1138, null
   br i1 %1035, label %show_scan_qual.exit811.thread, label %1036
@@ -5877,7 +5877,7 @@ show_scan_qual.exit811.thread:                    ; preds = %1027, %1036, %show_
   %1039 = sext i32 %1038 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %44) #13
   %1040 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %44, i64 noundef 32, ptr noundef nonnull @.str.54, i64 noundef %1039) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %44, i1 noundef zeroext true, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.219, ptr noundef null, ptr noundef nonnull %44, i1 noundef zeroext true, ptr noundef nonnull readonly %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %44) #13
   %1041 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1042 = trunc nuw i8 %1041 to i1
@@ -6080,7 +6080,7 @@ list_length.exit.thread:                          ; preds = %1117, %1123, %list_
   %1138 = load ptr, ptr %1137, align 8
   %1139 = call ptr @set_deparse_context_plan(ptr noundef %1138, ptr noundef %.val.i.i818, ptr noundef %1) #13
   %1140 = call ptr @deparse_expression(ptr noundef %1136, ptr noundef %1139, i1 noundef zeroext %1133, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1140, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1140, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1130 = load ptr, ptr %53, align 8
   %.pre1131 = load i32, ptr %.pre1130, align 4
   br label %show_scan_qual.exit819
@@ -6109,7 +6109,7 @@ show_scan_qual.exit821:                           ; preds = %1148
   %1153 = load ptr, ptr %1152, align 8
   %1154 = call ptr @set_deparse_context_plan(ptr noundef %1153, ptr noundef %.val.i.i820, ptr noundef %1) #13
   %1155 = call ptr @deparse_expression(ptr noundef %1151, ptr noundef %1154, i1 noundef zeroext %1149, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1155, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1155, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1132 = load ptr, ptr %1142, align 8
   %1156 = icmp eq ptr %.pre1132, null
   br i1 %1156, label %show_scan_qual.exit783, label %1157
@@ -6159,7 +6159,7 @@ list_length.exit823.thread:                       ; preds = %1158, %1164, %list_
   %1179 = load ptr, ptr %1178, align 8
   %1180 = call ptr @set_deparse_context_plan(ptr noundef %1179, ptr noundef %.val.i.i824, ptr noundef %1) #13
   %1181 = call ptr @deparse_expression(ptr noundef %1177, ptr noundef %1180, i1 noundef zeroext %1174, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1181, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.224, ptr noundef null, ptr noundef %1181, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1127 = load ptr, ptr %53, align 8
   %.pre1128 = load i32, ptr %.pre1127, align 4
   br label %show_scan_qual.exit825
@@ -6188,7 +6188,7 @@ show_scan_qual.exit827:                           ; preds = %1189
   %1194 = load ptr, ptr %1193, align 8
   %1195 = call ptr @set_deparse_context_plan(ptr noundef %1194, ptr noundef %.val.i.i826, ptr noundef %1) #13
   %1196 = call ptr @deparse_expression(ptr noundef %1192, ptr noundef %1195, i1 noundef zeroext %1190, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1196, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1196, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1129 = load ptr, ptr %1183, align 8
   %1197 = icmp eq ptr %.pre1129, null
   br i1 %1197, label %show_scan_qual.exit783, label %1198
@@ -6222,7 +6222,7 @@ show_scan_qual.exit829:                           ; preds = %1208
   %1213 = load ptr, ptr %1212, align 8
   %1214 = call ptr @set_deparse_context_plan(ptr noundef %1213, ptr noundef %.val.i.i828, ptr noundef %1) #13
   %1215 = call ptr @deparse_expression(ptr noundef %1211, ptr noundef %1214, i1 noundef zeroext %1209, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1215, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1215, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1126 = load ptr, ptr %1200, align 8
   %1216 = icmp eq ptr %.pre1126, null
   br i1 %1216, label %show_scan_qual.exit829.thread, label %1217
@@ -6254,7 +6254,7 @@ show_scan_qual.exit829.thread:                    ; preds = %1208, %1217, %show_
 
 .sink.split.i831:                                 ; preds = %1226, %1223
   %.sink.i = phi ptr [ %1225, %1223 ], [ %1228, %1226 ]
-  call void %.sink.i(ptr noundef nonnull %0, ptr noundef %4) #13
+  call void %.sink.i(ptr noundef nonnull %0, ptr noundef nonnull %4) #13
   br label %show_scan_qual.exit783
 
 1229:                                             ; preds = %thread-pre-split960
@@ -6282,7 +6282,7 @@ show_scan_qual.exit833:                           ; preds = %1238
   %1243 = load ptr, ptr %1242, align 8
   %1244 = call ptr @set_deparse_context_plan(ptr noundef %1243, ptr noundef %.val.i.i832, ptr noundef %1) #13
   %1245 = call ptr @deparse_expression(ptr noundef %1241, ptr noundef %1244, i1 noundef zeroext %1239, i1 noundef zeroext false) #13
-  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1245, i1 noundef zeroext false, ptr noundef readonly %4)
+  call fastcc void @ExplainProperty(ptr noundef nonnull @.str.215, ptr noundef null, ptr noundef %1245, i1 noundef zeroext false, ptr noundef nonnull readonly %4)
   %.pre1125 = load ptr, ptr %1230, align 8
   %1246 = icmp eq ptr %.pre1125, null
   br i1 %1246, label %show_scan_qual.exit833.thread, label %1247
@@ -6300,7 +6300,7 @@ show_scan_qual.exit833.thread:                    ; preds = %1238, %1247, %show_
   br i1 %.not721, label %show_scan_qual.exit783, label %1252
 
 1252:                                             ; preds = %show_scan_qual.exit833.thread
-  call void %1251(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4) #13
+  call void %1251(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %4) #13
   br label %show_scan_qual.exit783
 
 1253:                                             ; preds = %thread-pre-split960
@@ -6638,7 +6638,7 @@ show_grouping_sets.exit.i:                        ; preds = %.lr.ph33.i.i, %.lr.
   %1438 = load ptr, ptr %1437, align 8
   %1439 = getelementptr i8, ptr %1406, i64 8
   %.val.i = load ptr, ptr %1439, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val.i, ptr noundef nonnull @.str.271, i32 noundef %1436, i32 noundef 0, ptr noundef %1438, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1402, ptr noundef %4)
+  call fastcc void @show_sort_group_keys(ptr %.val.i, ptr noundef nonnull @.str.271, i32 noundef %1436, i32 noundef 0, ptr noundef %1438, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1402, ptr noundef nonnull %4)
   br label %1440
 
 1440:                                             ; preds = %1435, %show_grouping_sets.exit.i
@@ -7062,7 +7062,7 @@ show_windowagg_info.exit:                         ; preds = %show_upper_qual.exi
   %1658 = load ptr, ptr %1657, align 8
   %1659 = getelementptr i8, ptr %1654, i64 8
   %.val.i867 = load ptr, ptr %1659, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val.i867, ptr noundef nonnull @.str.271, i32 noundef %1656, i32 noundef 0, ptr noundef %1658, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1652, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys(ptr %.val.i867, ptr noundef nonnull @.str.271, i32 noundef %1656, i32 noundef 0, ptr noundef %1658, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %1652, ptr noundef nonnull readonly %4)
   %1660 = call ptr @list_delete_first(ptr noundef %1652) #13
   %1661 = getelementptr inbounds nuw i8, ptr %54, i64 56
   %1662 = load ptr, ptr %1661, align 8
@@ -7109,7 +7109,7 @@ show_upper_qual.exit869:                          ; preds = %1669
   %1687 = load ptr, ptr %1686, align 8
   %1688 = getelementptr inbounds nuw i8, ptr %.val759, i64 136
   %1689 = load ptr, ptr %1688, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val759, ptr noundef nonnull @.str.277, i32 noundef %1681, i32 noundef 0, ptr noundef %1683, ptr noundef %1685, ptr noundef %1687, ptr noundef %1689, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys(ptr %.val759, ptr noundef nonnull @.str.277, i32 noundef %1681, i32 noundef 0, ptr noundef %1683, ptr noundef %1685, ptr noundef %1687, ptr noundef %1689, ptr noundef %1, ptr noundef nonnull readonly %4)
   %1690 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1691 = trunc nuw i8 %1690 to i1
   br i1 %1691, label %1692, label %show_scan_qual.exit783
@@ -7291,7 +7291,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1763, %1756
   %1788 = load ptr, ptr %1787, align 8
   %1789 = getelementptr inbounds nuw i8, ptr %.val760, i64 136
   %1790 = load ptr, ptr %1789, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val760, ptr noundef nonnull @.str.277, i32 noundef %1780, i32 noundef %1782, ptr noundef %1784, ptr noundef %1786, ptr noundef %1788, ptr noundef %1790, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys(ptr %.val760, ptr noundef nonnull @.str.277, i32 noundef %1780, i32 noundef %1782, ptr noundef %1784, ptr noundef %1786, ptr noundef %1788, ptr noundef %1790, ptr noundef %1, ptr noundef nonnull readonly %4)
   %1791 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %1792 = load i8, ptr %354, align 1, !range !4, !noundef !5
   %1793 = trunc nuw i8 %1792 to i1
@@ -7432,7 +7432,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1763, %1756
   %1862 = load ptr, ptr %1861, align 8
   %1863 = getelementptr inbounds nuw i8, ptr %.val761, i64 152
   %1864 = load ptr, ptr %1863, align 8
-  call fastcc void @show_sort_group_keys(ptr %.val761, ptr noundef nonnull @.str.277, i32 noundef %1856, i32 noundef 0, ptr noundef %1858, ptr noundef %1860, ptr noundef %1862, ptr noundef %1864, ptr noundef %1, ptr noundef readonly %4)
+  call fastcc void @show_sort_group_keys(ptr %.val761, ptr noundef nonnull @.str.277, i32 noundef %1856, i32 noundef 0, ptr noundef %1858, ptr noundef %1860, ptr noundef %1862, ptr noundef %1864, ptr noundef %1, ptr noundef nonnull readonly %4)
   br label %show_scan_qual.exit783
 
 1865:                                             ; preds = %thread-pre-split960
@@ -7537,7 +7537,7 @@ switch.lookup1229:                                ; preds = %1900
   br i1 %.not140.i, label %.lr.ph.split.preheader.i, label %.thread136.i
 
 .thread136.i:                                     ; preds = %1913, %1907
-  call void @ExplainOpenGroup(ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.314, i1 noundef zeroext false, ptr noundef %4)
+  call void @ExplainOpenGroup(ptr noundef nonnull @.str.314, ptr noundef nonnull @.str.314, i1 noundef zeroext false, ptr noundef nonnull %4)
   %.pre.i891 = load i32, ptr %1908, align 8
   %1920 = icmp sgt i32 %.pre.i891, 0
   br i1 %1920, label %.lr.ph.split.us.preheader.i, label %._crit_edge.i889
@@ -7557,7 +7557,7 @@ switch.lookup1229:                                ; preds = %1900
   %1925 = getelementptr inbounds nuw %struct.ResultRelInfo, ptr %1924, i64 %indvars.iv156.i
   %1926 = getelementptr inbounds nuw i8, ptr %1925, i64 160
   %1927 = load ptr, ptr %1926, align 8
-  call void @ExplainOpenGroup(ptr noundef nonnull @.str.315, ptr noundef null, i1 noundef zeroext true, ptr noundef %4)
+  call void @ExplainOpenGroup(ptr noundef nonnull @.str.315, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4)
   %1928 = load i32, ptr %163, align 8
   %1929 = icmp eq i32 %1928, 0
   br i1 %1929, label %1930, label %1947
@@ -8542,13 +8542,13 @@ show_scan_qual.exit783:                           ; preds = %1849, %1773, %864, 
 2421:                                             ; preds = %.lr.ph1019, %2421
   %indvars.iv1071 = phi i64 [ 0, %.lr.ph1019 ], [ %indvars.iv.next1072, %2421 ]
   %2422 = trunc nuw nsw i64 %indvars.iv1071 to i32
-  call fastcc void @ExplainOpenWorker(i32 noundef %2422, ptr noundef %4)
+  call fastcc void @ExplainOpenWorker(i32 noundef %2422, ptr noundef nonnull %4)
   %2423 = load ptr, ptr %2419, align 8
   %2424 = getelementptr inbounds nuw i8, ptr %2423, i64 304
   %2425 = load i32, ptr %2424, align 8
   %2426 = getelementptr inbounds nuw [0 x %struct.JitInstrumentation], ptr %2420, i64 0, i64 %indvars.iv1071
-  call fastcc void @ExplainPrintJIT(ptr noundef %4, i32 noundef %2425, ptr noundef %2426)
-  call fastcc void @ExplainCloseWorker(i32 noundef %2422, ptr noundef %4)
+  call fastcc void @ExplainPrintJIT(ptr noundef nonnull %4, i32 noundef %2425, ptr noundef %2426)
+  call fastcc void @ExplainCloseWorker(i32 noundef %2422, ptr noundef nonnull %4)
   %indvars.iv.next1072 = add nuw nsw i64 %indvars.iv1071, 1
   %2427 = load i32, ptr %2416, align 8
   %2428 = sext i32 %2427 to i64
@@ -8942,7 +8942,7 @@ ExplainSubPlans.exit:                             ; preds = %2589, %2560, %.preh
   %indvars.iv1096 = phi i64 [ 0, %.lr.ph1043.preheader ], [ %indvars.iv.next1097, %.lr.ph1043 ]
   %2608 = getelementptr inbounds nuw ptr, ptr %2604, i64 %indvars.iv1096
   %2609 = load ptr, ptr %2608, align 8
-  call fastcc void @ExplainNode(ptr noundef %2609, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef %4)
+  call fastcc void @ExplainNode(ptr noundef %2609, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1097 = add nuw nsw i64 %indvars.iv1096, 1
   %exitcond1100.not = icmp eq i64 %indvars.iv.next1097, %wide.trip.count1099
   br i1 %exitcond1100.not, label %ExplainMemberNodes.exit, label %.lr.ph1043, !llvm.loop !25
@@ -8963,7 +8963,7 @@ ExplainSubPlans.exit:                             ; preds = %2589, %2560, %.preh
   %indvars.iv1091 = phi i64 [ 0, %.lr.ph1040.preheader ], [ %indvars.iv.next1092, %.lr.ph1040 ]
   %2616 = getelementptr inbounds nuw ptr, ptr %2612, i64 %indvars.iv1091
   %2617 = load ptr, ptr %2616, align 8
-  call fastcc void @ExplainNode(ptr noundef %2617, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef %4)
+  call fastcc void @ExplainNode(ptr noundef %2617, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1092 = add nuw nsw i64 %indvars.iv1091, 1
   %exitcond1095.not = icmp eq i64 %indvars.iv.next1092, %wide.trip.count1094
   br i1 %exitcond1095.not, label %ExplainMemberNodes.exit, label %.lr.ph1040, !llvm.loop !25
@@ -8984,7 +8984,7 @@ ExplainSubPlans.exit:                             ; preds = %2589, %2560, %.preh
   %indvars.iv1086 = phi i64 [ 0, %.lr.ph1037.preheader ], [ %indvars.iv.next1087, %.lr.ph1037 ]
   %2624 = getelementptr inbounds nuw ptr, ptr %2620, i64 %indvars.iv1086
   %2625 = load ptr, ptr %2624, align 8
-  call fastcc void @ExplainNode(ptr noundef %2625, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef %4)
+  call fastcc void @ExplainNode(ptr noundef %2625, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1087 = add nuw nsw i64 %indvars.iv1086, 1
   %exitcond1090.not = icmp eq i64 %indvars.iv.next1087, %wide.trip.count1089
   br i1 %exitcond1090.not, label %ExplainMemberNodes.exit, label %.lr.ph1037, !llvm.loop !25
@@ -9005,7 +9005,7 @@ ExplainSubPlans.exit:                             ; preds = %2589, %2560, %.preh
   %indvars.iv1083 = phi i64 [ 0, %.lr.ph1034.preheader ], [ %indvars.iv.next1084, %.lr.ph1034 ]
   %2632 = getelementptr inbounds nuw ptr, ptr %2628, i64 %indvars.iv1083
   %2633 = load ptr, ptr %2632, align 8
-  call fastcc void @ExplainNode(ptr noundef %2633, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef %4)
+  call fastcc void @ExplainNode(ptr noundef %2633, ptr noundef %.01185, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1084 = add nuw nsw i64 %indvars.iv1083, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1084, %wide.trip.count
   br i1 %exitcond.not, label %ExplainMemberNodes.exit, label %.lr.ph1034, !llvm.loop !25
@@ -9038,7 +9038,7 @@ ExplainSubPlans.exit:                             ; preds = %2589, %2560, %.preh
   %2645 = load ptr, ptr %2643, align 8
   %2646 = getelementptr inbounds nuw %union.ListCell, ptr %2645, i64 %indvars.iv1080
   %2647 = load ptr, ptr %2646, align 8
-  call fastcc void @ExplainNode(ptr noundef %2647, ptr noundef %.01185, ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef %4)
+  call fastcc void @ExplainNode(ptr noundef %2647, ptr noundef %.01185, ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1081 = add nuw nsw i64 %indvars.iv1080, 1
   %2648 = load i32, ptr %2642, align 4
   %2649 = sext i32 %2648 to i64

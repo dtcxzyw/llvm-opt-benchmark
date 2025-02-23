@@ -798,7 +798,7 @@ pmix_obj_update.exit:                             ; preds = %.thread
 .lr.ph.i:                                         ; preds = %161, %.lr.ph.i
   %167 = phi ptr [ %169, %.lr.ph.i ], [ %166, %161 ]
   %.07.i = phi ptr [ %168, %.lr.ph.i ], [ %165, %161 ]
-  call void %167(ptr noundef %2) #11
+  call void %167(ptr noundef nonnull %2) #11
   %168 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !18
   %.not.i143 = icmp eq ptr %169, null
@@ -856,7 +856,7 @@ define internal fastcc void @pmix_obj_run_destructors(ptr noundef %0) unnamed_ad
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %1 ]
   %.07 = phi ptr [ %8, %.lr.ph ], [ %5, %1 ]
-  tail call void %7(ptr noundef %0) #11
+  tail call void %7(ptr noundef nonnull %0) #11
   %8 = getelementptr inbounds nuw i8, ptr %.07, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not = icmp eq ptr %9, null
@@ -2209,7 +2209,7 @@ pmix_obj_update.exit:                             ; preds = %673
 .lr.ph.i370:                                      ; preds = %683, %.lr.ph.i370
   %689 = phi ptr [ %691, %.lr.ph.i370 ], [ %688, %683 ]
   %.07.i371 = phi ptr [ %690, %.lr.ph.i370 ], [ %687, %683 ]
-  call void %689(ptr noundef %2) #11
+  call void %689(ptr noundef nonnull %2) #11
   %690 = getelementptr inbounds nuw i8, ptr %.07.i371, i64 8
   %691 = load ptr, ptr %690, align 8, !tbaa !18
   %.not.i372 = icmp eq ptr %691, null

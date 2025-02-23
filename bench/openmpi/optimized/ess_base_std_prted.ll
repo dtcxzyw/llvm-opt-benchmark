@@ -736,7 +736,7 @@ pmix_obj_update.exit:                             ; preds = %256
 .lr.ph.i:                                         ; preds = %268, %.lr.ph.i
   %274 = phi ptr [ %276, %.lr.ph.i ], [ %273, %268 ]
   %.07.i = phi ptr [ %275, %.lr.ph.i ], [ %272, %268 ]
-  call void %274(ptr noundef %.0123) #18
+  call void %274(ptr noundef nonnull %.0123) #18
   %275 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %276 = load ptr, ptr %275, align 8, !tbaa !95
   %.not.i = icmp eq ptr %276, null

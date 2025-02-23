@@ -43,12 +43,12 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %wide.trip.count298 = zext nneg i32 %11 to i64
+  %wide.trip.count299 = zext nneg i32 %11 to i64
   br label %19
 
 19:                                               ; preds = %.lr.ph, %Abc_Tt6FirstBit.exit171.thread
-  %indvars.iv295 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next296, %Abc_Tt6FirstBit.exit171.thread ]
-  %.0276 = phi i32 [ 0, %.lr.ph ], [ %452, %Abc_Tt6FirstBit.exit171.thread ]
+  %indvars.iv296 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next297, %Abc_Tt6FirstBit.exit171.thread ]
+  %.0277 = phi i32 [ 0, %.lr.ph ], [ %452, %Abc_Tt6FirstBit.exit171.thread ]
   switch i32 %3, label %._crit_edge [
     i32 1, label %20
     i32 2, label %43
@@ -57,15 +57,15 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   ]
 
 ._crit_edge:                                      ; preds = %19
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv295
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv296
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !3
   br label %356
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr %2, align 8, !tbaa !7
-  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv295
+  %22 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv296
   %23 = load i64, ptr %22, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %24 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = and i64 %25, %23
   %.not.i.i = icmp eq i64 %26, 0
@@ -85,18 +85,18 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   %39 = zext i1 %38 to i32
   %40 = or disjoint i32 %36, %39
   %41 = or disjoint i32 %33, %40
-  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv295
+  %42 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv296
   store i32 %41, ptr %42, align 4, !tbaa !3
   br label %356
 
 43:                                               ; preds = %19
   %44 = load ptr, ptr %2, align 8, !tbaa !7
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv295
+  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv296
   %46 = load i64, ptr %45, align 8, !tbaa !10
   %47 = load ptr, ptr %16, align 8, !tbaa !7
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv295
+  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv296
   %49 = load i64, ptr %48, align 8, !tbaa !10
-  %50 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %50 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %51 = load i64, ptr %50, align 8, !tbaa !10
   %52 = and i64 %51, %49
   %53 = and i64 %52, %46
@@ -139,21 +139,21 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   %86 = or disjoint i32 %82, %85
   %87 = or disjoint i32 %79, %86
   %88 = or disjoint i32 %70, %87
-  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv295
+  %89 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv296
   store i32 %88, ptr %89, align 4, !tbaa !3
   br label %356
 
 90:                                               ; preds = %19
   %91 = load ptr, ptr %2, align 8, !tbaa !7
-  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv295
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %indvars.iv296
   %93 = load i64, ptr %92, align 8, !tbaa !10
   %94 = load ptr, ptr %16, align 8, !tbaa !7
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv295
+  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv296
   %96 = load i64, ptr %95, align 8, !tbaa !10
   %97 = load ptr, ptr %17, align 8, !tbaa !7
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv295
+  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %indvars.iv296
   %99 = load i64, ptr %98, align 8, !tbaa !10
-  %100 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %100 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %101 = load i64, ptr %100, align 8, !tbaa !10
   %102 = and i64 %101, %99
   %103 = and i64 %102, %96
@@ -241,24 +241,24 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   %177 = or disjoint i32 %169, %176
   %178 = or disjoint i32 %160, %177
   %179 = or disjoint i32 %141, %178
-  %180 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv295
+  %180 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv296
   store i32 %179, ptr %180, align 4, !tbaa !3
   br label %356
 
 181:                                              ; preds = %19
   %182 = load ptr, ptr %2, align 8, !tbaa !7
-  %183 = getelementptr inbounds nuw i64, ptr %182, i64 %indvars.iv295
+  %183 = getelementptr inbounds nuw i64, ptr %182, i64 %indvars.iv296
   %184 = load i64, ptr %183, align 8, !tbaa !10
   %185 = load ptr, ptr %16, align 8, !tbaa !7
-  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv295
+  %186 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv296
   %187 = load i64, ptr %186, align 8, !tbaa !10
   %188 = load ptr, ptr %17, align 8, !tbaa !7
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv295
+  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv296
   %190 = load i64, ptr %189, align 8, !tbaa !10
   %191 = load ptr, ptr %18, align 8, !tbaa !7
-  %192 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv295
+  %192 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv296
   %193 = load i64, ptr %192, align 8, !tbaa !10
-  %194 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %194 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %195 = load i64, ptr %194, align 8, !tbaa !10
   %196 = and i64 %195, %193
   %197 = and i64 %196, %190
@@ -435,7 +435,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   %352 = or disjoint i32 %351, %275
   %353 = add nuw nsw i32 %352, %274
   %354 = add nuw nsw i32 %353, %314
-  %355 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv295
+  %355 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv296
   store i32 %354, ptr %355, align 4, !tbaa !3
   br label %356
 
@@ -448,7 +448,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   br i1 %361, label %Abc_Tt6FirstBit.exit, label %362
 
 362:                                              ; preds = %356
-  %363 = trunc nuw nsw i64 %indvars.iv295 to i32
+  %363 = trunc nuw nsw i64 %indvars.iv296 to i32
   %364 = zext nneg i32 %360 to i64
   %365 = and i64 %364, 65535
   %366 = icmp eq i64 %365, 0
@@ -481,7 +481,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
   br i1 %383, label %.lr.ph.i, label %Rsb_DecCofactor.exit
 
 .lr.ph.i:                                         ; preds = %362
-  %384 = and i64 %indvars.iv295, 4294967295
+  %384 = and i64 %indvars.iv296, 4294967295
   %wide.trip.count.i = zext nneg i32 %3 to i64
   br label %385
 
@@ -506,7 +506,7 @@ define i32 @Rsb_DecCheck(i32 noundef %0, ptr noundef readonly captures(none) %1,
 Rsb_DecCofactor.exit:                             ; preds = %385, %362
   %.0.lcssa.i = phi i64 [ -1, %362 ], [ %395, %385 ]
   %396 = shl nsw i32 %363, 6
-  %397 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %397 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %398 = load i64, ptr %397, align 8, !tbaa !10
   %399 = xor i64 %398, -1
   %400 = and i64 %.0.lcssa.i, %399
@@ -599,8 +599,8 @@ Abc_Tt6FirstBit.exit158:                          ; preds = %Abc_Tt6FirstBit.exi
   br label %.loopexit.sink.split
 
 Abc_Tt6FirstBit.exit:                             ; preds = %356
-  %452 = or i32 %357, %.0276
-  %453 = icmp eq i64 %indvars.iv295, 0
+  %452 = or i32 %357, %.0277
+  %453 = icmp eq i64 %indvars.iv296, 0
   br i1 %453, label %Abc_Tt6FirstBit.exit171.thread, label %454
 
 454:                                              ; preds = %Abc_Tt6FirstBit.exit
@@ -622,7 +622,7 @@ Abc_Tt6FirstBit.exit171.preheader:                ; preds = %454, %Abc_Tt6FirstB
   br i1 %465, label %Abc_Tt6FirstBit.exit184.thread, label %Abc_Tt6FirstBit.exit184
 
 Abc_Tt6FirstBit.exit184:                          ; preds = %Abc_Tt6FirstBit.exit171.preheader
-  %466 = trunc nuw nsw i64 %indvars.iv295 to i32
+  %466 = trunc nuw nsw i64 %indvars.iv296 to i32
   %467 = trunc nuw nsw i64 %indvars.iv to i32
   %468 = zext nneg i32 %464 to i64
   %469 = and i64 %468, 65535
@@ -679,7 +679,7 @@ Abc_Tt6FirstBit.exit184:                          ; preds = %Abc_Tt6FirstBit.exi
   br i1 %exitcond.not.i192, label %.lr.ph.i195, label %489, !llvm.loop !12
 
 .lr.ph.i195:                                      ; preds = %489
-  %500 = and i64 %indvars.iv295, 4294967295
+  %500 = and i64 %indvars.iv296, 4294967295
   br label %501
 
 501:                                              ; preds = %501, %.lr.ph.i195
@@ -711,7 +711,7 @@ Rsb_DecCofactor.exit202:                          ; preds = %501, %Abc_Tt6FirstB
   br i1 %.not, label %568, label %516
 
 516:                                              ; preds = %Rsb_DecCofactor.exit202
-  %517 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %517 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %518 = load i64, ptr %517, align 8, !tbaa !10
   %519 = and i64 %518, %.0.lcssa.i194
   %.not132 = icmp eq i64 %519, 0
@@ -838,7 +838,7 @@ Abc_Tt6FirstBit.exit241:                          ; preds = %568, %572
   %595 = add nsw i32 %.025.i240, %569
   store i32 %595, ptr %5, align 4, !tbaa !3
   %596 = shl nsw i32 %466, 6
-  %597 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv295
+  %597 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv296
   %598 = load i64, ptr %597, align 8, !tbaa !10
   %599 = xor i64 %598, -1
   %600 = and i64 %.0.lcssa.i194, %599
@@ -888,13 +888,13 @@ Abc_Tt6FirstBit.exit254:                          ; preds = %Abc_Tt6FirstBit.exi
 
 Abc_Tt6FirstBit.exit184.thread:                   ; preds = %Abc_Tt6FirstBit.exit171.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv295
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv296
   br i1 %exitcond.not, label %Abc_Tt6FirstBit.exit171.thread, label %Abc_Tt6FirstBit.exit171.preheader, !llvm.loop !14
 
 Abc_Tt6FirstBit.exit171.thread:                   ; preds = %Abc_Tt6FirstBit.exit184.thread, %454, %Abc_Tt6FirstBit.exit
-  %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
-  %exitcond299.not = icmp eq i64 %indvars.iv.next296, %wide.trip.count298
-  br i1 %exitcond299.not, label %.loopexit, label %19, !llvm.loop !15
+  %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
+  %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
+  br i1 %exitcond300.not, label %.loopexit, label %19, !llvm.loop !15
 
 .loopexit.sink.split:                             ; preds = %Abc_Tt6FirstBit.exit228, %Abc_Tt6FirstBit.exit254, %Abc_Tt6FirstBit.exit158
   %storemerge.sink = phi i32 [ %451, %Abc_Tt6FirstBit.exit158 ], [ %625, %Abc_Tt6FirstBit.exit254 ], [ %567, %Abc_Tt6FirstBit.exit228 ]
@@ -1008,7 +1008,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 .preheader112.lr.ph:                              ; preds = %._crit_edge130
   %35 = getelementptr i8, ptr %3, i64 8
   %wide.trip.count196 = zext nneg i32 %1 to i64
-  %wide.trip.count201 = zext i32 %2 to i64
+  %wide.trip.count201 = zext nneg i32 %2 to i64
   br label %.preheader112
 
 .preheader112:                                    ; preds = %.preheader112.lr.ph, %._crit_edge144
@@ -1186,7 +1186,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 
 .lr.ph160.preheader:                              ; preds = %._crit_edge156
   %109 = zext nneg i32 %.12.lcssa to i64
-  %wide.trip.count212 = zext i32 %2 to i64
+  %wide.trip.count212 = zext nneg i32 %2 to i64
   br label %.lr.ph160
 
 .lr.ph160:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160
@@ -1272,7 +1272,7 @@ define void @Rsb_DecPrintTable(ptr noundef readonly captures(none) %0, i32 nound
 
 .lr.ph170.preheader:                              ; preds = %._crit_edge166
   %158 = zext nneg i32 %.15.lcssa to i64
-  %wide.trip.count223 = zext i32 %2 to i64
+  %wide.trip.count223 = zext nneg i32 %2 to i64
   br label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
@@ -4277,7 +4277,7 @@ define i32 @Rsb_ManPerform(ptr noundef readonly captures(none) %0, i32 noundef %
   br label %46
 
 46:                                               ; preds = %7, %45
-  %47 = tail call i32 @Rsb_DecPerformInt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 0)
+  %47 = tail call i32 @Rsb_DecPerformInt(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef 0)
   %.not67 = icmp eq i32 %47, 0
   br i1 %.not67, label %48, label %52
 

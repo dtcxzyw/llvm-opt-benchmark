@@ -389,7 +389,7 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %126
+  br label %124
 
 .lr.ph107:                                        ; preds = %_ZNSt7__cxx114listIPN4llvm11InstructionESaIS3_EE5clearEv.exit, %._crit_edge
   %.sroa.058.0106 = phi ptr [ %.sroa.058.0, %._crit_edge ], [ %.sroa.058.0104, %_ZNSt7__cxx114listIPN4llvm11InstructionESaIS3_EE5clearEv.exit ]
@@ -416,49 +416,46 @@ _ZNK4llvm12InstIteratorINS_15SymbolTableListINS_10BasicBlockEJEEENS_14ilist_iter
   %115 = load i64, ptr %25, align 8, !tbaa !67
   %116 = add i64 %115, 1
   store i64 %116, ptr %25, align 8, !tbaa !67
-  %117 = icmp eq ptr %.sroa.052.0102, null
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.052.0102, i64 24
-  %spec.select.i.i.i.i = select i1 %117, ptr null, ptr %118
-  %119 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !27
-  %121 = getelementptr inbounds i8, ptr %120, i64 -24
-  %122 = load i8, ptr %121, align 8, !tbaa !30
-  %123 = icmp eq i8 %122, 84
-  %spec.select.i.i.i1.i = select i1 %123, ptr %121, ptr null
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.052.0102, i64 32
+  %118 = load ptr, ptr %117, align 8, !tbaa !27
+  %119 = getelementptr inbounds i8, ptr %118, i64 -24
+  %120 = load i8, ptr %119, align 8, !tbaa !30
+  %121 = icmp eq i8 %120, 84
+  %spec.select.i.i.i1.i = select i1 %121, ptr %119, ptr null
   %.not89 = icmp eq ptr %spec.select.i.i.i1.i, %110
   br i1 %.not89, label %._crit_edge, label %.lr.ph103
 
-._crit_edge112.loopexit:                          ; preds = %126
+._crit_edge112.loopexit:                          ; preds = %124
   %.pre116 = load ptr, ptr %3, align 8, !tbaa !45
   br label %._crit_edge112
 
 ._crit_edge112:                                   ; preds = %._crit_edge112.loopexit, %.preheader
-  %124 = phi ptr [ %.pre116, %._crit_edge112.loopexit ], [ %.sroa.048.0108.pre, %.preheader ]
-  %.not8.i.i41 = icmp eq ptr %124, %3
+  %122 = phi ptr [ %.pre116, %._crit_edge112.loopexit ], [ %.sroa.048.0108.pre, %.preheader ]
+  %.not8.i.i41 = icmp eq ptr %122, %3
   br i1 %.not8.i.i41, label %_ZNSt7__cxx1110_List_baseIPN4llvm11InstructionESaIS3_EED2Ev.exit, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %._crit_edge112, %.lr.ph.i.i42
-  %.09.i.i43 = phi ptr [ %125, %.lr.ph.i.i42 ], [ %124, %._crit_edge112 ]
-  %125 = load ptr, ptr %.09.i.i43, align 8, !tbaa !45
+  %.09.i.i43 = phi ptr [ %123, %.lr.ph.i.i42 ], [ %122, %._crit_edge112 ]
+  %123 = load ptr, ptr %.09.i.i43, align 8, !tbaa !45
   call void @_ZdlPvm(ptr noundef nonnull %.09.i.i43, i64 noundef 24) #12
-  %.not.i.i44 = icmp eq ptr %125, %3
+  %.not.i.i44 = icmp eq ptr %123, %3
   br i1 %.not.i.i44, label %_ZNSt7__cxx1110_List_baseIPN4llvm11InstructionESaIS3_EED2Ev.exit, label %.lr.ph.i.i42, !llvm.loop !70
 
 _ZNSt7__cxx1110_List_baseIPN4llvm11InstructionESaIS3_EED2Ev.exit: ; preds = %.lr.ph.i.i42, %_ZNSt7__cxx114listIPN4llvm11InstructionESaIS3_EE5clearEv.exit, %._crit_edge112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
   ret void
 
-126:                                              ; preds = %.lr.ph111, %126
-  %.sroa.048.0110 = phi ptr [ %.sroa.048.0108.pre, %.lr.ph111 ], [ %.sroa.048.0, %126 ]
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.048.0110, i64 16
-  %128 = load ptr, ptr %127, align 8, !tbaa !65
+124:                                              ; preds = %.lr.ph111, %124
+  %.sroa.048.0110 = phi ptr [ %.sroa.048.0108.pre, %.lr.ph111 ], [ %.sroa.048.0, %124 ]
+  %125 = getelementptr inbounds nuw i8, ptr %.sroa.048.0110, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !65
   store ptr %105, ptr %5, align 8
   store i16 0, ptr %.sroa.4.0..sroa_idx, align 8
   store i8 1, ptr %106, align 8, !tbaa !71
-  %129 = call noundef ptr @_ZN4llvm16DemotePHIToStackEPNS_7PHINodeESt8optionalINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEE(ptr noundef %128, ptr noundef nonnull byval(%"class.std::optional") align 8 %5) #10
+  %127 = call noundef ptr @_ZN4llvm16DemotePHIToStackEPNS_7PHINodeESt8optionalINS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEE(ptr noundef %126, ptr noundef nonnull byval(%"class.std::optional") align 8 %5) #10
   %.sroa.048.0 = load ptr, ptr %.sroa.048.0110, align 8, !tbaa !45
   %.not88 = icmp eq ptr %.sroa.048.0, %3
-  br i1 %.not88, label %._crit_edge112.loopexit, label %126
+  br i1 %.not88, label %._crit_edge112.loopexit, label %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

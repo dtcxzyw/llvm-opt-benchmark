@@ -1441,11 +1441,7 @@ _ZN15BytecodePrinter17get_index_specialEv.exit136: ; preds = %170, %174
   %226 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %225, i32 noundef 0) #7
   %227 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %225, i32 noundef 0) #7
   %228 = icmp sgt i32 %222, 0
-  br i1 %228, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %212
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.40, i32 noundef %221, i32 noundef %222) #7
-  br label %._crit_edge165
+  br i1 %228, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %212
   %wide.trip.count = zext nneg i32 %222 to i64
@@ -1470,16 +1466,20 @@ _ZN15BytecodePrinter17get_index_specialEv.exit136: ; preds = %170, %174
   store i32 %236, ptr %237, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
+  br i1 %exitcond.not, label %.lr.ph164.preheader, label %.lr.ph, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %212
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.40, i32 noundef %221, i32 noundef %222) #7
+  br label %._crit_edge165
+
+.lr.ph164.preheader:                              ; preds = %.lr.ph
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.40, i32 noundef %221, i32 noundef %222) #7
   %wide.trip.count181 = zext nneg i32 %222 to i64
   br label %.lr.ph164
 
-.lr.ph164:                                        ; preds = %._crit_edge, %.lr.ph164
-  %indvars.iv178 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next179, %.lr.ph164 ]
-  %.0122162 = phi ptr [ @.str.14, %._crit_edge ], [ @.str.39, %.lr.ph164 ]
+.lr.ph164:                                        ; preds = %.lr.ph164.preheader, %.lr.ph164
+  %indvars.iv178 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next179, %.lr.ph164 ]
+  %.0122162 = phi ptr [ @.str.14, %.lr.ph164.preheader ], [ @.str.39, %.lr.ph164 ]
   %238 = getelementptr inbounds nuw i32, ptr %226, i64 %indvars.iv178
   %239 = load i32, ptr %238, align 4
   %240 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv178
@@ -1489,7 +1489,7 @@ _ZN15BytecodePrinter17get_index_specialEv.exit136: ; preds = %170, %174
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
   br i1 %exitcond182.not, label %._crit_edge165, label %.lr.ph164, !llvm.loop !14
 
-._crit_edge165:                                   ; preds = %.lr.ph164, %._crit_edge.thread
+._crit_edge165:                                   ; preds = %.lr.ph164, %._crit_edge
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #7
   br label %378
 

@@ -1748,7 +1748,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 .preheader.i:                                     ; preds = %63, %55
   %.sroa.025.0141.i = phi i64 [ %51, %55 ], [ 0, %63 ]
-  %.2140.i = phi i8 [ %.3.i, %55 ], [ %.064142.i, %63 ]
+  %.2140.i = phi i8 [ %.3.i, %55 ], [ 0, %63 ]
   %51 = add nuw nsw i64 %.sroa.025.0141.i, 1
   %52 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0141.i
   %53 = load i16, ptr %52, align 2, !noalias !239, !noundef !13

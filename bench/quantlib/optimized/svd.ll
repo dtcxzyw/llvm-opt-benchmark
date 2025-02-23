@@ -256,7 +256,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont53
   %33 = sext i32 %.sroa.speculated912 to i64
   %34 = zext nneg i32 %.sroa.speculated898 to i64
   %wide.trip.count1284 = zext nneg i32 %.sroa.speculated905 to i64
-  %invariant.gep1438 = getelementptr i8, ptr %cond.i502, i64 8
+  %invariant.gep1439 = getelementptr i8, ptr %cond.i502, i64 8
   %wide.trip.count = and i64 %A.sroa.27.0, 4294967295
   %wide.trip.count1221 = and i64 %A.sroa.27.0, 4294967295
   %wide.trip.count1238 = and i64 %A.sroa.31.0, 4294967295
@@ -276,7 +276,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %indvars.iv1233 = phi i64 [ 1, %for.body.lr.ph ], [ %indvars.iv.next1234, %for.inc407 ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc407 ]
   %35 = shl nuw nsw i64 %indvars.iv, 3
-  %gep1439 = getelementptr i8, ptr %invariant.gep1438, i64 %35
+  %gep1440 = getelementptr i8, ptr %invariant.gep1439, i64 %35
   %36 = sub i64 %32, %indvars.iv
   %37 = shl i64 %36, 3
   %38 = and i64 %37, 34359738360
@@ -411,8 +411,8 @@ for.body152:                                      ; preds = %for.body152.lr.ph, 
 land.lhs.true:                                    ; preds = %for.body152
   %54 = load double, ptr %arrayidx.i533, align 8, !tbaa !20
   %cmp158 = fcmp oeq double %54, 0.000000e+00
-  %brmerge1442 = or i1 %cmp158, %cmp1621047
-  br i1 %brmerge1442, label %invoke.cont204, label %invoke.cont171
+  %brmerge1443 = or i1 %cmp158, %cmp1621047
+  br i1 %brmerge1443, label %invoke.cont204, label %invoke.cont171
 
 invoke.cont171:                                   ; preds = %land.lhs.true, %invoke.cont171
   %indvars.iv1223 = phi i64 [ %indvars.iv.next1224, %invoke.cont171 ], [ %indvars.iv, %land.lhs.true ]
@@ -426,29 +426,29 @@ invoke.cont171:                                   ; preds = %land.lhs.true, %inv
   %57 = tail call double @llvm.fmuladd.f64(double %55, double %56, double %t.01048)
   %indvars.iv.next1224 = add nuw nsw i64 %indvars.iv1223, 1
   %exitcond1227.not = icmp eq i64 %indvars.iv.next1224, %wide.trip.count1226
-  br i1 %exitcond1227.not, label %invoke.cont180, label %invoke.cont171, !llvm.loop !35
+  br i1 %exitcond1227.not, label %invoke.cont195.lr.ph, label %invoke.cont171, !llvm.loop !35
 
-invoke.cont180:                                   ; preds = %invoke.cont171
-  %fneg178 = fneg double %57
+invoke.cont195.lr.ph:                             ; preds = %invoke.cont171
+  %fneg1781419 = fneg double %57
   %58 = load double, ptr %arrayidx183, align 8, !tbaa !20
-  %div184 = fdiv double %fneg178, %58
-  br i1 %cmp1621047, label %invoke.cont204, label %invoke.cont195
+  %div1841420 = fdiv double %fneg1781419, %58
+  br label %invoke.cont195
 
-invoke.cont195:                                   ; preds = %invoke.cont180, %invoke.cont195
-  %indvars.iv1228 = phi i64 [ %indvars.iv.next1229, %invoke.cont195 ], [ %indvars.iv, %invoke.cont180 ]
+invoke.cont195:                                   ; preds = %invoke.cont195.lr.ph, %invoke.cont195
+  %indvars.iv1228 = phi i64 [ %indvars.iv, %invoke.cont195.lr.ph ], [ %indvars.iv.next1229, %invoke.cont195 ]
   %mul.i.i544 = mul i64 %A.sroa.31.0, %indvars.iv1228
   %add.ptr.i.i545 = getelementptr inbounds nuw double, ptr %A.sroa.0.0, i64 %mul.i.i544
   %arrayidx193 = getelementptr inbounds nuw double, ptr %add.ptr.i.i545, i64 %indvars.iv
   %59 = load double, ptr %arrayidx193, align 8, !tbaa !20
   %arrayidx198 = getelementptr inbounds nuw double, ptr %add.ptr.i.i545, i64 %indvars.iv1235
   %60 = load double, ptr %arrayidx198, align 8, !tbaa !20
-  %61 = tail call double @llvm.fmuladd.f64(double %div184, double %59, double %60)
+  %61 = tail call double @llvm.fmuladd.f64(double %div1841420, double %59, double %60)
   store double %61, ptr %arrayidx198, align 8, !tbaa !20
   %indvars.iv.next1229 = add nuw nsw i64 %indvars.iv1228, 1
   %exitcond1232.not = icmp eq i64 %indvars.iv.next1229, %wide.trip.count1231
   br i1 %exitcond1232.not, label %invoke.cont204, label %invoke.cont195, !llvm.loop !36
 
-invoke.cont204:                                   ; preds = %invoke.cont195, %land.lhs.true, %invoke.cont180, %for.body152
+invoke.cont204:                                   ; preds = %invoke.cont195, %land.lhs.true, %for.body152
   %arrayidx207 = getelementptr inbounds nuw double, ptr %add.ptr.i.i542, i64 %indvars.iv1235
   %62 = load double, ptr %arrayidx207, align 8, !tbaa !20
   %arrayidx.i552 = getelementptr inbounds nuw double, ptr %cond.i495, i64 %indvars.iv1235
@@ -565,7 +565,7 @@ if.end298:                                        ; preds = %for.end292, %for.en
   br i1 %or.cond1032, label %for.body319.preheader, label %invoke.cont399.lr.ph
 
 for.body319.preheader:                            ; preds = %if.end298
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %gep1439, i8 0, i64 %39, i1 false), !tbaa !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %gep1440, i8 0, i64 %39, i1 false), !tbaa !20
   br label %for.cond332.preheader.us
 
 for.cond332.preheader.us:                         ; preds = %for.body319.preheader, %for.cond332.for.inc350_crit_edge.us
@@ -815,16 +815,16 @@ invoke.cont498:                                   ; preds = %for.cond485.prehead
   %indvars.iv.next1304 = add nuw nsw i64 %indvars.iv1303, 1
   %107 = trunc nuw i64 %indvars.iv.next1304 to i32
   %cmp487 = icmp slt i32 %107, %conv
-  br i1 %cmp487, label %invoke.cont498, label %invoke.cont508, !llvm.loop !49
+  br i1 %cmp487, label %invoke.cont498, label %invoke.cont525.lr.ph, !llvm.loop !49
 
-invoke.cont508:                                   ; preds = %invoke.cont498
+invoke.cont525.lr.ph:                             ; preds = %invoke.cont498
   %fneg505 = fneg double %106
   %108 = load double, ptr %arrayidx511, align 8, !tbaa !20
   %div512 = fdiv double %fneg505, %108
   br label %invoke.cont525
 
-invoke.cont525:                                   ; preds = %invoke.cont508, %invoke.cont525
-  %indvars.iv1306 = phi i64 [ %indvars.iv.next1307, %invoke.cont525 ], [ %indvars.iv1301, %invoke.cont508 ]
+invoke.cont525:                                   ; preds = %invoke.cont525.lr.ph, %invoke.cont525
+  %indvars.iv1306 = phi i64 [ %indvars.iv1301, %invoke.cont525.lr.ph ], [ %indvars.iv.next1307, %invoke.cont525 ]
   %mul.i.i623 = mul i64 %92, %indvars.iv1306
   %add.ptr.i.i624 = getelementptr inbounds nuw double, ptr %91, i64 %mul.i.i623
   %arrayidx522 = getelementptr inbounds nuw double, ptr %add.ptr.i.i624, i64 %indvars.iv.next1310

@@ -365,7 +365,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %162
   %168 = load ptr, ptr %22, align 8, !tbaa !36
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 136
   %170 = load i16, ptr %169, align 8, !tbaa !39
-  %171 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %156, i16 noundef zeroext %170, i1 noundef zeroext %.0258492, i1 noundef zeroext false) #11
+  %171 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %156, i16 noundef zeroext %170, i1 noundef zeroext %.0258492, i1 noundef zeroext false) #11
   switch i32 %171, label %172 [
     i32 0, label %174
     i32 -43, label %.loopexit
@@ -432,13 +432,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %162
   %.0255485.in = getelementptr inbounds nuw i8, ptr %.0254484, i64 120
   %.0255485 = load ptr, ptr %.0255485.in, align 8, !tbaa !72
   store i32 0, ptr %146, align 8, !tbaa !73
-  call void @prte_rmaps_base_get_cpuset(ptr noundef %0, ptr noundef nonnull %.0254484, ptr noundef %1) #11
+  call void @prte_rmaps_base_get_cpuset(ptr noundef nonnull %0, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
   %203 = load i8, ptr %147, align 1, !tbaa !74, !range !65, !noundef !66
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %207, label %205
 
 205:                                              ; preds = %202
-  %206 = call i32 @prte_rmaps_base_check_support(ptr noundef %0, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
+  %206 = call i32 @prte_rmaps_base_check_support(ptr noundef nonnull %0, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
   %.not301 = icmp eq i32 %206, 0
   br i1 %.not301, label %207, label %.loopexit
 
@@ -475,7 +475,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %162
   br label %224
 
 224:                                              ; preds = %223, %218, %215, %210
-  %225 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %1) #11
+  %225 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull %1) #11
   br i1 %225, label %.preheader387, label %228
 
 .preheader387:                                    ; preds = %224
@@ -495,13 +495,13 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %162
   br i1 %230, label %231, label %.critedge
 
 231:                                              ; preds = %.lr.ph476
-  %232 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %201, ptr noundef nonnull %.0254484, ptr noundef null, ptr noundef nonnull %1) #11
+  %232 = call ptr @prte_rmaps_base_setup_proc(ptr noundef nonnull %0, i32 noundef %201, ptr noundef nonnull %.0254484, ptr noundef null, ptr noundef nonnull %1) #11
   %233 = icmp eq ptr %232, null
   br i1 %233, label %.loopexit, label %234
 
 234:                                              ; preds = %231
   %235 = add nsw i32 %.3474, 1
-  %236 = call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
+  %236 = call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef nonnull %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
   %237 = call i32 @pthread_mutex_lock(ptr noundef nonnull %232) #11
   %238 = icmp eq i32 %237, 35
   switch i32 %236, label %261 [
@@ -724,7 +724,7 @@ pmix_obj_run_destructors.exit343:                 ; preds = %.lr.ph.i340, %291
   %337 = load ptr, ptr %336, align 8, !tbaa !85
   %338 = load i32, ptr %90, align 4, !tbaa !41
   %339 = call ptr @prte_hwloc_base_get_obj_by_type(ptr noundef %337, i32 noundef %338, i32 noundef %.0260472) #11
-  %340 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %3, ptr noundef %339, ptr noundef nonnull %1) #11
+  %340 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %3, ptr noundef %339, ptr noundef nonnull %1) #11
   br i1 %340, label %.preheader, label %.critedge15
 
 .preheader:                                       ; preds = %334
@@ -740,13 +740,13 @@ pmix_obj_run_destructors.exit343:                 ; preds = %.lr.ph.i340, %291
   br i1 %.not304, label %.critedge15, label %344
 
 344:                                              ; preds = %.lr.ph
-  %345 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %200, ptr noundef nonnull %.0254484, ptr noundef %339, ptr noundef nonnull %1) #11
+  %345 = call ptr @prte_rmaps_base_setup_proc(ptr noundef nonnull %0, i32 noundef %200, ptr noundef nonnull %.0254484, ptr noundef %339, ptr noundef nonnull %1) #11
   %346 = icmp eq ptr %345, null
   br i1 %346, label %.loopexit, label %347
 
 347:                                              ; preds = %344
   %348 = add nsw i32 %.7468, 1
-  %349 = call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
+  %349 = call i32 @prte_rmaps_base_check_oversubscribed(ptr noundef nonnull %0, ptr noundef nonnull %156, ptr noundef nonnull %.0254484, ptr noundef nonnull %1) #11
   %350 = call i32 @pthread_mutex_lock(ptr noundef nonnull %345) #11
   %351 = icmp eq i32 %350, 35
   switch i32 %349, label %374 [

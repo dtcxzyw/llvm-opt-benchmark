@@ -725,8 +725,8 @@ define internal void @_ZN5clang4ento5check7PreStmtINS_16ImplicitCastExprEE10_che
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 16
   %19 = icmp eq i8 %18, 13
-  %.not.not6.i.i = icmp ne ptr %16, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %19
+  %.not6.i.i = icmp ne ptr %16, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %19
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i:          ; preds = %3

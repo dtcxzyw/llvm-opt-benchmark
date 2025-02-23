@@ -13051,7 +13051,6 @@ define linkonce_odr hidden noundef i32 @_ZN5drjit13binary_searchIjZNK7mitsuba10M
   %43 = icmp eq i64 %.fr, 1
   %44 = load ptr, ptr %40, align 8
   %invariant.op = add i32 %39, %36
-  %45 = icmp eq i64 %.fr, 1
   br i1 %43, label %.lr.ph.split.us.split.us, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader: ; preds = %.lr.ph.split.us
@@ -13059,96 +13058,89 @@ _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.pre
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
-  %46 = load float, ptr %44, align 4
+  %45 = load float, ptr %44, align 4
   %umax180 = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
-  %47 = fmul contract float %21, %46
-  %48 = tail call contract noundef float @llvm.fma.f32(float %46, float %19, float %47)
-  %invariant.op184 = add i32 %30, %invariant.op
+  %46 = fmul contract float %21, %45
+  %47 = tail call contract noundef float @llvm.fma.f32(float %45, float %19, float %46)
+  %48 = fmul contract float %21, %45
+  %49 = tail call contract noundef float @llvm.fma.f32(float %45, float %19, float %48)
+  %50 = fmul contract float %18, %49
+  %51 = tail call contract noundef float @llvm.fma.f32(float %47, float %16, float %50)
+  %52 = fcmp contract uge float %51, %.fr174
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us, %.lr.ph.split.us.split.us
-  %.0164.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ %60, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us ]
+  %.0164.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ %56, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us ]
   %.0157163.us.us = phi i32 [ %0, %.lr.ph.split.us.split.us ], [ %.1161.us.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us ]
   %.0158162.us.us = phi i32 [ %1, %.lr.ph.split.us.split.us ], [ %.1159.us.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us ]
-  %49 = add i32 %.0157163.us.us, %.0158162.us.us
-  %50 = lshr i32 %49, 1
-  %.reass.us.reass = add i32 %50, %invariant.op184
-  %51 = zext i32 %.reass.us.reass to i64
-  %spec.store.select.i130.us.us = select i1 %45, i64 0, i64 %51
-  %52 = getelementptr inbounds nuw float, ptr %44, i64 %spec.store.select.i130.us.us
-  %53 = load float, ptr %52, align 4
-  %54 = fmul contract float %21, %53
-  %55 = tail call contract noundef float @llvm.fma.f32(float %46, float %19, float %54)
-  %56 = fmul contract float %18, %55
-  %57 = tail call contract noundef float @llvm.fma.f32(float %48, float %16, float %56)
-  %58 = fcmp contract uge float %57, %.fr174
-  %59 = add nuw i32 %50, 1
-  %..i.us.us = tail call noundef i32 @llvm.umin.i32(i32 %.0158162.us.us, i32 %59)
-  %.1161.us.us = select i1 %58, i32 %.0157163.us.us, i32 %..i.us.us
-  %.1159.us.us = select i1 %58, i32 %50, i32 %.0158162.us.us
-  %60 = add nuw nsw i64 %.0164.us.us, 1
-  %exitcond181.not = icmp eq i64 %60, %umax180
+  %53 = add i32 %.0157163.us.us, %.0158162.us.us
+  %54 = lshr i32 %53, 1
+  %55 = add nuw i32 %54, 1
+  %..i.us.us = tail call noundef i32 @llvm.umin.i32(i32 %.0158162.us.us, i32 %55)
+  %.1161.us.us = select i1 %52, i32 %.0157163.us.us, i32 %..i.us.us
+  %.1159.us.us = select i1 %52, i32 %54, i32 %.0158162.us.us
+  %56 = add nuw nsw i64 %.0164.us.us, 1
+  %exitcond181.not = icmp eq i64 %56, %umax180
   br i1 %exitcond181.not, label %._crit_edge, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us, !llvm.loop !153
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us
-  %.0164.us = phi i64 [ %86, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader ]
+  %.0164.us = phi i64 [ %82, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader ]
   %.0157163.us = phi i32 [ %.1161.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us ], [ %0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader ]
   %.0158162.us = phi i32 [ %.1159.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us ], [ %1, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.preheader ]
-  %61 = add i32 %.0157163.us, %.0158162.us
-  %62 = lshr i32 %61, 1
-  %63 = add i32 %30, %62
-  %64 = zext i32 %63 to i64
-  %65 = add i32 %36, %63
-  %66 = add i32 %39, %63
-  %67 = getelementptr inbounds nuw float, ptr %44, i64 %64
-  %68 = load float, ptr %67, align 4
-  %69 = zext i32 %65 to i64
-  %70 = getelementptr inbounds nuw float, ptr %44, i64 %69
-  %71 = load float, ptr %70, align 4
-  %72 = fmul contract float %21, %71
-  %73 = tail call contract noundef float @llvm.fma.f32(float %68, float %19, float %72)
-  %.reass = add i32 %63, %invariant.op
-  %74 = zext i32 %66 to i64
-  %75 = getelementptr inbounds nuw float, ptr %44, i64 %74
-  %76 = load float, ptr %75, align 4
-  %77 = zext i32 %.reass to i64
-  %spec.store.select.i130.us = select i1 %45, i64 0, i64 %77
-  %78 = getelementptr inbounds nuw float, ptr %44, i64 %spec.store.select.i130.us
-  %79 = load float, ptr %78, align 4
-  %80 = fmul contract float %21, %79
-  %81 = tail call contract noundef float @llvm.fma.f32(float %76, float %19, float %80)
-  %82 = fmul contract float %18, %81
-  %83 = tail call contract noundef float @llvm.fma.f32(float %73, float %16, float %82)
-  %84 = fcmp contract uge float %83, %.fr174
-  %85 = add nuw i32 %62, 1
-  %..i.us = tail call noundef i32 @llvm.umin.i32(i32 %.0158162.us, i32 %85)
-  %.1161.us = select i1 %84, i32 %.0157163.us, i32 %..i.us
-  %.1159.us = select i1 %84, i32 %62, i32 %.0158162.us
-  %86 = add nuw nsw i64 %.0164.us, 1
-  %exitcond179.not = icmp eq i64 %86, %umax178
+  %57 = add i32 %.0157163.us, %.0158162.us
+  %58 = lshr i32 %57, 1
+  %59 = add i32 %30, %58
+  %60 = zext i32 %59 to i64
+  %61 = add i32 %36, %59
+  %62 = add i32 %39, %59
+  %63 = getelementptr inbounds nuw float, ptr %44, i64 %60
+  %64 = load float, ptr %63, align 4
+  %65 = zext i32 %61 to i64
+  %66 = getelementptr inbounds nuw float, ptr %44, i64 %65
+  %67 = load float, ptr %66, align 4
+  %68 = fmul contract float %21, %67
+  %69 = tail call contract noundef float @llvm.fma.f32(float %64, float %19, float %68)
+  %.reass = add i32 %59, %invariant.op
+  %70 = zext i32 %62 to i64
+  %71 = getelementptr inbounds nuw float, ptr %44, i64 %70
+  %72 = load float, ptr %71, align 4
+  %73 = zext i32 %.reass to i64
+  %74 = getelementptr inbounds nuw float, ptr %44, i64 %73
+  %75 = load float, ptr %74, align 4
+  %76 = fmul contract float %21, %75
+  %77 = tail call contract noundef float @llvm.fma.f32(float %72, float %19, float %76)
+  %78 = fmul contract float %18, %77
+  %79 = tail call contract noundef float @llvm.fma.f32(float %69, float %16, float %78)
+  %80 = fcmp contract uge float %79, %.fr174
+  %81 = add nuw i32 %58, 1
+  %..i.us = tail call noundef i32 @llvm.umin.i32(i32 %.0158162.us, i32 %81)
+  %.1161.us = select i1 %80, i32 %.0157163.us, i32 %..i.us
+  %.1159.us = select i1 %80, i32 %58, i32 %.0158162.us
+  %82 = add nuw nsw i64 %.0164.us, 1
+  %exitcond179.not = icmp eq i64 %82, %umax178
   br i1 %exitcond179.not, label %._crit_edge, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us, !llvm.loop !153
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %87 = fmul contract float %21, 0.000000e+00
-  %88 = tail call contract float @llvm.fma.f32(float %19, float 0.000000e+00, float %87)
-  %89 = fmul contract float %18, %88
-  %90 = tail call contract noundef float @llvm.fma.f32(float %88, float %16, float %89)
-  %91 = fcmp contract uge float %90, %.fr174
-  br i1 %91, label %._crit_edge, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader
+  %83 = fmul contract float %21, 0.000000e+00
+  %84 = tail call contract float @llvm.fma.f32(float %19, float 0.000000e+00, float %83)
+  %85 = fmul contract float %18, %84
+  %86 = tail call contract noundef float @llvm.fma.f32(float %84, float %16, float %85)
+  %87 = fcmp contract uge float %86, %.fr174
+  br i1 %87, label %._crit_edge, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader: ; preds = %.lr.ph.split
   %umax = tail call i64 @llvm.umax.i64(i64 %8, i64 1)
   br label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129
 
 _ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129: ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129
-  %.0164 = phi i64 [ %95, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129 ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader ]
+  %.0164 = phi i64 [ %91, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129 ], [ 0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader ]
   %.0157163 = phi i32 [ %..i, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129 ], [ %0, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129.preheader ]
-  %92 = add i32 %.0157163, %1
-  %93 = lshr i32 %92, 1
-  %94 = add nuw i32 %93, 1
-  %..i = tail call noundef i32 @llvm.umin.i32(i32 %1, i32 %94)
-  %95 = add nuw nsw i64 %.0164, 1
-  %exitcond.not = icmp eq i64 %95, %umax
+  %88 = add i32 %.0157163, %1
+  %89 = lshr i32 %88, 1
+  %90 = add nuw i32 %89, 1
+  %..i = tail call noundef i32 @llvm.umin.i32(i32 %1, i32 %90)
+  %91 = add nuw nsw i64 %.0164, 1
+  %exitcond.not = icmp eq i64 %91, %umax
   br i1 %exitcond.not, label %._crit_edge, label %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129, !llvm.loop !153
 
 ._crit_edge:                                      ; preds = %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit129, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us, %_ZN5drjit6gatherIfLb0ERKNS_12DynamicArrayIfEEmbEET_OT1_RKT2_RKT3_.exit131.us.us, %.lr.ph.split, %3

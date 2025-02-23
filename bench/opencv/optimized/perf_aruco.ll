@@ -2262,7 +2262,7 @@ define linkonce_odr hidden void @_ZN11opencv_test13MarkerPainter21getProjectMark
   %.029122.us = phi i32 [ 0, %.preheader.us ], [ %181, %_ZNSt4pairIN2cv3MatESt6vectorINS0_6Point_IfEESaIS4_EEED2Ev.exit.us ]
   %.132121.us = phi i32 [ %.031127.us, %.preheader.us ], [ %176, %_ZNSt4pairIN2cv3MatESt6vectorINS0_6Point_IfEESaIS4_EEED2Ev.exit.us ]
   %40 = add nsw i32 %.132121.us, 70
-  %41 = uitofp nneg i32 %40 to double
+  %41 = sitofp i32 %40 to double
   %42 = fmul double %41, 0x400921FB54442D18
   %43 = fdiv double %42, 1.800000e+02
   invoke void @_ZN11opencv_test13MarkerPainter16getProjectMarkerEiddRKN2cv5aruco18DetectorParametersERKNS2_10DictionaryE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.98") align 8 %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %.1123.us, double noundef %43, double noundef %38, ptr noundef nonnull align 8 dereferenceable(188) %3, ptr noundef nonnull align 8 dereferenceable(104) %4)

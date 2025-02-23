@@ -1197,7 +1197,7 @@ define void @Gia_ManCollectNodes(ptr noundef %0, ptr noundef readonly captures(n
   %.val20 = load ptr, ptr %15, align 8, !tbaa !40
   %23 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv32
   %24 = load i32, ptr %23, align 4, !tbaa !31
-  tail call void @Gia_ManCollectNodes_rec(ptr noundef nonnull %0, i32 noundef %24, ptr noundef %2)
+  tail call void @Gia_ManCollectNodes_rec(ptr noundef nonnull %0, i32 noundef %24, ptr noundef nonnull %2)
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %.val = load i32, ptr %13, align 4, !tbaa !29
   %25 = sext i32 %.val to i64
@@ -2142,7 +2142,7 @@ Vec_PtrAlloc.exit:                                ; preds = %7, %12
   %.val20.i = load ptr, ptr %38, align 8, !tbaa !40
   %46 = getelementptr inbounds nuw i32, ptr %.val20.i, i64 %indvars.iv32.i
   %47 = load i32, ptr %46, align 4, !tbaa !31
-  tail call void @Gia_ManCollectNodes_rec(ptr noundef nonnull %0, i32 noundef %47, ptr noundef %29)
+  tail call void @Gia_ManCollectNodes_rec(ptr noundef nonnull %0, i32 noundef %47, ptr noundef nonnull %29)
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %.val.i = load i32, ptr %36, align 4, !tbaa !29
   %48 = sext i32 %.val.i to i64
@@ -2156,7 +2156,7 @@ Gia_ManCollectNodes.exit:                         ; preds = %.critedge.i, %25, %
   %51 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val28, i64 %indvars.iv
   %.val29 = load ptr, ptr %21, align 8, !tbaa !79
   %52 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val29, i64 %indvars.iv
-  %53 = tail call ptr @Gia_ManDupDivideOne(ptr noundef %0, ptr noundef %50, ptr noundef %51, ptr noundef %52)
+  %53 = tail call ptr @Gia_ManDupDivideOne(ptr noundef nonnull %0, ptr noundef %50, ptr noundef %51, ptr noundef %52)
   %54 = icmp eq i32 %27, %26
   br i1 %54, label %55, label %.Vec_PtrGrow.exit11_crit_edge.i
 

@@ -65,7 +65,7 @@ define void @scopy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph74.preheader:                               ; preds = %.preheader
   %31 = zext nneg i32 %.1.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph74
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

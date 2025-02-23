@@ -2466,95 +2466,97 @@ define internal fastcc void @dissect_set_data_bits_parameters(ptr noundef %0, pt
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.230, ptr noundef nonnull %.0.us)
   %indvars.iv.next12 = add nuw nsw i64 %indvars.iv11, 1
   %exitcond14.not = icmp eq i64 %indvars.iv.next12, 8
-  br i1 %exitcond14.not, label %.split3.us, label %.split.us, !llvm.loop !15
+  br i1 %exitcond14.not, label %.split3.us.thread, label %.split.us, !llvm.loop !15
 
-.split:                                           ; preds = %.split.preheader, %45
-  %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %45 ]
-  %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = shl nuw nsw i32 1, %30
-  %32 = load i32, ptr %8, align 4
-  %33 = and i32 %32, %31
-  %.not46 = icmp eq i32 %33, 0
-  %34 = load i32, ptr %7, align 4
-  %35 = and i32 %34, %31
-  %.not47 = icmp eq i32 %35, 0
-  %36 = select i1 %.not47, ptr @.str.227, ptr @.str.226
-  %.0 = select i1 %.not46, ptr @.str.228, ptr %36
-  %37 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv
-  %38 = load ptr, ptr %37, align 8
-  %39 = load i32, ptr %38, align 4
-  %40 = getelementptr ptr, ptr %3, i64 %indvars.iv
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %39, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %34, ptr noundef nonnull @.str.123, ptr noundef %41)
-  %43 = icmp samesign ult i64 %indvars.iv, %16
-  br i1 %43, label %44, label %45
+.split3.us.thread:                                ; preds = %.split.us
+  %30 = load i32, ptr @ett_mpsse_direction, align 4
+  %31 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %30)
+  br label %.split5.us
 
-44:                                               ; preds = %.split
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.229, ptr noundef nonnull %4, i32 noundef %30)
-  br label %45
+.split:                                           ; preds = %.split.preheader, %47
+  %indvars.iv = phi i64 [ 0, %.split.preheader ], [ %indvars.iv.next, %47 ]
+  %32 = trunc nuw nsw i64 %indvars.iv to i32
+  %33 = shl nuw nsw i32 1, %32
+  %34 = load i32, ptr %8, align 4
+  %35 = and i32 %34, %33
+  %.not46 = icmp eq i32 %35, 0
+  %36 = load i32, ptr %7, align 4
+  %37 = and i32 %36, %33
+  %.not47 = icmp eq i32 %37, 0
+  %38 = select i1 %.not47, ptr @.str.227, ptr @.str.226
+  %.0 = select i1 %.not46, ptr @.str.228, ptr %38
+  %39 = getelementptr [8 x ptr], ptr @dissect_read_data_bits_response.value_bits_hf, i64 0, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr ptr, ptr %3, i64 %indvars.iv
+  %43 = load ptr, ptr %42, align 8
+  %44 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %15, i32 noundef %41, ptr noundef %0, i32 noundef %2, i32 noundef 1, i32 noundef %36, ptr noundef nonnull @.str.123, ptr noundef %43)
+  %45 = icmp samesign ult i64 %indvars.iv, %16
+  br i1 %45, label %46, label %47
 
-45:                                               ; preds = %44, %.split
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %42, ptr noundef nonnull @.str.230, ptr noundef nonnull %.0)
+46:                                               ; preds = %.split
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.229, ptr noundef nonnull %4, i32 noundef %32)
+  br label %47
+
+47:                                               ; preds = %46, %.split
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %44, ptr noundef nonnull @.str.230, ptr noundef nonnull %.0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %.split3.us, label %.split, !llvm.loop !15
 
-.split3.us:                                       ; preds = %45, %.split.us
-  %46 = load i32, ptr @ett_mpsse_direction, align 4
-  %47 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %46)
-  br i1 %.not48.not, label %.split5.us, label %.split5.preheader
-
-.split5.preheader:                                ; preds = %.split3.us
-  %48 = zext i32 %5 to i64
+.split3.us:                                       ; preds = %47
+  %48 = load i32, ptr @ett_mpsse_direction, align 4
+  %49 = call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %48)
+  %50 = zext i32 %5 to i64
   br label %.split5
 
-.split5.us:                                       ; preds = %.split3.us, %.split5.us
-  %indvars.iv19 = phi i64 [ %indvars.iv.next20, %.split5.us ], [ 0, %.split3.us ]
-  %49 = trunc nuw nsw i64 %indvars.iv19 to i32
-  %50 = shl nuw nsw i32 1, %49
-  %51 = load i32, ptr %8, align 4
-  %52 = and i32 %51, %50
-  %.not.us = icmp eq i32 %52, 0
-  %53 = select i1 %.not.us, ptr @.str.232, ptr @.str.231
-  %54 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv19
-  %55 = load ptr, ptr %54, align 8
-  %56 = load i32, ptr %55, align 4
-  %57 = getelementptr ptr, ptr %3, i64 %indvars.iv19
-  %58 = load ptr, ptr %57, align 8
-  %59 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %56, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %51, ptr noundef nonnull @.str.123, ptr noundef %58)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %59, ptr noundef nonnull @.str.230, ptr noundef nonnull %53)
+.split5.us:                                       ; preds = %.split3.us.thread, %.split5.us
+  %indvars.iv19 = phi i64 [ 0, %.split3.us.thread ], [ %indvars.iv.next20, %.split5.us ]
+  %51 = trunc nuw nsw i64 %indvars.iv19 to i32
+  %52 = shl nuw nsw i32 1, %51
+  %53 = load i32, ptr %8, align 4
+  %54 = and i32 %53, %52
+  %.not.us = icmp eq i32 %54, 0
+  %55 = select i1 %.not.us, ptr @.str.232, ptr @.str.231
+  %56 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv19
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr ptr, ptr %3, i64 %indvars.iv19
+  %60 = load ptr, ptr %59, align 8
+  %61 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %31, i32 noundef %58, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.123, ptr noundef %60)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.230, ptr noundef nonnull %55)
   %indvars.iv.next20 = add nuw nsw i64 %indvars.iv19, 1
   %exitcond22.not = icmp eq i64 %indvars.iv.next20, 8
   br i1 %exitcond22.not, label %.split7.us, label %.split5.us, !llvm.loop !16
 
-.split5:                                          ; preds = %.split5.preheader, %73
-  %indvars.iv15 = phi i64 [ 0, %.split5.preheader ], [ %indvars.iv.next16, %73 ]
-  %60 = trunc nuw nsw i64 %indvars.iv15 to i32
-  %61 = shl nuw nsw i32 1, %60
-  %62 = load i32, ptr %8, align 4
-  %63 = and i32 %62, %61
-  %.not = icmp eq i32 %63, 0
-  %64 = select i1 %.not, ptr @.str.232, ptr @.str.231
-  %65 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv15
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr ptr, ptr %3, i64 %indvars.iv15
-  %69 = load ptr, ptr %68, align 8
-  %70 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %47, i32 noundef %67, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %62, ptr noundef nonnull @.str.123, ptr noundef %69)
-  %71 = icmp samesign ult i64 %indvars.iv15, %48
-  br i1 %71, label %72, label %73
+.split5:                                          ; preds = %.split3.us, %75
+  %indvars.iv15 = phi i64 [ 0, %.split3.us ], [ %indvars.iv.next16, %75 ]
+  %62 = trunc nuw nsw i64 %indvars.iv15 to i32
+  %63 = shl nuw nsw i32 1, %62
+  %64 = load i32, ptr %8, align 4
+  %65 = and i32 %64, %63
+  %.not = icmp eq i32 %65, 0
+  %66 = select i1 %.not, ptr @.str.232, ptr @.str.231
+  %67 = getelementptr [8 x ptr], ptr @dissect_set_data_bits_parameters.direction_bits_hf, i64 0, i64 %indvars.iv15
+  %68 = load ptr, ptr %67, align 8
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr ptr, ptr %3, i64 %indvars.iv15
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %49, i32 noundef %69, ptr noundef %0, i32 noundef %12, i32 noundef 1, i32 noundef %64, ptr noundef nonnull @.str.123, ptr noundef %71)
+  %73 = icmp samesign ult i64 %indvars.iv15, %50
+  br i1 %73, label %74, label %75
 
-72:                                               ; preds = %.split5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.229, ptr noundef nonnull %4, i32 noundef %60)
-  br label %73
+74:                                               ; preds = %.split5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.229, ptr noundef nonnull %4, i32 noundef %62)
+  br label %75
 
-73:                                               ; preds = %72, %.split5
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %70, ptr noundef nonnull @.str.230, ptr noundef nonnull %64)
+75:                                               ; preds = %74, %.split5
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.230, ptr noundef nonnull %66)
   %indvars.iv.next16 = add nuw nsw i64 %indvars.iv15, 1
   %exitcond18.not = icmp eq i64 %indvars.iv.next16, 8
   br i1 %exitcond18.not, label %.split7.us, label %.split5, !llvm.loop !16
 
-.split7.us:                                       ; preds = %73, %.split5.us
+.split7.us:                                       ; preds = %75, %.split5.us
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   ret void

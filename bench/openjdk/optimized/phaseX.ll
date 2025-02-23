@@ -9450,7 +9450,7 @@ _ZNK10Node_ArrayixEj.exit.lr.ph:                  ; preds = %_ZN16Unique_Node_Li
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %_ZNK10Node_ArrayixEj.exit
 
-.lr.ph129:                                        ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit
+.preheader:                                       ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit
   %61 = trunc nuw i64 %79 to i32
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %124
@@ -9581,7 +9581,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %121 = load i32, ptr %57, align 8
   %122 = zext i32 %121 to i64
   %123 = icmp samesign ult i64 %79, %122
-  br i1 %123, label %_ZNK10Node_ArrayixEj.exit, label %.lr.ph129, !llvm.loop !64
+  br i1 %123, label %_ZNK10Node_ArrayixEj.exit, label %.preheader, !llvm.loop !64
 
 .loopexit:                                        ; preds = %_ZN16Unique_Node_List4pushEP4Node.exit35, %124
   %.sroa.27.2.lcssa = phi ptr [ %.sroa.27.1126, %124 ], [ %.sroa.27.3, %_ZN16Unique_Node_List4pushEP4Node.exit35 ]
@@ -9590,10 +9590,10 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
   %.not109 = icmp eq i32 %.sroa.0.2.lcssa, 0
   br i1 %.not109, label %._crit_edge, label %124, !llvm.loop !65
 
-124:                                              ; preds = %.lr.ph129, %.loopexit
-  %.sroa.0.1128 = phi i32 [ %61, %.lr.ph129 ], [ %.sroa.0.2.lcssa, %.loopexit ]
-  %.sroa.16.1127 = phi i32 [ %.sroa.16.4, %.lr.ph129 ], [ %.sroa.16.2.lcssa, %.loopexit ]
-  %.sroa.27.1126 = phi ptr [ %.sroa.27.4, %.lr.ph129 ], [ %.sroa.27.2.lcssa, %.loopexit ]
+124:                                              ; preds = %.preheader, %.loopexit
+  %.sroa.0.1128 = phi i32 [ %61, %.preheader ], [ %.sroa.0.2.lcssa, %.loopexit ]
+  %.sroa.16.1127 = phi i32 [ %.sroa.16.4, %.preheader ], [ %.sroa.16.2.lcssa, %.loopexit ]
+  %.sroa.27.1126 = phi ptr [ %.sroa.27.4, %.preheader ], [ %.sroa.27.2.lcssa, %.loopexit ]
   %125 = add nsw i32 %.sroa.0.1128, -1
   %126 = sext i32 %125 to i64
   %127 = getelementptr inbounds ptr, ptr %.sroa.27.1126, i64 %126
@@ -9684,7 +9684,7 @@ _ZN13GrowableArrayIP4NodeE8allocateEv.exit.i50:   ; preds = %_ZN10Node_Array3map
   %169 = shl nuw nsw i64 %168, 3
   %scevgep136 = getelementptr i8, ptr %164, i64 %169
   %170 = xor i32 %.0.lcssa.i53, -1
-  %171 = add i32 %.0.i.i.i.i.i27, %170
+  %171 = add nsw i32 %.0.i.i.i.i.i27, %170
   %172 = zext i32 %171 to i64
   %173 = shl nuw nsw i64 %172, 3
   %174 = add nuw nsw i64 %173, 8

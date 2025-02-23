@@ -8529,50 +8529,53 @@ define linkonce_odr dso_local void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %30 = and i64 %13, 8
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %42
+  br i1 %31, label %32, label %41
 
 32:                                               ; preds = %._crit_edge.i.i.i
   %33 = add nsw i64 %14, -2
   %34 = ashr exact i64 %33, 1
   %35 = icmp eq i64 %.0.lcssa.i.i.i, %34
-  br i1 %35, label %36, label %42
+  br i1 %35, label %.thread.i.i, label %41
 
-36:                                               ; preds = %32
-  %37 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
-  store ptr %40, ptr %41, align 8
-  br label %42
+.thread.i.i:                                      ; preds = %32
+  %36 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %37
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
+  store ptr %39, ptr %40, align 8
+  br label %.lr.ph.i.i.i.i.preheader
 
-42:                                               ; preds = %36, %32, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %38, %36 ], [ %.0.lcssa.i.i.i, %32 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %43 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %43, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i
+41:                                               ; preds = %32, %._crit_edge.i.i.i
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %42, %47
-  %.019.i.i.i.i = phi i64 [ %.0920.i.i78.i.i, %47 ], [ %.1.i.i.i, %42 ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %41, %.thread.i.i
+  %.019.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %41 ], [ %37, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %45
+  %.019.i.i.i.i = phi i64 [ %.0920.i.i78.i.i, %45 ], [ %.019.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i = add nsw i64 %.019.i.i.i.i, -1
   %.0920.i.i78.i.i = lshr i64 %.0920.in.i.i.i.i, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i.i
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef zeroext i1 %3(ptr noundef %45, ptr noundef %10)
-  br i1 %46, label %47, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i.i
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %3(ptr noundef %43, ptr noundef %10)
+  br i1 %44, label %45, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i
 
-47:                                               ; preds = %.lr.ph.i.i.i.i
-  %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i.i.i
-  store ptr %48, ptr %49, align 8
-  %.not.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !93
+45:                                               ; preds = %.lr.ph.i.i.i.i
+  %46 = load ptr, ptr %42, align 8
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.i
+  store ptr %46, ptr %47, align 8
+  %.not9.i.i = icmp ult i64 %.0920.in.i.i.i.i, 2
+  br i1 %.not9.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !93
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %47, %.lr.ph.i.i.i.i, %42
-  %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %42 ], [ 0, %47 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store ptr %10, ptr %50, align 8
-  %51 = icmp sgt i64 %13, 8
-  br i1 %51, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !94
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i: ; preds = %45, %.lr.ph.i.i.i.i, %41
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %41 ], [ 0, %45 ], [ %.019.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store ptr %10, ptr %48, align 8
+  %49 = icmp sgt i64 %13, 8
+  br i1 %49, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_RT0_.exit, !llvm.loop !94
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.i, %4
   ret void
@@ -8720,17 +8723,17 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %18 = or disjoint i64 %16, 1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = getelementptr inbounds ptr, ptr %0, i64 %17
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %50
-  %.sroa.0.011.us = phi ptr [ %51, %50 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %48
+  %.sroa.0.011.us = phi ptr [ %49, %48 ], [ %1, %.lr.ph.split.us.preheader ]
   %21 = load ptr, ptr %5, align 8
   %22 = load ptr, ptr %.sroa.0.011.us, align 8
   %23 = load ptr, ptr %0, align 8
   %24 = call noundef zeroext i1 %21(ptr noundef %22, ptr noundef %23)
-  br i1 %24, label %.lr.ph.i.i.preheader.us, label %50
+  br i1 %24, label %.lr.ph.i.i.preheader.us, label %48
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %25 = load ptr, ptr %.sroa.0.011.us, align 8
@@ -8758,130 +8761,133 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   br i1 %38, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !92
 
 39:                                               ; preds = %._crit_edge.i.i.loopexit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
+
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
   %40 = load ptr, ptr %19, align 8
   store ptr %40, ptr %20, align 8
-  br label %41
+  br label %.lr.ph.i.i.i.us.preheader
 
-41:                                               ; preds = %39, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %18, %39 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
-  %42 = icmp sgt i64 %.1.i.i.us, 0
-  br i1 %42, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %39
+  %.019.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %39 ], [ %18, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
 
-.lr.ph.i.i.i.us:                                  ; preds = %41, %46
-  %.019.i.i.i.us = phi i64 [ %.0920.i.i78.i.us, %46 ], [ %.1.i.i.us, %41 ]
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %44
+  %.019.i.i.i.us = phi i64 [ %.0920.i.i78.i.us, %44 ], [ %.019.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.0920.in.i.i.i.us = add nsw i64 %.019.i.i.i.us, -1
   %.0920.i.i78.i.us = lshr i64 %.0920.in.i.i.i.us, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i.us
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef %44, ptr noundef %25)
-  br i1 %45, label %46, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0920.i.i78.i.us
+  %42 = load ptr, ptr %41, align 8
+  %43 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef %42, ptr noundef %25)
+  br i1 %43, label %44, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us
 
-46:                                               ; preds = %.lr.ph.i.i.i.us
-  %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.019.i.i.i.us
-  store ptr %47, ptr %48, align 8
-  %.not.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !93
+44:                                               ; preds = %.lr.ph.i.i.i.us
+  %45 = load ptr, ptr %41, align 8
+  %46 = getelementptr inbounds ptr, ptr %0, i64 %.019.i.i.i.us
+  store ptr %45, ptr %46, align 8
+  %.not9.i.us = icmp ult i64 %.0920.in.i.i.i.us, 2
+  br i1 %.not9.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us, label %.lr.ph.i.i.i.us, !llvm.loop !93
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %46, %41
-  %.0.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %41 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %46 ]
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.us
-  store ptr %25, ptr %49, align 8
-  br label %50
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us: ; preds = %.lr.ph.i.i.i.us, %44, %39
+  %.0.lcssa.i.i.i.us = phi i64 [ 0, %39 ], [ %.019.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %44 ]
+  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.us
+  store ptr %25, ptr %47, align 8
+  br label %48
 
-50:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us, %.lr.ph.split.us
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %52 = icmp ult ptr %51, %2
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !98
+48:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.us, %.lr.ph.split.us
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
+  %50 = icmp ult ptr %49, %2
+  br i1 %50, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !98
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %53 = icmp eq i64 %spec.select.i.i.us, %17
-  %or.cond = select i1 %15, i1 %53, i1 false
-  br i1 %or.cond, label %39, label %41
+  %51 = icmp eq i64 %spec.select.i.i.us, %17
+  %or.cond = select i1 %15, i1 %51, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %39
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %15, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %55 = icmp eq i64 %16, 0
-  br i1 %55, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %53 = icmp eq i64 %16, 0
+  br i1 %53, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %66
-  %.sroa.0.011.us12.us = phi ptr [ %67, %66 ], [ %1, %.lr.ph.split.split.us ]
-  %56 = load ptr, ptr %5, align 8
-  %57 = load ptr, ptr %.sroa.0.011.us12.us, align 8
-  %58 = load ptr, ptr %0, align 8
-  %59 = call noundef zeroext i1 %56(ptr noundef %57, ptr noundef %58)
-  br i1 %59, label %._crit_edge.i.i.us13.us, label %66
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %64
+  %.sroa.0.011.us12.us = phi ptr [ %65, %64 ], [ %1, %.lr.ph.split.split.us ]
+  %54 = load ptr, ptr %5, align 8
+  %55 = load ptr, ptr %.sroa.0.011.us12.us, align 8
+  %56 = load ptr, ptr %0, align 8
+  %57 = call noundef zeroext i1 %54(ptr noundef %55, ptr noundef %56)
+  br i1 %57, label %._crit_edge.i.i.us13.us, label %64
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
-  %60 = load ptr, ptr %.sroa.0.011.us12.us, align 8
-  %61 = load ptr, ptr %0, align 8
-  store ptr %61, ptr %.sroa.0.011.us12.us, align 8
+  %58 = load ptr, ptr %.sroa.0.011.us12.us, align 8
+  %59 = load ptr, ptr %0, align 8
+  store ptr %59, ptr %.sroa.0.011.us12.us, align 8
   %.sroa.0.0.copyload.i.us14.us = load ptr, ptr %5, align 8
-  %62 = load ptr, ptr %54, align 8
-  store ptr %62, ptr %0, align 8
-  %63 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us14.us(ptr noundef %62, ptr noundef %60)
-  br i1 %63, label %64, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us24.us
+  %60 = load ptr, ptr %52, align 8
+  store ptr %60, ptr %0, align 8
+  %61 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us14.us(ptr noundef %60, ptr noundef %58)
+  br i1 %61, label %62, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us23.us
 
-64:                                               ; preds = %._crit_edge.i.i.us13.us
-  %65 = load ptr, ptr %0, align 8
-  store ptr %65, ptr %54, align 8
-  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us24.us
+62:                                               ; preds = %._crit_edge.i.i.us13.us
+  %63 = load ptr, ptr %0, align 8
+  store ptr %63, ptr %52, align 8
+  br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us23.us
 
-66:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us24.us, %.lr.ph.split.split.us.split.us
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %68 = icmp ult ptr %67, %2
-  br i1 %68, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !98
+64:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us23.us, %.lr.ph.split.split.us.split.us
+  %65 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
+  %66 = icmp ult ptr %65, %2
+  br i1 %66, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !98
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us24.us: ; preds = %64, %._crit_edge.i.i.us13.us
-  %.0.lcssa.i.i.i.ph.us25.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %64 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.ph.us25.us
-  store ptr %60, ptr %69, align 8
-  br label %66
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbPKS2_SC_EEEEvT_SG_SG_RT0_.exit.loopexit.us23.us: ; preds = %62, %._crit_edge.i.i.us13.us
+  %.0.lcssa.i.i.i.ph.us24.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %62 ]
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.ph.us24.us
+  store ptr %58, ptr %67, align 8
+  br label %64
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %76
-  %.sroa.0.011.us12 = phi ptr [ %77, %76 ], [ %1, %.lr.ph.split.split.us ]
-  %70 = load ptr, ptr %5, align 8
-  %71 = load ptr, ptr %.sroa.0.011.us12, align 8
-  %72 = load ptr, ptr %0, align 8
-  %73 = call noundef zeroext i1 %70(ptr noundef %71, ptr noundef %72)
-  br i1 %73, label %._crit_edge.i.i.us13, label %76
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %74
+  %.sroa.0.011.us12 = phi ptr [ %75, %74 ], [ %1, %.lr.ph.split.split.us ]
+  %68 = load ptr, ptr %5, align 8
+  %69 = load ptr, ptr %.sroa.0.011.us12, align 8
+  %70 = load ptr, ptr %0, align 8
+  %71 = call noundef zeroext i1 %68(ptr noundef %69, ptr noundef %70)
+  br i1 %71, label %._crit_edge.i.i.us13, label %74
 
 ._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
-  %74 = load ptr, ptr %.sroa.0.011.us12, align 8
-  %75 = load ptr, ptr %0, align 8
-  store ptr %75, ptr %.sroa.0.011.us12, align 8
-  store ptr %74, ptr %0, align 8
-  br label %76
+  %72 = load ptr, ptr %.sroa.0.011.us12, align 8
+  %73 = load ptr, ptr %0, align 8
+  store ptr %73, ptr %.sroa.0.011.us12, align 8
+  store ptr %72, ptr %0, align 8
+  br label %74
 
-76:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %78 = icmp ult ptr %77, %2
-  br i1 %78, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !98
+74:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
+  %76 = icmp ult ptr %75, %2
+  br i1 %76, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !98
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %85
-  %.sroa.0.011 = phi ptr [ %86, %85 ], [ %1, %.lr.ph.split ]
-  %79 = load ptr, ptr %5, align 8
-  %80 = load ptr, ptr %.sroa.0.011, align 8
-  %81 = load ptr, ptr %0, align 8
-  %82 = call noundef zeroext i1 %79(ptr noundef %80, ptr noundef %81)
-  br i1 %82, label %._crit_edge.i.i, label %85
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
+  %.sroa.0.011 = phi ptr [ %84, %83 ], [ %1, %.lr.ph.split ]
+  %77 = load ptr, ptr %5, align 8
+  %78 = load ptr, ptr %.sroa.0.011, align 8
+  %79 = load ptr, ptr %0, align 8
+  %80 = call noundef zeroext i1 %77(ptr noundef %78, ptr noundef %79)
+  br i1 %80, label %._crit_edge.i.i, label %83
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
-  %83 = load ptr, ptr %.sroa.0.011, align 8
-  %84 = load ptr, ptr %0, align 8
-  store ptr %84, ptr %.sroa.0.011, align 8
-  store ptr %83, ptr %0, align 8
-  br label %85
+  %81 = load ptr, ptr %.sroa.0.011, align 8
+  %82 = load ptr, ptr %0, align 8
+  store ptr %82, ptr %.sroa.0.011, align 8
+  store ptr %81, ptr %0, align 8
+  br label %83
 
-85:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %87 = icmp ult ptr %86, %2
-  br i1 %87, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !98
+83:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
+  %85 = icmp ult ptr %84, %2
+  br i1 %85, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !98
 
-._crit_edge:                                      ; preds = %85, %76, %66, %50, %4
+._crit_edge:                                      ; preds = %83, %74, %64, %48, %4
   ret void
 }
 
@@ -9807,8 +9813,8 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt16reverse_iteratorIN9_
   %12 = icmp ult ptr %.sroa.0.0.copyload.i.i8, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %4, %72
-  %.sroa.06.09 = phi ptr [ %15, %72 ], [ %11, %4 ]
+.lr.ph:                                           ; preds = %4, %70
+  %.sroa.06.09 = phi ptr [ %15, %70 ], [ %11, %4 ]
   %13 = load i64, ptr %0, align 8
   %14 = load ptr, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %.sroa.06.09, i64 -8
@@ -9817,7 +9823,7 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt16reverse_iteratorIN9_
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   %19 = load ptr, ptr %18, align 8
   %20 = call noundef zeroext i1 %14(ptr noundef %16, ptr noundef %19)
-  br i1 %20, label %21, label %72
+  br i1 %20, label %21, label %70
 
 21:                                               ; preds = %.lr.ph
   %22 = load i64, ptr %0, align 8
@@ -9844,16 +9850,16 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt16reverse_iteratorIN9_
   %37 = sub nsw i64 0, %36
   %gep.i = getelementptr ptr, ptr %26, i64 %35
   %38 = load ptr, ptr %gep.i, align 8
-  %gep7.i = getelementptr ptr, ptr %26, i64 %37
-  %39 = load ptr, ptr %gep7.i, align 8
+  %gep10.i = getelementptr ptr, ptr %26, i64 %37
+  %39 = load ptr, ptr %gep10.i, align 8
   %40 = call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %38, ptr noundef %39)
   %spec.select.i.i = select i1 %40, i64 %36, i64 %34
   %41 = sub i64 0, %spec.select.i.i
-  %gep9.i = getelementptr ptr, ptr %26, i64 %41
-  %42 = load ptr, ptr %gep9.i, align 8
+  %gep12.i = getelementptr ptr, ptr %26, i64 %41
+  %42 = load ptr, ptr %gep12.i, align 8
   %43 = sub i64 0, %.033.i.i
-  %gep11.i = getelementptr ptr, ptr %26, i64 %43
-  store ptr %42, ptr %gep11.i, align 8
+  %gep14.i = getelementptr ptr, ptr %26, i64 %43
+  store ptr %42, ptr %gep14.i, align 8
   %44 = icmp slt i64 %spec.select.i.i, %31
   br i1 %44, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !114
 
@@ -9861,64 +9867,67 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectISt16reverse_iteratorIN9_
   %.0.lcssa.i.i = phi i64 [ 0, %21 ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %45 = and i64 %28, 8
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %47, label %61
+  br i1 %46, label %47, label %60
 
 47:                                               ; preds = %._crit_edge.i.i
   %48 = add nsw i64 %29, -2
   %49 = ashr exact i64 %48, 1
   %50 = icmp eq i64 %.0.lcssa.i.i, %49
-  br i1 %50, label %51, label %61
+  br i1 %50, label %.thread.i, label %60
 
-51:                                               ; preds = %47
-  %52 = shl nsw i64 %.0.lcssa.i.i, 1
-  %53 = or disjoint i64 %52, 1
-  %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds ptr, ptr %25, i64 %54
-  %56 = getelementptr inbounds i8, ptr %55, i64 -8
-  %57 = load ptr, ptr %56, align 8
-  %58 = sub nsw i64 0, %.0.lcssa.i.i
-  %59 = getelementptr inbounds ptr, ptr %25, i64 %58
-  %60 = getelementptr inbounds i8, ptr %59, i64 -8
-  store ptr %57, ptr %60, align 8
-  br label %61
+.thread.i:                                        ; preds = %47
+  %51 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %52 = or disjoint i64 %51, 1
+  %53 = sub nsw i64 0, %52
+  %54 = getelementptr inbounds ptr, ptr %25, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 -8
+  %56 = load ptr, ptr %55, align 8
+  %57 = sub nsw i64 0, %.0.lcssa.i.i
+  %58 = getelementptr inbounds ptr, ptr %25, i64 %57
+  %59 = getelementptr inbounds i8, ptr %58, i64 -8
+  store ptr %56, ptr %59, align 8
+  br label %.lr.ph.i.i.i.preheader
 
-61:                                               ; preds = %51, %47, %._crit_edge.i.i
-  %.121.i.i = phi i64 [ %53, %51 ], [ %.0.lcssa.i.i, %47 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %62 = icmp sgt i64 %.121.i.i, 0
-  br i1 %62, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
+60:                                               ; preds = %47, %._crit_edge.i.i
+  %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
+  br i1 %.not.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i:                                     ; preds = %61, %66
-  %.0916.i.i.i = phi i64 [ %.017.i.i45.i, %66 ], [ %.121.i.i, %61 ]
+.lr.ph.i.i.i.preheader:                           ; preds = %60, %.thread.i
+  %.0916.i.i.i.ph = phi i64 [ %.0.lcssa.i.i, %60 ], [ %52, %.thread.i ]
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %64
+  %.0916.i.i.i = phi i64 [ %.017.i.i67.i, %64 ], [ %.0916.i.i.i.ph, %.lr.ph.i.i.i.preheader ]
   %.017.in.i.i.i = add nsw i64 %.0916.i.i.i, -1
-  %.017.i.i45.i = lshr i64 %.017.in.i.i.i, 1
-  %63 = sub nsw i64 0, %.017.i.i45.i
-  %gep.i.i = getelementptr ptr, ptr %26, i64 %63
-  %64 = load ptr, ptr %gep.i.i, align 8
-  %65 = call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %64, ptr noundef %24)
-  br i1 %65, label %66, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
+  %.017.i.i67.i = lshr i64 %.017.in.i.i.i, 1
+  %61 = sub nsw i64 0, %.017.i.i67.i
+  %gep.i.i = getelementptr ptr, ptr %26, i64 %61
+  %62 = load ptr, ptr %gep.i.i, align 8
+  %63 = call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %62, ptr noundef %24)
+  br i1 %63, label %64, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
 
-66:                                               ; preds = %.lr.ph.i.i.i
-  %67 = load ptr, ptr %gep.i.i, align 8
-  %68 = sub nsw i64 0, %.0916.i.i.i
-  %gep35.i.i = getelementptr ptr, ptr %26, i64 %68
-  store ptr %67, ptr %gep35.i.i, align 8
-  %.not.i = icmp ult i64 %.017.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !115
+64:                                               ; preds = %.lr.ph.i.i.i
+  %65 = load ptr, ptr %gep.i.i, align 8
+  %66 = sub nsw i64 0, %.0916.i.i.i
+  %gep35.i.i = getelementptr ptr, ptr %26, i64 %66
+  store ptr %65, ptr %gep35.i.i, align 8
+  %.not8.i = icmp ult i64 %.017.in.i.i.i, 2
+  br i1 %.not8.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !115
 
-_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit: ; preds = %.lr.ph.i.i.i, %66, %61
-  %.09.lcssa.i.i.i = phi i64 [ %.121.i.i, %61 ], [ %.0916.i.i.i, %.lr.ph.i.i.i ], [ 0, %66 ]
-  %69 = sub i64 0, %.09.lcssa.i.i.i
-  %70 = getelementptr inbounds ptr, ptr %25, i64 %69
-  %71 = getelementptr inbounds i8, ptr %70, i64 -8
-  store ptr %24, ptr %71, align 8
-  br label %72
+_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit: ; preds = %.lr.ph.i.i.i, %64, %60
+  %.09.lcssa.i.i.i = phi i64 [ 0, %60 ], [ %.0916.i.i.i, %.lr.ph.i.i.i ], [ 0, %64 ]
+  %67 = sub nsw i64 0, %.09.lcssa.i.i.i
+  %68 = getelementptr inbounds ptr, ptr %25, i64 %67
+  %69 = getelementptr inbounds i8, ptr %68, i64 -8
+  store ptr %24, ptr %69, align 8
+  br label %70
 
-72:                                               ; preds = %.lr.ph, %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
+70:                                               ; preds = %.lr.ph, %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
   %.sroa.0.0.copyload.i.i = load ptr, ptr %2, align 8
-  %73 = icmp ult ptr %.sroa.0.0.copyload.i.i, %15
-  br i1 %73, label %.lr.ph, label %._crit_edge, !llvm.loop !116
+  %71 = icmp ult ptr %.sroa.0.0.copyload.i.i, %15
+  br i1 %71, label %.lr.ph, label %._crit_edge, !llvm.loop !116
 
-._crit_edge:                                      ; preds = %72, %4
+._crit_edge:                                      ; preds = %70, %4
   ret void
 }
 
@@ -9960,16 +9969,16 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapISt16reverse_iteratorIN9__g
   %23 = sub nsw i64 0, %22
   %gep.i = getelementptr ptr, ptr %12, i64 %21
   %24 = load ptr, ptr %gep.i, align 8
-  %gep7.i = getelementptr ptr, ptr %12, i64 %23
-  %25 = load ptr, ptr %gep7.i, align 8
+  %gep10.i = getelementptr ptr, ptr %12, i64 %23
+  %25 = load ptr, ptr %gep10.i, align 8
   %26 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %24, ptr noundef %25)
   %spec.select.i.i = select i1 %26, i64 %22, i64 %20
   %27 = sub i64 0, %spec.select.i.i
-  %gep9.i = getelementptr ptr, ptr %12, i64 %27
-  %28 = load ptr, ptr %gep9.i, align 8
+  %gep12.i = getelementptr ptr, ptr %12, i64 %27
+  %28 = load ptr, ptr %gep12.i, align 8
   %29 = sub i64 0, %.033.i.i
-  %gep11.i = getelementptr ptr, ptr %12, i64 %29
-  store ptr %28, ptr %gep11.i, align 8
+  %gep14.i = getelementptr ptr, ptr %12, i64 %29
+  store ptr %28, ptr %gep14.i, align 8
   %30 = icmp slt i64 %spec.select.i.i, %17
   br i1 %30, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !114
 
@@ -9977,63 +9986,66 @@ define linkonce_odr dso_local void @_ZSt11__sort_heapISt16reverse_iteratorIN9__g
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %31 = and i64 %14, 8
   %32 = icmp eq i64 %31, 0
-  br i1 %32, label %33, label %47
+  br i1 %32, label %33, label %46
 
 33:                                               ; preds = %._crit_edge.i.i
   %34 = add nsw i64 %15, -2
   %35 = ashr exact i64 %34, 1
   %36 = icmp eq i64 %.0.lcssa.i.i, %35
-  br i1 %36, label %37, label %47
+  br i1 %36, label %.thread.i, label %46
 
-37:                                               ; preds = %33
-  %38 = shl nsw i64 %.0.lcssa.i.i, 1
-  %39 = or disjoint i64 %38, 1
-  %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds ptr, ptr %11, i64 %40
-  %42 = getelementptr inbounds i8, ptr %41, i64 -8
-  %43 = load ptr, ptr %42, align 8
-  %44 = sub nsw i64 0, %.0.lcssa.i.i
-  %45 = getelementptr inbounds ptr, ptr %11, i64 %44
-  %46 = getelementptr inbounds i8, ptr %45, i64 -8
-  store ptr %43, ptr %46, align 8
-  br label %47
+.thread.i:                                        ; preds = %33
+  %37 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %38 = or disjoint i64 %37, 1
+  %39 = sub nsw i64 0, %38
+  %40 = getelementptr inbounds ptr, ptr %11, i64 %39
+  %41 = getelementptr inbounds i8, ptr %40, i64 -8
+  %42 = load ptr, ptr %41, align 8
+  %43 = sub nsw i64 0, %.0.lcssa.i.i
+  %44 = getelementptr inbounds ptr, ptr %11, i64 %43
+  %45 = getelementptr inbounds i8, ptr %44, i64 -8
+  store ptr %42, ptr %45, align 8
+  br label %.lr.ph.i.i.i.preheader
 
-47:                                               ; preds = %37, %33, %._crit_edge.i.i
-  %.121.i.i = phi i64 [ %39, %37 ], [ %.0.lcssa.i.i, %33 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %48 = icmp sgt i64 %.121.i.i, 0
-  br i1 %48, label %.lr.ph.i.i.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
+46:                                               ; preds = %33, %._crit_edge.i.i
+  %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
+  br i1 %.not.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i.preheader
 
-.lr.ph.i.i.i:                                     ; preds = %47, %52
-  %.0916.i.i.i = phi i64 [ %.017.i.i45.i, %52 ], [ %.121.i.i, %47 ]
+.lr.ph.i.i.i.preheader:                           ; preds = %46, %.thread.i
+  %.0916.i.i.i.ph = phi i64 [ %.0.lcssa.i.i, %46 ], [ %38, %.thread.i ]
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %50
+  %.0916.i.i.i = phi i64 [ %.017.i.i67.i, %50 ], [ %.0916.i.i.i.ph, %.lr.ph.i.i.i.preheader ]
   %.017.in.i.i.i = add nsw i64 %.0916.i.i.i, -1
-  %.017.i.i45.i = lshr i64 %.017.in.i.i.i, 1
-  %49 = sub nsw i64 0, %.017.i.i45.i
-  %gep.i.i = getelementptr ptr, ptr %12, i64 %49
-  %50 = load ptr, ptr %gep.i.i, align 8
-  %51 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %50, ptr noundef %10)
-  br i1 %51, label %52, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
+  %.017.i.i67.i = lshr i64 %.017.in.i.i.i, 1
+  %47 = sub nsw i64 0, %.017.i.i67.i
+  %gep.i.i = getelementptr ptr, ptr %12, i64 %47
+  %48 = load ptr, ptr %gep.i.i, align 8
+  %49 = tail call noundef zeroext i1 %.sroa.0.0.copyload.i(ptr noundef %48, ptr noundef %10)
+  br i1 %49, label %50, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit
 
-52:                                               ; preds = %.lr.ph.i.i.i
-  %53 = load ptr, ptr %gep.i.i, align 8
-  %54 = sub nsw i64 0, %.0916.i.i.i
-  %gep35.i.i = getelementptr ptr, ptr %12, i64 %54
-  store ptr %53, ptr %gep35.i.i, align 8
-  %.not.i = icmp ult i64 %.017.in.i.i.i, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !115
+50:                                               ; preds = %.lr.ph.i.i.i
+  %51 = load ptr, ptr %gep.i.i, align 8
+  %52 = sub nsw i64 0, %.0916.i.i.i
+  %gep35.i.i = getelementptr ptr, ptr %12, i64 %52
+  store ptr %51, ptr %gep35.i.i, align 8
+  %.not8.i = icmp ult i64 %.017.in.i.i.i, 2
+  br i1 %.not8.i, label %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !115
 
-_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit: ; preds = %.lr.ph.i.i.i, %52, %47
-  %.09.lcssa.i.i.i = phi i64 [ %.121.i.i, %47 ], [ %.0916.i.i.i, %.lr.ph.i.i.i ], [ 0, %52 ]
-  %55 = sub i64 0, %.09.lcssa.i.i.i
-  %56 = getelementptr inbounds ptr, ptr %11, i64 %55
-  %57 = getelementptr inbounds i8, ptr %56, i64 -8
-  store ptr %10, ptr %57, align 8
+_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit: ; preds = %.lr.ph.i.i.i, %50, %46
+  %.09.lcssa.i.i.i = phi i64 [ 0, %46 ], [ %.0916.i.i.i, %.lr.ph.i.i.i ], [ 0, %50 ]
+  %53 = sub nsw i64 0, %.09.lcssa.i.i.i
+  %54 = getelementptr inbounds ptr, ptr %11, i64 %53
+  %55 = getelementptr inbounds i8, ptr %54, i64 -8
+  store ptr %10, ptr %55, align 8
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload.i2.i = load ptr, ptr %1, align 8
-  %58 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
-  %59 = ptrtoint ptr %.sroa.0.0.copyload.i2.i to i64
-  %60 = sub i64 %58, %59
-  %61 = icmp sgt i64 %60, 8
-  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !117
+  %56 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
+  %57 = ptrtoint ptr %.sroa.0.0.copyload.i2.i to i64
+  %58 = sub i64 %56, %57
+  %59 = icmp sgt i64 %58, 8
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %_ZSt10__pop_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPP11V3GraphEdgeSt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIPFbPKS3_SE_EEEEvT_SI_SI_RT0_.exit, %3
   ret void

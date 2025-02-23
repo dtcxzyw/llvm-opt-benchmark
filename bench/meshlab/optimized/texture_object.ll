@@ -1438,19 +1438,19 @@ define void @_ZN13TextureObject20ComputeRelativeSizesEv(ptr dead_on_unwind noali
   %.sroa.speculated26 = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated, i32 %8)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.030.041, i64 8
   %.not = icmp eq ptr %10, %6
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph49, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph49:                                         ; preds = %.lr.ph
   %11 = uitofp nneg i32 %.sroa.speculated26 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %14
 
-14:                                               ; preds = %._crit_edge, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
-  %15 = phi ptr [ null, %._crit_edge ], [ %43, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
-  %.sroa.018.047 = phi ptr [ %4, %._crit_edge ], [ %45, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
-  %16 = phi ptr [ null, %._crit_edge ], [ %44, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+14:                                               ; preds = %.lr.ph49, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit
+  %15 = phi ptr [ null, %.lr.ph49 ], [ %43, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+  %.sroa.018.047 = phi ptr [ %4, %.lr.ph49 ], [ %45, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
+  %16 = phi ptr [ null, %.lr.ph49 ], [ %44, %_ZNSt6vectorISt4pairIddESaIS1_EE9push_backEOS1_.exit ]
   %.sroa.0.0.copyload = load i32, ptr %.sroa.018.047, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.018.047, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4

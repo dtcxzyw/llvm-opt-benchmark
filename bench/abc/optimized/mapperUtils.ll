@@ -477,7 +477,7 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %59
 
-.preheader:                                       ; preds = %59
+.lr.ph35:                                         ; preds = %59
   %56 = add nuw nsw i32 %spec.select31, 3
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -497,10 +497,10 @@ Map_MappingFindLatest.exit:                       ; preds = %52, %1
   %spec.select31 = tail call i32 @llvm.smax.i32(i32 %.033, i32 %66)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond37.not, label %.preheader, label %59, !llvm.loop !47
+  br i1 %exitcond37.not, label %.lr.ph35, label %59, !llvm.loop !47
 
-67:                                               ; preds = %.preheader, %67
-  %indvars.iv38 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next39, %67 ]
+67:                                               ; preds = %.lr.ph35, %67
+  %indvars.iv38 = phi i64 [ 0, %.lr.ph35 ], [ %indvars.iv.next39, %67 ]
   %68 = load ptr, ptr %57, align 8, !tbaa !30
   %69 = getelementptr inbounds nuw [5 x i32], ptr %2, i64 0, i64 %indvars.iv38
   %70 = load i32, ptr %69, align 4, !tbaa !39
@@ -1409,39 +1409,39 @@ define void @Map_MappingReportChoices(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !16
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph.i, label %Map_MappingGetMaxLevel.exit.thread
-
-Map_MappingGetMaxLevel.exit.thread:               ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %6 = load i32, ptr %5, align 4, !tbaa !90
-  %7 = add nsw i32 %6, 1
-  store i32 %7, ptr %5, align 4, !tbaa !90
-  br label %Map_MappingGetMaxLevel.exit38
+  br i1 %4, label %.lr.ph.i, label %._crit_edge.thread
 
 .lr.ph.i:                                         ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load ptr, ptr %8, align 8, !tbaa !30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %6 = load ptr, ptr %5, align 8, !tbaa !30
   %wide.trip.count.i = zext nneg i32 %3 to i64
-  br label %10
+  br label %7
 
-10:                                               ; preds = %10, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %.0911.i = phi i32 [ 0, %.lr.ph.i ], [ %.09..i, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !31
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, -2
-  %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
-  %17 = load i32, ptr %16, align 4
-  %18 = lshr i32 %17, 5
-  %19 = and i32 %18, 65535
-  %.09..i = tail call i32 @llvm.umax.i32(i32 %.0911.i, i32 %19)
+7:                                                ; preds = %7, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
+  %.0911.i = phi i32 [ 0, %.lr.ph.i ], [ %.09..i, %7 ]
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
+  %10 = ptrtoint ptr %9 to i64
+  %11 = and i64 %10, -2
+  %12 = inttoptr i64 %11 to ptr
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 28
+  %14 = load i32, ptr %13, align 4
+  %15 = lshr i32 %14, 5
+  %16 = and i32 %15, 65535
+  %.09..i = tail call i32 @llvm.umax.i32(i32 %.0911.i, i32 %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Map_MappingGetMaxLevel.exit, label %10, !llvm.loop !88
+  br i1 %exitcond.not.i, label %.lr.ph, label %7, !llvm.loop !88
 
-Map_MappingGetMaxLevel.exit:                      ; preds = %10
+._crit_edge.thread:                               ; preds = %1
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %18 = load i32, ptr %17, align 4, !tbaa !90
+  %19 = add nsw i32 %18, 1
+  store i32 %19, ptr %17, align 4, !tbaa !90
+  br label %Map_MappingGetMaxLevel.exit38
+
+.lr.ph:                                           ; preds = %7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %21 = load i32, ptr %20, align 4, !tbaa !90
   %22 = add nsw i32 %21, 1
@@ -1449,8 +1449,8 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %24
 
-24:                                               ; preds = %Map_MappingGetMaxLevel.exit, %24
-  %indvars.iv = phi i64 [ 0, %Map_MappingGetMaxLevel.exit ], [ %indvars.iv.next, %24 ]
+24:                                               ; preds = %.lr.ph, %24
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load ptr, ptr %23, align 8, !tbaa !30
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !31
@@ -1491,9 +1491,9 @@ Map_MappingGetMaxLevel.exit:                      ; preds = %10
   %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i32
   br i1 %exitcond.not.i37, label %Map_MappingGetMaxLevel.exit38, label %38, !llvm.loop !88
 
-Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGetMaxLevel.exit.thread, %._crit_edge
-  %.09.lcssa.i6063 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %Map_MappingGetMaxLevel.exit.thread ], [ %.09..i, %38 ]
-  %.09.lcssa.i30 = phi i32 [ 0, %._crit_edge ], [ 0, %Map_MappingGetMaxLevel.exit.thread ], [ %.09..i35, %38 ]
+Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %._crit_edge.thread, %._crit_edge
+  %.09.lcssa.i6064 = phi i32 [ %.09..i, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.09..i, %38 ]
+  %.09.lcssa.i30 = phi i32 [ 0, %._crit_edge ], [ 0, %._crit_edge.thread ], [ %.09..i35, %38 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %49 = load ptr, ptr %48, align 8, !tbaa !85
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -1546,7 +1546,7 @@ Map_MappingGetMaxLevel.exit38:                    ; preds = %38, %Map_MappingGet
 ._crit_edge50:                                    ; preds = %.loopexit, %Map_MappingGetMaxLevel.exit38
   %.027.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.2, %.loopexit ]
   %.024.lcssa = phi i32 [ 0, %Map_MappingGetMaxLevel.exit38 ], [ %.1, %.loopexit ]
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6063, i32 noundef %.09.lcssa.i30)
+  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %.09.lcssa.i6064, i32 noundef %.09.lcssa.i30)
   %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.024.lcssa, i32 noundef %.027.lcssa)
   ret void
 }

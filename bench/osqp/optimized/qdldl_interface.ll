@@ -408,7 +408,7 @@ define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr noundef writeonly captu
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %90, %98
-  %99 = tail call ptr @form_KKT(ptr noundef %11, ptr noundef nonnull %14, i64 noundef 0, double noundef %9, ptr noundef %57, double noundef %22, ptr noundef %78, ptr noundef %85, ptr noundef %88) #12
+  %99 = tail call ptr @form_KKT(ptr noundef nonnull %11, ptr noundef nonnull %14, i64 noundef 0, double noundef %9, ptr noundef %57, double noundef %22, ptr noundef %78, ptr noundef %85, ptr noundef %88) #12
   store ptr %99, ptr %7, align 8, !tbaa !59
   %.not115 = icmp eq ptr %99, null
   br i1 %.not115, label %.thread, label %100
@@ -771,7 +771,7 @@ define i64 @adjoint_derivative_qdldl(ptr readnone captures(none) %0, ptr noundef
 
 22:                                               ; preds = %7
   %23 = tail call i64 @_osqp_error(i32 noundef 5, ptr noundef nonnull @__func__.adjoint_derivative_qdldl) #12
-  br label %512
+  br label %511
 
 24:                                               ; preds = %7
   %25 = tail call i64 @OSQPMatrix_get_m(ptr noundef %1) #12
@@ -1464,7 +1464,7 @@ _adj_assemble_csc.exit:                           ; preds = %381, %_fill_diag_va
   store i64 0, ptr %365, align 8, !tbaa !60
   %386 = tail call ptr @OSQPMatrix_new_from_csc(ptr noundef nonnull %21, i64 noundef 1) #12
   %.not216 = icmp eq ptr %386, null
-  br i1 %.not216, label %511, label %387
+  br i1 %.not216, label %510, label %387
 
 387:                                              ; preds = %_adj_assemble_csc.exit
   %388 = load i64, ptr %21, align 8, !tbaa !41
@@ -1477,283 +1477,288 @@ _adj_assemble_csc.exit:                           ; preds = %381, %_fill_diag_va
   %392 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %393 = load ptr, ptr %392, align 8, !tbaa !17
   %invariant.gep.i = getelementptr i8, ptr %393, i64 -8
-  br label %398
+  br label %397
 
-.preheader.i:                                     ; preds = %398, %387
-  %394 = icmp sgt i64 %388, 0
-  br i1 %394, label %.lr.ph21.i, label %_adj_perturb.exit
+.preheader.i:                                     ; preds = %387
+  %394 = icmp eq i64 %388, 1
+  br i1 %394, label %.preheader.i..lr.ph21.i_crit_edge, label %_adj_perturb.exit
 
-.lr.ph21.i:                                       ; preds = %.preheader.i
-  %395 = load ptr, ptr %364, align 8, !tbaa !14
-  %396 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %397 = load ptr, ptr %396, align 8, !tbaa !17
-  %invariant.gep22.i = getelementptr i8, ptr %397, i64 -8
-  br label %404
+.preheader.i..lr.ph21.i_crit_edge:                ; preds = %.preheader.i
+  %.pre = load ptr, ptr %364, align 8, !tbaa !14
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %.pre259 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !17
+  br label %.lr.ph21.i
 
-398:                                              ; preds = %398, %.lr.ph.i
-  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %399, %398 ]
-  %399 = add nuw nsw i64 %.018.i, 1
-  %400 = getelementptr inbounds nuw i64, ptr %391, i64 %399
-  %401 = load i64, ptr %400, align 8, !tbaa !60
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %401
-  %402 = load double, ptr %gep.i, align 8, !tbaa !63
-  %403 = fadd double %402, 0x3EB0C6F7A0B5ED8D
-  store double %403, ptr %gep.i, align 8, !tbaa !63
-  %exitcond.not.i220 = icmp eq i64 %399, %389
-  br i1 %exitcond.not.i220, label %.preheader.i, label %398, !llvm.loop !80
+.lr.ph21.i:                                       ; preds = %397, %.preheader.i..lr.ph21.i_crit_edge
+  %395 = phi ptr [ %.pre259, %.preheader.i..lr.ph21.i_crit_edge ], [ %393, %397 ]
+  %396 = phi ptr [ %.pre, %.preheader.i..lr.ph21.i_crit_edge ], [ %391, %397 ]
+  %invariant.gep22.i = getelementptr i8, ptr %395, i64 -8
+  br label %403
 
-404:                                              ; preds = %404, %.lr.ph21.i
-  %.120.i = phi i64 [ %389, %.lr.ph21.i ], [ %405, %404 ]
-  %405 = add nuw nsw i64 %.120.i, 1
-  %406 = getelementptr inbounds nuw i64, ptr %395, i64 %405
-  %407 = load i64, ptr %406, align 8, !tbaa !60
-  %gep23.i = getelementptr double, ptr %invariant.gep22.i, i64 %407
-  %408 = load double, ptr %gep23.i, align 8, !tbaa !63
-  %409 = fadd double %408, 0xBEB0C6F7A0B5ED8D
-  store double %409, ptr %gep23.i, align 8, !tbaa !63
-  %410 = icmp slt i64 %405, %388
-  br i1 %410, label %404, label %_adj_perturb.exit, !llvm.loop !81
+397:                                              ; preds = %397, %.lr.ph.i
+  %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %398, %397 ]
+  %398 = add nuw nsw i64 %.018.i, 1
+  %399 = getelementptr inbounds nuw i64, ptr %391, i64 %398
+  %400 = load i64, ptr %399, align 8, !tbaa !60
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %400
+  %401 = load double, ptr %gep.i, align 8, !tbaa !63
+  %402 = fadd double %401, 0x3EB0C6F7A0B5ED8D
+  store double %402, ptr %gep.i, align 8, !tbaa !63
+  %exitcond.not.i220 = icmp eq i64 %398, %389
+  br i1 %exitcond.not.i220, label %.lr.ph21.i, label %397, !llvm.loop !80
 
-_adj_perturb.exit:                                ; preds = %404, %.preheader.i
-  %411 = shl i64 %15, 4
-  %412 = or disjoint i64 %411, 8
-  %413 = tail call noalias ptr @malloc(i64 noundef %412) #14
-  %414 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %415 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %416 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %417 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %418 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %419 = mul i64 %15, 48
-  %420 = tail call noalias ptr @malloc(i64 noundef %419) #14
-  %421 = tail call noalias ptr @malloc(i64 noundef %20) #14
-  %422 = tail call noalias ptr @malloc(i64 noundef %411) #14
+403:                                              ; preds = %403, %.lr.ph21.i
+  %.120.i = phi i64 [ %389, %.lr.ph21.i ], [ %404, %403 ]
+  %404 = add nuw nsw i64 %.120.i, 1
+  %405 = getelementptr inbounds nuw i64, ptr %396, i64 %404
+  %406 = load i64, ptr %405, align 8, !tbaa !60
+  %gep23.i = getelementptr double, ptr %invariant.gep22.i, i64 %406
+  %407 = load double, ptr %gep23.i, align 8, !tbaa !63
+  %408 = fadd double %407, 0xBEB0C6F7A0B5ED8D
+  store double %408, ptr %gep23.i, align 8, !tbaa !63
+  %409 = icmp slt i64 %404, %388
+  br i1 %409, label %403, label %_adj_perturb.exit, !llvm.loop !81
+
+_adj_perturb.exit:                                ; preds = %403, %.preheader.i
+  %410 = shl i64 %15, 4
+  %411 = or disjoint i64 %410, 8
+  %412 = tail call noalias ptr @malloc(i64 noundef %411) #14
+  %413 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %414 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %415 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %416 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %417 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %418 = mul i64 %15, 48
+  %419 = tail call noalias ptr @malloc(i64 noundef %418) #14
+  %420 = tail call noalias ptr @malloc(i64 noundef %20) #14
+  %421 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %422 = icmp ne ptr %412, null
   %423 = icmp ne ptr %413, null
+  %or.cond = and i1 %422, %423
   %424 = icmp ne ptr %414, null
-  %or.cond = and i1 %423, %424
+  %or.cond3 = and i1 %or.cond, %424
   %425 = icmp ne ptr %415, null
-  %or.cond3 = and i1 %or.cond, %425
+  %or.cond5 = and i1 %or.cond3, %425
   %426 = icmp ne ptr %416, null
-  %or.cond5 = and i1 %or.cond3, %426
+  %or.cond7 = and i1 %or.cond5, %426
   %427 = icmp ne ptr %417, null
-  %or.cond7 = and i1 %or.cond5, %427
-  %428 = icmp ne ptr %418, null
-  %or.cond9 = and i1 %or.cond7, %428
+  %or.cond9 = and i1 %or.cond7, %427
+  %428 = icmp ne ptr %419, null
+  %or.cond11 = and i1 %or.cond9, %428
   %429 = icmp ne ptr %420, null
-  %or.cond11 = and i1 %or.cond9, %429
+  %or.cond13 = and i1 %or.cond11, %429
   %430 = icmp ne ptr %421, null
-  %or.cond13 = and i1 %or.cond11, %430
-  %431 = icmp ne ptr %422, null
-  %or.cond15 = and i1 %or.cond13, %431
-  br i1 %or.cond15, label %432, label %510
+  %or.cond15 = and i1 %or.cond13, %430
+  br i1 %or.cond15, label %431, label %509
 
-432:                                              ; preds = %_adj_perturb.exit
-  %433 = load ptr, ptr %364, align 8, !tbaa !14
-  %434 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %435 = load ptr, ptr %434, align 8, !tbaa !16
-  %436 = tail call i64 @amd_l_order(i64 noundef %20, ptr noundef %433, ptr noundef %435, ptr noundef nonnull %416, ptr noundef null, ptr noundef null) #12
-  %437 = icmp slt i64 %436, 0
-  br i1 %437, label %510, label %438
+431:                                              ; preds = %_adj_perturb.exit
+  %432 = load ptr, ptr %364, align 8, !tbaa !14
+  %433 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %434 = load ptr, ptr %433, align 8, !tbaa !16
+  %435 = tail call i64 @amd_l_order(i64 noundef %20, ptr noundef %432, ptr noundef %434, ptr noundef nonnull %415, ptr noundef null, ptr noundef null) #12
+  %436 = icmp slt i64 %435, 0
+  br i1 %436, label %509, label %437
 
-438:                                              ; preds = %432
-  %439 = tail call ptr @csc_pinv(ptr noundef nonnull %416, i64 noundef %20) #12
-  %.not217 = icmp eq ptr %439, null
-  br i1 %.not217, label %509, label %440
+437:                                              ; preds = %431
+  %438 = tail call ptr @csc_pinv(ptr noundef nonnull %415, i64 noundef %20) #12
+  %.not217 = icmp eq ptr %438, null
+  br i1 %.not217, label %508, label %439
 
-440:                                              ; preds = %438
-  %441 = tail call ptr @csc_symperm(ptr noundef nonnull %21, ptr noundef nonnull %439, ptr noundef null, i64 noundef 1) #12
-  %.not218 = icmp eq ptr %441, null
-  br i1 %.not218, label %508, label %442
+439:                                              ; preds = %437
+  %440 = tail call ptr @csc_symperm(ptr noundef nonnull %21, ptr noundef nonnull %438, ptr noundef null, i64 noundef 1) #12
+  %.not218 = icmp eq ptr %440, null
+  br i1 %.not218, label %507, label %441
 
-442:                                              ; preds = %440
-  %443 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  %444 = load ptr, ptr %443, align 8, !tbaa !14
-  %445 = getelementptr inbounds nuw i8, ptr %441, i64 24
-  %446 = load ptr, ptr %445, align 8, !tbaa !16
-  %447 = tail call i64 @QDLDL_etree(i64 noundef %20, ptr noundef %444, ptr noundef %446, ptr noundef nonnull %420, ptr noundef nonnull %418, ptr noundef nonnull %417) #12
-  %448 = shl i64 %447, 3
-  %449 = tail call noalias ptr @malloc(i64 noundef %448) #14
-  %450 = tail call noalias ptr @malloc(i64 noundef %448) #14
+441:                                              ; preds = %439
+  %442 = getelementptr inbounds nuw i8, ptr %440, i64 16
+  %443 = load ptr, ptr %442, align 8, !tbaa !14
+  %444 = getelementptr inbounds nuw i8, ptr %440, i64 24
+  %445 = load ptr, ptr %444, align 8, !tbaa !16
+  %446 = tail call i64 @QDLDL_etree(i64 noundef %20, ptr noundef %443, ptr noundef %445, ptr noundef nonnull %419, ptr noundef nonnull %417, ptr noundef nonnull %416) #12
+  %447 = shl i64 %446, 3
+  %448 = tail call noalias ptr @malloc(i64 noundef %447) #14
+  %449 = tail call noalias ptr @malloc(i64 noundef %447) #14
+  %450 = icmp ne ptr %448, null
   %451 = icmp ne ptr %449, null
-  %452 = icmp ne ptr %450, null
-  %or.cond17 = and i1 %451, %452
-  br i1 %or.cond17, label %453, label %507
+  %or.cond17 = and i1 %450, %451
+  br i1 %or.cond17, label %452, label %506
 
-453:                                              ; preds = %442
-  %454 = load ptr, ptr %443, align 8, !tbaa !14
-  %455 = load ptr, ptr %445, align 8, !tbaa !16
-  %456 = getelementptr inbounds nuw i8, ptr %441, i64 32
-  %457 = load ptr, ptr %456, align 8, !tbaa !17
-  %458 = tail call i64 @QDLDL_factor(i64 noundef %20, ptr noundef %454, ptr noundef %455, ptr noundef %457, ptr noundef nonnull %413, ptr noundef nonnull %449, ptr noundef nonnull %450, ptr noundef nonnull %414, ptr noundef nonnull %415, ptr noundef nonnull %418, ptr noundef nonnull %417, ptr noundef nonnull %421, ptr noundef nonnull %420, ptr noundef nonnull %422) #12
-  %459 = tail call noalias ptr @malloc(i64 noundef %411) #14
-  %460 = tail call noalias ptr @malloc(i64 noundef %411) #14
+452:                                              ; preds = %441
+  %453 = load ptr, ptr %442, align 8, !tbaa !14
+  %454 = load ptr, ptr %444, align 8, !tbaa !16
+  %455 = getelementptr inbounds nuw i8, ptr %440, i64 32
+  %456 = load ptr, ptr %455, align 8, !tbaa !17
+  %457 = tail call i64 @QDLDL_factor(i64 noundef %20, ptr noundef %453, ptr noundef %454, ptr noundef %456, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %413, ptr noundef nonnull %414, ptr noundef nonnull %417, ptr noundef nonnull %416, ptr noundef nonnull %420, ptr noundef nonnull %419, ptr noundef nonnull %421) #12
+  %458 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %459 = tail call noalias ptr @malloc(i64 noundef %410) #14
+  %460 = icmp ne ptr %458, null
   %461 = icmp ne ptr %459, null
-  %462 = icmp ne ptr %460, null
-  %or.cond19 = and i1 %461, %462
-  br i1 %or.cond19, label %.preheader227, label %506
+  %or.cond19 = and i1 %460, %461
+  br i1 %or.cond19, label %.preheader227, label %505
 
-.preheader227:                                    ; preds = %453
-  %463 = icmp sgt i64 %15, 0
-  br i1 %463, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader227
-  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %413, ptr noundef nonnull %449, ptr noundef nonnull %450, ptr noundef nonnull %415, ptr noundef nonnull %460) #12
-  br label %._crit_edge237
+.preheader227:                                    ; preds = %452
+  %462 = icmp sgt i64 %15, 0
+  br i1 %462, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader227
-  %464 = load ptr, ptr %6, align 8, !tbaa !61
+  %463 = load ptr, ptr %6, align 8, !tbaa !61
   %smax = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
-  br label %465
+  br label %464
 
-465:                                              ; preds = %.lr.ph, %465
-  %.0200233 = phi i64 [ 0, %.lr.ph ], [ %471, %465 ]
-  %466 = getelementptr inbounds nuw i64, ptr %416, i64 %.0200233
-  %467 = load i64, ptr %466, align 8, !tbaa !60
-  %468 = getelementptr inbounds double, ptr %464, i64 %467
-  %469 = load double, ptr %468, align 8, !tbaa !63
-  %470 = getelementptr inbounds nuw double, ptr %460, i64 %.0200233
-  store double %469, ptr %470, align 8, !tbaa !63
-  %471 = add nuw nsw i64 %.0200233, 1
-  %exitcond.not = icmp eq i64 %471, %smax
-  br i1 %exitcond.not, label %._crit_edge, label %465, !llvm.loop !82
+464:                                              ; preds = %.lr.ph, %464
+  %.0200233 = phi i64 [ 0, %.lr.ph ], [ %470, %464 ]
+  %465 = getelementptr inbounds nuw i64, ptr %415, i64 %.0200233
+  %466 = load i64, ptr %465, align 8, !tbaa !60
+  %467 = getelementptr inbounds double, ptr %463, i64 %466
+  %468 = load double, ptr %467, align 8, !tbaa !63
+  %469 = getelementptr inbounds nuw double, ptr %459, i64 %.0200233
+  store double %468, ptr %469, align 8, !tbaa !63
+  %470 = add nuw nsw i64 %.0200233, 1
+  %exitcond.not = icmp eq i64 %470, %smax
+  br i1 %exitcond.not, label %.lr.ph236.preheader, label %464, !llvm.loop !82
 
-._crit_edge:                                      ; preds = %465
-  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %413, ptr noundef nonnull %449, ptr noundef nonnull %450, ptr noundef nonnull %415, ptr noundef nonnull %460) #12
+._crit_edge:                                      ; preds = %.preheader227
+  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
+  br label %._crit_edge237
+
+.lr.ph236.preheader:                              ; preds = %464
+  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
   %smax252 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
   br label %.lr.ph236
 
-.lr.ph236:                                        ; preds = %._crit_edge, %.lr.ph236
-  %.1201234 = phi i64 [ %477, %.lr.ph236 ], [ 0, %._crit_edge ]
-  %472 = getelementptr inbounds nuw double, ptr %460, i64 %.1201234
-  %473 = load double, ptr %472, align 8, !tbaa !63
-  %474 = getelementptr inbounds nuw i64, ptr %416, i64 %.1201234
-  %475 = load i64, ptr %474, align 8, !tbaa !60
-  %476 = getelementptr inbounds double, ptr %459, i64 %475
-  store double %473, ptr %476, align 8, !tbaa !63
-  %477 = add nuw nsw i64 %.1201234, 1
-  %exitcond253.not = icmp eq i64 %477, %smax252
+.lr.ph236:                                        ; preds = %.lr.ph236.preheader, %.lr.ph236
+  %.1201234 = phi i64 [ %476, %.lr.ph236 ], [ 0, %.lr.ph236.preheader ]
+  %471 = getelementptr inbounds nuw double, ptr %459, i64 %.1201234
+  %472 = load double, ptr %471, align 8, !tbaa !63
+  %473 = getelementptr inbounds nuw i64, ptr %415, i64 %.1201234
+  %474 = load i64, ptr %473, align 8, !tbaa !60
+  %475 = getelementptr inbounds double, ptr %458, i64 %474
+  store double %472, ptr %475, align 8, !tbaa !63
+  %476 = add nuw nsw i64 %.1201234, 1
+  %exitcond253.not = icmp eq i64 %476, %smax252
   br i1 %exitcond253.not, label %._crit_edge237, label %.lr.ph236, !llvm.loop !83
 
-._crit_edge237:                                   ; preds = %.lr.ph236, %._crit_edge.thread
-  %478 = tail call ptr @OSQPVectorf_new(ptr noundef nonnull %459, i64 noundef %20) #12
-  %479 = tail call ptr @OSQPVectorf_malloc(i64 noundef %20) #12
+._crit_edge237:                                   ; preds = %.lr.ph236, %._crit_edge
+  %477 = tail call ptr @OSQPVectorf_new(ptr noundef nonnull %458, i64 noundef %20) #12
+  %478 = tail call ptr @OSQPVectorf_malloc(i64 noundef %20) #12
+  %479 = icmp ne ptr %477, null
   %480 = icmp ne ptr %478, null
-  %481 = icmp ne ptr %479, null
-  %or.cond21 = select i1 %480, i1 %481, i1 false
-  br i1 %or.cond21, label %.preheader226, label %505
+  %or.cond21 = select i1 %479, i1 %480, i1 false
+  br i1 %or.cond21, label %.preheader226, label %504
 
 .preheader226:                                    ; preds = %._crit_edge237
   %smax254 = tail call i64 @llvm.smax.i64(i64 %20, i64 1)
-  br label %482
+  br label %481
 
-482:                                              ; preds = %.preheader226, %._crit_edge244
-  %.0245 = phi i64 [ 0, %.preheader226 ], [ %501, %._crit_edge244 ]
-  tail call void @OSQPVectorf_copy(ptr noundef nonnull %479, ptr noundef %6) #12
-  tail call void @OSQPMatrix_Axpy(ptr noundef nonnull %386, ptr noundef nonnull %478, ptr noundef nonnull %479, double noundef 1.000000e+00, double noundef -1.000000e+00) #12
-  %483 = tail call double @OSQPVectorf_norm_2(ptr noundef nonnull %479) #12
-  %484 = fcmp olt double %483, 0x3D719799812DEA11
-  br i1 %484, label %502, label %.preheader
+481:                                              ; preds = %.preheader226, %._crit_edge244
+  %.0245 = phi i64 [ 0, %.preheader226 ], [ %500, %._crit_edge244 ]
+  tail call void @OSQPVectorf_copy(ptr noundef nonnull %478, ptr noundef %6) #12
+  tail call void @OSQPMatrix_Axpy(ptr noundef nonnull %386, ptr noundef nonnull %477, ptr noundef nonnull %478, double noundef 1.000000e+00, double noundef -1.000000e+00) #12
+  %482 = tail call double @OSQPVectorf_norm_2(ptr noundef nonnull %478) #12
+  %483 = fcmp olt double %482, 0x3D719799812DEA11
+  br i1 %483, label %501, label %.preheader
 
-.preheader:                                       ; preds = %482
-  br i1 %463, label %.lr.ph239, label %._crit_edge240.thread
-
-._crit_edge240.thread:                            ; preds = %.preheader
-  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %413, ptr noundef nonnull %449, ptr noundef nonnull %450, ptr noundef nonnull %415, ptr noundef nonnull %460) #12
-  br label %._crit_edge244
+.preheader:                                       ; preds = %481
+  br i1 %462, label %.lr.ph239, label %._crit_edge240
 
 .lr.ph239:                                        ; preds = %.preheader
-  %485 = load ptr, ptr %479, align 8, !tbaa !61
-  br label %486
+  %484 = load ptr, ptr %478, align 8, !tbaa !61
+  br label %485
 
-486:                                              ; preds = %.lr.ph239, %486
-  %.2202238 = phi i64 [ 0, %.lr.ph239 ], [ %492, %486 ]
-  %487 = getelementptr inbounds nuw i64, ptr %416, i64 %.2202238
-  %488 = load i64, ptr %487, align 8, !tbaa !60
-  %489 = getelementptr inbounds double, ptr %485, i64 %488
-  %490 = load double, ptr %489, align 8, !tbaa !63
-  %491 = getelementptr inbounds nuw double, ptr %460, i64 %.2202238
-  store double %490, ptr %491, align 8, !tbaa !63
-  %492 = add nuw nsw i64 %.2202238, 1
-  %exitcond255.not = icmp eq i64 %492, %smax254
-  br i1 %exitcond255.not, label %._crit_edge240, label %486, !llvm.loop !84
+485:                                              ; preds = %.lr.ph239, %485
+  %.2202238 = phi i64 [ 0, %.lr.ph239 ], [ %491, %485 ]
+  %486 = getelementptr inbounds nuw i64, ptr %415, i64 %.2202238
+  %487 = load i64, ptr %486, align 8, !tbaa !60
+  %488 = getelementptr inbounds double, ptr %484, i64 %487
+  %489 = load double, ptr %488, align 8, !tbaa !63
+  %490 = getelementptr inbounds nuw double, ptr %459, i64 %.2202238
+  store double %489, ptr %490, align 8, !tbaa !63
+  %491 = add nuw nsw i64 %.2202238, 1
+  %exitcond255.not = icmp eq i64 %491, %smax254
+  br i1 %exitcond255.not, label %.lr.ph243, label %485, !llvm.loop !84
 
-._crit_edge240:                                   ; preds = %486
-  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %413, ptr noundef nonnull %449, ptr noundef nonnull %450, ptr noundef nonnull %415, ptr noundef nonnull %460) #12
-  %493 = load ptr, ptr %479, align 8, !tbaa !61
-  br label %494
+._crit_edge240:                                   ; preds = %.preheader
+  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
+  br label %._crit_edge244
 
-494:                                              ; preds = %._crit_edge240, %494
-  %.3203241 = phi i64 [ 0, %._crit_edge240 ], [ %500, %494 ]
-  %495 = getelementptr inbounds nuw double, ptr %460, i64 %.3203241
-  %496 = load double, ptr %495, align 8, !tbaa !63
-  %497 = getelementptr inbounds nuw i64, ptr %416, i64 %.3203241
-  %498 = load i64, ptr %497, align 8, !tbaa !60
-  %499 = getelementptr inbounds double, ptr %493, i64 %498
-  store double %496, ptr %499, align 8, !tbaa !63
-  %500 = add nuw nsw i64 %.3203241, 1
-  %exitcond257.not = icmp eq i64 %500, %smax254
-  br i1 %exitcond257.not, label %._crit_edge244, label %494, !llvm.loop !85
+.lr.ph243:                                        ; preds = %485
+  tail call void @QDLDL_solve(i64 noundef %20, ptr noundef nonnull %412, ptr noundef nonnull %448, ptr noundef nonnull %449, ptr noundef nonnull %414, ptr noundef nonnull %459) #12
+  %492 = load ptr, ptr %478, align 8, !tbaa !61
+  br label %493
 
-._crit_edge244:                                   ; preds = %494, %._crit_edge240.thread
-  tail call void @OSQPVectorf_minus(ptr noundef nonnull %478, ptr noundef nonnull %478, ptr noundef nonnull %479) #12
-  %501 = add nuw nsw i64 %.0245, 1
-  %exitcond258.not = icmp eq i64 %501, 200
-  br i1 %exitcond258.not, label %502, label %482, !llvm.loop !86
+493:                                              ; preds = %.lr.ph243, %493
+  %.3203241 = phi i64 [ 0, %.lr.ph243 ], [ %499, %493 ]
+  %494 = getelementptr inbounds nuw double, ptr %459, i64 %.3203241
+  %495 = load double, ptr %494, align 8, !tbaa !63
+  %496 = getelementptr inbounds nuw i64, ptr %415, i64 %.3203241
+  %497 = load i64, ptr %496, align 8, !tbaa !60
+  %498 = getelementptr inbounds double, ptr %492, i64 %497
+  store double %495, ptr %498, align 8, !tbaa !63
+  %499 = add nuw nsw i64 %.3203241, 1
+  %exitcond257.not = icmp eq i64 %499, %smax254
+  br i1 %exitcond257.not, label %._crit_edge244, label %493, !llvm.loop !85
 
-502:                                              ; preds = %482, %._crit_edge244
-  %503 = tail call ptr @OSQPVectorf_data(ptr noundef nonnull %478) #12
-  %504 = tail call i64 @OSQPVectorf_length(ptr noundef nonnull %478) #12
-  tail call void @OSQPVectorf_subvector_assign(ptr noundef %6, ptr noundef %503, i64 noundef 0, i64 noundef %504, double noundef 1.000000e+00) #12
+._crit_edge244:                                   ; preds = %493, %._crit_edge240
+  tail call void @OSQPVectorf_minus(ptr noundef nonnull %477, ptr noundef nonnull %477, ptr noundef nonnull %478) #12
+  %500 = add nuw nsw i64 %.0245, 1
+  %exitcond258.not = icmp eq i64 %500, 200
+  br i1 %exitcond258.not, label %501, label %481, !llvm.loop !86
+
+501:                                              ; preds = %481, %._crit_edge244
+  %502 = tail call ptr @OSQPVectorf_data(ptr noundef nonnull %477) #12
+  %503 = tail call i64 @OSQPVectorf_length(ptr noundef nonnull %477) #12
+  tail call void @OSQPVectorf_subvector_assign(ptr noundef %6, ptr noundef %502, i64 noundef 0, i64 noundef %503, double noundef 1.000000e+00) #12
+  br label %504
+
+504:                                              ; preds = %._crit_edge237, %501
+  %.6 = phi i64 [ 0, %501 ], [ 5, %._crit_edge237 ]
+  tail call void @OSQPVectorf_free(ptr noundef %477) #12
+  tail call void @OSQPVectorf_free(ptr noundef %478) #12
   br label %505
 
-505:                                              ; preds = %._crit_edge237, %502
-  %.6 = phi i64 [ 0, %502 ], [ 5, %._crit_edge237 ]
-  tail call void @OSQPVectorf_free(ptr noundef %478) #12
-  tail call void @OSQPVectorf_free(ptr noundef %479) #12
+505:                                              ; preds = %452, %504
+  %.5 = phi i64 [ %.6, %504 ], [ 5, %452 ]
+  tail call void @free(ptr noundef %458) #12
+  tail call void @free(ptr noundef %459) #12
   br label %506
 
-506:                                              ; preds = %453, %505
-  %.5 = phi i64 [ %.6, %505 ], [ 5, %453 ]
-  tail call void @free(ptr noundef %459) #12
-  tail call void @free(ptr noundef %460) #12
+506:                                              ; preds = %441, %505
+  %.4 = phi i64 [ %.5, %505 ], [ 5, %441 ]
+  tail call void @free(ptr noundef %448) #12
+  tail call void @free(ptr noundef %449) #12
   br label %507
 
-507:                                              ; preds = %442, %506
-  %.4 = phi i64 [ %.5, %506 ], [ 5, %442 ]
-  tail call void @free(ptr noundef %449) #12
-  tail call void @free(ptr noundef %450) #12
+507:                                              ; preds = %439, %506
+  %.3 = phi i64 [ %.4, %506 ], [ 5, %439 ]
+  tail call void @csc_spfree(ptr noundef %440) #12
   br label %508
 
-508:                                              ; preds = %440, %507
-  %.3 = phi i64 [ %.4, %507 ], [ 5, %440 ]
-  tail call void @csc_spfree(ptr noundef %441) #12
+508:                                              ; preds = %437, %507
+  %.2 = phi i64 [ %.3, %507 ], [ 5, %437 ]
+  tail call void @free(ptr noundef %438) #12
   br label %509
 
-509:                                              ; preds = %438, %508
-  %.2 = phi i64 [ %.3, %508 ], [ 5, %438 ]
-  tail call void @free(ptr noundef %439) #12
-  br label %510
-
-510:                                              ; preds = %432, %_adj_perturb.exit, %509
-  %.1 = phi i64 [ %.2, %509 ], [ 5, %_adj_perturb.exit ], [ %436, %432 ]
+509:                                              ; preds = %431, %_adj_perturb.exit, %508
+  %.1 = phi i64 [ %.2, %508 ], [ 5, %_adj_perturb.exit ], [ %435, %431 ]
+  tail call void @free(ptr noundef %412) #12
   tail call void @free(ptr noundef %413) #12
   tail call void @free(ptr noundef %414) #12
   tail call void @free(ptr noundef %415) #12
   tail call void @free(ptr noundef %416) #12
   tail call void @free(ptr noundef %417) #12
-  tail call void @free(ptr noundef %418) #12
+  tail call void @free(ptr noundef %419) #12
   tail call void @free(ptr noundef %420) #12
   tail call void @free(ptr noundef %421) #12
-  tail call void @free(ptr noundef %422) #12
-  br label %511
+  br label %510
 
-511:                                              ; preds = %_adj_assemble_csc.exit, %510
-  %.0199 = phi i64 [ %.1, %510 ], [ 5, %_adj_assemble_csc.exit ]
+510:                                              ; preds = %_adj_assemble_csc.exit, %509
+  %.0199 = phi i64 [ %.1, %509 ], [ 5, %_adj_assemble_csc.exit ]
   tail call void @OSQPMatrix_free(ptr noundef %386) #12
   tail call void @csc_spfree(ptr noundef nonnull %21) #12
-  br label %512
+  br label %511
 
-512:                                              ; preds = %511, %22
-  %.0198 = phi i64 [ %.0199, %511 ], [ %23, %22 ]
+511:                                              ; preds = %510, %22
+  %.0198 = phi i64 [ %.0199, %510 ], [ %23, %22 ]
   ret i64 %.0198
 }
 

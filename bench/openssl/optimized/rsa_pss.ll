@@ -520,7 +520,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   br label %98
 
 98:                                               ; preds = %92, %.loopexit
-  %99 = sext i32 %.085 to i64
+  %99 = zext nneg i32 %.085 to i64
   %100 = getelementptr i8, ptr %.084, i64 %99
   %101 = getelementptr i8, ptr %100, i64 -1
   store i8 -68, ptr %101, align 1, !tbaa !23

@@ -359,15 +359,15 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %47 = add i64 %46, %.089102
   %48 = sub nsw i64 0, %.188
   %exitcond.not = icmp eq i64 %41, %7
-  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph110.preheader, label %27, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %27
+.lr.ph110.preheader:                              ; preds = %27
   %49 = load ptr, ptr %3, align 8, !tbaa !12
   br label %.lr.ph110
 
-.lr.ph110:                                        ; preds = %._crit_edge, %.lr.ph110
-  %.1108 = phi i64 [ %62, %.lr.ph110 ], [ 0, %._crit_edge ]
-  %.085107 = phi i64 [ %61, %.lr.ph110 ], [ 0, %._crit_edge ]
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
+  %.1108 = phi i64 [ %62, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
+  %.085107 = phi i64 [ %61, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
   %50 = getelementptr inbounds nuw i64, ptr %49, i64 %.1108
   %51 = load i64, ptr %50, align 8, !tbaa !14
   %52 = and i64 %51, %48
@@ -383,15 +383,15 @@ define range(i32 0, 2) i32 @bn_mod_sub_fixed_top(ptr noundef %0, ptr noundef rea
   %61 = add nuw nsw i64 %60, %55
   %62 = add nuw i64 %.1108, 1
   %exitcond123.not = icmp eq i64 %62, %7
-  br i1 %exitcond123.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !20
+  br i1 %exitcond123.not, label %.lr.ph116.preheader, label %.lr.ph110, !llvm.loop !20
 
-._crit_edge111:                                   ; preds = %.lr.ph110
+.lr.ph116.preheader:                              ; preds = %.lr.ph110
   %.neg = sub nsw i64 %61, %.188
   br label %.lr.ph116
 
-.lr.ph116:                                        ; preds = %._crit_edge111, %.lr.ph116
-  %.2114 = phi i64 [ %75, %.lr.ph116 ], [ 0, %._crit_edge111 ]
-  %.186113 = phi i64 [ %74, %.lr.ph116 ], [ 0, %._crit_edge111 ]
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
+  %.2114 = phi i64 [ %75, %.lr.ph116 ], [ 0, %.lr.ph116.preheader ]
+  %.186113 = phi i64 [ %74, %.lr.ph116 ], [ 0, %.lr.ph116.preheader ]
   %63 = getelementptr inbounds nuw i64, ptr %49, i64 %.2114
   %64 = load i64, ptr %63, align 8, !tbaa !14
   %65 = and i64 %64, %.neg

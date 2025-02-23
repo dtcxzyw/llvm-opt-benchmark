@@ -1792,7 +1792,7 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   %22 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %19
   br label %27
 
-._crit_edge:                                      ; preds = %27
+.lr.ph48:                                         ; preds = %27
   %23 = zext nneg i32 %2 to i64
   %24 = getelementptr inbounds nuw double, ptr %15, i64 %23
   store double %18, ptr %24, align 8, !tbaa !12
@@ -1812,14 +1812,14 @@ define void @_gradient_arc(ptr noundef %0, double noundef %1, i32 noundef %2, do
   store double %32, ptr %33, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %27
+  br i1 %exitcond.not, label %.lr.ph48, label %27
 
 ._crit_edge49:                                    ; preds = %34, %16
   tail call void @free(ptr noundef nonnull %15) #9
   br label %44
 
-34:                                               ; preds = %._crit_edge, %34
-  %indvars.iv53 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next54, %34 ]
+34:                                               ; preds = %.lr.ph48, %34
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next54, %34 ]
   %35 = trunc nuw nsw i64 %indvars.iv53 to i32
   %36 = uitofp nneg i32 %35 to double
   %37 = fmul reassoc nsz arcp contract afn double %25, %36

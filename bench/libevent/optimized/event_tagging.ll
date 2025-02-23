@@ -520,23 +520,22 @@ encode_int_internal.exit:                         ; preds = %3, %._crit_edge.i
 
 36:                                               ; preds = %31
   %.not14.i = icmp eq ptr %0, null
-  br i1 %.not14.i, label %evtag_encode_tag.exit, label %37
+  br i1 %.not14.i, label %.lr.ph.i.i.preheader, label %37
 
 37:                                               ; preds = %36
   %38 = and i64 %indvars.iv.next.i, 4294967295
   %39 = call i32 @evbuffer_add(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %38) #7
-  br label %evtag_encode_tag.exit
+  br label %.lr.ph.i.i.preheader
 
-evtag_encode_tag.exit:                            ; preds = %36, %37
+.lr.ph.i.i.preheader:                             ; preds = %37, %36
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
-  %.not23.i.i = icmp eq i32 %.020.lcssa29.i, 0
-  br i1 %.not23.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i
+  br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %evtag_encode_tag.exit, %53
-  %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %evtag_encode_tag.exit ]
-  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa29.i, %evtag_encode_tag.exit ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %53
+  %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %.lr.ph.i.i.preheader ]
+  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa29.i, %.lr.ph.i.i.preheader ]
   %40 = and i32 %.02025.i.i, 1
   %.not22.i.i = icmp eq i32 %40, 0
   %41 = lshr i32 %.02025.i.i, 1
@@ -564,9 +563,9 @@ evtag_encode_tag.exit:                            ; preds = %36, %37
   %54 = lshr i32 %.02124.i.i, 4
   %55 = add nuw nsw i32 %.02025.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.02124.i.i, 16
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !3
+  br i1 %.not.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i, !llvm.loop !3
 
-._crit_edge.i.i:                                  ; preds = %53
+evtag_encode_int.exit:                            ; preds = %53
   %.pre.i.i = load i8, ptr %4, align 1
   %56 = and i8 %.pre.i.i, 15
   %57 = icmp samesign ugt i32 %.02025.i.i, 1
@@ -578,16 +577,11 @@ evtag_encode_tag.exit:                            ; preds = %36, %37
   %61 = add nuw i32 %.02025.i.i, 2
   %62 = lshr i32 %61, 1
   %63 = zext nneg i32 %62 to i64
-  br label %evtag_encode_int.exit
-
-evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.exit, %._crit_edge.i.i
-  %.020.lcssa29.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %63, %._crit_edge.i.i ]
-  %64 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %60, %._crit_edge.i.i ]
-  store i8 %64, ptr %4, align 1
-  %65 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.020.lcssa29.i.i) #7
+  store i8 %60, ptr %4, align 1
+  %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #7
-  %66 = zext nneg i32 %.020.lcssa29.i to i64
-  %67 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %66) #7
+  %65 = zext nneg i32 %.020.lcssa29.i to i64
+  %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %6) #7
   ret void
 }
@@ -671,23 +665,22 @@ encode_int64_internal.exit:                       ; preds = %3, %._crit_edge.i
 
 36:                                               ; preds = %31
   %.not14.i = icmp eq ptr %0, null
-  br i1 %.not14.i, label %evtag_encode_tag.exit, label %37
+  br i1 %.not14.i, label %.lr.ph.i.i.preheader, label %37
 
 37:                                               ; preds = %36
   %38 = and i64 %indvars.iv.next.i, 4294967295
   %39 = call i32 @evbuffer_add(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef %38) #7
-  br label %evtag_encode_tag.exit
+  br label %.lr.ph.i.i.preheader
 
-evtag_encode_tag.exit:                            ; preds = %36, %37
+.lr.ph.i.i.preheader:                             ; preds = %37, %36
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %5) #7
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %4, i8 0, i64 5, i1 false)
-  %.not23.i.i = icmp eq i32 %.020.lcssa29.i, 0
-  br i1 %.not23.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i
+  br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %evtag_encode_tag.exit, %53
-  %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %evtag_encode_tag.exit ]
-  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa29.i, %evtag_encode_tag.exit ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %53
+  %.02025.i.i = phi i32 [ %55, %53 ], [ 1, %.lr.ph.i.i.preheader ]
+  %.02124.i.i = phi i32 [ %54, %53 ], [ %.020.lcssa29.i, %.lr.ph.i.i.preheader ]
   %40 = and i32 %.02025.i.i, 1
   %.not22.i.i = icmp eq i32 %40, 0
   %41 = lshr i32 %.02025.i.i, 1
@@ -715,9 +708,9 @@ evtag_encode_tag.exit:                            ; preds = %36, %37
   %54 = lshr i32 %.02124.i.i, 4
   %55 = add nuw nsw i32 %.02025.i.i, 1
   %.not.i.i = icmp samesign ult i32 %.02124.i.i, 16
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !3
+  br i1 %.not.i.i, label %evtag_encode_int.exit, label %.lr.ph.i.i, !llvm.loop !3
 
-._crit_edge.i.i:                                  ; preds = %53
+evtag_encode_int.exit:                            ; preds = %53
   %.pre.i.i = load i8, ptr %4, align 1
   %56 = and i8 %.pre.i.i, 15
   %57 = icmp samesign ugt i32 %.02025.i.i, 1
@@ -729,16 +722,11 @@ evtag_encode_tag.exit:                            ; preds = %36, %37
   %61 = add nuw i32 %.02025.i.i, 2
   %62 = lshr i32 %61, 1
   %63 = zext nneg i32 %62 to i64
-  br label %evtag_encode_int.exit
-
-evtag_encode_int.exit:                            ; preds = %evtag_encode_tag.exit, %._crit_edge.i.i
-  %.020.lcssa29.i.i = phi i64 [ 1, %evtag_encode_tag.exit ], [ %63, %._crit_edge.i.i ]
-  %64 = phi i8 [ 0, %evtag_encode_tag.exit ], [ %60, %._crit_edge.i.i ]
-  store i8 %64, ptr %4, align 1
-  %65 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %.020.lcssa29.i.i) #7
+  store i8 %60, ptr %4, align 1
+  %64 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %63) #7
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4) #7
-  %66 = zext nneg i32 %.020.lcssa29.i to i64
-  %67 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %66) #7
+  %65 = zext nneg i32 %.020.lcssa29.i to i64
+  %66 = call i32 @evbuffer_add(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %65) #7
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %6) #7
   ret void
 }
@@ -925,15 +913,15 @@ define range(i32 -1, 1) i32 @evtag_decode_int(ptr noundef writeonly captures(non
   %.1.i = or disjoint i32 %19, %.pn.i
   %27 = add nsw i32 %.039.i, -1
   %28 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %28, label %.preheader.i, label %decode_int_internal.exit, !llvm.loop !7
+  br i1 %28, label %.preheader.i, label %29, !llvm.loop !7
 
-decode_int_internal.exit:                         ; preds = %.preheader.i
+29:                                               ; preds = %.preheader.i
   store i32 %.1.i, ptr %0, align 4
-  %29 = tail call i32 @evbuffer_drain(ptr noundef %1, i64 noundef %15) #7
+  %30 = tail call i32 @evbuffer_drain(ptr noundef %1, i64 noundef %15) #7
   br label %decode_int_internal.exit.thread
 
-decode_int_internal.exit.thread:                  ; preds = %17, %7, %12, %5, %2, %decode_int_internal.exit
-  %.not7 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %2 ], [ -1, %5 ], [ -1, %12 ], [ -1, %7 ], [ -1, %17 ]
+decode_int_internal.exit.thread:                  ; preds = %17, %7, %12, %5, %2, %29
+  %.not7 = phi i32 [ 0, %29 ], [ -1, %2 ], [ -1, %5 ], [ -1, %12 ], [ -1, %7 ], [ -1, %17 ]
   ret i32 %.not7
 }
 
@@ -983,15 +971,15 @@ define range(i32 -1, 1) i32 @evtag_decode_int64(ptr noundef writeonly captures(n
   %.1.i = or disjoint i64 %17, %.pn.i
   %25 = add nsw i32 %.039.i, -1
   %26 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %26, label %.preheader.i, label %decode_int64_internal.exit, !llvm.loop !8
+  br i1 %26, label %.preheader.i, label %27, !llvm.loop !8
 
-decode_int64_internal.exit:                       ; preds = %.preheader.i
+27:                                               ; preds = %.preheader.i
   store i64 %.1.i, ptr %0, align 8
-  %27 = tail call i32 @evbuffer_drain(ptr noundef %1, i64 noundef %13) #7
+  %28 = tail call i32 @evbuffer_drain(ptr noundef %1, i64 noundef %13) #7
   br label %decode_int64_internal.exit.thread
 
-decode_int64_internal.exit.thread:                ; preds = %15, %7, %5, %2, %decode_int64_internal.exit
-  %.not7 = phi i32 [ 0, %decode_int64_internal.exit ], [ -1, %2 ], [ -1, %5 ], [ -1, %7 ], [ -1, %15 ]
+decode_int64_internal.exit.thread:                ; preds = %15, %7, %5, %2, %27
+  %.not7 = phi i32 [ 0, %27 ], [ -1, %2 ], [ -1, %5 ], [ -1, %7 ], [ -1, %15 ]
   ret i32 %.not7
 }
 
@@ -1148,16 +1136,16 @@ decode_tag_internal.exit:                         ; preds = %.thread49.i
   %.1.i = or disjoint i32 %38, %.pn.i
   %46 = add nsw i32 %.039.i, -1
   %47 = icmp samesign ugt i32 %.039.i, 1
-  br i1 %47, label %.preheader.i12, label %decode_int_internal.exit, !llvm.loop !7
+  br i1 %47, label %.preheader.i12, label %48, !llvm.loop !7
 
-decode_int_internal.exit:                         ; preds = %.preheader.i12
-  %48 = add nuw nsw i32 %31, %16
-  %49 = add i32 %48, %.1.i
-  store i32 %49, ptr %1, align 4
+48:                                               ; preds = %.preheader.i12
+  %49 = add nuw nsw i32 %31, %16
+  %50 = add i32 %49, %.1.i
+  store i32 %50, ptr %1, align 4
   br label %decode_tag_internal.exit.thread
 
-decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %23, %29, %20, %decode_tag_internal.exit, %.thread49.i, %2, %decode_int_internal.exit
-  %.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %2 ], [ -1, %.thread49.i ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %29 ], [ -1, %23 ], [ -1, %34 ], [ -1, %11 ], [ -1, %.preheader.i ]
+decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %34, %23, %29, %20, %decode_tag_internal.exit, %.thread49.i, %2, %48
+  %.0 = phi i32 [ 0, %48 ], [ -1, %2 ], [ -1, %.thread49.i ], [ -1, %decode_tag_internal.exit ], [ -1, %20 ], [ -1, %29 ], [ -1, %23 ], [ -1, %34 ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -1258,8 +1246,8 @@ decode_int_internal.exit:                         ; preds = %.preheader.i8
   store i32 %.1.i, ptr %1, align 4
   br label %decode_tag_internal.exit.thread
 
-decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %decode_tag_internal.exit, %19, %28, %22, %33, %decode_int_internal.exit, %.thread49.i, %2
-  %.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %2 ], [ -1, %.thread49.i ], [ -1, %33 ], [ -1, %22 ], [ -1, %28 ], [ -1, %19 ], [ -1, %decode_tag_internal.exit ], [ -1, %11 ], [ -1, %.preheader.i ]
+decode_tag_internal.exit.thread:                  ; preds = %.preheader.i, %11, %.thread49.i, %2, %decode_int_internal.exit, %decode_tag_internal.exit, %19, %28, %22, %33
+  %.0 = phi i32 [ 0, %decode_int_internal.exit ], [ -1, %decode_tag_internal.exit ], [ -1, %19 ], [ -1, %28 ], [ -1, %22 ], [ -1, %33 ], [ -1, %2 ], [ -1, %.thread49.i ], [ -1, %11 ], [ -1, %.preheader.i ]
   ret i32 %.0
 }
 

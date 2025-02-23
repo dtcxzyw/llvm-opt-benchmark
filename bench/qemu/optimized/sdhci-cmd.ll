@@ -131,7 +131,7 @@ define dso_local void @sdhci_write_cmd(ptr noundef %0, i64 noundef %1, ptr nound
   br i1 %exitcond.not.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !7
 
 ._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
-  %27 = add i64 %.01521.i, 1
+  %27 = add nuw i64 %.01521.i, 1
   %28 = add i64 %27, %18
   br label %._crit_edge.i
 

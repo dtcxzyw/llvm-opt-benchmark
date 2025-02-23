@@ -6259,12 +6259,12 @@ create_worktablescan_plan.exit:                   ; preds = %878, %882
 
 ._crit_edge:                                      ; preds = %.lr.ph212, %.lr.ph, %1039
   %.0.i190.lcssa = phi ptr [ null, %1039 ], [ null, %.lr.ph ], [ %1085, %.lr.ph212 ]
-  %1047 = tail call fastcc ptr @order_qual_clauses(ptr noundef %0, ptr noundef %.1115)
+  %1047 = tail call fastcc ptr @order_qual_clauses(ptr noundef nonnull %0, ptr noundef %.1115)
   %1048 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %1049 = load ptr, ptr %1048, align 8
   %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 8
   %1051 = load ptr, ptr %1050, align 8
-  %1052 = tail call ptr %1051(ptr noundef %0, ptr noundef %1040, ptr noundef %1, ptr noundef %.0112, ptr noundef %1047, ptr noundef %.0.i190.lcssa) #12
+  %1052 = tail call ptr %1051(ptr noundef nonnull %0, ptr noundef %1040, ptr noundef nonnull %1, ptr noundef %.0112, ptr noundef %1047, ptr noundef %.0.i190.lcssa) #12
   %1053 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %1054 = load i32, ptr %1053, align 8
   %1055 = getelementptr inbounds nuw i8, ptr %1052, i64 4
@@ -6310,7 +6310,7 @@ create_worktablescan_plan.exit:                   ; preds = %878, %882
   %1081 = load ptr, ptr %1044, align 8
   %1082 = getelementptr inbounds nuw %union.ListCell, ptr %1081, i64 %indvars.iv
   %1083 = load ptr, ptr %1082, align 8
-  %1084 = tail call fastcc ptr @create_plan_recurse(ptr noundef %0, ptr noundef %1083, i32 noundef 1)
+  %1084 = tail call fastcc ptr @create_plan_recurse(ptr noundef nonnull %0, ptr noundef %1083, i32 noundef 1)
   %1085 = tail call ptr @lappend(ptr noundef %.0.i190206210, ptr noundef %1084) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1086 = load i32, ptr %1043, align 4
@@ -6321,11 +6321,11 @@ create_worktablescan_plan.exit:                   ; preds = %878, %882
 1089:                                             ; preds = %._crit_edge
   %1090 = getelementptr inbounds nuw i8, ptr %1052, i64 56
   %1091 = load ptr, ptr %1090, align 8
-  %1092 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %1091, ptr noundef %0)
+  %1092 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %1091, ptr noundef nonnull %0)
   store ptr %1092, ptr %1090, align 8
   %1093 = getelementptr inbounds nuw i8, ptr %1052, i64 128
   %1094 = load ptr, ptr %1093, align 8
-  %1095 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %1094, ptr noundef %0)
+  %1095 = tail call ptr @replace_nestloop_params_mutator(ptr noundef %1094, ptr noundef nonnull %0)
   store ptr %1095, ptr %1093, align 8
   br label %create_foreignscan_plan.exit
 
@@ -7888,7 +7888,7 @@ remap_groupColIdx.exit122:                        ; preds = %.lr.ph8.i118, %list
 
 list_length.exit124:                              ; preds = %remap_groupColIdx.exit122, %226
   %229 = phi i32 [ %228, %226 ], [ 0, %remap_groupColIdx.exit122 ]
-  %230 = tail call fastcc ptr @build_path_tlist(ptr noundef %0, ptr noundef %1)
+  %230 = tail call fastcc ptr @build_path_tlist(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %232 = load ptr, ptr %231, align 8
   %233 = getelementptr inbounds nuw i8, ptr %1, i64 88

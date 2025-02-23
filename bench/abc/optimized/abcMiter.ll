@@ -3532,8 +3532,8 @@ Vec_PtrStart.exit:                                ; preds = %2, %16
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !104
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Vec_PtrStart.exit
-  %39 = tail call ptr @Cnf_DataWriteIntoSolver(ptr noundef %25, i32 noundef 1, i32 noundef 0) #16
-  tail call void @Cnf_DataFree(ptr noundef %25) #16
+  %39 = tail call ptr @Cnf_DataWriteIntoSolver(ptr noundef nonnull %25, i32 noundef 1, i32 noundef 0) #16
+  tail call void @Cnf_DataFree(ptr noundef nonnull %25) #16
   %.val4957 = load i32, ptr %10, align 8, !tbaa !84
   %.val5058 = load ptr, ptr %11, align 8, !tbaa !98
   %40 = getelementptr i8, ptr %.val5058, i64 4
@@ -4073,7 +4073,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv287 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next288, %126 ]
   %127 = getelementptr inbounds nuw ptr, ptr %.val164, i64 %indvars.iv287
   %128 = load ptr, ptr %127, align 8, !tbaa !29
-  %129 = tail call ptr @Abc_NtkCreateObj(ptr noundef %119, i32 noundef 2) #16
+  %129 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %119, i32 noundef 2) #16
   %130 = tail call ptr @Abc_ObjAssignName(ptr noundef %129, ptr noundef %128, ptr noundef null) #16
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next288, %wide.trip.count
@@ -4098,7 +4098,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val167.val = load ptr, ptr %136, align 8, !tbaa !28
   %137 = getelementptr inbounds nuw ptr, ptr %.val167.val, i64 %indvars.iv290
   %138 = load ptr, ptr %137, align 8, !tbaa !29
-  %139 = tail call ptr @Abc_NtkDupObj(ptr noundef %119, ptr noundef %138, i32 noundef 1) #16
+  %139 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %119, ptr noundef %138, i32 noundef 1) #16
   %140 = getelementptr inbounds nuw i8, ptr %138, i64 64
   store ptr %139, ptr %140, align 8, !tbaa !37
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1

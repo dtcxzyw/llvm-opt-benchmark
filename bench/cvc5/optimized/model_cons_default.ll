@@ -376,7 +376,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %69, %73, %79
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %93, %97, %103
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #18
-  %107 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.022.026) #20
+  %107 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.022.026) #20
   %.not = icmp eq ptr %107, %16
   br i1 %.not, label %._crit_edge, label %20
 

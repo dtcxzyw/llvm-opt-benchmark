@@ -939,7 +939,7 @@ define internal noundef i32 @encode_mcu_DC_refine(ptr noundef readonly captures(
   %29 = load i16, ptr %28, align 2, !tbaa !77
   %30 = sext i16 %29 to i32
   %31 = ashr i32 %30, %6
-  tail call fastcc void @emit_bits(ptr noundef %4, i32 noundef %31, i32 noundef 1)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %31, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %32 = load i32, ptr %24, align 8, !tbaa !74
   %33 = sext i32 %32 to i64
@@ -2692,7 +2692,7 @@ emit_symbol.exit:                                 ; preds = %25, %32
   %.0.i = phi i32 [ %55, %.preheader.i ], [ %46, %.preheader.i.preheader ]
   %52 = load i8, ptr %.07.i, align 1, !tbaa !55
   %53 = sext i8 %52 to i32
-  tail call fastcc void @emit_bits(ptr noundef %0, i32 noundef %53, i32 noundef 1)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %0, i32 noundef %53, i32 noundef 1)
   %54 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %55 = add i32 %.0.i, -1
   %.old1.not.i = icmp eq i32 %55, 0

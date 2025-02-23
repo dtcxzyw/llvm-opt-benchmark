@@ -253,7 +253,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 .preheader.i.i:                                   ; preds = %62, %54
   %.sroa.025.042.i.i = phi i64 [ %50, %54 ], [ 0, %62 ]
-  %.241.i.i = phi i8 [ %.3.i.i, %54 ], [ %.06443.i.i, %62 ]
+  %.241.i.i = phi i8 [ %.3.i.i, %54 ], [ 0, %62 ]
   %50 = add nuw nsw i64 %.sroa.025.042.i.i, 1
   %51 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 0, i64 %.sroa.025.042.i.i
   %52 = load i16, ptr %51, align 2, !noalias !37, !noundef !4

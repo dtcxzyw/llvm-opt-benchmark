@@ -28147,12 +28147,11 @@ _ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit:       ; preds = %if.end3, %invoke.co
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %size.0.copyload, i64 5957)
   tail call void @_ZNSt6vectorI7MonsterSaIS0_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %item, i64 noundef %.sroa.speculated)
   %_M_end_of_storage.i = getelementptr inbounds nuw i8, ptr %item, i64 16
-  %umax = tail call i64 @llvm.umax.i64(i64 %size.0.copyload, i64 1)
   br label %for.body
 
 for.cond:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
   %inc = add nuw i64 %i.017, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %size.0.copyload
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !470
 
 for.body:                                         ; preds = %_ZNSt6vectorI7MonsterSaIS0_EE5clearEv.exit, %for.cond

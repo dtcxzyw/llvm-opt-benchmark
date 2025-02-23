@@ -465,7 +465,7 @@ _ZN4core4hash3sip9u8to64_le17h3289beeb814c8ea1E.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %78
   %.117.i15 = phi i64 [ %90, %84 ], [ %.016.i13, %78 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %78 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17h3289beeb814c8ea1E.exit20
 
 94:                                               ; preds = %92
@@ -475,7 +475,7 @@ _ZN4core4hash3sip9u8to64_le17h3289beeb814c8ea1E.exit: ; preds = %25, %27
   %98 = zext i8 %97 to i64
   %99 = shl nuw nsw i64 %.1.i16, 3
   %100 = and i64 %99, 56
-  %101 = shl nuw i64 %98, %100
+  %101 = shl nuw nsw i64 %98, %100
   %102 = or i64 %101, %.117.i15
   br label %_ZN4core4hash3sip9u8to64_le17h3289beeb814c8ea1E.exit20
 

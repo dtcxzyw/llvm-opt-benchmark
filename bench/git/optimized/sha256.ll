@@ -69,7 +69,7 @@ define dso_local void @blk_SHA256_Update(ptr noundef captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %.140 = phi i64 [ %23, %.lr.ph ], [ %.031, %20 ]
   %.13339 = phi ptr [ %22, %.lr.ph ], [ %.032, %20 ]
-  tail call fastcc void @blk_SHA256_Transform(ptr noundef %0, ptr noundef %.13339)
+  tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %0, ptr noundef %.13339)
   %22 = getelementptr inbounds nuw i8, ptr %.13339, i64 64
   %23 = add i64 %.140, -64
   %24 = icmp ugt i64 %23, 63
@@ -1931,7 +1931,7 @@ git_bswap32.exit:
 .lr.ph.i:                                         ; preds = %27, %.lr.ph.i
   %.140.i = phi i64 [ %30, %.lr.ph.i ], [ %.031.i, %27 ]
   %.13339.i = phi ptr [ %29, %.lr.ph.i ], [ %.032.i, %27 ]
-  tail call fastcc void @blk_SHA256_Transform(ptr noundef %1, ptr noundef %.13339.i)
+  tail call fastcc void @blk_SHA256_Transform(ptr noundef nonnull %1, ptr noundef %.13339.i)
   %29 = getelementptr inbounds nuw i8, ptr %.13339.i, i64 64
   %30 = add i64 %.140.i, -64
   %31 = icmp ugt i64 %30, 63
@@ -1981,7 +1981,7 @@ blk_SHA256_Update.exit:                           ; preds = %16, %._crit_edge.i,
   %.1.lcssa.i2232 = phi i64 [ %47, %._crit_edge.i20 ], [ 8, %blk_SHA256_Update.exit ]
   %.133.lcssa.i2131 = phi ptr [ %46, %._crit_edge.i20 ], [ %2, %blk_SHA256_Update.exit ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr align 1 %.133.lcssa.i2131, i64 %.1.lcssa.i2232, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr nonnull align 1 %.133.lcssa.i2131, i64 %.1.lcssa.i2232, i1 false)
   br label %blk_SHA256_Update.exit27.preheader
 
 blk_SHA256_Update.exit27.preheader:               ; preds = %38, %._crit_edge.i20, %._crit_edge.i20.thread

@@ -1019,7 +1019,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
 44:                                               ; preds = %35, %29
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 80
   tail call void @mutex_unlock(ptr noundef nonnull %45) #16
-  br label %323
+  br label %324
 
 46:                                               ; preds = %25
   store volatile ptr %27, ptr %27, align 8
@@ -1068,7 +1068,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %74 = getelementptr inbounds nuw i8, ptr %58, i64 80
   tail call void @mutex_unlock(ptr noundef nonnull %74) #16
   tail call void @kfree(ptr noundef nonnull %27) #16
-  br label %323
+  br label %324
 
 75:                                               ; preds = %46
   tail call void @fsnotify_init_mark(ptr noundef nonnull %56, ptr noundef %58) #16
@@ -1102,7 +1102,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   tail call void @mutex_unlock(ptr noundef nonnull %94) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %56) #16
   tail call void @kfree(ptr noundef nonnull %27) #16
-  br label %323
+  br label %324
 
 95:                                               ; preds = %75
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
@@ -1139,7 +1139,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   tail call void @fsnotify_free_mark(ptr noundef nonnull %56) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %56) #16
   tail call void @kfree(ptr noundef nonnull %27) #16
-  br label %323
+  br label %324
 
 116:                                              ; preds = %95
   %117 = load volatile i32, ptr @hash_lock, align 64
@@ -1261,7 +1261,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %177 = getelementptr inbounds nuw i8, ptr %162, i64 80
   tail call void @mutex_unlock(ptr noundef nonnull %177) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %56) #16
-  br label %323
+  br label %324
 
 178:                                              ; preds = %20
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
@@ -1270,7 +1270,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 48
   %182 = load i32, ptr %181, align 8
   %183 = icmp sgt i32 %182, 0
-  br i1 %183, label %184, label %.loopexit
+  br i1 %183, label %184, label %.loopexit14
 
 184:                                              ; preds = %178
   %185 = zext nneg i32 %182 to i64
@@ -1280,7 +1280,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
 187:                                              ; preds = %190
   %188 = add nuw nsw i64 %191, 1
   %189 = icmp eq i64 %188, %185
-  br i1 %189, label %.loopexit, label %190, !llvm.loop !32
+  br i1 %189, label %.loopexit14, label %190, !llvm.loop !32
 
 190:                                              ; preds = %187, %184
   %191 = phi i64 [ %188, %187 ], [ 0, %184 ]
@@ -1315,9 +1315,9 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %211 = getelementptr inbounds nuw i8, ptr %196, i64 80
   tail call void @mutex_unlock(ptr noundef nonnull %211) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %23) #16
-  br label %323
+  br label %324
 
-.loopexit:                                        ; preds = %187, %178
+.loopexit14:                                      ; preds = %187, %178
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
   %212 = load i32, ptr %181, align 8
   %213 = add i32 %212, 1
@@ -1328,9 +1328,9 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %218 = select i1 %214, i64 -1, i64 %217
   %219 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %218, i32 noundef 3520) #18
   %220 = icmp eq ptr %219, null
-  br i1 %220, label %.thread13, label %221
+  br i1 %220, label %239, label %221
 
-221:                                              ; preds = %.loopexit
+221:                                              ; preds = %.loopexit14
   store volatile ptr %219, ptr %219, align 8
   %222 = getelementptr inbounds nuw i8, ptr %219, i64 8
   store volatile ptr %219, ptr %222, align 8
@@ -1343,7 +1343,7 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   %226 = getelementptr inbounds nuw i8, ptr %219, i64 56
   store volatile i64 1, ptr %226, align 8
   %227 = icmp ult i32 %212, 2147483647
-  br i1 %227, label %228, label %.thread14
+  br i1 %227, label %228, label %.loopexit
 
 228:                                              ; preds = %221
   %229 = getelementptr inbounds nuw i8, ptr %219, i64 80
@@ -1361,154 +1361,154 @@ define internal noundef range(i32 -28, 1) i32 @tag_mount(ptr noundef readonly ca
   store i32 %236, ptr %235, align 8
   %237 = add nuw nsw i64 %232, 1
   %238 = icmp eq i64 %237, %230
-  br i1 %238, label %.thread14, label %231, !llvm.loop !33
+  br i1 %238, label %.loopexit, label %231, !llvm.loop !33
 
-.thread13:                                        ; preds = %.loopexit
-  %239 = load ptr, ptr @audit_tree_group, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 72
-  %241 = load i32, ptr %240, align 8
-  %242 = and i32 %241, 4
-  %243 = icmp eq i32 %242, 0
-  br i1 %243, label %253, label %244
+239:                                              ; preds = %.loopexit14
+  %240 = load ptr, ptr @audit_tree_group, align 8
+  %241 = getelementptr inbounds nuw i8, ptr %240, i64 72
+  %242 = load i32, ptr %241, align 8
+  %243 = and i32 %242, 4
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %254, label %245
 
-244:                                              ; preds = %.thread13
-  %245 = getelementptr inbounds nuw i8, ptr %239, i64 76
-  %246 = load i32, ptr %245, align 4
-  %247 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
-  %248 = inttoptr i64 %247 to ptr
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 44
-  %250 = load i32, ptr %249, align 4
-  %251 = and i32 %250, -262145
-  %252 = or i32 %251, %246
-  store i32 %252, ptr %249, align 4
-  br label %253
+245:                                              ; preds = %239
+  %246 = getelementptr inbounds nuw i8, ptr %240, i64 76
+  %247 = load i32, ptr %246, align 4
+  %248 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
+  %249 = inttoptr i64 %248 to ptr
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 44
+  %251 = load i32, ptr %250, align 4
+  %252 = and i32 %251, -262145
+  %253 = or i32 %252, %247
+  store i32 %253, ptr %250, align 4
+  br label %254
 
-253:                                              ; preds = %244, %.thread13
-  %254 = getelementptr inbounds nuw i8, ptr %239, i64 80
-  tail call void @mutex_unlock(ptr noundef nonnull %254) #16
+254:                                              ; preds = %245, %239
+  %255 = getelementptr inbounds nuw i8, ptr %240, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %255) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %23) #16
-  br label %323
+  br label %324
 
-.thread14:                                        ; preds = %231, %221
+.loopexit:                                        ; preds = %231, %221
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %256 = load i32, ptr %255, align 4
-  %257 = icmp eq i32 %256, 0
-  br i1 %257, label %275, label %258
+  %256 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %257 = load i32, ptr %256, align 4
+  %258 = icmp eq i32 %257, 0
+  br i1 %258, label %276, label %259
 
-258:                                              ; preds = %.thread14
+259:                                              ; preds = %.loopexit
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
-  %259 = load ptr, ptr @audit_tree_group, align 8
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 72
-  %261 = load i32, ptr %260, align 8
-  %262 = and i32 %261, 4
-  %263 = icmp eq i32 %262, 0
-  br i1 %263, label %273, label %264
+  %260 = load ptr, ptr @audit_tree_group, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %260, i64 72
+  %262 = load i32, ptr %261, align 8
+  %263 = and i32 %262, 4
+  %264 = icmp eq i32 %263, 0
+  br i1 %264, label %274, label %265
 
-264:                                              ; preds = %258
-  %265 = getelementptr inbounds nuw i8, ptr %259, i64 76
-  %266 = load i32, ptr %265, align 4
-  %267 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
-  %268 = inttoptr i64 %267 to ptr
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 44
-  %270 = load i32, ptr %269, align 4
-  %271 = and i32 %270, -262145
-  %272 = or i32 %271, %266
-  store i32 %272, ptr %269, align 4
-  br label %273
+265:                                              ; preds = %259
+  %266 = getelementptr inbounds nuw i8, ptr %260, i64 76
+  %267 = load i32, ptr %266, align 4
+  %268 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
+  %269 = inttoptr i64 %268 to ptr
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 44
+  %271 = load i32, ptr %270, align 4
+  %272 = and i32 %271, -262145
+  %273 = or i32 %272, %267
+  store i32 %273, ptr %270, align 4
+  br label %274
 
-273:                                              ; preds = %264, %258
-  %274 = getelementptr inbounds nuw i8, ptr %259, i64 80
-  tail call void @mutex_unlock(ptr noundef nonnull %274) #16
+274:                                              ; preds = %265, %259
+  %275 = getelementptr inbounds nuw i8, ptr %260, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %275) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %23) #16
   tail call void @kfree(ptr noundef nonnull %219) #16
-  br label %323
+  br label %324
 
-275:                                              ; preds = %.thread14
-  %276 = getelementptr inbounds nuw i8, ptr %219, i64 80
-  %277 = load i32, ptr %225, align 8
-  %278 = add i32 %277, -1
-  %279 = sext i32 %278 to i64
-  %280 = getelementptr [0 x %struct.audit_node], ptr %276, i64 0, i64 %279
-  %281 = or i32 %278, -2147483648
-  %282 = getelementptr inbounds nuw i8, ptr %280, i64 24
-  store i32 %281, ptr %282, align 8
-  %283 = getelementptr inbounds nuw i8, ptr %280, i64 16
-  store ptr %1, ptr %283, align 8
-  %284 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 1, ptr elementtype(i32) %1) #16, !srcloc !16
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %290, label %286, !prof !17
+276:                                              ; preds = %.loopexit
+  %277 = getelementptr inbounds nuw i8, ptr %219, i64 80
+  %278 = load i32, ptr %225, align 8
+  %279 = add i32 %278, -1
+  %280 = sext i32 %279 to i64
+  %281 = getelementptr [0 x %struct.audit_node], ptr %277, i64 0, i64 %280
+  %282 = or i32 %279, -2147483648
+  %283 = getelementptr inbounds nuw i8, ptr %281, i64 24
+  store i32 %282, ptr %283, align 8
+  %284 = getelementptr inbounds nuw i8, ptr %281, i64 16
+  store ptr %1, ptr %284, align 8
+  %285 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %1, i32 1, ptr elementtype(i32) %1) #16, !srcloc !16
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %291, label %287, !prof !17
 
-286:                                              ; preds = %275
-  %287 = add i32 %284, 1
-  %288 = or i32 %287, %284
-  %289 = icmp sgt i32 %288, -1
-  br i1 %289, label %292, label %290, !prof !7
+287:                                              ; preds = %276
+  %288 = add i32 %285, 1
+  %289 = or i32 %288, %285
+  %290 = icmp sgt i32 %289, -1
+  br i1 %290, label %293, label %291, !prof !7
 
-290:                                              ; preds = %286, %275
-  %291 = phi i32 [ 2, %275 ], [ 1, %286 ]
-  tail call void @refcount_warn_saturate(ptr noundef %1, i32 noundef %291) #16
-  br label %292
+291:                                              ; preds = %287, %276
+  %292 = phi i32 [ 2, %276 ], [ 1, %287 ]
+  tail call void @refcount_warn_saturate(ptr noundef %1, i32 noundef %292) #16
+  br label %293
 
-292:                                              ; preds = %290, %286
-  %293 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store ptr %280, ptr %295, align 8
-  store ptr %294, ptr %280, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %280, i64 8
-  store ptr %293, ptr %296, align 8
-  store volatile ptr %280, ptr %293, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %298 = load ptr, ptr %297, align 8
-  %299 = icmp eq ptr %298, null
-  br i1 %299, label %300, label %305
+293:                                              ; preds = %291, %287
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %295 = load ptr, ptr %294, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  store ptr %281, ptr %296, align 8
+  store ptr %295, ptr %281, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %281, i64 8
+  store ptr %294, ptr %297, align 8
+  store volatile ptr %281, ptr %294, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %299 = load ptr, ptr %298, align 8
+  %300 = icmp eq ptr %299, null
+  br i1 %300, label %301, label %306
 
-300:                                              ; preds = %292
-  store ptr %219, ptr %297, align 8
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %302 = load ptr, ptr %223, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  store ptr %301, ptr %303, align 8
-  store ptr %302, ptr %301, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr %223, ptr %304, align 8
-  store volatile ptr %301, ptr %223, align 8
-  br label %305
+301:                                              ; preds = %293
+  store ptr %219, ptr %298, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %303 = load ptr, ptr %223, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  store ptr %302, ptr %304, align 8
+  store ptr %303, ptr %302, align 8
+  %305 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr %223, ptr %305, align 8
+  store volatile ptr %302, ptr %223, align 8
+  br label %306
 
-305:                                              ; preds = %300, %292
+306:                                              ; preds = %301, %293
   tail call fastcc void @replace_chunk(ptr noundef nonnull %219, ptr noundef %180)
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
-  %306 = load ptr, ptr @audit_tree_group, align 8
-  %307 = getelementptr inbounds nuw i8, ptr %306, i64 72
-  %308 = load i32, ptr %307, align 8
-  %309 = and i32 %308, 4
-  %310 = icmp eq i32 %309, 0
-  br i1 %310, label %320, label %311
+  %307 = load ptr, ptr @audit_tree_group, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 72
+  %309 = load i32, ptr %308, align 8
+  %310 = and i32 %309, 4
+  %311 = icmp eq i32 %310, 0
+  br i1 %311, label %321, label %312
 
-311:                                              ; preds = %305
-  %312 = getelementptr inbounds nuw i8, ptr %306, i64 76
-  %313 = load i32, ptr %312, align 4
-  %314 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
-  %315 = inttoptr i64 %314 to ptr
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 44
-  %317 = load i32, ptr %316, align 4
-  %318 = and i32 %317, -262145
-  %319 = or i32 %318, %313
-  store i32 %319, ptr %316, align 4
-  br label %320
+312:                                              ; preds = %306
+  %313 = getelementptr inbounds nuw i8, ptr %307, i64 76
+  %314 = load i32, ptr %313, align 4
+  %315 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
+  %316 = inttoptr i64 %315 to ptr
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 44
+  %318 = load i32, ptr %317, align 4
+  %319 = and i32 %318, -262145
+  %320 = or i32 %319, %314
+  store i32 %320, ptr %317, align 4
+  br label %321
 
-320:                                              ; preds = %311, %305
-  %321 = getelementptr inbounds nuw i8, ptr %306, i64 80
-  tail call void @mutex_unlock(ptr noundef nonnull %321) #16
+321:                                              ; preds = %312, %306
+  %322 = getelementptr inbounds nuw i8, ptr %307, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %322) #16
   tail call void @fsnotify_put_mark(ptr noundef nonnull %23) #16
-  %322 = getelementptr inbounds nuw i8, ptr %180, i64 64
-  tail call void @call_rcu(ptr noundef nonnull %322, ptr noundef nonnull @__put_chunk) #16
-  br label %323
+  %323 = getelementptr inbounds nuw i8, ptr %180, i64 64
+  tail call void @call_rcu(ptr noundef nonnull %323, ptr noundef nonnull @__put_chunk) #16
+  br label %324
 
-323:                                              ; preds = %320, %273, %253, %210, %176, %114, %93, %73, %44
-  %324 = phi i32 [ 0, %210 ], [ 0, %273 ], [ 0, %320 ], [ -12, %253 ], [ -28, %93 ], [ 0, %114 ], [ 0, %176 ], [ -12, %73 ], [ -12, %44 ]
-  ret i32 %324
+324:                                              ; preds = %321, %274, %254, %210, %176, %114, %93, %73, %44
+  %325 = phi i32 [ 0, %210 ], [ 0, %274 ], [ 0, %321 ], [ -12, %254 ], [ -28, %93 ], [ 0, %114 ], [ 0, %176 ], [ -12, %73 ], [ -12, %44 ]
+  ret i32 %325
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2044,12 +2044,12 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %.loopexit, label %.preheader
+  br i1 %5, label %.loopexit14, label %.preheader
 
-6:                                                ; preds = %181, %.thread
+6:                                                ; preds = %182, %.thread
   %7 = load volatile ptr, ptr %3, align 8
   %8 = icmp eq ptr %7, %3
-  br i1 %8, label %.loopexit, label %.preheader
+  br i1 %8, label %.loopexit14, label %.preheader
 
 .preheader:                                       ; preds = %2, %6
   %9 = phi ptr [ %7, %6 ], [ %4, %2 ]
@@ -2057,7 +2057,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %11 = load i32, ptr %10, align 8
   %12 = icmp sgt i32 %11, -1
   %or.cond = select i1 %1, i1 %12, i1 false
-  br i1 %or.cond, label %.loopexit, label %.preheader._crit_edge
+  br i1 %or.cond, label %.loopexit14, label %.preheader._crit_edge
 
 .preheader._crit_edge:                            ; preds = %.preheader
   %13 = and i32 %11, 2147483647
@@ -2152,13 +2152,13 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %62 = load i32, ptr %61, align 4
   %63 = and i32 %62, 2
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.thread12, label %65
+  br i1 %64, label %165, label %65
 
 65:                                               ; preds = %60
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, %17
-  br i1 %68, label %69, label %.thread12
+  br i1 %68, label %69, label %165
 
 69:                                               ; preds = %65
   %70 = getelementptr i8, ptr %16, i64 -32
@@ -2252,7 +2252,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %121 = getelementptr i8, ptr %16, i64 -16
   tail call void @call_rcu(ptr noundef %121, ptr noundef nonnull @__put_chunk) #16
   tail call void @fsnotify_free_mark(ptr noundef nonnull %19) #16
-  br label %181
+  br label %182
 
 122:                                              ; preds = %85
   %123 = icmp slt i32 %82, 0
@@ -2262,7 +2262,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %127 = select i1 %123, i64 -1, i64 %126
   %128 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %127, i32 noundef 3520) #18
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %.thread12, label %130
+  br i1 %129, label %165, label %130
 
 130:                                              ; preds = %122
   store volatile ptr %128, ptr %128, align 8
@@ -2277,7 +2277,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 56
   store volatile i64 1, ptr %135, align 8
   %136 = icmp sgt i32 %82, 0
-  br i1 %136, label %137, label %.thread13
+  br i1 %136, label %137, label %.loopexit
 
 137:                                              ; preds = %130
   %138 = getelementptr inbounds nuw i8, ptr %128, i64 80
@@ -2295,9 +2295,9 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   store i32 %145, ptr %144, align 8
   %146 = add nuw nsw i64 %141, 1
   %147 = icmp eq i64 %146, %139
-  br i1 %147, label %.thread13, label %140, !llvm.loop !33
+  br i1 %147, label %.loopexit, label %140, !llvm.loop !33
 
-.thread13:                                        ; preds = %140, %130
+.loopexit:                                        ; preds = %140, %130
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
   tail call fastcc void @replace_chunk(ptr noundef nonnull %128, ptr noundef %17)
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
@@ -2308,7 +2308,7 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %162, label %153
 
-153:                                              ; preds = %.thread13
+153:                                              ; preds = %.loopexit
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 76
   %155 = load i32, ptr %154, align 4
   %156 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
@@ -2320,44 +2320,44 @@ define internal fastcc void @prune_tree_chunks(ptr noundef %0, i1 noundef zeroex
   store i32 %161, ptr %158, align 4
   br label %162
 
-162:                                              ; preds = %153, %.thread13
+162:                                              ; preds = %153, %.loopexit
   %163 = getelementptr inbounds nuw i8, ptr %148, i64 80
   tail call void @mutex_unlock(ptr noundef nonnull %163) #16
   %164 = getelementptr i8, ptr %16, i64 -16
   tail call void @call_rcu(ptr noundef %164, ptr noundef nonnull @__put_chunk) #16
-  br label %181
+  br label %182
 
-.thread12:                                        ; preds = %122, %65, %60
-  %165 = load ptr, ptr @audit_tree_group, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 72
-  %167 = load i32, ptr %166, align 8
-  %168 = and i32 %167, 4
-  %169 = icmp eq i32 %168, 0
-  br i1 %169, label %179, label %170
+165:                                              ; preds = %122, %65, %60
+  %166 = load ptr, ptr @audit_tree_group, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 72
+  %168 = load i32, ptr %167, align 8
+  %169 = and i32 %168, 4
+  %170 = icmp eq i32 %169, 0
+  br i1 %170, label %180, label %171
 
-170:                                              ; preds = %.thread12
-  %171 = getelementptr inbounds nuw i8, ptr %165, i64 76
-  %172 = load i32, ptr %171, align 4
-  %173 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
-  %174 = inttoptr i64 %173 to ptr
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 44
-  %176 = load i32, ptr %175, align 4
-  %177 = and i32 %176, -262145
-  %178 = or i32 %177, %172
-  store i32 %178, ptr %175, align 4
-  br label %179
+171:                                              ; preds = %165
+  %172 = getelementptr inbounds nuw i8, ptr %166, i64 76
+  %173 = load i32, ptr %172, align 4
+  %174 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !21
+  %175 = inttoptr i64 %174 to ptr
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 44
+  %177 = load i32, ptr %176, align 4
+  %178 = and i32 %177, -262145
+  %179 = or i32 %178, %173
+  store i32 %179, ptr %176, align 4
+  br label %180
 
-179:                                              ; preds = %170, %.thread12
-  %180 = getelementptr inbounds nuw i8, ptr %165, i64 80
-  tail call void @mutex_unlock(ptr noundef nonnull %180) #16
-  br label %181
+180:                                              ; preds = %171, %165
+  %181 = getelementptr inbounds nuw i8, ptr %166, i64 80
+  tail call void @mutex_unlock(ptr noundef nonnull %181) #16
+  br label %182
 
-181:                                              ; preds = %179, %162, %119
+182:                                              ; preds = %180, %162, %119
   tail call void @fsnotify_put_mark(ptr noundef nonnull %19) #16
   tail call void @_raw_spin_lock(ptr noundef nonnull @hash_lock) #16
   br label %6
 
-.loopexit:                                        ; preds = %6, %.preheader, %2
+.loopexit14:                                      ; preds = %6, %.preheader, %2
   tail call void @_raw_spin_unlock(ptr noundef nonnull @hash_lock) #16
   ret void
 }

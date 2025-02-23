@@ -7978,7 +7978,7 @@ _ZN18AnnotationIteratorC2EPK13InstanceKlassP5ArrayIhE.exit.i: ; preds = %_ZNK13I
   %.01419.i.i.i = phi i32 [ %24, %.lr.ph.i.i.i ], [ %16, %.lr.ph.preheader.i.i.i ]
   %22 = add nsw i32 %.020.i.i.i, -1
   %23 = add nsw i32 %.01419.i.i.i, 2
-  %24 = call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %.sroa.8.0.i, i32 noundef %.sroa.317.1.i, i32 noundef %23)
+  %24 = call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef nonnull %11, i32 noundef %.sroa.317.1.i, i32 noundef %23)
   %25 = icmp samesign ugt i32 %.020.i.i.i, 1
   %26 = icmp slt i32 %24, %.sroa.317.1.i
   %27 = and i1 %25, %26
@@ -8135,7 +8135,7 @@ define internal fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %
   %.036 = phi i32 [ %22, %.lr.ph37 ], [ %21, %.lr.ph37.preheader ]
   %.135 = phi i32 [ %23, %.lr.ph37 ], [ %14, %.lr.ph37.preheader ]
   %22 = add nsw i32 %.036, -1
-  %23 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %0, i32 noundef %1, i32 noundef %.135)
+  %23 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.135)
   %24 = icmp samesign ugt i32 %.036, 1
   %25 = icmp slt i32 %23, %1
   %26 = and i1 %25, %24
@@ -8164,7 +8164,7 @@ define internal fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %
   %.014.i33 = phi i32 [ %38, %.lr.ph ], [ %28, %.lr.ph.preheader ]
   %36 = add nsw i32 %.0.i34, -1
   %37 = add nsw i32 %.014.i33, 2
-  %38 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef %0, i32 noundef %1, i32 noundef %37)
+  %38 = tail call fastcc noundef i32 @_ZL21skip_annotation_valuePhii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %37)
   %39 = icmp samesign ugt i32 %.0.i34, 1
   %40 = icmp slt i32 %38, %1
   %41 = and i1 %40, %39

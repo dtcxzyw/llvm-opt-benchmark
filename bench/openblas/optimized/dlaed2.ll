@@ -257,16 +257,16 @@ define void @dlaed2_(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef 
   br i1 %.not441483.not, label %.lr.ph486.preheader, label %._crit_edge487
 
 .lr.ph486.preheader:                              ; preds = %._crit_edge482
-  %134 = sext i32 %47 to i64
-  %135 = add nsw i64 %134, 1
-  %136 = add i32 %133, 1
+  %134 = zext nneg i32 %47 to i64
+  %135 = add nuw nsw i64 %134, 1
+  %136 = add nuw i32 %133, 1
   br label %.lr.ph486
 
 .lr.ph486:                                        ; preds = %.lr.ph486.preheader, %.lr.ph486
   %indvars.iv597 = phi i64 [ %135, %.lr.ph486.preheader ], [ %indvars.iv.next598, %.lr.ph486 ]
-  %137 = getelementptr inbounds i32, ptr %37, i64 %indvars.iv597
+  %137 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv597
   store i32 3, ptr %137, align 4, !tbaa !3
-  %indvars.iv.next598 = add nsw i64 %indvars.iv597, 1
+  %indvars.iv.next598 = add nuw nsw i64 %indvars.iv597, 1
   %lftr.wideiv600 = trunc i64 %indvars.iv.next598 to i32
   %exitcond601.not = icmp eq i32 %136, %lftr.wideiv600
   br i1 %exitcond601.not, label %._crit_edge487, label %.lr.ph486, !llvm.loop !15

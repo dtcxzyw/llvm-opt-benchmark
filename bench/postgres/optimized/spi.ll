@@ -3895,7 +3895,7 @@ _SPI_convert_params.exit:                         ; preds = %5
   br label %36
 
 .loopexit:                                        ; preds = %.split.i, %.split.us.i
-  %35 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %12, i1 noundef zeroext %4)
+  %35 = tail call fastcc ptr @SPI_cursor_open_internal(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %12, i1 noundef zeroext %4)
   tail call void @pfree(ptr noundef nonnull %12) #15
   br label %36
 

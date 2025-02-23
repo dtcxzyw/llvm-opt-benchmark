@@ -27543,7 +27543,7 @@ _ZNK7oopDesc5klassEv.exit45:                      ; preds = %162, %172
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK7oopDesc5klassEv.exit45
   %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 1064), align 8
   %180 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %6, i1 noundef zeroext false) #15
-  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef %10, ptr noundef nonnull @.str, i32 noundef 2339, ptr noundef %179, ptr noundef %180) #15
+  call void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef nonnull %10, ptr noundef nonnull @.str, i32 noundef 2339, ptr noundef %179, ptr noundef %180) #15
   call void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129) %6) #15
   %181 = load ptr, ptr %116, align 8
   %.not.i.i.i.i46 = icmp eq ptr %181, null

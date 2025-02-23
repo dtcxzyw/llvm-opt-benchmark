@@ -6912,7 +6912,7 @@ define linkonce_odr noundef double @_ZNK11colvarvalue5dist2ERKS_(ptr noundef non
   %3 = alloca %"class.colvarmodule::vector1d", align 8
   %4 = tail call noundef i32 @_ZN11colvarvalue11check_typesERKS_S1_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %1)
   %5 = load i32, ptr %0, align 8
-  switch i32 %5, label %104 [
+  switch i32 %5, label %105 [
     i32 1, label %6
     i32 2, label %13
     i32 3, label %32
@@ -7041,27 +7041,27 @@ define linkonce_odr noundef double @_ZNK11colvarvalue5dist2ERKS_(ptr noundef non
   %102 = call double @llvm.fmuladd.f64(double %101, double %101, double %.067.i)
   %103 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %103, %umax.i
-  br i1 %exitcond.not.i, label %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit, label %.lr.ph.i, !llvm.loop !108
+  br i1 %exitcond.not.i, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread, label %.lr.ph.i, !llvm.loop !108
 
-_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit:      ; preds = %.lr.ph.i
+_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread:       ; preds = %.lr.ph.i
   store ptr %95, ptr %93, align 8
-  br label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread
+  br label %104
 
 _ZNSt6vectorIdSaIdEE5clearEv.exit.i:              ; preds = %90
   %.not.i.i.i.i = icmp eq ptr %94, null
-  br i1 %.not.i.i.i.i, label %_ZN12colvarmodule8vector1dIdED2Ev.exit, label %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread
+  br i1 %.not.i.i.i.i, label %_ZN12colvarmodule8vector1dIdED2Ev.exit, label %104
 
-_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread:       ; preds = %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i
-  %.06.lcssa.i1215 = phi double [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i ], [ %102, %_ZNK12colvarmodule8vector1dIdE5norm2Ev.exit ]
+104:                                              ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i
+  %.06.lcssa.i1215 = phi double [ %102, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i ]
   call void @_ZdlPv(ptr noundef nonnull %95) #24
   br label %_ZN12colvarmodule8vector1dIdED2Ev.exit
 
-104:                                              ; preds = %2
+105:                                              ; preds = %2
   tail call void @_ZNK11colvarvalue8undef_opEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
   br label %_ZN12colvarmodule8vector1dIdED2Ev.exit
 
-_ZN12colvarmodule8vector1dIdED2Ev.exit:           ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i, %104, %60, %32, %13, %6
-  %.0 = phi double [ 0.000000e+00, %104 ], [ %.0.i, %60 ], [ %59, %32 ], [ %31, %13 ], [ %12, %6 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i ], [ %.06.lcssa.i1215, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.thread ]
+_ZN12colvarmodule8vector1dIdED2Ev.exit:           ; preds = %104, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i, %105, %60, %32, %13, %6
+  %.0 = phi double [ 0.000000e+00, %105 ], [ %.0.i, %60 ], [ %59, %32 ], [ %31, %13 ], [ %12, %6 ], [ 0.000000e+00, %_ZNSt6vectorIdSaIdEE5clearEv.exit.i ], [ %.06.lcssa.i1215, %104 ]
   ret double %.0
 }
 

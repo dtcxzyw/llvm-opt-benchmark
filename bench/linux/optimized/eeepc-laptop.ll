@@ -1501,7 +1501,7 @@ define internal i64 @available_cpufv_show(ptr noundef readonly captures(none) %0
   %30 = sext i32 %29 to i64
   %31 = add i64 %26, %30
   %32 = add nuw nsw i32 %27, 1
-  %33 = icmp eq i32 %22, %32
+  %33 = icmp eq i32 %32, %22
   br i1 %33, label %34, label %.preheader, !llvm.loop !8
 
 34:                                               ; preds = %.preheader

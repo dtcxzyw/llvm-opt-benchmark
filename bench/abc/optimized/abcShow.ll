@@ -580,18 +580,18 @@ Abc_ShowGetFileName.exit:                         ; preds = %109, %.critedge
   tail call void @Cudd_Ref(ptr noundef %131) #10
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge2, label %128, !llvm.loop !50
+  br i1 %exitcond.not, label %.lr.ph102.preheader, label %128, !llvm.loop !50
 
-.critedge2:                                       ; preds = %128
-  %.val84 = load ptr, ptr %9, align 8, !tbaa !37
-  %133 = getelementptr i8, ptr %.val84, i64 4
-  %.val84.val = load i32, ptr %133, align 4, !tbaa !38
-  %134 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val, ptr noundef nonnull %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
+.lr.ph102.preheader:                              ; preds = %128
+  %.val84120 = load ptr, ptr %9, align 8, !tbaa !37
+  %133 = getelementptr i8, ptr %.val84120, i64 4
+  %.val84.val121 = load i32, ptr %133, align 4, !tbaa !38
+  %134 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val121, ptr noundef nonnull %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
   %wide.trip.count112 = zext nneg i32 %.val80 to i64
   br label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %.critedge2, %.lr.ph102
-  %indvars.iv109 = phi i64 [ 0, %.critedge2 ], [ %indvars.iv.next110, %.lr.ph102 ]
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next110, %.lr.ph102 ]
   %135 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv109
   %136 = load ptr, ptr %135, align 8, !tbaa !3
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %5, ptr noundef %136) #10
@@ -600,10 +600,10 @@ Abc_ShowGetFileName.exit:                         ; preds = %109, %.critedge
   br i1 %exitcond113.not, label %.critedge4.thread, label %.lr.ph102, !llvm.loop !51
 
 .critedge4:                                       ; preds = %123
-  %.val84120 = load ptr, ptr %9, align 8, !tbaa !37
-  %137 = getelementptr i8, ptr %.val84120, i64 4
-  %.val84.val121 = load i32, ptr %137, align 4, !tbaa !38
-  %138 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val121, ptr noundef %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
+  %.val84 = load ptr, ptr %9, align 8, !tbaa !37
+  %137 = getelementptr i8, ptr %.val84, i64 4
+  %.val84.val = load i32, ptr %137, align 4, !tbaa !38
+  %138 = tail call i32 @Cudd_DumpDot(ptr noundef nonnull %5, i32 noundef %.val84.val, ptr noundef %126, ptr noundef %118, ptr noundef %119, ptr noundef nonnull %112) #10
   %.not75 = icmp eq ptr %126, null
   br i1 %.not75, label %139, label %.critedge4.thread
 
@@ -629,7 +629,7 @@ Abc_ShowGetFileName.exit:                         ; preds = %109, %.critedge
 
 143:                                              ; preds = %141, %142
   %144 = tail call i32 @fclose(ptr noundef nonnull %112)
-  %145 = tail call ptr @Abc_NtkFreeGlobalBdds(ptr noundef %0, i32 noundef 0) #10
+  %145 = tail call ptr @Abc_NtkFreeGlobalBdds(ptr noundef nonnull %0, i32 noundef 0) #10
   %146 = icmp sgt i32 %.val80, 0
   %.pre = load ptr, ptr %19, align 8, !tbaa !35
   br i1 %146, label %.lr.ph104, label %.critedge6
@@ -658,7 +658,7 @@ Abc_ShowGetFileName.exit:                         ; preds = %109, %.critedge
 Vec_PtrFree.exit:                                 ; preds = %.critedge6, %.critedge6.thread
   tail call void @free(ptr noundef nonnull %11) #10
   tail call void @Extra_StopManager(ptr noundef nonnull %5) #10
-  tail call void @Abc_NtkCleanCopy(ptr noundef %0) #10
+  tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #10
   call void @Abc_ShowFile(ptr noundef nonnull %4, i32 noundef 0)
   br label %150
 

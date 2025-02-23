@@ -679,7 +679,7 @@ Vec_VecSizeSize.exit78:                           ; preds = %234
   br i1 %240, label %Vec_VecSizeSize.exit51.thread, label %241
 
 241:                                              ; preds = %Vec_VecSizeSize.exit78
-  br i1 %.not, label %.critedge, label %.lr.ph.i81
+  br i1 %.not, label %.lr.ph.i91.lr.ph, label %.lr.ph.i81
 
 .lr.ph.i81:                                       ; preds = %241, %.lr.ph.i81
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i86, %.lr.ph.i81 ], [ 0, %241 ]
@@ -691,9 +691,9 @@ Vec_VecSizeSize.exit78:                           ; preds = %234
   %246 = add nsw i32 %245, %.010.i85
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i73
-  br i1 %exitcond.not.i87, label %Vec_VecSizeSize.exit88, label %.lr.ph.i81, !llvm.loop !68
+  br i1 %exitcond.not.i87, label %.critedge, label %.lr.ph.i81, !llvm.loop !68
 
-Vec_VecSizeSize.exit88:                           ; preds = %.lr.ph.i81
+.critedge:                                        ; preds = %.lr.ph.i81
   %247 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %248 = load ptr, ptr %247, align 8, !tbaa !69
   %249 = getelementptr i8, ptr %248, i64 4
@@ -702,15 +702,12 @@ Vec_VecSizeSize.exit88:                           ; preds = %.lr.ph.i81
   %.pre = load ptr, ptr %177, align 8, !tbaa !60
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 4
   %.val.i89143.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !61
-  br label %.critedge
+  %251 = icmp sgt i32 %.val.i89143.pre, 0
+  br i1 %251, label %.lr.ph.i91.lr.ph, label %Vec_VecSizeSize.exit51.thread
 
-.critedge:                                        ; preds = %241, %Vec_VecSizeSize.exit88
-  %.val.i89143 = phi i32 [ %.val.i69, %241 ], [ %.val.i89143.pre, %Vec_VecSizeSize.exit88 ]
-  %251 = phi ptr [ %230, %241 ], [ %.pre, %Vec_VecSizeSize.exit88 ]
-  %252 = icmp sgt i32 %.val.i89143, 0
-  br i1 %252, label %.lr.ph.i91.lr.ph, label %Vec_VecSizeSize.exit51.thread
-
-.lr.ph.i91.lr.ph:                                 ; preds = %.critedge
+.lr.ph.i91.lr.ph:                                 ; preds = %241, %.critedge
+  %252 = phi ptr [ %.pre, %.critedge ], [ %230, %241 ]
+  %.val.i89143157 = phi i32 [ %.val.i89143.pre, %.critedge ], [ %.val.i69, %241 ]
   %253 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %254 = getelementptr inbounds nuw i8, ptr %16, i64 52
   %255 = getelementptr inbounds nuw i8, ptr %16, i64 112
@@ -730,8 +727,8 @@ Vec_VecSizeSize.exit88:                           ; preds = %.lr.ph.i81
   br label %.lr.ph.i91
 
 .lr.ph.i91:                                       ; preds = %.lr.ph.i91.lr.ph, %523
-  %.val6178.i = phi i32 [ %.val.i89143, %.lr.ph.i91.lr.ph ], [ %.val.i89, %523 ]
-  %269 = phi ptr [ %251, %.lr.ph.i91.lr.ph ], [ %524, %523 ]
+  %.val6178.i = phi i32 [ %.val.i89143157, %.lr.ph.i91.lr.ph ], [ %.val.i89, %523 ]
+  %269 = phi ptr [ %252, %.lr.ph.i91.lr.ph ], [ %524, %523 ]
   %270 = getelementptr i8, ptr %269, i64 8
   %.val8.i92 = load ptr, ptr %270, align 8, !tbaa !64
   %wide.trip.count.i93 = zext nneg i32 %.val6178.i to i64
@@ -1263,7 +1260,7 @@ Abc_Clock.exit127:                                ; preds = %Vec_VecSizeSize.exi
   store i64 %536, ptr %537, align 8, !tbaa !91
   %538 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %539 = load ptr, ptr %538, align 8, !tbaa !56
-  call void @Sim_ManStop(ptr noundef %16) #12
+  call void @Sim_ManStop(ptr noundef nonnull %16) #12
   ret ptr %539
 }
 

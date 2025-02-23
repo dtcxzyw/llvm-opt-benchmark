@@ -99,8 +99,8 @@ define void @dlapmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %40, %.lr.ph120
   %43 = sub nsw i32 0, %32
   store i32 %43, ptr %33, align 4, !tbaa !3
-  %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %10, i64 %44
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds nuw i32, ptr %10, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !3
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.loopexit112, label %.lr.ph120

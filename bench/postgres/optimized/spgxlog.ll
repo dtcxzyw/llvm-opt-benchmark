@@ -384,7 +384,7 @@ BufferGetPage.exit.i14:                           ; preds = %191, %185
   br label %212
 
 212:                                              ; preds = %211, %209
-  %213 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 0, ptr noundef nonnull %19) #6
+  %213 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 0, ptr noundef nonnull %19) #6
   %214 = icmp eq i32 %213, 0
   br i1 %214, label %215, label %243
 
@@ -440,7 +440,7 @@ BufferGetPage.exit52.i:                           ; preds = %224, %218
   br label %246
 
 246:                                              ; preds = %245, %243
-  %247 = call i32 @XLogReadBufferForRedo(ptr noundef %0, i8 noundef zeroext 2, ptr noundef nonnull %19) #6
+  %247 = call i32 @XLogReadBufferForRedo(ptr noundef nonnull %0, i8 noundef zeroext 2, ptr noundef nonnull %19) #6
   %248 = icmp eq i32 %247, 0
   br i1 %248, label %249, label %285
 
@@ -1932,7 +1932,7 @@ BufferGetPage.exit.i58:                           ; preds = %1045, %1039
   %1106 = trunc i32 %1104 to i16
   %1107 = sub i16 %1105, %1106
   store i16 %1107, ptr %1078, align 2
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i.i59, ptr noundef %1093, i32 noundef %1104) #6
+  call void @PageIndexMultiDelete(ptr noundef nonnull %.0.i.i.i59, ptr noundef %1093, i32 noundef %1104) #6
   call void @pfree(ptr noundef %1093) #6
   br label %1108
 

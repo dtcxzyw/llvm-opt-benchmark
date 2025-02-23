@@ -662,7 +662,7 @@ define dso_local i32 @netlbl_catmap_walk(ptr noundef readonly %0, i32 noundef %1
 .loopexit:                                        ; preds = %.preheader, %.loopexit8
   %46 = phi i32 [ %36, %.loopexit8 ], [ %43, %.preheader ]
   %47 = load i32, ptr %34, align 8
-  %48 = shl i32 %35, 6
+  %48 = shl nuw i32 %35, 6
   %49 = add i32 %46, %48
   %50 = add i32 %49, %47
   br label %.thread
@@ -837,7 +837,7 @@ define dso_local i32 @netlbl_catmap_walkrng(ptr noundef readonly %0, i32 noundef
   %77 = phi i32 [ %.us-phi36, %.thread6 ], [ %75, %.thread7.loopexit ], [ %76, %.thread7.loopexit46 ]
   %78 = phi i32 [ %.us-phi37, %.thread6 ], [ %61, %.thread7.loopexit ], [ %47, %.thread7.loopexit46 ]
   %79 = load i32, ptr %30, align 8
-  %80 = shl i32 %77, 6
+  %80 = shl nuw i32 %77, 6
   %81 = add i32 %80, -1
   %82 = add i32 %81, %78
   %83 = add i32 %82, %79

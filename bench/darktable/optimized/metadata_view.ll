@@ -2636,7 +2636,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
   br label %77
 
 77:                                               ; preds = %_display_default.exit, %_lib_metadata_setup_grid.exit
-  tail call fastcc void @_apply_preferences(ptr noundef nonnull %64, ptr noundef %0)
+  tail call fastcc void @_apply_preferences(ptr noundef nonnull %64, ptr noundef nonnull %0)
   %78 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %79 = and i32 %78, 2
   %80 = icmp ne i32 %79, 0
@@ -2657,7 +2657,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 87:                                               ; preds = %83, %86, %77
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %88, i32 noundef 0, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
+  tail call void @dt_control_signal_connect(ptr noundef %88, i32 noundef 0, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %89 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %90 = and i32 %89, 2
   %91 = icmp ne i32 %90, 0
@@ -2678,7 +2678,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 98:                                               ; preds = %94, %97, %87
   %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %99, i32 noundef 8, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
+  tail call void @dt_control_signal_connect(ptr noundef %99, i32 noundef 8, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %101 = and i32 %100, 2
   %102 = icmp ne i32 %101, 0
@@ -2699,7 +2699,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 109:                                              ; preds = %105, %108, %98
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %110, i32 noundef 29, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
+  tail call void @dt_control_signal_connect(ptr noundef %110, i32 noundef 29, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %111 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %112 = and i32 %111, 2
   %113 = icmp ne i32 %112, 0
@@ -2720,7 +2720,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 120:                                              ; preds = %116, %119, %109
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %121, i32 noundef 19, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
+  tail call void @dt_control_signal_connect(ptr noundef %121, i32 noundef 19, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %122 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %123 = and i32 %122, 2
   %124 = icmp ne i32 %123, 0
@@ -2741,7 +2741,7 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 131:                                              ; preds = %127, %130, %120
   %132 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %132, i32 noundef 9, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
+  tail call void @dt_control_signal_connect(ptr noundef %132, i32 noundef 9, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
   %133 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !155
   %134 = and i32 %133, 2
   %135 = icmp ne i32 %134, 0
@@ -2762,8 +2762,8 @@ _display_default.exit:                            ; preds = %65, %._crit_edge.lo
 
 142:                                              ; preds = %138, %141, %131
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !156
-  tail call void @dt_control_signal_connect(ptr noundef %143, i32 noundef 43, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef %0) #13
-  %144 = tail call ptr @dt_action_register(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef nonnull @_jump_to_accel, i32 noundef 106, i32 noundef 4) #13
+  tail call void @dt_control_signal_connect(ptr noundef %143, i32 noundef 43, ptr noundef nonnull @_mouse_over_image_callback, ptr noundef nonnull %0) #13
+  %144 = tail call ptr @dt_action_register(ptr noundef nonnull %0, ptr noundef nonnull @.str.59, ptr noundef nonnull @_jump_to_accel, i32 noundef 106, i32 noundef 4) #13
   ret void
 }
 

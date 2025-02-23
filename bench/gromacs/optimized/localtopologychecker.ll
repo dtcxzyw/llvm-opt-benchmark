@@ -578,7 +578,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit: ; preds = %_ZN3gmx14LogEn
 
 51:                                               ; preds = %36
   %52 = sub nsw i32 %2, %3
-  call void @_Z8gmx_sumimPiPK9t_commrec(i64 noundef 94, ptr noundef nonnull %15, ptr noundef %1)
+  call void @_Z8gmx_sumimPiPK9t_commrec(i64 noundef 94, ptr noundef nonnull %15, ptr noundef nonnull %1)
   %53 = getelementptr i8, ptr %23, i64 28
   %.val = load i32, ptr %53, align 4
   %54 = getelementptr i8, ptr %23, i64 44
@@ -1406,7 +1406,7 @@ _ZN3gmxL23flagInteractionsForTypeEiRK15InteractionListRK15reverse_ilist_tRKNS_5R
   %451 = ptrtoint ptr %.sroa.083.0.i.i to i64
   %452 = sub i64 %.0.i.i.i.i.i.i.i.i.i, %451
   %453 = ashr exact i64 %452, 2
-  invoke void @_Z8gmx_sumimPiPK9t_commrec(i64 noundef %453, ptr noundef %.sroa.083.0.i.i, ptr noundef %1)
+  invoke void @_Z8gmx_sumimPiPK9t_commrec(i64 noundef %453, ptr noundef %.sroa.083.0.i.i, ptr noundef nonnull %1)
           to label %.preheader109.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !11
 
 .preheader109.i.i:                                ; preds = %450
@@ -1666,7 +1666,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit.i: ; preds = %_ZN3gmx14Log
 _ZN3gmxL29printMissingInteractionsAtomsERKNS_8MDLoggerEPK9t_commrecRK10gmx_mtop_tRK22InteractionDefinitions.exit: ; preds = %534, %116
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  call void @_Z12write_dd_pdbPKclS0_RK10gmx_mtop_tPK9t_commreciPA3_KfS9_(ptr noundef nonnull @.str.4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef %1, i32 noundef -1, ptr noundef %.0.val, ptr noundef %6)
+  call void @_Z12write_dd_pdbPKclS0_RK10gmx_mtop_tPK9t_commreciPA3_KfS9_(ptr noundef nonnull @.str.4, i64 noundef 0, ptr noundef nonnull @.str.5, ptr noundef nonnull align 8 dereferenceable(768) %4, ptr noundef nonnull %1, i32 noundef -1, ptr noundef %.0.val, ptr noundef %6)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   %536 = icmp sgt i32 %52, 0
   br i1 %536, label %537, label %541

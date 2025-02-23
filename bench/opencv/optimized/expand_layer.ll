@@ -1808,14 +1808,14 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   store i32 1, ptr %.06.i.i.i.i.i.i.i.i.i, align 4
   %75 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 4
   %.not.i.i.i.i.i.i.i.i.i40 = icmp eq ptr %75, %73
-  br i1 %.not.i.i.i.i.i.i.i.i.i40, label %.loopexit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i.i.i.i.i40, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !14
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   store ptr %73, ptr %72, align 8
   %76 = lshr exact i64 %67, 2
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.loopexit
+.lr.ph.split.us:                                  ; preds = %.lr.ph
   %77 = ashr exact i64 %60, 2
   %umax = tail call i64 @llvm.umax.i64(i64 %77, i64 1)
   %.sroa.speculate.load.false81.us.pre = load ptr, ptr %22, align 8
@@ -1867,7 +1867,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIi
   %exitcond.not = icmp eq i64 %indvars.iv.next136, %umax
   br i1 %exitcond.not, label %._crit_edge, label %78, !llvm.loop !19
 
-.lr.ph.split:                                     ; preds = %.loopexit
+.lr.ph.split:                                     ; preds = %.lr.ph
   %97 = lshr exact i64 %60, 2
   %.sroa.speculate.load.false81.pre = load ptr, ptr %22, align 8
   %.sroa.speculate.load.false110.pre = load ptr, ptr %20, align 8

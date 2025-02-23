@@ -2522,7 +2522,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %25 = load i16, ptr %24, align 2, !tbaa !33
   %26 = zext i16 %25 to i32
   %.385 = tail call i32 @llvm.umax.i32(i32 %spec.select, i32 %26)
-  %27 = icmp ugt i32 %.077, %.385
+  %27 = icmp samesign ugt i32 %.077, %.385
   br i1 %27, label %.lr.ph, label %.thread105
 
 .lr.ph:                                           ; preds = %19, %61
@@ -2603,7 +2603,7 @@ define hidden i32 @lj_opt_fwd_xload(ptr noundef %0) local_unnamed_addr #2 {
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 542
   %.380.in124 = load i16, ptr %67, align 2, !tbaa !4
   %.380125 = zext i16 %.380.in124 to i32
-  %68 = icmp ult i32 %.082, %.380125
+  %68 = icmp samesign ult i32 %.082, %.380125
   br i1 %68, label %.lr.ph128, label %._crit_edge
 
 .lr.ph128:                                        ; preds = %.thread105

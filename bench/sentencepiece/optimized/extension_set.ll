@@ -18189,7 +18189,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1164: ; 
   %1265 = load ptr, ptr %1251, align 8
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 96
   %1267 = load ptr, ptr %1266, align 8
-  %1268 = tail call noundef ptr %1267(ptr noundef nonnull align 8 dereferenceable(16) %1251, ptr noundef nonnull %.0.i1163, ptr noundef %3)
+  %1268 = tail call noundef ptr %1267(ptr noundef nonnull align 8 dereferenceable(16) %1251, ptr noundef nonnull %.0.i1163, ptr noundef nonnull %3)
   %1269 = load ptr, ptr %3, align 8
   %.not.i1165 = icmp ult ptr %1268, %1269
   br i1 %.not.i1165, label %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit1167, label %1270
@@ -18352,7 +18352,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit1182: ; 
   %1341 = load ptr, ptr %1300, align 8
   %1342 = getelementptr inbounds nuw i8, ptr %1341, i64 96
   %1343 = load ptr, ptr %1342, align 8
-  %1344 = tail call noundef ptr %1343(ptr noundef nonnull align 8 dereferenceable(16) %1300, ptr noundef nonnull %.0.i1181, ptr noundef %3)
+  %1344 = tail call noundef ptr %1343(ptr noundef nonnull align 8 dereferenceable(16) %1300, ptr noundef nonnull %.0.i1181, ptr noundef nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1345 = load ptr, ptr %0, align 8
   %1346 = getelementptr inbounds nuw i8, ptr %1345, i64 8

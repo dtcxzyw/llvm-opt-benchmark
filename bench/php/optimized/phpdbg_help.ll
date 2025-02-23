@@ -788,14 +788,11 @@ get_help.exit28:                                  ; preds = %55, %52
 
 60:                                               ; preds = %58
   %61 = icmp ugt i64 %19, 1
-  br i1 %61, label %.preheader77, label %86
+  br i1 %61, label %.lr.ph, label %86
 
-.preheader77:                                     ; preds = %60
-  br i1 %.not3440.i, label %.preheader.preheader, label %.lr.ph
-
-.lr.ph:                                           ; preds = %.preheader77, %75
-  %62 = phi ptr [ %77, %75 ], [ %21, %.preheader77 ]
-  %storemerge85 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %.preheader77 ]
+.lr.ph:                                           ; preds = %60, %75
+  %62 = phi ptr [ %77, %75 ], [ %21, %60 ]
+  %storemerge85 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %60 ]
   %63 = load ptr, ptr %16, align 8, !tbaa !59
   %64 = load i64, ptr %18, align 8, !tbaa !60
   %65 = call i32 @strncmp(ptr noundef nonnull %62, ptr noundef %63, i64 noundef %64) #7
@@ -821,14 +818,11 @@ get_help.exit28:                                  ; preds = %55, %52
   %76 = getelementptr inbounds nuw i8, ptr %storemerge85, i64 80
   %77 = load ptr, ptr %76, align 8, !tbaa !9
   %.not21 = icmp eq ptr %77, null
-  br i1 %.not21, label %.preheader.preheader, label %.lr.ph
+  br i1 %.not21, label %.preheader, label %.lr.ph
 
-.preheader.preheader:                             ; preds = %75, %.preheader77
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %83
-  %78 = phi ptr [ %85, %83 ], [ @.str.11, %.preheader.preheader ]
-  %.010.i29 = phi ptr [ %84, %83 ], [ @phpdbg_help_text, %.preheader.preheader ]
+.preheader:                                       ; preds = %75, %83
+  %78 = phi ptr [ %85, %83 ], [ @.str.11, %75 ]
+  %.010.i29 = phi ptr [ %84, %83 ], [ @phpdbg_help_text, %75 ]
   %79 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %78, ptr noundef nonnull dereferenceable(11) @.str.14) #7
   %.not8.i30 = icmp eq i32 %79, 0
   br i1 %.not8.i30, label %80, label %83

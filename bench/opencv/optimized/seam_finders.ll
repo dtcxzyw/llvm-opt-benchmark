@@ -10367,7 +10367,7 @@ _ZNSt3mapIiiSt4lessIiESaISt4pairIKiiEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
   %562 = sext i32 %.pre390 to i64
   %563 = getelementptr inbounds i32, ptr %.sroa.0278.0, i64 %562
   store i32 %.0189, ptr %563, align 4
-  %564 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0273.0347) #31
+  %564 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0273.0347) #31
   %.not = icmp eq ptr %564, %318
   br i1 %.not, label %.preheader297, label %540, !llvm.loop !169
 
@@ -10592,8 +10592,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .preheader133.lr.ph:                              ; preds = %.lr.ph
   %19 = mul nsw i32 %2, %2
-  %smax155 = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
-  %wide.trip.count161 = zext nneg i32 %smax155 to i64
+  %wide.trip.count161 = and i64 %12, 2147483647
   br label %.preheader133.us
 
 .preheader133.us:                                 ; preds = %._crit_edge.us, %.preheader133.lr.ph
@@ -16551,17 +16550,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 .lr.ph:                                           ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = icmp eq i64 %2, 0
-  br i1 %14, label %.split.i.i, label %.lr.ph39
+  br label %14
 
-15:                                               ; preds = %.lr.ph39
-  %16 = icmp eq i64 %34, 0
-  br i1 %16, label %.split.i.i, label %.lr.ph39, !llvm.loop !227
+14:                                               ; preds = %.lr.ph, %32
+  %15 = phi i64 [ %11, %.lr.ph ], [ %40, %32 ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %33, %32 ]
+  %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %37, %32 ]
+  %16 = icmp eq i64 %.022, 0
+  br i1 %16, label %.split.i.i, label %32
 
-.split.i.i:                                       ; preds = %15, %.lr.ph
-  %.lcssa35 = phi i64 [ %11, %.lr.ph ], [ %41, %15 ]
-  %.lcssa = phi i64 [ %10, %.lr.ph ], [ %40, %15 ]
-  %storemerge23.lcssa = phi ptr [ %1, %.lr.ph ], [ %38, %15 ]
+.split.i.i:                                       ; preds = %14
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr %3, ptr %7, align 8
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -16570,7 +16568,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   store ptr %3, ptr %6, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %4, ptr %18, align 8
-  %19 = add nsw i64 %.lcssa35, -2
+  %19 = add nsw i64 %15, -2
   %20 = lshr i64 %19, 1
   br label %.split10.i.i
 
@@ -16580,59 +16578,52 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.sroa.02.0.copyload.i.i = load i64, ptr %phi.call.i.i, align 8
   %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i, i64 8
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %.lcssa35, i64 %.sroa.02.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %6)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_SH_T1_T2_(ptr %0, i64 noundef %.0.i.i, i64 noundef %15, i64 %.sroa.02.0.copyload.i.i, i64 %.sroa.23.0.copyload.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %6)
   %21 = icmp eq i64 %.0.i.i, 0
   %22 = add nsw i64 %.0.i.i, -1
-  br i1 %21, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit, label %.split10.i.i, !llvm.loop !228
+  br i1 %21, label %.lr.ph.i.i, label %.split10.i.i, !llvm.loop !227
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit: ; preds = %.split10.i.i
+.lr.ph.i.i:                                       ; preds = %.split10.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %23 = icmp sgt i64 %.lcssa, 16
-  br i1 %23, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %24
 
-.lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %25
-
-25:                                               ; preds = %25, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %storemerge23.lcssa, %.lr.ph.i.i ], [ %26, %25 ]
-  %26 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i.i = load i64, ptr %26, align 8
+24:                                               ; preds = %24, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %storemerge21, %.lr.ph.i.i ], [ %25, %24 ]
+  %25 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i.i = load i64, ptr %25, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
-  %27 = load i64, ptr %0, align 8
-  store i64 %27, ptr %26, align 8
-  %28 = load i64, ptr %24, align 8
-  store i64 %28, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
-  %29 = ptrtoint ptr %26 to i64
-  %30 = sub i64 %29, %8
-  %31 = ashr exact i64 %30, 4
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %31, i64 %.sroa.02.0.copyload.i.i.i, i64 %.sroa.23.0.copyload.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7)
-  %32 = icmp sgt i64 %30, 16
-  br i1 %32, label %25, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit, !llvm.loop !229
+  %26 = load i64, ptr %0, align 8
+  store i64 %26, ptr %25, align 8
+  %27 = load i64, ptr %23, align 8
+  store i64 %27, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
+  %28 = ptrtoint ptr %25 to i64
+  %29 = sub i64 %28, %8
+  %30 = ashr exact i64 %29, 4
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_T0_SH_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %30, i64 %.sroa.02.0.copyload.i.i.i, i64 %.sroa.23.0.copyload.i.i.i, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %7)
+  %31 = icmp sgt i64 %29, 16
+  br i1 %31, label %24, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit, !llvm.loop !228
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit: ; preds = %25, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit: ; preds = %24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   br label %.loopexit
 
-.lr.ph39:                                         ; preds = %.lr.ph, %15
-  %storemerge2338 = phi ptr [ %38, %15 ], [ %1, %.lr.ph ]
-  %.02437 = phi i64 [ %34, %15 ], [ %2, %.lr.ph ]
-  %33 = phi i64 [ %41, %15 ], [ %11, %.lr.ph ]
-  %34 = add nsw i64 %.02437, -1
-  %35 = lshr i64 %33, 1
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %35
-  %37 = getelementptr inbounds i8, ptr %storemerge2338, i64 -16
-  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %13, ptr %36, ptr nonnull %37, ptr %3, ptr %4)
-  %38 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEET_SG_SG_SG_T0_(ptr nonnull %13, ptr %storemerge2338, ptr %0, ptr %3, ptr %4)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_T0_T1_(ptr %38, ptr %storemerge2338, i64 noundef %34, ptr %3, ptr %4)
-  %39 = ptrtoint ptr %38 to i64
-  %40 = sub i64 %39, %8
-  %41 = ashr exact i64 %40, 4
-  %42 = icmp sgt i64 %41, 16
-  br i1 %42, label %15, label %.loopexit, !llvm.loop !227
+32:                                               ; preds = %14
+  %33 = add nsw i64 %.022, -1
+  %34 = lshr i64 %15, 1
+  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %34
+  %36 = getelementptr inbounds i8, ptr %storemerge21, i64 -16
+  tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_SG_T0_(ptr %0, ptr nonnull %13, ptr %35, ptr nonnull %36, ptr %3, ptr %4)
+  %37 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEET_SG_SG_SG_T0_(ptr nonnull %13, ptr %storemerge21, ptr %0, ptr %3, ptr %4)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_T0_T1_(ptr %37, ptr %storemerge21, i64 noundef %33, ptr %3, ptr %4)
+  %38 = ptrtoint ptr %37 to i64
+  %39 = sub i64 %38, %8
+  %40 = ashr exact i64 %39, 4
+  %41 = icmp sgt i64 %40, 16
+  br i1 %41, label %14, label %.loopexit, !llvm.loop !229
 
-.loopexit:                                        ; preds = %.lr.ph39, %5, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit
+.loopexit:                                        ; preds = %32, %5, %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN2cv6detail12DpSeamFinder13ImagePairLessEEEEvT_SG_SG_T0_.exit
   ret void
 }
 

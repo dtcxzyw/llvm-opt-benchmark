@@ -4606,7 +4606,7 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   call void @qdisc_put(ptr noundef %134) #19
   %135 = add nuw nsw i64 %131, 1
   %136 = icmp eq i64 %135, %130
-  br i1 %136, label %.thread33, label %.split.us, !llvm.loop !65
+  br i1 %136, label %161, label %.split.us, !llvm.loop !65
 
 .split:                                           ; preds = %126, %154
   %137 = phi i64 [ %155, %154 ], [ 0, %126 ]
@@ -4653,22 +4653,22 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   br label %201
 
 .loopexit:                                        ; preds = %154, %113
-  br i1 %52, label %161, label %201
+  br i1 %52, label %.thread33, label %201
 
-.thread33:                                        ; preds = %.split.us
+.thread33:                                        ; preds = %.loopexit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %10, align 8
-  br label %196
-
-161:                                              ; preds = %.loopexit
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1064
-  %163 = load ptr, ptr %162, align 8
   br label %164
 
-164:                                              ; preds = %161, %.thread23
-  %165 = phi ptr [ %125, %.thread23 ], [ %163, %161 ]
-  %166 = phi ptr [ %124, %.thread23 ], [ %162, %161 ]
+161:                                              ; preds = %.split.us
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 1064
+  %163 = load ptr, ptr %162, align 8
+  store ptr %163, ptr %10, align 8
+  br label %196
+
+164:                                              ; preds = %.thread33, %.thread23
+  %165 = phi ptr [ %125, %.thread23 ], [ %160, %.thread33 ]
+  %166 = phi ptr [ %124, %.thread23 ], [ %159, %.thread33 ]
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %168 = load ptr, ptr %167, align 8
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 96
@@ -4722,9 +4722,9 @@ define internal fastcc i32 @qdisc_graft(ptr noundef nonnull %0, ptr noundef %1, 
   call void %193(ptr noundef nonnull %5) #19
   br label %201
 
-196:                                              ; preds = %.thread33, %.thread23
-  %197 = phi ptr [ %125, %.thread23 ], [ %160, %.thread33 ]
-  %198 = phi ptr [ %124, %.thread23 ], [ %159, %.thread33 ]
+196:                                              ; preds = %161, %.thread23
+  %197 = phi ptr [ %125, %.thread23 ], [ %163, %161 ]
+  %198 = phi ptr [ %124, %.thread23 ], [ %162, %161 ]
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !66
   store volatile ptr @noop_qdisc, ptr %198, align 8
   %199 = icmp eq ptr %197, null

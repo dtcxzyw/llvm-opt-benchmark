@@ -244,7 +244,7 @@ define ptr @Llb_ManComputeQuant(ptr noundef readonly captures(none) %0) local_un
   br i1 %exitcond.not, label %.preheader, label %.preheader29.us, !llvm.loop !42
 
 .preheader:                                       ; preds = %.preheader29.us
-  %10 = icmp sgt i32 %5, 2
+  %10 = icmp samesign ugt i32 %5, 2
   br i1 %10, label %.lr.ph34, label %._crit_edge
 
 .lr.ph34:                                         ; preds = %.preheader
@@ -596,7 +596,7 @@ define ptr @Llb_ManComputeAttr(ptr noundef readonly captures(none) %0) local_unn
   br i1 %exitcond.not, label %.preheader, label %.preheader29.us, !llvm.loop !48
 
 .preheader:                                       ; preds = %.preheader29.us
-  %10 = icmp sgt i32 %5, 2
+  %10 = icmp samesign ugt i32 %5, 2
   br i1 %10, label %.lr.ph34, label %._crit_edge
 
 .lr.ph34:                                         ; preds = %.preheader

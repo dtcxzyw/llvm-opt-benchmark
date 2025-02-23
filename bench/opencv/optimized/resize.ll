@@ -18840,8 +18840,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, %wide.trip.count.i
   br i1 %exitcond.not.i200, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i197, !llvm.loop !322
 
-_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %177, %199
-  %.1184 = phi i32 [ %.0183235, %199 ], [ %60, %177 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
+_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %199, %177
+  %.1184 = phi i32 [ %60, %177 ], [ %.0183235, %199 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
   %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
   br i1 %exitcond276.not, label %._crit_edge238.loopexit, label %54, !llvm.loop !323
@@ -19255,8 +19255,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, %wide.trip.count.i
   br i1 %exitcond.not.i200, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i197, !llvm.loop !322
 
-_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %177, %199
-  %.1184 = phi i32 [ %.0183235, %199 ], [ %60, %177 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
+_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %199, %177
+  %.1184 = phi i32 [ %60, %177 ], [ %.0183235, %199 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
   %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
   br i1 %exitcond276.not, label %._crit_edge238.loopexit, label %54, !llvm.loop !331
@@ -19670,8 +19670,8 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %19
   %exitcond.not.i200 = icmp eq i64 %indvars.iv.next.i199, %wide.trip.count.i
   br i1 %exitcond.not.i200, label %_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit, label %.lr.ph.i197, !llvm.loop !322
 
-_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %177, %199
-  %.1184 = phi i32 [ %.0183235, %199 ], [ %60, %177 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
+_ZN2cv10inter_area3mulIfEEvPKT_iS2_PS2_.exit:     ; preds = %.lr.ph.i190, %.lr.ph.i197, %199, %177
+  %.1184 = phi i32 [ %60, %177 ], [ %.0183235, %199 ], [ %.0183235, %.lr.ph.i197 ], [ %60, %.lr.ph.i190 ]
   %indvars.iv.next273 = add nsw i64 %indvars.iv272, 1
   %exitcond276.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count275
   br i1 %exitcond276.not, label %._crit_edge238.loopexit, label %54, !llvm.loop !339
@@ -20509,7 +20509,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
 
 .lr.ph59.preheader:                               ; preds = %.preheader
   %14 = zext nneg i32 %.042.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph59
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
@@ -20775,7 +20775,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
 
 .lr.ph94.preheader:                               ; preds = %.preheader
   %18 = zext nneg i32 %.071.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph94
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
@@ -21074,7 +21074,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
 
 .lr.ph131.preheader:                              ; preds = %.preheader
   %22 = zext nneg i32 %.0102.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph131
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
@@ -21404,7 +21404,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIhNS_13ufixedpoint16ELi2EL
 
 .lr.ph164.preheader:                              ; preds = %.preheader
   %26 = zext nneg i32 %.0129.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph164
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
@@ -22603,7 +22603,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
 
 .lr.ph62.preheader.i:                             ; preds = %.preheader.i
   %14 = zext nneg i32 %.045.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph62.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -22713,7 +22713,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
 
 .lr.ph100.preheader.i:                            ; preds = %.preheader.i
   %18 = zext nneg i32 %.077.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph100.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -22865,7 +22865,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
 
 .lr.ph138.preheader.i:                            ; preds = %.preheader.i
   %22 = zext nneg i32 %.0109.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph138.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -23057,7 +23057,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIaNS_12fixedpoint32ELi2ELb
 
 .lr.ph176.preheader.i:                            ; preds = %.preheader.i
   %26 = zext nneg i32 %.0141.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph176.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -24132,7 +24132,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
 
 .lr.ph59.preheader:                               ; preds = %.preheader
   %14 = zext nneg i32 %.042.lcssa to i64
-  %wide.trip.count = zext i32 %6 to i64
+  %wide.trip.count = zext nneg i32 %6 to i64
   br label %.lr.ph59
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
@@ -24398,7 +24398,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
 
 .lr.ph95.preheader.i:                             ; preds = %.preheader.i
   %18 = zext nneg i32 %.071.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph95.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -24697,7 +24697,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
 
 .lr.ph131.preheader.i:                            ; preds = %.preheader.i
   %22 = zext nneg i32 %.0100.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph131.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -25027,7 +25027,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnItNS_13ufixedpoint32ELi2EL
 
 .lr.ph167.preheader.i:                            ; preds = %.preheader.i
   %26 = zext nneg i32 %.0129.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph167.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -26206,7 +26206,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
 
 .lr.ph62.preheader.i:                             ; preds = %.preheader.i
   %14 = zext nneg i32 %.045.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph62.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -26316,7 +26316,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
 
 .lr.ph100.preheader.i:                            ; preds = %.preheader.i
   %18 = zext nneg i32 %.077.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph100.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -26468,7 +26468,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
 
 .lr.ph138.preheader.i:                            ; preds = %.preheader.i
   %22 = zext nneg i32 %.0109.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph138.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -26660,7 +26660,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIsNS_12fixedpoint32ELi2ELb
 
 .lr.ph176.preheader.i:                            ; preds = %.preheader.i
   %26 = zext nneg i32 %.0141.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph176.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -27731,7 +27731,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
 
 .lr.ph158.preheader.i:                            ; preds = %.preheader.i
   %14 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph158.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -27915,7 +27915,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
 
 .lr.ph297.preheader.i:                            ; preds = %.preheader.i
   %18 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph297.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -28215,7 +28215,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
 
 .lr.ph436.preheader.i:                            ; preds = %.preheader.i
   %22 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph436.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
@@ -28629,7 +28629,7 @@ define internal void @_ZN12_GLOBAL__N_113hlineResizeCnIiNS_12fixedpoint64ELi2ELb
 
 .lr.ph575.preheader.i:                            ; preds = %.preheader.i
   %26 = zext nneg i32 %.0.lcssa.i to i64
-  %wide.trip.count.i = zext i32 %6 to i64
+  %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph575.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i

@@ -5236,7 +5236,7 @@ dissect_dns_query.exit.i:                         ; preds = %372, %366, %324
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   %375 = add i32 %309, %.021.i
-  %376 = icmp sgt i32 %.01920.i, 1
+  %376 = icmp samesign ugt i32 %.01920.i, 1
   br i1 %376, label %302, label %dissect_query_records.exit, !llvm.loop !17
 
 dissect_query_records.exit:                       ; preds = %dissect_dns_query.exit.i

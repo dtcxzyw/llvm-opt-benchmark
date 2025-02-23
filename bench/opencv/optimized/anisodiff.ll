@@ -343,7 +343,6 @@ _ZNK2cv11_InputArray6getMatEi.exit93:             ; preds = %108, %111
   %131 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %132 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %133 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %smax = call i32 @llvm.smax.i32(i32 %4, i32 1)
   br label %134
 
 134:                                              ; preds = %.lr.ph, %152
@@ -423,7 +422,7 @@ _ZNK2cv11_InputArray6getMatEi.exit93:             ; preds = %108, %111
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %24) #16
   %153 = add nuw nsw i32 %.0102, 1
-  %exitcond104.not = icmp eq i32 %153, %smax
+  %exitcond104.not = icmp eq i32 %153, %4
   br i1 %exitcond104.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %134, !llvm.loop !12
 
 154:                                              ; preds = %111, %108, %_ZNK2cv11_InputArray6getMatEi.exit

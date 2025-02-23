@@ -2721,7 +2721,7 @@ get_local_events.exit:                            ; preds = %50
   br i1 %exitcond.not.i30, label %set_local_events.exit, label %62, !llvm.loop !88
 
 set_local_events.exit:                            ; preds = %62
-  %72 = tail call fastcc i32 @force_instrument_lock_held(ptr noundef %0, ptr noundef %7)
+  %72 = tail call fastcc i32 @force_instrument_lock_held(ptr noundef nonnull %0, ptr noundef nonnull %7)
   br label %73
 
 73:                                               ; preds = %allocate_instrumentation_data.exit, %get_local_events.exit, %set_local_events.exit
@@ -3510,7 +3510,7 @@ set_line_delta.exit118.i.i:                       ; preds = %.lr.ph.i114.i.i, %.
   %.val112.i.i = load i64, ptr %421, align 8, !tbaa !84
   %422 = getelementptr i8, ptr %420, i64 %.val112.i.i
   %423 = icmp ult ptr %420, %422
-  br i1 %423, label %.lr.ph247.i.i, label %.loopexit127.i
+  br i1 %423, label %.lr.ph247.i.i, label %.sink.split.i
 
 .lr.ph247.i.i:                                    ; preds = %._crit_edge244.i.i
   %424 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -4135,16 +4135,16 @@ get_line_delta.exit216.i.i:                       ; preds = %.lr.ph.i211.i.i, %_
 
 764:                                              ; preds = %761, %get_line_delta.exit216.i.i
   %765 = icmp ult ptr %696, %422
-  br i1 %765, label %664, label %.loopexit127.i, !llvm.loop !103
+  br i1 %765, label %664, label %.sink.split.i, !llvm.loop !103
 
-.loopexit127.i:                                   ; preds = %764, %._crit_edge244.i.i
+.sink.split.i:                                    ; preds = %764, %._crit_edge244.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #11
   %.pre361.pre367.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %766
 
-766:                                              ; preds = %.loopexit127.i, %156
-  %.pre361.pre367 = phi ptr [ %.pre361.pre367.pre, %.loopexit127.i ], [ %.pre361.pre368, %156 ]
+766:                                              ; preds = %.sink.split.i, %156
+  %.pre361.pre367 = phi ptr [ %.pre361.pre367.pre, %.sink.split.i ], [ %.pre361.pre368, %156 ]
   br i1 %63, label %767, label %initialize_line_tools.exit.i
 
 767:                                              ; preds = %766
@@ -4189,7 +4189,7 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   %785 = getelementptr inbounds nuw i8, ptr %.pre361, i64 112
   %786 = load ptr, ptr %785, align 8, !tbaa !34
   %787 = icmp eq ptr %786, null
-  br i1 %787, label %788, label %.loopexit126.i
+  br i1 %787, label %788, label %.loopexit127.i
 
 788:                                              ; preds = %784
   %sext95.i = shl i64 %.val, 32
@@ -4199,13 +4199,13 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 112
   store ptr %790, ptr %792, align 8, !tbaa !34
   %793 = icmp eq ptr %790, null
-  br i1 %793, label %796, label %.preheader125.i
+  br i1 %793, label %796, label %.preheader126.i
 
-.preheader125.i:                                  ; preds = %788
+.preheader126.i:                                  ; preds = %788
   %794 = icmp sgt i32 %23, 0
-  br i1 %794, label %.lr.ph147.i, label %.loopexit126.i
+  br i1 %794, label %.lr.ph147.i, label %.loopexit127.i
 
-.lr.ph147.i:                                      ; preds = %.preheader125.i
+.lr.ph147.i:                                      ; preds = %.preheader126.i
   %795 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %wide.trip.count.i = and i64 %.val, 2147483647
   br label %798
@@ -4228,17 +4228,17 @@ initialize_line_tools.exit.i:                     ; preds = %.lr.ph.preheader.i1
   store i8 %803, ptr %807, align 1, !tbaa !33
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond170.not.i = icmp eq i64 %indvars.iv.next168.i, %wide.trip.count.i
-  br i1 %exitcond170.not.i, label %.loopexit126.i.loopexit, label %798, !llvm.loop !104
+  br i1 %exitcond170.not.i, label %.loopexit127.i.loopexit, label %798, !llvm.loop !104
 
-.loopexit126.i.loopexit:                          ; preds = %798
+.loopexit127.i.loopexit:                          ; preds = %798
   %.pre360.pre = load ptr, ptr %28, align 8, !tbaa !26
-  br label %.loopexit126.i
+  br label %.loopexit127.i
 
-.loopexit126.i:                                   ; preds = %.loopexit126.i.loopexit, %.preheader125.i, %784
-  %.pre360 = phi ptr [ %.pre360.pre, %.loopexit126.i.loopexit ], [ %791, %.preheader125.i ], [ %.pre361, %784 ]
+.loopexit127.i:                                   ; preds = %.loopexit127.i.loopexit, %.preheader126.i, %784
+  %.pre360 = phi ptr [ %.pre360.pre, %.loopexit127.i.loopexit ], [ %791, %.preheader126.i ], [ %.pre361, %784 ]
   br i1 %63, label %808, label %.loopexit322
 
-808:                                              ; preds = %.loopexit126.i
+808:                                              ; preds = %.loopexit127.i
   %809 = getelementptr inbounds nuw i8, ptr %.pre360, i64 120
   %810 = load ptr, ptr %809, align 8, !tbaa !73
   %811 = icmp eq ptr %810, null
@@ -4285,8 +4285,8 @@ update_instrumentation_data.exit:                 ; preds = %89, %.thread.i, %77
   %.pre = load ptr, ptr %28, align 8, !tbaa !26
   br label %.loopexit322
 
-.loopexit322:                                     ; preds = %.loopexit322.loopexit, %.loopexit126.i, %808, %initialize_line_tools.exit.i, %.preheader.i
-  %825 = phi ptr [ %.pre, %.loopexit322.loopexit ], [ %.pre360, %.loopexit126.i ], [ %.pre360, %808 ], [ %.pre361, %initialize_line_tools.exit.i ], [ %815, %.preheader.i ]
+.loopexit322:                                     ; preds = %.loopexit322.loopexit, %.loopexit127.i, %808, %initialize_line_tools.exit.i, %.preheader.i
+  %825 = phi ptr [ %.pre, %.loopexit322.loopexit ], [ %.pre360, %.loopexit127.i ], [ %.pre360, %808 ], [ %.pre361, %initialize_line_tools.exit.i ], [ %815, %.preheader.i ]
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %18) #11
   %826 = load i64, ptr %45, align 8
   %827 = load i64, ptr %48, align 8

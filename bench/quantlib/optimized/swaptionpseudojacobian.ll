@@ -755,21 +755,7 @@ invoke.cont168:                                   ; preds = %invoke.cont166
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %thisDerivative) #22
   %mul.i = mul i64 %call169, %call88
   %cmp.not.i179 = icmp eq i64 %mul.i, 0
-  br i1 %cmp.not.i179, label %invoke.cont171.thread, label %for.body.i.i.i.preheader.i
-
-invoke.cont171.thread:                            ; preds = %invoke.cont168
-  store ptr null, ptr %thisDerivative, align 8, !tbaa !21
-  %rows_6.i = getelementptr inbounds nuw i8, ptr %thisDerivative, i64 8
-  store i64 %call169, ptr %rows_6.i, align 8, !tbaa !45
-  %columns_7.i = getelementptr inbounds nuw i8, ptr %thisDerivative, i64 16
-  store i64 %call88, ptr %columns_7.i, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nullDerivative) #22
-  store ptr null, ptr %nullDerivative, align 8, !tbaa !21
-  %rows_6.i193 = getelementptr inbounds nuw i8, ptr %nullDerivative, i64 8
-  store i64 %call169, ptr %rows_6.i193, align 8, !tbaa !45
-  %columns_7.i194 = getelementptr inbounds nuw i8, ptr %nullDerivative, i64 16
-  store i64 %call88, ptr %columns_7.i194, align 8, !tbaa !53
-  br label %_ZN8QuantLib6MatrixC2Emmd.exit197
+  br i1 %cmp.not.i179, label %cond.end.thread.i192, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %invoke.cont168
   %66 = icmp ugt i64 %mul.i, 2305843009213693951
@@ -789,6 +775,20 @@ call.i.noexc:                                     ; preds = %for.body.i.i.i.preh
   %call.i196 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %68) #25
           to label %call.i.noexc195 unwind label %ehcleanup282.thread
 
+cond.end.thread.i192:                             ; preds = %invoke.cont168
+  store ptr null, ptr %thisDerivative, align 8, !tbaa !21
+  %rows_6.i = getelementptr inbounds nuw i8, ptr %thisDerivative, i64 8
+  store i64 %call169, ptr %rows_6.i, align 8, !tbaa !45
+  %columns_7.i = getelementptr inbounds nuw i8, ptr %thisDerivative, i64 16
+  store i64 %call88, ptr %columns_7.i, align 8, !tbaa !53
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %nullDerivative) #22
+  store ptr null, ptr %nullDerivative, align 8, !tbaa !21
+  %rows_6.i193 = getelementptr inbounds nuw i8, ptr %nullDerivative, i64 8
+  store i64 %call169, ptr %rows_6.i193, align 8, !tbaa !45
+  %columns_7.i194 = getelementptr inbounds nuw i8, ptr %nullDerivative, i64 16
+  store i64 %call88, ptr %columns_7.i194, align 8, !tbaa !53
+  br label %_ZN8QuantLib6MatrixC2Emmd.exit197
+
 call.i.noexc195:                                  ; preds = %call.i.noexc
   store ptr %call.i196, ptr %nullDerivative, align 8, !tbaa !21
   %rows_.i185 = getelementptr inbounds nuw i8, ptr %nullDerivative, i64 8
@@ -798,7 +798,7 @@ call.i.noexc195:                                  ; preds = %call.i.noexc
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i196, i8 0, i64 %67, i1 false), !tbaa !26
   br label %_ZN8QuantLib6MatrixC2Emmd.exit197
 
-_ZN8QuantLib6MatrixC2Emmd.exit197:                ; preds = %call.i.noexc195, %invoke.cont171.thread
+_ZN8QuantLib6MatrixC2Emmd.exit197:                ; preds = %call.i.noexc195, %cond.end.thread.i192
   %cmp175422.not = icmp eq i64 %index.0, 0
   br i1 %cmp175422.not, label %for.cond262.preheader, label %while.body176.lr.ph
 

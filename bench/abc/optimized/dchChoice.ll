@@ -1321,7 +1321,7 @@ define ptr @Dch_DeriveChoiceAigInt(ptr noundef %0, i32 noundef %1) local_unnamed
   %.val45 = load ptr, ptr %23, align 8, !tbaa !27
   %24 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !28
-  %26 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #13
+  %26 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #13
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %26, ptr %27, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

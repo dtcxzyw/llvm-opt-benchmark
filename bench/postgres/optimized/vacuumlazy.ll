@@ -338,15 +338,15 @@ define dso_local void @heap_vacuum_rel(ptr noundef %0, ptr noundef %1, ptr nound
   %137 = getelementptr inbounds nuw i8, ptr %58, i64 188
   store i32 0, ptr %137, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %129, i8 0, i64 48, i1 false)
-  %138 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef %0, i32 noundef 0) #10
+  %138 = call i32 @RelationGetNumberOfBlocksInFork(ptr noundef nonnull %0, i32 noundef 0) #10
   %139 = getelementptr inbounds nuw i8, ptr %58, i64 160
   store i32 %138, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %58, i64 48
-  %141 = call zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %140) #10
+  %141 = call zeroext i1 @vacuum_get_cutoffs(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %140) #10
   %142 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %143 = zext i1 %141 to i8
   store i8 %143, ptr %142, align 8
-  %144 = call ptr @GlobalVisTestFor(ptr noundef %0) #10
+  %144 = call ptr @GlobalVisTestFor(ptr noundef nonnull %0) #10
   %145 = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %144, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %58, i64 56
@@ -1966,7 +1966,7 @@ lazy_truncate_heap.exit:                          ; preds = %933, %802, %805, %u
 
 941:                                              ; preds = %940, %lazy_truncate_heap.exit
   %942 = load i32, ptr %139, align 8
-  call void @visibilitymap_count(ptr noundef %0, ptr noundef nonnull %29, ptr noundef null) #10
+  call void @visibilitymap_count(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef null) #10
   %943 = load i32, ptr %29, align 4
   %944 = icmp ugt i32 %943, %942
   br i1 %944, label %945, label %946
@@ -1982,7 +1982,7 @@ lazy_truncate_heap.exit:                          ; preds = %933, %802, %805, %u
   %950 = icmp sgt i32 %949, 0
   %951 = load i32, ptr %148, align 8
   %952 = load i32, ptr %151, align 4
-  call void @vac_update_relstats(ptr noundef %0, i32 noundef %942, double noundef %948, i32 noundef %947, i1 noundef zeroext %950, i32 noundef %951, i32 noundef %952, ptr noundef nonnull %27, ptr noundef nonnull %28, i1 noundef zeroext false) #10
+  call void @vac_update_relstats(ptr noundef nonnull %0, i32 noundef %942, double noundef %948, i32 noundef %947, i1 noundef zeroext %950, i32 noundef %951, i32 noundef %952, ptr noundef nonnull %27, ptr noundef nonnull %28, i1 noundef zeroext false) #10
   %953 = load i32, ptr %56, align 8
   %954 = load ptr, ptr %62, align 8
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 113
@@ -3154,8 +3154,8 @@ BufferGetPage.exit.i.i:                           ; preds = %152, %146
 200:                                              ; preds = %191
   %201 = load ptr, ptr @BufferBlocks, align 8
   %202 = add nsw i32 %139, -1
-  %203 = sext i32 %202 to i64
-  %204 = shl nsw i64 %203, 13
+  %203 = zext nneg i32 %202 to i64
+  %204 = shl nuw nsw i64 %203, 13
   %205 = getelementptr inbounds nuw i8, ptr %201, i64 %204
   br label %BufferGetPage.exit.i.i.i
 

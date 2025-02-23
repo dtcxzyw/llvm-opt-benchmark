@@ -160,7 +160,7 @@ u_posrelat.exit.thread:                           ; preds = %12, %u_posrelat.exi
 
 .loopexit62:                                      ; preds = %58
   %.246 = add nsw i64 %.24669, -1
-  %55 = icmp sgt i64 %.24669, 1
+  %55 = icmp samesign ugt i64 %.24669, 1
   %56 = icmp slt i64 %59, %40
   %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %.preheader61, label %.critedge

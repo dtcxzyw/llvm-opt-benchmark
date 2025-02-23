@@ -1738,46 +1738,46 @@ define internal fastcc noundef range(i32 -19, 1) i32 @acpi_power_on(ptr noundef 
   %10 = tail call i32 @acpi_evaluate_object(ptr noundef %9, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null) #10
   %11 = icmp eq i32 %10, 0
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1436
-  br i1 %11, label %15, label %.thread2
+  br i1 %11, label %13, label %30
 
-.thread2:                                         ; preds = %7
+13:                                               ; preds = %7
+  store i8 1, ptr %12, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 1472
+  %15 = load volatile ptr, ptr %14, align 8
+  %16 = icmp eq ptr %15, %14
+  br i1 %16, label %.thread, label %17
+
+17:                                               ; preds = %13
+  %18 = load volatile ptr, ptr %14, align 8
+  %19 = icmp eq ptr %18, %14
+  br i1 %19, label %.thread, label %20
+
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 1480
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %18, %22
+  br i1 %23, label %.thread, label %.preheader
+
+.preheader:                                       ; preds = %20, %.preheader
+  %24 = phi ptr [ %28, %.preheader ], [ %18, %20 ]
+  %25 = getelementptr i8, ptr %24, i64 -8
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i32 @__pm_runtime_resume(ptr noundef %26, i32 noundef 1) #10
+  %28 = load ptr, ptr %24, align 8
+  %29 = icmp eq ptr %28, %14
+  br i1 %29, label %.thread, label %.preheader, !llvm.loop !12
+
+30:                                               ; preds = %7
   store i8 -1, ptr %12, align 4
-  %13 = load i32, ptr %3, align 8
-  %14 = add i32 %13, -1
-  store i32 %14, ptr %3, align 8
+  %31 = load i32, ptr %3, align 8
+  %32 = add i32 %31, -1
+  store i32 %32, ptr %3, align 8
   br label %.thread
 
-15:                                               ; preds = %7
-  store i8 1, ptr %12, align 4
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1472
-  %17 = load volatile ptr, ptr %16, align 8
-  %18 = icmp eq ptr %17, %16
-  br i1 %18, label %.thread, label %19
-
-19:                                               ; preds = %15
-  %20 = load volatile ptr, ptr %16, align 8
-  %21 = icmp eq ptr %20, %16
-  br i1 %21, label %.thread, label %22
-
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1480
-  %24 = load ptr, ptr %23, align 8
-  %25 = icmp eq ptr %20, %24
-  br i1 %25, label %.thread, label %.preheader
-
-.preheader:                                       ; preds = %22, %.preheader
-  %26 = phi ptr [ %30, %.preheader ], [ %20, %22 ]
-  %27 = getelementptr i8, ptr %26, i64 -8
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @__pm_runtime_resume(ptr noundef %28, i32 noundef 1) #10
-  %30 = load ptr, ptr %26, align 8
-  %31 = icmp eq ptr %30, %16
-  br i1 %31, label %.thread, label %.preheader, !llvm.loop !12
-
-.thread:                                          ; preds = %.preheader, %15, %19, %22, %.thread2, %1
-  %32 = phi i32 [ -19, %.thread2 ], [ 0, %1 ], [ 0, %22 ], [ 0, %19 ], [ 0, %15 ], [ 0, %.preheader ]
+.thread:                                          ; preds = %.preheader, %13, %17, %20, %30, %1
+  %33 = phi i32 [ -19, %30 ], [ 0, %1 ], [ 0, %20 ], [ 0, %17 ], [ 0, %13 ], [ 0, %.preheader ]
   tail call void @mutex_unlock(ptr noundef nonnull %2) #10
-  ret i32 %32
+  ret i32 %33
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

@@ -840,7 +840,7 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %195, %191, %187, %2
 .lr.ph121:                                        ; preds = %219
   tail call void @batcher_pop_end(ptr noundef %0, ptr noundef nonnull %211) #16
   %217 = zext i32 %152 to i64
-  %218 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 224
+  %218 = getelementptr inbounds nuw i8, ptr %68, i64 224
   br label %233
 
 219:                                              ; preds = %.lr.ph114, %219
@@ -956,7 +956,7 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %195, %191, %187, %2
   br i1 %.not.i.i, label %arena_dalloc_bin_locked_step.exit.i, label %282
 
 282:                                              ; preds = %280
-  tail call void @duckdb_je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef %.0.i29, ptr noundef nonnull %236, ptr noundef nonnull %.0.i30) #16
+  tail call void @duckdb_je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef nonnull %.0.i29, ptr noundef nonnull %236, ptr noundef nonnull %.0.i30) #16
   br label %arena_dalloc_bin_locked_step.exit.i
 
 arena_dalloc_bin_locked_step.exit.i:              ; preds = %268, %264, %282, %280, %278, %260
@@ -1921,7 +1921,7 @@ malloc_mutex_lock.exit.thread125.us:              ; preds = %malloc_mutex_lock.e
   br i1 %.not.i.i.us, label %arena_dalloc_bin_locked_step.exit.i.us, label %236
 
 236:                                              ; preds = %234
-  tail call void @duckdb_je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef %.0.i49.us, ptr noundef nonnull %210, ptr noundef nonnull %.0.i50.us) #16
+  tail call void @duckdb_je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef nonnull %.0.i49.us, ptr noundef nonnull %210, ptr noundef nonnull %.0.i50.us) #16
   br label %arena_dalloc_bin_locked_step.exit.i.us
 
 237:                                              ; preds = %207
@@ -2209,7 +2209,7 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %339, %329, %325, %3
 .lr.ph172.us:                                     ; preds = %258
   tail call void @batcher_pop_end(ptr noundef %0, ptr noundef nonnull %192) #16
   %372 = zext i32 %188 to i64
-  %373 = getelementptr inbounds nuw i8, ptr %.0.i50.us, i64 224
+  %373 = getelementptr inbounds nuw i8, ptr %125, i64 224
   br label %207
 
 .split:                                           ; preds = %14, %tcache_bin_flush_impl_large.exit
@@ -3849,27 +3849,27 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.026.us = phi i32 [ %70, %.lr.ph.split.us ], [ %.0.i, %.lr.ph ]
-  %66 = zext i32 %.026.us to i64
+  %66 = zext nneg i32 %.026.us to i64
   %67 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %66
   %68 = load i64, ptr %9, align 8, !tbaa !16
   %69 = trunc i64 %68 to i16
   call void @duckdb_je_cache_bin_info_init(ptr noundef %67, i16 noundef zeroext %69) #16
-  %70 = add i32 %.026.us, 1
-  %.not.us = icmp ugt i32 %70, %.0.i18
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
+  %70 = add nuw nsw i32 %.026.us, 1
+  %.not.us.not = icmp ult i32 %.026.us, %.0.i18
+  br i1 %.not.us.not, label %.lr.ph.split.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.026 = phi i32 [ %76, %.lr.ph.split ], [ %.0.i, %.lr.ph ]
-  %71 = zext i32 %.026 to i64
+  %71 = zext nneg i32 %.026 to i64
   %72 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %71
   %73 = load i64, ptr %9, align 8, !tbaa !16
   %74 = trunc i64 %73 to i16
   call void @duckdb_je_cache_bin_info_init(ptr noundef %72, i16 noundef zeroext %74) #16
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %71
   store i8 1, ptr %75, align 1, !tbaa !17
-  %76 = add i32 %.026, 1
-  %.not = icmp ugt i32 %76, %.0.i18
-  br i1 %.not, label %.loopexit, label %.lr.ph.split
+  %76 = add nuw nsw i32 %.026, 1
+  %.not.not = icmp ult i32 %.026, %.0.i18
+  br i1 %.not.not, label %.lr.ph.split, label %.loopexit
 
 77:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16

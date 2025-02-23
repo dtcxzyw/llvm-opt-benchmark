@@ -1007,7 +1007,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val149 = load ptr, ptr %21, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw ptr, ptr %.val149, i64 %indvars.iv268
   %80 = load ptr, ptr %79, align 8, !tbaa !38
-  tail call void @Aig_ManSeqCleanup_rec(ptr noundef %0, ptr noundef %80, ptr noundef nonnull %18)
+  tail call void @Aig_ManSeqCleanup_rec(ptr noundef nonnull %0, ptr noundef %80, ptr noundef nonnull %18)
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %.val144 = load i32, ptr %19, align 4, !tbaa !21
   %81 = sext i32 %.val144 to i64
@@ -1642,7 +1642,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val71 = load ptr, ptr %21, align 8, !tbaa !37
   %79 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv131
   %80 = load ptr, ptr %79, align 8, !tbaa !38
-  tail call void @Aig_ManSeqCleanup_rec(ptr noundef %0, ptr noundef %80, ptr noundef nonnull %18)
+  tail call void @Aig_ManSeqCleanup_rec(ptr noundef nonnull %0, ptr noundef %80, ptr noundef nonnull %18)
   %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
   %.val68 = load i32, ptr %19, align 4, !tbaa !21
   %81 = sext i32 %.val68 to i64
@@ -3777,7 +3777,7 @@ Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntA
   store ptr %35, ptr %36, align 8, !tbaa !32
   %37 = getelementptr inbounds nuw i8, ptr %17, i64 400
   store ptr %33, ptr %37, align 8, !tbaa !33
-  %38 = tail call i32 @Aig_ManSeqCleanup(ptr noundef %17)
+  %38 = tail call i32 @Aig_ManSeqCleanup(ptr noundef nonnull %17)
   %.not63 = icmp eq i32 %1, 0
   br i1 %.not63, label %43, label %39
 

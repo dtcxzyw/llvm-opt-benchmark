@@ -534,12 +534,12 @@ define internal fastcc i32 @asn1_template_ex_i2d(ptr noundef %0, ptr noundef %1,
   br i1 %100, label %.lr.ph143, label %.loopexit, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.lr.ph143, %.preheader128, %._crit_edge140
-  call void @free(ptr noundef %54) #10
+  call void @free(ptr noundef nonnull %54) #10
   br label %asn1_set_seq_out.exit.sink.split
 
 asn1_set_seq_out.exit.sink.split:                 ; preds = %55, %.loopexit
   %.sink = phi ptr [ %57, %.loopexit ], [ %54, %55 ]
-  call void @free(ptr noundef %.sink) #10
+  call void @free(ptr noundef nonnull %.sink) #10
   br label %asn1_set_seq_out.exit
 
 asn1_set_seq_out.exit:                            ; preds = %.lr.ph145, %asn1_set_seq_out.exit.sink.split, %.preheader, %51

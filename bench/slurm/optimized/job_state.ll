@@ -356,7 +356,7 @@ _unlink_array_job.exit.i:                         ; preds = %76, %73, %69, %68, 
   %140 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %141 = load i32, ptr %140, align 4
   store i32 %141, ptr %139, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._on_array_job_removal, ptr noundef nonnull %23, ptr noundef %0) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__._on_array_job_removal, ptr noundef nonnull %23, ptr noundef nonnull %0) #9
   br label %_on_array_job_removal.exit
 
 _on_array_job_removal.exit:                       ; preds = %81, %113, %116, %132
@@ -393,7 +393,7 @@ _on_array_job_removal.exit:                       ; preds = %81, %113, %116, %13
 
 .sink.split:                                      ; preds = %152, %148
   %.str.2.sink = phi ptr [ @.str.2, %148 ], [ @.str.3, %152 ]
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.2.sink, ptr noundef nonnull @__func__.on_job_state_change, ptr noundef %0) #9
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.2.sink, ptr noundef nonnull @__func__.on_job_state_change, ptr noundef nonnull %0) #9
   br label %155
 
 155:                                              ; preds = %.sink.split, %148, %147, %152, %151

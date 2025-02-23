@@ -4614,9 +4614,9 @@ select.unfold.us:                                 ; preds = %.lr.ph, %select.unf
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 96
   %17 = load ptr, ptr %16, align 8, !tbaa !51
   %18 = icmp eq ptr %13, %17
-  %.not.us20 = icmp eq ptr %13, null
-  %.not.us = or i1 %18, %.not.us20
-  br i1 %.not.us, label %select.unfold._crit_edge, label %select.unfold.us
+  %.not.us19 = icmp eq ptr %13, null
+  %.not.us = or i1 %18, %.not.us19
+  br i1 %.not.us, label %select.unfold._crit_edge.thread, label %select.unfold.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
   %.sroa.09.016 = phi ptr [ %79, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %6, %.lr.ph ]
@@ -4746,8 +4746,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %83 = load ptr, ptr %82, align 8, !tbaa !51
   %84 = icmp eq ptr %79, %83
-  %.not19 = icmp eq ptr %79, null
-  %.not = or i1 %84, %.not19
+  %.not18 = icmp eq ptr %79, null
+  %.not = or i1 %84, %.not18
   br i1 %.not, label %select.unfold._crit_edge, label %.lr.ph.split
 
 85:                                               ; preds = %64, %51, %_ZN4cvc57context11CDOhash_mapINS_8internal12NodeTemplateILb1EEES4_St4hashIS4_EEcvS4_Ev.exit
@@ -4757,15 +4757,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #22
   resume { ptr, i32 } %86
 
-select.unfold._crit_edge:                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %select.unfold.us, %3
-  br i1 %2, label %87, label %89
+select.unfold._crit_edge:                         ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %3
+  br i1 %2, label %select.unfold._crit_edge.thread, label %88
 
-87:                                               ; preds = %select.unfold._crit_edge
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i8 1, ptr %88, align 8, !tbaa !130
-  br label %89
+select.unfold._crit_edge.thread:                  ; preds = %select.unfold.us, %select.unfold._crit_edge
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i8 1, ptr %87, align 8, !tbaa !130
+  br label %88
 
-89:                                               ; preds = %87, %select.unfold._crit_edge
+88:                                               ; preds = %select.unfold._crit_edge.thread, %select.unfold._crit_edge
   ret void
 }
 

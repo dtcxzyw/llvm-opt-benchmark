@@ -2756,7 +2756,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %207 = add i32 %206, %205
   %208 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %207)
   %209 = zext i8 %208 to i32
-  %210 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %169, i32 noundef %189, ptr noundef %2, i32 noundef %192, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.519, i32 noundef %194, i32 noundef %199, i32 noundef %204, i32 noundef %209)
+  %210 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef nonnull %169, i32 noundef %189, ptr noundef %2, i32 noundef %192, i32 noundef 4, ptr noundef null, ptr noundef nonnull @.str.519, i32 noundef %194, i32 noundef %199, i32 noundef %204, i32 noundef %209)
   %211 = icmp samesign ult i32 %201, %176
   br i1 %211, label %.preheader, label %.loopexit, !llvm.loop !11
 
@@ -2773,12 +2773,12 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %216 = load i32, ptr %1, align 4
   %217 = or disjoint i32 %.0367463, 2
   %218 = add i32 %217, %216
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %215, ptr noundef %2, i32 noundef %218, i32 noundef 4, i32 noundef 0)
+  %219 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %169, i32 noundef %215, ptr noundef %2, i32 noundef %218, i32 noundef 4, i32 noundef 0)
   %220 = load i32, ptr @hf_x25_segments_from_dte, align 4
   %221 = load i32, ptr %1, align 4
   %222 = or disjoint i32 %.0367463, 6
   %223 = add i32 %222, %221
-  %224 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %220, ptr noundef %2, i32 noundef %223, i32 noundef 4, i32 noundef 0)
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %169, i32 noundef %220, ptr noundef %2, i32 noundef %223, i32 noundef 4, i32 noundef 0)
   %225 = add nuw nsw i32 %.0367463, 8
   %226 = icmp samesign ult i32 %225, %176
   br i1 %226, label %.preheader446, label %.loopexit, !llvm.loop !12
@@ -2887,7 +2887,7 @@ define internal fastcc void @dump_facilities(ptr noundef %0, ptr noundef capture
   %282 = load i32, ptr %1, align 4
   %283 = add nuw nsw i32 %.0462, 2
   %284 = add i32 %283, %282
-  %285 = tail call ptr @proto_tree_add_item(ptr noundef %169, i32 noundef %281, ptr noundef %2, i32 noundef %284, i32 noundef 2, i32 noundef 0)
+  %285 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %169, i32 noundef %281, ptr noundef %2, i32 noundef %284, i32 noundef 2, i32 noundef 0)
   %286 = icmp samesign ult i32 %283, %176
   br i1 %286, label %.preheader449, label %.loopexit, !llvm.loop !14
 

@@ -1314,7 +1314,7 @@ define internal i32 @dissect_a11(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %439 = shl nuw nsw i8 %411, 1
   %.084.v.i.i = select i1 %438, i8 -1, i8 -2
   %.084.i.i = add nsw i8 %.084.v.i.i, %439
-  %440 = zext i8 %.084.i.i to i64
+  %440 = zext nneg i8 %.084.i.i to i64
   %441 = getelementptr i8, ptr %422, i64 %440
   %442 = getelementptr i8, ptr %441, i64 1
   store i8 0, ptr %442, align 1

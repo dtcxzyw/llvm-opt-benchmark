@@ -21505,13 +21505,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   tail call void @_ZN7rocksdb19LogsWithPrepTracker33MarkLogAsHavingPrepSectionFlushedEm(ptr noundef nonnull align 8 dereferenceable(160) %logs_with_prep_tracker_, i64 noundef %14)
   %call.i3 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.08) #30
   %cmp.i.not = icmp eq ptr %call.i3, %add.ptr.i.i
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %delete.notnull, label %for.body
 
-for.end:                                          ; preds = %for.body
-  %isnull = icmp eq ptr %0, null
-  br i1 %isnull, label %delete.end, label %delete.notnull
-
-delete.notnull:                                   ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rocksdb6DBImpl20RecoveredTransactionESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEE5eraseENSt8__detail14_Node_iteratorISG_Lb0ELb1EEE.exit, %for.end
+delete.notnull:                                   ; preds = %for.body, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7rocksdb6DBImpl20RecoveredTransactionESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S9_EEE5eraseENSt8__detail14_Node_iteratorISG_Lb0ELb1EEE.exit
   %15 = load ptr, ptr %_M_left.i.i, align 8
   %cmp.i.not4.i = icmp eq ptr %15, %add.ptr.i.i
   br i1 %cmp.i.not4.i, label %for.end.i, label %for.body.i
@@ -21539,7 +21535,7 @@ for.end.i:                                        ; preds = %for.inc.i, %delete.
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeImSt4pairIKmN7rocksdb6DBImpl20RecoveredTransaction9BatchInfoEESt10_Select1stIS6_ESt4lessImESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %batches_, ptr noundef %18)
-          to label %_ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit unwind label %terminate.lpad.i.i.i
+          to label %delete.end unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %for.end.i
   %19 = landingpad { ptr, i32 }
@@ -21548,12 +21544,9 @@ terminate.lpad.i.i.i:                             ; preds = %for.end.i
   tail call void @__clang_call_terminate(ptr %20) #29
   unreachable
 
-_ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit: ; preds = %for.end.i
+delete.end:                                       ; preds = %for.end.i
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
-  br label %delete.end
-
-delete.end:                                       ; preds = %_ZN7rocksdb6DBImpl20RecoveredTransactionD2Ev.exit, %for.end
   ret void
 }
 

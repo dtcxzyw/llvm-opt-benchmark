@@ -4048,7 +4048,7 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1373 = call i32 @BIO_gets(ptr noundef nonnull %1363, ptr noundef %48, i32 noundef 16384) #15
   %1374 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) @.str.505) #17
   %.not1429 = icmp eq ptr %1374, null
-  br i1 %.not1429, label %.critedge4208, label %.preheader1777
+  br i1 %.not1429, label %.critedge4209, label %.preheader1777
 
 .preheader1777:                                   ; preds = %1368, %1378
   %.1966 = phi i32 [ %spec.select1524, %1378 ], [ 0, %1368 ]
@@ -4071,13 +4071,13 @@ select.unfold:                                    ; preds = %854, %857, %852
   %1383 = call i32 @BIO_free(ptr noundef nonnull %1363) #15
   br i1 %1380, label %1387, label %1390
 
-.critedge4208:                                    ; preds = %1368
+.critedge4209:                                    ; preds = %1368
   %1384 = call i64 @BIO_ctrl(ptr noundef nonnull %1363, i32 noundef 11, i64 noundef 0, ptr noundef null) #15
   %1385 = call ptr @BIO_pop(ptr noundef nonnull %1363) #15
   %1386 = call i32 @BIO_free(ptr noundef nonnull %1363) #15
   br label %1387
 
-1387:                                             ; preds = %.critedge4208, %.critedge86.loopexit
+1387:                                             ; preds = %.critedge4209, %.critedge86.loopexit
   %1388 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %1389 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1388, ptr noundef nonnull @.str.478) #15
   br label %1390

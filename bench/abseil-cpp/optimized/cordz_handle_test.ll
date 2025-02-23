@@ -25462,7 +25462,9 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 21:                                               ; preds = %16
   store i64 %19, ptr %1, align 8, !tbaa !737
-  %22 = udiv i64 %20, %.zext
+  %.lhs.trunc = trunc nsw i64 %20 to i32
+  %22 = udiv i32 %.lhs.trunc, %14
+  %.zext29 = zext nneg i32 %22 to i64
   br label %.loopexit
 
 23:                                               ; preds = %3
@@ -25508,7 +25510,7 @@ define linkonce_odr dso_local noundef i32 @_ZNSt24uniform_int_distributionIiEclI
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %39, %21
   %44 = phi i32 [ %8, %21 ], [ %8, %39 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %22, %21 ], [ %43, %39 ], [ %35, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %21 ], [ %43, %39 ], [ %35, %.loopexit.loopexit ]
   %45 = trunc i64 %.0 to i32
   %46 = add i32 %44, %45
   ret i32 %46

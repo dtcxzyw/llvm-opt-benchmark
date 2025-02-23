@@ -5283,7 +5283,7 @@ _ZL9initFieldPN5clang6interp5BlockEPSt4bytebbbbbPKNS0_10DescriptorEj.exit.us71: 
   %134 = load ptr, ptr %133, align 8, !tbaa !76
   %135 = getelementptr inbounds nuw i8, ptr %.061, i64 8
   %136 = load i32, ptr %135, align 8, !tbaa !78
-  tail call fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0_10DescriptorEjb(ptr noundef %0, ptr noundef %11, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %134, i32 noundef %136, i1 noundef zeroext false)
+  tail call fastcc void @_ZL8initBasePN5clang6interp5BlockEPSt4bytebbbbPKNS0_10DescriptorEjb(ptr noundef %0, ptr noundef nonnull %11, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %134, i32 noundef %136, i1 noundef zeroext false)
   %137 = getelementptr inbounds nuw i8, ptr %.061, i64 32
   %.not = icmp eq ptr %137, %52
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph

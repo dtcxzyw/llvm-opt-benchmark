@@ -113,7 +113,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit172, label %.thread
+  br i1 %17, label %.loopexit173, label %.thread
 
 18:                                               ; preds = %11
   %19 = icmp eq i16 %6, 2
@@ -123,7 +123,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread, label %.loopexit172
+  br i1 %23, label %.thread, label %.loopexit173
 
 24:                                               ; preds = %11
   %25 = icmp eq i16 %6, 10
@@ -133,34 +133,34 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread, label %.loopexit172
+  br i1 %29, label %.thread, label %.loopexit173
 
 30:                                               ; preds = %11
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, %32
-  br i1 %34, label %.loopexit183, label %.preheader182
+  br i1 %34, label %.loopexit184, label %.preheader183
 
-.preheader182:                                    ; preds = %30, %39
+.preheader183:                                    ; preds = %30, %39
   %35 = phi ptr [ %40, %39 ], [ %33, %30 ]
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %.loopexit183
+  br i1 %38, label %39, label %.loopexit184
 
-39:                                               ; preds = %.preheader182
+39:                                               ; preds = %.preheader183
   %40 = load ptr, ptr %35, align 8
   %41 = icmp eq ptr %40, %32
-  br i1 %41, label %.loopexit183, label %.preheader182, !llvm.loop !9
+  br i1 %41, label %.loopexit184, label %.preheader183, !llvm.loop !9
 
-.loopexit183:                                     ; preds = %39, %.preheader182, %30
-  %42 = phi ptr [ %33, %30 ], [ %40, %39 ], [ %35, %.preheader182 ]
+.loopexit184:                                     ; preds = %39, %.preheader183, %30
+  %42 = phi ptr [ %33, %30 ], [ %40, %39 ], [ %35, %.preheader183 ]
   %43 = icmp eq ptr %42, %32
-  br i1 %43, label %.loopexit181, label %.preheader179
+  br i1 %43, label %.loopexit182, label %.preheader180
 
-.preheader179:                                    ; preds = %.loopexit183, %.loopexit177
-  %44 = phi ptr [ %65, %.loopexit177 ], [ %42, %.loopexit183 ]
+.preheader180:                                    ; preds = %.loopexit184, %.loopexit178
+  %44 = phi ptr [ %65, %.loopexit178 ], [ %42, %.loopexit184 ]
   %45 = getelementptr i8, ptr %44, i64 -32
   %46 = load i32, ptr %45, align 8
   switch i32 %46, label %.thread [
@@ -168,13 +168,13 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
     i32 3, label %51
   ]
 
-47:                                               ; preds = %.preheader179
+47:                                               ; preds = %.preheader180
   %48 = getelementptr i8, ptr %44, i64 -24
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %55, label %.thread
 
-51:                                               ; preds = %.preheader179
+51:                                               ; preds = %.preheader180
   %52 = getelementptr i8, ptr %44, i64 -24
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
@@ -183,50 +183,50 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 55:                                               ; preds = %51, %47
   %56 = load ptr, ptr %44, align 8
   %57 = icmp eq ptr %56, %32
-  br i1 %57, label %.loopexit177, label %.preheader176
+  br i1 %57, label %.loopexit178, label %.preheader177
 
-.preheader176:                                    ; preds = %55, %62
+.preheader177:                                    ; preds = %55, %62
   %58 = phi ptr [ %63, %62 ], [ %56, %55 ]
   %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.loopexit177
+  br i1 %61, label %62, label %.loopexit178
 
-62:                                               ; preds = %.preheader176
+62:                                               ; preds = %.preheader177
   %63 = load ptr, ptr %58, align 8
   %64 = icmp eq ptr %63, %32
-  br i1 %64, label %.loopexit177, label %.preheader176, !llvm.loop !9
+  br i1 %64, label %.loopexit178, label %.preheader177, !llvm.loop !9
 
-.loopexit177:                                     ; preds = %62, %.preheader176, %55
-  %65 = phi ptr [ %56, %55 ], [ %63, %62 ], [ %58, %.preheader176 ]
+.loopexit178:                                     ; preds = %62, %.preheader177, %55
+  %65 = phi ptr [ %56, %55 ], [ %63, %62 ], [ %58, %.preheader177 ]
   %66 = icmp eq ptr %65, %32
-  br i1 %66, label %.loopexit181, label %.preheader179, !llvm.loop !10
+  br i1 %66, label %.loopexit182, label %.preheader180, !llvm.loop !10
 
-.loopexit181:                                     ; preds = %.loopexit177, %.loopexit183
+.loopexit182:                                     ; preds = %.loopexit178, %.loopexit184
   %67 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, %67
-  br i1 %69, label %.loopexit174, label %.preheader173
+  br i1 %69, label %.loopexit175, label %.preheader174
 
-.preheader173:                                    ; preds = %.loopexit181, %74
-  %70 = phi ptr [ %75, %74 ], [ %68, %.loopexit181 ]
+.preheader174:                                    ; preds = %.loopexit182, %74
+  %70 = phi ptr [ %75, %74 ], [ %68, %.loopexit182 ]
   %71 = getelementptr i8, ptr %70, i64 -8
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %.loopexit174
+  br i1 %73, label %74, label %.loopexit175
 
-74:                                               ; preds = %.preheader173
+74:                                               ; preds = %.preheader174
   %75 = load ptr, ptr %70, align 8
   %76 = icmp eq ptr %75, %67
-  br i1 %76, label %.loopexit174, label %.preheader173, !llvm.loop !11
+  br i1 %76, label %.loopexit175, label %.preheader174, !llvm.loop !11
 
-.loopexit174:                                     ; preds = %74, %.preheader173, %.loopexit181
-  %77 = phi ptr [ %68, %.loopexit181 ], [ %75, %74 ], [ %70, %.preheader173 ]
+.loopexit175:                                     ; preds = %74, %.preheader174, %.loopexit182
+  %77 = phi ptr [ %68, %.loopexit182 ], [ %75, %74 ], [ %70, %.preheader174 ]
   %78 = icmp eq ptr %77, %67
-  br i1 %78, label %.loopexit172, label %.preheader171
+  br i1 %78, label %.loopexit173, label %.preheader172
 
-.preheader171:                                    ; preds = %.loopexit174, %.loopexit169
-  %79 = phi ptr [ %100, %.loopexit169 ], [ %77, %.loopexit174 ]
+.preheader172:                                    ; preds = %.loopexit175, %.loopexit170
+  %79 = phi ptr [ %100, %.loopexit170 ], [ %77, %.loopexit175 ]
   %80 = getelementptr i8, ptr %79, i64 -56
   %81 = load i32, ptr %80, align 8
   switch i32 %81, label %.thread [
@@ -234,13 +234,13 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
     i32 7, label %86
   ]
 
-82:                                               ; preds = %.preheader171
+82:                                               ; preds = %.preheader172
   %83 = getelementptr i8, ptr %79, i64 -48
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %90, label %.thread
 
-86:                                               ; preds = %.preheader171
+86:                                               ; preds = %.preheader172
   %87 = getelementptr i8, ptr %79, i64 -48
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
@@ -249,26 +249,26 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 90:                                               ; preds = %86, %82
   %91 = load ptr, ptr %79, align 8
   %92 = icmp eq ptr %91, %67
-  br i1 %92, label %.loopexit169, label %.preheader168
+  br i1 %92, label %.loopexit170, label %.preheader169
 
-.preheader168:                                    ; preds = %90, %97
+.preheader169:                                    ; preds = %90, %97
   %93 = phi ptr [ %98, %97 ], [ %91, %90 ]
   %94 = getelementptr i8, ptr %93, i64 -8
   %95 = load i32, ptr %94, align 8
   %96 = icmp eq i32 %95, 0
-  br i1 %96, label %97, label %.loopexit169
+  br i1 %96, label %97, label %.loopexit170
 
-97:                                               ; preds = %.preheader168
+97:                                               ; preds = %.preheader169
   %98 = load ptr, ptr %93, align 8
   %99 = icmp eq ptr %98, %67
-  br i1 %99, label %.loopexit169, label %.preheader168, !llvm.loop !11
+  br i1 %99, label %.loopexit170, label %.preheader169, !llvm.loop !11
 
-.loopexit169:                                     ; preds = %97, %.preheader168, %90
-  %100 = phi ptr [ %91, %90 ], [ %98, %97 ], [ %93, %.preheader168 ]
+.loopexit170:                                     ; preds = %97, %.preheader169, %90
+  %100 = phi ptr [ %91, %90 ], [ %98, %97 ], [ %93, %.preheader169 ]
   %101 = icmp eq ptr %100, %67
-  br i1 %101, label %.loopexit172, label %.preheader171, !llvm.loop !12
+  br i1 %101, label %.loopexit173, label %.preheader172, !llvm.loop !12
 
-.loopexit172:                                     ; preds = %.loopexit169, %.loopexit174, %26, %20, %14
+.loopexit173:                                     ; preds = %.loopexit170, %.loopexit175, %26, %20, %14
   tail call void @__rcu_read_lock() #10
   tail call void @_raw_spin_lock(ptr noundef nonnull @netlbl_domhsh_lock) #10
   %102 = load ptr, ptr %0, align 8
@@ -276,15 +276,15 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %104 = load i16, ptr %5, align 8
   br i1 %103, label %152, label %105
 
-105:                                              ; preds = %.loopexit172
+105:                                              ; preds = %.loopexit173
   %106 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #10
   %107 = and i64 %106, 4294967295
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %.loopexit167, label %.preheader166
+  br i1 %108, label %.loopexit168, label %.preheader167
 
-.preheader166:                                    ; preds = %105, %.preheader166
-  %109 = phi i64 [ %116, %.preheader166 ], [ 0, %105 ]
-  %110 = phi i32 [ %115, %.preheader166 ], [ 0, %105 ]
+.preheader167:                                    ; preds = %105, %.preheader167
+  %109 = phi i64 [ %116, %.preheader167 ], [ 0, %105 ]
+  %110 = phi i32 [ %115, %.preheader167 ], [ 0, %105 ]
   %111 = tail call i32 @llvm.fshl.i32(i32 %110, i32 %110, i32 4)
   %112 = getelementptr i8, ptr %102, i64 %109
   %113 = load i8, ptr %112, align 1
@@ -292,10 +292,10 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %115 = xor i32 %111, %114
   %116 = add nuw nsw i64 %109, 1
   %117 = icmp eq i64 %116, %107
-  br i1 %117, label %.loopexit167, label %.preheader166, !llvm.loop !13
+  br i1 %117, label %.loopexit168, label %.preheader167, !llvm.loop !13
 
-.loopexit167:                                     ; preds = %.preheader166, %105
-  %118 = phi i32 [ 0, %105 ], [ %115, %.preheader166 ]
+.loopexit168:                                     ; preds = %.preheader167, %105
+  %118 = phi i32 [ 0, %105 ], [ %115, %.preheader167 ]
   %119 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
@@ -307,9 +307,9 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %127 = getelementptr %struct.list_head, ptr %125, i64 %126
   %128 = load volatile ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, %127
-  br i1 %129, label %.thread106, label %130
+  br i1 %129, label %.thread106.thread109, label %130
 
-130:                                              ; preds = %.loopexit167
+130:                                              ; preds = %.loopexit168
   %131 = icmp eq i16 %104, 0
   br label %132
 
@@ -339,9 +339,9 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 149:                                              ; preds = %145, %138, %132
   %150 = load volatile ptr, ptr %133, align 8
   %151 = icmp eq ptr %150, %127
-  br i1 %151, label %.thread106, label %132, !llvm.loop !14
+  br i1 %151, label %.thread106.thread109, label %132, !llvm.loop !14
 
-152:                                              ; preds = %.loopexit172
+152:                                              ; preds = %.loopexit173
   switch i16 %104, label %.thread106.thread [
     i16 2, label %153
     i16 0, label %153
@@ -376,7 +376,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 
 168:                                              ; preds = %145
   %169 = icmp eq ptr %134, null
-  br i1 %169, label %.thread106, label %.thread108
+  br i1 %169, label %.thread106.thread109, label %.thread108
 
 .thread106.thread:                                ; preds = %160, %152, %161, %164
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -385,23 +385,23 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   store volatile ptr %171, ptr %171, align 8
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store volatile ptr %171, ptr %172, align 8
-  switch i16 %104, label %.loopexit110 [
+  switch i16 %104, label %.loopexit111 [
     i16 2, label %200
     i16 10, label %201
     i16 0, label %202
   ]
 
-.thread106:                                       ; preds = %149, %.loopexit167, %168
+.thread106.thread109:                             ; preds = %149, %168, %.loopexit168
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 1, ptr %173, align 4
   %174 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %102) #10
   %175 = and i64 %174, 4294967295
   %176 = icmp eq i64 %175, 0
-  br i1 %176, label %.loopexit165, label %.preheader164
+  br i1 %176, label %.loopexit166, label %.preheader165
 
-.preheader164:                                    ; preds = %.thread106, %.preheader164
-  %177 = phi i64 [ %184, %.preheader164 ], [ 0, %.thread106 ]
-  %178 = phi i32 [ %183, %.preheader164 ], [ 0, %.thread106 ]
+.preheader165:                                    ; preds = %.thread106.thread109, %.preheader165
+  %177 = phi i64 [ %184, %.preheader165 ], [ 0, %.thread106.thread109 ]
+  %178 = phi i32 [ %183, %.preheader165 ], [ 0, %.thread106.thread109 ]
   %179 = tail call i32 @llvm.fshl.i32(i32 %178, i32 %178, i32 4)
   %180 = getelementptr i8, ptr %102, i64 %177
   %181 = load i8, ptr %180, align 1
@@ -409,10 +409,10 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %183 = xor i32 %179, %182
   %184 = add nuw nsw i64 %177, 1
   %185 = icmp eq i64 %184, %175
-  br i1 %185, label %.loopexit165, label %.preheader164, !llvm.loop !13
+  br i1 %185, label %.loopexit166, label %.preheader165, !llvm.loop !13
 
-.loopexit165:                                     ; preds = %.preheader164, %.thread106
-  %186 = phi i32 [ 0, %.thread106 ], [ %183, %.preheader164 ]
+.loopexit166:                                     ; preds = %.preheader165, %.thread106.thread109
+  %186 = phi i32 [ 0, %.thread106.thread109 ], [ %183, %.preheader165 ]
   %187 = load volatile ptr, ptr @netlbl_domhsh, align 8
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %189 = load i32, ptr %188, align 8
@@ -446,13 +446,13 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
 202:                                              ; preds = %.thread106.thread
   %203 = load i32, ptr %12, align 8
   %204 = icmp eq i32 %203, 5
-  br i1 %204, label %205, label %.loopexit110
+  br i1 %204, label %205, label %.loopexit111
 
 205:                                              ; preds = %202
   %206 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %207 = tail call noalias noundef align 8 dereferenceable_or_null(64) ptr @kmalloc_trace(ptr noundef %206, i32 noundef 2336, i64 noundef 64) #8
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %.loopexit110, label %209
+  br i1 %208, label %.loopexit111, label %209
 
 209:                                              ; preds = %205
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 24
@@ -468,7 +468,7 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   store volatile ptr %207, ptr @netlbl_domhsh_def_ipv6, align 8
   br label %213
 
-213:                                              ; preds = %209, %201, %200, %.loopexit165
+213:                                              ; preds = %209, %201, %200, %.loopexit166
   %214 = load i32, ptr %12, align 8
   %215 = icmp eq i32 %214, 6
   br i1 %215, label %216, label %272
@@ -478,77 +478,77 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %218 = load ptr, ptr %217, align 8
   %219 = load ptr, ptr %218, align 8
   %220 = icmp eq ptr %219, %218
-  br i1 %220, label %.loopexit120, label %.preheader119
+  br i1 %220, label %.loopexit121, label %.preheader120
 
-.preheader119:                                    ; preds = %216, %225
+.preheader120:                                    ; preds = %216, %225
   %221 = phi ptr [ %226, %225 ], [ %219, %216 ]
   %222 = getelementptr i8, ptr %221, i64 -8
   %223 = load i32, ptr %222, align 8
   %224 = icmp eq i32 %223, 0
-  br i1 %224, label %225, label %.loopexit120
+  br i1 %224, label %225, label %.loopexit121
 
-225:                                              ; preds = %.preheader119
+225:                                              ; preds = %.preheader120
   %226 = load volatile ptr, ptr %221, align 8
   %227 = icmp eq ptr %226, %218
-  br i1 %227, label %.loopexit120, label %.preheader119, !llvm.loop !20
+  br i1 %227, label %.loopexit121, label %.preheader120, !llvm.loop !20
 
-.loopexit120:                                     ; preds = %225, %.preheader119, %216
-  %228 = phi ptr [ %219, %216 ], [ %226, %225 ], [ %221, %.preheader119 ]
+.loopexit121:                                     ; preds = %225, %.preheader120, %216
+  %228 = phi ptr [ %219, %216 ], [ %226, %225 ], [ %221, %.preheader120 ]
   %229 = icmp eq ptr %228, %218
-  br i1 %229, label %.loopexit118, label %.preheader117
+  br i1 %229, label %.loopexit119, label %.preheader118
 
-.preheader117:                                    ; preds = %.loopexit120, %.loopexit115
-  %230 = phi ptr [ %242, %.loopexit115 ], [ %228, %.loopexit120 ]
+.preheader118:                                    ; preds = %.loopexit121, %.loopexit116
+  %230 = phi ptr [ %242, %.loopexit116 ], [ %228, %.loopexit121 ]
   %231 = getelementptr i8, ptr %230, i64 -16
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef %0, ptr noundef %231, ptr noundef null, i32 noundef 0, ptr noundef %1)
   %232 = load ptr, ptr %230, align 8
   %233 = load ptr, ptr %217, align 8
   %234 = icmp eq ptr %232, %233
-  br i1 %234, label %.loopexit115, label %.preheader114
+  br i1 %234, label %.loopexit116, label %.preheader115
 
-.preheader114:                                    ; preds = %.preheader117, %239
-  %235 = phi ptr [ %240, %239 ], [ %232, %.preheader117 ]
+.preheader115:                                    ; preds = %.preheader118, %239
+  %235 = phi ptr [ %240, %239 ], [ %232, %.preheader118 ]
   %236 = getelementptr i8, ptr %235, i64 -8
   %237 = load i32, ptr %236, align 8
   %238 = icmp eq i32 %237, 0
-  br i1 %238, label %239, label %.loopexit115
+  br i1 %238, label %239, label %.loopexit116
 
-239:                                              ; preds = %.preheader114
+239:                                              ; preds = %.preheader115
   %240 = load volatile ptr, ptr %235, align 8
   %241 = icmp eq ptr %240, %233
-  br i1 %241, label %.loopexit115, label %.preheader114, !llvm.loop !20
+  br i1 %241, label %.loopexit116, label %.preheader115, !llvm.loop !20
 
-.loopexit115:                                     ; preds = %239, %.preheader114, %.preheader117
-  %242 = phi ptr [ %232, %.preheader117 ], [ %240, %239 ], [ %235, %.preheader114 ]
+.loopexit116:                                     ; preds = %239, %.preheader115, %.preheader118
+  %242 = phi ptr [ %232, %.preheader118 ], [ %240, %239 ], [ %235, %.preheader115 ]
   %243 = icmp eq ptr %242, %233
-  br i1 %243, label %.loopexit118, label %.preheader117, !llvm.loop !21
+  br i1 %243, label %.loopexit119, label %.preheader118, !llvm.loop !21
 
-.loopexit118:                                     ; preds = %.loopexit115, %.loopexit120
-  %244 = phi ptr [ %218, %.loopexit120 ], [ %233, %.loopexit115 ]
+.loopexit119:                                     ; preds = %.loopexit116, %.loopexit121
+  %244 = phi ptr [ %218, %.loopexit121 ], [ %233, %.loopexit116 ]
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, %245
-  br i1 %247, label %.loopexit112, label %.preheader111
+  br i1 %247, label %.loopexit113, label %.preheader112
 
-.preheader111:                                    ; preds = %.loopexit118, %252
-  %248 = phi ptr [ %253, %252 ], [ %246, %.loopexit118 ]
+.preheader112:                                    ; preds = %.loopexit119, %252
+  %248 = phi ptr [ %253, %252 ], [ %246, %.loopexit119 ]
   %249 = getelementptr i8, ptr %248, i64 -8
   %250 = load i32, ptr %249, align 8
   %251 = icmp eq i32 %250, 0
-  br i1 %251, label %252, label %.loopexit112
+  br i1 %251, label %252, label %.loopexit113
 
-252:                                              ; preds = %.preheader111
+252:                                              ; preds = %.preheader112
   %253 = load volatile ptr, ptr %248, align 8
   %254 = icmp eq ptr %253, %245
-  br i1 %254, label %.loopexit112, label %.preheader111, !llvm.loop !22
+  br i1 %254, label %.loopexit113, label %.preheader112, !llvm.loop !22
 
-.loopexit112:                                     ; preds = %252, %.preheader111, %.loopexit118
-  %255 = phi ptr [ %246, %.loopexit118 ], [ %253, %252 ], [ %248, %.preheader111 ]
+.loopexit113:                                     ; preds = %252, %.preheader112, %.loopexit119
+  %255 = phi ptr [ %246, %.loopexit119 ], [ %253, %252 ], [ %248, %.preheader112 ]
   %256 = icmp eq ptr %255, %245
-  br i1 %256, label %.loopexit110, label %.preheader109
+  br i1 %256, label %.loopexit111, label %.preheader110
 
-.preheader109:                                    ; preds = %.loopexit112, %.loopexit
-  %257 = phi ptr [ %270, %.loopexit ], [ %255, %.loopexit112 ]
+.preheader110:                                    ; preds = %.loopexit113, %.loopexit
+  %257 = phi ptr [ %270, %.loopexit ], [ %255, %.loopexit113 ]
   %258 = getelementptr i8, ptr %257, i64 -40
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef %0, ptr noundef null, ptr noundef %258, i32 noundef 0, ptr noundef %1)
   %259 = load ptr, ptr %257, align 8
@@ -557,8 +557,8 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %262 = icmp eq ptr %259, %261
   br i1 %262, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.preheader109, %267
-  %263 = phi ptr [ %268, %267 ], [ %259, %.preheader109 ]
+.preheader:                                       ; preds = %.preheader110, %267
+  %263 = phi ptr [ %268, %267 ], [ %259, %.preheader110 ]
   %264 = getelementptr i8, ptr %263, i64 -8
   %265 = load i32, ptr %264, align 8
   %266 = icmp eq i32 %265, 0
@@ -569,26 +569,26 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %269 = icmp eq ptr %268, %261
   br i1 %269, label %.loopexit, label %.preheader, !llvm.loop !22
 
-.loopexit:                                        ; preds = %267, %.preheader, %.preheader109
-  %270 = phi ptr [ %259, %.preheader109 ], [ %268, %267 ], [ %263, %.preheader ]
+.loopexit:                                        ; preds = %267, %.preheader, %.preheader110
+  %270 = phi ptr [ %259, %.preheader110 ], [ %268, %267 ], [ %263, %.preheader ]
   %271 = icmp eq ptr %270, %261
-  br i1 %271, label %.loopexit110, label %.preheader109, !llvm.loop !23
+  br i1 %271, label %.loopexit111, label %.preheader110, !llvm.loop !23
 
 272:                                              ; preds = %213
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef %0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef %1)
-  br label %.loopexit110
+  br label %.loopexit111
 
 .thread108:                                       ; preds = %164, %156, %168
   %273 = phi ptr [ %134, %168 ], [ %162, %164 ], [ %154, %156 ]
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
   %275 = load i32, ptr %274, align 8
   %276 = icmp eq i32 %275, 6
-  br i1 %276, label %277, label %.loopexit110
+  br i1 %276, label %277, label %.loopexit111
 
 277:                                              ; preds = %.thread108
   %278 = load i32, ptr %12, align 8
   %279 = icmp eq i32 %278, 6
-  br i1 %279, label %280, label %.loopexit110
+  br i1 %279, label %280, label %.loopexit111
 
 280:                                              ; preds = %277
   %281 = getelementptr inbounds nuw i8, ptr %273, i64 16
@@ -598,158 +598,158 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %285 = load ptr, ptr %284, align 8
   %286 = load ptr, ptr %285, align 8
   %287 = icmp eq ptr %286, %285
-  br i1 %287, label %.loopexit162, label %.preheader161
+  br i1 %287, label %.loopexit163, label %.preheader162
 
-.preheader161:                                    ; preds = %280, %292
+.preheader162:                                    ; preds = %280, %292
   %288 = phi ptr [ %293, %292 ], [ %286, %280 ]
   %289 = getelementptr i8, ptr %288, i64 -8
   %290 = load i32, ptr %289, align 8
   %291 = icmp eq i32 %290, 0
-  br i1 %291, label %292, label %.loopexit162
+  br i1 %291, label %292, label %.loopexit163
 
-292:                                              ; preds = %.preheader161
+292:                                              ; preds = %.preheader162
   %293 = load volatile ptr, ptr %288, align 8
   %294 = icmp eq ptr %293, %285
-  br i1 %294, label %.loopexit162, label %.preheader161, !llvm.loop !20
+  br i1 %294, label %.loopexit163, label %.preheader162, !llvm.loop !20
 
-.loopexit162:                                     ; preds = %292, %.preheader161, %280
-  %295 = phi ptr [ %286, %280 ], [ %293, %292 ], [ %288, %.preheader161 ]
+.loopexit163:                                     ; preds = %292, %.preheader162, %280
+  %295 = phi ptr [ %286, %280 ], [ %293, %292 ], [ %288, %.preheader162 ]
   %296 = icmp eq ptr %295, %285
-  br i1 %296, label %.loopexit160, label %.preheader158
+  br i1 %296, label %.loopexit161, label %.preheader159
 
-.preheader158:                                    ; preds = %.loopexit162, %.loopexit156
-  %297 = phi ptr [ %315, %.loopexit156 ], [ %295, %.loopexit162 ]
+.preheader159:                                    ; preds = %.loopexit163, %.loopexit157
+  %297 = phi ptr [ %315, %.loopexit157 ], [ %295, %.loopexit163 ]
   %298 = getelementptr i8, ptr %297, i64 -16
   %299 = load i32, ptr %298, align 8
   %300 = getelementptr i8, ptr %297, i64 -12
   %301 = load i32, ptr %300, align 4
   %302 = tail call ptr @netlbl_af4list_search_exact(i32 noundef %299, i32 noundef %301, ptr noundef %282) #10
   %303 = icmp eq ptr %302, null
-  br i1 %303, label %304, label %.loopexit110
+  br i1 %303, label %304, label %.loopexit111
 
-304:                                              ; preds = %.preheader158
+304:                                              ; preds = %.preheader159
   %305 = load ptr, ptr %297, align 8
   %306 = load ptr, ptr %284, align 8
   %307 = icmp eq ptr %305, %306
-  br i1 %307, label %.loopexit156, label %.preheader155
+  br i1 %307, label %.loopexit157, label %.preheader156
 
-.preheader155:                                    ; preds = %304, %312
+.preheader156:                                    ; preds = %304, %312
   %308 = phi ptr [ %313, %312 ], [ %305, %304 ]
   %309 = getelementptr i8, ptr %308, i64 -8
   %310 = load i32, ptr %309, align 8
   %311 = icmp eq i32 %310, 0
-  br i1 %311, label %312, label %.loopexit156
+  br i1 %311, label %312, label %.loopexit157
 
-312:                                              ; preds = %.preheader155
+312:                                              ; preds = %.preheader156
   %313 = load volatile ptr, ptr %308, align 8
   %314 = icmp eq ptr %313, %306
-  br i1 %314, label %.loopexit156, label %.preheader155, !llvm.loop !20
+  br i1 %314, label %.loopexit157, label %.preheader156, !llvm.loop !20
 
-.loopexit156:                                     ; preds = %312, %.preheader155, %304
-  %315 = phi ptr [ %305, %304 ], [ %313, %312 ], [ %308, %.preheader155 ]
+.loopexit157:                                     ; preds = %312, %.preheader156, %304
+  %315 = phi ptr [ %305, %304 ], [ %313, %312 ], [ %308, %.preheader156 ]
   %316 = icmp eq ptr %315, %306
-  br i1 %316, label %.loopexit160, label %.preheader158, !llvm.loop !24
+  br i1 %316, label %.loopexit161, label %.preheader159, !llvm.loop !24
 
-.loopexit160:                                     ; preds = %.loopexit156, %.loopexit162
-  %317 = phi ptr [ %285, %.loopexit162 ], [ %306, %.loopexit156 ]
+.loopexit161:                                     ; preds = %.loopexit157, %.loopexit163
+  %317 = phi ptr [ %285, %.loopexit163 ], [ %306, %.loopexit157 ]
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8
   %320 = icmp eq ptr %319, %318
-  br i1 %320, label %.loopexit153, label %.preheader152
+  br i1 %320, label %.loopexit154, label %.preheader153
 
-.preheader152:                                    ; preds = %.loopexit160, %325
-  %321 = phi ptr [ %326, %325 ], [ %319, %.loopexit160 ]
+.preheader153:                                    ; preds = %.loopexit161, %325
+  %321 = phi ptr [ %326, %325 ], [ %319, %.loopexit161 ]
   %322 = getelementptr i8, ptr %321, i64 -8
   %323 = load i32, ptr %322, align 8
   %324 = icmp eq i32 %323, 0
-  br i1 %324, label %325, label %.loopexit153
+  br i1 %324, label %325, label %.loopexit154
 
-325:                                              ; preds = %.preheader152
+325:                                              ; preds = %.preheader153
   %326 = load volatile ptr, ptr %321, align 8
   %327 = icmp eq ptr %326, %318
-  br i1 %327, label %.loopexit153, label %.preheader152, !llvm.loop !22
+  br i1 %327, label %.loopexit154, label %.preheader153, !llvm.loop !22
 
-.loopexit153:                                     ; preds = %325, %.preheader152, %.loopexit160
-  %328 = phi ptr [ %319, %.loopexit160 ], [ %326, %325 ], [ %321, %.preheader152 ]
+.loopexit154:                                     ; preds = %325, %.preheader153, %.loopexit161
+  %328 = phi ptr [ %319, %.loopexit161 ], [ %326, %325 ], [ %321, %.preheader153 ]
   %329 = icmp eq ptr %328, %318
-  br i1 %329, label %.loopexit151, label %.preheader149
+  br i1 %329, label %.loopexit152, label %.preheader150
 
-.preheader149:                                    ; preds = %.loopexit153, %.loopexit147
-  %330 = phi ptr [ %347, %.loopexit147 ], [ %328, %.loopexit153 ]
+.preheader150:                                    ; preds = %.loopexit154, %.loopexit148
+  %330 = phi ptr [ %347, %.loopexit148 ], [ %328, %.loopexit154 ]
   %331 = getelementptr i8, ptr %330, i64 -40
   %332 = getelementptr i8, ptr %330, i64 -24
   %333 = tail call ptr @netlbl_af6list_search_exact(ptr noundef %331, ptr noundef %332, ptr noundef nonnull %283) #10
   %334 = icmp eq ptr %333, null
-  br i1 %334, label %335, label %.loopexit110
+  br i1 %334, label %335, label %.loopexit111
 
-335:                                              ; preds = %.preheader149
+335:                                              ; preds = %.preheader150
   %336 = load ptr, ptr %330, align 8
   %337 = load ptr, ptr %284, align 8
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %339 = icmp eq ptr %336, %338
-  br i1 %339, label %.loopexit147, label %.preheader146
+  br i1 %339, label %.loopexit148, label %.preheader147
 
-.preheader146:                                    ; preds = %335, %344
+.preheader147:                                    ; preds = %335, %344
   %340 = phi ptr [ %345, %344 ], [ %336, %335 ]
   %341 = getelementptr i8, ptr %340, i64 -8
   %342 = load i32, ptr %341, align 8
   %343 = icmp eq i32 %342, 0
-  br i1 %343, label %344, label %.loopexit147
+  br i1 %343, label %344, label %.loopexit148
 
-344:                                              ; preds = %.preheader146
+344:                                              ; preds = %.preheader147
   %345 = load volatile ptr, ptr %340, align 8
   %346 = icmp eq ptr %345, %338
-  br i1 %346, label %.loopexit147, label %.preheader146, !llvm.loop !22
+  br i1 %346, label %.loopexit148, label %.preheader147, !llvm.loop !22
 
-.loopexit147:                                     ; preds = %344, %.preheader146, %335
-  %347 = phi ptr [ %336, %335 ], [ %345, %344 ], [ %340, %.preheader146 ]
+.loopexit148:                                     ; preds = %344, %.preheader147, %335
+  %347 = phi ptr [ %336, %335 ], [ %345, %344 ], [ %340, %.preheader147 ]
   %348 = icmp eq ptr %347, %338
-  br i1 %348, label %.loopexit151, label %.preheader149, !llvm.loop !25
+  br i1 %348, label %.loopexit152, label %.preheader150, !llvm.loop !25
 
-.loopexit151:                                     ; preds = %.loopexit147, %.loopexit153
-  %349 = phi ptr [ %317, %.loopexit153 ], [ %337, %.loopexit147 ]
+.loopexit152:                                     ; preds = %.loopexit148, %.loopexit154
+  %349 = phi ptr [ %317, %.loopexit154 ], [ %337, %.loopexit148 ]
   %350 = load ptr, ptr %349, align 8
   %351 = icmp eq ptr %350, %349
-  br i1 %351, label %.loopexit144, label %.preheader143
+  br i1 %351, label %.loopexit145, label %.preheader144
 
-.preheader143:                                    ; preds = %.loopexit151, %356
-  %352 = phi ptr [ %357, %356 ], [ %350, %.loopexit151 ]
+.preheader144:                                    ; preds = %.loopexit152, %356
+  %352 = phi ptr [ %357, %356 ], [ %350, %.loopexit152 ]
   %353 = getelementptr i8, ptr %352, i64 -8
   %354 = load i32, ptr %353, align 8
   %355 = icmp eq i32 %354, 0
-  br i1 %355, label %356, label %.loopexit144
+  br i1 %355, label %356, label %.loopexit145
 
-356:                                              ; preds = %.preheader143
+356:                                              ; preds = %.preheader144
   %357 = load ptr, ptr %352, align 8
   %358 = icmp eq ptr %357, %349
-  br i1 %358, label %.loopexit144, label %.preheader143, !llvm.loop !9
+  br i1 %358, label %.loopexit145, label %.preheader144, !llvm.loop !9
 
-.loopexit144:                                     ; preds = %356, %.preheader143, %.loopexit151
-  %359 = phi ptr [ %350, %.loopexit151 ], [ %357, %356 ], [ %352, %.preheader143 ]
+.loopexit145:                                     ; preds = %356, %.preheader144, %.loopexit152
+  %359 = phi ptr [ %350, %.loopexit152 ], [ %357, %356 ], [ %352, %.preheader144 ]
   %360 = load ptr, ptr %359, align 8
   %361 = icmp eq ptr %360, %349
-  br i1 %361, label %.loopexit141, label %.preheader140
+  br i1 %361, label %.loopexit142, label %.preheader141
 
-.preheader140:                                    ; preds = %.loopexit144, %366
-  %362 = phi ptr [ %367, %366 ], [ %360, %.loopexit144 ]
+.preheader141:                                    ; preds = %.loopexit145, %366
+  %362 = phi ptr [ %367, %366 ], [ %360, %.loopexit145 ]
   %363 = getelementptr i8, ptr %362, i64 -8
   %364 = load i32, ptr %363, align 8
   %365 = icmp eq i32 %364, 0
-  br i1 %365, label %366, label %.loopexit141
+  br i1 %365, label %366, label %.loopexit142
 
-366:                                              ; preds = %.preheader140
+366:                                              ; preds = %.preheader141
   %367 = load ptr, ptr %362, align 8
   %368 = icmp eq ptr %367, %349
-  br i1 %368, label %.loopexit141, label %.preheader140, !llvm.loop !9
+  br i1 %368, label %.loopexit142, label %.preheader141, !llvm.loop !9
 
-.loopexit141:                                     ; preds = %366, %.preheader140, %.loopexit144
-  %369 = phi ptr [ %360, %.loopexit144 ], [ %367, %366 ], [ %362, %.preheader140 ]
+.loopexit142:                                     ; preds = %366, %.preheader141, %.loopexit145
+  %369 = phi ptr [ %360, %.loopexit145 ], [ %367, %366 ], [ %362, %.preheader141 ]
   %370 = icmp eq ptr %359, %349
-  br i1 %370, label %.loopexit139, label %.preheader137
+  br i1 %370, label %.loopexit140, label %.preheader138
 
-.preheader137:                                    ; preds = %.loopexit141, %.loopexit135
-  %371 = phi ptr [ %372, %.loopexit135 ], [ %359, %.loopexit141 ]
-  %372 = phi ptr [ %388, %.loopexit135 ], [ %369, %.loopexit141 ]
+.preheader138:                                    ; preds = %.loopexit142, %.loopexit136
+  %371 = phi ptr [ %372, %.loopexit136 ], [ %359, %.loopexit142 ]
+  %372 = phi ptr [ %388, %.loopexit136 ], [ %369, %.loopexit142 ]
   %373 = getelementptr i8, ptr %371, i64 -16
   tail call void @netlbl_af4list_remove_entry(ptr noundef %373) #10
   %374 = getelementptr i8, ptr %371, i64 -8
@@ -757,76 +757,76 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %375 = tail call i32 @netlbl_af4list_add(ptr noundef %373, ptr noundef %282) #10
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef nonnull %273, ptr noundef %373, ptr noundef null, i32 noundef %375, ptr noundef %1)
   %376 = icmp eq i32 %375, 0
-  br i1 %376, label %377, label %.loopexit110
+  br i1 %376, label %377, label %.loopexit111
 
-377:                                              ; preds = %.preheader137
+377:                                              ; preds = %.preheader138
   %378 = load ptr, ptr %372, align 8
   %379 = load ptr, ptr %284, align 8
   %380 = icmp eq ptr %378, %379
-  br i1 %380, label %.loopexit135, label %.preheader134
+  br i1 %380, label %.loopexit136, label %.preheader135
 
-.preheader134:                                    ; preds = %377, %385
+.preheader135:                                    ; preds = %377, %385
   %381 = phi ptr [ %386, %385 ], [ %378, %377 ]
   %382 = getelementptr i8, ptr %381, i64 -8
   %383 = load i32, ptr %382, align 8
   %384 = icmp eq i32 %383, 0
-  br i1 %384, label %385, label %.loopexit135
+  br i1 %384, label %385, label %.loopexit136
 
-385:                                              ; preds = %.preheader134
+385:                                              ; preds = %.preheader135
   %386 = load ptr, ptr %381, align 8
   %387 = icmp eq ptr %386, %379
-  br i1 %387, label %.loopexit135, label %.preheader134, !llvm.loop !9
+  br i1 %387, label %.loopexit136, label %.preheader135, !llvm.loop !9
 
-.loopexit135:                                     ; preds = %385, %.preheader134, %377
-  %388 = phi ptr [ %378, %377 ], [ %386, %385 ], [ %381, %.preheader134 ]
+.loopexit136:                                     ; preds = %385, %.preheader135, %377
+  %388 = phi ptr [ %378, %377 ], [ %386, %385 ], [ %381, %.preheader135 ]
   %389 = icmp eq ptr %372, %379
-  br i1 %389, label %.loopexit139, label %.preheader137, !llvm.loop !26
+  br i1 %389, label %.loopexit140, label %.preheader138, !llvm.loop !26
 
-.loopexit139:                                     ; preds = %.loopexit135, %.loopexit141
-  %390 = phi ptr [ %349, %.loopexit141 ], [ %379, %.loopexit135 ]
+.loopexit140:                                     ; preds = %.loopexit136, %.loopexit142
+  %390 = phi ptr [ %349, %.loopexit142 ], [ %379, %.loopexit136 ]
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 16
   %392 = load ptr, ptr %391, align 8
   %393 = icmp eq ptr %392, %391
-  br i1 %393, label %.loopexit132, label %.preheader131
+  br i1 %393, label %.loopexit133, label %.preheader132
 
-.preheader131:                                    ; preds = %.loopexit139, %398
-  %394 = phi ptr [ %399, %398 ], [ %392, %.loopexit139 ]
+.preheader132:                                    ; preds = %.loopexit140, %398
+  %394 = phi ptr [ %399, %398 ], [ %392, %.loopexit140 ]
   %395 = getelementptr i8, ptr %394, i64 -8
   %396 = load i32, ptr %395, align 8
   %397 = icmp eq i32 %396, 0
-  br i1 %397, label %398, label %.loopexit132
+  br i1 %397, label %398, label %.loopexit133
 
-398:                                              ; preds = %.preheader131
+398:                                              ; preds = %.preheader132
   %399 = load ptr, ptr %394, align 8
   %400 = icmp eq ptr %399, %391
-  br i1 %400, label %.loopexit132, label %.preheader131, !llvm.loop !11
+  br i1 %400, label %.loopexit133, label %.preheader132, !llvm.loop !11
 
-.loopexit132:                                     ; preds = %398, %.preheader131, %.loopexit139
-  %401 = phi ptr [ %392, %.loopexit139 ], [ %399, %398 ], [ %394, %.preheader131 ]
+.loopexit133:                                     ; preds = %398, %.preheader132, %.loopexit140
+  %401 = phi ptr [ %392, %.loopexit140 ], [ %399, %398 ], [ %394, %.preheader132 ]
   %402 = load ptr, ptr %401, align 8
   %403 = icmp eq ptr %402, %391
-  br i1 %403, label %.loopexit129, label %.preheader128
+  br i1 %403, label %.loopexit130, label %.preheader129
 
-.preheader128:                                    ; preds = %.loopexit132, %408
-  %404 = phi ptr [ %409, %408 ], [ %402, %.loopexit132 ]
+.preheader129:                                    ; preds = %.loopexit133, %408
+  %404 = phi ptr [ %409, %408 ], [ %402, %.loopexit133 ]
   %405 = getelementptr i8, ptr %404, i64 -8
   %406 = load i32, ptr %405, align 8
   %407 = icmp eq i32 %406, 0
-  br i1 %407, label %408, label %.loopexit129
+  br i1 %407, label %408, label %.loopexit130
 
-408:                                              ; preds = %.preheader128
+408:                                              ; preds = %.preheader129
   %409 = load ptr, ptr %404, align 8
   %410 = icmp eq ptr %409, %391
-  br i1 %410, label %.loopexit129, label %.preheader128, !llvm.loop !11
+  br i1 %410, label %.loopexit130, label %.preheader129, !llvm.loop !11
 
-.loopexit129:                                     ; preds = %408, %.preheader128, %.loopexit132
-  %411 = phi ptr [ %402, %.loopexit132 ], [ %409, %408 ], [ %404, %.preheader128 ]
+.loopexit130:                                     ; preds = %408, %.preheader129, %.loopexit133
+  %411 = phi ptr [ %402, %.loopexit133 ], [ %409, %408 ], [ %404, %.preheader129 ]
   %412 = icmp eq ptr %401, %391
-  br i1 %412, label %.loopexit127, label %.preheader125
+  br i1 %412, label %.loopexit128, label %.preheader126
 
-.preheader125:                                    ; preds = %.loopexit129, %.loopexit123
-  %413 = phi ptr [ %414, %.loopexit123 ], [ %401, %.loopexit129 ]
-  %414 = phi ptr [ %431, %.loopexit123 ], [ %411, %.loopexit129 ]
+.preheader126:                                    ; preds = %.loopexit130, %.loopexit124
+  %413 = phi ptr [ %414, %.loopexit124 ], [ %401, %.loopexit130 ]
+  %414 = phi ptr [ %431, %.loopexit124 ], [ %411, %.loopexit130 ]
   %415 = getelementptr i8, ptr %413, i64 -40
   tail call void @netlbl_af6list_remove_entry(ptr noundef %415) #10
   %416 = getelementptr i8, ptr %413, i64 -8
@@ -834,45 +834,45 @@ define dso_local noundef i32 @netlbl_domhsh_add(ptr noundef %0, ptr noundef %1) 
   %417 = tail call i32 @netlbl_af6list_add(ptr noundef %415, ptr noundef nonnull %283) #10
   tail call fastcc void @netlbl_domhsh_audit_add(ptr noundef nonnull %273, ptr noundef null, ptr noundef %415, i32 noundef %417, ptr noundef %1)
   %418 = icmp eq i32 %417, 0
-  br i1 %418, label %419, label %.loopexit110
+  br i1 %418, label %419, label %.loopexit111
 
-419:                                              ; preds = %.preheader125
+419:                                              ; preds = %.preheader126
   %420 = load ptr, ptr %414, align 8
   %421 = load ptr, ptr %284, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 16
   %423 = icmp eq ptr %420, %422
-  br i1 %423, label %.loopexit123, label %.preheader122
+  br i1 %423, label %.loopexit124, label %.preheader123
 
-.preheader122:                                    ; preds = %419, %428
+.preheader123:                                    ; preds = %419, %428
   %424 = phi ptr [ %429, %428 ], [ %420, %419 ]
   %425 = getelementptr i8, ptr %424, i64 -8
   %426 = load i32, ptr %425, align 8
   %427 = icmp eq i32 %426, 0
-  br i1 %427, label %428, label %.loopexit123
+  br i1 %427, label %428, label %.loopexit124
 
-428:                                              ; preds = %.preheader122
+428:                                              ; preds = %.preheader123
   %429 = load ptr, ptr %424, align 8
   %430 = icmp eq ptr %429, %422
-  br i1 %430, label %.loopexit123, label %.preheader122, !llvm.loop !11
+  br i1 %430, label %.loopexit124, label %.preheader123, !llvm.loop !11
 
-.loopexit123:                                     ; preds = %428, %.preheader122, %419
-  %431 = phi ptr [ %420, %419 ], [ %429, %428 ], [ %424, %.preheader122 ]
+.loopexit124:                                     ; preds = %428, %.preheader123, %419
+  %431 = phi ptr [ %420, %419 ], [ %429, %428 ], [ %424, %.preheader123 ]
   %432 = icmp eq ptr %414, %422
-  br i1 %432, label %.loopexit127, label %.preheader125, !llvm.loop !27
+  br i1 %432, label %.loopexit128, label %.preheader126, !llvm.loop !27
 
-.loopexit127:                                     ; preds = %.loopexit123, %.loopexit129
+.loopexit128:                                     ; preds = %.loopexit124, %.loopexit130
   %433 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @netlbl_domhsh_free_entry(ptr noundef nonnull %433)
-  br label %.loopexit110
+  br label %.loopexit111
 
-.loopexit110:                                     ; preds = %.preheader158, %.preheader149, %.preheader137, %.preheader125, %.loopexit, %.loopexit127, %277, %.thread108, %272, %.loopexit112, %205, %202, %.thread106.thread
-  %434 = phi i32 [ 0, %272 ], [ -22, %202 ], [ -12, %205 ], [ -22, %.thread106.thread ], [ -22, %277 ], [ -22, %.thread108 ], [ 0, %.loopexit112 ], [ 0, %.loopexit127 ], [ 0, %.loopexit ], [ %417, %.preheader125 ], [ %375, %.preheader137 ], [ -17, %.preheader149 ], [ -17, %.preheader158 ]
+.loopexit111:                                     ; preds = %.preheader159, %.preheader150, %.preheader138, %.preheader126, %.loopexit, %.loopexit128, %277, %.thread108, %272, %.loopexit113, %205, %202, %.thread106.thread
+  %434 = phi i32 [ 0, %272 ], [ -22, %202 ], [ -12, %205 ], [ -22, %.thread106.thread ], [ -22, %277 ], [ -22, %.thread108 ], [ 0, %.loopexit113 ], [ 0, %.loopexit128 ], [ 0, %.loopexit ], [ %417, %.preheader126 ], [ %375, %.preheader138 ], [ -17, %.preheader150 ], [ -17, %.preheader159 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @netlbl_domhsh_lock) #10
   tail call void @__rcu_read_unlock() #10
   br label %.thread
 
-.thread:                                          ; preds = %.preheader179, %47, %51, %.preheader171, %82, %86, %11, %24, %26, %18, %20, %14, %7, %4, %2, %.loopexit110
-  %435 = phi i32 [ %434, %.loopexit110 ], [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ -22, %14 ], [ -22, %20 ], [ -22, %18 ], [ -22, %26 ], [ -22, %24 ], [ -22, %11 ], [ -22, %86 ], [ -22, %82 ], [ -22, %.preheader171 ], [ -22, %51 ], [ -22, %47 ], [ -22, %.preheader179 ]
+.thread:                                          ; preds = %.preheader180, %47, %51, %.preheader172, %82, %86, %11, %24, %26, %18, %20, %14, %7, %4, %2, %.loopexit111
+  %435 = phi i32 [ %434, %.loopexit111 ], [ -22, %2 ], [ -22, %4 ], [ -22, %7 ], [ -22, %14 ], [ -22, %20 ], [ -22, %18 ], [ -22, %26 ], [ -22, %24 ], [ -22, %11 ], [ -22, %86 ], [ -22, %82 ], [ -22, %.preheader172 ], [ -22, %51 ], [ -22, %47 ], [ -22, %.preheader180 ]
   ret i32 %435
 }
 

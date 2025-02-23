@@ -7484,7 +7484,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %.val62 = load ptr, ptr %44, align 8, !tbaa !34
   %49 = getelementptr inbounds nuw i32, ptr %.val62, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !42
-  %51 = tail call i32 @Wlc_ObjDup(ptr noundef %29, ptr noundef nonnull %0, i32 noundef %50, ptr noundef nonnull %23)
+  %51 = tail call i32 @Wlc_ObjDup(ptr noundef nonnull %29, ptr noundef nonnull %0, i32 noundef %50, ptr noundef nonnull %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %42, align 4, !tbaa !40
   %52 = sext i32 %.val to i64
@@ -7507,7 +7507,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %.val66 = load ptr, ptr %47, align 8, !tbaa !34
   %59 = getelementptr inbounds nuw i32, ptr %.val66, i64 %indvars.iv86
   %60 = load i32, ptr %59, align 4, !tbaa !42
-  tail call void @Wlc_NtkDupDfs_rec(ptr noundef %29, ptr noundef nonnull %0, i32 noundef %60, ptr noundef nonnull %23)
+  tail call void @Wlc_NtkDupDfs_rec(ptr noundef nonnull %29, ptr noundef nonnull %0, i32 noundef %60, ptr noundef nonnull %23)
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %.val64 = load i32, ptr %45, align 4, !tbaa !40
   %61 = sext i32 %.val64 to i64
@@ -7533,7 +7533,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %73 = lshr i16 %72, 10
   %74 = and i16 %73, 1
   %75 = zext nneg i16 %74 to i32
-  tail call void @Wlc_ObjSetCo(ptr noundef %29, ptr noundef %71, i32 noundef %75)
+  tail call void @Wlc_ObjSetCo(ptr noundef nonnull %29, ptr noundef %71, i32 noundef %75)
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %.val65 = load i32, ptr %45, align 4, !tbaa !40
   %76 = sext i32 %.val65 to i64
@@ -8487,7 +8487,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %.val148 = load ptr, ptr %47, align 8, !tbaa !34
   %53 = getelementptr inbounds nuw i32, ptr %.val148, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !42
-  %55 = tail call i32 @Wlc_ObjDup(ptr noundef %28, ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %41)
+  %55 = tail call i32 @Wlc_ObjDup(ptr noundef nonnull %28, ptr noundef nonnull %0, i32 noundef %54, ptr noundef nonnull %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val137 = load i32, ptr %45, align 4, !tbaa !40
   %56 = sext i32 %.val137 to i64
@@ -8526,7 +8526,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %72 = sub i64 %70, %71
   %73 = sdiv exact i64 %72, 24
   %74 = trunc i64 %73 to i32
-  %75 = tail call i32 @Wlc_ObjDup(ptr noundef %28, ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull %41)
+  %75 = tail call i32 @Wlc_ObjDup(ptr noundef nonnull %28, ptr noundef nonnull %0, i32 noundef %74, ptr noundef nonnull %41)
   %76 = load i16, ptr %64, align 8
   %77 = and i16 %76, -64
   %78 = or disjoint i16 %77, %66
@@ -8554,7 +8554,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %.val146 = load ptr, ptr %60, align 8, !tbaa !34
   %84 = getelementptr inbounds nuw i32, ptr %.val146, i64 %indvars.iv210
   %85 = load i32, ptr %84, align 4, !tbaa !42
-  %86 = tail call i32 @Wlc_ObjDup(ptr noundef %28, ptr noundef nonnull %0, i32 noundef %85, ptr noundef nonnull %41)
+  %86 = tail call i32 @Wlc_ObjDup(ptr noundef nonnull %28, ptr noundef nonnull %0, i32 noundef %85, ptr noundef nonnull %41)
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %.val135 = load i32, ptr %58, align 4, !tbaa !40
   %87 = sext i32 %.val135 to i64
@@ -8583,7 +8583,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %.val166 = load ptr, ptr %83, align 8, !tbaa !34
   %94 = getelementptr inbounds nuw i32, ptr %.val166, i64 %indvars.iv213
   %95 = load i32, ptr %94, align 4, !tbaa !42
-  tail call void @Wlc_NtkDupDfs_rec(ptr noundef %28, ptr noundef nonnull %0, i32 noundef %95, ptr noundef nonnull %41)
+  tail call void @Wlc_NtkDupDfs_rec(ptr noundef nonnull %28, ptr noundef nonnull %0, i32 noundef %95, ptr noundef nonnull %41)
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %.val157 = load i32, ptr %81, align 4, !tbaa !40
   %96 = sext i32 %.val157 to i64
@@ -8624,7 +8624,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %.val5.i, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !42
-  tail call void @Wlc_NtkDupDfs_rec(ptr noundef %28, ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %41)
+  tail call void @Wlc_NtkDupDfs_rec(ptr noundef nonnull %28, ptr noundef nonnull %0, i32 noundef %111, ptr noundef nonnull %41)
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
   %.val134 = load i32, ptr %58, align 4, !tbaa !40
   %112 = sext i32 %.val134 to i64
@@ -8663,7 +8663,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %126 = load i32, ptr %125, align 4, !tbaa !42
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val163, i64 %127
-  tail call void @Wlc_ObjSetCo(ptr noundef %28, ptr noundef %128, i32 noundef 0)
+  tail call void @Wlc_ObjSetCo(ptr noundef nonnull %28, ptr noundef %128, i32 noundef 0)
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %.val156 = load i32, ptr %81, align 4, !tbaa !40
   %129 = sext i32 %.val156 to i64
@@ -8697,7 +8697,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %Vec_IntGrow.exit.i.
   %144 = load i32, ptr %143, align 4, !tbaa !42
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val160, i64 %145
-  tail call void @Wlc_ObjSetCo(ptr noundef %28, ptr noundef %146, i32 noundef 1)
+  tail call void @Wlc_ObjSetCo(ptr noundef nonnull %28, ptr noundef %146, i32 noundef 1)
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %.val133 = load i32, ptr %58, align 4, !tbaa !40
   %147 = sext i32 %.val133 to i64

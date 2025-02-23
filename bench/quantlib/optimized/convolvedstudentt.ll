@@ -1309,14 +1309,14 @@ for.cond.cleanup36:                               ; preds = %for.body37
   %sub.ptr.rhs.cast.i15.i = ptrtoint ptr %call5.i.i.i.i.i117318321 to i64
   %sub.ptr.sub.i16.i = sub i64 %sub.ptr.lhs.cast.i14.i, %sub.ptr.rhs.cast.i15.i
   %cmp3.i = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16.i
-  br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i
+  br i1 %cmp3.i, label %cond.true.i.i.i, label %if.else.i.thread
 
 for.cond.cleanup36.thread:                        ; preds = %for.cond33.preheader
   %sub.ptr.lhs.cast.i14.i357 = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i15.i358 = ptrtoint ptr %call5.i.i.i.i.i117318321 to i64
   %sub.ptr.sub.i16.i359 = sub i64 %sub.ptr.lhs.cast.i14.i357, %sub.ptr.rhs.cast.i15.i358
   %cmp3.i360 = icmp ugt i64 %sub.ptr.sub.i, %sub.ptr.sub.i16.i359
-  br i1 %cmp3.i360, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i, label %if.else.i.thread
+  br i1 %cmp3.i360, label %_ZNSt12_Vector_baseIdSaIdEE11_M_allocateEm.exit.i.i, label %if.else.i
 
 cond.true.i.i.i:                                  ; preds = %for.cond.cleanup36
   %cmp.i.i.i.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
@@ -1348,19 +1348,19 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %if.then.i.i.i.
   store ptr %add.ptr.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !15
   br label %invoke.cont42
 
-if.else.i:                                        ; preds = %for.cond.cleanup36
+if.else.i:                                        ; preds = %for.cond.cleanup36.thread
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i
+  %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i15.i358
   %cmp26.not.i = icmp ult i64 %sub.ptr.sub.i22.i, %sub.ptr.sub.i
-  br i1 %cmp26.not.i, label %if.else49.i, label %if.then.i.i.i.i.i.i114
+  br i1 %cmp26.not.i, label %if.else49.i, label %invoke.cont42
 
-if.else.i.thread:                                 ; preds = %for.cond.cleanup36.thread
+if.else.i.thread:                                 ; preds = %for.cond.cleanup36
   %sub.ptr.lhs.cast.i20.i367 = ptrtoint ptr %3 to i64
-  %sub.ptr.sub.i22.i368 = sub i64 %sub.ptr.lhs.cast.i20.i367, %sub.ptr.rhs.cast.i15.i358
+  %sub.ptr.sub.i22.i368 = sub i64 %sub.ptr.lhs.cast.i20.i367, %sub.ptr.rhs.cast.i15.i
   %cmp26.not.i369 = icmp ult i64 %sub.ptr.sub.i22.i368, %sub.ptr.sub.i
-  br i1 %cmp26.not.i369, label %if.else49.i, label %invoke.cont42
+  br i1 %cmp26.not.i369, label %if.else49.i, label %if.then.i.i.i.i.i.i114
 
-if.then.i.i.i.i.i.i114:                           ; preds = %if.else.i
+if.then.i.i.i.i.i.i114:                           ; preds = %if.else.i.thread
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %call5.i.i.i.i.i117318321, ptr nonnull align 8 %high.sroa.0.2324, i64 %sub.ptr.sub.i, i1 false)
   br label %invoke.cont42
 
@@ -1418,9 +1418,9 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.cond.cleanup36, label %for.body37, !llvm.loop !60
 
-invoke.cont42:                                    ; preds = %if.else.i.thread, %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i, %if.then.i.i.i.i.i.i114, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
-  %call5.i.i.i.i.i117319 = phi ptr [ %call5.i.i.i.i.i117318321, %if.then.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i117318321, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i ], [ %call5.i.i.i.i.i117318321, %if.then.i.i.i.i.i.i114 ], [ %call5.i.i.i.i.i117, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %call5.i.i.i.i.i117318321, %if.else.i.thread ]
-  %12 = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %2, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i ], [ %2, %if.then.i.i.i.i.i.i114 ], [ %add.ptr.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %2, %if.else.i.thread ]
+invoke.cont42:                                    ; preds = %if.else.i, %if.then.i.i.i.i.i.i.i.i.i, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i, %if.then.i.i.i.i.i.i114, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
+  %call5.i.i.i.i.i117319 = phi ptr [ %call5.i.i.i.i.i117318321, %if.then.i.i.i.i.i.i.i.i.i ], [ %call5.i.i.i.i.i117318321, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i ], [ %call5.i.i.i.i.i117318321, %if.then.i.i.i.i.i.i114 ], [ %call5.i.i.i.i.i117, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %call5.i.i.i.i.i117318321, %if.else.i ]
+  %12 = phi ptr [ %2, %if.then.i.i.i.i.i.i.i.i.i ], [ %2, %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit.i ], [ %2, %if.then.i.i.i.i.i.i114 ], [ %add.ptr.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ], [ %2, %if.else.i ]
   %add.ptr72.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i117319, i64 %sub.ptr.sub.i
   store ptr %add.ptr72.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !12
   %13 = load ptr, ptr %_M_finish.i.i120, align 8, !tbaa !12

@@ -246,7 +246,7 @@ define dso_local void @data_free(ptr noundef %0) local_unnamed_addr #0 {
   %.0.i38 = phi ptr [ %21, %.preheader ], [ %19, %15 ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i38, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %17, ptr noundef %.0.i38)
+  tail call fastcc void @_release_data_list_node(ptr noundef nonnull %17, ptr noundef %.0.i38)
   %.not5.i4 = icmp eq ptr %21, null
   br i1 %.not5.i4, label %_release_data_list.exit5, label %.preheader, !llvm.loop !8
 
@@ -270,7 +270,7 @@ _release_data_list.exit5:                         ; preds = %.preheader, %15
   %.0.i7 = phi ptr [ %28, %.preheader6 ], [ %26, %22 ]
   %27 = getelementptr inbounds nuw i8, ptr %.0.i7, i64 8
   %28 = load ptr, ptr %27, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %24, ptr noundef %.0.i7)
+  tail call fastcc void @_release_data_list_node(ptr noundef nonnull %24, ptr noundef %.0.i7)
   %.not5.i = icmp eq ptr %28, null
   br i1 %.not5.i, label %_release_data_list.exit, label %.preheader6, !llvm.loop !8
 
@@ -321,7 +321,7 @@ define internal fastcc void @_release(ptr noundef %0) unnamed_addr #0 {
   %.06.i = phi ptr [ %12, %.preheader.i ], [ %10, %6 ]
   %11 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %12 = load ptr, ptr %11, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %8, ptr noundef %.06.i)
+  tail call fastcc void @_release_data_list_node(ptr noundef nonnull %8, ptr noundef %.06.i)
   %.not5.i = icmp eq ptr %12, null
   br i1 %.not5.i, label %_release_data_list.exit, label %.preheader.i, !llvm.loop !8
 
@@ -345,7 +345,7 @@ _release_data_list.exit:                          ; preds = %.preheader.i, %6
   %.06.i8 = phi ptr [ %19, %.preheader.i7 ], [ %17, %13 ]
   %18 = getelementptr inbounds nuw i8, ptr %.06.i8, i64 8
   %19 = load ptr, ptr %18, align 8
-  tail call fastcc void @_release_data_list_node(ptr noundef %15, ptr noundef %.06.i8)
+  tail call fastcc void @_release_data_list_node(ptr noundef nonnull %15, ptr noundef %.06.i8)
   %.not5.i9 = icmp eq ptr %19, null
   br i1 %.not5.i9, label %_release_data_list.exit10, label %.preheader.i7, !llvm.loop !8
 

@@ -124,7 +124,7 @@ Vec_IntSelectSort.exit.loopexit:                  ; preds = %._crit_edge.i
 
 Vec_IntSelectSort.exit:                           ; preds = %2, %Vec_IntSelectSort.exit.loopexit, %26
   %42 = phi i32 [ %.pre45, %Vec_IntSelectSort.exit.loopexit ], [ %5, %26 ], [ %5, %2 ]
-  %43 = phi i32 [ %.pre, %Vec_IntSelectSort.exit.loopexit ], [ %.val, %26 ], [ %.val, %2 ]
+  %43 = phi i32 [ %.pre, %Vec_IntSelectSort.exit.loopexit ], [ 1, %26 ], [ %.val, %2 ]
   %44 = icmp slt i32 %43, %42
   br i1 %44, label %.lr.ph39, label %._crit_edge40
 

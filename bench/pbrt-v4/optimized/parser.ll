@@ -10524,7 +10524,7 @@ for.body.i.i258:                                  ; preds = %for.body.i.i258, %f
   %96 = load ptr, ptr %arrayidx.i.i261, align 8
   store ptr %96, ptr %add.ptr.i.i260, align 8
   %indvars.iv.next.i.i262 = add nuw nsw i64 %indvars.iv.i.i259, 1
-  %cmp3.i.i = icmp ugt i64 %91, %indvars.iv.next.i.i262
+  %cmp3.i.i = icmp samesign ugt i64 %91, %indvars.iv.next.i.i262
   br i1 %cmp3.i.i, label %for.body.i.i258, label %for.end.i.i263, !llvm.loop !249
 
 for.end.i.i263:                                   ; preds = %for.body.i.i258

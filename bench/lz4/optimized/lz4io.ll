@@ -5471,8 +5471,8 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_displayCompressedFilesInfo(ptr nound
   %39 = getelementptr inbounds nuw i8, ptr %14, i64 20
   br label %40
 
-40:                                               ; preds = %.lr.ph, %550
-  %.023380 = phi i64 [ 0, %.lr.ph ], [ %551, %550 ]
+40:                                               ; preds = %.lr.ph, %551
+  %.023380 = phi i64 [ 0, %.lr.ph ], [ %552, %551 ]
   %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.023380
   %42 = load ptr, ptr %41, align 8, !tbaa !58
   %43 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %42, i32 noundef 47) #30
@@ -6444,7 +6444,7 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
   %fputc = call i32 @fputc(i32 10, ptr %504)
   %.pr = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %505 = icmp slt i32 %.pr, 3
-  br i1 %505, label %.thread, label %550
+  br i1 %505, label %.thread, label %551
 
 .thread:                                          ; preds = %.critedge, %503
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %14) #24
@@ -6496,59 +6496,59 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
   %527 = sext i8 %526 to i32
   %528 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i, i32 noundef %527) #24
   %.not32 = icmp eq i16 %.sroa.43.6117, 0
-  br i1 %.not32, label %.thread146, label %532
+  br i1 %.not32, label %546, label %529
 
-.thread146:                                       ; preds = %LZ4IO_toHuman.exit
-  %529 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull @.str.41) #24
-  %530 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %531 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %530, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.41, ptr noundef nonnull %.07.i) #24
-  br label %549
+529:                                              ; preds = %LZ4IO_toHuman.exit
+  %530 = uitofp i64 %.sroa.2664.3109 to x86_fp80
+  %531 = icmp ult i64 %.sroa.2664.3109, 1024
+  br i1 %531, label %.loopexit, label %.lr.ph.i46
 
-532:                                              ; preds = %LZ4IO_toHuman.exit
-  %533 = uitofp i64 %.sroa.2664.3109 to x86_fp80
-  %534 = icmp ult i64 %.sroa.2664.3109, 1024
-  br i1 %534, label %.loopexit, label %.lr.ph.i46
+.lr.ph.i46:                                       ; preds = %529, %.lr.ph.i46
+  %.08.i47 = phi i64 [ %533, %.lr.ph.i46 ], [ 0, %529 ]
+  %.067.i48 = phi x86_fp80 [ %532, %.lr.ph.i46 ], [ %530, %529 ]
+  %532 = fmul x86_fp80 %.067.i48, 0xK3FF58000000000000000
+  %533 = add i64 %.08.i47, 1
+  %534 = fcmp ult x86_fp80 %532, 0xK40098000000000000000
+  br i1 %534, label %.loopexit, label %.lr.ph.i46, !llvm.loop !143
 
-.lr.ph.i46:                                       ; preds = %532, %.lr.ph.i46
-  %.08.i47 = phi i64 [ %536, %.lr.ph.i46 ], [ 0, %532 ]
-  %.067.i48 = phi x86_fp80 [ %535, %.lr.ph.i46 ], [ %533, %532 ]
-  %535 = fmul x86_fp80 %.067.i48, 0xK3FF58000000000000000
-  %536 = add i64 %.08.i47, 1
-  %537 = fcmp ult x86_fp80 %535, 0xK40098000000000000000
-  br i1 %537, label %.loopexit, label %.lr.ph.i46, !llvm.loop !143
-
-.loopexit:                                        ; preds = %.lr.ph.i46, %532
-  %.06.lcssa.i49 = phi x86_fp80 [ %533, %532 ], [ %535, %.lr.ph.i46 ]
-  %.0.lcssa.i50 = phi i64 [ 0, %532 ], [ %536, %.lr.ph.i46 ]
-  %538 = getelementptr inbounds nuw [10 x i8], ptr @__const.LZ4IO_toHuman.units, i64 0, i64 %.0.lcssa.i50
-  %539 = load i8, ptr %538, align 1, !tbaa !40
-  %540 = sext i8 %539 to i32
-  %541 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i49, i32 noundef %540) #24
-  %542 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull %39) #24
-  %543 = uitofp i64 %.0.i.i42 to double
-  %544 = uitofp i64 %.sroa.2664.3109 to double
-  %545 = fdiv double %543, %544
-  %546 = fmul double %545, 1.000000e+02
-  %547 = load ptr, ptr @stdout, align 8, !tbaa !8
-  %548 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %547, ptr noundef nonnull @.str.42, double noundef %546, ptr noundef nonnull %.07.i) #24
-  br label %549
-
-549:                                              ; preds = %.thread146, %.loopexit
-  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %14) #24
+.loopexit:                                        ; preds = %.lr.ph.i46, %529
+  %.06.lcssa.i49 = phi x86_fp80 [ %530, %529 ], [ %532, %.lr.ph.i46 ]
+  %.0.lcssa.i50 = phi i64 [ 0, %529 ], [ %533, %.lr.ph.i46 ]
+  %535 = getelementptr inbounds nuw [10 x i8], ptr @__const.LZ4IO_toHuman.units, i64 0, i64 %.0.lcssa.i50
+  %536 = load i8, ptr %535, align 1, !tbaa !40
+  %537 = sext i8 %536 to i32
+  %538 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) @.str.124, x86_fp80 noundef %.06.lcssa.i49, i32 noundef %537) #24
+  %539 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull %39) #24
+  %540 = uitofp i64 %.0.i.i42 to double
+  %541 = uitofp i64 %.sroa.2664.3109 to double
+  %542 = fdiv double %540, %541
+  %543 = fmul double %542, 1.000000e+02
+  %544 = load ptr, ptr @stdout, align 8, !tbaa !8
+  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef nonnull @.str.42, double noundef %543, ptr noundef nonnull %.07.i) #24
   br label %550
 
-550:                                              ; preds = %503, %549
-  %551 = add nuw i64 %.023380, 1
-  %exitcond.not = icmp eq i64 %551, %1
+546:                                              ; preds = %LZ4IO_toHuman.exit
+  %547 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.40, i64 noundef %.sroa.11.3103, ptr noundef %512, ptr noundef nonnull %519, ptr noundef nonnull %38, ptr noundef nonnull @.str.41) #24
+  %548 = load ptr, ptr @stdout, align 8, !tbaa !8
+  %549 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %548, ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.41, ptr noundef nonnull %.07.i) #24
+  br label %550
+
+550:                                              ; preds = %546, %.loopexit
+  call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %14) #24
+  br label %551
+
+551:                                              ; preds = %503, %550
+  %552 = add nuw i64 %.023380, 1
+  %exitcond.not = icmp eq i64 %552, %1
   br i1 %exitcond.not, label %.critedge35, label %40, !llvm.loop !144
 
 .critedge35.sink.split:                           ; preds = %495, %61
-  %552 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %553 = call i32 @fflush(ptr noundef %552)
+  %553 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %554 = call i32 @fflush(ptr noundef %553)
   br label %.critedge35
 
-.critedge35:                                      ; preds = %550, %.critedge35.sink.split, %20, %61, %58, %.loopexit152, %495
-  %.3 = phi i32 [ 1, %495 ], [ 1, %.loopexit152 ], [ 1, %58 ], [ 1, %61 ], [ 0, %20 ], [ 1, %.critedge35.sink.split ], [ 0, %550 ]
+.critedge35:                                      ; preds = %551, %.critedge35.sink.split, %20, %61, %58, %.loopexit152, %495
+  %.3 = phi i32 [ 1, %495 ], [ 1, %.loopexit152 ], [ 1, %58 ], [ 1, %61 ], [ 0, %20 ], [ 1, %.critedge35.sink.split ], [ 0, %551 ]
   ret i32 %.3
 }
 

@@ -76,7 +76,7 @@ define internal fastcc noundef i32 @_ZL16fastlz1_compressPKviPv(ptr noundef %0, 
   %23 = load i8, ptr %19, align 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %23, ptr %21, align 1
-  %25 = icmp sgt i32 %1, 14
+  %25 = icmp samesign ugt i32 %1, 14
   br i1 %25, label %.lr.ph200, label %._crit_edge
 
 .lr.ph200:                                        ; preds = %17, %.backedge
@@ -471,7 +471,7 @@ define internal fastcc noundef i32 @_ZL16fastlz2_compressPKviPv(ptr noundef %0, 
   %23 = load i8, ptr %19, align 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %23, ptr %21, align 1
-  %25 = icmp sgt i32 %1, 14
+  %25 = icmp samesign ugt i32 %1, 14
   br i1 %25, label %.lr.ph260, label %._crit_edge261
 
 .lr.ph260:                                        ; preds = %17, %.backedge

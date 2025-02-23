@@ -820,7 +820,6 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit463._crit_edge: ; preds = %_ZL13gmx_snew_
 
 ._crit_edge:                                      ; preds = %284, %278
   %.4364.in.lcssa706 = phi i1 [ %280, %278 ], [ %289, %284 ]
-  %.4364.le = zext i1 %.4364.in.lcssa706 to i8
   br i1 %.4364.in.lcssa706, label %.loopexit685, label %292
 
 292:                                              ; preds = %._crit_edge
@@ -845,7 +844,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit463._crit_edge: ; preds = %_ZL13gmx_snew_
   br i1 %305, label %.lr.ph714, label %.loopexit685, !llvm.loop !9
 
 .loopexit685:                                     ; preds = %.lr.ph714, %276, %292, %._crit_edge, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit463._crit_edge
-  %.3363 = phi i8 [ 1, %._crit_edge ], [ %.mux, %276 ], [ %.0360, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit463._crit_edge ], [ 0, %292 ], [ %.4364.le, %.lr.ph714 ]
+  %.3363 = phi i8 [ 1, %._crit_edge ], [ %.mux, %276 ], [ %.0360, %_ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit463._crit_edge ], [ 0, %292 ], [ 0, %.lr.ph714 ]
   %306 = load i8, ptr @_ZZ9gmx_covariPPcE4bPBC, align 1
   %307 = trunc i8 %306 to i1
   br i1 %307, label %308, label %325

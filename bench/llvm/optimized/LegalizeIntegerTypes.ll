@@ -7695,7 +7695,7 @@ _ZSt7reverseIPN4llvm7SDValueEEvT_S3_.exit:        ; preds = %.lr.ph.i.i, %71, %.
 
 ._crit_edge138:                                   ; preds = %103, %_ZSt7reverseIPN4llvm7SDValueEEvT_S3_.exit
   %.pn.lcssa = phi { ptr, i32 } [ %93, %_ZSt7reverseIPN4llvm7SDValueEEvT_S3_.exit ], [ %123, %103 ]
-  call void @_ZN4llvm16DAGTypeLegalizer16ReplaceValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i32 1, ptr %.sroa.094.0.lcssa, i32 %.sroa.695.0.lcssa) #18
+  call void @_ZN4llvm16DAGTypeLegalizer16ReplaceValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %1, i32 1, ptr %.sroa.094.0.lcssa, i32 %.sroa.695.0.lcssa) #18
   %98 = load ptr, ptr %6, align 8, !tbaa !215
   %99 = icmp eq ptr %98, %39
   br i1 %99, label %_ZN4llvm11SmallVectorINS_7SDValueELj8EED2Ev.exit, label %100
@@ -17216,7 +17216,7 @@ _ZN4llvm5SDLocD2Ev.exit190:                       ; preds = %_ZN4llvm5SDLocC2EPK
 
 211:                                              ; preds = %.lr.ph, %211
   %.0214 = phi i32 [ 1, %.lr.ph ], [ %212, %211 ]
-  call void @_ZN4llvm16DAGTypeLegalizer16ReplaceValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i32 %.0214, ptr %.fca.0.extract, i32 %.0214) #18
+  call void @_ZN4llvm16DAGTypeLegalizer16ReplaceValueWithENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %1, i32 %.0214, ptr %.fca.0.extract, i32 %.0214) #18
   %212 = add nuw nsw i32 %.0214, 1
   %exitcond.not = icmp eq i32 %212, %209
   br i1 %exitcond.not, label %.loopexit, label %211, !llvm.loop !268
@@ -39085,7 +39085,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds
   store ptr null, ptr %13, align 8, !tbaa !155
   %70 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i32 0, ptr %70, align 8, !tbaa !156
-  call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.sroa.0199.0.copyload, i32 %.sroa.10.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %11) #18
+  call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %.sroa.0199.0.copyload, i32 %.sroa.10.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull align 8 dereferenceable(12) %11) #18
   call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.sroa.0136.0.copyload, i32 %.sroa.6139.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %13) #18
   %71 = load ptr, ptr %41, align 8, !tbaa !37
   %72 = load ptr, ptr %10, align 8, !tbaa !155
@@ -39409,7 +39409,7 @@ _ZNK4llvm18TargetLoweringBase24isOperationLegalOrCustomEjNS_3EVTEb.exit: ; preds
   store ptr null, ptr %19, align 8, !tbaa !155
   %68 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %68, align 8, !tbaa !156
-  call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.sroa.0252.0.copyload, i32 %.sroa.10.0.copyload258, ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %17) #18
+  call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %.sroa.0252.0.copyload, i32 %.sroa.10.0.copyload258, ptr noundef nonnull align 8 dereferenceable(12) %16, ptr noundef nonnull align 8 dereferenceable(12) %17) #18
   call void @_ZN4llvm16DAGTypeLegalizer18GetExpandedIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %.sroa.0129.0.copyload, i32 %.sroa.7.0.copyload, ptr noundef nonnull align 8 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %19) #18
   %69 = load ptr, ptr %39, align 8, !tbaa !37
   %70 = load ptr, ptr %16, align 8, !tbaa !155

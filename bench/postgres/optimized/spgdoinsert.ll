@@ -2942,7 +2942,7 @@ thread-pre-split:                                 ; preds = %1387, %1380, %1383
   br i1 %exitcond.i, label %._crit_edge.loopexit.i, label %.lr.ph.i204, !llvm.loop !29
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i204
-  %1415 = add i32 %umin.i, 1
+  %1415 = add nuw nsw i32 %umin.i, 1
   %1416 = icmp eq i32 %1415, %1396
   br i1 %1416, label %ItemPointerIsValid.exit.i205, label %1417
 
@@ -3628,7 +3628,7 @@ spgAddNodeAction.exit:                            ; preds = %1555, %1673, %1676,
   call void @PageIndexTupleDelete(ptr noundef nonnull %.sroa.67.1.ph4891012, i16 noundef zeroext %.sroa.116.3.ph4901013) #10
   %1776 = load i16, ptr %1713, align 4
   %1777 = zext i16 %1776 to i64
-  %1778 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef %1712, i64 noundef %1777, i16 noundef zeroext %.sroa.116.3.ph4901013, i32 noundef 0) #10
+  %1778 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.sroa.67.1.ph4891012, ptr noundef nonnull %1712, i64 noundef %1777, i16 noundef zeroext %.sroa.116.3.ph4901013, i32 noundef 0) #10
   store i16 %1778, ptr %6, align 2
   %.not125.i = icmp eq i16 %1778, %.sroa.116.3.ph4901013
   br i1 %.not125.i, label %1784, label %1779

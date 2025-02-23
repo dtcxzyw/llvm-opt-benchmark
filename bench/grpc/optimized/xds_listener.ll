@@ -3044,7 +3044,7 @@ if.then.i.i.i21.i:                                ; preds = %_ZNSt6vectorIN9grpc
   br label %_ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit
 
 _ZN9grpc_core11FilterChain16FilterChainMatchD2Ev.exit: ; preds = %_ZNSt6vectorIN9grpc_core19XdsListenerResource14FilterChainMap9CidrRangeESaIS3_EED2Ev.exit.i, %if.then.i.i.i21.i
-  %call.i80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0270) #27
+  %call.i80 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0270) #27
   %cmp.i19.not = icmp eq ptr %call.i80, %add.ptr.i.i
   br i1 %cmp.i19.not, label %for.inc67, label %for.body23
 

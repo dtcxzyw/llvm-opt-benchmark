@@ -169,7 +169,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   store ptr @sccp_visit_phi, ptr %60, align 8, !tbaa !56
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 88
   store ptr @sccp_mark_feasible_successors, ptr %61, align 8, !tbaa !57
-  call void @scdf_init(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef nonnull %2) #12
+  call void @scdf_init(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %2) #12
   call void @scdf_solve(ptr noundef nonnull %8, ptr noundef nonnull @.str) #12
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %63 = load i64, ptr %62, align 8, !tbaa !58
@@ -206,7 +206,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
 78:                                               ; preds = %77
   %79 = load ptr, ptr @stderr, align 8, !tbaa !59
   %80 = call i64 @fwrite(ptr nonnull @.str.1, i64 18, i64 1, ptr %79) #14
-  call void @zend_dump_op_array_name(ptr noundef %1) #12
+  call void @zend_dump_op_array_name(ptr noundef nonnull %1) #12
   %81 = load ptr, ptr @stderr, align 8, !tbaa !59
   %82 = call i64 @fwrite(ptr nonnull @.str.2, i64 3, i64 1, ptr %81) #14
   br label %83
@@ -218,7 +218,7 @@ sccp_context_init.exit:                           ; preds = %49, %.preheader.i
   %87 = load ptr, ptr %69, align 8, !tbaa !54
   %88 = getelementptr inbounds %struct._zend_ssa_var, ptr %87, i64 %indvars.iv
   %89 = load i32, ptr %88, align 8, !tbaa !61
-  call void @zend_dump_var(ptr noundef %1, i8 noundef zeroext 8, i32 noundef %89) #12
+  call void @zend_dump_var(ptr noundef nonnull %1, i8 noundef zeroext 8, i32 noundef %89) #12
   %90 = load ptr, ptr @stderr, align 8, !tbaa !59
   %91 = call i64 @fwrite(ptr nonnull @.str.4, i64 2, i64 1, ptr %90) #14
   %92 = load i8, ptr %75, align 8, !tbaa !41
@@ -6236,7 +6236,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %45 = load ptr, ptr %2, align 8, !tbaa !147
   %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv136
   %47 = load i32, ptr %46, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %47) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %47) #12
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %48 = load i32, ptr %42, align 4, !tbaa !148
   %49 = sext i32 %48 to i64
@@ -6508,7 +6508,7 @@ get_op1_value.exit:                               ; preds = %19, %27
   %210 = load ptr, ptr %2, align 8, !tbaa !147
   %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv
   %212 = load i32, ptr %211, align 4, !tbaa !75
-  call void @scdf_mark_edge_feasible(ptr noundef %0, i32 noundef %1, i32 noundef %212) #12
+  call void @scdf_mark_edge_feasible(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %212) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %213 = load i32, ptr %52, align 4, !tbaa !148
   %214 = sext i32 %213 to i64

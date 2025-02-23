@@ -1349,7 +1349,7 @@ Kit_DsdNtkRoot.exit:                              ; preds = %Kit_DsdNtkRoot.exit
   br i1 %exitcond276.not, label %.preheader, label %148, !llvm.loop !93
 
 .loopexit:                                        ; preds = %157, %.lr.ph204
-  %153 = icmp sgt i64 %indvars.iv283, 1
+  %153 = icmp samesign ugt i64 %indvars.iv283, 1
   br i1 %153, label %.lr.ph204, label %._crit_edge205, !llvm.loop !94
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %.loopexit

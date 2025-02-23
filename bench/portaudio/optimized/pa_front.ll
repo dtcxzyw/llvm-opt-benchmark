@@ -87,11 +87,11 @@ define i32 @Pa_Initialize() local_unnamed_addr #3 {
 2:                                                ; preds = %0
   %3 = add nsw i32 %1, 1
   store i32 %3, ptr @initializationCount_, align 4, !tbaa !12
-  br label %71
+  br label %72
 
 4:                                                ; preds = %0
   %.b = load i1, ptr @initializing_, align 4
-  br i1 %.b, label %71, label %5
+  br i1 %.b, label %72, label %5
 
 5:                                                ; preds = %4
   store i1 true, ptr @initializing_, align 4
@@ -219,11 +219,11 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
 ._crit_edge.i:                                    ; preds = %51
   %.pre45.i = load i32, ptr @defaultHostApiIndex_, align 4, !tbaa !12
   %53 = icmp eq i32 %.pre45.i, -1
-  br i1 %53, label %._crit_edge.thread.i, label %InitializeHostApis.exit.thread
+  br i1 %53, label %._crit_edge.thread.i, label %68
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %11
   store i32 0, ptr @defaultHostApiIndex_, align 4, !tbaa !12
-  br label %InitializeHostApis.exit.thread
+  br label %68
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %CountHostApiInitializers.exit.i
   %.022.i = phi i32 [ -9992, %CountHostApiInitializers.exit.i ], [ %18, %.lr.ph.i ]
@@ -260,21 +260,21 @@ CountHostApiInitializers.exit.i:                  ; preds = %6
 
 InitializeHostApis.exit:                          ; preds = %._crit_edge.i.i, %67
   store ptr null, ptr @hostApis_, align 8, !tbaa !16
-  br label %70
-
-InitializeHostApis.exit.thread:                   ; preds = %._crit_edge.i, %._crit_edge.thread.i
-  %68 = load i32, ptr @initializationCount_, align 4, !tbaa !12
-  %69 = add nsw i32 %68, 1
-  store i32 %69, ptr @initializationCount_, align 4, !tbaa !12
-  br label %70
-
-70:                                               ; preds = %InitializeHostApis.exit, %InitializeHostApis.exit.thread
-  %.0.i4 = phi i32 [ 0, %InitializeHostApis.exit.thread ], [ %.022.i, %InitializeHostApis.exit ]
-  store i1 false, ptr @initializing_, align 4
   br label %71
 
-71:                                               ; preds = %4, %70, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.0.i4, %70 ], [ -9971, %4 ]
+68:                                               ; preds = %._crit_edge.thread.i, %._crit_edge.i
+  %69 = load i32, ptr @initializationCount_, align 4, !tbaa !12
+  %70 = add nsw i32 %69, 1
+  store i32 %70, ptr @initializationCount_, align 4, !tbaa !12
+  br label %71
+
+71:                                               ; preds = %InitializeHostApis.exit, %68
+  %.0.i4 = phi i32 [ 0, %68 ], [ %.022.i, %InitializeHostApis.exit ]
+  store i1 false, ptr @initializing_, align 4
+  br label %72
+
+72:                                               ; preds = %4, %71, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.0.i4, %71 ], [ -9971, %4 ]
   ret i32 %.0
 }
 

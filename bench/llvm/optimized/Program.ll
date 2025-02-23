@@ -1315,7 +1315,12 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program12createG
 
 13:                                               ; preds = %3
   %14 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
-  br i1 %14, label %15, label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
+  br i1 %14, label %15, label %._ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit_crit_edge
+
+._ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit_crit_edge: ; preds = %13
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %.pre = load i8, ptr %.phi.trans.insert, align 8
+  br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
 
 15:                                               ; preds = %13
   %16 = load i32, ptr %8, align 4
@@ -1325,12 +1330,12 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang6interp7Program12createG
   %20 = load i16, ptr %19, align 8
   %21 = icmp slt i16 %20, 0
   %22 = select i1 %18, i1 %21, i1 false
+  %23 = trunc i16 %20 to i8
   br label %_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit
 
-_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %13, %15
-  %spec.select.i = phi i1 [ true, %13 ], [ %22, %15 ]
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %24 = load i8, ptr %23, align 8
+_ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit: ; preds = %._ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit_crit_edge, %15
+  %24 = phi i8 [ %.pre, %._ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit_crit_edge ], [ %23, %15 ]
+  %spec.select.i = phi i1 [ true, %._ZN5clang6interp7Context23shouldBeGloballyIndexedEPKNS_9ValueDeclE.exit_crit_edge ], [ %22, %15 ]
   %25 = and i8 %24, 5
   %spec.select.i21 = icmp eq i8 %25, 1
   br label %30

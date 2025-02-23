@@ -2395,7 +2395,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %133
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %171 = load ptr, ptr %170, align 8, !tbaa !24
-  %172 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef %0, ptr noundef nonnull %.0.i111, ptr noundef %171, ptr noundef %6)
+  %172 = call fastcc i32 @Wlc_PrsFindDefinition(ptr noundef nonnull %0, ptr noundef nonnull %.0.i111, ptr noundef %171, ptr noundef %6)
   %.not81 = icmp eq i32 %172, 0
   br i1 %.not81, label %188, label %173
 
@@ -4373,16 +4373,16 @@ Vec_IntAlloc.exit.i.thread:                       ; preds = %309
   store i32 %324, ptr %323, align 4, !tbaa !36
   %indvars.iv.next.i1197 = add nuw nsw i64 %indvars.iv.i1196, 1
   %exitcond.not.i1198 = icmp eq i64 %indvars.iv.next.i1197, %wide.trip.count.i1194
-  br i1 %exitcond.not.i1198, label %Vec_IntStartNatural.exit, label %.lr.ph.i1195, !llvm.loop !89
+  br i1 %exitcond.not.i1198, label %.lr.ph.i1199, label %.lr.ph.i1195, !llvm.loop !89
 
-Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i1195
+.lr.ph.i1199:                                     ; preds = %.lr.ph.i1195
   %325 = getelementptr inbounds nuw i8, ptr %310, i64 696
   %326 = getelementptr inbounds nuw i8, ptr %310, i64 700
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %310, i64 704
   br label %327
 
-327:                                              ; preds = %Vec_IntPush.exit.i, %Vec_IntStartNatural.exit
-  %indvars.iv.i1200 = phi i64 [ 0, %Vec_IntStartNatural.exit ], [ %indvars.iv.next.i1201, %Vec_IntPush.exit.i ]
+327:                                              ; preds = %Vec_IntPush.exit.i, %.lr.ph.i1199
+  %indvars.iv.i1200 = phi i64 [ 0, %.lr.ph.i1199 ], [ %indvars.iv.next.i1201, %Vec_IntPush.exit.i ]
   %328 = getelementptr inbounds nuw i32, ptr %322, i64 %indvars.iv.i1200
   %329 = load i32, ptr %328, align 4, !tbaa !36
   %330 = load i32, ptr %326, align 4, !tbaa !17
@@ -5960,7 +5960,7 @@ Wlc_PrsSkipSpaces.exit1444:                       ; preds = %910, %Wlc_PrsSkipSp
   br i1 %928, label %929, label %931
 
 929:                                              ; preds = %Wlc_PrsSkipSpaces.exit1444
-  %930 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.40)
+  %930 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.40)
   br label %.thread1934
 
 931:                                              ; preds = %Wlc_PrsSkipSpaces.exit1444
@@ -5969,7 +5969,7 @@ Wlc_PrsSkipSpaces.exit1444:                       ; preds = %910, %Wlc_PrsSkipSp
   br i1 %933, label %934, label %.preheader2006
 
 934:                                              ; preds = %931
-  %935 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.40)
+  %935 = call i32 (ptr, ptr, ptr, ...) @Wlc_PrsWriteErrorMessage(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.40)
   br label %.thread1934
 
 .preheader2006:                                   ; preds = %931, %.preheader2006

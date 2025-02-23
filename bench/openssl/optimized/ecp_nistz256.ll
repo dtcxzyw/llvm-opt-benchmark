@@ -728,26 +728,26 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %.0125218247 = phi ptr [ %234, %.thread239 ], [ %4, %239 ]
   %.0124219246 = phi i64 [ %11, %.thread239 ], [ %3, %239 ]
   %241 = phi ptr [ %10, %.thread239 ], [ %spec.select253, %239 ]
-  %242 = shl i64 %.0124219246, 4
+  %242 = shl nuw nsw i64 %.0124219246, 4
   %243 = or disjoint i64 %242, 6
-  %244 = icmp ugt i64 %243, 22369621
+  %244 = icmp samesign ugt i64 %243, 22369621
   br i1 %244, label %ecp_nistz256_windowed_mul.exit, label %245
 
 245:                                              ; preds = %240
-  %246 = mul nsw i64 %.0124219246, 1536
-  %247 = add nsw i64 %246, 544
+  %246 = mul nuw nsw i64 %.0124219246, 1536
+  %247 = add nuw nsw i64 %246, 544
   %248 = call noalias ptr @CRYPTO_malloc(i64 noundef %247, ptr noundef nonnull @.str, i32 noundef 627) #7
   %249 = icmp eq ptr %248, null
   br i1 %249, label %ecp_nistz256_windowed_mul.exit, label %250
 
 250:                                              ; preds = %245
-  %251 = mul nsw i64 %.0124219246, 33
+  %251 = mul nuw nsw i64 %.0124219246, 33
   %252 = call noalias ptr @CRYPTO_malloc(i64 noundef %251, ptr noundef nonnull @.str, i32 noundef 629) #7
   %253 = icmp eq ptr %252, null
   br i1 %253, label %ecp_nistz256_windowed_mul.exit, label %254
 
 254:                                              ; preds = %250
-  %255 = shl i64 %.0124219246, 3
+  %255 = shl nuw nsw i64 %.0124219246, 3
   %256 = call noalias ptr @CRYPTO_malloc(i64 noundef %255, ptr noundef nonnull @.str, i32 noundef 630) #7
   %257 = icmp eq ptr %256, null
   br i1 %257, label %ecp_nistz256_windowed_mul.exit, label %258

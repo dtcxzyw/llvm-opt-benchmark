@@ -8077,8 +8077,8 @@ for.body15:                                       ; preds = %_ZNK15ref_vector_co
   %arrayidx.i.i.i43 = getelementptr inbounds nuw ptr, ptr %13, i64 %idxprom.i.i.i42
   %14 = load ptr, ptr %arrayidx.i.i.i43, align 8
   %call19 = tail call noundef zeroext i1 @_ZNK11ast_manager12are_distinctEP4exprS1_(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef %12, ptr noundef %14)
-  %inc = add i32 %j.071, 1
-  %cmp14 = icmp ugt i32 %inc, %i.073
+  %inc = add nuw i32 %j.071, 1
+  %cmp14 = icmp uge i32 %j.071, %i.073
   %.not = or i1 %cmp14, %call19
   br i1 %.not, label %if.end38, label %for.body15, !llvm.loop !51
 

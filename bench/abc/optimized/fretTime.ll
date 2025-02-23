@@ -3100,7 +3100,7 @@ Vec_PtrPush.exit.i:                               ; preds = %49, %Vec_PtrGrow.ex
   br label %98
 
 98:                                               ; preds = %.critedge2.i, %60
-  %99 = icmp sgt i64 %indvars.iv105.i, 1
+  %99 = icmp samesign ugt i64 %indvars.iv105.i, 1
   br i1 %99, label %60, label %.critedge.i, !llvm.loop !93
 
 .critedge.i:                                      ; preds = %98
@@ -3423,7 +3423,7 @@ Vec_PtrPush.exit.i9:                              ; preds = %210, %Vec_PtrGrow.e
   br label %259
 
 259:                                              ; preds = %.critedge2.i43, %221
-  %260 = icmp sgt i64 %indvars.iv105.i12, 1
+  %260 = icmp samesign ugt i64 %indvars.iv105.i12, 1
   br i1 %260, label %221, label %.critedge.i15, !llvm.loop !97
 
 .critedge.i15:                                    ; preds = %259

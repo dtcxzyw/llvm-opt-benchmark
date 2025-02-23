@@ -31549,59 +31549,64 @@ define linkonce_odr dso_local void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_i
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %28 = and i64 %13, 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %._crit_edge.i.i.i
   %31 = add nsw i64 %14, -2
   %32 = ashr exact i64 %31, 1
   %33 = icmp eq i64 %.0.lcssa.i.i.i, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %.thread.i.i, label %39
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i
-  %39 = load i64, ptr %37, align 8
-  store i64 %39, ptr %38, align 8
-  br label %40
-
-40:                                               ; preds = %34, %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %36, %34 ], [ %.0.lcssa.i.i.i, %30 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+.thread.i.i:                                      ; preds = %30
+  %34 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %35 = or disjoint i64 %34, 1
+  %36 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %35
+  %37 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i
+  %38 = load i64, ptr %36, align 8
+  store i64 %38, ptr %37, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.sroa.03.0.copyload.i.i, ptr %5, align 8
-  %41 = icmp sgt i64 %.1.i.i.i, 0
-  %42 = ptrtoint ptr %.sroa.03.0.copyload.i.i to i64
-  br i1 %41, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i
+  br label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %40, %45
-  %.018.i.i.i.i = phi i64 [ %.0919.i.i89.i.i, %45 ], [ %.1.i.i.i, %40 ]
+39:                                               ; preds = %30, %._crit_edge.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store ptr %.sroa.03.0.copyload.i.i, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  %40 = ptrtoint ptr %.sroa.03.0.copyload.i.i to i64
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %39, %.thread.i.i
+  %.018.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %39 ], [ %35, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %43
+  %.018.i.i.i.i = phi i64 [ %.0919.i.i89.i.i, %43 ], [ %.018.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i = add nsw i64 %.018.i.i.i.i, -1
   %.0919.i.i89.i.i = lshr i64 %.0919.in.i.i.i.i, 1
-  %43 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0919.i.i89.i.i
-  %44 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %44, label %45, label %.critedge.loopexit.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0919.i.i89.i.i
+  %42 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %42, label %43, label %.critedge.loopexit.i.i.i.i
 
-45:                                               ; preds = %.lr.ph.i.i.i.i
-  %46 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.018.i.i.i.i
-  %47 = load i64, ptr %43, align 8
-  store i64 %47, ptr %46, align 8
-  %.not.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !350
+43:                                               ; preds = %.lr.ph.i.i.i.i
+  %44 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.018.i.i.i.i
+  %45 = load i64, ptr %41, align 8
+  store i64 %45, ptr %44, align 8
+  %.not10.i.i = icmp ult i64 %.0919.in.i.i.i.i, 2
+  br i1 %.not10.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !350
 
-.critedge.loopexit.i.i.i.i:                       ; preds = %45, %.lr.ph.i.i.i.i
-  %.0.lcssa.ph.i.i.i.i = phi i64 [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %45 ]
+.critedge.loopexit.i.i.i.i:                       ; preds = %43, %.lr.ph.i.i.i.i
+  %.0.lcssa.ph.i.i.i.i = phi i64 [ %.018.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %43 ]
   %.pre.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %40
-  %48 = phi i64 [ %42, %40 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %.0.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.0.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %49 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i.i
-  store i64 %48, ptr %49, align 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %39
+  %46 = phi i64 [ %40, %39 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %.0.lcssa.i.i.i.i = phi i64 [ 0, %39 ], [ %.0.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %47 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i.i
+  store i64 %46, ptr %47, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %50 = icmp sgt i64 %13, 8
-  br i1 %50, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_RT0_.exit, !llvm.loop !351
+  %48 = icmp sgt i64 %13, 8
+  br i1 %48, label %.lr.ph.i, label %_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_RT0_.exit, !llvm.loop !351
 
 _ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_RT0_.exit: ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.i, %4
   ret void
@@ -31737,15 +31742,15 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %19 = or disjoint i64 %17, 1
-  %20 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %19
   %21 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %18
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %47
-  %.sroa.0.011.us = phi ptr [ %48, %47 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %45
+  %.sroa.0.011.us = phi ptr [ %46, %45 ], [ %1, %.lr.ph.split.us.preheader ]
   %22 = load ptr, ptr %6, align 8
   %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011.us, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %23, label %.lr.ph.i.i.preheader.us, label %47
+  br i1 %23, label %.lr.ph.i.i.preheader.us, label %45
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.03.0.copyload.i.us = load ptr, ptr %.sroa.0.011.us, align 8
@@ -31771,143 +31776,148 @@ define linkonce_odr dso_local void @_ZSt13__heap_selectIN9__gnu_cxx17__normal_it
   br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !349
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %36 = load i64, ptr %20, align 8
-  store i64 %36, ptr %21, align 8
-  br label %37
-
-37:                                               ; preds = %35, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %19, %35 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.sroa.03.0.copyload.i.us, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  %39 = ptrtoint ptr %.sroa.03.0.copyload.i.us to i64
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  %36 = ptrtoint ptr %.sroa.03.0.copyload.i.us to i64
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %42
-  %.018.i.i.i.us = phi i64 [ %.0919.i.i89.i.us, %42 ], [ %.1.i.i.us, %37 ]
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
+  %37 = load i64, ptr %20, align 8
+  store i64 %37, ptr %21, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store ptr %.sroa.03.0.copyload.i.us, ptr %5, align 8
+  br label %.lr.ph.i.i.i.us.preheader
+
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %35
+  %.018.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %35 ], [ %19, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
+
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %40
+  %.018.i.i.i.us = phi i64 [ %.0919.i.i89.i.us, %40 ], [ %.018.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.0919.in.i.i.i.us = add nsw i64 %.018.i.i.i.us, -1
   %.0919.i.i89.i.us = lshr i64 %.0919.in.i.i.i.us, 1
-  %40 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0919.i.i89.i.us
-  %41 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %41, label %42, label %.critedge.loopexit.i.i.i.us
+  %38 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0919.i.i89.i.us
+  %39 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %39, label %40, label %.critedge.loopexit.i.i.i.us
 
-42:                                               ; preds = %.lr.ph.i.i.i.us
-  %43 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.018.i.i.i.us
-  %44 = load i64, ptr %40, align 8
-  store i64 %44, ptr %43, align 8
-  %.not.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !350
+40:                                               ; preds = %.lr.ph.i.i.i.us
+  %41 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.018.i.i.i.us
+  %42 = load i64, ptr %38, align 8
+  store i64 %42, ptr %41, align 8
+  %.not10.i.us = icmp ult i64 %.0919.in.i.i.i.us, 2
+  br i1 %.not10.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !350
 
-.critedge.loopexit.i.i.i.us:                      ; preds = %42, %.lr.ph.i.i.i.us
-  %.0.lcssa.ph.i.i.i.us = phi i64 [ %.018.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %42 ]
+.critedge.loopexit.i.i.i.us:                      ; preds = %40, %.lr.ph.i.i.i.us
+  %.0.lcssa.ph.i.i.i.us = phi i64 [ %.018.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %40 ]
   %.pre.i.i.i.us = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %37
-  %45 = phi i64 [ %39, %37 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %.0.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.0.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %46 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i.us
-  store i64 %45, ptr %46, align 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %35
+  %43 = phi i64 [ %36, %35 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %.0.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.0.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %44 = getelementptr inbounds %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.i.i.i.us
+  store i64 %43, ptr %44, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %47
+  br label %45
 
-47:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us, %.lr.ph.split.us
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
-  %49 = icmp ult ptr %48, %2
-  br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !355
+45:                                               ; preds = %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt23_Rb_tree_const_iteratorISt4pairIKN4Json5Value8CZStringES5_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS9_SI_EEEEvT_SM_SM_RT0_.exit.us, %.lr.ph.split.us
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us, i64 8
+  %47 = icmp ult ptr %46, %2
+  br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !355
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %50 = icmp eq i64 %spec.select.i.i.us, %18
-  %or.cond = select i1 %16, i1 %50, i1 false
-  br i1 %or.cond, label %35, label %37
+  %48 = icmp eq i64 %spec.select.i.i.us, %18
+  %or.cond = select i1 %16, i1 %48, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %16, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %52 = icmp eq i64 %17, 0
-  br i1 %52, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %50 = icmp eq i64 %17, 0
+  br i1 %50, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %61
-  %.sroa.0.011.us12.us = phi ptr [ %62, %61 ], [ %1, %.lr.ph.split.split.us ]
-  %53 = load ptr, ptr %6, align 8
-  %54 = call noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011.us12.us, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %54, label %._crit_edge.i.i.us13.us, label %61
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %59
+  %.sroa.0.011.us12.us = phi ptr [ %60, %59 ], [ %1, %.lr.ph.split.split.us ]
+  %51 = load ptr, ptr %6, align 8
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011.us12.us, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %52, label %._crit_edge.i.i.us13.us, label %59
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.03.0.copyload.i.us14.us = load ptr, ptr %.sroa.0.011.us12.us, align 8
-  %55 = load i64, ptr %0, align 8
-  store i64 %55, ptr %.sroa.0.011.us12.us, align 8
+  %53 = load i64, ptr %0, align 8
+  store i64 %53, ptr %.sroa.0.011.us12.us, align 8
   %.sroa.0.0.copyload.i.us15.us = load ptr, ptr %6, align 8
-  %56 = load i64, ptr %51, align 8
-  store i64 %56, ptr %0, align 8
+  %54 = load i64, ptr %49, align 8
+  store i64 %54, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %.sroa.03.0.copyload.i.us14.us, ptr %5, align 8
-  %57 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %57, label %58, label %.critedge.loopexit.i.i.i.us22.us
+  %55 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %55, label %56, label %.critedge.loopexit.i.i.i.us22.us
 
-58:                                               ; preds = %._crit_edge.i.i.us13.us
-  %59 = load i64, ptr %0, align 8
-  store i64 %59, ptr %51, align 8
+56:                                               ; preds = %._crit_edge.i.i.us13.us
+  %57 = load i64, ptr %0, align 8
+  store i64 %57, ptr %49, align 8
   br label %.critedge.loopexit.i.i.i.us22.us
 
-.critedge.loopexit.i.i.i.us22.us:                 ; preds = %58, %._crit_edge.i.i.us13.us
-  %.0.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %58 ]
+.critedge.loopexit.i.i.i.us22.us:                 ; preds = %56, %._crit_edge.i.i.us13.us
+  %.0.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %56 ]
   %.pre.i.i.i.us24.us = load i64, ptr %5, align 8
-  %60 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.ph.i.i.i.us23.us
-  store i64 %.pre.i.i.i.us24.us, ptr %60, align 8
+  %58 = getelementptr inbounds nuw %"struct.std::_Rb_tree_const_iterator.33", ptr %0, i64 %.0.lcssa.ph.i.i.i.us23.us
+  store i64 %.pre.i.i.i.us24.us, ptr %58, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %61
+  br label %59
 
-61:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
-  %63 = icmp ult ptr %62, %2
-  br i1 %63, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !355
+59:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12.us, i64 8
+  %61 = icmp ult ptr %60, %2
+  br i1 %61, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !355
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %68
-  %.sroa.0.011.us12 = phi ptr [ %69, %68 ], [ %1, %.lr.ph.split.split.us ]
-  %64 = load ptr, ptr %6, align 8
-  %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011.us12, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %65, label %._crit_edge.i.i.us13, label %68
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %66
+  %.sroa.0.011.us12 = phi ptr [ %67, %66 ], [ %1, %.lr.ph.split.split.us ]
+  %62 = load ptr, ptr %6, align 8
+  %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011.us12, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %63, label %._crit_edge.i.i.us13, label %66
 
 ._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
   %.sroa.03.0.copyload.i.us14 = load ptr, ptr %.sroa.0.011.us12, align 8
-  %66 = load i64, ptr %0, align 8
-  store i64 %66, ptr %.sroa.0.011.us12, align 8
+  %64 = load i64, ptr %0, align 8
+  store i64 %64, ptr %.sroa.0.011.us12, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %67 = ptrtoint ptr %.sroa.03.0.copyload.i.us14 to i64
-  store i64 %67, ptr %0, align 8
+  %65 = ptrtoint ptr %.sroa.03.0.copyload.i.us14 to i64
+  store i64 %65, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %68
+  br label %66
 
-68:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
-  %70 = icmp ult ptr %69, %2
-  br i1 %70, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !355
+66:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.us12, i64 8
+  %68 = icmp ult ptr %67, %2
+  br i1 %68, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !355
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %75
-  %.sroa.0.011 = phi ptr [ %76, %75 ], [ %1, %.lr.ph.split ]
-  %71 = load ptr, ptr %6, align 8
-  %72 = call noundef zeroext i1 %71(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  br i1 %72, label %._crit_edge.i.i, label %75
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %73
+  %.sroa.0.011 = phi ptr [ %74, %73 ], [ %1, %.lr.ph.split ]
+  %69 = load ptr, ptr %6, align 8
+  %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0.011, ptr noundef nonnull align 8 dereferenceable(8) %0)
+  br i1 %70, label %._crit_edge.i.i, label %73
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
   %.sroa.03.0.copyload.i = load ptr, ptr %.sroa.0.011, align 8
-  %73 = load i64, ptr %0, align 8
-  store i64 %73, ptr %.sroa.0.011, align 8
+  %71 = load i64, ptr %0, align 8
+  store i64 %71, ptr %.sroa.0.011, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %74 = ptrtoint ptr %.sroa.03.0.copyload.i to i64
-  store i64 %74, ptr %0, align 8
+  %72 = ptrtoint ptr %.sroa.03.0.copyload.i to i64
+  store i64 %72, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %75
+  br label %73
 
-75:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
-  %77 = icmp ult ptr %76, %2
-  br i1 %77, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !355
+73:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.011, i64 8
+  %75 = icmp ult ptr %74, %2
+  br i1 %75, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !355
 
-._crit_edge:                                      ; preds = %75, %68, %61, %47, %4
+._crit_edge:                                      ; preds = %73, %66, %59, %45, %4
   ret void
 }
 

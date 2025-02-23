@@ -440,38 +440,36 @@ _ZN8rawspeed10Array2DRefItE6createISaItEEES1_RSt6vectorItT_Eii.exit:
 
 ._crit_edge378:                                   ; preds = %._crit_edge378.loopexit, %119
   %.0101.lcssa = phi i32 [ 0, %119 ], [ %130, %._crit_edge378.loopexit ]
-  %131 = icmp samesign ult i64 %indvars.iv410, 4
-  tail call void @llvm.assume(i1 %131)
-  %132 = getelementptr inbounds nuw i32, ptr %.ptr416.ptr.ptr, i64 %indvars.iv410
-  store i32 %.0101.lcssa, ptr %132, align 4, !tbaa !104
+  %131 = getelementptr inbounds nuw i32, ptr %.ptr416.ptr.ptr, i64 %indvars.iv410
+  store i32 %.0101.lcssa, ptr %131, align 4, !tbaa !104
   %indvars.iv.next411 = add nuw nsw i64 %indvars.iv410, 1
   %exitcond413.not = icmp eq i64 %indvars.iv.next411, 4
   br i1 %exitcond413.not, label %115, label %119, !llvm.loop !116
 
 .lr.ph389:                                        ; preds = %.lr.ph385
-  %133 = add nsw i32 %136, 2
-  %134 = ashr i32 %133, 2
-  br label %137
+  %132 = add nsw i32 %135, 2
+  %133 = ashr i32 %132, 2
+  br label %136
 
 .lr.ph385:                                        ; preds = %115, %.lr.ph385
   %.096383.idx = phi i64 [ %.096383.add, %.lr.ph385 ], [ 100, %115 ]
-  %.0100382 = phi i32 [ %136, %.lr.ph385 ], [ 0, %115 ]
+  %.0100382 = phi i32 [ %135, %.lr.ph385 ], [ 0, %115 ]
   %.096383.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.096383.idx
-  %135 = load i32, ptr %.096383.ptr, align 4, !tbaa !104
-  %136 = add nsw i32 %135, %.0100382
+  %134 = load i32, ptr %.096383.ptr, align 4, !tbaa !104
+  %135 = add nsw i32 %134, %.0100382
   %.096383.add = add nuw nsw i64 %.096383.idx, 4
   %.not113 = icmp eq i64 %.096383.add, 116
   br i1 %.not113, label %.lr.ph389, label %.lr.ph385
 
-137:                                              ; preds = %.lr.ph389, %137
-  %.093388.idx = phi i64 [ 100, %.lr.ph389 ], [ %.093388.add, %137 ]
+136:                                              ; preds = %.lr.ph389, %136
+  %.093388.idx = phi i64 [ 100, %.lr.ph389 ], [ %.093388.add, %136 ]
   %.093388.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.093388.idx
-  store i32 %134, ptr %.093388.ptr, align 4, !tbaa !104
+  store i32 %133, ptr %.093388.ptr, align 4, !tbaa !104
   %.093388.add = add nuw nsw i64 %.093388.idx, 4
   %.not114 = icmp eq i64 %.093388.add, 116
-  br i1 %.not114, label %_ZNSt6vectorItSaItEED2Ev.exit, label %137
+  br i1 %.not114, label %_ZNSt6vectorItSaItEED2Ev.exit, label %136
 
-_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %137, %112, %115
+_ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %136, %112, %115
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 524288) #25
   ret void
 }

@@ -2996,8 +2996,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %i.06
   store i64 %i.06, ptr %add.ptr.i, align 8, !tbaa !42
-  %inc = add nuw i64 %i.06, 1
-  %cmp = icmp ult i64 %inc, %0
+  %inc = add nuw nsw i64 %i.06, 1
+  %cmp = icmp samesign ult i64 %inc, %0
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !56
 
 nrvo.skipdtor:                                    ; preds = %for.body, %invoke.cont

@@ -1058,7 +1058,7 @@ define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, pt
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #15
   %32 = sub i64 %.047.lcssa, %.2.lcssa
   %33 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 200, ptr noundef nonnull @.str.4, i64 noundef %.047.lcssa, i64 noundef %.0.lcssa, i64 noundef %.2.lcssa, i64 noundef %.1.lcssa, i64 noundef %32) #15
-  call void %1(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #15
+  call void %1(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %6, i1 noundef zeroext %4) #15
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %6) #15
   br label %34
 

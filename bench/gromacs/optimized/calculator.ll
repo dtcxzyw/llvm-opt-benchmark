@@ -1240,65 +1240,65 @@ define void @_ZN5nblib21ListedForceCalculatorC2ERKSt5tupleIJNS_14ListedTypeDataI
 _ZNSt6vectorIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i: ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %.not.i.i.i.i = icmp eq i32 %3, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread, label %_ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2EmRKS6_.exit.i
-
-_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread: ; preds = %_ZNSt6vectorIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
-  br label %33
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i, label %_ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2EmRKS6_.exit.i
 
 _ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2EmRKS6_.exit.i: ; preds = %_ZNSt6vectorIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
-  %16 = mul nuw nsw i64 %12, 80
-  %17 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #26
+  %15 = mul nuw nsw i64 %12, 80
+  %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #26
           to label %.noexc11 unwind label %67
 
 .noexc11:                                         ; preds = %_ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2EmRKS6_.exit.i
-  store ptr %17, ptr %11, align 8
-  %18 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %17, i64 %12
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr %18, ptr %19, align 8
+  store ptr %16, ptr %11, align 8
+  %17 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %16, i64 %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr %17, ptr %18, align 8
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %.noexc11
-  %.013.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %17, %.noexc11 ]
-  %.01012.i.i.i.i.i = phi i64 [ %26, %.lr.ph.i.i.i.i.i ], [ %12, %.noexc11 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
+  %.013.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %16, %.noexc11 ]
+  %.01012.i.i.i.i.i = phi i64 [ %25, %.lr.ph.i.i.i.i.i ], [ %12, %.noexc11 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.013.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr %21, ptr %20, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
-  store i64 1, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
-  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false)
-  %26 = add nsw i64 %.01012.i.i.i.i.i, -1
-  %27 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 80
-  %.not.i.i.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
+  store ptr %20, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
+  store i64 1, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %23, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  %25 = add nsw i64 %.01012.i.i.i.i.i, -1
+  %26 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 80
+  %.not.i.i.i.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !10
 
-_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i: ; preds = %.lr.ph.i.i.i.i.i
+_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i: ; preds = %_ZNSt6vectorIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EE17_S_check_init_lenEmRKS6_.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false)
+  br label %33
+
+.lr.ph.preheader.i.i.i.i.i:                       ; preds = %.lr.ph.i.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %27, ptr %28, align 8
+  store ptr %26, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
   %30 = mul nuw nsw i64 %12, 24
   %31 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #26
           to label %.noexc15 unwind label %69
 
-.noexc15:                                         ; preds = %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
+.noexc15:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %31, ptr %29, align 8
   %32 = getelementptr inbounds nuw %"class.std::vector.12", ptr %31, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %31, i8 0, i64 %30, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %31, i64 %30
   br label %33
 
-33:                                               ; preds = %.noexc15, %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread
-  %34 = phi ptr [ %15, %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread ], [ %29, %.noexc15 ]
-  %.sink.i = phi ptr [ null, %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread ], [ %32, %.noexc15 ]
-  %.0.lcssa.i.i.i.i.i13 = phi ptr [ null, %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i.thread ], [ %scevgep.i.i.i.i.i, %.noexc15 ]
+33:                                               ; preds = %.noexc15, %_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i
+  %34 = phi ptr [ %27, %_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %29, %.noexc15 ]
+  %.sink.i = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %32, %.noexc15 ]
+  %.0.lcssa.i.i.i.i.i13 = phi ptr [ null, %_ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %scevgep.i.i.i.i.i, %.noexc15 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %.sink.i, ptr %36, align 8
@@ -1400,7 +1400,7 @@ _ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1
           cleanup
   br label %77
 
-69:                                               ; preds = %_ZNSt6vectorIS_IN3gmx11BasicVectorIfEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
+69:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %76

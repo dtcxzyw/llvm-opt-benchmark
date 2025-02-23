@@ -1504,8 +1504,8 @@ define dso_local void @expr_yyerror_more(ptr noundef %0, ptr noundef %1, ptr nou
 .loopexit:                                        ; preds = %.preheader, %3
   %10 = trunc i64 %8 to i32
   %11 = load i32, ptr @expr_start_offset, align 4
-  %12 = call i32 @expr_scanner_offset(ptr noundef %5)
-  %13 = call ptr @expr_scanner_get_substring(ptr noundef %5, i32 noundef %11, i32 noundef %12, i1 noundef zeroext true)
+  %12 = call i32 @expr_scanner_offset(ptr noundef nonnull %5)
+  %13 = call ptr @expr_scanner_get_substring(ptr noundef nonnull %5, i32 noundef %11, i32 noundef %12, i1 noundef zeroext true)
   %14 = load ptr, ptr @expr_source, align 8
   %15 = load i32, ptr @expr_lineno, align 4
   %16 = load ptr, ptr @expr_command, align 8

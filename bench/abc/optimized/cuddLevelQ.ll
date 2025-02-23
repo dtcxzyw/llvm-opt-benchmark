@@ -308,13 +308,13 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph40.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %._crit_edge41.i.i, label %.lr.ph40.i.i, !llvm.loop !32
+  br i1 %exitcond.not.i.i, label %._crit_edge41.thread.i.i, label %.lr.ph40.i.i, !llvm.loop !32
 
-._crit_edge41.i.i:                                ; preds = %._crit_edge.i.i, %57
+._crit_edge41.i.i:                                ; preds = %57
   %.not.i.i = icmp eq ptr %.pre67, null
-  br i1 %.not.i.i, label %hashInsert.exit, label %81
+  br i1 %.not.i.i, label %hashInsert.exit, label %._crit_edge41.thread.i.i
 
-81:                                               ; preds = %._crit_edge41.i.i
+._crit_edge41.thread.i.i:                         ; preds = %._crit_edge.i.i, %._crit_edge41.i.i
   tail call void @free(ptr noundef nonnull %.pre67) #10
   %.pre65 = load ptr, ptr %29, align 8, !tbaa !26
   %.pre66 = load ptr, ptr %4, align 8, !tbaa !13
@@ -323,17 +323,17 @@ define ptr @cuddLevelQueueEnqueue(ptr noundef captures(none) %0, ptr noundef %1,
   %.pre73 = mul i32 %.pre71, 12582917
   br label %hashInsert.exit
 
-hashInsert.exit:                                  ; preds = %54, %._crit_edge41.i.i, %81
-  %.pre-phi74 = phi i32 [ %8, %54 ], [ %8, %._crit_edge41.i.i ], [ %.pre73, %81 ]
-  %82 = phi ptr [ %.pre67, %54 ], [ %calloc.i.i, %._crit_edge41.i.i ], [ %.pre66, %81 ]
-  %83 = load i32, ptr %5, align 4, !tbaa !12
-  %84 = lshr i32 %.pre-phi74, %83
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %82, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !25
-  %88 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store ptr %87, ptr %88, align 8, !tbaa !30
-  store ptr %.0, ptr %86, align 8, !tbaa !25
+hashInsert.exit:                                  ; preds = %54, %._crit_edge41.i.i, %._crit_edge41.thread.i.i
+  %.pre-phi74 = phi i32 [ %8, %54 ], [ %8, %._crit_edge41.i.i ], [ %.pre73, %._crit_edge41.thread.i.i ]
+  %81 = phi ptr [ %.pre67, %54 ], [ %calloc.i.i, %._crit_edge41.i.i ], [ %.pre66, %._crit_edge41.thread.i.i ]
+  %82 = load i32, ptr %5, align 4, !tbaa !12
+  %83 = lshr i32 %.pre-phi74, %82
+  %84 = sext i32 %83 to i64
+  %85 = getelementptr inbounds ptr, ptr %81, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !25
+  %87 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store ptr %86, ptr %87, align 8, !tbaa !30
+  store ptr %.0, ptr %85, align 8, !tbaa !25
   br label %hashLookup.exit
 
 hashLookup.exit:                                  ; preds = %.lr.ph.i, %20, %hashInsert.exit

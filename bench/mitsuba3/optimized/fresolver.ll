@@ -574,68 +574,68 @@ define void @_ZNK7mitsuba12FileResolver7resolveERKNS_10filesystem4pathE(ptr dead
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
-  %.not17 = icmp eq ptr %9, %11
-  br i1 %.not17, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq ptr %9, %11
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
-13:                                               ; preds = %.lr.ph, %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread
-  %.sroa.09.018 = phi ptr [ %9, %.lr.ph ], [ %20, %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread ]
-  tail call void @_ZNK7mitsuba10filesystem4pathdvERKS1_(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.09.018, ptr noundef nonnull align 8 dereferenceable(25) %2)
+13:                                               ; preds = %.lr.ph, %21
+  %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %22, %21 ]
+  tail call void @_ZNK7mitsuba10filesystem4pathdvERKS1_(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.09.014, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %14 = tail call noundef zeroext i1 @_ZN7mitsuba10filesystem6existsERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(25) %0) #16
-  br i1 %14, label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread13, label %15
+  br i1 %14, label %_ZN7mitsuba10filesystem4pathD2Ev.exit, label %15
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %16, null
-  br i1 %.not.i.i.i, label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread, label %17
+  br i1 %.not.i.i.i, label %21, label %17
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %12, align 8
   %.not6.i.i.i.i.i = icmp eq ptr %16, %18
-  br i1 %.not6.i.i.i.i.i, label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split, label %.lr.ph.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %17, %.lr.ph.i.i.i.i.i
   %.07.i.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i.i ], [ %18, %17 ]
   %19 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 -24
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #16
   %.not.i.i.i.i.i = icmp eq ptr %16, %19
-  br i1 %.not.i.i.i.i.i, label %_ZN7mitsuba10filesystem4pathD2Ev.exit, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i
 
-_ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %.lr.ph.i.i.i.i.i
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8
+  br label %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i
+
+_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i: ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i, %17
+  %20 = phi ptr [ %.pre.i.i, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.loopexit.i.i ], [ %16, %17 ]
   store ptr %16, ptr %12, align 8
-  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split
+  tail call void @_ZdlPv(ptr noundef %20) #17
+  br label %21
 
-_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split: ; preds = %17, %_ZN7mitsuba10filesystem4pathD2Ev.exit
-  %.pre.i.i.sink = phi ptr [ %.pre.i.i, %_ZN7mitsuba10filesystem4pathD2Ev.exit ], [ %16, %17 ]
-  tail call void @_ZdlPv(ptr noundef %.pre.i.i.sink) #17
-  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread
-
-_ZN7mitsuba10filesystem4pathD2Ev.exit.thread:     ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread.sink.split, %15
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.09.018, i64 32
-  %.not = icmp eq ptr %20, %11
+21:                                               ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i, %15
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 32
+  %.not = icmp eq ptr %22, %11
   br i1 %.not, label %.loopexit, label %13
 
-.loopexit:                                        ; preds = %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread, %7, %3
+.loopexit:                                        ; preds = %21, %7, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 24, i1 false)
-  %21 = load ptr, ptr %2, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load ptr, ptr %22, align 8
-  %24 = ptrtoint ptr %23 to i64
-  %25 = ptrtoint ptr %21 to i64
-  %26 = sub i64 %24, %25
-  %27 = sdiv exact i64 %26, 24
-  tail call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__init_with_sizeB8ne190000IPS6_SA_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %21, ptr noundef %23, i64 noundef %27)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i8, ptr %4, align 8
-  %30 = and i8 %29, 1
-  store i8 %30, ptr %28, align 8
-  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit.thread13
+  %23 = load ptr, ptr %2, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load ptr, ptr %24, align 8
+  %26 = ptrtoint ptr %25 to i64
+  %27 = ptrtoint ptr %23 to i64
+  %28 = sub i64 %26, %27
+  %29 = sdiv exact i64 %28, 24
+  tail call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE16__init_with_sizeB8ne190000IPS6_SA_EEvT_T0_m(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef %23, ptr noundef %25, i64 noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i8, ptr %4, align 8
+  %32 = and i8 %31, 1
+  store i8 %32, ptr %30, align 8
+  br label %_ZN7mitsuba10filesystem4pathD2Ev.exit
 
-_ZN7mitsuba10filesystem4pathD2Ev.exit.thread13:   ; preds = %13, %.loopexit
+_ZN7mitsuba10filesystem4pathD2Ev.exit:            ; preds = %13, %.loopexit
   ret void
 }
 

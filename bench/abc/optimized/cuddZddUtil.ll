@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintMinterm(ptr noundef captures(none) %0, 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @zdd_print_minterm_aux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
+  tail call fastcc void @zdd_print_minterm_aux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %7)
   tail call void @free(ptr noundef nonnull %7) #12
   br label %13
 
@@ -262,7 +262,7 @@ define range(i32 0, 2) i32 @Cudd_zddPrintCover(ptr noundef captures(none) %0, pt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @zddPrintCoverAux(ptr noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %9)
+  tail call fastcc void @zddPrintCoverAux(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0, ptr noundef %9)
   tail call void @free(ptr noundef nonnull %9) #12
   br label %15
 

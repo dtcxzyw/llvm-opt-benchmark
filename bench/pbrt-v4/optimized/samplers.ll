@@ -1904,7 +1904,7 @@ for.body.i.i.i.i.i:                               ; preds = %_ZN4pstd3pmr21polym
 for.end.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i, %_ZN4pstd3pmr21polymorphic_allocatorIN4pbrt6Point2IfEEE15allocate_objectIS4_EEPT_m.exit.i.i.i.i.i
   %.pr.i.i.i = load ptr, ptr %ptr.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq ptr %.pr.i.i.i, null
-  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN4pstd6vectorIN4pbrt6Point2IfEENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit.i.i.i.i, label %if.end.i.i.i9.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i.i.i.i.i, label %for.body.preheader.i.i.i.i, label %if.end.i.i.i9.i.i.i.i.i
 
 if.end.i.i.i9.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i
   %12 = load i64, ptr %nAlloc.i.i.i.i, align 8
@@ -1914,15 +1914,15 @@ if.end.i.i.i9.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i
   %vfn.i.i.i12.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i11.i.i.i.i.i, i64 24
   %14 = load ptr, ptr %vfn.i.i.i12.i.i.i.i.i, align 8
   call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull %.pr.i.i.i, i64 noundef %mul.i10.i.i.i.i.i, i64 noundef 4)
-  br label %_ZN4pstd6vectorIN4pbrt6Point2IfEENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit.i.i.i.i
+  br label %for.body.preheader.i.i.i.i
 
-_ZN4pstd6vectorIN4pbrt6Point2IfEENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit.i.i.i.i: ; preds = %if.end.i.i.i9.i.i.i.i.i, %for.end.i.i.i.i.i
+for.body.preheader.i.i.i.i:                       ; preds = %if.end.i.i.i9.i.i.i.i.i, %for.end.i.i.i.i.i
   store i64 %conv.i.i, ptr %nAlloc.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i.i.i, ptr %ptr.i.i.i.i, align 8
   br label %for.body.i.i.i.i
 
-for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %_ZN4pstd6vectorIN4pbrt6Point2IfEENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit.i.i.i.i
-  %i.09.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %_ZN4pstd6vectorIN4pbrt6Point2IfEENS_3pmr21polymorphic_allocatorIS3_EEE7reserveEm.exit.i.i.i.i ]
+for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %for.body.preheader.i.i.i.i
+  %i.09.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %for.body.preheader.i.i.i.i ]
   %15 = load ptr, ptr %ptr.i.i.i.i, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds %"class.pbrt::Point2.14", ptr %15, i64 %i.09.i.i.i.i
   store i64 0, ptr %add.ptr.i.i.i.i, align 4

@@ -1665,7 +1665,7 @@ switch.lookup:                                    ; preds = %669
   %830 = tail call ptr @proto_tree_add_item(ptr noundef %560, i32 noundef %829, ptr noundef %0, i32 noundef %571, i32 noundef 2, i32 noundef -2147483648)
   br label %do_initialization_msg.exit.thread
 
-do_initialization_msg.exit.thread:                ; preds = %.loopexit.i, %do_routing_msg.exit, %827, %824, %821, %800, %729, %727, %715, %707, %705, %692, %680, %655, %638, %624, %602, %568, %183, %196, %221, %225, %230, %234, %239, %.thread134.i, %386
+do_initialization_msg.exit.thread:                ; preds = %.loopexit.i, %827, %824, %821, %800, %729, %727, %715, %707, %705, %692, %680, %655, %638, %624, %602, %568, %183, %do_routing_msg.exit, %196, %221, %225, %230, %234, %239, %.thread134.i, %386
   %831 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %handle_nsp_msg.exit
 

@@ -178,7 +178,7 @@ _ZN17double_conversion6Bignum12AssignUInt64Em.exit.i: ; preds = %18
   br label %_ZN17double_conversion6Bignum9AddUInt64Em.exit
 
 _ZN17double_conversion6Bignum9AddUInt64Em.exit:   ; preds = %_ZN17double_conversionL10ReadUInt64ENS_6VectorIKcEEii.exit, %_ZN17double_conversion6Bignum12AssignUInt64Em.exit.i
-  %23 = icmp sgt i32 %.032, 37
+  %23 = icmp samesign ugt i32 %.032, 37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 19
   br i1 %23, label %9, label %._crit_edge.loopexit, !llvm.loop !16
 
@@ -465,7 +465,7 @@ _ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread: ; preds = %62
 
 .preheader.i25:                                   ; preds = %72
   %.not18.i26 = icmp ult i64 %77, 268435456
-  br i1 %.not18.i26, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31, label %.lr.ph20.i27
+  br i1 %.not18.i26, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33, label %.lr.ph20.i27
 
 72:                                               ; preds = %72, %.lr.ph.i19
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i23, %72 ]
@@ -506,12 +506,12 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i29: ; preds = %.lr.ph20.i2
   %.not.i30 = icmp samesign ult i64 %.119.i28, 268435456
   br i1 %.not.i30, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33, label %.lr.ph20.i27, !llvm.loop !22
 
-_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %.preheader.i25, %62, %._crit_edge, %68
+_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31: ; preds = %62, %._crit_edge, %68
   %89 = icmp eq i16 %.pr, 0
   br i1 %89, label %_ZN17double_conversion6Bignum9ShiftLeftEi.exit, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33
 
-_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33: ; preds = %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i29, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31
-  %90 = phi i16 [ %.pr, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31 ], [ %87, %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
+_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31.thread33: ; preds = %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i29, %.preheader.i25, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31
+  %90 = phi i16 [ %.pr, %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit31 ], [ %.pr, %.preheader.i25 ], [ %87, %_ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i29 ]
   %91 = sdiv i32 %1, 28
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %93 = load i16, ptr %92, align 2, !tbaa !8
@@ -557,7 +557,7 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i32: ; preds = %_ZN17double
 109:                                              ; preds = %._crit_edge.i.i
   %110 = getelementptr inbounds nuw [128 x i32], ptr %100, i64 0, i64 %wide.trip.count.i.i
   store i32 %105, ptr %110, align 4, !tbaa !9
-  %111 = add nuw i16 %90, 1
+  %111 = add nuw nsw i16 %90, 1
   store i16 %111, ptr %0, align 4, !tbaa !3
   br label %_ZN17double_conversion6Bignum9ShiftLeftEi.exit
 
@@ -1224,7 +1224,7 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %5
 24:                                               ; preds = %._crit_edge.i
   %25 = getelementptr inbounds nuw [128 x i32], ptr %15, i64 0, i64 %wide.trip.count.i
   store i32 %20, ptr %25, align 4, !tbaa !9
-  %26 = add nuw i16 %3, 1
+  %26 = add nuw nsw i16 %3, 1
   store i16 %26, ptr %0, align 4, !tbaa !3
   br label %_ZN17double_conversion6Bignum15BigitsShiftLeftEi.exit
 
@@ -1767,7 +1767,7 @@ _ZN17double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %._crit_edge92, %.
   br i1 %exitcond.not.i, label %.preheader.i, label %53, !llvm.loop !21
 
 .lr.ph20.i:                                       ; preds = %.preheader.i
-  %62 = icmp ugt i16 %47, 127
+  %62 = icmp samesign ugt i16 %47, 127
   br i1 %62, label %63, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit
 
 63:                                               ; preds = %.lr.ph20.i
@@ -1839,7 +1839,7 @@ _ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN17double_c
   br i1 %exitcond.not.i63, label %.preheader.i64, label %75, !llvm.loop !21
 
 .lr.ph20.i66:                                     ; preds = %.preheader.i64
-  %84 = icmp ugt i16 %73, 127
+  %84 = icmp samesign ugt i16 %73, 127
   br i1 %84, label %85, label %_ZN17double_conversion6Bignum16MultiplyByUInt32Ej.exit70.loopexit
 
 85:                                               ; preds = %.lr.ph20.i66
@@ -1914,7 +1914,7 @@ _ZN17double_conversion6Bignum14EnsureCapacityEi.exit.i71: ; preds = %91
 110:                                              ; preds = %._crit_edge.i.i
   %111 = getelementptr inbounds nuw [128 x i32], ptr %101, i64 0, i64 %wide.trip.count.i.i
   store i32 %106, ptr %111, align 4, !tbaa !9
-  %112 = add nuw i16 %89, 1
+  %112 = add nuw nsw i16 %89, 1
   br label %_ZN17double_conversion6Bignum9ShiftLeftEi.exit.sink.split
 
 _ZN17double_conversion6Bignum9ShiftLeftEi.exit.sink.split: ; preds = %5, %110

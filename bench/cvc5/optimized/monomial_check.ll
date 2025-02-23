@@ -11660,8 +11660,8 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S3_St4lessIS3_ESaISt4pairIKS
   %65 = getelementptr inbounds nuw i8, ptr %.19.i.i.i22, i64 64
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %67 = getelementptr inbounds nuw i8, ptr %.19.i.i.i22, i64 48
-  %.not44 = icmp eq ptr %66, %67
-  br i1 %.not44, label %.critedge, label %.lr.ph
+  %.not45 = icmp eq ptr %66, %67
+  br i1 %.not45, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11669,9 +11669,9 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES_IS3_S3_St4lessIS3_ESaISt4pairIKS
   br label %70
 
 70:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit
-  %.sroa.032.045 = phi ptr [ %66, %.lr.ph ], [ %172, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.032.045, i64 32
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.032.045, i64 40
+  %.sroa.032.046 = phi ptr [ %66, %.lr.ph ], [ %172, %_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.032.046, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.032.046, i64 40
   %73 = load ptr, ptr %68, align 8, !tbaa !49
   %74 = load ptr, ptr %69, align 8, !tbaa !50
   %.not.i = icmp eq ptr %73, %74
@@ -11878,7 +11878,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31: ; preds = %_ZN4cvc58internal12
   unreachable
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE8pop_backEv.exit: ; preds = %156, %162, %168
-  %172 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.032.045) #28
+  %172 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.032.046) #28
   %.not = icmp eq ptr %172, %67
   br i1 %.not, label %.critedge, label %70, !llvm.loop !214
 

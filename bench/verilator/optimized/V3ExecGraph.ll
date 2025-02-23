@@ -1378,7 +1378,7 @@ define dso_local void @_ZN11V3ExecGraph14normalizeCostsERSt13unordered_mapIjSt4p
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp eq i64 %.149, 0
-  br i1 %.not, label %.loopexit80, label %12
+  br i1 %.not, label %.lr.ph98.preheader, label %12
 
 12:                                               ; preds = %._crit_edge
   %13 = uitofp i64 %10 to double
@@ -1450,20 +1450,20 @@ define dso_local void @_ZN11V3ExecGraph14normalizeCostsERSt13unordered_mapIjSt4p
   store i64 %46, ptr %39, align 8
   %.sroa.069.0 = load ptr, ptr %.sroa.069.090, align 8
   %.not77 = icmp eq ptr %.sroa.069.0, null
-  br i1 %.not77, label %.loopexit80.loopexit, label %.lr.ph92
+  br i1 %.not77, label %.loopexit80, label %.lr.ph92
 
-.loopexit80.loopexit:                             ; preds = %.lr.ph92
+.loopexit80:                                      ; preds = %.lr.ph92
   %.sroa.065.093.pre = load ptr, ptr %5, align 8
-  br label %.loopexit80
+  %.not7894 = icmp eq ptr %.sroa.065.093.pre, null
+  br i1 %.not7894, label %.loopexit, label %.lr.ph98.preheader
 
-.loopexit80:                                      ; preds = %.loopexit80.loopexit, %._crit_edge
-  %.sroa.065.093 = phi ptr [ %.sroa.065.093.pre, %.loopexit80.loopexit ], [ %.sroa.073.082, %._crit_edge ]
-  %.not7894 = icmp eq ptr %.sroa.065.093, null
-  br i1 %.not7894, label %.loopexit, label %.lr.ph98
+.lr.ph98.preheader:                               ; preds = %._crit_edge, %.loopexit80
+  %.sroa.065.096.ph = phi ptr [ %.sroa.073.082, %._crit_edge ], [ %.sroa.065.093.pre, %.loopexit80 ]
+  br label %.lr.ph98
 
-.lr.ph98:                                         ; preds = %.loopexit80, %71
-  %.sroa.065.096 = phi ptr [ %.sroa.065.0, %71 ], [ %.sroa.065.093, %.loopexit80 ]
-  %.05295 = phi i64 [ %.2, %71 ], [ 0, %.loopexit80 ]
+.lr.ph98:                                         ; preds = %.lr.ph98.preheader, %71
+  %.sroa.065.096 = phi ptr [ %.sroa.065.0, %71 ], [ %.sroa.065.096.ph, %.lr.ph98.preheader ]
+  %.05295 = phi i64 [ %.2, %71 ], [ 0, %.lr.ph98.preheader ]
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.065.096, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.065.096, i64 24
   %49 = load i64, ptr %47, align 8

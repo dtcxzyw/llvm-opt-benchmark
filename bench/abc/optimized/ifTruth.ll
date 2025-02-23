@@ -2566,9 +2566,9 @@ Abc_Clock.exit218:                                ; preds = %337, %340
   store i32 %367, ptr %368, align 4, !tbaa !7
   %indvars.iv.next269 = add nuw nsw i64 %indvars.iv268, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next269, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge245, label %358, !llvm.loop !107
+  br i1 %exitcond.not, label %.lr.ph250, label %358, !llvm.loop !107
 
-._crit_edge245:                                   ; preds = %358
+.lr.ph250:                                        ; preds = %358
   %369 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %369, align 4, !tbaa !93
   %370 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -2576,9 +2576,9 @@ Abc_Clock.exit218:                                ; preds = %337, %340
   %wide.trip.count275 = zext nneg i32 %umax274 to i64
   br label %371
 
-371:                                              ; preds = %._crit_edge245, %382
-  %372 = phi i32 [ 0, %._crit_edge245 ], [ %383, %382 ]
-  %indvars.iv271 = phi i64 [ 0, %._crit_edge245 ], [ %indvars.iv.next272, %382 ]
+371:                                              ; preds = %.lr.ph250, %382
+  %372 = phi i32 [ 0, %.lr.ph250 ], [ %383, %382 ]
+  %indvars.iv271 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next272, %382 ]
   %373 = getelementptr inbounds nuw [32 x i32], ptr %9, i64 0, i64 %indvars.iv271
   %374 = load i32, ptr %373, align 4, !tbaa !7
   %375 = ashr i32 %374, 1
@@ -3613,14 +3613,14 @@ Hash_Int2ManInsert.exit:                          ; preds = %145, %Vec_IntPush.e
   store i32 %336, ptr %337, align 4, !tbaa !7
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond185.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count184
-  br i1 %exitcond185.not, label %._crit_edge161, label %327, !llvm.loop !131
+  br i1 %exitcond185.not, label %.lr.ph164, label %327, !llvm.loop !131
 
 ._crit_edge161.thread:                            ; preds = %285
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %338, align 4, !tbaa !93
   br label %._crit_edge165
 
-._crit_edge161:                                   ; preds = %327
+.lr.ph164:                                        ; preds = %327
   %339 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 0, ptr %339, align 4, !tbaa !93
   %340 = getelementptr inbounds nuw i8, ptr %1, i64 36
@@ -3628,9 +3628,9 @@ Hash_Int2ManInsert.exit:                          ; preds = %145, %Vec_IntPush.e
   %wide.trip.count190 = zext nneg i32 %umax189 to i64
   br label %341
 
-341:                                              ; preds = %._crit_edge161, %352
-  %342 = phi i32 [ 0, %._crit_edge161 ], [ %353, %352 ]
-  %indvars.iv186 = phi i64 [ 0, %._crit_edge161 ], [ %indvars.iv.next187, %352 ]
+341:                                              ; preds = %.lr.ph164, %352
+  %342 = phi i32 [ 0, %.lr.ph164 ], [ %353, %352 ]
+  %indvars.iv186 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next187, %352 ]
   %343 = getelementptr inbounds nuw [32 x i32], ptr %11, i64 0, i64 %indvars.iv186
   %344 = load i32, ptr %343, align 4, !tbaa !7
   %345 = ashr i32 %344, 1

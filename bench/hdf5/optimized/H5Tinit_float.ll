@@ -1740,7 +1740,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5T__fix_order(i32 noundef range(i3
   %indvars.iv = phi i64 [ 0, %54 ], [ %indvars.iv.next, %57 ]
   %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %59 = trunc i64 %indvars.iv to i32
-  %60 = sub i32 %55, %59
+  %60 = sub nsw i32 %55, %59
   store i32 %60, ptr %58, align 4, !tbaa !10
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = xor i32 %61, -1

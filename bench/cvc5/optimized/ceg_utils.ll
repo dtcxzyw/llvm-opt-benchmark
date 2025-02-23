@@ -1872,11 +1872,11 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE12_M_c
           to label %_ZNSt16allocator_traitsISaIN4cvc58internal6theory11quantifiers14TermPropertiesEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit unwind label %.thread
 
 .thread:                                          ; preds = %40
-  %lpad.thr_comm48 = landingpad { ptr, i32 }
+  %lpad.thr_comm47 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %lpad.thr_comm48, 0
+  %42 = extractvalue { ptr, i32 } %lpad.thr_comm47, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #19
-  br label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38
+  br label %.loopexit
 
 _ZNSt16allocator_traitsISaIN4cvc58internal6theory11quantifiers14TermPropertiesEEE9constructIS4_JRKS4_EEEvRS5_PT_DpOT0_.exit: ; preds = %38, %33, %40
   %44 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKN4cvc58internal6theory11quantifiers14TermPropertiesEPS4_ET0_T_S9_S8_(ptr noundef %6, ptr noundef %1, ptr noundef nonnull %20)
@@ -1927,7 +1927,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE
   %59 = load ptr, ptr %21, align 8, !tbaa !21
   %60 = load ptr, ptr %59, align 8
   tail call void %60(ptr noundef nonnull align 8 dereferenceable(24) %21) #19
-  br label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38
+  br label %.loopexit
 
 61:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal6theory11quantifiers14TermPropertiesES5_SaIS4_EET0_T_S8_S7_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -1935,7 +1935,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE
   %62 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %63 = tail call ptr @__cxa_begin_catch(ptr %62) #19
   %.not4.i.i.i32 = icmp eq ptr %20, %45
-  br i1 %.not4.i.i.i32, label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38, label %.lr.ph.i.i.i33
+  br i1 %.not4.i.i.i32, label %.loopexit, label %.lr.ph.i.i.i33
 
 .lr.ph.i.i.i33:                                   ; preds = %61, %.lr.ph.i.i.i33
   %.05.i.i.i34 = phi ptr [ %66, %.lr.ph.i.i.i33 ], [ %20, %61 ]
@@ -1944,15 +1944,15 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(24) %.05.i.i.i34) #19
   %66 = getelementptr inbounds nuw i8, ptr %.05.i.i.i34, i64 24
   %.not.i.i.i35 = icmp eq ptr %.05.i.i.i34, %44
-  br i1 %.not.i.i.i35, label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38, label %.lr.ph.i.i.i33, !llvm.loop !39
+  br i1 %.not.i.i.i35, label %.loopexit, label %.lr.ph.i.i.i33, !llvm.loop !39
 
-67:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38
+67:                                               ; preds = %.loopexit
   %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %69 unwind label %70
 
-_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38: ; preds = %.lr.ph.i.i.i33, %61, %56, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i33, %.thread, %56, %61
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef %19) #23
   invoke void @__cxa_rethrow() #22
           to label %73 unwind label %67
@@ -1967,7 +1967,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE
   tail call void @__clang_call_terminate(ptr %72) #20
   unreachable
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE13_M_deallocateEPS4_m.exit38
+73:                                               ; preds = %.loopexit
   unreachable
 }
 

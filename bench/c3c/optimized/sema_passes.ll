@@ -1003,7 +1003,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   %indvars.iv198 = phi i64 [ 0, %.lr.ph160.preheader ], [ %indvars.iv.next199, %.lr.ph160 ]
   %162 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv198
   %163 = load ptr, ptr %162, align 8
-  call void @unit_register_global_decl(ptr noundef %10, ptr noundef %163) #11
+  call void @unit_register_global_decl(ptr noundef nonnull %10, ptr noundef %163) #11
   %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
   %exitcond202.not = icmp eq i64 %indvars.iv.next199, %wide.trip.count201
   br i1 %exitcond202.not, label %.loopexit218, label %.lr.ph160, !llvm.loop !20
@@ -1014,7 +1014,7 @@ vec_resize.exit:                                  ; preds = %46, %49
   br label %vec_resize.exit132
 
 vec_resize.exit132:                               ; preds = %.loopexit142, %.loopexit218
-  call void @sema_process_includes(ptr noundef %10)
+  call void @sema_process_includes(ptr noundef nonnull %10)
   br label %vec_resize.exit129
 
 .loopexit:                                        ; preds = %26, %73, %.lr.ph.split, %.lr.ph.split.us, %.critedge, %39, %.critedge125

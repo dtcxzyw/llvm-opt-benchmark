@@ -25771,7 +25771,7 @@ _ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.ex
   %45 = load ptr, ptr %23, align 8, !tbaa !32
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull align 8 dereferenceable(304) %23) #21
-  br label %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34.thread
+  br label %.loopexit
 
 47:                                               ; preds = %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE11_M_allocateEm.exit, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb17AggregateFunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %.0.ph = phi ptr [ %34, %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb17AggregateFunctionES2_SaIS1_EET0_T_S5_S4_RT1_.exit ], [ %22, %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE11_M_allocateEm.exit ]
@@ -25780,7 +25780,7 @@ _ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.ex
   %48 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #21
   %.not4.i.i.i30 = icmp eq ptr %22, %.0.ph
-  br i1 %.not4.i.i.i30, label %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34.thread, label %.lr.ph.i.i.i31
+  br i1 %.not4.i.i.i30, label %.loopexit, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %47, %.lr.ph.i.i.i31
   %.05.i.i.i32 = phi ptr [ %52, %.lr.ph.i.i.i31 ], [ %22, %47 ]
@@ -25789,23 +25789,16 @@ _ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.ex
   tail call void %51(ptr noundef nonnull align 8 dereferenceable(304) %.05.i.i.i32) #21
   %52 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 304
   %.not.i.i.i33 = icmp eq ptr %52, %.0.ph
-  br i1 %.not.i.i.i33, label %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34, label %.lr.ph.i.i.i31, !llvm.loop !72
+  br i1 %.not.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i31, !llvm.loop !72
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.exit36
+53:                                               ; preds = %.loopexit
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %55 unwind label %56
 
-_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34: ; preds = %.lr.ph.i.i.i31
-  %.not.i35 = icmp eq ptr %22, null
-  br i1 %.not.i35, label %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.exit36, label %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34.thread
-
-_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34.thread: ; preds = %42, %47, %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34
+.loopexit:                                        ; preds = %.lr.ph.i.i.i31, %42, %47
   tail call void @_ZdlPv(ptr noundef nonnull %22) #25
-  br label %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.exit36
-
-_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34.thread, %_ZSt8_DestroyIPN6duckdb17AggregateFunctionES1_EvT_S3_RSaIT0_E.exit34
   invoke void @__cxa_rethrow() #23
           to label %59 unwind label %53
 
@@ -25819,7 +25812,7 @@ _ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.ex
   tail call void @__clang_call_terminate(ptr %58) #24
   unreachable
 
-59:                                               ; preds = %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE13_M_deallocateEPS1_m.exit36
+59:                                               ; preds = %.loopexit
   unreachable
 }
 

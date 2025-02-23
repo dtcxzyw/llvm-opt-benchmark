@@ -535,23 +535,23 @@ define dso_local void @_ZN18btSimpleBroadphase25calculateOverlappingPairsEP12btD
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !21
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %.preheader77, label %239
+  br i1 %7, label %.preheader76, label %239
 
-.preheader77:                                     ; preds = %2
+.preheader76:                                     ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !23
-  %.not82 = icmp slt i32 %9, 0
-  br i1 %.not82, label %._crit_edge, label %.lr.ph85
+  %.not81 = icmp slt i32 %9, 0
+  br i1 %.not81, label %._crit_edge, label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %.preheader77
+.lr.ph84:                                         ; preds = %.preheader76
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   br label %12
 
-12:                                               ; preds = %.lr.ph85, %.loopexit
-  %13 = phi i32 [ %9, %.lr.ph85 ], [ %90, %.loopexit ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next, %.loopexit ]
-  %.04983 = phi i32 [ -1, %.lr.ph85 ], [ %.150, %.loopexit ]
+12:                                               ; preds = %.lr.ph84, %.loopexit
+  %13 = phi i32 [ %9, %.lr.ph84 ], [ %90, %.loopexit ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next, %.loopexit ]
+  %.04982 = phi i32 [ -1, %.lr.ph84 ], [ %.150, %.loopexit ]
   %14 = load ptr, ptr %10, align 8, !tbaa !19
   %15 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !24
@@ -560,9 +560,9 @@ define dso_local void @_ZN18btSimpleBroadphase25calculateOverlappingPairsEP12btD
 
 .preheader:                                       ; preds = %12
   %17 = sext i32 %13 to i64
-  %.not52.not80 = icmp slt i64 %indvars.iv, %17
+  %.not52.not79 = icmp slt i64 %indvars.iv, %17
   %18 = trunc nuw nsw i64 %indvars.iv to i32
-  br i1 %.not52.not80, label %.lr.ph, label %.loopexit
+  br i1 %.not52.not79, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 20
@@ -574,10 +574,10 @@ define dso_local void @_ZN18btSimpleBroadphase25calculateOverlappingPairsEP12btD
   br label %25
 
 25:                                               ; preds = %.lr.ph, %87
-  %indvars.iv93 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next94, %87 ]
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
+  %indvars.iv92 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next93, %87 ]
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
   %26 = load ptr, ptr %10, align 8, !tbaa !19
-  %27 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %26, i64 %indvars.iv.next94
+  %27 = getelementptr inbounds nuw %struct.btSimpleBroadphaseProxy, ptr %26, i64 %indvars.iv.next93
   %28 = load ptr, ptr %27, align 8, !tbaa !24
   %.not53 = icmp eq ptr %28, null
   br i1 %.not53, label %87, label %29
@@ -668,20 +668,20 @@ _ZN18btSimpleBroadphase11aabbOverlapEP23btSimpleBroadphaseProxyS1_.exit.thread: 
 
 87:                                               ; preds = %64, %58, %75, %81, %_ZN18btSimpleBroadphase11aabbOverlapEP23btSimpleBroadphaseProxyS1_.exit.thread, %25
   %88 = load i32, ptr %8, align 8, !tbaa !23
-  %89 = trunc nuw i64 %indvars.iv.next94 to i32
+  %89 = trunc nuw i64 %indvars.iv.next93 to i32
   %.not52.not = icmp sgt i32 %88, %89
   br i1 %.not52.not, label %25, label %.loopexit, !llvm.loop !42
 
 .loopexit:                                        ; preds = %87, %.preheader, %12
   %90 = phi i32 [ %13, %12 ], [ %13, %.preheader ], [ %88, %87 ]
-  %.150 = phi i32 [ %.04983, %12 ], [ %18, %.preheader ], [ %18, %87 ]
+  %.150 = phi i32 [ %.04982, %12 ], [ %18, %.preheader ], [ %18, %87 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = sext i32 %90 to i64
   %.not.not = icmp slt i64 %indvars.iv, %91
   br i1 %.not.not, label %12, label %._crit_edge, !llvm.loop !43
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader77
-  %.049.lcssa = phi i32 [ -1, %.preheader77 ], [ %.150, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader76
+  %.049.lcssa = phi i32 [ -1, %.preheader76 ], [ %.150, %.loopexit ]
   store i32 %.049.lcssa, ptr %8, align 8, !tbaa !23
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %93 = load i8, ptr %92, align 8, !tbaa !16, !range !32, !noundef !33
@@ -766,26 +766,26 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i: ; preds = %
   %134 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !49
   %.not.i5.i.i = icmp eq ptr %135, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i, label %136
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, label %136
 
 136:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
   %137 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %138 = load i8, ptr %137, align 8, !tbaa !56, !range !32, !noundef !33
   %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %140, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i
+  br i1 %139, label %140, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
 140:                                              ; preds = %136
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %135)
-  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i: ; preds = %140, %136, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = %140, %136, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i
   %141 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i8 1, ptr %141, align 8, !tbaa !56
   store ptr %.0.i.i.i, ptr %134, align 8, !tbaa !49
   store i32 %116, ptr %119, align 8, !tbaa !48
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i, %118
+.lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i, %118
   %142 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %143 = sext i32 %113 to i64
   %wide.trip.count.i = sext i32 %116 to i64
@@ -804,25 +804,25 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit: ; preds = %144
   store i32 %116, ptr %108, align 4, !tbaa !44
   store i32 0, ptr %114, align 4, !tbaa !17
   %147 = icmp sgt i32 %116, 0
-  br i1 %147, label %.lr.ph90, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit74
+  br i1 %147, label %.lr.ph89, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit74
 
-.lr.ph90:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
+.lr.ph89:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE6resizeEiRKS0_.exit
   %148 = getelementptr inbounds nuw i8, ptr %107, i64 16
   br label %149
 
-149:                                              ; preds = %.lr.ph90, %200
-  %150 = phi i32 [ 0, %.lr.ph90 ], [ %201, %200 ]
-  %.pr100 = phi i32 [ %116, %.lr.ph90 ], [ %.pr, %200 ]
-  %indvars.iv97 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next98, %200 ]
-  %.sroa.6.088 = phi ptr [ null, %.lr.ph90 ], [ %156, %200 ]
-  %.sroa.0.087 = phi ptr [ null, %.lr.ph90 ], [ %153, %200 ]
+149:                                              ; preds = %.lr.ph89, %200
+  %150 = phi i32 [ 0, %.lr.ph89 ], [ %201, %200 ]
+  %.pr99 = phi i32 [ %116, %.lr.ph89 ], [ %.pr, %200 ]
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next97, %200 ]
+  %.sroa.6.087 = phi ptr [ null, %.lr.ph89 ], [ %156, %200 ]
+  %.sroa.0.086 = phi ptr [ null, %.lr.ph89 ], [ %153, %200 ]
   %151 = load ptr, ptr %148, align 8, !tbaa !49
-  %152 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %151, i64 %indvars.iv97
+  %152 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %151, i64 %indvars.iv96
   %153 = load ptr, ptr %152, align 8, !tbaa !58
-  %154 = icmp eq ptr %153, %.sroa.0.087
+  %154 = icmp eq ptr %153, %.sroa.0.086
   %155 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %156, %.sroa.6.088
+  %157 = icmp eq ptr %156, %.sroa.6.087
   %158 = select i1 %154, i1 %157, i1 false
   br i1 %158, label %.critedge, label %159
 
@@ -889,27 +889,27 @@ _ZN18btSimpleBroadphase15testAabbOverlapEP17btBroadphaseProxyS1_.exit: ; preds =
 
 200:                                              ; preds = %.critedge, %_ZN18btSimpleBroadphase15testAabbOverlapEP17btBroadphaseProxyS1_.exit
   %201 = phi i32 [ %199, %.critedge ], [ %150, %_ZN18btSimpleBroadphase15testAabbOverlapEP17btBroadphaseProxyS1_.exit ]
-  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr100, %_ZN18btSimpleBroadphase15testAabbOverlapEP17btBroadphaseProxyS1_.exit ]
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %.pr = phi i32 [ %.pr.pre, %.critedge ], [ %.pr99, %_ZN18btSimpleBroadphase15testAabbOverlapEP17btBroadphaseProxyS1_.exit ]
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %202 = sext i32 %.pr to i64
-  %203 = icmp slt i64 %indvars.iv.next98, %202
-  br i1 %203, label %149, label %._crit_edge91, !llvm.loop !60
+  %203 = icmp slt i64 %indvars.iv.next97, %202
+  br i1 %203, label %149, label %._crit_edge90, !llvm.loop !60
 
-._crit_edge91:                                    ; preds = %200
+._crit_edge90:                                    ; preds = %200
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #13
   %204 = icmp sgt i32 %.pr, 1
   br i1 %204, label %205, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56
 
-205:                                              ; preds = %._crit_edge91
+205:                                              ; preds = %._crit_edge90
   %206 = add nsw i32 %.pr, -1
   call void @_ZN20btAlignedObjectArrayI16btBroadphasePairE17quickSortInternalI29btBroadphasePairSortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %107, ptr noundef nonnull align 1 dereferenceable(1) %4, i32 noundef 0, i32 noundef %206)
-  %.pre102 = load i32, ptr %108, align 4, !tbaa !44
-  %.pre103 = load i32, ptr %114, align 4, !tbaa !17
+  %.pre101 = load i32, ptr %108, align 4, !tbaa !44
+  %.pre102 = load i32, ptr %114, align 4, !tbaa !17
   br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56: ; preds = %._crit_edge91, %205
-  %207 = phi i32 [ %201, %._crit_edge91 ], [ %.pre103, %205 ]
-  %208 = phi i32 [ %.pr, %._crit_edge91 ], [ %.pre102, %205 ]
+_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit56: ; preds = %._crit_edge90, %205
+  %207 = phi i32 [ %201, %._crit_edge90 ], [ %.pre102, %205 ]
+  %208 = phi i32 [ %.pr, %._crit_edge90 ], [ %.pre101, %205 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #13
   %209 = sub nsw i32 %208, %207
   %210 = icmp slt i32 %207, 0
@@ -949,30 +949,30 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64: ; preds = %
   br i1 %exitcond.not.i.i.i73, label %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66, label %221, !llvm.loop !55
 
 _ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66: ; preds = %221, %215, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64
-  %.0.i.i.i65106 = phi ptr [ %218, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64 ], [ null, %215 ], [ %218, %221 ]
+  %.0.i.i.i65105 = phi ptr [ %218, %_ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i64 ], [ null, %215 ], [ %218, %221 ]
   %225 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %226 = load ptr, ptr %225, align 8, !tbaa !49
   %.not.i5.i.i67 = icmp eq ptr %226, null
-  br i1 %.not.i5.i.i67, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i68, label %227
+  br i1 %.not.i5.i.i67, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i68, label %227
 
 227:                                              ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66
   %228 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %229 = load i8, ptr %228, align 8, !tbaa !56, !range !32, !noundef !33
   %230 = trunc nuw i8 %229 to i1
-  br i1 %230, label %231, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i68
+  br i1 %230, label %231, label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i68
 
 231:                                              ; preds = %227
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %226)
-  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i68
+  br label %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i68
 
-_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i68: ; preds = %231, %227, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66
+_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i68: ; preds = %231, %227, %_ZNK20btAlignedObjectArrayI16btBroadphasePairE4copyEiiPS0_.exit.i.i66
   %232 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i8 1, ptr %232, align 8, !tbaa !56
-  store ptr %.0.i.i.i65106, ptr %225, align 8, !tbaa !49
+  store ptr %.0.i.i.i65105, ptr %225, align 8, !tbaa !49
   store i32 %209, ptr %212, align 8, !tbaa !48
   br label %.lr.ph.i57
 
-.lr.ph.i57:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE7reserveEi.exit.i68, %211
+.lr.ph.i57:                                       ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i68, %211
   %233 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %234 = sext i32 %208 to i64
   %wide.trip.count.i58 = sext i32 %209 to i64

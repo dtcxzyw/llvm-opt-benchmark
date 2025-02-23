@@ -151,7 +151,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 .lr.ph184:                                        ; preds = %27, %.lr.ph184
   %.0143182 = phi i32 [ %37, %.lr.ph184 ], [ 1, %27 ]
-  %36 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %36 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %37 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %.0143182, i32 noundef %36) #19
   %38 = load ptr, ptr %2, align 8, !tbaa !30
   %storemerge159 = getelementptr inbounds nuw i8, ptr %38, i64 1
@@ -234,33 +234,33 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 2
   store ptr %80, ptr %2, align 8, !tbaa !30
   %.not191 = icmp ult ptr %80, %79
-  br i1 %.not191, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %73
-  %81 = getelementptr inbounds i8, ptr %1, i64 %68
-  br label %.loopexit
+  br i1 %.not191, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %73, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %73 ]
-  %82 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %83 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv
-  store i32 %82, ptr %83, align 4, !tbaa !3
-  %84 = load ptr, ptr %2, align 8, !tbaa !30
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  store ptr %85, ptr %2, align 8, !tbaa !30
+  %81 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
+  %82 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv
+  store i32 %81, ptr %82, align 4, !tbaa !3
+  %83 = load ptr, ptr %2, align 8, !tbaa !30
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  store ptr %84, ptr %2, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = icmp ult ptr %85, %79
-  br i1 %86, label %.lr.ph, label %._crit_edge, !llvm.loop !35
+  %85 = icmp ult ptr %84, %79
+  br i1 %85, label %.lr.ph, label %.preheader.preheader, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %73
+  %86 = getelementptr inbounds i8, ptr %1, i64 %68
+  br label %.loopexit
+
+.preheader.preheader:                             ; preds = %.lr.ph
   %.pre197 = load i32, ptr %66, align 4, !tbaa !3
   %.pre198 = sext i32 %.pre197 to i64
   %87 = getelementptr inbounds i8, ptr %1, i64 %.pre198
   br label %.loopexit
 
-.loopexit:                                        ; preds = %62, %._crit_edge, %._crit_edge.thread
-  %88 = phi ptr [ %81, %._crit_edge.thread ], [ %87, %._crit_edge ], [ %69, %62 ]
-  %.0146165 = phi ptr [ %8, %._crit_edge.thread ], [ %8, %._crit_edge ], [ %4, %62 ]
+.loopexit:                                        ; preds = %62, %._crit_edge, %.preheader.preheader
+  %88 = phi ptr [ %86, %._crit_edge ], [ %87, %.preheader.preheader ], [ %69, %62 ]
+  %.0146165 = phi ptr [ %8, %._crit_edge ], [ %8, %.preheader.preheader ], [ %4, %62 ]
   %storemerge169 = getelementptr inbounds nuw i8, ptr %.pn168, i64 1
   store ptr %storemerge169, ptr %2, align 8, !tbaa !30
   %89 = icmp ult ptr %storemerge169, %88
@@ -268,7 +268,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 .lr.ph172:                                        ; preds = %.loopexit, %.lr.ph172
   %.0148170 = phi ptr [ %91, %.lr.ph172 ], [ %7, %.loopexit ]
-  %90 = call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0146165, ptr noundef %5)
+  %90 = call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %.0146165, ptr noundef %5)
   %91 = getelementptr inbounds nuw i8, ptr %.0148170, i64 4
   store i32 %90, ptr %.0148170, align 4, !tbaa !3
   %.pn = load ptr, ptr %2, align 8, !tbaa !30
@@ -354,7 +354,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 
 .lr.ph189:                                        ; preds = %121, %.lr.ph189
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.lr.ph189 ], [ 0, %121 ]
-  %138 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %138 = tail call i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %139 = getelementptr inbounds nuw [12 x i32], ptr %11, i64 0, i64 %indvars.iv194
   store i32 %138, ptr %139, align 4, !tbaa !3
   %140 = load ptr, ptr %2, align 8, !tbaa !30
@@ -1822,7 +1822,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 .lr.ph236:                                        ; preds = %29, %.lr.ph236
   %.0171234 = phi i32 [ %39, %.lr.ph236 ], [ 0, %29 ]
-  %38 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %38 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %39 = add nuw nsw i32 %.0171234, 1
   call void @Dau_DsdAddToArray(ptr noundef %0, ptr noundef nonnull %7, i32 noundef %.0171234, i32 noundef %38)
   %.pn193 = load ptr, ptr %2, align 8, !tbaa !30
@@ -1854,7 +1854,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 .lr.ph229:                                        ; preds = %43, %.lr.ph229
   %.0172227 = phi i32 [ %53, %.lr.ph229 ], [ 0, %43 ]
-  %52 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %52 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %53 = add nuw nsw i32 %.0172227, 1
   call void @Dau_DsdAddToArray(ptr noundef %0, ptr noundef nonnull %8, i32 noundef %.0172227, i32 noundef %52)
   %.pn191 = load ptr, ptr %2, align 8, !tbaa !30
@@ -1895,33 +1895,33 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %75 = getelementptr inbounds nuw i8, ptr %64, i64 2
   store ptr %75, ptr %2, align 8, !tbaa !30
   %.not248 = icmp ult ptr %75, %74
-  br i1 %.not248, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %68
-  %76 = getelementptr inbounds i8, ptr %1, i64 %63
-  br label %.loopexit
+  br i1 %.not248, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %68, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %68 ]
-  %77 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
-  %78 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv
-  store i32 %77, ptr %78, align 4, !tbaa !3
-  %79 = load ptr, ptr %2, align 8, !tbaa !30
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  store ptr %80, ptr %2, align 8, !tbaa !30
+  %76 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
+  %77 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv
+  store i32 %76, ptr %77, align 4, !tbaa !3
+  %78 = load ptr, ptr %2, align 8, !tbaa !30
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  store ptr %79, ptr %2, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %81 = icmp ult ptr %80, %74
-  br i1 %81, label %.lr.ph, label %._crit_edge, !llvm.loop !50
+  %80 = icmp ult ptr %79, %74
+  br i1 %80, label %.lr.ph, label %.preheader.preheader, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %68
+  %81 = getelementptr inbounds i8, ptr %1, i64 %63
+  br label %.loopexit
+
+.preheader.preheader:                             ; preds = %.lr.ph
   %.pre258 = load i32, ptr %61, align 4, !tbaa !3
   %.pre260 = sext i32 %.pre258 to i64
   %82 = getelementptr inbounds i8, ptr %1, i64 %.pre260
   br label %.loopexit
 
-.loopexit:                                        ; preds = %57, %._crit_edge, %._crit_edge.thread
-  %83 = phi ptr [ %76, %._crit_edge.thread ], [ %82, %._crit_edge ], [ %64, %57 ]
-  %.0174212 = phi ptr [ %10, %._crit_edge.thread ], [ %10, %._crit_edge ], [ %4, %57 ]
+.loopexit:                                        ; preds = %57, %._crit_edge, %.preheader.preheader
+  %83 = phi ptr [ %81, %._crit_edge ], [ %82, %.preheader.preheader ], [ %64, %57 ]
+  %.0174212 = phi ptr [ %10, %._crit_edge ], [ %10, %.preheader.preheader ], [ %4, %57 ]
   %storemerge219 = getelementptr inbounds nuw i8, ptr %.pn193232, i64 1
   store ptr %storemerge219, ptr %2, align 8, !tbaa !30
   %84 = icmp ult ptr %storemerge219, %83
@@ -1929,7 +1929,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 .lr.ph222:                                        ; preds = %.loopexit, %.lr.ph222
   %.0176220 = phi ptr [ %86, %.lr.ph222 ], [ %9, %.loopexit ]
-  %85 = call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %.0174212, ptr noundef %5)
+  %85 = call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %.0174212, ptr noundef %5)
   %86 = getelementptr inbounds nuw i8, ptr %.0176220, i64 4
   store i32 %85, ptr %.0176220, align 4, !tbaa !3
   %.pn = load ptr, ptr %2, align 8, !tbaa !30
@@ -2105,7 +2105,7 @@ define i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 
 .lr.ph241:                                        ; preds = %161, %.lr.ph241
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %.lr.ph241 ], [ 0, %161 ]
-  %178 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
+  %178 = tail call i32 @Dau_DsdToGia_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5)
   %179 = getelementptr inbounds nuw [12 x i32], ptr %13, i64 0, i64 %indvars.iv252
   store i32 %178, ptr %179, align 4, !tbaa !3
   %180 = load ptr, ptr %2, align 8, !tbaa !30

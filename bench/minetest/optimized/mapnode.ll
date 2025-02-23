@@ -5303,7 +5303,12 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %n.vec, %wide.trip.count
-  br i1 %cmp.n, label %if.end56, label %for.body41.preheader275
+  br i1 %cmp.n, label %for.body63.preheader.thread, label %for.body41.preheader275
+
+for.body63.preheader.thread:                      ; preds = %middle.block
+  %mul582 = mul i32 %nodecount, %conv
+  %xtraiter2794 = and i64 %wide.trip.count, 3
+  br label %for.body63.preheader.new
 
 for.body41.preheader275:                          ; preds = %middle.block, %for.body41.preheader
   %indvars.iv.ph = phi i64 [ 0, %for.body41.preheader ], [ %n.vec, %middle.block ]
@@ -5326,7 +5331,7 @@ for.body41.prol.loopexit:                         ; preds = %for.body41.prol, %f
   %indvars.iv.unr = phi i64 [ %indvars.iv.ph, %for.body41.preheader275 ], [ %indvars.iv.next.prol, %for.body41.prol ]
   %37 = add nsw i64 %wide.trip.count, -1
   %38 = icmp eq i64 %indvars.iv.ph, %37
-  br i1 %38, label %if.end56, label %for.body41
+  br i1 %38, label %for.body63.preheader, label %for.body41
 
 for.cond.preheader:                               ; preds = %invoke.cont21
   br i1 %cmp26232.not, label %if.end149, label %for.body.preheader
@@ -5399,12 +5404,12 @@ for.body41:                                       ; preds = %for.body41.prol.loo
   store i16 %rev.i.i.1, ptr %arrayidx49.1, align 4, !tbaa !52
   %indvars.iv.next.1 = add nuw nsw i64 %indvars.iv, 2
   %exitcond.not.1 = icmp eq i64 %indvars.iv.next.1, %wide.trip.count
-  br i1 %exitcond.not.1, label %if.end56, label %for.body41, !llvm.loop !226
+  br i1 %exitcond.not.1, label %for.body63.preheader, label %for.body41, !llvm.loop !226
 
 if.end56.loopexit.unr-lcssa:                      ; preds = %for.body, %for.body.preheader
   %indvars.iv244.unr = phi i64 [ 0, %for.body.preheader ], [ %unroll_iter, %for.body ]
   %lcmp.mod278.not = icmp eq i64 %xtraiter277, 0
-  br i1 %lcmp.mod278.not, label %if.end56, label %for.body.epil
+  br i1 %lcmp.mod278.not, label %for.body63.preheader, label %for.body.epil
 
 for.body.epil:                                    ; preds = %if.end56.loopexit.unr-lcssa, %for.body.epil
   %indvars.iv244.epil = phi i64 [ %indvars.iv.next245.epil, %for.body.epil ], [ %indvars.iv244.unr, %if.end56.loopexit.unr-lcssa ]
@@ -5417,32 +5422,34 @@ for.body.epil:                                    ; preds = %if.end56.loopexit.u
   %indvars.iv.next245.epil = add nuw nsw i64 %indvars.iv244.epil, 1
   %epil.iter.next = add nuw nsw i64 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i64 %epil.iter.next, %xtraiter277
-  br i1 %epil.iter.cmp.not, label %if.end56, label %for.body.epil, !llvm.loop !227
+  br i1 %epil.iter.cmp.not, label %for.body63.preheader, label %for.body.epil, !llvm.loop !227
 
-if.end56:                                         ; preds = %for.body41, %for.body.epil, %if.end56.loopexit.unr-lcssa, %for.body41.prol.loopexit, %middle.block
+for.body63.preheader:                             ; preds = %for.body41, %for.body.epil, %for.body41.prol.loopexit, %if.end56.loopexit.unr-lcssa
+  %wide.trip.count252.pre-phi = phi i64 [ %wide.trip.count, %for.body41.prol.loopexit ], [ %wide.trip.count247, %if.end56.loopexit.unr-lcssa ], [ %wide.trip.count247, %for.body.epil ], [ %wide.trip.count, %for.body41 ]
   %mul58 = mul i32 %nodecount, %conv
-  br i1 %cmp26232.not, label %if.end149, label %for.body63.preheader
-
-for.body63.preheader:                             ; preds = %if.end56
-  %wide.trip.count252 = zext i32 %nodecount to i64
-  %xtraiter279 = and i64 %wide.trip.count252, 3
+  %xtraiter279 = and i64 %wide.trip.count252.pre-phi, 3
   %46 = icmp ult i32 %nodecount, 4
   br i1 %46, label %for.cond.cleanup62.loopexit.unr-lcssa, label %for.body63.preheader.new
 
-for.body63.preheader.new:                         ; preds = %for.body63.preheader
-  %unroll_iter282 = and i64 %wide.trip.count252, 4294967292
+for.body63.preheader.new:                         ; preds = %for.body63.preheader.thread, %for.body63.preheader
+  %xtraiter2798 = phi i64 [ %xtraiter2794, %for.body63.preheader.thread ], [ %xtraiter279, %for.body63.preheader ]
+  %wide.trip.count2527 = phi i64 [ %wide.trip.count, %for.body63.preheader.thread ], [ %wide.trip.count252.pre-phi, %for.body63.preheader ]
+  %mul585 = phi i32 [ %mul582, %for.body63.preheader.thread ], [ %mul58, %for.body63.preheader ]
+  %unroll_iter282 = and i64 %wide.trip.count2527, 4294967292
   br label %for.body63
 
 for.cond.cleanup62.loopexit.unr-lcssa:            ; preds = %for.body63, %for.body63.preheader
+  %xtraiter2799 = phi i64 [ %xtraiter279, %for.body63.preheader ], [ %xtraiter2798, %for.body63 ]
+  %mul586 = phi i32 [ %mul58, %for.body63.preheader ], [ %mul585, %for.body63 ]
   %indvars.iv249.unr = phi i64 [ 0, %for.body63.preheader ], [ %unroll_iter282, %for.body63 ]
-  %lcmp.mod281.not = icmp eq i64 %xtraiter279, 0
+  %lcmp.mod281.not = icmp eq i64 %xtraiter2799, 0
   br i1 %lcmp.mod281.not, label %for.cond.cleanup62, label %for.body63.epil
 
 for.body63.epil:                                  ; preds = %for.cond.cleanup62.loopexit.unr-lcssa, %for.body63.epil
   %indvars.iv249.epil = phi i64 [ %indvars.iv.next250.epil, %for.body63.epil ], [ %indvars.iv249.unr, %for.cond.cleanup62.loopexit.unr-lcssa ]
   %epil.iter280 = phi i64 [ %epil.iter280.next, %for.body63.epil ], [ 0, %for.cond.cleanup62.loopexit.unr-lcssa ]
   %47 = trunc i64 %indvars.iv249.epil to i32
-  %add64.epil = add i32 %mul58, %47
+  %add64.epil = add i32 %mul586, %47
   %idxprom.i210.epil = zext i32 %add64.epil to i64
   %arrayidx.i211.epil = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.epil
   %48 = load i8, ptr %arrayidx.i211.epil, align 1, !tbaa !58
@@ -5450,22 +5457,19 @@ for.body63.epil:                                  ; preds = %for.cond.cleanup62.
   store i8 %48, ptr %param1.epil, align 2, !tbaa !208
   %indvars.iv.next250.epil = add nuw nsw i64 %indvars.iv249.epil, 1
   %epil.iter280.next = add nuw nsw i64 %epil.iter280, 1
-  %epil.iter280.cmp.not = icmp eq i64 %epil.iter280.next, %xtraiter279
+  %epil.iter280.cmp.not = icmp eq i64 %epil.iter280.next, %xtraiter2799
   br i1 %epil.iter280.cmp.not, label %for.cond.cleanup62, label %for.body63.epil, !llvm.loop !229
 
 for.cond.cleanup62:                               ; preds = %for.body63.epil, %for.cond.cleanup62.loopexit.unr-lcssa
   %add77 = add nuw nsw i32 %conv, 1
   %mul78 = mul i32 %add77, %nodecount
-  br i1 %cmp24, label %for.body86.preheader, label %if.else126
-
-for.body86.preheader:                             ; preds = %for.cond.cleanup62
   %wide.trip.count262 = zext i32 %nodecount to i64
-  br label %for.body86
+  br i1 %cmp24, label %for.body86, label %for.body134.preheader
 
 for.body63:                                       ; preds = %for.body63, %for.body63.preheader.new
   %indvars.iv249 = phi i64 [ 0, %for.body63.preheader.new ], [ %indvars.iv.next250.3, %for.body63 ]
   %49 = trunc i64 %indvars.iv249 to i32
-  %add64 = add i32 %mul58, %49
+  %add64 = add i32 %mul585, %49
   %idxprom.i210 = zext i32 %add64 to i64
   %arrayidx.i211 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210
   %50 = load i8, ptr %arrayidx.i211, align 1, !tbaa !58
@@ -5473,7 +5477,7 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   store i8 %50, ptr %param1, align 2, !tbaa !208
   %indvars.iv.next250 = or disjoint i64 %indvars.iv249, 1
   %51 = trunc i64 %indvars.iv.next250 to i32
-  %add64.1 = add i32 %mul58, %51
+  %add64.1 = add i32 %mul585, %51
   %idxprom.i210.1 = zext i32 %add64.1 to i64
   %arrayidx.i211.1 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.1
   %52 = load i8, ptr %arrayidx.i211.1, align 1, !tbaa !58
@@ -5481,7 +5485,7 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   store i8 %52, ptr %param1.1, align 2, !tbaa !208
   %indvars.iv.next250.1 = or disjoint i64 %indvars.iv249, 2
   %53 = trunc i64 %indvars.iv.next250.1 to i32
-  %add64.2 = add i32 %mul58, %53
+  %add64.2 = add i32 %mul585, %53
   %idxprom.i210.2 = zext i32 %add64.2 to i64
   %arrayidx.i211.2 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.2
   %54 = load i8, ptr %arrayidx.i211.2, align 1, !tbaa !58
@@ -5489,18 +5493,18 @@ for.body63:                                       ; preds = %for.body63, %for.bo
   store i8 %54, ptr %param1.2, align 2, !tbaa !208
   %indvars.iv.next250.2 = or disjoint i64 %indvars.iv249, 3
   %55 = trunc i64 %indvars.iv.next250.2 to i32
-  %add64.3 = add i32 %mul58, %55
+  %add64.3 = add i32 %mul585, %55
   %idxprom.i210.3 = zext i32 %add64.3 to i64
   %arrayidx.i211.3 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 %idxprom.i210.3
   %56 = load i8, ptr %arrayidx.i211.3, align 1, !tbaa !58
   %param1.3 = getelementptr inbounds nuw %struct.MapNode, ptr %nodes, i64 %indvars.iv.next250.2, i32 1
   store i8 %56, ptr %param1.3, align 2, !tbaa !208
-  %indvars.iv.next250.3 = add nuw nsw i64 %indvars.iv249, 4
+  %indvars.iv.next250.3 = add nuw i64 %indvars.iv249, 4
   %niter283.ncmp.3 = icmp eq i64 %indvars.iv.next250.3, %unroll_iter282
   br i1 %niter283.ncmp.3, label %for.cond.cleanup62.loopexit.unr-lcssa, label %for.body63, !llvm.loop !230
 
-for.body86:                                       ; preds = %for.inc122, %for.body86.preheader
-  %indvars.iv259 = phi i64 [ 0, %for.body86.preheader ], [ %indvars.iv.next260, %for.inc122 ]
+for.body86:                                       ; preds = %for.cond.cleanup62, %for.inc122
+  %indvars.iv259 = phi i64 [ %indvars.iv.next260, %for.inc122 ], [ 0, %for.cond.cleanup62 ]
   %57 = trunc i64 %indvars.iv259 to i32
   %add87 = add i32 %mul78, %57
   %idxprom.i212 = zext i32 %add87 to i64
@@ -5528,18 +5532,13 @@ for.inc122:                                       ; preds = %if.then100, %for.bo
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
   br i1 %exitcond263.not, label %delete.notnull.i.i217, label %for.body86, !llvm.loop !231
 
-if.else126:                                       ; preds = %for.cond.cleanup62
-  %cmp128 = icmp eq i8 %content_width, 2
-  br i1 %cmp128, label %for.body134.preheader, label %if.end149
-
-for.body134.preheader:                            ; preds = %if.else126
-  %wide.trip.count257 = zext i32 %nodecount to i64
-  %xtraiter284 = and i64 %wide.trip.count257, 3
+for.body134.preheader:                            ; preds = %for.cond.cleanup62
+  %xtraiter284 = and i64 %wide.trip.count262, 3
   %64 = icmp ult i32 %nodecount, 4
   br i1 %64, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134.preheader.new
 
 for.body134.preheader.new:                        ; preds = %for.body134.preheader
-  %unroll_iter287 = and i64 %wide.trip.count257, 4294967292
+  %unroll_iter287 = and i64 %wide.trip.count262, 4294967292
   br label %for.body134
 
 for.body134:                                      ; preds = %for.body134, %for.body134.preheader.new
@@ -5579,7 +5578,7 @@ for.body134:                                      ; preds = %for.body134, %for.b
   %niter288.ncmp.3 = icmp eq i64 %indvars.iv.next255.3, %unroll_iter287
   br i1 %niter288.ncmp.3, label %delete.notnull.i.i217.loopexit274.unr-lcssa, label %for.body134, !llvm.loop !232
 
-if.end149:                                        ; preds = %if.end56, %for.cond.preheader, %for.cond38.preheader, %if.else126
+if.end149:                                        ; preds = %for.cond.preheader, %for.cond38.preheader
   %isnull.i.i216 = icmp eq ptr %storemerge.i, null
   br i1 %isnull.i.i216, label %_ZN6BufferIhED2Ev.exit218, label %delete.notnull.i.i217
 

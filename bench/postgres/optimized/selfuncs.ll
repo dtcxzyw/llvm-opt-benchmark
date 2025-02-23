@@ -5101,7 +5101,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   store i64 %128, ptr %106, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread.i, label %.loopexit.us.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.lr.ph26.i, label %.loopexit.us.i, !llvm.loop !24
 
 .lr.ph17.split.i:                                 ; preds = %.lr.ph17.i, %.loopexit.i
   %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %.loopexit.i ], [ 0, %.lr.ph17.i ]
@@ -5187,15 +5187,19 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
 172:                                              ; preds = %170
   br label %.thread.i
 
-.thread.i:                                        ; preds = %.loopexit.us.i, %172, %170, %._crit_edge.i
-  %.lcssa1166.i = phi i32 [ %165, %172 ], [ %165, %170 ], [ %165, %._crit_edge.i ], [ %118, %.loopexit.us.i ]
-  %.0145.lcssa63.i = phi double [ %168, %172 ], [ %168, %170 ], [ %168, %._crit_edge.i ], [ 0.000000e+00, %.loopexit.us.i ]
-  %.4.i = phi double [ 1.000000e+00, %172 ], [ %.2.i, %170 ], [ 0.000000e+00, %._crit_edge.i ], [ 0.000000e+00, %.loopexit.us.i ]
-  %173 = icmp sgt i32 %.lcssa1166.i, 0
-  br i1 %173, label %.lr.ph26.i, label %.thread84.i
+.thread.i:                                        ; preds = %172, %170, %._crit_edge.i
+  %.4.i = phi double [ 1.000000e+00, %172 ], [ %.2.i, %170 ], [ 0.000000e+00, %._crit_edge.i ]
+  %173 = icmp sgt i32 %165, 0
+  br i1 %173, label %.thread.i..lr.ph26.i_crit_edge, label %.thread84.i
 
-.lr.ph26.i:                                       ; preds = %.thread.i
-  %wide.trip.count51.i = zext nneg i32 %.lcssa1166.i to i64
+.thread.i..lr.ph26.i_crit_edge:                   ; preds = %.thread.i
+  %.pre115 = zext nneg i32 %165 to i64
+  br label %.lr.ph26.i
+
+.lr.ph26.i:                                       ; preds = %.loopexit.us.i, %.thread.i..lr.ph26.i_crit_edge
+  %wide.trip.count51.i.pre-phi = phi i64 [ %.pre115, %.thread.i..lr.ph26.i_crit_edge ], [ %wide.trip.count.i, %.loopexit.us.i ]
+  %.4111.i = phi double [ %.4.i, %.thread.i..lr.ph26.i_crit_edge ], [ 0.000000e+00, %.loopexit.us.i ]
+  %.0145.lcssa63109.i = phi double [ %168, %.thread.i..lr.ph26.i_crit_edge ], [ 0.000000e+00, %.loopexit.us.i ]
   %174 = load ptr, ptr %122, align 8
   br label %175
 
@@ -5214,7 +5218,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   %.1162.i = select i1 %178, double %.016122.i, double %183
   %.1142.i = select i1 %178, double %182, double %.014124.i
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
-  %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
+  %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i.pre-phi
   br i1 %exitcond52.not.i, label %._crit_edge27.i, label %175, !llvm.loop !28
 
 ._crit_edge27.i:                                  ; preds = %175
@@ -5241,8 +5245,8 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   br label %.thread84.i
 
 .thread84.i:                                      ; preds = %192, %190, %188, %.thread.i, %95
-  %.4109.i = phi double [ %.4.i, %192 ], [ %.4.i, %190 ], [ %.4.i, %188 ], [ %.4.i, %.thread.i ], [ 0.000000e+00, %95 ]
-  %.0145.lcssa63107.i = phi double [ %.0145.lcssa63.i, %192 ], [ %.0145.lcssa63.i, %190 ], [ %.0145.lcssa63.i, %188 ], [ %.0145.lcssa63.i, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.4110.i = phi double [ %.4111.i, %192 ], [ %.4111.i, %190 ], [ %.4111.i, %188 ], [ %.4.i, %.thread.i ], [ 0.000000e+00, %95 ]
+  %.0145.lcssa63108.i = phi double [ %.0145.lcssa63109.i, %192 ], [ %.0145.lcssa63109.i, %190 ], [ %.0145.lcssa63109.i, %188 ], [ %168, %.thread.i ], [ 0.000000e+00, %95 ]
   %.214383.i = phi double [ %.2143.i, %192 ], [ %.2143.i, %190 ], [ %.2143.i, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
   %.2163.i = phi double [ 1.000000e+00, %192 ], [ %.1162.i, %190 ], [ 0.000000e+00, %188 ], [ 0.000000e+00, %.thread.i ], [ 0.000000e+00, %95 ]
   %193 = load i32, ptr %114, align 8
@@ -5337,15 +5341,15 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   %234 = fmul double %.2163.i, %.0156.i
   %235 = fsub double %27, %232
   %236 = fdiv double %234, %235
-  %237 = fadd double %.4109.i, %236
-  %.0154.i = select i1 %233, double %237, double %.4109.i
-  %238 = fcmp ogt double %27, %.0145.lcssa63107.i
+  %237 = fadd double %.4110.i, %236
+  %.0154.i = select i1 %233, double %237, double %.4110.i
+  %238 = fcmp ogt double %27, %.0145.lcssa63108.i
   br i1 %238, label %239, label %245
 
 239:                                              ; preds = %230
   %240 = fadd double %.2160.i, %.0156.i
   %241 = fmul double %.0157.i, %240
-  %242 = fsub double %27, %.0145.lcssa63107.i
+  %242 = fsub double %27, %.0145.lcssa63108.i
   %243 = fdiv double %241, %242
   %244 = fadd double %243, %.0154.i
   br label %245
@@ -5358,15 +5362,15 @@ statistic_proc_security_check.exit.thread:        ; preds = %58, %56, %53, %stat
   %249 = fmul double %.2160.i, %.0157.i
   %250 = fsub double %26, %247
   %251 = fdiv double %249, %250
-  %252 = fadd double %.4109.i, %251
-  %.0152.i = select i1 %248, double %252, double %.4109.i
-  %253 = fcmp ogt double %26, %.0145.lcssa63107.i
+  %252 = fadd double %.4110.i, %251
+  %.0152.i = select i1 %248, double %252, double %.4110.i
+  %253 = fcmp ogt double %26, %.0145.lcssa63108.i
   br i1 %253, label %254, label %260
 
 254:                                              ; preds = %245
   %255 = fadd double %.2163.i, %.0157.i
   %256 = fmul double %255, %.0156.i
-  %257 = fsub double %26, %.0145.lcssa63107.i
+  %257 = fsub double %26, %.0145.lcssa63108.i
   %258 = fdiv double %256, %257
   %259 = fadd double %258, %.0152.i
   br label %260
@@ -5748,7 +5752,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   %74 = load i32, ptr %42, align 8
   %75 = sext i32 %74 to i64
   %76 = icmp slt i64 %indvars.iv.next30, %75
-  br i1 %76, label %.lr.ph.us, label %.preheader.loopexit, !llvm.loop !30
+  br i1 %76, label %.lr.ph.us, label %.preheader, !llvm.loop !30
 
 77:                                               ; preds = %60, %56
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
@@ -5760,19 +5764,16 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   %.pre = load ptr, ptr %50, align 8
   br label %.loopexit
 
-.preheader.loopexit:                              ; preds = %..loopexit_crit_edge.us
+.preheader:                                       ; preds = %..loopexit_crit_edge.us
   %78 = sitofp i32 %.2.us to double
-  br label %.preheader
-
-.preheader:                                       ; preds = %.loopexit, %.preheader.loopexit
-  %.0103.lcssa = phi double [ %78, %.preheader.loopexit ], [ 0.000000e+00, %.loopexit ]
-  %.lcssa9 = phi i32 [ %74, %.preheader.loopexit ], [ %48, %.loopexit ]
-  %79 = icmp sgt i32 %.lcssa9, 0
+  %79 = icmp sgt i32 %74, 0
   br i1 %79, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader
+.lr.ph:                                           ; preds = %.loopexit, %.preheader
+  %.lcssa941 = phi i32 [ %74, %.preheader ], [ %48, %.loopexit ]
+  %.0103.lcssa40 = phi double [ %78, %.preheader ], [ 0.000000e+00, %.loopexit ]
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %wide.trip.count35 = zext nneg i32 %.lcssa9 to i64
+  %wide.trip.count35 = zext nneg i32 %.lcssa941 to i64
   br label %83
 
 .loopexit:                                        ; preds = %.lr.ph14.split, %.loopexit
@@ -5782,7 +5783,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   store i64 %82, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.loopexit, !llvm.loop !30
+  br i1 %exitcond.not, label %.lr.ph, label %.loopexit, !llvm.loop !30
 
 83:                                               ; preds = %.lr.ph, %93
   %indvars.iv32 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next33, %93 ]
@@ -5818,7 +5819,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %25, %._crit_edge, %95, %97
-  %.0103.lcssa3943 = phi double [ %.0103.lcssa, %97 ], [ %.0103.lcssa, %95 ], [ %.0103.lcssa, %._crit_edge ], [ %.0103.lcssa, %.preheader ], [ 0.000000e+00, %25 ]
+  %.0103.lcssa3948 = phi double [ %.0103.lcssa40, %97 ], [ %.0103.lcssa40, %95 ], [ %.0103.lcssa40, %._crit_edge ], [ %78, %.preheader ], [ 0.000000e+00, %25 ]
   %.2111 = phi double [ 1.000000e+00, %97 ], [ %.1110, %95 ], [ 0.000000e+00, %._crit_edge ], [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %25 ]
   call void @pfree(ptr noundef %45) #12
   call void @pfree(ptr noundef %47) #12
@@ -5826,8 +5827,8 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
   br i1 %brmerge, label %105, label %98
 
 98:                                               ; preds = %.thread
-  %99 = fsub double %2, %.0103.lcssa3943
-  %100 = fsub double %.1, %.0103.lcssa3943
+  %99 = fsub double %2, %.0103.lcssa3948
+  %100 = fsub double %.1, %.0103.lcssa3948
   %101 = fcmp ole double %99, %100
   %102 = fcmp olt double %100, 0.000000e+00
   %or.cond3 = or i1 %101, %102

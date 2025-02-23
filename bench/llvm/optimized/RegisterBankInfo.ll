@@ -1048,9 +1048,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   store i32 0, ptr %255, align 8, !tbaa !302, !noalias !296
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 16
   %257 = icmp eq ptr %256, %252
-  br i1 %257, label %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i.i, label %253
+  br i1 %257, label %.lr.ph.preheader.i.i, label %253
 
-_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i.i: ; preds = %253
+.lr.ph.preheader.i.i:                             ; preds = %253
   store ptr %249, ptr %246, align 8, !tbaa !261
   br label %.lr.ph.i.i
 
@@ -1058,9 +1058,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   %.pre.i.i127 = load ptr, ptr %246, align 8, !tbaa !261
   br label %_ZNK4llvm16RegisterBankInfo18getOperandsMappingERKNS_15SmallVectorImplIPKNS0_12ValueMappingEEE.exit
 
-.lr.ph.i.i:                                       ; preds = %262, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %262 ], [ 0, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i.i ]
-  %.01927.i.i = phi ptr [ %263, %262 ], [ %240, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i.i ]
+.lr.ph.i.i:                                       ; preds = %262, %.lr.ph.preheader.i.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %262 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01927.i.i = phi ptr [ %263, %262 ], [ %240, %.lr.ph.preheader.i.i ]
   %258 = load ptr, ptr %.01927.i.i, align 8, !tbaa !261
   %.not22.i.i = icmp eq ptr %258, null
   br i1 %.not22.i.i, label %262, label %259
@@ -1219,9 +1219,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   store i32 0, ptr %20, align 8, !tbaa !302, !noalias !306
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = icmp eq ptr %21, %17
-  br i1 %22, label %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i, label %18
+  br i1 %22, label %.lr.ph.preheader.i, label %18
 
-_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %18
+.lr.ph.preheader.i:                               ; preds = %18
   store ptr %14, ptr %11, align 8, !tbaa !261
   br label %.lr.ph.i
 
@@ -1229,9 +1229,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   %.pre.i = load ptr, ptr %11, align 8, !tbaa !261
   br label %_ZNK4llvm16RegisterBankInfo18getOperandsMappingIPKPKNS0_12ValueMappingEEES4_T_S7_.exit
 
-.lr.ph.i:                                         ; preds = %27, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i ]
-  %.01927.i = phi ptr [ %28, %27 ], [ %4, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i ]
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %.lr.ph.preheader.i ]
+  %.01927.i = phi ptr [ %28, %27 ], [ %4, %.lr.ph.preheader.i ]
   %23 = load ptr, ptr %.01927.i, align 8, !tbaa !261
   %.not22.i = icmp eq ptr %23, null
   br i1 %.not22.i, label %27, label %24
@@ -1801,9 +1801,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   store i32 0, ptr %19, align 8, !tbaa !302, !noalias !345
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = icmp eq ptr %20, %16
-  br i1 %21, label %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i, label %17
+  br i1 %21, label %.lr.ph.preheader.i, label %17
 
-_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i: ; preds = %17
+.lr.ph.preheader.i:                               ; preds = %17
   store ptr %13, ptr %8, align 8, !tbaa !261
   br label %.lr.ph.i
 
@@ -1811,9 +1811,9 @@ _ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !261
   br label %_ZNK4llvm16RegisterBankInfo18getOperandsMappingIPKPKNS0_12ValueMappingEEES4_T_S7_.exit
 
-.lr.ph.i:                                         ; preds = %27, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i
-  %.01927.i = phi ptr [ %28, %27 ], [ %1, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i ]
-  %.02026.i = phi i32 [ %29, %27 ], [ 0, %_ZNSt10unique_ptrIA_N4llvm16RegisterBankInfo12ValueMappingESt14default_deleteIS3_EED2Ev.exit.i ]
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
+  %.01927.i = phi ptr [ %28, %27 ], [ %1, %.lr.ph.preheader.i ]
+  %.02026.i = phi i32 [ %29, %27 ], [ 0, %.lr.ph.preheader.i ]
   %22 = load ptr, ptr %.01927.i, align 8, !tbaa !261
   %.not22.i = icmp eq ptr %22, null
   br i1 %.not22.i, label %27, label %23

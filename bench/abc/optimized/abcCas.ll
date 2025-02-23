@@ -1666,12 +1666,12 @@ Mini_AigPiNum.exit:                               ; preds = %8, %3
   br i1 %.not, label %.thread, label %14
 
 .thread:                                          ; preds = %Mini_AigPiNum.exit
-  %13 = tail call ptr @Abc_LutCasCollapse(ptr noundef %0, ptr noundef %12, i32 noundef 10000, i32 poison)
+  %13 = tail call ptr @Abc_LutCasCollapse(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 10000, i32 poison)
   br label %16
 
 14:                                               ; preds = %Mini_AigPiNum.exit
   tail call void @Cudd_AutodynEnable(ptr noundef %12, i32 noundef 6) #25
-  %15 = tail call ptr @Abc_LutCasCollapse(ptr noundef %0, ptr noundef %12, i32 noundef 10000, i32 poison)
+  %15 = tail call ptr @Abc_LutCasCollapse(ptr noundef nonnull %0, ptr noundef %12, i32 noundef 10000, i32 poison)
   tail call void @Cudd_AutodynDisable(ptr noundef %12) #25
   br label %16
 

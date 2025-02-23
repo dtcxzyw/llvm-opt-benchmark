@@ -203,7 +203,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   br i1 %51, label %44, label %.critedge2, !llvm.loop !33
 
 .critedge2:                                       ; preds = %44, %.preheader506, %.critedge
-  %52 = tail call i32 @Abc_NtkLevel(ptr noundef %0) #7
+  %52 = tail call i32 @Abc_NtkLevel(ptr noundef nonnull %0) #7
   %.not362 = icmp eq i32 %5, 0
   br i1 %.not362, label %.critedge2..critedge4_crit_edge, label %53
 
@@ -212,7 +212,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   br label %.critedge4
 
 53:                                               ; preds = %.critedge2
-  %54 = tail call i32 @Abc_NtkLevelReverse(ptr noundef %0) #7
+  %54 = tail call i32 @Abc_NtkLevelReverse(ptr noundef nonnull %0) #7
   %.val425512 = load i32, ptr %9, align 4, !tbaa !9
   %55 = icmp sgt i32 %.val425512, 0
   br i1 %55, label %.lr.ph514, label %.critedge8
@@ -360,14 +360,14 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %23, %28, %Abc_NtkIs
   %111 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr %18)
   %112 = add nsw i32 %.0346526, -1
   %.not365.not = icmp sgt i32 %.0346526, %.0334.lcssa640
-  br i1 %.not365.not, label %.lr.ph527, label %._crit_edge, !llvm.loop !37
+  br i1 %.not365.not, label %.lr.ph527, label %.lr.ph531.preheader, !llvm.loop !37
 
-._crit_edge:                                      ; preds = %.lr.ph527
+.lr.ph531.preheader:                              ; preds = %.lr.ph527
   %113 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 32, i64 1, ptr %18)
   br label %.lr.ph531
 
-.lr.ph531:                                        ; preds = %._crit_edge, %118
-  %.1347529 = phi i32 [ %119, %118 ], [ %.2341, %._crit_edge ]
+.lr.ph531:                                        ; preds = %.lr.ph531.preheader, %118
+  %.1347529 = phi i32 [ %119, %118 ], [ %.2341, %.lr.ph531.preheader ]
   %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.17, i32 noundef %.1347529) #7
   %.not415 = icmp eq i32 %.1347529, %.0334.lcssa640
   br i1 %.not415, label %117, label %115
@@ -1146,7 +1146,7 @@ Abc_NtkPrintSop.exit488:                          ; preds = %258
   br i1 %.not492, label %463, label %461
 
 461:                                              ; preds = %.critedge27
-  %462 = call i32 @Abc_NtkSopToBdd(ptr noundef %0) #7
+  %462 = call i32 @Abc_NtkSopToBdd(ptr noundef nonnull %0) #7
   br label %463
 
 463:                                              ; preds = %.critedge27, %461, %30, %20, %15, %12
@@ -1296,7 +1296,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   br i1 %49, label %42, label %.critedge2, !llvm.loop !67
 
 .critedge2:                                       ; preds = %42, %.preheader527, %.critedge
-  %50 = tail call i32 @Abc_NtkLevel(ptr noundef %0) #7
+  %50 = tail call i32 @Abc_NtkLevel(ptr noundef nonnull %0) #7
   %.not369 = icmp eq i32 %5, 0
   br i1 %.not369, label %.critedge2..critedge4_crit_edge, label %51
 
@@ -1305,7 +1305,7 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   br label %.critedge4
 
 51:                                               ; preds = %.critedge2
-  %52 = tail call i32 @Abc_NtkLevelReverse(ptr noundef %0) #7
+  %52 = tail call i32 @Abc_NtkLevelReverse(ptr noundef nonnull %0) #7
   %.val445533 = load i32, ptr %7, align 4, !tbaa !9
   %53 = icmp sgt i32 %.val445533, 0
   br i1 %53, label %.lr.ph535, label %.critedge8
@@ -1453,14 +1453,14 @@ Abc_NtkIsBddLogic.exit.thread:                    ; preds = %21, %26, %Abc_NtkIs
   %109 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 3, i64 1, ptr %16)
   %110 = add nsw i32 %.0348547, -1
   %.not372.not = icmp sgt i32 %.0348547, %.0356.lcssa671
-  br i1 %.not372.not, label %.lr.ph548, label %._crit_edge, !llvm.loop !71
+  br i1 %.not372.not, label %.lr.ph548, label %.lr.ph552.preheader, !llvm.loop !71
 
-._crit_edge:                                      ; preds = %.lr.ph548
+.lr.ph552.preheader:                              ; preds = %.lr.ph548
   %111 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 32, i64 1, ptr %16)
   br label %.lr.ph552
 
-.lr.ph552:                                        ; preds = %._crit_edge, %116
-  %.1349550 = phi i32 [ %117, %116 ], [ %.2355, %._crit_edge ]
+.lr.ph552:                                        ; preds = %.lr.ph552.preheader, %116
+  %.1349550 = phi i32 [ %117, %116 ], [ %.2355, %.lr.ph552.preheader ]
   %112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.17, i32 noundef %.1349550) #7
   %.not425 = icmp eq i32 %.1349550, %.0356.lcssa671
   br i1 %.not425, label %115, label %113
@@ -2248,7 +2248,7 @@ Abc_NtkPrintSop.exit498:                          ; preds = %.preheader676
   br i1 %.not503, label %458, label %456
 
 456:                                              ; preds = %.critedge29
-  %457 = tail call i32 @Abc_NtkSopToBdd(ptr noundef %0) #7
+  %457 = tail call i32 @Abc_NtkSopToBdd(ptr noundef nonnull %0) #7
   br label %458
 
 458:                                              ; preds = %.critedge29, %456, %28, %18, %13, %10

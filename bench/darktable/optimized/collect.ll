@@ -1385,8 +1385,8 @@ tag_collate_key.exit:                             ; preds = %146
   %190 = call ptr @g_type_check_instance_cast(ptr noundef %189, i64 noundef %57) #16
   %191 = call ptr @gtk_tree_view_get_selection(ptr noundef %190) #16
   %or.cond338 = icmp ult i32 %.pre-phi, -6
-  %.410 = select i1 %or.cond338, i32 1, i32 3
-  call void @gtk_tree_selection_set_mode(ptr noundef %191, i32 noundef %.410) #16
+  %.412 = select i1 %or.cond338, i32 1, i32 3
+  call void @gtk_tree_selection_set_mode(ptr noundef %191, i32 noundef %.412) #16
   %192 = load ptr, ptr %55, align 8, !tbaa !73
   %193 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %57) #16
   %194 = load ptr, ptr %43, align 8, !tbaa !121
@@ -1550,7 +1550,7 @@ split_path.exit:                                  ; preds = %._crit_edge.i, %252
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !138
   %260 = load ptr, ptr %.0240, align 8, !tbaa !98
   %.not4.i = icmp eq ptr %260, null
-  br i1 %.not4.i, label %string_array_length.exit.thread, label %.lr.ph.i
+  br i1 %.not4.i, label %string_array_length.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %259, %.lr.ph.i
   %.06.i = phi i32 [ %261, %.lr.ph.i ], [ 0, %259 ]
@@ -1559,19 +1559,19 @@ split_path.exit:                                  ; preds = %._crit_edge.i, %252
   %262 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %263 = load ptr, ptr %262, align 8, !tbaa !98
   %.not.i311 = icmp eq ptr %263, null
-  br i1 %.not.i311, label %string_array_length.exit, label %.lr.ph.i
+  br i1 %.not.i311, label %string_array_length.exit.thread, label %.lr.ph.i
 
-string_array_length.exit:                         ; preds = %.lr.ph.i
+string_array_length.exit:                         ; preds = %259
   %.not294 = icmp eq ptr %.0229370, null
-  br i1 %.not294, label %.loopexit, label %.lr.ph342
+  br i1 %.not294, label %.loopexit, label %.critedge
 
-string_array_length.exit.thread:                  ; preds = %259
+string_array_length.exit.thread:                  ; preds = %.lr.ph.i
   %.not294394 = icmp eq ptr %.0229370, null
-  br i1 %.not294394, label %.loopexit, label %.critedge
+  br i1 %.not294394, label %.loopexit, label %.lr.ph342
 
-.lr.ph342:                                        ; preds = %string_array_length.exit, %269
-  %indvars.iv = phi i64 [ %indvars.iv.next, %269 ], [ 0, %string_array_length.exit ]
-  %264 = phi ptr [ %271, %269 ], [ %260, %string_array_length.exit ]
+.lr.ph342:                                        ; preds = %string_array_length.exit.thread, %269
+  %indvars.iv = phi i64 [ %indvars.iv.next, %269 ], [ 0, %string_array_length.exit.thread ]
+  %264 = phi ptr [ %271, %269 ], [ %260, %string_array_length.exit.thread ]
   %265 = getelementptr inbounds nuw ptr, ptr %.0229370, i64 %indvars.iv
   %266 = load ptr, ptr %265, align 8, !tbaa !98
   %.not296 = icmp eq ptr %266, null
@@ -1594,9 +1594,9 @@ string_array_length.exit.thread:                  ; preds = %259
   %.1234.lcssa.ph = trunc i64 %.1234.lcssa.ph.in to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %string_array_length.exit.thread, %.critedge.loopexit
-  %.0.lcssa.i395402 = phi i32 [ %261, %.critedge.loopexit ], [ 0, %string_array_length.exit.thread ]
-  %.1234.lcssa = phi i32 [ %.1234.lcssa.ph, %.critedge.loopexit ], [ 0, %string_array_length.exit.thread ]
+.critedge:                                        ; preds = %string_array_length.exit, %.critedge.loopexit
+  %.0.lcssa.i395404 = phi i32 [ %261, %.critedge.loopexit ], [ 0, %string_array_length.exit ]
+  %.1234.lcssa = phi i32 [ %.1234.lcssa.ph, %.critedge.loopexit ], [ 0, %string_array_length.exit ]
   %272 = icmp slt i32 %.1234.lcssa, %.0236369
   br i1 %272, label %.lr.ph349, label %.loopexit
 
@@ -1610,7 +1610,7 @@ string_array_length.exit.thread:                  ; preds = %259
 
 .loopexit:                                        ; preds = %.lr.ph349, %string_array_length.exit.thread, %.critedge, %string_array_length.exit
   %.not294398 = phi i1 [ true, %string_array_length.exit ], [ false, %.critedge ], [ true, %string_array_length.exit.thread ], [ false, %.lr.ph349 ]
-  %.0.lcssa.i396 = phi i32 [ %261, %string_array_length.exit ], [ %.0.lcssa.i395402, %.critedge ], [ 0, %string_array_length.exit.thread ], [ %.0.lcssa.i395402, %.lr.ph349 ]
+  %.0.lcssa.i396 = phi i32 [ 0, %string_array_length.exit ], [ %.0.lcssa.i395404, %.critedge ], [ %261, %string_array_length.exit.thread ], [ %.0.lcssa.i395404, %.lr.ph349 ]
   %.0233 = phi i32 [ 0, %string_array_length.exit ], [ %.1234.lcssa, %.critedge ], [ 0, %string_array_length.exit.thread ], [ %.1234.lcssa, %.lr.ph349 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #16
   store ptr null, ptr %10, align 8, !tbaa !98
@@ -1796,21 +1796,21 @@ split_path.exit.thread:                           ; preds = %242, %239, %315, %s
   %333 = getelementptr i8, ptr %332, i64 -1
   %334 = load i8, ptr %333, align 1, !tbaa !127
   %335 = icmp eq i8 %334, 37
-  br i1 %335, label %336, label %.thread403
+  br i1 %335, label %336, label %.thread405
 
 336:                                              ; preds = %330
   store i8 0, ptr %333, align 1, !tbaa !127
   %.pr.pre = load ptr, ptr %15, align 8, !tbaa !98
   %.not274 = icmp eq ptr %.pr.pre, null
-  br i1 %.not274, label %.thread330, label %.thread403
+  br i1 %.not274, label %.thread330, label %.thread405
 
-.thread403:                                       ; preds = %330, %336
-  %.pr406 = phi ptr [ %.pr.pre, %336 ], [ %329, %330 ]
-  %337 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr406) #16
+.thread405:                                       ; preds = %330, %336
+  %.pr408 = phi ptr [ %.pr.pre, %336 ], [ %329, %330 ]
+  %337 = call i64 @dt_datetime_exif_to_gtimespan(ptr noundef nonnull %.pr408) #16
   br label %.thread330
 
-.thread330:                                       ; preds = %323, %336, %.thread403
-  %338 = phi i64 [ %337, %.thread403 ], [ 0, %336 ], [ 0, %323 ]
+.thread330:                                       ; preds = %323, %336, %.thread405
+  %338 = phi i64 [ %337, %.thread405 ], [ 0, %336 ], [ 0, %323 ]
   store i64 %338, ptr %327, align 8, !tbaa !140
   %339 = load ptr, ptr %16, align 8, !tbaa !98
   %.not275 = icmp eq ptr %339, null

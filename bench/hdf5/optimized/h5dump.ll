@@ -3589,7 +3589,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_mask_list(ptr noundef %0) unn
   store i32 %15, ptr %59, align 4, !tbaa !23
   %60 = getelementptr inbounds nuw [8 x i32], ptr @packed_length, i64 0, i64 %58
   store i32 %38, ptr %60, align 4, !tbaa !23
-  %61 = icmp ult i32 %38, 64
+  %61 = icmp samesign ult i32 %38, 64
   %62 = and i64 %37, 63
   %63 = shl nsw i64 -1, %62
   %64 = xor i64 %63, -1

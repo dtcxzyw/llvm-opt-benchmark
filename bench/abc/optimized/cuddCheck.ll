@@ -1706,7 +1706,7 @@ define void @cuddPrintVarGroups(ptr noundef readonly captures(none) %0, ptr noun
 
 .preheader:                                       ; preds = %16, %.preheader
   %.02439 = phi ptr [ %22, %.preheader ], [ %18, %16 ]
-  tail call void @cuddPrintVarGroups(ptr noundef %0, ptr noundef nonnull %.02439, i32 noundef %2, i32 noundef %3)
+  tail call void @cuddPrintVarGroups(ptr noundef nonnull %0, ptr noundef nonnull %.02439, i32 noundef %2, i32 noundef %3)
   %21 = getelementptr inbounds nuw i8, ptr %.02439, i64 40
   %22 = load ptr, ptr %21, align 8, !tbaa !84
   %.not28 = icmp eq ptr %22, null

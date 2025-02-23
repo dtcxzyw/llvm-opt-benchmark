@@ -127,7 +127,7 @@ define internal range(i32 -30, 1) i32 @archive_write_v7tar_options(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) #0 {
+define internal range(i32 -2147483648, 1) i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -369,7 +369,7 @@ define internal i32 @archive_write_v7tar_header(ptr noundef %0, ptr noundef %1) 
 
 108:                                              ; preds = %106
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %103, i8 55, i64 6, i1 false), !tbaa !26
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.12) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.12) #11
   br label %format_number.exit.thread.i
 
 format_number.exit.thread.i:                      ; preds = %108, %106
@@ -410,7 +410,7 @@ format_number.exit.thread.i:                      ; preds = %108, %106
   br label %124
 
 124:                                              ; preds = %.preheader19.preheader.i.i84.i, %.preheader.preheader.i.i.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.13) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.13) #11
   br label %format_number.exit86.i
 
 format_number.exit86.i:                           ; preds = %124, %122
@@ -451,7 +451,7 @@ format_number.exit86.i:                           ; preds = %124, %122
   br label %140
 
 140:                                              ; preds = %.preheader19.preheader.i.i90.i, %.preheader.preheader.i.i92.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.14) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.14) #11
   br label %format_number.exit93.i
 
 format_number.exit93.i:                           ; preds = %140, %138
@@ -492,7 +492,7 @@ format_number.exit93.i:                           ; preds = %140, %138
   br label %156
 
 156:                                              ; preds = %.preheader19.preheader.i.i97.i, %.preheader.preheader.i.i99.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.15) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.15) #11
   br label %format_number.exit100.i
 
 format_number.exit100.i:                          ; preds = %156, %154
@@ -533,7 +533,7 @@ format_number.exit100.i:                          ; preds = %156, %154
   br label %172
 
 172:                                              ; preds = %.preheader19.preheader.i.i104.i, %.preheader.preheader.i.i106.i
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.16) #11
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.16) #11
   br label %format_number.exit107.i
 
 format_number.exit107.i:                          ; preds = %172, %170
@@ -559,7 +559,7 @@ format_number.exit107.i:                          ; preds = %172, %170
   br label %180
 
 179:                                              ; preds = %175
-  call void @__archive_write_entry_filetype_unsupported(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.17) #11
+  call void @__archive_write_entry_filetype_unsupported(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.17) #11
   br label %180
 
 180:                                              ; preds = %179, %177, %175, %175, %173
@@ -626,7 +626,7 @@ format_header_v7tar.exit:                         ; preds = %197, %.preheader19.
   br label %210
 
 201:                                              ; preds = %format_header_v7tar.exit
-  %202 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 512) #11
+  %202 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 512) #11
   %203 = icmp slt i32 %202, -20
   br i1 %203, label %204, label %205
 

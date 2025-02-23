@@ -4269,7 +4269,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   br label %316
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26
-  %.02041 = phi i64 [ %162, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ], [ 0, %.preheader ]
+  %.02043 = phi i64 [ %162, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ], [ 0, %.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !346)
   %120 = load ptr, ptr %1, align 8, !tbaa !10, !noalias !346
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -4281,7 +4281,7 @@ _ZNSt16allocator_traitsISaIN4cvc58internal12NodeTemplateILb1EEEEE9constructIS3_J
   %127 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %126), !noalias !346
   %128 = icmp eq i32 %127, 2
   %129 = zext i1 %128 to i64
-  %spec.select.i.i24 = add nuw nsw i64 %.02041, %129
+  %spec.select.i.i24 = add nuw nsw i64 %.02043, %129
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %sext = shl nuw i64 %spec.select.i.i24, 32
   %131 = ashr exact i64 %sext, 32
@@ -4345,7 +4345,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %139, %144, %146
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26: ; preds = %148, %152, %158
-  %162 = add nuw nsw i64 %.02041, 1
+  %162 = add nuw nsw i64 %.02043, 1
   %163 = load ptr, ptr %1, align 8, !tbaa !10
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %165 = load i64, ptr %164, align 8

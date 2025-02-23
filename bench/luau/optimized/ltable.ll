@@ -726,7 +726,7 @@ _ZL14setarrayvectorP9lua_StateP5Tablei.exit:      ; preds = %.lr.ph.i, %28
   br i1 %42, label %43, label %44
 
 43:                                               ; preds = %38
-  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef %0, ptr noundef nonnull @.str.4) #9
+  tail call void (ptr, ptr, ...) @_Z14luaG_runerrorLP9lua_StatePKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #9
   unreachable
 
 44:                                               ; preds = %38
@@ -734,7 +734,7 @@ _ZL14setarrayvectorP9lua_StateP5Tablei.exit:      ; preds = %.lr.ph.i, %28
   %46 = zext nneg i32 %45 to i64
   %47 = shl nuw nsw i64 %46, 5
   %48 = load i8, ptr %14, align 2
-  %49 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %47, i8 noundef zeroext %48)
+  %49 = tail call noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %47, i8 noundef zeroext %48)
   store ptr %49, ptr %23, align 8
   br label %50
 
@@ -2148,7 +2148,7 @@ define internal fastcc void @_ZL6rehashP9lua_StateP5TablePK10lua_TValue(ptr noun
   br i1 %.not.not.i, label %16, label %._crit_edge.loopexit.i, !llvm.loop !22
 
 ._crit_edge.loopexit.i:                           ; preds = %16
-  %20 = add i32 %.0.i, 1
+  %20 = add nsw i32 %.0.i, 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %12

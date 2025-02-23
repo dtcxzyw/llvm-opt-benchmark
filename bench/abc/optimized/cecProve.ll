@@ -517,7 +517,7 @@ Abc_Clock.exit:                                   ; preds = %8, %20
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
-  %36 = call ptr @Gia_ManDup(ptr noundef %0) #13
+  %36 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #13
   %37 = getelementptr inbounds nuw %struct.Par_ThData_t_, ptr %16, i64 %indvars.iv.i
   store ptr %36, ptr %37, align 16, !tbaa !62
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -556,7 +556,7 @@ Cec_GiaInitThreads.exit:                          ; preds = %.lr.ph32.i, %.crite
   store i32 0, ptr %49, align 4, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %14, i64 56
   store i32 1, ptr %50, align 8, !tbaa !58
-  %51 = call ptr @Cec_ManLSCorrespondence(ptr noundef %0, ptr noundef nonnull %14) #13
+  %51 = call ptr @Cec_ManLSCorrespondence(ptr noundef nonnull %0, ptr noundef nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %14) #13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #13
   %52 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #13
@@ -644,11 +644,8 @@ Abc_Clock.exit75:                                 ; preds = %Cec_GiaInitThreads.
   br i1 %93, label %.lr.ph.i76, label %Cec_GiaWaitThreads.exit, !llvm.loop !71
 
 .split:                                           ; preds = %Abc_Clock.exit75
-  br i1 %35, label %Cec_GiaWaitThreads.exit.thread160, label %Cec_GiaWaitThreads.exit.thread160.thread
-
-Cec_GiaWaitThreads.exit.thread160.thread:         ; preds = %.split
   call void @Gia_ManStop(ptr noundef nonnull %51) #13
-  br label %._crit_edge
+  br i1 %35, label %.lr.ph.preheader, label %._crit_edge
 
 Cec_GiaWaitThreads.exit:                          ; preds = %._crit_edge29.i
   %94 = icmp eq i32 %.1.i, -1
@@ -973,13 +970,15 @@ Cec_GiaWaitThreads.exit150:                       ; preds = %._crit_edge29.i143,
   call void @Gia_ManStop(ptr noundef %145) #13
   br label %Cec_GiaWaitThreads.exit.thread160
 
-Cec_GiaWaitThreads.exit.thread160:                ; preds = %.split, %Cec_GiaInitThreads.exit103, %Cec_GiaWaitThreads.exit150, %Cec_GiaWaitThreads.exit
-  %.1155 = phi i32 [ %.2, %Cec_GiaWaitThreads.exit150 ], [ %.0154159, %Cec_GiaInitThreads.exit103 ], [ %.4156, %Cec_GiaWaitThreads.exit ], [ -1, %.split ]
-  %.1 = phi i32 [ %.4, %Cec_GiaWaitThreads.exit150 ], [ -1, %Cec_GiaInitThreads.exit103 ], [ %.1.i, %Cec_GiaWaitThreads.exit ], [ 1, %.split ]
+Cec_GiaWaitThreads.exit.thread160:                ; preds = %Cec_GiaInitThreads.exit103, %Cec_GiaWaitThreads.exit150, %Cec_GiaWaitThreads.exit
+  %.1155 = phi i32 [ %.2, %Cec_GiaWaitThreads.exit150 ], [ %.0154159, %Cec_GiaInitThreads.exit103 ], [ %.4156, %Cec_GiaWaitThreads.exit ]
+  %.1 = phi i32 [ %.4, %Cec_GiaWaitThreads.exit150 ], [ -1, %Cec_GiaInitThreads.exit103 ], [ %.1.i, %Cec_GiaWaitThreads.exit ]
   call void @Gia_ManStop(ptr noundef %51) #13
   br i1 %35, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %Cec_GiaWaitThreads.exit.thread160
+.lr.ph.preheader:                                 ; preds = %.split, %Cec_GiaWaitThreads.exit.thread160
+  %.1180 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ]
+  %.1155178 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ]
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
@@ -993,16 +992,16 @@ Cec_GiaWaitThreads.exit.thread160:                ; preds = %.split, %Cec_GiaIni
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %.lr.ph, %Cec_GiaWaitThreads.exit.thread160.thread, %Cec_GiaWaitThreads.exit.thread160
-  %.1178 = phi i32 [ 1, %Cec_GiaWaitThreads.exit.thread160.thread ], [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1, %.lr.ph ]
-  %.1155177 = phi i32 [ -1, %Cec_GiaWaitThreads.exit.thread160.thread ], [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ %.1155, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.split, %Cec_GiaWaitThreads.exit.thread160
+  %.1179 = phi i32 [ %.1, %Cec_GiaWaitThreads.exit.thread160 ], [ 1, %.split ], [ %.1180, %.lr.ph ]
+  %.1155177 = phi i32 [ %.1155, %Cec_GiaWaitThreads.exit.thread160 ], [ -1, %.split ], [ %.1155178, %.lr.ph ]
   br i1 %29, label %244, label %270
 
 244:                                              ; preds = %._crit_edge
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %246 = load ptr, ptr %245, align 8, !tbaa !79
   %247 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %246)
-  switch i32 %.1178, label %254 [
+  switch i32 %.1179, label %254 [
     i32 0, label %248
     i32 1, label %250
     i32 -1, label %252
@@ -1051,7 +1050,7 @@ Abc_Clock.exit152:                                ; preds = %254, %258
 270:                                              ; preds = %Abc_Clock.exit152, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %17) #13
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %16) #13
-  ret i32 %.1178
+  ret i32 %.1179
 }
 
 ; Function Attrs: nofree nounwind

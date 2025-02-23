@@ -1208,14 +1208,14 @@ Abc_BddPrint.exit:                                ; preds = %92, %100
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %118, %120, %110, %112
-  %.sink118 = phi ptr [ %111, %110 ], [ %113, %112 ], [ %119, %118 ], [ %121, %120 ]
+  %.sink117 = phi ptr [ %111, %110 ], [ %113, %112 ], [ %119, %118 ], [ %121, %120 ]
   %.sink = phi i32 [ 16, %110 ], [ 16, %112 ], [ %115, %118 ], [ %115, %120 ]
-  store ptr %.sink118, ptr %34, align 8, !tbaa !34
+  store ptr %.sink117, ptr %34, align 8, !tbaa !34
   store i32 %.sink, ptr %26, align 8, !tbaa !62
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %101
-  %.pre.i110 = phi ptr [ %84, %101 ], [ %.sink118, %Vec_IntPush.exit.sink.split ]
+  %.pre.i110 = phi ptr [ %84, %101 ], [ %.sink117, %Vec_IntPush.exit.sink.split ]
   %122 = add nsw i32 %104, 1
   store i32 %122, ptr %28, align 4, !tbaa !32
   %123 = sext i32 %104 to i64

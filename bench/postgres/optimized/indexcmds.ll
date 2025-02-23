@@ -271,7 +271,7 @@ list_length.exit:                                 ; preds = %5, %13
 
 67:                                               ; preds = %63, %61, %54
   tail call void @ReleaseSysCache(ptr noundef nonnull %50) #11
-  br label %223
+  br label %224
 
 68:                                               ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 10
@@ -289,7 +289,7 @@ list_length.exit:                                 ; preds = %5, %13
 
 .thread:                                          ; preds = %68
   tail call void @ReleaseSysCache(ptr noundef nonnull %50) #11
-  br label %223
+  br label %224
 
 79:                                               ; preds = %68
   %80 = inttoptr i64 %72 to ptr
@@ -297,7 +297,7 @@ list_length.exit:                                 ; preds = %5, %13
   %bcmp168 = tail call i32 @bcmp(ptr nonnull %81, ptr %43, i64 %77)
   %82 = icmp eq i32 %bcmp168, 0
   tail call void @ReleaseSysCache(ptr noundef nonnull %50) #11
-  br i1 %82, label %83, label %223
+  br i1 %82, label %83, label %224
 
 83:                                               ; preds = %79
   %84 = tail call ptr @index_open(i32 noundef %0, i32 noundef 1) #11
@@ -311,7 +311,7 @@ list_length.exit:                                 ; preds = %5, %13
   %88 = icmp ne ptr %87, null
   %89 = icmp ne ptr %46, null
   %or.cond.i = or i1 %89, %88
-  br i1 %or.cond.i, label %.thread216, label %.loopexit188
+  br i1 %or.cond.i, label %153, label %.loopexit188
 
 .lr.ph:                                           ; preds = %83
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 64
@@ -422,167 +422,167 @@ list_length.exit:                                 ; preds = %5, %13
   %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
   br i1 %exitcond209.not, label %.lr.ph.split.us.i, label %.lr.ph196, !llvm.loop !8
 
-.thread216:                                       ; preds = %._crit_edge.thread
+153:                                              ; preds = %._crit_edge.thread
   call void @fmgr_info(i32 noundef 744, ptr noundef nonnull %6) #11
   br label %.loopexit188
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph196
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
-  call void @fmgr_info(i32 noundef 744, ptr noundef nonnull %6) #11
   %.not221 = icmp eq ptr %46, null
+  call void @fmgr_info(i32 noundef 744, ptr noundef nonnull %6) #11
   %wide.trip.count68.i = zext nneg i32 %71 to i64
   br i1 %.not221, label %.thread.us.i, label %.lr.ph.split.us.split.us.i
 
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.i, %select.unfold.us.us.i
   %indvars.iv65.i = phi i64 [ %indvars.iv.next66.i, %select.unfold.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %153 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv65.i
-  %154 = load i64, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv65.i
-  %156 = load i64, ptr %155, align 8
-  %157 = icmp eq i64 %154, 0
-  %158 = icmp eq i64 %156, 0
-  br i1 %157, label %162, label %159
+  %154 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv65.i
+  %155 = load i64, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv65.i
+  %157 = load i64, ptr %156, align 8
+  %158 = icmp eq i64 %155, 0
+  %159 = icmp eq i64 %157, 0
+  br i1 %158, label %163, label %160
 
-159:                                              ; preds = %.lr.ph.split.us.split.us.i
-  br i1 %158, label %.loopexit187, label %160
+160:                                              ; preds = %.lr.ph.split.us.split.us.i
+  br i1 %159, label %.loopexit187, label %161
 
-160:                                              ; preds = %159
-  %161 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef 950, i64 noundef %154, i64 noundef %156) #11
-  %.not.us.us.i = icmp eq i64 %161, 0
+161:                                              ; preds = %160
+  %162 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef 950, i64 noundef %155, i64 noundef %157) #11
+  %.not.us.us.i = icmp eq i64 %162, 0
   br i1 %.not.us.us.i, label %.loopexit187, label %select.unfold.us.us.i
 
-162:                                              ; preds = %.lr.ph.split.us.split.us.i
-  br i1 %158, label %select.unfold.us.us.i, label %.loopexit187
+163:                                              ; preds = %.lr.ph.split.us.split.us.i
+  br i1 %159, label %select.unfold.us.us.i, label %.loopexit187
 
-select.unfold.us.us.i:                            ; preds = %162, %160
+select.unfold.us.us.i:                            ; preds = %163, %161
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next66.i, %wide.trip.count68.i
   br i1 %exitcond69.not.i, label %.loopexit188, label %.lr.ph.split.us.split.us.i, !llvm.loop !9
 
 .thread.us.i:                                     ; preds = %.lr.ph.split.us.i, %select.unfold.us.i
   %indvars.iv60.i = phi i64 [ %indvars.iv.next61.i, %select.unfold.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %163 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv60.i
-  %164 = load i64, ptr %163, align 8
-  %165 = icmp eq i64 %164, 0
-  br i1 %165, label %select.unfold.us.i, label %.loopexit187
+  %164 = getelementptr inbounds nuw i64, ptr %149, i64 %indvars.iv60.i
+  %165 = load i64, ptr %164, align 8
+  %166 = icmp eq i64 %165, 0
+  br i1 %166, label %select.unfold.us.i, label %.loopexit187
 
 select.unfold.us.i:                               ; preds = %.thread.us.i
   %indvars.iv.next61.i = add nuw nsw i64 %indvars.iv60.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next61.i, %wide.trip.count68.i
   br i1 %exitcond64.not.i, label %.loopexit188, label %.thread.us.i, !llvm.loop !9
 
-.loopexit187:                                     ; preds = %162, %160, %159, %.thread.us.i
+.loopexit187:                                     ; preds = %163, %161, %160, %.thread.us.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
   call void @pfree(ptr noundef nonnull %149) #11
   br label %.thread176
 
-.loopexit188:                                     ; preds = %select.unfold.us.us.i, %select.unfold.us.i, %.thread216, %._crit_edge.thread
-  %166 = phi ptr [ null, %._crit_edge.thread ], [ %87, %.thread216 ], [ %149, %select.unfold.us.i ], [ %149, %select.unfold.us.us.i ]
+.loopexit188:                                     ; preds = %select.unfold.us.us.i, %select.unfold.us.i, %153, %._crit_edge.thread
+  %167 = phi ptr [ null, %._crit_edge.thread ], [ %87, %153 ], [ %149, %select.unfold.us.i ], [ %149, %select.unfold.us.us.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #11
-  call void @pfree(ptr noundef %166) #11
-  %167 = getelementptr inbounds nuw i8, ptr %39, i64 112
-  %168 = load ptr, ptr %167, align 8
-  %.not170 = icmp eq ptr %168, null
-  br i1 %.not170, label %.thread176, label %169
+  call void @pfree(ptr noundef %167) #11
+  %168 = getelementptr inbounds nuw i8, ptr %39, i64 112
+  %169 = load ptr, ptr %168, align 8
+  %.not170 = icmp eq ptr %169, null
+  br i1 %.not170, label %.thread176, label %170
 
-169:                                              ; preds = %.loopexit188
+170:                                              ; preds = %.loopexit188
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
   call void @RelationGetExclusionInfo(ptr noundef %84, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
-  %170 = load ptr, ptr %7, align 8
-  %171 = load ptr, ptr %167, align 8
-  %bcmp171 = call i32 @bcmp(ptr %170, ptr %171, i64 %77)
-  %172 = icmp ne i32 %bcmp171, 0
-  %brmerge = or i1 %172, %85
-  %not. = xor i1 %172, true
+  %171 = load ptr, ptr %7, align 8
+  %172 = load ptr, ptr %168, align 8
+  %bcmp171 = call i32 @bcmp(ptr %171, ptr %172, i64 %77)
+  %173 = icmp ne i32 %bcmp171, 0
+  %brmerge = or i1 %173, %85
+  %not. = xor i1 %173, true
   br i1 %brmerge, label %.loopexit, label %.lr.ph199
 
-.lr.ph199:                                        ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %84, i64 64
+.lr.ph199:                                        ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %84, i64 64
   %wide.trip.count213 = zext nneg i32 %71 to i64
-  br label %174
+  br label %175
 
-174:                                              ; preds = %.lr.ph199, %222
-  %indvars.iv210 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next211, %222 ]
+175:                                              ; preds = %.lr.ph199, %223
+  %indvars.iv210 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next211, %223 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #11
-  %175 = load ptr, ptr %167, align 8
-  %176 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv210
-  %177 = load i32, ptr %176, align 4
-  call void @op_input_types(i32 noundef %177, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
-  %178 = load i32, ptr %10, align 4
-  %179 = icmp eq i32 %178, 2283
-  %180 = icmp eq i32 %178, 2277
-  %or.cond = or i1 %179, %180
-  %181 = icmp eq i32 %178, 2776
-  %or.cond3 = or i1 %181, %or.cond
-  %182 = icmp eq i32 %178, 3500
-  %or.cond5 = or i1 %182, %or.cond3
-  %183 = icmp eq i32 %178, 3831
-  %or.cond7 = or i1 %183, %or.cond5
-  %184 = icmp eq i32 %178, 4537
-  %or.cond9 = or i1 %184, %or.cond7
-  %185 = add i32 %178, -5077
-  %186 = icmp ult i32 %185, 2
-  %or.cond13 = or i1 %186, %or.cond9
-  %187 = add i32 %178, -5079
-  %188 = icmp ult i32 %187, 2
-  %189 = icmp eq i32 %178, 4538
-  %190 = or i1 %189, %188
-  %or.cond19 = select i1 %or.cond13, i1 true, i1 %190
-  %191 = load i32, ptr %11, align 4
-  %192 = icmp eq i32 %191, 2283
-  %193 = icmp eq i32 %191, 2277
-  %194 = or i1 %192, %193
-  %195 = icmp eq i32 %191, 2776
-  %196 = or i1 %195, %194
-  %197 = icmp eq i32 %191, 3500
-  %198 = or i1 %197, %196
-  %199 = icmp eq i32 %191, 3831
-  %200 = or i1 %199, %198
-  %201 = icmp eq i32 %191, 4537
-  %202 = or i1 %201, %200
-  %203 = add i32 %191, -5077
-  %204 = icmp ult i32 %203, 2
-  %205 = or i1 %204, %202
-  %or.cond35 = select i1 %or.cond19, i1 true, i1 %205
-  %206 = add i32 %191, -5079
-  %207 = icmp ult i32 %206, 2
-  %208 = icmp eq i32 %191, 4538
-  %209 = or i1 %208, %207
-  %or.cond41 = select i1 %or.cond35, i1 true, i1 %209
-  br i1 %or.cond41, label %210, label %222
+  %176 = load ptr, ptr %168, align 8
+  %177 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv210
+  %178 = load i32, ptr %177, align 4
+  call void @op_input_types(i32 noundef %178, ptr noundef nonnull %10, ptr noundef nonnull %11) #11
+  %179 = load i32, ptr %10, align 4
+  %180 = icmp eq i32 %179, 2283
+  %181 = icmp eq i32 %179, 2277
+  %or.cond = or i1 %180, %181
+  %182 = icmp eq i32 %179, 2776
+  %or.cond3 = or i1 %182, %or.cond
+  %183 = icmp eq i32 %179, 3500
+  %or.cond5 = or i1 %183, %or.cond3
+  %184 = icmp eq i32 %179, 3831
+  %or.cond7 = or i1 %184, %or.cond5
+  %185 = icmp eq i32 %179, 4537
+  %or.cond9 = or i1 %185, %or.cond7
+  %186 = add i32 %179, -5077
+  %187 = icmp ult i32 %186, 2
+  %or.cond13 = or i1 %187, %or.cond9
+  %188 = add i32 %179, -5079
+  %189 = icmp ult i32 %188, 2
+  %190 = icmp eq i32 %179, 4538
+  %191 = or i1 %190, %189
+  %or.cond19 = select i1 %or.cond13, i1 true, i1 %191
+  %192 = load i32, ptr %11, align 4
+  %193 = icmp eq i32 %192, 2283
+  %194 = icmp eq i32 %192, 2277
+  %195 = or i1 %193, %194
+  %196 = icmp eq i32 %192, 2776
+  %197 = or i1 %196, %195
+  %198 = icmp eq i32 %192, 3500
+  %199 = or i1 %198, %197
+  %200 = icmp eq i32 %192, 3831
+  %201 = or i1 %200, %199
+  %202 = icmp eq i32 %192, 4537
+  %203 = or i1 %202, %201
+  %204 = add i32 %192, -5077
+  %205 = icmp ult i32 %204, 2
+  %206 = or i1 %205, %203
+  %or.cond35 = select i1 %or.cond19, i1 true, i1 %206
+  %207 = add i32 %192, -5079
+  %208 = icmp ult i32 %207, 2
+  %209 = icmp eq i32 %192, 4538
+  %210 = or i1 %209, %208
+  %or.cond41 = select i1 %or.cond35, i1 true, i1 %210
+  br i1 %or.cond41, label %211, label %223
 
-210:                                              ; preds = %174
-  %211 = load ptr, ptr %173, align 8
-  %212 = load i32, ptr %211, align 8
-  %213 = sext i32 %212 to i64
-  %214 = shl nsw i64 %213, 4
-  %215 = getelementptr i8, ptr %211, i64 %214
+211:                                              ; preds = %175
+  %212 = load ptr, ptr %174, align 8
+  %213 = load i32, ptr %212, align 8
+  %214 = sext i32 %213 to i64
+  %215 = shl nsw i64 %214, 4
+  %216 = getelementptr i8, ptr %212, i64 %215
   %.idx = mul nuw nsw i64 %indvars.iv210, 100
-  %216 = getelementptr i8, ptr %215, i64 92
-  %217 = getelementptr i8, ptr %216, i64 %.idx
-  %218 = load i32, ptr %217, align 4
-  %219 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv210
-  %220 = load i32, ptr %219, align 4
-  %.not172 = icmp eq i32 %218, %220
-  br i1 %.not172, label %222, label %221
+  %217 = getelementptr i8, ptr %216, i64 92
+  %218 = getelementptr i8, ptr %217, i64 %.idx
+  %219 = load i32, ptr %218, align 4
+  %220 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv210
+  %221 = load i32, ptr %220, align 4
+  %.not172 = icmp eq i32 %219, %221
+  br i1 %.not172, label %223, label %222
 
-221:                                              ; preds = %210
+222:                                              ; preds = %211
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   br label %.loopexit
 
-222:                                              ; preds = %210, %174
+223:                                              ; preds = %211, %175
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #11
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %.loopexit, label %174, !llvm.loop !10
+  br i1 %exitcond214.not, label %.loopexit, label %175, !llvm.loop !10
 
-.loopexit:                                        ; preds = %222, %169, %221
-  %.3 = phi i1 [ false, %221 ], [ %not., %169 ], [ true, %222 ]
+.loopexit:                                        ; preds = %223, %170, %222
+  %.3 = phi i1 [ false, %222 ], [ %not., %170 ], [ true, %223 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
@@ -591,9 +591,9 @@ select.unfold.us.i:                               ; preds = %.thread.us.i
 .thread176:                                       ; preds = %136, %.loopexit187, %.loopexit, %.loopexit188
   %.2163 = phi i1 [ %.3, %.loopexit ], [ true, %.loopexit188 ], [ false, %.loopexit187 ], [ false, %136 ]
   call void @index_close(ptr noundef %84, i32 noundef 0) #11
-  br label %223
+  br label %224
 
-223:                                              ; preds = %.thread, %79, %.thread176, %67
+224:                                              ; preds = %.thread, %79, %.thread176, %67
   %.0 = phi i1 [ %.2163, %.thread176 ], [ false, %67 ], [ false, %79 ], [ false, %.thread ]
   ret i1 %.0
 }

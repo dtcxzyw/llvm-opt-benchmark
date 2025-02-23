@@ -1118,7 +1118,6 @@ define void @"_ZN83_$LT$actix_multipart..server..Multipart$u20$as$u20$futures_co
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %43 = load i64, ptr %42, align 8, !range !41, !noundef !4
   %44 = icmp eq i64 %43, -9223372036854775808
-  %. = select i1 %44, ptr null, ptr %42
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %3
@@ -1356,9 +1355,9 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i.i: ; preds
   ]
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %131 = load ptr, ptr %130, align 8, !alias.scope !246, !noalias !243, !nonnull !4, !noundef !4
-  %132 = getelementptr inbounds nuw i8, ptr %., i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %133 = load i64, ptr %132, align 8, !alias.scope !246, !noalias !243, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.9.sroa.9.i.i)
@@ -1537,9 +1536,9 @@ _ZN15actix_multipart6server6Safety7current17h31dc119cf176b21aE.exit.i.i: ; preds
   unreachable
 
 197:                                              ; preds = %127
-  %198 = getelementptr inbounds nuw i8, ptr %., i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %199 = load ptr, ptr %198, align 8, !alias.scope !246, !noalias !243, !nonnull !4, !noundef !4
-  %200 = getelementptr inbounds nuw i8, ptr %., i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %201 = load i64, ptr %200, align 8, !alias.scope !246, !noalias !243, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !326)
   call void @llvm.experimental.noalias.scope.decl(metadata !329)

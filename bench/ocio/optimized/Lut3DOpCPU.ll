@@ -4788,8 +4788,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBA
   %cmp3.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i19.lcssa, 32
   br i1 %cmp3.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i
-  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i ], [ %storemerge17.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i ]
+while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i
+  %__last.sroa.0.04.i.i = phi ptr [ %incdec.ptr.i.i2.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i ], [ %storemerge17.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.04.i.i, i64 -32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp63.sroa.0.i.i1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp63.sroa.0.i.i1.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i2.i, i64 24, i1 false)
@@ -4802,72 +4802,75 @@ while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN
   %sub.i.i.i7.i = add nsw i64 %sub.ptr.div.i.i.i6.i, -1
   %div.i.i.i8.i = sdiv i64 %sub.i.i.i7.i, 2
   %cmp29.i.i.i9.i = icmp sgt i64 %sub.ptr.div.i.i.i6.i, 2
-  br i1 %cmp29.i.i.i9.i, label %while.body.i.i.i36.i, label %while.end.i.i.i10.i
+  br i1 %cmp29.i.i.i9.i, label %while.body.i.i.i37.i, label %while.end.i.i.i10.i
 
-while.body.i.i.i36.i:                             ; preds = %while.body.i.i, %while.body.i.i.i36.i
-  %__holeIndex.addr.030.i.i.i37.i = phi i64 [ %spec.select.i.i.i44.i, %while.body.i.i.i36.i ], [ 0, %while.body.i.i ]
-  %add.i.i.i38.i = shl i64 %__holeIndex.addr.030.i.i.i37.i, 1
-  %mul.i.i.i39.i = add i64 %add.i.i.i38.i, 2
-  %sub3.i.i.i40.i = or disjoint i64 %add.i.i.i38.i, 1
-  %6 = getelementptr %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %mul.i.i.i39.i, i32 1
-  %call.val.i.i.i.i41.i = load i64, ptr %6, align 8
-  %7 = getelementptr %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %sub3.i.i.i40.i, i32 1
-  %call3.val.i.i.i.i42.i = load i64, ptr %7, align 8
-  %cmp.i.i.i.i.i43.i = icmp ult i64 %call.val.i.i.i.i41.i, %call3.val.i.i.i.i42.i
-  %spec.select.i.i.i44.i = select i1 %cmp.i.i.i.i.i43.i, i64 %sub3.i.i.i40.i, i64 %mul.i.i.i39.i
-  %add.ptr.i23.i.i.i45.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %spec.select.i.i.i44.i
-  %add.ptr.i24.i.i.i46.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i37.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i24.i.i.i46.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i23.i.i.i45.i, i64 32, i1 false)
-  %cmp.i.i.i47.i = icmp slt i64 %spec.select.i.i.i44.i, %div.i.i.i8.i
-  br i1 %cmp.i.i.i47.i, label %while.body.i.i.i36.i, label %while.end.i.i.i10.i, !llvm.loop !115
+while.body.i.i.i37.i:                             ; preds = %while.body.i.i, %while.body.i.i.i37.i
+  %__holeIndex.addr.030.i.i.i38.i = phi i64 [ %spec.select.i.i.i45.i, %while.body.i.i.i37.i ], [ 0, %while.body.i.i ]
+  %add.i.i.i39.i = shl i64 %__holeIndex.addr.030.i.i.i38.i, 1
+  %mul.i.i.i40.i = add i64 %add.i.i.i39.i, 2
+  %sub3.i.i.i41.i = or disjoint i64 %add.i.i.i39.i, 1
+  %6 = getelementptr %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %mul.i.i.i40.i, i32 1
+  %call.val.i.i.i.i42.i = load i64, ptr %6, align 8
+  %7 = getelementptr %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %sub3.i.i.i41.i, i32 1
+  %call3.val.i.i.i.i43.i = load i64, ptr %7, align 8
+  %cmp.i.i.i.i.i44.i = icmp ult i64 %call.val.i.i.i.i42.i, %call3.val.i.i.i.i43.i
+  %spec.select.i.i.i45.i = select i1 %cmp.i.i.i.i.i44.i, i64 %sub3.i.i.i41.i, i64 %mul.i.i.i40.i
+  %add.ptr.i23.i.i.i46.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %spec.select.i.i.i45.i
+  %add.ptr.i24.i.i.i47.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.030.i.i.i38.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i24.i.i.i47.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i23.i.i.i46.i, i64 32, i1 false)
+  %cmp.i.i.i48.i = icmp slt i64 %spec.select.i.i.i45.i, %div.i.i.i8.i
+  br i1 %cmp.i.i.i48.i, label %while.body.i.i.i37.i, label %while.end.i.i.i10.i, !llvm.loop !115
 
-while.end.i.i.i10.i:                              ; preds = %while.body.i.i.i36.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i11.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i44.i, %while.body.i.i.i36.i ]
+while.end.i.i.i10.i:                              ; preds = %while.body.i.i.i37.i, %while.body.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i11.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i45.i, %while.body.i.i.i37.i ]
   %8 = and i64 %sub.ptr.sub.i.i.i5.i, 32
   %cmp16.i.i.i12.i = icmp eq i64 %8, 0
   br i1 %cmp16.i.i.i12.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i13.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i10.i
-  %sub17.i.i.i30.i = add nsw i64 %sub.ptr.div.i.i.i6.i, -2
-  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i30.i, 1
-  %cmp19.i.i.i31.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, %div18.i.i.i.i
-  br i1 %cmp19.i.i.i31.i, label %if.then20.i.i.i32.i, label %if.end33.i.i.i13.i
+  %sub17.i.i.i31.i = add nsw i64 %sub.ptr.div.i.i.i6.i, -2
+  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i31.i, 1
+  %cmp19.i.i.i32.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, %div18.i.i.i.i
+  br i1 %cmp19.i.i.i32.i, label %if.end33.i.thread.i.i33.i, label %if.end33.i.i.i13.i
 
-if.then20.i.i.i32.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
-  %sub24.i.i.i33.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i25.i.i.i34.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %sub24.i.i.i33.i
-  %add.ptr.i26.i.i.i35.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i26.i.i.i35.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i25.i.i.i34.i, i64 32, i1 false)
-  br label %if.end33.i.i.i13.i
+if.end33.i.thread.i.i33.i:                        ; preds = %land.lhs.true.i.i.i.i
+  %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 1
+  %sub24.i.i.i34.i = or disjoint i64 %add21.i.i.i.i, 1
+  %add.ptr.i25.i.i.i35.i = getelementptr inbounds nuw %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %sub24.i.i.i34.i
+  %add.ptr.i26.i.i.i36.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i11.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i26.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i25.i.i.i35.i, i64 32, i1 false)
+  br label %land.rhs.i.i.i.i17.i.preheader
 
-if.end33.i.i.i13.i:                               ; preds = %if.then20.i.i.i32.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i10.i
-  %__holeIndex.addr.1.i.i.i14.i = phi i64 [ %sub24.i.i.i33.i, %if.then20.i.i.i32.i ], [ %__holeIndex.addr.0.lcssa.i.i.i11.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i11.i, %while.end.i.i.i10.i ]
-  %cmp3.i.i.i.i15.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i14.i, 0
-  br i1 %cmp3.i.i.i.i15.i, label %land.rhs.i.i.i.i20.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i
+if.end33.i.i.i13.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i10.i
+  %cmp3.i.i.not.i.i14.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i11.i, 0
+  br i1 %cmp3.i.i.not.i.i14.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i, label %land.rhs.i.i.i.i17.i.preheader
 
-land.rhs.i.i.i.i20.i:                             ; preds = %if.end33.i.i.i13.i, %while.body.i.i.i.i27.i
-  %__holeIndex.addr.04.i.i.i.i21.i = phi i64 [ %__parent.05.i.i12.i.i23.i, %while.body.i.i.i.i27.i ], [ %__holeIndex.addr.1.i.i.i14.i, %if.end33.i.i.i13.i ]
-  %__parent.05.in.i.i.i.i22.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i21.i, -1
-  %__parent.05.i.i12.i.i23.i = lshr i64 %__parent.05.in.i.i.i.i22.i, 1
-  %add.ptr.i.i.i.i.i24.i = getelementptr inbounds nuw %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__parent.05.i.i12.i.i23.i
-  %9 = getelementptr i8, ptr %add.ptr.i.i.i.i.i24.i, i64 24
-  %call.val.i.i.i.i.i25.i = load i64, ptr %9, align 8
-  %cmp.i.i.i.i.i.i26.i = icmp ult i64 %call.val.i.i.i.i.i25.i, %__value.sroa.2.0.copyload.i.i3.i
-  br i1 %cmp.i.i.i.i.i.i26.i, label %while.body.i.i.i.i27.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i
+land.rhs.i.i.i.i17.i.preheader:                   ; preds = %if.end33.i.i.i13.i, %if.end33.i.thread.i.i33.i
+  %__holeIndex.addr.04.i.i.i.i18.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i.i.i11.i, %if.end33.i.i.i13.i ], [ %sub24.i.i.i34.i, %if.end33.i.thread.i.i33.i ]
+  br label %land.rhs.i.i.i.i17.i
 
-while.body.i.i.i.i27.i:                           ; preds = %land.rhs.i.i.i.i20.i
-  %add.ptr.i11.i.i.i.i28.i = getelementptr inbounds nuw %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.04.i.i.i.i21.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i11.i.i.i.i28.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i24.i, i64 32, i1 false)
-  %cmp.i.i.not.i.i29.i = icmp ult i64 %__parent.05.in.i.i.i.i22.i, 2
-  br i1 %cmp.i.i.not.i.i29.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i, label %land.rhs.i.i.i.i20.i, !llvm.loop !116
+land.rhs.i.i.i.i17.i:                             ; preds = %land.rhs.i.i.i.i17.i.preheader, %while.body.i.i.i.i28.i
+  %__holeIndex.addr.04.i.i.i.i18.i = phi i64 [ %__parent.05.i.i12.i.i20.i, %while.body.i.i.i.i28.i ], [ %__holeIndex.addr.04.i.i.i.i18.i.ph, %land.rhs.i.i.i.i17.i.preheader ]
+  %__parent.05.in.i.i.i.i19.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i18.i, -1
+  %__parent.05.i.i12.i.i20.i = lshr i64 %__parent.05.in.i.i.i.i19.i, 1
+  %add.ptr.i.i.i.i.i21.i = getelementptr inbounds nuw %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__parent.05.i.i12.i.i20.i
+  %9 = getelementptr i8, ptr %add.ptr.i.i.i.i.i21.i, i64 24
+  %call.val.i.i.i.i.i22.i = load i64, ptr %9, align 8
+  %cmp.i.i.i.i.i.i23.i = icmp ult i64 %call.val.i.i.i.i.i22.i, %__value.sroa.2.0.copyload.i.i3.i
+  br i1 %cmp.i.i.i.i.i.i23.i, label %while.body.i.i.i.i28.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i: ; preds = %while.body.i.i.i.i27.i, %land.rhs.i.i.i.i20.i, %if.end33.i.i.i13.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i17.i = phi i64 [ %__holeIndex.addr.1.i.i.i14.i, %if.end33.i.i.i13.i ], [ %__holeIndex.addr.04.i.i.i.i21.i, %land.rhs.i.i.i.i20.i ], [ 0, %while.body.i.i.i.i27.i ]
-  %add.ptr.i12.i.i.i.i18.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i17.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i12.i.i.i.i18.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp63.sroa.0.i.i1.i, i64 24, i1 false)
-  %agg.tmp3627.sroa.4.0.add.ptr.i12.i.sroa_idx.i.i.i19.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i18.i, i64 24
-  store i64 %__value.sroa.2.0.copyload.i.i3.i, ptr %agg.tmp3627.sroa.4.0.add.ptr.i12.i.sroa_idx.i.i.i19.i, align 8
+while.body.i.i.i.i28.i:                           ; preds = %land.rhs.i.i.i.i17.i
+  %add.ptr.i11.i.i.i.i29.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.04.i.i.i.i18.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i11.i.i.i.i29.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i21.i, i64 32, i1 false)
+  %cmp.i.i.not.i.i30.i = icmp ult i64 %__parent.05.in.i.i.i.i19.i, 2
+  br i1 %cmp.i.i.not.i.i30.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i, label %land.rhs.i.i.i.i17.i, !llvm.loop !116
+
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i: ; preds = %while.body.i.i.i.i28.i, %land.rhs.i.i.i.i17.i, %if.end33.i.i.i13.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i25.i = phi i64 [ 0, %if.end33.i.i.i13.i ], [ %__holeIndex.addr.04.i.i.i.i18.i, %land.rhs.i.i.i.i17.i ], [ 0, %while.body.i.i.i.i28.i ]
+  %add.ptr.i12.i.i.i.i26.i = getelementptr inbounds %"struct.OpenColorIO_v2_4dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i25.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr.i12.i.i.i.i26.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp63.sroa.0.i.i1.i, i64 24, i1 false)
+  %agg.tmp3627.sroa.4.0.add.ptr.i12.i.sroa_idx.i.i.i27.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i26.i, i64 24
+  store i64 %__value.sroa.2.0.copyload.i.i3.i, ptr %agg.tmp3627.sroa.4.0.add.ptr.i12.i.sroa_idx.i.i.i27.i, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp63.sroa.0.i.i1.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i5.i, 32
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !118
@@ -4990,7 +4993,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   br label %while.body.i.i4, !llvm.loop !121
 
 _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit: ; preds = %while.end18.i.i
-  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %__first.sroa.0.1.i.i, ptr %storemerge1733, i64 noundef %dec)
+  tail call fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge1733, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.sub.i.i.i.fr.i = freeze i64 %sub.ptr.sub.i
@@ -4998,7 +5001,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !114
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i16.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEET_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_SD_RT0_.exit.i24.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer7baseIndESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_less_iterEEvT_SD_RT0_.exit.i.i
   ret void
 }
 

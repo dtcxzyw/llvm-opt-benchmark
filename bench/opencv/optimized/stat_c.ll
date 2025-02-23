@@ -719,7 +719,6 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #6
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #6
   %.not = icmp eq ptr %0, null
-  %spec.select = select i1 %.not, ptr null, ptr %1
   %spec.select85 = select i1 %.not, ptr %1, ptr %0
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef %spec.select85, i1 noundef zeroext false, i1 noundef zeroext true, i32 noundef 1, ptr noundef null)
           to label %20 unwind label %27
@@ -804,7 +803,8 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br label %.thread94
 
 53:                                               ; preds = %48, %46, %41, %38, %33
-  %.not74 = icmp eq ptr %spec.select, null
+  %.not74108 = icmp eq ptr %1, null
+  %.not74 = or i1 %.not, %.not74108
   br i1 %.not74, label %54, label %74
 
 54:                                               ; preds = %53
@@ -869,7 +869,7 @@ define noundef double @cvNorm(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %80, label %81, label %95
 
 81:                                               ; preds = %78
-  %82 = getelementptr inbounds nuw i8, ptr %spec.select, i64 88
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %83 = load ptr, ptr %82, align 8
   %.not77 = icmp eq ptr %83, null
   br i1 %.not77, label %95, label %84

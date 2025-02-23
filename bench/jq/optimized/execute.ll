@@ -654,10 +654,10 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr %13, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %16 = load i32, ptr %15, align 8, !tbaa !46
-  %.not7661875 = icmp eq i32 %16, 0
-  br i1 %.not7661875, label %.lr.ph1883, label %._crit_edge1884
+  %.not7661873 = icmp eq i32 %16, 0
+  br i1 %.not7661873, label %.lr.ph1881, label %._crit_edge1882
 
-.lr.ph1883:                                       ; preds = %1
+.lr.ph1881:                                       ; preds = %1
   %.not = icmp eq i32 %14, 0
   %17 = zext i1 %.not to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -681,26 +681,26 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 132
   br label %42
 
-._crit_edge1884:                                  ; preds = %.thread1814, %1
+._crit_edge1882:                                  ; preds = %.thread1814, %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %38 = load i32, ptr %37, align 4, !tbaa !47
   %.not803 = icmp eq i32 %38, 0
   br i1 %.not803, label %40, label %39
 
-39:                                               ; preds = %._crit_edge1884
+39:                                               ; preds = %._crit_edge1882
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   br label %40
 
-40:                                               ; preds = %39, %._crit_edge1884
+40:                                               ; preds = %39, %._crit_edge1882
   %41 = call { i64, ptr } @jv_invalid() #13
   br label %.thread1833
 
-42:                                               ; preds = %.lr.ph1883, %.thread1814
-  %.01881 = phi ptr [ %12, %.lr.ph1883 ], [ %.2, %.thread1814 ]
-  %.07331880 = phi i32 [ %17, %.lr.ph1883 ], [ %.3736, %.thread1814 ]
-  %.sroa.10.01878 = phi ptr [ undef, %.lr.ph1883 ], [ %.sroa.10.3, %.thread1814 ]
-  %.sroa.034.01876 = phi i64 [ undef, %.lr.ph1883 ], [ %.sroa.034.3, %.thread1814 ]
-  %43 = load i16, ptr %.01881, align 2, !tbaa !31
+42:                                               ; preds = %.lr.ph1881, %.thread1814
+  %.01879 = phi ptr [ %12, %.lr.ph1881 ], [ %.2, %.thread1814 ]
+  %.07331878 = phi i32 [ %17, %.lr.ph1881 ], [ %.3736, %.thread1814 ]
+  %.sroa.10.01876 = phi ptr [ undef, %.lr.ph1881 ], [ %.sroa.10.3, %.thread1814 ]
+  %.sroa.034.01874 = phi i64 [ undef, %.lr.ph1881 ], [ %.sroa.034.3, %.thread1814 ]
+  %43 = load i16, ptr %.01879, align 2, !tbaa !31
   %44 = load i32, ptr %18, align 4, !tbaa !47
   %.not767 = icmp eq i32 %44, 0
   br i1 %.not767, label %100, label %45
@@ -711,11 +711,11 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %46 = sext i32 %.val820 to i64
   %47 = getelementptr inbounds i8, ptr %.val819, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !32
-  call void @dump_operation(ptr noundef %48, ptr noundef nonnull %.01881) #13
+  call void @dump_operation(ptr noundef %48, ptr noundef nonnull %.01879) #13
   %putchar = call i32 @putchar(i32 9)
   %49 = zext i16 %43 to i32
   %50 = call ptr @opcode_describe(i32 noundef %49) #13
-  %.not768 = icmp eq i32 %.07331880, 0
+  %.not768 = icmp eq i32 %.07331878, 0
   br i1 %.not768, label %51, label %98
 
 51:                                               ; preds = %45
@@ -725,7 +725,7 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %54, label %55, label %59
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %.01881, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.01879, i64 2
   %57 = load i16, ptr %56, align 2, !tbaa !31
   %58 = zext i16 %57 to i32
   br label %59
@@ -737,22 +737,22 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %61, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %59, %69
-  %.07441865 = phi i32 [ %.2746, %69 ], [ %60, %59 ]
-  %.07511864 = phi i32 [ %78, %69 ], [ 0, %59 ]
-  %.not769 = icmp eq i32 %.07511864, 0
+  %.07441863 = phi i32 [ %.2746, %69 ], [ %60, %59 ]
+  %.07511862 = phi i32 [ %78, %69 ], [ 0, %59 ]
+  %.not769 = icmp eq i32 %.07511862, 0
   br i1 %.not769, label %68, label %62
 
 62:                                               ; preds = %.lr.ph
   %63 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2)
   %.val817 = load ptr, ptr %19, align 8, !tbaa !17
-  %64 = sext i32 %.07441865 to i64
+  %64 = sext i32 %.07441863 to i64
   %65 = getelementptr inbounds i8, ptr %.val817, i64 %64
   %66 = getelementptr inbounds i8, ptr %65, i64 -4
   %67 = load i32, ptr %66, align 4, !tbaa !18
   br label %68
 
 68:                                               ; preds = %62, %.lr.ph
-  %.2746 = phi i32 [ %67, %62 ], [ %.07441865, %.lr.ph ]
+  %.2746 = phi i32 [ %67, %62 ], [ %.07441863, %.lr.ph ]
   %.not770 = icmp eq i32 %.2746, 0
   br i1 %.not770, label %._crit_edge, label %69
 
@@ -767,7 +767,7 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %76 = extractvalue { i64, ptr } %75, 0
   %77 = extractvalue { i64, ptr } %75, 1
   call void @jv_dump(i64 %76, ptr %77, i32 noundef 32) #13
-  %78 = add nuw nsw i32 %.07511864, 1
+  %78 = add nuw nsw i32 %.07511862, 1
   %exitcond.not = icmp eq i32 %78, %.0750
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !50
 
@@ -779,16 +779,16 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not771, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %.val8181868 = load ptr, ptr %19, align 8, !tbaa !17
+  %.val8181866 = load ptr, ptr %19, align 8, !tbaa !17
   %81 = sext i32 %.1745 to i64
-  %82 = getelementptr inbounds i8, ptr %.val8181868, i64 %81
+  %82 = getelementptr inbounds i8, ptr %.val8181866, i64 %81
   %83 = getelementptr inbounds i8, ptr %82, i64 -4
   %84 = load i32, ptr %83, align 4, !tbaa !18
-  %.not7721869 = icmp eq i32 %84, 0
-  br i1 %.not7721869, label %.loopexit, label %.lr.ph1870
+  %.not7721867 = icmp eq i32 %84, 0
+  br i1 %.not7721867, label %.loopexit, label %.lr.ph1868
 
-.lr.ph1870:                                       ; preds = %.preheader, %.lr.ph1870
-  %85 = phi i32 [ %97, %.lr.ph1870 ], [ %84, %.preheader ]
+.lr.ph1868:                                       ; preds = %.preheader, %.lr.ph1868
+  %85 = phi i32 [ %97, %.lr.ph1868 ], [ %84, %.preheader ]
   %86 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3)
   %.val = load ptr, ptr %19, align 8, !tbaa !17
   %87 = sext i32 %85 to i64
@@ -805,18 +805,18 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %96 = getelementptr inbounds i8, ptr %95, i64 -4
   %97 = load i32, ptr %96, align 4, !tbaa !18
   %.not772 = icmp eq i32 %97, 0
-  br i1 %.not772, label %.loopexit, label %.lr.ph1870, !llvm.loop !51
+  br i1 %.not772, label %.loopexit, label %.lr.ph1868, !llvm.loop !51
 
 98:                                               ; preds = %45
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph1870, %.preheader, %._crit_edge, %98
+.loopexit:                                        ; preds = %.lr.ph1868, %.preheader, %._crit_edge, %98
   %putchar773 = call i32 @putchar(i32 10)
   br label %100
 
 100:                                              ; preds = %.loopexit, %42
-  %.not774 = icmp eq i32 %.07331880, 0
+  %.not774 = icmp eq i32 %.07331878, 0
   br i1 %.not774, label %107, label %101
 
 101:                                              ; preds = %100
@@ -830,7 +830,7 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
 107:                                              ; preds = %101, %100
   %.0743 = phi i16 [ %102, %101 ], [ %43, %100 ]
   %.0732 = phi i1 [ %106, %101 ], [ true, %100 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.01881, i64 2
+  %108 = getelementptr inbounds nuw i8, ptr %.01879, i64 2
   switch i16 %.0743, label %.thread1814 [
     i16 72, label %.thread1736
     i16 42, label %109
@@ -921,7 +921,7 @@ define dso_local { i64, ptr } @jq_next(ptr noundef %0) local_unnamed_addr #0 {
   %138 = call { i64, ptr } @jv_copy(i64 %135, ptr %137) #13
   %139 = extractvalue { i64, ptr } %138, 0
   %140 = extractvalue { i64, ptr } %138, 1
-  %141 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %141 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %142 = load i16, ptr %108, align 2, !tbaa !31
   %143 = zext i16 %142 to i32
   %144 = call { i64, ptr } @jv_array_get(i64 %139, ptr %140, i32 noundef %143) #13
@@ -1381,7 +1381,7 @@ stack_push.exit892:                               ; preds = %stack_push.exit886,
   br i1 %392, label %393, label %stack_pop.exit906
 
 393:                                              ; preds = %387, %.thread.i905
-  %.val.i9071937 = phi ptr [ %.val.i893, %.thread.i905 ], [ %.val.i.pre.i900, %387 ]
+  %.val.i9071935 = phi ptr [ %.val.i893, %.thread.i905 ], [ %.val.i.pre.i900, %387 ]
   %394 = phi i32 [ %384, %.thread.i905 ], [ %391, %387 ]
   %395 = phi i32 [ %380, %.thread.i905 ], [ %.pre.i899, %387 ]
   %.merged.i904 = phi { i64, ptr } [ %386, %.thread.i905 ], [ %388, %387 ]
@@ -1391,7 +1391,7 @@ stack_push.exit892:                               ; preds = %stack_push.exit886,
 
 stack_pop.exit906:                                ; preds = %387, %393
   %.val10.i911 = phi i32 [ %.pre12.i901, %387 ], [ %396, %393 ]
-  %.val.i907 = phi ptr [ %.val.i.pre.i900, %387 ], [ %.val.i9071937, %393 ]
+  %.val.i907 = phi ptr [ %.val.i.pre.i900, %387 ], [ %.val.i9071935, %393 ]
   %397 = phi i32 [ %391, %387 ], [ %394, %393 ]
   %.fca.1.insert.merged.i903 = phi { i64, ptr } [ %388, %387 ], [ %.merged.i904, %393 ]
   store i32 %397, ptr %21, align 4, !tbaa !4
@@ -1746,7 +1746,7 @@ stack_push.exit964:                               ; preds = %stack_push.exit958,
   br i1 %588, label %589, label %stack_pop.exit978
 
 589:                                              ; preds = %583, %.thread.i977
-  %.val.i9791932 = phi ptr [ %.val.i965, %.thread.i977 ], [ %.val.i.pre.i972, %583 ]
+  %.val.i9791930 = phi ptr [ %.val.i965, %.thread.i977 ], [ %.val.i.pre.i972, %583 ]
   %590 = phi i32 [ %580, %.thread.i977 ], [ %587, %583 ]
   %591 = phi i32 [ %576, %.thread.i977 ], [ %.pre.i971, %583 ]
   %.merged.i976 = phi { i64, ptr } [ %582, %.thread.i977 ], [ %584, %583 ]
@@ -1756,7 +1756,7 @@ stack_push.exit964:                               ; preds = %stack_push.exit958,
 
 stack_pop.exit978:                                ; preds = %583, %589
   %.val10.i983 = phi i32 [ %.pre12.i973, %583 ], [ %592, %589 ]
-  %.val.i979 = phi ptr [ %.val.i.pre.i972, %583 ], [ %.val.i9791932, %589 ]
+  %.val.i979 = phi ptr [ %.val.i.pre.i972, %583 ], [ %.val.i9791930, %589 ]
   %593 = phi i32 [ %587, %583 ], [ %590, %589 ]
   %.fca.1.insert.merged.i975 = phi { i64, ptr } [ %584, %583 ], [ %.merged.i976, %589 ]
   store i32 %593, ptr %21, align 4, !tbaa !4
@@ -1790,7 +1790,7 @@ stack_pop.exit978:                                ; preds = %583, %589
   br i1 %607, label %608, label %stack_pop.exit992
 
 608:                                              ; preds = %602, %.thread.i991
-  %.val.pre.i.i9931935 = phi ptr [ %.val.i979, %.thread.i991 ], [ %.val.i.pre.i986, %602 ]
+  %.val.pre.i.i9931933 = phi ptr [ %.val.i979, %.thread.i991 ], [ %.val.i.pre.i986, %602 ]
   %609 = phi i32 [ %599, %.thread.i991 ], [ %606, %602 ]
   %610 = phi i32 [ %.val10.i983, %.thread.i991 ], [ %.pre.i985, %602 ]
   %.merged.i990 = phi { i64, ptr } [ %601, %.thread.i991 ], [ %603, %602 ]
@@ -1799,7 +1799,7 @@ stack_pop.exit978:                                ; preds = %583, %589
   br label %stack_pop.exit992
 
 stack_pop.exit992:                                ; preds = %602, %608
-  %.val.pre.i.i993 = phi ptr [ %.val.i.pre.i986, %602 ], [ %.val.pre.i.i9931935, %608 ]
+  %.val.pre.i.i993 = phi ptr [ %.val.i.pre.i986, %602 ], [ %.val.pre.i.i9931933, %608 ]
   %612 = phi i32 [ %.pre12.i987, %602 ], [ %611, %608 ]
   %613 = phi i32 [ %606, %602 ], [ %609, %608 ]
   %.fca.1.insert.merged.i989 = phi { i64, ptr } [ %603, %602 ], [ %.merged.i990, %608 ]
@@ -1902,7 +1902,7 @@ stack_push.exit1004:                              ; preds = %stack_push.exit998,
   %671 = call { i64, ptr } @jv_copy(i64 %668, ptr %670) #13
   %672 = extractvalue { i64, ptr } %671, 0
   %673 = extractvalue { i64, ptr } %671, 1
-  %674 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %674 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %675 = load i16, ptr %108, align 2, !tbaa !31
   %676 = zext i16 %675 to i32
   %677 = call { i64, ptr } @jv_array_get(i64 %672, ptr %673, i32 noundef %676) #13
@@ -1939,7 +1939,7 @@ stack_push.exit1004:                              ; preds = %stack_push.exit998,
   br i1 %692, label %693, label %stack_pop.exit1018
 
 693:                                              ; preds = %687, %.thread.i1017
-  %.val.pre.i.i10191930 = phi ptr [ %.val.i1005, %.thread.i1017 ], [ %.val.i.pre.i1012, %687 ]
+  %.val.pre.i.i10191928 = phi ptr [ %.val.i1005, %.thread.i1017 ], [ %.val.i.pre.i1012, %687 ]
   %694 = phi i32 [ %684, %.thread.i1017 ], [ %691, %687 ]
   %695 = phi i32 [ %680, %.thread.i1017 ], [ %.pre.i1011, %687 ]
   %.merged.i1016 = phi { i64, ptr } [ %686, %.thread.i1017 ], [ %688, %687 ]
@@ -1948,7 +1948,7 @@ stack_push.exit1004:                              ; preds = %stack_push.exit998,
   br label %stack_pop.exit1018
 
 stack_pop.exit1018:                               ; preds = %687, %693
-  %.val.pre.i.i1019 = phi ptr [ %.val.i.pre.i1012, %687 ], [ %.val.pre.i.i10191930, %693 ]
+  %.val.pre.i.i1019 = phi ptr [ %.val.i.pre.i1012, %687 ], [ %.val.pre.i.i10191928, %693 ]
   %697 = phi i32 [ %.pre12.i1013, %687 ], [ %696, %693 ]
   %698 = phi i32 [ %691, %687 ], [ %694, %693 ]
   %.fca.1.insert.merged.i1015 = phi { i64, ptr } [ %688, %687 ], [ %.merged.i1016, %693 ]
@@ -2118,7 +2118,7 @@ stack_pop.exit1044:                               ; preds = %756, %762
   br i1 %782, label %783, label %stack_pop.exit1058
 
 783:                                              ; preds = %777, %.thread.i1057
-  %.val.pre.i1928 = phi ptr [ %.val.i1045, %.thread.i1057 ], [ %.val.i.pre.i1052, %777 ]
+  %.val.pre.i1926 = phi ptr [ %.val.i1045, %.thread.i1057 ], [ %.val.i.pre.i1052, %777 ]
   %784 = phi i32 [ %774, %.thread.i1057 ], [ %781, %777 ]
   %785 = phi i32 [ %770, %.thread.i1057 ], [ %.pre.i1051, %777 ]
   %.merged.i1056 = phi { i64, ptr } [ %776, %.thread.i1057 ], [ %778, %777 ]
@@ -2127,15 +2127,15 @@ stack_pop.exit1044:                               ; preds = %756, %762
   br label %stack_pop.exit1058
 
 stack_pop.exit1058:                               ; preds = %777, %783
-  %.val.pre.i = phi ptr [ %.val.i.pre.i1052, %777 ], [ %.val.pre.i1928, %783 ]
+  %.val.pre.i = phi ptr [ %.val.i.pre.i1052, %777 ], [ %.val.pre.i1926, %783 ]
   %787 = phi i32 [ %781, %777 ], [ %784, %783 ]
   %.fca.1.insert.merged.i1055 = phi { i64, ptr } [ %778, %777 ], [ %.merged.i1056, %783 ]
   store i32 %787, ptr %21, align 4, !tbaa !4
   %788 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1055, 0
   %789 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1055, 1
-  %790 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %790 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %791 = load i16, ptr %108, align 2, !tbaa !31
-  %792 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %792 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %793 = load i16, ptr %790, align 2, !tbaa !31
   %794 = zext i16 %793 to i32
   %795 = zext i16 %791 to i32
@@ -2210,7 +2210,7 @@ frame_local_var.exit:                             ; preds = %796, %stack_pop.exi
   br i1 %827, label %828, label %stack_pop.exit1072
 
 828:                                              ; preds = %822, %.thread.i1071
-  %.val.i10731919 = phi ptr [ %.val.i1059, %.thread.i1071 ], [ %.val.i.pre.i1066, %822 ]
+  %.val.i10731917 = phi ptr [ %.val.i1059, %.thread.i1071 ], [ %.val.i.pre.i1066, %822 ]
   %829 = phi i32 [ %819, %.thread.i1071 ], [ %826, %822 ]
   %830 = phi i32 [ %815, %.thread.i1071 ], [ %.pre.i1065, %822 ]
   %.merged.i1070 = phi { i64, ptr } [ %821, %.thread.i1071 ], [ %823, %822 ]
@@ -2220,7 +2220,7 @@ frame_local_var.exit:                             ; preds = %796, %stack_pop.exi
 
 stack_pop.exit1072:                               ; preds = %822, %828
   %.val10.i1077 = phi i32 [ %.pre12.i1067, %822 ], [ %831, %828 ]
-  %.val.i1073 = phi ptr [ %.val.i.pre.i1066, %822 ], [ %.val.i10731919, %828 ]
+  %.val.i1073 = phi ptr [ %.val.i.pre.i1066, %822 ], [ %.val.i10731917, %828 ]
   %832 = phi i32 [ %826, %822 ], [ %829, %828 ]
   %.fca.1.insert.merged.i1069 = phi { i64, ptr } [ %823, %822 ], [ %.merged.i1070, %828 ]
   store i32 %832, ptr %21, align 4, !tbaa !4
@@ -2254,7 +2254,7 @@ stack_pop.exit1072:                               ; preds = %822, %828
   br i1 %846, label %847, label %stack_pop.exit1086
 
 847:                                              ; preds = %841, %.thread.i1085
-  %.val.i10871922 = phi ptr [ %.val.i1073, %.thread.i1085 ], [ %.val.i.pre.i1080, %841 ]
+  %.val.i10871920 = phi ptr [ %.val.i1073, %.thread.i1085 ], [ %.val.i.pre.i1080, %841 ]
   %848 = phi i32 [ %838, %.thread.i1085 ], [ %845, %841 ]
   %849 = phi i32 [ %.val10.i1077, %.thread.i1085 ], [ %.pre.i1079, %841 ]
   %.merged.i1084 = phi { i64, ptr } [ %840, %.thread.i1085 ], [ %842, %841 ]
@@ -2264,7 +2264,7 @@ stack_pop.exit1072:                               ; preds = %822, %828
 
 stack_pop.exit1086:                               ; preds = %841, %847
   %.val10.i1091 = phi i32 [ %.pre12.i1081, %841 ], [ %850, %847 ]
-  %.val.i1087 = phi ptr [ %.val.i.pre.i1080, %841 ], [ %.val.i10871922, %847 ]
+  %.val.i1087 = phi ptr [ %.val.i.pre.i1080, %841 ], [ %.val.i10871920, %847 ]
   %851 = phi i32 [ %845, %841 ], [ %848, %847 ]
   %.fca.1.insert.merged.i1083 = phi { i64, ptr } [ %842, %841 ], [ %.merged.i1084, %847 ]
   store i32 %851, ptr %21, align 4, !tbaa !4
@@ -2298,7 +2298,7 @@ stack_pop.exit1086:                               ; preds = %841, %847
   br i1 %865, label %866, label %stack_pop.exit1100
 
 866:                                              ; preds = %860, %.thread.i1099
-  %.val.i11011925 = phi ptr [ %.val.i1087, %.thread.i1099 ], [ %.val.i.pre.i1094, %860 ]
+  %.val.i11011923 = phi ptr [ %.val.i1087, %.thread.i1099 ], [ %.val.i.pre.i1094, %860 ]
   %867 = phi i32 [ %857, %.thread.i1099 ], [ %864, %860 ]
   %868 = phi i32 [ %.val10.i1091, %.thread.i1099 ], [ %.pre.i1093, %860 ]
   %.merged.i1098 = phi { i64, ptr } [ %859, %.thread.i1099 ], [ %861, %860 ]
@@ -2308,7 +2308,7 @@ stack_pop.exit1086:                               ; preds = %841, %847
 
 stack_pop.exit1100:                               ; preds = %860, %866
   %.val10.i1105 = phi i32 [ %.pre12.i1095, %860 ], [ %869, %866 ]
-  %.val.i1101 = phi ptr [ %.val.i.pre.i1094, %860 ], [ %.val.i11011925, %866 ]
+  %.val.i1101 = phi ptr [ %.val.i.pre.i1094, %860 ], [ %.val.i11011923, %866 ]
   %870 = phi i32 [ %864, %860 ], [ %867, %866 ]
   %.fca.1.insert.merged.i1097 = phi { i64, ptr } [ %861, %860 ], [ %.merged.i1098, %866 ]
   store i32 %870, ptr %21, align 4, !tbaa !4
@@ -2478,9 +2478,9 @@ stack_push.exit1120:                              ; preds = %894, %903
   br label %.thread1736
 
 963:                                              ; preds = %107, %107
-  %964 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %964 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %965 = load i16, ptr %108, align 2, !tbaa !31
-  %966 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %966 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %967 = load i16, ptr %964, align 2, !tbaa !31
   %968 = zext i16 %967 to i32
   %969 = zext i16 %965 to i32
@@ -2661,7 +2661,7 @@ stack_push.exit1158:                              ; preds = %1026, %1038
   store i64 %1000, ptr %1056, align 8
   %.sroa.2.0..0..sroa_idx.i1155 = getelementptr inbounds nuw i8, ptr %1056, i64 8
   store ptr %1001, ptr %.sroa.2.0..0..sroa_idx.i1155, align 8, !tbaa !19
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i)
   %1058 = load i32, ptr %21, align 4, !tbaa !4
   %1059 = load i32, ptr %24, align 4, !tbaa !15
   %1060 = add nsw i32 %1059, -24
@@ -2708,9 +2708,9 @@ stack_push.exit1158:                              ; preds = %1026, %1038
   br label %.thread1814
 
 1084:                                             ; preds = %107
-  %1085 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1085 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1086 = load i16, ptr %108, align 2, !tbaa !31
-  %1087 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %1087 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %1088 = load i16, ptr %1085, align 2, !tbaa !31
   %1089 = zext i16 %1088 to i32
   %1090 = zext i16 %1086 to i32
@@ -2859,9 +2859,9 @@ stack_push.exit1196:                              ; preds = %stack_pop.exit1190,
   br label %.thread1814
 
 1164:                                             ; preds = %107
-  %1165 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1165 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1166 = load i16, ptr %108, align 2, !tbaa !31
-  %1167 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %1167 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %1168 = load i16, ptr %1165, align 2, !tbaa !31
   %1169 = zext i16 %1168 to i32
   %1170 = zext i16 %1166 to i32
@@ -3046,13 +3046,13 @@ frame_local_var.exit1240:                         ; preds = %1239, %stack_push.e
   %.sroa.2.0.insert.shift.i1242 = shl nuw i64 %.sroa.2.0.insert.ext.i1241, 32
   %.sroa.0.0.insert.ext.i1243 = zext i32 %1255 to i64
   %.sroa.0.0.insert.insert.i1244 = or disjoint i64 %.sroa.2.0.insert.shift.i1242, %.sroa.0.0.insert.ext.i1243
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1244)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1244)
   br label %1257
 
 1257:                                             ; preds = %1254, %107
-  %1258 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1258 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1259 = load i16, ptr %108, align 2, !tbaa !31
-  %1260 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %1260 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %1261 = load i16, ptr %1258, align 2, !tbaa !31
   %1262 = zext i16 %1261 to i32
   %1263 = zext i16 %1259 to i32
@@ -3153,7 +3153,7 @@ stack_pop.exit1270:                               ; preds = %1283, %1289
   br label %.thread1814
 
 1308:                                             ; preds = %107
-  %1309 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1309 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1310 = load i16, ptr %108, align 2, !tbaa !31
   %1311 = load i16, ptr %1309, align 2, !tbaa !31
   %1312 = zext i16 %1311 to i32
@@ -3212,15 +3212,15 @@ frame_local_var.exit1282:                         ; preds = %1314, %1308
   %1340 = call { i64, ptr } @jv_copy(i64 %1337, ptr %1339) #13
   %1341 = extractvalue { i64, ptr } %1340, 0
   %1342 = extractvalue { i64, ptr } %1340, 1
-  %1343 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1343 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1344 = load i16, ptr %108, align 2, !tbaa !31
   %1345 = zext i16 %1344 to i32
   %1346 = call { i64, ptr } @jv_array_get(i64 %1341, ptr %1342, i32 noundef %1345) #13
   %1347 = extractvalue { i64, ptr } %1346, 0
   %1348 = extractvalue { i64, ptr } %1346, 1
-  %1349 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %1349 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %1350 = load i16, ptr %1343, align 2, !tbaa !31
-  %1351 = getelementptr inbounds nuw i8, ptr %.01881, i64 8
+  %1351 = getelementptr inbounds nuw i8, ptr %.01879, i64 8
   %1352 = load i16, ptr %1349, align 2, !tbaa !31
   %1353 = zext i16 %1352 to i32
   %1354 = zext i16 %1350 to i32
@@ -3309,7 +3309,7 @@ frame_local_var.exit1294:                         ; preds = %1355, %1332
   br i1 %1392, label %1393, label %stack_pop.exit1308
 
 1393:                                             ; preds = %1387, %.thread.i1307
-  %.val.pre.i.i13091915 = phi ptr [ %.val.i1295, %.thread.i1307 ], [ %.val.i.pre.i1302, %1387 ]
+  %.val.pre.i.i13091913 = phi ptr [ %.val.i1295, %.thread.i1307 ], [ %.val.i.pre.i1302, %1387 ]
   %1394 = phi i32 [ %1384, %.thread.i1307 ], [ %1391, %1387 ]
   %1395 = phi i32 [ %1380, %.thread.i1307 ], [ %.pre.i1301, %1387 ]
   %.merged.i1306 = phi { i64, ptr } [ %1386, %.thread.i1307 ], [ %1388, %1387 ]
@@ -3318,7 +3318,7 @@ frame_local_var.exit1294:                         ; preds = %1355, %1332
   br label %stack_pop.exit1308
 
 stack_pop.exit1308:                               ; preds = %1387, %1393
-  %.val.pre.i.i1309 = phi ptr [ %.val.i.pre.i1302, %1387 ], [ %.val.pre.i.i13091915, %1393 ]
+  %.val.pre.i.i1309 = phi ptr [ %.val.i.pre.i1302, %1387 ], [ %.val.pre.i.i13091913, %1393 ]
   %1397 = phi i32 [ %.pre12.i1303, %1387 ], [ %1396, %1393 ]
   %1398 = phi i32 [ %1391, %1387 ], [ %1394, %1393 ]
   %.fca.1.insert.merged.i1305 = phi { i64, ptr } [ %1388, %1387 ], [ %.merged.i1306, %1393 ]
@@ -3371,7 +3371,7 @@ stack_push.exit1314:                              ; preds = %stack_pop.exit1308,
   %.sroa.2.0.insert.shift.i1316 = shl nuw i64 %.sroa.2.0.insert.ext.i1315, 32
   %.sroa.0.0.insert.ext.i1317 = zext i32 %1425 to i64
   %.sroa.0.0.insert.insert.i1318 = or disjoint i64 %.sroa.2.0.insert.shift.i1316, %.sroa.0.0.insert.ext.i1317
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1318)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1318)
   %1427 = load i32, ptr %31, align 8, !tbaa !27
   %1428 = sitofp i32 %1427 to double
   %1429 = call { i64, ptr } @jv_number(double noundef %1428) #13
@@ -3627,7 +3627,7 @@ path_intact.exit:                                 ; preds = %1541
   br i1 %1565, label %1566, label %stack_pop.exit1364
 
 1566:                                             ; preds = %1560, %.thread.i1363
-  %.val.i13651912 = phi ptr [ %.val.i1351, %.thread.i1363 ], [ %.val.i.pre.i1358, %1560 ]
+  %.val.i13651910 = phi ptr [ %.val.i1351, %.thread.i1363 ], [ %.val.i.pre.i1358, %1560 ]
   %1567 = phi i32 [ %1557, %.thread.i1363 ], [ %1564, %1560 ]
   %1568 = phi i32 [ %1553, %.thread.i1363 ], [ %.pre.i1357, %1560 ]
   %.merged.i1362 = phi { i64, ptr } [ %1559, %.thread.i1363 ], [ %1561, %1560 ]
@@ -3637,7 +3637,7 @@ path_intact.exit:                                 ; preds = %1541
 
 stack_pop.exit1364:                               ; preds = %1560, %1566
   %.val10.i1369 = phi i32 [ %.pre12.i1359, %1560 ], [ %1569, %1566 ]
-  %.val.i1365 = phi ptr [ %.val.i.pre.i1358, %1560 ], [ %.val.i13651912, %1566 ]
+  %.val.i1365 = phi ptr [ %.val.i.pre.i1358, %1560 ], [ %.val.i13651910, %1566 ]
   %1570 = phi i32 [ %1564, %1560 ], [ %1567, %1566 ]
   %.fca.1.insert.merged.i1361 = phi { i64, ptr } [ %1561, %1560 ], [ %.merged.i1362, %1566 ]
   store i32 %1570, ptr %21, align 4, !tbaa !4
@@ -3785,7 +3785,7 @@ stack_push.exit1402:                              ; preds = %stack_pop.exit1392,
   store i64 %1616, ptr %1641, align 8
   %.sroa.2.0..0..sroa_idx.i1399 = getelementptr inbounds nuw i8, ptr %1641, i64 8
   store ptr %1617, ptr %.sroa.2.0..0..sroa_idx.i1399, align 8, !tbaa !19
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1396)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1396)
   %1643 = load i32, ptr %21, align 4, !tbaa !4
   %1644 = load i32, ptr %24, align 4, !tbaa !15
   %1645 = add nsw i32 %1644, -24
@@ -3938,7 +3938,7 @@ stack_pop.exit1422:                               ; preds = %1690, %1696
   br i1 %1716, label %1717, label %stack_pop.exit1436
 
 1717:                                             ; preds = %1711, %.thread.i1435
-  %.val.i14371909 = phi ptr [ %.val.i1423, %.thread.i1435 ], [ %.val.i.pre.i1430, %1711 ]
+  %.val.i14371907 = phi ptr [ %.val.i1423, %.thread.i1435 ], [ %.val.i.pre.i1430, %1711 ]
   %1718 = phi i32 [ %1708, %.thread.i1435 ], [ %1715, %1711 ]
   %1719 = phi i32 [ %1704, %.thread.i1435 ], [ %.pre.i1429, %1711 ]
   %.merged.i1434 = phi { i64, ptr } [ %1710, %.thread.i1435 ], [ %1712, %1711 ]
@@ -3948,7 +3948,7 @@ stack_pop.exit1422:                               ; preds = %1690, %1696
 
 stack_pop.exit1436:                               ; preds = %1711, %1717
   %.val10.i1441 = phi i32 [ %.pre12.i1431, %1711 ], [ %1720, %1717 ]
-  %.val.i1437 = phi ptr [ %.val.i.pre.i1430, %1711 ], [ %.val.i14371909, %1717 ]
+  %.val.i1437 = phi ptr [ %.val.i.pre.i1430, %1711 ], [ %.val.i14371907, %1717 ]
   %1721 = phi i32 [ %1715, %1711 ], [ %1718, %1717 ]
   %.fca.1.insert.merged.i1433 = phi { i64, ptr } [ %1712, %1711 ], [ %.merged.i1434, %1717 ]
   store i32 %1721, ptr %21, align 4, !tbaa !4
@@ -4122,14 +4122,14 @@ path_intact.exit1452:                             ; preds = %1748
   br label %.thread1814
 
 1814:                                             ; preds = %107
-  %1815 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1815 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1816 = load i16, ptr %108, align 2, !tbaa !31
   %1817 = zext i16 %1816 to i64
   %1818 = getelementptr inbounds nuw i16, ptr %1815, i64 %1817
   br label %.thread1814
 
 1819:                                             ; preds = %107
-  %1820 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %1820 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %1821 = load i16, ptr %108, align 2, !tbaa !31
   %1822 = load i32, ptr %21, align 4, !tbaa !4
   %.val.i1459 = load ptr, ptr %19, align 8, !tbaa !17
@@ -4753,7 +4753,7 @@ stack_push.exit1556:                              ; preds = %stack_push.exit1550
   store i64 %2128, ptr %2153, align 8
   %.sroa.2.0..0..sroa_idx.i1553 = getelementptr inbounds nuw i8, ptr %2153, i64 8
   store ptr %2129, ptr %.sroa.2.0..0..sroa_idx.i1553, align 8, !tbaa !19
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1544)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1544)
   %2155 = call { i64, ptr } @jv_copy(i64 %.sroa.0118.517951812, ptr %.sroa.9.517961811) #13
   %2156 = extractvalue { i64, ptr } %2155, 0
   %2157 = extractvalue { i64, ptr } %2155, 1
@@ -4808,8 +4808,8 @@ stack_push.exit1562:                              ; preds = %stack_push.exit1556
   br label %.thread1736
 
 .thread1736:                                      ; preds = %1806, %1809, %1759, %1025, %1010, %1002, %.thread1828, %.thread1822, %.thread1776, %1961, %1670, %948, %frame_local_var.exit1282, %109, %107, %2352, %2301, %2302, %stack_pop.exit1422, %stack_pop.exit1584, %stack_pop.exit1622, %107
-  %.sroa.034.2 = phi i64 [ %.sroa.034.01876, %2352 ], [ %.sroa.034.01876, %stack_pop.exit1622 ], [ %.sroa.034.01876, %2302 ], [ %.sroa.034.01876, %2301 ], [ %.sroa.034.01876, %stack_pop.exit1584 ], [ %.sroa.034.01876, %.thread1776 ], [ %.sroa.034.01876, %1961 ], [ %.sroa.034.01876, %stack_pop.exit1422 ], [ %.sroa.034.01876, %1670 ], [ %.sroa.034.01876, %frame_local_var.exit1282 ], [ %.sroa.034.01876, %948 ], [ %.sroa.034.01876, %109 ], [ %.sroa.034.01876, %107 ], [ %.sroa.034.01876, %107 ], [ %.sroa.034.01876, %.thread1822 ], [ %.sroa.034.4, %.thread1828 ], [ %.sroa.034.01876, %1002 ], [ %.sroa.034.01876, %1010 ], [ %.sroa.034.01876, %1025 ], [ %.sroa.034.01876, %1759 ], [ %.sroa.034.01876, %1809 ], [ %.sroa.034.01876, %1806 ]
-  %.sroa.10.2 = phi ptr [ %.sroa.10.01878, %2352 ], [ %.sroa.10.01878, %stack_pop.exit1622 ], [ %.sroa.10.01878, %2302 ], [ %.sroa.10.01878, %2301 ], [ %.sroa.10.01878, %stack_pop.exit1584 ], [ %.sroa.10.01878, %.thread1776 ], [ %.sroa.10.01878, %1961 ], [ %.sroa.10.01878, %stack_pop.exit1422 ], [ %.sroa.10.01878, %1670 ], [ %.sroa.10.01878, %frame_local_var.exit1282 ], [ %.sroa.10.01878, %948 ], [ %.sroa.10.01878, %109 ], [ %.sroa.10.01878, %107 ], [ %.sroa.10.01878, %107 ], [ %.sroa.10.01878, %.thread1822 ], [ %.sroa.10.4, %.thread1828 ], [ %.sroa.10.01878, %1002 ], [ %.sroa.10.01878, %1010 ], [ %.sroa.10.01878, %1025 ], [ %.sroa.10.01878, %1759 ], [ %.sroa.10.01878, %1809 ], [ %.sroa.10.01878, %1806 ]
+  %.sroa.034.2 = phi i64 [ %.sroa.034.01874, %2352 ], [ %.sroa.034.01874, %stack_pop.exit1622 ], [ %.sroa.034.01874, %2302 ], [ %.sroa.034.01874, %2301 ], [ %.sroa.034.01874, %stack_pop.exit1584 ], [ %.sroa.034.01874, %.thread1776 ], [ %.sroa.034.01874, %1961 ], [ %.sroa.034.01874, %stack_pop.exit1422 ], [ %.sroa.034.01874, %1670 ], [ %.sroa.034.01874, %frame_local_var.exit1282 ], [ %.sroa.034.01874, %948 ], [ %.sroa.034.01874, %109 ], [ %.sroa.034.01874, %107 ], [ %.sroa.034.01874, %107 ], [ %.sroa.034.01874, %.thread1822 ], [ %.sroa.034.4, %.thread1828 ], [ %.sroa.034.01874, %1002 ], [ %.sroa.034.01874, %1010 ], [ %.sroa.034.01874, %1025 ], [ %.sroa.034.01874, %1759 ], [ %.sroa.034.01874, %1809 ], [ %.sroa.034.01874, %1806 ]
+  %.sroa.10.2 = phi ptr [ %.sroa.10.01876, %2352 ], [ %.sroa.10.01876, %stack_pop.exit1622 ], [ %.sroa.10.01876, %2302 ], [ %.sroa.10.01876, %2301 ], [ %.sroa.10.01876, %stack_pop.exit1584 ], [ %.sroa.10.01876, %.thread1776 ], [ %.sroa.10.01876, %1961 ], [ %.sroa.10.01876, %stack_pop.exit1422 ], [ %.sroa.10.01876, %1670 ], [ %.sroa.10.01876, %frame_local_var.exit1282 ], [ %.sroa.10.01876, %948 ], [ %.sroa.10.01876, %109 ], [ %.sroa.10.01876, %107 ], [ %.sroa.10.01876, %107 ], [ %.sroa.10.01876, %.thread1822 ], [ %.sroa.10.4, %.thread1828 ], [ %.sroa.10.01876, %1002 ], [ %.sroa.10.01876, %1010 ], [ %.sroa.10.01876, %1025 ], [ %.sroa.10.01876, %1759 ], [ %.sroa.10.01876, %1809 ], [ %.sroa.10.01876, %1806 ]
   %2183 = call ptr @stack_restore(ptr noundef nonnull %0)
   %.not801 = icmp eq ptr %2183, null
   br i1 %.not801, label %2184, label %.thread1814
@@ -4844,8 +4844,8 @@ stack_push.exit1562:                              ; preds = %stack_push.exit1556
   %.sroa.2.0.insert.shift.i1564 = shl nuw i64 %.sroa.2.0.insert.ext.i1563, 32
   %.sroa.0.0.insert.ext.i1565 = zext i32 %2197 to i64
   %.sroa.0.0.insert.insert.i1566 = or disjoint i64 %.sroa.2.0.insert.shift.i1564, %.sroa.0.0.insert.ext.i1565
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1566)
-  %2199 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1566)
+  %2199 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   br label %.thread1814
 
 2200:                                             ; preds = %107
@@ -4855,7 +4855,7 @@ stack_push.exit1562:                              ; preds = %stack_push.exit1556
   %.sroa.2.0.insert.shift.i1568 = shl nuw i64 %.sroa.2.0.insert.ext.i1567, 32
   %.sroa.0.0.insert.ext.i1569 = zext i32 %2201 to i64
   %.sroa.0.0.insert.insert.i1570 = or disjoint i64 %.sroa.2.0.insert.shift.i1568, %.sroa.0.0.insert.ext.i1569
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1570)
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1570)
   br label %.thread1814
 
 2203:                                             ; preds = %107
@@ -4940,7 +4940,7 @@ stack_pop.exit1584:                               ; preds = %2212, %2218
 
 2242:                                             ; preds = %2235, %2225
   call void @jv_free(i64 %2232, ptr %2233) #13
-  %2243 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %2243 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %2244 = load i16, ptr %108, align 2, !tbaa !31
   %2245 = load i32, ptr %21, align 4, !tbaa !4
   %.val.i1585 = load ptr, ptr %19, align 8, !tbaa !17
@@ -5070,8 +5070,8 @@ stack_pop.exit1598:                               ; preds = %2252, %2258
   %.sroa.2.0.insert.shift.i1606 = shl nuw i64 %.sroa.2.0.insert.ext.i1605, 32
   %.sroa.0.0.insert.ext.i1607 = zext i32 %2314 to i64
   %.sroa.0.0.insert.insert.i1608 = or disjoint i64 %.sroa.2.0.insert.shift.i1606, %.sroa.0.0.insert.ext.i1607
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1608)
-  %2316 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1608)
+  %2316 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   br label %.thread1814
 
 2317:                                             ; preds = %107
@@ -5138,7 +5138,7 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   %2347 = extractvalue { i64, ptr } %2345, 1
   store i64 %2346, ptr %22, align 8
   store ptr %2347, ptr %23, align 8, !tbaa !19
-  %2348 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %2348 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %2349 = load i16, ptr %108, align 2, !tbaa !31
   %2350 = zext i16 %2349 to i64
   %2351 = getelementptr inbounds nuw i16, ptr %2348, i64 %2350
@@ -5148,14 +5148,14 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   br i1 %.0732, label %2353, label %.thread1736
 
 2353:                                             ; preds = %2352
-  %2354 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %2354 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %2355 = load i16, ptr %108, align 2, !tbaa !31
   %2356 = zext i16 %2355 to i64
   %2357 = getelementptr inbounds nuw i16, ptr %2354, i64 %2356
   br label %.thread1814
 
 2358:                                             ; preds = %107
-  %2359 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %2359 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %2360 = load i16, ptr %108, align 2, !tbaa !31
   %.val829 = load ptr, ptr %19, align 8, !tbaa !17
   %.val830 = load i32, ptr %20, align 8, !tbaa !20
@@ -5165,21 +5165,21 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   %2364 = getelementptr inbounds nuw i8, ptr %2363, i64 40
   %2365 = load ptr, ptr %2364, align 8, !tbaa !54
   %2366 = load ptr, ptr %2365, align 8, !tbaa !55
-  %2367 = getelementptr inbounds nuw i8, ptr %.01881, i64 6
+  %2367 = getelementptr inbounds nuw i8, ptr %.01879, i64 6
   %2368 = load i16, ptr %2359, align 2, !tbaa !31
   %2369 = zext i16 %2368 to i64
   %2370 = getelementptr inbounds nuw %struct.cfunction, ptr %2366, i64 %2369
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #13
-  %.not1885 = icmp eq i16 %2360, 0
-  br i1 %.not1885, label %._crit_edge1874, label %.lr.ph1873.preheader
+  %.not1883 = icmp eq i16 %2360, 0
+  br i1 %.not1883, label %._crit_edge1872, label %.lr.ph1871.preheader
 
-.lr.ph1873.preheader:                             ; preds = %2358
+.lr.ph1871.preheader:                             ; preds = %2358
   %wide.trip.count = zext i16 %2360 to i64
-  %.pre1902 = load i32, ptr %21, align 4, !tbaa !4
+  %.pre1900 = load i32, ptr %21, align 4, !tbaa !4
   %.val10.i1627.pre = load i32, ptr %24, align 4, !tbaa !15
-  br label %.lr.ph1873
+  br label %.lr.ph1871
 
-._crit_edge1874:                                  ; preds = %stack_pop.exit1636, %2358
+._crit_edge1872:                                  ; preds = %stack_pop.exit1636, %2358
   %2371 = getelementptr inbounds nuw i8, ptr %2370, i64 16
   %2372 = load i32, ptr %2371, align 8, !tbaa !58
   switch i32 %2372, label %2428 [
@@ -5189,11 +5189,11 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
     i32 4, label %2419
   ]
 
-.lr.ph1873:                                       ; preds = %.lr.ph1873.preheader, %stack_pop.exit1636
-  %.val10.i1627 = phi i32 [ %.val10.i1627.pre, %.lr.ph1873.preheader ], [ %.val10.i16271907, %stack_pop.exit1636 ]
-  %.val.i1623 = phi ptr [ %.val829, %.lr.ph1873.preheader ], [ %.val.i16231904, %stack_pop.exit1636 ]
-  %2373 = phi i32 [ %.pre1902, %.lr.ph1873.preheader ], [ %2391, %stack_pop.exit1636 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph1873.preheader ], [ %indvars.iv.next, %stack_pop.exit1636 ]
+.lr.ph1871:                                       ; preds = %.lr.ph1871.preheader, %stack_pop.exit1636
+  %.val10.i1627 = phi i32 [ %.val10.i1627.pre, %.lr.ph1871.preheader ], [ %.val10.i16271905, %stack_pop.exit1636 ]
+  %.val.i1623 = phi ptr [ %.val829, %.lr.ph1871.preheader ], [ %.val.i16231902, %stack_pop.exit1636 ]
+  %2373 = phi i32 [ %.pre1900, %.lr.ph1871.preheader ], [ %2391, %stack_pop.exit1636 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph1871.preheader ], [ %indvars.iv.next, %stack_pop.exit1636 ]
   %2374 = getelementptr inbounds nuw [4 x %struct.jv], ptr %8, i64 0, i64 %indvars.iv
   %2375 = sext i32 %2373 to i64
   %2376 = getelementptr inbounds i8, ptr %.val.i1623, i64 %2375
@@ -5203,14 +5203,14 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   %.not.i1628 = icmp eq i32 %2373, %.val10.i1627
   br i1 %.not.i1628, label %.thread.i1635, label %2381
 
-.thread.i1635:                                    ; preds = %.lr.ph1873
+.thread.i1635:                                    ; preds = %.lr.ph1871
   %2377 = getelementptr inbounds i8, ptr %2376, i64 -4
   %2378 = load i32, ptr %2377, align 4, !tbaa !18
   %2379 = insertvalue { i64, ptr } poison, i64 %.sroa.08.0.copyload.i1624, 0
   %2380 = insertvalue { i64, ptr } %2379, ptr %.sroa.49.0.copyload.i1626, 1
   br label %2387
 
-2381:                                             ; preds = %.lr.ph1873
+2381:                                             ; preds = %.lr.ph1871
   %2382 = call { i64, ptr } @jv_copy(i64 %.sroa.08.0.copyload.i1624, ptr %.sroa.49.0.copyload.i1626) #13
   %.pre.i1629 = load i32, ptr %21, align 4, !tbaa !4
   %.val.i.pre.i1630 = load ptr, ptr %19, align 8, !tbaa !17
@@ -5223,7 +5223,7 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   br i1 %2386, label %2387, label %stack_pop.exit1636
 
 2387:                                             ; preds = %2381, %.thread.i1635
-  %.val.i16231905 = phi ptr [ %.val.i1623, %.thread.i1635 ], [ %.val.i.pre.i1630, %2381 ]
+  %.val.i16231903 = phi ptr [ %.val.i1623, %.thread.i1635 ], [ %.val.i.pre.i1630, %2381 ]
   %2388 = phi i32 [ %2378, %.thread.i1635 ], [ %2385, %2381 ]
   %2389 = phi i32 [ %.val10.i1627, %.thread.i1635 ], [ %.pre.i1629, %2381 ]
   %.merged.i1634 = phi { i64, ptr } [ %2380, %.thread.i1635 ], [ %2382, %2381 ]
@@ -5232,8 +5232,8 @@ stack_pop.exit1622:                               ; preds = %2329, %2335
   br label %stack_pop.exit1636
 
 stack_pop.exit1636:                               ; preds = %2381, %2387
-  %.val10.i16271907 = phi i32 [ %.pre12.i1631, %2381 ], [ %2390, %2387 ]
-  %.val.i16231904 = phi ptr [ %.val.i.pre.i1630, %2381 ], [ %.val.i16231905, %2387 ]
+  %.val10.i16271905 = phi i32 [ %.pre12.i1631, %2381 ], [ %2390, %2387 ]
+  %.val.i16231902 = phi ptr [ %.val.i.pre.i1630, %2381 ], [ %.val.i16231903, %2387 ]
   %2391 = phi i32 [ %2385, %2381 ], [ %2388, %2387 ]
   %.fca.1.insert.merged.i1633 = phi { i64, ptr } [ %2382, %2381 ], [ %.merged.i1634, %2387 ]
   store i32 %2391, ptr %21, align 4, !tbaa !4
@@ -5243,10 +5243,10 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   %.sroa.442.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2374, i64 8
   store ptr %2393, ptr %.sroa.442.0..sroa_idx, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond1889.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond1889.not, label %._crit_edge1874, label %.lr.ph1873, !llvm.loop !60
+  %exitcond1887.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond1887.not, label %._crit_edge1872, label %.lr.ph1871, !llvm.loop !60
 
-2394:                                             ; preds = %._crit_edge1874
+2394:                                             ; preds = %._crit_edge1872
   %2395 = load ptr, ptr %2370, align 8, !tbaa !19
   %2396 = load i64, ptr %8, align 16
   %2397 = load ptr, ptr %29, align 8
@@ -5255,7 +5255,7 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   %2400 = extractvalue { i64, ptr } %2398, 1
   br label %2428
 
-2401:                                             ; preds = %._crit_edge1874
+2401:                                             ; preds = %._crit_edge1872
   %2402 = load ptr, ptr %2370, align 8, !tbaa !19
   %2403 = load i64, ptr %8, align 16
   %2404 = load ptr, ptr %29, align 8
@@ -5266,7 +5266,7 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   %2409 = extractvalue { i64, ptr } %2407, 1
   br label %2428
 
-2410:                                             ; preds = %._crit_edge1874
+2410:                                             ; preds = %._crit_edge1872
   %2411 = load ptr, ptr %2370, align 8, !tbaa !19
   %2412 = load i64, ptr %8, align 16
   %2413 = load ptr, ptr %29, align 8
@@ -5277,7 +5277,7 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   %2418 = extractvalue { i64, ptr } %2416, 1
   br label %2428
 
-2419:                                             ; preds = %._crit_edge1874
+2419:                                             ; preds = %._crit_edge1872
   %2420 = load ptr, ptr %2370, align 8, !tbaa !19
   %2421 = load i64, ptr %8, align 16
   %2422 = load ptr, ptr %29, align 8
@@ -5288,9 +5288,9 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   %2427 = extractvalue { i64, ptr } %2425, 1
   br label %2428
 
-2428:                                             ; preds = %._crit_edge1874, %2419, %2410, %2401, %2394
-  %.sroa.034.4 = phi i64 [ %.sroa.034.01876, %._crit_edge1874 ], [ %2426, %2419 ], [ %2417, %2410 ], [ %2408, %2401 ], [ %2399, %2394 ]
-  %.sroa.10.4 = phi ptr [ %.sroa.10.01878, %._crit_edge1874 ], [ %2427, %2419 ], [ %2418, %2410 ], [ %2409, %2401 ], [ %2400, %2394 ]
+2428:                                             ; preds = %._crit_edge1872, %2419, %2410, %2401, %2394
+  %.sroa.034.4 = phi i64 [ %.sroa.034.01874, %._crit_edge1872 ], [ %2426, %2419 ], [ %2417, %2410 ], [ %2408, %2401 ], [ %2399, %2394 ]
+  %.sroa.10.4 = phi ptr [ %.sroa.10.01876, %._crit_edge1872 ], [ %2427, %2419 ], [ %2418, %2410 ], [ %2409, %2401 ], [ %2400, %2394 ]
   %2429 = call i32 @jv_get_kind(i64 %.sroa.034.4, ptr %.sroa.10.4) #13
   %.not1848 = icmp eq i32 %2429, 0
   br i1 %.not1848, label %2430, label %2438
@@ -5394,7 +5394,7 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
   br i1 %2478, label %2479, label %stack_pop.exit1656
 
 2479:                                             ; preds = %2473, %.thread.i1655
-  %.val.pre.i16591897 = phi ptr [ %.val.i1643, %.thread.i1655 ], [ %.val.i.pre.i1650, %2473 ]
+  %.val.pre.i16591895 = phi ptr [ %.val.i1643, %.thread.i1655 ], [ %.val.i.pre.i1650, %2473 ]
   %2480 = phi i32 [ %2470, %.thread.i1655 ], [ %2477, %2473 ]
   %2481 = phi i32 [ %2466, %.thread.i1655 ], [ %.pre.i1649, %2473 ]
   %.merged.i1654 = phi { i64, ptr } [ %2472, %.thread.i1655 ], [ %2474, %2473 ]
@@ -5404,21 +5404,21 @@ stack_pop.exit1636:                               ; preds = %2381, %2387
 
 stack_pop.exit1656:                               ; preds = %2473, %2479
   %.val.i1671 = phi i32 [ %.pre12.i1651, %2473 ], [ %2482, %2479 ]
-  %.val.pre.i1659 = phi ptr [ %.val.i.pre.i1650, %2473 ], [ %.val.pre.i16591897, %2479 ]
+  %.val.pre.i1659 = phi ptr [ %.val.i.pre.i1650, %2473 ], [ %.val.pre.i16591895, %2479 ]
   %2483 = phi i32 [ %2477, %2473 ], [ %2480, %2479 ]
   %.fca.1.insert.merged.i1653 = phi { i64, ptr } [ %2474, %2473 ], [ %.merged.i1654, %2479 ]
   store i32 %2483, ptr %21, align 4, !tbaa !4
   %2484 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1653, 0
   %2485 = extractvalue { i64, ptr } %.fca.1.insert.merged.i1653, 1
-  %2486 = getelementptr inbounds nuw i8, ptr %.01881, i64 4
+  %2486 = getelementptr inbounds nuw i8, ptr %.01879, i64 4
   %2487 = load i16, ptr %108, align 2, !tbaa !31
-  %2488 = getelementptr inbounds nuw i8, ptr %.01881, i64 8
+  %2488 = getelementptr inbounds nuw i8, ptr %.01879, i64 8
   %2489 = zext i16 %2487 to i32
   %2490 = shl nuw nsw i32 %2489, 1
   %2491 = zext nneg i32 %2490 to i64
   %2492 = getelementptr inbounds nuw i16, ptr %2488, i64 %2491
   %.val837 = load i16, ptr %2486, align 2, !tbaa !31
-  %2493 = getelementptr i8, ptr %.01881, i64 6
+  %2493 = getelementptr i8, ptr %.01879, i64 6
   %.val838 = load i16, ptr %2493, align 2, !tbaa !31
   %2494 = zext i16 %.val837 to i32
   %.08.i.i1657 = load i32, ptr %20, align 8, !tbaa !18
@@ -5534,14 +5534,14 @@ make_closure.exit:                                ; preds = %2502, %2509
   br i1 %2546, label %.loopexit.i._crit_edge, label %frame_pop.exit
 
 .loopexit.i._crit_edge:                           ; preds = %.loopexit.i
-  %.pre1899 = load ptr, ptr %2516, align 8, !tbaa !32
-  %.phi.trans.insert1900 = getelementptr i8, ptr %.pre1899, i64 12
-  %.val14.i.pre = load i32, ptr %.phi.trans.insert1900, align 4, !tbaa !33
+  %.pre1897 = load ptr, ptr %2516, align 8, !tbaa !32
+  %.phi.trans.insert1898 = getelementptr i8, ptr %.pre1897, i64 12
+  %.val14.i.pre = load i32, ptr %.phi.trans.insert1898, align 4, !tbaa !33
   br label %2547
 
 2547:                                             ; preds = %.loopexit.i._crit_edge, %.loopexit.thread.i
   %.val14.i = phi i32 [ %2524, %.loopexit.thread.i ], [ %.val14.i.pre, %.loopexit.i._crit_edge ]
-  %2548 = phi ptr [ %2522, %.loopexit.thread.i ], [ %.pre1899, %.loopexit.i._crit_edge ]
+  %2548 = phi ptr [ %2522, %.loopexit.thread.i ], [ %.pre1897, %.loopexit.i._crit_edge ]
   %2549 = phi i32 [ %2527, %.loopexit.thread.i ], [ %2545, %.loopexit.i._crit_edge ]
   %2550 = phi i32 [ %.val.i1671, %.loopexit.thread.i ], [ %2541, %.loopexit.i._crit_edge ]
   %2551 = getelementptr i8, ptr %2548, i64 16
@@ -5647,7 +5647,7 @@ stack_push.exit1681:                              ; preds = %2559, %2570
   br i1 %2603, label %2604, label %stack_pop.exit1695
 
 2604:                                             ; preds = %2598, %.thread.i1694
-  %.val8351891 = phi ptr [ %.val.i1682, %.thread.i1694 ], [ %.val.i.pre.i1689, %2598 ]
+  %.val8351889 = phi ptr [ %.val.i1682, %.thread.i1694 ], [ %.val.i.pre.i1689, %2598 ]
   %2605 = phi i32 [ %2595, %.thread.i1694 ], [ %2602, %2598 ]
   %2606 = phi i32 [ %2591, %.thread.i1694 ], [ %.pre.i1688, %2598 ]
   %.merged.i1693 = phi { i64, ptr } [ %2597, %.thread.i1694 ], [ %2599, %2598 ]
@@ -5657,7 +5657,7 @@ stack_push.exit1681:                              ; preds = %2559, %2570
 
 stack_pop.exit1695:                               ; preds = %2598, %2604
   %.val.i1698 = phi i32 [ %.pre12.i1690, %2598 ], [ %2607, %2604 ]
-  %.val835 = phi ptr [ %.val.i.pre.i1689, %2598 ], [ %.val8351891, %2604 ]
+  %.val835 = phi ptr [ %.val.i.pre.i1689, %2598 ], [ %.val8351889, %2604 ]
   %2608 = phi i32 [ %2602, %2598 ], [ %2605, %2604 ]
   %.fca.1.insert.merged.i1692 = phi { i64, ptr } [ %2599, %2598 ], [ %.merged.i1693, %2604 ]
   store i32 %2608, ptr %21, align 4, !tbaa !4
@@ -5733,7 +5733,7 @@ stack_pop.exit1695:                               ; preds = %2598, %2604
   br label %2642
 
 2642:                                             ; preds = %.loopexit.i1700._crit_edge, %.loopexit.thread.i1705
-  %.val.pre.i.i17171895 = phi ptr [ %.val835, %.loopexit.thread.i1705 ], [ %.val.i.i1702, %.loopexit.i1700._crit_edge ]
+  %.val.pre.i.i17171893 = phi ptr [ %.val835, %.loopexit.thread.i1705 ], [ %.val.i.i1702, %.loopexit.i1700._crit_edge ]
   %.val14.i1704 = phi i32 [ %2619, %.loopexit.thread.i1705 ], [ %.val14.i1704.pre, %.loopexit.i1700._crit_edge ]
   %2643 = phi ptr [ %2617, %.loopexit.thread.i1705 ], [ %.pre, %.loopexit.i1700._crit_edge ]
   %2644 = phi i32 [ %2622, %.loopexit.thread.i1705 ], [ %2640, %.loopexit.i1700._crit_edge ]
@@ -5750,7 +5750,7 @@ stack_pop.exit1695:                               ; preds = %2598, %2604
   br label %frame_pop.exit1716
 
 frame_pop.exit1716:                               ; preds = %.loopexit.i1700, %2642
-  %.val.pre.i.i1717 = phi ptr [ %.val.i.i1702, %.loopexit.i1700 ], [ %.val.pre.i.i17171895, %2642 ]
+  %.val.pre.i.i1717 = phi ptr [ %.val.i.i1702, %.loopexit.i1700 ], [ %.val.pre.i.i17171893, %2642 ]
   %2653 = phi i32 [ %2636, %.loopexit.i1700 ], [ %2652, %2642 ]
   %2654 = phi i32 [ %2640, %.loopexit.i1700 ], [ %2644, %2642 ]
   store i32 %2654, ptr %20, align 8, !tbaa !20
@@ -5758,7 +5758,7 @@ frame_pop.exit1716:                               ; preds = %.loopexit.i1700, %2
   %2656 = add nsw i32 %2653, -24
   %2657 = load i32, ptr %25, align 8, !tbaa !16
   %2658 = icmp slt i32 %2656, %2657
-  br i1 %2658, label %2659, label %2704
+  br i1 %2658, label %2659, label %2701
 
 2659:                                             ; preds = %frame_pop.exit1716
   %2660 = sub i32 8, %2657
@@ -5780,7 +5780,7 @@ frame_pop.exit1716:                               ; preds = %.loopexit.i1700, %2
   store ptr %2673, ptr %19, align 8, !tbaa !17
   %2674 = sub nsw i32 8, %2667
   store i32 %2674, ptr %25, align 8, !tbaa !16
-  br label %2704
+  br label %2701
 
 2675:                                             ; preds = %stack_pop.exit1695
   %.sroa.2.0.insert.ext.i1723 = zext i32 %.val836 to i64
@@ -5796,7 +5796,7 @@ frame_pop.exit1716:                               ; preds = %.loopexit.i1700, %2
   %2682 = load i32, ptr %25, align 8, !tbaa !16
   %2683 = icmp slt i32 %2681, %2682
   %.val.pre.i.i1727 = load ptr, ptr %19, align 8, !tbaa !17
-  br i1 %2683, label %2684, label %.thread1846
+  br i1 %2683, label %2684, label %select.unfold
 
 2684:                                             ; preds = %2675
   %2685 = sub i32 8, %2682
@@ -5820,46 +5820,46 @@ frame_pop.exit1716:                               ; preds = %.loopexit.i1700, %2
   store ptr %2699, ptr %19, align 8, !tbaa !17
   %2700 = sub nsw i32 8, %2693
   store i32 %2700, ptr %25, align 8, !tbaa !16
-  br label %.thread1846
+  br label %select.unfold
 
-.thread1846:                                      ; preds = %2684, %2675
-  %.val.i1728 = phi ptr [ %2699, %2684 ], [ %.val.pre.i.i1727, %2675 ]
-  store i32 %2681, ptr %24, align 4, !tbaa !15
-  %2701 = sext i32 %2681 to i64
-  %2702 = getelementptr inbounds i8, ptr %.val.i1728, i64 %2701
-  %2703 = getelementptr inbounds i8, ptr %2702, i64 -4
-  store i32 %2679, ptr %2703, align 4, !tbaa !18
-  store i32 %2681, ptr %21, align 4, !tbaa !4
-  store i64 %2677, ptr %2702, align 8
-  %.sroa.2.0..0..sroa_idx.i1729 = getelementptr inbounds nuw i8, ptr %2702, i64 8
-  store ptr %2678, ptr %.sroa.2.0..0..sroa_idx.i1729, align 8, !tbaa !19
-  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01881, i64 %.sroa.0.0.insert.insert.i1726)
-  br label %.thread1833
-
-2704:                                             ; preds = %2659, %frame_pop.exit1716
+2701:                                             ; preds = %2659, %frame_pop.exit1716
   %.val.i1718 = phi ptr [ %2673, %2659 ], [ %.val.pre.i.i1717, %frame_pop.exit1716 ]
   store i32 %2656, ptr %24, align 4, !tbaa !15
-  %2705 = sext i32 %2656 to i64
-  %2706 = getelementptr inbounds i8, ptr %.val.i1718, i64 %2705
-  %2707 = getelementptr inbounds i8, ptr %2706, i64 -4
-  store i32 %2655, ptr %2707, align 4, !tbaa !18
+  %2702 = sext i32 %2656 to i64
+  %2703 = getelementptr inbounds i8, ptr %.val.i1718, i64 %2702
+  %2704 = getelementptr inbounds i8, ptr %2703, i64 -4
+  store i32 %2655, ptr %2704, align 4, !tbaa !18
   store i32 %2656, ptr %21, align 4, !tbaa !4
-  store i64 %2609, ptr %2706, align 8
-  %.sroa.2.0..0..sroa_idx.i1719 = getelementptr inbounds nuw i8, ptr %2706, i64 8
+  store i64 %2609, ptr %2703, align 8
+  %.sroa.2.0..0..sroa_idx.i1719 = getelementptr inbounds nuw i8, ptr %2703, i64 8
   store ptr %2610, ptr %.sroa.2.0..0..sroa_idx.i1719, align 8, !tbaa !19
   br label %.thread1814
 
-.thread1814:                                      ; preds = %2704, %stack_push.exit1562, %stack_push.exit1540, %2461, %2292, %1810, %.thread1742, %1080, %.thread, %stack_push.exit, %stack_push.exit845, %stack_push.exit871, %stack_push.exit892, %stack_push.exit938, %stack_push.exit964, %stack_push.exit1004, %stack_push.exit1030, %stack_pop.exit1044, %frame_local_var.exit, %stack_push.exit1196, %frame_local_var.exit1240, %1304, %1375, %stack_push.exit1336, %1814, %stack_push.exit1478, %2196, %2200, %2313, %2342, %2353, %stack_push.exit1681, %107, %.thread1736
-  %.sroa.034.3 = phi i64 [ %.sroa.034.01876, %107 ], [ %.sroa.034.01876, %stack_push.exit1681 ], [ %.sroa.034.4, %2461 ], [ %.sroa.034.01876, %2353 ], [ %.sroa.034.01876, %2342 ], [ %.sroa.034.01876, %2313 ], [ %.sroa.034.01876, %2292 ], [ %.sroa.034.01876, %2200 ], [ %.sroa.034.01876, %2196 ], [ %.sroa.034.01876, %stack_push.exit1478 ], [ %.sroa.034.01876, %1814 ], [ %.sroa.034.01876, %1810 ], [ %.sroa.034.01876, %stack_push.exit1336 ], [ %.sroa.034.01876, %1375 ], [ %.sroa.034.01876, %1304 ], [ %.sroa.034.01876, %frame_local_var.exit1240 ], [ %.sroa.034.01876, %stack_push.exit1196 ], [ %.sroa.034.01876, %1080 ], [ %.sroa.034.01876, %frame_local_var.exit ], [ %.sroa.034.01876, %stack_pop.exit1044 ], [ %.sroa.034.01876, %stack_push.exit1030 ], [ %.sroa.034.01876, %stack_push.exit1004 ], [ %.sroa.034.01876, %stack_push.exit964 ], [ %.sroa.034.01876, %stack_push.exit938 ], [ %.sroa.034.01876, %stack_push.exit892 ], [ %.sroa.034.01876, %stack_push.exit871 ], [ %.sroa.034.01876, %stack_push.exit845 ], [ %.sroa.034.01876, %stack_push.exit ], [ %.sroa.034.2, %.thread1736 ], [ %.sroa.034.01876, %2704 ], [ %.sroa.034.01876, %.thread ], [ %.sroa.034.01876, %.thread1742 ], [ %.sroa.034.01876, %stack_push.exit1540 ], [ %.sroa.034.01876, %stack_push.exit1562 ]
-  %.sroa.10.3 = phi ptr [ %.sroa.10.01878, %107 ], [ %.sroa.10.01878, %stack_push.exit1681 ], [ %.sroa.10.4, %2461 ], [ %.sroa.10.01878, %2353 ], [ %.sroa.10.01878, %2342 ], [ %.sroa.10.01878, %2313 ], [ %.sroa.10.01878, %2292 ], [ %.sroa.10.01878, %2200 ], [ %.sroa.10.01878, %2196 ], [ %.sroa.10.01878, %stack_push.exit1478 ], [ %.sroa.10.01878, %1814 ], [ %.sroa.10.01878, %1810 ], [ %.sroa.10.01878, %stack_push.exit1336 ], [ %.sroa.10.01878, %1375 ], [ %.sroa.10.01878, %1304 ], [ %.sroa.10.01878, %frame_local_var.exit1240 ], [ %.sroa.10.01878, %stack_push.exit1196 ], [ %.sroa.10.01878, %1080 ], [ %.sroa.10.01878, %frame_local_var.exit ], [ %.sroa.10.01878, %stack_pop.exit1044 ], [ %.sroa.10.01878, %stack_push.exit1030 ], [ %.sroa.10.01878, %stack_push.exit1004 ], [ %.sroa.10.01878, %stack_push.exit964 ], [ %.sroa.10.01878, %stack_push.exit938 ], [ %.sroa.10.01878, %stack_push.exit892 ], [ %.sroa.10.01878, %stack_push.exit871 ], [ %.sroa.10.01878, %stack_push.exit845 ], [ %.sroa.10.01878, %stack_push.exit ], [ %.sroa.10.2, %.thread1736 ], [ %.sroa.10.01878, %2704 ], [ %.sroa.10.01878, %.thread ], [ %.sroa.10.01878, %.thread1742 ], [ %.sroa.10.01878, %stack_push.exit1540 ], [ %.sroa.10.01878, %stack_push.exit1562 ]
-  %.3736 = phi i32 [ 0, %107 ], [ 0, %stack_push.exit1681 ], [ 0, %2461 ], [ 0, %2353 ], [ 0, %2342 ], [ 0, %2313 ], [ 0, %2292 ], [ 0, %2200 ], [ 0, %2196 ], [ 0, %stack_push.exit1478 ], [ 0, %1814 ], [ 0, %1810 ], [ 0, %stack_push.exit1336 ], [ 0, %1375 ], [ 0, %1304 ], [ 0, %frame_local_var.exit1240 ], [ 0, %stack_push.exit1196 ], [ 0, %1080 ], [ 0, %frame_local_var.exit ], [ 0, %stack_pop.exit1044 ], [ 0, %stack_push.exit1030 ], [ 0, %stack_push.exit1004 ], [ 0, %stack_push.exit964 ], [ 0, %stack_push.exit938 ], [ 0, %stack_push.exit892 ], [ 0, %stack_push.exit871 ], [ 0, %stack_push.exit845 ], [ 0, %stack_push.exit ], [ 1, %.thread1736 ], [ 0, %2704 ], [ 0, %.thread ], [ 0, %.thread1742 ], [ 0, %stack_push.exit1540 ], [ 0, %stack_push.exit1562 ]
-  %.2 = phi ptr [ %108, %107 ], [ %2564, %stack_push.exit1681 ], [ %2367, %2461 ], [ %2357, %2353 ], [ %2351, %2342 ], [ %2316, %2313 ], [ %2300, %2292 ], [ %108, %2200 ], [ %2199, %2196 ], [ %.3, %stack_push.exit1478 ], [ %1818, %1814 ], [ %108, %1810 ], [ %108, %stack_push.exit1336 ], [ %1351, %1375 ], [ %1260, %1304 ], [ %1167, %frame_local_var.exit1240 ], [ %1087, %stack_push.exit1196 ], [ %966, %1080 ], [ %792, %frame_local_var.exit ], [ %108, %stack_pop.exit1044 ], [ %674, %stack_push.exit1030 ], [ %108, %stack_push.exit1004 ], [ %108, %stack_push.exit964 ], [ %108, %stack_push.exit938 ], [ %108, %stack_push.exit892 ], [ %108, %stack_push.exit871 ], [ %108, %stack_push.exit845 ], [ %141, %stack_push.exit ], [ %2183, %.thread1736 ], [ %2614, %2704 ], [ %108, %.thread ], [ %108, %.thread1742 ], [ %108, %stack_push.exit1540 ], [ %108, %stack_push.exit1562 ]
+select.unfold:                                    ; preds = %2684, %2675
+  %.val.i1728 = phi ptr [ %2699, %2684 ], [ %.val.pre.i.i1727, %2675 ]
+  store i32 %2681, ptr %24, align 4, !tbaa !15
+  %2705 = sext i32 %2681 to i64
+  %2706 = getelementptr inbounds i8, ptr %.val.i1728, i64 %2705
+  %2707 = getelementptr inbounds i8, ptr %2706, i64 -4
+  store i32 %2679, ptr %2707, align 4, !tbaa !18
+  store i32 %2681, ptr %21, align 4, !tbaa !4
+  store i64 %2677, ptr %2706, align 8
+  %.sroa.2.0..0..sroa_idx.i1729 = getelementptr inbounds nuw i8, ptr %2706, i64 8
+  store ptr %2678, ptr %.sroa.2.0..0..sroa_idx.i1729, align 8, !tbaa !19
+  call void @stack_save(ptr noundef nonnull %0, ptr noundef nonnull %.01879, i64 %.sroa.0.0.insert.insert.i1726)
+  br label %.thread1833
+
+.thread1814:                                      ; preds = %2701, %stack_push.exit1562, %stack_push.exit1540, %2461, %2292, %1810, %.thread1742, %1080, %.thread, %stack_push.exit, %stack_push.exit845, %stack_push.exit871, %stack_push.exit892, %stack_push.exit938, %stack_push.exit964, %stack_push.exit1004, %stack_push.exit1030, %stack_pop.exit1044, %frame_local_var.exit, %stack_push.exit1196, %frame_local_var.exit1240, %1304, %1375, %stack_push.exit1336, %1814, %stack_push.exit1478, %2196, %2200, %2313, %2342, %2353, %stack_push.exit1681, %107, %.thread1736
+  %.sroa.034.3 = phi i64 [ %.sroa.034.01874, %107 ], [ %.sroa.034.01874, %stack_push.exit1681 ], [ %.sroa.034.4, %2461 ], [ %.sroa.034.01874, %2353 ], [ %.sroa.034.01874, %2342 ], [ %.sroa.034.01874, %2313 ], [ %.sroa.034.01874, %2292 ], [ %.sroa.034.01874, %2200 ], [ %.sroa.034.01874, %2196 ], [ %.sroa.034.01874, %stack_push.exit1478 ], [ %.sroa.034.01874, %1814 ], [ %.sroa.034.01874, %1810 ], [ %.sroa.034.01874, %stack_push.exit1336 ], [ %.sroa.034.01874, %1375 ], [ %.sroa.034.01874, %1304 ], [ %.sroa.034.01874, %frame_local_var.exit1240 ], [ %.sroa.034.01874, %stack_push.exit1196 ], [ %.sroa.034.01874, %1080 ], [ %.sroa.034.01874, %frame_local_var.exit ], [ %.sroa.034.01874, %stack_pop.exit1044 ], [ %.sroa.034.01874, %stack_push.exit1030 ], [ %.sroa.034.01874, %stack_push.exit1004 ], [ %.sroa.034.01874, %stack_push.exit964 ], [ %.sroa.034.01874, %stack_push.exit938 ], [ %.sroa.034.01874, %stack_push.exit892 ], [ %.sroa.034.01874, %stack_push.exit871 ], [ %.sroa.034.01874, %stack_push.exit845 ], [ %.sroa.034.01874, %stack_push.exit ], [ %.sroa.034.2, %.thread1736 ], [ %.sroa.034.01874, %2701 ], [ %.sroa.034.01874, %.thread ], [ %.sroa.034.01874, %.thread1742 ], [ %.sroa.034.01874, %stack_push.exit1540 ], [ %.sroa.034.01874, %stack_push.exit1562 ]
+  %.sroa.10.3 = phi ptr [ %.sroa.10.01876, %107 ], [ %.sroa.10.01876, %stack_push.exit1681 ], [ %.sroa.10.4, %2461 ], [ %.sroa.10.01876, %2353 ], [ %.sroa.10.01876, %2342 ], [ %.sroa.10.01876, %2313 ], [ %.sroa.10.01876, %2292 ], [ %.sroa.10.01876, %2200 ], [ %.sroa.10.01876, %2196 ], [ %.sroa.10.01876, %stack_push.exit1478 ], [ %.sroa.10.01876, %1814 ], [ %.sroa.10.01876, %1810 ], [ %.sroa.10.01876, %stack_push.exit1336 ], [ %.sroa.10.01876, %1375 ], [ %.sroa.10.01876, %1304 ], [ %.sroa.10.01876, %frame_local_var.exit1240 ], [ %.sroa.10.01876, %stack_push.exit1196 ], [ %.sroa.10.01876, %1080 ], [ %.sroa.10.01876, %frame_local_var.exit ], [ %.sroa.10.01876, %stack_pop.exit1044 ], [ %.sroa.10.01876, %stack_push.exit1030 ], [ %.sroa.10.01876, %stack_push.exit1004 ], [ %.sroa.10.01876, %stack_push.exit964 ], [ %.sroa.10.01876, %stack_push.exit938 ], [ %.sroa.10.01876, %stack_push.exit892 ], [ %.sroa.10.01876, %stack_push.exit871 ], [ %.sroa.10.01876, %stack_push.exit845 ], [ %.sroa.10.01876, %stack_push.exit ], [ %.sroa.10.2, %.thread1736 ], [ %.sroa.10.01876, %2701 ], [ %.sroa.10.01876, %.thread ], [ %.sroa.10.01876, %.thread1742 ], [ %.sroa.10.01876, %stack_push.exit1540 ], [ %.sroa.10.01876, %stack_push.exit1562 ]
+  %.3736 = phi i32 [ 0, %107 ], [ 0, %stack_push.exit1681 ], [ 0, %2461 ], [ 0, %2353 ], [ 0, %2342 ], [ 0, %2313 ], [ 0, %2292 ], [ 0, %2200 ], [ 0, %2196 ], [ 0, %stack_push.exit1478 ], [ 0, %1814 ], [ 0, %1810 ], [ 0, %stack_push.exit1336 ], [ 0, %1375 ], [ 0, %1304 ], [ 0, %frame_local_var.exit1240 ], [ 0, %stack_push.exit1196 ], [ 0, %1080 ], [ 0, %frame_local_var.exit ], [ 0, %stack_pop.exit1044 ], [ 0, %stack_push.exit1030 ], [ 0, %stack_push.exit1004 ], [ 0, %stack_push.exit964 ], [ 0, %stack_push.exit938 ], [ 0, %stack_push.exit892 ], [ 0, %stack_push.exit871 ], [ 0, %stack_push.exit845 ], [ 0, %stack_push.exit ], [ 1, %.thread1736 ], [ 0, %2701 ], [ 0, %.thread ], [ 0, %.thread1742 ], [ 0, %stack_push.exit1540 ], [ 0, %stack_push.exit1562 ]
+  %.2 = phi ptr [ %108, %107 ], [ %2564, %stack_push.exit1681 ], [ %2367, %2461 ], [ %2357, %2353 ], [ %2351, %2342 ], [ %2316, %2313 ], [ %2300, %2292 ], [ %108, %2200 ], [ %2199, %2196 ], [ %.3, %stack_push.exit1478 ], [ %1818, %1814 ], [ %108, %1810 ], [ %108, %stack_push.exit1336 ], [ %1351, %1375 ], [ %1260, %1304 ], [ %1167, %frame_local_var.exit1240 ], [ %1087, %stack_push.exit1196 ], [ %966, %1080 ], [ %792, %frame_local_var.exit ], [ %108, %stack_pop.exit1044 ], [ %674, %stack_push.exit1030 ], [ %108, %stack_push.exit1004 ], [ %108, %stack_push.exit964 ], [ %108, %stack_push.exit938 ], [ %108, %stack_push.exit892 ], [ %108, %stack_push.exit871 ], [ %108, %stack_push.exit845 ], [ %141, %stack_push.exit ], [ %2183, %.thread1736 ], [ %2614, %2701 ], [ %108, %.thread ], [ %108, %.thread1742 ], [ %108, %stack_push.exit1540 ], [ %108, %stack_push.exit1562 ]
   %2708 = load i32, ptr %15, align 8, !tbaa !46
   %.not766 = icmp eq i32 %2708, 0
-  br i1 %.not766, label %42, label %._crit_edge1884
+  br i1 %.not766, label %42, label %._crit_edge1882
 
-.thread1833:                                      ; preds = %.thread1846, %2188, %2194, %40
-  %.fca.1.insert.merged = phi { i64, ptr } [ %41, %40 ], [ %2193, %2188 ], [ %2195, %2194 ], [ %.fca.1.insert.merged.i1692, %.thread1846 ]
+.thread1833:                                      ; preds = %select.unfold, %2188, %2194, %40
+  %.fca.1.insert.merged = phi { i64, ptr } [ %41, %40 ], [ %.fca.1.insert.merged.i1692, %select.unfold ], [ %2193, %2188 ], [ %2195, %2194 ]
   ret { i64, ptr } %.fca.1.insert.merged
 }
 

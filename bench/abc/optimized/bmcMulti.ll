@@ -558,9 +558,11 @@ Vec_PtrCountZero.exit:                            ; preds = %104, %100
   %111 = zext i1 %.not131 to i32
   store i32 %111, ptr %84, align 8, !tbaa !75
   store i32 %.0121210, ptr %85, align 8, !tbaa !76
-  %112 = mul nuw nsw i32 %.0120211, 17
-  %113 = urem i32 %112, 500
-  store i32 %113, ptr %86, align 4, !tbaa !77
+  %112 = trunc nuw i32 %.0120211 to i16
+  %.lhs.trunc = mul nuw i16 %112, 17
+  %113 = urem i16 %.lhs.trunc, 500
+  %.zext = zext nneg i16 %113 to i32
+  store i32 %.zext, ptr %86, align 4, !tbaa !77
   store i32 5, ptr %87, align 4, !tbaa !78
   %114 = call i32 @Ssw_RarSimulate(ptr noundef %.0213, ptr noundef nonnull %7) #16
   %115 = getelementptr inbounds nuw i8, ptr %.0213, i64 416

@@ -1181,11 +1181,11 @@ bufferfix.exit198:                                ; preds = %56
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.critedge154, %.critedge154, %.critedge154, %65
-  %.sink226 = phi ptr [ %2, %65 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ]
+  %.sink227 = phi ptr [ %2, %65 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ], [ %0, %.critedge154 ]
   %66 = tail call ptr @Ptngc_coder_init() #13
   %67 = mul nsw i32 %3, 3
   store i32 %67, ptr %15, align 4
-  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %.sink226, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
+  %68 = call ptr @Ptngc_pack_array(ptr noundef %66, ptr noundef %.sink227, ptr noundef nonnull %15, i32 noundef %6, i32 noundef %7, i32 noundef %3, i32 noundef %5) #13
   call void @Ptngc_coder_deinit(ptr noundef %66) #13
   br label %69
 
@@ -1242,32 +1242,32 @@ bufferfix.exit210:                                ; preds = %74
   br label %85
 
 85:                                               ; preds = %82, %82, %82, %83, %84
-  %.sink230 = phi ptr [ %0, %83 ], [ %2, %84 ], [ %1, %82 ], [ %1, %82 ], [ %1, %82 ]
+  %.sink231 = phi ptr [ %0, %83 ], [ %2, %84 ], [ %1, %82 ], [ %1, %82 ], [ %1, %82 ]
   %86 = call ptr @Ptngc_coder_init() #13
   %87 = mul nsw i32 %3, 3
   %88 = add nsw i32 %4, -1
   %89 = mul nsw i32 %88, %87
   store i32 %89, ptr %15, align 4
   %90 = sext i32 %87 to i64
-  %91 = getelementptr inbounds i32, ptr %.sink230, i64 %90
+  %91 = getelementptr inbounds i32, ptr %.sink231, i64 %90
   %92 = call ptr @Ptngc_pack_array(ptr noundef %86, ptr noundef %91, ptr noundef nonnull %15, i32 noundef %8, i32 noundef %9, i32 noundef %3, i32 noundef %5) #13
   call void @Ptngc_coder_deinit(ptr noundef %86) #13
-  br i1 %.not, label %bufferfix.exit216.thread, label %._crit_edge
+  br i1 %.not, label %bufferfix.exit216, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %85
   %.pre = load i32, ptr %15, align 4
   br label %94
 
 .thread218:                                       ; preds = %82
-  br i1 %.not, label %bufferfix.exit216.thread.thread, label %94
+  br i1 %.not, label %bufferfix.exit216.thread223, label %94
 
-bufferfix.exit216.thread.thread:                  ; preds = %.thread218
+bufferfix.exit216.thread223:                      ; preds = %.thread218
   %93 = add nsw i32 %79, 44
   br label %110
 
 94:                                               ; preds = %._crit_edge, %.thread218
   %95 = phi i32 [ %79, %.thread218 ], [ %.pre, %._crit_edge ]
-  %.1220 = phi ptr [ null, %.thread218 ], [ %92, %._crit_edge ]
+  %.1222 = phi ptr [ null, %.thread218 ], [ %92, %._crit_edge ]
   %96 = sext i32 %80 to i64
   %97 = getelementptr inbounds i8, ptr %13, i64 %96
   %98 = sext i32 %95 to i64
@@ -1283,35 +1283,32 @@ bufferfix.exit216.thread.thread:                  ; preds = %.thread218
   store i8 %.0.i214, ptr %.078.i213, align 1
   %102 = lshr i64 %.069.i212, 8
   %.not.i215 = icmp eq i32 %100, 0
-  br i1 %.not.i215, label %bufferfix.exit216, label %99, !llvm.loop !13
+  br i1 %.not.i215, label %bufferfix.exit216.thread, label %99, !llvm.loop !13
 
-bufferfix.exit216:                                ; preds = %99
+bufferfix.exit216:                                ; preds = %85
   %103 = add nsw i32 %79, 44
-  %.not147 = icmp eq ptr %.1220, null
-  br i1 %.not147, label %110, label %105
+  %.not147 = icmp eq ptr %92, null
+  br i1 %.not147, label %110, label %108
 
-bufferfix.exit216.thread:                         ; preds = %85
+bufferfix.exit216.thread:                         ; preds = %99
   %104 = add nsw i32 %79, 44
-  %.not147217 = icmp eq ptr %92, null
-  br i1 %.not147217, label %110, label %.thread
+  %.not147217 = icmp eq ptr %.1222, null
+  br i1 %.not147217, label %110, label %105
 
-105:                                              ; preds = %bufferfix.exit216
-  br i1 %.not, label %.thread, label %106
+105:                                              ; preds = %bufferfix.exit216.thread
+  %106 = sext i32 %104 to i64
+  %107 = getelementptr inbounds i8, ptr %13, i64 %106
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %107, ptr nonnull align 1 %.1222, i64 %98, i1 false)
+  br label %108
 
-106:                                              ; preds = %105
-  %107 = sext i32 %103 to i64
-  %108 = getelementptr inbounds i8, ptr %13, i64 %107
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %108, ptr nonnull align 1 %.1220, i64 %98, i1 false)
-  br label %.thread
-
-.thread:                                          ; preds = %bufferfix.exit216.thread, %106, %105
-  %.1221 = phi ptr [ %.1220, %106 ], [ %.1220, %105 ], [ %92, %bufferfix.exit216.thread ]
-  %109 = phi i32 [ %103, %106 ], [ %103, %105 ], [ %104, %bufferfix.exit216.thread ]
+108:                                              ; preds = %bufferfix.exit216, %105
+  %.1221 = phi ptr [ %.1222, %105 ], [ %92, %bufferfix.exit216 ]
+  %109 = phi i32 [ %104, %105 ], [ %103, %bufferfix.exit216 ]
   call void @free(ptr noundef nonnull %.1221) #13
   br label %110
 
-110:                                              ; preds = %bufferfix.exit216.thread.thread, %bufferfix.exit216.thread, %.thread, %bufferfix.exit216
-  %111 = phi i32 [ %104, %bufferfix.exit216.thread ], [ %109, %.thread ], [ %103, %bufferfix.exit216 ], [ %93, %bufferfix.exit216.thread.thread ]
+110:                                              ; preds = %bufferfix.exit216.thread223, %bufferfix.exit216.thread, %108, %bufferfix.exit216
+  %111 = phi i32 [ %104, %bufferfix.exit216.thread ], [ %109, %108 ], [ %103, %bufferfix.exit216 ], [ %93, %bufferfix.exit216.thread223 ]
   %112 = load i32, ptr %15, align 4
   %113 = add nsw i32 %112, %111
   br label %114
@@ -2643,7 +2640,7 @@ bufferfix.exit183:                                ; preds = %73
 bufferfix.exit183.thread:                         ; preds = %68, %77, %bufferfix.exit183
   %.0 = phi i32 [ %80, %77 ], [ 40, %bufferfix.exit183 ], [ 40, %68 ]
   %81 = icmp sgt i32 %3, 1
-  br i1 %81, label %82, label %108
+  br i1 %81, label %82, label %109
 
 82:                                               ; preds = %bufferfix.exit183.thread
   switch i32 %7, label %90 [
@@ -2672,47 +2669,47 @@ bufferfix.exit183.thread:                         ; preds = %68, %77, %bufferfix
 
 90:                                               ; preds = %.sink.split, %82
   %.1118 = phi ptr [ null, %82 ], [ %89, %.sink.split ]
-  br i1 %.not, label %bufferfix.exit189.thread, label %92
+  br i1 %.not, label %bufferfix.exit189, label %91
 
-bufferfix.exit189.thread:                         ; preds = %90
-  %91 = add nsw i32 %.0, 4
-  br label %104
+91:                                               ; preds = %90
+  %92 = sext i32 %.0 to i64
+  %93 = getelementptr inbounds i8, ptr %12, i64 %92
+  %94 = load i32, ptr %14, align 4
+  %95 = sext i32 %94 to i64
+  br label %96
 
-92:                                               ; preds = %90
-  %93 = sext i32 %.0 to i64
-  %94 = getelementptr inbounds i8, ptr %12, i64 %93
-  %95 = load i32, ptr %14, align 4
-  %96 = sext i32 %95 to i64
-  br label %97
-
-97:                                               ; preds = %97, %92
-  %.0510.i184 = phi i32 [ 4, %92 ], [ %98, %97 ]
-  %.069.i185 = phi i64 [ %96, %92 ], [ %100, %97 ]
-  %.078.i186 = phi ptr [ %94, %92 ], [ %99, %97 ]
-  %98 = add nsw i32 %.0510.i184, -1
+96:                                               ; preds = %96, %91
+  %.0510.i184 = phi i32 [ 4, %91 ], [ %97, %96 ]
+  %.069.i185 = phi i64 [ %95, %91 ], [ %99, %96 ]
+  %.078.i186 = phi ptr [ %93, %91 ], [ %98, %96 ]
+  %97 = add nsw i32 %.0510.i184, -1
   %.0.i187 = trunc i64 %.069.i185 to i8
-  %99 = getelementptr inbounds nuw i8, ptr %.078.i186, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.078.i186, i64 1
   store i8 %.0.i187, ptr %.078.i186, align 1
-  %100 = lshr i64 %.069.i185, 8
-  %.not.i188 = icmp eq i32 %98, 0
-  br i1 %.not.i188, label %bufferfix.exit189, label %97, !llvm.loop !13
+  %99 = lshr i64 %.069.i185, 8
+  %.not.i188 = icmp eq i32 %97, 0
+  br i1 %.not.i188, label %101, label %96, !llvm.loop !13
 
-bufferfix.exit189:                                ; preds = %97
-  %101 = add nsw i32 %.0, 4
-  %102 = sext i32 %101 to i64
-  %103 = getelementptr inbounds i8, ptr %12, i64 %102
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr align 1 %.1118, i64 %96, i1 false)
-  br label %104
+bufferfix.exit189:                                ; preds = %90
+  %100 = add nsw i32 %.0, 4
+  br label %105
 
-104:                                              ; preds = %bufferfix.exit189.thread, %bufferfix.exit189
-  %105 = phi i32 [ %91, %bufferfix.exit189.thread ], [ %101, %bufferfix.exit189 ]
+101:                                              ; preds = %96
+  %102 = add nsw i32 %.0, 4
+  %103 = sext i32 %102 to i64
+  %104 = getelementptr inbounds i8, ptr %12, i64 %103
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %104, ptr align 1 %.1118, i64 %95, i1 false)
+  br label %105
+
+105:                                              ; preds = %bufferfix.exit189, %101
+  %106 = phi i32 [ %102, %101 ], [ %100, %bufferfix.exit189 ]
   call void @free(ptr noundef %.1118) #13
-  %106 = load i32, ptr %14, align 4
-  %107 = add nsw i32 %106, %105
-  br label %108
+  %107 = load i32, ptr %14, align 4
+  %108 = add nsw i32 %107, %106
+  br label %109
 
-108:                                              ; preds = %104, %bufferfix.exit183.thread
-  %.1 = phi i32 [ %107, %104 ], [ %.0, %bufferfix.exit183.thread ]
+109:                                              ; preds = %105, %bufferfix.exit183.thread
+  %.1 = phi i32 [ %108, %105 ], [ %.0, %bufferfix.exit183.thread ]
   store i32 %.1, ptr %11, align 4
   ret void
 }
@@ -3976,7 +3973,7 @@ readbufferfix.exit301:                            ; preds = %89
   store double %162, ptr %163, align 8
   %indvars.iv.next.i319 = add nuw nsw i64 %indvars.iv.i318, 1
   %exitcond.not.i320 = icmp eq i64 %indvars.iv.next.i319, 3
-  br i1 %exitcond.not.i320, label %unquantize_intra_differences.exit, label %.preheader.i.preheader, !llvm.loop !34
+  br i1 %exitcond.not.i320, label %unquantize.exit, label %.preheader.i.preheader, !llvm.loop !34
 
 164:                                              ; preds = %139
   %.not214 = icmp eq ptr %2, null
@@ -3998,7 +3995,7 @@ readbufferfix.exit301:                            ; preds = %89
   tail call fastcc void @unquantize_intra_differences_int(ptr noundef %3, i32 noundef %32, i32 noundef 1, ptr noundef %87)
   br label %unquantize_intra_differences.exit
 
-unquantize_intra_differences.exit:                ; preds = %.preheader.i.preheader, %._crit_edge.us.us.i, %165, %171, %170
+unquantize_intra_differences.exit:                ; preds = %._crit_edge.us.us.i, %165, %171, %170
   %172 = icmp sgt i32 %32, 1
   br i1 %172, label %.lr.ph.us.preheader.i, label %unquantize.exit
 
@@ -4029,7 +4026,7 @@ unquantize_intra_differences.exit:                ; preds = %.preheader.i.prehea
   %exitcond26.not.i = icmp eq i64 %indvars.iv.next24.i, 3
   br i1 %exitcond26.not.i, label %unquantize.exit, label %.lr.ph.us.i, !llvm.loop !36
 
-unquantize.exit:                                  ; preds = %._crit_edge.us.i325, %109, %126, %unquantize_intra_differences.exit, %119, %103, %101, %135, %136
+unquantize.exit:                                  ; preds = %.preheader.i.preheader, %._crit_edge.us.i325, %109, %126, %unquantize_intra_differences.exit, %119, %103, %101, %135, %136
   %178 = icmp sgt i32 %41, 1
   br i1 %178, label %179, label %237
 

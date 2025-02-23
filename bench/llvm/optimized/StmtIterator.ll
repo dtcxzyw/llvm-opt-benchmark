@@ -24,24 +24,24 @@ define dso_local void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull 
   %11 = load i8, ptr %10, align 16
   %12 = add i8 %11, -7
   %switch.i.i.i.i.i.i.i.i31.i = icmp ult i8 %12, -5
-  %.not3337.i = icmp eq ptr %9, null
-  %.not33.i = or i1 %.not3337.i, %switch.i.i.i.i.i.i.i.i31.i
+  %.not3338.i = icmp eq ptr %9, null
+  %.not33.i = or i1 %.not3338.i, %switch.i.i.i.i.i.i.i.i31.i
   br i1 %.not33.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %17
   %13 = phi i8 [ %23, %17 ], [ %11, %1 ]
-  %spec.select.i.i34.i = phi ptr [ %21, %17 ], [ %9, %1 ]
+  %spec.select.i.i35.i = phi ptr [ %21, %17 ], [ %9, %1 ]
   %.not30.i = icmp eq i8 %13, 6
   br i1 %.not30.i, label %14, label %17
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i, i64 40
+  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i, i64 40
   %16 = load ptr, ptr %15, align 8, !tbaa !17
   %.not16.i = icmp eq ptr %16, null
   br i1 %.not16.i, label %17, label %_ZL6FindVAPKN5clang4TypeE.exit
 
 17:                                               ; preds = %14, %.lr.ph.i
-  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %18, align 16, !tbaa !10
   %19 = and i64 %.sroa.0.0.copyload.i.i, -16
   %20 = inttoptr i64 %19 to ptr
@@ -50,12 +50,12 @@ define dso_local void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull 
   %23 = load i8, ptr %22, align 16
   %24 = add i8 %23, -7
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %24, -5
-  %.not38.i = icmp eq ptr %21, null
-  %.not.i = or i1 %.not38.i, %switch.i.i.i.i.i.i.i.i.i
+  %.not39.i = icmp eq ptr %21, null
+  %.not.i = or i1 %.not39.i, %switch.i.i.i.i.i.i.i.i.i
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %14
-  %25 = ptrtoint ptr %spec.select.i.i34.i to i64
+  %25 = ptrtoint ptr %spec.select.i.i35.i to i64
   %26 = and i64 %3, 3
   %27 = or i64 %26, %25
   br label %_ZN5clang16StmtIteratorBase8NextDeclEb.exit.sink.split
@@ -181,24 +181,24 @@ define dso_local noundef zeroext i1 @_ZN5clang16StmtIteratorBase10HandleDeclEPNS
   %14 = load i8, ptr %13, align 16
   %15 = add i8 %14, -7
   %switch.i.i.i.i.i.i.i.i31.i = icmp ult i8 %15, -5
-  %.not3337.i = icmp eq ptr %12, null
-  %.not33.i = or i1 %.not3337.i, %switch.i.i.i.i.i.i.i.i31.i
+  %.not3338.i = icmp eq ptr %12, null
+  %.not33.i = or i1 %.not3338.i, %switch.i.i.i.i.i.i.i.i31.i
   br i1 %.not33.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %20
   %16 = phi i8 [ %26, %20 ], [ %14, %8 ]
-  %spec.select.i.i34.i = phi ptr [ %24, %20 ], [ %12, %8 ]
+  %spec.select.i.i35.i = phi ptr [ %24, %20 ], [ %12, %8 ]
   %.not30.i = icmp eq i8 %16, 6
   br i1 %.not30.i, label %17, label %20
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i, i64 40
   %19 = load ptr, ptr %18, align 8, !tbaa !17
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %20, label %_ZL6FindVAPKN5clang4TypeE.exit
 
 20:                                               ; preds = %17, %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i, i64 32
   %.sroa.0.0.copyload.i.i = load i64, ptr %21, align 16, !tbaa !10
   %22 = and i64 %.sroa.0.0.copyload.i.i, -16
   %23 = inttoptr i64 %22 to ptr
@@ -207,12 +207,12 @@ define dso_local noundef zeroext i1 @_ZN5clang16StmtIteratorBase10HandleDeclEPNS
   %26 = load i8, ptr %25, align 16
   %27 = add i8 %26, -7
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %27, -5
-  %.not38.i = icmp eq ptr %24, null
-  %.not.i = or i1 %.not38.i, %switch.i.i.i.i.i.i.i.i.i
+  %.not39.i = icmp eq ptr %24, null
+  %.not.i = or i1 %.not39.i, %switch.i.i.i.i.i.i.i.i.i
   br i1 %.not.i, label %.critedge, label %.lr.ph.i
 
 _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %17
-  %28 = ptrtoint ptr %spec.select.i.i34.i to i64
+  %28 = ptrtoint ptr %spec.select.i.i35.i to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = and i64 %30, 3
@@ -247,24 +247,24 @@ _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %17
   %46 = load i8, ptr %45, align 16
   %47 = add i8 %46, -7
   %switch.i.i.i.i.i.i.i.i31.i46 = icmp ult i8 %47, -5
-  %.not3337.i47 = icmp eq ptr %44, null
-  %.not33.i48 = or i1 %.not3337.i47, %switch.i.i.i.i.i.i.i.i31.i46
+  %.not3338.i47 = icmp eq ptr %44, null
+  %.not33.i48 = or i1 %.not3338.i47, %switch.i.i.i.i.i.i.i.i31.i46
   br i1 %.not33.i48, label %.critedge39, label %.lr.ph.i49
 
 .lr.ph.i49:                                       ; preds = %37, %52
   %48 = phi i8 [ %58, %52 ], [ %46, %37 ]
-  %spec.select.i.i34.i50 = phi ptr [ %56, %52 ], [ %44, %37 ]
+  %spec.select.i.i35.i50 = phi ptr [ %56, %52 ], [ %44, %37 ]
   %.not30.i51 = icmp eq i8 %48, 6
   br i1 %.not30.i51, label %49, label %52
 
 49:                                               ; preds = %.lr.ph.i49
-  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i50, i64 40
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i50, i64 40
   %51 = load ptr, ptr %50, align 8, !tbaa !17
   %.not16.i57 = icmp eq ptr %51, null
   br i1 %.not16.i57, label %52, label %_ZL6FindVAPKN5clang4TypeE.exit58
 
 52:                                               ; preds = %49, %.lr.ph.i49
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i34.i50, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %spec.select.i.i35.i50, i64 32
   %.sroa.0.0.copyload.i.i52 = load i64, ptr %53, align 16, !tbaa !10
   %54 = and i64 %.sroa.0.0.copyload.i.i52, -16
   %55 = inttoptr i64 %54 to ptr
@@ -273,12 +273,12 @@ _ZL6FindVAPKN5clang4TypeE.exit:                   ; preds = %17
   %58 = load i8, ptr %57, align 16
   %59 = add i8 %58, -7
   %switch.i.i.i.i.i.i.i.i.i53 = icmp ult i8 %59, -5
-  %.not38.i54 = icmp eq ptr %56, null
-  %.not.i55 = or i1 %.not38.i54, %switch.i.i.i.i.i.i.i.i.i53
+  %.not39.i54 = icmp eq ptr %56, null
+  %.not.i55 = or i1 %.not39.i54, %switch.i.i.i.i.i.i.i.i.i53
   br i1 %.not.i55, label %.critedge39, label %.lr.ph.i49
 
 _ZL6FindVAPKN5clang4TypeE.exit58:                 ; preds = %49
-  %60 = ptrtoint ptr %spec.select.i.i34.i50 to i64
+  %60 = ptrtoint ptr %spec.select.i.i35.i50 to i64
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !3
   %63 = and i64 %62, 3

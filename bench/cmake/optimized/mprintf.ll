@@ -932,7 +932,7 @@ addbyter.exit50:                                  ; preds = %32, %28
   %364 = add nsw i32 %.1.i.lcssa, -1
   %spec.select88.i = select i1 %363, i32 %364, i32 %.2369.i
   %spec.store.select18.i = call i32 @llvm.smax.i32(i32 %spec.select88.i, i32 0)
-  %365 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.4330.i, i64 noundef %.0325.i, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18.i)
+  %365 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.4330.i, i64 noundef %.0325.i, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18.i)
   %366 = sext i32 %365 to i64
   %367 = getelementptr inbounds i8, ptr %.4330.i, i64 %366
   br label %368
@@ -2547,7 +2547,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %90 = add i32 %82, %.1354
   br label %.loopexit43.thread
 
-.loopexit43.thread:                               ; preds = %.preheader42, %.loopexit43.loopexit
+.loopexit43.thread:                               ; preds = %.loopexit43.loopexit, %.preheader42
   %.ph189 = phi ptr [ %87, %.loopexit43.loopexit ], [ %.pre179, %.preheader42 ]
   %.5358.ph = phi i32 [ %90, %.loopexit43.loopexit ], [ %.1354, %.preheader42 ]
   %91 = trunc i64 %78 to i8
@@ -3219,7 +3219,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %339 = add nsw i32 %.1.lcssa, -1
   %spec.select88 = select i1 %338, i32 %339, i32 %.2369
   %spec.store.select18 = call i32 @llvm.smax.i32(i32 %spec.select88, i32 0)
-  %340 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
+  %340 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
   %341 = sext i32 %340 to i64
   %342 = getelementptr inbounds i8, ptr %.4330, i64 %341
   br label %343
@@ -4257,7 +4257,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %357 = add nsw i32 %.1.lcssa, -1
   %spec.select88 = select i1 %356, i32 %357, i32 %.2369
   %spec.store.select18 = call i32 @llvm.smax.i32(i32 %spec.select88, i32 0)
-  %358 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
+  %358 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
   %359 = sext i32 %358 to i64
   %360 = getelementptr inbounds i8, ptr %.4330, i64 %359
   br label %361
@@ -5552,7 +5552,7 @@ alloc_addbyter.exit151:                           ; preds = %.lr.ph256
   %452 = add nsw i32 %.1.lcssa, -1
   %spec.select88 = select i1 %451, i32 %452, i32 %.2369
   %spec.store.select18 = call i32 @llvm.smax.i32(i32 %spec.select88, i32 0)
-  %453 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
+  %453 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.4330, i64 noundef %.0325, ptr noundef nonnull @.str.2, i32 noundef %spec.store.select18)
   %454 = sext i32 %453 to i64
   %455 = getelementptr inbounds i8, ptr %.4330, i64 %454
   br label %456

@@ -1827,7 +1827,7 @@ define noundef range(i32 -14, 2) i32 @_ZN6LibRaw8parseCR3ExxRsPcS0_S0_(ptr nound
   br i1 %.not344, label %421, label %429
 
 421:                                              ; preds = %420
-  %422 = icmp sgt i64 %.0265, 43
+  %422 = icmp samesign ugt i64 %.0265, 43
   br i1 %422, label %423, label %.thread449.loopexit
 
 423:                                              ; preds = %421

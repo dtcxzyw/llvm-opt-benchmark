@@ -182,7 +182,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   %12 = getelementptr inbounds nuw i8, ptr %.015.us.i.i.i, i64 16
   %.1.us.i.i.i = load ptr, ptr %12, align 8, !tbaa !194
   %.not.us.i.i.i = icmp eq ptr %.1.us.i.i.i, null
-  br i1 %.not.us.i.i.i, label %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit, label %.lr.ph.split.us.i.i.i, !llvm.loop !195
+  br i1 %.not.us.i.i.i, label %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread, label %.lr.ph.split.us.i.i.i, !llvm.loop !195
 
 .lr.ph.split.i.i.i:                               ; preds = %.lr.ph.i.i.i
   %13 = getelementptr inbounds i8, ptr %8, i64 -8
@@ -241,74 +241,75 @@ _ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread.i.i.i: 
   %.not.i.i.i = icmp eq ptr %.1.i.i.i, null
   br i1 %.not.i.i.i, label %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit, label %17, !llvm.loop !195
 
-_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit: ; preds = %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread.i.i.i, %.lr.ph.split.us.i.i.i
-  %.08.lcssa.i.i.i = phi ptr [ %.015.us.i.i.i, %.lr.ph.split.us.i.i.i ], [ %.19.i.i.i, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread.i.i.i ]
-  %33 = icmp eq ptr %.08.lcssa.i.i.i, %7
-  br i1 %33, label %.critedge, label %34
+_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit: ; preds = %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread.i.i.i
+  %33 = icmp eq ptr %.19.i.i.i, %7
+  br i1 %33, label %.critedge, label %35
 
-34:                                               ; preds = %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit
-  %35 = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !200
-  br i1 %.not.i4.i.i.i.i, label %_ZNK4llvm8MCSymbol7getNameEv.exit.i, label %37
+_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread: ; preds = %.lr.ph.split.us.i.i.i
+  %34 = icmp eq ptr %.015.us.i.i.i, %7
+  br i1 %34, label %.critedge, label %_ZNK4llvm8MCSymbol7getNameEv.exit.i
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %8, i64 -8
-  %39 = load ptr, ptr %38, align 8, !tbaa !196
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %41 = load i64, ptr %39, align 8, !tbaa !198
+35:                                               ; preds = %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit
+  %36 = getelementptr inbounds i8, ptr %8, i64 -8
+  %37 = load ptr, ptr %36, align 8, !tbaa !196
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load i64, ptr %37, align 8, !tbaa !198
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit.i
 
-_ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %37, %34
-  %.sroa.0.0.i.i = phi ptr [ %40, %37 ], [ null, %34 ]
-  %.sroa.4.0.i.i = phi i64 [ %41, %37 ], [ 0, %34 ]
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %43 = load i64, ptr %42, align 8
-  %44 = and i64 %43, 1
-  %.not.i4.i = icmp eq i64 %44, 0
-  br i1 %.not.i4.i, label %_ZNK4llvm8MCSymbol7getNameEv.exit9.i, label %45
+_ZNK4llvm8MCSymbol7getNameEv.exit.i:              ; preds = %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread, %35
+  %.08.lcssa.i.i.i2022 = phi ptr [ %.19.i.i.i, %35 ], [ %.015.us.i.i.i, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread ]
+  %.sroa.0.0.i.i = phi ptr [ %38, %35 ], [ null, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread ]
+  %.sroa.4.0.i.i = phi i64 [ %39, %35 ], [ 0, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread ]
+  %.in = getelementptr inbounds nuw i8, ptr %.08.lcssa.i.i.i2022, i64 32
+  %40 = load ptr, ptr %.in, align 8, !tbaa !200
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = and i64 %42, 1
+  %.not.i4.i = icmp eq i64 %43, 0
+  br i1 %.not.i4.i, label %_ZNK4llvm8MCSymbol7getNameEv.exit9.i, label %44
 
-45:                                               ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
-  %46 = getelementptr inbounds i8, ptr %36, i64 -8
-  %47 = load ptr, ptr %46, align 8, !tbaa !196
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load i64, ptr %47, align 8, !tbaa !198
+44:                                               ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit.i
+  %45 = getelementptr inbounds i8, ptr %40, i64 -8
+  %46 = load ptr, ptr %45, align 8, !tbaa !196
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %48 = load i64, ptr %46, align 8, !tbaa !198
   br label %_ZNK4llvm8MCSymbol7getNameEv.exit9.i
 
-_ZNK4llvm8MCSymbol7getNameEv.exit9.i:             ; preds = %45, %_ZNK4llvm8MCSymbol7getNameEv.exit.i
-  %.sroa.0.0.i5.i = phi ptr [ %48, %45 ], [ null, %_ZNK4llvm8MCSymbol7getNameEv.exit.i ]
-  %.sroa.4.0.i6.i = phi i64 [ %49, %45 ], [ 0, %_ZNK4llvm8MCSymbol7getNameEv.exit.i ]
+_ZNK4llvm8MCSymbol7getNameEv.exit9.i:             ; preds = %44, %_ZNK4llvm8MCSymbol7getNameEv.exit.i
+  %.sroa.0.0.i5.i = phi ptr [ %47, %44 ], [ null, %_ZNK4llvm8MCSymbol7getNameEv.exit.i ]
+  %.sroa.4.0.i6.i = phi i64 [ %48, %44 ], [ 0, %_ZNK4llvm8MCSymbol7getNameEv.exit.i ]
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sroa.4.0.i6.i, i64 %.sroa.4.0.i.i)
-  %50 = icmp eq i64 %.sroa.speculated.i.i.i, 0
-  br i1 %50, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
+  %49 = icmp eq i64 %.sroa.speculated.i.i.i, 0
+  br i1 %49, label %.thread.i.i.i, label %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
 
 _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i: ; preds = %_ZNK4llvm8MCSymbol7getNameEv.exit9.i
-  %51 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.i.i, ptr noundef %.sroa.0.0.i5.i, i64 noundef %.sroa.speculated.i.i.i) #19
-  %.fr.i.i.i = freeze i32 %51
+  %50 = tail call i32 @memcmp(ptr noundef %.sroa.0.0.i.i, ptr noundef %.sroa.0.0.i5.i, i64 noundef %.sroa.speculated.i.i.i) #19
+  %.fr.i.i.i = freeze i32 %50
   %.not.not.i.i.i = icmp eq i32 %.fr.i.i.i, 0
   br i1 %.not.not.i.i.i, label %.thread.i.i.i, label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit
 
 .thread.i.i.i:                                    ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i, %_ZNK4llvm8MCSymbol7getNameEv.exit9.i
-  %52 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i6.i
-  br i1 %52, label %.critedge, label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread
+  %51 = icmp ult i64 %.sroa.4.0.i.i, %.sroa.4.0.i6.i
+  br i1 %51, label %.critedge, label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread
 
 _ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i
-  %53 = icmp slt i32 %.fr.i.i.i, 0
-  br i1 %53, label %.critedge, label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread
+  %52 = icmp slt i32 %.fr.i.i.i, 0
+  br i1 %52, label %.critedge, label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread
 
-.critedge:                                        ; preds = %.thread.i.i.i, %2, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit
-  %.08.lcssa.i.i.i12 = phi ptr [ %.08.lcssa.i.i.i, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit ], [ %.08.lcssa.i.i.i, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit ], [ %7, %2 ], [ %.08.lcssa.i.i.i, %.thread.i.i.i ]
+.critedge:                                        ; preds = %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread, %.thread.i.i.i, %2, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit
+  %.08.lcssa.i.i.i12 = phi ptr [ %.08.lcssa.i.i.i2022, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit ], [ %.19.i.i.i, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit ], [ %7, %2 ], [ %.08.lcssa.i.i.i2022, %.thread.i.i.i ], [ %.015.us.i.i.i, %_ZNSt3mapIPKN4llvm8MCSymbolESt6vectorINS0_9FaultMaps9FaultInfoESaIS6_EENS5_18MCSymbolComparatorESaISt4pairIKS3_S8_EEE11lower_boundERSB_.exit.thread ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   store ptr %1, ptr %3, align 8, !tbaa !205
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
-  %54 = call ptr @_ZNSt8_Rb_treeIPKN4llvm8MCSymbolESt4pairIKS3_St6vectorINS0_9FaultMaps9FaultInfoESaIS8_EEESt10_Select1stISB_ENS7_18MCSymbolComparatorESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  %53 = call ptr @_ZNSt8_Rb_treeIPKN4llvm8MCSymbolESt4pairIKS3_St6vectorINS0_9FaultMaps9FaultInfoESaIS8_EEESt10_Select1stISB_ENS7_18MCSymbolComparatorESaISB_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS5_EESL_IJEEEEESt17_Rb_tree_iteratorISB_ESt23_Rb_tree_const_iteratorISB_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %.08.lcssa.i.i.i12, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread
 
 _ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit.thread: ; preds = %.thread.i.i.i, %.critedge, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit
-  %.sroa.07.0 = phi ptr [ %54, %.critedge ], [ %.08.lcssa.i.i.i, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit ], [ %.08.lcssa.i.i.i, %.thread.i.i.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
-  ret ptr %55
+  %.sroa.07.0 = phi ptr [ %53, %.critedge ], [ %.08.lcssa.i.i.i2022, %_ZNK4llvm9FaultMaps18MCSymbolComparatorclEPKNS_8MCSymbolES4_.exit ], [ %.08.lcssa.i.i.i2022, %.thread.i.i.i ]
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 40
+  ret ptr %54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

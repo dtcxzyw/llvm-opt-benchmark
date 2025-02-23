@@ -5310,7 +5310,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
   br i1 %76, label %77, label %83
 
 77:                                               ; preds = %73
-  %78 = shl nsw i64 %.0.lcssa, 1
+  %78 = shl nuw nsw i64 %.0.lcssa, 1
   %79 = or disjoint i64 %78, 1
   %80 = getelementptr inbounds nuw %"class.llvm::Register", ptr %0, i64 %79
   %81 = getelementptr inbounds nuw %"class.llvm::Register", ptr %0, i64 %.0.lcssa
@@ -5320,7 +5320,7 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8RegisterElS1_N9__gnu_cx
 
 83:                                               ; preds = %77, %73, %._crit_edge
   %.1 = phi i64 [ %79, %77 ], [ %.0.lcssa, %73 ], [ %.0.lcssa, %._crit_edge ]
-  %84 = icmp sgt i64 %.1, %1
+  %84 = icmp samesign ugt i64 %.1, %1
   br i1 %84, label %.lr.ph.i, label %_ZSt11__push_heapIPN4llvm8RegisterElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_117FrameIndexesCache13sortRegistersERNS0_15SmallVectorImplIS1_EEEUlRS1_SB_E_EEEvT_T0_SF_T1_RT2_.exit
 
 .lr.ph.i:                                         ; preds = %83

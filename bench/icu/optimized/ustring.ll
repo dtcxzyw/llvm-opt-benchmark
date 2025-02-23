@@ -167,7 +167,7 @@ if.then61:                                        ; preds = %if.end53
   br i1 %cmp7, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %if.then61
-  %call63 = tail call ptr @u_strchr_75(ptr noundef %s, i16 noundef zeroext %20)
+  %call63 = tail call ptr @u_strchr_75(ptr noundef nonnull %s, i16 noundef zeroext %20)
   br label %return
 
 cond.false:                                       ; preds = %if.then61

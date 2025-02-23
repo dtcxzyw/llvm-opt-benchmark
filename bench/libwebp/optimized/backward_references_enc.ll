@@ -1720,7 +1720,7 @@ VP8LRefsCursorInit.exit.i.i45:                    ; preds = %428, %426
   %441 = getelementptr inbounds nuw [11 x ptr], ptr %20, i64 0, i64 %indvars.iv.i138.i
   store ptr %440, ptr %441, align 8, !tbaa !36
   %442 = icmp eq ptr %440, null
-  br i1 %442, label %.loopexit122.i.i, label %443
+  br i1 %442, label %.lr.ph152.i.preheader.i, label %443
 
 443:                                              ; preds = %.lr.ph.i137.i
   call void @VP8LHistogramInit(ptr noundef nonnull %440, i32 noundef %439, i32 noundef 1) #11
@@ -1733,7 +1733,7 @@ VP8LRefsCursorInit.exit.i.i45:                    ; preds = %428, %426
   %448 = getelementptr inbounds nuw [11 x i32], ptr %18, i64 0, i64 %indvars.iv.i138.i
   store i32 %447, ptr %448, align 4, !tbaa !32
   %.not111.i.i = icmp eq i32 %447, 0
-  br i1 %.not111.i.i, label %.loopexit122.i.i, label %449
+  br i1 %.not111.i.i, label %.lr.ph152.i.preheader.i, label %449
 
 449:                                              ; preds = %445, %443
   %indvars.iv.next.i139.i = add nuw nsw i64 %indvars.iv.i138.i, 1
@@ -1979,15 +1979,15 @@ VP8LRefsCursorNext.exit.i.i46:                    ; preds = %563, %.loopexit123.
   %spec.select239.i = select i1 %or.cond.i142.i, i64 %572, i64 %.097147.i.i
   %indvars.iv.next172.i.i = add nuw nsw i64 %indvars.iv171.i.i, 1
   %exitcond175.not.i.i = icmp eq i64 %indvars.iv.next172.i.i, %wide.trip.count.i136.i
-  br i1 %exitcond175.not.i.i, label %.loopexit122.i.i, label %.lr.ph149.i.i, !llvm.loop !77
+  br i1 %exitcond175.not.i.i, label %.lr.ph152.i.preheader.i, label %.lr.ph149.i.i, !llvm.loop !77
 
-.loopexit122.i.i:                                 ; preds = %445, %.lr.ph.i137.i, %.lr.ph149.i.i
-  %.3.i = phi i32 [ %spec.select238.i, %.lr.ph149.i.i ], [ %422, %.lr.ph.i137.i ], [ %422, %445 ]
-  %.not124.i = phi i1 [ false, %.lr.ph149.i.i ], [ true, %.lr.ph.i137.i ], [ true, %445 ]
-  br i1 %.not129.i.i, label %CalculateBestCacheSize.exit.i, label %.lr.ph152.i.i
+.lr.ph152.i.preheader.i:                          ; preds = %.lr.ph.i137.i, %445, %.lr.ph149.i.i
+  %.not124289.i = phi i1 [ false, %.lr.ph149.i.i ], [ true, %445 ], [ true, %.lr.ph.i137.i ]
+  %.3287.i = phi i32 [ %spec.select238.i, %.lr.ph149.i.i ], [ %422, %445 ], [ %422, %.lr.ph.i137.i ]
+  br label %.lr.ph152.i.i
 
-.lr.ph152.i.i:                                    ; preds = %.loopexit122.i.i, %580
-  %indvars.iv176.i.i = phi i64 [ %indvars.iv.next177.i.i, %580 ], [ 0, %.loopexit122.i.i ]
+.lr.ph152.i.i:                                    ; preds = %580, %.lr.ph152.i.preheader.i
+  %indvars.iv176.i.i = phi i64 [ %indvars.iv.next177.i.i, %580 ], [ 0, %.lr.ph152.i.preheader.i ]
   %576 = getelementptr inbounds nuw [11 x i32], ptr %18, i64 0, i64 %indvars.iv176.i.i
   %577 = load i32, ptr %576, align 4, !tbaa !32
   %.not113.i.i = icmp eq i32 %577, 0
@@ -2013,14 +2013,14 @@ CalculateBestCacheSize.exit.thread.i:             ; preds = %.preheader.i141.i, 
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %18) #11
   br label %583
 
-CalculateBestCacheSize.exit.i:                    ; preds = %580, %.loopexit122.i.i
+CalculateBestCacheSize.exit.i:                    ; preds = %580
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %19) #11
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %18) #11
-  br i1 %.not124.i, label %.critedge, label %583
+  br i1 %.not124289.i, label %.critedge, label %583
 
 583:                                              ; preds = %CalculateBestCacheSize.exit.i, %CalculateBestCacheSize.exit.thread.i
-  %.4214.i = phi i32 [ %.4.ph.i, %CalculateBestCacheSize.exit.thread.i ], [ %.3.i, %CalculateBestCacheSize.exit.i ]
+  %.4214.i = phi i32 [ %.4.ph.i, %CalculateBestCacheSize.exit.thread.i ], [ %.3287.i, %CalculateBestCacheSize.exit.i ]
   %584 = icmp sgt i32 %.4214.i, 0
   br i1 %584, label %585, label %634
 

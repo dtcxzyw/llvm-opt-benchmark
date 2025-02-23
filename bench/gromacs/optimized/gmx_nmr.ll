@@ -860,14 +860,16 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit.i:        ; preds = %253
   %259 = sext i32 %258 to i64
   %260 = getelementptr inbounds %union.t_iparams, ptr %234, i64 %259, i32 0, i32 0, i64 2
   %261 = load i32, ptr %260, align 4
-  %262 = udiv i64 %indvars.iv.i, 3
-  %263 = getelementptr inbounds nuw i32, ptr %252, i64 %262
+  %.lhs.trunc1229 = trunc i64 %indvars.iv.i to i32
+  %262 = udiv i32 %.lhs.trunc1229, 3
+  %.zext = zext nneg i32 %262 to i64
+  %263 = getelementptr inbounds nuw i32, ptr %252, i64 %.zext
   store i32 %261, ptr %263, align 4
   %264 = load i32, ptr %257, align 4
   %265 = sext i32 %264 to i64
   %266 = getelementptr inbounds %union.t_iparams, ptr %234, i64 %265, i32 0, i32 1, i64 1
   %267 = load float, ptr %266, align 4
-  %268 = getelementptr inbounds nuw float, ptr %254, i64 %262
+  %268 = getelementptr inbounds nuw float, ptr %254, i64 %.zext
   store float %267, ptr %268, align 4
   %269 = load i32, ptr %257, align 4
   %270 = sext i32 %269 to i64
@@ -1099,7 +1101,7 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431:     ; preds = %_ZL15gmx_srenew_imp
   store i32 %321, ptr %320, align 4
   %indvars.iv.next1148 = add nuw nsw i64 %indvars.iv1147, 1
   %exitcond1151.not = icmp eq i64 %indvars.iv.next1148, %wide.trip.count1150
-  br i1 %exitcond1151.not, label %.loopexit825, label %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431, !llvm.loop !8
+  br i1 %exitcond1151.not, label %.lr.ph958, label %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431, !llvm.loop !8
 
 .preheader826:                                    ; preds = %.preheader826.lr.ph, %339
   %indvars.iv1138 = phi i64 [ 0, %.preheader826.lr.ph ], [ %indvars.iv.next1139, %339 ]
@@ -1151,21 +1153,21 @@ _ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431:     ; preds = %_ZL15gmx_srenew_imp
   %exitcond1146.not = icmp eq i64 %indvars.iv.next1139, %wide.trip.count1145
   br i1 %exitcond1146.not, label %.loopexit825, label %.preheader826, !llvm.loop !10
 
-.loopexit825:                                     ; preds = %339, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431
-  %.2757 = phi ptr [ %318, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431 ], [ %299, %339 ]
-  %.1338 = phi i32 [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431 ], [ %.33401218, %339 ]
-  %340 = icmp sgt i32 %.1338, 0
+.loopexit825:                                     ; preds = %339
+  %340 = icmp sgt i32 %.33401218, 0
   br i1 %340, label %.lr.ph958, label %._crit_edge
 
-.lr.ph958:                                        ; preds = %.loopexit825
+.lr.ph958:                                        ; preds = %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431, %.loopexit825
+  %.13381228 = phi i32 [ %.33401218, %.loopexit825 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431 ]
+  %.27571227 = phi ptr [ %299, %.loopexit825 ], [ %318, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431 ]
   %341 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %342 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %wide.trip.count1155 = zext nneg i32 %.1338 to i64
+  %wide.trip.count1155 = zext nneg i32 %.13381228 to i64
   br label %343
 
 343:                                              ; preds = %.lr.ph958, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
   %indvars.iv1152 = phi i64 [ 0, %.lr.ph958 ], [ %indvars.iv.next1153, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
-  %344 = getelementptr inbounds nuw i32, ptr %.2757, i64 %indvars.iv1152
+  %344 = getelementptr inbounds nuw i32, ptr %.27571227, i64 %indvars.iv1152
   %345 = load i32, ptr %344, align 4
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds i32, ptr %.0759, i64 %346
@@ -1203,8 +1205,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   br label %.body424
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit, %.preheader828, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431.preheader, %.loopexit825
-  %.13381223 = phi i32 [ %.1338, %.loopexit825 ], [ 0, %.preheader828 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431.preheader ], [ %.1338, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
-  %.27571222 = phi ptr [ %.2757, %.loopexit825 ], [ %299, %.preheader828 ], [ %318, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431.preheader ], [ %.2757, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
+  %.13381223 = phi i32 [ %.33401218, %.loopexit825 ], [ 0, %.preheader828 ], [ %.0, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431.preheader ], [ %.13381228, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
+  %.27571222 = phi ptr [ %299, %.loopexit825 ], [ %299, %.preheader828 ], [ %318, %_ZL15gmx_srenew_implIiEvPKcS1_iRPT_m.exit431.preheader ], [ %.27571227, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit ]
   br i1 %187, label %358, label %392
 
 358:                                              ; preds = %._crit_edge
@@ -2439,14 +2441,14 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i508: ; preds = %824
   %834 = load i32, ptr %826, align 4
   %835 = sdiv i32 %833, %834
   %836 = mul nsw i32 %835, %834
-  %.recomposed1695 = srem i32 %833, %834
+  %.recomposed1698 = srem i32 %833, %834
   %837 = getelementptr inbounds %struct.gmx_molblock_t, ptr %758, i64 %825
   %838 = load i32, ptr %837, align 8
   %839 = sext i32 %838 to i64
   %840 = getelementptr inbounds %struct.gmx_moltype_t, ptr %787, i64 %839
   %841 = getelementptr inbounds nuw i8, ptr %840, i64 24
   %842 = load ptr, ptr %841, align 8
-  %843 = sext i32 %.recomposed1695 to i64
+  %843 = sext i32 %.recomposed1698 to i64
   %844 = getelementptr inbounds ptr, ptr %842, i64 %843
   %845 = load ptr, ptr %844, align 8
   %846 = load ptr, ptr %845, align 8

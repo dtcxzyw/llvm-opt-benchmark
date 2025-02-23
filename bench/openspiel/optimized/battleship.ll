@@ -893,7 +893,7 @@ define noundef range(i32 -4, 2) i32 @_ZNK10open_spiel10battleship15BattleshipSta
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not4.i.i.i.i = icmp eq ptr %5, %7
-  br i1 %.not4.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread, label %.lr.ph.i.i.i.i
+  br i1 %.not4.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %.lr.ph.i.i.i.i
   %.06.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %1 ]
@@ -905,112 +905,105 @@ define noundef range(i32 -4, 2) i32 @_ZNK10open_spiel10battleship15BattleshipSta
   %spec.select.i.i.i.i = add i32 %.06.i.i.i.i, %10
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i, i64 48
   %.not.i.i.i.i = icmp eq ptr %11, %7
-  br i1 %.not.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit, label %.lr.ph.i.i.i.i, !llvm.loop !4
+  br i1 %.not.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !4
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit: ; preds = %.lr.ph.i.i.i.i
-  %12 = sext i32 %spec.select.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %13, align 8
-  %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %20 = ashr exact i64 %19, 3
-  %21 = icmp eq i64 %20, %12
-  br i1 %21, label %33, label %.lr.ph.i.i.i
+_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit: ; preds = %1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 296
+  %14 = load ptr, ptr %13, align 8
+  %15 = load ptr, ptr %12, align 8
+  %16 = icmp eq ptr %14, %15
+  br i1 %16, label %32, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread: ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 288
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 296
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %22, align 8
-  %26 = icmp eq ptr %24, %25
-  br i1 %26, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread
+_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread: ; preds = %.lr.ph.i.i.i.i
+  %17 = sext i32 %spec.select.i.i.i.i to i64
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 296
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %18, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = ashr exact i64 %24, 3
+  %26 = icmp eq i64 %25, %17
+  br i1 %26, label %32, label %.lr.ph.i.i.i
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge: ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread
-  %27 = ptrtoint ptr %25 to i64
-  %.pre = ptrtoint ptr %24 to i64
-  %.pre15 = sub i64 %.pre, %27
-  %.pre17 = ashr exact i64 %.pre15, 3
-  br label %33
-
-.lr.ph.i.i.i:                                     ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit, %.lr.ph.i.i.i
-  %.06.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
-  %.sroa.02.05.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i ], [ %5, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
-  %28 = getelementptr i8, ptr %.sroa.02.05.i.i.i, i64 40
-  %.val.i.i.i.i = load i64, ptr %28, align 8
-  %29 = icmp eq i64 %.val.i.i.i.i, 0
-  %30 = zext i1 %29 to i32
-  %spec.select.i.i.i = add i32 %.06.i.i.i, %30
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i, i64 48
-  %.not.i.i.i = icmp eq ptr %31, %7
+.lr.ph.i.i.i:                                     ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread, %.lr.ph.i.i.i
+  %.06.i.i.i = phi i32 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ]
+  %.sroa.02.05.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i ], [ %5, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ]
+  %27 = getelementptr i8, ptr %.sroa.02.05.i.i.i, i64 40
+  %.val.i.i.i.i = load i64, ptr %27, align 8
+  %28 = icmp eq i64 %.val.i.i.i.i, 0
+  %29 = zext i1 %28 to i32
+  %spec.select.i.i.i = add i32 %.06.i.i.i, %29
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i, i64 48
+  %.not.i.i.i = icmp eq ptr %30, %7
   br i1 %.not.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !4
 
 _ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit: ; preds = %.lr.ph.i.i.i
-  %32 = and i32 %spec.select.i.i.i, 1
+  %31 = and i32 %spec.select.i.i.i, 1
   br label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread
 
-33:                                               ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit
-  %.pre-phi18 = phi i64 [ %.pre17, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge ], [ %20, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
-  %34 = phi ptr [ %25, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge ], [ %16, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
-  %35 = phi ptr [ %24, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge ], [ %15, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
-  %36 = ptrtoint ptr %7 to i64
-  %37 = ptrtoint ptr %5 to i64
-  %38 = sub i64 %36, %37
-  %39 = sdiv exact i64 %38, 48
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 312
-  %41 = load i32, ptr %40, align 8
-  %42 = shl nsw i32 %41, 1
-  %43 = sext i32 %42 to i64
-  %44 = add nsw i64 %.pre-phi18, %43
-  %45 = icmp eq i64 %39, %44
-  %.not9.i = icmp eq ptr %34, %35
-  %or.cond = or i1 %.not9.i, %45
+32:                                               ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit
+  %33 = phi ptr [ %21, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ], [ %15, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
+  %34 = phi ptr [ %20, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ], [ %14, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
+  %.0.lcssa.i.i.i.i15 = phi i64 [ %17, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ]
+  %35 = ptrtoint ptr %7 to i64
+  %36 = ptrtoint ptr %5 to i64
+  %37 = sub i64 %35, %36
+  %38 = sdiv exact i64 %37, 48
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 312
+  %40 = load i32, ptr %39, align 8
+  %41 = shl nsw i32 %40, 1
+  %42 = sext i32 %41 to i64
+  %43 = add nsw i64 %.0.lcssa.i.i.i.i15, %42
+  %44 = icmp eq i64 %38, %43
+  %.not9.i = icmp eq ptr %33, %34
+  %or.cond = or i1 %.not9.i, %44
   br i1 %or.cond, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread, label %.lr.ph.i
 
-46:                                               ; preds = %.lr.ph.i
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 16
-  %.not.i = icmp eq ptr %47, %35
+45:                                               ; preds = %.lr.ph.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i, i64 16
+  %.not.i = icmp eq ptr %46, %34
   br i1 %.not.i, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %33, %46
-  %.sroa.06.010.i = phi ptr [ %47, %46 ], [ %34, %33 ]
-  %48 = tail call noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i, i32 noundef 0)
-  br i1 %48, label %46, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit
+.lr.ph.i:                                         ; preds = %32, %45
+  %.sroa.06.010.i = phi ptr [ %46, %45 ], [ %33, %32 ]
+  %47 = tail call noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i, i32 noundef 0)
+  br i1 %47, label %45, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit
 
 _ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit: ; preds = %.lr.ph.i
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 288
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 296
-  %53 = load ptr, ptr %52, align 8
-  %.not9.i4 = icmp eq ptr %51, %53
+  %48 = load ptr, ptr %2, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 288
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 296
+  %52 = load ptr, ptr %51, align 8
+  %.not9.i4 = icmp eq ptr %50, %52
   br i1 %.not9.i4, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread, label %.lr.ph.i5
 
-54:                                               ; preds = %.lr.ph.i5
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i6, i64 16
-  %.not.i8 = icmp eq ptr %55, %53
+53:                                               ; preds = %.lr.ph.i5
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i6, i64 16
+  %.not.i8 = icmp eq ptr %54, %52
   br i1 %.not.i8, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread, label %.lr.ph.i5
 
-.lr.ph.i5:                                        ; preds = %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit, %54
-  %.sroa.06.010.i6 = phi ptr [ %55, %54 ], [ %51, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit ]
-  %56 = tail call noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i6, i32 noundef 1)
-  br i1 %56, label %54, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9
+.lr.ph.i5:                                        ; preds = %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit, %53
+  %.sroa.06.010.i6 = phi ptr [ %54, %53 ], [ %50, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit ]
+  %55 = tail call noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i6, i32 noundef 1)
+  br i1 %55, label %53, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9
 
 _ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9: ; preds = %.lr.ph.i5
-  %57 = load ptr, ptr %6, align 8
-  %58 = load ptr, ptr %4, align 8
+  %56 = load ptr, ptr %6, align 8
+  %57 = load ptr, ptr %4, align 8
+  %58 = ptrtoint ptr %56 to i64
   %59 = ptrtoint ptr %57 to i64
-  %60 = ptrtoint ptr %58 to i64
-  %61 = sub i64 %59, %60
-  %62 = sdiv exact i64 %61, 48
-  %63 = trunc i64 %62 to i32
-  %.3 = and i32 %63, 1
+  %60 = sub i64 %58, %59
+  %61 = sdiv exact i64 %60, 48
+  %62 = trunc i64 %61 to i32
+  %.3 = and i32 %62, 1
   br label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread
 
-_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread: ; preds = %46, %54, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9, %33
-  %.0 = phi i32 [ -4, %33 ], [ %.3, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9 ], [ -4, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread ], [ %32, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit ], [ -4, %54 ], [ -4, %46 ]
+_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.thread: ; preds = %45, %53, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9, %32
+  %.0 = phi i32 [ -4, %32 ], [ %.3, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9 ], [ -4, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit ], [ %31, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit ], [ -4, %53 ], [ -4, %45 ]
   ret i32 %.0
 }
 
@@ -1138,8 +1131,8 @@ define void @_ZNK10open_spiel10battleship15BattleshipState12LegalActionsEv(ptr d
   %25 = icmp slt i32 %23, 0
   br i1 %25, label %.invoke, label %27
 
-.invoke:                                          ; preds = %481, %17
-  %26 = phi ptr [ @.str.162, %17 ], [ @.str.141, %481 ]
+.invoke:                                          ; preds = %482, %17
+  %26 = phi ptr [ @.str.162, %17 ], [ @.str.141, %482 ]
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull %26) #28
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -1869,22 +1862,22 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit108:        ; preds = %_ZNSt6vectorIlSaIlE
   br label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge233
-  %301 = phi i32 [ %505, %._crit_edge233 ], [ %53, %.preheader.lr.ph ]
-  %302 = phi ptr [ %506, %._crit_edge233 ], [ %.promoted225281, %.preheader.lr.ph ]
-  %303 = phi i32 [ %507, %._crit_edge233 ], [ %58, %.preheader.lr.ph ]
+  %301 = phi i32 [ %506, %._crit_edge233 ], [ %53, %.preheader.lr.ph ]
+  %302 = phi ptr [ %507, %._crit_edge233 ], [ %.promoted225281, %.preheader.lr.ph ]
+  %303 = phi i32 [ %508, %._crit_edge233 ], [ %58, %.preheader.lr.ph ]
   %.promoted225 = phi ptr [ %.promoted225277, %._crit_edge233 ], [ %.promoted225281, %.preheader.lr.ph ]
   %.promoted224 = phi ptr [ %.promoted224272, %._crit_edge233 ], [ %.promoted224276, %.preheader.lr.ph ]
-  %.043234 = phi i32 [ %508, %._crit_edge233 ], [ 0, %.preheader.lr.ph ]
+  %.043234 = phi i32 [ %509, %._crit_edge233 ], [ 0, %.preheader.lr.ph ]
   %304 = icmp sgt i32 %303, 0
   br i1 %304, label %.lr.ph232, label %._crit_edge233
 
 .lr.ph232:                                        ; preds = %.preheader, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135
-  %305 = phi ptr [ %499, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %302, %.preheader ]
+  %305 = phi ptr [ %500, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %302, %.preheader ]
   %.promoted225279 = phi ptr [ %.promoted225278, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted225, %.preheader ]
   %.promoted224274 = phi ptr [ %.promoted224273, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted224, %.preheader ]
-  %.0226 = phi i32 [ %502, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ 0, %.preheader ]
-  %306 = phi ptr [ %501, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted224, %.preheader ]
-  %307 = phi ptr [ %500, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted225, %.preheader ]
+  %.0226 = phi i32 [ %503, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ 0, %.preheader ]
+  %306 = phi ptr [ %502, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted224, %.preheader ]
+  %307 = phi ptr [ %501, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135 ], [ %.promoted225, %.preheader ]
   %308 = load i8, ptr %55, align 4
   %309 = trunc i8 %308 to i1
   br i1 %309, label %.critedge, label %310
@@ -1894,7 +1887,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit108:        ; preds = %_ZNSt6vectorIlSaIlE
   %312 = load ptr, ptr %33, align 8
   %313 = load ptr, ptr %35, align 8
   %.not4.i.i.i.i.i = icmp eq ptr %312, %313
-  br i1 %.not4.i.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i, label %.lr.ph.i.i.i.i.i112
+  br i1 %.not4.i.i.i.i.i, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i, label %.lr.ph.i.i.i.i.i112
 
 .lr.ph.i.i.i.i.i112:                              ; preds = %310, %.lr.ph.i.i.i.i.i112
   %.06.i.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i, %.lr.ph.i.i.i.i.i112 ], [ 0, %310 ]
@@ -1906,32 +1899,32 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit108:        ; preds = %_ZNSt6vectorIlSaIlE
   %spec.select.i.i.i.i.i = add i32 %.06.i.i.i.i.i, %316
   %317 = getelementptr inbounds nuw i8, ptr %.sroa.02.05.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i113 = icmp eq ptr %317, %313
-  br i1 %.not.i.i.i.i.i113, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i, label %.lr.ph.i.i.i.i.i112, !llvm.loop !4
+  br i1 %.not.i.i.i.i.i113, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i, label %.lr.ph.i.i.i.i.i112, !llvm.loop !4
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i: ; preds = %.lr.ph.i.i.i.i.i112
-  %318 = sext i32 %spec.select.i.i.i.i.i to i64
-  %319 = getelementptr inbounds nuw i8, ptr %311, i64 288
-  %320 = getelementptr inbounds nuw i8, ptr %311, i64 296
-  %321 = load ptr, ptr %320, align 8
-  %322 = load ptr, ptr %319, align 8
-  %323 = ptrtoint ptr %321 to i64
-  %324 = ptrtoint ptr %322 to i64
-  %325 = sub i64 %323, %324
-  %326 = ashr exact i64 %325, 3
-  %327 = icmp eq i64 %326, %318
-  br i1 %327, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i, label %.lr.ph.i.i.i.i114
+_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i: ; preds = %310
+  %318 = getelementptr inbounds nuw i8, ptr %311, i64 288
+  %319 = getelementptr inbounds nuw i8, ptr %311, i64 296
+  %320 = load ptr, ptr %319, align 8
+  %321 = load ptr, ptr %318, align 8
+  %322 = icmp eq ptr %320, %321
+  br i1 %322, label %338, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i: ; preds = %310
-  %328 = getelementptr inbounds nuw i8, ptr %311, i64 288
-  %329 = getelementptr inbounds nuw i8, ptr %311, i64 296
-  %330 = load ptr, ptr %329, align 8
-  %331 = load ptr, ptr %328, align 8
-  %332 = icmp eq ptr %330, %331
-  br i1 %332, label %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
+_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i112
+  %323 = sext i32 %spec.select.i.i.i.i.i to i64
+  %324 = getelementptr inbounds nuw i8, ptr %311, i64 288
+  %325 = getelementptr inbounds nuw i8, ptr %311, i64 296
+  %326 = load ptr, ptr %325, align 8
+  %327 = load ptr, ptr %324, align 8
+  %328 = ptrtoint ptr %326 to i64
+  %329 = ptrtoint ptr %327 to i64
+  %330 = sub i64 %328, %329
+  %331 = ashr exact i64 %330, 3
+  %332 = icmp eq i64 %331, %323
+  br i1 %332, label %338, label %.lr.ph.i.i.i.i114
 
-.lr.ph.i.i.i.i114:                                ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i, %.lr.ph.i.i.i.i114
-  %.06.i.i.i.i115 = phi i32 [ %spec.select.i.i.i.i118, %.lr.ph.i.i.i.i114 ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ]
-  %.sroa.02.05.i.i.i.i116 = phi ptr [ %336, %.lr.ph.i.i.i.i114 ], [ %312, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ]
+.lr.ph.i.i.i.i114:                                ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i, %.lr.ph.i.i.i.i114
+  %.06.i.i.i.i115 = phi i32 [ %spec.select.i.i.i.i118, %.lr.ph.i.i.i.i114 ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ]
+  %.sroa.02.05.i.i.i.i116 = phi ptr [ %336, %.lr.ph.i.i.i.i114 ], [ %312, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ]
   %333 = getelementptr i8, ptr %.sroa.02.05.i.i.i.i116, i64 40
   %.val.i.i.i.i.i117 = load i64, ptr %333, align 8
   %334 = icmp eq i64 %.val.i.i.i.i.i117, 0
@@ -1945,377 +1938,377 @@ _ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit.i1
   %337 = and i32 %spec.select.i.i.i.i118, 1
   br label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
 
-_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i: ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i
-  %.pre-phi18.i = phi i64 [ %318, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ]
-  %338 = phi ptr [ %322, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ], [ %331, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ]
-  %339 = phi ptr [ %321, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ], [ %330, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ]
-  %340 = ptrtoint ptr %313 to i64
-  %341 = ptrtoint ptr %312 to i64
-  %342 = sub i64 %340, %341
-  %343 = sdiv exact i64 %342, 48
-  %344 = getelementptr inbounds nuw i8, ptr %311, i64 312
-  %345 = load i32, ptr %344, align 8
-  %346 = shl nsw i32 %345, 1
-  %347 = sext i32 %346 to i64
-  %348 = add nsw i64 %.pre-phi18.i, %347
-  %349 = icmp eq i64 %343, %348
-  %.not9.i.i = icmp eq ptr %338, %339
-  %or.cond.i = or i1 %.not9.i.i, %349
+338:                                              ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i
+  %339 = phi ptr [ %327, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ], [ %321, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ]
+  %340 = phi ptr [ %326, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ], [ %320, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ]
+  %.0.lcssa.i.i.i.i15.i = phi i64 [ %323, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ]
+  %341 = ptrtoint ptr %313 to i64
+  %342 = ptrtoint ptr %312 to i64
+  %343 = sub i64 %341, %342
+  %344 = sdiv exact i64 %343, 48
+  %345 = getelementptr inbounds nuw i8, ptr %311, i64 312
+  %346 = load i32, ptr %345, align 8
+  %347 = shl nsw i32 %346, 1
+  %348 = sext i32 %347 to i64
+  %349 = add nsw i64 %.0.lcssa.i.i.i.i15.i, %348
+  %350 = icmp eq i64 %344, %349
+  %.not9.i.i = icmp eq ptr %339, %340
+  %or.cond.i = or i1 %.not9.i.i, %350
   br i1 %or.cond.i, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit, label %.lr.ph.i.i
 
-350:                                              ; preds = %.noexc123
-  %351 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i, i64 16
-  %.not.i.i122 = icmp eq ptr %351, %339
+351:                                              ; preds = %.noexc123
+  %352 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i.i, i64 16
+  %.not.i.i122 = icmp eq ptr %352, %340
   br i1 %.not.i.i122, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i, %350
-  %.sroa.06.010.i.i = phi ptr [ %351, %350 ], [ %338, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i ]
-  %352 = invoke noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i.i, i32 noundef 0)
+.lr.ph.i.i:                                       ; preds = %338, %351
+  %.sroa.06.010.i.i = phi ptr [ %352, %351 ], [ %339, %338 ]
+  %353 = invoke noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i.i, i32 noundef 0)
           to label %.noexc123 unwind label %.loopexit.split-lp.loopexit
 
 .noexc123:                                        ; preds = %.lr.ph.i.i
-  br i1 %352, label %350, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i
+  br i1 %353, label %351, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i
 
 _ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i: ; preds = %.noexc123
-  %353 = load ptr, ptr %19, align 8
-  %354 = getelementptr inbounds nuw i8, ptr %353, i64 288
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw i8, ptr %353, i64 296
-  %357 = load ptr, ptr %356, align 8
-  %.not9.i4.i = icmp eq ptr %355, %357
+  %354 = load ptr, ptr %19, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 288
+  %356 = load ptr, ptr %355, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %354, i64 296
+  %358 = load ptr, ptr %357, align 8
+  %.not9.i4.i = icmp eq ptr %356, %358
   br i1 %.not9.i4.i, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit, label %.lr.ph.i5.i
 
-358:                                              ; preds = %.noexc124
-  %359 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i6.i, i64 16
-  %.not.i8.i121 = icmp eq ptr %359, %357
+359:                                              ; preds = %.noexc124
+  %360 = getelementptr inbounds nuw i8, ptr %.sroa.06.010.i6.i, i64 16
+  %.not.i8.i121 = icmp eq ptr %360, %358
   br i1 %.not.i8.i121, label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit, label %.lr.ph.i5.i
 
-.lr.ph.i5.i:                                      ; preds = %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i, %358
-  %.sroa.06.010.i6.i = phi ptr [ %359, %358 ], [ %355, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i ]
-  %360 = invoke noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i6.i, i32 noundef 1)
+.lr.ph.i5.i:                                      ; preds = %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i, %359
+  %.sroa.06.010.i6.i = phi ptr [ %360, %359 ], [ %356, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i ]
+  %361 = invoke noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState11DidShipSinkERKNS0_4ShipEi(ptr noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.010.i6.i, i32 noundef 1)
           to label %.noexc124 unwind label %.loopexit149
 
 .noexc124:                                        ; preds = %.lr.ph.i5.i
-  br i1 %360, label %358, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i
+  br i1 %361, label %359, label %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i
 
 _ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i: ; preds = %.noexc124
-  %361 = load ptr, ptr %35, align 8
-  %362 = load ptr, ptr %33, align 8
-  %363 = ptrtoint ptr %361 to i64
+  %362 = load ptr, ptr %35, align 8
+  %363 = load ptr, ptr %33, align 8
   %364 = ptrtoint ptr %362 to i64
-  %365 = sub i64 %363, %364
-  %366 = sdiv exact i64 %365, 48
-  %367 = trunc i64 %366 to i32
-  %.3.i = and i32 %367, 1
+  %365 = ptrtoint ptr %363 to i64
+  %366 = sub i64 %364, %365
+  %367 = sdiv exact i64 %366, 48
+  %368 = trunc i64 %367 to i32
+  %.3.i = and i32 %368, 1
   br label %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
 
-_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit: ; preds = %350, %358, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit.i120, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i
-  %.0.i = phi i32 [ -4, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread._crit_edge.i ], [ %.3.i, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i ], [ -4, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.thread.i ], [ %337, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit.i120 ], [ -4, %358 ], [ -4, %350 ]
-  %368 = load ptr, ptr %33, align 8
-  %369 = load ptr, ptr %35, align 8
-  %370 = ptrtoint ptr %369 to i64
-  %371 = ptrtoint ptr %368 to i64
-  %372 = sub i64 %370, %371
-  %373 = sdiv exact i64 %372, 48
-  %374 = ashr i64 %373, 2
-  %375 = icmp sgt i64 %374, 0
-  br i1 %375, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
+_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit: ; preds = %351, %359, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i, %338, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit.i120, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i
+  %.0.i = phi i32 [ -4, %338 ], [ %.3.i, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit9.i ], [ -4, %_ZNK10open_spiel10battleship15BattleshipState19AllPlayersShipsSankEi.exit.i ], [ %337, %_ZNK10open_spiel10battleship15BattleshipState14NumShipsPlacedEv.exit.loopexit.i120 ], [ 0, %_ZNK10open_spiel10battleship15BattleshipState14AllShipsPlacedEv.exit.i ], [ -4, %359 ], [ -4, %351 ]
+  %369 = load ptr, ptr %33, align 8
+  %370 = load ptr, ptr %35, align 8
+  %371 = ptrtoint ptr %370 to i64
+  %372 = ptrtoint ptr %369 to i64
+  %373 = sub i64 %371, %372
+  %374 = sdiv exact i64 %373, 48
+  %375 = ashr i64 %374, 2
+  %376 = icmp sgt i64 %375, 0
+  br i1 %376, label %.lr.ph.preheader.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
-  %376 = mul nuw nsw i64 %374, 192
-  %scevgep.i.i.i.i = getelementptr i8, ptr %368, i64 %376
+  %377 = mul nuw nsw i64 %375, 192
+  %scevgep.i.i.i.i = getelementptr i8, ptr %369, i64 %377
   br label %.lr.ph.i.i.i.i125
 
 .lr.ph.i.i.i.i125:                                ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i", %.lr.ph.preheader.i.i.i.i
-  %.076.i.i.i.i = phi i64 [ %429, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i" ], [ %374, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.056.075.i.i.i.i = phi ptr [ %428, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i" ], [ %368, %.lr.ph.preheader.i.i.i.i ]
-  %377 = load i32, ptr %.sroa.056.075.i.i.i.i, align 8
-  %378 = icmp eq i32 %377, %.0.i
-  %379 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 40
-  %380 = load i64, ptr %379, align 8
-  %381 = icmp eq i64 %380, 1
-  %or.cond.i.i.i.i.i.i = select i1 %378, i1 %381, i1 false
+  %.076.i.i.i.i = phi i64 [ %430, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i" ], [ %375, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.056.075.i.i.i.i = phi ptr [ %429, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i" ], [ %369, %.lr.ph.preheader.i.i.i.i ]
+  %378 = load i32, ptr %.sroa.056.075.i.i.i.i, align 8
+  %379 = icmp eq i32 %378, %.0.i
+  %380 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 40
+  %381 = load i64, ptr %380, align 8
+  %382 = icmp eq i64 %381, 1
+  %or.cond.i.i.i.i.i.i = select i1 %379, i1 %382, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i": ; preds = %.lr.ph.i.i.i.i125
-  %382 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 8
-  %383 = load i32, ptr %382, align 4
-  %384 = icmp eq i32 %383, %.043234
-  %385 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 12
-  %386 = load i32, ptr %385, align 4
-  %387 = icmp eq i32 %386, %.0226
-  %388 = select i1 %384, i1 %387, i1 false
-  br i1 %388, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
+  %383 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 8
+  %384 = load i32, ptr %383, align 4
+  %385 = icmp eq i32 %384, %.043234
+  %386 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 12
+  %387 = load i32, ptr %386, align 4
+  %388 = icmp eq i32 %387, %.0226
+  %389 = select i1 %385, i1 %388, i1 false
+  br i1 %389, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i", %.lr.ph.i.i.i.i125
-  %389 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 48
-  %390 = load i32, ptr %389, align 8
-  %391 = icmp eq i32 %390, %.0.i
-  %392 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 88
-  %393 = load i64, ptr %392, align 8
-  %394 = icmp eq i64 %393, 1
-  %or.cond.i.i17.i.i.i.i = select i1 %391, i1 %394, i1 false
+  %390 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 48
+  %391 = load i32, ptr %390, align 8
+  %392 = icmp eq i32 %391, %.0.i
+  %393 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 88
+  %394 = load i64, ptr %393, align 8
+  %395 = icmp eq i64 %394, 1
+  %or.cond.i.i17.i.i.i.i = select i1 %392, i1 %395, i1 false
   br i1 %or.cond.i.i17.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
-  %395 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 56
-  %396 = load i32, ptr %395, align 4
-  %397 = icmp eq i32 %396, %.043234
-  %398 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 60
-  %399 = load i32, ptr %398, align 4
-  %400 = icmp eq i32 %399, %.0226
-  %401 = select i1 %397, i1 %400, i1 false
-  br i1 %401, label %.loopexit.loopexit.split.loop.exit317, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i"
+  %396 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 56
+  %397 = load i32, ptr %396, align 4
+  %398 = icmp eq i32 %397, %.043234
+  %399 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 60
+  %400 = load i32, ptr %399, align 4
+  %401 = icmp eq i32 %400, %.0226
+  %402 = select i1 %398, i1 %401, i1 false
+  br i1 %402, label %.loopexit.loopexit.split.loop.exit317, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.thread.i.i.i.i"
-  %402 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 96
-  %403 = load i32, ptr %402, align 8
-  %404 = icmp eq i32 %403, %.0.i
-  %405 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 136
-  %406 = load i64, ptr %405, align 8
-  %407 = icmp eq i64 %406, 1
-  %or.cond.i.i20.i.i.i.i = select i1 %404, i1 %407, i1 false
+  %403 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 96
+  %404 = load i32, ptr %403, align 8
+  %405 = icmp eq i32 %404, %.0.i
+  %406 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 136
+  %407 = load i64, ptr %406, align 8
+  %408 = icmp eq i64 %407, 1
+  %or.cond.i.i20.i.i.i.i = select i1 %405, i1 %408, i1 false
   br i1 %or.cond.i.i20.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i"
-  %408 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 104
-  %409 = load i32, ptr %408, align 4
-  %410 = icmp eq i32 %409, %.043234
-  %411 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 108
-  %412 = load i32, ptr %411, align 4
-  %413 = icmp eq i32 %412, %.0226
-  %414 = select i1 %410, i1 %413, i1 false
-  br i1 %414, label %.loopexit.loopexit.split.loop.exit315, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i"
+  %409 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 104
+  %410 = load i32, ptr %409, align 4
+  %411 = icmp eq i32 %410, %.043234
+  %412 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 108
+  %413 = load i32, ptr %412, align 4
+  %414 = icmp eq i32 %413, %.0226
+  %415 = select i1 %411, i1 %414, i1 false
+  br i1 %415, label %.loopexit.loopexit.split.loop.exit315, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.thread.i.i.i.i"
-  %415 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 144
-  %416 = load i32, ptr %415, align 8
-  %417 = icmp eq i32 %416, %.0.i
-  %418 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 184
-  %419 = load i64, ptr %418, align 8
-  %420 = icmp eq i64 %419, 1
-  %or.cond.i.i23.i.i.i.i = select i1 %417, i1 %420, i1 false
+  %416 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 144
+  %417 = load i32, ptr %416, align 8
+  %418 = icmp eq i32 %417, %.0.i
+  %419 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 184
+  %420 = load i64, ptr %419, align 8
+  %421 = icmp eq i64 %420, 1
+  %or.cond.i.i23.i.i.i.i = select i1 %418, i1 %421, i1 false
   br i1 %or.cond.i.i23.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i"
-  %421 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 152
-  %422 = load i32, ptr %421, align 4
-  %423 = icmp eq i32 %422, %.043234
-  %424 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 156
-  %425 = load i32, ptr %424, align 4
-  %426 = icmp eq i32 %425, %.0226
-  %427 = select i1 %423, i1 %426, i1 false
-  br i1 %427, label %.loopexit.loopexit.split.loop.exit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i"
+  %422 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 152
+  %423 = load i32, ptr %422, align 4
+  %424 = icmp eq i32 %423, %.043234
+  %425 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 156
+  %426 = load i32, ptr %425, align 4
+  %427 = icmp eq i32 %426, %.0226
+  %428 = select i1 %424, i1 %427, i1 false
+  br i1 %428, label %.loopexit.loopexit.split.loop.exit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.thread.i.i.i.i"
-  %428 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 192
-  %429 = add nsw i64 %.076.i.i.i.i, -1
-  %430 = icmp sgt i64 %.076.i.i.i.i, 1
-  br i1 %430, label %.lr.ph.i.i.i.i125, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !24
+  %429 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 192
+  %430 = add nsw i64 %.076.i.i.i.i, -1
+  %431 = icmp sgt i64 %.076.i.i.i.i, 1
+  br i1 %431, label %.lr.ph.i.i.i.i125, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.thread.i.i.i.i"
   %.pre.i.i.i.i = ptrtoint ptr %scevgep.i.i.i.i to i64
-  %.pre81.i.i.i.i = sub i64 %370, %.pre.i.i.i.i
+  %.pre81.i.i.i.i = sub i64 %371, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit
-  %.pre-phi82.i.i.i.i = phi i64 [ %.pre81.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %372, %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit ]
-  %.sroa.056.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %368, %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit ]
-  %431 = sdiv exact i64 %.pre-phi82.i.i.i.i, 48
-  switch i64 %431, label %.critedge [
-    i64 3, label %432
-    i64 2, label %446
-    i64 1, label %460
+  %.pre-phi82.i.i.i.i = phi i64 [ %.pre81.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %373, %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit ]
+  %.sroa.056.0.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %369, %_ZNK10open_spiel10battleship15BattleshipState13CurrentPlayerEv.exit ]
+  %432 = sdiv exact i64 %.pre-phi82.i.i.i.i, 48
+  switch i64 %432, label %.critedge [
+    i64 3, label %433
+    i64 2, label %447
+    i64 1, label %461
   ]
 
-432:                                              ; preds = %._crit_edge.i.i.i.i
-  %433 = load i32, ptr %.sroa.056.0.lcssa.i.i.i.i, align 8
-  %434 = icmp eq i32 %433, %.0.i
-  %435 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 40
-  %436 = load i64, ptr %435, align 8
-  %437 = icmp eq i64 %436, 1
-  %or.cond.i.i26.i.i.i.i = select i1 %434, i1 %437, i1 false
+433:                                              ; preds = %._crit_edge.i.i.i.i
+  %434 = load i32, ptr %.sroa.056.0.lcssa.i.i.i.i, align 8
+  %435 = icmp eq i32 %434, %.0.i
+  %436 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 40
+  %437 = load i64, ptr %436, align 8
+  %438 = icmp eq i64 %437, 1
+  %or.cond.i.i26.i.i.i.i = select i1 %435, i1 %438, i1 false
   br i1 %or.cond.i.i26.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i": ; preds = %432
-  %438 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 8
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp eq i32 %439, %.043234
-  %441 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 12
-  %442 = load i32, ptr %441, align 4
-  %443 = icmp eq i32 %442, %.0226
-  %444 = select i1 %440, i1 %443, i1 false
-  br i1 %444, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i": ; preds = %433
+  %439 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 8
+  %440 = load i32, ptr %439, align 4
+  %441 = icmp eq i32 %440, %.043234
+  %442 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 12
+  %443 = load i32, ptr %442, align 4
+  %444 = icmp eq i32 %443, %.0226
+  %445 = select i1 %441, i1 %444, i1 false
+  br i1 %445, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i", %432
-  %445 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 48
-  br label %446
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i", %433
+  %446 = getelementptr inbounds nuw i8, ptr %.sroa.056.0.lcssa.i.i.i.i, i64 48
+  br label %447
 
-446:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.056.1.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %445, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i" ]
-  %447 = load i32, ptr %.sroa.056.1.i.i.i.i, align 8
-  %448 = icmp eq i32 %447, %.0.i
-  %449 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 40
-  %450 = load i64, ptr %449, align 8
-  %451 = icmp eq i64 %450, 1
-  %or.cond.i.i29.i.i.i.i = select i1 %448, i1 %451, i1 false
+447:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.sroa.056.1.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %446, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.thread.i.i.i.i" ]
+  %448 = load i32, ptr %.sroa.056.1.i.i.i.i, align 8
+  %449 = icmp eq i32 %448, %.0.i
+  %450 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 40
+  %451 = load i64, ptr %450, align 8
+  %452 = icmp eq i64 %451, 1
+  %or.cond.i.i29.i.i.i.i = select i1 %449, i1 %452, i1 false
   br i1 %or.cond.i.i29.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i": ; preds = %446
-  %452 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 8
-  %453 = load i32, ptr %452, align 4
-  %454 = icmp eq i32 %453, %.043234
-  %455 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 12
-  %456 = load i32, ptr %455, align 4
-  %457 = icmp eq i32 %456, %.0226
-  %458 = select i1 %454, i1 %457, i1 false
-  br i1 %458, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i": ; preds = %447
+  %453 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 8
+  %454 = load i32, ptr %453, align 4
+  %455 = icmp eq i32 %454, %.043234
+  %456 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 12
+  %457 = load i32, ptr %456, align 4
+  %458 = icmp eq i32 %457, %.0226
+  %459 = select i1 %455, i1 %458, i1 false
+  br i1 %459, label %.loopexit, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i", %446
-  %459 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 48
-  br label %460
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i", %447
+  %460 = getelementptr inbounds nuw i8, ptr %.sroa.056.1.i.i.i.i, i64 48
+  br label %461
 
-460:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i", %._crit_edge.i.i.i.i
-  %.sroa.056.2.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %459, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i" ]
-  %461 = load i32, ptr %.sroa.056.2.i.i.i.i, align 8
-  %462 = icmp eq i32 %461, %.0.i
-  %463 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 40
-  %464 = load i64, ptr %463, align 8
-  %465 = icmp eq i64 %464, 1
-  %or.cond.i.i32.i.i.i.i = select i1 %462, i1 %465, i1 false
+461:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i", %._crit_edge.i.i.i.i
+  %.sroa.056.2.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ], [ %460, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.thread.i.i.i.i" ]
+  %462 = load i32, ptr %.sroa.056.2.i.i.i.i, align 8
+  %463 = icmp eq i32 %462, %.0.i
+  %464 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 40
+  %465 = load i64, ptr %464, align 8
+  %466 = icmp eq i64 %465, 1
+  %or.cond.i.i32.i.i.i.i = select i1 %463, i1 %466, i1 false
   br i1 %or.cond.i.i32.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i", label %.critedge
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i": ; preds = %460
-  %466 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 8
-  %467 = load i32, ptr %466, align 4
-  %468 = icmp eq i32 %467, %.043234
-  %469 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 12
-  %470 = load i32, ptr %469, align 4
-  %471 = icmp eq i32 %470, %.0226
-  %472 = select i1 %468, i1 %471, i1 false
-  br i1 %472, label %.loopexit, label %.critedge
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i": ; preds = %461
+  %467 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 8
+  %468 = load i32, ptr %467, align 4
+  %469 = icmp eq i32 %468, %.043234
+  %470 = getelementptr inbounds nuw i8, ptr %.sroa.056.2.i.i.i.i, i64 12
+  %471 = load i32, ptr %470, align 4
+  %472 = icmp eq i32 %471, %.0226
+  %473 = select i1 %469, i1 %472, i1 false
+  br i1 %473, label %.loopexit, label %.critedge
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit25.i.i.i.i"
-  %473 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 144
+  %474 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 144
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit315:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit22.i.i.i.i"
-  %474 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 96
+  %475 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 96
   br label %.loopexit
 
 .loopexit.loopexit.split.loop.exit317:            ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit19.i.i.i.i"
-  %475 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 48
+  %476 = getelementptr inbounds nuw i8, ptr %.sroa.056.075.i.i.i.i, i64 48
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i", %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit315, %.loopexit.loopexit.split.loop.exit317, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i"
-  %.sroa.09.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i" ], [ %.sroa.056.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i" ], [ %.sroa.056.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i" ], [ %473, %.loopexit.loopexit.split.loop.exit ], [ %474, %.loopexit.loopexit.split.loop.exit315 ], [ %475, %.loopexit.loopexit.split.loop.exit317 ], [ %.sroa.056.075.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i" ]
-  %.not148 = icmp eq ptr %.sroa.09.0.in.sroa.speculated.i.i.i.i, %369
+  %.sroa.09.0.in.sroa.speculated.i.i.i.i = phi ptr [ %.sroa.056.0.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit28.i.i.i.i" ], [ %.sroa.056.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit31.i.i.i.i" ], [ %.sroa.056.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i" ], [ %474, %.loopexit.loopexit.split.loop.exit ], [ %475, %.loopexit.loopexit.split.loop.exit315 ], [ %476, %.loopexit.loopexit.split.loop.exit317 ], [ %.sroa.056.075.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit.i.i.i.i" ]
+  %.not148 = icmp eq ptr %.sroa.09.0.in.sroa.speculated.i.i.i.i, %370
   br i1 %.not148, label %.critedge, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135
 
-.critedge:                                        ; preds = %460, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i", %._crit_edge.i.i.i.i, %.lr.ph232, %.loopexit
-  %476 = load ptr, ptr %19, align 8
+.critedge:                                        ; preds = %461, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK10open_spiel10battleship15BattleshipState11AlreadyShotERKNS3_4CellEiE3$_0EclINS_17__normal_iteratorIPKNS3_8GameMoveESt6vectorISC_SaISC_EEEEEEbT_.exit34.i.i.i.i", %._crit_edge.i.i.i.i, %.lr.ph232, %.loopexit
+  %477 = load ptr, ptr %19, align 8
   store i32 %.043234, ptr %13, align 4
   store i32 %.0226, ptr %56, align 4
-  %477 = invoke noundef i64 @_ZNK10open_spiel10battleship14BattleshipGame19SerializeShotActionERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(328) %476, ptr noundef nonnull align 4 dereferenceable(8) %13)
-          to label %478 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
+  %478 = invoke noundef i64 @_ZNK10open_spiel10battleship14BattleshipGame19SerializeShotActionERKNS0_4CellE(ptr noundef nonnull align 8 dereferenceable(328) %477, ptr noundef nonnull align 4 dereferenceable(8) %13)
+          to label %479 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
-478:                                              ; preds = %.critedge
+479:                                              ; preds = %.critedge
   %.not.i.i126 = icmp eq ptr %305, %306
-  br i1 %.not.i.i126, label %481, label %479
+  br i1 %.not.i.i126, label %482, label %480
 
-479:                                              ; preds = %478
-  store i64 %477, ptr %305, align 8
-  %480 = getelementptr inbounds nuw i8, ptr %305, i64 8
-  store ptr %480, ptr %57, align 8
+480:                                              ; preds = %479
+  store i64 %478, ptr %305, align 8
+  %481 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  store ptr %481, ptr %57, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135
 
-481:                                              ; preds = %478
-  %482 = ptrtoint ptr %305 to i64
-  %483 = ptrtoint ptr %307 to i64
-  %484 = sub i64 %482, %483
-  %485 = icmp eq i64 %484, 9223372036854775800
-  br i1 %485, label %.invoke, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i127
+482:                                              ; preds = %479
+  %483 = ptrtoint ptr %305 to i64
+  %484 = ptrtoint ptr %307 to i64
+  %485 = sub i64 %483, %484
+  %486 = icmp eq i64 %485, 9223372036854775800
+  br i1 %486, label %.invoke, label %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i127
 
-_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i127: ; preds = %481
-  %486 = ashr exact i64 %484, 3
-  %.sroa.speculated.i.i.i.i128 = tail call i64 @llvm.umax.i64(i64 %486, i64 1)
-  %487 = add nsw i64 %.sroa.speculated.i.i.i.i128, %486
-  %488 = icmp ult i64 %487, %486
-  %489 = tail call i64 @llvm.umin.i64(i64 %487, i64 1152921504606846975)
-  %490 = select i1 %488, i64 1152921504606846975, i64 %489
-  %.not.i.i.i.i129 = icmp ne i64 %490, 0
+_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i127: ; preds = %482
+  %487 = ashr exact i64 %485, 3
+  %.sroa.speculated.i.i.i.i128 = tail call i64 @llvm.umax.i64(i64 %487, i64 1)
+  %488 = add nsw i64 %.sroa.speculated.i.i.i.i128, %487
+  %489 = icmp ult i64 %488, %487
+  %490 = tail call i64 @llvm.umin.i64(i64 %488, i64 1152921504606846975)
+  %491 = select i1 %489, i64 1152921504606846975, i64 %490
+  %.not.i.i.i.i129 = icmp ne i64 %491, 0
   tail call void @llvm.assume(i1 %.not.i.i.i.i129)
-  %491 = shl nuw nsw i64 %490, 3
-  %492 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %491) #29
+  %492 = shl nuw nsw i64 %491, 3
+  %493 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %492) #29
           to label %.noexc134 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc134:                                        ; preds = %_ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i127
-  %493 = getelementptr inbounds i8, ptr %492, i64 %484
-  store i64 %477, ptr %493, align 8
-  %494 = icmp sgt i64 %484, 0
-  br i1 %494, label %495, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
+  %494 = getelementptr inbounds i8, ptr %493, i64 %485
+  store i64 %478, ptr %494, align 8
+  %495 = icmp sgt i64 %485, 0
+  br i1 %495, label %496, label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
 
-495:                                              ; preds = %.noexc134
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %492, ptr align 8 %307, i64 %484, i1 false)
+496:                                              ; preds = %.noexc134
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %493, ptr align 8 %307, i64 %485, i1 false)
   br label %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
 
-_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130: ; preds = %495, %.noexc134
-  %496 = getelementptr inbounds nuw i8, ptr %493, i64 8
+_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130: ; preds = %496, %.noexc134
+  %497 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %.not.i17.i.i.i131 = icmp eq ptr %307, null
-  br i1 %.not.i17.i.i.i131, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132, label %497
+  br i1 %.not.i17.i.i.i131, label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132, label %498
 
-497:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
-  tail call void @_ZdlPvm(ptr noundef nonnull %307, i64 noundef %484) #30
+498:                                              ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
+  tail call void @_ZdlPvm(ptr noundef nonnull %307, i64 noundef %485) #30
   br label %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132
 
-_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132: ; preds = %497, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
-  store ptr %492, ptr %0, align 8
-  store ptr %496, ptr %57, align 8
-  %498 = getelementptr inbounds nuw i64, ptr %492, i64 %490
-  store ptr %498, ptr %28, align 8
+_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132: ; preds = %498, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i.i130
+  store ptr %493, ptr %0, align 8
+  store ptr %497, ptr %57, align 8
+  %499 = getelementptr inbounds nuw i64, ptr %493, i64 %491
+  store ptr %499, ptr %28, align 8
   br label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135
 
-_ZNSt6vectorIlSaIlEE9push_backEOl.exit135:        ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132, %479, %.loopexit
-  %499 = phi ptr [ %496, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %480, %479 ], [ %305, %.loopexit ]
-  %.promoted225278 = phi ptr [ %492, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %.promoted225279, %479 ], [ %.promoted225279, %.loopexit ]
-  %.promoted224273 = phi ptr [ %498, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %.promoted224274, %479 ], [ %.promoted224274, %.loopexit ]
-  %500 = phi ptr [ %492, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %307, %479 ], [ %307, %.loopexit ]
-  %501 = phi ptr [ %498, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %306, %479 ], [ %306, %.loopexit ]
-  %502 = add nuw nsw i32 %.0226, 1
-  %503 = load i32, ptr %21, align 8
-  %504 = icmp slt i32 %502, %503
-  br i1 %504, label %.lr.ph232, label %._crit_edge233.loopexit, !llvm.loop !25
+_ZNSt6vectorIlSaIlEE9push_backEOl.exit135:        ; preds = %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132, %480, %.loopexit
+  %500 = phi ptr [ %497, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %481, %480 ], [ %305, %.loopexit ]
+  %.promoted225278 = phi ptr [ %493, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %.promoted225279, %480 ], [ %.promoted225279, %.loopexit ]
+  %.promoted224273 = phi ptr [ %499, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %.promoted224274, %480 ], [ %.promoted224274, %.loopexit ]
+  %501 = phi ptr [ %493, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %307, %480 ], [ %307, %.loopexit ]
+  %502 = phi ptr [ %499, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i132 ], [ %306, %480 ], [ %306, %.loopexit ]
+  %503 = add nuw nsw i32 %.0226, 1
+  %504 = load i32, ptr %21, align 8
+  %505 = icmp slt i32 %503, %504
+  br i1 %505, label %.lr.ph232, label %._crit_edge233.loopexit, !llvm.loop !25
 
 ._crit_edge233.loopexit:                          ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit135
   %.pre282 = load i32, ptr %52, align 4
   br label %._crit_edge233
 
 ._crit_edge233:                                   ; preds = %._crit_edge233.loopexit, %.preheader
-  %505 = phi i32 [ %.pre282, %._crit_edge233.loopexit ], [ %301, %.preheader ]
-  %506 = phi ptr [ %499, %._crit_edge233.loopexit ], [ %302, %.preheader ]
-  %507 = phi i32 [ %503, %._crit_edge233.loopexit ], [ %303, %.preheader ]
+  %506 = phi i32 [ %.pre282, %._crit_edge233.loopexit ], [ %301, %.preheader ]
+  %507 = phi ptr [ %500, %._crit_edge233.loopexit ], [ %302, %.preheader ]
+  %508 = phi i32 [ %504, %._crit_edge233.loopexit ], [ %303, %.preheader ]
   %.promoted225277 = phi ptr [ %.promoted225278, %._crit_edge233.loopexit ], [ %.promoted225, %.preheader ]
   %.promoted224272 = phi ptr [ %.promoted224273, %._crit_edge233.loopexit ], [ %.promoted224, %.preheader ]
-  %508 = add nuw nsw i32 %.043234, 1
-  %509 = icmp slt i32 %508, %505
-  br i1 %509, label %.preheader, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit, !llvm.loop !26
+  %509 = add nuw nsw i32 %.043234, 1
+  %510 = icmp slt i32 %509, %506
+  br i1 %510, label %.preheader, label %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit, !llvm.loop !26
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111: ; preds = %.loopexit149, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %295, %.loopexit.split-lp159
   %.pn57 = phi { ptr, i32 } [ %.pn, %.loopexit.split-lp159 ], [ %.pn, %295 ], [ %lpad.loopexit, %.loopexit149 ], [ %lpad.loopexit150, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit154, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  %510 = load ptr, ptr %0, align 8
-  %.not.i.i.i136 = icmp eq ptr %510, null
-  br i1 %.not.i.i.i136, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %511
+  %511 = load ptr, ptr %0, align 8
+  %.not.i.i.i136 = icmp eq ptr %511, null
+  br i1 %.not.i.i.i136, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %512
 
-511:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111
-  %512 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %513 = load ptr, ptr %512, align 8
-  %514 = ptrtoint ptr %513 to i64
-  %515 = ptrtoint ptr %510 to i64
-  %516 = sub i64 %514, %515
-  call void @_ZdlPvm(ptr noundef nonnull %510, i64 noundef %516) #30
+512:                                              ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111
+  %513 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %514 = load ptr, ptr %513, align 8
+  %515 = ptrtoint ptr %514 to i64
+  %516 = ptrtoint ptr %511 to i64
+  %517 = sub i64 %515, %516
+  call void @_ZdlPvm(ptr noundef nonnull %511, i64 noundef %517) #30
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111, %511
+_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit111, %512
   resume { ptr, i32 } %.pn57
 
 _ZNSt6vectorIN10open_spiel10battleship13ShipPlacementESaIS2_EED2Ev.exit: ; preds = %._crit_edge233, %.preheader.lr.ph, %.preheader156, %288, %286, %16
@@ -19955,7 +19948,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
-  br i1 %.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9, label %5
+  br i1 %.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -19976,7 +19969,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not10.i = icmp eq ptr %15, null
-  br i1 %.not10.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread, label %.preheader.i
+  br i1 %.not10.i, label %25, label %.preheader.i
 
 .preheader.i:                                     ; preds = %12, %.preheader.i
   %storemerge.i = phi ptr [ %17, %.preheader.i ], [ %15, %12 ]
@@ -19990,109 +19983,109 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
   %19 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
   %20 = load ptr, ptr %19, align 8
   %.not12.i = icmp eq ptr %20, null
-  br i1 %.not12.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread, label %21
+  br i1 %.not12.i, label %25, label %21
 
 21:                                               ; preds = %18
   store ptr %20, ptr %3, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
+  br label %25
 
 22:                                               ; preds = %8
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %23, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
+  br label %25
 
 24:                                               ; preds = %5
   store ptr null, ptr %0, align 8
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
+  br label %25
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread: ; preds = %21, %18, %24, %22, %12
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %27 = load ptr, ptr %26, align 8
-  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef %27)
-          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %28
+25:                                               ; preds = %12, %18, %21, %22, %24
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %28 = load ptr, ptr %27, align 8
+  invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef %28)
+          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit unwind label %29
 
-28:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %25
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #32
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #32
   unreachable
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %33) #27
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %32) #27
-  %34 = load ptr, ptr %31, align 8
-  invoke void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEE9constructISB_JRKSB_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull %32, ptr noundef nonnull align 8 dereferenceable(144) %1)
-          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit unwind label %35
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit: ; preds = %25
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %34) #27
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(144) %33) #27
+  %35 = load ptr, ptr %32, align 8
+  invoke void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEE9constructISB_JRKSB_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(144) %1)
+          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit unwind label %36
 
-35:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit
-  %36 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit
+  %37 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  %38 = tail call ptr @__cxa_begin_catch(ptr %37) #27
+  %38 = extractvalue { ptr, i32 } %37, 0
+  %39 = tail call ptr @__cxa_begin_catch(ptr %38) #27
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 176) #30
   invoke void @__cxa_rethrow() #28
-          to label %44 unwind label %39
+          to label %45 unwind label %40
 
-39:                                               ; preds = %35
-  %40 = landingpad { ptr, i32 }
+40:                                               ; preds = %36
+  %41 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %41
+          to label %common.resume unwind label %42
 
-common.resume:                                    ; preds = %53, %39
-  %common.resume.op = phi { ptr, i32 } [ %40, %39 ], [ %54, %53 ]
+common.resume:                                    ; preds = %54, %40
+  %common.resume.op = phi { ptr, i32 } [ %41, %40 ], [ %55, %54 ]
   resume { ptr, i32 } %common.resume.op
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  tail call void @__clang_call_terminate(ptr %43) #32
+  %44 = extractvalue { ptr, i32 } %43, 0
+  tail call void @__clang_call_terminate(ptr %44) #32
   unreachable
 
-44:                                               ; preds = %35
+45:                                               ; preds = %36
   unreachable
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9: ; preds = %2
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  invoke void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEE9constructISB_JRKSB_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %46, ptr noundef nonnull %48, ptr noundef nonnull align 8 dereferenceable(144) %1)
-          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit unwind label %49
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit: ; preds = %2
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #29
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  invoke void @_ZNSt15__new_allocatorISt13_Rb_tree_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel13GameParameterEEEE9constructISB_JRKSB_EEEvPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(48) %47, ptr noundef nonnull %49, ptr noundef nonnull align 8 dereferenceable(144) %1)
+          to label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit unwind label %50
 
-49:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  %52 = tail call ptr @__cxa_begin_catch(ptr %51) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %47, i64 noundef 176) #30
+  %52 = extractvalue { ptr, i32 } %51, 0
+  %53 = tail call ptr @__cxa_begin_catch(ptr %52) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %48, i64 noundef 176) #30
   invoke void @__cxa_rethrow() #28
-          to label %58 unwind label %53
+          to label %59 unwind label %54
 
-53:                                               ; preds = %49
-  %54 = landingpad { ptr, i32 }
+54:                                               ; preds = %50
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %55
+          to label %common.resume unwind label %56
 
-55:                                               ; preds = %53
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #32
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #32
   unreachable
 
-58:                                               ; preds = %49
+59:                                               ; preds = %50
   unreachable
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit
-  %.0 = phi ptr [ %4, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %47, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread9 ]
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE17_M_construct_nodeIJRKSA_EEEvPSt13_Rb_tree_nodeISA_EDpOT_.exit: ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit
+  %.0 = phi ptr [ %4, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE15_M_destroy_nodeEPSt13_Rb_tree_nodeISA_E.exit ], [ %48, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N10open_spiel13GameParameterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit ]
   ret ptr %.0
 }
 

@@ -670,7 +670,7 @@ _bt_spools_heapscan.exit:                         ; preds = %290, %295, %298
   %369 = and i32 %368, 16777216
   %.not146.i.i = icmp eq i32 %369, 0
   %370 = select i1 %.not146.i.i, i16 1, i16 5
-  call void @PrepareSortSupportFromIndexRel(ptr noundef %309, i16 noundef signext %370, ptr noundef nonnull %353) #10
+  call void @PrepareSortSupportFromIndexRel(ptr noundef nonnull %309, i16 noundef signext %370, ptr noundef nonnull %353) #10
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %.preheader212.i.i, label %.lr.ph.i.i, !llvm.loop !10

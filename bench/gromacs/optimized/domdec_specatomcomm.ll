@@ -619,7 +619,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   %.sroa.0265.0299 = phi ptr [ %89, %.lr.ph301 ], [ %82, %84 ]
   %85 = load i32, ptr %.sroa.0265.0299, align 4
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds %"class.gmx::BasicVector.74", ptr %80, i64 %86
+  %87 = getelementptr inbounds %"class.gmx::BasicVector.74", ptr %4, i64 %86
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.2300, ptr noundef nonnull align 4 dereferenceable(12) %87, i64 12, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %.2300, i64 12
   %89 = getelementptr inbounds nuw i8, ptr %.sroa.0265.0299, i64 4
@@ -915,7 +915,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   store ptr %246, ptr %8, align 8
   store ptr %spec.select.i237, ptr %27, align 8
   %251 = trunc nuw nsw i64 %indvars.iv374 to i32
-  tail call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef %0, i32 noundef %251, i32 noundef 1, ptr %236, ptr %spec.select.i, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %8)
+  tail call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %0, i32 noundef %251, i32 noundef 1, ptr %236, ptr %spec.select.i, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %8)
   br label %.loopexit280
 
 252:                                              ; preds = %235
@@ -939,7 +939,7 @@ define void @_Z16dd_move_x_specatPK12gmx_domdec_tP24gmx_domdec_specat_comm_tPA3_
   store ptr %253, ptr %9, align 8
   store ptr %spec.select.i245, ptr %26, align 8
   %266 = trunc nuw nsw i64 %indvars.iv374 to i32
-  tail call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef %0, i32 noundef %266, i32 noundef 1, ptr %236, ptr %spec.select.i241, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %9)
+  tail call void @_Z10ddSendrecvIN3gmx11BasicVectorIfEEEvPK12gmx_domdec_tiiNS0_8ArrayRefIT_EES8_(ptr noundef nonnull %0, i32 noundef %266, i32 noundef 1, ptr %236, ptr %spec.select.i241, ptr noundef nonnull byval(%"class.gmx::ArrayRef") align 8 %9)
   %267 = load i32, ptr %261, align 8
   %268 = icmp sgt i32 %267, 0
   br i1 %268, label %.lr.ph293.us.preheader, label %.loopexit280

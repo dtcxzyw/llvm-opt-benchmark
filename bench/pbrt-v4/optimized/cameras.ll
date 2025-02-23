@@ -9004,19 +9004,19 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %tobool.i = icmp samesign uge i64 %a.addr.016.i, %conv.i
   %cmp.i = icmp ult i64 %add.i12, %sub.i11
   %9 = select i1 %tobool.i, i1 %cmp.i, i1 false
-  br i1 %9, label %while.body.i, label %_ZN4pbrt14RadicalInverseEim.exit, !llvm.loop !137
+  br i1 %9, label %while.body.i, label %while.body.i19.preheader, !llvm.loop !137
 
-_ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %while.body.i
+while.body.i19.preheader:                         ; preds = %while.body.i
   %10 = uitofp i64 %add.i12 to float
   %11 = fmul float %mul10.i, %10
   %cmp.i.i = fcmp ogt float %11, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %cmp.i.i, float 0x3FEFFFFFE0000000, float %11
   br label %while.body.i19
 
-while.body.i19:                                   ; preds = %_ZN4pbrt14RadicalInverseEim.exit, %while.body.i19
-  %a.addr.016.i20 = phi i64 [ %div5.i23, %while.body.i19 ], [ %indvars.iv, %_ZN4pbrt14RadicalInverseEim.exit ]
-  %invBaseM.015.i21 = phi float [ %mul10.i27, %while.body.i19 ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit ]
-  %reversedDigits.014.i22 = phi i64 [ %add.i26, %while.body.i19 ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit ]
+while.body.i19:                                   ; preds = %while.body.i19.preheader, %while.body.i19
+  %a.addr.016.i20 = phi i64 [ %div5.i23, %while.body.i19 ], [ %indvars.iv, %while.body.i19.preheader ]
+  %invBaseM.015.i21 = phi float [ %mul10.i27, %while.body.i19 ], [ 1.000000e+00, %while.body.i19.preheader ]
+  %reversedDigits.014.i22 = phi i64 [ %add.i26, %while.body.i19 ], [ 0, %while.body.i19.preheader ]
   %div5.i23 = udiv i64 %a.addr.016.i20, %conv.i13
   %reass.add.i24 = sub i64 %reversedDigits.014.i22, %div5.i23
   %reass.mul.i25 = mul i64 %reass.add.i24, %conv.i13

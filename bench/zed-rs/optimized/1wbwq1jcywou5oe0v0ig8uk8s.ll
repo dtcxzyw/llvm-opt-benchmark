@@ -4901,7 +4901,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit.i: ; preds = %27, %25
 92:                                               ; preds = %84, %81
   %.sroa.011.1.i13.i = phi i64 [ %90, %84 ], [ %.sroa.011.0.i11.i, %81 ]
   %.sroa.0.1.i14.i = phi i64 [ %91, %84 ], [ %.sroa.0.0.i12.i, %81 ]
-  %93 = icmp ult i64 %.sroa.0.1.i14.i, %44
+  %93 = icmp samesign ult i64 %.sroa.0.1.i14.i, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18.i
 
 94:                                               ; preds = %92
@@ -4913,7 +4913,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit.i: ; preds = %27, %25
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.0.1.i14.i, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.011.1.i13.i
   br label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18.i
 

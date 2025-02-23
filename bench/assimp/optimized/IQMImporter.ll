@@ -501,7 +501,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %50
 82:                                               ; preds = %129, %_ZSt4iotaIPjiEvT_S1_T0_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit294, %89, %88, %86, %81
   %83 = landingpad { ptr, i32 }
           cleanup
-  br label %489
+  br label %.thread358
 
 84:                                               ; preds = %79
   %85 = landingpad { ptr, i32 }
@@ -1337,13 +1337,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit307: ; preds = %_Z
   %.not262 = icmp eq ptr %488, %248
   br i1 %.not262, label %._crit_edge411, label %290, !llvm.loop !12
 
-.thread358:                                       ; preds = %67, %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297, %84
-  %.pn275.ph = phi { ptr, i32 } [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297 ], [ %85, %84 ], [ %70, %69 ], [ %68, %67 ]
+.thread358:                                       ; preds = %67, %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297, %84, %82
+  %.pn275.ph = phi { ptr, i32 } [ %148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297 ], [ %85, %84 ], [ %83, %82 ], [ %70, %69 ], [ %68, %67 ]
   call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %40) #18
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 
-489:                                              ; preds = %255, %322, %359, %395, %429, %473, %287, %265, %259, %257, %82
-  %.pn275 = phi { ptr, i32 } [ %83, %82 ], [ %256, %255 ], [ %288, %287 ], [ %258, %257 ], [ %.pn259, %265 ], [ %260, %259 ], [ %430, %429 ], [ %474, %473 ], [ %396, %395 ], [ %360, %359 ], [ %323, %322 ]
+489:                                              ; preds = %255, %322, %359, %395, %429, %473, %287, %265, %259, %257
+  %.pn275 = phi { ptr, i32 } [ %256, %255 ], [ %288, %287 ], [ %258, %257 ], [ %.pn259, %265 ], [ %260, %259 ], [ %430, %429 ], [ %474, %473 ], [ %396, %395 ], [ %360, %359 ], [ %323, %322 ]
   call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %40) #18
   br label %_ZNKSt14default_deleteIN6Assimp8IOStreamEEclEPS1_.exit.i311
 

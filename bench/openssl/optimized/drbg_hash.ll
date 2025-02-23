@@ -557,7 +557,7 @@ define internal range(i32 0, 2) i32 @drbg_hash_generate(ptr noundef readonly cap
 
 add_bytes.exit.i:                                 ; preds = %.lr.ph41.i.i, %62, %.lr.ph.i.i
   %68 = load ptr, ptr %36, align 8, !tbaa !12
-  %69 = tail call ptr @ossl_prov_digest_md(ptr noundef %29) #6
+  %69 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %29) #6
   %70 = tail call i32 @EVP_DigestInit_ex(ptr noundef %68, ptr noundef %69, ptr noundef null) #6
   %.not.i = icmp eq i32 %70, 0
   br i1 %.not.i, label %add_bytes.exit48, label %41

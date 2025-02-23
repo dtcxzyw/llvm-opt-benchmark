@@ -303,7 +303,7 @@ Extra_TruthCopy.exit:                             ; preds = %.preheader, %Extra_
   br label %42
 
 42:                                               ; preds = %9, %Extra_TruthCopy.exit
-  %43 = icmp sgt i32 %.03345.in, 1
+  %43 = icmp samesign ugt i32 %.03345.in, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   br i1 %43, label %9, label %._crit_edge48, !llvm.loop !28
 
@@ -668,7 +668,7 @@ Extra_TruthCopy.exit.i:                           ; preds = %Extra_TruthCopy.exi
   br label %121
 
 121:                                              ; preds = %Extra_TruthCopy.exit.i, %88
-  %122 = icmp sgt i32 %.03345.in.i, 1
+  %122 = icmp samesign ugt i32 %.03345.in.i, 1
   %indvars.iv.next.i237 = add nsw i64 %indvars.iv.i235, -1
   br i1 %122, label %88, label %Cut_CellSuppMin.exit.loopexit, !llvm.loop !28
 
@@ -1224,7 +1224,7 @@ Extra_TruthCopy.exit.i265.us:                     ; preds = %Extra_TruthCopy.exi
   br label %405
 
 405:                                              ; preds = %Extra_TruthCopy.exit.i265.us, %372
-  %406 = icmp sgt i32 %.03345.in.i260.us, 1
+  %406 = icmp samesign ugt i32 %.03345.in.i260.us, 1
   %indvars.iv.next.i263.us = add nsw i64 %indvars.iv.i259.us, -1
   br i1 %406, label %372, label %Cut_CellSuppMin.exit281.us.loopexit, !llvm.loop !28
 

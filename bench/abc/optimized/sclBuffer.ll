@@ -5090,7 +5090,7 @@ Vec_FltFill.exit:                                 ; preds = %110, %Vec_FltGrow.e
   store ptr %120, ptr %121, align 8, !tbaa !45
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr %118, ptr %122, align 8, !tbaa !82
-  %123 = tail call ptr @Abc_NtkDfs(ptr noundef %0, i32 noundef 0) #17
+  %123 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 0) #17
   %124 = getelementptr i8, ptr %123, i64 4
   %.val88160 = load i32, ptr %124, align 4, !tbaa !24
   %125 = icmp sgt i32 %.val88160, 0
@@ -6636,7 +6636,7 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   br i1 %111, label %102, label %.critedge9, !llvm.loop !146
 
 .critedge9:                                       ; preds = %102, %.critedge7
-  tail call void @Abc_SclTimeIncUpdateLevel(ptr noundef %63) #17
+  tail call void @Abc_SclTimeIncUpdateLevel(ptr noundef nonnull %63) #17
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %113 = load i32, ptr %112, align 4, !tbaa !133
   %114 = add nsw i32 %113, 1
@@ -6777,12 +6777,7 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
 
 .critedge11.preheader:                            ; preds = %194, %175
   %180 = icmp sgt i32 %127, 0
-  br i1 %180, label %.critedge11.preheader269, label %.critedge11._crit_edge.thread
-
-.critedge11._crit_edge.thread:                    ; preds = %.critedge11.preheader
-  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
-  br label %.loopexit
+  br i1 %180, label %.critedge11.preheader269, label %._crit_edge249.thread
 
 .critedge11.preheader269:                         ; preds = %.critedge11.preheader
   %181 = sext i32 %.val215.val to i64
@@ -6843,9 +6838,14 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   tail call void @Abc_BufCreateEdges(ptr noundef nonnull %0, ptr noundef %212)
   %indvars.iv.next273 = add nuw nsw i64 %indvars.iv272, 1
   %exitcond275.not = icmp eq i64 %indvars.iv.next273, %wide.trip.count
-  br i1 %exitcond275.not, label %.critedge11._crit_edge, label %.critedge11, !llvm.loop !150
+  br i1 %exitcond275.not, label %.lr.ph248, label %.critedge11, !llvm.loop !150
 
-.critedge11._crit_edge:                           ; preds = %.critedge11
+._crit_edge249.thread:                            ; preds = %.critedge11.preheader
+  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  br label %.loopexit
+
+.lr.ph248:                                        ; preds = %.critedge11
   tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %214 = getelementptr i8, ptr %0, i64 48
@@ -6854,8 +6854,8 @@ define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i3
   %wide.trip.count279 = zext nneg i32 %128 to i64
   br label %217
 
-217:                                              ; preds = %.critedge11._crit_edge, %Abc_BufComputeDep.exit
-  %indvars.iv276 = phi i64 [ 0, %.critedge11._crit_edge ], [ %indvars.iv.next277, %Abc_BufComputeDep.exit ]
+217:                                              ; preds = %.lr.ph248, %Abc_BufComputeDep.exit
+  %indvars.iv276 = phi i64 [ 0, %.lr.ph248 ], [ %indvars.iv.next277, %Abc_BufComputeDep.exit ]
   %218 = load ptr, ptr %5, align 8, !tbaa !87
   %219 = getelementptr i8, ptr %218, i64 32
   %.val200 = load ptr, ptr %219, align 8, !tbaa !3
@@ -7003,7 +7003,7 @@ Abc_BufComputeDep.exit:                           ; preds = %Abc_BufComputeDep.e
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph254, %.critedge11._crit_edge.thread, %.critedge9, %115, %.critedge, %52, %283, %284
+.loopexit:                                        ; preds = %.lr.ph254, %._crit_edge249.thread, %.critedge9, %115, %.critedge, %52, %283, %284
   ret void
 }
 

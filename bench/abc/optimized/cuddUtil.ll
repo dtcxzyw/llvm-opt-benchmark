@@ -72,7 +72,7 @@ define range(i32 0, 2) i32 @Cudd_PrintMinterm(ptr noundef %0, ptr noundef %1) lo
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  tail call fastcc void @ddPrintMintermAux(ptr noundef %0, ptr noundef %1, ptr noundef %14)
+  tail call fastcc void @ddPrintMintermAux(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %14)
   tail call void @free(ptr noundef nonnull %14) #23
   br label %20
 
@@ -2135,7 +2135,7 @@ define ptr @Cudd_VectorSupport(ptr noundef %0, ptr noundef readonly captures(non
 ._crit_edge84:                                    ; preds = %._crit_edge84.loopexit, %._crit_edge
   %.pre-phi99 = phi ptr [ %.pre98, %._crit_edge84.loopexit ], [ %32, %._crit_edge ]
   %.062.lcssa = phi ptr [ %.163, %._crit_edge84.loopexit ], [ %29, %._crit_edge ]
-  tail call void @free(ptr noundef %10) #23
+  tail call void @free(ptr noundef nonnull %10) #23
   %76 = getelementptr inbounds nuw i8, ptr %.pre-phi99, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !35
   %78 = add i32 %77, -1
@@ -2300,7 +2300,7 @@ define i32 @Cudd_VectorSupportSize(ptr noundef captures(none) %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph50, %.preheader
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %spec.select, %.lr.ph50 ]
-  tail call void @free(ptr noundef %10) #23
+  tail call void @free(ptr noundef nonnull %10) #23
   br label %32
 
 32:                                               ; preds = %._crit_edge, %15
@@ -2920,7 +2920,7 @@ define ptr @Cudd_bddPickOneMinterm(ptr noundef %0, ptr noundef %1, ptr noundef r
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !81
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %24 = tail call i32 @Cudd_bddPickOneCube(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8)
+  %24 = tail call i32 @Cudd_bddPickOneCube(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8)
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %28, label %.lr.ph73.preheader
 
@@ -3087,7 +3087,7 @@ Cudd_Random.exit:                                 ; preds = %.preheader, %37
   %112 = add i32 %111, -1
   store i32 %112, ptr %110, align 4, !tbaa !35
   tail call void @free(ptr noundef nonnull %8) #23
-  tail call void @free(ptr noundef %15) #23
+  tail call void @free(ptr noundef nonnull %15) #23
   br label %113
 
 113:                                              ; preds = %._crit_edge80, %101, %28, %18, %10
@@ -3985,7 +3985,7 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph243.preheader ], [ %indvars.iv.next, %.lr.ph243 ]
   %26 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !24
-  %28 = tail call ptr @Cudd_Cofactor(ptr noundef %0, ptr noundef %1, ptr noundef %27) #23
+  %28 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %27) #23
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
   %31 = inttoptr i64 %30 to ptr
@@ -3993,14 +3993,14 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %33 = load i32, ptr %32, align 4, !tbaa !35
   %34 = add i32 %33, 1
   store i32 %34, ptr %32, align 4, !tbaa !35
-  %35 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %28, i32 noundef %3)
+  %35 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %28, i32 noundef %3)
   %36 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %28) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %28) #23
   %37 = load ptr, ptr %26, align 8, !tbaa !24
   %38 = ptrtoint ptr %37 to i64
   %39 = xor i64 %38, 1
   %40 = inttoptr i64 %39 to ptr
-  %41 = tail call ptr @Cudd_Cofactor(ptr noundef %0, ptr noundef %1, ptr noundef %40) #23
+  %41 = tail call ptr @Cudd_Cofactor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %40) #23
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, -2
   %44 = inttoptr i64 %43 to ptr
@@ -4008,10 +4008,10 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   %46 = load i32, ptr %45, align 4, !tbaa !35
   %47 = add i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !35
-  %48 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %41, i32 noundef %3)
+  %48 = tail call double @Cudd_CountMinterm(ptr noundef nonnull %0, ptr noundef %41, i32 noundef %3)
   %49 = fsub double %35, %48
   store double %49, ptr %36, align 8, !tbaa !60
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %41) #23
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %41) #23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph243, !llvm.loop !106
@@ -4158,9 +4158,9 @@ define ptr @Cudd_SubsetWithMaskVars(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %117, label %ddPickRepresentativeCube.exit, label %.lr.ph.i
 
 118:                                              ; preds = %._crit_edge249, %77
-  tail call void @free(ptr noundef %18) #23
-  tail call void @free(ptr noundef %52) #23
-  tail call void @free(ptr noundef %58) #23
+  tail call void @free(ptr noundef nonnull %18) #23
+  tail call void @free(ptr noundef nonnull %52) #23
+  tail call void @free(ptr noundef nonnull %58) #23
   tail call void @free(ptr noundef nonnull %67) #23
   br label %225
 
@@ -4405,7 +4405,7 @@ ddPickRepresentativeCube.exit:                    ; preds = %113, %84
 224:                                              ; preds = %220, %223
   %.0216 = phi ptr [ %212, %220 ], [ null, %223 ]
   tail call void @free(ptr noundef %18) #23
-  tail call void @free(ptr noundef %52) #23
+  tail call void @free(ptr noundef nonnull %52) #23
   tail call void @free(ptr noundef %58) #23
   tail call void @free(ptr noundef %67) #23
   br label %225
@@ -5041,7 +5041,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 .thread:                                          ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %11, align 4, !tbaa !117
-  br label %85
+  br label %84
 
 12:                                               ; preds = %2
   %13 = load ptr, ptr %7, align 8, !tbaa !121
@@ -5052,7 +5052,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %17, align 4, !tbaa !117
-  br label %85
+  br label %84
 
 18:                                               ; preds = %12
   %19 = ptrtoint ptr %14 to i64
@@ -5073,7 +5073,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %14) #23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %31, align 4, !tbaa !117
-  br label %85
+  br label %84
 
 32:                                               ; preds = %18
   %33 = ptrtoint ptr %28 to i64
@@ -5095,7 +5095,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
   call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %45, align 4, !tbaa !117
-  br label %85
+  br label %84
 
 46:                                               ; preds = %32
   %47 = ptrtoint ptr %42 to i64
@@ -5127,7 +5127,7 @@ define range(i32 0, 2) i32 @Cudd_NextPrime(ptr noundef captures(none) %0, ptr no
 .preheader.i:                                     ; preds = %.lr.ph.i, %46
   %63 = load i32, ptr %35, align 8, !tbaa !31
   %.not30.i = icmp eq i32 %63, 2147483647
-  br i1 %.not30.i, label %Cudd_BddToCubeArray.exit, label %.lr.ph32.i
+  br i1 %.not30.i, label %Cudd_BddToCubeArray.exit.thread48, label %.lr.ph32.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %62, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
@@ -5169,30 +5169,35 @@ Cudd_BddToCubeArray.exit.thread:                  ; preds = %69
   %.not.i = icmp eq i32 %78, 2147483647
   br i1 %.not.i, label %Cudd_BddToCubeArray.exit, label %.lr.ph32.i, !llvm.loop !37
 
-Cudd_BddToCubeArray.exit:                         ; preds = %72, %.preheader.i
-  %.021.lcssa.i = phi ptr [ %28, %.preheader.i ], [ %.122.i, %72 ]
-  %.not = icmp eq ptr %.021.lcssa.i, %60
+Cudd_BddToCubeArray.exit:                         ; preds = %72
+  %.not = icmp eq ptr %.122.i, %60
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  br i1 %.not, label %79, label %81
+  br i1 %.not, label %79, label %.thread51
 
-79:                                               ; preds = %Cudd_BddToCubeArray.exit.thread, %Cudd_BddToCubeArray.exit
+Cudd_BddToCubeArray.exit.thread48:                ; preds = %.preheader.i
+  %.not50 = icmp eq ptr %28, %60
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
+  br i1 %.not50, label %79, label %.thread51
+
+79:                                               ; preds = %Cudd_BddToCubeArray.exit.thread48, %Cudd_BddToCubeArray.exit.thread, %Cudd_BddToCubeArray.exit
   call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %80, align 4, !tbaa !117
-  br label %85
+  br label %84
 
-81:                                               ; preds = %Cudd_BddToCubeArray.exit
+.thread51:                                        ; preds = %Cudd_BddToCubeArray.exit, %Cudd_BddToCubeArray.exit.thread48
   call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef nonnull %28) #23
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %82, align 4, !tbaa !117
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !34
-  store ptr %84, ptr %1, align 8, !tbaa !119
-  br label %85
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %81, align 4, !tbaa !117
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !34
+  store ptr %83, ptr %1, align 8, !tbaa !119
+  br label %84
 
-85:                                               ; preds = %.thread, %81, %79, %44, %30, %16
-  %.0 = phi i32 [ 1, %81 ], [ 0, %16 ], [ 0, %30 ], [ 0, %44 ], [ 0, %79 ], [ 0, %.thread ]
+84:                                               ; preds = %.thread, %.thread51, %79, %44, %30, %16
+  %.0 = phi i32 [ 1, %.thread51 ], [ 0, %16 ], [ 0, %30 ], [ 0, %44 ], [ 0, %79 ], [ 0, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #23
   ret i32 %.0
 }

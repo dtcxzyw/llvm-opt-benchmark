@@ -6084,7 +6084,7 @@ if.then:                                          ; preds = %lor.rhs, %_ZNSt3map
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i, i64 68
   %1 = load i32, ptr %__args1, align 4, !tbaa !90
   store i32 %1, ptr %second.i.i.i.i.i.i.i.i, align 4, !tbaa !156
-  %call5.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__y.addr.0.lcssa.i.i.i35, ptr noundef nonnull align 4 dereferenceable(36) %_M_storage.i.i.i.i.i.i)
+  %call5.i.i = tail call { ptr, ptr } @_ZNSt8_Rb_treeIN3irr5video9S3DVertexESt4pairIKS2_iESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS5_ERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull %__y.addr.0.lcssa.i.i.i35, ptr noundef nonnull align 4 dereferenceable(36) %_M_storage.i.i.i.i.i.i)
   %2 = extractvalue { ptr, ptr } %call5.i.i, 0
   %3 = extractvalue { ptr, ptr } %call5.i.i, 1
   %tobool.not.i.i = icmp eq ptr %3, null
@@ -9251,7 +9251,7 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
 for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i67.prol, %for.body.i.i.i60.prol ]
   %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
-  %7 = icmp ult i64 %__n, 4
+  %7 = icmp samesign ult i64 %__n, 4
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video9S3DVertexEmS2_ET_S4_T0_RSaIT1_E.exit70, label %for.body.i.i.i60
 
 for.body.i.i.i60:                                 ; preds = %for.body.i.i.i60.prol.loopexit, %for.body.i.i.i60

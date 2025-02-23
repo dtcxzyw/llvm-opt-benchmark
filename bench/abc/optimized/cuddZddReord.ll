@@ -189,10 +189,9 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %21
 
-21:                                               ; preds = %.lr.ph94, %105
-  %.pre102 = phi i32 [ %10, %.lr.ph94 ], [ %.pre103, %105 ]
-  %22 = phi i32 [ %10, %.lr.ph94 ], [ %106, %105 ]
-  %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %105 ]
+21:                                               ; preds = %.lr.ph94, %103
+  %22 = phi i32 [ %10, %.lr.ph94 ], [ %104, %103 ]
+  %indvars.iv99 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next100, %103 ]
   %23 = load ptr, ptr %12, align 8, !tbaa !43
   %24 = getelementptr inbounds nuw %struct.DdSubtable, ptr %23, i64 %indvars.iv99
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
@@ -201,12 +200,12 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   %28 = load i32, ptr %27, align 8, !tbaa !45
   %29 = shl i32 %28, 3
   %30 = icmp ult i32 %26, %29
-  br i1 %30, label %105, label %31
+  br i1 %30, label %103, label %31
 
 31:                                               ; preds = %21
   %32 = load i32, ptr %13, align 8, !tbaa !46
   %.not = icmp ugt i32 %26, %32
-  br i1 %.not, label %33, label %105
+  br i1 %.not, label %33, label %103
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %24, align 8, !tbaa !47
@@ -296,48 +295,39 @@ define internal fastcc void @zddReorderPostprocess(ptr noundef captures(none) %0
   br i1 %exitcond.not, label %86, label %52, !llvm.loop !55
 
 86:                                               ; preds = %._crit_edge
-  %.not84 = icmp eq ptr %34, null
-  br i1 %.not84, label %88, label %87
-
-87:                                               ; preds = %86
   tail call void @free(ptr noundef nonnull %34) #12
   %.pre.pre = load i32, ptr %9, align 4, !tbaa !42
-  br label %88
+  %87 = sub i32 %35, %26
+  %88 = zext i32 %87 to i64
+  %89 = shl nuw nsw i64 %88, 3
+  %90 = load i64, ptr %14, align 8, !tbaa !56
+  %91 = add i64 %90, %89
+  store i64 %91, ptr %14, align 8, !tbaa !56
+  %92 = load i32, ptr %15, align 8, !tbaa !57
+  %93 = add i32 %92, %87
+  store i32 %93, ptr %15, align 8, !tbaa !57
+  %94 = load double, ptr %16, align 8, !tbaa !58
+  %95 = uitofp i32 %93 to double
+  %96 = fmul double %94, %95
+  %97 = fptoui double %96 to i32
+  store i32 %97, ptr %17, align 8, !tbaa !59
+  %98 = shl i32 %93, 2
+  %99 = load i32, ptr %18, align 4, !tbaa !60
+  %. = tail call i32 @llvm.umin.i32(i32 %98, i32 %99)
+  %100 = load i32, ptr %19, align 8, !tbaa !61
+  %101 = shl nsw i32 %100, 1
+  %102 = sub nsw i32 %., %101
+  store i32 %102, ptr %20, align 8, !tbaa !62
+  br label %103
 
-88:                                               ; preds = %86, %87
-  %.pre = phi i32 [ %.pre102, %86 ], [ %.pre.pre, %87 ]
-  %89 = sub i32 %35, %26
-  %90 = zext i32 %89 to i64
-  %91 = shl nuw nsw i64 %90, 3
-  %92 = load i64, ptr %14, align 8, !tbaa !56
-  %93 = add i64 %92, %91
-  store i64 %93, ptr %14, align 8, !tbaa !56
-  %94 = load i32, ptr %15, align 8, !tbaa !57
-  %95 = add i32 %94, %89
-  store i32 %95, ptr %15, align 8, !tbaa !57
-  %96 = load double, ptr %16, align 8, !tbaa !58
-  %97 = uitofp i32 %95 to double
-  %98 = fmul double %96, %97
-  %99 = fptoui double %98 to i32
-  store i32 %99, ptr %17, align 8, !tbaa !59
-  %100 = shl i32 %95, 2
-  %101 = load i32, ptr %18, align 4, !tbaa !60
-  %. = tail call i32 @llvm.umin.i32(i32 %100, i32 %101)
-  %102 = load i32, ptr %19, align 8, !tbaa !61
-  %103 = shl nsw i32 %102, 1
-  %104 = sub nsw i32 %., %103
-  store i32 %104, ptr %20, align 8, !tbaa !62
-  br label %105
-
-105:                                              ; preds = %88, %31, %21
-  %.pre103 = phi i32 [ %.pre, %88 ], [ %.pre102, %31 ], [ %.pre102, %21 ]
-  %106 = phi i32 [ %.pre, %88 ], [ %22, %31 ], [ %22, %21 ]
+103:                                              ; preds = %86, %31, %21
+  %104 = phi i32 [ %.pre.pre, %86 ], [ %22, %31 ], [ %22, %21 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %107 = sext i32 %106 to i64
-  %108 = icmp slt i64 %indvars.iv.next100, %107
-  br i1 %108, label %21, label %.loopexit, !llvm.loop !63
+  %105 = sext i32 %104 to i64
+  %106 = icmp slt i64 %indvars.iv.next100, %105
+  br i1 %106, label %21, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %105, %33, %.preheader87, %1
+.loopexit:                                        ; preds = %103, %33, %.preheader87, %1
   ret void
 }
 
@@ -1686,7 +1676,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
 
 .preheader.i.i:                                   ; preds = %cuddZddSiftingDown.exit.i
   switch i32 %spec.select32.fr.i.i, label %.lr.ph.split.us.i.i [
-    i32 0, label %cuddZddSiftingBackward.exit.thread.i
+    i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i.i
   ]
 
@@ -1707,7 +1697,7 @@ define range(i32 0, 2) i32 @cuddZddSifting(ptr noundef %0, i32 noundef %1, i32 n
   %.not30.us.i.i = icmp eq ptr %81, null
   %83 = icmp eq i32 %82, %spec.select32.fr.i.i
   %or.cond.us.i.i = select i1 %.not30.us.i.i, i1 true, i1 %83
-  br i1 %or.cond.us.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i.i, !llvm.loop !104
+  br i1 %or.cond.us.i.i, label %.lr.ph.i, label %.lr.ph.split.us.i.i, !llvm.loop !104
 
 cuddZddSiftingDown.exit.i:                        ; preds = %59, %cuddZddSiftingDown.exit.i
   %.02137.i.i = phi ptr [ %88, %cuddZddSiftingDown.exit.i ], [ %57, %59 ]
@@ -1737,13 +1727,13 @@ cuddZddSiftingDown.exit.i:                        ; preds = %59, %cuddZddSifting
 
 94:                                               ; preds = %.lr.ph.split.i.i
   %95 = icmp eq i32 %93, %spec.select.i115.i
-  br i1 %95, label %cuddZddSiftingBackward.exit.thread.i, label %96
+  br i1 %95, label %.lr.ph.i, label %96
 
 96:                                               ; preds = %94
   %97 = getelementptr inbounds nuw i8, ptr %.139.i.i, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !101
   %.not30.i.i = icmp eq ptr %98, null
-  br i1 %.not30.i.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i.i, !llvm.loop !104
+  br i1 %.not30.i.i, label %.lr.ph.i, label %.lr.ph.split.i.i, !llvm.loop !104
 
 99:                                               ; preds = %50
   %100 = icmp eq i32 %47, %2
@@ -1810,7 +1800,7 @@ cuddZddSiftingDown.exit.i:                        ; preds = %59, %cuddZddSifting
 
 .preheader.i139.i:                                ; preds = %cuddZddSiftingUp.exit.i
   switch i32 %spec.select32.fr.i137.i, label %.lr.ph.split.us.i145.i [
-    i32 0, label %.preheader276.i
+    i32 0, label %.lr.ph307.i
     i32 -1, label %.lr.ph.split.i140.i
   ]
 
@@ -1997,7 +1987,7 @@ cuddZddSiftingDown.exit168.i:                     ; preds = %157
 
 .preheader.i194.i:                                ; preds = %cuddZddSiftingUp.exit185.i
   switch i32 %spec.select32.fr.i192.i, label %.lr.ph.split.us.i200.i [
-    i32 0, label %cuddZddSiftingBackward.exit.thread.i
+    i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i195.i
   ]
 
@@ -2018,7 +2008,7 @@ cuddZddSiftingDown.exit168.i:                     ; preds = %157
   %.not30.us.i204.i = icmp eq ptr %200, null
   %202 = icmp eq i32 %201, %spec.select32.fr.i192.i
   %or.cond.us.i205.i = select i1 %.not30.us.i204.i, i1 true, i1 %202
-  br i1 %or.cond.us.i205.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i200.i, !llvm.loop !104
+  br i1 %or.cond.us.i205.i, label %.lr.ph.i, label %.lr.ph.split.us.i200.i, !llvm.loop !104
 
 cuddZddSiftingUp.exit185.i:                       ; preds = %178, %cuddZddSiftingUp.exit185.i
   %.02137.i186.i = phi ptr [ %207, %cuddZddSiftingUp.exit185.i ], [ %176, %178 ]
@@ -2048,13 +2038,13 @@ cuddZddSiftingUp.exit185.i:                       ; preds = %178, %cuddZddSiftin
 
 213:                                              ; preds = %.lr.ph.split.i195.i
   %214 = icmp eq i32 %212, %spec.select.i190.i
-  br i1 %214, label %cuddZddSiftingBackward.exit.thread.i, label %215
+  br i1 %214, label %.lr.ph.i, label %215
 
 215:                                              ; preds = %213
   %216 = getelementptr inbounds nuw i8, ptr %.139.i196.i, i64 16
   %217 = load ptr, ptr %216, align 8, !tbaa !101
   %.not30.i198.i = icmp eq ptr %217, null
-  br i1 %.not30.i198.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i195.i, !llvm.loop !104
+  br i1 %.not30.i198.i, label %.lr.ph.i, label %.lr.ph.split.i195.i, !llvm.loop !104
 
 218:                                              ; preds = %147
   %.not.not49.i207.i = icmp sgt i32 %47, %1
@@ -2174,7 +2164,7 @@ cuddZddSiftingUp.exit223.i:                       ; preds = %224
 
 .preheader.i249.i:                                ; preds = %cuddZddSiftingDown.exit240.i
   switch i32 %spec.select32.fr.i247.i, label %.lr.ph.split.us.i255.i [
-    i32 0, label %cuddZddSiftingBackward.exit.thread.i
+    i32 0, label %.lr.ph.i
     i32 -1, label %.lr.ph.split.i250.i
   ]
 
@@ -2195,7 +2185,7 @@ cuddZddSiftingUp.exit223.i:                       ; preds = %224
   %.not30.us.i259.i = icmp eq ptr %267, null
   %269 = icmp eq i32 %268, %spec.select32.fr.i247.i
   %or.cond.us.i260.i = select i1 %.not30.us.i259.i, i1 true, i1 %269
-  br i1 %or.cond.us.i260.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.us.i255.i, !llvm.loop !104
+  br i1 %or.cond.us.i260.i, label %.lr.ph.i, label %.lr.ph.split.us.i255.i, !llvm.loop !104
 
 cuddZddSiftingDown.exit240.i:                     ; preds = %245, %cuddZddSiftingDown.exit240.i
   %.02137.i241.i = phi ptr [ %274, %cuddZddSiftingDown.exit240.i ], [ %243, %245 ]
@@ -2225,17 +2215,17 @@ cuddZddSiftingDown.exit240.i:                     ; preds = %245, %cuddZddSiftin
 
 280:                                              ; preds = %.lr.ph.split.i250.i
   %281 = icmp eq i32 %279, %spec.select.i245.i
-  br i1 %281, label %cuddZddSiftingBackward.exit.thread.i, label %282
+  br i1 %281, label %.lr.ph.i, label %282
 
 282:                                              ; preds = %280
   %283 = getelementptr inbounds nuw i8, ptr %.139.i251.i, i64 16
   %284 = load ptr, ptr %283, align 8, !tbaa !101
   %.not30.i253.i = icmp eq ptr %284, null
-  br i1 %.not30.i253.i, label %cuddZddSiftingBackward.exit.thread.i, label %.lr.ph.split.i250.i, !llvm.loop !104
+  br i1 %.not30.i253.i, label %.lr.ph.i, label %.lr.ph.split.i250.i, !llvm.loop !104
 
-cuddZddSiftingBackward.exit.thread.i:             ; preds = %282, %280, %265, %215, %213, %198, %96, %94, %79, %.preheader.i249.i, %.preheader.i194.i, %.preheader.i.i
-  %.189.i = phi ptr [ null, %.preheader.i.i ], [ %176, %.preheader.i194.i ], [ %222, %.preheader.i249.i ], [ null, %79 ], [ null, %94 ], [ null, %96 ], [ %176, %198 ], [ %176, %213 ], [ %176, %215 ], [ %222, %265 ], [ %222, %280 ], [ %222, %282 ]
-  %.1.i = phi ptr [ %57, %.preheader.i.i ], [ %155, %.preheader.i194.i ], [ %243, %.preheader.i249.i ], [ %57, %79 ], [ %57, %94 ], [ %57, %96 ], [ %155, %198 ], [ %155, %213 ], [ %155, %215 ], [ %243, %265 ], [ %243, %280 ], [ %243, %282 ]
+.lr.ph.i:                                         ; preds = %280, %282, %265, %213, %215, %198, %94, %96, %79, %.preheader.i194.i, %.preheader.i249.i, %.preheader.i.i
+  %.1352.i = phi ptr [ %243, %.preheader.i249.i ], [ %57, %.preheader.i.i ], [ %155, %.preheader.i194.i ], [ %57, %79 ], [ %57, %96 ], [ %57, %94 ], [ %155, %198 ], [ %155, %215 ], [ %155, %213 ], [ %243, %265 ], [ %243, %282 ], [ %243, %280 ]
+  %.189351.i = phi ptr [ %222, %.preheader.i249.i ], [ null, %.preheader.i.i ], [ %176, %.preheader.i194.i ], [ null, %79 ], [ null, %96 ], [ null, %94 ], [ %176, %198 ], [ %176, %215 ], [ %176, %213 ], [ %222, %265 ], [ %222, %282 ], [ %222, %280 ]
   %.promoted.i = load ptr, ptr %37, align 8, !tbaa !88
   br label %285
 
@@ -2243,18 +2233,19 @@ cuddZddSiftingBackward.exit.thread.i:             ; preds = %282, %280, %265, %2
   store ptr %.2304.i, ptr %37, align 8, !tbaa !88
   br label %.preheader276.i
 
-.preheader276.i:                                  ; preds = %144, %142, %127, %..preheader276_crit_edge.i, %.preheader.i139.i
-  %.189345.i = phi ptr [ %.189.i, %..preheader276_crit_edge.i ], [ %105, %.preheader.i139.i ], [ %105, %127 ], [ %105, %142 ], [ %105, %144 ]
+.preheader276.i:                                  ; preds = %144, %142, %127, %..preheader276_crit_edge.i
+  %.189345.i = phi ptr [ %.189351.i, %..preheader276_crit_edge.i ], [ %105, %127 ], [ %105, %142 ], [ %105, %144 ]
   %.not112305.i = icmp eq ptr %.189345.i, null
   br i1 %.not112305.i, label %cuddZddSiftingAux.exit, label %.lr.ph307.i
 
-.lr.ph307.i:                                      ; preds = %.preheader276.i
+.lr.ph307.i:                                      ; preds = %.preheader276.i, %.preheader.i139.i
+  %.189345366.i = phi ptr [ %.189345.i, %.preheader276.i ], [ %105, %.preheader.i139.i ]
   %.promoted308.i = load ptr, ptr %37, align 8, !tbaa !88
   br label %291
 
-285:                                              ; preds = %285, %cuddZddSiftingBackward.exit.thread.i
-  %286 = phi ptr [ %.promoted.i, %cuddZddSiftingBackward.exit.thread.i ], [ %.2304.i, %285 ]
-  %.2304.i = phi ptr [ %.1.i, %cuddZddSiftingBackward.exit.thread.i ], [ %288, %285 ]
+285:                                              ; preds = %285, %.lr.ph.i
+  %286 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %.2304.i, %285 ]
+  %.2304.i = phi ptr [ %.1352.i, %.lr.ph.i ], [ %288, %285 ]
   %287 = getelementptr inbounds nuw i8, ptr %.2304.i, i64 16
   %288 = load ptr, ptr %287, align 8, !tbaa !101
   %289 = getelementptr inbounds nuw i8, ptr %.2304.i, i64 4
@@ -2266,7 +2257,7 @@ cuddZddSiftingBackward.exit.thread.i:             ; preds = %282, %280, %265, %2
 
 291:                                              ; preds = %291, %.lr.ph307.i
   %292 = phi ptr [ %.promoted308.i, %.lr.ph307.i ], [ %.290306.i, %291 ]
-  %.290306.i = phi ptr [ %.189345.i, %.lr.ph307.i ], [ %294, %291 ]
+  %.290306.i = phi ptr [ %.189345366.i, %.lr.ph307.i ], [ %294, %291 ]
   %293 = getelementptr inbounds nuw i8, ptr %.290306.i, i64 16
   %294 = load ptr, ptr %293, align 8, !tbaa !101
   %295 = getelementptr inbounds nuw i8, ptr %.290306.i, i64 4
@@ -2277,30 +2268,30 @@ cuddZddSiftingBackward.exit.thread.i:             ; preds = %282, %280, %265, %2
   br i1 %.not112.i, label %..loopexit277_crit_edge.i, label %291, !llvm.loop !117
 
 .lr.ph311.i:                                      ; preds = %cuddZddSiftingDown.exit168.i, %.lr.ph.split.i250.i, %.lr.ph.split.us.i255.i, %.lr.ph.split.i195.i, %.lr.ph.split.us.i200.i, %.lr.ph.split.i.i, %.lr.ph.split.us.i.i, %187, %..loopexit_crit_edge.i184.i
-  %.087356.i = phi ptr [ %155, %..loopexit_crit_edge.i184.i ], [ %155, %187 ], [ %57, %.lr.ph.split.us.i.i ], [ %57, %.lr.ph.split.i.i ], [ %155, %.lr.ph.split.us.i200.i ], [ %155, %.lr.ph.split.i195.i ], [ %243, %.lr.ph.split.us.i255.i ], [ %243, %.lr.ph.split.i250.i ], [ %155, %cuddZddSiftingDown.exit168.i ]
-  %.088355.i = phi ptr [ null, %..loopexit_crit_edge.i184.i ], [ null, %187 ], [ null, %.lr.ph.split.us.i.i ], [ null, %.lr.ph.split.i.i ], [ %176, %.lr.ph.split.us.i200.i ], [ %176, %.lr.ph.split.i195.i ], [ %222, %.lr.ph.split.us.i255.i ], [ %222, %.lr.ph.split.i250.i ], [ null, %cuddZddSiftingDown.exit168.i ]
+  %.087363.i = phi ptr [ %155, %..loopexit_crit_edge.i184.i ], [ %155, %187 ], [ %57, %.lr.ph.split.us.i.i ], [ %57, %.lr.ph.split.i.i ], [ %155, %.lr.ph.split.us.i200.i ], [ %155, %.lr.ph.split.i195.i ], [ %243, %.lr.ph.split.us.i255.i ], [ %243, %.lr.ph.split.i250.i ], [ %155, %cuddZddSiftingDown.exit168.i ]
+  %.088362.i = phi ptr [ null, %..loopexit_crit_edge.i184.i ], [ null, %187 ], [ null, %.lr.ph.split.us.i.i ], [ null, %.lr.ph.split.i.i ], [ %176, %.lr.ph.split.us.i200.i ], [ %176, %.lr.ph.split.i195.i ], [ %222, %.lr.ph.split.us.i255.i ], [ %222, %.lr.ph.split.i250.i ], [ null, %cuddZddSiftingDown.exit168.i ]
   %.promoted312.i = load ptr, ptr %37, align 8, !tbaa !88
   br label %297
 
 .preheader.i.sink.split:                          ; preds = %255, %297
   %.3310.i.lcssa.sink = phi ptr [ %.3310.i, %297 ], [ %.257.i237.i, %255 ]
-  %.088350.i.ph = phi ptr [ %.088355.i, %297 ], [ %222, %255 ]
+  %.088357.i.ph = phi ptr [ %.088362.i, %297 ], [ %222, %255 ]
   store ptr %.3310.i.lcssa.sink, ptr %37, align 8, !tbaa !88
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.split.i140.i, %.lr.ph.split.us.i145.i, %.preheader.i.sink.split, %254
-  %.088350.i = phi ptr [ %222, %254 ], [ %.088350.i.ph, %.preheader.i.sink.split ], [ %105, %.lr.ph.split.us.i145.i ], [ %105, %.lr.ph.split.i140.i ]
-  %.not114313.i = icmp eq ptr %.088350.i, null
+  %.088357.i = phi ptr [ %222, %254 ], [ %.088357.i.ph, %.preheader.i.sink.split ], [ %105, %.lr.ph.split.us.i145.i ], [ %105, %.lr.ph.split.i140.i ]
+  %.not114313.i = icmp eq ptr %.088357.i, null
   br i1 %.not114313.i, label %cuddZddSiftingAux.exit.thread, label %.lr.ph315.i
 
 .lr.ph315.i:                                      ; preds = %cuddZddSiftingUp.exit223.i, %.preheader.i
-  %.088350362.i = phi ptr [ %.088350.i, %.preheader.i ], [ %222, %cuddZddSiftingUp.exit223.i ]
+  %.088357372.i = phi ptr [ %.088357.i, %.preheader.i ], [ %222, %cuddZddSiftingUp.exit223.i ]
   %.promoted316.i = load ptr, ptr %37, align 8, !tbaa !88
   br label %303
 
 297:                                              ; preds = %297, %.lr.ph311.i
   %298 = phi ptr [ %.promoted312.i, %.lr.ph311.i ], [ %.3310.i, %297 ]
-  %.3310.i = phi ptr [ %.087356.i, %.lr.ph311.i ], [ %300, %297 ]
+  %.3310.i = phi ptr [ %.087363.i, %.lr.ph311.i ], [ %300, %297 ]
   %299 = getelementptr inbounds nuw i8, ptr %.3310.i, i64 16
   %300 = load ptr, ptr %299, align 8, !tbaa !101
   %301 = getelementptr inbounds nuw i8, ptr %.3310.i, i64 4
@@ -2312,7 +2303,7 @@ cuddZddSiftingBackward.exit.thread.i:             ; preds = %282, %280, %265, %2
 
 303:                                              ; preds = %303, %.lr.ph315.i
   %304 = phi ptr [ %.promoted316.i, %.lr.ph315.i ], [ %.391314.i, %303 ]
-  %.391314.i = phi ptr [ %.088350362.i, %.lr.ph315.i ], [ %306, %303 ]
+  %.391314.i = phi ptr [ %.088357372.i, %.lr.ph315.i ], [ %306, %303 ]
   %305 = getelementptr inbounds nuw i8, ptr %.391314.i, i64 16
   %306 = load ptr, ptr %305, align 8, !tbaa !101
   %307 = getelementptr inbounds nuw i8, ptr %.391314.i, i64 4

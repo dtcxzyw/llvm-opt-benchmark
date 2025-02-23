@@ -407,7 +407,7 @@ define hidden noalias nonnull ptr @JLI_List_combine(ptr noundef readonly capture
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
-  br i1 %.not, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = load ptr, ptr %0, align 8
@@ -422,19 +422,19 @@ define hidden noalias nonnull ptr @JLI_List_combine(ptr noundef readonly capture
   %9 = add i64 %8, %.02122
   %10 = add nuw i64 %.023, 1
   %exitcond.not = icmp eq i64 %10, %3
-  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !9
+  br i1 %exitcond.not, label %._crit_edge.thread, label %5, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %5
-  %11 = tail call noalias ptr @malloc(i64 noundef %9) #17
+._crit_edge:                                      ; preds = %1
+  %11 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %16, label %.lr.ph27
+  br i1 %12, label %16, label %JLI_MemAlloc.exit._crit_edge
 
-._crit_edge.thread:                               ; preds = %1
-  %13 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
+._crit_edge.thread:                               ; preds = %5
+  %13 = tail call noalias ptr @malloc(i64 noundef %9) #17
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %16, label %JLI_MemAlloc.exit._crit_edge
+  br i1 %14, label %16, label %.lr.ph27
 
-.lr.ph27:                                         ; preds = %._crit_edge
+.lr.ph27:                                         ; preds = %._crit_edge.thread
   %15 = load ptr, ptr %0, align 8
   br label %JLI_MemAlloc.exit
 
@@ -445,7 +445,7 @@ define hidden noalias nonnull ptr @JLI_List_combine(ptr noundef readonly capture
 
 JLI_MemAlloc.exit:                                ; preds = %.lr.ph27, %JLI_MemAlloc.exit
   %.126 = phi i64 [ 0, %.lr.ph27 ], [ %21, %JLI_MemAlloc.exit ]
-  %.02025 = phi ptr [ %11, %.lr.ph27 ], [ %20, %JLI_MemAlloc.exit ]
+  %.02025 = phi ptr [ %13, %.lr.ph27 ], [ %20, %JLI_MemAlloc.exit ]
   %17 = getelementptr inbounds ptr, ptr %15, i64 %.126
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #22
@@ -455,9 +455,9 @@ JLI_MemAlloc.exit:                                ; preds = %.lr.ph27, %JLI_MemA
   %exitcond31.not = icmp eq i64 %21, %3
   br i1 %exitcond31.not, label %JLI_MemAlloc.exit._crit_edge, label %JLI_MemAlloc.exit, !llvm.loop !10
 
-JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge.thread
-  %22 = phi ptr [ %13, %._crit_edge.thread ], [ %11, %JLI_MemAlloc.exit ]
-  %.020.lcssa = phi ptr [ %13, %._crit_edge.thread ], [ %20, %JLI_MemAlloc.exit ]
+JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge
+  %22 = phi ptr [ %11, %._crit_edge ], [ %13, %JLI_MemAlloc.exit ]
+  %.020.lcssa = phi ptr [ %11, %._crit_edge ], [ %20, %JLI_MemAlloc.exit ]
   store i8 0, ptr %.020.lcssa, align 1
   ret ptr %22
 }
@@ -467,7 +467,7 @@ define hidden noalias nonnull ptr @JLI_List_join(ptr noundef readonly captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not32 = icmp eq i64 %4, 0
-  br i1 %.not32, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = load ptr, ptr %0, align 8
@@ -483,26 +483,26 @@ define hidden noalias nonnull ptr @JLI_List_join(ptr noundef readonly captures(n
   %11 = add i64 %10, %9
   %12 = add nuw i64 %.027, 1
   %exitcond.not = icmp eq i64 %12, %4
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %6, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %6
-  %13 = tail call noalias ptr @malloc(i64 noundef %11) #17
+._crit_edge:                                      ; preds = %2
+  %13 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %17, label %.lr.ph30
+  br i1 %14, label %17, label %JLI_MemAlloc.exit._crit_edge
 
-._crit_edge.thread:                               ; preds = %2
-  %15 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #17
+._crit_edge.thread:                               ; preds = %6
+  %15 = tail call noalias ptr @malloc(i64 noundef %11) #17
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %17, label %JLI_MemAlloc.exit._crit_edge
+  br i1 %16, label %17, label %.lr.ph30
 
 17:                                               ; preds = %._crit_edge.thread, %._crit_edge
   tail call void @perror(ptr noundef nonnull @.str) #18
   tail call void @exit(i32 noundef 1) #19
   unreachable
 
-.lr.ph30:                                         ; preds = %._crit_edge, %JLI_MemAlloc.exit
-  %.129 = phi i64 [ %26, %JLI_MemAlloc.exit ], [ 0, %._crit_edge ]
-  %.02328 = phi ptr [ %25, %JLI_MemAlloc.exit ], [ %13, %._crit_edge ]
+.lr.ph30:                                         ; preds = %._crit_edge.thread, %JLI_MemAlloc.exit
+  %.129 = phi i64 [ %26, %JLI_MemAlloc.exit ], [ 0, %._crit_edge.thread ]
+  %.02328 = phi ptr [ %25, %JLI_MemAlloc.exit ], [ %15, %._crit_edge.thread ]
   %18 = load ptr, ptr %0, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 %.129
   %20 = load ptr, ptr %19, align 8
@@ -528,9 +528,9 @@ JLI_MemAlloc.exit:                                ; preds = %22, %.lr.ph30
   %28 = icmp ult i64 %26, %27
   br i1 %28, label %.lr.ph30, label %JLI_MemAlloc.exit._crit_edge, !llvm.loop !12
 
-JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge.thread
-  %29 = phi ptr [ %15, %._crit_edge.thread ], [ %13, %JLI_MemAlloc.exit ]
-  %.023.lcssa = phi ptr [ %15, %._crit_edge.thread ], [ %25, %JLI_MemAlloc.exit ]
+JLI_MemAlloc.exit._crit_edge:                     ; preds = %JLI_MemAlloc.exit, %._crit_edge
+  %29 = phi ptr [ %13, %._crit_edge ], [ %15, %JLI_MemAlloc.exit ]
+  %.023.lcssa = phi ptr [ %13, %._crit_edge ], [ %25, %JLI_MemAlloc.exit ]
   store i8 0, ptr %.023.lcssa, align 1
   ret ptr %29
 }

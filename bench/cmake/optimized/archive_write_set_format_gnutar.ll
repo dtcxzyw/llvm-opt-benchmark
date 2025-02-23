@@ -757,7 +757,7 @@ format_256.exit.i:                                ; preds = %80
 87:                                               ; preds = %76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %73, i8 55, i64 7, i1 false), !tbaa !26
   %88 = tail call i64 @archive_entry_uid(ptr noundef %2) #12
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.17, i64 noundef %88) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.17, i64 noundef %88) #12
   br label %format_number.exit.thread
 
 format_number.exit.thread:                        ; preds = %76, %format_256.exit.i, %87
@@ -813,7 +813,7 @@ format_256.exit.i99:                              ; preds = %105
 112:                                              ; preds = %101
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %98, i8 55, i64 7, i1 false), !tbaa !26
   %113 = tail call i64 @archive_entry_gid(ptr noundef %2) #12
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.18, i64 noundef %113) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.18, i64 noundef %113) #12
   br label %format_number.exit106.thread
 
 format_number.exit106.thread:                     ; preds = %101, %format_256.exit.i99, %112
@@ -868,7 +868,7 @@ format_256.exit.i110:                             ; preds = %130
 
 137:                                              ; preds = %126
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %123, i8 55, i64 11, i1 false), !tbaa !26
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.19) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.19) #12
   br label %format_number.exit117.thread
 
 format_number.exit117.thread:                     ; preds = %126, %format_256.exit.i110, %137
@@ -936,7 +936,7 @@ format_octal.exit123:                             ; preds = %148, %.preheader.pr
 
 168:                                              ; preds = %166
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %163, i8 55, i64 6, i1 false), !tbaa !26
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.20) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.20) #12
   br label %format_octal.exit130.thread
 
 format_octal.exit130.thread:                      ; preds = %166, %168
@@ -966,7 +966,7 @@ format_octal.exit130.thread:                      ; preds = %166, %168
 
 181:                                              ; preds = %179
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %176, i8 55, i64 6, i1 false), !tbaa !26
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.21) #12
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.21) #12
   br label %format_octal.exit137.thread
 
 format_octal.exit137.thread:                      ; preds = %179, %181, %152

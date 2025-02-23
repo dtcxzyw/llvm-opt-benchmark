@@ -2227,7 +2227,7 @@ ExecQualAndReset.exit:                            ; preds = %145
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 %indvars.iv.i89
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %183 = load ptr, ptr %182, align 8
-  %184 = call i64 %183(ptr noundef %179, ptr noundef %6, ptr noundef %181) #7
+  %184 = call i64 %183(ptr noundef %179, ptr noundef nonnull %6, ptr noundef %181) #7
   %185 = load ptr, ptr %53, align 8
   %186 = getelementptr inbounds nuw i64, ptr %185, i64 %indvars.iv.i89
   store i64 %184, ptr %186, align 8

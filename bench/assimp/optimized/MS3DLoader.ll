@@ -2132,9 +2132,9 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i: ;
   %291 = add nsw i64 %.057.i.i.i.i.i, -1
   %292 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 104
   %.not.i.i.i.i.i = icmp eq i64 %291, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit1089, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i.i.i, label %.lr.ph1177.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !14
 
-.loopexit1089:                                    ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph1177.preheader:                             ; preds = %.lr.ph.i.i.i.i.i
   %293 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %292, ptr %293, align 8
   %wide.trip.count1325 = zext i16 %282 to i64
@@ -2182,9 +2182,9 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempGroupESaIS2_EEC2EmRKS3_.exit.i: ;
           cleanup
   br label %_ZNSt6vectorIN6Assimp12MS3DImporter9TempGroupESaIS2_EED2Ev.exit870
 
-.lr.ph1177:                                       ; preds = %.loopexit1089, %383
-  %indvars.iv1323 = phi i64 [ 0, %.loopexit1089 ], [ %indvars.iv.next1324, %383 ]
-  %.03491175 = phi i1 [ false, %.loopexit1089 ], [ %spec.select, %383 ]
+.lr.ph1177:                                       ; preds = %.lr.ph1177.preheader, %383
+  %indvars.iv1323 = phi i64 [ 0, %.lr.ph1177.preheader ], [ %indvars.iv.next1324, %383 ]
+  %.03491175 = phi i1 [ false, %.lr.ph1177.preheader ], [ %spec.select, %383 ]
   %308 = load ptr, ptr %11, align 8
   %309 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempGroup", ptr %308, i64 %indvars.iv1323
   %310 = load ptr, ptr %54, align 8
@@ -2425,9 +2425,9 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.
   %398 = add nsw i64 %.057.i.i.i.i.i562, -1
   %399 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i561, i64 400
   %.not.i.i.i.i.i563 = icmp eq i64 %398, 0
-  br i1 %.not.i.i.i.i.i563, label %.loopexit1083, label %.lr.ph.i.i.i.i.i560, !llvm.loop !17
+  br i1 %.not.i.i.i.i.i563, label %.lr.ph1182.preheader, label %.lr.ph.i.i.i.i.i560, !llvm.loop !17
 
-.loopexit1083:                                    ; preds = %.lr.ph.i.i.i.i.i560
+.lr.ph1182.preheader:                             ; preds = %.lr.ph.i.i.i.i.i560
   %400 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %399, ptr %400, align 8
   %wide.trip.count1330 = zext i16 %389 to i64
@@ -2467,8 +2467,8 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter12TempMaterialESaIS2_EEC2EmRKS3_.exit.
           cleanup
   br label %_ZNSt6vectorIN6Assimp12MS3DImporter12TempMaterialESaIS2_EED2Ev.exit856
 
-.lr.ph1182:                                       ; preds = %.loopexit1083, %488
-  %indvars.iv1327 = phi i64 [ 0, %.loopexit1083 ], [ %indvars.iv.next1328, %488 ]
+.lr.ph1182:                                       ; preds = %.lr.ph1182.preheader, %488
+  %indvars.iv1327 = phi i64 [ 0, %.lr.ph1182.preheader ], [ %indvars.iv.next1328, %488 ]
   %414 = load ptr, ptr %12, align 8
   %415 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempMaterial", ptr %414, i64 %indvars.iv1327
   %416 = load ptr, ptr %54, align 8
@@ -2753,9 +2753,9 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i: ;
   %525 = add nsw i64 %.057.i.i.i.i.i611, -1
   %526 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i610, i64 176
   %.not.i.i.i.i.i612 = icmp eq i64 %525, 0
-  br i1 %.not.i.i.i.i.i612, label %.loopexit1077, label %.lr.ph.i.i.i.i.i609, !llvm.loop !19
+  br i1 %.not.i.i.i.i.i612, label %.lr.ph1191.preheader, label %.lr.ph.i.i.i.i.i609, !llvm.loop !19
 
-.loopexit1077:                                    ; preds = %.lr.ph.i.i.i.i.i609
+.lr.ph1191.preheader:                             ; preds = %.lr.ph.i.i.i.i.i609
   %527 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %526, ptr %527, align 8
   %wide.trip.count1335 = zext i16 %516 to i64
@@ -2792,8 +2792,8 @@ _ZNSt12_Vector_baseIN6Assimp12MS3DImporter9TempJointESaIS2_EEC2EmRKS3_.exit.i: ;
           cleanup
   br label %_ZNSt6vectorIN6Assimp12MS3DImporter9TempJointESaIS2_EED2Ev.exit844
 
-.lr.ph1191:                                       ; preds = %.loopexit1077, %._crit_edge1188
-  %indvars.iv1332 = phi i64 [ 0, %.loopexit1077 ], [ %indvars.iv.next1333, %._crit_edge1188 ]
+.lr.ph1191:                                       ; preds = %.lr.ph1191.preheader, %._crit_edge1188
+  %indvars.iv1332 = phi i64 [ 0, %.lr.ph1191.preheader ], [ %indvars.iv.next1333, %._crit_edge1188 ]
   %543 = load ptr, ptr %13, align 8
   %544 = getelementptr inbounds nuw %"struct.Assimp::MS3DImporter::TempJoint", ptr %543, i64 %indvars.iv1332
   %545 = load ptr, ptr %54, align 8

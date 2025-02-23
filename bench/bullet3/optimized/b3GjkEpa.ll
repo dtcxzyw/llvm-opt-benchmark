@@ -4662,7 +4662,7 @@ _ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277: ; p
 .thread:                                          ; preds = %430, %.critedge, %433, %642, %654, %1
   br label %711
 
-711:                                              ; preds = %432, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277, %206, %654, %.thread
+711:                                              ; preds = %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277, %432, %206, %654, %.thread
   %.320 = phi i1 [ false, %.thread ], [ true, %432 ], [ true, %206 ], [ true, %654 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit277 ], [ true, %_ZN13gjkepa2_impl25b3GJK13appendverticeERNS0_8sSimplexERK9b3Vector3.exit228 ]
   ret i1 %.320
 }

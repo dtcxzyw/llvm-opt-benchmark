@@ -8205,7 +8205,7 @@ _ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE2atEm.exit72: ; preds = %_ZNKSt6vectorIPKN4L
   store i8 0, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %68, i8 0, i64 48, i1 false)
-  br label %309
+  br label %306
 
 69:                                               ; preds = %_ZNKSt6vectorIPKN4Luau4TypeESaIS3_EE2atEm.exit72
   %.not.i = icmp eq ptr %48, null
@@ -8237,7 +8237,7 @@ _ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit76: ; preds = %_ZN4Luau2isIJ
   store i8 0, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %81, i8 0, i64 48, i1 false)
-  br label %309
+  br label %306
 
 _ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit76.thread: ; preds = %_ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit.thread, %_ZN4Luau2isIJNS_9NeverTypeEERPKNS_4TypeEEEbOT0_.exit76
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -8296,7 +8296,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread: ; preds = %_Z
   store ptr %96, ptr %98, align 8
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
-  br label %309
+  br label %306
 
 _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread165: ; preds = %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit._ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread165_crit_edge, %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i
   %100 = phi ptr [ %.pre, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit._ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread165_crit_edge ], [ null, %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i ]
@@ -8335,7 +8335,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread: ; preds = %
   store ptr %107, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, i8 0, i64 24, i1 false)
-  br label %309
+  br label %306
 
 _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166: ; preds = %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83
   %.pre172 = load ptr, ptr %88, align 8
@@ -8363,7 +8363,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166: ; preds 
   call void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ESt16initializer_listIS3_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %121, ptr nonnull %10, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %11)
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %122, i8 0, i64 24, i1 false)
-  br label %309
+  br label %306
 
 123:                                              ; preds = %111
   %124 = extractvalue { ptr, i8 } %116, 1
@@ -8382,7 +8382,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166: ; preds 
   call void @_ZNSt6vectorIPKN4Luau4TypeESaIS3_EEC2ESt16initializer_listIS3_ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %131, ptr nonnull %12, i64 1, ptr noundef nonnull align 1 dereferenceable(1) %13)
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false)
-  br label %309
+  br label %306
 
 _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ; preds = %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i81, %123, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166
   %.0162 = phi ptr [ %58, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166 ], [ %125, %123 ], [ %58, %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i81 ]
@@ -8409,12 +8409,12 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
   store i8 0, ptr %143, align 8
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %144, i8 0, i64 48, i1 false)
-  br label %306
+  br label %303
 
 145:                                              ; preds = %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread
   %146 = landingpad { ptr, i32 }
           cleanup
-  br label %308
+  br label %305
 
 147:                                              ; preds = %136
   %148 = invoke noundef zeroext i1 @_ZNK4Luau14NormalizedType20shouldSuppressErrorsEv(ptr noundef nonnull align 8 dereferenceable(401) %137)
@@ -8443,12 +8443,12 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
   store i8 0, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %161, i8 0, i64 48, i1 false)
-  br label %306
+  br label %303
 
 162:                                              ; preds = %180, %168, %164, %150, %147
   %163 = landingpad { ptr, i32 }
           cleanup
-  br label %307
+  br label %304
 
 164:                                              ; preds = %153
   %165 = load ptr, ptr %14, align 8
@@ -8478,7 +8478,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
   store i8 0, ptr %178, align 8
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %179, i8 0, i64 48, i1 false)
-  br label %306
+  br label %303
 
 180:                                              ; preds = %171, %167
   %.val = load ptr, ptr %2, align 8
@@ -8500,11 +8500,11 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
   %187 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt8optionalIN4Luau25TypeFamilyReductionResultIPKNS0_4TypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #25
-  br label %307
+  br label %304
 
 188:                                              ; preds = %185
   call void @_ZNSt8optionalIN4Luau25TypeFamilyReductionResultIPKNS0_4TypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #25
-  br label %306
+  br label %303
 
 189:                                              ; preds = %181
   call void @_ZNSt8optionalIN4Luau25TypeFamilyReductionResultIPKNS0_4TypeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %16) #25
@@ -8534,7 +8534,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
 199:                                              ; preds = %212, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread167, %207, %195, %189
   %200 = landingpad { ptr, i32 }
           cleanup
-  br label %305
+  br label %302
 
 201:                                              ; preds = %197, %192
   %.pn171 = phi { ptr, i8 } [ %191, %192 ], [ %196, %197 ]
@@ -8549,7 +8549,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
   store i8 1, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %206, i8 0, i64 48, i1 false)
-  br label %304
+  br label %301
 
 207:                                              ; preds = %201
   %.sroa.099.0 = extractvalue { ptr, i8 } %.pn171, 0
@@ -8593,12 +8593,12 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread: ; preds = %
 217:                                              ; preds = %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %218, i8 0, i64 24, i1 false)
-  br label %304
+  br label %301
 
 219:                                              ; preds = %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread
   %220 = landingpad { ptr, i32 }
           cleanup
-  br label %305
+  br label %302
 
 _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread167: ; preds = %_ZN4Luau3getINS_22TypeFamilyInstanceTypeEEEPKT_PKNS_4TypeE.exit.i.i91, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93
   %221 = load ptr, ptr %4, align 8
@@ -8631,7 +8631,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread167: ; preds 
 
 232:                                              ; preds = %227
   %233 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN4Luau11SolveResultaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %22)
-          to label %258 unwind label %236
+          to label %255 unwind label %236
 
 234:                                              ; preds = %238, %.noexc95, %227
   %235 = landingpad { ptr, i32 }
@@ -8651,171 +8651,168 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit93.thread167: ; preds 
 .noexc95:                                         ; preds = %238
   %.not.i.i94 = icmp ne ptr %239, null
   call void @llvm.assume(i1 %.not.i.i94)
-  %240 = load i32, ptr %239, align 8
-  %241 = icmp eq i32 %240, 4
-  %242 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %243 = select i1 %241, ptr %242, ptr null
-  %244 = load ptr, ptr %242, align 8
-  %245 = getelementptr inbounds nuw i8, ptr %243, i64 8
-  %246 = load ptr, ptr %245, align 8
-  %247 = getelementptr inbounds i8, ptr %246, i64 -8
-  %248 = load ptr, ptr %244, align 8
-  %249 = load ptr, ptr %247, align 8
-  store ptr %249, ptr %244, align 8
-  store ptr %248, ptr %247, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
+  %241 = load ptr, ptr %240, align 8
+  %242 = getelementptr inbounds nuw i8, ptr %239, i64 16
+  %243 = load ptr, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %243, i64 -8
+  %245 = load ptr, ptr %241, align 8
+  %246 = load ptr, ptr %244, align 8
+  store ptr %246, ptr %241, align 8
+  store ptr %245, ptr %244, align 8
   %.sroa.06.0.copyload = load ptr, ptr %4, align 8
   %.sroa.05.0.copyload = load ptr, ptr %190, align 8
   %.sroa.04.0.copyload = load ptr, ptr %133, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.sroa.03.0.copyload = load ptr, ptr %250, align 8
-  %251 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %.sroa.02.0.copyload = load ptr, ptr %251, align 8
-  %252 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %.sroa.01.0.copyload = load ptr, ptr %252, align 8
-  %253 = ptrtoint ptr %.sroa.01.0.copyload to i64
-  invoke void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_10NormalizerEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SolveResult") align 8 %23, ptr %.sroa.06.0.copyload, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %.sroa.03.0.copyload, ptr %.sroa.02.0.copyload, i64 %253, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef %208, ptr noundef %223)
-          to label %254 unwind label %234
+  %247 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.sroa.03.0.copyload = load ptr, ptr %247, align 8
+  %248 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %.sroa.02.0.copyload = load ptr, ptr %248, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %.sroa.01.0.copyload = load ptr, ptr %249, align 8
+  %250 = ptrtoint ptr %.sroa.01.0.copyload to i64
+  invoke void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_10NormalizerEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::SolveResult") align 8 %23, ptr %.sroa.06.0.copyload, ptr %.sroa.05.0.copyload, ptr %.sroa.04.0.copyload, ptr %.sroa.03.0.copyload, ptr %.sroa.02.0.copyload, i64 %250, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef %208, ptr noundef %223)
+          to label %251 unwind label %234
 
-254:                                              ; preds = %.noexc95
-  %255 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN4Luau11SolveResultaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %23)
-          to label %258 unwind label %256
+251:                                              ; preds = %.noexc95
+  %252 = invoke noundef nonnull align 8 dereferenceable(80) ptr @_ZN4Luau11SolveResultaSEOS0_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(80) %23)
+          to label %255 unwind label %253
 
-256:                                              ; preds = %254
-  %257 = landingpad { ptr, i32 }
+253:                                              ; preds = %251
+  %254 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau11SolveResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %23) #25
   br label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97
 
-258:                                              ; preds = %254, %232
-  %.sink = phi ptr [ %22, %232 ], [ %23, %254 ]
+255:                                              ; preds = %251, %232
+  %.sink = phi ptr [ %22, %232 ], [ %23, %251 ]
   call void @_ZN4Luau11SolveResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %.sink) #25
-  %259 = load i8, ptr %225, align 8
-  %260 = trunc i8 %259 to i1
-  br i1 %260, label %265, label %261
+  %256 = load i8, ptr %225, align 8
+  %257 = trunc i8 %256 to i1
+  br i1 %257, label %262, label %258
 
-261:                                              ; preds = %258
-  %262 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %262, align 8
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %263, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %264, i8 0, i64 48, i1 false)
+258:                                              ; preds = %255
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %259, align 8
+  %260 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %260, align 8
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %261, i8 0, i64 48, i1 false)
   br label %_ZN4Luau8TypePackD2Ev.exit
 
-265:                                              ; preds = %258
-  %266 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %267 = load ptr, ptr %4, align 8
+262:                                              ; preds = %255
+  %263 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %264 = load ptr, ptr %4, align 8
   %.sroa.0.0.copyload = load ptr, ptr %190, align 8
-  %268 = load ptr, ptr %266, align 8
+  %265 = load ptr, ptr %263, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, i8 0, i64 24, i1 false)
-  invoke void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePack") align 8 %24, ptr noundef nonnull align 8 dereferenceable(88) %267, ptr %.sroa.0.0.copyload, ptr noundef %268, i64 noundef 1, ptr noundef nonnull %25)
-          to label %269 unwind label %281
+  invoke void @_ZN4Luau14extendTypePackERNS_9TypeArenaENS_7NotNullINS_12BuiltinTypesEEEPKNS_11TypePackVarEmSt6vectorISt8optionalIPKNS_4TypeEESaISD_EE(ptr dead_on_unwind nonnull writable sret(%"struct.Luau::TypePack") align 8 %24, ptr noundef nonnull align 8 dereferenceable(88) %264, ptr %.sroa.0.0.copyload, ptr noundef %265, i64 noundef 1, ptr noundef nonnull %25)
+          to label %266 unwind label %278
 
-269:                                              ; preds = %265
-  %270 = load ptr, ptr %25, align 8
-  %.not.i.i.i = icmp eq ptr %270, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit, label %271
+266:                                              ; preds = %262
+  %267 = load ptr, ptr %25, align 8
+  %.not.i.i.i = icmp eq ptr %267, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit, label %268
 
-271:                                              ; preds = %269
-  %272 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %273 = load ptr, ptr %272, align 8
-  %274 = ptrtoint ptr %273 to i64
-  %275 = ptrtoint ptr %270 to i64
-  %276 = sub i64 %274, %275
-  call void @_ZdlPvm(ptr noundef nonnull %270, i64 noundef %276) #26
+268:                                              ; preds = %266
+  %269 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %270 = load ptr, ptr %269, align 8
+  %271 = ptrtoint ptr %270 to i64
+  %272 = ptrtoint ptr %267 to i64
+  %273 = sub i64 %271, %272
+  call void @_ZdlPvm(ptr noundef nonnull %267, i64 noundef %273) #26
   br label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %269, %271
-  %277 = load ptr, ptr %24, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %279 = load ptr, ptr %278, align 8
-  %280 = icmp eq ptr %277, %279
-  br i1 %280, label %294, label %.thread
+_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit: ; preds = %266, %268
+  %274 = load ptr, ptr %24, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %276 = load ptr, ptr %275, align 8
+  %277 = icmp eq ptr %274, %276
+  br i1 %277, label %291, label %.thread
 
-281:                                              ; preds = %265
-  %282 = landingpad { ptr, i32 }
+278:                                              ; preds = %262
+  %279 = landingpad { ptr, i32 }
           cleanup
-  %283 = load ptr, ptr %25, align 8
-  %.not.i.i.i96 = icmp eq ptr %283, null
-  br i1 %.not.i.i.i96, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97, label %284
+  %280 = load ptr, ptr %25, align 8
+  %.not.i.i.i96 = icmp eq ptr %280, null
+  br i1 %.not.i.i.i96, label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97, label %281
 
-284:                                              ; preds = %281
-  %285 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %286 = load ptr, ptr %285, align 8
-  %287 = ptrtoint ptr %286 to i64
-  %288 = ptrtoint ptr %283 to i64
-  %289 = sub i64 %287, %288
-  call void @_ZdlPvm(ptr noundef nonnull %283, i64 noundef %289) #26
+281:                                              ; preds = %278
+  %282 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %283 = load ptr, ptr %282, align 8
+  %284 = ptrtoint ptr %283 to i64
+  %285 = ptrtoint ptr %280 to i64
+  %286 = sub i64 %284, %285
+  call void @_ZdlPvm(ptr noundef nonnull %280, i64 noundef %286) #26
   br label %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97
 
 .thread:                                          ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
-  %290 = load ptr, ptr %277, align 8
-  store ptr %290, ptr %0, align 8
-  %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 1, ptr %291, align 8
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %287 = load ptr, ptr %274, align 8
+  store ptr %287, ptr %0, align 8
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 1, ptr %288, align 8
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %289, align 8
+  %290 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %290, i8 0, i64 48, i1 false)
+  br label %295
+
+291:                                              ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %292, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %293, i8 0, i64 48, i1 false)
-  br label %298
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %293, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.not.i.i.i.i = icmp eq ptr %274, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %294, i8 0, i64 48, i1 false)
+  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %295
 
-294:                                              ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit
-  %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %295, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %296, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.not.i.i.i.i = icmp eq ptr %277, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %297, i8 0, i64 48, i1 false)
-  br i1 %.not.i.i.i.i, label %_ZN4Luau8TypePackD2Ev.exit, label %298
-
-298:                                              ; preds = %.thread, %294
-  %299 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %300 = load ptr, ptr %299, align 8
-  %301 = ptrtoint ptr %300 to i64
-  %302 = ptrtoint ptr %277 to i64
-  %303 = sub i64 %301, %302
-  call void @_ZdlPvm(ptr noundef nonnull %277, i64 noundef %303) #26
+295:                                              ; preds = %.thread, %291
+  %296 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %297 = load ptr, ptr %296, align 8
+  %298 = ptrtoint ptr %297 to i64
+  %299 = ptrtoint ptr %274 to i64
+  %300 = sub i64 %298, %299
+  call void @_ZdlPvm(ptr noundef nonnull %274, i64 noundef %300) #26
   br label %_ZN4Luau8TypePackD2Ev.exit
 
-_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %298, %294, %261
+_ZN4Luau8TypePackD2Ev.exit:                       ; preds = %295, %291, %258
   call void @_ZN4Luau11SolveResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #25
-  br label %304
+  br label %301
 
-_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97: ; preds = %284, %281, %256, %236, %234
-  %.pn = phi { ptr, i32 } [ %257, %256 ], [ %235, %234 ], [ %237, %236 ], [ %282, %281 ], [ %282, %284 ]
+_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97: ; preds = %281, %278, %253, %236, %234
+  %.pn = phi { ptr, i32 } [ %254, %253 ], [ %235, %234 ], [ %237, %236 ], [ %279, %278 ], [ %279, %281 ]
   call void @_ZN4Luau11SolveResultD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %21) #25
-  br label %305
+  br label %302
 
-304:                                              ; preds = %_ZN4Luau8TypePackD2Ev.exit, %217, %203
+301:                                              ; preds = %_ZN4Luau8TypePackD2Ev.exit, %217, %203
   call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #25
-  br label %306
+  br label %303
 
-305:                                              ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97, %219, %199
+302:                                              ; preds = %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97, %219, %199
   %.pn63 = phi { ptr, i32 } [ %220, %219 ], [ %.pn, %_ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit97 ], [ %200, %199 ]
   call void @_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #25
-  br label %307
+  br label %304
 
-306:                                              ; preds = %188, %304, %172, %154, %141
+303:                                              ; preds = %188, %301, %172, %154, %141
   call void @_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
   call void @_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
-  br label %309
+  br label %306
 
-307:                                              ; preds = %305, %186, %162
-  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %305 ], [ %187, %186 ], [ %163, %162 ]
+304:                                              ; preds = %302, %186, %162
+  %.pn63.pn = phi { ptr, i32 } [ %.pn63, %302 ], [ %187, %186 ], [ %163, %162 ]
   call void @_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #25
-  br label %308
+  br label %305
 
-308:                                              ; preds = %307, %145
-  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %307 ], [ %146, %145 ]
+305:                                              ; preds = %304, %145
+  %.pn63.pn.pn = phi { ptr, i32 } [ %.pn63.pn, %304 ], [ %146, %145 ]
   call void @_ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #25
   br label %.body
 
-309:                                              ; preds = %306, %128, %118, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread, %74, %61
+306:                                              ; preds = %303, %128, %118, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread, %_ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit.thread, %74, %61
   ret void
 
-.body:                                            ; preds = %308, %46
-  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %46 ], [ %.pn63.pn.pn, %308 ]
+.body:                                            ; preds = %305, %46
+  %.pn67.pn = phi { ptr, i32 } [ %.pn67, %46 ], [ %.pn63.pn.pn, %305 ]
   resume { ptr, i32 } %.pn67.pn
 }
 
@@ -17300,7 +17297,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyEED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i, %132
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %108) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6) #25
-  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.056.079) #28
+  %137 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.056.079) #28
   %.not = icmp eq ptr %137, %99
   br i1 %.not, label %_ZN4Luau3getINS_13PrimitiveTypeEEEPKT_PKNS_4TypeE.exit, label %109
 

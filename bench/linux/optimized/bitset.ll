@@ -80,7 +80,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset32_size(ptr noundef readonly 
   %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
   %37 = lshr i64 %35, 5
   %38 = and i64 %37, 134217727
-  %39 = getelementptr i32, ptr %11, i64 %38
+  %39 = getelementptr i32, ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = trunc i64 %35 to i32
   %42 = and i32 %41, 31
@@ -1691,7 +1691,7 @@ define dso_local range(i32 0, -3) i32 @ethnl_bitset_size(ptr noundef readonly ca
   %36 = phi i32 [ %spec.select, %.split.us.split ], [ 0, %.split.us ]
   %37 = lshr i64 %35, 5
   %38 = and i64 %37, 134217727
-  %39 = getelementptr i32, ptr %11, i64 %38
+  %39 = getelementptr i32, ptr %0, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = trunc i64 %35 to i32
   %42 = and i32 %41, 31

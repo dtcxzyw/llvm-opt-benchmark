@@ -2138,7 +2138,7 @@ onigenc_unicode_CaseUnfold_12_lookup.exit304.thread: ; preds = %489, %445, %471,
 
 500:                                              ; preds = %onigenc_unicode_CaseUnfold_12_lookup.exit304.thread
   %501 = load ptr, ptr %8, align 8, !tbaa !16
-  %502 = tail call i32 %501(ptr noundef %498, ptr noundef nonnull %3, ptr noundef %0) #7
+  %502 = tail call i32 %501(ptr noundef %498, ptr noundef nonnull %3, ptr noundef nonnull %0) #7
   %503 = add i32 %502, -65
   %or.cond.i305 = icmp ult i32 %503, 125153
   br i1 %or.cond.i305, label %504, label %onigenc_unicode_CaseFold_11_lookup.exit310.thread

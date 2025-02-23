@@ -5024,12 +5024,12 @@ setTypeSize.exit:                                 ; preds = %28, %36, %41
 
 .lr.ph155:                                        ; preds = %.preheader148, %.lr.ph155
   %.1118154 = phi i64 [ %171, %.lr.ph155 ], [ %.0.i, %.preheader148 ]
-  %167 = call ptr @dictGetFairRandomKey(ptr noundef %137) #10
+  %167 = call ptr @dictGetFairRandomKey(ptr noundef nonnull %137) #10
   %168 = call ptr @dictGetKey(ptr noundef %167) #10
-  %169 = call ptr @dictUnlink(ptr noundef %137, ptr noundef %168) #10
+  %169 = call ptr @dictUnlink(ptr noundef nonnull %137, ptr noundef %168) #10
   %170 = call ptr @dictGetKey(ptr noundef %167) #10
   call void @sdsfree(ptr noundef %170) #10
-  call void @dictFreeUnlinkedEntry(ptr noundef %137, ptr noundef %167) #10
+  call void @dictFreeUnlinkedEntry(ptr noundef nonnull %137, ptr noundef %167) #10
   %171 = add i64 %.1118154, -1
   %172 = icmp ugt i64 %171, %.0
   br i1 %172, label %.lr.ph155, label %.loopexit149, !llvm.loop !118

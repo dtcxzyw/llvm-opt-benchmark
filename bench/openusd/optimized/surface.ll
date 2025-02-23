@@ -3965,9 +3965,9 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IfE5applyILi
   store float %27, ptr %28, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit, label %.lr.ph.i, !llvm.loop !19
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !19
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit: ; preds = %.lr.ph.i
+.lr.ph.preheader.i48:                             ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3975,8 +3975,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit: ; preds
   %33 = load float, ptr %32, align 4
   br label %.lr.ph.i50
 
-.lr.ph.i50:                                       ; preds = %.lr.ph.i50, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit
-  %indvars.iv.i51 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
+.lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i48
+  %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
   %34 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i51
   %35 = load float, ptr %34, align 4
   %36 = fmul float %33, %35
@@ -3984,9 +3984,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit: ; preds
   store float %36, ptr %37, align 4
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i
-  br i1 %exitcond.not.i53, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit54, label %.lr.ph.i50, !llvm.loop !19
+  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !19
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit54: ; preds = %.lr.ph.i50
+.lr.ph.preheader.i55:                             ; preds = %.lr.ph.i50
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3994,8 +3994,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit54: ; pre
   %42 = load float, ptr %41, align 4
   br label %.lr.ph.i57
 
-.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit54
-  %indvars.iv.i58 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit54 ], [ %indvars.iv.next.i59, %.lr.ph.i57 ]
+.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %.lr.ph.preheader.i55
+  %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %.lr.ph.i57 ]
   %43 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i58
   %44 = load float, ptr %43, align 4
   %45 = fmul float %42, %44
@@ -4018,7 +4018,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us ], [ 1, %.lr.ph ]
-  %.04583.us = phi ptr [ %62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us ], [ %20, %.lr.ph ]
+  %.04582.us = phi ptr [ %62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit81.loopexit.us ], [ %20, %.lr.ph ]
   %51 = load ptr, ptr %10, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %60, label %53
@@ -4033,7 +4033,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
   br label %.lr.ph.preheader.i62.us
 
 60:                                               ; preds = %.lr.ph.split.us
-  %61 = getelementptr inbounds float, ptr %.04583.us, i64 %50
+  %61 = getelementptr inbounds float, ptr %.04582.us, i64 %50
   br label %.lr.ph.preheader.i62.us
 
 .lr.ph.preheader.i62.us:                          ; preds = %60, %53
@@ -4054,17 +4054,17 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3SetEPffPKfi.exit61: ; pre
   store float %71, ptr %69, align 4
   %indvars.iv.next.i66.us = add nuw nsw i64 %indvars.iv.i65.us, 1
   %exitcond.not.i67.us = icmp eq i64 %indvars.iv.next.i66.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i67.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.us, label %.lr.ph.i64.us, !llvm.loop !18
+  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !18
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.us: ; preds = %.lr.ph.i64.us
+.lr.ph.preheader.i68.us:                          ; preds = %.lr.ph.i64.us
   %72 = load ptr, ptr %29, align 8
   %73 = load ptr, ptr %31, align 8
   %74 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv
   %75 = load float, ptr %74, align 4
   br label %.lr.ph.i70.us
 
-.lr.ph.i70.us:                                    ; preds = %.lr.ph.i70.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.us
-  %indvars.iv.i71.us = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.us ], [ %indvars.iv.next.i72.us, %.lr.ph.i70.us ]
+.lr.ph.i70.us:                                    ; preds = %.lr.ph.i70.us, %.lr.ph.preheader.i68.us
+  %indvars.iv.i71.us = phi i64 [ 0, %.lr.ph.preheader.i68.us ], [ %indvars.iv.next.i72.us, %.lr.ph.i70.us ]
   %76 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i71.us
   %77 = load float, ptr %76, align 4
   %78 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv.i71.us
@@ -4073,17 +4073,17 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit.us: ; pr
   store float %80, ptr %78, align 4
   %indvars.iv.next.i72.us = add nuw nsw i64 %indvars.iv.i71.us, 1
   %exitcond.not.i73.us = icmp eq i64 %indvars.iv.next.i72.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i73.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit74.us, label %.lr.ph.i70.us, !llvm.loop !18
+  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !18
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit74.us: ; preds = %.lr.ph.i70.us
+.lr.ph.preheader.i75.us:                          ; preds = %.lr.ph.i70.us
   %81 = load ptr, ptr %38, align 8
   %82 = load ptr, ptr %40, align 8
   %83 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
   %84 = load float, ptr %83, align 4
   br label %.lr.ph.i77.us
 
-.lr.ph.i77.us:                                    ; preds = %.lr.ph.i77.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit74.us
-  %indvars.iv.i78.us = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIfLi0EE3AddEPffPKfi.exit74.us ], [ %indvars.iv.next.i79.us, %.lr.ph.i77.us ]
+.lr.ph.i77.us:                                    ; preds = %.lr.ph.i77.us, %.lr.ph.preheader.i75.us
+  %indvars.iv.i78.us = phi i64 [ 0, %.lr.ph.preheader.i75.us ], [ %indvars.iv.next.i79.us, %.lr.ph.i77.us ]
   %85 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i78.us
   %86 = load float, ptr %85, align 4
   %87 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv.i78.us
@@ -9381,9 +9381,9 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Bfr6points8Combine3IdE5applyILi
   store double %27, ptr %28, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit, label %.lr.ph.i, !llvm.loop !77
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i48, label %.lr.ph.i, !llvm.loop !77
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit: ; preds = %.lr.ph.i
+.lr.ph.preheader.i48:                             ; preds = %.lr.ph.i
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -9391,8 +9391,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit: ; preds
   %33 = load double, ptr %32, align 8
   br label %.lr.ph.i50
 
-.lr.ph.i50:                                       ; preds = %.lr.ph.i50, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit
-  %indvars.iv.i51 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
+.lr.ph.i50:                                       ; preds = %.lr.ph.i50, %.lr.ph.preheader.i48
+  %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.preheader.i48 ], [ %indvars.iv.next.i52, %.lr.ph.i50 ]
   %34 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i51
   %35 = load double, ptr %34, align 8
   %36 = fmul double %33, %35
@@ -9400,9 +9400,9 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit: ; preds
   store double %36, ptr %37, align 8
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i51, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %wide.trip.count.i
-  br i1 %exitcond.not.i53, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit54, label %.lr.ph.i50, !llvm.loop !77
+  br i1 %exitcond.not.i53, label %.lr.ph.preheader.i55, label %.lr.ph.i50, !llvm.loop !77
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit54: ; preds = %.lr.ph.i50
+.lr.ph.preheader.i55:                             ; preds = %.lr.ph.i50
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -9410,8 +9410,8 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit54: ; pre
   %42 = load double, ptr %41, align 8
   br label %.lr.ph.i57
 
-.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit54
-  %indvars.iv.i58 = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit54 ], [ %indvars.iv.next.i59, %.lr.ph.i57 ]
+.lr.ph.i57:                                       ; preds = %.lr.ph.i57, %.lr.ph.preheader.i55
+  %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.preheader.i55 ], [ %indvars.iv.next.i59, %.lr.ph.i57 ]
   %43 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv.i58
   %44 = load double, ptr %43, align 8
   %45 = fmul double %42, %44
@@ -9434,7 +9434,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us ], [ 1, %.lr.ph ]
-  %.04583.us = phi ptr [ %62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us ], [ %20, %.lr.ph ]
+  %.04582.us = phi ptr [ %62, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit81.loopexit.us ], [ %20, %.lr.ph ]
   %51 = load ptr, ptr %10, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %60, label %53
@@ -9449,7 +9449,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
   br label %.lr.ph.preheader.i62.us
 
 60:                                               ; preds = %.lr.ph.split.us
-  %61 = getelementptr inbounds double, ptr %.04583.us, i64 %50
+  %61 = getelementptr inbounds double, ptr %.04582.us, i64 %50
   br label %.lr.ph.preheader.i62.us
 
 .lr.ph.preheader.i62.us:                          ; preds = %60, %53
@@ -9470,17 +9470,17 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3SetEPddPKdi.exit61: ; pre
   store double %71, ptr %69, align 8
   %indvars.iv.next.i66.us = add nuw nsw i64 %indvars.iv.i65.us, 1
   %exitcond.not.i67.us = icmp eq i64 %indvars.iv.next.i66.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i67.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.us, label %.lr.ph.i64.us, !llvm.loop !76
+  br i1 %exitcond.not.i67.us, label %.lr.ph.preheader.i68.us, label %.lr.ph.i64.us, !llvm.loop !76
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.us: ; preds = %.lr.ph.i64.us
+.lr.ph.preheader.i68.us:                          ; preds = %.lr.ph.i64.us
   %72 = load ptr, ptr %29, align 8
   %73 = load ptr, ptr %31, align 8
   %74 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv
   %75 = load double, ptr %74, align 8
   br label %.lr.ph.i70.us
 
-.lr.ph.i70.us:                                    ; preds = %.lr.ph.i70.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.us
-  %indvars.iv.i71.us = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.us ], [ %indvars.iv.next.i72.us, %.lr.ph.i70.us ]
+.lr.ph.i70.us:                                    ; preds = %.lr.ph.i70.us, %.lr.ph.preheader.i68.us
+  %indvars.iv.i71.us = phi i64 [ 0, %.lr.ph.preheader.i68.us ], [ %indvars.iv.next.i72.us, %.lr.ph.i70.us ]
   %76 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv.i71.us
   %77 = load double, ptr %76, align 8
   %78 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv.i71.us
@@ -9489,17 +9489,17 @@ _ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit.us: ; pr
   store double %80, ptr %78, align 8
   %indvars.iv.next.i72.us = add nuw nsw i64 %indvars.iv.i71.us, 1
   %exitcond.not.i73.us = icmp eq i64 %indvars.iv.next.i72.us, %wide.trip.count.i63
-  br i1 %exitcond.not.i73.us, label %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit74.us, label %.lr.ph.i70.us, !llvm.loop !76
+  br i1 %exitcond.not.i73.us, label %.lr.ph.preheader.i75.us, label %.lr.ph.i70.us, !llvm.loop !76
 
-_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit74.us: ; preds = %.lr.ph.i70.us
+.lr.ph.preheader.i75.us:                          ; preds = %.lr.ph.i70.us
   %81 = load ptr, ptr %38, align 8
   %82 = load ptr, ptr %40, align 8
   %83 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv
   %84 = load double, ptr %83, align 8
   br label %.lr.ph.i77.us
 
-.lr.ph.i77.us:                                    ; preds = %.lr.ph.i77.us, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit74.us
-  %indvars.iv.i78.us = phi i64 [ 0, %_ZN10OpenSubdiv6v3_6_03Bfr6points12PointBuilderIdLi0EE3AddEPddPKdi.exit74.us ], [ %indvars.iv.next.i79.us, %.lr.ph.i77.us ]
+.lr.ph.i77.us:                                    ; preds = %.lr.ph.i77.us, %.lr.ph.preheader.i75.us
+  %indvars.iv.i78.us = phi i64 [ 0, %.lr.ph.preheader.i75.us ], [ %indvars.iv.next.i79.us, %.lr.ph.i77.us ]
   %85 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv.i78.us
   %86 = load double, ptr %85, align 8
   %87 = getelementptr inbounds nuw double, ptr %81, i64 %indvars.iv.i78.us

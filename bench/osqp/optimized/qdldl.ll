@@ -305,7 +305,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr noundef readonly captures(none) %1,
   store double 0.000000e+00, ptr %81, align 8, !tbaa !14
   %105 = getelementptr inbounds i8, ptr %11, i64 %78
   store i8 0, ptr %105, align 1, !tbaa !13
-  %106 = icmp sgt i64 %.2135172.in, 1
+  %106 = icmp samesign ugt i64 %.2135172.in, 1
   br i1 %106, label %76, label %._crit_edge174, !llvm.loop !21
 
 ._crit_edge174:                                   ; preds = %._crit_edge170, %.lr.ph178, %.preheader
@@ -414,7 +414,7 @@ define void @QDLDL_Ltsolve(i64 noundef %0, ptr noundef readonly captures(none) %
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph27
   %.0.lcssa = phi double [ %9, %.lr.ph27 ], [ %20, %.lr.ph ]
   store double %.0.lcssa, ptr %8, align 8, !tbaa !14
-  %22 = icmp sgt i64 %.020.in24, 1
+  %22 = icmp samesign ugt i64 %.020.in24, 1
   br i1 %22, label %.lr.ph27, label %._crit_edge28, !llvm.loop !26
 
 ._crit_edge28:                                    ; preds = %._crit_edge, %5
@@ -506,7 +506,7 @@ define void @QDLDL_solve(i64 noundef %0, ptr noundef readonly captures(none) %1,
 ._crit_edge.i:                                    ; preds = %.lr.ph.i18, %.lr.ph27.i
   %.0.lcssa.i = phi double [ %32, %.lr.ph27.i ], [ %43, %.lr.ph.i18 ]
   store double %.0.lcssa.i, ptr %31, align 8, !tbaa !14
-  %45 = icmp sgt i64 %.020.in24.i, 1
+  %45 = icmp samesign ugt i64 %.020.in24.i, 1
   br i1 %45, label %.lr.ph27.i, label %QDLDL_Ltsolve.exit, !llvm.loop !26
 
 QDLDL_Ltsolve.exit:                               ; preds = %._crit_edge.i, %6

@@ -119,7 +119,7 @@ define internal fastcc void @print_error(i64 %0, ptr noundef %1, i32 noundef ran
 .preheader108:                                    ; preds = %.lr.ph, %21
   %.090.lcssa = phi i64 [ 1, %21 ], [ %spec.select, %.lr.ph ]
   %.088.lcssa = phi ptr [ %33, %21 ], [ %37, %.lr.ph ]
-  %.not95112 = icmp sgt i64 %.090.lcssa, %.sroa.5.0.extract.shift
+  %.not95112 = icmp samesign ugt i64 %.090.lcssa, %.sroa.5.0.extract.shift
   br i1 %.not95112, label %._crit_edge, label %.lr.ph116
 
 .lr.ph116:                                        ; preds = %.preheader108

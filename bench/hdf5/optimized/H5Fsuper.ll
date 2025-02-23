@@ -1548,7 +1548,7 @@ define range(i32 -1, 1) i32 @H5F__super_read(ptr noundef %0, ptr noundef %1, i1 
   br i1 %.not332, label %713, label %710
 
 710:                                              ; preds = %709
-  %711 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SUPERBLOCK, i64 noundef 0, ptr noundef nonnull %.0263, i32 noundef %.0268) #6
+  %711 = call i32 @H5AC_unprotect(ptr noundef nonnull %0, ptr noundef nonnull @H5AC_SUPERBLOCK, i64 noundef 0, ptr noundef nonnull %.0263, i32 noundef %.0268) #6
   %712 = icmp slt i32 %711, 0
   br i1 %712, label %.thread379, label %713
 

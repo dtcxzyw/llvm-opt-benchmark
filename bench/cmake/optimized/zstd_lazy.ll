@@ -393,7 +393,11 @@ ZSTD_hashPtr.exit32.i.us:                         ; preds = %.lr.ph, %ZSTD_hashP
   store i32 %33, ptr %31, align 4, !tbaa !24
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %37 = icmp samesign ult i64 %indvars.iv.next39, %27
-  br i1 %37, label %ZSTD_hashPtr.exit32.i.us, label %._crit_edge
+  br i1 %37, label %ZSTD_hashPtr.exit32.i.us, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %ZSTD_hashPtr.exit32.i.us
+  store i32 %19, ptr %20, align 4, !tbaa !20
+  br label %99
 
 ZSTD_hashPtr.exit32.i.us17:                       ; preds = %.lr.ph, %ZSTD_hashPtr.exit32.i.us17
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %ZSTD_hashPtr.exit32.i.us17 ], [ %26, %.lr.ph ]
@@ -411,7 +415,11 @@ ZSTD_hashPtr.exit32.i.us17:                       ; preds = %.lr.ph, %ZSTD_hashP
   store i32 %43, ptr %41, align 4, !tbaa !24
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %47 = icmp samesign ult i64 %indvars.iv.next36, %27
-  br i1 %47, label %ZSTD_hashPtr.exit32.i.us17, label %._crit_edge
+  br i1 %47, label %ZSTD_hashPtr.exit32.i.us17, label %._crit_edge.thread44
+
+._crit_edge.thread44:                             ; preds = %ZSTD_hashPtr.exit32.i.us17
+  store i32 %19, ptr %20, align 4, !tbaa !20
+  br label %84
 
 ZSTD_hashPtr.exit32.i.us21:                       ; preds = %.lr.ph, %ZSTD_hashPtr.exit32.i.us21
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %ZSTD_hashPtr.exit32.i.us21 ], [ %26, %.lr.ph ]
@@ -429,7 +437,11 @@ ZSTD_hashPtr.exit32.i.us21:                       ; preds = %.lr.ph, %ZSTD_hashP
   store i32 %53, ptr %51, align 4, !tbaa !24
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %57 = icmp samesign ult i64 %indvars.iv.next33, %27
-  br i1 %57, label %ZSTD_hashPtr.exit32.i.us21, label %._crit_edge
+  br i1 %57, label %ZSTD_hashPtr.exit32.i.us21, label %._crit_edge.thread45
+
+._crit_edge.thread45:                             ; preds = %ZSTD_hashPtr.exit32.i.us21
+  store i32 %19, ptr %20, align 4, !tbaa !20
+  br label %89
 
 ZSTD_hashPtr.exit32.i.us25:                       ; preds = %.lr.ph, %ZSTD_hashPtr.exit32.i.us25
   %indvars.iv = phi i64 [ %indvars.iv.next, %ZSTD_hashPtr.exit32.i.us25 ], [ %26, %.lr.ph ]
@@ -447,7 +459,11 @@ ZSTD_hashPtr.exit32.i.us25:                       ; preds = %.lr.ph, %ZSTD_hashP
   store i32 %63, ptr %61, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = icmp samesign ult i64 %indvars.iv.next, %27
-  br i1 %67, label %ZSTD_hashPtr.exit32.i.us25, label %._crit_edge
+  br i1 %67, label %ZSTD_hashPtr.exit32.i.us25, label %._crit_edge.thread46
+
+._crit_edge.thread46:                             ; preds = %ZSTD_hashPtr.exit32.i.us25
+  store i32 %19, ptr %20, align 4, !tbaa !20
+  br label %94
 
 ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashPtr.exit32.i
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %ZSTD_hashPtr.exit32.i ], [ %26, %.lr.ph ]
@@ -468,7 +484,7 @@ ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashP
   %78 = icmp samesign ult i64 %indvars.iv.next42, %27
   br i1 %78, label %ZSTD_hashPtr.exit32.i, label %._crit_edge
 
-._crit_edge:                                      ; preds = %ZSTD_hashPtr.exit32.i.us25, %ZSTD_hashPtr.exit32.i.us21, %ZSTD_hashPtr.exit32.i.us17, %ZSTD_hashPtr.exit32.i.us, %ZSTD_hashPtr.exit32.i, %2
+._crit_edge:                                      ; preds = %ZSTD_hashPtr.exit32.i, %2
   store i32 %19, ptr %20, align 4, !tbaa !20
   switch i32 %4, label %79 [
     i32 8, label %99
@@ -485,7 +501,7 @@ ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashP
   %83 = zext i32 %82 to i64
   br label %ZSTD_insertAndFindFirstIndex_internal.exit
 
-84:                                               ; preds = %._crit_edge
+84:                                               ; preds = %._crit_edge.thread44, %._crit_edge
   %.val7 = load i64, ptr %1, align 1, !tbaa !25
   %85 = mul i64 %.val7, -3523014627271114752
   %86 = sub i32 64, %8
@@ -493,7 +509,7 @@ ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashP
   %88 = lshr i64 %85, %87
   br label %ZSTD_insertAndFindFirstIndex_internal.exit
 
-89:                                               ; preds = %._crit_edge
+89:                                               ; preds = %._crit_edge.thread45, %._crit_edge
   %.val9 = load i64, ptr %1, align 1, !tbaa !25
   %90 = mul i64 %.val9, -3523014627193847808
   %91 = sub i32 64, %8
@@ -501,7 +517,7 @@ ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashP
   %93 = lshr i64 %90, %92
   br label %ZSTD_insertAndFindFirstIndex_internal.exit
 
-94:                                               ; preds = %._crit_edge
+94:                                               ; preds = %._crit_edge.thread46, %._crit_edge
   %.val11 = load i64, ptr %1, align 1, !tbaa !25
   %95 = mul i64 %.val11, -3523014627193167104
   %96 = sub i32 64, %8
@@ -509,7 +525,7 @@ ZSTD_hashPtr.exit32.i:                            ; preds = %.lr.ph, %ZSTD_hashP
   %98 = lshr i64 %95, %97
   br label %ZSTD_insertAndFindFirstIndex_internal.exit
 
-99:                                               ; preds = %._crit_edge
+99:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.val13 = load i64, ptr %1, align 1, !tbaa !25
   %100 = mul i64 %.val13, -3523014627327384477
   %101 = sub i32 64, %8
@@ -30511,7 +30527,7 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 0)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -30578,7 +30594,7 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 0)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -30645,7 +30661,7 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 0)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 0)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -36107,7 +36123,7 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -36174,7 +36190,7 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 1)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -36241,7 +36257,7 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 1)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 1)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -42396,7 +42412,7 @@ ZSTD_hashPtr.exit.us12.i:                         ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us12.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 2)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 4, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -42463,7 +42479,7 @@ ZSTD_hashPtr.exit.us4.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us4.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 2)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 5, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit
@@ -42530,7 +42546,7 @@ ZSTD_hashPtr.exit.us8.i:                          ; preds = %ZSTD_hashPtr.exit.u
 
 ZSTD_updateDUBT.exit:                             ; preds = %ZSTD_hashPtr.exit.us8.i, %12
   store i32 %24, ptr %7, align 4, !tbaa !20
-  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 2)
+  %42 = tail call fastcc i64 @ZSTD_DUBT_findBestMatch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef 6, i32 noundef 2)
   br label %ZSTD_BtFindBestMatch.exit
 
 ZSTD_BtFindBestMatch.exit:                        ; preds = %4, %ZSTD_updateDUBT.exit

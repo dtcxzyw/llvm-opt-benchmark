@@ -836,11 +836,11 @@ if.end31:                                         ; preds = %if.end26
 
 new.notnull53:                                    ; preds = %if.end31
   %isempty = icmp eq i32 %24, 0
-  br i1 %isempty, label %new.cont62.thread64, label %new.cont62
+  br i1 %isempty, label %new.cont62.thread, label %new.cont62
 
-new.cont62.thread64:                              ; preds = %new.notnull53
-  %fSets865 = getelementptr inbounds nuw i8, ptr %this, i64 112
-  store ptr %call51, ptr %fSets865, align 8
+new.cont62.thread:                                ; preds = %new.notnull53
+  %fSets864 = getelementptr inbounds nuw i8, ptr %this, i64 112
+  store ptr %call51, ptr %fSets864, align 8
   br label %for.end
 
 new.cont62:                                       ; preds = %new.notnull53
@@ -896,7 +896,7 @@ if.end90:                                         ; preds = %new.notnull78
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !4
 
-for.end:                                          ; preds = %if.end90, %new.cont62.thread64, %new.cont62, %if.then88
+for.end:                                          ; preds = %if.end90, %new.cont62.thread, %new.cont62, %if.then88
   %fNamedCaptureMap = getelementptr inbounds nuw i8, ptr %other, i64 192
   %35 = load ptr, ptr %fNamedCaptureMap, align 8
   %cmp97.not = icmp eq ptr %35, null

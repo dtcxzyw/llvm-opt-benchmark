@@ -5999,7 +5999,6 @@ _ZN11duckdb_zstdL28ZSTD_cwksp_mark_tables_cleanEPNS_10ZSTD_cwkspE.exit.i.i: ; pr
   br label %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i
 
 _ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i: ; preds = %_ZN11duckdb_zstdL28ZSTD_cwksp_mark_tables_cleanEPNS_10ZSTD_cwkspE.exit.i.i, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i
-  %.1.i.i = phi i64 [ 0, %_ZN11duckdb_zstdL28ZSTD_cwksp_mark_tables_cleanEPNS_10ZSTD_cwkspE.exit.i.i ], [ %130, %_ZN11duckdb_zstdL21ZSTD_shouldAttachDictEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEm.exit.thread.i ]
   call void @llvm.lifetime.end.p0(i64 216, ptr nonnull %10)
   br label %_ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit
 
@@ -6056,7 +6055,7 @@ _ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_C
   br label %_ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit
 
 _ZN11duckdb_zstdL25ZSTD_resetCCtx_usingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit: ; preds = %.thread, %290, %287, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i, %258
-  %.0 = phi i64 [ %259, %258 ], [ %86, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %.1.i.i, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %288, %287 ], [ 0, %290 ], [ %261, %.thread ]
+  %.0 = phi i64 [ %259, %258 ], [ %86, %_ZN11duckdb_zstdL31ZSTD_resetCCtx_byAttachingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %130, %_ZN11duckdb_zstdL29ZSTD_resetCCtx_byCopyingCDictEPNS_11ZSTD_CCtx_sEPKNS_12ZSTD_CDict_sENS_18ZSTD_CCtx_params_sEmNS_22ZSTD_buffered_policy_eE.exit.i ], [ %288, %287 ], [ 0, %290 ], [ %261, %.thread ]
   ret i64 %.0
 }
 
@@ -14555,7 +14554,7 @@ _ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit: ; pre
 _ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit.thread: ; preds = %125, %_ZN11duckdb_zstdL26ZSTD_fastSequenceLengthSumEPKNS_13ZSTD_SequenceEm.exit
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %140 = load i32, ptr %139, align 8, !tbaa !374
-  %141 = call noundef i64 @_ZN11duckdb_zstd46ZSTD_copySequencesToSeqStoreExplicitBlockDelimEPNS_11ZSTD_CCtx_sEPNS_21ZSTD_sequencePositionEPKNS_13ZSTD_SequenceEmPKvmNS_18ZSTD_paramSwitch_eE(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %126, i64 noundef %.0.i, ptr noundef %1, i64 noundef %2, i32 noundef %140)
+  %141 = call noundef i64 @_ZN11duckdb_zstd46ZSTD_copySequencesToSeqStoreExplicitBlockDelimEPNS_11ZSTD_CCtx_sEPNS_21ZSTD_sequencePositionEPKNS_13ZSTD_SequenceEmPKvmNS_18ZSTD_paramSwitch_eE(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %126, i64 noundef %.0.i, ptr noundef %1, i64 noundef %2, i32 noundef %140)
   %142 = icmp ult i64 %141, -119
   br i1 %142, label %143, label %145
 

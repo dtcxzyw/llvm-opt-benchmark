@@ -631,7 +631,7 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
-  %28 = tail call ptr @Cudd_addPermute(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10)
+  %28 = tail call ptr @Cudd_addPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10)
   tail call void @free(ptr noundef nonnull %10) #7
   br label %29
 
@@ -1130,7 +1130,7 @@ define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
   br i1 %exitcond39.not, label %._crit_edge, label %.lr.ph33, !llvm.loop !53
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
-  %28 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %10)
+  %28 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %10)
   tail call void @free(ptr noundef nonnull %10) #7
   br label %29
 
@@ -1199,7 +1199,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr noundef read
   br i1 %29, label %.lr.ph33, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %.lr.ph33, %.preheader
-  %30 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9)
+  %30 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %9)
   tail call void @free(ptr noundef nonnull %9) #7
   br label %31
 

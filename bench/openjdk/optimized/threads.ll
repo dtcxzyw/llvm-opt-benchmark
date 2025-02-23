@@ -537,50 +537,62 @@ _ZN6Thread16claim_threads_doEbm.exit.thread:      ; preds = %.lr.ph, %_ZN6Thread
   tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %21) #16
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.020, i64 8
   %.not = icmp eq ptr %25, %11
-  br i1 %.not, label %._crit_edge, label %_ZN6Thread16claim_threads_doEbm.exit.thread
+  br i1 %.not, label %._crit_edge.thread, label %_ZN6Thread16claim_threads_doEbm.exit.thread
 
-._crit_edge:                                      ; preds = %_ZN6Thread16claim_threads_doEbm.exit.thread, %18, %2
+._crit_edge:                                      ; preds = %18, %2
   call void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %._crit_edge23, label %.lr.ph22
 
+._crit_edge.thread:                               ; preds = %_ZN6Thread16claim_threads_doEbm.exit.thread
+  call void @_ZN13NonJavaThread8IteratorC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %._crit_edge23, label %_ZN6Thread16claim_threads_doEbm.exit13.thread.preheader
+
 .lr.ph22:                                         ; preds = %._crit_edge
-  br i1 %0, label %_ZN6Thread16claim_threads_doEbm.exit13.us, label %_ZN6Thread16claim_threads_doEbm.exit13.thread
+  br i1 %0, label %_ZN6Thread16claim_threads_doEbm.exit13.us, label %_ZN6Thread16claim_threads_doEbm.exit13.thread.preheader
 
-_ZN6Thread16claim_threads_doEbm.exit13.us:        ; preds = %.lr.ph22, %34
-  %29 = phi ptr [ %35, %34 ], [ %27, %.lr.ph22 ]
-  %30 = call noundef zeroext i1 @_ZN6Thread20claim_par_threads_doEm(ptr noundef nonnull align 8 dereferenceable(888) %29, i64 noundef %4) #16
-  br i1 %30, label %31, label %34
+_ZN6Thread16claim_threads_doEbm.exit13.thread.preheader: ; preds = %._crit_edge.thread, %.lr.ph22
+  %32 = phi ptr [ %26, %.lr.ph22 ], [ %29, %._crit_edge.thread ]
+  %33 = phi ptr [ %27, %.lr.ph22 ], [ %30, %._crit_edge.thread ]
+  br label %_ZN6Thread16claim_threads_doEbm.exit13.thread
 
-31:                                               ; preds = %_ZN6Thread16claim_threads_doEbm.exit13.us
-  %32 = load ptr, ptr %1, align 8
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %29) #16
-  br label %34
+_ZN6Thread16claim_threads_doEbm.exit13.us:        ; preds = %.lr.ph22, %39
+  %34 = phi ptr [ %40, %39 ], [ %27, %.lr.ph22 ]
+  %35 = call noundef zeroext i1 @_ZN6Thread20claim_par_threads_doEm(ptr noundef nonnull align 8 dereferenceable(888) %34, i64 noundef %4) #16
+  br i1 %35, label %36, label %39
 
-34:                                               ; preds = %31, %_ZN6Thread16claim_threads_doEbm.exit13.us
+36:                                               ; preds = %_ZN6Thread16claim_threads_doEbm.exit13.us
+  %37 = load ptr, ptr %1, align 8
+  %38 = load ptr, ptr %37, align 8
+  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %34) #16
+  br label %39
+
+39:                                               ; preds = %36, %_ZN6Thread16claim_threads_doEbm.exit13.us
   call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %35 = load ptr, ptr %26, align 8
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %._crit_edge23, label %_ZN6Thread16claim_threads_doEbm.exit13.us, !llvm.loop !10
+  %40 = load ptr, ptr %26, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %._crit_edge23, label %_ZN6Thread16claim_threads_doEbm.exit13.us, !llvm.loop !10
 
-._crit_edge23:                                    ; preds = %_ZN6Thread16claim_threads_doEbm.exit13.thread, %34, %._crit_edge
+._crit_edge23:                                    ; preds = %_ZN6Thread16claim_threads_doEbm.exit13.thread, %39, %._crit_edge.thread, %._crit_edge
   call void @_ZN13NonJavaThread8IteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
   ret void
 
-_ZN6Thread16claim_threads_doEbm.exit13.thread:    ; preds = %.lr.ph22, %_ZN6Thread16claim_threads_doEbm.exit13.thread
-  %37 = phi ptr [ %41, %_ZN6Thread16claim_threads_doEbm.exit13.thread ], [ %27, %.lr.ph22 ]
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 416
-  store i64 %4, ptr %38, align 8
-  %39 = load ptr, ptr %1, align 8
-  %40 = load ptr, ptr %39, align 8
-  call void %40(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %37) #16
+_ZN6Thread16claim_threads_doEbm.exit13.thread:    ; preds = %_ZN6Thread16claim_threads_doEbm.exit13.thread.preheader, %_ZN6Thread16claim_threads_doEbm.exit13.thread
+  %42 = phi ptr [ %46, %_ZN6Thread16claim_threads_doEbm.exit13.thread ], [ %33, %_ZN6Thread16claim_threads_doEbm.exit13.thread.preheader ]
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 416
+  store i64 %4, ptr %43, align 8
+  %44 = load ptr, ptr %1, align 8
+  %45 = load ptr, ptr %44, align 8
+  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %42) #16
   call void @_ZN13NonJavaThread8Iterator4stepEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
-  %41 = load ptr, ptr %26, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %._crit_edge23, label %_ZN6Thread16claim_threads_doEbm.exit13.thread, !llvm.loop !10
+  %46 = load ptr, ptr %32, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %._crit_edge23, label %_ZN6Thread16claim_threads_doEbm.exit13.thread, !llvm.loop !10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -6614,18 +6614,18 @@ define internal range(i32 0, 2) i32 @Type_Dictionary_Write(ptr noundef readonly 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %7
   %.067.lcssa150 = phi i32 [ 0, %7 ], [ %17, %._crit_edge ]
   %23 = phi i32 [ 16, %7 ], [ %spec.select155, %._crit_edge ]
-  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %.067.lcssa150) #13
+  %24 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %.067.lcssa150) #13
   %.not76 = icmp eq i32 %24, 0
   br i1 %.not76, label %145, label %25
 
 25:                                               ; preds = %._crit_edge.thread
-  %26 = tail call i32 @_cmsWriteUInt32Number(ptr noundef %1, i32 noundef %23) #13
+  %26 = tail call i32 @_cmsWriteUInt32Number(ptr noundef nonnull %1, i32 noundef %23) #13
   %.not77 = icmp eq i32 %26, 0
   br i1 %.not77, label %145, label %27
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr %8, align 8
-  %29 = tail call i32 %28(ptr noundef %1) #13
+  %29 = tail call i32 %28(ptr noundef nonnull %1) #13
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = call fastcc i32 @AllocArray(ptr noundef %31, ptr noundef %5, i32 noundef %.067.lcssa150, i32 noundef %23)

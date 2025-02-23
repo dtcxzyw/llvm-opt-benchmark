@@ -2041,7 +2041,7 @@ define internal fastcc ptr @remove_self_joins_recurse(ptr noundef %0, ptr nounde
   %172 = call ptr @bms_add_member(ptr noundef null, i32 noundef %107) #7
   %173 = call ptr @bms_add_member(ptr noundef %172, i32 noundef %118) #7
   %174 = load ptr, ptr %114, align 8
-  %175 = call ptr @generate_join_implied_equalities(ptr noundef %0, ptr noundef %173, ptr noundef %174, ptr noundef %122, ptr noundef null) #7
+  %175 = call ptr @generate_join_implied_equalities(ptr noundef nonnull %0, ptr noundef %173, ptr noundef %174, ptr noundef %122, ptr noundef null) #7
   %176 = icmp eq ptr %175, null
   br i1 %176, label %match_unique_clauses.exit.i, label %177, !llvm.loop !17
 
@@ -2193,7 +2193,7 @@ split_selfjoin_quals.exit.i:                      ; preds = %241, %177
 
 list_length.exit.i:                               ; preds = %249, %split_selfjoin_quals.exit.i
   %253 = phi i1 [ %252, %249 ], [ true, %split_selfjoin_quals.exit.i ]
-  %254 = call zeroext i1 @innerrel_is_unique_ext(ptr noundef %0, ptr noundef %173, ptr noundef %248, ptr noundef nonnull %122, i32 noundef 0, ptr noundef %247, i1 noundef zeroext %253, ptr noundef nonnull %4)
+  %254 = call zeroext i1 @innerrel_is_unique_ext(ptr noundef nonnull %0, ptr noundef %173, ptr noundef %248, ptr noundef nonnull %122, i32 noundef 0, ptr noundef %247, i1 noundef zeroext %253, ptr noundef nonnull %4)
   br i1 %254, label %255, label %match_unique_clauses.exit.i, !llvm.loop !17
 
 255:                                              ; preds = %list_length.exit.i
@@ -2395,7 +2395,7 @@ get_leftop.exit92.i.i:                            ; preds = %328, %list_length.e
   %353 = load ptr, ptr %352, align 8
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 48
   %355 = load ptr, ptr %354, align 8
-  call void @remove_join_clause_from_rels(ptr noundef %0, ptr noundef %353, ptr noundef %355) #7
+  call void @remove_join_clause_from_rels(ptr noundef nonnull %0, ptr noundef %353, ptr noundef %355) #7
   %356 = load i32, ptr %115, align 8
   %357 = load i32, ptr %178, align 8
   call void @ChangeVarNodes(ptr noundef %353, i32 noundef %356, i32 noundef %357, i32 noundef 0) #7
@@ -2496,7 +2496,7 @@ get_leftop.exit92.i.i:                            ; preds = %328, %list_length.e
   br i1 %408, label %.lr.ph55.i110, label %.critedge63.i107
 
 .critedge63.i107:                                 ; preds = %405, %.lr.ph.i106, %.lr.ph167
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %375) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %375) #7
   br label %.critedge2.i108
 
 .critedge2.i108:                                  ; preds = %400, %396, %392, %.critedge63.i107
@@ -2580,7 +2580,7 @@ add_non_redundant_clauses.exit114:                ; preds = %.critedge2.i108, %.
   br i1 %452, label %.lr.ph55.i, label %.critedge63.i
 
 .critedge63.i:                                    ; preds = %449, %.lr.ph.i99, %.lr.ph169
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %419) #7
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %419) #7
   br label %.critedge2.i
 
 .critedge2.i:                                     ; preds = %444, %440, %436, %.critedge63.i
@@ -2967,7 +2967,7 @@ match_unique_clauses.exit.thread134.i:            ; preds = %657, %654, %._crit_
   call void @ChangeVarNodesExtended(ptr noundef %661, i32 noundef %662, i32 noundef %663, i32 noundef 0, i1 noundef zeroext false) #7
   %664 = load i32, ptr %178, align 8
   %.val.i.i = load i32, ptr %115, align 8
-  call fastcc void @remove_rel_from_query(ptr noundef %0, i32 %.val.i.i, i32 noundef %664, ptr noundef null, ptr noundef null)
+  call fastcc void @remove_rel_from_query(ptr noundef nonnull %0, i32 %.val.i.i, i32 noundef %664, ptr noundef null, ptr noundef null)
   %665 = load ptr, ptr %81, align 8
   %666 = load i32, ptr %115, align 8
   %667 = load i32, ptr %178, align 8
@@ -2990,10 +2990,10 @@ match_unique_clauses.exit.thread134.i:            ; preds = %657, %654, %._crit_
   %682 = getelementptr inbounds nuw ptr, ptr %679, i64 %681
   store ptr null, ptr %682, align 8
   call void @pfree(ptr noundef nonnull %111) #7
-  call void @rebuild_placeholder_attr_needed(ptr noundef %0) #7
-  call void @rebuild_joinclause_attr_needed(ptr noundef %0) #7
-  call void @rebuild_eclass_attr_needed(ptr noundef %0) #7
-  call void @rebuild_lateral_attr_needed(ptr noundef %0) #7
+  call void @rebuild_placeholder_attr_needed(ptr noundef nonnull %0) #7
+  call void @rebuild_joinclause_attr_needed(ptr noundef nonnull %0) #7
+  call void @rebuild_eclass_attr_needed(ptr noundef nonnull %0) #7
+  call void @rebuild_lateral_attr_needed(ptr noundef nonnull %0) #7
   %683 = call ptr @bms_add_member(ptr noundef %.0218.i, i32 noundef %107) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %.loopexit141.i

@@ -499,7 +499,7 @@ select.unfold.preheader.i72:                      ; preds = %80
   br i1 %exitcond105.not, label %.loopexit, label %.lr.ph90.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph90.split, %.lr.ph90.split.us, %.preheader85, %.preheader
-  %110 = tail call ptr @Hop_ManConvertAigToTruth_rec2(ptr noundef %40, ptr noundef nonnull %3, i32 noundef %43)
+  %110 = tail call ptr @Hop_ManConvertAigToTruth_rec2(ptr noundef nonnull %40, ptr noundef nonnull %3, i32 noundef %43)
   %111 = icmp sgt i32 %43, 0
   br i1 %111, label %select.unfold.preheader.i74, label %Hop_ManTruthNot.exit
 
@@ -634,7 +634,7 @@ define i64 @Hop_ManComputeTruth6(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %16 = tail call i64 @Hop_ManComputeTruth6_rec(ptr noundef %0, ptr noundef %6)
+  %16 = tail call i64 @Hop_ManComputeTruth6_rec(ptr noundef %0, ptr noundef nonnull %6)
   %17 = and i64 %4, 1
   %sext = sub nsw i64 0, %17
   %18 = xor i64 %16, %sext

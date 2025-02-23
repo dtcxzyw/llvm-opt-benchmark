@@ -518,109 +518,109 @@ define hidden void @mi_heap_delete(ptr noundef %0) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = icmp eq ptr %7, %0
-  br i1 %8, label %26, label %9
+  br i1 %8, label %29, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 3016
   %11 = load i64, ptr %10, align 8, !tbaa !27
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %mi_heap_absorb.exit.thread, label %13
+  br i1 %12, label %mi_heap_absorb.exit, label %13
 
 13:                                               ; preds = %9
   tail call void @_mi_heap_delayed_free(ptr noundef nonnull %0) #8
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 1040
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 3016
-  br label %17
+  br label %20
 
-17:                                               ; preds = %17, %13
-  %.018.i = phi i64 [ 0, %13 ], [ %25, %17 ]
-  %18 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %14, i64 0, i64 %.018.i
-  %19 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %15, i64 0, i64 %.018.i
-  %20 = tail call i64 @_mi_page_queue_append(ptr noundef %7, ptr noundef nonnull %18, ptr noundef nonnull %19) #8
-  %21 = load i64, ptr %16, align 8, !tbaa !27
-  %22 = add i64 %21, %20
-  store i64 %22, ptr %16, align 8, !tbaa !27
-  %23 = load i64, ptr %10, align 8, !tbaa !27
-  %24 = sub i64 %23, %20
-  store i64 %24, ptr %10, align 8, !tbaa !27
-  %25 = add nuw nsw i64 %.018.i, 1
-  %exitcond.not.i = icmp eq i64 %25, 75
-  br i1 %exitcond.not.i, label %mi_heap_absorb.exit, label %17, !llvm.loop !50
-
-26:                                               ; preds = %4
-  tail call fastcc void @mi_heap_collect_ex(ptr noundef nonnull %0, i32 noundef 2)
-  br label %mi_heap_absorb.exit.thread
-
-mi_heap_absorb.exit:                              ; preds = %17
+17:                                               ; preds = %20
   tail call void @_mi_heap_delayed_free(ptr noundef nonnull %0) #8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %27, i8 0, i64 1032, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1032) %18, i8 0, i64 1032, i1 false)
   call void @llvm.assume(i1 true) [ "align"(ptr %15, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1800) %15, ptr noundef nonnull readonly align 8 dereferenceable(1800) getelementptr inbounds nuw (i8, ptr @_mi_heap_empty, i64 1040), i64 range(i64 1800, 3057) 1800, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 2840
-  store atomic ptr null, ptr %28 seq_cst, align 8, !tbaa !48
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 2840
+  store atomic ptr null, ptr %19 seq_cst, align 8, !tbaa !48
   store i64 0, ptr %10, align 8, !tbaa !27
-  br label %mi_heap_absorb.exit.thread
+  br label %mi_heap_absorb.exit
 
-mi_heap_absorb.exit.thread:                       ; preds = %mi_heap_absorb.exit, %26, %9
-  %29 = load ptr, ptr %0, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !14
-  %32 = icmp eq ptr %31, %0
-  br i1 %32, label %mi_heap_free.exit, label %33
+20:                                               ; preds = %20, %13
+  %.018.i = phi i64 [ 0, %13 ], [ %28, %20 ]
+  %21 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %14, i64 0, i64 %.018.i
+  %22 = getelementptr inbounds nuw [75 x %struct.mi_page_queue_s], ptr %15, i64 0, i64 %.018.i
+  %23 = tail call i64 @_mi_page_queue_append(ptr noundef %7, ptr noundef nonnull %21, ptr noundef nonnull %22) #8
+  %24 = load i64, ptr %16, align 8, !tbaa !27
+  %25 = add i64 %24, %23
+  store i64 %25, ptr %16, align 8, !tbaa !27
+  %26 = load i64, ptr %10, align 8, !tbaa !27
+  %27 = sub i64 %26, %23
+  store i64 %27, ptr %10, align 8, !tbaa !27
+  %28 = add nuw nsw i64 %.018.i, 1
+  %exitcond.not.i = icmp eq i64 %28, 75
+  br i1 %exitcond.not.i, label %17, label %20, !llvm.loop !50
 
-33:                                               ; preds = %mi_heap_absorb.exit.thread
-  %34 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %35 = load ptr, ptr %34, align 8, !tbaa !39
-  %36 = icmp eq ptr %0, %35
-  br i1 %36, label %37, label %38
+29:                                               ; preds = %4
+  tail call fastcc void @mi_heap_collect_ex(ptr noundef nonnull %0, i32 noundef 2)
+  br label %mi_heap_absorb.exit
 
-37:                                               ; preds = %33
-  tail call void @_mi_heap_set_default_direct(ptr noundef %31) #8
+mi_heap_absorb.exit:                              ; preds = %29, %9, %17
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !14
+  %33 = icmp eq ptr %32, %0
+  br i1 %33, label %mi_heap_free.exit, label %34
+
+34:                                               ; preds = %mi_heap_absorb.exit
+  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
+  %36 = load ptr, ptr %35, align 8, !tbaa !39
+  %37 = icmp eq ptr %0, %36
+  br i1 %37, label %38, label %39
+
+38:                                               ; preds = %34
+  tail call void @_mi_heap_set_default_direct(ptr noundef %32) #8
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !3
-  br label %38
+  br label %39
 
-38:                                               ; preds = %37, %33
-  %39 = phi ptr [ %.pre.i, %37 ], [ %29, %33 ]
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  br label %41
+39:                                               ; preds = %38, %34
+  %40 = phi ptr [ %.pre.i, %38 ], [ %30, %34 ]
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
+  br label %42
 
-41:                                               ; preds = %41, %38
-  %.019.i = phi ptr [ null, %38 ], [ %.0.i, %41 ]
-  %.0.in.i = phi ptr [ %40, %38 ], [ %45, %41 ]
+42:                                               ; preds = %42, %39
+  %.019.i = phi ptr [ null, %39 ], [ %.0.i, %42 ]
+  %.0.in.i = phi ptr [ %41, %39 ], [ %46, %42 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !39
-  %42 = icmp ne ptr %.0.i, %0
-  %43 = icmp ne ptr %.0.i, null
-  %44 = and i1 %42, %43
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3040
-  br i1 %44, label %41, label %46, !llvm.loop !49
+  %43 = icmp ne ptr %.0.i, %0
+  %44 = icmp ne ptr %.0.i, null
+  %45 = and i1 %43, %44
+  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3040
+  br i1 %45, label %42, label %47, !llvm.loop !49
 
-46:                                               ; preds = %41
-  %47 = icmp eq ptr %.0.i, %0
-  br i1 %47, label %48, label %54
+47:                                               ; preds = %42
+  %48 = icmp eq ptr %.0.i, %0
+  br i1 %48, label %49, label %55
 
-48:                                               ; preds = %46
+49:                                               ; preds = %47
   %.not.i = icmp eq ptr %.019.i, null
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 3040
-  %50 = load ptr, ptr %49, align 8, !tbaa !45
-  br i1 %.not.i, label %53, label %51
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 3040
+  %51 = load ptr, ptr %50, align 8, !tbaa !45
+  br i1 %.not.i, label %54, label %52
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %.019.i, i64 3040
-  store ptr %50, ptr %52, align 8, !tbaa !45
-  br label %54
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %.019.i, i64 3040
+  store ptr %51, ptr %53, align 8, !tbaa !45
+  br label %55
 
-53:                                               ; preds = %48
-  store ptr %50, ptr %40, align 8, !tbaa !44
-  br label %54
+54:                                               ; preds = %49
+  store ptr %51, ptr %41, align 8, !tbaa !44
+  br label %55
 
-54:                                               ; preds = %53, %51, %46
+55:                                               ; preds = %54, %52, %47
   tail call void @mi_free(ptr noundef nonnull %0) #8
   br label %mi_heap_free.exit
 
-mi_heap_free.exit:                                ; preds = %54, %mi_heap_absorb.exit.thread, %1
+mi_heap_free.exit:                                ; preds = %55, %mi_heap_absorb.exit, %1
   ret void
 }
 

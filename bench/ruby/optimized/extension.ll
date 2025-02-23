@@ -2239,7 +2239,7 @@ rbimpl_intern_const.exit43:                       ; preds = %.lr.ph.i41, %rbimpl
 60:                                               ; preds = %57, %rbimpl_intern_const.exit43
   %61 = call i64 @rb_ary_push(i64 noundef %14, i64 noundef %54) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #9
-  %62 = add nuw i64 %.0, 1
+  %62 = add nuw nsw i64 %.0, 1
   br label %21, !llvm.loop !75
 }
 
@@ -2803,10 +2803,10 @@ parser_location.exit.i.us:                        ; preds = %.lr.ph, %parser_loc
   %37 = call i64 @rb_ary_push(i64 noundef %8, i64 noundef %35) #9
   %.0.us = load ptr, ptr %.014.us, align 8, !tbaa !78
   %.not.us = icmp eq ptr %.0.us, null
-  br i1 %.not.us, label %._crit_edge, label %parser_location.exit.i.us, !llvm.loop !103
+  br i1 %.not.us, label %._crit_edge.thread, label %parser_location.exit.i.us, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %parser_location.exit.i, %parser_location.exit.i.us, %3
-  br i1 %2, label %61, label %63
+._crit_edge:                                      ; preds = %3
+  br i1 %2, label %._crit_edge.thread, label %._crit_edge.thread16
 
 parser_location.exit.i:                           ; preds = %.lr.ph, %parser_location.exit.i
   %.014 = phi ptr [ %.0, %parser_location.exit.i ], [ %.012, %.lr.ph ]
@@ -2844,13 +2844,13 @@ parser_location.exit.i:                           ; preds = %.lr.ph, %parser_loc
   %60 = call i64 @rb_ary_push(i64 noundef %8, i64 noundef %59) #9
   %.0 = load ptr, ptr %.014, align 8, !tbaa !78
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %._crit_edge, label %parser_location.exit.i, !llvm.loop !103
+  br i1 %.not, label %._crit_edge.thread16, label %parser_location.exit.i, !llvm.loop !103
 
-61:                                               ; preds = %._crit_edge
-  %62 = call i64 @rb_obj_freeze(i64 noundef %8) #9
-  br label %63
+._crit_edge.thread:                               ; preds = %parser_location.exit.i.us, %._crit_edge
+  %61 = call i64 @rb_obj_freeze(i64 noundef %8) #9
+  br label %._crit_edge.thread16
 
-63:                                               ; preds = %61, %._crit_edge
+._crit_edge.thread16:                             ; preds = %parser_location.exit.i, %._crit_edge.thread, %._crit_edge
   ret i64 %8
 }
 

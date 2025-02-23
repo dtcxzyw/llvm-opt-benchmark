@@ -2605,16 +2605,16 @@ for.body.i.i.i.i.i39:                             ; preds = %_ZSt24__uninitializ
   %incdec.ptr.i.i.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.06.i.i.i.i.i41, i64 4
   %incdec.ptr.i.i.i.i.i43 = getelementptr inbounds nuw i8, ptr %__cur.07.i.i.i.i.i40, i64 4
   %cmp.i.i.not.i.i.i.i.i44 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i42, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i44, label %_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46, label %for.body.i.i.i.i.i39, !llvm.loop !39
+  br i1 %cmp.i.i.not.i.i.i.i.i44, label %for.body.preheader.i.i.i48, label %for.body.i.i.i.i.i39, !llvm.loop !39
 
-_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46: ; preds = %for.body.i.i.i.i.i39
+for.body.preheader.i.i.i48:                       ; preds = %for.body.i.i.i.i.i39
   %7 = load ptr, ptr %_M_finish, align 8
   %add.ptr35 = getelementptr inbounds i8, ptr %7, i64 %sub.ptr.sub.i
   store ptr %add.ptr35, ptr %_M_finish, align 8
   br label %for.body.i.i.i50
 
-for.body.i.i.i50:                                 ; preds = %for.body.i.i.i50, %_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46
-  %__first.addr.04.i.i.i51 = phi ptr [ %incdec.ptr.i.i.i52, %for.body.i.i.i50 ], [ %__position.coerce, %_ZSt22__uninitialized_move_aIPN6hermes2vm12RootSymbolIDES3_SaIS2_EET0_T_S6_S5_RT1_.exit46 ]
+for.body.i.i.i50:                                 ; preds = %for.body.i.i.i50, %for.body.preheader.i.i.i48
+  %__first.addr.04.i.i.i51 = phi ptr [ %incdec.ptr.i.i.i52, %for.body.i.i.i50 ], [ %__position.coerce, %for.body.preheader.i.i.i48 ]
   store i32 %2, ptr %__first.addr.04.i.i.i51, align 4
   %incdec.ptr.i.i.i52 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i51, i64 4
   %cmp.not.i.i.i53 = icmp eq ptr %incdec.ptr.i.i.i52, %1

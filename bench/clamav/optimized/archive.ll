@@ -547,13 +547,13 @@ _ZN5ArrayIhE5AllocEm.exit:                        ; preds = %_ZN5ArrayIhEC2Em.ex
   %.not59 = icmp eq i32 %209, 1
   br i1 %.not59, label %228, label %212
 
-.thread162:                                       ; preds = %285, %.noexc136, %274, %259, %212, %_ZN5ArrayIhEC2Em.exit
-  %.sroa.0.0.ph = phi ptr [ %malloc.i, %_ZN5ArrayIhEC2Em.exit ], [ %malloc.i, %212 ], [ %.sroa.0.4, %259 ], [ %.sroa.0.4, %274 ], [ %.sroa.0.4, %.noexc136 ], [ %.sroa.0.4, %285 ]
+.thread162:                                       ; preds = %285, %.noexc136, %274, %259, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i108, %212, %_ZN5ArrayIhEC2Em.exit
+  %.sroa.0.0.ph = phi ptr [ %malloc.i, %_ZN5ArrayIhEC2Em.exit ], [ %malloc.i, %212 ], [ %malloc.i, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i108 ], [ %.sroa.0.4, %259 ], [ %.sroa.0.4, %274 ], [ %.sroa.0.4, %.noexc136 ], [ %.sroa.0.4, %285 ]
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %211
 
-210:                                              ; preds = %258, %250, %.noexc117, %239, %_Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i108
+210:                                              ; preds = %258, %250, %.noexc117, %239
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %211
@@ -600,7 +600,7 @@ _Z9uiMsgBaseIRA2048_wJEEvR10uiMsgStoreOT_DpOT0_.exit.i108: ; preds = %222
   store i32 1, ptr %227, align 8, !tbaa !71
   store ptr %224, ptr %3, align 8, !tbaa !65
   invoke void @_ZN10uiMsgStore3MsgEv(ptr noundef nonnull align 8 dereferenceable(108) %3)
-          to label %_ZN5ArrayIhED2Ev.exit143 unwind label %210
+          to label %_ZN5ArrayIhED2Ev.exit143 unwind label %.thread162
 
 228:                                              ; preds = %217, %_ZN5ArrayIhE5AllocEm.exit
   %229 = add nuw i32 %spec.select171, 1

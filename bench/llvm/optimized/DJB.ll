@@ -19,7 +19,7 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %10 = alloca %"struct.std::array", align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %.not20.i = icmp eq i64 %1, 0
-  br i1 %.not20.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
+  br i1 %.not20.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.023.i = phi i1 [ %20, %.lr.ph.i ], [ true, %3 ]
@@ -38,13 +38,13 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %20 = and i1 %.023.i, %19
   %21 = getelementptr inbounds nuw i8, ptr %.01422.i, i64 1
   %.not.i = icmp eq ptr %21, %11
-  br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
+  br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph.i
 
-_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %.lr.ph.i
-  %.sroa.015.0.extract.trunc = select i1 %20, i32 %18, i32 0
-  br i1 %20, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, label %.lr.ph
+_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %.lr.ph.i
+  %.sroa.015.0.extract.trunc28 = select i1 %20, i32 %18, i32 0
+  br i1 %20, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
+.lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #4
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -115,10 +115,10 @@ _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i12, %_ZL13f
 
 ._crit_edge:                                      ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #4
-  br label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread
+  br label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
 
-_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread: ; preds = %3, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, %._crit_edge
-  %.1 = phi i32 [ %.sroa.015.0.extract.trunc, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit ], [ %.0.lcssa.i, %._crit_edge ], [ %2, %3 ]
+_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %3, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread, %._crit_edge
+  %.1 = phi i32 [ %.0.lcssa.i, %._crit_edge ], [ %.sroa.015.0.extract.trunc28, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit.thread ], [ %2, %3 ]
   ret i32 %.1
 }
 

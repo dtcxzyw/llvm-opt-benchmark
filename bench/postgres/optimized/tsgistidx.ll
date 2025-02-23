@@ -123,7 +123,7 @@ sizebitvec.exit:                                  ; preds = %.lr.ph.i.i, %.prehe
   br i1 %.not15, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void @pfree(ptr noundef %5) #13
+  tail call void @pfree(ptr noundef nonnull %5) #13
   br label %46
 
 46:                                               ; preds = %45, %42

@@ -10622,7 +10622,7 @@ bigint_mul_pow10.exit1177:                        ; preds = %1383, %1329, %bigin
   %1449 = icmp ne i64 %1448, 0
   %1450 = zext i1 %1449 to i32
   %1451 = add i32 %1445, %1450
-  %.not45.i12085204 = icmp ult i32 %.sroa.9.0.i360, 64
+  %.not45.i12085204 = icmp samesign ult i32 %.sroa.9.0.i360, 64
   br i1 %.not45.i12085204, label %bigint_mul_pow2.exit1213, label %bigint_mul_pow2.exit1213.sink.split
 
 1452:                                             ; preds = %bigint_mul_pow10.exit1177
@@ -10659,7 +10659,7 @@ bigint_mul_pow10.exit1177:                        ; preds = %1383, %1329, %bigin
 ._crit_edge5194:                                  ; preds = %1461, %.preheader4296
   %1469 = add i32 %1456, %1455
   store i32 %1469, ptr %10, align 8, !tbaa !167
-  %.not47.i12215195 = icmp ult i32 %1453, 64
+  %.not47.i12215195 = icmp samesign ult i32 %1453, 64
   br i1 %.not47.i12215195, label %bigint_mul_pow2.exit1213, label %.lr.ph5198
 
 .lr.ph5198:                                       ; preds = %._crit_edge5194
@@ -10712,7 +10712,7 @@ bigint_mul_pow10.exit1177:                        ; preds = %1383, %1329, %bigin
   %1499 = zext i1 %1498 to i32
   %1500 = add i32 %1494, %1499
   store i32 %1500, ptr %10, align 8, !tbaa !167
-  %.not45.i12175187 = icmp ult i32 %1453, 64
+  %.not45.i12175187 = icmp samesign ult i32 %1453, 64
   br i1 %.not45.i12175187, label %bigint_mul_pow2.exit1213, label %bigint_mul_pow2.exit1213.sink.split
 
 bigint_mul_pow2.exit1213.sink.split:              ; preds = %._crit_edge5186, %._crit_edge5203, %.lr.ph5215.preheader, %.lr.ph5198
@@ -17351,7 +17351,7 @@ bigint_mul_pow10.exit:                            ; preds = %4753, %4699, %bigin
   %4819 = icmp ne i64 %4818, 0
   %4820 = zext i1 %4819 to i32
   %4821 = add i32 %4815, %4820
-  %.not45.i4950 = icmp ult i32 %.sroa.9.0.i466, 64
+  %.not45.i4950 = icmp samesign ult i32 %.sroa.9.0.i466, 64
   br i1 %.not45.i4950, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 4822:                                             ; preds = %bigint_mul_pow10.exit
@@ -17388,7 +17388,7 @@ bigint_mul_pow10.exit:                            ; preds = %4753, %4699, %bigin
 ._crit_edge4940:                                  ; preds = %4831, %.preheader4336
   %4839 = add i32 %4826, %4825
   store i32 %4839, ptr %7, align 8, !tbaa !167
-  %.not47.i12034941 = icmp ult i32 %4823, 64
+  %.not47.i12034941 = icmp samesign ult i32 %4823, 64
   br i1 %.not47.i12034941, label %bigint_mul_pow2.exit, label %.lr.ph4944
 
 .lr.ph4944:                                       ; preds = %._crit_edge4940
@@ -17441,7 +17441,7 @@ bigint_mul_pow10.exit:                            ; preds = %4753, %4699, %bigin
   %4869 = zext i1 %4868 to i32
   %4870 = add i32 %4864, %4869
   store i32 %4870, ptr %7, align 8, !tbaa !167
-  %.not45.i11994933 = icmp ult i32 %4823, 64
+  %.not45.i11994933 = icmp samesign ult i32 %4823, 64
   br i1 %.not45.i11994933, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 bigint_mul_pow2.exit.sink.split:                  ; preds = %._crit_edge4932, %._crit_edge4949, %.lr.ph4961.preheader, %.lr.ph4944
@@ -20914,7 +20914,7 @@ bigint_mul_pow10.exit1189:                        ; preds = %6421, %6367, %bigin
   %6487 = icmp ne i64 %6486, 0
   %6488 = zext i1 %6487 to i32
   %6489 = add i32 %6483, %6488
-  %.not45.i12445787 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i12445787 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i12445787, label %bigint_mul_pow2.exit1249, label %bigint_mul_pow2.exit1249.sink.split
 
 6490:                                             ; preds = %bigint_mul_pow10.exit1189
@@ -20951,7 +20951,7 @@ bigint_mul_pow10.exit1189:                        ; preds = %6421, %6367, %bigin
 ._crit_edge5777:                                  ; preds = %6499, %.preheader4201
   %6507 = add i32 %6494, %6493
   store i32 %6507, ptr %16, align 8, !tbaa !167
-  %.not47.i12575778 = icmp ult i32 %6491, 64
+  %.not47.i12575778 = icmp samesign ult i32 %6491, 64
   br i1 %.not47.i12575778, label %bigint_mul_pow2.exit1249, label %.lr.ph5781
 
 .lr.ph5781:                                       ; preds = %._crit_edge5777
@@ -21004,7 +21004,7 @@ bigint_mul_pow10.exit1189:                        ; preds = %6421, %6367, %bigin
   %6537 = zext i1 %6536 to i32
   %6538 = add i32 %6532, %6537
   store i32 %6538, ptr %16, align 8, !tbaa !167
-  %.not45.i12535770 = icmp ult i32 %6491, 64
+  %.not45.i12535770 = icmp samesign ult i32 %6491, 64
   br i1 %.not45.i12535770, label %bigint_mul_pow2.exit1249, label %bigint_mul_pow2.exit1249.sink.split
 
 bigint_mul_pow2.exit1249.sink.split:              ; preds = %._crit_edge5769, %._crit_edge5786, %.lr.ph5798.preheader, %.lr.ph5781
@@ -27413,7 +27413,7 @@ bigint_mul_pow10.exit1183:                        ; preds = %9713, %9659, %bigin
   %9779 = icmp ne i64 %9778, 0
   %9780 = zext i1 %9779 to i32
   %9781 = add i32 %9775, %9780
-  %.not45.i12265561 = icmp ult i32 %.sroa.9.0.i254, 64
+  %.not45.i12265561 = icmp samesign ult i32 %.sroa.9.0.i254, 64
   br i1 %.not45.i12265561, label %bigint_mul_pow2.exit1231, label %bigint_mul_pow2.exit1231.sink.split
 
 9782:                                             ; preds = %bigint_mul_pow10.exit1183
@@ -27450,7 +27450,7 @@ bigint_mul_pow10.exit1183:                        ; preds = %9713, %9659, %bigin
 ._crit_edge5551:                                  ; preds = %9791, %.preheader4241
   %9799 = add i32 %9786, %9785
   store i32 %9799, ptr %13, align 8, !tbaa !167
-  %.not47.i12395552 = icmp ult i32 %9783, 64
+  %.not47.i12395552 = icmp samesign ult i32 %9783, 64
   br i1 %.not47.i12395552, label %bigint_mul_pow2.exit1231, label %.lr.ph5555
 
 .lr.ph5555:                                       ; preds = %._crit_edge5551
@@ -27503,7 +27503,7 @@ bigint_mul_pow10.exit1183:                        ; preds = %9713, %9659, %bigin
   %9829 = zext i1 %9828 to i32
   %9830 = add i32 %9824, %9829
   store i32 %9830, ptr %13, align 8, !tbaa !167
-  %.not45.i12355544 = icmp ult i32 %9783, 64
+  %.not45.i12355544 = icmp samesign ult i32 %9783, 64
   br i1 %.not45.i12355544, label %bigint_mul_pow2.exit1231, label %bigint_mul_pow2.exit1231.sink.split
 
 bigint_mul_pow2.exit1231.sink.split:              ; preds = %._crit_edge5543, %._crit_edge5560, %.lr.ph5572.preheader, %.lr.ph5555
@@ -30985,7 +30985,7 @@ bigint_mul_pow10.exit:                            ; preds = %1142, %1088, %bigin
   %1208 = icmp ne i64 %1207, 0
   %1209 = zext i1 %1208 to i32
   %1210 = add i32 %1204, %1209
-  %.not45.i875 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i875 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i875, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 1211:                                             ; preds = %bigint_mul_pow10.exit
@@ -31022,7 +31022,7 @@ bigint_mul_pow10.exit:                            ; preds = %1142, %1088, %bigin
 ._crit_edge865:                                   ; preds = %1220, %.preheader734
   %1228 = add i32 %1215, %1214
   store i32 %1228, ptr %8, align 8, !tbaa !167
-  %.not47.i264866 = icmp ult i32 %1212, 64
+  %.not47.i264866 = icmp samesign ult i32 %1212, 64
   br i1 %.not47.i264866, label %bigint_mul_pow2.exit, label %.lr.ph869
 
 .lr.ph869:                                        ; preds = %._crit_edge865
@@ -31075,7 +31075,7 @@ bigint_mul_pow10.exit:                            ; preds = %1142, %1088, %bigin
   %1258 = zext i1 %1257 to i32
   %1259 = add i32 %1253, %1258
   store i32 %1259, ptr %8, align 8, !tbaa !167
-  %.not45.i260858 = icmp ult i32 %1212, 64
+  %.not45.i260858 = icmp samesign ult i32 %1212, 64
   br i1 %.not45.i260858, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 bigint_mul_pow2.exit.sink.split:                  ; preds = %._crit_edge857, %._crit_edge874, %.lr.ph886.preheader, %.lr.ph869
@@ -35315,7 +35315,7 @@ bigint_mul_pow10.exit:                            ; preds = %1130, %1076, %bigin
   %1196 = icmp ne i64 %1195, 0
   %1197 = zext i1 %1196 to i32
   %1198 = add i32 %1192, %1197
-  %.not45.i472 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i472 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i472, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 1199:                                             ; preds = %bigint_mul_pow10.exit
@@ -35352,7 +35352,7 @@ bigint_mul_pow10.exit:                            ; preds = %1130, %1076, %bigin
 ._crit_edge462:                                   ; preds = %1208, %.preheader368
   %1216 = add i32 %1203, %1202
   store i32 %1216, ptr %7, align 8, !tbaa !167
-  %.not47.i49463 = icmp ult i32 %1200, 64
+  %.not47.i49463 = icmp samesign ult i32 %1200, 64
   br i1 %.not47.i49463, label %bigint_mul_pow2.exit, label %.lr.ph466
 
 .lr.ph466:                                        ; preds = %._crit_edge462
@@ -35405,7 +35405,7 @@ bigint_mul_pow10.exit:                            ; preds = %1130, %1076, %bigin
   %1246 = zext i1 %1245 to i32
   %1247 = add i32 %1241, %1246
   store i32 %1247, ptr %7, align 8, !tbaa !167
-  %.not45.i45455 = icmp ult i32 %1200, 64
+  %.not45.i45455 = icmp samesign ult i32 %1200, 64
   br i1 %.not45.i45455, label %bigint_mul_pow2.exit, label %bigint_mul_pow2.exit.sink.split
 
 bigint_mul_pow2.exit.sink.split:                  ; preds = %._crit_edge454, %._crit_edge471, %.lr.ph483.preheader, %.lr.ph466

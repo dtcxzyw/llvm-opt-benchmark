@@ -2054,15 +2054,15 @@ _ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_t
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i.i.i.i.i72, i64 4
   %45 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i71, i64 4
   %.not.i.i.i.i.i73 = icmp eq ptr %44, %9
-  br i1 %.not.i.i.i.i.i73, label %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, label %.lr.ph.i.i.i.i.i70, !llvm.loop !150
+  br i1 %.not.i.i.i.i.i73, label %.lr.ph.preheader.i.i.i77, label %.lr.ph.i.i.i.i.i70, !llvm.loop !150
 
-_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75: ; preds = %.lr.ph.i.i.i.i.i70
+.lr.ph.preheader.i.i.i77:                         ; preds = %.lr.ph.i.i.i.i.i70
   %46 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 %17
   store ptr %46, ptr %8, align 8, !tbaa !98
   br label %.lr.ph.i.i.i79
 
-.lr.ph.i.i.i79:                                   ; preds = %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75, %.lr.ph.i.i.i79
-  %.06.i.i.i80 = phi ptr [ %47, %.lr.ph.i.i.i79 ], [ %1, %_ZSt22__uninitialized_move_aIPN5draco9IndexTypeIjNS0_29AttributeValueIndex_tag_type_EEES4_SaIS3_EET0_T_S7_S6_RT1_.exit75 ]
+.lr.ph.i.i.i79:                                   ; preds = %.lr.ph.i.i.i79, %.lr.ph.preheader.i.i.i77
+  %.06.i.i.i80 = phi ptr [ %47, %.lr.ph.i.i.i79 ], [ %1, %.lr.ph.preheader.i.i.i77 ]
   store i32 %15, ptr %.06.i.i.i80, align 4, !tbaa !87
   %47 = getelementptr inbounds nuw i8, ptr %.06.i.i.i80, i64 4
   %.not.i.i.i81 = icmp eq ptr %47, %9
@@ -5407,7 +5407,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond781.not = icmp eq i64 %indvars.iv.next779, %355
   br i1 %exitcond781.not, label %.preheader483, label %.lr.ph625, !llvm.loop !276
 
-._crit_edge629:                                   ; preds = %.lr.ph628
+.lr.ph.i236.preheader:                            ; preds = %.lr.ph628
   %380 = load ptr, ptr %88, align 8, !tbaa !265
   br label %.lr.ph.i236
 
@@ -5426,9 +5426,9 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %383 = invoke noundef i64 @_ZN5draco21ShannonEntropyTracker24GetNumberOfRAnsTableBitsERKNS0_11EntropyDataE(ptr noundef nonnull align 8 dereferenceable(20) %7)
           to label %401 unwind label %462
 
-.lr.ph.i236:                                      ; preds = %._crit_edge629, %.lr.ph.i236
-  %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i241, %.lr.ph.i236 ], [ 0, %._crit_edge629 ]
-  %.sroa.3.015.i239 = phi i32 [ %390, %.lr.ph.i236 ], [ 0, %._crit_edge629 ]
+.lr.ph.i236:                                      ; preds = %.lr.ph.i236.preheader, %.lr.ph.i236
+  %indvars.iv.i238 = phi i64 [ %indvars.iv.next.i241, %.lr.ph.i236 ], [ 0, %.lr.ph.i236.preheader ]
+  %.sroa.3.015.i239 = phi i32 [ %390, %.lr.ph.i236 ], [ 0, %.lr.ph.i236.preheader ]
   %384 = getelementptr inbounds nuw i32, ptr %.sroa.0425.0, i64 %indvars.iv.i238
   %385 = load i32, ptr %384, align 4, !tbaa !94
   %386 = getelementptr inbounds nuw i32, ptr %305, i64 %indvars.iv.i238
@@ -5458,7 +5458,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   store i32 %400, ptr %398, align 4, !tbaa !94
   %indvars.iv.next783 = add nuw nsw i64 %indvars.iv782, 1
   %exitcond787.not = icmp eq i64 %indvars.iv.next783, %140
-  br i1 %exitcond787.not, label %._crit_edge629, label %.lr.ph628, !llvm.loop !277
+  br i1 %exitcond787.not, label %.lr.ph.i236.preheader, label %.lr.ph628, !llvm.loop !277
 
 401:                                              ; preds = %.noexc245
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
@@ -12040,7 +12040,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond775.not = icmp eq i64 %indvars.iv.next773, %318
   br i1 %exitcond775.not, label %.preheader476, label %.lr.ph619, !llvm.loop !427
 
-._crit_edge623:                                   ; preds = %.lr.ph622
+.lr.ph.i229.preheader:                            ; preds = %.lr.ph622
   %343 = load ptr, ptr %88, align 8, !tbaa !265
   br label %.lr.ph.i229
 
@@ -12059,9 +12059,9 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %346 = invoke noundef i64 @_ZN5draco21ShannonEntropyTracker24GetNumberOfRAnsTableBitsERKNS0_11EntropyDataE(ptr noundef nonnull align 8 dereferenceable(20) %7)
           to label %364 unwind label %425
 
-.lr.ph.i229:                                      ; preds = %._crit_edge623, %.lr.ph.i229
-  %indvars.iv.i231 = phi i64 [ %indvars.iv.next.i234, %.lr.ph.i229 ], [ 0, %._crit_edge623 ]
-  %.sroa.3.015.i232 = phi i32 [ %353, %.lr.ph.i229 ], [ 0, %._crit_edge623 ]
+.lr.ph.i229:                                      ; preds = %.lr.ph.i229.preheader, %.lr.ph.i229
+  %indvars.iv.i231 = phi i64 [ %indvars.iv.next.i234, %.lr.ph.i229 ], [ 0, %.lr.ph.i229.preheader ]
+  %.sroa.3.015.i232 = phi i32 [ %353, %.lr.ph.i229 ], [ 0, %.lr.ph.i229.preheader ]
   %347 = getelementptr inbounds nuw i32, ptr %.sroa.0418.0, i64 %indvars.iv.i231
   %348 = load i32, ptr %347, align 4, !tbaa !94
   %349 = getelementptr inbounds nuw i32, ptr %268, i64 %indvars.iv.i231
@@ -12091,7 +12091,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   store i32 %363, ptr %361, align 4, !tbaa !94
   %indvars.iv.next777 = add nuw nsw i64 %indvars.iv776, 1
   %exitcond781.not = icmp eq i64 %indvars.iv.next777, %139
-  br i1 %exitcond781.not, label %._crit_edge623, label %.lr.ph622, !llvm.loop !428
+  br i1 %exitcond781.not, label %.lr.ph.i229.preheader, label %.lr.ph622, !llvm.loop !428
 
 364:                                              ; preds = %.noexc238
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20

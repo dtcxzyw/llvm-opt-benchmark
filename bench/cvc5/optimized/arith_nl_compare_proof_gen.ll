@@ -3806,7 +3806,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEmSt4lessIS3_ESaISt4pairIKS3_mEEE11
   %1552 = load i64, ptr %1551, align 8, !tbaa !172
   %1553 = add i64 %1552, %1532
   store i64 %1553, ptr %1551, align 8, !tbaa !172
-  %1554 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01874.02482) #28
+  %1554 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01874.02482) #28
   %.not2019 = icmp eq ptr %1554, %875
   br i1 %.not2019, label %._crit_edge2485, label %1529
 

@@ -50,7 +50,7 @@ define ptr @Inter_ManUnrollFrames(ptr noundef readonly captures(none) %0, i32 no
   %25 = sext i32 %23 to i64
   %26 = getelementptr inbounds ptr, ptr %.val71, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !28
-  %28 = tail call ptr @Aig_ObjCreateCi(ptr noundef %7) #7
+  %28 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %7) #7
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !22
   %30 = add nuw nsw i32 %.06190, 1

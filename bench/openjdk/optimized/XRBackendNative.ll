@@ -1436,7 +1436,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %15 = icmp ugt i32 %10, 8190
   %16 = icmp ugt i32 %11, 65526
   %or.cond = or i1 %15, %16
-  br i1 %or.cond, label %95, label %17
+  br i1 %or.cond, label %94, label %17
 
 17:                                               ; preds = %12
   %18 = zext nneg i32 %11 to i64
@@ -1445,7 +1445,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
   %21 = sub nuw nsw i64 262104, %20
   %22 = lshr exact i64 %21, 2
   %23 = icmp samesign ult i64 %22, %18
-  br i1 %23, label %95, label %24
+  br i1 %23, label %94, label %24
 
 24:                                               ; preds = %17
   %25 = icmp samesign ult i32 %10, 25
@@ -1454,7 +1454,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 26:                                               ; preds = %24
   %27 = tail call noalias ptr @malloc(i64 noundef %20) #16
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %95, label %29
+  br i1 %28, label %94, label %29
 
 29:                                               ; preds = %24, %26
   %.085 = phi ptr [ %27, %26 ], [ %13, %24 ]
@@ -1470,7 +1470,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 36:                                               ; preds = %31
   %.not = icmp eq ptr %.085, %13
-  br i1 %.not, label %95, label %.sink.split
+  br i1 %.not, label %94, label %.sink.split
 
 37:                                               ; preds = %29, %31
   %.084 = phi ptr [ %34, %31 ], [ %14, %29 ]
@@ -1491,7 +1491,7 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 45:                                               ; preds = %44, %43
   %.not101 = icmp eq ptr %.084, %14
-  br i1 %.not101, label %95, label %.sink.split
+  br i1 %.not101, label %94, label %.sink.split
 
 46:                                               ; preds = %37
   %47 = load ptr, ptr %0, align 8
@@ -1519,11 +1519,11 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 57:                                               ; preds = %56, %52
   %.not99 = icmp eq ptr %.084, %14
-  br i1 %.not99, label %95, label %.sink.split
+  br i1 %.not99, label %94, label %.sink.split
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader102
-  %58 = icmp sgt i32 %10, 0
-  br i1 %58, label %.lr.ph106.preheader, label %._crit_edge
+  %.not114 = icmp eq i32 %10, 0
+  br i1 %.not114, label %._crit_edge, label %.lr.ph106.preheader
 
 .lr.ph106.preheader:                              ; preds = %.preheader
   %wide.trip.count111 = zext nneg i32 %10 to i64
@@ -1531,78 +1531,78 @@ define void @Java_sun_java2d_xr_XRBackendNative_XRenderCompositeTextNative(ptr n
 
 .lr.ph:                                           ; preds = %.preheader102, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader102 ]
-  %59 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
-  %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds nuw i32, ptr %.084, i64 %indvars.iv
-  store i32 %60, ptr %61, align 4
+  %58 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv
+  %59 = load i32, ptr %58, align 4
+  %60 = getelementptr inbounds nuw i32, ptr %.084, i64 %indvars.iv
+  store i32 %59, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %18
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !18
 
 .lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
   %indvars.iv108 = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next109, %.lr.ph106 ]
-  %.0105 = phi i32 [ 0, %.lr.ph106.preheader ], [ %82, %.lr.ph106 ]
-  %62 = shl nsw i64 %indvars.iv108, 2
-  %63 = getelementptr inbounds nuw i32, ptr %50, i64 %62
-  %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds nuw %struct._XGlyphElt32, ptr %.085, i64 %indvars.iv108
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 %64, ptr %66, align 8
-  %67 = or disjoint i64 %62, 1
-  %68 = getelementptr inbounds nuw i32, ptr %50, i64 %67
-  %69 = load i32, ptr %68, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %65, i64 20
-  store i32 %69, ptr %70, align 4
-  %71 = or disjoint i64 %62, 2
-  %72 = getelementptr inbounds nuw i32, ptr %50, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store i32 %73, ptr %74, align 8
-  %75 = or disjoint i64 %62, 3
-  %76 = getelementptr inbounds nuw i32, ptr %50, i64 %75
-  %77 = load i32, ptr %76, align 4
-  %78 = sext i32 %77 to i64
-  store i64 %78, ptr %65, align 8
-  %79 = sext i32 %.0105 to i64
-  %80 = getelementptr inbounds i32, ptr %.084, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %80, ptr %81, align 8
-  %82 = add nsw i32 %64, %.0105
+  %.0105 = phi i32 [ 0, %.lr.ph106.preheader ], [ %81, %.lr.ph106 ]
+  %61 = shl nsw i64 %indvars.iv108, 2
+  %62 = getelementptr inbounds nuw i32, ptr %50, i64 %61
+  %63 = load i32, ptr %62, align 4
+  %64 = getelementptr inbounds nuw %struct._XGlyphElt32, ptr %.085, i64 %indvars.iv108
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i32 %63, ptr %65, align 8
+  %66 = or disjoint i64 %61, 1
+  %67 = getelementptr inbounds nuw i32, ptr %50, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 20
+  store i32 %68, ptr %69, align 4
+  %70 = or disjoint i64 %61, 2
+  %71 = getelementptr inbounds nuw i32, ptr %50, i64 %70
+  %72 = load i32, ptr %71, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store i32 %72, ptr %73, align 8
+  %74 = or disjoint i64 %61, 3
+  %75 = getelementptr inbounds nuw i32, ptr %50, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = sext i32 %76 to i64
+  store i64 %77, ptr %64, align 8
+  %78 = sext i32 %.0105 to i64
+  %79 = getelementptr inbounds i32, ptr %.084, i64 %78
+  %80 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %79, ptr %80, align 8
+  %81 = add nsw i32 %63, %.0105
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
   br i1 %exitcond112.not, label %._crit_edge, label %.lr.ph106, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph106, %.preheader
-  %83 = load ptr, ptr @awt_display, align 8
-  %84 = sext i32 %3 to i64
-  %85 = sext i32 %4 to i64
-  %86 = inttoptr i64 %7 to ptr
-  call void @XRenderCompositeText32(ptr noundef %83, i32 noundef %2, i64 noundef %84, i64 noundef %85, ptr noundef %86, i32 noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.085, i32 noundef %10) #14
-  %87 = load ptr, ptr %0, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1784
-  %89 = load ptr, ptr %88, align 8
-  call void %89(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %41, i32 noundef 2) #14
-  %90 = load ptr, ptr %0, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 1784
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %50, i32 noundef 2) #14
+  %82 = load ptr, ptr @awt_display, align 8
+  %83 = sext i32 %3 to i64
+  %84 = sext i32 %4 to i64
+  %85 = inttoptr i64 %7 to ptr
+  call void @XRenderCompositeText32(ptr noundef %82, i32 noundef %2, i64 noundef %83, i64 noundef %84, ptr noundef %85, i32 noundef %5, i32 noundef %6, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %.085, i32 noundef %10) #14
+  %86 = load ptr, ptr %0, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1784
+  %88 = load ptr, ptr %87, align 8
+  call void %88(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %41, i32 noundef 2) #14
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1784
+  %91 = load ptr, ptr %90, align 8
+  call void %91(ptr noundef nonnull %0, ptr noundef %8, ptr noundef nonnull %50, i32 noundef 2) #14
   %.not96 = icmp eq ptr %.085, %13
-  br i1 %.not96, label %94, label %93
+  br i1 %.not96, label %93, label %92
 
-93:                                               ; preds = %._crit_edge
+92:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %.085) #14
+  br label %93
+
+93:                                               ; preds = %92, %._crit_edge
+  %.not97 = icmp eq ptr %.084, %14
+  br i1 %.not97, label %94, label %.sink.split
+
+.sink.split:                                      ; preds = %93, %57, %45, %36
+  %.084.sink = phi ptr [ %.085, %36 ], [ %.084, %45 ], [ %.084, %57 ], [ %.084, %93 ]
+  call void @free(ptr noundef nonnull %.084.sink) #14
   br label %94
 
-94:                                               ; preds = %93, %._crit_edge
-  %.not97 = icmp eq ptr %.084, %14
-  br i1 %.not97, label %95, label %.sink.split
-
-.sink.split:                                      ; preds = %94, %57, %45, %36
-  %.084.sink = phi ptr [ %.085, %36 ], [ %.084, %45 ], [ %.084, %57 ], [ %.084, %94 ]
-  call void @free(ptr noundef nonnull %.084.sink) #14
-  br label %95
-
-95:                                               ; preds = %.sink.split, %57, %45, %36, %26, %12, %17, %94
+94:                                               ; preds = %.sink.split, %57, %45, %36, %26, %12, %17, %93
   ret void
 }
 

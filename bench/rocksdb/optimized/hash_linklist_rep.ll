@@ -2553,7 +2553,7 @@ if.end31:                                         ; preds = %for.end30, %_ZN7roc
   store ptr %46, ptr %call.i, align 8
   %next_.i46 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   %47 = ptrtoint ptr %call.i to i64
-  %wide.trip.count68 = zext i32 %height.0.lcssa.i to i64
+  %wide.trip.count68 = zext nneg i32 %height.0.lcssa.i to i64
   br label %for.body36
 
 for.body36:                                       ; preds = %if.end31, %for.body36

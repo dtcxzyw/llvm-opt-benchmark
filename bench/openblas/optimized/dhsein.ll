@@ -564,12 +564,12 @@ define void @dhsein_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %271 = getelementptr inbounds double, ptr %43, i64 %270
   store double 0.000000e+00, ptr %271, align 8, !tbaa !7
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
-  br i1 %exitcond372.not, label %.loopexit, label %.lr.ph322, !llvm.loop !15
+  br i1 %exitcond372.not, label %.loopexit.thread, label %.lr.ph322, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph322, %.loopexit290
+.loopexit:                                        ; preds = %.loopexit290
   br i1 %195, label %.loopexit.thread, label %.critedge
 
-.loopexit.thread:                                 ; preds = %._crit_edge316.thread, %.loopexit
+.loopexit.thread:                                 ; preds = %.lr.ph322, %._crit_edge316.thread, %.loopexit
   %272 = add nsw i32 %.0336, 2
   br label %.critedge
 

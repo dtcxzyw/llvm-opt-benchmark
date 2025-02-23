@@ -74,7 +74,7 @@ define void @dlaeda_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %48 = select i1 %.not.i, i32 1, i32 %46
   %spec.select.i = mul nuw nsw i32 %48, %spec.select37.i
   %.not31.i = icmp samesign ult i64 %.036.i, 4
-  br i1 %.not31.i, label %pow_ii.exit, label %.lr.ph.i
+  br i1 %.not31.i, label %50, label %.lr.ph.i
 
 pow_ii.exit.thread:                               ; preds = %33, %41
   %.1.i.ph = phi i32 [ %44, %41 ], [ %spec.select32.i, %33 ]
@@ -82,38 +82,37 @@ pow_ii.exit.thread:                               ; preds = %33, %41
   %spec.select32.i182243 = zext i1 %49 to i32
   br label %pow_ii.exit193
 
-pow_ii.exit:                                      ; preds = %.lr.ph.i
-  %50 = zext nneg i32 %37 to i64
-  %51 = and i64 %50, 1
-  %.not33.i184 = icmp eq i64 %51, 0
-  %52 = select i1 %.not33.i184, i32 1, i32 2
+50:                                               ; preds = %.lr.ph.i
+  %51 = zext nneg i32 %37 to i64
+  %52 = and i64 %51, 1
+  %.not33.i184 = icmp eq i64 %52, 0
+  %53 = select i1 %.not33.i184, i32 1, i32 2
   %.not3134.i185 = icmp eq i32 %37, 1
   br i1 %.not3134.i185, label %pow_ii.exit193, label %.lr.ph.i186
 
-.lr.ph.i186:                                      ; preds = %pow_ii.exit, %.lr.ph.i186
-  %spec.select37.i187 = phi i32 [ %spec.select.i191, %.lr.ph.i186 ], [ %52, %pow_ii.exit ]
-  %.036.i188 = phi i64 [ %53, %.lr.ph.i186 ], [ %50, %pow_ii.exit ]
-  %.02635.i189 = phi i32 [ %54, %.lr.ph.i186 ], [ 2, %pow_ii.exit ]
-  %53 = lshr i64 %.036.i188, 1
-  %54 = mul nuw nsw i32 %.02635.i189, %.02635.i189
-  %55 = and i64 %.036.i188, 2
-  %.not.i190 = icmp eq i64 %55, 0
-  %56 = select i1 %.not.i190, i32 1, i32 %54
-  %spec.select.i191 = mul nuw nsw i32 %56, %spec.select37.i187
+.lr.ph.i186:                                      ; preds = %50, %.lr.ph.i186
+  %spec.select37.i187 = phi i32 [ %spec.select.i191, %.lr.ph.i186 ], [ %53, %50 ]
+  %.036.i188 = phi i64 [ %54, %.lr.ph.i186 ], [ %51, %50 ]
+  %.02635.i189 = phi i32 [ %55, %.lr.ph.i186 ], [ 2, %50 ]
+  %54 = lshr i64 %.036.i188, 1
+  %55 = mul nuw nsw i32 %.02635.i189, %.02635.i189
+  %56 = and i64 %.036.i188, 2
+  %.not.i190 = icmp eq i64 %56, 0
+  %57 = select i1 %.not.i190, i32 1, i32 %55
+  %spec.select.i191 = mul nuw nsw i32 %57, %spec.select37.i187
   %.not31.i192 = icmp samesign ult i64 %.036.i188, 4
   br i1 %.not31.i192, label %pow_ii.exit193, label %.lr.ph.i186
 
-pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_ii.exit.thread, %pow_ii.exit
-  %spec.select.i.pn = phi i32 [ %spec.select.i, %pow_ii.exit ], [ %.1.i.ph, %pow_ii.exit.thread ], [ %spec.select.i, %.lr.ph.i186 ]
-  %.1.i183 = phi i32 [ %52, %pow_ii.exit ], [ %spec.select32.i182243, %pow_ii.exit.thread ], [ %spec.select.i191, %.lr.ph.i186 ]
-  %57 = mul nsw i32 %spec.select.i.pn, %38
-  %58 = add nsw i32 %57, 1
-  %59 = add nsw i32 %.1.i183, %58
-  %60 = add i32 %.1.i183, %57
-  %61 = sext i32 %59 to i64
+pow_ii.exit193:                                   ; preds = %.lr.ph.i186, %pow_ii.exit.thread, %50
+  %spec.select.i.pn = phi i32 [ %spec.select.i, %50 ], [ %.1.i.ph, %pow_ii.exit.thread ], [ %spec.select.i, %.lr.ph.i186 ]
+  %.1.i183 = phi i32 [ %53, %50 ], [ %spec.select32.i182243, %pow_ii.exit.thread ], [ %spec.select.i191, %.lr.ph.i186 ]
+  %58 = mul nsw i32 %spec.select.i.pn, %38
+  %59 = add i32 %.1.i183, %58
+  %60 = add i32 %59, 1
+  %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i32, ptr %20, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !3
-  %64 = sext i32 %60 to i64
+  %64 = sext i32 %59 to i64
   %65 = getelementptr inbounds i32, ptr %20, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !3
   %67 = sub nsw i32 %63, %66

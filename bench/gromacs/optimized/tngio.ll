@@ -1576,7 +1576,7 @@ _ZL35greatest_common_divisor_if_positiveii.exit.i: ; preds = %.lr.ph.i.i.i.i, %1
   br i1 %37, label %39, label %40
 
 39:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit.i
-  br i1 %38, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+  br i1 %38, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
 
 40:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit.i
   br i1 %38, label %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i, label %41
@@ -1622,7 +1622,7 @@ _ZL35greatest_common_divisor_if_positiveii.exit19.thread.i: ; preds = %_ZL35grea
   %57 = tail call i32 @tng_num_frames_per_frame_set_set(ptr noundef %4, i64 noundef %56)
   br label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit
 
-_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit: ; preds = %39, %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit: ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit19.i, %_ZL35greatest_common_divisor_if_positiveii.exit19.thread.i
   br i1 %1, label %58, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge
 
 _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit._ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread_crit_edge: ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit
@@ -1653,146 +1653,153 @@ _ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.threa
   %.163 = phi i32 [ 0, %58 ], [ %29, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.pre88, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.0 = phi i8 [ 2, %58 ], [ 3, %_ZL35greatest_common_divisor_if_positiveii.exit.thread3.i ], [ %.0.ph, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.sink.split ]
   %.not67 = icmp eq i32 %.066, 0
-  br i1 %.not67, label %68, label %63
+  br i1 %.not67, label %67, label %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread
 
-63:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
-  %64 = sext i32 %.066 to i64
-  %65 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %64, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.15, i8 noundef signext 1, i8 noundef signext %.0)
-  %66 = icmp slt i32 %.066, 1
-  %67 = select i1 %66, i32 -1, i32 %.066
-  br label %68
+_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread: ; preds = %39, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
+  %.099 = phi i8 [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ 3, %39 ]
+  %.16397 = phi i32 [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %36, %39 ]
+  %.16595 = phi i32 [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %12, %39 ]
+  %.06694 = phi i32 [ %.066, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ], [ %10, %39 ]
+  %63 = sext i32 %.06694 to i64
+  %64 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %63, i64 noundef 3, i64 noundef 268435457, ptr noundef nonnull @.str.15, i8 noundef signext 1, i8 noundef signext %.099)
+  %65 = icmp slt i32 %.06694, 1
+  %66 = select i1 %65, i32 -1, i32 %.06694
+  br label %67
 
-68:                                               ; preds = %63, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
-  %.059 = phi i32 [ %67, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.058 = phi i32 [ %.066, %63 ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
-  %.not68 = icmp eq i32 %.165, 0
-  br i1 %.not68, label %91, label %69
+67:                                               ; preds = %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread
+  %.0100 = phi i8 [ %.099, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.0, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.16398 = phi i32 [ %.16397, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.163, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.16596 = phi i32 [ %.16595, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ %.165, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.059 = phi i32 [ %66, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.058 = phi i32 [ %.06694, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread.thread ], [ -1, %_ZL28tng_set_frames_per_frame_setP18gmx_tng_trajectorybPK10t_inputrec.exit.thread ]
+  %.not68 = icmp eq i32 %.16596, 0
+  br i1 %.not68, label %90, label %68
 
-69:                                               ; preds = %68
-  %70 = sext i32 %.165 to i64
-  %71 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %70, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.16, i8 noundef signext 1, i8 noundef signext %.0)
-  %72 = icmp slt i32 %.059, 1
-  %73 = icmp slt i32 %.165, 1
-  br i1 %72, label %74, label %76
+68:                                               ; preds = %67
+  %69 = sext i32 %.16596 to i64
+  %70 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %69, i64 noundef 3, i64 noundef 268435458, ptr noundef nonnull @.str.16, i8 noundef signext 1, i8 noundef signext %.0100)
+  %71 = icmp slt i32 %.059, 1
+  %72 = icmp slt i32 %.16596, 1
+  br i1 %71, label %73, label %75
 
-74:                                               ; preds = %69
-  %75 = select i1 %73, i32 -1, i32 %.165
+73:                                               ; preds = %68
+  %74 = select i1 %72, i32 -1, i32 %.16596
   br label %_ZL35greatest_common_divisor_if_positiveii.exit
 
-76:                                               ; preds = %69
-  br i1 %73, label %_ZL35greatest_common_divisor_if_positiveii.exit, label %77
+75:                                               ; preds = %68
+  br i1 %72, label %_ZL35greatest_common_divisor_if_positiveii.exit, label %76
 
-77:                                               ; preds = %76
-  %78 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.059, i1 true)
-  %79 = lshr i32 %.059, %78
-  %80 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.165, i1 true)
-  %81 = lshr i32 %.165, %80
-  %82 = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
-  %spec.select3334.i.i.i = tail call i32 @llvm.umin.i32(i32 %79, i32 %81)
-  %83 = icmp eq i32 %79, %81
-  br i1 %83, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i
+76:                                               ; preds = %75
+  %77 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.059, i1 true)
+  %78 = lshr i32 %.059, %77
+  %79 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.16596, i1 true)
+  %80 = lshr i32 %.16596, %79
+  %81 = tail call i32 @llvm.umin.i32(i32 %77, i32 %79)
+  %spec.select3334.i.i.i = tail call i32 @llvm.umin.i32(i32 %78, i32 %80)
+  %82 = icmp eq i32 %78, %80
+  br i1 %82, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %77, %.lr.ph.i.i.i
-  %spec.select3337.i.i.i = phi i32 [ %spec.select33.i.i.i, %.lr.ph.i.i.i ], [ %spec.select3334.i.i.i, %77 ]
-  %.02736.i.i.i = phi i32 [ %spec.select3337.i.i.i, %.lr.ph.i.i.i ], [ %79, %77 ]
-  %.02835.i.i.i = phi i32 [ %86, %.lr.ph.i.i.i ], [ %81, %77 ]
+.lr.ph.i.i.i:                                     ; preds = %76, %.lr.ph.i.i.i
+  %spec.select3337.i.i.i = phi i32 [ %spec.select33.i.i.i, %.lr.ph.i.i.i ], [ %spec.select3334.i.i.i, %76 ]
+  %.02736.i.i.i = phi i32 [ %spec.select3337.i.i.i, %.lr.ph.i.i.i ], [ %78, %76 ]
+  %.02835.i.i.i = phi i32 [ %85, %.lr.ph.i.i.i ], [ %80, %76 ]
   %spec.select.i.i.i = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i, i32 %.02835.i.i.i)
-  %84 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
-  %85 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %84, i1 true)
-  %86 = lshr i32 %84, %85
-  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %86)
-  %87 = icmp eq i32 %spec.select3337.i.i.i, %86
-  br i1 %87, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !23
+  %83 = sub i32 %spec.select.i.i.i, %spec.select3337.i.i.i
+  %84 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %83, i1 true)
+  %85 = lshr i32 %83, %84
+  %spec.select33.i.i.i = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i, i32 %85)
+  %86 = icmp eq i32 %spec.select3337.i.i.i, %85
+  br i1 %86, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i, label %.lr.ph.i.i.i, !llvm.loop !23
 
-_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i: ; preds = %.lr.ph.i.i.i, %77
-  %spec.select33.lcssa.i.i.i = phi i32 [ %spec.select3334.i.i.i, %77 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
-  %88 = shl i32 %spec.select33.lcssa.i.i.i, %82
+_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i: ; preds = %.lr.ph.i.i.i, %76
+  %spec.select33.lcssa.i.i.i = phi i32 [ %spec.select3334.i.i.i, %76 ], [ %spec.select33.i.i.i, %.lr.ph.i.i.i ]
+  %87 = shl i32 %spec.select33.lcssa.i.i.i, %81
   br label %_ZL35greatest_common_divisor_if_positiveii.exit
 
-_ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %74, %76, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i
-  %.0.i73 = phi i32 [ %75, %74 ], [ %88, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i ], [ %.059, %76 ]
-  %89 = icmp slt i32 %.058, 0
-  %90 = tail call i32 @llvm.smin.i32(i32 %.165, i32 %.058)
-  %spec.select = select i1 %89, i32 %.165, i32 %90
-  br label %91
+_ZL35greatest_common_divisor_if_positiveii.exit:  ; preds = %73, %75, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i
+  %.0.i73 = phi i32 [ %74, %73 ], [ %87, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i ], [ %.059, %75 ]
+  %88 = icmp slt i32 %.058, 0
+  %89 = tail call i32 @llvm.smin.i32(i32 %.16596, i32 %.058)
+  %spec.select = select i1 %88, i32 %.16596, i32 %89
+  br label %90
 
-91:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit, %68
-  %.160 = phi i32 [ %.059, %68 ], [ %.0.i73, %_ZL35greatest_common_divisor_if_positiveii.exit ]
-  %.1 = phi i32 [ %.058, %68 ], [ %spec.select, %_ZL35greatest_common_divisor_if_positiveii.exit ]
-  %.not69 = icmp eq i32 %.163, 0
-  br i1 %.not69, label %114, label %92
+90:                                               ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit, %67
+  %.160 = phi i32 [ %.059, %67 ], [ %.0.i73, %_ZL35greatest_common_divisor_if_positiveii.exit ]
+  %.1 = phi i32 [ %.058, %67 ], [ %spec.select, %_ZL35greatest_common_divisor_if_positiveii.exit ]
+  %.not69 = icmp eq i32 %.16398, 0
+  br i1 %.not69, label %113, label %91
 
-92:                                               ; preds = %91
-  %93 = sext i32 %.163 to i64
-  %94 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %93, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.17, i8 noundef signext 1, i8 noundef signext 3)
-  %95 = icmp slt i32 %.160, 1
-  %96 = icmp slt i32 %.163, 1
-  br i1 %95, label %97, label %99
+91:                                               ; preds = %90
+  %92 = sext i32 %.16398 to i64
+  %93 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %92, i64 noundef 3, i64 noundef 268435459, ptr noundef nonnull @.str.17, i8 noundef signext 1, i8 noundef signext 3)
+  %94 = icmp slt i32 %.160, 1
+  %95 = icmp slt i32 %.16398, 1
+  br i1 %94, label %96, label %98
 
-97:                                               ; preds = %92
-  %98 = select i1 %96, i32 -1, i32 %.163
+96:                                               ; preds = %91
+  %97 = select i1 %95, i32 -1, i32 %.16398
   br label %_ZL35greatest_common_divisor_if_positiveii.exit84
 
-99:                                               ; preds = %92
-  br i1 %96, label %_ZL35greatest_common_divisor_if_positiveii.exit84, label %100
+98:                                               ; preds = %91
+  br i1 %95, label %_ZL35greatest_common_divisor_if_positiveii.exit84, label %99
 
-100:                                              ; preds = %99
-  %101 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.160, i1 true)
-  %102 = lshr i32 %.160, %101
-  %103 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.163, i1 true)
-  %104 = lshr i32 %.163, %103
-  %105 = tail call i32 @llvm.umin.i32(i32 %101, i32 %103)
-  %spec.select3334.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %102, i32 %104)
-  %106 = icmp eq i32 %102, %104
-  br i1 %106, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75
+99:                                               ; preds = %98
+  %100 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.160, i1 true)
+  %101 = lshr i32 %.160, %100
+  %102 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.16398, i1 true)
+  %103 = lshr i32 %.16398, %102
+  %104 = tail call i32 @llvm.umin.i32(i32 %100, i32 %102)
+  %spec.select3334.i.i.i74 = tail call i32 @llvm.umin.i32(i32 %101, i32 %103)
+  %105 = icmp eq i32 %101, %103
+  br i1 %105, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75
 
-.lr.ph.i.i.i75:                                   ; preds = %100, %.lr.ph.i.i.i75
-  %spec.select3337.i.i.i76 = phi i32 [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ], [ %spec.select3334.i.i.i74, %100 ]
-  %.02736.i.i.i77 = phi i32 [ %spec.select3337.i.i.i76, %.lr.ph.i.i.i75 ], [ %102, %100 ]
-  %.02835.i.i.i78 = phi i32 [ %109, %.lr.ph.i.i.i75 ], [ %104, %100 ]
+.lr.ph.i.i.i75:                                   ; preds = %99, %.lr.ph.i.i.i75
+  %spec.select3337.i.i.i76 = phi i32 [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ], [ %spec.select3334.i.i.i74, %99 ]
+  %.02736.i.i.i77 = phi i32 [ %spec.select3337.i.i.i76, %.lr.ph.i.i.i75 ], [ %101, %99 ]
+  %.02835.i.i.i78 = phi i32 [ %108, %.lr.ph.i.i.i75 ], [ %103, %99 ]
   %spec.select.i.i.i79 = tail call i32 @llvm.umax.i32(i32 %.02736.i.i.i77, i32 %.02835.i.i.i78)
-  %107 = sub i32 %spec.select.i.i.i79, %spec.select3337.i.i.i76
-  %108 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %107, i1 true)
-  %109 = lshr i32 %107, %108
-  %spec.select33.i.i.i80 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i76, i32 %109)
-  %110 = icmp eq i32 %spec.select3337.i.i.i76, %109
-  br i1 %110, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75, !llvm.loop !23
+  %106 = sub i32 %spec.select.i.i.i79, %spec.select3337.i.i.i76
+  %107 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %106, i1 true)
+  %108 = lshr i32 %106, %107
+  %spec.select33.i.i.i80 = tail call i32 @llvm.umin.i32(i32 %spec.select3337.i.i.i76, i32 %108)
+  %109 = icmp eq i32 %spec.select3337.i.i.i76, %108
+  br i1 %109, label %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81, label %.lr.ph.i.i.i75, !llvm.loop !23
 
-_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81: ; preds = %.lr.ph.i.i.i75, %100
-  %spec.select33.lcssa.i.i.i82 = phi i32 [ %spec.select3334.i.i.i74, %100 ], [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ]
-  %111 = shl i32 %spec.select33.lcssa.i.i.i82, %105
+_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81: ; preds = %.lr.ph.i.i.i75, %99
+  %spec.select33.lcssa.i.i.i82 = phi i32 [ %spec.select3334.i.i.i74, %99 ], [ %spec.select33.i.i.i80, %.lr.ph.i.i.i75 ]
+  %110 = shl i32 %spec.select33.lcssa.i.i.i82, %104
   br label %_ZL35greatest_common_divisor_if_positiveii.exit84
 
-_ZL35greatest_common_divisor_if_positiveii.exit84: ; preds = %97, %99, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81
-  %.0.i83 = phi i32 [ %98, %97 ], [ %111, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81 ], [ %.160, %99 ]
-  %112 = icmp slt i32 %.1, 0
-  %113 = tail call i32 @llvm.smin.i32(i32 %.163, i32 %.1)
-  %spec.select71 = select i1 %112, i32 %.163, i32 %113
-  br label %114
+_ZL35greatest_common_divisor_if_positiveii.exit84: ; preds = %96, %98, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81
+  %.0.i83 = phi i32 [ %97, %96 ], [ %110, %_ZSt3gcdIiiENSt11common_typeIJT_T0_EE4typeES1_S2_.exit.i81 ], [ %.160, %98 ]
+  %111 = icmp slt i32 %.1, 0
+  %112 = tail call i32 @llvm.smin.i32(i32 %.16398, i32 %.1)
+  %spec.select71 = select i1 %111, i32 %.16398, i32 %112
+  br label %113
 
-114:                                              ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit84, %91
-  %.261 = phi i32 [ %.160, %91 ], [ %.0.i83, %_ZL35greatest_common_divisor_if_positiveii.exit84 ]
-  %.2 = phi i32 [ %.1, %91 ], [ %spec.select71, %_ZL35greatest_common_divisor_if_positiveii.exit84 ]
-  %115 = icmp sgt i32 %.261, 0
-  br i1 %115, label %116, label %125
+113:                                              ; preds = %_ZL35greatest_common_divisor_if_positiveii.exit84, %90
+  %.261 = phi i32 [ %.160, %90 ], [ %.0.i83, %_ZL35greatest_common_divisor_if_positiveii.exit84 ]
+  %.2 = phi i32 [ %.1, %90 ], [ %spec.select71, %_ZL35greatest_common_divisor_if_positiveii.exit84 ]
+  %114 = icmp sgt i32 %.261, 0
+  br i1 %114, label %115, label %124
 
-116:                                              ; preds = %114
-  %117 = zext nneg i32 %.261 to i64
-  %118 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %117, i64 noundef 1, i64 noundef 1152921504875282432, ptr noundef nonnull @.str.18, i8 noundef signext 0, i8 noundef signext 3)
-  %119 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %117, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.19, i8 noundef signext 0, i8 noundef signext 3)
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.261, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %.261, ptr %121, align 4
-  %122 = sdiv i32 %.2, 10
-  %123 = icmp slt i32 %.261, %122
-  br i1 %123, label %124, label %125
+115:                                              ; preds = %113
+  %116 = zext nneg i32 %.261 to i64
+  %117 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %116, i64 noundef 1, i64 noundef 1152921504875282432, ptr noundef nonnull @.str.18, i8 noundef signext 0, i8 noundef signext 3)
+  %118 = tail call noundef i32 @tng_util_generic_write_interval_set(ptr noundef %4, i64 noundef %116, i64 noundef 9, i64 noundef 268435456, ptr noundef nonnull @.str.19, i8 noundef signext 0, i8 noundef signext 3)
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %.261, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %.261, ptr %120, align 4
+  %121 = sdiv i32 %.2, 10
+  %122 = icmp slt i32 %.261, %121
+  br i1 %122, label %123, label %124
 
-124:                                              ; preds = %116
+123:                                              ; preds = %115
   tail call void (ptr, ...) @_Z11gmx_warningPKcz(ptr noundef nonnull @.str.20, i32 noundef %.261, i32 noundef %.2)
-  br label %125
+  br label %124
 
-125:                                              ; preds = %116, %124, %114
+124:                                              ; preds = %115, %123, %113
   ret void
 }
 

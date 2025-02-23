@@ -3071,7 +3071,7 @@ cp_expr_ksize.exit:                               ; preds = %cp_expr_kint.exit.i
   br label %cp_opt.exit82.thread
 
 cp_opt.exit82.thread:                             ; preds = %cp_expr_ksize.exit, %111
-  tail call fastcc void @cp_decl_attributes(ptr noundef %0, ptr noundef %1)
+  tail call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
   %139 = load i32, ptr %11, align 4, !tbaa !87
   %140 = zext i32 %139 to i64
   %141 = getelementptr inbounds nuw [100 x %struct.CType], ptr %10, i64 0, i64 %140
@@ -3203,7 +3203,7 @@ ctype_raw.exit:                                   ; preds = %30
   br i1 %or.cond158, label %37, label %38
 
 37:                                               ; preds = %ctype_raw.exit
-  call fastcc void @cp_err(ptr noundef %0, i32 noundef 3016) #16
+  call fastcc void @cp_err(ptr noundef nonnull %0, i32 noundef 3016) #16
   unreachable
 
 38:                                               ; preds = %ctype_raw.exit, %26
@@ -3359,7 +3359,7 @@ ctype_raw.exit162:                                ; preds = %104
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %ctype_raw.exit162
-  call fastcc void @cp_err(ptr noundef %0, i32 noundef 3016) #16
+  call fastcc void @cp_err(ptr noundef nonnull %0, i32 noundef 3016) #16
   unreachable
 
 111:                                              ; preds = %ctype_raw.exit162, %100

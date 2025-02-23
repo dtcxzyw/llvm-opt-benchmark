@@ -1306,22 +1306,21 @@ define dso_local range(i32 -1, 1) i32 @xcpuinfo_abs_to_mac(ptr noundef %0, ptr n
   %66 = load i32, ptr @xcpuinfo_abs_to_mac.total_cpus, align 4
   %67 = mul nsw i32 %66, 6
   %68 = tail call ptr @bit_fmt(ptr noundef %65, i32 noundef %67, ptr noundef nonnull %25) #12
-  br label %thread-pre-split
+  br label %thread-pre-split.thread
 
-thread-pre-split:                                 ; preds = %._crit_edge, %19
-  %.0 = phi i32 [ -1, %19 ], [ 0, %._crit_edge ]
+thread-pre-split:                                 ; preds = %19
   %.not20 = icmp eq ptr %22, null
   br i1 %.not20, label %69, label %thread-pre-split.thread
 
-thread-pre-split.thread:                          ; preds = %28, %thread-pre-split
-  %.035 = phi i32 [ %.0, %thread-pre-split ], [ -1, %28 ]
-  %.not2233 = phi i1 [ %or.cond, %thread-pre-split ], [ false, %28 ]
+thread-pre-split.thread:                          ; preds = %._crit_edge, %28, %thread-pre-split
+  %.035 = phi i32 [ -1, %thread-pre-split ], [ 0, %._crit_edge ], [ -1, %28 ]
+  %.not2233 = phi i1 [ false, %thread-pre-split ], [ true, %._crit_edge ], [ false, %28 ]
   call void @slurm_bit_free(ptr noundef nonnull %3) #12
   br label %69
 
 69:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
-  %.036 = phi i32 [ %.035, %thread-pre-split.thread ], [ %.0, %thread-pre-split ]
-  %.not2234 = phi i1 [ %.not2233, %thread-pre-split.thread ], [ %or.cond, %thread-pre-split ]
+  %.036 = phi i32 [ %.035, %thread-pre-split.thread ], [ -1, %thread-pre-split ]
+  %.not2234 = phi i1 [ %.not2233, %thread-pre-split.thread ], [ false, %thread-pre-split ]
   store ptr null, ptr %3, align 8
   %.not21 = icmp eq ptr %25, null
   br i1 %.not21, label %71, label %70

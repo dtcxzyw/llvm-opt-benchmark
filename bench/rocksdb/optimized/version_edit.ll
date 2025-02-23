@@ -1334,7 +1334,7 @@ _ZN7rocksdb27PutVarint32Varint32Varint64EPNSt7__cxx1112basic_stringIcSt11char_tr
   %sub.ptr.sub.i255 = sub i64 %sub.ptr.lhs.cast.i253, %sub.ptr.rhs.cast.i254
   %call5.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull %buf.i245, i64 noundef %sub.ptr.sub.i255)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %buf.i245)
-  %call.i263 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.01022) #26
+  %call.i263 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.01022) #26
   %cmp.i.not = icmp eq ptr %call.i263, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond49.preheader, label %for.body41
 

@@ -24783,7 +24783,7 @@ _ZN17ExampleAppConsole7StricmpEPKcS1_.exit:       ; preds = %while.body.i, %for.
   br i1 %cmp4, label %if.then, label %for.cond, !llvm.loop !182
 
 if.then:                                          ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit
-  tail call void @free(ptr noundef %5) #30
+  tail call void @free(ptr noundef nonnull %5) #30
   %10 = load ptr, ptr %Data.i, align 8
   %idx.ext = and i64 %3, 4294967295
   %add.ptr = getelementptr inbounds nuw ptr, ptr %10, i64 %idx.ext
@@ -24930,7 +24930,7 @@ if.else:                                          ; preds = %_ZN17ExampleAppCons
   %call5.i53 = tail call i32 @toupper(i32 noundef 72) #31
   %cmp8.i56 = icmp ne i32 %call5.i53, %call27.i30
   %or.cond10.i58 = or i1 %tobool.not9.i32, %cmp8.i56
-  br i1 %or.cond10.i58, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread, label %while.body.i59
+  br i1 %or.cond10.i58, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74, label %while.body.i59
 
 while.body.i59:                                   ; preds = %if.else, %while.body.i59
   %s1.addr.012.i60 = phi ptr [ %incdec.ptr.i62, %while.body.i59 ], [ %command_line, %if.else ]
@@ -24946,42 +24946,42 @@ while.body.i59:                                   ; preds = %if.else, %while.bod
   %cmp.i68 = icmp ne i32 %call.i65, %call2.i67
   %tobool.not.i69 = icmp eq i8 %33, 0
   %or.cond.i70 = or i1 %tobool.not.i69, %cmp.i68
-  br i1 %or.cond.i70, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74, label %while.body.i59, !llvm.loop !181
+  br i1 %or.cond.i70, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread, label %while.body.i59, !llvm.loop !181
 
-_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74:     ; preds = %while.body.i59
-  %cmp17 = icmp eq i32 %call.i65, %call2.i67
-  br i1 %cmp17, label %if.then18, label %while.body.i84
+_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74:     ; preds = %if.else
+  %cmp17 = icmp eq i32 %call5.i53, %call27.i30
+  br i1 %cmp17, label %if.then18, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99
 
-_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread: ; preds = %if.else
-  %cmp17106 = icmp eq i32 %call5.i53, %call27.i30
-  br i1 %cmp17106, label %if.then18, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99
+_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread: ; preds = %while.body.i59
+  %cmp17121 = icmp eq i32 %call.i65, %call2.i67
+  br i1 %cmp17121, label %if.then18, label %while.body.i84
 
 if.then18:                                        ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74
   tail call void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1781)
   %Commands = getelementptr inbounds nuw i8, ptr %this, i64 272
   %34 = load i32, ptr %Commands, align 8
-  %cmp22111 = icmp sgt i32 %34, 0
-  br i1 %cmp22111, label %for.body23.lr.ph, label %if.end50
+  %cmp22107 = icmp sgt i32 %34, 0
+  br i1 %cmp22107, label %for.body23.lr.ph, label %if.end50
 
 for.body23.lr.ph:                                 ; preds = %if.then18
   %Data.i75 = getelementptr inbounds nuw i8, ptr %this, i64 280
   br label %for.body23
 
 for.body23:                                       ; preds = %for.body23.lr.ph, %for.body23
-  %indvars.iv120 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next121, %for.body23 ]
+  %indvars.iv116 = phi i64 [ 0, %for.body23.lr.ph ], [ %indvars.iv.next117, %for.body23 ]
   %35 = load ptr, ptr %Data.i75, align 8
-  %arrayidx.i77 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv120
+  %arrayidx.i77 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv116
   %36 = load ptr, ptr %arrayidx.i77, align 8
   tail call void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1782, ptr noundef %36)
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
+  %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %37 = load i32, ptr %Commands, align 8
   %38 = sext i32 %37 to i64
-  %cmp22 = icmp slt i64 %indvars.iv.next121, %38
+  %cmp22 = icmp slt i64 %indvars.iv.next117, %38
   br i1 %cmp22, label %for.body23, label %if.end50, !llvm.loop !183
 
-while.body.i84:                                   ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74, %while.body.i84
-  %s1.addr.012.i85 = phi ptr [ %incdec.ptr.i87, %while.body.i84 ], [ %command_line, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74 ]
-  %s2.addr.011.i86 = phi ptr [ %incdec.ptr3.i88, %while.body.i84 ], [ @.str.1757, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74 ]
+while.body.i84:                                   ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread, %while.body.i84
+  %s1.addr.012.i85 = phi ptr [ %incdec.ptr.i87, %while.body.i84 ], [ %command_line, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread ]
+  %s2.addr.011.i86 = phi ptr [ %incdec.ptr3.i88, %while.body.i84 ], [ @.str.1757, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread ]
   %incdec.ptr.i87 = getelementptr inbounds nuw i8, ptr %s1.addr.012.i85, i64 1
   %incdec.ptr3.i88 = getelementptr inbounds nuw i8, ptr %s2.addr.011.i86, i64 1
   %39 = load i8, ptr %incdec.ptr3.i88, align 1
@@ -24995,17 +24995,17 @@ while.body.i84:                                   ; preds = %_ZN17ExampleAppCons
   %or.cond.i95 = or i1 %tobool.not.i94, %cmp.i93
   br i1 %or.cond.i95, label %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99, label %while.body.i84, !llvm.loop !181
 
-_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99:     ; preds = %while.body.i84, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread
-  %call.lcssa.i96 = phi i32 [ %call5.i53, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread ], [ %call.i90, %while.body.i84 ]
-  %call2.lcssa.i97 = phi i32 [ %call27.i30, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74.thread ], [ %call2.i92, %while.body.i84 ]
+_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99:     ; preds = %while.body.i84, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74
+  %call.lcssa.i96 = phi i32 [ %call5.i53, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74 ], [ %call.i90, %while.body.i84 ]
+  %call2.lcssa.i97 = phi i32 [ %call27.i30, %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit74 ], [ %call2.i92, %while.body.i84 ]
   %cmp30 = icmp eq i32 %call.lcssa.i96, %call2.lcssa.i97
   br i1 %cmp30, label %if.then31, label %if.else47
 
 if.then31:                                        ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99
   %41 = tail call i32 @llvm.smax.i32(i32 %inc.i, i32 10)
   %cond = add nsw i32 %41, -10
-  %cmp40109.not = icmp sgt i32 %cond, %22
-  br i1 %cmp40109.not, label %if.end50, label %for.body41.lr.ph
+  %cmp40105.not = icmp sgt i32 %cond, %22
+  br i1 %cmp40105.not, label %if.end50, label %for.body41.lr.ph
 
 for.body41.lr.ph:                                 ; preds = %if.then31
   %42 = zext nneg i32 %41 to i64
@@ -25013,16 +25013,16 @@ for.body41.lr.ph:                                 ; preds = %if.then31
   br label %for.body41
 
 for.body41:                                       ; preds = %for.body41.lr.ph, %for.body41
-  %indvars.iv117 = phi i64 [ %43, %for.body41.lr.ph ], [ %indvars.iv.next118, %for.body41 ]
+  %indvars.iv113 = phi i64 [ %43, %for.body41.lr.ph ], [ %indvars.iv.next114, %for.body41 ]
   %44 = load ptr, ptr %Data.i, align 8
-  %arrayidx.i102 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv117
+  %arrayidx.i102 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv113
   %45 = load ptr, ptr %arrayidx.i102, align 8
-  %46 = trunc nuw nsw i64 %indvars.iv117 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv113 to i32
   tail call void (ptr, ptr, ...) @_ZN17ExampleAppConsole6AddLogEPKcz(ptr noundef nonnull align 8 dereferenceable(594) %this, ptr noundef nonnull @.str.1783, i32 noundef %46, ptr noundef %45)
-  %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
+  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %47 = load i32, ptr %History, align 8
   %48 = sext i32 %47 to i64
-  %cmp40 = icmp slt i64 %indvars.iv.next118, %48
+  %cmp40 = icmp slt i64 %indvars.iv.next114, %48
   br i1 %cmp40, label %for.body41, label %if.end50, !llvm.loop !184
 
 if.else47:                                        ; preds = %_ZN17ExampleAppConsole7StricmpEPKcS1_.exit99

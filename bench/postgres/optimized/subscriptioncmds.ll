@@ -572,7 +572,7 @@ publicationListToArray.exit:                      ; preds = %list_length.exit.i,
   br label %252
 
 252:                                              ; preds = %247, %249, %243
-  call void @table_close(ptr noundef %42, i32 noundef 3) #10
+  call void @table_close(ptr noundef nonnull %42, i32 noundef 3) #10
   call void @pgstat_create_subscription(i32 noundef %84) #10
   %253 = load i8, ptr %96, align 1, !range !4, !noundef !5
   %254 = trunc nuw i8 %253 to i1

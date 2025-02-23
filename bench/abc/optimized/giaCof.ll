@@ -661,7 +661,7 @@ define i32 @Cof_ManTfoSize_rec(ptr noundef readonly captures(none) %0, ptr nound
   %16 = and i32 %15, 2147483647
   %17 = zext nneg i32 %16 to i64
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %17
-  %19 = tail call i32 @Cof_ManTfoSize_rec(ptr noundef %0, ptr noundef nonnull %18)
+  %19 = tail call i32 @Cof_ManTfoSize_rec(ptr noundef nonnull %0, ptr noundef nonnull %18)
   %20 = add i32 %19, %.023
   %21 = add nuw nsw i32 %.01422, 1
   %22 = load i32, ptr %1, align 4
@@ -696,7 +696,7 @@ define i32 @Cof_ManTfoSize(ptr noundef captures(none) %0, ptr noundef readonly c
   %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !56
-  %10 = tail call i32 @Cof_ManTfoSize_rec(ptr noundef %0, ptr noundef %9)
+  %10 = tail call i32 @Cof_ManTfoSize_rec(ptr noundef nonnull %0, ptr noundef %9)
   %11 = add i32 %.010, -1
   %12 = add i32 %11, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -742,7 +742,7 @@ define i32 @Cof_ManTfiSize_rec(ptr noundef readonly captures(none) %0, ptr nound
   %13 = zext nneg i32 %12 to i64
   %14 = sub nsw i64 0, %13
   %15 = getelementptr inbounds i32, ptr %1, i64 %14
-  %16 = tail call i32 @Cof_ManTfiSize_rec(ptr noundef %0, ptr noundef nonnull %15)
+  %16 = tail call i32 @Cof_ManTfiSize_rec(ptr noundef nonnull %0, ptr noundef nonnull %15)
   %17 = add i32 %16, %.023
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %1, align 4
@@ -840,7 +840,7 @@ define i32 @Cof_ManSuppSize_rec(ptr noundef readonly captures(none) %0, ptr noun
   %13 = zext nneg i32 %12 to i64
   %14 = sub nsw i64 0, %13
   %15 = getelementptr inbounds i32, ptr %1, i64 %14
-  %16 = tail call i32 @Cof_ManSuppSize_rec(ptr noundef %0, ptr noundef nonnull %15)
+  %16 = tail call i32 @Cof_ManSuppSize_rec(ptr noundef nonnull %0, ptr noundef nonnull %15)
   %17 = add i32 %16, %.023
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %1, align 4
@@ -2690,7 +2690,7 @@ Cof_ManResetTravId.exit:                          ; preds = %.lr.ph.split.i.i, %
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 1, ptr %32, align 8, !tbaa !54
   call void @Gia_ManHashStart(ptr noundef %0) #27
-  %33 = call ptr @Cof_ManCollectHighFanout(ptr noundef %11, i32 noundef %1)
+  %33 = call ptr @Cof_ManCollectHighFanout(ptr noundef nonnull %11, i32 noundef %1)
   %34 = getelementptr i8, ptr %33, i64 4
   %.val.i = load i32, ptr %34, align 4, !tbaa !64
   %35 = icmp sgt i32 %.val.i, 0
@@ -2706,7 +2706,7 @@ Cof_ManResetTravId.exit:                          ; preds = %.lr.ph.split.i.i, %
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
   %38 = getelementptr inbounds nuw ptr, ptr %.val9.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !68
-  call void @Cof_ManPrintHighFanoutOne(ptr noundef %11, ptr noundef %39)
+  call void @Cof_ManPrintHighFanoutOne(ptr noundef nonnull %11, ptr noundef %39)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.thread.i, label %37, !llvm.loop !77

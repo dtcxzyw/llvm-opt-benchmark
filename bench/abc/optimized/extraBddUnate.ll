@@ -230,7 +230,7 @@ define ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %.0138 = phi ptr [ %48, %41 ], [ %50, %49 ]
   %52 = getelementptr inbounds nuw i8, ptr %.0136.lcssa, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !35
-  %54 = tail call ptr @extraZddUnateInfoCompute(ptr noundef %0, ptr noundef %.0139, ptr noundef %53)
+  %54 = tail call ptr @extraZddUnateInfoCompute(ptr noundef nonnull %0, ptr noundef %.0139, ptr noundef %53)
   %55 = icmp eq ptr %54, null
   br i1 %55, label %187, label %56
 

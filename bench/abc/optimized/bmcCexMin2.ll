@@ -1753,7 +1753,7 @@ define noalias noundef ptr @Gia_ManCexMin(ptr noundef initializes((432, 440), (9
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.032.us = phi i32 [ %20, %.lr.ph.split.us ], [ %17, %.lr.ph ]
-  %18 = tail call ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef %1, i32 noundef %.032.us, i32 noundef -1, i32 noundef %5)
+  %18 = tail call ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.032.us, i32 noundef -1, i32 noundef %5)
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.032.us)
   tail call void @Gia_ManPrintStats(ptr noundef %18, ptr noundef null) #13
   tail call void @Gia_ManStop(ptr noundef %18) #13
@@ -1763,7 +1763,7 @@ define noalias noundef ptr @Gia_ManCexMin(ptr noundef initializes((432, 440), (9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.032 = phi i32 [ %23, %.lr.ph.split ], [ %17, %.lr.ph ]
-  %21 = tail call ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef %1, i32 noundef %.032, i32 noundef -1, i32 noundef %5)
+  %21 = tail call ptr @Gia_ManCreateUnate(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.032, i32 noundef -1, i32 noundef %5)
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.032)
   tail call void @Gia_ManPrintStats(ptr noundef %21, ptr noundef null) #13
   tail call void @Gia_AigerWrite(ptr noundef %21, ptr noundef nonnull @.str.3, i32 noundef 0, i32 noundef 0, i32 noundef 0) #13

@@ -319,7 +319,7 @@ form_Ared.exit.thread:                            ; preds = %form_Ared.exit.form
 
 form_rhs_red.exit.thread:                         ; preds = %171, %.preheader.i
   call void @OSQPVectorf_from_raw(ptr noundef nonnull %113, ptr noundef nonnull %128) #6
-  call void @free(ptr noundef %126) #6
+  call void @free(ptr noundef nonnull %126) #6
   call void @free(ptr noundef %128) #6
   call void @free(ptr noundef %130) #6
   call void @free(ptr noundef %131) #6

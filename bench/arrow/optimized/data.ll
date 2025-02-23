@@ -9741,136 +9741,132 @@ define linkonce_odr noundef zeroext i1 @_ZNK5arrow9ArrayData7IsValidEl(ptr nound
   br i1 %.not1653, label %.lr.ph.preheader, label %tailrecurse._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2, %tailrecurse29
-  %6 = phi ptr [ %93, %tailrecurse29 ], [ %4, %2 ]
-  %.tr3055 = phi i64 [ %86, %tailrecurse29 ], [ %1, %2 ]
-  %.tr54 = phi ptr [ %91, %tailrecurse29 ], [ %0, %2 ]
+  %6 = phi ptr [ %89, %tailrecurse29 ], [ %4, %2 ]
+  %.tr3055 = phi i64 [ %82, %tailrecurse29 ], [ %1, %2 ]
+  %.tr54 = phi ptr [ %87, %tailrecurse29 ], [ %0, %2 ]
   br label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse29, %tailrecurse, %2
-  %.tr3048 = phi i64 [ %1, %2 ], [ %.tr3055, %tailrecurse ], [ %86, %tailrecurse29 ]
-  %.tr.lcssa = phi ptr [ %0, %2 ], [ %51, %tailrecurse ], [ %91, %tailrecurse29 ]
-  %.lcssa = phi ptr [ %5, %2 ], [ %54, %tailrecurse ], [ %94, %tailrecurse29 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 9
-  %8 = load i8, ptr %7, align 1, !tbaa !17, !range !27, !noundef !28
-  %9 = trunc nuw i8 %8 to i1
-  %10 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
-  %11 = load ptr, ptr %10, align 8
-  %12 = select i1 %9, ptr %11, ptr null, !prof !29
-  %13 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 32
-  %14 = load i64, ptr %13, align 8, !tbaa !30
-  %15 = add nsw i64 %14, %.tr3048
-  %16 = lshr i64 %15, 3
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 %16
-  %18 = load i8, ptr %17, align 1, !tbaa !49
-  %19 = zext i8 %18 to i32
-  %20 = trunc i64 %15 to i32
-  %21 = and i32 %20, 7
-  %22 = shl nuw nsw i32 1, %21
-  %23 = and i32 %22, %19
-  %24 = icmp ne i32 %23, 0
-  br label %104
+  %.tr3048 = phi i64 [ %1, %2 ], [ %.tr3055, %tailrecurse ], [ %82, %tailrecurse29 ]
+  %.tr.lcssa = phi ptr [ %0, %2 ], [ %47, %tailrecurse ], [ %87, %tailrecurse29 ]
+  %.lcssa = phi ptr [ %5, %2 ], [ %50, %tailrecurse ], [ %90, %tailrecurse29 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 16
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !30
+  %11 = add nsw i64 %10, %.tr3048
+  %12 = lshr i64 %11, 3
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 %12
+  %14 = load i8, ptr %13, align 1, !tbaa !49
+  %15 = zext i8 %14 to i32
+  %16 = trunc i64 %11 to i32
+  %17 = and i32 %16, 7
+  %18 = shl nuw nsw i32 1, %17
+  %19 = and i32 %18, %15
+  %20 = icmp ne i32 %19, 0
+  br label %100
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
-  %25 = phi ptr [ %53, %tailrecurse ], [ %6, %.lr.ph.preheader ]
-  %.tr17 = phi ptr [ %51, %tailrecurse ], [ %.tr54, %.lr.ph.preheader ]
-  %26 = load ptr, ptr %.tr17, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load i32, ptr %27, align 8, !tbaa !71
-  switch i32 %28, label %98 [
+  %21 = phi ptr [ %49, %tailrecurse ], [ %6, %.lr.ph.preheader ]
+  %.tr17 = phi ptr [ %47, %tailrecurse ], [ %.tr54, %.lr.ph.preheader ]
+  %22 = load ptr, ptr %.tr17, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  %24 = load i32, ptr %23, align 8, !tbaa !71
+  switch i32 %24, label %94 [
     i32 27, label %tailrecurse
     i32 28, label %tailrecurse29
-    i32 38, label %95
+    i32 38, label %91
   ]
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %30 = load ptr, ptr %29, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 9
-  %32 = load i8, ptr %31, align 1, !tbaa !17, !range !27, !noundef !28
-  %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %35 = load ptr, ptr %34, align 8
-  %36 = select i1 %33, ptr %35, ptr null, !prof !29
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %38 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
-  %39 = load i64, ptr %38, align 8, !tbaa !30
-  %40 = getelementptr i8, ptr %36, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 %.tr3055
-  %42 = load i8, ptr %41, align 1, !tbaa !49
-  %43 = sext i8 %42 to i64
-  %44 = load ptr, ptr %37, align 8, !tbaa !50
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %43
-  %46 = load i32, ptr %45, align 4, !tbaa !53
-  %47 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
-  %48 = sext i32 %46 to i64
-  %49 = load ptr, ptr %47, align 8, !tbaa !55
-  %50 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %49, i64 %48
-  %51 = load ptr, ptr %50, align 8, !tbaa !56
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 40
-  %53 = load ptr, ptr %52, align 8, !tbaa !11
-  %54 = load ptr, ptr %53, align 8, !tbaa !14
-  %.not = icmp eq ptr %54, null
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 9
+  %28 = load i8, ptr %27, align 1, !tbaa !17, !range !27, !noundef !28
+  %29 = trunc nuw i8 %28 to i1
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %31 = load ptr, ptr %30, align 8
+  %32 = select i1 %29, ptr %31, ptr null, !prof !29
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
+  %35 = load i64, ptr %34, align 8, !tbaa !30
+  %36 = getelementptr i8, ptr %32, i64 %35
+  %37 = getelementptr i8, ptr %36, i64 %.tr3055
+  %38 = load i8, ptr %37, align 1, !tbaa !49
+  %39 = sext i8 %38 to i64
+  %40 = load ptr, ptr %33, align 8, !tbaa !50
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %39
+  %42 = load i32, ptr %41, align 4, !tbaa !53
+  %43 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
+  %44 = sext i32 %42 to i64
+  %45 = load ptr, ptr %43, align 8, !tbaa !55
+  %46 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %45, i64 %44
+  %47 = load ptr, ptr %46, align 8, !tbaa !56
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
+  %49 = load ptr, ptr %48, align 8, !tbaa !11
+  %50 = load ptr, ptr %49, align 8, !tbaa !14
+  %.not = icmp eq ptr %50, null
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse29:                                    ; preds = %.lr.ph
-  %55 = getelementptr inbounds nuw i8, ptr %.tr17, i64 40
-  %56 = load ptr, ptr %55, align 8, !tbaa !11
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %58 = load ptr, ptr %57, align 8, !tbaa !14
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 9
-  %60 = load i8, ptr %59, align 1, !tbaa !17, !range !27, !noundef !28
-  %61 = trunc nuw i8 %60 to i1
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = select i1 %61, ptr %63, ptr null, !prof !29
-  %65 = getelementptr inbounds nuw i8, ptr %26, i64 96
-  %66 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
-  %67 = load i64, ptr %66, align 8, !tbaa !30
-  %68 = getelementptr i8, ptr %64, i64 %67
-  %69 = getelementptr i8, ptr %68, i64 %.tr3055
-  %70 = load i8, ptr %69, align 1, !tbaa !49
-  %71 = sext i8 %70 to i64
-  %72 = load ptr, ptr %65, align 8, !tbaa !50
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %71
-  %74 = load i32, ptr %73, align 4, !tbaa !53
-  %75 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !14
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 9
-  %78 = load i8, ptr %77, align 1, !tbaa !17, !range !27, !noundef !28
-  %79 = trunc nuw i8 %78 to i1
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %81 = load ptr, ptr %80, align 8
-  %82 = select i1 %79, ptr %81, ptr null, !prof !29
-  %83 = getelementptr i32, ptr %82, i64 %67
-  %84 = getelementptr i32, ptr %83, i64 %.tr3055
-  %85 = load i32, ptr %84, align 4, !tbaa !53
-  %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
-  %88 = sext i32 %74 to i64
-  %89 = load ptr, ptr %87, align 8, !tbaa !55
-  %90 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %89, i64 %88
-  %91 = load ptr, ptr %90, align 8, !tbaa !56
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  %93 = load ptr, ptr %92, align 8, !tbaa !11
-  %94 = load ptr, ptr %93, align 8, !tbaa !14
-  %.not16 = icmp eq ptr %94, null
+  %51 = getelementptr inbounds nuw i8, ptr %.tr17, i64 40
+  %52 = load ptr, ptr %51, align 8, !tbaa !11
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load ptr, ptr %53, align 8, !tbaa !14
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 9
+  %56 = load i8, ptr %55, align 1, !tbaa !17, !range !27, !noundef !28
+  %57 = trunc nuw i8 %56 to i1
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %59 = load ptr, ptr %58, align 8
+  %60 = select i1 %57, ptr %59, ptr null, !prof !29
+  %61 = getelementptr inbounds nuw i8, ptr %22, i64 96
+  %62 = getelementptr inbounds nuw i8, ptr %.tr17, i64 32
+  %63 = load i64, ptr %62, align 8, !tbaa !30
+  %64 = getelementptr i8, ptr %60, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 %.tr3055
+  %66 = load i8, ptr %65, align 1, !tbaa !49
+  %67 = sext i8 %66 to i64
+  %68 = load ptr, ptr %61, align 8, !tbaa !50
+  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %67
+  %70 = load i32, ptr %69, align 4, !tbaa !53
+  %71 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %72 = load ptr, ptr %71, align 8, !tbaa !14
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 9
+  %74 = load i8, ptr %73, align 1, !tbaa !17, !range !27, !noundef !28
+  %75 = trunc nuw i8 %74 to i1
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = select i1 %75, ptr %77, ptr null, !prof !29
+  %79 = getelementptr i32, ptr %78, i64 %63
+  %80 = getelementptr i32, ptr %79, i64 %.tr3055
+  %81 = load i32, ptr %80, align 4, !tbaa !53
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds nuw i8, ptr %.tr17, i64 64
+  %84 = sext i32 %70 to i64
+  %85 = load ptr, ptr %83, align 8, !tbaa !55
+  %86 = getelementptr inbounds nuw %"class.std::shared_ptr.5", ptr %85, i64 %84
+  %87 = load ptr, ptr %86, align 8, !tbaa !56
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %89 = load ptr, ptr %88, align 8, !tbaa !11
+  %90 = load ptr, ptr %89, align 8, !tbaa !14
+  %.not16 = icmp eq ptr %90, null
   br i1 %.not16, label %.lr.ph.preheader, label %tailrecurse._crit_edge
 
-95:                                               ; preds = %.lr.ph
-  %96 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %.tr17, i64 noundef %.tr3055)
-  %97 = xor i1 %96, true
-  br label %104
+91:                                               ; preds = %.lr.ph
+  %92 = tail call noundef zeroext i1 @_ZN5arrow8internal19IsNullRunEndEncodedERKNS_9ArrayDataEl(ptr noundef nonnull align 8 dereferenceable(120) %.tr17, i64 noundef %.tr3055)
+  %93 = xor i1 %92, true
+  br label %100
 
-98:                                               ; preds = %.lr.ph
-  %99 = getelementptr inbounds nuw i8, ptr %.tr17, i64 24
-  %100 = load atomic i64, ptr %99 seq_cst, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.tr17, i64 16
-  %102 = load i64, ptr %101, align 8, !tbaa !105
-  %103 = icmp ne i64 %100, %102
-  br label %104
+94:                                               ; preds = %.lr.ph
+  %95 = getelementptr inbounds nuw i8, ptr %.tr17, i64 24
+  %96 = load atomic i64, ptr %95 seq_cst, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %.tr17, i64 16
+  %98 = load i64, ptr %97, align 8, !tbaa !105
+  %99 = icmp ne i64 %96, %98
+  br label %100
 
-104:                                              ; preds = %95, %98, %tailrecurse._crit_edge
-  %.0 = phi i1 [ %24, %tailrecurse._crit_edge ], [ %97, %95 ], [ %103, %98 ]
+100:                                              ; preds = %91, %94, %tailrecurse._crit_edge
+  %.0 = phi i1 [ %20, %tailrecurse._crit_edge ], [ %93, %91 ], [ %99, %94 ]
   ret i1 %.0
 }
 

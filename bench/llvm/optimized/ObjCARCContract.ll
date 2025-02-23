@@ -1604,14 +1604,14 @@ _ZN4llvm7objcarc20GetArgRCIdentityRootEPNS_5ValueE.exit.i84.i: ; preds = %_ZN4ll
   br i1 %.not6367.i.i.i, label %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread.i.i, label %.lr.ph.i.i.i89
 
 .lr.ph.i.i.i89:                                   ; preds = %565, %.thread.i.i.i
-  %.03171.i.i.i = phi ptr [ %.23357.i.i.i, %.thread.i.i.i ], [ null, %565 ]
-  %.03870.i.i.i = phi i8 [ %.24056.i.i.i, %.thread.i.i.i ], [ 0, %565 ]
+  %.03170.i.i.i = phi ptr [ %.23357.i.i.i, %.thread.i.i.i ], [ null, %565 ]
+  %.03869.i.i.i = phi i8 [ %.24056.i.i.i, %.thread.i.i.i ], [ 0, %565 ]
   %.sroa.050.068.i.i.i = phi ptr [ %617, %.thread.i.i.i ], [ %570, %565 ]
-  %.not.i45.i.i = icmp eq ptr %.03171.i.i.i, null
+  %.not.i45.i.i = icmp eq ptr %.03170.i.i.i, null
   br i1 %.not.i45.i.i, label %575, label %573
 
 573:                                              ; preds = %.lr.ph.i.i.i89
-  %574 = trunc nuw i8 %.03870.i.i.i to i1
+  %574 = trunc nuw i8 %.03869.i.i.i to i1
   br i1 %574, label %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread85.i.i, label %575
 
 _ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread85.i.i: ; preds = %573
@@ -1700,8 +1700,8 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.i.i86.i: ; preds = %594,
   br i1 %615, label %.thread.i.i.i, label %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread.i.i
 
 .thread.i.i.i:                                    ; preds = %611, %601, %599, %597, %575
-  %.23357.i.i.i = phi ptr [ %576, %611 ], [ %.03171.i.i.i, %597 ], [ null, %601 ], [ null, %599 ], [ %.03171.i.i.i, %575 ]
-  %.24056.i.i.i = phi i8 [ %.03870.i.i.i, %611 ], [ %.03870.i.i.i, %597 ], [ %.03870.i.i.i, %601 ], [ %.03870.i.i.i, %599 ], [ 1, %575 ]
+  %.23357.i.i.i = phi ptr [ %576, %611 ], [ %.03170.i.i.i, %597 ], [ null, %601 ], [ null, %599 ], [ %.03170.i.i.i, %575 ]
+  %.24056.i.i.i = phi i8 [ %.03869.i.i.i, %611 ], [ %.03869.i.i.i, %597 ], [ %.03869.i.i.i, %601 ], [ %.03869.i.i.i, %599 ], [ 1, %575 ]
   %616 = getelementptr inbounds nuw i8, ptr %.sroa.050.068.i.i.i, i64 8
   %617 = load ptr, ptr %616, align 8, !tbaa !117
   %.not63.i.i.i = icmp eq ptr %617, %572
@@ -1721,7 +1721,7 @@ _ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERN
   br i1 %619, label %620, label %_ZN12_GLOBAL__N_115ObjCARCContract35tryToContractReleaseIntoStoreStrongEPN4llvm11InstructionERNS1_12InstIteratorINS1_15SymbolTableListINS1_10BasicBlockEJEEENS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS6_Lb0ELb0EvLb0EvEELb0ELb0EEENS1_21ilist_iterator_w_bitsINSA_IS2_Lb0ELb0EvLb1ES6_EELb0ELb0EEES2_EERKNS1_8DenseMapIPS6_NS1_13TinyPtrVectorISJ_EENS1_12DenseMapInfoISJ_vEENS1_6detail12DenseMapPairISJ_SL_EEEE.exit.i
 
 620:                                              ; preds = %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.i.i, %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread85.i.i
-  %.132.ph.i8488.i.i = phi ptr [ %.03171.i.i.i, %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread85.i.i ], [ %.23357.i.i.i, %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.i.i ]
+  %.132.ph.i8488.i.i = phi ptr [ %.03170.i.i.i, %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.thread85.i.i ], [ %.23357.i.i.i, %_ZL38findSafeStoreForStoreStrongContractionPN4llvm8LoadInstEPNS_11InstructionERNS_7objcarc18ProvenanceAnalysisEPNS_9AAResultsE.exit.i.i ]
   %621 = getelementptr inbounds i8, ptr %.132.ph.i8488.i.i, i64 -64
   br label %622
 
@@ -3598,15 +3598,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   br label %61
 
 61:                                               ; preds = %_ZNK4llvm7PHINode24getIncomingValueForBlockEPKNS_10BasicBlockE.exit._crit_edge, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit, %14
-  %62 = icmp eq ptr %.sroa.027.035, null
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 24
-  %spec.select.i.i.i.i = select i1 %62, ptr null, ptr %63
-  %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %65 = load ptr, ptr %64, align 8, !tbaa !117
-  %66 = getelementptr inbounds i8, ptr %65, i64 -24
-  %67 = load i8, ptr %66, align 8, !tbaa !124
-  %68 = icmp eq i8 %67, 84
-  %spec.select.i.i.i1.i = select i1 %68, ptr %66, ptr null
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 32
+  %63 = load ptr, ptr %62, align 8, !tbaa !117
+  %64 = getelementptr inbounds i8, ptr %63, i64 -24
+  %65 = load i8, ptr %64, align 8, !tbaa !124
+  %66 = icmp eq i8 %65, 84
+  %spec.select.i.i.i1.i = select i1 %66, ptr %64, ptr null
   %.not31 = icmp eq ptr %spec.select.i.i.i1.i, %7
   br i1 %.not31, label %._crit_edge38, label %14
 }

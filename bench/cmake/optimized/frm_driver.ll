@@ -2026,7 +2026,7 @@ define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %35, !llvm.loop !84
 
 Next_Field_On_Page.exit:                          ; preds = %35
-  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39)
+  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %39)
   ret i32 %44
 }
 
@@ -3315,7 +3315,7 @@ define internal fastcc noundef zeroext i1 @Field_Grown(ptr noundef %0, i32 nound
   br label %.thread185
 
 .thread185:                                       ; preds = %.critedge183, %116, %115
-  tail call void @free(ptr noundef %67) #13
+  tail call void @free(ptr noundef nonnull %67) #13
   br label %.loopexit
 
 119:                                              ; preds = %108
@@ -3687,7 +3687,7 @@ define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Next_Field_On_Page.exit, label %25, !llvm.loop !84
 
 Next_Field_On_Page.exit:                          ; preds = %25
-  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29)
+  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %29)
   ret i32 %34
 }
 
@@ -3733,7 +3733,7 @@ define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %25, !llvm.loop !109
 
 Previous_Field_On_Page.exit:                      ; preds = %25
-  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %29)
+  %34 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %29)
   ret i32 %34
 }
 
@@ -3789,7 +3789,7 @@ define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Previous_Field_On_Page.exit, label %35, !llvm.loop !109
 
 Previous_Field_On_Page.exit:                      ; preds = %35
-  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %39)
+  %44 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %39)
   ret i32 %44
 }
 
@@ -3812,7 +3812,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Next_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %4, !llvm.loop !110
 
 Sorted_Next_Field.exit:                           ; preds = %4
-  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6)
+  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %6)
   ret i32 %11
 }
 
@@ -3835,7 +3835,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Previous_Field(ptr noundef %0) 
   br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %4, !llvm.loop !112
 
 Sorted_Previous_Field.exit:                       ; preds = %4
-  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %6)
+  %11 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %6)
   ret i32 %11
 }
 
@@ -3868,7 +3868,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef %0) #0 
   br i1 %or.cond.i, label %Sorted_Next_Field.exit, label %14, !llvm.loop !110
 
 Sorted_Next_Field.exit:                           ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16)
+  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
   ret i32 %21
 }
 
@@ -3901,7 +3901,7 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef %0) #0 {
   br i1 %or.cond.i, label %Sorted_Previous_Field.exit, label %14, !llvm.loop !112
 
 Sorted_Previous_Field.exit:                       ; preds = %14
-  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef %0, ptr noundef nonnull %16)
+  %21 = tail call i32 @_nc_Set_Current_Field(ptr noundef nonnull %0, ptr noundef nonnull %16)
   ret i32 %21
 }
 

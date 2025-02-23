@@ -1028,7 +1028,7 @@ _ZN4llvm5ErrorD2Ev.exit8:                         ; preds = %17, %2
   br i1 %.not.i, label %_ZNK4llvm31DWARFAbbreviationDeclarationSet4dumpERNS_11raw_ostreamE.exit, label %.lr.ph.i
 
 _ZNK4llvm31DWARFAbbreviationDeclarationSet4dumpERNS_11raw_ostreamE.exit: ; preds = %.lr.ph.i, %41
-  %50 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.09.016) #22
+  %50 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.09.016) #22
   %.not14 = icmp eq ptr %50, %38
   br i1 %.not14, label %_ZN4llvm11raw_ostreamlsEPKc.exit, label %41
 

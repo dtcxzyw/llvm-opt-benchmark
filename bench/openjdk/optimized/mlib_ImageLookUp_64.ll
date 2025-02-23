@@ -889,7 +889,7 @@ default.unreachable:                              ; preds = %505
   %490 = load double, ptr %489, align 8
   %491 = getelementptr inbounds nuw i8, ptr %.2510, i64 8
   store double %490, ptr %.2510, align 8
-  %492 = add nsw i32 %.1529, 1
+  %492 = add nuw nsw i32 %.1529, 1
   %493 = getelementptr inbounds nuw i8, ptr %.1506, i64 1
   br label %494
 
@@ -1109,7 +1109,7 @@ default.unreachable:                              ; preds = %505
   %626 = load double, ptr %625, align 8
   %627 = getelementptr inbounds nuw i8, ptr %.2489, i64 8
   store double %626, ptr %.2489, align 8
-  %628 = add nsw i32 %.1503, 1
+  %628 = add nuw nsw i32 %.1503, 1
   %629 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   br label %630
 

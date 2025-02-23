@@ -464,7 +464,7 @@ define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, p
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %.loopexit, label %.preheader
+  br i1 %29, label %.loopexit2, label %.preheader
 
 .preheader:                                       ; preds = %2, %.preheader
   %30 = phi i64 [ %38, %.preheader ], [ 0, %2 ]
@@ -480,14 +480,14 @@ define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, p
   %39 = load i32, ptr %27, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %38, %40
-  br i1 %41, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %41, label %.preheader, label %.loopexit2, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.preheader, %2
+.loopexit2:                                       ; preds = %.preheader, %2
   tail call fastcc void @keccakf(ptr noundef %3)
   %42 = icmp ult i32 %10, 8
-  br i1 %42, label %.loopexit4, label %43
+  br i1 %42, label %.loopexit, label %43
 
-43:                                               ; preds = %.loopexit
+43:                                               ; preds = %.loopexit2
   %44 = lshr i32 %10, 3
   %45 = zext nneg i32 %44 to i64
   br label %46
@@ -501,23 +501,23 @@ define dso_local noundef i32 @crypto_sha3_final(ptr noundef captures(none) %0, p
   store i64 %50, ptr %48, align 1
   %52 = add nuw nsw i64 %47, 1
   %53 = icmp eq i64 %52, %45
-  br i1 %53, label %.loopexit4, label %46, !llvm.loop !11
+  br i1 %53, label %.loopexit, label %46, !llvm.loop !11
 
-.loopexit4:                                       ; preds = %46, %.loopexit
-  %54 = phi i64 [ 0, %.loopexit ], [ %45, %46 ]
-  %55 = phi ptr [ %1, %.loopexit ], [ %51, %46 ]
+.loopexit:                                        ; preds = %46, %.loopexit2
+  %54 = phi i64 [ 0, %.loopexit2 ], [ %45, %46 ]
+  %55 = phi ptr [ %1, %.loopexit2 ], [ %51, %46 ]
   %56 = and i32 %10, 4
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %62, label %58
 
-58:                                               ; preds = %.loopexit4
+58:                                               ; preds = %.loopexit
   %59 = getelementptr [25 x i64], ptr %3, i64 0, i64 %54
   %60 = load i64, ptr %59, align 8
   %61 = trunc i64 %60 to i32
   store i32 %61, ptr %55, align 1
   br label %62
 
-62:                                               ; preds = %58, %.loopexit4
+62:                                               ; preds = %58, %.loopexit
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(360) %3, i8 0, i64 360, i1 false)
   ret i32 0
 }

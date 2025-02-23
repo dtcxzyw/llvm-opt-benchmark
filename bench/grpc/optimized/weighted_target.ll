@@ -6434,7 +6434,7 @@ for.inc:                                          ; preds = %.noexc, %.noexc40, 
   %ready_end.1 = phi i64 [ %ready_end.0303, %invoke.cont ], [ %ready_end.0303, %sw.epilog ], [ %ready_end.0303, %if.end.i.i ], [ %ready_end.0303, %delete.notnull.i.i.i ], [ %ready_end.0303, %if.then.i34 ], [ %add, %if.then.i ], [ %add, %.noexc ], [ %ready_end.0303, %.noexc40 ]
   %num_idle.1 = phi i64 [ %num_idle.0304, %invoke.cont ], [ %num_idle.2.ph, %sw.epilog ], [ %num_idle.2.ph, %if.end.i.i ], [ %num_idle.2.ph, %delete.notnull.i.i.i ], [ %num_idle.0304, %if.then.i34 ], [ %num_idle.0304, %if.then.i ], [ %num_idle.0304, %.noexc ], [ %num_idle.0304, %.noexc40 ]
   %num_connecting.1 = phi i64 [ %num_connecting.0305, %invoke.cont ], [ %num_connecting.2.ph, %sw.epilog ], [ %num_connecting.2.ph, %if.end.i.i ], [ %num_connecting.2.ph, %delete.notnull.i.i.i ], [ %num_connecting.0305, %if.then.i34 ], [ %num_connecting.0305, %if.then.i ], [ %num_connecting.0305, %.noexc ], [ %num_connecting.0305, %.noexc40 ]
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.0301) #33
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.0301) #33
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body
 

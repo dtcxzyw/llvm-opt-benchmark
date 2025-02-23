@@ -5003,7 +5003,7 @@ _ZNSt6vectorISt4pairIPK8AstIfaceP11AstVarScopeESaIS6_EE17_M_realloc_insertIJS6_E
   unreachable
 
 _ZN7AstNode9privateAsI11AstVarScopePS_EEPT_S2_.exit.i.i.i.i: ; preds = %77, %.noexc12.i.i.i
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i.i, i64 168
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 168
   %89 = load ptr, ptr %88, align 8
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(200) %71, i16 316, ptr noundef %17)
           to label %.noexc13.i.i.i.i unwind label %112

@@ -579,7 +579,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(n
   br i1 %5, label %8, label %9
 
 8:                                                ; preds = %3
-  br i1 %.not125, label %13, label %172
+  br i1 %.not125, label %13, label %173
 
 9:                                                ; preds = %3
   br i1 %.not125, label %13, label %10
@@ -588,7 +588,7 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(n
   %11 = add nsw i32 %.val.fr, -4
   %12 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
   %.not124 = icmp eq i32 %11, %12
-  br i1 %.not124, label %13, label %172
+  br i1 %.not124, label %13, label %173
 
 13:                                               ; preds = %9, %10, %8
   %14 = tail call ptr @Mio_GateReadPins(ptr noundef %1) #14
@@ -635,10 +635,10 @@ define range(i32 0, 2) i32 @Io_ReadBlifReorderFormalNames(ptr noundef captures(n
   %.0119.lcssa = phi i32 [ 0, %13 ], [ %.0119.lcssa.ph, %._crit_edge.loopexit ]
   %30 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
   %31 = icmp eq i32 %.0119.lcssa, %30
-  br i1 %5, label %32, label %105
+  br i1 %5, label %32, label %106
 
 32:                                               ; preds = %._crit_edge
-  br i1 %31, label %172, label %33
+  br i1 %31, label %173, label %33
 
 33:                                               ; preds = %32
   %34 = tail call ptr @Mio_GateReadPins(ptr noundef %1) #14
@@ -693,9 +693,9 @@ Vec_PtrPush.exit.us.sink.split:                   ; preds = %49
   %54 = shl nuw nsw i32 %50, 1
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw nsw i64 %55, 3
-  %.sink211 = select i1 %53, i64 128, i64 %56
+  %.sink210 = select i1 %53, i64 128, i64 %56
   %.sink = select i1 %53, i32 16, i32 %54
-  %57 = tail call ptr @realloc(ptr noundef nonnull %.val146.us, i64 noundef %.sink211) #17
+  %57 = tail call ptr @realloc(ptr noundef nonnull %.val146.us, i64 noundef %.sink210) #17
   store ptr %57, ptr %36, align 8, !tbaa !23
   store i32 %.sink, ptr %0, align 8, !tbaa !22
   br label %Vec_PtrPush.exit.us
@@ -720,215 +720,219 @@ Vec_PtrPush.exit.us:                              ; preds = %Vec_PtrPush.exit.us
   %64 = tail call ptr @Mio_PinReadName(ptr noundef nonnull %.1122176) #14
   %65 = tail call ptr @Mio_PinReadNext(ptr noundef nonnull %.1122176) #14
   %.not137 = icmp eq ptr %65, null
-  br i1 %.not137, label %._crit_edge179, label %.loopexit161, !llvm.loop !76
+  br i1 %.not137, label %._crit_edge179.thread, label %.loopexit161, !llvm.loop !76
 
-._crit_edge179:                                   ; preds = %.loopexit161, %..loopexit161_crit_edge.us, %33
+._crit_edge179.thread:                            ; preds = %.loopexit161
   %66 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
-  %67 = icmp sgt i32 %.val.fr, 2
-  br i1 %67, label %.lr.ph182, label %.loopexit
-
-.lr.ph182:                                        ; preds = %._crit_edge179
-  %68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #16
-  %69 = getelementptr i8, ptr %0, i64 8
-  %.val147 = load ptr, ptr %69, align 8, !tbaa !23
-  %sext138 = shl i64 %68, 32
-  %70 = ashr exact i64 %sext138, 32
-  %wide.trip.count198 = zext nneg i32 %.val.fr to i64
-  br label %71
-
-71:                                               ; preds = %.lr.ph182, %93
-  %indvars.iv194 = phi i64 [ 2, %.lr.ph182 ], [ %indvars.iv.next195, %93 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv194
-  %73 = load ptr, ptr %72, align 8, !tbaa !40
-  %74 = tail call i32 @strncmp(ptr noundef nonnull %66, ptr noundef %73, i64 noundef %70) #16
-  %.not139 = icmp eq i32 %74, 0
-  br i1 %.not139, label %75, label %93
-
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %73, i64 %70
-  %77 = load i8, ptr %76, align 1, !tbaa !73
-  %78 = icmp eq i8 %77, 61
-  br i1 %78, label %79, label %93
-
-79:                                               ; preds = %75
-  %80 = load i32, ptr %4, align 4, !tbaa !20
-  %81 = load i32, ptr %0, align 8, !tbaa !22
-  %82 = icmp eq i32 %80, %81
-  br i1 %82, label %Vec_PtrPush.exit160.sink.split, label %Vec_PtrPush.exit160
-
-Vec_PtrPush.exit160.sink.split:                   ; preds = %79
-  %83 = icmp slt i32 %80, 16
-  %84 = shl nuw nsw i32 %80, 1
-  %85 = zext nneg i32 %84 to i64
-  %86 = shl nuw nsw i64 %85, 3
-  %.sink214 = select i1 %83, i64 128, i64 %86
-  %.sink212 = select i1 %83, i32 16, i32 %84
-  %87 = tail call ptr @realloc(ptr noundef nonnull %.val147, i64 noundef %.sink214) #17
-  store ptr %87, ptr %69, align 8, !tbaa !23
-  store i32 %.sink212, ptr %0, align 8, !tbaa !22
-  br label %Vec_PtrPush.exit160
-
-Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160.sink.split, %79
-  %88 = phi ptr [ %.val147, %79 ], [ %87, %Vec_PtrPush.exit160.sink.split ]
-  %89 = load i32, ptr %4, align 4, !tbaa !20
-  %90 = add nsw i32 %89, 1
-  store i32 %90, ptr %4, align 4, !tbaa !20
-  %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
-  store ptr %73, ptr %92, align 8, !tbaa !40
   br label %.loopexit
 
-93:                                               ; preds = %71, %75
+._crit_edge179:                                   ; preds = %..loopexit161_crit_edge.us, %33
+  %67 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
+  %68 = icmp sgt i32 %.val.fr, 2
+  br i1 %68, label %.lr.ph182, label %.loopexit
+
+.lr.ph182:                                        ; preds = %._crit_edge179
+  %69 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %67) #16
+  %70 = getelementptr i8, ptr %0, i64 8
+  %.val147 = load ptr, ptr %70, align 8, !tbaa !23
+  %sext138 = shl i64 %69, 32
+  %71 = ashr exact i64 %sext138, 32
+  %wide.trip.count198 = zext nneg i32 %.val.fr to i64
+  br label %72
+
+72:                                               ; preds = %.lr.ph182, %94
+  %indvars.iv194 = phi i64 [ 2, %.lr.ph182 ], [ %indvars.iv.next195, %94 ]
+  %73 = getelementptr inbounds nuw ptr, ptr %.val147, i64 %indvars.iv194
+  %74 = load ptr, ptr %73, align 8, !tbaa !40
+  %75 = tail call i32 @strncmp(ptr noundef nonnull %67, ptr noundef %74, i64 noundef %71) #16
+  %.not139 = icmp eq i32 %75, 0
+  br i1 %.not139, label %76, label %94
+
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %74, i64 %71
+  %78 = load i8, ptr %77, align 1, !tbaa !73
+  %79 = icmp eq i8 %78, 61
+  br i1 %79, label %80, label %94
+
+80:                                               ; preds = %76
+  %81 = load i32, ptr %4, align 4, !tbaa !20
+  %82 = load i32, ptr %0, align 8, !tbaa !22
+  %83 = icmp eq i32 %81, %82
+  br i1 %83, label %Vec_PtrPush.exit160.sink.split, label %Vec_PtrPush.exit160
+
+Vec_PtrPush.exit160.sink.split:                   ; preds = %80
+  %84 = icmp slt i32 %81, 16
+  %85 = shl nuw nsw i32 %81, 1
+  %86 = zext nneg i32 %85 to i64
+  %87 = shl nuw nsw i64 %86, 3
+  %.sink213 = select i1 %84, i64 128, i64 %87
+  %.sink211 = select i1 %84, i32 16, i32 %85
+  %88 = tail call ptr @realloc(ptr noundef nonnull %.val147, i64 noundef %.sink213) #17
+  store ptr %88, ptr %70, align 8, !tbaa !23
+  store i32 %.sink211, ptr %0, align 8, !tbaa !22
+  br label %Vec_PtrPush.exit160
+
+Vec_PtrPush.exit160:                              ; preds = %Vec_PtrPush.exit160.sink.split, %80
+  %89 = phi ptr [ %.val147, %80 ], [ %88, %Vec_PtrPush.exit160.sink.split ]
+  %90 = load i32, ptr %4, align 4, !tbaa !20
+  %91 = add nsw i32 %90, 1
+  store i32 %91, ptr %4, align 4, !tbaa !20
+  %92 = sext i32 %90 to i64
+  %93 = getelementptr inbounds ptr, ptr %89, i64 %92
+  store ptr %74, ptr %93, align 8, !tbaa !40
+  br label %.loopexit
+
+94:                                               ; preds = %72, %76
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %exitcond199.not = icmp eq i64 %indvars.iv.next195, %wide.trip.count198
-  br i1 %exitcond199.not, label %.loopexit, label %71, !llvm.loop !77
+  br i1 %exitcond199.not, label %.loopexit, label %72, !llvm.loop !77
 
-.loopexit:                                        ; preds = %93, %._crit_edge179, %Vec_PtrPush.exit160
+.loopexit:                                        ; preds = %94, %._crit_edge179.thread, %._crit_edge179, %Vec_PtrPush.exit160
   %.val143 = load i32, ptr %4, align 4, !tbaa !20
-  %94 = sub nsw i32 %.val143, %.val.fr
-  %95 = add nsw i32 %.val.fr, -2
-  %.not140 = icmp eq i32 %94, %95
-  br i1 %.not140, label %.preheader, label %172
+  %95 = sub nsw i32 %.val143, %.val.fr
+  %96 = add nsw i32 %.val.fr, -2
+  %.not140 = icmp eq i32 %95, %96
+  br i1 %.not140, label %.preheader, label %173
 
 .preheader:                                       ; preds = %.loopexit
-  %96 = icmp slt i32 %.val.fr, %.val143
-  br i1 %96, label %.lr.ph184, label %.critedge
+  %97 = icmp slt i32 %.val.fr, %.val143
+  br i1 %97, label %.lr.ph184, label %.critedge
 
 .lr.ph184:                                        ; preds = %.preheader
-  %97 = getelementptr i8, ptr %0, i64 8
-  %98 = sext i32 %.val.fr to i64
+  %98 = getelementptr i8, ptr %0, i64 8
+  %99 = sext i32 %.val.fr to i64
   %wide.trip.count204 = sext i32 %.val143 to i64
-  br label %99
+  br label %100
 
-99:                                               ; preds = %.lr.ph184, %99
-  %indvars.iv200 = phi i64 [ %98, %.lr.ph184 ], [ %indvars.iv.next201, %99 ]
-  %.val148 = load ptr, ptr %97, align 8, !tbaa !23
-  %100 = getelementptr inbounds ptr, ptr %.val148, i64 %indvars.iv200
-  %101 = load ptr, ptr %100, align 8, !tbaa !40
-  %102 = sub nsw i64 %indvars.iv200, %98
-  %103 = getelementptr ptr, ptr %.val148, i64 %102
-  %104 = getelementptr i8, ptr %103, i64 16
-  store ptr %101, ptr %104, align 8, !tbaa !40
+100:                                              ; preds = %.lr.ph184, %100
+  %indvars.iv200 = phi i64 [ %99, %.lr.ph184 ], [ %indvars.iv.next201, %100 ]
+  %.val148 = load ptr, ptr %98, align 8, !tbaa !23
+  %101 = getelementptr inbounds ptr, ptr %.val148, i64 %indvars.iv200
+  %102 = load ptr, ptr %101, align 8, !tbaa !40
+  %103 = sub nsw i64 %indvars.iv200, %99
+  %104 = getelementptr ptr, ptr %.val148, i64 %103
+  %105 = getelementptr i8, ptr %104, i64 16
+  store ptr %102, ptr %105, align 8, !tbaa !40
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, 1
   %exitcond205.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count204
-  br i1 %exitcond205.not, label %.critedge, label %99, !llvm.loop !78
+  br i1 %exitcond205.not, label %.critedge, label %100, !llvm.loop !78
 
-.critedge:                                        ; preds = %99, %.preheader
+.critedge:                                        ; preds = %100, %.preheader
   store i32 %.val.fr, ptr %4, align 4, !tbaa !20
-  br label %172
+  br label %173
 
-105:                                              ; preds = %._crit_edge
-  br i1 %31, label %106, label %172
+106:                                              ; preds = %._crit_edge
+  br i1 %31, label %107, label %173
 
-106:                                              ; preds = %105
-  %107 = add nsw i32 %.val.fr, -3
-  %108 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
-  %109 = icmp eq i32 %107, %108
-  br i1 %109, label %110, label %142
+107:                                              ; preds = %106
+  %108 = add nsw i32 %.val.fr, -3
+  %109 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
+  %110 = icmp eq i32 %108, %109
+  br i1 %110, label %111, label %143
 
-110:                                              ; preds = %106
-  %111 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
-  %112 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %111) #16
-  %113 = add nsw i32 %.val.fr, -1
-  %114 = getelementptr i8, ptr %0, i64 8
-  %.val149 = load ptr, ptr %114, align 8, !tbaa !23
-  %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds ptr, ptr %.val149, i64 %115
-  %117 = load ptr, ptr %116, align 8, !tbaa !40
-  %sext133 = shl i64 %112, 32
-  %118 = ashr exact i64 %sext133, 32
-  %119 = tail call i32 @strncmp(ptr noundef nonnull %111, ptr noundef %117, i64 noundef %118) #16
-  %.not134 = icmp eq i32 %119, 0
-  br i1 %.not134, label %120, label %125
+111:                                              ; preds = %107
+  %112 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
+  %113 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %112) #16
+  %114 = add nsw i32 %.val.fr, -1
+  %115 = getelementptr i8, ptr %0, i64 8
+  %.val149 = load ptr, ptr %115, align 8, !tbaa !23
+  %116 = sext i32 %114 to i64
+  %117 = getelementptr inbounds ptr, ptr %.val149, i64 %116
+  %118 = load ptr, ptr %117, align 8, !tbaa !40
+  %sext133 = shl i64 %113, 32
+  %119 = ashr exact i64 %sext133, 32
+  %120 = tail call i32 @strncmp(ptr noundef nonnull %112, ptr noundef %118, i64 noundef %119) #16
+  %.not134 = icmp eq i32 %120, 0
+  br i1 %.not134, label %121, label %126
 
-120:                                              ; preds = %110
-  %121 = getelementptr inbounds i8, ptr %117, i64 %118
-  %122 = load i8, ptr %121, align 1, !tbaa !73
-  %123 = icmp eq i8 %122, 61
-  br i1 %123, label %124, label %125
+121:                                              ; preds = %111
+  %122 = getelementptr inbounds i8, ptr %118, i64 %119
+  %123 = load i8, ptr %122, align 1, !tbaa !73
+  %124 = icmp eq i8 %123, 61
+  br i1 %124, label %125, label %126
 
-124:                                              ; preds = %120
+125:                                              ; preds = %121
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef null)
-  br label %172
+  br label %173
 
-125:                                              ; preds = %120, %110
-  %126 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
-  %127 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %126) #16
-  %.val150 = load ptr, ptr %114, align 8, !tbaa !23
-  %128 = getelementptr inbounds ptr, ptr %.val150, i64 %115
-  %129 = load ptr, ptr %128, align 8, !tbaa !40
-  %sext135 = shl i64 %127, 32
-  %130 = ashr exact i64 %sext135, 32
-  %131 = tail call i32 @strncmp(ptr noundef nonnull %126, ptr noundef %129, i64 noundef %130) #16
-  %.not136 = icmp eq i32 %131, 0
-  br i1 %.not136, label %132, label %172
+126:                                              ; preds = %121, %111
+  %127 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
+  %128 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %127) #16
+  %.val150 = load ptr, ptr %115, align 8, !tbaa !23
+  %129 = getelementptr inbounds ptr, ptr %.val150, i64 %116
+  %130 = load ptr, ptr %129, align 8, !tbaa !40
+  %sext135 = shl i64 %128, 32
+  %131 = ashr exact i64 %sext135, 32
+  %132 = tail call i32 @strncmp(ptr noundef nonnull %127, ptr noundef %130, i64 noundef %131) #16
+  %.not136 = icmp eq i32 %132, 0
+  br i1 %.not136, label %133, label %173
 
-132:                                              ; preds = %125
-  %133 = getelementptr inbounds i8, ptr %129, i64 %130
-  %134 = load i8, ptr %133, align 1, !tbaa !73
-  %135 = icmp eq i8 %134, 61
-  br i1 %135, label %136, label %172
+133:                                              ; preds = %126
+  %134 = getelementptr inbounds i8, ptr %130, i64 %131
+  %135 = load i8, ptr %134, align 1, !tbaa !73
+  %136 = icmp eq i8 %135, 61
+  br i1 %136, label %137, label %173
 
-136:                                              ; preds = %132
-  %137 = load i32, ptr %4, align 4, !tbaa !20
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr %4, align 4, !tbaa !20
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds ptr, ptr %.val150, i64 %139
-  %141 = load ptr, ptr %140, align 8, !tbaa !40
+137:                                              ; preds = %133
+  %138 = load i32, ptr %4, align 4, !tbaa !20
+  %139 = add nsw i32 %138, -1
+  store i32 %139, ptr %4, align 4, !tbaa !20
+  %140 = sext i32 %139 to i64
+  %141 = getelementptr inbounds ptr, ptr %.val150, i64 %140
+  %142 = load ptr, ptr %141, align 8, !tbaa !40
   tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef null)
-  tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef %141)
-  br label %172
+  tail call fastcc void @Vec_PtrPush(ptr noundef nonnull %0, ptr noundef %142)
+  br label %173
 
-142:                                              ; preds = %106
-  %143 = add nsw i32 %.val.fr, -4
-  %144 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
-  %145 = icmp eq i32 %143, %144
-  br i1 %145, label %146, label %172
+143:                                              ; preds = %107
+  %144 = add nsw i32 %.val.fr, -4
+  %145 = tail call i32 @Mio_GateReadPinNum(ptr noundef %1) #14
+  %146 = icmp eq i32 %144, %145
+  br i1 %146, label %147, label %173
 
-146:                                              ; preds = %142
-  %147 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
-  %148 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %147) #16
-  %149 = getelementptr i8, ptr %0, i64 8
-  %.val151 = load ptr, ptr %149, align 8, !tbaa !23
-  %150 = sext i32 %.val.fr to i64
-  %151 = getelementptr ptr, ptr %.val151, i64 %150
-  %152 = getelementptr i8, ptr %151, i64 -16
-  %153 = load ptr, ptr %152, align 8, !tbaa !40
-  %sext129 = shl i64 %148, 32
-  %154 = ashr exact i64 %sext129, 32
-  %155 = tail call i32 @strncmp(ptr noundef nonnull %147, ptr noundef %153, i64 noundef %154) #16
-  %.not130 = icmp eq i32 %155, 0
-  br i1 %.not130, label %156, label %172
+147:                                              ; preds = %143
+  %148 = tail call ptr @Mio_GateReadOutName(ptr noundef %1) #14
+  %149 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %148) #16
+  %150 = getelementptr i8, ptr %0, i64 8
+  %.val151 = load ptr, ptr %150, align 8, !tbaa !23
+  %151 = sext i32 %.val.fr to i64
+  %152 = getelementptr ptr, ptr %.val151, i64 %151
+  %153 = getelementptr i8, ptr %152, i64 -16
+  %154 = load ptr, ptr %153, align 8, !tbaa !40
+  %sext129 = shl i64 %149, 32
+  %155 = ashr exact i64 %sext129, 32
+  %156 = tail call i32 @strncmp(ptr noundef nonnull %148, ptr noundef %154, i64 noundef %155) #16
+  %.not130 = icmp eq i32 %156, 0
+  br i1 %.not130, label %157, label %173
 
-156:                                              ; preds = %146
-  %157 = getelementptr inbounds i8, ptr %153, i64 %154
-  %158 = load i8, ptr %157, align 1, !tbaa !73
-  %159 = icmp eq i8 %158, 61
-  br i1 %159, label %160, label %172
+157:                                              ; preds = %147
+  %158 = getelementptr inbounds i8, ptr %154, i64 %155
+  %159 = load i8, ptr %158, align 1, !tbaa !73
+  %160 = icmp eq i8 %159, 61
+  br i1 %160, label %161, label %173
 
-160:                                              ; preds = %156
-  %161 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
-  %162 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %161) #16
-  %.val152 = load ptr, ptr %149, align 8, !tbaa !23
-  %163 = getelementptr ptr, ptr %.val152, i64 %150
-  %164 = getelementptr i8, ptr %163, i64 -8
-  %165 = load ptr, ptr %164, align 8, !tbaa !40
-  %sext131 = shl i64 %162, 32
-  %166 = ashr exact i64 %sext131, 32
-  %167 = tail call i32 @strncmp(ptr noundef nonnull %161, ptr noundef %165, i64 noundef %166) #16
-  %.not132 = icmp eq i32 %167, 0
-  br i1 %.not132, label %168, label %172
+161:                                              ; preds = %157
+  %162 = tail call ptr @Mio_GateReadOutName(ptr noundef nonnull %2) #14
+  %163 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %162) #16
+  %.val152 = load ptr, ptr %150, align 8, !tbaa !23
+  %164 = getelementptr ptr, ptr %.val152, i64 %151
+  %165 = getelementptr i8, ptr %164, i64 -8
+  %166 = load ptr, ptr %165, align 8, !tbaa !40
+  %sext131 = shl i64 %163, 32
+  %167 = ashr exact i64 %sext131, 32
+  %168 = tail call i32 @strncmp(ptr noundef nonnull %162, ptr noundef %166, i64 noundef %167) #16
+  %.not132 = icmp eq i32 %168, 0
+  br i1 %.not132, label %169, label %173
 
-168:                                              ; preds = %160
-  %169 = getelementptr inbounds i8, ptr %165, i64 %166
-  %170 = load i8, ptr %169, align 1, !tbaa !73
-  %171 = icmp eq i8 %170, 61
-  %spec.select = zext i1 %171 to i32
-  br label %172
+169:                                              ; preds = %161
+  %170 = getelementptr inbounds i8, ptr %166, i64 %167
+  %171 = load i8, ptr %170, align 1, !tbaa !73
+  %172 = icmp eq i8 %171, 61
+  %spec.select = zext i1 %172 to i32
+  br label %173
 
-172:                                              ; preds = %168, %.critedge, %142, %160, %146, %156, %125, %132, %105, %.loopexit, %32, %10, %8, %136, %124
-  %.0 = phi i32 [ 1, %136 ], [ 1, %124 ], [ 0, %8 ], [ 0, %10 ], [ 1, %32 ], [ 0, %.loopexit ], [ 0, %105 ], [ 0, %132 ], [ 0, %125 ], [ 0, %156 ], [ 0, %146 ], [ 0, %160 ], [ 1, %142 ], [ 1, %.critedge ], [ %spec.select, %168 ]
+173:                                              ; preds = %169, %.critedge, %143, %161, %147, %157, %126, %133, %106, %.loopexit, %32, %10, %8, %137, %125
+  %.0 = phi i32 [ 1, %137 ], [ 1, %125 ], [ 0, %8 ], [ 0, %10 ], [ 1, %32 ], [ 0, %.loopexit ], [ 0, %106 ], [ 0, %133 ], [ 0, %126 ], [ 0, %157 ], [ 0, %147 ], [ 0, %161 ], [ 1, %143 ], [ 1, %.critedge ], [ %spec.select, %169 ]
   ret i32 %.0
 }
 

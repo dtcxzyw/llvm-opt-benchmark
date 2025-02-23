@@ -463,7 +463,7 @@ pmix_cmd_line_is_taken.exit132:                   ; preds = %127, %pmix_cmd_line
 .lr.ph.i134:                                      ; preds = %137, %.lr.ph.i134
   %144 = phi ptr [ %146, %.lr.ph.i134 ], [ %143, %137 ]
   %.07.i135 = phi ptr [ %145, %.lr.ph.i134 ], [ %142, %137 ]
-  tail call void %144(ptr noundef %138) #10
+  tail call void %144(ptr noundef nonnull %138) #10
   %145 = getelementptr inbounds nuw i8, ptr %.07.i135, i64 8
   %146 = load ptr, ptr %145, align 8, !tbaa !4
   %.not.i136 = icmp eq ptr %146, null

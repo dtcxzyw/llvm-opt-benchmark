@@ -669,7 +669,7 @@ Prs_ManWriteRange.exit:                           ; preds = %38, %42
   %52 = getelementptr inbounds nuw i32, ptr %.val14.i, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !24
   %fputs.i = tail call i32 @fputs(ptr nonnull %.not13.i28, ptr %0)
-  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %0, ptr noundef %1, i32 noundef %53)
+  tail call fastcc void @Prs_ManWriteVerilogSignal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %53)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val.i25 = load i32, ptr @Prs_CatSignals.V.1, align 4, !tbaa !22
   %54 = sext i32 %.val.i25 to i64

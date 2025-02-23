@@ -3274,8 +3274,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i, %if.
   call void @_ZN9parameterD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #19
   %m_coeffs = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i34 = getelementptr inbounds nuw i8, ptr %ref.tmp16, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %num_args, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %num_args to i64
   br label %for.body
 
 for.body:                                         ; preds = %invoke.cont, %invoke.cont19

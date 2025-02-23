@@ -31588,16 +31588,16 @@ for.inc.i.i.i.i.i53:                              ; preds = %invoke.cont27, %for
   %incdec.ptr.i.i.i.i.i.i59 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.08.i.i.i.i.i55, i64 24
   %incdec.ptr.i.i.i.i.i60 = getelementptr inbounds nuw i8, ptr %__cur.09.i.i.i.i.i54, i64 24
   %cmp.i.i.not.i.i.i.i.i61 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i59, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i61, label %invoke.cont35, label %for.inc.i.i.i.i.i53, !llvm.loop !271
+  br i1 %cmp.i.i.not.i.i.i.i.i61, label %for.body.lr.ph.i.i.i65, label %for.inc.i.i.i.i.i53, !llvm.loop !271
 
-invoke.cont35:                                    ; preds = %for.inc.i.i.i.i.i53
+for.body.lr.ph.i.i.i65:                           ; preds = %for.inc.i.i.i.i.i53
   %10 = load ptr, ptr %_M_finish, align 8
   %add.ptr39 = getelementptr inbounds i8, ptr %10, i64 %sub.ptr.sub.i
   store ptr %add.ptr39, ptr %_M_finish, align 8
   br label %for.body.i.i.i68
 
-for.body.i.i.i68:                                 ; preds = %invoke.cont35, %for.body.i.i.i68
-  %__first.addr.04.i.i.i69 = phi ptr [ %incdec.ptr.i.i.i73, %for.body.i.i.i68 ], [ %__position.coerce, %invoke.cont35 ]
+for.body.i.i.i68:                                 ; preds = %for.body.i.i.i68, %for.body.lr.ph.i.i.i65
+  %__first.addr.04.i.i.i69 = phi ptr [ %__position.coerce, %for.body.lr.ph.i.i.i65 ], [ %incdec.ptr.i.i.i73, %for.body.i.i.i68 ]
   store ptr %__tmp.sroa.1.8.copyload, ptr %__first.addr.04.i.i.i69, align 8
   %second3.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i69, i64 8
   store ptr %__tmp.sroa.6.8.copyload, ptr %second3.i.i.i.i70, align 8

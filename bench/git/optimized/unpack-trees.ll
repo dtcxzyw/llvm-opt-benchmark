@@ -1537,7 +1537,7 @@ define internal noundef i32 @unpack_callback(i32 noundef %0, i64 noundef %1, i64
 
 21:                                               ; preds = %17
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, i64 noundef %1, i64 noundef %2, i32 noundef %0)
-  tail call fastcc void @debug_path(ptr noundef readonly %4)
+  tail call fastcc void @debug_path(ptr noundef nonnull readonly %4)
   %23 = load ptr, ptr @stdout, align 8, !tbaa !150
   %24 = tail call i32 @putc(i32 noundef 10, ptr noundef %23)
   %25 = icmp sgt i32 %0, 0
@@ -4278,9 +4278,9 @@ define dso_local i32 @threeway_merge(ptr noundef readonly captures(none) %0, ptr
   br i1 %or.cond.i, label %30, label %.thread297
 
 30:                                               ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %.0195, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %32 = load i32, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %34 = load i32, ptr %33, align 8, !tbaa !4
   %35 = or i32 %34, %32
   %36 = and i32 %35, 8388608
@@ -4288,16 +4288,16 @@ define dso_local i32 @threeway_merge(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not.i, label %37, label %.preheader328
 
 37:                                               ; preds = %30
-  %38 = getelementptr inbounds nuw i8, ptr %.0195, i64 52
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %39 = load i32, ptr %38, align 4, !tbaa !4
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
+  %40 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !4
   %42 = icmp eq i32 %39, %41
   br i1 %42, label %same.exit, label %.preheader328
 
 same.exit:                                        ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %.0195, i64 72
-  %44 = getelementptr inbounds nuw i8, ptr %spec.select, i64 72
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 72
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %43, ptr noundef nonnull readonly dereferenceable(32) %44, i64 32)
   %.not.i.i.not = icmp eq i32 %bcmp.i.i, 0
   %brmerge376 = or i1 %.not.i.i.not, %9
@@ -4307,12 +4307,12 @@ same.exit:                                        ; preds = %37
   br i1 %9, label %.thread297, label %.lr.ph336
 
 .lr.ph336:                                        ; preds = %same.exit, %.preheader328
-  %45 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
-  %47 = getelementptr inbounds nuw i8, ptr %spec.select, i64 72
-  %48 = getelementptr inbounds nuw i8, ptr %.0195, i64 56
-  %49 = getelementptr inbounds nuw i8, ptr %.0195, i64 52
-  %50 = getelementptr inbounds nuw i8, ptr %.0195, i64 72
+  %45 = getelementptr inbounds nuw i8, ptr %21, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %21, i64 52
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %wide.trip.count354 = zext nneg i32 %4 to i64
   br label %51
 
@@ -4428,7 +4428,7 @@ same.exit244.thread293:                           ; preds = %same.exit244, %same
 91:                                               ; preds = %90
   %92 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %93 = load i32, ptr %92, align 8, !tbaa !4
-  %94 = getelementptr inbounds nuw i8, ptr %.0195, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %95 = load i32, ptr %94, align 8, !tbaa !4
   %96 = or i32 %95, %93
   %97 = and i32 %96, 8388608
@@ -4438,14 +4438,14 @@ same.exit244.thread293:                           ; preds = %same.exit244, %same
 98:                                               ; preds = %91
   %99 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %100 = load i32, ptr %99, align 4, !tbaa !4
-  %101 = getelementptr inbounds nuw i8, ptr %.0195, i64 52
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %102 = load i32, ptr %101, align 4, !tbaa !4
   %103 = icmp eq i32 %100, %102
   br i1 %103, label %same.exit250, label %same.exit250.thread
 
 same.exit250:                                     ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %105 = getelementptr inbounds nuw i8, ptr %.0195, i64 72
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %bcmp.i.i248 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %104, ptr noundef nonnull readonly dereferenceable(32) %105, i64 32)
   %.not.i.i249.not = icmp eq i32 %bcmp.i.i248, 0
   br i1 %.not.i.i249.not, label %143, label %same.exit250.thread
@@ -4456,7 +4456,7 @@ same.exit250.thread:                              ; preds = %98, %91, %same.exit
 106:                                              ; preds = %same.exit250.thread
   %107 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %108 = load i32, ptr %107, align 8, !tbaa !4
-  %109 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %110 = load i32, ptr %109, align 8, !tbaa !4
   %111 = or i32 %110, %108
   %112 = and i32 %111, 8388608
@@ -4466,14 +4466,14 @@ same.exit250.thread:                              ; preds = %98, %91, %same.exit
 113:                                              ; preds = %106
   %114 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %115 = load i32, ptr %114, align 4, !tbaa !4
-  %116 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
+  %116 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %117 = load i32, ptr %116, align 4, !tbaa !4
   %118 = icmp eq i32 %115, %117
   br i1 %118, label %same.exit256, label %same.exit256.thread
 
 same.exit256:                                     ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %120 = getelementptr inbounds nuw i8, ptr %spec.select, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %bcmp.i.i254 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %119, ptr noundef nonnull readonly dereferenceable(32) %120, i64 32)
   %.not.i.i255.not = icmp eq i32 %bcmp.i.i254, 0
   br i1 %.not.i.i255.not, label %143, label %same.exit256.thread
@@ -4533,7 +4533,7 @@ same.exit256.thread:                              ; preds = %113, %106, %same.ex
 148:                                              ; preds = %147
   %149 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %150 = load i32, ptr %149, align 8, !tbaa !4
-  %151 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %152 = load i32, ptr %151, align 8, !tbaa !4
   %153 = or i32 %152, %150
   %154 = and i32 %153, 8388608
@@ -4543,14 +4543,14 @@ same.exit256.thread:                              ; preds = %113, %106, %same.ex
 155:                                              ; preds = %148
   %156 = getelementptr inbounds nuw i8, ptr %20, i64 52
   %157 = load i32, ptr %156, align 4, !tbaa !4
-  %158 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
+  %158 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %159 = load i32, ptr %158, align 4, !tbaa !4
   %160 = icmp eq i32 %157, %159
   br i1 %160, label %same.exit263, label %same.exit263.thread
 
 same.exit263:                                     ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %20, i64 72
-  %162 = getelementptr inbounds nuw i8, ptr %spec.select, i64 72
+  %162 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %bcmp.i.i261 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %161, ptr noundef nonnull readonly dereferenceable(32) %162, i64 32)
   %.not.i.i262.not = icmp eq i32 %bcmp.i.i261, 0
   br i1 %.not.i.i262.not, label %.thread310, label %same.exit263.thread
@@ -4601,9 +4601,9 @@ same.exit263.thread:                              ; preds = %155, %148, %147, %s
   br i1 %26, label %186, label %same.exit274.thread
 
 186:                                              ; preds = %.thread310
-  %187 = getelementptr inbounds nuw i8, ptr %spec.select, i64 56
+  %187 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %188 = load i32, ptr %187, align 8, !tbaa !4
-  %189 = getelementptr inbounds nuw i8, ptr %.0195, i64 56
+  %189 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %190 = load i32, ptr %189, align 8, !tbaa !4
   %191 = or i32 %190, %188
   %192 = and i32 %191, 8388608
@@ -4611,16 +4611,16 @@ same.exit263.thread:                              ; preds = %155, %148, %147, %s
   br i1 %.not.i271, label %193, label %same.exit274.thread
 
 193:                                              ; preds = %186
-  %194 = getelementptr inbounds nuw i8, ptr %spec.select, i64 52
+  %194 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %195 = load i32, ptr %194, align 4, !tbaa !4
-  %196 = getelementptr inbounds nuw i8, ptr %.0195, i64 52
+  %196 = getelementptr inbounds nuw i8, ptr %8, i64 52
   %197 = load i32, ptr %196, align 4, !tbaa !4
   %198 = icmp eq i32 %195, %197
   br i1 %198, label %same.exit274, label %same.exit274.thread
 
 same.exit274:                                     ; preds = %193
-  %199 = getelementptr inbounds nuw i8, ptr %spec.select, i64 72
-  %200 = getelementptr inbounds nuw i8, ptr %.0195, i64 72
+  %199 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %200 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %bcmp.i.i272 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %199, ptr noundef nonnull readonly dereferenceable(32) %200, i64 32)
   %.not.i.i273.not = icmp eq i32 %bcmp.i.i272, 0
   br i1 %.not.i.i273.not, label %201, label %same.exit274.thread
@@ -5340,9 +5340,9 @@ define dso_local i32 @twoway_merge(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond.i, label %26, label %.thread
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %28 = load i32, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %30 = load i32, ptr %29, align 8, !tbaa !4
   %31 = or i32 %30, %28
   %32 = and i32 %31, 8388608
@@ -5350,16 +5350,16 @@ define dso_local i32 @twoway_merge(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not.i, label %33, label %same.exit.thread
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %34 = getelementptr inbounds nuw i8, ptr %12, i64 52
   %35 = load i32, ptr %34, align 4, !tbaa !4
-  %36 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %37 = load i32, ptr %36, align 4, !tbaa !4
   %38 = icmp eq i32 %35, %37
   br i1 %38, label %same.exit, label %same.exit.thread
 
 same.exit:                                        ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
-  %40 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %39, ptr noundef nonnull readonly dereferenceable(32) %40, i64 32)
   %.not.i.i.not = icmp eq i32 %bcmp.i.i, 0
   br i1 %.not.i.i.not, label %.thread148, label %same.exit.thread
@@ -5548,7 +5548,7 @@ same.exit125.thread:                              ; preds = %71, %67, %66, %same
   %125 = getelementptr inbounds nuw i8, ptr %3, i64 52
   %126 = load i32, ptr %125, align 4, !tbaa !4
   %127 = icmp eq i32 %126, 16384
-  %128 = getelementptr inbounds nuw i8, ptr %spec.store.select16, i64 52
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 52
   %129 = load i32, ptr %128, align 4, !tbaa !4
   %130 = icmp eq i32 %129, 16384
   %.not115.not = xor i1 %127, %130
@@ -5639,7 +5639,7 @@ same.exit138.thread:                              ; preds = %158, %151, %146, %s
   br i1 %.not.i.i139, label %171, label %verify_absent.exit.i
 
 171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 56
+  %172 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %173 = load i32, ptr %172, align 8, !tbaa !4
   %174 = and i32 %173, 33554432
   %.not5.i.i = icmp eq i32 %174, 0
@@ -6308,7 +6308,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %121 = load i64, ptr getelementptr inbounds nuw (i8, ptr @clear_ce_flags.prefix, i64 8), align 8, !tbaa !75
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 %121
   store i8 0, ptr %122, align 1, !tbaa !72
-  %123 = call fastcc i32 @clear_ce_flags_1(ptr noundef nonnull %0, ptr noundef nonnull %.08727, i32 noundef %45, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %.08925)
+  %123 = call fastcc i32 @clear_ce_flags_1(ptr noundef nonnull %0, ptr noundef nonnull %.08727, i32 noundef %45, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %.08925)
   %124 = load i64, ptr getelementptr inbounds nuw (i8, ptr @clear_ce_flags.prefix, i64 8), align 8, !tbaa !75
   %125 = xor i64 %41, -1
   %126 = add i64 %124, %125

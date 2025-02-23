@@ -32,11 +32,11 @@ define dso_local void @qsort_interruptible(ptr noundef %0, i64 noundef %1, i64 n
   %13 = icmp ult i64 %.0, 7
   %14 = mul i64 %.0, %2
   %15 = getelementptr inbounds nuw i8, ptr %.0186.ph, i64 %14
-  %.not394 = icmp samesign ult i64 %2, %14
+  %.not366 = icmp samesign ult i64 %2, %14
   br i1 %13, label %.preheader255, label %27
 
 .preheader255:                                    ; preds = %12
-  br i1 %.not394, label %.preheader, label %.critedge223
+  br i1 %.not366, label %.preheader, label %.critedge223
 
 .preheader:                                       ; preds = %.preheader255, %.critedge
   %.0188301 = phi ptr [ %.0188, %.critedge ], [ %7, %.preheader255 ]
@@ -72,7 +72,7 @@ qsort_interruptible_swapn.exit.loopexit:          ; preds = %.lr.ph.i
   br i1 %26, label %.preheader, label %.critedge223, !llvm.loop !8
 
 27:                                               ; preds = %12
-  br i1 %.not394, label %.lr.ph, label %.critedge223
+  br i1 %.not366, label %.lr.ph, label %.critedge223
 
 .lr.ph:                                           ; preds = %27, %34
   %.1273 = phi ptr [ %35, %34 ], [ %7, %27 ]

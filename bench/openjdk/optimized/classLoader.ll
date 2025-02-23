@@ -1719,7 +1719,7 @@ define hidden void @_ZN11ClassLoader21setup_app_search_pathEP10JavaThreadPKc(ptr
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %20 = call noundef ptr @_ZN15ClasspathStream8get_nextEv(ptr noundef nonnull align 8 dereferenceable(20) %3) #21
-  %21 = call noundef zeroext i1 @_ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb(ptr noundef %0, ptr noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
+  %21 = call noundef zeroext i1 @_ZN11ClassLoader28update_class_path_entry_listEP10JavaThreadPKcbbb(ptr noundef nonnull %0, ptr noundef %20, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false)
   %22 = load i32, ptr %17, align 4
   %23 = load i32, ptr %16, align 8
   %24 = icmp slt i32 %22, %23

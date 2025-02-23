@@ -238,13 +238,12 @@ define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly %0
   %48 = add nuw i64 %4, 1
   br label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph146
+.lr.ph151.us.preheader:                           ; preds = %.lr.ph146
   %49 = add nuw i64 %4, 1
-  %.not116154.not = icmp eq i64 %.2110, 0
-  br i1 %.not116154.not, label %.loopexit, label %.lr.ph151.us
+  br label %.lr.ph151.us
 
-.lr.ph151.us:                                     ; preds = %.preheader, %55
-  %.0100155.us = phi i64 [ %56, %55 ], [ 0, %.preheader ]
+.lr.ph151.us:                                     ; preds = %.lr.ph151.us.preheader, %55
+  %.0100155.us = phi i64 [ %56, %55 ], [ 0, %.lr.ph151.us.preheader ]
   %50 = getelementptr i8, ptr %.1107, i64 %.0100155.us
   %51 = load i8, ptr %50, align 1, !tbaa !20
   %52 = shl nuw nsw i64 %.0100155.us, 1
@@ -310,10 +309,10 @@ substitution_cost.exit.us:                        ; preds = %64, %62, %57
   %77 = add i64 %.0105144, 2
   %78 = add nuw nsw i64 %.0104145, 1
   %exitcond.not = icmp eq i64 %78, %.297
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph146, !llvm.loop !25
+  br i1 %exitcond.not, label %.lr.ph151.us.preheader, label %.lr.ph146, !llvm.loop !25
 
-.loopexit:                                        ; preds = %55, %._crit_edge.us, %.preheader, %6, %47, %38, %32
-  %.0 = phi i64 [ %34, %32 ], [ %39, %38 ], [ %48, %47 ], [ 0, %6 ], [ 0, %.preheader ], [ %74, %55 ], [ %49, %._crit_edge.us ]
+.loopexit:                                        ; preds = %55, %._crit_edge.us, %6, %47, %38, %32
+  %.0 = phi i64 [ %34, %32 ], [ %39, %38 ], [ %48, %47 ], [ 0, %6 ], [ %74, %55 ], [ %49, %._crit_edge.us ]
   ret i64 %.0
 }
 

@@ -69,7 +69,7 @@ define void @dt_color_picker_backtransform_box(ptr noundef %0, i32 noundef %1, p
 21:                                               ; preds = %26
   %spec.select = uitofp nneg i32 %spec.select57 to float
   %22 = uitofp nneg i32 %11 to float
-  %23 = tail call i32 @dt_dev_distort_backtransform(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %wide.trip.count) #14
+  %23 = tail call i32 @dt_dev_distort_backtransform(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %wide.trip.count) #14
   %24 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %spec.select
   %25 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %22
   br label %43
@@ -206,7 +206,7 @@ define void @dt_color_picker_transform_box(ptr noundef %0, i32 noundef %1, ptr n
 
 32:                                               ; preds = %36
   %33 = select i1 %24, i64 4, i64 1
-  %34 = call i32 @dt_dev_distort_transform(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %33) #14
+  %34 = call i32 @dt_dev_distort_transform(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef %33) #14
   %35 = load float, ptr %6, align 16, !tbaa !58
   br i1 %24, label %_sort_coordinates.exit, label %104
 
@@ -386,7 +386,7 @@ define range(i32 0, 2) i32 @dt_color_picker_box(ptr noundef readonly captures(no
   %54 = add i32 %51, %.neg
   %55 = sitofp i32 %54 to double
   %56 = select i1 %48, i32 3, i32 4
-  %57 = call i32 @dt_dev_distort_transform_plus(ptr noundef %12, ptr noundef %49, double noundef %55, i32 noundef %56, ptr noundef nonnull %6, i64 noundef 4) #14
+  %57 = call i32 @dt_dev_distort_transform_plus(ptr noundef nonnull %12, ptr noundef %49, double noundef %55, i32 noundef %56, ptr noundef nonnull %6, i64 noundef 4) #14
   %58 = load float, ptr %6, align 16, !tbaa !58
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %60 = load float, ptr %59, align 8, !tbaa !58

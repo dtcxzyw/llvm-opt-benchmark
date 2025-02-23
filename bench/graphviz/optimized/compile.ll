@@ -4399,7 +4399,7 @@ define internal ptr @refval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 typeChkExp.exit:                                  ; preds = %27, %._crit_edge.i
   %.1.i = phi i16 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %27 ]
-  %41 = tail call fastcc zeroext i16 @typeChk(i16 noundef zeroext %.1.i, ptr noundef %2)
+  %41 = tail call fastcc zeroext i16 @typeChk(i16 noundef zeroext %.1.i, ptr noundef nonnull %2)
   %.not = icmp eq i16 %41, 0
   br i1 %.not, label %typeChkExp.exit.thread, label %69
 

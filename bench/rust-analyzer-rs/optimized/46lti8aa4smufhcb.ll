@@ -33368,7 +33368,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hdc050dfb3e90af84E.exit.threa
   br i1 %61, label %_ZN4core4iter8adapters7flatten17and_then_or_clear17hdc050dfb3e90af84E.exit3.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hf58b3d797a658ba6E.exit.i2.i.i.i.i.i.i.i.i"
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$core..option..IntoIter$LT$alloc..string..String$GT$$GT$$GT$17hf58b3d797a658ba6E.exit.i2.i.i.i.i.i.i.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6a28d5f76148ef5dE.exit.thread.i.i.i.i.i.i.i.i"
-  %.sroa.517.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 32
+  %.sroa.517.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.not.i1.i.i.i.i.i.i.i.i = icmp eq i64 %60, -9223372036854775808
   %spec.store.select.i.i.i.i.i.i.i.i = select i1 %.not.i1.i.i.i.i.i.i.i.i, i64 -9223372036854775807, i64 -9223372036854775808
   store i64 %spec.store.select.i.i.i.i.i.i.i.i, ptr %59, align 8, !alias.scope !11134, !noalias !11135

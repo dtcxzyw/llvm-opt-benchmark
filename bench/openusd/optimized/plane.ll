@@ -415,9 +415,9 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   %35 = fadd double %.sroa.7.0102, %34
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.095.0101, i64 24
   %.not = icmp eq ptr %36, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph116.preheader, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph116.preheader:                              ; preds = %.lr.ph
   %37 = uitofp i64 %16 to double
   %38 = fdiv double 1.000000e+00, %37
   %39 = fmul double %38, %29
@@ -425,14 +425,14 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18GfFitPlaneToPo
   %41 = fmul double %38, %35
   br label %.lr.ph116
 
-.lr.ph116:                                        ; preds = %._crit_edge, %.lr.ph116
-  %.046114 = phi double [ %45, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.047113 = phi double [ %46, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.048112 = phi double [ %47, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.049111 = phi double [ %48, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.050110 = phi double [ %49, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.051109 = phi double [ %50, %.lr.ph116 ], [ 0.000000e+00, %._crit_edge ]
-  %.sroa.087.0108 = phi ptr [ %51, %.lr.ph116 ], [ %12, %._crit_edge ]
+.lr.ph116:                                        ; preds = %.lr.ph116.preheader, %.lr.ph116
+  %.046114 = phi double [ %45, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.047113 = phi double [ %46, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.048112 = phi double [ %47, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.049111 = phi double [ %48, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.050110 = phi double [ %49, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.051109 = phi double [ %50, %.lr.ph116 ], [ 0.000000e+00, %.lr.ph116.preheader ]
+  %.sroa.087.0108 = phi ptr [ %51, %.lr.ph116 ], [ %12, %.lr.ph116.preheader ]
   %.sroa.0.0.copyload.i = load double, ptr %.sroa.087.0108, align 8, !noalias !19
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.087.0108, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !19

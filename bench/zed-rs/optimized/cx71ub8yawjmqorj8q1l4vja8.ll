@@ -44305,18 +44305,18 @@ _ZN5image6codecs3hdr7decoder16decode_component17hec498465a34982b8E.exit.i._crit_
   br label %.lr.ph.i23.i.i.i
 
 ._crit_edge.i.i.i.loopexit.i:                     ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i"
-  store i64 %storemerge.i.i.i.i.i.i, ptr %148, align 8, !noalias !12495
+  store i64 %291, ptr %148, align 8, !noalias !12495
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.i.i.i.loopexit.i, %283
-  %284 = phi i64 [ %213, %283 ], [ %storemerge.i.i.i.i.i.i, %._crit_edge.i.i.i.loopexit.i ]
+  %284 = phi i64 [ %213, %283 ], [ %291, %._crit_edge.i.i.i.loopexit.i ]
   %.sroa.029.0.lcssa.i.i.i.i = phi i64 [ 1, %283 ], [ %306, %._crit_edge.i.i.i.loopexit.i ]
   %.not.i22.i.i.i = icmp eq i64 %.sroa.029.0.lcssa.i.i.i.i, %.sroa.12.0.copyload.i.i
   br i1 %.not.i22.i.i.i, label %_ZN5image6codecs3hdr7decoder14decode_old_rle17haab74003453099beE.exit.thread.i.i.i, label %292
 
 .lr.ph.i23.i.i.i:                                 ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i", %.lr.ph.i23.i.i.preheader.i
-  %storemerge.i.i.i.i.i370.i = phi i64 [ %storemerge.i.i.i.i.i.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ %.promoted.i, %.lr.ph.i23.i.i.preheader.i ]
-  %storemerge.i.i82.i.i.i.i = phi i64 [ %storemerge.i.i.i.i.i.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ %213, %.lr.ph.i23.i.i.preheader.i ]
+  %storemerge.i.i.i.i.i370.i = phi i64 [ %291, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ %.promoted.i, %.lr.ph.i23.i.i.preheader.i ]
+  %storemerge.i.i82.i.i.i.i = phi i64 [ %291, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ %213, %.lr.ph.i23.i.i.preheader.i ]
   %.sroa.0.081.i.i.i.i = phi i32 [ %.sroa.0.1.i.i.i.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ %.sroa.5.4.insert.insert.i.i.i, %.lr.ph.i23.i.i.preheader.i ]
   %.sroa.029.080.i.i.i.i = phi i64 [ %306, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ 1, %.lr.ph.i23.i.i.preheader.i ]
   %.sroa.07.079.i.i.i.i = phi i64 [ %.sroa.07.1.i.i.i.i, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5a724d45b4064d1E.exit.thread.i.i.i.i" ], [ 1, %.lr.ph.i23.i.i.preheader.i ]
@@ -44342,7 +44342,6 @@ _ZN5image6codecs3hdr7decoder16decode_component17hec498465a34982b8E.exit.i._crit_
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !12620
   %290 = icmp eq ptr %289, null
   %291 = add i64 %storemerge.i.i82.i.i.i.i, 4
-  %storemerge.i.i.i.i.i.i = select i1 %290, i64 %291, i64 %.pre1193.i
   br i1 %290, label %293, label %_ZN5image6codecs3hdr7decoder14decode_old_rle17haab74003453099beE.exit.thread109.i.i.i
 
 292:                                              ; preds = %._crit_edge.i.i.i.i
@@ -45099,12 +45098,12 @@ _ZN5image6codecs3hdr7decoder16decode_component17h948f827339668212E.exit.thread11
 
 .invoke1213.i.sink.split.i:                       ; preds = %.noexc42.i.i, %.noexc36.i.i, %.noexc31.i.i, %.noexc27.i.i, %.noexc57.i.i, %.noexc52.i.i, %.noexc48.i.i, %.noexc71.i.i, %.noexc66.i.i, %.noexc62.i.i, %.noexc85.i.i, %.noexc80.i.i, %.noexc76.i.i
   %storemerge.i.i.i.i.i370.lcssa1224.sink.i = phi i64 [ %storemerge.i79.i95.i.i555.i, %.noexc76.i.i ], [ %450, %.noexc85.i.i ], [ %450, %.noexc80.i.i ], [ %storemerge.i79.i70.i.i495.i, %.noexc62.i.i ], [ %389, %.noexc71.i.i ], [ %389, %.noexc66.i.i ], [ %storemerge.i79.i45.i.i435.i, %.noexc48.i.i ], [ %328, %.noexc57.i.i ], [ %328, %.noexc52.i.i ], [ %storemerge.i79.i.i.i377.i, %.noexc27.i.i ], [ %229, %.noexc36.i.i ], [ %229, %.noexc31.i.i ], [ %storemerge.i.i.i.i.i370.i, %.noexc42.i.i ]
-  %.ph1572.i = phi i64 [ %444, %.noexc76.i.i ], [ %483, %.noexc85.i.i ], [ %466, %.noexc80.i.i ], [ %383, %.noexc62.i.i ], [ %422, %.noexc71.i.i ], [ %405, %.noexc66.i.i ], [ %322, %.noexc48.i.i ], [ %361, %.noexc57.i.i ], [ %344, %.noexc52.i.i ], [ %223, %.noexc27.i.i ], [ %262, %.noexc36.i.i ], [ %245, %.noexc31.i.i ], [ %285, %.noexc42.i.i ]
+  %.ph1569.i = phi i64 [ %444, %.noexc76.i.i ], [ %483, %.noexc85.i.i ], [ %466, %.noexc80.i.i ], [ %383, %.noexc62.i.i ], [ %422, %.noexc71.i.i ], [ %405, %.noexc66.i.i ], [ %322, %.noexc48.i.i ], [ %361, %.noexc57.i.i ], [ %344, %.noexc52.i.i ], [ %223, %.noexc27.i.i ], [ %262, %.noexc36.i.i ], [ %245, %.noexc31.i.i ], [ %285, %.noexc42.i.i ]
   store i64 %storemerge.i.i.i.i.i370.lcssa1224.sink.i, ptr %148, align 8, !noalias !12495
   br label %.invoke1213.i.i
 
 .invoke1213.i.i:                                  ; preds = %.noexc24.i.i, %.invoke1213.i.sink.split.i
-  %485 = phi i64 [ %.ph1572.i, %.invoke1213.i.sink.split.i ], [ %203, %.noexc24.i.i ]
+  %485 = phi i64 [ %.ph1569.i, %.invoke1213.i.sink.split.i ], [ %203, %.noexc24.i.i ]
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %485, i64 noundef %.pre1193.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8a58ca14b8540b50fa38bce56da43586.106.llvm.3233214882447289910) #43
           to label %.cont1214.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !12527
 
@@ -45152,10 +45151,10 @@ _ZN5image6codecs3hdr7decoder16decode_component17h948f827339668212E.exit.thread11
   br i1 %495, label %"_ZN5image6codecs3hdr7decoder13read_scanline28_$u7b$$u7b$closure$u7d$$u7d$17hdf7937f94b4771f0E.exit81.i.i.i.i", label %.invoke.i.i
 
 .invoke.i.i:                                      ; preds = %.lr.ph.i.i.i.i, %.lr.ph167.i.i.i.i, %.lr.ph.i36.i.i.i, %.lr.ph167.i48.i.i.i, %.lr.ph.i61.i.i.i, %.lr.ph167.i73.i.i.i, %.lr.ph.i86.i.i.i, %.lr.ph167.i98.i.i.i
-  %storemerge.i77.i.i.i.lcssa1251.sink.i = phi i64 [ %storemerge.i79.i95.i.i.i, %.lr.ph167.i98.i.i.i ], [ %storemerge.i77.i83.i.i.i, %.lr.ph.i86.i.i.i ], [ %storemerge.i79.i70.i.i.i, %.lr.ph167.i73.i.i.i ], [ %storemerge.i77.i58.i.i.i, %.lr.ph.i61.i.i.i ], [ %storemerge.i79.i45.i.i.i, %.lr.ph167.i48.i.i.i ], [ %storemerge.i77.i33.i.i.i, %.lr.ph.i36.i.i.i ], [ %storemerge.i79.i.i.i.i, %.lr.ph167.i.i.i.i ], [ %storemerge.i77.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %storemerge.i77.i.i.i.lcssa1248.sink.i = phi i64 [ %storemerge.i79.i95.i.i.i, %.lr.ph167.i98.i.i.i ], [ %storemerge.i77.i83.i.i.i, %.lr.ph.i86.i.i.i ], [ %storemerge.i79.i70.i.i.i, %.lr.ph167.i73.i.i.i ], [ %storemerge.i77.i58.i.i.i, %.lr.ph.i61.i.i.i ], [ %storemerge.i79.i45.i.i.i, %.lr.ph167.i48.i.i.i ], [ %storemerge.i77.i33.i.i.i, %.lr.ph.i36.i.i.i ], [ %storemerge.i79.i.i.i.i, %.lr.ph167.i.i.i.i ], [ %storemerge.i77.i.i.i.i, %.lr.ph.i.i.i.i ]
   %496 = phi i64 [ %494, %.lr.ph167.i98.i.i.i ], [ %477, %.lr.ph.i86.i.i.i ], [ %432, %.lr.ph167.i73.i.i.i ], [ %416, %.lr.ph.i61.i.i.i ], [ %371, %.lr.ph167.i48.i.i.i ], [ %355, %.lr.ph.i36.i.i.i ], [ %272, %.lr.ph167.i.i.i.i ], [ %256, %.lr.ph.i.i.i.i ]
   %497 = phi ptr [ @anon.55855b7dbc19790ccd937448e1c0f334.174, %.lr.ph167.i98.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.174, %.lr.ph.i86.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.173, %.lr.ph167.i73.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.173, %.lr.ph.i61.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.172, %.lr.ph167.i48.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.172, %.lr.ph.i36.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.175, %.lr.ph167.i.i.i.i ], [ @anon.55855b7dbc19790ccd937448e1c0f334.175, %.lr.ph.i.i.i.i ]
-  store i64 %storemerge.i77.i.i.i.lcssa1251.sink.i, ptr %148, align 8, !noalias !12495
+  store i64 %storemerge.i77.i.i.i.lcssa1248.sink.i, ptr %148, align 8, !noalias !12495
   invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %496, i64 noundef range(i64 1, 0) %.sroa.12.0.copyload.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %497) #43
           to label %.cont.i.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i, !noalias !12527
 

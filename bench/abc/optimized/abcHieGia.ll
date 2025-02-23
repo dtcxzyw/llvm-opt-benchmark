@@ -132,7 +132,7 @@ define i32 @Abc_NodeStrashToGia(ptr noundef %0, ptr noundef %1) local_unnamed_ad
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %29 = load i32, ptr %28, align 8, !tbaa !11
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %30) #15
+  %31 = tail call ptr @Hop_IthVar(ptr noundef nonnull %5, i32 noundef %30) #15
   store i32 %29, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val28 = load i32, ptr %15, align 4, !tbaa !36
@@ -295,7 +295,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonl
   br label %66
 
 .critedge4.thread:                                ; preds = %.critedge2.thread, %.critedge2
-  tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef null)
+  tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef null)
   %.phi.trans.insert = getelementptr i8, ptr %17, i64 44
   %.val109151.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !63
   br label %.critedge6
@@ -320,7 +320,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonl
   %75 = load ptr, ptr %74, align 8, !tbaa !42
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 64
   %77 = load i32, ptr %76, align 8, !tbaa !11
-  %78 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
+  %78 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %0)
   %.val.i = load ptr, ptr %13, align 8, !tbaa !64
   %79 = ptrtoint ptr %78 to i64
   %80 = ptrtoint ptr %.val.i to i64
@@ -378,7 +378,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonl
   br i1 %118, label %66, label %.critedge4, !llvm.loop !65
 
 .critedge4:                                       ; preds = %66, %.critedge2.thread, %.preheader
-  tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  tail call void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %119 = getelementptr i8, ptr %17, i64 44
   %.val108148 = load i32, ptr %119, align 4, !tbaa !63
   %120 = icmp sgt i32 %.val108148, 0
@@ -408,7 +408,7 @@ define void @Abc_NtkFlattenHierarchyGia2_rec(ptr noundef %0, ptr noundef readonl
   %131 = load ptr, ptr %130, align 8, !tbaa !42
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 64
   %133 = load i32, ptr %132, align 8, !tbaa !11
-  %134 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef %0)
+  %134 = tail call fastcc ptr @Gia_ManAppendObj(ptr noundef nonnull %0)
   %.val.i120 = load ptr, ptr %13, align 8, !tbaa !64
   %135 = ptrtoint ptr %134 to i64
   %136 = ptrtoint ptr %.val.i120 to i64

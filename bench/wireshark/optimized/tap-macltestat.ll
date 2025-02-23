@@ -114,7 +114,7 @@ define internal void @mac_lte_stat_reset(ptr noundef %0) #4 {
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %update_ueid_rnti_counts.exit.thread, label %6
+  br i1 %.not, label %update_ueid_rnti_counts.exit.thread153, label %6
 
 6:                                                ; preds = %5
   %7 = load i32, ptr %0, align 8
@@ -122,7 +122,7 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr rea
   store i32 %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 6
   %10 = load i8, ptr %9, align 2
-  switch i8 %10, label %update_ueid_rnti_counts.exit.thread [
+  switch i8 %10, label %update_ueid_rnti_counts.exit.thread153 [
     i8 1, label %11
     i8 4, label %26
     i8 0, label %35
@@ -149,7 +149,7 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr rea
   %24 = load i32, ptr %23, align 8
   %25 = add i32 %24, %22
   store i32 %25, ptr %23, align 8
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 26:                                               ; preds = %6
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -162,14 +162,14 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr rea
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, %31
   store i32 %34, ptr %32, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 35:                                               ; preds = %6
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = add i32 %37, 1
   store i32 %38, ptr %36, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 39:                                               ; preds = %6
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -183,7 +183,7 @@ define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr rea
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, %45
   store i32 %48, ptr %46, align 8
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 49:                                               ; preds = %6, %6
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -326,7 +326,7 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
   %123 = load i16, ptr %122, align 2
   %124 = load i16, ptr %67, align 4
   %125 = icmp eq i16 %123, %124
-  br i1 %125, label %update_ueid_rnti_counts.exit.thread152, label %126
+  br i1 %125, label %update_ueid_rnti_counts.exit.thread, label %126
 
 126:                                              ; preds = %112, %116, %121
   %127 = load ptr, ptr %.0116160, align 8
@@ -335,12 +335,12 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
 
 128:                                              ; preds = %126
   %.not.i140 = icmp eq ptr %3, null
-  br i1 %.not.i140, label %update_ueid_rnti_counts.exit.thread, label %129
+  br i1 %.not.i140, label %update_ueid_rnti_counts.exit.thread153, label %129
 
 129:                                              ; preds = %128
   %130 = tail call noalias dereferenceable_or_null(136) ptr @g_malloc(i64 noundef 136) #12
   %.not35.i141 = icmp eq ptr %130, null
-  br i1 %.not35.i141, label %update_ueid_rnti_counts.exit.thread, label %131
+  br i1 %.not35.i141, label %update_ueid_rnti_counts.exit.thread153, label %131
 
 131:                                              ; preds = %129
   %132 = load i16, ptr %66, align 2
@@ -365,7 +365,6 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
   store i32 0, ptr %143, align 4
   %144 = getelementptr inbounds nuw i8, ptr %130, i64 128
   store i32 0, ptr %144, align 8
-  store ptr null, ptr %130, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %141, i8 0, i64 24, i1 false)
   %145 = load ptr, ptr %63, align 8
   br label %146
@@ -384,13 +383,13 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 131110
   %152 = load i16, ptr %151, align 2
   %153 = icmp eq i16 %152, -1
-  br i1 %153, label %update_ueid_rnti_counts.exit, label %154
+  br i1 %153, label %update_ueid_rnti_counts.exit.thread, label %154
 
 154:                                              ; preds = %148
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 131112
   %156 = load i16, ptr %155, align 8
   %157 = icmp eq i16 %156, -1
-  br i1 %157, label %update_ueid_rnti_counts.exit, label %158
+  br i1 %157, label %update_ueid_rnti_counts.exit.thread, label %158
 
 158:                                              ; preds = %154
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -412,36 +411,31 @@ alloc_mac_lte_ep.exit:                            ; preds = %68, %69, %71
   %168 = getelementptr [65535 x i8], ptr %166, i64 0, i64 %167
   %169 = load i8, ptr %168, align 1
   %.not11.i145 = icmp eq i8 %169, 0
-  br i1 %.not11.i145, label %170, label %update_ueid_rnti_counts.exit
+  br i1 %.not11.i145, label %170, label %update_ueid_rnti_counts.exit.thread
 
 170:                                              ; preds = %165
   store i8 1, ptr %168, align 1
   %171 = add nuw i16 %156, 1
   store i16 %171, ptr %155, align 8
-  br label %update_ueid_rnti_counts.exit
+  br label %update_ueid_rnti_counts.exit.thread
 
-update_ueid_rnti_counts.exit:                     ; preds = %170, %165, %154, %148, %110, %105, %94, %alloc_mac_lte_ep.exit
-  %.0114 = phi ptr [ %.0.i, %alloc_mac_lte_ep.exit ], [ %.0.i, %94 ], [ %.0.i, %105 ], [ %.0.i, %110 ], [ %130, %148 ], [ %130, %154 ], [ %130, %165 ], [ %130, %170 ]
-  %.not131 = icmp eq ptr %.0114, null
-  br i1 %.not131, label %update_ueid_rnti_counts.exit.thread, label %update_ueid_rnti_counts.exit.update_ueid_rnti_counts.exit.thread152_crit_edge
+update_ueid_rnti_counts.exit:                     ; preds = %110, %105, %94, %alloc_mac_lte_ep.exit
+  %.not131 = icmp eq ptr %.0.i, null
+  br i1 %.not131, label %update_ueid_rnti_counts.exit.thread153, label %update_ueid_rnti_counts.exit.thread
 
-update_ueid_rnti_counts.exit.update_ueid_rnti_counts.exit.thread152_crit_edge: ; preds = %update_ueid_rnti_counts.exit
-  %.pre = load i8, ptr %3, align 8
-  br label %update_ueid_rnti_counts.exit.thread152
-
-update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_rnti_counts.exit.update_ueid_rnti_counts.exit.thread152_crit_edge
-  %172 = phi i8 [ %.pre, %update_ueid_rnti_counts.exit.update_ueid_rnti_counts.exit.thread152_crit_edge ], [ %65, %121 ]
-  %.0114155 = phi ptr [ %.0114, %update_ueid_rnti_counts.exit.update_ueid_rnti_counts.exit.thread152_crit_edge ], [ %.0116160, %121 ]
-  %173 = getelementptr inbounds nuw i8, ptr %.0114155, i64 8
+update_ueid_rnti_counts.exit.thread:              ; preds = %121, %170, %165, %154, %148, %update_ueid_rnti_counts.exit
+  %.0114152 = phi ptr [ %.0.i, %update_ueid_rnti_counts.exit ], [ %130, %170 ], [ %130, %165 ], [ %130, %154 ], [ %130, %148 ], [ %.0116160, %121 ]
+  %172 = load i8, ptr %3, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %.0114152, i64 8
   store i8 %172, ptr %173, align 8
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %175 = load i16, ptr %174, align 2
-  %176 = getelementptr inbounds nuw i8, ptr %.0114155, i64 10
+  %176 = getelementptr inbounds nuw i8, ptr %.0114152, i64 10
   store i16 %175, ptr %176, align 2
   %177 = getelementptr inbounds nuw i8, ptr %3, i64 7
   %178 = load i8, ptr %177, align 1
   %179 = icmp ne i8 %178, 0
-  %180 = getelementptr inbounds nuw i8, ptr %.0114155, i64 16
+  %180 = getelementptr inbounds nuw i8, ptr %.0114152, i64 16
   %181 = zext i1 %179 to i8
   store i8 %181, ptr %180, align 8
   %182 = load i8, ptr %50, align 8
@@ -451,15 +445,15 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   %.not135 = icmp eq i8 %185, 0
   br i1 %183, label %186, label %239
 
-186:                                              ; preds = %update_ueid_rnti_counts.exit.thread152
+186:                                              ; preds = %update_ueid_rnti_counts.exit.thread
   br i1 %.not135, label %191, label %187
 
 187:                                              ; preds = %186
-  %188 = getelementptr inbounds nuw i8, ptr %.0114155, i64 72
+  %188 = getelementptr inbounds nuw i8, ptr %.0114152, i64 72
   %189 = load i32, ptr %188, align 8
   %190 = add i32 %189, 1
   store i32 %190, ptr %188, align 8
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 191:                                              ; preds = %186
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -474,26 +468,26 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   br i1 %.not136, label %202, label %198
 
 198:                                              ; preds = %195
-  %199 = getelementptr inbounds nuw i8, ptr %.0114155, i64 68
+  %199 = getelementptr inbounds nuw i8, ptr %.0114152, i64 68
   %200 = load i32, ptr %199, align 4
   %201 = add i32 %200, 1
   store i32 %201, ptr %199, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 202:                                              ; preds = %195, %191
-  %203 = getelementptr inbounds nuw i8, ptr %.0114155, i64 20
+  %203 = getelementptr inbounds nuw i8, ptr %.0114152, i64 20
   %204 = load i32, ptr %203, align 4
   %205 = icmp eq i32 %204, 0
   br i1 %205, label %206, label %209
 
 206:                                              ; preds = %202
-  %207 = getelementptr inbounds nuw i8, ptr %.0114155, i64 32
+  %207 = getelementptr inbounds nuw i8, ptr %.0114152, i64 32
   %208 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false)
   br label %209
 
 209:                                              ; preds = %206, %202
-  %210 = getelementptr inbounds nuw i8, ptr %.0114155, i64 48
+  %210 = getelementptr inbounds nuw i8, ptr %.0114152, i64 48
   %211 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 8 dereferenceable(16) %211, i64 16, i1 false)
   %212 = add i32 %204, 1
@@ -501,14 +495,14 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   %213 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %214 = load i16, ptr %213, align 8
   %215 = zext i16 %214 to i32
-  %216 = getelementptr inbounds nuw i8, ptr %.0114155, i64 24
+  %216 = getelementptr inbounds nuw i8, ptr %.0114152, i64 24
   %217 = load i32, ptr %216, align 8
   %218 = add i32 %217, %215
   store i32 %218, ptr %216, align 8
   %219 = getelementptr inbounds nuw i8, ptr %3, i64 310
   %220 = load i16, ptr %219, align 2
   %221 = zext i16 %220 to i32
-  %222 = getelementptr inbounds nuw i8, ptr %.0114155, i64 64
+  %222 = getelementptr inbounds nuw i8, ptr %.0114152, i64 64
   %223 = load i32, ptr %222, align 8
   %224 = add i32 %223, %221
   store i32 %224, ptr %222, align 8
@@ -518,18 +512,18 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
 
 .preheader:                                       ; preds = %209
   %226 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %227 = getelementptr inbounds nuw i8, ptr %.0114155, i64 28
+  %227 = getelementptr inbounds nuw i8, ptr %.0114152, i64 28
   %.promoted162 = load i32, ptr %227, align 4
   br label %234
 
 228:                                              ; preds = %209
   %229 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %230 = load i32, ptr %229, align 8
-  %231 = getelementptr inbounds nuw i8, ptr %.0114155, i64 28
+  %231 = getelementptr inbounds nuw i8, ptr %.0114152, i64 28
   %232 = load i32, ptr %231, align 4
   %233 = add i32 %232, %230
   store i32 %233, ptr %231, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 234:                                              ; preds = %.preheader, %234
   %indvars.iv167 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next168, %234 ]
@@ -540,17 +534,17 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   store i32 %238, ptr %227, align 4
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next168, 33
-  br i1 %exitcond170.not, label %update_ueid_rnti_counts.exit.thread, label %234, !llvm.loop !12
+  br i1 %exitcond170.not, label %update_ueid_rnti_counts.exit.thread153, label %234, !llvm.loop !12
 
-239:                                              ; preds = %update_ueid_rnti_counts.exit.thread152
+239:                                              ; preds = %update_ueid_rnti_counts.exit.thread
   br i1 %.not135, label %244, label %240
 
 240:                                              ; preds = %239
-  %241 = getelementptr inbounds nuw i8, ptr %.0114155, i64 128
+  %241 = getelementptr inbounds nuw i8, ptr %.0114152, i64 128
   %242 = load i32, ptr %241, align 8
   %243 = add i32 %242, 1
   store i32 %243, ptr %241, align 8
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 244:                                              ; preds = %239
   %245 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -565,26 +559,26 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   br i1 %.not133, label %255, label %251
 
 251:                                              ; preds = %248
-  %252 = getelementptr inbounds nuw i8, ptr %.0114155, i64 124
+  %252 = getelementptr inbounds nuw i8, ptr %.0114152, i64 124
   %253 = load i32, ptr %252, align 4
   %254 = add i32 %253, 1
   store i32 %254, ptr %252, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 255:                                              ; preds = %248, %244
-  %256 = getelementptr inbounds nuw i8, ptr %.0114155, i64 76
+  %256 = getelementptr inbounds nuw i8, ptr %.0114152, i64 76
   %257 = load i32, ptr %256, align 4
   %258 = icmp eq i32 %257, 0
   br i1 %258, label %259, label %262
 
 259:                                              ; preds = %255
-  %260 = getelementptr inbounds nuw i8, ptr %.0114155, i64 88
+  %260 = getelementptr inbounds nuw i8, ptr %.0114152, i64 88
   %261 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %260, ptr noundef nonnull align 8 dereferenceable(16) %261, i64 16, i1 false)
   br label %262
 
 262:                                              ; preds = %259, %255
-  %263 = getelementptr inbounds nuw i8, ptr %.0114155, i64 104
+  %263 = getelementptr inbounds nuw i8, ptr %.0114152, i64 104
   %264 = getelementptr inbounds nuw i8, ptr %3, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %263, ptr noundef nonnull align 8 dereferenceable(16) %264, i64 16, i1 false)
   %265 = add i32 %257, 1
@@ -592,14 +586,14 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   %266 = getelementptr inbounds nuw i8, ptr %3, i64 312
   %267 = load i16, ptr %266, align 8
   %268 = zext i16 %267 to i32
-  %269 = getelementptr inbounds nuw i8, ptr %.0114155, i64 80
+  %269 = getelementptr inbounds nuw i8, ptr %.0114152, i64 80
   %270 = load i32, ptr %269, align 8
   %271 = add i32 %270, %268
   store i32 %271, ptr %269, align 8
   %272 = getelementptr inbounds nuw i8, ptr %3, i64 310
   %273 = load i16, ptr %272, align 2
   %274 = zext i16 %273 to i32
-  %275 = getelementptr inbounds nuw i8, ptr %.0114155, i64 120
+  %275 = getelementptr inbounds nuw i8, ptr %.0114152, i64 120
   %276 = load i32, ptr %275, align 8
   %277 = add i32 %276, %274
   store i32 %277, ptr %275, align 8
@@ -609,18 +603,18 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
 
 .preheader156:                                    ; preds = %262
   %279 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %280 = getelementptr inbounds nuw i8, ptr %.0114155, i64 84
+  %280 = getelementptr inbounds nuw i8, ptr %.0114152, i64 84
   %.promoted = load i32, ptr %280, align 4
   br label %287
 
 281:                                              ; preds = %262
   %282 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %283 = load i32, ptr %282, align 8
-  %284 = getelementptr inbounds nuw i8, ptr %.0114155, i64 84
+  %284 = getelementptr inbounds nuw i8, ptr %.0114152, i64 84
   %285 = load i32, ptr %284, align 4
   %286 = add i32 %285, %283
   store i32 %286, ptr %284, align 4
-  br label %update_ueid_rnti_counts.exit.thread
+  br label %update_ueid_rnti_counts.exit.thread153
 
 287:                                              ; preds = %.preheader156, %287
   %indvars.iv = phi i64 [ 0, %.preheader156 ], [ %indvars.iv.next, %287 ]
@@ -631,9 +625,9 @@ update_ueid_rnti_counts.exit.thread152:           ; preds = %121, %update_ueid_r
   store i32 %291, ptr %280, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 33
-  br i1 %exitcond.not, label %update_ueid_rnti_counts.exit.thread, label %287, !llvm.loop !13
+  br i1 %exitcond.not, label %update_ueid_rnti_counts.exit.thread153, label %287, !llvm.loop !13
 
-update_ueid_rnti_counts.exit.thread:              ; preds = %287, %234, %128, %129, %228, %281, %update_ueid_rnti_counts.exit, %6, %5, %251, %240, %198, %187, %39, %35, %26, %11
+update_ueid_rnti_counts.exit.thread153:           ; preds = %287, %234, %128, %129, %228, %281, %update_ueid_rnti_counts.exit, %6, %5, %251, %240, %198, %187, %39, %35, %26, %11
   %.0112 = phi i32 [ 1, %187 ], [ 1, %198 ], [ 1, %240 ], [ 1, %251 ], [ 1, %39 ], [ 1, %35 ], [ 1, %26 ], [ 1, %11 ], [ 0, %5 ], [ 0, %6 ], [ 0, %update_ueid_rnti_counts.exit ], [ 1, %281 ], [ 1, %228 ], [ 0, %129 ], [ 0, %128 ], [ 1, %234 ], [ 1, %287 ]
   ret i32 %.0112
 }

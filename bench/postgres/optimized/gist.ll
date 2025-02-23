@@ -1504,7 +1504,7 @@ BufferGetPage.exit302:                            ; preds = %163, %169
   br i1 %.not285328, label %.preheader324, label %.lr.ph331
 
 .preheader324:                                    ; preds = %BufferGetPage.exit304, %184
-  br i1 %.not284325, label %._crit_edge335.thread, label %.lr.ph334
+  br i1 %.not284325, label %._crit_edge335, label %.lr.ph334
 
 .lr.ph331:                                        ; preds = %184, %BufferGetPage.exit304
   %.2268329 = phi ptr [ %207, %BufferGetPage.exit304 ], [ %.1267, %184 ]
@@ -1564,13 +1564,13 @@ BufferGetPage.exit304:                            ; preds = %189, %195
   %217 = getelementptr inbounds nuw i8, ptr %.3333, i64 48
   %218 = load ptr, ptr %217, align 8
   %.not286 = icmp eq ptr %218, null
-  br i1 %.not286, label %._crit_edge335, label %.lr.ph334, !llvm.loop !16
+  br i1 %.not286, label %._crit_edge335.thread, label %.lr.ph334, !llvm.loop !16
 
-._crit_edge335:                                   ; preds = %.lr.ph334
-  br i1 %125, label %219, label %.lr.ph338
-
-._crit_edge335.thread:                            ; preds = %.preheader324
+._crit_edge335:                                   ; preds = %.preheader324
   br i1 %125, label %219, label %._crit_edge360
+
+._crit_edge335.thread:                            ; preds = %.lr.ph334
+  br i1 %125, label %219, label %.lr.ph338
 
 219:                                              ; preds = %._crit_edge335.thread, %._crit_edge335
   %220 = getelementptr inbounds nuw i8, ptr %16, i64 40
@@ -1608,7 +1608,7 @@ BufferGetPage.exit306:                            ; preds = %221, %227
 
 ._crit_edge343.thread:                            ; preds = %BufferGetPage.exit306
   %240 = call ptr @palloc(i64 noundef 0) #8
-  br label %.loopexit323.thread386
+  br label %._crit_edge350
 
 .lr.ph342:                                        ; preds = %BufferGetPage.exit306, %.lr.ph342
   %.0264341 = phi i32 [ %241, %.lr.ph342 ], [ 0, %BufferGetPage.exit306 ]
@@ -1617,17 +1617,17 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   %242 = getelementptr inbounds nuw i8, ptr %.4340, i64 48
   %243 = load ptr, ptr %242, align 8
   %.not288 = icmp eq ptr %243, null
-  br i1 %.not288, label %._crit_edge343, label %.lr.ph342, !llvm.loop !17
+  br i1 %.not288, label %.lr.ph349.preheader, label %.lr.ph342, !llvm.loop !17
 
-._crit_edge343:                                   ; preds = %.lr.ph342
+.lr.ph349.preheader:                              ; preds = %.lr.ph342
   %244 = sext i32 %241 to i64
   %245 = shl nsw i64 %244, 3
   %246 = call ptr @palloc(i64 noundef %245) #8
   br label %.lr.ph349
 
-.lr.ph349:                                        ; preds = %._crit_edge343, %.lr.ph349
-  %.0263347 = phi i32 [ %249, %.lr.ph349 ], [ 0, %._crit_edge343 ]
-  %.5346 = phi ptr [ %253, %.lr.ph349 ], [ %143, %._crit_edge343 ]
+.lr.ph349:                                        ; preds = %.lr.ph349.preheader, %.lr.ph349
+  %.0263347 = phi i32 [ %249, %.lr.ph349 ], [ 0, %.lr.ph349.preheader ]
+  %.5346 = phi ptr [ %253, %.lr.ph349 ], [ %143, %.lr.ph349.preheader ]
   %247 = getelementptr inbounds nuw i8, ptr %.5346, i64 24
   %248 = load ptr, ptr %247, align 8
   %249 = add i32 %.0263347, 1
@@ -1637,9 +1637,9 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   %252 = getelementptr inbounds nuw i8, ptr %.5346, i64 48
   %253 = load ptr, ptr %252, align 8
   %.not289 = icmp eq ptr %253, null
-  br i1 %.not289, label %.loopexit323.thread386, label %.lr.ph349, !llvm.loop !18
+  br i1 %.not289, label %._crit_edge350, label %.lr.ph349, !llvm.loop !18
 
-.loopexit323.thread386:                           ; preds = %.lr.ph349, %._crit_edge343.thread
+._crit_edge350:                                   ; preds = %.lr.ph349, %._crit_edge343.thread
   %254 = phi ptr [ %240, %._crit_edge343.thread ], [ %246, %.lr.ph349 ]
   %.0264.lcssa380 = phi i32 [ 0, %._crit_edge343.thread ], [ %241, %.lr.ph349 ]
   store i32 0, ptr %16, align 8
@@ -1655,8 +1655,8 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   store ptr %143, ptr %260, align 8
   br label %.lr.ph359
 
-.lr.ph338:                                        ; preds = %._crit_edge335, %.lr.ph338
-  %.6337 = phi ptr [ %270, %.lr.ph338 ], [ %143, %._crit_edge335 ]
+.lr.ph338:                                        ; preds = %._crit_edge335.thread, %.lr.ph338
+  %.6337 = phi ptr [ %270, %.lr.ph338 ], [ %143, %._crit_edge335.thread ]
   %261 = call ptr @palloc(i64 noundef 16) #8
   %262 = getelementptr inbounds nuw i8, ptr %.6337, i64 40
   %263 = load i32, ptr %262, align 8
@@ -1673,8 +1673,8 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   %.not287 = icmp eq ptr %270, null
   br i1 %.not287, label %.lr.ph359, label %.lr.ph338, !llvm.loop !19
 
-.lr.ph359:                                        ; preds = %.lr.ph338, %.loopexit323.thread386
-  %.0265389 = phi ptr [ %16, %.loopexit323.thread386 ], [ %143, %.lr.ph338 ]
+.lr.ph359:                                        ; preds = %.lr.ph338, %._crit_edge350
+  %.0265.ph = phi ptr [ %16, %._crit_edge350 ], [ %143, %.lr.ph338 ]
   %.not297 = icmp eq ptr %7, null
   %.not298 = xor i1 %10, true
   %271 = lshr i64 %.0272, 32
@@ -1683,7 +1683,7 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   br label %274
 
 274:                                              ; preds = %.lr.ph359, %325
-  %.7357 = phi ptr [ %.0265389, %.lr.ph359 ], [ %355, %325 ]
+  %.7357 = phi ptr [ %.0265.ph, %.lr.ph359 ], [ %355, %325 ]
   %275 = getelementptr inbounds nuw i8, ptr %.7357, i64 4
   %276 = load i32, ptr %275, align 4
   %277 = icmp sgt i32 %276, 0
@@ -1820,9 +1820,9 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   %.not290 = icmp eq ptr %355, null
   br i1 %.not290, label %._crit_edge360, label %274, !llvm.loop !21
 
-._crit_edge360:                                   ; preds = %325, %._crit_edge335.thread
-  %.not290356385 = phi i1 [ true, %._crit_edge335.thread ], [ false, %325 ]
-  %.0265383 = phi ptr [ null, %._crit_edge335.thread ], [ %.0265389, %325 ]
+._crit_edge360:                                   ; preds = %325, %._crit_edge335
+  %.not290356387 = phi i1 [ true, %._crit_edge335 ], [ false, %325 ]
+  %.0265384 = phi ptr [ null, %._crit_edge335 ], [ %.0265.ph, %325 ]
   br i1 %12, label %376, label %356
 
 356:                                              ; preds = %._crit_edge360
@@ -1860,10 +1860,10 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   %377 = load volatile i32, ptr @CritSectionCount, align 4
   %378 = add i32 %377, 1
   store volatile i32 %378, ptr @CritSectionCount, align 4
-  br i1 %.not290356385, label %._crit_edge365, label %.lr.ph364
+  br i1 %.not290356387, label %._crit_edge365, label %.lr.ph364
 
 .lr.ph364:                                        ; preds = %376, %.lr.ph364
-  %.8362 = phi ptr [ %382, %.lr.ph364 ], [ %.0265383, %376 ]
+  %.8362 = phi ptr [ %382, %.lr.ph364 ], [ %.0265384, %376 ]
   %379 = getelementptr inbounds nuw i8, ptr %.8362, i64 40
   %380 = load i32, ptr %379, align 8
   call void @MarkBufferDirty(i32 noundef %380) #8
@@ -1881,9 +1881,9 @@ BufferGetPage.exit306:                            ; preds = %221, %227
   br label %384
 
 384:                                              ; preds = %383, %._crit_edge365
-  %385 = getelementptr inbounds nuw i8, ptr %.0265383, i64 32
+  %385 = getelementptr inbounds nuw i8, ptr %.0265384, i64 32
   %386 = load ptr, ptr %385, align 8
-  %387 = getelementptr inbounds nuw i8, ptr %.0265383, i64 40
+  %387 = getelementptr inbounds nuw i8, ptr %.0265384, i64 40
   %388 = load i32, ptr %387, align 8
   %389 = icmp slt i32 %388, 0
   br i1 %389, label %390, label %396
@@ -1958,7 +1958,7 @@ BufferGetPage.exit310:                            ; preds = %404, %410
   br i1 %432, label %433, label %435
 
 433:                                              ; preds = %429, %422
-  %434 = call i64 @gistXLogSplit(i1 noundef zeroext %39, ptr noundef nonnull %.0265383, i32 noundef %.0271, i64 noundef %.0272, i32 noundef %8, i1 noundef zeroext %10) #8
+  %434 = call i64 @gistXLogSplit(i1 noundef zeroext %39, ptr noundef nonnull %.0265384, i32 noundef %.0271, i64 noundef %.0272, i32 noundef %8, i1 noundef zeroext %10) #8
   br label %437
 
 435:                                              ; preds = %429, %425, %416
@@ -1967,7 +1967,7 @@ BufferGetPage.exit310:                            ; preds = %404, %410
 
 437:                                              ; preds = %BufferGetPage.exit310, %433, %435
   %.0 = phi i64 [ %434, %433 ], [ %436, %435 ], [ 1, %BufferGetPage.exit310 ]
-  br i1 %.not290356385, label %._crit_edge370, label %.lr.ph369
+  br i1 %.not290356387, label %._crit_edge370, label %.lr.ph369
 
 .lr.ph369:                                        ; preds = %437
   %438 = lshr i64 %.0, 32
@@ -1976,7 +1976,7 @@ BufferGetPage.exit310:                            ; preds = %404, %410
   br label %441
 
 441:                                              ; preds = %.lr.ph369, %441
-  %.9367 = phi ptr [ %.0265383, %.lr.ph369 ], [ %446, %441 ]
+  %.9367 = phi ptr [ %.0265384, %.lr.ph369 ], [ %446, %441 ]
   %442 = getelementptr inbounds nuw i8, ptr %.9367, i64 32
   %443 = load ptr, ptr %442, align 8
   store i32 %439, ptr %443, align 4
@@ -1991,7 +1991,7 @@ BufferGetPage.exit310:                            ; preds = %404, %410
   br i1 %125, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %._crit_edge370
-  %.10.in371 = getelementptr inbounds nuw i8, ptr %.0265383, i64 48
+  %.10.in371 = getelementptr inbounds nuw i8, ptr %.0265384, i64 48
   %.10372 = load ptr, ptr %.10.in371, align 8
   %.not293373 = icmp eq ptr %.10372, null
   br i1 %.not293373, label %.loopexit, label %.lr.ph375
@@ -2294,7 +2294,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 58:                                               ; preds = %._crit_edge
   %59 = load i32, ptr %34, align 8
-  %60 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %30, i32 noundef %59, ptr noundef %4)
+  %60 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %30, i32 noundef %59, ptr noundef nonnull %4)
   br label %73
 
 61:                                               ; preds = %._crit_edge
@@ -2312,7 +2312,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %69 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store ptr %68, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 352
-  %71 = call ptr @gistFormTuple(ptr noundef %4, ptr noundef %0, ptr noundef nonnull %70, ptr noundef nonnull %25, i1 noundef zeroext false) #8
+  %71 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %70, ptr noundef nonnull %25, i1 noundef zeroext false) #8
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %71, ptr %72, align 8
   br label %73
@@ -2325,7 +2325,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 76:                                               ; preds = %73
   %77 = load i32, ptr %31, align 8
-  %78 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %77, ptr noundef %4)
+  %78 = call ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %29, i32 noundef %77, ptr noundef nonnull %4)
   br label %79
 
 79:                                               ; preds = %79, %76
@@ -2355,7 +2355,7 @@ define dso_local ptr @gistSplit(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %92 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %94 = call ptr @gistFormTuple(ptr noundef %4, ptr noundef %0, ptr noundef nonnull %93, ptr noundef nonnull %20, i1 noundef zeroext false) #8
+  %94 = call ptr @gistFormTuple(ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %93, ptr noundef nonnull %20, i1 noundef zeroext false) #8
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %94, ptr %95, align 8
   br label %96

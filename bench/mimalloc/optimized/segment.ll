@@ -203,24 +203,24 @@ mi_page_purge_remove.exit:                        ; preds = %mi_page_not_in_queu
   %42 = inttoptr i64 %41 to ptr
   %43 = icmp slt i64 %40, 4194304
   %44 = select i1 %43, ptr null, ptr %42
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 25
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 25
   %46 = load i8, ptr %45, align 1, !tbaa !36, !range !37, !noundef !38
   %47 = trunc nuw i8 %46 to i1
   br i1 %47, label %48, label %mi_page_purge.exit
 
 48:                                               ; preds = %mi_page_purge_remove.exit
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 152
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %50 = load i32, ptr %49, align 8, !tbaa !3
   %51 = icmp eq i32 %50, 3
   br i1 %51, label %52, label %55
 
 52:                                               ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %54 = load i64, ptr %53, align 32, !tbaa !14
   br label %mi_segment_raw_page_size.exit.i.i
 
 55:                                               ; preds = %48
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 144
+  %56 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %57 = load i64, ptr %56, align 16, !tbaa !15
   %58 = shl nuw i64 1, %57
   br label %mi_segment_raw_page_size.exit.i.i
@@ -235,7 +235,7 @@ mi_segment_raw_page_size.exit.i.i:                ; preds = %55, %52
   br i1 %64, label %65, label %mi_segment_raw_page_start.exit.i
 
 65:                                               ; preds = %mi_segment_raw_page_size.exit.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %44, i64 104
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %67 = load i64, ptr %66, align 8, !tbaa !22
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 %67
   %69 = sub i64 %59, %67
@@ -282,7 +282,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
   %9 = select i1 %8, ptr null, ptr %7
   tail call fastcc void @mi_pages_try_purge(i1 noundef zeroext false, ptr noundef %2) #7
   tail call fastcc void @mi_segment_page_clear(ptr noundef %9, ptr noundef %0, ptr noundef %2) #7
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %11 = load i64, ptr %10, align 8, !tbaa !41
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %13, label %14
@@ -292,7 +292,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
   br label %35
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %16 = load i64, ptr %15, align 8, !tbaa !42
   %17 = icmp eq i64 %11, %16
   br i1 %17, label %18, label %19
@@ -303,13 +303,13 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 
 19:                                               ; preds = %14
   %20 = add i64 %11, 1
-  %21 = getelementptr inbounds nuw i8, ptr %9, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %22 = load i64, ptr %21, align 32, !tbaa !43
   %23 = icmp eq i64 %20, %22
   br i1 %23, label %24, label %35
 
 24:                                               ; preds = %19
-  %25 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %26 = load i32, ptr %25, align 8, !tbaa !3
   %27 = icmp ult i32 %26, 2
   br i1 %27, label %mi_segment_free_queue.exit.i, label %35
@@ -318,11 +318,11 @@ mi_segment_free_queue.exit.i:                     ; preds = %24
   %switch = icmp eq i32 %26, 0
   %spec.select.idx = select i1 %switch, i64 0, i64 16
   %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
-  %28 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store ptr null, ptr %28, align 16, !tbaa !44
   %29 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !45
-  %31 = getelementptr inbounds nuw i8, ptr %9, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %30, ptr %31, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %34, label %32
@@ -1192,7 +1192,7 @@ define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef %1) loc
   %13 = load ptr, ptr %12, align 8, !tbaa !49
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 256
   tail call void @_mi_stat_increase(ptr noundef nonnull %14, i64 noundef 1) #8
-  %15 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 88
   %16 = load i64, ptr %15, align 8, !tbaa !41
   %17 = load i64, ptr %9, align 8, !tbaa !42
   %18 = icmp eq i64 %16, %17
@@ -1507,7 +1507,7 @@ define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef %1) lo
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %7 = phi ptr [ %9, %.lr.ph ], [ %6, %2 ]
-  %8 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %7, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %1) #7
+  %8 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %7, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef nonnull %1) #7
   %9 = call ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef nonnull %3) #8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !86
@@ -1605,8 +1605,8 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
 
 .lr.ph.i:                                         ; preds = %.critedge2
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  %28 = getelementptr inbounds nuw i8, ptr %23, i64 88
-  %29 = getelementptr inbounds nuw i8, ptr %23, i64 72
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 72
   br label %30
 
 30:                                               ; preds = %42, %.lr.ph.i
@@ -1644,7 +1644,7 @@ define internal fastcc void @mi_segments_try_abandon_to_target(ptr noundef reado
 
 ._crit_edge.i:                                    ; preds = %42, %.critedge2
   store i8 0, ptr %24, align 1, !tbaa !54
-  %47 = getelementptr inbounds nuw i8, ptr %23, i64 88
+  %47 = getelementptr inbounds nuw i8, ptr %21, i64 88
   %48 = load i64, ptr %47, align 8, !tbaa !41
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %50, label %51

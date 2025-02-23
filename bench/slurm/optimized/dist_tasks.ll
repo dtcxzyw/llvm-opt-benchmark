@@ -433,7 +433,7 @@ _get_local_node_info.exit._crit_edge:             ; preds = %_get_local_node_inf
 
 .loopexit:                                        ; preds = %.lr.ph109, %.lr.ph114
   %.3.lcssa = phi i32 [ %.2111, %.lr.ph114 ], [ %176, %.lr.ph109 ]
-  %153 = icmp sgt i32 %.067112.in, 1
+  %153 = icmp samesign ugt i32 %.067112.in, 1
   %154 = icmp ne i32 %.3.lcssa, 0
   %155 = select i1 %153, i1 %154, i1 false
   br i1 %155, label %.lr.ph114, label %.loopexit93, !llvm.loop !16

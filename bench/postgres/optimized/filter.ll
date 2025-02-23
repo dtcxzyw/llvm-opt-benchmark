@@ -259,7 +259,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load ptr, ptr %39, align 8
   tail call void %40(i32 noundef 1) #9
-  br label %55
+  br label %.thread81
 
 41:                                               ; preds = %.critedge.i
   %42 = ptrtoint ptr %.2.i to i64
@@ -267,7 +267,7 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
   %44 = sub i64 %42, %43
   %45 = and i64 %44, 4294967295
   %46 = icmp eq i64 %45, 7
-  br i1 %46, label %47, label %55
+  br i1 %46, label %47, label %.thread81
 
 47:                                               ; preds = %41
   %48 = tail call i32 @pg_strncasecmp(ptr noundef nonnull @.str.19, ptr noundef nonnull %.015.i, i64 noundef 7) #9
@@ -276,69 +276,69 @@ define dso_local noundef zeroext i1 @filter_read_item(ptr noundef %0, ptr nounde
 
 50:                                               ; preds = %47
   store i32 1, ptr %2, align 4
-  br label %58
+  br label %57
 
 51:                                               ; preds = %47
   %52 = tail call i32 @pg_strncasecmp(ptr noundef nonnull @.str.20, ptr noundef nonnull %.015.i, i64 noundef 7) #9
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %55
+  br i1 %53, label %54, label %.thread81
 
 54:                                               ; preds = %51
   store i32 2, ptr %2, align 4
-  br label %58
+  br label %57
 
-55:                                               ; preds = %.thread, %41, %51
-  %.1.i71118 = phi ptr [ %.015.i, %.thread ], [ %.2.i, %41 ], [ %.2.i, %51 ]
+.thread81:                                        ; preds = %41, %.thread, %51
+  %.1.i718084 = phi ptr [ %.2.i, %51 ], [ %.2.i, %41 ], [ %.015.i, %.thread ]
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.21)
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = load ptr, ptr %56, align 8
-  tail call void %57(i32 noundef 1) #9
-  br label %58
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %56 = load ptr, ptr %55, align 8
+  tail call void %56(i32 noundef 1) #9
+  br label %57
 
-58:                                               ; preds = %54, %55, %50
-  %.1.i71117 = phi ptr [ %.2.i, %54 ], [ %.1.i71118, %55 ], [ %.2.i, %50 ]
-  %59 = load ptr, ptr %14, align 8
-  br label %60
+57:                                               ; preds = %54, %.thread81, %50
+  %.1.i7179 = phi ptr [ %.2.i, %54 ], [ %.1.i718084, %.thread81 ], [ %.2.i, %50 ]
+  %58 = load ptr, ptr %14, align 8
+  br label %59
 
-60:                                               ; preds = %60, %58
-  %.015.i41 = phi ptr [ %.1.i71117, %58 ], [ %67, %60 ]
-  %61 = load i8, ptr %.015.i41, align 1
-  %62 = zext i8 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %59, i64 %62
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = and i32 %65, 8192
-  %.not.i42 = icmp eq i32 %66, 0
-  %67 = getelementptr inbounds nuw i8, ptr %.015.i41, i64 1
-  br i1 %.not.i42, label %68, label %60, !llvm.loop !6
+59:                                               ; preds = %59, %57
+  %.015.i41 = phi ptr [ %.1.i7179, %57 ], [ %66, %59 ]
+  %60 = load i8, ptr %.015.i41, align 1
+  %61 = zext i8 %60 to i64
+  %62 = getelementptr inbounds nuw i16, ptr %58, i64 %61
+  %63 = load i16, ptr %62, align 2
+  %64 = zext i16 %63 to i32
+  %65 = and i32 %64, 8192
+  %.not.i42 = icmp eq i32 %65, 0
+  %66 = getelementptr inbounds nuw i8, ptr %.015.i41, i64 1
+  br i1 %.not.i42, label %67, label %59, !llvm.loop !6
 
-68:                                               ; preds = %60
-  %69 = and i32 %65, 1024
-  %.not16.i43 = icmp eq i32 %69, 0
-  br i1 %.not16.i43, label %filter_get_keyword.exit51.thread, label %.critedge.i44
+67:                                               ; preds = %59
+  %68 = and i32 %64, 1024
+  %.not16.i43 = icmp eq i32 %68, 0
+  br i1 %.not16.i43, label %80, label %.critedge.i44
 
-.critedge.i44:                                    ; preds = %68, %.critedge.i44
-  %.015.pn.i45 = phi ptr [ %.2.i46, %.critedge.i44 ], [ %.015.i41, %68 ]
+.critedge.i44:                                    ; preds = %67, %.critedge.i44
+  %.015.pn.i45 = phi ptr [ %.2.i46, %.critedge.i44 ], [ %.015.i41, %67 ]
   %.2.i46 = getelementptr inbounds nuw i8, ptr %.015.pn.i45, i64 1
-  %70 = load i8, ptr %.2.i46, align 1
-  %71 = zext i8 %70 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %59, i64 %71
-  %73 = load i16, ptr %72, align 2
-  %74 = and i16 %73, 1024
-  %.not17.i47 = icmp ne i16 %74, 0
-  %75 = icmp eq i8 %70, 95
-  %or.cond.i48 = or i1 %75, %.not17.i47
+  %69 = load i8, ptr %.2.i46, align 1
+  %70 = zext i8 %69 to i64
+  %71 = getelementptr inbounds nuw i16, ptr %58, i64 %70
+  %72 = load i16, ptr %71, align 2
+  %73 = and i16 %72, 1024
+  %.not17.i47 = icmp ne i16 %73, 0
+  %74 = icmp eq i8 %69, 95
+  %or.cond.i48 = or i1 %74, %.not17.i47
   br i1 %or.cond.i48, label %.critedge.i44, label %.split, !llvm.loop !7
 
 .split:                                           ; preds = %.critedge.i44
-  %76 = ptrtoint ptr %.2.i46 to i64
-  %77 = ptrtoint ptr %.015.i41 to i64
-  %78 = sub i64 %76, %77
-  %79 = trunc i64 %78 to i32
-  %80 = tail call fastcc zeroext i1 @get_object_type(ptr noundef nonnull %.015.i41, i32 noundef %79, ptr noundef %3)
-  br i1 %80, label %87, label %84
+  %75 = ptrtoint ptr %.2.i46 to i64
+  %76 = ptrtoint ptr %.015.i41 to i64
+  %77 = sub i64 %75, %76
+  %78 = trunc i64 %77 to i32
+  %79 = tail call fastcc zeroext i1 @get_object_type(ptr noundef nonnull %.015.i41, i32 noundef %78, ptr noundef %3)
+  br i1 %79, label %87, label %84
 
-filter_get_keyword.exit51.thread:                 ; preds = %68
+80:                                               ; preds = %67
   tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.22)
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -346,24 +346,24 @@ filter_get_keyword.exit51.thread:                 ; preds = %68
   %83 = tail call fastcc zeroext i1 @get_object_type(ptr noundef null, i32 noundef 0, ptr noundef %3)
   br i1 %83, label %87, label %84
 
-84:                                               ; preds = %.split, %filter_get_keyword.exit51.thread
-  %.18088 = phi i32 [ %79, %.split ], [ 0, %filter_get_keyword.exit51.thread ]
-  %.1.i498186 = phi ptr [ %.2.i46, %.split ], [ %.015.i41, %filter_get_keyword.exit51.thread ]
-  %.0.i508385 = phi ptr [ %.015.i41, %.split ], [ null, %filter_get_keyword.exit51.thread ]
-  tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %.18088, ptr noundef %.0.i508385)
+84:                                               ; preds = %.split, %80
+  %.19098 = phi i32 [ %78, %.split ], [ 0, %80 ]
+  %.1.i499196 = phi ptr [ %.2.i46, %.split ], [ %.015.i41, %80 ]
+  %.0.i509395 = phi ptr [ %.015.i41, %.split ], [ null, %80 ]
+  tail call void (ptr, ptr, ...) @pg_log_filter_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.23, i32 noundef %.19098, ptr noundef %.0.i509395)
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %86 = load ptr, ptr %85, align 8
   tail call void %86(i32 noundef 1) #9
   br label %87
 
-87:                                               ; preds = %.split, %84, %filter_get_keyword.exit51.thread
-  %.1.i498187 = phi ptr [ %.2.i46, %.split ], [ %.1.i498186, %84 ], [ %.015.i41, %filter_get_keyword.exit51.thread ]
+87:                                               ; preds = %.split, %84, %80
+  %.1.i499197 = phi ptr [ %.2.i46, %.split ], [ %.1.i499196, %84 ], [ %.015.i41, %80 ]
   call void @initPQExpBuffer(ptr noundef nonnull %5) #9
   %88 = load ptr, ptr %14, align 8
   br label %89
 
 89:                                               ; preds = %89, %87
-  %.034.i = phi ptr [ %.1.i498187, %87 ], [ %95, %89 ]
+  %.034.i = phi ptr [ %.1.i499197, %87 ], [ %95, %89 ]
   %90 = load i8, ptr %.034.i, align 1
   %91 = zext i8 %90 to i64
   %92 = getelementptr inbounds nuw i16, ptr %88, i64 %91

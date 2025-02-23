@@ -1630,7 +1630,7 @@ Vec_IntPrint.exit:                                ; preds = %.lr.ph.i, %56
   %.val104 = load ptr, ptr %21, align 8, !tbaa !11
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val104, i64 %91
-  tail call void @Gia_ObjPrint(ptr noundef %0, ptr noundef %92) #19
+  tail call void @Gia_ObjPrint(ptr noundef nonnull %0, ptr noundef %92) #19
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %.val114 = load i32, ptr %4, align 4, !tbaa !41
   %93 = sext i32 %.val114 to i64

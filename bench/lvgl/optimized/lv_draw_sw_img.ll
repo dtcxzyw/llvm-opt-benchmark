@@ -565,7 +565,7 @@ define internal void @img_draw_core(ptr noundef %0, ptr noundef %1, ptr noundef 
   %178 = load i32, ptr %142, align 4, !tbaa !72
   %179 = load i64, ptr %17, align 8
   %180 = load i64, ptr %164, align 8
-  call fastcc void @recolor(i64 %179, i64 %180, ptr noundef %177, ptr noundef %132, i32 noundef %110, i32 noundef %178, ptr noundef readonly %1)
+  call fastcc void @recolor(i64 %179, i64 %180, ptr noundef %177, ptr noundef %132, i32 noundef %110, i32 noundef %178, ptr noundef nonnull readonly %1)
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %16) #6
   %181 = load i32, ptr %156, align 4, !tbaa !29
   %182 = add nsw i32 %181, 1
@@ -1047,7 +1047,7 @@ radius_only.exit:                                 ; preds = %.lr.ph.split.split.
   %423 = load i32, ptr %362, align 4, !tbaa !28
   %424 = sub nsw i32 0, %423
   call void @lv_area_move(ptr noundef nonnull %9, i32 noundef %422, i32 noundef %424) #6
-  call void @lv_draw_sw_transform(ptr noundef nonnull %9, ptr noundef %334, i32 noundef %296, i32 noundef %297, i32 noundef %285, ptr noundef %1, ptr noundef %3, i32 noundef %289, ptr noundef nonnull %322) #6
+  call void @lv_draw_sw_transform(ptr noundef nonnull %9, ptr noundef %334, i32 noundef %296, i32 noundef %297, i32 noundef %285, ptr noundef nonnull %1, ptr noundef %3, i32 noundef %289, ptr noundef nonnull %322) #6
   call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %7) #6
   %425 = load i32, ptr %326, align 4, !tbaa !29
   %426 = add nsw i32 %425, 1

@@ -51689,7 +51689,7 @@ _ZNK6OctreeIfE13functionIndexILi2EL12BoundaryType2EEEvPK7OctNodeI12TreeNodeDataE
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds %"struct.BSplineEvaluationData<2, BOUNDARY_NEUMANN>::BSplineComponents", ptr %67, i64 %137
   %139 = sub nsw i64 1, %indvars.iv
-  %140 = getelementptr inbounds [3 x %class.Polynomial.17], ptr %138, i64 0, i64 %139
+  %140 = getelementptr inbounds nuw [3 x %class.Polynomial.17], ptr %138, i64 0, i64 %139
   %141 = load double, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %143 = load double, ptr %142, align 8

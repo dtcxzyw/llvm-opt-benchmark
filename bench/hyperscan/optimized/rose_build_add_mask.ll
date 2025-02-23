@@ -1087,7 +1087,7 @@ _ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit.i: ; preds = %if.
   store i32 %conv58.i, ptr %graph_lag.i.i, align 8
   %index.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp55.i, i64 64
   store i64 0, ptr %index.i.i, align 8
-  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr %13, i64 %21, ptr nonnull %59, i64 %67)
+  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %13, i64 %21, ptr nonnull %59, i64 %67)
           to label %invoke.cont62.i unwind label %lpad61.i
 
 invoke.cont62.i:                                  ; preds = %_ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit.i
@@ -1308,7 +1308,7 @@ if.else.i:                                        ; preds = %_ZN3ue217RoseInVert
   %index.i241.i = getelementptr inbounds nuw i8, ptr %ref.tmp66.i, i64 64
   store i64 0, ptr %index.i241.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp66.i, i8 0, i64 60, i1 false)
-  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp68.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr %13, i64 %21, ptr nonnull %59, i64 %67)
+  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp68.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %13, i64 %21, ptr nonnull %59, i64 %67)
           to label %invoke.cont70.i unwind label %lpad69.i
 
 invoke.cont70.i:                                  ; preds = %if.else.i
@@ -1493,7 +1493,7 @@ _ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit290.i: ; preds = %
   store i32 %conv97.i, ptr %graph_lag.i287.i, align 8
   %index.i288.i = getelementptr inbounds nuw i8, ptr %ref.tmp111.i, i64 64
   store i64 0, ptr %index.i288.i, align 8
-  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp115.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %59, i64 %67, ptr %29, i64 %37)
+  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp115.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %59, i64 %67, ptr nonnull %29, i64 %37)
           to label %invoke.cont117.i unwind label %lpad116.i
 
 invoke.cont117.i:                                 ; preds = %_ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit290.i
@@ -1836,7 +1836,7 @@ _ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit421.i: ; preds = %
   store i32 %conv141.i, ptr %graph_lag.i418.i, align 8
   %index.i419.i = getelementptr inbounds nuw i8, ptr %ref.tmp138.i, i64 64
   store i64 0, ptr %index.i419.i, align 8
-  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp144.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr %13, i64 %21, ptr %29, i64 %37)
+  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp144.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %13, i64 %21, ptr nonnull %29, i64 %37)
           to label %invoke.cont146.i unwind label %lpad145.i
 
 invoke.cont146.i:                                 ; preds = %_ZN3ue215RoseInEdgePropsC2ESt10shared_ptrINS_8NGHolderEEj.exit421.i
@@ -2900,7 +2900,7 @@ _ZN3ue217RoseInVertexPropsD2Ev.exit737.i:         ; preds = %if.then.i.i.i.i.i.i
   %index.i740.i = getelementptr inbounds nuw i8, ptr %ref.tmp203.i, i64 64
   store i64 0, ptr %index.i740.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %ref.tmp203.i, i8 0, i64 60, i1 false)
-  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp205.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr %29, i64 %37, ptr nonnull %302, i64 %310)
+  invoke void @_ZN3ue29ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr nonnull sret(%"struct.std::pair.302") align 8 %tmp205.i, ptr noundef nonnull align 8 dereferenceable(56) %ig.i, ptr nonnull %29, i64 %37, ptr nonnull %302, i64 %310)
           to label %invoke.cont207.i unwind label %lpad206.i
 
 invoke.cont207.i:                                 ; preds = %_ZN3ue217RoseInVertexPropsD2Ev.exit737.i

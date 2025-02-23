@@ -13371,7 +13371,7 @@ smart_str_alloc.exit:                             ; preds = %240, %250
   %256 = load ptr, ptr %0, align 8, !tbaa !137
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 16
   store i64 %.sink, ptr %257, align 8, !tbaa !56
-  call fastcc void @zend_ast_export_zval(ptr noundef %0, ptr noundef %.056140, i32 noundef 0, i32 noundef %3)
+  call fastcc void @zend_ast_export_zval(ptr noundef %0, ptr noundef nonnull %.056140, i32 noundef 0, i32 noundef %3)
   br label %258
 
 258:                                              ; preds = %168, %255

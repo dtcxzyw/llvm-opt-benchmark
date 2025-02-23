@@ -623,7 +623,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   br i1 %.not.i, label %ea05.exit, label %.preheader606.i
 
 .preheader605.i:                                  ; preds = %.preheader606.i
-  %41 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  %41 = tail call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %.lr.ph673.lr.ph.i, label %ea05.exit
 
@@ -789,7 +789,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
 
 .backedge.i:                                      ; preds = %423, %166, %159, %144, %139, %125
   %.1116.be.i = phi ptr [ %140, %139 ], [ %136, %144 ], [ %156, %159 ], [ %156, %166 ], [ %156, %423 ], [ %126, %125 ]
-  %127 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
+  %127 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #14
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %50, label %ea05.exit
 
@@ -805,7 +805,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.465, i32 noundef %135) #14
   %136 = getelementptr inbounds nuw i8, ptr %110, i64 29
   %137 = zext nneg i32 %121 to i64
-  %138 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef %0, i64 noundef %137, i64 noundef 0, i64 noundef 0) #14
+  %138 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef %137, i64 noundef 0, i64 noundef 0) #14
   %.not155.i = icmp eq i32 %138, 0
   br i1 %.not155.i, label %141, label %139
 
@@ -868,7 +868,7 @@ define i32 @cli_scanautoit(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0
   %.not159.i = icmp eq i32 %162, 0
   %spec.select.i = select i1 %.not159.i, i32 %121, i32 %163
   %164 = zext i32 %spec.select.i to i64
-  %165 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef %0, i64 noundef %164, i64 noundef 0, i64 noundef 0) #14
+  %165 = call i32 @cli_checklimits(ptr noundef nonnull @.str.457, ptr noundef nonnull %0, i64 noundef %164, i64 noundef 0, i64 noundef 0) #14
   %.not160.i = icmp eq i32 %165, 0
   br i1 %.not160.i, label %167, label %166
 

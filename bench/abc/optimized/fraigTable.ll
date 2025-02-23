@@ -104,29 +104,29 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %25 = load ptr, ptr %7, align 8, !tbaa !13
   %26 = and i64 %24, 4294967295
   %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
-  %.03746 = load ptr, ptr %27, align 8, !tbaa !29
-  %.not47 = icmp eq ptr %.03746, null
-  br i1 %.not47, label %._crit_edge, label %.lr.ph
+  %.03747 = load ptr, ptr %27, align 8, !tbaa !29
+  %.not48 = icmp eq ptr %.03747, null
+  br i1 %.not48, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %36
-  %.03748 = phi ptr [ %.037, %36 ], [ %.03746, %4 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.03748, i64 32
+  %.03749 = phi ptr [ %.037, %36 ], [ %.03747, %4 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.03749, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !30
   %30 = icmp eq ptr %29, %spec.select42
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.03748, i64 40
+  %32 = getelementptr inbounds nuw i8, ptr %.03749, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !31
   %34 = icmp eq ptr %33, %spec.select
   br i1 %34, label %35, label %36
 
 35:                                               ; preds = %31
-  store ptr %.03748, ptr %3, align 8, !tbaa !29
-  br label %83
+  store ptr %.03749, ptr %3, align 8, !tbaa !29
+  br label %82
 
 36:                                               ; preds = %.lr.ph, %31
-  %37 = getelementptr inbounds nuw i8, ptr %.03748, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.03749, i64 56
   %.037 = load ptr, ptr %37, align 8, !tbaa !29
   %.not = icmp eq ptr %.037, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -136,7 +136,7 @@ define range(i32 0, 2) i32 @Fraig_HashTableLookupS(ptr noundef %0, ptr noundef %
   %39 = load i32, ptr %38, align 4, !tbaa !33
   %40 = shl nsw i32 %22, 1
   %.not41 = icmp slt i32 %39, %40
-  br i1 %.not41, label %75, label %41
+  br i1 %.not41, label %74, label %41
 
 41:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
@@ -216,40 +216,40 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %48
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge48.i, label %56, !llvm.loop !36
+  br i1 %exitcond.not.i, label %._crit_edge48.i.thread, label %56, !llvm.loop !36
 
-._crit_edge48.i:                                  ; preds = %._crit_edge.i, %Abc_PrimeCudd.exit.i
+._crit_edge48.i:                                  ; preds = %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i, label %Fraig_TableResizeS.exit, label %73
+  br i1 %.not.i, label %Fraig_TableResizeS.exit, label %._crit_edge48.i.thread
 
-73:                                               ; preds = %._crit_edge48.i
+._crit_edge48.i.thread:                           ; preds = %._crit_edge.i, %._crit_edge48.i
   call void @free(ptr noundef nonnull %.pre.i) #14
   br label %Fraig_TableResizeS.exit
 
-Fraig_TableResizeS.exit:                          ; preds = %._crit_edge48.i, %73
+Fraig_TableResizeS.exit:                          ; preds = %._crit_edge48.i, %._crit_edge48.i.thread
   store ptr %calloc.i, ptr %7, align 8, !tbaa !13
   store i32 %46, ptr %21, align 8, !tbaa !6
-  %74 = urem i64 %20, %53
-  %.pre = and i64 %74, 4294967295
-  br label %75
+  %73 = urem i64 %20, %53
+  %.pre = and i64 %73, 4294967295
+  br label %74
 
-75:                                               ; preds = %Fraig_TableResizeS.exit, %._crit_edge
+74:                                               ; preds = %Fraig_TableResizeS.exit, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %Fraig_TableResizeS.exit ], [ %26, %._crit_edge ]
-  %76 = call ptr @Fraig_NodeCreate(ptr noundef %0, ptr noundef %spec.select42, ptr noundef %spec.select) #14
-  %77 = load ptr, ptr %7, align 8, !tbaa !13
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.pre-phi
-  %79 = load ptr, ptr %78, align 8, !tbaa !29
-  %80 = getelementptr inbounds nuw i8, ptr %76, i64 56
-  store ptr %79, ptr %80, align 8, !tbaa !34
-  store ptr %76, ptr %78, align 8, !tbaa !29
-  store ptr %76, ptr %3, align 8, !tbaa !29
-  %81 = load i32, ptr %38, align 4, !tbaa !33
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %38, align 4, !tbaa !33
-  br label %83
+  %75 = call ptr @Fraig_NodeCreate(ptr noundef %0, ptr noundef %spec.select42, ptr noundef %spec.select) #14
+  %76 = load ptr, ptr %7, align 8, !tbaa !13
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %.pre-phi
+  %78 = load ptr, ptr %77, align 8, !tbaa !29
+  %79 = getelementptr inbounds nuw i8, ptr %75, i64 56
+  store ptr %78, ptr %79, align 8, !tbaa !34
+  store ptr %75, ptr %77, align 8, !tbaa !29
+  store ptr %75, ptr %3, align 8, !tbaa !29
+  %80 = load i32, ptr %38, align 4, !tbaa !33
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %38, align 4, !tbaa !33
+  br label %82
 
-83:                                               ; preds = %75, %35
-  %.038 = phi i32 [ 1, %35 ], [ 0, %75 ]
+82:                                               ; preds = %74, %35
+  %.038 = phi i32 [ 1, %35 ], [ 0, %74 ]
   ret i32 %.038
 }
 

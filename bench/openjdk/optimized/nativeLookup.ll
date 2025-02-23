@@ -686,15 +686,15 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %31, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.02964 = phi ptr [ %28, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
+  %.02958 = phi ptr [ %28, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %32 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.next
   %33 = load ptr, ptr %32, align 8
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #12
-  %35 = call i32 @strncmp(ptr noundef nonnull %33, ptr noundef %.02964, i64 noundef %34) #12
+  %35 = call i32 @strncmp(ptr noundef nonnull %33, ptr noundef %.02958, i64 noundef %34) #12
   %36 = icmp eq i32 %35, 0
   %spec.select.idx = select i1 %36, i64 %34, i64 0
-  %spec.select = getelementptr inbounds i8, ptr %.02964, i64 %spec.select.idx
+  %spec.select = getelementptr inbounds i8, ptr %.02958, i64 %spec.select.idx
   %37 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %37, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
@@ -746,8 +746,8 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %66, align 8
   %67 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not62 = icmp eq i32 %67, 0
-  br i1 %.not62, label %68, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split
+  %.not56 = icmp eq i32 %67, 0
+  br i1 %.not56, label %68, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split
 
 68:                                               ; preds = %65
   %69 = load ptr, ptr %0, align 8
@@ -772,7 +772,7 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %81 = load i32, ptr %80, align 4
   %82 = icmp eq i32 %79, %81
-  br i1 %82, label %83, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
+  br i1 %82, label %83, label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
 83:                                               ; preds = %75
   %84 = add nsw i32 %79, 1
@@ -786,9 +786,9 @@ define hidden noundef ptr @_ZN12NativeLookup21lookup_entry_prefixedERK12methodHa
   %.0.i.i.i.i.i.i36 = select i1 %or.cond.i.i.i.i.i.i, i32 %84, i32 %90
   call void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %78, i32 noundef %.0.i.i.i.i.i.i36)
   %.pre.i.i.i = load i32, ptr %78, align 8
-  br label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
+  br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %83, %75
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %83, %75
   %91 = phi i32 [ %.pre.i.i.i, %83 ], [ %79, %75 ]
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %78, align 8
@@ -801,8 +801,8 @@ _ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit:      ; preds = %83, %75
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split: ; preds = %65, %47, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit
-  %.1.ph = phi ptr [ %97, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit ], [ null, %47 ], [ null, %65 ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread.sink.split: ; preds = %47, %65, %_ZN16SymbolHandleBaseILb1EED2Ev.exit
+  %.1.ph = phi ptr [ %97, %_ZN16SymbolHandleBaseILb1EED2Ev.exit ], [ null, %65 ], [ null, %47 ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %41) #11
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit.thread
 

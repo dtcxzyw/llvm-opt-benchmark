@@ -5175,111 +5175,111 @@ _ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.thread: ; preds = %9, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildMergeLikeInstrERKNS_5DstOpESt16initializer_listINS_5SrcOpEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
-  %5 = icmp eq i64 %3, 0
-  %spec.select.i = select i1 %5, ptr null, ptr %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !141
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %9 = load i32, ptr %8, align 8, !tbaa !220
-  switch i32 %9, label %24 [
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %6 = load ptr, ptr %5, align 8, !tbaa !141
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %8 = load i32, ptr %7, align 8, !tbaa !220
+  switch i32 %8, label %23 [
     i32 2, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
     i32 0, label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
-    i32 1, label %10
-    i32 3, label %22
+    i32 1, label %9
+    i32 3, label %21
   ]
 
-10:                                               ; preds = %4
+9:                                                ; preds = %4
   %.sroa.0.0.copyload.i.i = load i32, ptr %1, align 8, !tbaa !223
-  %11 = icmp slt i32 %.sroa.0.0.copyload.i.i, 0
-  br i1 %11, label %12, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
+  %10 = icmp slt i32 %.sroa.0.0.copyload.i.i, 0
+  br i1 %10, label %11, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
 
-12:                                               ; preds = %10
-  %13 = and i32 %.sroa.0.0.copyload.i.i, 2147483647
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  %15 = load i32, ptr %14, align 8, !tbaa !276
-  %16 = icmp ugt i32 %15, %13
-  br i1 %16, label %17, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
+11:                                               ; preds = %9
+  %12 = and i32 %.sroa.0.0.copyload.i.i, 2147483647
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 456
+  %14 = load i32, ptr %13, align 8, !tbaa !276
+  %15 = icmp ugt i32 %14, %12
+  br i1 %15, label %16, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
 
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  %19 = zext nneg i32 %13 to i64
-  %20 = load ptr, ptr %18, align 8, !tbaa !277
-  %21 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %20, i64 %19
+16:                                               ; preds = %11
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 448
+  %18 = zext nneg i32 %12 to i64
+  %19 = load ptr, ptr %17, align 8, !tbaa !277
+  %20 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %19, i64 %18
   br label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-22:                                               ; preds = %4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-24:                                               ; preds = %4
+23:                                               ; preds = %4
   unreachable
 
-_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %22, %17, %4
-  %.sroa.0.0.i.in.i = phi ptr [ %23, %22 ], [ %21, %17 ], [ %1, %4 ]
+_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %21, %16, %4
+  %.sroa.0.0.i.in.i = phi ptr [ %22, %21 ], [ %20, %16 ], [ %1, %4 ]
   %.sroa.0.0.i.i = load i64, ptr %.sroa.0.0.i.in.i, align 8, !tbaa !167
-  %25 = and i64 %.sroa.0.0.i.i, -7
-  %spec.select.i.i.i = icmp ne i64 %25, 0
-  %26 = and i64 %.sroa.0.0.i.i, 4
-  %27 = icmp ne i64 %26, 0
-  %28 = and i1 %spec.select.i.i.i, %27
-  br i1 %28, label %29, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
+  %24 = and i64 %.sroa.0.0.i.i, -7
+  %spec.select.i.i.i = icmp ne i64 %24, 0
+  %25 = and i64 %.sroa.0.0.i.i, 4
+  %26 = icmp ne i64 %25, 0
+  %27 = and i1 %spec.select.i.i.i, %26
+  br i1 %27, label %28, label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
 
-29:                                               ; preds = %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
-  %31 = load i32, ptr %30, align 8, !tbaa !236
-  %switch.i.i = icmp eq i32 %31, 1
-  br i1 %switch.i.i, label %39, label %32
+28:                                               ; preds = %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %30 = load i32, ptr %29, align 8, !tbaa !236
+  %switch.i.i = icmp eq i32 %30, 1
+  br i1 %switch.i.i, label %38, label %31
 
-32:                                               ; preds = %29
+31:                                               ; preds = %28
   %.sroa.01.0.copyload.i.i = load i32, ptr %2, align 8, !tbaa !223
-  %33 = icmp slt i32 %.sroa.01.0.copyload.i.i, 0
-  br i1 %33, label %34, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+  %32 = icmp slt i32 %.sroa.01.0.copyload.i.i, 0
+  br i1 %32, label %33, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-34:                                               ; preds = %32
-  %35 = and i32 %.sroa.01.0.copyload.i.i, 2147483647
-  %36 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  %37 = load i32, ptr %36, align 8, !tbaa !276
-  %38 = icmp ugt i32 %37, %35
-  br i1 %38, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+33:                                               ; preds = %31
+  %34 = and i32 %.sroa.01.0.copyload.i.i, 2147483647
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 456
+  %36 = load i32, ptr %35, align 8, !tbaa !276
+  %37 = icmp ugt i32 %36, %34
+  br i1 %37, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !214
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8, !tbaa !245
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !167
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %47, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+38:                                               ; preds = %28
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !214
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %42 = load ptr, ptr %41, align 8, !tbaa !245
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %44 = load i32, ptr %43, align 4, !tbaa !167
+  %45 = icmp slt i32 %44, 0
+  br i1 %45, label %46, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-47:                                               ; preds = %39
-  %48 = and i32 %45, 2147483647
-  %49 = getelementptr inbounds nuw i8, ptr %7, i64 456
-  %50 = load i32, ptr %49, align 8, !tbaa !276
-  %51 = icmp ugt i32 %50, %48
-  br i1 %51, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+46:                                               ; preds = %38
+  %47 = and i32 %44, 2147483647
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 456
+  %49 = load i32, ptr %48, align 8, !tbaa !276
+  %50 = icmp ugt i32 %49, %47
+  br i1 %50, label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; preds = %47, %34
-  %.sink9.i.i = phi i32 [ %35, %34 ], [ %48, %47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 448
-  %53 = zext nneg i32 %.sink9.i.i to i64
-  %54 = load ptr, ptr %52, align 8, !tbaa !277
-  %55 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %54, i64 %53
-  %56 = load i64, ptr %55, align 8, !tbaa !167
+_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i: ; preds = %46, %33
+  %.sink9.i.i = phi i32 [ %34, %33 ], [ %47, %46 ]
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 448
+  %52 = zext nneg i32 %.sink9.i.i to i64
+  %53 = load ptr, ptr %51, align 8, !tbaa !277
+  %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
+  %55 = load i64, ptr %54, align 8, !tbaa !167
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
 
-_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, %47, %39, %34, %32
-  %.sroa.04.0.i.i = phi i64 [ 0, %34 ], [ 0, %32 ], [ 0, %47 ], [ 0, %39 ], [ %56, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
-  %57 = and i64 %.sroa.04.0.i.i, -7
-  %spec.select.i.i2.i = icmp ne i64 %57, 0
-  %58 = and i64 %.sroa.04.0.i.i, 4
-  %59 = icmp ne i64 %58, 0
-  %60 = and i1 %spec.select.i.i2.i, %59
-  %..i = select i1 %60, i32 79, i32 77
+_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i: ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i, %46, %38, %33, %31
+  %.sroa.04.0.i.i = phi i64 [ 0, %33 ], [ 0, %31 ], [ 0, %46 ], [ 0, %38 ], [ %55, %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i.i ]
+  %56 = and i64 %.sroa.04.0.i.i, -7
+  %spec.select.i.i2.i = icmp ne i64 %56, 0
+  %57 = and i64 %.sroa.04.0.i.i, 4
+  %58 = icmp ne i64 %57, 0
+  %59 = and i1 %spec.select.i.i2.i, %58
+  %..i = select i1 %59, i32 79, i32 77
   br label %_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit
 
-_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit: ; preds = %4, %10, %12, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
-  %.0.i = phi i32 [ %..i, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i ], [ 76, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i ], [ 76, %4 ], [ 76, %12 ], [ 76, %10 ]
+_ZNK4llvm16MachineIRBuilder17getOpcodeForMergeERKNS_5DstOpENS_8ArrayRefINS_5SrcOpEEE.exit: ; preds = %4, %9, %11, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i
+  %.0.i = phi i32 [ %..i, %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i ], [ 76, %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit.i ], [ 76, %4 ], [ 76, %11 ], [ 76, %9 ]
+  %60 = icmp eq i64 %3, 0
+  %spec.select.i = select i1 %60, ptr null, ptr %2
   %61 = load ptr, ptr %0, align 8, !tbaa !143
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load ptr, ptr %62, align 8

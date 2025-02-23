@@ -4172,7 +4172,7 @@ while.body.i.i58.i:                               ; preds = %for.body75.i, %whil
   br i1 %cmp.i1.i.i63.i, label %while.body.i.i58.i, label %for.inc91.i, !llvm.loop !32
 
 for.inc91.i:                                      ; preds = %while.body.i.i58.i, %for.body75.i
-  %call.i65.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin267.sroa.0.0301.i) #34
+  %call.i65.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin267.sroa.0.0301.i) #34
   %cmp.i51.not.i = icmp eq ptr %call.i65.i, %73
   br i1 %cmp.i51.not.i, label %for.end93.i, label %for.body75.i
 
@@ -4650,7 +4650,7 @@ if.then.i.i.i104.i:                               ; preds = %if.then.i.i102.i
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager18RouteConfigWatcherEED2Ev.exit.i: ; preds = %if.then.i.i.i104.i, %if.then.i.i102.i, %invoke.cont127.i, %invoke.cont127.thread.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp122.i) #29
-  %call.i111.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin299.sroa.0.0303.i) #34
+  %call.i111.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin299.sroa.0.0303.i) #34
   %cmp.i73.not.i = icmp eq ptr %call.i111.i, %72
   br i1 %cmp.i73.not.i, label %for.end130.i, label %invoke.cont110.i
 
@@ -10773,7 +10773,7 @@ if.then.i120.i:                                   ; preds = %lor.rhs.i.i, %_ZNSt
   %cmp.i19.i.i = phi i1 [ true, %_ZNSt3mapIPKN9grpc_core19XdsListenerResource15FilterChainDataENS0_12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager20CertificateProvidersESt4lessIS4_ESaISt4pairIKS4_S9_EEE11lower_boundERSD_.exit.i.i ], [ false, %lor.rhs.i.i ], [ true, %invoke.cont187.i ]
   %__y.addr.0.lcssa.i.i.i18.i.i = phi ptr [ %__y.addr.1.i.i.i.i.i, %_ZNSt3mapIPKN9grpc_core19XdsListenerResource15FilterChainDataENS0_12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager20CertificateProvidersESt4lessIS4_ESaISt4pairIKS4_S9_EEE11lower_boundERSD_.exit.i.i ], [ %__y.addr.1.i.i.i.i.i, %lor.rhs.i.i ], [ %add.ptr.i.i.i.i, %invoke.cont187.i ]
   %call5.i.i.i.i.i.i.i.i124.i = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
-          to label %call5.i.i.i.i.i.i.i.i.noexc.i unwind label %lpad189.i, !noalias !89
+          to label %call5.i.i.i.i.i.i.i.i.noexc.i unwind label %if.then.i166.i, !noalias !89
 
 call5.i.i.i.i.i.i.i.i.noexc.i:                    ; preds = %if.then.i120.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i124.i, i64 32
@@ -11178,14 +11178,14 @@ ehcleanup185.i:                                   ; preds = %lpad182.i, %lpad179
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp178.i) #29, !noalias !89
   br label %ehcleanup194.i
 
-lpad189.i:                                        ; preds = %if.then.i120.i
+if.then.i166.i:                                   ; preds = %if.then.i120.i
   %368 = landingpad { ptr, i32 }
           cleanup
   %369 = atomicrmw sub ptr %refs_.i.i117.i, i64 1 acq_rel, align 8, !noalias !89
   %cmp.i.i.i168.i = icmp eq i64 %369, 1
   br i1 %cmp.i.i.i168.i, label %if.then.i.i169.i, label %ehcleanup194.i
 
-if.then.i.i169.i:                                 ; preds = %lpad189.i
+if.then.i.i169.i:                                 ; preds = %if.then.i166.i
   %vtable.i.i.i170.i = load ptr, ptr %311, align 8, !noalias !89
   %vfn.i.i.i171.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i170.i, i64 8
   %370 = load ptr, ptr %vfn.i.i.i171.i, align 8, !noalias !89
@@ -11250,8 +11250,8 @@ if.then.i.i12.i.i:                                ; preds = %if.then.i9.i.i
   call void %379(ptr noundef nonnull align 8 dereferenceable(16) %377) #29
   br label %cleanup195.i
 
-ehcleanup194.i:                                   ; preds = %if.then.i.i169.i, %lpad189.i, %ehcleanup185.i, %ehcleanup173.i, %ehcleanup129.i, %lpad.i.i127, %ehcleanup88.i139, %ehcleanup.i141, %lpad18.i
-  %.pn12.i = phi { ptr, i32 } [ %.pn10.i, %ehcleanup185.i ], [ %.pn7.pn.i, %ehcleanup173.i ], [ %.pn4.pn.i, %ehcleanup129.i ], [ %.pn2.i, %ehcleanup88.i139 ], [ %.pn.i142, %ehcleanup.i141 ], [ %275, %lpad18.i ], [ %294, %lpad.i.i127 ], [ %368, %lpad189.i ], [ %368, %if.then.i.i169.i ]
+ehcleanup194.i:                                   ; preds = %if.then.i.i169.i, %if.then.i166.i, %ehcleanup185.i, %ehcleanup173.i, %ehcleanup129.i, %lpad.i.i127, %ehcleanup88.i139, %ehcleanup.i141, %lpad18.i
+  %.pn12.i = phi { ptr, i32 } [ %.pn10.i, %ehcleanup185.i ], [ %.pn7.pn.i, %ehcleanup173.i ], [ %.pn4.pn.i, %ehcleanup129.i ], [ %.pn2.i, %ehcleanup88.i139 ], [ %.pn.i142, %ehcleanup.i141 ], [ %275, %lpad18.i ], [ %294, %lpad.i.i127 ], [ %368, %if.then.i166.i ], [ %368, %if.then.i.i169.i ]
   call fastcc void @_ZN9grpc_core12_GLOBAL__N_122XdsServerConfigFetcher15ListenerWatcher23FilterChainMatchManager20CertificateProvidersD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %certificate_providers.i) #29
   invoke void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_.i)
           to label %if.then.i267 unwind label %terminate.lpad.i181.i
@@ -17100,7 +17100,7 @@ invoke.cont74:                                    ; preds = %.noexc93, %if.then.
   %59 = phi ptr [ %incdec.ptr.i178, %.noexc93 ], [ %incdec.ptr.i89, %if.then.i88 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp58) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #29
-  %call.i94 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.027) #34
+  %call.i94 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.027) #34
   %cmp.i78.not = icmp eq ptr %call.i94, %add.ptr.i.i77
   br i1 %cmp.i78.not, label %for.end, label %invoke.cont64
 

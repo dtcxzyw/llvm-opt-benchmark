@@ -3286,7 +3286,7 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %861
   %.not168.i = icmp eq ptr %939, %925
   br i1 %.not168.i, label %._crit_edge.i139, label %.lr.ph259.i
 
-._crit_edge264.i:                                 ; preds = %.lr.ph263.i, %955
+.lr.ph.i196.i:                                    ; preds = %.lr.ph263.i, %955
   %indvars.iv.i197.i = phi i64 [ %940, %955 ], [ %wide.trip.count.i, %.lr.ph263.i ]
   %940 = add nsw i64 %indvars.iv.i197.i, -1
   %941 = load i32, ptr %27, align 8, !tbaa !282
@@ -3294,11 +3294,11 @@ _ZNK4llvm9InlineAsm4Flag21hasRegClassConstraintERj.exit.i: ; preds = %861
   %.not.i.wide.i.i142 = icmp ult i64 %940, %942
   br i1 %.not.i.wide.i.i142, label %_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i198.i, label %943
 
-943:                                              ; preds = %._crit_edge264.i
+943:                                              ; preds = %.lr.ph.i196.i
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str.12, i1 noundef zeroext true) #18
   unreachable
 
-_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i198.i: ; preds = %._crit_edge264.i
+_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i198.i: ; preds = %.lr.ph.i196.i
   %944 = trunc nuw i64 %indvars.iv.i197.i to i32
   %945 = sub i32 %941, %944
   %946 = zext i32 %945 to i64
@@ -3321,7 +3321,7 @@ _ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i198.i: ; preds = %._crit_edge264.i
 
 955:                                              ; preds = %954, %_ZNK12_GLOBAL__N_13FPS13getStackEntryEj.exit.i198.i
   %.not.wide.i.i144 = icmp eq i64 %940, 0
-  br i1 %.not.wide.i.i144, label %_ZN12_GLOBAL__N_13FPS15shuffleStackTopEPKhjN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEE.exit.loopexit.i, label %._crit_edge264.i
+  br i1 %.not.wide.i.i144, label %_ZN12_GLOBAL__N_13FPS15shuffleStackTopEPKhjN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEE.exit.loopexit.i, label %.lr.ph.i196.i
 
 _ZN12_GLOBAL__N_13FPS15shuffleStackTopEPKhjN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEE.exit.loopexit.i: ; preds = %955, %953
   %.pre294.i = load i24, ptr %302, align 8
@@ -3343,7 +3343,7 @@ _ZN12_GLOBAL__N_13FPS15shuffleStackTopEPKhjN4llvm26MachineInstrBundleIteratorINS
   store i8 %958, ptr %959, align 1, !tbaa !161
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge264.i, label %.lr.ph263.i, !llvm.loop !382
+  br i1 %exitcond.not.i, label %.lr.ph.i196.i, label %.lr.ph263.i, !llvm.loop !382
 
 ._crit_edge271.i:                                 ; preds = %.critedge4.i, %_ZN12_GLOBAL__N_13FPS15shuffleStackTopEPKhjN4llvm26MachineInstrBundleIteratorINS3_12MachineInstrELb0EEE.exit.i
   %960 = load i32, ptr %27, align 8, !tbaa !282

@@ -145,9 +145,8 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %20, %2
   br label %39
 
 39:                                               ; preds = %4, %6, %11, %pmix_obj_new_tma.exit
-  %.0 = phi i32 [ 0, %pmix_obj_new_tma.exit ], [ %3, %11 ], [ %3, %6 ], [ %3, %4 ]
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %2) #16
-  ret i32 %.0
+  ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable

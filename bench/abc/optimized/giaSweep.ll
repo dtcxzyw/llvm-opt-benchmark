@@ -3677,8 +3677,8 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %89
   br i1 %exitcond.not, label %.critedge4, label %100, !llvm.loop !85
 
 .critedge4:                                       ; preds = %100, %.lr.ph78, %94
-  tail call void @Gia_ManDupRemapEquiv(ptr noundef nonnull %0, ptr noundef %87) #19
-  tail call void @Gia_ManStop(ptr noundef %87) #19
+  tail call void @Gia_ManDupRemapEquiv(ptr noundef nonnull %0, ptr noundef nonnull %87) #19
+  tail call void @Gia_ManStop(ptr noundef nonnull %87) #19
   ret void
 }
 
@@ -3727,12 +3727,12 @@ Vec_IntFindMax.exit:                              ; preds = %.lr.ph.i, %6, %13
   %.012.i = phi i32 [ 0, %6 ], [ %16, %13 ], [ %spec.select.i, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, i8 0, i64 12, i1 false)
-  %20 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef %0) #19
+  %20 = tail call ptr @Gia_ManDupUnnormalize(ptr noundef nonnull %0) #19
   %21 = icmp eq ptr %20, null
   br i1 %21, label %76, label %22
 
 22:                                               ; preds = %Vec_IntFindMax.exit
-  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %20, ptr noundef %0) #19
+  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %20, ptr noundef nonnull %0) #19
   %.not73 = icmp slt i32 %.012.i, 1
   br i1 %.not73, label %._crit_edge, label %.lr.ph
 
@@ -3777,15 +3777,15 @@ Vec_IntCountEntry.exit:                           ; preds = %33
 40:                                               ; preds = %Vec_IntCountEntry.exit
   %41 = getelementptr inbounds nuw i8, ptr %.04876, i64 528
   %42 = load ptr, ptr %41, align 8, !tbaa !57
-  %43 = tail call ptr @Gia_ManDupCollapse(ptr noundef %.04876, ptr noundef %42, ptr noundef null, i32 noundef 1) #19
+  %43 = tail call ptr @Gia_ManDupCollapse(ptr noundef nonnull %.04876, ptr noundef %42, ptr noundef null, i32 noundef 1) #19
   %44 = load ptr, ptr %26, align 8, !tbaa !51
   tail call void @Gia_ManSweepComputeOneDomainEquivs(ptr noundef %43, ptr noundef %44, i32 noundef %.04974, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  %45 = call ptr @Gia_ManFraigSelectReprs(ptr noundef %.04876, ptr noundef %43, i32 noundef %4, ptr noundef nonnull %7)
+  %45 = call ptr @Gia_ManFraigSelectReprs(ptr noundef nonnull %.04876, ptr noundef %43, i32 noundef %4, ptr noundef nonnull %7)
   tail call void @Gia_ManStop(ptr noundef %43) #19
-  tail call void @Gia_ManTransferTiming(ptr noundef %0, ptr noundef %.04876) #19
-  %46 = tail call ptr @Gia_ManFraigReduceGia(ptr noundef %.04876, ptr noundef %45)
-  tail call void @Gia_ManTransferTiming(ptr noundef %46, ptr noundef %0) #19
-  tail call void @Gia_ManStop(ptr noundef %.04876) #19
+  tail call void @Gia_ManTransferTiming(ptr noundef nonnull %0, ptr noundef nonnull %.04876) #19
+  %46 = tail call ptr @Gia_ManFraigReduceGia(ptr noundef nonnull %.04876, ptr noundef %45)
+  tail call void @Gia_ManTransferTiming(ptr noundef %46, ptr noundef nonnull %0) #19
+  tail call void @Gia_ManStop(ptr noundef nonnull %.04876) #19
   %.not53 = icmp eq ptr %45, null
   br i1 %.not53, label %48, label %47
 
@@ -3847,9 +3847,9 @@ Vec_IntCountEntry.exit.thread:                    ; preds = %25, %Vec_IntCountEn
 
 ._crit_edge:                                      ; preds = %Vec_IntCountEntry.exit.thread, %22
   %.048.lcssa = phi ptr [ %20, %22 ], [ %.1, %Vec_IntCountEntry.exit.thread ]
-  %75 = tail call ptr @Gia_ManDupNormalize(ptr noundef %.048.lcssa, i32 noundef 0) #19
-  tail call void @Gia_ManTransferTiming(ptr noundef %75, ptr noundef %.048.lcssa) #19
-  tail call void @Gia_ManStop(ptr noundef %.048.lcssa) #19
+  %75 = tail call ptr @Gia_ManDupNormalize(ptr noundef nonnull %.048.lcssa, i32 noundef 0) #19
+  tail call void @Gia_ManTransferTiming(ptr noundef %75, ptr noundef nonnull %.048.lcssa) #19
+  tail call void @Gia_ManStop(ptr noundef nonnull %.048.lcssa) #19
   br label %76
 
 76:                                               ; preds = %Vec_IntFindMax.exit, %._crit_edge
@@ -4002,9 +4002,9 @@ Vec_IntCountEntry.exit67:                         ; preds = %55, %46
   br label %73
 
 73:                                               ; preds = %61, %Vec_IntCountEntry.exit67
-  %74 = tail call ptr @Gia_ManDupNormalize(ptr noundef %47, i32 noundef 0) #19
-  tail call void @Gia_ManTransferTiming(ptr noundef %74, ptr noundef %47) #19
-  tail call void @Gia_ManStop(ptr noundef %47) #19
+  %74 = tail call ptr @Gia_ManDupNormalize(ptr noundef nonnull %47, i32 noundef 0) #19
+  tail call void @Gia_ManTransferTiming(ptr noundef %74, ptr noundef nonnull %47) #19
+  tail call void @Gia_ManStop(ptr noundef nonnull %47) #19
   br label %75
 
 75:                                               ; preds = %15, %73, %13

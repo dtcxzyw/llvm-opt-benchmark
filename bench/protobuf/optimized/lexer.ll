@@ -283,7 +283,7 @@ lpad3.loopexit.split-lp.loopexit:                 ; preds = %for.body.i
           cleanup
   br label %lpad3
 
-lpad3.loopexit.split-lp.loopexit.split-lp:        ; preds = %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i, %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.thread.i, %invoke.cont10, %invoke.cont16, %invoke.cont7, %invoke.cont5, %invoke.cont4
+lpad3.loopexit.split-lp.loopexit.split-lp:        ; preds = %for.body.preheader.i, %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.thread.i, %invoke.cont10, %invoke.cont16, %invoke.cont7, %invoke.cont5, %invoke.cont4
   %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad3
@@ -349,16 +349,16 @@ for.body.i.i.i.i:                                 ; preds = %invoke.cont14, %for
   %spec.select.i.i.i.i = add nuw nsw i64 %__n.06.i.i.i.i, %inc.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.05.i.i.i.i, i64 1
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %add.ptr.i.i.i.i.i
-  br i1 %cmp.not.i.i.i.i, label %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i, label %for.body.i.i.i.i, !llvm.loop !4
+  br i1 %cmp.not.i.i.i.i, label %for.body.preheader.i, label %for.body.i.i.i.i, !llvm.loop !4
 
-_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i: ; preds = %for.body.i.i.i.i
+for.body.preheader.i:                             ; preds = %for.body.i.i.i.i
   %add6.i = add i64 %spec.select.i.i.i.i, %10
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %status_message, i64 noundef %add6.i)
           to label %for.body.i unwind label %lpad3.loopexit.split-lp.loopexit.split-lp
 
-for.body.i:                                       ; preds = %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i, %for.inc19.i
-  %__begin3.038.i = phi ptr [ %incdec.ptr.i, %for.inc19.i ], [ %11, %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i ]
-  %state.037.i = phi i64 [ %state.1.i, %for.inc19.i ], [ %add.i.i, %_ZN4absl12lts_202308027c_countISt17basic_string_viewIcSt11char_traitsIcEEcEEDTclsr3stdE8distanceclsr3stdE7declvalIDTcl5beginclsr3stdE7declvalIRKT_EEEEEEclsr3stdE7declvalIS9_EEEES8_OT0_.exit.i ]
+for.body.i:                                       ; preds = %for.body.preheader.i, %for.inc19.i
+  %__begin3.038.i = phi ptr [ %incdec.ptr.i, %for.inc19.i ], [ %11, %for.body.preheader.i ]
+  %state.037.i = phi i64 [ %state.1.i, %for.inc19.i ], [ %add.i.i, %for.body.preheader.i ]
   %14 = load i8, ptr %__begin3.038.i, align 1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %status_message, i8 noundef signext %14)
           to label %.noexc6 unwind label %lpad3.loopexit.split-lp.loopexit

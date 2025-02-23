@@ -255,7 +255,7 @@ check_retval.exit163:                             ; preds = %81
 105:                                              ; preds = %102
   %106 = call ptr @N_VCloneVectorArray(i32 noundef 3, ptr noundef nonnull %20) #10
   %107 = load i32, ptr %87, align 4, !tbaa !24
-  %108 = call i32 @CVodeSensInit1(ptr noundef %40, i32 noundef 3, i32 noundef %107, ptr noundef nonnull @fS, ptr noundef nonnull %101) #10
+  %108 = call i32 @CVodeSensInit1(ptr noundef nonnull %40, i32 noundef 3, i32 noundef %107, ptr noundef nonnull @fS, ptr noundef nonnull %101) #10
   %109 = icmp slt i32 %108, 0
   br i1 %109, label %check_retval.exit165, label %112
 
@@ -265,7 +265,7 @@ check_retval.exit165:                             ; preds = %105
   br label %199
 
 112:                                              ; preds = %105
-  %113 = call i32 @CVodeSetSensParams(ptr noundef %40, ptr noundef nonnull %11, ptr noundef nonnull %90, ptr noundef %96) #10
+  %113 = call i32 @CVodeSetSensParams(ptr noundef nonnull %40, ptr noundef nonnull %11, ptr noundef nonnull %90, ptr noundef nonnull %96) #10
   %114 = icmp slt i32 %113, 0
   br i1 %114, label %check_retval.exit167, label %117
 
@@ -275,7 +275,7 @@ check_retval.exit167:                             ; preds = %112
   br label %199
 
 117:                                              ; preds = %112
-  %118 = call i32 @CVodeSensEEtolerances(ptr noundef %40) #10
+  %118 = call i32 @CVodeSensEEtolerances(ptr noundef nonnull %40) #10
   %119 = icmp slt i32 %118, 0
   br i1 %119, label %check_retval.exit169, label %122
 
@@ -286,7 +286,7 @@ check_retval.exit169:                             ; preds = %117
 
 122:                                              ; preds = %117
   %123 = load i32, ptr %88, align 4, !tbaa !25
-  %124 = call i32 @CVodeSetSensErrCon(ptr noundef %40, i32 noundef %123) #10
+  %124 = call i32 @CVodeSetSensErrCon(ptr noundef nonnull %40, i32 noundef %123) #10
   %125 = icmp slt i32 %124, 0
   br i1 %125, label %check_retval.exit171, label %128
 
@@ -296,7 +296,7 @@ check_retval.exit171:                             ; preds = %122
   br label %199
 
 128:                                              ; preds = %122
-  %129 = call fastcc i32 @runCVode(ptr noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
+  %129 = call fastcc i32 @runCVode(ptr noundef nonnull %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %check_retval.exit173, label %133
 
@@ -310,7 +310,7 @@ check_retval.exit173:                             ; preds = %128
   store double 2.000000e+04, ptr %12, align 8, !tbaa !11
   store double 2.900000e+07, ptr %13, align 8, !tbaa !11
   store i32 0, ptr %10, align 8, !tbaa !22
-  %134 = call i32 @CVodeReInit(ptr noundef %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
+  %134 = call i32 @CVodeReInit(ptr noundef nonnull %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
   %135 = icmp slt i32 %134, 0
   br i1 %135, label %check_retval.exit175, label %138
 
@@ -320,7 +320,7 @@ check_retval.exit175:                             ; preds = %133
   br label %199
 
 138:                                              ; preds = %133
-  %139 = call i32 @CVodeSensToggleOff(ptr noundef %40) #10
+  %139 = call i32 @CVodeSensToggleOff(ptr noundef nonnull %40) #10
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %check_retval.exit177, label %143
 
@@ -330,7 +330,7 @@ check_retval.exit177:                             ; preds = %138
   br label %199
 
 143:                                              ; preds = %138
-  %144 = call fastcc i32 @runCVode(ptr noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
+  %144 = call fastcc i32 @runCVode(ptr noundef nonnull %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
   %145 = icmp slt i32 %144, 0
   br i1 %145, label %check_retval.exit179, label %148
 
@@ -345,7 +345,7 @@ check_retval.exit179:                             ; preds = %143
   store double 2.800000e+07, ptr %13, align 8, !tbaa !11
   store i32 1, ptr %10, align 8, !tbaa !22
   store i32 1, ptr %89, align 8, !tbaa !26
-  %149 = call i32 @CVodeReInit(ptr noundef %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
+  %149 = call i32 @CVodeReInit(ptr noundef nonnull %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
   %150 = icmp slt i32 %149, 0
   br i1 %150, label %check_retval.exit181, label %153
 
@@ -355,9 +355,9 @@ check_retval.exit181:                             ; preds = %148
   br label %199
 
 153:                                              ; preds = %148
-  call void @CVodeSensFree(ptr noundef %40) #10
+  call void @CVodeSensFree(ptr noundef nonnull %40) #10
   %154 = load i32, ptr %87, align 4, !tbaa !24
-  %155 = call i32 @CVodeSensInit1(ptr noundef %40, i32 noundef 3, i32 noundef %154, ptr noundef null, ptr noundef nonnull %101) #10
+  %155 = call i32 @CVodeSensInit1(ptr noundef nonnull %40, i32 noundef 3, i32 noundef %154, ptr noundef null, ptr noundef nonnull %101) #10
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %check_retval.exit183, label %159
 
@@ -367,7 +367,7 @@ check_retval.exit183:                             ; preds = %153
   br label %199
 
 159:                                              ; preds = %153
-  %160 = call fastcc i32 @runCVode(ptr noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
+  %160 = call fastcc i32 @runCVode(ptr noundef nonnull %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
   %161 = icmp slt i32 %160, 0
   br i1 %161, label %check_retval.exit185, label %164
 
@@ -381,7 +381,7 @@ check_retval.exit185:                             ; preds = %159
   store i32 0, ptr %88, align 4, !tbaa !25
   store i32 0, ptr %89, align 8, !tbaa !26
   store i32 2, ptr %87, align 4, !tbaa !24
-  %165 = call i32 @CVodeReInit(ptr noundef %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
+  %165 = call i32 @CVodeReInit(ptr noundef nonnull %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
   %166 = icmp slt i32 %165, 0
   br i1 %166, label %check_retval.exit187, label %169
 
@@ -392,7 +392,7 @@ check_retval.exit187:                             ; preds = %164
 
 169:                                              ; preds = %164
   %170 = load i32, ptr %88, align 4, !tbaa !25
-  %171 = call i32 @CVodeSetSensErrCon(ptr noundef %40, i32 noundef %170) #10
+  %171 = call i32 @CVodeSetSensErrCon(ptr noundef nonnull %40, i32 noundef %170) #10
   %172 = icmp slt i32 %171, 0
   br i1 %172, label %check_retval.exit189, label %175
 
@@ -402,9 +402,9 @@ check_retval.exit189:                             ; preds = %169
   br label %199
 
 175:                                              ; preds = %169
-  call void @CVodeSensFree(ptr noundef %40) #10
+  call void @CVodeSensFree(ptr noundef nonnull %40) #10
   %176 = load i32, ptr %87, align 4, !tbaa !24
-  %177 = call i32 @CVodeSensInit1(ptr noundef %40, i32 noundef 3, i32 noundef %176, ptr noundef nonnull @fS, ptr noundef nonnull %101) #10
+  %177 = call i32 @CVodeSensInit1(ptr noundef nonnull %40, i32 noundef 3, i32 noundef %176, ptr noundef nonnull @fS, ptr noundef nonnull %101) #10
   %178 = icmp slt i32 %177, 0
   br i1 %178, label %check_retval.exit191, label %181
 
@@ -414,7 +414,7 @@ check_retval.exit191:                             ; preds = %175
   br label %199
 
 181:                                              ; preds = %175
-  %182 = call fastcc i32 @runCVode(ptr noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
+  %182 = call fastcc i32 @runCVode(ptr noundef nonnull %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
   %183 = icmp slt i32 %182, 0
   br i1 %183, label %check_retval.exit193, label %186
 
@@ -425,8 +425,8 @@ check_retval.exit193:                             ; preds = %181
 
 186:                                              ; preds = %181
   store i32 0, ptr %10, align 8, !tbaa !22
-  call void @CVodeSensFree(ptr noundef %40) #10
-  %187 = call i32 @CVodeReInit(ptr noundef %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
+  call void @CVodeSensFree(ptr noundef nonnull %40) #10
+  %187 = call i32 @CVodeReInit(ptr noundef nonnull %40, double noundef 0.000000e+00, ptr noundef nonnull %15) #10
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %check_retval.exit195, label %191
 
@@ -436,7 +436,7 @@ check_retval.exit195:                             ; preds = %186
   br label %199
 
 191:                                              ; preds = %186
-  %192 = call fastcc i32 @runCVode(ptr noundef %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
+  %192 = call fastcc i32 @runCVode(ptr noundef nonnull %40, ptr noundef nonnull %20, ptr noundef nonnull %10)
   %193 = icmp slt i32 %192, 0
   br i1 %193, label %check_retval.exit197, label %196
 
@@ -451,7 +451,7 @@ check_retval.exit197:                             ; preds = %191
   call void @N_VDestroy(ptr noundef nonnull %25) #10
   call void @N_VDestroyVectorArray(ptr noundef nonnull %101, i32 noundef 3) #10
   call void @N_VDestroyVectorArray(ptr noundef %106, i32 noundef 3) #10
-  call void @free(ptr noundef %96) #10
+  call void @free(ptr noundef nonnull %96) #10
   call void @free(ptr noundef nonnull %90) #10
   call void @free(ptr noundef nonnull %10) #10
   call void @CVodeFree(ptr noundef nonnull %3) #10

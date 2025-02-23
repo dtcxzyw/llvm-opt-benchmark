@@ -1597,7 +1597,7 @@ define ptr @Abc_NodeStrash(ptr noundef %0, ptr noundef %1, i32 %2) local_unnamed
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = trunc nuw nsw i64 %indvars.iv to i32
-  %31 = tail call ptr @Hop_IthVar(ptr noundef %6, i32 noundef %30) #12
+  %31 = tail call ptr @Hop_IthVar(ptr noundef nonnull %6, i32 noundef %30) #12
   store ptr %29, ptr %31, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val21 = load i32, ptr %16, align 4, !tbaa !71
@@ -1759,7 +1759,7 @@ define ptr @Abc_NtkTopmost(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %23 = sext i32 %.val34.val to i64
   %24 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !10
-  %26 = tail call ptr @Abc_NtkTopmost_rec(ptr noundef %6, ptr noundef %25, i32 noundef %5)
+  %26 = tail call ptr @Abc_NtkTopmost_rec(ptr noundef nonnull %6, ptr noundef %25, i32 noundef %5)
   %27 = getelementptr i8, ptr %19, i64 20
   %.val35 = load i32, ptr %27, align 4
   %28 = lshr i32 %.val35, 10
@@ -1768,7 +1768,7 @@ define ptr @Abc_NtkTopmost(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %31 = zext nneg i32 %29 to i64
   %32 = xor i64 %31, %30
   %33 = inttoptr i64 %32 to ptr
-  %34 = tail call ptr @Abc_NtkCreateObj(ptr noundef %6, i32 noundef 3) #12
+  %34 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %6, i32 noundef 3) #12
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %34, ptr %35, align 8, !tbaa !34
   tail call void @Abc_ObjAddFanin(ptr noundef %34, ptr noundef %33) #12
@@ -1781,7 +1781,7 @@ define ptr @Abc_NtkTopmost(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %38, label %.lr.ph, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %.lr.ph, %2
-  tail call void @Abc_NtkAddDummyPiNames(ptr noundef %6) #12
+  tail call void @Abc_NtkAddDummyPiNames(ptr noundef nonnull %6) #12
   %.val3644 = load ptr, ptr %14, align 8, !tbaa !44
   %39 = getelementptr i8, ptr %.val3644, i64 4
   %.val36.val45 = load i32, ptr %39, align 4, !tbaa !3
@@ -1808,13 +1808,13 @@ define ptr @Abc_NtkTopmost(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %50, label %.lr.ph48, label %.critedge2, !llvm.loop !75
 
 .critedge2:                                       ; preds = %.lr.ph48, %.critedge
-  %51 = tail call i32 @Abc_NtkCheck(ptr noundef %6) #12
+  %51 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %6) #12
   %.not = icmp eq i32 %51, 0
   br i1 %.not, label %52, label %53
 
 52:                                               ; preds = %.critedge2
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.11)
-  tail call void @Abc_NtkDelete(ptr noundef %6) #12
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %6) #12
   br label %53
 
 53:                                               ; preds = %.critedge2, %52
@@ -1946,7 +1946,7 @@ define ptr @Abc_NtkBottommost(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %.val49.val = load ptr, ptr %17, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw ptr, ptr %.val49.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %20 = tail call ptr @Abc_NtkCreateObj(ptr noundef %3, i32 noundef 2) #12
+  %20 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %3, i32 noundef 2) #12
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 64
   store ptr %20, ptr %21, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1983,7 +1983,7 @@ define ptr @Abc_NtkBottommost(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %35 = sext i32 %.val43.val to i64
   %36 = getelementptr inbounds ptr, ptr %.val42.val.val, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !10
-  %38 = tail call ptr @Abc_NtkBottommost_rec(ptr noundef %3, ptr noundef %37, i32 noundef %1)
+  %38 = tail call ptr @Abc_NtkBottommost_rec(ptr noundef nonnull %3, ptr noundef %37, i32 noundef %1)
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %.val45 = load ptr, ptr %14, align 8, !tbaa !44
   %39 = getelementptr i8, ptr %.val45, i64 4
@@ -2614,7 +2614,7 @@ define ptr @Abc_NtkTopAnd(ptr noundef %0) local_unnamed_addr #0 {
   %.val58.val = load ptr, ptr %34, align 8, !tbaa !9
   %35 = getelementptr inbounds nuw ptr, ptr %.val58.val, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !10
-  %37 = tail call ptr @Abc_NtkDupObj(ptr noundef %19, ptr noundef %36, i32 noundef 1) #12
+  %37 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %19, ptr noundef %36, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val57 = load ptr, ptr %31, align 8, !tbaa !86
   %38 = getelementptr i8, ptr %.val57, i64 4
@@ -2710,7 +2710,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %83
   %.val54 = load ptr, ptr %86, align 8, !tbaa !9
   %88 = getelementptr inbounds nuw ptr, ptr %.val54, i64 %indvars.iv87
   %89 = load ptr, ptr %88, align 8, !tbaa !10
-  %90 = tail call ptr @Abc_NtkCreateObj(ptr noundef %19, i32 noundef 3) #12
+  %90 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %19, i32 noundef 3) #12
   %91 = ptrtoint ptr %89 to i64
   %92 = and i64 %91, -2
   %93 = inttoptr i64 %92 to ptr
@@ -3243,7 +3243,7 @@ define ptr @Abc_NtkPutOnTop(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %.val94.val = load ptr, ptr %18, align 8, !tbaa !9
   %19 = getelementptr inbounds nuw ptr, ptr %.val94.val, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !10
-  %21 = tail call ptr @Abc_NtkDupObj(ptr noundef %6, ptr noundef %20, i32 noundef 1) #12
+  %21 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %6, ptr noundef %20, i32 noundef 1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val92 = load ptr, ptr %15, align 8, !tbaa !86
   %22 = getelementptr i8, ptr %.val92, i64 4

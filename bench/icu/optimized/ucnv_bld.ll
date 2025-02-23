@@ -1786,14 +1786,14 @@ if.end67:                                         ; preds = %do.body, %if.then63
   %call70 = tail call noundef i32 %16(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr46, i32 noundef 4, ptr noundef %cond, ptr noundef nonnull %pErrorCode)
   %17 = load ptr, ptr %swapArray32, align 8
   %codepage = getelementptr inbounds nuw i8, ptr %add.ptr46, i64 64
-  %codepage72 = getelementptr inbounds nuw i8, ptr %cond, i64 64
+  %codepage72 = getelementptr inbounds nuw i8, ptr %add.ptr49, i64 64
   %call73 = tail call noundef i32 %17(ptr noundef nonnull %ds, ptr noundef nonnull %codepage, i32 noundef 4, ptr noundef nonnull %codepage72, ptr noundef nonnull %pErrorCode)
   %swapInvChars = getelementptr inbounds nuw i8, ptr %ds, i64 72
   %18 = load ptr, ptr %swapInvChars, align 8
   %name = getelementptr inbounds nuw i8, ptr %add.ptr46, i64 4
   %call76 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #11
   %conv77 = trunc i64 %call76 to i32
-  %name78 = getelementptr inbounds nuw i8, ptr %cond, i64 4
+  %name78 = getelementptr inbounds nuw i8, ptr %add.ptr49, i64 4
   %call80 = tail call noundef i32 %18(ptr noundef nonnull %ds, ptr noundef nonnull %name, i32 noundef %conv77, ptr noundef nonnull %name78, ptr noundef nonnull %pErrorCode)
   %19 = load i32, ptr %pErrorCode, align 4
   %cmp.i340 = icmp slt i32 %19, 1
@@ -1805,7 +1805,7 @@ if.then83:                                        ; preds = %if.end67
 
 if.end85:                                         ; preds = %if.end67
   %idx.ext86 = zext nneg i32 %call57 to i64
-  %add.ptr91 = getelementptr inbounds nuw i8, ptr %cond, i64 %idx.ext86
+  %add.ptr91 = getelementptr inbounds nuw i8, ptr %add.ptr49, i64 %idx.ext86
   %sub95 = sub nsw i32 %sub, %call57
   br label %20
 

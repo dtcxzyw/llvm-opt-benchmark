@@ -77,7 +77,7 @@ define void @Sim_SymmsStructCompute(ptr noundef %0, ptr noundef readonly capture
   br i1 %exitcond.not.i, label %Sim_SymmsCreateMap.exit, label %26, !llvm.loop !37
 
 Sim_SymmsCreateMap.exit:                          ; preds = %26, %.preheader.i
-  %34 = tail call ptr @Abc_NtkDfs(ptr noundef %0, i32 noundef 0) #7
+  %34 = tail call ptr @Abc_NtkDfs(ptr noundef nonnull %0, i32 noundef 0) #7
   %35 = getelementptr i8, ptr %34, i64 4
   %.val99 = load i32, ptr %35, align 4, !tbaa !25
   %36 = icmp sgt i32 %.val99, 0
@@ -374,8 +374,8 @@ Sim_SymmsPartitionNodes.exit.i:                   ; preds = %154, %43
   %166 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #8
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %166, ptr %167, align 8, !tbaa !43
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %164, ptr noundef readonly %20)
-  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef readonly %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %164, ptr noundef readonly %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef nonnull readonly %0, ptr noundef nonnull %50, ptr noundef nonnull %58, ptr noundef nonnull %164, ptr noundef readonly %20)
+  tail call fastcc void @Sim_SymmsAppendFromGroup(ptr noundef nonnull readonly %0, ptr noundef nonnull %54, ptr noundef nonnull %58, ptr noundef nonnull %164, ptr noundef readonly %20)
   %168 = icmp sgt i32 %163, 0
   br i1 %168, label %.lr.ph.i, label %._crit_edge.i
 

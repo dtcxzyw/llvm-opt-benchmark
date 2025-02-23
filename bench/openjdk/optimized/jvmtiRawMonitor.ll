@@ -105,7 +105,7 @@ define hidden void @_ZN20JvmtiPendingMonitors23transition_raw_monitorsEv() local
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
-  tail call void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %2)
+  tail call void @_ZN15JvmtiRawMonitor9raw_enterEP6Thread(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load ptr, ptr @_ZN20JvmtiPendingMonitors9_monitorsE, align 8
   %14 = load i32, ptr %13, align 4

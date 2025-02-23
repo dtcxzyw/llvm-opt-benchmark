@@ -1362,13 +1362,13 @@ define internal fastcc void @fallbackSort(ptr noundef captures(none) %0, ptr nou
   store i32 %33, ptr %32, align 4, !tbaa !17
   %indvars.iv.next323 = add nuw nsw i64 %indvars.iv322, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count325
-  br i1 %exitcond326.not, label %._crit_edge, label %.lr.ph251, !llvm.loop !55
+  br i1 %exitcond326.not, label %.lr.ph254.preheader, label %.lr.ph251, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %.lr.ph251, %.preheader195
+._crit_edge:                                      ; preds = %.preheader195
   %34 = icmp sgt i32 %3, -64
   br i1 %34, label %.lr.ph254.preheader, label %.preheader194.preheader
 
-.lr.ph254.preheader:                              ; preds = %._crit_edge
+.lr.ph254.preheader:                              ; preds = %.lr.ph251, %._crit_edge
   %35 = sdiv i32 %3, 32
   %smax = add nsw i32 %35, 1
   %36 = zext nneg i32 %smax to i64

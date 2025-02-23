@@ -697,26 +697,26 @@ declare void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24))
 define hidden void @_ZNK4cvc58internal6parser18OverloadedTypeTrie29getOverloadedFunctionForTypesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISC_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cvc5::Term") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4cvc58internal6parser18OverloadedTypeTrie11TypeArgTrieEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not48 = icmp eq ptr %6, null
-  br i1 %.not48, label %48, label %7
+  %.not47 = icmp eq ptr %6, null
+  br i1 %.not47, label %48, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !62
   %11 = load ptr, ptr %3, align 8, !tbaa !65
-  %.not51.not = icmp eq ptr %10, %11
-  br i1 %.not51.not, label %.thread, label %.lr.ph
+  %.not50.not = icmp eq ptr %10, %11
+  br i1 %.not50.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %38
   %12 = phi ptr [ %43, %38 ], [ %11, %7 ]
   %13 = phi i64 [ %41, %38 ], [ 0, %7 ]
-  %.01453 = phi i32 [ %40, %38 ], [ 0, %7 ]
-  %.01552 = phi ptr [ %39, %38 ], [ %8, %7 ]
+  %.01452 = phi i32 [ %40, %38 ], [ 0, %7 ]
+  %.01551 = phi ptr [ %39, %38 ], [ %8, %7 ]
   %14 = getelementptr inbounds nuw %"class.cvc5::Sort", ptr %12, i64 %13
-  %15 = getelementptr inbounds nuw i8, ptr %.01552, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01551, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !46
-  %17 = getelementptr inbounds nuw i8, ptr %.01552, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.01551, i64 8
   %.not10.i.i.i = icmp eq ptr %16, null
   br i1 %.not10.i.i.i, label %_ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.thread, label %.lr.ph.i.i.i
 
@@ -773,7 +773,7 @@ _ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4
 
 38:                                               ; preds = %_ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit
   %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 56
-  %40 = add i32 %.01453, 1
+  %40 = add i32 %.01452, 1
   %41 = zext i32 %40 to i64
   %42 = load ptr, ptr %9, align 8, !tbaa !62
   %43 = load ptr, ptr %3, align 8, !tbaa !65
@@ -782,9 +782,9 @@ _ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 24
   %.not = icmp ugt i64 %47, %41
-  br i1 %.not, label %.lr.ph, label %.thread, !llvm.loop !67
+  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !67
 
-.thread:                                          ; preds = %38, %7
+._crit_edge:                                      ; preds = %38, %7
   %.015.lcssa = phi ptr [ %8, %7 ], [ %39, %38 ]
   tail call void @_ZNK4cvc58internal6parser18OverloadedTypeTrie23getOverloadedFunctionAtEPKNS2_11TypeArgTrieEb(ptr dead_on_unwind writable sret(%"class.cvc5::Term") align 8 %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull %.015.lcssa, i1 noundef zeroext true)
   br label %_ZN4cvc54TermC2ERKS0_.exit29
@@ -819,7 +819,7 @@ _ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4
   %63 = atomicrmw volatile add ptr %57, i32 1 acq_rel, align 4
   br label %_ZN4cvc54TermC2ERKS0_.exit29
 
-_ZN4cvc54TermC2ERKS0_.exit29:                     ; preds = %36, %33, %_ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.thread, %62, %59, %48, %.thread
+_ZN4cvc54TermC2ERKS0_.exit29:                     ; preds = %_ZNKSt3mapIN4cvc54SortENS0_8internal6parser18OverloadedTypeTrie11TypeArgTrieESt4lessIS1_ESaISt4pairIKS1_S5_EEE4findERS9_.exit.thread, %33, %36, %62, %59, %48, %._crit_edge
   ret void
 }
 

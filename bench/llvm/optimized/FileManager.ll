@@ -1568,24 +1568,24 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
   store ptr %23, ptr %.sroa.21.0..sroa_idx.i, align 8, !tbaa !139
   %27 = load ptr, ptr %8, align 8, !tbaa !145
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i7.sink.split
+  br i1 %28, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit, label %29
+
+29:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %30 = load ptr, ptr %27, align 8, !tbaa !39
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
+  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %14
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %30 = load i8, ptr %29, align 8
-  %31 = and i8 %30, -2
-  store i8 %31, ptr %29, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, -2
+  store i8 %35, ptr %33, align 8
   store ptr %18, ptr %0, align 8, !tbaa !164
   br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i7.sink.split: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %32 = load ptr, ptr %27, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8
-  call void %34(ptr noundef nonnull align 8 dereferenceable(8) %27) #18
-  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
-
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i7.sink.split
+_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %29, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, %_ZN4llvm5ErrorD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #18
   ret void
 }

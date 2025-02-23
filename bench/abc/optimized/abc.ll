@@ -8434,17 +8434,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
 
 .outer:                                           ; preds = %10, %3
   %.088.ph = phi ptr [ %13, %10 ], [ null, %3 ]
-  %.085.ph = phi i32 [ %.085.ph211, %10 ], [ 1, %3 ]
+  %.085.ph = phi i32 [ %.085.ph214, %10 ], [ 1, %3 ]
   %.079.ph = phi i32 [ %.079, %10 ], [ 0, %3 ]
-  br label %.outer210
+  br label %.outer213
 
-.outer210:                                        ; preds = %.outer, %17
-  %.085.ph211 = phi i32 [ %.085.ph, %.outer ], [ %18, %17 ]
-  %.079.ph212 = phi i32 [ %.079.ph, %.outer ], [ %.079, %17 ]
+.outer213:                                        ; preds = %.outer, %17
+  %.085.ph214 = phi i32 [ %.085.ph, %.outer ], [ %18, %17 ]
+  %.079.ph215 = phi i32 [ %.079.ph, %.outer ], [ %.079, %17 ]
   br label %5
 
-5:                                                ; preds = %.outer210, %15
-  %.079 = phi i32 [ %16, %15 ], [ %.079.ph212, %.outer210 ]
+5:                                                ; preds = %.outer213, %15
+  %.079 = phi i32 [ %16, %15 ], [ %.079.ph215, %.outer213 ]
   %6 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.729) #32
   switch i32 %6, label %.loopexit [
     i32 -1, label %19
@@ -8475,8 +8475,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   br label %5, !llvm.loop !115
 
 17:                                               ; preds = %5
-  %18 = xor i32 %.085.ph211, 1
-  br label %.outer210, !llvm.loop !115
+  %18 = xor i32 %.085.ph214, 1
+  br label %.outer213, !llvm.loop !115
 
 19:                                               ; preds = %5
   %.not98 = icmp eq i32 %.079, 0
@@ -8518,7 +8518,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %.preheader144
+  br i1 %39, label %40, label %.preheader147
 
 40:                                               ; preds = %36
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.732)
@@ -8529,20 +8529,20 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 368
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !24
   %.not101 = icmp eq ptr %.pre, null
-  br i1 %.not101, label %.critedge, label %.preheader144
+  br i1 %.not101, label %.critedge, label %.preheader147
 
-.preheader144:                                    ; preds = %36, %.thread
+.preheader147:                                    ; preds = %36, %.thread
   %41 = phi ptr [ %.pre, %.thread ], [ %38, %36 ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %43 = getelementptr i8, ptr %41, i64 4
-  %.val112156 = load i32, ptr %43, align 4, !tbaa !25
-  %44 = icmp sgt i32 %.val112156, 0
+  %.val112159 = load i32, ptr %43, align 4, !tbaa !25
+  %44 = icmp sgt i32 %.val112159, 0
   br i1 %44, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader144, %52
-  %45 = phi ptr [ %53, %52 ], [ %41, %.preheader144 ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.preheader144 ]
-  %.083157 = phi i32 [ %.184, %52 ], [ 0, %.preheader144 ]
+.lr.ph:                                           ; preds = %.preheader147, %52
+  %45 = phi ptr [ %53, %52 ], [ %41, %.preheader147 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.preheader147 ]
+  %.083160 = phi i32 [ %.184, %52 ], [ 0, %.preheader147 ]
   %46 = getelementptr i8, ptr %45, i64 8
   %.val114 = load ptr, ptr %46, align 8, !tbaa !27
   %47 = getelementptr inbounds nuw ptr, ptr %.val114, i64 %indvars.iv
@@ -8551,15 +8551,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   br i1 %switch, label %52, label %49
 
 49:                                               ; preds = %.lr.ph
-  %50 = add nsw i32 %.083157, 1
+  %50 = add nsw i32 %.083160, 1
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.733, i32 noundef %50)
   tail call void @Abc_CexPrintStats(ptr noundef nonnull %48) #32
-  %.pre184 = load ptr, ptr %42, align 8, !tbaa !24
+  %.pre187 = load ptr, ptr %42, align 8, !tbaa !24
   br label %52
 
 52:                                               ; preds = %.lr.ph, %49
-  %53 = phi ptr [ %.pre184, %49 ], [ %45, %.lr.ph ]
-  %.184 = phi i32 [ %50, %49 ], [ %.083157, %.lr.ph ]
+  %53 = phi ptr [ %.pre187, %49 ], [ %45, %.lr.ph ]
+  %.184 = phi i32 [ %50, %49 ], [ %.083160, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = getelementptr i8, ptr %53, i64 4
   %.val112 = load i32, ptr %54, align 4, !tbaa !25
@@ -8567,7 +8567,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   %56 = icmp slt i64 %indvars.iv.next, %55
   br i1 %56, label %.lr.ph, label %.critedge, !llvm.loop !118
 
-.critedge:                                        ; preds = %52, %.preheader144, %.thread, %40
+.critedge:                                        ; preds = %52, %.preheader147, %.thread, %40
   %57 = load ptr, ptr %25, align 8, !tbaa !37
   %.not103 = icmp eq ptr %57, null
   br i1 %.not103, label %131, label %58
@@ -8579,17 +8579,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
 59:                                               ; preds = %58
   %60 = tail call noalias ptr @fopen(ptr noundef nonnull %.088.ph, ptr noundef nonnull @.str.734)
   %.not107 = icmp eq ptr %60, null
-  br i1 %.not107, label %.thread136, label %.preheader143
+  br i1 %.not107, label %.thread136, label %.preheader146
 
-.preheader143:                                    ; preds = %59
+.preheader146:                                    ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %62 = load ptr, ptr %61, align 8, !tbaa !24
   %63 = getelementptr i8, ptr %62, i64 4
-  %.val160 = load i32, ptr %63, align 4, !tbaa !25
-  %64 = icmp sgt i32 %.val160, 0
-  br i1 %64, label %.lr.ph162, label %._crit_edge
+  %.val163 = load i32, ptr %63, align 4, !tbaa !25
+  %64 = icmp sgt i32 %.val163, 0
+  br i1 %64, label %.lr.ph165, label %._crit_edge
 
-.lr.ph162:                                        ; preds = %.preheader143
+.lr.ph165:                                        ; preds = %.preheader146
   %65 = getelementptr i8, ptr %4, i64 48
   br label %67
 
@@ -8597,17 +8597,17 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   %66 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.735, ptr noundef nonnull %.088.ph)
   br label %131
 
-67:                                               ; preds = %.lr.ph162, %89
-  %indvars.iv178 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next179, %89 ]
-  %68 = phi ptr [ %62, %.lr.ph162 ], [ %90, %89 ]
+67:                                               ; preds = %.lr.ph165, %89
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next182, %89 ]
+  %68 = phi ptr [ %62, %.lr.ph165 ], [ %90, %89 ]
   %69 = getelementptr i8, ptr %68, i64 8
   %.val113 = load ptr, ptr %69, align 8, !tbaa !27
-  %70 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv178
+  %70 = getelementptr inbounds nuw ptr, ptr %.val113, i64 %indvars.iv181
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = load ptr, ptr %25, align 8, !tbaa !37
   %73 = getelementptr i8, ptr %72, i64 8
   %.val117 = load ptr, ptr %73, align 8, !tbaa !38
-  %74 = getelementptr inbounds nuw i32, ptr %.val117, i64 %indvars.iv178
+  %74 = getelementptr inbounds nuw i32, ptr %.val117, i64 %indvars.iv181
   %75 = load i32, ptr %74, align 4, !tbaa !43
   switch i32 %75, label %82 [
     i32 -1, label %76
@@ -8631,7 +8631,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   %.val119 = load ptr, ptr %65, align 8, !tbaa !84
   %83 = getelementptr i8, ptr %.val119, i64 8
   %.val119.val = load ptr, ptr %83, align 8, !tbaa !27
-  %84 = getelementptr inbounds nuw ptr, ptr %.val119.val, i64 %indvars.iv178
+  %84 = getelementptr inbounds nuw ptr, ptr %.val119.val, i64 %indvars.iv181
   %85 = load ptr, ptr %84, align 8, !tbaa !28
   %86 = tail call ptr @Abc_ObjName(ptr noundef %85) #32
   %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %60, ptr noundef nonnull @.str.739, ptr noundef %86) #32
@@ -8643,27 +8643,27 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   br label %89
 
 89:                                               ; preds = %82, %88
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %90 = load ptr, ptr %61, align 8, !tbaa !24
   %91 = getelementptr i8, ptr %90, i64 4
   %.val = load i32, ptr %91, align 4, !tbaa !25
   %92 = sext i32 %.val to i64
-  %93 = icmp slt i64 %indvars.iv.next179, %92
+  %93 = icmp slt i64 %indvars.iv.next182, %92
   br i1 %93, label %67, label %._crit_edge, !llvm.loop !119
 
-._crit_edge:                                      ; preds = %89, %.preheader143
+._crit_edge:                                      ; preds = %89, %.preheader146
   %94 = tail call i32 @fclose(ptr noundef nonnull %60)
   br label %.critedge4
 
 95:                                               ; preds = %58
-  %.not105 = icmp eq i32 %.085.ph211, 0
+  %.not105 = icmp eq i32 %.085.ph214, 0
   %96 = getelementptr i8, ptr %57, i64 4
-  %.val116163 = load i32, ptr %96, align 4, !tbaa !42
-  %97 = icmp sgt i32 %.val116163, 0
+  %.val116166 = load i32, ptr %96, align 4, !tbaa !42
+  %97 = icmp sgt i32 %.val116166, 0
   br i1 %.not105, label %.preheader, label %98
 
 .preheader:                                       ; preds = %95
-  br i1 %97, label %.lr.ph165, label %.critedge4
+  br i1 %97, label %.lr.ph168, label %.critedge4
 
 98:                                               ; preds = %95
   br i1 %97, label %.lr.ph.i, label %Vec_IntCountEntry.exit135
@@ -8671,7 +8671,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
 .lr.ph.i:                                         ; preds = %98
   %99 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !38
-  %wide.trip.count.i = zext nneg i32 %.val116163 to i64
+  %wide.trip.count.i = zext nneg i32 %.val116166 to i64
   br label %101
 
 101:                                              ; preds = %101, %.lr.ph.i
@@ -8711,30 +8711,30 @@ define internal range(i32 0, 2) i32 @Abc_CommandPrintStatus(ptr noundef %0, i32 
   br i1 %exitcond.not.i134, label %Vec_IntCountEntry.exit135, label %.lr.ph.i129, !llvm.loop !120
 
 Vec_IntCountEntry.exit135:                        ; preds = %.lr.ph.i129, %98
-  %.0.lcssa.i120142 = phi i32 [ 0, %98 ], [ %111, %.lr.ph.i129 ]
-  %.0.lcssa.i138141 = phi i32 [ 0, %98 ], [ %106, %.lr.ph.i129 ]
+  %.0.lcssa.i120144 = phi i32 [ 0, %98 ], [ %111, %.lr.ph.i129 ]
+  %.0.lcssa.i138142 = phi i32 [ 0, %98 ], [ %106, %.lr.ph.i129 ]
   %.0.lcssa.i128 = phi i32 [ 0, %98 ], [ %116, %.lr.ph.i129 ]
-  %117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.740, i32 noundef %.0.lcssa.i138141, i32 noundef %.0.lcssa.i120142, i32 noundef %.0.lcssa.i128, i32 noundef %.val116163)
+  %117 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.740, i32 noundef %.0.lcssa.i138142, i32 noundef %.0.lcssa.i120144, i32 noundef %.0.lcssa.i128, i32 noundef %.val116166)
   br label %.critedge4
 
-.lr.ph165:                                        ; preds = %.preheader, %.lr.ph165
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph165 ], [ 0, %.preheader ]
-  %118 = phi ptr [ %124, %.lr.ph165 ], [ %57, %.preheader ]
+.lr.ph168:                                        ; preds = %.preheader, %.lr.ph168
+  %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph168 ], [ 0, %.preheader ]
+  %118 = phi ptr [ %124, %.lr.ph168 ], [ %57, %.preheader ]
   %119 = getelementptr i8, ptr %118, i64 8
   %.val118 = load ptr, ptr %119, align 8, !tbaa !38
-  %120 = getelementptr inbounds nuw i32, ptr %.val118, i64 %indvars.iv181
+  %120 = getelementptr inbounds nuw i32, ptr %.val118, i64 %indvars.iv184
   %121 = load i32, ptr %120, align 4, !tbaa !43
-  %122 = trunc nuw nsw i64 %indvars.iv181 to i32
+  %122 = trunc nuw nsw i64 %indvars.iv184 to i32
   %123 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.741, i32 noundef %122, i32 noundef %121)
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %124 = load ptr, ptr %25, align 8, !tbaa !37
   %125 = getelementptr i8, ptr %124, i64 4
   %.val116 = load i32, ptr %125, align 4, !tbaa !42
   %126 = sext i32 %.val116 to i64
-  %127 = icmp slt i64 %indvars.iv.next182, %126
-  br i1 %127, label %.lr.ph165, label %.critedge4, !llvm.loop !121
+  %127 = icmp slt i64 %indvars.iv.next185, %126
+  br i1 %127, label %.lr.ph168, label %.critedge4, !llvm.loop !121
 
-.critedge4:                                       ; preds = %.lr.ph165, %.preheader, %._crit_edge, %Vec_IntCountEntry.exit135
+.critedge4:                                       ; preds = %.lr.ph168, %.preheader, %._crit_edge, %Vec_IntCountEntry.exit135
   %putchar = tail call i32 @putchar(i32 10)
   br label %131
 
@@ -8747,7 +8747,7 @@ Vec_IntCountEntry.exit135:                        ; preds = %.lr.ph.i129, %98
   %.not110 = icmp eq i32 %.079, 0
   %129 = select i1 %.not110, ptr @.str.551, ptr @.str.550
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.747, ptr noundef nonnull %129)
-  %.not111 = icmp eq i32 %.085.ph211, 0
+  %.not111 = icmp eq i32 %.085.ph214, 0
   %130 = select i1 %.not111, ptr @.str.551, ptr @.str.550
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.748, ptr noundef nonnull %130)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.749)
@@ -66593,7 +66593,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(non
   br i1 %.not233, label %300, label %299
 
 299:                                              ; preds = %297
-  call void @Gia_ManStop(ptr noundef %214) #32
+  call void @Gia_ManStop(ptr noundef nonnull %214) #32
   br label %300
 
 300:                                              ; preds = %299, %297
@@ -76626,7 +76626,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr noundef captures
 ._crit_edge:                                      ; preds = %.lr.ph, %28
   %32 = load ptr, ptr %20, align 8, !tbaa !60
   %33 = tail call ptr @Gia_ManDupRandPerm(ptr noundef %32) #32
-  tail call void @Abc_FrameUpdateGia(ptr noundef %0, ptr noundef %33)
+  tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %33)
   br label %35
 
 .loopexit:                                        ; preds = %4, %9, %8

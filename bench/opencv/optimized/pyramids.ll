@@ -2747,7 +2747,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %93 = zext nneg i32 %22 to i64
   %94 = zext nneg i32 %22 to i64
   %wide.trip.count305 = zext nneg i32 %13 to i64
-  %wide.trip.count281 = zext i32 %85 to i64
+  %wide.trip.count281 = zext nneg i32 %85 to i64
   %wide.trip.count295 = zext nneg i32 %75 to i64
   %wide.trip.count300 = zext nneg i32 %75 to i64
   br label %102
@@ -3273,7 +3273,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %93 = zext nneg i32 %22 to i64
   %94 = zext nneg i32 %22 to i64
   %wide.trip.count305 = zext nneg i32 %13 to i64
-  %wide.trip.count281 = zext i32 %85 to i64
+  %wide.trip.count281 = zext nneg i32 %85 to i64
   %wide.trip.count295 = zext nneg i32 %75 to i64
   %wide.trip.count300 = zext nneg i32 %75 to i64
   br label %102
@@ -3799,7 +3799,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit224:          ; preds = %.noexc, %_ZN2cv10Au
   %93 = zext nneg i32 %22 to i64
   %94 = zext nneg i32 %22 to i64
   %wide.trip.count305 = zext nneg i32 %13 to i64
-  %wide.trip.count281 = zext i32 %85 to i64
+  %wide.trip.count281 = zext nneg i32 %85 to i64
   %wide.trip.count295 = zext nneg i32 %75 to i64
   %wide.trip.count300 = zext nneg i32 %75 to i64
   br label %102
@@ -4325,7 +4325,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %_ZN2cv10Au
   %93 = zext nneg i32 %22 to i64
   %94 = zext nneg i32 %22 to i64
   %wide.trip.count303 = zext nneg i32 %13 to i64
-  %wide.trip.count279 = zext i32 %85 to i64
+  %wide.trip.count279 = zext nneg i32 %85 to i64
   %wide.trip.count293 = zext nneg i32 %75 to i64
   %wide.trip.count298 = zext nneg i32 %75 to i64
   br label %102
@@ -4832,7 +4832,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %_ZN2cv10Au
   %93 = zext nneg i32 %22 to i64
   %94 = zext nneg i32 %22 to i64
   %wide.trip.count303 = zext nneg i32 %13 to i64
-  %wide.trip.count279 = zext i32 %85 to i64
+  %wide.trip.count279 = zext nneg i32 %85 to i64
   %wide.trip.count293 = zext nneg i32 %75 to i64
   %wide.trip.count298 = zext nneg i32 %75 to i64
   br label %102
@@ -5937,8 +5937,7 @@ define noundef ptr @cvCreatePyramid(ptr noundef %0, i32 noundef %1, double nound
 .lr.ph115:                                        ; preds = %80
   %.not82 = icmp eq ptr %3, null
   %.not83 = icmp eq i32 %5, 0
-  %smax146 = call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %91 = add nuw i32 %smax146, 1
+  %91 = add nuw i32 %1, 1
   %wide.trip.count147 = zext i32 %91 to i64
   br i1 %.not, label %.lr.ph115.split.us, label %.lr.ph115.split
 

@@ -124,7 +124,7 @@ define hidden noundef i32 @_ZNK4ncnn20BatchNorm_x86_avx51215forward_inplaceERNS_
   %.2342.lcssa = phi ptr [ %.1341.lcssa, %.preheader441 ], [ %55, %.lr.ph463 ]
   %.2338.lcssa = phi ptr [ %.1337.lcssa, %.preheader441 ], [ %54, %.lr.ph463 ]
   %49 = icmp slt i32 %.2350.lcssa, %22
-  br i1 %49, label %.lr.ph472, label %._crit_edge
+  br i1 %49, label %.lr.ph472, label %.loopexit
 
 .lr.ph463:                                        ; preds = %.preheader441, %.lr.ph463
   %.2338462 = phi ptr [ %54, %.lr.ph463 ], [ %.1337.lcssa, %.preheader441 ]
@@ -160,7 +160,7 @@ define hidden noundef i32 @_ZNK4ncnn20BatchNorm_x86_avx51215forward_inplaceERNS_
   %67 = getelementptr inbounds nuw i8, ptr %.3347469, i64 4
   %68 = add nuw nsw i32 %.3351468, 1
   %exitcond547.not = icmp eq i32 %68, %22
-  br i1 %exitcond547.not, label %._crit_edge, label %.lr.ph472, !llvm.loop !8
+  br i1 %exitcond547.not, label %.loopexit, label %.lr.ph472, !llvm.loop !8
 
 69:                                               ; preds = %3
   %70 = mul i32 %15, %7
@@ -331,7 +331,7 @@ define hidden noundef i32 @_ZNK4ncnn20BatchNorm_x86_avx51215forward_inplaceERNS_
   %exitcond546.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond546.not, label %._crit_edge, label %80, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %._crit_edge492, %.lr.ph472, %.preheader440, %3
+._crit_edge:                                      ; preds = %._crit_edge492, %3
   %166 = add i32 %5, -3
   %or.cond = icmp ult i32 %166, 2
   br i1 %or.cond, label %167, label %.loopexit
@@ -507,7 +507,7 @@ define hidden noundef i32 @_ZNK4ncnn20BatchNorm_x86_avx51215forward_inplaceERNS_
   %exitcond553.not = icmp eq i64 %indvars.iv.next550, %wide.trip.count552
   br i1 %exitcond553.not, label %.loopexit, label %181, !llvm.loop !18
 
-.loopexit:                                        ; preds = %._crit_edge516, %69, %167, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph472, %._crit_edge516, %.preheader440, %69, %167, %._crit_edge
   ret i32 0
 }
 

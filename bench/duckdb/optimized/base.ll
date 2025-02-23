@@ -322,7 +322,7 @@ base_map.exit:                                    ; preds = %47, %52, %tsd_fetch
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #10
   %84 = icmp eq ptr %.0.i54, null
-  br i1 %84, label %174, label %85
+  br i1 %84, label %172, label %85
 
 85:                                               ; preds = %base_map.exit
   %86 = load i32, ptr @duckdb_je_opt_metadata_thp, align 4, !tbaa !8
@@ -330,7 +330,7 @@ base_map.exit:                                    ; preds = %47, %52, %tsd_fetch
   %88 = load i32, ptr @duckdb_je_init_system_thp_mode, align 4
   %89 = icmp eq i32 %88, 0
   %90 = select i1 %87, i1 %89, i1 false
-  br i1 %90, label %91, label %147
+  br i1 %90, label %91, label %145
 
 91:                                               ; preds = %85
   %92 = icmp eq i32 %86, 2
@@ -338,13 +338,13 @@ base_map.exit:                                    ; preds = %47, %52, %tsd_fetch
 
 93:                                               ; preds = %91
   %94 = call zeroext i1 @duckdb_je_pages_huge(ptr noundef nonnull %.0.i54, i64 noundef %43) #10
-  br label %147
+  br label %145
 
 95:                                               ; preds = %91
   %96 = icmp eq i32 %86, 1
   %97 = icmp ne ptr %1, null
   %or.cond = and i1 %97, %96
-  br i1 %or.cond, label %98, label %147
+  br i1 %or.cond, label %98, label %145
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -401,7 +401,7 @@ malloc_mutex_lock.exit:                           ; preds = %104, %110
 
 base_get_num_blocks.exit.i:                       ; preds = %.preheader58
   %122 = icmp eq i64 %.0.i.i, 2
-  br i1 %122, label %128, label %base_auto_thp_switch.exit
+  br i1 %122, label %128, label %base_auto_thp_switch.exit.thread60
 
 .preheader:                                       ; preds = %117, %.preheader
   %.05.i20.i = phi ptr [ %124, %.preheader ], [ %.val18.i, %117 ]
@@ -414,7 +414,7 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader58
 
 126:                                              ; preds = %.preheader
   %127 = icmp eq i64 %.0.i21.i, 5
-  br i1 %127, label %128, label %base_auto_thp_switch.exit
+  br i1 %127, label %128, label %base_auto_thp_switch.exit.thread60
 
 128:                                              ; preds = %126, %base_get_num_blocks.exit.i
   store i8 1, ptr %114, align 8, !tbaa !30
@@ -441,72 +441,68 @@ base_get_num_blocks.exit.i:                       ; preds = %.preheader58
   %140 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
   %.0.i57 = load ptr, ptr %140, align 8, !tbaa !51
   %.not16.i = icmp eq ptr %.0.i57, null
-  br i1 %.not16.i, label %base_auto_thp_switch.exit.loopexit, label %130
+  br i1 %.not16.i, label %base_auto_thp_switch.exit, label %130
 
-base_auto_thp_switch.exit.loopexit:               ; preds = %130
+base_auto_thp_switch.exit:                        ; preds = %130
   %.pre = load i8, ptr %114, align 8, !tbaa !30, !range !48
-  br label %base_auto_thp_switch.exit
-
-base_auto_thp_switch.exit:                        ; preds = %base_auto_thp_switch.exit.loopexit, %base_get_num_blocks.exit.i, %126
-  %141 = phi i8 [ %.pre, %base_auto_thp_switch.exit.loopexit ], [ %115, %base_get_num_blocks.exit.i ], [ %115, %126 ]
-  %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %base_auto_thp_switch.exit.thread, label %144
+  %141 = trunc nuw i8 %.pre to i1
+  br i1 %141, label %base_auto_thp_switch.exit.thread, label %base_auto_thp_switch.exit.thread60
 
 base_auto_thp_switch.exit.thread:                 ; preds = %128, %malloc_mutex_lock.exit, %base_auto_thp_switch.exit
-  %143 = call zeroext i1 @duckdb_je_pages_huge(ptr noundef nonnull %.0.i54, i64 noundef %43) #10
-  br label %144
+  %142 = call zeroext i1 @duckdb_je_pages_huge(ptr noundef nonnull %.0.i54, i64 noundef %43) #10
+  br label %base_auto_thp_switch.exit.thread60
 
-144:                                              ; preds = %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
-  %145 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store atomic i8 0, ptr %145 monotonic, align 1
-  %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #10
-  br label %147
+base_auto_thp_switch.exit.thread60:               ; preds = %126, %base_get_num_blocks.exit.i, %base_auto_thp_switch.exit.thread, %base_auto_thp_switch.exit
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store atomic i8 0, ptr %143 monotonic, align 1
+  %144 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %99) #10
+  br label %145
 
-147:                                              ; preds = %93, %144, %95, %85
-  %148 = icmp ugt i64 %43, 8070450532247928832
-  br i1 %148, label %sz_psz2ind.exit, label %149, !prof !42
+145:                                              ; preds = %93, %base_auto_thp_switch.exit.thread60, %95, %85
+  %146 = icmp ugt i64 %43, 8070450532247928832
+  br i1 %146, label %sz_psz2ind.exit, label %147, !prof !42
 
-149:                                              ; preds = %147
-  %150 = icmp ne i64 %43, 0
-  call void @llvm.assume(i1 %150)
-  %151 = add nsw i64 %43, -1
-  %152 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %151, i1 true)
-  %153 = trunc nuw nsw i64 %152 to i32
-  %154 = call i32 @llvm.usub.sat.i32(i32 50, i32 %153)
-  %155 = add nuw nsw i32 %154, 11
-  %156 = zext nneg i32 %155 to i64
-  %157 = lshr i64 %151, %156
-  %158 = trunc i64 %157 to i32
-  %159 = and i32 %158, 3
-  %160 = shl nuw nsw i32 %154, 2
-  %161 = or disjoint i32 %159, %160
+147:                                              ; preds = %145
+  %148 = icmp ne i64 %43, 0
+  call void @llvm.assume(i1 %148)
+  %149 = add nsw i64 %43, -1
+  %150 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %149, i1 true)
+  %151 = trunc nuw nsw i64 %150 to i32
+  %152 = call i32 @llvm.usub.sat.i32(i32 50, i32 %151)
+  %153 = add nuw nsw i32 %152, 11
+  %154 = zext nneg i32 %153 to i64
+  %155 = lshr i64 %149, %154
+  %156 = trunc i64 %155 to i32
+  %157 = and i32 %156, 3
+  %158 = shl nuw nsw i32 %152, 2
+  %159 = or disjoint i32 %157, %158
   br label %sz_psz2ind.exit
 
-sz_psz2ind.exit:                                  ; preds = %147, %149
-  %.0.i = phi i32 [ %161, %149 ], [ 199, %147 ]
+sz_psz2ind.exit:                                  ; preds = %145, %147
+  %.0.i = phi i32 [ %159, %147 ], [ 199, %145 ]
   store i32 %.0.i, ptr %3, align 4, !tbaa !8
   store i64 %43, ptr %.0.i54, align 8, !tbaa !17
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 8
-  store ptr null, ptr %162, align 8, !tbaa !50
-  %163 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 16
-  %164 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 144
-  %165 = add i64 %43, -144
-  %166 = load i64, ptr %4, align 8, !tbaa !10
-  %167 = add i64 %166, 1
-  store i64 %167, ptr %4, align 8, !tbaa !10
-  %168 = load i64, ptr %163, align 8, !tbaa !16
-  %169 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 24
-  store ptr %164, ptr %169, align 8, !tbaa !12
-  %170 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 32
-  store i64 %165, ptr %170, align 8, !tbaa !15
-  %171 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 48
-  store i64 %166, ptr %171, align 8, !tbaa !52
-  %172 = and i64 %168, -268435456
-  %173 = or disjoint i64 %172, 243314687
-  store i64 %173, ptr %163, align 8, !tbaa !16
-  br label %174
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 8
+  store ptr null, ptr %160, align 8, !tbaa !50
+  %161 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 16
+  %162 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 144
+  %163 = add i64 %43, -144
+  %164 = load i64, ptr %4, align 8, !tbaa !10
+  %165 = add i64 %164, 1
+  store i64 %165, ptr %4, align 8, !tbaa !10
+  %166 = load i64, ptr %161, align 8, !tbaa !16
+  %167 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 24
+  store ptr %162, ptr %167, align 8, !tbaa !12
+  %168 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 32
+  store i64 %163, ptr %168, align 8, !tbaa !15
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i54, i64 48
+  store i64 %164, ptr %169, align 8, !tbaa !52
+  %170 = and i64 %166, -268435456
+  %171 = or disjoint i64 %170, 243314687
+  store i64 %171, ptr %161, align 8, !tbaa !16
+  br label %172
 
-174:                                              ; preds = %base_map.exit, %sz_psz2ind.exit
+172:                                              ; preds = %base_map.exit, %sz_psz2ind.exit
   ret ptr %.0.i54
 }
 

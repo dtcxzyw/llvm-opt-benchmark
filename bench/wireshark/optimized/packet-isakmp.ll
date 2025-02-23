@@ -3968,7 +3968,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   %892 = load i32, ptr @hf_isakmp_delete_spi, align 4
   %893 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %892, ptr noundef %0, i32 noundef %.1.i169, i32 noundef %887, i32 noundef 0)
   %894 = add i32 %.1.i169, %887
-  %895 = sub i32 %.140.i, %887
+  %895 = sub nsw i32 %.140.i, %887
   %.old1.i170 = icmp sgt i32 %895, 0
   br i1 %.old1.i170, label %.preheader.i168, label %dissect_sa.exit
 

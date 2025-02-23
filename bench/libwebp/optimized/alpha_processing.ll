@@ -380,7 +380,7 @@ define internal void @ApplyAlphaMultiply_16b_C(ptr noundef captures(none) %0, i3
 ._crit_edge.us.i:                                 ; preds = %8
   %42 = add nsw i32 %.in.i, -1
   %43 = getelementptr inbounds i8, ptr %.032.us.i, i64 %7
-  %44 = icmp sgt i32 %.in.i, 1
+  %44 = icmp samesign ugt i32 %.in.i, 1
   br i1 %44, label %.preheader.us.i, label %ApplyAlphaMultiply4444_C.exit, !llvm.loop !16
 
 ApplyAlphaMultiply4444_C.exit:                    ; preds = %._crit_edge.us.i, %4, %.preheader.lr.ph.i

@@ -2413,7 +2413,7 @@ _ZNK14debug_module_t14hart_availableEj.exit.thread: ; preds = %_ZNKSt3mapImP11pr
   br label %_ZNK14debug_module_t13hart_selectedEj.exit.thread138
 
 _ZNK14debug_module_t13hart_selectedEj.exit.thread138: ; preds = %260, %302, %308, %307, %_ZNK14debug_module_t13hart_selectedEj.exit
-  %309 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0134.0150) #29
+  %309 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0134.0150) #29
   %310 = icmp eq ptr %309, %114
   br i1 %310, label %._crit_edge, label %237
 

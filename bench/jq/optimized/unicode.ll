@@ -2296,7 +2296,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 .preheader324:                                    ; preds = %73, %73, %73
-  %74 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.0252) #10
+  %74 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.0252) #10
   %.not274326 = icmp eq ptr %74, null
   br i1 %.not274326, label %.loopexit, label %.lr.ph
 
@@ -2339,7 +2339,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 83:                                               ; preds = %82, %82, %82
-  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  %84 = call fastcc i32 @wb_get_next_main_code(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %.not275 = icmp eq i32 %84, 0
   br i1 %.not275, label %.loopexit414, label %85
 
@@ -2357,7 +2357,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 88:                                               ; preds = %87, %87
-  %89 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.1253) #10
+  %89 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.1253) #10
   %.not276331 = icmp eq ptr %89, null
   br i1 %.not276331, label %.thread293.thread, label %.lr.ph332
 
@@ -2396,7 +2396,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 96:                                               ; preds = %95
-  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  %97 = call fastcc i32 @wb_get_next_main_code(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %98 = icmp ne i32 %97, 0
   %99 = load i32, ptr %7, align 4
   %100 = icmp eq i32 %99, 7
@@ -2410,7 +2410,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   br i1 %or.cond89, label %.preheader321, label %.thread293
 
 .preheader321:                                    ; preds = %101
-  %104 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.3255) #10
+  %104 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.3255) #10
   %.not277338 = icmp eq ptr %104, null
   br i1 %.not277338, label %.thread297, label %.lr.ph339
 
@@ -2451,7 +2451,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 113:                                              ; preds = %112, %112, %112
-  %114 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.6) #10
+  %114 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.6) #10
   %.not278346 = icmp eq ptr %114, null
   br i1 %.not278346, label %.thread293.thread, label %.lr.ph348
 
@@ -2493,7 +2493,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   ]
 
 125:                                              ; preds = %124, %124, %124
-  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
+  %126 = call fastcc i32 @wb_get_next_main_code(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %6, ptr noundef %7)
   %127 = icmp ne i32 %126, 0
   %128 = load i32, ptr %7, align 4
   %129 = icmp eq i32 %128, 14
@@ -2537,7 +2537,7 @@ wb_get_type.exit288:                              ; preds = %49, %51, %55
   br i1 %or.cond85, label %.preheader, label %.thread299
 
 .preheader:                                       ; preds = %141
-  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef %.9384) #10
+  %144 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.9384) #10
   %.not279355 = icmp eq ptr %144, null
   br i1 %.not279355, label %._crit_edge358.thread, label %.lr.ph357
 
@@ -2910,7 +2910,7 @@ egcb_get_type.exit61.i:                           ; preds = %60, %56, %54
   br i1 %or.cond21.i, label %unicode_egcb_is_break_2code.exit.preheader, label %unicode_egcb_is_break_2code.exit.thread69
 
 unicode_egcb_is_break_2code.exit.preheader:       ; preds = %88
-  %91 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.043) #10
+  %91 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.043) #10
   %.not5274 = icmp eq ptr %91, null
   br i1 %.not5274, label %unicode_egcb_is_break_2code.exit.thread, label %.lr.ph
 
@@ -2919,7 +2919,7 @@ unicode_egcb_is_break_2code.exit.thread69:        ; preds = %egcb_get_type.exit6
 
 .critedge:                                        ; preds = %86, %egcb_get_type.exit
   %.144 = phi ptr [ %92, %egcb_get_type.exit ], [ %.043, %86 ]
-  %92 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %.144) #10
+  %92 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %.144) #10
   %.not55 = icmp eq ptr %92, null
   br i1 %.not55, label %egcb_get_type.exit.thread, label %93
 
@@ -3003,7 +3003,7 @@ egcb_get_type.exit66:                             ; preds = %127
 
 unicode_egcb_is_break_2code.exit:                 ; preds = %egcb_get_type.exit66
   %133 = add nuw nsw i32 %.075, 1
-  %134 = tail call ptr @onigenc_get_prev_char_head(ptr noundef %0, ptr noundef %3, ptr noundef nonnull %113) #10
+  %134 = tail call ptr @onigenc_get_prev_char_head(ptr noundef nonnull %0, ptr noundef %3, ptr noundef nonnull %113) #10
   %.not52 = icmp eq ptr %134, null
   br i1 %.not52, label %egcb_get_type.exit66.thread, label %.lr.ph, !llvm.loop !68
 

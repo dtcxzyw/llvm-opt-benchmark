@@ -6842,7 +6842,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 if.then.i.i.i:                                    ; preds = %lpad17, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i26, %lpad20
   %.pn.pn.pn = phi { ptr, i32 } [ %7, %lpad17 ], [ %8, %lpad20 ], [ %16, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i26 ]
-  %add.ptr.i.i.i.idx = shl nuw i64 16, %sub.ptr.div.i.i
+  %add.ptr.i.i.i.idx = shl nuw nsw i64 16, %sub.ptr.div.i.i
   call void @_ZdlPvm(ptr noundef nonnull %call5.i.i.i.i2.i.i9, i64 noundef %add.ptr.i.i.i.idx) #29
   br label %ehcleanup41
 

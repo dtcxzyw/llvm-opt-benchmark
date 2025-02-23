@@ -600,7 +600,7 @@ asn1_output_data.exit:                            ; preds = %.lr.ph.i99, %79, %9
   %104 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull %.086) #6
   %105 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19) #6
   %106 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.20, ptr noundef nonnull %.086, ptr noundef nonnull %.086) #6
-  %107 = call fastcc i32 @B64_write_ASN1(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef %7)
+  %107 = call fastcc i32 @B64_write_ASN1(ptr noundef %0, ptr noundef %1, ptr noundef null, i32 noundef 0, ptr noundef nonnull %7)
   %108 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.21, ptr noundef nonnull %.086, ptr noundef nonnull %14, ptr noundef nonnull %.086, ptr noundef nonnull %.086) #6
   br label %130
 

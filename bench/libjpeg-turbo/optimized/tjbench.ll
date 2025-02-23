@@ -2101,7 +2101,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %744 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %742, i32 noundef %743, i32 noundef %.4807, i32 noundef %.27921269, ptr noundef %744)
   %745 = add nsw i32 %.27921269, -1
-  %.not979.not = icmp sgt i32 %.27921269, %.0794
+  %.not979.not = icmp samesign ugt i32 %.27921269, %.0794
   br i1 %.not979.not, label %.lr.ph1271, label %._crit_edge1272, !llvm.loop !26
 
 ._crit_edge1272:                                  ; preds = %.lr.ph1271, %741
@@ -2124,7 +2124,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %751 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %749, i32 noundef %750, i32 noundef 3, i32 noundef %.31251, ptr noundef %751)
   %752 = add nsw i32 %.31251, -1
-  %.not971.not = icmp sgt i32 %.31251, %.0794
+  %.not971.not = icmp samesign ugt i32 %.31251, %.0794
   br i1 %.not971.not, label %.lr.ph1252, label %._crit_edge, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph1252, %748
@@ -2144,7 +2144,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %757 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %755, i32 noundef %756, i32 noundef 2, i32 noundef %.41254, ptr noundef %757)
   %758 = add nsw i32 %.41254, -1
-  %.not973.not = icmp sgt i32 %.41254, %.0794
+  %.not973.not = icmp samesign ugt i32 %.41254, %.0794
   br i1 %.not973.not, label %.lr.ph1256, label %._crit_edge1257, !llvm.loop !28
 
 ._crit_edge1257:                                  ; preds = %.lr.ph1256, %753
@@ -2160,7 +2160,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %762 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %760, i32 noundef %761, i32 noundef 1, i32 noundef %.51259, ptr noundef %762)
   %763 = add nsw i32 %.51259, -1
-  %.not975.not = icmp sgt i32 %.51259, %.0794
+  %.not975.not = icmp samesign ugt i32 %.51259, %.0794
   br i1 %.not975.not, label %.lr.ph1261, label %._crit_edge1262, !llvm.loop !29
 
 ._crit_edge1262:                                  ; preds = %.lr.ph1261, %._crit_edge1257
@@ -2176,7 +2176,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %767 = load ptr, ptr %27, align 8, !tbaa !10
   call fastcc void @fullTest(ptr noundef nonnull %545, ptr noundef %.2, i32 noundef %765, i32 noundef %766, i32 noundef 0, i32 noundef %.61264, ptr noundef %767)
   %768 = add nsw i32 %.61264, -1
-  %.not977.not = icmp sgt i32 %.61264, %.0794
+  %.not977.not = icmp samesign ugt i32 %.61264, %.0794
   br i1 %.not977.not, label %.lr.ph1266, label %._crit_edge1267, !llvm.loop !30
 
 ._crit_edge1267:                                  ; preds = %.lr.ph1266, %._crit_edge1262
@@ -3999,9 +3999,9 @@ switch.early.test:                                ; preds = %587
   br i1 %exitcond1168.not, label %._crit_edge1092, label %.lr.ph1091, !llvm.loop !48
 
 ._crit_edge1092:                                  ; preds = %.lr.ph1091, %761
-  call void @free(ptr noundef %calloc1196) #23
+  call void @free(ptr noundef nonnull %calloc1196) #23
   call void @free(ptr noundef %.2) #23
-  call void @free(ptr noundef %calloc) #23
+  call void @free(ptr noundef nonnull %calloc) #23
   %brmerge = select i1 %.not1003, i1 true, i1 %.not1004
   br i1 %brmerge, label %766, label %.thread993
 

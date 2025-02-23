@@ -561,8 +561,8 @@ decimalLength.exit.i:                             ; preds = %228, %226, %224, %2
   %310 = shl nuw nsw i16 %309, 1
   %311 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext122.i.i = zext nneg i16 %311 to i32
-  %312 = sext i32 %.0.i144.i to i64
-  %313 = getelementptr inbounds i8, ptr %237, i64 %312
+  %312 = zext nneg i32 %.0.i144.i to i64
+  %313 = getelementptr inbounds nuw i8, ptr %237, i64 %312
   %314 = zext nneg i32 %.0.i.i to i64
   %315 = getelementptr inbounds nuw i8, ptr %313, i64 %314
   %316 = zext i32 %.1111.lcssa.i.i to i64
@@ -584,8 +584,8 @@ decimalLength.exit.i:                             ; preds = %228, %226, %224, %2
 
 326:                                              ; preds = %324
   %327 = shl nuw nsw i32 %.1114.i.i, 1
-  %328 = sext i32 %.0.i144.i to i64
-  %329 = getelementptr inbounds i8, ptr %237, i64 %328
+  %328 = zext nneg i32 %.0.i144.i to i64
+  %329 = getelementptr inbounds nuw i8, ptr %237, i64 %328
   %330 = zext nneg i32 %.0.i.i to i64
   %331 = getelementptr inbounds nuw i8, ptr %329, i64 %330
   %332 = zext i32 %.2112.i.i to i64
@@ -601,8 +601,8 @@ decimalLength.exit.i:                             ; preds = %228, %226, %224, %2
 339:                                              ; preds = %324
   %340 = trunc nuw i32 %.1114.i.i to i8
   %341 = or disjoint i8 %340, 48
-  %342 = sext i32 %.0.i144.i to i64
-  %343 = getelementptr inbounds i8, ptr %237, i64 %342
+  %342 = zext nneg i32 %.0.i144.i to i64
+  %343 = getelementptr inbounds nuw i8, ptr %237, i64 %342
   store i8 %341, ptr %343, align 1
   br label %344
 

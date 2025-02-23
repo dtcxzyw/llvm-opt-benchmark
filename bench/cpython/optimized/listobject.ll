@@ -3038,34 +3038,34 @@ count_run.exit.thread276:                         ; preds = %._crit_edge.thread1
 
 .preheader.i:                                     ; preds = %308
   %311 = icmp sgt i64 %.1547.i, %.149.i
-  br i1 %311, label %.lr.ph.i215, label %._crit_edge.thread.i
+  br i1 %311, label %.lr.ph.i216, label %._crit_edge.i214
 
-._crit_edge.thread.i:                             ; preds = %.preheader.i
-  %312 = getelementptr ptr, ptr %.sroa.0.1, i64 %.149.i
-  store ptr %299, ptr %312, align 8, !tbaa !112
-  %313 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1547.i
+.lr.ph.i216:                                      ; preds = %.preheader.i, %.lr.ph.i216
+  %.0502.i = phi i64 [ %315, %.lr.ph.i216 ], [ %.1547.i, %.preheader.i ]
+  %312 = getelementptr ptr, ptr %.sroa.0.1, i64 %.0502.i
+  %313 = getelementptr i8, ptr %312, i64 -8
   %314 = load ptr, ptr %313, align 8, !tbaa !112
+  store ptr %314, ptr %312, align 8, !tbaa !112
+  %315 = add nsw i64 %.0502.i, -1
+  %316 = icmp sgt i64 %315, %.149.i
+  br i1 %316, label %.lr.ph.i216, label %.lr.ph5.preheader.i, !llvm.loop !149
+
+._crit_edge.i214:                                 ; preds = %.preheader.i
+  %317 = getelementptr ptr, ptr %.sroa.0.1, i64 %.149.i
+  store ptr %299, ptr %317, align 8, !tbaa !112
+  %318 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1547.i
+  %319 = load ptr, ptr %318, align 8, !tbaa !112
   br label %._crit_edge6.i
 
-.lr.ph.i215:                                      ; preds = %.preheader.i, %.lr.ph.i215
-  %.0502.i = phi i64 [ %318, %.lr.ph.i215 ], [ %.1547.i, %.preheader.i ]
-  %315 = getelementptr ptr, ptr %.sroa.0.1, i64 %.0502.i
-  %316 = getelementptr i8, ptr %315, i64 -8
-  %317 = load ptr, ptr %316, align 8, !tbaa !112
-  store ptr %317, ptr %315, align 8, !tbaa !112
-  %318 = add nsw i64 %.0502.i, -1
-  %319 = icmp sgt i64 %318, %.149.i
-  br i1 %319, label %.lr.ph.i215, label %._crit_edge.i216, !llvm.loop !149
-
-._crit_edge.i216:                                 ; preds = %.lr.ph.i215
+.lr.ph5.preheader.i:                              ; preds = %.lr.ph.i216
   %320 = getelementptr ptr, ptr %.sroa.0.1, i64 %.149.i
   store ptr %299, ptr %320, align 8, !tbaa !112
   %321 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1547.i
   %322 = load ptr, ptr %321, align 8, !tbaa !112
   br label %.lr.ph5.i
 
-.lr.ph5.i:                                        ; preds = %.lr.ph5.i, %._crit_edge.i216
-  %.1513.i = phi i64 [ %326, %.lr.ph5.i ], [ %.1547.i, %._crit_edge.i216 ]
+.lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
+  %.1513.i = phi i64 [ %326, %.lr.ph5.i ], [ %.1547.i, %.lr.ph5.preheader.i ]
   %323 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1513.i
   %324 = getelementptr i8, ptr %323, i64 -8
   %325 = load ptr, ptr %324, align 8, !tbaa !112
@@ -3074,13 +3074,13 @@ count_run.exit.thread276:                         ; preds = %._crit_edge.thread1
   %327 = icmp sgt i64 %326, %.149.i
   br i1 %327, label %.lr.ph5.i, label %._crit_edge6.i, !llvm.loop !150
 
-._crit_edge6.i:                                   ; preds = %.lr.ph5.i, %._crit_edge.thread.i
-  %328 = phi ptr [ %314, %._crit_edge.thread.i ], [ %322, %.lr.ph5.i ]
+._crit_edge6.i:                                   ; preds = %.lr.ph5.i, %._crit_edge.i214
+  %328 = phi ptr [ %319, %._crit_edge.i214 ], [ %322, %.lr.ph5.i ]
   %329 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.149.i
   store ptr %328, ptr %329, align 8, !tbaa !112
   %330 = add nuw nsw i64 %.1547.i, 1
-  %exitcond.not.i214 = icmp eq i64 %330, %275
-  br i1 %exitcond.not.i214, label %binarysort.exit.thread, label %.lr.ph10.split.i, !llvm.loop !148
+  %exitcond.not.i215 = icmp eq i64 %330, %275
+  br i1 %exitcond.not.i215, label %binarysort.exit.thread, label %.lr.ph10.split.i, !llvm.loop !148
 
 binarysort.exit.thread:                           ; preds = %._crit_edge6.i, %._crit_edge.us.i, %274, %count_run.exit.thread276
   %.0136 = phi i64 [ %.068.i278, %count_run.exit.thread276 ], [ %275, %274 ], [ %275, %._crit_edge.us.i ], [ %275, %._crit_edge6.i ]

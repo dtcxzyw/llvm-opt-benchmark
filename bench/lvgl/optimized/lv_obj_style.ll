@@ -594,7 +594,7 @@ style_has_flag.exit:                              ; preds = %.lr.ph.i, %.lr.ph35
   %99 = lshr i16 %97, 4
   %100 = and i16 %99, 63
   %101 = zext nneg i16 %100 to i32
-  %102 = icmp ult i32 %.1, %101
+  %102 = icmp samesign ult i32 %.1, %101
   br i1 %102, label %41, label %._crit_edge95
 
 ._crit_edge95:                                    ; preds = %96

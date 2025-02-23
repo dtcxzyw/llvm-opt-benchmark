@@ -729,7 +729,7 @@ expand_filter.exit.thread:                        ; preds = %1
   %15 = sub i64 %14, %6
   store i64 %15, ptr @elapsed_expand, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
-  br label %106
+  br label %107
 
 16:                                               ; preds = %1
   %17 = call i64 @g_get_monotonic_time()
@@ -764,171 +764,171 @@ expand_filter.exit.thread:                        ; preds = %1
   %.4.i = select i1 %.b13.i, i32 %28, i32 %.3.i
   %29 = call i64 @g_get_monotonic_time()
   %30 = call zeroext i1 @dfilter_compile_full(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %2, i32 noundef %.4.i, ptr noundef nonnull @.str)
-  br i1 %30, label %compile_filter.exit.thread, label %35
+  br i1 %30, label %61, label %31
 
-compile_filter.exit.thread:                       ; preds = %22
-  %31 = call i64 @g_get_monotonic_time()
-  %32 = sub i64 %31, %29
-  store i64 %32, ptr @elapsed_compile, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  %33 = load i32, ptr @opt_debug_level, align 4
-  %34 = icmp sgt i32 %33, 0
-  br i1 %34, label %65, label %67
-
-35:                                               ; preds = %22
-  %36 = load ptr, ptr @stderr, align 8
+31:                                               ; preds = %22
+  %32 = load ptr, ptr @stderr, align 8
+  %33 = load ptr, ptr %2, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef %35)
   %37 = load ptr, ptr %2, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = load ptr, ptr %38, align 8
-  %40 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %36, i32 noundef 2, ptr noundef nonnull @.str.30, ptr noundef %39)
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8
-  %44 = icmp sgt i64 %43, -1
-  br i1 %44, label %45, label %compile_filter.exit
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  %39 = load i64, ptr %38, align 8
+  %40 = icmp sgt i64 %39, -1
+  br i1 %40, label %41, label %compile_filter.exit
 
-45:                                               ; preds = %35
-  %46 = load ptr, ptr @stderr, align 8
-  %47 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %46, i32 noundef 2, ptr noundef nonnull @.str.57, ptr noundef nonnull %7)
-  %48 = load ptr, ptr @stderr, align 8
-  %49 = load ptr, ptr %2, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
-  %53 = load i64, ptr %52, align 8
-  %54 = icmp sgt i64 %51, 0
-  br i1 %54, label %.lr.ph.i.i, label %._crit_edge.i.i
+41:                                               ; preds = %31
+  %42 = load ptr, ptr @stderr, align 8
+  %43 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %42, i32 noundef 2, ptr noundef nonnull @.str.57, ptr noundef nonnull %7)
+  %44 = load ptr, ptr @stderr, align 8
+  %45 = load ptr, ptr %2, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %49 = load i64, ptr %48, align 8
+  %50 = icmp sgt i64 %47, 0
+  br i1 %50, label %.lr.ph.i.i, label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %45
-  %55 = call i32 @fputc(i32 noundef 94, ptr noundef %48)
-  %56 = icmp ugt i64 %53, 1
-  br i1 %56, label %.lr.ph11.i.i, label %putloc.exit.i
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %41
+  %51 = call i32 @fputc(i32 noundef 94, ptr noundef %44)
+  %52 = icmp ugt i64 %49, 1
+  br i1 %52, label %.lr.ph11.i.i, label %putloc.exit.i
 
-.lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
-  %.078.i.i = phi i64 [ %58, %.lr.ph.i.i ], [ 0, %45 ]
-  %57 = call i32 @fputc(i32 noundef 32, ptr noundef %48)
-  %58 = add nuw nsw i64 %.078.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %58, %51
+.lr.ph.i.i:                                       ; preds = %41, %.lr.ph.i.i
+  %.078.i.i = phi i64 [ %54, %.lr.ph.i.i ], [ 0, %41 ]
+  %53 = call i32 @fputc(i32 noundef 32, ptr noundef %44)
+  %54 = add nuw nsw i64 %.078.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %54, %47
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 .lr.ph11.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph11.i.i
-  %.09.i.i = phi i64 [ %60, %.lr.ph11.i.i ], [ %53, %._crit_edge.i.i ]
-  %59 = call i32 @fputc(i32 noundef 126, ptr noundef %48)
-  %60 = add i64 %.09.i.i, -1
-  %61 = icmp ugt i64 %60, 1
-  br i1 %61, label %.lr.ph11.i.i, label %putloc.exit.i, !llvm.loop !12
+  %.09.i.i = phi i64 [ %56, %.lr.ph11.i.i ], [ %49, %._crit_edge.i.i ]
+  %55 = call i32 @fputc(i32 noundef 126, ptr noundef %44)
+  %56 = add i64 %.09.i.i, -1
+  %57 = icmp ugt i64 %56, 1
+  br i1 %57, label %.lr.ph11.i.i, label %putloc.exit.i, !llvm.loop !12
 
 putloc.exit.i:                                    ; preds = %.lr.ph11.i.i, %._crit_edge.i.i
-  %62 = call i32 @fputc(i32 noundef 10, ptr noundef %48)
+  %58 = call i32 @fputc(i32 noundef 10, ptr noundef %44)
   br label %compile_filter.exit
 
-compile_filter.exit:                              ; preds = %35, %putloc.exit.i
+compile_filter.exit:                              ; preds = %31, %putloc.exit.i
   call void @df_error_free(ptr noundef nonnull %2)
-  %63 = call i64 @g_get_monotonic_time()
-  %64 = sub i64 %63, %29
-  store i64 %64, ptr @elapsed_compile, align 8
+  %59 = call i64 @g_get_monotonic_time()
+  %60 = sub i64 %59, %29
+  store i64 %60, ptr @elapsed_compile, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  br label %106
+  br label %107
 
-65:                                               ; preds = %compile_filter.exit.thread
-  %66 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
-  br label %67
+61:                                               ; preds = %22
+  %62 = call i64 @g_get_monotonic_time()
+  %63 = sub i64 %62, %29
+  store i64 %63, ptr @elapsed_compile, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
+  %64 = load i32, ptr @opt_debug_level, align 4
+  %65 = icmp sgt i32 %64, 0
+  br i1 %65, label %66, label %68
 
-67:                                               ; preds = %65, %compile_filter.exit.thread
-  %68 = load ptr, ptr %4, align 8
-  %69 = icmp eq ptr %68, null
-  br i1 %69, label %70, label %72
+66:                                               ; preds = %61
+  %67 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
+  br label %68
 
-70:                                               ; preds = %67
-  %71 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.56)
-  br label %106
+68:                                               ; preds = %66, %61
+  %69 = load ptr, ptr %4, align 8
+  %70 = icmp eq ptr %69, null
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %67
+71:                                               ; preds = %68
+  %72 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.56)
+  br label %107
+
+73:                                               ; preds = %68
   %.b15 = load i1, ptr @opt_syntax_tree, align 4
-  br i1 %.b15, label %73, label %76
+  br i1 %.b15, label %74, label %77
 
-73:                                               ; preds = %72
-  %74 = call ptr @dfilter_syntax_tree(ptr noundef nonnull %68)
-  %75 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.58, ptr noundef %74)
+74:                                               ; preds = %73
+  %75 = call ptr @dfilter_syntax_tree(ptr noundef nonnull %69)
+  %76 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.58, ptr noundef %75)
   %.pre = load ptr, ptr %4, align 8
-  br label %76
+  br label %77
 
-76:                                               ; preds = %73, %72
-  %77 = phi ptr [ %.pre, %73 ], [ %68, %72 ]
+77:                                               ; preds = %74, %73
+  %78 = phi ptr [ %.pre, %74 ], [ %69, %73 ]
   %.b = load i1, ptr @opt_show_types, align 4
   %spec.select = select i1 %.b, i16 2, i16 0
   %.b17 = load i1, ptr @opt_dump_refs, align 4
-  %78 = zext i1 %.b17 to i16
-  %.1 = or disjoint i16 %spec.select, %78
-  %79 = load ptr, ptr @stdout, align 8
-  call void @dfilter_dump(ptr noundef %79, ptr noundef %77, i16 noundef zeroext %.1)
-  %80 = load ptr, ptr %4, align 8
-  %81 = call ptr @dfilter_get_warnings(ptr noundef %80)
-  %.not21.i = icmp eq ptr %81, null
+  %79 = zext i1 %.b17 to i16
+  %.1 = or disjoint i16 %spec.select, %79
+  %80 = load ptr, ptr @stdout, align 8
+  call void @dfilter_dump(ptr noundef %80, ptr noundef %78, i16 noundef zeroext %.1)
+  %81 = load ptr, ptr %4, align 8
+  %82 = call ptr @dfilter_get_warnings(ptr noundef %81)
+  %.not21.i = icmp eq ptr %82, null
   br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %76
-  %.016.lcssa.i = phi i32 [ 0, %76 ], [ %85, %.lr.ph.i ]
-  %82 = call ptr @dfilter_deprecated_tokens(ptr noundef %80)
-  %.not18.i = icmp eq ptr %82, null
-  br i1 %.not18.i, label %.loopexit.i, label %88
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %77
+  %.016.lcssa.i = phi i32 [ 0, %77 ], [ %86, %.lr.ph.i ]
+  %83 = call ptr @dfilter_deprecated_tokens(ptr noundef %81)
+  %.not18.i = icmp eq ptr %83, null
+  br i1 %.not18.i, label %.loopexit.i, label %89
 
-.lr.ph.i:                                         ; preds = %76, %.lr.ph.i
-  %.01523.i = phi ptr [ %87, %.lr.ph.i ], [ %81, %76 ]
-  %.01622.i = phi i32 [ %85, %.lr.ph.i ], [ 0, %76 ]
-  %83 = load ptr, ptr %.01523.i, align 8
-  %84 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.59, ptr noundef %83)
-  %85 = add i32 %.01622.i, 1
-  %86 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %.not.i = icmp eq ptr %87, null
+.lr.ph.i:                                         ; preds = %77, %.lr.ph.i
+  %.01523.i = phi ptr [ %88, %.lr.ph.i ], [ %82, %77 ]
+  %.01622.i = phi i32 [ %86, %.lr.ph.i ], [ 0, %77 ]
+  %84 = load ptr, ptr %.01523.i, align 8
+  %85 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.59, ptr noundef %84)
+  %86 = add i32 %.01622.i, 1
+  %87 = getelementptr inbounds nuw i8, ptr %.01523.i, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %.not.i = icmp eq ptr %88, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
 
-88:                                               ; preds = %._crit_edge.i
-  %89 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %90 = load i32, ptr %89, align 8
-  %.not19.i = icmp eq i32 %90, 0
+89:                                               ; preds = %._crit_edge.i
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %91 = load i32, ptr %90, align 8
+  %.not19.i = icmp eq i32 %91, 0
   br i1 %.not19.i, label %.loopexit.i, label %.lr.ph26.i
 
-.lr.ph26.i:                                       ; preds = %88, %.lr.ph26.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph26.i ], [ 0, %88 ]
-  %.224.i = phi i32 [ %95, %.lr.ph26.i ], [ %.016.lcssa.i, %88 ]
-  %91 = load ptr, ptr %82, align 8
-  %92 = getelementptr ptr, ptr %91, i64 %indvars.iv.i
-  %93 = load ptr, ptr %92, align 8
-  %94 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.60, ptr noundef %93)
-  %95 = add i32 %.224.i, 1
+.lr.ph26.i:                                       ; preds = %89, %.lr.ph26.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph26.i ], [ 0, %89 ]
+  %.224.i = phi i32 [ %96, %.lr.ph26.i ], [ %.016.lcssa.i, %89 ]
+  %92 = load ptr, ptr %83, align 8
+  %93 = getelementptr ptr, ptr %92, i64 %indvars.iv.i
+  %94 = load ptr, ptr %93, align 8
+  %95 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.60, ptr noundef %94)
+  %96 = add i32 %.224.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %96 = load i32, ptr %89, align 8
-  %97 = zext i32 %96 to i64
-  %98 = icmp samesign ult i64 %indvars.iv.next.i, %97
-  br i1 %98, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !14
+  %97 = load i32, ptr %90, align 8
+  %98 = zext i32 %97 to i64
+  %99 = icmp samesign ult i64 %indvars.iv.next.i, %98
+  br i1 %99, label %.lr.ph26.i, label %.loopexit.i, !llvm.loop !14
 
-.loopexit.i:                                      ; preds = %.lr.ph26.i, %88, %._crit_edge.i
-  %.1.i18 = phi i32 [ %.016.lcssa.i, %88 ], [ %.016.lcssa.i, %._crit_edge.i ], [ %95, %.lr.ph26.i ]
+.loopexit.i:                                      ; preds = %.lr.ph26.i, %89, %._crit_edge.i
+  %.1.i18 = phi i32 [ %.016.lcssa.i, %89 ], [ %.016.lcssa.i, %._crit_edge.i ], [ %96, %.lr.ph26.i ]
   %.not20.i = icmp eq i32 %.1.i18, 0
-  br i1 %.not20.i, label %print_warnings.exit, label %99
+  br i1 %.not20.i, label %print_warnings.exit, label %100
 
-99:                                               ; preds = %.loopexit.i
-  %100 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
+100:                                              ; preds = %.loopexit.i
+  %101 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.26)
   br label %print_warnings.exit
 
-print_warnings.exit:                              ; preds = %.loopexit.i, %99
+print_warnings.exit:                              ; preds = %.loopexit.i, %100
   %.b16 = load i1, ptr @opt_timer, align 4
-  br i1 %.b16, label %101, label %106
+  br i1 %.b16, label %102, label %107
 
-101:                                              ; preds = %print_warnings.exit
-  %102 = load i64, ptr @elapsed_expand, align 8
-  %103 = load i64, ptr @elapsed_compile, align 8
-  %104 = add i64 %103, %102
-  %105 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.61, i64 noundef %104, i64 noundef %102, i64 noundef %103)
-  br label %106
+102:                                              ; preds = %print_warnings.exit
+  %103 = load i64, ptr @elapsed_expand, align 8
+  %104 = load i64, ptr @elapsed_compile, align 8
+  %105 = add i64 %104, %103
+  %106 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.61, i64 noundef %105, i64 noundef %103, i64 noundef %104)
+  br label %107
 
-106:                                              ; preds = %70, %expand_filter.exit.thread, %compile_filter.exit, %print_warnings.exit, %101
-  %.012 = phi i32 [ 0, %101 ], [ 0, %print_warnings.exit ], [ 4, %compile_filter.exit ], [ 4, %expand_filter.exit.thread ], [ 4, %70 ]
+107:                                              ; preds = %71, %expand_filter.exit.thread, %compile_filter.exit, %print_warnings.exit, %102
+  %.012 = phi i32 [ 0, %102 ], [ 0, %print_warnings.exit ], [ 4, %compile_filter.exit ], [ 4, %expand_filter.exit.thread ], [ 4, %71 ]
   call void @g_free(ptr noundef %7)
-  %107 = load ptr, ptr %4, align 8
-  call void @dfilter_free(ptr noundef %107)
+  %108 = load ptr, ptr %4, align 8
+  call void @dfilter_free(ptr noundef %108)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   ret i32 %.012
 }

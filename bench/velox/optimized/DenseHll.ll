@@ -1369,14 +1369,11 @@ if.end18:                                         ; preds = %if.end10
 
 if.end28:                                         ; preds = %if.end18
   %add.i37 = add nuw nsw i32 %div20, 5
-  %tobool.not = icmp eq i16 %.fr, 0
   %idx.ext.i39 = zext nneg i32 %add.i37 to i64
   %add.ptr.i40 = getelementptr inbounds nuw i8, ptr %input, i64 %idx.ext.i39
   %add.i41 = add nsw i32 %mul, %add.i37
   %idx.ext.i43 = sext i32 %add.i41 to i64
   %add.ptr.i44 = getelementptr inbounds i8, ptr %input, i64 %idx.ext.i43
-  %cond60 = select i1 %tobool.not, ptr null, ptr %add.ptr.i40
-  %cond37 = select i1 %tobool.not, ptr null, ptr %add.ptr.i44
   %cmp4.i.i = icmp sgt i16 %.fr, 0
   %conv2.i = zext nneg i16 %.fr to i64
   br i1 %cmp4.i.i, label %for.body.us, label %for.body
@@ -1398,7 +1395,7 @@ for.body.us:                                      ; preds = %if.end28, %_ZNK8fac
 
 for.body.i.i.us:                                  ; preds = %for.body.us, %for.cond.i.i.us
   %indvars.iv.i.i.us = phi i64 [ %indvars.iv.next.i.i.us, %for.cond.i.i.us ], [ 0, %for.body.us ]
-  %arrayidx.i4.i.us = getelementptr inbounds nuw i16, ptr %cond60, i64 %indvars.iv.i.i.us
+  %arrayidx.i4.i.us = getelementptr inbounds nuw i16, ptr %add.ptr.i40, i64 %indvars.iv.i.i.us
   %10 = load i16, ptr %arrayidx.i4.i.us, align 2
   %conv.i.i.us = zext i16 %10 to i32
   %cmp1.i.i.us = icmp eq i32 %i.062.us, %conv.i.i.us
@@ -1410,7 +1407,7 @@ for.cond.i.i.us:                                  ; preds = %for.body.i.i.us
   br i1 %exitcond.not.i.i.us, label %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us, label %for.body.i.i.us, !llvm.loop !4
 
 if.then.i.i.us:                                   ; preds = %for.body.i.i.us
-  %arrayidx3.i.i.us = getelementptr inbounds nuw i8, ptr %cond37, i64 %indvars.iv.i.i.us
+  %arrayidx3.i.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i44, i64 %indvars.iv.i.i.us
   %11 = load i8, ptr %arrayidx3.i.i.us, align 1
   %12 = add i8 %11, 15
   br label %_ZNK8facebook5velox6common3hll12_GLOBAL__N_112DenseHllView8getValueEi.exit.us

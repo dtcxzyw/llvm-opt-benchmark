@@ -25477,9 +25477,9 @@ zend_arena_alloc.exit:                            ; preds = %25, %27
   br i1 %80, label %.lr.ph55, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph55, %.loopexit
-  tail call fastcc void @zend_mark_cv_references(ptr noundef %1, ptr noundef nonnull %3)
-  tail call fastcc void @zend_infer_ranges(ptr noundef %1, ptr noundef nonnull %3)
-  %81 = tail call fastcc i32 @zend_infer_types(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4)
+  tail call fastcc void @zend_mark_cv_references(ptr noundef nonnull %1, ptr noundef nonnull %3)
+  tail call fastcc void @zend_infer_ranges(ptr noundef nonnull %1, ptr noundef nonnull %3)
+  %81 = tail call fastcc i32 @zend_infer_types(ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i64 noundef %4)
   %82 = icmp eq i32 %81, -1
   %. = sext i1 %82 to i32
   ret i32 %.
@@ -28739,7 +28739,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %16
-  %30 = call fastcc i32 @zend_infer_types_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %17, i64 noundef %3)
+  %30 = call fastcc i32 @zend_infer_types_ex(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %17, i64 noundef %3)
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %33
 
@@ -28752,7 +28752,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_infer_types(ptr noundef %0, pt
   br i1 %.not, label %36, label %35
 
 35:                                               ; preds = %33
-  call fastcc void @zend_type_narrowing(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3)
+  call fastcc void @zend_type_narrowing(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %3)
   br label %36
 
 36:                                               ; preds = %35, %33

@@ -231,7 +231,7 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
 
 ._crit_edge194.loopexit:                          ; preds = %.lr.ph193
   %145 = add nsw i32 %.5.lcssa, -4
-  %146 = sub i32 %145, %137
+  %146 = sub nsw i32 %145, %137
   br label %._crit_edge194
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %130

@@ -9297,7 +9297,7 @@ perf_init.exit:                                   ; preds = %46, %get_thread_tim
 181:                                              ; preds = %174
   call void @cli_bytecode_context_setctx(ptr noundef nonnull %180, ptr noundef nonnull %14) #18
   %182 = load ptr, ptr %25, align 8, !tbaa !38
-  %183 = call i32 @cli_bytecode_runhook(ptr noundef nonnull %14, ptr noundef %182, ptr noundef nonnull %180, i32 noundef 260, ptr noundef %0) #18
+  %183 = call i32 @cli_bytecode_runhook(ptr noundef nonnull %14, ptr noundef %182, ptr noundef nonnull %180, i32 noundef 260, ptr noundef nonnull %0) #18
   store i32 %183, ptr %13, align 4, !tbaa !36
   call void @cli_bytecode_context_destroy(ptr noundef nonnull %180) #18
   %.not109 = icmp eq i32 %183, 1

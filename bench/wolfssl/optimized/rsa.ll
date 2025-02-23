@@ -939,7 +939,7 @@ RsaMGF.exit82.i:                                  ; preds = %123, %122, %121, %1
 
 .preheader23.i.i:                                 ; preds = %RsaMGF.exit82.i, %xorbuf.exit.i
   %.0.i815.i = phi i32 [ %124, %RsaMGF.exit82.i ], [ -173, %xorbuf.exit.i ]
-  %125 = icmp ugt i32 %77, 7
+  %125 = icmp samesign ugt i32 %77, 7
   br i1 %125, label %.lr.ph29.i.i, label %.preheader.i84.i
 
 .preheader.i84.i:                                 ; preds = %.lr.ph29.i.i, %.preheader23.i.i

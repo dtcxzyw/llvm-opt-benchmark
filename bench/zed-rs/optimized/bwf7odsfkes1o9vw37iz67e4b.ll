@@ -1303,7 +1303,7 @@ default.unreachable:                              ; preds = %.noexc134.i
 
 .preheader.i.i:                                   ; preds = %213, %205
   %.sroa.025.047.i.i = phi i64 [ %201, %205 ], [ 0, %213 ]
-  %.sroa.011.246.i.i = phi i8 [ %.sroa.011.3.i.i, %205 ], [ %.sroa.011.048.i.i, %213 ]
+  %.sroa.011.246.i.i = phi i8 [ %.sroa.011.3.i.i, %205 ], [ 0, %213 ]
   %201 = add nuw nsw i64 %.sroa.025.047.i.i, 1
   %202 = getelementptr inbounds nuw [4 x i16], ptr %14, i64 0, i64 %.sroa.025.047.i.i
   %203 = load i16, ptr %202, align 2, !noalias !175, !noundef !4

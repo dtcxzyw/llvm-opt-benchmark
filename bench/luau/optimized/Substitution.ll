@@ -5908,7 +5908,7 @@ _ZN4Luau12Substitution7replaceEPKNS_4TypeE.exit181: ; preds = %266, %268, %245, 
   br label %272
 
 272:                                              ; preds = %_ZN4Luau8PropertyD2Ev.exit, %_ZN4Luau12Substitution7replaceEPKNS_4TypeE.exit181
-  %273 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0297.0378) #25
+  %273 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0297.0378) #25
   %.not327 = icmp eq ptr %273, %159
   br i1 %.not327, label %._crit_edge381, label %171
 

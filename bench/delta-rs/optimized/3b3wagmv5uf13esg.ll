@@ -2408,10 +2408,8 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
 
 98:                                               ; preds = %72
   %99 = load i64, ptr %11, align 8, !range !86, !noundef !16
-  %trunc = trunc nuw i64 %99 to i1
   %100 = load ptr, ptr %41, align 8, !nonnull !16, !align !439
   %101 = load i64, ptr %42, align 8
-  %.sroa.438.0 = select i1 %trunc, i64 undef, i64 %101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   %102 = load ptr, ptr %43, align 8, !nonnull !16, !noundef !16
   %103 = load i64, ptr %44, align 8, !noundef !16
@@ -2420,14 +2418,16 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
           to label %104 unwind label %96
 
 104:                                              ; preds = %98
+  %trunc = trunc nuw i64 %99 to i1
   %105 = load i64, ptr %10, align 8, !range !86, !noundef !16
   %trunc44 = trunc nuw i64 %105 to i1
   %106 = load ptr, ptr %45, align 8, !nonnull !16, !align !439
   %107 = load i64, ptr %46, align 8
-  %.sroa.441.0 = select i1 %trunc44, i64 undef, i64 %107
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %or.cond = select i1 %trunc, i1 true, i1 %trunc44
-  %.not.i = icmp ult i64 %.sroa.438.0, 6
+  %.not.i109 = icmp ult i64 %101, 6
+  %not.trunc = xor i1 %trunc, true
+  %.not.i = select i1 %not.trunc, i1 %.not.i109, i1 false
   %or.cond108 = select i1 %or.cond, i1 true, i1 %.not.i
   br i1 %or.cond108, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2f71593f5119403cE.exit.thread", label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h2f71593f5119403cE.exit"
 
@@ -2483,9 +2483,9 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %125 = extractvalue { i64, ptr } %114, 0
   store i64 %125, ptr %17, align 8, !alias.scope !632, !noalias !640
   store ptr %115, ptr %.sroa.4.0..sroa_idx.i66, align 8, !alias.scope !632, !noalias !640
-  store i64 %.sroa.438.0, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !632, !noalias !640
+  store i64 %101, ptr %.sroa.5.0..sroa_idx10.i, align 8, !alias.scope !632, !noalias !640
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
-  switch i64 %.sroa.438.0, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.thread.i" [
+  switch i64 %101, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.thread.i" [
     i64 25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i69"
     i64 19, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.i"
   ]
@@ -2501,7 +2501,7 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   br i1 %127, label %135, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.thread.i"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.thread.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i69", %124
-  %128 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %.sroa.438.0, i1 noundef zeroext false)
+  %128 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %101, i1 noundef zeroext false)
           to label %"_ZN86_$LT$deltalake_mount..config..MountConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hf7b1ae0e616e9e82E.exit" unwind label %130
 
 129:                                              ; preds = %138, %130
@@ -2519,18 +2519,18 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %133 = extractvalue { i64, ptr } %128, 1
   %134 = icmp ne ptr %133, null
   call void @llvm.assume(i1 %134)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr nonnull readonly align 1 %115, i64 %.sroa.438.0, i1 false), !noalias !641
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %133, ptr nonnull readonly align 1 %115, i64 %101, i1 false), !noalias !641
   store i64 17, ptr %18, align 8, !alias.scope !641, !noalias !652
   store i64 %132, ptr %.sroa.4.0..sroa_idx.i68, align 8, !alias.scope !641, !noalias !652
   store ptr %133, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !641, !noalias !652
-  store i64 %.sroa.438.0, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !641, !noalias !652
+  store i64 %101, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !641, !noalias !652
   br label %137
 
 135:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit18.i", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab1451b62b1c9f8aE.exit.i69"
   store i64 19, ptr %18, align 8, !alias.scope !641, !noalias !652
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  %136 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %.sroa.441.0, i1 noundef zeroext false)
+  %136 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h50d5b0bd40ea7d50E"(i64 noundef %107, i1 noundef zeroext false)
           to label %140 unwind label %138
 
 137:                                              ; preds = %"_ZN86_$LT$deltalake_mount..config..MountConfigKey$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hf7b1ae0e616e9e82E.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17hdcf464ea97851788E.exit"
@@ -2548,10 +2548,10 @@ define hidden void @_ZN15deltalake_mount6config17MountConfigHelper7try_new17h357
   %142 = extractvalue { i64, ptr } %136, 1
   %143 = icmp ne ptr %142, null
   call void @llvm.assume(i1 %143)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %106, i64 %.sroa.441.0, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr nonnull align 1 %106, i64 %107, i1 false)
   store i64 %141, ptr %15, align 8
   store ptr %142, ptr %.sroa.424.0..sroa_idx, align 8
-  store i64 %.sroa.441.0, ptr %.sroa.525.0..sroa_idx, align 8
+  store i64 %107, ptr %.sroa.525.0..sroa_idx, align 8
   invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h1a44b24ab4bdabfcE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 dereferenceable(48) %24, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %15)
           to label %144 unwind label %138
 

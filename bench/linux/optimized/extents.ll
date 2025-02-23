@@ -4650,7 +4650,7 @@ __ext4_ext_dirty.exit.thread62:                   ; preds = %ext4_extent_block_c
 
 .critedge:                                        ; preds = %825, %830
   %858 = icmp eq i16 %.pre158, 0
-  %859 = icmp sgt i32 %183, 0
+  %859 = icmp ne i32 %183, 0
   %860 = and i1 %859, %858
   br i1 %860, label %861, label %863
 

@@ -203,9 +203,9 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
   %88 = sext i32 %86 to i64
   %89 = getelementptr inbounds i8, ptr %85, i64 %88
   store i8 0, ptr %89, align 1, !tbaa !16
-  %90 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %21, ptr noundef %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.56) #14
+  %90 = call i32 @Abc_ConvertZddToSop(ptr noundef %0, ptr noundef %21, ptr noundef nonnull %.val50, i32 noundef %.val, ptr noundef nonnull %5, i32 noundef %.56) #14
   call void @Cudd_RecursiveDerefZdd(ptr noundef %0, ptr noundef %21) #14
-  %91 = call i32 @Gia_ManFactorNode(ptr noundef %2, ptr noundef %.val50, ptr noundef %3) #14
+  %91 = call i32 @Gia_ManFactorNode(ptr noundef %2, ptr noundef nonnull %.val50, ptr noundef nonnull %3) #14
   br label %92
 
 92:                                               ; preds = %Vec_StrPush.exit, %24

@@ -412,7 +412,7 @@ define void @Abc_ResStartPart(i32 noundef %0, ptr noundef writeonly captures(non
   %11 = shl nsw i32 -1, %4
   %12 = xor i32 %11, -1
   %13 = zext nneg i32 %.028.lcssa to i64
-  %wide.trip.count43 = zext i32 %2 to i64
+  %wide.trip.count43 = zext nneg i32 %2 to i64
   br label %18
 
 14:                                               ; preds = %.lr.ph, %14
@@ -1479,7 +1479,7 @@ define void @Abc_ResPartition(ptr noundef %0, ptr noundef %1, i32 noundef %2) lo
   br i1 %exitcond44.not.i, label %Abc_ResStartPart.exit, label %34, !llvm.loop !46
 
 Abc_ResStartPart.exit:                            ; preds = %34
-  call void @Abc_ResPrint(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 2)
+  call void @Abc_ResPrint(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 2)
   %38 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %39 = icmp sgt i32 %2, 0
   br label %40
@@ -1845,7 +1845,7 @@ Abc_ResPrint.exit:                                ; preds = %._crit_edge.us.i
   br i1 %exitcond44.not.i157, label %Abc_ResStartPart.exit164, label %190, !llvm.loop !46
 
 Abc_ResStartPart.exit164:                         ; preds = %190
-  call void @Abc_ResPrint(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 3)
+  call void @Abc_ResPrint(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 3)
   %194 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %195 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %196
@@ -2513,7 +2513,7 @@ Abc_ResPrint.exit380:                             ; preds = %._crit_edge.us.i377
   br i1 %exitcond44.not.i387, label %Abc_ResStartPart.exit394, label %500, !llvm.loop !46
 
 Abc_ResStartPart.exit394:                         ; preds = %500
-  call void @Abc_ResPrint(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 4)
+  call void @Abc_ResPrint(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %14, i32 noundef 4)
   %504 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %505 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %506 = getelementptr inbounds nuw i8, ptr %14, i64 12
@@ -4421,7 +4421,7 @@ define ptr @Abc_NtkCreateFromCharFunc(ptr noundef readonly captures(none) %0, pt
   %.val37.val = load ptr, ptr %16, align 8, !tbaa !27
   %17 = getelementptr inbounds nuw ptr, ptr %.val37.val, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 2) #19
+  %19 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 2) #19
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %19, ptr %20, align 8, !tbaa !36
   tail call void @Abc_ObjAddFanin(ptr noundef %9, ptr noundef %19) #19
@@ -4443,7 +4443,7 @@ define ptr @Abc_NtkCreateFromCharFunc(ptr noundef readonly captures(none) %0, pt
   %.val39.val = load ptr, ptr %27, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw ptr, ptr %.val39.val, i64 %indvars.iv51
   %29 = load ptr, ptr %28, align 8, !tbaa !29
-  %30 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 2) #19
+  %30 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 2) #19
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 64
   store ptr %30, ptr %31, align 8, !tbaa !36
   tail call void @Abc_ObjAddFanin(ptr noundef %9, ptr noundef %30) #19
@@ -4465,10 +4465,10 @@ define ptr @Abc_NtkCreateFromCharFunc(ptr noundef readonly captures(none) %0, pt
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store ptr %40, ptr %41, align 8, !tbaa !36
   tail call void @Cudd_Ref(ptr noundef %40) #19
-  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 3) #19
+  %42 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 3) #19
   tail call void @Abc_ObjAddFanin(ptr noundef %42, ptr noundef %9) #19
   %43 = tail call ptr @Abc_ObjAssignName(ptr noundef %42, ptr noundef nonnull @.str.11, ptr noundef null) #19
-  %44 = tail call i32 @Abc_NtkCheck(ptr noundef %4) #19
+  %44 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %4) #19
   %.not = icmp eq i32 %44, 0
   br i1 %.not, label %45, label %48
 

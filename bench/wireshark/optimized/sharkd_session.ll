@@ -661,14 +661,10 @@ define hidden noundef i32 @sharkd_session_main(i32 noundef %0) local_unnamed_add
   store i8 0, ptr %51, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
   %52 = icmp samesign ult i64 %indvars.iv.next.i.i, %42
-  br i1 %52, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
+  br i1 %52, label %.lr.ph.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
-  %.not.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not.i.i.i, label %json_find_attr.exit195.thread.i.i, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %._crit_edge.i.i, %.lr.ph.i.tail.thread.i.i
-  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.tail.thread.i.i ], [ 0, %._crit_edge.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph.i.tail.thread.i.i
+  %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.tail.thread.i.i ], [ 0, %.lr.ph.i.i ]
   %.idx224.i.i = shl i64 %indvars.iv.i.i.i, 4
   %.offs225.i.i = or disjoint i64 %.idx224.i.i, 4
   %53 = getelementptr i8, ptr %39, i64 %.offs225.i.i
@@ -1083,8 +1079,8 @@ json_find_attr.exit195.i.i:                       ; preds = %.lr.ph.i189.i.i
   %.not156.i.i = icmp eq ptr %231, null
   br i1 %.not156.i.i, label %json_find_attr.exit195.thread.i.i, label %234
 
-json_find_attr.exit195.thread.i.i:                ; preds = %json_find_attr.exit195.i.i, %225, %._crit_edge.i.i, %.preheader245.i.i
-  %232 = phi ptr [ @.str.8, %._crit_edge.i.i ], [ @.str.8, %.preheader245.i.i ], [ %219, %225 ], [ %219, %json_find_attr.exit195.i.i ]
+json_find_attr.exit195.thread.i.i:                ; preds = %json_find_attr.exit195.i.i, %225, %.preheader245.i.i
+  %232 = phi ptr [ @.str.8, %.preheader245.i.i ], [ %219, %225 ], [ %219, %json_find_attr.exit195.i.i ]
   %233 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %233, i32 noundef -32600, ptr poison, ptr noundef nonnull @.str.114, ptr noundef %232)
   br label %sharkd_session_process.exit
@@ -1160,10 +1156,14 @@ json_find_attr.exit204.thread.i.i:                ; preds = %json_find_attr.exit
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 24
   %269 = load i32, ptr %268, align 8
   %.not153.i.i = icmp eq i32 %269, 99
-  br i1 %.not153.i.i, label %.lr.ph.i84.i, label %.preheader.i.i, !llvm.loop !18
+  br i1 %.not153.i.i, label %json_prep.exit.i, label %.preheader.i.i, !llvm.loop !18
 
-.lr.ph.i84.i:                                     ; preds = %265, %275
-  %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %275 ], [ 0, %265 ]
+json_prep.exit.i:                                 ; preds = %265
+  %.not.i82.i = icmp eq i32 %40, 0
+  br i1 %.not.i82.i, label %json_find_attr.exit.thread.i, label %.lr.ph.i84.i
+
+.lr.ph.i84.i:                                     ; preds = %json_prep.exit.i, %275
+  %indvars.iv.i85.i = phi i64 [ %indvars.iv.next.i86.i, %275 ], [ 0, %json_prep.exit.i ]
   %.idx.i = shl i64 %indvars.iv.i85.i, 4
   %.offs.i = or disjoint i64 %.idx.i, 4
   %270 = getelementptr i8, ptr %39, i64 %.offs.i
@@ -1181,15 +1181,15 @@ json_find_attr.exit204.thread.i.i:                ; preds = %json_find_attr.exit
 
 json_find_attr.exit.i:                            ; preds = %.lr.ph.i84.i
   %277 = and i64 %.idx.i, 68719476704
-  %.offs105.i = or disjoint i64 %277, 20
-  %278 = getelementptr i8, ptr %39, i64 %.offs105.i
+  %.offs103.i = or disjoint i64 %277, 20
+  %278 = getelementptr i8, ptr %39, i64 %.offs103.i
   %279 = load i32, ptr %278, align 4
   %280 = sext i32 %279 to i64
   %281 = getelementptr i8, ptr %8, i64 %280
   %.not.i = icmp eq ptr %281, null
   br i1 %.not.i, label %json_find_attr.exit.thread.i, label %283
 
-json_find_attr.exit.thread.i:                     ; preds = %275, %json_find_attr.exit.i
+json_find_attr.exit.thread.i:                     ; preds = %275, %json_find_attr.exit.i, %json_prep.exit.i
   %282 = load i32, ptr @rpcid, align 4
   call void (i32, i32, ptr, ptr, ...) @sharkd_json_error(i32 noundef %282, i32 noundef -32601, ptr poison, ptr noundef nonnull @.str.12)
   br label %sharkd_session_process.exit
@@ -1255,9 +1255,9 @@ json_find_attr.exit.thread.i:                     ; preds = %275, %json_find_att
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
   %305 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 288), align 8
   %306 = icmp sgt i32 %305, 0
-  br i1 %306, label %.lr.ph.i90.i, label %._crit_edge.i89.i
+  br i1 %306, label %.lr.ph.i89.i, label %._crit_edge.i.i
 
-._crit_edge.i89.i:                                ; preds = %.lr.ph.i90.i, %304
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i89.i, %304
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.129)
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
@@ -1265,21 +1265,21 @@ json_find_attr.exit.thread.i:                     ; preds = %275, %json_find_att
   %308 = icmp sgt i32 %307, 0
   br i1 %308, label %.lr.ph27.i.i, label %._crit_edge28.i.i
 
-.lr.ph.i90.i:                                     ; preds = %304, %.lr.ph.i90.i
-  %.024.i.i = phi i32 [ %310, %.lr.ph.i90.i ], [ 0, %304 ]
+.lr.ph.i89.i:                                     ; preds = %304, %.lr.ph.i89.i
+  %.024.i.i = phi i32 [ %310, %.lr.ph.i89.i ], [ 0, %304 ]
   %309 = call ptr @get_column_title(i32 noundef %.024.i.i)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %309)
   %310 = add nuw nsw i32 %.024.i.i, 1
   %311 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 288), align 8
   %312 = icmp slt i32 %310, %311
-  br i1 %312, label %.lr.ph.i90.i, label %._crit_edge.i89.i, !llvm.loop !19
+  br i1 %312, label %.lr.ph.i89.i, label %._crit_edge.i.i, !llvm.loop !19
 
-._crit_edge28.i.i:                                ; preds = %321, %._crit_edge.i89.i
+._crit_edge28.i.i:                                ; preds = %321, %._crit_edge.i.i
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   br label %sharkd_session_process_status.exit.i
 
-.lr.ph27.i.i:                                     ; preds = %._crit_edge.i89.i, %321
-  %.01725.i.i = phi i32 [ %326, %321 ], [ 0, %._crit_edge.i89.i ]
+.lr.ph27.i.i:                                     ; preds = %._crit_edge.i.i, %321
+  %.01725.i.i = phi i32 [ %326, %321 ], [ 0, %._crit_edge.i.i ]
   %313 = call i32 @get_column_format(i32 noundef %.01725.i.i)
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %314 = call ptr @get_column_title(i32 noundef %.01725.i.i)
@@ -1347,15 +1347,15 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
   call void @wtap_rec_init(ptr noundef nonnull %4, i64 noundef 1514)
   %338 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not11.i.i = icmp eq i32 %338, 0
-  br i1 %.not11.i.i, label %._crit_edge.i93.i, label %.lr.ph.i91.i
+  br i1 %.not11.i.i, label %._crit_edge.i92.i, label %.lr.ph.i90.i
 
-._crit_edge.i93.i:                                ; preds = %345, %334
+._crit_edge.i92.i:                                ; preds = %345, %334
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   %339 = load ptr, ptr %15, align 8
   %.not8.i.i = icmp eq ptr %339, null
   br i1 %.not8.i.i, label %350, label %348
 
-.lr.ph.i91.i:                                     ; preds = %334, %345
+.lr.ph.i90.i:                                     ; preds = %334, %345
   %.012.i.i = phi i32 [ %346, %345 ], [ 1, %334 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #17
@@ -1366,25 +1366,25 @@ sharkd_session_process_status.exit.i:             ; preds = %._crit_edge28.i.i, 
   %cond.i.i = icmp eq i32 %342, 2
   br i1 %cond.i.i, label %343, label %345
 
-343:                                              ; preds = %.lr.ph.i91.i
+343:                                              ; preds = %.lr.ph.i90.i
   %344 = load ptr, ptr %6, align 8
   call void @g_free(ptr noundef %344)
   br label %345
 
-345:                                              ; preds = %343, %.lr.ph.i91.i
+345:                                              ; preds = %343, %.lr.ph.i90.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
   %346 = add i32 %.012.i.i, 1
   %347 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %.not.i92.i = icmp ugt i32 %346, %347
-  br i1 %.not.i92.i, label %._crit_edge.i93.i, label %.lr.ph.i91.i, !llvm.loop !21
+  %.not.i91.i = icmp ugt i32 %346, %347
+  br i1 %.not.i91.i, label %._crit_edge.i92.i, label %.lr.ph.i90.i, !llvm.loop !21
 
-348:                                              ; preds = %._crit_edge.i93.i
+348:                                              ; preds = %._crit_edge.i92.i
   %349 = call double @nstime_to_sec(ptr noundef nonnull %339)
   call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.125, double noundef %349)
   br label %350
 
-350:                                              ; preds = %348, %._crit_edge.i93.i
+350:                                              ; preds = %348, %._crit_edge.i92.i
   %351 = load ptr, ptr %16, align 8
   %.not9.i.i = icmp eq ptr %351, null
   br i1 %.not9.i.i, label %sharkd_session_process_analyse.exit.i, label %352
@@ -1445,10 +1445,10 @@ sharkd_session_process_analyse.exit.i:            ; preds = %352, %350
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
   %367 = call ptr @stats_tree_get_cfg_list()
   %.not17.i.i = icmp eq ptr %367, null
-  br i1 %.not17.i.i, label %._crit_edge.i96.i, label %.lr.ph.i94.i
+  br i1 %.not17.i.i, label %._crit_edge.i95.i, label %.lr.ph.i93.i
 
-.lr.ph.i94.i:                                     ; preds = %366, %.lr.ph.i94.i
-  %.018.i.i = phi ptr [ %373, %.lr.ph.i94.i ], [ %367, %366 ]
+.lr.ph.i93.i:                                     ; preds = %366, %.lr.ph.i93.i
+  %.018.i.i = phi ptr [ %373, %.lr.ph.i93.i ], [ %367, %366 ]
   %368 = load ptr, ptr %.018.i.i, align 8
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %369 = getelementptr inbounds nuw i8, ptr %368, i64 16
@@ -1460,18 +1460,18 @@ sharkd_session_process_analyse.exit.i:            ; preds = %352, %350
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
   %372 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
   %373 = load ptr, ptr %372, align 8
-  %.not.i95.i = icmp eq ptr %373, null
-  br i1 %.not.i95.i, label %._crit_edge.i96.i, label %.lr.ph.i94.i, !llvm.loop !23
+  %.not.i94.i = icmp eq ptr %373, null
+  br i1 %.not.i94.i, label %._crit_edge.i95.i, label %.lr.ph.i93.i, !llvm.loop !23
 
-._crit_edge.i96.i:                                ; preds = %.lr.ph.i94.i, %366
+._crit_edge.i95.i:                                ; preds = %.lr.ph.i93.i, %366
   call void @g_list_free(ptr noundef %367)
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.142)
   call void @json_dumper_begin_array(ptr noundef nonnull @dumper)
   br label %374
 
-374:                                              ; preds = %374, %._crit_edge.i96.i
-  %storemerge1119.i.i = phi i32 [ 0, %._crit_edge.i96.i ], [ %376, %374 ]
+374:                                              ; preds = %374, %._crit_edge.i95.i
+  %storemerge1119.i.i = phi i32 [ 0, %._crit_edge.i95.i ], [ %376, %374 ]
   %375 = call ptr @ftype_name(i32 noundef %storemerge1119.i.i)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %375)
   %376 = add nuw nsw i32 %storemerge1119.i.i, 1
@@ -1486,13 +1486,13 @@ sharkd_session_process_analyse.exit.i:            ; preds = %352, %350
   %378 = call ptr @wtap_get_writable_file_types_subtypes(i32 noundef 0)
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %380 = load i32, ptr %379, align 8
-  %.not.i.i97.i = icmp eq i32 %380, 0
-  br i1 %.not.i.i97.i, label %sharkd_session_print_capture_types.exit.i.i, label %.lr.ph.i.i98.i
+  %.not.i.i.i = icmp eq i32 %380, 0
+  br i1 %.not.i.i.i, label %sharkd_session_print_capture_types.exit.i.i, label %.lr.ph.i.i96.i
 
-.lr.ph.i.i98.i:                                   ; preds = %377, %.lr.ph.i.i98.i
-  %indvars.iv.i.i99.i = phi i64 [ %indvars.iv.next.i.i100.i, %.lr.ph.i.i98.i ], [ 0, %377 ]
+.lr.ph.i.i96.i:                                   ; preds = %377, %.lr.ph.i.i96.i
+  %indvars.iv.i.i97.i = phi i64 [ %indvars.iv.next.i.i98.i, %.lr.ph.i.i96.i ], [ 0, %377 ]
   %381 = load ptr, ptr %378, align 8
-  %382 = getelementptr i32, ptr %381, i64 %indvars.iv.i.i99.i
+  %382 = getelementptr i32, ptr %381, i64 %indvars.iv.i.i97.i
   %383 = load i32, ptr %382, align 4
   call void @json_dumper_begin_object(ptr noundef nonnull @dumper)
   %384 = call ptr @wtap_file_type_subtype_name(i32 noundef %383)
@@ -1502,13 +1502,13 @@ sharkd_session_process_analyse.exit.i:            ; preds = %352, %350
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.165)
   call void @json_dumper_value_string(ptr noundef nonnull @dumper, ptr noundef %385)
   call void @json_dumper_end_object(ptr noundef nonnull @dumper)
-  %indvars.iv.next.i.i100.i = add nuw nsw i64 %indvars.iv.i.i99.i, 1
+  %indvars.iv.next.i.i98.i = add nuw nsw i64 %indvars.iv.i.i97.i, 1
   %386 = load i32, ptr %379, align 8
   %387 = zext i32 %386 to i64
-  %388 = icmp samesign ult i64 %indvars.iv.next.i.i100.i, %387
-  br i1 %388, label %.lr.ph.i.i98.i, label %sharkd_session_print_capture_types.exit.i.i, !llvm.loop !25
+  %388 = icmp samesign ult i64 %indvars.iv.next.i.i98.i, %387
+  br i1 %388, label %.lr.ph.i.i96.i, label %sharkd_session_print_capture_types.exit.i.i, !llvm.loop !25
 
-sharkd_session_print_capture_types.exit.i.i:      ; preds = %.lr.ph.i.i98.i, %377
+sharkd_session_print_capture_types.exit.i.i:      ; preds = %.lr.ph.i.i96.i, %377
   %389 = call ptr @g_array_free(ptr noundef %378, i32 noundef 1)
   call void @json_dumper_end_array(ptr noundef nonnull @dumper)
   call void @json_dumper_set_member_name(ptr noundef nonnull @dumper, ptr noundef nonnull @.str.144)
@@ -3713,9 +3713,9 @@ sub_1:                                            ; preds = %sub_0
   %259 = load i32, ptr %258, align 4
   %260 = or i32 %259, %255
   store i32 %260, ptr %258, align 4
-  %261 = add i32 %253, 1
-  %.not362 = icmp ugt i32 %261, %247
-  br i1 %.not362, label %.loopexit429, label %.lr.ph, !llvm.loop !34
+  %261 = add nuw nsw i32 %253, 1
+  %.not362.not = icmp ult i32 %253, %247
+  br i1 %.not362.not, label %.lr.ph, label %.loopexit429, !llvm.loop !34
 
 .thread409:                                       ; preds = %251, %244
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #17

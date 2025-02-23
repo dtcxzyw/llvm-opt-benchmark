@@ -258,12 +258,12 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   br i1 %136, label %.thread38, label %137
 
 137:                                              ; preds = %116
-  br i1 %22, label %.loopexit, label %138
+  br i1 %22, label %.loopexit41, label %138
 
 138:                                              ; preds = %137
   %139 = load i32, ptr %0, align 4
   %140 = icmp eq i32 %139, -1
-  br i1 %140, label %.loopexit, label %141
+  br i1 %140, label %.loopexit41, label %141
 
 141:                                              ; preds = %138
   %142 = trunc i64 %132 to i32
@@ -276,7 +276,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %147 = getelementptr i32, ptr %0, i64 %146
   %148 = load i32, ptr %147, align 4
   %149 = icmp eq i32 %148, -1
-  br i1 %149, label %.loopexit, label %150, !llvm.loop !9
+  br i1 %149, label %.loopexit41, label %150, !llvm.loop !9
 
 150:                                              ; preds = %144, %141
   %151 = phi i32 [ %139, %141 ], [ %148, %144 ]
@@ -284,7 +284,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %153 = icmp eq i32 %143, %151
   br i1 %153, label %.thread38, label %144
 
-.loopexit:                                        ; preds = %144, %138, %137
+.loopexit41:                                      ; preds = %144, %138, %137
   %154 = and i64 %125, 65280
   %155 = icmp eq i64 %154, 0
   %156 = and i64 %125, 4278190080
@@ -292,27 +292,27 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %158 = or i1 %155, %157
   br i1 %158, label %159, label %164
 
-159:                                              ; preds = %.loopexit
+159:                                              ; preds = %.loopexit41
   %160 = trunc i64 %132 to i32
   %161 = and i32 %160, 65535
   %162 = lshr i32 %160, 16
   %163 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %161, i32 noundef %162) #10
   br label %.thread38
 
-164:                                              ; preds = %.loopexit
+164:                                              ; preds = %.loopexit41
   %165 = trunc i64 %132 to i16
   %166 = load ptr, ptr @discovery_tables, align 8
   %167 = icmp eq ptr %166, null
-  br i1 %115, label %.preheader40, label %.preheader41
-
-.preheader41:                                     ; preds = %164
-  br i1 %167, label %._crit_edge, label %.lr.ph
+  br i1 %115, label %.preheader39, label %.preheader40
 
 .preheader40:                                     ; preds = %164
+  br i1 %167, label %._crit_edge, label %.lr.ph
+
+.preheader39:                                     ; preds = %164
   br i1 %167, label %._crit_edge54, label %.lr.ph53
 
-.lr.ph:                                           ; preds = %.preheader41, %174
-  %168 = phi ptr [ %177, %174 ], [ %166, %.preheader41 ]
+.lr.ph:                                           ; preds = %.preheader40, %174
+  %168 = phi ptr [ %177, %174 ], [ %166, %.preheader40 ]
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
   %170 = load i16, ptr %169, align 8
   %171 = icmp ugt i16 %170, %165
@@ -329,7 +329,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %178 = icmp eq ptr %177, null
   br i1 %178, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %174, %.preheader41
+._crit_edge:                                      ; preds = %174, %.preheader40
   %179 = trunc i64 %132 to i32
   %180 = and i32 %179, 65535
   %181 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4, i32 noundef %180) #10
@@ -347,8 +347,8 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   store i64 %126, ptr %185, align 8
   br label %.thread38
 
-.lr.ph53:                                         ; preds = %.preheader40, %195
-  %189 = phi ptr [ %198, %195 ], [ %166, %.preheader40 ]
+.lr.ph53:                                         ; preds = %.preheader39, %195
+  %189 = phi ptr [ %198, %195 ], [ %166, %.preheader39 ]
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 48
   %191 = load i16, ptr %190, align 8
   %192 = icmp ugt i16 %191, %165
@@ -356,7 +356,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 
 193:                                              ; preds = %.lr.ph53
   %194 = icmp ult i16 %191, %165
-  br i1 %194, label %195, label %.thread39
+  br i1 %194, label %195, label %.loopexit
 
 195:                                              ; preds = %.lr.ph53, %193
   %196 = phi i64 [ 16, %.lr.ph53 ], [ 8, %193 ]
@@ -365,7 +365,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %199 = icmp eq ptr %198, null
   br i1 %199, label %._crit_edge54, label %.lr.ph53, !llvm.loop !10
 
-._crit_edge54:                                    ; preds = %195, %.preheader40
+._crit_edge54:                                    ; preds = %195, %.preheader39
   %200 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %201 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %200, i32 noundef 3520, i64 noundef 72) #11
   %202 = icmp eq ptr %201, null
@@ -379,7 +379,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 .thread37:                                        ; preds = %203
   %206 = getelementptr inbounds nuw i8, ptr %201, i64 40
   store ptr null, ptr %206, align 8
-  br label %237
+  br label %241
 
 207:                                              ; preds = %203
   %208 = zext nneg i32 %204 to i64
@@ -388,7 +388,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %211 = getelementptr inbounds nuw i8, ptr %201, i64 40
   store ptr %210, ptr %211, align 8
   %212 = icmp eq ptr %210, null
-  br i1 %212, label %237, label %213
+  br i1 %212, label %241, label %213
 
 213:                                              ; preds = %207
   %214 = load i64, ptr %3, align 8
@@ -406,7 +406,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   store i16 %222, ptr %223, align 8
   %224 = load ptr, ptr @discovery_tables, align 8
   %225 = icmp eq ptr %224, null
-  br i1 %225, label %238, label %.preheader
+  br i1 %225, label %237, label %.preheader
 
 .preheader:                                       ; preds = %213, %.preheader
   %226 = phi ptr [ %232, %.preheader ], [ %224, %213 ]
@@ -422,24 +422,24 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
 234:                                              ; preds = %.preheader
   %235 = getelementptr inbounds nuw i8, ptr %226, i64 %230
   %236 = ptrtoint ptr %226 to i64
-  br label %238
+  br label %237
 
-237:                                              ; preds = %.thread37, %207
+237:                                              ; preds = %234, %213
+  %238 = phi ptr [ %235, %234 ], [ @discovery_tables, %213 ]
+  %239 = phi i64 [ %236, %234 ], [ 0, %213 ]
+  store i64 %239, ptr %201, align 8
+  %240 = getelementptr inbounds nuw i8, ptr %201, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %240, i8 0, i64 16, i1 false)
+  store ptr %201, ptr %238, align 8
+  call void @rb_insert_color(ptr noundef nonnull %201, ptr noundef nonnull @discovery_tables) #9
+  br label %.loopexit
+
+241:                                              ; preds = %.thread37, %207
   call void @kfree(ptr noundef nonnull %201) #9
   br label %.thread38
 
-238:                                              ; preds = %213, %234
-  %239 = phi ptr [ %235, %234 ], [ @discovery_tables, %213 ]
-  %240 = phi i64 [ %236, %234 ], [ 0, %213 ]
-  store i64 %240, ptr %201, align 8
-  %241 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %241, i8 0, i64 16, i1 false)
-  store ptr %201, ptr %239, align 8
-  call void @rb_insert_color(ptr noundef nonnull %201, ptr noundef nonnull @discovery_tables) #9
-  br label %.thread39
-
-.thread39:                                        ; preds = %193, %238
-  %242 = phi ptr [ %201, %238 ], [ %189, %193 ]
+.loopexit:                                        ; preds = %193, %237
+  %242 = phi ptr [ %201, %237 ], [ %189, %193 ]
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 54
   %244 = load i16, ptr %243, align 2
   %245 = zext i16 %244 to i64
@@ -449,7 +449,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   %249 = icmp eq ptr %248, null
   br i1 %249, label %.thread38, label %250
 
-250:                                              ; preds = %.thread39
+250:                                              ; preds = %.loopexit
   %251 = load i16, ptr %243, align 2
   %252 = zext i16 %251 to i64
   %253 = shl nuw nsw i64 %252, 2
@@ -558,7 +558,7 @@ define dso_local zeroext i1 @intel_uncore_has_discovery_tables(ptr noundef reado
   call void @kfree(ptr noundef nonnull %248) #9
   br label %.thread38
 
-.thread38:                                        ; preds = %150, %._crit_edge54, %237, %320, %315, %.thread39, %188, %182, %._crit_edge, %159, %116
+.thread38:                                        ; preds = %150, %._crit_edge54, %241, %320, %315, %.loopexit, %188, %182, %._crit_edge, %159, %116
   %321 = load i64, ptr %2, align 8
   %322 = trunc i64 %321 to i32
   %323 = lshr i32 %322, 16

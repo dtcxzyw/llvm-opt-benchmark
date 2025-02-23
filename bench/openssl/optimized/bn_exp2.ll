@@ -370,7 +370,7 @@ define i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 157:                                              ; preds = %151, %148, %149
   %.4166 = phi i32 [ %.1163, %149 ], [ 0, %148 ], [ 0, %151 ]
   %.2161 = phi i32 [ %.1160, %149 ], [ %.1160, %148 ], [ 0, %151 ]
-  %158 = icmp sgt i32 %.0172.in249, 1
+  %158 = icmp samesign ugt i32 %.0172.in249, 1
   br i1 %158, label %.lr.ph254, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %157, %.preheader

@@ -8077,57 +8077,60 @@ define linkonce_odr dso_local void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_itera
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %spec.select.i, %.lr.ph.i ]
   %30 = and i64 %8, 1
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %41
+  br i1 %31, label %32, label %40
 
 32:                                               ; preds = %._crit_edge.i
   %33 = add nsw i64 %8, -2
   %34 = ashr exact i64 %33, 1
   %35 = icmp eq i64 %.0.lcssa.i, %34
-  br i1 %35, label %36, label %41
+  br i1 %35, label %.thread, label %40
 
-36:                                               ; preds = %32
-  %37 = shl nsw i64 %.0.lcssa.i, 1
-  %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, ptr noundef nonnull align 4 dereferenceable(20) %39, i64 20, i1 false)
-  br label %41
+.thread:                                          ; preds = %32
+  %36 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %37
+  %39 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %39, ptr noundef nonnull align 4 dereferenceable(20) %38, i64 20, i1 false)
+  br label %.lr.ph.i.i.preheader
 
-41:                                               ; preds = %36, %32, %._crit_edge.i
-  %.1.i = phi i64 [ %38, %36 ], [ %.0.lcssa.i, %32 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %42 = icmp sgt i64 %.1.i, 0
-  br i1 %42, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
+40:                                               ; preds = %32, %._crit_edge.i
+  %.not = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %41, %50
-  %.018.i.i = phi i64 [ %.0919.i.i1314, %50 ], [ %.1.i, %41 ]
+.lr.ph.i.i.preheader:                             ; preds = %.thread, %40
+  %.018.i.i.ph = phi i64 [ %.0.lcssa.i, %40 ], [ %37, %.thread ]
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %48
+  %.018.i.i = phi i64 [ %.0919.i.i1314, %48 ], [ %.018.i.i.ph, %.lr.ph.i.i.preheader ]
   %.0919.in.i.i = add nsw i64 %.018.i.i, -1
   %.0919.i.i1314 = lshr i64 %.0919.in.i.i, 1
-  %43 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0919.i.i1314
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  %45 = load i32, ptr %44, align 4
-  %.not.i.i.i.i.i = icmp eq i32 %45, %.sroa.210.0.copyload
-  %46 = icmp ult i32 %45, %.sroa.210.0.copyload
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp ult i32 %48, %.sroa.311.0.copyload
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %49, i1 %46
-  br i1 %.0.i.i.i.i.i, label %50, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
+  %41 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0919.i.i1314
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %43 = load i32, ptr %42, align 4
+  %.not.i.i.i.i.i = icmp eq i32 %43, %.sroa.210.0.copyload
+  %44 = icmp ult i32 %43, %.sroa.210.0.copyload
+  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp ult i32 %46, %.sroa.311.0.copyload
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %47, i1 %44
+  br i1 %.0.i.i.i.i.i, label %48, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit
 
-50:                                               ; preds = %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.018.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %51, ptr noundef nonnull align 4 dereferenceable(20) %43, i64 20, i1 false)
-  %.not = icmp ult i64 %.0919.in.i.i, 2
-  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !31
+48:                                               ; preds = %.lr.ph.i.i
+  %49 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.018.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %49, ptr noundef nonnull align 4 dereferenceable(20) %41, i64 20, i1 false)
+  %.not15 = icmp ult i64 %.0919.in.i.i, 2
+  br i1 %.not15, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !31
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %50, %41
-  %.0.lcssa.i.i = phi i64 [ %.1.i, %41 ], [ 0, %50 ], [ %.018.i.i, %.lr.ph.i.i ]
-  %52 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i.i
-  store i32 %.sroa.09.0.copyload, ptr %52, align 4
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 4
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen10IdfContext16BlockAndOrderingESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterISt4lessIS5_EEEEvT_T0_SH_T1_T2_.exit: ; preds = %.lr.ph.i.i, %48, %40
+  %.0.lcssa.i.i = phi i64 [ 0, %40 ], [ 0, %48 ], [ %.018.i.i, %.lr.ph.i.i ]
+  %50 = getelementptr inbounds %"struct.Luau::CodeGen::IdfContext::BlockAndOrdering", ptr %0, i64 %.0.lcssa.i.i
+  store i32 %.sroa.09.0.copyload, ptr %50, align 4
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 %.sroa.210.0.copyload, ptr %.sroa.4.0..sroa_idx.i, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store i32 %.sroa.311.0.copyload, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %52, i64 12
+  %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i64 %.sroa.412.0.copyload, ptr %.sroa.6.0..sroa_idx.i, align 4
   ret void
 }

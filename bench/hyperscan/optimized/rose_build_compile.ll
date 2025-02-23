@@ -8447,7 +8447,7 @@ invoke.cont172.i:                                 ; preds = %.noexc367.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tmp19.i.i) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i319.i) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %lit_id.i318.i) #24
-  %call.i369.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1158.sroa.0.0500.i) #25
+  %call.i369.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1158.sroa.0.0500.i) #25
   %cmp.i313.not.i = icmp eq ptr %call.i369.i, %276
   br i1 %cmp.i313.not.i, label %for.cond190.preheader.i, label %for.body167.i
 
@@ -13822,7 +13822,7 @@ call5.i.i.i.i.i.i.noexc1312:                      ; preds = %if.then.i.i487
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i1313, i64 80
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i1313, ptr %_M_node.i.i1291, align 8
-  %call8.i1294 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %group_to_literal.i, ptr %__y.addr.0.lcssa.i.i.i24.i.i, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i1292)
+  %call8.i1294 = invoke { ptr, ptr } @_ZNSt8_Rb_treeIjSt4pairIKjSt3setIjSt4lessIjESaIjEEESt10_Select1stIS7_ES4_SaIS7_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorIS7_ERS1_(ptr noundef nonnull align 8 dereferenceable(48) %group_to_literal.i, ptr nonnull %__y.addr.0.lcssa.i.i.i24.i.i, ptr noundef nonnull align 4 dereferenceable(4) %_M_storage.i.i.i.i.i1292)
           to label %invoke.cont7.i1296 unwind label %lpad.i1295
 
 invoke.cont7.i1296:                               ; preds = %call5.i.i.i.i.i.i.noexc1312

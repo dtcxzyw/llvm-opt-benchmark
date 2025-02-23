@@ -705,7 +705,7 @@ bloom_filter_slab_at.exit:                        ; preds = %26, %31
 
 42:                                               ; preds = %bloom_filter_slab_at.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #14
-  %43 = call i32 @repo_find_commit_pos_in_graph(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %7) #14
+  %43 = call i32 @repo_find_commit_pos_in_graph(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %7) #14
   %.not94 = icmp eq i32 %43, 0
   br i1 %.not94, label %51, label %44
 
@@ -754,7 +754,7 @@ bloom_filter_slab_at.exit:                        ; preds = %26, %31
   %64 = load i32, ptr %3, align 4, !tbaa !30
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %66 = load ptr, ptr %65, align 8, !tbaa !88
-  %67 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef %1, i32 noundef 0) #14
+  %67 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #14
   %.not.i.i114 = icmp eq i32 %67, 0
   br i1 %.not.i.i114, label %68, label %.thread137
 
@@ -813,7 +813,7 @@ upgrade_filter.exit:                              ; preds = %71, %commit_tree_ha
   %85 = getelementptr inbounds nuw i8, ptr %6, i64 312
   store i32 %84, ptr %85, align 8, !tbaa !106
   call void @diff_setup_done(ptr noundef nonnull %6) #14
-  %86 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef %1, i32 noundef 0) #14
+  %86 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0) #14
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %88 = load ptr, ptr %87, align 8, !tbaa !88
   %.not102 = icmp eq ptr %88, null

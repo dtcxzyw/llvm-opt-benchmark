@@ -5574,7 +5574,7 @@ _ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocat
   %eh.lpad-body.ph = phi { ptr, i32 } [ %28, %27 ], [ %25, %24 ]
   %36 = extractvalue { ptr, i32 } %eh.lpad-body.ph, 0
   %37 = tail call ptr @__cxa_begin_catch(ptr %36) #22
-  br label %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36
+  br label %.loopexit
 
 38:                                               ; preds = %_ZNSt16allocator_traitsISaIN6duckdb15LambdaFunctions10ColumnInfoEEE9constructIS2_JRNS0_6VectorEEEEvRS3_PT_DpOT0_.exit
   %39 = landingpad { ptr, i32 }
@@ -5582,7 +5582,7 @@ _ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocat
   %40 = extractvalue { ptr, i32 } %39, 0
   %41 = tail call ptr @__cxa_begin_catch(ptr %40) #22
   tail call void @_ZN6duckdb15LambdaFunctions10ColumnInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %21) #22
-  br label %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36
+  br label %.loopexit
 
 42:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN6duckdb15LambdaFunctions10ColumnInfoES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %43 = landingpad { ptr, i32 }
@@ -5590,22 +5590,22 @@ _ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocat
   %44 = extractvalue { ptr, i32 } %43, 0
   %45 = tail call ptr @__cxa_begin_catch(ptr %44) #22
   %.not4.i.i.i30 = icmp eq ptr %20, %30
-  br i1 %.not4.i.i.i30, label %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36, label %.lr.ph.i.i.i31
+  br i1 %.not4.i.i.i30, label %.loopexit, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %42, %.lr.ph.i.i.i31
   %.05.i.i.i32 = phi ptr [ %46, %.lr.ph.i.i.i31 ], [ %20, %42 ]
   tail call void @_ZN6duckdb15LambdaFunctions10ColumnInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %.05.i.i.i32) #22
   %46 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 104
   %.not.i.i.i33 = icmp eq ptr %.05.i.i.i32, %29
-  br i1 %.not.i.i.i33, label %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36, label %.lr.ph.i.i.i31, !llvm.loop !309
+  br i1 %.not.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i31, !llvm.loop !309
 
-47:                                               ; preds = %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36
+47:                                               ; preds = %.loopexit
   %48 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %49 unwind label %50
 
-_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36: ; preds = %.lr.ph.i.i.i31, %42, %38, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i31, %.thread, %38, %42
   tail call void @_ZdlPv(ptr noundef nonnull %20) #24
   invoke void @__cxa_rethrow() #23
           to label %53 unwind label %47
@@ -5620,7 +5620,7 @@ _ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocat
   tail call void @__clang_call_terminate(ptr %52) #26
   unreachable
 
-53:                                               ; preds = %_ZNSt12_Vector_baseIN6duckdb15LambdaFunctions10ColumnInfoESaIS2_EE13_M_deallocateEPS2_m.exit36
+53:                                               ; preds = %.loopexit
   unreachable
 }
 

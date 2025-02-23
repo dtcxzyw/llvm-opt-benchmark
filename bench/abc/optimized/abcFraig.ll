@@ -761,16 +761,12 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %158 = icmp eq ptr %157, null
   br i1 %158, label %.backedge.i, label %.preheader92.i
 
-.backedge.i:                                      ; preds = %171, %.preheader.i, %.critedge4.i
+.backedge.i:                                      ; preds = %171, %.critedge4.i
   %159 = call i32 @stmm_gen(ptr noundef %149, ptr noundef nonnull %5, ptr noundef nonnull %6) #11
   %.not.i70 = icmp eq i32 %159, 0
   br i1 %.not.i70, label %._crit_edge.i, label %.critedge4.i, !llvm.loop !66
 
-.preheader.i:                                     ; preds = %.preheader92.i
-  %.not73100.i = icmp eq ptr %155, null
-  br i1 %.not73100.i, label %.backedge.i, label %.lr.ph102.i, !llvm.loop !66
-
-.lr.ph102.i:                                      ; preds = %.preheader.i
+.lr.ph102.i:                                      ; preds = %.preheader92.i
   %160 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 64
   %161 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 20
   br label %171
@@ -789,7 +785,7 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
   %169 = getelementptr inbounds nuw i8, ptr %.06298.i, i64 8
   %170 = load ptr, ptr %169, align 8, !tbaa !61
   %.not72.i = icmp eq ptr %170, null
-  br i1 %.not72.i, label %.preheader.i, label %.preheader92.i, !llvm.loop !67
+  br i1 %.not72.i, label %.lr.ph102.i, label %.preheader92.i, !llvm.loop !67
 
 171:                                              ; preds = %171, %.lr.ph102.i
   %.163101.i = phi ptr [ %155, %.lr.ph102.i ], [ %.163.i, %171 ]
@@ -1295,7 +1291,7 @@ define internal fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %.04862 = phi ptr [ %37, %.lr.ph ], [ %27, %26 ]
   %.05061 = phi ptr [ %spec.select, %.lr.ph ], [ %14, %26 ]
-  %29 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef %0, ptr noundef nonnull %.04862)
+  %29 = tail call fastcc ptr @Abc_NodeFromFraig_rec(ptr noundef nonnull %0, ptr noundef nonnull %.04862)
   %30 = getelementptr inbounds nuw i8, ptr %.05061, i64 20
   %31 = load i32, ptr %30, align 4
   %32 = lshr i32 %31, 12

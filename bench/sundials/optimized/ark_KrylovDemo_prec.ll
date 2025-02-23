@@ -1857,14 +1857,14 @@ default.unreachable:                              ; preds = %81
   store double %209, ptr %207, align 8, !tbaa !25
   %indvars.iv.next.i351.us.i = add nuw nsw i64 %indvars.iv.i350.us.i, 1
   %exitcond.not.i352.us.i = icmp eq i64 %indvars.iv.next.i351.us.i, %.pre-phi.i
-  br i1 %exitcond.not.i352.us.i, label %v_inc_by_prod.exit353.us.i, label %.lr.ph.i349.us.i
+  br i1 %exitcond.not.i352.us.i, label %.lr.ph.preheader.i354.us.i, label %.lr.ph.i349.us.i
 
-v_inc_by_prod.exit353.us.i:                       ; preds = %.lr.ph.i349.us.i
+.lr.ph.preheader.i354.us.i:                       ; preds = %.lr.ph.i349.us.i
   %210 = getelementptr inbounds double, ptr %201, i64 %71
   br label %.lr.ph.i356.us.i
 
-.lr.ph.i356.us.i:                                 ; preds = %.lr.ph.i356.us.i, %v_inc_by_prod.exit353.us.i
-  %indvars.iv.i357.us.i = phi i64 [ 0, %v_inc_by_prod.exit353.us.i ], [ %indvars.iv.next.i358.us.i, %.lr.ph.i356.us.i ]
+.lr.ph.i356.us.i:                                 ; preds = %.lr.ph.i356.us.i, %.lr.ph.preheader.i354.us.i
+  %indvars.iv.i357.us.i = phi i64 [ 0, %.lr.ph.preheader.i354.us.i ], [ %indvars.iv.next.i358.us.i, %.lr.ph.i356.us.i ]
   %211 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.i357.us.i
   %212 = load double, ptr %211, align 8, !tbaa !25
   %213 = getelementptr inbounds nuw double, ptr %210, i64 %indvars.iv.i357.us.i
@@ -1913,14 +1913,14 @@ v_inc_by_prod.exit353.us.i:                       ; preds = %.lr.ph.i349.us.i
   store double %237, ptr %235, align 8, !tbaa !25
   %indvars.iv.next.i330.us.i = add nuw nsw i64 %indvars.iv.i329.us.i, 1
   %exitcond.not.i331.us.i = icmp eq i64 %indvars.iv.next.i330.us.i, %.pre-phi.i
-  br i1 %exitcond.not.i331.us.i, label %v_inc_by_prod.exit332.us.i, label %.lr.ph.i328.us.i
+  br i1 %exitcond.not.i331.us.i, label %.lr.ph.preheader.i333.us.i, label %.lr.ph.i328.us.i
 
-v_inc_by_prod.exit332.us.i:                       ; preds = %.lr.ph.i328.us.i
+.lr.ph.preheader.i333.us.i:                       ; preds = %.lr.ph.i328.us.i
   %238 = getelementptr inbounds double, ptr %229, i64 %71
   br label %.lr.ph.i335.us.i
 
-.lr.ph.i335.us.i:                                 ; preds = %.lr.ph.i335.us.i, %v_inc_by_prod.exit332.us.i
-  %indvars.iv.i336.us.i = phi i64 [ 0, %v_inc_by_prod.exit332.us.i ], [ %indvars.iv.next.i337.us.i, %.lr.ph.i335.us.i ]
+.lr.ph.i335.us.i:                                 ; preds = %.lr.ph.i335.us.i, %.lr.ph.preheader.i333.us.i
+  %indvars.iv.i336.us.i = phi i64 [ 0, %.lr.ph.preheader.i333.us.i ], [ %indvars.iv.next.i337.us.i, %.lr.ph.i335.us.i ]
   %239 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i336.us.i
   %240 = load double, ptr %239, align 8, !tbaa !25
   %241 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv.i336.us.i
@@ -1950,14 +1950,14 @@ v_inc_by_prod.exit332.us.i:                       ; preds = %.lr.ph.i328.us.i
   store double %255, ptr %253, align 8, !tbaa !25
   %indvars.iv.next.i316.us.i = add nuw nsw i64 %indvars.iv.i315.us.i, 1
   %exitcond.not.i317.us.i = icmp eq i64 %indvars.iv.next.i316.us.i, %.pre-phi.i
-  br i1 %exitcond.not.i317.us.i, label %v_inc_by_prod.exit318.us.i, label %.lr.ph.i314.us.i
+  br i1 %exitcond.not.i317.us.i, label %.lr.ph.preheader.i319.us.i, label %.lr.ph.i314.us.i
 
-v_inc_by_prod.exit318.us.i:                       ; preds = %.lr.ph.i314.us.i
+.lr.ph.preheader.i319.us.i:                       ; preds = %.lr.ph.i314.us.i
   %256 = getelementptr inbounds double, ptr %247, i64 %71
   br label %.lr.ph.i321.us.i
 
-.lr.ph.i321.us.i:                                 ; preds = %.lr.ph.i321.us.i, %v_inc_by_prod.exit318.us.i
-  %indvars.iv.i322.us.i = phi i64 [ 0, %v_inc_by_prod.exit318.us.i ], [ %indvars.iv.next.i323.us.i, %.lr.ph.i321.us.i ]
+.lr.ph.i321.us.i:                                 ; preds = %.lr.ph.i321.us.i, %.lr.ph.preheader.i319.us.i
+  %indvars.iv.i322.us.i = phi i64 [ 0, %.lr.ph.preheader.i319.us.i ], [ %indvars.iv.next.i323.us.i, %.lr.ph.i321.us.i ]
   %257 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv.i322.us.i
   %258 = load double, ptr %257, align 8, !tbaa !25
   %259 = getelementptr inbounds nuw double, ptr %256, i64 %indvars.iv.i322.us.i
@@ -2044,14 +2044,14 @@ v_inc_by_prod.exit318.us.i:                       ; preds = %.lr.ph.i314.us.i
   store double %303, ptr %301, align 8, !tbaa !25
   %indvars.iv.next.i365.us.i = add nuw nsw i64 %indvars.iv.i364.us.i, 1
   %exitcond.not.i366.us.i = icmp eq i64 %indvars.iv.next.i365.us.i, %.pre-phi.i
-  br i1 %exitcond.not.i366.us.i, label %v_inc_by_prod.exit367.us.i, label %.lr.ph.i363.us.i
+  br i1 %exitcond.not.i366.us.i, label %.lr.ph.preheader.i368.us.i, label %.lr.ph.i363.us.i
 
-v_inc_by_prod.exit367.us.i:                       ; preds = %.lr.ph.i363.us.i
+.lr.ph.preheader.i368.us.i:                       ; preds = %.lr.ph.i363.us.i
   %304 = getelementptr inbounds double, ptr %295, i64 %71
   br label %.lr.ph.i370.us.i
 
-.lr.ph.i370.us.i:                                 ; preds = %.lr.ph.i370.us.i, %v_inc_by_prod.exit367.us.i
-  %indvars.iv.i371.us.i = phi i64 [ 0, %v_inc_by_prod.exit367.us.i ], [ %indvars.iv.next.i372.us.i, %.lr.ph.i370.us.i ]
+.lr.ph.i370.us.i:                                 ; preds = %.lr.ph.i370.us.i, %.lr.ph.preheader.i368.us.i
+  %indvars.iv.i371.us.i = phi i64 [ 0, %.lr.ph.preheader.i368.us.i ], [ %indvars.iv.next.i372.us.i, %.lr.ph.i370.us.i ]
   %305 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.i371.us.i
   %306 = load double, ptr %305, align 8, !tbaa !25
   %307 = getelementptr inbounds nuw double, ptr %304, i64 %indvars.iv.i371.us.i

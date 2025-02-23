@@ -147,12 +147,12 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %47 = or i32 %38, 600064
   br label %48
 
-48:                                               ; preds = %281, %40
-  %49 = phi ptr [ %9, %40 ], [ %177, %281 ]
-  %50 = phi i32 [ %42, %40 ], [ %284, %281 ]
-  %51 = phi ptr [ %9, %40 ], [ %.ph57, %281 ]
-  %52 = phi ptr [ %8, %40 ], [ %.ph56, %281 ]
-  %53 = phi i64 [ %6, %40 ], [ %.ph55, %281 ]
+48:                                               ; preds = %.thread46, %40
+  %49 = phi ptr [ %9, %40 ], [ %177, %.thread46 ]
+  %50 = phi i32 [ %42, %40 ], [ %279, %.thread46 ]
+  %51 = phi ptr [ %9, %40 ], [ %.ph49, %.thread46 ]
+  %52 = phi ptr [ %8, %40 ], [ %.ph48, %.thread46 ]
+  %53 = phi i64 [ %6, %40 ], [ %.ph, %.thread46 ]
   %54 = load i32, ptr %43, align 8
   %55 = load i8, ptr %44, align 4, !range !14, !noundef !15
   %56 = icmp eq i8 %55, 0
@@ -261,7 +261,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
 114:                                              ; preds = %112, %110
   %115 = phi i32 [ %111, %110 ], [ %113, %112 ]
   %116 = icmp eq i32 %115, 0
-  br i1 %116, label %.thread36, label %.loopexit75
+  br i1 %116, label %.thread36, label %.loopexit
 
 .thread36:                                        ; preds = %108, %93, %114
   %117 = zext nneg i32 %50 to i64
@@ -294,7 +294,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %136 = load ptr, ptr %0, align 8
   %137 = tail call i64 @dma_map_page_attrs(ptr noundef %136, ptr noundef nonnull %125, i64 noundef 0, i64 noundef %118, i32 noundef 0, i64 noundef 0) #7
   %138 = icmp eq i64 %137, -1
-  br i1 %138, label %.loopexit75, label %.preheader331
+  br i1 %138, label %.loopexit, label %.preheader331
 
 .preheader331:                                    ; preds = %135, %130
   %.ph332 = phi i64 [ %134, %130 ], [ %137, %135 ]
@@ -368,12 +368,12 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %173 = phi i64 [ %53, %82 ], [ %53, %65 ], [ %.ph264, %.thread33.sink.split ], [ %157, %156 ]
   %174 = phi ptr [ %52, %82 ], [ %52, %65 ], [ %.ph265, %.thread33.sink.split ], [ %147, %156 ]
   %175 = phi ptr [ %51, %82 ], [ %51, %65 ], [ %.ph266, %.thread33.sink.split ], [ %153, %156 ]
-  %176 = phi ptr [ null, %82 ], [ null, %65 ], [ null, %.thread33.sink.split ], [ %125, %156 ]
+  %176 = phi i1 [ true, %82 ], [ true, %65 ], [ true, %.thread33.sink.split ], [ false, %156 ]
   %177 = phi ptr [ %49, %82 ], [ %49, %65 ], [ %.ph267, %.thread33.sink.split ], [ %153, %156 ]
   %178 = shl nuw nsw i32 1, %50
   %179 = zext nneg i32 %178 to i64
   %180 = icmp ult i64 %173, %179
-  br i1 %180, label %.loopexit, label %181
+  br i1 %180, label %270, label %181
 
 181:                                              ; preds = %.thread33
   %182 = icmp eq i32 %50, 0
@@ -387,7 +387,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
 188:                                              ; preds = %262
   %189 = sub i64 %194, %179
   %190 = icmp ult i64 %189, %179
-  br i1 %190, label %.loopexit, label %191, !llvm.loop !23
+  br i1 %190, label %.thread46, label %191, !llvm.loop !23
 
 191:                                              ; preds = %188, %181
   %192 = phi ptr [ %175, %181 ], [ %267, %188 ]
@@ -488,7 +488,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %250 = load ptr, ptr %0, align 8
   %251 = tail call i64 @dma_map_page_attrs(ptr noundef %250, ptr noundef nonnull %242, i64 noundef 0, i64 noundef %186, i32 noundef 0, i64 noundef 0) #7
   %252 = icmp eq i64 %251, -1
-  br i1 %252, label %.thread65, label %.preheader, !llvm.loop !23
+  br i1 %252, label %.thread66, label %.preheader, !llvm.loop !23
 
 .preheader:                                       ; preds = %249, %247
   %.ph330 = phi i64 [ %248, %247 ], [ %251, %249 ]
@@ -520,137 +520,132 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %269 = icmp eq i32 %266, 0
   br i1 %269, label %188, label %262, !llvm.loop !21
 
-.loopexit:                                        ; preds = %188, %.thread33
-  %270 = phi i64 [ %173, %.thread33 ], [ %189, %188 ]
-  %271 = phi ptr [ %174, %.thread33 ], [ %261, %188 ]
-  %272 = phi ptr [ %175, %.thread33 ], [ %267, %188 ]
-  %273 = phi ptr [ %176, %.thread33 ], [ %242, %188 ]
-  %274 = icmp eq ptr %273, null
-  br i1 %274, label %.thread45, label %281
+270:                                              ; preds = %.thread33
+  br i1 %176, label %.thread45, label %.thread46
 
-.thread45:                                        ; preds = %207, %202, %233, %232, %.loopexit
-  %275 = phi ptr [ %272, %.loopexit ], [ %192, %232 ], [ %192, %233 ], [ %192, %202 ], [ %192, %207 ]
-  %276 = phi ptr [ %271, %.loopexit ], [ %193, %232 ], [ %193, %233 ], [ %193, %202 ], [ %193, %207 ]
-  %277 = phi i64 [ %270, %.loopexit ], [ %194, %232 ], [ %194, %233 ], [ %194, %202 ], [ %194, %207 ]
-  %278 = icmp eq i32 %50, 0
-  br i1 %278, label %.loopexit77, label %279
+.thread45:                                        ; preds = %207, %202, %233, %232, %270
+  %271 = phi ptr [ %175, %270 ], [ %192, %232 ], [ %192, %233 ], [ %192, %202 ], [ %192, %207 ]
+  %272 = phi ptr [ %174, %270 ], [ %193, %232 ], [ %193, %233 ], [ %193, %202 ], [ %193, %207 ]
+  %273 = phi i64 [ %173, %270 ], [ %194, %232 ], [ %194, %233 ], [ %194, %202 ], [ %194, %207 ]
+  %274 = icmp eq i32 %50, 0
+  br i1 %274, label %.loopexit77, label %275
 
-279:                                              ; preds = %.thread45
-  %280 = add nsw i32 %50, -1
-  br label %281
+275:                                              ; preds = %.thread45
+  %276 = add nsw i32 %50, -1
+  br label %.thread46
 
-281:                                              ; preds = %279, %.loopexit
-  %.ph55 = phi i64 [ %270, %.loopexit ], [ %277, %279 ]
-  %.ph56 = phi ptr [ %271, %.loopexit ], [ %276, %279 ]
-  %.ph57 = phi ptr [ %272, %.loopexit ], [ %275, %279 ]
-  %.ph60 = phi i32 [ %50, %.loopexit ], [ %280, %279 ]
-  %282 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.ph55) #8, !srcloc !16
-  %283 = trunc i64 %282 to i32
-  %284 = tail call i32 @llvm.umin.i32(i32 %.ph60, i32 %283)
-  %285 = icmp eq i64 %.ph55, 0
-  br i1 %285, label %.loopexit78, label %48, !llvm.loop !25
+.thread46:                                        ; preds = %188, %275, %270
+  %.ph = phi i64 [ %173, %270 ], [ %273, %275 ], [ %189, %188 ]
+  %.ph48 = phi ptr [ %174, %270 ], [ %272, %275 ], [ %261, %188 ]
+  %.ph49 = phi ptr [ %175, %270 ], [ %271, %275 ], [ %267, %188 ]
+  %.ph52 = phi i32 [ %50, %270 ], [ %276, %275 ], [ %50, %188 ]
+  %277 = tail call i64 asm "bsr $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %.ph) #8, !srcloc !16
+  %278 = trunc i64 %277 to i32
+  %279 = tail call i32 @llvm.umin.i32(i32 %.ph52, i32 %278)
+  %280 = icmp eq i64 %.ph, 0
+  br i1 %280, label %.loopexit78, label %48, !llvm.loop !25
 
-.loopexit78:                                      ; preds = %281, %23
-  %286 = phi ptr [ %9, %23 ], [ %.ph57, %281 ]
-  %287 = phi ptr [ %9, %23 ], [ %177, %281 ]
-  %288 = ptrtoint ptr %286 to i64
-  %289 = ptrtoint ptr %287 to i64
-  %290 = sub i64 %288, %289
-  %291 = lshr exact i64 %290, 3
-  %292 = trunc i64 %291 to i32
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %.thread64, label %294
+.loopexit78:                                      ; preds = %.thread46, %23
+  %281 = phi ptr [ %9, %23 ], [ %.ph49, %.thread46 ]
+  %282 = phi ptr [ %9, %23 ], [ %177, %.thread46 ]
+  %283 = ptrtoint ptr %281 to i64
+  %284 = ptrtoint ptr %282 to i64
+  %285 = sub i64 %283, %284
+  %286 = lshr exact i64 %285, 3
+  %287 = trunc i64 %286 to i32
+  %288 = icmp eq i32 %287, 0
+  br i1 %288, label %.thread65, label %289
 
-294:                                              ; preds = %.loopexit78
-  %295 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %296 = load i32, ptr %295, align 8
-  switch i32 %296, label %.thread64 [
-    i32 0, label %299
-    i32 1, label %297
+289:                                              ; preds = %.loopexit78
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %291 = load i32, ptr %290, align 8
+  switch i32 %291, label %.thread65 [
+    i32 0, label %294
+    i32 1, label %292
   ]
 
-297:                                              ; preds = %294
-  %298 = tail call i32 @set_pages_array_wc(ptr noundef %287, i32 noundef %292) #7
-  br label %301
+292:                                              ; preds = %289
+  %293 = tail call i32 @set_pages_array_wc(ptr noundef %282, i32 noundef %287) #7
+  br label %296
 
-299:                                              ; preds = %294
-  %300 = tail call i32 @set_pages_array_uc(ptr noundef %287, i32 noundef %292) #7
-  br label %301
+294:                                              ; preds = %289
+  %295 = tail call i32 @set_pages_array_uc(ptr noundef %282, i32 noundef %287) #7
+  br label %296
 
-301:                                              ; preds = %299, %297
-  %302 = phi i32 [ %298, %297 ], [ %300, %299 ]
-  %303 = icmp eq i32 %302, 0
-  br i1 %303, label %.thread64, label %.loopexit77
+296:                                              ; preds = %294, %292
+  %297 = phi i32 [ %293, %292 ], [ %295, %294 ]
+  %298 = icmp eq i32 %297, 0
+  br i1 %298, label %.thread65, label %.loopexit77
 
-.loopexit75:                                      ; preds = %114, %135
-  %.ph = phi i64 [ %122, %135 ], [ %53, %114 ]
-  %.ph49 = phi i32 [ -14, %135 ], [ %115, %114 ]
-  %.ph50 = phi ptr [ %125, %135 ], [ %90, %114 ]
-  %.ph52 = phi ptr [ %124, %135 ], [ %49, %114 ]
-  %304 = icmp eq i32 %54, 2
-  br i1 %304, label %.thread65, label %305
+.loopexit:                                        ; preds = %114, %135
+  %.ph56 = phi i64 [ %122, %135 ], [ %53, %114 ]
+  %.ph59 = phi i32 [ -14, %135 ], [ %115, %114 ]
+  %.ph60 = phi ptr [ %125, %135 ], [ %90, %114 ]
+  %.ph62 = phi ptr [ %124, %135 ], [ %49, %114 ]
+  %299 = icmp eq i32 %54, 2
+  br i1 %299, label %.thread66, label %300
 
-305:                                              ; preds = %.loopexit75
-  %306 = shl nuw nsw i32 1, %50
-  %307 = tail call i32 @set_pages_wb(ptr noundef nonnull %.ph50, i32 noundef %306) #7
+300:                                              ; preds = %.loopexit
+  %301 = shl nuw nsw i32 1, %50
+  %302 = tail call i32 @set_pages_wb(ptr noundef nonnull %.ph60, i32 noundef %301) #7
+  br label %.thread66
+
+.thread66:                                        ; preds = %249, %300, %.loopexit
+  %.ph6275 = phi ptr [ %.ph62, %300 ], [ %.ph62, %.loopexit ], [ %177, %249 ]
+  %.ph6074 = phi ptr [ %.ph60, %300 ], [ %.ph60, %.loopexit ], [ %242, %249 ]
+  %.ph5973 = phi i32 [ %.ph59, %300 ], [ %.ph59, %.loopexit ], [ -14, %249 ]
+  %.ph5672 = phi i64 [ %.ph56, %300 ], [ %.ph56, %.loopexit ], [ %194, %249 ]
+  %303 = icmp eq ptr %0, null
+  br i1 %303, label %307, label %304
+
+304:                                              ; preds = %.thread66
+  %305 = load i8, ptr %44, align 4, !range !14, !noundef !15
+  %306 = icmp eq i8 %305, 0
+  br i1 %306, label %307, label %308
+
+307:                                              ; preds = %304, %.thread66
+  tail call void @__free_pages(ptr noundef nonnull %.ph6074, i32 noundef %50) #7
+  br label %.loopexit77
+
+308:                                              ; preds = %304
+  %309 = icmp eq i32 %50, 0
+  %310 = select i1 %309, i64 64, i64 320
+  %311 = getelementptr inbounds nuw i8, ptr %.ph6074, i64 40
+  %312 = load i64, ptr %311, align 8
+  %313 = inttoptr i64 %312 to ptr
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  %315 = load i64, ptr %314, align 8
+  %316 = and i64 %315, -4096
+  %317 = inttoptr i64 %316 to ptr
+  %318 = load ptr, ptr %0, align 8
+  %319 = zext nneg i32 %50 to i64
+  %320 = shl nuw nsw i64 4096, %319
+  %321 = load i64, ptr %313, align 8
+  tail call void @dma_free_attrs(ptr noundef %318, i64 noundef %320, ptr noundef %317, i64 noundef %321, i64 noundef %310) #7
+  tail call void @kfree(ptr noundef %313) #7
+  br label %.loopexit77
+
+.loopexit77:                                      ; preds = %.thread45, %308, %307, %296
+  %322 = phi i64 [ 0, %296 ], [ %.ph5672, %307 ], [ %.ph5672, %308 ], [ %273, %.thread45 ]
+  %323 = phi i32 [ %297, %296 ], [ %.ph5973, %307 ], [ %.ph5973, %308 ], [ -12, %.thread45 ]
+  %324 = phi ptr [ %282, %296 ], [ %.ph6275, %307 ], [ %.ph6275, %308 ], [ %177, %.thread45 ]
+  %325 = load i32, ptr %4, align 4
+  %326 = zext i32 %325 to i64
+  %327 = sub i64 %326, %322
+  %328 = load ptr, ptr %1, align 8
+  %329 = ptrtoint ptr %324 to i64
+  %330 = ptrtoint ptr %328 to i64
+  %331 = sub i64 %329, %330
+  %332 = ashr exact i64 %331, 3
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %334 = load i32, ptr %333, align 8
+  tail call fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef %1, i32 noundef %334, i64 noundef 0, i64 noundef %332)
+  tail call fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef %1, i32 noundef 2, i64 noundef %332, i64 noundef %327)
   br label %.thread65
 
-.thread65:                                        ; preds = %249, %305, %.loopexit75
-  %.ph5274 = phi ptr [ %.ph52, %305 ], [ %.ph52, %.loopexit75 ], [ %177, %249 ]
-  %.ph5073 = phi ptr [ %.ph50, %305 ], [ %.ph50, %.loopexit75 ], [ %242, %249 ]
-  %.ph4972 = phi i32 [ %.ph49, %305 ], [ %.ph49, %.loopexit75 ], [ -14, %249 ]
-  %.ph71 = phi i64 [ %.ph, %305 ], [ %.ph, %.loopexit75 ], [ %194, %249 ]
-  %308 = icmp eq ptr %0, null
-  br i1 %308, label %312, label %309
-
-309:                                              ; preds = %.thread65
-  %310 = load i8, ptr %44, align 4, !range !14, !noundef !15
-  %311 = icmp eq i8 %310, 0
-  br i1 %311, label %312, label %313
-
-312:                                              ; preds = %309, %.thread65
-  tail call void @__free_pages(ptr noundef nonnull %.ph5073, i32 noundef %50) #7
-  br label %.loopexit77
-
-313:                                              ; preds = %309
-  %314 = icmp eq i32 %50, 0
-  %315 = select i1 %314, i64 64, i64 320
-  %316 = getelementptr inbounds nuw i8, ptr %.ph5073, i64 40
-  %317 = load i64, ptr %316, align 8
-  %318 = inttoptr i64 %317 to ptr
-  %319 = getelementptr inbounds nuw i8, ptr %318, i64 8
-  %320 = load i64, ptr %319, align 8
-  %321 = and i64 %320, -4096
-  %322 = inttoptr i64 %321 to ptr
-  %323 = load ptr, ptr %0, align 8
-  %324 = zext nneg i32 %50 to i64
-  %325 = shl nuw nsw i64 4096, %324
-  %326 = load i64, ptr %318, align 8
-  tail call void @dma_free_attrs(ptr noundef %323, i64 noundef %325, ptr noundef %322, i64 noundef %326, i64 noundef %315) #7
-  tail call void @kfree(ptr noundef %318) #7
-  br label %.loopexit77
-
-.loopexit77:                                      ; preds = %.thread45, %313, %312, %301
-  %327 = phi i64 [ 0, %301 ], [ %.ph71, %312 ], [ %.ph71, %313 ], [ %277, %.thread45 ]
-  %328 = phi i32 [ %302, %301 ], [ %.ph4972, %312 ], [ %.ph4972, %313 ], [ -12, %.thread45 ]
-  %329 = phi ptr [ %287, %301 ], [ %.ph5274, %312 ], [ %.ph5274, %313 ], [ %177, %.thread45 ]
-  %330 = load i32, ptr %4, align 4
-  %331 = zext i32 %330 to i64
-  %332 = sub i64 %331, %327
-  %333 = load ptr, ptr %1, align 8
-  %334 = ptrtoint ptr %329 to i64
-  %335 = ptrtoint ptr %333 to i64
-  %336 = sub i64 %334, %335
-  %337 = ashr exact i64 %336, 3
-  %338 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %339 = load i32, ptr %338, align 8
-  tail call fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef %1, i32 noundef %339, i64 noundef 0, i64 noundef %337)
-  tail call fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef %1, i32 noundef 2, i64 noundef %337, i64 noundef %332)
-  br label %.thread64
-
-.thread64:                                        ; preds = %294, %.loopexit78, %.loopexit77, %301
-  %340 = phi i32 [ %328, %.loopexit77 ], [ 0, %301 ], [ 0, %.loopexit78 ], [ 0, %294 ]
-  ret i32 %340
+.thread65:                                        ; preds = %289, %.loopexit78, %.loopexit77, %296
+  %335 = phi i32 [ %323, %.loopexit77 ], [ 0, %296 ], [ 0, %.loopexit78 ], [ 0, %289 ]
+  ret i32 %335
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

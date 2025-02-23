@@ -5044,7 +5044,7 @@ makeMaps_d.exit:                                  ; preds = %1943
   %3165 = sext i32 %3158 to i64
   %3166 = getelementptr inbounds [4096 x i8], ptr %3140, i64 0, i64 %3165
   store i8 %3164, ptr %3166, align 1, !tbaa !43
-  %3167 = icmp sgt i64 %indvars.iv2628, 1
+  %3167 = icmp samesign ugt i64 %indvars.iv2628, 1
   br i1 %3167, label %.lr.ph2304, label %._crit_edge2305, !llvm.loop !85
 
 ._crit_edge2305:                                  ; preds = %.lr.ph2304

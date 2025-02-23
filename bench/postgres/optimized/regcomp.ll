@@ -3236,7 +3236,7 @@ define internal fastcc range(i64 0, 4097) i64 @nfatree(ptr noundef nonnull %0, p
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %6 = tail call fastcc i64 @nfanode(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  %6 = tail call fastcc i64 @nfanode(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 0)
   ret i64 %6
 }
 
@@ -19900,7 +19900,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 2
-  br i1 %5, label %45, label %6
+  br i1 %5, label %44, label %6
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %4 to i64
@@ -19920,7 +19920,7 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   %.not43 = icmp eq i32 %17, 0
   %spec.select = select i1 %.not43, i32 12, i32 %17
   store i32 %spec.select, ptr %16, align 8
-  br label %45
+  br label %44
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -19954,45 +19954,44 @@ define internal fastcc void @sortins(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not52, label %._crit_edge51, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %._crit_edge
-  %29 = tail call i32 @llvm.smax.i32(i32 %4, i32 3)
-  %smax = add nsw i32 %29, -1
+  %smax = add nsw i32 %4, -1
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %.lr.ph50 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
+  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr i8, ptr %30, i64 -8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store ptr %36, ptr %37, align 8
+  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr i8, ptr %29, i64 -8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr %35, ptr %36, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !100
 
 ._crit_edge51.loopexit:                           ; preds = %.lr.ph50
-  %38 = zext nneg i32 %smax to i64
+  %37 = zext nneg i32 %smax to i64
   br label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
-  %.1.lcssa = phi i64 [ %38, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
-  %39 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr i8, ptr %39, i64 -8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 48
-  store ptr %43, ptr %44, align 8
+  %.1.lcssa = phi i64 [ %37, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
+  %38 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr i8, ptr %38, i64 -8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 48
+  store ptr %42, ptr %43, align 8
   tail call void @pfree(ptr noundef nonnull %9) #20
-  br label %45
+  br label %44
 
-45:                                               ; preds = %2, %._crit_edge51, %11
+44:                                               ; preds = %2, %._crit_edge51, %11
   ret void
 }
 
@@ -27757,7 +27756,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 2
-  br i1 %5, label %45, label %6
+  br i1 %5, label %44, label %6
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %4 to i64
@@ -27777,7 +27776,7 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   %.not43 = icmp eq i32 %17, 0
   %spec.select = select i1 %.not43, i32 12, i32 %17
   store i32 %spec.select, ptr %16, align 8
-  br label %45
+  br label %44
 
 18:                                               ; preds = %6
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -27811,45 +27810,44 @@ define internal fastcc void @sortouts(ptr noundef readonly captures(none) %0, pt
   br i1 %.not52, label %._crit_edge51, label %.lr.ph50.preheader
 
 .lr.ph50.preheader:                               ; preds = %._crit_edge
-  %29 = tail call i32 @llvm.smax.i32(i32 %4, i32 3)
-  %smax = add nsw i32 %29, -1
+  %smax = add nsw i32 %4, -1
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
   %indvars.iv = phi i64 [ 1, %.lr.ph50.preheader ], [ %indvars.iv.next, %.lr.ph50 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
-  %31 = load ptr, ptr %30, align 8
+  %29 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %30 = load ptr, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store ptr %33, ptr %34, align 8
-  %35 = getelementptr i8, ptr %30, i64 -8
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store ptr %36, ptr %37, align 8
+  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store ptr %32, ptr %33, align 8
+  %34 = getelementptr i8, ptr %29, i64 -8
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr %35, ptr %36, align 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge51.loopexit, label %.lr.ph50, !llvm.loop !138
 
 ._crit_edge51.loopexit:                           ; preds = %.lr.ph50
-  %38 = zext nneg i32 %smax to i64
+  %37 = zext nneg i32 %smax to i64
   br label %._crit_edge51
 
 ._crit_edge51:                                    ; preds = %._crit_edge, %._crit_edge51.loopexit
-  %.1.lcssa = phi i64 [ %38, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
-  %39 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
-  store ptr null, ptr %41, align 8
-  %42 = getelementptr i8, ptr %39, i64 -8
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  store ptr %43, ptr %44, align 8
+  %.1.lcssa = phi i64 [ %37, %._crit_edge51.loopexit ], [ 1, %._crit_edge ]
+  %38 = getelementptr inbounds nuw ptr, ptr %9, i64 %.1.lcssa
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  store ptr null, ptr %40, align 8
+  %41 = getelementptr i8, ptr %38, i64 -8
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 32
+  store ptr %42, ptr %43, align 8
   tail call void @pfree(ptr noundef nonnull %9) #20
-  br label %45
+  br label %44
 
-45:                                               ; preds = %2, %._crit_edge51, %11
+44:                                               ; preds = %2, %._crit_edge51, %11
   ret void
 }
 
@@ -28107,7 +28105,7 @@ define internal fastcc void @cleartraverse(ptr noundef readonly captures(none) %
   %.018 = phi ptr [ %.0, %.lr.ph ], [ %.016, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.018, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @cleartraverse(ptr noundef %0, ptr noundef %23)
+  tail call fastcc void @cleartraverse(ptr noundef nonnull %0, ptr noundef %23)
   %.0.in = getelementptr inbounds nuw i8, ptr %.018, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not13 = icmp eq ptr %.0, null
@@ -29271,7 +29269,7 @@ define internal fastcc void @markreachable(ptr noundef readonly captures(none) %
   %.04 = phi ptr [ %.0, %.lr.ph ], [ %.02, %21 ]
   %22 = getelementptr inbounds nuw i8, ptr %.04, i64 16
   %23 = load ptr, ptr %22, align 8
-  tail call fastcc void @markreachable(ptr noundef %0, ptr noundef %23, ptr noundef %2)
+  tail call fastcc void @markreachable(ptr noundef nonnull %0, ptr noundef %23, ptr noundef %2)
   %.0.in = getelementptr inbounds nuw i8, ptr %.04, i64 24
   %.0 = load ptr, ptr %.0.in, align 8
   %.not19 = icmp eq ptr %.0, null
@@ -29323,7 +29321,7 @@ define internal fastcc void @markcanreach(ptr noundef readonly captures(none) %0
   %.023 = phi ptr [ %.0, %.lr.ph ], [ %.021, %22 ]
   %24 = getelementptr inbounds nuw i8, ptr %.023, i64 8
   %25 = load ptr, ptr %24, align 8
-  tail call fastcc void @markcanreach(ptr noundef %0, ptr noundef %25, ptr noundef %2, ptr noundef %3)
+  tail call fastcc void @markcanreach(ptr noundef nonnull %0, ptr noundef %25, ptr noundef %2, ptr noundef %3)
   %26 = getelementptr inbounds nuw i8, ptr %.023, i64 40
   %.0 = load ptr, ptr %26, align 8
   %.not19 = icmp eq ptr %.0, null
@@ -29539,14 +29537,14 @@ isconstraintarc.exit.i:                           ; preds = %28, %27, %27, %27, 
   br i1 %.not64.i, label %._crit_edge95.i, label %.lr.ph94.i, !llvm.loop !152
 
 ._crit_edge95.i:                                  ; preds = %.lr.ph94.i, %.thread.i
-  %39 = tail call fastcc ptr @newstate(ptr noundef %0)
+  %39 = tail call fastcc ptr @newstate(ptr noundef nonnull %0)
   %40 = icmp eq ptr %39, null
   br i1 %40, label %breakconstraintloop.exit, label %41
 
 41:                                               ; preds = %._crit_edge95.i
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = load i32, ptr %42, align 8
-  tail call fastcc void @clonesuccessorstates(ptr noundef %0, ptr noundef %.058.i, ptr noundef nonnull %39, ptr noundef %.056.i, ptr noundef %.155107110.i, ptr noundef null, ptr noundef null, i32 noundef %43)
+  tail call fastcc void @clonesuccessorstates(ptr noundef nonnull %0, ptr noundef %.058.i, ptr noundef nonnull %39, ptr noundef %.056.i, ptr noundef %.155107110.i, ptr noundef null, ptr noundef null, i32 noundef %43)
   %44 = load ptr, ptr %3, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i32, ptr %45, align 8
@@ -29698,7 +29696,7 @@ isconstraintarc.exit74.i:                         ; preds = %76, %76, %76, %76, 
   br i1 %.not25.i.i.i, label %.loopexit.i.i.i, label %.lr.ph37.i.i.i, !llvm.loop !15
 
 .loopexit.i.i.i:                                  ; preds = %95, %107, %96, %.preheader.i.i.i
-  tail call fastcc void @createarc(ptr noundef %0, i32 noundef %.153.val.i, i16 noundef signext %79, ptr noundef %.056.i, ptr noundef nonnull %.057.i)
+  tail call fastcc void @createarc(ptr noundef nonnull %0, i32 noundef %.153.val.i, i16 noundef signext %79, ptr noundef %.056.i, ptr noundef nonnull %.057.i)
   br label %cparc.exit.i
 
 cparc.exit.i:                                     ; preds = %92, %104, %.loopexit.i.i.i, %isconstraintarc.exit74.i
@@ -30594,9 +30592,6 @@ declare i32 @llvm.smin.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #19

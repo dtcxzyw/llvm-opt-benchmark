@@ -816,7 +816,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %34, %._ZN5Gluco3vec
   br i1 %exitcond105.not, label %._crit_edge, label %64, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %64, %.preheader
-  %67 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef %0, ptr noundef readonly %1, i32 noundef %61)
+  %67 = tail call noundef range(i32 -1, 2) i32 @_Z20glucose_solver_solvePN5Gluco10SimpSolverEPii(ptr noundef nonnull %0, ptr noundef readonly %1, i32 noundef %61)
   %68 = icmp eq i32 %67, -1
   br i1 %68, label %78, label %69
 
@@ -827,7 +827,7 @@ _ZN5Gluco3vecIiE4pushERKi.exit:                   ; preds = %34, %._ZN5Gluco3vec
 
 72:                                               ; preds = %69
   %73 = add nsw i32 %61, %12
-  %74 = tail call i32 @bmcg_sat_solver_minimize_assumptions(ptr noundef %0, ptr noundef %1, i32 noundef %73, i32 noundef %61)
+  %74 = tail call i32 @bmcg_sat_solver_minimize_assumptions(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %73, i32 noundef %61)
   br label %75
 
 75:                                               ; preds = %69, %72

@@ -4388,8 +4388,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i.i: ; preds = %281, %_Z
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
   %296 = load i8, ptr %295, align 16
   %297 = icmp eq i8 %296, 13
-  %.not.not7.i.i.i.i.i = icmp ne ptr %294, null
-  %.not.not.not.i.i.i.i.i = and i1 %.not.not7.i.i.i.i.i, %297
+  %.not7.i.i.i.i.i = icmp ne ptr %294, null
+  %.not.not.not.i.i.i.i.i = and i1 %.not7.i.i.i.i.i, %297
   br i1 %.not.not.not.i.i.i.i.i, label %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.i, label %_ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.thread.i
 
 _ZNK5clang21ObjCObjectPointerType21isObjCQualifiedIdTypeEv.exit.i: ; preds = %286
@@ -4434,8 +4434,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i25.i: ; preds = %307, %
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load i8, ptr %321, align 16
   %323 = icmp eq i8 %322, 13
-  %.not.not7.i.i.i.i29.i = icmp ne ptr %320, null
-  %.not.not.not.i.i.i.i30.i = and i1 %.not.not7.i.i.i.i29.i, %323
+  %.not7.i.i.i.i29.i = icmp ne ptr %320, null
+  %.not.not.not.i.i.i.i30.i = and i1 %.not7.i.i.i.i29.i, %323
   br i1 %.not.not.not.i.i.i.i30.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i, label %_ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.thread.i
 
 _ZNK5clang21ObjCObjectPointerType12isObjCIdTypeEv.exit.i: ; preds = %312
@@ -4480,8 +4480,8 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit.i33.i: ; preds = %333, %
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 16
   %348 = load i8, ptr %347, align 16
   %349 = icmp eq i8 %348, 13
-  %.not.not7.i.i.i.i37.i = icmp ne ptr %346, null
-  %.not.not.not.i.i.i.i38.i = and i1 %.not.not7.i.i.i.i37.i, %349
+  %.not7.i.i.i.i37.i = icmp ne ptr %346, null
+  %.not.not.not.i.i.i.i38.i = and i1 %.not7.i.i.i.i37.i, %349
   br i1 %.not.not.not.i.i.i.i38.i, label %_ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i, label %_ZL13GetReturnTypePKN5clang4ExprERNS_10ASTContextE.exit
 
 _ZNK5clang21ObjCObjectPointerType15isObjCClassTypeEv.exit.i: ; preds = %338

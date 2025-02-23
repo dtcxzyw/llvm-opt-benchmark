@@ -10513,7 +10513,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 67:                                               ; preds = %.preheader.i
   %68 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 48
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %68, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableISt6vectorISt10shared_ptrINS_11Usd_ClipSetEESaIS4_EEE6_Entry11RemoveChildEPS8_.exit

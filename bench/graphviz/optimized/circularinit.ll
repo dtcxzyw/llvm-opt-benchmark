@@ -524,7 +524,7 @@ copyPosns.exit31:                                 ; preds = %.lr.ph.i27, %.lr.ph
   br i1 %exitcond41.not, label %._crit_edge38, label %.lr.ph37, !llvm.loop !89
 
 183:                                              ; preds = %._crit_edge38, %copyPosns.exit
-  call void @free(ptr noundef %86) #8
+  call void @free(ptr noundef nonnull %86) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #8
   br label %184
 

@@ -1720,7 +1720,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc27
 
 .lr.ph99.preheader:                               ; preds = %.preheader92
   %34 = zext nneg i32 %.sroa.speculated to i64
-  %wide.trip.count115 = zext i32 %32 to i64
+  %wide.trip.count115 = zext nneg i32 %32 to i64
   br label %.lr.ph99
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1771,8 +1771,7 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev
   br i1 %or.cond, label %.preheader.preheader, label %._crit_edge104
 
 .preheader.preheader:                             ; preds = %_ZNSt6vectorISt10unique_ptrIN8LightGBM4TreeESt14default_deleteIS2_EESaIS5_EED2Ev.exit
-  %smax120 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count121 = zext nneg i32 %smax120 to i64
+  %wide.trip.count121 = zext nneg i32 %16 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge102
@@ -10083,7 +10082,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit: ; preds 
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.018.i = phi i64 [ %58, %.lr.ph.i ], [ %53, %.preheader.i ]
-  %54 = getelementptr inbounds double, ptr %spec.select.i, i64 %.018.i
+  %54 = getelementptr inbounds double, ptr %24, i64 %.018.i
   %55 = load double, ptr %54, align 8, !noalias !87
   %56 = load ptr, ptr %12, align 8, !noalias !87
   %57 = getelementptr inbounds double, ptr %56, i64 %.018.i

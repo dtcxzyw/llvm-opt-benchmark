@@ -1179,7 +1179,7 @@ define void @_Z15LastTrickWinnerRK4dealPK10ThreadDataiiRiS5_S5_(ptr noundef nonn
   br label %19
 
 .preheader80:                                     ; preds = %19
-  %15 = icmp slt i32 %3, 4
+  %15 = icmp samesign ult i32 %3, 4
   br i1 %15, label %.lr.ph86, label %._crit_edge
 
 .lr.ph86:                                         ; preds = %7, %.preheader80

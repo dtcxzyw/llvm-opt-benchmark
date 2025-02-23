@@ -3115,8 +3115,8 @@ define internal fastcc noundef zeroext i1 @_ZL8isHiddenPKN4llvm6RecordE(ptr noun
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !35
   %7 = icmp eq i8 %6, 5
-  %.not.not9 = icmp ne ptr %4, null
-  %.not.not.not = and i1 %.not.not9, %7
+  %.not9 = icmp ne ptr %4, null
+  %.not.not.not = and i1 %.not9, %7
   br i1 %.not.not.not, label %8, label %12
 
 8:                                                ; preds = %3

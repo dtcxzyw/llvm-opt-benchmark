@@ -5477,7 +5477,7 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
-  tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef %1)
+  tail call void %63(ptr noundef nonnull align 8 dereferenceable(12) %60, ptr noundef nonnull %1)
   %64 = getelementptr inbounds nuw i8, ptr %.067130, i64 8
   %.not82 = icmp eq ptr %64, %58
   br i1 %.not82, label %._crit_edge133.loopexit, label %.lr.ph132
@@ -5664,7 +5664,7 @@ define void @_ZN4pkpy8CallExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnull 
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8
-  tail call void %155(ptr noundef nonnull align 8 dereferenceable(12) %152, ptr noundef %1)
+  tail call void %155(ptr noundef nonnull align 8 dereferenceable(12) %152, ptr noundef nonnull %1)
   %156 = getelementptr inbounds nuw i8, ptr %.080120, i64 8
   %.not81 = icmp eq ptr %156, %58
   br i1 %.not81, label %._crit_edge123, label %.lr.ph122

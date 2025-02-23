@@ -688,7 +688,7 @@ define dso_local i64 @hashgetbitmap(ptr noundef %0, ptr noundef %1) #0 {
   %11 = getelementptr inbounds [408 x %struct.HashScanPosItem], ptr %6, i64 0, i64 %10
   tail call void @tbm_add_tuples(ptr noundef %1, ptr noundef nonnull %11, i32 noundef 1, i1 noundef zeroext true) #9
   %12 = add i64 %.0910, 1
-  %13 = tail call zeroext i1 @_hash_next(ptr noundef %0, i32 noundef 1) #9
+  %13 = tail call zeroext i1 @_hash_next(ptr noundef nonnull %0, i32 noundef 1) #9
   br i1 %13, label %8, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %8, %2

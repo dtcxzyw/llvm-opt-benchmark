@@ -2085,7 +2085,7 @@ ctype_raw.exit:                                   ; preds = %19
 32:                                               ; preds = %ctype_raw.exit, %.thread
   %.sink = phi i32 [ 25, %.thread ], [ 26, %ctype_raw.exit ]
   %33 = getelementptr inbounds i8, ptr %4, i64 %6
-  %34 = tail call i32 @lj_ir_kptr_(ptr noundef %0, i32 noundef %.sink, ptr noundef %33) #12
+  %34 = tail call i32 @lj_ir_kptr_(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef %33) #12
   ret i32 %34
 }
 

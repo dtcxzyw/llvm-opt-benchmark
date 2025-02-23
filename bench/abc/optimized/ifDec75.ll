@@ -86,7 +86,7 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph90 ], [ 0, %26 ]
   %.06588 = phi i32 [ %37, %.lr.ph90 ], [ 0, %26 ]
   %35 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %36 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %35)
+  %36 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %35)
   %37 = or i32 %36, %.06588
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %35, align 4, !tbaa !11
@@ -170,7 +170,7 @@ define i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef %1, ptr noundef
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %.06284 = phi i32 [ %69, %.lr.ph ], [ 0, %59 ]
   store i32 0, ptr %6, align 4, !tbaa !11
-  %68 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6)
+  %68 = call i32 @Dau_DsdCheckDecExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %6)
   %69 = or i32 %68, %.06284
   %70 = load i32, ptr %6, align 4, !tbaa !11
   %71 = load i32, ptr %3, align 4, !tbaa !11
@@ -307,7 +307,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
   %.075108 = phi i32 [ %37, %.lr.ph110 ], [ 0, %26 ]
   %.078107 = phi i32 [ %41, %.lr.ph110 ], [ 0, %26 ]
   %35 = getelementptr inbounds nuw [8 x i32], ptr %5, i64 0, i64 %indvars.iv
-  %36 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %35)
+  %36 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %35)
   %37 = or i32 %36, %.075108
   %38 = load i32, ptr %35, align 4, !tbaa !11
   %39 = icmp eq i32 %38, 1
@@ -421,7 +421,7 @@ define i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef %1, ptr noun
 .lr.ph:                                           ; preds = %70, %.lr.ph
   %.073103 = phi i32 [ %80, %.lr.ph ], [ 0, %70 ]
   store i32 0, ptr %6, align 4, !tbaa !11
-  %79 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %6)
+  %79 = call i32 @Dau_DsdCheckDecAndExist_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %6)
   %80 = or i32 %79, %.073103
   %81 = load i32, ptr %6, align 4, !tbaa !11
   %82 = load i32, ptr %3, align 4, !tbaa !11
@@ -604,10 +604,10 @@ Dau_DsdCheckDecAndExist.exit46:                   ; preds = %50
   store i64 %59, ptr %19, align 16, !tbaa !24
   %60 = load i64, ptr %56, align 8, !tbaa !24
   store i64 %60, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !24
-  %.not85 = icmp eq i64 %indvars.iv, 6
-  br i1 %.not85, label %Abc_TtCofactor1.exit, label %Abc_TtCofactor0.exit.critedge
+  %.not86 = icmp eq i64 %indvars.iv, 6
+  br i1 %.not86, label %Abc_TtCofactor1.exit, label %.critedge
 
-Abc_TtCofactor0.exit.critedge:                    ; preds = %58
+.critedge:                                        ; preds = %58
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   %62 = shl nuw nsw i32 1, %61
   %63 = getelementptr inbounds nuw [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
@@ -631,10 +631,10 @@ Abc_TtCofactor0.exit.critedge:                    ; preds = %58
   store i64 %79, ptr %indvars.iv.i48.sroa.gep73, align 8, !tbaa !24
   br label %Abc_TtCofactor1.exit
 
-Abc_TtCofactor1.exit:                             ; preds = %58, %Abc_TtCofactor0.exit.critedge
-  %80 = phi i64 [ %79, %Abc_TtCofactor0.exit.critedge ], [ %60, %58 ]
-  %81 = phi i64 [ %71, %Abc_TtCofactor0.exit.critedge ], [ %59, %58 ]
-  %.sink = phi i64 [ %76, %Abc_TtCofactor0.exit.critedge ], [ %60, %58 ]
+Abc_TtCofactor1.exit:                             ; preds = %58, %.critedge
+  %80 = phi i64 [ %79, %.critedge ], [ %60, %58 ]
+  %81 = phi i64 [ %71, %.critedge ], [ %59, %58 ]
+  %.sink = phi i64 [ %76, %.critedge ], [ %60, %58 ]
   store i64 %81, ptr %indvars.iv.i.sroa.gep74, align 8, !tbaa !24
   store i64 %.sink, ptr %20, align 16, !tbaa !24
   %82 = load i64, ptr %19, align 16

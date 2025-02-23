@@ -244,8 +244,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit47.i: ; preds = %._crit_edge.loopexit.i46.i, %61
   %.0.lcssa.i40.i = phi double [ 0.000000e+00, %61 ], [ %73, %._crit_edge.loopexit.i46.i ]
-  %74 = sext i32 %57 to i64
-  %75 = getelementptr inbounds [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %74
+  %74 = zext nneg i32 %57 to i64
+  %75 = getelementptr inbounds nuw [23 x double], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 0, i64 %74
   %76 = load double, ptr %75, align 8
   %77 = fmul double %.0.lcssa.i40.i, %76
   %78 = sext i32 %59 to i64
@@ -295,8 +295,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
   br i1 %95, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.thread.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL9ReadDiyFpENS0_6VectorIKcEEPNS0_5DiyFpEPi.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i.i
-  %96 = sext i32 %.07.lcssa.i.i.i to i64
-  %97 = getelementptr inbounds i8, ptr %0, i64 %96
+  %96 = zext nneg i32 %.07.lcssa.i.i.i to i64
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 %96
   %98 = load i8, ptr %97, align 1
   %99 = icmp sgt i8 %98, 52
   %100 = zext i1 %99 to i64

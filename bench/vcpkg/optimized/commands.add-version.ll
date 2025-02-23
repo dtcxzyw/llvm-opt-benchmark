@@ -2947,7 +2947,7 @@ _ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcp
   br label %_ZN5vcpkg4Json6ObjectD2Ev.exit.i.i.i
 
 _ZN5vcpkg4Json6ObjectD2Ev.exit.i.i.i:             ; preds = %868, %_ZSt8_DestroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg4Json5ValueEESA_EvT_SC_RSaIT0_E.exit.i.i.i.i.i
-  %869 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.019.023.i.i.i) #25, !noalias !77
+  %869 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.023.i.i.i) #25, !noalias !77
   %.not.i.i.i316 = icmp eq ptr %869, %310
   br i1 %.not.i.i.i316, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i314
 
@@ -4643,11 +4643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125check_used_version_schemeERKN5vc
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %40 = load i8, ptr %39, align 8
   %41 = trunc i8 %40 to i1
-  br i1 %41, label %_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit.thread, label %42
-
-_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit.thread: ; preds = %35
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(145) %8) #20
-  br label %62
+  br i1 %41, label %_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 120
@@ -4687,7 +4683,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZdlPv(ptr noundef nonnull %51) #24
   br label %53
 
-53:                                               ; preds = %52, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i
+_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit: ; preds = %35
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(145) %8) #20
+  br label %62
+
+53:                                               ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i.i.i, %52
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #20
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -4709,7 +4709,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN5vcpkg6Checks21msg_exit_with_messageIJNS_3msg12new_scheme_tENS2_12old_scheme_tENS2_14package_name_tENS2_8option_tEEJNS_10StringViewES7_S7_S7_EEEvRKNS_8LineInfoENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityISC_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 %.sroa.03.0.copyload, ptr nonnull @.str.52, i64 7, ptr nonnull @.str.50, i64 14, ptr noundef nonnull byval(%"struct.vcpkg::msg::TagArg.91") align 8 %11, ptr noundef nonnull byval(%"struct.vcpkg::msg::TagArg.46") align 8 %12) #22
   unreachable
 
-62:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit.thread, %2
+62:                                               ; preds = %_ZN5vcpkg9ExpectedTINS_10DotVersionENS_15LocalizedStringEED2Ev.exit, %2
   ret void
 }
 

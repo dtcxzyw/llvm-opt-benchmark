@@ -142,19 +142,16 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit: ; preds = %.lr.ph.i
   %27 = trunc nsw i64 %indvars.iv.next.i to i32
-  br label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
+  br label %.preheader33
 
-_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, %4
-  %.sroa.9.0 = phi i32 [ 0, %4 ], [ %9, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ]
-  %.sroa.5.0 = phi i32 [ 0, %4 ], [ %27, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ]
-  %.sroa.0.0 = phi ptr [ null, %4 ], [ %5, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ]
+_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11: ; preds = %4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader33
 
-.preheader33:                                     ; preds = %.preheader.i, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
-  %.sroa.0.066 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %.preheader.i ]
-  %.sroa.5.065 = phi i32 [ %.sroa.5.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ 0, %.preheader.i ]
-  %.sroa.9.064 = phi i32 [ %.sroa.9.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %.preheader.i ]
+.preheader33:                                     ; preds = %.preheader.i, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
+  %.sroa.0.066 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %5, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %5, %.preheader.i ]
+  %.sroa.5.065 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %27, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ 0, %.preheader.i ]
+  %.sroa.9.064 = phi i32 [ 0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ %9, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.loopexit ], [ %9, %.preheader.i ]
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %.preheader
 
@@ -226,7 +223,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %
   br i1 %exitcond.not, label %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread, label %.preheader, !llvm.loop !10
 
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11.thread: ; preds = %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit, %.preheader, %.backedge.i, %8, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11
-  %.sroa.015.1 = phi ptr [ %.sroa.0.0, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ null, %8 ], [ null, %.backedge.i ], [ %.sroa.015.047, %.preheader ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
+  %.sroa.015.1 = phi ptr [ null, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.exit11 ], [ null, %8 ], [ null, %.backedge.i ], [ %.sroa.015.047, %.preheader ], [ %.sroa.015.6, %_ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit ]
   %55 = tail call noundef ptr asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.sroa.015.1, ptr %5, ptr nonnull %3) #3, !srcloc !11
   %.not10 = icmp eq ptr %55, %5
   br i1 %.not10, label %56, label %4, !llvm.loop !12

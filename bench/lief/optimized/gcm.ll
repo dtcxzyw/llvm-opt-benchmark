@@ -1128,27 +1128,26 @@ define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr read
   store i8 %81, ptr %79, align 1
   %82 = add nuw nsw i64 %.05357, 1
   %exitcond.not = icmp eq i64 %82, 16
-  br i1 %exitcond.not, label %83, label %76, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %76, !llvm.loop !19
 
-83:                                               ; preds = %76
+.lr.ph.preheader:                                 ; preds = %76
   tail call fastcc void @gcm_mult(ptr noundef nonnull %0, ptr noundef nonnull %75, ptr noundef nonnull %75)
-  %.not59 = icmp eq i64 %5, 0
-  br i1 %.not59, label %.loopexit, label %.lr.ph
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %83, %.lr.ph
-  %.158 = phi i64 [ %89, %.lr.ph ], [ 0, %83 ]
-  %84 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 0, i64 %.158
-  %85 = load i8, ptr %84, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 %.158
-  %87 = load i8, ptr %86, align 1
-  %88 = xor i8 %87, %85
-  store i8 %88, ptr %86, align 1
-  %89 = add nuw nsw i64 %.158, 1
-  %exitcond60.not = icmp eq i64 %89, %5
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.158 = phi i64 [ %88, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 0, i64 %.158
+  %84 = load i8, ptr %83, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %4, i64 %.158
+  %86 = load i8, ptr %85, align 1
+  %87 = xor i8 %86, %84
+  store i8 %87, ptr %85, align 1
+  %88 = add nuw nsw i64 %.158, 1
+  %exitcond60.not = icmp eq i64 %88, %5
   br i1 %exitcond60.not, label %.loopexit, label %.lr.ph, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph, %83, %25, %18
-  %.0 = phi i32 [ -20, %18 ], [ 0, %25 ], [ 0, %83 ], [ 0, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %25, %18
+  %.0 = phi i32 [ -20, %18 ], [ 0, %25 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

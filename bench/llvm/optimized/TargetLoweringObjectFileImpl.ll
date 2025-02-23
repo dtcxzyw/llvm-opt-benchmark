@@ -1383,7 +1383,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit149:           ; preds = %197, %199
   %211 = icmp eq i8 %210, 17
   %spec.select.i.i.i152 = select i1 %211, ptr %209, ptr null
   %212 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i152, i64 24
-  %213 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i152, i64 32
+  %213 = getelementptr inbounds nuw i8, ptr %209, i64 32
   %214 = load i32, ptr %213, align 8, !tbaa !384
   %215 = icmp ult i32 %214, 65
   %216 = load ptr, ptr %212, align 8
@@ -10270,7 +10270,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !393
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %45
+.critedge:                                        ; preds = %45, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   %51 = phi i64 [ %47, %45 ], [ %.pre.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i ]
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 8

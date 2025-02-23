@@ -3807,12 +3807,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %11, label %.split.i.i.i, label %.lr.ph49
 
 12:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit"
-  %13 = icmp eq i64 %152, 0
+  %13 = icmp eq i64 %150, 0
   br i1 %13, label %.split.i.i.i, label %.lr.ph49, !llvm.loop !44
 
 .split.i.i.i:                                     ; preds = %12, %.lr.ph
-  %.lcssa45 = phi i64 [ %8, %.lr.ph ], [ %222, %12 ]
-  %.lcssa43 = phi i64 [ %7, %.lr.ph ], [ %221, %12 ]
+  %.lcssa45 = phi i64 [ %8, %.lr.ph ], [ %220, %12 ]
+  %.lcssa43 = phi i64 [ %7, %.lr.ph ], [ %219, %12 ]
   %storemerge27.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.016.1.i.i, %12 ]
   %14 = add nsw i64 %.lcssa45, -2
   %15 = lshr i64 %14, 1
@@ -3989,224 +3989,224 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %115 = and i64 %85, 8
   %116 = icmp eq i64 %115, 0
-  br i1 %116, label %117, label %127
+  br i1 %116, label %117, label %126
 
 117:                                              ; preds = %._crit_edge.i.i
   %118 = add nsw i64 %86, -2
   %119 = ashr exact i64 %118, 1
   %120 = icmp eq i64 %.0.lcssa.i.i, %119
-  br i1 %120, label %121, label %127
+  br i1 %120, label %.thread.i, label %126
 
-121:                                              ; preds = %117
-  %122 = shl nsw i64 %.0.lcssa.i.i, 1
-  %123 = or disjoint i64 %122, 1
-  %124 = getelementptr inbounds ptr, ptr %0, i64 %123
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
-  store ptr %125, ptr %126, align 8
-  br label %127
+.thread.i:                                        ; preds = %117
+  %121 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %122 = or disjoint i64 %121, 1
+  %123 = getelementptr inbounds nuw ptr, ptr %0, i64 %122
+  %124 = load ptr, ptr %123, align 8
+  %125 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  store ptr %124, ptr %125, align 8
+  br label %.lr.ph.i.i.i
 
-127:                                              ; preds = %121, %117, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %123, %121 ], [ %.0.lcssa.i.i, %117 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %128 = icmp sgt i64 %.1.i.i, 0
-  br i1 %128, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
+126:                                              ; preds = %117, %._crit_edge.i.i
+  %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
+  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %127
-  %129 = ptrtoint ptr %82 to i64
-  br label %130
+.lr.ph.i.i.i:                                     ; preds = %126, %.thread.i
+  %.1.i8.i = phi i64 [ %122, %.thread.i ], [ %.0.lcssa.i.i, %126 ]
+  %127 = ptrtoint ptr %82 to i64
+  br label %128
 
-130:                                              ; preds = %147, %.lr.ph.i.i.i
-  %.010.i.i.i = phi i64 [ %.1.i.i, %.lr.ph.i.i.i ], [ %.0911.i.i78.i, %147 ]
+128:                                              ; preds = %145, %.lr.ph.i.i.i
+  %.010.i.i.i = phi i64 [ %.1.i8.i, %.lr.ph.i.i.i ], [ %.0911.i.i910.i, %145 ]
   %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
-  %.0911.i.i78.i = lshr i64 %.0911.in.i.i.i, 1
-  %131 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0911.i.i78.i
+  %.0911.i.i910.i = lshr i64 %.0911.in.i.i.i, 1
+  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0911.i.i910.i
   %.val.val.i.i.i = load ptr, ptr %3, align 8
-  %132 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
-  %.val.val.val.i.i.i = load ptr, ptr %132, align 8
-  %133 = getelementptr i8, ptr %.val.val.i.i.i, i64 16
-  %.val.val.val11.i.i.i = load ptr, ptr %133, align 8
+  %130 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
+  %.val.val.val.i.i.i = load ptr, ptr %130, align 8
+  %131 = getelementptr i8, ptr %.val.val.i.i.i, i64 16
+  %.val.val.val11.i.i.i = load ptr, ptr %131, align 8
   %.val.val.val.val.i.i.i = load ptr, ptr %.val.val.val.i.i.i, align 8
-  %.val2.i.i.i.i = load ptr, ptr %131, align 8
-  %134 = ptrtoint ptr %.val2.i.i.i.i to i64
-  %135 = ptrtoint ptr %.val.val.val.val.i.i.i to i64
-  %136 = sub i64 %134, %135
-  %137 = sdiv exact i64 %136, 3
-  %138 = getelementptr inbounds i8, ptr %.val.val.val11.i.i.i, i64 %137
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  %140 = load i16, ptr %139, align 2
-  %141 = sub i64 %129, %135
-  %142 = sdiv exact i64 %141, 3
-  %143 = getelementptr inbounds i8, ptr %.val.val.val11.i.i.i, i64 %142
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
-  %145 = load i16, ptr %144, align 2
-  %146 = icmp slt i16 %140, %145
-  br i1 %146, label %147, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
+  %.val2.i.i.i.i = load ptr, ptr %129, align 8
+  %132 = ptrtoint ptr %.val2.i.i.i.i to i64
+  %133 = ptrtoint ptr %.val.val.val.val.i.i.i to i64
+  %134 = sub i64 %132, %133
+  %135 = sdiv exact i64 %134, 3
+  %136 = getelementptr inbounds i8, ptr %.val.val.val11.i.i.i, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
+  %138 = load i16, ptr %137, align 2
+  %139 = sub i64 %127, %133
+  %140 = sdiv exact i64 %139, 3
+  %141 = getelementptr inbounds i8, ptr %.val.val.val11.i.i.i, i64 %140
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  %143 = load i16, ptr %142, align 2
+  %144 = icmp slt i16 %138, %143
+  br i1 %144, label %145, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
 
-147:                                              ; preds = %130
-  %148 = getelementptr inbounds nuw ptr, ptr %0, i64 %.010.i.i.i
-  store ptr %.val2.i.i.i.i, ptr %148, align 8
-  %.not.i = icmp ult i64 %.0911.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %130, !llvm.loop !46
+145:                                              ; preds = %128
+  %146 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i
+  store ptr %.val2.i.i.i.i, ptr %146, align 8
+  %.not11.i = icmp ult i64 %.0911.in.i.i.i, 2
+  br i1 %.not11.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %128, !llvm.loop !46
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %130, %147, %127
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %127 ], [ %.010.i.i.i, %130 ], [ 0, %147 ]
-  %149 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
-  store ptr %82, ptr %149, align 8
-  %150 = icmp sgt i64 %85, 8
-  br i1 %150, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !48
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %128, %145, %126
+  %.0.lcssa.i.i.i = phi i64 [ 0, %126 ], [ %.010.i.i.i, %128 ], [ 0, %145 ]
+  %147 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
+  store ptr %82, ptr %147, align 8
+  %148 = icmp sgt i64 %85, 8
+  br i1 %148, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !48
 
 .lr.ph49:                                         ; preds = %.lr.ph, %12
   %storemerge2748 = phi ptr [ %.sroa.016.1.i.i, %12 ], [ %1, %.lr.ph ]
-  %.02847 = phi i64 [ %152, %12 ], [ %2, %.lr.ph ]
-  %151 = phi i64 [ %222, %12 ], [ %8, %.lr.ph ]
-  %152 = add nsw i64 %.02847, -1
-  %153 = lshr i64 %151, 1
-  %154 = getelementptr inbounds nuw ptr, ptr %0, i64 %153
-  %155 = getelementptr inbounds i8, ptr %storemerge2748, i64 -8
+  %.02847 = phi i64 [ %150, %12 ], [ %2, %.lr.ph ]
+  %149 = phi i64 [ %220, %12 ], [ %8, %.lr.ph ]
+  %150 = add nsw i64 %.02847, -1
+  %151 = lshr i64 %149, 1
+  %152 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
+  %153 = getelementptr inbounds i8, ptr %storemerge2748, i64 -8
   %.val29.val.i.i = load ptr, ptr %3, align 8
-  %156 = getelementptr i8, ptr %.val29.val.i.i, i64 8
-  %.val29.val.val.i.i = load ptr, ptr %156, align 8
-  %157 = getelementptr i8, ptr %.val29.val.i.i, i64 16
-  %.val29.val.val34.i.i = load ptr, ptr %157, align 8
+  %154 = getelementptr i8, ptr %.val29.val.i.i, i64 8
+  %.val29.val.val.i.i = load ptr, ptr %154, align 8
+  %155 = getelementptr i8, ptr %.val29.val.i.i, i64 16
+  %.val29.val.val34.i.i = load ptr, ptr %155, align 8
   %.val29.val.val.val.i.i = load ptr, ptr %.val29.val.val.i.i, align 8
   %.val1.i.i.i = load ptr, ptr %10, align 8
-  %.val2.i.i.i = load ptr, ptr %154, align 8
-  %158 = ptrtoint ptr %.val1.i.i.i to i64
-  %159 = ptrtoint ptr %.val29.val.val.val.i.i to i64
-  %160 = sub i64 %158, %159
-  %161 = sdiv exact i64 %160, 3
-  %162 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %161
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
-  %164 = load i16, ptr %163, align 2
-  %165 = ptrtoint ptr %.val2.i.i.i to i64
-  %166 = sub i64 %165, %159
-  %167 = sdiv exact i64 %166, 3
-  %168 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %167
-  %169 = getelementptr inbounds nuw i8, ptr %168, i64 16
-  %170 = load i16, ptr %169, align 2
-  %171 = icmp slt i16 %164, %170
-  %.val2.i36.i.i = load ptr, ptr %155, align 8
-  %172 = ptrtoint ptr %.val2.i36.i.i to i64
-  %173 = sub i64 %172, %159
-  %174 = sdiv exact i64 %173, 3
-  %175 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %174
-  %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %177 = load i16, ptr %176, align 2
-  br i1 %171, label %178, label %187
+  %.val2.i.i.i = load ptr, ptr %152, align 8
+  %156 = ptrtoint ptr %.val1.i.i.i to i64
+  %157 = ptrtoint ptr %.val29.val.val.val.i.i to i64
+  %158 = sub i64 %156, %157
+  %159 = sdiv exact i64 %158, 3
+  %160 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %159
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
+  %162 = load i16, ptr %161, align 2
+  %163 = ptrtoint ptr %.val2.i.i.i to i64
+  %164 = sub i64 %163, %157
+  %165 = sdiv exact i64 %164, 3
+  %166 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = load i16, ptr %167, align 2
+  %169 = icmp slt i16 %162, %168
+  %.val2.i36.i.i = load ptr, ptr %153, align 8
+  %170 = ptrtoint ptr %.val2.i36.i.i to i64
+  %171 = sub i64 %170, %157
+  %172 = sdiv exact i64 %171, 3
+  %173 = getelementptr inbounds i8, ptr %.val29.val.val34.i.i, i64 %172
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %175 = load i16, ptr %174, align 2
+  br i1 %169, label %176, label %185
 
-178:                                              ; preds = %.lr.ph49
-  %179 = icmp slt i16 %170, %177
-  br i1 %179, label %180, label %182
+176:                                              ; preds = %.lr.ph49
+  %177 = icmp slt i16 %168, %175
+  br i1 %177, label %178, label %180
 
-180:                                              ; preds = %178
-  %181 = load ptr, ptr %0, align 8
+178:                                              ; preds = %176
+  %179 = load ptr, ptr %0, align 8
   store ptr %.val2.i.i.i, ptr %0, align 8
-  store ptr %181, ptr %154, align 8
+  store ptr %179, ptr %152, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-182:                                              ; preds = %178
-  %183 = icmp slt i16 %164, %177
-  %184 = load ptr, ptr %0, align 8
-  br i1 %183, label %185, label %186
+180:                                              ; preds = %176
+  %181 = icmp slt i16 %162, %175
+  %182 = load ptr, ptr %0, align 8
+  br i1 %181, label %183, label %184
 
-185:                                              ; preds = %182
+183:                                              ; preds = %180
   store ptr %.val2.i36.i.i, ptr %0, align 8
-  store ptr %184, ptr %155, align 8
+  store ptr %182, ptr %153, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-186:                                              ; preds = %182
+184:                                              ; preds = %180
   store ptr %.val1.i.i.i, ptr %0, align 8
-  store ptr %184, ptr %10, align 8
+  store ptr %182, ptr %10, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-187:                                              ; preds = %.lr.ph49
-  %188 = icmp slt i16 %164, %177
-  br i1 %188, label %189, label %191
+185:                                              ; preds = %.lr.ph49
+  %186 = icmp slt i16 %162, %175
+  br i1 %186, label %187, label %189
 
-189:                                              ; preds = %187
-  %190 = load ptr, ptr %0, align 8
+187:                                              ; preds = %185
+  %188 = load ptr, ptr %0, align 8
   store ptr %.val1.i.i.i, ptr %0, align 8
-  store ptr %190, ptr %10, align 8
+  store ptr %188, ptr %10, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-191:                                              ; preds = %187
-  %192 = icmp slt i16 %170, %177
-  %193 = load ptr, ptr %0, align 8
-  br i1 %192, label %194, label %195
+189:                                              ; preds = %185
+  %190 = icmp slt i16 %168, %175
+  %191 = load ptr, ptr %0, align 8
+  br i1 %190, label %192, label %193
 
-194:                                              ; preds = %191
+192:                                              ; preds = %189
   store ptr %.val2.i36.i.i, ptr %0, align 8
-  store ptr %193, ptr %155, align 8
+  store ptr %191, ptr %153, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-195:                                              ; preds = %191
+193:                                              ; preds = %189
   store ptr %.val2.i.i.i, ptr %0, align 8
-  store ptr %193, ptr %154, align 8
+  store ptr %191, ptr %152, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader": ; preds = %195, %194, %189, %186, %185, %180
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader": ; preds = %193, %192, %187, %184, %183, %178
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %219
-  %.sroa.013.0.i.i = phi ptr [ %.sroa.013.1.i.i, %219 ], [ %storemerge2748, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
-  %.sroa.016.0.i.i = phi ptr [ %211, %219 ], [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader", %217
+  %.sroa.013.0.i.i = phi ptr [ %.sroa.013.1.i.i, %217 ], [ %storemerge2748, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
+  %.sroa.016.0.i.i = phi ptr [ %209, %217 ], [ %10, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i.preheader" ]
   %.val8.val.i.i = load ptr, ptr %3, align 8
-  %196 = getelementptr i8, ptr %.val8.val.i.i, i64 8
-  %.val8.val.val.i.i = load ptr, ptr %196, align 8
-  %197 = getelementptr i8, ptr %.val8.val.i.i, i64 16
-  %.val8.val.val10.i.i = load ptr, ptr %197, align 8
+  %194 = getelementptr i8, ptr %.val8.val.i.i, i64 8
+  %.val8.val.val.i.i = load ptr, ptr %194, align 8
+  %195 = getelementptr i8, ptr %.val8.val.i.i, i64 16
+  %.val8.val.val10.i.i = load ptr, ptr %195, align 8
   %.val8.val.val.val.i.i = load ptr, ptr %.val8.val.val.i.i, align 8
   %.val2.i.i12.i = load ptr, ptr %0, align 8
-  %198 = ptrtoint ptr %.val8.val.val.val.i.i to i64
+  %196 = ptrtoint ptr %.val8.val.val.val.i.i to i64
   %invariant.gep.i.i = getelementptr i8, ptr %.val8.val.val10.i.i, i64 16
-  %199 = ptrtoint ptr %.val2.i.i12.i to i64
-  %200 = sub i64 %199, %198
-  %201 = sdiv exact i64 %200, 3
-  %202 = getelementptr inbounds i8, ptr %.val8.val.val10.i.i, i64 %201
-  %203 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  %204 = load i16, ptr %203, align 2
-  br label %205
+  %197 = ptrtoint ptr %.val2.i.i12.i to i64
+  %198 = sub i64 %197, %196
+  %199 = sdiv exact i64 %198, 3
+  %200 = getelementptr inbounds i8, ptr %.val8.val.val10.i.i, i64 %199
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  %202 = load i16, ptr %201, align 2
+  br label %203
 
-205:                                              ; preds = %205, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i"
-  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ], [ %211, %205 ]
+203:                                              ; preds = %203, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i"
+  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i" ], [ %209, %203 ]
   %.val1.i.i13.i = load ptr, ptr %.sroa.016.1.i.i, align 8
-  %206 = ptrtoint ptr %.val1.i.i13.i to i64
-  %207 = sub i64 %206, %198
-  %208 = sdiv exact i64 %207, 3
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %208
-  %209 = load i16, ptr %gep.i.i, align 2
-  %210 = icmp slt i16 %209, %204
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 8
-  br i1 %210, label %205, label %.preheader.i.i, !llvm.loop !49
+  %204 = ptrtoint ptr %.val1.i.i13.i to i64
+  %205 = sub i64 %204, %196
+  %206 = sdiv exact i64 %205, 3
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %206
+  %207 = load i16, ptr %gep.i.i, align 2
+  %208 = icmp slt i16 %207, %202
+  %209 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 8
+  br i1 %208, label %203, label %.preheader.i.i, !llvm.loop !49
 
-.preheader.i.i:                                   ; preds = %205, %.preheader.i.i
-  %.sroa.013.0.pn.i.i = phi ptr [ %.sroa.013.1.i.i, %.preheader.i.i ], [ %.sroa.013.0.i.i, %205 ]
+.preheader.i.i:                                   ; preds = %203, %.preheader.i.i
+  %.sroa.013.0.pn.i.i = phi ptr [ %.sroa.013.1.i.i, %.preheader.i.i ], [ %.sroa.013.0.i.i, %203 ]
   %.sroa.013.1.i.i = getelementptr inbounds i8, ptr %.sroa.013.0.pn.i.i, i64 -8
   %.val2.i12.i.i = load ptr, ptr %.sroa.013.1.i.i, align 8
-  %212 = ptrtoint ptr %.val2.i12.i.i to i64
-  %213 = sub i64 %212, %198
-  %214 = sdiv exact i64 %213, 3
-  %gep21.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %214
-  %215 = load i16, ptr %gep21.i.i, align 2
-  %216 = icmp slt i16 %204, %215
-  br i1 %216, label %.preheader.i.i, label %217, !llvm.loop !50
+  %210 = ptrtoint ptr %.val2.i12.i.i to i64
+  %211 = sub i64 %210, %196
+  %212 = sdiv exact i64 %211, 3
+  %gep21.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %212
+  %213 = load i16, ptr %gep21.i.i, align 2
+  %214 = icmp slt i16 %202, %213
+  br i1 %214, label %.preheader.i.i, label %215, !llvm.loop !50
 
-217:                                              ; preds = %.preheader.i.i
-  %218 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.013.1.i.i
-  br i1 %218, label %219, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit"
+215:                                              ; preds = %.preheader.i.i
+  %216 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.013.1.i.i
+  br i1 %216, label %217, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit"
 
-219:                                              ; preds = %217
+217:                                              ; preds = %215
   store ptr %.val2.i12.i.i, ptr %.sroa.016.1.i.i, align 8
   store ptr %.val1.i.i13.i, ptr %.sroa.013.1.i.i, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_SK_T0_.exit.i", !llvm.loop !51
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit": ; preds = %217
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2748, i64 noundef %152, ptr nonnull %3)
-  %220 = ptrtoint ptr %.sroa.016.1.i.i to i64
-  %221 = sub i64 %220, %5
-  %222 = ashr exact i64 %221, 3
-  %223 = icmp sgt i64 %222, 16
-  br i1 %223, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !44
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit": ; preds = %215
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2748, i64 noundef %150, ptr nonnull %3)
+  %218 = ptrtoint ptr %.sroa.016.1.i.i to i64
+  %219 = sub i64 %218, %5
+  %220 = ashr exact i64 %219, 3
+  %221 = icmp sgt i64 %220, 16
+  br i1 %221, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !44
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEET_SK_SK_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", %4, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_RT0_.exit.i.i"
   ret void

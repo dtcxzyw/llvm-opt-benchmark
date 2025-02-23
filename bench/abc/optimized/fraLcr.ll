@@ -692,8 +692,8 @@ define ptr @Fra_LcrDeriveAigForPartitioning(ptr noundef %0) local_unnamed_addr #
   %57 = ptrtoint ptr %.val63 to i64
   %58 = and i64 %57, -2
   %59 = inttoptr i64 %58 to ptr
-  %60 = tail call ptr @Fra_LcrManDup_rec(ptr noundef %23, ptr noundef %46, ptr noundef %59)
-  %61 = tail call ptr @Aig_Exor(ptr noundef %23, ptr noundef %.05270, ptr noundef %60) #19
+  %60 = tail call ptr @Fra_LcrManDup_rec(ptr noundef nonnull %23, ptr noundef %46, ptr noundef %59)
+  %61 = tail call ptr @Aig_Exor(ptr noundef nonnull %23, ptr noundef %.05270, ptr noundef %60) #19
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %62 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next84
   %63 = load ptr, ptr %62, align 8, !tbaa !79
@@ -702,7 +702,7 @@ define ptr @Fra_LcrDeriveAigForPartitioning(ptr noundef %0) local_unnamed_addr #
 
 ._crit_edge:                                      ; preds = %.lr.ph72, %36
   %.052.lcssa = phi ptr [ %43, %36 ], [ %61, %.lr.ph72 ]
-  %64 = tail call ptr @Aig_ObjCreateCo(ptr noundef %23, ptr noundef %.052.lcssa) #19
+  %64 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %23, ptr noundef %.052.lcssa) #19
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %65 = load ptr, ptr %24, align 8, !tbaa !55
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16

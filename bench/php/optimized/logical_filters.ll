@@ -2900,13 +2900,6 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %137 = zext nneg i32 %134 to i64
   br label %.lr.ph188
 
-.preheader161:                                    ; preds = %.lr.ph188
-  %.not150190 = icmp sgt i32 %.3, 8
-  br i1 %.not150190, label %.loopexit, label %.lr.ph192.preheader
-
-.lr.ph192.preheader:                              ; preds = %132, %.preheader161
-  br label %.lr.ph192
-
 .lr.ph188:                                        ; preds = %.lr.ph188.preheader, %.lr.ph188
   %indvars.iv = phi i64 [ 7, %.lr.ph188.preheader ], [ %indvars.iv.next, %.lr.ph188 ]
   %138 = sub nsw i64 %indvars.iv, %136
@@ -2915,8 +2908,11 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %141 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   store i32 %140, ptr %141, align 4, !tbaa !50
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %142 = icmp sgt i64 %indvars.iv.next, %137
-  br i1 %142, label %.lr.ph188, label %.preheader161
+  %142 = icmp samesign ugt i64 %indvars.iv.next, %137
+  br i1 %142, label %.lr.ph188, label %.lr.ph192.preheader
+
+.lr.ph192.preheader:                              ; preds = %.lr.ph188, %132
+  br label %.lr.ph192
 
 .lr.ph192:                                        ; preds = %.lr.ph192.preheader, %.lr.ph192
   %.2117191 = phi i32 [ %145, %.lr.ph192 ], [ %134, %.lr.ph192.preheader ]
@@ -2924,20 +2920,18 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
   %144 = getelementptr inbounds nuw i32, ptr %2, i64 %143
   store i32 0, ptr %144, align 4, !tbaa !50
   %145 = add nsw i32 %.2117191, -1
-  %.not150.not = icmp sgt i32 %.2117191, %.2126
+  %.not150.not = icmp samesign ugt i32 %.2117191, %.2126
   br i1 %.not150.not, label %.lr.ph192, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph192, %.preheader161, %130, %.preheader.preheader
+.loopexit:                                        ; preds = %.lr.ph192, %130, %.preheader.preheader
   %146 = icmp sgt i32 %.2126, -1
-  %147 = icmp slt i32 %.3, 9
-  %or.cond13 = select i1 %146, i1 %147, i1 false
-  %148 = icmp eq i32 %.3, 8
-  %narrow160 = select i1 %or.cond13, i1 true, i1 %148
-  %149 = zext i1 %narrow160 to i32
+  %147 = icmp eq i32 %.3, 8
+  %narrow160 = select i1 %146, i1 true, i1 %147
+  %148 = zext i1 %narrow160 to i32
   br label %_php_filter_validate_ipv4.exit.thread
 
 _php_filter_validate_ipv4.exit.thread:            ; preds = %43, %37, %19, %17, %44, %30, %113, %79, %66, %61, %77, %_php_filter_validate_ipv4.exit, %3, %.loopexit
-  %.0 = phi i32 [ %149, %.loopexit ], [ 0, %3 ], [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %77 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %113 ], [ 0, %30 ], [ 0, %44 ], [ 0, %17 ], [ 0, %19 ], [ 0, %37 ], [ 0, %43 ]
+  %.0 = phi i32 [ %148, %.loopexit ], [ 0, %3 ], [ 0, %_php_filter_validate_ipv4.exit ], [ 0, %77 ], [ 0, %61 ], [ 0, %66 ], [ 0, %79 ], [ 0, %113 ], [ 0, %30 ], [ 0, %44 ], [ 0, %17 ], [ 0, %19 ], [ 0, %37 ], [ 0, %43 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   ret i32 %.0
 }

@@ -10519,10 +10519,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
           to label %212 unwind label %52
 
 212:                                              ; preds = %192, %141, %.critedge._crit_edge, %148, %182
-  %.050 = phi i1 [ false, %182 ], [ true, %148 ], [ false, %.critedge._crit_edge ], [ %29, %141 ], [ false, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %29
 
 213:                                              ; preds = %.body92, %178, %153, %_ZNSt6vectorIiSaIiEED2Ev.exit, %52
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %53, %52 ], [ %.pn66, %153 ], [ %.pn64, %.body92 ], [ %.pn, %178 ]
@@ -11359,10 +11358,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
           to label %212 unwind label %52
 
 212:                                              ; preds = %192, %141, %.critedge._crit_edge, %148, %182
-  %.050 = phi i1 [ false, %182 ], [ true, %148 ], [ false, %.critedge._crit_edge ], [ %29, %141 ], [ false, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %29
 
 213:                                              ; preds = %.body92, %178, %153, %_ZNSt6vectorImSaImEED2Ev.exit, %52
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorImSaImEED2Ev.exit ], [ %53, %52 ], [ %.pn66, %153 ], [ %.pn64, %.body92 ], [ %.pn, %178 ]
@@ -12199,10 +12197,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
           to label %212 unwind label %52
 
 212:                                              ; preds = %192, %141, %.critedge._crit_edge, %148, %182
-  %.050 = phi i1 [ false, %182 ], [ true, %148 ], [ false, %.critedge._crit_edge ], [ %29, %141 ], [ false, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %29
 
 213:                                              ; preds = %.body92, %178, %153, %_ZNSt6vectorIlSaIlEED2Ev.exit, %52
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorIlSaIlEED2Ev.exit ], [ %53, %52 ], [ %.pn66, %153 ], [ %.pn64, %.body92 ], [ %.pn, %178 ]
@@ -14493,10 +14490,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
           to label %212 unwind label %52
 
 212:                                              ; preds = %192, %141, %.critedge._crit_edge, %148, %182
-  %.050 = phi i1 [ false, %182 ], [ true, %148 ], [ false, %.critedge._crit_edge ], [ %29, %141 ], [ false, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %29
 
 213:                                              ; preds = %.body92, %178, %153, %_ZNSt6vectorIdSaIdEED2Ev.exit, %52
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorIdSaIdEED2Ev.exit ], [ %53, %52 ], [ %.pn66, %153 ], [ %.pn64, %.body92 ], [ %.pn, %178 ]
@@ -15338,10 +15334,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit91: ; 
           to label %219 unwind label %47
 
 219:                                              ; preds = %200, %149, %.critedge._crit_edge, %156, %190
-  %.050 = phi i1 [ false, %190 ], [ true, %156 ], [ false, %.critedge._crit_edge ], [ %30, %149 ], [ false, %200 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %30
 
 220:                                              ; preds = %.body89, %186, %161, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit, %47
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit ], [ %48, %47 ], [ %.pn66, %161 ], [ %.pn64, %.body89 ], [ %.pn, %186 ]
@@ -16302,10 +16297,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit96: ; 
           to label %211 unwind label %56
 
 211:                                              ; preds = %192, %141, %.critedge._crit_edge, %148, %182
-  %.050 = phi i1 [ false, %182 ], [ true, %148 ], [ false, %.critedge._crit_edge ], [ %29, %141 ], [ false, %192 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  ret i1 %.050
+  ret i1 %29
 
 212:                                              ; preds = %.body94, %178, %153, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EED2Ev.exit, %56
   %.pn71.pn = phi { ptr, i32 } [ %.pn71, %_ZNSt6vectorIN12colvarmodule10quaternionESaIS1_EED2Ev.exit ], [ %57, %56 ], [ %.pn66, %153 ], [ %.pn64, %.body94 ], [ %.pn, %178 ]

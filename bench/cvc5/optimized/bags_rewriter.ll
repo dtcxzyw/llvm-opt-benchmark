@@ -11156,7 +11156,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_8RationalESt4lessIS3_ESaISt4pa
           to label %_ZN4cvc58internal8RationalaSERKS1_.exit unwind label %151
 
 _ZN4cvc58internal8RationalaSERKS1_.exit:          ; preds = %126, %128
-  %131 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0203.0209) #24
+  %131 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0203.0209) #24
   %132 = load ptr, ptr %28, align 8, !tbaa !6
   %133 = load i64, ptr %132, align 8
   %134 = and i64 %133, 1152920405095219200

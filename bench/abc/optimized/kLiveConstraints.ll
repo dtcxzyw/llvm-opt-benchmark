@@ -47,7 +47,7 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr noundef readonly capt
   %24 = ptrtoint ptr %22 to i64
   %25 = xor i64 %23, %24
   %26 = inttoptr i64 %25 to ptr
-  %27 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.023, ptr noundef %26) #9
+  %27 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.023, ptr noundef %26) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
@@ -61,7 +61,7 @@ define ptr @createConstrained0LiveCone(ptr noundef %0, ptr noundef readonly capt
   %32 = ptrtoint ptr %.0.lcssa to i64
   %33 = xor i64 %32, 1
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @Aig_Or(ptr noundef %0, ptr noundef %34, ptr noundef %31) #9
+  %35 = tail call ptr @Aig_Or(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %31) #9
   ret ptr %35
 }
 

@@ -151,12 +151,12 @@ if.end.split.i.i:                                 ; preds = %for.end.i
 
 while.body.i.i.i:                                 ; preds = %if.end.split.i.i, %while.body.i.i.i
   %secondChild.028.i.i.i = phi i64 [ %spec.select.i.i.i, %while.body.i.i.i ], [ %div9.i.i, %if.end.split.i.i ]
-  %add.i.i.i = shl nuw i64 %secondChild.028.i.i.i, 1
-  %mul.i.i.i = add nuw i64 %add.i.i.i, 2
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %mul.i.i.i
+  %add.i.i.i = shl nuw nsw i64 %secondChild.028.i.i.i, 1
+  %mul.i.i.i = add nuw nsw i64 %add.i.i.i, 2
+  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %mul.i.i.i
   %7 = load ptr, ptr %add.ptr.i.i.i, align 8
   %sub1.i.i.i = or disjoint i64 %add.i.i.i, 1
-  %add.ptr2.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %sub1.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %sub1.i.i.i
   %8 = load ptr, ptr %add.ptr2.i.i.i, align 8
   %9 = load i64, ptr %7, align 8
   %10 = load i64, ptr %8, align 8
@@ -166,11 +166,11 @@ while.body.i.i.i:                                 ; preds = %if.end.split.i.i, %
   %.not26.i.i.i = or i1 %cmp2.i.i.i.i, %cmp1.i.i.i.i
   %narrow.i.not.i.i.i = and i1 %cmp.i.i.i.i, %.not26.i.i.i
   %spec.select.i.i.i = select i1 %narrow.i.not.i.i.i, i64 %mul.i.i.i, i64 %sub1.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %spec.select.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %spec.select.i.i.i
   %11 = load ptr, ptr %add.ptr3.i.i.i, align 8
-  %add.ptr4.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %secondChild.028.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %secondChild.028.i.i.i
   store ptr %11, ptr %add.ptr4.i.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %spec.select.i.i.i, %div23.i.i.i
+  %cmp.i.i.i = icmp samesign ult i64 %spec.select.i.i.i, %div23.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !8
 
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %if.end.split.i.i
@@ -183,19 +183,19 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 
 if.then9.i.i.i:                                   ; preds = %while.end.i.i.i
   %sub12.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr13.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %sub12.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %sub12.i.i.i
   %12 = load ptr, ptr %add.ptr13.i.i.i, align 8
   store ptr %12, ptr %add.ptr7.i.i, align 8
   br label %if.end16.i.i.i
 
 if.end16.i.i.i:                                   ; preds = %if.then9.i.i.i, %while.end.i.i.i
   %holeIndex.addr.1.i.i.i = phi i64 [ %sub12.i.i.i, %if.then9.i.i.i ], [ %secondChild.0.lcssa.i.i.i, %while.end.i.i.i ]
-  %cmp16.i.i.i.i = icmp ugt i64 %holeIndex.addr.1.i.i.i, %div9.i.i
+  %cmp16.i.i.i.i = icmp samesign ugt i64 %holeIndex.addr.1.i.i.i, %div9.i.i
   br i1 %cmp16.i.i.i.i, label %land.rhs.i.i.i.i, label %adjust_heap.exit.i.i
 
 land.rhs.i.i.i.i:                                 ; preds = %if.end16.i.i.i, %while.body.i.i.i.i
   %holeIndex.addr.017.i.i.i.i = phi i64 [ %parent.018.i.i.i.i, %while.body.i.i.i.i ], [ %holeIndex.addr.1.i.i.i, %if.end16.i.i.i ]
-  %parent.018.in.i.i.i.i = add i64 %holeIndex.addr.017.i.i.i.i, -1
+  %parent.018.in.i.i.i.i = add nsw i64 %holeIndex.addr.017.i.i.i.i, -1
   %parent.018.i.i.i.i = lshr i64 %parent.018.in.i.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %parent.018.i.i.i.i
   %13 = load ptr, ptr %add.ptr.i.i.i.i, align 8
@@ -209,14 +209,14 @@ land.rhs.i.i.i.i:                                 ; preds = %if.end16.i.i.i, %wh
   br i1 %narrow.i.not.i.i.i.i, label %adjust_heap.exit.i.i, label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %holeIndex.addr.017.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %holeIndex.addr.017.i.i.i.i
   store ptr %13, ptr %add.ptr2.i.i.i.i, align 8
   %cmp.i25.i.i.i = icmp samesign ugt i64 %parent.018.i.i.i.i, %div9.i.i
   br i1 %cmp.i25.i.i.i, label %land.rhs.i.i.i.i, label %adjust_heap.exit.i.i, !llvm.loop !9
 
 adjust_heap.exit.i.i:                             ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
   %holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %holeIndex.addr.1.i.i.i, %if.end16.i.i.i ], [ %parent.018.i.i.i.i, %while.body.i.i.i.i ], [ %holeIndex.addr.017.i.i.i.i, %land.rhs.i.i.i.i ]
-  %add.ptr5.i.i.i.i = getelementptr inbounds ptr, ptr %add.ptr9, i64 %holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr5.i.i.i.i = getelementptr inbounds nuw ptr, ptr %add.ptr9, i64 %holeIndex.addr.0.lcssa.i.i.i.i
   store ptr %6, ptr %add.ptr5.i.i.i.i, align 8
   %cmp162.i.i = icmp ult i64 %sub.i.i, 2
   br i1 %cmp162.i.i, label %make_heap.exit.i, label %if.end3.split.preheader.i.i
@@ -1222,7 +1222,7 @@ if.end59.i:                                       ; preds = %if.else54.i, %fasth
   %currBits.2.i = phi i64 [ %currBits.6.i, %if.end37.i ], [ %currBits.8.i, %fasthuf_read_bits.exit111.i ], [ %currBits.6.i, %if.else54.i ]
   %currBitCount.2.i = phi i32 [ %sub.i.i, %if.end37.i ], [ %sub.i100.i, %fasthuf_read_bits.exit111.i ], [ %sub.i.i, %if.else54.i ]
   %symbol.2.i = phi i64 [ %symbol.0176.i, %if.end37.i ], [ %add53.i, %fasthuf_read_bits.exit111.i ], [ %add57.i, %if.else54.i ]
-  %cmp61.i = icmp ugt i64 %symbol.2.i, %conv6.i
+  %cmp61.i = icmp samesign ugt i64 %symbol.2.i, %conv6.i
   br i1 %cmp61.i, label %if.then63.i, label %for.inc70.i
 
 if.then63.i:                                      ; preds = %if.end59.i
@@ -2136,7 +2136,7 @@ if.else85:                                        ; preds = %if.end31
   %conv86 = trunc i32 %symbol.0 to i16
   %arrayidx87 = getelementptr inbounds i16, ptr %dst, i64 %dstIdx.0163
   store i16 %conv86, ptr %arrayidx87, align 2
-  %inc88 = add i64 %dstIdx.0163, 1
+  %inc88 = add nuw i64 %dstIdx.0163, 1
   br label %if.end89
 
 if.end89:                                         ; preds = %if.else85, %for.end

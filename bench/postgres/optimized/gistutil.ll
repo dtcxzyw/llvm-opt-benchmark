@@ -273,40 +273,40 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 define dso_local ptr @gistfillitupvec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp sgt i32 %1, 0
-  br i1 %4, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %3
-  %5 = tail call ptr @palloc(i64 noundef 0) #11
-  br label %._crit_edge28
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %6
+  br label %5
 
-6:                                                ; preds = %.lr.ph, %6
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = phi i32 [ 0, %.lr.ph ], [ %13, %6 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr i8, ptr %9, i64 6
-  %.val22 = load i16, ptr %10, align 2
-  %11 = and i16 %.val22, 8191
-  %12 = zext nneg i16 %11 to i32
-  %13 = add i32 %7, %12
-  store i32 %13, ptr %2, align 4
+5:                                                ; preds = %.lr.ph, %5
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
+  %6 = phi i32 [ 0, %.lr.ph ], [ %12, %5 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr i8, ptr %8, i64 6
+  %.val22 = load i16, ptr %9, align 2
+  %10 = and i16 %.val22, 8191
+  %11 = zext nneg i16 %10 to i32
+  %12 = add i32 %6, %11
+  store i32 %12, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %6, !llvm.loop !9
+  br i1 %exitcond.not, label %.lr.ph27.preheader, label %5, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %6
-  %14 = sext i32 %13 to i64
+._crit_edge:                                      ; preds = %3
+  %13 = tail call ptr @palloc(i64 noundef 0) #11
+  br label %._crit_edge28
+
+.lr.ph27.preheader:                               ; preds = %5
+  %14 = sext i32 %12 to i64
   %15 = tail call ptr @palloc(i64 noundef %14) #11
   %wide.trip.count33 = zext nneg i32 %1 to i64
   br label %.lr.ph27
 
-.lr.ph27:                                         ; preds = %._crit_edge, %.lr.ph27
-  %indvars.iv30 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next31, %.lr.ph27 ]
-  %.01924 = phi ptr [ %15, %._crit_edge ], [ %25, %.lr.ph27 ]
+.lr.ph27:                                         ; preds = %.lr.ph27.preheader, %.lr.ph27
+  %indvars.iv30 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next31, %.lr.ph27 ]
+  %.01924 = phi ptr [ %15, %.lr.ph27.preheader ], [ %25, %.lr.ph27 ]
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv30
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr i8, ptr %17, i64 6
@@ -324,8 +324,8 @@ define dso_local ptr @gistfillitupvec(ptr noundef readonly captures(none) %0, i3
   %exitcond34.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count33
   br i1 %exitcond34.not, label %._crit_edge28, label %.lr.ph27, !llvm.loop !10
 
-._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge.thread
-  %26 = phi ptr [ %5, %._crit_edge.thread ], [ %15, %.lr.ph27 ]
+._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge
+  %26 = phi ptr [ %13, %._crit_edge ], [ %15, %.lr.ph27 ]
   ret ptr %26
 }
 

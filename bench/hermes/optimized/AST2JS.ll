@@ -4076,18 +4076,16 @@ define internal fastcc noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_15GenJS16visit
 entry:
   %kind_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 16
   %0 = load i32, ptr %kind_.i.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i32 %0, 19
-  %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %node, ptr null
-  %tobool.not.not = icmp eq ptr %spec.select.i, null
+  %cmp.i.i.i.i.i.i.i = icmp ne i32 %0, 19
+  %tobool.not.not4 = icmp eq ptr %node, null
+  %tobool.not.not = or i1 %cmp.i.i.i.i.i.i.i, %tobool.not.not4
   br i1 %tobool.not.not, label %lor.lhs.false, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %_body = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 56
+  %_body = getelementptr inbounds nuw i8, ptr %node, i64 56
   %1 = load ptr, ptr %_body, align 8
   %cmp.i.i = icmp eq ptr %_body, %1
-  %cmp.i.i.i.i.i.i = icmp eq i32 %0, 18
-  %or.cond = or i1 %cmp.i.i.i.i.i.i, %cmp.i.i
-  br i1 %or.cond, label %if.then, label %if.then8
+  br i1 %cmp.i.i, label %if.then, label %if.then8
 
 lor.lhs.false:                                    ; preds = %entry
   %cmp.i.i.i.i.i.i.old = icmp eq i32 %0, 18
@@ -4180,7 +4178,7 @@ _ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit:    ; preds = %_ZN4llvh11raw_ostre
   br i1 %tobool.not.not, label %if.else, label %if.then12
 
 if.then12:                                        ; preds = %_ZN6hermes12_GLOBAL__N_15GenJS7newlineEv.exit
-  %_body13 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 56
+  %_body13 = getelementptr inbounds nuw i8, ptr %node, i64 56
   tail call fastcc void @_ZN6hermes12_GLOBAL__N_15GenJS13visitStmtListERN4llvh12simple_ilistINS_6ESTree4NodeEJEEEPS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_body13)
   br label %if.end14
 

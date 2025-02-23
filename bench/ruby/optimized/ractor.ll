@@ -4346,7 +4346,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %2, %4
   br i1 %9, label %.lr.ph.i, label %ractor_receive.exit
 
 .lr.ph.i:                                         ; preds = %rb_ec_ractor_ptr.exit, %.lr.ph.i
-  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
+  tail call fastcc void @ractor_wait_receive(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %11 = icmp eq i64 %10, 36
   br i1 %11, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !117
@@ -4376,7 +4376,7 @@ rb_ec_ractor_ptr.exit:                            ; preds = %2, %4
   br i1 %9, label %.lr.ph.i, label %ractor_receive.exit
 
 .lr.ph.i:                                         ; preds = %rb_ec_ractor_ptr.exit, %.lr.ph.i
-  tail call fastcc void @ractor_wait_receive(ptr noundef %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
+  tail call fastcc void @ractor_wait_receive(ptr noundef nonnull %0, ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %10 = tail call fastcc i64 @ractor_try_receive(ptr noundef nonnull %.0.i, ptr noundef nonnull %7)
   %11 = icmp eq i64 %10, 36
   br i1 %11, label %.lr.ph.i, label %ractor_receive.exit, !llvm.loop !117

@@ -1490,7 +1490,7 @@ _ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i: ; pr
 
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread: ; preds = %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
   %incdec.ptr.i.i.i7131263 = getelementptr i8, ptr %call5.i.i.i.i.i.i, i64 36
-  br label %if.then.i41.i.i.i
+  br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i, %for.body.i.i.i.i.i.i
   %__cur.08.i.i.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ %call5.i.i.i.i.i.i, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i ]
@@ -1503,25 +1503,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %_ZNKSt6vectorIN3irr
 
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i: ; preds = %for.body.i.i.i.i.i.i
   %incdec.ptr.i.i.i713 = getelementptr i8, ptr %__cur.08.i.i.i.i.i.i, i64 72
-  %tobool.not.i.i.i.i = icmp eq ptr %103, null
-  br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, label %if.then.i41.i.i.i
-
-if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread
-  %incdec.ptr.i.i.i7131265 = phi ptr [ %incdec.ptr.i.i.i7131263, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread ], [ %incdec.ptr.i.i.i713, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %103) #23
   br label %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
-  %incdec.ptr.i.i.i7131266 = phi ptr [ %incdec.ptr.i.i.i7131265, %if.then.i41.i.i.i ], [ %incdec.ptr.i.i.i713, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i ]
+_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
+  %incdec.ptr.i.i.i7131265 = phi ptr [ %incdec.ptr.i.i.i7131263, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.thread ], [ %incdec.ptr.i.i.i713, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i ]
+  call void @_ZdlPv(ptr noundef nonnull %103) #23
   store ptr %call5.i.i.i.i.i.i, ptr %Vertices103, align 8, !tbaa !116
-  store ptr %incdec.ptr.i.i.i7131266, ptr %_M_finish.i.i652, align 8, !tbaa !118
+  store ptr %incdec.ptr.i.i.i7131265, ptr %_M_finish.i.i652, align 8, !tbaa !118
   %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i708, align 8, !tbaa !122
   br label %_ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit
 
 _ZN3irr4core5arrayINS_5video9S3DVertexEE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i709
   %107 = phi ptr [ %.pre1417, %if.then.i.i709 ], [ %call5.i.i.i.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
-  %108 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i709 ], [ %incdec.ptr.i.i.i7131266, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
+  %108 = phi ptr [ %incdec.ptr.i.i, %if.then.i.i709 ], [ %incdec.ptr.i.i.i7131265, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ]
   store i8 0, ptr %is_sorted.i710, align 8, !tbaa !129
   %109 = load ptr, ptr %Indices128, align 8, !tbaa !112
   %add.ptr.i.i715 = getelementptr inbounds nuw i32, ptr %109, i64 %conv.i687
@@ -1581,21 +1576,14 @@ if.end.i.i.i.i.i64.i1179:                         ; preds = %_ZNKSt6vectorIsSaIs
 
 _ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit67.i1181: ; preds = %if.end.i.i.i.i.i64.i1179, %_ZNKSt6vectorIsSaIsEE12_M_check_lenEmPKc.exit.i1172
   %cmp.i.i.i.i1182 = icmp sgt i64 %sub.ptr.sub.i.i.i726, 0
-  br i1 %cmp.i.i.i.i1182, label %if.then.i.i.i68.i1189, label %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183
+  br i1 %cmp.i.i.i.i1182, label %if.then.i.i.i68.i1189, label %_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186
 
 if.then.i.i.i68.i1189:                            ; preds = %_ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit67.i1181
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i1176, ptr align 2 %verticesLinkBuffer.sroa.0.41297, i64 %sub.ptr.sub.i.i.i726, i1 false)
-  br label %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183
-
-_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183: ; preds = %if.then.i.i.i68.i1189, %_ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit67.i1181
-  %tobool.not.i.i1184 = icmp eq ptr %verticesLinkBuffer.sroa.0.41297, null
-  br i1 %tobool.not.i.i1184, label %_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186, label %if.then.i69.i1185
-
-if.then.i69.i1185:                                ; preds = %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183
-  call void @_ZdlPv(ptr noundef nonnull %verticesLinkBuffer.sroa.0.41297) #23
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i1176, ptr nonnull align 2 %verticesLinkBuffer.sroa.0.41297, i64 %sub.ptr.sub.i.i.i726, i1 false)
   br label %_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186
 
-_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186: ; preds = %if.then.i69.i1185, %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183
+_ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186: ; preds = %if.then.i.i.i68.i1189, %_ZSt27__uninitialized_default_n_aIPsmsET_S1_T0_RSaIT1_E.exit67.i1181
+  call void @_ZdlPv(ptr noundef nonnull %verticesLinkBuffer.sroa.0.41297) #23
   %add.ptr34.i1187 = getelementptr inbounds nuw i16, ptr %add.ptr.i1177, i64 %sub.i.i736
   %add.ptr37.i1188 = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i1176, i64 %add.i.i1174
   %.pre1418 = load ptr, ptr %Indices128, align 8, !tbaa !112
@@ -3087,7 +3075,7 @@ if.end61:                                         ; preds = %if.else52, %if.end4
   %arrayidx63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %P = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %arrayidx63, ptr %P, align 8, !tbaa !203
-  %cmp15.i = icmp sgt i64 %call, 16
+  %cmp15.i = icmp samesign ugt i64 %call, 16
   %or.cond = and i1 %cmp15.i, %cmp36
   br i1 %or.cond, label %while.body.i90, label %cleanup
 
@@ -17315,7 +17303,7 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
 for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i66.prol, %for.body.i.i.i60.prol ]
   %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
-  %7 = icmp ult i64 %__n, 4
+  %7 = icmp samesign ult i64 %__n, 4
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video17S3DVertex2TCoordsEmS2_ET_S4_T0_RSaIT1_E.exit69, label %for.body.i.i.i60
 
 for.body.i.i.i60:                                 ; preds = %for.body.i.i.i60.prol.loopexit, %for.body.i.i.i60
@@ -17501,7 +17489,7 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
 for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i67.prol, %for.body.i.i.i60.prol ]
   %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5video9S3DVertexESaIS2_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
-  %7 = icmp ult i64 %__n, 4
+  %7 = icmp samesign ult i64 %__n, 4
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5video9S3DVertexEmS2_ET_S4_T0_RSaIT1_E.exit70, label %for.body.i.i.i60
 
 for.body.i.i.i60:                                 ; preds = %for.body.i.i.i60.prol.loopexit, %for.body.i.i.i60
@@ -18751,7 +18739,7 @@ for.body.i.i.i60.prol:                            ; preds = %for.body.i.i.i60.pr
 for.body.i.i.i60.prol.loopexit:                   ; preds = %for.body.i.i.i60.prol, %_ZNKSt6vectorIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE12_M_check_lenEmPKc.exit
   %__cur.06.i.i.i61.unr = phi ptr [ %add.ptr, %_ZNKSt6vectorIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE12_M_check_lenEmPKc.exit ], [ %incdec.ptr.i.i.i65.prol, %for.body.i.i.i60.prol ]
   %__n.addr.05.i.i.i62.unr = phi i64 [ %__n, %_ZNKSt6vectorIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE12_M_check_lenEmPKc.exit ], [ %6, %for.body.i.i.i60.prol ]
-  %7 = icmp ult i64 %__n, 8
+  %7 = icmp samesign ult i64 %__n, 8
   br i1 %7, label %_ZSt27__uninitialized_default_n_aIPN3irr5scene12ISkinnedMesh12SRotationKeyEmS3_ET_S5_T0_RSaIT1_E.exit68, label %for.body.i.i.i60
 
 for.body.i.i.i60:                                 ; preds = %for.body.i.i.i60.prol.loopexit, %for.body.i.i.i60

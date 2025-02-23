@@ -1506,7 +1506,7 @@ eval_windowfunction.exit:                         ; preds = %._crit_edge.i, %216
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = getelementptr inbounds nuw i8, ptr %345, i64 32
   %349 = load ptr, ptr %348, align 8
-  %350 = call i64 %349(ptr noundef %345, ptr noundef %318, ptr noundef nonnull %347) #9
+  %350 = call i64 %349(ptr noundef %345, ptr noundef nonnull %318, ptr noundef nonnull %347) #9
   store i64 %350, ptr %346, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %indvars.iv.next112.i.i = add nuw nsw i64 %indvars.iv111.i.i, 1
@@ -2032,7 +2032,7 @@ initialize_windowaggregate.exit.i:                ; preds = %495, %492
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 8
   %603 = getelementptr inbounds nuw i8, ptr %600, i64 32
   %604 = load ptr, ptr %603, align 8
-  %605 = call i64 %604(ptr noundef %600, ptr noundef %573, ptr noundef nonnull %602) #9
+  %605 = call i64 %604(ptr noundef %600, ptr noundef nonnull %573, ptr noundef nonnull %602) #9
   store i64 %605, ptr %601, align 8
   %indvars.iv.next.i194.i = add nuw nsw i64 %indvars.iv.i193.i, 1
   %indvars.iv.next115.i.i = add nuw nsw i64 %indvars.iv114.i.i, 1

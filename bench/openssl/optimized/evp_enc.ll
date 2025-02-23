@@ -2117,7 +2117,7 @@ define i32 @EVP_CipherPipelineUpdate(ptr noundef readonly captures(none) %0, ptr
   %.lcssa = phi i64 [ 0, %.preheader ], [ %29, %.lr.ph ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %32 = load ptr, ptr %31, align 8, !tbaa !17
-  %33 = tail call i32 %22(ptr noundef %32, i64 noundef %.lcssa, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #10
+  %33 = tail call i32 %22(ptr noundef %32, i64 noundef %.lcssa, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5) #10
   br label %34
 
 34:                                               ; preds = %._crit_edge, %26, %19, %14, %10

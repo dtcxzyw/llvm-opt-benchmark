@@ -151,7 +151,7 @@ define float @catmull_rom_val(i32 noundef %0, ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
+define noalias noundef ptr @spline_cubic_set(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = icmp slt i32 %0, 2
   br i1 %4, label %spline_cubic_set_internal.exit, label %.preheader.i
 
@@ -483,7 +483,7 @@ define noalias noundef ptr @monotone_hermite_set(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define noalias noundef ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = add i32 %0, -21
   %or.cond = icmp ult i32 %4, -20
   br i1 %or.cond, label %.loopexit, label %.lr.ph.preheader
@@ -511,9 +511,13 @@ define noalias ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr 
   %9 = shl nuw nsw i64 %wide.trip.count, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %8, ptr align 4 %2, i64 %9, i1 false), !tbaa !6
   %10 = icmp sgt i32 %0, 1
-  br i1 %10, label %.lr.ph74.preheader, label %._crit_edge75.thread
+  br i1 %10, label %.lr.ph74.preheader, label %._crit_edge75
 
-._crit_edge75.thread:                             ; preds = %.preheader
+.lr.ph74.preheader:                               ; preds = %.preheader
+  %.pre = load float, ptr %8, align 4, !tbaa !6
+  br label %.lr.ph74
+
+._crit_edge75:                                    ; preds = %.preheader
   %11 = add nsw i32 %0, -1
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw float, ptr %8, i64 %12
@@ -527,11 +531,7 @@ define noalias ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr 
   store float %20, ptr %13, align 4, !tbaa !6
   br label %.loopexit
 
-.lr.ph74.preheader:                               ; preds = %.preheader
-  %.pre = load float, ptr %8, align 4, !tbaa !6
-  br label %.lr.ph74
-
-._crit_edge75:                                    ; preds = %.lr.ph74
+.lr.ph80.preheader:                               ; preds = %.lr.ph74
   %21 = add nsw i32 %0, -1
   %22 = zext nneg i32 %21 to i64
   %23 = getelementptr inbounds nuw float, ptr %8, i64 %22
@@ -577,11 +577,11 @@ define noalias ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr 
   store float %51, ptr %48, align 4, !tbaa !6
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count
-  br i1 %exitcond90.not, label %._crit_edge75, label %.lr.ph74
+  br i1 %exitcond90.not, label %.lr.ph80.preheader, label %.lr.ph74
 
-.lr.ph80:                                         ; preds = %._crit_edge75, %.lr.ph80
-  %store_forwarded = phi float [ %load_initial, %._crit_edge75 ], [ %59, %.lr.ph80 ]
-  %indvars.iv91 = phi i64 [ %32, %._crit_edge75 ], [ %indvars.iv.next92, %.lr.ph80 ]
+.lr.ph80:                                         ; preds = %.lr.ph80.preheader, %.lr.ph80
+  %store_forwarded = phi float [ %load_initial, %.lr.ph80.preheader ], [ %59, %.lr.ph80 ]
+  %indvars.iv91 = phi i64 [ %32, %.lr.ph80.preheader ], [ %indvars.iv.next92, %.lr.ph80 ]
   %52 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv91
   %53 = load float, ptr %52, align 4, !tbaa !6
   %54 = mul nuw i64 %indvars.iv91, 12
@@ -598,8 +598,8 @@ define noalias ptr @d3_np_fs(i32 noundef %0, ptr noundef captures(none) %1, ptr 
   %.not = icmp eq i64 %indvars.iv91, 0
   br i1 %.not, label %.loopexit, label %.lr.ph80
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph80, %._crit_edge75.thread, %3
-  %.058 = phi ptr [ null, %3 ], [ %8, %._crit_edge75.thread ], [ %8, %.lr.ph80 ], [ null, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph80, %._crit_edge75, %3
+  %.058 = phi ptr [ null, %3 ], [ %8, %._crit_edge75 ], [ %8, %.lr.ph80 ], [ null, %.lr.ph ]
   ret ptr %.058
 }
 
@@ -716,12 +716,12 @@ define range(i32 0, 101) i32 @CurveDataSample(ptr noundef readonly captures(none
   %45 = fmul reassoc nsz arcp contract afn float %34, %44
   %46 = fptosi float %45 to i32
   %47 = add nsw i32 %.068, -1
-  %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds [20 x float], ptr %3, i64 0, i64 %48
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw [20 x float], ptr %3, i64 0, i64 %48
   %50 = load float, ptr %49, align 4, !tbaa !6
   %51 = fmul reassoc nsz arcp contract afn float %50, %38
   %52 = fptosi float %51 to i32
-  %53 = getelementptr inbounds [20 x float], ptr %4, i64 0, i64 %48
+  %53 = getelementptr inbounds nuw [20 x float], ptr %4, i64 0, i64 %48
   %54 = load float, ptr %53, align 4, !tbaa !6
   %55 = fmul reassoc nsz arcp contract afn float %54, %44
   %56 = fptosi float %55 to i32

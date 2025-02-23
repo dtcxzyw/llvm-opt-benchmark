@@ -276,7 +276,7 @@ define hidden void @av1_setup_block_planes(ptr noundef writeonly captures(none) 
   br label %10
 
 .preheader:                                       ; preds = %10
-  %7 = icmp slt i32 %3, 3
+  %7 = icmp samesign ult i32 %3, 3
   br i1 %7, label %.lr.ph23, label %._crit_edge
 
 .lr.ph23:                                         ; preds = %4, %.preheader

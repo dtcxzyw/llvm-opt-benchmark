@@ -1392,7 +1392,7 @@ apply_auto_WB_high.exit:                          ; preds = %149
   %172 = load ptr, ptr %171, align 16, !tbaa !134
   call void @dt_control_queue_redraw_widget(ptr noundef %172) #23
   %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
-  call void @dt_dev_add_history_item(ptr noundef %173, ptr noundef %0, i32 noundef 1) #23
+  call void @dt_dev_add_history_item(ptr noundef %173, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
   br label %345
 
@@ -1650,7 +1650,7 @@ apply_auto_WB_low.exit:                           ; preds = %309
   %332 = load ptr, ptr %331, align 16, !tbaa !134
   call void @dt_control_queue_redraw_widget(ptr noundef %332) #23
   %333 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
-  call void @dt_dev_add_history_item(ptr noundef %333, ptr noundef %0, i32 noundef 1) #23
+  call void @dt_dev_add_history_item(ptr noundef %333, ptr noundef nonnull %0, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   br label %345
 
@@ -2494,9 +2494,9 @@ WB_low_picker_update.exit:                        ; preds = %72
   call void @gtk_color_chooser_set_rgba(ptr noundef %87, ptr noundef nonnull %3) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  call void @dt_iop_color_picker_reset(ptr noundef %1, i32 noundef 1) #23
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %1, i32 noundef 1) #23
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
-  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef %1, i32 noundef 1) #23
+  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef nonnull %1, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   br label %95
@@ -2649,9 +2649,9 @@ WB_high_picker_update.exit:                       ; preds = %72
   call void @gtk_color_chooser_set_rgba(ptr noundef %87, ptr noundef nonnull %3) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #23
-  call void @dt_iop_color_picker_reset(ptr noundef %1, i32 noundef 1) #23
+  call void @dt_iop_color_picker_reset(ptr noundef nonnull %1, i32 noundef 1) #23
   %88 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !135
-  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef %1, i32 noundef 1) #23
+  call void @dt_dev_add_history_item(ptr noundef %88, ptr noundef nonnull %1, i32 noundef 1) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #23
   br label %95

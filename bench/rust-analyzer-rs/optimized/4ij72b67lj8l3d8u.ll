@@ -2073,7 +2073,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit71: ; preds = %.noexc6
   %359 = load i64, ptr %53, align 8, !alias.scope !176, !noundef !7
   %360 = add i64 %359, 1
   store i64 %360, ptr %53, align 8, !alias.scope !176
-  %361 = add i64 %145, 1
+  %361 = add nuw i64 %145, 1
   %362 = load i64, ptr %56, align 8, !alias.scope !179, !noalias !182, !noundef !7
   %363 = load i64, ptr %55, align 8, !alias.scope !179, !noalias !182, !noundef !7
   %364 = icmp eq i64 %362, %363
@@ -3085,7 +3085,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit74: ; preds = %.noexc7
   %363 = load i64, ptr %59, align 8, !alias.scope !307, !noundef !7
   %364 = add i64 %363, 1
   store i64 %364, ptr %59, align 8, !alias.scope !307
-  %365 = add i64 %151, 1
+  %365 = add nuw i64 %151, 1
   %366 = load i64, ptr %15, align 8, !range !67, !noundef !7
   %367 = load i64, ptr %57, align 8
   %368 = load i64, ptr %62, align 8, !alias.scope !310, !noalias !313, !noundef !7
@@ -4089,7 +4089,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit74: ; preds = %.noexc7
   %351 = load i64, ptr %55, align 8, !alias.scope !429, !noundef !7
   %352 = add i64 %351, 1
   store i64 %352, ptr %55, align 8, !alias.scope !429
-  %353 = add i64 %147, 1
+  %353 = add nuw i64 %147, 1
   %354 = load i64, ptr %15, align 8, !range !105, !noundef !7
   %355 = load i64, ptr %53, align 8
   %356 = load i64, ptr %58, align 8, !alias.scope !432, !noalias !435, !noundef !7
@@ -6208,7 +6208,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   store i64 %229, ptr %21, align 8, !alias.scope !754
   %230 = load i8, ptr %27, align 1, !range !184, !noundef !7
   %231 = trunc nuw i8 %230 to i1
-  %232 = add i64 %.sroa.0.sroa.0.0.copyload, 1
+  %232 = add nuw i64 %.sroa.0.sroa.0.0.copyload, 1
   %233 = load i64, ptr %16, align 8, !alias.scope !757, !noalias !760, !noundef !7
   %234 = load i64, ptr %15, align 8, !alias.scope !757, !noalias !760, !noundef !7
   %235 = icmp eq i64 %233, %234

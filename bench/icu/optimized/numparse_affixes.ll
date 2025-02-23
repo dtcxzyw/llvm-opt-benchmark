@@ -2660,9 +2660,8 @@ if.end.i:                                         ; preds = %if.else
   br i1 %or.cond1.i, label %if.end64, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %fPattern.i.i = getelementptr inbounds nuw i8, ptr %spec.select59, i64 56
   %fPattern2.i.i = getelementptr inbounds nuw i8, ptr %posPrefix.0204, i64 56
-  %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
+  %call.i.i119 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i)
           to label %invoke.cont57 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont57:                                    ; preds = %if.end5.i
@@ -2679,9 +2678,8 @@ if.end.i123:                                      ; preds = %land.lhs.true59
   br i1 %or.cond1.i124, label %if.end64, label %if.end5.i125
 
 if.end5.i125:                                     ; preds = %if.end.i123
-  %fPattern.i.i126 = getelementptr inbounds nuw i8, ptr %spec.select61, i64 56
   %fPattern2.i.i127 = getelementptr inbounds nuw i8, ptr %posSuffix.0203, i64 56
-  %call.i.i130 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i126, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i127)
+  %call.i.i130 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i85, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i127)
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont60:                                    ; preds = %if.end5.i125
@@ -2711,9 +2709,8 @@ if.then78:                                        ; preds = %invoke.cont68
   br i1 %or.cond186.not, label %if.end5.i137, label %if.then82
 
 if.end5.i137:                                     ; preds = %if.then78
-  %fPattern.i.i138 = getelementptr inbounds nuw i8, ptr %spec.select59, i64 56
   %fPattern2.i.i139 = getelementptr inbounds nuw i8, ptr %posPrefix.2, i64 56
-  %call.i.i142 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i138, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i139)
+  %call.i.i142 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i139)
           to label %invoke.cont80 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont80:                                    ; preds = %if.end5.i137
@@ -2737,9 +2734,8 @@ if.end.i149:                                      ; preds = %if.end90, %invoke.c
   br i1 %cmp1.i147, label %if.then95, label %if.end5.i151
 
 if.end5.i151:                                     ; preds = %if.end.i149
-  %fPattern.i.i152 = getelementptr inbounds nuw i8, ptr %spec.select61, i64 56
   %fPattern2.i.i153 = getelementptr inbounds nuw i8, ptr %posSuffix.2, i64 56
-  %call.i.i156 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i.i152, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i153)
+  %call.i.i156 = invoke noundef zeroext i1 @_ZNK6icu_758numparse4impl20CompactUnicodeStringILi4EEeqERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %fPattern.i85, ptr noundef nonnull align 8 dereferenceable(24) %fPattern2.i.i153)
           to label %invoke.cont93 unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont93:                                    ; preds = %if.end5.i151

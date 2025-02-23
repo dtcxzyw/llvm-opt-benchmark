@@ -2806,7 +2806,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %98 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %63, i32 noundef %97, ptr noundef %0, i32 noundef %70, i32 noundef %42, ptr noundef %96, ptr noundef nonnull @.str.1018, ptr noundef %96)
   %99 = add i32 %42, %70
   %.neg700 = add nsw i32 %.0619813, -4
-  %100 = sub i32 %.neg700, %42
+  %100 = sub nsw i32 %.neg700, %42
   br label %.loopexit
 
 101:                                              ; preds = %20
@@ -2907,7 +2907,7 @@ define internal fastcc void @dissect_tlv_fec(ptr noundef %0, ptr noundef %1, i32
   %155 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %130, i32 noundef %154, ptr noundef %0, i32 noundef %137, i32 noundef %138, ptr noundef %153, ptr noundef nonnull @.str.1020, ptr noundef %153)
   %156 = add i32 %137, %138
   %.neg698 = add nsw i32 %.0619813, -4
-  %157 = sub i32 %.neg698, %138
+  %157 = sub nsw i32 %.neg698, %138
   br label %.loopexit
 
 158:                                              ; preds = %20

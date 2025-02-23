@@ -330,14 +330,14 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %176 = sext i32 %175 to i64
   %177 = getelementptr double, ptr %22, i64 %indvars.iv459
   %178 = getelementptr double, ptr %177, i64 %176
-  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef %178, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef %178, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %179 = load i32, ptr %4, align 4, !tbaa !3
   %180 = add i32 %164, %179
   %181 = sext i32 %180 to i64
   %182 = getelementptr inbounds double, ptr %19, i64 %181
-  call void @dtrmm_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %182, ptr noundef nonnull %7, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dtrmm_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.6, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %182, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %gep470 = getelementptr double, ptr %invariant.gep469, i64 %indvars.iv459
-  call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %gep470, ptr noundef nonnull %9, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %gep470, ptr noundef nonnull %9, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %183 = load i32, ptr %5, align 4, !tbaa !3
   %184 = load i32, ptr %15, align 4, !tbaa !3
   %185 = mul nsw i32 %184, %183
@@ -371,7 +371,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %208 = sext i32 %207 to i64
   %gep437 = getelementptr double, ptr %10, i64 %208
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.10, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %199, ptr noundef nonnull %9, ptr noundef %205, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %gep437, ptr noundef nonnull %15) #4
-  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull %15, ptr noundef %gep470, ptr noundef nonnull %9) #4
+  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %gep470, ptr noundef nonnull %9) #4
   %indvars.iv.next460 = add nuw nsw i64 %indvars.iv459, %165
   %.not411 = icmp samesign ugt i64 %indvars.iv.next460, %167
   br i1 %.not411, label %.loopexit, label %168, !llvm.loop !12
@@ -390,17 +390,17 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %215 = add nsw i32 %214, %.3450
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds double, ptr %22, i64 %216
-  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef %217, ptr noundef nonnull %9, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef %217, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %218 = load i32, ptr %5, align 4, !tbaa !3
   %219 = add nsw i32 %218, 1
   %220 = mul nsw i32 %219, %17
   %221 = sext i32 %220 to i64
   %gep442 = getelementptr double, ptr %invariant.gep441, i64 %221
-  call void @dtrmm_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %gep442, ptr noundef nonnull %7, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dtrmm_(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.6, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %gep442, ptr noundef nonnull %7, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %222 = add nsw i32 %.3450, %20
   %223 = sext i32 %222 to i64
   %224 = getelementptr inbounds double, ptr %22, i64 %223
-  call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %224, ptr noundef nonnull %9, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %10, ptr noundef nonnull %15) #4
+  call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull @c_b10, ptr noundef %224, ptr noundef nonnull %9, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef nonnull %10, ptr noundef nonnull %15) #4
   %225 = load i32, ptr %4, align 4, !tbaa !3
   %226 = load i32, ptr %15, align 4, !tbaa !3
   %227 = mul nsw i32 %226, %225
@@ -433,7 +433,7 @@ define void @dorm22_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %250 = sext i32 %249 to i64
   %gep448 = getelementptr double, ptr %10, i64 %250
   call void @dgemm_(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull %16, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull @c_b10, ptr noundef %241, ptr noundef nonnull %9, ptr noundef %247, ptr noundef nonnull %7, ptr noundef nonnull @c_b10, ptr noundef %gep448, ptr noundef nonnull %15) #4
-  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef %10, ptr noundef nonnull %15, ptr noundef %224, ptr noundef nonnull %9) #4
+  call void @dlacpy_(ptr noundef nonnull @.str.8, ptr noundef nonnull %16, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noundef nonnull %15, ptr noundef %224, ptr noundef nonnull %9) #4
   %251 = add nuw nsw i32 %84, %.3450
   %.not463 = icmp sgt i32 %251, %42
   br i1 %.not463, label %.loopexit, label %.lr.ph451, !llvm.loop !13

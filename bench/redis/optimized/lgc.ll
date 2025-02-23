@@ -234,7 +234,7 @@ define hidden void @luaC_freeall(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %10 = load ptr, ptr %3, align 8, !tbaa !47
   %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
-  %12 = tail call fastcc ptr @sweeplist(ptr noundef %0, ptr noundef %11, i64 noundef -3)
+  %12 = tail call fastcc ptr @sweeplist(ptr noundef nonnull %0, ptr noundef %11, i64 noundef -3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %7, align 4, !tbaa !46
   %14 = sext i32 %13 to i64
@@ -392,7 +392,7 @@ define hidden void @luaC_step(ptr noundef %0) local_unnamed_addr #0 {
 
 18:                                               ; preds = %18, %1
   %.0 = phi i64 [ %spec.store.select, %1 ], [ %20, %18 ]
-  %19 = tail call fastcc i64 @singlestep(ptr noundef %0)
+  %19 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0)
   %20 = sub nsw i64 %.0, %19
   %21 = load i8, ptr %17, align 1, !tbaa !54
   %22 = icmp ne i8 %21, 0
@@ -1033,19 +1033,19 @@ define hidden void @luaC_fullgc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %12 = tail call fastcc i64 @singlestep(ptr noundef %0)
+  %12 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0)
   %13 = load i8, ptr %4, align 1, !tbaa !54
   %.not = icmp eq i8 %13, 4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11
-  tail call fastcc void @markroot(ptr noundef %0)
+  tail call fastcc void @markroot(ptr noundef nonnull %0)
   %14 = load i8, ptr %4, align 1, !tbaa !54
   %.not1719 = icmp eq i8 %14, 0
   br i1 %.not1719, label %._crit_edge22, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %._crit_edge, %.lr.ph21
-  %15 = tail call fastcc i64 @singlestep(ptr noundef %0)
+  %15 = tail call fastcc i64 @singlestep(ptr noundef nonnull %0)
   %16 = load i8, ptr %4, align 1, !tbaa !54
   %.not17 = icmp eq i8 %16, 0
   br i1 %.not17, label %._crit_edge22, label %.lr.ph21, !llvm.loop !83

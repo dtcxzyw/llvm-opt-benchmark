@@ -10838,7 +10838,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %36 = add i32 %.02226.i.i22.i, 8
   %37 = add nuw nsw i32 %.02127.i.i21.i, 1
   %exitcond.not.i.i23.i = icmp eq i32 %37, %24
-  br i1 %exitcond.not.i.i23.i, label %dissect_kafka_array.exit, label %.preheader, !llvm.loop !11
+  br i1 %exitcond.not.i.i23.i, label %.thread, label %.preheader, !llvm.loop !11
 
 .loopexit.sink.split.i.i24.i:                     ; preds = %30
   %38 = call ptr @proto_tree_get_parent(ptr noundef %8)
@@ -10853,7 +10853,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %43 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %21)
   %44 = load i32, ptr @hf_kafka_offset_time, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef 8, i32 noundef 0)
-  switch i64 %43, label %dissect_kafka_offset_time.exit [
+  switch i64 %43, label %dissect_kafka_array.exit [
     i64 -1, label %.sink.split.i
     i64 -2, label %46
   ]
@@ -10864,24 +10864,20 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
 .sink.split.i:                                    ; preds = %46, %42
   %.str.676.sink.i = phi ptr [ @.str.676, %46 ], [ @.str.675, %42 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull %.str.676.sink.i)
-  br label %dissect_kafka_offset_time.exit
+  br label %dissect_kafka_array.exit
 
-dissect_kafka_offset_time.exit:                   ; preds = %42, %.sink.split.i
+dissect_kafka_array.exit:                         ; preds = %.sink.split.i, %42
   %47 = add i32 %3, 14
   %48 = load i32, ptr @hf_kafka_offset, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 8, i32 noundef 0)
   %50 = add i32 %3, 22
-  br label %dissect_kafka_array.exit
-
-dissect_kafka_array.exit:                         ; preds = %.preheader, %dissect_kafka_offset_time.exit
-  %.0 = phi i32 [ %50, %dissect_kafka_offset_time.exit ], [ %36, %.preheader ]
-  %51 = icmp sgt i16 %4, 3
+  %51 = icmp samesign ugt i16 %4, 3
   br i1 %51, label %52, label %.thread
 
 52:                                               ; preds = %dissect_kafka_array.exit
   %53 = load i32, ptr @hf_kafka_leader_epoch, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %53, ptr noundef %0, i32 noundef %.0, i32 noundef 4, i32 noundef 0)
-  %55 = add i32 %.0, 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %53, ptr noundef %0, i32 noundef %50, i32 noundef 4, i32 noundef 0)
+  %55 = add i32 %3, 26
   %56 = icmp samesign ugt i16 %4, 5
   br i1 %56, label %57, label %.thread
 
@@ -10889,8 +10885,8 @@ dissect_kafka_array.exit:                         ; preds = %.preheader, %dissec
   %58 = call fastcc i32 @dissect_kafka_tagged_fields(ptr noundef %0, ptr noundef %1, ptr noundef %8, i32 noundef %55)
   br label %.thread
 
-.thread:                                          ; preds = %40, %.preheader.i.i15.i, %.loopexit.sink.split.i.i24.i, %27, %dissect_kafka_array.exit, %57, %52
-  %.2 = phi i32 [ %58, %57 ], [ %55, %52 ], [ %.0, %dissect_kafka_array.exit ], [ %25, %.loopexit.sink.split.i.i24.i ], [ %25, %.preheader.i.i15.i ], [ %25, %27 ], [ %21, %40 ]
+.thread:                                          ; preds = %.preheader, %40, %.preheader.i.i15.i, %.loopexit.sink.split.i.i24.i, %27, %dissect_kafka_array.exit, %57, %52
+  %.2 = phi i32 [ %58, %57 ], [ %55, %52 ], [ %50, %dissect_kafka_array.exit ], [ %25, %.loopexit.sink.split.i.i24.i ], [ %25, %.preheader.i.i15.i ], [ %25, %27 ], [ %21, %40 ], [ %36, %.preheader ]
   %59 = load ptr, ptr %6, align 8
   call void @proto_item_set_end(ptr noundef %59, ptr noundef %0, i32 noundef %.2)
   %60 = load ptr, ptr %6, align 8

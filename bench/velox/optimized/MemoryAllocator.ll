@@ -3422,40 +3422,42 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce) unnamed_addr #22 personality ptr @__gxx_personality_v0 {
 entry:
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i14, 2
+  %__last.coerce.fr = freeze ptr %__last.coerce
+  %__first.coerce.fr = freeze ptr %__first.coerce
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce.fr to i64
+  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %__last.coerce.fr to i64
+  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i13, 2
   %cmp16 = icmp sgt i64 %sub.ptr.div.i15, 16
   br i1 %cmp16, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
-  %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 4
-  %cmp433 = icmp eq i64 %__depth_limit, 0
-  br i1 %cmp433, label %if.end.i.i.i, label %if.end
+  %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first.coerce.fr, i64 4
+  %cmp430 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp430, label %if.then, label %if.end
 
 while.body:                                       ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEET_SF_SF_T0_.exit"
   %cmp4 = icmp eq i64 %dec, 0
-  br i1 %cmp4, label %if.end.i.i.i, label %if.end, !llvm.loop !40
+  br i1 %cmp4, label %if.then, label %if.end, !llvm.loop !40
 
-if.end.i.i.i:                                     ; preds = %while.body, %while.body.lr.ph
-  %sub.ptr.div.i20.lcssa = phi i64 [ %sub.ptr.div.i15, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
-  %sub.ptr.sub.i19.lcssa = phi i64 [ %sub.ptr.sub.i14, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
-  %storemerge17.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i20.lcssa, -2
+if.then:                                          ; preds = %while.body, %while.body.lr.ph
+  %sub.ptr.sub.i.i.i.fr.i19.lcssa = phi i64 [ %sub.ptr.sub.i13, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
+  %storemerge17.lcssa = phi ptr [ %__last.coerce.fr, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+  %sub.ptr.div.i.i.i.i = lshr i64 %sub.ptr.sub.i.i.i.fr.i19.lcssa, 2
+  %sub.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -2
   %div1617.i.i.i = lshr i64 %sub.i.i.i, 1
-  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i20.lcssa, -1
+  %sub.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -1
   %div.i1819.i.i.i = lshr i64 %sub.i.i.i.i, 1
-  %0 = and i64 %sub.ptr.sub.i19.lcssa, 4
+  %0 = and i64 %sub.ptr.sub.i.i.i.fr.i19.lcssa, 4
   %cmp18.i.i.i.i = icmp eq i64 %0, 0
   %sub26.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i20.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub26.i.i.i.i
-  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div1617.i.i.i
+  %add.ptr.i20.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %sub26.i.i.i.i
+  %add.ptr.i21.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %div1617.i.i.i
   br label %while.body.i.i.i
 
-while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %if.end.i.i.i
-  %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
-  %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.0.i.i.i
+while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", %if.then
+  %__parent.0.i.i.i = phi i64 [ %div1617.i.i.i, %if.then ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i" ]
+  %phi.call.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.0.i.i.i
   %1 = load i32, ptr %phi.call.i.i.i, align 4
   %cmp27.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i1819.i.i.i
   br i1 %cmp27.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
@@ -3464,9 +3466,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__holeIndex.addr.028.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.028.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %mul.i.i.i.i
   %sub5.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr.i17.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub5.i.i.i.i
+  %add.ptr.i17.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %sub5.i.i.i.i
   %2 = load i32, ptr %add.ptr.i.i.i.i.i, align 4
   %3 = load i32, ptr %add.ptr.i17.i.i.i.i, align 4
   %conv.i.i.i.i.i.i = sext i32 %2 to i64
@@ -3485,9 +3487,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %add.i4.i.i.i.i.i.i = add i64 %7, %6
   %cmp.i.i.i.i.i.i = icmp ugt i64 %add.i.i.i.i.i.i.i, %add.i4.i.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub5.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr.i18.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select.i.i.i.i
+  %add.ptr.i18.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %spec.select.i.i.i.i
   %8 = load i32, ptr %add.ptr.i18.i.i.i.i, align 4
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.028.i.i.i.i
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i.i
   store i32 %8, ptr %add.ptr.i19.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i1819.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !41
@@ -3519,7 +3521,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %__holeIndex.addr.08.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__parent.09.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.08.i.i.i.i.i, -1
   %__parent.09.i.i.i.i.i = sdiv i64 %__parent.09.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__parent.09.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__parent.09.i.i.i.i.i
   %10 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
   %conv.i.i.i.i.i.i.i = sext i32 %10 to i64
   %arrayidx.i.i.i.i.i.i.i.i.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv.i.i.i.i.i.i.i
@@ -3536,28 +3538,28 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %15 = load i32, ptr %add.ptr.i.i.i.i.i.i, align 4
-  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.08.i.i.i.i.i
+  %add.ptr.i8.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i.i
   store i32 %15, ptr %add.ptr.i8.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.09.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !42
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end35.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end35.i.i.i.i ], [ %__holeIndex.addr.08.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.09.i.i.i.i.i, %while.body.i.i.i.i.i ]
-  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr.i9.i.i.i.i.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %1, ptr %add.ptr.i9.i.i.i.i.i, align 4
   %cmp10.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   br i1 %cmp10.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i", label %while.body.i.i.i, !llvm.loop !43
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i": ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEliNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i"
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i19.lcssa, 4
+  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i19.lcssa, 4
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i" ], [ %storemerge17.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
+while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i"
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i" ], [ %storemerge17.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i" ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -4
   %16 = load i32, ptr %incdec.ptr.i.i1.i, align 4
-  %17 = load i32, ptr %__first.coerce, align 4
+  %17 = load i32, ptr %__first.coerce.fr, align 4
   store i32 %17, ptr %incdec.ptr.i.i1.i, align 4
   %sub.ptr.lhs.cast.i.i.i2.i = ptrtoint ptr %incdec.ptr.i.i1.i to i64
   %sub.ptr.sub.i.i.i3.i = sub i64 %sub.ptr.lhs.cast.i.i.i2.i, %sub.ptr.rhs.cast.i
@@ -3571,9 +3573,9 @@ while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.028.i.i.i44.i = phi i64 [ %spec.select.i.i.i61.i, %while.body.i.i.i43.i ], [ 0, %while.body.i.i ]
   %add.i.i.i45.i = shl i64 %__holeIndex.addr.028.i.i.i44.i, 1
   %mul.i.i.i46.i = add i64 %add.i.i.i45.i, 2
-  %add.ptr.i.i.i.i47.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %mul.i.i.i46.i
+  %add.ptr.i.i.i.i47.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %mul.i.i.i46.i
   %sub5.i.i.i48.i = or disjoint i64 %add.i.i.i45.i, 1
-  %add.ptr.i17.i.i.i49.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub5.i.i.i48.i
+  %add.ptr.i17.i.i.i49.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %sub5.i.i.i48.i
   %18 = load i32, ptr %add.ptr.i.i.i.i47.i, align 4
   %19 = load i32, ptr %add.ptr.i17.i.i.i49.i, align 4
   %conv.i.i.i.i.i50.i = sext i32 %18 to i64
@@ -3592,9 +3594,9 @@ while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %wh
   %add.i4.i.i.i.i.i59.i = add i64 %23, %22
   %cmp.i.i.i.i.i60.i = icmp ugt i64 %add.i.i.i.i.i.i54.i, %add.i4.i.i.i.i.i59.i
   %spec.select.i.i.i61.i = select i1 %cmp.i.i.i.i.i60.i, i64 %sub5.i.i.i48.i, i64 %mul.i.i.i46.i
-  %add.ptr.i18.i.i.i62.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %spec.select.i.i.i61.i
+  %add.ptr.i18.i.i.i62.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %spec.select.i.i.i61.i
   %24 = load i32, ptr %add.ptr.i18.i.i.i62.i, align 4
-  %add.ptr.i19.i.i.i63.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.028.i.i.i44.i
+  %add.ptr.i19.i.i.i63.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i44.i
   store i32 %24, ptr %add.ptr.i19.i.i.i63.i, align 4
   %cmp.i.i.i64.i = icmp slt i64 %spec.select.i.i.i61.i, %div.i.i.i6.i
   br i1 %cmp.i.i.i64.i, label %while.body.i.i.i43.i, label %while.end.i.i.i8.i, !llvm.loop !41
@@ -3609,70 +3611,70 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i8.i
   %sub19.i.i.i37.i = add nsw i64 %sub.ptr.div.i.i.i4.i, -2
   %div20.i.i.i.i = ashr exact i64 %sub19.i.i.i37.i, 1
   %cmp21.i.i.i38.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, %div20.i.i.i.i
-  br i1 %cmp21.i.i.i38.i, label %if.then22.i.i.i39.i, label %if.end35.i.i.i11.i
+  br i1 %cmp21.i.i.i38.i, label %if.end35.i.thread.i.i39.i, label %if.end35.i.i.i11.i
 
-if.then22.i.i.i39.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add23.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
+if.end35.i.thread.i.i39.i:                        ; preds = %land.lhs.true.i.i.i.i
+  %add23.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 1
   %sub26.i.i.i40.i = or disjoint i64 %add23.i.i.i.i, 1
-  %add.ptr.i20.i.i.i41.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %sub26.i.i.i40.i
+  %add.ptr.i20.i.i.i41.i = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %sub26.i.i.i40.i
   %26 = load i32, ptr %add.ptr.i20.i.i.i41.i, align 4
-  %add.ptr.i21.i.i.i42.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
+  %add.ptr.i21.i.i.i42.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i9.i
   store i32 %26, ptr %add.ptr.i21.i.i.i42.i, align 4
-  br label %if.end35.i.i.i11.i
+  br label %land.rhs.lr.ph.i.i.i.i13.i
 
-if.end35.i.i.i11.i:                               ; preds = %if.then22.i.i.i39.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i8.i
-  %__holeIndex.addr.1.i.i.i12.i = phi i64 [ %sub26.i.i.i40.i, %if.then22.i.i.i39.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %while.end.i.i.i8.i ]
-  %cmp7.i.i.i.i13.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i12.i, 0
-  br i1 %cmp7.i.i.i.i13.i, label %land.rhs.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i"
+if.end35.i.i.i11.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i8.i
+  %cmp7.i.i.not.i.i12.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i9.i, 0
+  br i1 %cmp7.i.i.not.i.i12.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i", label %land.rhs.lr.ph.i.i.i.i13.i
 
-land.rhs.lr.ph.i.i.i.i17.i:                       ; preds = %if.end35.i.i.i11.i
-  %conv4.i.i.i.i.i.i18.i = sext i32 %16 to i64
-  %arrayidx.i.i1.i.i.i.i.i.i19.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv4.i.i.i.i.i.i18.i
-  %allocateClocks.i2.i.i.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1.i.i.i.i.i.i19.i, i64 8
-  %freeClocks.i3.i.i.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1.i.i.i.i.i.i19.i, i64 16
-  br label %land.rhs.i.i.i.i22.i
+land.rhs.lr.ph.i.i.i.i13.i:                       ; preds = %if.end35.i.i.i11.i, %if.end35.i.thread.i.i39.i
+  %__holeIndex.addr.1.i5.i.i14.i = phi i64 [ %sub26.i.i.i40.i, %if.end35.i.thread.i.i39.i ], [ %__holeIndex.addr.0.lcssa.i.i.i9.i, %if.end35.i.i.i11.i ]
+  %conv4.i.i.i.i.i.i15.i = sext i32 %16 to i64
+  %arrayidx.i.i1.i.i.i.i.i.i16.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv4.i.i.i.i.i.i15.i
+  %allocateClocks.i2.i.i.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1.i.i.i.i.i.i16.i, i64 8
+  %freeClocks.i3.i.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i1.i.i.i.i.i.i16.i, i64 16
+  br label %land.rhs.i.i.i.i19.i
 
-land.rhs.i.i.i.i22.i:                             ; preds = %while.body.i.i.i.i34.i, %land.rhs.lr.ph.i.i.i.i17.i
-  %__holeIndex.addr.08.i.i.i.i23.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %land.rhs.lr.ph.i.i.i.i17.i ], [ %__parent.09.i.i34.i.i25.i, %while.body.i.i.i.i34.i ]
-  %__parent.09.in.i.i.i.i24.i = add nsw i64 %__holeIndex.addr.08.i.i.i.i23.i, -1
-  %__parent.09.i.i34.i.i25.i = lshr i64 %__parent.09.in.i.i.i.i24.i, 1
-  %add.ptr.i.i.i.i.i26.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__parent.09.i.i34.i.i25.i
-  %27 = load i32, ptr %add.ptr.i.i.i.i.i26.i, align 4
-  %conv.i.i.i.i.i.i27.i = sext i32 %27 to i64
-  %arrayidx.i.i.i.i.i.i.i.i28.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv.i.i.i.i.i.i27.i
-  %allocateClocks.i.i.i.i.i.i.i29.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i28.i, i64 8
-  %28 = load atomic i64, ptr %allocateClocks.i.i.i.i.i.i.i29.i seq_cst, align 8
-  %freeClocks.i.i.i.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i28.i, i64 16
-  %29 = load atomic i64, ptr %freeClocks.i.i.i.i.i.i.i30.i seq_cst, align 8
-  %add.i.i.i.i.i.i.i31.i = add i64 %29, %28
-  %30 = load atomic i64, ptr %allocateClocks.i2.i.i.i.i.i.i20.i seq_cst, align 8
-  %31 = load atomic i64, ptr %freeClocks.i3.i.i.i.i.i.i21.i seq_cst, align 8
-  %add.i4.i.i.i.i.i.i32.i = add i64 %31, %30
-  %cmp.i.i.i.i.i.i33.i = icmp ugt i64 %add.i.i.i.i.i.i.i31.i, %add.i4.i.i.i.i.i.i32.i
-  br i1 %cmp.i.i.i.i.i.i33.i, label %while.body.i.i.i.i34.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i"
+land.rhs.i.i.i.i19.i:                             ; preds = %while.body.i.i.i.i34.i, %land.rhs.lr.ph.i.i.i.i13.i
+  %__holeIndex.addr.08.i.i.i.i20.i = phi i64 [ %__holeIndex.addr.1.i5.i.i14.i, %land.rhs.lr.ph.i.i.i.i13.i ], [ %__parent.09.i.i67.i.i22.i, %while.body.i.i.i.i34.i ]
+  %__parent.09.in.i.i.i.i21.i = add nsw i64 %__holeIndex.addr.08.i.i.i.i20.i, -1
+  %__parent.09.i.i67.i.i22.i = lshr i64 %__parent.09.in.i.i.i.i21.i, 1
+  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %__parent.09.i.i67.i.i22.i
+  %27 = load i32, ptr %add.ptr.i.i.i.i.i23.i, align 4
+  %conv.i.i.i.i.i.i24.i = sext i32 %27 to i64
+  %arrayidx.i.i.i.i.i.i.i.i25.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv.i.i.i.i.i.i24.i
+  %allocateClocks.i.i.i.i.i.i.i26.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i25.i, i64 8
+  %28 = load atomic i64, ptr %allocateClocks.i.i.i.i.i.i.i26.i seq_cst, align 8
+  %freeClocks.i.i.i.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i.i.i.i25.i, i64 16
+  %29 = load atomic i64, ptr %freeClocks.i.i.i.i.i.i.i27.i seq_cst, align 8
+  %add.i.i.i.i.i.i.i28.i = add i64 %29, %28
+  %30 = load atomic i64, ptr %allocateClocks.i2.i.i.i.i.i.i17.i seq_cst, align 8
+  %31 = load atomic i64, ptr %freeClocks.i3.i.i.i.i.i.i18.i seq_cst, align 8
+  %add.i4.i.i.i.i.i.i29.i = add i64 %31, %30
+  %cmp.i.i.i.i.i.i30.i = icmp ugt i64 %add.i.i.i.i.i.i.i28.i, %add.i4.i.i.i.i.i.i29.i
+  br i1 %cmp.i.i.i.i.i.i30.i, label %while.body.i.i.i.i34.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i"
 
-while.body.i.i.i.i34.i:                           ; preds = %land.rhs.i.i.i.i22.i
-  %32 = load i32, ptr %add.ptr.i.i.i.i.i26.i, align 4
-  %add.ptr.i8.i.i.i.i35.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %__holeIndex.addr.08.i.i.i.i23.i
+while.body.i.i.i.i34.i:                           ; preds = %land.rhs.i.i.i.i19.i
+  %32 = load i32, ptr %add.ptr.i.i.i.i.i23.i, align 4
+  %add.ptr.i8.i.i.i.i35.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.08.i.i.i.i20.i
   store i32 %32, ptr %add.ptr.i8.i.i.i.i35.i, align 4
-  %cmp.i.i.not.i.i36.i = icmp ult i64 %__parent.09.in.i.i.i.i24.i, 2
-  br i1 %cmp.i.i.not.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i", label %land.rhs.i.i.i.i22.i, !llvm.loop !42
+  %cmp.i.i.not.i.i36.i = icmp ult i64 %__parent.09.in.i.i.i.i21.i, 2
+  br i1 %cmp.i.i.not.i.i36.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i", label %land.rhs.i.i.i.i19.i, !llvm.loop !42
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i": ; preds = %while.body.i.i.i.i34.i, %land.rhs.i.i.i.i22.i, %if.end35.i.i.i11.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i15.i = phi i64 [ %__holeIndex.addr.1.i.i.i12.i, %if.end35.i.i.i11.i ], [ %__holeIndex.addr.08.i.i.i.i23.i, %land.rhs.i.i.i.i22.i ], [ 0, %while.body.i.i.i.i34.i ]
-  %add.ptr.i9.i.i.i.i16.i = getelementptr inbounds i32, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i15.i
-  store i32 %16, ptr %add.ptr.i9.i.i.i.i16.i, align 4
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i": ; preds = %while.body.i.i.i.i34.i, %land.rhs.i.i.i.i19.i, %if.end35.i.i.i11.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i32.i = phi i64 [ 0, %if.end35.i.i.i11.i ], [ %__holeIndex.addr.08.i.i.i.i20.i, %land.rhs.i.i.i.i19.i ], [ 0, %while.body.i.i.i.i34.i ]
+  %add.ptr.i9.i.i.i.i33.i = getelementptr inbounds i32, ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i32.i
+  store i32 %16, ptr %add.ptr.i9.i.i.i.i33.i, align 4
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i3.i, 4
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !44
 
 if.end:                                           ; preds = %while.body.lr.ph, %while.body
-  %storemerge1736 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
-  %__depth_limit.addr.01835 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
-  %sub.ptr.div.i2034 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i15, %while.body.lr.ph ]
-  %dec = add nsw i64 %__depth_limit.addr.01835, -1
-  %div.i67 = lshr i64 %sub.ptr.div.i2034, 1
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce, i64 %div.i67
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge1736, i64 -4
+  %storemerge1733 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce.fr, %while.body.lr.ph ]
+  %__depth_limit.addr.01832 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
+  %sub.ptr.div.i2031 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i15, %while.body.lr.ph ]
+  %dec = add nsw i64 %__depth_limit.addr.01832, -1
+  %div.i67 = lshr i64 %sub.ptr.div.i2031, 1
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first.coerce.fr, i64 %div.i67
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge1733, i64 -4
   %33 = load i32, ptr %add.ptr.i1.i, align 4
   %34 = load i32, ptr %add.ptr.i.i, align 4
   %conv.i.i.i.i = sext i32 %33 to i64
@@ -3713,9 +3715,9 @@ if.then.i.i:                                      ; preds = %if.end
   br i1 %cmp.i.i11.i.i, label %if.then14.i.i, label %if.else.i.i
 
 if.then14.i.i:                                    ; preds = %if.then.i.i
-  %45 = load i32, ptr %__first.coerce, align 4
+  %45 = load i32, ptr %__first.coerce.fr, align 4
   %46 = load i32, ptr %add.ptr.i.i, align 4
-  store i32 %46, ptr %__first.coerce, align 4
+  store i32 %46, ptr %__first.coerce.fr, align 4
   store i32 %45, ptr %add.ptr.i.i, align 4
   br label %while.body.i.i4.preheader
 
@@ -3737,18 +3739,18 @@ if.else.i.i:                                      ; preds = %if.then.i.i
   %52 = load atomic i64, ptr %freeClocks.i3.i.i20.i.i seq_cst, align 8
   %add.i4.i.i21.i.i = add i64 %52, %51
   %cmp.i.i22.i.i = icmp ugt i64 %add.i.i.i16.i.i, %add.i4.i.i21.i.i
-  %53 = load i32, ptr %__first.coerce, align 4
+  %53 = load i32, ptr %__first.coerce.fr, align 4
   br i1 %cmp.i.i22.i.i, label %if.then24.i.i, label %if.else29.i.i
 
 if.then24.i.i:                                    ; preds = %if.else.i.i
   %54 = load i32, ptr %add.ptr.i2.i, align 4
-  store i32 %54, ptr %__first.coerce, align 4
+  store i32 %54, ptr %__first.coerce.fr, align 4
   store i32 %53, ptr %add.ptr.i2.i, align 4
   br label %while.body.i.i4.preheader
 
 if.else29.i.i:                                    ; preds = %if.else.i.i
   %55 = load i32, ptr %add.ptr.i1.i, align 4
-  store i32 %55, ptr %__first.coerce, align 4
+  store i32 %55, ptr %__first.coerce.fr, align 4
   store i32 %53, ptr %add.ptr.i1.i, align 4
   br label %while.body.i.i4.preheader
 
@@ -3768,9 +3770,9 @@ if.else35.i.i:                                    ; preds = %if.end
   br i1 %cmp.i.i33.i.i, label %if.then41.i.i, label %if.else46.i.i
 
 if.then41.i.i:                                    ; preds = %if.else35.i.i
-  %61 = load i32, ptr %__first.coerce, align 4
+  %61 = load i32, ptr %__first.coerce.fr, align 4
   %62 = load i32, ptr %add.ptr.i1.i, align 4
-  store i32 %62, ptr %__first.coerce, align 4
+  store i32 %62, ptr %__first.coerce.fr, align 4
   store i32 %61, ptr %add.ptr.i1.i, align 4
   br label %while.body.i.i4.preheader
 
@@ -3792,18 +3794,18 @@ if.else46.i.i:                                    ; preds = %if.else35.i.i
   %68 = load atomic i64, ptr %freeClocks.i3.i.i42.i.i seq_cst, align 8
   %add.i4.i.i43.i.i = add i64 %68, %67
   %cmp.i.i44.i.i = icmp ugt i64 %add.i.i.i38.i.i, %add.i4.i.i43.i.i
-  %69 = load i32, ptr %__first.coerce, align 4
+  %69 = load i32, ptr %__first.coerce.fr, align 4
   br i1 %cmp.i.i44.i.i, label %if.then52.i.i, label %if.else57.i.i
 
 if.then52.i.i:                                    ; preds = %if.else46.i.i
   %70 = load i32, ptr %add.ptr.i2.i, align 4
-  store i32 %70, ptr %__first.coerce, align 4
+  store i32 %70, ptr %__first.coerce.fr, align 4
   store i32 %69, ptr %add.ptr.i2.i, align 4
   br label %while.body.i.i4.preheader
 
 if.else57.i.i:                                    ; preds = %if.else46.i.i
   %71 = load i32, ptr %add.ptr.i.i, align 4
-  store i32 %71, ptr %__first.coerce, align 4
+  store i32 %71, ptr %__first.coerce.fr, align 4
   store i32 %69, ptr %add.ptr.i.i, align 4
   br label %while.body.i.i4.preheader
 
@@ -3811,14 +3813,14 @@ while.body.i.i4.preheader:                        ; preds = %if.else57.i.i, %if.
   br label %while.body.i.i4
 
 while.body.i.i4:                                  ; preds = %while.body.i.i4.preheader, %if.end.i.i
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge1736, %while.body.i.i4.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge1733, %while.body.i.i4.preheader ]
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i1.i, %while.body.i.i4.preheader ]
   br label %while.cond5.i.i
 
 while.cond5.i.i:                                  ; preds = %while.cond5.i.i, %while.body.i.i4
   %__first.sroa.0.1.i.i = phi ptr [ %__first.sroa.0.0.i.i, %while.body.i.i4 ], [ %incdec.ptr.i.i.i, %while.cond5.i.i ]
   %72 = load i32, ptr %__first.sroa.0.1.i.i, align 4
-  %73 = load i32, ptr %__first.coerce, align 4
+  %73 = load i32, ptr %__first.coerce.fr, align 4
   %conv.i.i.i4.i = sext i32 %72 to i64
   %arrayidx.i.i.i.i.i5.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv.i.i.i4.i
   %allocateClocks.i.i.i.i6.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i5.i, i64 8
@@ -3840,7 +3842,7 @@ while.cond5.i.i:                                  ; preds = %while.cond5.i.i, %w
 while.cond12.i.i:                                 ; preds = %while.cond5.i.i, %while.cond12.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond12.i.i ], [ %__last.sroa.0.0.i.i, %while.cond5.i.i ]
   %__last.sroa.0.1.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.0.pn.i.i, i64 -4
-  %78 = load i32, ptr %__first.coerce, align 4
+  %78 = load i32, ptr %__first.coerce.fr, align 4
   %79 = load i32, ptr %__last.sroa.0.1.i.i, align 4
   %conv.i.i2.i.i = sext i32 %78 to i64
   %arrayidx.i.i.i.i3.i.i = getelementptr inbounds [20 x %"struct.facebook::velox::memory::SizeClassStats"], ptr %__comp.coerce, i64 0, i64 %conv.i.i2.i.i
@@ -3871,14 +3873,14 @@ if.end.i.i:                                       ; preds = %while.end20.i.i
   br label %while.body.i.i4, !llvm.loop !47
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEET_SF_SF_T0_.exit": ; preds = %while.end20.i.i
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge1736, i64 noundef %dec, ptr nonnull %__comp.coerce)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge1733, i64 noundef %dec, ptr nonnull %__comp.coerce)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 2
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !40
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i14.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEET_SF_SF_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_SF_RT0_.exit.i31.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZNK8facebook5velox6memory5Stats8toStringB5cxx11EvE3$_0EEEvT_SF_RT0_.exit.i.i"
   ret void
 }
 

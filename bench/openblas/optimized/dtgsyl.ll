@@ -555,17 +555,17 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %291 = load i32, ptr %24, align 4, !tbaa !3
   %292 = sext i32 %291 to i64
   %.not713.us.not = icmp slt i64 %indvars.iv904, %292
-  br i1 %.not713.us.not, label %288, label %._crit_edge783.us, !llvm.loop !12
+  br i1 %.not713.us.not, label %288, label %.lr.ph787.us.preheader, !llvm.loop !12
 
-._crit_edge783.us:                                ; preds = %288
+.lr.ph787.us.preheader:                           ; preds = %288
   store i32 %227, ptr %24, align 4, !tbaa !3
   %293 = sext i32 %258 to i64
   %invariant.gep = getelementptr double, ptr %43, i64 %293
   %invariant.gep957 = getelementptr double, ptr %52, i64 %293
   br label %.lr.ph787.us
 
-.lr.ph787.us:                                     ; preds = %._crit_edge783.us, %.lr.ph787.us
-  %indvars.iv907 = phi i64 [ %251, %._crit_edge783.us ], [ %indvars.iv.next908, %.lr.ph787.us ]
+.lr.ph787.us:                                     ; preds = %.lr.ph787.us.preheader, %.lr.ph787.us
+  %indvars.iv907 = phi i64 [ %251, %.lr.ph787.us.preheader ], [ %indvars.iv.next908, %.lr.ph787.us ]
   %294 = load i32, ptr %2, align 4, !tbaa !3
   %295 = sub nsw i32 %294, %259
   store i32 %295, ptr %25, align 4, !tbaa !3
@@ -880,15 +880,15 @@ define void @dtgsyl_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %440 = load i32, ptr %24, align 4, !tbaa !3
   %441 = sext i32 %440 to i64
   %.not707.not = icmp slt i64 %indvars.iv922, %441
-  br i1 %.not707.not, label %.lr.ph847, label %._crit_edge848, !llvm.loop !18
+  br i1 %.not707.not, label %.lr.ph847, label %.lr.ph852.preheader, !llvm.loop !18
 
-._crit_edge848:                                   ; preds = %.lr.ph847
+.lr.ph852.preheader:                              ; preds = %.lr.ph847
   store i32 %407, ptr %24, align 4, !tbaa !3
   %442 = sext i32 %404 to i64
   br label %.lr.ph852
 
-.lr.ph852:                                        ; preds = %._crit_edge848, %.lr.ph852
-  %indvars.iv925 = phi i64 [ %442, %._crit_edge848 ], [ %indvars.iv.next926, %.lr.ph852 ]
+.lr.ph852:                                        ; preds = %.lr.ph852.preheader, %.lr.ph852
+  %indvars.iv925 = phi i64 [ %442, %.lr.ph852.preheader ], [ %indvars.iv.next926, %.lr.ph852 ]
   %443 = load i32, ptr %2, align 4, !tbaa !3
   %444 = sub nsw i32 %443, %380
   store i32 %444, ptr %25, align 4, !tbaa !3

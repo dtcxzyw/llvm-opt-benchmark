@@ -1631,7 +1631,7 @@ find_tlv_tag.exit:                                ; preds = %19, %.thread.i
   %73 = add i32 %.0355380, %52
   %74 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %72, ptr noundef %0, i32 noundef %73, i32 noundef 2, i32 noundef 0)
   %75 = add nuw nsw i32 %.0355380, 2
-  %76 = icmp ult i32 %75, %.0360
+  %76 = icmp samesign ult i32 %75, %.0360
   br i1 %76, label %.lr.ph381, label %dissect_ipacc_test_rep.exit, !llvm.loop !8
 
 77:                                               ; preds = %54

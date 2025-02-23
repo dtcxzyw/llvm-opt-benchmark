@@ -5360,7 +5360,7 @@ define ptr @Aig_ManDupPartAll(ptr noundef %0, ptr noundef readonly captures(none
   %18 = sext i32 %16 to i64
   %19 = getelementptr inbounds ptr, ptr %.val23.val, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !18
-  tail call void @Aig_ManDupPartAll_rec(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %20)
+  tail call void @Aig_ManDupPartAll_rec(ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef %20)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %10, align 4, !tbaa !33
   %21 = sext i32 %.val to i64
@@ -6508,7 +6508,7 @@ define ptr @Aig_ManFraigPartitioned(ptr noundef %0, i32 noundef %1, i32 noundef 
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds ptr, ptr %.val23.val.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !18
-  tail call void @Aig_ManDupPartAll_rec(ptr noundef %18, ptr noundef nonnull %0, ptr noundef %32)
+  tail call void @Aig_ManDupPartAll_rec(ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef %32)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val.i = load i32, ptr %23, align 4, !tbaa !33
   %33 = sext i32 %.val.i to i64
@@ -7125,7 +7125,7 @@ Aig_ObjEquiv.exit:                                ; preds = %23, %Aig_ObjEquiv.e
 
 41:                                               ; preds = %36, %Aig_ObjEquiv.exit41
   %.146 = phi ptr [ %15, %36 ], [ %53, %Aig_ObjEquiv.exit41 ]
-  %42 = tail call i32 @Aig_NodeMffcSupp(ptr noundef %0, ptr noundef nonnull %.146, i32 noundef 0, ptr noundef nonnull %2) #24
+  %42 = tail call i32 @Aig_NodeMffcSupp(ptr noundef nonnull %0, ptr noundef nonnull %.146, i32 noundef 0, ptr noundef nonnull %2) #24
   %.val = load i32, ptr %3, align 4, !tbaa !12
   %43 = getelementptr inbounds nuw i8, ptr %.146, i64 24
   %44 = load i64, ptr %43, align 8
@@ -7209,7 +7209,7 @@ define ptr @Aig_ManChoiceConstructive(ptr noundef readonly captures(none) %0, i3
   %.val36 = load ptr, ptr %3, align 8, !tbaa !15
   %15 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !18
-  tail call void @Aig_ManChoiceConstructiveOne(ptr noundef %5, ptr noundef %.03140, ptr noundef %16)
+  tail call void @Aig_ManChoiceConstructiveOne(ptr noundef nonnull %5, ptr noundef %.03140, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %6, align 4, !tbaa !12
   %17 = sext i32 %.val to i64
@@ -7217,7 +7217,7 @@ define ptr @Aig_ManChoiceConstructive(ptr noundef readonly captures(none) %0, i3
   br i1 %18, label %.lr.ph, label %.critedge, !llvm.loop !144
 
 .critedge:                                        ; preds = %.lr.ph, %2
-  %19 = tail call ptr @Aig_ManRehash(ptr noundef %5) #24
+  %19 = tail call ptr @Aig_ManRehash(ptr noundef nonnull %5) #24
   tail call void @Aig_ManMarkValidChoices(ptr noundef %19) #24
   %.val35 = load ptr, ptr %3, align 8, !tbaa !15
   %20 = load ptr, ptr %.val35, align 8, !tbaa !18

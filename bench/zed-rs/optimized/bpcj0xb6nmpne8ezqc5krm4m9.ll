@@ -5338,7 +5338,7 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 .preheader.i.i.i.i:                               ; preds = %.preheader.i.i.i.i.preheader, %62
   %.sroa.025.048.i.i.i.i = phi i64 [ %58, %62 ], [ 0, %.preheader.i.i.i.i.preheader ]
-  %.sroa.011.247.i.i.i.i = phi i8 [ %.sroa.011.3.i.i.i.i, %62 ], [ %.sroa.011.049.i.i.i.i, %.preheader.i.i.i.i.preheader ]
+  %.sroa.011.247.i.i.i.i = phi i8 [ %.sroa.011.3.i.i.i.i, %62 ], [ 0, %.preheader.i.i.i.i.preheader ]
   %58 = add nuw nsw i64 %.sroa.025.048.i.i.i.i, 1
   %59 = getelementptr inbounds nuw [4 x i16], ptr %7, i64 0, i64 %.sroa.025.048.i.i.i.i
   %60 = load i16, ptr %59, align 2, !noalias !630, !noundef !7

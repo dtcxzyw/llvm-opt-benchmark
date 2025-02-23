@@ -546,18 +546,15 @@ define dso_local noundef ptr @_ZN5clang7CodeGen8CGCXXABI25EmitMemberFunctionPoin
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %2, %15
   %.0.i.i.i.i = phi ptr [ %16, %15 ], [ %14, %2 ]
-  %17 = icmp eq ptr %.0.i.i.i.i, null
-  %18 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -64
-  %19 = select i1 %17, ptr null, ptr %18
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !664
-  %22 = tail call i64 @_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %6, i64 %.sroa.0.0.copyload.i, ptr noundef %21) #19
-  %23 = load ptr, ptr %3, align 8, !tbaa !633
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 296
-  %25 = load ptr, ptr %24, align 8, !tbaa !641
-  %26 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %25, i64 %22) #19
-  %27 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %26) #19
-  ret ptr %27
+  %17 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -16
+  %18 = load ptr, ptr %17, align 8, !tbaa !664
+  %19 = tail call i64 @_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216) %6, i64 %.sroa.0.0.copyload.i, ptr noundef %18) #19
+  %20 = load ptr, ptr %3, align 8, !tbaa !633
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 296
+  %22 = load ptr, ptr %21, align 8, !tbaa !641
+  %23 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %22, i64 %19) #19
+  %24 = tail call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %23) #19
+  ret ptr %24
 }
 
 declare i64 @_ZNK5clang10ASTContext20getMemberPointerTypeENS_8QualTypeEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64, ptr noundef) local_unnamed_addr #4
@@ -674,65 +671,62 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZN4llvm23SmallVect
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit23:     ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %56
   %.0.i.i.i.i22 = phi ptr [ %57, %56 ], [ %55, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
-  %58 = icmp eq ptr %.0.i.i.i.i22, null
-  %59 = getelementptr inbounds i8, ptr %.0.i.i.i.i22, i64 -64
-  %60 = select i1 %58, ptr null, ptr %59
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  %62 = load ptr, ptr %61, align 8, !tbaa !1010
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 96
-  %64 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %63, ptr noundef nonnull %62)
-  %65 = getelementptr inbounds nuw i8, ptr %60, i64 128
-  %66 = load ptr, ptr %65, align 8, !tbaa !1018
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 20
-  %68 = load i32, ptr %67, align 4, !tbaa !1036
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %86, label %70
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i22, i64 40
+  %59 = load ptr, ptr %58, align 8, !tbaa !1010
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  %61 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull %59)
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i22, i64 64
+  %63 = load ptr, ptr %62, align 8, !tbaa !1018
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 20
+  %65 = load i32, ptr %64, align 4, !tbaa !1036
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %83, label %67
 
-70:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
-  %71 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %37) #19
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24 = load i64, ptr %72, align 8
-  %73 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24, 4
-  %74 = icmp eq i64 %73, 0
-  %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24, -8
-  %76 = inttoptr i64 %75 to ptr
-  br i1 %74, label %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, label %77
+67:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
+  %68 = tail call noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(32) %37) #19
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24 = load i64, ptr %69, align 8
+  %70 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24, 4
+  %71 = icmp eq i64 %70, 0
+  %72 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i24, -8
+  %73 = inttoptr i64 %72 to ptr
+  br i1 %71, label %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, label %74
 
-77:                                               ; preds = %70
-  %78 = load ptr, ptr %76, align 8, !tbaa !661
+74:                                               ; preds = %67
+  %75 = load ptr, ptr %73, align 8, !tbaa !661
   br label %_ZNK5clang13CXXMethodDecl9getParentEv.exit26
 
-_ZNK5clang13CXXMethodDecl9getParentEv.exit26:     ; preds = %70, %77
-  %.0.i.i.i.i25 = phi ptr [ %78, %77 ], [ %76, %70 ]
-  %79 = getelementptr inbounds i8, ptr %.0.i.i.i.i25, i64 -64
-  %80 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl18isEffectivelyFinalEv(ptr noundef nonnull align 8 dereferenceable(144) %79) #19
-  br i1 %80, label %86, label %81
+_ZNK5clang13CXXMethodDecl9getParentEv.exit26:     ; preds = %67, %74
+  %.0.i.i.i.i25 = phi ptr [ %75, %74 ], [ %73, %67 ]
+  %76 = getelementptr inbounds i8, ptr %.0.i.i.i.i25, i64 -64
+  %77 = tail call noundef zeroext i1 @_ZNK5clang13CXXRecordDecl18isEffectivelyFinalEv(ptr noundef nonnull align 8 dereferenceable(144) %76) #19
+  br i1 %77, label %83, label %78
 
-81:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit26
+78:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit26
   %.sroa.02.0.copyload = load i64, ptr %4, align 8, !tbaa !285
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 1920
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !621
-  %82 = load ptr, ptr %0, align 8, !tbaa !3
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.02.0.copyload, i32 %.sroa.2.0.copyload) #19
-  br i1 %85, label %86, label %88
+  %79 = load ptr, ptr %0, align 8, !tbaa !3
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %.sroa.02.0.copyload, i32 %.sroa.2.0.copyload) #19
+  br i1 %82, label %83, label %85
 
-86:                                               ; preds = %81, %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
-  %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  br label %92
+83:                                               ; preds = %78, %_ZNK5clang13CXXMethodDecl9getParentEv.exit26, %_ZNK5clang13CXXMethodDecl9getParentEv.exit23
+  %84 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  br label %89
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw i8, ptr %49, i64 72
-  %90 = load ptr, ptr %89, align 8, !tbaa !1048
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  br label %92
+85:                                               ; preds = %78
+  %86 = getelementptr inbounds nuw i8, ptr %49, i64 72
+  %87 = load ptr, ptr %86, align 8, !tbaa !1048
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  br label %89
 
-92:                                               ; preds = %88, %86
-  %.sroa.0.0.copyload.i28.sink.in = phi ptr [ %91, %88 ], [ %87, %86 ]
+89:                                               ; preds = %85, %83
+  %.sroa.0.0.copyload.i28.sink.in = phi ptr [ %88, %85 ], [ %84, %83 ]
   %.sroa.0.0.copyload.i28.sink = load i64, ptr %.sroa.0.0.copyload.i28.sink.in, align 8, !tbaa !289
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 4560
-  store i64 %.sroa.0.0.copyload.i28.sink, ptr %93, align 8, !tbaa !289
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 4560
+  store i64 %.sroa.0.0.copyload.i28.sink, ptr %90, align 8, !tbaa !289
   ret void
 }
 

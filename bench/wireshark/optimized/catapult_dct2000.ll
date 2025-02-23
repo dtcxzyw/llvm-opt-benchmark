@@ -2174,7 +2174,7 @@ define internal fastcc noundef zeroext i1 @process_parsed_line(ptr noundef %0, p
   %115 = getelementptr [256 x [256 x i8]], ptr @s_tableValues, i64 0, i64 %113, i64 %114
   %116 = load i8, ptr %115, align 1
   %117 = trunc nuw nsw i64 %indvars.iv to i32
-  %118 = ashr exact i32 %117, 1
+  %118 = lshr exact i32 %117, 1
   %119 = add i32 %118, %103
   %120 = sext i32 %119 to i64
   %121 = getelementptr i8, ptr %68, i64 %120

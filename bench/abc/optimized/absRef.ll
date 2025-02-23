@@ -540,7 +540,7 @@ define void @Rnm_ManCollect(ptr noundef readonly captures(none) %0) local_unname
   %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val41.fr, i64 %28
   %.val38 = load i32, ptr %12, align 4, !tbaa !15
   %30 = add nsw i32 %.val38, 1
-  tail call void @Rnm_ManCollect_rec(ptr noundef %3, ptr noundef %29, ptr noundef %24, i32 noundef %30)
+  tail call void @Rnm_ManCollect_rec(ptr noundef nonnull %3, ptr noundef %29, ptr noundef %24, i32 noundef %30)
   %31 = load ptr, ptr %23, align 8, !tbaa !20
   %32 = getelementptr i8, ptr %31, i64 4
   %.val3761 = load i32, ptr %32, align 4, !tbaa !15

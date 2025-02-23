@@ -467,11 +467,11 @@ define void @MixCoder_Init(ptr noundef captures(none) %0) local_unnamed_addr #2 
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %11
 
-.preheader:                                       ; preds = %11, %1
-  %9 = icmp sgt i32 %3, 0
+.preheader:                                       ; preds = %1
+  %9 = icmp eq i32 %3, 1
   br i1 %9, label %.lr.ph17, label %._crit_edge
 
-.lr.ph17:                                         ; preds = %.preheader
+.lr.ph17:                                         ; preds = %11, %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %15
 
@@ -485,7 +485,7 @@ define void @MixCoder_Init(ptr noundef captures(none) %0) local_unnamed_addr #2 
   store i32 0, ptr %14, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %11
+  br i1 %exitcond.not, label %.lr.ph17, label %11
 
 15:                                               ; preds = %.lr.ph17, %15
   %indvars.iv19 = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next20, %15 ]
@@ -1264,9 +1264,9 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   %wide.trip.count.i = zext nneg i32 %100 to i64
   br label %105
 
-.preheader.i:                                     ; preds = %105, %97
-  %104 = icmp sgt i32 %98, 0
-  br i1 %104, label %.lr.ph17.i, label %MixCoder_Init.exit
+.preheader.i:                                     ; preds = %97
+  %104 = icmp eq i32 %98, 1
+  br i1 %104, label %.lr.ph17.i.preheader, label %MixCoder_Init.exit
 
 105:                                              ; preds = %105, %.lr.ph.i69
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %105 ]
@@ -1278,10 +1278,13 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   store i32 0, ptr %108, align 4, !tbaa !27
   %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %105
+  br i1 %exitcond.not.i, label %.lr.ph17.i.preheader, label %105
 
-.lr.ph17.i:                                       ; preds = %.preheader.i, %.lr.ph17.i
-  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph17.i ], [ 0, %.preheader.i ]
+.lr.ph17.i.preheader:                             ; preds = %105, %.preheader.i
+  br label %.lr.ph17.i
+
+.lr.ph17.i:                                       ; preds = %.lr.ph17.i.preheader, %.lr.ph17.i
+  %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph17.i ], [ 0, %.lr.ph17.i.preheader ]
   %109 = getelementptr inbounds nuw [4 x %struct._IStateCoder], ptr %82, i64 0, i64 %indvars.iv19.i
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !24

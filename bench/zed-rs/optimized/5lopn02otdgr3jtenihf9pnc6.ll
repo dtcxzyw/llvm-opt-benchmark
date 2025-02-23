@@ -3301,7 +3301,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 12:                                               ; preds = %3
   %13 = load i64, ptr %4, align 8, !range !195, !noundef !4
   %14 = load ptr, ptr %5, align 8, !noundef !4
-  br label %38
+  br label %37
 
 15:                                               ; preds = %9
   %16 = load i64, ptr %0, align 8, !range !30, !noundef !4
@@ -3311,11 +3311,11 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 18:                                               ; preds = %9
   %19 = load i64, ptr %4, align 8, !range !195, !noundef !4
   %20 = load ptr, ptr %5, align 8, !noundef !4
-  br label %38
+  br label %37
 
 21:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.790f4c68c0a80773cc28aa20d10c1e03.8, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.790f4c68c0a80773cc28aa20d10c1e03.10) #36
-          to label %22 unwind label %43
+          to label %22 unwind label %42
 
 22:                                               ; preds = %21
   unreachable
@@ -3330,52 +3330,51 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   store atomic i8 0, ptr %27 seq_cst, align 8, !noalias !682
   %28 = load atomic i8, ptr %6 seq_cst, align 8
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %38, label %30
+  br i1 %29, label %37, label %30
 
 30:                                               ; preds = %23
   %31 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
   %.not41 = icmp eq i8 %31, 0
-  br i1 %.not41, label %32, label %38
+  br i1 %.not41, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 8, !range !30, !noundef !4
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
+  %34 = load ptr, ptr %26, align 8
   store i64 2, ptr %0, align 8
-  %36 = icmp eq i64 %33, 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !4
-  %. = select i1 %36, ptr undef, ptr %35
-  br label %38
+  %35 = icmp eq i64 %33, 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %36 seq_cst, align 8, !noalias !4
+  %. = select i1 %35, ptr undef, ptr %34
+  br label %37
 
-38:                                               ; preds = %32, %18, %23, %30, %12
+37:                                               ; preds = %32, %18, %23, %30, %12
   %.sroa.5.0 = phi ptr [ %14, %12 ], [ %20, %18 ], [ undef, %23 ], [ undef, %30 ], [ %., %32 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ 2, %23 ], [ 2, %30 ], [ %33, %32 ]
-  %39 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %40 = insertvalue { i64, ptr } %39, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %40
+  %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %39 = insertvalue { i64, ptr } %38, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %39
 
-41:                                               ; preds = %48
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %47
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit": ; preds = %43, %48
-  resume { ptr, i32 } %44
+"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit": ; preds = %42, %47
+  resume { ptr, i32 } %43
 
-43:                                               ; preds = %21
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %21
+  %43 = landingpad { ptr, i32 }
           cleanup
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %45 seq_cst, align 8, !noalias !687
-  %46 = load i64, ptr %4, align 8, !range !195, !alias.scope !692, !noundef !4
-  %47 = icmp eq i64 %46, 0
-  br i1 %47, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit", label %48
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %44 seq_cst, align 8, !noalias !687
+  %45 = load i64, ptr %4, align 8, !range !195, !alias.scope !692, !noundef !4
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit", label %47
 
-48:                                               ; preds = %43
+47:                                               ; preds = %42
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit" unwind label %41
+          to label %"_ZN4core3ptr87drop_in_place$LT$core..result..Result$LT$workspace..WorkspaceId$C$anyhow..Error$GT$$GT$17h2ab73129758bc089E.exit" unwind label %40
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3395,7 +3394,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 10:                                               ; preds = %2
   %11 = load ptr, ptr %3, align 8, !noundef !4
-  br label %31
+  br label %30
 
 12:                                               ; preds = %7
   %13 = load i64, ptr %0, align 8, !range !195, !noundef !4
@@ -3404,11 +3403,11 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 
 14:                                               ; preds = %7
   %15 = load ptr, ptr %3, align 8, !noundef !4
-  br label %31
+  br label %30
 
 16:                                               ; preds = %12
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.790f4c68c0a80773cc28aa20d10c1e03.8, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.790f4c68c0a80773cc28aa20d10c1e03.10) #36
-          to label %17 unwind label %36
+          to label %17 unwind label %35
 
 17:                                               ; preds = %16
   unreachable
@@ -3422,52 +3421,51 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   store atomic i8 0, ptr %21 seq_cst, align 8, !noalias !695
   %22 = load atomic i8, ptr %4 seq_cst, align 8
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %31, label %24
+  br i1 %23, label %30, label %24
 
 24:                                               ; preds = %18
   %25 = atomicrmw xchg ptr %8, i8 1 seq_cst, align 1
   %.not47 = icmp eq i8 %25, 0
-  br i1 %.not47, label %26, label %31
+  br i1 %.not47, label %26, label %30
 
 26:                                               ; preds = %24
   %27 = load i64, ptr %0, align 8, !range !195, !noundef !4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
+  %28 = load ptr, ptr %20, align 8
   store i64 0, ptr %0, align 8
   %trunc14 = trunc nuw i64 %27 to i1
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %30 seq_cst, align 8, !noalias !4
-  %. = select i1 %trunc14, ptr %29, ptr undef
-  br label %31
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %29 seq_cst, align 8, !noalias !4
+  %. = select i1 %trunc14, ptr %28, ptr undef
+  br label %30
 
-31:                                               ; preds = %26, %14, %18, %24, %10
+30:                                               ; preds = %26, %14, %18, %24, %10
   %.sroa.5.0 = phi ptr [ %11, %10 ], [ %15, %14 ], [ undef, %18 ], [ undef, %24 ], [ %., %26 ]
   %.sroa.0.0 = phi i64 [ 1, %10 ], [ 1, %14 ], [ 0, %18 ], [ 0, %24 ], [ %27, %26 ]
-  %32 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, ptr } %32, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %33
+  %31 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %32 = insertvalue { i64, ptr } %31, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %32
 
-34:                                               ; preds = %41
-  %35 = landingpad { ptr, i32 }
+33:                                               ; preds = %40
+  %34 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit": ; preds = %36, %41
-  resume { ptr, i32 } %37
+"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit": ; preds = %35, %40
+  resume { ptr, i32 } %36
 
-36:                                               ; preds = %16
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %16
+  %36 = landingpad { ptr, i32 }
           cleanup
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %38 seq_cst, align 8, !noalias !700
-  %39 = load ptr, ptr %3, align 8, !alias.scope !705, !noundef !4
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit", label %41
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !700
+  %38 = load ptr, ptr %3, align 8, !alias.scope !705, !noundef !4
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit", label %40
 
-41:                                               ; preds = %36
+40:                                               ; preds = %35
   invoke void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit" unwind label %34
+          to label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17h1fb6f35e335b1377E.exit" unwind label %33
 }
 
 ; Function Attrs: nonlazybind uwtable

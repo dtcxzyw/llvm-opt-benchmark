@@ -3282,8 +3282,8 @@ define dso_local noundef zeroext i1 @_ZN5clang11SemaOpenACC21CheckVarIsPointerTy
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 16
   %25 = icmp eq i8 %24, 13
-  %.not.not7.i = icmp ne ptr %22, null
-  %.not.not.not.i = and i1 %.not.not7.i, %25
+  %.not7.i = icmp ne ptr %22, null
+  %.not.not.not.i = and i1 %.not7.i, %25
   br i1 %.not.not.not.i, label %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit, label %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit.thread
 
 _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit: ; preds = %18
@@ -4540,8 +4540,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit16
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %338 = load i8, ptr %337, align 16
   %339 = icmp eq i8 %338, 13
-  %.not.not7.i167 = icmp ne ptr %336, null
-  %.not.not.not.i168 = and i1 %.not.not7.i167, %339
+  %.not7.i167 = icmp ne ptr %336, null
+  %.not.not.not.i168 = and i1 %.not7.i167, %339
   br i1 %.not.not.not.i168, label %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit170, label %_ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit170.thread
 
 _ZNK5clang4Expr18hasPlaceholderTypeENS_11BuiltinType4KindE.exit170: ; preds = %331

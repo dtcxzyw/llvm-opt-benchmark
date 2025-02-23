@@ -1748,7 +1748,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %22, %30
   br i1 %brmerge25.not, label %41, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   %44 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %43) #24
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 2
@@ -1828,7 +1828,7 @@ _ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread: ; preds =
   br i1 %brmerge26.not, label %75, label %_ZN4llvm9sandboxirL14isValidMemSeedINS0_8LoadInstEEEbPT_.exit.thread
 
 75:                                               ; preds = %_ZN4llvm9sandboxirL14isValidMemSeedINS0_9StoreInstEEEbPT_.exit.thread
-  %76 = getelementptr inbounds nuw i8, ptr %spec.select.i.i28, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !11
   %78 = call noundef zeroext i1 @_ZNK4llvm11Instruction8isAtomicEv(ptr noundef nonnull align 8 dereferenceable(73) %77) #24
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 2

@@ -829,11 +829,7 @@ Pla_ManExpendDirNum.exit130:                      ; preds = %160
 200:                                              ; preds = %.preheader.thread, %._crit_edge161
   %putchar = tail call i32 @putchar(i32 10)
   %201 = icmp sgt i32 %11, 0
-  br i1 %201, label %.lr.ph.preheader.i, label %Pla_TtCountOnes.exit.thread
-
-Pla_TtCountOnes.exit.thread:                      ; preds = %200
-  %202 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef 0)
-  br label %Pla_TtCountOnes.exit142
+  br i1 %201, label %.lr.ph.preheader.i, label %Pla_TtCountOnes.exit
 
 .lr.ph.preheader.i:                               ; preds = %200
   %wide.trip.count.i = zext nneg i32 %11 to i64
@@ -841,39 +837,43 @@ Pla_TtCountOnes.exit.thread:                      ; preds = %200
 
 .lr.ph.i132:                                      ; preds = %.lr.ph.i132, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i132 ]
-  %.08.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %223, %.lr.ph.i132 ]
-  %203 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
-  %204 = load i64, ptr %203, align 8, !tbaa !32
-  %205 = lshr i64 %204, 1
-  %206 = and i64 %205, 6148914691236517205
-  %207 = sub i64 %204, %206
-  %208 = and i64 %207, 3689348814741910323
-  %209 = lshr i64 %207, 2
-  %210 = and i64 %209, 3689348814741910323
-  %211 = add nuw nsw i64 %210, %208
-  %212 = lshr i64 %211, 4
-  %213 = add nuw nsw i64 %212, %211
-  %214 = and i64 %213, 1085102592571150095
-  %215 = lshr i64 %214, 8
-  %216 = add nuw nsw i64 %215, %214
-  %217 = lshr i64 %216, 16
-  %218 = add nuw nsw i64 %217, %216
-  %219 = lshr i64 %218, 32
-  %220 = add nuw nsw i64 %219, %218
-  %221 = trunc i64 %220 to i32
-  %222 = and i32 %221, 255
-  %223 = add nuw nsw i32 %222, %.08.i
+  %.08.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %222, %.lr.ph.i132 ]
+  %202 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %203 = load i64, ptr %202, align 8, !tbaa !32
+  %204 = lshr i64 %203, 1
+  %205 = and i64 %204, 6148914691236517205
+  %206 = sub i64 %203, %205
+  %207 = and i64 %206, 3689348814741910323
+  %208 = lshr i64 %206, 2
+  %209 = and i64 %208, 3689348814741910323
+  %210 = add nuw nsw i64 %209, %207
+  %211 = lshr i64 %210, 4
+  %212 = add nuw nsw i64 %211, %210
+  %213 = and i64 %212, 1085102592571150095
+  %214 = lshr i64 %213, 8
+  %215 = add nuw nsw i64 %214, %213
+  %216 = lshr i64 %215, 16
+  %217 = add nuw nsw i64 %216, %215
+  %218 = lshr i64 %217, 32
+  %219 = add nuw nsw i64 %218, %217
+  %220 = trunc i64 %219 to i32
+  %221 = and i32 %220, 255
+  %222 = add nuw nsw i32 %221, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i133, label %Pla_TtCountOnes.exit, label %.lr.ph.i132, !llvm.loop !43
+  br i1 %exitcond.not.i133, label %.lr.ph.preheader.i135, label %.lr.ph.i132, !llvm.loop !43
 
-Pla_TtCountOnes.exit:                             ; preds = %.lr.ph.i132
-  %224 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %223)
+Pla_TtCountOnes.exit:                             ; preds = %200
+  %223 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef 0)
+  br label %Pla_TtCountOnes.exit142
+
+.lr.ph.preheader.i135:                            ; preds = %.lr.ph.i132
+  %224 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %222)
   br label %.lr.ph.i137
 
-.lr.ph.i137:                                      ; preds = %.lr.ph.i137, %Pla_TtCountOnes.exit
-  %indvars.iv.i138 = phi i64 [ 0, %Pla_TtCountOnes.exit ], [ %indvars.iv.next.i140, %.lr.ph.i137 ]
-  %.08.i139 = phi i32 [ 0, %Pla_TtCountOnes.exit ], [ %245, %.lr.ph.i137 ]
+.lr.ph.i137:                                      ; preds = %.lr.ph.i137, %.lr.ph.preheader.i135
+  %indvars.iv.i138 = phi i64 [ 0, %.lr.ph.preheader.i135 ], [ %indvars.iv.next.i140, %.lr.ph.i137 ]
+  %.08.i139 = phi i32 [ 0, %.lr.ph.preheader.i135 ], [ %245, %.lr.ph.i137 ]
   %225 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.i138
   %226 = load i64, ptr %225, align 8, !tbaa !32
   %227 = lshr i64 %226, 1
@@ -899,8 +899,8 @@ Pla_TtCountOnes.exit:                             ; preds = %.lr.ph.i132
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, %wide.trip.count.i
   br i1 %exitcond.not.i141, label %Pla_TtCountOnes.exit142, label %.lr.ph.i137, !llvm.loop !43
 
-Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_TtCountOnes.exit.thread
-  %.0.lcssa.i134 = phi i32 [ 0, %Pla_TtCountOnes.exit.thread ], [ %245, %.lr.ph.i137 ]
+Pla_TtCountOnes.exit142:                          ; preds = %.lr.ph.i137, %Pla_TtCountOnes.exit
+  %.0.lcssa.i134 = phi i32 [ 0, %Pla_TtCountOnes.exit ], [ %245, %.lr.ph.i137 ]
   %246 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %.0.lcssa.i134)
   %putchar108 = tail call i32 @putchar(i32 10)
   %247 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)

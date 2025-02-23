@@ -128,7 +128,7 @@ define ptr @Abc_NtkSensitivityMiter(ptr noundef %0, i32 noundef %1) local_unname
   %.val84.val = load ptr, ptr %22, align 8, !tbaa !30
   %23 = getelementptr inbounds nuw ptr, ptr %.val84.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !32
-  %25 = tail call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 2) #9
+  %25 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 2) #9
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store ptr %25, ptr %26, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -142,7 +142,7 @@ define ptr @Abc_NtkSensitivityMiter(ptr noundef %0, i32 noundef %1) local_unname
   br i1 %30, label %.lr.ph, label %.critedge, !llvm.loop !38
 
 .critedge:                                        ; preds = %.lr.ph, %2
-  tail call void @Abc_NtkAddDummyPiNames(ptr noundef %4) #9
+  tail call void @Abc_NtkAddDummyPiNames(ptr noundef nonnull %4) #9
   %.val85 = load ptr, ptr %19, align 8, !tbaa !36
   %31 = getelementptr i8, ptr %.val85, i64 8
   %.val85.val = load ptr, ptr %31, align 8, !tbaa !30
@@ -150,13 +150,13 @@ define ptr @Abc_NtkSensitivityMiter(ptr noundef %0, i32 noundef %1) local_unname
   %33 = getelementptr inbounds ptr, ptr %.val85.val, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !32
   store ptr %34, ptr %3, align 8, !tbaa !40
-  %35 = tail call ptr @Abc_AigConst1(ptr noundef %4) #9
+  %35 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %4) #9
   %36 = ptrtoint ptr %35 to i64
   %37 = xor i64 %36, 1
   %38 = inttoptr i64 %37 to ptr
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 64
   store ptr %38, ptr %39, align 8, !tbaa !3
-  %40 = tail call ptr @Abc_AigConst1(ptr noundef %4) #9
+  %40 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %4) #9
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr %40, ptr %41, align 8, !tbaa !3
   %42 = call ptr @Abc_NtkDfsReverseNodes(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 1) #9
@@ -302,7 +302,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %.lr.ph181, %._crit_
   br i1 %.not173, label %108, label %105
 
 105:                                              ; preds = %Abc_NodeIsTravIdCurrent.exit
-  %106 = call ptr @Abc_NtkSensitivityMiter_rec(ptr noundef %4, ptr noundef nonnull %57)
+  %106 = call ptr @Abc_NtkSensitivityMiter_rec(ptr noundef nonnull %4, ptr noundef nonnull %57)
   %107 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store ptr %106, ptr %107, align 8, !tbaa !3
   br label %108
@@ -428,7 +428,7 @@ Abc_NodeIsTravIdCurrent.exit107:                  ; preds = %108, %._crit_edge.i
   br i1 %.not174, label %167, label %164
 
 164:                                              ; preds = %Abc_NodeIsTravIdCurrent.exit107
-  %165 = call ptr @Abc_NtkSensitivityMiter_rec(ptr noundef %4, ptr noundef nonnull %116)
+  %165 = call ptr @Abc_NtkSensitivityMiter_rec(ptr noundef nonnull %4, ptr noundef nonnull %116)
   %166 = getelementptr inbounds nuw i8, ptr %116, i64 56
   store ptr %165, ptr %166, align 8, !tbaa !3
   br label %167
@@ -540,7 +540,7 @@ Abc_NodeIsTravIdCurrent.exit107:                  ; preds = %108, %._crit_edge.i
 
 Vec_PtrFree.exit:                                 ; preds = %.critedge2, %235
   call void @free(ptr noundef nonnull %42) #9
-  %236 = call ptr @Abc_AigConst1(ptr noundef %4) #9
+  %236 = call ptr @Abc_AigConst1(ptr noundef nonnull %4) #9
   %237 = ptrtoint ptr %236 to i64
   %238 = xor i64 %237, 1
   %239 = inttoptr i64 %238 to ptr
@@ -758,16 +758,16 @@ Abc_NodeIsTravIdCurrent.exit147:                  ; preds = %244, %._crit_edge.i
 
 .critedge4:                                       ; preds = %351, %Vec_PtrFree.exit
   %.066.lcssa = phi ptr [ %239, %Vec_PtrFree.exit ], [ %.167, %351 ]
-  %355 = call ptr @Abc_NtkCreateObj(ptr noundef %4, i32 noundef 3) #9
+  %355 = call ptr @Abc_NtkCreateObj(ptr noundef nonnull %4, i32 noundef 3) #9
   call void @Abc_ObjAddFanin(ptr noundef %355, ptr noundef %.066.lcssa) #9
   %356 = call ptr @Abc_ObjAssignName(ptr noundef %355, ptr noundef nonnull @.str, ptr noundef null) #9
-  %357 = call i32 @Abc_NtkCheck(ptr noundef %4) #9
+  %357 = call i32 @Abc_NtkCheck(ptr noundef nonnull %4) #9
   %.not = icmp eq i32 %357, 0
   br i1 %.not, label %358, label %359
 
 358:                                              ; preds = %.critedge4
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  call void @Abc_NtkDelete(ptr noundef %4) #9
+  call void @Abc_NtkDelete(ptr noundef nonnull %4) #9
   br label %359
 
 359:                                              ; preds = %.critedge4, %358

@@ -621,7 +621,7 @@ browscap_get_minimum_length.exit:                 ; preds = %88
   br i1 %.not121, label %96, label %.thread186
 
 ._crit_edge:                                      ; preds = %96, %.preheader
-  %108 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %82, ptr noundef %61, ptr noundef %8, ptr noundef %9)
+  %108 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %82, ptr noundef nonnull %61, ptr noundef %8, ptr noundef %9)
   %.not123.not = icmp ne i32 %108, 0
   %109 = getelementptr inbounds nuw i8, ptr %.0108198, i64 32
   %.not120 = icmp eq ptr %109, %72

@@ -225,7 +225,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %12
   %36 = phi i32 [ %17, %12 ], [ %34, %.lr.ph.i ]
   %37 = phi i32 [ %20, %12 ], [ %33, %.lr.ph.i ]
   %38 = lshr i32 %.123, 8
-  %39 = icmp sgt i32 %.01922, 16
+  %39 = icmp samesign ugt i32 %.01922, 16
   br i1 %39, label %12, label %._crit_edge, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %Ptngc_out8bits.exit, %4
@@ -352,7 +352,7 @@ Ptngc_writebits.exit:                             ; preds = %.lr.ph.i.i, %11
   %46 = phi i32 [ %29, %11 ], [ %42, %.lr.ph.i.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %47 = add nsw i32 %.031, -24
-  %48 = icmp sgt i32 %.031, 47
+  %48 = icmp samesign ugt i32 %.031, 47
   br i1 %48, label %11, label %.preheader.loopexit, !llvm.loop !8
 
 49:                                               ; preds = %.lr.ph35, %Ptngc_writebits.exit27
@@ -905,7 +905,7 @@ Ptngc_out8bits.exit.i166:                         ; preds = %.lr.ph.i.i167, %.lr
   %178 = phi i32 [ %163, %.lr.ph.i164 ], [ %174, %.lr.ph.i.i167 ]
   %.17 = phi ptr [ %.16, %.lr.ph.i164 ], [ %172, %.lr.ph.i.i167 ]
   %179 = lshr i32 %.123.i, 8
-  %180 = icmp sgt i32 %.01922.i, 16
+  %180 = icmp samesign ugt i32 %.01922.i, 16
   br i1 %180, label %.lr.ph.i164, label %._crit_edge.i160, !llvm.loop !7
 
 ._crit_edge.i160:                                 ; preds = %Ptngc_out8bits.exit.i166, %153

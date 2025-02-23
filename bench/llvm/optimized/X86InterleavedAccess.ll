@@ -1851,7 +1851,7 @@ _ZN4llvm3MVT11getVectorVTES0_j.exit81:            ; preds = %620, %_ZN4llvm3MVT1
   %exitcond61.not.i = icmp eq i64 %indvars.iv.next58.i, 3
   br i1 %exitcond61.not.i, label %.preheader.i61, label %675, !llvm.loop !250
 
-_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %738
+_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i66: ; preds = %738
   %689 = zext nneg i16 %.sroa.0.0.i80 to i64
   %690 = add nsw i64 %689, -1
   %691 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 0, i64 %690
@@ -1886,9 +1886,9 @@ _ZNK4llvm3MVT20getVectorNumElementsEv.exit.i:     ; preds = %738
   %umax.i.i = call i32 @llvm.umax.i32(i32 %699, i32 1)
   br label %710
 
-702:                                              ; preds = %702, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i
-  %indvars.iv.i.i67 = phi i64 [ 0, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %indvars.iv.next.i.i68, %702 ]
-  %.01823.i.i = phi i32 [ 0, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i ], [ %709, %702 ]
+702:                                              ; preds = %702, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i66
+  %indvars.iv.i.i67 = phi i64 [ 0, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i66 ], [ %indvars.iv.next.i.i68, %702 ]
+  %.01823.i.i = phi i32 [ 0, %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i66 ], [ %709, %702 ]
   %703 = mul nsw i32 %.01823.i.i, 3
   %704 = srem i32 %703, %699
   %705 = sext i32 %704 to i64
@@ -1984,7 +1984,7 @@ _ZN4llvm11SmallVectorIiLj32EED2Ev.exit29.i:       ; preds = %737, %_ZN4llvm11Sma
   %750 = getelementptr inbounds nuw [3 x ptr], ptr %9, i64 0, i64 %indvars.iv62.i
   store ptr %749, ptr %750, align 8, !tbaa !222
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #11
-  br i1 %742, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i, label %738, !llvm.loop !253
+  br i1 %742, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit.i.i66, label %738, !llvm.loop !253
 
 751:                                              ; preds = %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit30.i, %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit29.i
   %752 = phi ptr [ %701, %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit29.i ], [ %753, %_ZN4llvm11SmallVectorIiLj32EED2Ev.exit30.i ]

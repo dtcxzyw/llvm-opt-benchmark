@@ -176,7 +176,7 @@ _ZL10u_posrelatim.exit.thread:                    ; preds = %13, %22, %_ZL10u_po
 62:                                               ; preds = %58
   %63 = trunc nuw i64 %indvars.iv.next to i32
   %.238 = add nsw i32 %.23853, -1
-  %64 = icmp sgt i32 %.23853, 1
+  %64 = icmp samesign ugt i32 %.23853, 1
   %65 = icmp slt i32 %63, %24
   %66 = and i1 %64, %65
   br i1 %66, label %.preheader47, label %.critedge, !llvm.loop !10

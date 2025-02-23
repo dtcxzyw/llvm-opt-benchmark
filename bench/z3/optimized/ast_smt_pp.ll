@@ -418,7 +418,7 @@ if.then11:                                        ; preds = %_ZN12smt_renaming10
   br label %cleanup
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.cond.i.i
-  %s.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %spec.select, %while.cond.i.i.preheader ]
+  %s.addr.0.i.i = phi ptr [ %incdec.ptr.i.i, %while.cond.i.i ], [ %s.coerce, %while.cond.i.i.preheader ]
   %5 = load i8, ptr %s.addr.0.i.i, align 1
   %conv.i.i = sext i8 %5 to i32
   %6 = add nsw i32 %conv.i.i, -58
@@ -428,11 +428,11 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i.preh
 
 _ZN12smt_renaming12is_numericalEPKc.exit.i:       ; preds = %while.cond.i.i
   %tobool.not.i.i = icmp eq i8 %5, 0
-  br i1 %tobool.not.i.i, label %if.end17, label %while.cond.i11
+  br i1 %tobool.not.i.i, label %if.end29, label %while.cond.i11
 
 while.cond.i11:                                   ; preds = %_ZN12smt_renaming12is_numericalEPKc.exit.i, %if.end7.i
   %7 = phi i8 [ %.pre, %if.end7.i ], [ %1, %_ZN12smt_renaming12is_numericalEPKc.exit.i ]
-  %s.addr.0.i12 = phi ptr [ %incdec.ptr.i, %if.end7.i ], [ %spec.select, %_ZN12smt_renaming12is_numericalEPKc.exit.i ]
+  %s.addr.0.i12 = phi ptr [ %incdec.ptr.i, %if.end7.i ], [ %s.coerce, %_ZN12smt_renaming12is_numericalEPKc.exit.i ]
   switch i8 %7, label %_ZN12smt_renaming8is_legalEc.exit.i [
     i8 0, label %if.then15
     i8 95, label %if.end7.i
@@ -457,7 +457,7 @@ if.then15:                                        ; preds = %while.cond.i11
   store i64 %0, ptr %retval, align 8
   br label %cleanup
 
-if.end17:                                         ; preds = %_ZN12smt_renaming8is_legalEc.exit.i, %_ZN12smt_renaming12is_numericalEPKc.exit.i, %land.lhs.true4, %entry
+if.end17:                                         ; preds = %_ZN12smt_renaming8is_legalEc.exit.i, %land.lhs.true4, %entry
   br i1 %cmp.i, label %if.else5.i, label %if.end29
 
 if.else5.i:                                       ; preds = %if.end17
@@ -493,7 +493,7 @@ lpad27:                                           ; preds = %invoke.cont26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #21
   br label %ehcleanup
 
-if.end29:                                         ; preds = %if.end17
+if.end29:                                         ; preds = %_ZN12smt_renaming12is_numericalEPKc.exit.i, %if.end17
   %tobool32.not = icmp eq ptr %s.coerce, null
   br i1 %tobool32.not, label %if.else.i32.invoke, label %if.else
 

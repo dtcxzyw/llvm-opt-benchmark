@@ -10930,7 +10930,7 @@ PyStgInfo_FromType.exit:                          ; preds = %80, %PyStgInfo_From
 145:                                              ; preds = %.lr.ph, %145
   %.2110155 = phi i64 [ 0, %.lr.ph ], [ %149, %145 ]
   %.2114154 = phi i64 [ %.0106, %.lr.ph ], [ %148, %145 ]
-  %146 = tail call ptr @Pointer_item(ptr noundef %0, i64 noundef %.2114154)
+  %146 = tail call ptr @Pointer_item(ptr noundef nonnull %0, i64 noundef %.2114154)
   %.val135 = load ptr, ptr %144, align 8, !tbaa !184
   %147 = getelementptr ptr, ptr %.val135, i64 %.2110155
   store ptr %146, ptr %147, align 8, !tbaa !27

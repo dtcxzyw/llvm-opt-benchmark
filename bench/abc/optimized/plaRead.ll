@@ -1314,7 +1314,7 @@ Pla_ManAlloc.exit:                                ; preds = %Vec_WrdFill.exit.i,
   store i32 %75, ptr %83, align 4, !tbaa !35
   %84 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %22, ptr %84, align 8, !tbaa !46
-  tail call void @Pla_ReadAddBody(ptr noundef nonnull %34, ptr noundef %23)
+  tail call void @Pla_ReadAddBody(ptr noundef nonnull %34, ptr noundef nonnull %23)
   %85 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !18
   %.not.i = icmp eq ptr %86, null
@@ -1340,7 +1340,7 @@ Pla_ManAlloc.exit:                                ; preds = %Vec_WrdFill.exit.i,
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %Pla_ReadPlaRemoveComments.exit
   %.0.ph = phi ptr [ null, %Pla_ReadPlaRemoveComments.exit ], [ %.0.ph.ph, %.sink.split.sink.split ]
-  tail call void @free(ptr noundef %7) #17
+  tail call void @free(ptr noundef nonnull %7) #17
   br label %91
 
 91:                                               ; preds = %.sink.split, %1

@@ -165,7 +165,7 @@ define internal i32 @archive_write_ar_header(ptr noundef %0, ptr noundef %1) #0 
 
 13:                                               ; preds = %10, %2
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.6) #12
-  br label %211
+  br label %210
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -184,8 +184,8 @@ sub_0:                                            ; preds = %17, %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(60) %3, i8 32, i64 60, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 58
   store i16 2656, ptr %20, align 2
-  %.not150 = icmp eq i8 %19, 47
-  br i1 %.not150, label %.tail, label %.tail.thread
+  %.not151 = icmp eq i8 %19, 47
+  br i1 %.not151, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 1
@@ -209,35 +209,35 @@ sub_0:                                            ; preds = %17, %14
 28:                                               ; preds = %.tail.thread
   %29 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(10) @.str.11) #14
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %sub_0140
+  br i1 %30, label %31, label %sub_0141
 
 31:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false)
   br label %95
 
-sub_0140:                                         ; preds = %28
-  br i1 %.not150, label %sub_1141, label %.tail139.thread
+sub_0141:                                         ; preds = %28
+  br i1 %.not151, label %sub_1142, label %.tail140.thread
 
-sub_1141:                                         ; preds = %sub_0140
+sub_1142:                                         ; preds = %sub_0141
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %33 = load i8, ptr %32, align 1
-  %.not152 = icmp eq i8 %33, 47
-  br i1 %.not152, label %.tail139, label %.tail139.thread
+  %.not153 = icmp eq i8 %33, 47
+  br i1 %.not153, label %.tail140, label %.tail140.thread
 
-.tail139:                                         ; preds = %sub_1141
+.tail140:                                         ; preds = %sub_1142
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 2
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 0
-  br i1 %36, label %37, label %.tail139.thread
+  br i1 %36, label %37, label %.tail140.thread
 
-37:                                               ; preds = %.tail139
+37:                                               ; preds = %.tail140
   store i32 1, ptr %6, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 47, ptr %38, align 1, !tbaa !27
   store i8 47, ptr %3, align 16, !tbaa !27
   br label %177
 
-.tail139.thread:                                  ; preds = %sub_1141, %sub_0140, %.tail139
+.tail140.thread:                                  ; preds = %sub_1142, %sub_0141, %.tail140
   %39 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #14
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 %39
   %41 = getelementptr inbounds i8, ptr %40, i64 -1
@@ -245,8 +245,8 @@ sub_1141:                                         ; preds = %sub_0140
   %43 = icmp eq i8 %42, 47
   br i1 %43, label %ar_basename.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.tail139.thread, %45
-  %.0.i = phi ptr [ %46, %45 ], [ %41, %.tail139.thread ]
+.preheader.i:                                     ; preds = %.tail140.thread, %45
+  %.0.i = phi ptr [ %46, %45 ], [ %41, %.tail140.thread ]
   %44 = icmp ugt ptr %.0.i, %8
   br i1 %44, label %45, label %48
 
@@ -256,9 +256,9 @@ sub_1141:                                         ; preds = %sub_0140
   %.not.i = icmp eq i8 %47, 47
   br i1 %.not.i, label %48, label %.preheader.i, !llvm.loop !29
 
-ar_basename.exit:                                 ; preds = %.tail139.thread
+ar_basename.exit:                                 ; preds = %.tail140.thread
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.6) #12
-  br label %211
+  br label %210
 
 48:                                               ; preds = %.preheader.i, %45
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -287,7 +287,7 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
 
 60:                                               ; preds = %56
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.13) #12
-  br label %211
+  br label %210
 
 61:                                               ; preds = %56
   %62 = add i64 %52, 3
@@ -297,7 +297,7 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
 
 65:                                               ; preds = %61
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.14) #12
-  br label %211
+  br label %210
 
 66:                                               ; preds = %61
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %63, ptr nonnull align 1 %.0.i, i64 %52, i1 false)
@@ -313,7 +313,7 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
 
 73:                                               ; preds = %66
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.16) #12
-  br label %211
+  br label %210
 
 74:                                               ; preds = %66
   store i8 47, ptr %3, align 16, !tbaa !27
@@ -327,7 +327,7 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
 
 80:                                               ; preds = %74
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.17) #12
-  br label %211
+  br label %210
 
 81:                                               ; preds = %48
   %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #14
@@ -354,7 +354,7 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
 
 92:                                               ; preds = %89
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.19) #12
-  br label %211
+  br label %210
 
 93:                                               ; preds = %89
   %94 = add i64 %82, %7
@@ -412,8 +412,8 @@ ar_basename.exit:                                 ; preds = %.tail139.thread
   br label %120
 
 format_decimal.exit:                              ; preds = %95, %.preheader32.preheader.i
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.20) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.20) #12
+  br label %210
 
 120:                                              ; preds = %113, %.lr.ph.preheader.i
   %121 = tail call i64 @archive_entry_uid(ptr noundef %1) #12
@@ -463,8 +463,8 @@ format_decimal.exit:                              ; preds = %95, %.preheader32.p
   br label %144
 
 format_decimal.exit112:                           ; preds = %120, %.preheader32.preheader.i108
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.21) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.21) #12
+  br label %210
 
 144:                                              ; preds = %137, %.lr.ph.preheader.i110
   %145 = tail call i64 @archive_entry_gid(ptr noundef %1) #12
@@ -514,8 +514,8 @@ format_decimal.exit112:                           ; preds = %120, %.preheader32.
   br label %168
 
 format_decimal.exit120:                           ; preds = %144, %.preheader32.preheader.i116
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.22) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.22) #12
+  br label %210
 
 168:                                              ; preds = %161, %.lr.ph.preheader.i118
   %169 = tail call i32 @archive_entry_mode(ptr noundef %1) #12
@@ -525,8 +525,8 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   br i1 %.not98, label %173, label %172
 
 172:                                              ; preds = %168
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.23) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.23) #12
+  br label %210
 
 173:                                              ; preds = %168
   %.not99 = icmp eq ptr %.078, null
@@ -538,8 +538,8 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   br i1 %.not100, label %177, label %176
 
 176:                                              ; preds = %174
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.24) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.24) #12
+  br label %210
 
 177:                                              ; preds = %173, %174, %37
   %.182 = phi i32 [ %.081, %174 ], [ %.081, %173 ], [ 0, %37 ]
@@ -588,37 +588,37 @@ format_decimal.exit120:                           ; preds = %144, %.preheader32.
   br label %198
 
 format_decimal.exit128:                           ; preds = %177, %.preheader32.preheader.i124
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 34, ptr noundef nonnull @.str.25) #12
-  br label %211
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 34, ptr noundef nonnull @.str.25) #12
+  br label %210
 
 198:                                              ; preds = %191, %.lr.ph.preheader.i126
-  %199 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %3, i64 noundef 60) #12
+  %199 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef 60) #12
   %.not102 = icmp eq i32 %199, 0
-  br i1 %.not102, label %200, label %211
+  br i1 %.not102, label %200, label %210
 
 200:                                              ; preds = %198
   store i64 %.1, ptr %5, align 8, !tbaa !34
   %201 = and i64 %.1, 1
   %202 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %201, ptr %202, align 8, !tbaa !35
-  %203 = icmp sgt i32 %.182, 0
-  br i1 %203, label %204, label %211
+  %.not139 = icmp eq i32 %.182, 0
+  br i1 %.not139, label %210, label %203
 
-204:                                              ; preds = %200
-  %205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.179) #14
-  %206 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %.179, i64 noundef %205) #12
-  %.not103 = icmp eq i32 %206, 0
-  br i1 %.not103, label %207, label %211
+203:                                              ; preds = %200
+  %204 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.179) #14
+  %205 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %.179, i64 noundef %204) #12
+  %.not103 = icmp eq i32 %205, 0
+  br i1 %.not103, label %206, label %210
 
-207:                                              ; preds = %204
-  %208 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.179) #14
-  %209 = load i64, ptr %5, align 8, !tbaa !34
-  %210 = sub i64 %209, %208
-  store i64 %210, ptr %5, align 8, !tbaa !34
-  br label %211
+206:                                              ; preds = %203
+  %207 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.179) #14
+  %208 = load i64, ptr %5, align 8, !tbaa !34
+  %209 = sub i64 %208, %207
+  store i64 %209, ptr %5, align 8, !tbaa !34
+  br label %210
 
-211:                                              ; preds = %200, %207, %204, %198, %format_decimal.exit128, %176, %172, %format_decimal.exit120, %format_decimal.exit112, %format_decimal.exit, %92, %80, %73, %65, %60, %ar_basename.exit, %13
-  %.080 = phi i32 [ -20, %13 ], [ -20, %format_decimal.exit ], [ -20, %format_decimal.exit112 ], [ -20, %format_decimal.exit120 ], [ -20, %172 ], [ -20, %176 ], [ -20, %format_decimal.exit128 ], [ -20, %ar_basename.exit ], [ -20, %60 ], [ -30, %65 ], [ -20, %73 ], [ -20, %80 ], [ -20, %92 ], [ %199, %198 ], [ %206, %204 ], [ 0, %207 ], [ 0, %200 ]
+210:                                              ; preds = %200, %206, %203, %198, %format_decimal.exit128, %176, %172, %format_decimal.exit120, %format_decimal.exit112, %format_decimal.exit, %92, %80, %73, %65, %60, %ar_basename.exit, %13
+  %.080 = phi i32 [ -20, %13 ], [ -20, %format_decimal.exit ], [ -20, %format_decimal.exit112 ], [ -20, %format_decimal.exit120 ], [ -20, %172 ], [ -20, %176 ], [ -20, %format_decimal.exit128 ], [ -20, %ar_basename.exit ], [ -20, %60 ], [ -30, %65 ], [ -20, %73 ], [ -20, %80 ], [ -20, %92 ], [ %199, %198 ], [ %205, %203 ], [ 0, %206 ], [ 0, %200 ]
   call void @llvm.lifetime.end.p0(i64 60, ptr nonnull %3) #12
   ret i32 %.080
 }

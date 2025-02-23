@@ -3634,7 +3634,7 @@ define void @Dtt_MakeFormulaFI2(i32 noundef %0, ptr noundef readonly captures(no
   br i1 %exitcond.not.i37.us, label %Dtt_ComposeNP.exit38.us, label %25, !llvm.loop !106
 
 Dtt_ComposeNP.exit38.us:                          ; preds = %25
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %23, ptr noundef %2, i32 noundef %35, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %23, ptr noundef nonnull %2, i32 noundef %35, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
   %38 = load i32, ptr %1, align 4, !tbaa !117
   %39 = icmp ult i32 %38, 10
   br i1 %39, label %switch.lookup, label %Dtt_FunImpl2Str.exit41.us
@@ -3764,7 +3764,7 @@ Dtt_FunImpl2Str.exit:                             ; preds = %Dtt_MakePI.exit, %s
   br i1 %exitcond.not.i37, label %Dtt_ComposeNP.exit38, label %88, !llvm.loop !106
 
 Dtt_ComposeNP.exit38:                             ; preds = %88
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %86, ptr noundef %2, i32 noundef %98, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %86, ptr noundef nonnull %2, i32 noundef %98, ptr noundef nonnull %9, i32 noundef 0, ptr noundef %7)
   %101 = load i32, ptr %1, align 4, !tbaa !117
   %102 = icmp ult i32 %101, 10
   br i1 %102, label %switch.lookup70, label %Dtt_FunImpl2Str.exit41
@@ -3911,8 +3911,8 @@ Dtt_MakePI.exit:                                  ; preds = %44, %39, %42
   br i1 %exitcond.not.i39, label %Dtt_ComposeNP.exit40, label %53, !llvm.loop !106
 
 Dtt_ComposeNP.exit40:                             ; preds = %53
-  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %51, ptr noundef %2, i32 noundef %63, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %6)
-  call void @Dtt_MakeFormulaFI2(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6)
+  call void @Dtt_MakeFormula(i32 noundef %0, ptr noundef %51, ptr noundef nonnull %2, i32 noundef %63, ptr noundef nonnull %8, i32 noundef 0, ptr noundef %6)
+  call void @Dtt_MakeFormulaFI2(i32 noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef %5, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = load i32, ptr %9, align 4, !tbaa !119
   %.val32 = load ptr, ptr %12, align 8, !tbaa !110

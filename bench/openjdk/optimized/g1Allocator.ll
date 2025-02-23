@@ -1288,73 +1288,63 @@ define hidden void @_ZN15G1PLABAllocatorC2EP11G1Allocator(ptr noundef nonnull al
   br label %24
 
 24:                                               ; preds = %20, %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit
-  %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit ]
-  %25 = getelementptr inbounds nuw [2 x %"struct.G1PLABAllocator::PLABData"], ptr %.ptr10, i64 0, i64 %indvars.iv
-  switch i64 %indvars.iv, label %30 [
-    i64 0, label %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread
-    i64 1, label %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit
-  ]
+  %25 = phi i1 [ true, %20 ], [ false, %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit ]
+  %indvars.iv = phi i64 [ 0, %20 ], [ 1, %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit ]
+  %26 = getelementptr inbounds nuw [2 x %"struct.G1PLABAllocator::PLABData"], ptr %.ptr10, i64 0, i64 %indvars.iv
+  br i1 %25, label %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread, label %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit
 
 _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread: ; preds = %24
-  %26 = load ptr, ptr %4, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %28 = load i64, ptr %27, align 8
-  %29 = trunc i64 %28 to i32
+  %27 = load ptr, ptr %4, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %29 = load i64, ptr %28, align 8
+  %30 = trunc i64 %29 to i32
   br label %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit
 
-30:                                               ; preds = %24
-  %31 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %31, align 1
-  tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.13, i32 noundef 89) #16
-  unreachable
-
 _ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit: ; preds = %24, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread
-  %.0.i16 = phi i32 [ %29, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread ], [ 1, %24 ]
+  %.0.i16 = phi i32 [ %30, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread ], [ 1, %24 ]
   %.sink.i.i = phi i64 [ 664, %_ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread ], [ 808, %24 ]
-  %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.sink.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 128
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %37 = load i32, ptr %36, align 8
-  %38 = tail call noundef i64 @_ZNK11G1EvacStats17desired_plab_sizeEj(ptr noundef nonnull align 8 dereferenceable(144) %33, i32 noundef %37) #15
-  %39 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #15
-  %40 = load i64, ptr @_ZN15G1CollectedHeap36_humongous_object_threshold_in_wordsE, align 8
-  %41 = tail call noundef i64 @llvm.umax.i64(i64 %38, i64 %39)
-  %42 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 %40)
-  %43 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store i32 %.0.i16, ptr %43, align 8
-  %44 = zext i32 %.0.i16 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  %46 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %45, i8 noundef zeroext 5, i32 noundef 0) #15
-  store ptr %46, ptr %25, align 8
-  %47 = load i32, ptr %43, align 8
-  %.not.i = icmp eq i32 %47, 0
+  %31 = load ptr, ptr %0, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.sink.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %31, i64 128
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %36 = load i32, ptr %35, align 8
+  %37 = tail call noundef i64 @_ZNK11G1EvacStats17desired_plab_sizeEj(ptr noundef nonnull align 8 dereferenceable(144) %32, i32 noundef %36) #15
+  %38 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #15
+  %39 = load i64, ptr @_ZN15G1CollectedHeap36_humongous_object_threshold_in_wordsE, align 8
+  %40 = tail call noundef i64 @llvm.umax.i64(i64 %37, i64 %38)
+  %41 = tail call noundef i64 @llvm.umin.i64(i64 %40, i64 %39)
+  %42 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  store i32 %.0.i16, ptr %42, align 8
+  %43 = zext i32 %.0.i16 to i64
+  %44 = shl nuw nsw i64 %43, 3
+  %45 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %44, i8 noundef zeroext 5, i32 noundef 0) #15
+  store ptr %45, ptr %26, align 8
+  %46 = load i32, ptr %42, align 8
+  %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit ]
-  %48 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 5, i32 noundef 0) #15
-  tail call void @_ZN4PLABC1Em(ptr noundef nonnull align 8 dereferenceable(128) %48, i64 noundef %42) #15
-  %49 = load ptr, ptr %25, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
-  store ptr %48, ptr %50, align 8
+  %47 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 5, i32 noundef 0) #15
+  tail call void @_ZN4PLABC1Em(ptr noundef nonnull align 8 dereferenceable(128) %47, i64 noundef %41) #15
+  %48 = load ptr, ptr %26, align 8
+  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
+  store ptr %47, ptr %49, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = load i32, ptr %43, align 8
-  %52 = zext i32 %51 to i64
-  %53 = icmp samesign ult i64 %indvars.iv.next.i, %52
-  br i1 %53, label %.lr.ph.i, label %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit, !llvm.loop !16
+  %50 = load i32, ptr %42, align 8
+  %51 = zext i32 %50 to i64
+  %52 = icmp samesign ult i64 %indvars.iv.next.i, %51
+  br i1 %52, label %.lr.ph.i, label %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit, !llvm.loop !16
 
 _ZN15G1PLABAllocator8PLABData10initializeEjmm.exit: ; preds = %.lr.ph.i, %_ZN15G1CollectedHeap15desired_plab_szE16G1HeapRegionAttr.exit
-  %54 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i64 %23, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store i64 %42, ptr %55, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 2
-  br i1 %exitcond.not, label %56, label %24, !llvm.loop !17
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i64 %23, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store i64 %41, ptr %54, align 8
+  br i1 %25, label %24, label %55, !llvm.loop !17
 
-56:                                               ; preds = %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit
+55:                                               ; preds = %_ZN15G1PLABAllocator8PLABData10initializeEjmm.exit
   ret void
 }
 

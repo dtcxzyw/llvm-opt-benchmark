@@ -56,12 +56,16 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us: ; preds = %.l
   %exitcond88.not = icmp eq i64 %indvars.iv.next86, %1
   br i1 %exitcond88.not, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us, !llvm.loop !8
 
+.lr.ph.i56.preheader.preheader:                   ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit
+  %14 = fdiv float 2.550000e+02, %.1
+  br label %.lr.ph.i56.preheader
+
 _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us: ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ 0, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us ]
-  %.03672.us = phi float [ %16, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ 0.000000e+00, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us ]
-  %14 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv93
-  %15 = load float, ptr %14, align 4, !tbaa !4
-  %16 = fadd float %.03672.us, %15
+  %.03672.us = phi float [ %17, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ 0.000000e+00, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit.thread.us ]
+  %15 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv93
+  %16 = load float, ptr %15, align 4, !tbaa !4
+  %17 = fadd float %.03672.us, %16
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond96.not = icmp eq i64 %indvars.iv.next94, %1
   br i1 %exitcond96.not, label %._crit_edge76, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us, !llvm.loop !10
@@ -69,60 +73,56 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us: ; preds = %_ZN5fa
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit ], [ 0, %.lr.ph ]
   %.03771 = phi float [ %.1, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit ], [ 0.000000e+00, %.lr.ph ]
-  %17 = mul i64 %indvars.iv, %2
-  %18 = getelementptr inbounds nuw float, ptr %0, i64 %17
+  %18 = mul i64 %indvars.iv, %2
+  %19 = getelementptr inbounds nuw float, ptr %0, i64 %18
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.0811.i = phi float [ %.1.i, %.lr.ph.i ], [ 0x7FF0000000000000, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
-  %20 = load float, ptr %19, align 4, !tbaa !4
-  %21 = fcmp olt float %20, %.0811.i
-  %.1.i = select i1 %21, float %20, float %.0811.i
+  %20 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i
+  %21 = load float, ptr %20, align 4, !tbaa !4
+  %22 = fcmp olt float %21, %.0811.i
+  %.1.i = select i1 %22, float %21, float %.0811.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %2
   br i1 %exitcond.not.i, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit, label %.lr.ph.i, !llvm.loop !11
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit: ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
-  store float %.1.i, ptr %22, align 4, !tbaa !4
+  %23 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  store float %.1.i, ptr %23, align 4, !tbaa !4
   br label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit, %.lr.ph.i48
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i52, %.lr.ph.i48 ], [ 0, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit ]
   %.0811.i50 = phi float [ %.1.i51, %.lr.ph.i48 ], [ 0xFFF0000000000000, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit ]
-  %23 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i49
-  %24 = load float, ptr %23, align 4, !tbaa !4
-  %25 = fcmp ogt float %24, %.0811.i50
-  %.1.i51 = select i1 %25, float %24, float %.0811.i50
+  %24 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv.i49
+  %25 = load float, ptr %24, align 4, !tbaa !4
+  %26 = fcmp ogt float %25, %.0811.i50
+  %.1.i51 = select i1 %26, float %25, float %.0811.i50
   %indvars.iv.next.i52 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond.not.i53 = icmp eq i64 %indvars.iv.next.i52, %2
   br i1 %exitcond.not.i53, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit, label %.lr.ph.i48, !llvm.loop !12
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit: ; preds = %.lr.ph.i48
-  %26 = fsub float %.1.i51, %.1.i
-  %27 = fcmp ogt float %26, %.03771
-  %.1 = select i1 %27, float %26, float %.03771
+  %27 = fsub float %.1.i51, %.1.i
+  %28 = fcmp ogt float %27, %.03771
+  %.1 = select i1 %28, float %27, float %.03771
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %.lr.ph75.thread, label %.lr.ph.i.preheader, !llvm.loop !8
-
-.lr.ph75.thread:                                  ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit
-  %28 = fdiv float 2.550000e+02, %.1
-  br label %.lr.ph.i56.preheader
+  br i1 %exitcond.not, label %.lr.ph.i56.preheader.preheader, label %.lr.ph.i.preheader, !llvm.loop !8
 
 ._crit_edge76:                                    ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %29 = phi float [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0x7FF0000000000000, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %28, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
+  %29 = phi float [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0x7FF0000000000000, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %14, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
   %.sroa.12.0100109 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %9, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %9, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
   %.sroa.060.0102107 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %8, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %8, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
-  %.036.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %16, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %40, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
+  %.036.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %17, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.us ], [ %40, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %42, label %41
 
-.lr.ph.i56.preheader:                             ; preds = %.lr.ph75.thread, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit
-  %indvars.iv89 = phi i64 [ 0, %.lr.ph75.thread ], [ %indvars.iv.next90, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
-  %.03672 = phi float [ 0.000000e+00, %.lr.ph75.thread ], [ %40, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
+.lr.ph.i56.preheader:                             ; preds = %.lr.ph.i56.preheader.preheader, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph.i56.preheader.preheader ], [ %indvars.iv.next90, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
+  %.03672 = phi float [ 0.000000e+00, %.lr.ph.i56.preheader.preheader ], [ %40, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit ]
   %30 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv89
   %31 = load float, ptr %30, align 4, !tbaa !4
   %32 = mul i64 %indvars.iv89, %2
@@ -134,7 +134,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit: ; preds = %.lr
   %34 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i57
   %35 = load float, ptr %34, align 4, !tbaa !4
   %36 = fsub float %35, %31
-  %37 = fmul float %28, %36
+  %37 = fmul float %14, %36
   %38 = fadd float %37, 5.000000e-01
   %39 = tail call float @llvm.floor.f32(float %38)
   store float %39, ptr %34, align 4, !tbaa !4
@@ -236,7 +236,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc62
   store float 0x7FF0000000000000, ptr %14, align 4, !tbaa !4
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, %2
-  br i1 %exitcond144.not, label %.lr.ph114, label %.preheader.us.us, !llvm.loop !14
+  br i1 %exitcond144.not, label %.lr.ph.us.us, label %.preheader.us.us, !llvm.loop !14
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us107
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %._crit_edge.split.us107 ], [ 0, %.preheader.lr.ph.split.us ]
@@ -295,66 +295,54 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit.loopexit.us: ; preds = %
   %.1.us = select i1 %29, float %28, float %.049103.us
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond137.not = icmp eq i64 %indvars.iv.next135, %2
-  br i1 %exitcond137.not, label %.lr.ph114.split.us.thread, label %.preheader.us, !llvm.loop !14
-
-.lr.ph114.split.us.thread:                        ; preds = %._crit_edge.split.us107
-  %30 = fdiv float 2.550000e+02, %.1.us
-  br label %.lr.ph.us.preheader
+  br i1 %exitcond137.not, label %.lr.ph.us.preheader, label %.preheader.us, !llvm.loop !14
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %31 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv145
-  store float 0x7FF0000000000000, ptr %31, align 4, !tbaa !4
+  %30 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv145
+  store float 0x7FF0000000000000, ptr %30, align 4, !tbaa !4
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
   %exitcond148.not = icmp eq i64 %indvars.iv.next146, %2
-  br i1 %exitcond148.not, label %.lr.ph114, label %.preheader, !llvm.loop !14
+  br i1 %exitcond148.not, label %.lr.ph114.split, label %.preheader, !llvm.loop !14
 
-.lr.ph114:                                        ; preds = %.preheader.us.us, %.preheader
-  %.not126 = icmp eq i64 %1, 0
-  br i1 %.not126, label %.lr.ph114.split, label %.lr.ph114.split.us
-
-.lr.ph114.split.us:                               ; preds = %.lr.ph114
-  %.not.i72 = icmp eq i64 %3, 0
-  br i1 %.not.i72, label %.lr.ph.us.us, label %.lr.ph.us.preheader
-
-.lr.ph.us.preheader:                              ; preds = %.lr.ph114.split.us.thread, %.lr.ph114.split.us
-  %32 = phi float [ %30, %.lr.ph114.split.us.thread ], [ 0x7FF0000000000000, %.lr.ph114.split.us ]
+.lr.ph.us.preheader:                              ; preds = %._crit_edge.split.us107
+  %31 = fdiv float 2.550000e+02, %.1.us
   br label %.lr.ph.us
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph114.split.us, %.lr.ph.us.us
-  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %.lr.ph.us.us ], [ 0, %.lr.ph114.split.us ]
-  %.048111.us.us = phi float [ %35, %.lr.ph.us.us ], [ 0.000000e+00, %.lr.ph114.split.us ]
-  %33 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv160
-  %34 = load float, ptr %33, align 4, !tbaa !4
-  %35 = fadd float %.048111.us.us, %34
+.lr.ph.us.us:                                     ; preds = %.preheader.us.us, %.lr.ph.us.us
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %.lr.ph.us.us ], [ 0, %.preheader.us.us ]
+  %.048111.us.us = phi float [ %34, %.lr.ph.us.us ], [ 0.000000e+00, %.preheader.us.us ]
+  %32 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv160
+  %33 = load float, ptr %32, align 4, !tbaa !4
+  %34 = fadd float %.048111.us.us, %33
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, %2
   br i1 %exitcond163.not, label %._crit_edge115, label %.lr.ph.us.us, !llvm.loop !16
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.split.us117
   %indvars.iv153 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next154, %._crit_edge.split.us117 ]
-  %.048111.us = phi float [ 0.000000e+00, %.lr.ph.us.preheader ], [ %48, %._crit_edge.split.us117 ]
-  %36 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv153
-  %37 = load float, ptr %36, align 4, !tbaa !4
+  %.048111.us = phi float [ 0.000000e+00, %.lr.ph.us.preheader ], [ %47, %._crit_edge.split.us117 ]
+  %35 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv153
+  %36 = load float, ptr %35, align 4, !tbaa !4
   br label %.lr.ph.i73.preheader.us
 
 .lr.ph.i73.preheader.us:                          ; preds = %.lr.ph.us, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit.us
   %indvars.iv149 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next150, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit.us ]
-  %38 = mul i64 %indvars.iv149, %2
-  %39 = add i64 %38, %indvars.iv153
-  %40 = mul i64 %39, %3
-  %41 = getelementptr inbounds nuw float, ptr %0, i64 %40
+  %37 = mul i64 %indvars.iv149, %2
+  %38 = add i64 %37, %indvars.iv153
+  %39 = mul i64 %38, %3
+  %40 = getelementptr inbounds nuw float, ptr %0, i64 %39
   br label %.lr.ph.i73.us
 
 .lr.ph.i73.us:                                    ; preds = %.lr.ph.i73.us, %.lr.ph.i73.preheader.us
   %indvars.iv.i74.us = phi i64 [ %indvars.iv.next.i75.us, %.lr.ph.i73.us ], [ 0, %.lr.ph.i73.preheader.us ]
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i74.us
-  %43 = load float, ptr %42, align 4, !tbaa !4
-  %44 = fsub float %43, %37
-  %45 = fmul float %32, %44
-  %46 = fadd float %45, 5.000000e-01
-  %47 = tail call float @llvm.floor.f32(float %46)
-  store float %47, ptr %42, align 4, !tbaa !4
+  %41 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv.i74.us
+  %42 = load float, ptr %41, align 4, !tbaa !4
+  %43 = fsub float %42, %36
+  %44 = fmul float %31, %43
+  %45 = fadd float %44, 5.000000e-01
+  %46 = tail call float @llvm.floor.f32(float %45)
+  store float %46, ptr %41, align 4, !tbaa !4
   %indvars.iv.next.i75.us = add nuw nsw i64 %indvars.iv.i74.us, 1
   %exitcond.not.i76.us = icmp eq i64 %indvars.iv.next.i75.us, %3
   br i1 %exitcond.not.i76.us, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit.us, label %.lr.ph.i73.us, !llvm.loop !13
@@ -365,53 +353,53 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit.us: ; preds 
   br i1 %exitcond152.not, label %._crit_edge.split.us117, label %.lr.ph.i73.preheader.us, !llvm.loop !17
 
 ._crit_edge.split.us117:                          ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabEPfmff.exit.loopexit.us
-  %48 = fadd float %.048111.us, %37
+  %47 = fadd float %.048111.us, %36
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next154, %2
   br i1 %exitcond156.not, label %._crit_edge115, label %.lr.ph.us, !llvm.loop !16
 
 ._crit_edge115:                                   ; preds = %._crit_edge.split.us117, %.lr.ph.us.us, %.lr.ph114.split, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
-  %49 = phi float [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0x7FF0000000000000, %.lr.ph114.split ], [ 0x7FF0000000000000, %.lr.ph.us.us ], [ %32, %._crit_edge.split.us117 ]
+  %48 = phi float [ 0x7FF0000000000000, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ 0x7FF0000000000000, %.lr.ph114.split ], [ 0x7FF0000000000000, %.lr.ph.us.us ], [ %31, %._crit_edge.split.us117 ]
   %.sroa.11.0171180 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %10, %.lr.ph114.split ], [ %10, %.lr.ph.us.us ], [ %10, %._crit_edge.split.us117 ]
   %.sroa.085.0173178 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %9, %.lr.ph114.split ], [ %9, %.lr.ph.us.us ], [ %9, %._crit_edge.split.us117 ]
-  %.048.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %52, %.lr.ph114.split ], [ %35, %.lr.ph.us.us ], [ %48, %._crit_edge.split.us117 ]
+  %.048.lcssa = phi float [ 0.000000e+00, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %51, %.lr.ph114.split ], [ %34, %.lr.ph.us.us ], [ %47, %._crit_edge.split.us117 ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %54, label %53
+  br i1 %.not, label %53, label %52
 
-.lr.ph114.split:                                  ; preds = %.lr.ph114, %.lr.ph114.split
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph114.split ], [ 0, %.lr.ph114 ]
-  %.048111 = phi float [ %52, %.lr.ph114.split ], [ 0.000000e+00, %.lr.ph114 ]
-  %50 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv164
-  %51 = load float, ptr %50, align 4, !tbaa !4
-  %52 = fadd float %.048111, %51
+.lr.ph114.split:                                  ; preds = %.preheader, %.lr.ph114.split
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %.lr.ph114.split ], [ 0, %.preheader ]
+  %.048111 = phi float [ %51, %.lr.ph114.split ], [ 0.000000e+00, %.preheader ]
+  %49 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv164
+  %50 = load float, ptr %49, align 4, !tbaa !4
+  %51 = fadd float %.048111, %50
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, %2
   br i1 %exitcond167.not, label %._crit_edge115, label %.lr.ph114.split, !llvm.loop !16
 
-53:                                               ; preds = %._crit_edge115
-  store float %49, ptr %4, align 4, !tbaa !4
-  br label %54
+52:                                               ; preds = %._crit_edge115
+  store float %48, ptr %4, align 4, !tbaa !4
+  br label %53
 
-54:                                               ; preds = %53, %._crit_edge115
+53:                                               ; preds = %52, %._crit_edge115
   %.not61 = icmp eq ptr %5, null
-  br i1 %.not61, label %56, label %55
+  br i1 %.not61, label %55, label %54
 
-55:                                               ; preds = %54
+54:                                               ; preds = %53
   store float %.048.lcssa, ptr %5, align 4, !tbaa !4
-  br label %56
+  br label %55
 
-56:                                               ; preds = %55, %54
+55:                                               ; preds = %54, %53
   %.not.i.i.i = icmp eq ptr %.sroa.085.0173178, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %57
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIfSaIfEED2Ev.exit, label %56
 
-57:                                               ; preds = %56
-  %58 = ptrtoint ptr %.sroa.11.0171180 to i64
-  %59 = ptrtoint ptr %.sroa.085.0173178 to i64
-  %60 = sub i64 %58, %59
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0173178, i64 noundef %60) #16
+56:                                               ; preds = %55
+  %57 = ptrtoint ptr %.sroa.11.0171180 to i64
+  %58 = ptrtoint ptr %.sroa.085.0173178 to i64
+  %59 = sub i64 %57, %58
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.085.0173178, i64 noundef %59) #16
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 
-_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %56, %57
+_ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %55, %56
   ret void
 }
 
@@ -1630,7 +1618,7 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us: ; preds = %
   %33 = fadd float %.059125.us, 0x7FF0000000000000
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next144, %1
-  br i1 %exitcond146.not, label %.lr.ph133, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us, !llvm.loop !50
+  br i1 %exitcond146.not, label %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.us.preheader, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us, !llvm.loop !50
 
 ._crit_edge:                                      ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit
   %34 = fdiv float 6.553500e+04, %26
@@ -1638,71 +1626,71 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us: ; preds = %
   %.sroa.speculated = select i1 %35, float %34, float -0.000000e+00
   br label %._crit_edge134
 
-.lr.ph133:                                        ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us
-  %36 = fdiv float 6.553500e+04, %32
-  %37 = fcmp olt float %36, -0.000000e+00
-  %.sroa.speculated157 = select i1 %37, float %36, float -0.000000e+00
+.lr.ph.i98.preheader.preheader:                   ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit
+  %36 = fdiv float 2.550000e+02, %.sroa.speculated105
+  %37 = fdiv float 6.553500e+04, %54
+  %38 = fcmp olt float %37, %36
+  %.sroa.speculated157 = select i1 %38, float %37, float %36
+  br label %.lr.ph.i98.preheader
+
+_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.us.preheader: ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81.thread.us
+  %39 = fdiv float 6.553500e+04, %32
+  %40 = fcmp olt float %39, -0.000000e+00
+  %.sroa.speculated157165 = select i1 %40, float %39, float -0.000000e+00
   br label %._crit_edge134
 
 .lr.ph.i74.preheader:                             ; preds = %.lr.ph, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ 0, %.lr.ph ]
-  %.059125 = phi float [ %52, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ 0.000000e+00, %.lr.ph ]
-  %.060124 = phi float [ %51, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ %26, %.lr.ph ]
+  %.059125 = phi float [ %55, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ 0.000000e+00, %.lr.ph ]
+  %.060124 = phi float [ %54, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ %26, %.lr.ph ]
   %.0118123 = phi float [ %.sroa.speculated105, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit ], [ 0xFFF0000000000000, %.lr.ph ]
-  %38 = mul i64 %indvars.iv, %2
-  %39 = getelementptr inbounds nuw float, ptr %3, i64 %38
+  %41 = mul i64 %indvars.iv, %2
+  %42 = getelementptr inbounds nuw float, ptr %3, i64 %41
   br label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %.lr.ph.i74.preheader, %.lr.ph.i74
   %indvars.iv.i75 = phi i64 [ %indvars.iv.next.i78, %.lr.ph.i74 ], [ 0, %.lr.ph.i74.preheader ]
   %.0811.i76 = phi float [ %.1.i77, %.lr.ph.i74 ], [ 0x7FF0000000000000, %.lr.ph.i74.preheader ]
-  %40 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i75
-  %41 = load float, ptr %40, align 4, !tbaa !4
-  %42 = fcmp olt float %41, %.0811.i76
-  %.1.i77 = select i1 %42, float %41, float %.0811.i76
+  %43 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i75
+  %44 = load float, ptr %43, align 4, !tbaa !4
+  %45 = fcmp olt float %44, %.0811.i76
+  %.1.i77 = select i1 %45, float %44, float %.0811.i76
   %indvars.iv.next.i78 = add nuw nsw i64 %indvars.iv.i75, 1
   %exitcond.not.i79 = icmp eq i64 %indvars.iv.next.i78, %2
   br i1 %exitcond.not.i79, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81, label %.lr.ph.i74, !llvm.loop !11
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81: ; preds = %.lr.ph.i74
-  %43 = getelementptr inbounds nuw float, ptr %.sroa.0110.0, i64 %indvars.iv
-  store float %.1.i77, ptr %43, align 4, !tbaa !4
+  %46 = getelementptr inbounds nuw float, ptr %.sroa.0110.0, i64 %indvars.iv
+  store float %.1.i77, ptr %46, align 4, !tbaa !4
   br label %.lr.ph.i83
 
 .lr.ph.i83:                                       ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81, %.lr.ph.i83
   %indvars.iv.i84 = phi i64 [ %indvars.iv.next.i87, %.lr.ph.i83 ], [ 0, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81 ]
   %.0811.i85 = phi float [ %.1.i86, %.lr.ph.i83 ], [ 0xFFF0000000000000, %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_minEPKfm.exit81 ]
-  %44 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i84
-  %45 = load float, ptr %44, align 4, !tbaa !4
-  %46 = fcmp ogt float %45, %.0811.i85
-  %.1.i86 = select i1 %46, float %45, float %.0811.i85
+  %47 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv.i84
+  %48 = load float, ptr %47, align 4, !tbaa !4
+  %49 = fcmp ogt float %48, %.0811.i85
+  %.1.i86 = select i1 %49, float %48, float %.0811.i85
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i84, 1
   %exitcond.not.i88 = icmp eq i64 %indvars.iv.next.i87, %2
   br i1 %exitcond.not.i88, label %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit, label %.lr.ph.i83, !llvm.loop !12
 
 _ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit: ; preds = %.lr.ph.i83
-  %47 = fsub float %.1.i86, %.1.i77
-  %48 = fcmp olt float %.0118123, %47
-  %.sroa.speculated105 = select i1 %48, float %47, float %.0118123
+  %50 = fsub float %.1.i86, %.1.i77
+  %51 = fcmp olt float %.0118123, %50
+  %.sroa.speculated105 = select i1 %51, float %50, float %.0118123
   %.not = icmp ugt i64 %27, %indvars.iv
-  %49 = fmul float %47, %28
-  %50 = select i1 %.not, float %47, float %49
-  %51 = fadd float %.060124, %50
-  %52 = fadd float %.059125, %.1.i77
+  %52 = fmul float %50, %28
+  %53 = select i1 %.not, float %50, float %52
+  %54 = fadd float %.060124, %53
+  %55 = fadd float %.059125, %.1.i77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %1
-  br i1 %exitcond.not, label %.lr.ph133.thread, label %.lr.ph.i74.preheader, !llvm.loop !50
+  br i1 %exitcond.not, label %.lr.ph.i98.preheader.preheader, label %.lr.ph.i74.preheader, !llvm.loop !50
 
-.lr.ph133.thread:                                 ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_17tab_maxEPKfm.exit90.loopexit
-  %53 = fdiv float 2.550000e+02, %.sroa.speculated105
-  %54 = fdiv float 6.553500e+04, %51
-  %55 = fcmp olt float %54, %53
-  %.sroa.speculated157165 = select i1 %55, float %54, float %53
-  br label %.lr.ph.i98.preheader
-
-._crit_edge134:                                   ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit, %.lr.ph133, %._crit_edge
-  %.sroa.speculated161 = phi float [ %.sroa.speculated, %._crit_edge ], [ %.sroa.speculated157, %.lr.ph133 ], [ %.sroa.speculated157165, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
-  %.059.lcssa159 = phi float [ 0.000000e+00, %._crit_edge ], [ %33, %.lr.ph133 ], [ %52, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
+._crit_edge134:                                   ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit, %._crit_edge, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.us.preheader
+  %.sroa.speculated161 = phi float [ %.sroa.speculated157165, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.us.preheader ], [ %.sroa.speculated, %._crit_edge ], [ %.sroa.speculated157, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
+  %.059.lcssa159 = phi float [ %33, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.us.preheader ], [ 0.000000e+00, %._crit_edge ], [ %55, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
   %56 = fadd float %.08.lcssa.i120, %.059.lcssa159
   %57 = mul i64 %2, %1
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 %57
@@ -1742,8 +1730,8 @@ _ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit: ; preds = %.
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabItEEvPKfmffPT_.exit, %69
   ret void
 
-.lr.ph.i98.preheader:                             ; preds = %.lr.ph133.thread, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit
-  %indvars.iv147 = phi i64 [ 0, %.lr.ph133.thread ], [ %indvars.iv.next148, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
+.lr.ph.i98.preheader:                             ; preds = %.lr.ph.i98.preheader.preheader, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit
+  %indvars.iv147 = phi i64 [ 0, %.lr.ph.i98.preheader.preheader ], [ %indvars.iv.next148, %_ZN5faiss12quantize_lut12_GLOBAL__N_19round_tabIhEEvPKfmffPT_.exit.loopexit ]
   %73 = mul i64 %indvars.iv147, %2
   %74 = getelementptr inbounds nuw float, ptr %3, i64 %73
   %75 = getelementptr inbounds nuw float, ptr %.sroa.0110.0, i64 %indvars.iv147
@@ -1756,7 +1744,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %_ZN5faiss12quantize
   %78 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i99
   %79 = load float, ptr %78, align 4, !tbaa !4
   %80 = fsub float %79, %76
-  %81 = fmul float %.sroa.speculated157165, %80
+  %81 = fmul float %.sroa.speculated157, %80
   %82 = fadd float %81, 5.000000e-01
   %83 = tail call float @llvm.floor.f32(float %82)
   %84 = fptoui float %83 to i8

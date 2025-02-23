@@ -34,7 +34,7 @@ define void @_ZN18BigUnsignedInABaseC2EPKtjt(ptr noundef nonnull align 8 capture
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
   %.not.i = icmp eq i32 %2, 0
-  br i1 %.not.i, label %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread, label %.lr.ph.i
+  br i1 %.not.i, label %_ZN15NumberlikeArrayItEC2EPKtj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %4 ]
@@ -47,21 +47,21 @@ define void @_ZN18BigUnsignedInABaseC2EPKtjt(ptr noundef nonnull align 8 capture
   %14 = load i32, ptr %5, align 4
   %15 = zext i32 %14 to i64
   %16 = icmp samesign ult i64 %indvars.iv.next.i, %15
-  br i1 %16, label %.lr.ph.i, label %_ZN15NumberlikeArrayItEC2EPKtj.exit, !llvm.loop !6
+  br i1 %16, label %.lr.ph.i, label %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread, !llvm.loop !6
 
-_ZN15NumberlikeArrayItEC2EPKtj.exit:              ; preds = %.lr.ph.i
+_ZN15NumberlikeArrayItEC2EPKtj.exit:              ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %3, ptr %17, align 8
   %18 = icmp ult i16 %3, 2
-  br i1 %18, label %.invoke, label %.lr.ph
+  br i1 %18, label %.invoke, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit
 
-_ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %4
+_ZN15NumberlikeArrayItEC2EPKtj.exit.thread:       ; preds = %.lr.ph.i
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %3, ptr %19, align 8
   %20 = icmp ult i16 %3, 2
-  br i1 %20, label %.invoke, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit
+  br i1 %20, label %.invoke, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN15NumberlikeArrayItEC2EPKtj.exit
+.lr.ph:                                           ; preds = %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread
   %21 = load ptr, ptr %9, align 8
   br label %28
 
@@ -125,7 +125,7 @@ _ZN15NumberlikeArrayItED2Ev.exit:                 ; preds = %22, %26
   %.not.i15 = icmp eq i32 %indvars.i, 0
   br i1 %.not.i15, label %_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit, label %34, !llvm.loop !9
 
-_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit:  ; preds = %34, %39, %_ZN15NumberlikeArrayItEC2EPKtj.exit.thread, %._crit_edge
+_ZN18BigUnsignedInABase15zapLeadingZerosEv.exit:  ; preds = %34, %39, %_ZN15NumberlikeArrayItEC2EPKtj.exit, %._crit_edge
   ret void
 }
 

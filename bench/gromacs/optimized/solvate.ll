@@ -5037,7 +5037,7 @@ define internal fastcc void @_ZL13sort_moleculePP7t_atomsS1_PSt6vectorIN3gmx11Ba
   %121 = getelementptr inbounds nuw %struct.t_atom, ptr %.pre, i64 %120, i32 7
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %117, %122
-  br i1 %123, label %124, label %.critedge.loopexit.split.loop.exit250
+  br i1 %123, label %124, label %.critedge.loopexit.split.loop.exit251
 
 124:                                              ; preds = %119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5049,12 +5049,12 @@ define internal fastcc void @_ZL13sort_moleculePP7t_atomsS1_PSt6vectorIN3gmx11Ba
           cleanup
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit140
 
-.critedge.loopexit.split.loop.exit250:            ; preds = %119
+.critedge.loopexit.split.loop.exit251:            ; preds = %119
   %127 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %124, %.critedge.loopexit.split.loop.exit250, %.preheader176
-  %.0112.lcssa = phi i32 [ 0, %.preheader176 ], [ %127, %.critedge.loopexit.split.loop.exit250 ], [ %118, %124 ]
+.critedge:                                        ; preds = %124, %.critedge.loopexit.split.loop.exit251, %.preheader176
+  %.0112.lcssa = phi i32 [ 0, %.preheader176 ], [ %127, %.critedge.loopexit.split.loop.exit251 ], [ %118, %124 ]
   %128 = load ptr, ptr %17, align 8
   %129 = sext i32 %117 to i64
   %130 = getelementptr inbounds %struct.t_resinfo, ptr %128, i64 %129
@@ -5316,7 +5316,7 @@ _ZNSt6vectorI12MoleculeTypeSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds
   %216 = icmp ugt i64 %203, 1
   br i1 %216, label %217, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %368, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit136, %._crit_edge195
+.lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit136, %368, %._crit_edge195
   br label %.lr.ph.i.i.i.i
 
 217:                                              ; preds = %._crit_edge195
@@ -5398,7 +5398,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i1
   %254 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %250) #28
           to label %.preheader175.lr.ph unwind label %334
 
-.preheader175.lr.ph:                              ; preds = %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i127, %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i129
+.preheader175.lr.ph:                              ; preds = %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i129, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i127
   %255 = phi ptr [ null, %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i127 ], [ %254, %_ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i129 ]
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 %250
   %scevgep.i.i.i.i.i131 = getelementptr i8, ptr %255, i64 %250

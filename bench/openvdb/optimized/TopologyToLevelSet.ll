@@ -153358,7 +153358,7 @@ if.then54:                                        ; preds = %if.else52
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE18topologyDifferenceINS2_INS3_INS0_9ValueMaskELj3EEELj4EEEEEvRKNS2_IT_Lj5EEERKf.exit, %_ZN7openvdb5v11_04tree12InternalNodeINS2_INS1_8LeafNodeIfLj3EEELj4EEELj5EE18topologyDifferenceINS2_INS3_INS0_9ValueMaskELj3EEELj4EEEEEvRKNS2_IT_Lj5EEERKf.exit63, %if.else21, %lor.rhs, %lor.rhs40, %if.else52, %if.then54, %if.then46, %if.else32
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %i.sroa.0.0110) #29
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %i.sroa.0.0110) #29
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end, label %for.body, !llvm.loop !1963
 
@@ -165121,7 +165121,7 @@ while.body.i.i:                                   ; preds = %if.end53, %while.bo
   br i1 %cmp.i.i95, label %while.body.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i, !llvm.loop !998
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i:       ; preds = %while.body.i.i
-  %cmp.i96 = icmp slt i32 %backoff.sroa.0.0, 16
+  %cmp.i96 = icmp samesign ult i32 %backoff.sroa.0.0, 16
   br i1 %cmp.i96, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit, label %if.then56
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit: ; preds = %if.end53, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i

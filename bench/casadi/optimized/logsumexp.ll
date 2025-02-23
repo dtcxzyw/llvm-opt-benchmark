@@ -979,10 +979,10 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %5
   br i1 %exitcond40.not.i, label %._crit_edge.i, label %.lr.ph38.i, !llvm.loop !41
 
 ._crit_edge.i:                                    ; preds = %28, %16
-  %.023.lcssa43.i = phi double [ %15, %16 ], [ %.124.i, %28 ]
+  %.023.lcssa44.i = phi double [ %15, %16 ], [ %.124.i, %28 ]
   %.0.lcssa.i = phi double [ 0.000000e+00, %16 ], [ %.1.i, %28 ]
   %30 = tail call double @log1p(double noundef %.0.lcssa.i) #20, !tbaa !39
-  %31 = fadd double %.023.lcssa43.i, %30
+  %31 = fadd double %.023.lcssa44.i, %30
   br label %_ZN6casadi16casadi_logsumexpIdEET_PKS1_x.exit
 
 _ZN6casadi16casadi_logsumexpIdEET_PKS1_x.exit:    ; preds = %_ZNK6casadi6MXNode3depEx.exit, %._crit_edge.i

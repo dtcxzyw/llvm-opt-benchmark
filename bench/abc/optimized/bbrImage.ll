@@ -68,15 +68,15 @@ define noalias noundef ptr @Bbr_bddImageStart(ptr noundef %0, ptr noundef %1, i3
   %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !26
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %28, ptr noundef %14, ptr noundef %15, i32 noundef %29)
+  tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %14, ptr noundef %15, i32 noundef %29)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Bbr_bddImagePrintLatchDependency.exit, label %.lr.ph35.i, !llvm.loop !27
 
 Bbr_bddImagePrintLatchDependency.exit:            ; preds = %.lr.ph35.i, %._crit_edge.i
-  tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %1, ptr noundef %14, ptr noundef %15, i32 noundef %2)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %14) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %15) #11
+  tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %14, ptr noundef %15, i32 noundef %2)
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %14) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %15) #11
   br label %30
 
 30:                                               ; preds = %Bbr_bddImagePrintLatchDependency.exit, %9, %8
@@ -558,7 +558,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.p
 
 Bbr_FindBestVariable.exit.i:                      ; preds = %242
   %243 = icmp eq i32 %.350.i.i, -1
-  br i1 %243, label %.preheader151, label %Bbr_FindBestVariable.exit.thread128.i
+  br i1 %243, label %.preheader151.thread, label %Bbr_FindBestVariable.exit.thread128.i
 
 Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariable.exit.i, %._crit_edge69.i.i
   %.053.i130.i = phi i32 [ %.350.i.i, %Bbr_FindBestVariable.exit.i ], [ %.148.i.i, %._crit_edge69.i.i ]
@@ -771,9 +771,9 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 .preheader152:                                    ; preds = %Bbr_BuildTreeNode.exit
   br i1 %354, label %.lr.ph, label %._crit_edge
 
-.preheader151:                                    ; preds = %193, %Bbr_FindBestVariable.exit.i, %Bbr_CreateNodes.exit
+.preheader151:                                    ; preds = %193, %Bbr_CreateNodes.exit
   %.not96 = icmp eq ptr %calloc.i, null
-  br i1 %.not96, label %370, label %369
+  br i1 %.not96, label %369, label %.preheader151.thread
 
 .lr.ph:                                           ; preds = %.preheader152, %359
   %355 = phi i32 [ %360, %359 ], [ %353, %.preheader152 ]
@@ -839,92 +839,92 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 
 368:                                              ; preds = %._crit_edge165, %._crit_edge165.thread
   %.not103 = icmp eq ptr %34, null
-  br i1 %.not103, label %397, label %.sink.split
+  br i1 %.not103, label %396, label %.sink.split
 
-369:                                              ; preds = %.preheader151
+.preheader151.thread:                             ; preds = %Bbr_FindBestVariable.exit.i, %.preheader151
   tail call void @free(ptr noundef nonnull %calloc.i) #11
-  br label %370
+  br label %369
 
-370:                                              ; preds = %.preheader151, %369
+369:                                              ; preds = %.preheader151, %.preheader151.thread
   %calloc = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %371 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
-  store ptr %187, ptr %371, align 8, !tbaa !74
-  %372 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
-  store i32 %6, ptr %372, align 8, !tbaa !76
-  %373 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
-  store i32 %7, ptr %373, align 8, !tbaa !77
+  %370 = getelementptr inbounds nuw i8, ptr %calloc, i64 8
+  store ptr %187, ptr %370, align 8, !tbaa !74
+  %371 = getelementptr inbounds nuw i8, ptr %calloc, i64 40
+  store i32 %6, ptr %371, align 8, !tbaa !76
+  %372 = getelementptr inbounds nuw i8, ptr %calloc, i64 24
+  store i32 %7, ptr %372, align 8, !tbaa !77
   %wide.trip.count.i138 = zext nneg i32 %31 to i64
-  br label %374
+  br label %373
 
-374:                                              ; preds = %Bbr_MergeTopNodes.exit, %370
+373:                                              ; preds = %Bbr_MergeTopNodes.exit, %369
   br i1 %68, label %.lr.ph.i139, label %._crit_edge.i136
 
-.lr.ph.i139:                                      ; preds = %374, %380
-  %indvars.iv.i140 = phi i64 [ %indvars.iv.next.i143, %380 ], [ 0, %374 ]
-  %.02732.i = phi i32 [ %.1.i142, %380 ], [ -1, %374 ]
-  %375 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i140
-  %376 = load ptr, ptr %375, align 8, !tbaa !51
-  %.not.i141 = icmp eq ptr %376, null
-  br i1 %.not.i141, label %380, label %377
+.lr.ph.i139:                                      ; preds = %373, %379
+  %indvars.iv.i140 = phi i64 [ %indvars.iv.next.i143, %379 ], [ 0, %373 ]
+  %.02732.i = phi i32 [ %.1.i142, %379 ], [ -1, %373 ]
+  %374 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i140
+  %375 = load ptr, ptr %374, align 8, !tbaa !51
+  %.not.i141 = icmp eq ptr %375, null
+  br i1 %.not.i141, label %379, label %376
 
-377:                                              ; preds = %.lr.ph.i139
-  %378 = icmp eq i32 %.02732.i, -1
-  %379 = trunc nuw nsw i64 %indvars.iv.i140 to i32
-  br i1 %378, label %380, label %384
+376:                                              ; preds = %.lr.ph.i139
+  %377 = icmp eq i32 %.02732.i, -1
+  %378 = trunc nuw nsw i64 %indvars.iv.i140 to i32
+  br i1 %377, label %379, label %383
 
-380:                                              ; preds = %377, %.lr.ph.i139
-  %.1.i142 = phi i32 [ %.02732.i, %.lr.ph.i139 ], [ %379, %377 ]
+379:                                              ; preds = %376, %.lr.ph.i139
+  %.1.i142 = phi i32 [ %.02732.i, %.lr.ph.i139 ], [ %378, %376 ]
   %indvars.iv.next.i143 = add nuw nsw i64 %indvars.iv.i140, 1
   %exitcond.not.i144 = icmp eq i64 %indvars.iv.next.i143, %wide.trip.count.i138
   br i1 %exitcond.not.i144, label %._crit_edge.loopexit.i, label %.lr.ph.i139, !llvm.loop !78
 
-._crit_edge.loopexit.i:                           ; preds = %380
-  %381 = sext i32 %.1.i142 to i64
+._crit_edge.loopexit.i:                           ; preds = %379
+  %380 = sext i32 %.1.i142 to i64
   br label %._crit_edge.i136
 
-._crit_edge.i136:                                 ; preds = %._crit_edge.loopexit.i, %374
-  %.027.lcssa.i = phi i64 [ -1, %374 ], [ %381, %._crit_edge.loopexit.i ]
-  %382 = getelementptr inbounds ptr, ptr %127, i64 %.027.lcssa.i
-  %383 = load ptr, ptr %382, align 8, !tbaa !51
-  store ptr null, ptr %382, align 8, !tbaa !51
+._crit_edge.i136:                                 ; preds = %._crit_edge.loopexit.i, %373
+  %.027.lcssa.i = phi i64 [ -1, %373 ], [ %380, %._crit_edge.loopexit.i ]
+  %381 = getelementptr inbounds ptr, ptr %127, i64 %.027.lcssa.i
+  %382 = load ptr, ptr %381, align 8, !tbaa !51
+  store ptr null, ptr %381, align 8, !tbaa !51
   br label %Bbr_MergeTopNodes.exit
 
-384:                                              ; preds = %377
-  %385 = load ptr, ptr %84, align 8, !tbaa !39
-  %386 = sext i32 %.02732.i to i64
-  %387 = getelementptr inbounds ptr, ptr %127, i64 %386
-  %388 = load ptr, ptr %387, align 8, !tbaa !51
-  %389 = and i64 %indvars.iv.i140, 4294967295
-  %390 = getelementptr inbounds nuw ptr, ptr %127, i64 %389
-  %391 = load ptr, ptr %390, align 8, !tbaa !51
-  %392 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %385, ptr noundef %388, ptr noundef %391)
-  store ptr %392, ptr %387, align 8, !tbaa !51
-  store ptr null, ptr %390, align 8, !tbaa !51
+383:                                              ; preds = %376
+  %384 = load ptr, ptr %84, align 8, !tbaa !39
+  %385 = sext i32 %.02732.i to i64
+  %386 = getelementptr inbounds ptr, ptr %127, i64 %385
+  %387 = load ptr, ptr %386, align 8, !tbaa !51
+  %388 = and i64 %indvars.iv.i140, 4294967295
+  %389 = getelementptr inbounds nuw ptr, ptr %127, i64 %388
+  %390 = load ptr, ptr %389, align 8, !tbaa !51
+  %391 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %384, ptr noundef %387, ptr noundef %390)
+  store ptr %391, ptr %386, align 8, !tbaa !51
+  store ptr null, ptr %389, align 8, !tbaa !51
   br label %Bbr_MergeTopNodes.exit
 
-Bbr_MergeTopNodes.exit:                           ; preds = %._crit_edge.i136, %384
-  %.028.i = phi ptr [ %383, %._crit_edge.i136 ], [ null, %384 ]
+Bbr_MergeTopNodes.exit:                           ; preds = %._crit_edge.i136, %383
+  %.028.i = phi ptr [ %382, %._crit_edge.i136 ], [ null, %383 ]
   store ptr %.028.i, ptr %calloc, align 8, !tbaa !79
-  %393 = icmp eq ptr %.028.i, null
-  br i1 %393, label %374, label %394, !llvm.loop !80
+  %392 = icmp eq ptr %.028.i, null
+  br i1 %392, label %373, label %393, !llvm.loop !80
 
-394:                                              ; preds = %Bbr_MergeTopNodes.exit
+393:                                              ; preds = %Bbr_MergeTopNodes.exit
   tail call void @free(ptr noundef nonnull %127) #11
-  %395 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #11
-  %396 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %395, ptr %396, align 8, !tbaa !81
-  tail call void @Cudd_Ref(ptr noundef %395) #11
+  %394 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #11
+  %395 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store ptr %394, ptr %395, align 8, !tbaa !81
+  tail call void @Cudd_Ref(ptr noundef %394) #11
   tail call fastcc void @Bbr_DeleteParts_rec(ptr noundef nonnull %.028.i)
   %.not99 = icmp eq ptr %34, null
-  br i1 %.not99, label %397, label %.sink.split
+  br i1 %.not99, label %396, label %.sink.split
 
-.sink.split:                                      ; preds = %394, %368
-  %.085.ph = phi ptr [ null, %368 ], [ %calloc, %394 ]
+.sink.split:                                      ; preds = %393, %368
+  %.085.ph = phi ptr [ null, %368 ], [ %calloc, %393 ]
   tail call void @free(ptr noundef nonnull %34) #11
-  br label %397
+  br label %396
 
-397:                                              ; preds = %.sink.split, %394, %368
-  %.085 = phi ptr [ null, %368 ], [ %calloc, %394 ], [ %.085.ph, %.sink.split ]
+396:                                              ; preds = %.sink.split, %393, %368
+  %.085 = phi ptr [ null, %368 ], [ %calloc, %393 ], [ %.085.ph, %.sink.split ]
   ret ptr %.085
 }
 
@@ -1394,9 +1394,9 @@ define noundef ptr @Bbr_bddComputeCube(ptr noundef %0, ptr noundef readonly capt
   %.01314 = phi ptr [ %5, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !26
-  %9 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.01314, ptr noundef %8) #11
+  %9 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314, ptr noundef %8) #11
   tail call void @Cudd_Ref(ptr noundef %9) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.01314) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !91
@@ -1436,9 +1436,9 @@ define noalias noundef ptr @Bbr_bddImageStart2(ptr noundef %0, ptr noundef %1, i
   %.01314.i = phi ptr [ %15, %.lr.ph.preheader.i ], [ %19, %.lr.ph.i ]
   %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !26
-  %19 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.01314.i, ptr noundef %18) #11
+  %19 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314.i, ptr noundef %18) #11
   tail call void @Cudd_Ref(ptr noundef %19) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.01314.i) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Bbr_bddComputeCube.exit, label %.lr.ph.i, !llvm.loop !91
@@ -1461,9 +1461,9 @@ Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
   %.01314.i41 = phi ptr [ %20, %.lr.ph.preheader.i37 ], [ %24, %.lr.ph.i39 ]
   %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i40
   %23 = load ptr, ptr %22, align 8, !tbaa !26
-  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.01314.i41, ptr noundef %23) #11
+  %24 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314.i41, ptr noundef %23) #11
   tail call void @Cudd_Ref(ptr noundef %24) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314.i41) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.01314.i41) #11
   %indvars.iv.next.i42 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i43 = icmp eq i64 %indvars.iv.next.i42, %wide.trip.count.i38
   br i1 %exitcond.not.i43, label %Bbr_bddComputeCube.exit44, label %.lr.ph.i39, !llvm.loop !91
@@ -1472,12 +1472,12 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
   %.013.lcssa.i36 = phi ptr [ %20, %Bbr_bddComputeCube.exit ], [ %24, %.lr.ph.i39 ]
   tail call void @Cudd_Deref(ptr noundef %.013.lcssa.i36) #11
   tail call void @Cudd_Ref(ptr noundef %.013.lcssa.i36) #11
-  %25 = tail call ptr @Cudd_bddExistAbstract(ptr noundef %0, ptr noundef %.013.lcssa.i, ptr noundef %.013.lcssa.i36) #11
+  %25 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %.013.lcssa.i, ptr noundef %.013.lcssa.i36) #11
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !95
   tail call void @Cudd_Ref(ptr noundef %25) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.013.lcssa.i) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.013.lcssa.i36) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.013.lcssa.i) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.013.lcssa.i36) #11
   %27 = load ptr, ptr %14, align 8, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !96
@@ -1494,9 +1494,9 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
   %31 = phi ptr [ %27, %.lr.ph ], [ %34, %30 ]
   %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !26
-  %34 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %31, ptr noundef %33) #11
+  %34 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33) #11
   tail call void @Cudd_Ref(ptr noundef %34) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %31) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %31) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.Bbr_bddImageCompute2.exit_crit_edge, label %30, !llvm.loop !97
@@ -1507,7 +1507,7 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
 
 Bbr_bddImageCompute2.exit:                        ; preds = %.Bbr_bddImageCompute2.exit_crit_edge, %Bbr_bddComputeCube.exit44
   %35 = phi ptr [ %34, %.Bbr_bddImageCompute2.exit_crit_edge ], [ %27, %Bbr_bddComputeCube.exit44 ]
-  %36 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %35, ptr noundef %1, ptr noundef %25) #11
+  %36 = tail call ptr @Cudd_bddAndAbstract(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %1, ptr noundef %25) #11
   store ptr %36, ptr %9, align 8, !tbaa !94
   tail call void @Cudd_Ref(ptr noundef %36) #11
   ret ptr %8

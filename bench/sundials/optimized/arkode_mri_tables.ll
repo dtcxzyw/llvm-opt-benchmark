@@ -87,48 +87,48 @@ define noundef ptr @MRIStepCoupling_LoadTable(i32 noundef %0) local_unnamed_addr
   ]
 
 2:                                                ; preds = %1
-  %3 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 22) #15
+  %3 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 22) #14
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !11
   %7 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %3, i32 noundef %4, i32 noundef %6)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %3) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %3) #14
   br label %1270
 
 8:                                                ; preds = %1
-  %9 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 23) #15
+  %9 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 23) #14
   %10 = load i32, ptr %9, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %13 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %9, i32 noundef %10, i32 noundef %12)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %9) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %9) #14
   br label %1270
 
 14:                                               ; preds = %1
-  %15 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 12) #15
+  %15 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 12) #14
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !11
   %19 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %15, i32 noundef %16, i32 noundef %18)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %15) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %15) #14
   br label %1270
 
 20:                                               ; preds = %1
-  %21 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 24) #15
+  %21 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 24) #14
   %22 = load i32, ptr %21, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !11
   %25 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %21, i32 noundef %22, i32 noundef %24)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %21) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %21) #14
   br label %1270
 
 26:                                               ; preds = %1
-  %27 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 0) #15
+  %27 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 0) #14
   %28 = load i32, ptr %27, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !11
   %31 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %27, i32 noundef %28, i32 noundef %30)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %27) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %27) #14
   br label %1270
 
 32:                                               ; preds = %1
@@ -367,7 +367,7 @@ define noundef ptr @MRIStepCoupling_LoadTable(i32 noundef %0) local_unnamed_addr
   br label %1270
 
 175:                                              ; preds = %1
-  %176 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 1) #15
+  %176 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 1) #14
   store i32 2, ptr %176, align 8, !tbaa !3
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store i32 1, ptr %177, align 4, !tbaa !11
@@ -397,7 +397,7 @@ define noundef ptr @MRIStepCoupling_LoadTable(i32 noundef %0) local_unnamed_addr
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store double 1.000000e+00, ptr %194, align 8, !tbaa !18
   %195 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %176, i32 noundef 2, i32 noundef 1)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %176) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %176) #14
   br label %1270
 
 196:                                              ; preds = %1
@@ -2184,7 +2184,7 @@ define noundef ptr @MRIStepCoupling_LoadTable(i32 noundef %0) local_unnamed_addr
   br label %1270
 
 1269:                                             ; preds = %1
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 45, ptr noundef nonnull @__func__.MRIStepCoupling_LoadTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 45, ptr noundef nonnull @__func__.MRIStepCoupling_LoadTable, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #14
   br label %1270
 
 1270:                                             ; preds = %1, %1269, %1089, %1005, %965, %936, %822, %745, %701, %556, %495, %440, %412, %387, %366, %256, %216, %196, %175, %159, %96, %62, %32, %26, %20, %14, %8, %2
@@ -2603,7 +2603,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #16
+  %7 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #15
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %.loopexit, label %8
 
@@ -2625,7 +2625,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
   store ptr null, ptr %17, align 8, !tbaa !29
   %18 = icmp eq i32 %2, 3
   %19 = zext nneg i32 %1 to i64
-  %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #17
+  %20 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %21, i8 0, i64 20, i1 false)
   store ptr %20, ptr %13, align 8, !tbaa !17
@@ -2647,7 +2647,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 23:                                               ; preds = %22, %22, %22, %22
   %24 = zext nneg i32 %0 to i64
-  %25 = tail call noalias ptr @calloc(i64 noundef %24, i64 noundef 8) #17
+  %25 = tail call noalias ptr @calloc(i64 noundef %24, i64 noundef 8) #16
   store ptr %25, ptr %14, align 8, !tbaa !20
   %.not140 = icmp eq ptr %25, null
   br i1 %.not140, label %.loopexit.sink.split, label %.lr.ph
@@ -2670,7 +2670,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 30:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
-  %32 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #17
+  %32 = tail call noalias ptr @calloc(i64 noundef %27, i64 noundef 8) #16
   store ptr %32, ptr %31, align 8, !tbaa !21
   %.not150 = icmp eq ptr %32, null
   br i1 %.not150, label %.loopexit.sink.split, label %28
@@ -2689,7 +2689,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 36:                                               ; preds = %.preheader155, %35
   %indvars.iv180 = phi i64 [ 0, %.preheader155 ], [ %indvars.iv.next181, %35 ]
   %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv180
-  %38 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #17
+  %38 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #16
   store ptr %38, ptr %37, align 8, !tbaa !22
   %.not149 = icmp eq ptr %38, null
   br i1 %.not149, label %.loopexit.sink.split, label %35
@@ -2709,7 +2709,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 
 39:                                               ; preds = %._crit_edge214, %._crit_edge163, %._crit_edge163, %._crit_edge163
   %.pre-phi = phi i64 [ %.pre, %._crit_edge214 ], [ %24, %._crit_edge163 ], [ %24, %._crit_edge163 ], [ %24, %._crit_edge163 ]
-  %40 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #17
+  %40 = tail call noalias ptr @calloc(i64 noundef %.pre-phi, i64 noundef 8) #16
   store ptr %40, ptr %15, align 8, !tbaa !23
   %.not142 = icmp eq ptr %40, null
   br i1 %.not142, label %.loopexit.sink.split, label %.preheader154
@@ -2736,7 +2736,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 46:                                               ; preds = %.lr.ph165, %44
   %indvars.iv190 = phi i64 [ 0, %.lr.ph165 ], [ %indvars.iv.next191, %44 ]
   %47 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv190
-  %48 = tail call noalias ptr @calloc(i64 noundef %43, i64 noundef 8) #17
+  %48 = tail call noalias ptr @calloc(i64 noundef %43, i64 noundef 8) #16
   store ptr %48, ptr %47, align 8, !tbaa !21
   %.not147 = icmp eq ptr %48, null
   br i1 %.not147, label %.loopexit.sink.split, label %44
@@ -2755,7 +2755,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 52:                                               ; preds = %.preheader152, %51
   %indvars.iv195 = phi i64 [ 0, %.preheader152 ], [ %indvars.iv.next196, %51 ]
   %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv195
-  %54 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #17
+  %54 = tail call noalias ptr @calloc(i64 noundef %19, i64 noundef 8) #16
   store ptr %54, ptr %53, align 8, !tbaa !22
   %.not146 = icmp eq ptr %54, null
   br i1 %.not146, label %.loopexit.sink.split, label %51
@@ -2771,7 +2771,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 55:                                               ; preds = %._crit_edge163, %._crit_edge171
   store i32 %1, ptr %16, align 8, !tbaa !28
   %56 = shl nuw nsw i64 %19, 3
-  %57 = tail call noalias ptr @malloc(i64 noundef %56) #16
+  %57 = tail call noalias ptr @malloc(i64 noundef %56) #15
   store ptr %57, ptr %17, align 8, !tbaa !29
   %.not143 = icmp eq ptr %57, null
   br i1 %.not143, label %.loopexit.sink.split, label %.preheader151
@@ -2787,7 +2787,7 @@ define noundef ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 no
 60:                                               ; preds = %.preheader.us.preheader, %.lr.ph176
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %.preheader.us.preheader ], [ 0, %.lr.ph176 ]
   %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv209
-  %62 = tail call noalias ptr @malloc(i64 noundef %59) #16
+  %62 = tail call noalias ptr @malloc(i64 noundef %59) #15
   store ptr %62, ptr %61, align 8, !tbaa !30
   %.not144.us = icmp eq ptr %62, null
   br i1 %.not144.us, label %.loopexit.sink.split, label %.preheader.us.preheader
@@ -2813,82 +2813,82 @@ declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #18
+  %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #17
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %1350, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #18
+  %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.3, ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %13
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 22) #15
+  %8 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 22) #14
   %9 = load i32, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !11
   %12 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %8, i32 noundef %9, i32 noundef %11)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %8) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %8) #14
   br label %1350
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(25) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #18
+  %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(25) @.str.4, ptr noundef nonnull dereferenceable(1) %0) #17
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
-  %17 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 23) #15
+  %17 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 23) #14
   %18 = load i32, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !11
   %21 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %17, i32 noundef %18, i32 noundef %20)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %17) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %17) #14
   br label %1350
 
 22:                                               ; preds = %13
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #18
+  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(15) @.str.5, ptr noundef nonnull dereferenceable(1) %0) #17
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 12) #15
+  %26 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 12) #14
   %27 = load i32, ptr %26, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !11
   %30 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %26, i32 noundef %27, i32 noundef %29)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %26) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %26) #14
   br label %1350
 
 31:                                               ; preds = %22
-  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #18
+  %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.6, ptr noundef nonnull dereferenceable(1) %0) #17
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %40
 
 34:                                               ; preds = %31
-  %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 24) #15
+  %35 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 24) #14
   %36 = load i32, ptr %35, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %35, i32 noundef %36, i32 noundef %38)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %35) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %35) #14
   br label %1350
 
 40:                                               ; preds = %31
-  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #18
+  %41 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.7, ptr noundef nonnull dereferenceable(1) %0) #17
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %49
 
 43:                                               ; preds = %40
-  %44 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 0) #15
+  %44 = tail call ptr @ARKodeButcherTable_LoadERK(i32 noundef 0) #14
   %45 = load i32, ptr %44, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !11
   %48 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %44, i32 noundef %45, i32 noundef %47)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %44) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %44) #14
   br label %1350
 
 49:                                               ; preds = %40
-  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #18
+  %50 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.8, ptr noundef nonnull dereferenceable(1) %0) #17
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %82
 
@@ -2940,7 +2940,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 82:                                               ; preds = %49
-  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(25) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #18
+  %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(25) @.str.9, ptr noundef nonnull dereferenceable(1) %0) #17
   %84 = icmp eq i32 %83, 0
   br i1 %84, label %85, label %119
 
@@ -3000,7 +3000,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 119:                                              ; preds = %82
-  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.10, ptr noundef nonnull dereferenceable(1) %0) #18
+  %120 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.10, ptr noundef nonnull dereferenceable(1) %0) #17
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %185
 
@@ -3113,7 +3113,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 185:                                              ; preds = %119
-  %186 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.11, ptr noundef nonnull dereferenceable(1) %0) #18
+  %186 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(31) @.str.11, ptr noundef nonnull dereferenceable(1) %0) #17
   %187 = icmp eq i32 %186, 0
   br i1 %187, label %188, label %204
 
@@ -3143,12 +3143,12 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 204:                                              ; preds = %185
-  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.12, ptr noundef nonnull dereferenceable(1) %0) #18
+  %205 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.12, ptr noundef nonnull dereferenceable(1) %0) #17
   %206 = icmp eq i32 %205, 0
   br i1 %206, label %207, label %228
 
 207:                                              ; preds = %204
-  %208 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 1) #15
+  %208 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef 3, i32 noundef 1) #14
   store i32 2, ptr %208, align 8, !tbaa !3
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 4
   store i32 1, ptr %209, align 4, !tbaa !11
@@ -3178,11 +3178,11 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 16
   store double 1.000000e+00, ptr %226, align 8, !tbaa !18
   %227 = tail call ptr @MRIStepCoupling_MIStoMRI(ptr noundef nonnull %208, i32 noundef 2, i32 noundef 1)
-  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %208) #15
+  tail call void @ARKodeButcherTable_Free(ptr noundef nonnull %208) #14
   br label %1350
 
 228:                                              ; preds = %204
-  %229 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(34) @.str.13, ptr noundef nonnull dereferenceable(1) %0) #18
+  %229 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(34) @.str.13, ptr noundef nonnull dereferenceable(1) %0) #17
   %230 = icmp eq i32 %229, 0
   br i1 %230, label %231, label %251
 
@@ -3218,7 +3218,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 251:                                              ; preds = %228
-  %252 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(26) @.str.14, ptr noundef nonnull dereferenceable(1) %0) #18
+  %252 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(26) @.str.14, ptr noundef nonnull dereferenceable(1) %0) #17
   %253 = icmp eq i32 %252, 0
   br i1 %253, label %254, label %294
 
@@ -3291,7 +3291,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 294:                                              ; preds = %251
-  %295 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(26) @.str.15, ptr noundef nonnull dereferenceable(1) %0) #18
+  %295 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(26) @.str.15, ptr noundef nonnull dereferenceable(1) %0) #17
   %296 = icmp eq i32 %295, 0
   br i1 %296, label %297, label %407
 
@@ -3490,7 +3490,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 407:                                              ; preds = %294
-  %408 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(27) @.str.16, ptr noundef nonnull dereferenceable(1) %0) #18
+  %408 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(27) @.str.16, ptr noundef nonnull dereferenceable(1) %0) #17
   %409 = icmp eq i32 %408, 0
   br i1 %409, label %410, label %431
 
@@ -3526,7 +3526,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 431:                                              ; preds = %407
-  %432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(33) @.str.17, ptr noundef nonnull dereferenceable(1) %0) #18
+  %432 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(33) @.str.17, ptr noundef nonnull dereferenceable(1) %0) #17
   %433 = icmp eq i32 %432, 0
   br i1 %433, label %434, label %459
 
@@ -3569,7 +3569,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 459:                                              ; preds = %431
-  %460 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.18, ptr noundef nonnull dereferenceable(1) %0) #18
+  %460 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(30) @.str.18, ptr noundef nonnull dereferenceable(1) %0) #17
   %461 = icmp eq i32 %460, 0
   br i1 %461, label %462, label %490
 
@@ -3616,7 +3616,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 490:                                              ; preds = %459
-  %491 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.19, ptr noundef nonnull dereferenceable(1) %0) #18
+  %491 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.19, ptr noundef nonnull dereferenceable(1) %0) #17
   %492 = icmp eq i32 %491, 0
   br i1 %492, label %493, label %548
 
@@ -3712,7 +3712,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 548:                                              ; preds = %490
-  %549 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.20, ptr noundef nonnull dereferenceable(1) %0) #18
+  %549 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(23) @.str.20, ptr noundef nonnull dereferenceable(1) %0) #17
   %550 = icmp eq i32 %549, 0
   br i1 %550, label %551, label %612
 
@@ -3819,7 +3819,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 612:                                              ; preds = %548
-  %613 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.21, ptr noundef nonnull dereferenceable(1) %0) #18
+  %613 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(22) @.str.21, ptr noundef nonnull dereferenceable(1) %0) #17
   %614 = icmp eq i32 %613, 0
   br i1 %614, label %615, label %760
 
@@ -4074,7 +4074,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 760:                                              ; preds = %612
-  %761 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.22, ptr noundef nonnull dereferenceable(1) %0) #18
+  %761 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.22, ptr noundef nonnull dereferenceable(1) %0) #17
   %762 = icmp eq i32 %761, 0
   br i1 %762, label %763, label %807
 
@@ -4151,7 +4151,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 807:                                              ; preds = %760
-  %808 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.23, ptr noundef nonnull dereferenceable(1) %0) #18
+  %808 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.23, ptr noundef nonnull dereferenceable(1) %0) #17
   %809 = icmp eq i32 %808, 0
   br i1 %809, label %810, label %887
 
@@ -4286,7 +4286,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 887:                                              ; preds = %807
-  %888 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.24, ptr noundef nonnull dereferenceable(1) %0) #18
+  %888 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(21) @.str.24, ptr noundef nonnull dereferenceable(1) %0) #17
   %889 = icmp eq i32 %888, 0
   br i1 %889, label %890, label %1004
 
@@ -4483,7 +4483,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 1004:                                             ; preds = %887
-  %1005 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.25, ptr noundef nonnull dereferenceable(1) %0) #18
+  %1005 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.25, ptr noundef nonnull dereferenceable(1) %0) #17
   %1006 = icmp eq i32 %1005, 0
   br i1 %1006, label %1007, label %1036
 
@@ -4532,7 +4532,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 1036:                                             ; preds = %1004
-  %1037 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.26, ptr noundef nonnull dereferenceable(1) %0) #18
+  %1037 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.26, ptr noundef nonnull dereferenceable(1) %0) #17
   %1038 = icmp eq i32 %1037, 0
   br i1 %1038, label %1039, label %1079
 
@@ -4599,7 +4599,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 1079:                                             ; preds = %1036
-  %1080 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.27, ptr noundef nonnull dereferenceable(1) %0) #18
+  %1080 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.27, ptr noundef nonnull dereferenceable(1) %0) #17
   %1081 = icmp eq i32 %1080, 0
   br i1 %1081, label %1082, label %1166
 
@@ -4741,7 +4741,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 1166:                                             ; preds = %1079
-  %1167 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.28, ptr noundef nonnull dereferenceable(1) %0) #18
+  %1167 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.28, ptr noundef nonnull dereferenceable(1) %0) #17
   %1168 = icmp eq i32 %1167, 0
   br i1 %1168, label %1169, label %1349
 
@@ -5045,7 +5045,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly capture
   br label %1350
 
 1349:                                             ; preds = %1166
-  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 63, ptr noundef nonnull @__func__.MRIStepCoupling_LoadTableByName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #15
+  tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @arkProcessError(ptr noundef null, i32 noundef -22, i32 noundef 63, ptr noundef nonnull @__func__.MRIStepCoupling_LoadTableByName, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #14
   br label %1350
 
 1350:                                             ; preds = %1, %1349, %1169, %1082, %1039, %1007, %890, %810, %763, %615, %551, %493, %462, %434, %410, %297, %254, %231, %207, %188, %122, %85, %52, %43, %34, %25, %16, %7
@@ -5074,7 +5074,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not67, label %6, label %5
 
 5:                                                ; preds = %2
-  tail call void @free(ptr noundef nonnull %4) #15
+  tail call void @free(ptr noundef nonnull %4) #14
   br label %6
 
 6:                                                ; preds = %5, %2
@@ -5119,7 +5119,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not77, label %30, label %25
 
 25:                                               ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %24) #15
+  tail call void @free(ptr noundef nonnull %24) #14
   %26 = load ptr, ptr %7, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv98
   %28 = load ptr, ptr %27, align 8, !tbaa !21
@@ -5139,7 +5139,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %30, %.preheader80
   %34 = phi ptr [ %17, %.preheader80 ], [ %.pre110, %30 ]
-  tail call void @free(ptr noundef nonnull %34) #15
+  tail call void @free(ptr noundef nonnull %34) #14
   %35 = load ptr, ptr %7, align 8, !tbaa !20
   %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv98
   store ptr null, ptr %36, align 8, !tbaa !21
@@ -5156,7 +5156,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge86:                                    ; preds = %37, %.preheader81
   %42 = phi ptr [ %8, %.preheader81 ], [ %39, %37 ]
-  tail call void @free(ptr noundef nonnull %42) #15
+  tail call void @free(ptr noundef nonnull %42) #14
   br label %43
 
 43:                                               ; preds = %._crit_edge86, %6
@@ -5201,7 +5201,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not74, label %67, label %62
 
 62:                                               ; preds = %.lr.ph89
-  tail call void @free(ptr noundef nonnull %61) #15
+  tail call void @free(ptr noundef nonnull %61) #14
   %63 = load ptr, ptr %44, align 8, !tbaa !23
   %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv104
   %65 = load ptr, ptr %64, align 8, !tbaa !21
@@ -5221,7 +5221,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge90:                                    ; preds = %67, %.preheader78
   %71 = phi ptr [ %54, %.preheader78 ], [ %.pre114, %67 ]
-  tail call void @free(ptr noundef nonnull %71) #15
+  tail call void @free(ptr noundef nonnull %71) #14
   %72 = load ptr, ptr %44, align 8, !tbaa !23
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv104
   store ptr null, ptr %73, align 8, !tbaa !21
@@ -5238,7 +5238,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge93:                                    ; preds = %74, %.preheader79
   %79 = phi ptr [ %45, %.preheader79 ], [ %76, %74 ]
-  tail call void @free(ptr noundef nonnull %79) #15
+  tail call void @free(ptr noundef nonnull %79) #14
   br label %80
 
 80:                                               ; preds = %._crit_edge93, %43
@@ -5263,7 +5263,7 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not71, label %93, label %90
 
 90:                                               ; preds = %.lr.ph95
-  tail call void @free(ptr noundef nonnull %89) #15
+  tail call void @free(ptr noundef nonnull %89) #14
   %91 = load ptr, ptr %81, align 8, !tbaa !29
   %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv107
   store ptr null, ptr %92, align 8, !tbaa !30
@@ -5280,11 +5280,11 @@ define void @MRIStepCoupling_Free(ptr noundef %0) local_unnamed_addr #0 {
 
 ._crit_edge96:                                    ; preds = %93, %.preheader
   %98 = phi ptr [ %82, %.preheader ], [ %95, %93 ]
-  tail call void @free(ptr noundef nonnull %98) #15
+  tail call void @free(ptr noundef nonnull %98) #14
   br label %99
 
 99:                                               ; preds = %._crit_edge96, %80
-  tail call void @free(ptr noundef nonnull %0) #15
+  tail call void @free(ptr noundef nonnull %0) #14
   br label %100
 
 100:                                              ; preds = %99, %1
@@ -5362,16 +5362,14 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader124.us147.us.preheader:                 ; preds = %.preheader124.lr.ph.split.split.us.split.us
   %34 = zext i32 %30 to i64
   %35 = zext nneg i32 %1 to i64
-  %smax231 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count232 = zext nneg i32 %smax231 to i64
+  %wide.trip.count232 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us
 
 .preheader124.lr.ph.split.split.us.split.us.split.us: ; preds = %.preheader124.lr.ph.split.split.us.split.us
   %36 = load ptr, ptr %31, align 8, !tbaa !23
   %37 = zext i32 %30 to i64
   %38 = zext nneg i32 %1 to i64
-  %smax247 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count248 = zext nneg i32 %smax247 to i64
+  %wide.trip.count248 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us.us
 
 .preheader124.us147.us.us:                        ; preds = %._crit_edge134.split.us.split.us.split.us.us.us.us, %.preheader124.lr.ph.split.split.us.split.us.split.us
@@ -5461,8 +5459,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   %68 = load ptr, ptr %31, align 8, !tbaa !23
   %69 = zext i32 %30 to i64
   %70 = zext nneg i32 %1 to i64
-  %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count216 = zext nneg i32 %smax to i64
+  %wide.trip.count216 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us161
 
 .preheader124.us147.us161:                        ; preds = %._crit_edge134.split.us.split.split.us.us.us, %.preheader124.lr.ph.split.split.us.split.split.us
@@ -5514,15 +5511,13 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 .preheader121.us.us.preheader:                    ; preds = %.preheader121.lr.ph.split.us.split.us
   %84 = zext nneg i32 %1 to i64
-  %smax279 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count280 = zext nneg i32 %smax279 to i64
+  %wide.trip.count280 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us
 
 .preheader121.lr.ph.split.us.split.us.split.us:   ; preds = %.preheader121.lr.ph.split.us.split.us
   %85 = load ptr, ptr %81, align 8, !tbaa !23
   %86 = zext nneg i32 %1 to i64
-  %smax295 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count296 = zext nneg i32 %smax295 to i64
+  %wide.trip.count296 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us.us
 
 .preheader121.us.us.us:                           ; preds = %._crit_edge168.split.us.split.us.split.us.us.us.us, %.preheader121.lr.ph.split.us.split.us.split.us
@@ -5611,8 +5606,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 .preheader121.lr.ph.split.us.split.split.us:      ; preds = %.preheader121.lr.ph.split.us.split
   %116 = load ptr, ptr %81, align 8, !tbaa !23
   %117 = zext nneg i32 %1 to i64
-  %smax263 = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count264 = zext nneg i32 %smax263 to i64
+  %wide.trip.count264 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us190
 
 .preheader121.us.us190:                           ; preds = %._crit_edge168.split.us.split.split.us.us.us, %.preheader121.lr.ph.split.us.split.split.us
@@ -6146,16 +6140,16 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
 62:                                               ; preds = %60, %58, %56, %54, %52, %50
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !36
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %64) #15
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.35, i32 noundef %64) #14
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !37
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %67) #15
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.36, i32 noundef %67) #14
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !12
-  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %70) #15
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.37, i32 noundef %70) #14
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i32, ptr %72, align 8, !tbaa !16
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %73) #15
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.38, i32 noundef %73) #14
   %75 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 6, i64 1, ptr %1)
   %76 = load i32, ptr %66, align 8, !tbaa !37
   %77 = icmp sgt i32 %76, 0
@@ -6166,7 +6160,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
   %78 = load ptr, ptr %26, align 8, !tbaa !17
   %79 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv234
   %80 = load double, ptr %79, align 8, !tbaa !18
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, double noundef %80) #15
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.40, double noundef %80) #14
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %82 = load i32, ptr %66, align 8, !tbaa !37
   %83 = sext i32 %82 to i64
@@ -6187,7 +6181,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
 .lr.ph189:                                        ; preds = %.preheader148, %._crit_edge187
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %._crit_edge187 ], [ 0, %.preheader148 ]
   %88 = trunc nuw nsw i64 %indvars.iv243 to i32
-  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i32 noundef %88) #15
+  %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.42, i32 noundef %88) #14
   %90 = load i32, ptr %66, align 8, !tbaa !37
   %.not137183 = icmp slt i32 %90, 0
   br i1 %.not137183, label %._crit_edge187, label %.lr.ph186
@@ -6208,7 +6202,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
   %98 = load ptr, ptr %97, align 8, !tbaa !22
   %99 = getelementptr inbounds nuw double, ptr %98, i64 %indvars.iv237
   %100 = load double, ptr %99, align 8, !tbaa !18
-  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %100) #15
+  %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %100) #14
   %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
   %102 = load i32, ptr %66, align 8, !tbaa !37
   %103 = sext i32 %102 to i64
@@ -6244,7 +6238,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
 .lr.ph200:                                        ; preds = %.preheader, %._crit_edge198
   %indvars.iv252 = phi i64 [ %indvars.iv.next253, %._crit_edge198 ], [ 0, %.preheader ]
   %113 = trunc nuw nsw i64 %indvars.iv252 to i32
-  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %113) #15
+  %114 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.45, i32 noundef %113) #14
   %115 = load i32, ptr %66, align 8, !tbaa !37
   %.not134194 = icmp slt i32 %115, 0
   br i1 %.not134194, label %._crit_edge198, label %.lr.ph197
@@ -6265,7 +6259,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
   %123 = load ptr, ptr %122, align 8, !tbaa !22
   %124 = getelementptr inbounds nuw double, ptr %123, i64 %indvars.iv246
   %125 = load double, ptr %124, align 8, !tbaa !18
-  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %125) #15
+  %126 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.44, double noundef %125) #14
   %indvars.iv.next247 = add nuw nsw i64 %indvars.iv246, 1
   %127 = load i32, ptr %66, align 8, !tbaa !37
   %128 = sext i32 %127 to i64
@@ -6296,7 +6290,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
 136:                                              ; preds = %.loopexit147
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %138 = load i32, ptr %137, align 8, !tbaa !28
-  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, i32 noundef %138) #15
+  %139 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.46, i32 noundef %138) #14
   %140 = load i32, ptr %137, align 8, !tbaa !28
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %.lr.ph207, label %.loopexit
@@ -6304,7 +6298,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
 .lr.ph207:                                        ; preds = %136, %._crit_edge204
   %indvars.iv258 = phi i64 [ %indvars.iv.next259, %._crit_edge204 ], [ 0, %136 ]
   %142 = trunc nuw nsw i64 %indvars.iv258 to i32
-  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %142) #15
+  %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.47, i32 noundef %142) #14
   %144 = load i32, ptr %66, align 8, !tbaa !37
   %145 = icmp sgt i32 %144, 0
   br i1 %145, label %.lr.ph203, label %._crit_edge204
@@ -6321,7 +6315,7 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %.lr.ph203
-  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %151) #15
+  %154 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.48, i32 noundef %151) #14
   %.pre = load i32, ptr %66, align 8, !tbaa !37
   br label %155
 
@@ -7023,11 +7017,8 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -7042,12 +7033,11 @@ attributes #9 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buf
 attributes #10 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { nounwind allocsize(0) }
-attributes #17 = { nounwind allocsize(0,1) }
-attributes #18 = { nounwind willreturn memory(read) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { nounwind allocsize(0) }
+attributes #16 = { nounwind allocsize(0,1) }
+attributes #17 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

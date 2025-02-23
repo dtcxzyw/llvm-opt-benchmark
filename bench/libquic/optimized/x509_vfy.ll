@@ -482,7 +482,7 @@ lookup_cert_match.exit.i:                         ; preds = %._crit_edge.i.i
   store ptr %225, ptr %2, align 8, !tbaa !46
   call void @X509_free(ptr noundef %225) #14
   %226 = add nsw i32 %.4174364, -1
-  %.not219.not = icmp sgt i32 %.4174364, %212
+  %.not219.not = icmp samesign ugt i32 %.4174364, %212
   br i1 %.not219.not, label %.lr.ph366, label %._crit_edge367, !llvm.loop !58
 
 ._crit_edge367:                                   ; preds = %.lr.ph366, %222

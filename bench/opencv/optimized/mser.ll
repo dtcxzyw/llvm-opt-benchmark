@@ -5571,51 +5571,54 @@ define linkonce_odr hidden void @_ZSt14__partial_sortIPN2cv8MSCREdgeEN9__gnu_cxx
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %26 = and i64 %11, 1
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %37
+  br i1 %27, label %28, label %36
 
 28:                                               ; preds = %._crit_edge.i.i.i
   %29 = add nsw i64 %11, -2
   %30 = ashr exact i64 %29, 1
   %31 = icmp eq i64 %.0.lcssa.i.i.i, %30
-  br i1 %31, label %32, label %37
+  br i1 %31, label %.thread.i.i, label %36
 
-32:                                               ; preds = %28
-  %33 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.0.lcssa.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
-  br label %37
+.thread.i.i:                                      ; preds = %28
+  %32 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %33 = or disjoint i64 %32, 1
+  %34 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %33
+  %35 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.0.lcssa.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
+  br label %.lr.ph.i.i.i.i.preheader
 
-37:                                               ; preds = %32, %28, %._crit_edge.i.i.i
-  %.127.i.i.i = phi i64 [ %34, %32 ], [ %.0.lcssa.i.i.i, %28 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
-  %38 = icmp sgt i64 %.127.i.i.i, 0
-  br i1 %38, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i
+36:                                               ; preds = %28, %._crit_edge.i.i.i
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %37, %42
-  %.01316.i.i.i.i = phi i64 [ %.017.i.i1011.i.i, %42 ], [ %.127.i.i.i, %37 ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %36, %.thread.i.i
+  %.01316.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %36 ], [ %33, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %40
+  %.01316.i.i.i.i = phi i64 [ %.017.i.i1011.i.i, %40 ], [ %.01316.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i1011.i.i = lshr i64 %.017.in.i.i.i.i, 1
-  %39 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i.i
-  %40 = load double, ptr %39, align 8
-  %41 = fcmp olt double %40, %.sroa.08.0.copyload.i.i
-  br i1 %41, label %42, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i
+  %37 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i.i
+  %38 = load double, ptr %37, align 8
+  %39 = fcmp olt double %38, %.sroa.08.0.copyload.i.i
+  br i1 %39, label %40, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i
 
-42:                                               ; preds = %.lr.ph.i.i.i.i
-  %43 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
-  %.not.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
+40:                                               ; preds = %.lr.ph.i.i.i.i
+  %41 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
+  %.not12.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
+  br i1 %.not12.i.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !111
 
-_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i: ; preds = %42, %.lr.ph.i.i.i.i, %37
-  %.013.lcssa.i.i.i.i = phi i64 [ %.127.i.i.i, %37 ], [ 0, %42 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %44 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i
-  store double %.sroa.08.0.copyload.i.i, ptr %44, align 8
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 8
+_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i: ; preds = %40, %.lr.ph.i.i.i.i, %36
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %36 ], [ 0, %40 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %42 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i.i
+  store double %.sroa.08.0.copyload.i.i, ptr %42, align 8
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i.i, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i.i)
-  %45 = icmp sgt i64 %10, 24
-  br i1 %45, label %.lr.ph.i, label %_ZSt11__sort_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_RT0_.exit, !llvm.loop !112
+  %43 = icmp sgt i64 %10, 24
+  br i1 %43, label %.lr.ph.i, label %_ZSt11__sort_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_RT0_.exit, !llvm.loop !112
 
 _ZSt11__sort_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_RT0_.exit: ; preds = %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit.i, %3
   ret void
@@ -5725,87 +5728,94 @@ _ZSt11__make_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessTh
   %52 = icmp eq i64 %51, 0
   %53 = add nsw i64 %47, -2
   %54 = ashr exact i64 %53, 1
-  %55 = or disjoint i64 %53, 1
-  %56 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %55
-  %57 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %54
-  br label %58
+  %55 = icmp eq i64 %53, 0
+  %or.cond25 = select i1 %52, i1 %55, i1 false
+  %56 = or disjoint i64 %53, 1
+  %57 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %56
+  %58 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %54
+  br label %59
 
-58:                                               ; preds = %.lr.ph, %84
-  %.024 = phi ptr [ %1, %.lr.ph ], [ %85, %84 ]
-  %59 = load double, ptr %.024, align 8
-  %60 = load double, ptr %0, align 8
-  %61 = fcmp olt double %59, %60
-  br i1 %61, label %62, label %84
+59:                                               ; preds = %.lr.ph, %83
+  %.023 = phi ptr [ %1, %.lr.ph ], [ %84, %83 ]
+  %60 = load double, ptr %.023, align 8
+  %61 = load double, ptr %0, align 8
+  %62 = fcmp olt double %60, %61
+  br i1 %62, label %63, label %83
 
-62:                                               ; preds = %58
-  %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.024, i64 8
+63:                                               ; preds = %59
+  %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.023, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i11, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.29.0..sroa_idx.i, i64 16, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.024, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
-  br i1 %50, label %.lr.ph.i.i21, label %._crit_edge.i.i12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.023, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 24, i1 false)
+  br i1 %50, label %.lr.ph.i.i20, label %._crit_edge.i.i12.thread
 
-.lr.ph.i.i21:                                     ; preds = %62, %.lr.ph.i.i21
-  %.031.i.i22 = phi i64 [ %spec.select.i.i23, %.lr.ph.i.i21 ], [ 0, %62 ]
-  %63 = shl i64 %.031.i.i22, 1
-  %64 = add i64 %63, 2
-  %65 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %64
-  %66 = or disjoint i64 %63, 1
-  %67 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %66
-  %68 = load double, ptr %65, align 8
-  %69 = load double, ptr %67, align 8
-  %70 = fcmp olt double %68, %69
-  %spec.select.i.i23 = select i1 %70, i64 %66, i64 %64
-  %71 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i23
-  %72 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.031.i.i22
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false)
-  %73 = icmp slt i64 %spec.select.i.i23, %49
-  br i1 %73, label %.lr.ph.i.i21, label %._crit_edge.i.i12, !llvm.loop !110
+.lr.ph.i.i20:                                     ; preds = %63, %.lr.ph.i.i20
+  %.031.i.i21 = phi i64 [ %spec.select.i.i22, %.lr.ph.i.i20 ], [ 0, %63 ]
+  %64 = shl i64 %.031.i.i21, 1
+  %65 = add i64 %64, 2
+  %66 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %65
+  %67 = or disjoint i64 %64, 1
+  %68 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %67
+  %69 = load double, ptr %66, align 8
+  %70 = load double, ptr %68, align 8
+  %71 = fcmp olt double %69, %70
+  %spec.select.i.i22 = select i1 %71, i64 %67, i64 %65
+  %72 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %spec.select.i.i22
+  %73 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.031.i.i21
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
+  %74 = icmp slt i64 %spec.select.i.i22, %49
+  br i1 %74, label %.lr.ph.i.i20, label %._crit_edge.i.i12, !llvm.loop !110
 
-._crit_edge.i.i12:                                ; preds = %.lr.ph.i.i21, %62
-  %.0.lcssa.i.i13 = phi i64 [ 0, %62 ], [ %spec.select.i.i23, %.lr.ph.i.i21 ]
-  %74 = icmp eq i64 %.0.lcssa.i.i13, %54
-  %or.cond = select i1 %52, i1 %74, i1 false
-  br i1 %or.cond, label %75, label %76
+._crit_edge.i.i12:                                ; preds = %.lr.ph.i.i20
+  %75 = icmp eq i64 %spec.select.i.i22, %54
+  %or.cond = select i1 %52, i1 %75, i1 false
+  br i1 %or.cond, label %.thread.i, label %76
 
-75:                                               ; preds = %._crit_edge.i.i12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
-  br label %76
+._crit_edge.i.i12.thread:                         ; preds = %63
+  br i1 %or.cond25, label %.thread.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
 
-76:                                               ; preds = %75, %._crit_edge.i.i12
-  %.127.i.i14 = phi i64 [ %55, %75 ], [ %.0.lcssa.i.i13, %._crit_edge.i.i12 ]
-  %77 = icmp sgt i64 %.127.i.i14, 0
-  br i1 %77, label %.lr.ph.i.i.i18, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
+.thread.i:                                        ; preds = %._crit_edge.i.i12.thread, %._crit_edge.i.i12
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
+  br label %.lr.ph.i.i.i14.preheader
 
-.lr.ph.i.i.i18:                                   ; preds = %76, %81
-  %.01316.i.i.i19 = phi i64 [ %.017.i.i1011.i, %81 ], [ %.127.i.i14, %76 ]
-  %.017.in.i.i.i20 = add nsw i64 %.01316.i.i.i19, -1
-  %.017.i.i1011.i = lshr i64 %.017.in.i.i.i20, 1
-  %78 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i
-  %79 = load double, ptr %78, align 8
-  %80 = fcmp olt double %79, %59
-  br i1 %80, label %81, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
+76:                                               ; preds = %._crit_edge.i.i12
+  %.not.i = icmp eq i64 %spec.select.i.i22, 0
+  br i1 %.not.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.i14.preheader
 
-81:                                               ; preds = %.lr.ph.i.i.i18
-  %82 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
-  %.not.i = icmp ult i64 %.017.in.i.i.i20, 2
-  br i1 %.not.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.i18, !llvm.loop !111
+.lr.ph.i.i.i14.preheader:                         ; preds = %76, %.thread.i
+  %.01316.i.i.i15.ph = phi i64 [ %spec.select.i.i22, %76 ], [ %56, %.thread.i ]
+  br label %.lr.ph.i.i.i14
 
-_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit: ; preds = %.lr.ph.i.i.i18, %81, %76
-  %.013.lcssa.i.i.i16 = phi i64 [ %.127.i.i14, %76 ], [ %.01316.i.i.i19, %.lr.ph.i.i.i18 ], [ 0, %81 ]
-  %83 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i16
-  store double %59, ptr %83, align 8
-  %.sroa.5.0..sroa_idx.i.i17 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i17, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i11, i64 16, i1 false)
+.lr.ph.i.i.i14:                                   ; preds = %.lr.ph.i.i.i14.preheader, %80
+  %.01316.i.i.i15 = phi i64 [ %.017.i.i1011.i, %80 ], [ %.01316.i.i.i15.ph, %.lr.ph.i.i.i14.preheader ]
+  %.017.in.i.i.i16 = add nsw i64 %.01316.i.i.i15, -1
+  %.017.i.i1011.i = lshr i64 %.017.in.i.i.i16, 1
+  %77 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.017.i.i1011.i
+  %78 = load double, ptr %77, align 8
+  %79 = fcmp olt double %78, %60
+  br i1 %79, label %80, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
+
+80:                                               ; preds = %.lr.ph.i.i.i14
+  %81 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.01316.i.i.i15
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
+  %.not12.i = icmp ult i64 %.017.in.i.i.i16, 2
+  br i1 %.not12.i, label %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit, label %.lr.ph.i.i.i14, !llvm.loop !111
+
+_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit: ; preds = %.lr.ph.i.i.i14, %80, %._crit_edge.i.i12.thread, %76
+  %.013.lcssa.i.i.i18 = phi i64 [ 0, %76 ], [ 0, %._crit_edge.i.i12.thread ], [ %.01316.i.i.i15, %.lr.ph.i.i.i14 ], [ 0, %80 ]
+  %82 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.013.lcssa.i.i.i18
+  store double %60, ptr %82, align 8
+  %.sroa.5.0..sroa_idx.i.i19 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx.i.i19, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.i11, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.4.i11)
-  br label %84
+  br label %83
 
-84:                                               ; preds = %58, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
-  %85 = getelementptr inbounds nuw i8, ptr %.024, i64 24
-  %86 = icmp ult ptr %85, %2
-  br i1 %86, label %58, label %._crit_edge, !llvm.loop !114
+83:                                               ; preds = %59, %_ZSt10__pop_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_S8_RT0_.exit
+  %84 = getelementptr inbounds nuw i8, ptr %.023, i64 24
+  %85 = icmp ult ptr %84, %2
+  br i1 %85, label %59, label %._crit_edge, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %84, %_ZSt11__make_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_RT0_.exit
+._crit_edge:                                      ; preds = %83, %_ZSt11__make_heapIPN2cv8MSCREdgeEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_S8_RT0_.exit
   ret void
 }
 

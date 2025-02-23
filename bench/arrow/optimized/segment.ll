@@ -2700,7 +2700,7 @@ mi_commit_mask_set.exit:                          ; preds = %.preheader
   br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %.critedge23, !llvm.loop !96
 
 mi_commit_mask_any_set.exit:                      ; preds = %.critedge23
-  br i1 %.not.not.i, label %58, label %90
+  br i1 %.not.not.i, label %58, label %.thread
 
 58:                                               ; preds = %mi_commit_mask_any_set.exit
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %11) #9
@@ -2782,8 +2782,8 @@ mi_commit_mask_clear.exit:                        ; preds = %82
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %11) #9
   br label %90
 
-90:                                               ; preds = %mi_commit_mask_set.exit, %mi_commit_mask_any_set.exit, %mi_commit_mask_clear.exit
-  br i1 %1, label %.critedge25, label %104
+90:                                               ; preds = %mi_commit_mask_set.exit, %mi_commit_mask_clear.exit
+  br i1 %1, label %.critedge25, label %.thread
 
 .critedge25:                                      ; preds = %mi_commit_mask_all_set.exit, %90
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2803,7 +2803,7 @@ mi_commit_mask_clear.exit:                        ; preds = %82
   br i1 %or.cond.i52, label %mi_commit_mask_any_set.exit53, label %92, !llvm.loop !96
 
 mi_commit_mask_any_set.exit53:                    ; preds = %92
-  br i1 %.not.not.i50, label %99, label %104
+  br i1 %.not.not.i50, label %99, label %.thread
 
 99:                                               ; preds = %mi_commit_mask_any_set.exit53
   %100 = call i64 @_mi_clock_now() #9
@@ -2811,32 +2811,32 @@ mi_commit_mask_any_set.exit53:                    ; preds = %92
   %102 = add nsw i64 %101, %100
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %102, ptr %103, align 8, !tbaa !73
-  br label %104
+  br label %.thread
 
-104:                                              ; preds = %99, %mi_commit_mask_any_set.exit53, %90
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %106
+.thread:                                          ; preds = %mi_commit_mask_any_set.exit, %99, %mi_commit_mask_any_set.exit53, %90
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %105
 
-106:                                              ; preds = %106, %104
-  %.05.i54 = phi i64 [ 0, %104 ], [ %113, %106 ]
-  %107 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i54
-  %108 = load i64, ptr %107, align 8, !tbaa !3
-  %109 = xor i64 %108, -1
-  %110 = getelementptr inbounds nuw [16 x i64], ptr %105, i64 0, i64 %.05.i54
-  %111 = load i64, ptr %110, align 8, !tbaa !3
-  %112 = and i64 %111, %109
-  store i64 %112, ptr %110, align 8, !tbaa !3
-  %113 = add nuw nsw i64 %.05.i54, 1
-  %exitcond.not.i55 = icmp eq i64 %113, 16
-  br i1 %exitcond.not.i55, label %mi_commit_mask_clear.exit56, label %106, !llvm.loop !97
+105:                                              ; preds = %105, %.thread
+  %.05.i54 = phi i64 [ 0, %.thread ], [ %112, %105 ]
+  %106 = getelementptr inbounds nuw [16 x i64], ptr %8, i64 0, i64 %.05.i54
+  %107 = load i64, ptr %106, align 8, !tbaa !3
+  %108 = xor i64 %107, -1
+  %109 = getelementptr inbounds nuw [16 x i64], ptr %104, i64 0, i64 %.05.i54
+  %110 = load i64, ptr %109, align 8, !tbaa !3
+  %111 = and i64 %110, %108
+  store i64 %111, ptr %109, align 8, !tbaa !3
+  %112 = add nuw nsw i64 %.05.i54, 1
+  %exitcond.not.i55 = icmp eq i64 %112, 16
+  br i1 %exitcond.not.i55, label %mi_commit_mask_clear.exit56, label %105, !llvm.loop !97
 
 .critedge:                                        ; preds = %_mi_commit_mask_committed_size.exit
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %10) #9
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #9
   br label %mi_commit_mask_clear.exit56
 
-mi_commit_mask_clear.exit56:                      ; preds = %106, %.critedge, %mi_commit_mask_is_empty.exit
-  %.021 = phi i1 [ true, %mi_commit_mask_is_empty.exit ], [ false, %.critedge ], [ true, %106 ]
+mi_commit_mask_clear.exit56:                      ; preds = %105, %.critedge, %mi_commit_mask_is_empty.exit
+  %.021 = phi i1 [ true, %mi_commit_mask_is_empty.exit ], [ false, %.critedge ], [ true, %105 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9

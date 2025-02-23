@@ -312,7 +312,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.wimax_compact_dlmap_ie_decoder.7 = private unnamed_addr constant [3 x ptr] [ptr @hf_harq_rcid_ie_cid11_1, ptr @hf_harq_rcid_ie_cid7_1, ptr @hf_harq_rcid_ie_cid3_1], align 8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 45) i32 @wimax_compact_dlmap_ie_decoder(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %3)
   %7 = zext i8 %6 to i32
   %8 = and i32 %4, 1

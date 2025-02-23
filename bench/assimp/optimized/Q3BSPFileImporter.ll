@@ -3126,12 +3126,12 @@ _ZNK6Assimp17Q3BSPFileImporter10countFacesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESa
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %36, i8 0, i64 36, i1 false)
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %30, %46
-  %.012.i = phi i64 [ %.1.i50, %46 ], [ 0, %30 ]
-  %.sroa.06.011.i = phi ptr [ %47, %46 ], [ %8, %30 ]
+.lr.ph.i48:                                       ; preds = %30, %45
+  %.012.i = phi i64 [ %.1.i50, %45 ], [ 0, %30 ]
+  %.sroa.06.011.i = phi ptr [ %46, %45 ], [ %8, %30 ]
   %38 = load ptr, ptr %.sroa.06.011.i, align 8
   %.not.i49 = icmp eq ptr %38, null
-  br i1 %.not.i49, label %46, label %39
+  br i1 %.not.i49, label %45, label %39
 
 39:                                               ; preds = %.lr.ph.i48
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -3139,22 +3139,21 @@ _ZNK6Assimp17Q3BSPFileImporter10countFacesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESa
   %42 = sdiv i32 %41, 3
   %43 = sext i32 %42 to i64
   %44 = add i64 %.012.i, %43
-  %45 = freeze i64 %44
-  br label %46
+  br label %45
 
-46:                                               ; preds = %39, %.lr.ph.i48
-  %.1.i50 = phi i64 [ %45, %39 ], [ %.012.i, %.lr.ph.i48 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
-  %.not9.i = icmp eq ptr %47, %10
+45:                                               ; preds = %39, %.lr.ph.i48
+  %.1.i50 = phi i64 [ %44, %39 ], [ %.012.i, %.lr.ph.i48 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
+  %.not9.i = icmp eq ptr %46, %10
   br i1 %.not9.i, label %_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit, label %.lr.ph.i48, !llvm.loop !38
 
-_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit: ; preds = %46
+_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit: ; preds = %45
   store i32 4, ptr %31, align 8
-  %48 = icmp ugt i64 %.1.i50, 1152921504606846975
-  %49 = shl i64 %.1.i50, 4
-  %50 = or disjoint i64 %49, 8
-  %spec.select = select i1 %48, i64 -1, i64 %50
-  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #30
+  %47 = icmp ugt i64 %.1.i50, 1152921504606846975
+  %48 = shl i64 %.1.i50, 4
+  %49 = or disjoint i64 %48, 8
+  %50 = select i1 %47, i64 -1, i64 %49
+  %51 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %50) #30
   store i64 %.1.i50, ptr %51, align 16
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = icmp eq i64 %.1.i50, 0
@@ -3171,17 +3170,13 @@ _ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFac
   store ptr null, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = icmp eq ptr %59, %55
-  br i1 %60, label %.loopexit.loopexit, label %56
+  br i1 %60, label %.lr.ph.preheader, label %56
 
-.loopexit.loopexit:                               ; preds = %56
-  %61 = trunc i64 %.1.i50 to i32
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit, %.loopexit.loopexit
-  %.0.lcssa.i516062 = phi i32 [ 0, %_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit ], [ %61, %.loopexit.loopexit ]
-  %62 = getelementptr inbounds nuw i8, ptr %31, i64 208
-  store ptr %52, ptr %62, align 8
-  store i32 %.0.lcssa.i516062, ptr %33, align 8
+.lr.ph.preheader:                                 ; preds = %56, %_ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFaceESaIS4_EE.exit
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 208
+  store ptr %52, ptr %61, align 8
+  %62 = trunc i64 %.1.i50 to i32
+  store i32 %62, ptr %33, align 8
   %63 = trunc i64 %.1.i to i32
   store i32 %63, ptr %32, align 4
   %64 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.1.i, i64 12)
@@ -3226,8 +3221,8 @@ _ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFac
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %94
   %83 = phi ptr [ %95, %94 ], [ %10, %.lr.ph.preheader ]
-  %.sroa.053.064 = phi ptr [ %96, %94 ], [ %8, %.lr.ph.preheader ]
-  %84 = load ptr, ptr %.sroa.053.064, align 8
+  %.sroa.053.059 = phi ptr [ %96, %94 ], [ %8, %.lr.ph.preheader ]
+  %84 = load ptr, ptr %.sroa.053.059, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %94, label %86
 
@@ -3252,7 +3247,7 @@ _ZNK6Assimp17Q3BSPFileImporter14countTrianglesERKSt6vectorIPNS_5Q3BSP10sQ3BSPFac
 
 94:                                               ; preds = %86, %93, %90, %.lr.ph
   %95 = phi ptr [ %83, %86 ], [ %.pre, %93 ], [ %83, %90 ], [ %83, %.lr.ph ]
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.053.064, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.053.059, i64 8
   %.not = icmp eq ptr %96, %95
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 

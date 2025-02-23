@@ -895,7 +895,7 @@ WebRate.exit:                                     ; preds = %.preheader
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw [5 x [5 x ptr]], ptr %23, i64 0, i64 %indvars.iv89, i64 %indvars.iv93
   %97 = load ptr, ptr %96, align 8, !tbaa !12
-  %98 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef %35, i64 noundef 6, i64 noundef 6, ptr noundef %97) #10
+  %98 = tail call i64 @SUNDlsMat_denseGETRF(ptr noundef nonnull %35, i64 noundef 6, i64 noundef 6, ptr noundef %97) #10
   %.not = icmp eq i64 %98, 0
   br i1 %.not, label %29, label %.loopexit
 

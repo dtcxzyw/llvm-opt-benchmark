@@ -7325,7 +7325,7 @@ sfnt_open_font.exit:                              ; preds = %.lr.ph143.i, %.preh
   br i1 %exitcond.not, label %._crit_edge, label %957, !llvm.loop !250
 
 ._crit_edge:                                      ; preds = %957, %951
-  %962 = zext i16 %.1150 to i32
+  %962 = zext nneg i16 %.1150 to i32
   %.not274 = icmp eq i16 %.1150, 0
   br i1 %.not274, label %._crit_edge268, label %.lr.ph267
 

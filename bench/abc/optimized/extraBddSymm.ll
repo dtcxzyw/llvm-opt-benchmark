@@ -285,7 +285,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %.0158 = phi ptr [ %50, %43 ], [ %52, %51 ]
   %54 = getelementptr inbounds nuw i8, ptr %.0157.lcssa, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !38
-  %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %.0159, ptr noundef %55)
+  %56 = tail call ptr @extraZddSymmPairsCompute(ptr noundef nonnull %0, ptr noundef %.0159, ptr noundef %55)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.thread, label %58
 
@@ -463,7 +463,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
 
 150:                                              ; preds = %._crit_edge190
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1150) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
   br label %.thread
 
 151:                                              ; preds = %._crit_edge190
@@ -475,12 +475,12 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %157 = add i32 %156, 1
   store i32 %157, ptr %155, align 4, !tbaa !47
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef nonnull %131) #10
-  %158 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef %.1150, ptr noundef nonnull %148) #10
+  %158 = tail call ptr @cuddZddUnion(ptr noundef nonnull %0, ptr noundef nonnull %.1150, ptr noundef nonnull %148) #10
   %159 = icmp eq ptr %158, null
   br i1 %159, label %160, label %161
 
 160:                                              ; preds = %151
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1150) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
   br label %.thread
 
@@ -492,7 +492,7 @@ define ptr @extraZddSymmPairsCompute(ptr noundef %0, ptr noundef %1, ptr noundef
   %166 = load i32, ptr %165, align 4, !tbaa !47
   %167 = add i32 %166, 1
   store i32 %167, ptr %165, align 4, !tbaa !47
-  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef %.1150) #10
+  tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.1150) #10
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %148) #10
   br label %168
 

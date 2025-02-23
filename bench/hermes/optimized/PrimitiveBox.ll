@@ -25,13 +25,11 @@ define hidden range(i64 0, 9223372032559808513) i64 @_ZN6hermes2vm8JSString23_ge
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %selfObj, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
-  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %0 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %1 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
   %retval.sroa.2.0.insert.ext = zext nneg i32 %and.i to i64
@@ -44,13 +42,11 @@ define hidden noundef zeroext i1 @_ZN6hermes2vm8JSString19_haveOwnIndexedImplEPN
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
-  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %0 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %1 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
   %cmp = icmp ult i32 %index, %and.i
@@ -62,13 +58,11 @@ define hidden range(i32 0, 65539) i32 @_ZN6hermes2vm8JSString31_getOwnIndexedPro
 entry:
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %self, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
-  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %0 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %1 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
   %cmp = icmp ult i32 %index, %and.i
@@ -87,7 +81,7 @@ entry:
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %0
   %1 = inttoptr i64 %add.i.i.i.i.i.i to ptr
   %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %1
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %1, i64 4
   %2 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %2, 2147483647
   %cmp = icmp ult i32 %index, %and.i
@@ -104,7 +98,7 @@ if.then.i:                                        ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then.i
-  %contents_.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 16
+  %contents_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %call.i.i.i = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %contents_.i.i.i, i64 noundef 0) #4
   br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i
 
@@ -124,7 +118,7 @@ if.then10.i.i:                                    ; preds = %if.else.i.i
   br label %_ZNK6hermes2vm15StringPrimitive18castToASCIIPointerEv.exit.i
 
 if.else13.i.i:                                    ; preds = %if.else.i.i
-  %concatBufferHV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 8
+  %concatBufferHV_.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.i = load i64, ptr %concatBufferHV_.i.i.i.i, align 8
   %and.i.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i.i, 281474976710655
   %4 = inttoptr i64 %and.i.i.i.i.i.i to ptr
@@ -144,7 +138,7 @@ if.else.i:                                        ; preds = %if.then
   br i1 %cmp.i.i.i, label %if.then.i16.i, label %if.else.i4.i
 
 if.then.i16.i:                                    ; preds = %if.else.i
-  %contents_.i.i17.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 16
+  %contents_.i.i17.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %contents_.i.i17.i, align 8
   br label %_ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i
 
@@ -164,7 +158,7 @@ if.then10.i6.i:                                   ; preds = %if.else.i4.i
   br label %_ZNK6hermes2vm15StringPrimitive18castToUTF16PointerEv.exit.i
 
 if.else13.i11.i:                                  ; preds = %if.else.i4.i
-  %concatBufferHV_.i.i.i12.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 8
+  %concatBufferHV_.i.i.i12.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i13.i = load i64, ptr %concatBufferHV_.i.i.i12.i, align 8
   %and.i.i.i.i.i14.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i.i13.i, 281474976710655
   %7 = inttoptr i64 %and.i.i.i.i.i14.i to ptr
@@ -198,13 +192,11 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i to ptr
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
-  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %3, 2147483647
   %cmp = icmp ult i32 %index, %and.i
@@ -253,13 +245,11 @@ entry:
   %0 = inttoptr i64 %and.i.i.i.i to ptr
   %primitiveValue_.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %agg.tmp.sroa.0.0.copyload.i.i.i = load i32, ptr %primitiveValue_.i, align 4
-  %cmp.i.not.i.i.i.i.i = icmp eq i32 %agg.tmp.sroa.0.0.copyload.i.i.i, 0
   %1 = ptrtoint ptr %runtime to i64
   %conv.i.i.i.i.i.i = zext i32 %agg.tmp.sroa.0.0.copyload.i.i.i to i64
   %add.i.i.i.i.i.i = add i64 %conv.i.i.i.i.i.i, %1
   %2 = inttoptr i64 %add.i.i.i.i.i.i to ptr
-  %cond.i.i.i.i.i = select i1 %cmp.i.not.i.i.i.i.i, ptr null, ptr %2
-  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i, i64 4
+  %lengthAndUniquedFlag_.i = getelementptr inbounds nuw i8, ptr %2, i64 4
   %3 = load i32, ptr %lengthAndUniquedFlag_.i, align 4
   %and.i = and i32 %3, 2147483647
   %cmp = icmp uge i32 %index, %and.i

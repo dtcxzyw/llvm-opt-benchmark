@@ -2869,7 +2869,7 @@ define hidden void @b2PrepareOverflowJoints(ptr noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds nuw %struct.b2JointSim, ptr %5, i64 %indvars.iv
-  tail call void @b2PrepareJoint(ptr noundef %9, ptr noundef %0)
+  tail call void @b2PrepareJoint(ptr noundef %9, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !235
@@ -2896,7 +2896,7 @@ define hidden void @b2WarmStartOverflowJoints(ptr noundef %0) local_unnamed_addr
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %9 = getelementptr inbounds nuw %struct.b2JointSim, ptr %5, i64 %indvars.iv
-  tail call void @b2WarmStartJoint(ptr noundef %9, ptr noundef %0)
+  tail call void @b2WarmStartJoint(ptr noundef %9, ptr noundef nonnull %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !236
@@ -2923,7 +2923,7 @@ define hidden void @b2SolveOverflowJoints(ptr noundef %0, i1 noundef zeroext %1)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %10 = getelementptr inbounds nuw %struct.b2JointSim, ptr %6, i64 %indvars.iv
-  tail call void @b2SolveJoint(ptr noundef %10, ptr noundef %0, i1 noundef zeroext %1)
+  tail call void @b2SolveJoint(ptr noundef %10, ptr noundef nonnull %0, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237

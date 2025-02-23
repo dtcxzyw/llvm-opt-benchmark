@@ -1715,14 +1715,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   store i32 %107, ptr %105, align 4, !tbaa !3
   %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
   %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count19.i
-  br i1 %exitcond20.not.i, label %._crit_edge5.i, label %.lr.ph4.i, !llvm.loop !78
+  br i1 %exitcond20.not.i, label %.lr.ph8.i, label %.lr.ph4.i, !llvm.loop !78
 
-._crit_edge5.i:                                   ; preds = %.lr.ph4.i
+.lr.ph8.i:                                        ; preds = %.lr.ph4.i
   store i32 %98, ptr %4, align 4, !tbaa !3
   br label %108
 
-108:                                              ; preds = %108, %._crit_edge5.i
-  %indvars.iv21.i = phi i64 [ 0, %._crit_edge5.i ], [ %indvars.iv.next22.i, %108 ]
+108:                                              ; preds = %108, %.lr.ph8.i
+  %indvars.iv21.i = phi i64 [ 0, %.lr.ph8.i ], [ %indvars.iv.next22.i, %108 ]
   %109 = getelementptr inbounds nuw i32, ptr %.pre.i146189, i64 %indvars.iv21.i
   %110 = load i32, ptr %109, align 4, !tbaa !3
   %111 = shl nsw i32 %110, 1
@@ -1731,21 +1731,21 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %113 = call i32 @sat_solver_addclause(ptr noundef %43, ptr noundef nonnull %4, ptr noundef nonnull %57) #15
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count19.i
-  br i1 %exitcond25.not.i, label %.preheader.i, label %108, !llvm.loop !79
+  br i1 %exitcond25.not.i, label %.lr.ph13.i, label %108, !llvm.loop !79
 
-.loopexit.i:                                      ; preds = %116, %.preheader.i
+.loopexit.i:                                      ; preds = %116, %.lr.ph13.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count19.i
-  br i1 %exitcond37.not.i, label %sat_solver_add_choice.exit, label %.preheader.i, !llvm.loop !80
+  br i1 %exitcond37.not.i, label %sat_solver_add_choice.exit, label %.lr.ph13.i, !llvm.loop !80
 
-.preheader.i:                                     ; preds = %108, %.loopexit.i
+.lr.ph13.i:                                       ; preds = %108, %.loopexit.i
   %indvars.iv33.i = phi i64 [ %indvars.iv.next34.i, %.loopexit.i ], [ 0, %108 ]
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.loopexit.i ], [ 1, %108 ]
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %114 = icmp slt i64 %indvars.iv.next34.i, %101
   br i1 %114, label %.lr.ph11.i, label %.loopexit.i
 
-.lr.ph11.i:                                       ; preds = %.preheader.i
+.lr.ph11.i:                                       ; preds = %.lr.ph13.i
   %115 = getelementptr inbounds nuw i32, ptr %.pre.i146189, i64 %indvars.iv33.i
   br label %116
 

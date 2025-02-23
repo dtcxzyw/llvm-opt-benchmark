@@ -1110,7 +1110,7 @@ define internal fastcc i32 @dissect_selfm(ptr noundef %0, ptr noundef %1, ptr no
   %12 = load i16, ptr %11, align 1
   %13 = and i16 %12, 8
   %.not = icmp eq i16 %13, 0
-  br i1 %.not, label %14, label %.thread3
+  br i1 %.not, label %14, label %.thread6
 
 14:                                               ; preds = %3
   %15 = tail call ptr @find_or_create_conversation(ptr noundef %1)
@@ -1271,7 +1271,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %96 = getelementptr inbounds nuw i8, ptr %69, i64 24
   store ptr %95, ptr %96, align 8
   %.not.i = icmp eq i8 %78, 0
-  br i1 %.not.i, label %fmconfig_frame_fast.exit, label %.lr.ph.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %67
   %97 = icmp eq i8 %.fr64.i, 1
@@ -1303,7 +1303,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %113 = add nuw nsw i32 %.06162.us.i, 10
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %93
-  br i1 %exitcond71.not.i, label %fmconfig_frame_fast.exit, label %.lr.ph.split.us.i, !llvm.loop !12
+  br i1 %exitcond71.not.i, label %.thread, label %.lr.ph.split.us.i, !llvm.loop !12
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -1329,24 +1329,24 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %127 = add nuw nsw i32 %.06162.i, 10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %93
-  br i1 %exitcond.not.i, label %fmconfig_frame_fast.exit, label %.lr.ph.split.i, !llvm.loop !12
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.split.i, !llvm.loop !12
 
-fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %67
+.thread:                                          ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %67
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %129 = load i32, ptr %128, align 4
   store i32 %129, ptr %69, align 8
   %130 = load ptr, ptr %.0173, align 8
   tail call void @wmem_list_prepend(ptr noundef %130, ptr noundef %69)
-  br label %131
+  br label %.thread6
 
-131:                                              ; preds = %.loopexit, %fmconfig_frame_fast.exit
+131:                                              ; preds = %.loopexit
   %132 = icmp eq i16 %8, -23226
-  br i1 %132, label %133, label %.thread3
+  br i1 %132, label %133, label %.thread6
 
 133:                                              ; preds = %131
   %134 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 9)
   %135 = icmp eq i8 %134, -79
-  br i1 %135, label %136, label %.thread
+  br i1 %135, label %136, label %.thread1
 
 136:                                              ; preds = %133
   %137 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
@@ -1362,7 +1362,7 @@ fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.l
   %146 = zext i16 %145 to i32
   %.0171 = select i1 %or.cond8, i32 16, i32 %146
   %.not17733 = icmp eq i32 %.0171, 0
-  br i1 %.not17733, label %.thread, label %.lr.ph36
+  br i1 %.not17733, label %.thread1, label %.lr.ph36
 
 .lr.ph36:                                         ; preds = %136
   %147 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1398,35 +1398,35 @@ fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.l
   %166 = add nuw nsw i32 %.235, 14
   %167 = add nuw nsw i32 %.216834, 1
   %exitcond64.not = icmp eq i32 %.216834, %.0171
-  br i1 %exitcond64.not, label %.thread, label %149, !llvm.loop !13
+  br i1 %exitcond64.not, label %.thread1, label %149, !llvm.loop !13
 
-.thread:                                          ; preds = %149, %136, %133
-  %.12 = phi i32 [ 0, %133 ], [ 18, %136 ], [ %166, %149 ]
-  %168 = add i32 %.12, 9
+.thread1:                                         ; preds = %149, %136, %133
+  %.13 = phi i32 [ 0, %133 ], [ 18, %136 ], [ %166, %149 ]
+  %168 = add i32 %.13, 9
   %169 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %168)
   %170 = icmp eq i8 %169, -112
   br i1 %170, label %171, label %176
 
-171:                                              ; preds = %.thread
-  %172 = add i32 %.12, 10
+171:                                              ; preds = %.thread1
+  %172 = add i32 %.13, 10
   %173 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %172)
   %174 = tail call fastcc i32 @dissect_fastmsg_readresp_frame(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 12, i8 noundef zeroext %173)
   %175 = add i32 %174, 2
   %.pre = add i32 %174, 11
   br label %176
 
-176:                                              ; preds = %171, %.thread
-  %.pre-phi = phi i32 [ %.pre, %171 ], [ %168, %.thread ]
-  %.3.ph = phi i32 [ %175, %171 ], [ %.12, %.thread ]
+176:                                              ; preds = %.thread1, %171
+  %.pre-phi = phi i32 [ %168, %.thread1 ], [ %.pre, %171 ]
+  %.3 = phi i32 [ %.13, %.thread1 ], [ %175, %171 ]
   %177 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre-phi)
   %178 = icmp eq i8 %177, -80
-  br i1 %178, label %179, label %.thread3
+  br i1 %178, label %179, label %.thread6
 
 179:                                              ; preds = %176
-  %180 = add i32 %.3.ph, 10
+  %180 = add i32 %.3, 10
   %181 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %180)
   %182 = and i8 %181, 63
-  %183 = add i32 %.3.ph, 102
+  %183 = add i32 %.3, 102
   %184 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %183)
   %185 = icmp ugt i16 %184, 7
   %186 = icmp eq i8 %182, 0
@@ -1462,10 +1462,10 @@ fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.l
 
 ._crit_edge:                                      ; preds = %191, %179
   %201 = and i32 %7, 65535
-  br label %.thread3
+  br label %.thread6
 
-.thread3:                                         ; preds = %131, %176, %._crit_edge, %3
-  %.0 = phi i32 [ 0, %3 ], [ %201, %._crit_edge ], [ %.3.ph, %176 ], [ 0, %131 ]
+.thread6:                                         ; preds = %131, %.thread, %176, %._crit_edge, %3
+  %.0 = phi i32 [ 0, %3 ], [ %201, %._crit_edge ], [ %.3, %176 ], [ 0, %.thread ], [ 0, %131 ]
   %202 = load i32, ptr @proto_selfm, align 4
   %203 = and i32 %7, 65535
   %204 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %202, ptr noundef %0, i32 noundef 0, i32 noundef %203, ptr noundef nonnull @.str.307)
@@ -1482,7 +1482,7 @@ fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.l
   %214 = icmp sgt i32 %213, 0
   br i1 %214, label %215, label %950
 
-215:                                              ; preds = %.thread3
+215:                                              ; preds = %.thread6
   switch i16 %8, label %950 [
     i16 -23104, label %216
     i16 -23103, label %271
@@ -2673,8 +2673,8 @@ dissect_fastop_frame.exit:                        ; preds = %875, %.sink.split.i
   %949 = add i32 %.0, 7
   br label %950
 
-950:                                              ; preds = %dissect_relaydef_frame.exit, %dissect_fmconfig_frame.exit, %391, %393, %395, %dissect_foconfig_frame.exit, %dissect_fastmsg_frame.exit, %dissect_fastop_frame.exit, %899, %932, %215, %.thread3
-  %.0170 = phi i32 [ 2, %215 ], [ %949, %932 ], [ %931, %899 ], [ %898, %dissect_fastop_frame.exit ], [ %874, %dissect_fastmsg_frame.exit ], [ %461, %dissect_foconfig_frame.exit ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %dissect_fmconfig_frame.exit ], [ %270, %dissect_relaydef_frame.exit ], [ 2, %.thread3 ]
+950:                                              ; preds = %dissect_relaydef_frame.exit, %dissect_fmconfig_frame.exit, %391, %393, %395, %dissect_foconfig_frame.exit, %dissect_fastmsg_frame.exit, %dissect_fastop_frame.exit, %899, %932, %215, %.thread6
+  %.0170 = phi i32 [ 2, %215 ], [ %949, %932 ], [ %931, %899 ], [ %898, %dissect_fastop_frame.exit ], [ %874, %dissect_fastmsg_frame.exit ], [ %461, %dissect_foconfig_frame.exit ], [ %396, %395 ], [ %394, %393 ], [ %392, %391 ], [ %390, %dissect_fmconfig_frame.exit ], [ %270, %dissect_relaydef_frame.exit ], [ 2, %.thread6 ]
   ret i32 %.0170
 }
 

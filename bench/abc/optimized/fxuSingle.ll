@@ -522,7 +522,7 @@ Fxu_MatrixComputeSinglesOneCollect.exit:          ; preds = %155, %13, %._crit_e
   %217 = load ptr, ptr %gep121, align 8, !tbaa !48
   %218 = ptrtoint ptr %217 to i64
   %219 = trunc i64 %218 to i32
-  tail call void @Fxu_MatrixAddSingle(ptr noundef %0, ptr noundef %215, ptr noundef %216, i32 noundef %219) #9
+  tail call void @Fxu_MatrixAddSingle(ptr noundef nonnull %0, ptr noundef %215, ptr noundef %216, i32 noundef %219) #9
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 3
   %220 = trunc nuw i64 %indvars.iv.next127 to i32
   %221 = icmp sgt i32 %.val80, %220

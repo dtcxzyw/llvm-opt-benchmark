@@ -1017,7 +1017,7 @@ zval_get_tmp_string.exit:                         ; preds = %359, %361
   %.0346 = phi ptr [ null, %359 ], [ %362, %361 ]
   %.0.i = phi ptr [ %360, %359 ], [ %362, %361 ]
   %363 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %364 = sext i32 %.3142 to i64
+  %364 = zext nneg i32 %.3142 to i64
   %365 = sext i32 %.3137 to i64
   %366 = zext nneg i32 %.0131 to i64
   %367 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
@@ -1062,7 +1062,7 @@ zval_get_tmp_string.exit:                         ; preds = %359, %361
 
 zval_get_long.exit:                               ; preds = %383, %385
   %387 = phi i64 [ %384, %383 ], [ %386, %385 ]
-  %388 = sext i32 %.3142 to i64
+  %388 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %14) #16
   %.028.i = call i64 @llvm.abs.i64(i64 %387, i1 false)
   store i8 0, ptr %32, align 1, !tbaa !11
@@ -1143,7 +1143,7 @@ php_sprintf_appendint.exit:                       ; preds = %403, %._crit_edge.i
 
 zval_get_long.exit194:                            ; preds = %421, %423
   %425 = phi i64 [ %422, %421 ], [ %424, %423 ]
-  %426 = sext i32 %.3142 to i64
+  %426 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %13) #16
   store i8 0, ptr %31, align 1, !tbaa !11
   br label %427
@@ -1195,7 +1195,7 @@ php_sprintf_appenduint.exit:                      ; preds = %427
 zval_get_double.exit:                             ; preds = %446, %448
   %450 = phi i8 [ %350, %446 ], [ %.pre600, %448 ]
   %451 = phi double [ %447, %446 ], [ %449, %448 ]
-  %452 = sext i32 %.3142 to i64
+  %452 = zext nneg i32 %.3142 to i64
   %453 = zext nneg i32 %.0131 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %10) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
@@ -1451,7 +1451,7 @@ php_sprintf_appendchar.exit277:                   ; preds = %zval_get_long.exit1
 
 zval_get_long.exit196:                            ; preds = %562, %564
   %566 = phi i64 [ %563, %562 ], [ %565, %564 ]
-  %567 = sext i32 %.3142 to i64
+  %567 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %9) #16
   store i8 0, ptr %29, align 1, !tbaa !11
   br label %568
@@ -1493,7 +1493,7 @@ php_sprintf_append2n.exit:                        ; preds = %568
 
 zval_get_long.exit197:                            ; preds = %582, %584
   %586 = phi i64 [ %583, %582 ], [ %585, %584 ]
-  %587 = sext i32 %.3142 to i64
+  %587 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %8) #16
   store i8 0, ptr %28, align 1, !tbaa !11
   br label %588
@@ -1535,7 +1535,7 @@ php_sprintf_append2n.exit283:                     ; preds = %588
 
 zval_get_long.exit198:                            ; preds = %602, %604
   %606 = phi i64 [ %603, %602 ], [ %605, %604 ]
-  %607 = sext i32 %.3142 to i64
+  %607 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %7) #16
   store i8 0, ptr %27, align 1, !tbaa !11
   br label %608
@@ -1577,7 +1577,7 @@ php_sprintf_append2n.exit287:                     ; preds = %608
 
 zval_get_long.exit199:                            ; preds = %622, %624
   %626 = phi i64 [ %623, %622 ], [ %625, %624 ]
-  %627 = sext i32 %.3142 to i64
+  %627 = zext nneg i32 %.3142 to i64
   call void @llvm.lifetime.start.p0(i64 500, ptr nonnull %6) #16
   store i8 0, ptr %26, align 1, !tbaa !11
   br label %628

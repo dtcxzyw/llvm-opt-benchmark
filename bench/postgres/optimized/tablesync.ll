@@ -1488,7 +1488,7 @@ slot_getattr.exit137.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 24
   %342 = load ptr, ptr %341, align 8
-  call void %342(ptr noundef %301) #12
+  call void %342(ptr noundef nonnull %301) #12
   br label %343
 
 343:                                              ; preds = %.loopexit.i.i.i, %298

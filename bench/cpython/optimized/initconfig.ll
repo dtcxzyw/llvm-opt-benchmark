@@ -1471,29 +1471,25 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
 
 .preheader:                                       ; preds = %18
   %22 = load i64, ptr %1, align 8, !tbaa !20
-  %.not2242 = icmp sgt i64 %22, 0
-  br i1 %.not2242, label %.lr.ph, label %.critedge
+  %.not2241 = icmp sgt i64 %22, 0
+  br i1 %.not2241, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %24
 
-24:                                               ; preds = %.lr.ph, %.thread
-  %.01844 = phi i64 [ 0, %.lr.ph ], [ %34, %.thread ]
+24:                                               ; preds = %.lr.ph, %33
+  %.01843 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
   %25 = load ptr, ptr %23, align 8, !tbaa !24
-  %26 = getelementptr ptr, ptr %25, i64 %.01844
+  %26 = getelementptr ptr, ptr %25, i64 %.01843
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = tail call ptr @_PyMem_RawWcsdup(ptr noundef %27) #29
   %.not = icmp eq ptr %28, null
-  br i1 %.not, label %29, label %.thread
+  br i1 %.not, label %29, label %33
 
 29:                                               ; preds = %24
-  %.not47 = icmp eq i64 %.01844, 0
-  br i1 %.not47, label %.thread40, label %.lr.ph.i23
-
-.thread40:                                        ; preds = %29
-  tail call void @PyMem_RawFree(ptr noundef nonnull %20) #29
-  br label %49
+  %.not46 = icmp eq i64 %.01843, 0
+  br i1 %.not46, label %.loopexit, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %29, %.lr.ph.i23
   %.07.i24 = phi i64 [ %32, %.lr.ph.i23 ], [ 0, %29 ]
@@ -1501,23 +1497,23 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %31) #29
   %32 = add nuw nsw i64 %.07.i24, 1
-  %exitcond.not = icmp eq i64 %32, %.01844
-  br i1 %exitcond.not, label %36, label %.lr.ph.i23, !llvm.loop !27
+  %exitcond.not = icmp eq i64 %32, %.01843
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i23, !llvm.loop !27
 
-.thread:                                          ; preds = %24
-  %33 = getelementptr ptr, ptr %20, i64 %.01844
-  store ptr %28, ptr %33, align 8, !tbaa !25
-  %34 = add nuw nsw i64 %.01844, 1
-  %35 = load i64, ptr %1, align 8, !tbaa !20
-  %.not22 = icmp slt i64 %34, %35
+33:                                               ; preds = %24
+  %34 = getelementptr ptr, ptr %20, i64 %.01843
+  store ptr %28, ptr %34, align 8, !tbaa !25
+  %35 = add nuw nsw i64 %.01843, 1
+  %36 = load i64, ptr %1, align 8, !tbaa !20
+  %.not22 = icmp slt i64 %35, %36
   br i1 %.not22, label %24, label %.critedge, !llvm.loop !29
 
-36:                                               ; preds = %.lr.ph.i23
+.loopexit:                                        ; preds = %.lr.ph.i23, %29
   tail call void @PyMem_RawFree(ptr noundef nonnull %20) #29
   br label %49
 
-.critedge:                                        ; preds = %.thread, %.preheader
-  %.sroa.0.0.lcssa = phi i64 [ 0, %.preheader ], [ %34, %.thread ]
+.critedge:                                        ; preds = %33, %.preheader
+  %.sroa.0.0.lcssa = phi i64 [ 0, %.preheader ], [ %35, %33 ]
   %37 = load i64, ptr %0, align 8, !tbaa !20
   %38 = icmp sgt i64 %37, 0
   br i1 %38, label %.lr.ph.i26, label %_PyWideStringList_Clear.exit28
@@ -1545,8 +1541,8 @@ _PyWideStringList_Clear.exit28:                   ; preds = %40, %.critedge
   store ptr %20, ptr %47, align 8, !tbaa !31
   br label %49
 
-49:                                               ; preds = %36, %_PyWideStringList_Clear.exit28, %18, %.thread40, %_PyWideStringList_Clear.exit
-  %.0 = phi i32 [ 0, %_PyWideStringList_Clear.exit ], [ 0, %_PyWideStringList_Clear.exit28 ], [ -1, %18 ], [ -1, %.thread40 ], [ -1, %36 ]
+49:                                               ; preds = %_PyWideStringList_Clear.exit28, %18, %.loopexit, %_PyWideStringList_Clear.exit
+  %.0 = phi i32 [ 0, %_PyWideStringList_Clear.exit ], [ 0, %_PyWideStringList_Clear.exit28 ], [ -1, %.loopexit ], [ -1, %18 ]
   ret i32 %.0
 }
 
@@ -8698,7 +8694,7 @@ define hidden void @_Py_DumpPathConfig(ptr noundef %0) local_unnamed_addr #5 {
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !504
 
 70:                                               ; preds = %._crit_edge, %57, %55
-  tail call void @_PyErr_SetRaisedException(ptr noundef %0, ptr noundef %2) #29
+  tail call void @_PyErr_SetRaisedException(ptr noundef nonnull %0, ptr noundef %2) #29
   ret void
 }
 
@@ -9811,8 +9807,8 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   br i1 %28, label %29, label %.preheader.i
 
 .preheader.i:                                     ; preds = %25
-  %.not2140.i = icmp sgt i64 %2, 0
-  br i1 %.not2140.i, label %.lr.ph.i, label %.critedge.i
+  %.not2139.i = icmp sgt i64 %2, 0
+  br i1 %.not2139.i, label %.lr.ph.i, label %.critedge.i
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -9829,21 +9825,17 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   store i32 0, ptr %.sroa.6.0..sroa_idx.i18, align 4
   br label %_PyWideStringList_FromUTF8.exit.thread
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %.thread.i
-  %.01742.i = phi i64 [ %39, %.thread.i ], [ 0, %.preheader.i ]
-  %31 = getelementptr ptr, ptr %3, i64 %.01742.i
+.lr.ph.i:                                         ; preds = %.preheader.i, %38
+  %.01741.i = phi i64 [ %40, %38 ], [ 0, %.preheader.i ]
+  %31 = getelementptr ptr, ptr %3, i64 %.01741.i
   %32 = load ptr, ptr %31, align 8, !tbaa !250
   %33 = tail call fastcc ptr @utf8_to_wstr(ptr noundef %0, ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
-  br i1 %.not.i, label %34, label %.thread.i
+  br i1 %.not.i, label %34, label %38
 
 34:                                               ; preds = %.lr.ph.i
-  %.not46.i = icmp eq i64 %.01742.i, 0
-  br i1 %.not46.i, label %.thread38.i, label %.lr.ph.i.i13
-
-.thread38.i:                                      ; preds = %34
-  tail call void @PyMem_RawFree(ptr noundef nonnull %27) #29
-  br label %_PyWideStringList_FromUTF8.exit.thread
+  %.not45.i = icmp eq i64 %.01741.i, 0
+  br i1 %.not45.i, label %.loopexit.i, label %.lr.ph.i.i13
 
 .lr.ph.i.i13:                                     ; preds = %34, %.lr.ph.i.i13
   %.07.i.i = phi i64 [ %37, %.lr.ph.i.i13 ], [ 0, %34 ]
@@ -9851,22 +9843,22 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %36) #29
   %37 = add nuw nsw i64 %.07.i.i, 1
-  %exitcond45.not.i = icmp eq i64 %37, %.01742.i
-  br i1 %exitcond45.not.i, label %40, label %.lr.ph.i.i13, !llvm.loop !27
+  %exitcond44.not.i = icmp eq i64 %37, %.01741.i
+  br i1 %exitcond44.not.i, label %.loopexit.i, label %.lr.ph.i.i13, !llvm.loop !27
 
-.thread.i:                                        ; preds = %.lr.ph.i
-  %38 = getelementptr ptr, ptr %27, i64 %.01742.i
-  store ptr %33, ptr %38, align 8, !tbaa !25
-  %39 = add nuw nsw i64 %.01742.i, 1
-  %exitcond.not.i = icmp eq i64 %39, %2
+38:                                               ; preds = %.lr.ph.i
+  %39 = getelementptr ptr, ptr %27, i64 %.01741.i
+  store ptr %33, ptr %39, align 8, !tbaa !25
+  %40 = add nuw nsw i64 %.01741.i, 1
+  %exitcond.not.i = icmp eq i64 %40, %2
   br i1 %exitcond.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !515
 
-40:                                               ; preds = %.lr.ph.i.i13
+.loopexit.i:                                      ; preds = %.lr.ph.i.i13, %34
   tail call void @PyMem_RawFree(ptr noundef nonnull %27) #29
   br label %_PyWideStringList_FromUTF8.exit.thread
 
-.critedge.i:                                      ; preds = %.thread.i, %.preheader.i
-  %.sroa.0.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %2, %.thread.i ]
+.critedge.i:                                      ; preds = %38, %.preheader.i
+  %.sroa.0.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %2, %38 ]
   %41 = load i64, ptr %20, align 8, !tbaa !20
   %42 = icmp sgt i64 %41, 0
   br i1 %42, label %.lr.ph.i22.i, label %.loopexit
@@ -9901,8 +9893,8 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   store i32 1, ptr %56, align 8, !tbaa !516
   br label %_PyWideStringList_FromUTF8.exit.thread
 
-_PyWideStringList_FromUTF8.exit.thread:           ; preds = %40, %.thread38.i, %29, %initconfig_prepare.exit, %55, %.loopexit, %23
-  %.0 = phi i32 [ -1, %23 ], [ -1, %initconfig_prepare.exit ], [ 0, %55 ], [ 0, %.loopexit ], [ -1, %29 ], [ -1, %.thread38.i ], [ -1, %40 ]
+_PyWideStringList_FromUTF8.exit.thread:           ; preds = %.loopexit.i, %29, %initconfig_prepare.exit, %55, %.loopexit, %23
+  %.0 = phi i32 [ -1, %23 ], [ -1, %initconfig_prepare.exit ], [ 0, %55 ], [ 0, %.loopexit ], [ -1, %29 ], [ -1, %.loopexit.i ]
   ret i32 %.0
 }
 

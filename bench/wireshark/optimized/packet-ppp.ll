@@ -8123,7 +8123,7 @@ define internal i32 @dissect_iphc_crtp_cs(ptr noundef %0, ptr noundef readonly c
   %31 = load i32, ptr @hf_iphc_crtp_gen, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 1, i32 noundef 0)
   %33 = add nuw nsw i32 %25, 2
-  %34 = icmp ult i32 %33, %.036
+  %34 = icmp samesign ult i32 %33, %.036
   br i1 %34, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4

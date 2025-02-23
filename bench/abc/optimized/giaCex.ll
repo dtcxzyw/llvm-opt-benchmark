@@ -2712,7 +2712,7 @@ Abc_Clock.exit73:                                 ; preds = %Abc_Clock.exit71, %
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !35
   %61 = add nsw i32 %60, 1
-  %62 = call ptr @Gia_ManFramesForCexMin(ptr noundef %0, i32 noundef %61)
+  %62 = call ptr @Gia_ManFramesForCexMin(ptr noundef nonnull %0, i32 noundef %61)
   %63 = call ptr @Mf_ManGenerateCnf(ptr noundef %62, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !97
@@ -3164,7 +3164,7 @@ Abc_Clock.exit100:                                ; preds = %56, %59
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !35
   %65 = add nsw i32 %64, 1
-  %66 = call ptr @Gia_ManFramesForCexMin(ptr noundef %0, i32 noundef %65)
+  %66 = call ptr @Gia_ManFramesForCexMin(ptr noundef nonnull %0, i32 noundef %65)
   %67 = call ptr @Mf_ManGenerateCnf(ptr noundef %66, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #21
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i32, ptr %68, align 8, !tbaa !97
@@ -3506,7 +3506,7 @@ Abc_Clock.exit112:                                ; preds = %227, %230
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #21
   %.val89 = load ptr, ptr %173, align 8, !tbaa !30
   %.val84 = load i32, ptr %155, align 4, !tbaa !31
-  %233 = call i32 @sat_solver_minimize_assumptions(ptr noundef %74, ptr noundef %.val89, i32 noundef %.val84, i32 noundef 0) #21
+  %233 = call i32 @sat_solver_minimize_assumptions(ptr noundef nonnull %74, ptr noundef %.val89, i32 noundef %.val84, i32 noundef 0) #21
   br i1 %.not, label %249, label %234
 
 234:                                              ; preds = %Abc_Clock.exit112
@@ -3628,7 +3628,7 @@ Vec_IntFreeP.exit123:                             ; preds = %284, %.thread.i122
 
 Vec_IntFreeP.exit126:                             ; preds = %Vec_IntFreeP.exit123, %.thread.i125
   call void @free(ptr noundef nonnull %77) #21
-  call void @sat_solver_delete(ptr noundef %74) #21
+  call void @sat_solver_delete(ptr noundef nonnull %74) #21
   call void @Cnf_DataFree(ptr noundef %67) #21
   call void @Gia_ManStop(ptr noundef %66) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #21

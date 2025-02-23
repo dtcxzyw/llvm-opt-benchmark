@@ -73,7 +73,6 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %24 = shl nuw nsw i64 %22, 1
   %25 = add nsw i64 %24, -15
   %.0.i.i = select i1 %23, i64 %24, i64 %25
-  %.sink20.i = select i1 %21, i8 15, i8 -16
   br i1 %21, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
@@ -91,8 +90,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %36 = getelementptr i8, ptr %33, i64 %34
   %37 = getelementptr i8, ptr %36, i64 %.0.i.i
   %38 = load i8, ptr %37, align 1, !tbaa !11
-  %39 = and i8 %.sink20.i, %38
-  %40 = or i8 %39, %35
+  %39 = and i8 %38, 15
+  %40 = or disjoint i8 %39, %35
   store i8 %40, ptr %37, align 1, !tbaa !11
   %41 = load i64, ptr %17, align 8, !tbaa !12
   %42 = add i64 %41, 1
@@ -104,8 +103,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %48 = getelementptr i8, ptr %47, i64 16
   %49 = getelementptr i8, ptr %48, i64 %.0.i.i
   %50 = load i8, ptr %49, align 1, !tbaa !11
-  %51 = and i8 %50, %.sink20.i
-  %52 = or i8 %51, %46
+  %51 = and i8 %50, 15
+  %52 = or disjoint i8 %51, %46
   store i8 %52, ptr %49, align 1, !tbaa !11
   %53 = add nuw i64 %.01825.us, 1
   %54 = load i64, ptr %15, align 8, !tbaa !10
@@ -130,8 +129,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %66 = getelementptr i8, ptr %64, i64 %65
   %67 = getelementptr i8, ptr %66, i64 %.0.i.i
   %68 = load i8, ptr %67, align 1, !tbaa !11
-  %69 = and i8 %.sink20.i, %68
-  %70 = or i8 %69, %58
+  %69 = and i8 %68, -16
+  %70 = or disjoint i8 %69, %58
   store i8 %70, ptr %67, align 1, !tbaa !11
   %71 = lshr i8 %57, 4
   %72 = load i64, ptr %17, align 8, !tbaa !12
@@ -143,8 +142,8 @@ define void @_ZNK5faiss13CodePackerPQ46pack_1EPKhmPh(ptr noundef nonnull readonl
   %78 = getelementptr i8, ptr %77, i64 16
   %79 = getelementptr i8, ptr %78, i64 %.0.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !11
-  %81 = and i8 %80, %.sink20.i
-  %82 = or i8 %81, %71
+  %81 = and i8 %80, -16
+  %82 = or disjoint i8 %81, %71
   store i8 %82, ptr %79, align 1, !tbaa !11
   %83 = add nuw i64 %.01825, 1
   %84 = load i64, ptr %15, align 8, !tbaa !10

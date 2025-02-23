@@ -2847,7 +2847,7 @@ dt_dev_clear_scharr_mask.exit:                    ; preds = %._crit_edge, %9
   %15 = load ptr, ptr %14, align 16, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 320
   %17 = load ptr, ptr %16, align 16, !tbaa !174
-  tail call void %17(ptr noundef %15, ptr noundef %0, ptr noundef nonnull %14) #27
+  tail call void %17(ptr noundef %15, ptr noundef nonnull %0, ptr noundef nonnull %14) #27
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !175
   tail call void @free(ptr noundef %19) #27
@@ -3155,14 +3155,14 @@ dt_get_debug_wtime.exit39:                        ; preds = %._crit_edge
   %45 = load ptr, ptr %44, align 16, !tbaa !224
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 768
   %47 = load ptr, ptr %46, align 16, !tbaa !225
-  tail call void @dt_iop_commit_params(ptr noundef %40, ptr noundef %45, ptr noundef %47, ptr noundef %0, ptr noundef nonnull %38) #27
+  tail call void @dt_iop_commit_params(ptr noundef %40, ptr noundef %45, ptr noundef %47, ptr noundef nonnull %0, ptr noundef nonnull %38) #27
   %48 = getelementptr inbounds nuw i8, ptr %.03443, i64 8
   %.034 = load ptr, ptr %48, align 8, !tbaa !85
   %.not35 = icmp eq ptr %.034, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 49:                                               ; preds = %dt_get_debug_wtime.exit39
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.59, ptr noundef %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.58)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.59, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.58)
   br label %dt_get_debug_wtime.exit39.thread
 
 dt_get_debug_wtime.exit39.thread:                 ; preds = %._crit_edge, %49, %dt_get_debug_wtime.exit39
@@ -3200,7 +3200,7 @@ dt_dev_clear_scharr_mask.exit:                    ; preds = %dt_get_debug_wtime.
   %.03346 = phi ptr [ %.033, %.lr.ph47 ], [ %.03344, %dt_dev_clear_scharr_mask.exit ]
   %.045 = phi i32 [ %65, %.lr.ph47 ], [ 0, %dt_dev_clear_scharr_mask.exit ]
   %.033.val = load ptr, ptr %.03346, align 8, !tbaa !86
-  tail call fastcc void @_dev_pixelpipe_synch(ptr noundef %0, ptr noundef nonnull %1, ptr %.033.val)
+  tail call fastcc void @_dev_pixelpipe_synch(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr %.033.val)
   %64 = getelementptr inbounds nuw i8, ptr %.03346, i64 8
   %65 = add nuw nsw i32 %.045, 1
   %.033 = load ptr, ptr %64, align 8, !tbaa !85
@@ -3224,7 +3224,7 @@ dt_dev_clear_scharr_mask.exit:                    ; preds = %dt_get_debug_wtime.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #27
   %80 = fsub reassoc nsz arcp contract afn double %75, %50
   %81 = fadd reassoc nsz arcp contract afn double %80, %79
-  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.60, ptr noundef %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.61, double noundef %71, double noundef %81)
+  tail call void (ptr, ptr, ptr, i32, ptr, ptr, ptr, ...) @dt_print_pipe_ext(ptr noundef nonnull @.str.60, ptr noundef nonnull %0, ptr noundef null, i32 noundef -2, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.61, double noundef %71, double noundef %81)
   br label %82
 
 82:                                               ; preds = %70, %._crit_edge48

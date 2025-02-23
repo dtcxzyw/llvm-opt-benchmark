@@ -1637,12 +1637,7 @@ for.inc.us:                                       ; preds = %if.then.us, %lor.rh
   %inc9.us = add nuw nsw i32 %seqIndex.024.us, 1
   %last.val.us = load ptr, ptr %last, align 8
   %cmp.i.not.us = icmp eq ptr %8, %last.val.us
-  br i1 %cmp.i.not.us, label %for.cond10.preheader.thread, label %for.body.us, !llvm.loop !251
-
-for.cond10.preheader.thread:                      ; preds = %for.inc, %for.inc.us
-  %argIndex.0.lcssa.ph = phi i32 [ %inc9.us, %for.inc.us ], [ %inc9, %for.inc ]
-  %bReturnValue.0.lcssa.ph = phi i1 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
-  br i1 %bReturnValue.0.lcssa.ph, label %if.then19, label %if.end54
+  br i1 %cmp.i.not.us, label %for.end17, label %for.body.us, !llvm.loop !251
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %first.val26 = phi ptr [ %15, %for.inc ], [ %first.val21, %for.body.lr.ph ]
@@ -1691,10 +1686,15 @@ for.inc:                                          ; preds = %if.then, %lor.rhs
   %inc9 = add nuw nsw i32 %seqIndex.024, 1
   %last.val = load ptr, ptr %last, align 8
   %cmp.i.not = icmp eq ptr %15, %last.val
-  br i1 %cmp.i.not, label %for.cond10.preheader.thread, label %for.body, !llvm.loop !251
+  br i1 %cmp.i.not, label %for.end17, label %for.body, !llvm.loop !251
 
-if.then19:                                        ; preds = %entry, %for.cond10.preheader.thread
-  %seqIndex.1.lcssa57 = phi i32 [ %argIndex.0.lcssa.ph, %for.cond10.preheader.thread ], [ 0, %entry ]
+for.end17:                                        ; preds = %for.inc, %for.inc.us
+  %argIndex.0.lcssa.ph = phi i32 [ %inc9.us, %for.inc.us ], [ %inc9, %for.inc ]
+  %bReturnValue.0.lcssa.ph = phi i1 [ %bReturnValue.1.us, %for.inc.us ], [ %bReturnValue.1, %for.inc ]
+  br i1 %bReturnValue.0.lcssa.ph, label %if.then19, label %if.end54
+
+if.then19:                                        ; preds = %entry, %for.end17
+  %seqIndex.1.lcssa57 = phi i32 [ %argIndex.0.lcssa.ph, %for.end17 ], [ 0, %entry ]
   %gp_offset22 = load i32, ptr %args, align 16
   %fits_in_gp23 = icmp ult i32 %gp_offset22, 41
   br i1 %fits_in_gp23, label %vaarg.in_reg24, label %vaarg.in_mem26
@@ -1769,8 +1769,8 @@ if.else51:                                        ; preds = %do.end
   call void (ptr, ...) @_ZN2EA8UnitTest6ReportEPKcz(ptr noundef nonnull @.str.78, i32 noundef %inc34, i32 noundef %seqIndex.1.lcssa57)
   br label %if.end54
 
-if.end54:                                         ; preds = %for.cond10.preheader.thread, %if.then50, %if.else51, %vaarg.end30
-  %bReturnValue.2 = phi i1 [ true, %vaarg.end30 ], [ false, %if.else51 ], [ false, %if.then50 ], [ false, %for.cond10.preheader.thread ]
+if.end54:                                         ; preds = %if.then50, %if.else51, %vaarg.end30, %for.end17
+  %bReturnValue.2 = phi i1 [ true, %vaarg.end30 ], [ false, %for.end17 ], [ false, %if.else51 ], [ false, %if.then50 ]
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret i1 %bReturnValue.2
 }

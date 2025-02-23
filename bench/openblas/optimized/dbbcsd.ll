@@ -868,7 +868,7 @@ define void @dbbcsd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not18932059.not, label %.lr.ph2062.preheader, label %._crit_edge2063
 
 .lr.ph2062.preheader:                             ; preds = %471
-  %489 = sext i32 %197 to i64
+  %489 = zext nneg i32 %197 to i64
   br label %.lr.ph2062
 
 .lr.ph2062:                                       ; preds = %.lr.ph2062.preheader, %786

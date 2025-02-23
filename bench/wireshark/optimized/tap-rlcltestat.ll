@@ -94,7 +94,7 @@ define internal void @rlc_lte_stat_reset(ptr noundef initializes((8, 12)) %0) #4
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread88, label %6
+  br i1 %.not, label %.thread92, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -121,7 +121,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr rea
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %20, %18
   store i32 %21, ptr %19, align 4
-  br label %.thread88
+  br label %.thread92
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -135,7 +135,7 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr rea
   %30 = load i32, ptr %29, align 4
   %31 = add i32 %30, %28
   store i32 %31, ptr %29, align 4
-  br label %.thread88
+  br label %.thread92
 
 32:                                               ; preds = %6
   %33 = load ptr, ptr %0, align 8
@@ -145,133 +145,123 @@ define internal range(i32 0, 2) i32 @rlc_lte_stat_packet(ptr noundef %0, ptr rea
 .preheader:                                       ; preds = %32
   %34 = load i8, ptr %3, align 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  br label %49
+  br label %39
 
 36:                                               ; preds = %32
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %alloc_rlc_lte_ep.exit, label %37
+  br i1 %.not.i, label %.thread96, label %37
 
 37:                                               ; preds = %36
   %38 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc(i64 noundef 128) #11
   %.not33.i = icmp eq ptr %38, null
-  br i1 %.not33.i, label %alloc_rlc_lte_ep.exit, label %39
+  br i1 %.not33.i, label %.thread96, label %66
 
-39:                                               ; preds = %37
-  %40 = load i8, ptr %3, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i8 %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %43 = load i16, ptr %42, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %38, i64 10
-  store i16 %43, ptr %44, align 2
-  %45 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 56
-  store ptr null, ptr %38, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %48, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %47, i8 0, i64 44, i1 false)
-  br label %alloc_rlc_lte_ep.exit
+39:                                               ; preds = %.preheader, %48
+  %.068100 = phi ptr [ %33, %.preheader ], [ %49, %48 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.068100, i64 8
+  %41 = load i8, ptr %40, align 8
+  %42 = icmp eq i8 %41, %34
+  br i1 %42, label %43, label %48
 
-alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
-  %.0.i = phi ptr [ %38, %39 ], [ null, %36 ], [ null, %37 ]
-  store ptr %.0.i, ptr %0, align 8
-  br label %76
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds nuw i8, ptr %.068100, i64 10
+  %45 = load i16, ptr %44, align 2
+  %46 = load i16, ptr %35, align 4
+  %47 = icmp eq i16 %45, %46
+  br i1 %47, label %.thread88, label %48
 
-49:                                               ; preds = %.preheader, %58
-  %.06896 = phi ptr [ %33, %.preheader ], [ %59, %58 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.06896, i64 8
-  %51 = load i8, ptr %50, align 8
-  %52 = icmp eq i8 %51, %34
-  br i1 %52, label %53, label %58
+48:                                               ; preds = %39, %43
+  %49 = load ptr, ptr %.068100, align 8
+  %.not75 = icmp eq ptr %49, null
+  br i1 %.not75, label %50, label %39, !llvm.loop !7
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %.06896, i64 10
-  %55 = load i16, ptr %54, align 2
-  %56 = load i16, ptr %35, align 4
-  %57 = icmp eq i16 %55, %56
-  br i1 %57, label %.thread91, label %58
-
-58:                                               ; preds = %49, %53
-  %59 = load ptr, ptr %.06896, align 8
-  %.not75 = icmp eq ptr %59, null
-  br i1 %.not75, label %60, label %49, !llvm.loop !7
-
-60:                                               ; preds = %58
+50:                                               ; preds = %48
   %.not.i81 = icmp eq ptr %3, null
-  br i1 %.not.i81, label %.thread88, label %61
+  br i1 %.not.i81, label %.thread92, label %51
 
-61:                                               ; preds = %60
-  %62 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc(i64 noundef 128) #11
-  %.not33.i82 = icmp eq ptr %62, null
-  br i1 %.not33.i82, label %.thread88, label %63
+51:                                               ; preds = %50
+  %52 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc(i64 noundef 128) #11
+  %.not33.i82 = icmp eq ptr %52, null
+  br i1 %.not33.i82, label %.thread92, label %53
 
-63:                                               ; preds = %61
-  %64 = load i8, ptr %3, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i8 %64, ptr %65, align 8
-  %66 = load i16, ptr %35, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %62, i64 10
-  store i16 %66, ptr %67, align 2
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i32 0, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 20
-  store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 80
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  store ptr null, ptr %62, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %71, i8 0, i64 20, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %70, i8 0, i64 44, i1 false)
-  %72 = load ptr, ptr %0, align 8
-  br label %73
+53:                                               ; preds = %51
+  %54 = load i8, ptr %3, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i8 %54, ptr %55, align 8
+  %56 = load i16, ptr %35, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 10
+  store i16 %56, ptr %57, align 2
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 20
+  store i32 0, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 80
+  %61 = getelementptr inbounds nuw i8, ptr %52, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %61, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %60, i8 0, i64 44, i1 false)
+  %62 = load ptr, ptr %0, align 8
+  br label %63
 
-73:                                               ; preds = %73, %63
-  %.0 = phi ptr [ %72, %63 ], [ %74, %73 ]
-  %74 = load ptr, ptr %.0, align 8
-  %.not77 = icmp eq ptr %74, null
-  br i1 %.not77, label %75, label %73, !llvm.loop !9
+63:                                               ; preds = %63, %53
+  %.0 = phi ptr [ %62, %53 ], [ %64, %63 ]
+  %64 = load ptr, ptr %.0, align 8
+  %.not77 = icmp eq ptr %64, null
+  br i1 %.not77, label %65, label %63, !llvm.loop !9
 
-75:                                               ; preds = %73
-  store ptr %62, ptr %.0, align 8
-  store ptr null, ptr %62, align 8
-  br label %76
+65:                                               ; preds = %63
+  store ptr %52, ptr %.0, align 8
+  store ptr null, ptr %52, align 8
+  br label %.thread88
 
-76:                                               ; preds = %75, %alloc_rlc_lte_ep.exit
-  %.067 = phi ptr [ %62, %75 ], [ %.0.i, %alloc_rlc_lte_ep.exit ]
-  %.not78 = icmp eq ptr %.067, null
-  br i1 %.not78, label %.thread88, label %..thread91_crit_edge
+.thread96:                                        ; preds = %36, %37
+  store ptr null, ptr %0, align 8
+  br label %.thread92
 
-..thread91_crit_edge:                             ; preds = %76
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.pre = load i16, ptr %.phi.trans.insert, align 4
-  br label %.thread91
+66:                                               ; preds = %37
+  %67 = load i8, ptr %3, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i8 %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %70 = load i16, ptr %69, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %38, i64 10
+  store i16 %70, ptr %71, align 2
+  %72 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i32 0, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  store i32 0, ptr %73, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %38, i64 80
+  %75 = getelementptr inbounds nuw i8, ptr %38, i64 56
+  store ptr null, ptr %38, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %75, i8 0, i64 20, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %74, i8 0, i64 44, i1 false)
+  store ptr %38, ptr %0, align 8
+  br label %.thread88
 
-.thread91:                                        ; preds = %53, %..thread91_crit_edge
-  %77 = phi i16 [ %.pre, %..thread91_crit_edge ], [ %55, %53 ]
-  %.06794 = phi ptr [ %.067, %..thread91_crit_edge ], [ %.06896, %53 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.06794, i64 10
+.thread88:                                        ; preds = %43, %65, %66
+  %.06791 = phi ptr [ %38, %66 ], [ %52, %65 ], [ %.068100, %43 ]
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %77 = load i16, ptr %76, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %.06791, i64 10
   store i16 %77, ptr %78, align 2
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %80 = load i8, ptr %79, align 2
   %81 = icmp eq i8 %80, 0
   br i1 %81, label %82, label %99
 
-82:                                               ; preds = %.thread91
-  %83 = getelementptr inbounds nuw i8, ptr %.06794, i64 16
+82:                                               ; preds = %.thread88
+  %83 = getelementptr inbounds nuw i8, ptr %.06791, i64 16
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %82
-  %87 = getelementptr inbounds nuw i8, ptr %.06794, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %.06791, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, ptr noundef nonnull align 8 dereferenceable(16) %88, i64 16, i1 false)
   br label %89
 
 89:                                               ; preds = %86, %82
-  %90 = getelementptr inbounds nuw i8, ptr %.06794, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %.06791, i64 40
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %91, i64 16, i1 false)
   %92 = add i32 %84, 1
@@ -279,26 +269,26 @@ alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
-  %96 = getelementptr inbounds nuw i8, ptr %.06794, i64 20
+  %96 = getelementptr inbounds nuw i8, ptr %.06791, i64 20
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, %95
   store i32 %98, ptr %96, align 4
   br label %116
 
-99:                                               ; preds = %.thread91
-  %100 = getelementptr inbounds nuw i8, ptr %.06794, i64 68
+99:                                               ; preds = %.thread88
+  %100 = getelementptr inbounds nuw i8, ptr %.06791, i64 68
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %99
-  %104 = getelementptr inbounds nuw i8, ptr %.06794, i64 80
+  %104 = getelementptr inbounds nuw i8, ptr %.06791, i64 80
   %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, ptr noundef nonnull align 8 dereferenceable(16) %105, i64 16, i1 false)
   br label %106
 
 106:                                              ; preds = %103, %99
-  %107 = getelementptr inbounds nuw i8, ptr %.06794, i64 96
+  %107 = getelementptr inbounds nuw i8, ptr %.06791, i64 96
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false)
   %109 = add i32 %101, 1
@@ -306,7 +296,7 @@ alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 10
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
-  %113 = getelementptr inbounds nuw i8, ptr %.06794, i64 72
+  %113 = getelementptr inbounds nuw i8, ptr %.06791, i64 72
   %114 = load i32, ptr %113, align 8
   %115 = add i32 %114, %112
   store i32 %115, ptr %113, align 8
@@ -324,7 +314,7 @@ alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
   br i1 %.not80, label %126, label %122
 
 122:                                              ; preds = %121
-  %123 = getelementptr inbounds nuw i8, ptr %.06794, i64 56
+  %123 = getelementptr inbounds nuw i8, ptr %.06791, i64 56
   %124 = load i32, ptr %123, align 8
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 8
@@ -334,24 +324,24 @@ alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
   %127 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %128 = load i16, ptr %127, align 8
   %129 = zext i16 %128 to i32
-  %130 = getelementptr inbounds nuw i8, ptr %.06794, i64 60
+  %130 = getelementptr inbounds nuw i8, ptr %.06791, i64 60
   %131 = load i32, ptr %130, align 4
   %132 = add i32 %131, %129
   store i32 %132, ptr %130, align 4
   %133 = getelementptr inbounds nuw i8, ptr %3, i64 2100
   %134 = load i16, ptr %133, align 4
   %135 = zext i16 %134 to i32
-  %136 = getelementptr inbounds nuw i8, ptr %.06794, i64 64
+  %136 = getelementptr inbounds nuw i8, ptr %.06791, i64 64
   %137 = load i32, ptr %136, align 8
   %138 = add i32 %137, %135
   store i32 %138, ptr %136, align 8
-  br label %.thread88
+  br label %.thread92
 
 139:                                              ; preds = %116
   br i1 %.not80, label %144, label %140
 
 140:                                              ; preds = %139
-  %141 = getelementptr inbounds nuw i8, ptr %.06794, i64 112
+  %141 = getelementptr inbounds nuw i8, ptr %.06791, i64 112
   %142 = load i32, ptr %141, align 8
   %143 = add i32 %142, 1
   store i32 %143, ptr %141, align 8
@@ -361,21 +351,21 @@ alloc_rlc_lte_ep.exit:                            ; preds = %36, %37, %39
   %145 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %146 = load i16, ptr %145, align 8
   %147 = zext i16 %146 to i32
-  %148 = getelementptr inbounds nuw i8, ptr %.06794, i64 116
+  %148 = getelementptr inbounds nuw i8, ptr %.06791, i64 116
   %149 = load i32, ptr %148, align 4
   %150 = add i32 %149, %147
   store i32 %150, ptr %148, align 4
   %151 = getelementptr inbounds nuw i8, ptr %3, i64 2100
   %152 = load i16, ptr %151, align 4
   %153 = zext i16 %152 to i32
-  %154 = getelementptr inbounds nuw i8, ptr %.06794, i64 120
+  %154 = getelementptr inbounds nuw i8, ptr %.06791, i64 120
   %155 = load i32, ptr %154, align 8
   %156 = add i32 %155, %153
   store i32 %156, ptr %154, align 8
-  br label %.thread88
+  br label %.thread92
 
-.thread88:                                        ; preds = %60, %61, %126, %144, %76, %5, %22, %12
-  %.066 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %5 ], [ 0, %76 ], [ 1, %144 ], [ 1, %126 ], [ 0, %61 ], [ 0, %60 ]
+.thread92:                                        ; preds = %50, %51, %.thread96, %126, %144, %5, %22, %12
+  %.066 = phi i32 [ 1, %22 ], [ 1, %12 ], [ 0, %5 ], [ 1, %144 ], [ 1, %126 ], [ 0, %.thread96 ], [ 0, %51 ], [ 0, %50 ]
   ret i32 %.066
 }
 

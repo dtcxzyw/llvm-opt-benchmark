@@ -3489,7 +3489,7 @@ define internal fastcc void @mkVoidAffix(ptr noundef captures(none) %0, i1 nound
 
 29:                                               ; preds = %25
   %30 = tail call ptr @palloc0(i64 noundef %27) #14
-  br label %compact_palloc0.exit
+  br label %.lr.ph46
 
 31:                                               ; preds = %25
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -3514,9 +3514,9 @@ define internal fastcc void @mkVoidAffix(ptr noundef captures(none) %0, i1 nound
   store ptr %41, ptr %40, align 8
   %42 = sub i64 %38, %27
   store i64 %42, ptr %32, align 8
-  br label %compact_palloc0.exit
+  br label %.lr.ph46
 
-compact_palloc0.exit:                             ; preds = %29, %37
+.lr.ph46:                                         ; preds = %37, %29
   %.0.i = phi ptr [ %30, %29 ], [ %39, %37 ]
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -3531,9 +3531,9 @@ compact_palloc0.exit:                             ; preds = %29, %37
   %wide.trip.count51 = sext i32 %9 to i64
   br label %51
 
-51:                                               ; preds = %compact_palloc0.exit, %63
-  %indvars.iv48 = phi i64 [ %50, %compact_palloc0.exit ], [ %indvars.iv.next49, %63 ]
-  %.244 = phi i32 [ 0, %compact_palloc0.exit ], [ %.3, %63 ]
+51:                                               ; preds = %.lr.ph46, %63
+  %indvars.iv48 = phi i64 [ %50, %.lr.ph46 ], [ %indvars.iv.next49, %63 ]
+  %.244 = phi i32 [ 0, %.lr.ph46 ], [ %.3, %63 ]
   %52 = load ptr, ptr %49, align 8
   %53 = getelementptr inbounds %struct.aff_struct, ptr %52, i64 %indvars.iv48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -5203,11 +5203,11 @@ AddStem.exit:                                     ; preds = %._crit_edge.i, %140
 
 209:                                              ; preds = %.preheader
   %210 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %211 = call fastcc ptr @SplitToVariants(ptr noundef %0, ptr noundef nonnull %.0137238, ptr noundef %17, ptr noundef %3, i32 noundef %4, i32 noundef %.0134.ph246, i32 noundef %.0136239)
+  %211 = call fastcc ptr @SplitToVariants(ptr noundef %0, ptr noundef nonnull %.0137238, ptr noundef %17, ptr noundef nonnull %3, i32 noundef %4, i32 noundef %.0134.ph246, i32 noundef %.0136239)
   store ptr %211, ptr %210, align 8
   %212 = sub i32 %193, %.0134.ph246
   %213 = sext i32 %212 to i64
-  %214 = call ptr @pnstrdup(ptr noundef %50, i64 noundef %213) #14
+  %214 = call ptr @pnstrdup(ptr noundef nonnull %50, i64 noundef %213) #14
   %215 = load i32, ptr %17, align 8
   %216 = load i32, ptr %46, align 4
   %.not.i180 = icmp slt i32 %215, %216

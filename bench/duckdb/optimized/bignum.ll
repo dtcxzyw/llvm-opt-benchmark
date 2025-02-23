@@ -1382,7 +1382,7 @@ mbedtls_mpi_cmp_int.exit.i:                       ; preds = %121
   br i1 %.not29.i, label %_ZL13mpi_write_hlpP11mbedtls_mpiiPPcm.exit, label %89, !llvm.loop !29
 
 _ZL13mpi_write_hlpP11mbedtls_mpiiPPcm.exit:       ; preds = %112, %mbedtls_mpi_cmp_int.exit.i, %123
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.074, ptr nonnull align 1 %115, i64 %118, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.074, ptr noundef nonnull align 1 dereferenceable(1) %115, i64 %118, i1 false)
   %126 = getelementptr inbounds nuw i8, ptr %.074, i64 %118
   br label %.loopexit
 
@@ -4616,7 +4616,7 @@ define hidden range(i32 -12, 1) i32 @mbedtls_mpi_mod_int(ptr noundef writeonly c
   %28 = icmp slt i32 %27, 0
   %29 = icmp ne i64 %.034.lcssa, 0
   %or.cond = select i1 %28, i1 %29, i1 false
-  %30 = sub i64 %2, %.034.lcssa
+  %30 = sub nsw i64 %2, %.034.lcssa
   %spec.select = select i1 %or.cond, i64 %30, i64 %.034.lcssa
   br label %.sink.split
 
@@ -6297,7 +6297,7 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
   br i1 %.not.i.i51, label %.loopexit, label %.lr.ph.i.i50, !llvm.loop !31
 
 .loopexit:                                        ; preds = %.lr.ph.i.i50, %105
-  %113 = call i32 @mbedtls_mpi_shift_r(ptr noundef %0, i64 noundef %91)
+  %113 = call i32 @mbedtls_mpi_shift_r(ptr noundef nonnull %0, i64 noundef %91)
   %.not36 = icmp eq i32 %113, 0
   br i1 %.not36, label %114, label %mbedtls_mpi_grow.exit
 
@@ -6307,12 +6307,12 @@ mbedtls_mpi_lset.exit:                            ; preds = %._crit_edge.i45, %7
   br i1 %116, label %mbedtls_mpi_grow.exit, label %117
 
 117:                                              ; preds = %114
-  %118 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %6)
+  %118 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %6)
   %.not37 = icmp eq i32 %118, 0
   br i1 %.not37, label %119, label %mbedtls_mpi_grow.exit
 
 119:                                              ; preds = %117
-  %120 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %7)
+  %120 = call i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %7)
   %.not38 = icmp eq i32 %120, 0
   br i1 %.not38, label %121, label %mbedtls_mpi_grow.exit
 

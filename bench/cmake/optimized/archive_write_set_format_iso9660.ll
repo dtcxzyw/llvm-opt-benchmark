@@ -2874,7 +2874,7 @@ isoent_alloc_path_table.exit.i:                   ; preds = %.lr.ph.i.i218, %iso
   br i1 %exitcond.not.i89.i, label %isoent_alloc_path_table.exit90.thread.i, label %.lr.ph.i86.i, !llvm.loop !166
 
 isoent_alloc_path_table.exit90.i:                 ; preds = %553
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.5) #23
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.5) #23
   br label %isoent_make_path_table.exit.thread
 
 isoent_alloc_path_table.exit90.thread.i:          ; preds = %.lr.ph.i86.i, %.preheader.i82.i, %isoent_alloc_path_table.exit.i
@@ -5341,7 +5341,7 @@ get_path_component.exit:                          ; preds = %65
   br i1 %.not.i125, label %_isoent_free.exit, label %.lr.ph.i, !llvm.loop !240
 
 _isoent_free.exit:                                ; preds = %.lr.ph.i, %69
-  call void @free(ptr noundef %7) #23
+  call void @free(ptr noundef nonnull %7) #23
   br label %isoent_add_child_tail.exit.thread
 
 78:                                               ; preds = %get_path_component.exit
@@ -5393,7 +5393,7 @@ _isoent_free.exit:                                ; preds = %.lr.ph.i, %69
   br i1 %.not.i129, label %_isoent_free.exit130, label %.lr.ph.i127, !llvm.loop !240
 
 _isoent_free.exit130:                             ; preds = %.lr.ph.i127, %89
-  call void @free(ptr noundef %7) #23
+  call void @free(ptr noundef nonnull %7) #23
   store ptr null, ptr %1, align 8, !tbaa !106
   br label %isoent_add_child_tail.exit.thread
 
@@ -5578,7 +5578,7 @@ get_path_component.exit142:                       ; preds = %183
   br i1 %.not.i146, label %.thread174, label %.lr.ph.i144, !llvm.loop !240
 
 .thread174:                                       ; preds = %.lr.ph.i144, %.lr.ph.i132, %get_path_component.exit142, %133
-  call void @free(ptr noundef %7) #23
+  call void @free(ptr noundef nonnull %7) #23
   store ptr null, ptr %1, align 8, !tbaa !106
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #23
   br label %isoent_add_child_tail.exit.thread
@@ -5720,7 +5720,7 @@ isoent_add_child_tail.exit151:                    ; preds = %223
   br i1 %.not.i155, label %_isoent_free.exit156, label %.lr.ph.i153, !llvm.loop !240
 
 _isoent_free.exit156:                             ; preds = %.lr.ph.i153, %257
-  call void @free(ptr noundef %7) #23
+  call void @free(ptr noundef nonnull %7) #23
   store ptr null, ptr %1, align 8, !tbaa !106
   br label %isoent_add_child_tail.exit.thread
 
@@ -5751,7 +5751,7 @@ _isoent_free.exit156:                             ; preds = %.lr.ph.i153, %257
   br i1 %.not.i160, label %_isoent_free.exit161, label %.lr.ph.i158, !llvm.loop !240
 
 _isoent_free.exit161:                             ; preds = %.lr.ph.i158, %268
-  call void @free(ptr noundef %7) #23
+  call void @free(ptr noundef nonnull %7) #23
   store ptr %.0108, ptr %1, align 8, !tbaa !106
   br label %isoent_add_child_tail.exit.thread
 
@@ -7239,7 +7239,7 @@ define internal fastcc void @isoent_setup_directory_location(ptr noundef readonl
   %.141.i = phi i32 [ %.04049.i, %.lr.ph.i ], [ %.242.i, %36 ]
   %.1.i = phi i32 [ %.03851.i, %.lr.ph.i ], [ %.2.i, %36 ]
   %37 = load i32, ptr %6, align 8, !tbaa !269
-  %38 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef %29, ptr noundef readonly %0, i32 noundef 3, i32 noundef %37)
+  %38 = tail call fastcc i32 @set_directory_record(ptr noundef null, i64 noundef -1, ptr noundef nonnull %29, ptr noundef readonly %0, i32 noundef 3, i32 noundef %37)
   %39 = add nsw i32 %38, %.1.i
   %40 = icmp sgt i32 %39, 2048
   %41 = zext i1 %40 to i32
@@ -11560,17 +11560,17 @@ default.unreachable:                              ; preds = %1237
   br i1 %.not420.i, label %extra_tell_used_size.exit.i, label %230
 
 230:                                              ; preds = %229
-  %231 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
+  %231 = getelementptr inbounds nuw i8, ptr %189, i64 1
   store i8 83, ptr %231, align 1, !tbaa !68
-  %232 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 2
+  %232 = getelementptr inbounds nuw i8, ptr %189, i64 2
   store i8 80, ptr %232, align 1, !tbaa !68
-  %233 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 3
+  %233 = getelementptr inbounds nuw i8, ptr %189, i64 3
   store i8 7, ptr %233, align 1, !tbaa !68
-  %234 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  %234 = getelementptr inbounds nuw i8, ptr %189, i64 4
   store i8 1, ptr %234, align 1, !tbaa !68
-  %235 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 5
+  %235 = getelementptr inbounds nuw i8, ptr %189, i64 5
   store i8 -66, ptr %235, align 1, !tbaa !68
-  %236 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
+  %236 = getelementptr inbounds nuw i8, ptr %189, i64 6
   store i8 -17, ptr %236, align 1, !tbaa !68
   %237 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 7
   store i8 0, ptr %237, align 1, !tbaa !68
@@ -14830,7 +14830,7 @@ define internal fastcc void @isoent_free_all(ptr noundef %0) unnamed_addr #0 {
   br i1 %.not.i, label %_isoent_free.exit, label %.lr.ph.i, !llvm.loop !240
 
 _isoent_free.exit:                                ; preds = %.lr.ph.i, %13
-  tail call void @free(ptr noundef %.1) #23
+  tail call void @free(ptr noundef nonnull %.1) #23
   %24 = icmp eq ptr %15, %.1
   br i1 %24, label %.loopexit, label %9
 
@@ -14855,7 +14855,7 @@ _isoent_free.exit:                                ; preds = %.lr.ph.i, %13
   br i1 %.not.i21, label %_isoent_free.exit22, label %.lr.ph.i19, !llvm.loop !240
 
 _isoent_free.exit22:                              ; preds = %.lr.ph.i19, %25
-  tail call void @free(ptr noundef %.1) #23
+  tail call void @free(ptr noundef nonnull %.1) #23
   br label %.preheader.backedge
 
 .preheader.backedge:                              ; preds = %_isoent_free.exit22, %6

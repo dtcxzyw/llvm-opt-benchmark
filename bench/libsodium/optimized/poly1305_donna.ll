@@ -104,8 +104,8 @@ define internal noundef i32 @crypto_onetimeauth_poly1305_donna(ptr noundef %0, p
   %78 = trunc i128 %77 to i64
   %79 = trunc i128 %76 to i64
   %80 = and i64 %79, 4398046511103
-  %81 = mul i64 %78, 5
-  %82 = add i64 %81, %65
+  %81 = mul nuw nsw i64 %78, 5
+  %82 = add nuw nsw i64 %81, %65
   %83 = lshr i64 %82, 44
   %84 = and i64 %82, 17592186044415
   %85 = add nuw nsw i64 %83, %72

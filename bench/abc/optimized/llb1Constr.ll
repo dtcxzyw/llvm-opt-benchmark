@@ -746,7 +746,7 @@ define noalias noundef ptr @Llb_ManDeriveConstraints(ptr noundef %0) local_unnam
 
 3:                                                ; preds = %1
   %4 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.val11)
-  br label %43
+  br label %42
 
 5:                                                ; preds = %1
   %6 = tail call ptr @Llb_ManConstructGlobalBdds(ptr noundef nonnull %0)
@@ -756,7 +756,7 @@ define noalias noundef ptr @Llb_ManDeriveConstraints(ptr noundef %0) local_unnam
   %9 = icmp sgt i32 %.val.i, 0
   %10 = getelementptr i8, ptr %7, i64 8
   %.val9.i = load ptr, ptr %10, align 8, !tbaa !10
-  br i1 %9, label %.lr.ph.i, label %Llb_ManCountEntries.exit21.thread.thread
+  br i1 %9, label %.lr.ph.i, label %Llb_ManCountEntries.exit21.thread
 
 .lr.ph.i:                                         ; preds = %5
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
@@ -779,10 +779,10 @@ Llb_ManCountEntries.exit:                         ; preds = %11
   br i1 %.not33, label %.lr.ph.i14.preheader, label %17
 
 17:                                               ; preds = %Llb_ManCountEntries.exit
-  tail call void @Llb_ManComputeIndCase(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7)
+  tail call void @Llb_ManComputeIndCase(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %7)
   br label %.lr.ph.i14.preheader
 
-.lr.ph.i14.preheader:                             ; preds = %Llb_ManCountEntries.exit, %17
+.lr.ph.i14.preheader:                             ; preds = %17, %Llb_ManCountEntries.exit
   br label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %.lr.ph.i14.preheader, %.lr.ph.i14
@@ -799,64 +799,60 @@ Llb_ManCountEntries.exit:                         ; preds = %11
 
 Llb_ManCountEntries.exit21:                       ; preds = %.lr.ph.i14
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %Llb_ManCountEntries.exit21.thread, label %Vec_IntFreeP.exit
+  br i1 %23, label %.thread.i, label %24
 
-Llb_ManCountEntries.exit21.thread:                ; preds = %Llb_ManCountEntries.exit21
-  %24 = icmp eq ptr %7, null
-  br i1 %24, label %Vec_IntFreeP.exit, label %.thread.i
-
-Llb_ManCountEntries.exit21.thread.thread:         ; preds = %5
+Llb_ManCountEntries.exit21.thread:                ; preds = %5
   %.not.i = icmp eq ptr %.val9.i, null
-  br i1 %.not.i, label %25, label %.thread.i
+  br i1 %.not.i, label %Vec_IntFreeP.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %Llb_ManCountEntries.exit21.thread, %Llb_ManCountEntries.exit21.thread.thread
+.thread.i:                                        ; preds = %Llb_ManCountEntries.exit21, %Llb_ManCountEntries.exit21.thread
   tail call void @free(ptr noundef nonnull %.val9.i) #8
-  br label %25
-
-25:                                               ; preds = %.thread.i, %Llb_ManCountEntries.exit21.thread.thread
-  tail call void @free(ptr noundef nonnull %7) #8
   br label %Vec_IntFreeP.exit
 
-Vec_IntFreeP.exit:                                ; preds = %25, %Llb_ManCountEntries.exit21.thread, %Llb_ManCountEntries.exit21
-  %.030 = phi ptr [ %7, %Llb_ManCountEntries.exit21 ], [ null, %Llb_ManCountEntries.exit21.thread ], [ null, %25 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !14
-  %28 = getelementptr i8, ptr %27, i64 4
-  %.val89.i = load i32, ptr %28, align 4, !tbaa !31
-  %29 = icmp sgt i32 %.val89.i, 0
-  br i1 %29, label %.lr.ph.i22, label %Llb_ManDerefenceBdds.exit
+Vec_IntFreeP.exit:                                ; preds = %Llb_ManCountEntries.exit21.thread, %.thread.i
+  tail call void @free(ptr noundef nonnull %7) #8
+  br label %24
 
-.lr.ph.i22:                                       ; preds = %Vec_IntFreeP.exit, %38
-  %30 = phi ptr [ %39, %38 ], [ %27, %Vec_IntFreeP.exit ]
-  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i25, %38 ], [ 0, %Vec_IntFreeP.exit ]
-  %31 = getelementptr i8, ptr %30, i64 8
-  %.val.i24 = load ptr, ptr %31, align 8, !tbaa !27
-  %32 = getelementptr inbounds nuw ptr, ptr %.val.i24, i64 %indvars.iv.i23
-  %33 = load ptr, ptr %32, align 8, !tbaa !29
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %38, label %35
+24:                                               ; preds = %Vec_IntFreeP.exit, %Llb_ManCountEntries.exit21
+  %.030 = phi ptr [ null, %Vec_IntFreeP.exit ], [ %7, %Llb_ManCountEntries.exit21 ]
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load ptr, ptr %25, align 8, !tbaa !14
+  %27 = getelementptr i8, ptr %26, i64 4
+  %.val89.i = load i32, ptr %27, align 4, !tbaa !31
+  %28 = icmp sgt i32 %.val89.i, 0
+  br i1 %28, label %.lr.ph.i22, label %Llb_ManDerefenceBdds.exit
 
-35:                                               ; preds = %.lr.ph.i22
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %37 = load ptr, ptr %36, align 8, !tbaa !32
-  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %37) #8
-  %.pre.i = load ptr, ptr %26, align 8, !tbaa !14
-  br label %38
+.lr.ph.i22:                                       ; preds = %24, %37
+  %29 = phi ptr [ %38, %37 ], [ %26, %24 ]
+  %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i25, %37 ], [ 0, %24 ]
+  %30 = getelementptr i8, ptr %29, i64 8
+  %.val.i24 = load ptr, ptr %30, align 8, !tbaa !27
+  %31 = getelementptr inbounds nuw ptr, ptr %.val.i24, i64 %indvars.iv.i23
+  %32 = load ptr, ptr %31, align 8, !tbaa !29
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %37, label %34
 
-38:                                               ; preds = %35, %.lr.ph.i22
-  %39 = phi ptr [ %.pre.i, %35 ], [ %30, %.lr.ph.i22 ]
+34:                                               ; preds = %.lr.ph.i22
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  tail call void @Cudd_RecursiveDeref(ptr noundef %6, ptr noundef %36) #8
+  %.pre.i = load ptr, ptr %25, align 8, !tbaa !14
+  br label %37
+
+37:                                               ; preds = %34, %.lr.ph.i22
+  %38 = phi ptr [ %.pre.i, %34 ], [ %29, %.lr.ph.i22 ]
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i23, 1
-  %40 = getelementptr i8, ptr %39, i64 4
-  %.val8.i = load i32, ptr %40, align 4, !tbaa !31
-  %41 = sext i32 %.val8.i to i64
-  %42 = icmp slt i64 %indvars.iv.next.i25, %41
-  br i1 %42, label %.lr.ph.i22, label %Llb_ManDerefenceBdds.exit, !llvm.loop !33
+  %39 = getelementptr i8, ptr %38, i64 4
+  %.val8.i = load i32, ptr %39, align 4, !tbaa !31
+  %40 = sext i32 %.val8.i to i64
+  %41 = icmp slt i64 %indvars.iv.next.i25, %40
+  br i1 %41, label %.lr.ph.i22, label %Llb_ManDerefenceBdds.exit, !llvm.loop !33
 
-Llb_ManDerefenceBdds.exit:                        ; preds = %38, %Vec_IntFreeP.exit
+Llb_ManDerefenceBdds.exit:                        ; preds = %37, %24
   tail call void @Extra_StopManager(ptr noundef %6) #8
-  br label %43
+  br label %42
 
-43:                                               ; preds = %Llb_ManDerefenceBdds.exit, %3
+42:                                               ; preds = %Llb_ManDerefenceBdds.exit, %3
   %.0 = phi ptr [ null, %3 ], [ %.030, %Llb_ManDerefenceBdds.exit ]
   ret ptr %.0
 }

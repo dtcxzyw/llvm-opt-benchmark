@@ -1681,7 +1681,7 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_
   %134 = sub nuw nsw i32 32, %133
   br label %138
 
-._crit_edge.i.i:                                  ; preds = %138
+_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %138
   %135 = getelementptr inbounds nuw i32, ptr %7, i64 %.pre38
   %136 = load i32, ptr %135, align 4, !tbaa !15
   %137 = shl i32 %136, %133
@@ -1700,14 +1700,14 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_
   %146 = or disjoint i32 %145, %141
   store i32 %146, ptr %140, align 4, !tbaa !15
   %exitcond.not.i115.i = icmp eq i64 %142, %.pre38
-  br i1 %exitcond.not.i115.i, label %._crit_edge.i.i, label %138, !llvm.loop !19
+  br i1 %exitcond.not.i115.i, label %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i, label %138, !llvm.loop !19
 
 ._crit_edge.i118.loopexit.i:                      ; preds = %.lr.ph.i119.i
   %.pre.i = load i32, ptr %.0.i.sroa.phi.i, align 4, !tbaa !15
   br label %._crit_edge.i118.i
 
-._crit_edge.i118.i:                               ; preds = %._crit_edge.i118.loopexit.i, %._crit_edge.i.i
-  %147 = phi i32 [ %.pre.i, %._crit_edge.i118.loopexit.i ], [ %42, %._crit_edge.i.i ]
+._crit_edge.i118.i:                               ; preds = %._crit_edge.i118.loopexit.i, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i
+  %147 = phi i32 [ %.pre.i, %._crit_edge.i118.loopexit.i ], [ %42, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i ]
   %148 = shl i32 %147, %133
   store i32 %148, ptr %.0.i.sroa.phi.i, align 4, !tbaa !15
   %.pre = load i32, ptr %7, align 16, !tbaa !15
@@ -1715,9 +1715,9 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal128EEENS_13DecimalStatusEPKjljPT_bbS6_
   %.pre37 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !15
   br label %.lr.ph44.i
 
-.lr.ph.i119.i:                                    ; preds = %._crit_edge.i.i, %.lr.ph.i119.i
-  %149 = phi i32 [ %154, %.lr.ph.i119.i ], [ 0, %._crit_edge.i.i ]
-  %.019.i121.i = phi i64 [ %152, %.lr.ph.i119.i ], [ 0, %._crit_edge.i.i ]
+.lr.ph.i119.i:                                    ; preds = %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i, %.lr.ph.i119.i
+  %149 = phi i32 [ %154, %.lr.ph.i119.i ], [ 0, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i ]
+  %.019.i121.i = phi i64 [ %152, %.lr.ph.i119.i ], [ 0, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i ]
   %150 = getelementptr inbounds nuw i32, ptr %6, i64 %.019.i121.i
   %151 = shl i32 %149, %133
   %152 = add nuw nsw i64 %.019.i121.i, 1
@@ -1911,7 +1911,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
   %241 = icmp sgt i64 %.08535.i, 0
   br i1 %241, label %226, label %._crit_edge.i, !llvm.loop !22
 
-._crit_edge40.loopexit.i:                         ; preds = %.lr.ph39.i
+._crit_edge40.i:                                  ; preds = %.lr.ph39.i
   %242 = add i32 %.2.i, -1
   %243 = trunc nuw nsw i64 %255 to i32
   %.pre64.i = load i32, ptr %191, align 4, !tbaa !15
@@ -1936,10 +1936,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal128EPKjl.exit.i: ; preds = %_ZN5arr
   %255 = lshr i64 %253, 32
   %256 = add nsw i64 %.08237.i, -1
   %257 = icmp sgt i64 %.08237.i, 0
-  br i1 %257, label %.lr.ph39.i, label %._crit_edge40.loopexit.i, !llvm.loop !23
+  br i1 %257, label %.lr.ph39.i, label %._crit_edge40.i, !llvm.loop !23
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge40.loopexit.i, %._crit_edge.i, %221
-  %.3.i = phi i32 [ %242, %._crit_edge40.loopexit.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %221 ]
+._crit_edge.thread.i:                             ; preds = %._crit_edge40.i, %._crit_edge.i, %221
+  %.3.i = phi i32 [ %242, %._crit_edge40.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %221 ]
   %258 = getelementptr inbounds nuw [32 x i32], ptr %8, i64 0, i64 %.08442.i
   store i32 %.3.i, ptr %258, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %193, %132
@@ -3803,12 +3803,12 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_
   %142 = sub nuw nsw i32 32, %138
   br label %146
 
-._crit_edge.i118.i:                               ; preds = %146
+_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i:    ; preds = %146
   %143 = getelementptr inbounds nuw i32, ptr %12, i64 %141
   %144 = load i32, ptr %143, align 4, !tbaa !15
   %145 = shl i32 %144, %138
   store i32 %145, ptr %143, align 4, !tbaa !15
-  br label %_ZN5arrowL14ShiftArrayLeftEPjll.exit.i
+  br label %.preheader.i122.i
 
 146:                                              ; preds = %146, %.lr.ph.i119.i
   %147 = phi i32 [ %137, %.lr.ph.i119.i ], [ %152, %146 ]
@@ -3822,12 +3822,12 @@ _ZN5arrowL12SingleDivideINS_15BasicDecimal256EEENS_13DecimalStatusEPKjljPT_bbS6_
   %154 = or disjoint i32 %153, %149
   store i32 %154, ptr %148, align 4, !tbaa !15
   %exitcond.not.i120.i = icmp eq i64 %150, %141
-  br i1 %exitcond.not.i120.i, label %._crit_edge.i118.i, label %146, !llvm.loop !19
+  br i1 %exitcond.not.i120.i, label %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i, label %146, !llvm.loop !19
 
-_ZN5arrowL14ShiftArrayLeftEPjll.exit.i:           ; preds = %._crit_edge.i118.i, %135
+_ZN5arrowL14ShiftArrayLeftEPjll.exit.i:           ; preds = %135
   br i1 %140, label %.preheader.i122.i, label %_ZN5arrowL14ShiftArrayLeftEPjll.exit128.i
 
-.preheader.i122.i:                                ; preds = %_ZN5arrowL14ShiftArrayLeftEPjll.exit.i
+.preheader.i122.i:                                ; preds = %_ZN5arrowL14ShiftArrayLeftEPjll.exit.i, %_ZN5arrowL14ShiftArrayLeftEPjll.exit.thread.i
   %.not.i = icmp eq i64 %.120.lcssa.i.i.i, 0
   br i1 %.not.i, label %._crit_edge.i123.i, label %.lr.ph.i124.i
 
@@ -4053,7 +4053,7 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   %.not251.i = icmp eq i64 %.085191.i, 0
   br i1 %.not251.i, label %._crit_edge.i, label %251, !llvm.loop !42
 
-._crit_edge196.loopexit.i:                        ; preds = %.lr.ph195.i
+._crit_edge196.i:                                 ; preds = %.lr.ph195.i
   %266 = add i32 %.2.i, -1
   %267 = trunc nuw nsw i64 %279 to i32
   %.pre225.i = load i32, ptr %216, align 4, !tbaa !15
@@ -4078,10 +4078,10 @@ _ZN5arrowL14BuildFromArrayEPNS_15BasicDecimal256EPKjl.exit.i: ; preds = %.lr.ph.
   %279 = lshr i64 %277, 32
   %280 = add nsw i64 %.082193.i, -1
   %.not252.i = icmp eq i64 %.082193.i, 0
-  br i1 %.not252.i, label %._crit_edge196.loopexit.i, label %.lr.ph195.i, !llvm.loop !43
+  br i1 %.not252.i, label %._crit_edge196.i, label %.lr.ph195.i, !llvm.loop !43
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge196.loopexit.i, %._crit_edge.i, %246
-  %.3.i = phi i32 [ %266, %._crit_edge196.loopexit.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %246 ]
+._crit_edge.thread.i:                             ; preds = %._crit_edge196.i, %._crit_edge.i, %246
+  %.3.i = phi i32 [ %266, %._crit_edge196.i ], [ %.2.i, %._crit_edge.i ], [ %.2.i, %246 ]
   %281 = getelementptr inbounds nuw [64 x i32], ptr %13, i64 0, i64 %.084198.i
   store i32 %.3.i, ptr %281, align 4, !tbaa !15
   %exitcond.not.i = icmp eq i64 %218, %136

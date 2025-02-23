@@ -1843,7 +1843,7 @@ log_split_page.exit:                              ; preds = %89, %99, %102, %Buf
 
 ._crit_edge:                                      ; preds = %.lr.ph, %log_split_page.exit
   %128 = icmp eq i32 %.1129186, %5
-  %129 = call i32 @_hash_addovflpage(ptr noundef %0, i32 noundef %1, i32 noundef %.1129186, i1 noundef zeroext %128) #10
+  %129 = call i32 @_hash_addovflpage(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.1129186, i1 noundef zeroext %128) #10
   %130 = icmp slt i32 %129, 0
   br i1 %130, label %131, label %137
 

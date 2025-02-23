@@ -419,7 +419,7 @@ define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, 
 
 39:                                               ; preds = %35, %38, %28
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
-  tail call void @dt_control_signal_connect(ptr noundef %40, i32 noundef 6, ptr noundef nonnull @_print_settings_activate_callback, ptr noundef %0) #18
+  tail call void @dt_control_signal_connect(ptr noundef %40, i32 noundef 6, ptr noundef nonnull @_print_settings_activate_callback, ptr noundef nonnull %0) #18
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !95
   %42 = and i32 %41, 2
   %43 = icmp ne i32 %42, 0
@@ -440,7 +440,7 @@ define void @view_enter(ptr noundef %0, ptr noundef readnone captures(none) %1, 
 
 50:                                               ; preds = %46, %49, %39
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !97
-  tail call void @dt_control_signal_connect(ptr noundef %51, i32 noundef 20, ptr noundef nonnull @_print_settings_update_callback, ptr noundef %0) #18
+  tail call void @dt_control_signal_connect(ptr noundef %51, i32 noundef 20, ptr noundef nonnull @_print_settings_update_callback, ptr noundef nonnull %0) #18
   ret void
 }
 
@@ -3622,14 +3622,14 @@ _get_profiles.exit:                               ; preds = %52, %1
   tail call void @gtk_grid_set_column_homogeneous(ptr noundef %491, i32 noundef 1) #18
   tail call void @gtk_grid_set_row_homogeneous(ptr noundef %491, i32 noundef 1) #18
   %502 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.68, i32 noundef 5) #18
-  %503 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.67, ptr noundef nonnull @_page_new_area_clicked, ptr noundef %0, ptr noundef %502, i32 noundef 0, i32 noundef 0) #18
+  %503 = tail call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.67, ptr noundef nonnull @_page_new_area_clicked, ptr noundef nonnull %0, ptr noundef %502, i32 noundef 0, i32 noundef 0) #18
   %504 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.70, i32 noundef 5) #18
-  %505 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.69, ptr noundef nonnull @_page_delete_area_clicked, ptr noundef %0, ptr noundef %504, i32 noundef 0, i32 noundef 0) #18
+  %505 = tail call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.69, ptr noundef nonnull @_page_delete_area_clicked, ptr noundef nonnull %0, ptr noundef %504, i32 noundef 0, i32 noundef 0) #18
   %506 = getelementptr inbounds nuw i8, ptr %2, i64 144
   store ptr %505, ptr %506, align 8, !tbaa !123
   tail call void @gtk_widget_set_sensitive(ptr noundef %505, i32 noundef 0) #18
   %507 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.72, i32 noundef 5) #18
-  %508 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.71, ptr noundef nonnull @_page_clear_area_clicked, ptr noundef %0, ptr noundef %507, i32 noundef 0, i32 noundef 0) #18
+  %508 = tail call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef nonnull @_page_clear_area_clicked, ptr noundef nonnull %0, ptr noundef %507, i32 noundef 0, i32 noundef 0) #18
   %509 = tail call ptr @g_type_check_instance_cast(ptr noundef %503, i64 noundef %174) #18
   tail call void @gtk_grid_attach(ptr noundef %491, ptr noundef %509, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1) #18
   %510 = load ptr, ptr %506, align 8, !tbaa !123
@@ -3728,7 +3728,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   tail call void @gtk_box_pack_start(ptr noundef %575, ptr noundef %571, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
   %576 = load ptr, ptr %5, align 8, !tbaa !165
   tail call void @dt_gui_add_help_link(ptr noundef %576, ptr noundef nonnull @.str.78) #18
-  %577 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #18
+  %577 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #18
   store ptr %577, ptr %2, align 8, !tbaa !195
   %578 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %577, ptr noundef null, ptr noundef nonnull @.str.20) #18
   %579 = load ptr, ptr %5, align 8, !tbaa !165
@@ -3770,7 +3770,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   tail call void @gtk_grid_attach(ptr noundef %595, ptr noundef %597, i32 noundef %.zext, i32 noundef %.zext474, i32 noundef 1, i32 noundef 1) #18
   %600 = load ptr, ptr %594, align 8, !tbaa !77
   %601 = tail call ptr @g_type_check_instance_cast(ptr noundef %600, i64 noundef 80) #18
-  %602 = tail call i64 @g_signal_connect_data(ptr noundef %601, ptr noundef nonnull @.str.34, ptr noundef nonnull @_alignment_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #18
+  %602 = tail call i64 @g_signal_connect_data(ptr noundef %601, ptr noundef nonnull @.str.34, ptr noundef nonnull @_alignment_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %477, label %588
@@ -3840,10 +3840,10 @@ _get_profiles.exit:                               ; preds = %52, %1
   tail call void @g_free(ptr noundef %627) #18
   %629 = load ptr, ptr %2, align 8, !tbaa !195
   %630 = tail call ptr @g_type_check_instance_cast(ptr noundef %629, i64 noundef 80) #18
-  %631 = tail call i64 @g_signal_connect_data(ptr noundef %630, ptr noundef nonnull @.str.17, ptr noundef nonnull @_profile_changed, ptr noundef %0, ptr noundef null, i32 noundef 0) #18
+  %631 = tail call i64 @g_signal_connect_data(ptr noundef %630, ptr noundef nonnull @.str.17, ptr noundef nonnull @_profile_changed, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #18
   %632 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.84) #18
   %633 = add nsw i32 %632, 1
-  %634 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %633, ptr noundef nonnull @_intent_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.83) #18
+  %634 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef null, i32 noundef %633, ptr noundef nonnull @_intent_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.83) #18
   %635 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %634, ptr %635, align 8, !tbaa !198
   %636 = load ptr, ptr %5, align 8, !tbaa !165
@@ -3887,7 +3887,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   %661 = load i32, ptr %659, align 8, !tbaa !200
   %.not446 = icmp ne i32 %661, 0
   %662 = zext i1 %.not446 to i32
-  %663 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.94, ptr noundef %660, i32 noundef %662, ptr noundef nonnull @_style_mode_changed, ptr noundef %0, ptr noundef nonnull @gui_init.texts.91) #18
+  %663 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.94, ptr noundef %660, i32 noundef %662, ptr noundef nonnull @_style_mode_changed, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.91) #18
   %664 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %663, ptr %664, align 8, !tbaa !201
   %665 = tail call ptr @g_type_check_instance_cast(ptr noundef %663, i64 noundef %174) #18
@@ -3908,7 +3908,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   tail call void @gtk_box_pack_start(ptr noundef %673, ptr noundef %675, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
   tail call fastcc void @_update_style_label(ptr noundef nonnull %2, ptr noundef nonnull %640)
   %676 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.97, i32 noundef 5) #18
-  %677 = tail call ptr @dt_action_button_new(ptr noundef %0, ptr noundef nonnull @.str.96, ptr noundef nonnull @_print_button_clicked, ptr noundef %0, ptr noundef %676, i32 noundef 112, i32 noundef 4) #18
+  %677 = tail call ptr @dt_action_button_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.96, ptr noundef nonnull @_print_button_clicked, ptr noundef nonnull %0, ptr noundef %676, i32 noundef 112, i32 noundef 4) #18
   %678 = tail call i64 @gtk_button_get_type() #19
   %679 = tail call ptr @g_type_check_instance_cast(ptr noundef %677, i64 noundef %678) #18
   %680 = getelementptr inbounds nuw i8, ptr %2, i64 192
@@ -3917,7 +3917,7 @@ _get_profiles.exit:                               ; preds = %52, %1
   %682 = tail call ptr @g_type_check_instance_cast(ptr noundef %681, i64 noundef %154) #18
   tail call void @gtk_box_pack_start(ptr noundef %682, ptr noundef %677, i32 noundef 1, i32 noundef 1, i32 noundef 0) #18
   tail call void @dt_gui_add_help_link(ptr noundef %677, ptr noundef nonnull @.str.98) #18
-  tail call void @dt_printers_discovery(ptr noundef nonnull @_new_printer_callback, ptr noundef %0) #18
+  tail call void @dt_printers_discovery(ptr noundef nonnull @_new_printer_callback, ptr noundef nonnull %0) #18
   ret void
 }
 

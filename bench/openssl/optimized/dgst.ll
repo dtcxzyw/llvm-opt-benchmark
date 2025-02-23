@@ -1586,8 +1586,8 @@ newline_escape_filename.exit:                     ; preds = %28
   br i1 %exitcond70.not, label %._crit_edge56, label %.lr.ph55, !llvm.loop !41
 
 ._crit_edge56:                                    ; preds = %.lr.ph55, %40
-  %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.111, ptr noundef %41) #8
-  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str.95, i32 noundef 590) #8
+  %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.111, ptr noundef nonnull %41) #8
+  tail call void @CRYPTO_free(ptr noundef nonnull %41, ptr noundef nonnull @.str.95, i32 noundef 590) #8
   br label %76
 
 49:                                               ; preds = %12

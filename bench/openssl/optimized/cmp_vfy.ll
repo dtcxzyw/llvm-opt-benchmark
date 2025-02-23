@@ -848,12 +848,12 @@ define range(i32 0, 2) i32 @ossl_cmp_msg_check_update(ptr noundef %0, ptr nounde
   br label %.critedge113
 
 79:                                               ; preds = %.loopexit
-  %80 = tail call i32 @ossl_cmp_hdr_get_pvno(ptr noundef %10) #3
+  %80 = tail call i32 @ossl_cmp_hdr_get_pvno(ptr noundef nonnull %10) #3
   %.not103 = icmp eq i32 %80, 2
   br i1 %.not103, label %84, label %81
 
 81:                                               ; preds = %79
-  %82 = tail call i32 @ossl_cmp_hdr_get_pvno(ptr noundef %10) #3
+  %82 = tail call i32 @ossl_cmp_hdr_get_pvno(ptr noundef nonnull %10) #3
   %.not104 = icmp eq i32 %82, 3
   br i1 %.not104, label %84, label %83
 

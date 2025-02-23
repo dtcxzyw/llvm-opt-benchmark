@@ -596,22 +596,22 @@ _ZN4core3str11validations15next_code_point17h56de14856462d818E.exit.thread.i.i.i
 
 100:                                              ; preds = %97
   store i8 1, ptr %6, align 1, !alias.scope !108
-  %101 = getelementptr inbounds nuw i8, ptr %..i, i64 120
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %102 = load i8, ptr %101, align 8, !range !36, !alias.scope !108, !noundef !16
   %103 = trunc nuw i8 %102 to i1
   br i1 %103, label %._crit_edge.i.i.i.i.i, label %104
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %100
-  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %..i, i64 104
+  %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !alias.scope !108
-  %.phi.trans.insert5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %..i, i64 112
+  %.phi.trans.insert5.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre6.i.i.i.i.i = load i64, ptr %.phi.trans.insert5.i.i.i.i.i, align 8, !alias.scope !108
   br label %109
 
 104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %..i, i64 112
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %106 = load i64, ptr %105, align 8, !alias.scope !108, !noundef !16
-  %107 = getelementptr inbounds nuw i8, ptr %..i, i64 104
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %108 = load i64, ptr %107, align 8, !alias.scope !108, !noundef !16
   %.not.i.i.i.i.i = icmp eq i64 %106, %108
   br i1 %.not.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hc38402397c831250E.exit.thread14.i, label %109

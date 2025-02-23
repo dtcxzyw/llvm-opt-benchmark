@@ -76,7 +76,7 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph120
   %36 = sext i32 %.099117 to i64
-  %37 = sext i32 %.0118 to i64
+  %37 = zext nneg i32 %.0118 to i64
   %38 = add nuw i32 %35, 1
   %wide.trip.count144 = zext i32 %38 to i64
   %invariant.gep = getelementptr double, ptr %9, i64 %36
@@ -99,8 +99,8 @@ define void @dlapmr_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph120
   %42 = sub nsw i32 0, %33
   store i32 %42, ptr %34, align 4, !tbaa !3
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %10, i64 %43
+  %43 = zext nneg i32 %42 to i64
+  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = icmp sgt i32 %45, 0
   br i1 %46, label %.loopexit112, label %.lr.ph120

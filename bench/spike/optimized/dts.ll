@@ -1239,24 +1239,24 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #22
   %7 = tail call i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1)
   %8 = icmp slt i32 %7, 0
-  br i1 %8, label %34, label %9
+  br i1 %8, label %33, label %9
 
 9:                                                ; preds = %5
   %10 = tail call i32 @fdt_address_cells(ptr noundef %0, i32 noundef %7)
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %34, label %12
+  br i1 %11, label %33, label %12
 
 12:                                               ; preds = %9
   %13 = tail call i32 @fdt_size_cells(ptr noundef %0, i32 noundef %7)
   %14 = icmp slt i32 %13, 0
   %.not = icmp eq ptr %4, null
   %or.cond = or i1 %.not, %14
-  br i1 %or.cond, label %34, label %15
+  br i1 %or.cond, label %33, label %15
 
 15:                                               ; preds = %12
   %16 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4, ptr noundef nonnull %6)
   %.not46 = icmp eq ptr %16, null
-  br i1 %.not46, label %34, label %17
+  br i1 %.not46, label %33, label %17
 
 17:                                               ; preds = %15
   %18 = zext nneg i32 %10 to i64
@@ -1284,32 +1284,32 @@ define noundef range(i32 -2147483648, 1) i32 @_Z22fdt_get_node_addr_sizePKviPmS1
 
 26:                                               ; preds = %._crit_edge, %17
   %.not48 = icmp eq ptr %3, null
-  br i1 %.not48, label %34, label %.preheader
+  br i1 %.not48, label %33, label %.preheader
 
 .preheader:                                       ; preds = %26
-  %27 = icmp sgt i32 %13, 0
-  br i1 %27, label %.lr.ph57, label %._crit_edge58
+  %.not63 = icmp eq i32 %13, 0
+  br i1 %.not63, label %._crit_edge58, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %.preheader, %.lr.ph57
-  %.156 = phi i64 [ %32, %.lr.ph57 ], [ 0, %.preheader ]
-  %.03355 = phi ptr [ %29, %.lr.ph57 ], [ %19, %.preheader ]
-  %.13754 = phi i32 [ %33, %.lr.ph57 ], [ 0, %.preheader ]
-  %28 = shl i64 %.156, 32
-  %29 = getelementptr inbounds nuw i8, ptr %.03355, i64 4
-  %30 = load i32, ptr %.03355, align 4, !tbaa !95
-  %rev.i49 = call noundef i32 @llvm.bswap.i32(i32 %30)
-  %31 = zext i32 %rev.i49 to i64
-  %32 = or disjoint i64 %28, %31
-  %33 = add nuw nsw i32 %.13754, 1
-  %exitcond61.not = icmp eq i32 %33, %13
+  %.156 = phi i64 [ %31, %.lr.ph57 ], [ 0, %.preheader ]
+  %.03355 = phi ptr [ %28, %.lr.ph57 ], [ %19, %.preheader ]
+  %.13754 = phi i32 [ %32, %.lr.ph57 ], [ 0, %.preheader ]
+  %27 = shl i64 %.156, 32
+  %28 = getelementptr inbounds nuw i8, ptr %.03355, i64 4
+  %29 = load i32, ptr %.03355, align 4, !tbaa !95
+  %rev.i49 = call noundef i32 @llvm.bswap.i32(i32 %29)
+  %30 = zext i32 %rev.i49 to i64
+  %31 = or disjoint i64 %27, %30
+  %32 = add nuw nsw i32 %.13754, 1
+  %exitcond61.not = icmp eq i32 %32, %13
   br i1 %exitcond61.not, label %._crit_edge58, label %.lr.ph57, !llvm.loop !106
 
 ._crit_edge58:                                    ; preds = %.lr.ph57, %.preheader
-  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %32, %.lr.ph57 ]
+  %.1.lcssa = phi i64 [ 0, %.preheader ], [ %31, %.lr.ph57 ]
   store i64 %.1.lcssa, ptr %3, align 8, !tbaa !52
-  br label %34
+  br label %33
 
-34:                                               ; preds = %26, %._crit_edge58, %15, %12, %9, %5
+33:                                               ; preds = %26, %._crit_edge58, %15, %12, %9, %5
   %.035 = phi i32 [ %7, %5 ], [ -19, %9 ], [ -19, %12 ], [ -19, %15 ], [ 0, %._crit_edge58 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   ret i32 %.035
@@ -1441,8 +1441,8 @@ define noundef range(i32 -2147483648, 1) i32 @_Z14fdt_parse_plicPKvPmPjPKc(ptr n
   %19 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %7, ptr noundef nonnull @.str.28, ptr noundef nonnull %5)
   %.not46.i = icmp eq ptr %19, null
   %.not47.i = icmp eq ptr %1, null
-  %or.cond23 = or i1 %.not47.i, %.not46.i
-  br i1 %or.cond23, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, label %.lr.ph.i
+  %or.cond = or i1 %.not47.i, %.not46.i
+  br i1 %or.cond, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.i
   %.053.i = phi i64 [ %24, %.lr.ph.i ], [ 0, %18 ]
@@ -1512,8 +1512,8 @@ define noundef range(i32 -2147483648, 1) i32 @_Z17fdt_parse_ns16550PKvPmPjS2_S2_
   %21 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %9, ptr noundef nonnull @.str.28, ptr noundef nonnull %7)
   %.not46.i = icmp eq ptr %21, null
   %.not47.i = icmp eq ptr %1, null
-  %or.cond47 = or i1 %.not47.i, %.not46.i
-  br i1 %or.cond47, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, label %.lr.ph.i
+  %or.cond = or i1 %.not47.i, %.not46.i
+  br i1 %or.cond, label %_Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %.053.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %20 ]
@@ -1561,19 +1561,19 @@ _Z22fdt_get_node_addr_sizePKviPmS1_PKc.exit:      ; preds = %.lr.ph.i
 
 34:                                               ; preds = %32
   %.not40 = icmp eq ptr %33, null
-  br i1 %.not40, label %.sink.split48, label %35
+  br i1 %.not40, label %.sink.split47, label %35
 
 35:                                               ; preds = %34
   %36 = load i32, ptr %33, align 4, !tbaa !95
   %rev.i43 = call noundef i32 @llvm.bswap.i32(i32 %36)
-  br label %.sink.split48
+  br label %.sink.split47
 
-.sink.split48:                                    ; preds = %34, %35
+.sink.split47:                                    ; preds = %34, %35
   %rev.i43.sink = phi i32 [ %rev.i43, %35 ], [ 1, %34 ]
   store i32 %rev.i43.sink, ptr %3, align 4, !tbaa !95
   br label %37
 
-37:                                               ; preds = %.sink.split48, %32
+37:                                               ; preds = %.sink.split47, %32
   %38 = call ptr @fdt_getprop(ptr noundef %0, i32 noundef %9, ptr noundef nonnull @.str.32, ptr noundef nonnull %8)
   %.not41 = icmp eq ptr %4, null
   br i1 %.not41, label %43, label %39

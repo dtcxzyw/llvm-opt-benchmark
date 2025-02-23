@@ -1335,7 +1335,7 @@ Vec_PtrPushUnique.exit147:                        ; preds = %.Vec_PtrGrow.exit11
   %284 = ptrtoint ptr %283 to i64
   %285 = and i64 %284, -2
   %286 = inttoptr i64 %285 to ptr
-  tail call void @Cec2_ObjAddToFrontier(ptr noundef nonnull %0, ptr noundef %286, ptr noundef %2, ptr noundef %4)
+  tail call void @Cec2_ObjAddToFrontier(ptr noundef nonnull %0, ptr noundef %286, ptr noundef nonnull %2, ptr noundef %4)
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %.val84 = load i32, ptr %110, align 4, !tbaa !40
   %287 = sext i32 %.val84 to i64

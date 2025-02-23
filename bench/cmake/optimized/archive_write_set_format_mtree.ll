@@ -5001,7 +5001,7 @@ define internal fastcc i32 @write_dot_dot_entry(ptr noundef %0, ptr noundef read
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %45 = load ptr, ptr %44, align 8, !tbaa !126
-  %46 = tail call i32 @__archive_write_output(ptr noundef %0, ptr noundef %45, i64 noundef %41) #14
+  %46 = tail call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef %45, i64 noundef %41) #14
   store i64 0, ptr %40, align 8, !tbaa !127
   br label %47
 

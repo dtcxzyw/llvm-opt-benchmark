@@ -96,7 +96,7 @@ define dso_local void @compute_assignment(i32 noundef %0, i32 noundef %1, ptr no
   %.sink = phi i32 [ -1, %39 ], [ %.sink.ph, %.sink.split ]
   %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next474
   store i32 %.sink, ptr %44, align 4, !tbaa !4
-  %45 = icmp sgt i64 %indvars.iv473, 1
+  %45 = icmp samesign ugt i64 %indvars.iv473, 1
   br i1 %45, label %.preheader386, label %46, !llvm.loop !10
 
 46:                                               ; preds = %43

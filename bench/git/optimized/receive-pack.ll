@@ -844,13 +844,13 @@ define dso_local noundef i32 @cmd_receive_pack(i32 noundef %0, ptr noundef %1, p
   %.0231.i.i = phi ptr [ %223, %.lr.ph.i.i ], [ %238, %228 ]
   %229 = ptrtoint ptr %.0231.i.i to i64
   %230 = sub i64 %227, %229
-  %231 = call ptr @memchr(ptr noundef %.0231.i.i, i32 noundef 10, i64 noundef %230) #23
+  %231 = call ptr @memchr(ptr noundef nonnull %.0231.i.i, i32 noundef 10, i64 noundef %230) #23
   %.not28.i.i = icmp eq ptr %231, null
   %232 = ptrtoint ptr %231 to i64
   %233 = sub i64 %232, %229
   %234 = select i1 %.not28.i.i, i64 %230, i64 %233
   %235 = trunc i64 %234 to i32
-  %236 = call fastcc ptr @queue_command(ptr noundef %.02.i.i, ptr noundef %.0231.i.i, i32 noundef %235)
+  %236 = call fastcc ptr @queue_command(ptr noundef %.02.i.i, ptr noundef nonnull %.0231.i.i, i32 noundef %235)
   %237 = getelementptr inbounds nuw i8, ptr %231, i64 1
   %238 = select i1 %.not28.i.i, ptr %225, ptr %237
   %239 = icmp ult ptr %238, %225

@@ -348,7 +348,7 @@ define dso_local i32 @job_submit_g_submit(ptr noundef initializes((628, 632)) %0
   %15 = load ptr, ptr @ops, align 8
   %16 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1, ptr noundef %2) #9
+  %18 = tail call i32 %17(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr @g_context_cnt, align 4
   %20 = sext i32 %19 to i64
@@ -424,7 +424,7 @@ define dso_local i32 @job_submit_g_modify(ptr noundef initializes((628, 632)) %0
   %16 = load ptr, ptr @ops, align 8
   %17 = getelementptr inbounds nuw %struct.slurm_submit_ops, ptr %16, i64 %indvars.iv, i32 1
   %18 = load ptr, ptr %17, align 8
-  %19 = tail call i32 %18(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #9
+  %19 = tail call i32 %18(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %20 = load i32, ptr @g_context_cnt, align 4
   %21 = sext i32 %20 to i64

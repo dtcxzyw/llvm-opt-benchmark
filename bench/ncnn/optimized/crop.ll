@@ -1968,9 +1968,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKNS_3MatER
   %522 = getelementptr inbounds i16, ptr %.02831.i808, i64 %477
   %523 = add nuw nsw i32 %.02633.i806, 1
   %exitcond.not.i809 = icmp eq i32 %523, %479
-  br i1 %exitcond.not.i809, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i805, !llvm.loop !11
+  br i1 %exitcond.not.i809, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i805, !llvm.loop !11
 
-_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i805, %..loopexit_crit_edge.us.us.i818
+_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexit_crit_edge.us.us.i818
   br i1 %468, label %524, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit
 
 524:                                              ; preds = %._crit_edge1007, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
@@ -2024,7 +2024,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %exitcond.not.i825 = icmp eq i32 %541, %479
   br i1 %exitcond.not.i825, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i821, !llvm.loop !13
 
-_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i821, %..loopexit_crit_edge.us.us.i834, %.lr.ph34.split.i, %..loopexit_crit_edge.us.us.i, %506, %.lr.ph34.split.us.i810, %487, %.lr.ph34.split.us.i, %.lr.ph34.split.us.i826, %524, %469, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
+_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i805, %.lr.ph34.split.i821, %..loopexit_crit_edge.us.us.i834, %.lr.ph34.split.i, %..loopexit_crit_edge.us.us.i, %506, %.lr.ph34.split.us.i810, %487, %.lr.ph34.split.us.i, %.lr.ph34.split.us.i826, %524, %469, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
   %indvars.iv.next998 = add nuw nsw i64 %indvars.iv997, 1
   %exitcond1001.not = icmp eq i64 %indvars.iv.next998, %wide.trip.count1000
   br i1 %exitcond1001.not, label %.critedge4, label %469, !llvm.loop !14
@@ -2623,7 +2623,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %855 = getelementptr inbounds i16, ptr %.02831.i857.us, i64 %809
   %856 = add nuw nsw i32 %.02633.i855.us, 1
   %exitcond.not.i858.us = icmp eq i32 %856, %816
-  br i1 %exitcond.not.i858.us, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us, label %.lr.ph34.split.i854.us, !llvm.loop !11
+  br i1 %exitcond.not.i858.us, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us, label %.lr.ph34.split.i854.us, !llvm.loop !11
 
 .lr.ph34.split.us.i859.us:                        ; preds = %.lr.ph34.i853.us
   %857 = icmp sgt i32 %815, 0
@@ -2656,7 +2656,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %exitcond39.not.i870.us = icmp eq i32 %864, %816
   br i1 %exitcond39.not.i870.us, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us, label %.preheader.us.us.i862.us, !llvm.loop !11
 
-_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us: ; preds = %.lr.ph34.split.i854.us, %..loopexit_crit_edge.us.us.i869.us
+_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us: ; preds = %..loopexit_crit_edge.us.us.i869.us
   br i1 %796, label %865, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us
 
 865:                                              ; preds = %._crit_edge1005, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us
@@ -2710,7 +2710,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us: ; preds = %.lr
   %exitcond39.not.i887.us = icmp eq i32 %882, %816
   br i1 %exitcond39.not.i887.us, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us, label %.preheader.us.us.i879.us, !llvm.loop !13
 
-_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us: ; preds = %.lr.ph34.split.i873.us, %..loopexit_crit_edge.us.us.i886.us, %.lr.ph34.split.i837.us, %..loopexit_crit_edge.us.us.i850.us, %.lr.ph34.split.us.i878.us, %865, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us, %.lr.ph34.split.us.i859.us, %847, %.lr.ph34.split.us.i842.us, %829, %799
+_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit888.us: ; preds = %.lr.ph34.split.i854.us, %.lr.ph34.split.i873.us, %..loopexit_crit_edge.us.us.i886.us, %.lr.ph34.split.i837.us, %..loopexit_crit_edge.us.us.i850.us, %.lr.ph34.split.us.i878.us, %865, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit871.us, %.lr.ph34.split.us.i859.us, %847, %.lr.ph34.split.us.i842.us, %829, %799
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %799, !llvm.loop !18
@@ -2889,14 +2889,14 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
   store i32 %spec.select, ptr %55, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit447, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.lr.ph450, label %.lr.ph, !llvm.loop !20
 
-.loopexit447:                                     ; preds = %.lr.ph, %42
-  %.0224 = phi i32 [ %21, %42 ], [ %48, %.lr.ph ]
-  %56 = icmp sgt i32 %.0224, 0
+.loopexit447:                                     ; preds = %42
+  %56 = icmp sgt i32 %21, 0
   br i1 %56, label %.lr.ph450, label %.loopexit
 
-.lr.ph450:                                        ; preds = %.loopexit447
+.lr.ph450:                                        ; preds = %.lr.ph, %.loopexit447
+  %.0224486 = phi i32 [ %21, %.loopexit447 ], [ %48, %.lr.ph ]
   switch i32 %21, label %.loopexit [
     i32 1, label %.thread.us.preheader
     i32 2, label %.lr.ph450.split.us451.preheader
@@ -2905,19 +2905,19 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
   ]
 
 .lr.ph450.split.us457.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count468 = zext nneg i32 %.0224 to i64
+  %wide.trip.count468 = zext nneg i32 %.0224486 to i64
   br label %.lr.ph450.split.us457
 
 .lr.ph450.split.us454.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count473 = zext nneg i32 %.0224 to i64
+  %wide.trip.count473 = zext nneg i32 %.0224486 to i64
   br label %.lr.ph450.split.us454
 
 .lr.ph450.split.us451.preheader:                  ; preds = %.lr.ph450
-  %wide.trip.count478 = zext nneg i32 %.0224 to i64
+  %wide.trip.count478 = zext nneg i32 %.0224486 to i64
   br label %.lr.ph450.split.us451
 
 .thread.us.preheader:                             ; preds = %.lr.ph450
-  %wide.trip.count483 = zext nneg i32 %.0224 to i64
+  %wide.trip.count483 = zext nneg i32 %.0224486 to i64
   br label %.thread.us
 
 .thread.us:                                       ; preds = %.thread.us.preheader, %.thread.us
@@ -2961,23 +2961,23 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
   br label %.thread384.us453.sink.split
 
 .thread384.us453.sink.split:                      ; preds = %.lr.ph450.split.us451, %.thread370.us
-  %.sink499 = phi i32 [ %15, %.thread370.us ], [ %13, %.lr.ph450.split.us451 ]
-  %.sink495 = phi ptr [ %3, %.thread370.us ], [ %2, %.lr.ph450.split.us451 ]
-  %.sink489 = phi ptr [ %7, %.thread370.us ], [ %6, %.lr.ph450.split.us451 ]
+  %.sink502 = phi i32 [ %15, %.thread370.us ], [ %13, %.lr.ph450.split.us451 ]
+  %.sink498 = phi ptr [ %3, %.thread370.us ], [ %2, %.lr.ph450.split.us451 ]
+  %.sink492 = phi ptr [ %7, %.thread370.us ], [ %6, %.lr.ph450.split.us451 ]
   %76 = icmp eq i32 %73, -233
   %spec.store.select1.us = select i1 %76, i32 0, i32 %73
   %77 = icmp eq i32 %75, -233
-  %spec.select243.us = select i1 %77, i32 %.sink499, i32 %75
+  %spec.select243.us = select i1 %77, i32 %.sink502, i32 %75
   %78 = icmp slt i32 %spec.store.select1.us, 0
-  %79 = select i1 %78, i32 %.sink499, i32 0
+  %79 = select i1 %78, i32 %.sink502, i32 0
   %80 = add nsw i32 %79, %spec.store.select1.us
-  store i32 %80, ptr %.sink495, align 4
+  store i32 %80, ptr %.sink498, align 4
   %81 = icmp sgt i32 %spec.select243.us, 0
-  %82 = select i1 %81, i32 0, i32 %.sink499
+  %82 = select i1 %81, i32 0, i32 %.sink502
   %83 = add nsw i32 %82, %spec.select243.us
-  %.sroa.speculated303.us = tail call i32 @llvm.smin.i32(i32 %83, i32 %.sink499)
+  %.sroa.speculated303.us = tail call i32 @llvm.smin.i32(i32 %83, i32 %.sink502)
   %84 = sub nsw i32 %.sroa.speculated303.us, %80
-  store i32 %84, ptr %.sink489, align 4
+  store i32 %84, ptr %.sink492, align 4
   br label %.thread384.us453
 
 .thread384.us453:                                 ; preds = %.thread384.us453.sink.split, %.lr.ph450.split.us451
@@ -3006,23 +3006,23 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
   br label %.thread384.us456.sink.split
 
 .thread384.us456.sink.split:                      ; preds = %.lr.ph450.split.us454, %91, %.thread376.us
-  %.sink510 = phi i32 [ %19, %.thread376.us ], [ %15, %91 ], [ %13, %.lr.ph450.split.us454 ]
-  %.sink506 = phi ptr [ %5, %.thread376.us ], [ %3, %91 ], [ %2, %.lr.ph450.split.us454 ]
-  %.sink500 = phi ptr [ %9, %.thread376.us ], [ %7, %91 ], [ %6, %.lr.ph450.split.us454 ]
+  %.sink513 = phi i32 [ %19, %.thread376.us ], [ %15, %91 ], [ %13, %.lr.ph450.split.us454 ]
+  %.sink509 = phi ptr [ %5, %.thread376.us ], [ %3, %91 ], [ %2, %.lr.ph450.split.us454 ]
+  %.sink503 = phi ptr [ %9, %.thread376.us ], [ %7, %91 ], [ %6, %.lr.ph450.split.us454 ]
   %92 = icmp eq i32 %88, -233
   %spec.store.select3.us = select i1 %92, i32 0, i32 %88
   %93 = icmp eq i32 %90, -233
-  %spec.select245.us = select i1 %93, i32 %.sink510, i32 %90
+  %spec.select245.us = select i1 %93, i32 %.sink513, i32 %90
   %94 = icmp slt i32 %spec.store.select3.us, 0
-  %95 = select i1 %94, i32 %.sink510, i32 0
+  %95 = select i1 %94, i32 %.sink513, i32 0
   %96 = add nsw i32 %95, %spec.store.select3.us
-  store i32 %96, ptr %.sink506, align 4
+  store i32 %96, ptr %.sink509, align 4
   %97 = icmp sgt i32 %spec.select245.us, 0
-  %98 = select i1 %97, i32 0, i32 %.sink510
+  %98 = select i1 %97, i32 0, i32 %.sink513
   %99 = add nsw i32 %98, %spec.select245.us
-  %.sroa.speculated295.us = tail call i32 @llvm.smin.i32(i32 %99, i32 %.sink510)
+  %.sroa.speculated295.us = tail call i32 @llvm.smin.i32(i32 %99, i32 %.sink513)
   %100 = sub nsw i32 %.sroa.speculated295.us, %96
-  store i32 %100, ptr %.sink500, align 4
+  store i32 %100, ptr %.sink503, align 4
   br label %.thread384.us456
 
 .thread384.us456:                                 ; preds = %.thread384.us456.sink.split, %.lr.ph450.split.us454
@@ -3055,23 +3055,23 @@ define hidden void @_ZNK4ncnn4Crop16resolve_crop_roiERKNS_3MatERiS4_S4_S4_S4_S4_
   br label %.thread384.us459.sink.split
 
 .thread384.us459.sink.split:                      ; preds = %.lr.ph450.split.us457, %107, %108, %.thread387.us
-  %.sink521 = phi i32 [ %19, %.thread387.us ], [ %17, %108 ], [ %15, %107 ], [ %13, %.lr.ph450.split.us457 ]
-  %.sink517 = phi ptr [ %5, %.thread387.us ], [ %4, %108 ], [ %3, %107 ], [ %2, %.lr.ph450.split.us457 ]
-  %.sink511 = phi ptr [ %9, %.thread387.us ], [ %8, %108 ], [ %7, %107 ], [ %6, %.lr.ph450.split.us457 ]
+  %.sink524 = phi i32 [ %19, %.thread387.us ], [ %17, %108 ], [ %15, %107 ], [ %13, %.lr.ph450.split.us457 ]
+  %.sink520 = phi ptr [ %5, %.thread387.us ], [ %4, %108 ], [ %3, %107 ], [ %2, %.lr.ph450.split.us457 ]
+  %.sink514 = phi ptr [ %9, %.thread387.us ], [ %8, %108 ], [ %7, %107 ], [ %6, %.lr.ph450.split.us457 ]
   %109 = icmp eq i32 %104, -233
   %spec.store.select6.us = select i1 %109, i32 0, i32 %104
   %110 = icmp eq i32 %106, -233
-  %spec.select248.us = select i1 %110, i32 %.sink521, i32 %106
+  %spec.select248.us = select i1 %110, i32 %.sink524, i32 %106
   %111 = icmp slt i32 %spec.store.select6.us, 0
-  %112 = select i1 %111, i32 %.sink521, i32 0
+  %112 = select i1 %111, i32 %.sink524, i32 0
   %113 = add nsw i32 %112, %spec.store.select6.us
-  store i32 %113, ptr %.sink517, align 4
+  store i32 %113, ptr %.sink520, align 4
   %114 = icmp sgt i32 %spec.select248.us, 0
-  %115 = select i1 %114, i32 0, i32 %.sink521
+  %115 = select i1 %114, i32 0, i32 %.sink524
   %116 = add nsw i32 %115, %spec.select248.us
-  %.sroa.speculated283.us = tail call i32 @llvm.smin.i32(i32 %116, i32 %.sink521)
+  %.sroa.speculated283.us = tail call i32 @llvm.smin.i32(i32 %116, i32 %.sink524)
   %117 = sub nsw i32 %.sroa.speculated283.us, %113
-  store i32 %117, ptr %.sink511, align 4
+  store i32 %117, ptr %.sink514, align 4
   br label %.thread384.us459
 
 .thread384.us459:                                 ; preds = %.thread384.us459.sink.split, %.lr.ph450.split.us457
@@ -4539,9 +4539,9 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn4Crop7forwardERKSt6vector
   %534 = getelementptr inbounds i16, ptr %.02831.i897, i64 %489
   %535 = add nuw nsw i32 %.02633.i895, 1
   %exitcond.not.i898 = icmp eq i32 %535, %491
-  br i1 %exitcond.not.i898, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i894, !llvm.loop !11
+  br i1 %exitcond.not.i898, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i894, !llvm.loop !11
 
-_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i894, %..loopexit_crit_edge.us.us.i907
+_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %..loopexit_crit_edge.us.us.i907
   br i1 %480, label %536, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit
 
 536:                                              ; preds = %._crit_edge1217, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
@@ -4595,7 +4595,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %exitcond.not.i914 = icmp eq i32 %553, %491
   br i1 %exitcond.not.i914, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit, label %.lr.ph34.split.i910, !llvm.loop !13
 
-_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i910, %..loopexit_crit_edge.us.us.i923, %.lr.ph34.split.i, %..loopexit_crit_edge.us.us.i, %518, %.lr.ph34.split.us.i899, %499, %.lr.ph34.split.us.i, %.lr.ph34.split.us.i915, %536, %481, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
+_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.split.i894, %.lr.ph34.split.i910, %..loopexit_crit_edge.us.us.i923, %.lr.ph34.split.i, %..loopexit_crit_edge.us.us.i, %518, %.lr.ph34.split.us.i899, %499, %.lr.ph34.split.us.i, %.lr.ph34.split.us.i915, %536, %481, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit
   %indvars.iv.next1208 = add nuw nsw i64 %indvars.iv1207, 1
   %exitcond1211.not = icmp eq i64 %indvars.iv.next1208, %wide.trip.count1210
   br i1 %exitcond1211.not, label %.critedge4, label %481, !llvm.loop !25
@@ -5184,7 +5184,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %854 = getelementptr inbounds i16, ptr %.02831.i946.us, i64 %808
   %855 = add nuw nsw i32 %.02633.i944.us, 1
   %exitcond.not.i947.us = icmp eq i32 %855, %815
-  br i1 %exitcond.not.i947.us, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us, label %.lr.ph34.split.i943.us, !llvm.loop !11
+  br i1 %exitcond.not.i947.us, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us, label %.lr.ph34.split.i943.us, !llvm.loop !11
 
 .lr.ph34.split.us.i948.us:                        ; preds = %.lr.ph34.i942.us
   %856 = icmp sgt i32 %814, 0
@@ -5217,7 +5217,7 @@ _ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit: ; preds = %.lr.ph34.
   %exitcond39.not.i959.us = icmp eq i32 %863, %815
   br i1 %exitcond39.not.i959.us, label %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us, label %.preheader.us.us.i951.us, !llvm.loop !11
 
-_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us: ; preds = %.lr.ph34.split.i943.us, %..loopexit_crit_edge.us.us.i958.us
+_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us: ; preds = %..loopexit_crit_edge.us.us.i958.us
   br i1 %796, label %864, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us
 
 864:                                              ; preds = %._crit_edge1215, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us
@@ -5271,7 +5271,7 @@ _ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us: ; preds = %.lr
   %exitcond39.not.i976.us = icmp eq i32 %881, %815
   br i1 %exitcond39.not.i976.us, label %_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us, label %.preheader.us.us.i968.us, !llvm.loop !13
 
-_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us: ; preds = %.lr.ph34.split.i962.us, %..loopexit_crit_edge.us.us.i975.us, %.lr.ph34.split.i926.us, %..loopexit_crit_edge.us.us.i939.us, %.lr.ph34.split.us.i967.us, %864, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us, %.lr.ph34.split.us.i948.us, %846, %.lr.ph34.split.us.i931.us, %828, %798
+_ZN4ncnnL21copy_cut_border_imageIfEEvRKNS_3MatERS1_ii.exit977.us: ; preds = %.lr.ph34.split.i943.us, %.lr.ph34.split.i962.us, %..loopexit_crit_edge.us.us.i975.us, %.lr.ph34.split.i926.us, %..loopexit_crit_edge.us.us.i939.us, %.lr.ph34.split.us.i967.us, %864, %_ZN4ncnnL21copy_cut_border_imageItEEvRKNS_3MatERS1_ii.exit960.us, %.lr.ph34.split.us.i948.us, %846, %.lr.ph34.split.us.i931.us, %828, %798
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %798, !llvm.loop !29

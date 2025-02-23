@@ -5206,7 +5206,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13Usd_CrateData
 
 13:                                               ; preds = %10
   store double %11, ptr %3, align 8
-  br label %.sink.split.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %.val5.i, i64 -8
@@ -5216,7 +5216,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13Usd_CrateData
 
 18:                                               ; preds = %14
   store double %16, ptr %3, align 8
-  br label %.sink.split.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i
 
 19:                                               ; preds = %14
   %20 = ptrtoint ptr %.val5.i to i64
@@ -5250,23 +5250,23 @@ _ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   %.sroa.011.0.lcssa.i.i.i.i = phi ptr [ %.val.i, %19 ], [ %.sroa.011.1.i.i.i.i, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit.i.i ]
   %34 = fcmp oeq double %33, %1
   store double %33, ptr %3, align 8
-  br i1 %34, label %.sink.split.i.i, label %35
+  br i1 %34, label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i, label %35
 
 35:                                               ; preds = %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i
   %36 = getelementptr inbounds i8, ptr %.sroa.011.0.lcssa.i.i.i.i, i64 -8
   %37 = load double, ptr %36, align 8
-  br label %.sink.split.i.i
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i
 
-.sink.split.i.i:                                  ; preds = %35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i, %18, %13
+_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i: ; preds = %35, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i, %18, %13
   %.sink.i.i = phi double [ %16, %18 ], [ %37, %35 ], [ %11, %13 ], [ %33, %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.i.i ]
   store double %.sink.i.i, ptr %2, align 8
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i
+  br label %38
 
-_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i: ; preds = %.sink.split.i.i, %4
+_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i: ; preds = %4
   %.not.i.i.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_CrateDataImpl24GetBracketingTimeSamplesEdPdS1_.exit, label %38
 
-38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i
+38:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.i, %_ZN32pxrInternal_v0_24__pxrReserved__L19_GetBracketingTimesERKSt6vectorIdSaIdEEdPdS5_.exit.thread.i
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = ptrtoint ptr %40 to i64

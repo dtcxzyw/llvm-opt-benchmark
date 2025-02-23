@@ -593,7 +593,7 @@ get_commit_reference.exit:                        ; preds = %204
 show_merge_base.exit:                             ; preds = %218, %.sink.split.i55
   %.07.i = phi i32 [ 1, %218 ], [ %.07.ph.i, %.sink.split.i55 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
-  call void @free(ptr noundef %197) #10
+  call void @free(ptr noundef nonnull %197) #10
   br label %228
 
 228:                                              ; preds = %show_merge_base.exit, %handle_fork_point.exit, %handle_independent.exit, %handle_octopus.exit, %handle_is_ancestor.exit

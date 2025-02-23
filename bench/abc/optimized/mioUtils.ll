@@ -2742,7 +2742,7 @@ Mio_CollectCopy.exit:                             ; preds = %83, %142, %114, %17
   %238 = getelementptr inbounds nuw i8, ptr %.1174.us, i64 104
   br label %224
 
-.preheader:                                       ; preds = %.lr.ph177.split, %..loopexit_crit_edge.us, %215
+.preheader:                                       ; preds = %..loopexit_crit_edge.us, %215
   br i1 %214, label %.lr.ph179.preheader, label %._crit_edge180
 
 .lr.ph179.preheader:                              ; preds = %.preheader
@@ -2753,7 +2753,7 @@ Mio_CollectCopy.exit:                             ; preds = %83, %142, %114, %17
   %.1174 = phi ptr [ %239, %.lr.ph177.split ], [ %217, %.lr.ph177 ]
   %239 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.1174) #30
   %.not101 = icmp eq ptr %239, null
-  br i1 %.not101, label %.preheader, label %.lr.ph177.split, !llvm.loop !130
+  br i1 %.not101, label %._crit_edge180, label %.lr.ph177.split, !llvm.loop !130
 
 .lr.ph179:                                        ; preds = %.lr.ph179.preheader, %264
   %indvars.iv202 = phi i64 [ 0, %.lr.ph179.preheader ], [ %indvars.iv.next203, %264 ]
@@ -2809,7 +2809,7 @@ Mio_CellDelayAve.exit:                            ; preds = %256, %246
   %exitcond206.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count205
   br i1 %exitcond206.not, label %._crit_edge180, label %.lr.ph179, !llvm.loop !131
 
-._crit_edge180:                                   ; preds = %264, %.preheader
+._crit_edge180:                                   ; preds = %.lr.ph177.split, %264, %.preheader
   %.not102 = icmp eq ptr %216, null
   br i1 %.not102, label %266, label %265
 
@@ -3221,7 +3221,7 @@ Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exi
   %176 = getelementptr inbounds nuw i8, ptr %.2171.us, i64 104
   br label %162
 
-.preheader:                                       ; preds = %.lr.ph174.split, %..loopexit_crit_edge.us, %153
+.preheader:                                       ; preds = %..loopexit_crit_edge.us, %153
   br i1 %140, label %.lr.ph176.preheader, label %._crit_edge177
 
 .lr.ph176.preheader:                              ; preds = %.preheader
@@ -3232,7 +3232,7 @@ Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exi
   %.2171 = phi ptr [ %177, %.lr.ph174.split ], [ %155, %.lr.ph174 ]
   %177 = tail call ptr @Mio_GateReadNext(ptr noundef nonnull %.2171) #30
   %.not126 = icmp eq ptr %177, null
-  br i1 %.not126, label %.preheader, label %.lr.ph174.split, !llvm.loop !143
+  br i1 %.not126, label %._crit_edge177, label %.lr.ph174.split, !llvm.loop !143
 
 .lr.ph176:                                        ; preds = %.lr.ph176.preheader, %199
   %indvars.iv196 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next197, %199 ]
@@ -3269,7 +3269,7 @@ Mio_CompareTwo2.exit.thread:                      ; preds = %Mio_CompareTwo2.exi
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
   br i1 %exitcond200.not, label %._crit_edge177, label %.lr.ph176, !llvm.loop !144
 
-._crit_edge177:                                   ; preds = %199, %.preheader
+._crit_edge177:                                   ; preds = %.lr.ph174.split, %199, %.preheader
   %.not127 = icmp eq ptr %154, null
   br i1 %.not127, label %201, label %200
 

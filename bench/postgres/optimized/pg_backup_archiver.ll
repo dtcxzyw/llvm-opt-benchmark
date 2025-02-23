@@ -7164,7 +7164,7 @@ WriteStr.exit125:                                 ; preds = %.lr.ph.i14.i, %._cr
   br i1 %.not60, label %241, label %240
 
 240:                                              ; preds = %WriteStr.exit125
-  call void %239(ptr noundef nonnull %0, ptr noundef %.156137) #22
+  call void %239(ptr noundef nonnull %0, ptr noundef nonnull %.156137) #22
   br label %241
 
 241:                                              ; preds = %WriteStr.exit125, %240, %36

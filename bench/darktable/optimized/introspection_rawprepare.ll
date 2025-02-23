@@ -1657,106 +1657,105 @@ define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_ad
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1532
   %9 = load i32, ptr %8, align 4, !tbaa !177
   %10 = and i32 %9, 557056
-  %11 = icmp ne i32 %10, 0
-  br i1 %11, label %.preheader42, label %.loopexit41
+  %.not63 = icmp eq i32 %10, 0
+  br i1 %.not63, label %.loopexit41, label %.preheader42
 
 .preheader42:                                     ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %15
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %14
 
-.preheader40:                                     ; preds = %15
-  %13 = lshr i32 %19, 2
-  %14 = uitofp nneg i32 %13 to float
-  br label %20
+.preheader40:                                     ; preds = %14
+  %12 = lshr i32 %18, 2
+  %13 = uitofp nneg i32 %12 to float
+  br label %19
 
-15:                                               ; preds = %.preheader42, %15
-  %indvars.iv = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next, %15 ]
-  %.03744 = phi i32 [ 2, %.preheader42 ], [ %19, %15 ]
-  %16 = getelementptr inbounds nuw [4 x i16], ptr %12, i64 0, i64 %indvars.iv
-  %17 = load i16, ptr %16, align 2, !tbaa !107
-  %18 = zext i16 %17 to i32
-  %19 = add nuw nsw i32 %.03744, %18
+14:                                               ; preds = %.preheader42, %14
+  %indvars.iv = phi i64 [ 0, %.preheader42 ], [ %indvars.iv.next, %14 ]
+  %.03744 = phi i32 [ 2, %.preheader42 ], [ %18, %14 ]
+  %15 = getelementptr inbounds nuw [4 x i16], ptr %11, i64 0, i64 %indvars.iv
+  %16 = load i16, ptr %15, align 2, !tbaa !107
+  %17 = zext i16 %16 to i32
+  %18 = add nuw nsw i32 %.03744, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader40, label %15
+  br i1 %exitcond.not, label %.preheader40, label %14
 
-20:                                               ; preds = %.preheader40, %20
-  %indvars.iv49 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next50, %20 ]
-  %21 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv49
-  %22 = load ptr, ptr %21, align 8, !tbaa !178
-  tail call void @dt_bauhaus_slider_set(ptr noundef %22, float noundef %14) #22
+19:                                               ; preds = %.preheader40, %19
+  %indvars.iv49 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next50, %19 ]
+  %20 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv49
+  %21 = load ptr, ptr %20, align 8, !tbaa !178
+  tail call void @dt_bauhaus_slider_set(ptr noundef %21, float noundef %13) #22
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 4
-  br i1 %exitcond52.not, label %.loopexit41.loopexit, label %20
+  br i1 %exitcond52.not, label %.loopexit41.thread, label %19
 
-.loopexit41.loopexit:                             ; preds = %20
+.loopexit41.thread:                               ; preds = %19
   %.pre = load ptr, ptr %6, align 8, !tbaa !108
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1532
   %.pre61 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !177
-  br label %.loopexit41
+  %22 = and i32 %.pre61, 131072
+  br label %.loopexit
 
-.loopexit41:                                      ; preds = %.loopexit41.loopexit, %1
-  %23 = phi i32 [ %.pre61, %.loopexit41.loopexit ], [ %9, %1 ]
-  %24 = and i32 %23, 131072
-  %25 = icmp eq i32 %24, 0
-  %or.cond = or i1 %11, %25
-  br i1 %or.cond, label %.loopexit, label %.preheader
+.loopexit41:                                      ; preds = %1
+  %23 = and i32 %9, 131072
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit41
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %27
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %26
 
-27:                                               ; preds = %.preheader, %36
-  %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %36 ]
-  %28 = getelementptr inbounds nuw [4 x i16], ptr %26, i64 0, i64 %indvars.iv53
-  %29 = load i16, ptr %28, align 2, !tbaa !107
-  %30 = icmp eq i16 %29, 0
-  br i1 %30, label %31, label %36
+26:                                               ; preds = %.preheader, %35
+  %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %35 ]
+  %27 = getelementptr inbounds nuw [4 x i16], ptr %25, i64 0, i64 %indvars.iv53
+  %28 = load i16, ptr %27, align 2, !tbaa !107
+  %29 = icmp eq i16 %28, 0
+  br i1 %29, label %30, label %35
 
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv53
-  %33 = load ptr, ptr %32, align 8, !tbaa !178
-  %34 = load i16, ptr %26, align 4, !tbaa !107
-  %35 = uitofp i16 %34 to float
-  tail call void @dt_bauhaus_slider_set(ptr noundef %33, float noundef %35) #22
-  br label %36
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv53
+  %32 = load ptr, ptr %31, align 8, !tbaa !178
+  %33 = load i16, ptr %25, align 4, !tbaa !107
+  %34 = uitofp i16 %33 to float
+  tail call void @dt_bauhaus_slider_set(ptr noundef %32, float noundef %34) #22
+  br label %35
 
-36:                                               ; preds = %27, %31
+35:                                               ; preds = %26, %30
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %exitcond56.not = icmp eq i64 %indvars.iv.next54, 4
-  br i1 %exitcond56.not, label %.loopexit, label %27
+  br i1 %exitcond56.not, label %.loopexit, label %26
 
-.loopexit:                                        ; preds = %36, %.loopexit41
-  %37 = xor i1 %11, true
-  %38 = zext i1 %37 to i32
-  br label %50
+.loopexit:                                        ; preds = %35, %.loopexit41.thread, %.loopexit41
+  %36 = phi i32 [ %22, %.loopexit41.thread ], [ %23, %.loopexit41 ], [ 1, %35 ]
+  %37 = zext i1 %.not63 to i32
+  br label %49
 
-39:                                               ; preds = %50
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %41 = load ptr, ptr %40, align 8, !tbaa !178
-  %42 = or disjoint i32 %24, %10
-  %.not = icmp eq i32 %42, 0
-  %43 = zext i1 %.not to i32
-  tail call void @gtk_widget_set_visible(ptr noundef %41, i32 noundef %43) #22
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %45 = load ptr, ptr %44, align 8, !tbaa !179
+38:                                               ; preds = %49
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %40 = load ptr, ptr %39, align 8, !tbaa !178
+  %41 = or disjoint i32 %36, %10
+  %.not = icmp eq i32 %41, 0
+  %42 = zext i1 %.not to i32
+  tail call void @gtk_widget_set_visible(ptr noundef %40, i32 noundef %42) #22
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %44 = load ptr, ptr %43, align 8, !tbaa !179
   %.val = load ptr, ptr %6, align 8, !tbaa !108
-  %46 = tail call fastcc i32 @_check_gain_maps(ptr %.val, ptr noundef null)
-  tail call void @gtk_widget_set_visible(ptr noundef %45, i32 noundef %46) #22
-  %47 = load ptr, ptr %44, align 8, !tbaa !179
-  %48 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %49 = load i32, ptr %48, align 4, !tbaa !149
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %47, i32 noundef %49) #22
+  %45 = tail call fastcc i32 @_check_gain_maps(ptr %.val, ptr noundef null)
+  tail call void @gtk_widget_set_visible(ptr noundef %44, i32 noundef %45) #22
+  %46 = load ptr, ptr %43, align 8, !tbaa !179
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %48 = load i32, ptr %47, align 4, !tbaa !149
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %46, i32 noundef %48) #22
   ret void
 
-50:                                               ; preds = %.loopexit, %50
-  %indvars.iv57 = phi i64 [ 1, %.loopexit ], [ %indvars.iv.next58, %50 ]
-  %51 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv57
-  %52 = load ptr, ptr %51, align 8, !tbaa !178
-  tail call void @gtk_widget_set_visible(ptr noundef %52, i32 noundef %38) #22
+49:                                               ; preds = %.loopexit, %49
+  %indvars.iv57 = phi i64 [ 1, %.loopexit ], [ %indvars.iv.next58, %49 ]
+  %50 = getelementptr inbounds nuw [4 x ptr], ptr %3, i64 0, i64 %indvars.iv57
+  %51 = load ptr, ptr %50, align 8, !tbaa !178
+  tail call void @gtk_widget_set_visible(ptr noundef %51, i32 noundef %37) #22
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 3
-  br i1 %exitcond60.not, label %39, label %50
+  br i1 %exitcond60.not, label %38, label %49
 }
 
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #2
@@ -1776,81 +1775,73 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1532
   %11 = load i32, ptr %10, align 4, !tbaa !177
   %12 = and i32 %11, 557056
-  %13 = icmp ne i32 %12, 0
-  br i1 %13, label %14, label %.loopexit
+  %.not = icmp eq i32 %12, 0
+  br i1 %.not, label %.loopexit, label %13
 
-14:                                               ; preds = %3
-  %15 = load ptr, ptr %5, align 8, !tbaa !178
-  %16 = icmp eq ptr %1, %15
-  br i1 %16, label %17, label %.thread
+13:                                               ; preds = %3
+  %14 = load ptr, ptr %5, align 8, !tbaa !178
+  %15 = icmp eq ptr %1, %14
+  br i1 %15, label %16, label %.thread
 
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %19 = load i16, ptr %18, align 4, !tbaa !107
-  %20 = uitofp i16 %19 to float
-  br label %21
+16:                                               ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %18 = load i16, ptr %17, align 4, !tbaa !107
+  %19 = uitofp i16 %18 to float
+  br label %20
 
-21:                                               ; preds = %17, %21
-  %indvars.iv = phi i64 [ 1, %17 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8, !tbaa !178
-  tail call void @dt_bauhaus_slider_set(ptr noundef %23, float noundef %20) #22
+20:                                               ; preds = %16, %20
+  %indvars.iv = phi i64 [ 1, %16 ], [ %indvars.iv.next, %20 ]
+  %21 = getelementptr inbounds nuw [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
+  %22 = load ptr, ptr %21, align 8, !tbaa !178
+  tail call void @dt_bauhaus_slider_set(ptr noundef %22, float noundef %19) #22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %21
+  br i1 %exitcond.not, label %.thread, label %20
 
-.loopexit.loopexit:                               ; preds = %21
-  %.pre = load ptr, ptr %8, align 8, !tbaa !108
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 1532
-  %.pre30 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !177
-  br label %.loopexit
+.loopexit:                                        ; preds = %3
+  %23 = and i32 %11, 131072
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %.thread, label %25
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %3
-  %24 = phi i32 [ %.pre30, %.loopexit.loopexit ], [ %11, %3 ]
-  %25 = and i32 %24, 131072
-  %26 = icmp eq i32 %25, 0
-  %or.cond = or i1 %13, %26
-  br i1 %or.cond, label %.thread, label %27
+25:                                               ; preds = %.loopexit
+  %26 = load ptr, ptr %5, align 8, !tbaa !178
+  %27 = icmp eq ptr %1, %26
+  br i1 %27, label %36, label %28
 
-27:                                               ; preds = %.loopexit
-  %28 = load ptr, ptr %5, align 8, !tbaa !178
-  %29 = icmp eq ptr %1, %28
-  br i1 %29, label %38, label %30
+28:                                               ; preds = %25
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !178
+  %31 = icmp eq ptr %1, %30
+  br i1 %31, label %36, label %32
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !178
-  %33 = icmp eq ptr %1, %32
-  br i1 %33, label %38, label %34
+32:                                               ; preds = %28
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !178
+  %35 = icmp eq ptr %1, %34
+  br i1 %35, label %36, label %.thread
 
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !178
-  %37 = icmp eq ptr %1, %36
-  br i1 %37, label %38, label %.thread
-
-38:                                               ; preds = %34, %30, %27
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %40 = load i16, ptr %39, align 4, !tbaa !107
-  %41 = uitofp i16 %40 to float
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 18
-  %43 = load i16, ptr %42, align 2, !tbaa !107
-  %44 = uitofp i16 %43 to float
-  %45 = fadd reassoc nsz arcp contract afn float %44, %41
-  %46 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  %47 = load i16, ptr %46, align 4, !tbaa !107
-  %48 = uitofp i16 %47 to float
-  %49 = fadd reassoc nsz arcp contract afn float %45, %48
-  %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !178
-  %52 = fmul reassoc nsz arcp contract afn float %49, 0x3FD5555560000000
-  %53 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %52)
-  %54 = fptoui float %53 to i16
-  %55 = uitofp i16 %54 to float
-  tail call void @dt_bauhaus_slider_set(ptr noundef %51, float noundef %55) #22
+36:                                               ; preds = %32, %28, %25
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %38 = load i16, ptr %37, align 4, !tbaa !107
+  %39 = uitofp i16 %38 to float
+  %40 = getelementptr inbounds nuw i8, ptr %7, i64 18
+  %41 = load i16, ptr %40, align 2, !tbaa !107
+  %42 = uitofp i16 %41 to float
+  %43 = fadd reassoc nsz arcp contract afn float %42, %39
+  %44 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  %45 = load i16, ptr %44, align 4, !tbaa !107
+  %46 = uitofp i16 %45 to float
+  %47 = fadd reassoc nsz arcp contract afn float %43, %46
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !178
+  %50 = fmul reassoc nsz arcp contract afn float %47, 0x3FD5555560000000
+  %51 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %50)
+  %52 = fptoui float %51 to i16
+  %53 = uitofp i16 %52 to float
+  tail call void @dt_bauhaus_slider_set(ptr noundef %49, float noundef %53) #22
   br label %.thread
 
-.thread:                                          ; preds = %14, %34, %38, %.loopexit
+.thread:                                          ; preds = %20, %13, %32, %36, %.loopexit
   ret void
 }
 
@@ -1873,14 +1864,14 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   br label %16
 
 7:                                                ; preds = %16
-  %8 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.21) #22
+  %8 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.21) #22
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr %8, ptr %9, align 8, !tbaa !181
   %10 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef 5) #22
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %8, ptr noundef %10) #22
   %11 = load ptr, ptr %9, align 8, !tbaa !181
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %11, float noundef 1.638400e+04) #22
-  %12 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.23) #22
+  %12 = tail call ptr @dt_bauhaus_combobox_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.23) #22
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %12, ptr %13, align 8, !tbaa !179
   %14 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #22
@@ -1893,7 +1884,7 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %_iop_gui_alloc.exit ], [ %indvars.iv.next, %16 ]
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.20, i32 noundef %17) #22
-  %19 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef %18) #22
+  %19 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef %18) #22
   %20 = getelementptr inbounds nuw [4 x ptr], ptr %2, i64 0, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !178
   %21 = getelementptr inbounds nuw [4 x ptr], ptr @black_label, i64 0, i64 %indvars.iv
@@ -1924,28 +1915,28 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   tail call void @gtk_label_set_ellipsize(ptr noundef %36, i32 noundef 3) #22
   tail call void @dt_gui_add_class(ptr noundef %33, ptr noundef nonnull @.str.45) #22
   tail call void @gtk_box_pack_start(ptr noundef %31, ptr noundef %33, i32 noundef 0, i32 noundef 0, i32 noundef 0) #22
-  %37 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.27) #22
+  %37 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.27) #22
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %37, ptr %38, align 8, !tbaa !183
   %39 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #22
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %37, ptr noundef %39) #22
   %40 = load ptr, ptr %38, align 8, !tbaa !183
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %40, float noundef 2.560000e+02) #22
-  %41 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.29) #22
+  %41 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.29) #22
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %41, ptr %42, align 8, !tbaa !184
   %43 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #22
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %41, ptr noundef %43) #22
   %44 = load ptr, ptr %42, align 8, !tbaa !184
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %44, float noundef 2.560000e+02) #22
-  %45 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.31) #22
+  %45 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #22
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %45, ptr %46, align 8, !tbaa !185
   %47 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.32, i32 noundef 5) #22
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %45, ptr noundef %47) #22
   %48 = load ptr, ptr %46, align 8, !tbaa !185
   tail call void @dt_bauhaus_slider_set_soft_max(ptr noundef %48, float noundef 2.560000e+02) #22
-  %49 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.33) #22
+  %49 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.33) #22
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %49, ptr %50, align 8, !tbaa !186
   %51 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.34, i32 noundef 5) #22

@@ -1504,8 +1504,8 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %33 = inttoptr i64 %32 to ptr
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i32, ptr %34, align 8, !tbaa !61
-  %.not61 = icmp eq i32 %35, -1
-  br i1 %.not61, label %36, label %44
+  %.not62 = icmp eq i32 %35, -1
+  br i1 %.not62, label %36, label %44
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1534,25 +1534,25 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %54 = load ptr, ptr %0, align 8, !tbaa !89
   %55 = and i64 %53, 4294967295
   %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
-  %.04965 = load ptr, ptr %56, align 8, !tbaa !26
-  %.not5866 = icmp eq ptr %.04965, null
-  br i1 %.not5866, label %._crit_edge, label %.lr.ph
+  %.04966 = load ptr, ptr %56, align 8, !tbaa !26
+  %.not5867 = icmp eq ptr %.04966, null
+  br i1 %.not5867, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44, %64
-  %.04967 = phi ptr [ %.049, %64 ], [ %.04965, %44 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.04967, i64 64
+  %.04968 = phi ptr [ %.049, %64 ], [ %.04966, %44 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.04968, i64 64
   %58 = load ptr, ptr %57, align 8, !tbaa !27
   %59 = icmp eq ptr %58, %spec.select
   br i1 %59, label %60, label %64
 
 60:                                               ; preds = %.lr.ph
-  %61 = getelementptr inbounds nuw i8, ptr %.04967, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %.04968, i64 72
   %62 = load ptr, ptr %61, align 8, !tbaa !65
   %63 = icmp eq ptr %62, %spec.select60
   br i1 %63, label %.loopexit, label %64
 
 64:                                               ; preds = %.lr.ph, %60
-  %65 = getelementptr inbounds nuw i8, ptr %.04967, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.04968, i64 8
   %.049 = load ptr, ptr %65, align 8, !tbaa !26
   %.not58 = icmp eq ptr %.049, null
   br i1 %.not58, label %._crit_edge, label %.lr.ph, !llvm.loop !128
@@ -1562,7 +1562,7 @@ define ptr @Map_NodeAnd(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_un
   %67 = load i32, ptr %66, align 4, !tbaa !90
   %68 = shl nsw i32 %47, 1
   %.not59 = icmp slt i32 %67, %68
-  br i1 %.not59, label %103, label %69
+  br i1 %.not59, label %102, label %69
 
 69:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #23
@@ -1642,36 +1642,36 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %76
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge49.i, label %84, !llvm.loop !131
+  br i1 %exitcond.not.i, label %._crit_edge49.i.thread, label %84, !llvm.loop !131
 
-._crit_edge49.i:                                  ; preds = %._crit_edge.i, %Abc_PrimeCudd.exit.i
+._crit_edge49.i:                                  ; preds = %Abc_PrimeCudd.exit.i
   %.not.i = icmp eq ptr %.pre.i, null
-  br i1 %.not.i, label %Map_TableResize.exit, label %101
+  br i1 %.not.i, label %Map_TableResize.exit, label %._crit_edge49.i.thread
 
-101:                                              ; preds = %._crit_edge49.i
+._crit_edge49.i.thread:                           ; preds = %._crit_edge.i, %._crit_edge49.i
   call void @free(ptr noundef nonnull %.pre.i) #23
   br label %Map_TableResize.exit
 
-Map_TableResize.exit:                             ; preds = %._crit_edge49.i, %101
+Map_TableResize.exit:                             ; preds = %._crit_edge49.i, %._crit_edge49.i.thread
   store ptr %calloc.i, ptr %0, align 8, !tbaa !89
   store i32 %74, ptr %46, align 8, !tbaa !88
-  %102 = urem i64 %51, %81
-  %.pre = and i64 %102, 4294967295
-  br label %103
+  %101 = urem i64 %51, %81
+  %.pre = and i64 %101, 4294967295
+  br label %102
 
-103:                                              ; preds = %Map_TableResize.exit, %._crit_edge
+102:                                              ; preds = %Map_TableResize.exit, %._crit_edge
   %.pre-phi = phi i64 [ %.pre, %Map_TableResize.exit ], [ %55, %._crit_edge ]
-  %104 = call ptr @Map_NodeCreate(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select60)
-  %105 = load ptr, ptr %0, align 8, !tbaa !89
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %.pre-phi
-  %107 = load ptr, ptr %106, align 8, !tbaa !26
-  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  store ptr %107, ptr %108, align 8, !tbaa !129
-  store ptr %104, ptr %106, align 8, !tbaa !26
+  %103 = call ptr @Map_NodeCreate(ptr noundef nonnull %0, ptr noundef %spec.select, ptr noundef %spec.select60)
+  %104 = load ptr, ptr %0, align 8, !tbaa !89
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.pre-phi
+  %106 = load ptr, ptr %105, align 8, !tbaa !26
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 8
+  store ptr %106, ptr %107, align 8, !tbaa !129
+  store ptr %103, ptr %105, align 8, !tbaa !26
   br label %.loopexit
 
-.loopexit:                                        ; preds = %60, %36, %23, %3, %103, %40, %27, %11
-  %.052 = phi ptr [ %16, %11 ], [ %30, %27 ], [ %43, %40 ], [ %104, %103 ], [ %1, %3 ], [ %2, %23 ], [ %1, %36 ], [ %.04967, %60 ]
+.loopexit:                                        ; preds = %60, %36, %23, %3, %102, %40, %27, %11
+  %.052 = phi ptr [ %16, %11 ], [ %30, %27 ], [ %43, %40 ], [ %103, %102 ], [ %1, %3 ], [ %2, %23 ], [ %1, %36 ], [ %.04968, %60 ]
   ret ptr %.052
 }
 

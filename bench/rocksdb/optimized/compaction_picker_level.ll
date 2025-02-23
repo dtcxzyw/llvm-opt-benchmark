@@ -4489,31 +4489,31 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i13
   %sub19.i.i = add nsw i64 %sub.ptr.div.i.i12, -2
   %div20.i.i = ashr exact i64 %sub19.i.i, 1
   %cmp21.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div20.i.i
-  br i1 %cmp21.i.i, label %if.then22.i.i, label %if.end35.i.i
+  br i1 %cmp21.i.i, label %if.end35.i.thread.i, label %if.end35.i.i
 
-if.then22.i.i:                                    ; preds = %land.lhs.true.i.i
-  %add23.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
+if.end35.i.thread.i:                              ; preds = %land.lhs.true.i.i
+  %add23.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
   %sub26.i.i = or disjoint i64 %add23.i.i, 1
-  %add.ptr.i21.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %sub26.i.i
+  %add.ptr.i21.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %sub26.i.i
   %48 = load ptr, ptr %add.ptr.i21.i.i, align 8
   %add.ptr.i22.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store ptr %48, ptr %add.ptr.i22.i.i, align 8
-  br label %if.end35.i.i
+  br label %land.rhs.lr.ph.i.i.i
 
-if.end35.i.i:                                     ; preds = %if.then22.i.i, %land.lhs.true.i.i, %while.end.i.i13
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub26.i.i, %if.then22.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i13 ]
-  %cmp6.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
-  br i1 %cmp6.i.i.i, label %land.rhs.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_SG_RT0_.exit"
+if.end35.i.i:                                     ; preds = %land.lhs.true.i.i, %while.end.i.i13
+  %cmp6.i.i.not.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, 0
+  br i1 %cmp6.i.i.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_SG_RT0_.exit", label %land.rhs.lr.ph.i.i.i
 
-land.rhs.lr.ph.i.i.i:                             ; preds = %if.end35.i.i
+land.rhs.lr.ph.i.i.i:                             ; preds = %if.end35.i.i, %if.end35.i.thread.i
+  %__holeIndex.addr.1.i5.i = phi i64 [ %sub26.i.i, %if.end35.i.thread.i ], [ %__holeIndex.addr.0.lcssa.i.i, %if.end35.i.i ]
   %smallest2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 40
   br label %land.rhs.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %while.body.i.i.i17, %land.rhs.lr.ph.i.i.i
-  %__holeIndex.addr.07.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %land.rhs.lr.ph.i.i.i ], [ %__parent.08.i.i34.i, %while.body.i.i.i17 ]
+  %__holeIndex.addr.07.i.i.i = phi i64 [ %__holeIndex.addr.1.i5.i, %land.rhs.lr.ph.i.i.i ], [ %__parent.08.i.i67.i, %while.body.i.i.i17 ]
   %__parent.08.in.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.i, -1
-  %__parent.08.i.i34.i = lshr i64 %__parent.08.in.i.i.i, 1
-  %add.ptr.i.i.i.i14 = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %__parent.08.i.i34.i
+  %__parent.08.i.i67.i = lshr i64 %__parent.08.in.i.i.i, 1
+  %add.ptr.i.i.i.i14 = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %__parent.08.i.i67.i
   %49 = load ptr, ptr %add.ptr.i.i.i.i14, align 8
   %smallest.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %49, i64 40
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %smallest.i.i.i.i.i) #20
@@ -4582,13 +4582,13 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit: ; preds
 
 while.body.i.i.i17:                               ; preds = %if.then.i.i28, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit
   %56 = load ptr, ptr %add.ptr.i.i.i.i14, align 8
-  %add.ptr.i8.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i
+  %add.ptr.i8.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.07.i.i.i
   store ptr %56, ptr %add.ptr.i8.i.i.i, align 8
   %cmp.i.i.not.i = icmp ult i64 %__parent.08.in.i.i.i, 2
   br i1 %cmp.i.i.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_SG_RT0_.exit", label %land.rhs.i.i.i, !llvm.loop !31
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122LevelCompactionBuilder20TryPickL0TrivialMoveEvE3$_0EEEvT_SG_SG_RT0_.exit": ; preds = %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit, %while.body.i.i.i17, %if.then.i.i28, %if.end35.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end35.i.i ], [ %__holeIndex.addr.07.i.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit ], [ 0, %while.body.i.i.i17 ], [ %__holeIndex.addr.07.i.i.i, %if.then.i.i28 ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %if.end35.i.i ], [ %__holeIndex.addr.07.i.i.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit ], [ 0, %while.body.i.i.i17 ], [ %__holeIndex.addr.07.i.i.i, %if.then.i.i28 ]
   %add.ptr.i9.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store ptr %35, ptr %add.ptr.i9.i.i.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i11, 8

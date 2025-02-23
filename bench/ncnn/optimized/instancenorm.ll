@@ -517,15 +517,15 @@ define hidden noundef i32 @_ZNK4ncnn12InstanceNorm15forward_inplaceERNS_3MatERKN
   %31 = fadd fast float %30, %.082101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph105.preheader, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph105.preheader:                              ; preds = %.lr.ph
   %32 = fmul fast float %31, %20
   br label %.lr.ph105
 
-.lr.ph105:                                        ; preds = %._crit_edge, %.lr.ph105
-  %indvars.iv118 = phi i64 [ %indvars.iv.next119, %.lr.ph105 ], [ 0, %._crit_edge ]
-  %.084102 = phi float [ %37, %.lr.ph105 ], [ 0.000000e+00, %._crit_edge ]
+.lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
+  %indvars.iv118 = phi i64 [ 0, %.lr.ph105.preheader ], [ %indvars.iv.next119, %.lr.ph105 ]
+  %.084102 = phi float [ 0.000000e+00, %.lr.ph105.preheader ], [ %37, %.lr.ph105 ]
   %33 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv118
   %34 = load float, ptr %33, align 4
   %35 = fsub fast float %34, %32

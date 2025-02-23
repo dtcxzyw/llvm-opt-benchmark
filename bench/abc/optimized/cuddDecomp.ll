@@ -585,7 +585,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader166.i
   %.0.lcssa.i = phi i32 [ 0, %.preheader166.i ], [ %..0.i, %.lr.ph.i ]
   call void @st__free_gen(ptr noundef nonnull %52) #8
-  %59 = call i32 @Cudd_SupportSize(ptr noundef %0, ptr noundef %1) #8
+  %59 = call i32 @Cudd_SupportSize(ptr noundef nonnull %0, ptr noundef %1) #8
   %ldexp.i = call double @ldexp(double 1.000000e+00, i32 %59) #8
   %60 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %61 = icmp eq ptr %60, null

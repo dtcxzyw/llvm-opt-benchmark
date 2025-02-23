@@ -5006,7 +5006,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %229
   br i1 %242, label %.loopexit338.sink.split, label %.critedge.thread302
 
 243:                                              ; preds = %_ZNK4llvm13GMemOperation8isSimpleEv.exit197
-  %244 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.0275.0348, i64 32
   %245 = load ptr, ptr %244, align 8, !tbaa !225
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 36
   %247 = load i32, ptr %246, align 4, !tbaa !226

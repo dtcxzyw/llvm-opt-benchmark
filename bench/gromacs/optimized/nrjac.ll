@@ -904,15 +904,7 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
   %5 = sext i32 %1 to i64
   %6 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 199, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %7 = icmp sgt i32 %1, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %3
-  %8 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
-  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
-  call void @_Z6jacobiPPdiS_S0_Pi(ptr noundef %6, i32 noundef %1, ptr noundef %9, ptr noundef %8, ptr noundef nonnull %4)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef %9)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef %8)
-  br label %._crit_edge133
+  br i1 %7, label %.lr.ph.preheader, label %.preheader97.thread
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -920,34 +912,42 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
-  %11 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 202, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
-  store ptr %11, ptr %10, align 8
+  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 202, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+  store ptr %9, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  br i1 %exitcond.not, label %.lr.ph102.preheader, label %.lr.ph, !llvm.loop !28
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+.lr.ph102.preheader:                              ; preds = %.lr.ph
+  %10 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %wide.trip.count139 = zext nneg i32 %1 to i64
   br label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %._crit_edge, %.lr.ph102
-  %indvars.iv136 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next137, %.lr.ph102 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv136
-  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 207, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
-  store ptr %14, ptr %13, align 8
+.lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
+  %indvars.iv136 = phi i64 [ 0, %.lr.ph102.preheader ], [ %indvars.iv.next137, %.lr.ph102 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv136
+  %12 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 207, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+  store ptr %12, ptr %11, align 8
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
-  br i1 %exitcond140.not, label %._crit_edge103, label %.lr.ph102, !llvm.loop !29
+  br i1 %exitcond140.not, label %.preheader98.us.preheader, label %.lr.ph102, !llvm.loop !29
 
-._crit_edge103:                                   ; preds = %.lr.ph102
+.preheader97.thread:                              ; preds = %3
+  %13 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 204, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+  %14 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
+  call void @_Z6jacobiPPdiS_S0_Pi(ptr noundef %6, i32 noundef %1, ptr noundef %14, ptr noundef %13, ptr noundef nonnull %4)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 254, ptr noundef %14)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef %13)
+  br label %._crit_edge133
+
+.preheader98.us.preheader:                        ; preds = %.lr.ph102
   %15 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.1, i32 noundef 209, i64 noundef range(i64 -2147483648, 2147483648) %5, i64 noundef 8)
   %16 = zext nneg i32 %1 to i64
   br label %.preheader98.us
 
-.preheader98.us:                                  ; preds = %._crit_edge103, %._crit_edge106.us
-  %indvars.iv146 = phi i64 [ 0, %._crit_edge103 ], [ %indvars.iv.next147, %._crit_edge106.us ]
+.preheader98.us:                                  ; preds = %.preheader98.us.preheader, %._crit_edge106.us
+  %indvars.iv146 = phi i64 [ 0, %.preheader98.us.preheader ], [ %indvars.iv.next147, %._crit_edge106.us ]
   %17 = mul nuw nsw i64 %indvars.iv146, %16
   %18 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv146
   %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %17
@@ -985,13 +985,13 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
   %29 = fadd double %.077108, %28
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next152, %wide.trip.count154
-  br i1 %exitcond155.not, label %._crit_edge111, label %.lr.ph110, !llvm.loop !32
+  br i1 %exitcond155.not, label %.lr.ph115.preheader, label %.lr.ph110, !llvm.loop !32
 
-._crit_edge111:                                   ; preds = %.lr.ph110
+.lr.ph115.preheader:                              ; preds = %.lr.ph110
   %30 = fmul double %29, 0x3EB0C6F7A0B5ED8D
-  %31 = sitofp i32 %1 to double
+  %31 = uitofp nneg i32 %1 to double
   %32 = fdiv double %30, %31
-  call void @_Z6jacobiPPdiS_S0_Pi(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %15, ptr noundef %12, ptr noundef nonnull %4)
+  call void @_Z6jacobiPPdiS_S0_Pi(ptr noundef nonnull %6, i32 noundef %1, ptr noundef %15, ptr noundef %10, ptr noundef nonnull %4)
   %wide.trip.count159 = zext nneg i32 %1 to i64
   br label %.lr.ph115
 
@@ -1001,15 +1001,15 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
 
 .preheader95.us:                                  ; preds = %.preheader95.us.preheader, %._crit_edge123.split.us.us
   %indvars.iv171 = phi i64 [ 0, %.preheader95.us.preheader ], [ %indvars.iv.next172, %._crit_edge123.split.us.us ]
-  %34 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv171
+  %34 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv171
   %35 = mul nuw nsw i64 %indvars.iv171, %33
-  %invariant.gep203 = getelementptr inbounds nuw float, ptr %2, i64 %35
+  %invariant.gep198 = getelementptr inbounds nuw float, ptr %2, i64 %35
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %._crit_edge120.us.us, %.preheader95.us
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %._crit_edge120.us.us ], [ 0, %.preheader95.us ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv166
+  %37 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv166
   %38 = load ptr, ptr %37, align 8
   br label %39
 
@@ -1030,8 +1030,8 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
 
 ._crit_edge120.us.us:                             ; preds = %39
   %48 = fptrunc double %47 to float
-  %gep204 = getelementptr inbounds nuw float, ptr %invariant.gep203, i64 %indvars.iv166
-  store float %48, ptr %gep204, align 4
+  %gep199 = getelementptr inbounds nuw float, ptr %invariant.gep198, i64 %indvars.iv166
+  store float %48, ptr %gep199, align 4
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %33
   br i1 %exitcond170.not, label %._crit_edge123.split.us.us, label %.preheader.us.us, !llvm.loop !34
@@ -1041,9 +1041,9 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
   %exitcond175.not = icmp eq i64 %indvars.iv.next172, %33
   br i1 %exitcond175.not, label %._crit_edge125, label %.preheader95.us, !llvm.loop !35
 
-.lr.ph115:                                        ; preds = %._crit_edge111, %.lr.ph115
-  %indvars.iv156 = phi i64 [ 0, %._crit_edge111 ], [ %indvars.iv.next157, %.lr.ph115 ]
-  %.074112 = phi i32 [ 0, %._crit_edge111 ], [ %.175, %.lr.ph115 ]
+.lr.ph115:                                        ; preds = %.lr.ph115.preheader, %.lr.ph115
+  %indvars.iv156 = phi i64 [ 0, %.lr.ph115.preheader ], [ %indvars.iv.next157, %.lr.ph115 ]
+  %.074112 = phi i32 [ 0, %.lr.ph115.preheader ], [ %.175, %.lr.ph115 ]
   %49 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv156
   %50 = load double, ptr %49, align 8
   %51 = call noundef double @llvm.fabs.f64(double %50)
@@ -1064,20 +1064,20 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
 
 .lr.ph128:                                        ; preds = %._crit_edge125, %.lr.ph128
   %indvars.iv176 = phi i64 [ 0, %._crit_edge125 ], [ %indvars.iv.next177, %.lr.ph128 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv176
+  %55 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv176
   %56 = load ptr, ptr %55, align 8
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef %56)
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
   %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
-  br i1 %exitcond180.not, label %._crit_edge129, label %.lr.ph128, !llvm.loop !37
+  br i1 %exitcond180.not, label %.lr.ph132.preheader, label %.lr.ph128, !llvm.loop !37
 
-._crit_edge129:                                   ; preds = %.lr.ph128
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull %12)
+.lr.ph132.preheader:                              ; preds = %.lr.ph128
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.1, i32 noundef 259, ptr noundef nonnull %10)
   %wide.trip.count184 = zext nneg i32 %1 to i64
   br label %.lr.ph132
 
-.lr.ph132:                                        ; preds = %._crit_edge129, %.lr.ph132
-  %indvars.iv181 = phi i64 [ 0, %._crit_edge129 ], [ %indvars.iv.next182, %.lr.ph132 ]
+.lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
+  %indvars.iv181 = phi i64 [ 0, %.lr.ph132.preheader ], [ %indvars.iv.next182, %.lr.ph132 ]
   %57 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv181
   %58 = load ptr, ptr %57, align 8
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 262, ptr noundef %58)
@@ -1085,10 +1085,10 @@ define noundef i32 @_Z9m_inv_genPKfiPf(ptr noundef readonly captures(none) %0, i
   %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
   br i1 %exitcond185.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !38
 
-._crit_edge133:                                   ; preds = %.lr.ph132, %._crit_edge.thread
-  %.074.lcssa194198201 = phi i32 [ 0, %._crit_edge.thread ], [ %.175, %.lr.ph132 ]
+._crit_edge133:                                   ; preds = %.lr.ph132, %.preheader97.thread
+  %.074.lcssa189193196 = phi i32 [ 0, %.preheader97.thread ], [ %.175, %.lr.ph132 ]
   call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef %6)
-  ret i32 %.074.lcssa194198201
+  ret i32 %.074.lcssa189193196
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

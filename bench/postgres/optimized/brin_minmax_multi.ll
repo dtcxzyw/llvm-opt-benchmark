@@ -1991,8 +1991,8 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %78 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %79 = zext nneg i16 %56 to i32
   %80 = add nsw i32 %79, -1
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds [5 x %struct.FmgrInfo], ptr %78, i64 0, i64 %81
+  %81 = zext nneg i32 %80 to i64
+  %82 = getelementptr inbounds nuw [5 x %struct.FmgrInfo], ptr %78, i64 0, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = icmp eq i32 %84, 0
@@ -2110,10 +2110,10 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
 
 146:                                              ; preds = %145, %132
   %147 = getelementptr inbounds nuw i8, ptr %138, i64 56
-  %148 = zext i16 %131 to i32
+  %148 = zext nneg i16 %131 to i32
   %149 = add nsw i32 %148, -1
-  %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds [5 x %struct.FmgrInfo], ptr %147, i64 0, i64 %150
+  %150 = zext nneg i32 %149 to i64
+  %151 = getelementptr inbounds nuw [5 x %struct.FmgrInfo], ptr %147, i64 0, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i32, ptr %152, align 8
   %154 = icmp eq i32 %153, 0
@@ -2137,7 +2137,7 @@ define dso_local range(i64 0, 2) i64 @brin_minmax_multi_consistent(ptr noundef r
   %169 = load i32, ptr %168, align 4
   %170 = zext i32 %169 to i64
   %171 = zext i32 %127 to i64
-  %172 = sext i16 %131 to i64
+  %172 = zext nneg i16 %131 to i64
   %173 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %166, i64 noundef %170, i64 noundef %171, i64 noundef %172) #12
   %.not35.i = icmp eq ptr %173, null
   br i1 %.not35.i, label %174, label %179
@@ -2202,10 +2202,10 @@ minmax_multi_get_strategy_procinfo.exit:          ; preds = %146, %179
 
 202:                                              ; preds = %201, %188
   %203 = getelementptr inbounds nuw i8, ptr %194, i64 56
-  %204 = zext i16 %131 to i32
+  %204 = zext nneg i16 %131 to i32
   %205 = add nsw i32 %204, -1
-  %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds [5 x %struct.FmgrInfo], ptr %203, i64 0, i64 %206
+  %206 = zext nneg i32 %205 to i64
+  %207 = getelementptr inbounds nuw [5 x %struct.FmgrInfo], ptr %203, i64 0, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
   %209 = load i32, ptr %208, align 8
   %210 = icmp eq i32 %209, 0
@@ -2229,7 +2229,7 @@ minmax_multi_get_strategy_procinfo.exit:          ; preds = %146, %179
   %225 = load i32, ptr %224, align 4
   %226 = zext i32 %225 to i64
   %227 = zext i32 %127 to i64
-  %228 = sext i16 %131 to i64
+  %228 = zext nneg i16 %131 to i64
   %229 = tail call ptr @SearchSysCache4(i32 noundef 4, i64 noundef %222, i64 noundef %226, i64 noundef %227, i64 noundef %228) #12
   %.not35.i120 = icmp eq ptr %229, null
   br i1 %.not35.i120, label %230, label %235
@@ -2532,7 +2532,7 @@ fill_expanded_ranges.exit82:                      ; preds = %125, %.preheader.i7
   %146 = getelementptr i8, ptr %20, i64 -8
   %147 = getelementptr i8, ptr %146, i64 %.idx
   %148 = load i32, ptr %147, align 4
-  %149 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef %4, i16 noundef zeroext %13, i32 noundef %148, i16 noundef zeroext 1)
+  %149 = tail call fastcc ptr @minmax_multi_get_strategy_procinfo(ptr noundef nonnull %4, i16 noundef zeroext %13, i32 noundef %148, i16 noundef zeroext 1)
   %150 = tail call fastcc i32 @sort_expanded_ranges(ptr noundef nonnull %149, i32 noundef %12, ptr noundef %53, i32 noundef %47)
   %151 = add i32 %150, -1
   %152 = icmp sgt i32 %151, 0

@@ -465,7 +465,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   %.not111.i = icmp eq i32 %spec.select.i, 1
   %invariant.gep.i18 = getelementptr i8, ptr %3, i64 -16
   %116 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.not217.i = icmp eq i32 %8, 1
+  %.not216.i = icmp eq i32 %8, 1
   br i1 %.not111.i, label %.lr.ph117.us.us.i, label %.split.i
 
 .lr.ph117.us.us.i:                                ; preds = %113, %._crit_edge134.us.us.i
@@ -526,7 +526,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   store i8 1, ptr %135, align 1, !tbaa !12
   %136 = load i8, ptr %108, align 1, !tbaa !12
   %137 = zext i8 %136 to i32
-  br i1 %.not217.i, label %._crit_edge134.us.us.i, label %.lr.ph133.us.us.i
+  br i1 %.not216.i, label %._crit_edge134.us.us.i, label %.lr.ph133.us.us.i
 
 .split.i:                                         ; preds = %113
   %138 = icmp sgt i32 %spec.select.i, 1
@@ -653,7 +653,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   tail call fastcc void @SetBitDepths(ptr noundef nonnull %3, ptr noundef nonnull %115, ptr noundef %108, i32 noundef 0)
   %180 = load i8, ptr %108, align 1, !tbaa !12
   %181 = zext i8 %180 to i32
-  br i1 %.not217.i, label %._crit_edge134.us150.i, label %.lr.ph133.us149.i
+  br i1 %.not216.i, label %._crit_edge134.us150.i, label %.lr.ph133.us149.i
 
 .split.split.i:                                   ; preds = %.split.i, %._crit_edge134.i
   %.093.i = phi i32 [ %198, %._crit_edge134.i ], [ 1, %.split.i ]
@@ -693,7 +693,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   tail call fastcc void @SetBitDepths(ptr noundef %3, ptr noundef nonnull %115, ptr noundef %108, i32 noundef 0)
   %193 = load i8, ptr %108, align 1, !tbaa !12
   %194 = zext i8 %193 to i32
-  br i1 %.not217.i, label %._crit_edge134.i, label %.lr.ph133.i
+  br i1 %.not216.i, label %._crit_edge134.i, label %.lr.ph133.i
 
 .lr.ph133.i:                                      ; preds = %.preheader.i, %.lr.ph133.i
   %indvars.iv170.i = phi i64 [ %indvars.iv.next171.i, %.lr.ph133.i ], [ 1, %.preheader.i ]
@@ -792,7 +792,7 @@ GenerateOptimalTree.exit:                         ; preds = %._crit_edge134.i, %
   %232 = load i8, ptr %231, align 1, !tbaa !12
   %233 = zext i8 %232 to i32
   %234 = sub nsw i32 12, %.015.i.i
-  %235 = shl i32 %233, %234
+  %235 = shl nuw nsw i32 %233, %234
   %236 = or i32 %235, %.01014.i.i
   %237 = lshr i32 %.01113.i.i, 4
   %238 = icmp samesign ult i32 %228, %223

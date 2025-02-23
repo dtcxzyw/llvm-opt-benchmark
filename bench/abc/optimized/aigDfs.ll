@@ -766,7 +766,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %23 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !37
-  tail call void @Aig_ManDfsAll_rec(ptr noundef %0, ptr noundef %24, ptr noundef nonnull %6)
+  tail call void @Aig_ManDfsAll_rec(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !43
@@ -2891,8 +2891,8 @@ define ptr @Aig_Transfer(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !73
 
 .critedge:                                        ; preds = %.lr.ph, %.preheader
-  tail call void @Aig_Transfer_rec(ptr noundef %1, ptr noundef %9)
-  tail call void @Aig_ConeUnmark_rec(ptr noundef %9)
+  tail call void @Aig_Transfer_rec(ptr noundef %1, ptr noundef nonnull %9)
+  tail call void @Aig_ConeUnmark_rec(ptr noundef nonnull %9)
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %37 = load ptr, ptr %36, align 8, !tbaa !31
   %38 = and i64 %7, 1
@@ -3151,7 +3151,7 @@ define void @Aig_ObjCollectCut(ptr noundef %0, ptr noundef readonly captures(non
   br i1 %15, label %8, label %.critedge, !llvm.loop !74
 
 .critedge:                                        ; preds = %8, %3
-  tail call void @Aig_ObjCollectCut_rec(ptr noundef %0, ptr noundef %2)
+  tail call void @Aig_ObjCollectCut_rec(ptr noundef %0, ptr noundef nonnull %2)
   %.val2431 = load i32, ptr %4, align 4, !tbaa !21
   %16 = icmp sgt i32 %.val2431, 0
   br i1 %16, label %.lr.ph33, label %.critedge2.preheader

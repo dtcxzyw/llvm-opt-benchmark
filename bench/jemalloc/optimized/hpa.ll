@@ -1484,7 +1484,7 @@ hpdata_changing_state_get.exit.thread.i.i:        ; preds = %hpdata_changing_sta
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #8
-  %145 = add i64 %.1, 1
+  %145 = add nuw i64 %.1, 1
   br label %42, !llvm.loop !105
 
 hpa_try_purge.exit:                               ; preds = %hpa_ndirty_max.exit.thread.i, %78, %hpa_should_purge.exit, %14

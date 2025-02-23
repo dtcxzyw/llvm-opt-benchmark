@@ -441,7 +441,7 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 160
   %105 = load ptr, ptr %104, align 8
   %106 = call ptr %105(ptr noundef nonnull %0, ptr noundef null) #4
-  call void @free(ptr noundef %54) #4
+  call void @free(ptr noundef nonnull %54) #4
   br label %205
 
 107:                                              ; preds = %90
@@ -466,7 +466,7 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 160
   %123 = load ptr, ptr %122, align 8
   %124 = call ptr %123(ptr noundef nonnull %0, ptr noundef null) #4
-  call void @free(ptr noundef %54) #4
+  call void @free(ptr noundef nonnull %54) #4
   br label %205
 
 125:                                              ; preds = %107
@@ -491,7 +491,7 @@ define ptr @Java_com_sun_management_internal_DiagnosticCommandImpl_getDiagnostic
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 160
   %141 = load ptr, ptr %140, align 8
   %142 = call ptr %141(ptr noundef nonnull %0, ptr noundef null) #4
-  call void @free(ptr noundef %54) #4
+  call void @free(ptr noundef nonnull %54) #4
   br label %205
 
 143:                                              ; preds = %125

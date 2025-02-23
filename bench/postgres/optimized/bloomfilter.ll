@@ -107,13 +107,13 @@ define dso_local void @bloom_add_element(ptr noundef captures(none) %0, ptr noun
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %k_hashes.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph, label %.lr.ph.i, !llvm.loop !6
 
-k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
-  %25 = icmp sgt i32 %15, 0
+k_hashes.exit:                                    ; preds = %3
+  %25 = icmp eq i32 %15, 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %k_hashes.exit
+.lr.ph:                                           ; preds = %.lr.ph.i, %k_hashes.exit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %27
@@ -178,14 +178,14 @@ define dso_local noundef zeroext i1 @bloom_lacks_element(ptr noundef readonly ca
   store i32 %21, ptr %24, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %19
-  br i1 %exitcond.not, label %k_hashes.exit, label %.lr.ph.i, !llvm.loop !6
+  br i1 %exitcond.not, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !6
 
-k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = icmp sgt i32 %15, 0
-  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
+k_hashes.exit:                                    ; preds = %3
+  %25 = icmp eq i32 %15, 1
+  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %k_hashes.exit
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i, %k_hashes.exit
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %wide.trip.count = zext nneg i32 %15 to i64
   br label %.lr.ph
 
@@ -195,7 +195,7 @@ k_hashes.exit:                                    ; preds = %.lr.ph.i, %3
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 3
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw [0 x i8], ptr %25, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [0 x i8], ptr %26, i64 0, i64 %30
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i32
   %34 = and i32 %28, 7

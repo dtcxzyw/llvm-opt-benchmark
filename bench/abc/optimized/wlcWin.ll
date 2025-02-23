@@ -1029,7 +1029,7 @@ Wlc_ManCountArithmReal.exit:                      ; preds = %Wlc_ObjIsArithmReal
   br i1 %82, label %65, label %Vec_IntReverseOrder.exit, !llvm.loop !34
 
 Vec_IntReverseOrder.exit:                         ; preds = %65, %54
-  tail call void @Wlc_NtkPrintNodeArray(ptr noundef %0, ptr noundef nonnull %6) #12
+  tail call void @Wlc_NtkPrintNodeArray(ptr noundef nonnull %0, ptr noundef nonnull %6) #12
   %putchar = tail call i32 @putchar(i32 10)
   %83 = add nsw i32 %.073, 1
   br label %Wlc_ManCountArithmReal.exit.thread

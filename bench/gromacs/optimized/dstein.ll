@@ -414,10 +414,10 @@ define void @dstein_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   %indvars.iv355 = phi i64 [ %indvars.iv.next356, %.lr.ph296 ], [ %219, %218 ]
   %220 = mul nsw i64 %indvars.iv355, %85
   %gep394 = getelementptr double, ptr %invariant.gep393, i64 %220
-  %221 = call double @ddot_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23, ptr noundef %gep394, ptr noundef nonnull %23)
+  %221 = call double @ddot_(ptr noundef nonnull %21, ptr noundef nonnull %9, ptr noundef nonnull %23, ptr noundef %gep394, ptr noundef nonnull %23)
   %222 = fneg double %221
   store double %222, ptr %18, align 8
-  call void @daxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep394, ptr noundef nonnull %23, ptr noundef %9, ptr noundef nonnull %23)
+  call void @daxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep394, ptr noundef nonnull %23, ptr noundef nonnull %9, ptr noundef nonnull %23)
   %indvars.iv.next356 = add nsw i64 %indvars.iv355, 1
   %223 = load i32, ptr %14, align 4
   %224 = sext i32 %223 to i64
@@ -425,7 +425,7 @@ define void @dstein_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %.not271.not, label %.lr.ph296, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.lr.ph296, %218, %200
-  %225 = call i32 @idamax_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23)
+  %225 = call i32 @idamax_(ptr noundef nonnull %21, ptr noundef nonnull %9, ptr noundef nonnull %23)
   %226 = sext i32 %225 to i64
   %227 = getelementptr inbounds double, ptr %33, i64 %226
   %228 = load double, ptr %227, align 8

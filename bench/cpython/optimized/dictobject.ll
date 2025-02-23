@@ -12706,17 +12706,17 @@ _PyFreeList_PopMem.exit:                          ; preds = %21
   ret ptr %.034
 }
 
-; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc i64 @insert_split_key(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #14 {
   %4 = tail call fastcc i64 @unicodekeys_lookup_unicode(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   %5 = icmp eq i64 %4, -1
-  br i1 %5, label %6, label %120
+  br i1 %5, label %6, label %110
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !tbaa !42
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %10, label %120
+  br i1 %9, label %10, label %110
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -12753,171 +12753,153 @@ define internal fastcc i64 @insert_split_key(ptr noundef captures(none) %0, ptr 
 dictkeys_get_index.exit.i:                        ; preds = %26, %23
   %.0.i.i = phi i64 [ %25, %23 ], [ %29, %26 ]
   %30 = icmp slt i64 %.0.i.i, 0
-  br i1 %30, label %find_empty_slot.exit.thread20, label %.lr.ph.i
+  br i1 %30, label %.thread, label %.lr.ph.i
 
 dictkeys_get_index.exit.i.thread:                 ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %32 = getelementptr i16, ptr %31, i64 %16
   %33 = load i16, ptr %32, align 2, !tbaa !49
   %34 = icmp slt i16 %33, 0
-  br i1 %34, label %find_empty_slot.exit.thread20, label %.lr.ph.i.thread
+  br i1 %34, label %.sink.split, label %.lr.ph.i.thread
 
 .lr.ph.i.thread:                                  ; preds = %dictkeys_get_index.exit.i.thread
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %dictkeys_get_index.exit16.us21.i
 
-find_empty_slot.exit.thread20:                    ; preds = %dictkeys_get_index.exit.i.thread, %dictkeys_get_index.exit.i
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = load i64, ptr %36, align 8, !tbaa !42
-  br label %86
-
 dictkeys_get_index.exit.thread.i:                 ; preds = %10
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = getelementptr i8, ptr %38, i64 %16
-  %40 = load i8, ptr %39, align 1, !tbaa !41
-  %41 = icmp slt i8 %40, 0
-  br i1 %41, label %find_empty_slot.exit.thread, label %dictkeys_get_index.exit16.us.i
-
-find_empty_slot.exit.thread:                      ; preds = %dictkeys_get_index.exit.thread.i
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %43 = load i64, ptr %42, align 8, !tbaa !42
-  br label %80
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = getelementptr i8, ptr %36, i64 %16
+  %38 = load i8, ptr %37, align 1, !tbaa !41
+  %39 = icmp slt i8 %38, 0
+  br i1 %39, label %.loopexit, label %dictkeys_get_index.exit16.us.i
 
 .lr.ph.i:                                         ; preds = %dictkeys_get_index.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %45 = icmp ugt i8 %13, 31
-  br i1 %45, label %dictkeys_get_index.exit16.us27.i, label %dictkeys_get_index.exit16.i
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %41 = icmp ugt i8 %13, 31
+  br i1 %41, label %dictkeys_get_index.exit16.us27.i, label %dictkeys_get_index.exit16.i
 
 dictkeys_get_index.exit16.us.i:                   ; preds = %dictkeys_get_index.exit.thread.i, %dictkeys_get_index.exit16.us.i
-  %.018.us.i = phi i64 [ %46, %dictkeys_get_index.exit16.us.i ], [ %2, %dictkeys_get_index.exit.thread.i ]
-  %.01417.us.i = phi i64 [ %50, %dictkeys_get_index.exit16.us.i ], [ %16, %dictkeys_get_index.exit.thread.i ]
-  %46 = lshr i64 %.018.us.i, 5
-  %47 = mul nuw nsw i64 %.01417.us.i, 5
-  %48 = add nuw nsw i64 %46, 1
-  %49 = add nuw i64 %48, %47
-  %50 = and i64 %49, %15
-  %51 = getelementptr i8, ptr %38, i64 %50
-  %52 = load i8, ptr %51, align 1, !tbaa !41
-  %53 = icmp slt i8 %52, 0
-  br i1 %53, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us.i, !llvm.loop !216
+  %.018.us.i = phi i64 [ %42, %dictkeys_get_index.exit16.us.i ], [ %2, %dictkeys_get_index.exit.thread.i ]
+  %.01417.us.i = phi i64 [ %46, %dictkeys_get_index.exit16.us.i ], [ %16, %dictkeys_get_index.exit.thread.i ]
+  %42 = lshr i64 %.018.us.i, 5
+  %43 = mul nuw nsw i64 %.01417.us.i, 5
+  %44 = add nuw nsw i64 %42, 1
+  %45 = add nuw i64 %44, %43
+  %46 = and i64 %45, %15
+  %47 = getelementptr i8, ptr %36, i64 %46
+  %48 = load i8, ptr %47, align 1, !tbaa !41
+  %49 = icmp slt i8 %48, 0
+  br i1 %49, label %.loopexit, label %dictkeys_get_index.exit16.us.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %dictkeys_get_index.exit16.us21.i
-  %.018.us19.i = phi i64 [ %54, %dictkeys_get_index.exit16.us21.i ], [ %2, %.lr.ph.i.thread ]
-  %.01417.us20.i = phi i64 [ %58, %dictkeys_get_index.exit16.us21.i ], [ %16, %.lr.ph.i.thread ]
-  %54 = lshr i64 %.018.us19.i, 5
-  %55 = mul nuw nsw i64 %.01417.us20.i, 5
-  %56 = add nuw nsw i64 %54, 1
-  %57 = add nuw i64 %56, %55
-  %58 = and i64 %57, %15
-  %59 = getelementptr i16, ptr %35, i64 %58
-  %60 = load i16, ptr %59, align 2, !tbaa !49
-  %61 = icmp slt i16 %60, 0
-  br i1 %61, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
+  %.018.us19.i = phi i64 [ %50, %dictkeys_get_index.exit16.us21.i ], [ %2, %.lr.ph.i.thread ]
+  %.01417.us20.i = phi i64 [ %54, %dictkeys_get_index.exit16.us21.i ], [ %16, %.lr.ph.i.thread ]
+  %50 = lshr i64 %.018.us19.i, 5
+  %51 = mul nuw nsw i64 %.01417.us20.i, 5
+  %52 = add nuw nsw i64 %50, 1
+  %53 = add nuw i64 %52, %51
+  %54 = and i64 %53, %15
+  %55 = getelementptr i16, ptr %35, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !49
+  %57 = icmp slt i16 %56, 0
+  br i1 %57, label %.sink.split, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.us27.i:                 ; preds = %.lr.ph.i, %dictkeys_get_index.exit16.us27.i
-  %.018.us25.i = phi i64 [ %62, %dictkeys_get_index.exit16.us27.i ], [ %2, %.lr.ph.i ]
-  %.01417.us26.i = phi i64 [ %66, %dictkeys_get_index.exit16.us27.i ], [ %16, %.lr.ph.i ]
-  %62 = lshr i64 %.018.us25.i, 5
-  %63 = mul i64 %.01417.us26.i, 5
-  %64 = add nuw nsw i64 %62, 1
-  %65 = add i64 %64, %63
-  %66 = and i64 %65, %15
-  %67 = getelementptr i64, ptr %44, i64 %66
-  %68 = load i64, ptr %67, align 8, !tbaa !42
-  %69 = icmp slt i64 %68, 0
-  br i1 %69, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
+  %.018.us25.i = phi i64 [ %58, %dictkeys_get_index.exit16.us27.i ], [ %2, %.lr.ph.i ]
+  %.01417.us26.i = phi i64 [ %62, %dictkeys_get_index.exit16.us27.i ], [ %16, %.lr.ph.i ]
+  %58 = lshr i64 %.018.us25.i, 5
+  %59 = mul i64 %.01417.us26.i, 5
+  %60 = add nuw nsw i64 %58, 1
+  %61 = add i64 %60, %59
+  %62 = and i64 %61, %15
+  %63 = getelementptr i64, ptr %40, i64 %62
+  %64 = load i64, ptr %63, align 8, !tbaa !42
+  %65 = icmp slt i64 %64, 0
+  br i1 %65, label %.thread, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys_get_index.exit16.i
-  %.018.i = phi i64 [ %70, %dictkeys_get_index.exit16.i ], [ %2, %.lr.ph.i ]
-  %.01417.i = phi i64 [ %74, %dictkeys_get_index.exit16.i ], [ %16, %.lr.ph.i ]
-  %70 = lshr i64 %.018.i, 5
-  %71 = mul nuw nsw i64 %.01417.i, 5
-  %72 = add nuw nsw i64 %70, 1
-  %73 = add nuw i64 %72, %71
-  %74 = and i64 %73, %15
-  %75 = getelementptr i32, ptr %44, i64 %74
-  %76 = load i32, ptr %75, align 4, !tbaa !50
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.i, !llvm.loop !216
+  %.018.i = phi i64 [ %66, %dictkeys_get_index.exit16.i ], [ %2, %.lr.ph.i ]
+  %.01417.i = phi i64 [ %70, %dictkeys_get_index.exit16.i ], [ %16, %.lr.ph.i ]
+  %66 = lshr i64 %.018.i, 5
+  %67 = mul nuw nsw i64 %.01417.i, 5
+  %68 = add nuw nsw i64 %66, 1
+  %69 = add nuw i64 %68, %67
+  %70 = and i64 %69, %15
+  %71 = getelementptr i32, ptr %40, i64 %70
+  %72 = load i32, ptr %71, align 4, !tbaa !50
+  %73 = icmp slt i32 %72, 0
+  br i1 %73, label %.thread, label %dictkeys_get_index.exit16.i, !llvm.loop !216
 
-find_empty_slot.exit:                             ; preds = %dictkeys_get_index.exit16.i, %dictkeys_get_index.exit16.us27.i, %dictkeys_get_index.exit16.us21.i, %dictkeys_get_index.exit16.us.i
-  %.014.lcssa.i = phi i64 [ %50, %dictkeys_get_index.exit16.us.i ], [ %58, %dictkeys_get_index.exit16.us21.i ], [ %66, %dictkeys_get_index.exit16.us27.i ], [ %74, %dictkeys_get_index.exit16.i ]
+.loopexit:                                        ; preds = %dictkeys_get_index.exit16.us.i, %dictkeys_get_index.exit.thread.i
+  %.014.lcssa.i = phi i64 [ %16, %dictkeys_get_index.exit.thread.i ], [ %46, %dictkeys_get_index.exit16.us.i ]
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %75 = load i64, ptr %74, align 8, !tbaa !42
+  %76 = trunc i64 %75 to i8
+  %77 = getelementptr i8, ptr %36, i64 %.014.lcssa.i
+  store i8 %76, ptr %77, align 1, !tbaa !41
+  br label %dictkeys_set_index.exit
+
+.sink.split:                                      ; preds = %dictkeys_get_index.exit16.us21.i, %dictkeys_get_index.exit.i.thread
+  %.014.lcssa.i.ph24.ph = phi i64 [ %16, %dictkeys_get_index.exit.i.thread ], [ %54, %dictkeys_get_index.exit16.us21.i ]
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load i64, ptr %78, align 8, !tbaa !42
-  br i1 %17, label %80, label %86
-
-80:                                               ; preds = %find_empty_slot.exit.thread, %find_empty_slot.exit
-  %81 = phi i64 [ %43, %find_empty_slot.exit.thread ], [ %79, %find_empty_slot.exit ]
-  %82 = phi ptr [ %42, %find_empty_slot.exit.thread ], [ %78, %find_empty_slot.exit ]
-  %.014.lcssa.i19 = phi i64 [ %16, %find_empty_slot.exit.thread ], [ %.014.lcssa.i, %find_empty_slot.exit ]
-  %83 = trunc i64 %81 to i8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %85 = getelementptr i8, ptr %84, i64 %.014.lcssa.i19
-  store i8 %83, ptr %85, align 1, !tbaa !41
+  %80 = trunc i64 %79 to i16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %82 = getelementptr i16, ptr %81, i64 %.014.lcssa.i.ph24.ph
+  store i16 %80, ptr %82, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
-86:                                               ; preds = %find_empty_slot.exit.thread20, %find_empty_slot.exit
-  %87 = phi i64 [ %37, %find_empty_slot.exit.thread20 ], [ %79, %find_empty_slot.exit ]
-  %88 = phi ptr [ %36, %find_empty_slot.exit.thread20 ], [ %78, %find_empty_slot.exit ]
-  %.014.lcssa.i22 = phi i64 [ %16, %find_empty_slot.exit.thread20 ], [ %.014.lcssa.i, %find_empty_slot.exit ]
-  %89 = icmp ult i8 %13, 16
-  br i1 %89, label %90, label %94
+.thread:                                          ; preds = %dictkeys_get_index.exit16.i, %dictkeys_get_index.exit16.us27.i, %dictkeys_get_index.exit.i
+  %.014.lcssa.i.ph21 = phi i64 [ %16, %dictkeys_get_index.exit.i ], [ %62, %dictkeys_get_index.exit16.us27.i ], [ %70, %dictkeys_get_index.exit16.i ]
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %84 = load i64, ptr %83, align 8, !tbaa !42
+  %85 = icmp ugt i8 %13, 31
+  br i1 %85, label %86, label %89
 
-90:                                               ; preds = %86
-  %91 = trunc i64 %87 to i16
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %93 = getelementptr i16, ptr %92, i64 %.014.lcssa.i22
-  store i16 %91, ptr %93, align 2, !tbaa !49
+86:                                               ; preds = %.thread
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %88 = getelementptr i64, ptr %87, i64 %.014.lcssa.i.ph21
+  store i64 %84, ptr %88, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
-94:                                               ; preds = %86
-  %95 = icmp ugt i8 %13, 31
-  br i1 %95, label %96, label %99
-
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %98 = getelementptr i64, ptr %97, i64 %.014.lcssa.i22
-  store i64 %87, ptr %98, align 8, !tbaa !42
+89:                                               ; preds = %.thread
+  %90 = trunc i64 %84 to i32
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %92 = getelementptr i32, ptr %91, i64 %.014.lcssa.i.ph21
+  store i32 %90, ptr %92, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-99:                                               ; preds = %94
-  %100 = trunc i64 %87 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %102 = getelementptr i32, ptr %101, i64 %.014.lcssa.i22
-  store i32 %100, ptr %102, align 4, !tbaa !50
-  br label %dictkeys_set_index.exit
+dictkeys_set_index.exit:                          ; preds = %.loopexit, %.sink.split, %86, %89
+  %93 = phi i64 [ %75, %.loopexit ], [ %79, %.sink.split ], [ %84, %86 ], [ %84, %89 ]
+  %94 = phi ptr [ %74, %.loopexit ], [ %78, %.sink.split ], [ %83, %86 ], [ %83, %89 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %97 = load i8, ptr %96, align 1, !tbaa !41
+  %98 = zext nneg i8 %97 to i64
+  %99 = shl nuw i64 1, %98
+  %100 = getelementptr i8, ptr %95, i64 %99
+  %101 = getelementptr %struct.PyDictUnicodeEntry, ptr %100, i64 %93
+  %102 = load i32, ptr %1, align 8, !tbaa !41
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %_Py_NewRef.exit, label %104
 
-dictkeys_set_index.exit:                          ; preds = %80, %90, %96, %99
-  %103 = phi i64 [ %81, %80 ], [ %87, %90 ], [ %87, %96 ], [ %87, %99 ]
-  %104 = phi ptr [ %82, %80 ], [ %88, %90 ], [ %88, %96 ], [ %88, %99 ]
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %107 = load i8, ptr %106, align 1, !tbaa !41
-  %108 = zext nneg i8 %107 to i64
-  %109 = shl nuw i64 1, %108
-  %110 = getelementptr i8, ptr %105, i64 %109
-  %111 = getelementptr %struct.PyDictUnicodeEntry, ptr %110, i64 %103
-  %112 = load i32, ptr %1, align 8, !tbaa !41
-  %113 = icmp slt i32 %112, 0
-  br i1 %113, label %_Py_NewRef.exit, label %114
-
-114:                                              ; preds = %dictkeys_set_index.exit
-  %115 = add nuw i32 %112, 1
-  store i32 %115, ptr %1, align 8, !tbaa !41
+104:                                              ; preds = %dictkeys_set_index.exit
+  %105 = add nuw i32 %102, 1
+  store i32 %105, ptr %1, align 8, !tbaa !41
   br label %_Py_NewRef.exit
 
-_Py_NewRef.exit:                                  ; preds = %dictkeys_set_index.exit, %114
-  store ptr %1, ptr %111, align 8, !tbaa !59
-  %116 = load i64, ptr %7, align 8, !tbaa !42
-  %117 = add i64 %116, -1
-  store i64 %117, ptr %7, align 8, !tbaa !42
-  %118 = load i64, ptr %104, align 8, !tbaa !42
-  %119 = add i64 %118, 1
-  store i64 %119, ptr %104, align 8, !tbaa !42
-  br label %120
+_Py_NewRef.exit:                                  ; preds = %dictkeys_set_index.exit, %104
+  store ptr %1, ptr %101, align 8, !tbaa !59
+  %106 = load i64, ptr %7, align 8, !tbaa !42
+  %107 = add i64 %106, -1
+  store i64 %107, ptr %7, align 8, !tbaa !42
+  %108 = load i64, ptr %94, align 8, !tbaa !42
+  %109 = add i64 %108, 1
+  store i64 %109, ptr %94, align 8, !tbaa !42
+  br label %110
 
-120:                                              ; preds = %_Py_NewRef.exit, %6, %3
-  %.0 = phi i64 [ %103, %_Py_NewRef.exit ], [ -1, %6 ], [ %4, %3 ]
+110:                                              ; preds = %_Py_NewRef.exit, %6, %3
+  %.0 = phi i64 [ %93, %_Py_NewRef.exit ], [ -1, %6 ], [ %4, %3 ]
   ret i64 %.0
 }
 
@@ -15351,7 +15333,7 @@ define internal fastcc range(i32 -1, 1) i32 @insert_combined_dict(ptr noundef %0
   %19 = sub nuw nsw i8 64, %18
   %20 = tail call fastcc range(i32 -1, 1) i32 @dictresize(ptr noundef nonnull %0, i8 noundef zeroext %19, i32 noundef 1)
   %21 = icmp slt i32 %20, 0
-  br i1 %21, label %160, label %22
+  br i1 %21, label %151, label %22
 
 22:                                               ; preds = %10, %4
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15433,184 +15415,168 @@ _PyDict_NotifyEvent.exit:                         ; preds = %42, %22
 dictkeys_get_index.exit.i:                        ; preds = %60, %57
   %.0.i.i = phi i64 [ %59, %57 ], [ %63, %60 ]
   %64 = icmp slt i64 %.0.i.i, 0
-  br i1 %64, label %find_empty_slot.exit.thread3, label %.lr.ph.i
+  br i1 %64, label %.thread, label %.lr.ph.i
 
 dictkeys_get_index.exit.i.thread:                 ; preds = %52
   %65 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %66 = getelementptr i16, ptr %65, i64 %50
   %67 = load i16, ptr %66, align 2, !tbaa !49
   %68 = icmp slt i16 %67, 0
-  br i1 %68, label %find_empty_slot.exit.thread3, label %.lr.ph.i.thread
+  br i1 %68, label %.sink.split, label %.lr.ph.i.thread
 
 .lr.ph.i.thread:                                  ; preds = %dictkeys_get_index.exit.i.thread
   %69 = getelementptr inbounds nuw i8, ptr %44, i64 32
   br label %dictkeys_get_index.exit16.us21.i
 
-find_empty_slot.exit.thread3:                     ; preds = %dictkeys_get_index.exit.i.thread, %dictkeys_get_index.exit.i
-  %70 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %71 = load i64, ptr %70, align 8, !tbaa !42
-  br label %119
-
 dictkeys_get_index.exit.thread.i:                 ; preds = %_PyDict_NotifyEvent.exit
-  %72 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %73 = getelementptr i8, ptr %72, i64 %50
-  %74 = load i8, ptr %73, align 1, !tbaa !41
-  %75 = icmp slt i8 %74, 0
-  br i1 %75, label %find_empty_slot.exit.thread, label %dictkeys_get_index.exit16.us.i
-
-find_empty_slot.exit.thread:                      ; preds = %dictkeys_get_index.exit.thread.i
-  %76 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %77 = load i64, ptr %76, align 8, !tbaa !42
-  br label %114
+  %70 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %71 = getelementptr i8, ptr %70, i64 %50
+  %72 = load i8, ptr %71, align 1, !tbaa !41
+  %73 = icmp slt i8 %72, 0
+  br i1 %73, label %.loopexit, label %dictkeys_get_index.exit16.us.i
 
 .lr.ph.i:                                         ; preds = %dictkeys_get_index.exit.i
-  %78 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %79 = icmp ugt i8 %47, 31
-  br i1 %79, label %dictkeys_get_index.exit16.us27.i, label %dictkeys_get_index.exit16.i
+  %74 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %75 = icmp ugt i8 %47, 31
+  br i1 %75, label %dictkeys_get_index.exit16.us27.i, label %dictkeys_get_index.exit16.i
 
 dictkeys_get_index.exit16.us.i:                   ; preds = %dictkeys_get_index.exit.thread.i, %dictkeys_get_index.exit16.us.i
-  %.018.us.i = phi i64 [ %80, %dictkeys_get_index.exit16.us.i ], [ %1, %dictkeys_get_index.exit.thread.i ]
-  %.01417.us.i = phi i64 [ %84, %dictkeys_get_index.exit16.us.i ], [ %50, %dictkeys_get_index.exit.thread.i ]
-  %80 = lshr i64 %.018.us.i, 5
-  %81 = mul nuw nsw i64 %.01417.us.i, 5
-  %82 = add nuw nsw i64 %80, 1
-  %83 = add nuw i64 %82, %81
-  %84 = and i64 %83, %49
-  %85 = getelementptr i8, ptr %72, i64 %84
-  %86 = load i8, ptr %85, align 1, !tbaa !41
-  %87 = icmp slt i8 %86, 0
-  br i1 %87, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us.i, !llvm.loop !216
+  %.018.us.i = phi i64 [ %76, %dictkeys_get_index.exit16.us.i ], [ %1, %dictkeys_get_index.exit.thread.i ]
+  %.01417.us.i = phi i64 [ %80, %dictkeys_get_index.exit16.us.i ], [ %50, %dictkeys_get_index.exit.thread.i ]
+  %76 = lshr i64 %.018.us.i, 5
+  %77 = mul nuw nsw i64 %.01417.us.i, 5
+  %78 = add nuw nsw i64 %76, 1
+  %79 = add nuw i64 %78, %77
+  %80 = and i64 %79, %49
+  %81 = getelementptr i8, ptr %70, i64 %80
+  %82 = load i8, ptr %81, align 1, !tbaa !41
+  %83 = icmp slt i8 %82, 0
+  br i1 %83, label %.loopexit, label %dictkeys_get_index.exit16.us.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.us21.i:                 ; preds = %.lr.ph.i.thread, %dictkeys_get_index.exit16.us21.i
-  %.018.us19.i = phi i64 [ %88, %dictkeys_get_index.exit16.us21.i ], [ %1, %.lr.ph.i.thread ]
-  %.01417.us20.i = phi i64 [ %92, %dictkeys_get_index.exit16.us21.i ], [ %50, %.lr.ph.i.thread ]
-  %88 = lshr i64 %.018.us19.i, 5
-  %89 = mul nuw nsw i64 %.01417.us20.i, 5
-  %90 = add nuw nsw i64 %88, 1
-  %91 = add nuw i64 %90, %89
-  %92 = and i64 %91, %49
-  %93 = getelementptr i16, ptr %69, i64 %92
-  %94 = load i16, ptr %93, align 2, !tbaa !49
-  %95 = icmp slt i16 %94, 0
-  br i1 %95, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
+  %.018.us19.i = phi i64 [ %84, %dictkeys_get_index.exit16.us21.i ], [ %1, %.lr.ph.i.thread ]
+  %.01417.us20.i = phi i64 [ %88, %dictkeys_get_index.exit16.us21.i ], [ %50, %.lr.ph.i.thread ]
+  %84 = lshr i64 %.018.us19.i, 5
+  %85 = mul nuw nsw i64 %.01417.us20.i, 5
+  %86 = add nuw nsw i64 %84, 1
+  %87 = add nuw i64 %86, %85
+  %88 = and i64 %87, %49
+  %89 = getelementptr i16, ptr %69, i64 %88
+  %90 = load i16, ptr %89, align 2, !tbaa !49
+  %91 = icmp slt i16 %90, 0
+  br i1 %91, label %.sink.split, label %dictkeys_get_index.exit16.us21.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.us27.i:                 ; preds = %.lr.ph.i, %dictkeys_get_index.exit16.us27.i
-  %.018.us25.i = phi i64 [ %96, %dictkeys_get_index.exit16.us27.i ], [ %1, %.lr.ph.i ]
-  %.01417.us26.i = phi i64 [ %100, %dictkeys_get_index.exit16.us27.i ], [ %50, %.lr.ph.i ]
-  %96 = lshr i64 %.018.us25.i, 5
-  %97 = mul i64 %.01417.us26.i, 5
-  %98 = add nuw nsw i64 %96, 1
-  %99 = add i64 %98, %97
-  %100 = and i64 %99, %49
-  %101 = getelementptr i64, ptr %78, i64 %100
-  %102 = load i64, ptr %101, align 8, !tbaa !42
-  %103 = icmp slt i64 %102, 0
-  br i1 %103, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
+  %.018.us25.i = phi i64 [ %92, %dictkeys_get_index.exit16.us27.i ], [ %1, %.lr.ph.i ]
+  %.01417.us26.i = phi i64 [ %96, %dictkeys_get_index.exit16.us27.i ], [ %50, %.lr.ph.i ]
+  %92 = lshr i64 %.018.us25.i, 5
+  %93 = mul i64 %.01417.us26.i, 5
+  %94 = add nuw nsw i64 %92, 1
+  %95 = add i64 %94, %93
+  %96 = and i64 %95, %49
+  %97 = getelementptr i64, ptr %74, i64 %96
+  %98 = load i64, ptr %97, align 8, !tbaa !42
+  %99 = icmp slt i64 %98, 0
+  br i1 %99, label %.thread, label %dictkeys_get_index.exit16.us27.i, !llvm.loop !216
 
 dictkeys_get_index.exit16.i:                      ; preds = %.lr.ph.i, %dictkeys_get_index.exit16.i
-  %.018.i = phi i64 [ %104, %dictkeys_get_index.exit16.i ], [ %1, %.lr.ph.i ]
-  %.01417.i = phi i64 [ %108, %dictkeys_get_index.exit16.i ], [ %50, %.lr.ph.i ]
-  %104 = lshr i64 %.018.i, 5
-  %105 = mul nuw nsw i64 %.01417.i, 5
-  %106 = add nuw nsw i64 %104, 1
-  %107 = add nuw i64 %106, %105
-  %108 = and i64 %107, %49
-  %109 = getelementptr i32, ptr %78, i64 %108
-  %110 = load i32, ptr %109, align 4, !tbaa !50
-  %111 = icmp slt i32 %110, 0
-  br i1 %111, label %find_empty_slot.exit, label %dictkeys_get_index.exit16.i, !llvm.loop !216
+  %.018.i = phi i64 [ %100, %dictkeys_get_index.exit16.i ], [ %1, %.lr.ph.i ]
+  %.01417.i = phi i64 [ %104, %dictkeys_get_index.exit16.i ], [ %50, %.lr.ph.i ]
+  %100 = lshr i64 %.018.i, 5
+  %101 = mul nuw nsw i64 %.01417.i, 5
+  %102 = add nuw nsw i64 %100, 1
+  %103 = add nuw i64 %102, %101
+  %104 = and i64 %103, %49
+  %105 = getelementptr i32, ptr %74, i64 %104
+  %106 = load i32, ptr %105, align 4, !tbaa !50
+  %107 = icmp slt i32 %106, 0
+  br i1 %107, label %.thread, label %dictkeys_get_index.exit16.i, !llvm.loop !216
 
-find_empty_slot.exit:                             ; preds = %dictkeys_get_index.exit16.i, %dictkeys_get_index.exit16.us27.i, %dictkeys_get_index.exit16.us21.i, %dictkeys_get_index.exit16.us.i
-  %.014.lcssa.i = phi i64 [ %84, %dictkeys_get_index.exit16.us.i ], [ %92, %dictkeys_get_index.exit16.us21.i ], [ %100, %dictkeys_get_index.exit16.us27.i ], [ %108, %dictkeys_get_index.exit16.i ]
-  %112 = getelementptr inbounds nuw i8, ptr %44, i64 24
-  %113 = load i64, ptr %112, align 8, !tbaa !42
-  br i1 %51, label %114, label %119
-
-114:                                              ; preds = %find_empty_slot.exit.thread, %find_empty_slot.exit
-  %115 = phi i64 [ %77, %find_empty_slot.exit.thread ], [ %113, %find_empty_slot.exit ]
-  %.014.lcssa.i2 = phi i64 [ %50, %find_empty_slot.exit.thread ], [ %.014.lcssa.i, %find_empty_slot.exit ]
-  %116 = trunc i64 %115 to i8
-  %117 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %118 = getelementptr i8, ptr %117, i64 %.014.lcssa.i2
-  store i8 %116, ptr %118, align 1, !tbaa !41
+.loopexit:                                        ; preds = %dictkeys_get_index.exit16.us.i, %dictkeys_get_index.exit.thread.i
+  %.014.lcssa.i = phi i64 [ %50, %dictkeys_get_index.exit.thread.i ], [ %80, %dictkeys_get_index.exit16.us.i ]
+  %108 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %109 = load i64, ptr %108, align 8, !tbaa !42
+  %110 = trunc i64 %109 to i8
+  %111 = getelementptr i8, ptr %70, i64 %.014.lcssa.i
+  store i8 %110, ptr %111, align 1, !tbaa !41
   %.pre = load ptr, ptr %5, align 8, !tbaa !36
   br label %dictkeys_set_index.exit
 
-119:                                              ; preds = %find_empty_slot.exit.thread3, %find_empty_slot.exit
-  %120 = phi i64 [ %71, %find_empty_slot.exit.thread3 ], [ %113, %find_empty_slot.exit ]
-  %.014.lcssa.i5 = phi i64 [ %50, %find_empty_slot.exit.thread3 ], [ %.014.lcssa.i, %find_empty_slot.exit ]
-  %121 = icmp ult i8 %47, 16
-  br i1 %121, label %122, label %126
+.sink.split:                                      ; preds = %dictkeys_get_index.exit16.us21.i, %dictkeys_get_index.exit.i.thread
+  %.014.lcssa.i.ph7.ph = phi i64 [ %50, %dictkeys_get_index.exit.i.thread ], [ %88, %dictkeys_get_index.exit16.us21.i ]
+  %112 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %113 = load i64, ptr %112, align 8, !tbaa !42
+  %114 = trunc i64 %113 to i16
+  %115 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %116 = getelementptr i16, ptr %115, i64 %.014.lcssa.i.ph7.ph
+  store i16 %114, ptr %116, align 2, !tbaa !49
+  br label %dictkeys_set_index.exit
 
-122:                                              ; preds = %119
-  %123 = trunc i64 %120 to i16
+.thread:                                          ; preds = %dictkeys_get_index.exit16.i, %dictkeys_get_index.exit16.us27.i, %dictkeys_get_index.exit.i
+  %.014.lcssa.i.ph4 = phi i64 [ %50, %dictkeys_get_index.exit.i ], [ %96, %dictkeys_get_index.exit16.us27.i ], [ %104, %dictkeys_get_index.exit16.i ]
+  %.in = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %117 = load i64, ptr %.in, align 8, !tbaa !42
+  %118 = icmp ugt i8 %47, 31
+  br i1 %118, label %119, label %122
+
+119:                                              ; preds = %.thread
+  %120 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %121 = getelementptr i64, ptr %120, i64 %.014.lcssa.i.ph4
+  store i64 %117, ptr %121, align 8, !tbaa !42
+  br label %dictkeys_set_index.exit
+
+122:                                              ; preds = %.thread
+  %123 = trunc i64 %117 to i32
   %124 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %125 = getelementptr i16, ptr %124, i64 %.014.lcssa.i5
-  store i16 %123, ptr %125, align 2, !tbaa !49
+  %125 = getelementptr i32, ptr %124, i64 %.014.lcssa.i.ph4
+  store i32 %123, ptr %125, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-126:                                              ; preds = %119
-  %127 = icmp ugt i8 %47, 31
-  br i1 %127, label %128, label %131
+dictkeys_set_index.exit:                          ; preds = %.loopexit, %.sink.split, %119, %122
+  %126 = phi ptr [ %.pre, %.loopexit ], [ %44, %.sink.split ], [ %44, %119 ], [ %44, %122 ]
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 10
+  %128 = load i8, ptr %127, align 2, !tbaa !41
+  %.not = icmp eq i8 %128, 0
+  %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
+  %130 = getelementptr inbounds nuw i8, ptr %126, i64 9
+  %131 = load i8, ptr %130, align 1, !tbaa !41
+  %132 = zext nneg i8 %131 to i64
+  %133 = shl nuw i64 1, %132
+  %134 = getelementptr i8, ptr %129, i64 %133
+  %135 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %136 = load i64, ptr %135, align 8, !tbaa !42
+  br i1 %.not, label %140, label %137
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %130 = getelementptr i64, ptr %129, i64 %.014.lcssa.i5
-  store i64 %120, ptr %130, align 8, !tbaa !42
-  br label %dictkeys_set_index.exit
+137:                                              ; preds = %dictkeys_set_index.exit
+  %138 = getelementptr %struct.PyDictUnicodeEntry, ptr %134, i64 %136
+  store ptr %2, ptr %138, align 8, !tbaa !59
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  store ptr %3, ptr %139, align 8, !tbaa !61
+  br label %144
 
-131:                                              ; preds = %126
-  %132 = trunc i64 %120 to i32
-  %133 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %134 = getelementptr i32, ptr %133, i64 %.014.lcssa.i5
-  store i32 %132, ptr %134, align 4, !tbaa !50
-  br label %dictkeys_set_index.exit
+140:                                              ; preds = %dictkeys_set_index.exit
+  %141 = getelementptr %struct.PyDictKeyEntry, ptr %134, i64 %136
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  store ptr %2, ptr %142, align 8, !tbaa !51
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
+  store ptr %3, ptr %143, align 8, !tbaa !54
+  store i64 %1, ptr %141, align 8, !tbaa !53
+  %.pre16 = load i64, ptr %135, align 8, !tbaa !42
+  br label %144
 
-dictkeys_set_index.exit:                          ; preds = %114, %122, %128, %131
-  %135 = phi ptr [ %.pre, %114 ], [ %44, %122 ], [ %44, %128 ], [ %44, %131 ]
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 10
-  %137 = load i8, ptr %136, align 2, !tbaa !41
-  %.not = icmp eq i8 %137, 0
-  %138 = getelementptr inbounds nuw i8, ptr %135, i64 32
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 9
-  %140 = load i8, ptr %139, align 1, !tbaa !41
-  %141 = zext nneg i8 %140 to i64
-  %142 = shl nuw i64 1, %141
-  %143 = getelementptr i8, ptr %138, i64 %142
-  %144 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  %145 = load i64, ptr %144, align 8, !tbaa !42
-  br i1 %.not, label %149, label %146
+144:                                              ; preds = %140, %137
+  %145 = phi i64 [ %.pre16, %140 ], [ %136, %137 ]
+  %146 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  %147 = load i64, ptr %146, align 8, !tbaa !42
+  %148 = add i64 %147, -1
+  store i64 %148, ptr %146, align 8, !tbaa !42
+  %149 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %150 = add i64 %145, 1
+  store i64 %150, ptr %149, align 8, !tbaa !42
+  br label %151
 
-146:                                              ; preds = %dictkeys_set_index.exit
-  %147 = getelementptr %struct.PyDictUnicodeEntry, ptr %143, i64 %145
-  store ptr %2, ptr %147, align 8, !tbaa !59
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store ptr %3, ptr %148, align 8, !tbaa !61
-  br label %153
-
-149:                                              ; preds = %dictkeys_set_index.exit
-  %150 = getelementptr %struct.PyDictKeyEntry, ptr %143, i64 %145
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store ptr %2, ptr %151, align 8, !tbaa !51
-  %152 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  store ptr %3, ptr %152, align 8, !tbaa !54
-  store i64 %1, ptr %150, align 8, !tbaa !53
-  %.pre18 = load i64, ptr %144, align 8, !tbaa !42
-  br label %153
-
-153:                                              ; preds = %149, %146
-  %154 = phi i64 [ %.pre18, %149 ], [ %145, %146 ]
-  %155 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %156 = load i64, ptr %155, align 8, !tbaa !42
-  %157 = add i64 %156, -1
-  store i64 %157, ptr %155, align 8, !tbaa !42
-  %158 = getelementptr inbounds nuw i8, ptr %135, i64 24
-  %159 = add i64 %154, 1
-  store i64 %159, ptr %158, align 8, !tbaa !42
-  br label %160
-
-160:                                              ; preds = %10, %153
-  %.0 = phi i32 [ 0, %153 ], [ -1, %10 ]
+151:                                              ; preds = %10, %144
+  %.0 = phi i32 [ 0, %144 ], [ -1, %10 ]
   ret i32 %.0
 }
 
@@ -16041,7 +16007,7 @@ dictkeys_get_index.exit.thread.us:                ; preds = %.split.us, %dictkey
   %25 = getelementptr i16, ptr %8, i64 %.017.us2753
   %26 = load i16, ptr %25, align 2, !tbaa !49
   %.not20.us54 = icmp eq i16 %26, -1
-  br i1 %.not20.us54, label %.split29.us.thread74, label %dictkeys_get_index.exit.us
+  br i1 %.not20.us54, label %.split29.us, label %dictkeys_get_index.exit.us
 
 dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %dictkeys_get_index.exit.us
   %.017.us2756 = phi i64 [ %.017.us27, %dictkeys_get_index.exit.us ], [ %.017.us2753, %.split.split.us ]
@@ -16063,7 +16029,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   %33 = getelementptr i64, ptr %8, i64 %.017.us2753
   %34 = load i64, ptr %33, align 8, !tbaa !42
   %.not20.us3647 = icmp eq i64 %34, -1
-  br i1 %.not20.us3647, label %.split29.us.thread.thread, label %dictkeys_get_index.exit.us34
+  br i1 %.not20.us3647, label %.loopexit, label %dictkeys_get_index.exit.us34
 
 dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.us, %dictkeys_get_index.exit.us34
   %.017.us3349 = phi i64 [ %.017.us33, %dictkeys_get_index.exit.us34 ], [ %.017.us2753, %.split.split.split.us ]
@@ -16076,42 +16042,35 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %39 = getelementptr i64, ptr %8, i64 %.017.us33
   %40 = load i64, ptr %39, align 8, !tbaa !42
   %.not20.us36 = icmp eq i64 %40, -1
-  br i1 %.not20.us36, label %.split29.us, label %dictkeys_get_index.exit.us34, !llvm.loop !236
+  br i1 %.not20.us36, label %.loopexit, label %dictkeys_get_index.exit.us34, !llvm.loop !236
 
 .split.split.split:                               ; preds = %.split.split
   %41 = getelementptr i32, ptr %8, i64 %.017.us2753
   %42 = load i32, ptr %41, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %42, -1
-  br i1 %.not2042, label %.split29.us.thread.thread79, label %dictkeys_get_index.exit
+  br i1 %.not2042, label %.loopexit76, label %dictkeys_get_index.exit
 
-.split29.us:                                      ; preds = %dictkeys_get_index.exit, %dictkeys_get_index.exit.us34, %dictkeys_get_index.exit.us
-  %.us-phi = phi i64 [ %.017.us27, %dictkeys_get_index.exit.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ], [ %.017, %dictkeys_get_index.exit ]
-  br i1 %24, label %.split29.us.thread74, label %.split29.us.thread
-
-.split29.us.thread74:                             ; preds = %.split.split.us, %.split29.us
-  %.us-phi76 = phi i64 [ %.us-phi, %.split29.us ], [ %.017.us2753, %.split.split.us ]
+.split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
+  %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
   %43 = trunc i64 %.01967 to i16
-  %44 = getelementptr i16, ptr %8, i64 %.us-phi76
+  %44 = getelementptr i16, ptr %8, i64 %.us-phi
   store i16 %43, ptr %44, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
-.split29.us.thread:                               ; preds = %.split29.us
-  br i1 %13, label %.split29.us.thread.thread, label %.split29.us.thread.thread79
-
-.split29.us.thread.thread:                        ; preds = %.split.split.split.us, %.split29.us.thread
-  %.us-phi7378 = phi i64 [ %.us-phi, %.split29.us.thread ], [ %.017.us2753, %.split.split.split.us ]
-  %45 = getelementptr i64, ptr %8, i64 %.us-phi7378
+.loopexit:                                        ; preds = %dictkeys_get_index.exit.us34, %.split.split.split.us
+  %.us-phi.ph.ph = phi i64 [ %.017.us2753, %.split.split.split.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ]
+  %45 = getelementptr i64, ptr %8, i64 %.us-phi.ph.ph
   store i64 %.01967, ptr %45, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
-.split29.us.thread.thread79:                      ; preds = %.split.split.split, %.split29.us.thread
-  %.us-phi7381 = phi i64 [ %.us-phi, %.split29.us.thread ], [ %.017.us2753, %.split.split.split ]
+.loopexit76:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
+  %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %46 = trunc i64 %.01967 to i32
-  %47 = getelementptr i32, ptr %8, i64 %.us-phi7381
+  %47 = getelementptr i32, ptr %8, i64 %.us-phi.ph
   store i32 %46, ptr %47, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us.thread74, %.split29.us.thread.thread, %.split29.us.thread.thread79
+dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit76
   %48 = add nuw i64 %.01967, 1
   %49 = getelementptr i8, ptr %.01868, i64 24
   %.not = icmp eq i64 %48, %2
@@ -16128,7 +16087,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %54 = getelementptr i32, ptr %8, i64 %.017
   %55 = load i32, ptr %54, align 4, !tbaa !50
   %.not20 = icmp eq i32 %55, -1
-  br i1 %.not20, label %.split29.us, label %dictkeys_get_index.exit, !llvm.loop !236
+  br i1 %.not20, label %.loopexit76, label %dictkeys_get_index.exit, !llvm.loop !236
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -16195,7 +16154,7 @@ dictkeys_get_index.exit.thread.us:                ; preds = %.split.us, %dictkey
   %26 = getelementptr i16, ptr %8, i64 %.017.us2753
   %27 = load i16, ptr %26, align 2, !tbaa !49
   %.not20.us54 = icmp eq i16 %27, -1
-  br i1 %.not20.us54, label %.split29.us.thread74, label %dictkeys_get_index.exit.us
+  br i1 %.not20.us54, label %.split29.us, label %dictkeys_get_index.exit.us
 
 dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %dictkeys_get_index.exit.us
   %.017.us2756 = phi i64 [ %.017.us27, %dictkeys_get_index.exit.us ], [ %.017.us2753, %.split.split.us ]
@@ -16217,7 +16176,7 @@ dictkeys_get_index.exit.us:                       ; preds = %.split.split.us, %d
   %34 = getelementptr i64, ptr %8, i64 %.017.us2753
   %35 = load i64, ptr %34, align 8, !tbaa !42
   %.not20.us3647 = icmp eq i64 %35, -1
-  br i1 %.not20.us3647, label %.split29.us.thread.thread, label %dictkeys_get_index.exit.us34
+  br i1 %.not20.us3647, label %.loopexit, label %dictkeys_get_index.exit.us34
 
 dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.us, %dictkeys_get_index.exit.us34
   %.017.us3349 = phi i64 [ %.017.us33, %dictkeys_get_index.exit.us34 ], [ %.017.us2753, %.split.split.split.us ]
@@ -16230,42 +16189,35 @@ dictkeys_get_index.exit.us34:                     ; preds = %.split.split.split.
   %40 = getelementptr i64, ptr %8, i64 %.017.us33
   %41 = load i64, ptr %40, align 8, !tbaa !42
   %.not20.us36 = icmp eq i64 %41, -1
-  br i1 %.not20.us36, label %.split29.us, label %dictkeys_get_index.exit.us34, !llvm.loop !238
+  br i1 %.not20.us36, label %.loopexit, label %dictkeys_get_index.exit.us34, !llvm.loop !238
 
 .split.split.split:                               ; preds = %.split.split
   %42 = getelementptr i32, ptr %8, i64 %.017.us2753
   %43 = load i32, ptr %42, align 4, !tbaa !50
   %.not2042 = icmp eq i32 %43, -1
-  br i1 %.not2042, label %.split29.us.thread.thread79, label %dictkeys_get_index.exit
+  br i1 %.not2042, label %.loopexit76, label %dictkeys_get_index.exit
 
-.split29.us:                                      ; preds = %dictkeys_get_index.exit, %dictkeys_get_index.exit.us34, %dictkeys_get_index.exit.us
-  %.us-phi = phi i64 [ %.017.us27, %dictkeys_get_index.exit.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ], [ %.017, %dictkeys_get_index.exit ]
-  br i1 %25, label %.split29.us.thread74, label %.split29.us.thread
-
-.split29.us.thread74:                             ; preds = %.split.split.us, %.split29.us
-  %.us-phi76 = phi i64 [ %.us-phi, %.split29.us ], [ %.017.us2753, %.split.split.us ]
+.split29.us:                                      ; preds = %dictkeys_get_index.exit.us, %.split.split.us
+  %.us-phi = phi i64 [ %.017.us2753, %.split.split.us ], [ %.017.us27, %dictkeys_get_index.exit.us ]
   %44 = trunc i64 %.01967 to i16
-  %45 = getelementptr i16, ptr %8, i64 %.us-phi76
+  %45 = getelementptr i16, ptr %8, i64 %.us-phi
   store i16 %44, ptr %45, align 2, !tbaa !49
   br label %dictkeys_set_index.exit
 
-.split29.us.thread:                               ; preds = %.split29.us
-  br i1 %14, label %.split29.us.thread.thread, label %.split29.us.thread.thread79
-
-.split29.us.thread.thread:                        ; preds = %.split.split.split.us, %.split29.us.thread
-  %.us-phi7378 = phi i64 [ %.us-phi, %.split29.us.thread ], [ %.017.us2753, %.split.split.split.us ]
-  %46 = getelementptr i64, ptr %8, i64 %.us-phi7378
+.loopexit:                                        ; preds = %dictkeys_get_index.exit.us34, %.split.split.split.us
+  %.us-phi.ph.ph = phi i64 [ %.017.us2753, %.split.split.split.us ], [ %.017.us33, %dictkeys_get_index.exit.us34 ]
+  %46 = getelementptr i64, ptr %8, i64 %.us-phi.ph.ph
   store i64 %.01967, ptr %46, align 8, !tbaa !42
   br label %dictkeys_set_index.exit
 
-.split29.us.thread.thread79:                      ; preds = %.split.split.split, %.split29.us.thread
-  %.us-phi7381 = phi i64 [ %.us-phi, %.split29.us.thread ], [ %.017.us2753, %.split.split.split ]
+.loopexit76:                                      ; preds = %dictkeys_get_index.exit, %.split.split.split
+  %.us-phi.ph = phi i64 [ %.017.us2753, %.split.split.split ], [ %.017, %dictkeys_get_index.exit ]
   %47 = trunc i64 %.01967 to i32
-  %48 = getelementptr i32, ptr %8, i64 %.us-phi7381
+  %48 = getelementptr i32, ptr %8, i64 %.us-phi.ph
   store i32 %47, ptr %48, align 4, !tbaa !50
   br label %dictkeys_set_index.exit
 
-dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us.thread74, %.split29.us.thread.thread, %.split29.us.thread.thread79
+dictkeys_set_index.exit:                          ; preds = %.thread.split.us, %.split29.us, %.loopexit, %.loopexit76
   %49 = add nuw i64 %.01967, 1
   %50 = getelementptr i8, ptr %.01868, i64 16
   %.not = icmp eq i64 %49, %2
@@ -16282,7 +16234,7 @@ dictkeys_get_index.exit:                          ; preds = %.split.split.split,
   %55 = getelementptr i32, ptr %8, i64 %.017
   %56 = load i32, ptr %55, align 4, !tbaa !50
   %.not20 = icmp eq i32 %56, -1
-  br i1 %.not20, label %.split29.us, label %dictkeys_get_index.exit, !llvm.loop !238
+  br i1 %.not20, label %.loopexit76, label %dictkeys_get_index.exit, !llvm.loop !238
 }
 
 declare void @_PyErr_SetKeyError(ptr noundef) local_unnamed_addr #1
@@ -18975,7 +18927,7 @@ attributes #10 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

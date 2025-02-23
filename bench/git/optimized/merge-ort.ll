@@ -6637,8 +6637,8 @@ _.exit.i:                                         ; preds = %65, %63
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %97 = load i8, ptr %96, align 8
   %98 = and i8 %97, 2
-  %.not11.i.i.i = icmp eq i8 %98, 0
-  br i1 %.not11.i.i.i, label %path_in_way.exit.i.i, label %path_in_way.exit.thread3.i.i
+  %.not12.i.i.i = icmp eq i8 %98, 0
+  br i1 %.not12.i.i.i, label %path_in_way.exit.i.i, label %path_in_way.exit.thread3.i.i
 
 path_in_way.exit.i.i:                             ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 208
@@ -8654,15 +8654,15 @@ sane_qsort.exit:                                  ; preds = %11, %4
   %26 = add i64 %25, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !337
+  br i1 %exitcond.not, label %.lr.ph38.preheader, label %18, !llvm.loop !337
 
-._crit_edge:                                      ; preds = %18
+.lr.ph38.preheader:                               ; preds = %18
   call void @strbuf_grow(ptr noundef nonnull %5, i64 noundef %26) #18
   %wide.trip.count46 = zext i32 %9 to i64
   br label %.lr.ph38
 
-.lr.ph38:                                         ; preds = %._crit_edge, %.lr.ph38
-  %indvars.iv43 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next44, %.lr.ph38 ]
+.lr.ph38:                                         ; preds = %.lr.ph38.preheader, %.lr.ph38
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next44, %.lr.ph38 ]
   %27 = load ptr, ptr %1, align 8, !tbaa !27
   %28 = trunc nuw nsw i64 %indvars.iv43 to i32
   %29 = add i32 %2, %28

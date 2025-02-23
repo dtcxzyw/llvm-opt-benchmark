@@ -316,24 +316,26 @@ while.body:                                       ; preds = %while.body.preheade
   store i8 %sub, ptr %t.018, align 1
   %t.0 = getelementptr inbounds nuw i8, ptr %t.018, i64 1
   %cmp8 = icmp ult ptr %t.0, %add.ptr7
-  br i1 %cmp8, label %while.body, label %while.end.loopexit, !llvm.loop !7
+  br i1 %cmp8, label %while.body, label %while.end.thread, !llvm.loop !7
 
-while.end.loopexit:                               ; preds = %while.body
+while.end.thread:                                 ; preds = %while.body
   %.pre23 = load ptr, ptr %_tmpBuffer, align 8
-  br label %while.end
+  %_outBuffer1824 = getelementptr inbounds nuw i8, ptr %this, i64 32
+  br label %if.then25.preheader
 
-while.end:                                        ; preds = %while.end.loopexit, %if.end4
-  %6 = phi ptr [ %.pre23, %while.end.loopexit ], [ %3, %if.end4 ]
+while.end:                                        ; preds = %if.end4
   %_outBuffer18 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %7 = load ptr, ptr %_outBuffer18, align 8
-  %add.ptr21 = getelementptr inbounds i8, ptr %7, i64 %idx.ext
-  %cmp2419 = icmp sgt i32 %call, 0
+  %cmp2419 = icmp eq i32 %call, 1
   br i1 %cmp2419, label %if.then25.preheader, label %return
 
-if.then25.preheader:                              ; preds = %while.end
+if.then25.preheader:                              ; preds = %while.end.thread, %while.end
+  %_outBuffer1827 = phi ptr [ %_outBuffer1824, %while.end.thread ], [ %_outBuffer18, %while.end ]
+  %6 = phi ptr [ %.pre23, %while.end.thread ], [ %3, %while.end ]
+  %7 = load ptr, ptr %_outBuffer1827, align 8
+  %add.ptr2128 = getelementptr inbounds i8, ptr %7, i64 %idx.ext
   %add15 = add nuw nsw i32 %call, 1
-  %div2425 = lshr i32 %add15, 1
-  %idx.ext16 = zext nneg i32 %div2425 to i64
+  %div2930 = lshr i32 %add15, 1
+  %idx.ext16 = zext nneg i32 %div2930 to i64
   %add.ptr17 = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext16
   br label %if.then25
 
@@ -344,7 +346,7 @@ if.then25:                                        ; preds = %if.then25.preheader
   %8 = load i8, ptr %t1.020, align 1
   %incdec.ptr27 = getelementptr inbounds nuw i8, ptr %s.022, i64 1
   store i8 %8, ptr %s.022, align 1
-  %cmp29 = icmp ult ptr %incdec.ptr27, %add.ptr21
+  %cmp29 = icmp ult ptr %incdec.ptr27, %add.ptr2128
   br i1 %cmp29, label %if.then30, label %return
 
 if.then30:                                        ; preds = %if.then25
@@ -353,11 +355,11 @@ if.then30:                                        ; preds = %if.then25
   %9 = load i8, ptr %t2.021, align 1
   %incdec.ptr32 = getelementptr inbounds nuw i8, ptr %s.022, i64 2
   store i8 %9, ptr %incdec.ptr27, align 1
-  %cmp24 = icmp ult ptr %incdec.ptr32, %add.ptr21
+  %cmp24 = icmp ult ptr %incdec.ptr32, %add.ptr2128
   br i1 %cmp24, label %if.then25, label %return, !llvm.loop !8
 
 return:                                           ; preds = %if.then25, %if.then30, %while.end, %if.then
-  %storemerge.in = phi ptr [ %_outBuffer, %if.then ], [ %_outBuffer18, %while.end ], [ %_outBuffer18, %if.then30 ], [ %_outBuffer18, %if.then25 ]
+  %storemerge.in = phi ptr [ %_outBuffer, %if.then ], [ %_outBuffer18, %while.end ], [ %_outBuffer1827, %if.then30 ], [ %_outBuffer1827, %if.then25 ]
   %retval.0 = phi i32 [ 0, %if.then ], [ %call, %while.end ], [ %call, %if.then30 ], [ %call, %if.then25 ]
   %storemerge = load ptr, ptr %storemerge.in, align 8
   store ptr %storemerge, ptr %outPtr, align 8

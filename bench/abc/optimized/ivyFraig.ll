@@ -4425,7 +4425,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit, %.lr.ph
   %.013 = phi ptr [ %.0, %.lr.ph ], [ %.011, %Abc_Clock.exit ]
-  call void @Ivy_NodeSimulateSim(ptr noundef %0, ptr noundef nonnull %.013)
+  call void @Ivy_NodeSimulateSim(ptr noundef nonnull %0, ptr noundef nonnull %.013)
   %11 = getelementptr inbounds nuw i8, ptr %.013, i64 8
   %.0 = load ptr, ptr %11, align 8, !tbaa !178
   %.not = icmp eq ptr %.0, null
@@ -4652,13 +4652,13 @@ define void @Ivy_FraigCreateClasses(ptr noundef captures(none) %0) local_unnamed
   %wide.trip.count = zext nneg i32 %.val71 to i64
   br label %24
 
-.lr.ph127:                                        ; preds = %77
+.lr.ph128:                                        ; preds = %77
   %20 = getelementptr i8, ptr %13, i64 8
   %.val72 = load ptr, ptr %20, align 8, !tbaa !49
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %wide.trip.count134 = zext nneg i32 %.val71 to i64
+  %wide.trip.count135 = zext nneg i32 %.val71 to i64
   br label %78
 
 24:                                               ; preds = %.lr.ph, %77
@@ -4681,7 +4681,7 @@ define void @Ivy_FraigCreateClasses(ptr noundef captures(none) %0) local_unnamed
 31:                                               ; preds = %28, %28, %28
   %32 = load i32, ptr %17, align 8, !tbaa !96
   %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph.i, label %.thread
+  br i1 %33, label %.lr.ph.i, label %.loopexit
 
 .lr.ph.i:                                         ; preds = %31
   %34 = getelementptr i8, ptr %26, i64 32
@@ -4710,7 +4710,7 @@ Ivy_NodeHash.exit:                                ; preds = %36
 44:                                               ; preds = %.lr.ph.i87
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i88, 1
   %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i
-  br i1 %exitcond.not.i90, label %.thread, label %.lr.ph.i87, !llvm.loop !157
+  br i1 %exitcond.not.i90, label %.loopexit, label %.lr.ph.i87, !llvm.loop !157
 
 .lr.ph.i87:                                       ; preds = %Ivy_NodeHash.exit, %44
   %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %44 ], [ 0, %Ivy_NodeHash.exit ]
@@ -4719,16 +4719,16 @@ Ivy_NodeHash.exit:                                ; preds = %36
   %.not.i = icmp eq i32 %46, 0
   br i1 %.not.i, label %44, label %Ivy_NodeHasZeroSim.exit
 
-.thread:                                          ; preds = %44, %31
+.loopexit:                                        ; preds = %44, %31
   %.val.i91 = load ptr, ptr %18, align 8, !tbaa !94
   %47 = icmp eq ptr %.val.i91, null
   br i1 %47, label %48, label %49
 
-48:                                               ; preds = %.thread
+48:                                               ; preds = %.loopexit
   store ptr %26, ptr %18, align 8, !tbaa !94
   br label %Ivy_NodeAddToClass.exit
 
-49:                                               ; preds = %.thread
+49:                                               ; preds = %.loopexit
   %.val10.i = load ptr, ptr %19, align 8, !tbaa !126
   %50 = getelementptr inbounds nuw i8, ptr %.val10.i, i64 48
   store ptr %26, ptr %50, align 8, !tbaa !94
@@ -4743,17 +4743,16 @@ Ivy_NodeAddToClass.exit:                          ; preds = %48, %49
   br label %77
 
 Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_NodeHash.exit
-  %.08.lcssa.i105 = phi i32 [ %42, %Ivy_NodeHash.exit ], [ 0, %.lr.ph.i87 ]
-  %53 = urem i32 %.08.lcssa.i105, %9
+  %53 = urem i32 %42, %9
   %54 = zext i32 %53 to i64
   %55 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !145
-  %.not67122 = icmp eq ptr %56, null
-  br i1 %.not67122, label %.critedge70, label %.lr.ph.i93
+  %.not67123 = icmp eq ptr %56, null
+  br i1 %.not67123, label %.critedge70, label %.lr.ph.i93
 
 .lr.ph.i93:                                       ; preds = %Ivy_NodeHasZeroSim.exit, %Ivy_NodeCompareSims.exit
-  %.056123 = phi ptr [ %.056.val, %Ivy_NodeCompareSims.exit ], [ %56, %Ivy_NodeHasZeroSim.exit ]
-  %57 = getelementptr i8, ptr %.056123, i64 32
+  %.056124 = phi ptr [ %.056.val, %Ivy_NodeCompareSims.exit ], [ %56, %Ivy_NodeHasZeroSim.exit ]
+  %57 = getelementptr i8, ptr %.056124, i64 32
   %.val10.i92 = load ptr, ptr %57, align 8, !tbaa !103
   %58 = getelementptr inbounds nuw i8, ptr %.val10.i92, i64 32
   br label %60
@@ -4773,7 +4772,7 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
   br i1 %.not.i97, label %59, label %Ivy_NodeCompareSims.exit
 
 65:                                               ; preds = %59
-  %66 = getelementptr i8, ptr %.056123, i64 48
+  %66 = getelementptr i8, ptr %.056124, i64 48
   %.val.i100 = load ptr, ptr %66, align 8, !tbaa !94
   %67 = icmp eq ptr %.val.i100, null
   br i1 %67, label %68, label %69
@@ -4783,23 +4782,23 @@ Ivy_NodeHasZeroSim.exit:                          ; preds = %.lr.ph.i87, %Ivy_No
   br label %Ivy_NodeAddToClass.exit102
 
 69:                                               ; preds = %65
-  %70 = getelementptr i8, ptr %.056123, i64 40
+  %70 = getelementptr i8, ptr %.056124, i64 40
   %.val10.i101 = load ptr, ptr %70, align 8, !tbaa !126
   %71 = getelementptr inbounds nuw i8, ptr %.val10.i101, i64 48
   store ptr %26, ptr %71, align 8, !tbaa !94
   br label %Ivy_NodeAddToClass.exit102
 
 Ivy_NodeAddToClass.exit102:                       ; preds = %68, %69
-  %72 = getelementptr inbounds nuw i8, ptr %.056123, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.056124, i64 40
   store ptr %26, ptr %72, align 8, !tbaa !126
   %73 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %.056123, ptr %73, align 8, !tbaa !126
+  store ptr %.056124, ptr %73, align 8, !tbaa !126
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 48
   store ptr null, ptr %74, align 8, !tbaa !94
   br label %77
 
 Ivy_NodeCompareSims.exit:                         ; preds = %60
-  %75 = getelementptr i8, ptr %.056123, i64 56
+  %75 = getelementptr i8, ptr %.056124, i64 56
   %.056.val = load ptr, ptr %75, align 8, !tbaa !182
   %.not67 = icmp eq ptr %.056.val, null
   br i1 %.not67, label %.critedge70, label %.lr.ph.i93, !llvm.loop !185
@@ -4813,19 +4812,19 @@ Ivy_NodeCompareSims.exit:                         ; preds = %60
 77:                                               ; preds = %28, %Ivy_NodeAddToClass.exit102, %.critedge70, %24, %Ivy_NodeAddToClass.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph127, label %24, !llvm.loop !186
+  br i1 %exitcond.not, label %.lr.ph128, label %24, !llvm.loop !186
 
-78:                                               ; preds = %.lr.ph127, %.critedge
-  %indvars.iv131 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next132, %.critedge ]
-  %79 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv131
+78:                                               ; preds = %.lr.ph128, %.critedge
+  %indvars.iv132 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next133, %.critedge ]
+  %79 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv132
   %80 = load ptr, ptr %79, align 8, !tbaa !51
   %81 = icmp eq ptr %80, null
   br i1 %81, label %.critedge, label %82
 
 82:                                               ; preds = %78
   %.val76 = load i32, ptr %80, align 8, !tbaa !121
-  %.not115 = icmp eq i32 %.val76, 0
-  br i1 %.not115, label %86, label %83
+  %.not116 = icmp eq i32 %.val76, 0
+  br i1 %.not116, label %86, label %83
 
 83:                                               ; preds = %82
   %84 = getelementptr i8, ptr %80, i64 8
@@ -4879,9 +4878,9 @@ Ivy_FraigAddClass.exit:                           ; preds = %95, %96
   br label %.critedge
 
 .critedge:                                        ; preds = %83, %Ivy_FraigAddClass.exit, %78, %90, %86
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %.critedge2, label %78, !llvm.loop !187
+  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
+  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
+  br i1 %exitcond136.not, label %.critedge2, label %78, !llvm.loop !187
 
 .critedge2:                                       ; preds = %.critedge, %1
   %.not = icmp eq ptr %calloc, null

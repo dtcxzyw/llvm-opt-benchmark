@@ -186,17 +186,17 @@ define void @dsyrfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %92, ptr %93, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.thread:                               ; preds = %.lr.ph
   %94 = add nuw i32 %87, 1
   br i1 %.not, label %.lr.ph441.preheader, label %.lr.ph431.preheader
 
-.lr.ph431.preheader:                              ; preds = %._crit_edge
+.lr.ph431.preheader:                              ; preds = %._crit_edge.thread
   %wide.trip.count506 = zext i32 %94 to i64
   br label %.lr.ph431
 
-.lr.ph441.preheader:                              ; preds = %._crit_edge
+.lr.ph441.preheader:                              ; preds = %._crit_edge.thread
   %95 = zext nneg i32 %87 to i64
   %wide.trip.count517 = zext i32 %94 to i64
   br label %.lr.ph441

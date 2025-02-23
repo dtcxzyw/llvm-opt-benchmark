@@ -9805,7 +9805,7 @@ define internal fastcc noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..s
 
 .preheader.i:                                     ; preds = %46, %62
   %.sroa.025.0138.i = phi i64 [ %58, %62 ], [ 0, %46 ]
-  %.2137.i = phi i8 [ %.3.i, %62 ], [ %.064139.i, %46 ]
+  %.2137.i = phi i8 [ %.3.i, %62 ], [ 0, %46 ]
   %58 = add nuw nsw i64 %.sroa.025.0138.i, 1
   %59 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0138.i
   %60 = load i16, ptr %59, align 2, !noalias !1344, !noundef !4
@@ -18181,7 +18181,7 @@ define void @_ZN15tree_sitter_cli13query_testing23parse_position_comments17h6b5c
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %124
   %.sroa.025.0138.i.i = phi i64 [ %120, %124 ], [ 0, %.preheader.i.i.preheader ]
-  %.2137.i.i = phi i8 [ %.3.i.i, %124 ], [ %.064139.i.i, %.preheader.i.i.preheader ]
+  %.2137.i.i = phi i8 [ %.3.i.i, %124 ], [ 0, %.preheader.i.i.preheader ]
   %120 = add nuw nsw i64 %.sroa.025.0138.i.i, 1
   %121 = getelementptr inbounds nuw [4 x i16], ptr %20, i64 0, i64 %.sroa.025.0138.i.i
   %122 = load i16, ptr %121, align 2, !noalias !3981, !noundef !4

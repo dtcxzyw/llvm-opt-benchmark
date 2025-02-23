@@ -1593,13 +1593,13 @@ define i64 @H5VM_array_offset(i32 noundef %0, ptr noundef readonly captures(none
   %10 = mul i64 %9, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %H5VM_array_down.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %.lr.ph.preheader.i5, label %.lr.ph.i, !llvm.loop !20
 
-H5VM_array_down.exit:                             ; preds = %.lr.ph.i, %3
+H5VM_array_down.exit:                             ; preds = %3
   %.not.i4 = icmp eq i32 %0, 0
   br i1 %.not.i4, label %H5VM_array_offset_pre.exit, label %.lr.ph.preheader.i5
 
-.lr.ph.preheader.i5:                              ; preds = %H5VM_array_down.exit
+.lr.ph.preheader.i5:                              ; preds = %.lr.ph.i, %H5VM_array_down.exit
   %wide.trip.count.i = zext i32 %0 to i64
   br label %.lr.ph.i6
 
@@ -1671,13 +1671,13 @@ define noundef i32 @H5VM_array_calc(i64 noundef %0, i32 noundef %1, ptr noundef 
   %11 = mul i64 %10, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %.not.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not.i, label %H5VM_array_down.exit, label %.lr.ph.i, !llvm.loop !20
+  br i1 %.not.i, label %.lr.ph.preheader.i7, label %.lr.ph.i, !llvm.loop !20
 
-H5VM_array_down.exit:                             ; preds = %.lr.ph.i, %4
+H5VM_array_down.exit:                             ; preds = %4
   %.not.i6 = icmp eq i32 %1, 0
   br i1 %.not.i6, label %H5VM_array_calc_pre.exit, label %.lr.ph.preheader.i7
 
-.lr.ph.preheader.i7:                              ; preds = %H5VM_array_down.exit
+.lr.ph.preheader.i7:                              ; preds = %.lr.ph.i, %H5VM_array_down.exit
   %wide.trip.count.i = zext i32 %1 to i64
   br label %.lr.ph.i8
 

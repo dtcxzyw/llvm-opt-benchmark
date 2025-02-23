@@ -251,7 +251,7 @@ define internal ptr @H5O__link_decode(ptr noundef %0, ptr readnone captures(none
   %104 = phi ptr [ %73, %101 ], [ %100, %99 ]
   %105 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store i8 %.sink, ptr %105, align 4, !tbaa !22
-  %.not190 = icmp ult i8 %51, 16
+  %.not190 = icmp samesign ult i8 %51, 16
   br i1 %.not190, label %125, label %106
 
 106:                                              ; preds = %103

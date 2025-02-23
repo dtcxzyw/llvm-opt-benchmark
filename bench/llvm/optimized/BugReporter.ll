@@ -20232,7 +20232,7 @@ _ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit: ; preds = %.lr.ph.i
   br i1 %or.cond340, label %.lr.ph.i172, label %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit176.thread
 
 .lr.ph.i172:                                      ; preds = %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit, %.lr.ph.i172
-  %.0610.i173 = phi ptr [ %202, %.lr.ph.i172 ], [ %.0.i131, %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit ]
+  %.0610.i173 = phi ptr [ %202, %.lr.ph.i172 ], [ %.sroa.3278.0.copyload, %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit ]
   %202 = call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %.0610.i173) #29
   %.not.i174 = icmp ne ptr %202, null
   %203 = icmp ne ptr %202, %.0.i
@@ -20247,7 +20247,7 @@ _ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit176.thread: ; preds =
   br i1 %.not345, label %.critedge, label %.lr.ph.i180
 
 .lr.ph.i180:                                      ; preds = %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit176.thread, %.lr.ph.i180
-  %.0610.i181 = phi ptr [ %204, %.lr.ph.i180 ], [ %.0.i, %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit176.thread ]
+  %.0610.i181 = phi ptr [ %204, %.lr.ph.i180 ], [ %.sroa.3290.0.copyload, %_ZL15lexicalContainsRKN5clang9ParentMapEPKNS_4StmtES5_.exit176.thread ]
   %204 = call noundef ptr @_ZNK5clang9ParentMap9getParentEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull %.0610.i181) #29
   %.not.i182 = icmp ne ptr %204, null
   %205 = icmp ne ptr %204, %.0.i131

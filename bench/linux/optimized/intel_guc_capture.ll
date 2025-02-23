@@ -1823,7 +1823,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %50 = getelementptr i8, ptr %0, i64 2360
   %51 = load i8, ptr %50, align 8, !range !5, !noundef !6
   %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %.loopexit63
+  br i1 %52, label %53, label %.loopexit64
 
 53:                                               ; preds = %44
   %54 = getelementptr i8, ptr %0, i64 -632
@@ -1841,7 +1841,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %62 = select i1 %59, i32 %61, i32 0
   %63 = add i32 %62, %60
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %.loopexit63.sink.split, label %65
+  br i1 %64, label %.loopexit64.sink.split, label %65
 
 65:                                               ; preds = %56
   %66 = and i32 %63, 3
@@ -1862,17 +1862,17 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %75 = phi ptr [ %73, %71 ], [ null, %68 ]
   %76 = load i32, ptr %55, align 8
   tail call void (ptr, ptr, ...) @_dev_warn(ptr noundef %75, ptr noundef nonnull @.str.43, i32 noundef %76) #12
-  br label %.loopexit63.sink.split
+  br label %.loopexit64.sink.split
 
 77:                                               ; preds = %65
   %78 = icmp slt i32 %63, 8
-  br i1 %78, label %.loopexit63.sink.split, label %79
+  br i1 %78, label %.loopexit64.sink.split, label %79
 
 79:                                               ; preds = %77
   %80 = select i1 %59, i32 %61, i32 %57
   %81 = sub i32 %80, %58
   %82 = icmp sgt i32 %81, 7
-  br i1 %82, label %.thread, label %.preheader60
+  br i1 %82, label %.thread, label %.preheader61
 
 .thread:                                          ; preds = %79
   %83 = load ptr, ptr %49, align 8
@@ -1885,7 +1885,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   store i32 %89, ptr %47, align 8
   br label %149
 
-.preheader60:                                     ; preds = %79, %109
+.preheader61:                                     ; preds = %79, %109
   %90 = phi i32 [ 0, %109 ], [ %58, %79 ]
   %91 = phi i32 [ %110, %109 ], [ 1, %79 ]
   %92 = icmp ugt i32 %90, %57
@@ -1894,11 +1894,11 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %95 = icmp ugt i32 %94, 3
   br i1 %95, label %96, label %98
 
-96:                                               ; preds = %.preheader60
+96:                                               ; preds = %.preheader61
   %97 = add i32 %90, 4
-  br label %.loopexit61
+  br label %.loopexit62
 
-98:                                               ; preds = %.preheader60
+98:                                               ; preds = %.preheader61
   %99 = icmp eq i32 %93, %90
   br i1 %99, label %109, label %100
 
@@ -1921,29 +1921,29 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 109:                                              ; preds = %106, %98
   %110 = add nsw i32 %91, -1
   %111 = icmp eq i32 %91, 0
-  br i1 %111, label %.loopexit61, label %.preheader60, !llvm.loop !30
+  br i1 %111, label %.loopexit62, label %.preheader61, !llvm.loop !30
 
-.loopexit61:                                      ; preds = %109, %96
-  %.promoted95 = phi i32 [ %97, %96 ], [ 0, %109 ]
+.loopexit62:                                      ; preds = %109, %96
+  %.promoted96 = phi i32 [ %97, %96 ], [ 0, %109 ]
   %112 = phi i32 [ 4, %96 ], [ 0, %109 ]
-  store i32 %.promoted95, ptr %47, align 8
-  %113 = icmp ult i32 %57, %.promoted95
-  %114 = sub i32 %57, %.promoted95
+  store i32 %.promoted96, ptr %47, align 8
+  %113 = icmp ult i32 %57, %.promoted96
+  %114 = sub i32 %57, %.promoted96
   %115 = select i1 %113, i32 %61, i32 0
   %116 = sub i32 0, %115
   %117 = icmp eq i32 %114, %116
-  br i1 %117, label %144, label %.preheader58
+  br i1 %117, label %144, label %.preheader59
 
-.preheader58:                                     ; preds = %.loopexit61, %141
-  %118 = phi i32 [ 0, %141 ], [ %.promoted95, %.loopexit61 ]
-  %119 = phi i32 [ %142, %141 ], [ 1, %.loopexit61 ]
+.preheader59:                                     ; preds = %.loopexit62, %141
+  %118 = phi i32 [ 0, %141 ], [ %.promoted96, %.loopexit62 ]
+  %119 = phi i32 [ %142, %141 ], [ 1, %.loopexit62 ]
   %120 = icmp ugt i32 %118, %57
   %121 = select i1 %120, i32 %61, i32 %57
   %122 = sub i32 %121, %118
   %123 = icmp ugt i32 %122, 3
   br i1 %123, label %124, label %130
 
-124:                                              ; preds = %.preheader58
+124:                                              ; preds = %.preheader59
   %125 = load ptr, ptr %49, align 8
   %126 = zext i32 %118 to i64
   %127 = getelementptr i8, ptr %125, i64 %126
@@ -1951,7 +1951,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %129 = add i32 %118, 4
   br label %.sink.split
 
-130:                                              ; preds = %.preheader58
+130:                                              ; preds = %.preheader59
   %131 = icmp eq i32 %121, %118
   br i1 %131, label %141, label %132
 
@@ -1974,21 +1974,21 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 141:                                              ; preds = %138, %130
   %142 = add nsw i32 %119, -1
   %143 = icmp eq i32 %119, 0
-  br i1 %143, label %.sink.split, label %.preheader58, !llvm.loop !30
+  br i1 %143, label %.sink.split, label %.preheader59, !llvm.loop !30
 
 .sink.split:                                      ; preds = %141, %124
   %.sink = phi i32 [ %129, %124 ], [ 0, %141 ]
-  %.ph172 = phi i32 [ %128, %124 ], [ 0, %141 ]
-  %.ph173 = phi i32 [ 4, %124 ], [ 0, %141 ]
+  %.ph173 = phi i32 [ %128, %124 ], [ 0, %141 ]
+  %.ph174 = phi i32 [ 4, %124 ], [ 0, %141 ]
   store i32 %.sink, ptr %47, align 8
   br label %144
 
-144:                                              ; preds = %.sink.split, %.loopexit61
-  %145 = phi i32 [ 0, %.loopexit61 ], [ %.ph172, %.sink.split ]
-  %146 = phi i32 [ 0, %.loopexit61 ], [ %.ph173, %.sink.split ]
+144:                                              ; preds = %.sink.split, %.loopexit62
+  %145 = phi i32 [ 0, %.loopexit62 ], [ %.ph173, %.sink.split ]
+  %146 = phi i32 [ 0, %.loopexit62 ], [ %.ph174, %.sink.split ]
   %147 = add nuw nsw i32 %146, %112
   %148 = icmp eq i32 %147, 8
-  br i1 %148, label %149, label %.loopexit63.sink.split
+  br i1 %148, label %149, label %.loopexit64.sink.split
 
 149:                                              ; preds = %.thread, %144
   %150 = phi i32 [ %88, %.thread ], [ %145, %144 ]
@@ -1997,9 +1997,9 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %153 = zext i1 %152 to i8
   %154 = and i32 %150, 255
   %155 = icmp eq i32 %154, 0
-  br i1 %155, label %.thread43, label %.preheader56
+  br i1 %155, label %.thread43, label %.preheader57
 
-.preheader56:                                     ; preds = %149, %541
+.preheader57:                                     ; preds = %149, %541
   %156 = phi i32 [ %172, %541 ], [ %154, %149 ]
   %157 = phi ptr [ %507, %541 ], [ null, %149 ]
   %158 = phi i32 [ %542, %541 ], [ 0, %149 ]
@@ -2010,14 +2010,14 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %163 = phi i32 [ %371, %541 ], [ 0, %149 ]
   br label %164
 
-164:                                              ; preds = %383, %.preheader56
-  %165 = phi i32 [ %156, %.preheader56 ], [ %172, %383 ]
-  %166 = phi i32 [ %158, %.preheader56 ], [ %384, %383 ]
-  %167 = phi i32 [ %159, %.preheader56 ], [ %367, %383 ]
-  %168 = phi i32 [ %160, %.preheader56 ], [ %368, %383 ]
-  %169 = phi i32 [ %161, %.preheader56 ], [ %369, %383 ]
-  %170 = phi i32 [ %162, %.preheader56 ], [ %370, %383 ]
-  %171 = phi i32 [ %163, %.preheader56 ], [ %371, %383 ]
+164:                                              ; preds = %383, %.preheader57
+  %165 = phi i32 [ %156, %.preheader57 ], [ %172, %383 ]
+  %166 = phi i32 [ %158, %.preheader57 ], [ %384, %383 ]
+  %167 = phi i32 [ %159, %.preheader57 ], [ %367, %383 ]
+  %168 = phi i32 [ %160, %.preheader57 ], [ %368, %383 ]
+  %169 = phi i32 [ %161, %.preheader57 ], [ %369, %383 ]
+  %170 = phi i32 [ %162, %.preheader57 ], [ %370, %383 ]
+  %171 = phi i32 [ %163, %.preheader57 ], [ %371, %383 ]
   %172 = add nsw i32 %165, -1
   %173 = load i32, ptr %48, align 4
   %174 = load i32, ptr %47, align 8
@@ -2033,7 +2033,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %182 = select i1 %175, i32 %177, i32 %173
   %183 = sub i32 %182, %174
   %184 = icmp sgt i32 %183, 19
-  br i1 %184, label %.thread34, label %.preheader53
+  br i1 %184, label %.thread34, label %.preheader54
 
 .thread34:                                        ; preds = %181
   %185 = load ptr, ptr %49, align 8
@@ -2052,7 +2052,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   store i32 %197, ptr %47, align 8
   br label %366
 
-.preheader53:                                     ; preds = %181, %221
+.preheader54:                                     ; preds = %181, %221
   %198 = phi i32 [ 0, %221 ], [ %174, %181 ]
   %199 = phi i32 [ %222, %221 ], [ 1, %181 ]
   %200 = icmp ugt i32 %198, %173
@@ -2061,15 +2061,15 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %203 = icmp ugt i32 %202, 3
   br i1 %203, label %204, label %210
 
-204:                                              ; preds = %.preheader53
+204:                                              ; preds = %.preheader54
   %205 = load ptr, ptr %49, align 8
   %206 = zext i32 %198 to i64
   %207 = getelementptr i8, ptr %205, i64 %206
   %208 = load i32, ptr %207, align 4
   %209 = add i32 %198, 4
-  br label %.loopexit54
+  br label %.loopexit55
 
-210:                                              ; preds = %.preheader53
+210:                                              ; preds = %.preheader54
   %211 = icmp eq i32 %201, %198
   br i1 %211, label %221, label %212
 
@@ -2092,38 +2092,38 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 221:                                              ; preds = %218, %210
   %222 = add nsw i32 %199, -1
   %223 = icmp eq i32 %199, 0
-  br i1 %223, label %.loopexit54, label %.preheader53, !llvm.loop !30
+  br i1 %223, label %.loopexit55, label %.preheader54, !llvm.loop !30
 
-.loopexit54:                                      ; preds = %221, %204
-  %.promoted99 = phi i32 [ %209, %204 ], [ 0, %221 ]
+.loopexit55:                                      ; preds = %221, %204
+  %.promoted100 = phi i32 [ %209, %204 ], [ 0, %221 ]
   %224 = phi i32 [ %208, %204 ], [ %171, %221 ]
   %225 = phi i32 [ 4, %204 ], [ 0, %221 ]
-  store i32 %.promoted99, ptr %47, align 8
-  %226 = icmp ult i32 %173, %.promoted99
-  %227 = sub i32 %173, %.promoted99
+  store i32 %.promoted100, ptr %47, align 8
+  %226 = icmp ult i32 %173, %.promoted100
+  %227 = sub i32 %173, %.promoted100
   %228 = select i1 %226, i32 %177, i32 0
   %229 = sub i32 0, %228
   %230 = icmp eq i32 %227, %229
-  br i1 %230, label %257, label %.preheader51
+  br i1 %230, label %257, label %.preheader52
 
-.preheader51:                                     ; preds = %.loopexit54, %254
-  %231 = phi i32 [ 0, %254 ], [ %.promoted99, %.loopexit54 ]
-  %232 = phi i32 [ %255, %254 ], [ 1, %.loopexit54 ]
+.preheader52:                                     ; preds = %.loopexit55, %254
+  %231 = phi i32 [ 0, %254 ], [ %.promoted100, %.loopexit55 ]
+  %232 = phi i32 [ %255, %254 ], [ 1, %.loopexit55 ]
   %233 = icmp ugt i32 %231, %173
   %234 = select i1 %233, i32 %177, i32 %173
   %235 = sub i32 %234, %231
   %236 = icmp ugt i32 %235, 3
   br i1 %236, label %237, label %243
 
-237:                                              ; preds = %.preheader51
+237:                                              ; preds = %.preheader52
   %238 = load ptr, ptr %49, align 8
   %239 = zext i32 %231 to i64
   %240 = getelementptr i8, ptr %238, i64 %239
   %241 = load i32, ptr %240, align 4
   %242 = add i32 %231, 4
-  br label %.sink.split174
+  br label %.sink.split175
 
-243:                                              ; preds = %.preheader51
+243:                                              ; preds = %.preheader52
   %244 = icmp eq i32 %234, %231
   br i1 %244, label %254, label %245
 
@@ -2146,29 +2146,29 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 254:                                              ; preds = %251, %243
   %255 = add nsw i32 %232, -1
   %256 = icmp eq i32 %232, 0
-  br i1 %256, label %.sink.split174, label %.preheader51, !llvm.loop !30
+  br i1 %256, label %.sink.split175, label %.preheader52, !llvm.loop !30
 
-.sink.split174:                                   ; preds = %254, %237
-  %.sink177 = phi i32 [ %242, %237 ], [ 0, %254 ]
-  %.ph175 = phi i32 [ %241, %237 ], [ %170, %254 ]
-  %.ph176 = phi i32 [ 4, %237 ], [ 0, %254 ]
-  store i32 %.sink177, ptr %47, align 8
+.sink.split175:                                   ; preds = %254, %237
+  %.sink178 = phi i32 [ %242, %237 ], [ 0, %254 ]
+  %.ph176 = phi i32 [ %241, %237 ], [ %170, %254 ]
+  %.ph177 = phi i32 [ 4, %237 ], [ 0, %254 ]
+  store i32 %.sink178, ptr %47, align 8
   br label %257
 
-257:                                              ; preds = %.sink.split174, %.loopexit54
-  %.promoted101 = phi i32 [ %.promoted99, %.loopexit54 ], [ %.sink177, %.sink.split174 ]
-  %258 = phi i32 [ %170, %.loopexit54 ], [ %.ph175, %.sink.split174 ]
-  %259 = phi i32 [ 0, %.loopexit54 ], [ %.ph176, %.sink.split174 ]
+257:                                              ; preds = %.sink.split175, %.loopexit55
+  %.promoted102 = phi i32 [ %.promoted100, %.loopexit55 ], [ %.sink178, %.sink.split175 ]
+  %258 = phi i32 [ %170, %.loopexit55 ], [ %.ph176, %.sink.split175 ]
+  %259 = phi i32 [ 0, %.loopexit55 ], [ %.ph177, %.sink.split175 ]
   %260 = add nuw nsw i32 %259, %225
-  %261 = icmp ult i32 %173, %.promoted101
-  %262 = sub i32 %173, %.promoted101
+  %261 = icmp ult i32 %173, %.promoted102
+  %262 = sub i32 %173, %.promoted102
   %263 = select i1 %261, i32 %177, i32 0
   %264 = sub i32 0, %263
   %265 = icmp eq i32 %262, %264
-  br i1 %265, label %292, label %.preheader49
+  br i1 %265, label %292, label %.preheader50
 
-.preheader49:                                     ; preds = %257, %289
-  %266 = phi i32 [ 0, %289 ], [ %.promoted101, %257 ]
+.preheader50:                                     ; preds = %257, %289
+  %266 = phi i32 [ 0, %289 ], [ %.promoted102, %257 ]
   %267 = phi i32 [ %290, %289 ], [ 1, %257 ]
   %268 = icmp ugt i32 %266, %173
   %269 = select i1 %268, i32 %177, i32 %173
@@ -2176,15 +2176,15 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %271 = icmp ugt i32 %270, 3
   br i1 %271, label %272, label %278
 
-272:                                              ; preds = %.preheader49
+272:                                              ; preds = %.preheader50
   %273 = load ptr, ptr %49, align 8
   %274 = zext i32 %266 to i64
   %275 = getelementptr i8, ptr %273, i64 %274
   %276 = load i32, ptr %275, align 4
   %277 = add i32 %266, 4
-  br label %.sink.split178
+  br label %.sink.split179
 
-278:                                              ; preds = %.preheader49
+278:                                              ; preds = %.preheader50
   %279 = icmp eq i32 %269, %266
   br i1 %279, label %289, label %280
 
@@ -2207,29 +2207,29 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 289:                                              ; preds = %286, %278
   %290 = add nsw i32 %267, -1
   %291 = icmp eq i32 %267, 0
-  br i1 %291, label %.sink.split178, label %.preheader49, !llvm.loop !30
+  br i1 %291, label %.sink.split179, label %.preheader50, !llvm.loop !30
 
-.sink.split178:                                   ; preds = %289, %272
-  %.sink181 = phi i32 [ %277, %272 ], [ 0, %289 ]
-  %.ph179 = phi i32 [ %276, %272 ], [ %169, %289 ]
-  %.ph180 = phi i32 [ 4, %272 ], [ 0, %289 ]
-  store i32 %.sink181, ptr %47, align 8
+.sink.split179:                                   ; preds = %289, %272
+  %.sink182 = phi i32 [ %277, %272 ], [ 0, %289 ]
+  %.ph180 = phi i32 [ %276, %272 ], [ %169, %289 ]
+  %.ph181 = phi i32 [ 4, %272 ], [ 0, %289 ]
+  store i32 %.sink182, ptr %47, align 8
   br label %292
 
-292:                                              ; preds = %.sink.split178, %257
-  %.promoted103 = phi i32 [ %.promoted101, %257 ], [ %.sink181, %.sink.split178 ]
-  %293 = phi i32 [ %169, %257 ], [ %.ph179, %.sink.split178 ]
-  %294 = phi i32 [ 0, %257 ], [ %.ph180, %.sink.split178 ]
+292:                                              ; preds = %.sink.split179, %257
+  %.promoted104 = phi i32 [ %.promoted102, %257 ], [ %.sink182, %.sink.split179 ]
+  %293 = phi i32 [ %169, %257 ], [ %.ph180, %.sink.split179 ]
+  %294 = phi i32 [ 0, %257 ], [ %.ph181, %.sink.split179 ]
   %295 = add nuw nsw i32 %260, %294
-  %296 = icmp ult i32 %173, %.promoted103
-  %297 = sub i32 %173, %.promoted103
+  %296 = icmp ult i32 %173, %.promoted104
+  %297 = sub i32 %173, %.promoted104
   %298 = select i1 %296, i32 %177, i32 0
   %299 = sub i32 0, %298
   %300 = icmp eq i32 %297, %299
-  br i1 %300, label %327, label %.preheader47
+  br i1 %300, label %327, label %.preheader48
 
-.preheader47:                                     ; preds = %292, %324
-  %301 = phi i32 [ 0, %324 ], [ %.promoted103, %292 ]
+.preheader48:                                     ; preds = %292, %324
+  %301 = phi i32 [ 0, %324 ], [ %.promoted104, %292 ]
   %302 = phi i32 [ %325, %324 ], [ 1, %292 ]
   %303 = icmp ugt i32 %301, %173
   %304 = select i1 %303, i32 %177, i32 %173
@@ -2237,15 +2237,15 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %306 = icmp ugt i32 %305, 3
   br i1 %306, label %307, label %313
 
-307:                                              ; preds = %.preheader47
+307:                                              ; preds = %.preheader48
   %308 = load ptr, ptr %49, align 8
   %309 = zext i32 %301 to i64
   %310 = getelementptr i8, ptr %308, i64 %309
   %311 = load i32, ptr %310, align 4
   %312 = add i32 %301, 4
-  br label %.sink.split182
+  br label %.sink.split183
 
-313:                                              ; preds = %.preheader47
+313:                                              ; preds = %.preheader48
   %314 = icmp eq i32 %304, %301
   br i1 %314, label %324, label %315
 
@@ -2268,29 +2268,29 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 324:                                              ; preds = %321, %313
   %325 = add nsw i32 %302, -1
   %326 = icmp eq i32 %302, 0
-  br i1 %326, label %.sink.split182, label %.preheader47, !llvm.loop !30
+  br i1 %326, label %.sink.split183, label %.preheader48, !llvm.loop !30
 
-.sink.split182:                                   ; preds = %324, %307
-  %.sink185 = phi i32 [ %312, %307 ], [ 0, %324 ]
-  %.ph183 = phi i32 [ %311, %307 ], [ %168, %324 ]
-  %.ph184 = phi i32 [ 4, %307 ], [ 0, %324 ]
-  store i32 %.sink185, ptr %47, align 8
+.sink.split183:                                   ; preds = %324, %307
+  %.sink186 = phi i32 [ %312, %307 ], [ 0, %324 ]
+  %.ph184 = phi i32 [ %311, %307 ], [ %168, %324 ]
+  %.ph185 = phi i32 [ 4, %307 ], [ 0, %324 ]
+  store i32 %.sink186, ptr %47, align 8
   br label %327
 
-327:                                              ; preds = %.sink.split182, %292
-  %.promoted105 = phi i32 [ %.promoted103, %292 ], [ %.sink185, %.sink.split182 ]
-  %328 = phi i32 [ %168, %292 ], [ %.ph183, %.sink.split182 ]
-  %329 = phi i32 [ 0, %292 ], [ %.ph184, %.sink.split182 ]
+327:                                              ; preds = %.sink.split183, %292
+  %.promoted106 = phi i32 [ %.promoted104, %292 ], [ %.sink186, %.sink.split183 ]
+  %328 = phi i32 [ %168, %292 ], [ %.ph184, %.sink.split183 ]
+  %329 = phi i32 [ 0, %292 ], [ %.ph185, %.sink.split183 ]
   %330 = add nuw nsw i32 %295, %329
-  %331 = icmp ult i32 %173, %.promoted105
-  %332 = sub i32 %173, %.promoted105
+  %331 = icmp ult i32 %173, %.promoted106
+  %332 = sub i32 %173, %.promoted106
   %333 = select i1 %331, i32 %177, i32 0
   %334 = sub i32 0, %333
   %335 = icmp eq i32 %332, %334
   br i1 %335, label %362, label %.preheader
 
 .preheader:                                       ; preds = %327, %359
-  %336 = phi i32 [ 0, %359 ], [ %.promoted105, %327 ]
+  %336 = phi i32 [ 0, %359 ], [ %.promoted106, %327 ]
   %337 = phi i32 [ %360, %359 ], [ 1, %327 ]
   %338 = icmp ugt i32 %336, %173
   %339 = select i1 %338, i32 %177, i32 %173
@@ -2304,7 +2304,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %345 = getelementptr i8, ptr %343, i64 %344
   %346 = load i32, ptr %345, align 4
   %347 = add i32 %336, 4
-  br label %.sink.split186
+  br label %.sink.split187
 
 348:                                              ; preds = %.preheader
   %349 = icmp eq i32 %339, %336
@@ -2329,18 +2329,18 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
 359:                                              ; preds = %356, %348
   %360 = add nsw i32 %337, -1
   %361 = icmp eq i32 %337, 0
-  br i1 %361, label %.sink.split186, label %.preheader, !llvm.loop !30
+  br i1 %361, label %.sink.split187, label %.preheader, !llvm.loop !30
 
-.sink.split186:                                   ; preds = %359, %342
-  %.sink189 = phi i32 [ %347, %342 ], [ 0, %359 ]
-  %.ph187 = phi i32 [ %346, %342 ], [ %167, %359 ]
-  %.ph188 = phi i32 [ 4, %342 ], [ 0, %359 ]
-  store i32 %.sink189, ptr %47, align 8
+.sink.split187:                                   ; preds = %359, %342
+  %.sink190 = phi i32 [ %347, %342 ], [ 0, %359 ]
+  %.ph188 = phi i32 [ %346, %342 ], [ %167, %359 ]
+  %.ph189 = phi i32 [ 4, %342 ], [ 0, %359 ]
+  store i32 %.sink190, ptr %47, align 8
   br label %362
 
-362:                                              ; preds = %.sink.split186, %327
-  %363 = phi i32 [ %167, %327 ], [ %.ph187, %.sink.split186 ]
-  %364 = phi i32 [ 0, %327 ], [ %.ph188, %.sink.split186 ]
+362:                                              ; preds = %.sink.split187, %327
+  %363 = phi i32 [ %167, %327 ], [ %.ph188, %.sink.split187 ]
+  %364 = phi i32 [ 0, %327 ], [ %.ph189, %.sink.split187 ]
   %365 = add nuw nsw i32 %330, %364
   %.not = icmp eq i32 %365, 20
   br i1 %.not, label %366, label %.thread35
@@ -2430,7 +2430,7 @@ default.unreachable:                              ; preds = %388
   unreachable
 
 409:                                              ; preds = %402, %395
-  %.sink190 = phi i32 [ 1, %395 ], [ 3, %402 ]
+  %.sink191 = phi i32 [ 1, %395 ], [ 3, %402 ]
   %410 = load ptr, ptr %6, align 8
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 3120
   %412 = getelementptr inbounds nuw i8, ptr %410, i64 3128
@@ -2440,7 +2440,7 @@ default.unreachable:                              ; preds = %388
   %414 = getelementptr inbounds nuw i8, ptr %157, i64 8
   store ptr %413, ptr %414, align 8
   store volatile ptr %157, ptr %413, align 8
-  %415 = tail call fastcc ptr @guc_capture_clone_node(ptr noundef %0, ptr noundef nonnull %157, i32 noundef %.sink190)
+  %415 = tail call fastcc ptr @guc_capture_clone_node(ptr noundef %0, ptr noundef nonnull %157, i32 noundef %.sink191)
   %416 = icmp eq ptr %415, null
   br i1 %416, label %.thread36, label %.thread38
 
@@ -2464,7 +2464,7 @@ default.unreachable:                              ; preds = %388
 
 428:                                              ; preds = %423
   %429 = icmp eq ptr %425, null
-  br i1 %429, label %.loopexit63.sink.split, label %.thread40
+  br i1 %429, label %.loopexit64.sink.split, label %.thread40
 
 .thread40:                                        ; preds = %428
   %430 = getelementptr inbounds nuw i8, ptr %425, i64 8
@@ -2487,7 +2487,7 @@ default.unreachable:                              ; preds = %388
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %419, align 8
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %435, align 8
   %439 = icmp eq ptr %419, null
-  br i1 %439, label %.loopexit63.sink.split, label %440
+  br i1 %439, label %.loopexit64.sink.split, label %440
 
 440:                                              ; preds = %.thread40, %434
   %441 = phi ptr [ %425, %.thread40 ], [ %419, %434 ]
@@ -2571,12 +2571,10 @@ default.unreachable:                              ; preds = %388
   %482 = zext nneg i32 %372 to i64
   %483 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %481, i64 0, i64 %482
   store i32 %480, ptr %483, align 8
-  switch i32 %372, label %505 [
-    i32 2, label %484
-    i32 1, label %494
-  ]
+  %switch = icmp eq i32 %372, 2
+  br i1 %switch, label %484, label %494
 
-484:                                              ; preds = %.thread38.thread, %.thread38
+484:                                              ; preds = %.thread38, %.thread38.thread
   %485 = phi ptr [ %408, %.thread38.thread ], [ %483, %.thread38 ]
   %486 = phi ptr [ %157, %.thread38.thread ], [ %478, %.thread38 ]
   %487 = lshr i32 %370, 4
@@ -2591,7 +2589,7 @@ default.unreachable:                              ; preds = %388
   store i32 %369, ptr %493, align 8
   br label %499
 
-494:                                              ; preds = %.thread38.thread46, %.thread38
+494:                                              ; preds = %.thread38, %.thread38.thread46
   %495 = phi ptr [ %401, %.thread38.thread46 ], [ %483, %.thread38 ]
   %496 = phi ptr [ %157, %.thread38.thread46 ], [ %478, %.thread38 ]
   %497 = lshr i32 %370, 4
@@ -2607,9 +2605,9 @@ default.unreachable:                              ; preds = %388
   store i32 %503, ptr %504, align 4
   br label %505
 
-505:                                              ; preds = %.thread41, %499, %.thread38
-  %506 = phi ptr [ %442, %.thread41 ], [ %500, %499 ], [ %483, %.thread38 ]
-  %507 = phi ptr [ %441, %.thread41 ], [ %501, %499 ], [ %478, %.thread38 ]
+505:                                              ; preds = %.thread41, %499
+  %506 = phi ptr [ %442, %.thread41 ], [ %500, %499 ]
+  %507 = phi ptr [ %441, %.thread41 ], [ %501, %499 ]
   %508 = and i32 %367, 1023
   %509 = load ptr, ptr %6, align 8
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 3112
@@ -2662,15 +2660,15 @@ default.unreachable:                              ; preds = %388
 541:                                              ; preds = %534, %530
   %542 = phi i32 [ %166, %530 ], [ -5, %534 ]
   %543 = icmp eq i32 %172, 0
-  br i1 %543, label %.thread35, label %.preheader56, !llvm.loop !33
+  br i1 %543, label %.thread35, label %.preheader57, !llvm.loop !33
 
 .thread35:                                        ; preds = %541, %164, %383, %362
   %544 = phi i32 [ -5, %164 ], [ -5, %362 ], [ %384, %383 ], [ %542, %541 ]
   %545 = phi ptr [ %157, %362 ], [ %157, %383 ], [ %157, %164 ], [ %507, %541 ]
   %546 = icmp eq ptr %545, null
-  br i1 %546, label %.thread43, label %.preheader55
+  br i1 %546, label %.thread43, label %.preheader56
 
-.preheader55:                                     ; preds = %.thread35
+.preheader56:                                     ; preds = %.thread35
   %547 = getelementptr i8, ptr %545, i64 48
   br label %551
 
@@ -2679,8 +2677,8 @@ default.unreachable:                              ; preds = %388
   %550 = icmp eq i64 %549, 3
   br i1 %550, label %.thread43.sink.split, label %551, !llvm.loop !36
 
-551:                                              ; preds = %.preheader55, %548
-  %552 = phi i64 [ %549, %548 ], [ 0, %.preheader55 ]
+551:                                              ; preds = %.preheader56, %548
+  %552 = phi i64 [ %549, %548 ], [ 0, %.preheader56 ]
   %.idx31 = shl i64 %552, 4
   %553 = getelementptr i8, ptr %547, i64 %.idx31
   %554 = load ptr, ptr %553, align 8
@@ -2688,11 +2686,11 @@ default.unreachable:                              ; preds = %388
   br i1 %555, label %548, label %.thread43.sink.split
 
 .thread43.sink.split:                             ; preds = %548, %551
-  %.sink208 = phi i64 [ 3120, %551 ], [ 3096, %548 ]
-  %.sink206 = phi i64 [ 3128, %551 ], [ 3104, %548 ]
+  %.sink209 = phi i64 [ 3120, %551 ], [ 3096, %548 ]
+  %.sink207 = phi i64 [ 3128, %551 ], [ 3104, %548 ]
   %556 = load ptr, ptr %6, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 %.sink208
-  %558 = getelementptr inbounds nuw i8, ptr %556, i64 %.sink206
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 %.sink209
+  %558 = getelementptr inbounds nuw i8, ptr %556, i64 %.sink207
   %559 = load ptr, ptr %558, align 8
   store ptr %545, ptr %558, align 8
   store ptr %557, ptr %545, align 8
@@ -2705,13 +2703,13 @@ default.unreachable:                              ; preds = %388
   %561 = phi i32 [ %544, %.thread35 ], [ 0, %149 ], [ %544, %.thread43.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   %562 = icmp sgt i32 %561, -1
-  br i1 %562, label %56, label %.loopexit63, !llvm.loop !37
+  br i1 %562, label %56, label %.loopexit64, !llvm.loop !37
 
-.loopexit63.sink.split:                           ; preds = %77, %144, %56, %428, %434, %74
+.loopexit64.sink.split:                           ; preds = %77, %144, %56, %428, %434, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  br label %.loopexit63
+  br label %.loopexit64
 
-.loopexit63:                                      ; preds = %.thread43, %.loopexit63.sink.split, %44
+.loopexit64:                                      ; preds = %.thread43, %.loopexit64.sink.split, %44
   store i32 %45, ptr %15, align 1
   %563 = load i32, ptr %19, align 1
   %564 = and i32 %563, -2
@@ -2726,7 +2724,7 @@ default.unreachable:                              ; preds = %388
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
   br label %568
 
-568:                                              ; preds = %.loopexit63, %1
+568:                                              ; preds = %.loopexit64, %1
   ret void
 }
 

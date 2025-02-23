@@ -3932,7 +3932,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   %44 = lshr exact i64 %43, 3
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.thread19, label %.thread
+  br i1 %46, label %.loopexit19, label %.thread
 
 .thread:                                          ; preds = %9, %40
   %47 = phi i32 [ %45, %40 ], [ %2, %9 ]
@@ -3943,13 +3943,13 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 
 51:                                               ; preds = %.thread
   tail call void %49(ptr noundef nonnull %7, ptr noundef %1, i32 noundef %47) #19
-  br label %.thread19
+  br label %.loopexit19
 
 52:                                               ; preds = %.thread
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
-  br i1 %55, label %.thread19, label %56
+  br i1 %55, label %.loopexit19, label %56
 
 56:                                               ; preds = %52
   %57 = zext i32 %47 to i64
@@ -3969,13 +3969,13 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   tail call void %61(ptr noundef nonnull %7, i32 noundef %63, i32 noundef %66, i32 noundef %68) #19
   %69 = getelementptr i8, ptr %60, i64 8
   %70 = icmp eq ptr %69, %58
-  br i1 %70, label %.thread19, label %59, !llvm.loop !54
+  br i1 %70, label %.loopexit19, label %59, !llvm.loop !54
 
 71:                                               ; preds = %5
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 1272
   %73 = load volatile ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %72
-  br i1 %74, label %.thread19, label %75
+  br i1 %74, label %.loopexit19, label %75
 
 75:                                               ; preds = %71
   %76 = ptrtoint ptr %1 to i64
@@ -4046,7 +4046,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
 120:                                              ; preds = %115, %84
   %121 = phi i32 [ %119, %115 ], [ %79, %84 ]
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.thread19, label %123
+  br i1 %122, label %.loopexit19, label %123
 
 123:                                              ; preds = %120
   %124 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -4088,9 +4088,9 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   %147 = phi i32 [ %79, %77 ], [ %121, %128 ], [ %121, %127 ], [ %121, %135 ]
   %148 = load volatile ptr, ptr %78, align 8
   %149 = icmp eq ptr %148, %72
-  br i1 %149, label %.thread19, label %77, !llvm.loop !55
+  br i1 %149, label %.loopexit19, label %77, !llvm.loop !55
 
-.thread19:                                        ; preds = %59, %120, %.thread18, %71, %52, %51, %40
+.loopexit19:                                      ; preds = %59, %120, %.thread18, %71, %52, %51, %40
   %150 = phi i32 [ 0, %40 ], [ %47, %52 ], [ %47, %51 ], [ %2, %71 ], [ 0, %120 ], [ %147, %.thread18 ], [ %47, %59 ]
   tail call void @__rcu_read_unlock() #19
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4099,7 +4099,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   %154 = icmp eq i64 %153, 0
   br i1 %154, label %.loopexit, label %155
 
-155:                                              ; preds = %.thread19
+155:                                              ; preds = %.loopexit19
   %156 = load volatile i64, ptr %151, align 8
   %157 = and i64 %156, 2
   %158 = icmp eq i64 %157, 0
@@ -4174,7 +4174,7 @@ define internal fastcc void @input_pass_values(ptr noundef %0, ptr noundef %1, i
   %201 = icmp eq ptr %200, %161
   br i1 %201, label %.loopexit, label %169, !llvm.loop !56
 
-.loopexit:                                        ; preds = %199, %159, %155, %.thread19, %3
+.loopexit:                                        ; preds = %199, %159, %155, %.loopexit19, %3
   ret void
 }
 

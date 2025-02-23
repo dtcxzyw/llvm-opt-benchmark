@@ -74,12 +74,11 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 .lr.ph502:                                        ; preds = %.preheader478
   %39 = and i32 %2, 256
   %.not340 = icmp eq i32 %39, 0
-  %.2.idx = select i1 %.not340, i64 8, i64 0
   br i1 %.not340, label %.lr.ph502.split.us, label %.lr.ph502.split
 
 .lr.ph502.split.us:                               ; preds = %.lr.ph502, %.lr.ph502.split.us
   %.1271500.us = phi ptr [ %.2.us, %.lr.ph502.split.us ], [ %28, %.lr.ph502 ]
-  %.2.us = getelementptr inbounds nuw i8, ptr %.1271500.us, i64 %.2.idx
+  %.2.us = getelementptr inbounds nuw i8, ptr %.1271500.us, i64 8
   %40 = load ptr, ptr %.1271500.us, align 8, !tbaa !22
   %41 = icmp ult ptr %.2.us, %32
   %.not336.us = icmp eq ptr %40, null
@@ -174,11 +173,9 @@ define internal ptr @dthash(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
 
 .lr.ph502.split:                                  ; preds = %.lr.ph502, %.lr.ph502.split
   %.0501 = phi ptr [ %73, %.lr.ph502.split ], [ %32, %.lr.ph502 ]
-  %.1271500 = phi ptr [ %.2, %.lr.ph502.split ], [ %28, %.lr.ph502 ]
   %73 = getelementptr inbounds i8, ptr %.0501, i64 -8
-  %.2 = getelementptr inbounds nuw i8, ptr %.1271500, i64 %.2.idx
   %74 = load ptr, ptr %73, align 8, !tbaa !22
-  %75 = icmp ult ptr %.2, %73
+  %75 = icmp ult ptr %28, %73
   %.not336 = icmp eq ptr %74, null
   %76 = select i1 %75, i1 %.not336, i1 false
   br i1 %76, label %.lr.ph502.split, label %._crit_edge503, !llvm.loop !23

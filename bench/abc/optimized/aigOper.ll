@@ -15,7 +15,7 @@ define ptr @Aig_IthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i32 [ %5, %.lr.ph ], [ %.val, %2 ]
-  %4 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #7
+  %4 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #7
   %5 = add i32 %.09, 1
   %exitcond.not = icmp eq i32 %.09, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !7
@@ -970,7 +970,7 @@ define ptr @Aig_CreateAnd(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.09.i = phi i32 [ %10, %.lr.ph.i ], [ %.val.i, %7 ]
-  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #7
+  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #7
   %10 = add i32 %.09.i, 1
   %11 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %11
@@ -982,7 +982,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %.val7.val.i = load ptr, ptr %12, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !26
-  %15 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.089, ptr noundef %14)
+  %15 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !37
@@ -1015,7 +1015,7 @@ define ptr @Aig_CreateOr(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
   %.09.i = phi i32 [ %10, %.lr.ph.i ], [ %.val.i, %7 ]
-  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #7
+  %9 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #7
   %10 = add i32 %.09.i, 1
   %11 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %11
@@ -1030,7 +1030,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %7
   %15 = ptrtoint ptr %14 to i64
   %16 = xor i64 %15, 1
   %17 = inttoptr i64 %16 to ptr
-  %18 = tail call ptr @Aig_And(ptr noundef %0, ptr noundef %.08.in.in.in9, ptr noundef %17)
+  %18 = tail call ptr @Aig_And(ptr noundef nonnull %0, ptr noundef %.08.in.in.in9, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !38
@@ -1069,7 +1069,7 @@ define ptr @Aig_CreateExor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %10, %.lr.ph.i
   %.09.i = phi i32 [ %13, %.lr.ph.i ], [ %.val.i, %10 ]
-  %12 = tail call ptr @Aig_ObjCreateCi(ptr noundef %0) #7
+  %12 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %0) #7
   %13 = add i32 %.09.i, 1
   %14 = zext i32 %.09.i to i64
   %exitcond.not.i = icmp eq i64 %indvars.iv, %14
@@ -1081,7 +1081,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %10
   %.val7.val.i = load ptr, ptr %15, align 8, !tbaa !24
   %16 = getelementptr inbounds nuw ptr, ptr %.val7.val.i, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !26
-  %18 = tail call ptr @Aig_Exor(ptr noundef %0, ptr noundef %.089, ptr noundef %17)
+  %18 = tail call ptr @Aig_Exor(ptr noundef nonnull %0, ptr noundef %.089, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !39
@@ -1118,7 +1118,7 @@ define void @Aig_MuxTest() local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.09.i = phi i32 [ %11, %.lr.ph.i ], [ %.val.i, %9 ]
-  %10 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #7
+  %10 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #7
   %11 = add i32 %.09.i, 1
   %exitcond.not.i = icmp eq i32 %.09.i, %.0100
   br i1 %exitcond.not.i, label %Aig_IthVar.exit, label %.lr.ph.i, !llvm.loop !7
@@ -1176,7 +1176,7 @@ Aig_IthVar.exit:                                  ; preds = %.lr.ph.i, %9
 
 .lr.ph.i77:                                       ; preds = %34, %.lr.ph.i77
   %.09.i78 = phi i32 [ %37, %.lr.ph.i77 ], [ %.val.i75, %34 ]
-  %36 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #7
+  %36 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #7
   %37 = add i32 %.09.i78, 1
   %exitcond.not.i79 = icmp eq i32 %.09.i78, %35
   br i1 %exitcond.not.i79, label %Aig_IthVar.exit82, label %.lr.ph.i77, !llvm.loop !7
@@ -1246,7 +1246,7 @@ Aig_IthVar.exit82:                                ; preds = %.lr.ph.i77, %34
 
 .lr.ph.i85:                                       ; preds = %72, %.lr.ph.i85
   %.09.i86 = phi i32 [ %75, %.lr.ph.i85 ], [ %.val.i83, %72 ]
-  %74 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #7
+  %74 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #7
   %75 = add i32 %.09.i86, 1
   %exitcond.not.i87 = icmp eq i32 %.09.i86, %73
   br i1 %exitcond.not.i87, label %Aig_IthVar.exit90, label %.lr.ph.i85, !llvm.loop !7
@@ -1316,7 +1316,7 @@ Aig_IthVar.exit90:                                ; preds = %.lr.ph.i85, %72
 
 .lr.ph.i93:                                       ; preds = %110, %.lr.ph.i93
   %.09.i94 = phi i32 [ %113, %.lr.ph.i93 ], [ %.val.i91, %110 ]
-  %112 = tail call ptr @Aig_ObjCreateCi(ptr noundef %5) #7
+  %112 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #7
   %113 = add i32 %.09.i94, 1
   %exitcond.not.i95 = icmp eq i32 %.09.i94, %111
   br i1 %exitcond.not.i95, label %Aig_IthVar.exit98, label %.lr.ph.i93, !llvm.loop !7

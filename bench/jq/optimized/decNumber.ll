@@ -13220,9 +13220,9 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   %164 = add nsw i32 %163, -2
   %165 = call i32 @llvm.smin.i32(i32 %164, i32 %74)
   store i32 %165, ptr %5, align 4, !tbaa !25
-  %166 = call fastcc ptr @decDivideOp(ptr noundef %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
-  %167 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
-  %168 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %10)
+  %166 = call fastcc ptr @decDivideOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0195, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
+  %167 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %5, i8 noundef zeroext 0, ptr noundef %10)
+  %168 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0194, ptr noundef nonnull %.0193, ptr noundef nonnull %15, ptr noundef nonnull %5, ptr noundef %10)
   %169 = load i32, ptr %5, align 4, !tbaa !25
   %170 = icmp slt i32 %169, %74
   br i1 %170, label %.lr.ph, label %._crit_edge, !llvm.loop !72
@@ -13310,10 +13310,10 @@ decNumberCopy.exit260:                            ; preds = %.decNumberCopy.exit
   %213 = load i32, ptr %.0194, align 4, !tbaa !10
   %214 = xor i32 %213, -1
   store i32 %214, ptr %153, align 4, !tbaa !9
-  %215 = call fastcc ptr @decAddOp(ptr noundef %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
+  %215 = call fastcc ptr @decAddOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0194, ptr noundef nonnull %15, ptr noundef nonnull %5, i8 noundef zeroext -128, ptr noundef %10)
   %216 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store i32 1, ptr %216, align 4, !tbaa !35
-  %217 = call fastcc ptr @decMultiplyOp(ptr noundef %.0193, ptr noundef %.0193, ptr noundef %.0193, ptr noundef nonnull %5, ptr noundef %10)
+  %217 = call fastcc ptr @decMultiplyOp(ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %.0193, ptr noundef nonnull %5, ptr noundef %10)
   %218 = getelementptr inbounds nuw i8, ptr %.0195, i64 8
   %219 = load i8, ptr %218, align 4, !tbaa !4
   %220 = getelementptr inbounds nuw i8, ptr %.0193, i64 8

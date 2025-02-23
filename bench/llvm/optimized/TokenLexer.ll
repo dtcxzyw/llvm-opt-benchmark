@@ -1739,7 +1739,7 @@ define dso_local void @_ZN5clang10TokenLexer22stringifyVAOPTContentsERN4llvm15Sm
   %23 = phi i32 [ 0, %.lr.ph ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ]
   %storemerge46 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZN4llvm23SmallVectorTemplateBaseIN5clang5TokenELb1EE9push_backERKS2_.exit ]
   %24 = zext i32 %storemerge46 to i64
-  %25 = getelementptr inbounds nuw %"class.clang::Token", ptr %16, i64 %24, i32 3
+  %25 = getelementptr inbounds nuw %"class.clang::Token", ptr %15, i64 %24, i32 3
   %26 = load i16, ptr %25, align 8, !tbaa !359
   %27 = icmp eq i16 %26, 68
   br i1 %27, label %28, label %39

@@ -491,7 +491,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit149:                 ; preds = %151, %150, %._crit_
   %212 = icmp eq ptr %209, %211
   %213 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %214 = load ptr, ptr %213, align 8
-  tail call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE(ptr noundef %0, ptr noundef nonnull %204, i1 noundef zeroext %212, ptr noundef nonnull %1, ptr %214)
+  tail call fastcc void @_ZL16set_pme_maxshiftP12gmx_domdec_tP9gmx_ddpmebPK11gmx_ddbox_tN3gmx8ArrayRefIKfEE(ptr noundef nonnull %0, ptr noundef nonnull %204, i1 noundef zeroext %212, ptr noundef nonnull %1, ptr %214)
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %215 = load i32, ptr %198, align 8
   %216 = sext i32 %215 to i64
@@ -1195,18 +1195,18 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %115, %1
   %.sroa.speculated.i.i.i = select i1 %221, float %220, float %.0242250.i.i.i
   %indvars.iv.next278.i.i.i = add nuw nsw i64 %indvars.iv277.i.i.i, 1
   %exitcond281.not.i.i.i = icmp eq i64 %indvars.iv.next278.i.i.i, %wide.trip.count280.i.i.i
-  br i1 %exitcond281.not.i.i.i, label %._crit_edge254.i.i.i, label %212, !llvm.loop !20
+  br i1 %exitcond281.not.i.i.i, label %.lr.ph257.i.i.i, label %212, !llvm.loop !20
 
-._crit_edge254.i.i.i:                             ; preds = %212
+.lr.ph257.i.i.i:                                  ; preds = %212
   %222 = fcmp ogt float %.sroa.speculated.i.i.i, %169
   %223 = fdiv float %169, %.sroa.speculated.i.i.i
   %224 = fmul float %223, 5.000000e-01
-  %.0209.i.i.i = select i1 %222, float %224, float 5.000000e-01
+  %.0209315.i.i.i = select i1 %222, float %224, float 5.000000e-01
   %225 = getelementptr inbounds nuw i8, ptr %164, i64 40
   br label %226
 
-226:                                              ; preds = %226, %._crit_edge254.i.i.i
-  %indvars.iv282.i.i.i = phi i64 [ 0, %._crit_edge254.i.i.i ], [ %indvars.iv.next283.i.i.i, %226 ]
+226:                                              ; preds = %226, %.lr.ph257.i.i.i
+  %indvars.iv282.i.i.i = phi i64 [ 0, %.lr.ph257.i.i.i ], [ %indvars.iv.next283.i.i.i, %226 ]
   %227 = load ptr, ptr %198, align 8
   %228 = getelementptr inbounds nuw %struct.domdec_load, ptr %227, i64 %indvars.iv.i.i
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
@@ -1227,7 +1227,7 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %115, %1
   %243 = getelementptr inbounds nuw float, ptr %240, i64 %indvars.iv282.i.i.i
   %244 = load float, ptr %243, align 4
   %245 = fsub float %242, %244
-  %246 = fmul float %.0209.i.i.i, %239
+  %246 = fmul float %.0209315.i.i.i, %239
   %247 = fsub float 1.000000e+00, %246
   %248 = fmul float %245, %247
   %249 = getelementptr inbounds nuw float, ptr %176, i64 %indvars.iv282.i.i.i
@@ -1485,7 +1485,7 @@ _Z15grid_jump_limitPK17gmx_domdec_comm_tfi.exit.i.i.i: ; preds = %286, %_ZL16cel
   %400 = load ptr, ptr %397, align 8
   %401 = getelementptr inbounds float, ptr %400, i64 %399
   store float 1.000000e+00, ptr %401, align 4
-  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %indvars60.i.i, i32 noundef %146, ptr noundef %164, ptr noundef nonnull %1, i1 noundef zeroext %3, i64 noundef %5, float noundef %.0210.i.i.i, i32 0, i32 %172)
+  call fastcc void @_ZL37dd_cell_sizes_dlb_root_enforce_limitsP12gmx_domdec_tiiP14RowCoordinatorPK11gmx_ddbox_tblfPi(ptr noundef %0, i32 noundef %indvars60.i.i, i32 noundef %146, ptr noundef nonnull %164, ptr noundef nonnull %1, i1 noundef zeroext %3, i64 noundef %5, float noundef %.0210.i.i.i, i32 0, i32 %172)
   %402 = icmp sgt i32 %172, 0
   br i1 %402, label %.lr.ph264.i.i.i, label %.preheader.i.i.i
 

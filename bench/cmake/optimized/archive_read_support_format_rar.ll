@@ -1222,7 +1222,7 @@ clear_filters.exit:                               ; preds = %.lr.ph.i3.i, %delet
   %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @__archive_ppmd7_functions, i64 16), align 8, !tbaa !71
   %47 = getelementptr inbounds nuw i8, ptr %4, i64 984
   tail call void %46(ptr noundef nonnull %47) #19
-  tail call void @free(ptr noundef %4) #19
+  tail call void @free(ptr noundef nonnull %4) #19
   %48 = load ptr, ptr %2, align 8, !tbaa !35
   store ptr null, ptr %48, align 8, !tbaa !49
   ret i32 0

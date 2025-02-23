@@ -971,7 +971,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %90 = and i64 %89, %77
   %.not105 = icmp eq i64 %90, 0
   %91 = sub nuw nsw i32 28, %.069
-  %92 = shl i32 %.165, %91
+  %92 = shl nsw i32 %.165, %91
   br i1 %.not105, label %.thread100, label %.thread
 
 .thread100:                                       ; preds = %86
@@ -1471,7 +1471,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %86 = lshr i64 %80, 31
   %87 = trunc i64 %86 to i8
   %88 = sub nuw nsw i32 28, %.040
-  %89 = shl nuw i32 %.042, %88
+  %89 = shl nuw nsw i32 %.042, %88
   br label %97
 
 90:                                               ; preds = %82
@@ -1498,7 +1498,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %.014.i = phi i32 [ %85, %83 ], [ 0, %93 ]
   %.0.i = phi i32 [ %89, %83 ], [ %.1.i, %93 ]
   %98 = add nuw i32 %.014.i, %.041
-  %99 = add i32 %98, %.0.i
+  %99 = add nuw i32 %98, %.0.i
   %100 = trunc i8 %.015.i to i1
   br i1 %100, label %101, label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$7form_ui17he5341a176309829aE.exit"
 
@@ -1508,7 +1508,7 @@ _ZN9softposit5p32e25P32E217separate_bits_tmp17hdc27d662c293f752E.llvm.1728913642
   %spec.select22.i = select i1 %103, i32 %.017.i67, i32 1
   %104 = or i32 %99, %spec.select22.i
   %105 = and i32 %104, 1
-  %106 = add i32 %105, %99
+  %106 = add nuw i32 %105, %99
   br label %"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$7form_ui17he5341a176309829aE.exit"
 
 "_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$7form_ui17he5341a176309829aE.exit": ; preds = %101, %97, %69, %62

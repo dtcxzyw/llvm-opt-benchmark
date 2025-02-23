@@ -570,7 +570,7 @@ prefix.exit:                                      ; preds = %196, %.preheader.i,
   %237 = load ptr, ptr %4, align 8, !tbaa !9
   call void @free(ptr noundef %237) #13
   %238 = call i32 @close(i32 noundef %2) #13
-  call void @free(ptr noundef %36) #13
+  call void @free(ptr noundef nonnull %36) #13
   br label %239
 
 239:                                              ; preds = %.loopexit144, %pmix_obj_new_tma.exit, %34, %21, %11, %5

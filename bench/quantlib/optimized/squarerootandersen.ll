@@ -232,13 +232,13 @@ invoke.cont14:                                    ; preds = %invoke.cont11
   store ptr %add.ptr.i.i.i79, ptr %_M_finish.i.i7.i83, align 8, !tbaa !21
   %cmp152.not = icmp eq i64 %numberSubSteps, 0
   %.pre = load ptr, ptr %evolutionTimes, align 8, !tbaa !22
-  br i1 %cmp152.not, label %for.cond20.preheader.thread, label %for.body.lr.ph
+  br i1 %cmp152.not, label %for.cond20.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont14
   %conv = uitofp i64 %numberSubSteps to double
   br label %for.body
 
-for.cond20.preheader:                             ; preds = %for.body
+for.cond20.preheader:                             ; preds = %invoke.cont14
   %12 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i88 = ptrtoint ptr %12 to i64
   %sub.ptr.rhs.cast.i89 = ptrtoint ptr %.pre to i64
@@ -246,9 +246,9 @@ for.cond20.preheader:                             ; preds = %for.body
   %sub.ptr.div.i91 = ashr exact i64 %sub.ptr.sub.i90, 3
   %invariant.gep = getelementptr i8, ptr %.pre, i64 -8
   %cmp22158 = icmp ugt i64 %sub.ptr.div.i91, 1
-  br i1 %cmp22158, label %for.body23.us.preheader, label %for.cond.cleanup
+  br i1 %cmp22158, label %for.body23.preheader, label %for.cond.cleanup
 
-for.cond20.preheader.thread:                      ; preds = %invoke.cont14
+for.cond20.preheader.thread:                      ; preds = %for.body
   %13 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
   %sub.ptr.lhs.cast.i88167 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast.i89168 = ptrtoint ptr %.pre to i64
@@ -256,15 +256,15 @@ for.cond20.preheader.thread:                      ; preds = %invoke.cont14
   %sub.ptr.div.i91170 = ashr exact i64 %sub.ptr.sub.i90169, 3
   %invariant.gep171 = getelementptr i8, ptr %.pre, i64 -8
   %cmp22158172 = icmp ugt i64 %sub.ptr.div.i91170, 1
-  br i1 %cmp22158172, label %for.body23.preheader, label %for.cond.cleanup
+  br i1 %cmp22158172, label %for.body23.us.preheader, label %for.cond.cleanup
 
-for.body23.us.preheader:                          ; preds = %for.cond20.preheader
-  %conv28 = uitofp i64 %numberSubSteps to double
+for.body23.us.preheader:                          ; preds = %for.cond20.preheader.thread
+  %conv28179 = uitofp i64 %numberSubSteps to double
   %fneg.us = fneg double %reversionSpeed
   br label %for.body23.us
 
-for.body23.preheader:                             ; preds = %for.cond20.preheader.thread
-  %conv28179 = uitofp nneg i64 %numberSubSteps to double
+for.body23.preheader:                             ; preds = %for.cond20.preheader
+  %conv28 = uitofp i64 %numberSubSteps to double
   %fneg = fneg double %reversionSpeed
   br label %for.body23
 
@@ -273,10 +273,10 @@ for.body23.us:                                    ; preds = %for.body23.us.prehe
   %j.1159.us = phi i64 [ %inc72.us, %for.cond63.for.cond.cleanup66_crit_edge.us ], [ %numberSubSteps, %for.body23.us.preheader ]
   %add.ptr.i93.us = getelementptr inbounds nuw double, ptr %.pre, i64 %i.0160.us
   %14 = load double, ptr %add.ptr.i93.us, align 8, !tbaa !24
-  %gep.us = getelementptr double, ptr %invariant.gep, i64 %i.0160.us
+  %gep.us = getelementptr double, ptr %invariant.gep171, i64 %i.0160.us
   %15 = load double, ptr %gep.us, align 8, !tbaa !24
   %sub26.us = fsub double %14, %15
-  %div29.us = fdiv double %sub26.us, %conv28
+  %div29.us = fdiv double %sub26.us, %conv28179
   %mul31.us = fmul double %div29.us, %fneg.us
   %call32.us = tail call double @exp(double noundef %mul31.us) #24, !tbaa !28
   %cmp33.us = fcmp ogt double %div29.us, 0.000000e+00
@@ -296,7 +296,7 @@ for.body67.us:                                    ; preds = %for.body23.us, %for
 
 for.cond63.for.cond.cleanup66_crit_edge.us:       ; preds = %for.body67.us
   %inc79.us = add nuw i64 %i.0160.us, 1
-  %exitcond164.not = icmp eq i64 %inc79.us, %sub.ptr.div.i91
+  %exitcond164.not = icmp eq i64 %inc79.us, %sub.ptr.div.i91170
   br i1 %exitcond164.not, label %for.cond.cleanup, label %for.body23.us, !llvm.loop !32
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
@@ -307,7 +307,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   store double %div, ptr %add.ptr.i, align 8, !tbaa !24
   %inc = add nuw i64 %j.0153, 1
   %exitcond.not = icmp eq i64 %inc, %numberSubSteps
-  br i1 %exitcond.not, label %for.cond20.preheader, label %for.body, !llvm.loop !33
+  br i1 %exitcond.not, label %for.cond20.preheader.thread, label %for.body, !llvm.loop !33
 
 lpad5:                                            ; preds = %if.then.i.i.i.i.i39, %if.then.i.i49
   %17 = landingpad { ptr, i32 }
@@ -332,10 +332,10 @@ for.body23:                                       ; preds = %for.body23.preheade
   %i.0160 = phi i64 [ %inc79, %for.cond63.preheader ], [ 1, %for.body23.preheader ]
   %add.ptr.i93 = getelementptr inbounds nuw double, ptr %.pre, i64 %i.0160
   %20 = load double, ptr %add.ptr.i93, align 8, !tbaa !24
-  %gep = getelementptr double, ptr %invariant.gep171, i64 %i.0160
+  %gep = getelementptr double, ptr %invariant.gep, i64 %i.0160
   %21 = load double, ptr %gep, align 8, !tbaa !24
   %sub26 = fsub double %20, %21
-  %div29 = fdiv double %sub26, %conv28179
+  %div29 = fdiv double %sub26, %conv28
   %mul31 = fmul double %div29, %fneg
   %call32 = tail call double @exp(double noundef %mul31) #24, !tbaa !28
   %cmp33 = fcmp ogt double %div29, 0.000000e+00
@@ -343,7 +343,7 @@ for.body23:                                       ; preds = %for.body23.preheade
 
 for.cond63.preheader:                             ; preds = %for.body23
   %inc79 = add nuw i64 %i.0160, 1
-  %exitcond165.not = icmp eq i64 %inc79, %sub.ptr.div.i91170
+  %exitcond165.not = icmp eq i64 %inc79, %sub.ptr.div.i91
   br i1 %exitcond165.not, label %for.cond.cleanup, label %for.body23, !llvm.loop !32
 
 if.then:                                          ; preds = %for.body23.us, %for.body23

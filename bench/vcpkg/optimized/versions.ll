@@ -3010,7 +3010,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5vcpkg16compare_versionsERKNS_14SchemedVersionES2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2, 2) i32 @_ZN5vcpkg16compare_versionsERKNS_14SchemedVersionES2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %1, align 8
@@ -3020,7 +3020,7 @@ define dso_local noundef i32 @_ZN5vcpkg16compare_versionsERKNS_14SchemedVersionE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5vcpkg16compare_versionsENS_13VersionSchemeERKNS_7VersionES0_S3_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2, 2) i32 @_ZN5vcpkg16compare_versionsENS_13VersionSchemeERKNS_7VersionES0_S3_(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(36) %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::ExpectedT.20", align 8
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"struct.vcpkg::LineInfo", align 8

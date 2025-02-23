@@ -2551,7 +2551,7 @@ make_gray_colormap.exit468:                       ; preds = %.preheader583
   store i16 %170, ptr %173, align 2, !tbaa !156
   %174 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i16 %170, ptr %174, align 2, !tbaa !157
-  call void @png_set_background_fixed(ptr noundef %8, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
+  call void @png_set_background_fixed(ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef 1, i32 noundef 0, i32 noundef 0) #12
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %3) #12
   br label %make_ga_colormap.exit.thread.thread
 
@@ -3873,7 +3873,7 @@ png_read_update_info.exit:                        ; preds = %12, %18, %19
   br label %.loopexit68
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph72.split
-  %105 = icmp sgt i32 %.in, 1
+  %105 = icmp samesign ugt i32 %.in, 1
   br i1 %105, label %.lr.ph72.splitthread-pre-split, label %.loopexit68, !llvm.loop !187
 
 .lr.ph72.splitthread-pre-split:                   ; preds = %.loopexit
@@ -4340,7 +4340,7 @@ png_read_update_info.exit:                        ; preds = %125, %126
   br i1 %182, label %.loopexit235, label %.lr.ph239.split
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph239.split
-  %183 = icmp sgt i32 %.in, 1
+  %183 = icmp samesign ugt i32 %.in, 1
   br i1 %183, label %.lr.ph239.splitthread-pre-split, label %.loopexit235, !llvm.loop !198
 
 .lr.ph239.splitthread-pre-split:                  ; preds = %.loopexit
@@ -5316,7 +5316,7 @@ define internal noundef i32 @png_image_read_and_map(ptr noundef readonly capture
 .lr.ph147.split:                                  ; preds = %.lr.ph147, %.lr.ph147.split
   %.1110146 = phi i32 [ %193, %.lr.ph147.split ], [ %.0109, %.lr.ph147 ]
   %192 = load ptr, ptr %20, align 8, !tbaa !186
-  tail call void @png_read_row(ptr noundef %4, ptr noundef %192, ptr noundef null)
+  tail call void @png_read_row(ptr noundef nonnull %4, ptr noundef %192, ptr noundef null)
   %193 = add i32 %.1110146, %.0108
   %194 = icmp ult i32 %193, %11
   br i1 %194, label %.lr.ph147.split, label %.loopexit134, !llvm.loop !203

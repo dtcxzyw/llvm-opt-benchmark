@@ -841,7 +841,7 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %199, %195, %191, %2
 .lr.ph124:                                        ; preds = %223
   tail call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %215) #16
   %221 = zext i32 %156 to i64
-  %222 = getelementptr inbounds nuw i8, ptr %.0.i32, i64 224
+  %222 = getelementptr inbounds nuw i8, ptr %71, i64 224
   br label %237
 
 223:                                              ; preds = %.lr.ph117, %223
@@ -957,7 +957,7 @@ arena_dalloc_bin_locked_step.exit:                ; preds = %199, %195, %191, %2
   br i1 %.not.i.i, label %arena_dalloc_bin_locked_step.exit.i, label %286
 
 286:                                              ; preds = %284
-  tail call void @je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef %.0.i31, ptr noundef nonnull %240, ptr noundef nonnull %.0.i32) #16
+  tail call void @je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef nonnull %.0.i31, ptr noundef nonnull %240, ptr noundef nonnull %.0.i32) #16
   br label %arena_dalloc_bin_locked_step.exit.i
 
 arena_dalloc_bin_locked_step.exit.i:              ; preds = %272, %268, %286, %284, %282, %264
@@ -1936,7 +1936,7 @@ malloc_mutex_lock.exit.thread127.us:              ; preds = %malloc_mutex_lock.e
   br i1 %.not.i.i.us, label %arena_dalloc_bin_locked_step.exit.i.us, label %237
 
 237:                                              ; preds = %235
-  tail call void @je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef %.0.i49.us, ptr noundef nonnull %211, ptr noundef nonnull %.0.i50.us) #16
+  tail call void @je_arena_dalloc_bin_locked_handle_newly_nonempty(ptr noundef %0, ptr noundef nonnull %.0.i49.us, ptr noundef nonnull %211, ptr noundef nonnull %.0.i50.us) #16
   br label %arena_dalloc_bin_locked_step.exit.i.us
 
 238:                                              ; preds = %208
@@ -2224,7 +2224,7 @@ arena_dalloc_bin_locked_step.exit.us:             ; preds = %340, %330, %326, %3
 .lr.ph174.us:                                     ; preds = %259
   tail call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %193) #16
   %373 = zext i32 %189 to i64
-  %374 = getelementptr inbounds nuw i8, ptr %.0.i50.us, i64 224
+  %374 = getelementptr inbounds nuw i8, ptr %125, i64 224
   br label %208
 
 .split:                                           ; preds = %14, %tcache_bin_flush_impl_large.exit
@@ -3966,27 +3966,27 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.026.us = phi i32 [ %70, %.lr.ph.split.us ], [ %.0.i.i, %.lr.ph ]
-  %66 = zext i32 %.026.us to i64
+  %66 = zext nneg i32 %.026.us to i64
   %67 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %66
   %68 = load i64, ptr %9, align 8, !tbaa !19
   %69 = trunc i64 %68 to i16
   call void @je_cache_bin_info_init(ptr noundef %67, i16 noundef zeroext %69) #16
-  %70 = add i32 %.026.us, 1
-  %.not.us = icmp ugt i32 %70, %.0.i.i18
-  br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !188
+  %70 = add nuw nsw i32 %.026.us, 1
+  %.not.us.not = icmp ult i32 %.026.us, %.0.i.i18
+  br i1 %.not.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !188
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.026 = phi i32 [ %76, %.lr.ph.split ], [ %.0.i.i, %.lr.ph ]
-  %71 = zext i32 %.026 to i64
+  %71 = zext nneg i32 %.026 to i64
   %72 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %71
   %73 = load i64, ptr %9, align 8, !tbaa !19
   %74 = trunc i64 %73 to i16
   call void @je_cache_bin_info_init(ptr noundef %72, i16 noundef zeroext %74) #16
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %71
   store i8 1, ptr %75, align 1, !tbaa !20
-  %76 = add i32 %.026, 1
-  %.not = icmp ugt i32 %76, %.0.i.i18
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !188
+  %76 = add nuw nsw i32 %.026, 1
+  %.not.not = icmp ult i32 %.026, %.0.i.i18
+  br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !188
 
 77:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16

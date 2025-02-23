@@ -128,8 +128,8 @@ AscendParserAlloc.exit:                           ; preds = %12, %25
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %24, i64 8024
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8024
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 24
   br label %42
 
 42:                                               ; preds = %424, %AscendParserAlloc.exit
@@ -667,19 +667,19 @@ yy_reduce.exit.i:                                 ; preds = %356, %350, %326, %3
   %387 = load ptr, ptr %24, align 8
   %388 = getelementptr i8, ptr %387, i64 80
   store ptr %388, ptr %24, align 8
-  %389 = load ptr, ptr %41, align 8
+  %389 = load ptr, ptr %40, align 8
   %390 = icmp ugt ptr %388, %389
   br i1 %390, label %391, label %396
 
 391:                                              ; preds = %386
   store ptr %387, ptr %24, align 8
-  %392 = icmp ugt ptr %387, %40
+  %392 = icmp ugt ptr %387, %41
   br i1 %392, label %.lr.ph.i.i.i, label %yy_shift.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %391, %.lr.ph.i.i.i
   %393 = phi ptr [ %394, %.lr.ph.i.i.i ], [ %387, %391 ]
   %394 = getelementptr i8, ptr %393, i64 -80
-  %395 = icmp ugt ptr %394, %40
+  %395 = icmp ugt ptr %394, %41
   br i1 %395, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !8
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
@@ -726,34 +726,39 @@ yy_shift.exit.i:                                  ; preds = %396, %._crit_edge.i
 
 414:                                              ; preds = %411, %408
   store i32 3, ptr %39, align 8
-  br i1 %384, label %415, label %AscendParser.exit.thread
+  br i1 %384, label %415, label %AscendParser.exit.thread38
 
-AscendParser.exit.thread:                         ; preds = %414
+AscendParser.exit.thread38:                       ; preds = %414
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6)
   br label %420
 
 415:                                              ; preds = %414
   %.promoted.i.i = load ptr, ptr %24, align 8
-  %416 = icmp ugt ptr %.promoted.i.i, %40
-  br i1 %416, label %.lr.ph.i.i, label %AscendParser.exit
+  %416 = icmp ugt ptr %.promoted.i.i, %41
+  br i1 %416, label %.lr.ph.i.i, label %AscendParser.exit.thread
 
 .lr.ph.i.i:                                       ; preds = %415, %.lr.ph.i.i
   %417 = phi ptr [ %418, %.lr.ph.i.i ], [ %.promoted.i.i, %415 ]
   %418 = getelementptr i8, ptr %417, i64 -80
-  %419 = icmp ugt ptr %418, %40
+  %419 = icmp ugt ptr %418, %41
   br i1 %419, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   store ptr %418, ptr %24, align 8
-  br label %AscendParser.exit
+  br label %AscendParser.exit.thread
 
-AscendParser.exit:                                ; preds = %415, %._crit_edge.i.i, %yy_shift.exit.i, %405
-  %.sink = phi i32 [ %402, %yy_shift.exit.i ], [ -1, %405 ], [ -1, %._crit_edge.i.i ], [ -1, %415 ]
-  store i32 %.sink, ptr %39, align 8
+AscendParser.exit.thread:                         ; preds = %415, %._crit_edge.i.i
+  store i32 -1, ptr %39, align 8
+  call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6)
+  br label %.critedge
+
+AscendParser.exit:                                ; preds = %yy_shift.exit.i, %405
+  %storemerge = phi i32 [ -1, %405 ], [ %402, %yy_shift.exit.i ]
+  store i32 %storemerge, ptr %39, align 8
   call void @llvm.lifetime.end.p0(i64 76, ptr nonnull %6)
   br i1 %384, label %.critedge, label %420
 
-420:                                              ; preds = %AscendParser.exit.thread, %AscendParser.exit
+420:                                              ; preds = %AscendParser.exit.thread38, %AscendParser.exit
   %421 = load i32, ptr %15, align 8
   %.not32 = icmp eq i32 %421, 0
   br i1 %.not32, label %422, label %.critedge
@@ -768,18 +773,18 @@ AscendParser.exit:                                ; preds = %415, %._crit_edge.i
   %426 = icmp ult i32 %425, 128
   br i1 %426, label %42, label %.critedge, !llvm.loop !10
 
-.critedge:                                        ; preds = %422, %420, %AscendParser.exit, %424
+.critedge:                                        ; preds = %422, %420, %AscendParser.exit, %424, %AscendParser.exit.thread
   br i1 %.not.i, label %AscendParserFree.exit, label %427
 
 427:                                              ; preds = %.critedge
   %.promoted.i.i35 = load ptr, ptr %24, align 8
-  %428 = icmp ugt ptr %.promoted.i.i35, %40
+  %428 = icmp ugt ptr %.promoted.i.i35, %41
   br i1 %428, label %.lr.ph.i.i36, label %AscendParserFinalize.exit.i
 
 .lr.ph.i.i36:                                     ; preds = %427, %.lr.ph.i.i36
   %429 = phi ptr [ %430, %.lr.ph.i.i36 ], [ %.promoted.i.i35, %427 ]
   %430 = getelementptr i8, ptr %429, i64 -80
-  %431 = icmp ugt ptr %430, %40
+  %431 = icmp ugt ptr %430, %41
   br i1 %431, label %.lr.ph.i.i36, label %._crit_edge.i.i37, !llvm.loop !6
 
 ._crit_edge.i.i37:                                ; preds = %.lr.ph.i.i36
@@ -803,8 +808,8 @@ AscendParserFree.exit:                            ; preds = %.critedge, %AscendP
   br label %.sink.split
 
 .sink.split:                                      ; preds = %9, %435
-  %.sink44 = phi ptr [ %436, %435 ], [ null, %9 ]
-  store ptr %.sink44, ptr %3, align 8
+  %.sink = phi ptr [ %436, %435 ], [ null, %9 ]
+  store ptr %.sink, ptr %3, align 8
   br label %437
 
 437:                                              ; preds = %.sink.split, %AscendParserFree.exit

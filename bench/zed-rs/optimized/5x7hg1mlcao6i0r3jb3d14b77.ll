@@ -55277,7 +55277,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.sroa.011.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.011.0.i11, %81 ]
   %.sroa.0.1.i14 = phi i64 [ %91, %84 ], [ %.sroa.0.0.i12, %81 ]
-  %93 = icmp ult i64 %.sroa.0.1.i14, %44
+  %93 = icmp samesign ult i64 %.sroa.0.1.i14, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18
 
 94:                                               ; preds = %92
@@ -55289,7 +55289,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.0.1.i14, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.011.1.i13
   br label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18
 
@@ -103597,7 +103597,6 @@ define void @"_ZN107_$LT$gpui..platform..linux..text_system..CosmicTextSystem$u2
   %111 = load i64, ptr %81, align 8, !noalias !21899, !noundef !9
   %.not52.i = icmp eq i64 %111, 0
   %112 = load ptr, ptr %80, align 8, !noalias !21899, !nonnull !9
-  %.sroa.030.0.i = select i1 %.not52.i, ptr null, ptr %112
   br i1 %.not52.i, label %.invoke190.i, label %114
 
 .invoke190.i:                                     ; preds = %.noexc.i, %108
@@ -103866,11 +103865,11 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h3a6ab9efdaf66315E.exit.i.i: ; 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %114
   %209 = phi i64 [ %.pre172.i, %._crit_edge.loopexit.i ], [ %111, %114 ]
   %210 = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %112, %114 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i, i64 32
+  %211 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %212 = load float, ptr %211, align 8, !noalias !21892, !noundef !9
-  %213 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i, i64 36
+  %213 = getelementptr inbounds nuw i8, ptr %112, i64 36
   %214 = load float, ptr %213, align 4, !noalias !21892, !noundef !9
-  %215 = getelementptr inbounds nuw i8, ptr %.sroa.030.0.i, i64 40
+  %215 = getelementptr inbounds nuw i8, ptr %112, i64 40
   %216 = load float, ptr %215, align 8, !noalias !21892, !noundef !9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !22073
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 32

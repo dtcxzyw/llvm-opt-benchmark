@@ -2697,15 +2697,13 @@ switch.lookup:                                    ; preds = %60
 117:                                              ; preds = %52
   %118 = add i32 %12, -1
   %119 = icmp ult i32 %118, 3
-  %spec.select.i.i95 = select i1 %119, ptr %2, ptr null
-  %.not87 = icmp ne ptr %spec.select.i.i95, null
-  tail call void @llvm.assume(i1 %.not87)
+  tail call void @llvm.assume(i1 %119)
   %120 = tail call noundef ptr @_ZN5clang4ento7SMTConv13getSymBinExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_13BinarySymExprEPbPNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef nonnull %2, ptr noundef %4, ptr noundef %3)
   %.not88 = icmp eq ptr %4, null
   br i1 %.not88, label %127, label %121
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds nuw i8, ptr %spec.select.i.i95, i64 28
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %123 = load i32, ptr %122, align 4, !tbaa !221
   %124 = add i32 %123, -9
   %125 = icmp ult i32 %124, 7
@@ -2816,8 +2814,8 @@ _ZN4llvm11SmallStringILj16EE5c_strEv.exit:        ; preds = %_ZN4llvm11raw_ostre
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i8, ptr %62, align 16
   %64 = icmp eq i8 %63, 13
-  %.not.not6.i.i = icmp ne ptr %61, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %64
+  %.not6.i.i = icmp ne ptr %61, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %64
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i:          ; preds = %_ZN4llvm11SmallStringILj16EE5c_strEv.exit
@@ -2949,11 +2947,11 @@ _ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit: ; preds = %5
 42:                                               ; preds = %_ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %12, ptr noundef nonnull align 8 dereferenceable(13) %9) #19
   %.pre = load i8, ptr %29, align 4, !tbaa !166, !range !131
-  %.pre79 = load i32, ptr %28, align 8, !tbaa !164
+  %.pre80 = load i32, ptr %28, align 8, !tbaa !164
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
 _ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %41, %42
-  %43 = phi i32 [ %33, %41 ], [ %.pre79, %42 ]
+  %43 = phi i32 [ %33, %41 ], [ %.pre80, %42 ]
   %44 = phi i8 [ %35, %41 ], [ %.pre, %42 ]
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i8 %44, ptr %45, align 4, !tbaa !166
@@ -3036,13 +3034,13 @@ _ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit63: ; preds = %64
 
 80:                                               ; preds = %_ZNSt4pairIN4llvm6APSIntEN5clang8QualTypeEED2Ev.exit63
   call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %16, ptr noundef nonnull align 8 dereferenceable(13) %13) #19
-  %.pre80 = load i8, ptr %67, align 4, !tbaa !166, !range !131
-  %.pre81 = load i32, ptr %66, align 8, !tbaa !164
+  %.pre81 = load i8, ptr %67, align 4, !tbaa !166, !range !131
+  %.pre82 = load i32, ptr %66, align 8, !tbaa !164
   br label %_ZN4llvm6APSIntC2ERKS0_.exit64
 
 _ZN4llvm6APSIntC2ERKS0_.exit64:                   ; preds = %79, %80
-  %81 = phi i32 [ %71, %79 ], [ %.pre81, %80 ]
-  %82 = phi i8 [ %73, %79 ], [ %.pre80, %80 ]
+  %81 = phi i32 [ %71, %79 ], [ %.pre82, %80 ]
+  %82 = phi i8 [ %73, %79 ], [ %.pre81, %80 ]
   %83 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i8 %82, ptr %83, align 4, !tbaa !166
   %84 = load ptr, ptr %76, align 8, !tbaa !8
@@ -3093,18 +3091,16 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm6APSIntC2ER
 
 105:                                              ; preds = %64
   %106 = icmp eq i32 %23, 3
-  %spec.select.i.i67 = select i1 %106, ptr %2, ptr null
-  %.not58 = icmp ne ptr %spec.select.i.i67, null
-  br i1 %.not58, label %107, label %115
+  br i1 %106, label %107, label %115
 
 107:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #19
-  %108 = getelementptr inbounds nuw i8, ptr %spec.select.i.i67, i64 40
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %109 = load ptr, ptr %108, align 8, !tbaa !244
   %110 = call noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %109, ptr noundef nonnull %6, ptr noundef %3)
   store ptr %110, ptr %18, align 8, !tbaa !111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #19
-  %111 = getelementptr inbounds nuw i8, ptr %spec.select.i.i67, i64 48
+  %111 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %112 = load ptr, ptr %111, align 8, !tbaa !246
   %113 = call noundef ptr @_ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1, ptr noundef %112, ptr noundef nonnull %7, ptr noundef %3)
   store ptr %113, ptr %19, align 8, !tbaa !111
@@ -3117,7 +3113,7 @@ _ZN4llvm5APIntD2Ev.exit65:                        ; preds = %_ZN4llvm6APSIntC2ER
 
 115:                                              ; preds = %105, %107
   %.3 = phi ptr [ %114, %107 ], [ undef, %105 ]
-  call void @llvm.assume(i1 %.not58)
+  call void @llvm.assume(i1 %106)
   br label %116
 
 116:                                              ; preds = %104, %63, %115
@@ -3300,8 +3296,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit53: ; preds = %39
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i8, ptr %100, align 16
   %102 = icmp eq i8 %101, 13
-  %.not.not6.i = icmp ne ptr %99, null
-  %.not.not.not.i = and i1 %.not.not6.i, %102
+  %.not6.i = icmp ne ptr %99, null
+  %.not.not.not.i = and i1 %.not6.i, %102
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %94

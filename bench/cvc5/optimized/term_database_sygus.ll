@@ -6271,11 +6271,11 @@ _ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers13SygusTypeInfoESt4le
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   %.pre = load ptr, ptr %1, align 8, !tbaa !111
-  %.pre34 = load i64, ptr %.pre, align 8
+  %.pre35 = load i64, ptr %.pre, align 8
   br label %_ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers13SygusTypeInfoESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit
 
 _ZNSt3mapIN4cvc58internal8TypeNodeENS1_6theory11quantifiers13SygusTypeInfoESt4lessIS2_ESaISt4pairIKS2_S5_EEEixERS9_.exit: ; preds = %85, %.critedge.i29
-  %92 = phi i64 [ %.pre34, %.critedge.i29 ], [ %76, %85 ]
+  %92 = phi i64 [ %.pre35, %.critedge.i29 ], [ %76, %85 ]
   %93 = phi ptr [ %.pre, %.critedge.i29 ], [ %75, %85 ]
   %.sroa.06.0.i28 = phi ptr [ %91, %.critedge.i29 ], [ %.19.i.i.i.i23, %85 ]
   %94 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i28, i64 40
@@ -12668,31 +12668,31 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_St3mapINS1_12NodeTemplateILb
   %81 = call noundef i64 @_ZNK4cvc58internal5DType18getNumConstructorsEv(ptr noundef nonnull align 8 dereferenceable(448) %74)
   %82 = and i64 %81, 4294967295
   %.not = icmp eq i64 %82, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph221
+  br i1 %.not, label %.loopexit, label %.lr.ph222
 
-.lr.ph221:                                        ; preds = %.critedge38
+.lr.ph222:                                        ; preds = %.critedge38
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i50, i64 56
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i50, i64 48
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %wide.trip.count = and i64 %81, 4294967295
   br label %86
 
-86:                                               ; preds = %.lr.ph221, %._crit_edge
-  %indvars.iv = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next, %._crit_edge ]
+86:                                               ; preds = %.lr.ph222, %._crit_edge
+  %indvars.iv = phi i64 [ 0, %.lr.ph222 ], [ %indvars.iv.next, %._crit_edge ]
   %87 = call noundef nonnull align 8 dereferenceable(264) ptr @_ZNK4cvc58internal5DTypeixEm(ptr noundef nonnull align 8 dereferenceable(448) %74, i64 noundef %indvars.iv)
   %88 = call noundef i32 @_ZNK4cvc58internal16DTypeConstructor9getWeightEv(ptr noundef nonnull align 8 dereferenceable(264) %87)
   %89 = call noundef nonnull align 8 dereferenceable(264) ptr @_ZNK4cvc58internal5DTypeixEm(ptr noundef nonnull align 8 dereferenceable(448) %74, i64 noundef %indvars.iv)
   %90 = call noundef i64 @_ZNK4cvc58internal16DTypeConstructor10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(264) %89)
-  %.not222 = icmp eq i64 %90, 0
-  br i1 %.not222, label %._crit_edge, label %.lr.ph
+  %.not223 = icmp eq i64 %90, 0
+  br i1 %.not223, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %86
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond224.not, label %.loopexit, label %86, !llvm.loop !623
+  %exitcond225.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond225.not, label %.loopexit, label %86, !llvm.loop !623
 
 .lr.ph:                                           ; preds = %86, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.0219 = phi i64 [ %237, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %86 ]
+  %.0220 = phi i64 [ %237, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ 0, %86 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #27
   %91 = load ptr, ptr %1, align 8, !tbaa !111
   store ptr %91, ptr %14, align 8, !tbaa !111
@@ -12726,7 +12726,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %97, %102, %104
           to label %107 unwind label %220
 
 107:                                              ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit
-  invoke void @_ZN4cvc58internal6theory9datatypes5utils11getSelectorENS0_8TypeNodeERKNS0_16DTypeConstructorEmb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(264) %106, i64 noundef %.0219, i1 noundef zeroext %80)
+  invoke void @_ZN4cvc58internal6theory9datatypes5utils11getSelectorENS0_8TypeNodeERKNS0_16DTypeConstructorEmb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %13, ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(264) %106, i64 noundef %.0220, i1 noundef zeroext %80)
           to label %108 unwind label %220
 
 108:                                              ; preds = %107
@@ -12996,7 +12996,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stI
   %.sroa.06.0.i102 = phi ptr [ %.sroa.0.010.i, %.noexc105 ], [ %.19.i.i.i.i97, %175 ]
   %219 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i102, i64 40
   store i32 %88, ptr %219, align 4, !tbaa !204
-  %.pre225 = load i64, ptr %.pre, align 8
+  %.pre226 = load i64, ptr %.pre, align 8
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit149
 
 220:                                              ; preds = %107, %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit
@@ -13011,7 +13011,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stI
   br label %.body
 
 _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit149: ; preds = %218, %138
-  %224 = phi i64 [ %.pre225, %218 ], [ %124, %138 ]
+  %224 = phi i64 [ %.pre226, %218 ], [ %124, %138 ]
   %225 = phi ptr [ %.pre, %218 ], [ %123, %138 ]
   %226 = and i64 %224, 1152920405095219200
   %.not.i.i150 = icmp eq i64 %226, 1152920405095219200
@@ -13039,7 +13039,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit149: ; preds = %218, %138
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit149, %227, %233
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #27
-  %237 = add nuw i64 %.0219, 1
+  %237 = add nuw i64 %.0220, 1
   %exitcond.not = icmp eq i64 %237, %90
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !629
 

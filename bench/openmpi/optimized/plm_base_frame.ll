@@ -448,7 +448,7 @@ pmix_obj_update.exit:                             ; preds = %43
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.i
   %60 = phi ptr [ %62, %.lr.ph.i ], [ %59, %54 ]
   %.07.i = phi ptr [ %61, %.lr.ph.i ], [ %58, %54 ]
-  tail call void %60(ptr noundef %2) #10
+  tail call void %60(ptr noundef nonnull %2) #10
   %61 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !48
   %.not.i = icmp eq ptr %62, null
@@ -547,7 +547,7 @@ pmix_obj_update.exit107:                          ; preds = %96
 .lr.ph.i113:                                      ; preds = %107, %.lr.ph.i113
   %113 = phi ptr [ %115, %.lr.ph.i113 ], [ %112, %107 ]
   %.07.i114 = phi ptr [ %114, %.lr.ph.i113 ], [ %111, %107 ]
-  tail call void %113(ptr noundef %2) #10
+  tail call void %113(ptr noundef nonnull %2) #10
   %114 = getelementptr inbounds nuw i8, ptr %.07.i114, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !48
   %.not.i115 = icmp eq ptr %115, null
@@ -655,7 +655,7 @@ pmix_obj_update.exit108:                          ; preds = %154
 .lr.ph.i119:                                      ; preds = %165, %.lr.ph.i119
   %171 = phi ptr [ %173, %.lr.ph.i119 ], [ %170, %165 ]
   %.07.i120 = phi ptr [ %172, %.lr.ph.i119 ], [ %169, %165 ]
-  tail call void %171(ptr noundef %2) #10
+  tail call void %171(ptr noundef nonnull %2) #10
   %172 = getelementptr inbounds nuw i8, ptr %.07.i120, i64 8
   %173 = load ptr, ptr %172, align 8, !tbaa !48
   %.not.i121 = icmp eq ptr %173, null

@@ -434,7 +434,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %15, %18
   %34 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull %32) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
   %35 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !16
   %38 = icmp ult i32 %37, 65
   %39 = load ptr, ptr %35, align 8
@@ -458,7 +458,7 @@ _ZN4llvm12gep_type_endEPKNS_4UserE.exit:          ; preds = %15, %18
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 32
+  %47 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %48 = load i32, ptr %47, align 8, !tbaa !16
   %49 = icmp ult i32 %48, 65
   %50 = load ptr, ptr %46, align 8

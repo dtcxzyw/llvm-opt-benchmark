@@ -4271,7 +4271,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %9 = tail call noalias align 8 dereferenceable_or_null(40) ptr @kmalloc_trace(ptr noundef %8, i32 noundef 2336, i64 noundef 40) #15
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %94, label %11
+  br i1 %10, label %92, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -4300,7 +4300,7 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
 .loopexit:                                        ; preds = %19, %11
   %27 = phi i32 [ 1, %11 ], [ %17, %19 ]
   %28 = icmp ult i32 %27, %7
-  br i1 %28, label %29, label %34
+  br i1 %28, label %29, label %.thread
 
 29:                                               ; preds = %.loopexit
   %30 = add nuw nsw i32 %27, 1
@@ -4308,96 +4308,93 @@ define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captu
   %32 = load i16, ptr %31, align 4
   %33 = zext i16 %32 to i32
   tail call fastcc void @minstrel_ht_set_rate(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, i32 noundef %27, i32 noundef %33)
-  br label %34
+  %34 = icmp ult i32 %27, 3
+  br i1 %34, label %.thread, label %39
 
-34:                                               ; preds = %29, %.loopexit
+.thread:                                          ; preds = %.loopexit, %29
   %35 = phi i32 [ %30, %29 ], [ %27, %.loopexit ]
-  %36 = icmp slt i32 %35, 4
-  br i1 %36, label %37, label %41
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr [4 x %struct.anon.30], ptr %36, i64 0, i64 %37
+  store i8 -1, ptr %38, align 2
+  br label %39
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %39 = sext i32 %35 to i64
-  %40 = getelementptr [4 x %struct.anon.30], ptr %38, i64 0, i64 %39
-  store i8 -1, ptr %40, align 2
-  br label %41
+39:                                               ; preds = %.thread, %29
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %41 = load i16, ptr %40, align 4
+  %42 = lshr i16 %41, 4
+  %43 = zext nneg i16 %42 to i64
+  %44 = and i16 %41, 15
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %46 = zext nneg i16 %44 to i64
+  %.idx = mul nuw nsw i64 %43, 252
+  %.idx5 = mul nuw nsw i64 %46, 24
+  %47 = getelementptr i8, ptr %45, i64 %.idx
+  %48 = getelementptr i8, ptr %47, i64 12
+  %49 = getelementptr i8, ptr %48, i64 %.idx5
+  %50 = getelementptr i8, ptr %49, i64 16
+  %51 = load i16, ptr %50, align 4
+  %52 = icmp ult i16 %51, 2048
+  br i1 %52, label %84, label %53
 
-41:                                               ; preds = %37, %34
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %43 = load i16, ptr %42, align 4
-  %44 = lshr i16 %43, 4
-  %45 = zext nneg i16 %44 to i64
-  %46 = and i16 %43, 15
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %48 = zext nneg i16 %46 to i64
-  %.idx = mul nuw nsw i64 %45, 252
-  %.idx5 = mul nuw nsw i64 %48, 24
-  %49 = getelementptr i8, ptr %47, i64 %.idx
-  %50 = getelementptr i8, ptr %49, i64 12
-  %51 = getelementptr i8, ptr %50, i64 %.idx5
-  %52 = getelementptr i8, ptr %51, i64 16
-  %53 = load i16, ptr %52, align 4
-  %54 = icmp ult i16 %53, 2048
-  br i1 %54, label %86, label %55
+53:                                               ; preds = %39
+  %54 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %43
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
+  %56 = getelementptr [10 x i16], ptr %55, i64 0, i64 %46
+  %57 = load i16, ptr %56, align 2
+  %58 = zext i16 %57 to i32
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 3
+  %60 = load i8, ptr %59, align 1
+  %61 = zext nneg i8 %60 to i32
+  %62 = shl i32 %58, %61
+  %63 = icmp ugt i32 %62, 738500
+  br i1 %63, label %84, label %64
 
-55:                                               ; preds = %41
-  %56 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %45
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 6
-  %58 = getelementptr [10 x i16], ptr %57, i64 0, i64 %48
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %56, i64 3
-  %62 = load i8, ptr %61, align 1
-  %63 = zext nneg i8 %62 to i32
-  %64 = shl i32 %60, %63
-  %65 = icmp ugt i32 %64, 738500
-  br i1 %65, label %86, label %66
+64:                                               ; preds = %53
+  %65 = icmp samesign ugt i32 %62, 369250
+  br i1 %65, label %84, label %66
 
-66:                                               ; preds = %55
-  %67 = icmp samesign ugt i32 %64, 369250
-  br i1 %67, label %86, label %68
+66:                                               ; preds = %64
+  %67 = icmp samesign ugt i32 %62, 147750
+  br i1 %67, label %84, label %68
 
 68:                                               ; preds = %66
-  %69 = icmp samesign ugt i32 %64, 147750
-  br i1 %69, label %86, label %70
-
-70:                                               ; preds = %68
-  %71 = load i16, ptr %12, align 4
-  %72 = zext i16 %71 to i32
-  %73 = lshr i32 %72, 4
-  %74 = and i32 %72, 15
-  %narrow = mul nuw nsw i32 %73, 252
+  %69 = load i16, ptr %12, align 4
+  %70 = zext i16 %69 to i32
+  %71 = lshr i32 %70, 4
+  %72 = and i32 %70, 15
+  %narrow = mul nuw nsw i32 %71, 252
   %narrow12 = add nuw nsw i32 %narrow, 12
-  %narrow13 = mul nuw nsw i32 %74, 24
+  %narrow13 = mul nuw nsw i32 %72, 24
   %narrow14 = add nuw nsw i32 %narrow12, %narrow13
-  %75 = zext nneg i32 %narrow14 to i64
-  %76 = getelementptr i8, ptr %47, i64 %75
-  %77 = getelementptr i8, ptr %76, i64 16
-  %78 = load i16, ptr %77, align 4
-  %79 = icmp ult i16 %78, 3072
-  br i1 %79, label %86, label %80
+  %73 = zext nneg i32 %narrow14 to i64
+  %74 = getelementptr i8, ptr %45, i64 %73
+  %75 = getelementptr i8, ptr %74, i64 16
+  %76 = load i16, ptr %75, align 4
+  %77 = icmp ult i16 %76, 3072
+  br i1 %77, label %84, label %78
 
-80:                                               ; preds = %70
-  %81 = load ptr, ptr %1, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 260
-  %83 = load i8, ptr %82, align 4, !range !16, !noundef !17
-  %84 = icmp eq i8 %83, 0
-  %85 = select i1 %84, i16 4095, i16 0
-  br label %86
+78:                                               ; preds = %68
+  %79 = load ptr, ptr %1, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 260
+  %81 = load i8, ptr %80, align 4, !range !16, !noundef !17
+  %82 = icmp eq i8 %81, 0
+  %83 = select i1 %82, i16 4095, i16 0
+  br label %84
 
-86:                                               ; preds = %80, %70, %68, %66, %55, %41
-  %87 = phi i16 [ 1, %41 ], [ 500, %55 ], [ 1600, %66 ], [ 3200, %70 ], [ 3200, %68 ], [ %85, %80 ]
+84:                                               ; preds = %78, %68, %66, %64, %53, %39
+  %85 = phi i16 [ 1, %39 ], [ 500, %53 ], [ 1600, %64 ], [ 3200, %68 ], [ 3200, %66 ], [ %83, %78 ]
+  %86 = load ptr, ptr %1, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 388
+  store i16 %85, ptr %87, align 2
   %88 = load ptr, ptr %1, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 388
-  store i16 %87, ptr %89, align 2
+  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef %88) #14
+  %89 = load ptr, ptr %0, align 8
   %90 = load ptr, ptr %1, align 8
-  tail call void @ieee80211_sta_recalc_aggregates(ptr noundef %90) #14
-  %91 = load ptr, ptr %0, align 8
-  %92 = load ptr, ptr %1, align 8
-  %93 = tail call i32 @rate_control_set_rates(ptr noundef %91, ptr noundef %92, ptr noundef nonnull %9) #14
-  br label %94
+  %91 = tail call i32 @rate_control_set_rates(ptr noundef %89, ptr noundef %90, ptr noundef nonnull %9) #14
+  br label %92
 
-94:                                               ; preds = %86, %2
+92:                                               ; preds = %84, %2
   ret void
 }
 

@@ -2059,7 +2059,7 @@ name_commit.exit.i:                               ; preds = %commit_name_slab_at
   %828 = getelementptr inbounds nuw i8, ptr %.0.i.i270, i64 8
   store i32 0, ptr %828, align 8, !tbaa !74
   %829 = add nsw i32 %.413.i, 1
-  %830 = call fastcc i32 @name_first_parent_chain(ptr noundef %727)
+  %830 = call fastcc i32 @name_first_parent_chain(ptr noundef nonnull %727)
   %.pre.i.i.i79.pre.i = load ptr, ptr @name_slab.3, align 8, !tbaa !27
   br label %831
 
@@ -3008,29 +3008,26 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
   %.08.lcssa.i40.i = phi i32 [ 0, %find_digit_prefix.exit.i ], [ %26, %.lr.ph.i42.i ]
   %.0.lcssa.i41.i = phi ptr [ %.023.i, %find_digit_prefix.exit.i ], [ %27, %.lr.ph.i42.i ]
   %.not.i = icmp eq i32 %.08.lcssa.i.i, %.08.lcssa.i40.i
-  br i1 %.not.i, label %.preheader.i, label %33
+  br i1 %.not.i, label %.preheader.i, label %32
 
 .preheader.i:                                     ; preds = %find_digit_prefix.exit45.i
-  %32 = add i8 %18, -48
-  %or.cond77.i = icmp ult i8 %32, 10
-  %narrow78.i = select i1 %or.cond77.i, i8 0, i8 %18
-  %.not3681.i = icmp eq i8 %narrow78.i, %31
+  %.not3681.i = icmp eq i8 %18, %31
   br i1 %.not3681.i, label %.lr.ph.i.preheader, label %.thread.i
 
 .lr.ph.i.preheader:                               ; preds = %.preheader.i
-  %.not37.i28 = icmp eq i8 %31, 0
-  br i1 %.not37.i28, label %.lr.ph.i._crit_edge, label %.lr.ph
+  %.not37.i30 = icmp eq i8 %18, 0
+  br i1 %.not37.i30, label %.lr.ph.i._crit_edge, label %.lr.ph
 
-33:                                               ; preds = %find_digit_prefix.exit45.i
-  %34 = sub nsw i32 %.08.lcssa.i.i, %.08.lcssa.i40.i
+32:                                               ; preds = %find_digit_prefix.exit45.i
+  %33 = sub nsw i32 %.08.lcssa.i.i, %.08.lcssa.i40.i
   br label %version_cmp.exit
 
 .thread.i:                                        ; preds = %.preheader.i, %.lr.ph
-  %narrow.lcssa.i = phi i8 [ %narrow.i, %.lr.ph ], [ %narrow78.i, %.preheader.i ]
+  %narrow.lcssa.i = phi i8 [ %narrow.i, %.lr.ph ], [ %18, %.preheader.i ]
   %narrow35.lcssa.i = phi i8 [ %narrow35.i, %.lr.ph ], [ %31, %.preheader.i ]
   %spec.store.select.i = sext i8 %narrow.lcssa.i to i32
   %spec.store.select4.i = sext i8 %narrow35.lcssa.i to i32
-  %35 = sub nsw i32 %spec.store.select.i, %spec.store.select4.i
+  %34 = sub nsw i32 %spec.store.select.i, %spec.store.select4.i
   br label %version_cmp.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph
@@ -3038,32 +3035,32 @@ find_digit_prefix.exit45.i:                       ; preds = %.lr.ph.i42.i, %find
   br i1 %.not37.i, label %.lr.ph.i._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.22782.i30 = phi ptr [ %36, %.lr.ph.i ], [ %.0.lcssa.i.i, %.lr.ph.i.preheader ]
-  %.283.i29 = phi ptr [ %37, %.lr.ph.i ], [ %.0.lcssa.i41.i, %.lr.ph.i.preheader ]
-  %36 = getelementptr inbounds nuw i8, ptr %.22782.i30, i64 1
-  %37 = getelementptr inbounds nuw i8, ptr %.283.i29, i64 1
+  %.22782.i32 = phi ptr [ %35, %.lr.ph.i ], [ %.0.lcssa.i.i, %.lr.ph.i.preheader ]
+  %.283.i31 = phi ptr [ %36, %.lr.ph.i ], [ %.0.lcssa.i41.i, %.lr.ph.i.preheader ]
+  %35 = getelementptr inbounds nuw i8, ptr %.22782.i32, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.283.i31, i64 1
+  %37 = load i8, ptr %35, align 1, !tbaa !34
   %38 = load i8, ptr %36, align 1, !tbaa !34
-  %39 = load i8, ptr %37, align 1, !tbaa !34
+  %39 = add i8 %37, -48
+  %or.cond.i = icmp ult i8 %39, 10
+  %narrow.i = select i1 %or.cond.i, i8 0, i8 %37
   %40 = add i8 %38, -48
-  %or.cond.i = icmp ult i8 %40, 10
-  %narrow.i = select i1 %or.cond.i, i8 0, i8 %38
-  %41 = add i8 %39, -48
-  %or.cond3.i = icmp ult i8 %41, 10
-  %narrow35.i = select i1 %or.cond3.i, i8 0, i8 %39
+  %or.cond3.i = icmp ult i8 %40, 10
+  %narrow35.i = select i1 %or.cond3.i, i8 0, i8 %38
   %.not36.i = icmp eq i8 %narrow.i, %narrow35.i
   br i1 %.not36.i, label %.lr.ph.i, label %.thread.i
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.lcssa14 = phi i8 [ 0, %.lr.ph.i.preheader ], [ %39, %.lr.ph.i ]
-  %.lcssa12 = phi i8 [ %18, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
-  %.283.i.lcssa = phi ptr [ %.0.lcssa.i41.i, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
-  %.22782.i.lcssa = phi ptr [ %.0.lcssa.i.i, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
-  %42 = or i8 %.lcssa12, %.lcssa14
-  %or.cond132.i = icmp eq i8 %42, 0
-  br i1 %or.cond132.i, label %version_cmp.exit, label %5
+  %.lcssa14 = phi i8 [ 0, %.lr.ph.i.preheader ], [ %38, %.lr.ph.i ]
+  %.lcssa12 = phi i8 [ 0, %.lr.ph.i.preheader ], [ %37, %.lr.ph.i ]
+  %.283.i.lcssa = phi ptr [ %.0.lcssa.i41.i, %.lr.ph.i.preheader ], [ %36, %.lr.ph.i ]
+  %.22782.i.lcssa = phi ptr [ %.0.lcssa.i.i, %.lr.ph.i.preheader ], [ %35, %.lr.ph.i ]
+  %41 = or i8 %.lcssa12, %.lcssa14
+  %or.cond134.i = icmp eq i8 %41, 0
+  br i1 %or.cond134.i, label %version_cmp.exit, label %5
 
-version_cmp.exit:                                 ; preds = %.lr.ph.i._crit_edge, %33, %.thread.i
-  %.130.ph.i = phi i32 [ %35, %.thread.i ], [ %34, %33 ], [ 0, %.lr.ph.i._crit_edge ]
+version_cmp.exit:                                 ; preds = %.lr.ph.i._crit_edge, %32, %.thread.i
+  %.130.ph.i = phi i32 [ %34, %.thread.i ], [ %33, %32 ], [ 0, %.lr.ph.i._crit_edge ]
   ret i32 %.130.ph.i
 }
 
@@ -3266,7 +3263,7 @@ define internal fastcc i32 @name_first_parent_chain(ptr noundef readonly %0) unn
   %.pre.i.i.i.pre38 = load ptr, ptr @name_slab.3, align 8, !tbaa !27
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %126
+.lr.ph:                                           ; preds = %126, %.lr.ph.preheader
   %.pre.i.i.i.i49 = phi ptr [ %.pre.i.i.i.i50, %126 ], [ %.pre.i.i.i.pre38, %.lr.ph.preheader ]
   %.01033 = phi ptr [ %34, %126 ], [ %0, %.lr.ph.preheader ]
   %.01132 = phi i32 [ %127, %126 ], [ 0, %.lr.ph.preheader ]
@@ -3547,18 +3544,17 @@ commit_to_name.exit20.i:                          ; preds = %109, %105
 
 ._crit_edge.i:                                    ; preds = %121, %120
   %125 = load ptr, ptr %93, align 8, !tbaa !76
-  tail call fastcc void @name_commit(ptr noundef readonly %34, ptr noundef %125, i32 noundef %.pre9.i)
+  tail call fastcc void @name_commit(ptr noundef nonnull readonly %34, ptr noundef %125, i32 noundef %.pre9.i)
   %.pre.i.i.i.pre = load ptr, ptr @name_slab.3, align 8, !tbaa !27
   br label %126
 
 126:                                              ; preds = %._crit_edge.i, %121, %commit_to_name.exit20.i
   %.pre.i.i.i.i50 = phi ptr [ %.pre.i.i.i.pre, %._crit_edge.i ], [ %.pre.i.i.i.i51, %121 ], [ %.pre.i.i.i.i51, %commit_to_name.exit20.i ]
   %127 = add nuw nsw i32 %.01132, 1
-  %.not = icmp eq ptr %34, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br label %.lr.ph
 
-.thread:                                          ; preds = %126, %commit_to_name.exit, %30, %commit_to_name.exit26, %1
-  %.011.lcssa = phi i32 [ 0, %1 ], [ %.01132, %commit_to_name.exit26 ], [ %.01132, %30 ], [ %.01132, %commit_to_name.exit ], [ %127, %126 ]
+.thread:                                          ; preds = %commit_to_name.exit, %30, %commit_to_name.exit26, %1
+  %.011.lcssa = phi i32 [ 0, %1 ], [ %.01132, %commit_to_name.exit26 ], [ %.01132, %30 ], [ %.01132, %commit_to_name.exit ]
   ret i32 %.011.lcssa
 }
 

@@ -251,7 +251,7 @@ define range(i32 0, 2) i32 @BN_lshift(ptr noundef %0, ptr noundef readonly captu
 
 51:                                               ; preds = %47, %._crit_edge.i
   %52 = phi ptr [ %48, %47 ], [ %25, %._crit_edge.i ]
-  %.not52.i = icmp ult i32 %2, 64
+  %.not52.i = icmp samesign ult i32 %2, 64
   br i1 %.not52.i, label %56, label %53
 
 53:                                               ; preds = %51

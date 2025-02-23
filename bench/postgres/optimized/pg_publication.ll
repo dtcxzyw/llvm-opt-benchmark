@@ -839,7 +839,7 @@ attnumstoint2vector.exit:                         ; preds = %95, %89
   br i1 %122, label %.lr.ph, label %._crit_edge, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph, %117
-  call void @table_close(ptr noundef %12, i32 noundef 3) #6
+  call void @table_close(ptr noundef nonnull %12, i32 noundef 3) #6
   %123 = call signext i8 @get_rel_relkind(i32 noundef %10) #6
   %124 = icmp eq i8 %123, 112
   br i1 %124, label %125, label %128

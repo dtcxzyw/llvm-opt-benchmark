@@ -733,7 +733,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captu
   %344 = and i32 %.5, 2147483644
   %345 = zext nneg i32 %344 to i64
   %346 = sext i32 %343 to i64
-  %347 = sext i32 %342 to i64
+  %347 = zext nneg i32 %342 to i64
   br label %.lr.ph695
 
 .lr.ph695:                                        ; preds = %.lr.ph695.preheader, %.lr.ph695
@@ -765,7 +765,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captu
   store double %365, ptr %348, align 8, !tbaa !7
   store double %363, ptr %364, align 8, !tbaa !7
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 4
-  %.not597 = icmp sgt i64 %indvars.iv.next792, %347
+  %.not597 = icmp samesign ugt i64 %indvars.iv.next792, %347
   br i1 %.not597, label %.loopexit613, label %.lr.ph695, !llvm.loop !20
 
 .loopexit613:                                     ; preds = %.lr.ph695, %339, %._crit_edge689, %._crit_edge674

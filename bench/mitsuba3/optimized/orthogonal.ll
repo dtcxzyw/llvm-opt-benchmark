@@ -1074,109 +1074,109 @@ _ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit: ;
   %.not.i107 = icmp uge i32 %spec.select.i106, %82
   %147 = icmp ne i8 %.017.i104, 0
   %148 = and i1 %147, %.not.i107
-  br i1 %148, label %.critedge.i102, label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit109
+  br i1 %148, label %.critedge.i102, label %149
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit109: ; preds = %.critedge.i102
-  %149 = add i32 %spec.select.i106, %95
-  %150 = mul i32 %94, 1757159915
-  %151 = lshr i32 %150, 16
-  %152 = lshr i32 %150, 8
-  %153 = lshr i32 %150, 23
-  %154 = lshr i32 %150, 27
-  %155 = or i32 %154, 1
-  %156 = mul i32 %155, 1765145193
-  %invariant.op154 = xor i32 %152, %151
+149:                                              ; preds = %.critedge.i102
+  %150 = add i32 %spec.select.i106, %95
+  %151 = mul i32 %94, 1757159915
+  %152 = lshr i32 %151, 16
+  %153 = lshr i32 %151, 8
+  %154 = lshr i32 %151, 23
+  %155 = lshr i32 %151, 27
+  %156 = or i32 %155, 1
+  %157 = mul i32 %156, 1765145193
+  %invariant.op154 = xor i32 %153, %152
   br label %.critedge.i110
 
-.critedge.i110:                                   ; preds = %.critedge.i110, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit109
-  %.023.i111 = phi i32 [ %.1138, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit109 ], [ %spec.select.i114, %.critedge.i110 ]
-  %.017.i112 = phi i8 [ %6, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit109 ], [ 1, %.critedge.i110 ]
-  %157 = xor i32 %.023.i111, %150
-  %158 = mul i32 %157, -512718531
-  %159 = xor i32 %158, %151
-  %160 = and i32 %159, %112
-  %161 = lshr i32 %160, 4
-  %.reass152.reass = xor i32 %161, %invariant.op154
-  %162 = xor i32 %.reass152.reass, %158
-  %163 = mul i32 %162, 153742143
-  %164 = xor i32 %163, %153
-  %165 = and i32 %164, %112
-  %166 = lshr i32 %165, 1
-  %167 = xor i32 %166, %164
-  %168 = mul i32 %156, %167
-  %169 = and i32 %168, %112
-  %170 = lshr i32 %169, 11
-  %171 = xor i32 %170, %168
-  %172 = mul i32 %171, 1960620803
-  %173 = and i32 %172, %112
-  %174 = lshr i32 %173, 2
-  %175 = xor i32 %174, %172
-  %176 = mul i32 %175, -1638916925
-  %177 = and i32 %176, %112
-  %178 = lshr i32 %177, 2
-  %179 = xor i32 %178, %176
-  %180 = mul i32 %179, -933190689
-  %181 = and i32 %180, %112
-  %182 = lshr i32 %181, 5
-  %183 = xor i32 %182, %181
-  %184 = trunc nuw i8 %.017.i112 to i1
-  %spec.select.i114 = select i1 %184, i32 %183, i32 %.023.i111
+.critedge.i110:                                   ; preds = %.critedge.i110, %149
+  %.023.i111 = phi i32 [ %.1138, %149 ], [ %spec.select.i114, %.critedge.i110 ]
+  %.017.i112 = phi i8 [ %6, %149 ], [ 1, %.critedge.i110 ]
+  %158 = xor i32 %.023.i111, %151
+  %159 = mul i32 %158, -512718531
+  %160 = xor i32 %159, %152
+  %161 = and i32 %160, %112
+  %162 = lshr i32 %161, 4
+  %.reass152.reass = xor i32 %162, %invariant.op154
+  %163 = xor i32 %.reass152.reass, %159
+  %164 = mul i32 %163, 153742143
+  %165 = xor i32 %164, %154
+  %166 = and i32 %165, %112
+  %167 = lshr i32 %166, 1
+  %168 = xor i32 %167, %165
+  %169 = mul i32 %157, %168
+  %170 = and i32 %169, %112
+  %171 = lshr i32 %170, 11
+  %172 = xor i32 %171, %169
+  %173 = mul i32 %172, 1960620803
+  %174 = and i32 %173, %112
+  %175 = lshr i32 %174, 2
+  %176 = xor i32 %175, %173
+  %177 = mul i32 %176, -1638916925
+  %178 = and i32 %177, %112
+  %179 = lshr i32 %178, 2
+  %180 = xor i32 %179, %177
+  %181 = mul i32 %180, -933190689
+  %182 = and i32 %181, %112
+  %183 = lshr i32 %182, 5
+  %184 = xor i32 %183, %182
+  %185 = trunc nuw i8 %.017.i112 to i1
+  %spec.select.i114 = select i1 %185, i32 %184, i32 %.023.i111
   %.not.i115 = icmp uge i32 %spec.select.i114, %82
-  %185 = icmp ne i8 %.017.i112, 0
-  %186 = and i1 %185, %.not.i115
-  br i1 %186, label %.critedge.i110, label %187
+  %186 = icmp ne i8 %.017.i112, 0
+  %187 = and i1 %186, %.not.i115
+  br i1 %187, label %.critedge.i110, label %188
 
-187:                                              ; preds = %.critedge.i110
-  %188 = urem i32 %149, %82
-  %189 = add i32 %spec.select.i114, %150
-  %190 = urem i32 %189, %82
-  %191 = uitofp i32 %188 to float
-  %192 = uitofp i32 %190 to float
+188:                                              ; preds = %.critedge.i110
+  %189 = urem i32 %150, %82
+  %190 = add i32 %spec.select.i114, %151
+  %191 = urem i32 %190, %82
+  %192 = uitofp i32 %189 to float
+  %193 = uitofp i32 %191 to float
   br label %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117
 
-_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117: ; preds = %80, %187
-  %.0.i108147 = phi float [ %191, %187 ], [ 0.000000e+00, %80 ]
-  %.0.i116 = phi float [ %192, %187 ], [ 0.000000e+00, %80 ]
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %194 = load i8, ptr %193, align 8
-  %195 = trunc i8 %194 to i1
-  br i1 %195, label %196, label %216
+_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117: ; preds = %80, %188
+  %.0.i108147 = phi float [ %192, %188 ], [ 0.000000e+00, %80 ]
+  %.0.i116 = phi float [ %193, %188 ], [ 0.000000e+00, %80 ]
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %195 = load i8, ptr %194, align 8
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %197, label %217
 
-196:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %198 = load i64, ptr %197, align 8
-  br i1 %4, label %199, label %204
+197:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %199 = load i64, ptr %198, align 8
+  br i1 %4, label %200, label %205
 
-199:                                              ; preds = %196
-  %200 = mul i64 %198, 6364136223846793005
-  %201 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %202 = load i64, ptr %201, align 8
-  %203 = add i64 %202, %200
-  store i64 %203, ptr %197, align 8
-  br label %204
+200:                                              ; preds = %197
+  %201 = mul i64 %199, 6364136223846793005
+  %202 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %203 = load i64, ptr %202, align 8
+  %204 = add i64 %203, %201
+  store i64 %204, ptr %198, align 8
+  br label %205
 
-204:                                              ; preds = %199, %196
-  %205 = lshr i64 %198, 45
-  %206 = lshr i64 %198, 27
-  %207 = xor i64 %205, %206
-  %208 = trunc i64 %207 to i32
-  %209 = lshr i64 %198, 59
-  %210 = trunc nuw nsw i64 %209 to i32
-  %211 = tail call i32 @llvm.fshr.i32(i32 %208, i32 %208, i32 %210)
-  %212 = lshr i32 %211, 9
-  %213 = or disjoint i32 %212, 1065353216
-  %214 = bitcast i32 %213 to float
-  %215 = fadd contract float %214, -1.000000e+00
-  br label %216
+205:                                              ; preds = %200, %197
+  %206 = lshr i64 %199, 45
+  %207 = lshr i64 %199, 27
+  %208 = xor i64 %206, %207
+  %209 = trunc i64 %208 to i32
+  %210 = lshr i64 %199, 59
+  %211 = trunc nuw nsw i64 %210 to i32
+  %212 = tail call i32 @llvm.fshr.i32(i32 %209, i32 %209, i32 %211)
+  %213 = lshr i32 %212, 9
+  %214 = or disjoint i32 %213, 1065353216
+  %215 = bitcast i32 %214 to float
+  %216 = fadd contract float %215, -1.000000e+00
+  br label %217
 
-216:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117, %204
-  %217 = phi contract float [ %215, %204 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117 ]
-  %218 = fadd contract float %.0.i116, %217
-  %219 = uitofp i32 %82 to float
-  %220 = fdiv contract float %218, %219
-  %221 = fadd contract float %.0.i108147, %220
-  %222 = fdiv contract float %221, %219
-  ret float %222
+217:                                              ; preds = %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117, %205
+  %218 = phi contract float [ %216, %205 ], [ 5.000000e-01, %_ZN7mitsuba15permute_kenslerIjEET_S1_jS1_N5drjit6detail4maskIS1_iE4typeE.exit117 ]
+  %219 = fadd contract float %.0.i116, %218
+  %220 = uitofp i32 %82 to float
+  %221 = fdiv contract float %219, %220
+  %222 = fadd contract float %.0.i108147, %221
+  %223 = fdiv contract float %222, %220
+  ret float %223
 }
 
 ; Function Attrs: mustprogress uwtable

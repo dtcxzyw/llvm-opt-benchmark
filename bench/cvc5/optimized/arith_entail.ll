@@ -13898,7 +13898,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1142: ; preds = %1680, %1683, %168
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1145: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1142, %1695, %1701
-  %1705 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.01797.02464) #27
+  %1705 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01797.02464) #27
   %.not2034 = icmp eq ptr %1705, %1343
   br i1 %.not2034, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit1247.loopexit, label %.lr.ph2468
 

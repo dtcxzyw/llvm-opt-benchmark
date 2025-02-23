@@ -9277,7 +9277,7 @@ define void @_ZN8mini_lsm7compact6tiered26TieredCompactionController24generate_c
   %.not94 = icmp eq i64 %29, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  br i1 %.not94, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not94, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
   %.not110.not = icmp ugt i64 %20, 1
@@ -9287,9 +9287,9 @@ define void @_ZN8mini_lsm7compact6tiered26TieredCompactionController24generate_c
   store i64 -9223372036854775808, ptr %0, align 8
   br label %96
 
-._crit_edge:                                      ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit"
+._crit_edge.loopexit:                             ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit"
   %31 = uitofp i64 %35 to double
-  br label %._crit_edge.thread
+  br label %.._crit_edge_crit_edge
 
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit": ; preds = %.lr.ph, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit"
   %.sroa.01.088 = phi i64 [ %32, %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit" ], [ 0, %.lr.ph ]
@@ -9299,19 +9299,19 @@ define void @_ZN8mini_lsm7compact6tiered26TieredCompactionController24generate_c
   %34 = load i64, ptr %33, align 8, !noundef !7
   %35 = add i64 %34, %.087
   %exitcond.not = icmp eq i64 %32, %29
-  br i1 %exitcond.not, label %._crit_edge, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit"
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h4ff85e5fa38252b1E.exit"
 
 36:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking18panic_bounds_check17h8331054858f0bf20E(i64 noundef %20, i64 noundef %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2529cd21221c1486fc2948c80b8cecc.123) #29, !noalias !3021
   unreachable
 
-._crit_edge.thread:                               ; preds = %28, %._crit_edge
-  %.0.lcssa115 = phi double [ %31, %._crit_edge ], [ 0.000000e+00, %28 ]
+.._crit_edge_crit_edge:                           ; preds = %28, %._crit_edge.loopexit
+  %.0.lcssa = phi double [ %31, %._crit_edge.loopexit ], [ 0.000000e+00, %28 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
   %37 = getelementptr inbounds [0 x { i64, { { i64, ptr }, i64 } }], ptr %.pre, i64 0, i64 %29, i32 1, i32 1
   %38 = load i64, ptr %37, align 8, !noundef !7
   %39 = uitofp i64 %38 to double
-  %40 = fdiv double %.0.lcssa115, %39
+  %40 = fdiv double %.0.lcssa, %39
   %41 = fmul double %40, 1.000000e+02
   store double %41, ptr %12, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9320,7 +9320,7 @@ define void @_ZN8mini_lsm7compact6tiered26TieredCompactionController24generate_c
   %45 = fcmp ult double %41, %44
   br i1 %45, label %46, label %55
 
-46:                                               ; preds = %._crit_edge.thread
+46:                                               ; preds = %.._crit_edge_crit_edge
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %48 = load i64, ptr %47, align 8, !noundef !7
   %49 = uitofp i64 %48 to double
@@ -9334,7 +9334,7 @@ define void @_ZN8mini_lsm7compact6tiered26TieredCompactionController24generate_c
   %54 = add i64 %20, -1
   br label %70
 
-55:                                               ; preds = %._crit_edge.thread
+55:                                               ; preds = %.._crit_edge_crit_edge
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
   store ptr %12, ptr %10, align 8

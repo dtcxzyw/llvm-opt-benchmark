@@ -1671,7 +1671,7 @@ define hidden void @lj_gc_fullgc(ptr noundef %0) local_unnamed_addr #0 {
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %16 = tail call fastcc i64 @gc_onestep(ptr noundef %0)
+  %16 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
   %17 = load i8, ptr %7, align 1, !tbaa !70
   %.off = add i8 %17, -3
   %switch = icmp ult i8 %.off, 2
@@ -1682,7 +1682,7 @@ define hidden void @lj_gc_fullgc(ptr noundef %0) local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %18, %._crit_edge
-  %19 = tail call fastcc i64 @gc_onestep(ptr noundef %0)
+  %19 = tail call fastcc i64 @gc_onestep(ptr noundef nonnull %0)
   %20 = load i8, ptr %7, align 1, !tbaa !70
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %21, label %18, !llvm.loop !100

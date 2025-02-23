@@ -893,9 +893,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 80
   %66 = icmp eq ptr %65, %58
-  br i1 %66, label %.loopexit, label %59
+  br i1 %66, label %.lr.ph54.preheader, label %59
 
-.loopexit:                                        ; preds = %59
+.lr.ph54.preheader:                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %44, ptr %67, align 8, !tbaa !105
   br label %.lr.ph54
@@ -903,9 +903,9 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi5ELi4EEC2Emmm(ptr n
 ._crit_edge55:                                    ; preds = %.lr.ph54, %.loopexit.thread
   ret void
 
-.lr.ph54:                                         ; preds = %.loopexit, %.lr.ph54
-  %68 = phi i64 [ %73, %.lr.ph54 ], [ %2, %.loopexit ]
-  %.052 = phi i64 [ %72, %.lr.ph54 ], [ 0, %.loopexit ]
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
+  %68 = phi i64 [ %73, %.lr.ph54 ], [ %2, %.lr.ph54.preheader ]
+  %.052 = phi i64 [ %72, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
   %69 = load ptr, ptr %67, align 8, !tbaa !105
   %70 = getelementptr inbounds nuw %class.HashTablePermutohedral, ptr %69, i64 %.052
   %71 = udiv i64 %37, %68
@@ -1907,37 +1907,36 @@ _ZN27HashTablePermutohedralValueILi4EE3mixEPKS0_S2_S2_.exit.us: ; preds = %110
   %.06773 = phi ptr [ %.06674, %.preheader ], [ %11, %18 ]
   %122 = add nuw nsw i32 %.075, 1
   %exitcond86.not = icmp eq i32 %122, 6
-  br i1 %exitcond86.not, label %.split77.us, label %.preheader, !llvm.loop !205
+  br i1 %exitcond86.not, label %.split77.us.thread, label %.preheader, !llvm.loop !205
 
-.split77.us:                                      ; preds = %._crit_edge.us, %.preheader
-  %.us-phi = phi ptr [ %.06674, %.preheader ], [ %.06674.us, %._crit_edge.us ]
-  %.us-phi78 = phi ptr [ %.06773, %.preheader ], [ %.06773.us, %._crit_edge.us ]
-  %.not30 = icmp eq ptr %.us-phi78, %13
-  br i1 %.not30, label %127, label %123
+.split77.us:                                      ; preds = %._crit_edge.us
+  %.not30 = icmp eq ptr %.06773.us, %13
+  br i1 %.not30, label %.sink.split, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
 
-123:                                              ; preds = %.split77.us
-  br i1 %.not79, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, label %124
+.split77.us.thread:                               ; preds = %.preheader
+  %.not3090 = icmp eq ptr %.06773, %13
+  br i1 %.not3090, label %125, label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
 
-124:                                              ; preds = %123
+_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread: ; preds = %.split77.us
   %.idx = shl nuw nsw i64 %19, 4
-  %125 = load ptr, ptr %23, align 8, !tbaa !110
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %125, ptr align 16 %.us-phi78, i64 %.idx, i1 false)
-  br label %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
+  %123 = load ptr, ptr %23, align 8, !tbaa !110
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 16 %123, ptr nonnull align 16 %.06773.us, i64 %.idx, i1 false)
+  br label %.sink.split
 
-_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit: ; preds = %123, %124
-  %126 = icmp eq ptr %.us-phi78, null
-  br i1 %126, label %129, label %.sink.split
+_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit: ; preds = %.split77.us.thread
+  %124 = icmp eq ptr %.06773, null
+  br i1 %124, label %127, label %.sink.split
 
-127:                                              ; preds = %.split77.us
-  %128 = icmp eq ptr %.us-phi, null
-  br i1 %128, label %129, label %.sink.split
+125:                                              ; preds = %.split77.us.thread
+  %126 = icmp eq ptr %.06674, null
+  br i1 %126, label %127, label %.sink.split
 
-.sink.split:                                      ; preds = %127, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
-  %.us-phi.sink = phi ptr [ %.us-phi78, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.us-phi, %127 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %.us-phi.sink) #26
-  br label %129
+.sink.split:                                      ; preds = %125, %.split77.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread
+  %.us-phi9199.sink = phi ptr [ %.06773.us, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit.thread ], [ %.06773, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit ], [ %.06674, %125 ], [ %.06674.us, %.split77.us ]
+  tail call void @_ZdaPv(ptr noundef nonnull %.us-phi9199.sink) #26
+  br label %127
 
-129:                                              ; preds = %.sink.split, %127, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
+127:                                              ; preds = %.sink.split, %125, %_ZSt4copyIP27HashTablePermutohedralValueILi4EES2_ET0_T_S4_S3_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #18
   ret void
 }
@@ -2601,9 +2600,9 @@ _ZSt4copyIPN22HashTablePermutohedralILi5ELi4EE3KeyES3_ET0_T_S5_S4_.exit: ; preds
   %46 = load i64, ptr %45, align 8
   br label %48
 
-._crit_edge40:                                    ; preds = %65, %.loopexit
+._crit_edge40:                                    ; preds = %.loopexit
   %47 = icmp eq ptr %.pre45, null
-  br i1 %47, label %68, label %67
+  br i1 %47, label %67, label %._crit_edge40.thread
 
 48:                                               ; preds = %.lr.ph39, %65
   %.01837 = phi i64 [ 0, %.lr.ph39 ], [ %66, %65 ]
@@ -2641,23 +2640,23 @@ _ZSt4copyIPN22HashTablePermutohedralILi5ELi4EE3KeyES3_ET0_T_S5_S4_.exit: ; preds
 65:                                               ; preds = %48, %._crit_edge36
   %66 = add nuw i64 %.01837, 1
   %exitcond.not = icmp eq i64 %66, %4
-  br i1 %exitcond.not, label %._crit_edge40, label %48, !llvm.loop !244
+  br i1 %exitcond.not, label %._crit_edge40.thread, label %48, !llvm.loop !244
 
-67:                                               ; preds = %._crit_edge40
+._crit_edge40.thread:                             ; preds = %65, %._crit_edge40
   tail call void @_ZdaPv(ptr noundef nonnull %.pre45) #26
   %.pre46 = load i64, ptr %3, align 8, !tbaa !131
   %.pre48 = shl i64 %.pre46, 2
-  br label %68
+  br label %67
 
-68:                                               ; preds = %67, %._crit_edge40
-  %.pre-phi49 = phi i64 [ %.pre48, %67 ], [ %41, %._crit_edge40 ]
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %69, align 8, !tbaa !148
-  %70 = load i64, ptr %16, align 8, !tbaa !151
-  %71 = shl i64 %70, 5
-  %72 = add i64 %71, %.pre-phi49
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %72, ptr %73, align 8, !tbaa !161
+67:                                               ; preds = %._crit_edge40.thread, %._crit_edge40
+  %.pre-phi49 = phi i64 [ %.pre48, %._crit_edge40.thread ], [ %41, %._crit_edge40 ]
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %43, ptr %68, align 8, !tbaa !148
+  %69 = load i64, ptr %16, align 8, !tbaa !151
+  %70 = shl i64 %69, 5
+  %71 = add i64 %70, %.pre-phi49
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %71, ptr %72, align 8, !tbaa !161
   ret void
 }
 

@@ -368,7 +368,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %14 = phi ptr [ %18, %12 ], [ @blk_mq_debugfs_queue_attrs, %8 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i16, ptr %15, align 8
-  %17 = tail call ptr @debugfs_create_file(ptr noundef nonnull %13, i16 noundef zeroext %16, ptr noundef %4, ptr noundef %14, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %17 = tail call ptr @debugfs_create_file(ptr noundef nonnull %13, i16 noundef zeroext %16, ptr noundef nonnull %4, ptr noundef %14, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %18 = getelementptr i8, ptr %14, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -421,7 +421,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %49 = phi ptr [ %53, %.preheader16 ], [ %42, %41 ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i16, ptr %50, align 8
-  %52 = tail call ptr @debugfs_create_file(ptr noundef nonnull %48, i16 noundef zeroext %51, ptr noundef %37, ptr noundef %49, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %52 = tail call ptr @debugfs_create_file(ptr noundef nonnull %48, i16 noundef zeroext %51, ptr noundef nonnull %37, ptr noundef %49, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %53 = getelementptr i8, ptr %49, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
@@ -491,7 +491,7 @@ define dso_local void @blk_mq_debugfs_register(ptr noundef %0) local_unnamed_add
   %92 = phi ptr [ %96, %.preheader12 ], [ %85, %84 ]
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i16, ptr %93, align 8
-  %95 = call ptr @debugfs_create_file(ptr noundef nonnull %91, i16 noundef zeroext %94, ptr noundef %80, ptr noundef %92, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %95 = call ptr @debugfs_create_file(ptr noundef nonnull %91, i16 noundef zeroext %94, ptr noundef nonnull %80, ptr noundef %92, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %96 = getelementptr i8, ptr %92, i64 40
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
@@ -561,7 +561,7 @@ define dso_local void @blk_mq_debugfs_register_sched(ptr noundef %0) local_unnam
   %26 = phi ptr [ %30, %.preheader ], [ %19, %18 ]
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i16, ptr %27, align 8
-  %29 = tail call ptr @debugfs_create_file(ptr noundef nonnull %25, i16 noundef zeroext %28, ptr noundef %13, ptr noundef %26, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %29 = tail call ptr @debugfs_create_file(ptr noundef nonnull %25, i16 noundef zeroext %28, ptr noundef nonnull %13, ptr noundef %26, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %30 = getelementptr i8, ptr %26, i64 40
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -610,7 +610,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %24 = phi ptr [ %28, %22 ], [ @blk_mq_debugfs_hctx_attrs, %18 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i16, ptr %25, align 8
-  %27 = call ptr @debugfs_create_file(ptr noundef nonnull %23, i16 noundef zeroext %26, ptr noundef %13, ptr noundef %24, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %27 = call ptr @debugfs_create_file(ptr noundef nonnull %23, i16 noundef zeroext %26, ptr noundef nonnull %13, ptr noundef %24, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %28 = getelementptr i8, ptr %24, i64 40
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
@@ -655,7 +655,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
   %55 = phi ptr [ %59, %53 ], [ @blk_mq_debugfs_ctx_attrs, %49 ]
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i16, ptr %56, align 8
-  %58 = call ptr @debugfs_create_file(ptr noundef nonnull %54, i16 noundef zeroext %57, ptr noundef %45, ptr noundef %55, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %58 = call ptr @debugfs_create_file(ptr noundef nonnull %54, i16 noundef zeroext %57, ptr noundef nonnull %45, ptr noundef %55, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %59 = getelementptr i8, ptr %55, i64 40
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
@@ -714,7 +714,7 @@ define dso_local void @blk_mq_debugfs_register_sched_hctx(ptr noundef readonly c
   %27 = phi ptr [ %31, %.preheader ], [ %20, %19 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i16, ptr %28, align 8
-  %30 = tail call ptr @debugfs_create_file(ptr noundef nonnull %26, i16 noundef zeroext %29, ptr noundef %14, ptr noundef %27, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %30 = tail call ptr @debugfs_create_file(ptr noundef nonnull %26, i16 noundef zeroext %29, ptr noundef nonnull %14, ptr noundef %27, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %31 = getelementptr i8, ptr %27, i64 40
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
@@ -803,7 +803,7 @@ define dso_local void @blk_mq_debugfs_register_rqos(ptr noundef %0) local_unname
   %45 = phi ptr [ %49, %.preheader ], [ %38, %35 ]
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i16, ptr %46, align 8
-  %48 = tail call ptr @debugfs_create_file(ptr noundef nonnull %44, i16 noundef zeroext %47, ptr noundef %31, ptr noundef %45, ptr noundef nonnull @blk_mq_debugfs_fops) #9
+  %48 = tail call ptr @debugfs_create_file(ptr noundef nonnull %44, i16 noundef zeroext %47, ptr noundef nonnull %31, ptr noundef %45, ptr noundef nonnull @blk_mq_debugfs_fops) #9
   %49 = getelementptr i8, ptr %45, i64 40
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, null

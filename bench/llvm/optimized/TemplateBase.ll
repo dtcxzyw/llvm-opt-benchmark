@@ -2476,8 +2476,8 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_16EnumConstantDeclEEppEv.exit.
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %266 = load i8, ptr %265, align 16
   %267 = icmp eq i8 %266, 13
-  %.not.not6.i.i = icmp ne ptr %264, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %267
+  %.not6.i.i = icmp ne ptr %264, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %267
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i:          ; preds = %.critedge79.i
@@ -2551,8 +2551,8 @@ _ZNK5clang4Type13isBooleanTypeEv.exit.thread.i:   ; preds = %_ZNK5clang4Type13is
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 16
   %307 = load i8, ptr %306, align 16
   %308 = icmp eq i8 %307, 13
-  %.not.not7.i.i = icmp ne ptr %305, null
-  %.not.not.not.i87.i = and i1 %.not.not7.i.i, %308
+  %.not7.i.i = icmp ne ptr %305, null
+  %.not.not.not.i87.i = and i1 %.not7.i.i, %308
   br i1 %.not.not.not.i87.i, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit91.i
 
 _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i:  ; preds = %302

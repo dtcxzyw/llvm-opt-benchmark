@@ -122,7 +122,7 @@ define range(i32 0, 2) i32 @cuddZddTreeSifting(ptr noundef %0, i32 noundef %1) l
   br i1 %exitcond.not, label %._crit_edge, label %21, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %21, %14
-  %24 = tail call fastcc i32 @zddTreeSiftingAux(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %1)
+  %24 = tail call fastcc i32 @zddTreeSiftingAux(ptr noundef nonnull %0, ptr noundef nonnull %15, i32 noundef %1)
   br i1 %5, label %25, label %26
 
 25:                                               ; preds = %._crit_edge
@@ -254,30 +254,30 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
     i32 6, label %56
     i32 7, label %58
     i32 14, label %60
-    i32 18, label %222
-    i32 19, label %.preheader66
+    i32 18, label %221
+    i32 19, label %.preheader72
   ]
 
-.preheader66:                                     ; preds = %43
+.preheader72:                                     ; preds = %43
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.pre = load i32, ptr %44, align 8, !tbaa !41
-  br label %224
+  br label %223
 
 .preheader:                                       ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %.pre77 = load i32, ptr %45, align 8, !tbaa !41
+  %.pre83 = load i32, ptr %45, align 8, !tbaa !41
   br label %50
 
 46:                                               ; preds = %43, %43
-  %47 = tail call i32 @cuddZddSwapping(ptr noundef %0, i32 noundef %16, i32 noundef %.2, i32 noundef %2) #9
+  %47 = tail call i32 @cuddZddSwapping(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2, i32 noundef %2) #9
   br label %zddGroupSifting.exit
 
 48:                                               ; preds = %43
-  %49 = tail call i32 @cuddZddSifting(ptr noundef %0, i32 noundef %16, i32 noundef %.2) #9
+  %49 = tail call i32 @cuddZddSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
   br label %zddGroupSifting.exit
 
 50:                                               ; preds = %.preheader, %50
-  %51 = phi i32 [ %.pre77, %.preheader ], [ %53, %50 ]
+  %51 = phi i32 [ %.pre83, %.preheader ], [ %53, %50 ]
   %52 = tail call i32 @cuddZddSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
   %53 = load i32, ptr %45, align 8, !tbaa !41
   %54 = icmp ugt i32 %51, %53
@@ -286,11 +286,11 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   br i1 %or.cond, label %50, label %zddGroupSifting.exit, !llvm.loop !42
 
 56:                                               ; preds = %43
-  %57 = tail call i32 @cuddZddSymmSifting(ptr noundef %0, i32 noundef %16, i32 noundef %.2) #9
+  %57 = tail call i32 @cuddZddSymmSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
   br label %zddGroupSifting.exit
 
 58:                                               ; preds = %43
-  %59 = tail call i32 @cuddZddSymmSiftingConv(ptr noundef %0, i32 noundef %16, i32 noundef %.2) #9
+  %59 = tail call i32 @cuddZddSymmSiftingConv(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
   br label %zddGroupSifting.exit
 
 60:                                               ; preds = %43
@@ -645,98 +645,99 @@ zddFindNodeHiLo.exit:                             ; preds = %.preheader.i, %9, %
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   %.pr.pre.i = load ptr, ptr @entry, align 8, !tbaa !43
   %.not100.i = icmp eq ptr %.pr.pre.i, null
-  br i1 %.not100.i, label %220, label %219
+  br i1 %.not100.i, label %.thread66, label %219
 
-219:                                              ; preds = %218, %.thread134.i
+.thread66:                                        ; preds = %218
+  tail call void @free(ptr noundef nonnull %63) #9
+  br label %220
+
+219:                                              ; preds = %.thread134.i, %218
   %.pr138.i = phi ptr [ %67, %.thread134.i ], [ %.pr.pre.i, %218 ]
   tail call void @free(ptr noundef nonnull %.pr138.i) #9
   store ptr null, ptr @entry, align 8, !tbaa !43
-  br label %220
-
-220:                                              ; preds = %218, %219
   tail call void @free(ptr noundef nonnull %63) #9
-  br i1 %72, label %zddGroupSifting.exit, label %221
+  br i1 %72, label %zddGroupSifting.exit, label %220
 
-221:                                              ; preds = %220
+220:                                              ; preds = %.thread66, %219
   tail call void @free(ptr noundef nonnull %71) #9
   br label %zddGroupSifting.exit
 
-222:                                              ; preds = %43
-  %223 = tail call i32 @cuddZddLinearSifting(ptr noundef %0, i32 noundef %16, i32 noundef %.2) #9
+221:                                              ; preds = %43
+  %222 = tail call i32 @cuddZddLinearSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
   br label %zddGroupSifting.exit
 
-224:                                              ; preds = %.preheader66, %224
-  %225 = phi i32 [ %.pre, %.preheader66 ], [ %227, %224 ]
-  %226 = tail call i32 @cuddZddLinearSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
-  %227 = load i32, ptr %44, align 8, !tbaa !41
-  %228 = icmp ugt i32 %225, %227
-  %229 = icmp ne i32 %226, 0
-  %or.cond3 = select i1 %228, i1 %229, i1 false
-  br i1 %or.cond3, label %224, label %zddGroupSifting.exit, !llvm.loop !64
+223:                                              ; preds = %.preheader72, %223
+  %224 = phi i32 [ %.pre, %.preheader72 ], [ %226, %223 ]
+  %225 = tail call i32 @cuddZddLinearSifting(ptr noundef nonnull %0, i32 noundef %16, i32 noundef %.2) #9
+  %226 = load i32, ptr %44, align 8, !tbaa !41
+  %227 = icmp ugt i32 %224, %226
+  %228 = icmp ne i32 %225, 0
+  %or.cond3 = select i1 %227, i1 %228, i1 false
+  br i1 %or.cond3, label %223, label %zddGroupSifting.exit, !llvm.loop !64
 
-zddGroupSifting.exit:                             ; preds = %224, %50, %221, %220, %217, %._crit_edge121.i, %.thread142.i, %.thread, %40, %46, %48, %56, %58, %222
-  %.0 = phi i32 [ %223, %222 ], [ %59, %58 ], [ %57, %56 ], [ %49, %48 ], [ %47, %46 ], [ 1, %40 ], [ 1, %._crit_edge121.i ], [ 1, %217 ], [ 0, %221 ], [ 0, %220 ], [ 0, %.thread142.i ], [ 0, %.thread ], [ %52, %50 ], [ %226, %224 ]
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %231 = load ptr, ptr %230, align 8, !tbaa !26
-  %.not.i32 = icmp eq ptr %1, %231
-  br i1 %.not.i32, label %240, label %.preheader.i33
+zddGroupSifting.exit:                             ; preds = %223, %50, %220, %219, %217, %._crit_edge121.i, %.thread142.i, %.thread, %40, %46, %48, %56, %58, %221
+  %.0 = phi i32 [ %222, %221 ], [ %59, %58 ], [ %57, %56 ], [ %49, %48 ], [ %47, %46 ], [ 1, %40 ], [ 1, %._crit_edge121.i ], [ 1, %217 ], [ 0, %220 ], [ 0, %219 ], [ 0, %.thread142.i ], [ 0, %.thread ], [ %52, %50 ], [ %225, %223 ]
+  %229 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %230 = load ptr, ptr %229, align 8, !tbaa !26
+  %.not.i32 = icmp eq ptr %1, %230
+  br i1 %.not.i32, label %239, label %.preheader.i33
 
 .preheader.i33:                                   ; preds = %zddGroupSifting.exit
-  %232 = icmp slt i32 %16, %.2
-  %233 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %234 = load ptr, ptr %233, align 8, !tbaa !31
-  br i1 %232, label %.lr.ph.i35, label %.preheader.._crit_edge_crit_edge.i
+  %231 = icmp slt i32 %16, %.2
+  %232 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %233 = load ptr, ptr %232, align 8, !tbaa !31
+  br i1 %231, label %.lr.ph.i35, label %.preheader.._crit_edge_crit_edge.i
 
 .preheader.._crit_edge_crit_edge.i:               ; preds = %.preheader.i33
   %.pre27.i = sext i32 %.2 to i64
   br label %._crit_edge.i34
 
 .lr.ph.i35:                                       ; preds = %.preheader.i33
-  %235 = sext i32 %16 to i64
+  %234 = sext i32 %16 to i64
   %wide.trip.count.i36 = sext i32 %.2 to i64
-  br label %236
+  br label %235
 
-236:                                              ; preds = %236, %.lr.ph.i35
-  %indvars.iv.i37 = phi i64 [ %235, %.lr.ph.i35 ], [ %indvars.iv.next.i38, %236 ]
+235:                                              ; preds = %235, %.lr.ph.i35
+  %indvars.iv.i37 = phi i64 [ %234, %.lr.ph.i35 ], [ %indvars.iv.next.i38, %235 ]
   %indvars.iv.next.i38 = add nsw i64 %indvars.iv.i37, 1
-  %237 = getelementptr inbounds %struct.DdSubtable, ptr %234, i64 %indvars.iv.i37, i32 6
-  %238 = trunc nsw i64 %indvars.iv.next.i38 to i32
-  store i32 %238, ptr %237, align 4, !tbaa !32
+  %236 = getelementptr inbounds %struct.DdSubtable, ptr %233, i64 %indvars.iv.i37, i32 6
+  %237 = trunc nsw i64 %indvars.iv.next.i38 to i32
+  store i32 %237, ptr %236, align 4, !tbaa !32
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.next.i38, %wide.trip.count.i36
-  br i1 %exitcond.not.i39, label %._crit_edge.i34, label %236, !llvm.loop !65
+  br i1 %exitcond.not.i39, label %._crit_edge.i34, label %235, !llvm.loop !65
 
-._crit_edge.i34:                                  ; preds = %236, %.preheader.._crit_edge_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre27.i, %.preheader.._crit_edge_crit_edge.i ], [ %wide.trip.count.i36, %236 ]
-  %239 = getelementptr inbounds %struct.DdSubtable, ptr %234, i64 %.pre-phi.i, i32 6
-  store i32 %16, ptr %239, align 4, !tbaa !32
-  br label %240
+._crit_edge.i34:                                  ; preds = %235, %.preheader.._crit_edge_crit_edge.i
+  %.pre-phi.i = phi i64 [ %.pre27.i, %.preheader.._crit_edge_crit_edge.i ], [ %wide.trip.count.i36, %235 ]
+  %238 = getelementptr inbounds %struct.DdSubtable, ptr %233, i64 %.pre-phi.i, i32 6
+  store i32 %16, ptr %238, align 4, !tbaa !32
+  br label %239
 
-240:                                              ; preds = %._crit_edge.i34, %zddGroupSifting.exit
-  %241 = load i32, ptr %12, align 4, !tbaa !28
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %243 = load ptr, ptr %242, align 8, !tbaa !27
-  %244 = sext i32 %16 to i64
-  %245 = getelementptr inbounds i32, ptr %243, i64 %244
-  %246 = load i32, ptr %245, align 4, !tbaa !25
-  br label %247
+239:                                              ; preds = %._crit_edge.i34, %zddGroupSifting.exit
+  %240 = load i32, ptr %12, align 4, !tbaa !28
+  %241 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %242 = load ptr, ptr %241, align 8, !tbaa !27
+  %243 = sext i32 %16 to i64
+  %244 = getelementptr inbounds i32, ptr %242, i64 %243
+  %245 = load i32, ptr %244, align 4, !tbaa !25
+  br label %246
 
-247:                                              ; preds = %252, %240
-  %.021.i = phi ptr [ %1, %240 ], [ %250, %252 ]
-  %248 = getelementptr inbounds nuw i8, ptr %.021.i, i64 12
-  store i32 %246, ptr %248, align 4, !tbaa !28
-  %249 = getelementptr inbounds nuw i8, ptr %.021.i, i64 16
-  %250 = load ptr, ptr %249, align 8, !tbaa !66
-  %251 = icmp eq ptr %250, null
-  br i1 %251, label %zddMergeGroups.exit, label %252
+246:                                              ; preds = %251, %239
+  %.021.i = phi ptr [ %1, %239 ], [ %249, %251 ]
+  %247 = getelementptr inbounds nuw i8, ptr %.021.i, i64 12
+  store i32 %245, ptr %247, align 4, !tbaa !28
+  %248 = getelementptr inbounds nuw i8, ptr %.021.i, i64 16
+  %249 = load ptr, ptr %248, align 8, !tbaa !66
+  %250 = icmp eq ptr %249, null
+  br i1 %250, label %zddMergeGroups.exit, label %251
 
-252:                                              ; preds = %247
-  %253 = getelementptr inbounds nuw i8, ptr %250, i64 12
-  %254 = load i32, ptr %253, align 4, !tbaa !28
-  %.not24.i = icmp eq i32 %254, %241
-  br i1 %.not24.i, label %247, label %zddMergeGroups.exit
+251:                                              ; preds = %246
+  %252 = getelementptr inbounds nuw i8, ptr %249, i64 12
+  %253 = load i32, ptr %252, align 4, !tbaa !28
+  %.not24.i = icmp eq i32 %253, %240
+  br i1 %.not24.i, label %246, label %zddMergeGroups.exit
 
-zddMergeGroups.exit:                              ; preds = %252, %247, %3, %43, %zddFindNodeHiLo.exit
-  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 0, %43 ], [ 1, %3 ], [ %.0, %247 ], [ %.0, %252 ]
+zddMergeGroups.exit:                              ; preds = %251, %246, %3, %43, %zddFindNodeHiLo.exit
+  %.027 = phi i32 [ 1, %zddFindNodeHiLo.exit ], [ 0, %43 ], [ 1, %3 ], [ %.0, %246 ], [ %.0, %251 ]
   ret i32 %.027
 }
 
@@ -815,12 +816,12 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, 
   br i1 %or.cond, label %25, label %44
 
 25:                                               ; preds = %19
-  %26 = tail call i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %.07081, i32 noundef %.06882) #9
+  %26 = tail call i32 @cuddZddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.07081, i32 noundef %.06882) #9
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %56, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @cuddDynamicAllocNode(ptr noundef %0) #9
+  %29 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #9
   %30 = icmp eq ptr %29, null
   br i1 %30, label %56, label %31
 
@@ -849,7 +850,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingDown(ptr noundef %0, 
   br label %54
 
 44:                                               ; preds = %19
-  %45 = tail call fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %.07081, i32 noundef %.06882, ptr noundef %3)
+  %45 = tail call fastcc i32 @zddGroupMove(ptr noundef nonnull %0, i32 noundef %.07081, i32 noundef %.06882, ptr noundef %3)
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %56, label %47
 
@@ -990,7 +991,7 @@ define internal fastcc range(i32 0, 2) i32 @zddGroupSiftingBackward(ptr noundef 
 .preheader70.us.i:                                ; preds = %.preheader70.us.i, %.preheader70.us.preheader.i
   %.06476.us.i = phi i32 [ %46, %.preheader70.us.i ], [ 1, %.preheader70.us.preheader.i ]
   %44 = add nsw i32 %.06476.us.i, %21
-  %45 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %44) #9
+  %45 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %44) #9
   %46 = add nuw i32 %.06476.us.i, 1
   %exitcond93.i = icmp eq i32 %.06476.us.i, %43
   br i1 %exitcond93.i, label %.preheader.i, label %.preheader70.us.i, !llvm.loop !75
@@ -1241,7 +1242,7 @@ define internal fastcc i32 @zddGroupMove(ptr noundef %0, i32 noundef %1, i32 nou
 .preheader102.us:                                 ; preds = %.preheader102.us.preheader, %.preheader102.us
   %.093114.us = phi i32 [ %24, %.preheader102.us ], [ 1, %.preheader102.us.preheader ]
   %22 = add nsw i32 %.093114.us, %2
-  %23 = tail call i32 @cuddZddNextLow(ptr noundef %0, i32 noundef %22) #9
+  %23 = tail call i32 @cuddZddNextLow(ptr noundef nonnull %0, i32 noundef %22) #9
   %24 = add nuw i32 %.093114.us, 1
   %exitcond143 = icmp eq i32 %.093114.us, %21
   br i1 %exitcond143, label %.preheader, label %.preheader102.us, !llvm.loop !83

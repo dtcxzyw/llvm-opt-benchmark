@@ -1570,7 +1570,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %117 = load i16, ptr %116, align 2
   %118 = sub i16 %117, %114
   store i16 %118, ptr %116, align 2
-  call void @PageIndexMultiDelete(ptr noundef %.0.i.i, ptr noundef nonnull %5, i32 noundef %115) #8
+  call void @PageIndexMultiDelete(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %5, i32 noundef %115) #8
   %119 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i16 %.059.lcssa, ptr %119, align 2
   br label %122

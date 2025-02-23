@@ -1746,7 +1746,7 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
-  %40 = phi i32 [ %.pre, %.lr.ph.us.preheader ], [ %234, %._crit_edge.us ]
+  %40 = phi i32 [ %.pre, %.lr.ph.us.preheader ], [ %233, %._crit_edge.us ]
   %indvars.iv77 = phi i64 [ %38, %.lr.ph.us.preheader ], [ %indvars.iv.next78, %._crit_edge.us ]
   %41 = load ptr, ptr %6, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -1785,11 +1785,11 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %75 = getelementptr inbounds i8, ptr %70, i64 %74
   br label %76
 
-76:                                               ; preds = %.lr.ph.us, %231
-  %77 = phi i32 [ %40, %.lr.ph.us ], [ %234, %231 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %231 ]
-  %.05263.us = phi ptr [ %48, %.lr.ph.us ], [ %233, %231 ]
-  %.05362.us = phi ptr [ %54, %.lr.ph.us ], [ %237, %231 ]
+76:                                               ; preds = %.lr.ph.us, %230
+  %77 = phi i32 [ %40, %.lr.ph.us ], [ %233, %230 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %230 ]
+  %.05263.us = phi ptr [ %48, %.lr.ph.us ], [ %232, %230 ]
+  %.05362.us = phi ptr [ %54, %.lr.ph.us ], [ %236, %230 ]
   %78 = load float, ptr %26, align 8
   %79 = load i32, ptr %27, align 8
   %80 = load float, ptr %28, align 4
@@ -1922,15 +1922,15 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %wide.trip.count212.i.us = zext nneg i32 %smax211.i.us to i64
   br label %137
 
-137:                                              ; preds = %171, %.lr.ph161.i.us
-  %indvars.iv208.i.us = phi i64 [ 0, %.lr.ph161.i.us ], [ %indvars.iv.next209.i.us, %171 ]
-  %.095159.i.us = phi i32 [ 0, %.lr.ph161.i.us ], [ %.196.i.us, %171 ]
+137:                                              ; preds = %170, %.lr.ph161.i.us
+  %indvars.iv208.i.us = phi i64 [ 0, %.lr.ph161.i.us ], [ %indvars.iv.next209.i.us, %170 ]
+  %.095159.i.us = phi i32 [ 0, %.lr.ph161.i.us ], [ %.196.i.us, %170 ]
   %138 = mul nuw nsw i64 %indvars.iv208.i.us, %32
   %139 = getelementptr inbounds nuw i8, ptr %.05362.us, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %31
   %141 = load i8, ptr %140, align 1
   %.not106.i.us = icmp eq i8 %141, 0
-  br i1 %.not106.i.us, label %171, label %.lr.ph.i.us
+  br i1 %.not106.i.us, label %170, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %137, %.lr.ph.i.us
   %indvars.iv198.i.us = phi i64 [ %indvars.iv.next199.i.us, %.lr.ph.i.us ], [ 0, %137 ]
@@ -1957,158 +1957,158 @@ define linkonce_odr hidden void @_ZNK2cv10KNNInvokerclERKNS_5RangeE(ptr noundef 
   %153 = fmul float %80, %149
   %154 = fcmp ult float %148, %153
   %or.cond.i.us = or i1 %152, %154
-  br i1 %or.cond.i.us, label %171, label %155
+  br i1 %or.cond.i.us, label %170, label %.lr.ph156.preheader.i.us
 
-155:                                              ; preds = %151
-  %156 = fdiv float %148, %149
+.lr.ph156.preheader.i.us:                         ; preds = %151
+  %155 = fdiv float %148, %149
   br label %.lr.ph156.i.us
 
-.lr.ph156.i.us:                                   ; preds = %.lr.ph156.i.us, %155
-  %indvars.iv203.i.us = phi i64 [ %indvars.iv.next204.i.us, %.lr.ph156.i.us ], [ 0, %155 ]
-  %.087153.i.us = phi float [ %165, %.lr.ph156.i.us ], [ 0.000000e+00, %155 ]
-  %157 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv203.i.us
-  %158 = load i8, ptr %157, align 1
-  %159 = uitofp i8 %158 to float
-  %160 = getelementptr inbounds nuw i8, ptr %.05263.us, i64 %indvars.iv203.i.us
-  %161 = load i8, ptr %160, align 1
-  %162 = uitofp i8 %161 to float
-  %163 = fneg float %162
-  %164 = tail call float @llvm.fmuladd.f32(float %156, float %159, float %163)
-  %165 = tail call float @llvm.fmuladd.f32(float %164, float %164, float %.087153.i.us)
+.lr.ph156.i.us:                                   ; preds = %.lr.ph156.i.us, %.lr.ph156.preheader.i.us
+  %indvars.iv203.i.us = phi i64 [ 0, %.lr.ph156.preheader.i.us ], [ %indvars.iv.next204.i.us, %.lr.ph156.i.us ]
+  %.087153.i.us = phi float [ 0.000000e+00, %.lr.ph156.preheader.i.us ], [ %164, %.lr.ph156.i.us ]
+  %156 = getelementptr inbounds nuw i8, ptr %139, i64 %indvars.iv203.i.us
+  %157 = load i8, ptr %156, align 1
+  %158 = uitofp i8 %157 to float
+  %159 = getelementptr inbounds nuw i8, ptr %.05263.us, i64 %indvars.iv203.i.us
+  %160 = load i8, ptr %159, align 1
+  %161 = uitofp i8 %160 to float
+  %162 = fneg float %161
+  %163 = tail call float @llvm.fmuladd.f32(float %155, float %158, float %162)
+  %164 = tail call float @llvm.fmuladd.f32(float %163, float %163, float %.087153.i.us)
   %indvars.iv.next204.i.us = add nuw nsw i64 %indvars.iv203.i.us, 1
   %exitcond207.not.i.us = icmp eq i64 %indvars.iv.next204.i.us, %31
   br i1 %exitcond207.not.i.us, label %._crit_edge157.i.us, label %.lr.ph156.i.us, !llvm.loop !34
 
 ._crit_edge157.i.us:                              ; preds = %.lr.ph156.i.us
-  %166 = fmul float %78, %156
-  %167 = fmul float %156, %166
-  %168 = fcmp olt float %165, %167
-  br i1 %168, label %169, label %171
+  %165 = fmul float %78, %155
+  %166 = fmul float %155, %165
+  %167 = fcmp olt float %164, %166
+  br i1 %167, label %168, label %170
 
-169:                                              ; preds = %._crit_edge157.i.us
-  %170 = add nsw i32 %.095159.i.us, 1
-  %.not107.i.us = icmp slt i32 %170, %79
-  br i1 %.not107.i.us, label %171, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
+168:                                              ; preds = %._crit_edge157.i.us
+  %169 = add nsw i32 %.095159.i.us, 1
+  %.not107.i.us = icmp slt i32 %169, %79
+  br i1 %.not107.i.us, label %170, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
 
-171:                                              ; preds = %169, %._crit_edge157.i.us, %151, %137
-  %.196.i.us = phi i32 [ %170, %169 ], [ %.095159.i.us, %._crit_edge157.i.us ], [ %.095159.i.us, %151 ], [ %.095159.i.us, %137 ]
+170:                                              ; preds = %168, %._crit_edge157.i.us, %151, %137
+  %.196.i.us = phi i32 [ %169, %168 ], [ %.095159.i.us, %._crit_edge157.i.us ], [ %.095159.i.us, %151 ], [ %.095159.i.us, %137 ]
   %indvars.iv.next209.i.us = add nuw nsw i64 %indvars.iv208.i.us, 1
   %exitcond213.not.i.us = icmp eq i64 %indvars.iv.next209.i.us, %wide.trip.count212.i.us
   br i1 %exitcond213.not.i.us, label %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us, label %137, !llvm.loop !35
 
-_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %101, %134, %._crit_edge151.i.us, %169, %171, %._crit_edge.i.us.thread, %._crit_edge.i.us
-  %.1.shrunk.us = phi i1 [ %.not.i.us, %._crit_edge.i.us ], [ %.not.i.us84, %._crit_edge.i.us.thread ], [ %.not.i.us, %171 ], [ %.not.i.us, %169 ], [ %.not.i.us, %._crit_edge151.i.us ], [ true, %134 ], [ true, %101 ]
-  %.0.i.us = phi i32 [ 0, %._crit_edge.i.us ], [ 0, %._crit_edge.i.us.thread ], [ 0, %._crit_edge151.i.us ], [ 2, %169 ], [ 0, %171 ], [ 1, %134 ], [ 1, %101 ]
+_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us: ; preds = %101, %134, %._crit_edge151.i.us, %168, %170, %._crit_edge.i.us.thread, %._crit_edge.i.us
+  %.1.shrunk.us = phi i1 [ %.not.i.us, %._crit_edge.i.us ], [ %.not.i.us84, %._crit_edge.i.us.thread ], [ %.not.i.us, %170 ], [ %.not.i.us, %168 ], [ %.not.i.us, %._crit_edge151.i.us ], [ true, %134 ], [ true, %101 ]
+  %.0.i.us = phi i32 [ 0, %._crit_edge.i.us ], [ 0, %._crit_edge.i.us.thread ], [ 0, %._crit_edge151.i.us ], [ 2, %168 ], [ 0, %170 ], [ 1, %134 ], [ 1, %101 ]
   %.1.us = zext i1 %.1.shrunk.us to i8
-  %172 = load i32, ptr %33, align 8
-  %173 = load i32, ptr %34, align 4
-  %174 = load i32, ptr %35, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i32
-  %178 = add nsw i32 %77, %177
-  %179 = mul nsw i32 %178, %13
-  %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i32
-  %184 = mul nuw nsw i32 %13, %183
-  %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
-  %187 = load i8, ptr %186, align 1
-  %188 = zext i8 %187 to i32
-  %189 = icmp eq i32 %172, %188
-  br i1 %189, label %190, label %204
+  %171 = load i32, ptr %33, align 8
+  %172 = load i32, ptr %34, align 4
+  %173 = load i32, ptr %35, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %65, i64 %indvars.iv
+  %175 = load i8, ptr %174, align 1
+  %176 = zext i8 %175 to i32
+  %177 = add nsw i32 %77, %176
+  %178 = mul nsw i32 %177, %13
+  %179 = sext i32 %178 to i64
+  %180 = getelementptr inbounds nuw i8, ptr %67, i64 %indvars.iv
+  %181 = load i8, ptr %180, align 1
+  %182 = zext i8 %181 to i32
+  %183 = mul nuw nsw i32 %13, %182
+  %184 = zext nneg i32 %183 to i64
+  %185 = getelementptr inbounds nuw i8, ptr %57, i64 %indvars.iv
+  %186 = load i8, ptr %185, align 1
+  %187 = zext i8 %186 to i32
+  %188 = icmp eq i32 %171, %187
+  br i1 %188, label %189, label %203
 
-190:                                              ; preds = %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
-  %191 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
-  %192 = shl nsw i32 %77, 1
-  %193 = load i8, ptr %191, align 1
-  %194 = zext i8 %193 to i32
-  %195 = add nsw i32 %192, %194
-  %196 = mul nsw i32 %195, %13
-  %197 = sext i32 %196 to i64
-  %198 = getelementptr inbounds i8, ptr %.05362.us, i64 %197
-  %199 = getelementptr inbounds i8, ptr %.05362.us, i64 %180
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %198, ptr noundef nonnull align 1 dereferenceable(1) %199, i64 %32, i1 false)
-  %200 = load i8, ptr %191, align 1
-  %201 = zext i8 %200 to i32
-  %202 = add nsw i32 %77, -1
-  %.not.i54.us = icmp sgt i32 %202, %201
-  %203 = add i8 %200, 1
-  %spec.select.i.us = select i1 %.not.i54.us, i8 %203, i8 0
-  store i8 %spec.select.i.us, ptr %191, align 1
-  br label %204
+189:                                              ; preds = %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
+  %190 = getelementptr inbounds nuw i8, ptr %63, i64 %indvars.iv
+  %191 = shl nsw i32 %77, 1
+  %192 = load i8, ptr %190, align 1
+  %193 = zext i8 %192 to i32
+  %194 = add nsw i32 %191, %193
+  %195 = mul nsw i32 %194, %13
+  %196 = sext i32 %195 to i64
+  %197 = getelementptr inbounds i8, ptr %.05362.us, i64 %196
+  %198 = getelementptr inbounds i8, ptr %.05362.us, i64 %179
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %197, ptr noundef nonnull align 1 dereferenceable(1) %198, i64 %32, i1 false)
+  %199 = load i8, ptr %190, align 1
+  %200 = zext i8 %199 to i32
+  %201 = add nsw i32 %77, -1
+  %.not.i54.us = icmp sgt i32 %201, %200
+  %202 = add i8 %199, 1
+  %spec.select.i.us = select i1 %.not.i54.us, i8 %202, i8 0
+  store i8 %spec.select.i.us, ptr %190, align 1
+  br label %203
 
-204:                                              ; preds = %190, %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
-  %205 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
-  %206 = load i8, ptr %205, align 1
-  %207 = zext i8 %206 to i32
-  %208 = icmp eq i32 %173, %207
-  br i1 %208, label %209, label %216
+203:                                              ; preds = %189, %_ZN2cvL25_cvCheckPixelBackgroundNPEPKhiiPhfifbRh.exit.us
+  %204 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
+  %205 = load i8, ptr %204, align 1
+  %206 = zext i8 %205 to i32
+  %207 = icmp eq i32 %172, %206
+  br i1 %207, label %208, label %215
 
-209:                                              ; preds = %204
-  %210 = getelementptr inbounds i8, ptr %.05362.us, i64 %180
-  %211 = getelementptr inbounds nuw i8, ptr %.05362.us, i64 %185
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %210, ptr noundef nonnull align 1 dereferenceable(1) %211, i64 %32, i1 false)
-  %212 = load i8, ptr %175, align 1
-  %213 = zext i8 %212 to i32
-  %214 = add nsw i32 %77, -1
-  %.not61.i.us = icmp sgt i32 %214, %213
-  %215 = add i8 %212, 1
-  %spec.select63.i.us = select i1 %.not61.i.us, i8 %215, i8 0
-  store i8 %spec.select63.i.us, ptr %175, align 1
-  br label %216
+208:                                              ; preds = %203
+  %209 = getelementptr inbounds i8, ptr %.05362.us, i64 %179
+  %210 = getelementptr inbounds nuw i8, ptr %.05362.us, i64 %184
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %209, ptr noundef nonnull align 1 dereferenceable(1) %210, i64 %32, i1 false)
+  %211 = load i8, ptr %174, align 1
+  %212 = zext i8 %211 to i32
+  %213 = add nsw i32 %77, -1
+  %.not61.i.us = icmp sgt i32 %213, %212
+  %214 = add i8 %211, 1
+  %spec.select63.i.us = select i1 %.not61.i.us, i8 %214, i8 0
+  store i8 %spec.select63.i.us, ptr %174, align 1
+  br label %215
 
-216:                                              ; preds = %209, %204
-  %217 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv
-  %218 = load i8, ptr %217, align 1
-  %219 = zext i8 %218 to i32
-  %220 = icmp eq i32 %174, %219
-  br i1 %220, label %221, label %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
+215:                                              ; preds = %208, %203
+  %216 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv
+  %217 = load i8, ptr %216, align 1
+  %218 = zext i8 %217 to i32
+  %219 = icmp eq i32 %173, %218
+  br i1 %219, label %220, label %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
 
-221:                                              ; preds = %216
-  %222 = getelementptr i8, ptr %.05362.us, i64 %185
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %222, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05263.us, i64 %31, i1 false)
-  %223 = getelementptr i8, ptr %222, i64 %31
-  store i8 %.1.us, ptr %223, align 1
-  %224 = load i8, ptr %181, align 1
-  %225 = zext i8 %224 to i32
-  %226 = add nsw i32 %77, -1
-  %.not62.i.us = icmp sgt i32 %226, %225
-  %227 = add i8 %224, 1
-  %spec.select64.i.us = select i1 %.not62.i.us, i8 %227, i8 0
-  store i8 %spec.select64.i.us, ptr %181, align 1
+220:                                              ; preds = %215
+  %221 = getelementptr i8, ptr %.05362.us, i64 %184
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %221, ptr noundef nonnull readonly align 1 dereferenceable(1) %.05263.us, i64 %31, i1 false)
+  %222 = getelementptr i8, ptr %221, i64 %31
+  store i8 %.1.us, ptr %222, align 1
+  %223 = load i8, ptr %180, align 1
+  %224 = zext i8 %223 to i32
+  %225 = add nsw i32 %77, -1
+  %.not62.i.us = icmp sgt i32 %225, %224
+  %226 = add i8 %223, 1
+  %spec.select64.i.us = select i1 %.not62.i.us, i8 %226, i8 0
+  store i8 %spec.select64.i.us, ptr %180, align 1
   br label %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
 
-_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us: ; preds = %221, %216
+_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us: ; preds = %220, %215
   switch i32 %.0.i.us, label %default.unreachable82 [
-    i32 0, label %230
-    i32 1, label %231
-    i32 2, label %228
+    i32 0, label %229
+    i32 1, label %230
+    i32 2, label %227
   ]
 
-228:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
-  %229 = load i8, ptr %36, align 1
-  br label %231
+227:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
+  %228 = load i8, ptr %36, align 1
+  br label %230
 
-230:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
-  br label %231
+229:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us
+  br label %230
 
-231:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us, %230, %228
-  %.sink = phi i8 [ -1, %230 ], [ %229, %228 ], [ 0, %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us ]
-  %232 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
-  store i8 %.sink, ptr %232, align 1
-  %233 = getelementptr inbounds nuw i8, ptr %.05263.us, i64 %31
-  %234 = load i32, ptr %17, align 4
-  %235 = mul i32 %37, %234
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds i8, ptr %.05362.us, i64 %236
+230:                                              ; preds = %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us, %229, %227
+  %.sink = phi i8 [ -1, %229 ], [ %228, %227 ], [ 0, %_ZN2cvL26_cvUpdatePixelBackgroundNPEiPKhiiPhS2_S2_S2_S2_S2_S2_iiih.exit.us ]
+  %231 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv
+  store i8 %.sink, ptr %231, align 1
+  %232 = getelementptr inbounds nuw i8, ptr %.05263.us, i64 %31
+  %233 = load i32, ptr %17, align 4
+  %234 = mul i32 %37, %233
+  %235 = sext i32 %234 to i64
+  %236 = getelementptr inbounds i8, ptr %.05362.us, i64 %235
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %76, !llvm.loop !36
 
-._crit_edge.us:                                   ; preds = %231
+._crit_edge.us:                                   ; preds = %230
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %._crit_edge68, label %.lr.ph.us, !llvm.loop !37

@@ -1473,7 +1473,7 @@ Vec_VecPush.exit.i:                               ; preds = %62, %Vec_PtrGrow.ex
   %72 = load ptr, ptr %71, align 8, !tbaa !27
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 0, ptr %73, align 4, !tbaa !24
-  %74 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef %1, ptr noundef %72, i32 noundef 1, i32 noundef %4, i32 noundef %5)
+  %74 = tail call fastcc i32 @Abc_NodeBalanceCone_rec(ptr noundef nonnull %1, ptr noundef %72, i32 noundef 1, i32 noundef %4, i32 noundef %5)
   %75 = load i32, ptr %73, align 4, !tbaa !24
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph.i, label %._crit_edge.i
@@ -1523,7 +1523,7 @@ Abc_NodeBalanceCone.exit:                         ; preds = %._crit_edge.i
   br label %101
 
 96:                                               ; preds = %Abc_NodeBalanceCone.exit.thread, %Abc_NodeBalanceCone.exit
-  %97 = tail call ptr @Abc_AigConst1(ptr noundef %0) #13
+  %97 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #13
   %98 = ptrtoint ptr %97 to i64
   %99 = xor i64 %98, 1
   %100 = inttoptr i64 %99 to ptr
@@ -1538,7 +1538,7 @@ Abc_NodeBalanceCone.exit:                         ; preds = %._crit_edge.i
   %105 = ptrtoint ptr %104 to i64
   %106 = and i64 %105, -2
   %107 = inttoptr i64 %106 to ptr
-  %108 = tail call fastcc ptr @Abc_NodeBalance_rec(ptr noundef %0, ptr noundef %107, ptr noundef %2, i32 noundef %95, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  %108 = tail call fastcc ptr @Abc_NodeBalance_rec(ptr noundef nonnull %0, ptr noundef %107, ptr noundef nonnull %2, i32 noundef %95, i32 noundef %4, i32 noundef %5, i32 noundef %6)
   %109 = load ptr, ptr %94, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 8, !tbaa !27

@@ -112,7 +112,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, 
 
 .lr.ph66.preheader:                               ; preds = %60
   %62 = zext nneg i32 %.0 to i64
-  %wide.trip.count = zext i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph66
 
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66

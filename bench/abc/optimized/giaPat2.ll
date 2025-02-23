@@ -3417,7 +3417,7 @@ Vec_IntAlloc.exit.i:                              ; preds = %7, %1
   br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !83
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
-  tail call void @Min_ManTest3(ptr noundef %0, ptr noundef nonnull %4)
+  tail call void @Min_ManTest3(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %16 = load ptr, ptr %12, align 8, !tbaa !32
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %17
@@ -3840,7 +3840,7 @@ define ptr @Gia_ManDupCones2(ptr noundef %0, ptr noundef readonly captures(none)
   %18 = trunc i64 %.val.i.i to i32
   %19 = and i32 %18, 536870911
   %20 = sub nsw i32 %15, %19
-  tail call void @Gia_ManDupCones2CollectPis_rec(ptr noundef %0, i32 noundef %20, ptr noundef %3)
+  tail call void @Gia_ManDupCones2CollectPis_rec(ptr noundef %0, i32 noundef %20, ptr noundef nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !90
@@ -7629,15 +7629,15 @@ Vec_WrdStart.exit:                                ; preds = %3, %11
   store i64 %38, ptr %39, align 8, !tbaa !150
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Abc_TtCopy.exit.us, label %.lr.ph.i.us, !llvm.loop !156
+  br i1 %exitcond.not.i.us, label %.lr.ph.preheader.i35.us, label %.lr.ph.i.us, !llvm.loop !156
 
-Abc_TtCopy.exit.us:                               ; preds = %.lr.ph.i.us
+.lr.ph.preheader.i35.us:                          ; preds = %.lr.ph.i.us
   %40 = getelementptr inbounds i64, ptr %26, i64 %33
   %41 = getelementptr inbounds nuw i64, ptr %28, i64 %35
   br label %.lr.ph.i37.us
 
-.lr.ph.i37.us:                                    ; preds = %.lr.ph.i37.us, %Abc_TtCopy.exit.us
-  %indvars.iv.i38.us = phi i64 [ 0, %Abc_TtCopy.exit.us ], [ %indvars.iv.next.i39.us, %.lr.ph.i37.us ]
+.lr.ph.i37.us:                                    ; preds = %.lr.ph.i37.us, %.lr.ph.preheader.i35.us
+  %indvars.iv.i38.us = phi i64 [ 0, %.lr.ph.preheader.i35.us ], [ %indvars.iv.next.i39.us, %.lr.ph.i37.us ]
   %42 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv.i38.us
   %43 = load i64, ptr %42, align 8, !tbaa !150
   %44 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i38.us
@@ -7996,15 +7996,15 @@ Vec_WrdStart.exit.i.Min_ManRemapSims.exit_crit_edge: ; preds = %Vec_WrdStart.exi
   store i64 %140, ptr %141, align 8, !tbaa !150
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.us.i, label %Abc_TtCopy.exit.us.i, label %.lr.ph.i.us.i, !llvm.loop !156
+  br i1 %exitcond.not.i.us.i, label %.lr.ph.preheader.i35.us.i, label %.lr.ph.i.us.i, !llvm.loop !156
 
-Abc_TtCopy.exit.us.i:                             ; preds = %.lr.ph.i.us.i
+.lr.ph.preheader.i35.us.i:                        ; preds = %.lr.ph.i.us.i
   %142 = getelementptr inbounds i64, ptr %128, i64 %135
   %143 = getelementptr inbounds nuw i64, ptr %130, i64 %137
   br label %.lr.ph.i37.us.i
 
-.lr.ph.i37.us.i:                                  ; preds = %.lr.ph.i37.us.i, %Abc_TtCopy.exit.us.i
-  %indvars.iv.i38.us.i = phi i64 [ 0, %Abc_TtCopy.exit.us.i ], [ %indvars.iv.next.i39.us.i, %.lr.ph.i37.us.i ]
+.lr.ph.i37.us.i:                                  ; preds = %.lr.ph.i37.us.i, %.lr.ph.preheader.i35.us.i
+  %indvars.iv.i38.us.i = phi i64 [ 0, %.lr.ph.preheader.i35.us.i ], [ %indvars.iv.next.i39.us.i, %.lr.ph.i37.us.i ]
   %144 = getelementptr inbounds nuw i64, ptr %143, i64 %indvars.iv.i38.us.i
   %145 = load i64, ptr %144, align 8, !tbaa !150
   %146 = getelementptr inbounds nuw i64, ptr %142, i64 %indvars.iv.i38.us.i

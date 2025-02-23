@@ -1165,7 +1165,7 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %164 = load i8, ptr %102, align 4
   %165 = zext i8 %164 to i32
   %166 = add nuw nsw i32 %163, %165
-  %167 = sub i32 %.4, %166
+  %167 = sub nsw i32 %.4, %166
   %168 = trunc i32 %167 to i8
   %169 = load ptr, ptr %.0144166, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
@@ -1193,7 +1193,7 @@ define internal i32 @dissect_zbee_nwk_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %181 = load i8, ptr %102, align 4
   %182 = zext i8 %181 to i32
   %183 = add nuw nsw i32 %180, %182
-  %184 = sub i32 %.4, %183
+  %184 = sub nsw i32 %.4, %183
   %185 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %184, i32 noundef %180, i32 noundef -1)
   %186 = call i32 @call_data_dissector(ptr noundef %185, ptr noundef %1, ptr noundef %2)
   br label %187

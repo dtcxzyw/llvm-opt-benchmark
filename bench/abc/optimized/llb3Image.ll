@@ -878,7 +878,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv116 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next117, %215 ]
   %216 = getelementptr inbounds nuw ptr, ptr %.pre121, i64 %indvars.iv116
   %217 = load ptr, ptr %216, align 8, !tbaa !67
-  %218 = call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %217, i32 noundef 0)
+  %218 = call i32 @Llb_NonlinQuantify1(ptr noundef nonnull %0, ptr noundef %217, i32 noundef 0)
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next117, %wide.trip.count
   br i1 %exitcond.not, label %.critedge2.thread, label %215, !llvm.loop !74
@@ -1737,7 +1737,7 @@ Llb_NonlinRemovePart.exit211:                     ; preds = %Llb_NonlinRemovePar
   %indvars.iv251 = phi i64 [ 0, %.lr.ph233 ], [ %indvars.iv.next252, %395 ]
   %396 = getelementptr inbounds nuw ptr, ptr %.pre259, i64 %indvars.iv251
   %397 = load ptr, ptr %396, align 8, !tbaa !67
-  %398 = tail call i32 @Llb_NonlinQuantify1(ptr noundef %0, ptr noundef %397, i32 noundef 0)
+  %398 = tail call i32 @Llb_NonlinQuantify1(ptr noundef nonnull %0, ptr noundef %397, i32 noundef 0)
   %indvars.iv.next252 = add nuw nsw i64 %indvars.iv251, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next252, %wide.trip.count
   br i1 %exitcond.not, label %.critedge8.thread, label %395, !llvm.loop !81
@@ -1985,7 +1985,7 @@ define noalias noundef ptr @Llb_NonlinBuildBdds(ptr noundef %0, ptr noundef read
   br i1 %18, label %11, label %.critedge, !llvm.loop !99
 
 .critedge:                                        ; preds = %11, %4
-  tail call void @Aig_ManIncrementTravId(ptr noundef %0) #20
+  tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #20
   %.val18.i = load i32, ptr %8, align 4, !tbaa !69
   %19 = icmp sgt i32 %.val18.i, 0
   br i1 %19, label %.lr.ph.i, label %.critedge.i
@@ -2030,7 +2030,7 @@ define noalias noundef ptr @Llb_NonlinBuildBdds(ptr noundef %0, ptr noundef read
   %.val19.i = load ptr, ptr %32, align 8, !tbaa !64
   %34 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv27.i
   %35 = load ptr, ptr %34, align 8, !tbaa !67
-  tail call void @Llb_NonlinCutNodes_rec(ptr noundef %0, ptr noundef %35, ptr noundef nonnull %26)
+  tail call void @Llb_NonlinCutNodes_rec(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %26)
   %indvars.iv.next28.i = add nuw nsw i64 %indvars.iv27.i, 1
   %.val.i = load i32, ptr %30, align 4, !tbaa !69
   %36 = sext i32 %.val.i to i64

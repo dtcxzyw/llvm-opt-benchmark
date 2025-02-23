@@ -893,8 +893,8 @@ define internal fastcc range(i32 0, 2) i32 @public_from_private(ptr noundef %0, 
   %.04.i = phi i64 [ %39, %.lr.ph.i ], [ 0, %34 ]
   %38 = getelementptr inbounds nuw %struct.poly_st, ptr %24, i64 %.04.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %38) #9
-  %39 = add nuw i64 %.04.i, 1
-  %40 = icmp ult i64 %39, %25
+  %39 = add nuw nsw i64 %.04.i, 1
+  %40 = icmp samesign ult i64 %39, %25
   br i1 %40, label %.lr.ph.i, label %vector_ntt.exit, !llvm.loop !40
 
 vector_ntt.exit:                                  ; preds = %.lr.ph.i, %34

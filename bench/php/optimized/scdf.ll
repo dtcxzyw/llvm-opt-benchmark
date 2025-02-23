@@ -1184,8 +1184,8 @@ kept_alive_by_loop_var_free.exit:                 ; preds = %is_live_loop_var_fr
   %.03440.i = phi ptr [ %.034.i, %.lr.ph.i20 ], [ %.03438.i, %kept_alive_by_loop_var_free.exit ]
   %92 = getelementptr inbounds nuw i8, ptr %.03440.i, i64 68
   %93 = load i32, ptr %92, align 4, !tbaa !37
-  tail call void @zend_ssa_remove_uses_of_var(ptr noundef %23, i32 noundef %93) #8
-  tail call void @zend_ssa_remove_phi(ptr noundef %23, ptr noundef nonnull %.03440.i) #8
+  tail call void @zend_ssa_remove_uses_of_var(ptr noundef nonnull %23, i32 noundef %93) #8
+  tail call void @zend_ssa_remove_phi(ptr noundef nonnull %23, ptr noundef nonnull %.03440.i) #8
   %.034.i = load ptr, ptr %.03440.i, align 8, !tbaa !34
   %.not.i21 = icmp eq ptr %.034.i, null
   br i1 %.not.i21, label %._crit_edge.i.loopexit, label %.lr.ph.i20

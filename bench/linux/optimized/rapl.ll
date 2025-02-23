@@ -136,7 +136,7 @@ module asm ".previous\09\09\09\09\09"
 define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
   %1 = tail call ptr @x86_match_cpu(ptr noundef nonnull @rapl_model_match) #9
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %.thread, label %3
+  br i1 %2, label %58, label %3
 
 3:                                                ; preds = %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -165,7 +165,7 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
 
 20:                                               ; preds = %16, %3
   %21 = icmp eq i32 %14, 0
-  br i1 %21, label %22, label %.thread
+  br i1 %21, label %22, label %58
 
 22:                                               ; preds = %20
   %23 = trunc i64 %15 to i32
@@ -210,10 +210,10 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
   store i64 %42, ptr @rapl_timer_ms, align 8
   br label %43
 
-43:                                               ; preds = %36, %39
+43:                                               ; preds = %39, %36
   %44 = tail call fastcc i32 @init_rapl_pmus() #10, !range !10
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread
+  br i1 %45, label %46, label %58
 
 46:                                               ; preds = %43
   %47 = tail call i32 @__cpuhp_setup_state(i32 noundef 157, ptr noundef nonnull @.str, i1 noundef zeroext true, ptr noundef nonnull @rapl_cpu_online, ptr noundef nonnull @rapl_cpu_offline, i1 noundef zeroext false) #9
@@ -228,7 +228,7 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
 
 53:                                               ; preds = %49
   tail call fastcc void @rapl_advertise() #10
-  br label %.thread
+  br label %58
 
 54:                                               ; preds = %49
   tail call void @__cpuhp_remove_state(i32 noundef 157, i1 noundef zeroext true) #9
@@ -238,11 +238,11 @@ define internal noundef i32 @rapl_pmu_init() #0 section ".init.text" align 16 {
   %56 = phi i32 [ %47, %46 ], [ %51, %54 ]
   %57 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %56) #11
   tail call fastcc void @cleanup_rapl_pmus()
-  br label %.thread
+  br label %58
 
-.thread:                                          ; preds = %20, %55, %53, %43, %0
-  %58 = phi i32 [ %56, %55 ], [ 0, %53 ], [ -19, %0 ], [ %44, %43 ], [ -1, %20 ]
-  ret i32 %58
+58:                                               ; preds = %20, %55, %53, %43, %0
+  %59 = phi i32 [ %56, %55 ], [ 0, %53 ], [ -19, %0 ], [ %44, %43 ], [ -1, %20 ]
+  ret i32 %59
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize

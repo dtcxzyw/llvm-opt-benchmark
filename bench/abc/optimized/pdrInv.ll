@@ -785,17 +785,17 @@ Vec_IntStart.exit.i:                              ; preds = %29, %Vec_IntAlloc.e
 .loopexit.i:                                      ; preds = %46, %.preheader.i, %36
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23.i, %35
-  br i1 %exitcond.not, label %Pdr_ManCountFlops.exit, label %36, !llvm.loop !71
+  br i1 %exitcond.not, label %Pdr_ManCountFlops.exit.thread, label %36, !llvm.loop !71
 
-Pdr_ManCountFlops.exit:                           ; preds = %.loopexit.i, %Vec_IntStart.exit.i
+Pdr_ManCountFlops.exit:                           ; preds = %Vec_IntStart.exit.i
   %.not.i = icmp eq ptr %.val15.i, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %57
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %Pdr_ManCountFlops.exit.thread
 
-57:                                               ; preds = %Pdr_ManCountFlops.exit
+Pdr_ManCountFlops.exit.thread:                    ; preds = %.loopexit.i, %Pdr_ManCountFlops.exit
   tail call void @free(ptr noundef nonnull %.val15.i) #19
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %Pdr_ManCountFlops.exit, %57
+Vec_PtrFree.exit:                                 ; preds = %Pdr_ManCountFlops.exit, %Pdr_ManCountFlops.exit.thread
   tail call void @free(ptr noundef nonnull %17) #19
   ret ptr %21
 }

@@ -523,24 +523,24 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
   %42 = getelementptr i8, ptr %11, i64 4
   store i32 0, ptr %42, align 4, !tbaa !45
   %.not95 = icmp eq i32 %3, 0
-  br i1 %.not95, label %.critedge2.thread126, label %.thread.thread
+  br i1 %.not95, label %.critedge2, label %.thread.thread
 
 43:                                               ; preds = %.critedge
   %44 = icmp sgt i32 %.148, 0
-  br i1 %44, label %.lr.ph76.split.us, label %.critedge2.thread126
+  br i1 %44, label %.lr.ph76.split.us, label %.critedge2
 
 .thread:                                          ; preds = %.critedge
   %.not49 = icmp eq i32 %.1, 0
-  %spec.select131 = select i1 %.not49, ptr @.str.2, ptr @.str.1
+  %spec.select122 = select i1 %.not49, ptr @.str.2, ptr @.str.1
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.critedge.thread, %.thread
-  %.047.lcssa97122 = phi i32 [ %.148, %.thread ], [ 0, %.critedge.thread ]
-  %.0.lcssa102120 = phi i32 [ %.1, %.thread ], [ 0, %.critedge.thread ]
-  %45 = phi ptr [ %spec.select131, %.thread ], [ @.str.2, %.critedge.thread ]
-  %.val63124.in = getelementptr i8, ptr %2, i64 36
-  %.val63124 = load i32, ptr %.val63124.in, align 4, !tbaa !39
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.val63124, i32 noundef %.val57, i32 noundef %.047.lcssa97122, ptr noundef nonnull %45)
+  %.047.lcssa97118 = phi i32 [ %.148, %.thread ], [ 0, %.critedge.thread ]
+  %.0.lcssa101116 = phi i32 [ %.1, %.thread ], [ 0, %.critedge.thread ]
+  %45 = phi ptr [ %spec.select122, %.thread ], [ @.str.2, %.critedge.thread ]
+  %.val63120.in = getelementptr i8, ptr %2, i64 36
+  %.val63120 = load i32, ptr %.val63120.in, align 4, !tbaa !39
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.val63120, i32 noundef %.val57, i32 noundef %.047.lcssa97118, ptr noundef nonnull %45)
   %.pre86 = load ptr, ptr %9, align 8, !tbaa !44
   %.phi.trans.insert = getelementptr i8, ptr %.pre86, i64 4
   %.val6073.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !45
@@ -587,23 +587,16 @@ Saig_ObjIsLo.exit.thread:                         ; preds = %15, %24, %Saig_ObjI
   %.val60 = load i32, ptr %65, align 4, !tbaa !45
   %66 = sext i32 %.val60 to i64
   %67 = icmp slt i64 %indvars.iv.next81, %66
-  br i1 %67, label %.lr.ph76.split, label %.critedge2, !llvm.loop !48
+  br i1 %67, label %.lr.ph76.split, label %.critedge2.thread, !llvm.loop !48
 
-.critedge2:                                       ; preds = %.lr.ph76.split, %.lr.ph76.split.us
-  %.not104 = phi i1 [ true, %.lr.ph76.split.us ], [ false, %.lr.ph76.split ]
-  %.0.lcssa101 = phi i32 [ %.1, %.lr.ph76.split.us ], [ %.0.lcssa102120, %.lr.ph76.split ]
-  %.043.lcssa = phi i32 [ %spec.select53.us, %.lr.ph76.split.us ], [ %spec.select53, %.lr.ph76.split ]
-  br i1 %.not104, label %.critedge2.thread126, label %.critedge2.thread
-
-.critedge2.thread:                                ; preds = %.thread.thread, %.critedge2
-  %.0.lcssa100 = phi i32 [ %.0.lcssa101, %.critedge2 ], [ %.0.lcssa102120, %.thread.thread ]
-  %.043.lcssa90 = phi i32 [ %.043.lcssa, %.critedge2 ], [ 1, %.thread.thread ]
+.critedge2.thread:                                ; preds = %.lr.ph76.split, %.thread.thread
+  %.043.lcssa90 = phi i32 [ 1, %.thread.thread ], [ %spec.select53, %.lr.ph76.split ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4)
-  br label %.critedge2.thread126
+  br label %.critedge2
 
-.critedge2.thread126:                             ; preds = %.critedge.thread, %43, %.critedge2.thread, %.critedge2
-  %.0.lcssa99 = phi i32 [ %.0.lcssa100, %.critedge2.thread ], [ %.0.lcssa101, %.critedge2 ], [ %.1, %43 ], [ 0, %.critedge.thread ]
-  %.043.lcssa91 = phi i32 [ %.043.lcssa90, %.critedge2.thread ], [ %.043.lcssa, %.critedge2 ], [ 1, %43 ], [ 1, %.critedge.thread ]
+.critedge2:                                       ; preds = %.lr.ph76.split.us, %.critedge.thread, %43, %.critedge2.thread
+  %.0.lcssa99 = phi i32 [ %.0.lcssa101116, %.critedge2.thread ], [ %.1, %43 ], [ 0, %.critedge.thread ], [ %.1, %.lr.ph76.split.us ]
+  %.043.lcssa91 = phi i32 [ %.043.lcssa90, %.critedge2.thread ], [ 1, %43 ], [ 1, %.critedge.thread ], [ %spec.select53.us, %.lr.ph76.split.us ]
   %68 = icmp ne i32 %.043.lcssa91, 0
   %69 = icmp ne i32 %.0.lcssa99, 0
   %70 = select i1 %68, i1 %69, i1 false

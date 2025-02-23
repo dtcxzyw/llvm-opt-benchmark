@@ -1965,14 +1965,14 @@ raxGetData.exit:                                  ; preds = %24, %26
   %43 = load ptr, ptr %5, align 8, !tbaa !11
   %44 = load i32, ptr %43, align 4
   %45 = icmp ult i32 %44, 8
-  br i1 %45, label %.preheader204, label %92
+  br i1 %45, label %.preheader203, label %92
 
-.preheader204:                                    ; preds = %37
+.preheader203:                                    ; preds = %37
   %46 = load ptr, ptr %0, align 8, !tbaa !11
-  %.not105205 = icmp eq ptr %43, %46
-  br i1 %.not105205, label %.critedge, label %.lr.ph
+  %.not105204 = icmp eq ptr %43, %46
+  br i1 %.not105204, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader204
+.lr.ph:                                           ; preds = %.preheader203
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %50
 
@@ -2131,19 +2131,19 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   %.not115190 = phi i1 [ true, %.preheader ], [ true, %raxStackPop.exit175.lr.ph ], [ false, %.lr.ph253 ], [ true, %raxStackPop.exit175 ], [ false, %111 ], [ true, %113 ]
   %.0.i174189 = phi ptr [ null, %.preheader ], [ null, %raxStackPop.exit175.lr.ph ], [ %106, %.lr.ph253 ], [ null, %raxStackPop.exit175 ], [ %106, %111 ], [ null, %113 ]
   %116 = load i32, ptr %115, align 4
-  %.not120219 = icmp ult i32 %116, 8
-  br i1 %.not120219, label %.critedge, label %.lr.ph222.preheader
+  %.not120218 = icmp ult i32 %116, 8
+  br i1 %.not120218, label %.critedge, label %.lr.ph221.preheader
 
-.lr.ph222.preheader:                              ; preds = %raxStackPop.exit175.thread
+.lr.ph221.preheader:                              ; preds = %raxStackPop.exit175.thread
   %117 = lshr i32 %116, 3
   %118 = zext nneg i32 %117 to i64
-  br label %.lr.ph222
+  br label %.lr.ph221
 
-.lr.ph222:                                        ; preds = %.lr.ph222.preheader, %151
-  %119 = phi i32 [ %142, %151 ], [ %116, %.lr.ph222.preheader ]
-  %120 = phi ptr [ %.cast, %151 ], [ %115, %.lr.ph222.preheader ]
-  %.086221 = phi i64 [ %149, %151 ], [ %118, %.lr.ph222.preheader ]
-  %.090220 = phi i32 [ %152, %151 ], [ 1, %.lr.ph222.preheader ]
+.lr.ph221:                                        ; preds = %.lr.ph221.preheader, %151
+  %119 = phi i32 [ %142, %151 ], [ %116, %.lr.ph221.preheader ]
+  %120 = phi ptr [ %.cast, %151 ], [ %115, %.lr.ph221.preheader ]
+  %.086220 = phi i64 [ %149, %151 ], [ %118, %.lr.ph221.preheader ]
+  %.090219 = phi i32 [ %152, %151 ], [ 1, %.lr.ph221.preheader ]
   %121 = lshr i32 %119, 3
   %122 = zext nneg i32 %121 to i64
   %123 = xor i32 %121, 3
@@ -2180,7 +2180,7 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   %.not128 = icmp eq i32 %143, 0
   br i1 %.not128, label %144, label %.thread192
 
-144:                                              ; preds = %.lr.ph222
+144:                                              ; preds = %.lr.ph221
   %145 = and i32 %142, 4
   %.not129 = icmp ne i32 %145, 0
   %.mask131 = and i32 %142, -8
@@ -2191,36 +2191,36 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
 146:                                              ; preds = %144
   %147 = lshr i32 %142, 3
   %148 = zext nneg i32 %147 to i64
-  %149 = add nuw nsw i64 %.086221, %148
+  %149 = add nuw nsw i64 %.086220, %148
   %150 = icmp samesign ugt i64 %149, 536870911
   br i1 %150, label %.thread192, label %151
 
 151:                                              ; preds = %146
-  %152 = add nuw nsw i32 %.090220, 1
+  %152 = add nuw nsw i32 %.090219, 1
   %.not120 = icmp ult i32 %142, 8
-  br i1 %.not120, label %.thread192.thread240, label %.lr.ph222
+  br i1 %.not120, label %.thread192.thread239, label %.lr.ph221
 
-.thread192:                                       ; preds = %144, %.lr.ph222, %146
-  %153 = icmp samesign ugt i32 %.090220, 1
-  br i1 %153, label %.thread192.thread240, label %.critedge
+.thread192:                                       ; preds = %144, %.lr.ph221, %146
+  %153 = icmp samesign ugt i32 %.090219, 1
+  br i1 %153, label %.thread192.thread239, label %.critedge
 
-.thread192.thread240:                             ; preds = %151, %.thread192
-  %.086.lcssa.ph243 = phi i64 [ %.086221, %.thread192 ], [ %149, %151 ]
-  %154 = sub nsw i64 4, %.086.lcssa.ph243
+.thread192.thread239:                             ; preds = %151, %.thread192
+  %.086.lcssa.ph242 = phi i64 [ %.086220, %.thread192 ], [ %149, %151 ]
+  %154 = sub nsw i64 4, %.086.lcssa.ph242
   %155 = and i64 %154, 7
-  %156 = add nuw nsw i64 %.086.lcssa.ph243, 12
+  %156 = add nuw nsw i64 %.086.lcssa.ph242, 12
   %157 = add nuw nsw i64 %156, %155
   %158 = call noalias ptr @zmalloc(i64 noundef %157) #25
   %.not153 = icmp eq ptr %158, null
   br i1 %.not153, label %159, label %161
 
-159:                                              ; preds = %.thread192.thread240
+159:                                              ; preds = %.thread192.thread239
   %160 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i176 = icmp eq ptr %160, %8
   br i1 %.not.i176, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
-161:                                              ; preds = %.thread192.thread240
-  %162 = trunc nuw nsw i64 %.086.lcssa.ph243 to i32
+161:                                              ; preds = %.thread192.thread239
+  %162 = trunc nuw nsw i64 %.086.lcssa.ph242 to i32
   %163 = shl i32 %162, 3
   %164 = or disjoint i32 %163, 4
   store i32 %164, ptr %158, align 4
@@ -2230,14 +2230,14 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   store i64 %167, ptr %165, align 8, !tbaa !9
   store ptr %115, ptr %5, align 8, !tbaa !11
   %168 = getelementptr inbounds nuw i8, ptr %158, i64 4
-  %.pre234 = load i32, ptr %115, align 4
-  %.not132267 = icmp ult i32 %.pre234, 8
+  %.pre233 = load i32, ptr %115, align 4
+  %.not132267 = icmp ult i32 %.pre233, 8
   br i1 %.not132267, label %.thread198, label %.lr.ph269
 
 .lr.ph269:                                        ; preds = %161, %202
   %.389268 = phi i64 [ %204, %202 ], [ 0, %161 ]
   %169 = phi ptr [ %199, %202 ], [ %115, %161 ]
-  %170 = phi i32 [ %200, %202 ], [ %.pre234, %161 ]
+  %170 = phi i32 [ %200, %202 ], [ %.pre233, %161 ]
   %171 = lshr i32 %170, 3
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 %.389268
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 4
@@ -2259,8 +2259,8 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   %184 = shl i32 %175, 2
   %185 = and i32 %184, 8
   %186 = xor i32 %185, 8
-  %narrow202 = select i1 %.not135, i32 0, i32 %186
-  %187 = zext nneg i32 %narrow202 to i64
+  %narrow201 = select i1 %.not135, i32 0, i32 %186
+  %187 = zext nneg i32 %narrow201 to i64
   %188 = getelementptr inbounds nuw i8, ptr %169, i64 %177
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 4
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 %180
@@ -2314,8 +2314,8 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   %215 = shl i32 %206, 2
   %216 = and i32 %215, 8
   %217 = xor i32 %216, 8
-  %narrow203 = select i1 %.not147, i32 0, i32 %217
-  %218 = zext nneg i32 %narrow203 to i64
+  %narrow202 = select i1 %.not147, i32 0, i32 %217
+  %218 = zext nneg i32 %narrow202 to i64
   %219 = getelementptr inbounds nuw i8, ptr %158, i64 %208
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 %211
@@ -2351,19 +2351,19 @@ raxStackPop.exit175.thread:                       ; preds = %113, %111, %raxStac
   br i1 %238, label %.critedge.sink.split, label %237
 
 .critedge.sink.split:                             ; preds = %237, %.thread198
-  %.0.i179.lcssa.sink = phi ptr [ %0, %.thread198 ], [ %.0.i179, %237 ]
-  store ptr %158, ptr %.0.i179.lcssa.sink, align 8
+  %.sink = phi ptr [ %0, %.thread198 ], [ %.0.i179, %237 ]
+  store ptr %158, ptr %.sink, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %raxStackPop.exit175.thread, %.preheader204, %88, %.thread192, %94
+.critedge:                                        ; preds = %.critedge.sink.split, %raxStackPop.exit175.thread, %.preheader203, %88, %.thread192, %94
   %240 = load ptr, ptr %6, align 8, !tbaa !27
   %.not.i182 = icmp eq ptr %240, %8
   br i1 %.not.i182, label %raxStackFree.exit, label %raxStackFree.exit.sink.split
 
 raxStackFree.exit.sink.split:                     ; preds = %.critedge, %159, %21
-  %.sink = phi ptr [ %22, %21 ], [ %160, %159 ], [ %240, %.critedge ]
+  %.sink247 = phi ptr [ %22, %21 ], [ %160, %159 ], [ %240, %.critedge ]
   %.0.ph = phi i32 [ 0, %21 ], [ 1, %159 ], [ 1, %.critedge ]
-  call void @zfree(ptr noundef %.sink) #26
+  call void @zfree(ptr noundef %.sink247) #26
   br label %raxStackFree.exit
 
 raxStackFree.exit:                                ; preds = %raxStackFree.exit.sink.split, %159, %.critedge, %21

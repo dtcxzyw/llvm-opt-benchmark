@@ -2599,9 +2599,9 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %141
   %150 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 %..i.i.i.i.i
   %151 = add nuw nsw i32 %.06.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %151, %umax.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK10full_frame13end_of_localsEv.exit.i, label %.lr.ph.i.i, !llvm.loop !14
+  br i1 %exitcond.not.i.i, label %.lr.ph.i4.preheader.i, label %.lr.ph.i.i, !llvm.loop !14
 
-_ZNK10full_frame13end_of_localsEv.exit.i:         ; preds = %.lr.ph.i.i
+.lr.ph.i4.preheader.i:                            ; preds = %.lr.ph.i.i
   %152 = zext i16 %146 to i32
   %.0.i.i.i.i3.i = load i16, ptr %150, align 1
   %153 = tail call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i3.i)
@@ -2613,17 +2613,17 @@ _ZNK10full_frame13end_of_localsEv.exit.i:         ; preds = %.lr.ph.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.loopexit, %_ZNK10full_frame13end_of_localsEv.exit.thread.i
   %155 = phi ptr [ %145, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %154, %.preheader.i.i.loopexit ]
-  %.shrunk.i = phi i16 [ %144, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %153, %.preheader.i.i.loopexit ]
+  %.in.i = phi i16 [ %144, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %153, %.preheader.i.i.loopexit ]
   %.0.i.i.i.i314.i = phi i16 [ %.0.i.i.i.i313.i, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %.0.i.i.i.i3.i, %.preheader.i.i.loopexit ]
   %.016.lcssa.i.i = phi i64 [ 7, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %159, %.preheader.i.i.loopexit ]
-  %156 = zext i16 %.shrunk.i to i32
+  %156 = zext i16 %.in.i to i32
   %.not6.i = icmp eq i16 %.0.i.i.i.i314.i, 0
   br i1 %.not6.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i
 
-.lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %_ZNK10full_frame13end_of_localsEv.exit.i
-  %.01424.i.i = phi i32 [ %161, %.lr.ph.i4.i ], [ 0, %_ZNK10full_frame13end_of_localsEv.exit.i ]
-  %.01523.i.i = phi ptr [ %160, %.lr.ph.i4.i ], [ %142, %_ZNK10full_frame13end_of_localsEv.exit.i ]
-  %.01622.i.i = phi i64 [ %159, %.lr.ph.i4.i ], [ 7, %_ZNK10full_frame13end_of_localsEv.exit.i ]
+.lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.i4.preheader.i
+  %.01424.i.i = phi i32 [ %161, %.lr.ph.i4.i ], [ 0, %.lr.ph.i4.preheader.i ]
+  %.01523.i.i = phi ptr [ %160, %.lr.ph.i4.i ], [ %142, %.lr.ph.i4.preheader.i ]
+  %.01622.i.i = phi i64 [ %159, %.lr.ph.i4.i ], [ 7, %.lr.ph.i4.preheader.i ]
   %157 = load i8, ptr %.01523.i.i, align 1
   %158 = add i8 %157, -7
   %or.cond.i.i.i.i33 = icmp ult i8 %158, 2

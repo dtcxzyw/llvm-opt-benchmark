@@ -1726,7 +1726,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
   store i32 -1, ptr %27, align 4, !tbaa !51
   store i32 0, ptr %24, align 4, !tbaa !35
   store i32 -1, ptr %25, align 4, !tbaa !22
-  %28 = icmp sgt i32 %.val3, 2
+  %28 = icmp samesign ugt i32 %.val3, 2
   br i1 %28, label %29, label %_ZN3url12_GLOBAL__N_111DoParseIPv6IchEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 29:                                               ; preds = %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i
@@ -2090,7 +2090,7 @@ _ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i:     ; preds = %20
   store i32 -1, ptr %27, align 4, !tbaa !51
   store i32 0, ptr %24, align 4, !tbaa !35
   store i32 -1, ptr %25, align 4, !tbaa !22
-  %28 = icmp sgt i32 %.val3, 2
+  %28 = icmp samesign ugt i32 %.val3, 2
   br i1 %28, label %29, label %_ZN3url12_GLOBAL__N_111DoParseIPv6IttEEbPKT_RKNS_9ComponentEPNS0_10IPv6ParsedE.exit.thread.i
 
 29:                                               ; preds = %_ZN3url12_GLOBAL__N_110IPv6ParsedC2Ev.exit.i

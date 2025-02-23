@@ -5282,7 +5282,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   %12 = load i32, ptr %m_pos.i, align 8
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %m_pos.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sz
   br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i6, !llvm.loop !21
 

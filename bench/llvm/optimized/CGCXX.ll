@@ -990,52 +990,49 @@ define dso_local { ptr, ptr } @_ZN5clang7CodeGen13CodeGenModule27getAddrAndTypeO
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %20, %28
   %.0.i.i.i.i = phi ptr [ %29, %28 ], [ %27, %20 ]
-  %30 = icmp eq ptr %.0.i.i.i.i, null
-  %31 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -64
-  %32 = select i1 %30, ptr null, ptr %31
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 104
-  %34 = load ptr, ptr %33, align 8, !tbaa !357
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  %36 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull %34)
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 128
-  %38 = load ptr, ptr %37, align 8, !tbaa !367
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
-  %40 = load i32, ptr %39, align 4, !tbaa !399
-  %41 = icmp eq i32 %40, 0
-  %42 = or disjoint i64 %8, 2
-  %spec.select = select i1 %41, i64 %42, i64 %1
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
+  %31 = load ptr, ptr %30, align 8, !tbaa !357
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
+  %33 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull %31)
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 64
+  %35 = load ptr, ptr %34, align 8, !tbaa !367
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 20
+  %37 = load i32, ptr %36, align 4, !tbaa !399
+  %38 = icmp eq i32 %37, 0
+  %39 = or disjoint i64 %8, 2
+  %spec.select = select i1 %38, i64 %39, i64 %1
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit, %14, %7
   %.sroa.027.0 = phi i64 [ %1, %7 ], [ %1, %14 ], [ %spec.select, %_ZNK5clang13CXXMethodDecl9getParentEv.exit ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %43, label %52
+  br i1 %.not, label %40, label %49
 
-43:                                               ; preds = %.critedge
+40:                                               ; preds = %.critedge
   %.not22 = icmp eq ptr %3, null
-  br i1 %.not22, label %44, label %48
+  br i1 %.not22, label %41, label %45
 
-44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %46 = load ptr, ptr %45, align 8, !tbaa !422
-  %47 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes29arrangeCXXStructorDeclarationENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(232) %46, i64 %.sroa.027.0, i32 %2) #10
-  br label %48
+41:                                               ; preds = %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %43 = load ptr, ptr %42, align 8, !tbaa !422
+  %44 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang7CodeGen12CodeGenTypes29arrangeCXXStructorDeclarationENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(232) %43, i64 %.sroa.027.0, i32 %2) #10
+  br label %45
 
-48:                                               ; preds = %44, %43
-  %.0 = phi ptr [ %3, %43 ], [ %47, %44 ]
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %50 = load ptr, ptr %49, align 8, !tbaa !422
-  %51 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(232) %50, ptr noundef nonnull align 8 dereferenceable(40) %.0) #10
-  br label %52
+45:                                               ; preds = %41, %40
+  %.0 = phi ptr [ %3, %40 ], [ %44, %41 ]
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %47 = load ptr, ptr %46, align 8, !tbaa !422
+  %48 = tail call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes15GetFunctionTypeERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(232) %47, ptr noundef nonnull align 8 dereferenceable(40) %.0) #10
+  br label %49
 
-52:                                               ; preds = %48, %.critedge
-  %.019 = phi ptr [ %4, %.critedge ], [ %51, %48 ]
-  %53 = tail call { ptr, i64 } @_ZN5clang7CodeGen13CodeGenModule14getMangledNameENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i64 %.sroa.027.0, i32 %2) #10
-  %54 = extractvalue { ptr, i64 } %53, 0
-  %55 = extractvalue { ptr, i64 } %53, 1
-  %56 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule23GetOrCreateLLVMFunctionEN4llvm9StringRefEPNS2_4TypeENS_10GlobalDeclEbbbNS2_13AttributeListENS0_15ForDefinition_tE(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr %54, i64 %55, ptr noundef %.019, i64 %.sroa.027.0, i32 %2, i1 noundef zeroext false, i1 noundef zeroext %5, i1 noundef zeroext false, i64 0, i1 noundef zeroext %6) #10
+49:                                               ; preds = %45, %.critedge
+  %.019 = phi ptr [ %4, %.critedge ], [ %48, %45 ]
+  %50 = tail call { ptr, i64 } @_ZN5clang7CodeGen13CodeGenModule14getMangledNameENS_10GlobalDeclE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i64 %.sroa.027.0, i32 %2) #10
+  %51 = extractvalue { ptr, i64 } %50, 0
+  %52 = extractvalue { ptr, i64 } %50, 1
+  %53 = tail call noundef ptr @_ZN5clang7CodeGen13CodeGenModule23GetOrCreateLLVMFunctionEN4llvm9StringRefEPNS2_4TypeENS_10GlobalDeclEbbbNS2_13AttributeListENS0_15ForDefinition_tE(ptr noundef nonnull align 8 dereferenceable(3608) %0, ptr %51, i64 %52, ptr noundef %.019, i64 %.sroa.027.0, i32 %2, i1 noundef zeroext false, i1 noundef zeroext %5, i1 noundef zeroext false, i64 0, i1 noundef zeroext %6) #10
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.019, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %56, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %53, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

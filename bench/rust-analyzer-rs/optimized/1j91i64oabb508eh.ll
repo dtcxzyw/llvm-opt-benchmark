@@ -26465,7 +26465,7 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..patte
 
 .preheader.i:                                     ; preds = %74, %90
   %.sroa.025.0141.i = phi i64 [ %86, %90 ], [ 0, %74 ]
-  %.2140.i = phi i8 [ %.3.i, %90 ], [ %.064142.i, %74 ]
+  %.2140.i = phi i8 [ %.3.i, %90 ], [ 0, %74 ]
   %86 = add nuw nsw i64 %.sroa.025.0141.i, 1
   %87 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0141.i
   %88 = load i16, ptr %87, align 2, !noalias !5916, !noundef !12
@@ -67177,7 +67177,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport11set_message17hd27f02aa7
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %1271
   %.sroa.025.0141.i.i = phi i64 [ %1267, %1271 ], [ 0, %.preheader.i.i.preheader ]
-  %.2140.i.i = phi i8 [ %.3.i.i, %1271 ], [ %.064142.i.i, %.preheader.i.i.preheader ]
+  %.2140.i.i = phi i8 [ %.3.i.i, %1271 ], [ 0, %.preheader.i.i.preheader ]
   %1267 = add nuw nsw i64 %.sroa.025.0141.i.i, 1
   %1268 = getelementptr inbounds nuw [4 x i16], ptr %26, i64 0, i64 %.sroa.025.0141.i.i
   %1269 = load i16, ptr %1268, align 2, !noalias !15861, !noundef !12

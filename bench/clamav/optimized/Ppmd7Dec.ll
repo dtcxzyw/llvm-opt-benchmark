@@ -462,7 +462,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   br i1 %.not194, label %202, label %187
 
 202:                                              ; preds = %187
-  %203 = call ptr @Ppmd7_MakeEscFreq(ptr noundef %0, i32 noundef %167, ptr noundef nonnull %5) #6
+  %203 = call ptr @Ppmd7_MakeEscFreq(ptr noundef nonnull %0, i32 noundef %167, ptr noundef nonnull %5) #6
   %204 = load i32, ptr %5, align 4, !tbaa !46
   %205 = add i32 %204, %197
   store i32 %205, ptr %5, align 4, !tbaa !46
@@ -515,7 +515,7 @@ define range(i32 -2, 256) i32 @Ppmd7_DecodeSymbol(ptr noundef %0, ptr noundef %1
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %209, ptr %233, align 8, !tbaa !32
   %234 = load i8, ptr %209, align 2, !tbaa !33
-  call void @Ppmd7_Update2(ptr noundef %0) #6
+  call void @Ppmd7_Update2(ptr noundef nonnull %0) #6
   %235 = zext i8 %234 to i32
   br label %.thread203
 

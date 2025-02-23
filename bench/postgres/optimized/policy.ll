@@ -1422,7 +1422,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %160 = load ptr, ptr %61, align 8
   %161 = call ptr @heap_modify_tuple(ptr noundef nonnull %51, ptr noundef %160, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %44, ptr noundef nonnull %162, ptr noundef %161) #8
+  call void @CatalogTupleUpdate(ptr noundef nonnull %44, ptr noundef nonnull %162, ptr noundef %161) #8
   %163 = call i64 @deleteDependencyRecordsFor(i32 noundef 3256, i32 noundef %83, i1 noundef zeroext false) #8
   store i32 1259, ptr %8, align 4
   %164 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -1480,7 +1480,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   call void @CacheInvalidateRelcache(ptr noundef %23) #8
   call void @systable_endscan(ptr noundef %50) #8
   call void @relation_close(ptr noundef %23, i32 noundef 0) #8
-  call void @table_close(ptr noundef %44, i32 noundef 3) #8
+  call void @table_close(ptr noundef nonnull %44, i32 noundef 3) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8

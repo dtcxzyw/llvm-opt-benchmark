@@ -389,7 +389,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br label %.lr.ph498
 
 .preheader.loopexit:                              ; preds = %.lr.ph498
-  %210 = add i64 %209, 4
+  %210 = add nuw nsw i64 %209, 4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader394
@@ -545,7 +545,7 @@ dgemv_kernel_4x4.exit371:                         ; preds = %.lr.ph3.i364, %.pre
   br label %.lr.ph468
 
 .preheader397.loopexit:                           ; preds = %.lr.ph468
-  %303 = add i64 %302, 4
+  %303 = add nuw nsw i64 %302, 4
   br label %.preheader397
 
 .preheader397:                                    ; preds = %.preheader397.loopexit, %.preheader399
@@ -675,7 +675,7 @@ default.unreachable:                              ; preds = %203
   br label %.lr.ph448
 
 .preheader402.loopexit:                           ; preds = %.lr.ph448
-  %373 = add i64 %372, 4
+  %373 = add nuw nsw i64 %372, 4
   br label %.preheader402
 
 .preheader402:                                    ; preds = %.preheader402.loopexit, %.preheader404

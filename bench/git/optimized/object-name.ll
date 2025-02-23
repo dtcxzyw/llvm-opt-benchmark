@@ -4100,7 +4100,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
 .preheader:                                       ; preds = %.lr.ph
   %.pre = load ptr, ptr %5, align 8, !tbaa !83
   %16 = icmp eq ptr %.pre, null
-  br i1 %16, label %.loopexit, label %.lr.ph63
+  br i1 %16, label %.lr.ph66.preheader, label %.lr.ph63
 
 .lr.ph:                                           ; preds = %.preheader54, %.lr.ph
   %.03360 = phi ptr [ %22, %.lr.ph ], [ %5, %.preheader54 ]
@@ -4149,20 +4149,20 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   %38 = load i32, ptr %37, align 4, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 %38, ptr %39, align 4, !tbaa !54
-  br label %.loopexit
+  br label %.lr.ph66.preheader
 
 40:                                               ; preds = %35, %.lr.ph63
   %41 = load ptr, ptr %5, align 8, !tbaa !83
   %.not43 = icmp eq ptr %41, null
-  br i1 %.not43, label %.loopexit, label %.lr.ph63
+  br i1 %.not43, label %.lr.ph66.preheader, label %.lr.ph63
 
-.loopexit:                                        ; preds = %40, %.preheader, %.thread
-  %.not4356 = phi i32 [ 0, %.thread ], [ -1, %.preheader ], [ -1, %40 ]
+.lr.ph66.preheader:                               ; preds = %40, %.thread, %.preheader
+  %.not435675 = phi i32 [ -1, %.preheader ], [ 0, %.thread ], [ -1, %40 ]
   call void @regfree(ptr noundef nonnull %6) #19
   br label %.lr.ph66
 
-.lr.ph66:                                         ; preds = %.loopexit, %.lr.ph66
-  %.165 = phi ptr [ %44, %.lr.ph66 ], [ %3, %.loopexit ]
+.lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
+  %.165 = phi ptr [ %44, %.lr.ph66 ], [ %3, %.lr.ph66.preheader ]
   %42 = load ptr, ptr %.165, align 8, !tbaa !91
   call void @clear_commit_marks(ptr noundef %42, i32 noundef 1048576) #19
   %43 = getelementptr inbounds nuw i8, ptr %.165, i64 8
@@ -4171,7 +4171,7 @@ define internal fastcc range(i32 -1, 1) i32 @get_oid_oneline(ptr noundef %0, ptr
   br i1 %.not48, label %._crit_edge, label %.lr.ph66, !llvm.loop !142
 
 ._crit_edge:                                      ; preds = %.lr.ph66, %.loopexit.thread
-  %.not435672 = phi i32 [ -1, %.loopexit.thread ], [ %.not4356, %.lr.ph66 ]
+  %.not435672 = phi i32 [ -1, %.loopexit.thread ], [ %.not435675, %.lr.ph66 ]
   %45 = load ptr, ptr %5, align 8, !tbaa !83
   call void @free_commit_list(ptr noundef %45) #19
   br label %46

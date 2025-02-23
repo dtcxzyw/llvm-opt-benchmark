@@ -2721,7 +2721,7 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   br i1 %.not59.i, label %._crit_edge.i21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76
-  %78 = sub i64 0, %.049
+  %78 = sub nsw i64 0, %.049
   %79 = sub i64 0, %77
   br label %80
 
@@ -5567,7 +5567,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.032, i64 %.lcssa.i)
   store i64 %54, ptr %13, align 8, !tbaa !37
   %.cast16.i = inttoptr i64 %54 to ptr
-  %55 = sub i64 0, %.sroa.speculated.i
+  %55 = sub nsw i64 0, %.sroa.speculated.i
   %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast16.i, i64 %55
   store ptr %56, ptr %14, align 8, !tbaa !37, !alias.scope !384
   store ptr %56, ptr %15, align 8, !tbaa !37, !alias.scope !387
@@ -10559,7 +10559,7 @@ _ZSt22__chunk_insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iterator
   br i1 %.not59.i, label %._crit_edge.i21, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %76
-  %78 = sub i64 0, %.049
+  %78 = sub nsw i64 0, %.049
   %79 = sub i64 0, %77
   br label %80
 
@@ -12400,7 +12400,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferISt16reverse_iterato
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.032, i64 %.lcssa.i)
   store i64 %54, ptr %13, align 8, !tbaa !37
   %.cast16.i = inttoptr i64 %54 to ptr
-  %55 = sub i64 0, %.sroa.speculated.i
+  %55 = sub nsw i64 0, %.sroa.speculated.i
   %56 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.cast16.i, i64 %55
   store ptr %56, ptr %14, align 8, !tbaa !37, !alias.scope !727
   store ptr %56, ptr %15, align 8, !tbaa !37, !alias.scope !730

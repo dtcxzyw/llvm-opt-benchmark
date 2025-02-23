@@ -139,7 +139,7 @@ define noundef i32 @pmix_pgpu_base_allocate(ptr noundef readonly %0, ptr noundef
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph.i.i, %32
-  %43 = tail call noalias ptr @strdup(ptr noundef %0) #11
+  %43 = tail call noalias ptr @strdup(ptr noundef nonnull %0) #11
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 144
   store ptr %43, ptr %44, align 8, !tbaa !23
   %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_globals, i64 2832), align 8, !tbaa !40

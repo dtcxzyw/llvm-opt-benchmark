@@ -2968,8 +2968,7 @@ for.body.lr.ph:                                   ; preds = %_ZN15ref_buffer_cor
   %m_kind.i1.i.i.i = getelementptr inbounds nuw i8, ptr %v.i, i64 20
   %m_ptr.i4.i.i.i = getelementptr inbounds nuw i8, ptr %v.i, i64 24
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %aux_args, i64 8
-  %umax = call i32 @llvm.umax.i32(i32 %num_args, i32 2)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %num_args to i64
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
@@ -32843,7 +32842,7 @@ _ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP3astLb
 
 invoke.cont10:                                    ; preds = %_ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i, %for.body
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %is_int.i)
-  %call.i47 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_util, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(32) %num_r, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i)
+  %call.i47 = invoke noundef zeroext i1 @_ZNK10arith_util10is_numeralEPK4exprR8rationalRb(ptr noundef nonnull align 8 dereferenceable(16) %m_util, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %num_r, ptr noundef nonnull align 1 dereferenceable(1) %is_int.i)
           to label %invoke.cont11 unwind label %lpad4.loopexit.split-lp.loopexit
 
 invoke.cont11:                                    ; preds = %invoke.cont10

@@ -5656,15 +5656,15 @@ define hidden { i64, ptr } @"_ZN113_$LT$futures_util..stream..futures_ordered..F
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %35
 
-"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread": ; preds = %81, %84, %156, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30", %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i"
-  %.sroa.5.0 = phi ptr [ %26, %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i" ], [ null, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30" ], [ null, %156 ], [ null, %84 ], [ null, %81 ]
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i" ], [ 0, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30" ], [ 1, %156 ], [ 2, %84 ], [ 2, %81 ]
+"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread": ; preds = %81, %84, %155, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30", %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i"
+  %.sroa.5.0 = phi ptr [ %26, %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i" ], [ null, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30" ], [ null, %155 ], [ null, %84 ], [ null, %81 ]
+  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr180drop_in_place$LT$alloc..collections..binary_heap..PeekMut$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$17h4b70f90a05997562E.exit4.i" ], [ 0, %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30" ], [ 1, %155 ], [ 2, %84 ], [ 2, %81 ]
   %33 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %34 = insertvalue { i64, ptr } %33, ptr %.sroa.5.0, 1
   ret { i64, ptr } %34
 
-common.resume:                                    ; preds = %126, %135, %140
-  %common.resume.op = phi { ptr, i32 } [ %127, %126 ], [ %136, %140 ], [ %136, %135 ]
+common.resume:                                    ; preds = %126, %135, %139
+  %common.resume.op = phi { ptr, i32 } [ %127, %126 ], [ %lpad.thr_comm.split-lp.i, %139 ], [ %lpad.thr_comm.split-lp.i, %135 ]
   resume { ptr, i32 } %common.resume.op
 
 35:                                               ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit", %.thread
@@ -5861,7 +5861,7 @@ common.resume:                                    ; preds = %126, %135, %140
   store atomic i8 0, ptr %130 monotonic, align 1, !noalias !733
   %131 = load i8, ptr %96, align 1, !range !746, !noalias !747, !noundef !4
   %switch.i.i.i = icmp eq i8 %131, 0
-  br i1 %switch.i.i.i, label %142, label %132
+  br i1 %switch.i.i.i, label %141, label %132
 
 132:                                              ; preds = %128
   invoke void @_ZN4core9panicking11panic_const28panic_const_async_fn_resumed17h9b05f56a5e07fcfcE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.adefa5a161298877cdfa92dc847684c4.12) #55
@@ -5870,66 +5870,66 @@ common.resume:                                    ; preds = %126, %135, %140
 .noexc.i:                                         ; preds = %132
   unreachable
 
-133:                                              ; preds = %140, %126
+133:                                              ; preds = %139, %126
   %134 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #53, !noalias !733
   unreachable
 
 135:                                              ; preds = %124
-  %136 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp.i = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !750)
   call void @llvm.experimental.noalias.scope.decl(metadata !753)
-  %137 = load ptr, ptr %4, align 8, !alias.scope !756, !noalias !734, !nonnull !4, !noundef !4
-  %138 = atomicrmw sub ptr %137, i64 1 release, align 8, !noalias !757
-  %139 = icmp eq i64 %138, 1
-  br i1 %139, label %140, label %common.resume
+  %136 = load ptr, ptr %4, align 8, !alias.scope !756, !noalias !734, !nonnull !4, !noundef !4
+  %137 = atomicrmw sub ptr %136, i64 1 release, align 8, !noalias !757
+  %138 = icmp eq i64 %137, 1
+  br i1 %138, label %139, label %common.resume
 
-140:                                              ; preds = %135
+139:                                              ; preds = %135
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6c699879827f89c5E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
           to label %common.resume unwind label %133, !noalias !734
 
 "_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread30": ; preds = %81
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i8 1, ptr %141, align 8, !alias.scope !732, !noalias !733
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i8 1, ptr %140, align 8, !alias.scope !732, !noalias !733
   br label %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread"
 
-142:                                              ; preds = %128
-  %143 = load i64, ptr %97, align 8, !noalias !747, !noundef !4
+141:                                              ; preds = %128
+  %142 = load i64, ptr %97, align 8, !noalias !747, !noundef !4
   store i8 1, ptr %96, align 1, !noalias !747
   call void @"_ZN4core3ptr308drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$live_kit_client..test..RemoteTrackPublication..set_enabled..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h51b595496432e598E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3), !noalias !733
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !734
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !734
-  %144 = load i64, ptr %31, align 8, !noundef !4
-  %145 = icmp eq i64 %143, %144
-  br i1 %145, label %156, label %146
+  %143 = load i64, ptr %31, align 8, !noundef !4
+  %144 = icmp eq i64 %142, %143
+  br i1 %144, label %155, label %145
 
-146:                                              ; preds = %142
-  %147 = load i64, ptr %6, align 8, !alias.scope !758, !noundef !4
-  %148 = load i64, ptr %0, align 8, !alias.scope !761, !noundef !4
-  %149 = icmp eq i64 %147, %148
-  br i1 %149, label %150, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit"
+145:                                              ; preds = %141
+  %146 = load i64, ptr %6, align 8, !alias.scope !758, !noundef !4
+  %147 = load i64, ptr %0, align 8, !alias.scope !761, !noundef !4
+  %148 = icmp eq i64 %146, %147
+  br i1 %148, label %149, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit"
 
-150:                                              ; preds = %146
+149:                                              ; preds = %145
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h994a9b666f7099edE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit"
 
-"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit": ; preds = %150, %146
-  %151 = load ptr, ptr %32, align 8, !alias.scope !761, !nonnull !4, !noundef !4
-  %152 = getelementptr inbounds { ptr, i64 }, ptr %151, i64 %147
-  store ptr null, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  store i64 %143, ptr %153, align 8
-  %154 = add i64 %147, 1
-  store i64 %154, ptr %6, align 8, !alias.scope !761
-  %155 = call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hda80198f87e34258E.llvm.11830909381988143716"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0, i64 noundef %147)
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$4push17hf423aa2c641cd25bE.exit": ; preds = %149, %145
+  %150 = load ptr, ptr %32, align 8, !alias.scope !761, !nonnull !4, !noundef !4
+  %151 = getelementptr inbounds { ptr, i64 }, ptr %150, i64 %146
+  store ptr null, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store i64 %142, ptr %152, align 8
+  %153 = add i64 %146, 1
+  store i64 %153, ptr %6, align 8, !alias.scope !761
+  %154 = call noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$7sift_up17hda80198f87e34258E.llvm.11830909381988143716"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0, i64 noundef %146)
   br label %35
 
-156:                                              ; preds = %142
-  %157 = add i64 %143, 1
-  store i64 %157, ptr %31, align 8
+155:                                              ; preds = %141
+  %156 = add i64 %142, 1
+  store i64 %156, ptr %31, align 8
   br label %"_ZN117_$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17haf3b2f79a8c5e2f2E.exit.thread"
 }
 
@@ -17484,7 +17484,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.sroa.011.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.011.0.i11, %81 ]
   %.sroa.0.1.i14 = phi i64 [ %91, %84 ], [ %.sroa.0.0.i12, %81 ]
-  %93 = icmp ult i64 %.sroa.0.1.i14, %44
+  %93 = icmp samesign ult i64 %.sroa.0.1.i14, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18
 
 94:                                               ; preds = %92
@@ -17496,7 +17496,7 @@ _ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.0.1.i14, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.011.1.i13
   br label %_ZN4core4hash3sip9u8to64_le17hbf6917966742174eE.exit18
 

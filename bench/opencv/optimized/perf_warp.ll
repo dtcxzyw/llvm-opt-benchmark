@@ -3913,14 +3913,14 @@ define hidden void @_ZN11opencv_test35TestWarpPerspective_WarpPerspective12PerfT
   %60 = load ptr, ptr %47, align 8
   %61 = load ptr, ptr %49, align 8
   %62 = load i64, ptr %61, align 8
-  %63 = mul nuw i64 %62, %indvars.iv55
+  %63 = mul nuw nsw i64 %62, %indvars.iv55
   %64 = getelementptr inbounds i8, ptr %60, i64 %63
   %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
   %66 = load double, ptr %65, align 8
   %67 = load ptr, ptr %56, align 8
   %68 = load ptr, ptr %57, align 8
   %69 = load i64, ptr %68, align 8
-  %70 = mul nuw i64 %69, %indvars.iv55
+  %70 = mul nuw nsw i64 %69, %indvars.iv55
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
   %72 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv
   store double %66, ptr %72, align 8
@@ -4946,14 +4946,14 @@ define hidden void @_ZN11opencv_test48TestWarpPerspective_DISABLED_WarpPerspecti
   %60 = load ptr, ptr %47, align 8
   %61 = load ptr, ptr %49, align 8
   %62 = load i64, ptr %61, align 8
-  %63 = mul nuw i64 %62, %indvars.iv55
+  %63 = mul nuw nsw i64 %62, %indvars.iv55
   %64 = getelementptr inbounds i8, ptr %60, i64 %63
   %65 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv
   %66 = load double, ptr %65, align 8
   %67 = load ptr, ptr %56, align 8
   %68 = load ptr, ptr %57, align 8
   %69 = load i64, ptr %68, align 8
-  %70 = mul nuw i64 %69, %indvars.iv55
+  %70 = mul nuw nsw i64 %69, %indvars.iv55
   %71 = getelementptr inbounds i8, ptr %67, i64 %70
   %72 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv
   store double %66, ptr %72, align 8

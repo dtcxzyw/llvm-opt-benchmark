@@ -3907,41 +3907,41 @@ define linkonce_odr { double, double } @_ZNK7xgboost6metric26MultiClassMetricsRe
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread, label %.noexc23
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30, label %.noexc23
 
 .noexc23:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %23 = shl nuw nsw i64 %20, 3
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
-  store ptr %24, ptr %11, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %26 = getelementptr inbounds nuw double, ptr %24, i64 %20
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %26, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %23, i1 false)
-  store ptr %26, ptr %25, align 8
+  %22 = shl nuw nsw i64 %20, 3
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #30
+  store ptr %23, ptr %11, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw double, ptr %23, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %25, ptr %26, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %22, i1 false)
+  store ptr %25, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #30
           to label %.noexc32 unwind label %63
 
-.noexc32:                                         ; preds = %.noexc23
-  store ptr %28, ptr %12, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %20
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %23, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc32, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread
-  %32 = phi ptr [ %22, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread ], [ %29, %.noexc32 ]
-  %.0.i.i.i.i.i.i.i29 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread ], [ %30, %.noexc32 ]
+.noexc32:                                         ; preds = %.noexc23
+  store ptr %27, ptr %12, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %27, ptr %29, align 8
+  %30 = getelementptr inbounds nuw double, ptr %27, i64 %20
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %30, ptr %31, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %22, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc32, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30
+  %32 = phi ptr [ %28, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30 ], [ %29, %.noexc32 ]
+  %.0.i.i.i.i.i.i.i29 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30 ], [ %30, %.noexc32 ]
   store ptr %.0.i.i.i.i.i.i.i29, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   store ptr %10, ptr %7, align 8
@@ -5617,41 +5617,41 @@ define linkonce_odr { double, double } @_ZNK7xgboost6metric26MultiClassMetricsRe
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %6
   %.not.i.i.i.i = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread, label %.noexc23
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  br label %.loopexit
+  br i1 %.not.i.i.i.i, label %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30, label %.noexc23
 
 .noexc23:                                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-  %23 = shl nuw nsw i64 %20, 3
-  %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
-  store ptr %24, ptr %11, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %26 = getelementptr inbounds nuw double, ptr %24, i64 %20
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store ptr %26, ptr %27, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %24, i8 0, i64 %23, i1 false)
-  store ptr %26, ptr %25, align 8
+  %22 = shl nuw nsw i64 %20, 3
+  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #30
+  store ptr %23, ptr %11, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw double, ptr %23, i64 %20
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store ptr %25, ptr %26, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %23, i8 0, i64 %22, i1 false)
+  store ptr %25, ptr %24, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  %28 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #30
+  %27 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #30
           to label %.noexc32 unwind label %63
 
-.noexc32:                                         ; preds = %.noexc23
-  store ptr %28, ptr %12, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw double, ptr %28, i64 %20
-  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %30, ptr %31, align 8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %23, i1 false)
+_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30: ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  %28 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.noexc32, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread
-  %32 = phi ptr [ %22, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread ], [ %29, %.noexc32 ]
-  %.0.i.i.i.i.i.i.i29 = phi ptr [ null, %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i24.thread ], [ %30, %.noexc32 ]
+.noexc32:                                         ; preds = %.noexc23
+  store ptr %27, ptr %12, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %27, ptr %29, align 8
+  %30 = getelementptr inbounds nuw double, ptr %27, i64 %20
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %30, ptr %31, align 8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %22, i1 false)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.noexc32, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30
+  %32 = phi ptr [ %28, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30 ], [ %29, %.noexc32 ]
+  %.0.i.i.i.i.i.i.i29 = phi ptr [ null, %_ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i30 ], [ %30, %.noexc32 ]
   store ptr %.0.i.i.i.i.i.i.i29, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   store ptr %10, ptr %7, align 8

@@ -1308,7 +1308,7 @@ define internal fastcc void @ac_free_special(ptr noundef %0, ptr noundef readonl
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %.loopexit.sink.split, %20, %6
-  tail call void @mpool_free(ptr noundef %0, ptr noundef %9) #19
+  tail call void @mpool_free(ptr noundef %0, ptr noundef nonnull %9) #19
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %26 = load i16, ptr %3, align 4, !tbaa !70
   %27 = zext i16 %26 to i64
@@ -1970,7 +1970,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
   br i1 %55, label %56, label %60
 
 56:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %43) #19
+  tail call void @free(ptr noundef nonnull %43) #19
   tail call void @free(ptr noundef nonnull %33) #19
   br i1 %.not138, label %58, label %57
 
@@ -1994,7 +1994,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
 
 63:                                               ; preds = %60
   tail call void @free(ptr noundef nonnull %53) #19
-  tail call void @free(ptr noundef %43) #19
+  tail call void @free(ptr noundef nonnull %43) #19
   tail call void @free(ptr noundef nonnull %33) #19
   br i1 %.not138, label %65, label %64
 
@@ -2030,7 +2030,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
   tail call void @free(ptr noundef %69) #19
   tail call void @free(ptr noundef %71) #19
   tail call void @free(ptr noundef nonnull %53) #19
-  tail call void @free(ptr noundef %43) #19
+  tail call void @free(ptr noundef nonnull %43) #19
   tail call void @free(ptr noundef nonnull %33) #19
   br i1 %.not138, label %75, label %74
 
@@ -2066,7 +2066,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
   tail call void @free(ptr noundef nonnull %69) #19
   tail call void @free(ptr noundef nonnull %71) #19
   tail call void @free(ptr noundef nonnull %53) #19
-  tail call void @free(ptr noundef %43) #19
+  tail call void @free(ptr noundef nonnull %43) #19
   tail call void @free(ptr noundef nonnull %33) #19
   br i1 %.not138, label %83, label %82
 
@@ -2089,8 +2089,7 @@ define range(i32 0, 21) i32 @cli_ac_initdata(ptr noundef %0, i32 noundef %1, i32
   br i1 %.not162, label %.loopexit, label %.lr.ph159.preheader
 
 .lr.ph159.preheader:                              ; preds = %.preheader
-  %umax = tail call i32 @llvm.umax.i32(i32 %2, i32 2)
-  %wide.trip.count179 = zext i32 %umax to i64
+  %wide.trip.count179 = zext i32 %2 to i64
   br label %.lr.ph159
 
 .preheader149:                                    ; preds = %78, %.preheader149

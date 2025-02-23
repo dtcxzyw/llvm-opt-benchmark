@@ -509,7 +509,7 @@ write_blocked.exit27.i:                           ; preds = %82, %79
 write_global_extended_header.exit:                ; preds = %22, %write_blocked.exit27.i
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #11
-  %84 = call i32 @write_archive_entries(ptr noundef %1, ptr noundef nonnull @write_tar_entry) #11
+  %84 = call i32 @write_archive_entries(ptr noundef nonnull %1, ptr noundef nonnull @write_tar_entry) #11
   %.not = icmp eq i32 %84, 0
   br i1 %.not, label %85, label %write_trailer.exit
 
@@ -881,7 +881,7 @@ write_extended_header.exit:                       ; preds = %128, %131
   %.120.lcssa.i.i111 = phi i64 [ %138, %._crit_edge.i.i ], [ 500, %133 ]
   %.pre.i110 = phi i64 [ %.pre.i, %._crit_edge.i.i ], [ 0, %133 ]
   %144 = getelementptr inbounds nuw i8, ptr @block, i64 %.pre.i110
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr align 1 %.1.lcssa.i.i112, i64 %.120.lcssa.i.i111, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %144, ptr nonnull align 1 %.1.lcssa.i.i112, i64 %.120.lcssa.i.i111, i1 false)
   %145 = add i64 %.pre.i110, %.120.lcssa.i.i111
   store i64 %145, ptr @offset, align 8, !tbaa !20
   br label %do_write_blocked.exit.i

@@ -2390,7 +2390,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp19, label %if.then20, label %if.else
 
 if.then20:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_10CatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub21 = add i64 %5, 4294967295
+  %sub21 = add nuw i64 %5, 4294967295
   %conv22 = and i64 %sub21, 4294967295
   %arrayidx.i42 = getelementptr inbounds nuw float, ptr %f.coerce0, i64 %conv22
   %10 = load float, ptr %arrayidx.i42, align 4
@@ -2564,7 +2564,7 @@ while.end.i:                                      ; preds = %while.body.i
   br i1 %cmp18, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_16InvertCatmullRomEN4pstd4spanIKfEES4_fE3$_0EEmmRKT_.exit"
-  %sub19 = add i64 %8, 4294967295
+  %sub19 = add nuw i64 %8, 4294967295
   %conv20 = and i64 %sub19, 4294967295
   %arrayidx.i25 = getelementptr inbounds nuw float, ptr %f.coerce0, i64 %conv20
   %13 = load float, ptr %arrayidx.i25, align 4

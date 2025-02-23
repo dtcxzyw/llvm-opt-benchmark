@@ -2469,7 +2469,7 @@ Abc_Clock.exit149:                                ; preds = %Abc_Clock.exit146, 
   br label %351
 
 351:                                              ; preds = %Abc_Clock.exit149, %Gia_ManCountNonConst0.exit136
-  call void @Gia_ManStop(ptr noundef %.076182) #17
+  call void @Gia_ManStop(ptr noundef nonnull %.076182) #17
   br i1 %.not, label %356, label %352
 
 352:                                              ; preds = %351

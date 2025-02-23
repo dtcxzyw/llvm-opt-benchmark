@@ -33641,10 +33641,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit93: ; preds = 
   br i1 %exitcond.not, label %.critedge38, label %.lr.ph, !llvm.loop !2058
 
 .critedge38:                                      ; preds = %135
-  %.pre166 = load ptr, ptr %73, align 8, !tbaa !1185
-  %.pre165 = load ptr, ptr %78, align 8, !tbaa !1181
-  %.pre164 = load ptr, ptr %65, align 8, !tbaa !1185
   %.pre = load ptr, ptr %70, align 8, !tbaa !1181
+  %.pre164 = load ptr, ptr %65, align 8, !tbaa !1185
+  %.pre165 = load ptr, ptr %78, align 8, !tbaa !1181
+  %.pre166 = load ptr, ptr %73, align 8, !tbaa !1185
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #31
   store ptr %122, ptr %13, align 8, !tbaa !1183
   %136 = getelementptr inbounds nuw i8, ptr %13, i64 8

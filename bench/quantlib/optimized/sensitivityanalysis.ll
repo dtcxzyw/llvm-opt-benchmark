@@ -5122,9 +5122,9 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
   store double 0x47EFFFFFE0000000, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, align 8, !tbaa !22
   %incdec.ptr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i.i.i, i64 8
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont72, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !47
+  br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %for.body.lr.ph, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !47
 
-invoke.cont72:                                    ; preds = %for.body.i.i.i.i.i.i.i.i.i
+for.body.lr.ph:                                   ; preds = %for.body.i.i.i.i.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %referenceValues, i64 8
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !29
   %umax = tail call i64 @llvm.umax.i64(i64 %sub.ptr.div.i105, i64 1)
@@ -5139,8 +5139,8 @@ lpad71:                                           ; preds = %if.end.i.i.i.i.i.i.
           cleanup
   br label %ehcleanup113
 
-for.body:                                         ; preds = %invoke.cont72, %for.inc
-  %i.0168 = phi i64 [ 0, %invoke.cont72 ], [ %inc, %for.inc ]
+for.body:                                         ; preds = %for.body.lr.ph, %for.inc
+  %i.0168 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %57 = load ptr, ptr %parameters, align 8, !tbaa !64
   %add.ptr.i109 = getelementptr inbounds nuw %"class.QuantLib::Handle.37", ptr %57, i64 %i.0168
   %call80 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i109)

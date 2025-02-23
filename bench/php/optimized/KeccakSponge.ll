@@ -10,7 +10,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   %9 = lshr i32 %0, 3
   %10 = add i32 %1, %0
   %.not = icmp eq i32 %10, 1600
-  br i1 %.not, label %11, label %46
+  br i1 %.not, label %11, label %45
 
 11:                                               ; preds = %7
   %12 = add i32 %0, -1601
@@ -20,7 +20,7 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   %or.cond62.not67 = or i1 %or.cond, %.not59
   %14 = icmp eq i8 %4, 0
   %or.cond66 = or i1 %or.cond62.not67, %14
-  br i1 %or.cond66, label %46, label %15
+  br i1 %or.cond66, label %45, label %15
 
 15:                                               ; preds = %11
   call void @KeccakP1600_Initialize(ptr noundef nonnull %8) #4
@@ -59,49 +59,48 @@ define hidden range(i32 0, 2) i32 @KeccakWidth1600_Sponge(i32 noundef %0, i32 no
   %.1.lcssa = phi i64 [ %.048, %24 ], [ %26, %.lr.ph ]
   %27 = trunc nuw nsw i64 %.1.lcssa to i32
   call void @KeccakP1600_AddBytes(ptr noundef nonnull %8, ptr noundef %.151.lcssa, i32 noundef 0, i32 noundef %27) #4
-  %28 = and i64 %.1.lcssa, 4294967295
-  %29 = getelementptr inbounds nuw i8, ptr %8, i64 %28
-  %30 = load i8, ptr %29, align 1, !tbaa !4
-  %31 = xor i8 %30, %4
-  store i8 %31, ptr %29, align 1, !tbaa !4
-  %32 = icmp slt i8 %4, 0
-  %33 = add nsw i32 %9, -1
-  %34 = icmp eq i32 %33, %27
-  %or.cond65 = select i1 %32, i1 %34, i1 false
-  br i1 %or.cond65, label %35, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 %.1.lcssa
+  %29 = load i8, ptr %28, align 1, !tbaa !4
+  %30 = xor i8 %29, %4
+  store i8 %30, ptr %28, align 1, !tbaa !4
+  %31 = icmp slt i8 %4, 0
+  %32 = add nsw i32 %9, -1
+  %33 = icmp eq i32 %32, %27
+  %or.cond65 = select i1 %31, i1 %33, i1 false
+  br i1 %or.cond65, label %34, label %35
 
-35:                                               ; preds = %._crit_edge
+34:                                               ; preds = %._crit_edge
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #4
-  br label %36
+  br label %35
 
-36:                                               ; preds = %35, %._crit_edge
-  %37 = zext i32 %33 to i64
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = xor i8 %39, -128
-  store i8 %40, ptr %38, align 1, !tbaa !4
+35:                                               ; preds = %34, %._crit_edge
+  %36 = zext i32 %32 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !4
+  %39 = xor i8 %38, -128
+  store i8 %39, ptr %37, align 1, !tbaa !4
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #4
-  %41 = icmp ugt i64 %6, %18
-  br i1 %41, label %.lr.ph75, label %._crit_edge76
+  %40 = icmp ugt i64 %6, %18
+  br i1 %40, label %.lr.ph75, label %._crit_edge76
 
-.lr.ph75:                                         ; preds = %36, %.lr.ph75
-  %.04973 = phi ptr [ %42, %.lr.ph75 ], [ %5, %36 ]
-  %.05272 = phi i64 [ %43, %.lr.ph75 ], [ %6, %36 ]
+.lr.ph75:                                         ; preds = %35, %.lr.ph75
+  %.04973 = phi ptr [ %41, %.lr.ph75 ], [ %5, %35 ]
+  %.05272 = phi i64 [ %42, %.lr.ph75 ], [ %6, %35 ]
   call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.04973, i32 noundef 0, i32 noundef %9) #4
   call void @KeccakP1600_Permute_24rounds(ptr noundef nonnull %8) #4
-  %42 = getelementptr inbounds nuw i8, ptr %.04973, i64 %18
-  %43 = sub nuw i64 %.05272, %18
-  %44 = icmp ugt i64 %43, %18
-  br i1 %44, label %.lr.ph75, label %._crit_edge76
+  %41 = getelementptr inbounds nuw i8, ptr %.04973, i64 %18
+  %42 = sub nuw i64 %.05272, %18
+  %43 = icmp ugt i64 %42, %18
+  br i1 %43, label %.lr.ph75, label %._crit_edge76
 
-._crit_edge76:                                    ; preds = %.lr.ph75, %36
-  %.052.lcssa = phi i64 [ %6, %36 ], [ %43, %.lr.ph75 ]
-  %.049.lcssa = phi ptr [ %5, %36 ], [ %42, %.lr.ph75 ]
-  %45 = trunc nuw nsw i64 %.052.lcssa to i32
-  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.049.lcssa, i32 noundef 0, i32 noundef %45) #4
-  br label %46
+._crit_edge76:                                    ; preds = %.lr.ph75, %35
+  %.052.lcssa = phi i64 [ %6, %35 ], [ %42, %.lr.ph75 ]
+  %.049.lcssa = phi ptr [ %5, %35 ], [ %41, %.lr.ph75 ]
+  %44 = trunc nuw nsw i64 %.052.lcssa to i32
+  call void @KeccakP1600_ExtractBytes(ptr noundef nonnull %8, ptr noundef %.049.lcssa, i32 noundef 0, i32 noundef %44) #4
+  br label %45
 
-46:                                               ; preds = %11, %7, %._crit_edge76
+45:                                               ; preds = %11, %7, %._crit_edge76
   %.0 = phi i32 [ 0, %._crit_edge76 ], [ 1, %7 ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %8) #4
   ret i32 %.0

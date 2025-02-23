@@ -3184,25 +3184,25 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
 
 115:                                              ; preds = %114, %112
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #16
-  br label %226
+  br label %224
 
 116:                                              ; preds = %84
   store i32 1, ptr @exit_code, align 4
   %117 = load i32, ptr @quiet_flag, align 4
   %.not122 = icmp eq i32 %117, 1
-  br i1 %.not122, label %226, label %118
+  br i1 %.not122, label %224, label %118
 
 118:                                              ; preds = %116
   br i1 %41, label %119, label %120
 
 119:                                              ; preds = %118
   %puts124 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %226
+  br label %224
 
 120:                                              ; preds = %118
   %121 = call ptr @slurm_strerror(i32 noundef %.175157) #16
   %122 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__.scontrol_print_step, ptr noundef %.073, ptr noundef %121) #16
-  br label %226
+  br label %224
 
 123:                                              ; preds = %80
   store ptr %82, ptr @scontrol_print_step.old_job_step_info_ptr, align 8
@@ -3385,58 +3385,56 @@ define dso_local void @scontrol_print_step(ptr noundef %0, i32 noundef %1, ptr n
   %206 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv.next172
   %207 = load ptr, ptr %206, align 8
   %.not135 = icmp eq ptr %207, null
-  br i1 %.not135, label %._crit_edge, label %.lr.ph162, !llvm.loop !21
+  br i1 %.not135, label %._crit_edge.thread, label %.lr.ph162, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %.lr.ph162, %.loopexit.thread, %.preheader, %201, %199
-  %.079 = phi i1 [ false, %199 ], [ false, %201 ], [ false, %.preheader ], [ false, %.loopexit.thread ], [ true, %.lr.ph162 ]
+._crit_edge:                                      ; preds = %.loopexit.thread, %.preheader, %201, %199
   %208 = load ptr, ptr @mime_type, align 8
-  %209 = icmp ne ptr %208, null
-  %or.cond7 = or i1 %.079, %209
-  br i1 %or.cond7, label %225, label %210
+  %.not189 = icmp eq ptr %208, null
+  br i1 %.not189, label %209, label %._crit_edge.thread
 
-210:                                              ; preds = %._crit_edge
+209:                                              ; preds = %._crit_edge
   %.not142 = icmp eq ptr %.073, null
-  br i1 %.not142, label %222, label %211
+  br i1 %.not142, label %221, label %210
 
-211:                                              ; preds = %210
+210:                                              ; preds = %209
   store i32 1, ptr @exit_code, align 4
-  %212 = load i32, ptr @quiet_flag, align 4
-  %.not145 = icmp eq i32 %212, 1
-  br i1 %.not145, label %225, label %213
+  %211 = load i32, ptr @quiet_flag, align 4
+  %.not145 = icmp eq i32 %211, 1
+  br i1 %.not145, label %._crit_edge.thread, label %212
 
-213:                                              ; preds = %211
+212:                                              ; preds = %210
   call void @llvm.lifetime.start.p0(i64 45, ptr nonnull %13) #16
-  %214 = call ptr @log_build_step_id_str(ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 45, i16 noundef zeroext 6) #16
-  %215 = icmp eq i32 %.080, -2
-  %216 = load i32, ptr %39, align 8
-  br i1 %215, label %217, label %219
+  %213 = call ptr @log_build_step_id_str(ptr noundef nonnull %4, ptr noundef nonnull %13, i32 noundef 45, i16 noundef zeroext 6) #16
+  %214 = icmp eq i32 %.080, -2
+  %215 = load i32, ptr %39, align 8
+  br i1 %214, label %216, label %218
 
-217:                                              ; preds = %213
-  %218 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %216, ptr noundef nonnull %13)
-  br label %221
+216:                                              ; preds = %212
+  %217 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.23, i32 noundef %215, ptr noundef nonnull %13)
+  br label %220
 
-219:                                              ; preds = %213
-  %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %216, i32 noundef %.080, ptr noundef nonnull %13)
-  br label %221
+218:                                              ; preds = %212
+  %219 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, i32 noundef %215, i32 noundef %.080, ptr noundef nonnull %13)
+  br label %220
 
-221:                                              ; preds = %219, %217
+220:                                              ; preds = %218, %216
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %13) #16
-  br label %225
+  br label %._crit_edge.thread
 
-222:                                              ; preds = %210
-  %223 = load i32, ptr @quiet_flag, align 4
-  %.not143 = icmp eq i32 %223, 1
-  br i1 %.not143, label %225, label %224
+221:                                              ; preds = %209
+  %222 = load i32, ptr @quiet_flag, align 4
+  %.not143 = icmp eq i32 %222, 1
+  br i1 %.not143, label %._crit_edge.thread, label %223
 
-224:                                              ; preds = %222
+223:                                              ; preds = %221
   %puts144 = call i32 @puts(ptr nonnull dereferenceable(1) @str.4)
-  br label %225
+  br label %._crit_edge.thread
 
-225:                                              ; preds = %221, %211, %224, %222, %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph162, %220, %210, %223, %221, %._crit_edge
   call void @slurm_xfree(ptr noundef nonnull %6) #16
-  br label %226
+  br label %224
 
-226:                                              ; preds = %116, %120, %119, %225, %115
+224:                                              ; preds = %116, %120, %119, %._crit_edge.thread, %115
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16

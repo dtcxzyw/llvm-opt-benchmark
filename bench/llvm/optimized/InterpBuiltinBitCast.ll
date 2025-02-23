@@ -625,8 +625,8 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread172: ; preds = %156, %_
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 16
   %196 = load i8, ptr %195, align 16
   %197 = icmp eq i8 %196, 13
-  %.not.not6.i.i = icmp ne ptr %194, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %197
+  %.not6.i.i = icmp ne ptr %194, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %197
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread
 
 _ZNK5clang4Type19isExtVectorBoolTypeEv.exit:      ; preds = %186
@@ -1478,8 +1478,8 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit:   ; preds = %_ZNK5clang6interp7P
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i8, ptr %83, align 16
   %85 = icmp eq i8 %84, 13
-  %.not.not6.i.i = icmp ne ptr %82, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %85
+  %.not6.i.i = icmp ne ptr %82, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %85
   br i1 %.not.not.not.i.i, label %86, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit
 
 86:                                               ; preds = %74
@@ -4833,8 +4833,8 @@ _ZNK5clang6interp7Pointer8getFieldEv.exit.thread.i: ; preds = %_ZNK5clang6interp
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i8, ptr %110, align 16
   %112 = icmp eq i8 %111, 13
-  %.not.not7.i.i = icmp ne ptr %109, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %112
+  %.not7.i.i = icmp ne ptr %109, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %112
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i, label %_ZNK5clang4Type21isSpecificBuiltinTypeEj.exit77.thread.i
 
 _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.i:  ; preds = %104

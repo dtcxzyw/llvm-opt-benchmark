@@ -306,7 +306,7 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
 ._crit_edge:                                      ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %9, i8 0, i64 %7, i1 false)
   %12 = icmp sgt i32 %2, 0
-  br i1 %12, label %.preheader.us.preheader.i, label %Dar_TruthPermute_int.exit
+  br i1 %12, label %.preheader.us.preheader.i, label %Dar_TruthPermute_int.exit.thread
 
 .preheader.us.preheader.i:                        ; preds = %._crit_edge
   %wide.trip.count23.i = zext nneg i32 %5 to i64
@@ -348,15 +348,27 @@ define i32 @Dar_TruthPermute(i32 noundef %0, ptr noundef readonly captures(none)
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count23.i
   br i1 %exitcond24.not.i, label %Dar_TruthPermute_int.exit, label %.preheader.us.i, !llvm.loop !18
 
-Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i, %._crit_edge
+Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i
   %.not = icmp eq i32 %3, 0
+  br i1 %.not, label %.lr.ph53.preheader, label %.lr.ph50.preheader
+
+Dar_TruthPermute_int.exit.thread:                 ; preds = %._crit_edge
+  %.not73 = icmp eq i32 %3, 0
+  br i1 %.not73, label %.lr.ph53.preheader, label %.lr.ph50.preheader
+
+.lr.ph50.preheader:                               ; preds = %Dar_TruthPermute_int.exit, %Dar_TruthPermute_int.exit.thread
+  %smax63 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
+  %wide.trip.count64 = zext nneg i32 %smax63 to i64
+  br label %.lr.ph50
+
+.lr.ph53.preheader:                               ; preds = %Dar_TruthPermute_int.exit, %Dar_TruthPermute_int.exit.thread
   %smax69 = tail call i32 @llvm.smax.i32(i32 %5, i32 1)
   %wide.trip.count70 = zext nneg i32 %smax69 to i64
-  br i1 %.not, label %.lr.ph53, label %.lr.ph50
+  br label %.lr.ph53
 
-.lr.ph50:                                         ; preds = %Dar_TruthPermute_int.exit, %.lr.ph50
-  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph50 ], [ 0, %Dar_TruthPermute_int.exit ]
-  %.03648 = phi i32 [ %.137, %.lr.ph50 ], [ 0, %Dar_TruthPermute_int.exit ]
+.lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
+  %indvars.iv60 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next61, %.lr.ph50 ]
+  %.03648 = phi i32 [ 0, %.lr.ph50.preheader ], [ %.137, %.lr.ph50 ]
   %28 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv60
   %29 = load i32, ptr %28, align 4, !tbaa !15
   %30 = shl nuw i32 1, %29
@@ -367,12 +379,12 @@ Dar_TruthPermute_int.exit:                        ; preds = %._crit_edge.us.i, %
   %34 = select i1 %.not44, i32 0, i32 %33
   %.137 = or i32 %34, %.03648
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
-  %exitcond65.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count70
+  %exitcond65.not = icmp eq i64 %indvars.iv.next61, %wide.trip.count64
   br i1 %exitcond65.not, label %.loopexit, label %.lr.ph50, !llvm.loop !20
 
-.lr.ph53:                                         ; preds = %Dar_TruthPermute_int.exit, %43
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %43 ], [ 0, %Dar_TruthPermute_int.exit ]
-  %.351 = phi i32 [ %.4, %43 ], [ 0, %Dar_TruthPermute_int.exit ]
+.lr.ph53:                                         ; preds = %.lr.ph53.preheader, %43
+  %indvars.iv66 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next67, %43 ]
+  %.351 = phi i32 [ 0, %.lr.ph53.preheader ], [ %.4, %43 ]
   %35 = trunc nuw nsw i64 %indvars.iv66 to i32
   %36 = shl nuw i32 1, %35
   %37 = and i32 %36, %0

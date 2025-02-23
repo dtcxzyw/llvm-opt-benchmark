@@ -1236,7 +1236,7 @@ ExecParallelSetupTupleQueues.exit:                ; preds = %28, %18, %10
 53:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call fastcc i64 @SerializeParamExecParams(ptr noundef %5, ptr noundef %2, ptr noundef %55)
+  %56 = tail call fastcc i64 @SerializeParamExecParams(ptr noundef nonnull %5, ptr noundef %2, ptr noundef %55)
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i64 %56, ptr %57, align 8
   store i64 %56, ptr %46, align 8
@@ -1248,7 +1248,7 @@ ExecParallelSetupTupleQueues.exit:                ; preds = %28, %18, %10
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 296
   store ptr %60, ptr %61, align 8
   %62 = load ptr, ptr %12, align 8
-  %63 = tail call zeroext i1 @ExecParallelReInitializeDSM(ptr noundef %0, ptr noundef %62)
+  %63 = tail call zeroext i1 @ExecParallelReInitializeDSM(ptr noundef nonnull %0, ptr noundef %62)
   store ptr null, ptr %61, align 8
   ret void
 }
@@ -1864,8 +1864,8 @@ RestoreParamExecParams.exit:                      ; preds = %52, %45
   call void @InstrStartParallelQuery() #9
   %68 = load i64, ptr %6, align 8
   %spec.select = call i64 @llvm.smax.i64(i64 %68, i64 0)
-  call void @ExecutorRun(ptr noundef %26, i32 noundef 1, i64 noundef %spec.select) #9
-  call void @ExecutorFinish(ptr noundef %26) #9
+  call void @ExecutorRun(ptr noundef nonnull %26, i32 noundef 1, i64 noundef %spec.select) #9
+  call void @ExecutorFinish(ptr noundef nonnull %26) #9
   %69 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693948, i1 noundef zeroext false) #9
   %70 = call ptr @shm_toc_lookup(ptr noundef %1, i64 noundef -2305843009213693942, i1 noundef zeroext false) #9
   %71 = load i32, ptr @ParallelWorkerNumber, align 4

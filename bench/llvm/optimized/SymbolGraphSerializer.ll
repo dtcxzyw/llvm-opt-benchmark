@@ -6800,7 +6800,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 16:                                               ; preds = %.lr.ph, %16
   %.01114 = phi ptr [ %8, %.lr.ph ], [ %20, %16 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #18
-  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #18
+  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #18
   %17 = load i8, ptr %13, align 8, !tbaa !89, !range !23, !noundef !24
   %18 = trunc nuw i8 %17 to i1
   %19 = load ptr, ptr %14, align 8
@@ -16685,7 +16685,7 @@ define dso_local noundef zeroext i1 @_ZN5clang10extractapi21SymbolGraphSerialize
 16:                                               ; preds = %.lr.ph, %16
   %.01114 = phi ptr [ %8, %.lr.ph ], [ %20, %16 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #18
-  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %1) #18
+  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull %1) #18
   %17 = load i8, ptr %13, align 8, !tbaa !89, !range !23, !noundef !24
   %18 = trunc nuw i8 %17 to i1
   %19 = load ptr, ptr %14, align 8
@@ -17965,7 +17965,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang10extractapi13APISetVisi
 17:                                               ; preds = %17, %.lr.ph.i.i
   %.01114.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %21, %17 ]
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #18
-  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %1) #18
+  call void @_ZN5clang10extractapi15SymbolReferenceC1EPKNS0_9APIRecordE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull %1) #18
   %18 = load i8, ptr %14, align 8, !tbaa !89, !range !23, !noundef !24
   %19 = trunc nuw i8 %18 to i1
   %20 = load ptr, ptr %15, align 8

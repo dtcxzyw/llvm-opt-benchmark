@@ -8776,14 +8776,14 @@ _ZN7AstNode11privateCastI15AstClassPackagePK13AstNodeModuleEEPKT_PKS_.exit.threa
   br i1 %.not.i.i, label %_ZN17EmitCParentModule3getEPK7AstNode.exit, label %67
 
 67:                                               ; preds = %.lr.ph65
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %68, align 8
   %69 = add i16 %.sroa.0.0.copyload.i.i.i.i, -331
   %spec.select.i.i.i = icmp ult i16 %69, -7
   br i1 %spec.select.i.i.i, label %70, label %_ZN17EmitCParentModule3getEPK7AstNode.exit
 
 70:                                               ; preds = %67
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 64
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %72 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.33, i32 noundef 2428, i1 noundef zeroext false)
           to label %.noexc22 unwind label %.loopexit.split-lp
 

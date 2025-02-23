@@ -1271,7 +1271,6 @@ set_addr_in_repeat_range.exit:                    ; preds = %459, %454
   br label %unset_addr_list_end.exit111
 
 unset_addr_list_end.exit111:                      ; preds = %495, %493, %489, %487
-  %.1 = phi i32 [ 0, %487 ], [ %357, %489 ], [ %357, %493 ], [ %357, %495 ]
   call void @onig_node_free(ptr noundef %60) #22
   %496 = call i32 @onig_init_for_match_at(ptr noundef nonnull %0) #22
   br label %510
@@ -1306,7 +1305,7 @@ unset_addr_list_end.exit:                         ; preds = %421, %415, %413, %3
   br label %510
 
 510:                                              ; preds = %506, %509, %27, %22, %23, %unset_addr_list_end.exit111
-  %.063 = phi i32 [ %.1, %unset_addr_list_end.exit111 ], [ -5, %23 ], [ -5, %22 ], [ %29, %27 ], [ %.0, %509 ], [ %.0, %506 ]
+  %.063 = phi i32 [ %357, %unset_addr_list_end.exit111 ], [ -5, %23 ], [ -5, %22 ], [ %29, %27 ], [ %.0, %509 ], [ %.0, %506 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
@@ -14728,7 +14727,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds %struct.MemEnv, ptr %40, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !205
-  %57 = tail call fastcc i32 @node_max_byte_len(ptr noundef %56, ptr noundef %1)
+  %57 = tail call fastcc i32 @node_max_byte_len(ptr noundef %56, ptr noundef nonnull %1)
   %spec.select102 = tail call i32 @llvm.umax.i32(i32 %.6123, i32 %57)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load i32, ptr %49, align 8, !tbaa !130

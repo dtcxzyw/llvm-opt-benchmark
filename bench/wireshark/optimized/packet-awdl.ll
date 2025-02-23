@@ -2066,7 +2066,7 @@ define internal i32 @awdl_tag_channel_sequence(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 -2147483647, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 0, -2147483648) i32 @awdl_tag_sync_tree(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = add i32 %5, -6
   %.not7 = icmp slt i32 %6, 0

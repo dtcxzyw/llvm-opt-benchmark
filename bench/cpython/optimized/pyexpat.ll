@@ -7854,16 +7854,16 @@ Py_DECREF.exit.i:                                 ; preds = %122, %119, %117
   %130 = getelementptr [64 x %struct.HandlerInfo], ptr @handler_info, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 16, !tbaa !40
   %.not.i67.i = icmp eq ptr %131, null
-  br i1 %.not.i67.i, label %clear_handlers.exit.i, label %.lr.ph.split.i.i, !llvm.loop !45
+  br i1 %.not.i67.i, label %.lr.ph.i, label %.lr.ph.split.i.i, !llvm.loop !45
 
-clear_handlers.exit.i:                            ; preds = %.lr.ph.split.i.i
+.lr.ph.i:                                         ; preds = %.lr.ph.split.i.i
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %133
 
-133:                                              ; preds = %151, %clear_handlers.exit.i
-  %134 = phi ptr [ @handler_info, %clear_handlers.exit.i ], [ %154, %151 ]
-  %135 = phi i64 [ 0, %clear_handlers.exit.i ], [ %153, %151 ]
-  %.170.i = phi i32 [ 0, %clear_handlers.exit.i ], [ %152, %151 ]
+133:                                              ; preds = %151, %.lr.ph.i
+  %134 = phi ptr [ @handler_info, %.lr.ph.i ], [ %154, %151 ]
+  %135 = phi i64 [ 0, %.lr.ph.i ], [ %153, %151 ]
+  %.170.i = phi i32 [ 0, %.lr.ph.i ], [ %152, %151 ]
   %136 = load ptr, ptr %132, align 8, !tbaa !36
   %137 = getelementptr ptr, ptr %136, i64 %135
   %138 = load ptr, ptr %137, align 8, !tbaa !14

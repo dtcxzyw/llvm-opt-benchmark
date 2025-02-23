@@ -702,8 +702,8 @@ index_tree_append.exit:                           ; preds = %137, %110, %108, %8
   %145 = load i64, ptr %41, align 8, !tbaa !39
   %146 = add i64 %145, %42
   store i64 %146, ptr %41, align 8, !tbaa !39
-  %147 = add nuw i64 %2, 3
-  %148 = and i64 %147, -4
+  %147 = add nuw nsw i64 %2, 3
+  %148 = and i64 %147, 9223372036854775804
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %150 = load i64, ptr %149, align 8, !tbaa !32
   %151 = add i64 %150, %148
@@ -1169,7 +1169,7 @@ define dso_local ptr @lzma_index_dup(ptr noundef readonly captures(none) %0, ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %22 = load i64, ptr %21, align 8, !tbaa !40
   %23 = icmp ugt i64 %22, 1152921504606846971
-  br i1 %23, label %index_dup_stream.exit.thread, label %.lr.ph
+  br i1 %23, label %index_dup_stream.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1177,19 +1177,19 @@ define dso_local ptr @lzma_index_dup(ptr noundef readonly captures(none) %0, ptr
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %27
 
-27:                                               ; preds = %.lr.ph, %index_tree_next.exit
-  %28 = phi ptr [ %21, %.lr.ph ], [ %178, %index_tree_next.exit ]
-  %.02262 = phi ptr [ %20, %.lr.ph ], [ %.123, %index_tree_next.exit ]
-  %29 = getelementptr inbounds nuw i8, ptr %.02262, i64 8
+27:                                               ; preds = %.lr.ph, %index_tree_next.exit.thread47
+  %28 = phi ptr [ %21, %.lr.ph ], [ %180, %index_tree_next.exit.thread47 ]
+  %.02259 = phi ptr [ %20, %.lr.ph ], [ %.12344, %index_tree_next.exit.thread47 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.02259, i64 8
   %30 = load i64, ptr %29, align 8, !tbaa !35
-  %31 = load i64, ptr %.02262, align 8, !tbaa !62
-  %32 = getelementptr inbounds nuw i8, ptr %.02262, i64 40
+  %31 = load i64, ptr %.02259, align 8, !tbaa !62
+  %32 = getelementptr inbounds nuw i8, ptr %.02259, i64 40
   %33 = load i32, ptr %32, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw i8, ptr %.02262, i64 48
+  %34 = getelementptr inbounds nuw i8, ptr %.02259, i64 48
   %35 = load i64, ptr %34, align 8, !tbaa !63
   %36 = tail call ptr @lzma_alloc(i64 noundef 168, ptr noundef %1) #17
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %index_dup_stream.exit.thread, label %38
+  br i1 %37, label %index_dup_stream.exit, label %38
 
 38:                                               ; preds = %27
   store i64 %31, ptr %36, align 8, !tbaa !62
@@ -1211,19 +1211,19 @@ define dso_local ptr @lzma_index_dup(ptr noundef readonly captures(none) %0, ptr
   store i64 0, ptr %46, align 8, !tbaa !19
   %47 = load i64, ptr %28, align 8, !tbaa !40
   store i64 %47, ptr %44, align 8, !tbaa !40
-  %48 = getelementptr inbounds nuw i8, ptr %.02262, i64 96
+  %48 = getelementptr inbounds nuw i8, ptr %.02259, i64 96
   %49 = load i64, ptr %48, align 8, !tbaa !39
   %50 = getelementptr inbounds nuw i8, ptr %36, i64 96
   store i64 %49, ptr %50, align 8, !tbaa !39
-  %51 = getelementptr inbounds nuw i8, ptr %.02262, i64 104
+  %51 = getelementptr inbounds nuw i8, ptr %.02259, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %45, ptr noundef nonnull readonly align 8 dereferenceable(56) %51, i64 56, i1 false), !tbaa.struct !43
-  %52 = getelementptr inbounds nuw i8, ptr %.02262, i64 160
+  %52 = getelementptr inbounds nuw i8, ptr %.02259, i64 160
   %53 = load i64, ptr %52, align 8, !tbaa !19
   store i64 %53, ptr %46, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw i8, ptr %.02262, i64 64
+  %54 = getelementptr inbounds nuw i8, ptr %.02259, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !51
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %index_dup_stream.exit.thread39, label %57
+  br i1 %56, label %134, label %57
 
 57:                                               ; preds = %38
   %58 = load i64, ptr %28, align 8, !tbaa !40
@@ -1244,7 +1244,7 @@ define dso_local ptr @lzma_index_dup(ptr noundef readonly captures(none) %0, ptr
 
 index_stream_end.exit.i:                          ; preds = %64, %63
   tail call void @lzma_free(ptr noundef nonnull %36, ptr noundef %1) #17
-  br label %index_dup_stream.exit.thread
+  br label %index_dup_stream.exit
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -1322,7 +1322,7 @@ index_tree_next.exit.i:                           ; preds = %.preheader17.i.i, %
   %104 = getelementptr inbounds nuw i8, ptr %36, i64 64
   store ptr %61, ptr %104, align 8, !tbaa !24
   store ptr %61, ptr %94, align 8, !tbaa !20
-  br label %index_dup_stream.exit.thread39
+  br label %134
 
 105:                                              ; preds = %93
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 32
@@ -1332,7 +1332,7 @@ index_tree_next.exit.i:                           ; preds = %.preheader17.i.i, %
   %108 = xor i32 %107, 31
   %109 = shl nuw i32 1, %108
   %.not.i45.i = icmp eq i32 %100, %109
-  br i1 %.not.i45.i, label %index_dup_stream.exit.thread39, label %110
+  br i1 %.not.i45.i, label %134, label %110
 
 110:                                              ; preds = %105
   %111 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %100, i1 true)
@@ -1372,141 +1372,141 @@ index_tree_next.exit.i:                           ; preds = %.preheader17.i.i, %
   %129 = load ptr, ptr %128, align 8, !tbaa !28
   store ptr %129, ptr %118, align 8, !tbaa !25
   %.not42.i.i = icmp eq ptr %129, null
-  br i1 %.not42.i.i, label %index_dup_stream.exit, label %130
+  br i1 %.not42.i.i, label %132, label %130
 
 130:                                              ; preds = %126
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 16
   store ptr %115, ptr %131, align 8, !tbaa !21
-  br label %index_dup_stream.exit
+  br label %132
 
-index_dup_stream.exit:                            ; preds = %126, %130
+132:                                              ; preds = %130, %126
   store ptr %115, ptr %128, align 8, !tbaa !28
   store ptr %119, ptr %120, align 8, !tbaa !21
-  br label %index_dup_stream.exit.thread39
+  br label %134
 
-index_dup_stream.exit.thread:                     ; preds = %index_tree_next.exit, %27, %4, %index_stream_end.exit.i
+index_dup_stream.exit:                            ; preds = %27, %index_tree_next.exit.thread47, %4, %index_stream_end.exit.i
   %.val.i = load ptr, ptr %3, align 8, !tbaa !23
   %.not.i.i29 = icmp eq ptr %.val.i, null
-  br i1 %.not.i.i29, label %index_tree_next.exit.thread, label %132
+  br i1 %.not.i.i29, label %index_tree_next.exit.thread, label %133
 
-132:                                              ; preds = %index_dup_stream.exit.thread
+133:                                              ; preds = %index_dup_stream.exit
   tail call fastcc void @index_tree_node_end(ptr noundef %.val.i, ptr noundef %1, ptr noundef nonnull @index_stream_end)
   br label %index_tree_next.exit.thread
 
-index_tree_next.exit.thread:                      ; preds = %132, %index_dup_stream.exit.thread
+index_tree_next.exit.thread:                      ; preds = %133, %index_dup_stream.exit
   tail call void @lzma_free(ptr noundef nonnull %3, ptr noundef %1) #17
   br label %index_init_plain.exit.thread
 
-index_dup_stream.exit.thread39:                   ; preds = %index_dup_stream.exit, %105, %103, %38
-  %133 = load ptr, ptr %24, align 8, !tbaa !20
-  store ptr %133, ptr %40, align 8, !tbaa !21
-  %134 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
-  %135 = load i32, ptr %25, align 8, !tbaa !22
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %25, align 8, !tbaa !22
-  %137 = load ptr, ptr %3, align 8, !tbaa !23
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %140
+134:                                              ; preds = %38, %103, %105, %132
+  %135 = load ptr, ptr %24, align 8, !tbaa !20
+  store ptr %135, ptr %40, align 8, !tbaa !21
+  %136 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %136, i8 0, i64 16, i1 false)
+  %137 = load i32, ptr %25, align 8, !tbaa !22
+  %138 = add i32 %137, 1
+  store i32 %138, ptr %25, align 8, !tbaa !22
+  %139 = load ptr, ptr %3, align 8, !tbaa !23
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %141, label %142
 
-139:                                              ; preds = %index_dup_stream.exit.thread39
+141:                                              ; preds = %134
   store ptr %36, ptr %3, align 8, !tbaa !23
   store ptr %36, ptr %26, align 8, !tbaa !24
   store ptr %36, ptr %24, align 8, !tbaa !20
   br label %index_tree_append.exit
 
-140:                                              ; preds = %index_dup_stream.exit.thread39
-  %141 = getelementptr inbounds nuw i8, ptr %133, i64 32
-  store ptr %36, ptr %141, align 8, !tbaa !25
+142:                                              ; preds = %134
+  %143 = getelementptr inbounds nuw i8, ptr %135, i64 32
+  store ptr %36, ptr %143, align 8, !tbaa !25
   store ptr %36, ptr %24, align 8, !tbaa !20
-  %142 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %136, i1 true)
-  %143 = xor i32 %142, 31
-  %144 = shl nuw i32 1, %143
-  %.not.i30 = icmp eq i32 %136, %144
-  br i1 %.not.i30, label %index_tree_append.exit, label %145
+  %144 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %138, i1 true)
+  %145 = xor i32 %144, 31
+  %146 = shl nuw i32 1, %145
+  %.not.i30 = icmp eq i32 %138, %146
+  br i1 %.not.i30, label %index_tree_append.exit, label %147
 
-145:                                              ; preds = %140
-  %146 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %136, i1 true)
-  %147 = add nuw nsw i32 %146, 2
-  br label %148
+147:                                              ; preds = %142
+  %148 = tail call range(i32 0, 32) i32 @llvm.cttz.i32(i32 %138, i1 true)
+  %149 = add nuw nsw i32 %148, 2
+  br label %150
 
-148:                                              ; preds = %148, %145
-  %.038.i = phi i32 [ %147, %145 ], [ %151, %148 ]
-  %.0.i31 = phi ptr [ %36, %145 ], [ %150, %148 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !21
-  %151 = add nsw i32 %.038.i, -1
-  %.not41.i = icmp eq i32 %151, 0
-  br i1 %.not41.i, label %152, label %148, !llvm.loop !26
+150:                                              ; preds = %150, %147
+  %.038.i = phi i32 [ %149, %147 ], [ %153, %150 ]
+  %.0.i31 = phi ptr [ %36, %147 ], [ %152, %150 ]
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 16
+  %152 = load ptr, ptr %151, align 8, !tbaa !21
+  %153 = add nsw i32 %.038.i, -1
+  %.not41.i = icmp eq i32 %153, 0
+  br i1 %.not41.i, label %154, label %150, !llvm.loop !26
 
-152:                                              ; preds = %148
-  %153 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %154 = load ptr, ptr %153, align 8, !tbaa !25
-  %155 = getelementptr inbounds nuw i8, ptr %150, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !21
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %158, label %159
+154:                                              ; preds = %150
+  %155 = getelementptr inbounds nuw i8, ptr %152, i64 32
+  %156 = load ptr, ptr %155, align 8, !tbaa !25
+  %157 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  %158 = load ptr, ptr %157, align 8, !tbaa !21
+  %159 = icmp eq ptr %158, null
+  br i1 %159, label %160, label %161
 
-158:                                              ; preds = %152
-  store ptr %154, ptr %3, align 8, !tbaa !23
-  br label %161
+160:                                              ; preds = %154
+  store ptr %156, ptr %3, align 8, !tbaa !23
+  br label %163
 
-159:                                              ; preds = %152
-  %160 = getelementptr inbounds nuw i8, ptr %156, i64 32
-  store ptr %154, ptr %160, align 8, !tbaa !25
-  br label %161
+161:                                              ; preds = %154
+  %162 = getelementptr inbounds nuw i8, ptr %158, i64 32
+  store ptr %156, ptr %162, align 8, !tbaa !25
+  br label %163
 
-161:                                              ; preds = %159, %158
-  %162 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  store ptr %156, ptr %162, align 8, !tbaa !21
-  %163 = getelementptr inbounds nuw i8, ptr %154, i64 24
-  %164 = load ptr, ptr %163, align 8, !tbaa !28
-  store ptr %164, ptr %153, align 8, !tbaa !25
-  %.not42.i = icmp eq ptr %164, null
-  br i1 %.not42.i, label %167, label %165
+163:                                              ; preds = %161, %160
+  %164 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  store ptr %158, ptr %164, align 8, !tbaa !21
+  %165 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  %166 = load ptr, ptr %165, align 8, !tbaa !28
+  store ptr %166, ptr %155, align 8, !tbaa !25
+  %.not42.i = icmp eq ptr %166, null
+  br i1 %.not42.i, label %169, label %167
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  store ptr %150, ptr %166, align 8, !tbaa !21
-  br label %167
+167:                                              ; preds = %163
+  %168 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  store ptr %152, ptr %168, align 8, !tbaa !21
+  br label %169
 
-167:                                              ; preds = %165, %161
-  store ptr %150, ptr %163, align 8, !tbaa !28
-  store ptr %154, ptr %155, align 8, !tbaa !21
+169:                                              ; preds = %167, %163
+  store ptr %152, ptr %165, align 8, !tbaa !28
+  store ptr %156, ptr %157, align 8, !tbaa !21
   br label %index_tree_append.exit
 
-index_tree_append.exit:                           ; preds = %139, %140, %167
-  %168 = getelementptr inbounds nuw i8, ptr %.02262, i64 32
-  %169 = load ptr, ptr %168, align 8, !tbaa !25
-  %.not.i32 = icmp eq ptr %169, null
+index_tree_append.exit:                           ; preds = %141, %142, %169
+  %170 = getelementptr inbounds nuw i8, ptr %.02259, i64 32
+  %171 = load ptr, ptr %170, align 8, !tbaa !25
+  %.not.i32 = icmp eq ptr %171, null
   br i1 %.not.i32, label %.preheader.i, label %.preheader17.i
 
 .preheader17.i:                                   ; preds = %index_tree_append.exit, %.preheader17.i
-  %.0.i33 = phi ptr [ %171, %.preheader17.i ], [ %169, %index_tree_append.exit ]
-  %170 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 24
-  %171 = load ptr, ptr %170, align 8, !tbaa !28
-  %.not16.i = icmp eq ptr %171, null
-  br i1 %.not16.i, label %index_tree_next.exit, label %.preheader17.i, !llvm.loop !65
+  %.0.i33 = phi ptr [ %173, %.preheader17.i ], [ %171, %index_tree_append.exit ]
+  %172 = getelementptr inbounds nuw i8, ptr %.0.i33, i64 24
+  %173 = load ptr, ptr %172, align 8, !tbaa !28
+  %.not16.i = icmp eq ptr %173, null
+  br i1 %.not16.i, label %index_tree_next.exit.thread47, label %.preheader17.i, !llvm.loop !65
 
-.preheader.i:                                     ; preds = %index_tree_append.exit, %174
-  %.1.i = phi ptr [ %173, %174 ], [ %.02262, %index_tree_append.exit ]
-  %172 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
-  %173 = load ptr, ptr %172, align 8, !tbaa !21
-  %.not15.i = icmp eq ptr %173, null
-  br i1 %.not15.i, label %index_init_plain.exit.thread, label %174
+.preheader.i:                                     ; preds = %index_tree_append.exit, %176
+  %.1.i = phi ptr [ %175, %176 ], [ %.02259, %index_tree_append.exit ]
+  %174 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
+  %175 = load ptr, ptr %174, align 8, !tbaa !21
+  %.not15.i = icmp eq ptr %175, null
+  br i1 %.not15.i, label %index_init_plain.exit.thread, label %176
 
-174:                                              ; preds = %.preheader.i
-  %175 = getelementptr inbounds nuw i8, ptr %173, i64 32
-  %176 = load ptr, ptr %175, align 8, !tbaa !25
-  %177 = icmp eq ptr %176, %.1.i
-  br i1 %177, label %.preheader.i, label %index_tree_next.exit, !llvm.loop !66
+176:                                              ; preds = %.preheader.i
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 32
+  %178 = load ptr, ptr %177, align 8, !tbaa !25
+  %179 = icmp eq ptr %178, %.1.i
+  br i1 %179, label %.preheader.i, label %index_tree_next.exit.thread47, !llvm.loop !66
 
-index_tree_next.exit:                             ; preds = %.preheader17.i, %174
-  %.123 = phi ptr [ %173, %174 ], [ %.0.i33, %.preheader17.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %.123, i64 88
-  %179 = load i64, ptr %178, align 8, !tbaa !40
-  %180 = icmp ugt i64 %179, 1152921504606846971
-  br i1 %180, label %index_dup_stream.exit.thread, label %27
+index_tree_next.exit.thread47:                    ; preds = %.preheader17.i, %176
+  %.12344 = phi ptr [ %175, %176 ], [ %.0.i33, %.preheader17.i ]
+  %180 = getelementptr inbounds nuw i8, ptr %.12344, i64 88
+  %181 = load i64, ptr %180, align 8, !tbaa !40
+  %182 = icmp ugt i64 %181, 1152921504606846971
+  br i1 %182, label %index_dup_stream.exit, label %27
 
 index_init_plain.exit.thread:                     ; preds = %.preheader.i, %2, %index_tree_next.exit.thread
   %.0 = phi ptr [ null, %index_tree_next.exit.thread ], [ null, %2 ], [ %3, %.preheader.i ]
@@ -2081,7 +2081,7 @@ index_tree_locate.exit43:                         ; preds = %.lr.ph.i34, %index_
   store ptr %.07.lcssa.i42, ptr %27, align 8, !tbaa !45
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store i64 %.028.lcssa, ptr %28, align 8, !tbaa !45
-  tail call fastcc void @iter_set_info(ptr noundef %0)
+  tail call fastcc void @iter_set_info(ptr noundef nonnull %0)
   br label %29
 
 29:                                               ; preds = %2, %._crit_edge

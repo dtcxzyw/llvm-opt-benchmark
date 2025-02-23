@@ -990,7 +990,7 @@ declare void @je_arena_decay(ptr noundef, ptr noundef, i1 noundef zeroext, i1 no
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @je_arena_choose_hard(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
-  %.sroa.0181 = alloca i32, align 8
+  %.sroa.0171 = alloca i32, align 8
   %.sroa.6 = alloca i32, align 4
   %.sroa.0 = alloca i8, align 2
   %.sroa.5 = alloca i8, align 1
@@ -1078,19 +1078,19 @@ arena_bind.exit89:                                ; preds = %arena_bind.exit, %4
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i88, i1 noundef zeroext true) #20
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %.0.i.i88, ptr %41, align 8, !tbaa !50
-  br label %170
+  br label %171
 
 42:                                               ; preds = %2
   %43 = load i32, ptr @je_narenas_auto, align 4, !tbaa !4
   %44 = icmp ugt i32 %43, 1
-  br i1 %44, label %45, label %149
+  br i1 %44, label %45, label %150
 
 45:                                               ; preds = %42
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0171)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.6)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %.sroa.5)
-  store i32 0, ptr %.sroa.0181, align 8
+  store i32 0, ptr %.sroa.0171, align 8
   store i32 0, ptr %.sroa.6, align 4
   store i8 0, ptr %.sroa.0, align 2
   store i8 0, ptr %.sroa.5, align 1
@@ -1149,7 +1149,7 @@ malloc_mutex_lock.exit:                           ; preds = %47, %51
 .preheader140:                                    ; preds = %.preheader140.preheader, %81
   %66 = phi i1 [ false, %.preheader140.preheader ], [ true, %81 ]
   %67 = phi i1 [ true, %.preheader140.preheader ], [ false, %81 ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0181, %.preheader140.preheader ], [ %.sroa.6, %81 ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.0171, %.preheader140.preheader ], [ %.sroa.6, %81 ]
   %68 = load atomic i64, ptr %63 acquire, align 8
   %.0.i.i93 = inttoptr i64 %68 to ptr
   %69 = icmp eq i64 %68, 0
@@ -1204,14 +1204,13 @@ arena_get.exit92.thread:                          ; preds = %.lr.ph
   %87 = icmp samesign ult i64 %indvars.iv.next154, %86
   br i1 %87, label %.lr.ph, label %.preheader, !llvm.loop !107
 
-88:                                               ; preds = %.preheader, %arena_bind.exit115
+88:                                               ; preds = %arena_bind.exit115, %.preheader
   %89 = phi i1 [ false, %.preheader ], [ true, %arena_bind.exit115 ]
-  %.not150 = phi i1 [ true, %.preheader ], [ false, %arena_bind.exit115 ]
   %indvars.iv156.sroa.phi = phi ptr [ %.sroa.0, %.preheader ], [ %.sroa.5, %arena_bind.exit115 ]
-  %indvars.iv156.sroa.phi177 = phi ptr [ %.sroa.0181, %.preheader ], [ %.sroa.6, %arena_bind.exit115 ]
+  %indvars.iv156.sroa.phi167 = phi ptr [ %.sroa.0171, %.preheader ], [ %.sroa.6, %arena_bind.exit115 ]
   %indvars.iv156 = phi i64 [ 0, %.preheader ], [ 1, %arena_bind.exit115 ]
   %.073147 = phi ptr [ null, %.preheader ], [ %.174, %arena_bind.exit115 ]
-  %90 = load i32, ptr %indvars.iv156.sroa.phi177, align 4, !tbaa !4
+  %90 = load i32, ptr %indvars.iv156.sroa.phi167, align 4, !tbaa !4
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %91
   %93 = load atomic i64, ptr %92 acquire, align 8
@@ -1236,7 +1235,7 @@ arena_get.exit101:                                ; preds = %88, %95
   br i1 %101, label %102, label %arena_get.exit104
 
 102:                                              ; preds = %100
-  %103 = load i32, ptr %indvars.iv156.sroa.phi177, align 4, !tbaa !4
+  %103 = load i32, ptr %indvars.iv156.sroa.phi167, align 4, !tbaa !4
   %104 = zext i32 %103 to i64
   %105 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %104
   %106 = load atomic i64, ptr %105 acquire, align 8
@@ -1248,7 +1247,7 @@ arena_get.exit101:                                ; preds = %88, %95
   br label %arena_get.exit104
 
 109:                                              ; preds = %arena_get.exit101
-  store i32 %.064.lcssa, ptr %indvars.iv156.sroa.phi177, align 4, !tbaa !4
+  store i32 %.064.lcssa, ptr %indvars.iv156.sroa.phi167, align 4, !tbaa !4
   br i1 %56, label %.thread, label %110
 
 110:                                              ; preds = %109
@@ -1288,7 +1287,7 @@ arena_init_locked.exit:                           ; preds = %115, %arena_get.exi
 
 arena_get.exit104:                                ; preds = %119, %108, %102, %100
   %.174 = phi ptr [ %.073147, %100 ], [ %spec.select81, %119 ], [ null, %108 ], [ %.0.i.i102, %102 ]
-  %121 = load i32, ptr %indvars.iv156.sroa.phi177, align 4, !tbaa !4
+  %121 = load i32, ptr %indvars.iv156.sroa.phi167, align 4, !tbaa !4
   %122 = zext i32 %121 to i64
   %123 = getelementptr inbounds nuw [0 x %struct.atomic_p_t], ptr @je_arenas, i64 0, i64 %122
   %124 = load atomic i64, ptr %123 acquire, align 8
@@ -1302,11 +1301,7 @@ arena_get.exit104:                                ; preds = %119, %108, %102, %1
 arena_get.exit.i110:                              ; preds = %126, %arena_get.exit104
   %.0.i.i111 = phi ptr [ null, %126 ], [ %.0.i.i.i109, %arena_get.exit104 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i111, i1 noundef zeroext %89) #20
-  br i1 %89, label %arena_bind.exit115.thread, label %127
-
-arena_bind.exit115.thread:                        ; preds = %arena_get.exit.i110
-  store ptr %.0.i.i111, ptr %61, align 8, !tbaa !50
-  br label %.loopexit164
+  br i1 %89, label %136, label %127
 
 127:                                              ; preds = %arena_get.exit.i110
   store ptr %.0.i.i111, ptr %59, align 8, !tbaa !50
@@ -1327,108 +1322,109 @@ arena_bind.exit115.thread:                        ; preds = %arena_get.exit.i110
   br i1 %exitcond.not.i114, label %arena_bind.exit115, label %130, !llvm.loop !104
 
 arena_bind.exit115:                               ; preds = %130
-  br i1 %.not150, label %88, label %.loopexit164, !llvm.loop !109
+  br label %88, !llvm.loop !109
 
-.loopexit164:                                     ; preds = %arena_bind.exit115, %arena_bind.exit115.thread
+136:                                              ; preds = %arena_get.exit.i110
+  store ptr %.0.i.i111, ptr %61, align 8, !tbaa !50
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @je_arenas_lock, i64 104) monotonic, align 8
-  %136 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_arenas_lock, i64 64)) #20
-  br label %137
+  %137 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_arenas_lock, i64 64)) #20
+  br label %138
 
-137:                                              ; preds = %.loopexit164, %arena_new_create_background_thread.exit
-  %138 = phi i1 [ true, %.loopexit164 ], [ false, %arena_new_create_background_thread.exit ]
-  %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %.loopexit164 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
-  %indvars.iv159.sroa.phi179 = phi ptr [ %.sroa.0181, %.loopexit164 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
-  %139 = load i8, ptr %indvars.iv159.sroa.phi, align 1, !tbaa !108, !range !110, !noundef !111
-  %140 = trunc nuw i8 %139 to i1
-  br i1 %140, label %141, label %arena_new_create_background_thread.exit
+138:                                              ; preds = %136, %arena_new_create_background_thread.exit
+  %139 = phi i1 [ true, %136 ], [ false, %arena_new_create_background_thread.exit ]
+  %indvars.iv159.sroa.phi = phi ptr [ %.sroa.0, %136 ], [ %.sroa.5, %arena_new_create_background_thread.exit ]
+  %indvars.iv159.sroa.phi169 = phi ptr [ %.sroa.0171, %136 ], [ %.sroa.6, %arena_new_create_background_thread.exit ]
+  %140 = load i8, ptr %indvars.iv159.sroa.phi, align 1, !tbaa !108, !range !110, !noundef !111
+  %141 = trunc nuw i8 %140 to i1
+  br i1 %141, label %142, label %arena_new_create_background_thread.exit
 
-141:                                              ; preds = %137
-  %142 = load i32, ptr %indvars.iv159.sroa.phi179, align 4, !tbaa !4
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %arena_new_create_background_thread.exit, label %144
+142:                                              ; preds = %138
+  %143 = load i32, ptr %indvars.iv159.sroa.phi169, align 4, !tbaa !4
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %arena_new_create_background_thread.exit, label %145
 
-144:                                              ; preds = %141
-  %145 = tail call zeroext i1 @je_arena_is_huge(i32 noundef %142) #20
-  br i1 %145, label %arena_new_create_background_thread.exit, label %146
+145:                                              ; preds = %142
+  %146 = tail call zeroext i1 @je_arena_is_huge(i32 noundef %143) #20
+  br i1 %146, label %arena_new_create_background_thread.exit, label %147
 
-146:                                              ; preds = %144
-  %147 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %142) #20
-  br i1 %147, label %148, label %arena_new_create_background_thread.exit
+147:                                              ; preds = %145
+  %148 = tail call zeroext i1 @je_background_thread_create(ptr noundef %0, i32 noundef %143) #20
+  br i1 %148, label %149, label %arena_new_create_background_thread.exit
 
-148:                                              ; preds = %146
-  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.160, i32 noundef %142) #20
+149:                                              ; preds = %147
+  tail call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.160, i32 noundef %143) #20
   tail call void @abort() #21
   unreachable
 
-arena_new_create_background_thread.exit:          ; preds = %146, %144, %141, %137
-  br i1 %138, label %137, label %.loopexit, !llvm.loop !112
+arena_new_create_background_thread.exit:          ; preds = %147, %145, %142, %138
+  br i1 %139, label %138, label %.loopexit, !llvm.loop !112
 
 .loopexit:                                        ; preds = %arena_new_create_background_thread.exit, %.thread
   %spec.select82 = phi ptr [ null, %.thread ], [ %.174, %arena_new_create_background_thread.exit ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.5)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0181)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.0171)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.6)
-  br label %170
+  br label %171
 
-149:                                              ; preds = %42
-  %150 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i117 = inttoptr i64 %150 to ptr
-  %151 = icmp eq i64 %150, 0
-  br i1 %151, label %152, label %arena_get.exit119, !prof !8
+150:                                              ; preds = %42
+  %151 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i117 = inttoptr i64 %151 to ptr
+  %152 = icmp eq i64 %151, 0
+  br i1 %152, label %153, label %arena_get.exit119, !prof !8
 
-152:                                              ; preds = %149
+153:                                              ; preds = %150
   br label %arena_get.exit119
 
-arena_get.exit119:                                ; preds = %149, %152
-  %.0.i118 = phi ptr [ null, %152 ], [ %.0.i.i117, %149 ]
-  %153 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i.i120 = inttoptr i64 %153 to ptr
-  %154 = icmp eq i64 %153, 0
-  br i1 %154, label %155, label %arena_get.exit.i121, !prof !8
+arena_get.exit119:                                ; preds = %150, %153
+  %.0.i118 = phi ptr [ null, %153 ], [ %.0.i.i117, %150 ]
+  %154 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i.i120 = inttoptr i64 %154 to ptr
+  %155 = icmp eq i64 %154, 0
+  br i1 %155, label %156, label %arena_get.exit.i121, !prof !8
 
-155:                                              ; preds = %arena_get.exit119
+156:                                              ; preds = %arena_get.exit119
   br label %arena_get.exit.i121
 
-arena_get.exit.i121:                              ; preds = %155, %arena_get.exit119
-  %.0.i.i122 = phi ptr [ null, %155 ], [ %.0.i.i.i120, %arena_get.exit119 ]
+arena_get.exit.i121:                              ; preds = %156, %arena_get.exit119
+  %.0.i.i122 = phi ptr [ null, %156 ], [ %.0.i.i.i120, %arena_get.exit119 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i122, i1 noundef zeroext false) #20
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %.0.i.i122, ptr %156, align 8, !tbaa !50
-  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i122, i64 8
-  %158 = atomicrmw add ptr %157, i32 1 monotonic, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 161
-  br label %160
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %.0.i.i122, ptr %157, align 8, !tbaa !50
+  %158 = getelementptr inbounds nuw i8, ptr %.0.i.i122, i64 8
+  %159 = atomicrmw add ptr %158, i32 1 monotonic, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 161
+  br label %161
 
-160:                                              ; preds = %160, %arena_get.exit.i121
-  %indvars.iv.i123 = phi i64 [ 0, %arena_get.exit.i121 ], [ %indvars.iv.next.i124, %160 ]
-  %161 = getelementptr inbounds nuw [39 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i123, i32 3
-  %162 = load i32, ptr %161, align 4, !tbaa !101
-  %163 = urem i32 %158, %162
-  %164 = trunc i32 %163 to i8
-  %165 = getelementptr inbounds nuw [39 x i8], ptr %159, i64 0, i64 %indvars.iv.i123
-  store i8 %164, ptr %165, align 1, !tbaa !11
+161:                                              ; preds = %161, %arena_get.exit.i121
+  %indvars.iv.i123 = phi i64 [ 0, %arena_get.exit.i121 ], [ %indvars.iv.next.i124, %161 ]
+  %162 = getelementptr inbounds nuw [39 x %struct.bin_info_s], ptr @je_bin_infos, i64 0, i64 %indvars.iv.i123, i32 3
+  %163 = load i32, ptr %162, align 4, !tbaa !101
+  %164 = urem i32 %159, %163
+  %165 = trunc i32 %164 to i8
+  %166 = getelementptr inbounds nuw [39 x i8], ptr %160, i64 0, i64 %indvars.iv.i123
+  store i8 %165, ptr %166, align 1, !tbaa !11
   %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, 39
-  br i1 %exitcond.not.i125, label %arena_bind.exit126, label %160, !llvm.loop !104
+  br i1 %exitcond.not.i125, label %arena_bind.exit126, label %161, !llvm.loop !104
 
-arena_bind.exit126:                               ; preds = %160
-  %166 = load atomic i64, ptr @je_arenas acquire, align 64
-  %.0.i.i.i127 = inttoptr i64 %166 to ptr
-  %167 = icmp eq i64 %166, 0
-  br i1 %167, label %168, label %arena_bind.exit130, !prof !8
+arena_bind.exit126:                               ; preds = %161
+  %167 = load atomic i64, ptr @je_arenas acquire, align 64
+  %.0.i.i.i127 = inttoptr i64 %167 to ptr
+  %168 = icmp eq i64 %167, 0
+  br i1 %168, label %169, label %arena_bind.exit130, !prof !8
 
-168:                                              ; preds = %arena_bind.exit126
+169:                                              ; preds = %arena_bind.exit126
   br label %arena_bind.exit130
 
-arena_bind.exit130:                               ; preds = %arena_bind.exit126, %168
-  %.0.i.i129 = phi ptr [ null, %168 ], [ %.0.i.i.i127, %arena_bind.exit126 ]
+arena_bind.exit130:                               ; preds = %arena_bind.exit126, %169
+  %.0.i.i129 = phi ptr [ null, %169 ], [ %.0.i.i.i127, %arena_bind.exit126 ]
   tail call void @je_arena_nthreads_inc(ptr noundef %.0.i.i129, i1 noundef zeroext true) #20
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store ptr %.0.i.i129, ptr %169, align 8, !tbaa !50
-  br label %170
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store ptr %.0.i.i129, ptr %170, align 8, !tbaa !50
+  br label %171
 
-170:                                              ; preds = %.loopexit, %arena_bind.exit130, %arena_bind.exit89
+171:                                              ; preds = %.loopexit, %arena_bind.exit130, %arena_bind.exit89
   %.0 = phi ptr [ %.0.i84, %arena_bind.exit89 ], [ %.0.i118, %arena_bind.exit130 ], [ %spec.select82, %.loopexit ]
   ret ptr %.0
 }
@@ -3467,7 +3463,7 @@ define hidden void @je_free_default(ptr noundef %0) local_unnamed_addr #5 {
   %5 = alloca %struct.rtree_contents_s, align 8
   %6 = alloca [3 x i64], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %219, label %7, !prof !8
+  br i1 %.not, label %218, label %7, !prof !8
 
 7:                                                ; preds = %1
   %8 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
@@ -3698,22 +3694,22 @@ arena_dalloc.exit:                                ; preds = %89, %80, %cache_bin
 
 te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %130
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
-  br label %219
+  br label %218
 
 131:                                              ; preds = %tsd_fetch_impl.exit
   %132 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %133 = load i8, ptr %132, align 1, !tbaa !11
   %134 = icmp eq i8 %133, 0
-  br i1 %134, label %135, label %tsdn_rtree_ctx.exit46, !prof !10
+  br i1 %134, label %135, label %tcache_get_from_ind.exit, !prof !10
 
 135:                                              ; preds = %131
   %136 = load i8, ptr %11, align 1, !tbaa !108, !range !110, !noundef !111
   %137 = trunc nuw i8 %136 to i1
   %138 = getelementptr inbounds nuw i8, ptr %11, i64 872
   %spec.select = select i1 %137, ptr %138, ptr null
-  br label %tsdn_rtree_ctx.exit46
+  br label %tcache_get_from_ind.exit
 
-tsdn_rtree_ctx.exit46:                            ; preds = %135, %131
+tcache_get_from_ind.exit:                         ; preds = %135, %131
   %.0.i = phi ptr [ null, %131 ], [ %spec.select, %135 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #20
   %139 = ptrtoint ptr %0 to i64
@@ -3732,12 +3728,12 @@ tsdn_rtree_ctx.exit46:                            ; preds = %135, %131
   %146 = trunc nuw i8 %145 to i1
   br i1 %146, label %147, label %idalloctm.exit
 
-147:                                              ; preds = %tsdn_rtree_ctx.exit46
+147:                                              ; preds = %tcache_get_from_ind.exit
   %148 = load ptr, ptr @je_junk_free_callback, align 8, !tbaa !119
   call void %148(ptr noundef nonnull %0, i64 noundef %144) #20
   br label %idalloctm.exit
 
-idalloctm.exit:                                   ; preds = %tsdn_rtree_ctx.exit46, %147
+idalloctm.exit:                                   ; preds = %tcache_get_from_ind.exit, %147
   %149 = icmp eq ptr %.0.i, null
   br i1 %149, label %150, label %151, !prof !8
 
@@ -3842,46 +3838,45 @@ cache_bin_dalloc_easy.exit12.i33:                 ; preds = %181
 
 tsdn_rtree_ctx.exit42:                            ; preds = %178
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %203 = getelementptr inbounds nuw i8, ptr %11, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %11, ptr noundef nonnull %203, i64 noundef %139)
-  %204 = load ptr, ptr %5, align 8, !tbaa !153
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %11, ptr noundef nonnull %140, i64 noundef %139)
+  %203 = load ptr, ptr %5, align 8, !tbaa !153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @je_large_dalloc(ptr noundef nonnull %11, ptr noundef %204) #20
+  call void @je_large_dalloc(ptr noundef nonnull %11, ptr noundef %203) #20
   br label %arena_dalloc.exit22
 
 arena_dalloc.exit22:                              ; preds = %176, %167, %cache_bin_dalloc_easy.exit31.thread, %166, %cache_bin_dalloc_easy.exit12.i33.thread, %201, %cache_bin_dalloc_easy.exit12.i33, %tsdn_rtree_ctx.exit42, %150
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
   store i8 0, ptr %2, align 8, !tbaa !128
-  %205 = getelementptr inbounds nuw i8, ptr %11, i64 856
-  %206 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %205, ptr %206, align 8, !tbaa !131
-  %207 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %208 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %207, ptr %208, align 8, !tbaa !132
-  %209 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %210 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %209, ptr %210, align 8, !tbaa !133
-  %211 = getelementptr inbounds nuw i8, ptr %11, i64 864
-  %212 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %211, ptr %212, align 8, !tbaa !134
-  %213 = load i64, ptr %205, align 8, !tbaa !33
-  %214 = add i64 %213, %144
-  store i64 %214, ptr %205, align 8, !tbaa !33
-  %215 = load i64, ptr %209, align 8, !tbaa !33
-  %216 = sub i64 %215, %213
-  %217 = icmp ult i64 %144, %216
-  br i1 %217, label %te_event_advance.exit47, label %218, !prof !10
+  %204 = getelementptr inbounds nuw i8, ptr %11, i64 856
+  %205 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %204, ptr %205, align 8, !tbaa !131
+  %206 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %207 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %206, ptr %207, align 8, !tbaa !132
+  %208 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %208, ptr %209, align 8, !tbaa !133
+  %210 = getelementptr inbounds nuw i8, ptr %11, i64 864
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %210, ptr %211, align 8, !tbaa !134
+  %212 = load i64, ptr %204, align 8, !tbaa !33
+  %213 = add i64 %212, %144
+  store i64 %213, ptr %204, align 8, !tbaa !33
+  %214 = load i64, ptr %208, align 8, !tbaa !33
+  %215 = sub i64 %214, %212
+  %216 = icmp ult i64 %144, %215
+  br i1 %216, label %te_event_advance.exit47, label %217, !prof !10
 
-218:                                              ; preds = %arena_dalloc.exit22
+217:                                              ; preds = %arena_dalloc.exit22
   call void @je_te_event_trigger(ptr noundef nonnull %11, ptr noundef nonnull %2) #20
   br label %te_event_advance.exit47
 
-te_event_advance.exit47:                          ; preds = %arena_dalloc.exit22, %218
+te_event_advance.exit47:                          ; preds = %arena_dalloc.exit22, %217
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #20
-  br label %219
+  br label %218
 
-219:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit47, %1
+218:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit47, %1
   ret void
 }
 
@@ -6821,14 +6816,14 @@ define internal fastcc ptr @do_realloc_nonnull_zero(ptr noundef nonnull %0) unna
   %4 = alloca [3 x i64], align 16
   %5 = atomicrmw add ptr @je_zero_realloc_count, i64 1 monotonic, align 8
   %6 = load i32, ptr @je_opt_zero_realloc_action, align 4, !tbaa !4
-  switch i32 %6, label %147 [
+  switch i32 %6, label %146 [
     i32 0, label %7
     i32 1, label %9
   ]
 
 7:                                                ; preds = %1
   %8 = tail call fastcc ptr @do_rallocx(ptr noundef nonnull %0, i64 noundef 1, i32 noundef 256, i1 noundef zeroext true)
-  br label %148
+  br label %147
 
 9:                                                ; preds = %1
   %10 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
@@ -6846,16 +6841,16 @@ tsd_fetch_impl.exit:                              ; preds = %9, %13
   %15 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !11
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %18, label %tsdn_rtree_ctx.exit22, !prof !10
+  br i1 %17, label %18, label %tcache_get_from_ind.exit, !prof !10
 
 18:                                               ; preds = %tsd_fetch_impl.exit
   %19 = load i8, ptr %.0.i18, align 1, !tbaa !108, !range !110, !noundef !111
   %20 = trunc nuw i8 %19 to i1
   %21 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 872
   %spec.select = select i1 %20, ptr %21, ptr null
-  br label %tsdn_rtree_ctx.exit22
+  br label %tcache_get_from_ind.exit
 
-tsdn_rtree_ctx.exit22:                            ; preds = %18, %tsd_fetch_impl.exit
+tcache_get_from_ind.exit:                         ; preds = %18, %tsd_fetch_impl.exit
   %.0.i = phi ptr [ null, %tsd_fetch_impl.exit ], [ %spec.select, %18 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   %22 = ptrtoint ptr %0 to i64
@@ -6872,7 +6867,7 @@ tsdn_rtree_ctx.exit22:                            ; preds = %18, %tsd_fetch_impl
   %30 = icmp eq i64 %29, %27
   br i1 %30, label %31, label %37, !prof !10
 
-31:                                               ; preds = %tsdn_rtree_ctx.exit22
+31:                                               ; preds = %tcache_get_from_ind.exit
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = lshr i64 %22, 12
@@ -6880,7 +6875,7 @@ tsdn_rtree_ctx.exit22:                            ; preds = %18, %tsd_fetch_impl
   %36 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %33, i64 %35
   br label %rtree_metadata_read.exit
 
-37:                                               ; preds = %tsdn_rtree_ctx.exit22
+37:                                               ; preds = %tcache_get_from_ind.exit
   %38 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 704
   %39 = load i64, ptr %38, align 8, !tbaa !13
   %40 = icmp eq i64 %39, %27
@@ -6935,7 +6930,7 @@ tsdn_rtree_ctx.exit22:                            ; preds = %18, %tsd_fetch_impl
   br label %rtree_metadata_read.exit
 
 67:                                               ; preds = %52
-  %68 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %.0.i18, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %24, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false) #20
+  %68 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef nonnull %.0.i18, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %24, i64 noundef %22, i1 noundef zeroext true, i1 noundef zeroext false) #20
   br label %rtree_metadata_read.exit
 
 rtree_metadata_read.exit:                         ; preds = %31, %41, %53, %67
@@ -7057,51 +7052,50 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %109
 
 tsdn_rtree_ctx.exit:                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  %131 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %.0.i18, ptr noundef nonnull %131, i64 noundef %22)
-  %132 = load ptr, ptr %3, align 8, !tbaa !153
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull %.0.i18, ptr noundef nonnull %24, i64 noundef %22)
+  %131 = load ptr, ptr %3, align 8, !tbaa !153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  call void @je_large_dalloc(ptr noundef nonnull %.0.i18, ptr noundef %132) #20
+  call void @je_large_dalloc(ptr noundef nonnull %.0.i18, ptr noundef %131) #20
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %104, %95, %cache_bin_dalloc_easy.exit16.thread, %94, %cache_bin_dalloc_easy.exit12.i.thread, %129, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %78
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #20
   store i8 0, ptr %2, align 8, !tbaa !128
-  %133 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 856
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %133, ptr %134, align 8, !tbaa !131
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 24
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %135, ptr %136, align 8, !tbaa !132
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 32
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr %137, ptr %138, align 8, !tbaa !133
-  %139 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 864
-  %140 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %139, ptr %140, align 8, !tbaa !134
-  %141 = load i64, ptr %133, align 8, !tbaa !33
-  %142 = add i64 %141, %72
-  store i64 %142, ptr %133, align 8, !tbaa !33
-  %143 = load i64, ptr %137, align 8, !tbaa !33
-  %144 = sub i64 %143, %141
-  %145 = icmp ult i64 %72, %144
-  br i1 %145, label %te_event_advance.exit, label %146, !prof !10
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 856
+  %133 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %132, ptr %133, align 8, !tbaa !131
+  %134 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 24
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %134, ptr %135, align 8, !tbaa !132
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr %136, ptr %137, align 8, !tbaa !133
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i18, i64 864
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %138, ptr %139, align 8, !tbaa !134
+  %140 = load i64, ptr %132, align 8, !tbaa !33
+  %141 = add i64 %140, %72
+  store i64 %141, ptr %132, align 8, !tbaa !33
+  %142 = load i64, ptr %136, align 8, !tbaa !33
+  %143 = sub i64 %142, %140
+  %144 = icmp ult i64 %72, %143
+  br i1 %144, label %te_event_advance.exit, label %145, !prof !10
 
-146:                                              ; preds = %arena_dalloc.exit
+145:                                              ; preds = %arena_dalloc.exit
   call void @je_te_event_trigger(ptr noundef nonnull %.0.i18, ptr noundef nonnull %2) #20
   br label %te_event_advance.exit
 
-te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %146
+te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %145
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #20
-  br label %148
+  br label %147
 
-147:                                              ; preds = %1
+146:                                              ; preds = %1
   tail call void (ptr, ...) @je_safety_check_fail(ptr noundef nonnull @.str.163) #20
-  br label %148
+  br label %147
 
-148:                                              ; preds = %147, %te_event_advance.exit, %7
-  %.0 = phi ptr [ %8, %7 ], [ null, %te_event_advance.exit ], [ null, %147 ]
+147:                                              ; preds = %146, %te_event_advance.exit, %7
+  %.0 = phi ptr [ %8, %7 ], [ null, %te_event_advance.exit ], [ null, %146 ]
   ret ptr %.0
 }
 
@@ -7894,7 +7888,7 @@ arena_dalloc.exit26:                              ; preds = %112, %103, %cache_b
 
 te_event_advance.exit51:                          ; preds = %arena_dalloc.exit26, %153
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #20
-  br label %236
+  br label %235
 
 tsdn_rtree_ctx.exit48:                            ; preds = %19, %23, %tcache_get_from_ind.exit
   %.0.i89 = phi ptr [ %.0.i, %tcache_get_from_ind.exit ], [ %spec.select, %23 ], [ null, %19 ]
@@ -8028,46 +8022,45 @@ cache_bin_dalloc_easy.exit12.i:                   ; preds = %198
 
 tsdn_rtree_ctx.exit:                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %220 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 448
-  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %.0.i42, ptr noundef nonnull %220, i64 noundef %154)
-  %221 = load ptr, ptr %5, align 8, !tbaa !153
+  call fastcc void @rtree_read(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %.0.i42, ptr noundef nonnull %157, i64 noundef %154)
+  %220 = load ptr, ptr %5, align 8, !tbaa !153
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
-  call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %221) #20
+  call void @je_large_dalloc(ptr noundef nonnull %.0.i42, ptr noundef %220) #20
   br label %arena_dalloc.exit
 
 arena_dalloc.exit:                                ; preds = %193, %184, %cache_bin_dalloc_easy.exit31.thread, %183, %cache_bin_dalloc_easy.exit12.i.thread, %218, %cache_bin_dalloc_easy.exit12.i, %tsdn_rtree_ctx.exit, %167
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #20
   store i8 0, ptr %4, align 8, !tbaa !128
-  %222 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 856
-  %223 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %222, ptr %223, align 8, !tbaa !131
-  %224 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 24
-  %225 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %224, ptr %225, align 8, !tbaa !132
-  %226 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 32
-  %227 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %226, ptr %227, align 8, !tbaa !133
-  %228 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 864
-  %229 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %228, ptr %229, align 8, !tbaa !134
-  %230 = load i64, ptr %222, align 8, !tbaa !33
-  %231 = add i64 %230, %161
-  store i64 %231, ptr %222, align 8, !tbaa !33
-  %232 = load i64, ptr %226, align 8, !tbaa !33
-  %233 = sub i64 %232, %230
-  %234 = icmp ult i64 %161, %233
-  br i1 %234, label %te_event_advance.exit, label %235, !prof !10
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 856
+  %222 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %221, ptr %222, align 8, !tbaa !131
+  %223 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 24
+  %224 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %223, ptr %224, align 8, !tbaa !132
+  %225 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 32
+  %226 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr %225, ptr %226, align 8, !tbaa !133
+  %227 = getelementptr inbounds nuw i8, ptr %.0.i42, i64 864
+  %228 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %227, ptr %228, align 8, !tbaa !134
+  %229 = load i64, ptr %221, align 8, !tbaa !33
+  %230 = add i64 %229, %161
+  store i64 %230, ptr %221, align 8, !tbaa !33
+  %231 = load i64, ptr %225, align 8, !tbaa !33
+  %232 = sub i64 %231, %229
+  %233 = icmp ult i64 %161, %232
+  br i1 %233, label %te_event_advance.exit, label %234, !prof !10
 
-235:                                              ; preds = %arena_dalloc.exit
+234:                                              ; preds = %arena_dalloc.exit
   call void @je_te_event_trigger(ptr noundef nonnull %.0.i42, ptr noundef nonnull %4) #20
   br label %te_event_advance.exit
 
-te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %235
+te_event_advance.exit:                            ; preds = %arena_dalloc.exit, %234
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #20
-  br label %236
+  br label %235
 
-236:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit51
+235:                                              ; preds = %te_event_advance.exit, %te_event_advance.exit51
   ret void
 }
 

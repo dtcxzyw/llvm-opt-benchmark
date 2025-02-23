@@ -457,7 +457,7 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
   %.not50.i.us = icmp eq ptr %115, null
   br i1 %.not50.i.us, label %.preheader.i, label %.lr.ph65.i.us, !llvm.loop !33
 
-.preheader.i:                                     ; preds = %.lr.ph65.i, %.loopexit.i.loopexit.us, %105
+.preheader.i:                                     ; preds = %.loopexit.i.loopexit.us, %105
   %116 = icmp sgt i32 %.sroa.5.2, 0
   br i1 %116, label %.lr.ph68.i.preheader, label %find_merge_parents.exit
 
@@ -469,7 +469,7 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
   %118 = call ptr @pop_commit(ptr noundef nonnull %18) #13
   %119 = load ptr, ptr %18, align 8, !tbaa !18
   %.not50.i = icmp eq ptr %119, null
-  br i1 %.not50.i, label %.preheader.i, label %.lr.ph65.i, !llvm.loop !33
+  br i1 %.not50.i, label %find_merge_parents.exit, label %.lr.ph65.i, !llvm.loop !33
 
 .lr.ph68.i:                                       ; preds = %.lr.ph68.i.preheader, %130
   %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %130 ], [ 0, %.lr.ph68.i.preheader ]
@@ -501,8 +501,8 @@ add_merge_parent.exit.i:                          ; preds = %76, %find_merge_par
   %exitcond.not = icmp eq i64 %indvars.iv.next73.i, %117
   br i1 %exitcond.not, label %find_merge_parents.exit, label %.lr.ph68.i, !llvm.loop !35
 
-find_merge_parents.exit:                          ; preds = %130, %.preheader.i
-  %.044.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.145.i, %130 ]
+find_merge_parents.exit:                          ; preds = %.lr.ph65.i, %130, %.preheader.i
+  %.044.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %.145.i, %130 ], [ 0, %.lr.ph65.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #13
   %131 = load i64, ptr %37, align 8, !tbaa !20
   %.not149 = icmp eq i64 %131, 0

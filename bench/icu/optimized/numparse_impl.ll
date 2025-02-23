@@ -2381,14 +2381,14 @@ invoke.cont127:                                   ; preds = %if.end125
   %vfn130 = getelementptr inbounds nuw i8, ptr %vtable129, i64 72
   %42 = load ptr, ptr %vfn130, align 8
   %call132 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i88.sroa.sel, i32 noundef -4, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont131 unwind label %ehcleanup371
+          to label %invoke.cont131 unwind label %ehcleanup371.thread231
 
 invoke.cont131:                                   ; preds = %invoke.cont127
   br i1 %call132, label %if.then133, label %invoke.cont149
 
 if.then133:                                       ; preds = %invoke.cont131
   invoke void @_ZN6icu_758numparse4impl14PercentMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp136, ptr noundef nonnull align 8 dereferenceable(2883) %symbols)
-          to label %invoke.cont137 unwind label %ehcleanup371
+          to label %invoke.cont137 unwind label %ehcleanup371.thread231
 
 invoke.cont137:                                   ; preds = %if.then133
   %percent = getelementptr inbounds nuw i8, ptr %call57, i64 528
@@ -2425,14 +2425,14 @@ invoke.cont149:                                   ; preds = %invoke.cont145, %in
   %vfn152 = getelementptr inbounds nuw i8, ptr %vtable151, i64 72
   %47 = load ptr, ptr %vfn152, align 8
   %call154 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(8) %this.currencyPluralInfoAPP.idx.i99.sroa.sel, i32 noundef -5, ptr noundef nonnull align 4 dereferenceable(4) %status)
-          to label %invoke.cont153 unwind label %ehcleanup371
+          to label %invoke.cont153 unwind label %ehcleanup371.thread231
 
 invoke.cont153:                                   ; preds = %invoke.cont149
   br i1 %call154, label %if.then155, label %if.then170
 
 if.then155:                                       ; preds = %invoke.cont153
   invoke void @_ZN6icu_758numparse4impl15PermilleMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp158, ptr noundef nonnull align 8 dereferenceable(2883) %symbols)
-          to label %invoke.cont159 unwind label %ehcleanup371
+          to label %invoke.cont159 unwind label %ehcleanup371.thread231
 
 invoke.cont159:                                   ; preds = %if.then155
   %permille = getelementptr inbounds nuw i8, ptr %call57, i64 608
@@ -2463,7 +2463,7 @@ lpad160:                                          ; preds = %invoke.cont159
 
 if.then170:                                       ; preds = %invoke.cont153, %invoke.cont167
   invoke void @_ZN6icu_758numparse4impl15PlusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %ref.tmp173, ptr noundef nonnull align 8 dereferenceable(2883) %symbols, i1 noundef zeroext false)
-          to label %invoke.cont174 unwind label %ehcleanup371
+          to label %invoke.cont174 unwind label %ehcleanup371.thread231
 
 invoke.cont174:                                   ; preds = %if.then170
   %plusSign = getelementptr inbounds nuw i8, ptr %call57, i64 688
@@ -2532,7 +2532,7 @@ lpad187:                                          ; preds = %invoke.cont186
 
 if.end195:                                        ; preds = %if.end125, %invoke.cont194
   invoke void @_ZN6icu_758numparse4impl10NanMatcherC1ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp198, ptr noundef nonnull align 8 dereferenceable(2883) %symbols)
-          to label %invoke.cont199 unwind label %ehcleanup371
+          to label %invoke.cont199 unwind label %ehcleanup371.thread231
 
 invoke.cont199:                                   ; preds = %if.end195
   %nan = getelementptr inbounds nuw i8, ptr %call57, i64 368
@@ -2921,12 +2921,12 @@ ehcleanup370:                                     ; preds = %ehcleanup369, %lpad
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %padString) #17
   br label %delete.notnull.i169
 
-ehcleanup371.thread231:                           ; preds = %invoke.cont62, %invoke.cont77, %invoke.cont98, %invoke.cont105, %if.then111, %invoke.cont182, %invoke.cont207, %invoke.cont219
+ehcleanup371.thread231:                           ; preds = %invoke.cont62, %invoke.cont77, %invoke.cont98, %invoke.cont105, %if.then111, %invoke.cont127, %if.then133, %invoke.cont149, %if.then155, %if.then170, %invoke.cont182, %if.end195, %invoke.cont207, %invoke.cont219
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %delete.notnull.i169
 
-ehcleanup371:                                     ; preds = %invoke.cont60, %invoke.cont127, %if.then133, %invoke.cont149, %if.then155, %if.then170, %if.end195
+ehcleanup371:                                     ; preds = %invoke.cont60
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   br i1 %new.isnull, label %ehcleanup372, label %delete.notnull.i169

@@ -4375,7 +4375,7 @@ st_mult.exit.i:                                   ; preds = %1005
 .preheader113.i:                                  ; preds = %.preheader114.i, %1041
   %.076118.i = phi i64 [ %1043, %1041 ], [ %.0132.ph342, %.preheader114.i ]
   %1014 = lshr i64 %.076118.i, 1
-  %.not121.i = icmp ult i64 %.076118.i, 2
+  %.not121.i = icmp samesign ult i64 %.076118.i, 2
   br i1 %.not121.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader113.i, %1032

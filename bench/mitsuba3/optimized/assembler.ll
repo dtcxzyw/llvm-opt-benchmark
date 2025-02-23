@@ -1241,7 +1241,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %137 = lshr i64 %134, 8
   %138 = add i32 %133, 1
   %139 = zext i32 %138 to i64
-  %140 = icmp ugt i64 %47, %139
+  %140 = icmp samesign ugt i64 %47, %139
   br i1 %140, label %131, label %.loopexit, !llvm.loop !99
 
 141:                                              ; preds = %121, %117

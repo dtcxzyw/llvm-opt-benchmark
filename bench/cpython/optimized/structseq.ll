@@ -1209,7 +1209,7 @@ initialize_members.exit:                          ; preds = %49
 
 82:                                               ; preds = %75
   %83 = tail call ptr @_PyType_GetDict(ptr noundef nonnull %1) #9
-  %84 = tail call fastcc i32 @initialize_structseq_dict(ptr noundef %2, ptr noundef %83, i64 noundef %.0.lcssa.i, i64 noundef %.2)
+  %84 = tail call fastcc i32 @initialize_structseq_dict(ptr noundef nonnull %2, ptr noundef %83, i64 noundef %.0.lcssa.i, i64 noundef %.2)
   %85 = icmp slt i32 %84, 0
   br i1 %85, label %86, label %.thread
 

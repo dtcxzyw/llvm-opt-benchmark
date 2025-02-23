@@ -147,7 +147,7 @@ define dso_local void @llvm_emit_compound_stmt(ptr noundef %0, ptr noundef reado
   %12 = getelementptr inbounds nuw %struct.Ast_, ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
-  tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %12)
+  tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %12)
   %.not15 = icmp eq i32 %14, 0
   br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
@@ -1127,10 +1127,10 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   br label %131
 
 131:                                              ; preds = %130, %119
-  %132 = call ptr @llvm_func_type(ptr noundef nonnull %0, ptr noundef %68) #9
+  %132 = call ptr @llvm_func_type(ptr noundef nonnull %0, ptr noundef nonnull %68) #9
   %133 = call ptr @llvm_get_ref(ptr noundef nonnull %0, ptr noundef nonnull %33) #9
   %134 = load i32, ptr %8, align 4
-  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef %68, ptr noundef %132, ptr noundef %133, ptr noundef nonnull %7, i32 noundef %134, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #9
+  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %68, ptr noundef %132, ptr noundef %133, ptr noundef nonnull %7, i32 noundef %134, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #9
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %136 = load ptr, ptr %135, align 8
   %137 = call ptr @LLVMBuildUnreachable(ptr noundef %136) #9
@@ -1148,11 +1148,11 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   br label %141
 
 141:                                              ; preds = %140, %138
-  %142 = call ptr @llvm_func_type(ptr noundef nonnull %0, ptr noundef %68) #9
+  %142 = call ptr @llvm_func_type(ptr noundef nonnull %0, ptr noundef nonnull %68) #9
   %143 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %8, align 4
-  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %68, ptr noundef %142, ptr noundef %144, ptr noundef nonnull %7, i32 noundef %145, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #9
+  call void @llvm_emit_raw_call(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull %68, ptr noundef %142, ptr noundef %144, ptr noundef nonnull %7, i32 noundef %145, i32 noundef 0, ptr noundef null, i1 noundef zeroext false, ptr noundef null) #9
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %147 = load ptr, ptr %146, align 8
   %148 = call ptr @LLVMBuildUnreachable(ptr noundef %147) #9
@@ -1589,12 +1589,12 @@ llvm_emit_if_stmt.exit:                           ; preds = %93, %94
   %116 = getelementptr inbounds nuw %struct.Ast_, ptr %114, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %116)
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %116)
   %.not99.i = icmp eq i32 %118, 0
   br i1 %.not99.i, label %.loopexit67, label %.lr.ph78, !llvm.loop !13
 
 .loopexit67:                                      ; preds = %.lr.ph78, %112, %107
-  call void @llvm_emit_return_abi(ptr noundef %0, ptr noundef null, ptr noundef nonnull %6) #9
+  call void @llvm_emit_return_abi(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %6) #9
   br label %llvm_emit_return.exit
 
 119:                                              ; preds = %102, %95
@@ -1683,7 +1683,7 @@ llvm_emit_if_stmt.exit:                           ; preds = %93, %94
   %153 = getelementptr inbounds nuw %struct.Ast_, ptr %151, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i32, ptr %154, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %153)
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %153)
   %.not94.i = icmp eq i32 %155, 0
   br i1 %.not94.i, label %.loopexit, label %.lr.ph82, !llvm.loop !14
 
@@ -1691,11 +1691,11 @@ llvm_emit_if_stmt.exit:                           ; preds = %93, %94
   br i1 %.not91.i, label %156, label %157
 
 156:                                              ; preds = %.loopexit
-  call void @llvm_emit_return_implicit(ptr noundef %0) #9
+  call void @llvm_emit_return_implicit(ptr noundef nonnull %0) #9
   br label %158
 
 157:                                              ; preds = %.loopexit
-  call void @llvm_emit_return_abi(ptr noundef %0, ptr noundef nonnull %7, ptr noundef null) #9
+  call void @llvm_emit_return_abi(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef null) #9
   br label %158
 
 158:                                              ; preds = %157, %156
@@ -1726,14 +1726,14 @@ llvm_emit_if_stmt.exit:                           ; preds = %93, %94
   %169 = getelementptr inbounds nuw %struct.Ast_, ptr %167, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i32, ptr %170, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %169)
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %169)
   %.not97.i = icmp eq i32 %171, 0
   br i1 %.not97.i, label %._crit_edge87, label %.lr.ph86, !llvm.loop !15
 
 ._crit_edge87:                                    ; preds = %.lr.ph86, %163
   %172 = load ptr, ptr @type_anyfault, align 8
   call void @llvm_value_set_address_abi_aligned(ptr noundef nonnull %8, ptr noundef %.075.i, ptr noundef %172) #9
-  call void @llvm_emit_return_abi(ptr noundef %0, ptr noundef null, ptr noundef nonnull %8) #9
+  call void @llvm_emit_return_abi(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %8) #9
   store ptr null, ptr %159, align 8
   br label %173
 
@@ -1864,17 +1864,17 @@ llvm_emit_return.exit:                            ; preds = %.loopexit67, %173
   %240 = getelementptr inbounds nuw %struct.Ast_, ptr %238, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load i32, ptr %241, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %240)
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %240)
   %.not77.i = icmp eq i32 %242, 0
   br i1 %.not77.i, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %.lr.ph, %237
   %243 = load ptr, ptr %183, align 8
-  call void @llvm_emit_br(ptr noundef %0, ptr noundef %243) #9
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %243) #9
   br i1 %211, label %244, label %llvm_emit_block_exit_return.exit
 
 244:                                              ; preds = %._crit_edge
-  call void @llvm_emit_block(ptr noundef %0, ptr noundef nonnull %.064.i) #9
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef nonnull %.064.i) #9
   %245 = load ptr, ptr %184, align 8
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %245, ptr %246, align 8
@@ -1888,18 +1888,18 @@ llvm_emit_return.exit:                            ; preds = %.loopexit67, %173
   %249 = getelementptr inbounds nuw %struct.Ast_, ptr %247, i64 %248
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   %251 = load i32, ptr %250, align 8
-  call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %249)
+  call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %249)
   %.not78.i = icmp eq i32 %251, 0
   br i1 %.not78.i, label %._crit_edge74, label %.lr.ph73, !llvm.loop !17
 
 ._crit_edge74:                                    ; preds = %.lr.ph73, %244
   %252 = load ptr, ptr %186, align 8
-  call void @llvm_emit_br(ptr noundef %0, ptr noundef %252) #9
+  call void @llvm_emit_br(ptr noundef nonnull %0, ptr noundef %252) #9
   br label %llvm_emit_block_exit_return.exit
 
 llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._crit_edge74
-  %253 = call ptr @llvm_basic_block_new(ptr noundef %0, ptr noundef nonnull @.str.2) #9
-  call void @llvm_emit_block(ptr noundef %0, ptr noundef %253) #9
+  %253 = call ptr @llvm_basic_block_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.2) #9
+  call void @llvm_emit_block(ptr noundef nonnull %0, ptr noundef %253) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %llvm_emit_compound_stmt.exit
 
@@ -1927,7 +1927,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %263 = getelementptr inbounds nuw %struct.Ast_, ptr %261, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
   %265 = load i32, ptr %264, align 8
-  tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %263)
+  tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %263)
   %.not15.i = icmp eq i32 %265, 0
   br i1 %.not15.i, label %._crit_edge95, label %.lr.ph94, !llvm.loop !7
 

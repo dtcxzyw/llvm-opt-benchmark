@@ -170,7 +170,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %22, label %.lr.ph.preheader.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %23 = sext i32 %3 to i64
+  %23 = zext nneg i32 %3 to i64
   br label %.lr.ph.i
 
 .preheader:                                       ; preds = %20, %.preheader
@@ -196,7 +196,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv20.i
   store i8 %34, ptr %35, align 1
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
-  %36 = icmp slt i64 %indvars.iv.next21.i, %23
+  %36 = icmp samesign ult i64 %indvars.iv.next21.i, %23
   br i1 %36, label %.lr.ph.i, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !6
 
 .preheader.i50:                                   ; preds = %.preheader144
@@ -204,7 +204,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %37, label %.lr.ph.preheader.i51, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i51:                             ; preds = %.preheader.i50
-  %38 = sext i32 %3 to i64
+  %38 = zext nneg i32 %3 to i64
   br label %.lr.ph.i52
 
 .preheader144:                                    ; preds = %20, %.preheader144
@@ -230,7 +230,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv20.i53
   store i8 %49, ptr %50, align 1
   %indvars.iv.next21.i54 = add nuw nsw i64 %indvars.iv20.i53, 1
-  %51 = icmp slt i64 %indvars.iv.next21.i54, %38
+  %51 = icmp samesign ult i64 %indvars.iv.next21.i54, %38
   br i1 %51, label %.lr.ph.i52, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !8
 
 .preheader.i61:                                   ; preds = %.preheader146
@@ -238,7 +238,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %52, label %.lr.ph.preheader.i62, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i62:                             ; preds = %.preheader.i61
-  %53 = sext i32 %3 to i64
+  %53 = zext nneg i32 %3 to i64
   br label %.lr.ph.i63
 
 .preheader146:                                    ; preds = %20, %.preheader146
@@ -264,7 +264,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %65 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv20.i64
   store i16 %64, ptr %65, align 2
   %indvars.iv.next21.i65 = add nuw nsw i64 %indvars.iv20.i64, 1
-  %66 = icmp slt i64 %indvars.iv.next21.i65, %53
+  %66 = icmp samesign ult i64 %indvars.iv.next21.i65, %53
   br i1 %66, label %.lr.ph.i63, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !10
 
 .preheader.i72:                                   ; preds = %.preheader148
@@ -272,7 +272,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %67, label %.lr.ph.preheader.i73, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i73:                             ; preds = %.preheader.i72
-  %68 = sext i32 %3 to i64
+  %68 = zext nneg i32 %3 to i64
   br label %.lr.ph.i74
 
 .preheader148:                                    ; preds = %20, %.preheader148
@@ -298,7 +298,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %80 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv20.i75
   store i16 %79, ptr %80, align 2
   %indvars.iv.next21.i76 = add nuw nsw i64 %indvars.iv20.i75, 1
-  %81 = icmp slt i64 %indvars.iv.next21.i76, %68
+  %81 = icmp samesign ult i64 %indvars.iv.next21.i76, %68
   br i1 %81, label %.lr.ph.i74, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !12
 
 .preheader.i83:                                   ; preds = %.preheader150
@@ -306,7 +306,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %82, label %.lr.ph.preheader.i84, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i84:                             ; preds = %.preheader.i83
-  %83 = sext i32 %3 to i64
+  %83 = zext nneg i32 %3 to i64
   br label %.lr.ph.i85
 
 .preheader150:                                    ; preds = %20, %.preheader150
@@ -329,7 +329,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %92 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv20.i86
   store i32 %91, ptr %92, align 4
   %indvars.iv.next21.i87 = add nuw nsw i64 %indvars.iv20.i86, 1
-  %93 = icmp slt i64 %indvars.iv.next21.i87, %83
+  %93 = icmp samesign ult i64 %indvars.iv.next21.i87, %83
   br i1 %93, label %.lr.ph.i85, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !14
 
 .preheader.i94:                                   ; preds = %.preheader152
@@ -337,7 +337,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %94, label %.lr.ph.preheader.i95, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i95:                             ; preds = %.preheader.i94
-  %95 = sext i32 %3 to i64
+  %95 = zext nneg i32 %3 to i64
   br label %.lr.ph.i96
 
 .preheader152:                                    ; preds = %20, %.preheader152
@@ -359,7 +359,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %103 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv20.i97
   store float %102, ptr %103, align 4
   %indvars.iv.next21.i98 = add nuw nsw i64 %indvars.iv20.i97, 1
-  %104 = icmp slt i64 %indvars.iv.next21.i98, %95
+  %104 = icmp samesign ult i64 %indvars.iv.next21.i98, %95
   br i1 %104, label %.lr.ph.i96, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !16
 
 .preheader.i105:                                  ; preds = %.preheader154
@@ -367,7 +367,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   br i1 %105, label %.lr.ph.preheader.i106, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit
 
 .lr.ph.preheader.i106:                            ; preds = %.preheader.i105
-  %106 = sext i32 %3 to i64
+  %106 = zext nneg i32 %3 to i64
   br label %.lr.ph.i107
 
 .preheader154:                                    ; preds = %20, %.preheader154
@@ -388,7 +388,7 @@ define void @_ZN2cv15scalarToRawDataERKNS_7Scalar_IdEEPvii(ptr noundef nonnull r
   %113 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv20.i108
   store double %112, ptr %113, align 8
   %indvars.iv.next21.i109 = add nuw nsw i64 %indvars.iv20.i108, 1
-  %114 = icmp slt i64 %indvars.iv.next21.i109, %106
+  %114 = icmp samesign ult i64 %indvars.iv.next21.i109, %106
   br i1 %114, label %.lr.ph.i107, label %_ZN2cvL16scalarToRawData_IhEEvRKNS_7Scalar_IdEEPT_ii.exit, !llvm.loop !18
 
 .preheader.i116:                                  ; preds = %_ZN2cvL13saturate_castINS_6hfloatEEET_d.exit.i
@@ -1455,8 +1455,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.thread:               ; preds = %68, %_ZNK2cv3Mat8el
 
 94:                                               ; preds = %88
   %95 = add nsw i32 %69, -1
-  %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds [32 x i64], ptr %9, i64 0, i64 %96
+  %96 = zext nneg i32 %95 to i64
+  %97 = getelementptr inbounds nuw [32 x i64], ptr %9, i64 0, i64 %96
   %98 = load i64, ptr %97, align 8
   %99 = mul i64 %98, %76
   store i64 %99, ptr %97, align 8

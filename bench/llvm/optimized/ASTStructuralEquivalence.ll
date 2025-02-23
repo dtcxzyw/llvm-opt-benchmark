@@ -3732,12 +3732,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br i1 %19, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread136
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !234
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %22, align 8, !tbaa !237
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i59, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !234
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8, !tbaa !237
@@ -3794,12 +3794,12 @@ _ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread: ; preds 
   br i1 %57, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread136
 
 58:                                               ; preds = %41
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !234
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i64, ptr %60, align 8, !tbaa !237
   %63 = and i64 %62, 4294967295
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %65 = load ptr, ptr %64, align 8, !tbaa !234
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i64, ptr %65, align 8, !tbaa !237
@@ -3865,12 +3865,12 @@ _ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit66.thread: ; pred
   br i1 %103, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit73.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread136
 
 104:                                              ; preds = %85
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i67, i64 16
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !234
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load i64, ptr %106, align 8, !tbaa !237
   %109 = and i64 %108, 4294967295
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i68, i64 16
+  %110 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %111 = load ptr, ptr %110, align 8, !tbaa !234
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i64, ptr %111, align 8, !tbaa !237
@@ -4261,12 +4261,12 @@ _ZNK4llvm6APSIntneERKS0_.exit:                    ; preds = %40
   br i1 %61, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread21
 
 62:                                               ; preds = %45
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !234
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i64, ptr %64, align 8, !tbaa !237
   %67 = and i64 %66, 4294967295
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i18, i64 16
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !234
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i64, ptr %69, align 8, !tbaa !237
@@ -4355,12 +4355,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br i1 %19, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread14
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !234
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %22, align 8, !tbaa !237
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i11, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !234
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8, !tbaa !237
@@ -4674,12 +4674,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br i1 %19, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread20
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !234
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %22, align 8, !tbaa !237
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i17, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !234
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8, !tbaa !237
@@ -5622,29 +5622,27 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
 
 _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %3, %9
   %.0.i = phi ptr [ %10, %9 ], [ %8, %3 ]
-  %11 = icmp eq ptr %.0.i, null
-  %12 = getelementptr inbounds i8, ptr %.0.i, i64 -64
-  %13 = select i1 %11, ptr null, ptr %12
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = load ptr, ptr %14, align 8, !tbaa !366
-  %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %19, label %16
+  %11 = getelementptr inbounds i8, ptr %.0.i, i64 -16
+  %12 = load ptr, ptr %11, align 8, !tbaa !366
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %16, label %13
+
+13:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
+  %14 = ptrtoint ptr %12 to i64
+  %15 = and i64 %14, -16
+  br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
 16:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
-  %17 = ptrtoint ptr %15 to i64
-  %18 = and i64 %17, -16
+  %17 = getelementptr inbounds i8, ptr %.0.i, i64 -64
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !29
+  %20 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %19, ptr noundef nonnull %17) #19
   br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
 
-19:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !29
-  %22 = tail call i64 @_ZNK5clang10ASTContext19getTypeDeclTypeSlowEPKNS_8TypeDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %21, ptr noundef nonnull %12) #19
-  br label %_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit
-
-_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %16, %19
-  %.sroa.0.0.i = phi i64 [ %22, %19 ], [ %18, %16 ]
-  %23 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_9FieldDeclES3_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1, ptr noundef nonnull %2, i64 %.sroa.0.0.i)
-  ret i1 %23
+_ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %13, %16
+  %.sroa.0.0.i = phi i64 [ %20, %16 ], [ %15, %13 ]
+  %21 = tail call fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang28StructuralEquivalenceContextEPNS_9FieldDeclES3_NS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1, ptr noundef nonnull %2, i64 %.sroa.0.0.i)
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -5727,8 +5725,8 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %47 = and i64 %.val283, 4
   %.not.i.i.i = icmp ne i64 %47, 0
   %48 = and i64 %.val283, -8
-  %.not10.not1.i.i = icmp eq i64 %48, 0
-  %.not10.not.i.i = or i1 %.not.i.i.i, %.not10.not1.i.i
+  %.not101.i.i = icmp eq i64 %48, 0
+  %.not10.not.i.i = or i1 %.not.i.i.i, %.not101.i.i
   br i1 %.not10.not.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i", label %49
 
 49:                                               ; preds = %45
@@ -5756,8 +5754,8 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %62 = and i64 %.val285, 4
   %.not.i.i8.i = icmp ne i64 %62, 0
   %63 = and i64 %.val285, -8
-  %.not10.not1.i9.i = icmp eq i64 %63, 0
-  %.not10.not.i10.i = or i1 %.not.i.i8.i, %.not10.not1.i9.i
+  %.not101.i9.i = icmp eq i64 %63, 0
+  %.not10.not.i10.i = or i1 %.not.i.i8.i, %.not101.i9.i
   br i1 %.not10.not.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", label %64
 
 64:                                               ; preds = %61
@@ -6421,12 +6419,12 @@ _ZN4llvm8dyn_castIN5clang9NamedDeclENS1_11DeclContextEEEDcPT0_.exit.i: ; preds =
   br i1 %376, label %.critedge.i, label %.critedge279
 
 377:                                              ; preds = %360
-  %378 = getelementptr inbounds nuw i8, ptr %.0.i.i54.i, i64 16
+  %378 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %379 = load ptr, ptr %378, align 8, !tbaa !234
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 16
   %381 = load i64, ptr %379, align 8, !tbaa !237
   %382 = and i64 %381, 4294967295
-  %383 = getelementptr inbounds nuw i8, ptr %.0.i.i55.i, i64 16
+  %383 = getelementptr inbounds nuw i8, ptr %372, i64 16
   %384 = load ptr, ptr %383, align 8, !tbaa !234
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
   %386 = load i64, ptr %384, align 8, !tbaa !237
@@ -7447,8 +7445,8 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %46 = and i64 %.val54, 4
   %.not.i.i.i = icmp ne i64 %46, 0
   %47 = and i64 %.val54, -8
-  %.not10.not1.i.i = icmp eq i64 %47, 0
-  %.not10.not.i.i = or i1 %.not.i.i.i, %.not10.not1.i.i
+  %.not101.i.i = icmp eq i64 %47, 0
+  %.not10.not.i.i = or i1 %.not.i.i.i, %.not101.i.i
   br i1 %.not10.not.i.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit.i", label %48
 
 48:                                               ; preds = %44
@@ -7476,8 +7474,8 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   %61 = and i64 %.val56, 4
   %.not.i.i8.i = icmp ne i64 %61, 0
   %62 = and i64 %.val56, -8
-  %.not10.not1.i9.i = icmp eq i64 %62, 0
-  %.not10.not.i10.i = or i1 %.not.i.i8.i, %.not10.not1.i9.i
+  %.not101.i9.i = icmp eq i64 %62, 0
+  %.not10.not.i10.i = or i1 %.not.i.i8.i, %.not101.i9.i
   br i1 %.not10.not.i10.i, label %"_ZZL28NameIsStructurallyEquivalentRKN5clang7TagDeclES2_ENK3$_0clES2_.exit12.thread.i", label %63
 
 63:                                               ; preds = %60
@@ -8328,12 +8326,12 @@ _ZNK5clang16EnumConstantDecl10getInitValEv.exit100: ; preds = %_ZNK5clang16EnumC
   br i1 %465, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread359
 
 466:                                              ; preds = %449
-  %467 = getelementptr inbounds nuw i8, ptr %.0.i.i102, i64 16
+  %467 = getelementptr inbounds nuw i8, ptr %455, i64 16
   %468 = load ptr, ptr %467, align 8, !tbaa !234
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
   %470 = load i64, ptr %468, align 8, !tbaa !237
   %471 = and i64 %470, 4294967295
-  %472 = getelementptr inbounds nuw i8, ptr %.0.i.i103, i64 16
+  %472 = getelementptr inbounds nuw i8, ptr %461, i64 16
   %473 = load ptr, ptr %472, align 8, !tbaa !234
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %475 = load i64, ptr %473, align 8, !tbaa !237
@@ -10050,12 +10048,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br i1 %19, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread13
 
 20:                                               ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !234
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i64, ptr %22, align 8, !tbaa !237
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i.i7, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !234
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %27, align 8, !tbaa !237
@@ -12853,12 +12851,12 @@ define internal fastcc noundef zeroext i1 @_ZL24IsStructurallyEquivalentRN5clang
   br label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit
 
 33:                                               ; preds = %20
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !234
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i64, ptr %35, align 8, !tbaa !237
   %38 = and i64 %37, 4294967295
-  %39 = getelementptr inbounds nuw i8, ptr %.0.i31, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !234
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %40, align 8, !tbaa !237
@@ -16725,12 +16723,12 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112StmtComparer12Trav
   br label %_ZN12_GLOBAL__N_112StmtComparer16IsStmtEquivalentEPKN5clang8GotoStmtES4_.exit
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !234
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %24, align 8, !tbaa !237
   %27 = and i64 %26, 4294967295
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i14.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !234
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %29, align 8, !tbaa !237
@@ -17000,12 +16998,12 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit14: ; preds = %18, %19
   br label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit
 
 37:                                               ; preds = %24
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !234
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i64, ptr %39, align 8, !tbaa !237
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !234
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %44, align 8, !tbaa !237
@@ -17547,12 +17545,12 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %4, %16
   br i1 %58, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread253
 
 59:                                               ; preds = %42
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !234
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i64, ptr %61, align 8, !tbaa !237
   %64 = and i64 %63, 4294967295
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i52, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %66 = load ptr, ptr %65, align 8, !tbaa !234
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %68 = load i64, ptr %66, align 8, !tbaa !237
@@ -20637,12 +20635,12 @@ define internal fastcc noundef zeroext i1 @_ZL42IsTemplateDeclCommonStructurally
   br i1 %21, label %36, label %_ZL24IsStructurallyEquivalentPKN5clang14IdentifierInfoES2_.exit.thread16
 
 22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !234
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %24, align 8, !tbaa !237
   %27 = and i64 %26, 4294967295
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i9, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !234
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %29, align 8, !tbaa !237

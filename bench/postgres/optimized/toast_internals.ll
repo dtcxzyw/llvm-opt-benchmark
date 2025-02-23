@@ -241,7 +241,7 @@ define dso_local noundef i64 @toast_save_datum(ptr noundef readonly captures(non
   %62 = load ptr, ptr %60, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %64 = load i32, ptr %63, align 8
-  %65 = tail call i32 @GetNewOidWithIndex(ptr noundef %16, i32 noundef %64, i16 noundef signext 1) #7
+  %65 = tail call i32 @GetNewOidWithIndex(ptr noundef nonnull %16, i32 noundef %64, i16 noundef signext 1) #7
   %66 = load i32, ptr %41, align 8
   %67 = tail call ptr @table_open(i32 noundef %66, i32 noundef 1) #7
   %68 = tail call fastcc zeroext i1 @toastrel_valueid_exists(ptr noundef %67, i32 noundef %65)
@@ -669,7 +669,7 @@ get_toast_snapshot.exit:                          ; preds = %14
   br i1 %exitcond.not.i, label %toast_close_indexes.exit, label %.lr.ph.i, !llvm.loop !11
 
 toast_close_indexes.exit:                         ; preds = %.lr.ph.i, %._crit_edge
-  call void @pfree(ptr noundef %18) #7
+  call void @pfree(ptr noundef nonnull %18) #7
   call void @table_close(ptr noundef %15, i32 noundef 0) #7
   br label %38
 

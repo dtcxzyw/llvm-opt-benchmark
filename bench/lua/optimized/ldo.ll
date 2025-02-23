@@ -967,7 +967,7 @@ genmoveresults.exit.i:                            ; preds = %.lr.ph.i.i, %31
 
 .lr.ph29.preheader.i45.i:                         ; preds = %.preheader.i43.i
   %80 = zext nneg i32 %.023.lcssa.i44.i to i64
-  %wide.trip.count34.i46.i = zext i32 %.039.i to i64
+  %wide.trip.count34.i46.i = zext nneg i32 %.039.i to i64
   br label %.lr.ph29.i47.i
 
 .lr.ph.i53.i:                                     ; preds = %.lr.ph.i53.i, %.lr.ph.preheader.i51.i

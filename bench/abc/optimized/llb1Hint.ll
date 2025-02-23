@@ -100,8 +100,8 @@ define ptr @Llb_ManPerformHints(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 Llb_ManMaxFanoutCi.exit:                          ; preds = %10, %.lr.ph
   %.0.lcssa.i = phi i32 [ -1, %.lr.ph ], [ %spec.select15.i, %10 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.01011, i32 noundef %.0.lcssa.i)
-  %18 = tail call ptr @Aig_ManDupCof(ptr noundef %.012, i32 noundef %.0.lcssa.i, i32 noundef 1) #16
-  tail call void @Aig_ManStop(ptr noundef %.012) #16
+  %18 = tail call ptr @Aig_ManDupCof(ptr noundef nonnull %.012, i32 noundef %.0.lcssa.i, i32 noundef 1) #16
+  tail call void @Aig_ManStop(ptr noundef nonnull %.012) #16
   %19 = add nuw nsw i32 %.01011, 1
   %exitcond.not = icmp eq i32 %19, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27

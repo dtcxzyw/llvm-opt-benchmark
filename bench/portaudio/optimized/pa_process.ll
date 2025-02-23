@@ -19,7 +19,7 @@ define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr nound
   %or.cond3.not201 = or i1 %19, %or.cond.not204
   %20 = icmp ne i64 %9, 0
   %or.cond5 = or i1 %20, %or.cond3.not201
-  br i1 %or.cond5, label %197, label %21
+  br i1 %or.cond5, label %198, label %21
 
 21:                                               ; preds = %16, %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -57,11 +57,11 @@ define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr nound
 
 39:                                               ; preds = %35
   store i64 %10, ptr %38, align 8, !tbaa !18
-  br label %75
+  br label %78
 
 40:                                               ; preds = %35
   store i64 1024, ptr %38, align 8, !tbaa !18
-  br label %75
+  br label %78
 
 41:                                               ; preds = %21
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -79,14 +79,14 @@ define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr nound
   store i32 1, ptr %47, align 4, !tbaa !17
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
-  br label %75
+  br label %78
 
 50:                                               ; preds = %44
   store i32 0, ptr %47, align 4, !tbaa !17
   %51 = icmp sgt i32 %1, 0
   %52 = icmp sgt i32 %4, 0
   %or.cond9 = and i1 %51, %52
-  br i1 %or.cond9, label %tailrecurse.i.i.i, label %73
+  br i1 %or.cond9, label %tailrecurse.i.i.i, label %72
 
 .thread:                                          ; preds = %41
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -94,7 +94,7 @@ define range(i32 -2147483648, 1) i32 @PaUtil_InitializeBufferProcessor(ptr nound
   %54 = icmp sgt i32 %1, 0
   %55 = icmp sgt i32 %4, 0
   %or.cond9219 = and i1 %54, %55
-  br i1 %or.cond9219, label %.thread221, label %73
+  br i1 %or.cond9219, label %69, label %72
 
 tailrecurse.i.i.i:                                ; preds = %50, %tailrecurse.i.i.i
   %.tr57.i.i.i = phi i64 [ %56, %tailrecurse.i.i.i ], [ %9, %50 ]
@@ -128,265 +128,268 @@ CalculateFrameShift.exit:                         ; preds = %.lr.ph.i, %LCM.exit
 67:                                               ; preds = %CalculateFrameShift.exit
   store i64 %.0.lcssa.i, ptr %65, align 8, !tbaa !21
   store i64 0, ptr %66, align 8, !tbaa !22
-  br label %75
+  br label %.thread221
 
 68:                                               ; preds = %CalculateFrameShift.exit
   store i64 0, ptr %65, align 8, !tbaa !21
   store i64 %.0.lcssa.i, ptr %66, align 8, !tbaa !22
-  br label %75
+  br label %.thread221
 
-.thread221:                                       ; preds = %.thread
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 0, ptr %69, align 8, !tbaa !21
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store i64 %9, ptr %70, align 8, !tbaa !22
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 0, ptr %71, align 8, !tbaa !23
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %9, ptr %72, align 8, !tbaa !24
-  br label %81
+69:                                               ; preds = %.thread
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 0, ptr %70, align 8, !tbaa !21
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store i64 %9, ptr %71, align 8, !tbaa !22
+  br label %.thread221
 
-73:                                               ; preds = %.thread, %50
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %74, i8 0, i64 16, i1 false)
-  br label %75
+72:                                               ; preds = %.thread, %50
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
+  br label %78
 
-75:                                               ; preds = %67, %68, %48, %73, %39, %40
-  %76 = phi i64 [ 0, %67 ], [ %.0.lcssa.i, %68 ], [ 0, %48 ], [ 0, %73 ], [ 0, %39 ], [ 0, %40 ]
-  %77 = phi i64 [ %.0.lcssa.i, %67 ], [ 0, %68 ], [ 0, %48 ], [ 0, %73 ], [ 0, %39 ], [ 0, %40 ]
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i64 %77, ptr %78, align 8, !tbaa !23
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 %76, ptr %79, align 8, !tbaa !24
-  %80 = icmp sgt i32 %1, 0
-  br i1 %80, label %81, label %129
+.thread221:                                       ; preds = %67, %68, %69
+  %74 = phi i64 [ 0, %67 ], [ %.0.lcssa.i, %68 ], [ %9, %69 ]
+  %75 = phi i64 [ %.0.lcssa.i, %67 ], [ 0, %68 ], [ 0, %69 ]
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 %75, ptr %76, align 8, !tbaa !23
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 %74, ptr %77, align 8, !tbaa !24
+  br label %82
 
-81:                                               ; preds = %.thread221, %75
-  %82 = tail call i32 @Pa_GetSampleSize(i64 noundef %3) #11
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %84, label %181
+78:                                               ; preds = %48, %72, %39, %40
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i64 0, ptr %79, align 8, !tbaa !23
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 0, ptr %80, align 8, !tbaa !24
+  %81 = icmp sgt i32 %1, 0
+  br i1 %81, label %82, label %130
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %82, ptr %85, align 4, !tbaa !25
-  %86 = tail call i32 @Pa_GetSampleSize(i64 noundef %2) #11
-  %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %181
+82:                                               ; preds = %.thread221, %78
+  %83 = tail call i32 @Pa_GetSampleSize(i64 noundef %3) #11
+  %84 = icmp sgt i32 %83, 0
+  br i1 %84, label %85, label %182
 
-88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %86, ptr %89, align 8, !tbaa !26
-  %90 = and i64 %8, 2
-  %.not205 = icmp ne i64 %90, 0
-  %91 = and i64 %3, 2
-  %.not206 = icmp eq i64 %91, 0
+85:                                               ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 %83, ptr %86, align 4, !tbaa !25
+  %87 = tail call i32 @Pa_GetSampleSize(i64 noundef %2) #11
+  %88 = icmp sgt i32 %87, 0
+  br i1 %88, label %89, label %182
+
+89:                                               ; preds = %85
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %87, ptr %90, align 8, !tbaa !26
+  %91 = and i64 %8, 2
+  %.not205 = icmp ne i64 %91, 0
+  %92 = and i64 %3, 2
+  %.not206 = icmp eq i64 %92, 0
   %or.cond = or i1 %.not206, %.not205
-  %92 = and i64 %2, 4
-  %.not207 = icmp eq i64 %92, 0
+  %93 = and i64 %2, 4
+  %.not207 = icmp eq i64 %93, 0
   %or.cond218 = or i1 %.not207, %or.cond
-  %93 = or disjoint i64 %8, 2
-  %.0180 = select i1 %or.cond218, i64 %8, i64 %93
-  %94 = tail call ptr @PaUtil_SelectConverter(i64 noundef %3, i64 noundef %2, i64 noundef %.0180) #11
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %94, ptr %95, align 8, !tbaa !27
-  %96 = tail call ptr @PaUtil_SelectZeroer(i64 noundef %2) #11
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %96, ptr %97, align 8, !tbaa !28
-  %98 = and i64 %2, 2147483648
-  %.not208 = icmp eq i64 %98, 0
-  %99 = zext i1 %.not208 to i32
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %99, ptr %100, align 4, !tbaa !29
-  %101 = and i64 %3, 2147483648
-  %.not209 = icmp eq i64 %101, 0
-  %102 = zext i1 %.not209 to i32
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 %102, ptr %103, align 8, !tbaa !30
-  %104 = xor i64 %3, %2
-  %105 = and i64 %104, -2147483649
-  %106 = icmp eq i64 %105, 0
-  %107 = zext i1 %106 to i32
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %107, ptr %108, align 4, !tbaa !31
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %110 = load i64, ptr %109, align 8, !tbaa !18
-  %111 = load i32, ptr %89, align 8, !tbaa !26
-  %112 = zext i32 %111 to i64
-  %113 = zext nneg i32 %1 to i64
-  %114 = mul i64 %110, %113
-  %115 = mul i64 %114, %112
-  %116 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %115) #11
-  store ptr %116, ptr %22, align 8, !tbaa !32
-  %117 = icmp eq ptr %116, null
-  br i1 %117, label %.thread222, label %118
+  %94 = or disjoint i64 %8, 2
+  %.0180 = select i1 %or.cond218, i64 %8, i64 %94
+  %95 = tail call ptr @PaUtil_SelectConverter(i64 noundef %3, i64 noundef %2, i64 noundef %.0180) #11
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %95, ptr %96, align 8, !tbaa !27
+  %97 = tail call ptr @PaUtil_SelectZeroer(i64 noundef %2) #11
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %97, ptr %98, align 8, !tbaa !28
+  %99 = and i64 %2, 2147483648
+  %.not208 = icmp eq i64 %99, 0
+  %100 = zext i1 %.not208 to i32
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  store i32 %100, ptr %101, align 4, !tbaa !29
+  %102 = and i64 %3, 2147483648
+  %.not209 = icmp eq i64 %102, 0
+  %103 = zext i1 %.not209 to i32
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 %103, ptr %104, align 8, !tbaa !30
+  %105 = xor i64 %3, %2
+  %106 = and i64 %105, -2147483649
+  %107 = icmp eq i64 %106, 0
+  %108 = zext i1 %107 to i32
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %108, ptr %109, align 4, !tbaa !31
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %111 = load i64, ptr %110, align 8, !tbaa !18
+  %112 = load i32, ptr %90, align 8, !tbaa !26
+  %113 = zext i32 %112 to i64
+  %114 = zext nneg i32 %1 to i64
+  %115 = mul i64 %111, %114
+  %116 = mul i64 %115, %113
+  %117 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %116) #11
+  store ptr %117, ptr %22, align 8, !tbaa !32
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.thread222, label %119
 
-118:                                              ; preds = %88
-  br i1 %.not208, label %123, label %119
+119:                                              ; preds = %89
+  br i1 %.not208, label %124, label %120
 
-119:                                              ; preds = %118
-  %120 = shl nuw nsw i64 %113, 3
-  %121 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %120) #11
-  store ptr %121, ptr %23, align 8, !tbaa !33
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %181, label %123
+120:                                              ; preds = %119
+  %121 = shl nuw nsw i64 %114, 3
+  %122 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %121) #11
+  store ptr %122, ptr %23, align 8, !tbaa !33
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %182, label %124
 
-123:                                              ; preds = %119, %118
-  %124 = shl nuw nsw i64 %113, 5
-  %125 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %124) #11
-  store ptr %125, ptr %30, align 8, !tbaa !34
-  %126 = icmp eq ptr %125, null
-  br i1 %126, label %181, label %127
+124:                                              ; preds = %120, %119
+  %125 = shl nuw nsw i64 %114, 5
+  %126 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %125) #11
+  store ptr %126, ptr %30, align 8, !tbaa !34
+  %127 = icmp eq ptr %126, null
+  br i1 %127, label %182, label %128
 
-127:                                              ; preds = %123
-  %128 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %125, i64 %113
-  store ptr %128, ptr %31, align 8, !tbaa !34
-  br label %129
+128:                                              ; preds = %124
+  %129 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %126, i64 %114
+  store ptr %129, ptr %31, align 8, !tbaa !34
+  br label %130
 
-129:                                              ; preds = %127, %75
-  %130 = icmp sgt i32 %4, 0
-  br i1 %130, label %131, label %175
+130:                                              ; preds = %128, %78
+  %131 = icmp sgt i32 %4, 0
+  br i1 %131, label %132, label %176
 
-131:                                              ; preds = %129
-  %132 = tail call i32 @Pa_GetSampleSize(i64 noundef %6) #11
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %134, label %181
+132:                                              ; preds = %130
+  %133 = tail call i32 @Pa_GetSampleSize(i64 noundef %6) #11
+  %134 = icmp sgt i32 %133, 0
+  br i1 %134, label %135, label %182
 
-134:                                              ; preds = %131
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %132, ptr %135, align 4, !tbaa !36
-  %136 = tail call i32 @Pa_GetSampleSize(i64 noundef %5) #11
-  %137 = icmp sgt i32 %136, 0
-  br i1 %137, label %138, label %181
+135:                                              ; preds = %132
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %133, ptr %136, align 4, !tbaa !36
+  %137 = tail call i32 @Pa_GetSampleSize(i64 noundef %5) #11
+  %138 = icmp sgt i32 %137, 0
+  br i1 %138, label %139, label %182
 
-138:                                              ; preds = %134
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %136, ptr %139, align 8, !tbaa !37
-  %140 = tail call ptr @PaUtil_SelectConverter(i64 noundef %5, i64 noundef %6, i64 noundef %8) #11
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %140, ptr %141, align 8, !tbaa !38
-  %142 = tail call ptr @PaUtil_SelectZeroer(i64 noundef %6) #11
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %142, ptr %143, align 8, !tbaa !39
-  %144 = and i64 %5, 2147483648
-  %.not210 = icmp eq i64 %144, 0
-  %145 = zext i1 %.not210 to i32
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %145, ptr %146, align 4, !tbaa !40
-  %147 = and i64 %6, 2147483648
-  %.not211 = icmp eq i64 %147, 0
-  %148 = zext i1 %.not211 to i32
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 %148, ptr %149, align 8, !tbaa !41
-  %150 = xor i64 %6, %5
-  %151 = and i64 %150, -2147483649
-  %152 = icmp eq i64 %151, 0
-  %153 = zext i1 %152 to i32
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %153, ptr %154, align 8, !tbaa !42
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %156 = load i64, ptr %155, align 8, !tbaa !18
-  %157 = load i32, ptr %139, align 8, !tbaa !37
-  %158 = zext i32 %157 to i64
-  %159 = zext nneg i32 %4 to i64
-  %160 = mul i64 %156, %159
-  %161 = mul i64 %160, %158
-  %162 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %161) #11
-  store ptr %162, ptr %24, align 8, !tbaa !43
-  %163 = icmp eq ptr %162, null
-  br i1 %163, label %181, label %164
+139:                                              ; preds = %135
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %137, ptr %140, align 8, !tbaa !37
+  %141 = tail call ptr @PaUtil_SelectConverter(i64 noundef %5, i64 noundef %6, i64 noundef %8) #11
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %141, ptr %142, align 8, !tbaa !38
+  %143 = tail call ptr @PaUtil_SelectZeroer(i64 noundef %6) #11
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %143, ptr %144, align 8, !tbaa !39
+  %145 = and i64 %5, 2147483648
+  %.not210 = icmp eq i64 %145, 0
+  %146 = zext i1 %.not210 to i32
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %146, ptr %147, align 4, !tbaa !40
+  %148 = and i64 %6, 2147483648
+  %.not211 = icmp eq i64 %148, 0
+  %149 = zext i1 %.not211 to i32
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i32 %149, ptr %150, align 8, !tbaa !41
+  %151 = xor i64 %6, %5
+  %152 = and i64 %151, -2147483649
+  %153 = icmp eq i64 %152, 0
+  %154 = zext i1 %153 to i32
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %154, ptr %155, align 8, !tbaa !42
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %157 = load i64, ptr %156, align 8, !tbaa !18
+  %158 = load i32, ptr %140, align 8, !tbaa !37
+  %159 = zext i32 %158 to i64
+  %160 = zext nneg i32 %4 to i64
+  %161 = mul i64 %157, %160
+  %162 = mul i64 %161, %159
+  %163 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %162) #11
+  store ptr %163, ptr %24, align 8, !tbaa !43
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %182, label %165
 
-164:                                              ; preds = %138
-  br i1 %.not210, label %169, label %165
+165:                                              ; preds = %139
+  br i1 %.not210, label %170, label %166
 
-165:                                              ; preds = %164
-  %166 = shl nuw nsw i64 %159, 3
-  %167 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %166) #11
-  store ptr %167, ptr %25, align 8, !tbaa !44
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %181, label %169
+166:                                              ; preds = %165
+  %167 = shl nuw nsw i64 %160, 3
+  %168 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %167) #11
+  store ptr %168, ptr %25, align 8, !tbaa !44
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %182, label %170
 
-169:                                              ; preds = %165, %164
-  %170 = shl nuw nsw i64 %159, 5
-  %171 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %170) #11
-  store ptr %171, ptr %32, align 8, !tbaa !34
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %181, label %173
+170:                                              ; preds = %166, %165
+  %171 = shl nuw nsw i64 %160, 5
+  %172 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %171) #11
+  store ptr %172, ptr %32, align 8, !tbaa !34
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %182, label %174
 
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %171, i64 %159
-  store ptr %174, ptr %33, align 8, !tbaa !34
-  br label %175
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw %struct.PaUtilChannelDescriptor, ptr %172, i64 %160
+  store ptr %175, ptr %33, align 8, !tbaa !34
+  br label %176
 
-175:                                              ; preds = %173, %129
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  tail call void @PaUtil_InitializeTriangularDitherState(ptr noundef nonnull %176) #11
-  %177 = fdiv double 1.000000e+00, %7
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  store double %177, ptr %178, align 8, !tbaa !45
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store ptr %12, ptr %179, align 8, !tbaa !46
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store ptr %13, ptr %180, align 8, !tbaa !47
-  br label %197
+176:                                              ; preds = %174, %130
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  tail call void @PaUtil_InitializeTriangularDitherState(ptr noundef nonnull %177) #11
+  %178 = fdiv double 1.000000e+00, %7
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  store double %178, ptr %179, align 8, !tbaa !45
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store ptr %12, ptr %180, align 8, !tbaa !46
+  %181 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  store ptr %13, ptr %181, align 8, !tbaa !47
+  br label %198
 
-181:                                              ; preds = %169, %165, %138, %134, %131, %123, %119, %84, %81
-  %.0181.ph = phi i32 [ -9992, %169 ], [ -9992, %165 ], [ -9992, %138 ], [ %136, %134 ], [ %132, %131 ], [ -9992, %123 ], [ -9992, %119 ], [ %86, %84 ], [ %82, %81 ]
+182:                                              ; preds = %170, %166, %139, %135, %132, %124, %120, %85, %82
+  %.0181.ph = phi i32 [ -9992, %170 ], [ -9992, %166 ], [ -9992, %139 ], [ %137, %135 ], [ %133, %132 ], [ -9992, %124 ], [ -9992, %120 ], [ %87, %85 ], [ %83, %82 ]
   %.pr = load ptr, ptr %22, align 8, !tbaa !32
   %.not212 = icmp eq ptr %.pr, null
-  br i1 %.not212, label %.thread222, label %182
+  br i1 %.not212, label %.thread222, label %183
 
-182:                                              ; preds = %181
+183:                                              ; preds = %182
   tail call void @PaUtil_FreeMemory(ptr noundef nonnull %.pr) #11
   br label %.thread222
 
-.thread222:                                       ; preds = %88, %182, %181
-  %.0181225 = phi i32 [ %.0181.ph, %182 ], [ %.0181.ph, %181 ], [ -9992, %88 ]
-  %183 = load ptr, ptr %23, align 8, !tbaa !33
-  %.not213 = icmp eq ptr %183, null
-  br i1 %.not213, label %185, label %184
+.thread222:                                       ; preds = %89, %183, %182
+  %.0181225 = phi i32 [ %.0181.ph, %183 ], [ %.0181.ph, %182 ], [ -9992, %89 ]
+  %184 = load ptr, ptr %23, align 8, !tbaa !33
+  %.not213 = icmp eq ptr %184, null
+  br i1 %.not213, label %186, label %185
 
-184:                                              ; preds = %.thread222
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %183) #11
-  br label %185
+185:                                              ; preds = %.thread222
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %184) #11
+  br label %186
 
-185:                                              ; preds = %184, %.thread222
-  %186 = load ptr, ptr %30, align 8, !tbaa !34
-  %.not214 = icmp eq ptr %186, null
-  br i1 %.not214, label %188, label %187
+186:                                              ; preds = %185, %.thread222
+  %187 = load ptr, ptr %30, align 8, !tbaa !34
+  %.not214 = icmp eq ptr %187, null
+  br i1 %.not214, label %189, label %188
 
-187:                                              ; preds = %185
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %186) #11
-  br label %188
+188:                                              ; preds = %186
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %187) #11
+  br label %189
 
-188:                                              ; preds = %187, %185
-  %189 = load ptr, ptr %24, align 8, !tbaa !43
-  %.not215 = icmp eq ptr %189, null
-  br i1 %.not215, label %191, label %190
+189:                                              ; preds = %188, %186
+  %190 = load ptr, ptr %24, align 8, !tbaa !43
+  %.not215 = icmp eq ptr %190, null
+  br i1 %.not215, label %192, label %191
 
-190:                                              ; preds = %188
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %189) #11
-  br label %191
+191:                                              ; preds = %189
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %190) #11
+  br label %192
 
-191:                                              ; preds = %190, %188
-  %192 = load ptr, ptr %25, align 8, !tbaa !44
-  %.not216 = icmp eq ptr %192, null
-  br i1 %.not216, label %194, label %193
+192:                                              ; preds = %191, %189
+  %193 = load ptr, ptr %25, align 8, !tbaa !44
+  %.not216 = icmp eq ptr %193, null
+  br i1 %.not216, label %195, label %194
 
-193:                                              ; preds = %191
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %192) #11
-  br label %194
+194:                                              ; preds = %192
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %193) #11
+  br label %195
 
-194:                                              ; preds = %193, %191
-  %195 = load ptr, ptr %32, align 8, !tbaa !34
-  %.not217 = icmp eq ptr %195, null
-  br i1 %.not217, label %197, label %196
+195:                                              ; preds = %194, %192
+  %196 = load ptr, ptr %32, align 8, !tbaa !34
+  %.not217 = icmp eq ptr %196, null
+  br i1 %.not217, label %198, label %197
 
-196:                                              ; preds = %194
-  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %195) #11
-  br label %197
+197:                                              ; preds = %195
+  tail call void @PaUtil_FreeMemory(ptr noundef nonnull %196) #11
+  br label %198
 
-197:                                              ; preds = %194, %196, %16, %175
-  %.0 = phi i32 [ 0, %175 ], [ -9995, %16 ], [ %.0181225, %196 ], [ %.0181225, %194 ]
+198:                                              ; preds = %195, %197, %16, %176
+  %.0 = phi i32 [ 0, %176 ], [ -9995, %16 ], [ %.0181225, %197 ], [ %.0181225, %195 ]
   ret i32 %.0
 }
 
@@ -1249,8 +1252,7 @@ define internal fastcc i64 @NonAdaptingProcess(ptr noundef %0, ptr noundef captu
   %95 = load i32, ptr %18, align 4, !tbaa !25
   %96 = zext i32 %95 to i64
   %factor.op.mul = mul i64 %..1206, %96
-  %umax313 = tail call i32 @llvm.umax.i32(i32 %40, i32 1)
-  %wide.trip.count314 = zext i32 %umax313 to i64
+  %wide.trip.count314 = zext i32 %40 to i64
   br label %99
 
 .lr.ph:                                           ; preds = %94
@@ -2708,9 +2710,6 @@ declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

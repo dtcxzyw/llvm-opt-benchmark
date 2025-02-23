@@ -11150,7 +11150,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br label %71
 
 .noexc9._crit_edge.i:                             ; preds = %.noexc9.i, %71, %.noexc8.i, %.noexc7
-  %.not.not10.i.i = phi i1 [ false, %.noexc7 ], [ false, %71 ], [ false, %.noexc8.i ], [ true, %.noexc9.i ]
+  %.not.not9.i.i = phi i1 [ false, %.noexc7 ], [ false, %71 ], [ false, %.noexc8.i ], [ true, %.noexc9.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2), !noalias !1498
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.0.sroa.7.i)
   %85 = atomicrmw sub ptr %32, i64 16 release, align 8, !noalias !1484
@@ -11195,7 +11195,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
           to label %"_ZN4core3ptr284drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$core..option..Option$LT$moka..sync_base..invalidator..Invalidator$LT$$LP$usize$C$usize$RP$$C$alloc..sync..Arc$LT$mini_lsm_mvcc..block..Block$GT$$C$std..hash..random..RandomState$GT$$GT$$GT$$GT$17h30cc988cfd46ae04E.exit10" unwind label %106
 
 "_ZN4moka9sync_base11invalidator28Invalidator$LT$K$C$V$C$S$GT$16apply_predicates17h6ba598f72796ba52E.exit": ; preds = %.noexc9._crit_edge.i, %.noexc, %21, %88
-  %.0.i5 = phi i1 [ false, %21 ], [ false, %.noexc ], [ %.not.not10.i.i, %.noexc9._crit_edge.i ], [ %.not.not10.i.i, %88 ]
+  %.0.i5 = phi i1 [ false, %21 ], [ false, %.noexc ], [ %.not.not9.i.i, %.noexc9._crit_edge.i ], [ %.not.not9.i.i, %88 ]
   %102 = atomicrmw sub ptr %7, i64 16 release, align 8
   %103 = and i64 %102, -14
   %104 = icmp eq i64 %103, 18

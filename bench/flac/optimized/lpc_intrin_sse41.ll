@@ -840,7 +840,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_sse4
   %604 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %605 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %606 = zext nneg i32 %.4 to i64
-  %wide.trip.count1041 = zext i32 %1 to i64
+  %wide.trip.count1041 = zext nneg i32 %1 to i64
   br label %607
 
 607:                                              ; preds = %.lr.ph977, %667

@@ -1561,7 +1561,7 @@ define dso_local void @_ZNK4llvm3pdb22NativeInlineSiteSymbol20findInlineeLinesBy
 
 39:                                               ; preds = %4
   store ptr null, ptr %0, align 8, !tbaa !118
-  br label %464
+  br label %465
 
 40:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %26) #15
@@ -1602,7 +1602,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %52, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24) #15
   store ptr null, ptr %0, align 8, !tbaa !118
-  br label %455
+  br label %456
 
 56:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %27) #15
@@ -1640,7 +1640,7 @@ _ZN4llvm5ErrorD2Ev.exit15:                        ; preds = %65, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21) #15
   store ptr null, ptr %0, align 8, !tbaa !118
-  br label %423
+  br label %424
 
 69:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %28) #15
@@ -2249,11 +2249,7 @@ _ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArray
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %9) #15, !noalias !129
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16)
-  br i1 %.0.i, label %.thread, label %329
-
-.thread:                                          ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.i
-  store ptr null, ptr %0, align 8, !tbaa !118
-  br label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit
+  br i1 %.0.i, label %401, label %329
 
 329:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.i
   %330 = getelementptr inbounds nuw i8, ptr %.sroa.049.3, i64 8
@@ -2372,7 +2368,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit: 
   %378 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %379 = load ptr, ptr %378, align 8, !tbaa !91
   %.not.i.i.i.i25 = icmp eq ptr %379, null
-  br i1 %.not.i.i.i.i25, label %401, label %380
+  br i1 %.not.i.i.i.i25, label %402, label %380
 
 380:                                              ; preds = %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 8
@@ -2393,7 +2389,7 @@ _ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit: 
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 24
   %392 = load ptr, ptr %391, align 8
   call void %392(ptr noundef nonnull align 8 dereferenceable(16) %379) #15
-  br label %401
+  br label %402
 
 393:                                              ; preds = %380
   %394 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !38
@@ -2412,167 +2408,171 @@ _ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit: 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i27: ; preds = %397, %395
   %.0.i.i.i.i.i.i28 = phi i32 [ %384, %395 ], [ %398, %397 ]
   %399 = icmp eq i32 %.0.i.i.i.i.i.i28, 1
-  br i1 %399, label %400, label %401, !prof !14
+  br i1 %399, label %400, label %402, !prof !14
 
 400:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i27
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %379) #15
-  br label %401
+  br label %402
 
-401:                                              ; preds = %400, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i27, %385, %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit
-  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %30) #15
-  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %.sroa.6.3, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, label %402
-
-402:                                              ; preds = %401
-  %403 = getelementptr inbounds nuw i8, ptr %.sroa.6.3, i64 8
-  %404 = load atomic i64, ptr %403 acquire, align 8
-  %405 = icmp eq i64 %404, 4294967297
-  %406 = trunc i64 %404 to i32
-  br i1 %405, label %407, label %415
-
-407:                                              ; preds = %402
-  store i32 0, ptr %403, align 8, !tbaa !94
-  %408 = getelementptr inbounds nuw i8, ptr %.sroa.6.3, i64 12
-  store i32 0, ptr %408, align 4, !tbaa !96
-  %409 = load ptr, ptr %.sroa.6.3, align 8, !tbaa !3
-  %410 = getelementptr inbounds nuw i8, ptr %409, i64 16
-  %411 = load ptr, ptr %410, align 8
-  call void %411(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.3) #15
-  %412 = load ptr, ptr %.sroa.6.3, align 8, !tbaa !3
-  %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
-  %414 = load ptr, ptr %413, align 8
-  call void %414(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.3) #15
+401:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS2_EEED2Ev.exit.i
+  store ptr null, ptr %0, align 8, !tbaa !118
   br label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit
 
-415:                                              ; preds = %402
-  %416 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !38
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %416, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %419, label %417
+402:                                              ; preds = %400, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i27, %385, %_ZNSt10unique_ptrIN4llvm3pdb14IPDBSourceFileESt14default_deleteIS2_EED2Ev.exit
+  call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %30) #15
+  %.not.i.i.i.i.i.i.i.i.i30 = icmp eq ptr %.sroa.6.3, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i30, label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, label %403
 
-417:                                              ; preds = %415
-  %418 = add nsw i32 %406, -1
-  store i32 %418, ptr %403, align 4, !tbaa !97
+403:                                              ; preds = %402
+  %404 = getelementptr inbounds nuw i8, ptr %.sroa.6.3, i64 8
+  %405 = load atomic i64, ptr %404 acquire, align 8
+  %406 = icmp eq i64 %405, 4294967297
+  %407 = trunc i64 %405 to i32
+  br i1 %406, label %408, label %416
+
+408:                                              ; preds = %403
+  store i32 0, ptr %404, align 8, !tbaa !94
+  %409 = getelementptr inbounds nuw i8, ptr %.sroa.6.3, i64 12
+  store i32 0, ptr %409, align 4, !tbaa !96
+  %410 = load ptr, ptr %.sroa.6.3, align 8, !tbaa !3
+  %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
+  %412 = load ptr, ptr %411, align 8
+  call void %412(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.3) #15
+  %413 = load ptr, ptr %.sroa.6.3, align 8, !tbaa !3
+  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
+  %415 = load ptr, ptr %414, align 8
+  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.3) #15
+  br label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit
+
+416:                                              ; preds = %403
+  %417 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !38
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %417, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %420, label %418
+
+418:                                              ; preds = %416
+  %419 = add nsw i32 %407, -1
+  store i32 %419, ptr %404, align 4, !tbaa !97
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-419:                                              ; preds = %415
-  %420 = atomicrmw volatile add ptr %403, i32 -1 acq_rel, align 4
+420:                                              ; preds = %416
+  %421 = atomicrmw volatile add ptr %404, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %419, %417
-  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %406, %417 ], [ %420, %419 ]
-  %421 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
-  br i1 %421, label %422, label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, !prof !14
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %420, %418
+  %.0.i.i.i.i.i.i.i.i.i.i.i = phi i32 [ %407, %418 ], [ %421, %420 ]
+  %422 = icmp eq i32 %.0.i.i.i.i.i.i.i.i.i.i.i, 1
+  br i1 %422, label %423, label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, !prof !14
 
-422:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
+423:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.3) #15
   br label %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit
 
-_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit: ; preds = %.thread, %401, %407, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %422
+_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit: ; preds = %401, %402, %408, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i.i, %423
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %28) #15
-  br label %423
+  br label %424
 
-423:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit15
-  %424 = load i8, ptr %57, align 8
-  %425 = trunc i8 %424 to i1
-  br i1 %425, label %450, label %426
+424:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm8codeview17InlineeSourceLineELb0ELb0EED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit15
+  %425 = load i8, ptr %57, align 8
+  %426 = trunc i8 %425 to i1
+  br i1 %426, label %451, label %427
 
-426:                                              ; preds = %423
-  %427 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %428 = load ptr, ptr %427, align 8, !tbaa !91
-  %.not.i.i.i.i.i.i31 = icmp eq ptr %428, null
-  br i1 %.not.i.i.i.i.i.i31, label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i, label %429
+427:                                              ; preds = %424
+  %428 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %429 = load ptr, ptr %428, align 8, !tbaa !91
+  %.not.i.i.i.i.i.i31 = icmp eq ptr %429, null
+  br i1 %.not.i.i.i.i.i.i31, label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i, label %430
 
-429:                                              ; preds = %426
-  %430 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  %431 = load atomic i64, ptr %430 acquire, align 8
-  %432 = icmp eq i64 %431, 4294967297
-  %433 = trunc i64 %431 to i32
-  br i1 %432, label %434, label %442
+430:                                              ; preds = %427
+  %431 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  %432 = load atomic i64, ptr %431 acquire, align 8
+  %433 = icmp eq i64 %432, 4294967297
+  %434 = trunc i64 %432 to i32
+  br i1 %433, label %435, label %443
 
-434:                                              ; preds = %429
-  store i32 0, ptr %430, align 8, !tbaa !94
-  %435 = getelementptr inbounds nuw i8, ptr %428, i64 12
-  store i32 0, ptr %435, align 4, !tbaa !96
-  %436 = load ptr, ptr %428, align 8, !tbaa !3
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 16
-  %438 = load ptr, ptr %437, align 8
-  call void %438(ptr noundef nonnull align 8 dereferenceable(16) %428) #15
-  %439 = load ptr, ptr %428, align 8, !tbaa !3
-  %440 = getelementptr inbounds nuw i8, ptr %439, i64 24
-  %441 = load ptr, ptr %440, align 8
-  call void %441(ptr noundef nonnull align 8 dereferenceable(16) %428) #15
+435:                                              ; preds = %430
+  store i32 0, ptr %431, align 8, !tbaa !94
+  %436 = getelementptr inbounds nuw i8, ptr %429, i64 12
+  store i32 0, ptr %436, align 4, !tbaa !96
+  %437 = load ptr, ptr %429, align 8, !tbaa !3
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
+  %439 = load ptr, ptr %438, align 8
+  call void %439(ptr noundef nonnull align 8 dereferenceable(16) %429) #15
+  %440 = load ptr, ptr %429, align 8, !tbaa !3
+  %441 = getelementptr inbounds nuw i8, ptr %440, i64 24
+  %442 = load ptr, ptr %441, align 8
+  call void %442(ptr noundef nonnull align 8 dereferenceable(16) %429) #15
   br label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i
 
-442:                                              ; preds = %429
-  %443 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !38
-  %.not.i.i.i.i.i.i.i32 = icmp eq i8 %443, 0
-  br i1 %.not.i.i.i.i.i.i.i32, label %446, label %444
+443:                                              ; preds = %430
+  %444 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !38
+  %.not.i.i.i.i.i.i.i32 = icmp eq i8 %444, 0
+  br i1 %.not.i.i.i.i.i.i.i32, label %447, label %445
 
-444:                                              ; preds = %442
-  %445 = add nsw i32 %433, -1
-  store i32 %445, ptr %430, align 4, !tbaa !97
+445:                                              ; preds = %443
+  %446 = add nsw i32 %434, -1
+  store i32 %446, ptr %431, align 4, !tbaa !97
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33
 
-446:                                              ; preds = %442
-  %447 = atomicrmw volatile add ptr %430, i32 -1 acq_rel, align 4
+447:                                              ; preds = %443
+  %448 = atomicrmw volatile add ptr %431, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33: ; preds = %446, %444
-  %.0.i.i.i.i.i.i.i.i34 = phi i32 [ %433, %444 ], [ %447, %446 ]
-  %448 = icmp eq i32 %.0.i.i.i.i.i.i.i.i34, 1
-  br i1 %448, label %449, label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i, !prof !14
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33: ; preds = %447, %445
+  %.0.i.i.i.i.i.i.i.i34 = phi i32 [ %434, %445 ], [ %448, %447 ]
+  %449 = icmp eq i32 %.0.i.i.i.i.i.i.i.i34, 1
+  br i1 %449, label %450, label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i, !prof !14
 
-449:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %428) #15
+450:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %429) #15
   br label %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i
 
-_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i: ; preds = %449, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33, %434, %426
+_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i: ; preds = %450, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i33, %435, %427
   call void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %27) #15
   br label %_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit
 
-450:                                              ; preds = %423
-  %451 = load ptr, ptr %27, align 8, !tbaa !48
-  %.not.i.i = icmp eq ptr %451, null
+451:                                              ; preds = %424
+  %452 = load ptr, ptr %27, align 8, !tbaa !48
+  %.not.i.i = icmp eq ptr %452, null
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %450
-  %452 = load ptr, ptr %451, align 8, !tbaa !3
-  %453 = getelementptr inbounds nuw i8, ptr %452, i64 8
-  %454 = load ptr, ptr %453, align 8
-  call void %454(ptr noundef nonnull align 8 dereferenceable(8) %451) #15
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %451
+  %453 = load ptr, ptr %452, align 8, !tbaa !3
+  %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
+  %455 = load ptr, ptr %454, align 8
+  call void %455(ptr noundef nonnull align 8 dereferenceable(8) %452) #15
   br label %_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit: ; preds = %450, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i
+_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit: ; preds = %451, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm8codeview27DebugChecksumsSubsectionRefD2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %27) #15
-  br label %455
+  br label %456
 
-455:                                              ; preds = %_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit
-  %456 = load i8, ptr %44, align 8
-  %457 = trunc i8 %456 to i1
-  br i1 %457, label %459, label %458
+456:                                              ; preds = %_ZN4llvm8ExpectedINS_8codeview27DebugChecksumsSubsectionRefEED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit
+  %457 = load i8, ptr %44, align 8
+  %458 = trunc i8 %457 to i1
+  br i1 %458, label %460, label %459
 
-458:                                              ; preds = %455
+459:                                              ; preds = %456
   call void @_ZN4llvm3pdb20ModuleDebugStreamRefD1Ev(ptr noundef nonnull align 8 dereferenceable(401) %26) #15
   br label %_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit
 
-459:                                              ; preds = %455
-  %460 = load ptr, ptr %26, align 8, !tbaa !48
-  %.not.i.i36 = icmp eq ptr %460, null
+460:                                              ; preds = %456
+  %461 = load ptr, ptr %26, align 8, !tbaa !48
+  %.not.i.i36 = icmp eq ptr %461, null
   br i1 %.not.i.i36, label %_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37: ; preds = %459
-  %461 = load ptr, ptr %460, align 8, !tbaa !3
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %463 = load ptr, ptr %462, align 8
-  call void %463(ptr noundef nonnull align 8 dereferenceable(8) %460) #15
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37: ; preds = %460
+  %462 = load ptr, ptr %461, align 8, !tbaa !3
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %464 = load ptr, ptr %463, align 8
+  call void %464(ptr noundef nonnull align 8 dereferenceable(8) %461) #15
   br label %_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit: ; preds = %459, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37, %458
+_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit: ; preds = %460, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i37, %459
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %26) #15
-  br label %464
+  br label %465
 
-464:                                              ; preds = %_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit, %39
+465:                                              ; preds = %_ZN4llvm8ExpectedINS_3pdb20ModuleDebugStreamRefEED2Ev.exit, %39
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %25) #15
   ret void
 }

@@ -492,7 +492,7 @@ removevars.exit.i81:                              ; preds = %._crit_edge.i.i86, 
   br i1 %.not.i82, label %leaveblock.exit87, label %131
 
 131:                                              ; preds = %removevars.exit.i81
-  %132 = call i32 @luaK_codeABC(ptr noundef %99, i32 noundef 35, i32 noundef %110, i32 noundef 0, i32 noundef 0) #6
+  %132 = call i32 @luaK_codeABC(ptr noundef nonnull %99, i32 noundef 35, i32 noundef %110, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit87
 
 leaveblock.exit87:                                ; preds = %removevars.exit.i81, %131
@@ -502,7 +502,7 @@ leaveblock.exit87:                                ; preds = %removevars.exit.i81
   store i32 %134, ptr %135, align 4, !tbaa !75
   %136 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %137 = load i32, ptr %136, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %99, i32 noundef %137) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %99, i32 noundef %137) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #6
   br label %ifstat.exit
 
@@ -622,7 +622,7 @@ removevars.exit.i:                                ; preds = %._crit_edge.i.i, %c
   br i1 %.not.i77, label %leaveblock.exit, label %190
 
 190:                                              ; preds = %removevars.exit.i
-  %191 = call i32 @luaK_codeABC(ptr noundef %158, i32 noundef 35, i32 noundef %169, i32 noundef 0, i32 noundef 0) #6
+  %191 = call i32 @luaK_codeABC(ptr noundef nonnull %158, i32 noundef 35, i32 noundef %169, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit
 
 leaveblock.exit:                                  ; preds = %removevars.exit.i, %190
@@ -632,10 +632,10 @@ leaveblock.exit:                                  ; preds = %removevars.exit.i, 
   store i32 %193, ptr %194, align 4, !tbaa !75
   %195 = getelementptr inbounds nuw i8, ptr %163, i64 8
   %196 = load i32, ptr %195, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %158, i32 noundef %196) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %158, i32 noundef %196) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #6
-  %197 = call i32 @luaK_jump(ptr noundef %141) #6
-  call void @luaK_patchlist(ptr noundef %141, i32 noundef %197, i32 noundef %142) #6
+  %197 = call i32 @luaK_jump(ptr noundef nonnull %141) #6
+  call void @luaK_patchlist(ptr noundef nonnull %141, i32 noundef %197, i32 noundef %142) #6
   call fastcc void @check_match(ptr noundef nonnull %0, i32 noundef 262, i32 noundef 277, i32 noundef %73)
   %198 = load ptr, ptr %151, align 8, !tbaa !31
   %199 = load ptr, ptr %198, align 8, !tbaa !69
@@ -686,7 +686,7 @@ removevars.exit.i.i46:                            ; preds = %._crit_edge.i.i.i52
   br i1 %.not.i.i47, label %whilestat.exit, label %225
 
 225:                                              ; preds = %removevars.exit.i.i46
-  %226 = call i32 @luaK_codeABC(ptr noundef %141, i32 noundef 35, i32 noundef %204, i32 noundef 0, i32 noundef 0) #6
+  %226 = call i32 @luaK_codeABC(ptr noundef nonnull %141, i32 noundef 35, i32 noundef %204, i32 noundef 0, i32 noundef 0) #6
   br label %whilestat.exit
 
 whilestat.exit:                                   ; preds = %removevars.exit.i.i46, %225
@@ -696,8 +696,8 @@ whilestat.exit:                                   ; preds = %removevars.exit.i.i
   store i32 %228, ptr %229, align 4, !tbaa !75
   %230 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %231 = load i32, ptr %230, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %141, i32 noundef %231) #6
-  call void @luaK_patchtohere(ptr noundef %141, i32 noundef %148) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %141, i32 noundef %231) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %141, i32 noundef %148) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #6
   br label %statement.exit
 
@@ -986,7 +986,7 @@ removevars.exit.i.i35:                            ; preds = %._crit_edge.i.i.i40
   br i1 %.not.i15.i, label %forstat.exit, label %350
 
 350:                                              ; preds = %removevars.exit.i.i35
-  %351 = call i32 @luaK_codeABC(ptr noundef %234, i32 noundef 35, i32 noundef %329, i32 noundef 0, i32 noundef 0) #6
+  %351 = call i32 @luaK_codeABC(ptr noundef nonnull %234, i32 noundef 35, i32 noundef %329, i32 noundef 0, i32 noundef 0) #6
   br label %forstat.exit
 
 forstat.exit:                                     ; preds = %removevars.exit.i.i35, %350
@@ -996,7 +996,7 @@ forstat.exit:                                     ; preds = %removevars.exit.i.i
   store i32 %353, ptr %354, align 4, !tbaa !75
   %355 = getelementptr inbounds nuw i8, ptr %323, i64 8
   %356 = load i32, ptr %355, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %234, i32 noundef %356) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %234, i32 noundef %356) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #6
   br label %statement.exit
 
@@ -1092,7 +1092,7 @@ removevars.exit.i.i:                              ; preds = %._crit_edge.i.i.i, 
   br i1 %.not.i.i28, label %leaveblock.exit.i, label %399
 
 399:                                              ; preds = %removevars.exit.i.i
-  %400 = call i32 @luaK_codeABC(ptr noundef %358, i32 noundef 35, i32 noundef %378, i32 noundef 0, i32 noundef 0) #6
+  %400 = call i32 @luaK_codeABC(ptr noundef nonnull %358, i32 noundef 35, i32 noundef %378, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit.i
 
 leaveblock.exit.i:                                ; preds = %399, %removevars.exit.i.i
@@ -1102,7 +1102,7 @@ leaveblock.exit.i:                                ; preds = %399, %removevars.ex
   store i32 %402, ptr %403, align 4, !tbaa !75
   %404 = getelementptr inbounds nuw i8, ptr %372, i64 8
   %405 = load i32, ptr %404, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %358, i32 noundef %405) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %358, i32 noundef %405) #6
   %406 = load ptr, ptr %34, align 8, !tbaa !24
   call void @luaK_patchlist(ptr noundef %406, i32 noundef %369, i32 noundef %359) #6
   br label %461
@@ -1204,7 +1204,7 @@ removevars.exit.i23.i:                            ; preds = %._crit_edge.i.i28.i
   br i1 %.not.i24.i, label %leaveblock.exit29.i, label %452
 
 452:                                              ; preds = %removevars.exit.i23.i
-  %453 = call i32 @luaK_codeABC(ptr noundef %358, i32 noundef 35, i32 noundef %431, i32 noundef 0, i32 noundef 0) #6
+  %453 = call i32 @luaK_codeABC(ptr noundef nonnull %358, i32 noundef 35, i32 noundef %431, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit29.i
 
 leaveblock.exit29.i:                              ; preds = %452, %removevars.exit.i23.i
@@ -1214,9 +1214,9 @@ leaveblock.exit29.i:                              ; preds = %452, %removevars.ex
   store i32 %455, ptr %456, align 4, !tbaa !75
   %457 = getelementptr inbounds nuw i8, ptr %425, i64 8
   %458 = load i32, ptr %457, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %358, i32 noundef %458) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %358, i32 noundef %458) #6
   %459 = load ptr, ptr %34, align 8, !tbaa !24
-  %460 = call i32 @luaK_jump(ptr noundef %358) #6
+  %460 = call i32 @luaK_jump(ptr noundef nonnull %358) #6
   call void @luaK_patchlist(ptr noundef %459, i32 noundef %460, i32 noundef %359) #6
   br label %461
 
@@ -1270,7 +1270,7 @@ removevars.exit.i32.i:                            ; preds = %._crit_edge.i.i37.i
   br i1 %.not.i33.i, label %repeatstat.exit, label %489
 
 489:                                              ; preds = %removevars.exit.i32.i
-  %490 = call i32 @luaK_codeABC(ptr noundef %358, i32 noundef 35, i32 noundef %468, i32 noundef 0, i32 noundef 0) #6
+  %490 = call i32 @luaK_codeABC(ptr noundef nonnull %358, i32 noundef 35, i32 noundef %468, i32 noundef 0, i32 noundef 0) #6
   br label %repeatstat.exit
 
 repeatstat.exit:                                  ; preds = %removevars.exit.i32.i, %489
@@ -1280,7 +1280,7 @@ repeatstat.exit:                                  ; preds = %removevars.exit.i32
   store i32 %492, ptr %493, align 4, !tbaa !75
   %494 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %495 = load i32, ptr %494, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %358, i32 noundef %495) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %358, i32 noundef %495) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #6
   br label %statement.exit
@@ -2067,7 +2067,7 @@ removevars.exit.i:                                ; preds = %._crit_edge.i.i, %1
   br i1 %.not.i, label %leaveblock.exit, label %40
 
 40:                                               ; preds = %removevars.exit.i
-  %41 = call i32 @luaK_codeABC(ptr noundef %4, i32 noundef 35, i32 noundef %19, i32 noundef 0, i32 noundef 0) #6
+  %41 = call i32 @luaK_codeABC(ptr noundef nonnull %4, i32 noundef 35, i32 noundef %19, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit
 
 leaveblock.exit:                                  ; preds = %removevars.exit.i, %40
@@ -2077,7 +2077,7 @@ leaveblock.exit:                                  ; preds = %removevars.exit.i, 
   store i32 %43, ptr %44, align 4, !tbaa !75
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %4, i32 noundef %46) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %4, i32 noundef %46) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
   ret void
 }
@@ -3987,7 +3987,7 @@ removevars.exit.i37:                              ; preds = %._crit_edge.i.i42, 
   br i1 %.not.i38, label %leaveblock.exit43, label %100
 
 100:                                              ; preds = %removevars.exit.i37
-  %101 = call i32 @luaK_codeABC(ptr noundef %64, i32 noundef 35, i32 noundef %79, i32 noundef 0, i32 noundef 0) #6
+  %101 = call i32 @luaK_codeABC(ptr noundef nonnull %64, i32 noundef 35, i32 noundef %79, i32 noundef 0, i32 noundef 0) #6
   br label %leaveblock.exit43
 
 leaveblock.exit43:                                ; preds = %removevars.exit.i37, %100
@@ -3997,7 +3997,7 @@ leaveblock.exit43:                                ; preds = %removevars.exit.i37
   store i32 %103, ptr %104, align 4, !tbaa !75
   %105 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %106 = load i32, ptr %105, align 8, !tbaa !63
-  call void @luaK_patchtohere(ptr noundef %64, i32 noundef %106) #6
+  call void @luaK_patchtohere(ptr noundef nonnull %64, i32 noundef %106) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   %107 = load ptr, ptr %44, align 8, !tbaa !31
   %108 = load ptr, ptr %107, align 8, !tbaa !69

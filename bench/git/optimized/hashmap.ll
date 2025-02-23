@@ -547,7 +547,7 @@ define dso_local void @hashmap_add(ptr noundef captures(none) %0, ptr noundef in
   br i1 %exitcond.not.i, label %rehash.exit, label %.lr.ph25.i, !llvm.loop !34
 
 rehash.exit:                                      ; preds = %._crit_edge.i, %28
-  tail call void @free(ptr noundef %10) #15
+  tail call void @free(ptr noundef nonnull %10) #15
   br label %48
 
 48:                                               ; preds = %21, %rehash.exit, %9

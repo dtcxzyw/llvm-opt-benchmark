@@ -4611,10 +4611,10 @@ entry:
   %__value.i.i.i = alloca %"class.hermes::SourceErrorManager::BufferedMessage", align 8
   %agg.tmp6.i.i.i = alloca %"class.hermes::SourceErrorManager::BufferedMessage", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i11 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i12 = sub i64 %sub.ptr.lhs.cast.i11, %sub.ptr.rhs.cast.i
-  %cmp13 = icmp sgt i64 %sub.ptr.sub.i12, 1152
-  br i1 %cmp13, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i
+  %cmp14 = icmp sgt i64 %sub.ptr.sub.i13, 1152
+  br i1 %cmp14, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 72
@@ -4641,14 +4641,14 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit"
-  %sub.ptr.sub.i16 = phi i64 [ %sub.ptr.sub.i12, %while.body.lr.ph ], [ %sub.ptr.sub.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %__depth_limit.addr.015 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %storemerge14 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.015, 0
+  %sub.ptr.sub.i17 = phi i64 [ %sub.ptr.sub.i13, %while.body.lr.ph ], [ %sub.ptr.sub.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %__depth_limit.addr.016 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %storemerge15 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit" ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.016, 0
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %while.body
-  %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i16, 72
+  %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i17, 72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp6.i.i.i)
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.le, -2
@@ -4677,9 +4677,9 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %cmp9.not.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i.i.i) #24
-  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i", label %while.body.i.i.i
+  br i1 %cmp9.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i.thread", label %while.body.i.i.i
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i": ; preds = %while.body.i.i.i
+"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i.thread": ; preds = %while.body.i.i.i
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %__value.i.i.i)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %agg.tmp6.i.i.i)
   %msg.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %__value.i.i1.i, i64 32
@@ -4688,8 +4688,8 @@ while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %
   %noteCount_.i7.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.tmp7.i.i2.i, i64 64
   br label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %storemerge14, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i" ], [ %incdec.ptr.i.i8.i, %while.body.i.i ]
+while.body.i.i:                                   ; preds = %while.body.i.i, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i.thread"
+  %__last.sroa.0.05.i.i = phi ptr [ %storemerge15, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_RT0_.exit.i.i.thread" ], [ %incdec.ptr.i.i8.i, %while.body.i.i ]
   %incdec.ptr.i.i8.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -72
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %__value.i.i1.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %agg.tmp7.i.i2.i)
@@ -4719,10 +4719,10 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %"_
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !77
 
 if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.015, -1
-  %div.i = udiv i64 %sub.ptr.sub.i16, 144
+  %dec = add nsw i64 %__depth_limit.addr.016, -1
+  %div.i = udiv i64 %sub.ptr.sub.i17, 144
   %add.ptr.i.i = getelementptr inbounds nuw %"class.hermes::SourceErrorManager::BufferedMessage", ptr %__first.coerce, i64 %div.i
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge14, i64 -72
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge15, i64 -72
   %5 = load i32, ptr %add.ptr.i2.i, align 8
   %cmp.i.i.i.i = icmp ne i32 %5, 0
   %6 = load ptr, ptr %loc.i.i.i.i, align 8
@@ -4778,14 +4778,14 @@ land.lhs.true2.i.i5.i.i:                          ; preds = %if.then.i.i
 if.end.i.i9.i.i:                                  ; preds = %land.lhs.true2.i.i5.i.i, %if.then.i.i
   %13 = load i32, ptr %add.ptr.i3.i, align 8
   %cmp5.i.i10.i.i = icmp ne i32 %13, 0
-  %loc7.i.i11.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -64
+  %loc7.i.i11.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -64
   %14 = load ptr, ptr %loc7.i.i11.i.i, align 8
   %cmp.i8.i.i12.i.i = icmp ne ptr %14, null
   %or.cond1.i.i13.i.i = select i1 %cmp5.i.i10.i.i, i1 true, i1 %cmp.i8.i.i12.i.i
   br i1 %or.cond1.i.i13.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit23.i.i", label %land.lhs.true9.i.i14.i.i
 
 land.lhs.true9.i.i14.i.i:                         ; preds = %if.end.i.i9.i.i
-  %msg10.i.i15.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg10.i.i15.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i9.i.i16.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i15.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i17.i.i = icmp eq i32 %call.i9.i.i16.i.i, 0
   br i1 %cmp.i10.i.i17.i.i, label %if.then12.i.i, label %land.lhs.true9.if.end13_crit_edge.i.i18.i.i
@@ -4836,14 +4836,14 @@ land.lhs.true2.i.i28.i.i:                         ; preds = %if.else.i.i
 if.end.i.i32.i.i:                                 ; preds = %land.lhs.true2.i.i28.i.i, %if.else.i.i
   %22 = load i32, ptr %add.ptr.i3.i, align 8
   %cmp5.i.i33.i.i = icmp ne i32 %22, 0
-  %loc7.i.i34.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -64
+  %loc7.i.i34.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -64
   %23 = load ptr, ptr %loc7.i.i34.i.i, align 8
   %cmp.i8.i.i35.i.i = icmp ne ptr %23, null
   %or.cond1.i.i36.i.i = select i1 %cmp5.i.i33.i.i, i1 true, i1 %cmp.i8.i.i35.i.i
   br i1 %or.cond1.i.i36.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit46.i.i", label %land.lhs.true9.i.i37.i.i
 
 land.lhs.true9.i.i37.i.i:                         ; preds = %if.end.i.i32.i.i
-  %msg10.i.i38.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg10.i.i38.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i9.i.i39.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i38.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i40.i.i = icmp eq i32 %call.i9.i.i39.i.i, 0
   br i1 %cmp.i10.i.i40.i.i, label %if.then22.i.i, label %land.lhs.true9.if.end13_crit_edge.i.i41.i.i
@@ -4865,9 +4865,9 @@ if.then22.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %26 = load i64, ptr %noteCount_2.i.i.i133.i.i, align 8
   store i64 %26, ptr %noteCount_.i.i.i50.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(72) %add.ptr.i3.i, i64 32, i1 false)
-  %msg3.i.i4.i.i52.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg3.i.i4.i.i52.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i.i.i.i53.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i4.i.i52.i.i) #24
-  %noteCount_2.i6.i.i54.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -8
+  %noteCount_2.i6.i.i54.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -8
   %27 = load i64, ptr %noteCount_2.i6.i.i54.i.i, align 8
   store i64 %27, ptr %noteCount_2.i.i.i133.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(72) %__tmp.i.i47.i.i, i64 32, i1 false)
@@ -4912,14 +4912,14 @@ land.lhs.true2.i.i69.i.i:                         ; preds = %if.else33.i.i
 if.end.i.i73.i.i:                                 ; preds = %land.lhs.true2.i.i69.i.i, %if.else33.i.i
   %34 = load i32, ptr %add.ptr.i3.i, align 8
   %cmp5.i.i74.i.i = icmp ne i32 %34, 0
-  %loc7.i.i75.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -64
+  %loc7.i.i75.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -64
   %35 = load ptr, ptr %loc7.i.i75.i.i, align 8
   %cmp.i8.i.i76.i.i = icmp ne ptr %35, null
   %or.cond1.i.i77.i.i = select i1 %cmp5.i.i74.i.i, i1 true, i1 %cmp.i8.i.i76.i.i
   br i1 %or.cond1.i.i77.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit87.i.i", label %land.lhs.true9.i.i78.i.i
 
 land.lhs.true9.i.i78.i.i:                         ; preds = %if.end.i.i73.i.i
-  %msg10.i.i79.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg10.i.i79.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i9.i.i80.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i79.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i81.i.i = icmp eq i32 %call.i9.i.i80.i.i, 0
   br i1 %cmp.i10.i.i81.i.i, label %if.then39.i.i, label %land.lhs.true9.if.end13_crit_edge.i.i82.i.i
@@ -4970,14 +4970,14 @@ land.lhs.true2.i.i101.i.i:                        ; preds = %if.else44.i.i
 if.end.i.i105.i.i:                                ; preds = %land.lhs.true2.i.i101.i.i, %if.else44.i.i
   %43 = load i32, ptr %add.ptr.i3.i, align 8
   %cmp5.i.i106.i.i = icmp ne i32 %43, 0
-  %loc7.i.i107.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -64
+  %loc7.i.i107.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -64
   %44 = load ptr, ptr %loc7.i.i107.i.i, align 8
   %cmp.i8.i.i108.i.i = icmp ne ptr %44, null
   %or.cond1.i.i109.i.i = select i1 %cmp5.i.i106.i.i, i1 true, i1 %cmp.i8.i.i108.i.i
   br i1 %or.cond1.i.i109.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes18SourceErrorManager16disableBufferingEvE3$_0EclINS_17__normal_iteratorIPNS3_15BufferedMessageESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit119.i.i", label %land.lhs.true9.i.i110.i.i
 
 land.lhs.true9.i.i110.i.i:                        ; preds = %if.end.i.i105.i.i
-  %msg10.i.i111.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg10.i.i111.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i9.i.i112.i.i = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %msg10.i.i111.i.i, ptr noundef nonnull @_ZN6hermesL14sTooManyErrorsE) #24
   %cmp.i10.i.i113.i.i = icmp eq i32 %call.i9.i.i112.i.i, 0
   br i1 %cmp.i10.i.i113.i.i, label %if.then50.i.i, label %land.lhs.true9.if.end13_crit_edge.i.i114.i.i
@@ -4999,9 +4999,9 @@ if.then50.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
   %47 = load i64, ptr %noteCount_2.i.i.i133.i.i, align 8
   store i64 %47, ptr %noteCount_.i.i.i123.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %__first.coerce, ptr noundef nonnull align 8 dereferenceable(72) %add.ptr.i3.i, i64 32, i1 false)
-  %msg3.i.i4.i.i125.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -40
+  %msg3.i.i4.i.i125.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -40
   %call.i.i.i.i126.i.i = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i.i.i131.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg3.i.i4.i.i125.i.i) #24
-  %noteCount_2.i6.i.i127.i.i = getelementptr inbounds i8, ptr %storemerge14, i64 -8
+  %noteCount_2.i6.i.i127.i.i = getelementptr inbounds i8, ptr %storemerge15, i64 -8
   %48 = load i64, ptr %noteCount_2.i6.i.i127.i.i, align 8
   store i64 %48, ptr %noteCount_2.i.i.i133.i.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %add.ptr.i3.i, ptr noundef nonnull align 8 dereferenceable(72) %__tmp.i.i120.i.i, i64 32, i1 false)
@@ -5037,7 +5037,7 @@ while.body.i.i5.preheader:                        ; preds = %if.else55.i.i, %if.
 
 while.body.i.i5:                                  ; preds = %while.body.i.i5.preheader, %if.end.i.i
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i26.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i5.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge14, %while.body.i.i5.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge15, %while.body.i.i5.preheader ]
   br label %while.cond3.i.i
 
 while.cond3.i.i:                                  ; preds = %while.body7.i.i, %while.body.i.i5
@@ -5157,7 +5157,7 @@ if.end.i.i:                                       ; preds = %while.end18.i.i
   br label %while.body.i.i5, !llvm.loop !80
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %while.end18.i.i
-  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge14, i64 noundef %dec)
+  call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN6hermes18SourceErrorManager15BufferedMessageESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_16disableBufferingEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge15, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 1152

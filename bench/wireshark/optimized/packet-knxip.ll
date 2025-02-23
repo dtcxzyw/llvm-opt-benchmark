@@ -2127,7 +2127,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
   %7 = load i32, ptr %4, align 4
   %8 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %7)
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %dissect_srp.exit.thread, label %.lr.ph
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %.not104.i = icmp eq ptr %1, null
@@ -2141,7 +2141,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
   %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %13)
   %15 = zext i8 %14 to i32
   %.not.i = icmp eq i8 %14, 0
-  br i1 %.not.i, label %dissect_srp.exit.thread, label %16
+  br i1 %.not.i, label %._crit_edge, label %16
 
 16:                                               ; preds = %11
   %17 = tail call i32 @llvm.umin.i32(i32 %12, i32 %15)
@@ -2267,9 +2267,9 @@ dissect_srp.exit:                                 ; preds = %.loopexit.i, %66, %
   store i32 %69, ptr %4, align 4
   %70 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %69)
   %71 = icmp slt i32 %70, 1
-  br i1 %71, label %dissect_srp.exit.thread, label %11, !llvm.loop !17
+  br i1 %71, label %._crit_edge, label %11, !llvm.loop !17
 
-dissect_srp.exit.thread:                          ; preds = %11, %dissect_srp.exit, %6
+._crit_edge:                                      ; preds = %dissect_srp.exit, %11, %6
   ret void
 }
 
@@ -5233,7 +5233,7 @@ knxip_tree_add_data.exit.thread:                  ; preds = %16, %knxip_tree_add
 31:                                               ; preds = %knxip_tree_add_data.exit.thread, %knxip_tree_add_data.exit
   %.1 = phi i8 [ 0, %knxip_tree_add_data.exit.thread ], [ 1, %knxip_tree_add_data.exit ]
   %32 = add i32 %spec.store.select, %21
-  %33 = sub i32 %22, %spec.store.select
+  %33 = sub nsw i32 %22, %spec.store.select
   %34 = icmp slt i32 %33, 16
   %35 = load i32, ptr @hf_bytes, align 4
   br i1 %34, label %36, label %40

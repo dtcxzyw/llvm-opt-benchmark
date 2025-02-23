@@ -822,7 +822,7 @@ define dso_local void @_ZN5clang18DiagnosticRenderer16emitIncludeStackENS_13Full
 
 _ZN5clang18DiagnosticRenderer20emitModuleBuildStackERKNS_13SourceManagerE.exit: ; preds = %.lr.ph.i, %23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  call void @_ZN5clang18DiagnosticRenderer15emitImportStackENS_13FullSourceLocE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr %2)
+  call void @_ZN5clang18DiagnosticRenderer15emitImportStackENS_13FullSourceLocE(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 %1, ptr nonnull %2)
   br label %43
 
 43:                                               ; preds = %22, %_ZN5clang18DiagnosticRenderer20emitModuleBuildStackERKNS_13SourceManagerE.exit, %13, %5

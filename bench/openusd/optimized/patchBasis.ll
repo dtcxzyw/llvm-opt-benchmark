@@ -1207,13 +1207,10 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
   store float %171, ptr %172, align 4
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 12
-  br i1 %exitcond167.not, label %.preheader, label %.split.us, !llvm.loop !15
+  br i1 %exitcond167.not, label %.preheader.split152.us, label %.split.us, !llvm.loop !15
 
-.preheader:                                       ; preds = %.split, %.split.us
-  br i1 %spec.select, label %.preheader.split152.us, label %.preheader.split152
-
-.preheader.split152.us:                           ; preds = %.preheader, %.preheader.split152.us
-  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.preheader ]
+.preheader.split152.us:                           ; preds = %.split.us, %.preheader.split152.us
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.split.us ]
   %173 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv172
   %174 = load i32, ptr %173, align 4
   %175 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv172
@@ -1288,10 +1285,10 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIfEEvT_PS5_S6_
   store float %230, ptr %231, align 4
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 12
-  br i1 %exitcond163.not, label %.preheader, label %.split, !llvm.loop !15
+  br i1 %exitcond163.not, label %.preheader.split152, label %.split, !llvm.loop !15
 
-.preheader.split152:                              ; preds = %.preheader, %.preheader.split152
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.preheader ]
+.preheader.split152:                              ; preds = %.split, %.preheader.split152
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.split ]
   %232 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv168
   %233 = load i32, ptr %232, align 4
   %234 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIfEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv168
@@ -4377,13 +4374,10 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
   store double %171, ptr %172, align 8
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next165, 12
-  br i1 %exitcond167.not, label %.preheader, label %.split.us, !llvm.loop !32
+  br i1 %exitcond167.not, label %.preheader.split152.us, label %.split.us, !llvm.loop !32
 
-.preheader:                                       ; preds = %.split, %.split.us
-  br i1 %spec.select, label %.preheader.split152.us, label %.preheader.split152
-
-.preheader.split152.us:                           ; preds = %.preheader, %.preheader.split152.us
-  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.preheader ]
+.preheader.split152.us:                           ; preds = %.split.us, %.preheader.split152.us
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %.preheader.split152.us ], [ 0, %.split.us ]
   %173 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv172
   %174 = load i32, ptr %173, align 4
   %175 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv172
@@ -4458,10 +4452,10 @@ _ZN10OpenSubdiv6v3_6_03Far8internal12_GLOBAL__N_115evalBezierCurveIdEEvT_PS5_S6_
   store double %230, ptr %231, align 8
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 12
-  br i1 %exitcond163.not, label %.preheader, label %.split, !llvm.loop !32
+  br i1 %exitcond163.not, label %.preheader.split152, label %.split, !llvm.loop !32
 
-.preheader.split152:                              ; preds = %.preheader, %.preheader.split152
-  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.preheader ]
+.preheader.split152:                              ; preds = %.split, %.preheader.split152
+  %indvars.iv168 = phi i64 [ %indvars.iv.next169, %.preheader.split152 ], [ 0, %.split ]
   %232 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorGregory, i64 0, i64 %indvars.iv168
   %233 = load i32, ptr %232, align 4
   %234 = getelementptr inbounds nuw [8 x i32], ptr @_ZZN10OpenSubdiv6v3_6_03Far8internal16EvalBasisGregoryIdEEiT_S4_PS4_S5_S5_S5_S5_S5_E15interiorBezTRow, i64 0, i64 %indvars.iv168

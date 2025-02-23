@@ -220,7 +220,7 @@ _ZL10readVarIntPKcmRm.exit:                       ; preds = %67
   store ptr %0, ptr %10, align 8
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %78 = shl nuw nsw i64 %76, 3
-  %79 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %78, i8 noundef zeroext 0)
+  %79 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %78, i8 noundef zeroext 0)
           to label %_ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit unwind label %64
 
 _ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit:   ; preds = %_ZL10readVarIntPKcmRm.exit
@@ -253,7 +253,7 @@ _ZN10TempBufferIP7TStringEC2EP9lua_Statem.exit:   ; preds = %_ZL10readVarIntPKcm
 _ZL10readVarIntPKcmRm.exit475:                    ; preds = %81
   %90 = getelementptr inbounds i8, ptr %2, i64 %84
   %91 = zext i32 %88 to i64
-  %92 = invoke noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef %0, ptr noundef nonnull %90, i64 noundef %91)
+  %92 = invoke noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef nonnull %0, ptr noundef nonnull %90, i64 noundef %91)
           to label %93 unwind label %.loopexit.split-lp712.loopexit
 
 93:                                               ; preds = %_ZL10readVarIntPKcmRm.exit475
@@ -385,7 +385,7 @@ _ZL10readVarIntPKcmRm.exit483:                    ; preds = %.loopexit710
   %142 = zext i32 %140 to i64
   store ptr %0, ptr %12, align 8
   %143 = shl nuw nsw i64 %142, 3
-  %144 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %143, i8 noundef zeroext 0)
+  %144 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %143, i8 noundef zeroext 0)
           to label %_ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit unwind label %.loopexit.split-lp712.loopexit.split-lp
 
 _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcmRm.exit483
@@ -411,7 +411,7 @@ _ZN10TempBufferIP5ProtoEC2EP9lua_Statem.exit:     ; preds = %_ZL10readVarIntPKcm
 151:                                              ; preds = %.lr.ph843, %.loopexit695
   %indvars.iv943 = phi i64 [ 0, %.lr.ph843 ], [ %indvars.iv.next944, %.loopexit695 ]
   %.4841 = phi i64 [ %136, %.lr.ph843 ], [ %.14, %.loopexit695 ]
-  %152 = invoke noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef %0)
+  %152 = invoke noundef ptr @_Z13luaF_newprotoP9lua_State(ptr noundef nonnull %0)
           to label %153 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 153:                                              ; preds = %151
@@ -477,7 +477,7 @@ _ZL10readVarIntPKcmRm.exit494:                    ; preds = %.preheader706
   %180 = zext i32 %179 to i64
   %181 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %182 = load i8, ptr %181, align 2
-  %183 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %180, i8 noundef zeroext %182)
+  %183 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %180, i8 noundef zeroext %182)
           to label %184 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .loopexit:                                        ; preds = %_ZL10readVarIntPKcmRm.exit548
@@ -580,7 +580,7 @@ _ZL10readVarIntPKcmRm.exit500:                    ; preds = %208
   %218 = zext i32 %215 to i64
   %219 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %220 = load i8, ptr %219, align 2
-  %221 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %218, i8 noundef zeroext %220)
+  %221 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %218, i8 noundef zeroext %220)
           to label %222 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 222:                                              ; preds = %217
@@ -790,11 +790,11 @@ _ZL10readVarIntPKcmRm.exit512:                    ; preds = %_ZL18remapUserdataT
   %317 = shl nuw nsw i64 %316, 2
   %318 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %319 = load i8, ptr %318, align 2
-  %320 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %317, i8 noundef zeroext %319)
+  %320 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %317, i8 noundef zeroext %319)
           to label %321 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .invoke:                                          ; preds = %_ZL10readVarIntPKcmRm.exit616, %_ZL10readVarIntPKcmRm.exit590, %_ZL10readVarIntPKcmRm.exit560, %_ZL10readVarIntPKcmRm.exit519, %_ZL10readVarIntPKcmRm.exit512
-  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef %0) #13
+  invoke void @_Z11luaM_toobigP9lua_State(ptr noundef nonnull %0) #13
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -857,7 +857,7 @@ _ZL10readVarIntPKcmRm.exit519:                    ; preds = %333
   %344 = zext nneg i32 %340 to i64
   %345 = shl nuw nsw i64 %344, 4
   %346 = load i8, ptr %318, align 2
-  %347 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %345, i8 noundef zeroext %346)
+  %347 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %345, i8 noundef zeroext %346)
           to label %348 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 348:                                              ; preds = %343
@@ -1052,7 +1052,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit533: ; preds = %389, %_ZL10rea
   br i1 %.not.i541, label %_ZL10readVarIntPKcmRm.exit542, label %.preheader694, !llvm.loop !5
 
 _ZL10readVarIntPKcmRm.exit542:                    ; preds = %.preheader694
-  %436 = invoke noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef %0, i32 noundef 0, i32 noundef %434)
+  %436 = invoke noundef ptr @_Z8luaH_newP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 0, i32 noundef %434)
           to label %.preheader693 unwind label %.loopexit.split-lp.loopexit
 
 .preheader693:                                    ; preds = %_ZL10readVarIntPKcmRm.exit542
@@ -1083,7 +1083,7 @@ _ZL10readVarIntPKcmRm.exit548:                    ; preds = %438
   %447 = load ptr, ptr %349, align 8
   %448 = sext i32 %445 to i64
   %449 = getelementptr inbounds %struct.lua_TValue, ptr %447, i64 %448
-  %450 = invoke noundef ptr @_Z8luaH_setP9lua_StateP5TablePK10lua_TValue(ptr noundef %0, ptr noundef %436, ptr noundef %449)
+  %450 = invoke noundef ptr @_Z8luaH_setP9lua_StateP5TablePK10lua_TValue(ptr noundef nonnull %0, ptr noundef %436, ptr noundef %449)
           to label %451 unwind label %.loopexit
 
 451:                                              ; preds = %_ZL10readVarIntPKcmRm.exit548
@@ -1125,7 +1125,7 @@ _ZL10readVarIntPKcmRm.exit554:                    ; preds = %.preheader691
   %468 = getelementptr inbounds nuw i8, ptr %467, i64 3
   %469 = load i8, ptr %468, align 1
   %470 = zext i8 %469 to i32
-  %471 = invoke noundef ptr @_Z16luaF_newLclosureP9lua_StateiP5TableP5Proto(ptr noundef %0, i32 noundef %470, ptr noundef %47, ptr noundef nonnull %467)
+  %471 = invoke noundef ptr @_Z16luaF_newLclosureP9lua_StateiP5TableP5Proto(ptr noundef nonnull %0, i32 noundef %470, ptr noundef %47, ptr noundef nonnull %467)
           to label %472 unwind label %.loopexit.split-lp.loopexit
 
 472:                                              ; preds = %_ZL10readVarIntPKcmRm.exit554
@@ -1177,7 +1177,7 @@ _ZL10readVarIntPKcmRm.exit560:                    ; preds = %.preheader701
   %495 = zext nneg i32 %491 to i64
   %496 = shl nuw nsw i64 %495, 3
   %497 = load i8, ptr %318, align 2
-  %498 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %496, i8 noundef zeroext %497)
+  %498 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %496, i8 noundef zeroext %497)
           to label %499 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 499:                                              ; preds = %494
@@ -1298,7 +1298,7 @@ _ZL10readStringR10TempBufferIP7TStringEPKcmRm.exit579: ; preds = %538, %_ZL10rea
   %559 = add i32 %558, %557
   %560 = sext i32 %559 to i64
   %561 = load i8, ptr %318, align 2
-  %562 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %560, i8 noundef zeroext %561)
+  %562 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %560, i8 noundef zeroext %561)
           to label %563 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 563:                                              ; preds = %548
@@ -1388,7 +1388,7 @@ _ZL10readVarIntPKcmRm.exit590:                    ; preds = %.preheader697
   %598 = zext nneg i32 %594 to i64
   %599 = mul nuw nsw i64 %598, 24
   %600 = load i8, ptr %318, align 2
-  %601 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %599, i8 noundef zeroext %600)
+  %601 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %599, i8 noundef zeroext %600)
           to label %602 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 602:                                              ; preds = %597
@@ -1517,7 +1517,7 @@ _ZL10readVarIntPKcmRm.exit616:                    ; preds = %.preheader696
   %663 = zext nneg i32 %659 to i64
   %664 = shl nuw nsw i64 %663, 3
   %665 = load i8, ptr %318, align 2
-  %666 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef %664, i8 noundef zeroext %665)
+  %666 = invoke noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef nonnull %0, i64 noundef %664, i8 noundef zeroext %665)
           to label %667 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 667:                                              ; preds = %662

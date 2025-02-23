@@ -5094,7 +5094,7 @@ _ZL18findBlockLocationsPN5clang3CFGEPKNS_16PostOrderCFGViewERSt6vectorIN12_GLOBA
   store i32 0, ptr %1492, align 8, !tbaa !11
   %1493 = getelementptr inbounds nuw i8, ptr %50, i64 12
   store i32 4, ptr %1493, align 4, !tbaa !12
-  %1494 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
+  %1494 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %1494, align 8, !tbaa !306
   %1495 = load i32, ptr %74, align 4
   %1496 = and i32 %1495, 256
@@ -5826,7 +5826,7 @@ _ZN12_GLOBAL__N_17FactSetC2ERKS0_.exit:           ; preds = %1776, %.sink.split.
 
 .lr.ph658:                                        ; preds = %_ZN12_GLOBAL__N_17FactSetC2ERKS0_.exit
   %1792 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1793 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
+  %1793 = getelementptr inbounds nuw i8, ptr %68, i64 24
   br label %1800
 
 ._crit_edge659:                                   ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2Ev.exit376, %_ZN12_GLOBAL__N_17FactSetC2ERKS0_.exit
@@ -5839,7 +5839,7 @@ _ZN12_GLOBAL__N_17FactSetC2ERKS0_.exit:           ; preds = %1776, %.sink.split.
 
 .lr.ph663:                                        ; preds = %._crit_edge659
   %1798 = getelementptr inbounds nuw i8, ptr %0, i64 544
-  %1799 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 24
+  %1799 = getelementptr inbounds nuw i8, ptr %68, i64 24
   br label %1815
 
 1800:                                             ; preds = %.lr.ph658, %_ZNSt10unique_ptrIN12_GLOBAL__N_117LockableFactEntryESt14default_deleteIS1_EED2Ev.exit376
@@ -17133,454 +17133,458 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr148 = phi ptr [ %2, %3 ], [ %.tr148.be, %tailrecurse.backedge ]
   switch i8 %4, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit [
     i8 0, label %5
-    i8 1, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
-    i8 2, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
-    i8 3, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403
-    i8 4, label %20
-    i8 5, label %30
-    i8 6, label %32
-    i8 7, label %51
-    i8 8, label %58
-    i8 9, label %73
-    i8 10, label %88
-    i8 11, label %103
-    i8 12, label %125
-    i8 13, label %139
-    i8 14, label %146
-    i8 15, label %159
-    i8 16, label %166
-    i8 17, label %181
-    i8 18, label %196
-    i8 19, label %211
-    i8 20, label %226
-    i8 21, label %249
-    i8 22, label %264
-    i8 23, label %266
-    i8 24, label %268
-    i8 25, label %270
-    i8 26, label %272
-    i8 27, label %274
-    i8 28, label %281
-    i8 29, label %288
-    i8 30, label %311
+    i8 1, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402
+    i8 2, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402
+    i8 3, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402
+    i8 4, label %16
+    i8 5, label %26
+    i8 6, label %28
+    i8 7, label %47
+    i8 8, label %54
+    i8 9, label %69
+    i8 10, label %84
+    i8 11, label %99
+    i8 12, label %121
+    i8 13, label %135
+    i8 14, label %142
+    i8 15, label %155
+    i8 16, label %162
+    i8 17, label %177
+    i8 18, label %192
+    i8 19, label %207
+    i8 20, label %222
+    i8 21, label %245
+    i8 22, label %260
+    i8 23, label %262
+    i8 24, label %264
+    i8 25, label %266
+    i8 26, label %268
+    i8 27, label %270
+    i8 28, label %277
+    i8 29, label %284
+    i8 30, label %307
   ]
 
 5:                                                ; preds = %tailrecurse
-  %6 = icmp eq ptr %.tr148, null
-  %7 = getelementptr inbounds i8, ptr %.tr148, i64 -8
-  %8 = select i1 %6, ptr null, ptr %7
-  %9 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !775
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %11, label %8
+
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !775
-  %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %14, label %11
+  %.not9.i = icmp eq ptr %10, null
+  br i1 %.not9.i, label %11, label %13
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !775
-  %.not9.i = icmp eq ptr %13, null
-  br i1 %.not9.i, label %14, label %17
-
-14:                                               ; preds = %11, %5
-  %15 = getelementptr inbounds i8, ptr %.tr147, i64 -8
-  %16 = icmp eq ptr %15, %8
+11:                                               ; preds = %8, %5
+  %12 = icmp eq ptr %.tr148, %.tr147
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-17:                                               ; preds = %11
-  %18 = load i8, ptr %10, align 8, !tbaa !31
-  %19 = load i8, ptr %13, align 8, !tbaa !31
-  %.not.i78 = icmp eq i8 %18, %19
+13:                                               ; preds = %8
+  %14 = load i8, ptr %7, align 8, !tbaa !31
+  %15 = load i8, ptr %10, align 8, !tbaa !31
+  %.not.i78 = icmp eq i8 %14, %15
   br i1 %.not.i78, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-tailrecurse.backedge:                             ; preds = %17, %51, %66, %81, %96, %139, %152, %159, %174, %189, %204, %219, %257, %274, %44, %120, %242, %304, %323
-  %.be = phi i8 [ %18, %17 ], [ %56, %51 ], [ %71, %66 ], [ %86, %81 ], [ %101, %96 ], [ %144, %139 ], [ %157, %152 ], [ %164, %159 ], [ %179, %174 ], [ %194, %189 ], [ %209, %204 ], [ %224, %219 ], [ %262, %257 ], [ %279, %274 ], [ %49, %44 ], [ %123, %120 ], [ %247, %242 ], [ %309, %304 ], [ %328, %323 ]
-  %.tr147.be = phi ptr [ %10, %17 ], [ %53, %51 ], [ %68, %66 ], [ %83, %81 ], [ %98, %96 ], [ %141, %139 ], [ %154, %152 ], [ %161, %159 ], [ %176, %174 ], [ %191, %189 ], [ %206, %204 ], [ %221, %219 ], [ %259, %257 ], [ %276, %274 ], [ %46, %44 ], [ %115, %120 ], [ %244, %242 ], [ %306, %304 ], [ %325, %323 ]
-  %.tr148.be = phi ptr [ %13, %17 ], [ %55, %51 ], [ %70, %66 ], [ %85, %81 ], [ %100, %96 ], [ %143, %139 ], [ %156, %152 ], [ %163, %159 ], [ %178, %174 ], [ %193, %189 ], [ %208, %204 ], [ %223, %219 ], [ %261, %257 ], [ %278, %274 ], [ %48, %44 ], [ %122, %120 ], [ %246, %242 ], [ %308, %304 ], [ %327, %323 ]
+tailrecurse.backedge:                             ; preds = %13, %47, %62, %77, %92, %135, %148, %155, %170, %185, %200, %215, %253, %270, %40, %116, %238, %300, %319
+  %.be = phi i8 [ %14, %13 ], [ %52, %47 ], [ %67, %62 ], [ %82, %77 ], [ %97, %92 ], [ %140, %135 ], [ %153, %148 ], [ %160, %155 ], [ %175, %170 ], [ %190, %185 ], [ %205, %200 ], [ %220, %215 ], [ %258, %253 ], [ %275, %270 ], [ %45, %40 ], [ %119, %116 ], [ %243, %238 ], [ %305, %300 ], [ %324, %319 ]
+  %.tr147.be = phi ptr [ %7, %13 ], [ %49, %47 ], [ %64, %62 ], [ %79, %77 ], [ %94, %92 ], [ %137, %135 ], [ %150, %148 ], [ %157, %155 ], [ %172, %170 ], [ %187, %185 ], [ %202, %200 ], [ %217, %215 ], [ %255, %253 ], [ %272, %270 ], [ %42, %40 ], [ %111, %116 ], [ %240, %238 ], [ %302, %300 ], [ %321, %319 ]
+  %.tr148.be = phi ptr [ %10, %13 ], [ %51, %47 ], [ %66, %62 ], [ %81, %77 ], [ %96, %92 ], [ %139, %135 ], [ %152, %148 ], [ %159, %155 ], [ %174, %170 ], [ %189, %185 ], [ %204, %200 ], [ %219, %215 ], [ %257, %253 ], [ %274, %270 ], [ %44, %40 ], [ %118, %116 ], [ %242, %238 ], [ %304, %300 ], [ %323, %319 ]
   br label %tailrecurse
 
-20:                                               ; preds = %tailrecurse
-  %21 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !622
-  %.not.i65 = icmp eq ptr %22, null
-  br i1 %.not.i65, label %26, label %23
+16:                                               ; preds = %tailrecurse
+  %17 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %18 = load ptr, ptr %17, align 8, !tbaa !622
+  %.not.i65 = icmp eq ptr %18, null
+  br i1 %.not.i65, label %22, label %19
 
-23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %25 = load ptr, ptr %24, align 8, !tbaa !622
-  %.not9.i66 = icmp eq ptr %25, null
-  br i1 %.not9.i66, label %26, label %28
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !622
+  %.not9.i66 = icmp eq ptr %21, null
+  br i1 %.not9.i66, label %22, label %24
 
-26:                                               ; preds = %23, %20
+22:                                               ; preds = %19, %16
+  %23 = icmp eq ptr %.tr147, %.tr148
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+24:                                               ; preds = %19
+  %25 = icmp eq ptr %18, %21
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+26:                                               ; preds = %tailrecurse
   %27 = icmp eq ptr %.tr147, %.tr148
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-28:                                               ; preds = %23
-  %29 = icmp eq ptr %22, %25
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
-
-30:                                               ; preds = %tailrecurse
-  %31 = icmp eq ptr %.tr147, %.tr148
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
-
-32:                                               ; preds = %tailrecurse
-  %33 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+28:                                               ; preds = %tailrecurse
+  %29 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !778
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %32 = load ptr, ptr %31, align 8, !tbaa !780
+  %33 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !778
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !780
-  %37 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %38 = load ptr, ptr %37, align 8, !tbaa !778
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !780
-  %41 = load i8, ptr %36, align 8, !tbaa !31
-  %42 = load i8, ptr %40, align 8, !tbaa !31
-  %.not.i.i = icmp eq i8 %41, %42
+  %37 = load i8, ptr %32, align 8, !tbaa !31
+  %38 = load i8, ptr %36, align 8, !tbaa !31
+  %.not.i.i = icmp eq i8 %37, %38
   br i1 %.not.i.i, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i: ; preds = %32
-  %43 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %36, ptr noundef nonnull %40)
-  br i1 %43, label %44, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i: ; preds = %28
+  %39 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %32, ptr noundef nonnull %36)
+  br i1 %39, label %40, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-44:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i
-  %45 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !782
-  %47 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !782
-  %49 = load i8, ptr %46, align 8, !tbaa !31
-  %50 = load i8, ptr %48, align 8, !tbaa !31
-  %.not.i12.i = icmp eq i8 %49, %50
+40:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !782
+  %43 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !782
+  %45 = load i8, ptr %42, align 8, !tbaa !31
+  %46 = load i8, ptr %44, align 8, !tbaa !31
+  %.not.i12.i = icmp eq i8 %45, %46
   br i1 %.not.i12.i, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-51:                                               ; preds = %tailrecurse
-  %52 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !783
-  %54 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !783
-  %56 = load i8, ptr %53, align 8, !tbaa !31
-  %57 = load i8, ptr %55, align 8, !tbaa !31
-  %.not.i80 = icmp eq i8 %56, %57
+47:                                               ; preds = %tailrecurse
+  %48 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !783
+  %50 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !783
+  %52 = load i8, ptr %49, align 8, !tbaa !31
+  %53 = load i8, ptr %51, align 8, !tbaa !31
+  %.not.i80 = icmp eq i8 %52, %53
   br i1 %.not.i80, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-58:                                               ; preds = %tailrecurse
-  %59 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %60 = load ptr, ptr %59, align 8, !tbaa !785
-  %61 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %62 = load ptr, ptr %61, align 8, !tbaa !785
-  %63 = load i8, ptr %60, align 8, !tbaa !31
-  %64 = load i8, ptr %62, align 8, !tbaa !31
-  %.not.i86 = icmp eq i8 %63, %64
+54:                                               ; preds = %tailrecurse
+  %55 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %56 = load ptr, ptr %55, align 8, !tbaa !785
+  %57 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %58 = load ptr, ptr %57, align 8, !tbaa !785
+  %59 = load i8, ptr %56, align 8, !tbaa !31
+  %60 = load i8, ptr %58, align 8, !tbaa !31
+  %.not.i86 = icmp eq i8 %59, %60
   br i1 %.not.i86, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88: ; preds = %58
-  %65 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %60, ptr noundef nonnull %62)
-  br i1 %65, label %66, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88: ; preds = %54
+  %61 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %56, ptr noundef nonnull %58)
+  br i1 %61, label %62, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-66:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88
-  %67 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %68 = load ptr, ptr %67, align 8, !tbaa !787
-  %69 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %70 = load ptr, ptr %69, align 8, !tbaa !787
-  %71 = load i8, ptr %68, align 8, !tbaa !31
-  %72 = load i8, ptr %70, align 8, !tbaa !31
-  %.not.i83 = icmp eq i8 %71, %72
+62:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88
+  %63 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !787
+  %65 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !787
+  %67 = load i8, ptr %64, align 8, !tbaa !31
+  %68 = load i8, ptr %66, align 8, !tbaa !31
+  %.not.i83 = icmp eq i8 %67, %68
   br i1 %.not.i83, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-73:                                               ; preds = %tailrecurse
-  %74 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !788
-  %76 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %77 = load ptr, ptr %76, align 8, !tbaa !788
-  %78 = load i8, ptr %75, align 8, !tbaa !31
-  %79 = load i8, ptr %77, align 8, !tbaa !31
-  %.not.i92 = icmp eq i8 %78, %79
+69:                                               ; preds = %tailrecurse
+  %70 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %71 = load ptr, ptr %70, align 8, !tbaa !788
+  %72 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %73 = load ptr, ptr %72, align 8, !tbaa !788
+  %74 = load i8, ptr %71, align 8, !tbaa !31
+  %75 = load i8, ptr %73, align 8, !tbaa !31
+  %.not.i92 = icmp eq i8 %74, %75
   br i1 %.not.i92, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94: ; preds = %73
-  %80 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %75, ptr noundef nonnull %77)
-  br i1 %80, label %81, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94: ; preds = %69
+  %76 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %71, ptr noundef nonnull %73)
+  br i1 %76, label %77, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-81:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94
-  %82 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %83 = load ptr, ptr %82, align 8, !tbaa !790
-  %84 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %85 = load ptr, ptr %84, align 8, !tbaa !790
-  %86 = load i8, ptr %83, align 8, !tbaa !31
-  %87 = load i8, ptr %85, align 8, !tbaa !31
-  %.not.i89 = icmp eq i8 %86, %87
+77:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94
+  %78 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %79 = load ptr, ptr %78, align 8, !tbaa !790
+  %80 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %81 = load ptr, ptr %80, align 8, !tbaa !790
+  %82 = load i8, ptr %79, align 8, !tbaa !31
+  %83 = load i8, ptr %81, align 8, !tbaa !31
+  %.not.i89 = icmp eq i8 %82, %83
   br i1 %.not.i89, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-88:                                               ; preds = %tailrecurse
-  %89 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %90 = load ptr, ptr %89, align 8, !tbaa !791
-  %91 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !791
-  %93 = load i8, ptr %90, align 8, !tbaa !31
-  %94 = load i8, ptr %92, align 8, !tbaa !31
-  %.not.i98 = icmp eq i8 %93, %94
+84:                                               ; preds = %tailrecurse
+  %85 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !791
+  %87 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !791
+  %89 = load i8, ptr %86, align 8, !tbaa !31
+  %90 = load i8, ptr %88, align 8, !tbaa !31
+  %.not.i98 = icmp eq i8 %89, %90
   br i1 %.not.i98, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100: ; preds = %88
-  %95 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %90, ptr noundef nonnull %92)
-  br i1 %95, label %96, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100: ; preds = %84
+  %91 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %86, ptr noundef nonnull %88)
+  br i1 %91, label %92, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-96:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100
-  %97 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %98 = load ptr, ptr %97, align 8, !tbaa !793
-  %99 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %100 = load ptr, ptr %99, align 8, !tbaa !793
-  %101 = load i8, ptr %98, align 8, !tbaa !31
-  %102 = load i8, ptr %100, align 8, !tbaa !31
-  %.not.i95 = icmp eq i8 %101, %102
+92:                                               ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100
+  %93 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !793
+  %95 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %96 = load ptr, ptr %95, align 8, !tbaa !793
+  %97 = load i8, ptr %94, align 8, !tbaa !31
+  %98 = load i8, ptr %96, align 8, !tbaa !31
+  %.not.i95 = icmp eq i8 %97, %98
   br i1 %.not.i95, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-103:                                              ; preds = %tailrecurse
-  %104 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !794
-  %106 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !794
-  %108 = load i8, ptr %105, align 8, !tbaa !31
-  %109 = load i8, ptr %107, align 8, !tbaa !31
-  %.not.i.i247 = icmp eq i8 %108, %109
-  br i1 %.not.i.i247, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+99:                                               ; preds = %tailrecurse
+  %100 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !794
+  %102 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !794
+  %104 = load i8, ptr %101, align 8, !tbaa !31
+  %105 = load i8, ptr %103, align 8, !tbaa !31
+  %.not.i.i246 = icmp eq i8 %104, %105
+  br i1 %.not.i.i246, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249: ; preds = %103
-  %110 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %105, ptr noundef nonnull %107)
-  br i1 %110, label %111, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248: ; preds = %99
+  %106 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %101, ptr noundef nonnull %103)
+  br i1 %106, label %107, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-111:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249
-  %112 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+107:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248
+  %108 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %109 = load ptr, ptr %108, align 8, !tbaa !796
+  %.not.i10.i = icmp eq ptr %109, null
+  %110 = load ptr, ptr %100, align 8
+  %111 = select i1 %.not.i10.i, ptr %110, ptr %109
+  %.not.i249 = icmp eq ptr %111, null
+  %112 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %113 = load ptr, ptr %112, align 8, !tbaa !796
-  %.not.i10.i = icmp eq ptr %113, null
-  %114 = load ptr, ptr %104, align 8
-  %115 = select i1 %.not.i10.i, ptr %114, ptr %113
-  %.not.i250 = icmp eq ptr %115, null
-  %116 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %117 = load ptr, ptr %116, align 8, !tbaa !796
-  br i1 %.not.i250, label %118, label %._crit_edge.i
+  br i1 %.not.i249, label %114, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %111
-  %.pre19.i = load ptr, ptr %106, align 8
-  br label %120
+._crit_edge.i:                                    ; preds = %107
+  %.pre19.i = load ptr, ptr %102, align 8
+  br label %116
 
-118:                                              ; preds = %111
-  %.not.i11.i = icmp eq ptr %117, null
-  %119 = load ptr, ptr %106, align 8
-  %.not918.i = icmp eq ptr %119, null
-  %.not9.i251 = select i1 %.not.i11.i, i1 %.not918.i, i1 false
-  br i1 %.not9.i251, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %120
+114:                                              ; preds = %107
+  %.not.i11.i = icmp eq ptr %113, null
+  %115 = load ptr, ptr %102, align 8
+  %.not918.i = icmp eq ptr %115, null
+  %.not9.i250 = select i1 %.not.i11.i, i1 %.not918.i, i1 false
+  br i1 %.not9.i250, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %116
 
-120:                                              ; preds = %118, %._crit_edge.i
-  %121 = phi ptr [ %.pre19.i, %._crit_edge.i ], [ %119, %118 ]
-  %.not.i13.i = icmp eq ptr %117, null
-  %122 = select i1 %.not.i13.i, ptr %121, ptr %117
-  %123 = load i8, ptr %115, align 8, !tbaa !31
-  %124 = load i8, ptr %122, align 8, !tbaa !31
-  %.not.i14.i = icmp eq i8 %123, %124
+116:                                              ; preds = %114, %._crit_edge.i
+  %117 = phi ptr [ %.pre19.i, %._crit_edge.i ], [ %115, %114 ]
+  %.not.i13.i = icmp eq ptr %113, null
+  %118 = select i1 %.not.i13.i, ptr %117, ptr %113
+  %119 = load i8, ptr %111, align 8, !tbaa !31
+  %120 = load i8, ptr %118, align 8, !tbaa !31
+  %.not.i14.i = icmp eq i8 %119, %120
   br i1 %.not.i14.i, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-125:                                              ; preds = %tailrecurse
-  %126 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %127 = load ptr, ptr %126, align 8, !tbaa !797
-  %128 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %129 = load ptr, ptr %128, align 8, !tbaa !797
-  %130 = load i8, ptr %127, align 8, !tbaa !31
-  %131 = load i8, ptr %129, align 8, !tbaa !31
-  %.not.i101 = icmp eq i8 %130, %131
+121:                                              ; preds = %tailrecurse
+  %122 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %123 = load ptr, ptr %122, align 8, !tbaa !797
+  %124 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %125 = load ptr, ptr %124, align 8, !tbaa !797
+  %126 = load i8, ptr %123, align 8, !tbaa !31
+  %127 = load i8, ptr %125, align 8, !tbaa !31
+  %.not.i101 = icmp eq i8 %126, %127
   br i1 %.not.i101, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103: ; preds = %125
-  %132 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %127, ptr noundef nonnull %129)
-  br i1 %132, label %133, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103: ; preds = %121
+  %128 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %123, ptr noundef nonnull %125)
+  br i1 %128, label %129, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-133:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103
-  %134 = getelementptr inbounds nuw i8, ptr %.tr147, i64 64
-  %135 = load ptr, ptr %134, align 8, !tbaa !628
-  %136 = getelementptr inbounds nuw i8, ptr %.tr148, i64 64
-  %137 = load ptr, ptr %136, align 8, !tbaa !628
-  %138 = icmp eq ptr %135, %137
+129:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103
+  %130 = getelementptr inbounds nuw i8, ptr %.tr147, i64 64
+  %131 = load ptr, ptr %130, align 8, !tbaa !628
+  %132 = getelementptr inbounds nuw i8, ptr %.tr148, i64 64
+  %133 = load ptr, ptr %132, align 8, !tbaa !628
+  %134 = icmp eq ptr %131, %133
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-139:                                              ; preds = %tailrecurse
-  %140 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !798
-  %142 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %143 = load ptr, ptr %142, align 8, !tbaa !798
-  %144 = load i8, ptr %141, align 8, !tbaa !31
-  %145 = load i8, ptr %143, align 8, !tbaa !31
-  %.not.i104 = icmp eq i8 %144, %145
+135:                                              ; preds = %tailrecurse
+  %136 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %137 = load ptr, ptr %136, align 8, !tbaa !798
+  %138 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !798
+  %140 = load i8, ptr %137, align 8, !tbaa !31
+  %141 = load i8, ptr %139, align 8, !tbaa !31
+  %.not.i104 = icmp eq i8 %140, %141
   br i1 %.not.i104, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-146:                                              ; preds = %tailrecurse
-  %147 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
-  %148 = load i16, ptr %147, align 2, !tbaa !66
-  %149 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
-  %150 = load i16, ptr %149, align 2, !tbaa !66
-  %151 = icmp eq i16 %148, %150
-  br i1 %151, label %152, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+142:                                              ; preds = %tailrecurse
+  %143 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
+  %144 = load i16, ptr %143, align 2, !tbaa !66
+  %145 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
+  %146 = load i16, ptr %145, align 2, !tbaa !66
+  %147 = icmp eq i16 %144, %146
+  br i1 %147, label %148, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-152:                                              ; preds = %146
-  %153 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %154 = load ptr, ptr %153, align 8, !tbaa !801
-  %155 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %156 = load ptr, ptr %155, align 8, !tbaa !801
-  %157 = load i8, ptr %154, align 8, !tbaa !31
-  %158 = load i8, ptr %156, align 8, !tbaa !31
-  %.not.i107 = icmp eq i8 %157, %158
+148:                                              ; preds = %142
+  %149 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %150 = load ptr, ptr %149, align 8, !tbaa !801
+  %151 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %152 = load ptr, ptr %151, align 8, !tbaa !801
+  %153 = load i8, ptr %150, align 8, !tbaa !31
+  %154 = load i8, ptr %152, align 8, !tbaa !31
+  %.not.i107 = icmp eq i8 %153, %154
   br i1 %.not.i107, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-159:                                              ; preds = %tailrecurse
-  %160 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %161 = load ptr, ptr %160, align 8, !tbaa !803
-  %162 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %163 = load ptr, ptr %162, align 8, !tbaa !803
-  %164 = load i8, ptr %161, align 8, !tbaa !31
-  %165 = load i8, ptr %163, align 8, !tbaa !31
-  %.not.i110 = icmp eq i8 %164, %165
+155:                                              ; preds = %tailrecurse
+  %156 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %157 = load ptr, ptr %156, align 8, !tbaa !803
+  %158 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %159 = load ptr, ptr %158, align 8, !tbaa !803
+  %160 = load i8, ptr %157, align 8, !tbaa !31
+  %161 = load i8, ptr %159, align 8, !tbaa !31
+  %.not.i110 = icmp eq i8 %160, %161
   br i1 %.not.i110, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-166:                                              ; preds = %tailrecurse
-  %167 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %168 = load ptr, ptr %167, align 8, !tbaa !805
-  %169 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %170 = load ptr, ptr %169, align 8, !tbaa !805
-  %171 = load i8, ptr %168, align 8, !tbaa !31
-  %172 = load i8, ptr %170, align 8, !tbaa !31
-  %.not.i116 = icmp eq i8 %171, %172
+162:                                              ; preds = %tailrecurse
+  %163 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %164 = load ptr, ptr %163, align 8, !tbaa !805
+  %165 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %166 = load ptr, ptr %165, align 8, !tbaa !805
+  %167 = load i8, ptr %164, align 8, !tbaa !31
+  %168 = load i8, ptr %166, align 8, !tbaa !31
+  %.not.i116 = icmp eq i8 %167, %168
   br i1 %.not.i116, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118: ; preds = %166
-  %173 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %168, ptr noundef nonnull %170)
-  br i1 %173, label %174, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118: ; preds = %162
+  %169 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %164, ptr noundef nonnull %166)
+  br i1 %169, label %170, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-174:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118
-  %175 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %176 = load ptr, ptr %175, align 8, !tbaa !807
-  %177 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %178 = load ptr, ptr %177, align 8, !tbaa !807
-  %179 = load i8, ptr %176, align 8, !tbaa !31
-  %180 = load i8, ptr %178, align 8, !tbaa !31
-  %.not.i113 = icmp eq i8 %179, %180
+170:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118
+  %171 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %172 = load ptr, ptr %171, align 8, !tbaa !807
+  %173 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %174 = load ptr, ptr %173, align 8, !tbaa !807
+  %175 = load i8, ptr %172, align 8, !tbaa !31
+  %176 = load i8, ptr %174, align 8, !tbaa !31
+  %.not.i113 = icmp eq i8 %175, %176
   br i1 %.not.i113, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-181:                                              ; preds = %tailrecurse
-  %182 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %183 = load ptr, ptr %182, align 8, !tbaa !808
-  %184 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %185 = load ptr, ptr %184, align 8, !tbaa !808
-  %186 = load i8, ptr %183, align 8, !tbaa !31
-  %187 = load i8, ptr %185, align 8, !tbaa !31
-  %.not.i122 = icmp eq i8 %186, %187
+177:                                              ; preds = %tailrecurse
+  %178 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %179 = load ptr, ptr %178, align 8, !tbaa !808
+  %180 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %181 = load ptr, ptr %180, align 8, !tbaa !808
+  %182 = load i8, ptr %179, align 8, !tbaa !31
+  %183 = load i8, ptr %181, align 8, !tbaa !31
+  %.not.i122 = icmp eq i8 %182, %183
   br i1 %.not.i122, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124: ; preds = %181
-  %188 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %183, ptr noundef nonnull %185)
-  br i1 %188, label %189, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124: ; preds = %177
+  %184 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %179, ptr noundef nonnull %181)
+  br i1 %184, label %185, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-189:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124
-  %190 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %191 = load ptr, ptr %190, align 8, !tbaa !810
-  %192 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %193 = load ptr, ptr %192, align 8, !tbaa !810
-  %194 = load i8, ptr %191, align 8, !tbaa !31
-  %195 = load i8, ptr %193, align 8, !tbaa !31
-  %.not.i119 = icmp eq i8 %194, %195
+185:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124
+  %186 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %187 = load ptr, ptr %186, align 8, !tbaa !810
+  %188 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %189 = load ptr, ptr %188, align 8, !tbaa !810
+  %190 = load i8, ptr %187, align 8, !tbaa !31
+  %191 = load i8, ptr %189, align 8, !tbaa !31
+  %.not.i119 = icmp eq i8 %190, %191
   br i1 %.not.i119, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-196:                                              ; preds = %tailrecurse
-  %197 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %198 = load ptr, ptr %197, align 8, !tbaa !811
-  %199 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %200 = load ptr, ptr %199, align 8, !tbaa !811
-  %201 = load i8, ptr %198, align 8, !tbaa !31
-  %202 = load i8, ptr %200, align 8, !tbaa !31
-  %.not.i128 = icmp eq i8 %201, %202
+192:                                              ; preds = %tailrecurse
+  %193 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %194 = load ptr, ptr %193, align 8, !tbaa !811
+  %195 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %196 = load ptr, ptr %195, align 8, !tbaa !811
+  %197 = load i8, ptr %194, align 8, !tbaa !31
+  %198 = load i8, ptr %196, align 8, !tbaa !31
+  %.not.i128 = icmp eq i8 %197, %198
   br i1 %.not.i128, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130: ; preds = %196
-  %203 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %198, ptr noundef nonnull %200)
-  br i1 %203, label %204, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130: ; preds = %192
+  %199 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %194, ptr noundef nonnull %196)
+  br i1 %199, label %200, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-204:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130
-  %205 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %206 = load ptr, ptr %205, align 8, !tbaa !813
-  %207 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %208 = load ptr, ptr %207, align 8, !tbaa !813
-  %209 = load i8, ptr %206, align 8, !tbaa !31
-  %210 = load i8, ptr %208, align 8, !tbaa !31
-  %.not.i125 = icmp eq i8 %209, %210
+200:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130
+  %201 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %202 = load ptr, ptr %201, align 8, !tbaa !813
+  %203 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %204 = load ptr, ptr %203, align 8, !tbaa !813
+  %205 = load i8, ptr %202, align 8, !tbaa !31
+  %206 = load i8, ptr %204, align 8, !tbaa !31
+  %.not.i125 = icmp eq i8 %205, %206
   br i1 %.not.i125, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-211:                                              ; preds = %tailrecurse
-  %212 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
-  %213 = load i16, ptr %212, align 2, !tbaa !66
-  %214 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
-  %215 = load i16, ptr %214, align 2, !tbaa !66
-  %216 = xor i16 %215, %213
-  %217 = and i16 %216, 255
-  %218 = icmp eq i16 %217, 0
-  br i1 %218, label %219, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+207:                                              ; preds = %tailrecurse
+  %208 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
+  %209 = load i16, ptr %208, align 2, !tbaa !66
+  %210 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
+  %211 = load i16, ptr %210, align 2, !tbaa !66
+  %212 = xor i16 %211, %209
+  %213 = and i16 %212, 255
+  %214 = icmp eq i16 %213, 0
+  br i1 %214, label %215, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-219:                                              ; preds = %211
-  %220 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %221 = load ptr, ptr %220, align 8, !tbaa !814
-  %222 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %223 = load ptr, ptr %222, align 8, !tbaa !814
-  %224 = load i8, ptr %221, align 8, !tbaa !31
-  %225 = load i8, ptr %223, align 8, !tbaa !31
-  %.not.i131 = icmp eq i8 %224, %225
+215:                                              ; preds = %207
+  %216 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %217 = load ptr, ptr %216, align 8, !tbaa !814
+  %218 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %219 = load ptr, ptr %218, align 8, !tbaa !814
+  %220 = load i8, ptr %217, align 8, !tbaa !31
+  %221 = load i8, ptr %219, align 8, !tbaa !31
+  %.not.i131 = icmp eq i8 %220, %221
   br i1 %.not.i131, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-226:                                              ; preds = %tailrecurse
-  %227 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
-  %228 = load i16, ptr %227, align 2, !tbaa !66
-  %229 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
-  %230 = load i16, ptr %229, align 2, !tbaa !66
-  %231 = xor i16 %230, %228
-  %232 = and i16 %231, 255
-  %233 = icmp eq i16 %232, 0
-  br i1 %233, label %234, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+222:                                              ; preds = %tailrecurse
+  %223 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
+  %224 = load i16, ptr %223, align 2, !tbaa !66
+  %225 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
+  %226 = load i16, ptr %225, align 2, !tbaa !66
+  %227 = xor i16 %226, %224
+  %228 = and i16 %227, 255
+  %229 = icmp eq i16 %228, 0
+  br i1 %229, label %230, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-234:                                              ; preds = %226
-  %235 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !816
-  %237 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %238 = load ptr, ptr %237, align 8, !tbaa !816
-  %239 = load i8, ptr %236, align 8, !tbaa !31
-  %240 = load i8, ptr %238, align 8, !tbaa !31
-  %.not.i.i253 = icmp eq i8 %239, %240
-  br i1 %.not.i.i253, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+230:                                              ; preds = %222
+  %231 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %232 = load ptr, ptr %231, align 8, !tbaa !816
+  %233 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %234 = load ptr, ptr %233, align 8, !tbaa !816
+  %235 = load i8, ptr %232, align 8, !tbaa !31
+  %236 = load i8, ptr %234, align 8, !tbaa !31
+  %.not.i.i252 = icmp eq i8 %235, %236
+  br i1 %.not.i.i252, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254: ; preds = %234
-  %241 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %236, ptr noundef nonnull %238)
-  br i1 %241, label %242, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253: ; preds = %230
+  %237 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %232, ptr noundef nonnull %234)
+  br i1 %237, label %238, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-242:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254
-  %243 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %244 = load ptr, ptr %243, align 8, !tbaa !818
-  %245 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %246 = load ptr, ptr %245, align 8, !tbaa !818
-  %247 = load i8, ptr %244, align 8, !tbaa !31
-  %248 = load i8, ptr %246, align 8, !tbaa !31
-  %.not.i13.i255 = icmp eq i8 %247, %248
-  br i1 %.not.i13.i255, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+238:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253
+  %239 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %240 = load ptr, ptr %239, align 8, !tbaa !818
+  %241 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %242 = load ptr, ptr %241, align 8, !tbaa !818
+  %243 = load i8, ptr %240, align 8, !tbaa !31
+  %244 = load i8, ptr %242, align 8, !tbaa !31
+  %.not.i13.i254 = icmp eq i8 %243, %244
+  br i1 %.not.i13.i254, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-249:                                              ; preds = %tailrecurse
-  %250 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
-  %251 = load i16, ptr %250, align 2, !tbaa !66
-  %252 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
-  %253 = load i16, ptr %252, align 2, !tbaa !66
-  %254 = xor i16 %253, %251
-  %255 = and i16 %254, 255
-  %256 = icmp eq i16 %255, 0
-  br i1 %256, label %257, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+245:                                              ; preds = %tailrecurse
+  %246 = getelementptr inbounds nuw i8, ptr %.tr147, i64 2
+  %247 = load i16, ptr %246, align 2, !tbaa !66
+  %248 = getelementptr inbounds nuw i8, ptr %.tr148, i64 2
+  %249 = load i16, ptr %248, align 2, !tbaa !66
+  %250 = xor i16 %249, %247
+  %251 = and i16 %250, 255
+  %252 = icmp eq i16 %251, 0
+  br i1 %252, label %253, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-257:                                              ; preds = %249
-  %258 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %259 = load ptr, ptr %258, align 8, !tbaa !819
-  %260 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %261 = load ptr, ptr %260, align 8, !tbaa !819
-  %262 = load i8, ptr %259, align 8, !tbaa !31
-  %263 = load i8, ptr %261, align 8, !tbaa !31
-  %.not.i134 = icmp eq i8 %262, %263
+253:                                              ; preds = %245
+  %254 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %255 = load ptr, ptr %254, align 8, !tbaa !819
+  %256 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %257 = load ptr, ptr %256, align 8, !tbaa !819
+  %258 = load i8, ptr %255, align 8, !tbaa !31
+  %259 = load i8, ptr %257, align 8, !tbaa !31
+  %.not.i134 = icmp eq i8 %258, %259
   br i1 %.not.i134, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+260:                                              ; preds = %tailrecurse
+  %261 = icmp eq ptr %.tr147, %.tr148
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+262:                                              ; preds = %tailrecurse
+  %263 = icmp eq ptr %.tr147, %.tr148
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 264:                                              ; preds = %tailrecurse
   %265 = icmp eq ptr %.tr147, %.tr148
@@ -17595,115 +17599,107 @@ _ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 270:                                              ; preds = %tailrecurse
-  %271 = icmp eq ptr %.tr147, %.tr148
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
-
-272:                                              ; preds = %tailrecurse
-  %273 = icmp eq ptr %.tr147, %.tr148
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
-
-274:                                              ; preds = %tailrecurse
-  %275 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %276 = load ptr, ptr %275, align 8, !tbaa !821
-  %277 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %278 = load ptr, ptr %277, align 8, !tbaa !821
-  %279 = load i8, ptr %276, align 8, !tbaa !31
-  %280 = load i8, ptr %278, align 8, !tbaa !31
-  %.not.i137 = icmp eq i8 %279, %280
+  %271 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %272 = load ptr, ptr %271, align 8, !tbaa !821
+  %273 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %274 = load ptr, ptr %273, align 8, !tbaa !821
+  %275 = load i8, ptr %272, align 8, !tbaa !31
+  %276 = load i8, ptr %274, align 8, !tbaa !31
+  %.not.i137 = icmp eq i8 %275, %276
   br i1 %.not.i137, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-281:                                              ; preds = %tailrecurse
-  %282 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %282, align 8, !tbaa !472
+277:                                              ; preds = %tailrecurse
+  %278 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %278, align 8, !tbaa !472
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !239
-  %283 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %.sroa.0.0.copyload.i5.i = load ptr, ptr %283, align 8, !tbaa !472
+  %279 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %.sroa.0.0.copyload.i5.i = load ptr, ptr %279, align 8, !tbaa !472
   %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !tbaa !239
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i7.i
-  br i1 %.not.i.i.i, label %284, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i.i.i, label %280, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-284:                                              ; preds = %281
-  %285 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %285, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %286
+280:                                              ; preds = %277
+  %281 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %281, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %282
 
-286:                                              ; preds = %284
+282:                                              ; preds = %280
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.0.0.copyload.i5.i, i64 %.sroa.2.0.copyload.i.i)
-  %287 = icmp eq i32 %bcmp.i.i.i, 0
+  %283 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-288:                                              ; preds = %tailrecurse
-  %289 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
-  %290 = load ptr, ptr %289, align 8, !tbaa !824
-  %291 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %292 = load ptr, ptr %291, align 8, !tbaa !824
-  %293 = load i8, ptr %290, align 8, !tbaa !31
-  %294 = load i8, ptr %292, align 8, !tbaa !31
-  %.not.i.i256 = icmp eq i8 %293, %294
-  br i1 %.not.i.i256, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+284:                                              ; preds = %tailrecurse
+  %285 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %286 = load ptr, ptr %285, align 8, !tbaa !824
+  %287 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
+  %288 = load ptr, ptr %287, align 8, !tbaa !824
+  %289 = load i8, ptr %286, align 8, !tbaa !31
+  %290 = load i8, ptr %288, align 8, !tbaa !31
+  %.not.i.i255 = icmp eq i8 %289, %290
+  br i1 %.not.i.i255, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258: ; preds = %288
-  %295 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %290, ptr noundef nonnull %292)
-  br i1 %295, label %296, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257: ; preds = %284
+  %291 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %286, ptr noundef nonnull %288)
+  br i1 %291, label %292, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-296:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258
-  %297 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %298 = load ptr, ptr %297, align 8, !tbaa !826
-  %299 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %300 = load ptr, ptr %299, align 8, !tbaa !826
-  %301 = load i8, ptr %298, align 8, !tbaa !31
-  %302 = load i8, ptr %300, align 8, !tbaa !31
-  %.not.i13.i259 = icmp eq i8 %301, %302
-  br i1 %.not.i13.i259, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+292:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257
+  %293 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %294 = load ptr, ptr %293, align 8, !tbaa !826
+  %295 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %296 = load ptr, ptr %295, align 8, !tbaa !826
+  %297 = load i8, ptr %294, align 8, !tbaa !31
+  %298 = load i8, ptr %296, align 8, !tbaa !31
+  %.not.i13.i258 = icmp eq i8 %297, %298
+  br i1 %.not.i13.i258, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i: ; preds = %296
-  %303 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %298, ptr noundef nonnull %300)
-  br i1 %303, label %304, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i: ; preds = %292
+  %299 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %294, ptr noundef nonnull %296)
+  br i1 %299, label %300, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-304:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i
-  %305 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
-  %306 = load ptr, ptr %305, align 8, !tbaa !827
-  %307 = getelementptr inbounds nuw i8, ptr %.tr148, i64 32
-  %308 = load ptr, ptr %307, align 8, !tbaa !827
-  %309 = load i8, ptr %306, align 8, !tbaa !31
-  %310 = load i8, ptr %308, align 8, !tbaa !31
-  %.not.i16.i = icmp eq i8 %309, %310
+300:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i
+  %301 = getelementptr inbounds nuw i8, ptr %.tr147, i64 32
+  %302 = load ptr, ptr %301, align 8, !tbaa !827
+  %303 = getelementptr inbounds nuw i8, ptr %.tr148, i64 32
+  %304 = load ptr, ptr %303, align 8, !tbaa !827
+  %305 = load i8, ptr %302, align 8, !tbaa !31
+  %306 = load i8, ptr %304, align 8, !tbaa !31
+  %.not.i16.i = icmp eq i8 %305, %306
   br i1 %.not.i16.i, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-311:                                              ; preds = %tailrecurse
-  %312 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+307:                                              ; preds = %tailrecurse
+  %308 = getelementptr inbounds nuw i8, ptr %.tr147, i64 16
+  %309 = load ptr, ptr %308, align 8, !tbaa !828
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 32
+  %311 = load ptr, ptr %310, align 8, !tbaa !780
+  %312 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
   %313 = load ptr, ptr %312, align 8, !tbaa !828
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 32
   %315 = load ptr, ptr %314, align 8, !tbaa !780
-  %316 = getelementptr inbounds nuw i8, ptr %.tr148, i64 16
-  %317 = load ptr, ptr %316, align 8, !tbaa !828
-  %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
-  %319 = load ptr, ptr %318, align 8, !tbaa !780
-  %320 = load i8, ptr %315, align 8, !tbaa !31
-  %321 = load i8, ptr %319, align 8, !tbaa !31
-  %.not.i.i260 = icmp eq i8 %320, %321
-  br i1 %.not.i.i260, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %316 = load i8, ptr %311, align 8, !tbaa !31
+  %317 = load i8, ptr %315, align 8, !tbaa !31
+  %.not.i.i259 = icmp eq i8 %316, %317
+  br i1 %.not.i.i259, label %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262: ; preds = %311
-  %322 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %315, ptr noundef nonnull %319)
-  br i1 %322, label %323, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261: ; preds = %307
+  %318 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_16EqualsComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %311, ptr noundef nonnull %315)
+  br i1 %318, label %319, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-323:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262
-  %324 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
-  %325 = load ptr, ptr %324, align 8, !tbaa !830
-  %326 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
-  %327 = load ptr, ptr %326, align 8, !tbaa !830
-  %328 = load i8, ptr %325, align 8, !tbaa !31
-  %329 = load i8, ptr %327, align 8, !tbaa !31
-  %.not.i12.i263 = icmp eq i8 %328, %329
-  br i1 %.not.i12.i263, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
+319:                                              ; preds = %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261
+  %320 = getelementptr inbounds nuw i8, ptr %.tr147, i64 24
+  %321 = load ptr, ptr %320, align 8, !tbaa !830
+  %322 = getelementptr inbounds nuw i8, ptr %.tr148, i64 24
+  %323 = load ptr, ptr %322, align 8, !tbaa !830
+  %324 = load i8, ptr %321, align 8, !tbaa !31
+  %325 = load i8, ptr %323, align 8, !tbaa !31
+  %.not.i12.i262 = icmp eq i8 %324, %325
+  br i1 %.not.i12.i262, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403: ; preds = %tailrecurse, %tailrecurse, %tailrecurse
+_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402: ; preds = %tailrecurse, %tailrecurse, %tailrecurse
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %323, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262, %311, %304, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %296, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258, %288, %242, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254, %234, %226, %120, %118, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249, %103, %44, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %32, %196, %181, %166, %88, %73, %58, %274, %249, %257, %211, %219, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %204, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %189, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %174, %159, %146, %152, %139, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %96, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %81, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %66, %51, %17, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403, %125, %286, %284, %281, %133, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %28, %26, %14, %272, %270, %268, %266, %264, %30
-  %.0 = phi i1 [ %273, %272 ], [ %271, %270 ], [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %31, %30 ], [ %16, %14 ], [ %29, %28 ], [ %27, %26 ], [ %138, %133 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %287, %286 ], [ false, %281 ], [ true, %284 ], [ false, %125 ], [ false, %tailrecurse ], [ false, %17 ], [ false, %51 ], [ false, %66 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %81 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %96 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %139 ], [ false, %152 ], [ false, %146 ], [ false, %159 ], [ false, %174 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %189 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %204 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %219 ], [ false, %211 ], [ false, %257 ], [ false, %249 ], [ false, %274 ], [ false, %58 ], [ false, %73 ], [ false, %88 ], [ false, %166 ], [ false, %181 ], [ false, %196 ], [ false, %311 ], [ false, %323 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i262 ], [ false, %296 ], [ false, %288 ], [ false, %304 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i258 ], [ false, %234 ], [ false, %242 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i254 ], [ false, %226 ], [ false, %103 ], [ false, %120 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i249 ], [ true, %118 ], [ false, %32 ], [ false, %44 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit403 ]
+_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %319, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261, %307, %300, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i, %292, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257, %284, %238, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253, %230, %222, %116, %114, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248, %99, %40, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i, %28, %192, %177, %162, %84, %69, %54, %270, %245, %253, %207, %215, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130, %200, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124, %185, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118, %170, %155, %142, %148, %135, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100, %92, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94, %77, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88, %62, %47, %13, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402, %121, %282, %280, %277, %129, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103, %24, %22, %11, %268, %266, %264, %262, %260, %26
+  %.0 = phi i1 [ %269, %268 ], [ %267, %266 ], [ %265, %264 ], [ %263, %262 ], [ %261, %260 ], [ %27, %26 ], [ %12, %11 ], [ %25, %24 ], [ %23, %22 ], [ %134, %129 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %283, %282 ], [ false, %277 ], [ true, %280 ], [ false, %121 ], [ false, %tailrecurse ], [ false, %13 ], [ false, %47 ], [ false, %62 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit88 ], [ false, %77 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit94 ], [ false, %92 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit100 ], [ false, %135 ], [ false, %148 ], [ false, %142 ], [ false, %155 ], [ false, %170 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit118 ], [ false, %185 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit124 ], [ false, %200 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit130 ], [ false, %215 ], [ false, %207 ], [ false, %253 ], [ false, %245 ], [ false, %270 ], [ false, %54 ], [ false, %69 ], [ false, %84 ], [ false, %162 ], [ false, %177 ], [ false, %192 ], [ false, %307 ], [ false, %319 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i261 ], [ false, %292 ], [ false, %284 ], [ false, %300 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit15.i ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i257 ], [ false, %230 ], [ false, %238 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i253 ], [ false, %222 ], [ false, %99 ], [ false, %116 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i248 ], [ true, %114 ], [ false, %28 ], [ false, %40 ], [ false, %_ZN5clang12threadSafety3til16EqualsComparator7compareEPKNS1_5SExprES5_.exit.i ], [ true, %_ZNK5clang12threadSafety3til6Future7compareINS1_16EqualsComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit402 ]
   ret i1 %.0
 }
 
@@ -18460,415 +18456,419 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i8 1, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
     i8 2, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
     i8 3, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
-    i8 4, label %19
-    i8 5, label %29
-    i8 6, label %31
-    i8 7, label %33
-    i8 8, label %44
-    i8 9, label %61
-    i8 10, label %78
-    i8 11, label %95
-    i8 12, label %97
-    i8 13, label %114
-    i8 14, label %125
-    i8 15, label %137
-    i8 16, label %148
-    i8 17, label %165
-    i8 18, label %182
-    i8 19, label %199
-    i8 20, label %213
-    i8 21, label %215
-    i8 22, label %229
-    i8 23, label %231
-    i8 24, label %233
-    i8 25, label %235
-    i8 26, label %237
-    i8 27, label %239
-    i8 28, label %250
-    i8 29, label %257
-    i8 30, label %259
+    i8 4, label %15
+    i8 5, label %25
+    i8 6, label %27
+    i8 7, label %29
+    i8 8, label %40
+    i8 9, label %57
+    i8 10, label %74
+    i8 11, label %91
+    i8 12, label %93
+    i8 13, label %110
+    i8 14, label %121
+    i8 15, label %133
+    i8 16, label %144
+    i8 17, label %161
+    i8 18, label %178
+    i8 19, label %195
+    i8 20, label %209
+    i8 21, label %211
+    i8 22, label %225
+    i8 23, label %227
+    i8 24, label %229
+    i8 25, label %231
+    i8 26, label %233
+    i8 27, label %235
+    i8 28, label %246
+    i8 29, label %253
+    i8 30, label %255
   ]
 
 5:                                                ; preds = %tailrecurse
-  %6 = getelementptr inbounds i8, ptr %.tr131, i64 -8
-  %7 = icmp eq ptr %.tr132, null
-  %8 = getelementptr inbounds i8, ptr %.tr132, i64 -8
-  %9 = select i1 %7, ptr null, ptr %8
-  %10 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %11 = load ptr, ptr %10, align 8, !tbaa !775
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %15, label %12
+  %6 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %7 = load ptr, ptr %6, align 8, !tbaa !775
+  %.not.i = icmp eq ptr %7, null
+  br i1 %.not.i, label %11, label %8
 
-12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !775
-  %.not9.i = icmp eq ptr %14, null
-  br i1 %.not9.i, label %15, label %17
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %10 = load ptr, ptr %9, align 8, !tbaa !775
+  %.not9.i = icmp eq ptr %10, null
+  br i1 %.not9.i, label %11, label %13
 
-15:                                               ; preds = %12, %5
-  %16 = icmp eq ptr %6, %9
+11:                                               ; preds = %8, %5
+  %12 = icmp eq ptr %.tr132, %.tr131
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-17:                                               ; preds = %12
-  %18 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %11, ptr noundef nonnull %14)
+13:                                               ; preds = %8
+  %14 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %7, ptr noundef nonnull %10)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-19:                                               ; preds = %tailrecurse
-  %20 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !622
-  %.not.i65 = icmp eq ptr %21, null
-  br i1 %.not.i65, label %25, label %22
+15:                                               ; preds = %tailrecurse
+  %16 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !622
+  %.not.i65 = icmp eq ptr %17, null
+  br i1 %.not.i65, label %21, label %18
 
-22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %24 = load ptr, ptr %23, align 8, !tbaa !622
-  %.not9.i66 = icmp eq ptr %24, null
-  br i1 %.not9.i66, label %25, label %27
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !622
+  %.not9.i66 = icmp eq ptr %20, null
+  br i1 %.not9.i66, label %21, label %23
 
-25:                                               ; preds = %22, %19
+21:                                               ; preds = %18, %15
+  %22 = icmp eq ptr %.tr131, %.tr132
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+23:                                               ; preds = %18
+  %24 = icmp eq ptr %17, %20
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+25:                                               ; preds = %tailrecurse
   %26 = icmp eq ptr %.tr131, %.tr132
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-27:                                               ; preds = %22
-  %28 = icmp eq ptr %21, %24
+27:                                               ; preds = %tailrecurse
+  %28 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til8Function7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 29:                                               ; preds = %tailrecurse
-  %30 = icmp eq ptr %.tr131, %.tr132
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %30 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %31 = load ptr, ptr %30, align 8, !tbaa !783
+  %32 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !783
+  %34 = load i8, ptr %31, align 8, !tbaa !31
+  %35 = icmp eq i8 %34, 2
+  br i1 %35, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %36
 
-31:                                               ; preds = %tailrecurse
-  %32 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til8Function7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+36:                                               ; preds = %29
+  %37 = load i8, ptr %33, align 8, !tbaa !31
+  %38 = icmp eq i8 %37, 2
+  br i1 %38, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %39
 
-33:                                               ; preds = %tailrecurse
-  %34 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %35 = load ptr, ptr %34, align 8, !tbaa !783
-  %36 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %37 = load ptr, ptr %36, align 8, !tbaa !783
-  %38 = load i8, ptr %35, align 8, !tbaa !31
-  %39 = icmp eq i8 %38, 2
-  br i1 %39, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %40
-
-40:                                               ; preds = %33
-  %41 = load i8, ptr %37, align 8, !tbaa !31
-  %42 = icmp eq i8 %41, 2
-  br i1 %42, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %43
-
-43:                                               ; preds = %40
-  %.not.i78 = icmp eq i8 %38, %41
+39:                                               ; preds = %36
+  %.not.i78 = icmp eq i8 %34, %37
   br i1 %.not.i78, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
-tailrecurse.backedge:                             ; preds = %43, %124, %147, %249
-  %.be = phi i8 [ %38, %43 ], [ %119, %124 ], [ %142, %147 ], [ %244, %249 ]
-  %.tr131.be = phi ptr [ %35, %43 ], [ %116, %124 ], [ %139, %147 ], [ %241, %249 ]
-  %.tr132.be = phi ptr [ %37, %43 ], [ %118, %124 ], [ %141, %147 ], [ %243, %249 ]
+tailrecurse.backedge:                             ; preds = %39, %120, %143, %245
+  %.be = phi i8 [ %34, %39 ], [ %115, %120 ], [ %138, %143 ], [ %240, %245 ]
+  %.tr131.be = phi ptr [ %31, %39 ], [ %112, %120 ], [ %135, %143 ], [ %237, %245 ]
+  %.tr132.be = phi ptr [ %33, %39 ], [ %114, %120 ], [ %137, %143 ], [ %239, %245 ]
   br label %tailrecurse
 
-44:                                               ; preds = %tailrecurse
-  %45 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !785
-  %47 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !785
-  %49 = load i8, ptr %46, align 8, !tbaa !31
-  %50 = icmp eq i8 %49, 2
-  br i1 %50, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %51
+40:                                               ; preds = %tailrecurse
+  %41 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %42 = load ptr, ptr %41, align 8, !tbaa !785
+  %43 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !785
+  %45 = load i8, ptr %42, align 8, !tbaa !31
+  %46 = icmp eq i8 %45, 2
+  br i1 %46, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %47
 
-51:                                               ; preds = %44
-  %52 = load i8, ptr %48, align 8, !tbaa !31
-  %53 = icmp eq i8 %52, 2
-  br i1 %53, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %54
+47:                                               ; preds = %40
+  %48 = load i8, ptr %44, align 8, !tbaa !31
+  %49 = icmp eq i8 %48, 2
+  br i1 %49, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %50
 
-54:                                               ; preds = %51
-  %.not.i80 = icmp eq i8 %49, %52
+50:                                               ; preds = %47
+  %.not.i80 = icmp eq i8 %45, %48
   br i1 %.not.i80, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82: ; preds = %54
-  %55 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %46, ptr noundef nonnull %48)
-  br i1 %55, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82: ; preds = %50
+  %51 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42, ptr noundef nonnull %44)
+  br i1 %51, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread: ; preds = %44, %51, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82
-  %56 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %57 = load ptr, ptr %56, align 8, !tbaa !787
-  %58 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %59 = load ptr, ptr %58, align 8, !tbaa !787
-  %60 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %57, ptr noundef %59)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread: ; preds = %40, %47, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82
+  %52 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !787
+  %54 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !787
+  %56 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %53, ptr noundef %55)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-61:                                               ; preds = %tailrecurse
-  %62 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !788
-  %64 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !788
-  %66 = load i8, ptr %63, align 8, !tbaa !31
-  %67 = icmp eq i8 %66, 2
-  br i1 %67, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %68
+57:                                               ; preds = %tailrecurse
+  %58 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %59 = load ptr, ptr %58, align 8, !tbaa !788
+  %60 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !788
+  %62 = load i8, ptr %59, align 8, !tbaa !31
+  %63 = icmp eq i8 %62, 2
+  br i1 %63, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %64
 
-68:                                               ; preds = %61
-  %69 = load i8, ptr %65, align 8, !tbaa !31
-  %70 = icmp eq i8 %69, 2
-  br i1 %70, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %71
+64:                                               ; preds = %57
+  %65 = load i8, ptr %61, align 8, !tbaa !31
+  %66 = icmp eq i8 %65, 2
+  br i1 %66, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %67
 
-71:                                               ; preds = %68
-  %.not.i83 = icmp eq i8 %66, %69
+67:                                               ; preds = %64
+  %.not.i83 = icmp eq i8 %62, %65
   br i1 %.not.i83, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85: ; preds = %71
-  %72 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %63, ptr noundef nonnull %65)
-  br i1 %72, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85: ; preds = %67
+  %68 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %59, ptr noundef nonnull %61)
+  br i1 %68, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread: ; preds = %61, %68, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85
-  %73 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %74 = load ptr, ptr %73, align 8, !tbaa !790
-  %75 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !790
-  %77 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %74, ptr noundef %76)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread: ; preds = %57, %64, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85
+  %69 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %70 = load ptr, ptr %69, align 8, !tbaa !790
+  %71 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !790
+  %73 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %70, ptr noundef %72)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-78:                                               ; preds = %tailrecurse
-  %79 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !791
-  %81 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %82 = load ptr, ptr %81, align 8, !tbaa !791
-  %83 = load i8, ptr %80, align 8, !tbaa !31
-  %84 = icmp eq i8 %83, 2
-  br i1 %84, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %85
+74:                                               ; preds = %tailrecurse
+  %75 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %76 = load ptr, ptr %75, align 8, !tbaa !791
+  %77 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %78 = load ptr, ptr %77, align 8, !tbaa !791
+  %79 = load i8, ptr %76, align 8, !tbaa !31
+  %80 = icmp eq i8 %79, 2
+  br i1 %80, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %81
 
-85:                                               ; preds = %78
-  %86 = load i8, ptr %82, align 8, !tbaa !31
-  %87 = icmp eq i8 %86, 2
-  br i1 %87, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %88
+81:                                               ; preds = %74
+  %82 = load i8, ptr %78, align 8, !tbaa !31
+  %83 = icmp eq i8 %82, 2
+  br i1 %83, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %84
 
-88:                                               ; preds = %85
-  %.not.i86 = icmp eq i8 %83, %86
+84:                                               ; preds = %81
+  %.not.i86 = icmp eq i8 %79, %82
   br i1 %.not.i86, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88: ; preds = %88
-  %89 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %80, ptr noundef nonnull %82)
-  br i1 %89, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88: ; preds = %84
+  %85 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %76, ptr noundef nonnull %78)
+  br i1 %85, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread: ; preds = %78, %85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88
-  %90 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %91 = load ptr, ptr %90, align 8, !tbaa !793
-  %92 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !793
-  %94 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %91, ptr noundef %93)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread: ; preds = %74, %81, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88
+  %86 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !793
+  %88 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %89 = load ptr, ptr %88, align 8, !tbaa !793
+  %90 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %87, ptr noundef %89)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-95:                                               ; preds = %tailrecurse
-  %96 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til6SApply7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
+91:                                               ; preds = %tailrecurse
+  %92 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til6SApply7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-97:                                               ; preds = %tailrecurse
-  %98 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %99 = load ptr, ptr %98, align 8, !tbaa !797
-  %100 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %101 = load ptr, ptr %100, align 8, !tbaa !797
-  %102 = load i8, ptr %99, align 8, !tbaa !31
-  %103 = icmp eq i8 %102, 2
-  br i1 %103, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %104
+93:                                               ; preds = %tailrecurse
+  %94 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %95 = load ptr, ptr %94, align 8, !tbaa !797
+  %96 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %97 = load ptr, ptr %96, align 8, !tbaa !797
+  %98 = load i8, ptr %95, align 8, !tbaa !31
+  %99 = icmp eq i8 %98, 2
+  br i1 %99, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %100
 
-104:                                              ; preds = %97
-  %105 = load i8, ptr %101, align 8, !tbaa !31
-  %106 = icmp eq i8 %105, 2
-  br i1 %106, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %107
+100:                                              ; preds = %93
+  %101 = load i8, ptr %97, align 8, !tbaa !31
+  %102 = icmp eq i8 %101, 2
+  br i1 %102, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %103
 
-107:                                              ; preds = %104
-  %.not.i89 = icmp eq i8 %102, %105
+103:                                              ; preds = %100
+  %.not.i89 = icmp eq i8 %98, %101
   br i1 %.not.i89, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91: ; preds = %107
-  %108 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %99, ptr noundef nonnull %101)
-  br i1 %108, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91: ; preds = %103
+  %104 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %95, ptr noundef nonnull %97)
+  br i1 %104, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread: ; preds = %97, %104, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91
-  %109 = getelementptr inbounds nuw i8, ptr %.tr131, i64 64
-  %110 = load ptr, ptr %109, align 8, !tbaa !628
-  %111 = getelementptr inbounds nuw i8, ptr %.tr132, i64 64
-  %112 = load ptr, ptr %111, align 8, !tbaa !628
-  %113 = icmp eq ptr %110, %112
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread: ; preds = %93, %100, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91
+  %105 = getelementptr inbounds nuw i8, ptr %.tr131, i64 64
+  %106 = load ptr, ptr %105, align 8, !tbaa !628
+  %107 = getelementptr inbounds nuw i8, ptr %.tr132, i64 64
+  %108 = load ptr, ptr %107, align 8, !tbaa !628
+  %109 = icmp eq ptr %106, %108
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-114:                                              ; preds = %tailrecurse
-  %115 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %116 = load ptr, ptr %115, align 8, !tbaa !798
-  %117 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %118 = load ptr, ptr %117, align 8, !tbaa !798
-  %119 = load i8, ptr %116, align 8, !tbaa !31
-  %120 = icmp eq i8 %119, 2
-  br i1 %120, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %121
+110:                                              ; preds = %tailrecurse
+  %111 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !798
+  %113 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %114 = load ptr, ptr %113, align 8, !tbaa !798
+  %115 = load i8, ptr %112, align 8, !tbaa !31
+  %116 = icmp eq i8 %115, 2
+  br i1 %116, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %117
 
-121:                                              ; preds = %114
-  %122 = load i8, ptr %118, align 8, !tbaa !31
-  %123 = icmp eq i8 %122, 2
-  br i1 %123, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %124
+117:                                              ; preds = %110
+  %118 = load i8, ptr %114, align 8, !tbaa !31
+  %119 = icmp eq i8 %118, 2
+  br i1 %119, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %120
 
-124:                                              ; preds = %121
-  %.not.i92 = icmp eq i8 %119, %122
+120:                                              ; preds = %117
+  %.not.i92 = icmp eq i8 %115, %118
   br i1 %.not.i92, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
-125:                                              ; preds = %tailrecurse
-  %126 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
-  %127 = load i16, ptr %126, align 2, !tbaa !66
-  %128 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
-  %129 = load i16, ptr %128, align 2, !tbaa !66
-  %130 = icmp eq i16 %127, %129
-  br i1 %130, label %131, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+121:                                              ; preds = %tailrecurse
+  %122 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
+  %123 = load i16, ptr %122, align 2, !tbaa !66
+  %124 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
+  %125 = load i16, ptr %124, align 2, !tbaa !66
+  %126 = icmp eq i16 %123, %125
+  br i1 %126, label %127, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-131:                                              ; preds = %125
-  %132 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %133 = load ptr, ptr %132, align 8, !tbaa !801
-  %134 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %135 = load ptr, ptr %134, align 8, !tbaa !801
-  %136 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %133, ptr noundef %135)
+127:                                              ; preds = %121
+  %128 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !801
+  %130 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %131 = load ptr, ptr %130, align 8, !tbaa !801
+  %132 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %129, ptr noundef %131)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-137:                                              ; preds = %tailrecurse
-  %138 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %139 = load ptr, ptr %138, align 8, !tbaa !803
-  %140 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %141 = load ptr, ptr %140, align 8, !tbaa !803
-  %142 = load i8, ptr %139, align 8, !tbaa !31
-  %143 = icmp eq i8 %142, 2
-  br i1 %143, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %144
+133:                                              ; preds = %tailrecurse
+  %134 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %135 = load ptr, ptr %134, align 8, !tbaa !803
+  %136 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %137 = load ptr, ptr %136, align 8, !tbaa !803
+  %138 = load i8, ptr %135, align 8, !tbaa !31
+  %139 = icmp eq i8 %138, 2
+  br i1 %139, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %140
 
-144:                                              ; preds = %137
-  %145 = load i8, ptr %141, align 8, !tbaa !31
-  %146 = icmp eq i8 %145, 2
-  br i1 %146, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %147
+140:                                              ; preds = %133
+  %141 = load i8, ptr %137, align 8, !tbaa !31
+  %142 = icmp eq i8 %141, 2
+  br i1 %142, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %143
 
-147:                                              ; preds = %144
-  %.not.i95 = icmp eq i8 %142, %145
+143:                                              ; preds = %140
+  %.not.i95 = icmp eq i8 %138, %141
   br i1 %.not.i95, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
-148:                                              ; preds = %tailrecurse
-  %149 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %150 = load ptr, ptr %149, align 8, !tbaa !805
-  %151 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %152 = load ptr, ptr %151, align 8, !tbaa !805
-  %153 = load i8, ptr %150, align 8, !tbaa !31
-  %154 = icmp eq i8 %153, 2
-  br i1 %154, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %155
+144:                                              ; preds = %tailrecurse
+  %145 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %146 = load ptr, ptr %145, align 8, !tbaa !805
+  %147 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %148 = load ptr, ptr %147, align 8, !tbaa !805
+  %149 = load i8, ptr %146, align 8, !tbaa !31
+  %150 = icmp eq i8 %149, 2
+  br i1 %150, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %151
 
-155:                                              ; preds = %148
-  %156 = load i8, ptr %152, align 8, !tbaa !31
-  %157 = icmp eq i8 %156, 2
-  br i1 %157, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %158
+151:                                              ; preds = %144
+  %152 = load i8, ptr %148, align 8, !tbaa !31
+  %153 = icmp eq i8 %152, 2
+  br i1 %153, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %154
 
-158:                                              ; preds = %155
-  %.not.i98 = icmp eq i8 %153, %156
+154:                                              ; preds = %151
+  %.not.i98 = icmp eq i8 %149, %152
   br i1 %.not.i98, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100: ; preds = %158
-  %159 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %150, ptr noundef nonnull %152)
-  br i1 %159, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100: ; preds = %154
+  %155 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %146, ptr noundef nonnull %148)
+  br i1 %155, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread: ; preds = %148, %155, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100
-  %160 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %161 = load ptr, ptr %160, align 8, !tbaa !807
-  %162 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %163 = load ptr, ptr %162, align 8, !tbaa !807
-  %164 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %161, ptr noundef %163)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread: ; preds = %144, %151, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100
+  %156 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %157 = load ptr, ptr %156, align 8, !tbaa !807
+  %158 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %159 = load ptr, ptr %158, align 8, !tbaa !807
+  %160 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %157, ptr noundef %159)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-165:                                              ; preds = %tailrecurse
-  %166 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %167 = load ptr, ptr %166, align 8, !tbaa !808
-  %168 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %169 = load ptr, ptr %168, align 8, !tbaa !808
-  %170 = load i8, ptr %167, align 8, !tbaa !31
-  %171 = icmp eq i8 %170, 2
-  br i1 %171, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %172
+161:                                              ; preds = %tailrecurse
+  %162 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %163 = load ptr, ptr %162, align 8, !tbaa !808
+  %164 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %165 = load ptr, ptr %164, align 8, !tbaa !808
+  %166 = load i8, ptr %163, align 8, !tbaa !31
+  %167 = icmp eq i8 %166, 2
+  br i1 %167, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %168
 
-172:                                              ; preds = %165
-  %173 = load i8, ptr %169, align 8, !tbaa !31
-  %174 = icmp eq i8 %173, 2
-  br i1 %174, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %175
+168:                                              ; preds = %161
+  %169 = load i8, ptr %165, align 8, !tbaa !31
+  %170 = icmp eq i8 %169, 2
+  br i1 %170, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %171
 
-175:                                              ; preds = %172
-  %.not.i101 = icmp eq i8 %170, %173
+171:                                              ; preds = %168
+  %.not.i101 = icmp eq i8 %166, %169
   br i1 %.not.i101, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103: ; preds = %175
-  %176 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %167, ptr noundef nonnull %169)
-  br i1 %176, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103: ; preds = %171
+  %172 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %163, ptr noundef nonnull %165)
+  br i1 %172, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread: ; preds = %165, %172, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103
-  %177 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %178 = load ptr, ptr %177, align 8, !tbaa !810
-  %179 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !810
-  %181 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %178, ptr noundef %180)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread: ; preds = %161, %168, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103
+  %173 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %174 = load ptr, ptr %173, align 8, !tbaa !810
+  %175 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %176 = load ptr, ptr %175, align 8, !tbaa !810
+  %177 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %174, ptr noundef %176)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-182:                                              ; preds = %tailrecurse
-  %183 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %184 = load ptr, ptr %183, align 8, !tbaa !811
-  %185 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %186 = load ptr, ptr %185, align 8, !tbaa !811
-  %187 = load i8, ptr %184, align 8, !tbaa !31
-  %188 = icmp eq i8 %187, 2
-  br i1 %188, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %189
+178:                                              ; preds = %tailrecurse
+  %179 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %180 = load ptr, ptr %179, align 8, !tbaa !811
+  %181 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %182 = load ptr, ptr %181, align 8, !tbaa !811
+  %183 = load i8, ptr %180, align 8, !tbaa !31
+  %184 = icmp eq i8 %183, 2
+  br i1 %184, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %185
 
-189:                                              ; preds = %182
-  %190 = load i8, ptr %186, align 8, !tbaa !31
-  %191 = icmp eq i8 %190, 2
-  br i1 %191, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %192
+185:                                              ; preds = %178
+  %186 = load i8, ptr %182, align 8, !tbaa !31
+  %187 = icmp eq i8 %186, 2
+  br i1 %187, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %188
 
-192:                                              ; preds = %189
-  %.not.i104 = icmp eq i8 %187, %190
+188:                                              ; preds = %185
+  %.not.i104 = icmp eq i8 %183, %186
   br i1 %.not.i104, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106: ; preds = %192
-  %193 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %184, ptr noundef nonnull %186)
-  br i1 %193, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106: ; preds = %188
+  %189 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til10ComparatorINS1_15MatchComparatorEE13compareByCaseEPKNS1_5SExprES7_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %180, ptr noundef nonnull %182)
+  br i1 %189, label %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread: ; preds = %182, %189, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106
-  %194 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
-  %195 = load ptr, ptr %194, align 8, !tbaa !813
-  %196 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
-  %197 = load ptr, ptr %196, align 8, !tbaa !813
-  %198 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %195, ptr noundef %197)
+_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread: ; preds = %178, %185, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106
+  %190 = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
+  %191 = load ptr, ptr %190, align 8, !tbaa !813
+  %192 = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
+  %193 = load ptr, ptr %192, align 8, !tbaa !813
+  %194 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %191, ptr noundef %193)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-199:                                              ; preds = %tailrecurse
-  %200 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
-  %201 = load i16, ptr %200, align 2, !tbaa !66
-  %202 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
-  %203 = load i16, ptr %202, align 2, !tbaa !66
-  %204 = xor i16 %203, %201
-  %205 = and i16 %204, 255
-  %206 = icmp eq i16 %205, 0
-  br i1 %206, label %207, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+195:                                              ; preds = %tailrecurse
+  %196 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
+  %197 = load i16, ptr %196, align 2, !tbaa !66
+  %198 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
+  %199 = load i16, ptr %198, align 2, !tbaa !66
+  %200 = xor i16 %199, %197
+  %201 = and i16 %200, 255
+  %202 = icmp eq i16 %201, 0
+  br i1 %202, label %203, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-207:                                              ; preds = %199
-  %208 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %209 = load ptr, ptr %208, align 8, !tbaa !814
-  %210 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %211 = load ptr, ptr %210, align 8, !tbaa !814
-  %212 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %209, ptr noundef %211)
+203:                                              ; preds = %195
+  %204 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %205 = load ptr, ptr %204, align 8, !tbaa !814
+  %206 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %207 = load ptr, ptr %206, align 8, !tbaa !814
+  %208 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %205, ptr noundef %207)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-213:                                              ; preds = %tailrecurse
-  %214 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til8BinaryOp7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
+209:                                              ; preds = %tailrecurse
+  %210 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til8BinaryOp7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-215:                                              ; preds = %tailrecurse
-  %216 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
-  %217 = load i16, ptr %216, align 2, !tbaa !66
-  %218 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
-  %219 = load i16, ptr %218, align 2, !tbaa !66
-  %220 = xor i16 %219, %217
-  %221 = and i16 %220, 255
-  %222 = icmp eq i16 %221, 0
-  br i1 %222, label %223, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+211:                                              ; preds = %tailrecurse
+  %212 = getelementptr inbounds nuw i8, ptr %.tr131, i64 2
+  %213 = load i16, ptr %212, align 2, !tbaa !66
+  %214 = getelementptr inbounds nuw i8, ptr %.tr132, i64 2
+  %215 = load i16, ptr %214, align 2, !tbaa !66
+  %216 = xor i16 %215, %213
+  %217 = and i16 %216, 255
+  %218 = icmp eq i16 %217, 0
+  br i1 %218, label %219, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-223:                                              ; preds = %215
-  %224 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %225 = load ptr, ptr %224, align 8, !tbaa !819
-  %226 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %227 = load ptr, ptr %226, align 8, !tbaa !819
-  %228 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %225, ptr noundef %227)
+219:                                              ; preds = %211
+  %220 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %221 = load ptr, ptr %220, align 8, !tbaa !819
+  %222 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %223 = load ptr, ptr %222, align 8, !tbaa !819
+  %224 = tail call noundef zeroext i1 @_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %221, ptr noundef %223)
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+225:                                              ; preds = %tailrecurse
+  %226 = icmp eq ptr %.tr131, %.tr132
+  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+
+227:                                              ; preds = %tailrecurse
+  %228 = icmp eq ptr %.tr131, %.tr132
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 229:                                              ; preds = %tailrecurse
@@ -18884,66 +18884,58 @@ _ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.th
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
 235:                                              ; preds = %tailrecurse
-  %236 = icmp eq ptr %.tr131, %.tr132
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  %236 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %237 = load ptr, ptr %236, align 8, !tbaa !821
+  %238 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %239 = load ptr, ptr %238, align 8, !tbaa !821
+  %240 = load i8, ptr %237, align 8, !tbaa !31
+  %241 = icmp eq i8 %240, 2
+  br i1 %241, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %242
 
-237:                                              ; preds = %tailrecurse
-  %238 = icmp eq ptr %.tr131, %.tr132
-  br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+242:                                              ; preds = %235
+  %243 = load i8, ptr %239, align 8, !tbaa !31
+  %244 = icmp eq i8 %243, 2
+  br i1 %244, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %245
 
-239:                                              ; preds = %tailrecurse
-  %240 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %241 = load ptr, ptr %240, align 8, !tbaa !821
-  %242 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %243 = load ptr, ptr %242, align 8, !tbaa !821
-  %244 = load i8, ptr %241, align 8, !tbaa !31
-  %245 = icmp eq i8 %244, 2
-  br i1 %245, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %246
-
-246:                                              ; preds = %239
-  %247 = load i8, ptr %243, align 8, !tbaa !31
-  %248 = icmp eq i8 %247, 2
-  br i1 %248, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, label %249
-
-249:                                              ; preds = %246
-  %.not.i107 = icmp eq i8 %244, %247
+245:                                              ; preds = %242
+  %.not.i107 = icmp eq i8 %240, %243
   br i1 %.not.i107, label %tailrecurse.backedge, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit
 
-250:                                              ; preds = %tailrecurse
-  %251 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
-  %.sroa.0.0.copyload.i.i = load ptr, ptr %251, align 8, !tbaa !472
+246:                                              ; preds = %tailrecurse
+  %247 = getelementptr inbounds nuw i8, ptr %.tr131, i64 16
+  %.sroa.0.0.copyload.i.i = load ptr, ptr %247, align 8, !tbaa !472
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.tr131, i64 24
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !239
-  %252 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
-  %.sroa.0.0.copyload.i5.i = load ptr, ptr %252, align 8, !tbaa !472
+  %248 = getelementptr inbounds nuw i8, ptr %.tr132, i64 16
+  %.sroa.0.0.copyload.i5.i = load ptr, ptr %248, align 8, !tbaa !472
   %.sroa.2.0..sroa_idx.i6.i = getelementptr inbounds nuw i8, ptr %.tr132, i64 24
   %.sroa.2.0.copyload.i7.i = load i64, ptr %.sroa.2.0..sroa_idx.i6.i, align 8, !tbaa !239
   %.not.i.i.i = icmp eq i64 %.sroa.2.0.copyload.i.i, %.sroa.2.0.copyload.i7.i
-  br i1 %.not.i.i.i, label %253, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
+  br i1 %.not.i.i.i, label %249, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-253:                                              ; preds = %250
-  %254 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
-  br i1 %254, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %255
+249:                                              ; preds = %246
+  %250 = icmp eq i64 %.sroa.2.0.copyload.i.i, 0
+  br i1 %250, label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit, label %251
 
-255:                                              ; preds = %253
+251:                                              ; preds = %249
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.0.0.copyload.i.i, ptr %.sroa.0.0.copyload.i5.i, i64 %.sroa.2.0.copyload.i.i)
-  %256 = icmp eq i32 %bcmp.i.i.i, 0
+  %252 = icmp eq i32 %bcmp.i.i.i, 0
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-257:                                              ; preds = %tailrecurse
-  %258 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til10IfThenElse7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(40) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
+253:                                              ; preds = %tailrecurse
+  %254 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til10IfThenElse7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(40) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-259:                                              ; preds = %tailrecurse
-  %260 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til3Let7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
+255:                                              ; preds = %tailrecurse
+  %256 = tail call noundef zeroext i1 @_ZNK5clang12threadSafety3til3Let7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_(ptr noundef nonnull align 8 dereferenceable(32) %.tr131, ptr noundef %.tr132, ptr noundef nonnull align 1 dereferenceable(1) %0)
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit: ; preds = %tailrecurse, %33, %40, %43, %114, %121, %124, %137, %144, %147, %239, %246, %249
-  %.0.ph = phi i1 [ false, %249 ], [ true, %239 ], [ true, %246 ], [ false, %147 ], [ true, %137 ], [ true, %144 ], [ false, %124 ], [ true, %114 ], [ true, %121 ], [ false, %43 ], [ true, %33 ], [ true, %40 ], [ false, %tailrecurse ]
+_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit: ; preds = %tailrecurse, %29, %36, %39, %110, %117, %120, %133, %140, %143, %235, %242, %245
+  %.0.ph = phi i1 [ false, %245 ], [ true, %235 ], [ true, %242 ], [ false, %143 ], [ true, %133 ], [ true, %140 ], [ false, %120 ], [ true, %110 ], [ true, %117 ], [ false, %39 ], [ true, %29 ], [ true, %36 ], [ false, %tailrecurse ]
   br label %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit
 
-_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, %192, %175, %158, %107, %88, %71, %54, %255, %253, %250, %223, %215, %207, %199, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, %131, %125, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, %27, %25, %17, %15, %259, %257, %237, %235, %233, %231, %229, %213, %95, %31, %29
-  %.0 = phi i1 [ %260, %259 ], [ %258, %257 ], [ %238, %237 ], [ %236, %235 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %214, %213 ], [ %96, %95 ], [ %32, %31 ], [ %30, %29 ], [ %18, %17 ], [ %16, %15 ], [ %28, %27 ], [ %26, %25 ], [ %60, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %77, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %94, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %113, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %136, %131 ], [ false, %125 ], [ %164, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %181, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %198, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %212, %207 ], [ false, %199 ], [ %228, %223 ], [ false, %215 ], [ %256, %255 ], [ false, %250 ], [ true, %253 ], [ false, %54 ], [ false, %71 ], [ false, %88 ], [ false, %107 ], [ false, %158 ], [ false, %175 ], [ false, %192 ], [ %.0.ph, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
+_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit: ; preds = %tailrecurse, %tailrecurse, %tailrecurse, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit, %188, %171, %154, %103, %84, %67, %50, %251, %249, %246, %219, %211, %203, %195, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100, %127, %121, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82, %23, %21, %13, %11, %255, %253, %233, %231, %229, %227, %225, %209, %91, %27, %25
+  %.0 = phi i1 [ %256, %255 ], [ %254, %253 ], [ %234, %233 ], [ %232, %231 ], [ %230, %229 ], [ %228, %227 ], [ %226, %225 ], [ %210, %209 ], [ %92, %91 ], [ %28, %27 ], [ %26, %25 ], [ %14, %13 ], [ %12, %11 ], [ %24, %23 ], [ %22, %21 ], [ %56, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit82 ], [ %73, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit85 ], [ %90, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit88 ], [ %109, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit91 ], [ %132, %127 ], [ false, %121 ], [ %160, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit100 ], [ %177, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit103 ], [ %194, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106.thread ], [ false, %_ZN5clang12threadSafety3til15MatchComparator7compareEPKNS1_5SExprES5_.exit106 ], [ %208, %203 ], [ false, %195 ], [ %224, %219 ], [ false, %211 ], [ %252, %251 ], [ false, %246 ], [ true, %249 ], [ false, %50 ], [ false, %67 ], [ false, %84 ], [ false, %103 ], [ false, %154 ], [ false, %171 ], [ false, %188 ], [ %.0.ph, %_ZNK5clang12threadSafety3til6Future7compareINS1_15MatchComparatorEEENT_5CTypeEPKS2_RS5_.exit.loopexit ], [ true, %tailrecurse ], [ true, %tailrecurse ], [ true, %tailrecurse ]
   ret i1 %.0
 }
 
@@ -24202,7 +24194,7 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_112BuildLocksetE
 define internal fastcc void @_ZN12_GLOBAL__N_112BuildLockset13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 511
-  switch i16 %4, label %140 [
+  switch i16 %4, label %138 [
     i16 94, label %5
     i16 93, label %50
   ]
@@ -24273,7 +24265,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %24, %31
   %48 = zext i32 %47 to i64
   %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
   tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i, ptr nonnull %45, ptr nonnull %49, i1 noundef zeroext false)
-  br label %166
+  br label %164
 
 50:                                               ; preds = %2
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -24330,7 +24322,7 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit:      ; preds = %24, %31
   %79 = load ptr, ptr %0, align 8, !tbaa !545
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @_ZN12_GLOBAL__N_120ThreadSafetyAnalyzer11checkAccessERKNS_7FactSetEPKN5clang4ExprENS4_12threadSafety10AccessKindENS8_22ProtectedOperationKindE(ptr noundef nonnull align 8 dereferenceable(600) %79, ptr noundef nonnull readonly align 8 dereferenceable(32) %80, ptr noundef nonnull %78, i32 noundef 1, i32 noundef 1)
-  br label %166
+  br label %164
 
 81:                                               ; preds = %50
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -24396,74 +24388,72 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit50:    ; preds = %50, %81, %85
   %132 = load i32, ptr %131, align 8, !tbaa !1001
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds nuw ptr, ptr %129, i64 %133
-  %135 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i48, i64 28
-  %136 = load i32, ptr %135, align 4
-  %137 = and i32 %136, 127
-  %138 = add nsw i32 %137, -37
-  %139 = icmp ult i32 %138, -4
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i.i.i.i48, ptr nonnull %130, ptr nonnull %134, i1 noundef zeroext %139)
-  br label %166
+  %135 = and i32 %117, 127
+  %136 = add nsw i32 %135, -37
+  %137 = icmp ult i32 %136, -4
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %spec.select.i.i.i.i48, ptr nonnull %130, ptr nonnull %134, i1 noundef zeroext %137)
+  br label %164
 
-140:                                              ; preds = %2
-  %141 = load i32, ptr %1, align 8
-  %142 = lshr i32 %141, 24
-  %143 = zext nneg i32 %142 to i64
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 %143
-  %145 = load ptr, ptr %144, align 8, !tbaa !503
-  %146 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %145) #23
-  %.not.i.i.i51 = icmp eq ptr %146, null
-  br i1 %.not.i.i.i51, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, label %147
+138:                                              ; preds = %2
+  %139 = load i32, ptr %1, align 8
+  %140 = lshr i32 %139, 24
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %141
+  %143 = load ptr, ptr %142, align 8, !tbaa !503
+  %144 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %143) #23
+  %.not.i.i.i51 = icmp eq ptr %144, null
+  br i1 %.not.i.i.i51, label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, label %145
 
-147:                                              ; preds = %140
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 28
-  %149 = load i32, ptr %148, align 4
-  %150 = and i32 %149, 126
-  %151 = add nsw i32 %150, -32
-  %152 = icmp ult i32 %151, 6
-  %spec.select.i.i.i.i52 = select i1 %152, ptr %146, ptr null
+145:                                              ; preds = %138
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 28
+  %147 = load i32, ptr %146, align 4
+  %148 = and i32 %147, 126
+  %149 = add nsw i32 %148, -32
+  %150 = icmp ult i32 %149, 6
+  %spec.select.i.i.i.i52 = select i1 %150, ptr %144, ptr null
   br label %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54
 
-_ZNK5clang8CallExpr15getDirectCalleeEv.exit54:    ; preds = %140, %147
-  %.0.i.i.i53 = phi ptr [ %spec.select.i.i.i.i52, %147 ], [ null, %140 ]
-  %153 = load i32, ptr %1, align 8
-  %154 = lshr i32 %153, 24
-  %155 = zext nneg i32 %154 to i64
-  %156 = getelementptr inbounds nuw i8, ptr %1, i64 %155
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %158 = lshr i32 %153, 19
-  %159 = and i32 %158, 1
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr inbounds nuw ptr, ptr %157, i64 %160
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %163 = load i32, ptr %162, align 8, !tbaa !1001
-  %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw ptr, ptr %161, i64 %164
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i53, ptr nonnull %161, ptr nonnull %165, i1 noundef zeroext false)
-  br label %166
+_ZNK5clang8CallExpr15getDirectCalleeEv.exit54:    ; preds = %138, %145
+  %.0.i.i.i53 = phi ptr [ %spec.select.i.i.i.i52, %145 ], [ null, %138 ]
+  %151 = load i32, ptr %1, align 8
+  %152 = lshr i32 %151, 24
+  %153 = zext nneg i32 %152 to i64
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 %153
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %156 = lshr i32 %151, 19
+  %157 = and i32 %156, 1
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw ptr, ptr %155, i64 %158
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %161 = load i32, ptr %160, align 8, !tbaa !1001
+  %162 = zext i32 %161 to i64
+  %163 = getelementptr inbounds nuw ptr, ptr %159, i64 %162
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset16examineArgumentsEPKN5clang12FunctionDeclENS1_4Stmt12CastIteratorINS1_4ExprEKPKS7_KPKS5_EESE_b(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %.0.i.i.i53, ptr nonnull %159, ptr nonnull %163, i1 noundef zeroext false)
+  br label %164
 
-166:                                              ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, %68, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
-  %167 = load i32, ptr %1, align 8
-  %168 = lshr i32 %167, 24
-  %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr inbounds nuw i8, ptr %1, i64 %169
-  %171 = load ptr, ptr %170, align 8, !tbaa !503
-  %172 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %171) #23
-  %.not.i.i = icmp eq ptr %172, null
-  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %173
+164:                                              ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit54, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit50, %68, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
+  %165 = load i32, ptr %1, align 8
+  %166 = lshr i32 %165, 24
+  %167 = zext nneg i32 %166 to i64
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 %167
+  %169 = load ptr, ptr %168, align 8, !tbaa !503
+  %170 = tail call noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr noundef nonnull align 8 dereferenceable(16) %169) #23
+  %.not.i.i = icmp eq ptr %170, null
+  br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread, label %171
 
-173:                                              ; preds = %166
-  %174 = getelementptr inbounds nuw i8, ptr %172, i64 28
-  %175 = load i32, ptr %174, align 4
-  %176 = and i32 %175, 127
-  %177 = add nsw i32 %176, -16
-  %178 = icmp ult i32 %177, 63
-  br i1 %178, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
+171:                                              ; preds = %164
+  %172 = getelementptr inbounds nuw i8, ptr %170, i64 28
+  %173 = load i32, ptr %172, align 4
+  %174 = and i32 %173, 127
+  %175 = add nsw i32 %174, -16
+  %176 = icmp ult i32 %175, 63
+  br i1 %176, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %173
-  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset10handleCallEPKN5clang4ExprEPKNS1_9NamedDeclEPNS1_12threadSafety3til10LiteralPtrENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef nonnull %172, ptr noundef null, i32 0)
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit: ; preds = %171
+  tail call fastcc void @_ZN12_GLOBAL__N_112BuildLockset10handleCallEPKN5clang4ExprEPKNS1_9NamedDeclEPNS1_12threadSafety3til10LiteralPtrENS1_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr noundef nonnull %170, ptr noundef null, i32 0)
   br label %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 
-_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread: ; preds = %166, %173, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit
+_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit.thread: ; preds = %164, %171, %_ZN4llvm16dyn_cast_or_nullIN5clang9NamedDeclEKNS1_4DeclEEEDaPT0_.exit
   ret void
 }
 

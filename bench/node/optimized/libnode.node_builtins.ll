@@ -1101,7 +1101,7 @@ for.inc:                                          ; preds = %if.then.i9.i, %clea
   br i1 %cmp.i24.not, label %for.inc49, label %for.body34
 
 for.inc49:                                        ; preds = %for.inc
-  %call.i29 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.095) #26
+  %call.i29 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.095) #26
   %cmp.i.not = icmp eq ptr %call.i29, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end51.loopexit, label %for.body
 

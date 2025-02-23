@@ -35399,7 +35399,7 @@ define linkonce_odr hidden void @_ZN4entt11basic_tableIJSt6vectorIiN4test18throw
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 2
   %15 = icmp ult i64 %14, %1
-  br i1 %15, label %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE11_M_allocateEm.exit.i, label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread
+  br i1 %15, label %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE11_M_allocateEm.exit.i, label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit
 
 _ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE11_M_allocateEm.exit.i: ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -35426,7 +35426,7 @@ _ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE11_M_allocateEm.exit.i: ; pr
 
 _ZNSt6vectorIiN4test18throwing_allocatorIiEEE11_S_relocateEPiS4_S4_RS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE11_M_allocateEm.exit.i
   %.not.i8.i = icmp eq ptr %21, null
-  br i1 %.not.i8.i, label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit, label %26
+  br i1 %.not.i8.i, label %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE13_M_deallocateEPim.exit.i, label %26
 
 26:                                               ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE11_S_relocateEPiS4_S4_RS2_.exit.i
   %27 = load ptr, ptr %8, align 8, !tbaa !1234
@@ -35434,17 +35434,17 @@ _ZNSt6vectorIiN4test18throwing_allocatorIiEEE11_S_relocateEPiS4_S4_RS2_.exit.i: 
   %29 = ptrtoint ptr %21 to i64
   %30 = sub i64 %28, %29
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %30) #28
-  br label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit
+  br label %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE13_M_deallocateEPim.exit.i
 
-_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE11_S_relocateEPiS4_S4_RS2_.exit.i, %26
+_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE13_M_deallocateEPim.exit.i: ; preds = %26, %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE11_S_relocateEPiS4_S4_RS2_.exit.i
   store ptr %20, ptr %7, align 8, !tbaa !1236
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 %19
   store ptr %31, ptr %16, align 8, !tbaa !1237
   %32 = getelementptr inbounds nuw i32, ptr %20, i64 %1
   store ptr %32, ptr %8, align 8, !tbaa !1234
-  br label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread
+  br label %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit
 
-_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit, %6
+_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit: ; preds = %_ZNSt12_Vector_baseIiN4test18throwing_allocatorIiEEE13_M_deallocateEPim.exit.i, %6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load ptr, ptr %34, align 8, !tbaa !1241
@@ -35455,7 +35455,7 @@ _ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread: ; preds = %
   %40 = icmp ult i64 %39, %1
   br i1 %40, label %_ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE11_M_allocateEm.exit.i, label %_ZNSt6vectorIcN4test18throwing_allocatorIcEEE7reserveEm.exit
 
-_ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread
+_ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE11_M_allocateEm.exit.i: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !1240
   %43 = ptrtoint ptr %42 to i64
@@ -35503,7 +35503,7 @@ _ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE13_M_deallocateEPcm.exit.i: 
   store ptr %58, ptr %34, align 8, !tbaa !1241
   br label %_ZNSt6vectorIcN4test18throwing_allocatorIcEEE7reserveEm.exit
 
-_ZNSt6vectorIcN4test18throwing_allocatorIcEEE7reserveEm.exit: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit.thread, %_ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE13_M_deallocateEPcm.exit.i
+_ZNSt6vectorIcN4test18throwing_allocatorIcEEE7reserveEm.exit: ; preds = %_ZNSt6vectorIiN4test18throwing_allocatorIiEEE7reserveEm.exit, %_ZNSt12_Vector_baseIcN4test18throwing_allocatorIcEEE13_M_deallocateEPcm.exit.i
   ret void
 }
 

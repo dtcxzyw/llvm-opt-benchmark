@@ -9165,7 +9165,7 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr noundef re
   switch i64 %15, label %.thread [
     i64 6, label %16
     i64 2, label %21
-    i64 4, label %60
+    i64 4, label %61
   ]
 
 16:                                               ; preds = %13
@@ -9218,7 +9218,7 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr noundef re
   %46 = tail call fastcc i32 @rt6_multipath_dead_count(ptr noundef %0, ptr noundef %3)
   %47 = add i32 %28, 1
   %48 = icmp eq i32 %47, %46
-  br i1 %48, label %49, label %.thread5
+  br i1 %48, label %49, label %60
 
 49:                                               ; preds = %.loopexit
   %50 = or disjoint i8 %23, 1
@@ -9238,36 +9238,36 @@ define internal range(i32 -2, 1) i32 @fib6_ifdown(ptr noundef %0, ptr noundef re
   %59 = icmp eq ptr %58, %51
   br i1 %59, label %.thread, label %.preheader, !llvm.loop !87
 
-.thread5:                                         ; preds = %.loopexit
+60:                                               ; preds = %.loopexit
   tail call fastcc void @rt6_multipath_nh_flags_set(ptr noundef %0, ptr noundef %3)
   tail call void @fib6_update_sernum(ptr noundef %5, ptr noundef %0) #22
   tail call void @rt6_multipath_rebalance(ptr noundef %0)
   br label %.thread
 
-60:                                               ; preds = %13
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, %3
-  br i1 %63, label %64, label %.thread
+61:                                               ; preds = %13
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, %3
+  br i1 %64, label %65, label %.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %66 = load i32, ptr %65, align 4
-  %67 = and i32 %66, -2146435072
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %.thread
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %67 = load i32, ptr %66, align 4
+  %68 = and i32 %67, -2146435072
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %.thread
 
-69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 183
-  %71 = load i8, ptr %70, align 1
-  %72 = or i8 %71, 16
-  store i8 %72, ptr %70, align 1
+70:                                               ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 183
+  %72 = load i8, ptr %71, align 1
+  %73 = or i8 %72, 16
+  store i8 %73, ptr %71, align 1
   tail call void @rt6_multipath_rebalance(ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %38, %.preheader, %.thread5, %49, %69, %64, %60, %33, %21, %16, %13, %9, %2
-  %73 = phi i32 [ %34, %33 ], [ %20, %16 ], [ 0, %9 ], [ 0, %2 ], [ -1, %21 ], [ 0, %60 ], [ 0, %64 ], [ 0, %13 ], [ 0, %69 ], [ -1, %49 ], [ -2, %.thread5 ], [ -1, %.preheader ], [ -2, %38 ]
-  ret i32 %73
+.thread:                                          ; preds = %38, %.preheader, %49, %60, %70, %65, %61, %33, %21, %16, %13, %9, %2
+  %74 = phi i32 [ %34, %33 ], [ %20, %16 ], [ 0, %9 ], [ 0, %2 ], [ -1, %21 ], [ 0, %61 ], [ 0, %65 ], [ 0, %13 ], [ 0, %70 ], [ -2, %60 ], [ -1, %49 ], [ -1, %.preheader ], [ -2, %38 ]
+  ret i32 %74
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

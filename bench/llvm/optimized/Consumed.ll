@@ -6894,7 +6894,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorENS1_4ExprEEEDaPT0_.exit: ; pr
   br i1 %.not48, label %_ZNKSt14default_deleteIN5clang8consumed16ConsumedStateMapEEclEPS2_.exit.i138, label %339
 
 339:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang14BinaryOperatorENS1_4ExprEEEDaPT0_.exit
-  %340 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i108, i64 24
+  %340 = getelementptr inbounds nuw i8, ptr %296, i64 24
   %341 = load ptr, ptr %340, align 8, !tbaa !20
   %342 = load i16, ptr %341, align 8, !noalias !292
   %343 = and i16 %342, 511
@@ -7959,8 +7959,8 @@ _ZNK5clang12FunctionDecl17getCallResultTypeEv.exit: ; preds = %365, %372
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %385 = load i8, ptr %384, align 16
   %386 = icmp eq i8 %385, 13
-  %.not.not7.i.i = icmp ne ptr %383, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %386
+  %.not7.i.i = icmp ne ptr %383, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %386
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %.critedge
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang12FunctionDecl17getCallResultTypeEv.exit

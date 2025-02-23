@@ -835,10 +835,10 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %218 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %217) #19, !srcloc !22
   store i32 %218, ptr getelementptr inbounds nuw (i8, ptr @HDR_SCTP, i64 8), align 4
   %219 = load ptr, ptr @packet_buf, align 8
-  %220 = sext i32 %.3201 to i64
+  %220 = zext nneg i32 %.3201 to i64
   %221 = getelementptr i8, ptr %219, i64 %220
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %221, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 noundef 12, i1 noundef false) #18
-  %222 = add i32 %.3201, 12
+  %222 = add nuw nsw i32 %.3201, 12
   %.b233346.pre = load i1, ptr @hdr_data_chunk, align 1
   br i1 %.b233346.pre, label %224, label %228
 
@@ -848,7 +848,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
 224:                                              ; preds = %211, %223
   %.4202383 = phi i32 [ %222, %211 ], [ %.3201, %223 ]
   %225 = load ptr, ptr @packet_buf, align 8
-  %226 = sext i32 %.4202383 to i64
+  %226 = zext nneg i32 %.4202383 to i64
   %227 = getelementptr i8, ptr %225, i64 %226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %227, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 noundef 16, i1 noundef false) #18
   br label %228
@@ -869,12 +869,12 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i1 noundef zero
   %rev349 = call i16 @llvm.bswap.i16(i16 %trunc348)
   store i16 %rev349, ptr getelementptr inbounds nuw (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
   %235 = load ptr, ptr @packet_buf, align 8
-  %236 = sext i32 %.4202384 to i64
+  %236 = zext nneg i32 %.4202384 to i64
   %237 = getelementptr i8, ptr %235, i64 %236
   %238 = load i32, ptr @HDR_EXPORT_PDU, align 4
   store i32 %238, ptr %237, align 1
-  %239 = add i32 %.4202384, 4
-  %240 = sext i32 %239 to i64
+  %239 = add nuw nsw i32 %.4202384, 4
+  %240 = zext nneg i32 %239 to i64
   %241 = getelementptr i8, ptr %235, i64 %240
   %242 = load ptr, ptr %231, align 8
   %243 = and i64 %233, 4294967295

@@ -1299,7 +1299,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 30:                                               ; preds = %.lr.ph, %30
   %.081 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
   %.06880 = phi ptr [ %11, %.lr.ph ], [ %35, %30 ]
-  %31 = tail call i64 @fwrite(ptr noundef %.06880, i64 noundef %26, i64 noundef 1, ptr noundef %0)
+  %31 = tail call i64 @fwrite(ptr noundef %.06880, i64 noundef %26, i64 noundef 1, ptr noundef nonnull %0)
   %32 = icmp eq i64 %31, 1
   %33 = load i32, ptr %27, align 8, !tbaa !32
   %34 = sext i32 %33 to i64
@@ -1320,7 +1320,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 41:                                               ; preds = %.lr.ph84, %41
   %.183 = phi i32 [ 0, %.lr.ph84 ], [ %47, %41 ]
   %.06982 = phi ptr [ %13, %.lr.ph84 ], [ %46, %41 ]
-  %42 = tail call i64 @fwrite(ptr noundef %.06982, i64 noundef %28, i64 noundef 1, ptr noundef %0)
+  %42 = tail call i64 @fwrite(ptr noundef %.06982, i64 noundef %28, i64 noundef 1, ptr noundef nonnull %0)
   %43 = icmp eq i64 %42, 1
   %44 = load i32, ptr %29, align 4, !tbaa !36
   %45 = sext i32 %44 to i64
@@ -1343,7 +1343,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 53:                                               ; preds = %.lr.ph88, %53
   %.287 = phi i32 [ 0, %.lr.ph88 ], [ %59, %53 ]
   %.07186 = phi ptr [ %15, %.lr.ph88 ], [ %58, %53 ]
-  %54 = tail call i64 @fwrite(ptr noundef %.07186, i64 noundef %39, i64 noundef 1, ptr noundef %0)
+  %54 = tail call i64 @fwrite(ptr noundef %.07186, i64 noundef %39, i64 noundef 1, ptr noundef nonnull %0)
   %55 = icmp eq i64 %54, 1
   %56 = load i32, ptr %40, align 8, !tbaa !37
   %57 = sext i32 %56 to i64
@@ -1356,7 +1356,7 @@ define hidden range(i32 0, 2) i32 @WebPWriteYUV(ptr noundef %0, ptr noundef read
 .lr.ph92.split:                                   ; preds = %.lr.ph92.split.preheader, %.lr.ph92.split
   %.391 = phi i32 [ %67, %.lr.ph92.split ], [ 0, %.lr.ph92.split.preheader ]
   %.07090 = phi ptr [ %66, %.lr.ph92.split ], [ %.fr, %.lr.ph92.split.preheader ]
-  %62 = tail call i64 @fwrite(ptr noundef %.07090, i64 noundef %51, i64 noundef 1, ptr noundef %0)
+  %62 = tail call i64 @fwrite(ptr noundef %.07090, i64 noundef %51, i64 noundef 1, ptr noundef nonnull %0)
   %63 = icmp eq i64 %62, 1
   %64 = load i32, ptr %52, align 4, !tbaa !34
   %65 = sext i32 %64 to i64

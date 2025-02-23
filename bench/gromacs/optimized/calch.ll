@@ -153,18 +153,15 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %80 = fmul float %67, %79
   %81 = tail call float @llvm.fmuladd.f32(float %75, float %70, float %80)
   store float %81, ptr %33, align 4
-  switch i32 %0, label %507 [
-    i32 1, label %89
+  switch i32 %0, label %default.unreachable [
+    i32 9, label %.preheader244
     i32 2, label %.preheader
     i32 3, label %.preheader236
     i32 4, label %.preheader238
     i32 5, label %210
     i32 6, label %250
     i32 7, label %337
-    i32 10, label %362
-    i32 11, label %395
     i32 8, label %.preheader242
-    i32 9, label %.preheader244
   ]
 
 .preheader244:                                    ; preds = %66
@@ -186,7 +183,7 @@ define void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef %0, ptr noundef readonly %1, 
   %88 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %149
 
-89:                                               ; preds = %4, %66
+89:                                               ; preds = %4
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %92
@@ -569,7 +566,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit:           ; preds = %339
   store i32 %361, ptr %3, align 4
   br label %.loopexit
 
-362:                                              ; preds = %4, %66
+362:                                              ; preds = %4
   %363 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %364
 
@@ -618,7 +615,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221:        ; preds = %364
   store i32 %394, ptr %3, align 4
   br label %.loopexit
 
-395:                                              ; preds = %4, %66
+395:                                              ; preds = %4
   %396 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %397
 
@@ -778,7 +775,10 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %397
   call void @_Z10calc_h_posiPA3_fS0_Pi(i32 noundef 2, ptr noundef nonnull %11, ptr noundef nonnull %506, ptr noundef %3)
   br label %.loopexit
 
-507:                                              ; preds = %4, %66
+default.unreachable:                              ; preds = %66
+  unreachable
+
+507:                                              ; preds = %4
   call void @_ZNSt10filesystem7__cxx114pathC2IA129_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 1 dereferenceable(129) @.str, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %12, i32 noundef 276, ptr noundef nonnull @.str.1, i32 noundef %0) #11
           to label %508 unwind label %509
@@ -792,7 +792,7 @@ _ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225:        ; preds = %397
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #10
   resume { ptr, i32 } %510
 
-.loopexit:                                        ; preds = %434, %313, %238, %209, %149, %.preheader, %124, %474, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit
+.loopexit:                                        ; preds = %124, %434, %313, %238, %209, %149, %.preheader, %474, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit225, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit221, %_ZL17gen_waterhydrogeniPA3_fS0_Pi.exit
   ret void
 }
 

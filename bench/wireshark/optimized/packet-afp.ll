@@ -2502,7 +2502,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   %83 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 4)
   %84 = zext i16 %83 to i32
   %.not299 = icmp eq i16 %83, 0
-  %.not300 = icmp sgt i32 %.6, %84
+  %.not300 = icmp samesign ugt i32 %.6, %84
   %or.cond311 = select i1 %.not299, i1 true, i1 %.not300
   br i1 %or.cond311, label %.loopexit318, label %85
 
@@ -2535,7 +2535,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   %98 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 6)
   %99 = zext i16 %98 to i32
   %.not301 = icmp eq i16 %98, 0
-  %.not302 = icmp sgt i32 %.6, %99
+  %.not302 = icmp samesign ugt i32 %.6, %99
   %or.cond312 = select i1 %.not301, i1 true, i1 %.not302
   br i1 %or.cond312, label %103, label %100
 
@@ -2545,7 +2545,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   br label %103
 
 103:                                              ; preds = %100, %.loopexit318
-  %.not303 = icmp slt i32 %.0270, %.6
+  %.not303 = icmp samesign ult i32 %.0270, %.6
   %or.cond313 = select i1 %.not, i1 true, i1 %.not303
   br i1 %or.cond313, label %107, label %104
 
@@ -2555,7 +2555,7 @@ define internal i32 @dissect_afp_server_status(ptr noundef %0, ptr noundef reado
   br label %107
 
 107:                                              ; preds = %104, %103
-  %.not304 = icmp slt i32 %.0271, %.6
+  %.not304 = icmp samesign ult i32 %.0271, %.6
   %or.cond314 = select i1 %.not289, i1 true, i1 %.not304
   br i1 %or.cond314, label %.loopexit317, label %108
 
@@ -6521,7 +6521,7 @@ spotlight_get_utf16_string_byte_order.exit:       ; preds = %53, %60
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !17
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
-  %101 = sub i32 %.0229274, %84
+  %101 = sub nsw i32 %.0229274, %84
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %93, %86

@@ -1595,7 +1595,7 @@ copy_to_prebuf.exit:                              ; preds = %.lr.ph.i, %288
   br i1 %exitcond.not.i380, label %copy_to_prebuf.exit381, label %.lr.ph.i375, !llvm.loop !51
 
 copy_to_prebuf.exit381:                           ; preds = %.lr.ph.i375, %copy_to_prebuf.exit
-  %299 = icmp sgt i32 %spec.select, 1
+  %299 = icmp samesign ugt i32 %spec.select, 1
   br i1 %299, label %300, label %.loopexit425
 
 300:                                              ; preds = %copy_to_prebuf.exit381
@@ -2440,7 +2440,7 @@ define hidden i32 @BN_mod_exp2_mont(ptr noundef %0, ptr noundef %1, ptr noundef 
 163:                                              ; preds = %157, %154, %155
   %.4 = phi i32 [ %.1171, %155 ], [ 0, %154 ], [ 0, %157 ]
   %.2 = phi i32 [ %.1169, %155 ], [ %.1169, %154 ], [ 0, %157 ]
-  %164 = icmp sgt i32 %.0188.in254, 1
+  %164 = icmp samesign ugt i32 %.0188.in254, 1
   br i1 %164, label %.lr.ph261, label %._crit_edge, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %163, %.preheader

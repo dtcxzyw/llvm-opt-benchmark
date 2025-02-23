@@ -169,7 +169,7 @@ define range(i32 -7, 2) i32 @lzwInflate(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi i64 [ %57, %60 ], [ %64, %62 ]
   %63 = load ptr, ptr %.0313, align 8, !tbaa !12
   %64 = add nsw i64 %.0, -1
-  %65 = icmp sgt i64 %64, %58
+  %65 = icmp samesign ugt i64 %64, %58
   br i1 %65, label %62, label %66
 
 66:                                               ; preds = %62

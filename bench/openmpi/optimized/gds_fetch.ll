@@ -352,7 +352,7 @@ pmix_obj_update.exit103:                          ; preds = %115
 .lr.ph.i108:                                      ; preds = %125, %.lr.ph.i108
   %131 = phi ptr [ %133, %.lr.ph.i108 ], [ %130, %125 ]
   %.07.i109 = phi ptr [ %132, %.lr.ph.i108 ], [ %129, %125 ]
-  call void %131(ptr noundef %91) #13
+  call void %131(ptr noundef nonnull %91) #13
   %132 = getelementptr inbounds nuw i8, ptr %.07.i109, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !38
   %.not.i110 = icmp eq ptr %133, null
@@ -1324,7 +1324,7 @@ pmix_obj_update.exit352:                          ; preds = %.loopexit446
 .lr.ph.i364:                                      ; preds = %231, %.lr.ph.i364
   %237 = phi ptr [ %239, %.lr.ph.i364 ], [ %236, %231 ]
   %.07.i365 = phi ptr [ %238, %.lr.ph.i364 ], [ %235, %231 ]
-  tail call void %237(ptr noundef %92) #13
+  tail call void %237(ptr noundef nonnull %92) #13
   %238 = getelementptr inbounds nuw i8, ptr %.07.i365, i64 8
   %239 = load ptr, ptr %238, align 8, !tbaa !38
   %.not.i366 = icmp eq ptr %239, null
@@ -1735,7 +1735,7 @@ pmix_obj_update.exit349:                          ; preds = %.loopexit
 .lr.ph.i389:                                      ; preds = %415, %.lr.ph.i389
   %421 = phi ptr [ %423, %.lr.ph.i389 ], [ %420, %415 ]
   %.07.i390 = phi ptr [ %422, %.lr.ph.i389 ], [ %419, %415 ]
-  tail call void %421(ptr noundef %274) #13
+  tail call void %421(ptr noundef nonnull %274) #13
   %422 = getelementptr inbounds nuw i8, ptr %.07.i390, i64 8
   %423 = load ptr, ptr %422, align 8, !tbaa !38
   %.not.i391 = icmp eq ptr %423, null
@@ -2426,7 +2426,7 @@ pmix_obj_update.exit208:                          ; preds = %.loopexit246
 .lr.ph.i220:                                      ; preds = %191, %.lr.ph.i220
   %197 = phi ptr [ %199, %.lr.ph.i220 ], [ %196, %191 ]
   %.07.i221 = phi ptr [ %198, %.lr.ph.i220 ], [ %195, %191 ]
-  tail call void %197(ptr noundef %91) #13
+  tail call void %197(ptr noundef nonnull %91) #13
   %198 = getelementptr inbounds nuw i8, ptr %.07.i221, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !38
   %.not.i222 = icmp eq ptr %199, null

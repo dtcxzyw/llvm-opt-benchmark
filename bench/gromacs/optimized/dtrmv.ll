@@ -76,13 +76,13 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph327:                                        ; preds = %.preheader312
   %40 = mul nsw i64 %indvars.iv415, %33
-  %invariant.gep494 = getelementptr double, ptr %13, i64 %40
+  %invariant.gep488 = getelementptr double, ptr %13, i64 %40
   br label %41
 
 41:                                               ; preds = %.lr.ph327, %41
   %indvars.iv411 = phi i64 [ 1, %.lr.ph327 ], [ %indvars.iv.next412, %41 ]
-  %gep495 = getelementptr double, ptr %invariant.gep494, i64 %indvars.iv411
-  %42 = load double, ptr %gep495, align 8
+  %gep489 = getelementptr double, ptr %invariant.gep488, i64 %indvars.iv411
+  %42 = load double, ptr %gep489, align 8
   %43 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv411
   %44 = load double, ptr %43, align 8
   %45 = tail call double @llvm.fmuladd.f64(double %37, double %42, double %44)
@@ -196,19 +196,19 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph343:                                        ; preds = %.preheader307
   %86 = mul nsw i64 %indvars.iv429, %80
-  %invariant.gep498 = getelementptr double, ptr %13, i64 %86
+  %invariant.gep492 = getelementptr double, ptr %13, i64 %86
   br label %87
 
 87:                                               ; preds = %.lr.ph343, %87
   %indvars.iv426 = phi i64 [ %79, %.lr.ph343 ], [ %indvars.iv.next427, %87 ]
-  %gep499 = getelementptr double, ptr %invariant.gep498, i64 %indvars.iv426
-  %88 = load double, ptr %gep499, align 8
+  %gep493 = getelementptr double, ptr %invariant.gep492, i64 %indvars.iv426
+  %88 = load double, ptr %gep493, align 8
   %89 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv426
   %90 = load double, ptr %89, align 8
   %91 = tail call double @llvm.fmuladd.f64(double %83, double %88, double %90)
   store double %91, ptr %89, align 8
   %indvars.iv.next427 = add nsw i64 %indvars.iv426, -1
-  %.not297.not = icmp sgt i64 %indvars.iv.next427, %indvars.iv429
+  %.not297.not = icmp samesign ugt i64 %indvars.iv.next427, %indvars.iv429
   br i1 %.not297.not, label %87, label %._crit_edge344, !llvm.loop !9
 
 ._crit_edge344:                                   ; preds = %87, %.preheader307
@@ -260,14 +260,14 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph335:                                        ; preds = %.preheader310
   %114 = mul nsw i64 %indvars.iv423, %107
-  %invariant.gep496 = getelementptr double, ptr %13, i64 %114
+  %invariant.gep490 = getelementptr double, ptr %13, i64 %114
   br label %115
 
 115:                                              ; preds = %.lr.ph335, %115
   %indvars.iv420 = phi i64 [ %106, %.lr.ph335 ], [ %indvars.iv.next421, %115 ]
   %.1264334 = phi i32 [ %103, %.lr.ph335 ], [ %121, %115 ]
-  %gep497 = getelementptr double, ptr %invariant.gep496, i64 %indvars.iv420
-  %116 = load double, ptr %gep497, align 8
+  %gep491 = getelementptr double, ptr %invariant.gep490, i64 %indvars.iv420
+  %116 = load double, ptr %gep491, align 8
   %117 = sext i32 %.1264334 to i64
   %118 = getelementptr inbounds double, ptr %14, i64 %117
   %119 = load double, ptr %118, align 8
@@ -275,7 +275,7 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   store double %120, ptr %118, align 8
   %121 = sub nsw i32 %.1264334, %11
   %indvars.iv.next421 = add nsw i64 %indvars.iv420, -1
-  %.not296.not = icmp sgt i64 %indvars.iv.next421, %indvars.iv423
+  %.not296.not = icmp samesign ugt i64 %indvars.iv.next421, %indvars.iv423
   br i1 %.not296.not, label %115, label %._crit_edge336, !llvm.loop !11
 
 ._crit_edge336:                                   ; preds = %115, %.preheader310
@@ -343,23 +343,19 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 151:                                              ; preds = %141, %144
   %.0 = phi double [ %150, %144 ], [ %143, %141 ]
   %152 = icmp sgt i64 %indvars.iv438, 1
-  br i1 %152, label %.lr.ph360, label %._crit_edge361.thread
-
-._crit_edge361.thread:                            ; preds = %151
-  store double %.0, ptr %142, align 8
-  br label %.loopexit
+  br i1 %152, label %.lr.ph360, label %.loopexit.loopexit388
 
 .lr.ph360:                                        ; preds = %151
   %153 = mul nsw i64 %indvars.iv438, %140
-  %invariant.gep502 = getelementptr double, ptr %13, i64 %153
+  %invariant.gep496 = getelementptr double, ptr %13, i64 %153
   br label %154
 
 154:                                              ; preds = %.lr.ph360, %154
   %indvars.iv440 = phi i64 [ %indvars.iv438, %.lr.ph360 ], [ %indvars.iv.next441, %154 ]
   %.1358 = phi double [ %.0, %.lr.ph360 ], [ %158, %154 ]
   %indvars.iv.next441 = add nsw i64 %indvars.iv440, -1
-  %gep503 = getelementptr double, ptr %invariant.gep502, i64 %indvars.iv.next441
-  %155 = load double, ptr %gep503, align 8
+  %gep497 = getelementptr double, ptr %invariant.gep496, i64 %indvars.iv.next441
+  %155 = load double, ptr %gep497, align 8
   %156 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv.next441
   %157 = load double, ptr %156, align 8
   %158 = tail call double @llvm.fmuladd.f64(double %155, double %157, double %.1358)
@@ -404,15 +400,11 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 176:                                              ; preds = %165, %169
   %.2 = phi double [ %175, %169 ], [ %168, %165 ]
   %177 = icmp sgt i64 %indvars.iv432, 1
-  br i1 %177, label %.lr.ph351, label %._crit_edge352.thread
-
-._crit_edge352.thread:                            ; preds = %176
-  store double %.2, ptr %167, align 8
-  br label %.loopexit
+  br i1 %177, label %.lr.ph351, label %.loopexit.loopexit389
 
 .lr.ph351:                                        ; preds = %176
   %178 = mul nsw i64 %indvars.iv432, %164
-  %invariant.gep500 = getelementptr double, ptr %13, i64 %178
+  %invariant.gep494 = getelementptr double, ptr %13, i64 %178
   br label %179
 
 179:                                              ; preds = %.lr.ph351, %179
@@ -421,8 +413,8 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %.2265348 = phi i32 [ %.2261354, %.lr.ph351 ], [ %180, %179 ]
   %indvars.iv.next435 = add nsw i64 %indvars.iv434, -1
   %180 = sub nsw i32 %.2265348, %11
-  %gep501 = getelementptr double, ptr %invariant.gep500, i64 %indvars.iv.next435
-  %181 = load double, ptr %gep501, align 8
+  %gep495 = getelementptr double, ptr %invariant.gep494, i64 %indvars.iv.next435
+  %181 = load double, ptr %gep495, align 8
   %182 = sext i32 %180 to i64
   %183 = getelementptr inbounds double, ptr %14, i64 %182
   %184 = load double, ptr %183, align 8
@@ -493,14 +485,14 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph381:                                        ; preds = %211
   %212 = mul nsw i64 %indvars.iv469, %198
-  %invariant.gep506 = getelementptr double, ptr %13, i64 %212
+  %invariant.gep500 = getelementptr double, ptr %13, i64 %212
   br label %213
 
 213:                                              ; preds = %.lr.ph381, %213
   %indvars.iv464 = phi i64 [ %201, %.lr.ph381 ], [ %indvars.iv.next465, %213 ]
   %.5379 = phi double [ %.4, %.lr.ph381 ], [ %217, %213 ]
-  %gep507 = getelementptr double, ptr %invariant.gep506, i64 %indvars.iv464
-  %214 = load double, ptr %gep507, align 8
+  %gep501 = getelementptr double, ptr %invariant.gep500, i64 %indvars.iv464
+  %214 = load double, ptr %gep501, align 8
   %215 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv464
   %216 = load double, ptr %215, align 8
   %217 = tail call double @llvm.fmuladd.f64(double %214, double %216, double %.5379)
@@ -545,7 +537,7 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .lr.ph370:                                        ; preds = %229
   %230 = mul nsw i64 %indvars.iv456, %194
-  %invariant.gep504 = getelementptr double, ptr %13, i64 %230
+  %invariant.gep498 = getelementptr double, ptr %13, i64 %230
   br label %231
 
 231:                                              ; preds = %.lr.ph370, %231
@@ -553,8 +545,8 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %indvars.iv446 = phi i64 [ %indvars.iv444, %.lr.ph370 ], [ %indvars.iv.next447, %231 ]
   %.7368 = phi double [ %.6, %.lr.ph370 ], [ %235, %231 ]
   %indvars.iv.next447 = add nsw i64 %indvars.iv446, %192
-  %gep505 = getelementptr double, ptr %invariant.gep504, i64 %indvars.iv450
-  %232 = load double, ptr %gep505, align 8
+  %gep499 = getelementptr double, ptr %invariant.gep498, i64 %indvars.iv450
+  %232 = load double, ptr %gep499, align 8
   %233 = getelementptr inbounds double, ptr %14, i64 %indvars.iv.next447
   %234 = load double, ptr %233, align 8
   %235 = tail call double @llvm.fmuladd.f64(double %232, double %234, double %.7368)
@@ -571,7 +563,15 @@ define void @dtrmv_(ptr noundef readonly captures(none) %0, ptr noundef readonly
   %exitcond461.not = icmp eq i64 %indvars.iv.next457, %wide.trip.count
   br i1 %exitcond461.not, label %.loopexit, label %218, !llvm.loop !20
 
-.loopexit:                                        ; preds = %74, %54, %130, %100, %._crit_edge371, %._crit_edge382, %._crit_edge352.thread, %._crit_edge361.thread, %.preheader316, %.preheader313, %102, %.preheader308, %160, %.preheader304, %.preheader302, %.preheader, %8
+.loopexit.loopexit388:                            ; preds = %151
+  store double %.0, ptr %142, align 8
+  br label %.loopexit
+
+.loopexit.loopexit389:                            ; preds = %176
+  store double %.2, ptr %167, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %74, %54, %130, %100, %._crit_edge371, %._crit_edge382, %.loopexit.loopexit389, %.loopexit.loopexit388, %.preheader316, %.preheader313, %102, %.preheader308, %160, %.preheader304, %.preheader302, %.preheader, %8
   ret void
 }
 

@@ -33915,60 +33915,56 @@ _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.spl
   %6 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %.)
   %.not.i.i.i = icmp ne ptr %6, null
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %7 = load i32, ptr %6, align 8
-  %8 = icmp eq i32 %7, 2
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %10 = select i1 %8, ptr %9, ptr null
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %13 = load i64, ptr %11, align 4
-  store i64 %13, ptr %12, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %.not = icmp eq ptr %15, null
-  br i1 %.not, label %18, label %16
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %9 = load i64, ptr %7, align 4
+  store i64 %9, ptr %8, align 4
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %.not = icmp eq ptr %11, null
+  br i1 %.not, label %14, label %12
 
-16:                                               ; preds = %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %15, ptr %17, align 8
-  br label %18
+12:                                               ; preds = %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %11, ptr %13, align 8
+  br label %14
 
-18:                                               ; preds = %16, %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
-  %19 = load ptr, ptr %2, align 8
-  %20 = load ptr, ptr %0, align 8
-  %21 = tail call noundef ptr @_ZN4Luau6TxnLog7replaceINS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEPNS_15PendingTypePackES6_T_(ptr noundef nonnull align 8 dereferenceable(128) %19, ptr noundef %20, ptr %1)
+14:                                               ; preds = %12, %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+  %15 = load ptr, ptr %2, align 8
+  %16 = load ptr, ptr %0, align 8
+  %17 = tail call noundef ptr @_ZN4Luau6TxnLog7replaceINS_9Unifiable5BoundIPKNS_11TypePackVarEEEEEPNS_15PendingTypePackES6_T_(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef %16, ptr %1)
   store ptr %1, ptr %0, align 8
-  %22 = load ptr, ptr %2, align 8
-  %23 = tail call noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef %1)
-  %.not.i7 = icmp eq ptr %23, null
-  br i1 %.not.i7, label %26, label %24
+  %18 = load ptr, ptr %2, align 8
+  %19 = tail call noundef ptr @_ZNK4Luau6TxnLog7pendingEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %18, ptr noundef %1)
+  %.not.i7 = icmp eq ptr %19, null
+  br i1 %.not.i7, label %22, label %20
 
-24:                                               ; preds = %18
-  %25 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %23)
-  %.not.i.i.i.i8 = icmp eq ptr %25, null
+20:                                               ; preds = %14
+  %21 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef nonnull %19)
+  %.not.i.i.i.i8 = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i8, label %_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit, label %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
 
-26:                                               ; preds = %18
-  %27 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %1)
-  %.not.i.i.i11 = icmp eq ptr %27, null
+22:                                               ; preds = %14
+  %23 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_11TypePackVarE(ptr noundef %1)
+  %.not.i.i.i11 = icmp eq ptr %23, null
   br i1 %.not.i.i.i11, label %_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit, label %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
 
-_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %26, %24
-  %.sink.i9 = phi ptr [ %25, %24 ], [ %27, %26 ]
-  %28 = load i32, ptr %.sink.i9, align 8
-  %29 = icmp eq i32 %28, 4
-  %30 = getelementptr inbounds nuw i8, ptr %.sink.i9, i64 8
-  %31 = select i1 %29, ptr %30, ptr null
+_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i: ; preds = %22, %20
+  %.sink.i9 = phi ptr [ %21, %20 ], [ %23, %22 ]
+  %24 = load i32, ptr %.sink.i9, align 8
+  %25 = icmp eq i32 %24, 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sink.i9, i64 8
+  %27 = select i1 %25, ptr %26, ptr null
   br label %_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit
 
-_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit: ; preds = %24, %26, %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
-  %.0.i10 = phi ptr [ null, %24 ], [ null, %26 ], [ %31, %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.0.i10, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 0, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 1, ptr %34, align 8
+_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit: ; preds = %20, %22, %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i
+  %.0.i10 = phi ptr [ null, %20 ], [ null, %22 ], [ %27, %_ZN4Luau10getMutableINS_8TypePackEEEPT_PNS_15PendingTypePackE.exit.sink.split.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.0.i10, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 0, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 1, ptr %30, align 8
   ret void
 }
 
@@ -34879,7 +34875,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stE
   br label %_ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit
 
 _ZNSt13unordered_mapIPKN4Luau4TypeES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKN4Luau4TypeESt4pairIKS3_S3_ESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %79
-  %82 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.049.058) #31
+  %82 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.049.058) #31
   %.not = icmp eq ptr %82, %56
   br i1 %.not, label %._crit_edge, label %64
 
@@ -44160,34 +44156,30 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau16SkipCacheForType5vis
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %5, %7
-  br i1 %.not, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, label %20
+  br i1 %.not, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit, label %16
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %3
   %8 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef nonnull %1)
   %.not.i.i = icmp ne ptr %8, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %9 = load i32, ptr %8, align 8
-  %10 = icmp eq i32 %9, 9
-  %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %12 = select i1 %10, ptr %11, ptr null
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
-  %14 = load i8, ptr %13, align 8
-  %15 = trunc i8 %14 to i1
-  br i1 %15, label %.sink.split, label %16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 288
+  %10 = load i8, ptr %9, align 8
+  %11 = trunc i8 %10 to i1
+  br i1 %11, label %.sink.split, label %12
 
-16:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %17 = getelementptr inbounds nuw i8, ptr %12, i64 72
-  %18 = load i32, ptr %17, align 8
-  %.not6 = icmp eq i32 %18, 0
-  br i1 %.not6, label %20, label %.sink.split
+12:                                               ; preds = %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  %14 = load i32, ptr %13, align 8
+  %.not6 = icmp eq i32 %14, 0
+  br i1 %.not6, label %16, label %.sink.split
 
-.sink.split:                                      ; preds = %16, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 1, ptr %19, align 8
-  br label %20
+.sink.split:                                      ; preds = %12, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 1, ptr %15, align 8
+  br label %16
 
-20:                                               ; preds = %.sink.split, %16, %3
-  %.0 = phi i1 [ false, %3 ], [ true, %16 ], [ false, %.sink.split ]
+16:                                               ; preds = %.sink.split, %12, %3
+  %.0 = phi i1 [ false, %3 ], [ true, %12 ], [ false, %.sink.split ]
   ret i1 %.0
 }
 

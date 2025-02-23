@@ -1550,7 +1550,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJRKddfEEERS1_DpOT_.exit: ; pr
   %176 = load ptr, ptr %171, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
   store ptr %177, ptr %171, align 8
-  br label %.critedge
+  br label %621
 
 178:                                              ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJRKddfEEERS1_DpOT_.exit
   %179 = load ptr, ptr %170, align 8
@@ -1598,7 +1598,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   store ptr %195, ptr %171, align 8
   %197 = getelementptr inbounds nuw i32, ptr %191, i64 %189
   store ptr %197, ptr %173, align 8
-  br label %.critedge
+  br label %621
 
 198:                                              ; preds = %3
   %199 = tail call noundef ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(24) %19, ptr nonnull @_ZTIN6Assimp4STEP6ObjectE, ptr nonnull @_ZTIN6Assimp3IFC10Schema_2x319IfcCircleProfileDefE, i64 -1) #22
@@ -1691,7 +1691,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EE7reserveEm.exit132: ; preds = %213, %_ZNSt12
   %240 = load ptr, ptr %235, align 8
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   store ptr %241, ptr %235, align 8
-  br label %.critedge
+  br label %621
 
 242:                                              ; preds = %._crit_edge
   %243 = load ptr, ptr %234, align 8
@@ -1739,7 +1739,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS
   store ptr %259, ptr %235, align 8
   %261 = getelementptr inbounds nuw i32, ptr %255, i64 %253
   store ptr %261, ptr %237, align 8
-  br label %.critedge
+  br label %621
 
 262:                                              ; preds = %.lr.ph, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJddfEEERS1_DpOT_.exit154
   %.079384 = phi double [ 0.000000e+00, %.lr.ph ], [ %297, %_ZNSt6vectorI10aiVector3tIdESaIS1_EE12emplace_backIJddfEEERS1_DpOT_.exit154 ]
@@ -2606,16 +2606,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %608 = load i64, ptr %599, align 8
   %609 = icmp ult i64 %608, 16
   call void @llvm.assume(i1 %609)
-  br label %.thread
+  br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZN6Assimp12LogFunctionsINS_11IFCImporterEE7LogWarnIJRA61_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvDpOT_.exit
   %610 = load i64, ptr %587, align 8
   %611 = add i64 %610, 1
   call void @_ZdlPvm(ptr noundef %606, i64 noundef %611) #25
-  br label %.thread
-
-.thread:                                          ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
 612:                                              ; preds = %.noexc208, %.noexc207, %603, %_ZNK6Assimp4STEP6Object12GetClassNameB5cxx11Ev.exit
@@ -2643,31 +2639,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit212: ; preds = %_Z
 
 620:                                              ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i205, %561
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  br label %.critedge
+  br label %621
 
-.critedge:                                        ; preds = %620, %239, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i139, %175, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i
+_ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14) #22
+  br label %630
+
+621:                                              ; preds = %175, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i, %620, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i139, %239
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %15) #22
   store double 1.000000e+00, ptr %15, align 8
-  %621 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %622 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %621, i8 0, i64 32, i1 false)
-  store double 1.000000e+00, ptr %622, align 8
-  %623 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %624 = getelementptr inbounds nuw i8, ptr %15, i64 80
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %623, i8 0, i64 32, i1 false)
-  store double 1.000000e+00, ptr %624, align 8
-  %625 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %626 = getelementptr inbounds nuw i8, ptr %15, i64 120
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %625, i8 0, i64 32, i1 false)
-  store double 1.000000e+00, ptr %626, align 8
-  %627 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %628 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6Assimp4STEP4LazyINS_3IFC10Schema_2x319IfcAxis2Placement2DEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %627)
-  call void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0_10Schema_2x319IfcAxis2Placement2DE(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(88) %628)
+  %622 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %623 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %622, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %623, align 8
+  %624 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %625 = getelementptr inbounds nuw i8, ptr %15, i64 80
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %624, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %625, align 8
+  %626 = getelementptr inbounds nuw i8, ptr %15, i64 88
+  %627 = getelementptr inbounds nuw i8, ptr %15, i64 120
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %626, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %627, align 8
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %629 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZNK6Assimp4STEP4LazyINS_3IFC10Schema_2x319IfcAxis2Placement2DEEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %628)
+  call void @_ZN6Assimp3IFC20ConvertAxisPlacementER12aiMatrix4x4tIdERKNS0_10Schema_2x319IfcAxis2Placement2DE(ptr noundef nonnull align 8 dereferenceable(128) %15, ptr noundef nonnull align 8 dereferenceable(88) %629)
   call void @_ZN6Assimp3IFC8TempMesh9TransformERK12aiMatrix4x4tIdE(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(128) %15)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %15) #22
-  br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
+  br label %630
 
-_ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %.thread, %.critedge
+630:                                              ; preds = %_ZNSt6vectorIjSaIjEE9push_backEOj.exit, %621
   ret void
 }
 

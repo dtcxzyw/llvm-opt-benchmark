@@ -1186,7 +1186,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_a
   %962 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %963 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %964 = zext nneg i32 %.4 to i64
-  %wide.trip.count1633 = zext i32 %1 to i64
+  %wide.trip.count1633 = zext nneg i32 %1 to i64
   br label %965
 
 965:                                              ; preds = %.lr.ph1569, %1025
@@ -2442,7 +2442,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_intrin_avx2
   %604 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %605 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %606 = zext nneg i32 %.4 to i64
-  %wide.trip.count1633 = zext i32 %1 to i64
+  %wide.trip.count1633 = zext nneg i32 %1 to i64
   br label %607
 
 607:                                              ; preds = %.lr.ph1569, %667
@@ -4059,7 +4059,7 @@ define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_wide_intrin
   %977 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %978 = zext nneg i32 %4 to i64
   %979 = zext nneg i32 %.4 to i64
-  %wide.trip.count1645 = zext i32 %1 to i64
+  %wide.trip.count1645 = zext nneg i32 %1 to i64
   br label %980
 
 980:                                              ; preds = %.lr.ph1581, %1064

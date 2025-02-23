@@ -2557,7 +2557,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.val29 = load ptr, ptr %52, align 8, !tbaa !69
   %54 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4, !tbaa !46
-  tail call void @Intp_ManUnsatCore_rec(ptr noundef %0, i32 noundef %55, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
+  tail call void @Intp_ManUnsatCore_rec(ptr noundef nonnull %0, i32 noundef %55, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %4, i32 noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %50, align 4, !tbaa !70
   %56 = sext i32 %.val to i64
@@ -3109,17 +3109,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val = load i32, ptr %41, align 4, !tbaa !70
   %83 = sext i32 %.val to i64
   %84 = icmp slt i64 %indvars.iv.next72, %83
-  br i1 %84, label %47, label %.critedge, !llvm.loop !107
+  br i1 %84, label %47, label %.critedge.thread, !llvm.loop !107
 
-.critedge:                                        ; preds = %82, %._crit_edge
+.critedge:                                        ; preds = %._crit_edge
   %.not.i48 = icmp eq ptr %.pre, null
-  br i1 %.not.i48, label %Vec_PtrFree.exit, label %85
+  br i1 %.not.i48, label %Vec_PtrFree.exit, label %.critedge.thread
 
-85:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %82, %.critedge
   tail call void @free(ptr noundef nonnull %.pre) #16
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %85
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %7) #16
   ret void
 }

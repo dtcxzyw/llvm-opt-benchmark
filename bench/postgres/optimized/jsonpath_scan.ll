@@ -3707,70 +3707,80 @@ define dso_local nonnull ptr @jsonpath_yy_scan_bytes(ptr noundef readonly captur
   store i8 %10, ptr %11, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %12 = add i32 %1, 1
+._crit_edge.thread:                               ; preds = %.lr.ph
+  %12 = add nuw i32 %1, 1
   %13 = sext i32 %12 to i64
   %14 = getelementptr inbounds i8, ptr %6, i64 %13
   store i8 0, ptr %14, align 1
-  %15 = sext i32 %1 to i64
-  %16 = getelementptr inbounds i8, ptr %6, i64 %15
+  %15 = zext nneg i32 %1 to i64
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
   store i8 0, ptr %16, align 1
-  %17 = icmp ugt i32 %1, -3
-  br i1 %17, label %29, label %18
+  br label %23
 
-18:                                               ; preds = %._crit_edge
-  %19 = add nsw i64 %5, -2
-  %20 = getelementptr inbounds nuw i8, ptr %6, i64 %19
-  %21 = load i8, ptr %20, align 1
-  %.not.i = icmp eq i8 %21, 0
-  br i1 %.not.i, label %22, label %29
+._crit_edge:                                      ; preds = %.preheader
+  %17 = sext i32 %1 to i64
+  %18 = getelementptr i8, ptr %6, i64 %17
+  %19 = getelementptr i8, ptr %18, i64 1
+  store i8 0, ptr %19, align 1
+  %20 = sext i32 %1 to i64
+  %21 = getelementptr inbounds i8, ptr %6, i64 %20
+  store i8 0, ptr %21, align 1
+  %22 = icmp ugt i32 %1, -3
+  br i1 %22, label %34, label %23
 
-22:                                               ; preds = %18
-  %23 = getelementptr i8, ptr %6, i64 %5
-  %24 = getelementptr i8, ptr %23, i64 -1
-  %25 = load i8, ptr %24, align 1
-  %.not26.i = icmp eq i8 %25, 0
-  br i1 %.not26.i, label %26, label %29
+23:                                               ; preds = %._crit_edge.thread, %._crit_edge
+  %24 = add nsw i64 %5, -2
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 %24
+  %26 = load i8, ptr %25, align 1
+  %.not.i = icmp eq i8 %26, 0
+  br i1 %.not.i, label %27, label %34
 
-26:                                               ; preds = %22
-  %27 = tail call ptr @palloc(i64 noundef 64) #17
-  %.not27.i = icmp eq ptr %27, null
-  br i1 %.not27.i, label %28, label %30
+27:                                               ; preds = %23
+  %28 = getelementptr i8, ptr %6, i64 %5
+  %29 = getelementptr i8, ptr %28, i64 -1
+  %30 = load i8, ptr %29, align 1
+  %.not26.i = icmp eq i8 %30, 0
+  br i1 %.not26.i, label %31, label %34
 
-28:                                               ; preds = %26
+31:                                               ; preds = %27
+  %32 = tail call ptr @palloc(i64 noundef 64) #17
+  %.not27.i = icmp eq ptr %32, null
+  br i1 %.not27.i, label %33, label %35
+
+33:                                               ; preds = %31
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.10) #18
   unreachable
 
-29:                                               ; preds = %22, %18, %._crit_edge
+34:                                               ; preds = %27, %23, %._crit_edge
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #18
   unreachable
 
-30:                                               ; preds = %26
-  %31 = trunc i64 %19 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store i32 %31, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %6, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %6, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store i32 0, ptr %35, align 8
-  store ptr null, ptr %27, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %27, i64 28
-  store i32 %31, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  store i32 0, ptr %37, align 4
-  %38 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store i32 1, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %27, i64 52
-  store i32 0, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %27, i64 56
+35:                                               ; preds = %31
+  %36 = trunc i64 %24 to i32
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store i32 %36, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr %6, ptr %38, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %6, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %32, i64 32
   store i32 0, ptr %40, align 8
-  tail call void @jsonpath_yy_switch_to_buffer(ptr noundef nonnull %27, ptr noundef %2)
-  store i32 1, ptr %35, align 8
-  ret ptr %27
+  store ptr null, ptr %32, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  store i32 %36, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 36
+  store i32 0, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store i32 1, ptr %43, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %32, i64 52
+  store i32 0, ptr %44, align 4
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  store i32 0, ptr %45, align 8
+  tail call void @jsonpath_yy_switch_to_buffer(ptr noundef nonnull %32, ptr noundef %2)
+  store i32 1, ptr %40, align 8
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)

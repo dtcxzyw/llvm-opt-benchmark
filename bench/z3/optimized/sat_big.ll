@@ -1366,7 +1366,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZN6vectorIN3sat7li
   br i1 %cmp.not15.i, label %while.cond.i.preheader, label %if.then.i.i
 
 while.cond.i.preheader:                           ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i
-  %.ph302 = phi ptr [ %5, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ]
+  %.ph304 = phi ptr [ %5, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ]
   %retval.0.i16.i.ph = phi i32 [ %6, %_ZNK6vectorIiLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIiLb0EjE4sizeEv.exit.i ]
   br label %while.cond.i
 
@@ -1375,7 +1375,7 @@ if.then.i.i:                                      ; preds = %_ZNK6vectorIiLb0EjE
   br label %_ZN6vectorIiLb0EjE6resizeIiEEvjT_z.exit
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.body.i
-  %7 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph302, %while.cond.i.preheader ]
+  %7 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph304, %while.cond.i.preheader ]
   %cmp.i10.i = icmp eq ptr %7, null
   br i1 %cmp.i10.i, label %while.body.i, label %_ZNK6vectorIiLb0EjE8capacityEv.exit.i
 
@@ -1622,16 +1622,16 @@ for.body:                                         ; preds = %for.body.preheader,
   store i32 %38, ptr %arrayidx.i128, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
+  br i1 %exitcond.not, label %invoke.cont.lr.ph, label %for.body, !llvm.loop !18
 
-for.end:                                          ; preds = %for.body
+invoke.cont.lr.ph:                                ; preds = %for.body
   store ptr null, ptr %todo, align 8
   %m_roots = getelementptr inbounds nuw i8, ptr %this, i64 24
   %wide.trip.count260 = zext i32 %mul to i64
   br label %invoke.cont
 
-invoke.cont:                                      ; preds = %for.end, %for.inc33
-  %indvars.iv257 = phi i64 [ 0, %for.end ], [ %indvars.iv.next258, %for.inc33 ]
+invoke.cont:                                      ; preds = %invoke.cont.lr.ph, %for.inc33
+  %indvars.iv257 = phi i64 [ 0, %invoke.cont.lr.ph ], [ %indvars.iv.next258, %for.inc33 ]
   %40 = load ptr, ptr %m_roots, align 8
   %arrayidx.i130 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv257
   %41 = load i8, ptr %arrayidx.i130, align 1
@@ -1751,7 +1751,7 @@ lor.rhs.i.lr.ph:                                  ; preds = %_ZNK6vectorIN3sat3b
   br label %lor.rhs.i
 
 for.body134.preheader:                            ; preds = %lor.rhs.i, %if.end130, %_Z7shuffleIN3sat3big6pframeEEvjPT_R10random_gen.exit, %for.end35
-  %dfs_num.0.lcssa296 = phi i32 [ 0, %for.end35 ], [ 0, %_Z7shuffleIN3sat3big6pframeEEvjPT_R10random_gen.exit ], [ %dfs_num.0251, %lor.rhs.i ], [ %dfs_num.2, %if.end130 ]
+  %dfs_num.0.lcssa298 = phi i32 [ 0, %for.end35 ], [ 0, %_Z7shuffleIN3sat3big6pframeEEvjPT_R10random_gen.exit ], [ %dfs_num.0251, %lor.rhs.i ], [ %dfs_num.2, %if.end130 ]
   %wide.trip.count265 = zext i32 %mul to i64
   br label %for.body134
 
@@ -1980,7 +1980,7 @@ if.end130:                                        ; preds = %for.inc128, %if.end
 
 for.body134:                                      ; preds = %for.body134.preheader, %for.inc156
   %indvars.iv262 = phi i64 [ 0, %for.body134.preheader ], [ %indvars.iv.next263, %for.inc156 ]
-  %dfs_num.3254 = phi i32 [ %dfs_num.0.lcssa296, %for.body134.preheader ], [ %dfs_num.4, %for.inc156 ]
+  %dfs_num.3254 = phi i32 [ %dfs_num.0.lcssa298, %for.body134.preheader ], [ %dfs_num.4, %for.inc156 ]
   %91 = load ptr, ptr %m_right, align 8
   %arrayidx.i199 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv262
   %92 = load i32, ptr %arrayidx.i199, align 4
@@ -2034,7 +2034,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   call void @__clang_call_terminate(ptr %97) #18
   unreachable
 
-_ZN7svectorIN3sat3big6pframeEjED2Ev.exit:         ; preds = %_ZN6vectorIN3sat7literalELb0EjE6resizeIS1_EEvjT_z.exit125, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i123, %_ZN6vectorIN3sat7literalELb0EjE6resizeIS1_EEvjT_z.exit.thread, %for.end158.loopexit, %if.then.i.i.i
+_ZN7svectorIN3sat3big6pframeEjED2Ev.exit:         ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i123, %_ZN6vectorIN3sat7literalELb0EjE6resizeIS1_EEvjT_z.exit.thread, %_ZN6vectorIN3sat7literalELb0EjE6resizeIS1_EEvjT_z.exit125, %for.end158.loopexit, %if.then.i.i.i
   ret void
 }
 

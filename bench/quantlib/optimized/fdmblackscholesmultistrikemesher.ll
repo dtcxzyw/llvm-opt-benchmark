@@ -623,16 +623,16 @@ while.body.i.i:                                   ; preds = %invoke.cont51, %whi
   %spec.select.i.i = select i1 %cmp.i4.i.i, ptr %incdec.ptr.i11.i.i, ptr %retval.sroa.0.110.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i11.i.i, i64 8
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %35
-  br i1 %cmp.i3.not.i.i, label %invoke.cont61, label %while.body.i.i, !llvm.loop !26
+  br i1 %cmp.i3.not.i.i, label %while.body.preheader.i.i114, label %while.body.i.i, !llvm.loop !26
 
-invoke.cont61:                                    ; preds = %while.body.i.i
+while.body.preheader.i.i114:                      ; preds = %while.body.i.i
   %40 = load double, ptr %spec.select.i.i, align 8, !tbaa !24
   br label %while.body.i.i116
 
-while.body.i.i116:                                ; preds = %while.body.i.i116, %invoke.cont61
-  %41 = phi double [ %43, %while.body.i.i116 ], [ %36, %invoke.cont61 ]
-  %incdec.ptr.i11.i.i117 = phi ptr [ %incdec.ptr.i.i.i121, %while.body.i.i116 ], [ %incdec.ptr.i8.i.i, %invoke.cont61 ]
-  %retval.sroa.0.110.i.i118 = phi ptr [ %spec.select.i.i120, %while.body.i.i116 ], [ %34, %invoke.cont61 ]
+while.body.i.i116:                                ; preds = %while.body.i.i116, %while.body.preheader.i.i114
+  %41 = phi double [ %43, %while.body.i.i116 ], [ %36, %while.body.preheader.i.i114 ]
+  %incdec.ptr.i11.i.i117 = phi ptr [ %incdec.ptr.i.i.i121, %while.body.i.i116 ], [ %incdec.ptr.i8.i.i, %while.body.preheader.i.i114 ]
+  %retval.sroa.0.110.i.i118 = phi ptr [ %spec.select.i.i120, %while.body.i.i116 ], [ %34, %while.body.preheader.i.i114 ]
   %42 = load double, ptr %incdec.ptr.i11.i.i117, align 8, !tbaa !24
   %cmp.i4.i.i119 = fcmp olt double %41, %42
   %43 = select i1 %cmp.i4.i.i119, double %42, double %41

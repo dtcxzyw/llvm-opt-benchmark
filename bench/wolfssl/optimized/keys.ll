@@ -1879,9 +1879,9 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %33 = add i32 %17, 20
   br label %34
 
-34:                                               ; preds = %.thread54.i, %27
-  %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %.thread54.i ]
-  %.267.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread54.i ]
+34:                                               ; preds = %.thread53.i, %27
+  %indvars.iv.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i, %.thread53.i ]
+  %.266.i = phi i32 [ 0, %27 ], [ %.4.ph.i, %.thread53.i ]
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %7)
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   switch i32 %35, label %default.unreachable.i [
@@ -1920,30 +1920,30 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %49, ptr noundef nonnull align 4 dereferenceable(32) %50, i64 32, i1 false)
-  %51 = icmp eq i32 %.267.i, 0
-  br i1 %51, label %52, label %.thread51.i
+  %51 = icmp eq i32 %.266.i, 0
+  br i1 %51, label %52, label %.thread50.i
 
 52:                                               ; preds = %39
   %53 = add i32 %.reass.i, 64
   %54 = call i32 @wc_ShaUpdate(ptr noundef nonnull %6, ptr noundef nonnull %4, i32 noundef %53) #7
   %55 = icmp eq i32 %54, 0
-  br i1 %55, label %56, label %.thread51.i
+  br i1 %55, label %56, label %.thread50.i
 
-.thread51.i:                                      ; preds = %52, %39
-  %.6.ph.i = phi i32 [ %54, %52 ], [ %.267.i, %39 ]
+.thread50.i:                                      ; preds = %52, %39
+  %.6.ph.i = phi i32 [ %54, %52 ], [ %.266.i, %39 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %32, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
-  br label %.thread54.i
+  br label %.thread53.i
 
 56:                                               ; preds = %52
   %57 = call i32 @wc_ShaFinal(ptr noundef nonnull %6, ptr noundef nonnull %2) #7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %32, ptr noundef nonnull align 16 dereferenceable(20) %2, i64 20, i1 false)
   %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread54.i
+  br i1 %58, label %59, label %.thread53.i
 
 59:                                               ; preds = %56
   %60 = call i32 @wc_Md5Update(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef %33) #7
   %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.thread54.i
+  br i1 %61, label %62, label %.thread53.i
 
 62:                                               ; preds = %59
   %63 = load ptr, ptr %14, align 8, !tbaa !77
@@ -1951,18 +1951,18 @@ define i32 @MakeMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %65 = shl nuw nsw i64 %indvars.iv.i, 4
   %66 = getelementptr inbounds nuw [48 x i8], ptr %64, i64 0, i64 %65
   %67 = call i32 @wc_Md5Final(ptr noundef nonnull %5, ptr noundef nonnull %66) #7
-  br label %.thread54.i
+  br label %.thread53.i
 
 default.unreachable.i:                            ; preds = %34
   unreachable
 
-.thread54.i:                                      ; preds = %62, %59, %56, %.thread51.i
-  %.4.ph.i = phi i32 [ %60, %59 ], [ %67, %62 ], [ %.6.ph.i, %.thread51.i ], [ %57, %56 ]
+.thread53.i:                                      ; preds = %62, %59, %56, %.thread50.i
+  %.4.ph.i = phi i32 [ %60, %59 ], [ %67, %62 ], [ %.6.ph.i, %.thread50.i ], [ %57, %56 ]
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %68, label %34, !llvm.loop !83
 
-68:                                               ; preds = %.thread54.i
+68:                                               ; preds = %.thread53.i
   %69 = icmp eq i32 %.4.ph.i, 0
   br i1 %69, label %70, label %.thread.i
 
@@ -2047,8 +2047,7 @@ default.unreachable.i:                            ; preds = %34
   br label %CleanPreMaster.exit.i
 
 CleanPreMaster.exit.i:                            ; preds = %95, %._crit_edge.i.i
-  %.0.i45.i = phi i32 [ 0, %95 ], [ %86, %._crit_edge.i.i ]
-  %..1.i = select i1 %72, i32 %.0.i45.i, i32 %.1.i
+  %..1.i = select i1 %72, i32 %86, i32 %.1.i
   br label %MakeSslMasterSecret.exit
 
 MakeSslMasterSecret.exit:                         ; preds = %13, %CleanPreMaster.exit.i

@@ -47,7 +47,7 @@ define void @sorgbr_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br label %.sink.split
 
 .loopexit:                                        ; preds = %38, %.lr.ph116
-  %30 = icmp sgt i32 %.0115, 2
+  %30 = icmp samesign ugt i32 %.0115, 2
   br i1 %30, label %.lr.ph116, label %._crit_edge, !llvm.loop !4
 
 .lr.ph116:                                        ; preds = %.preheader111, %.loopexit

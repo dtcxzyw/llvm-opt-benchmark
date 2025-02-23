@@ -12279,9 +12279,9 @@ for.cond329.preheader.lr.ph:                      ; preds = %_ZNK5boost10shared_
   %195 = getelementptr i8, ptr %178, i64 %192
   %196 = icmp slt i64 %190, 0
   %197 = select i1 %196, i64 %191, i64 %190
-  %mul574 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %197, i64 %189)
-  %mul.result = extractvalue { i64, i1 } %mul574, 0
-  %mul.overflow = extractvalue { i64, i1 } %mul574, 1
+  %mul576 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %197, i64 %189)
+  %mul.result = extractvalue { i64, i1 } %mul576, 0
+  %mul.overflow = extractvalue { i64, i1 } %mul576, 1
   %198 = sub i64 0, %mul.result
   %199 = getelementptr i8, ptr %180, i64 %193
   %200 = getelementptr i8, ptr %199, i64 8
@@ -12347,8 +12347,8 @@ for.body362.us.lver.orig:                         ; preds = %for.body362.us.lver
 
 for.body362.us.ph:                                ; preds = %for.body362.us.lver.check
   %219 = mul i64 %194, %f.0420.us
-  %scevgep576 = getelementptr i8, ptr %200, i64 %219
-  %load_initial = load double, ptr %scevgep576, align 8
+  %scevgep578 = getelementptr i8, ptr %200, i64 %219
+  %load_initial = load double, ptr %scevgep578, align 8
   br label %for.body362.us
 
 for.body362.us:                                   ; preds = %for.body362.us.ph, %for.body362.us
@@ -12525,22 +12525,22 @@ for.body530.lr.ph:                                ; preds = %for.body519
   %gep504 = getelementptr double, ptr %invariant.gep503, i64 %mul523
   br label %for.body530
 
-for.cond545.preheader:                            ; preds = %for.body530
+for.cond545.preheader.thread:                     ; preds = %for.body530
   br i1 %cmp547490.not, label %for.cond.cleanup548, label %for.cond551.preheader.lr.ph.split.us
 
-for.cond551.preheader.lr.ph.split.us:             ; preds = %for.cond545.preheader
+for.cond551.preheader.lr.ph.split.us:             ; preds = %for.cond545.preheader.thread
   %253 = load i64, ptr %factors_558, align 8
-  %factor.op.mul = mul i64 %244, %253
-  %gep508 = getelementptr double, ptr %invariant.gep507, i64 %mul523
+  %factor.op.mul560 = mul i64 %244, %253
+  %gep508561 = getelementptr double, ptr %invariant.gep507, i64 %mul523
   %cmp559479.not = icmp eq i64 %253, 0
   br i1 %cmp559479.not, label %for.cond.cleanup548, label %for.cond551.preheader.us.us
 
 for.cond551.preheader.us.us:                      ; preds = %for.cond551.preheader.lr.ph.split.us, %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us
   %k544.0491.us.us = phi i64 [ %inc590.us.us, %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us ], [ 0, %for.cond551.preheader.lr.ph.split.us ]
-  %factor.op.mul485.reass.us.us = mul i64 %k544.0491.us.us, %factor.op.mul
+  %factor.op.mul485.reass.us.us = mul i64 %k544.0491.us.us, %factor.op.mul560
   %254 = load ptr, ptr %elementary_vegas_ThisPath_562, align 8
   %add.ptr.i353.us.us = getelementptr inbounds nuw %"class.std::vector.28", ptr %254, i64 %i514.0500
-  %invariant.gep488.us.us = getelementptr double, ptr %gep508, i64 %factor.op.mul485.reass.us.us
+  %invariant.gep488.us.us = getelementptr double, ptr %gep508561, i64 %factor.op.mul485.reass.us.us
   %255 = load ptr, ptr %add.ptr.i353.us.us, align 8, !tbaa !77
   %add.ptr.i354.us.us.us = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %255, i64 %k544.0491.us.us
   %256 = load ptr, ptr %add.ptr.i354.us.us.us, align 8, !tbaa !10
@@ -12588,9 +12588,9 @@ for.body530:                                      ; preds = %for.body530.lr.ph, 
   store double %mul536, ptr %add.ptr.i352, align 8, !tbaa !62
   %inc542 = add nuw i64 %j525.0478, 1
   %exitcond542.not = icmp eq i64 %inc542, %244
-  br i1 %exitcond542.not, label %for.cond545.preheader, label %for.body530, !llvm.loop !279
+  br i1 %exitcond542.not, label %for.cond545.preheader.thread, label %for.body530, !llvm.loop !279
 
-for.cond.cleanup548:                              ; preds = %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us, %for.body519, %for.cond551.preheader.lr.ph.split.us, %for.cond545.preheader
+for.cond.cleanup548:                              ; preds = %for.cond551.for.cond.cleanup554_crit_edge.split.us.us.us, %for.body519, %for.cond551.preheader.lr.ph.split.us, %for.cond545.preheader.thread
   %inc593 = add nuw i64 %i514.0500, 1
   %exitcond546.not = icmp eq i64 %inc593, %101
   br i1 %exitcond546.not, label %for.cond.cleanup518, label %for.body519, !llvm.loop !280

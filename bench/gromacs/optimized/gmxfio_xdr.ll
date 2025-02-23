@@ -1105,7 +1105,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   br i1 %exitcond.not, label %.loopexit225, label %.preheader, !llvm.loop !7
 
 .loopexit225:                                     ; preds = %.preheader, %186
-  %194 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %24, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 8, ptr noundef nonnull @_Z10xdr_doubleP3XDRPd)
+  %194 = call noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef nonnull %24, ptr noundef nonnull %12, i32 noundef 3, i32 noundef 8, ptr noundef nonnull @_Z10xdr_doubleP3XDRPd)
   br label %195
 
 195:                                              ; preds = %.loopexit225, %195
@@ -1146,7 +1146,7 @@ _ZL19gmx_fio_check_nitem15InputOutputTypemPKci.exit: ; preds = %26, %switch.earl
   %.0158238 = phi ptr [ null, %.lr.ph ], [ %spec.select, %207 ]
   %208 = getelementptr inbounds [3 x float], ptr %1, i64 %.0157239
   %spec.select = select i1 %.not174, ptr %.0158238, ptr %208
-  %209 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef %0, ptr noundef %spec.select, i64 noundef 1, i32 noundef 11, ptr noundef %4, ptr noundef %5, i32 noundef %6)
+  %209 = tail call fastcc noundef zeroext i1 @_ZL6do_xdrP8t_fileioPvm15InputOutputTypePKcS4_i(ptr noundef nonnull %0, ptr noundef %spec.select, i64 noundef 1, i32 noundef 11, ptr noundef %4, ptr noundef %5, i32 noundef %6)
   %210 = add nuw i64 %.0157239, 1
   %211 = icmp ult i64 %210, %2
   %212 = and i1 %211, %209

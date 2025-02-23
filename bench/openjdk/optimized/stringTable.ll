@@ -1230,7 +1230,7 @@ _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %5
   br i1 %.not22.i, label %36, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
 36:                                               ; preds = %33
-  %37 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %16, i32 noundef %17, i64 noundef %34, ptr noundef %1)
+  %37 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %16, i32 noundef %17, i64 noundef %34, ptr noundef nonnull %1)
   br label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
 _ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %33, %36
@@ -1512,7 +1512,7 @@ _ZN16java_lang_String9hash_codeEPKti.exit.i:      ; preds = %.lr.ph.i.i, %6
   br i1 %.not22.i, label %39, label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
 39:                                               ; preds = %36
-  %40 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %20, i32 noundef %17, i64 noundef %37, ptr noundef %1)
+  %40 = call noundef ptr @_ZN11StringTable9do_internE6HandlePKtimP10JavaThread(ptr null, ptr noundef %20, i32 noundef %17, i64 noundef %37, ptr noundef nonnull %1)
   br label %_ZN11StringTable6internE6HandlePKtiP10JavaThread.exit
 
 _ZN11StringTable6internE6HandlePKtiP10JavaThread.exit: ; preds = %_ZN16java_lang_String9hash_codeEPKti.exit.i, %36, %39
@@ -9307,7 +9307,7 @@ _ZN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE6Bucket4lockEv.exit: ;
   %96 = shl nuw nsw i64 %95, 3
   %scevgep = getelementptr i8, ptr %91, i64 %96
   %97 = xor i32 %.0.lcssa.i.i.i, -1
-  %98 = add i32 %.0.i.i.i.i, %97
+  %98 = add nsw i32 %.0.i.i.i.i, %97
   %99 = zext i32 %98 to i64
   %100 = shl nuw nsw i64 %99, 3
   %101 = add nuw nsw i64 %100, 8
@@ -9344,7 +9344,7 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEM
   %.sroa.0.4 = phi i32 [ %.sroa.0.2, %75 ], [ %83, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
   %.sroa.7.4 = phi i32 [ %.sroa.7.2, %75 ], [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
   %.sroa.13.4 = phi ptr [ %.sroa.13.2, %75 ], [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI17StringTableConfigL8MEMFLAGS11EE4NodeE18GrowableArrayCHeapIS5_LS2_11EEE6appendERKS5_.exit ]
-  %109 = add nuw i64 %.022.i, 1
+  %109 = add nuw nsw i64 %.022.i, 1
   %110 = load volatile ptr, ptr %.063, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
   %111 = load volatile ptr, ptr %.01421.i, align 8

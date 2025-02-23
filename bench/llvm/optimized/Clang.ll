@@ -71809,9 +71809,9 @@ define internal fastcc void @_ZL22addPGOAndCoverageFlagsRKN5clang6driver9ToolCha
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !126
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %10, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i)
-  %87 = getelementptr inbounds nuw i8, ptr %spec.select240, i64 24
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %.sroa.0.0.copyload.i245 = load ptr, ptr %87, align 8, !tbaa !135
-  %.sroa.2.0..sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %spec.select240, i64 32
+  %.sroa.2.0..sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %.sroa.2.0.copyload.i247 = load i64, ptr %.sroa.2.0..sroa_idx.i246, align 8, !tbaa !126
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %10, ptr %.sroa.0.0.copyload.i245, i64 %.sroa.2.0.copyload.i247)
   %88 = getelementptr inbounds nuw i8, ptr %10, i64 64

@@ -44324,9 +44324,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_112rewindToStopERSt6vectorIPN2cv5gi
 "_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPPN2cv5gimpl6stream1QESt6vectorIS6_SaIS6_EEEEZN12_GLOBAL__N_112rewindToStopERSA_mE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit": ; preds = %.lr.ph.i.i
   %10 = add nsw i64 %spec.select.i.i, -1
   %or.cond = icmp ult i64 %spec.select.i.i, 2
-  br i1 %or.cond, label %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit._crit_edge, label %.lr.ph47
+  br i1 %or.cond, label %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit._crit_edge, label %.lr.ph47.split.preheader
 
-.lr.ph47:                                         ; preds = %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPPN2cv5gimpl6stream1QESt6vectorIS6_SaIS6_EEEEZN12_GLOBAL__N_112rewindToStopERSA_mE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit"
+.lr.ph47.split.preheader:                         ; preds = %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIPPN2cv5gimpl6stream1QESt6vectorIS6_SaIS6_EEEEZN12_GLOBAL__N_112rewindToStopERSA_mE3$_0ENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit"
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %.lr.ph47.split
 
@@ -44335,8 +44335,8 @@ _ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vect
   %12 = icmp ult i64 %.1.lcssa, %10
   br i1 %12, label %.lr.ph47.split, label %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit._crit_edge, !llvm.loop !758
 
-.lr.ph47.split:                                   ; preds = %.lr.ph47, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit.loopexit
-  %.02246 = phi i64 [ %.1.lcssa, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit.loopexit ], [ 0, %.lr.ph47 ]
+.lr.ph47.split:                                   ; preds = %.lr.ph47.split.preheader, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit.loopexit
+  %.02246 = phi i64 [ %.1.lcssa, %_ZNK3ade4util5Range13IterableRangeINS1_8ZipRangeIJNS1_9IotaRangeImLi1EEERSt6vectorIPN2cv5gimpl6stream1QESaISB_EEEEEE8iteratorneERKSH_.exit.loopexit ], [ 0, %.lr.ph47.split.preheader ]
   %13 = load ptr, ptr %0, align 8, !noalias !760
   %14 = load ptr, ptr %5, align 8, !noalias !760
   %15 = icmp eq ptr %13, %14

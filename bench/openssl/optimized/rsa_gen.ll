@@ -627,7 +627,6 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 
 .lr.ph341.preheader:                              ; preds = %88, %91
   store ptr %86, ptr %89, align 8, !tbaa !41
-  %smax = tail call i32 @llvm.smax.i32(i32 %2, i32 3)
   br label %.lr.ph341
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %94
@@ -639,7 +638,7 @@ define internal fastcc range(i32 0, 2) i32 @rsa_multiprime_keygen(ptr noundef ca
 94:                                               ; preds = %.lr.ph341
   %95 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %86, ptr noundef nonnull %92) #4
   %96 = add nuw nsw i32 %.1240339, 1
-  %exitcond407.not = icmp eq i32 %96, %smax
+  %exitcond407.not = icmp eq i32 %96, %2
   br i1 %exitcond407.not, label %.loopexit311, label %.lr.ph341, !llvm.loop !42
 
 .loopexit311:                                     ; preds = %94, %81

@@ -70,7 +70,7 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %.0199.lcssa = phi ptr [ %19, %16 ], [ %32, %.lr.ph ]
   %.0194.lcssa = phi ptr [ %17, %16 ], [ %31, %.lr.ph ]
   %25 = icmp slt i32 %.0205.lcssa, %22
-  br i1 %25, label %.lr.ph250, label %._crit_edge
+  br i1 %25, label %.lr.ph250, label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.0194242 = phi ptr [ %31, %.lr.ph ], [ %17, %.lr.ph.preheader ]
@@ -107,7 +107,7 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %44 = getelementptr inbounds nuw i8, ptr %.1204247, i64 4
   %45 = add nuw nsw i32 %.1206246, 1
   %exitcond287.not = icmp eq i32 %45, %22
-  br i1 %exitcond287.not, label %._crit_edge, label %.lr.ph250, !llvm.loop !6
+  br i1 %exitcond287.not, label %.loopexit, label %.lr.ph250, !llvm.loop !6
 
 46:                                               ; preds = %3
   %47 = mul i32 %15, %7
@@ -197,7 +197,7 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %exitcond286.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond286.not, label %._crit_edge, label %55, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %._crit_edge260, %.lr.ph250, %.preheader238, %3
+._crit_edge:                                      ; preds = %._crit_edge260, %3
   %96 = add i32 %5, -3
   %or.cond = icmp ult i32 %96, 2
   br i1 %or.cond, label %97, label %.loopexit
@@ -292,7 +292,7 @@ define hidden noundef i32 @_ZNK4ncnn13BatchNorm_x8615forward_inplaceERNS_3MatERK
   %exitcond293.not = icmp eq i64 %indvars.iv.next290, %wide.trip.count292
   br i1 %exitcond293.not, label %.loopexit, label %109, !llvm.loop !12
 
-.loopexit:                                        ; preds = %._crit_edge273, %46, %97, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph250, %._crit_edge273, %.preheader238, %46, %97, %._crit_edge
   ret i32 0
 }
 

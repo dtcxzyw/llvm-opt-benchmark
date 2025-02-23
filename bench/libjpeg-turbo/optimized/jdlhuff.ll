@@ -292,7 +292,7 @@ define internal i32 @decode_mcus(ptr noundef %0, ptr noundef readonly captures(n
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %50 = load ptr, ptr %49, align 8, !tbaa !74
   %51 = load ptr, ptr %50, align 8, !tbaa !75
-  tail call void %51(ptr noundef %0) #4
+  tail call void %51(ptr noundef nonnull %0) #4
   br label %.thread136
 
 52:                                               ; preds = %._crit_edge.thread, %._crit_edge

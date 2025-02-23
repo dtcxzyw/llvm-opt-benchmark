@@ -2988,10 +2988,10 @@ _ZNK10reflection6Object6fieldsEv.exit:            ; preds = %14, %_ZNK11flatbuff
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %20, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !33, !noalias !86
   %.mask = and i32 %21, 1073741823
-  %.not460 = icmp eq i32 %.mask, 0
-  br i1 %.not460, label %._crit_edge473, label %.lr.ph472
+  %.not466 = icmp eq i32 %.mask, 0
+  br i1 %.not466, label %._crit_edge479, label %.lr.ph478
 
-.lr.ph472:                                        ; preds = %_ZNK10reflection6Object6fieldsEv.exit
+.lr.ph478:                                        ; preds = %_ZNK10reflection6Object6fieldsEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2999,35 +2999,35 @@ _ZNK10reflection6Object6fieldsEv.exit:            ; preds = %14, %_ZNK11flatbuff
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %31
 
-._crit_edge473.loopexit:                          ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.pre539 = load i32, ptr %2, align 4, !tbaa !9
-  %.pre540 = sext i32 %.pre539 to i64
-  %.pre541 = sub nsw i64 0, %.pre540
-  br label %._crit_edge473
+._crit_edge479.loopexit:                          ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %.pre545 = load i32, ptr %2, align 4, !tbaa !9
+  %.pre546 = sext i32 %.pre545 to i64
+  %.pre547 = sub nsw i64 0, %.pre546
+  br label %._crit_edge479
 
-._crit_edge473:                                   ; preds = %._crit_edge473.loopexit, %_ZNK10reflection6Object6fieldsEv.exit
-  %.pre-phi542 = phi i64 [ %.pre541, %._crit_edge473.loopexit ], [ %8, %_ZNK10reflection6Object6fieldsEv.exit ]
-  %.sroa.12367.0.lcssa = phi ptr [ %.sroa.12367.1, %._crit_edge473.loopexit ], [ null, %_ZNK10reflection6Object6fieldsEv.exit ]
-  %.sroa.0363.0.lcssa = phi ptr [ %.sroa.0363.1, %._crit_edge473.loopexit ], [ null, %_ZNK10reflection6Object6fieldsEv.exit ]
-  %26 = getelementptr inbounds i8, ptr %2, i64 %.pre-phi542
+._crit_edge479:                                   ; preds = %._crit_edge479.loopexit, %_ZNK10reflection6Object6fieldsEv.exit
+  %.pre-phi548 = phi i64 [ %.pre547, %._crit_edge479.loopexit ], [ %8, %_ZNK10reflection6Object6fieldsEv.exit ]
+  %.sroa.12367.0.lcssa = phi ptr [ %.sroa.12367.1, %._crit_edge479.loopexit ], [ null, %_ZNK10reflection6Object6fieldsEv.exit ]
+  %.sroa.0363.0.lcssa = phi ptr [ %.sroa.0363.1, %._crit_edge479.loopexit ], [ null, %_ZNK10reflection6Object6fieldsEv.exit ]
+  %26 = getelementptr inbounds i8, ptr %2, i64 %.pre-phi548
   %27 = load i16, ptr %26, align 2, !tbaa !7
   %28 = icmp ugt i16 %27, 8
   br i1 %28, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, label %_ZNK10reflection6Object9is_structEv.exit.thread
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %._crit_edge473
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %._crit_edge479
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %30 = load i16, ptr %29, align 2, !tbaa !7
   %.not.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i, label %_ZNK10reflection6Object9is_structEv.exit.thread, label %_ZNK10reflection6Object9is_structEv.exit
 
-31:                                               ; preds = %.lr.ph472, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
-  %.sroa.0363.0468 = phi ptr [ null, %.lr.ph472 ], [ %.sroa.0363.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.sroa.9.0466 = phi ptr [ null, %.lr.ph472 ], [ %.sroa.9.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.sroa.12367.0462 = phi ptr [ null, %.lr.ph472 ], [ %.sroa.12367.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %.sroa.0360.0461 = phi ptr [ %.ptr.ptr, %.lr.ph472 ], [ %518, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %32 = load i32, ptr %.sroa.0360.0461, align 4, !tbaa !9
+31:                                               ; preds = %.lr.ph478, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %.sroa.0363.0474 = phi ptr [ null, %.lr.ph478 ], [ %.sroa.0363.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.sroa.9.0472 = phi ptr [ null, %.lr.ph478 ], [ %.sroa.9.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.sroa.12367.0468 = phi ptr [ null, %.lr.ph478 ], [ %.sroa.12367.1, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %.sroa.0360.0467 = phi ptr [ %.ptr.ptr, %.lr.ph478 ], [ %518, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
+  %32 = load i32, ptr %.sroa.0360.0467, align 4, !tbaa !9
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0360.0461, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0360.0467, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !9
   %36 = sext i32 %35 to i64
   %37 = sub nsw i64 0, %36
@@ -3062,8 +3062,8 @@ _ZNK11flatbuffers5Table10CheckFieldEt.exit:       ; preds = %_ZNK10reflection5Fi
   %54 = zext i16 %47 to i64
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !7
-  %.not400 = icmp eq i16 %56, 0
-  br i1 %.not400, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %57
+  %.not404 = icmp eq i16 %56, 0
+  br i1 %.not404, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %57
 
 57:                                               ; preds = %_ZNK11flatbuffers5Table10CheckFieldEt.exit
   %58 = icmp ugt i16 %39, 6
@@ -3305,8 +3305,8 @@ _ZNK10reflection6Object9is_structEv.exit205:      ; preds = %_ZNK11flatbuffers5T
   %182 = zext i16 %181 to i64
   %183 = getelementptr inbounds nuw i8, ptr %173, i64 %182
   %184 = load i8, ptr %183, align 1, !tbaa !4
-  %.not403 = icmp eq i8 %184, 0
-  br i1 %.not403, label %_ZNK10reflection6Object9is_structEv.exit205.thread, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
+  %.not407 = icmp eq i8 %184, 0
+  br i1 %.not407, label %_ZNK10reflection6Object9is_structEv.exit205.thread, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNK10reflection6Object9is_structEv.exit205.thread: ; preds = %167, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i203, %_ZNK10reflection6Object9is_structEv.exit205
   br i1 %40, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209, label %_ZNK10reflection5Field6offsetEv.exit.i206
@@ -3322,12 +3322,12 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209: ; preds = %_ZNK
   %189 = getelementptr inbounds nuw i8, ptr %34, i64 %188
   %190 = load i16, ptr %189, align 2, !tbaa !7
   %.phi.trans.insert = zext i16 %190 to i64
-  %.phi.trans.insert537 = getelementptr inbounds nuw i8, ptr %51, i64 %.phi.trans.insert
-  %.pre538 = load i16, ptr %.phi.trans.insert537, align 2, !tbaa !7
+  %.phi.trans.insert543 = getelementptr inbounds nuw i8, ptr %51, i64 %.phi.trans.insert
+  %.pre544 = load i16, ptr %.phi.trans.insert543, align 2, !tbaa !7
   br label %_ZNK10reflection5Field6offsetEv.exit.i206
 
 _ZNK10reflection5Field6offsetEv.exit.i206:        ; preds = %187, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209, %_ZNK10reflection6Object9is_structEv.exit205.thread
-  %191 = phi i16 [ %.pre538, %187 ], [ %52, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ %52, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
+  %191 = phi i16 [ %.pre544, %187 ], [ %52, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ %52, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
   %192 = phi i16 [ %190, %187 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i209 ], [ 0, %_ZNK10reflection6Object9is_structEv.exit205.thread ]
   %193 = icmp ult i16 %192, %52
   tail call void @llvm.assume(i1 %193)
@@ -3582,8 +3582,8 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i233: ; preds = %_ZNK10
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us
-  %indvars.iv531 = phi i64 [ %indvars.iv.next532, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ 0, %.lr.ph ]
-  %336 = shl nuw nsw i64 %indvars.iv531, 2
+  %indvars.iv537 = phi i64 [ %indvars.iv.next538, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ 0, %.lr.ph ]
+  %336 = shl nuw nsw i64 %indvars.iv537, 2
   %337 = and i64 %336, 4294967292
   %338 = getelementptr inbounds nuw i8, ptr %335, i64 %337
   %339 = load i32, ptr %338, align 4, !tbaa !9
@@ -3596,12 +3596,12 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i233: ; preds = %_ZNK10
           to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us unwind label %.split.us
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us: ; preds = %.lr.ph.split.us
-  %346 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %332, i64 %indvars.iv531
+  %346 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %332, i64 %indvars.iv537
   store i32 %345, ptr %346, align 4, !tbaa !9
-  %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
+  %indvars.iv.next538 = add nuw nsw i64 %indvars.iv537, 1
   %347 = load i32, ptr %255, align 4, !tbaa !97
   %348 = zext i32 %347 to i64
-  %349 = icmp samesign ult i64 %indvars.iv.next532, %348
+  %349 = icmp samesign ult i64 %indvars.iv.next538, %348
   br i1 %349, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !99
 
 .split.us:                                        ; preds = %.lr.ph.split.us
@@ -3610,13 +3610,13 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.
   br label %.thread
 
 ._crit_edge:                                      ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us, %328
-  %.0.lcssa.i.i.i.i.i550 = phi ptr [ null, %328 ], [ %scevgep.i.i.i.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %scevgep.i.i.i.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
-  %.sink.i548 = phi i64 [ 0, %328 ], [ %334, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %334, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
-  %.sroa.0348.3546 = phi ptr [ null, %328 ], [ %332, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %332, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
-  %351 = icmp eq ptr %.sroa.0348.3546, %.0.lcssa.i.i.i.i.i550
-  %spec.select.i.i = select i1 %351, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_6StringEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %.sroa.0348.3546
-  %352 = ptrtoint ptr %.0.lcssa.i.i.i.i.i550 to i64
-  %353 = ptrtoint ptr %.sroa.0348.3546 to i64
+  %.0.lcssa.i.i.i.i.i556 = phi ptr [ null, %328 ], [ %scevgep.i.i.i.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %scevgep.i.i.i.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
+  %.sink.i554 = phi i64 [ 0, %328 ], [ %334, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %334, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
+  %.sroa.0348.3552 = phi ptr [ null, %328 ], [ %332, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us ], [ %332, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245 ]
+  %351 = icmp eq ptr %.sroa.0348.3552, %.0.lcssa.i.i.i.i.i556
+  %spec.select.i.i = select i1 %351, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_6StringEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %.sroa.0348.3552
+  %352 = ptrtoint ptr %.0.lcssa.i.i.i.i.i556 to i64
+  %353 = ptrtoint ptr %.sroa.0348.3552 to i64
   %354 = sub i64 %352, %353
   %355 = ashr exact i64 %354, 2
   %356 = invoke i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorIPKNS_6StringEEENS_6OffsetINS_6VectorINS6_IT_EEjEEEEPKS9_m(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %spec.select.i.i, i64 noundef %355)
@@ -3657,27 +3657,27 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6
   br label %.thread
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_6StringEEESaIS7_EEENS3_INS_6VectorIT_jEEEERKSt6vectorISA_T0_E.exit: ; preds = %._crit_edge
-  %.not.i.i.i246 = icmp eq ptr %.sroa.0348.3546, null
+  %.not.i.i.i246 = icmp eq ptr %.sroa.0348.3552, null
   br i1 %.not.i.i.i246, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit, label %375
 
 375:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_6StringEEESaIS7_EEENS3_INS_6VectorIT_jEEEERKSt6vectorISA_T0_E.exit
-  %376 = sub i64 %.sink.i548, %353
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0348.3546, i64 noundef %376) #23
+  %376 = sub i64 %.sink.i554, %353
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0348.3552, i64 noundef %376) #23
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit
 
 377:                                              ; preds = %._crit_edge
   %378 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i247 = icmp eq ptr %.sroa.0348.3546, null
+  %.not.i.i.i247 = icmp eq ptr %.sroa.0348.3552, null
   br i1 %.not.i.i.i247, label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248, label %.thread
 
 .thread:                                          ; preds = %373, %.split.us, %377
-  %.pn159.pn557 = phi { ptr, i32 } [ %378, %377 ], [ %374, %373 ], [ %350, %.split.us ]
-  %.sroa.0348.3547556 = phi ptr [ %.sroa.0348.3546, %377 ], [ %332, %373 ], [ %332, %.split.us ]
-  %.sink.i549555 = phi i64 [ %.sink.i548, %377 ], [ %334, %373 ], [ %334, %.split.us ]
-  %379 = ptrtoint ptr %.sroa.0348.3547556 to i64
-  %380 = sub i64 %.sink.i549555, %379
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0348.3547556, i64 noundef %380) #23
+  %.pn159.pn563 = phi { ptr, i32 } [ %378, %377 ], [ %374, %373 ], [ %350, %.split.us ]
+  %.sroa.0348.3553562 = phi ptr [ %.sroa.0348.3552, %377 ], [ %332, %373 ], [ %332, %.split.us ]
+  %.sink.i555561 = phi i64 [ %.sink.i554, %377 ], [ %334, %373 ], [ %334, %.split.us ]
+  %379 = ptrtoint ptr %.sroa.0348.3553562 to i64
+  %380 = sub i64 %.sink.i555561, %379
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0348.3553562, i64 noundef %380) #23
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i249: ; preds = %.thread373
@@ -3690,21 +3690,21 @@ _ZNK10reflection6Object9is_structEv.exit251:      ; preds = %_ZNK11flatbuffers5T
   %383 = zext i16 %382 to i64
   %384 = getelementptr inbounds nuw i8, ptr %321, i64 %383
   %385 = load i8, ptr %384, align 1, !tbaa !4
-  %.not401 = icmp eq i8 %385, 0
-  br i1 %.not401, label %_ZNK10reflection6Object9is_structEv.exit251.thread, label %425
+  %.not405 = icmp eq i8 %385, 0
+  br i1 %.not405, label %_ZNK10reflection6Object9is_structEv.exit251.thread, label %425
 
 _ZNK10reflection6Object9is_structEv.exit251.thread: ; preds = %.thread373, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i249, %_ZNK10reflection6Object9is_structEv.exit251
   %386 = load i32, ptr %255, align 4, !tbaa !93
   %387 = zext i32 %386 to i64
   %.not.i.i.i.i252 = icmp eq i32 %386, 0
-  br i1 %.not.i.i.i.i252, label %._crit_edge459, label %.lr.ph.preheader.i.i.i.i.i253
+  br i1 %.not.i.i.i.i252, label %._crit_edge465, label %.lr.ph.preheader.i.i.i.i.i253
 
 .lr.ph.preheader.i.i.i.i.i253:                    ; preds = %_ZNK10reflection6Object9is_structEv.exit251.thread
   %388 = shl nuw nsw i64 %387, 2
   %389 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %388) #24
-          to label %.lr.ph458 unwind label %399
+          to label %.lr.ph464 unwind label %399
 
-.lr.ph458:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i253
+.lr.ph464:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i253
   %390 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %389, i64 %387
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %389, i8 0, i64 %388, i1 false), !tbaa !100
   %scevgep.i.i.i.i.i254 = getelementptr i8, ptr %389, i64 %388
@@ -3712,14 +3712,14 @@ _ZNK10reflection6Object9is_structEv.exit251.thread: ; preds = %.thread373, %_ZNK
   %392 = getelementptr inbounds nuw i8, ptr %255, i64 4
   br label %401
 
-._crit_edge459:                                   ; preds = %409, %_ZNK10reflection6Object9is_structEv.exit251.thread
-  %.0.lcssa.i.i.i.i.i256565 = phi ptr [ null, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %scevgep.i.i.i.i.i254, %409 ]
-  %.sink.i255563 = phi i64 [ 0, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %391, %409 ]
-  %.sroa.0339.3561 = phi ptr [ null, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %389, %409 ]
-  %393 = icmp eq ptr %.sroa.0339.3561, %.0.lcssa.i.i.i.i.i256565
-  %spec.select.i.i258 = select i1 %393, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_5TableEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %.sroa.0339.3561
-  %394 = ptrtoint ptr %.0.lcssa.i.i.i.i.i256565 to i64
-  %395 = ptrtoint ptr %.sroa.0339.3561 to i64
+._crit_edge465:                                   ; preds = %409, %_ZNK10reflection6Object9is_structEv.exit251.thread
+  %.0.lcssa.i.i.i.i.i256571 = phi ptr [ null, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %scevgep.i.i.i.i.i254, %409 ]
+  %.sink.i255569 = phi i64 [ 0, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %391, %409 ]
+  %.sroa.0339.3567 = phi ptr [ null, %_ZNK10reflection6Object9is_structEv.exit251.thread ], [ %389, %409 ]
+  %393 = icmp eq ptr %.sroa.0339.3567, %.0.lcssa.i.i.i.i.i256571
+  %spec.select.i.i258 = select i1 %393, ptr @_ZZN11flatbuffers4dataINS_6OffsetIPKNS_5TableEEESaIS5_EEEPKT_RKSt6vectorIS7_T0_EE1t, ptr %.sroa.0339.3567
+  %394 = ptrtoint ptr %.0.lcssa.i.i.i.i.i256571 to i64
+  %395 = ptrtoint ptr %.sroa.0339.3567 to i64
   %396 = sub i64 %394, %395
   %397 = ashr exact i64 %396, 2
   %398 = invoke i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorIPKNS_5TableEEENS_6OffsetINS_6VectorINS6_IT_EEjEEEEPKS9_m(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %spec.select.i.i258, i64 noundef %397)
@@ -3730,53 +3730,53 @@ _ZNK10reflection6Object9is_structEv.exit251.thread: ; preds = %.thread373, %_ZNK
           cleanup
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
-401:                                              ; preds = %.lr.ph458, %409
-  %indvars.iv534 = phi i64 [ 0, %.lr.ph458 ], [ %indvars.iv.next535, %409 ]
-  %402 = shl nuw nsw i64 %indvars.iv534, 2
+401:                                              ; preds = %.lr.ph464, %409
+  %indvars.iv540 = phi i64 [ 0, %.lr.ph464 ], [ %indvars.iv.next541, %409 ]
+  %402 = shl nuw nsw i64 %indvars.iv540, 2
   %403 = and i64 %402, 4294967292
   %404 = getelementptr inbounds nuw i8, ptr %392, i64 %403
   %405 = load i32, ptr %404, align 4, !tbaa !9
   %406 = zext i32 %405 to i64
   %407 = getelementptr inbounds nuw i8, ptr %404, i64 %406
   %408 = invoke i32 @_ZN11flatbuffers9CopyTableERNS_21FlatBufferBuilderImplILb0EEERKN10reflection6SchemaERKNS3_6ObjectERKNS_5TableEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %321, ptr noundef nonnull align 1 dereferenceable(1) %407, i1 noundef zeroext %4)
-          to label %409 unwind label %.thread566
+          to label %409 unwind label %.thread572
 
 409:                                              ; preds = %401
-  %410 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %389, i64 %indvars.iv534
+  %410 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %389, i64 %indvars.iv540
   store i32 %408, ptr %410, align 4, !tbaa !9
-  %indvars.iv.next535 = add nuw nsw i64 %indvars.iv534, 1
+  %indvars.iv.next541 = add nuw nsw i64 %indvars.iv540, 1
   %411 = load i32, ptr %255, align 4, !tbaa !93
   %412 = zext i32 %411 to i64
-  %413 = icmp samesign ult i64 %indvars.iv.next535, %412
-  br i1 %413, label %401, label %._crit_edge459, !llvm.loop !102
+  %413 = icmp samesign ult i64 %indvars.iv.next541, %412
+  br i1 %413, label %401, label %._crit_edge465, !llvm.loop !102
 
-.thread566:                                       ; preds = %401
+.thread572:                                       ; preds = %401
   %414 = landingpad { ptr, i32 }
           cleanup
   br label %419
 
-_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_5TableEEESaIS7_EEENS3_INS_6VectorIT_jEEEERKSt6vectorISA_T0_E.exit: ; preds = %._crit_edge459
-  %.not.i.i.i260 = icmp eq ptr %.sroa.0339.3561, null
+_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_5TableEEESaIS7_EEENS3_INS_6VectorIT_jEEEERKSt6vectorISA_T0_E.exit: ; preds = %._crit_edge465
+  %.not.i.i.i260 = icmp eq ptr %.sroa.0339.3567, null
   br i1 %.not.i.i.i260, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit, label %415
 
 415:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_5TableEEESaIS7_EEENS3_INS_6VectorIT_jEEEERKSt6vectorISA_T0_E.exit
-  %416 = sub i64 %.sink.i255563, %395
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0339.3561, i64 noundef %416) #23
+  %416 = sub i64 %.sink.i255569, %395
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0339.3567, i64 noundef %416) #23
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit
 
-417:                                              ; preds = %._crit_edge459
+417:                                              ; preds = %._crit_edge465
   %418 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i.i261 = icmp eq ptr %.sroa.0339.3561, null
+  %.not.i.i.i261 = icmp eq ptr %.sroa.0339.3567, null
   br i1 %.not.i.i.i261, label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248, label %419
 
-419:                                              ; preds = %.thread566, %417
-  %.pn156573 = phi { ptr, i32 } [ %414, %.thread566 ], [ %418, %417 ]
-  %.sroa.0339.3562572 = phi ptr [ %389, %.thread566 ], [ %.sroa.0339.3561, %417 ]
-  %.sink.i255564571 = phi i64 [ %391, %.thread566 ], [ %.sink.i255563, %417 ]
-  %420 = ptrtoint ptr %.sroa.0339.3562572 to i64
-  %421 = sub i64 %.sink.i255564571, %420
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0339.3562572, i64 noundef %421) #23
+419:                                              ; preds = %.thread572, %417
+  %.pn156579 = phi { ptr, i32 } [ %414, %.thread572 ], [ %418, %417 ]
+  %.sroa.0339.3568578 = phi ptr [ %389, %.thread572 ], [ %.sroa.0339.3567, %417 ]
+  %.sink.i255570577 = phi i64 [ %391, %.thread572 ], [ %.sink.i255569, %417 ]
+  %420 = ptrtoint ptr %.sroa.0339.3568578 to i64
+  %421 = sub i64 %.sink.i255570577, %420
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0339.3568578, i64 noundef %421) #23
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
 .thread375:                                       ; preds = %_ZNK10reflection4Type7elementEv.exit, %_ZNK10reflection5Field4typeEv.exit224, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i225
@@ -3948,17 +3948,17 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.
   br i1 %.not173, label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit, label %496
 
 496:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit
-  %.not.i273 = icmp eq ptr %.sroa.9.0466, %.sroa.12367.0462
+  %.not.i273 = icmp eq ptr %.sroa.9.0472, %.sroa.12367.0468
   br i1 %.not.i273, label %499, label %497
 
 497:                                              ; preds = %496
-  store i32 %.0, ptr %.sroa.9.0466, align 4, !tbaa !9
-  %498 = getelementptr inbounds nuw i8, ptr %.sroa.9.0466, i64 4
+  store i32 %.0, ptr %.sroa.9.0472, align 4, !tbaa !9
+  %498 = getelementptr inbounds nuw i8, ptr %.sroa.9.0472, i64 4
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 499:                                              ; preds = %496
-  %500 = ptrtoint ptr %.sroa.9.0466 to i64
-  %501 = ptrtoint ptr %.sroa.0363.0468 to i64
+  %500 = ptrtoint ptr %.sroa.9.0472 to i64
+  %501 = ptrtoint ptr %.sroa.0363.0474 to i64
   %502 = sub i64 %500, %501
   %503 = icmp eq i64 %502, 9223372036854775804
   br i1 %503, label %504, label %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i
@@ -3990,16 +3990,16 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i: ; preds = %499
   br i1 %513, label %514, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
 514:                                              ; preds = %.noexc276
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %511, ptr align 4 %.sroa.0363.0468, i64 %502, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %511, ptr align 4 %.sroa.0363.0474, i64 %502, i1 false)
   br label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
 
 _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %514, %.noexc276
   %515 = getelementptr inbounds nuw i8, ptr %512, i64 4
-  %.not.i17.i.i = icmp eq ptr %.sroa.0363.0468, null
+  %.not.i17.i.i = icmp eq ptr %.sroa.0363.0474, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, label %516
 
 516:                                              ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0468, i64 noundef %502) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0474, i64 noundef %502) #23
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %516, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
@@ -4007,23 +4007,23 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNK10reflection5Field6offsetEv.exit.i187, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i, %_ZNK10reflection5Field4typeEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183, %_ZNK10reflection6Object9is_structEv.exit205, %_ZNK10reflection4Type9base_typeEv.exit, %_ZNK10reflection5Field6offsetEv.exit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit, %497, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %_ZNK11flatbuffers5Table10CheckFieldEt.exit
-  %.sroa.12367.1 = phi ptr [ %.sroa.12367.0462, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.12367.0462, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %517, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.12367.0462, %497 ], [ %.sroa.12367.0462, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.12367.0462, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.12367.0462, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.12367.0462, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.12367.0462, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.12367.0462, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.12367.0462, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.12367.0462, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.12367.0462, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
-  %.sroa.9.1 = phi ptr [ %.sroa.9.0466, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.9.0466, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %515, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %498, %497 ], [ %.sroa.9.0466, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.9.0466, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.9.0466, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.9.0466, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.9.0466, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.9.0466, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.9.0466, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.9.0466, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.9.0466, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
-  %.sroa.0363.1 = phi ptr [ %.sroa.0363.0468, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.0363.0468, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %511, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.0363.0468, %497 ], [ %.sroa.0363.0468, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.0363.0468, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.0363.0468, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.0363.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.0363.0468, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.0363.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.0363.0468, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.0363.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.0363.0468, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
-  %518 = getelementptr inbounds nuw i8, ptr %.sroa.0360.0461, i64 4
+  %.sroa.12367.1 = phi ptr [ %.sroa.12367.0468, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.12367.0468, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %517, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.12367.0468, %497 ], [ %.sroa.12367.0468, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.12367.0468, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.12367.0468, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.12367.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.12367.0468, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.12367.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.12367.0468, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.12367.0468, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.12367.0468, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
+  %.sroa.9.1 = phi ptr [ %.sroa.9.0472, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.9.0472, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %515, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %498, %497 ], [ %.sroa.9.0472, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.9.0472, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.9.0472, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.9.0472, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.9.0472, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.9.0472, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.9.0472, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.9.0472, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.9.0472, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
+  %.sroa.0363.1 = phi ptr [ %.sroa.0363.0474, %_ZNK11flatbuffers5Table10CheckFieldEt.exit ], [ %.sroa.0363.0474, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit ], [ %511, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i ], [ %.sroa.0363.0474, %497 ], [ %.sroa.0363.0474, %_ZNK10reflection5Field6offsetEv.exit ], [ %.sroa.0363.0474, %_ZNK10reflection4Type9base_typeEv.exit ], [ %.sroa.0363.0474, %_ZNK10reflection6Object9is_structEv.exit205 ], [ %.sroa.0363.0474, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183 ], [ %.sroa.0363.0474, %_ZNK10reflection5Field4typeEv.exit ], [ %.sroa.0363.0474, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i ], [ %.sroa.0363.0474, %_ZNK10reflection5Field6offsetEv.exit.i ], [ %.sroa.0363.0474, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188 ], [ %.sroa.0363.0474, %_ZNK10reflection5Field6offsetEv.exit.i187 ]
+  %518 = getelementptr inbounds nuw i8, ptr %.sroa.0360.0467, i64 4
   %519 = load i32, ptr %20, align 4, !tbaa !33, !noalias !86
   %520 = shl i32 %519, 2
   %521 = zext i32 %520 to i64
   %522 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %521
   %.not = icmp eq ptr %518, %522
-  br i1 %.not, label %._crit_edge473.loopexit, label %31, !llvm.loop !110
+  br i1 %.not, label %._crit_edge479.loopexit, label %31, !llvm.loop !110
 
 _ZNK10reflection6Object9is_structEv.exit:         ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i
   %523 = zext i16 %30 to i64
   %524 = getelementptr inbounds nuw i8, ptr %2, i64 %523
   %525 = load i8, ptr %524, align 1, !tbaa !4
-  %.not395 = icmp eq i8 %525, 0
-  br i1 %.not395, label %_ZNK10reflection6Object9is_structEv.exit.thread, label %526
+  %.not399 = icmp eq i8 %525, 0
+  br i1 %.not399, label %_ZNK10reflection6Object9is_structEv.exit.thread, label %526
 
 526:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit
   %527 = icmp ugt i16 %27, 10
@@ -4105,7 +4105,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i: ; preds =
   %.pre.i = load i32, ptr %539, align 8, !tbaa !89
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit
 
-_ZNK10reflection6Object9is_structEv.exit.thread:  ; preds = %._crit_edge473, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %_ZNK10reflection6Object9is_structEv.exit
+_ZNK10reflection6Object9is_structEv.exit.thread:  ; preds = %._crit_edge479, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %_ZNK10reflection6Object9is_structEv.exit
   %563 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 1, ptr %563, align 8, !tbaa !105
   %564 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -4115,18 +4115,18 @@ _ZNK10reflection6Object9is_structEv.exit.thread:  ; preds = %._crit_edge473, %_Z
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i, %_ZNK10reflection6Object9is_structEv.exit.thread
   %566 = phi i32 [ %565, %_ZNK10reflection6Object9is_structEv.exit.thread ], [ %.pre.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i ], [ %540, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
   %567 = load i32, ptr %20, align 4, !tbaa !33, !noalias !111
-  %.mask484 = and i32 %567, 1073741823
-  %.not396475 = icmp eq i32 %.mask484, 0
-  br i1 %.not396475, label %._crit_edge479, label %.lr.ph478
+  %.mask490 = and i32 %567, 1073741823
+  %.not400481 = icmp eq i32 %.mask490, 0
+  br i1 %.not400481, label %._crit_edge485, label %.lr.ph484
 
-.lr.ph478:                                        ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit
+.lr.ph484:                                        ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit
   %568 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %569 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.phi.trans.insert.i.i.i.i.i320 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %570 = getelementptr inbounds nuw i8, ptr %0, i64 72
   br label %581
 
-._crit_edge479:                                   ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit
+._crit_edge485:                                   ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit
   %571 = load i32, ptr %2, align 4, !tbaa !9
   %572 = sext i32 %571 to i64
   %573 = sub nsw i64 0, %572
@@ -4135,7 +4135,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE11StartStructEm.exit: ; preds = %_Z
   %576 = icmp ugt i16 %575, 8
   br i1 %576, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283, label %_ZNK10reflection6Object9is_structEv.exit285.thread
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283: ; preds = %._crit_edge479
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283: ; preds = %._crit_edge485
   %577 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %578 = load i16, ptr %577, align 2, !tbaa !7
   %.not.i.i284 = icmp eq i16 %578, 0
@@ -4146,12 +4146,12 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283: ; preds = %._crit
           cleanup
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
-581:                                              ; preds = %.lr.ph478, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit
-  %.0145477 = phi i64 [ 0, %.lr.ph478 ], [ %.1146, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit ]
-  %.sroa.0335.0476 = phi ptr [ %.ptr.ptr, %.lr.ph478 ], [ %753, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit ]
-  %582 = load i32, ptr %.sroa.0335.0476, align 4, !tbaa !9
+581:                                              ; preds = %.lr.ph484, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit
+  %.0145483 = phi i64 [ 0, %.lr.ph484 ], [ %.1146, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit ]
+  %.sroa.0335.0482 = phi ptr [ %.ptr.ptr, %.lr.ph484 ], [ %752, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit ]
+  %582 = load i32, ptr %.sroa.0335.0482, align 4, !tbaa !9
   %583 = zext i32 %582 to i64
-  %584 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0476, i64 %583
+  %584 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0482, i64 %583
   %585 = load i32, ptr %584, align 4, !tbaa !9
   %586 = sext i32 %585 to i64
   %587 = sub nsw i64 0, %586
@@ -4186,8 +4186,8 @@ _ZNK11flatbuffers5Table10CheckFieldEt.exit289:    ; preds = %_ZNK10reflection5Fi
   %604 = zext i16 %597 to i64
   %605 = getelementptr inbounds nuw i8, ptr %601, i64 %604
   %606 = load i16, ptr %605, align 2, !tbaa !7
-  %.not398 = icmp eq i16 %606, 0
-  br i1 %.not398, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, label %607
+  %.not402 = icmp eq i16 %606, 0
+  br i1 %.not402, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, label %607
 
 607:                                              ; preds = %_ZNK11flatbuffers5Table10CheckFieldEt.exit289
   %608 = icmp ugt i16 %589, 6
@@ -4229,232 +4229,232 @@ _ZNK10reflection4Type9base_typeEv.exit295:        ; preds = %_ZNK11flatbuffers5T
   %628 = load i8, ptr %627, align 1, !tbaa !4
   %629 = sext i8 %628 to i64
   switch i8 %628, label %_ZNK10reflection4Type9base_typeEv.exit295.thread [
-    i8 15, label %632
+    i8 15, label %631
     i8 16, label %.thread392
     i8 13, label %.thread392
     i8 14, label %.thread392
   ]
 
-630:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i, %736
-  %631 = landingpad { ptr, i32 }
+_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread: ; preds = %735, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i
+  %630 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
+  br label %778
 
-632:                                              ; preds = %_ZNK10reflection4Type9base_typeEv.exit295
-  %633 = load i32, ptr %1, align 4, !tbaa !9
-  %634 = sext i32 %633 to i64
-  %635 = sub nsw i64 0, %634
-  %636 = getelementptr inbounds i8, ptr %1, i64 %635
-  %637 = load i16, ptr %636, align 2, !tbaa !7
-  %638 = icmp ugt i16 %637, 4
-  br i1 %638, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296, label %_ZNK10reflection6Schema7objectsEv.exit298
+631:                                              ; preds = %_ZNK10reflection4Type9base_typeEv.exit295
+  %632 = load i32, ptr %1, align 4, !tbaa !9
+  %633 = sext i32 %632 to i64
+  %634 = sub nsw i64 0, %633
+  %635 = getelementptr inbounds i8, ptr %1, i64 %634
+  %636 = load i16, ptr %635, align 2, !tbaa !7
+  %637 = icmp ugt i16 %636, 4
+  br i1 %637, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296, label %_ZNK10reflection6Schema7objectsEv.exit298
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296: ; preds = %632
-  %639 = getelementptr inbounds nuw i8, ptr %636, i64 4
-  %640 = load i16, ptr %639, align 2, !tbaa !7
-  %.not.i.i.i297 = icmp eq i16 %640, 0
-  br i1 %.not.i.i.i297, label %_ZNK10reflection6Schema7objectsEv.exit298, label %641
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296: ; preds = %631
+  %638 = getelementptr inbounds nuw i8, ptr %635, i64 4
+  %639 = load i16, ptr %638, align 2, !tbaa !7
+  %.not.i.i.i297 = icmp eq i16 %639, 0
+  br i1 %.not.i.i.i297, label %_ZNK10reflection6Schema7objectsEv.exit298, label %640
 
-641:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296
-  %642 = zext i16 %640 to i64
-  %643 = getelementptr inbounds nuw i8, ptr %1, i64 %642
-  %644 = load i32, ptr %643, align 4, !tbaa !9
-  %645 = zext i32 %644 to i64
-  %646 = getelementptr inbounds nuw i8, ptr %643, i64 %645
+640:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296
+  %641 = zext i16 %639 to i64
+  %642 = getelementptr inbounds nuw i8, ptr %1, i64 %641
+  %643 = load i32, ptr %642, align 4, !tbaa !9
+  %644 = zext i32 %643 to i64
+  %645 = getelementptr inbounds nuw i8, ptr %642, i64 %644
   br label %_ZNK10reflection6Schema7objectsEv.exit298
 
-_ZNK10reflection6Schema7objectsEv.exit298:        ; preds = %641, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296, %632
-  %647 = phi ptr [ %646, %641 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296 ], [ null, %632 ]
+_ZNK10reflection6Schema7objectsEv.exit298:        ; preds = %640, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296, %631
+  %646 = phi ptr [ %645, %640 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i296 ], [ null, %631 ]
   br i1 %608, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299, label %_ZNK10reflection5Field4typeEv.exit301
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299: ; preds = %_ZNK10reflection6Schema7objectsEv.exit298
-  %648 = getelementptr inbounds nuw i8, ptr %588, i64 6
-  %649 = load i16, ptr %648, align 2, !tbaa !7
-  %.not.i.i.i300 = icmp eq i16 %649, 0
-  br i1 %.not.i.i.i300, label %_ZNK10reflection5Field4typeEv.exit301, label %650
+  %647 = getelementptr inbounds nuw i8, ptr %588, i64 6
+  %648 = load i16, ptr %647, align 2, !tbaa !7
+  %.not.i.i.i300 = icmp eq i16 %648, 0
+  br i1 %.not.i.i.i300, label %_ZNK10reflection5Field4typeEv.exit301, label %649
 
-650:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299
-  %651 = zext i16 %649 to i64
-  %652 = getelementptr inbounds nuw i8, ptr %584, i64 %651
-  %653 = load i32, ptr %652, align 4, !tbaa !9
-  %654 = zext i32 %653 to i64
-  %655 = getelementptr inbounds nuw i8, ptr %652, i64 %654
+649:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299
+  %650 = zext i16 %648 to i64
+  %651 = getelementptr inbounds nuw i8, ptr %584, i64 %650
+  %652 = load i32, ptr %651, align 4, !tbaa !9
+  %653 = zext i32 %652 to i64
+  %654 = getelementptr inbounds nuw i8, ptr %651, i64 %653
   br label %_ZNK10reflection5Field4typeEv.exit301
 
-_ZNK10reflection5Field4typeEv.exit301:            ; preds = %650, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299, %_ZNK10reflection6Schema7objectsEv.exit298
-  %656 = phi ptr [ %655, %650 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299 ], [ null, %_ZNK10reflection6Schema7objectsEv.exit298 ]
-  %657 = load i32, ptr %656, align 4, !tbaa !9
-  %658 = sext i32 %657 to i64
-  %659 = sub nsw i64 0, %658
-  %660 = getelementptr inbounds i8, ptr %656, i64 %659
-  %661 = load i16, ptr %660, align 2, !tbaa !7
-  %662 = icmp ugt i16 %661, 8
-  br i1 %662, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302, label %671
+_ZNK10reflection5Field4typeEv.exit301:            ; preds = %649, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299, %_ZNK10reflection6Schema7objectsEv.exit298
+  %655 = phi ptr [ %654, %649 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i299 ], [ null, %_ZNK10reflection6Schema7objectsEv.exit298 ]
+  %656 = load i32, ptr %655, align 4, !tbaa !9
+  %657 = sext i32 %656 to i64
+  %658 = sub nsw i64 0, %657
+  %659 = getelementptr inbounds i8, ptr %655, i64 %658
+  %660 = load i16, ptr %659, align 2, !tbaa !7
+  %661 = icmp ugt i16 %660, 8
+  br i1 %661, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302, label %670
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302: ; preds = %_ZNK10reflection5Field4typeEv.exit301
-  %663 = getelementptr inbounds nuw i8, ptr %660, i64 8
-  %664 = load i16, ptr %663, align 2, !tbaa !7
-  %.not.i.i303 = icmp eq i16 %664, 0
-  br i1 %.not.i.i303, label %671, label %665
+  %662 = getelementptr inbounds nuw i8, ptr %659, i64 8
+  %663 = load i16, ptr %662, align 2, !tbaa !7
+  %.not.i.i303 = icmp eq i16 %663, 0
+  br i1 %.not.i.i303, label %670, label %664
 
-665:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302
-  %666 = zext i16 %664 to i64
-  %667 = getelementptr inbounds nuw i8, ptr %656, i64 %666
-  %668 = load i32, ptr %667, align 4, !tbaa !9
-  %669 = shl i32 %668, 2
-  %670 = zext i32 %669 to i64
-  br label %671
+664:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302
+  %665 = zext i16 %663 to i64
+  %666 = getelementptr inbounds nuw i8, ptr %655, i64 %665
+  %667 = load i32, ptr %666, align 4, !tbaa !9
+  %668 = shl i32 %667, 2
+  %669 = zext i32 %668 to i64
+  br label %670
 
-671:                                              ; preds = %_ZNK10reflection5Field4typeEv.exit301, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302, %665
-  %672 = phi i64 [ %670, %665 ], [ 4294967292, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302 ], [ 4294967292, %_ZNK10reflection5Field4typeEv.exit301 ]
-  %673 = getelementptr inbounds nuw i8, ptr %647, i64 4
-  %674 = getelementptr inbounds nuw i8, ptr %673, i64 %672
-  %675 = load i32, ptr %674, align 4, !tbaa !9
-  %676 = zext i32 %675 to i64
-  %677 = getelementptr inbounds nuw i8, ptr %674, i64 %676
-  %678 = load i32, ptr %677, align 4, !tbaa !9
-  %679 = sext i32 %678 to i64
-  %680 = sub nsw i64 0, %679
-  %681 = getelementptr inbounds i8, ptr %677, i64 %680
-  %682 = load i16, ptr %681, align 2, !tbaa !7
-  %683 = icmp ugt i16 %682, 8
-  br i1 %683, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305, label %.thread392
+670:                                              ; preds = %_ZNK10reflection5Field4typeEv.exit301, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302, %664
+  %671 = phi i64 [ %669, %664 ], [ 4294967292, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i302 ], [ 4294967292, %_ZNK10reflection5Field4typeEv.exit301 ]
+  %672 = getelementptr inbounds nuw i8, ptr %646, i64 4
+  %673 = getelementptr inbounds nuw i8, ptr %672, i64 %671
+  %674 = load i32, ptr %673, align 4, !tbaa !9
+  %675 = zext i32 %674 to i64
+  %676 = getelementptr inbounds nuw i8, ptr %673, i64 %675
+  %677 = load i32, ptr %676, align 4, !tbaa !9
+  %678 = sext i32 %677 to i64
+  %679 = sub nsw i64 0, %678
+  %680 = getelementptr inbounds i8, ptr %676, i64 %679
+  %681 = load i16, ptr %680, align 2, !tbaa !7
+  %682 = icmp ugt i16 %681, 8
+  br i1 %682, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305, label %.thread392
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305: ; preds = %671
-  %684 = getelementptr inbounds nuw i8, ptr %681, i64 8
-  %685 = load i16, ptr %684, align 2, !tbaa !7
-  %.not.i.i306 = icmp eq i16 %685, 0
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305: ; preds = %670
+  %683 = getelementptr inbounds nuw i8, ptr %680, i64 8
+  %684 = load i16, ptr %683, align 2, !tbaa !7
+  %.not.i.i306 = icmp eq i16 %684, 0
   br i1 %.not.i.i306, label %.thread392, label %_ZNK10reflection6Object9is_structEv.exit307
 
 _ZNK10reflection6Object9is_structEv.exit307:      ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305
-  %686 = zext i16 %685 to i64
-  %687 = getelementptr inbounds nuw i8, ptr %677, i64 %686
-  %688 = load i8, ptr %687, align 1, !tbaa !4
-  %.not399 = icmp eq i8 %688, 0
-  br i1 %.not399, label %.thread392, label %689
+  %685 = zext i16 %684 to i64
+  %686 = getelementptr inbounds nuw i8, ptr %676, i64 %685
+  %687 = load i8, ptr %686, align 1, !tbaa !4
+  %.not403 = icmp eq i8 %687, 0
+  br i1 %.not403, label %.thread392, label %688
 
-689:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit307
-  %690 = icmp ugt i16 %682, 10
-  br i1 %690, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308, label %_ZNK10reflection6Object8bytesizeEv.exit313
+688:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit307
+  %689 = icmp ugt i16 %681, 10
+  br i1 %689, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308, label %_ZNK10reflection6Object8bytesizeEv.exit313
 
-_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308: ; preds = %689
-  %691 = getelementptr inbounds nuw i8, ptr %681, i64 10
-  %692 = load i16, ptr %691, align 2, !tbaa !7
-  %.not.i.i309 = icmp eq i16 %692, 0
-  br i1 %.not.i.i309, label %_ZNK10reflection6Object8minalignEv.exit310, label %693
+_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308: ; preds = %688
+  %690 = getelementptr inbounds nuw i8, ptr %680, i64 10
+  %691 = load i16, ptr %690, align 2, !tbaa !7
+  %.not.i.i309 = icmp eq i16 %691, 0
+  br i1 %.not.i.i309, label %_ZNK10reflection6Object8minalignEv.exit310, label %692
 
-693:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308
-  %694 = zext i16 %692 to i64
-  %695 = getelementptr inbounds nuw i8, ptr %677, i64 %694
-  %696 = load i32, ptr %695, align 4, !tbaa !9
+692:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308
+  %693 = zext i16 %691 to i64
+  %694 = getelementptr inbounds nuw i8, ptr %676, i64 %693
+  %695 = load i32, ptr %694, align 4, !tbaa !9
   br label %_ZNK10reflection6Object8minalignEv.exit310
 
-_ZNK10reflection6Object8minalignEv.exit310:       ; preds = %693, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308
-  %697 = phi i32 [ %696, %693 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308 ]
-  %698 = icmp ugt i16 %682, 12
-  br i1 %698, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311, label %_ZNK10reflection6Object8bytesizeEv.exit313
+_ZNK10reflection6Object8minalignEv.exit310:       ; preds = %692, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308
+  %696 = phi i32 [ %695, %692 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i308 ]
+  %697 = icmp ugt i16 %681, 12
+  br i1 %697, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311, label %_ZNK10reflection6Object8bytesizeEv.exit313
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311: ; preds = %_ZNK10reflection6Object8minalignEv.exit310
-  %699 = getelementptr inbounds nuw i8, ptr %681, i64 12
-  %700 = load i16, ptr %699, align 2, !tbaa !7
-  %.not.i.i312 = icmp eq i16 %700, 0
-  br i1 %.not.i.i312, label %_ZNK10reflection6Object8bytesizeEv.exit313, label %701
+  %698 = getelementptr inbounds nuw i8, ptr %680, i64 12
+  %699 = load i16, ptr %698, align 2, !tbaa !7
+  %.not.i.i312 = icmp eq i16 %699, 0
+  br i1 %.not.i.i312, label %_ZNK10reflection6Object8bytesizeEv.exit313, label %700
 
-701:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311
-  %702 = zext i16 %700 to i64
-  %703 = getelementptr inbounds nuw i8, ptr %677, i64 %702
-  %704 = load i32, ptr %703, align 4, !tbaa !9
-  %705 = sext i32 %704 to i64
+700:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311
+  %701 = zext i16 %699 to i64
+  %702 = getelementptr inbounds nuw i8, ptr %676, i64 %701
+  %703 = load i32, ptr %702, align 4, !tbaa !9
+  %704 = sext i32 %703 to i64
   br label %_ZNK10reflection6Object8bytesizeEv.exit313
 
-_ZNK10reflection6Object8bytesizeEv.exit313:       ; preds = %689, %701, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311, %_ZNK10reflection6Object8minalignEv.exit310
-  %706 = phi i32 [ %697, %701 ], [ %697, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311 ], [ %697, %_ZNK10reflection6Object8minalignEv.exit310 ], [ 0, %689 ]
-  %707 = phi i64 [ %705, %701 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311 ], [ 0, %_ZNK10reflection6Object8minalignEv.exit310 ], [ 0, %689 ]
-  %708 = sext i32 %706 to i64
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %584, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %708, i64 noundef %707)
-          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %709
+_ZNK10reflection6Object8bytesizeEv.exit313:       ; preds = %688, %700, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311, %_ZNK10reflection6Object8minalignEv.exit310
+  %705 = phi i32 [ %696, %700 ], [ %696, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311 ], [ %696, %_ZNK10reflection6Object8minalignEv.exit310 ], [ 0, %688 ]
+  %706 = phi i64 [ %704, %700 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i311 ], [ 0, %_ZNK10reflection6Object8minalignEv.exit310 ], [ 0, %688 ]
+  %707 = sext i32 %705 to i64
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %584, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %707, i64 noundef %706)
+          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %708
 
-709:                                              ; preds = %_ZNK10reflection6Object8bytesizeEv.exit313
-  %710 = landingpad { ptr, i32 }
+708:                                              ; preds = %_ZNK10reflection6Object8bytesizeEv.exit313
+  %709 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
-.thread392:                                       ; preds = %671, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305, %_ZNK10reflection6Object9is_structEv.exit307, %_ZNK10reflection4Type9base_typeEv.exit295, %_ZNK10reflection4Type9base_typeEv.exit295, %_ZNK10reflection4Type9base_typeEv.exit295
+.thread392:                                       ; preds = %670, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i305, %_ZNK10reflection6Object9is_structEv.exit307, %_ZNK10reflection4Type9base_typeEv.exit295, %_ZNK10reflection4Type9base_typeEv.exit295, %_ZNK10reflection4Type9base_typeEv.exit295
   br i1 %590, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314, label %_ZNK10reflection5Field6offsetEv.exit316
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314: ; preds = %.thread392
-  %711 = getelementptr inbounds nuw i8, ptr %588, i64 10
-  %712 = load i16, ptr %711, align 2, !tbaa !7
-  %.not.i.i315 = icmp eq i16 %712, 0
-  br i1 %.not.i.i315, label %_ZNK10reflection5Field6offsetEv.exit316, label %713
+  %710 = getelementptr inbounds nuw i8, ptr %588, i64 10
+  %711 = load i16, ptr %710, align 2, !tbaa !7
+  %.not.i.i315 = icmp eq i16 %711, 0
+  br i1 %.not.i.i315, label %_ZNK10reflection5Field6offsetEv.exit316, label %712
 
-713:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314
-  %714 = zext i16 %712 to i64
-  %715 = getelementptr inbounds nuw i8, ptr %584, i64 %714
-  %716 = load i16, ptr %715, align 2, !tbaa !7
+712:                                              ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314
+  %713 = zext i16 %711 to i64
+  %714 = getelementptr inbounds nuw i8, ptr %584, i64 %713
+  %715 = load i16, ptr %714, align 2, !tbaa !7
   br label %_ZNK10reflection5Field6offsetEv.exit316
 
-_ZNK10reflection5Field6offsetEv.exit316:          ; preds = %713, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314, %.thread392
-  %717 = phi i16 [ %716, %713 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314 ], [ 0, %.thread392 ]
-  %718 = add i64 %.0145477, 1
-  %719 = getelementptr inbounds nuw i32, ptr %.sroa.0363.0.lcssa, i64 %.0145477
-  %720 = load i32, ptr %719, align 4, !tbaa !9
-  %.not.i.i317 = icmp eq i32 %720, 0
-  br i1 %.not.i.i317, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, label %721
+_ZNK10reflection5Field6offsetEv.exit316:          ; preds = %712, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314, %.thread392
+  %716 = phi i16 [ %715, %712 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314 ], [ 0, %.thread392 ]
+  %717 = add i64 %.0145483, 1
+  %718 = getelementptr inbounds nuw i32, ptr %.sroa.0363.0.lcssa, i64 %.0145483
+  %719 = load i32, ptr %718, align 4, !tbaa !9
+  %.not.i.i317 = icmp eq i32 %719, 0
+  br i1 %.not.i.i317, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, label %720
 
-721:                                              ; preds = %_ZNK10reflection5Field6offsetEv.exit316
-  %722 = load i64, ptr %568, align 8, !tbaa !108
-  %723 = icmp ult i64 %722, 4
-  br i1 %723, label %724, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
+720:                                              ; preds = %_ZNK10reflection5Field6offsetEv.exit316
+  %721 = load i64, ptr %568, align 8, !tbaa !108
+  %722 = icmp ult i64 %721, 4
+  br i1 %722, label %723, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
 
-724:                                              ; preds = %721
+723:                                              ; preds = %720
   store i64 4, ptr %568, align 8, !tbaa !108
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
 
-_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318: ; preds = %724, %721
-  %725 = load i32, ptr %569, align 8, !tbaa !89
-  %726 = sub i32 0, %725
-  %727 = and i32 %726, 3
-  %728 = zext nneg i32 %727 to i64
-  %.not.i.i.i.i.i319 = icmp eq i32 %727, 0
-  br i1 %.not.i.i.i.i.i319, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i, label %729
+_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318: ; preds = %723, %720
+  %724 = load i32, ptr %569, align 8, !tbaa !89
+  %725 = sub i32 0, %724
+  %726 = and i32 %725, 3
+  %727 = zext nneg i32 %726 to i64
+  %.not.i.i.i.i.i319 = icmp eq i32 %726, 0
+  br i1 %.not.i.i.i.i.i319, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i, label %728
 
-729:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
+728:                                              ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
   %.pre4.i.i.i.i.i321 = load ptr, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
-  %730 = load ptr, ptr %570, align 8, !tbaa !104
-  %731 = ptrtoint ptr %.pre4.i.i.i.i.i321 to i64
-  %732 = ptrtoint ptr %730 to i64
-  %733 = sub i64 %731, %732
-  %734 = and i64 %733, 4294967295
-  %735 = icmp samesign ult i64 %734, %728
-  br i1 %735, label %736, label %.lr.ph.preheader.i.i.i.i322
+  %729 = load ptr, ptr %570, align 8, !tbaa !104
+  %730 = ptrtoint ptr %.pre4.i.i.i.i.i321 to i64
+  %731 = ptrtoint ptr %729 to i64
+  %732 = sub i64 %730, %731
+  %733 = and i64 %732, 4294967295
+  %734 = icmp samesign ult i64 %733, %727
+  br i1 %734, label %735, label %.lr.ph.preheader.i.i.i.i322
 
-736:                                              ; preds = %729
-  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %728)
-          to label %.noexc329 unwind label %630
+735:                                              ; preds = %728
+  invoke void @_ZN11flatbuffers15vector_downwardIjE10reallocateEm(ptr noundef nonnull align 8 dereferenceable(128) %0, i64 noundef %727)
+          to label %.noexc329 unwind label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread
 
-.noexc329:                                        ; preds = %736
+.noexc329:                                        ; preds = %735
   %.pre.i.i.i.i.i327 = load ptr, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
   %.pre.i.i.i328 = load i32, ptr %569, align 8, !tbaa !89
   br label %.lr.ph.preheader.i.i.i.i322
 
-.lr.ph.preheader.i.i.i.i322:                      ; preds = %.noexc329, %729
-  %737 = phi i32 [ %725, %729 ], [ %.pre.i.i.i328, %.noexc329 ]
-  %738 = phi ptr [ %.pre4.i.i.i.i.i321, %729 ], [ %.pre.i.i.i.i.i327, %.noexc329 ]
-  %739 = sub nsw i64 0, %728
-  %740 = getelementptr inbounds i8, ptr %738, i64 %739
-  store ptr %740, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
-  %741 = add i32 %737, %727
-  store i32 %741, ptr %569, align 8, !tbaa !89
+.lr.ph.preheader.i.i.i.i322:                      ; preds = %.noexc329, %728
+  %736 = phi i32 [ %724, %728 ], [ %.pre.i.i.i328, %.noexc329 ]
+  %737 = phi ptr [ %.pre4.i.i.i.i.i321, %728 ], [ %.pre.i.i.i.i.i327, %.noexc329 ]
+  %738 = sub nsw i64 0, %727
+  %739 = getelementptr inbounds i8, ptr %737, i64 %738
+  store ptr %739, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
+  %740 = add i32 %736, %726
+  store i32 %740, ptr %569, align 8, !tbaa !89
   br label %.lr.ph.i.i.i.i323
 
 .lr.ph.i.i.i.i323:                                ; preds = %.lr.ph.i.i.i.i323, %.lr.ph.preheader.i.i.i.i322
-  %.05.i.i.i.i324 = phi i64 [ %744, %.lr.ph.i.i.i.i323 ], [ 0, %.lr.ph.preheader.i.i.i.i322 ]
-  %742 = load ptr, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
-  %743 = getelementptr inbounds nuw i8, ptr %742, i64 %.05.i.i.i.i324
-  store i8 0, ptr %743, align 1, !tbaa !4
-  %744 = add nuw i64 %.05.i.i.i.i324, 1
-  %exitcond.not.i.i.i.i325 = icmp eq i64 %744, %728
+  %.05.i.i.i.i324 = phi i64 [ %743, %.lr.ph.i.i.i.i323 ], [ 0, %.lr.ph.preheader.i.i.i.i322 ]
+  %741 = load ptr, ptr %.phi.trans.insert.i.i.i.i.i320, align 8, !tbaa !103
+  %742 = getelementptr inbounds nuw i8, ptr %741, i64 %.05.i.i.i.i324
+  store i8 0, ptr %742, align 1, !tbaa !4
+  %743 = add nuw i64 %.05.i.i.i.i324, 1
+  %exitcond.not.i.i.i.i325 = icmp eq i64 %743, %727
   br i1 %exitcond.not.i.i.i.i325, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i, label %.lr.ph.i.i.i.i323, !llvm.loop !109
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i323
@@ -4462,98 +4462,102 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i: ; preds
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318
-  %745 = phi i32 [ %.pre.i.i326, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i ], [ %725, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318 ]
-  %reass.sub = sub i32 %745, %720
-  %746 = add i32 %reass.sub, 4
-  invoke void @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIjEEvtT_S3_(ptr noundef nonnull align 8 dereferenceable(128) %0, i16 noundef zeroext %717, i32 noundef %746, i32 noundef 0)
-          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %630
+  %744 = phi i32 [ %.pre.i.i326, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE5AlignEm.exit.loopexit.i.i ], [ %724, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i.i318 ]
+  %reass.sub = sub i32 %744, %719
+  %745 = add i32 %reass.sub, 4
+  invoke void @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE10AddElementIjEEvtT_S3_(ptr noundef nonnull align 8 dereferenceable(128) %0, i16 noundef zeroext %716, i32 noundef %745, i32 noundef 0)
+          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread
 
 _ZNK10reflection4Type9base_typeEv.exit295.thread: ; preds = %_ZNK10reflection5Field4typeEv.exit292, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293, %_ZNK10reflection4Type9base_typeEv.exit295
-  %747 = phi i64 [ %629, %_ZNK10reflection4Type9base_typeEv.exit295 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293 ], [ 0, %_ZNK10reflection5Field4typeEv.exit292 ]
-  %748 = and i64 %747, 4294967295
-  %749 = getelementptr inbounds nuw [20 x i64], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 0, i64 %748
-  %750 = load i64, ptr %749, align 8, !tbaa !11
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %584, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %750, i64 noundef %750)
-          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %751
+  %746 = phi i64 [ %629, %_ZNK10reflection4Type9base_typeEv.exit295 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293 ], [ 0, %_ZNK10reflection5Field4typeEv.exit292 ]
+  %747 = and i64 %746, 4294967295
+  %748 = getelementptr inbounds nuw [20 x i64], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 0, i64 %747
+  %749 = load i64, ptr %748, align 8, !tbaa !11
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %584, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %749, i64 noundef %749)
+          to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %750
 
-751:                                              ; preds = %_ZNK10reflection4Type9base_typeEv.exit295.thread
-  %752 = landingpad { ptr, i32 }
+750:                                              ; preds = %_ZNK10reflection4Type9base_typeEv.exit295.thread
+  %751 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit: ; preds = %_ZNK10reflection5Field6offsetEv.exit288, %_ZNK10reflection5Field6offsetEv.exit316, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i, %_ZNK10reflection6Object8bytesizeEv.exit313, %_ZNK10reflection4Type9base_typeEv.exit295.thread, %_ZNK11flatbuffers5Table10CheckFieldEt.exit289
-  %.1146 = phi i64 [ %.0145477, %_ZNK11flatbuffers5Table10CheckFieldEt.exit289 ], [ %.0145477, %_ZNK10reflection4Type9base_typeEv.exit295.thread ], [ %.0145477, %_ZNK10reflection6Object8bytesizeEv.exit313 ], [ %718, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i ], [ %718, %_ZNK10reflection5Field6offsetEv.exit316 ], [ %.0145477, %_ZNK10reflection5Field6offsetEv.exit288 ]
-  %753 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0476, i64 4
-  %754 = load i32, ptr %20, align 4, !tbaa !33, !noalias !111
-  %755 = shl i32 %754, 2
-  %756 = zext i32 %755 to i64
-  %757 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %756
-  %.not396 = icmp eq ptr %753, %757
-  br i1 %.not396, label %._crit_edge479, label %581, !llvm.loop !114
+  %.1146 = phi i64 [ %.0145483, %_ZNK11flatbuffers5Table10CheckFieldEt.exit289 ], [ %.0145483, %_ZNK10reflection4Type9base_typeEv.exit295.thread ], [ %.0145483, %_ZNK10reflection6Object8bytesizeEv.exit313 ], [ %717, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i ], [ %717, %_ZNK10reflection5Field6offsetEv.exit316 ], [ %.0145483, %_ZNK10reflection5Field6offsetEv.exit288 ]
+  %752 = getelementptr inbounds nuw i8, ptr %.sroa.0335.0482, i64 4
+  %753 = load i32, ptr %20, align 4, !tbaa !33, !noalias !111
+  %754 = shl i32 %753, 2
+  %755 = zext i32 %754 to i64
+  %756 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 %755
+  %.not400 = icmp eq ptr %752, %756
+  br i1 %.not400, label %._crit_edge485, label %581, !llvm.loop !114
 
 _ZNK10reflection6Object9is_structEv.exit285:      ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283
-  %758 = zext i16 %578 to i64
-  %759 = getelementptr inbounds nuw i8, ptr %2, i64 %758
-  %760 = load i8, ptr %759, align 1, !tbaa !4
-  %.not397 = icmp eq i8 %760, 0
-  br i1 %.not397, label %_ZNK10reflection6Object9is_structEv.exit285.thread, label %761
+  %757 = zext i16 %578 to i64
+  %758 = getelementptr inbounds nuw i8, ptr %2, i64 %757
+  %759 = load i8, ptr %758, align 1, !tbaa !4
+  %.not401 = icmp eq i8 %759, 0
+  br i1 %.not401, label %_ZNK10reflection6Object9is_structEv.exit285.thread, label %760
 
-761:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285
-  %762 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %763 = load i32, ptr %762, align 8, !tbaa !115
-  %764 = zext i32 %763 to i64
-  %.neg.i = mul nsw i64 %764, -8
-  %765 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %766 = load ptr, ptr %765, align 8, !tbaa !104
-  %767 = getelementptr inbounds i8, ptr %766, i64 %.neg.i
-  store ptr %767, ptr %765, align 8, !tbaa !104
-  store i32 0, ptr %762, align 8, !tbaa !115
-  %768 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i16 0, ptr %768, align 4, !tbaa !116
-  %769 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %770 = load i32, ptr %769, align 8, !tbaa !89
-  br label %774
+760:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285
+  %761 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %762 = load i32, ptr %761, align 8, !tbaa !115
+  %763 = zext i32 %762 to i64
+  %.neg.i = mul nsw i64 %763, -8
+  %764 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %765 = load ptr, ptr %764, align 8, !tbaa !104
+  %766 = getelementptr inbounds i8, ptr %765, i64 %.neg.i
+  store ptr %766, ptr %764, align 8, !tbaa !104
+  store i32 0, ptr %761, align 8, !tbaa !115
+  %767 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i16 0, ptr %767, align 4, !tbaa !116
+  %768 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %769 = load i32, ptr %768, align 8, !tbaa !89
+  br label %773
 
-771:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285.thread
-  %772 = landingpad { ptr, i32 }
+770:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285.thread
+  %771 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
 
-_ZNK10reflection6Object9is_structEv.exit285.thread: ; preds = %._crit_edge479, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283, %_ZNK10reflection6Object9is_structEv.exit285
-  %773 = invoke noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %566)
-          to label %774 unwind label %771
+_ZNK10reflection6Object9is_structEv.exit285.thread: ; preds = %._crit_edge485, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i283, %_ZNK10reflection6Object9is_structEv.exit285
+  %772 = invoke noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8EndTableEj(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %566)
+          to label %773 unwind label %770
 
-774:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285.thread, %761
-  %.sroa.0370.0 = phi i32 [ %770, %761 ], [ %773, %_ZNK10reflection6Object9is_structEv.exit285.thread ]
+773:                                              ; preds = %_ZNK10reflection6Object9is_structEv.exit285.thread, %760
+  %.sroa.0370.0 = phi i32 [ %769, %760 ], [ %772, %_ZNK10reflection6Object9is_structEv.exit285.thread ]
   %.not.i.i.i331 = icmp eq ptr %.sroa.0363.0.lcssa, null
-  br i1 %.not.i.i.i331, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %775
+  br i1 %.not.i.i.i331, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %774
 
-775:                                              ; preds = %774
-  %776 = ptrtoint ptr %.sroa.12367.0.lcssa to i64
-  %777 = ptrtoint ptr %.sroa.0363.0.lcssa to i64
-  %778 = sub i64 %776, %777
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0.lcssa, i64 noundef %778) #23
+774:                                              ; preds = %773
+  %775 = ptrtoint ptr %.sroa.12367.0.lcssa to i64
+  %776 = ptrtoint ptr %.sroa.0363.0.lcssa to i64
+  %777 = sub i64 %775, %776
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0.lcssa, i64 noundef %777) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %774, %775
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %773, %774
   ret i32 %.sroa.0370.0
 
-_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248: ; preds = %.loopexit, %.loopexit.split-lp, %630, %709, %751, %399, %417, %419, %357, %377, %.thread, %435, %233, %235, %200, %124, %126, %579, %771
-  %.sroa.12367.0448 = phi ptr [ %.sroa.12367.0.lcssa, %579 ], [ %.sroa.12367.0.lcssa, %771 ], [ %.sroa.12367.0462, %124 ], [ %.sroa.12367.0462, %126 ], [ %.sroa.12367.0462, %200 ], [ %.sroa.12367.0462, %235 ], [ %.sroa.12367.0462, %233 ], [ %.sroa.12367.0462, %435 ], [ %.sroa.12367.0462, %357 ], [ %.sroa.12367.0462, %377 ], [ %.sroa.12367.0462, %.thread ], [ %.sroa.12367.0462, %399 ], [ %.sroa.12367.0462, %417 ], [ %.sroa.12367.0462, %419 ], [ %.sroa.12367.0.lcssa, %751 ], [ %.sroa.12367.0.lcssa, %630 ], [ %.sroa.12367.0.lcssa, %709 ], [ %.sroa.9.0466, %.loopexit ], [ %.sroa.9.0466, %.loopexit.split-lp ]
-  %.sroa.0363.0429 = phi ptr [ %.sroa.0363.0.lcssa, %579 ], [ %.sroa.0363.0.lcssa, %771 ], [ %.sroa.0363.0468, %124 ], [ %.sroa.0363.0468, %126 ], [ %.sroa.0363.0468, %200 ], [ %.sroa.0363.0468, %235 ], [ %.sroa.0363.0468, %233 ], [ %.sroa.0363.0468, %435 ], [ %.sroa.0363.0468, %357 ], [ %.sroa.0363.0468, %377 ], [ %.sroa.0363.0468, %.thread ], [ %.sroa.0363.0468, %399 ], [ %.sroa.0363.0468, %417 ], [ %.sroa.0363.0468, %419 ], [ %.sroa.0363.0.lcssa, %751 ], [ %.sroa.0363.0.lcssa, %630 ], [ %.sroa.0363.0.lcssa, %709 ], [ %.sroa.0363.0468, %.loopexit ], [ %.sroa.0363.0468, %.loopexit.split-lp ]
-  %.pn174.pn.pn.pn = phi { ptr, i32 } [ %580, %579 ], [ %772, %771 ], [ %125, %124 ], [ %127, %126 ], [ %201, %200 ], [ %236, %235 ], [ %234, %233 ], [ %436, %435 ], [ %358, %357 ], [ %378, %377 ], [ %.pn159.pn557, %.thread ], [ %400, %399 ], [ %418, %417 ], [ %.pn156573, %419 ], [ %752, %751 ], [ %631, %630 ], [ %710, %709 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i332 = icmp eq ptr %.sroa.0363.0429, null
-  br i1 %.not.i.i.i332, label %_ZNSt6vectorIjSaIjEED2Ev.exit333, label %779
+_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248: ; preds = %.loopexit, %.loopexit.split-lp, %708, %750, %399, %417, %419, %357, %377, %.thread, %435, %233, %235, %200, %124, %126, %579, %770
+  %.sroa.12367.0454 = phi ptr [ %.sroa.12367.0.lcssa, %579 ], [ %.sroa.12367.0.lcssa, %770 ], [ %.sroa.12367.0468, %124 ], [ %.sroa.12367.0468, %126 ], [ %.sroa.12367.0468, %200 ], [ %.sroa.12367.0468, %235 ], [ %.sroa.12367.0468, %233 ], [ %.sroa.12367.0468, %435 ], [ %.sroa.12367.0468, %357 ], [ %.sroa.12367.0468, %377 ], [ %.sroa.12367.0468, %.thread ], [ %.sroa.12367.0468, %399 ], [ %.sroa.12367.0468, %417 ], [ %.sroa.12367.0468, %419 ], [ %.sroa.12367.0.lcssa, %750 ], [ %.sroa.12367.0.lcssa, %708 ], [ %.sroa.9.0472, %.loopexit ], [ %.sroa.9.0472, %.loopexit.split-lp ]
+  %.sroa.0363.0433 = phi ptr [ %.sroa.0363.0.lcssa, %579 ], [ %.sroa.0363.0.lcssa, %770 ], [ %.sroa.0363.0474, %124 ], [ %.sroa.0363.0474, %126 ], [ %.sroa.0363.0474, %200 ], [ %.sroa.0363.0474, %235 ], [ %.sroa.0363.0474, %233 ], [ %.sroa.0363.0474, %435 ], [ %.sroa.0363.0474, %357 ], [ %.sroa.0363.0474, %377 ], [ %.sroa.0363.0474, %.thread ], [ %.sroa.0363.0474, %399 ], [ %.sroa.0363.0474, %417 ], [ %.sroa.0363.0474, %419 ], [ %.sroa.0363.0.lcssa, %750 ], [ %.sroa.0363.0.lcssa, %708 ], [ %.sroa.0363.0474, %.loopexit ], [ %.sroa.0363.0474, %.loopexit.split-lp ]
+  %.pn174.pn.pn.pn = phi { ptr, i32 } [ %580, %579 ], [ %771, %770 ], [ %125, %124 ], [ %127, %126 ], [ %201, %200 ], [ %236, %235 ], [ %234, %233 ], [ %436, %435 ], [ %358, %357 ], [ %378, %377 ], [ %.pn159.pn563, %.thread ], [ %400, %399 ], [ %418, %417 ], [ %.pn156579, %419 ], [ %751, %750 ], [ %709, %708 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.not.i.i.i332 = icmp eq ptr %.sroa.0363.0433, null
+  br i1 %.not.i.i.i332, label %_ZNSt6vectorIjSaIjEED2Ev.exit333, label %778
 
-779:                                              ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
-  %780 = ptrtoint ptr %.sroa.12367.0448 to i64
-  %781 = ptrtoint ptr %.sroa.0363.0429 to i64
-  %782 = sub i64 %780, %781
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0429, i64 noundef %782) #23
+778:                                              ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248
+  %.sroa.12367.0453 = phi ptr [ %.sroa.12367.0.lcssa, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread ], [ %.sroa.12367.0454, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248 ]
+  %.sroa.0363.0437 = phi ptr [ %.sroa.0363.0.lcssa, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread ], [ %.sroa.0363.0433, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248 ]
+  %.pn174.pn.pn.pn397 = phi { ptr, i32 } [ %630, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248.thread ], [ %.pn174.pn.pn.pn, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248 ]
+  %779 = ptrtoint ptr %.sroa.12367.0453 to i64
+  %780 = ptrtoint ptr %.sroa.0363.0437 to i64
+  %781 = sub i64 %779, %780
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0363.0437, i64 noundef %781) #23
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit333
 
-_ZNSt6vectorIjSaIjEED2Ev.exit333:                 ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248, %779
-  resume { ptr, i32 } %.pn174.pn.pn.pn
+_ZNSt6vectorIjSaIjEED2Ev.exit333:                 ; preds = %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248, %778
+  %.pn174.pn.pn.pn398 = phi { ptr, i32 } [ %.pn174.pn.pn.pn, %_ZNSt6vectorIN11flatbuffers6OffsetIPKNS0_6StringEEESaIS5_EED2Ev.exit248 ], [ %.pn174.pn.pn.pn397, %778 ]
+  resume { ptr, i32 } %.pn174.pn.pn.pn398
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -5138,7 +5142,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i: ; preds
   %19 = and i64 %18, 3
   %.not.i.i.i.i = icmp eq i64 %19, 0
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br i1 %.not.i.i.i.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5, label %20
+  br i1 %.not.i.i.i.i, label %.loopexit, label %20
 
 20:                                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i
   %.pre4.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !103
@@ -5175,22 +5179,22 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i: ; preds
   store i8 0, ptr %36, align 1, !tbaa !4
   %37 = add nuw i64 %.05.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %37, %19
-  br i1 %exitcond.not.i.i.i, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5.loopexit, label %.lr.ph.i.i.i, !llvm.loop !109
+  br i1 %exitcond.not.i.i.i, label %.loopexit.loopexit, label %.lr.ph.i.i.i, !llvm.loop !109
 
-_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5.loopexit: ; preds = %.lr.ph.i.i.i
+.loopexit.loopexit:                               ; preds = %.lr.ph.i.i.i
   %.pre = load i64, ptr %9, align 8, !tbaa !108
-  br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5
+  br label %.loopexit
 
-_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5: ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5.loopexit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i
-  %38 = phi i64 [ %.pre, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5.loopexit ], [ %13, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i
+  %38 = phi i64 [ %.pre, %.loopexit.loopexit ], [ %13, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i.i ]
   %39 = icmp ugt i64 %3, %38
   br i1 %39, label %40, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i
 
-40:                                               ; preds = %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5
+40:                                               ; preds = %.loopexit
   store i64 %3, ptr %9, align 8, !tbaa !108
   br label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i
 
-_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i: ; preds = %40, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE8PreAlignIjEEvm.exit.thread5
+_ZN11flatbuffers21FlatBufferBuilderImplILb0EE13TrackMinAlignEm.exit.i: ; preds = %40, %.loopexit
   %41 = load i32, ptr %14, align 8, !tbaa !89
   %42 = zext i32 %41 to i64
   %43 = add i64 %6, %42

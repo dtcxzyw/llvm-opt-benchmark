@@ -1634,56 +1634,56 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %255, %.prehead
           to label %.preheader unwind label %.loopexit
 
 .preheader:                                       ; preds = %351
-  br i1 %341, label %.lr.ph225, label %._crit_edge226.thread
-
-._crit_edge226.thread:                            ; preds = %.preheader
-  %353 = call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #20
-  %354 = fmul double %353, -0.000000e+00
-  %355 = fneg double %353
-  %356 = call noundef { double, double } @cexp(double noundef %354, double noundef %355) #20
-  br label %431
+  br i1 %341, label %.lr.ph225, label %._crit_edge233.thread
 
 .lr.ph225:                                        ; preds = %.preheader, %.lr.ph225
-  %.1109224 = phi i64 [ %381, %.lr.ph225 ], [ 1, %.preheader ]
-  %.0111223 = phi double [ %368, %.lr.ph225 ], [ 0.000000e+00, %.preheader ]
-  %.0116222 = phi double [ %380, %.lr.ph225 ], [ 0.000000e+00, %.preheader ]
-  %357 = load ptr, ptr %183, align 8
-  %358 = getelementptr inbounds nuw double, ptr %357, i64 %.1109224
-  %359 = load double, ptr %358, align 8
-  %360 = load ptr, ptr %201, align 8
-  %361 = getelementptr inbounds nuw double, ptr %360, i64 %.1109224
-  %362 = load double, ptr %361, align 8
-  %363 = load ptr, ptr %224, align 8
-  %364 = getelementptr inbounds nuw double, ptr %363, i64 %.1109224
-  %365 = load double, ptr %364, align 8
-  %366 = call double @llvm.fmuladd.f64(double %365, double %352, double %362)
-  %367 = call double @sin(double noundef %366) #20
-  %368 = call double @llvm.fmuladd.f64(double %359, double %367, double %.0111223)
-  %369 = load ptr, ptr %183, align 8
-  %370 = getelementptr inbounds nuw double, ptr %369, i64 %.1109224
-  %371 = load double, ptr %370, align 8
-  %372 = load ptr, ptr %201, align 8
-  %373 = getelementptr inbounds nuw double, ptr %372, i64 %.1109224
-  %374 = load double, ptr %373, align 8
-  %375 = load ptr, ptr %224, align 8
-  %376 = getelementptr inbounds nuw double, ptr %375, i64 %.1109224
-  %377 = load double, ptr %376, align 8
-  %378 = call double @llvm.fmuladd.f64(double %377, double %352, double %374)
-  %379 = call double @cos(double noundef %378) #20
-  %380 = call double @llvm.fmuladd.f64(double %371, double %379, double %.0116222)
-  %381 = add nuw nsw i64 %.1109224, 1
-  %exitcond241.not = icmp eq i64 %381, %265
-  br i1 %exitcond241.not, label %._crit_edge226, label %.lr.ph225, !llvm.loop !19
+  %.1109224 = phi i64 [ %377, %.lr.ph225 ], [ 1, %.preheader ]
+  %.0111223 = phi double [ %364, %.lr.ph225 ], [ 0.000000e+00, %.preheader ]
+  %.0116222 = phi double [ %376, %.lr.ph225 ], [ 0.000000e+00, %.preheader ]
+  %353 = load ptr, ptr %183, align 8
+  %354 = getelementptr inbounds nuw double, ptr %353, i64 %.1109224
+  %355 = load double, ptr %354, align 8
+  %356 = load ptr, ptr %201, align 8
+  %357 = getelementptr inbounds nuw double, ptr %356, i64 %.1109224
+  %358 = load double, ptr %357, align 8
+  %359 = load ptr, ptr %224, align 8
+  %360 = getelementptr inbounds nuw double, ptr %359, i64 %.1109224
+  %361 = load double, ptr %360, align 8
+  %362 = call double @llvm.fmuladd.f64(double %361, double %352, double %358)
+  %363 = call double @sin(double noundef %362) #20
+  %364 = call double @llvm.fmuladd.f64(double %355, double %363, double %.0111223)
+  %365 = load ptr, ptr %183, align 8
+  %366 = getelementptr inbounds nuw double, ptr %365, i64 %.1109224
+  %367 = load double, ptr %366, align 8
+  %368 = load ptr, ptr %201, align 8
+  %369 = getelementptr inbounds nuw double, ptr %368, i64 %.1109224
+  %370 = load double, ptr %369, align 8
+  %371 = load ptr, ptr %224, align 8
+  %372 = getelementptr inbounds nuw double, ptr %371, i64 %.1109224
+  %373 = load double, ptr %372, align 8
+  %374 = call double @llvm.fmuladd.f64(double %373, double %352, double %370)
+  %375 = call double @cos(double noundef %374) #20
+  %376 = call double @llvm.fmuladd.f64(double %367, double %375, double %.0116222)
+  %377 = add nuw nsw i64 %.1109224, 1
+  %exitcond241.not = icmp eq i64 %377, %265
+  br i1 %exitcond241.not, label %.lr.ph232.preheader, label %.lr.ph225, !llvm.loop !19
 
-._crit_edge226:                                   ; preds = %.lr.ph225
-  %382 = call double @atan2(double noundef %368, double noundef %380) #20
+._crit_edge233.thread:                            ; preds = %.preheader
+  %378 = call double @atan2(double noundef 0.000000e+00, double noundef 0.000000e+00) #20
+  %379 = fneg double %378
+  %380 = fmul double %378, -0.000000e+00
+  %381 = call noundef { double, double } @cexp(double noundef %380, double noundef %379) #20
+  br label %431
+
+.lr.ph232.preheader:                              ; preds = %.lr.ph225
+  %382 = call double @atan2(double noundef %364, double noundef %376) #20
   %383 = fneg double %382
   br label %.lr.ph232
 
-.lr.ph232:                                        ; preds = %._crit_edge226, %415
-  %.2110230 = phi i64 [ %420, %415 ], [ 1, %._crit_edge226 ]
-  %.1112229 = phi double [ %396, %415 ], [ 0.000000e+00, %._crit_edge226 ]
-  %.1117228 = phi double [ %419, %415 ], [ 0.000000e+00, %._crit_edge226 ]
+.lr.ph232:                                        ; preds = %.lr.ph232.preheader, %415
+  %.2110230 = phi i64 [ %420, %415 ], [ 1, %.lr.ph232.preheader ]
+  %.1112229 = phi double [ %396, %415 ], [ 0.000000e+00, %.lr.ph232.preheader ]
+  %.1117228 = phi double [ %419, %415 ], [ 0.000000e+00, %.lr.ph232.preheader ]
   %384 = load ptr, ptr %183, align 8
   %385 = getelementptr inbounds nuw double, ptr %384, i64 %.2110230
   %386 = load double, ptr %385, align 8
@@ -1745,10 +1745,10 @@ _ZN2cv8ximgproc14ContourFitting13frequencyInitEv.exit: ; preds = %255, %.prehead
   %430 = call noundef double @_ZN2cv8ximgproc14ContourFitting8distanceESt7complexIdEd(ptr noundef nonnull align 8 dereferenceable(136) %0, double %429, double %427, double noundef %352)
   br label %431
 
-431:                                              ; preds = %._crit_edge226.thread, %425, %._crit_edge233
-  %432 = phi double [ %421, %425 ], [ %421, %._crit_edge233 ], [ 0x7FF8000000000000, %._crit_edge226.thread ]
-  %433 = phi double [ %383, %425 ], [ %383, %._crit_edge233 ], [ %355, %._crit_edge226.thread ]
-  %.0115 = phi double [ %430, %425 ], [ 1.000000e+04, %._crit_edge233 ], [ 1.000000e+04, %._crit_edge226.thread ]
+431:                                              ; preds = %._crit_edge233.thread, %425, %._crit_edge233
+  %432 = phi double [ %421, %425 ], [ %421, %._crit_edge233 ], [ 0x7FF8000000000000, %._crit_edge233.thread ]
+  %433 = phi double [ %383, %425 ], [ %383, %._crit_edge233 ], [ %379, %._crit_edge233.thread ]
+  %.0115 = phi double [ %430, %425 ], [ 1.000000e+04, %._crit_edge233 ], [ 1.000000e+04, %._crit_edge233.thread ]
   %434 = fcmp olt double %.0115, %.0113
   br i1 %434, label %435, label %436
 

@@ -1719,7 +1719,7 @@ define range(i32 -1, 1) i32 @H5T__conv_struct_opt(ptr noundef %0, ptr noundef %1
 
 .loopexit284:                                     ; preds = %.lr.ph308, %.preheader283, %270, %266
   %.7 = phi i64 [ %.6310, %266 ], [ %.6310, %270 ], [ %294, %.preheader283 ], [ %294, %.lr.ph308 ]
-  %316 = icmp sgt i64 %indvars.iv345, 1
+  %316 = icmp samesign ugt i64 %indvars.iv345, 1
   br i1 %316, label %266, label %._crit_edge314, !llvm.loop !81
 
 317:                                              ; preds = %284

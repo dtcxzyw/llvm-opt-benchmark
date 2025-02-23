@@ -2084,7 +2084,7 @@ define internal void @ConvertARGBToY_SSE2(ptr noalias noundef readonly captures(
 
 .lr.ph35.preheader:                               ; preds = %.preheader
   %9 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count = zext i32 %2 to i64
+  %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

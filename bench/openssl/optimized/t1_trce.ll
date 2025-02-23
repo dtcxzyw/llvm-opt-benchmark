@@ -1955,7 +1955,7 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
   %99 = trunc nuw nsw i64 %93 to i32
   %100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.422, i32 noundef %99) #3
   %.not.i.i53 = icmp eq i64 %93, 0
-  br i1 %.not.i.i53, label %ssl_print_hexbuf.exit59, label %.lr.ph.i.i54
+  br i1 %.not.i.i53, label %.thread, label %.lr.ph.i.i54
 
 .lr.ph.i.i54:                                     ; preds = %96, %.lr.ph.i.i54
   %.011.i.i55 = phi i64 [ %105, %.lr.ph.i.i54 ], [ 0, %96 ]
@@ -1965,15 +1965,15 @@ ssl_print_hexbuf.exit:                            ; preds = %.lr.ph.i.i, %44
   %104 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %103) #3
   %105 = add nuw nsw i64 %.011.i.i55, 1
   %exitcond.not.i.i56 = icmp eq i64 %105, %93
-  br i1 %exitcond.not.i.i56, label %ssl_print_hexbuf.exit59, label %.lr.ph.i.i54, !llvm.loop !76
+  br i1 %exitcond.not.i.i56, label %.thread, label %.lr.ph.i.i54, !llvm.loop !76
 
-ssl_print_hexbuf.exit59:                          ; preds = %.lr.ph.i.i54, %96
+.thread:                                          ; preds = %.lr.ph.i.i54, %96
   %106 = tail call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.12) #3
   %107 = getelementptr inbounds nuw i8, ptr %83, i64 %94
   store ptr %107, ptr %5, align 8, !tbaa !83
   %108 = sub i64 %84, %94
   store i64 %108, ptr %6, align 8, !tbaa !84
-  br label %218
+  br label %219
 
 109:                                              ; preds = %57, %57
   %110 = icmp ult i64 %59, 2
@@ -2161,10 +2161,10 @@ do_ssl_trace_str.exit:                            ; preds = %208, %205
   %217 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.430, i32 noundef %216) #3
   br label %.critedge
 
-218:                                              ; preds = %ssl_print_hexbuf.exit83, %ssl_print_hexbuf.exit59, %187, %do_ssl_trace_str.exit, %189, %57
+218:                                              ; preds = %ssl_print_hexbuf.exit83, %187, %do_ssl_trace_str.exit, %189, %57
   br i1 %.not, label %219, label %221
 
-219:                                              ; preds = %218
+219:                                              ; preds = %.thread, %218
   %220 = call fastcc i32 @ssl_print_signature(ptr noundef %0, ptr noundef %1, ptr noundef %5, ptr noundef %6)
   br label %221
 

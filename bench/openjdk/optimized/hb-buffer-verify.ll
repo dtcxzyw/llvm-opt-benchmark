@@ -592,64 +592,60 @@ _ZL30buffer_verify_unsafe_to_concatP11hb_buffer_tS0_P9hb_font_tPK12hb_feature_tj
   %263 = mul i32 %262, 10
   %264 = add i32 %263, 16
   %265 = call i32 @llvm.smax.i32(i32 %264, i32 0)
-  %.not.i.i = icmp sgt i32 %264, 0
-  br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
+  %.not.i.i = icmp slt i32 %264, 1
+  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.thread, %.preheader.i.i
   %.153.i.i = phi i32 [ %268, %.preheader.i.i ], [ 0, %.thread ]
   %266 = lshr i32 %.153.i.i, 1
-  %267 = add i32 %.153.i.i, 8
-  %268 = add i32 %267, %266
+  %267 = add nuw i32 %.153.i.i, 8
+  %268 = add nuw i32 %267, %266
   %269 = icmp ugt i32 %265, %268
   br i1 %269, label %.preheader.i.i, label %.thread39.i.i, !llvm.loop !15
 
 .thread39.i.i:                                    ; preds = %.preheader.i.i
   %270 = zext i32 %268 to i64
   %malloc = call ptr @malloc(i64 %270)
-  %.not52.i.i = icmp ne ptr %malloc, null
-  %.not21.i.i.not = icmp eq i32 %268, 0
-  %or.cond = or i1 %.not52.i.i, %.not21.i.i.not
-  br i1 %or.cond, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
+  %.not52.i.i = icmp eq ptr %malloc, null
+  br i1 %.not52.i.i, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, label %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
 
 _ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i: ; preds = %.thread39.i.i
   %271 = zext nneg i32 %265 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %malloc, i8 0, i64 %271, i1 false)
-  %272 = icmp eq i32 %268, 0
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %malloc, i8 0, i64 %271, i1 false)
   br label %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
 
 _ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread: ; preds = %.thread, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i
-  %.sroa.14.099 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
-  %.sroa.0.098 = phi i1 [ %272, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ true, %.thread ]
-  %273 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef %1, i32 noundef 0, i32 noundef %262, ptr noundef %.sroa.14.099, i32 noundef %265, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
-          to label %274 unwind label %275
+  %.sroa.14.096 = phi ptr [ %malloc, %_ZN11hb_vector_tIcLb0EE11grow_vectorIcTnPN12hb_enable_ifIXsr3std26is_trivially_constructibleIT_EE5valueEvE4typeELPv0EEEvj11hb_priorityILj0EE.exit.i ], [ null, %.thread ]
+  %272 = invoke i32 @hb_buffer_serialize_unicode(ptr noundef nonnull %1, i32 noundef 0, i32 noundef %262, ptr noundef %.sroa.14.096, i32 noundef %265, ptr noundef nonnull %17, i32 noundef 1413830740, i32 noundef 1)
+          to label %273 unwind label %274
 
-274:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.099)
-          to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %275
+273:                                              ; preds = %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
+  invoke void (ptr, ptr, ptr, ...) @_ZL19buffer_verify_errorP11hb_buffer_tP9hb_font_tPKcz(ptr noundef %0, ptr noundef %2, ptr noundef nonnull @.str, ptr noundef %.sroa.14.096)
+          to label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit unwind label %274
 
-275:                                              ; preds = %274, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
-  %276 = landingpad { ptr, i32 }
+274:                                              ; preds = %273, %_ZN11hb_vector_tIcLb0EE5allocEjb.exit.thread.i.thread
+  %275 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.sroa.0.098, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %277
+  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit, label %276
 
-277:                                              ; preds = %275
-  call void @free(ptr noundef %.sroa.14.099) #10
+276:                                              ; preds = %274
+  call void @free(ptr noundef %.sroa.14.096) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit
 
-_ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %275, %277
-  resume { ptr, i32 } %276
+_ZN11hb_vector_tIcLb0EED2Ev.exit:                 ; preds = %274, %276
+  resume { ptr, i32 } %275
 
-_ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %274
-  br i1 %.sroa.0.098, label %_ZN11hb_vector_tIcLb0EED2Ev.exit39, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
+_ZN11hb_vector_tIcLb0EE6resizeEibb.exit:          ; preds = %273
+  br i1 %.not.i.i, label %_ZN11hb_vector_tIcLb0EED2Ev.exit39, label %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79
 
 _ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79: ; preds = %.thread39.i.i, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit
-  %.sroa.14.17883 = phi ptr [ %.sroa.14.099, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
+  %.sroa.14.17883 = phi ptr [ %.sroa.14.096, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ null, %.thread39.i.i ]
   call void @free(ptr noundef %.sroa.14.17883) #10
   br label %_ZN11hb_vector_tIcLb0EED2Ev.exit39
 
 _ZN11hb_vector_tIcLb0EED2Ev.exit39:               ; preds = %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit, %260
-  %278 = phi i1 [ true, %260 ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79 ]
-  ret i1 %278
+  %277 = phi i1 [ true, %260 ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit ], [ false, %_ZN11hb_vector_tIcLb0EE6resizeEibb.exit.thread79 ]
+  ret i1 %277
 }
 
 declare i32 @__gxx_personality_v0(...)

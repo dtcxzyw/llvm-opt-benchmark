@@ -848,196 +848,195 @@ _ZN6ZUtils11object_sizeE8zaddress.exit.i:         ; preds = %89, %69, %62, %59
 _ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i: ; preds = %186, %184
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %198 = load i32, ptr %197, align 4
-  %199 = icmp eq i32 %198, 0
-  %200 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %201 = load ptr, ptr %200, align 8
-  %202 = select i1 %199, ptr null, ptr %201
-  %203 = sext i32 %198 to i64
-  br i1 %199, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %200 = load ptr, ptr %199, align 8
+  %201 = sext i32 %198 to i64
+  %.not710.i = icmp eq i32 %198, 0
+  br i1 %.not710.i, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18
 
 .lr.ph.i18:                                       ; preds = %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i"
-  %.5 = phi i1 [ %249, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
-  %.sroa.0.011.i = phi i64 [ %204, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ 0, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
-  %204 = add i64 %.sroa.0.011.i, 1
-  %205 = getelementptr inbounds ptr, ptr %202, i64 %.sroa.0.011.i
-  %206 = load ptr, ptr %205, align 8
-  %207 = tail call noundef i64 @_ZN8ZBarrier27remset_barrier_on_oop_fieldEPV8zpointer(ptr noundef %206)
-  %208 = icmp eq i64 %207, 0
-  br i1 %208, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %209
+  %.5 = phi i1 [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
+  %.sroa.0.011.i = phi i64 [ %202, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ], [ 0, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ]
+  %202 = add i64 %.sroa.0.011.i, 1
+  %203 = getelementptr inbounds ptr, ptr %200, i64 %.sroa.0.011.i
+  %204 = load ptr, ptr %203, align 8
+  %205 = tail call noundef i64 @_ZN8ZBarrier27remset_barrier_on_oop_fieldEPV8zpointer(ptr noundef %204)
+  %206 = icmp eq i64 %205, 0
+  br i1 %206, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %207
 
-209:                                              ; preds = %.lr.ph.i18
-  %210 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
-  %211 = load i64, ptr @ZAddressOffsetMask, align 8
-  %212 = and i64 %211, %207
-  %213 = lshr i64 %212, 21
-  %214 = getelementptr inbounds nuw i8, ptr %210, i64 624
-  %215 = load ptr, ptr %214, align 8
-  %216 = getelementptr inbounds nuw ptr, ptr %215, i64 %213
-  %217 = load volatile ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 1
-  %219 = load i8, ptr %218, align 1
-  %220 = icmp eq i8 %219, 0
-  br i1 %220, label %221, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i"
+207:                                              ; preds = %.lr.ph.i18
+  %208 = load ptr, ptr @_ZN5ZHeap5_heapE, align 8
+  %209 = load i64, ptr @ZAddressOffsetMask, align 8
+  %210 = and i64 %209, %205
+  %211 = lshr i64 %210, 21
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 624
+  %213 = load ptr, ptr %212, align 8
+  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %211
+  %215 = load volatile ptr, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 1
+  %217 = load i8, ptr %216, align 1
+  %218 = icmp eq i8 %217, 0
+  br i1 %218, label %219, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i"
 
-221:                                              ; preds = %209
-  %222 = load ptr, ptr %0, align 8
-  %223 = ptrtoint ptr %206 to i64
-  %224 = and i64 %211, %223
-  %225 = lshr i64 %224, 21
-  %226 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %227 = load ptr, ptr %226, align 8
-  %228 = getelementptr inbounds nuw ptr, ptr %227, i64 %225
-  %229 = load volatile ptr, ptr %228, align 8
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 16
-  %231 = load i64, ptr %230, align 8
-  %232 = sub i64 %224, %231
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 104
-  %234 = lshr i64 %232, 3
-  %235 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
-  %236 = sext i32 %235 to i64
-  %237 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %233, i64 0, i64 %236
-  %238 = load ptr, ptr %237, align 8
-  %239 = lshr i64 %232, 9
-  %240 = getelementptr inbounds nuw i64, ptr %238, i64 %239
-  %241 = and i64 %234, 63
-  %242 = shl nuw i64 1, %241
-  %243 = load volatile i64, ptr %240, align 8
-  br label %244
+219:                                              ; preds = %207
+  %220 = load ptr, ptr %0, align 8
+  %221 = ptrtoint ptr %204 to i64
+  %222 = and i64 %209, %221
+  %223 = lshr i64 %222, 21
+  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %223
+  %227 = load volatile ptr, ptr %226, align 8
+  %228 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  %229 = load i64, ptr %228, align 8
+  %230 = sub i64 %222, %229
+  %231 = getelementptr inbounds nuw i8, ptr %227, i64 104
+  %232 = lshr i64 %230, 3
+  %233 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
+  %234 = sext i32 %233 to i64
+  %235 = getelementptr inbounds [2 x %class.ZMovableBitMap], ptr %231, i64 0, i64 %234
+  %236 = load ptr, ptr %235, align 8
+  %237 = lshr i64 %230, 9
+  %238 = getelementptr inbounds nuw i64, ptr %236, i64 %237
+  %239 = and i64 %232, 63
+  %240 = shl nuw i64 1, %239
+  %241 = load volatile i64, ptr %238, align 8
+  br label %242
 
-244:                                              ; preds = %246, %221
-  %.017.i.i.i.i.i.i.i20 = phi i64 [ %243, %221 ], [ %247, %246 ]
-  %245 = or i64 %.017.i.i.i.i.i.i.i20, %242
-  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i21 = icmp eq i64 %245, %.017.i.i.i.i.i.i.i20
-  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i21, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %246
+242:                                              ; preds = %244, %219
+  %.017.i.i.i.i.i.i.i20 = phi i64 [ %241, %219 ], [ %245, %244 ]
+  %243 = or i64 %.017.i.i.i.i.i.i.i20, %240
+  %.not.not.not.i.not.not.not.i.not.i.i.i.i.i21 = icmp eq i64 %243, %.017.i.i.i.i.i.i.i20
+  br i1 %.not.not.not.i.not.not.not.i.not.i.i.i.i.i21, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %244
 
-246:                                              ; preds = %244
-  %247 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %245, i64 %.017.i.i.i.i.i.i.i20, ptr nonnull %240) #14, !srcloc !8
-  %248 = icmp eq i64 %247, %.017.i.i.i.i.i.i.i20
-  br i1 %248, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %244, !llvm.loop !9
+244:                                              ; preds = %242
+  %245 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %243, i64 %.017.i.i.i.i.i.i.i20, ptr nonnull %238) #14, !srcloc !8
+  %246 = icmp eq i64 %245, %.017.i.i.i.i.i.i.i20
+  br i1 %246, label %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", label %242, !llvm.loop !9
 
-"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i": ; preds = %246, %244, %209, %.lr.ph.i18
-  %.0.i.i.i19 = phi i1 [ false, %209 ], [ false, %.lr.ph.i18 ], [ true, %244 ], [ true, %246 ]
-  %249 = or i1 %.5, %.0.i.i.i19
-  %.not7.i = icmp eq i64 %204, %203
+"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i": ; preds = %244, %242, %207, %.lr.ph.i18
+  %.0.i.i.i19 = phi i1 [ false, %207 ], [ false, %.lr.ph.i18 ], [ true, %242 ], [ true, %244 ]
+  %247 = or i1 %.5, %.0.i.i.i19
+  %.not7.i = icmp eq i64 %202, %201
   br i1 %.not7.i, label %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, label %.lr.ph.i18, !llvm.loop !16
 
 _ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i: ; preds = %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i", %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i
-  %.6 = phi i1 [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ], [ %249, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ]
+  %.6 = phi i1 [ false, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EEC2EPK18GrowableArrayCHeapIS2_L8MEMFLAGS5EE.exit.i ], [ %247, %"_ZZNK11ZRemembered15scan_forwardingEP11ZForwardingPvENK3$_1clEPV8zpointer.exit.i" ]
   store i32 0, ptr %197, align 4
-  %250 = getelementptr inbounds nuw i8, ptr %1, i64 148
-  %251 = load i32, ptr %250, align 4
-  %252 = icmp eq i32 %251, 0
-  br i1 %252, label %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i, label %.loopexit.i.i.i
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %249 = load i32, ptr %248, align 4
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i, label %.loopexit.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i
-  %253 = load ptr, ptr %200, align 8
-  store i32 0, ptr %250, align 4
-  %.not.i.i.i = icmp eq ptr %253, null
-  br i1 %.not.i.i.i, label %254, label %.loopexit.thread.i.i.i
+  %251 = load ptr, ptr %199, align 8
+  store i32 0, ptr %248, align 4
+  %.not.i.i.i = icmp eq ptr %251, null
+  br i1 %.not.i.i.i, label %252, label %.loopexit.thread.i.i.i
 
 .loopexit.thread.i.i.i:                           ; preds = %.loopexit.i.i.i
-  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %253) #14
-  br label %254
+  tail call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %251) #14
+  br label %252
 
-254:                                              ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
-  store ptr null, ptr %200, align 8
+252:                                              ; preds = %.loopexit.thread.i.i.i, %.loopexit.i.i.i
+  store ptr null, ptr %199, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i
 
-_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i: ; preds = %254, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, %180
-  %.4 = phi i1 [ %.6, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i ], [ %.6, %254 ], [ false, %180 ]
-  %255 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %256 = load i32, ptr %255, align 8
-  %257 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
-  %258 = getelementptr inbounds nuw i8, ptr %257, i64 3220
-  %259 = load i32, ptr %258, align 4
-  %260 = icmp eq i32 %256, %259
-  %261 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not9.i = icmp eq ptr %261, null
+_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i: ; preds = %252, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i, %180
+  %.4 = phi i1 [ %.6, %_ZN18ZArrayIteratorImplIPV8zpointerLb0EE4nextEPS2_.exit.i ], [ %.6, %252 ], [ false, %180 ]
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %254 = load i32, ptr %253, align 8
+  %255 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 3220
+  %257 = load i32, ptr %256, align 4
+  %258 = icmp eq i32 %254, %257
+  %259 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not9.i = icmp eq ptr %259, null
   br i1 %.not9.i, label %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit", label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i
-  %.str.20..str.21.i = select i1 %260, ptr @.str.20, ptr @.str.21
-  %262 = load i64, ptr %1, align 8
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.20..str.21.i, i64 noundef %262)
+  %.str.20..str.21.i = select i1 %258, ptr @.str.20, ptr @.str.21
+  %260 = load i64, ptr %1, align 8
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull %.str.20..str.21.i, i64 noundef %260)
   br label %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit"
 
 "_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit": ; preds = %_ZN26GrowableArrayWithAllocatorIPV8zpointer18GrowableArrayCHeapIS2_L8MEMFLAGS5EEE20clear_and_deallocateEv.exit.i, %.sink.split.i
-  %..i = select i1 %260, i8 2, i8 3
+  %..i = select i1 %258, i8 2, i8 3
   store volatile i8 %..i, ptr %181, align 1
-  %263 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #14
-  %264 = extractvalue { i64, i64 } %263, 0
-  %265 = extractvalue { i64, i64 } %263, 1
-  %266 = sub nsw i64 %264, %11
-  %267 = sub nsw i64 %265, %12
-  %268 = getelementptr inbounds nuw i8, ptr %2, i64 208
-  %269 = load i64, ptr %268, align 8
-  %270 = add nsw i64 %266, %269
-  store i64 %270, ptr %268, align 8
-  %271 = getelementptr inbounds nuw i8, ptr %2, i64 216
-  %272 = load i64, ptr %271, align 8
-  %273 = add nsw i64 %272, %267
-  store i64 %273, ptr %271, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %275 = load i32, ptr %274, align 8
-  %276 = add nsw i32 %275, 1
-  store i32 %276, ptr %274, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  br label %278
+  %261 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #14
+  %262 = extractvalue { i64, i64 } %261, 0
+  %263 = extractvalue { i64, i64 } %261, 1
+  %264 = sub nsw i64 %262, %11
+  %265 = sub nsw i64 %263, %12
+  %266 = getelementptr inbounds nuw i8, ptr %2, i64 208
+  %267 = load i64, ptr %266, align 8
+  %268 = add nsw i64 %264, %267
+  store i64 %268, ptr %266, align 8
+  %269 = getelementptr inbounds nuw i8, ptr %2, i64 216
+  %270 = load i64, ptr %269, align 8
+  %271 = add nsw i64 %270, %265
+  store i64 %271, ptr %269, align 8
+  %272 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %273 = load i32, ptr %272, align 8
+  %274 = add nsw i32 %273, 1
+  store i32 %274, ptr %272, align 8
+  %275 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  br label %276
 
-278:                                              ; preds = %298, %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit"
-  %indvars.iv.i.i.i22 = phi i64 [ 0, %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit" ], [ %indvars.iv.next.i.i.i23, %298 ]
-  %279 = getelementptr inbounds nuw [10 x %class.TimeInterval], ptr %277, i64 0, i64 %indvars.iv.i.i.i22
-  %280 = load i64, ptr %279, align 8
-  %281 = icmp sgt i64 %266, %280
-  br i1 %281, label %282, label %298
+276:                                              ; preds = %296, %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit"
+  %indvars.iv.i.i.i22 = phi i64 [ 0, %"_ZN11ZForwarding46relocated_remembered_fields_apply_to_publishedIZNK11ZRemembered15scan_forwardingEPS_PvE3$_1EEvT_.exit" ], [ %indvars.iv.next.i.i.i23, %296 ]
+  %277 = getelementptr inbounds nuw [10 x %class.TimeInterval], ptr %275, i64 0, i64 %indvars.iv.i.i.i22
+  %278 = load i64, ptr %277, align 8
+  %279 = icmp sgt i64 %264, %278
+  br i1 %279, label %280, label %296
 
-282:                                              ; preds = %278
-  %283 = trunc nuw nsw i64 %indvars.iv.i.i.i22 to i32
-  %284 = getelementptr inbounds nuw i8, ptr %2, i64 392
-  %285 = load i32, ptr %284, align 8
-  %.017.i.i.i25 = add nsw i32 %285, -1
-  %286 = icmp sgt i32 %.017.i.i.i25, %283
-  br i1 %286, label %.lr.ph.preheader.i.i.i28, label %._crit_edge.i.i.i26
+280:                                              ; preds = %276
+  %281 = trunc nuw nsw i64 %indvars.iv.i.i.i22 to i32
+  %282 = getelementptr inbounds nuw i8, ptr %2, i64 392
+  %283 = load i32, ptr %282, align 8
+  %.017.i.i.i25 = add nsw i32 %283, -1
+  %284 = icmp sgt i32 %.017.i.i.i25, %281
+  br i1 %284, label %.lr.ph.preheader.i.i.i28, label %._crit_edge.i.i.i26
 
-.lr.ph.preheader.i.i.i28:                         ; preds = %282
-  %287 = sext i32 %285 to i64
-  %288 = add nsw i64 %287, -1
+.lr.ph.preheader.i.i.i28:                         ; preds = %280
+  %285 = sext i32 %283 to i64
+  %286 = add nsw i64 %285, -1
   %sext.i.i.i29 = shl i64 %indvars.iv.i.i.i22, 32
-  %289 = ashr exact i64 %sext.i.i.i29, 32
+  %287 = ashr exact i64 %sext.i.i.i29, 32
   br label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %.lr.ph.i.i.i30, %.lr.ph.preheader.i.i.i28
-  %indvars.iv29.i.i.i31 = phi i64 [ %287, %.lr.ph.preheader.i.i.i28 ], [ %indvars.iv.next30.i.i.i34, %.lr.ph.i.i.i30 ]
-  %indvars.iv27.i.i.i32 = phi i64 [ %288, %.lr.ph.preheader.i.i.i28 ], [ %indvars.iv.next28.i.i.i33, %.lr.ph.i.i.i30 ]
-  %290 = add nsw i64 %indvars.iv29.i.i.i31, -2
-  %291 = getelementptr inbounds [10 x %class.TimeInterval], ptr %277, i64 0, i64 %290
-  %292 = getelementptr inbounds [10 x %class.TimeInterval], ptr %277, i64 0, i64 %indvars.iv27.i.i.i32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %292, ptr noundef nonnull align 8 dereferenceable(16) %291, i64 16, i1 false)
+  %indvars.iv29.i.i.i31 = phi i64 [ %285, %.lr.ph.preheader.i.i.i28 ], [ %indvars.iv.next30.i.i.i34, %.lr.ph.i.i.i30 ]
+  %indvars.iv27.i.i.i32 = phi i64 [ %286, %.lr.ph.preheader.i.i.i28 ], [ %indvars.iv.next28.i.i.i33, %.lr.ph.i.i.i30 ]
+  %288 = add nsw i64 %indvars.iv29.i.i.i31, -2
+  %289 = getelementptr inbounds [10 x %class.TimeInterval], ptr %275, i64 0, i64 %288
+  %290 = getelementptr inbounds [10 x %class.TimeInterval], ptr %275, i64 0, i64 %indvars.iv27.i.i.i32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %290, ptr noundef nonnull align 8 dereferenceable(16) %289, i64 16, i1 false)
   %indvars.iv.next28.i.i.i33 = add nsw i64 %indvars.iv27.i.i.i32, -1
-  %293 = icmp slt i64 %289, %indvars.iv.next28.i.i.i33
+  %291 = icmp slt i64 %287, %indvars.iv.next28.i.i.i33
   %indvars.iv.next30.i.i.i34 = add nsw i64 %indvars.iv29.i.i.i31, -1
-  br i1 %293, label %.lr.ph.i.i.i30, label %._crit_edge.i.i.i26, !llvm.loop !14
+  br i1 %291, label %.lr.ph.i.i.i30, label %._crit_edge.i.i.i26, !llvm.loop !14
 
-._crit_edge.i.i.i26:                              ; preds = %.lr.ph.i.i.i30, %282
-  store i64 %266, ptr %279, align 8
-  %.sroa.4.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  store i64 %267, ptr %.sroa.4.0..sroa_idx.i27, align 8
-  %294 = load i32, ptr %284, align 8
-  %295 = icmp slt i32 %294, 10
-  br i1 %295, label %296, label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit
+._crit_edge.i.i.i26:                              ; preds = %.lr.ph.i.i.i30, %280
+  store i64 %264, ptr %277, align 8
+  %.sroa.4.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  store i64 %265, ptr %.sroa.4.0..sroa_idx.i27, align 8
+  %292 = load i32, ptr %282, align 8
+  %293 = icmp slt i32 %292, 10
+  br i1 %293, label %294, label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit
 
-296:                                              ; preds = %._crit_edge.i.i.i26
-  %297 = add nsw i32 %294, 1
-  store i32 %297, ptr %284, align 8
+294:                                              ; preds = %._crit_edge.i.i.i26
+  %295 = add nsw i32 %292, 1
+  store i32 %295, ptr %282, align 8
   br label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit
 
-298:                                              ; preds = %278
+296:                                              ; preds = %276
   %indvars.iv.next.i.i.i23 = add nuw nsw i64 %indvars.iv.i.i.i22, 1
   %exitcond.not.i.i.i24 = icmp eq i64 %indvars.iv.next.i.i.i23, 10
-  br i1 %exitcond.not.i.i.i24, label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit, label %278, !llvm.loop !15
+  br i1 %exitcond.not.i.i.i24, label %_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit, label %276, !llvm.loop !15
 
-_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit: ; preds = %298, %179, %296, %._crit_edge.i.i.i26, %177, %._crit_edge.i.i.i
-  %.0 = phi i1 [ %.3, %._crit_edge.i.i.i ], [ %.3, %177 ], [ %.4, %._crit_edge.i.i.i26 ], [ %.4, %296 ], [ %.3, %179 ], [ %.4, %298 ]
+_ZN40ZRememberedScanForwardingMeasureRetainedD2Ev.exit: ; preds = %296, %179, %294, %._crit_edge.i.i.i26, %177, %._crit_edge.i.i.i
+  %.0 = phi i1 [ %.3, %._crit_edge.i.i.i ], [ %.3, %177 ], [ %.4, %._crit_edge.i.i.i26 ], [ %.4, %294 ], [ %.3, %179 ], [ %.4, %296 ]
   ret i1 %.0
 }
 

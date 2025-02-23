@@ -198,7 +198,7 @@ define range(i32 0, 3) i32 @unspin(ptr noundef %0, i32 noundef %1, ptr noundef r
   br i1 %or.cond700, label %87, label %86
 
 86:                                               ; preds = %75, %80, %78
-  tail call void @free(ptr noundef %15) #8
+  tail call void @free(ptr noundef nonnull %15) #8
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7) #8
   br label %.critedge713
 

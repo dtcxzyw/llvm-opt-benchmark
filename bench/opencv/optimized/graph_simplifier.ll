@@ -8841,11 +8841,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %10, label %.split.i.i.i, label %.lr.ph51
 
 11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit"
-  %12 = icmp eq i64 %118, 0
+  %12 = icmp eq i64 %116, 0
   br i1 %12, label %.split.i.i.i, label %.lr.ph51, !llvm.loop !91
 
 .split.i.i.i:                                     ; preds = %11, %.lr.ph
-  %.fr.i.i.i28.lcssa = phi i64 [ %6, %.lr.ph ], [ %155, %11 ]
+  %.fr.i.i.i28.lcssa = phi i64 [ %6, %.lr.ph ], [ %153, %11 ]
   %storemerge26.lcssa = phi ptr [ %.fr36, %.lr.ph ], [ %.sroa.010.1.i.i, %11 ]
   %13 = lshr i64 %.fr.i.i.i28.lcssa, 2
   %14 = add nsw i64 %13, -2
@@ -8989,11 +8989,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %81 = add nsw i64 %80, -1
   %82 = sdiv i64 %81, 2
   %83 = icmp sgt i64 %80, 2
-  br i1 %83, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i
+  br i1 %83, label %.lr.ph.i.i.i16.i, label %._crit_edge.i.i.i10.i
 
-.lr.ph.i.i.i17.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i17.i
-  %.034.i.i.i18.i = phi i64 [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i9.i ]
-  %84 = shl i64 %.034.i.i.i18.i, 1
+.lr.ph.i.i.i16.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i16.i
+  %.034.i.i.i17.i = phi i64 [ %spec.select.i.i.i18.i, %.lr.ph.i.i.i16.i ], [ 0, %.lr.ph.i9.i ]
+  %84 = shl i64 %.034.i.i.i17.i, 1
   %85 = add i64 %84, 2
   %86 = getelementptr inbounds i32, ptr %.fr29, i64 %85
   %87 = or disjoint i64 %84, 1
@@ -9001,165 +9001,168 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %89 = load i32, ptr %86, align 4
   %90 = load i32, ptr %88, align 4
   %91 = icmp sgt i32 %89, %90
-  %spec.select.i.i.i19.i = select i1 %91, i64 %87, i64 %85
-  %92 = getelementptr inbounds i32, ptr %.fr29, i64 %spec.select.i.i.i19.i
+  %spec.select.i.i.i18.i = select i1 %91, i64 %87, i64 %85
+  %92 = getelementptr inbounds i32, ptr %.fr29, i64 %spec.select.i.i.i18.i
   %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds i32, ptr %.fr29, i64 %.034.i.i.i18.i
+  %94 = getelementptr inbounds i32, ptr %.fr29, i64 %.034.i.i.i17.i
   store i32 %93, ptr %94, align 4
-  %95 = icmp slt i64 %spec.select.i.i.i19.i, %82
-  br i1 %95, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i10.i, !llvm.loop !92
+  %95 = icmp slt i64 %spec.select.i.i.i18.i, %82
+  br i1 %95, label %.lr.ph.i.i.i16.i, label %._crit_edge.i.i.i10.i, !llvm.loop !92
 
-._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i17.i, %.lr.ph.i9.i
-  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i19.i, %.lr.ph.i.i.i17.i ]
+._crit_edge.i.i.i10.i:                            ; preds = %.lr.ph.i.i.i16.i, %.lr.ph.i9.i
+  %.0.lcssa.i.i.i11.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i18.i, %.lr.ph.i.i.i16.i ]
   %96 = and i64 %79, 4
   %97 = icmp eq i64 %96, 0
-  br i1 %97, label %98, label %108
+  br i1 %97, label %98, label %107
 
 98:                                               ; preds = %._crit_edge.i.i.i10.i
   %99 = add nsw i64 %80, -2
   %100 = ashr exact i64 %99, 1
   %101 = icmp eq i64 %.0.lcssa.i.i.i11.i, %100
-  br i1 %101, label %102, label %108
+  br i1 %101, label %.thread.i.i.i, label %107
 
-102:                                              ; preds = %98
-  %103 = shl nsw i64 %.0.lcssa.i.i.i11.i, 1
-  %104 = or disjoint i64 %103, 1
-  %105 = getelementptr inbounds i32, ptr %.fr29, i64 %104
-  %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i32, ptr %.fr29, i64 %.0.lcssa.i.i.i11.i
-  store i32 %106, ptr %107, align 4
-  br label %108
+.thread.i.i.i:                                    ; preds = %98
+  %102 = shl nuw nsw i64 %.0.lcssa.i.i.i11.i, 1
+  %103 = or disjoint i64 %102, 1
+  %104 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %103
+  %105 = load i32, ptr %104, align 4
+  %106 = getelementptr inbounds i32, ptr %.fr29, i64 %.0.lcssa.i.i.i11.i
+  store i32 %105, ptr %106, align 4
+  br label %.lr.ph.i.i.i.i12.i.preheader
 
-108:                                              ; preds = %102, %98, %._crit_edge.i.i.i10.i
-  %.1.i.i.i12.i = phi i64 [ %104, %102 ], [ %.0.lcssa.i.i.i11.i, %98 ], [ %.0.lcssa.i.i.i11.i, %._crit_edge.i.i.i10.i ]
-  %109 = icmp sgt i64 %.1.i.i.i12.i, 0
-  br i1 %109, label %.lr.ph.i.i.i.i14.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i"
+107:                                              ; preds = %98, %._crit_edge.i.i.i10.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i11.i, 0
+  br i1 %.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i", label %.lr.ph.i.i.i.i12.i.preheader
 
-.lr.ph.i.i.i.i14.i:                               ; preds = %108, %113
-  %.010.i.i.i.i15.i = phi i64 [ %.0911.i.i56.i.i.i, %113 ], [ %.1.i.i.i12.i, %108 ]
-  %.0911.in.i.i.i.i16.i = add nsw i64 %.010.i.i.i.i15.i, -1
-  %.0911.i.i56.i.i.i = lshr i64 %.0911.in.i.i.i.i16.i, 1
-  %110 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %.0911.i.i56.i.i.i
-  %111 = load i32, ptr %110, align 4
-  %112 = icmp sgt i32 %111, %76
-  br i1 %112, label %113, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i"
+.lr.ph.i.i.i.i12.i.preheader:                     ; preds = %107, %.thread.i.i.i
+  %.010.i.i.i.i13.i.ph = phi i64 [ %.0.lcssa.i.i.i11.i, %107 ], [ %103, %.thread.i.i.i ]
+  br label %.lr.ph.i.i.i.i12.i
 
-113:                                              ; preds = %.lr.ph.i.i.i.i14.i
-  %114 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %.010.i.i.i.i15.i
-  store i32 %111, ptr %114, align 4
-  %.not.i.i.i = icmp ult i64 %.0911.in.i.i.i.i16.i, 2
-  br i1 %.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i, !llvm.loop !93
+.lr.ph.i.i.i.i12.i:                               ; preds = %.lr.ph.i.i.i.i12.i.preheader, %111
+  %.010.i.i.i.i13.i = phi i64 [ %.0911.i.i56.i.i.i, %111 ], [ %.010.i.i.i.i13.i.ph, %.lr.ph.i.i.i.i12.i.preheader ]
+  %.0911.in.i.i.i.i14.i = add nsw i64 %.010.i.i.i.i13.i, -1
+  %.0911.i.i56.i.i.i = lshr i64 %.0911.in.i.i.i.i14.i, 1
+  %108 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %.0911.i.i56.i.i.i
+  %109 = load i32, ptr %108, align 4
+  %110 = icmp sgt i32 %109, %76
+  br i1 %110, label %111, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i": ; preds = %113, %.lr.ph.i.i.i.i14.i, %108
-  %.0.lcssa.i.i.i.i13.i = phi i64 [ %.1.i.i.i12.i, %108 ], [ %.010.i.i.i.i15.i, %.lr.ph.i.i.i.i14.i ], [ 0, %113 ]
-  %115 = getelementptr inbounds i32, ptr %.fr29, i64 %.0.lcssa.i.i.i.i13.i
-  store i32 %76, ptr %115, align 4
-  %116 = icmp sgt i64 %79, 4
-  br i1 %116, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !95
+111:                                              ; preds = %.lr.ph.i.i.i.i12.i
+  %112 = getelementptr inbounds i32, ptr %.fr29, i64 %.010.i.i.i.i13.i
+  store i32 %109, ptr %112, align 4
+  %.not7.i.i.i = icmp ult i64 %.0911.in.i.i.i.i14.i, 2
+  br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i", label %.lr.ph.i.i.i.i12.i, !llvm.loop !93
+
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i": ; preds = %111, %.lr.ph.i.i.i.i12.i, %107
+  %.0.lcssa.i.i.i.i15.i = phi i64 [ 0, %107 ], [ %.010.i.i.i.i13.i, %.lr.ph.i.i.i.i12.i ], [ 0, %111 ]
+  %113 = getelementptr inbounds i32, ptr %.fr29, i64 %.0.lcssa.i.i.i.i15.i
+  store i32 %76, ptr %113, align 4
+  %114 = icmp sgt i64 %79, 4
+  br i1 %114, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !95
 
 .lr.ph51:                                         ; preds = %.lr.ph, %11
   %storemerge2650 = phi ptr [ %.sroa.010.1.i.i, %11 ], [ %.fr36, %.lr.ph ]
-  %.02749 = phi i64 [ %118, %11 ], [ %2, %.lr.ph ]
-  %117 = phi i64 [ %156, %11 ], [ %7, %.lr.ph ]
-  %118 = add nsw i64 %.02749, -1
-  %119 = lshr i64 %117, 1
-  %120 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %119
-  %121 = getelementptr inbounds i8, ptr %storemerge2650, i64 -4
-  %122 = load i32, ptr %9, align 4
-  %123 = load i32, ptr %120, align 4
-  %124 = icmp sgt i32 %122, %123
-  %125 = load i32, ptr %121, align 4
-  br i1 %124, label %126, label %135
+  %.02749 = phi i64 [ %116, %11 ], [ %2, %.lr.ph ]
+  %115 = phi i64 [ %154, %11 ], [ %7, %.lr.ph ]
+  %116 = add nsw i64 %.02749, -1
+  %117 = lshr i64 %115, 1
+  %118 = getelementptr inbounds nuw i32, ptr %.fr29, i64 %117
+  %119 = getelementptr inbounds i8, ptr %storemerge2650, i64 -4
+  %120 = load i32, ptr %9, align 4
+  %121 = load i32, ptr %118, align 4
+  %122 = icmp sgt i32 %120, %121
+  %123 = load i32, ptr %119, align 4
+  br i1 %122, label %124, label %133
 
-126:                                              ; preds = %.lr.ph51
-  %127 = icmp sgt i32 %123, %125
-  br i1 %127, label %128, label %130
+124:                                              ; preds = %.lr.ph51
+  %125 = icmp sgt i32 %121, %123
+  br i1 %125, label %126, label %128
 
-128:                                              ; preds = %126
-  %129 = load i32, ptr %.fr29, align 4
+126:                                              ; preds = %124
+  %127 = load i32, ptr %.fr29, align 4
+  store i32 %121, ptr %.fr29, align 4
+  store i32 %127, ptr %118, align 4
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
+
+128:                                              ; preds = %124
+  %129 = icmp sgt i32 %120, %123
+  %130 = load i32, ptr %.fr29, align 4
+  br i1 %129, label %131, label %132
+
+131:                                              ; preds = %128
   store i32 %123, ptr %.fr29, align 4
-  store i32 %129, ptr %120, align 4
+  store i32 %130, ptr %119, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
 
-130:                                              ; preds = %126
-  %131 = icmp sgt i32 %122, %125
-  %132 = load i32, ptr %.fr29, align 4
-  br i1 %131, label %133, label %134
-
-133:                                              ; preds = %130
-  store i32 %125, ptr %.fr29, align 4
-  store i32 %132, ptr %121, align 4
+132:                                              ; preds = %128
+  store i32 %120, ptr %.fr29, align 4
+  store i32 %130, ptr %9, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
 
-134:                                              ; preds = %130
-  store i32 %122, ptr %.fr29, align 4
-  store i32 %132, ptr %9, align 4
+133:                                              ; preds = %.lr.ph51
+  %134 = icmp sgt i32 %120, %123
+  br i1 %134, label %135, label %137
+
+135:                                              ; preds = %133
+  %136 = load i32, ptr %.fr29, align 4
+  store i32 %120, ptr %.fr29, align 4
+  store i32 %136, ptr %9, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
 
-135:                                              ; preds = %.lr.ph51
-  %136 = icmp sgt i32 %122, %125
-  br i1 %136, label %137, label %139
+137:                                              ; preds = %133
+  %138 = icmp sgt i32 %121, %123
+  %139 = load i32, ptr %.fr29, align 4
+  br i1 %138, label %140, label %141
 
-137:                                              ; preds = %135
-  %138 = load i32, ptr %.fr29, align 4
-  store i32 %122, ptr %.fr29, align 4
-  store i32 %138, ptr %9, align 4
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
-
-139:                                              ; preds = %135
-  %140 = icmp sgt i32 %123, %125
-  %141 = load i32, ptr %.fr29, align 4
-  br i1 %140, label %142, label %143
-
-142:                                              ; preds = %139
-  store i32 %125, ptr %.fr29, align 4
-  store i32 %141, ptr %121, align 4
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
-
-143:                                              ; preds = %139
+140:                                              ; preds = %137
   store i32 %123, ptr %.fr29, align 4
-  store i32 %141, ptr %120, align 4
+  store i32 %139, ptr %119, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader": ; preds = %143, %142, %137, %134, %133, %128
+141:                                              ; preds = %137
+  store i32 %121, ptr %.fr29, align 4
+  store i32 %139, ptr %118, align 4
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader"
+
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader": ; preds = %141, %140, %135, %132, %131, %126
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader", %153
-  %.sroa.010.0.i.i = phi ptr [ %148, %153 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %153 ], [ %storemerge2650, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
-  %144 = load i32, ptr %.fr29, align 4
-  br label %145
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader", %151
+  %.sroa.010.0.i.i = phi ptr [ %146, %151 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %151 ], [ %storemerge2650, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i.preheader" ]
+  %142 = load i32, ptr %.fr29, align 4
+  br label %143
 
-145:                                              ; preds = %145, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i"
-  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i" ], [ %148, %145 ]
-  %146 = load i32, ptr %.sroa.010.1.i.i, align 4
-  %147 = icmp sgt i32 %146, %144
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 4
-  br i1 %147, label %145, label %.preheader.i.i, !llvm.loop !96
+143:                                              ; preds = %143, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i"
+  %.sroa.010.1.i.i = phi ptr [ %.sroa.010.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i" ], [ %146, %143 ]
+  %144 = load i32, ptr %.sroa.010.1.i.i, align 4
+  %145 = icmp sgt i32 %144, %142
+  %146 = getelementptr inbounds nuw i8, ptr %.sroa.010.1.i.i, i64 4
+  br i1 %145, label %143, label %.preheader.i.i, !llvm.loop !96
 
-.preheader.i.i:                                   ; preds = %145, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %145 ]
+.preheader.i.i:                                   ; preds = %143, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %143 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  %149 = load i32, ptr %.sroa.0.1.i.i, align 4
-  %150 = icmp sgt i32 %144, %149
-  br i1 %150, label %.preheader.i.i, label %151, !llvm.loop !97
+  %147 = load i32, ptr %.sroa.0.1.i.i, align 4
+  %148 = icmp sgt i32 %142, %147
+  br i1 %148, label %.preheader.i.i, label %149, !llvm.loop !97
 
-151:                                              ; preds = %.preheader.i.i
-  %152 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
-  br i1 %152, label %153, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit"
+149:                                              ; preds = %.preheader.i.i
+  %150 = icmp ult ptr %.sroa.010.1.i.i, %.sroa.0.1.i.i
+  br i1 %150, label %151, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit"
 
-153:                                              ; preds = %151
-  store i32 %149, ptr %.sroa.010.1.i.i, align 4
-  store i32 %146, ptr %.sroa.0.1.i.i, align 4
+151:                                              ; preds = %149
+  store i32 %147, ptr %.sroa.010.1.i.i, align 4
+  store i32 %144, ptr %.sroa.0.1.i.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_SO_T0_.exit.i", !llvm.loop !98
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit": ; preds = %151
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_T0_T1_"(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge2650, i64 noundef %118)
-  %154 = ptrtoint ptr %.sroa.010.1.i.i to i64
-  %155 = sub i64 %154, %4
-  %156 = ashr exact i64 %155, 2
-  %157 = icmp sgt i64 %156, 16
-  br i1 %157, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !91
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit": ; preds = %149
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_T0_T1_"(ptr nonnull %.sroa.010.1.i.i, ptr %storemerge2650, i64 noundef %116)
+  %152 = ptrtoint ptr %.sroa.010.1.i.i to i64
+  %153 = sub i64 %152, %4
+  %154 = ashr exact i64 %153, 2
+  %155 = icmp sgt i64 %154, 16
+  br i1 %155, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_T0_.exit", !llvm.loop !91
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_SO_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN2cv3dnn17simplifySubgraphsERKNS9_3PtrINSA_18ImportGraphWrapperEEERKS3_INSB_INSA_8SubgraphEEESaISH_EEE3$_0EEEvT_SO_RT0_.exit.i.i"
   ret void

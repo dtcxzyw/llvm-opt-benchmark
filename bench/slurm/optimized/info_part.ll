@@ -130,11 +130,11 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   store i32 1, ptr @exit_code, align 4
   %12 = load i32, ptr @quiet_flag, align 4
   %.not64 = icmp eq i32 %12, 1
-  br i1 %.not64, label %104, label %13
+  br i1 %.not64, label %103, label %13
 
 13:                                               ; preds = %11
   tail call void @slurm_perror(ptr noundef nonnull @.str.1) #7
-  br label %104
+  br label %103
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8
@@ -246,7 +246,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   %61 = call ptr @slurm_xcalloc(i64 noundef %60, i64 noundef 232, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.scontrol_print_part) #7
   store ptr %61, ptr %55, align 8
   %62 = icmp sgt i32 %.041, 0
-  br i1 %62, label %.lr.ph71, label %.loopexit92
+  br i1 %62, label %.lr.ph71, label %.loopexit93
 
 .lr.ph71:                                         ; preds = %51
   %wide.trip.count = zext nneg i32 %.041 to i64
@@ -260,9 +260,9 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %64, ptr noundef nonnull align 8 dereferenceable(232) %66, i64 232, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit92, label %63, !llvm.loop !11
+  br i1 %exitcond.not, label %.loopexit93, label %63, !llvm.loop !11
 
-.loopexit92:                                      ; preds = %63, %51
+.loopexit93:                                      ; preds = %63, %51
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #7
   store i32 463606195, ptr %9, align 8
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -288,11 +288,11 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   %.not58 = icmp eq ptr %79, null
   br i1 %.not58, label %81, label %80
 
-80:                                               ; preds = %.loopexit92
+80:                                               ; preds = %.loopexit93
   call void @list_destroy(ptr noundef nonnull %79) #7
   br label %81
 
-81:                                               ; preds = %80, %.loopexit92
+81:                                               ; preds = %80, %.loopexit93
   store ptr null, ptr %57, align 8
   %82 = load ptr, ptr %56, align 8
   %.not59 = icmp eq ptr %82, null
@@ -330,14 +330,14 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   call void @slurm_print_partition_info(ptr noundef %88, ptr noundef %90, i32 noundef %91) #7
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph73, !llvm.loop !12
+  br i1 %exitcond90.not, label %.loopexit.thread, label %.lr.ph73, !llvm.loop !12
 
-.loopexit:                                        ; preds = %.lr.ph73, %.preheader, %87
+.loopexit:                                        ; preds = %.preheader, %87
   %92 = load ptr, ptr @mime_type, align 8
   %93 = icmp ne ptr %92, null
   %94 = icmp ne i32 %.041, 0
   %or.cond3 = select i1 %93, i1 true, i1 %94
-  br i1 %or.cond3, label %103, label %95
+  br i1 %or.cond3, label %.loopexit.thread, label %95
 
 95:                                               ; preds = %.loopexit
   %.not61 = icmp eq ptr %0, null
@@ -347,26 +347,26 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   store i32 1, ptr @exit_code, align 4
   %97 = load i32, ptr @quiet_flag, align 4
   %.not63 = icmp eq i32 %97, 1
-  br i1 %.not63, label %103, label %98
+  br i1 %.not63, label %.loopexit.thread, label %98
 
 98:                                               ; preds = %96
   %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, ptr noundef nonnull %0)
-  br label %103
+  br label %.loopexit.thread
 
 100:                                              ; preds = %95
   %101 = load i32, ptr @quiet_flag, align 4
   %.not62 = icmp eq i32 %101, 1
-  br i1 %.not62, label %103, label %102
+  br i1 %.not62, label %.loopexit.thread, label %102
 
 102:                                              ; preds = %100
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
+  br label %.loopexit.thread
+
+.loopexit.thread:                                 ; preds = %.lr.ph73, %98, %96, %102, %100, %.loopexit
+  call void @slurm_xfree(ptr noundef nonnull %5) #7
   br label %103
 
-103:                                              ; preds = %98, %96, %102, %100, %.loopexit
-  call void @slurm_xfree(ptr noundef nonnull %5) #7
-  br label %104
-
-104:                                              ; preds = %11, %13, %103
+103:                                              ; preds = %11, %13, %.loopexit.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   ret void

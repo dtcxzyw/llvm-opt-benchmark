@@ -33514,7 +33514,7 @@ if.then:                                          ; preds = %entry
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %1, 4
   %spec.select.i = select i1 %cmp.i.i.i.i.i.i.i, ptr %0, ptr null
   %_params = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 80
-  %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 88
+  %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 88
   %2 = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp eq ptr %paramList, %_params
   %cmp1.i.i.i.i.i = icmp eq ptr %2, %_params
@@ -33536,7 +33536,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then
   br label %_ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit
 
 _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit: ; preds = %if.then, %if.end.i.i.i.i.i
-  %_body = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 96
+  %_body = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %_body, align 8
   %kind_.i.i.i.i.i.i.i.i23 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %7 = load i32, ptr %kind_.i.i.i.i.i.i.i.i23, align 8
@@ -33549,7 +33549,7 @@ _ZN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEaSEOS4_.exit: ; preds = %if.then,
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %tmpStatements, i64 12
   store i32 8, ptr %Capacity2.i.i.i.i.i.i, align 4
   %_body4 = getelementptr inbounds nuw i8, ptr %spec.select.i25, i64 56
-  %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i25, i64 64
+  %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %__begin3.sroa.0.0139 = load ptr, ptr %Next.i.i.i.i, align 8
   %cmp.i.not140 = icmp eq ptr %__begin3.sroa.0.0139, %_body4
   br i1 %cmp.i.not140, label %for.end, label %for.body.lr.ph
@@ -33566,7 +33566,6 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %kind_.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0141, i64 16
   %8 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.not.i = icmp eq i32 %8, 27
-  %spec.select.i.i = select i1 %cmp.i.i.i.i.i.i.i.not.i, ptr %__begin3.sroa.0.0141, ptr null
   br i1 %cmp.i.i.i.i.i.i.i.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
@@ -33668,7 +33667,7 @@ _ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.
   br i1 %cmp8.not46.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN12_GLOBAL__N_110NodeVectorC2ERN4llvh12simple_ilistIN6hermes6ESTree4NodeEJEEE.exit.i
-  %_directive.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 56
+  %_directive.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0141, i64 56
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN12_GLOBAL__N_110NodeVector6appendEPN6hermes6ESTree4NodeE.exit42.i, %for.body.lr.ph.i
@@ -33790,67 +33789,67 @@ if.then12:                                        ; preds = %for.end
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %classBody, i64 56
   %__begin2.sroa.0.010.i = load ptr, ptr %Next.i.i.i.i.i, align 8
   %cmp.i.not11.i = icmp eq ptr %__begin2.sroa.0.010.i, %_body.i
-  br i1 %cmp.i.not11.i, label %if.end, label %for.body.i145
+  br i1 %cmp.i.not11.i, label %if.end, label %for.body.i146
 
-for.body.i145:                                    ; preds = %if.then12, %for.inc.i
+for.body.i146:                                    ; preds = %if.then12, %for.inc.i
   %__begin2.sroa.0.012.i = phi ptr [ %__begin2.sroa.0.0.i, %for.inc.i ], [ %__begin2.sroa.0.010.i, %if.then12 ]
-  %kind_.i.i.i.i.i.i.i.i.i146 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 16
-  %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i146, align 8
+  %kind_.i.i.i.i.i.i.i.i.i147 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 16
+  %46 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i147, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %46, 77
   %tobool.not9.i = icmp eq ptr %__begin2.sroa.0.012.i, null
   %tobool.not.i = or i1 %tobool.not9.i, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i147
+  br i1 %tobool.not.i, label %for.inc.i, label %if.then.i148
 
-if.then.i147:                                     ; preds = %for.body.i145
+if.then.i148:                                     ; preds = %for.body.i146
   %_value.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 56
   %47 = load ptr, ptr %_value.i, align 8
   %cmp.not.i = icmp eq ptr %47, null
   br i1 %cmp.not.i, label %for.inc.i, label %if.then8.i
 
-if.then8.i:                                       ; preds = %if.then.i147
-  %call.i.i148 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %47, ptr noundef null)
+if.then8.i:                                       ; preds = %if.then.i148
+  %call.i.i149 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %47, ptr noundef null)
   %_key.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 48
   %48 = load ptr, ptr %_key.i, align 8
   %49 = load ptr, ptr %_value.i, align 8
   %call11.i = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i, ptr noundef %48, ptr noundef %49)
   %50 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %call11.i, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i149, align 8
+  %Next2.i.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %call11.i, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i150, align 8
   store ptr %50, ptr %call11.i, align 8
   %Next2.i7.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %call11.i, ptr %Next2.i7.i.i.i.i.i, align 8
   store ptr %call11.i, ptr %ctorStatements, align 8
   br label %for.inc.i
 
-for.inc.i:                                        ; preds = %if.then8.i, %if.then.i147, %for.body.i145
-  %Next.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 8
-  %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i150, align 8
+for.inc.i:                                        ; preds = %if.then8.i, %if.then.i148, %for.body.i146
+  %Next.i.i.i.i151 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i, i64 8
+  %__begin2.sroa.0.0.i = load ptr, ptr %Next.i.i.i.i151, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, %_body.i
-  br i1 %cmp.i.not.i, label %if.end, label %for.body.i145
+  br i1 %cmp.i.not.i, label %if.end, label %for.body.i146
 
 if.end:                                           ; preds = %for.inc.i, %if.then12, %for.end
   %tmpStatements.val = load ptr, ptr %tmpStatements, align 8
   %tmpStatements.val20 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %conv.i.i = zext i32 %tmpStatements.val20 to i64
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %tmpStatements.val, i64 %conv.i.i
-  %cmp19.not142 = icmp eq i32 %tmpStatements.val20, 0
-  br i1 %cmp19.not142, label %for.end31, label %for.body20.lr.ph
+  %cmp19.not143 = icmp eq i32 %tmpStatements.val20, 0
+  br i1 %cmp19.not143, label %for.end31, label %for.body20.lr.ph
 
 for.body20.lr.ph:                                 ; preds = %if.end
   %_currentProcessingClass = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %_body.i152 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
-  %Next.i.i.i.i.i153 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
+  %_body.i153 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i154 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.lr.ph, %for.inc30
-  %addedPropertyInitializers.1144 = phi i1 [ %cmp11, %for.body20.lr.ph ], [ %addedPropertyInitializers.2, %for.inc30 ]
-  %__begin314.0143 = phi ptr [ %tmpStatements.val, %for.body20.lr.ph ], [ %incdec.ptr, %for.inc30 ]
+  %addedPropertyInitializers.1145 = phi i1 [ %cmp11, %for.body20.lr.ph ], [ %addedPropertyInitializers.2, %for.inc30 ]
+  %__begin314.0144 = phi ptr [ %tmpStatements.val, %for.body20.lr.ph ], [ %incdec.ptr, %for.inc30 ]
   %51 = load ptr, ptr %_currentProcessingClass, align 8
   %superCallFound = getelementptr inbounds nuw i8, ptr %51, i64 16
   %52 = load i8, ptr %superCallFound, align 8
-  %53 = load ptr, ptr %__begin314.0143, align 8
+  %53 = load ptr, ptr %__begin314.0144, align 8
   call void @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE13visitChildrenERS2_PNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %53)
-  %54 = load ptr, ptr %__begin314.0143, align 8
+  %54 = load ptr, ptr %__begin314.0144, align 8
   %55 = load ptr, ptr %ctorStatements, align 8
   %Next2.i.i.i.i.i29 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store ptr %ctorStatements, ptr %Next2.i.i.i.i.i29, align 8
@@ -33858,7 +33857,7 @@ for.body20:                                       ; preds = %for.body20.lr.ph, %
   %Next2.i7.i.i.i.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %54, ptr %Next2.i7.i.i.i.i, align 8
   store ptr %54, ptr %ctorStatements, align 8
-  br i1 %addedPropertyInitializers.1144, label %for.inc30, label %land.lhs.true
+  br i1 %addedPropertyInitializers.1145, label %for.inc30, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body20
   %tobool = trunc i8 %52 to i1
@@ -33872,49 +33871,49 @@ land.lhs.true24:                                  ; preds = %land.lhs.true
   br i1 %tobool27, label %if.then28, label %for.inc30
 
 if.then28:                                        ; preds = %land.lhs.true24
-  %__begin2.sroa.0.010.i154 = load ptr, ptr %Next.i.i.i.i.i153, align 8
-  %cmp.i.not11.i155 = icmp eq ptr %__begin2.sroa.0.010.i154, %_body.i152
-  br i1 %cmp.i.not11.i155, label %for.inc30, label %for.body.i156
+  %__begin2.sroa.0.010.i155 = load ptr, ptr %Next.i.i.i.i.i154, align 8
+  %cmp.i.not11.i156 = icmp eq ptr %__begin2.sroa.0.010.i155, %_body.i153
+  br i1 %cmp.i.not11.i156, label %for.inc30, label %for.body.i157
 
-for.body.i156:                                    ; preds = %if.then28, %for.inc.i171
-  %__begin2.sroa.0.012.i157 = phi ptr [ %__begin2.sroa.0.0.i173, %for.inc.i171 ], [ %__begin2.sroa.0.010.i154, %if.then28 ]
-  %kind_.i.i.i.i.i.i.i.i.i158 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i157, i64 16
-  %58 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i158, align 8
-  %cmp.i.i.i.i.i.i.i.i159 = icmp ne i32 %58, 77
-  %tobool.not9.i160 = icmp eq ptr %__begin2.sroa.0.012.i157, null
-  %tobool.not.i161 = or i1 %tobool.not9.i160, %cmp.i.i.i.i.i.i.i.i159
-  br i1 %tobool.not.i161, label %for.inc.i171, label %if.then.i162
+for.body.i157:                                    ; preds = %if.then28, %for.inc.i172
+  %__begin2.sroa.0.012.i158 = phi ptr [ %__begin2.sroa.0.0.i174, %for.inc.i172 ], [ %__begin2.sroa.0.010.i155, %if.then28 ]
+  %kind_.i.i.i.i.i.i.i.i.i159 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 16
+  %58 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i159, align 8
+  %cmp.i.i.i.i.i.i.i.i160 = icmp ne i32 %58, 77
+  %tobool.not9.i161 = icmp eq ptr %__begin2.sroa.0.012.i158, null
+  %tobool.not.i162 = or i1 %tobool.not9.i161, %cmp.i.i.i.i.i.i.i.i160
+  br i1 %tobool.not.i162, label %for.inc.i172, label %if.then.i163
 
-if.then.i162:                                     ; preds = %for.body.i156
-  %_value.i163 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i157, i64 56
-  %59 = load ptr, ptr %_value.i163, align 8
-  %cmp.not.i164 = icmp eq ptr %59, null
-  br i1 %cmp.not.i164, label %for.inc.i171, label %if.then8.i165
+if.then.i163:                                     ; preds = %for.body.i157
+  %_value.i164 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 56
+  %59 = load ptr, ptr %_value.i164, align 8
+  %cmp.not.i165 = icmp eq ptr %59, null
+  br i1 %cmp.not.i165, label %for.inc.i172, label %if.then8.i166
 
-if.then8.i165:                                    ; preds = %if.then.i162
-  %call.i.i166 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %59, ptr noundef null)
-  %_key.i167 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i157, i64 48
-  %60 = load ptr, ptr %_key.i167, align 8
-  %61 = load ptr, ptr %_value.i163, align 8
-  %call11.i168 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i157, ptr noundef %60, ptr noundef %61)
+if.then8.i166:                                    ; preds = %if.then.i163
+  %call.i.i167 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %59, ptr noundef null)
+  %_key.i168 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 48
+  %60 = load ptr, ptr %_key.i168, align 8
+  %61 = load ptr, ptr %_value.i164, align 8
+  %call11.i169 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i158, ptr noundef %60, ptr noundef %61)
   %62 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i169 = getelementptr inbounds nuw i8, ptr %call11.i168, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i169, align 8
-  store ptr %62, ptr %call11.i168, align 8
-  %Next2.i7.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %call11.i168, ptr %Next2.i7.i.i.i.i.i170, align 8
-  store ptr %call11.i168, ptr %ctorStatements, align 8
-  br label %for.inc.i171
+  %Next2.i.i.i.i.i.i170 = getelementptr inbounds nuw i8, ptr %call11.i169, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i170, align 8
+  store ptr %62, ptr %call11.i169, align 8
+  %Next2.i7.i.i.i.i.i171 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %call11.i169, ptr %Next2.i7.i.i.i.i.i171, align 8
+  store ptr %call11.i169, ptr %ctorStatements, align 8
+  br label %for.inc.i172
 
-for.inc.i171:                                     ; preds = %if.then8.i165, %if.then.i162, %for.body.i156
-  %Next.i.i.i.i172 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i157, i64 8
-  %__begin2.sroa.0.0.i173 = load ptr, ptr %Next.i.i.i.i172, align 8
-  %cmp.i.not.i174 = icmp eq ptr %__begin2.sroa.0.0.i173, %_body.i152
-  br i1 %cmp.i.not.i174, label %for.inc30, label %for.body.i156
+for.inc.i172:                                     ; preds = %if.then8.i166, %if.then.i163, %for.body.i157
+  %Next.i.i.i.i173 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i158, i64 8
+  %__begin2.sroa.0.0.i174 = load ptr, ptr %Next.i.i.i.i173, align 8
+  %cmp.i.not.i175 = icmp eq ptr %__begin2.sroa.0.0.i174, %_body.i153
+  br i1 %cmp.i.not.i175, label %for.inc30, label %for.body.i157
 
-for.inc30:                                        ; preds = %for.inc.i171, %if.then28, %for.body20, %land.lhs.true, %land.lhs.true24
-  %addedPropertyInitializers.2 = phi i1 [ true, %for.body20 ], [ false, %land.lhs.true ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i171 ]
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin314.0143, i64 8
+for.inc30:                                        ; preds = %for.inc.i172, %if.then28, %for.body20, %land.lhs.true, %land.lhs.true24
+  %addedPropertyInitializers.2 = phi i1 [ true, %for.body20 ], [ false, %land.lhs.true ], [ false, %land.lhs.true24 ], [ true, %if.then28 ], [ true, %for.inc.i172 ]
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin314.0144, i64 8
   %cmp19.not = icmp eq ptr %incdec.ptr, %add.ptr.i.i
   br i1 %cmp19.not, label %for.end31.loopexit, label %for.body20
 
@@ -34128,49 +34127,49 @@ _ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63:         ; preds = %_ZN6hermes25ES6Clas
   br label %if.end41
 
 if.end41:                                         ; preds = %_ZN12_GLOBAL__N_110NodeVectorD2Ev.exit63, %if.else
-  %_body.i177 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
-  %Next.i.i.i.i.i178 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
-  %__begin2.sroa.0.010.i179 = load ptr, ptr %Next.i.i.i.i.i178, align 8
-  %cmp.i.not11.i180 = icmp eq ptr %__begin2.sroa.0.010.i179, %_body.i177
-  br i1 %cmp.i.not11.i180, label %if.end42, label %for.body.i181
+  %_body.i178 = getelementptr inbounds nuw i8, ptr %classBody, i64 48
+  %Next.i.i.i.i.i179 = getelementptr inbounds nuw i8, ptr %classBody, i64 56
+  %__begin2.sroa.0.010.i180 = load ptr, ptr %Next.i.i.i.i.i179, align 8
+  %cmp.i.not11.i181 = icmp eq ptr %__begin2.sroa.0.010.i180, %_body.i178
+  br i1 %cmp.i.not11.i181, label %if.end42, label %for.body.i182
 
-for.body.i181:                                    ; preds = %if.end41, %for.inc.i196
-  %__begin2.sroa.0.012.i182 = phi ptr [ %__begin2.sroa.0.0.i198, %for.inc.i196 ], [ %__begin2.sroa.0.010.i179, %if.end41 ]
-  %kind_.i.i.i.i.i.i.i.i.i183 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i182, i64 16
-  %95 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i183, align 8
-  %cmp.i.i.i.i.i.i.i.i184 = icmp ne i32 %95, 77
-  %tobool.not9.i185 = icmp eq ptr %__begin2.sroa.0.012.i182, null
-  %tobool.not.i186 = or i1 %tobool.not9.i185, %cmp.i.i.i.i.i.i.i.i184
-  br i1 %tobool.not.i186, label %for.inc.i196, label %if.then.i187
+for.body.i182:                                    ; preds = %if.end41, %for.inc.i197
+  %__begin2.sroa.0.012.i183 = phi ptr [ %__begin2.sroa.0.0.i199, %for.inc.i197 ], [ %__begin2.sroa.0.010.i180, %if.end41 ]
+  %kind_.i.i.i.i.i.i.i.i.i184 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 16
+  %95 = load i32, ptr %kind_.i.i.i.i.i.i.i.i.i184, align 8
+  %cmp.i.i.i.i.i.i.i.i185 = icmp ne i32 %95, 77
+  %tobool.not9.i186 = icmp eq ptr %__begin2.sroa.0.012.i183, null
+  %tobool.not.i187 = or i1 %tobool.not9.i186, %cmp.i.i.i.i.i.i.i.i185
+  br i1 %tobool.not.i187, label %for.inc.i197, label %if.then.i188
 
-if.then.i187:                                     ; preds = %for.body.i181
-  %_value.i188 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i182, i64 56
-  %96 = load ptr, ptr %_value.i188, align 8
-  %cmp.not.i189 = icmp eq ptr %96, null
-  br i1 %cmp.not.i189, label %for.inc.i196, label %if.then8.i190
+if.then.i188:                                     ; preds = %for.body.i182
+  %_value.i189 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 56
+  %96 = load ptr, ptr %_value.i189, align 8
+  %cmp.not.i190 = icmp eq ptr %96, null
+  br i1 %cmp.not.i190, label %for.inc.i197, label %if.then8.i191
 
-if.then8.i190:                                    ; preds = %if.then.i187
-  %call.i.i191 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %96, ptr noundef null)
-  %_key.i192 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i182, i64 48
-  %97 = load ptr, ptr %_key.i192, align 8
-  %98 = load ptr, ptr %_value.i188, align 8
-  %call11.i193 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i182, ptr noundef %97, ptr noundef %98)
+if.then8.i191:                                    ; preds = %if.then.i188
+  %call.i.i192 = call { ptr, i8 } @_ZN6hermes6ESTree24RecursiveVisitorDispatchINS_25ES6ClassesTransformationsELb0EE5visitERS2_PNS0_4NodeES6_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %96, ptr noundef null)
+  %_key.i193 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 48
+  %97 = load ptr, ptr %_key.i193, align 8
+  %98 = load ptr, ptr %_value.i189, align 8
+  %call11.i194 = call noundef ptr @_ZN6hermes25ES6ClassesTransformations29createThisPropertyInitializerEPNS_6ESTree4NodeES3_S3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %__begin2.sroa.0.012.i183, ptr noundef %97, ptr noundef %98)
   %99 = load ptr, ptr %ctorStatements, align 8
-  %Next2.i.i.i.i.i.i194 = getelementptr inbounds nuw i8, ptr %call11.i193, i64 8
-  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i194, align 8
-  store ptr %99, ptr %call11.i193, align 8
-  %Next2.i7.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  store ptr %call11.i193, ptr %Next2.i7.i.i.i.i.i195, align 8
-  store ptr %call11.i193, ptr %ctorStatements, align 8
-  br label %for.inc.i196
+  %Next2.i.i.i.i.i.i195 = getelementptr inbounds nuw i8, ptr %call11.i194, i64 8
+  store ptr %ctorStatements, ptr %Next2.i.i.i.i.i.i195, align 8
+  store ptr %99, ptr %call11.i194, align 8
+  %Next2.i7.i.i.i.i.i196 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  store ptr %call11.i194, ptr %Next2.i7.i.i.i.i.i196, align 8
+  store ptr %call11.i194, ptr %ctorStatements, align 8
+  br label %for.inc.i197
 
-for.inc.i196:                                     ; preds = %if.then8.i190, %if.then.i187, %for.body.i181
-  %Next.i.i.i.i197 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i182, i64 8
-  %__begin2.sroa.0.0.i198 = load ptr, ptr %Next.i.i.i.i197, align 8
-  %cmp.i.not.i199 = icmp eq ptr %__begin2.sroa.0.0.i198, %_body.i177
-  br i1 %cmp.i.not.i199, label %if.end42, label %for.body.i181
+for.inc.i197:                                     ; preds = %if.then8.i191, %if.then.i188, %for.body.i182
+  %Next.i.i.i.i198 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.012.i183, i64 8
+  %__begin2.sroa.0.0.i199 = load ptr, ptr %Next.i.i.i.i198, align 8
+  %cmp.i.not.i200 = icmp eq ptr %__begin2.sroa.0.0.i199, %_body.i178
+  br i1 %cmp.i.not.i200, label %if.end42, label %for.body.i182
 
-if.end42:                                         ; preds = %for.inc.i196, %if.end41, %if.then.i.i.i30, %for.end31
+if.end42:                                         ; preds = %for.inc.i197, %if.end41, %if.then.i.i.i30, %for.end31
   %100 = load ptr, ptr %this, align 8
   %state_.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %101 = load ptr, ptr %state_.i.i.i.i66, align 8

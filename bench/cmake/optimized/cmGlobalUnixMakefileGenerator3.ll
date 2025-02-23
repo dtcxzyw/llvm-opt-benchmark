@@ -1178,7 +1178,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   br label %._crit_edge42
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph41.preheader:                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   store i64 0, ptr %3, align 8, !tbaa !190
   br label %.lr.ph41
@@ -1191,7 +1191,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %31 = add i64 %30, %.01537
   %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.029.036) #28
   %.not = icmp eq ptr %32, %28
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph41.preheader, label %.lr.ph
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge.thread
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1211,8 +1211,8 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %46
 
-.lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
-  %.sroa.025.039 = phi ptr [ %43, %.lr.ph41 ], [ %27, %._crit_edge ]
+.lr.ph41:                                         ; preds = %.lr.ph41.preheader, %.lr.ph41
+  %.sroa.025.039 = phi ptr [ %43, %.lr.ph41 ], [ %27, %.lr.ph41.preheader ]
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 40
   call void @_ZN30cmGlobalUnixMakefileGenerator314TargetProgress22WriteProgressVariablesEmRm(ptr noundef nonnull align 8 dereferenceable(64) %42, i64 noundef %31, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.025.039) #28
@@ -14614,7 +14614,7 @@ _ZNSt8_Rb_treeIPK17cmGeneratorTargetS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M
   br label %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertEOS2_.exit44
 
 _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EE6insertEOS2_.exit44: ; preds = %120, %_ZNSt8_Rb_treeIPK17cmGeneratorTargetS2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE10_M_insert_IS2_NS8_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS2_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i39
-  %133 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.046.065) #28
+  %133 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.046.065) #28
   %.not60 = icmp eq ptr %133, %106
   br i1 %.not60, label %._crit_edge, label %110
 

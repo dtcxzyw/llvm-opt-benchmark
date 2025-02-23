@@ -757,8 +757,7 @@ define internal i32 @vp_modern_find_vqs(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %22, label %.loopexit, label %16, !llvm.loop !24
 
 .loopexit:                                        ; preds = %16, %10, %7
-  %23 = phi i32 [ %8, %7 ], [ 0, %10 ], [ 0, %16 ]
-  ret i32 %23
+  ret i32 %8
 }
 
 ; Function Attrs: null_pointer_is_valid

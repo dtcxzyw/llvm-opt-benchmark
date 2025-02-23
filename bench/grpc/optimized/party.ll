@@ -810,7 +810,7 @@ do.cond.us.i:                                     ; preds = %for.cond.do.body13_
   %1 = cmpxchg weak ptr %sync_, i64 %state.0.us.i, i64 %add.us.i acq_rel acquire, align 8
   %2 = extractvalue { i64, i1 } %1, 1
   %3 = extractvalue { i64, i1 } %1, 0
-  br i1 %2, label %do.end23.loopexit56.i, label %do.body.us.i, !llvm.loop !18
+  br i1 %2, label %do.end23.i, label %do.body.us.i, !llvm.loop !18
 
 for.body.us.i:                                    ; preds = %for.inc.us.i, %do.body.us.i
   %bit.053.us.i = phi i64 [ 0, %do.body.us.i ], [ %inc12.us.i, %for.inc.us.i ]
@@ -853,40 +853,37 @@ do.body.i:                                        ; preds = %entry, %do.body.i
   %6 = cmpxchg weak ptr %sync_, i64 %state.0.i, i64 %add.i acq_rel acquire, align 8
   %7 = extractvalue { i64, i1 } %6, 1
   %8 = extractvalue { i64, i1 } %6, 0
-  br i1 %7, label %do.end23.i, label %do.body.i, !llvm.loop !18
+  br i1 %7, label %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit", label %do.body.i, !llvm.loop !18
 
 if.then16.i:                                      ; preds = %for.cond.do.body13_crit_edge.us.i
   tail call void @gpr_assertion_failed(ptr noundef nonnull @.str.7, i32 noundef 168, ptr noundef nonnull @.str.11) #26
   unreachable
 
-do.end23.loopexit56.i:                            ; preds = %do.cond.us.i
+do.end23.i:                                       ; preds = %do.cond.us.i
   %9 = zext i16 %wakeup_mask.1.us.i to i64
-  %10 = or disjoint i64 %9, 34359738368
-  br label %do.end23.i
-
-do.end23.i:                                       ; preds = %do.body.i, %do.end23.loopexit56.i
-  %.us-phi.i = phi i64 [ %10, %do.end23.loopexit56.i ], [ 34359738368, %do.body.i ]
-  br i1 %cmp49.not.i, label %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit", label %for.body.lr.ph.i.i
-
-for.body.lr.ph.i.i:                               ; preds = %do.end23.i
   %participants_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body.i.i
 
-for.body.i.i:                                     ; preds = %for.body.i.i, %for.body.lr.ph.i.i
-  %i.05.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %for.body.i.i ]
+for.body.i.i:                                     ; preds = %for.body.i.i, %do.end23.i
+  %i.05.i.i = phi i64 [ 0, %do.end23.i ], [ %inc.i.i, %for.body.i.i ]
   %arrayidx.i.i = getelementptr inbounds i64, ptr %slots.i, i64 %i.05.i.i
-  %11 = load i64, ptr %arrayidx.i.i, align 8
-  %arrayidx2.i.i = getelementptr inbounds [16 x %"struct.std::atomic.2"], ptr %participants_.i.i, i64 0, i64 %11
+  %10 = load i64, ptr %arrayidx.i.i, align 8
+  %arrayidx2.i.i = getelementptr inbounds [16 x %"struct.std::atomic.2"], ptr %participants_.i.i, i64 0, i64 %10
   %arrayidx3.i.i = getelementptr inbounds ptr, ptr %participants, i64 %i.05.i.i
-  %12 = load ptr, ptr %arrayidx3.i.i, align 8
-  %13 = ptrtoint ptr %12 to i64
-  store atomic i64 %13, ptr %arrayidx2.i.i release, align 8
+  %11 = load ptr, ptr %arrayidx3.i.i, align 8
+  %12 = ptrtoint ptr %11 to i64
+  store atomic i64 %12, ptr %arrayidx2.i.i release, align 8
   %inc.i.i = add nuw i64 %i.05.i.i, 1
   %exitcond.not = icmp eq i64 %inc.i.i, %count
-  br i1 %exitcond.not, label %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit", label %for.body.i.i, !llvm.loop !20
+  br i1 %exitcond.not, label %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit.loopexit17", label %for.body.i.i, !llvm.loop !20
 
-"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit": ; preds = %for.body.i.i, %do.end23.i
-  %14 = atomicrmw or ptr %sync_, i64 %.us-phi.i release, align 8
+"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit.loopexit17": ; preds = %for.body.i.i
+  %13 = or disjoint i64 %9, 34359738368
+  br label %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit"
+
+"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit": ; preds = %do.body.i, %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit.loopexit17"
+  %.us-phi.i14 = phi i64 [ %13, %"_ZN9grpc_core21PartySyncUsingAtomics21AddParticipantsAndRefIZNS_5Party15AddParticipantsEPPNS2_11ParticipantEmE3$_0EEbmT_.exit.loopexit17" ], [ 34359738368, %do.body.i ]
+  %14 = atomicrmw or ptr %sync_, i64 %.us-phi.i14 release, align 8
   %and28.i = and i64 %14, 34359738368
   %cmp29.i = icmp eq i64 %and28.i, 0
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %slots.i)

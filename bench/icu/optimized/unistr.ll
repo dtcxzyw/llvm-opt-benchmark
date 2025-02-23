@@ -356,13 +356,13 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body
   %.pre141 = load i16, ptr %fUnion2, align 8
-  %cmp.i55 = icmp slt i32 %count, 1024
+  %cmp.i55 = icmp samesign ult i32 %count, 1024
   br i1 %cmp.i55, label %if.then.i57, label %if.else.i
 
 if.then.i57:                                      ; preds = %for.end
   %5 = and i16 %.pre141, 31
-  %len.tr.i.i = trunc i32 %count to i16
-  %6 = shl i16 %len.tr.i.i, 5
+  %len.tr.i.i = trunc nuw i32 %count to i16
+  %6 = shl nuw nsw i16 %len.tr.i.i, 5
   %conv2.i.i = or disjoint i16 %5, %6
   store i16 %conv2.i.i, ptr %fUnion2, align 8
   br label %if.end50
@@ -500,7 +500,7 @@ for.body38:                                       ; preds = %for.body38.preheade
 
 for.end46:                                        ; preds = %for.body38
   %.pre139 = load i16, ptr %fUnion2, align 8
-  %cmp.i115 = icmp ult i32 %count, 512
+  %cmp.i115 = icmp samesign ult i32 %count, 512
   br i1 %cmp.i115, label %if.then.i121, label %if.else.i117
 
 if.then.i121:                                     ; preds = %for.end46

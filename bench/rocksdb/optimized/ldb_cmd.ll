@@ -40896,7 +40896,7 @@ return:                                           ; preds = %_ZNKSt14default_del
   ret void
 
 ehcleanup53:                                      ; preds = %lpad47, %_ZN7rocksdb14RestoreOptionsD2Ev.exit41, %lpad16, %lpad12
-  %restore_engine.sroa.0.2 = phi ptr [ %spec.select, %lpad47 ], [ %restore_engine.sroa.0.0, %lpad12 ], [ %spec.select, %_ZN7rocksdb14RestoreOptionsD2Ev.exit41 ], [ null, %lpad16 ]
+  %restore_engine.sroa.0.2 = phi ptr [ %spec.select, %lpad47 ], [ %restore_engine.sroa.0.0, %lpad12 ], [ %.pre70, %_ZN7rocksdb14RestoreOptionsD2Ev.exit41 ], [ null, %lpad16 ]
   %.pn2 = phi { ptr, i32 } [ %38, %lpad47 ], [ %18, %lpad12 ], [ %32, %_ZN7rocksdb14RestoreOptionsD2Ev.exit41 ], [ %19, %lpad16 ]
   %41 = load ptr, ptr %state_.i10, align 8
   %cmp.not.i.i54 = icmp eq ptr %41, null

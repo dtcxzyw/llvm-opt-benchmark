@@ -3603,7 +3603,7 @@ rb_array_len.exit:                                ; preds = %63
 rb_array_len.exit.thread:                         ; preds = %63
   %71 = lshr i64 %66, 15
   %72 = and i64 %71, 127
-  %73 = icmp slt i64 %.161, %72
+  %73 = icmp samesign ult i64 %.161, %72
   br i1 %73, label %74, label %113
 
 74:                                               ; preds = %rb_array_len.exit.thread
@@ -3700,7 +3700,7 @@ RSTRING_PTR.exit83:                               ; preds = %100, %104
 
 111:                                              ; preds = %rb_get_path.exit, %RSTRING_PTR.exit83
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  %112 = add nuw i64 %.161, 1
+  %112 = add nuw nsw i64 %.161, 1
   br label %63, !llvm.loop !191
 
 113:                                              ; preds = %rb_array_len.exit.thread, %rb_array_len.exit
@@ -3886,7 +3886,7 @@ rb_array_len.exit:                                ; preds = %43
 rb_array_len.exit.thread:                         ; preds = %43
   %51 = lshr i64 %46, 15
   %52 = and i64 %51, 127
-  %53 = icmp slt i64 %.021, %52
+  %53 = icmp samesign ult i64 %.021, %52
   br i1 %53, label %54, label %89
 
 54:                                               ; preds = %rb_array_len.exit.thread
@@ -3975,7 +3975,7 @@ RSTRING_PTR.exit37:                               ; preds = %80, %85
 
 87:                                               ; preds = %rb_get_path.exit, %RSTRING_PTR.exit37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
-  %88 = add nuw i64 %.021, 1
+  %88 = add nuw nsw i64 %.021, 1
   br label %43, !llvm.loop !202
 
 89:                                               ; preds = %rb_array_len.exit.thread, %rb_array_len.exit

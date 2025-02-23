@@ -2089,7 +2089,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EE6resizeEm.exit:    ; preds = %._crit_edge, %._ZNS
   store ptr %45, ptr %34, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %46, %44, %42, %40
+.preheader.preheader:                             ; preds = %40, %42, %44, %46
   %wide.trip.count68 = and i64 %17, 2147483647
   %.pre72 = load ptr, ptr %2, align 8
   br label %.preheader
@@ -3695,8 +3695,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i71: ; 
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %smax = call i32 @llvm.smax.i32(i32 %57, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %57 to i64
   %.pre = load i32, ptr %96, align 8
   br label %99
 

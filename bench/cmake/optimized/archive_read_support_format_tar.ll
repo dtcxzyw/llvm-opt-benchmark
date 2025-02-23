@@ -884,7 +884,7 @@ gnu_clear_sparse_list.exit:                       ; preds = %.lr.ph.i, %21
   br label %44
 
 41:                                               ; preds = %38
-  %42 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef %0) #13
+  %42 = tail call ptr @archive_string_default_conversion_for_read(ptr noundef nonnull %0) #13
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 288
   store ptr %42, ptr %43, align 8, !tbaa !56
   store i32 1, ptr %39, align 8, !tbaa !41

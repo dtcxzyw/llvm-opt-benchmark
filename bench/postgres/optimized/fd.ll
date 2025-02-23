@@ -3758,7 +3758,7 @@ define dso_local zeroext i1 @TempTablespacesAreSet() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @GetTempTablespaces(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
+define dso_local range(i32 0, -2147483648) i32 @GetTempTablespaces(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #18 {
   %3 = load i32, ptr @numTempTableSpaces, align 4
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %1, i32 %3)
   %4 = icmp sgt i32 %invariant.smin, 0

@@ -3451,7 +3451,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %wide.trip.count.i = zext nneg i32 %63 to i64
   br label %77
 
-.preheader6.i:                                    ; preds = %77
+.lr.ph9.i:                                        ; preds = %77
   %74 = add i32 %58, -1
   %75 = add i32 %74, %62
   %76 = sitofp i32 %75 to float
@@ -3468,7 +3468,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %83 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %81, float noundef %73, i32 noundef 1, i32 noundef 1, ptr noundef %82)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader6.i, label %77, !llvm.loop !303
+  br i1 %exitcond.not.i, label %.lr.ph9.i, label %77, !llvm.loop !303
 
 .preheader5.i:                                    ; preds = %86, %55
   %.not29.i = icmp eq i32 %62, 0
@@ -3480,8 +3480,8 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %wide.trip.count44.i = zext nneg i32 %64 to i64
   br label %99
 
-86:                                               ; preds = %86, %.preheader6.i
-  %indvars.iv36.i = phi i64 [ 0, %.preheader6.i ], [ %indvars.iv.next37.i, %86 ]
+86:                                               ; preds = %86, %.lr.ph9.i
+  %indvars.iv36.i = phi i64 [ 0, %.lr.ph9.i ], [ %indvars.iv.next37.i, %86 ]
   %87 = trunc i64 %indvars.iv36.i to i32
   %88 = mul i32 %65, %87
   %89 = add i32 %88, %56
@@ -3494,7 +3494,7 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %exitcond40.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count.i
   br i1 %exitcond40.not.i, label %.preheader5.i, label %86, !llvm.loop !304
 
-.preheader4.i:                                    ; preds = %99
+.lr.ph13.i:                                       ; preds = %99
   %94 = add i32 %56, -1
   %95 = add i32 %94, %60
   %96 = sitofp i32 %95 to float
@@ -3514,14 +3514,14 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %17
   %106 = tail call noundef zeroext i1 @_ZNK10lfModifier31ApplySubpixelGeometryDistortionEffiiPf(ptr noundef nonnull align 8 dereferenceable(96) %32, float noundef %84, float noundef %103, i32 noundef 1, i32 noundef 1, ptr noundef %105)
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %exitcond45.not.i = icmp eq i64 %indvars.iv.next42.i, %wide.trip.count44.i
-  br i1 %exitcond45.not.i, label %.preheader4.i, label %99, !llvm.loop !305
+  br i1 %exitcond45.not.i, label %.lr.ph13.i, label %99, !llvm.loop !305
 
 .preheader3.i:                                    ; preds = %107, %.preheader5.i
   %.not31.i = icmp eq i32 %68, 0
   br i1 %.not31.i, label %._crit_edge.i, label %.preheader.i
 
-107:                                              ; preds = %107, %.preheader4.i
-  %indvars.iv46.i = phi i64 [ 0, %.preheader4.i ], [ %indvars.iv.next47.i, %107 ]
+107:                                              ; preds = %107, %.lr.ph13.i
+  %indvars.iv46.i = phi i64 [ 0, %.lr.ph13.i ], [ %indvars.iv.next47.i, %107 ]
   %108 = trunc i64 %indvars.iv46.i to i32
   %109 = mul i32 %66, %108
   %110 = add i32 %109, %58
@@ -6147,7 +6147,7 @@ _ZL31_lenstype_from_lensfun_lenstype10lfLensType.exit: ; preds = %._crit_edge.lo
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 32
   %126 = load float, ptr %125, align 8, !tbaa !354
   store float %126, ptr %36, align 4, !tbaa !412
-  %127 = call reassoc nsz arcp contract afn fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP20dt_iop_lens_params_tPK8lfCamera(ptr noundef %0, ptr noundef nonnull %7, ptr noundef %124)
+  %127 = call reassoc nsz arcp contract afn fastcc noundef float @_ZL17_get_autoscale_lfP15dt_iop_module_tP20dt_iop_lens_params_tPK8lfCamera(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %124)
   store float %127, ptr %43, align 4, !tbaa !366
   call void @lf_free(ptr noundef nonnull %76)
   br label %128

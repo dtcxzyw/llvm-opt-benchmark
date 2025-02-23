@@ -20025,7 +20025,7 @@ if.end:                                           ; preds = %for.body.i, %if.els
   %9 = load i64, ptr %size_, align 8
   %dec = add i64 %9, -1
   store i64 %dec, ptr %size_, align 8
-  %call32 = tail call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE22rebalance_after_deleteENS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %iter.sroa.0.0, i32 %iter.sroa.14.0)
+  %call32 = tail call { ptr, i32 } @_ZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS8_EELi256ELb0EEEE22rebalance_after_deleteENS1_14btree_iteratorINS1_10btree_nodeISF_EERSD_PSD_EE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %iter.sroa.0.0, i32 %iter.sroa.14.0)
   %10 = extractvalue { ptr, i32 } %call32, 0
   %11 = extractvalue { ptr, i32 } %call32, 1
   br i1 %cmp.i.not.i, label %if.then34, label %if.end36

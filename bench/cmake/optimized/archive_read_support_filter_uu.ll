@@ -797,9 +797,9 @@ get_line.exit.thread:                             ; preds = %get_line.exit.threa
 
 .preheader.i302:                                  ; preds = %100, %.preheader.i302
   %.022.i303 = phi i64 [ %.1.i304, %.preheader.i302 ], [ %101, %100 ]
-  %103 = icmp ult i64 %.022.i303, 32768
+  %103 = icmp samesign ult i64 %.022.i303, 32768
   %104 = shl nuw nsw i64 %.022.i303, 1
-  %105 = add i64 %.022.i303, 1024
+  %105 = add nuw i64 %.022.i303, 1024
   %.1.i304 = select i1 %103, i64 %104, i64 %105
   %106 = icmp ugt i64 %62, %.1.i304
   br i1 %106, label %.preheader.i302, label %107, !llvm.loop !35

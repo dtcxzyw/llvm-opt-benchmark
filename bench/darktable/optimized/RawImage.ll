@@ -2256,7 +2256,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhN8rawspeed16AlignedAllocatorIhLi1
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %.not65 = icmp ult i64 %12, %2
-  br i1 %.not65, label %43, label %13
+  br i1 %.not65, label %44, label %13
 
 13:                                               ; preds = %5
   %14 = load i8, ptr %3, align 1, !tbaa !92
@@ -2328,99 +2328,99 @@ _ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i70, i64 1
   %39 = getelementptr inbounds nuw i8, ptr %.09.i.i69, i64 1
   %40 = icmp eq ptr %38, %9
-  br i1 %40, label %_ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit72, label %.lr.ph.i.i68, !llvm.loop !160
+  br i1 %40, label %41, label %.lr.ph.i.i68, !llvm.loop !160
 
-_ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit72: ; preds = %.lr.ph.i.i68
-  %41 = load ptr, ptr %8, align 8, !tbaa !129
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %16
-  store ptr %42, ptr %8, align 8, !tbaa !129
+41:                                               ; preds = %.lr.ph.i.i68
+  %42 = load ptr, ptr %8, align 8, !tbaa !129
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %16
+  store ptr %43, ptr %8, align 8, !tbaa !129
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 %14, i64 %16, i1 false)
   br label %_ZSt4fillIPhhEvT_S1_RKT0_.exit
 
-43:                                               ; preds = %5
-  %44 = load ptr, ptr %0, align 8, !tbaa !98
-  %45 = ptrtoint ptr %44 to i64
-  %46 = sub i64 %11, %45
-  %47 = sub i64 9223372036854775807, %46
-  %48 = icmp ult i64 %47, %2
-  br i1 %48, label %49, label %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
+44:                                               ; preds = %5
+  %45 = load ptr, ptr %0, align 8, !tbaa !98
+  %46 = ptrtoint ptr %45 to i64
+  %47 = sub i64 %11, %46
+  %48 = sub i64 9223372036854775807, %47
+  %49 = icmp ult i64 %48, %2
+  br i1 %49, label %50, label %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
 
-49:                                               ; preds = %43
+50:                                               ; preds = %44
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.16) #31
   unreachable
 
-_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit: ; preds = %43
-  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %46, i64 %2)
-  %50 = add i64 %.sroa.speculated.i, %46
-  %51 = icmp ult i64 %50, %46
-  %52 = tail call i64 @llvm.umin.i64(i64 %50, i64 9223372036854775807)
-  %53 = select i1 %51, i64 9223372036854775807, i64 %52
-  %54 = ptrtoint ptr %1 to i64
-  %55 = sub i64 %54, %45
-  %.not.i75 = icmp eq i64 %53, 0
-  br i1 %.not.i75, label %.lr.ph.preheader.i77, label %56
+_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit: ; preds = %44
+  %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %47, i64 %2)
+  %51 = add i64 %.sroa.speculated.i, %47
+  %52 = icmp ult i64 %51, %47
+  %53 = tail call i64 @llvm.umin.i64(i64 %51, i64 9223372036854775807)
+  %54 = select i1 %52, i64 9223372036854775807, i64 %53
+  %55 = ptrtoint ptr %1 to i64
+  %56 = sub i64 %55, %46
+  %.not.i75 = icmp eq i64 %54, 0
+  br i1 %.not.i75, label %.lr.ph.preheader.i77, label %57
 
-56:                                               ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
-  %57 = tail call noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %53, i64 noundef 16) #32
+57:                                               ; preds = %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
+  %58 = tail call noalias noundef nonnull align 16 ptr @_ZnwmSt11align_val_t(i64 noundef %54, i64 noundef 16) #32
   br label %.lr.ph.preheader.i77
 
-.lr.ph.preheader.i77:                             ; preds = %56, %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
-  %58 = phi ptr [ %57, %56 ], [ null, %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit ]
-  %59 = getelementptr i8, ptr %58, i64 %55
+.lr.ph.preheader.i77:                             ; preds = %57, %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit
+  %59 = phi ptr [ %58, %57 ], [ null, %_ZNKSt6vectorIhN8rawspeed16AlignedAllocatorIhLi16EEEE12_M_check_lenEmPKc.exit ]
+  %60 = getelementptr i8, ptr %59, i64 %56
   %.pre.i78 = load i8, ptr %3, align 1, !tbaa !92
-  tail call void @llvm.memset.p0.i64(ptr align 1 %59, i8 %.pre.i78, i64 %2, i1 false), !tbaa !92
-  %60 = icmp eq ptr %44, %1
-  br i1 %60, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i85
+  tail call void @llvm.memset.p0.i64(ptr align 1 %60, i8 %.pre.i78, i64 %2, i1 false), !tbaa !92
+  %61 = icmp eq ptr %45, %1
+  br i1 %61, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i85
 
 .lr.ph.i.i85:                                     ; preds = %.lr.ph.preheader.i77, %.lr.ph.i.i85
-  %.09.i.i86 = phi ptr [ %63, %.lr.ph.i.i85 ], [ %58, %.lr.ph.preheader.i77 ]
-  %.sroa.05.08.i.i87 = phi ptr [ %62, %.lr.ph.i.i85 ], [ %44, %.lr.ph.preheader.i77 ]
-  %61 = load i8, ptr %.sroa.05.08.i.i87, align 1, !tbaa !92
-  store i8 %61, ptr %.09.i.i86, align 1, !tbaa !92
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i87, i64 1
-  %63 = getelementptr inbounds nuw i8, ptr %.09.i.i86, i64 1
-  %64 = icmp eq ptr %62, %1
-  br i1 %64, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i85, !llvm.loop !160
+  %.09.i.i86 = phi ptr [ %64, %.lr.ph.i.i85 ], [ %59, %.lr.ph.preheader.i77 ]
+  %.sroa.05.08.i.i87 = phi ptr [ %63, %.lr.ph.i.i85 ], [ %45, %.lr.ph.preheader.i77 ]
+  %62 = load i8, ptr %.sroa.05.08.i.i87, align 1, !tbaa !92
+  store i8 %62, ptr %.09.i.i86, align 1, !tbaa !92
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i87, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.09.i.i86, i64 1
+  %65 = icmp eq ptr %63, %1
+  br i1 %65, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit, label %.lr.ph.i.i85, !llvm.loop !160
 
 _ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i85, %.lr.ph.preheader.i77
-  %.0.lcssa.i.i88 = phi ptr [ %58, %.lr.ph.preheader.i77 ], [ %63, %.lr.ph.i.i85 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i88, i64 %2
-  %66 = icmp eq ptr %1, %9
-  br i1 %66, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, label %.lr.ph.i.i89
+  %.0.lcssa.i.i88 = phi ptr [ %59, %.lr.ph.preheader.i77 ], [ %64, %.lr.ph.i.i85 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i88, i64 %2
+  %67 = icmp eq ptr %1, %9
+  br i1 %67, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, label %.lr.ph.i.i89
 
 .lr.ph.i.i89:                                     ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit, %.lr.ph.i.i89
-  %.09.i.i90 = phi ptr [ %69, %.lr.ph.i.i89 ], [ %65, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ]
-  %.sroa.05.08.i.i91 = phi ptr [ %68, %.lr.ph.i.i89 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ]
-  %67 = load i8, ptr %.sroa.05.08.i.i91, align 1, !tbaa !92
-  store i8 %67, ptr %.09.i.i90, align 1, !tbaa !92
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i91, i64 1
-  %69 = getelementptr inbounds nuw i8, ptr %.09.i.i90, i64 1
-  %70 = icmp eq ptr %68, %9
-  br i1 %70, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, label %.lr.ph.i.i89, !llvm.loop !160
+  %.09.i.i90 = phi ptr [ %70, %.lr.ph.i.i89 ], [ %66, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ]
+  %.sroa.05.08.i.i91 = phi ptr [ %69, %.lr.ph.i.i89 ], [ %1, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ]
+  %68 = load i8, ptr %.sroa.05.08.i.i91, align 1, !tbaa !92
+  store i8 %68, ptr %.09.i.i90, align 1, !tbaa !92
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.05.08.i.i91, i64 1
+  %70 = getelementptr inbounds nuw i8, ptr %.09.i.i90, i64 1
+  %71 = icmp eq ptr %69, %9
+  br i1 %71, label %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, label %.lr.ph.i.i89, !llvm.loop !160
 
 _ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93: ; preds = %.lr.ph.i.i89, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit
-  %.0.lcssa.i.i92 = phi ptr [ %65, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ], [ %69, %.lr.ph.i.i89 ]
-  %.not.i94 = icmp eq ptr %44, null
-  br i1 %.not.i94, label %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit, label %71
+  %.0.lcssa.i.i92 = phi ptr [ %66, %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit ], [ %70, %.lr.ph.i.i89 ]
+  %.not.i94 = icmp eq ptr %45, null
+  br i1 %.not.i94, label %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit, label %72
 
-71:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93
-  %72 = load ptr, ptr %6, align 8, !tbaa !100
-  %73 = icmp ne ptr %72, %44
-  tail call void @llvm.assume(i1 %73)
-  %74 = and i64 %45, 15
-  %75 = icmp eq i64 %74, 0
-  tail call void @llvm.assume(i1 %75)
-  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %44, i64 noundef 16) #29
+72:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93
+  %73 = load ptr, ptr %6, align 8, !tbaa !100
+  %74 = icmp ne ptr %73, %45
+  tail call void @llvm.assume(i1 %74)
+  %75 = and i64 %46, 15
+  %76 = icmp eq i64 %75, 0
+  tail call void @llvm.assume(i1 %76)
+  tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %45, i64 noundef 16) #29
   br label %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit
 
-_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, %71
-  store ptr %58, ptr %0, align 8, !tbaa !98
+_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit93, %72
+  store ptr %59, ptr %0, align 8, !tbaa !98
   store ptr %.0.lcssa.i.i92, ptr %8, align 8, !tbaa !129
-  %76 = getelementptr inbounds nuw i8, ptr %58, i64 %53
-  store ptr %76, ptr %6, align 8, !tbaa !100
+  %77 = getelementptr inbounds nuw i8, ptr %59, i64 %54
+  store ptr %77, ptr %6, align 8, !tbaa !100
   br label %_ZSt4fillIPhhEvT_S1_RKT0_.exit
 
-_ZSt4fillIPhhEvT_S1_RKT0_.exit:                   ; preds = %_ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit, %_ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit72.thread, %_ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit72, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit, %4
+_ZSt4fillIPhhEvT_S1_RKT0_.exit:                   ; preds = %_ZSt13move_backwardIPhS0_ET0_T_S2_S1_.exit, %_ZSt22__uninitialized_move_aIPhS0_N8rawspeed16AlignedAllocatorIhLi16EEEET0_T_S5_S4_RT1_.exit72.thread, %41, %_ZNSt12_Vector_baseIhN8rawspeed16AlignedAllocatorIhLi16EEEE13_M_deallocateEPhm.exit, %4
   ret void
 }
 

@@ -205,13 +205,13 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   %117 = mul i64 %.075.i, %45
   %118 = add i64 %117, %74
   %119 = inttoptr i64 %118 to ptr
-  %120 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %70, ptr noundef %119, ptr noundef %77, i64 noundef range(i64 1, 4294967296) %11)
+  %120 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef nonnull %70, ptr noundef %119, ptr noundef %77, i64 noundef range(i64 1, 4294967296) %11)
   %121 = zext i32 %120 to i64
   %122 = and i64 %72, %121
   %123 = mul i64 %122, %45
   %124 = add i64 %123, %74
   %125 = inttoptr i64 %124 to ptr
-  %126 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %77, ptr noundef %125, ptr noundef %70, i64 noundef range(i64 1, 4294967296) %11)
+  %126 = tail call fastcc i32 @blockmix_salsa8_xor(ptr noundef %77, ptr noundef %125, ptr noundef nonnull %70, i64 noundef range(i64 1, 4294967296) %11)
   %127 = zext i32 %126 to i64
   %128 = add nuw nsw i64 %.290.i, 2
   %129 = icmp samesign ult i64 %128, %5

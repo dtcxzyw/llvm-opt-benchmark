@@ -1425,7 +1425,7 @@ r_un_double.exit.thread:                          ; preds = %.r_un_double.exit.t
 
 513:                                              ; preds = %513, %r_un_double.exit.thread
   %.028.i = phi i32 [ 1, %r_un_double.exit.thread ], [ %515, %513 ]
-  %514 = tail call i32 @out_grouping_b(ptr noundef %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 251, i32 noundef 0) #3
+  %514 = tail call i32 @out_grouping_b(ptr noundef nonnull %0, ptr noundef nonnull @g_v, i32 noundef 97, i32 noundef 251, i32 noundef 0) #3
   %.not.i210 = icmp eq i32 %514, 0
   %515 = add i32 %.028.i, -1
   br i1 %.not.i210, label %513, label %516

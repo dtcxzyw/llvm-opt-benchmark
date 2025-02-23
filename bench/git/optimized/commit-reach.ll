@@ -1135,15 +1135,11 @@ sane_qsort.exit150.thread247.i:                   ; preds = %._crit_edge181.i
 
 sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
   %.not224.i = icmp eq i64 %.1112.lcssa.i, 0
-  br i1 %.not224.i, label %._crit_edge214.thread264.i, label %.lr.ph185.i.preheader
-
-._crit_edge214.thread264.i:                       ; preds = %sane_qsort.exit150.i
-  tail call void @free(ptr noundef %18) #13
-  br label %.lr.ph217.i.preheader
+  br i1 %.not224.i, label %.lr.ph217.preheader.sink.split.i, label %.lr.ph185.i.preheader
 
 .preheader160.i:                                  ; preds = %.lr.ph185.i
   %invariant.gep.i = getelementptr i8, ptr %.1120.lcssa.i, i64 -8
-  br i1 %.not158.i, label %._crit_edge214.i, label %.lr.ph213.i
+  br i1 %.not158.i, label %.lr.ph217.preheader.sink.split.i, label %.lr.ph213.i
 
 .lr.ph213.i:                                      ; preds = %.preheader160.i
   %54 = add nsw i64 %2, -1
@@ -1300,11 +1296,15 @@ sane_qsort.exit150.i:                             ; preds = %._crit_edge181.i
   %113 = select i1 %111, i1 %112, i1 false
   br i1 %113, label %60, label %._crit_edge214.i, !llvm.loop !60
 
-._crit_edge214.i:                                 ; preds = %.thread.i, %.preheader160.i
+._crit_edge214.i:                                 ; preds = %.thread.i
   call void @free(ptr noundef %18) #13
   br label %.lr.ph217.i.preheader
 
-.lr.ph217.i.preheader:                            ; preds = %._crit_edge214.i, %._crit_edge214.thread264.i
+.lr.ph217.preheader.sink.split.i:                 ; preds = %.preheader160.i, %sane_qsort.exit150.i
+  tail call void @free(ptr noundef %18) #13
+  br label %.lr.ph217.i.preheader
+
+.lr.ph217.i.preheader:                            ; preds = %.lr.ph217.preheader.sink.split.i, %._crit_edge214.i
   br label %.lr.ph217.i
 
 .lr.ph217.i:                                      ; preds = %.lr.ph217.i.preheader, %.lr.ph217.i
@@ -1918,7 +1918,7 @@ push_to_contains_stack.exit65.i:                  ; preds = %st_mult.exit.i60.i,
   br i1 %.not41.i, label %122, label %24, !llvm.loop !81
 
 122:                                              ; preds = %121
-  tail call void @free(ptr noundef %.sroa.18.1.i) #13
+  tail call void @free(ptr noundef nonnull %.sroa.18.1.i) #13
   %123 = tail call fastcc i32 @contains_test(ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %.034.lcssa.i)
   br label %contains_tag_algo.exit
 
@@ -3406,7 +3406,7 @@ best_branch_base_at.exit124:                      ; preds = %90, %95
   %100 = zext nneg i32 %80 to i64
   %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
   store i32 %78, ptr %101, align 4, !tbaa !21
-  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef %51) #13
+  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef nonnull %51) #13
   %.pre.i.i106.pre = load ptr, ptr @best_branch_base.3, align 8, !tbaa !133
   br label %104
 
@@ -3481,7 +3481,7 @@ best_branch_base_at.exit134:                      ; preds = %119, %124
   br i1 %132, label %.thread182, label %133
 
 133:                                              ; preds = %best_branch_base_at.exit134
-  %134 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef %106, i32 noundef 0) #13
+  %134 = call i32 @repo_parse_commit_gently(ptr noundef %0, ptr noundef nonnull %106, i32 noundef 0) #13
   %135 = getelementptr inbounds nuw i8, ptr %106, i64 48
   %136 = load ptr, ptr %135, align 8, !tbaa !47
   %.not94 = icmp eq ptr %136, null
@@ -3597,7 +3597,7 @@ best_branch_base_at.exit154:                      ; preds = %177, %182
   %187 = zext nneg i32 %167 to i64
   %188 = getelementptr inbounds nuw i32, ptr %186, i64 %187
   store i32 %131, ptr %188, align 4, !tbaa !21
-  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef %138) #13
+  call void @prio_queue_put(ptr noundef nonnull %5, ptr noundef nonnull %138) #13
   br label %246, !llvm.loop !139
 
 189:                                              ; preds = %best_branch_base_at.exit144
@@ -3890,8 +3890,8 @@ in_commit_list.exit:                              ; preds = %47
   br label %55
 
 .loopexit:                                        ; preds = %50, %45
-  tail call void @parse_commit_or_die(ptr noundef %0) #13
-  %53 = tail call i64 @commit_graph_generation(ptr noundef %0) #13
+  tail call void @parse_commit_or_die(ptr noundef nonnull %0) #13
+  %53 = tail call i64 @commit_graph_generation(ptr noundef nonnull %0) #13
   %54 = icmp ult i64 %53, %3
   %. = zext i1 %54 to i32
   br label %55

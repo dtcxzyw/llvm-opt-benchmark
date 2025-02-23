@@ -609,7 +609,7 @@ define internal zeroext i8 @sr_init_command(ptr noundef %0) #2 align 16 {
   %68 = getelementptr i8, ptr %0, i64 -200
   %69 = load i64, ptr %68, align 8
   %70 = trunc i64 %69 to i32
-  %71 = ashr i32 %24, 9
+  %71 = lshr i32 %24, 9
   %72 = urem i32 %70, %71
   %73 = udiv i32 %70, %71
   %74 = icmp eq i32 %72, 0
@@ -633,7 +633,7 @@ define internal zeroext i8 @sr_init_command(ptr noundef %0) #2 align 16 {
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %79
-  %85 = mul i32 %24, 65535
+  %85 = mul nuw nsw i32 %24, 65535
   store i32 %85, ptr %59, align 8
   br label %86
 

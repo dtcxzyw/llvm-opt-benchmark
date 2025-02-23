@@ -4727,65 +4727,65 @@ Vec_PtrPush.exit.i:                               ; preds = %1469, %Vec_PtrGrow.
   %1484 = zext nneg i32 %1483 to i64
   %1485 = getelementptr inbounds nuw i32, ptr %1482, i64 %1484
   store i32 %.0.lcssa.i, ptr %1485, align 4, !tbaa !31
-  br i1 %1423, label %.lr.ph58.preheader.i, label %Pf_ManSaveCuts.exit.thread
-
-Pf_ManSaveCuts.exit.thread:                       ; preds = %1476
-  %.val513 = load ptr, ptr %27, align 8, !tbaa !30
-  %1486 = getelementptr inbounds i32, ptr %.val513, i64 %13
-  store i32 %1477, ptr %1486, align 4, !tbaa !31
-  %1487 = sitofp i32 %.6 to double
-  %1488 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %1489 = load double, ptr %1488, align 8, !tbaa !136
-  %1490 = fadd double %1489, %1487
-  store double %1490, ptr %1488, align 8, !tbaa !136
-  br label %Pf_ManCountUseful.exit
+  br i1 %1423, label %.lr.ph58.preheader.i, label %Pf_ManSaveCuts.exit
 
 .lr.ph58.preheader.i:                             ; preds = %1476
-  %1491 = getelementptr inbounds nuw i8, ptr %1485, i64 4
+  %1486 = getelementptr inbounds nuw i8, ptr %1485, i64 4
   %wide.trip.count67.i = zext nneg i32 %.6 to i64
   br label %.lr.ph58.i
 
 .lr.ph58.i:                                       ; preds = %.lr.ph58.i, %.lr.ph58.preheader.i
   %indvars.iv64.i = phi i64 [ 0, %.lr.ph58.preheader.i ], [ %indvars.iv.next65.i, %.lr.ph58.i ]
-  %.04755.i = phi ptr [ %1491, %.lr.ph58.preheader.i ], [ %1509, %.lr.ph58.i ]
-  %1492 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv64.i
-  %1493 = load ptr, ptr %1492, align 8, !tbaa !127
-  %1494 = getelementptr inbounds nuw i8, ptr %1493, i64 16
-  %1495 = load i32, ptr %1494, align 8
-  %1496 = lshr i32 %1495, 27
-  %1497 = shl i32 %1495, 5
-  %1498 = and i32 %1497, 2147483616
-  %1499 = or disjoint i32 %1498, %1496
-  %1500 = getelementptr inbounds nuw i8, ptr %.04755.i, i64 4
-  store i32 %1499, ptr %.04755.i, align 4, !tbaa !31
-  %1501 = getelementptr inbounds nuw i8, ptr %1493, i64 20
-  %1502 = load i32, ptr %1494, align 8
-  %1503 = lshr i32 %1502, 25
-  %1504 = and i32 %1503, 124
-  %1505 = zext nneg i32 %1504 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1500, ptr nonnull align 4 %1501, i64 %1505, i1 false)
-  %1506 = load i32, ptr %1494, align 8
-  %1507 = lshr i32 %1506, 27
-  %1508 = zext nneg i32 %1507 to i64
-  %1509 = getelementptr inbounds nuw i32, ptr %1500, i64 %1508
+  %.04755.i = phi ptr [ %1486, %.lr.ph58.preheader.i ], [ %1504, %.lr.ph58.i ]
+  %1487 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv64.i
+  %1488 = load ptr, ptr %1487, align 8, !tbaa !127
+  %1489 = getelementptr inbounds nuw i8, ptr %1488, i64 16
+  %1490 = load i32, ptr %1489, align 8
+  %1491 = lshr i32 %1490, 27
+  %1492 = shl i32 %1490, 5
+  %1493 = and i32 %1492, 2147483616
+  %1494 = or disjoint i32 %1493, %1491
+  %1495 = getelementptr inbounds nuw i8, ptr %.04755.i, i64 4
+  store i32 %1494, ptr %.04755.i, align 4, !tbaa !31
+  %1496 = getelementptr inbounds nuw i8, ptr %1488, i64 20
+  %1497 = load i32, ptr %1489, align 8
+  %1498 = lshr i32 %1497, 25
+  %1499 = and i32 %1498, 124
+  %1500 = zext nneg i32 %1499 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1495, ptr nonnull align 4 %1496, i64 %1500, i1 false)
+  %1501 = load i32, ptr %1489, align 8
+  %1502 = lshr i32 %1501, 27
+  %1503 = zext nneg i32 %1502 to i64
+  %1504 = getelementptr inbounds nuw i32, ptr %1495, i64 %1503
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond68.not.i = icmp eq i64 %indvars.iv.next65.i, %wide.trip.count67.i
-  br i1 %exitcond68.not.i, label %Pf_ManSaveCuts.exit, label %.lr.ph58.i, !llvm.loop !155
+  br i1 %exitcond68.not.i, label %.lr.ph.preheader.i488, label %.lr.ph58.i, !llvm.loop !155
 
-Pf_ManSaveCuts.exit:                              ; preds = %.lr.ph58.i
+Pf_ManSaveCuts.exit:                              ; preds = %1476
   %.val = load ptr, ptr %27, align 8, !tbaa !30
-  %1510 = getelementptr inbounds i32, ptr %.val, i64 %13
+  %1505 = getelementptr inbounds i32, ptr %.val, i64 %13
+  store i32 %1477, ptr %1505, align 4, !tbaa !31
+  %1506 = sitofp i32 %.6 to double
+  %1507 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %1508 = load double, ptr %1507, align 8, !tbaa !136
+  %1509 = fadd double %1508, %1506
+  store double %1509, ptr %1507, align 8, !tbaa !136
+  br label %Pf_ManCountUseful.exit
+
+.lr.ph.preheader.i488:                            ; preds = %.lr.ph58.i
+  %.val513 = load ptr, ptr %27, align 8, !tbaa !30
+  %1510 = getelementptr inbounds i32, ptr %.val513, i64 %13
   store i32 %1477, ptr %1510, align 4, !tbaa !31
-  %1511 = sitofp i32 %.6 to double
+  %1511 = uitofp nneg i32 %.6 to double
   %1512 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1513 = load double, ptr %1512, align 8, !tbaa !136
   %1514 = fadd double %1513, %1511
   store double %1514, ptr %1512, align 8, !tbaa !136
   br label %.lr.ph.i490
 
-.lr.ph.i490:                                      ; preds = %.lr.ph.i490, %Pf_ManSaveCuts.exit
-  %indvars.iv.i491 = phi i64 [ 0, %Pf_ManSaveCuts.exit ], [ %indvars.iv.next.i492, %.lr.ph.i490 ]
-  %.08.i = phi i32 [ 0, %Pf_ManSaveCuts.exit ], [ %1521, %.lr.ph.i490 ]
+.lr.ph.i490:                                      ; preds = %.lr.ph.i490, %.lr.ph.preheader.i488
+  %indvars.iv.i491 = phi i64 [ 0, %.lr.ph.preheader.i488 ], [ %indvars.iv.next.i492, %.lr.ph.i490 ]
+  %.08.i = phi i32 [ 0, %.lr.ph.preheader.i488 ], [ %1521, %.lr.ph.i490 ]
   %1515 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i491
   %1516 = load ptr, ptr %1515, align 8, !tbaa !127
   %1517 = getelementptr inbounds nuw i8, ptr %1516, i64 16
@@ -4798,8 +4798,8 @@ Pf_ManSaveCuts.exit:                              ; preds = %.lr.ph58.i
   %exitcond.not.i493 = icmp eq i64 %indvars.iv.next.i492, %wide.trip.count67.i
   br i1 %exitcond.not.i493, label %Pf_ManCountUseful.exit, label %.lr.ph.i490, !llvm.loop !156
 
-Pf_ManCountUseful.exit:                           ; preds = %.lr.ph.i490, %Pf_ManSaveCuts.exit.thread
-  %.0.lcssa.i487 = phi i32 [ 0, %Pf_ManSaveCuts.exit.thread ], [ %1521, %.lr.ph.i490 ]
+Pf_ManCountUseful.exit:                           ; preds = %.lr.ph.i490, %Pf_ManSaveCuts.exit
+  %.0.lcssa.i487 = phi i32 [ 0, %Pf_ManSaveCuts.exit ], [ %1521, %.lr.ph.i490 ]
   %1522 = sitofp i32 %.0.lcssa.i487 to double
   %1523 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %1524 = load double, ptr %1523, align 8, !tbaa !136

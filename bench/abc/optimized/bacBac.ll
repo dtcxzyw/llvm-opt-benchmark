@@ -794,7 +794,7 @@ Bac_ManNtk.exit43:                                ; preds = %.critedge.preheader
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %Bac_ManNtk.exit43 ], [ 1, %.critedge.preheader ]
   %159 = load ptr, ptr %43, align 8, !tbaa !37
   %160 = getelementptr inbounds nuw %struct.Bac_Ntk_t_, ptr %159, i64 %indvars.iv79
-  call void @Bac_ManReadBacNtk(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %160)
+  call void @Bac_ManReadBacNtk(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %160)
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %.val29 = load i32, ptr %39, align 4, !tbaa !36
   %161 = sext i32 %.val29 to i64

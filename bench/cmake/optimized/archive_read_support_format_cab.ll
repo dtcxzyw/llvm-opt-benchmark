@@ -2438,7 +2438,7 @@ cab_checksum_cfdata_4.exit46.i:                   ; preds = %.lr.ph.i41.i
   br label %cab_checksum_update.exit
 
 cab_checksum_update.exit:                         ; preds = %44, %47, %92
-  %93 = tail call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %.14764) #18
+  %93 = tail call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %.14764) #18
   %94 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %95 = load i64, ptr %94, align 8, !tbaa !48
   %96 = add nsw i64 %95, %.14764
@@ -2624,7 +2624,7 @@ cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_
   %187 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %188 = load i16, ptr %187, align 4, !tbaa !140
   %189 = zext i16 %188 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %107, i32 noundef %180, i32 noundef %189) #18
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %107, i32 noundef %180, i32 noundef %189) #18
   br label %.thread
 
 .thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %102, %29, %181, %32, %cab_checksum_update.exit

@@ -281,7 +281,7 @@ define internal void @crawler_expired_eval(ptr noundef readonly captures(none) %
   br label %103
 
 103:                                              ; preds = %93, %97, %69, %89, %67
-  %104 = tail call i32 @pthread_mutex_unlock(ptr noundef %5) #18
+  %104 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %5) #18
   ret void
 }
 

@@ -2661,7 +2661,7 @@ nodes_append.exit:                                ; preds = %._crit_edge.i.i32, 
   %197 = getelementptr inbounds i8, ptr %.044, i64 %.idx
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 56
   %199 = load ptr, ptr %198, align 8, !tbaa !58
-  tail call fastcc void @dfs(ptr noundef %0, ptr noundef %199, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  tail call fastcc void @dfs(ptr noundef %0, ptr noundef %199, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4)
   %200 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.044) #19
   %.not = icmp eq ptr %200, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !143

@@ -26298,9 +26298,9 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit.i320: ; preds = %695, %_ZN5clang1
   %717 = icmp eq i64 %716, 1
   %718 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.pre, -4
   %719 = inttoptr i64 %718 to ptr
-  %720 = select i1 %715, i1 %717, i1 false
-  %721 = select i1 %720, ptr %719, ptr null
-  %722 = icmp ne ptr %721, null
+  %720 = icmp ne i64 %718, 0
+  %721 = and i1 %717, %720
+  %722 = select i1 %715, i1 %721, i1 false
   %723 = icmp eq i64 %716, 2
   %724 = icmp eq i64 %716, 3
   %725 = call noundef zeroext i1 @_ZNK5clang7APValue10LValueBasecvbEv(ptr noundef nonnull align 8 dereferenceable(16) %17) #18
@@ -26324,7 +26324,7 @@ _ZN5clang15ASTRecordWriter11writeUInt32Ej.exit.i320: ; preds = %695, %_ZN5clang1
   br i1 %722, label %733, label %735
 
 733:                                              ; preds = %732
-  %734 = getelementptr inbounds nuw i8, ptr %721, i64 8
+  %734 = getelementptr inbounds nuw i8, ptr %719, i64 8
   %.sroa.0.0.copyload.i326 = load i64, ptr %734, align 8, !tbaa !47
   br label %739
 

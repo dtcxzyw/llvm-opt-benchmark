@@ -3687,7 +3687,7 @@ define i32 @Gia_ManSifArea_rec(ptr noundef readonly captures(none) %0, ptr nound
   %.val22 = load ptr, ptr %7, align 8, !tbaa !28
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val22, i64 %31
-  %33 = tail call i32 @Gia_ManSifArea_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %2, i32 noundef %3)
+  %33 = tail call i32 @Gia_ManSifArea_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %2, i32 noundef %3)
   %34 = add nsw i32 %33, %.030
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %26, align 4, !tbaa !29
@@ -3800,7 +3800,7 @@ define i32 @Gia_ManSifDelay_rec(ptr noundef readonly captures(none) %0, ptr noun
   %.val34 = load ptr, ptr %8, align 8, !tbaa !28
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val34, i64 %32
-  %34 = tail call i32 @Gia_ManSifDelay_rec(ptr noundef nonnull %0, ptr noundef %33, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  %34 = tail call i32 @Gia_ManSifDelay_rec(ptr noundef nonnull %0, ptr noundef %33, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4)
   %35 = add nsw i32 %34, %.045
   %36 = load i32, ptr %29, align 4, !tbaa !29
   %37 = ashr i32 %36, 8
@@ -5519,7 +5519,7 @@ define i32 @Gia_ManSifDeriveMapping_rec(ptr noundef readonly captures(none) %0, 
   %.val42 = load ptr, ptr %11, align 8, !tbaa !28
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val42, i64 %31
-  %33 = tail call i32 @Gia_ManSifDeriveMapping_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef %2, i32 noundef %3)
+  %33 = tail call i32 @Gia_ManSifDeriveMapping_rec(ptr noundef nonnull %0, ptr noundef %32, ptr noundef nonnull %2, i32 noundef %3)
   %34 = add nsw i32 %33, %.03466
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = load i32, ptr %26, align 4, !tbaa !29

@@ -6259,7 +6259,7 @@ _PyUnicode_DATA.exit25.i128:                      ; preds = %.preheader.split, %
   br i1 %174, label %180, label %175
 
 175:                                              ; preds = %172
-  %176 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %168, ptr noundef %1) #6
+  %176 = tail call i32 @PyUnicodeWriter_WriteStr(ptr noundef nonnull %168, ptr noundef nonnull %1) #6
   %177 = icmp slt i32 %176, 0
   br i1 %177, label %180, label %178
 

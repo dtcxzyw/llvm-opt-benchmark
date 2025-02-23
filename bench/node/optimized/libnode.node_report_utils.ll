@@ -237,12 +237,12 @@ _ZN4node10JSONWriter10json_startEv.exit:          ; preds = %for.body.i.i, %_ZN4
   store i32 %add.i.i, ptr %indent_.i4.i, align 4
   store i32 0, ptr %state_.i, align 8
   call void @_ZN4node10JSONWriter13json_keyvalueIA5_cPKcEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(5) @.str, ptr noundef nonnull align 8 dereferenceable(8) %type)
-  %call2 = call i32 @uv_is_active(ptr noundef %h) #12
+  %call2 = call i32 @uv_is_active(ptr noundef nonnull %h) #12
   %tobool = icmp ne i32 %call2, 0
   %frombool = zext i1 %tobool to i8
   store i8 %frombool, ptr %ref.tmp, align 1
   call void @_ZN4node10JSONWriter13json_keyvalueIA10_cbEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-  %call4 = call i32 @uv_has_ref(ptr noundef %h) #12
+  %call4 = call i32 @uv_has_ref(ptr noundef nonnull %h) #12
   %tobool5 = icmp ne i32 %call4, 0
   %frombool6 = zext i1 %tobool5 to i8
   store i8 %frombool6, ptr %ref.tmp3, align 1

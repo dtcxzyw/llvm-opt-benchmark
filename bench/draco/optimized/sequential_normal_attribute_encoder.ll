@@ -3661,7 +3661,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond758.not = icmp eq i64 %indvars.iv.next756, %317
   br i1 %exitcond758.not, label %.preheader460, label %.lr.ph602, !llvm.loop !236
 
-._crit_edge606:                                   ; preds = %.lr.ph605
+.lr.ph.i227.preheader:                            ; preds = %.lr.ph605
   %342 = load ptr, ptr %54, align 8, !tbaa !222
   br label %.lr.ph.i227
 
@@ -3680,9 +3680,9 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %345 = invoke noundef i64 @_ZN5draco21ShannonEntropyTracker24GetNumberOfRAnsTableBitsERKNS0_11EntropyDataE(ptr noundef nonnull align 8 dereferenceable(20) %12)
           to label %363 unwind label %424
 
-.lr.ph.i227:                                      ; preds = %._crit_edge606, %.lr.ph.i227
-  %indvars.iv.i229 = phi i64 [ %indvars.iv.next.i232, %.lr.ph.i227 ], [ 0, %._crit_edge606 ]
-  %.sroa.3.015.i230 = phi i32 [ %352, %.lr.ph.i227 ], [ 0, %._crit_edge606 ]
+.lr.ph.i227:                                      ; preds = %.lr.ph.i227.preheader, %.lr.ph.i227
+  %indvars.iv.i229 = phi i64 [ %indvars.iv.next.i232, %.lr.ph.i227 ], [ 0, %.lr.ph.i227.preheader ]
+  %.sroa.3.015.i230 = phi i32 [ %352, %.lr.ph.i227 ], [ 0, %.lr.ph.i227.preheader ]
   %346 = getelementptr inbounds nuw i32, ptr %.sroa.0401.0, i64 %indvars.iv.i229
   %347 = load i32, ptr %346, align 4, !tbaa !3
   %348 = getelementptr inbounds nuw i32, ptr %267, i64 %indvars.iv.i229
@@ -3712,7 +3712,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   store i32 %362, ptr %360, align 4, !tbaa !3
   %indvars.iv.next760 = add nuw nsw i64 %indvars.iv759, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next760, %103
-  br i1 %exitcond764.not, label %._crit_edge606, label %.lr.ph605, !llvm.loop !237
+  br i1 %exitcond764.not, label %.lr.ph.i227.preheader, label %.lr.ph605, !llvm.loop !237
 
 363:                                              ; preds = %.noexc236
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18
@@ -9227,7 +9227,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %exitcond752.not = icmp eq i64 %indvars.iv.next750, %280
   br i1 %exitcond752.not, label %.preheader453, label %.lr.ph596, !llvm.loop !401
 
-._crit_edge600:                                   ; preds = %.lr.ph599
+.lr.ph.i220.preheader:                            ; preds = %.lr.ph599
   %305 = load ptr, ptr %54, align 8, !tbaa !222
   br label %.lr.ph.i220
 
@@ -9246,9 +9246,9 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   %308 = invoke noundef i64 @_ZN5draco21ShannonEntropyTracker24GetNumberOfRAnsTableBitsERKNS0_11EntropyDataE(ptr noundef nonnull align 8 dereferenceable(20) %12)
           to label %326 unwind label %387
 
-.lr.ph.i220:                                      ; preds = %._crit_edge600, %.lr.ph.i220
-  %indvars.iv.i222 = phi i64 [ %indvars.iv.next.i225, %.lr.ph.i220 ], [ 0, %._crit_edge600 ]
-  %.sroa.3.015.i223 = phi i32 [ %315, %.lr.ph.i220 ], [ 0, %._crit_edge600 ]
+.lr.ph.i220:                                      ; preds = %.lr.ph.i220.preheader, %.lr.ph.i220
+  %indvars.iv.i222 = phi i64 [ %indvars.iv.next.i225, %.lr.ph.i220 ], [ 0, %.lr.ph.i220.preheader ]
+  %.sroa.3.015.i223 = phi i32 [ %315, %.lr.ph.i220 ], [ 0, %.lr.ph.i220.preheader ]
   %309 = getelementptr inbounds nuw i32, ptr %.sroa.0394.0, i64 %indvars.iv.i222
   %310 = load i32, ptr %309, align 4, !tbaa !3
   %311 = getelementptr inbounds nuw i32, ptr %230, i64 %indvars.iv.i222
@@ -9278,7 +9278,7 @@ _ZNSt6vectorIiSaIiEE6assignIN9__gnu_cxx17__normal_iteratorIPiS1_EEvEEvT_S7_.exit
   store i32 %325, ptr %323, align 4, !tbaa !3
   %indvars.iv.next754 = add nuw nsw i64 %indvars.iv753, 1
   %exitcond758.not = icmp eq i64 %indvars.iv.next754, %102
-  br i1 %exitcond758.not, label %._crit_edge600, label %.lr.ph599, !llvm.loop !402
+  br i1 %exitcond758.not, label %.lr.ph.i220.preheader, label %.lr.ph599, !llvm.loop !402
 
 326:                                              ; preds = %.noexc229
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #18

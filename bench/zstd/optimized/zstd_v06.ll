@@ -2462,7 +2462,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 .preheader.i:                                     ; preds = %.lr.ph.i, %16
   %19 = load i32, ptr %8, align 4, !tbaa !3
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %HUFv06_readDTableX2.exit, label %.lr.ph43.i
+  br i1 %.not.i, label %HUFv06_readDTableX2.exit.thread20, label %.lr.ph43.i
 
 .lr.ph43.i:                                       ; preds = %.preheader.i
   %20 = trunc nuw i32 %14 to i8
@@ -2519,7 +2519,7 @@ define i64 @HUFv06_decompress1X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store i32 %40, ptr %38, align 4, !tbaa !3
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit, label %29, !llvm.loop !31
+  br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit.thread20, label %29, !llvm.loop !31
 
 HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
   %.0.i.ph = phi i64 [ -44, %13 ], [ %11, %4 ]
@@ -2529,7 +2529,7 @@ HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #28
   br label %48
 
-HUFv06_readDTableX2.exit:                         ; preds = %._crit_edge.i, %.preheader.i
+HUFv06_readDTableX2.exit.thread20:                ; preds = %._crit_edge.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %6) #28
@@ -2537,14 +2537,14 @@ HUFv06_readDTableX2.exit:                         ; preds = %._crit_edge.i, %.pr
   %.not17 = icmp ult i64 %11, %3
   br i1 %.not17, label %44, label %48
 
-44:                                               ; preds = %HUFv06_readDTableX2.exit
+44:                                               ; preds = %HUFv06_readDTableX2.exit.thread20
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %46 = sub nuw i64 %3, %11
   %47 = call i64 @HUFv06_decompress1X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull %9)
   br label %48
 
-48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit, %44
-  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
+48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit.thread20, %44
+  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit.thread20 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8194, ptr nonnull %9) #28
   ret i64 %.0
 }
@@ -3597,7 +3597,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 .preheader.i:                                     ; preds = %.lr.ph.i, %16
   %19 = load i32, ptr %8, align 4, !tbaa !3
   %.not.i = icmp eq i32 %19, 0
-  br i1 %.not.i, label %HUFv06_readDTableX2.exit, label %.lr.ph43.i
+  br i1 %.not.i, label %HUFv06_readDTableX2.exit.thread20, label %.lr.ph43.i
 
 .lr.ph43.i:                                       ; preds = %.preheader.i
   %20 = trunc nuw i32 %14 to i8
@@ -3654,7 +3654,7 @@ define i64 @HUFv06_decompress4X2(ptr noundef %0, i64 noundef %1, ptr noundef %2,
   store i32 %40, ptr %38, align 4, !tbaa !3
   %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
   %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %wide.trip.count52.i
-  br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit, label %29, !llvm.loop !31
+  br i1 %exitcond53.not.i, label %HUFv06_readDTableX2.exit.thread20, label %29, !llvm.loop !31
 
 HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
   %.0.i.ph = phi i64 [ -44, %13 ], [ %11, %4 ]
@@ -3664,7 +3664,7 @@ HUFv06_readDTableX2.exit.thread:                  ; preds = %4, %13
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5) #28
   br label %48
 
-HUFv06_readDTableX2.exit:                         ; preds = %._crit_edge.i, %.preheader.i
+HUFv06_readDTableX2.exit.thread20:                ; preds = %._crit_edge.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #28
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %6) #28
@@ -3672,14 +3672,14 @@ HUFv06_readDTableX2.exit:                         ; preds = %._crit_edge.i, %.pr
   %.not17 = icmp ult i64 %11, %3
   br i1 %.not17, label %44, label %48
 
-44:                                               ; preds = %HUFv06_readDTableX2.exit
+44:                                               ; preds = %HUFv06_readDTableX2.exit.thread20
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %11
   %46 = sub nuw i64 %3, %11
   %47 = call i64 @HUFv06_decompress4X2_usingDTable(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %45, i64 noundef %46, ptr noundef nonnull %9)
   br label %48
 
-48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit, %44
-  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
+48:                                               ; preds = %HUFv06_readDTableX2.exit.thread, %HUFv06_readDTableX2.exit.thread20, %44
+  %.0 = phi i64 [ %47, %44 ], [ -72, %HUFv06_readDTableX2.exit.thread20 ], [ %.0.i.ph, %HUFv06_readDTableX2.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8194, ptr nonnull %9) #28
   ret i64 %.0
 }
@@ -3793,7 +3793,7 @@ define range(i64 1, 0) i64 @HUFv06_readDTableX4(ptr noundef captures(none) %0, p
 ._crit_edge83:                                    ; preds = %.lr.ph82, %._crit_edge
   store i32 0, ptr %13, align 4, !tbaa !3
   %46 = xor i32 %21, -1
-  %47 = add i32 %14, %46
+  %47 = add nsw i32 %14, %46
   br i1 %30, label %.lr.ph87.preheader, label %._crit_edge88.thread
 
 .lr.ph87.preheader:                               ; preds = %._crit_edge83
@@ -3823,7 +3823,7 @@ define range(i64 1, 0) i64 @HUFv06_readDTableX4(ptr noundef captures(none) %0, p
   br i1 %.not128, label %.lr.ph91.us.preheader, label %._crit_edge96
 
 ._crit_edge88.thread:                             ; preds = %._crit_edge83
-  %58 = sub i32 %23, %.067
+  %58 = sub nsw i32 %23, %.067
   br label %._crit_edge96
 
 .lr.ph91.us.preheader:                            ; preds = %._crit_edge88

@@ -969,7 +969,7 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
 8:                                                ; preds = %4
   %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %3, i32 noundef 4) #13
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %46, label %.preheader
+  br i1 %10, label %47, label %.preheader
 
 .preheader:                                       ; preds = %8
   %.not = icmp eq i32 %3, 0
@@ -996,70 +996,70 @@ define hidden ptr @cmsJoinToneCurve(ptr noundef %0, ptr noundef readonly capture
   store float %18, ptr %19, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !16
+  br i1 %exitcond.not, label %20, label %13, !llvm.loop !16
 
-._crit_edge:                                      ; preds = %13
+20:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %5)
   store float 0xC480F0CF00000000, ptr %5, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store float 0.000000e+00, ptr %20, align 4
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 6, ptr %21, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store double 1.000000e+00, ptr %22, align 16
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
-  %24 = load float, ptr %9, align 4
-  %25 = fpext float %24 to double
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store double %25, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store double 0.000000e+00, ptr %27, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store float 0.000000e+00, ptr %28, align 16
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 116
-  store float 1.000000e+00, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store i32 0, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %5, i64 208
-  store i32 %3, ptr %31, align 16
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  store ptr %9, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 224
-  store float 1.000000e+00, ptr %33, align 16
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 228
-  store float 0x4480F0CF00000000, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store i32 6, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 240
-  store double 1.000000e+00, ptr %36, align 16
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %38 = add i32 %3, -1
-  %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw float, ptr %9, i64 %39
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %37, i8 0, i64 16, i1 false)
-  %41 = load float, ptr %40, align 4
-  %42 = fpext float %41 to double
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 264
-  store double %42, ptr %43, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  store double 0.000000e+00, ptr %44, align 16
-  %45 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store float 0.000000e+00, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 6, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store double 1.000000e+00, ptr %23, align 16
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %24, i8 0, i64 16, i1 false)
+  %25 = load float, ptr %9, align 4
+  %26 = fpext float %25 to double
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store double %26, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store double 0.000000e+00, ptr %28, align 16
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  store float 0.000000e+00, ptr %29, align 16
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 116
+  store float 1.000000e+00, ptr %30, align 4
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  store i32 0, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 208
+  store i32 %3, ptr %32, align 16
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 216
+  store ptr %9, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 224
+  store float 1.000000e+00, ptr %34, align 16
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 228
+  store float 0x4480F0CF00000000, ptr %35, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  store i32 6, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 240
+  store double 1.000000e+00, ptr %37, align 16
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %39 = add i32 %3, -1
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw float, ptr %9, i64 %40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, i8 0, i64 16, i1 false)
+  %42 = load float, ptr %41, align 4
+  %43 = fpext float %42 to double
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 264
+  store double %43, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 272
+  store double 0.000000e+00, ptr %45, align 16
+  %46 = call ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef 3, ptr noundef nonnull %5)
   br label %.thread37
 
-.thread37:                                        ; preds = %._crit_edge.thread, %._crit_edge
-  %.0.i = phi ptr [ %45, %._crit_edge ], [ null, %._crit_edge.thread ]
+.thread37:                                        ; preds = %._crit_edge.thread, %20
+  %.0.i = phi ptr [ %46, %20 ], [ null, %._crit_edge.thread ]
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %5)
   call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %9) #13
-  br label %46
+  br label %47
 
-46:                                               ; preds = %8, %.thread37
+47:                                               ; preds = %8, %.thread37
   %.0263639 = phi ptr [ %.0.i, %.thread37 ], [ null, %8 ]
   call void @cmsFreeToneCurve(ptr noundef nonnull %6)
   br label %.thread41
 
-.thread41:                                        ; preds = %4, %46
-  %.0263640 = phi ptr [ %.0263639, %46 ], [ null, %4 ]
+.thread41:                                        ; preds = %4, %47
+  %.0263640 = phi ptr [ %.0263639, %47 ], [ null, %4 ]
   ret ptr %.0263640
 }
 
@@ -1553,7 +1553,7 @@ define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly %0, d
 cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %27 = load i32, ptr %8, align 8
   %28 = icmp ult i32 %27, 4097
-  br i1 %28, label %29, label %331
+  br i1 %28, label %29, label %333
 
 29:                                               ; preds = %cmsIsToneCurveLinear.exit
   %30 = add nuw nsw i32 %27, 1
@@ -1565,7 +1565,7 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   %or.cond = select i1 %34, i1 %35, i1 false
   %36 = icmp ne ptr %33, null
   %or.cond3 = select i1 %or.cond, i1 %36, i1 false
-  br i1 %or.cond3, label %37, label %.critedge117.sink.split
+  br i1 %or.cond3, label %37, label %328
 
 37:                                               ; preds = %29
   %38 = shl nuw nsw i32 %30, 2
@@ -1965,11 +1965,11 @@ cmsIsToneCurveLinear.exit:                        ; preds = %.lr.ph.i
   br label %smooth2.exit
 
 smooth2.exit:                                     ; preds = %290, %291
-  br i1 %.0217.i, label %.critedge117.sink.split, label %.preheader
+  br i1 %.0217.i, label %327, label %.preheader
 
 .preheader:                                       ; preds = %smooth2.exit
   %invariant.gep = getelementptr i8, ptr %33, i64 -4
-  %292 = icmp ugt i32 %27, 1
+  %292 = icmp samesign ugt i32 %27, 1
   br i1 %292, label %.lr.ph145.preheader, label %.critedge116
 
 .lr.ph145.preheader:                              ; preds = %.preheader
@@ -2018,7 +2018,7 @@ smooth2.exit:                                     ; preds = %290, %291
 
 309:                                              ; preds = %.thread
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.2) #13
-  br i1 %46, label %.critedge117.thread, label %.critedge
+  br i1 %46, label %.critedge117, label %.critedge
 
 .critedge:                                        ; preds = %.thread134, %.thread129, %.thread, %309
   %310 = phi i32 [ %307, %.thread129 ], [ %305, %.thread ], [ %305, %309 ], [ %307, %.thread134 ]
@@ -2027,12 +2027,15 @@ smooth2.exit:                                     ; preds = %290, %291
 
 .critedge115:                                     ; preds = %.critedge
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.3) #13
-  br i1 %46, label %.critedge117.thread, label %.critedge116
+  %brmerge = or i1 %46, %.not149
+  %not. = xor i1 %46, true
+  %.mux = zext i1 %not. to i32
+  br i1 %brmerge, label %.critedge117, label %.lr.ph148.preheader
 
-.critedge116:                                     ; preds = %.preheader, %.critedge, %.critedge115
+.critedge116:                                     ; preds = %.preheader, %.critedge
   br i1 %.not149, label %.critedge117, label %.lr.ph148.preheader
 
-.lr.ph148.preheader:                              ; preds = %.critedge116
+.lr.ph148.preheader:                              ; preds = %.critedge115, %.critedge116
   %wide.trip.count160 = zext nneg i32 %27 to i64
   br label %.lr.ph148
 
@@ -2066,41 +2069,44 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph148, %317, %3
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %.critedge117.thread, label %.lr.ph148, !llvm.loop !25
 
-.critedge117.sink.split:                          ; preds = %29, %smooth2.exit
-  %.str.4.sink = phi ptr [ @.str.4, %smooth2.exit ], [ @.str.5, %29 ]
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull %.str.4.sink) #13
+327:                                              ; preds = %smooth2.exit
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.4) #13
+  br label %.critedge117.thread
+
+328:                                              ; preds = %29
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.5) #13
   br label %.critedge117
 
-.critedge117:                                     ; preds = %.critedge117.sink.split, %.critedge116
-  %.3 = phi i32 [ 1, %.critedge116 ], [ 0, %.critedge117.sink.split ]
-  br i1 %36, label %.critedge117.thread, label %327
+.critedge117:                                     ; preds = %.critedge115, %.critedge116, %309, %328
+  %.3 = phi i32 [ %.mux, %.critedge115 ], [ 0, %328 ], [ 0, %309 ], [ 1, %.critedge116 ]
+  br i1 %36, label %.critedge117.thread, label %329
 
-.critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %.critedge115, %309, %304, %.critedge117
-  %.3138 = phi i32 [ %.3, %.critedge117 ], [ 0, %304 ], [ 0, %309 ], [ 0, %.critedge115 ], [ 1, %_cmsQuickSaturateWord.exit ]
+.critedge117.thread:                              ; preds = %_cmsQuickSaturateWord.exit, %327, %304, %.critedge117
+  %.3138 = phi i32 [ %.3, %.critedge117 ], [ 0, %304 ], [ 0, %327 ], [ 1, %_cmsQuickSaturateWord.exit ]
   tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %33) #13
-  br label %327
-
-327:                                              ; preds = %.critedge117.thread, %.critedge117
-  %.3137 = phi i32 [ %.3138, %.critedge117.thread ], [ %.3, %.critedge117 ]
-  br i1 %35, label %328, label %329
-
-328:                                              ; preds = %327
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %32) #13
   br label %329
 
-329:                                              ; preds = %328, %327
-  br i1 %34, label %330, label %cmsIsToneCurveLinear.exit.thread
+329:                                              ; preds = %.critedge117.thread, %.critedge117
+  %.3137 = phi i32 [ %.3138, %.critedge117.thread ], [ %.3, %.critedge117 ]
+  br i1 %35, label %330, label %331
 
 330:                                              ; preds = %329
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %32) #13
+  br label %331
+
+331:                                              ; preds = %330, %329
+  br i1 %34, label %332, label %cmsIsToneCurveLinear.exit.thread
+
+332:                                              ; preds = %331
   tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %31) #13
   br label %cmsIsToneCurveLinear.exit.thread
 
-331:                                              ; preds = %cmsIsToneCurveLinear.exit
+333:                                              ; preds = %cmsIsToneCurveLinear.exit
   tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %6, i32 noundef 2, ptr noundef nonnull @.str.6) #13
   br label %cmsIsToneCurveLinear.exit.thread
 
-cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %329, %330, %331
-  %.4 = phi i32 [ %.3137, %330 ], [ %.3137, %329 ], [ 0, %331 ], [ 0, %3 ], [ 0, %2 ], [ 1, %5 ], [ 1, %11 ]
+cmsIsToneCurveLinear.exit.thread:                 ; preds = %11, %5, %2, %3, %331, %332, %333
+  %.4 = phi i32 [ %.3137, %332 ], [ %.3137, %331 ], [ 0, %333 ], [ 0, %3 ], [ 0, %2 ], [ 1, %5 ], [ 1, %11 ]
   ret i32 %.4
 }
 

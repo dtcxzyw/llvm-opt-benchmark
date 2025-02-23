@@ -683,7 +683,7 @@ resetCoord.exit.i:                                ; preds = %.lr.ph.i38.i, %atta
   call void @free(ptr noundef %68) #15
   %82 = load i64, ptr %3, align 8, !tbaa !114
   %.not42.i.i = icmp eq i64 %82, 0
-  br i1 %.not42.i.i, label %.thread56.i.i, label %.lr.ph.i40.i
+  br i1 %.not42.i.i, label %92, label %.lr.ph.i40.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i40.i
   %83 = load ptr, ptr %24, align 8, !tbaa !3
@@ -700,7 +700,7 @@ gv_calloc.exit.thread.i.i:                        ; preds = %._crit_edge.i.i
 
 88:                                               ; preds = %._crit_edge.i.i
   %mul.ov.i.i42.i = icmp slt i32 %112, -1
-  br i1 %mul.ov.i.i42.i, label %89, label %92
+  br i1 %mul.ov.i.i42.i, label %89, label %.thread56.i.i
 
 89:                                               ; preds = %88
   %90 = load ptr, ptr @stderr, align 8, !tbaa !39
@@ -708,36 +708,36 @@ gv_calloc.exit.thread.i.i:                        ; preds = %._crit_edge.i.i
   call fastcc void @graphviz_exit() #18
   unreachable
 
-92:                                               ; preds = %88
-  %93 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 8) #16
-  %94 = icmp eq ptr %93, null
-  br i1 %94, label %100, label %.lr.ph40.preheader.i.i
+92:                                               ; preds = %resetCoord.exit.i
+  %93 = load ptr, ptr %24, align 8, !tbaa !3
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 236
+  store i32 0, ptr %94, align 4, !tbaa !124
+  %95 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #16
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %99, label %gv_calloc.exit.i43.i
 
-.thread56.i.i:                                    ; preds = %resetCoord.exit.i
-  %95 = load ptr, ptr %24, align 8, !tbaa !3
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 236
-  store i32 0, ptr %96, align 4, !tbaa !124
-  %97 = call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #16
+.thread56.i.i:                                    ; preds = %88
+  %97 = call noalias ptr @calloc(i64 noundef %86, i64 noundef 8) #16
   %98 = icmp eq ptr %97, null
-  br i1 %98, label %100, label %gv_calloc.exit.thread57.i.i
+  br i1 %98, label %99, label %.lr.ph40.preheader.i.i
 
-gv_calloc.exit.thread57.i.i:                      ; preds = %.thread56.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 240
-  store ptr %97, ptr %99, align 8, !tbaa !96
-  br label %copyClusterInfo.exit.i
-
-100:                                              ; preds = %.thread56.i.i, %92
-  %101 = phi i64 [ 1, %.thread56.i.i ], [ %86, %92 ]
-  %102 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %103 = shl nuw nsw i64 %101, 3
-  %104 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %102, ptr noundef nonnull @.str.2, i64 noundef %103) #17
+99:                                               ; preds = %.thread56.i.i, %92
+  %100 = phi i64 [ %86, %.thread56.i.i ], [ 1, %92 ]
+  %101 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %102 = shl nuw nsw i64 %100, 3
+  %103 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %101, ptr noundef nonnull @.str.2, i64 noundef %102) #17
   call fastcc void @graphviz_exit() #18
   unreachable
 
-.lr.ph40.preheader.i.i:                           ; preds = %92, %gv_calloc.exit.thread.i.i
-  %.sink.i = phi ptr [ %87, %gv_calloc.exit.thread.i.i ], [ %93, %92 ]
+gv_calloc.exit.i43.i:                             ; preds = %92
+  %104 = getelementptr inbounds nuw i8, ptr %93, i64 240
+  store ptr %95, ptr %104, align 8, !tbaa !96
+  br label %copyClusterInfo.exit.i
+
+.lr.ph40.preheader.i.i:                           ; preds = %.thread56.i.i, %gv_calloc.exit.thread.i.i
+  %.sink.i.i = phi ptr [ %87, %gv_calloc.exit.thread.i.i ], [ %97, %.thread56.i.i ]
   %105 = getelementptr inbounds nuw i8, ptr %83, i64 240
-  store ptr %.sink.i, ptr %105, align 8, !tbaa !96
+  store ptr %.sink.i.i, ptr %105, align 8, !tbaa !96
   br label %.lr.ph40.i.i
 
 .lr.ph.i40.i:                                     ; preds = %resetCoord.exit.i, %.lr.ph.i40.i
@@ -872,7 +872,7 @@ initSubg.exit.i:                                  ; preds = %.lr.ph.i
   call fastcc void @dotLayout(ptr noundef nonnull %0)
   br label %copyClusterInfo.exit.i
 
-copyClusterInfo.exit.i:                           ; preds = %._crit_edge36.i.i, %181, %gv_calloc.exit.thread57.i.i, %22
+copyClusterInfo.exit.i:                           ; preds = %._crit_edge36.i.i, %181, %gv_calloc.exit.i43.i, %22
   %182 = load i64, ptr %3, align 8, !tbaa !114
   %.not48.i = icmp eq i64 %182, 0
   br i1 %.not48.i, label %._crit_edge47.i, label %.lr.ph46.i

@@ -1570,7 +1570,7 @@ define internal fastcc void @process_bin_update(ptr noundef %0, ptr noundef nonn
   br label %60
 
 60:                                               ; preds = %55, %52
-  tail call fastcc void @add_bin_header(ptr noundef %0, i16 noundef zeroext 3, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 10)
+  tail call fastcc void @add_bin_header(ptr noundef nonnull %0, i16 noundef zeroext 3, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 10)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %62 = load ptr, ptr %61, align 8, !tbaa !60
   tail call void @resp_add_iov(ptr noundef %62, ptr noundef nonnull @.str.11, i32 noundef 10) #11
@@ -1588,7 +1588,7 @@ write_bin_error.exit:                             ; preds = %60, %64
   br label %68
 
 66:                                               ; preds = %49
-  tail call void @out_of_memory(ptr noundef %0, ptr noundef nonnull @.str.37) #11
+  tail call void @out_of_memory(ptr noundef nonnull %0, ptr noundef nonnull @.str.37) #11
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %21, ptr %67, align 8, !tbaa !64
   br label %68
@@ -2750,8 +2750,8 @@ define internal fastcc void @process_bin_stat(ptr noundef %0) unnamed_addr #0 {
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20
-  tail call void @server_stats(ptr noundef nonnull @append_stats, ptr noundef %0) #11
-  %23 = tail call zeroext i1 @get_stats(ptr noundef null, i32 noundef 0, ptr noundef nonnull @append_stats, ptr noundef %0) #11
+  tail call void @server_stats(ptr noundef nonnull @append_stats, ptr noundef nonnull %0) #11
+  %23 = tail call zeroext i1 @get_stats(ptr noundef null, i32 noundef 0, ptr noundef nonnull @append_stats, ptr noundef nonnull %0) #11
   br label %.critedge
 
 24:                                               ; preds = %20
@@ -2769,7 +2769,7 @@ define internal fastcc void @process_bin_stat(ptr noundef %0) unnamed_addr #0 {
   br i1 %30, label %31, label %32
 
 31:                                               ; preds = %28
-  tail call void @process_stat_settings(ptr noundef nonnull @append_stats, ptr noundef %0) #11
+  tail call void @process_stat_settings(ptr noundef nonnull @append_stats, ptr noundef nonnull %0) #11
   br label %.critedge
 
 32:                                               ; preds = %28
@@ -2793,7 +2793,7 @@ define internal fastcc void @process_bin_stat(ptr noundef %0) unnamed_addr #0 {
   br i1 %or.cond.not, label %46, label %44
 
 44:                                               ; preds = %39
-  call void @out_of_memory(ptr noundef %0, ptr noundef nonnull @.str.54) #11
+  call void @out_of_memory(ptr noundef nonnull %0, ptr noundef nonnull @.str.54) #11
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %.thread, label %45
 
@@ -2806,7 +2806,7 @@ define internal fastcc void @process_bin_stat(ptr noundef %0) unnamed_addr #0 {
   br label %97
 
 46:                                               ; preds = %39
-  call void @append_stats(ptr noundef nonnull @.str.55, i16 noundef zeroext 8, ptr noundef nonnull %40, i32 noundef %42, ptr noundef %0) #11
+  call void @append_stats(ptr noundef nonnull @.str.55, i16 noundef zeroext 8, ptr noundef nonnull %40, i32 noundef %42, ptr noundef nonnull %0) #11
   call void @free(ptr noundef nonnull %40) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #11
   br label %.critedge
@@ -2854,16 +2854,16 @@ sub_1:                                            ; preds = %sub_0
   br label %write_bin_error.exit
 
 write_bin_error.exit:                             ; preds = %60, %57
-  tail call fastcc void @add_bin_header(ptr noundef %0, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
+  tail call fastcc void @add_bin_header(ptr noundef nonnull %0, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %66 = load ptr, ptr %65, align 8, !tbaa !60
   tail call void @resp_add_iov(ptr noundef %66, ptr noundef nonnull @.str.8, i32 noundef 9) #11
-  tail call void @conn_set_state(ptr noundef %0, i32 noundef 9) #11
+  tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 9) #11
   br label %97
 
 67:                                               ; preds = %32
   %68 = zext i16 %.val58 to i32
-  %69 = tail call zeroext i1 @get_stats(ptr noundef nonnull %7, i32 noundef %68, ptr noundef nonnull @append_stats, ptr noundef %0) #11
+  %69 = tail call zeroext i1 @get_stats(ptr noundef nonnull %7, i32 noundef %68, ptr noundef nonnull @append_stats, ptr noundef nonnull %0) #11
   br i1 %69, label %70, label %79
 
 70:                                               ; preds = %67
@@ -2897,15 +2897,15 @@ write_bin_error.exit:                             ; preds = %60, %57
   br label %write_bin_error.exit60
 
 write_bin_error.exit60:                           ; preds = %82, %79
-  tail call fastcc void @add_bin_header(ptr noundef %0, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
+  tail call fastcc void @add_bin_header(ptr noundef nonnull %0, i16 noundef zeroext 1, i8 noundef zeroext 0, i16 noundef zeroext 0, i32 noundef 9)
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %88 = load ptr, ptr %87, align 8, !tbaa !60
   tail call void @resp_add_iov(ptr noundef %88, ptr noundef nonnull @.str.8, i32 noundef 9) #11
-  tail call void @conn_set_state(ptr noundef %0, i32 noundef 9) #11
+  tail call void @conn_set_state(ptr noundef nonnull %0, i32 noundef 9) #11
   br label %97
 
 .critedge:                                        ; preds = %46, %56, %53, %27, %31, %22
-  call void @append_stats(ptr noundef null, i16 noundef zeroext 0, ptr noundef null, i32 noundef 0, ptr noundef %0) #11
+  call void @append_stats(ptr noundef null, i16 noundef zeroext 0, ptr noundef null, i32 noundef 0, ptr noundef nonnull %0) #11
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %90 = load ptr, ptr %89, align 8, !tbaa !102
   %91 = icmp eq ptr %90, null

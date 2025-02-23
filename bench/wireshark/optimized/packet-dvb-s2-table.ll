@@ -2172,7 +2172,7 @@ thread-pre-split:                                 ; preds = %43, %118, %60
 
 561:                                              ; preds = %._crit_edge.i
   %562 = load i32, ptr @hf_dvb_s2_table_crc32, align 4
-  %563 = add i32 %.034.lcssa.i, %.2
+  %563 = add nuw nsw i32 %.034.lcssa.i, %.2
   %564 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %562, ptr noundef %0, i32 noundef %563, i32 noundef 4, i32 noundef 0)
   br label %dissect_dvb_s2_table_sct.exitthread-pre-split
 
@@ -2696,7 +2696,7 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
 923:                                              ; preds = %923, %.lr.ph.i352
   %.095.i = phi i32 [ 0, %.lr.ph.i352 ], [ %928, %923 ]
   %.09094.i = phi i32 [ 0, %.lr.ph.i352 ], [ %929, %923 ]
-  %924 = add i32 %922, %.095.i
+  %924 = add nuw nsw i32 %922, %.095.i
   %925 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %924)
   %926 = zext i8 %925 to i32
   %927 = add nuw nsw i32 %.095.i, 2
@@ -2707,8 +2707,8 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
 
 ._crit_edge.i353:                                 ; preds = %923, %916
   %.090.lcssa.i = phi i32 [ -1, %916 ], [ %.09094.i, %923 ]
-  %931 = add i32 %.2, 2
-  %932 = zext i8 %.0320 to i32
+  %931 = add nuw nsw i32 %.2, 2
+  %932 = zext nneg i8 %.0320 to i32
   %933 = tail call fastcc i32 @dissect_dvb_s2_table_desc(ptr noundef %0, i32 noundef %931, ptr noundef %8, i32 noundef %.090.lcssa.i, i32 noundef %932, ptr noundef %1)
   %934 = add i32 %933, %931
   %935 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %934)
@@ -2723,8 +2723,8 @@ switch.lookup:                                    ; preds = %.lr.ph396.i
 
 .lr.ph106.i:                                      ; preds = %._crit_edge.i353
   %943 = icmp eq i8 %.0320, 64
-  %.193.i = add i32 %.2, 4
-  %944 = add i32 %.2, 1
+  %.193.i = add nuw nsw i32 %.2, 4
+  %944 = add nuw nsw i32 %.2, 1
   br label %945
 
 945:                                              ; preds = %._crit_edge100.i, %.lr.ph106.i

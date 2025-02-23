@@ -2623,7 +2623,7 @@ define dso_local void @timekeeping_resume() #0 align 16 {
   %20 = load i64, ptr %4, align 8
   %21 = load i64, ptr @timekeeping_suspend_time, align 8
   %22 = icmp slt i64 %20, %21
-  br i1 %22, label %116, label %23
+  br i1 %22, label %114, label %23
 
 23:                                               ; preds = %19
   %24 = icmp sgt i64 %20, %21
@@ -2634,7 +2634,7 @@ define dso_local void @timekeeping_resume() #0 align 16 {
   %25 = trunc i64 %.pre17 to i32
   %26 = icmp sgt i32 %25, 0
   %or.cond = select i1 %24, i1 true, i1 %26
-  br i1 %or.cond, label %._crit_edge, label %116
+  br i1 %or.cond, label %._crit_edge, label %114
 
 ._crit_edge:                                      ; preds = %23
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -2664,7 +2664,7 @@ define dso_local void @timekeeping_resume() #0 align 16 {
 
 40:                                               ; preds = %36, %31
   %41 = call i32 (ptr, ...) @_printk_deferred(ptr noundef nonnull @.str.2) #14
-  br label %116
+  br label %114
 
 42:                                               ; preds = %36
   %43 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 120), align 8
@@ -2773,31 +2773,29 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
   %106 = add i64 %105, %102
   store i64 %106, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 168), align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %1) #10
-  %107 = icmp sgt i64 %32, 9223372035
-  %108 = mul nuw i64 %32, 1000000000
-  %109 = add i64 %108, %33
-  %110 = select i1 %107, i64 9223372036854775807, i64 %109, !prof !76
-  %111 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 160), align 32
-  %112 = add i64 %110, %111
-  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 160), align 32
-  %113 = call { i64, i64 } @ns_to_timespec64(i64 noundef %112) #10
-  %114 = extractvalue { i64, i64 } %113, 0
-  %115 = extractvalue { i64, i64 } %113, 1
-  store i64 %114, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 208), align 16
-  store i64 %115, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 216), align 8
+  %107 = mul nuw nsw i64 %32, 1000000000
+  %108 = add nuw nsw i64 %107, %33
+  %109 = load i64, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 160), align 32
+  %110 = add i64 %108, %109
+  store i64 %110, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 160), align 32
+  %111 = call { i64, i64 } @ns_to_timespec64(i64 noundef %110) #10
+  %112 = extractvalue { i64, i64 } %111, 0
+  %113 = extractvalue { i64, i64 } %111, 1
+  store i64 %112, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 208), align 16
+  store i64 %113, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 216), align 8
   call void @tk_debug_account_sleep_time(ptr noundef nonnull %5) #10
-  br label %116
+  br label %114
 
-116:                                              ; preds = %23, %tk_set_wall_to_mono.exit, %40, %19
+114:                                              ; preds = %23, %tk_set_wall_to_mono.exit, %40, %19
   store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 24), align 8
   store i64 %12, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 80), align 16
   store i64 0, ptr getelementptr inbounds nuw (i8, ptr @tk_core, i64 264), align 8
   store i32 0, ptr @timekeeping_suspended, align 4
   call fastcc void @timekeeping_update(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tk_core, i64 8), i32 noundef 6)
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !80
-  %117 = load i32, ptr @tk_core, align 64
-  %118 = add i32 %117, 1
-  store i32 %118, ptr @tk_core, align 64
+  %115 = load i32, ptr @tk_core, align 64
+  %116 = add i32 %115, 1
+  store i32 %116, ptr @tk_core, align 64
   call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @timekeeper_lock, i64 noundef %7) #10
   call void @tick_resume() #10
   call void @timerfd_resume() #10

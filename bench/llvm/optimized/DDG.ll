@@ -5225,49 +5225,46 @@ define dso_local noundef zeroext i1 @_ZN4llvm19DataDependenceGraph7addNodeERNS_7
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !60
-  %.not = icmp eq i32 %9, 3
-  %spec.select.i.i = select i1 %.not, ptr %1, ptr null
-  %10 = icmp eq i32 %9, 4
-  br i1 %10, label %.thread, label %12
+  switch i32 %9, label %.loopexit [
+    i32 4, label %.thread
+    i32 3, label %11
+  ]
 
 .thread:                                          ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store ptr %1, ptr %11, align 8, !tbaa !131
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store ptr %1, ptr %10, align 8, !tbaa !131
   br label %.loopexit
 
-12:                                               ; preds = %7
-  br i1 %.not, label %13, label %.loopexit
-
-13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %15 = load ptr, ptr %14, align 8, !tbaa !25
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %17 = load i32, ptr %16, align 8, !tbaa !26
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %18
-  %.not1417 = icmp eq i32 %17, 0
+11:                                               ; preds = %7
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %15 = load i32, ptr %14, align 8, !tbaa !26
+  %16 = zext i32 %15 to i64
+  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %16
+  %.not1417 = icmp eq i32 %15, 0
   br i1 %.not1417, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %22
+.lr.ph:                                           ; preds = %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %20
 
-22:                                               ; preds = %.lr.ph, %22
-  %.01218 = phi ptr [ %15, %.lr.ph ], [ %24, %22 ]
-  %23 = load ptr, ptr %.01218, align 8, !tbaa !56
+20:                                               ; preds = %.lr.ph, %20
+  %.01218 = phi ptr [ %13, %.lr.ph ], [ %22, %20 ]
+  %21 = load ptr, ptr %.01218, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
-  store ptr %23, ptr %3, align 8, !tbaa !266
-  store ptr %spec.select.i.i, ptr %21, align 8, !tbaa !269
+  store ptr %21, ptr %3, align 8, !tbaa !266
+  store ptr %1, ptr %19, align 8, !tbaa !269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %19)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
-  %24 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
-  %.not14 = icmp eq ptr %24, %19
-  br i1 %.not14, label %.loopexit, label %22
+  %22 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
+  %.not14 = icmp eq ptr %22, %17
+  br i1 %.not14, label %.loopexit, label %20
 
-.loopexit:                                        ; preds = %22, %.thread, %13, %12, %2
+.loopexit:                                        ; preds = %20, %7, %.thread, %11, %2
   ret i1 %6
 }
 
@@ -5834,49 +5831,46 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(52) ptr @_ZN4
 
 14:                                               ; preds = %1
   %15 = load i32, ptr %7, align 8, !tbaa !60
-  %.not.i = icmp eq i32 %15, 3
-  %spec.select.i.i.i = select i1 %.not.i, ptr %4, ptr null
-  %16 = icmp eq i32 %15, 4
-  br i1 %16, label %.thread.i, label %18
+  switch i32 %15, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit [
+    i32 4, label %.thread.i
+    i32 3, label %17
+  ]
 
 .thread.i:                                        ; preds = %14
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 88
-  store ptr %4, ptr %17, align 8, !tbaa !131
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 88
+  store ptr %4, ptr %16, align 8, !tbaa !131
   br label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
 
-18:                                               ; preds = %14
-  br i1 %.not.i, label %19, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
-
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %21 = load ptr, ptr %20, align 8, !tbaa !25
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %23 = load i32, ptr %22, align 8, !tbaa !26
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
-  %.not1417.i = icmp eq i32 %23, 0
+17:                                               ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %19 = load ptr, ptr %18, align 8, !tbaa !25
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %21 = load i32, ptr %20, align 8, !tbaa !26
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %22
+  %.not1417.i = icmp eq i32 %21, 0
   br i1 %.not1417.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %19
-  %26 = getelementptr inbounds nuw i8, ptr %11, i64 192
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br label %28
+.lr.ph.i:                                         ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %11, i64 192
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  br label %26
 
-28:                                               ; preds = %28, %.lr.ph.i
-  %.01218.i = phi ptr [ %21, %.lr.ph.i ], [ %30, %28 ]
-  %29 = load ptr, ptr %.01218.i, align 8, !tbaa !56
+26:                                               ; preds = %26, %.lr.ph.i
+  %.01218.i = phi ptr [ %19, %.lr.ph.i ], [ %28, %26 ]
+  %27 = load ptr, ptr %.01218.i, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #24
-  store ptr %29, ptr %2, align 8, !tbaa !266
-  store ptr %spec.select.i.i.i, ptr %27, align 8, !tbaa !269
+  store ptr %27, ptr %2, align 8, !tbaa !266
+  store ptr %4, ptr %25, align 8, !tbaa !269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #24
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %26, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %3, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(8) %25)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #24
-  %30 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
-  %.not14.i = icmp eq ptr %30, %25
-  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %28
+  %28 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
+  %.not14.i = icmp eq ptr %28, %23
+  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %26
 
-_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %28, %1, %.thread.i, %18, %19
+_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %26, %1, %14, %.thread.i, %17
   ret ptr %4
 }
 
@@ -5895,49 +5889,46 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(52) ptr @_ZN4
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !60
-  %.not.i = icmp eq i32 %12, 3
-  %spec.select.i.i.i = select i1 %.not.i, ptr %5, ptr null
-  %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.thread.i, label %15
+  switch i32 %12, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit [
+    i32 4, label %.thread.i
+    i32 3, label %14
+  ]
 
 .thread.i:                                        ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr %5, ptr %14, align 8, !tbaa !131
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  store ptr %5, ptr %13, align 8, !tbaa !131
   br label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
 
-15:                                               ; preds = %10
-  br i1 %.not.i, label %16, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !26
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
-  %.not1417.i = icmp eq i32 %20, 0
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %18 = load i32, ptr %17, align 8, !tbaa !26
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %.not1417.i = icmp eq i32 %18, 0
   br i1 %.not1417.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %25
+.lr.ph.i:                                         ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %23
 
-25:                                               ; preds = %25, %.lr.ph.i
-  %.01218.i = phi ptr [ %18, %.lr.ph.i ], [ %27, %25 ]
-  %26 = load ptr, ptr %.01218.i, align 8, !tbaa !56
+23:                                               ; preds = %23, %.lr.ph.i
+  %.01218.i = phi ptr [ %16, %.lr.ph.i ], [ %25, %23 ]
+  %24 = load ptr, ptr %.01218.i, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
-  store ptr %26, ptr %3, align 8, !tbaa !266
-  store ptr %spec.select.i.i.i, ptr %24, align 8, !tbaa !269
+  store ptr %24, ptr %3, align 8, !tbaa !266
+  store ptr %5, ptr %22, align 8, !tbaa !269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
-  %27 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
-  %.not14.i = icmp eq ptr %27, %22
-  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
+  %.not14.i = icmp eq ptr %25, %20
+  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %23
 
-_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %25, %2, %.thread.i, %15, %16
+_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %23, %2, %10, %.thread.i, %14
   ret ptr %5
 }
 
@@ -5956,49 +5947,46 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(52) ptr @_ZN4
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !60
-  %.not.i = icmp eq i32 %12, 3
-  %spec.select.i.i.i = select i1 %.not.i, ptr %5, ptr null
-  %13 = icmp eq i32 %12, 4
-  br i1 %13, label %.thread.i, label %15
+  switch i32 %12, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit [
+    i32 4, label %.thread.i
+    i32 3, label %14
+  ]
 
 .thread.i:                                        ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  store ptr %5, ptr %14, align 8, !tbaa !131
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  store ptr %5, ptr %13, align 8, !tbaa !131
   br label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
 
-15:                                               ; preds = %10
-  br i1 %.not.i, label %16, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit
-
-16:                                               ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %18 = load ptr, ptr %17, align 8, !tbaa !25
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %20 = load i32, ptr %19, align 8, !tbaa !26
-  %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %21
-  %.not1417.i = icmp eq i32 %20, 0
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %16 = load ptr, ptr %15, align 8, !tbaa !25
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %18 = load i32, ptr %17, align 8, !tbaa !26
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %.not1417.i = icmp eq i32 %18, 0
   br i1 %.not1417.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %16
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %25
+.lr.ph.i:                                         ; preds = %14
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 192
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %23
 
-25:                                               ; preds = %25, %.lr.ph.i
-  %.01218.i = phi ptr [ %18, %.lr.ph.i ], [ %27, %25 ]
-  %26 = load ptr, ptr %.01218.i, align 8, !tbaa !56
+23:                                               ; preds = %23, %.lr.ph.i
+  %.01218.i = phi ptr [ %16, %.lr.ph.i ], [ %25, %23 ]
+  %24 = load ptr, ptr %.01218.i, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #24
-  store ptr %26, ptr %3, align 8, !tbaa !266
-  store ptr %spec.select.i.i.i, ptr %24, align 8, !tbaa !269
+  store ptr %24, ptr %3, align 8, !tbaa !266
+  store ptr %5, ptr %22, align 8, !tbaa !269
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
-  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %24)
+  call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_7DDGNodeEPKNS_14PiBlockDDGNodeENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E11try_emplaceIJS7_EEESt4pairINS_16DenseMapIteratorIS4_S7_S9_SC_Lb0EEEbEOS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair") align 8 %4, ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #24
-  %27 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
-  %.not14.i = icmp eq ptr %27, %22
-  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %25
+  %25 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
+  %.not14.i = icmp eq ptr %25, %20
+  br i1 %.not14.i, label %_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit, label %23
 
-_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %25, %2, %.thread.i, %15, %16
+_ZN4llvm19DataDependenceGraph7addNodeERNS_7DDGNodeE.exit: ; preds = %23, %2, %10, %.thread.i, %14
   ret ptr %5
 }
 
@@ -6175,12 +6163,8 @@ _ZN4llvm13DirectedGraphINS_7DDGNodeENS_7DDGEdgeEE7connectERS1_S4_RS2_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm10DDGBuilder17getNodesInPiBlockERKNS_7DDGNodeE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(52) %1) unnamed_addr #1 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %4 = load i32, ptr %3, align 8, !tbaa !60
-  %5 = icmp eq i32 %4, 3
-  %spec.select.i.i = select i1 %5, ptr %1, ptr null
-  %6 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 56
-  ret ptr %6
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

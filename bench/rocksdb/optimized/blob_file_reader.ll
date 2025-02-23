@@ -2029,7 +2029,7 @@ if.end66:                                         ; preds = %if.end7.i.i, %_ZN7r
   br i1 %tobool68, label %if.then69, label %if.end84
 
 if.then69:                                        ; preds = %if.end66
-  invoke void @_ZN7rocksdb14BlobFileReader10VerifyBlobERKNS_5SliceES3_m(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %record_slice, ptr noundef nonnull align 8 dereferenceable(16) %user_key, i64 noundef %value_size)
+  invoke void @_ZN7rocksdb14BlobFileReader10VerifyBlobERKNS_5SliceES3_m(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %record_slice, ptr noundef nonnull align 8 dereferenceable(16) %user_key, i64 noundef %value_size)
           to label %cleanup77 unwind label %lpad
 
 cleanup77:                                        ; preds = %if.then69
@@ -2061,7 +2061,7 @@ if.end84:                                         ; preds = %_ZN7rocksdb6StatusD
   %58 = load ptr, ptr %clock_, align 8
   %statistics_89 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %59 = load ptr, ptr %statistics_89, align 8
-  invoke void @_ZN7rocksdb14BlobFileReader22UncompressBlobIfNeededERKNS_5SliceENS_15CompressionTypeEPNS_15MemoryAllocatorEPNS_11SystemClockEPNS_10StatisticsEPSt10unique_ptrINS_12BlobContentsESt14default_deleteISC_EE(ptr sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %value_slice, i8 noundef zeroext %compression_type, ptr noundef %allocator, ptr noundef %58, ptr noundef %59, ptr noundef %result)
+  invoke void @_ZN7rocksdb14BlobFileReader22UncompressBlobIfNeededERKNS_5SliceENS_15CompressionTypeEPNS_15MemoryAllocatorEPNS_11SystemClockEPNS_10StatisticsEPSt10unique_ptrINS_12BlobContentsESt14default_deleteISC_EE(ptr nonnull sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %value_slice, i8 noundef zeroext %compression_type, ptr noundef %allocator, ptr noundef %58, ptr noundef %59, ptr noundef %result)
           to label %cleanup96 unwind label %lpad
 
 cleanup96:                                        ; preds = %if.end84

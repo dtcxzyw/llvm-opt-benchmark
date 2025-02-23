@@ -3253,7 +3253,7 @@ _ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %27
   ret void
 
 28:                                               ; preds = %.lr.ph, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit
-  %.040 = phi i64 [ 0, %.lr.ph ], [ %167, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit ]
+  %.040 = phi i64 [ 0, %.lr.ph ], [ %165, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit ]
   %29 = load ptr, ptr %3, align 8, !tbaa !152, !noalias !283
   %.not.i9.i = icmp eq ptr %29, null
   br i1 %.not.i9.i, label %30, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i, !prof !93
@@ -3315,273 +3315,268 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15Eve
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr null, ptr %50, align 8, !tbaa !116
   store atomic i32 1, ptr %49 release, align 4
-  %51 = and i64 %44, 255
   %trunc = trunc i64 %44 to i8
   switch i8 %trunc, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit [
-    i8 0, label %52
-    i8 -1, label %72
+    i8 0, label %51
+    i8 -1, label %70
   ]
 
-52:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 40
-  %54 = load i64, ptr %53, align 8, !tbaa !166
-  %55 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
-          to label %.noexc7 unwind label %137
+51:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
+  %52 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 40
+  %53 = load i64, ptr %52, align 8, !tbaa !166
+  %54 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
+          to label %.noexc7 unwind label %135
 
-.noexc7:                                          ; preds = %52
-  %56 = add i64 %54, 256
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %55, ptr %57, align 8, !tbaa !286
-  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %58, i8 0, i64 24, i1 false)
-  store i64 %56, ptr %59, align 8, !tbaa !166
-  br label %60
+.noexc7:                                          ; preds = %51
+  %55 = add i64 %53, 256
+  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store ptr %54, ptr %56, align 8, !tbaa !286
+  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %57, i8 0, i64 24, i1 false)
+  store i64 %55, ptr %58, align 8, !tbaa !166
+  br label %59
 
-60:                                               ; preds = %60, %.noexc7
-  %.idx.i.i = phi i64 [ 64, %.noexc7 ], [ %.add.i.i, %60 ]
-  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %55, i64 %.idx.i.i
+59:                                               ; preds = %59, %.noexc7
+  %.idx.i.i = phi i64 [ 64, %.noexc7 ], [ %.add.i.i, %59 ]
+  %.ptr.i.i = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i.i
   store i32 0, ptr %.ptr.i.i, align 16, !tbaa !45
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 16
-  %61 = icmp eq i64 %.add.i.i, 4160
-  br i1 %61, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i, label %60
+  %60 = icmp eq i64 %.add.i.i, 4160
+  br i1 %60, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i, label %59
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i: ; preds = %60
-  store i64 %7, ptr %58, align 16, !tbaa !287
-  %62 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %63 = load atomic i64, ptr %62 acquire, align 8
-  %64 = add i64 %63, 1
-  store atomic i64 %64, ptr %62 release, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 32
-  %66 = ptrtoint ptr %55 to i64
-  %67 = cmpxchg ptr %65, i64 0, i64 %66 release monotonic, align 8
-  %68 = extractvalue { i64, i1 } %67, 1
-  br i1 %68, label %.noexc, label %69
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i: ; preds = %59
+  store i64 %7, ptr %57, align 16, !tbaa !287
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %62 = load atomic i64, ptr %61 acquire, align 8
+  %63 = add i64 %62, 1
+  store atomic i64 %63, ptr %61 release, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 32
+  %65 = ptrtoint ptr %54 to i64
+  %66 = cmpxchg ptr %64, i64 0, i64 %65 release monotonic, align 8
+  %67 = extractvalue { i64, i1 } %66, 1
+  br i1 %67, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit, label %68
 
-69:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %55, i64 noundef 4160, i64 noundef 64) #42
-  %70 = load atomic i64, ptr %65 acquire, align 8
-  br label %.noexc
+68:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %54, i64 noundef 4160, i64 noundef 64) #42
+  %69 = load atomic i64, ptr %64 acquire, align 8
+  br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
 
-.noexc:                                           ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i, %69
-  %71 = icmp eq i64 %51, 255
-  br i1 %71, label %72, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
+70:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 40
+  %72 = load i64, ptr %71, align 8, !tbaa !166
+  %73 = add i64 %72, 256
+  %74 = load atomic i64, ptr %4 acquire, align 64
+  %storemerge6.i.i = inttoptr i64 %74 to ptr
+  %75 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i, i64 40
+  %76 = load i64, ptr %75, align 8, !tbaa !166
+  %77 = icmp ult i64 %76, %73
+  br i1 %77, label %.lr.ph.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
 
-72:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, %.noexc
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i6.lcssa, i64 40
-  %74 = load i64, ptr %73, align 8, !tbaa !166
-  %75 = add i64 %74, 256
-  %76 = load atomic i64, ptr %4 acquire, align 64
-  %storemerge6.i.i = inttoptr i64 %76 to ptr
-  %77 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i, i64 40
-  %78 = load i64, ptr %77, align 8, !tbaa !166
-  %79 = icmp ult i64 %78, %75
-  br i1 %79, label %.lr.ph.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
+.lr.ph.i.i:                                       ; preds = %70, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i
+  %78 = phi ptr [ %101, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %75, %70 ]
+  %storemerge8.i.i = phi ptr [ %storemerge.i.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %storemerge6.i.i, %70 ]
+  %storemerge.in7.i.i = phi i64 [ %100, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %74, %70 ]
+  %79 = getelementptr inbounds nuw i8, ptr %storemerge8.i.i, i64 32
+  %80 = load atomic i64, ptr %79 acquire, align 8
+  %.0.i.i.i.i.i = inttoptr i64 %80 to ptr
+  %.not.i.i8 = icmp eq i64 %80, 0
+  br i1 %.not.i.i8, label %81, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i
 
-.lr.ph.i.i:                                       ; preds = %72, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i
-  %80 = phi ptr [ %103, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %77, %72 ]
-  %storemerge8.i.i = phi ptr [ %storemerge.i.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %storemerge6.i.i, %72 ]
-  %storemerge.in7.i.i = phi i64 [ %102, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i ], [ %76, %72 ]
-  %81 = getelementptr inbounds nuw i8, ptr %storemerge8.i.i, i64 32
-  %82 = load atomic i64, ptr %81 acquire, align 8
-  %.0.i.i.i.i.i = inttoptr i64 %82 to ptr
-  %.not.i.i8 = icmp eq i64 %82, 0
-  br i1 %.not.i.i8, label %83, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i
+81:                                               ; preds = %.lr.ph.i.i
+  %82 = load i64, ptr %78, align 8, !tbaa !166
+  %83 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
+          to label %.noexc.i.i unwind label %104
 
-83:                                               ; preds = %.lr.ph.i.i
-  %84 = load i64, ptr %80, align 8, !tbaa !166
-  %85 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
-          to label %.noexc.i.i unwind label %106
+.noexc.i.i:                                       ; preds = %81
+  %84 = add i64 %82, 256
+  %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %83, ptr %85, align 8, !tbaa !286
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %83, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %86, i8 0, i64 24, i1 false)
+  store i64 %84, ptr %87, align 8, !tbaa !166
+  br label %88
 
-.noexc.i.i:                                       ; preds = %83
-  %86 = add i64 %84, 256
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %85, ptr %87, align 8, !tbaa !286
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %89 = getelementptr inbounds nuw i8, ptr %85, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %88, i8 0, i64 24, i1 false)
-  store i64 %86, ptr %89, align 8, !tbaa !166
-  br label %90
-
-90:                                               ; preds = %90, %.noexc.i.i
-  %.idx.i.i.i.i = phi i64 [ 64, %.noexc.i.i ], [ %.add.i.i.i.i, %90 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.idx.i.i.i.i
+88:                                               ; preds = %88, %.noexc.i.i
+  %.idx.i.i.i.i = phi i64 [ 64, %.noexc.i.i ], [ %.add.i.i.i.i, %88 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %83, i64 %.idx.i.i.i.i
   store i32 0, ptr %.ptr.i.i.i.i, align 16, !tbaa !45
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 16
-  %91 = icmp eq i64 %.add.i.i.i.i, 4160
-  br i1 %91, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i, label %90
+  %89 = icmp eq i64 %.add.i.i.i.i, 4160
+  br i1 %89, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i, label %88
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i: ; preds = %90
-  store i64 %7, ptr %88, align 16, !tbaa !287
-  %92 = getelementptr inbounds nuw i8, ptr %85, i64 24
-  %93 = load atomic i64, ptr %92 acquire, align 8
-  %94 = add i64 %93, 1
-  store atomic i64 %94, ptr %92 release, align 8
-  %95 = ptrtoint ptr %85 to i64
-  %96 = cmpxchg ptr %81, i64 0, i64 %95 release monotonic, align 8
-  %97 = extractvalue { i64, i1 } %96, 1
-  br i1 %97, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i, label %98
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i: ; preds = %88
+  store i64 %7, ptr %86, align 16, !tbaa !287
+  %90 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %91 = load atomic i64, ptr %90 acquire, align 8
+  %92 = add i64 %91, 1
+  store atomic i64 %92, ptr %90 release, align 8
+  %93 = ptrtoint ptr %83 to i64
+  %94 = cmpxchg ptr %79, i64 0, i64 %93 release monotonic, align 8
+  %95 = extractvalue { i64, i1 } %94, 1
+  br i1 %95, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i, label %96
 
-98:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %85, i64 noundef 4160, i64 noundef 64) #42
-  %99 = load atomic i64, ptr %81 acquire, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %99 to ptr
+96:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %83, i64 noundef 4160, i64 noundef 64) #42
+  %97 = load atomic i64, ptr %79 acquire, align 8
+  %.0.i.i.i.i.i.i = inttoptr i64 %97 to ptr
   br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i: ; preds = %98, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i, %.lr.ph.i.i
-  %.0.i.i9 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i ], [ %85, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %98 ]
-  %100 = ptrtoint ptr %.0.i.i9 to i64
-  %101 = cmpxchg ptr %4, i64 %storemerge.in7.i.i, i64 %100 release monotonic, align 8
-  %102 = load atomic i64, ptr %4 acquire, align 64
-  %storemerge.i.i = inttoptr i64 %102 to ptr
-  %103 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 40
-  %104 = load i64, ptr %103, align 8, !tbaa !166
-  %105 = icmp ult i64 %104, %75
-  br i1 %105, label %.lr.ph.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit, !llvm.loop !288
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i: ; preds = %96, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i, %.lr.ph.i.i
+  %.0.i.i9 = phi ptr [ %.0.i.i.i.i.i, %.lr.ph.i.i ], [ %83, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i ], [ %.0.i.i.i.i.i.i, %96 ]
+  %98 = ptrtoint ptr %.0.i.i9 to i64
+  %99 = cmpxchg ptr %4, i64 %storemerge.in7.i.i, i64 %98 release monotonic, align 8
+  %100 = load atomic i64, ptr %4 acquire, align 64
+  %storemerge.i.i = inttoptr i64 %100 to ptr
+  %101 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 40
+  %102 = load i64, ptr %101, align 8, !tbaa !166
+  %103 = icmp ult i64 %102, %73
+  br i1 %103, label %.lr.ph.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit, !llvm.loop !288
 
-106:                                              ; preds = %83
-  %107 = landingpad { ptr, i32 }
+104:                                              ; preds = %81
+  %105 = landingpad { ptr, i32 }
           catch ptr null
-  %108 = extractvalue { ptr, i32 } %107, 0
-  tail call void @__clang_call_terminate(ptr %108) #40
+  %106 = extractvalue { ptr, i32 } %105, 0
+  tail call void @__clang_call_terminate(ptr %106) #40
   unreachable
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit: ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, %72, %.noexc
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit: ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, %68, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i, %70
   store atomic i64 0, ptr %.sroa.0.2 release, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  %110 = load ptr, ptr %109, align 8, !tbaa !176
-  %111 = icmp eq ptr %110, @_ZN5folly14default_domainE
-  br i1 %111, label %112, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
+  %108 = load ptr, ptr %107, align 8, !tbaa !176
+  %109 = icmp eq ptr %108, @_ZN5folly14default_domainE
+  br i1 %109, label %110, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
 
-112:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
-  %113 = load ptr, ptr %3, align 8, !tbaa !152
-  %.not.i12.i = icmp eq ptr %113, null
-  br i1 %.not.i12.i, label %114, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i, !prof !93
+110:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
+  %111 = load ptr, ptr %3, align 8, !tbaa !152
+  %.not.i12.i = icmp eq ptr %111, null
+  br i1 %.not.i12.i, label %112, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i, !prof !93
 
-114:                                              ; preds = %112
-  %115 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i unwind label %134
+112:                                              ; preds = %110
+  %113 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i unwind label %132
 
-_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i: ; preds = %114, %112
-  %116 = phi ptr [ %113, %112 ], [ %115, %114 ]
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 72
-  %118 = load i8, ptr %117, align 8, !tbaa !154
-  %119 = icmp ult i8 %118, 9
-  br i1 %119, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
+_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i: ; preds = %112, %110
+  %114 = phi ptr [ %111, %110 ], [ %113, %112 ]
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 72
+  %116 = load i8, ptr %115, align 8, !tbaa !154
+  %117 = icmp ult i8 %116, 9
+  br i1 %117, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i
-  %120 = add nuw nsw i8 %118, 1
-  store i8 %120, ptr %117, align 8, !tbaa !154
-  %121 = zext nneg i8 %118 to i64
-  %122 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %116, i64 0, i64 %121
-  store ptr %.sroa.0.2, ptr %122, align 8, !tbaa !159
+  %118 = add nuw nsw i8 %116, 1
+  store i8 %118, ptr %115, align 8, !tbaa !154
+  %119 = zext nneg i8 %116 to i64
+  %120 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %114, i64 0, i64 %119
+  store ptr %.sroa.0.2, ptr %120, align 8, !tbaa !159
   br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit14.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE13enqueueCommonIS4_EEvPNS6_7SegmentEOT_.exit
-  %123 = ptrtoint ptr %.sroa.0.2 to i64
-  %124 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 24
+  %121 = ptrtoint ptr %.sroa.0.2 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 24
   br label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.critedge.i.i.backedge, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i
-  %126 = load atomic i64, ptr %124 acquire, align 8
-  %127 = and i64 %126, 1
-  %128 = icmp eq i64 %127, 0
-  br i1 %128, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, label %132
+  %124 = load atomic i64, ptr %122 acquire, align 8
+  %125 = and i64 %124, 1
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, label %130
 
 _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i: ; preds = %.critedge.i.i
-  %129 = inttoptr i64 %126 to ptr
-  store ptr %129, ptr %125, align 8, !tbaa !181
-  %130 = cmpxchg weak ptr %124, i64 %126, i64 %123 acq_rel acquire, align 8
-  %131 = extractvalue { i64, i1 } %130, 1
-  br i1 %131, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit, label %.critedge.i.i.backedge
+  %127 = inttoptr i64 %124 to ptr
+  store ptr %127, ptr %123, align 8, !tbaa !181
+  %128 = cmpxchg weak ptr %122, i64 %124, i64 %121 acq_rel acquire, align 8
+  %129 = extractvalue { i64, i1 } %128, 1
+  br i1 %129, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit, label %.critedge.i.i.backedge
 
-132:                                              ; preds = %.critedge.i.i
-  %133 = tail call noundef i32 @sched_yield() #30
+130:                                              ; preds = %.critedge.i.i
+  %131 = tail call noundef i32 @sched_yield() #30
   br label %.critedge.i.i.backedge
 
-.critedge.i.i.backedge:                           ; preds = %132, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i
+.critedge.i.i.backedge:                           ; preds = %130, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i
   br label %.critedge.i.i
 
-134:                                              ; preds = %114
-  %135 = landingpad { ptr, i32 }
+132:                                              ; preds = %112
+  %133 = landingpad { ptr, i32 }
           catch ptr null
-  %136 = extractvalue { ptr, i32 } %135, 0
-  tail call void @__clang_call_terminate(ptr %136) #40
+  %134 = extractvalue { ptr, i32 } %133, 0
+  tail call void @__clang_call_terminate(ptr %134) #40
   unreachable
 
-137:                                              ; preds = %52
-  %138 = landingpad { ptr, i32 }
+135:                                              ; preds = %51
+  %136 = landingpad { ptr, i32 }
           cleanup
   store atomic i64 0, ptr %.sroa.0.2 release, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
-  %140 = load ptr, ptr %139, align 8, !tbaa !176
-  %141 = icmp eq ptr %140, @_ZN5folly14default_domainE
-  br i1 %141, label %142, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i, !prof !55
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 8
+  %138 = load ptr, ptr %137, align 8, !tbaa !176
+  %139 = icmp eq ptr %138, @_ZN5folly14default_domainE
+  br i1 %139, label %140, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i, !prof !55
 
-142:                                              ; preds = %137
-  %143 = load ptr, ptr %3, align 8, !tbaa !152
-  %.not.i10.i = icmp eq ptr %143, null
-  br i1 %.not.i10.i, label %144, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i, !prof !93
+140:                                              ; preds = %135
+  %141 = load ptr, ptr %3, align 8, !tbaa !152
+  %.not.i10.i = icmp eq ptr %141, null
+  br i1 %.not.i10.i, label %142, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i, !prof !93
 
-144:                                              ; preds = %142
-  %145 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i unwind label %164
+142:                                              ; preds = %140
+  %143 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %3)
+          to label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i unwind label %162
 
-_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i: ; preds = %144, %142
-  %146 = phi ptr [ %143, %142 ], [ %145, %144 ]
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
-  %148 = load i8, ptr %147, align 8, !tbaa !154
-  %149 = icmp ult i8 %148, 9
-  br i1 %149, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i.thread, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i, !prof !55
+_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i: ; preds = %142, %140
+  %144 = phi ptr [ %141, %140 ], [ %143, %142 ]
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 72
+  %146 = load i8, ptr %145, align 8, !tbaa !154
+  %147 = icmp ult i8 %146, 9
+  br i1 %147, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i.thread, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i, !prof !55
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i.thread: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i
-  %150 = add nuw nsw i8 %148, 1
-  store i8 %150, ptr %147, align 8, !tbaa !154
-  %151 = zext nneg i8 %148 to i64
-  %152 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %146, i64 0, i64 %151
-  store ptr %.sroa.0.2, ptr %152, align 8, !tbaa !159
+  %148 = add nuw nsw i8 %146, 1
+  store i8 %148, ptr %145, align 8, !tbaa !154
+  %149 = zext nneg i8 %146 to i64
+  %150 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %144, i64 0, i64 %149
+  store ptr %.sroa.0.2, ptr %150, align 8, !tbaa !159
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i
 
-_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i, %137
-  %153 = ptrtoint ptr %.sroa.0.2 to i64
-  %154 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %155 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 24
+_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i: ; preds = %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit11.i, %135
+  %151 = ptrtoint ptr %.sroa.0.2 to i64
+  %152 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 24
   br label %.critedge.i.i10
 
 .critedge.i.i10:                                  ; preds = %.critedge.i.i10.backedge, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i
-  %156 = load atomic i64, ptr %154 acquire, align 8
-  %157 = and i64 %156, 1
-  %158 = icmp eq i64 %157, 0
-  br i1 %158, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11, label %162
+  %154 = load atomic i64, ptr %152 acquire, align 8
+  %155 = and i64 %154, 1
+  %156 = icmp eq i64 %155, 0
+  br i1 %156, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11, label %160
 
 _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11: ; preds = %.critedge.i.i10
-  %159 = inttoptr i64 %156 to ptr
-  store ptr %159, ptr %155, align 8, !tbaa !181
-  %160 = cmpxchg weak ptr %154, i64 %156, i64 %153 acq_rel acquire, align 8
-  %161 = extractvalue { i64, i1 } %160, 1
-  br i1 %161, label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i, label %.critedge.i.i10.backedge
+  %157 = inttoptr i64 %154 to ptr
+  store ptr %157, ptr %153, align 8, !tbaa !181
+  %158 = cmpxchg weak ptr %152, i64 %154, i64 %151 acq_rel acquire, align 8
+  %159 = extractvalue { i64, i1 } %158, 1
+  br i1 %159, label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i, label %.critedge.i.i10.backedge
 
-162:                                              ; preds = %.critedge.i.i10
-  %163 = tail call noundef i32 @sched_yield() #30
+160:                                              ; preds = %.critedge.i.i10
+  %161 = tail call noundef i32 @sched_yield() #30
   br label %.critedge.i.i10.backedge
 
-.critedge.i.i10.backedge:                         ; preds = %162, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11
+.critedge.i.i10.backedge:                         ; preds = %160, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11
   br label %.critedge.i.i10
 
-164:                                              ; preds = %144
-  %165 = landingpad { ptr, i32 }
+162:                                              ; preds = %142
+  %163 = landingpad { ptr, i32 }
           catch ptr null
-  %166 = extractvalue { ptr, i32 } %165, 0
-  tail call void @__clang_call_terminate(ptr %166) #40
+  %164 = extractvalue { ptr, i32 } %163, 0
+  tail call void @__clang_call_terminate(ptr %164) #40
   unreachable
 
 _ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i:   ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i11, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit16.i.thread
-  resume { ptr, i32 } %138
+  resume { ptr, i32 } %136
 
 _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread
-  %167 = add nuw i64 %.040, 1
-  %exitcond.not = icmp eq i64 %167, %1
+  %165 = add nuw i64 %.040, 1
+  %exitcond.not = icmp eq i64 %165, %1
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !289
 }
 
@@ -8119,7 +8114,7 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %._crit_edge.i, %_Z
           to label %"_ZZN5folly23MuxIOThreadPoolExecutorC1EmNS0_7OptionsESt10shared_ptrINS_13ThreadFactoryEEPNS_16EventBaseManagerEENK3$_0clENS_5RangeIPPNS_6detail15EventBasePoller6HandleEEE.exit" unwind label %.loopexit.split-lp.i
 
 33:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i, %.lr.ph.i
-  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %173, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i ]
+  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %171, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i ]
   %34 = load ptr, ptr %.036.i, align 8, !tbaa !116
   %35 = load ptr, ptr %4, align 8, !tbaa !152
   %.not.i19.i = icmp eq ptr %35, null
@@ -8182,270 +8177,265 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15Eve
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store ptr %34, ptr %56, align 8, !tbaa !116
   store atomic i32 1, ptr %55 release, align 4
-  %57 = and i64 %50, 255
   %trunc.i = trunc i64 %50 to i8
   switch i8 %trunc.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i [
-    i8 0, label %58
-    i8 -1, label %78
+    i8 0, label %57
+    i8 -1, label %76
   ]
 
-58:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 40
-  %60 = load i64, ptr %59, align 8, !tbaa !166
-  %61 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
-          to label %.noexc33.i unwind label %115
+57:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 40
+  %59 = load i64, ptr %58, align 8, !tbaa !166
+  %60 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
+          to label %.noexc33.i unwind label %113
 
-.noexc33.i:                                       ; preds = %58
-  %62 = add i64 %60, 256
-  %63 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %61, ptr %63, align 8, !tbaa !286
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %65 = getelementptr inbounds nuw i8, ptr %61, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %64, i8 0, i64 24, i1 false)
-  store i64 %62, ptr %65, align 8, !tbaa !166
-  br label %66
+.noexc33.i:                                       ; preds = %57
+  %61 = add i64 %59, 256
+  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %60, ptr %62, align 8, !tbaa !286
+  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %63, i8 0, i64 24, i1 false)
+  store i64 %61, ptr %64, align 8, !tbaa !166
+  br label %65
 
-66:                                               ; preds = %66, %.noexc33.i
-  %.idx.i.i.i = phi i64 [ 64, %.noexc33.i ], [ %.add.i.i.i, %66 ]
-  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %61, i64 %.idx.i.i.i
+65:                                               ; preds = %65, %.noexc33.i
+  %.idx.i.i.i = phi i64 [ 64, %.noexc33.i ], [ %.add.i.i.i, %65 ]
+  %.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 %.idx.i.i.i
   store i32 0, ptr %.ptr.i.i.i, align 16, !tbaa !45
   %.add.i.i.i = add nuw nsw i64 %.idx.i.i.i, 16
-  %67 = icmp eq i64 %.add.i.i.i, 4160
-  br i1 %67, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i, label %66
+  %66 = icmp eq i64 %.add.i.i.i, 4160
+  br i1 %66, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i, label %65
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i: ; preds = %66
-  store i64 %8, ptr %64, align 16, !tbaa !287
-  %68 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %69 = load atomic i64, ptr %68 acquire, align 8
-  %70 = add i64 %69, 1
-  store atomic i64 %70, ptr %68 release, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 32
-  %72 = ptrtoint ptr %61 to i64
-  %73 = cmpxchg ptr %71, i64 0, i64 %72 release monotonic, align 8
-  %74 = extractvalue { i64, i1 } %73, 1
-  br i1 %74, label %.noexc9.i, label %75
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i: ; preds = %65
+  store i64 %8, ptr %63, align 16, !tbaa !287
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %68 = load atomic i64, ptr %67 acquire, align 8
+  %69 = add i64 %68, 1
+  store atomic i64 %69, ptr %67 release, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 32
+  %71 = ptrtoint ptr %60 to i64
+  %72 = cmpxchg ptr %70, i64 0, i64 %71 release monotonic, align 8
+  %73 = extractvalue { i64, i1 } %72, 1
+  br i1 %73, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i, label %74
 
-75:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %61, i64 noundef 4160, i64 noundef 64) #42
-  %76 = load atomic i64, ptr %71 acquire, align 8
-  br label %.noexc9.i
+74:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %60, i64 noundef 4160, i64 noundef 64) #42
+  %75 = load atomic i64, ptr %70 acquire, align 8
+  br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
 
-.noexc9.i:                                        ; preds = %75, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i
-  %77 = icmp eq i64 %57, 255
-  br i1 %77, label %78, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
+76:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
+  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 40
+  %78 = load i64, ptr %77, align 8, !tbaa !166
+  %79 = add i64 %78, 256
+  %80 = load atomic i64, ptr %5 acquire, align 8
+  %storemerge6.i.i.i = inttoptr i64 %80 to ptr
+  %81 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i.i, i64 40
+  %82 = load i64, ptr %81, align 8, !tbaa !166
+  %83 = icmp ult i64 %82, %79
+  br i1 %83, label %.lr.ph.i.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
 
-78:                                               ; preds = %.noexc9.i, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i31.lcssa.i, i64 40
-  %80 = load i64, ptr %79, align 8, !tbaa !166
-  %81 = add i64 %80, 256
-  %82 = load atomic i64, ptr %5 acquire, align 8
-  %storemerge6.i.i.i = inttoptr i64 %82 to ptr
-  %83 = getelementptr inbounds nuw i8, ptr %storemerge6.i.i.i, i64 40
-  %84 = load i64, ptr %83, align 8, !tbaa !166
-  %85 = icmp ult i64 %84, %81
-  br i1 %85, label %.lr.ph.i.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
+.lr.ph.i.i.i:                                     ; preds = %76, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i
+  %84 = phi ptr [ %107, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %81, %76 ]
+  %storemerge8.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %storemerge6.i.i.i, %76 ]
+  %storemerge.in7.i.i.i = phi i64 [ %106, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %80, %76 ]
+  %85 = getelementptr inbounds nuw i8, ptr %storemerge8.i.i.i, i64 32
+  %86 = load atomic i64, ptr %85 acquire, align 8
+  %.0.i.i.i.i.i.i = inttoptr i64 %86 to ptr
+  %.not.i.i.i = icmp eq i64 %86, 0
+  br i1 %.not.i.i.i, label %87, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %78, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i
-  %86 = phi ptr [ %109, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %83, %78 ]
-  %storemerge8.i.i.i = phi ptr [ %storemerge.i.i.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %storemerge6.i.i.i, %78 ]
-  %storemerge.in7.i.i.i = phi i64 [ %108, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i ], [ %82, %78 ]
-  %87 = getelementptr inbounds nuw i8, ptr %storemerge8.i.i.i, i64 32
-  %88 = load atomic i64, ptr %87 acquire, align 8
-  %.0.i.i.i.i.i.i = inttoptr i64 %88 to ptr
-  %.not.i.i.i = icmp eq i64 %88, 0
-  br i1 %.not.i.i.i, label %89, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i
+87:                                               ; preds = %.lr.ph.i.i.i
+  %88 = load i64, ptr %84, align 8, !tbaa !166
+  %89 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
+          to label %.noexc.i.i.i unwind label %110
 
-89:                                               ; preds = %.lr.ph.i.i.i
-  %90 = load i64, ptr %86, align 8, !tbaa !166
-  %91 = invoke noalias noundef nonnull align 64 dereferenceable(4160) ptr @_ZnwmSt11align_val_t(i64 noundef 4160, i64 noundef 64) #41
-          to label %.noexc.i.i.i unwind label %112
+.noexc.i.i.i:                                     ; preds = %87
+  %90 = add i64 %88, 256
+  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store ptr %89, ptr %91, align 8, !tbaa !286
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %92, i8 0, i64 24, i1 false)
+  store i64 %90, ptr %93, align 8, !tbaa !166
+  br label %94
 
-.noexc.i.i.i:                                     ; preds = %89
-  %92 = add i64 %90, 256
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  store ptr %91, ptr %93, align 8, !tbaa !286
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 16
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %94, i8 0, i64 24, i1 false)
-  store i64 %92, ptr %95, align 8, !tbaa !166
-  br label %96
-
-96:                                               ; preds = %96, %.noexc.i.i.i
-  %.idx.i.i.i.i.i = phi i64 [ 64, %.noexc.i.i.i ], [ %.add.i.i.i.i.i, %96 ]
-  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i.i.i
+94:                                               ; preds = %94, %.noexc.i.i.i
+  %.idx.i.i.i.i.i = phi i64 [ 64, %.noexc.i.i.i ], [ %.add.i.i.i.i.i, %94 ]
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i.i.i
   store i32 0, ptr %.ptr.i.i.i.i.i, align 16, !tbaa !45
   %.add.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i, 16
-  %97 = icmp eq i64 %.add.i.i.i.i.i, 4160
-  br i1 %97, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i, label %96
+  %95 = icmp eq i64 %.add.i.i.i.i.i, 4160
+  br i1 %95, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i, label %94
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i: ; preds = %96
-  store i64 %8, ptr %94, align 16, !tbaa !287
-  %98 = getelementptr inbounds nuw i8, ptr %91, i64 24
-  %99 = load atomic i64, ptr %98 acquire, align 8
-  %100 = add i64 %99, 1
-  store atomic i64 %100, ptr %98 release, align 8
-  %101 = ptrtoint ptr %91 to i64
-  %102 = cmpxchg ptr %87, i64 0, i64 %101 release monotonic, align 8
-  %103 = extractvalue { i64, i1 } %102, 1
-  br i1 %103, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i, label %104
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i: ; preds = %94
+  store i64 %8, ptr %92, align 16, !tbaa !287
+  %96 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %97 = load atomic i64, ptr %96 acquire, align 8
+  %98 = add i64 %97, 1
+  store atomic i64 %98, ptr %96 release, align 8
+  %99 = ptrtoint ptr %89 to i64
+  %100 = cmpxchg ptr %85, i64 0, i64 %99 release monotonic, align 8
+  %101 = extractvalue { i64, i1 } %100, 1
+  br i1 %101, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i, label %102
 
-104:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i
-  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %91, i64 noundef 4160, i64 noundef 64) #42
-  %105 = load atomic i64, ptr %87 acquire, align 8
-  %.0.i.i.i.i.i.i.i = inttoptr i64 %105 to ptr
+102:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i
+  tail call void @_ZdlPvmSt11align_val_t(ptr noundef nonnull %89, i64 noundef 4160, i64 noundef 64) #42
+  %103 = load atomic i64, ptr %85 acquire, align 8
+  %.0.i.i.i.i.i.i.i = inttoptr i64 %103 to ptr
   br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i: ; preds = %104, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i, %.lr.ph.i.i.i
-  %.0.i.i34.i = phi ptr [ %.0.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %91, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %104 ]
-  %106 = ptrtoint ptr %.0.i.i34.i to i64
-  %107 = cmpxchg ptr %5, i64 %storemerge.in7.i.i.i, i64 %106 release monotonic, align 8
-  %108 = load atomic i64, ptr %5 acquire, align 8
-  %storemerge.i.i.i = inttoptr i64 %108 to ptr
-  %109 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 40
-  %110 = load i64, ptr %109, align 8, !tbaa !166
-  %111 = icmp ult i64 %110, %81
-  br i1 %111, label %.lr.ph.i.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i, !llvm.loop !288
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i: ; preds = %102, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i, %.lr.ph.i.i.i
+  %.0.i.i34.i = phi ptr [ %.0.i.i.i.i.i.i, %.lr.ph.i.i.i ], [ %89, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i.i.i ], [ %.0.i.i.i.i.i.i.i, %102 ]
+  %104 = ptrtoint ptr %.0.i.i34.i to i64
+  %105 = cmpxchg ptr %5, i64 %storemerge.in7.i.i.i, i64 %104 release monotonic, align 8
+  %106 = load atomic i64, ptr %5 acquire, align 8
+  %storemerge.i.i.i = inttoptr i64 %106 to ptr
+  %107 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 40
+  %108 = load i64, ptr %107, align 8, !tbaa !166
+  %109 = icmp ult i64 %108, %79
+  br i1 %109, label %.lr.ph.i.i.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i, !llvm.loop !288
 
-112:                                              ; preds = %89
-  %113 = landingpad { ptr, i32 }
+110:                                              ; preds = %87
+  %111 = landingpad { ptr, i32 }
           catch ptr null
-  %114 = extractvalue { ptr, i32 } %113, 0
-  tail call void @__clang_call_terminate(ptr %114) #40
+  %112 = extractvalue { ptr, i32 } %111, 0
+  tail call void @__clang_call_terminate(ptr %112) #40
   unreachable
 
-115:                                              ; preds = %58
-  %116 = landingpad { ptr, i32 }
+113:                                              ; preds = %57
+  %114 = landingpad { ptr, i32 }
           catch ptr null
   store atomic i64 0, ptr %.sroa.03.2.i release, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !176
-  %119 = icmp eq ptr %118, @_ZN5folly14default_domainE
-  br i1 %119, label %120, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !176
+  %117 = icmp eq ptr %116, @_ZN5folly14default_domainE
+  br i1 %117, label %118, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
 
-120:                                              ; preds = %115
-  %121 = load ptr, ptr %4, align 8, !tbaa !152
-  %.not.i24.i = icmp eq ptr %121, null
-  br i1 %.not.i24.i, label %122, label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i, !prof !93
+118:                                              ; preds = %113
+  %119 = load ptr, ptr %4, align 8, !tbaa !152
+  %.not.i24.i = icmp eq ptr %119, null
+  br i1 %.not.i24.i, label %120, label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i, !prof !93
 
-122:                                              ; preds = %120
-  %123 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i unwind label %142
+120:                                              ; preds = %118
+  %121 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i unwind label %140
 
-_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i: ; preds = %122, %120
-  %124 = phi ptr [ %121, %120 ], [ %123, %122 ]
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
-  %126 = load i8, ptr %125, align 8, !tbaa !154
-  %127 = icmp ult i8 %126, 9
-  br i1 %127, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
+_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i: ; preds = %120, %118
+  %122 = phi ptr [ %119, %118 ], [ %121, %120 ]
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 72
+  %124 = load i8, ptr %123, align 8, !tbaa !154
+  %125 = icmp ult i8 %124, 9
+  br i1 %125, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i, !prof !55
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i: ; preds = %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i
-  %128 = add nuw nsw i8 %126, 1
-  store i8 %128, ptr %125, align 8, !tbaa !154
-  %129 = zext nneg i8 %126 to i64
-  %130 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %124, i64 0, i64 %129
-  store ptr %.sroa.03.2.i, ptr %130, align 8, !tbaa !159
+  %126 = add nuw nsw i8 %124, 1
+  store i8 %126, ptr %123, align 8, !tbaa !154
+  %127 = zext nneg i8 %124 to i64
+  %128 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %122, i64 0, i64 %127
+  store ptr %.sroa.03.2.i, ptr %128, align 8, !tbaa !159
   br label %.body.i
 
-_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i: ; preds = %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i, %115
-  %131 = ptrtoint ptr %.sroa.03.2.i to i64
-  %132 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 24
+_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i: ; preds = %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit.i, %113
+  %129 = ptrtoint ptr %.sroa.03.2.i to i64
+  %130 = getelementptr inbounds nuw i8, ptr %116, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 24
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.critedge.i.i.i.backedge, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i
-  %134 = load atomic i64, ptr %132 acquire, align 8
-  %135 = and i64 %134, 1
-  %136 = icmp eq i64 %135, 0
-  br i1 %136, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i, label %140
+  %132 = load atomic i64, ptr %130 acquire, align 8
+  %133 = and i64 %132, 1
+  %134 = icmp eq i64 %133, 0
+  br i1 %134, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i, label %138
 
 _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i: ; preds = %.critedge.i.i.i
-  %137 = inttoptr i64 %134 to ptr
-  store ptr %137, ptr %133, align 8, !tbaa !181
-  %138 = cmpxchg weak ptr %132, i64 %134, i64 %131 acq_rel acquire, align 8
-  %139 = extractvalue { i64, i1 } %138, 1
-  br i1 %139, label %.body.i, label %.critedge.i.i.i.backedge
+  %135 = inttoptr i64 %132 to ptr
+  store ptr %135, ptr %131, align 8, !tbaa !181
+  %136 = cmpxchg weak ptr %130, i64 %132, i64 %129 acq_rel acquire, align 8
+  %137 = extractvalue { i64, i1 } %136, 1
+  br i1 %137, label %.body.i, label %.critedge.i.i.i.backedge
 
-140:                                              ; preds = %.critedge.i.i.i
-  %141 = tail call noundef i32 @sched_yield() #30
+138:                                              ; preds = %.critedge.i.i.i
+  %139 = tail call noundef i32 @sched_yield() #30
   br label %.critedge.i.i.i.backedge
 
-.critedge.i.i.i.backedge:                         ; preds = %140, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i
+.critedge.i.i.i.backedge:                         ; preds = %138, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i
   br label %.critedge.i.i.i
 
-142:                                              ; preds = %122
-  %143 = landingpad { ptr, i32 }
+140:                                              ; preds = %120
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %144 = extractvalue { ptr, i32 } %143, 0
-  tail call void @__clang_call_terminate(ptr %144) #40
+  %142 = extractvalue { ptr, i32 } %141, 0
+  tail call void @__clang_call_terminate(ptr %142) #40
   unreachable
 
-_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i: ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i, %78, %.noexc9.i, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
+_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i: ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE16allocNextSegmentEPNS6_7SegmentE.exit.i.i.i, %76, %74, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7SegmentC2Em.exit.i.i, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
   store atomic i64 0, ptr %.sroa.03.2.i release, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 8
-  %146 = load ptr, ptr %145, align 8, !tbaa !176
-  %147 = icmp eq ptr %146, @_ZN5folly14default_domainE
-  br i1 %147, label %148, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i, !prof !55
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 8
+  %144 = load ptr, ptr %143, align 8, !tbaa !176
+  %145 = icmp eq ptr %144, @_ZN5folly14default_domainE
+  br i1 %145, label %146, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i, !prof !55
 
-148:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
-  %149 = load ptr, ptr %4, align 8, !tbaa !152
-  %.not.i21.i = icmp eq ptr %149, null
-  br i1 %.not.i21.i, label %150, label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i, !prof !93
+146:                                              ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
+  %147 = load ptr, ptr %4, align 8, !tbaa !152
+  %.not.i21.i = icmp eq ptr %147, null
+  br i1 %.not.i21.i, label %148, label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i, !prof !93
 
-150:                                              ; preds = %148
-  %151 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %4)
-          to label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i unwind label %170
+148:                                              ; preds = %146
+  %149 = invoke noundef nonnull align 8 dereferenceable(192) ptr @_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E7getSlowERNS5_25SingletonThreadLocalState10LocalCacheE(ptr noundef nonnull align 8 dereferenceable(8) %4)
+          to label %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i unwind label %168
 
-_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i: ; preds = %150, %148
-  %152 = phi ptr [ %149, %148 ], [ %151, %150 ]
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 72
-  %154 = load i8, ptr %153, align 8, !tbaa !154
-  %155 = icmp ult i8 %154, 9
-  br i1 %155, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.thread.i, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i, !prof !55
+_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i: ; preds = %148, %146
+  %150 = phi ptr [ %147, %146 ], [ %149, %148 ]
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 72
+  %152 = load i8, ptr %151, align 8, !tbaa !154
+  %153 = icmp ult i8 %152, 9
+  br i1 %153, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.thread.i, label %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i, !prof !55
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.thread.i: ; preds = %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i
-  %156 = add nuw nsw i8 %154, 1
-  store i8 %156, ptr %153, align 8, !tbaa !154
-  %157 = zext nneg i8 %154 to i64
-  %158 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %152, i64 0, i64 %157
-  store ptr %.sroa.03.2.i, ptr %158, align 8, !tbaa !159
+  %154 = add nuw nsw i8 %152, 1
+  store i8 %154, ptr %151, align 8, !tbaa !154
+  %155 = zext nneg i8 %152 to i64
+  %156 = getelementptr inbounds nuw [9 x %"class.folly::hazptr_tc_entry"], ptr %150, i64 0, i64 %155
+  store ptr %.sroa.03.2.i, ptr %156, align 8, !tbaa !159
   br label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i
 
 _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i: ; preds = %_ZN5folly13hazptr_tc_tlsISt6atomicEERNS_9hazptr_tcIT_EEv.exit15.i, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIRKS4_EEvOT_.exit.i
-  %159 = ptrtoint ptr %.sroa.03.2.i to i64
-  %160 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 24
+  %157 = ptrtoint ptr %.sroa.03.2.i to i64
+  %158 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.03.2.i, i64 24
   br label %.critedge.i.i35.i
 
 .critedge.i.i35.i:                                ; preds = %.critedge.i.i35.i.backedge, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.i
-  %162 = load atomic i64, ptr %160 acquire, align 8
-  %163 = and i64 %162, 1
-  %164 = icmp eq i64 %163, 0
-  br i1 %164, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i, label %168
+  %160 = load atomic i64, ptr %158 acquire, align 8
+  %161 = and i64 %160, 1
+  %162 = icmp eq i64 %161, 0
+  br i1 %162, label %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i, label %166
 
 _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i: ; preds = %.critedge.i.i35.i
-  %165 = inttoptr i64 %162 to ptr
-  store ptr %165, ptr %161, align 8, !tbaa !181
-  %166 = cmpxchg weak ptr %160, i64 %162, i64 %159 acq_rel acquire, align 8
-  %167 = extractvalue { i64, i1 } %166, 1
-  br i1 %167, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i, label %.critedge.i.i35.i.backedge
+  %163 = inttoptr i64 %160 to ptr
+  store ptr %163, ptr %159, align 8, !tbaa !181
+  %164 = cmpxchg weak ptr %158, i64 %160, i64 %157 acq_rel acquire, align 8
+  %165 = extractvalue { i64, i1 } %164, 1
+  br i1 %165, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i, label %.critedge.i.i35.i.backedge
 
-168:                                              ; preds = %.critedge.i.i35.i
-  %169 = tail call noundef i32 @sched_yield() #30
+166:                                              ; preds = %.critedge.i.i35.i
+  %167 = tail call noundef i32 @sched_yield() #30
   br label %.critedge.i.i35.i.backedge
 
-.critedge.i.i35.i.backedge:                       ; preds = %168, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i
+.critedge.i.i35.i.backedge:                       ; preds = %166, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i
   br label %.critedge.i.i35.i
 
-170:                                              ; preds = %150
-  %171 = landingpad { ptr, i32 }
+168:                                              ; preds = %148
+  %169 = landingpad { ptr, i32 }
           catch ptr null
-  %172 = extractvalue { ptr, i32 } %171, 0
-  tail call void @__clang_call_terminate(ptr %172) #40
+  %170 = extractvalue { ptr, i32 } %169, 0
+  tail call void @__clang_call_terminate(ptr %170) #40
   unreachable
 
 _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.thread.i
-  %173 = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
-  %.not.i = icmp eq ptr %173, %1
+  %171 = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
+  %.not.i = icmp eq ptr %171, %1
   br i1 %.not.i, label %._crit_edge.i, label %33
 
 .loopexit.i:                                      ; preds = %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.thread.i, %36
@@ -8459,9 +8449,9 @@ _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i, %.loopexit.split-lp.i, %.loopexit.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %116, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %116, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i ]
-  %174 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
-  tail call void @__clang_call_terminate(ptr %174) #40
+  %eh.lpad-body.i = phi { ptr, i32 } [ %114, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread.i ], [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ], [ %114, %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i.i ]
+  %172 = extractvalue { ptr, i32 } %eh.lpad-body.i, 0
+  tail call void @__clang_call_terminate(ptr %172) #40
   unreachable
 
 "_ZZN5folly23MuxIOThreadPoolExecutorC1EmNS0_7OptionsESt10shared_ptrINS_13ThreadFactoryEEPNS_16EventBaseManagerEENK3$_0clENS_5RangeIPPNS_6detail15EventBasePoller6HandleEEE.exit": ; preds = %._crit_edge.i.i, %32
@@ -18532,16 +18522,11 @@ _ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit48: ; preds = %27
   store i64 9223372036854775807, ptr %4, align 8
   %30 = load atomic i32, ptr %6 acquire, align 8
   %31 = icmp eq i32 %30, 1
-  br i1 %31, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread85, label %32, !prof !55
+  br i1 %31, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit, label %32, !prof !55
 
 32:                                               ; preds = %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit48
   %33 = call noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE11tryWaitSlowINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE(ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(9) %9) #30
-  br label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread85
-
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread85: ; preds = %32, %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit48
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
-  br label %46
+  br label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit
 
 34:                                               ; preds = %25
   %35 = load atomic i64, ptr %15 monotonic, align 64
@@ -18566,7 +18551,12 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %34, %_ZN5folly16Th
   %45 = extractvalue { i64, i1 } %44, 1
   br i1 %45, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i
 
-46:                                               ; preds = %19, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit46, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit46.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit.thread85
+_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit: ; preds = %32, %_ZN5folly8OptionalINS_16ThrottledLifoSem6WaiterEEptEv.exit48
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #30
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #30
+  br label %46
+
+46:                                               ; preds = %19, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit46, %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE14try_wait_untilINSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS4_10time_pointIT_T0_EERKNS_11WaitOptionsE.exit46.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit
   %47 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
   %.sroa.0.0.copyload.i.i = load i64, ptr %16, align 64, !tbaa !89
   %48 = load i64, ptr %0, align 64, !tbaa !89
@@ -18608,77 +18598,72 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %34, %_ZN5folly16Th
   store i64 %storemerge37, ptr %16, align 64, !tbaa !89
   %65 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #30
   %.sroa.0.0.copyload.i2.i.i = load i64, ptr %1, align 8, !tbaa !89
-  %66 = icmp sge i64 %65, %.sroa.0.0.copyload.i2.i.i
-  %67 = load atomic i64, ptr %15 monotonic, align 64
-  %.08.in.in17.i.i55 = and i64 %67, 4294967295
-  br i1 %66, label %68, label %79
+  %.not87 = icmp slt i64 %65, %.sroa.0.0.copyload.i2.i.i
+  %66 = load atomic i64, ptr %15 monotonic, align 64
+  %.08.in.in14.i = and i64 %66, 4294967295
+  br i1 %.not87, label %78, label %67
 
-68:                                               ; preds = %64
-  %.08.in18.i.i56 = icmp ne i64 %.08.in.in17.i.i55, 0
+67:                                               ; preds = %64
+  %.08.in18.i.i56 = icmp ne i64 %.08.in.in14.i, 0
   %.neg19.i.i57 = sext i1 %.08.in18.i.i56 to i64
-  %69 = add i64 %67, -8589934592
-  %70 = add i64 %69, %.neg19.i.i57
-  %71 = cmpxchg weak ptr %15, i64 %67, i64 %70 seq_cst monotonic, align 8
-  %72 = extractvalue { i64, i1 } %71, 1
-  br i1 %72, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
+  %68 = add i64 %66, -8589934592
+  %69 = add i64 %68, %.neg19.i.i57
+  %70 = cmpxchg weak ptr %15, i64 %66, i64 %69 seq_cst monotonic, align 8
+  %71 = extractvalue { i64, i1 } %70, 1
+  br i1 %71, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
 
-_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58: ; preds = %68, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
-  %73 = phi { i64, i1 } [ %77, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58 ], [ %71, %68 ]
-  %74 = extractvalue { i64, i1 } %73, 0
-  %.08.in.in.i.i59 = and i64 %74, 4294967295
+_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58: ; preds = %67, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
+  %72 = phi { i64, i1 } [ %76, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58 ], [ %70, %67 ]
+  %73 = extractvalue { i64, i1 } %72, 0
+  %.08.in.in.i.i59 = and i64 %73, 4294967295
   %.08.in.i.i60 = icmp ne i64 %.08.in.in.i.i59, 0
   %.neg.i.i61 = sext i1 %.08.in.i.i60 to i64
-  %75 = add i64 %74, -8589934592
-  %76 = add i64 %75, %.neg.i.i61
-  %77 = cmpxchg weak ptr %15, i64 %74, i64 %76 seq_cst monotonic, align 8
-  %78 = extractvalue { i64, i1 } %77, 1
-  br i1 %78, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
+  %74 = add i64 %73, -8589934592
+  %75 = add i64 %74, %.neg.i.i61
+  %76 = cmpxchg weak ptr %15, i64 %73, i64 %75 seq_cst monotonic, align 8
+  %77 = extractvalue { i64, i1 } %76, 1
+  br i1 %77, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58
 
-79:                                               ; preds = %64
-  %.08.in15.not.i = icmp eq i64 %.08.in.in17.i.i55, 0
-  br i1 %.08.in15.not.i, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63, label %.lr.ph.i
+78:                                               ; preds = %64
+  %.08.in15.not.i = icmp eq i64 %.08.in.in14.i, 0
+  br i1 %.08.in15.not.i, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %79, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
-  %.016.i = phi i64 [ %83, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %67, %79 ]
-  %80 = add i64 %.016.i, -8589934593
-  %81 = cmpxchg weak ptr %15, i64 %.016.i, i64 %80 seq_cst monotonic, align 8
-  %82 = extractvalue { i64, i1 } %81, 1
-  br i1 %82, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
+.lr.ph.i:                                         ; preds = %78, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
+  %.016.i = phi i64 [ %82, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %66, %78 ]
+  %79 = add i64 %.016.i, -8589934593
+  %80 = cmpxchg weak ptr %15, i64 %.016.i, i64 %79 seq_cst monotonic, align 8
+  %81 = extractvalue { i64, i1 } %80, 1
+  br i1 %81, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i
 
 _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i:  ; preds = %.lr.ph.i
-  %83 = extractvalue { i64, i1 } %81, 0
-  %.08.in.in.i = and i64 %83, 4294967295
+  %82 = extractvalue { i64, i1 } %80, 0
+  %.08.in.in.i = and i64 %82, 4294967295
   %.08.in.not.i = icmp eq i64 %.08.in.in.i, 0
-  br i1 %.08.in.not.i, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63, label %.lr.ph.i
+  br i1 %.08.in.not.i, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %.lr.ph.i
 
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58, %79
-  %84 = phi i1 [ false, %79 ], [ %.08.in.i.i60, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ]
-  %brmerge = or i1 %66, %84
-  br i1 %brmerge, label %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
+_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58, %.lr.ph.i, %67
+  %83 = phi i1 [ %.08.in18.i.i56, %67 ], [ true, %.lr.ph.i ], [ %.08.in.i.i60, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i58 ]
+  %84 = call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EENS_13invoke_detail6traitsIRKSG_E6resultIEESG_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %0)
+  %.not = icmp eq ptr %84, null
+  br i1 %.not, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %85
 
-_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread: ; preds = %.lr.ph.i, %68, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63
-  %85 = phi i1 [ %84, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63 ], [ %.08.in18.i.i56, %68 ], [ true, %.lr.ph.i ]
-  %86 = call noundef ptr @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1EE12lock_combineIZNS_16ThrottledLifoSem16tryWaitUntilSlowINSt6chrono3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS8_10time_pointIT_T0_EEEUlvE1_EENS_13invoke_detail6traitsIRKSG_E6resultIEESG_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr nonnull %0)
-  %.not = icmp eq ptr %86, null
-  br i1 %.not, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %87
+85:                                               ; preds = %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread
+  %86 = cmpxchg ptr %84, i32 0, i32 1 release monotonic, align 4
+  %87 = extractvalue { i32, i1 } %86, 1
+  br i1 %87, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %88
 
-87:                                               ; preds = %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread
-  %88 = cmpxchg ptr %86, i32 0, i32 1 release monotonic, align 4
-  %89 = extractvalue { i32, i1 } %88, 1
-  br i1 %89, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %90
-
-90:                                               ; preds = %87
-  %91 = extractvalue { i32, i1 } %88, 0
-  call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %86, i32 noundef %91) #30
+88:                                               ; preds = %85
+  %89 = extractvalue { i32, i1 } %86, 0
+  call void @_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postSlowWaiterMayBlockEj(ptr noundef nonnull align 4 dereferenceable(4) %84, i32 noundef %89) #30
   br label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
 
-_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i, %87, %34, %90, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63
-  %.133 = phi i1 [ false, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread ], [ true, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63 ], [ false, %90 ], [ false, %34 ], [ false, %87 ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
-  %.2 = phi i1 [ %85, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread ], [ %.0, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63 ], [ %85, %90 ], [ %.08.in18.i.i, %34 ], [ %85, %87 ], [ %.08.in.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
+_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit: ; preds = %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i, %78, %85, %34, %88, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread
+  %.133 = phi i1 [ false, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread ], [ false, %88 ], [ false, %34 ], [ false, %85 ], [ true, %78 ], [ true, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ false, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
+  %.2 = phi i1 [ %83, %_ZN5folly16ThrottledLifoSem16tryWaitOnTimeoutEv.exit63.thread ], [ %83, %88 ], [ %.08.in18.i.i, %34 ], [ %83, %85 ], [ %.0, %78 ], [ %.0, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i ], [ %.08.in.i.i, %_ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #30
-  br i1 %.133, label %19, label %92, !llvm.loop !811
+  br i1 %.133, label %19, label %90, !llvm.loop !811
 
-92:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
+90:                                               ; preds = %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #30
   ret i1 %.2
 }

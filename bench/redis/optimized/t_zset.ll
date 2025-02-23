@@ -371,7 +371,7 @@ zslRandomLevel.exit:                              ; preds = %.preheader94
 
 .lr.ph109.preheader:                              ; preds = %.preheader
   %umin120 = tail call i64 @llvm.umin.i64(i64 %indvars.iv118, i64 32)
-  %80 = sext i32 %78 to i64
+  %80 = zext nneg i32 %78 to i64
   br label %.lr.ph109
 
 81:                                               ; preds = %70, %81
@@ -411,7 +411,7 @@ zslRandomLevel.exit:                              ; preds = %.preheader94
   %101 = add i64 %100, 1
   store i64 %101, ptr %99, align 8, !tbaa !27
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %102 = icmp slt i64 %indvars.iv.next122, %80
+  %102 = icmp samesign ult i64 %indvars.iv.next122, %80
   br i1 %102, label %.lr.ph109, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph109, %.preheader
@@ -14768,18 +14768,18 @@ zuiNewSdsFromValue.exit192:                       ; preds = %233, %236, %240, %2
 
 .lr.ph205:                                        ; preds = %.preheader, %.lr.ph205
   %.0148204 = phi i64 [ %266, %.lr.ph205 ], [ %.0.i, %.preheader ]
-  %262 = call ptr @dictGetFairRandomKey(ptr noundef %221) #18
+  %262 = call ptr @dictGetFairRandomKey(ptr noundef nonnull %221) #18
   %263 = call ptr @dictGetKey(ptr noundef %262) #18
-  %264 = call ptr @dictUnlink(ptr noundef %221, ptr noundef %263) #18
+  %264 = call ptr @dictUnlink(ptr noundef nonnull %221, ptr noundef %263) #18
   %265 = call ptr @dictGetKey(ptr noundef %262) #18
   call void @sdsfree(ptr noundef %265) #18
-  call void @dictFreeUnlinkedEntry(ptr noundef %221, ptr noundef %262) #18
+  call void @dictFreeUnlinkedEntry(ptr noundef nonnull %221, ptr noundef %262) #18
   %266 = add i64 %.0148204, -1
   %267 = icmp ugt i64 %266, %.0
   br i1 %267, label %.lr.ph205, label %._crit_edge206, !llvm.loop !223
 
 ._crit_edge206:                                   ; preds = %.lr.ph205, %.preheader
-  %268 = call ptr @dictGetIterator(ptr noundef %221) #18
+  %268 = call ptr @dictGetIterator(ptr noundef nonnull %221) #18
   %269 = call ptr @dictNext(ptr noundef %268) #18
   %.not166207 = icmp eq ptr %269, null
   br i1 %.not166207, label %._crit_edge210, label %.lr.ph209

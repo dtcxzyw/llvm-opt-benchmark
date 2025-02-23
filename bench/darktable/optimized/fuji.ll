@@ -3282,7 +3282,7 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   store i8 %138, ptr %140, align 1, !tbaa !83
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %exitcond297.not = icmp eq i64 %indvars.iv.next295, 36
-  br i1 %exitcond297.not, label %.loopexit240, label %130, !llvm.loop !173
+  br i1 %exitcond297.not, label %.thread.thread, label %130, !llvm.loop !173
 
 .preheader244:                                    ; preds = %110, %.preheader244
   %.1183255 = phi i32 [ %146, %.preheader244 ], [ 0, %110 ]
@@ -3316,7 +3316,7 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %exitcond289.not, label %.loopexit243, label %.preheader242, !llvm.loop !175
 
 .loopexit243:                                     ; preds = %.preheader242, %147
-  br i1 %.not213, label %.preheader350, label %158
+  br i1 %.not213, label %.preheader355, label %158
 
 158:                                              ; preds = %.loopexit243
   %159 = load i32, ptr %42, align 4, !tbaa !93
@@ -3329,13 +3329,13 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   %165 = fmul reassoc nsz arcp contract afn double %.0191, %164
   %166 = fptosi double %165 to i32
   store i32 %166, ptr %43, align 4, !tbaa !93
-  br label %.preheader350
+  br label %.preheader355
 
-.preheader350:                                    ; preds = %158, %.loopexit243
+.preheader355:                                    ; preds = %158, %.loopexit243
   br label %167
 
-167:                                              ; preds = %.preheader350, %167
-  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %167 ], [ 0, %.preheader350 ]
+167:                                              ; preds = %.preheader355, %167
+  %indvars.iv290 = phi i64 [ %indvars.iv.next291, %167 ], [ 0, %.preheader355 ]
   %168 = getelementptr inbounds nuw [4 x i32], ptr %42, i64 0, i64 %indvars.iv290
   %169 = load i32, ptr %168, align 4, !tbaa !93
   %170 = sitofp i32 %169 to float
@@ -3343,7 +3343,7 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
   store float %170, ptr %171, align 4, !tbaa !101
   %indvars.iv.next291 = add nuw nsw i64 %indvars.iv290, 1
   %exitcond293.not = icmp eq i64 %indvars.iv.next291, 4
-  br i1 %exitcond293.not, label %.loopexit240, label %167, !llvm.loop !176
+  br i1 %exitcond293.not, label %.thread.thread, label %167, !llvm.loop !176
 
 172:                                              ; preds = %110
   switch i16 %75, label %.thread.thread [
@@ -3391,7 +3391,7 @@ thread-pre-split:                                 ; preds = %.preheader249
 
 191:                                              ; preds = %thread-pre-split, %182
   %192 = phi i16 [ %.pr, %thread-pre-split ], [ %183, %182 ]
-  switch i16 %192, label %.loopexit240 [
+  switch i16 %192, label %.thread.thread [
     i16 4, label %.preheader245
     i16 8, label %.preheader247
   ]
@@ -3405,7 +3405,7 @@ thread-pre-split:                                 ; preds = %.preheader249
   %196 = getelementptr inbounds nuw [4104 x i32], ptr %41, i64 0, i64 %indvars.iv284
   store i32 %195, ptr %196, align 4, !tbaa !93
   %exitcond287.not = icmp eq i64 %indvars.iv.next285, 4
-  br i1 %exitcond287.not, label %.loopexit240, label %.preheader245, !llvm.loop !179
+  br i1 %exitcond287.not, label %.thread.thread, label %.preheader245, !llvm.loop !179
 
 .preheader247:                                    ; preds = %191, %.preheader247
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader247 ], [ 0, %191 ]
@@ -3422,7 +3422,7 @@ thread-pre-split:                                 ; preds = %.preheader249
   %206 = getelementptr inbounds nuw [4104 x i32], ptr %41, i64 0, i64 %indvars.iv
   store i32 %205, ptr %206, align 4, !tbaa !93
   %exitcond283.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond283.not, label %.loopexit240, label %.preheader247, !llvm.loop !180
+  br i1 %exitcond283.not, label %.thread.thread, label %.preheader247, !llvm.loop !180
 
 207:                                              ; preds = %110
   %208 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -3480,7 +3480,7 @@ thread-pre-split:                                 ; preds = %.preheader249
   store float %239, ptr %38, align 4, !tbaa !107
   br label %.thread.thread
 
-.loopexit240:                                     ; preds = %.preheader247, %.preheader245, %167, %130, %110, %191
+.loopexit240:                                     ; preds = %110
   %240 = add i16 %73, -8192
   %or.cond13 = icmp ult i16 %240, 1041
   br i1 %or.cond13, label %.preheader238, label %.thread
@@ -3848,8 +3848,8 @@ _ZNK21libraw_static_table_tixEj.exit224:          ; preds = %403, %405, %406
   store i16 %322, ptr %51, align 8, !tbaa !73
   br label %.thread.thread
 
-.thread.thread:                                   ; preds = %320, %241, %284, %172, %111, %214, %222, %223, %218, %106, %108, %109, %107, %100, %90, %115, %230, %95, %84, %.thread, %272, %.loopexit236, %414
-  %.1186227 = phi i16 [ %.0185272, %.thread ], [ %.0185272, %272 ], [ %.0185272, %.loopexit236 ], [ %.0185272, %414 ], [ 1, %84 ], [ 1, %90 ], [ 1, %95 ], [ %.0185272, %115 ], [ %.0185272, %230 ], [ 1, %100 ], [ 1, %107 ], [ 1, %109 ], [ 1, %108 ], [ 1, %106 ], [ %.0185272, %111 ], [ %.0185272, %218 ], [ %.0185272, %223 ], [ %.0185272, %222 ], [ %.0185272, %214 ], [ %.0185272, %172 ], [ %.0185272, %284 ], [ %.0185272, %241 ], [ %.0185272, %320 ]
+.thread.thread:                                   ; preds = %.preheader247, %.preheader245, %167, %130, %320, %241, %191, %284, %172, %111, %214, %222, %223, %218, %106, %108, %109, %107, %100, %90, %115, %230, %95, %84, %.thread, %272, %.loopexit236, %414
+  %.1186227 = phi i16 [ %.0185272, %.thread ], [ %.0185272, %272 ], [ %.0185272, %.loopexit236 ], [ %.0185272, %414 ], [ 1, %84 ], [ 1, %90 ], [ 1, %95 ], [ %.0185272, %115 ], [ %.0185272, %230 ], [ 1, %100 ], [ 1, %107 ], [ 1, %109 ], [ 1, %108 ], [ 1, %106 ], [ %.0185272, %111 ], [ %.0185272, %218 ], [ %.0185272, %223 ], [ %.0185272, %222 ], [ %.0185272, %214 ], [ %.0185272, %172 ], [ %.0185272, %284 ], [ %.0185272, %191 ], [ %.0185272, %241 ], [ %.0185272, %320 ], [ %.0185272, %130 ], [ %.0185272, %167 ], [ %.0185272, %.preheader245 ], [ %.0185272, %.preheader247 ]
   %415 = load ptr, ptr %5, align 8, !tbaa !74
   %416 = add i32 %82, %76
   %417 = zext i32 %416 to i64

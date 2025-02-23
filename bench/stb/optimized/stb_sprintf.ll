@@ -929,8 +929,9 @@ stbsp__lead_sign.exit:                            ; preds = %308, %.sink.split.i
   %352 = select i1 %347, i32 6, i32 %351
   %353 = trunc nuw nsw i32 %352 to i8
   store i8 %353, ptr %9, align 1, !tbaa !3
-  %354 = urem i32 %.promoted1688, 10
-  %355 = trunc nuw nsw i32 %354 to i8
+  %.lhs.trunc = trunc nsw i32 %.promoted1688 to i16
+  %354 = urem i16 %.lhs.trunc, 10
+  %355 = trunc nuw nsw i16 %354 to i8
   %356 = or disjoint i8 %355, 48
   %357 = zext nneg i32 %352 to i64
   %358 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 0, i64 %357
@@ -3253,24 +3254,23 @@ thread-pre-split121:                              ; preds = %thread-pre-split
   %storemerge169 = phi i64 [ %.1, %.loopexit ], [ %storemerge203, %._crit_edge165 ]
   %.087 = phi i32 [ 0, %.loopexit ], [ %.491.lcssa, %._crit_edge165 ]
   %.082 = phi ptr [ %93, %.loopexit ], [ %.4.ptr, %._crit_edge165 ]
-  %95 = icmp sgt i64 %storemerge169, 99999999
+  %95 = icmp samesign ugt i64 %storemerge169, 99999999
   br i1 %95, label %96, label %.thread
 
 96:                                               ; preds = %94
   %97 = urem i64 %storemerge169, 100000000
   %98 = udiv i64 %storemerge169, 100000000
-  %.080 = trunc nuw nsw i64 %97 to i32
   %.not115151 = icmp eq i64 %97, 0
   br i1 %.not115151, label %.lr.ph164.preheader, label %.lr.ph156.preheader
 
 .thread:                                          ; preds = %94
-  %.080200 = trunc i64 %storemerge169 to i32
-  %.not115151201 = icmp eq i32 %.080200, 0
+  %.not115151201 = icmp eq i64 %storemerge169, 0
   br i1 %.not115151201, label %._crit_edge157.thread.thread, label %.lr.ph156.preheader
 
 .lr.ph156.preheader:                              ; preds = %.thread, %96
-  %.080206 = phi i32 [ %.080200, %.thread ], [ %.080, %96 ]
+  %.080206.in = phi i64 [ %storemerge169, %.thread ], [ %97, %96 ]
   %storemerge202 = phi i64 [ 0, %.thread ], [ %98, %96 ]
+  %.080206 = trunc nuw i64 %.080206.in to i32
   br label %.lr.ph156
 
 .lr.ph156:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156

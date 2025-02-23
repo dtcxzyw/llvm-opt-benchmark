@@ -2529,7 +2529,7 @@ _ZN16LoaderConstraint16remove_loader_atEi.exit:   ; preds = %96, %_ZN12ResourceM
   br label %_ZN12ResourceMarkD2Ev.exit48
 
 _ZN12ResourceMarkD2Ev.exit48:                     ; preds = %136, %134, %.lr.ph91, %_ZN16LoaderConstraint16remove_loader_atEi.exit
-  %137 = icmp sgt i64 %indvars.iv102, 1
+  %137 = icmp samesign ugt i64 %indvars.iv102, 1
   br i1 %137, label %.lr.ph91, label %._crit_edge92, !llvm.loop !38
 
 ._crit_edge92:                                    ; preds = %_ZN12ResourceMarkD2Ev.exit48

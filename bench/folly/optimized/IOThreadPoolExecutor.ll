@@ -6640,7 +6640,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPool
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i, %_ZNSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEEC2INS0_20IOThreadPoolExecutor8IOThreadEvEERKS_IT_E.exit
   %.sroa.011.0.lcssa.i.i.i = phi ptr [ %32, %_ZNSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEEC2INS0_20IOThreadPoolExecutor8IOThreadEvEERKS_IT_E.exit ], [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ]
   %.not.i.i17 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i, %34
-  br i1 %.not.i.i17, label %_ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6ThreadEE.exit, label %52
+  br i1 %.not.i.i17, label %59, label %52
 
 52:                                               ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i
   %53 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -6649,13 +6649,13 @@ _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18Thr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !27
   %58 = icmp uge i64 %54, %57
-  br label %_ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6ThreadEE.exit
+  br label %59
 
-_ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6ThreadEE.exit: ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i, %52
-  %59 = phi i1 [ false, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i ], [ %58, %52 ]
-  br i1 %.not.i.i.i16, label %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %60
+59:                                               ; preds = %52, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i
+  %.ph = phi i1 [ %58, %52 ], [ false, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SI_SI_RKT0_T1_.exit.i.i ]
+  br i1 %.not.i.i.i16, label %.critedge, label %60
 
-60:                                               ; preds = %_ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6ThreadEE.exit
+60:                                               ; preds = %59
   %61 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %62 = load atomic i64, ptr %61 acquire, align 8
   %63 = icmp eq i64 %62, 4294967297
@@ -6674,7 +6674,7 @@ _ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6Thread
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %23) #25
-  br label %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %.critedge
 
 73:                                               ; preds = %60
   %74 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !48
@@ -6693,16 +6693,16 @@ _ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6Thread
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %77, %75
   %.0.i.i.i.i = phi i32 [ %64, %75 ], [ %78, %77 ]
   %79 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %79, label %80, label %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !91
+  br i1 %79, label %80, label %.critedge, !prof !91
 
 80:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %23) #25
-  br label %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  br label %.critedge
 
-_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK5folly18ThreadPoolExecutor10ThreadList8containsERKSt10shared_ptrINS0_6ThreadEE.exit, %65, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %80
-  br i1 %59, label %81, label %.critedge.thread
+.critedge:                                        ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %65, %59
+  br i1 %.ph, label %81, label %.critedge.thread
 
-81:                                               ; preds = %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+81:                                               ; preds = %.critedge
   %82 = load ptr, ptr %18, align 8, !tbaa !82
   store ptr %82, ptr %0, align 8, !tbaa !82
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6727,7 +6727,7 @@ _ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_polic
   %92 = atomicrmw volatile add ptr %86, i32 1 acq_rel, align 4
   br label %_ZNSt10shared_ptrIN5folly20IOThreadPoolExecutor8IOThreadEEC2ERKS3_.exit
 
-.critedge.thread:                                 ; preds = %_ZNK5folly11ThreadLocalISt10shared_ptrINS_20IOThreadPoolExecutor8IOThreadEEvvEdeEv.exit, %_ZNSt12__shared_ptrIN5folly18ThreadPoolExecutor6ThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+.critedge.thread:                                 ; preds = %_ZNK5folly11ThreadLocalISt10shared_ptrINS_20IOThreadPoolExecutor8IOThreadEEvvEdeEv.exit, %.critedge
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %94 = load ptr, ptr %93, align 64, !tbaa !216
   %95 = load ptr, ptr %19, align 8, !tbaa !215

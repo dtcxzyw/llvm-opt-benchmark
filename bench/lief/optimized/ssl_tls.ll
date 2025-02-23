@@ -3447,7 +3447,7 @@ ssl_key_cert_free.exit:                           ; preds = %.lr.ph.i, %33
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 1032
   %41 = load ptr, ptr %40, align 8
   tail call void @mbedtls_ssl_flight_free(ptr noundef %41) #22
-  tail call void @mbedtls_ssl_buffering_free(ptr noundef %0) #22
+  tail call void @mbedtls_ssl_buffering_free(ptr noundef nonnull %0) #22
   tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 2648) #22
   br label %42
 
@@ -4752,7 +4752,7 @@ define hidden void @mbedtls_ssl_config_free(ptr noundef %0) local_unnamed_addr #
   br i1 %.not.i, label %ssl_key_cert_free.exit, label %.lr.ph.i, !llvm.loop !10
 
 ssl_key_cert_free.exit:                           ; preds = %.lr.ph.i, %17
-  tail call void @mbedtls_platform_zeroize(ptr noundef %0, i64 noundef 392) #22
+  tail call void @mbedtls_platform_zeroize(ptr noundef nonnull %0, i64 noundef 392) #22
   ret void
 }
 

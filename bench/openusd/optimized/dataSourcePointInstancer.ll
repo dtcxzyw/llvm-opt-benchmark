@@ -2865,7 +2865,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESaIS2_EE6resizeEm.ex
           to label %190 unwind label %185
 
 190:                                              ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEESaIS2_EE6resizeEm.exit
-  %191 = add i64 %.016, 1
+  %191 = add nuw i64 %.016, 1
   br label %157, !llvm.loop !10
 
 192:                                              ; preds = %159

@@ -615,7 +615,7 @@ define internal fastcc range(i32 0, 2) i32 @lre_is_in_table(i32 noundef %0, ptr 
   %35 = shl nuw nsw i32 %34, 16
   %.masked32.i = and i32 %35, 2031616
   %36 = or disjoint i32 %.masked32.i, %31
-  %37 = icmp ult i32 %0, %36
+  %37 = icmp samesign ult i32 %0, %36
   %.028..i = select i1 %37, i32 %.02833.i, i32 %26
   %..027.i = select i1 %37, i32 %26, i32 %.02734.i
   %38 = sub i32 %..027.i, %.028..i
@@ -1334,7 +1334,7 @@ define dso_local i32 @unicode_normalize(ptr noundef writeonly captures(none) %0,
   %51 = shl nuw nsw i32 %50, 16
   %.masked32.i.i.i = and i32 %51, 2031616
   %52 = or disjoint i32 %.masked32.i.i.i, %47
-  %53 = icmp ult i32 %37, %52
+  %53 = icmp samesign ult i32 %37, %52
   %.028..i.i.i = select i1 %53, i32 %.02833.i.i.i, i32 %42
   %..027.i.i.i = select i1 %53, i32 %42, i32 %.02734.i.i.i
   %54 = sub i32 %..027.i.i.i, %.028..i.i.i
@@ -1482,7 +1482,7 @@ unicode_get_cc.exit.i:                            ; preds = %111, %107
   %133 = shl nuw nsw i32 %132, 16
   %.masked32.i.i40.i = and i32 %133, 2031616
   %134 = or disjoint i32 %.masked32.i.i40.i, %129
-  %135 = icmp ult i32 %120, %134
+  %135 = icmp samesign ult i32 %120, %134
   %.028..i.i41.i = select i1 %135, i32 %.02833.i.i39.i, i32 %124
   %..027.i.i42.i = select i1 %135, i32 %124, i32 %.02734.i.i38.i
   %136 = sub i32 %..027.i.i42.i, %.028..i.i41.i
@@ -1929,7 +1929,7 @@ define internal fastcc i32 @unicode_get_cc(i32 noundef %0) unnamed_addr #3 {
   %14 = shl nuw nsw i32 %13, 16
   %.masked32.i = and i32 %14, 2031616
   %15 = or disjoint i32 %.masked32.i, %10
-  %16 = icmp ult i32 %0, %15
+  %16 = icmp samesign ult i32 %0, %15
   %.028..i = select i1 %16, i32 %.02833.i, i32 %5
   %..027.i = select i1 %16, i32 %5, i32 %.02734.i
   %17 = sub i32 %..027.i, %.028..i

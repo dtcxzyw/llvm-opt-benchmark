@@ -3711,7 +3711,7 @@ _ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47: ; preds = %.lr.ph.i43
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47
-  %49 = icmp sgt i64 %8, 7
+  %49 = icmp samesign ugt i64 %8, 7
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %48
@@ -4960,7 +4960,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i:       ; preds = %._crit_edge.i.i.i
   br i1 %.not.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, label %77
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i, %61, %47, %43
-  %.not9.i.i = icmp ult i32 %36, 64
+  %.not9.i.i = icmp samesign ult i32 %36, 64
   br i1 %.not9.i.i, label %_ZN10fast_float6bigint4pow2Ej.exit, label %65
 
 65:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -5044,7 +5044,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i113:    ; preds = %._crit_edge.i.i.i10
   br i1 %.not.i.i.i105, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, label %117
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i113, %100, %85, %80
-  %.not9.i.i108 = icmp ult i32 %81, 64
+  %.not9.i.i108 = icmp samesign ult i32 %81, 64
   br i1 %.not9.i.i108, label %_ZN10fast_float6bigint4pow2Ej.exit, label %104
 
 104:                                              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107
@@ -5389,7 +5389,6 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit: ; preds = %._crit_
   %.not.i19 = icmp ult i16 %.fr, 63
   %33 = shl nuw nsw i16 %.fr, 3
   %34 = zext nneg i16 %33 to i64
-  %umax72 = tail call i64 @llvm.umax.i64(i64 %2, i64 2)
   br i1 %.not.i19, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
@@ -5466,7 +5465,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
 
 69:                                               ; preds = %66
   %70 = icmp samesign ugt i64 %67, %62
-  br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %.sink.split.i.us
+  br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
 .lr.ph.i.i.i.i.preheader.i.i.i.us:                ; preds = %69
   %.idx8.i.i.i.us = shl nuw nsw i64 %62, 3
@@ -5474,29 +5473,29 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   %72 = sub nuw nsw i64 %67, %62
   %73 = shl nuw nsw i64 %72, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false)
-  br label %.sink.split.i.us
+  br label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
-.sink.split.i.us:                                 ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
+_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
   %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8
   br label %74
 
-74:                                               ; preds = %.sink.split.i.us, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us
+74:                                               ; preds = %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us
   %.not.i30.us = icmp eq i16 %59, 0
   br i1 %.not.i30.us, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us, label %.lr.ph.i31.us
 
 .lr.ph.i31.us:                                    ; preds = %74, %88
-  %.03248.i.us = phi i64 [ %92, %88 ], [ 0, %74 ]
-  %.03347.i.us = phi i1 [ %91, %88 ], [ false, %74 ]
-  %75 = add i64 %.03248.i.us, %.01659.us
+  %.03246.i.us = phi i64 [ %92, %88 ], [ 0, %74 ]
+  %.03345.i.us = phi i1 [ %91, %88 ], [ false, %74 ]
+  %75 = add i64 %.03246.i.us, %.01659.us
   %76 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %75
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.03248.i.us
+  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.03246.i.us
   %79 = load i64, ptr %78, align 8
   %80 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %77, i64 %79)
   %81 = extractvalue { i64, i1 } %80, 1
   %82 = extractvalue { i64, i1 } %80, 0
-  br i1 %.03347.i.us, label %83, label %88
+  br i1 %.03345.i.us, label %83, label %88
 
 83:                                               ; preds = %.lr.ph.i31.us
   %84 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 1)
@@ -5512,7 +5511,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   %89 = zext i1 %81 to i32
   %90 = or i32 %.035.i.us, %89
   %91 = icmp ne i32 %90, 0
-  %92 = add nuw nsw i64 %.03248.i.us, 1
+  %92 = add nuw nsw i64 %.03246.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %92, %60
   br i1 %exitcond.not.i.us, label %._crit_edge.i32.us, label %.lr.ph.i31.us, !llvm.loop !63
 
@@ -5554,7 +5553,7 @@ _ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ; preds = %.crite
 
 _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us: ; preds = %103, %_ZN10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us, %._crit_edge.i32.us, %74, %.lr.ph.split.us
   %110 = add nuw i64 %.01659.us, 1
-  %exitcond73.not = icmp eq i64 %110, %umax72
+  %exitcond73.not = icmp eq i64 %110, %2
   br i1 %exitcond73.not, label %.loopexit.loopexit, label %.lr.ph.split.us, !llvm.loop !64
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread
@@ -5566,7 +5565,7 @@ _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.t
 
 _ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread: ; preds = %.lr.ph.split
   %113 = add nuw i64 %.01659, 1
-  %exitcond.not = icmp eq i64 %113, %umax72
+  %exitcond.not = icmp eq i64 %113, %2
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !64
 
 .loopexit.loopexit:                               ; preds = %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us
@@ -6614,7 +6613,7 @@ _ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47: ; preds = %.lr.ph.i43
   br i1 %47, label %48, label %.loopexit
 
 48:                                               ; preds = %_ZN10fast_float21fastfloat_strncasecmpEPKcS1_m.exit47
-  %49 = icmp sgt i64 %8, 7
+  %49 = icmp samesign ugt i64 %8, 7
   br i1 %49, label %50, label %61
 
 50:                                               ; preds = %48
@@ -6964,7 +6963,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i:       ; preds = %._crit_edge.i.i.i
   br i1 %.not.i.i.i, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i, label %77
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i, %61, %47, %43
-  %.not9.i.i = icmp ult i32 %36, 64
+  %.not9.i.i = icmp samesign ult i32 %36, 64
   br i1 %.not9.i.i, label %_ZN10fast_float6bigint4pow2Ej.exit, label %65
 
 65:                                               ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -7048,7 +7047,7 @@ _ZN10fast_float6bigint8shl_bitsEm.exit.i.i113:    ; preds = %._crit_edge.i.i.i10
   br i1 %.not.i.i.i105, label %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107, label %117
 
 _ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107: ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.i.i113, %100, %85, %80
-  %.not9.i.i108 = icmp ult i32 %81, 64
+  %.not9.i.i108 = icmp samesign ult i32 %81, 64
   br i1 %.not9.i.i108, label %_ZN10fast_float6bigint4pow2Ej.exit, label %104
 
 104:                                              ; preds = %_ZN10fast_float6bigint8shl_bitsEm.exit.thread.i.i107

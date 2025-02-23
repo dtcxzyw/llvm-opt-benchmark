@@ -138,7 +138,7 @@ define void @dorgtsqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   br i1 %.not106.not, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph, %57
-  %69 = sitofp i32 %45 to double
+  %69 = uitofp nneg i32 %45 to double
   store double %69, ptr %8, align 8, !tbaa !7
   br label %70
 

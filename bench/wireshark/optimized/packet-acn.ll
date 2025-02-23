@@ -3233,7 +3233,7 @@ dissect_pdu_bit_flag_v.exit.i.i:                  ; preds = %271, %.thread.i
   br i1 %368, label %.lr.ph.preheader.i.i.i, label %ltos.exit.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.preheader.i.i.i
-  %369 = zext i8 %364 to i64
+  %369 = zext nneg i8 %364 to i64
   %scevgep.i.i.i = getelementptr i8, ptr %.0117178.i.i, i64 %369
   %370 = sub i8 %356, %.1.i.i.i
   %371 = zext i8 %370 to i64

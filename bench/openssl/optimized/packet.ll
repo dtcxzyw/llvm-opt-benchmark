@@ -1018,7 +1018,7 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
 
 78:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.0.lcssa125 = phi i64 [ 1, %._crit_edge.thread ], [ %76, %._crit_edge ]
-  %79 = call i32 @WPACKET_allocate_bytes(ptr noundef %0, i64 noundef %.0.lcssa125, ptr noundef nonnull %4)
+  %79 = call i32 @WPACKET_allocate_bytes(ptr noundef nonnull %0, i64 noundef %.0.lcssa125, ptr noundef nonnull %4)
   %.not.i80 = icmp eq i32 %79, 0
   br i1 %.not.i80, label %WPACKET_put_bytes__.exit.thread, label %80
 

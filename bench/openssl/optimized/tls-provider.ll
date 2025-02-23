@@ -1721,12 +1721,12 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
   %17 = load ptr, ptr %16, align 8, !tbaa !52
   %18 = tail call ptr @xor_gen_init(ptr noundef %17, i32 noundef 3, ptr noundef null)
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %xor_derive.exit.thread67, label %20
+  br i1 %19, label %xor_derive.exit, label %20
 
 20:                                               ; preds = %15
   %21 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 88, ptr noundef nonnull @.str.2, i32 noundef 691) #16
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %xor_derive.exit.thread67, label %23
+  br i1 %22, label %xor_derive.exit, label %23
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 80
@@ -1749,7 +1749,7 @@ define internal range(i32 0, 2) i32 @xor_encapsulate(ptr noundef readonly captur
 
 33:                                               ; preds = %27
   tail call void @CRYPTO_free(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i32 noundef 985) #16
-  br label %xor_derive.exit.thread67
+  br label %xor_derive.exit
 
 34:                                               ; preds = %34, %.preheader.i
   %.018.i = phi i64 [ 0, %.preheader.i ], [ %41, %34 ]
@@ -1778,7 +1778,7 @@ xor_gen.exit:                                     ; preds = %42, %23
   %46 = load ptr, ptr %16, align 8, !tbaa !52
   %47 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 467) #16
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %xor_derive.exit.thread57, label %49
+  br i1 %48, label %xor_newkemkexctx.exit.thread, label %49
 
 49:                                               ; preds = %xor_gen.exit
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -1786,7 +1786,7 @@ xor_gen.exit:                                     ; preds = %42, %23
   store ptr %21, ptr %47, align 8, !tbaa !54
   %51 = load ptr, ptr %0, align 8, !tbaa !54
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %xor_derive.exit.thread57, label %53
+  br i1 %52, label %xor_newkemkexctx.exit.thread, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -1806,24 +1806,24 @@ xor_gen.exit:                                     ; preds = %42, %23
   store i8 %60, ptr %61, align 1, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i50 = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i50, label %xor_derive.exit.thread57, label %.preheader.i49, !llvm.loop !56
+  br i1 %exitcond.not.i50, label %xor_newkemkexctx.exit.thread, label %.preheader.i49, !llvm.loop !56
 
-xor_derive.exit.thread67:                         ; preds = %15, %33, %20
+xor_derive.exit:                                  ; preds = %20, %33, %15
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef 1091) #16
   br label %xor_freekey.exit
 
-xor_derive.exit.thread57:                         ; preds = %.preheader.i49, %49, %xor_gen.exit
-  %.03461 = phi i32 [ 0, %xor_gen.exit ], [ 0, %49 ], [ 1, %.preheader.i49 ]
+xor_newkemkexctx.exit.thread:                     ; preds = %.preheader.i49, %49, %xor_gen.exit
+  %.034.ph = phi i32 [ 0, %xor_gen.exit ], [ 0, %49 ], [ 1, %.preheader.i49 ]
   tail call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str.2, i32 noundef 1091) #16
   %62 = atomicrmw sub ptr %24, i32 1 release, align 4
   %63 = icmp eq i32 %62, 1
   br i1 %63, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %xor_derive.exit.thread57
+CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %xor_newkemkexctx.exit.thread
   fence acquire
   br label %65
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_derive.exit.thread57
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_newkemkexctx.exit.thread
   %64 = icmp sgt i32 %62, 1
   br i1 %64, label %xor_freekey.exit, label %65
 
@@ -1835,9 +1835,9 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_derive.exit.thr
   tail call void @CRYPTO_free(ptr noundef nonnull %21, ptr noundef nonnull @.str.2, i32 noundef 724) #16
   br label %xor_freekey.exit
 
-xor_freekey.exit:                                 ; preds = %xor_derive.exit.thread67, %CRYPTO_DOWN_REF.exit.i, %65
-  %.03364 = phi ptr [ %47, %CRYPTO_DOWN_REF.exit.i ], [ %47, %65 ], [ null, %xor_derive.exit.thread67 ]
-  %.03462 = phi i32 [ %.03461, %CRYPTO_DOWN_REF.exit.i ], [ %.03461, %65 ], [ 0, %xor_derive.exit.thread67 ]
+xor_freekey.exit:                                 ; preds = %xor_derive.exit, %CRYPTO_DOWN_REF.exit.i, %65
+  %.03364 = phi ptr [ null, %xor_derive.exit ], [ %47, %CRYPTO_DOWN_REF.exit.i ], [ %47, %65 ]
+  %.03462 = phi i32 [ 0, %xor_derive.exit ], [ %.034.ph, %CRYPTO_DOWN_REF.exit.i ], [ %.034.ph, %65 ]
   tail call void @CRYPTO_free(ptr noundef %.03364, ptr noundef nonnull @.str.2, i32 noundef 522) #16
   br label %68
 
@@ -1877,14 +1877,14 @@ define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captur
   %18 = load ptr, ptr %15, align 8, !tbaa !52
   %19 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 24, ptr noundef nonnull @.str.2, i32 noundef 467) #16
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %xor_derive.exit.thread37, label %21
+  br i1 %20, label %xor_newkemkexctx.exit.thread, label %21
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %18, ptr %22, align 8, !tbaa !52
   %23 = load ptr, ptr %0, align 8, !tbaa !54
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %xor_derive.exit.thread37, label %25
+  br i1 %24, label %xor_newkemkexctx.exit.thread, label %25
 
 25:                                               ; preds = %21
   store ptr %23, ptr %19, align 8, !tbaa !54
@@ -1904,19 +1904,19 @@ define internal range(i32 0, 2) i32 @xor_decapsulate(ptr noundef readonly captur
   store i8 %31, ptr %32, align 1, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 32
-  br i1 %exitcond.not.i, label %xor_derive.exit.thread37, label %.preheader.i, !llvm.loop !56
+  br i1 %exitcond.not.i, label %xor_newkemkexctx.exit.thread, label %.preheader.i, !llvm.loop !56
 
-xor_derive.exit.thread37:                         ; preds = %.preheader.i, %21, %14
-  %.02240 = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %.preheader.i ]
+xor_newkemkexctx.exit.thread:                     ; preds = %.preheader.i, %21, %14
+  %.022.ph = phi i32 [ 0, %14 ], [ 0, %21 ], [ 1, %.preheader.i ]
   %33 = atomicrmw sub ptr %16, i32 1 release, align 4
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %xor_derive.exit.thread37
+CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %xor_newkemkexctx.exit.thread
   fence acquire
   br label %36
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_derive.exit.thread37
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_newkemkexctx.exit.thread
   %35 = icmp sgt i32 %33, 1
   br i1 %35, label %xor_freekey.exit, label %36
 
@@ -1930,7 +1930,7 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %xor_derive.exit.thr
 
 xor_freekey.exit:                                 ; preds = %11, %CRYPTO_DOWN_REF.exit.i, %36
   %.02143 = phi ptr [ %19, %CRYPTO_DOWN_REF.exit.i ], [ %19, %36 ], [ null, %11 ]
-  %.02241 = phi i32 [ %.02240, %CRYPTO_DOWN_REF.exit.i ], [ %.02240, %36 ], [ 0, %11 ]
+  %.02241 = phi i32 [ %.022.ph, %CRYPTO_DOWN_REF.exit.i ], [ %.022.ph, %36 ], [ 0, %11 ]
   tail call void @CRYPTO_free(ptr noundef %.02143, ptr noundef nonnull @.str.2, i32 noundef 522) #16
   br label %39
 
@@ -6153,7 +6153,7 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %0, align 8, !tbaa !106
-  %24 = call ptr @EVP_Q_mac(ptr noundef %23, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %9, i64 noundef 32, ptr noundef %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %7) #16
+  %24 = call ptr @EVP_Q_mac(ptr noundef %23, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef nonnull @.str.68, ptr noundef null, ptr noundef nonnull %9, i64 noundef 32, ptr noundef nonnull %3, i64 noundef %4, ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull %7) #16
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %25, label %26
 
@@ -6169,7 +6169,7 @@ define internal range(i32 0, 2) i32 @xor_sig_verify(ptr noundef readonly capture
   br i1 %.not27, label %28, label %29
 
 28:                                               ; preds = %26
-  %bcmp = call i32 @bcmp(ptr nonnull %6, ptr %1, i64 %2)
+  %bcmp = call i32 @bcmp(ptr nonnull %6, ptr nonnull %1, i64 %2)
   %.not28 = icmp eq i32 %bcmp, 0
   br i1 %.not28, label %30, label %29
 

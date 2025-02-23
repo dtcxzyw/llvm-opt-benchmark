@@ -1214,36 +1214,37 @@ proto_item_set_generated.exit627:                 ; preds = %391, %394, %397
   %.not786 = icmp eq i16 %.1548, 0
   br i1 %.not786, label %.thread848, label %.lr.ph
 
-.thread848:                                       ; preds = %403
-  %407 = load ptr, ptr %9, align 8
-  %408 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @pdu_vals, ptr noundef nonnull @.str.248)
-  tail call void @col_append_str(ptr noundef %407, i32 noundef 25, ptr noundef %408)
-  br label %613
-
 .lr.ph:                                           ; preds = %403, %.lr.ph
   %.11761 = phi i32 [ %.11, %.lr.ph ], [ %.11759, %403 ]
-  %.2575760 = phi i32 [ %411, %.lr.ph ], [ 0, %403 ]
-  %409 = load i32, ptr @hf_dest_id, align 4
-  %410 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %409, ptr noundef %0, i32 noundef %.11761, i32 noundef 4, i32 noundef 0)
-  %411 = add nuw nsw i32 %.2575760, 1
+  %.2575760 = phi i32 [ %409, %.lr.ph ], [ 0, %403 ]
+  %407 = load i32, ptr @hf_dest_id, align 4
+  %408 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %407, ptr noundef %0, i32 noundef %.11761, i32 noundef 4, i32 noundef 0)
+  %409 = add nuw nsw i32 %.2575760, 1
   %.11 = add nuw nsw i32 %.11761, 4
-  %exitcond.not = icmp eq i32 %411, %406
-  br i1 %exitcond.not, label %.loopexit757, label %.lr.ph, !llvm.loop !13
+  %exitcond.not = icmp eq i32 %409, %406
+  br i1 %exitcond.not, label %.thread848, label %.lr.ph, !llvm.loop !13
 
 .thread653:                                       ; preds = %227, %227, %227
-  %412 = load i32, ptr @hf_mc_group, align 4
-  %413 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %412, ptr noundef %0, i32 noundef %.2559, i32 noundef 4, i32 noundef 0)
-  %414 = add nuw nsw i32 %.2559, 4
+  %410 = load i32, ptr @hf_mc_group, align 4
+  %411 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %410, ptr noundef %0, i32 noundef %.2559, i32 noundef 4, i32 noundef 0)
+  %412 = add nuw nsw i32 %.2559, 4
   br label %593
 
-.loopexit757:                                     ; preds = %.lr.ph, %227, %390, %proto_item_set_generated.exit627, %402, %270, %._crit_edge783
-  %.1578 = phi i16 [ %.0577, %227 ], [ -1, %402 ], [ %.0577, %proto_item_set_generated.exit627 ], [ %.0577, %390 ], [ %.0577, %270 ], [ %.0577, %._crit_edge783 ], [ %.0577, %.lr.ph ]
-  %.0566 = phi i32 [ 0, %227 ], [ 0, %402 ], [ %.1567.lcssa, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ 0, %270 ], [ 0, %._crit_edge783 ], [ 0, %.lr.ph ]
-  %.5 = phi i32 [ %.2559, %227 ], [ %.2559, %402 ], [ %.10, %proto_item_set_generated.exit627 ], [ %.10, %390 ], [ %.2559, %270 ], [ %.3560.lcssa794, %._crit_edge783 ], [ %.11, %.lr.ph ]
-  %.0556 = phi ptr [ null, %227 ], [ null, %402 ], [ %280, %proto_item_set_generated.exit627 ], [ %280, %390 ], [ null, %270 ], [ null, %._crit_edge783 ], [ null, %.lr.ph ]
-  %.0551 = phi i32 [ 0, %227 ], [ 0, %402 ], [ 0, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ %273, %270 ], [ 0, %._crit_edge783 ], [ 0, %.lr.ph ]
-  %.0546 = phi i32 [ 0, %227 ], [ 0, %402 ], [ 0, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ 0, %270 ], [ %237, %._crit_edge783 ], [ 0, %.lr.ph ]
-  %.2 = phi i32 [ %.0, %227 ], [ %.0, %402 ], [ %.3.lcssa, %proto_item_set_generated.exit627 ], [ %.3.lcssa, %390 ], [ %.0, %270 ], [ %.0, %._crit_edge783 ], [ %.0, %.lr.ph ]
+.thread848:                                       ; preds = %.lr.ph, %403
+  %.5.ph = phi i32 [ %.11759, %403 ], [ %.11, %.lr.ph ]
+  %413 = load ptr, ptr %9, align 8
+  %414 = tail call ptr @val_to_str_const(i32 noundef %16, ptr noundef nonnull @pdu_vals, ptr noundef nonnull @.str.248)
+  tail call void @col_append_str(ptr noundef %413, i32 noundef 25, ptr noundef %414)
+  br label %613
+
+.loopexit757:                                     ; preds = %227, %390, %proto_item_set_generated.exit627, %402, %270, %._crit_edge783
+  %.1578 = phi i16 [ %.0577, %227 ], [ -1, %402 ], [ %.0577, %proto_item_set_generated.exit627 ], [ %.0577, %390 ], [ %.0577, %270 ], [ %.0577, %._crit_edge783 ]
+  %.0566 = phi i32 [ 0, %227 ], [ 0, %402 ], [ %.1567.lcssa, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ 0, %270 ], [ 0, %._crit_edge783 ]
+  %.5 = phi i32 [ %.2559, %227 ], [ %.2559, %402 ], [ %.10, %proto_item_set_generated.exit627 ], [ %.10, %390 ], [ %.2559, %270 ], [ %.3560.lcssa794, %._crit_edge783 ]
+  %.0556 = phi ptr [ null, %227 ], [ null, %402 ], [ %280, %proto_item_set_generated.exit627 ], [ %280, %390 ], [ null, %270 ], [ null, %._crit_edge783 ]
+  %.0551 = phi i32 [ 0, %227 ], [ 0, %402 ], [ 0, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ %273, %270 ], [ 0, %._crit_edge783 ]
+  %.0546 = phi i32 [ 0, %227 ], [ 0, %402 ], [ 0, %proto_item_set_generated.exit627 ], [ 0, %390 ], [ 0, %270 ], [ %237, %._crit_edge783 ]
+  %.2 = phi i32 [ %.0, %227 ], [ %.0, %402 ], [ %.3.lcssa, %proto_item_set_generated.exit627 ], [ %.3.lcssa, %390 ], [ %.0, %270 ], [ %.0, %._crit_edge783 ]
   %415 = load i8, ptr @use_seq_ack_analysis, align 1, !range !8, !noundef !9
   %416 = trunc nuw i8 %415 to i1
   %417 = icmp samesign ult i8 %13, 4
@@ -1619,7 +1620,7 @@ add_seq_analysis.exit:                            ; preds = %423, %.thread.i, %5
   %594 = phi i1 [ true, %.thread653 ], [ %589, %588 ]
   %.1578646675 = phi i16 [ %.0577, %.thread653 ], [ %.1578, %588 ]
   %.0566647673 = phi i32 [ 0, %.thread653 ], [ %.0566, %588 ]
-  %.5648671 = phi i32 [ %414, %.thread653 ], [ %.5, %588 ]
+  %.5648671 = phi i32 [ %412, %.thread653 ], [ %.5, %588 ]
   %.0556649669 = phi ptr [ null, %.thread653 ], [ %.0556, %588 ]
   %.0551650667 = phi i32 [ 0, %.thread653 ], [ %.0551, %588 ]
   %.0546651665 = phi i32 [ 0, %.thread653 ], [ %.0546, %588 ]
@@ -1686,7 +1687,7 @@ add_seq_analysis.exit:                            ; preds = %423, %.thread.i, %5
 
 613:                                              ; preds = %.thread848, %.thread717, %.thread709, %.thread737, %603, %609, %612
   %.1578646674684756 = phi i16 [ %.1578646675, %609 ], [ %.1578646675, %612 ], [ %.1578646675, %603 ], [ %.1578646675, %.thread737 ], [ %.1578646675, %.thread709 ], [ %.1578, %.thread717 ], [ %.0577, %.thread848 ]
-  %.5648670691753 = phi i32 [ %.5648671, %609 ], [ %.5648671, %612 ], [ %.5648671, %603 ], [ %.5648671, %.thread737 ], [ %.5648671, %.thread709 ], [ %.5, %.thread717 ], [ %.11759, %.thread848 ]
+  %.5648670691753 = phi i32 [ %.5648671, %609 ], [ %.5648671, %612 ], [ %.5648671, %603 ], [ %.5648671, %.thread737 ], [ %.5648671, %.thread709 ], [ %.5, %.thread717 ], [ %.5.ph, %.thread848 ]
   %.0551650666699749 = phi i32 [ %.0551650667, %609 ], [ %.0551650667, %612 ], [ %.0551650667, %603 ], [ %.0551650667, %.thread737 ], [ %.0551650667, %.thread709 ], [ %.0551, %.thread717 ], [ 0, %.thread848 ]
   %.2652662705744 = phi i32 [ %.2652663, %609 ], [ %.2652663, %612 ], [ %.2652663, %603 ], [ %.2652663, %.thread737 ], [ %.2652663, %.thread709 ], [ %.2, %.thread717 ], [ %.0, %.thread848 ]
   %614 = load ptr, ptr %9, align 8

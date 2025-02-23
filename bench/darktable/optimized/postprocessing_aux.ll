@@ -230,9 +230,8 @@ define void @_ZN6LibRaw15wavelet_denoiseEv(ptr noundef nonnull align 8 dereferen
 .preheader299.lr.ph:                              ; preds = %._crit_edge408
   %51 = load ptr, ptr %5, align 8, !tbaa !83
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 5276
-  %umax = tail call i32 @llvm.umax.i32(i32 %33, i32 1)
   %wide.trip.count388 = zext nneg i32 %.0218 to i64
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i32 %33 to i64
   br label %.preheader299
 
 .preheader299:                                    ; preds = %.preheader299.lr.ph, %238
@@ -2070,9 +2069,6 @@ declare double @llvm.powi.f64.i32(double, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7

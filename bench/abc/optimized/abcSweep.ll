@@ -643,15 +643,11 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %265, %.preheader2.i
   %281 = getelementptr inbounds nuw i8, ptr %.04056.i.i, i64 8
   %.040.i.i = load ptr, ptr %281, align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %.040.i.i, null
-  br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i18.i, !llvm.loop !64
+  br i1 %.not.i.i, label %.lr.ph63.i.i, label %.lr.ph.i18.i, !llvm.loop !64
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i18.i
-  %.not4957.i.i = icmp eq ptr %272, null
-  br i1 %.not4957.i.i, label %Abc_NtkFraigMergeClass.exit.i, label %.lr.ph63.i.i
-
-.lr.ph63.i.i:                                     ; preds = %._crit_edge.i.i, %.critedge2.i75
-  %.043.lcssa73.i.i = phi ptr [ %spec.select.i19.i, %._crit_edge.i.i ], [ %272, %.critedge2.i75 ]
-  %282 = getelementptr inbounds nuw i8, ptr %.043.lcssa73.i.i, i64 20
+.lr.ph63.i.i:                                     ; preds = %.lr.ph.i18.i, %.critedge2.i75
+  %.043.lcssa.i.i = phi ptr [ %272, %.critedge2.i75 ], [ %spec.select.i19.i, %.lr.ph.i18.i ]
+  %282 = getelementptr inbounds nuw i8, ptr %.043.lcssa.i.i, i64 20
   br label %283
 
 .preheader.i20.i:                                 ; preds = %292
@@ -663,7 +659,7 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %265, %.preheader2.i
   %.160.i.i = phi ptr [ %272, %.lr.ph63.i.i ], [ %.061.i.i, %293 ]
   %.04159.i.i = phi ptr [ null, %.lr.ph63.i.i ], [ %.142.i.i, %293 ]
   %.04558.i.i = phi ptr [ null, %.lr.ph63.i.i ], [ %.146.i.i, %293 ]
-  %284 = icmp eq ptr %.160.i.i, %.043.lcssa73.i.i
+  %284 = icmp eq ptr %.160.i.i, %.043.lcssa.i.i
   br i1 %284, label %292, label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %283
@@ -693,7 +689,7 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %265, %.preheader2.i
 
 .lr.ph68.i.i:                                     ; preds = %.preheader.i20.i, %.lr.ph68.i.i
   %.267.i.i = phi ptr [ %297, %.lr.ph68.i.i ], [ %.142.i.i, %.preheader.i20.i ]
-  call void @Abc_ObjTransferFanout(ptr noundef nonnull %.267.i.i, ptr noundef %.043.lcssa73.i.i) #11
+  call void @Abc_ObjTransferFanout(ptr noundef nonnull %.267.i.i, ptr noundef %.043.lcssa.i.i) #11
   %296 = getelementptr inbounds nuw i8, ptr %.267.i.i, i64 8
   %297 = load ptr, ptr %296, align 8, !tbaa !31
   %.not50.i.i = icmp eq ptr %297, null
@@ -704,7 +700,7 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %265, %.preheader2.i
   br i1 %298, label %Abc_NtkFraigMergeClass.exit.i, label %299
 
 299:                                              ; preds = %._crit_edge69.i.i
-  %300 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %0, ptr noundef %.043.lcssa73.i.i) #11
+  %300 = call ptr @Abc_NtkCreateNodeInv(ptr noundef %0, ptr noundef %.043.lcssa.i.i) #11
   br label %301
 
 301:                                              ; preds = %301, %299
@@ -715,7 +711,7 @@ Abc_NtkFraigMergeClassMapped.exit.i:              ; preds = %265, %.preheader2.i
   %.not51.i.i = icmp eq ptr %303, null
   br i1 %.not51.i.i, label %Abc_NtkFraigMergeClass.exit.i, label %301, !llvm.loop !67
 
-Abc_NtkFraigMergeClass.exit.i:                    ; preds = %301, %._crit_edge69.i.i, %._crit_edge.i.i
+Abc_NtkFraigMergeClass.exit.i:                    ; preds = %301, %._crit_edge69.i.i
   %304 = call i32 @stmm_gen(ptr noundef %270, ptr noundef nonnull %6, ptr noundef null) #11
   %.not16.i = icmp eq i32 %304, 0
   br i1 %.not16.i, label %.sink.split.i, label %.critedge2.i75, !llvm.loop !68

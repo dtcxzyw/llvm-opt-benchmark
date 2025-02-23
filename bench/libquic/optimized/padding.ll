@@ -477,7 +477,7 @@ define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %
 
 .loopexit:                                        ; preds = %.lr.ph83, %.preheader, %._crit_edge, %59
   %.0 = phi i32 [ 0, %59 ], [ 0, %._crit_edge ], [ 1, %.preheader ], [ 1, %.lr.ph83 ]
-  call void @free(ptr noundef %56) #8
+  call void @free(ptr noundef nonnull %56) #8
   br label %74
 
 74:                                               ; preds = %36, %29, %.loopexit, %58, %28, %26, %20

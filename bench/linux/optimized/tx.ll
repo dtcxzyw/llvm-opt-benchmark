@@ -3458,7 +3458,7 @@ define dso_local void @__ieee80211_xmit_fast(ptr noundef %0, ptr noundef %1, ptr
   br i1 %202, label %205, label %203
 
 203:                                              ; preds = %197
-  %204 = tail call zeroext i1 %201(ptr noundef %32, ptr noundef %131, ptr noundef nonnull %27) #20
+  %204 = tail call zeroext i1 %201(ptr noundef %32, ptr noundef nonnull %131, ptr noundef nonnull %27) #20
   br i1 %204, label %205, label %.thread9
 
 205:                                              ; preds = %203, %197
@@ -8537,7 +8537,7 @@ define dso_local void @__ieee80211_subif_start_xmit(ptr noundef %0, ptr noundef 
   br i1 %57, label %87, label %58
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 2680
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 2680
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 2918
   %61 = load i8, ptr %60, align 2, !range !6, !noundef !7
   %62 = icmp eq i8 %61, 0
@@ -8990,7 +8990,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %41 = getelementptr inbounds nuw i8, ptr %14, i64 2680
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 2680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %40, ptr noundef nonnull align 8 dereferenceable(6) %41, i64 6, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 10
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 5062

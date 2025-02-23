@@ -443,7 +443,7 @@ define dso_local void @slowlogCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 slowlogReset.exit:                                ; preds = %.lr.ph.i, %19
   %29 = load ptr, ptr @shared, align 8, !tbaa !80
-  tail call void @addReply(ptr noundef %0, ptr noundef %29) #9
+  tail call void @addReply(ptr noundef nonnull %0, ptr noundef %29) #9
   br label %136
 
 30:                                               ; preds = %17

@@ -2011,7 +2011,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 336
   br label %171
 
-168:                                              ; preds = %.loopexit61
+168:                                              ; preds = %247
   %169 = add nuw i32 %172, 1
   %170 = icmp eq i32 %169, %14
   br i1 %170, label %.loopexit60, label %171, !llvm.loop !30
@@ -2075,7 +2075,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   store i64 %204, ptr %9, align 8
   %205 = trunc i32 %200 to i16
   %206 = icmp eq i32 %202, 0
-  br i1 %206, label %238, label %.preheader62
+  br i1 %206, label %235, label %.preheader62
 
 .preheader62:                                     ; preds = %197, %219
   %207 = phi i32 [ %225, %219 ], [ 0, %197 ]
@@ -2083,7 +2083,7 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   %209 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
   %210 = tail call noalias align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %209, i32 noundef 3264, i64 noundef 32) #25
   %211 = icmp eq ptr %210, null
-  br i1 %211, label %thread-pre-split.loopexit, label %212
+  br i1 %211, label %thread-pre-split, label %212
 
 212:                                              ; preds = %.preheader62
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 24
@@ -2091,12 +2091,12 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   store ptr %210, ptr %208, align 8
   %214 = tail call i32 @ebitmap_read(ptr noundef nonnull %210, ptr noundef %1) #22
   %215 = icmp eq i32 %214, 0
-  br i1 %215, label %216, label %thread-pre-split.loopexit
+  br i1 %215, label %216, label %thread-pre-split
 
 216:                                              ; preds = %212
   %217 = load i64, ptr %9, align 8
   %218 = icmp ugt i64 %217, 3
-  br i1 %218, label %219, label %thread-pre-split.loopexit
+  br i1 %218, label %219, label %thread-pre-split
 
 219:                                              ; preds = %216
   %220 = load ptr, ptr %1, align 8
@@ -2115,7 +2115,6 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
   %229 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %228, i32 noundef 3264, i64 noundef 16) #25
   %230 = icmp eq ptr %229, null
-  %.0..0..0..0.1.pr.pre84 = load ptr, ptr %3, align 8
   br i1 %230, label %thread-pre-split, label %231
 
 231:                                              ; preds = %227
@@ -2124,62 +2123,59 @@ policydb_filenametr_search.exit.thread:           ; preds = %106, %.thread.i, %1
   store i16 %205, ptr %232, align 4
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store ptr %184, ptr %233, align 8
-  %234 = tail call fastcc i32 @hashtab_insert(ptr noundef nonnull %161, ptr noundef nonnull %229, ptr noundef %.0..0..0..0.1.pr.pre84, ptr nonnull @filenametr_hash, ptr nonnull @filenametr_cmp)
-  switch i32 %234, label %thread-pre-split [
-    i32 -17, label %238
-    i32 0, label %235
+  %.0..0..0..0. = load ptr, ptr %3, align 8
+  %234 = tail call fastcc i32 @hashtab_insert(ptr noundef nonnull %161, ptr noundef nonnull %229, ptr noundef %.0..0..0..0., ptr nonnull @filenametr_hash, ptr nonnull @filenametr_cmp)
+  switch i32 %234, label %.loopexit65 [
+    i32 -17, label %235
+    i32 0, label %247
   ]
 
-235:                                              ; preds = %231
-  %236 = zext i32 %198 to i64
-  %237 = tail call i32 @ebitmap_set_bit(ptr noundef nonnull %167, i64 noundef %236, i32 noundef 1) #22
-  br label %.loopexit61
-
-238:                                              ; preds = %231, %197
-  %.0..0..0.1.pr86 = phi ptr [ null, %197 ], [ %.0..0..0..0.1.pr.pre84, %231 ]
-  %239 = phi ptr [ @.str.35, %197 ], [ @.str.36, %231 ]
-  %240 = phi i32 [ -2, %197 ], [ %234, %231 ]
-  %241 = phi ptr [ null, %197 ], [ %229, %231 ]
-  %242 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %239) #24
+235:                                              ; preds = %231, %197
+  %236 = phi ptr [ @.str.35, %197 ], [ @.str.36, %231 ]
+  %237 = phi i32 [ -2, %197 ], [ %234, %231 ]
+  %238 = phi ptr [ null, %197 ], [ %229, %231 ]
+  %239 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %236) #24
   br label %thread-pre-split
 
-thread-pre-split.loopexit:                        ; preds = %216, %212, %.preheader62
-  %.ph53.ph = phi i32 [ -22, %216 ], [ -12, %.preheader62 ], [ %214, %212 ]
-  %.0..0..0..0.1.pr.pre = load ptr, ptr %3, align 8
-  br label %thread-pre-split
+thread-pre-split:                                 ; preds = %227, %191, %.preheader62, %212, %216, %235
+  %.ph53 = phi i32 [ %237, %235 ], [ %214, %212 ], [ -12, %.preheader62 ], [ -22, %216 ], [ -12, %227 ], [ -22, %191 ]
+  %.ph54 = phi ptr [ %238, %235 ], [ null, %216 ], [ null, %212 ], [ null, %.preheader62 ], [ null, %191 ], [ null, %227 ]
+  %.0..0..0..0.1.pr = load ptr, ptr %3, align 8
+  br label %.loopexit65
 
-thread-pre-split:                                 ; preds = %191, %238, %227, %thread-pre-split.loopexit, %231
-  %.0..0.1 = phi ptr [ %.0..0..0..0.1.pr.pre84, %231 ], [ null, %191 ], [ %.0..0..0.1.pr86, %238 ], [ %.0..0..0..0.1.pr.pre84, %227 ], [ %.0..0..0..0.1.pr.pre, %thread-pre-split.loopexit ]
-  %243 = phi i32 [ %234, %231 ], [ -22, %191 ], [ %240, %238 ], [ -12, %227 ], [ %.ph53.ph, %thread-pre-split.loopexit ]
-  %244 = phi ptr [ %229, %231 ], [ null, %191 ], [ %241, %238 ], [ null, %227 ], [ null, %thread-pre-split.loopexit ]
-  tail call void @kfree(ptr noundef %244) #22
+.loopexit65:                                      ; preds = %231, %thread-pre-split
+  %.0..0.1 = phi ptr [ %.0..0..0..0.1.pr, %thread-pre-split ], [ %.0..0..0..0., %231 ]
+  %240 = phi i32 [ %.ph53, %thread-pre-split ], [ %234, %231 ]
+  %241 = phi ptr [ %.ph54, %thread-pre-split ], [ %229, %231 ]
+  tail call void @kfree(ptr noundef %241) #22
   tail call void @kfree(ptr noundef nonnull %184) #22
-  %245 = icmp eq ptr %.0..0.1, null
-  br i1 %245, label %.loopexit61, label %.preheader
+  %242 = icmp eq ptr %.0..0.1, null
+  br i1 %242, label %.thread57, label %.preheader
 
-.preheader:                                       ; preds = %thread-pre-split, %.preheader
-  %246 = phi ptr [ %248, %.preheader ], [ %.0..0.1, %thread-pre-split ]
-  %247 = getelementptr inbounds nuw i8, ptr %246, i64 24
-  %248 = load ptr, ptr %247, align 8
-  tail call void @ebitmap_destroy(ptr noundef nonnull %246) #22
-  tail call void @kfree(ptr noundef nonnull %246) #22
-  %249 = icmp eq ptr %248, null
-  br i1 %249, label %.loopexit61, label %.preheader, !llvm.loop !32
+.preheader:                                       ; preds = %.loopexit65, %.preheader
+  %243 = phi ptr [ %245, %.preheader ], [ %.0..0.1, %.loopexit65 ]
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 24
+  %245 = load ptr, ptr %244, align 8
+  tail call void @ebitmap_destroy(ptr noundef nonnull %243) #22
+  tail call void @kfree(ptr noundef nonnull %243) #22
+  %246 = icmp eq ptr %245, null
+  br i1 %246, label %.thread57, label %.preheader, !llvm.loop !32
 
-.thread57:                                        ; preds = %171, %175, %182, %190
-  %.ph56 = phi i32 [ -22, %190 ], [ -22, %175 ], [ -12, %182 ], [ -22, %171 ]
+.thread57:                                        ; preds = %171, %175, %182, %.preheader, %.loopexit65, %190
+  %.ph56 = phi i32 [ -22, %190 ], [ %240, %.loopexit65 ], [ %240, %.preheader ], [ -22, %175 ], [ -12, %182 ], [ -22, %171 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %.loopexit60
 
-.loopexit61:                                      ; preds = %.preheader, %thread-pre-split, %235
-  %250 = phi i32 [ %237, %235 ], [ %243, %thread-pre-split ], [ %243, %.preheader ]
+247:                                              ; preds = %231
+  %248 = zext i32 %198 to i64
+  %249 = tail call i32 @ebitmap_set_bit(ptr noundef nonnull %167, i64 noundef %248, i32 noundef 1) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  %251 = icmp eq i32 %250, 0
-  br i1 %251, label %168, label %.loopexit60
+  %250 = icmp eq i32 %249, 0
+  br i1 %250, label %168, label %.loopexit60
 
-.loopexit60:                                      ; preds = %.loopexit61, %168, %157, %31, %.thread57, %.thread45, %8, %164, %160, %24, %19, %2
-  %252 = phi i32 [ 0, %2 ], [ %22, %19 ], [ %162, %160 ], [ 0, %24 ], [ 0, %164 ], [ -22, %8 ], [ %.ph44, %.thread45 ], [ %.ph56, %.thread57 ], [ %158, %157 ], [ 0, %31 ], [ %250, %.loopexit61 ], [ 0, %168 ]
-  ret i32 %252
+.loopexit60:                                      ; preds = %247, %168, %157, %31, %.thread57, %.thread45, %8, %164, %160, %24, %19, %2
+  %251 = phi i32 [ 0, %2 ], [ %22, %19 ], [ %162, %160 ], [ 0, %24 ], [ 0, %164 ], [ -22, %8 ], [ %.ph44, %.thread45 ], [ %.ph56, %.thread57 ], [ %158, %157 ], [ 0, %31 ], [ %249, %247 ], [ 0, %168 ]
+  ret i32 %251
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

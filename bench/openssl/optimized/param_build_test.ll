@@ -1195,7 +1195,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
   br i1 %.not140, label %.thread, label %84
 
 84:                                               ; preds = %79
-  %85 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef %16, ptr noundef nonnull @.str.117, ptr noundef %10, i64 noundef 48) #3
+  %85 = tail call i32 @OSSL_PARAM_BLD_push_octet_string(ptr noundef %16, ptr noundef nonnull @.str.117, ptr noundef nonnull %10, i64 noundef 48) #3
   %86 = icmp ne i32 %85, 0
   %87 = zext i1 %86 to i32
   %88 = tail call i32 @test_true(ptr noundef nonnull @.str.6, i32 noundef 276, ptr noundef nonnull @.str.116, i32 noundef %87) #3
@@ -1527,7 +1527,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
   %271 = load ptr, ptr %257, align 8, !tbaa !21
   %272 = getelementptr inbounds nuw i8, ptr %254, i64 24
   %273 = load i64, ptr %272, align 8, !tbaa !16
-  %274 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 345, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137, ptr noundef %271, i64 noundef %273, ptr noundef %10, i64 noundef 48) #3
+  %274 = call i32 @test_mem_eq(ptr noundef nonnull @.str.6, i32 noundef 345, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.137, ptr noundef %271, i64 noundef %273, ptr noundef nonnull %10, i64 noundef 48) #3
   %.not183 = icmp eq i32 %274, 0
   br i1 %.not183, label %389, label %275
 

@@ -259,7 +259,7 @@ define hidden void @VP8LCollectColorRedTransforms_C(ptr noalias noundef readonly
 
 ._crit_edge.us:                                   ; preds = %12
   %26 = getelementptr inbounds i32, ptr %.0912.us, i64 %10
-  %27 = icmp sgt i32 %.in, 1
+  %27 = icmp samesign ugt i32 %.in, 1
   br i1 %27, label %.preheader.us, label %._crit_edge13, !llvm.loop !26
 
 ._crit_edge13:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %6
@@ -316,7 +316,7 @@ define hidden void @VP8LCollectColorBlueTransforms_C(ptr noalias noundef readonl
 
 ._crit_edge.us:                                   ; preds = %14
   %32 = getelementptr inbounds i32, ptr %.01016.us, i64 %12
-  %33 = icmp sgt i32 %.in, 1
+  %33 = icmp samesign ugt i32 %.in, 1
   br i1 %33, label %.preheader.us, label %._crit_edge17, !llvm.loop !28
 
 ._crit_edge17:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %7

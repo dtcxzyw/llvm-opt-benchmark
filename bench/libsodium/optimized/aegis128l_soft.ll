@@ -891,10 +891,10 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br i1 %293, label %.preheader, label %.preheader102
 
 .preheader102:                                    ; preds = %292
-  br i1 %.not67233, label %.loopexit.thread, label %.lr.ph231
+  br i1 %.not67233, label %.loopexit, label %.lr.ph231
 
 .preheader:                                       ; preds = %292
-  br i1 %.not67233, label %.loopexit.thread313, label %.lr.ph235
+  br i1 %.not67233, label %.loopexit, label %.lr.ph235
 
 .lr.ph235:                                        ; preds = %.preheader, %.lr.ph235
   %294 = phi i64 [ %297, %.lr.ph235 ], [ 32, %.preheader ]
@@ -915,31 +915,21 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   %.not66 = icmp ugt i64 %300, %2
   br i1 %.not66, label %.loopexit, label %.lr.ph231, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.lr.ph231, %.lr.ph235
-  %.3 = phi i64 [ %294, %.lr.ph235 ], [ %298, %.lr.ph231 ]
+.loopexit:                                        ; preds = %.lr.ph231, %.lr.ph235, %.preheader102, %.preheader
+  %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader102 ], [ %294, %.lr.ph235 ], [ %298, %.lr.ph231 ]
   %301 = and i64 %2, 31
   %.not68 = icmp eq i64 %301, 0
   br i1 %.not68, label %513, label %302
 
-.loopexit.thread313:                              ; preds = %.preheader
-  %.not68315 = icmp eq i64 %2, 0
-  br i1 %.not68315, label %513, label %.thread316
-
-.loopexit.thread:                                 ; preds = %.preheader102
-  %.not68309 = icmp eq i64 %2, 0
-  br i1 %.not68309, label %513, label %.thread
-
 302:                                              ; preds = %.loopexit
-  br i1 %293, label %.thread316, label %.thread
+  br i1 %293, label %303, label %408
 
-.thread316:                                       ; preds = %.loopexit.thread313, %302
-  %.3310318 = phi i64 [ %.3, %302 ], [ 0, %.loopexit.thread313 ]
-  %303 = phi i64 [ %301, %302 ], [ %2, %.loopexit.thread313 ]
-  %304 = getelementptr i8, ptr %0, i64 %.3310318
-  %305 = getelementptr i8, ptr %1, i64 %.3310318
+303:                                              ; preds = %302
+  %304 = getelementptr i8, ptr %0, i64 %.3
+  %305 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
-  %306 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %305, i64 noundef range(i64 1, 32) %303, i64 noundef 32) #7, !alias.scope !25
+  %306 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %305, i64 noundef range(i64 1, 32) %301, i64 noundef 32) #7, !alias.scope !25
   %307 = load i64, ptr %11, align 16
   %308 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %309 = load i64, ptr %308, align 8
@@ -999,10 +989,10 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   store i32 %.sroa.3.8.extract.trunc.i75.i, ptr %312, align 8
   %345 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %.sroa.5.8.extract.trunc.i77.i, ptr %345, align 4
-  %346 = getelementptr i8, ptr %11, i64 %303
-  %347 = sub nuw nsw i64 32, %303
+  %346 = getelementptr i8, ptr %11, i64 %301
+  %347 = sub nuw nsw i64 32, %301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %346, i8 noundef 0, i64 noundef %347, i1 noundef false) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %304, ptr noundef nonnull align 16 %11, i64 noundef range(i64 1, 32) %303, i1 noundef false) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %304, ptr noundef nonnull align 16 %11, i64 noundef range(i64 1, 32) %301, i1 noundef false) #7
   %348 = load i64, ptr %11, align 16
   %349 = load i64, ptr %308, align 8
   %350 = load i64, ptr %310, align 16
@@ -1084,13 +1074,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #7
   br label %513
 
-.thread:                                          ; preds = %.loopexit.thread, %302
-  %.3310312 = phi i64 [ %.3, %302 ], [ 0, %.loopexit.thread ]
-  %408 = phi i64 [ %301, %302 ], [ %2, %.loopexit.thread ]
-  %409 = getelementptr i8, ptr %1, i64 %.3310312
+408:                                              ; preds = %302
+  %409 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
-  %410 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %409, i64 noundef range(i64 1, 32) %408, i64 noundef 32) #7, !alias.scope !29
+  %410 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %409, i64 noundef range(i64 1, 32) %301, i64 noundef 32) #7, !alias.scope !29
   %411 = load i64, ptr %10, align 16
   %412 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %413 = load i64, ptr %412, align 8
@@ -1150,10 +1138,10 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   store i32 %.sroa.3.8.extract.trunc.i75.i81, ptr %416, align 8
   %449 = getelementptr inbounds nuw i8, ptr %10, i64 28
   store i32 %.sroa.5.8.extract.trunc.i77.i83, ptr %449, align 4
-  %450 = getelementptr i8, ptr %10, i64 %408
-  %451 = sub nuw nsw i64 32, %408
+  %450 = getelementptr i8, ptr %10, i64 %301
+  %451 = sub nuw nsw i64 32, %301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %450, i8 noundef 0, i64 noundef %451, i1 noundef false) #7
-  %452 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull %10, i64 noundef range(i64 1, 32) %408, i64 noundef 32) #7, !alias.scope !33
+  %452 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef nonnull %10, i64 noundef range(i64 1, 32) %301, i64 noundef 32) #7, !alias.scope !33
   %453 = load i64, ptr %10, align 16
   %454 = load i64, ptr %412, align 8
   %455 = load i64, ptr %414, align 16
@@ -1235,7 +1223,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
   br label %513
 
-513:                                              ; preds = %.loopexit.thread313, %.loopexit.thread, %.thread316, %.thread, %.loopexit
+513:                                              ; preds = %303, %408, %.loopexit
   %514 = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %15, i64 noundef %4, i64 noundef %6, i64 noundef %2, ptr noundef %12)
   %515 = icmp eq i32 %514, 0
   br i1 %515, label %516, label %521

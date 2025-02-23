@@ -1180,7 +1180,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N
   %.sink236 = phi ptr [ %13, %.invoke ], [ %20, %195 ], [ %32, %417 ], [ %33, %458 ], [ %.sink236.ph, %.sink.split ]
   %.151 = phi i64 [ %50, %.invoke ], [ %188, %195 ], [ %388, %417 ], [ %428, %458 ], [ %.151.ph, %.sink.split ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink236) #17
-  %465 = add i64 %.151, 1
+  %465 = add nuw i64 %.151, 1
   %466 = load ptr, ptr %35, align 8
   %467 = load ptr, ptr %1, align 8
   %468 = ptrtoint ptr %466 to i64

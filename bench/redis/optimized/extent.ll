@@ -993,7 +993,7 @@ malloc_mutex_lock.exit:                           ; preds = %11, %17
 
 32:                                               ; preds = %32, %31
   %.1 = phi ptr [ %4, %31 ], [ %33, %32 ]
-  %33 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %.1, ptr noundef nonnull %6)
+  %33 = call fastcc ptr @extent_try_coalesce_impl(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull %3, ptr noundef %.1, ptr noundef nonnull %6)
   %34 = load i8, ptr %6, align 1, !tbaa !4, !range !38, !noundef !39
   %35 = trunc nuw i8 %34 to i1
   br i1 %35, label %32, label %atomic_load_zu.exit, !llvm.loop !59

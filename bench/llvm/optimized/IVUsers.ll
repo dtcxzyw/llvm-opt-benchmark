@@ -801,20 +801,20 @@ define internal fastcc noundef zeroext i1 @_ZL13isInterestingPKN4llvm4SCEVEPKNS_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i16, ptr %6, align 8, !tbaa !126
   %8 = icmp ne i16 %7, 8
-  %.not.not8198 = icmp eq ptr %0, null
-  %.not.not99 = or i1 %.not.not8198, %8
-  br i1 %.not.not99, label %.thread70, label %.lr.ph
+  %.not.not8199 = icmp eq ptr %0, null
+  %.not.not100 = or i1 %.not.not8199, %8
+  br i1 %.not.not100, label %.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %tailrecurse
-  %.tr101 = phi ptr [ %70, %tailrecurse ], [ %0, %5 ]
-  %accumulator.tr100 = phi i1 [ %71, %tailrecurse ], [ false, %5 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.tr101, i64 48
+  %.tr102 = phi ptr [ %70, %tailrecurse ], [ %0, %5 ]
+  %accumulator.tr101 = phi i1 [ %71, %tailrecurse ], [ false, %5 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.tr102, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !132
   %11 = icmp eq ptr %10, %2
   br i1 %11, label %12, label %65
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.tr101, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.tr102, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !136
   %15 = icmp eq i64 %14, 2
   br i1 %15, label %.thread, label %16
@@ -904,20 +904,20 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPNS_4LoopENS_12DenseMapIn
 
 _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit: ; preds = %.lr.ph.i.i.i.i62, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPNS_4LoopENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i
   %62 = phi ptr [ %61, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPNS_4LoopENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i ], [ null, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit.thread ], [ null, %.lr.ph.i.i.i.i62 ]
-  %63 = tail call noundef ptr @_ZN4llvm15ScalarEvolution14getSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull %.tr101, ptr noundef %62) #14
-  %64 = icmp ne ptr %63, %.tr101
+  %63 = tail call noundef ptr @_ZN4llvm15ScalarEvolution14getSCEVAtScopeEPKNS_4SCEVEPKNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(1344) %3, ptr noundef nonnull %.tr102, ptr noundef %62) #14
+  %64 = icmp ne ptr %63, %.tr102
   br label %.thread
 
 65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %.tr101, i64 32
+  %66 = getelementptr inbounds nuw i8, ptr %.tr102, i64 32
   %67 = load ptr, ptr %66, align 8, !tbaa !137
   %68 = load ptr, ptr %67, align 8, !tbaa !138
   %69 = tail call fastcc noundef zeroext i1 @_ZL13isInterestingPKN4llvm4SCEVEPKNS_11InstructionEPKNS_4LoopEPNS_15ScalarEvolutionEPNS_8LoopInfoE(ptr noundef %68, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %69, label %tailrecurse, label %.thread
 
 tailrecurse:                                      ; preds = %65
-  %70 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.tr101, ptr noundef nonnull align 8 dereferenceable(1344) %3)
-  %71 = xor i1 %accumulator.tr100, true
+  %70 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %.tr102, ptr noundef nonnull align 8 dereferenceable(1344) %3)
+  %71 = xor i1 %accumulator.tr101, true
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %73 = load i16, ptr %72, align 8, !tbaa !126
   %74 = icmp ne i16 %73, 8
@@ -927,36 +927,36 @@ tailrecurse:                                      ; preds = %65
 
 .thread70:                                        ; preds = %tailrecurse, %5
   %75 = phi i16 [ %7, %5 ], [ %73, %tailrecurse ]
-  %.tr.lcssa97 = phi ptr [ %0, %5 ], [ %70, %tailrecurse ]
+  %.tr.lcssa98 = phi ptr [ %0, %5 ], [ %70, %tailrecurse ]
   %accumulator.tr.lcssa = phi i1 [ false, %5 ], [ %71, %tailrecurse ]
   %76 = icmp eq i16 %75, 5
   br i1 %76, label %77, label %.thread
 
 77:                                               ; preds = %.thread70
-  %78 = getelementptr inbounds nuw i8, ptr %.tr.lcssa97, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.tr.lcssa98, i64 32
   %79 = load ptr, ptr %78, align 8, !tbaa !137
-  %80 = getelementptr inbounds nuw i8, ptr %.tr.lcssa97, i64 40
+  %80 = getelementptr inbounds nuw i8, ptr %.tr.lcssa98, i64 40
   %81 = load i64, ptr %80, align 8, !tbaa !136
   %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
-  %.not59104 = icmp eq i64 %81, 0
-  br i1 %.not59104, label %.thread, label %.lr.ph108
+  %.not59105 = icmp eq i64 %81, 0
+  br i1 %.not59105, label %.thread, label %.lr.ph109
 
-.lr.ph108:                                        ; preds = %77, %87
-  %.049106 = phi ptr [ %88, %87 ], [ %79, %77 ]
-  %.050105 = phi i8 [ %.353.ph, %87 ], [ 0, %77 ]
-  %83 = load ptr, ptr %.049106, align 8, !tbaa !138
+.lr.ph109:                                        ; preds = %77, %87
+  %.049107 = phi ptr [ %88, %87 ], [ %79, %77 ]
+  %.050106 = phi i8 [ %.353.ph, %87 ], [ 0, %77 ]
+  %83 = load ptr, ptr %.049107, align 8, !tbaa !138
   %84 = tail call fastcc noundef zeroext i1 @_ZL13isInterestingPKN4llvm4SCEVEPKNS_11InstructionEPKNS_4LoopEPNS_15ScalarEvolutionEPNS_8LoopInfoE(ptr noundef %83, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %84, label %85, label %87
 
-85:                                               ; preds = %.lr.ph108
-  %86 = trunc nuw i8 %.050105 to i1
+85:                                               ; preds = %.lr.ph109
+  %86 = trunc nuw i8 %.050106 to i1
   br i1 %86, label %._crit_edge.loopexit, label %87
 
-87:                                               ; preds = %85, %.lr.ph108
-  %.353.ph = phi i8 [ %.050105, %.lr.ph108 ], [ 1, %85 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.049106, i64 8
+87:                                               ; preds = %85, %.lr.ph109
+  %.353.ph = phi i8 [ %.050106, %.lr.ph109 ], [ 1, %85 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.049107, i64 8
   %.not59 = icmp eq ptr %88, %82
-  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph108
+  br i1 %.not59, label %._crit_edge.loopexit, label %.lr.ph109
 
 ._crit_edge.loopexit:                             ; preds = %85, %87
   %.not59.lcssa.ph = phi i1 [ true, %87 ], [ false, %85 ]
@@ -966,9 +966,9 @@ tailrecurse:                                      ; preds = %65
   br label %.thread
 
 .thread:                                          ; preds = %65, %.lr.ph.i.i.i.i, %77, %._crit_edge.loopexit, %.thread70, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit, %12
-  %accumulator.tr96 = phi i1 [ %accumulator.tr100, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %accumulator.tr100, %12 ], [ %accumulator.tr100, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ %accumulator.tr.lcssa, %.thread70 ], [ %accumulator.tr.lcssa, %._crit_edge.loopexit ], [ %accumulator.tr.lcssa, %77 ], [ %accumulator.tr100, %.lr.ph.i.i.i.i ], [ %accumulator.tr100, %65 ]
+  %accumulator.tr97 = phi i1 [ %accumulator.tr101, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ %accumulator.tr101, %12 ], [ %accumulator.tr101, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ %accumulator.tr.lcssa, %.thread70 ], [ %accumulator.tr.lcssa, %._crit_edge.loopexit ], [ %accumulator.tr.lcssa, %77 ], [ %accumulator.tr101, %.lr.ph.i.i.i.i ], [ %accumulator.tr101, %65 ]
   %.1 = phi i1 [ false, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_11InstructionEEEbPKT_.exit ], [ true, %12 ], [ %64, %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit ], [ false, %.thread70 ], [ %90, %._crit_edge.loopexit ], [ false, %77 ], [ false, %.lr.ph.i.i.i.i ], [ false, %65 ]
-  %accumulator.ret.tr = xor i1 %accumulator.tr96, %.1
+  %accumulator.ret.tr = xor i1 %accumulator.tr97, %.1
   ret i1 %accumulator.ret.tr
 }
 

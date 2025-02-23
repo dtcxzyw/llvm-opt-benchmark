@@ -3297,7 +3297,7 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit67: ; preds
   %67 = sext i1 %66 to i8
   %spec.select = add i8 %.047.lcssa, %67
   %68 = xor i8 %22, 1
-  %69 = shl i32 %.051.lcssa, 1
+  %69 = shl nuw i32 %.051.lcssa, 1
   br label %70
 
 70:                                               ; preds = %65, %._crit_edge
@@ -3345,9 +3345,9 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %95 = sub nsw i8 13, %.sroa.51.0.in.i
   %96 = and i8 %95, 15
   %97 = zext nneg i8 %96 to i16
-  %98 = shl i16 %94, %97
+  %98 = shl nuw i16 %94, %97
   %.011.i = select i1 %90, i16 0, i16 %98
-  %99 = add i16 %.011.i, %.sroa.0.0.i
+  %99 = add nuw i16 %.011.i, %.sroa.0.0.i
   %100 = add i16 %99, %.1.i
   br i1 %.08.i, label %101, label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
 
@@ -3551,9 +3551,9 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %86 = sub nsw i8 13, %.sroa.51.0.in.i
   %87 = and i8 %86, 15
   %88 = zext nneg i8 %87 to i16
-  %89 = shl i16 %85, %88
+  %89 = shl nuw i16 %85, %88
   %.011.i = select i1 %81, i16 0, i16 %89
-  %90 = add i16 %.011.i, %.sroa.0.0.i
+  %90 = add nuw i16 %.011.i, %.sroa.0.0.i
   %91 = add i16 %90, %.1.i
   br i1 %.08.i, label %92, label %"_ZN9softposit5p16e13ops41_$LT$impl$u20$softposit..p16e1..P16E1$GT$7form_ui17h54757fb1168219bbE.exit"
 
@@ -4033,9 +4033,9 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
   %86 = sub nsw i8 13, %.sroa.51.0.in.i
   %87 = and i8 %86, 15
   %88 = zext nneg i8 %87 to i16
-  %89 = shl i16 %85, %88
+  %89 = shl nuw i16 %85, %88
   %.050 = select i1 %78, i16 0, i16 %89
-  %90 = add i16 %.050, %.sroa.0.0.i
+  %90 = add nuw i16 %.050, %.sroa.0.0.i
   %91 = add i16 %90, %.048
   br i1 %.049, label %95, label %93
 

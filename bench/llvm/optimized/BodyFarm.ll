@@ -500,8 +500,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit:   ; preds = %6, %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i8, ptr %24, align 16
   %26 = icmp eq i8 %25, 13
-  %.not.not6.i = icmp ne ptr %23, null
-  %.not.not.not.i = and i1 %.not.not6.i, %26
+  %.not6.i = icmp ne ptr %23, null
+  %.not.not.not.i = and i1 %.not6.i, %26
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit
@@ -2026,7 +2026,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %143, %137
   %145 = icmp eq ptr %.0.i.i.i.i, null
   %146 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -48
   %147 = select i1 %145, ptr null, ptr %146
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 28
+  %148 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 -20
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %149, 127
   %151 = icmp ne i32 %150, 18
@@ -2050,7 +2050,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i.i:       ; preds = %143, %137
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.thread.sink.split.i.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i
-  %.43552.i.i = phi ptr [ %146, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ %158, %.thread.sink.split.i.i ]
+  %.43552.i.i = phi ptr [ %147, %_ZNK5clang4Decl14getDeclContextEv.exit.i.i ], [ %158, %.thread.sink.split.i.i ]
   %159 = getelementptr inbounds nuw i8, ptr %129, i64 40
   %160 = load i64, ptr %159, align 8, !tbaa !15
   %161 = and i64 %160, 7
@@ -3395,8 +3395,8 @@ _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread25: ; preds = %_
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i8, ptr %39, align 16
   %41 = icmp eq i8 %40, 13
-  %.not.not7.i.i = icmp ne ptr %38, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %41
+  %.not7.i.i = icmp ne ptr %38, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %41
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type5getAsINS_16BlockPointerTypeEEEPKT_v.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread25

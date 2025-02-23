@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv = comdat any
 
-$_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv = comdat any
-
 $_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t = comdat any
 
 $_ZN20hb_aat_map_builder_t15feature_event_t3cmpEPKvS2_ = comdat any
@@ -41,10 +39,10 @@ $_ZN21hb_sanitize_context_t13sanitize_blobIN3AAT4featEEEP9hb_blob_tS4_ = comdat 
 $_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t = comdat any
 
 @_hb_NullPool = external constant [80 x i64], align 16
-@_hb_CrapPool = external global [80 x i64], align 16
+@_hb_CrapPool = external local_unnamed_addr global [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20hb_aat_map_builder_t11add_featureERK12hb_feature_t(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20hb_aat_map_builder_t11add_featureERK12hb_feature_t(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 352
   %5 = load atomic i64, ptr %4 acquire, align 8
@@ -128,13 +126,13 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   %44 = or disjoint i32 %36, %35
   %45 = or disjoint i32 %44, %43
   %46 = or disjoint i32 %45, %40
-  %.not62 = icmp eq i32 %46, 0
-  br i1 %.not62, label %245, label %47
+  %.not78 = icmp eq i32 %46, 0
+  br i1 %.not78, label %317, label %47
 
 47:                                               ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit
   %48 = load i32, ptr %1, align 4
   %49 = icmp eq i32 %48, 1633774708
-  br i1 %49, label %50, label %134
+  br i1 %49, label %50, label %170
 
 50:                                               ; preds = %47
   %51 = load ptr, ptr %0, align 8
@@ -269,236 +267,400 @@ _ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %1
   %115 = load i8, ptr %114, align 1
   %116 = zext i8 %115 to i32
   %117 = or disjoint i32 %113, %116
-  %.not65 = icmp eq i32 %117, 0
-  br i1 %.not65, label %245, label %118
+  %.not81 = icmp eq i32 %117, 0
+  br i1 %.not81, label %317, label %118
 
 118:                                              ; preds = %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %120 = tail call noundef ptr @_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv(ptr noundef nonnull align 8 dereferenceable(16) %119)
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %122 = load i32, ptr %121, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  store i32 %122, ptr %123, align 4
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %125 = load i32, ptr %124, align 4
-  %126 = getelementptr inbounds nuw i8, ptr %120, i64 20
-  store i32 %125, ptr %126, align 4
-  store i32 17, ptr %120, align 4
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %120, i64 4
-  store i32 %128, ptr %129, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %131 = load i32, ptr %130, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %131, ptr %132, align 4
-  %133 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i8 1, ptr %133, align 4
-  br label %245
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %121 = load i32, ptr %120, align 4
+  %122 = add i32 %121, 1
+  %123 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
+  %124 = load i32, ptr %119, align 8
+  %125 = icmp slt i32 %124, 0
+  br i1 %125, label %151, label %126
 
-134:                                              ; preds = %47
-  %135 = tail call noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %48)
-  %.not = icmp eq ptr %135, null
-  br i1 %.not, label %245, label %136
+126:                                              ; preds = %118
+  %.not.i.i.i48 = icmp sgt i32 %122, %124
+  br i1 %.not.i.i.i48, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-136:                                              ; preds = %134
-  %137 = load ptr, ptr %0, align 8
-  %138 = getelementptr inbounds nuw i8, ptr %137, i64 352
-  %139 = load atomic i64, ptr %138 acquire, align 8
-  %.not14.i.i.i48 = icmp eq i64 %139, 0
-  br i1 %.not14.i.i.i48, label %.lr.ph.i.i.i53, label %.loopexit.split.loop.exit12.i.i.i49
+.preheader.i.i.i:                                 ; preds = %126, %.preheader.i.i.i
+  %.143.i.i.i = phi i32 [ %129, %.preheader.i.i.i ], [ %124, %126 ]
+  %127 = lshr i32 %.143.i.i.i, 1
+  %128 = add nuw i32 %.143.i.i.i, 8
+  %129 = add nuw i32 %128, %127
+  %130 = icmp ugt i32 %123, %129
+  br i1 %130, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !8
 
-.lr.ph.i.i.i53:                                   ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %137, i64 80
-  br label %141
+.thread.i.i.i:                                    ; preds = %.preheader.i.i.i
+  %131 = icmp ugt i32 %129, 178956970
+  br i1 %131, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, label %132
 
-141:                                              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59, %.lr.ph.i.i.i53
-  %142 = load ptr, ptr %140, align 8
-  %.not.i.i.i.i54 = icmp eq ptr %142, null
-  br i1 %.not.i.i.i.i54, label %143, label %145
+132:                                              ; preds = %.thread.i.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %134 = load ptr, ptr %133, align 8
+  %135 = zext nneg i32 %129 to i64
+  %136 = mul nuw nsw i64 %135, 24
+  %137 = tail call ptr @realloc(ptr noundef %134, i64 noundef %136) #12
+  %.not42.i.i.i = icmp eq ptr %137, null
+  br i1 %.not42.i.i.i, label %138, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i
 
-143:                                              ; preds = %141
-  %144 = tail call noundef ptr @hb_blob_get_empty()
-  br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61
+138:                                              ; preds = %132
+  %139 = load i32, ptr %119, align 8
+  %.not21.i.i.i = icmp ugt i32 %129, %139
+  br i1 %.not21.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-145:                                              ; preds = %141
-  %146 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %142)
-  %.not10.i.i.i55 = icmp eq ptr %146, null
-  br i1 %.not10.i.i.i55, label %147, label %149
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i: ; preds = %138, %.thread.i.i.i
+  %.01538.sink.i.ph.in.i.i = phi i32 [ %124, %.thread.i.i.i ], [ %139, %138 ]
+  %.01538.sink.i.ph.i.i = xor i32 %.01538.sink.i.ph.in.i.i, -1
+  store i32 %.01538.sink.i.ph.i.i, ptr %119, align 8
+  br label %151
 
-147:                                              ; preds = %145
-  %148 = tail call noundef ptr @hb_blob_get_empty()
-  br label %149
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i: ; preds = %132
+  store ptr %137, ptr %133, align 8
+  store i32 %129, ptr %119, align 8
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
 
-149:                                              ; preds = %147, %145
-  %.1.i.i.i56 = phi ptr [ %146, %145 ], [ %148, %147 ]
-  %150 = ptrtoint ptr %.1.i.i.i56 to i64
-  %151 = cmpxchg weak ptr %138, i64 0, i64 %150 acq_rel monotonic, align 8
-  %152 = extractvalue { i64, i1 } %151, 1
-  br i1 %152, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61, label %153
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i, %138, %126
+  %140 = load i32, ptr %120, align 4
+  %141 = icmp ugt i32 %123, %140
+  br i1 %141, label %142, label %152
 
-153:                                              ; preds = %149
-  %.not.i11.i.i.i57 = icmp eq ptr %.1.i.i.i56, null
-  br i1 %.not.i11.i.i.i57, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59, label %154
+142:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
+  %143 = sub nuw nsw i32 %123, %140
+  %144 = mul i32 %143, 24
+  %.not.i.i.i.i49 = icmp eq i32 %144, 0
+  br i1 %.not.i.i.i.i49, label %152, label %145
 
-154:                                              ; preds = %153
-  %155 = tail call noundef ptr @hb_blob_get_empty()
-  %.not3.i.i.i.i58 = icmp eq ptr %.1.i.i.i56, %155
-  br i1 %.not3.i.i.i.i58, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59, label %156
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %147 = load ptr, ptr %146, align 8
+  %148 = zext nneg i32 %140 to i64
+  %149 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %147, i64 %148
+  %150 = zext i32 %144 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %149, i8 0, i64 %150, i1 false)
+  br label %152
 
-156:                                              ; preds = %154
-  tail call void @hb_blob_destroy(ptr noundef nonnull %.1.i.i.i56)
-  br label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59
+151:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i, %118
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
 
-_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59: ; preds = %156, %154, %153
-  %157 = load atomic i64, ptr %138 acquire, align 8
-  %.not.i.i.i60 = icmp eq i64 %157, 0
-  br i1 %.not.i.i.i60, label %141, label %.loopexit.split.loop.exit12.i.i.i49
+152:                                              ; preds = %145, %142, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i
+  store i32 %123, ptr %120, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %154 = load ptr, ptr %153, align 8
+  %155 = add nsw i32 %123, -1
+  %156 = zext i32 %155 to i64
+  %157 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %154, i64 %156
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
 
-.loopexit.split.loop.exit12.i.i.i49:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59, %136
-  %.lcssa.i.i.i50 = phi i64 [ %139, %136 ], [ %157, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i59 ]
-  %158 = inttoptr i64 %.lcssa.i.i.i50 to ptr
-  br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61
-
-_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61: ; preds = %149, %143, %.loopexit.split.loop.exit12.i.i.i49
-  %.07.i.i.i51 = phi ptr [ %144, %143 ], [ %158, %.loopexit.split.loop.exit12.i.i.i49 ], [ %.1.i.i.i56, %149 ]
-  %159 = getelementptr inbounds nuw i8, ptr %.07.i.i.i51, i64 16
-  %160 = load ptr, ptr %159, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %.07.i.i.i51, i64 24
-  %162 = load i32, ptr %161, align 8
-  %163 = icmp ult i32 %162, 12
-  %spec.select.i.i.i.i.i52 = select i1 %163, ptr @_hb_NullPool, ptr %160
-  %164 = getelementptr inbounds nuw i8, ptr %135, i64 4
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit: ; preds = %151, %152
+  %.0.i = phi ptr [ %157, %152 ], [ @_hb_CrapPool, %151 ]
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %159 = load i32, ptr %158, align 4
+  %160 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store i32 %159, ptr %160, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %162 = load i32, ptr %161, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
+  store i32 %162, ptr %163, align 4
+  store i32 17, ptr %.0.i, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %165 = load i32, ptr %164, align 4
-  %166 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i52, i64 12
-  %167 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i52, i64 4
-  %168 = load i8, ptr %167, align 1
-  %169 = zext i8 %168 to i32
-  %170 = shl nuw nsw i32 %169, 8
-  %171 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i52, i64 5
-  %172 = load i8, ptr %171, align 1
-  %173 = zext i8 %172 to i32
-  %174 = or disjoint i32 %170, %173
-  %.not1.i.i.i.i.i.not.i = icmp eq i32 %174, 0
+  %166 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  store i32 %165, ptr %166, align 4
+  %167 = load i32, ptr %120, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
+  store i32 %167, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  store i8 1, ptr %169, align 4
+  br label %317
+
+170:                                              ; preds = %47
+  %171 = tail call noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef %48)
+  %.not = icmp eq ptr %171, null
+  br i1 %.not, label %317, label %172
+
+172:                                              ; preds = %170
+  %173 = load ptr, ptr %0, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 352
+  %175 = load atomic i64, ptr %174 acquire, align 8
+  %.not14.i.i.i50 = icmp eq i64 %175, 0
+  br i1 %.not14.i.i.i50, label %.lr.ph.i.i.i55, label %.loopexit.split.loop.exit12.i.i.i51
+
+.lr.ph.i.i.i55:                                   ; preds = %172
+  %176 = getelementptr inbounds nuw i8, ptr %173, i64 80
+  br label %177
+
+177:                                              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %.lr.ph.i.i.i55
+  %178 = load ptr, ptr %176, align 8
+  %.not.i.i.i.i56 = icmp eq ptr %178, null
+  br i1 %.not.i.i.i.i56, label %179, label %181
+
+179:                                              ; preds = %177
+  %180 = tail call noundef ptr @hb_blob_get_empty()
+  br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
+
+181:                                              ; preds = %177
+  %182 = tail call noundef ptr @_ZN22hb_table_lazy_loader_tIN3AAT4featELj34ELb0EE6createEP9hb_face_t(ptr noundef nonnull %178)
+  %.not10.i.i.i57 = icmp eq ptr %182, null
+  br i1 %.not10.i.i.i57, label %183, label %185
+
+183:                                              ; preds = %181
+  %184 = tail call noundef ptr @hb_blob_get_empty()
+  br label %185
+
+185:                                              ; preds = %183, %181
+  %.1.i.i.i58 = phi ptr [ %182, %181 ], [ %184, %183 ]
+  %186 = ptrtoint ptr %.1.i.i.i58 to i64
+  %187 = cmpxchg weak ptr %174, i64 0, i64 %186 acq_rel monotonic, align 8
+  %188 = extractvalue { i64, i1 } %187, 1
+  br i1 %188, label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, label %189
+
+189:                                              ; preds = %185
+  %.not.i11.i.i.i59 = icmp eq ptr %.1.i.i.i58, null
+  br i1 %.not.i11.i.i.i59, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %190
+
+190:                                              ; preds = %189
+  %191 = tail call noundef ptr @hb_blob_get_empty()
+  %.not3.i.i.i.i60 = icmp eq ptr %.1.i.i.i58, %191
+  br i1 %.not3.i.i.i.i60, label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, label %192
+
+192:                                              ; preds = %190
+  tail call void @hb_blob_destroy(ptr noundef nonnull %.1.i.i.i58)
+  br label %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61
+
+_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61: ; preds = %192, %190, %189
+  %193 = load atomic i64, ptr %174 acquire, align 8
+  %.not.i.i.i62 = icmp eq i64 %193, 0
+  br i1 %.not.i.i.i62, label %177, label %.loopexit.split.loop.exit12.i.i.i51
+
+.loopexit.split.loop.exit12.i.i.i51:              ; preds = %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61, %172
+  %.lcssa.i.i.i52 = phi i64 [ %175, %172 ], [ %193, %_ZN16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tE10do_destroyEPS5_.exit.i.i.i61 ]
+  %194 = inttoptr i64 %.lcssa.i.i.i52 to ptr
+  br label %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
+
+_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63: ; preds = %185, %179, %.loopexit.split.loop.exit12.i.i.i51
+  %.07.i.i.i53 = phi ptr [ %180, %179 ], [ %194, %.loopexit.split.loop.exit12.i.i.i51 ], [ %.1.i.i.i58, %185 ]
+  %195 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 16
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %.07.i.i.i53, i64 24
+  %198 = load i32, ptr %197, align 8
+  %199 = icmp ult i32 %198, 12
+  %spec.select.i.i.i.i.i54 = select i1 %199, ptr @_hb_NullPool, ptr %196
+  %200 = getelementptr inbounds nuw i8, ptr %171, i64 4
+  %201 = load i32, ptr %200, align 4
+  %202 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 12
+  %203 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 4
+  %204 = load i8, ptr %203, align 1
+  %205 = zext i8 %204 to i32
+  %206 = shl nuw nsw i32 %205, 8
+  %207 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i54, i64 5
+  %208 = load i8, ptr %207, align 1
+  %209 = zext i8 %208 to i32
+  %210 = or disjoint i32 %206, %209
+  %.not1.i.i.i.i.i.not.i = icmp eq i32 %210, 0
   br i1 %.not1.i.i.i.i.i.not.i, label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.preheader.i.i.i.i.i.i
 
-.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61
-  %175 = add nsw i32 %174, -1
+.lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63
+  %211 = add nsw i32 %210, -1
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %194, %.lr.ph.preheader.i.i.i.i.i.i
-  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %194 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %194 ], [ %175, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %176 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
-  %177 = lshr i32 %176, 1
-  %178 = zext nneg i32 %177 to i64
-  %179 = mul nuw nsw i64 %178, 12
-  %180 = getelementptr inbounds nuw i8, ptr %166, i64 %179
-  %181 = load i8, ptr %180, align 1
-  %182 = zext i8 %181 to i32
-  %183 = shl nuw nsw i32 %182, 8
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 1
-  %185 = load i8, ptr %184, align 1
-  %186 = zext i8 %185 to i32
-  %187 = or disjoint i32 %183, %186
-  %188 = icmp slt i32 %165, %187
-  br i1 %188, label %189, label %191
+.lr.ph.i.i.i.i.i.i:                               ; preds = %230, %.lr.ph.preheader.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ %.1.i.i.i.i.i.i, %230 ], [ 0, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %.121.i.i.i.i.i.i, %230 ], [ %211, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %212 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
+  %213 = lshr i32 %212, 1
+  %214 = zext nneg i32 %213 to i64
+  %215 = mul nuw nsw i64 %214, 12
+  %216 = getelementptr inbounds nuw i8, ptr %202, i64 %215
+  %217 = load i8, ptr %216, align 1
+  %218 = zext i8 %217 to i32
+  %219 = shl nuw nsw i32 %218, 8
+  %220 = getelementptr inbounds nuw i8, ptr %216, i64 1
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i32
+  %223 = or disjoint i32 %219, %222
+  %224 = icmp slt i32 %201, %223
+  br i1 %224, label %225, label %227
 
-189:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %190 = add nsw i32 %177, -1
-  br label %194
+225:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %226 = add nsw i32 %213, -1
+  br label %230
 
-191:                                              ; preds = %.lr.ph.i.i.i.i.i.i
-  %.not23.i.i.i.i.i.i = icmp eq i32 %165, %187
-  br i1 %.not23.i.i.i.i.i.i, label %195, label %192
+227:                                              ; preds = %.lr.ph.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i = icmp eq i32 %201, %223
+  br i1 %.not23.i.i.i.i.i.i, label %231, label %228
 
-192:                                              ; preds = %191
-  %193 = add nuw nsw i32 %177, 1
-  br label %194
+228:                                              ; preds = %227
+  %229 = add nuw nsw i32 %213, 1
+  br label %230
 
-194:                                              ; preds = %192, %189
-  %.121.i.i.i.i.i.i = phi i32 [ %190, %189 ], [ %.0202.i.i.i.i.i.i, %192 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %189 ], [ %193, %192 ]
+230:                                              ; preds = %228, %225
+  %.121.i.i.i.i.i.i = phi i32 [ %226, %225 ], [ %.0202.i.i.i.i.i.i, %228 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %225 ], [ %229, %228 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
-195:                                              ; preds = %191
-  %196 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %166, i64 %178
+231:                                              ; preds = %227
+  %232 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %202, i64 %214
   br label %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
 
-_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %194, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61, %195
-  %197 = phi ptr [ %196, %195 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit61 ], [ @_hb_NullPool, %194 ]
-  %198 = getelementptr inbounds nuw i8, ptr %197, i64 2
-  %199 = load i8, ptr %198, align 1
-  %200 = zext i8 %199 to i32
-  %201 = shl nuw nsw i32 %200, 8
-  %202 = getelementptr inbounds nuw i8, ptr %197, i64 3
-  %203 = load i8, ptr %202, align 1
-  %204 = zext i8 %203 to i32
-  %205 = or disjoint i32 %201, %204
-  %.not63 = icmp eq i32 %205, 0
-  br i1 %.not63, label %206, label %225
+_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit: ; preds = %230, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63, %231
+  %233 = phi ptr [ %232, %231 ], [ @_hb_NullPool, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit63 ], [ @_hb_NullPool, %230 ]
+  %234 = getelementptr inbounds nuw i8, ptr %233, i64 2
+  %235 = load i8, ptr %234, align 1
+  %236 = zext i8 %235 to i32
+  %237 = shl nuw nsw i32 %236, 8
+  %238 = getelementptr inbounds nuw i8, ptr %233, i64 3
+  %239 = load i8, ptr %238, align 1
+  %240 = zext i8 %239 to i32
+  %241 = or disjoint i32 %237, %240
+  %.not79 = icmp eq i32 %241, 0
+  br i1 %.not79, label %242, label %261
 
-206:                                              ; preds = %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
-  %207 = icmp eq i32 %165, 37
-  br i1 %207, label %208, label %245
+242:                                              ; preds = %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
+  %243 = icmp eq i32 %201, 37
+  br i1 %243, label %244, label %317
 
-208:                                              ; preds = %206
-  %209 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %210 = load i32, ptr %209, align 4
-  %211 = icmp eq i32 %210, 1
-  br i1 %211, label %212, label %245
+244:                                              ; preds = %242
+  %245 = getelementptr inbounds nuw i8, ptr %171, i64 8
+  %246 = load i32, ptr %245, align 4
+  %247 = icmp eq i32 %246, 1
+  br i1 %247, label %248, label %317
 
-212:                                              ; preds = %208
-  %213 = load ptr, ptr %0, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 352
-  %215 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv(ptr noundef nonnull align 8 dereferenceable(8) %214)
-  %216 = tail call noundef nonnull align 1 dereferenceable(12) ptr @_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t(ptr noundef nonnull align 1 dereferenceable(24) %215, i32 noundef 3)
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 2
-  %218 = load i8, ptr %217, align 1
-  %219 = zext i8 %218 to i32
-  %220 = shl nuw nsw i32 %219, 8
-  %221 = getelementptr inbounds nuw i8, ptr %216, i64 3
-  %222 = load i8, ptr %221, align 1
-  %223 = zext i8 %222 to i32
-  %224 = or disjoint i32 %220, %223
-  %.not64 = icmp eq i32 %224, 0
-  br i1 %.not64, label %245, label %225
+248:                                              ; preds = %244
+  %249 = load ptr, ptr %0, align 8
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 352
+  %251 = tail call noundef ptr @_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv(ptr noundef nonnull align 8 dereferenceable(8) %250)
+  %252 = tail call noundef nonnull align 1 dereferenceable(12) ptr @_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t(ptr noundef nonnull align 1 dereferenceable(24) %251, i32 noundef 3)
+  %253 = getelementptr inbounds nuw i8, ptr %252, i64 2
+  %254 = load i8, ptr %253, align 1
+  %255 = zext i8 %254 to i32
+  %256 = shl nuw nsw i32 %255, 8
+  %257 = getelementptr inbounds nuw i8, ptr %252, i64 3
+  %258 = load i8, ptr %257, align 1
+  %259 = zext i8 %258 to i32
+  %260 = or disjoint i32 %256, %259
+  %.not80 = icmp eq i32 %260, 0
+  br i1 %.not80, label %317, label %261
 
-225:                                              ; preds = %212, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
-  %.0 = phi ptr [ %197, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit ], [ %216, %212 ]
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %227 = tail call noundef ptr @_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv(ptr noundef nonnull align 8 dereferenceable(16) %226)
-  %228 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %229 = load i32, ptr %228, align 4
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  store i32 %229, ptr %230, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %232 = load i32, ptr %231, align 4
-  %233 = getelementptr inbounds nuw i8, ptr %227, i64 20
-  store i32 %232, ptr %233, align 4
-  %234 = load i32, ptr %164, align 4
-  store i32 %234, ptr %227, align 4
-  %235 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %236 = load i32, ptr %235, align 4
-  %.not33 = icmp eq i32 %236, 0
+261:                                              ; preds = %248, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit
+  %.0 = phi ptr [ %233, %_ZNK3AAT4feat11get_featureE28hb_aat_layout_feature_type_t.exit ], [ %252, %248 ]
+  %262 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %264 = load i32, ptr %263, align 4
+  %265 = add i32 %264, 1
+  %266 = tail call i32 @llvm.smax.i32(i32 %265, i32 0)
+  %267 = load i32, ptr %262, align 8
+  %268 = icmp slt i32 %267, 0
+  br i1 %268, label %294, label %269
+
+269:                                              ; preds = %261
+  %.not.i.i.i64 = icmp sgt i32 %265, %267
+  br i1 %.not.i.i.i64, label %.preheader.i.i.i68, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+
+.preheader.i.i.i68:                               ; preds = %269, %.preheader.i.i.i68
+  %.143.i.i.i69 = phi i32 [ %272, %.preheader.i.i.i68 ], [ %267, %269 ]
+  %270 = lshr i32 %.143.i.i.i69, 1
+  %271 = add nuw i32 %.143.i.i.i69, 8
+  %272 = add nuw i32 %271, %270
+  %273 = icmp ugt i32 %266, %272
+  br i1 %273, label %.preheader.i.i.i68, label %.thread.i.i.i70, !llvm.loop !8
+
+.thread.i.i.i70:                                  ; preds = %.preheader.i.i.i68
+  %274 = icmp ugt i32 %272, 178956970
+  br i1 %274, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, label %275
+
+275:                                              ; preds = %.thread.i.i.i70
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %277 = load ptr, ptr %276, align 8
+  %278 = zext nneg i32 %272 to i64
+  %279 = mul nuw nsw i64 %278, 24
+  %280 = tail call ptr @realloc(ptr noundef %277, i64 noundef %279) #12
+  %.not42.i.i.i71 = icmp eq ptr %280, null
+  br i1 %.not42.i.i.i71, label %281, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72
+
+281:                                              ; preds = %275
+  %282 = load i32, ptr %262, align 8
+  %.not21.i.i.i73 = icmp ugt i32 %272, %282
+  br i1 %.not21.i.i.i73, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74: ; preds = %281, %.thread.i.i.i70
+  %.01538.sink.i.ph.in.i.i75 = phi i32 [ %267, %.thread.i.i.i70 ], [ %282, %281 ]
+  %.01538.sink.i.ph.i.i76 = xor i32 %.01538.sink.i.ph.in.i.i75, -1
+  store i32 %.01538.sink.i.ph.i.i76, ptr %262, align 8
+  br label %294
+
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72: ; preds = %275
+  store ptr %280, ptr %276, align 8
+  store i32 %272, ptr %262, align 8
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i.i72, %281, %269
+  %283 = load i32, ptr %263, align 4
+  %284 = icmp ugt i32 %266, %283
+  br i1 %284, label %285, label %295
+
+285:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+  %286 = sub nuw nsw i32 %266, %283
+  %287 = mul i32 %286, 24
+  %.not.i.i.i.i67 = icmp eq i32 %287, 0
+  br i1 %.not.i.i.i.i67, label %295, label %288
+
+288:                                              ; preds = %285
+  %289 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %290 = load ptr, ptr %289, align 8
+  %291 = zext nneg i32 %283 to i64
+  %292 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %290, i64 %291
+  %293 = zext i32 %287 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %292, i8 0, i64 %293, i1 false)
+  br label %295
+
+294:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i.i74, %261
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77
+
+295:                                              ; preds = %288, %285, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i.i65
+  store i32 %266, ptr %263, align 4
+  %296 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %297 = load ptr, ptr %296, align 8
+  %298 = add nsw i32 %266, -1
+  %299 = zext i32 %298 to i64
+  %300 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %297, i64 %299
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77
+
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77: ; preds = %294, %295
+  %.0.i66 = phi ptr [ %300, %295 ], [ @_hb_CrapPool, %294 ]
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %302 = load i32, ptr %301, align 4
+  %303 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 16
+  store i32 %302, ptr %303, align 4
+  %304 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %305 = load i32, ptr %304, align 4
+  %306 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 20
+  store i32 %305, ptr %306, align 4
+  %307 = load i32, ptr %200, align 4
+  store i32 %307, ptr %.0.i66, align 4
+  %308 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %309 = load i32, ptr %308, align 4
+  %.not33 = icmp eq i32 %309, 0
   %.in.v = select i1 %.not33, i64 12, i64 8
-  %.in = getelementptr inbounds nuw i8, ptr %135, i64 %.in.v
-  %237 = load i32, ptr %.in, align 4
-  %238 = getelementptr inbounds nuw i8, ptr %227, i64 4
-  store i32 %237, ptr %238, align 4
-  %239 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %240 = load i32, ptr %239, align 4
-  %241 = getelementptr inbounds nuw i8, ptr %227, i64 12
-  store i32 %240, ptr %241, align 4
-  %242 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %243 = load i8, ptr %242, align 1
-  %244 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %.lobit = lshr i8 %243, 7
-  store i8 %.lobit, ptr %244, align 4
-  br label %245
+  %.in = getelementptr inbounds nuw i8, ptr %171, i64 %.in.v
+  %310 = load i32, ptr %.in, align 4
+  %311 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 4
+  store i32 %310, ptr %311, align 4
+  %312 = load i32, ptr %263, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 12
+  store i32 %312, ptr %313, align 4
+  %314 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %315 = load i8, ptr %314, align 1
+  %316 = getelementptr inbounds nuw i8, ptr %.0.i66, i64 8
+  %.lobit = lshr i8 %315, 7
+  store i8 %.lobit, ptr %316, align 4
+  br label %317
 
-245:                                              ; preds = %206, %208, %212, %134, %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %225, %118
+317:                                              ; preds = %242, %244, %248, %170, %_ZNK3AAT4feat15exposes_featureE28hb_aat_layout_feature_type_t.exit, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit77, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv.exit
   ret void
 }
 
@@ -571,104 +733,6 @@ _ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face
   ret ptr %spec.select.i.i.i.i
 }
 
-; Function Attrs: mustprogress uwtable
-define linkonce_odr hidden noundef ptr @_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE4pushEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %3 = load i32, ptr %2, align 4
-  %4 = add i32 %3, 1
-  %5 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
-  %6 = load i32, ptr %0, align 8
-  %7 = icmp slt i32 %6, 0
-  br i1 %7, label %33, label %8
-
-8:                                                ; preds = %1
-  %.not.i.i = icmp sgt i32 %4, %6
-  br i1 %.not.i.i, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-
-.preheader.i.i:                                   ; preds = %8, %.preheader.i.i
-  %.143.i.i = phi i32 [ %11, %.preheader.i.i ], [ %6, %8 ]
-  %9 = lshr i32 %.143.i.i, 1
-  %10 = add i32 %.143.i.i, 8
-  %11 = add i32 %10, %9
-  %12 = icmp ugt i32 %5, %11
-  br i1 %12, label %.preheader.i.i, label %.thread.i.i, !llvm.loop !8
-
-.thread.i.i:                                      ; preds = %.preheader.i.i
-  %13 = icmp ugt i32 %11, 178956970
-  br i1 %13, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i, label %14
-
-14:                                               ; preds = %.thread.i.i
-  %.not.i25.i.i = icmp eq i32 %11, 0
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = load ptr, ptr %15, align 8
-  br i1 %.not.i25.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %14
-  tail call void @free(ptr noundef %16) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %14
-  %17 = zext nneg i32 %11 to i64
-  %18 = mul nuw nsw i64 %17, 24
-  %19 = tail call ptr @realloc(ptr noundef %16, i64 noundef %18) #13
-  %.not42.i.i = icmp eq ptr %19, null
-  br i1 %.not42.i.i, label %20, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i
-
-20:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
-  %21 = load i32, ptr %0, align 8
-  %.not21.i.i = icmp ugt i32 %11, %21
-  br i1 %.not21.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i: ; preds = %20, %.thread.i.i
-  %.01538.sink.i.ph.in.i = phi i32 [ %6, %.thread.i.i ], [ %21, %20 ]
-  %.01538.sink.i.ph.i = xor i32 %.01538.sink.i.ph.in.i, -1
-  store i32 %.01538.sink.i.ph.i, ptr %0, align 8
-  br label %33
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i
-  %.0.i41.i.i = phi ptr [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i ], [ %19, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i ]
-  store ptr %.0.i41.i.i, ptr %15, align 8
-  store i32 %11, ptr %0, align 8
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.i, %20, %8
-  %22 = load i32, ptr %2, align 4
-  %23 = icmp ugt i32 %5, %22
-  br i1 %23, label %24, label %34
-
-24:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-  %25 = sub nuw i32 %5, %22
-  %26 = mul i32 %25, 24
-  %.not.i.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i.i, label %34, label %27
-
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = zext i32 %22 to i64
-  %31 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %29, i64 %30
-  %32 = zext i32 %26 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 0, i64 %32, i1 false)
-  br label %34
-
-33:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread21.i, %1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
-  br label %40
-
-34:                                               ; preds = %27, %24, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EE5allocEjb.exit.thread.i
-  store i32 %5, ptr %2, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = add nsw i32 %5, -1
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %36, i64 %38
-  br label %40
-
-40:                                               ; preds = %34, %33
-  %.0 = phi ptr [ %39, %34 ], [ @_hb_CrapPool, %33 ]
-  ret ptr %.0
-}
-
 declare noundef ptr @_Z34hb_aat_layout_find_feature_mappingj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
@@ -738,8 +802,8 @@ _ZNK2OT20SortedUnsizedArrayOfIN3AAT11FeatureNameEE7bsearchI28hb_aat_layout_featu
 define hidden void @_ZN20hb_aat_map_builder_t7compileER12hb_aat_map_t(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
-  %.not293 = icmp eq i32 %4, 0
-  br i1 %.not293, label %.preheader.i.i.i102.preheader, label %.lr.ph
+  %.not285 = icmp eq i32 %4, 0
+  br i1 %.not285, label %.preheader.i.i.i98.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -748,9 +812,9 @@ define hidden void @_ZN20hb_aat_map_builder_t7compileER12hb_aat_map_t(ptr nounde
 6:                                                ; preds = %.lr.ph, %96
   %7 = phi i32 [ %4, %.lr.ph ], [ %97, %96 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %.sroa.31.0267 = phi ptr [ null, %.lr.ph ], [ %.sroa.31.1, %96 ]
-  %.sroa.17.0265 = phi i32 [ 0, %.lr.ph ], [ %.sroa.17.1, %96 ]
-  %.sroa.0207.0264 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0207.1, %96 ]
+  %.sroa.31.0259 = phi ptr [ null, %.lr.ph ], [ %.sroa.31.1, %96 ]
+  %.sroa.17.0257 = phi i32 [ 0, %.lr.ph ], [ %.sroa.17.1, %96 ]
+  %.sroa.0199.0256 = phi i32 [ 0, %.lr.ph ], [ %.sroa.0199.1, %96 ]
   %8 = zext i32 %7 to i64
   %.not.i = icmp samesign ult i64 %indvars.iv, %8
   br i1 %.not.i, label %10, label %9
@@ -768,7 +832,7 @@ define hidden void @_ZN20hb_aat_map_builder_t7compileER12hb_aat_map_t(ptr nounde
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72: ; preds = %10, %9
   %.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @_hb_CrapPool, i64 16), %9 ], [ %13, %10 ]
-  %.0.i320324 = phi ptr [ @_hb_CrapPool, %9 ], [ %12, %10 ]
+  %.0.i312316 = phi ptr [ @_hb_CrapPool, %9 ], [ %12, %10 ]
   %.0.i71 = phi ptr [ @_hb_CrapPool, %9 ], [ %14, %10 ]
   %15 = load i32, ptr %.in, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.0.i71, i64 20
@@ -782,20 +846,20 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72: ; pr
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit
 
 21:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72
-  %22 = add i32 %.sroa.17.0265, 1
+  %22 = add i32 %.sroa.17.0257, 1
   %23 = tail call i32 @llvm.smax.i32(i32 %22, i32 0)
-  %24 = icmp slt i32 %.sroa.0207.0264, 0
+  %24 = icmp slt i32 %.sroa.0199.0256, 0
   br i1 %24, label %44, label %25
 
 25:                                               ; preds = %21
-  %.not.i.i.i = icmp sgt i32 %22, %.sroa.0207.0264
+  %.not.i.i.i = icmp sgt i32 %22, %.sroa.0199.0256
   br i1 %.not.i.i.i, label %.preheader.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
 
 .preheader.i.i.i:                                 ; preds = %25, %.preheader.i.i.i
-  %.143.i.i.i = phi i32 [ %28, %.preheader.i.i.i ], [ %.sroa.0207.0264, %25 ]
+  %.143.i.i.i = phi i32 [ %28, %.preheader.i.i.i ], [ %.sroa.0199.0256, %25 ]
   %26 = lshr i32 %.143.i.i.i, 1
-  %27 = add i32 %.143.i.i.i, 8
-  %28 = add i32 %27, %26
+  %27 = add nuw i32 %.143.i.i.i, 8
+  %28 = add nuw i32 %27, %26
   %29 = icmp ugt i32 %23, %28
   br i1 %29, label %.preheader.i.i.i, label %.thread.i.i.i, !llvm.loop !9
 
@@ -804,49 +868,41 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72: ; pr
   br i1 %30, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i, label %31
 
 31:                                               ; preds = %.thread.i.i.i
-  %.not.i25.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i25.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i: ; preds = %31
-  tail call void @free(ptr noundef %.sroa.31.0267) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i: ; preds = %31
   %32 = zext nneg i32 %28 to i64
   %33 = mul nuw nsw i64 %32, 24
-  %34 = tail call ptr @realloc(ptr noundef %.sroa.31.0267, i64 noundef %33) #13
+  %34 = tail call ptr @realloc(ptr noundef %.sroa.31.0259, i64 noundef %33) #12
   %.not42.i.i.i = icmp eq ptr %34, null
   br i1 %.not42.i.i.i, label %35, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
 
-35:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i
-  %.not21.i.i.i = icmp ugt i32 %28, %.sroa.0207.0264
+35:                                               ; preds = %31
+  %.not21.i.i.i = icmp samesign ugt i32 %28, %.sroa.0199.0256
   br i1 %.not21.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i: ; preds = %35, %.thread.i.i.i
-  %.01538.sink.i.ph.i.i = xor i32 %.sroa.0207.0264, -1
+  %.01538.sink.i.ph.i.i = xor i32 %.sroa.0199.0256, -1
   br label %44
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i, %35, %25
-  %.sroa.0207.3 = phi i32 [ %.sroa.0207.0264, %35 ], [ %.sroa.0207.0264, %25 ], [ %28, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i ]
-  %.sroa.31.3 = phi ptr [ %.sroa.31.0267, %35 ], [ %.sroa.31.0267, %25 ], [ %34, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i ], [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i ]
-  %36 = icmp ugt i32 %23, %.sroa.17.0265
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i: ; preds = %31, %35, %25
+  %.sroa.0199.3 = phi i32 [ %.sroa.0199.0256, %35 ], [ %.sroa.0199.0256, %25 ], [ %28, %31 ]
+  %.sroa.31.3 = phi ptr [ %.sroa.31.0259, %35 ], [ %.sroa.31.0259, %25 ], [ %34, %31 ]
+  %36 = icmp ugt i32 %23, %.sroa.17.0257
   br i1 %36, label %37, label %45
 
 37:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i
-  %38 = sub nuw i32 %23, %.sroa.17.0265
+  %38 = sub nuw nsw i32 %23, %.sroa.17.0257
   %39 = mul i32 %38, 24
   %.not.i.i.i.i = icmp eq i32 %39, 0
   br i1 %.not.i.i.i.i, label %45, label %40
 
 40:                                               ; preds = %37
-  %41 = zext i32 %.sroa.17.0265 to i64
+  %41 = zext nneg i32 %.sroa.17.0257 to i64
   %42 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.3, i64 %41
   %43 = zext i32 %39 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 0, i64 %43, i1 false)
   br label %45
 
 44:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i, %21
-  %.sroa.0207.4 = phi i32 [ %.sroa.0207.0264, %21 ], [ %.01538.sink.i.ph.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i ]
+  %.sroa.0199.4 = phi i32 [ %.sroa.0199.0256, %21 ], [ %.01538.sink.i.ph.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit
 
@@ -857,9 +913,9 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.th
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit: ; preds = %45, %44
-  %.sroa.0207.5 = phi i32 [ %.sroa.0207.4, %44 ], [ %.sroa.0207.3, %45 ]
-  %.sroa.17.3 = phi i32 [ %.sroa.17.0265, %44 ], [ %23, %45 ]
-  %.sroa.31.4 = phi ptr [ %.sroa.31.0267, %44 ], [ %.sroa.31.3, %45 ]
+  %.sroa.0199.5 = phi i32 [ %.sroa.0199.4, %44 ], [ %.sroa.0199.3, %45 ]
+  %.sroa.17.3 = phi i32 [ %.sroa.17.0257, %44 ], [ %23, %45 ]
+  %.sroa.31.4 = phi ptr [ %.sroa.31.0259, %44 ], [ %.sroa.31.3, %45 ]
   %.0.i73 = phi ptr [ @_hb_CrapPool, %44 ], [ %48, %45 ]
   %49 = load i32, ptr %3, align 4
   %50 = zext i32 %49 to i64
@@ -883,121 +939,113 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76: ; pr
   %57 = getelementptr inbounds nuw i8, ptr %.0.i73, i64 4
   store i8 1, ptr %57, align 4
   %58 = getelementptr inbounds nuw i8, ptr %.0.i73, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %.0.i320324, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %58, ptr noundef nonnull align 4 dereferenceable(16) %.0.i312316, i64 16, i1 false)
   %59 = add i32 %.sroa.17.3, 1
   %60 = tail call i32 @llvm.smax.i32(i32 %59, i32 0)
-  %61 = icmp slt i32 %.sroa.0207.5, 0
+  %61 = icmp slt i32 %.sroa.0199.5, 0
   br i1 %61, label %81, label %62
 
 62:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76
-  %.not.i.i.i77 = icmp sgt i32 %59, %.sroa.0207.5
+  %.not.i.i.i77 = icmp sgt i32 %59, %.sroa.0199.5
   br i1 %.not.i.i.i77, label %.preheader.i.i.i81, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
 
 .preheader.i.i.i81:                               ; preds = %62, %.preheader.i.i.i81
-  %.143.i.i.i82 = phi i32 [ %65, %.preheader.i.i.i81 ], [ %.sroa.0207.5, %62 ]
+  %.143.i.i.i82 = phi i32 [ %65, %.preheader.i.i.i81 ], [ %.sroa.0199.5, %62 ]
   %63 = lshr i32 %.143.i.i.i82, 1
-  %64 = add i32 %.143.i.i.i82, 8
-  %65 = add i32 %64, %63
+  %64 = add nuw i32 %.143.i.i.i82, 8
+  %65 = add nuw i32 %64, %63
   %66 = icmp ugt i32 %60, %65
   br i1 %66, label %.preheader.i.i.i81, label %.thread.i.i.i83, !llvm.loop !9
 
 .thread.i.i.i83:                                  ; preds = %.preheader.i.i.i81
   %67 = icmp ugt i32 %65, 178956970
-  br i1 %67, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i90, label %68
+  br i1 %67, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i87, label %68
 
 68:                                               ; preds = %.thread.i.i.i83
-  %.not.i25.i.i.i84 = icmp eq i32 %65, 0
-  br i1 %.not.i25.i.i.i84, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i93, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i93: ; preds = %68
-  tail call void @free(ptr noundef %.sroa.31.4) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85: ; preds = %68
   %69 = zext nneg i32 %65 to i64
   %70 = mul nuw nsw i64 %69, 24
-  %71 = tail call ptr @realloc(ptr noundef %.sroa.31.4, i64 noundef %70) #13
-  %.not42.i.i.i86 = icmp eq ptr %71, null
-  br i1 %.not42.i.i.i86, label %72, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
+  %71 = tail call ptr @realloc(ptr noundef %.sroa.31.4, i64 noundef %70) #12
+  %.not42.i.i.i84 = icmp eq ptr %71, null
+  br i1 %.not42.i.i.i84, label %72, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
 
-72:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85
-  %.not21.i.i.i89 = icmp ugt i32 %65, %.sroa.0207.5
-  br i1 %.not21.i.i.i89, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i90, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
+72:                                               ; preds = %68
+  %.not21.i.i.i86 = icmp samesign ugt i32 %65, %.sroa.0199.5
+  br i1 %.not21.i.i.i86, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i87, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i90: ; preds = %72, %.thread.i.i.i83
-  %.01538.sink.i.ph.i.i92 = xor i32 %.sroa.0207.5, -1
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i87: ; preds = %72, %.thread.i.i.i83
+  %.01538.sink.i.ph.i.i89 = xor i32 %.sroa.0199.5, -1
   br label %81
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i93, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85, %72, %62
-  %.sroa.0207.6 = phi i32 [ %.sroa.0207.5, %72 ], [ %.sroa.0207.5, %62 ], [ %65, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85 ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i93 ]
-  %.sroa.31.5 = phi ptr [ %.sroa.31.4, %72 ], [ %.sroa.31.4, %62 ], [ %71, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i85 ], [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i93 ]
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78: ; preds = %68, %72, %62
+  %.sroa.0199.6 = phi i32 [ %.sroa.0199.5, %72 ], [ %.sroa.0199.5, %62 ], [ %65, %68 ]
+  %.sroa.31.5 = phi ptr [ %.sroa.31.4, %72 ], [ %.sroa.31.4, %62 ], [ %71, %68 ]
   %73 = icmp ugt i32 %60, %.sroa.17.3
   br i1 %73, label %74, label %82
 
 74:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
-  %75 = sub nuw i32 %60, %.sroa.17.3
+  %75 = sub nuw nsw i32 %60, %.sroa.17.3
   %76 = mul i32 %75, 24
   %.not.i.i.i.i80 = icmp eq i32 %76, 0
   br i1 %.not.i.i.i.i80, label %82, label %77
 
 77:                                               ; preds = %74
-  %78 = zext i32 %.sroa.17.3 to i64
+  %78 = zext nneg i32 %.sroa.17.3 to i64
   %79 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.5, i64 %78
   %80 = zext i32 %76 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %79, i8 0, i64 %80, i1 false)
   br label %82
 
-81:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i90, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76
-  %.sroa.0207.7 = phi i32 [ %.sroa.0207.5, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76 ], [ %.01538.sink.i.ph.i.i92, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i90 ]
+81:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i87, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76
+  %.sroa.0199.7 = phi i32 [ %.sroa.0199.5, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit76 ], [ %.01538.sink.i.ph.i.i89, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i87 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit90
 
 82:                                               ; preds = %77, %74, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i78
   %83 = add nsw i32 %60, -1
   %84 = zext i32 %83 to i64
   %85 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.5, i64 %84
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit90
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94: ; preds = %82, %81
-  %.sroa.0207.8 = phi i32 [ %.sroa.0207.7, %81 ], [ %.sroa.0207.6, %82 ]
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit90: ; preds = %82, %81
+  %.sroa.0199.8 = phi i32 [ %.sroa.0199.7, %81 ], [ %.sroa.0199.6, %82 ]
   %.sroa.17.4 = phi i32 [ %.sroa.17.3, %81 ], [ %60, %82 ]
   %.sroa.31.6 = phi ptr [ %.sroa.31.4, %81 ], [ %.sroa.31.5, %82 ]
   %.0.i79 = phi ptr [ @_hb_CrapPool, %81 ], [ %85, %82 ]
   %86 = load i32, ptr %3, align 4
   %87 = zext i32 %86 to i64
-  %.not.i95 = icmp samesign ult i64 %indvars.iv, %87
-  br i1 %.not.i95, label %89, label %88
+  %.not.i91 = icmp samesign ult i64 %indvars.iv, %87
+  br i1 %.not.i91, label %89, label %88
 
-88:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94
+88:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit90
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93
 
-89:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit94
+89:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit90
   %90 = load ptr, ptr %5, align 8
   %91 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_range_t", ptr %90, i64 %indvars.iv
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97: ; preds = %89, %88
-  %.0.i96 = phi ptr [ @_hb_CrapPool, %88 ], [ %91, %89 ]
-  %92 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 20
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93: ; preds = %89, %88
+  %.0.i92 = phi ptr [ @_hb_CrapPool, %88 ], [ %91, %89 ]
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i92, i64 20
   %93 = load i32, ptr %92, align 4
   store i32 %93, ptr %.0.i79, align 4
   %94 = getelementptr inbounds nuw i8, ptr %.0.i79, i64 4
   store i8 0, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %.0.i79, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %95, ptr noundef nonnull align 4 dereferenceable(16) %.0.i320324, i64 16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %95, ptr noundef nonnull align 4 dereferenceable(16) %.0.i312316, i64 16, i1 false)
   %.pre = load i32, ptr %3, align 4
-  %.pre315 = zext i32 %.pre to i64
+  %.pre307 = zext i32 %.pre to i64
   br label %96
 
-96:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97
-  %.pre-phi316 = phi i64 [ %8, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.pre315, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
-  %97 = phi i32 [ %7, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.pre, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
-  %.sroa.0207.1 = phi i32 [ %.sroa.0207.0264, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.0207.8, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
-  %.sroa.17.1 = phi i32 [ %.sroa.17.0265, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.17.4, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
-  %.sroa.31.1 = phi ptr [ %.sroa.31.0267, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.31.6, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97 ]
+96:                                               ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93
+  %.pre-phi308 = phi i64 [ %8, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.pre307, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93 ]
+  %97 = phi i32 [ %7, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.pre, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93 ]
+  %.sroa.0199.1 = phi i32 [ %.sroa.0199.0256, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.0199.8, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93 ]
+  %.sroa.17.1 = phi i32 [ %.sroa.17.0257, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.17.4, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93 ]
+  %.sroa.31.1 = phi ptr [ %.sroa.31.0259, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit72 ], [ %.sroa.31.6, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi316
+  %98 = icmp samesign ult i64 %indvars.iv.next, %.pre-phi308
   br i1 %98, label %6, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %96
@@ -1010,116 +1058,108 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_range_tELb1EEixEi.exit97: ; pr
           to label %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge unwind label %19
 
 ._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge: ; preds = %99
-  %.pre309 = load i32, ptr %3, align 4
+  %.pre301 = load i32, ptr %3, align 4
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit: ; preds = %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge, %._crit_edge
-  %.sroa.17.0.lcssa331 = phi i32 [ %.sroa.17.1, %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge ], [ 0, %._crit_edge ]
-  %100 = phi i32 [ %.pre309, %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge ], [ %97, %._crit_edge ]
-  %101 = icmp slt i32 %.sroa.0207.1, 0
+  %.sroa.17.0.lcssa323 = phi i32 [ %.sroa.17.1, %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge ], [ 0, %._crit_edge ]
+  %100 = phi i32 [ %.pre301, %._ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit_crit_edge ], [ %97, %._crit_edge ]
+  %101 = icmp slt i32 %.sroa.0199.1, 0
   br i1 %101, label %127, label %102
 
 102:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit
-  %103 = add i32 %.sroa.17.0.lcssa331, 1
+  %103 = add i32 %.sroa.17.0.lcssa323, 1
   %104 = tail call i32 @llvm.smax.i32(i32 %103, i32 0)
-  %.not.i.i.i98 = icmp sgt i32 %103, %.sroa.0207.1
-  br i1 %.not.i.i.i98, label %.preheader.i.i.i102.preheader, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
+  %.not.i.i.i94 = icmp sgt i32 %103, %.sroa.0199.1
+  br i1 %.not.i.i.i94, label %.preheader.i.i.i98.preheader, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95
 
-.preheader.i.i.i102.preheader:                    ; preds = %2, %102
-  %.sroa.31.0.lcssa333338348 = phi ptr [ %.sroa.31.1, %102 ], [ null, %2 ]
-  %.sroa.17.0.lcssa331339347 = phi i32 [ %.sroa.17.0.lcssa331, %102 ], [ 0, %2 ]
-  %.sroa.0207.0.lcssa330340345 = phi i32 [ %.sroa.0207.1, %102 ], [ 0, %2 ]
+.preheader.i.i.i98.preheader:                     ; preds = %2, %102
+  %.sroa.31.0.lcssa325330340 = phi ptr [ %.sroa.31.1, %102 ], [ null, %2 ]
+  %.sroa.17.0.lcssa323331339 = phi i32 [ %.sroa.17.0.lcssa323, %102 ], [ 0, %2 ]
+  %.sroa.0199.0.lcssa322332337 = phi i32 [ %.sroa.0199.1, %102 ], [ 0, %2 ]
   %105 = phi i32 [ %100, %102 ], [ 0, %2 ]
   %106 = phi i32 [ %104, %102 ], [ 1, %2 ]
-  br label %.preheader.i.i.i102
+  br label %.preheader.i.i.i98
 
-.preheader.i.i.i102:                              ; preds = %.preheader.i.i.i102.preheader, %.preheader.i.i.i102
-  %.143.i.i.i103 = phi i32 [ %109, %.preheader.i.i.i102 ], [ %.sroa.0207.0.lcssa330340345, %.preheader.i.i.i102.preheader ]
-  %107 = lshr i32 %.143.i.i.i103, 1
-  %108 = add i32 %.143.i.i.i103, 8
-  %109 = add i32 %108, %107
+.preheader.i.i.i98:                               ; preds = %.preheader.i.i.i98.preheader, %.preheader.i.i.i98
+  %.143.i.i.i99 = phi i32 [ %109, %.preheader.i.i.i98 ], [ %.sroa.0199.0.lcssa322332337, %.preheader.i.i.i98.preheader ]
+  %107 = lshr i32 %.143.i.i.i99, 1
+  %108 = add nuw i32 %.143.i.i.i99, 8
+  %109 = add nuw i32 %108, %107
   %110 = icmp ugt i32 %106, %109
-  br i1 %110, label %.preheader.i.i.i102, label %.thread.i.i.i104, !llvm.loop !9
+  br i1 %110, label %.preheader.i.i.i98, label %.thread.i.i.i100, !llvm.loop !9
 
-.thread.i.i.i104:                                 ; preds = %.preheader.i.i.i102
+.thread.i.i.i100:                                 ; preds = %.preheader.i.i.i98
   %111 = icmp ugt i32 %109, 178956970
-  br i1 %111, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111, label %112
+  br i1 %111, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104, label %112
 
-112:                                              ; preds = %.thread.i.i.i104
-  %.not.i25.i.i.i105 = icmp eq i32 %109, 0
-  br i1 %.not.i25.i.i.i105, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114: ; preds = %112
-  tail call void @free(ptr noundef %.sroa.31.0.lcssa333338348) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
-
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106: ; preds = %112
+112:                                              ; preds = %.thread.i.i.i100
   %113 = zext nneg i32 %109 to i64
   %114 = mul nuw nsw i64 %113, 24
-  %115 = tail call ptr @realloc(ptr noundef %.sroa.31.0.lcssa333338348, i64 noundef %114) #13
-  %.not42.i.i.i107 = icmp eq ptr %115, null
-  br i1 %.not42.i.i.i107, label %116, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
+  %115 = tail call ptr @realloc(ptr noundef %.sroa.31.0.lcssa325330340, i64 noundef %114) #12
+  %.not42.i.i.i101 = icmp eq ptr %115, null
+  br i1 %.not42.i.i.i101, label %116, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95
 
-116:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106
-  %.not21.i.i.i110 = icmp ugt i32 %109, %.sroa.0207.0.lcssa330340345
-  br i1 %.not21.i.i.i110, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
+116:                                              ; preds = %112
+  %.not21.i.i.i103 = icmp samesign ugt i32 %109, %.sroa.0199.0.lcssa322332337
+  br i1 %.not21.i.i.i103, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111: ; preds = %116, %.thread.i.i.i104
-  %.01538.sink.i.ph.i.i113 = xor i32 %.sroa.0207.0.lcssa330340345, -1
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104: ; preds = %116, %.thread.i.i.i100
+  %.01538.sink.i.ph.i.i106 = xor i32 %.sroa.0199.0.lcssa322332337, -1
   br label %127
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106, %116, %102
-  %.sroa.17.0.lcssa331339346 = phi i32 [ %.sroa.17.0.lcssa331339347, %116 ], [ %.sroa.17.0.lcssa331, %102 ], [ %.sroa.17.0.lcssa331339347, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106 ], [ %.sroa.17.0.lcssa331339347, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114 ]
-  %117 = phi i32 [ %105, %116 ], [ %100, %102 ], [ %105, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106 ], [ %105, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114 ]
-  %118 = phi i32 [ %106, %116 ], [ %104, %102 ], [ %106, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106 ], [ %106, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114 ]
-  %.sroa.0207.9 = phi i32 [ %.sroa.0207.0.lcssa330340345, %116 ], [ %.sroa.0207.1, %102 ], [ %109, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106 ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114 ]
-  %.sroa.31.7 = phi ptr [ %.sroa.31.0.lcssa333338348, %116 ], [ %.sroa.31.1, %102 ], [ %115, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i.i106 ], [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i.i114 ]
-  %119 = icmp ugt i32 %118, %.sroa.17.0.lcssa331339346
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95: ; preds = %112, %116, %102
+  %.sroa.17.0.lcssa323331338 = phi i32 [ %.sroa.17.0.lcssa323331339, %116 ], [ %.sroa.17.0.lcssa323, %102 ], [ %.sroa.17.0.lcssa323331339, %112 ]
+  %117 = phi i32 [ %105, %116 ], [ %100, %102 ], [ %105, %112 ]
+  %118 = phi i32 [ %106, %116 ], [ %104, %102 ], [ %106, %112 ]
+  %.sroa.0199.9 = phi i32 [ %.sroa.0199.0.lcssa322332337, %116 ], [ %.sroa.0199.1, %102 ], [ %109, %112 ]
+  %.sroa.31.7 = phi ptr [ %.sroa.31.0.lcssa325330340, %116 ], [ %.sroa.31.1, %102 ], [ %115, %112 ]
+  %119 = icmp ugt i32 %118, %.sroa.17.0.lcssa323331338
   br i1 %119, label %120, label %129
 
-120:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
-  %121 = sub nuw i32 %118, %.sroa.17.0.lcssa331339346
+120:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95
+  %121 = sub nuw nsw i32 %118, %.sroa.17.0.lcssa323331338
   %122 = mul i32 %121, 24
-  %.not.i.i.i.i101 = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i.i101, label %129, label %123
+  %.not.i.i.i.i97 = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i.i97, label %129, label %123
 
 123:                                              ; preds = %120
-  %124 = zext i32 %.sroa.17.0.lcssa331339346 to i64
+  %124 = zext nneg i32 %.sroa.17.0.lcssa323331338 to i64
   %125 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.7, i64 %124
   %126 = zext i32 %122 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %125, i8 0, i64 %126, i1 false)
   br label %129
 
-127:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit
-  %128 = phi i32 [ %100, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %105, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111 ]
-  %.sroa.31.0.lcssa334 = phi ptr [ %.sroa.31.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.sroa.31.0.lcssa333338348, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111 ]
-  %.sroa.17.0.lcssa332 = phi i32 [ %.sroa.17.0.lcssa331, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.sroa.17.0.lcssa331339347, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111 ]
-  %.sroa.0207.10 = phi i32 [ %.sroa.0207.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.01538.sink.i.ph.i.i113, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i111 ]
+127:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit
+  %128 = phi i32 [ %100, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %105, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104 ]
+  %.sroa.31.0.lcssa326 = phi ptr [ %.sroa.31.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.sroa.31.0.lcssa325330340, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104 ]
+  %.sroa.17.0.lcssa324 = phi i32 [ %.sroa.17.0.lcssa323, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.sroa.17.0.lcssa323331339, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104 ]
+  %.sroa.0199.10 = phi i32 [ %.sroa.0199.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5qsortEPFiPKvS4_E.exit ], [ %.01538.sink.i.ph.i.i106, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread21.i.i104 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(24) @_hb_NullPool, i64 24, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107
 
-129:                                              ; preds = %123, %120, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i99
+129:                                              ; preds = %123, %120, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE5allocEjb.exit.thread.i.i95
   %130 = add nsw i32 %118, -1
   %131 = zext i32 %130 to i64
   %132 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.7, i64 %131
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115: ; preds = %129, %127
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107: ; preds = %129, %127
   %133 = phi i32 [ %128, %127 ], [ %117, %129 ]
-  %.sroa.0207.11 = phi i32 [ %.sroa.0207.10, %127 ], [ %.sroa.0207.9, %129 ]
-  %.sroa.17.5 = phi i32 [ %.sroa.17.0.lcssa332, %127 ], [ %118, %129 ]
-  %.sroa.31.8 = phi ptr [ %.sroa.31.0.lcssa334, %127 ], [ %.sroa.31.7, %129 ]
-  %.0.i100 = phi ptr [ @_hb_CrapPool, %127 ], [ %132, %129 ]
+  %.sroa.0199.11 = phi i32 [ %.sroa.0199.10, %127 ], [ %.sroa.0199.9, %129 ]
+  %.sroa.17.5 = phi i32 [ %.sroa.17.0.lcssa324, %127 ], [ %118, %129 ]
+  %.sroa.31.8 = phi ptr [ %.sroa.31.0.lcssa326, %127 ], [ %.sroa.31.7, %129 ]
+  %.0.i96 = phi ptr [ @_hb_CrapPool, %127 ], [ %132, %129 ]
   %134 = add i32 %133, 1
-  store i32 -1, ptr %.0.i100, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 4
+  store i32 -1, ptr %.0.i96, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 4
   store i8 0, ptr %135, align 4
-  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i100, i64 20
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i96, i64 20
   store i32 %134, ptr %.sroa.1.0..sroa_idx, align 4
-  %.not294 = icmp eq i32 %.sroa.17.5, 0
-  br i1 %.not294, label %._crit_edge285, label %.lr.ph284
+  %.not286 = icmp eq i32 %.sroa.17.5, 0
+  br i1 %.not286, label %._crit_edge277, label %.lr.ph276
 
-.lr.ph284:                                        ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115
+.lr.ph276:                                        ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1128,15 +1168,15 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115: 
   %wide.trip.count = zext i32 %.sroa.17.5 to i64
   br label %141
 
-141:                                              ; preds = %.lr.ph284, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
-  %indvars.iv305 = phi i64 [ 0, %.lr.ph284 ], [ %indvars.iv.next306, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
-  %.057283 = phi i32 [ 0, %.lr.ph284 ], [ %.158, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
-  %.sroa.20.0281 = phi ptr [ null, %.lr.ph284 ], [ %.sroa.20.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
-  %.sroa.9.0280 = phi i32 [ 0, %.lr.ph284 ], [ %.sroa.9.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
-  %.sroa.0.0279 = phi i32 [ 0, %.lr.ph284 ], [ %.sroa.0.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
-  %142 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.8, i64 %indvars.iv305
+141:                                              ; preds = %.lr.ph276, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
+  %indvars.iv297 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next298, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
+  %.057275 = phi i32 [ 0, %.lr.ph276 ], [ %.158, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
+  %.sroa.20.0273 = phi ptr [ null, %.lr.ph276 ], [ %.sroa.20.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
+  %.sroa.9.0272 = phi i32 [ 0, %.lr.ph276 ], [ %.sroa.9.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
+  %.sroa.0.0271 = phi i32 [ 0, %.lr.ph276 ], [ %.sroa.0.1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit ]
+  %142 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_event_t", ptr %.sroa.31.8, i64 %indvars.iv297
   %143 = load i32, ptr %142, align 4
-  %.not61 = icmp eq i32 %143, %.057283
+  %.not61 = icmp eq i32 %143, %.057275
   br i1 %.not61, label %251, label %144
 
 144:                                              ; preds = %141
@@ -1152,14 +1192,14 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115: 
 149:                                              ; preds = %147, %144
   %.pr.i = phi i32 [ %145, %144 ], [ %148, %147 ]
   store i32 0, ptr %137, align 4
-  %.not19.i.i = icmp ugt i32 %.sroa.9.0280, %.pr.i
+  %.not19.i.i = icmp ugt i32 %.sroa.9.0272, %.pr.i
   %150 = lshr i32 %.pr.i, 2
-  %.not20.i.i = icmp ult i32 %.sroa.9.0280, %150
+  %.not20.i.i = icmp ult i32 %.sroa.9.0272, %150
   %or.cond22.i.i = or i1 %.not19.i.i, %.not20.i.i
   br i1 %or.cond22.i.i, label %.thread.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i
 
 .thread.i.i:                                      ; preds = %149
-  %151 = icmp ugt i32 %.sroa.9.0280, 268435455
+  %151 = icmp ugt i32 %.sroa.9.0272, 268435455
   br i1 %151, label %.critedge.i.i, label %153
 
 .critedge.i.i:                                    ; preds = %.thread.i.i
@@ -1167,24 +1207,24 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115: 
   br label %.sink.split.i.i
 
 153:                                              ; preds = %.thread.i.i
-  %.not.i25.i.i = icmp eq i32 %.sroa.9.0280, 0
+  %.not.i25.i.i = icmp eq i32 %.sroa.9.0272, 0
   %154 = load ptr, ptr %138, align 8
   br i1 %.not.i25.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i: ; preds = %153
-  tail call void @free(ptr noundef %154) #12
+  tail call void @free(ptr noundef %154) #13
   br label %162
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i: ; preds = %153
-  %155 = shl nuw i32 %.sroa.9.0280, 4
+  %155 = shl nuw i32 %.sroa.9.0272, 4
   %156 = zext i32 %155 to i64
-  %157 = tail call ptr @realloc(ptr noundef %154, i64 noundef %156) #13
+  %157 = tail call ptr @realloc(ptr noundef %154, i64 noundef %156) #12
   %.not42.i.i = icmp eq ptr %157, null
   br i1 %.not42.i.i, label %158, label %162
 
 158:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i
   %159 = load i32, ptr %136, align 8
-  %.not21.i.i = icmp ugt i32 %.sroa.9.0280, %159
+  %.not21.i.i = icmp ugt i32 %.sroa.9.0272, %159
   br i1 %.not21.i.i, label %160, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i
 
 160:                                              ; preds = %158
@@ -1197,7 +1237,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %162, %160, %.critedge.i.i
-  %.01538.sink.i.i = phi i32 [ %.sroa.9.0280, %162 ], [ %161, %160 ], [ %152, %.critedge.i.i ]
+  %.01538.sink.i.i = phi i32 [ %.sroa.9.0272, %162 ], [ %161, %160 ], [ %152, %.critedge.i.i ]
   store i32 %.01538.sink.i.i, ptr %136, align 8
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i
 
@@ -1207,16 +1247,16 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i: 
   br i1 %164, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i
-  %.pre310 = load i32, ptr %137, align 4
+  %.pre302 = load i32, ptr %137, align 4
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i, %149
-  store i32 %.sroa.9.0280, ptr %137, align 4
-  %.not.i.i118 = icmp eq i32 %.sroa.9.0280, 0
-  br i1 %.not.i.i118, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thread, label %.lr.ph.i.i
+  store i32 %.sroa.9.0272, ptr %137, align 4
+  %.not.i.i110 = icmp eq i32 %.sroa.9.0272, 0
+  br i1 %.not.i.i110, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thread, label %.lr.ph.i.i
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thread: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i
-  store i32 %.057283, ptr %139, align 8
+  store i32 %.057275, ptr %139, align 8
   %165 = load i32, ptr %142, align 4
   %166 = add i32 %165, -1
   store i32 %166, ptr %140, align 4
@@ -1224,7 +1264,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i ]
-  %167 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0281, i64 %indvars.iv.i.i
+  %167 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0273, i64 %indvars.iv.i.i
   %168 = load ptr, ptr %138, align 8
   %169 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %168, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %169, ptr noundef nonnull align 4 dereferenceable(16) %167, i64 16, i1 false)
@@ -1235,8 +1275,8 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thre
   br i1 %172, label %.lr.ph.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit, !llvm.loop !11
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit: ; preds = %.lr.ph.i.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge
-  %173 = phi i32 [ %.pre310, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge ], [ %170, %.lr.ph.i.i ]
-  store i32 %.057283, ptr %139, align 8
+  %173 = phi i32 [ %.pre302, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.i._ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit_crit_edge ], [ %170, %.lr.ph.i.i ]
+  store i32 %.057275, ptr %139, align 8
   %174 = load i32, ptr %142, align 4
   %175 = add i32 %174, -1
   store i32 %175, ptr %140, align 4
@@ -1244,218 +1284,218 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit: ; p
   br i1 %.not62, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit, label %176
 
 176:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit
-  %.sroa.2.8.insert.ext.i.i.i120 = zext i32 %173 to i64
+  %.sroa.2.8.insert.ext.i.i.i112 = zext i32 %173 to i64
   %177 = load ptr, ptr %138, align 8
-  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %177, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i120, i64 noundef range(i64 0, 4294967296) 16, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_)
+  invoke fastcc void @_ZL13sort_r_simpleIJEEvPvmmPFiPKvS2_DpT_ES4_(ptr noundef %177, i64 noundef range(i64 1, 4294967296) %.sroa.2.8.insert.ext.i.i.i112, i64 noundef range(i64 0, 4294967296) 16, ptr noundef nonnull readonly @_ZN20hb_aat_map_builder_t14feature_info_t3cmpEPKvS2_)
           to label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit unwind label %223
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit: ; preds = %176
-  %.pre312 = load i32, ptr %137, align 4
-  %178 = icmp ugt i32 %.pre312, 1
-  br i1 %178, label %.lr.ph276, label %._crit_edge277
+  %.pre304 = load i32, ptr %137, align 4
+  %178 = icmp ugt i32 %.pre304, 1
+  br i1 %178, label %.lr.ph268, label %._crit_edge269
 
-.lr.ph276:                                        ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit, %226
-  %179 = phi i32 [ %227, %226 ], [ %.pre312, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
-  %indvars.iv302 = phi i64 [ %indvars.iv.next303, %226 ], [ 1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
-  %.056273 = phi i32 [ %.1, %226 ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
+.lr.ph268:                                        ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit, %226
+  %179 = phi i32 [ %227, %226 ], [ %.pre304, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
+  %indvars.iv294 = phi i64 [ %indvars.iv.next295, %226 ], [ 1, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
+  %.056265 = phi i32 [ %.1, %226 ], [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ]
   %180 = zext i32 %179 to i64
-  %.not.i122 = icmp samesign ult i64 %indvars.iv302, %180
-  br i1 %.not.i122, label %182, label %181
+  %.not.i114 = icmp samesign ult i64 %indvars.iv294, %180
+  br i1 %.not.i114, label %182, label %181
 
-181:                                              ; preds = %.lr.ph276
+181:                                              ; preds = %.lr.ph268
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit
 
-182:                                              ; preds = %.lr.ph276
+182:                                              ; preds = %.lr.ph268
   %183 = load ptr, ptr %138, align 8
-  %184 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %183, i64 %indvars.iv302
+  %184 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %183, i64 %indvars.iv294
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit: ; preds = %182, %181
-  %.0.i123 = phi ptr [ @_hb_CrapPool, %181 ], [ %184, %182 ]
-  %185 = load i32, ptr %.0.i123, align 4
-  %.not.i124 = icmp ult i32 %.056273, %179
-  br i1 %.not.i124, label %187, label %186
+  %.0.i115 = phi ptr [ @_hb_CrapPool, %181 ], [ %184, %182 ]
+  %185 = load i32, ptr %.0.i115, align 4
+  %.not.i116 = icmp ult i32 %.056265, %179
+  br i1 %.not.i116, label %187, label %186
 
 186:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit126
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit118
 
 187:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit
   %188 = load ptr, ptr %138, align 8
-  %189 = zext i32 %.056273 to i64
+  %189 = zext i32 %.056265 to i64
   %190 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %188, i64 %189
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit126
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit118
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit126: ; preds = %187, %186
-  %.0.i125 = phi ptr [ @_hb_CrapPool, %186 ], [ %190, %187 ]
-  %191 = load i32, ptr %.0.i125, align 4
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit118: ; preds = %187, %186
+  %.0.i117 = phi ptr [ @_hb_CrapPool, %186 ], [ %190, %187 ]
+  %191 = load i32, ptr %.0.i117, align 4
   %.not64 = icmp eq i32 %185, %191
   br i1 %.not64, label %192, label %212
 
-192:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit126
-  br i1 %.not.i122, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread
+192:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit118
+  br i1 %.not.i114, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129: ; preds = %192
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121: ; preds = %192
   %193 = load ptr, ptr %138, align 8
-  %194 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %193, i64 %indvars.iv302, i32 2
+  %194 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %193, i64 %indvars.iv294, i32 2
   %195 = load i8, ptr %194, align 4
   %196 = trunc i8 %195 to i1
   br i1 %196, label %226, label %199
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread: ; preds = %192
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread: ; preds = %192
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
   %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_hb_CrapPool, i64 8), align 8
   %198 = trunc i8 %197 to i1
-  br i1 %198, label %226, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit132
+  br i1 %198, label %226, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit124
 
-199:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129
+199:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121
   %200 = load ptr, ptr %138, align 8
-  %201 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %200, i64 %indvars.iv302
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit132
+  %201 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %200, i64 %indvars.iv294
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit124
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit132: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread, %199
-  %.0.i131 = phi ptr [ %201, %199 ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i131, i64 4
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit124: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread, %199
+  %.0.i123 = phi ptr [ %201, %199 ], [ @_hb_CrapPool, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread ]
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i123, i64 4
   %203 = load i32, ptr %202, align 4
-  br i1 %.not.i124, label %205, label %204
+  br i1 %.not.i116, label %205, label %204
 
-204:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit132
+204:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127
 
-205:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit132
+205:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit124
   %206 = load ptr, ptr %138, align 8
-  %207 = zext i32 %.056273 to i64
+  %207 = zext i32 %.056265 to i64
   %208 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %206, i64 %207
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135: ; preds = %205, %204
-  %.0.i134 = phi ptr [ @_hb_CrapPool, %204 ], [ %208, %205 ]
-  %209 = getelementptr inbounds nuw i8, ptr %.0.i134, i64 4
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127: ; preds = %205, %204
+  %.0.i126 = phi ptr [ @_hb_CrapPool, %204 ], [ %208, %205 ]
+  %209 = getelementptr inbounds nuw i8, ptr %.0.i126, i64 4
   %210 = load i32, ptr %209, align 4
   %211 = xor i32 %210, %203
   %.not65 = icmp ult i32 %211, 2
   br i1 %.not65, label %226, label %212
 
-212:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit126
-  br i1 %.not.i122, label %214, label %213
+212:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit118
+  br i1 %.not.i114, label %214, label %213
 
 213:                                              ; preds = %212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit130
 
 214:                                              ; preds = %212
   %215 = load ptr, ptr %138, align 8
-  %216 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %215, i64 %indvars.iv302
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138
+  %216 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %215, i64 %indvars.iv294
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit130
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138: ; preds = %214, %213
-  %.0.i137 = phi ptr [ @_hb_CrapPool, %213 ], [ %216, %214 ]
-  %217 = add i32 %.056273, 1
-  %.not.i139 = icmp ult i32 %217, %179
-  br i1 %.not.i139, label %219, label %218
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit130: ; preds = %214, %213
+  %.0.i129 = phi ptr [ @_hb_CrapPool, %213 ], [ %216, %214 ]
+  %217 = add i32 %.056265, 1
+  %.not.i131 = icmp ult i32 %217, %179
+  br i1 %.not.i131, label %219, label %218
 
-218:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138
+218:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit130
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133
 
-219:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit138
+219:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit130
   %220 = load ptr, ptr %138, align 8
   %221 = zext i32 %217 to i64
   %222 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %220, i64 %221
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141: ; preds = %219, %218
-  %.0.i140 = phi ptr [ @_hb_CrapPool, %218 ], [ %222, %219 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0.i140, ptr noundef nonnull align 4 dereferenceable(16) %.0.i137, i64 16, i1 false)
-  %.pre313 = load i32, ptr %137, align 4
-  %.pre314 = zext i32 %.pre313 to i64
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133: ; preds = %219, %218
+  %.0.i132 = phi ptr [ @_hb_CrapPool, %218 ], [ %222, %219 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.0.i132, ptr noundef nonnull align 4 dereferenceable(16) %.0.i129, i64 16, i1 false)
+  %.pre305 = load i32, ptr %137, align 4
+  %.pre306 = zext i32 %.pre305 to i64
   br label %226
 
 223:                                              ; preds = %176, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
   %224 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i142 = icmp eq i32 %.sroa.0.0279, 0
-  br i1 %.not.i.i142, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit, label %225
+  %.not.i.i134 = icmp eq i32 %.sroa.0.0271, 0
+  br i1 %.not.i.i134, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit, label %225
 
 225:                                              ; preds = %223
-  tail call void @free(ptr noundef %.sroa.20.0281) #12
+  tail call void @free(ptr noundef %.sroa.20.0273) #13
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit
 
-226:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141
-  %.pre-phi = phi i64 [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129 ], [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135 ], [ %.pre314, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141 ], [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
-  %227 = phi i32 [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135 ], [ %.pre313, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
-  %.1 = phi i32 [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129 ], [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit135 ], [ %217, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit141 ], [ %.056273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit129.thread ]
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %228 = icmp samesign ult i64 %indvars.iv.next303, %.pre-phi
-  br i1 %228, label %.lr.ph276, label %._crit_edge277, !llvm.loop !12
+226:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133
+  %.pre-phi = phi i64 [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121 ], [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127 ], [ %.pre306, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133 ], [ %180, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread ]
+  %227 = phi i32 [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127 ], [ %.pre305, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133 ], [ %179, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread ]
+  %.1 = phi i32 [ %.056265, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121 ], [ %.056265, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit127 ], [ %217, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit133 ], [ %.056265, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEixEi.exit121.thread ]
+  %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
+  %228 = icmp samesign ult i64 %indvars.iv.next295, %.pre-phi
+  br i1 %228, label %.lr.ph268, label %._crit_edge269, !llvm.loop !12
 
-._crit_edge277:                                   ; preds = %226, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit
-  %229 = phi i32 [ %.pre312, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ], [ %227, %226 ]
+._crit_edge269:                                   ; preds = %226, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit
+  %229 = phi i32 [ %.pre304, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ], [ %227, %226 ]
   %.056.lcssa = phi i32 [ 0, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5qsortEPFiPKvS4_E.exit ], [ %.1, %226 ]
   %230 = add i32 %.056.lcssa, 1
   %231 = tail call i32 @llvm.smax.i32(i32 %230, i32 0)
-  %.not.i143 = icmp ult i32 %231, %229
-  br i1 %.not.i143, label %232, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
+  %.not.i135 = icmp ult i32 %231, %229
+  br i1 %.not.i135, label %232, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
 
-232:                                              ; preds = %._crit_edge277
+232:                                              ; preds = %._crit_edge269
   store i32 %231, ptr %137, align 4
   %233 = load i32, ptr %136, align 8
   %234 = icmp slt i32 %233, 0
   br i1 %234, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit, label %235
 
 235:                                              ; preds = %232
-  %.not19.i.i145 = icmp sgt i32 %230, %233
+  %.not19.i.i137 = icmp sgt i32 %230, %233
   %236 = lshr i32 %233, 2
-  %.not20.i.i146 = icmp samesign ult i32 %231, %236
-  %or.cond22.i.i147 = or i1 %.not19.i.i145, %.not20.i.i146
-  br i1 %or.cond22.i.i147, label %.thread.i.i148, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
+  %.not20.i.i138 = icmp samesign ult i32 %231, %236
+  %or.cond22.i.i139 = or i1 %.not19.i.i137, %.not20.i.i138
+  br i1 %or.cond22.i.i139, label %.thread.i.i140, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
 
-.thread.i.i148:                                   ; preds = %235
+.thread.i.i140:                                   ; preds = %235
   %237 = icmp sgt i32 %230, 268435455
-  br i1 %237, label %.critedge.i.i157, label %239
+  br i1 %237, label %.critedge.i.i149, label %239
 
-.critedge.i.i157:                                 ; preds = %.thread.i.i148
+.critedge.i.i149:                                 ; preds = %.thread.i.i140
   %238 = xor i32 %233, -1
-  br label %.sink.split.i.i153
+  br label %.sink.split.i.i145
 
-239:                                              ; preds = %.thread.i.i148
-  %.not.i25.i.i149 = icmp ugt i32 %.056.lcssa, 2147483646
+239:                                              ; preds = %.thread.i.i140
+  %.not.i25.i.i141 = icmp ugt i32 %.056.lcssa, 2147483646
   %240 = load ptr, ptr %138, align 8
-  br i1 %.not.i25.i.i149, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i156, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i150
+  br i1 %.not.i25.i.i141, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i148, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i142
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i156: ; preds = %239
-  tail call void @free(ptr noundef %240) #12
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i148: ; preds = %239
+  tail call void @free(ptr noundef %240) #13
   br label %248
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i150: ; preds = %239
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i142: ; preds = %239
   %241 = shl nuw i32 %231, 4
   %242 = zext i32 %241 to i64
-  %243 = tail call ptr @realloc(ptr noundef %240, i64 noundef %242) #13
-  %.not42.i.i151 = icmp eq ptr %243, null
-  br i1 %.not42.i.i151, label %244, label %248
+  %243 = tail call ptr @realloc(ptr noundef %240, i64 noundef %242) #12
+  %.not42.i.i143 = icmp eq ptr %243, null
+  br i1 %.not42.i.i143, label %244, label %248
 
-244:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i150
+244:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i142
   %245 = load i32, ptr %136, align 8
-  %.not21.i.i155 = icmp ugt i32 %231, %245
-  br i1 %.not21.i.i155, label %246, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
+  %.not21.i.i147 = icmp ugt i32 %231, %245
+  br i1 %.not21.i.i147, label %246, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
 
 246:                                              ; preds = %244
   %247 = xor i32 %245, -1
-  br label %.sink.split.i.i153
+  br label %.sink.split.i.i145
 
-248:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i150, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i156
-  %.0.i41.i.i152 = phi ptr [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i156 ], [ %243, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i150 ]
-  store ptr %.0.i41.i.i152, ptr %138, align 8
-  br label %.sink.split.i.i153
+248:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i142, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i148
+  %.0.i41.i.i144 = phi ptr [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.thread.i.i148 ], [ %243, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i142 ]
+  store ptr %.0.i41.i.i144, ptr %138, align 8
+  br label %.sink.split.i.i145
 
-.sink.split.i.i153:                               ; preds = %248, %246, %.critedge.i.i157
-  %.01538.sink.i.i154 = phi i32 [ %231, %248 ], [ %247, %246 ], [ %238, %.critedge.i.i157 ]
-  store i32 %.01538.sink.i.i154, ptr %136, align 8
+.sink.split.i.i145:                               ; preds = %248, %246, %.critedge.i.i149
+  %.01538.sink.i.i146 = phi i32 [ %231, %248 ], [ %247, %246 ], [ %238, %.critedge.i.i149 ]
+  store i32 %.01538.sink.i.i146, ptr %136, align 8
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thread, %.sink.split.i.i153, %244, %235, %232, %._crit_edge277, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit.thread, %.sink.split.i.i145, %244, %235, %232, %._crit_edge269, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EEaSERKS2_.exit
   invoke void @_Z25hb_aat_layout_compile_mapPK20hb_aat_map_builder_tP12hb_aat_map_t(ptr noundef nonnull %0, ptr noundef nonnull %1)
           to label %249 unwind label %223
 
@@ -1464,7 +1504,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ;
   br label %251
 
 251:                                              ; preds = %249, %141
-  %.158 = phi i32 [ %250, %249 ], [ %.057283, %141 ]
+  %.158 = phi i32 [ %250, %249 ], [ %.057275, %141 ]
   %252 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %253 = load i8, ptr %252, align 4
   %254 = trunc i8 %253 to i1
@@ -1472,57 +1512,57 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE6shrinkEib.exit: ;
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %.not.i158 = icmp slt i32 %.sroa.9.0280, %.sroa.0.0279
-  %.pre317 = add i32 %.sroa.9.0280, 1
-  br i1 %.not.i158, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160, label %257
+  %.not.i150 = icmp slt i32 %.sroa.9.0272, %.sroa.0.0271
+  %.pre309 = add i32 %.sroa.9.0272, 1
+  br i1 %.not.i150, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152, label %257
 
 257:                                              ; preds = %255
-  %258 = icmp slt i32 %.sroa.0.0279, 0
+  %258 = icmp slt i32 %.sroa.0.0271, 0
   br i1 %258, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i, label %259
 
 259:                                              ; preds = %257
-  %.not.i.i159 = icmp ugt i32 %.pre317, %.sroa.0.0279
-  br i1 %.not.i.i159, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160
+  %.not.i.i151 = icmp ugt i32 %.pre309, %.sroa.0.0271
+  br i1 %.not.i.i151, label %.preheader.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152
 
 .preheader.i.i:                                   ; preds = %259, %.preheader.i.i
-  %.143.i.i = phi i32 [ %262, %.preheader.i.i ], [ %.sroa.0.0279, %259 ]
+  %.143.i.i = phi i32 [ %262, %.preheader.i.i ], [ %.sroa.0.0271, %259 ]
   %260 = lshr i32 %.143.i.i, 1
   %261 = add i32 %.143.i.i, 8
   %262 = add i32 %261, %260
-  %263 = icmp ugt i32 %.pre317, %262
-  br i1 %263, label %.preheader.i.i, label %.thread.i.i162, !llvm.loop !13
+  %263 = icmp ugt i32 %.pre309, %262
+  br i1 %263, label %.preheader.i.i, label %.thread.i.i154, !llvm.loop !13
 
-.thread.i.i162:                                   ; preds = %.preheader.i.i
+.thread.i.i154:                                   ; preds = %.preheader.i.i
   %264 = icmp ugt i32 %262, 268435455
-  br i1 %264, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163
+  br i1 %264, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163: ; preds = %.thread.i.i162
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155: ; preds = %.thread.i.i154
   %265 = shl nuw i32 %262, 4
   %266 = zext i32 %265 to i64
-  %267 = tail call ptr @realloc(ptr noundef %.sroa.20.0281, i64 noundef %266) #13
-  %.not42.i.i164 = icmp eq ptr %267, null
-  br i1 %.not42.i.i164, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160
+  %267 = tail call ptr @realloc(ptr noundef %.sroa.20.0273, i64 noundef %266) #12
+  %.not42.i.i156 = icmp eq ptr %267, null
+  br i1 %.not42.i.i156, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163, %.thread.i.i162
-  %.01538.sink.i.ph.i = xor i32 %.sroa.0.0279, -1
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155, %.thread.i.i154
+  %.01538.sink.i.ph.i = xor i32 %.sroa.0.0271, -1
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i, %257
-  %.sroa.0.3 = phi i32 [ %.sroa.0.0279, %257 ], [ %.01538.sink.i.ph.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i ]
+  %.sroa.0.3 = phi i32 [ %.sroa.0.0271, %257 ], [ %.01538.sink.i.ph.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread9.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(16) @_hb_NullPool, i64 16, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160: ; preds = %255, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163, %259
-  %.sroa.0.2 = phi i32 [ %262, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163 ], [ %.sroa.0.0279, %259 ], [ %.sroa.0.0279, %255 ]
-  %.sroa.20.2 = phi ptr [ %267, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i163 ], [ %.sroa.20.0281, %259 ], [ %.sroa.20.0281, %255 ]
-  %268 = zext i32 %.sroa.9.0280 to i64
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152: ; preds = %255, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155, %259
+  %.sroa.0.2 = phi i32 [ %262, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155 ], [ %.sroa.0.0271, %259 ], [ %.sroa.0.0271, %255 ]
+  %.sroa.20.2 = phi ptr [ %267, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE14realloc_vectorIS1_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS1_j11hb_priorityILj0EE.exit.i.i155 ], [ %.sroa.20.0273, %259 ], [ %.sroa.20.0273, %255 ]
+  %268 = zext i32 %.sroa.9.0272 to i64
   %269 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.2, i64 %268
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %269, ptr noundef nonnull align 4 dereferenceable(16) %256, i64 16, i1 false)
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
 
 270:                                              ; preds = %251
-  %.sroa.2.8.insert.ext.i.i.i167 = zext i32 %.sroa.9.0280 to i64
-  %.not26.i.i.i = icmp eq i32 %.sroa.9.0280, 0
+  %.sroa.2.8.insert.ext.i.i.i159 = zext i32 %.sroa.9.0272 to i64
+  %.not26.i.i.i = icmp eq i32 %.sroa.9.0272, 0
   br i1 %.not26.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %270
@@ -1534,7 +1574,7 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thr
 
 273:                                              ; preds = %276, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %276 ]
-  %274 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0281, i64 %indvars.iv.i.i.i
+  %274 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0273, i64 %indvars.iv.i.i.i
   %.val18.i.i.i = load i32, ptr %274, align 4
   %275 = getelementptr i8, ptr %274, i64 4
   %.val19.i.i.i = load i32, ptr %275, align 4
@@ -1545,72 +1585,72 @@ _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thr
 
 276:                                              ; preds = %273
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.2.8.insert.ext.i.i.i167
+  %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %.sroa.2.8.insert.ext.i.i.i159
   br i1 %exitcond.not.i.i.i, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit, label %273, !llvm.loop !14
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_RKT_S4_.exit: ; preds = %273
   %277 = trunc i64 %indvars.iv.i.i.i to i32
   %278 = add nuw i32 %277, 1
-  %279 = icmp ult i32 %278, %.sroa.9.0280
-  br i1 %279, label %.lr.ph.i.i169, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i
+  %279 = icmp ult i32 %278, %.sroa.9.0272
+  br i1 %279, label %.lr.ph.i.i161, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i
 
-.lr.ph.i.i169:                                    ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_RKT_S4_.exit
+.lr.ph.i.i161:                                    ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_RKT_S4_.exit
   %280 = zext i32 %278 to i64
   br label %281
 
-281:                                              ; preds = %281, %.lr.ph.i.i169
-  %indvars.iv.i.i170 = phi i64 [ %280, %.lr.ph.i.i169 ], [ %indvars.iv.next.i.i171, %281 ]
-  %282 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0281, i64 %indvars.iv.i.i170
-  %283 = add nuw nsw i64 %indvars.iv.i.i170, 4294967295
+281:                                              ; preds = %281, %.lr.ph.i.i161
+  %indvars.iv.i.i162 = phi i64 [ %280, %.lr.ph.i.i161 ], [ %indvars.iv.next.i.i163, %281 ]
+  %282 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0273, i64 %indvars.iv.i.i162
+  %283 = add nuw nsw i64 %indvars.iv.i.i162, 4294967295
   %284 = and i64 %283, 4294967295
-  %285 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0281, i64 %284
+  %285 = getelementptr inbounds nuw %"struct.hb_aat_map_builder_t::feature_info_t", ptr %.sroa.20.0273, i64 %284
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %285, ptr noundef nonnull align 4 dereferenceable(16) %282, i64 16, i1 false)
-  %indvars.iv.next.i.i171 = add nuw nsw i64 %indvars.iv.i.i170, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i171, %.sroa.2.8.insert.ext.i.i.i167
+  %indvars.iv.next.i.i163 = add nuw nsw i64 %indvars.iv.i.i162, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i163, %.sroa.2.8.insert.ext.i.i.i159
   br i1 %exitcond.not, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i, label %281, !llvm.loop !15
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i: ; preds = %281, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE7lsearchIS1_EEPS1_RKT_S4_.exit
-  %286 = add i32 %.sroa.9.0280, -1
+  %286 = add i32 %.sroa.9.0272, -1
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %276, %270, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i
-  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160 ], [ %.sroa.0.3, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %.sroa.0.0279, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ %.sroa.0.0279, %270 ], [ %.sroa.0.0279, %276 ]
-  %.sroa.9.1 = phi i32 [ %.pre317, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160 ], [ %.sroa.9.0280, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %286, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ 0, %270 ], [ %.sroa.9.0280, %276 ]
-  %.sroa.20.1 = phi ptr [ %.sroa.20.2, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i160 ], [ %.sroa.20.0281, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %.sroa.20.0281, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ %.sroa.20.0281, %270 ], [ %.sroa.20.0281, %276 ]
-  %indvars.iv.next306 = add nuw nsw i64 %indvars.iv305, 1
-  %exitcond308.not = icmp eq i64 %indvars.iv.next306, %wide.trip.count
-  br i1 %exitcond308.not, label %._crit_edge285.loopexit, label %141, !llvm.loop !16
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit: ; preds = %276, %270, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i
+  %.sroa.0.1 = phi i32 [ %.sroa.0.2, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152 ], [ %.sroa.0.3, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %.sroa.0.0271, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ %.sroa.0.0271, %270 ], [ %.sroa.0.0271, %276 ]
+  %.sroa.9.1 = phi i32 [ %.pre309, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152 ], [ %.sroa.9.0272, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %286, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ 0, %270 ], [ %.sroa.9.0272, %276 ]
+  %.sroa.20.1 = phi ptr [ %.sroa.20.2, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread.i152 ], [ %.sroa.20.0273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE5allocEjb.exit.thread6.i ], [ %.sroa.20.0273, %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE17shift_down_vectorEj.exit.i ], [ %.sroa.20.0273, %270 ], [ %.sroa.20.0273, %276 ]
+  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %exitcond300.not = icmp eq i64 %indvars.iv.next298, %wide.trip.count
+  br i1 %exitcond300.not, label %._crit_edge277.loopexit, label %141, !llvm.loop !16
 
-._crit_edge285.loopexit:                          ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
+._crit_edge277.loopexit:                          ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EE4pushIJRS1_EEEPS1_DpOT_.exit
   %287 = icmp eq i32 %.sroa.0.1, 0
-  br label %._crit_edge285
+  br label %._crit_edge277
 
-._crit_edge285:                                   ; preds = %._crit_edge285.loopexit, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115
-  %.sroa.0.0.lcssa = phi i1 [ true, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115 ], [ %287, %._crit_edge285.loopexit ]
-  %.sroa.20.0.lcssa = phi ptr [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit115 ], [ %.sroa.20.1, %._crit_edge285.loopexit ]
+._crit_edge277:                                   ; preds = %._crit_edge277.loopexit, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107
+  %.sroa.0.0.lcssa = phi i1 [ true, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107 ], [ %287, %._crit_edge277.loopexit ]
+  %.sroa.20.0.lcssa = phi ptr [ null, %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EE4pushEv.exit107 ], [ %.sroa.20.1, %._crit_edge277.loopexit ]
   %288 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = zext i32 %291 to i64
   %293 = getelementptr inbounds nuw %struct.hb_vector_t.146, ptr %289, i64 %292
-  %.not288 = icmp eq i32 %291, 0
-  br i1 %.not288, label %._crit_edge292, label %.lr.ph291
+  %.not280 = icmp eq i32 %291, 0
+  br i1 %.not280, label %._crit_edge284, label %.lr.ph283
 
-.lr.ph291:                                        ; preds = %._crit_edge285, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit
-  %.053289 = phi ptr [ %304, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit ], [ %289, %._crit_edge285 ]
-  %294 = getelementptr inbounds nuw i8, ptr %.053289, i64 4
+.lr.ph283:                                        ; preds = %._crit_edge277, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit
+  %.053281 = phi ptr [ %304, %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit ], [ %289, %._crit_edge277 ]
+  %294 = getelementptr inbounds nuw i8, ptr %.053281, i64 4
   %295 = load i32, ptr %294, align 4
   %.not.i.not.i = icmp eq i32 %295, 0
   br i1 %.not.i.not.i, label %296, label %297
 
-296:                                              ; preds = %.lr.ph291
+296:                                              ; preds = %.lr.ph283
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) @_hb_CrapPool, ptr noundef nonnull align 16 dereferenceable(12) @_hb_NullPool, i64 12, i1 false)
   br label %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit
 
-297:                                              ; preds = %.lr.ph291
+297:                                              ; preds = %.lr.ph283
   %298 = add i32 %295, -1
-  %299 = getelementptr inbounds nuw i8, ptr %.053289, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %.053281, i64 8
   %300 = load ptr, ptr %299, align 8
   %301 = zext i32 %298 to i64
   %302 = getelementptr inbounds nuw %"struct.hb_aat_map_t::range_flags_t", ptr %300, i64 %301
@@ -1620,40 +1660,40 @@ _ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit: ; preds = %29
   %.0.i.i = phi ptr [ @_hb_CrapPool, %296 ], [ %302, %297 ]
   %303 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   store i32 -1, ptr %303, align 4
-  %304 = getelementptr inbounds nuw i8, ptr %.053289, i64 16
+  %304 = getelementptr inbounds nuw i8, ptr %.053281, i64 16
   %.not = icmp eq ptr %304, %293
-  br i1 %.not, label %._crit_edge292, label %.lr.ph291
+  br i1 %.not, label %._crit_edge284, label %.lr.ph283
 
-._crit_edge292:                                   ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit, %._crit_edge285
-  br i1 %.sroa.0.0.lcssa, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit173, label %305
+._crit_edge284:                                   ; preds = %_ZN11hb_vector_tIN12hb_aat_map_t13range_flags_tELb1EE4tailEv.exit, %._crit_edge277
+  br i1 %.sroa.0.0.lcssa, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit165, label %305
 
-305:                                              ; preds = %._crit_edge292
-  tail call void @free(ptr noundef %.sroa.20.0.lcssa) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit173
+305:                                              ; preds = %._crit_edge284
+  tail call void @free(ptr noundef %.sroa.20.0.lcssa) #13
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit165
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit173: ; preds = %._crit_edge292, %305
-  %.not.i.i174 = icmp eq i32 %.sroa.0207.11, 0
-  br i1 %.not.i.i174, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit, label %306
+_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit165: ; preds = %._crit_edge284, %305
+  %.not.i.i166 = icmp eq i32 %.sroa.0199.11, 0
+  br i1 %.not.i.i166, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit, label %306
 
-306:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit173
-  tail call void @free(ptr noundef %.sroa.31.8) #12
+306:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit165
+  tail call void @free(ptr noundef %.sroa.31.8) #13
   br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit173, %306
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit165, %306
   ret void
 
 _ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit: ; preds = %225, %223, %19
-  %.sroa.0207.2 = phi i32 [ %.sroa.0207.1, %19 ], [ %.sroa.0207.11, %223 ], [ %.sroa.0207.11, %225 ]
+  %.sroa.0199.2 = phi i32 [ %.sroa.0199.1, %19 ], [ %.sroa.0199.11, %223 ], [ %.sroa.0199.11, %225 ]
   %.sroa.31.2 = phi ptr [ %.sroa.31.1, %19 ], [ %.sroa.31.8, %223 ], [ %.sroa.31.8, %225 ]
   %.pn = phi { ptr, i32 } [ %20, %19 ], [ %224, %223 ], [ %224, %225 ]
-  %.not.i.i175 = icmp eq i32 %.sroa.0207.2, 0
-  br i1 %.not.i.i175, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit176, label %307
+  %.not.i.i167 = icmp eq i32 %.sroa.0199.2, 0
+  br i1 %.not.i.i167, label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit168, label %307
 
 307:                                              ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit
-  tail call void @free(ptr noundef %.sroa.31.2) #12
-  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit176
+  tail call void @free(ptr noundef %.sroa.31.2) #13
+  br label %_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit168
 
-_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit176: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit, %307
+_ZN11hb_vector_tIN20hb_aat_map_builder_t15feature_event_tELb0EED2Ev.exit168: ; preds = %_ZN11hb_vector_tIN20hb_aat_map_builder_t14feature_info_tELb1EED2Ev.exit, %307
   resume { ptr, i32 } %.pn
 }
 
@@ -1782,7 +1822,7 @@ declare void @_Z25hb_aat_layout_compile_mapPK20hb_aat_map_builder_tP12hb_aat_map
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #12
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #13
   tail call void @_ZSt9terminatev() #14
   unreachable
 }
@@ -1848,7 +1888,7 @@ _ZN21hb_sanitize_context_tD2Ev.exit:              ; preds = %14, %_ZN21hb_saniti
 18:                                               ; preds = %.noexc2, %10, %1
   %19 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #12
+  call void @_ZN21hb_sanitize_context_tD2Ev(ptr noundef nonnull align 8 dereferenceable(62) %2) #13
   resume { ptr, i32 } %19
 }
 
@@ -2614,8 +2654,8 @@ attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind allocsize(1) }
+attributes #12 = { nounwind allocsize(1) }
+attributes #13 = { nounwind }
 attributes #14 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}

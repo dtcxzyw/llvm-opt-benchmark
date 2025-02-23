@@ -9650,14 +9650,14 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i361.i: ; preds = %_ZNSt6vec
   store i16 %5837, ptr %5835, align 2
   %indvars.iv.next.i715.us = add nuw nsw i64 %indvars.iv.i714.us, 1
   %5838 = icmp slt i64 %indvars.iv.next.i715.us, %5809
-  br i1 %5838, label %5813, label %.lr.ph446.i.us, !llvm.loop !68
+  br i1 %5838, label %5813, label %.lr.ph444.us.preheader.i.us, !llvm.loop !68
 
-.lr.ph446.i.us:                                   ; preds = %5813
+.lr.ph444.us.preheader.i.us:                      ; preds = %5813
   %5839 = mul i32 %5794, %indvars.iv498.tr.i.us
   br label %.lr.ph444.us.i.us
 
-.lr.ph444.us.i.us:                                ; preds = %._crit_edge.us.i.us, %.lr.ph446.i.us
-  %storemerge356445.us.i.us = phi i32 [ %5869, %._crit_edge.us.i.us ], [ 1, %.lr.ph446.i.us ]
+.lr.ph444.us.i.us:                                ; preds = %._crit_edge.us.i.us, %.lr.ph444.us.preheader.i.us
+  %storemerge356445.us.i.us = phi i32 [ %5869, %._crit_edge.us.i.us ], [ 1, %.lr.ph444.us.preheader.i.us ]
   %.sroa.speculated394.us.i.us = call i32 @llvm.smin.i32(i32 %5777, i32 %storemerge356445.us.i.us)
   %5840 = sext i32 %.sroa.speculated394.us.i.us to i64
   %5841 = mul i64 %5733, %5840

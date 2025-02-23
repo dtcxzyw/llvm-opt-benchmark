@@ -1810,7 +1810,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit122:  ; preds = %217, %_ZNSt6vectorI
   %242 = fdiv double 1.000000e+00, %241
   %243 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %242, ptr %243, align 8
-  %244 = icmp ult i64 %165, 4
+  %244 = icmp samesign ult i64 %165, 4
   br i1 %244, label %258, label %245
 
 245:                                              ; preds = %237

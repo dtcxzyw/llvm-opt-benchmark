@@ -13314,7 +13314,11 @@ tng_block_header_len_calculate.exit94:            ; preds = %120, %124
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %140 = load i32, ptr %139, align 8
   %141 = icmp sgt i32 %140, 0
-  br i1 %141, label %.lr.ph223, label %._crit_edge
+  br i1 %141, label %.lr.ph223, label %._crit_edge.thread
+
+._crit_edge.thread:                               ; preds = %.preheader184
+  store i64 %.lcssa201.lcssa206.lcssa, ptr %21, align 8
+  br label %263
 
 .lr.ph223:                                        ; preds = %.preheader184
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -13545,13 +13549,12 @@ tng_data_block_len_calculate.exit108:             ; preds = %._crit_edge.us.i, %
   %262 = icmp slt i64 %indvars.iv.next258, %261
   br i1 %262, label %201, label %._crit_edge, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %tng_data_block_len_calculate.exit108, %.preheader184
-  %.lcssa212.lcssa.lcssa218.lcssa = phi i64 [ %.lcssa201.lcssa206.lcssa, %.preheader184 ], [ %.lcssa212.lcssa.lcssa219, %tng_data_block_len_calculate.exit108 ]
-  %.1.lcssa = phi i64 [ %.073.lcssa, %.preheader184 ], [ %259, %tng_data_block_len_calculate.exit108 ]
-  store i64 %.lcssa212.lcssa.lcssa218.lcssa, ptr %21, align 8
+._crit_edge:                                      ; preds = %tng_data_block_len_calculate.exit108
+  store i64 %.lcssa212.lcssa.lcssa219, ptr %21, align 8
   br i1 %.not.i86, label %tng_block_destroy.exit, label %263
 
-263:                                              ; preds = %._crit_edge
+263:                                              ; preds = %._crit_edge.thread, %._crit_edge
+  %.1.lcssa272 = phi i64 [ %.073.lcssa, %._crit_edge.thread ], [ %259, %._crit_edge ]
   %264 = load ptr, ptr %105, align 8
   %.not16.i = icmp eq ptr %264, null
   br i1 %.not16.i, label %266, label %265
@@ -13588,7 +13591,8 @@ tng_data_block_len_calculate.exit108:             ; preds = %._crit_edge.us.i, %
   br label %tng_block_destroy.exit
 
 tng_block_destroy.exit:                           ; preds = %._crit_edge, %274
-  %275 = icmp sgt i64 %.1.lcssa, %.4.ph
+  %.1.lcssa273 = phi i64 [ %259, %._crit_edge ], [ %.1.lcssa272, %274 ]
+  %275 = icmp sgt i64 %.1.lcssa273, %.4.ph
   br i1 %275, label %276, label %tng_block_destroy.exit._crit_edge
 
 tng_block_destroy.exit._crit_edge:                ; preds = %tng_block_destroy.exit
@@ -13597,7 +13601,7 @@ tng_block_destroy.exit._crit_edge:                ; preds = %tng_block_destroy.e
   br label %578
 
 276:                                              ; preds = %tng_block_destroy.exit
-  %277 = sub nsw i64 %.1.lcssa, %.4.ph
+  %277 = sub nsw i64 %.1.lcssa273, %.4.ph
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
   %278 = load ptr, ptr %45, align 8
@@ -14373,7 +14377,7 @@ tng_migrate_data_in_file.exit:                    ; preds = %tng_file_pos_of_sub
   br label %795
 
 600:                                              ; preds = %.thread, %594, %585
-  %.0272 = phi i64 [ %587, %594 ], [ %587, %585 ], [ -1, %.thread ]
+  %.0276 = phi i64 [ %587, %594 ], [ %587, %585 ], [ -1, %.thread ]
   %601 = phi ptr [ %595, %594 ], [ %.pre268, %585 ], [ %38, %.thread ]
   %602 = tail call i32 @fseeko64(ptr noundef nonnull %601, i64 noundef 0, i32 noundef 0)
   %603 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #26
@@ -15487,7 +15491,7 @@ tng_chain_data_write.exit.i:                      ; preds = %1047, %tng_file_out
 .lr.ph.i130:                                      ; preds = %.lr.ph.i130, %.lr.ph.preheader.i129
   %.2203.i = phi ptr [ %1101, %.lr.ph.i130 ], [ %1100, %.lr.ph.preheader.i129 ]
   %.2121202.i = phi i64 [ %1102, %.lr.ph.i130 ], [ 0, %.lr.ph.preheader.i129 ]
-  call fastcc void @tng_atom_data_write(ptr noundef %0, ptr noundef %.2203.i, i8 noundef signext %1, ptr noundef %16)
+  call fastcc void @tng_atom_data_write(ptr noundef nonnull %0, ptr noundef %.2203.i, i8 noundef signext %1, ptr noundef %16)
   %1101 = getelementptr inbounds nuw i8, ptr %.2203.i, i64 32
   %1102 = add nuw nsw i64 %.2121202.i, 1
   %1103 = load i64, ptr %984, align 8
@@ -15815,12 +15819,12 @@ tng_block_init.exit141:                           ; preds = %1195, %1198
 tng_block_destroy.exit146:                        ; preds = %._crit_edge230, %1240
   %1241 = load ptr, ptr %23, align 8
   %1242 = call i32 @fseeko64(ptr noundef %1241, i64 noundef 0, i32 noundef 2)
-  %1243 = icmp sgt i64 %.0272, 0
+  %1243 = icmp sgt i64 %.0276, 0
   br i1 %1243, label %1244, label %tng_output_file_init.exit
 
 1244:                                             ; preds = %tng_block_destroy.exit146
   %1245 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  store i64 %.0272, ptr %1245, align 8
+  store i64 %.0276, ptr %1245, align 8
   br label %tng_output_file_init.exit
 
 tng_output_file_init.exit:                        ; preds = %42, %33, %28, %tng_block_destroy.exit146, %1244, %1189, %795, %582, %106

@@ -2781,7 +2781,7 @@ Vec_IntPush.exit33:                               ; preds = %Vec_IntPush.exit, %
   %.val24 = load ptr, ptr %7, align 8, !tbaa !33
   %48 = getelementptr inbounds nuw i32, ptr %.val24, i64 %indvars.iv39
   %49 = load i32, ptr %48, align 4, !tbaa !29
-  tail call void @Gia_ManCollectSeq_rec(ptr noundef %0, i32 noundef %49, ptr noundef nonnull %4, ptr noundef nonnull %43)
+  tail call void @Gia_ManCollectSeq_rec(ptr noundef nonnull %0, i32 noundef %49, ptr noundef nonnull %4, ptr noundef nonnull %43)
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %.val23 = load i32, ptr %5, align 4, !tbaa !31
   %50 = sext i32 %.val23 to i64
@@ -3023,7 +3023,7 @@ define void @Gia_ManCollectTfi(ptr noundef %0, ptr noundef readonly captures(non
   %.val9 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i32, ptr %.val9, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !29
-  tail call void @Gia_ManCollectTfi_rec(ptr noundef %0, i32 noundef %10, ptr noundef %2)
+  tail call void @Gia_ManCollectTfi_rec(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4, !tbaa !31
   %11 = sext i32 %.val to i64
@@ -3186,7 +3186,7 @@ define void @Gia_ManCollectTfo(ptr noundef %0, ptr noundef readonly captures(non
   %.val9 = load ptr, ptr %7, align 8, !tbaa !33
   %9 = getelementptr inbounds nuw i32, ptr %.val9, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !29
-  tail call void @Gia_ManCollectTfo_rec(ptr noundef %0, i32 noundef %10, ptr noundef %2)
+  tail call void @Gia_ManCollectTfo_rec(ptr noundef %0, i32 noundef %10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4, !tbaa !31
   %11 = sext i32 %.val to i64

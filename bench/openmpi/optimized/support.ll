@@ -295,7 +295,7 @@ pmix_obj_update.exit:                             ; preds = %4
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.i
   %22 = phi ptr [ %24, %.lr.ph.i ], [ %21, %16 ]
   %.07.i = phi ptr [ %23, %.lr.ph.i ], [ %20, %16 ]
-  tail call void %22(ptr noundef %6) #17
+  tail call void %22(ptr noundef nonnull %6) #17
   %23 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %.not.i = icmp eq ptr %24, null
@@ -553,7 +553,6 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %14, 
   switch i32 %6, label %43 [
     i32 0, label %50
     i32 -27, label %34
-    i32 -64, label %50
   ]
 
 34:                                               ; preds = %pmix_obj_new_tma.exit.i
@@ -576,7 +575,7 @@ pmix_obj_new_tma.exit.i:                          ; preds = %.lr.ph.i.i.i, %14, 
   %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.42, ptr noundef %0, ptr noundef %48) #22
   br label %.loopexit
 
-50:                                               ; preds = %.lr.ph, %pmix_obj_new_tma.exit.i, %pmix_obj_new_tma.exit.i
+50:                                               ; preds = %.lr.ph, %pmix_obj_new_tma.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %52 = load ptr, ptr %51, align 8, !tbaa !37

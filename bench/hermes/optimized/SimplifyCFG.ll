@@ -252,7 +252,7 @@ if.end51.i:                                       ; preds = %for.body43.i
   br i1 %cmp54.i, label %for.inc101.i, label %if.end56.i
 
 if.end56.i:                                       ; preds = %if.end51.i
-  %21 = getelementptr i8, ptr %20, i64 64
+  %21 = getelementptr i8, ptr %call.i54.i, i64 48
   %call53.val.i = load ptr, ptr %21, align 8
   %22 = getelementptr i8, ptr %call53.val.i, i64 16
   %call53.val.val.i = load i8, ptr %22, align 8
@@ -904,9 +904,9 @@ if.then74.i:                                      ; preds = %_ZN6hermes10pred_em
   br label %for.inc101.i
 
 if.end77.i:                                       ; preds = %while.body.i.i.i.i.i, %_ZN6hermes10pred_emptyEPKNS_10BasicBlockE.exit.i, %if.end66.i
-  %Users.i.i.i.i82.i = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %Users.i.i.i.i82.i = getelementptr inbounds nuw i8, ptr %call.i54.i, i64 8
   %115 = load ptr, ptr %Users.i.i.i.i82.i, align 8
-  %Size.i.i.i.i.i83.i = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %Size.i.i.i.i.i83.i = getelementptr inbounds nuw i8, ptr %call.i54.i, i64 16
   %116 = load i32, ptr %Size.i.i.i.i.i83.i, align 8
   %conv.i.i.i.i.i84.i = zext i32 %116 to i64
   %add.ptr.i.i.i.i.i85.i = getelementptr inbounds nuw ptr, ptr %115, i64 %conv.i.i.i.i.i84.i
@@ -986,8 +986,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   br i1 %cmp.i98.not.i, label %while.end.i, label %while.body.i, !llvm.loop !19
 
 while.end.i:                                      ; preds = %while.body.i, %while.cond.preheader.i
-  %add.ptr94.i = getelementptr inbounds nuw i8, ptr %20, i64 16
-  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr94.i, ptr noundef nonnull %add.ptr.i57.i) #9
+  call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i54.i, ptr noundef nonnull %add.ptr.i57.i) #9
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %call47.i) #9
   call void @_ZN6hermes10BasicBlock15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(80) %sub.ptr.i.i.i55.i) #9
   br label %_ZL22optimizeStaticBranchesPN6hermes8FunctionE.exit.thread
@@ -1392,7 +1391,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 48
   %InstList.i.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %__begin1.sroa.0.014.i = load ptr, ptr %Next.i.i.i.i.i.i, align 8
   %cmp.i.not15.i = icmp eq ptr %__begin1.sroa.0.014.i, %InstList.i.i
@@ -1439,7 +1438,7 @@ if.end:                                           ; preds = %for.inc13.i, %if.th
   br i1 %cmp3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %Next.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %Next.i.i.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %call.i11, i64 48
   %InstList.i.i14 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %__begin1.sroa.0.014.i15 = load ptr, ptr %Next.i.i.i.i.i.i13, align 8
   %cmp.i.not15.i16 = icmp eq ptr %__begin1.sroa.0.014.i15, %InstList.i.i14

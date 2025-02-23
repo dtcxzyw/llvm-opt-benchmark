@@ -1359,8 +1359,7 @@ if.end36:                                         ; preds = %if.end36thread-pre-
 
 if.then39:                                        ; preds = %for.cond24.preheader, %if.end36
   %12 = phi ptr [ %11, %if.end36 ], [ %call17, %for.cond24.preheader ]
-  %idxprom41 = and i64 %indvars.iv, 4294967295
-  %arrayidx42 = getelementptr inbounds nuw i8, ptr %12, i64 %idxprom41
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   store i8 %enabled, ptr %arrayidx42, align 1
   br label %if.end43
 

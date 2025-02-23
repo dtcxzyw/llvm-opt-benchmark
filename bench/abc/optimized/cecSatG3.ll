@@ -3154,7 +3154,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %92 = getelementptr inbounds i32, ptr %90, i64 %91
   store i32 %87, ptr %92, align 4, !tbaa !20
   store i32 %22, ptr %89, align 4, !tbaa !20
-  %93 = icmp sgt i64 %indvars.iv, 1
+  %93 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %93, label %20, label %.critedge.preheader, !llvm.loop !146
 
 94:                                               ; preds = %.lr.ph61, %.critedge

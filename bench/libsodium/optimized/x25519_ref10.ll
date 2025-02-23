@@ -111,7 +111,7 @@ has_small_order.exit:                             ; preds = %.preheader.i
   %51 = and i8 %50, 63
   %52 = or disjoint i8 %51, 64
   store i8 %52, ptr %49, align 1
-  call void @_sodium_fe25519_frombytes(ptr noundef nonnull %6, ptr noundef %2) #6
+  call void @_sodium_fe25519_frombytes(ptr noundef nonnull %6, ptr noundef nonnull %2) #6
   store i64 1, ptr %7, align 16
   %53 = getelementptr inbounds nuw i8, ptr %7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %53, i8 noundef 0, i64 noundef 32, i1 noundef false) #6

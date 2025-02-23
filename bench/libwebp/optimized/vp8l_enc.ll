@@ -913,7 +913,7 @@ EncoderInit.exit141:                              ; preds = %450
   br i1 %.not121, label %471, label %473
 
 471:                                              ; preds = %467
-  %472 = call i32 @WebPEncodingSetError(ptr noundef %1, i32 noundef 1) #8
+  %472 = call i32 @WebPEncodingSetError(ptr noundef nonnull %1, i32 noundef 1) #8
   br label %532
 
 473:                                              ; preds = %467
@@ -3737,19 +3737,19 @@ define internal fastcc range(i32 0, 2) i32 @GetHuffBitLengthsAndCodes(ptr nounde
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv128
   %54 = load ptr, ptr %53, align 8, !tbaa !99
   %55 = load ptr, ptr %54, align 8, !tbaa !157
-  tail call void @VP8LCreateHuffmanTree(ptr noundef %55, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %51) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef %55, i32 noundef 15, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %51) #8
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = getelementptr inbounds nuw i8, ptr %51, i64 24
-  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %56, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %57) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %56, i32 noundef 15, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %57) #8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 1032
   %59 = getelementptr inbounds nuw i8, ptr %51, i64 48
-  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %58, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %59) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %58, i32 noundef 15, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %59) #8
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 2056
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 72
-  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %60, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %61) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %60, i32 noundef 15, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %61) #8
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 3080
   %63 = getelementptr inbounds nuw i8, ptr %51, i64 96
-  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %62, i32 noundef 15, ptr noundef %44, ptr noundef %46, ptr noundef nonnull %63) #8
+  tail call void @VP8LCreateHuffmanTree(ptr noundef nonnull %62, i32 noundef 15, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %63) #8
   %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, 1
   %exitcond132.not = icmp eq i64 %indvars.iv.next129, %wide.trip.count131
   br i1 %exitcond132.not, label %.loopexit, label %50, !llvm.loop !158

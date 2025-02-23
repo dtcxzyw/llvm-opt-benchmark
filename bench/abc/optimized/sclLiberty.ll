@@ -9223,26 +9223,22 @@ Vec_FltFreeP.exit:                                ; preds = %231, %236
   tail call void @free(ptr noundef nonnull %.2315) #29
   br label %Vec_FltFreeP.exit285
 
-Vec_FltFreeP.exit285:                             ; preds = %Vec_FltFreeP.exit, %241
-  %242 = icmp eq ptr %.2310, null
-  br i1 %242, label %Vec_FltFreeP.exit288, label %243
+Vec_FltFreeP.exit285:                             ; preds = %241, %Vec_FltFreeP.exit
+  %242 = getelementptr inbounds nuw i8, ptr %.2310, i64 8
+  %243 = load ptr, ptr %242, align 8, !tbaa !108
+  %.not.i286 = icmp eq ptr %243, null
+  br i1 %.not.i286, label %244, label %.thread.i287
 
-243:                                              ; preds = %Vec_FltFreeP.exit285
-  %244 = getelementptr inbounds nuw i8, ptr %.2310, i64 8
-  %245 = load ptr, ptr %244, align 8, !tbaa !108
-  %.not.i286 = icmp eq ptr %245, null
-  br i1 %.not.i286, label %246, label %.thread.i287
+.thread.i287:                                     ; preds = %Vec_FltFreeP.exit285
+  tail call void @free(ptr noundef nonnull %243) #29
+  br label %244
 
-.thread.i287:                                     ; preds = %243
-  tail call void @free(ptr noundef nonnull %245) #29
-  br label %246
-
-246:                                              ; preds = %.thread.i287, %243
+244:                                              ; preds = %.thread.i287, %Vec_FltFreeP.exit285
   tail call void @free(ptr noundef nonnull %.2310) #29
   br label %Vec_FltFreeP.exit288
 
-Vec_FltFreeP.exit288:                             ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit265, %5, %Scl_LibertyItem.exit, %246, %Vec_FltFreeP.exit285, %._crit_edge, %._crit_edge388.thread
-  %.0 = phi i32 [ 0, %._crit_edge388.thread ], [ 0, %._crit_edge ], [ 1, %Vec_FltFreeP.exit285 ], [ 1, %246 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit265 ], [ 0, %Scl_LibertyCompare.exit.thread ]
+Vec_FltFreeP.exit288:                             ; preds = %Scl_LibertyCompare.exit.thread, %Scl_LibertyItem.exit265, %5, %Scl_LibertyItem.exit, %244, %._crit_edge, %._crit_edge388.thread
+  %.0 = phi i32 [ 0, %._crit_edge388.thread ], [ 0, %._crit_edge ], [ 1, %244 ], [ 0, %Scl_LibertyItem.exit ], [ 0, %5 ], [ 0, %Scl_LibertyItem.exit265 ], [ 0, %Scl_LibertyCompare.exit.thread ]
   ret i32 %.0
 }
 

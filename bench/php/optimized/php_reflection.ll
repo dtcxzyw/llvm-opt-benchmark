@@ -32543,7 +32543,7 @@ smart_str_alloc.exit:                             ; preds = %196, %201
   %206 = load ptr, ptr %0, align 8, !tbaa !79
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   store i64 %199, ptr %207, align 8, !tbaa !76
-  call fastcc void @format_default_value(ptr noundef %0, ptr noundef %.049117)
+  call fastcc void @format_default_value(ptr noundef %0, ptr noundef nonnull %.049117)
   br label %208
 
 208:                                              ; preds = %113, %smart_str_alloc.exit

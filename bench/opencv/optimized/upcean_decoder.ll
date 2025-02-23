@@ -542,8 +542,8 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.e
   br label %79
 
 79:                                               ; preds = %30, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.exit, %25
-  %.125 = phi i32 [ %.024, %25 ], [ %32, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.exit ], [ %32, %30 ]
-  %.123 = phi i1 [ false, %25 ], [ %78, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.exit ], [ false, %30 ]
+  %.125 = phi i32 [ %.024, %25 ], [ %32, %30 ], [ %32, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.exit ]
+  %.123 = phi i1 [ false, %25 ], [ false, %30 ], [ %78, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEEhET_S8_S8_RKT0_.exit ]
   %80 = load ptr, ptr %3, align 8
   %.not.i.i.i.i46 = icmp eq ptr %80, null
   br i1 %.not.i.i.i.i46, label %_ZN2cv7barcode7CounterD2Ev.exit48, label %81

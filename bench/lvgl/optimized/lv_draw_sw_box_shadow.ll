@@ -671,7 +671,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %344 = icmp eq i32 %343, 1
   %spec.select417 = select i1 %344, i32 2, i32 %343
   store i32 %spec.select417, ptr %326, align 8, !tbaa !45
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %14) #6
   %345 = getelementptr inbounds i8, ptr %.2459, i64 %327
   %346 = add nsw i32 %.2368458, 1
   %347 = load i32, ptr %323, align 4, !tbaa !20
@@ -1264,7 +1264,7 @@ shadow_draw_corner_buf.exit:                      ; preds = %.lr.ph116.i, %.lr.p
   %644 = load i32, ptr %13, align 4, !tbaa !3
   %645 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %11, ptr noundef %170, i32 noundef %644, i32 noundef %.9491, i32 noundef %631) #6
   store i32 %645, ptr %642, align 8, !tbaa !45
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %14) #6
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %14) #6
   %646 = add nsw i32 %.9491, 1
   %647 = load i32, ptr %639, align 4, !tbaa !20
   %.not414.not = icmp slt i32 %.9491, %647

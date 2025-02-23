@@ -2711,7 +2711,7 @@ clear_free.exit:                                  ; preds = %get_passwd.exit.thr
   br label %warn_certs.exit
 
 warn_certs.exit:                                  ; preds = %.lr.ph.i, %42, %41, %51, %50, %17
-  %.0 = phi i32 [ 0, %17 ], [ 0, %50 ], [ 0, %51 ], [ 1, %41 ], [ 1, %42 ], [ %37, %.lr.ph.i ]
+  %.0 = phi i32 [ 0, %17 ], [ 0, %50 ], [ 0, %51 ], [ 1, %41 ], [ 1, %42 ], [ 1, %.lr.ph.i ]
   ret i32 %.0
 }
 

@@ -6123,7 +6123,7 @@ _ZL25whitebox_lock_compilationv.exit:             ; preds = %._crit_edge.thread3
   %325 = load ptr, ptr %65, align 8
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 32
   %327 = load ptr, ptr %326, align 8
-  call void %327(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull %13, ptr noundef %297, i32 noundef %60, i1 noundef zeroext true, ptr noundef %21) #20
+  call void %327(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull %13, ptr noundef %297, i32 noundef %60, i1 noundef zeroext true, ptr noundef nonnull %21) #20
   %328 = getelementptr inbounds nuw i8, ptr %21, i64 240
   %329 = load i64, ptr %328, align 8
   %330 = trunc i64 %329 to i32
@@ -6145,7 +6145,7 @@ _ZL25whitebox_lock_compilationv.exit:             ; preds = %._crit_edge.thread3
   %341 = load ptr, ptr %65, align 8
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 32
   %343 = load ptr, ptr %342, align 8
-  call void %343(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull %13, ptr noundef %297, i32 noundef %60, i1 noundef zeroext false, ptr noundef %21) #20
+  call void %343(ptr noundef nonnull align 8 dereferenceable(96) %65, ptr noundef nonnull %13, ptr noundef %297, i32 noundef %60, i1 noundef zeroext false, ptr noundef nonnull %21) #20
   %344 = add nsw i32 %.0126259, -1
   %345 = load ptr, ptr %334, align 8
   %.not.i.i.i.i165 = icmp eq ptr %345, null
@@ -6172,7 +6172,7 @@ _ZN12ResourceMarkD2Ev.exit167:                    ; preds = %347, %349
   br i1 %350, label %.lr.ph, label %.loopexit, !llvm.loop !46
 
 .loopexit:                                        ; preds = %_ZN12ResourceMarkD2Ev.exit167, %_ZL25whitebox_lock_compilationv.exit, %307, %306
-  call void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef %21) #20
+  call void @_ZN15DirectivesStack7releaseEP12DirectiveSet(ptr noundef nonnull %21) #20
   %351 = getelementptr inbounds nuw i8, ptr %13, i64 88
   %352 = load ptr, ptr %351, align 8
   %.not253 = icmp eq ptr %352, null

@@ -52090,7 +52090,7 @@ for.cond2.preheader.i:                            ; preds = %for.cond2.preheader
 for.body5.preheader.i:                            ; preds = %for.cond2.preheader.i
   %18 = zext nneg i32 %i.0.lcssa.i to i64
   %19 = add nuw nsw i64 %18, 8
-  %20 = sext i32 %conv16 to i64
+  %20 = zext nneg i32 %conv16 to i64
   br label %for.body5.i
 
 for.body.i32:                                     ; preds = %for.body.i32, %for.body.preheader.i31
@@ -52124,7 +52124,7 @@ for.body5.i:                                      ; preds = %for.body5.i, %for.b
   %26 = xor i8 %25, -1
   store i8 %26, ptr %arrayidx.i35, align 1
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 8
-  %cmp4.not.i = icmp sgt i64 %indvars.iv.next35.i, %20
+  %cmp4.not.i = icmp samesign ugt i64 %indvars.iv.next35.i, %20
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 8
   br i1 %cmp4.not.i, label %for.cond15.preheader.loopexit.i, label %for.body5.i, !llvm.loop !382
 
@@ -53172,7 +53172,7 @@ if.then.i59:                                      ; preds = %_ZN8facebook5velox4
 
 if.end:                                           ; preds = %if.then.i59, %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit, %for.end
   %i.1 = phi i64 [ %i.0.lcssa, %for.end ], [ %add4, %_ZN8facebook5velox4bits6detail8loadBitsIjEET_PKmmh.exit ], [ %add4, %if.then.i59 ]
-  %add10 = add i64 %i.1, 16
+  %add10 = add nuw i64 %i.1, 16
   %cmp11.not = icmp ugt i64 %add10, %numBits
   br i1 %cmp11.not, label %if.end19, label %if.then12
 

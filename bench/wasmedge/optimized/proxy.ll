@@ -3959,7 +3959,7 @@ define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManager
   %27 = ashr exact i64 %26, 4
   %28 = sub nsw i64 %19, %27
   %.not = icmp ult i64 %28, %17
-  br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread, label %29
+  br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit, label %29
 
 29:                                               ; preds = %8
   %30 = add nsw i64 %27, %17
@@ -3985,7 +3985,7 @@ define void @_ZN8WasmEdge8Executor8Executor9tableGrowERNS_7Runtime12StackManager
 
 _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %37, %35, %33, %32
   %38 = icmp eq i32 %5, 0
-  br i1 %38, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread7, label %39
+  br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %40 = load ptr, ptr %21, align 8
@@ -3998,7 +3998,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %37, %35
   store <2 x i64> %4, ptr %.06.i.i.i.i.i.i, align 16
   %43 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i = icmp eq ptr %43, %40
-  br i1 %.not.i.i.i.i.i.i, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !137
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !137
 
 44:                                               ; preds = %32
   %45 = landingpad { ptr, i32 }
@@ -4007,17 +4007,13 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i: ; preds = %37, %35
   tail call void @__clang_call_terminate(ptr %46) #26
   unreachable
 
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %.lr.ph.i.i.i.i.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i
   %47 = add i32 %11, %5
-  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread7
+  store i32 %47, ptr %10, align 4
+  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
 
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread7: ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit
-  %storemerge = phi i32 [ %47, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit ], [ %11, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i ]
-  store i32 %storemerge, ptr %10, align 4
-  br label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread
-
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread: ; preds = %8, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread7
-  %.sink = phi i32 [ %11, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit.thread7 ], [ -1, %8 ]
+_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEjRKNS_10RefVariantE.exit: ; preds = %8, %.loopexit
+  %.sink = phi i32 [ %11, %.loopexit ], [ -1, %8 ]
   store i8 1, ptr %0, align 4
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sink, ptr %48, align 4

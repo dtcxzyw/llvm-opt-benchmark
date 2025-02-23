@@ -139,7 +139,7 @@ define internal void @skip_input_data(ptr noundef %0, i64 noundef %1) #0 {
   %.014 = phi i64 [ %1, %.lr.ph ], [ %12, %10 ]
   %12 = sub nsw i64 %.014, %11
   %13 = load ptr, ptr %9, align 8, !tbaa !55
-  %14 = tail call i32 %13(ptr noundef %0) #6
+  %14 = tail call i32 %13(ptr noundef nonnull %0) #6
   %15 = load i64, ptr %6, align 8, !tbaa !54
   %16 = icmp sgt i64 %12, %15
   br i1 %16, label %10, label %._crit_edge, !llvm.loop !56

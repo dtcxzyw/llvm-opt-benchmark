@@ -970,17 +970,17 @@ adjleap.exit:                                     ; preds = %255, %253, %237, %2
 
 .preheader61.i:                                   ; preds = %352
   %327 = icmp sgt i64 %325, 0
-  br i1 %327, label %.lr.ph79.i, label %.lr.ph81.i.preheader
+  br i1 %327, label %.lr.ph79.split.us.preheader.i, label %.lr.ph81.i.preheader
 
 .lr.ph81.i.preheader:                             ; preds = %..loopexit_crit_edge.us.i, %.preheader61.i
   br label %.lr.ph81.i
 
-.lr.ph79.i:                                       ; preds = %.preheader61.i
+.lr.ph79.split.us.preheader.i:                    ; preds = %.preheader61.i
   %328 = load ptr, ptr @rules, align 8
   br label %.lr.ph79.split.us.i
 
-.lr.ph79.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph79.i
-  %.05278.us.i = phi i64 [ %.0.us.lcssa.i, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph79.i ]
+.lr.ph79.split.us.i:                              ; preds = %..loopexit_crit_edge.us.i, %.lr.ph79.split.us.preheader.i
+  %.05278.us.i = phi i64 [ %.0.us.lcssa.i, %..loopexit_crit_edge.us.i ], [ 0, %.lr.ph79.split.us.preheader.i ]
   %329 = getelementptr inbounds %struct.rule, ptr %328, i64 %.05278.us.i
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 16
   %331 = add nsw i64 %.05278.us.i, 1
@@ -3416,7 +3416,7 @@ thread-pre-split827.i.i:                          ; preds = %1456, %1455
   %1460 = load ptr, ptr @attypes, align 8
   br label %1463
 
-.preheader671.i.i:                                ; preds = %1463
+.lr.ph687.i.i:                                    ; preds = %1463
   %1461 = load i32, ptr @leapcnt, align 4
   %1462 = sext i32 %1461 to i64
   br label %1471
@@ -3433,10 +3433,10 @@ thread-pre-split827.i.i:                          ; preds = %1456, %1455
   store i8 %1468, ptr %1469, align 1
   %1470 = add nuw nsw i64 %.0342682.i.i, 1
   %exitcond796.not.i.i = icmp eq i64 %1470, %1458
-  br i1 %exitcond796.not.i.i, label %.preheader671.i.i, label %1463, !llvm.loop !29
+  br i1 %exitcond796.not.i.i, label %.lr.ph687.i.i, label %1463, !llvm.loop !29
 
-1471:                                             ; preds = %.loopexit670.i.i, %.preheader671.i.i
-  %.1343686.i.i = phi i64 [ 0, %.preheader671.i.i ], [ %1497, %.loopexit670.i.i ]
+1471:                                             ; preds = %.loopexit670.i.i, %.lr.ph687.i.i
+  %.1343686.i.i = phi i64 [ 0, %.lr.ph687.i.i ], [ %1497, %.loopexit670.i.i ]
   %1472 = getelementptr inbounds nuw i64, ptr %1383, i64 %.1343686.i.i
   br label %1473
 
@@ -4531,7 +4531,7 @@ convert64.exit.i519.i.i:                          ; preds = %1949
   br label %puttzcodepass.exit525.i.i
 
 puttzcodepass.exit525.i.i:                        ; preds = %convert64.exit.i519.i.i, %puttzcode.exit.i524.i.i
-  %1954 = add nsw i64 %.9752.i.i, 1
+  %1954 = add i64 %.9752.i.i, 1
   %exitcond811.not.i.i = icmp eq i64 %1954, %.0392.i.i
   br i1 %exitcond811.not.i.i, label %._crit_edge754.i.i, label %.lr.ph753.i.i, !llvm.loop !51
 
@@ -6534,7 +6534,7 @@ ecpyalloc.exit:                                   ; preds = %2, %ecpyalloc.exit
   br i1 %38, label %.critedge, label %.lr.ph, !llvm.loop !73
 
 .critedge:                                        ; preds = %24, %.preheader.split, %.preheader.split.preheader
-  tail call void @free(ptr noundef %3) #26
+  tail call void @free(ptr noundef nonnull %3) #26
   ret void
 }
 

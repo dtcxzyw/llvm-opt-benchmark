@@ -4373,16 +4373,15 @@ for.cond2.preheader.i.i:                          ; preds = %for.cond2.preheader
 for.body5.preheader.i.i:                          ; preds = %for.cond2.preheader.i.i
   %15 = zext nneg i32 %i.0.lcssa.i.i to i64
   %16 = add nuw nsw i64 %15, 8
-  %17 = ashr i64 %call.fca.0.extract.i, 32
   br label %for.body5.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i, %for.body.i.i
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %for.body.i.i ], [ 0, %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 64, %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i ]
-  %18 = lshr exact i64 %indvars.iv28.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %19 = load i64, ptr %add.ptr.i.i, align 8
-  %not.i.i = xor i64 %19, -1
+  %17 = lshr exact i64 %indvars.iv28.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %18 = load i64, ptr %add.ptr.i.i, align 8
+  %not.i.i = xor i64 %18, -1
   store i64 %not.i.i, ptr %add.ptr.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
   %cmp.not.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %extractNullsResult.sroa.2.0.extract.shift.i
@@ -4390,34 +4389,34 @@ for.body.i.i:                                     ; preds = %_ZNK8facebook5velox
   br i1 %cmp.not.i.i, label %for.cond2.preheader.loopexit.i.i, label %for.body.i.i, !llvm.loop !37
 
 for.cond15.preheader.loopexit.i.i:                ; preds = %for.body5.i.i
-  %20 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
   br label %for.cond15.preheader.i.i
 
 for.cond15.preheader.i.i:                         ; preds = %for.cond15.preheader.loopexit.i.i, %for.cond2.preheader.i.i
-  %i.1.lcssa.i.i = phi i32 [ %i.0.lcssa.i.i, %for.cond2.preheader.i.i ], [ %20, %for.cond15.preheader.loopexit.i.i ]
+  %i.1.lcssa.i.i = phi i32 [ %i.0.lcssa.i.i, %for.cond2.preheader.i.i ], [ %19, %for.cond15.preheader.loopexit.i.i ]
   %cmp1626.i.i = icmp slt i32 %i.1.lcssa.i.i, %extractNullsResult.sroa.2.0.extract.trunc.i
   br i1 %cmp1626.i.i, label %for.body17.i.i, label %_ZN8facebook5velox4bits6negateEPci.exit.i
 
 for.body5.i.i:                                    ; preds = %for.body5.i.i, %for.body5.preheader.i.i
   %indvars.iv36.i.i = phi i64 [ %15, %for.body5.preheader.i.i ], [ %indvars.iv.next37.i.i, %for.body5.i.i ]
   %indvars.iv34.i.i = phi i64 [ %16, %for.body5.preheader.i.i ], [ %indvars.iv.next35.i.i, %for.body5.i.i ]
-  %21 = lshr exact i64 %indvars.iv36.i.i, 3
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %21
-  %22 = load i8, ptr %arrayidx.i.i, align 1
-  %23 = xor i8 %22, -1
-  store i8 %23, ptr %arrayidx.i.i, align 1
+  %20 = lshr exact i64 %indvars.iv36.i.i, 3
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %20
+  %21 = load i8, ptr %arrayidx.i.i, align 1
+  %22 = xor i8 %21, -1
+  store i8 %22, ptr %arrayidx.i.i, align 1
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 8
-  %cmp4.not.i.i = icmp sgt i64 %indvars.iv.next35.i.i, %17
+  %cmp4.not.i.i = icmp samesign ugt i64 %indvars.iv.next35.i.i, %extractNullsResult.sroa.2.0.extract.shift.i
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 8
   br i1 %cmp4.not.i.i, label %for.cond15.preheader.loopexit.i.i, label %for.body5.i.i, !llvm.loop !38
 
 for.body17.i.i:                                   ; preds = %for.cond15.preheader.i.i, %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
   %i.227.i.i = phi i32 [ %inc.i.i, %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i ], [ %i.1.lcssa.i.i, %for.cond15.preheader.i.i ]
-  %24 = lshr i32 %i.227.i.i, 3
-  %div2.i.i.i = zext nneg i32 %24 to i64
+  %23 = lshr i32 %i.227.i.i, 3
+  %div2.i.i.i = zext nneg i32 %23 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %div2.i.i.i
-  %25 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv13.i.i.i = zext i8 %25 to i32
+  %24 = load i8, ptr %arrayidx.i.i.i, align 1
+  %conv13.i.i.i = zext i8 %24 to i32
   %and.i.i.i = and i32 %i.227.i.i, 7
   %shl.i.i.i = shl nuw nsw i32 1, %and.i.i.i
   %and3.i.i.i = and i32 %shl.i.i.i, %conv13.i.i.i
@@ -4425,15 +4424,15 @@ for.body17.i.i:                                   ; preds = %for.cond15.preheade
   br i1 %tobool.i.not.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %for.body17.i.i
-  %26 = trunc nuw i32 %shl.i.i.i to i8
-  %conv1.i.i.i.i = or i8 %25, %26
+  %25 = trunc nuw i32 %shl.i.i.i to i8
+  %conv1.i.i.i.i = or i8 %24, %25
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body17.i.i
   %idxprom.i4.i.i.i = zext nneg i32 %and.i.i.i to i64
   %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i
-  %27 = load i8, ptr %arrayidx.i5.i.i.i, align 1
-  %and3.i.i.i.i = and i8 %27, %25
+  %26 = load i8, ptr %arrayidx.i5.i.i.i, align 1
+  %and3.i.i.i.i = and i8 %26, %24
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
 
 _ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -4444,19 +4443,19 @@ _ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i: ; preds = %cond.false.i.i.i, 
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox4bits6negateEPci.exit.i, label %for.body17.i.i, !llvm.loop !39
 
 _ZN8facebook5velox4bits6negateEPci.exit.i:        ; preds = %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i, %for.cond15.preheader.i.i
-  %28 = load ptr, ptr %nulls_.i, align 8
-  %data_.i7.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %29 = load ptr, ptr %data_.i7.i, align 8
-  %30 = load ptr, ptr %frameStarts, align 8
-  %data_.i8.i = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %31 = load ptr, ptr %data_.i8.i, align 8
-  %32 = load ptr, ptr %frameEnds, align 8
-  %data_.i9.i = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %33 = load ptr, ptr %data_.i9.i, align 8
+  %27 = load ptr, ptr %nulls_.i, align 8
+  %data_.i7.i = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %28 = load ptr, ptr %data_.i7.i, align 8
+  %29 = load ptr, ptr %frameStarts, align 8
+  %data_.i8.i = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %30 = load ptr, ptr %data_.i8.i, align 8
+  %31 = load ptr, ptr %frameEnds, align 8
+  %data_.i9.i = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %32 = load ptr, ptr %data_.i9.i, align 8
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 37
-  %34 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
-  %tobool.i.i.i.i.i = trunc i8 %34 to i1
+  %33 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
+  %tobool.i.i.i.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i.i.i.i, label %entry.return_crit_edge.i.i.i, label %if.end.i.i.i
 
 entry.return_crit_edge.i.i.i:                     ; preds = %_ZN8facebook5velox4bits6negateEPci.exit.i
@@ -4464,120 +4463,120 @@ entry.return_crit_edge.i.i.i:                     ; preds = %_ZN8facebook5velox4
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN8facebook5velox4bits6negateEPci.exit.i
-  %35 = load i32, ptr %begin_.i, align 4
-  %cmp.i.i.i = icmp eq i32 %35, 0
+  %34 = load i32, ptr %begin_.i, align 4
+  %cmp.i.i.i = icmp eq i32 %34, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %land.end.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %36 = load i32, ptr %end_.i, align 8
+  %35 = load i32, ptr %end_.i, align 8
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %37 = load i32, ptr %size_.i.i.i, align 8
-  %cmp5.i.i.i = icmp eq i32 %36, %37
+  %36 = load i32, ptr %size_.i.i.i, align 8
+  %cmp5.i.i.i = icmp eq i32 %35, %36
   br i1 %cmp5.i.i.i, label %land.rhs.i.i.i, label %land.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %38 = load ptr, ptr %validRows, align 8
-  %cmp.not.i.i.i.i = icmp sgt i32 %36, 0
+  %37 = load ptr, ptr %validRows, align 8
+  %cmp.not.i.i.i.i = icmp sgt i32 %35, 0
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i.i, label %land.end.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i
-  %39 = and i32 %36, 2147483584
-  %40 = zext nneg i32 %39 to i64
+  %38 = and i32 %35, 2147483584
+  %39 = zext nneg i32 %38 to i64
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %40
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %39
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
-  %41 = lshr exact i64 %indvars.iv.i.i.i, 3
-  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %41
-  %42 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
-  %cmp.i36.i.i.i.i.i = icmp eq i64 %42, -1
+  %40 = lshr exact i64 %indvars.iv.i.i.i, 3
+  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %40
+  %41 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
+  %cmp.i36.i.i.i.i.i = icmp eq i64 %41, -1
   br i1 %cmp.i36.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %land.end.i.i.i, !llvm.loop !40
 
 for.end.i.i.i.i.i:                                ; preds = %for.cond.i.i.i.i.i
-  %cmp25.not.i.i.i.i.i = icmp eq i32 %36, %39
+  %cmp25.not.i.i.i.i.i = icmp eq i32 %35, %38
   br i1 %cmp25.not.i.i.i.i.i, label %land.end.i.i.i, label %if.then26.i.i.i.i.i
 
 if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
-  %div27.i.i.i.i.i = lshr i32 %36, 6
-  %sub28.i.i.i.i.i = and i32 %36, 63
+  %div27.i.i.i.i.i = lshr i32 %35, 6
+  %sub28.i.i.i.i.i = and i32 %35, 63
   %sh_prom.i37.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i to i64
   %notmask.i38.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i
   %idxprom.i40.i.i.i.i.i = zext nneg i32 %div27.i.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %38, i64 %idxprom.i40.i.i.i.i.i
-  %43 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
-  %.demorgan.i.i.i = or i64 %43, %notmask.i38.i.i.i.i.i
+  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %idxprom.i40.i.i.i.i.i
+  %42 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
+  %.demorgan.i.i.i = or i64 %42, %notmask.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp eq i64 %.demorgan.i.i.i, -1
-  %44 = zext i1 %cmp.i42.i.i.i.i.i to i16
-  %45 = or disjoint i16 %44, 256
+  %43 = zext i1 %cmp.i42.i.i.i.i.i to i16
+  %44 = or disjoint i16 %43, 256
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %45, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %44, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
-  %46 = trunc i16 %frombool.i.i.i to i8
+  %45 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i: ; preds = %land.end.i.i.i, %entry.return_crit_edge.i.i.i
-  %retval.0.in.i.i.i = phi i8 [ %retval.0.in.pre.i.i.i, %entry.return_crit_edge.i.i.i ], [ %46, %land.end.i.i.i ]
+  %retval.0.in.i.i.i = phi i8 [ %retval.0.in.pre.i.i.i, %entry.return_crit_edge.i.i.i ], [ %45, %land.end.i.i.i ]
   %retval.0.i.i.i = trunc i8 %retval.0.in.i.i.i to i1
   br i1 %retval.0.i.i.i, label %if.then.i11.i, label %if.else.i.i
 
 if.then.i11.i:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
-  %47 = load i32, ptr %begin_.i, align 4
-  %48 = load i32, ptr %end_.i, align 8
-  %cmp15.i.i = icmp slt i32 %47, %48
+  %46 = load i32, ptr %begin_.i, align 4
+  %47 = load i32, ptr %end_.i, align 8
+  %cmp15.i.i = icmp slt i32 %46, %47
   br i1 %cmp15.i.i, label %for.body.lr.ph.i.i, label %if.end6
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
-  %49 = sext i32 %47 to i64
+  %48 = sext i32 %46 to i64
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
-  %indvars.iv.i13.i = phi i64 [ %49, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
-  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i13.i
-  %50 = load i32, ptr %arrayidx.i.i14.i, align 4
-  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.i13.i
-  %51 = load i32, ptr %arrayidx3.i.i.i, align 4
-  %sub.i.i.i = sub nsw i32 %50, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub127 = sub i32 %51, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %indvars.iv.i13.i = phi i64 [ %48, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
+  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i13.i
+  %49 = load i32, ptr %arrayidx.i.i14.i, align 4
+  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
+  %50 = load i32, ptr %arrayidx3.i.i.i, align 4
+  %sub.i.i.i = sub nsw i32 %49, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub127 = sub i32 %50, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i = add i32 %reass.sub127, 1
-  %call.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %29, i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i)
-  %52 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %52, i64 %indvars.iv.i13.i
+  %call.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i)
+  %51 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %51, i64 %indvars.iv.i13.i
   store i32 %call.i.i.i, ptr %add.ptr.i.i.i.i, align 4
   %indvars.iv.next.i15.i = add nsw i64 %indvars.iv.i13.i, 1
-  %53 = load i32, ptr %end_.i, align 8
-  %54 = sext i32 %53 to i64
-  %cmp.i.i = icmp slt i64 %indvars.iv.next.i15.i, %54
+  %52 = load i32, ptr %end_.i, align 8
+  %53 = sext i32 %52 to i64
+  %cmp.i.i = icmp slt i64 %indvars.iv.next.i15.i, %53
   br i1 %cmp.i.i, label %for.body.i12.i, label %if.end6, !llvm.loop !41
 
 if.else.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
-  %55 = load ptr, ptr %validRows, align 8
-  %56 = load i32, ptr %begin_.i, align 4
-  %57 = load i32, ptr %end_.i, align 8
-  %cmp.not.i.i.i.i.i = icmp slt i32 %56, %57
+  %54 = load ptr, ptr %validRows, align 8
+  %55 = load i32, ptr %begin_.i, align 4
+  %56 = load i32, ptr %end_.i, align 8
+  %cmp.not.i.i.i.i.i = icmp slt i32 %55, %56
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i4.i.i, label %if.end6
 
 if.end.i.i.i4.i.i:                                ; preds = %if.else.i.i
-  %add.i.i.i.i.i.i = add i32 %56, 63
-  %58 = srem i32 %add.i.i.i.i.i.i, 64
-  %mul.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i, %58
-  %59 = and i32 %57, -64
-  %cmp2.i.i.i.i.i = icmp slt i32 %59, %mul.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add i32 %55, 63
+  %57 = srem i32 %add.i.i.i.i.i.i, 64
+  %mul.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i, %57
+  %58 = and i32 %56, -64
+  %cmp2.i.i.i.i.i = icmp slt i32 %58, %mul.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end8.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
-  %div.i.i.i.i.i = ashr i32 %57, 6
-  %sub.i.i.i.i.i = and i32 %57, 63
+  %div.i.i.i.i.i = ashr i32 %56, 6
+  %sub.i.i.i.i.i = and i32 %56, 63
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
   %notmask.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i
   %sub.i22.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i.i, -1
-  %sub5.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %56
+  %sub5.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %55
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %sub5.i.i.i.i.i to i64
   %notmask.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i.i.i, -1
@@ -4586,28 +4585,28 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %shl.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i
   %and7.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i, %sub.i22.i.i.i.i.i
   %idxprom.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %55, i64 %idxprom.i.i.i.i.i.i
-  %60 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %60
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i.i.i.i.i.i
+  %59 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %59
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i, %while.body.i.i.i.i.i.i
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %if.then3.i.i.i.i.i ]
-  %61 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %61 to i32
-  %add.i26.i.i.i.i.i = or disjoint i32 %59, %cast.i.i.i.i.i.i
+  %60 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %60 to i32
+  %add.i26.i.i.i.i.i = or disjoint i32 %58, %cast.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i.i.i.i.i.i
-  %62 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i.i.i.i.i.i
-  %63 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %sub.i.i27.i.i.i.i.i = sub nsw i32 %62, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub126 = sub i32 %63, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i.i.i.i
+  %61 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
+  %62 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
+  %sub.i.i27.i.i.i.i.i = sub nsw i32 %61, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub126 = sub i32 %62, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i.i.i.i.i = add i32 %reass.sub126, 1
-  %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %29, i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i)
-  %64 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %64, i64 %idxprom.i.i.i.i.i.i.i
+  %call.i.i.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i)
+  %63 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %63, i64 %idxprom.i.i.i.i.i.i.i
   store i32 %call.i.i.i.i.i.i.i, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
   %sub.i28.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i28.i.i.i.i.i, %word.0.i.i.i.i.i.i
@@ -4615,12 +4614,12 @@ while.body.i.i.i.i.i.i:                           ; preds = %if.then3.i.i.i.i.i,
   br i1 %tobool5.old.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i:                                ; preds = %if.end.i.i.i4.i.i
-  %cmp9.not.i.i.i.i.i = icmp eq i32 %56, %mul.i.i.i.i.i.i
+  %cmp9.not.i.i.i.i.i = icmp eq i32 %55, %mul.i.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %if.then10.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
-  %div11.i.i.i.i.i = sdiv i32 %56, 64
-  %sub12.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %56
+  %div11.i.i.i.i.i = sdiv i32 %55, 64
+  %sub12.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %55
   %sh_prom.i.i29.i.i.i.i.i = zext nneg i32 %sub12.i.i.i.i.i to i64
   %notmask.i.i30.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i29.i.i.i.i.i
   %sub.i.i31.i.i.i.i.i = xor i64 %notmask.i.i30.i.i.i.i.i, -1
@@ -4628,9 +4627,9 @@ if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   %sh_prom.i33.i.i.i.i.i = zext nneg i32 %sub.i32.i.i.i.i.i to i64
   %shl.i34.i.i.i.i.i = shl i64 %sub.i.i31.i.i.i.i.i, %sh_prom.i33.i.i.i.i.i
   %idxprom.i35.i.i.i.i.i = sext i32 %div11.i.i.i.i.i to i64
-  %arrayidx.i36.i.i.i.i.i = getelementptr inbounds i64, ptr %55, i64 %idxprom.i35.i.i.i.i.i
-  %65 = load i64, ptr %arrayidx.i36.i.i.i.i.i, align 8
-  %and.i39.i.i.i.i.i = and i64 %65, %shl.i34.i.i.i.i.i
+  %arrayidx.i36.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i35.i.i.i.i.i
+  %64 = load i64, ptr %arrayidx.i36.i.i.i.i.i, align 8
+  %and.i39.i.i.i.i.i = and i64 %64, %shl.i34.i.i.i.i.i
   %tobool4.not.i40.i.i.i.i.i = icmp eq i64 %and.i39.i.i.i.i.i, 0
   br i1 %tobool4.not.i40.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.preheader.i41.i.i.i.i.i
 
@@ -4640,20 +4639,20 @@ while.body.preheader.i41.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.i.i.i, %while.body.preheader.i41.i.i.i.i.i
   %word.0.i44.i.i.i.i.i = phi i64 [ %and6.i57.i.i.i.i.i, %while.body.i43.i.i.i.i.i ], [ %and.i39.i.i.i.i.i, %while.body.preheader.i41.i.i.i.i.i ]
-  %66 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i44.i.i.i.i.i, i1 true)
-  %cast.i45.i.i.i.i.i = trunc nuw nsw i64 %66 to i32
+  %65 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i44.i.i.i.i.i, i1 true)
+  %cast.i45.i.i.i.i.i = trunc nuw nsw i64 %65 to i32
   %add.i46.i.i.i.i.i = or disjoint i32 %mul.i42.i.i.i.i.i, %cast.i45.i.i.i.i.i
   %idxprom.i.i47.i.i.i.i.i = sext i32 %add.i46.i.i.i.i.i to i64
-  %arrayidx.i.i48.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i47.i.i.i.i.i
-  %67 = load i32, ptr %arrayidx.i.i48.i.i.i.i.i, align 4
-  %arrayidx3.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i47.i.i.i.i.i
-  %68 = load i32, ptr %arrayidx3.i.i49.i.i.i.i.i, align 4
-  %sub.i.i50.i.i.i.i.i = sub nsw i32 %67, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub = sub i32 %68, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i48.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i47.i.i.i.i.i
+  %66 = load i32, ptr %arrayidx.i.i48.i.i.i.i.i, align 4
+  %arrayidx3.i.i49.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i47.i.i.i.i.i
+  %67 = load i32, ptr %arrayidx3.i.i49.i.i.i.i.i, align 4
+  %sub.i.i50.i.i.i.i.i = sub nsw i32 %66, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub = sub i32 %67, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i52.i.i.i.i.i = add i32 %reass.sub, 1
-  %call.i.i53.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %29, i32 noundef %sub.i.i50.i.i.i.i.i, i32 noundef %add.i.i52.i.i.i.i.i)
-  %69 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i55.i.i.i.i.i = getelementptr inbounds i32, ptr %69, i64 %idxprom.i.i47.i.i.i.i.i
+  %call.i.i53.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i50.i.i.i.i.i, i32 noundef %add.i.i52.i.i.i.i.i)
+  %68 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i55.i.i.i.i.i = getelementptr inbounds i32, ptr %68, i64 %idxprom.i.i47.i.i.i.i.i
   store i32 %call.i.i53.i.i.i.i.i, ptr %add.ptr.i.i.i55.i.i.i.i.i, align 4
   %sub.i56.i.i.i.i.i = add i64 %word.0.i44.i.i.i.i.i, -1
   %and6.i57.i.i.i.i.i = and i64 %sub.i56.i.i.i.i.i, %word.0.i44.i.i.i.i.i
@@ -4662,7 +4661,7 @@ while.body.i43.i.i.i.i.i:                         ; preds = %while.body.i43.i.i.
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i43.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
   %add114.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
-  %cmp15.not115.i.i.i.i.i = icmp sgt i32 %add114.i.i.i.i.i, %59
+  %cmp15.not115.i.i.i.i.i = icmp sgt i32 %add114.i.i.i.i.i, %58
   br i1 %cmp15.not115.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i
 
 for.body.i.i.i5.i.i:                              ; preds = %if.end14.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i
@@ -4670,9 +4669,9 @@ for.body.i.i.i5.i.i:                              ; preds = %if.end14.i.i.i.i.i,
   %i.0116.i.i.i.i.i = phi i32 [ %add117.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i, %if.end14.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.0116.i.i.i.i.i, 64
   %idxprom.i60.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
-  %arrayidx.i61.i.i.i.i.i = getelementptr inbounds i64, ptr %55, i64 %idxprom.i60.i.i.i.i.i
-  %70 = load i64, ptr %arrayidx.i61.i.i.i.i.i, align 8
-  switch i64 %70, label %while.body.lr.ph.i.i.i.i.i.i [
+  %arrayidx.i61.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i60.i.i.i.i.i
+  %69 = load i64, ptr %arrayidx.i61.i.i.i.i.i, align 8
+  switch i64 %69, label %while.body.lr.ph.i.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i.i
     i64 0, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i
   ]
@@ -4695,43 +4694,43 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.022.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %arrayidx.i.i65.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %row.022.i.i.i.i.i.i
-  %71 = load i32, ptr %arrayidx.i.i65.i.i.i.i.i, align 4
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %row.022.i.i.i.i.i.i
-  %72 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
-  %sub.i.i66.i.i.i.i.i = sub nsw i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub124 = sub i32 %72, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i65.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %row.022.i.i.i.i.i.i
+  %70 = load i32, ptr %arrayidx.i.i65.i.i.i.i.i, align 4
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.022.i.i.i.i.i.i
+  %71 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
+  %sub.i.i66.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub124 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i67.i.i.i.i.i = add i32 %reass.sub124, 1
-  %call.i.i68.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %29, i32 noundef %sub.i.i66.i.i.i.i.i, i32 noundef %add.i.i67.i.i.i.i.i)
-  %73 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i70.i.i.i.i.i = getelementptr inbounds i32, ptr %73, i64 %row.022.i.i.i.i.i.i
+  %call.i.i68.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i66.i.i.i.i.i, i32 noundef %add.i.i67.i.i.i.i.i)
+  %72 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i70.i.i.i.i.i = getelementptr inbounds i32, ptr %72, i64 %row.022.i.i.i.i.i.i
   store i32 %call.i.i68.i.i.i.i.i, ptr %add.ptr.i.i.i70.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i = add nuw i64 %row.022.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !42
 
 while.body.i71.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %word.020.i.i.i.i.i.i = phi i64 [ %70, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i77.i.i.i.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i ]
-  %74 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.020.i.i.i.i.i.i, i1 true)
-  %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %74 to i32
+  %word.020.i.i.i.i.i.i = phi i64 [ %69, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i77.i.i.i.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i ]
+  %73 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.020.i.i.i.i.i.i, i1 true)
+  %cast.i72.i.i.i.i.i = trunc nuw nsw i64 %73 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i72.i.i.i.i.i
   %idxprom.i.i73.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
-  %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i73.i.i.i.i.i
-  %75 = load i32, ptr %arrayidx.i11.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i74.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i73.i.i.i.i.i
-  %76 = load i32, ptr %arrayidx3.i.i74.i.i.i.i.i, align 4
-  %sub.i12.i.i.i.i.i.i = sub nsw i32 %75, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub40.i = sub i32 %76, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i11.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i73.i.i.i.i.i
+  %74 = load i32, ptr %arrayidx.i11.i.i.i.i.i.i, align 4
+  %arrayidx3.i.i74.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i73.i.i.i.i.i
+  %75 = load i32, ptr %arrayidx3.i.i74.i.i.i.i.i, align 4
+  %sub.i12.i.i.i.i.i.i = sub nsw i32 %74, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub40.i = sub i32 %75, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i13.i.i.i.i.i.i = add i32 %reass.sub40.i, 1
   %cmp.not.i.i.i.i.i.i.i = icmp slt i32 %sub.i12.i.i.i.i.i.i, %add.i13.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %while.body.i71.i.i.i.i.i
   %add.i.i.i.i.i.i.i.i = add i32 %sub.i12.i.i.i.i.i.i, 63
-  %77 = srem i32 %add.i.i.i.i.i.i.i.i, 64
-  %mul.i.i.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i.i.i, %77
-  %78 = and i32 %add.i13.i.i.i.i.i.i, -64
-  %cmp2.i.i.i.i.i.i.i = icmp slt i32 %78, %mul.i.i.i.i.i.i.i.i
+  %76 = srem i32 %add.i.i.i.i.i.i.i.i, 64
+  %mul.i.i.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i.i.i, %76
+  %77 = and i32 %add.i13.i.i.i.i.i.i, -64
+  %cmp2.i.i.i.i.i.i.i = icmp slt i32 %77, %mul.i.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.i
@@ -4749,9 +4748,9 @@ if.then3.i.i.i.i.i.i.i:                           ; preds = %if.end.i.i.i.i.i.i.
   %shl.i.i.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i.i.i
   %and7.i.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i.i, %sub.i22.i.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i.i.i.i.i.i.i.i
-  %79 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i.i, %79
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i.i.i.i.i.i.i.i
+  %78 = load i64, ptr %arrayidx.i.i.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i.i, %78
   %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, label %return.sink.split.i.i.i.i.i.i.i
 
@@ -4772,9 +4771,9 @@ if.then11.i.i.i.i.i.i.i:                          ; preds = %if.end9.i.i.i.i.i.i
   %sh_prom.i31.i.i.i.i.i.i.i = zext nneg i32 %sub.i30.i.i.i.i.i.i.i to i64
   %shl.i32.i.i.i.i.i.i.i = shl i64 %sub.i.i29.i.i.i.i.i.i.i, %sh_prom.i31.i.i.i.i.i.i.i
   %idxprom.i33.i.i.i.i.i.i.i = sext i32 %div12.i.i.i.i.i.i.i to i64
-  %arrayidx.i34.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i33.i.i.i.i.i.i.i
-  %80 = load i64, ptr %arrayidx.i34.i.i.i.i.i.i.i, align 8
-  %and.i35.i.i.i.i.i.i.i = and i64 %80, %shl.i32.i.i.i.i.i.i.i
+  %arrayidx.i34.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i33.i.i.i.i.i.i.i
+  %79 = load i64, ptr %arrayidx.i34.i.i.i.i.i.i.i, align 8
+  %and.i35.i.i.i.i.i.i.i = and i64 %79, %shl.i32.i.i.i.i.i.i.i
   %tobool.not.i36.i.i.i.i.i.i.i = icmp eq i64 %and.i35.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i36.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i.preheader, label %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i
 
@@ -4785,15 +4784,15 @@ _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i:
 for.cond.i.i.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i.i.i.i.preheader, %for.body.i.i.i.i.i.i.i
   %i.0.i.i.i.i.i.i.i = phi i32 [ %add.i.i106.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %mul.i.i.i.i.i.i.i.i, %for.cond.i.i.i.i.i.i.i.preheader ]
   %add.i.i106.i.i.i.i.i = add nsw i32 %i.0.i.i.i.i.i.i.i, 64
-  %cmp19.not.i.i.i.i.i.i.i = icmp sgt i32 %add.i.i106.i.i.i.i.i, %78
+  %cmp19.not.i.i.i.i.i.i.i = icmp sgt i32 %add.i.i106.i.i.i.i.i, %77
   br i1 %cmp19.not.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i.i.i.i
   %div20.i.i.i.i.i.i.i = sdiv i32 %i.0.i.i.i.i.i.i.i, 64
   %idxprom.i42.i.i.i.i.i.i.i = sext i32 %div20.i.i.i.i.i.i.i to i64
-  %arrayidx.i43.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i42.i.i.i.i.i.i.i
-  %81 = load i64, ptr %arrayidx.i43.i.i.i.i.i.i.i, align 8
-  %tobool.not.i44.i.i.i.i.i.i.i = icmp eq i64 %81, 0
+  %arrayidx.i43.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i42.i.i.i.i.i.i.i
+  %80 = load i64, ptr %arrayidx.i43.i.i.i.i.i.i.i, align 8
+  %tobool.not.i44.i.i.i.i.i.i.i = icmp eq i64 %80, 0
   br i1 %tobool.not.i44.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i, !llvm.loop !43
 
 _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i.i
@@ -4801,7 +4800,7 @@ _ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i
   br label %return.sink.split.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i:                            ; preds = %for.cond.i.i.i.i.i.i.i
-  %cmp25.not.i.i.i.i.i.i.i = icmp eq i32 %add.i13.i.i.i.i.i.i, %78
+  %cmp25.not.i.i.i.i.i.i.i = icmp eq i32 %add.i13.i.i.i.i.i.i, %77
   br i1 %cmp25.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, label %if.then26.i.i.i.i.i.i.i
 
 if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i.i
@@ -4811,24 +4810,24 @@ if.then26.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
   %notmask.i50.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i49.i.i.i.i.i.i.i
   %sub.i51.i.i.i.i.i.i.i = xor i64 %notmask.i50.i.i.i.i.i.i.i, -1
   %idxprom.i52.i.i.i.i.i.i.i = sext i32 %div27.i.i.i.i.i.i.i to i64
-  %arrayidx.i53.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i52.i.i.i.i.i.i.i
-  %82 = load i64, ptr %arrayidx.i53.i.i.i.i.i.i.i, align 8
-  %and.i54.i.i.i.i.i.i.i = and i64 %82, %sub.i51.i.i.i.i.i.i.i
+  %arrayidx.i53.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i52.i.i.i.i.i.i.i
+  %81 = load i64, ptr %arrayidx.i53.i.i.i.i.i.i.i, align 8
+  %and.i54.i.i.i.i.i.i.i = and i64 %81, %sub.i51.i.i.i.i.i.i.i
   %tobool.not.i55.i.i.i.i.i.i.i = icmp eq i64 %and.i54.i.i.i.i.i.i.i, 0
   br i1 %tobool.not.i55.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, label %return.sink.split.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i:                  ; preds = %if.then26.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
-  %and.i54.sink.i.i.i.i.i.i.i = phi i64 [ %81, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i ], [ %and.i35.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i ], [ %and.i54.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i ]
-  %.sink.i.i.i.i.i.i.i = phi i32 [ %mul.i46.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i ], [ %mul.i38.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i ], [ %78, %if.then3.i.i.i.i.i.i.i ], [ %78, %if.then26.i.i.i.i.i.i.i ]
-  %83 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i.i.i.i.i, i1 true)
-  %cast.i58.i.i.i.i.i.i.i = trunc nuw nsw i64 %83 to i32
+  %and.i54.sink.i.i.i.i.i.i.i = phi i64 [ %80, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i ], [ %and.i35.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i ], [ %and.i54.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i ]
+  %.sink.i.i.i.i.i.i.i = phi i32 [ %mul.i46.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUliE_clEi.exit.thread.i.i.i.i.i.i.i ], [ %mul.i38.i.i.i.i.i.i.i, %_ZZN8facebook5velox4bits12findFirstBitEPKmiiENKUlimE_clEim.exit41.i.i.i.i.i.i.i ], [ %77, %if.then3.i.i.i.i.i.i.i ], [ %77, %if.then26.i.i.i.i.i.i.i ]
+  %82 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %and.i54.sink.i.i.i.i.i.i.i, i1 true)
+  %cast.i58.i.i.i.i.i.i.i = trunc nuw nsw i64 %82 to i32
   %add.i59.i.i.i.i.i.i.i = or disjoint i32 %.sink.i.i.i.i.i.i.i, %cast.i58.i.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i
 
 _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i, %if.then26.i.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i, %while.body.i71.i.i.i.i.i
   %found.0.i.i.i.i.i.i = phi i32 [ -1, %if.then3.i.i.i.i.i.i.i ], [ %add.i59.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i.i.i.i ], [ -1, %for.end.i.i.i.i.i.i.i ], [ -1, %if.then26.i.i.i.i.i.i.i ], [ -1, %while.body.i71.i.i.i.i.i ]
-  %84 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i16.i.i.i.i.i.i = getelementptr inbounds i32, ptr %84, i64 %idxprom.i.i73.i.i.i.i.i
+  %83 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i16.i.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i73.i.i.i.i.i
   store i32 %found.0.i.i.i.i.i.i, ptr %add.ptr.i.i16.i.i.i.i.i.i, align 4
   %sub.i76.i.i.i.i.i = add i64 %word.020.i.i.i.i.i.i, -1
   %and.i77.i.i.i.i.i = and i64 %sub.i76.i.i.i.i.i, %word.020.i.i.i.i.i.i
@@ -4837,42 +4836,42 @@ _ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i: ; preds = %return.si
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox4bits12findFirstBitEPKmii.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i5.i.i
   %add.i.i.i.i.i = add nsw i32 %add117.i.i.i.i.i, 64
-  %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %59
+  %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %58
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i, !llvm.loop !45
 
 for.end.i.i.i6.i.i:                               ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %cmp18.not.i.i.i.i.i = icmp eq i32 %57, %59
+  %cmp18.not.i.i.i.i.i = icmp eq i32 %56, %58
   br i1 %cmp18.not.i.i.i.i.i, label %if.end6, label %if.then19.i.i.i.i.i
 
 if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i6.i.i
-  %div20.i.i.i.i.i = ashr i32 %57, 6
-  %sub21.i.i.i.i.i = and i32 %57, 63
+  %div20.i.i.i.i.i = ashr i32 %56, 6
+  %sub21.i.i.i.i.i = and i32 %56, 63
   %sh_prom.i78.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i to i64
   %notmask.i79.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i78.i.i.i.i.i
   %sub.i80.i.i.i.i.i = xor i64 %notmask.i79.i.i.i.i.i, -1
   %idxprom.i81.i.i.i.i.i = sext i32 %div20.i.i.i.i.i to i64
-  %arrayidx.i82.i.i.i.i.i = getelementptr inbounds i64, ptr %55, i64 %idxprom.i81.i.i.i.i.i
-  %85 = load i64, ptr %arrayidx.i82.i.i.i.i.i, align 8
-  %and.i85.i.i.i.i.i = and i64 %85, %sub.i80.i.i.i.i.i
+  %arrayidx.i82.i.i.i.i.i = getelementptr inbounds i64, ptr %54, i64 %idxprom.i81.i.i.i.i.i
+  %84 = load i64, ptr %arrayidx.i82.i.i.i.i.i, align 8
+  %and.i85.i.i.i.i.i = and i64 %84, %sub.i80.i.i.i.i.i
   %tobool4.not.i86.i.i.i.i.i = icmp eq i64 %and.i85.i.i.i.i.i, 0
   br i1 %tobool4.not.i86.i.i.i.i.i, label %if.end6, label %while.body.i89.i.i.i.i.i
 
 while.body.i89.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i, %while.body.i89.i.i.i.i.i
   %word.0.i90.i.i.i.i.i = phi i64 [ %and6.i103.i.i.i.i.i, %while.body.i89.i.i.i.i.i ], [ %and.i85.i.i.i.i.i, %if.then19.i.i.i.i.i ]
-  %86 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i90.i.i.i.i.i, i1 true)
-  %cast.i91.i.i.i.i.i = trunc nuw nsw i64 %86 to i32
-  %add.i92.i.i.i.i.i = or disjoint i32 %59, %cast.i91.i.i.i.i.i
+  %85 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i90.i.i.i.i.i, i1 true)
+  %cast.i91.i.i.i.i.i = trunc nuw nsw i64 %85 to i32
+  %add.i92.i.i.i.i.i = or disjoint i32 %58, %cast.i91.i.i.i.i.i
   %idxprom.i.i93.i.i.i.i.i = sext i32 %add.i92.i.i.i.i.i to i64
-  %arrayidx.i.i94.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i93.i.i.i.i.i
-  %87 = load i32, ptr %arrayidx.i.i94.i.i.i.i.i, align 4
-  %arrayidx3.i.i95.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i93.i.i.i.i.i
-  %88 = load i32, ptr %arrayidx3.i.i95.i.i.i.i.i, align 4
-  %sub.i.i96.i.i.i.i.i = sub nsw i32 %87, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub125 = sub i32 %88, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i94.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i93.i.i.i.i.i
+  %86 = load i32, ptr %arrayidx.i.i94.i.i.i.i.i, align 4
+  %arrayidx3.i.i95.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i93.i.i.i.i.i
+  %87 = load i32, ptr %arrayidx3.i.i95.i.i.i.i.i, align 4
+  %sub.i.i96.i.i.i.i.i = sub nsw i32 %86, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub125 = sub i32 %87, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i98.i.i.i.i.i = add i32 %reass.sub125, 1
-  %call.i.i99.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %29, i32 noundef %sub.i.i96.i.i.i.i.i, i32 noundef %add.i.i98.i.i.i.i.i)
-  %89 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i101.i.i.i.i.i = getelementptr inbounds i32, ptr %89, i64 %idxprom.i.i93.i.i.i.i.i
+  %call.i.i99.i.i.i.i.i = tail call noundef i32 @_ZN8facebook5velox4bits12findFirstBitEPKmii(ptr noundef %28, i32 noundef %sub.i.i96.i.i.i.i.i, i32 noundef %add.i.i98.i.i.i.i.i)
+  %88 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i101.i.i.i.i.i = getelementptr inbounds i32, ptr %88, i64 %idxprom.i.i93.i.i.i.i.i
   store i32 %call.i.i99.i.i.i.i.i, ptr %add.ptr.i.i.i101.i.i.i.i.i, align 4
   %sub.i102.i.i.i.i.i = add nsw i64 %word.0.i90.i.i.i.i.i, -1
   %and6.i103.i.i.i.i.i = and i64 %sub.i102.i.i.i.i.i, %word.0.i90.i.i.i.i.i
@@ -4881,16 +4880,16 @@ while.body.i89.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
 
 if.end6.sink.split:                               ; preds = %if.then, %if.then5
   %frameStarts.val.i = load ptr, ptr %frameStarts, align 8
-  %90 = getelementptr i8, ptr %frameStarts.val.i, i64 16
-  %frameStarts.val.val.i = load ptr, ptr %90, align 8
+  %89 = getelementptr i8, ptr %frameStarts.val.i, i64 16
+  %frameStarts.val.val.i = load ptr, ptr %89, align 8
   tail call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE25setRowNumbersRespectNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESF_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(38) %validRows, ptr %frameStarts.val.val.i)
   br label %if.end6
 
 if.end6:                                          ; preds = %while.body.i89.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i12.i, %if.end6.sink.split, %if.then19.i.i.i.i.i, %for.end.i.i.i6.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i11.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %allSelected_.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 36
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 37
-  %91 = load i8, ptr %_M_engaged.i.i.i.i, align 1
-  %tobool.i.i.i.i = trunc i8 %91 to i1
+  %90 = load i8, ptr %_M_engaged.i.i.i.i, align 1
+  %tobool.i.i.i.i = trunc i8 %90 to i1
   br i1 %tobool.i.i.i.i, label %entry.return_crit_edge.i.i, label %if.end.i.i
 
 entry.return_crit_edge.i.i:                       ; preds = %if.end6
@@ -4898,81 +4897,81 @@ entry.return_crit_edge.i.i:                       ; preds = %if.end6
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
 
 if.end.i.i:                                       ; preds = %if.end6
-  %92 = load i32, ptr %begin_.i, align 4
-  %cmp.i.i12 = icmp eq i32 %92, 0
+  %91 = load i32, ptr %begin_.i, align 4
+  %cmp.i.i12 = icmp eq i32 %91, 0
   br i1 %cmp.i.i12, label %land.lhs.true.i.i, label %land.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %93 = load i32, ptr %end_.i, align 8
+  %92 = load i32, ptr %end_.i, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %94 = load i32, ptr %size_.i.i, align 8
-  %cmp5.i.i = icmp eq i32 %93, %94
+  %93 = load i32, ptr %size_.i.i, align 8
+  %cmp5.i.i = icmp eq i32 %92, %93
   br i1 %cmp5.i.i, label %land.rhs.i.i, label %land.end.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
-  %95 = load ptr, ptr %validRows, align 8
-  %cmp.not.i.i.i = icmp sgt i32 %93, 0
+  %94 = load ptr, ptr %validRows, align 8
+  %cmp.not.i.i.i = icmp sgt i32 %92, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i, label %land.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
-  %96 = and i32 %93, 2147483584
-  %97 = zext nneg i32 %96 to i64
+  %95 = and i32 %92, 2147483584
+  %96 = zext nneg i32 %95 to i64
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i114 = phi i64 [ %indvars.iv.next.i.i115, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i115 = add nuw nsw i64 %indvars.iv.i.i114, 64
-  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i115, %97
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i115, %96
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %98 = lshr exact i64 %indvars.iv.i.i114, 3
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %95, i64 %98
-  %99 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
-  %cmp.i36.i.i.i.i = icmp eq i64 %99, -1
+  %97 = lshr exact i64 %indvars.iv.i.i114, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 %97
+  %98 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
+  %cmp.i36.i.i.i.i = icmp eq i64 %98, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
-  %cmp25.not.i.i.i.i = icmp eq i32 %93, %96
+  %cmp25.not.i.i.i.i = icmp eq i32 %92, %95
   br i1 %cmp25.not.i.i.i.i, label %land.end.i.i, label %if.then26.i.i.i.i
 
 if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
-  %div27.i.i.i.i = lshr i32 %93, 6
-  %sub28.i.i.i.i = and i32 %93, 63
+  %div27.i.i.i.i = lshr i32 %92, 6
+  %sub28.i.i.i.i = and i32 %92, 63
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %95, i64 %idxprom.i40.i.i.i.i
-  %100 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
-  %.demorgan.i.i = or i64 %100, %notmask.i38.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %94, i64 %idxprom.i40.i.i.i.i
+  %99 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
+  %.demorgan.i.i = or i64 %99, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
-  %101 = zext i1 %cmp.i42.i.i.i.i to i16
-  %102 = or disjoint i16 %101, 256
+  %100 = zext i1 %cmp.i42.i.i.i.i to i16
+  %101 = or disjoint i16 %100, 256
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %102, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %101, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
-  %103 = trunc i16 %frombool.i.i to i8
+  %102 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i: ; preds = %land.end.i.i, %entry.return_crit_edge.i.i
-  %retval.0.in.i.i = phi i8 [ %retval.0.in.pre.i.i, %entry.return_crit_edge.i.i ], [ %103, %land.end.i.i ]
+  %retval.0.in.i.i = phi i8 [ %retval.0.in.pre.i.i, %entry.return_crit_edge.i.i ], [ %102, %land.end.i.i ]
   %retval.0.i.i = trunc i8 %retval.0.in.i.i to i1
   br i1 %retval.0.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %if.end.i13
 
 if.end.i13:                                       ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
   %invalidRows_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %size_.i3.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %104 = load i32, ptr %size_.i3.i, align 8
-  %add.i.i.i.i = add i32 %104, 63
+  %103 = load i32, ptr %size_.i3.i, align 8
+  %add.i.i.i.i = add i32 %103, 63
   %div.i.i.i = sdiv i32 %add.i.i.i.i, 64
   %conv.i.i.i = sext i32 %div.i.i.i to i64
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %105 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %106 = load ptr, ptr %invalidRows_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %105 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %106 to i64
+  %104 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %105 = load ptr, ptr %invalidRows_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %104 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %105 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp.i.i.i14 = icmp ult i64 %sub.ptr.div.i.i.i.i, %conv.i.i.i
@@ -4991,8 +4990,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i13
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %106, i64 %conv.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %105, %add.ptr.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %105, i64 %conv.i.i.i
+  %tobool.not.i.i.i.i = icmp eq ptr %104, %add.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then5.i.i.i
@@ -5001,31 +5000,31 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then5.i.i.i
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i, %if.then5.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   %.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i, %invoke.cont.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then5.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.else.i.i.i ], [ %.pre.i, %if.then.i.i.i ]
-  %107 = phi ptr [ %add.ptr.i.i.i, %invoke.cont.i.i.i.i ], [ %105, %if.then5.i.i.i ], [ %105, %if.else.i.i.i ], [ %.pre4.i.i, %if.then.i.i.i ]
-  %108 = phi ptr [ %106, %invoke.cont.i.i.i.i ], [ %106, %if.then5.i.i.i ], [ %106, %if.else.i.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %108, %107
+  %106 = phi ptr [ %add.ptr.i.i.i, %invoke.cont.i.i.i.i ], [ %104, %if.then5.i.i.i ], [ %104, %if.else.i.i.i ], [ %.pre4.i.i, %if.then.i.i.i ]
+  %107 = phi ptr [ %105, %invoke.cont.i.i.i.i ], [ %105, %if.then5.i.i.i ], [ %105, %if.else.i.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %107, %106
   br i1 %cmp.not3.i.i.i.i.i.i, label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i, label %for.body.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
-  %109 = ptrtoint ptr %107 to i64
-  %reass.sub128 = sub i64 %109, %.pre-phi.i
-  %110 = and i64 %reass.sub128, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %108, i8 -1, i64 %110, i1 false)
+  %108 = ptrtoint ptr %106 to i64
+  %reass.sub128 = sub i64 %108, %.pre-phi.i
+  %109 = and i64 %reass.sub128, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %107, i8 -1, i64 %109, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 
 _ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i: ; preds = %for.body.i.i.i.i.i.preheader.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %size_.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store i32 %104, ptr %size_.i4.i, align 8
+  store i32 %103, ptr %size_.i4.i, align 8
   %begin_.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %begin_.i5.i, align 4
   %end_.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i32 %104, ptr %end_.i6.i, align 8
+  store i32 %103, ptr %end_.i6.i, align 8
   %allSelected_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   store i16 257, ptr %allSelected_.i7.i, align 4
   tail call void @_ZN8facebook5velox17SelectivityVector8deselectERKS1_(ptr noundef nonnull align 8 dereferenceable(38) %invalidRows_.i, ptr noundef nonnull align 8 dereferenceable(38) %validRows)
   %_M_engaged.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 165
-  %111 = load i8, ptr %_M_engaged.i.i.i.i.i15, align 1
-  %tobool.i.i.i.i.i16 = trunc i8 %111 to i1
+  %110 = load i8, ptr %_M_engaged.i.i.i.i.i15, align 1
+  %tobool.i.i.i.i.i16 = trunc i8 %110 to i1
   br i1 %tobool.i.i.i.i.i16, label %entry.return_crit_edge.i.i.i110, label %if.end.i.i.i17
 
 entry.return_crit_edge.i.i.i110:                  ; preds = %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
@@ -5033,111 +5032,111 @@ entry.return_crit_edge.i.i.i110:                  ; preds = %_ZN8facebook5velox1
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
 
 if.end.i.i.i17:                                   ; preds = %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
-  %112 = load i32, ptr %begin_.i5.i, align 4
-  %cmp.i.i8.i = icmp eq i32 %112, 0
+  %111 = load i32, ptr %begin_.i5.i, align 4
+  %cmp.i.i8.i = icmp eq i32 %111, 0
   br i1 %cmp.i.i8.i, label %land.lhs.true.i.i.i87, label %land.end.i.i.i18
 
 land.lhs.true.i.i.i87:                            ; preds = %if.end.i.i.i17
-  %113 = load i32, ptr %end_.i6.i, align 8
-  %114 = load i32, ptr %size_.i4.i, align 8
-  %cmp5.i.i.i88 = icmp eq i32 %113, %114
+  %112 = load i32, ptr %end_.i6.i, align 8
+  %113 = load i32, ptr %size_.i4.i, align 8
+  %cmp5.i.i.i88 = icmp eq i32 %112, %113
   br i1 %cmp5.i.i.i88, label %land.rhs.i.i.i89, label %land.end.i.i.i18
 
 land.rhs.i.i.i89:                                 ; preds = %land.lhs.true.i.i.i87
-  %115 = load ptr, ptr %invalidRows_.i, align 8
-  %cmp.not.i.i.i.i90 = icmp sgt i32 %113, 0
+  %114 = load ptr, ptr %invalidRows_.i, align 8
+  %cmp.not.i.i.i.i90 = icmp sgt i32 %112, 0
   br i1 %cmp.not.i.i.i.i90, label %if.end.i.i.i.i.i91, label %land.end.i.i.i18
 
 if.end.i.i.i.i.i91:                               ; preds = %land.rhs.i.i.i89
-  %116 = and i32 %113, 2147483584
-  %117 = zext nneg i32 %116 to i64
+  %115 = and i32 %112, 2147483584
+  %116 = zext nneg i32 %115 to i64
   br label %for.cond.i.i.i.i.i92
 
 for.cond.i.i.i.i.i92:                             ; preds = %for.body.i.i.i.i.i96, %if.end.i.i.i.i.i91
   %indvars.iv.i.i.i93 = phi i64 [ %indvars.iv.next.i.i.i94, %for.body.i.i.i.i.i96 ], [ 0, %if.end.i.i.i.i.i91 ]
   %indvars.iv.next.i.i.i94 = add nuw nsw i64 %indvars.iv.i.i.i93, 64
-  %cmp19.not.i.i.i.i.i95 = icmp samesign ugt i64 %indvars.iv.next.i.i.i94, %117
+  %cmp19.not.i.i.i.i.i95 = icmp samesign ugt i64 %indvars.iv.next.i.i.i94, %116
   br i1 %cmp19.not.i.i.i.i.i95, label %for.end.i.i.i.i.i99, label %for.body.i.i.i.i.i96
 
 for.body.i.i.i.i.i96:                             ; preds = %for.cond.i.i.i.i.i92
-  %118 = lshr exact i64 %indvars.iv.i.i.i93, 3
-  %arrayidx.i35.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %115, i64 %118
-  %119 = load i64, ptr %arrayidx.i35.i.i.i.i.i97, align 8
-  %cmp.i36.i.i.i.i.i98 = icmp eq i64 %119, -1
+  %117 = lshr exact i64 %indvars.iv.i.i.i93, 3
+  %arrayidx.i35.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %114, i64 %117
+  %118 = load i64, ptr %arrayidx.i35.i.i.i.i.i97, align 8
+  %cmp.i36.i.i.i.i.i98 = icmp eq i64 %118, -1
   br i1 %cmp.i36.i.i.i.i.i98, label %for.cond.i.i.i.i.i92, label %land.end.i.i.i18, !llvm.loop !40
 
 for.end.i.i.i.i.i99:                              ; preds = %for.cond.i.i.i.i.i92
-  %cmp25.not.i.i.i.i.i100 = icmp eq i32 %113, %116
+  %cmp25.not.i.i.i.i.i100 = icmp eq i32 %112, %115
   br i1 %cmp25.not.i.i.i.i.i100, label %land.end.i.i.i18, label %if.then26.i.i.i.i.i101
 
 if.then26.i.i.i.i.i101:                           ; preds = %for.end.i.i.i.i.i99
-  %div27.i.i.i.i.i102 = lshr i32 %113, 6
-  %sub28.i.i.i.i.i103 = and i32 %113, 63
+  %div27.i.i.i.i.i102 = lshr i32 %112, 6
+  %sub28.i.i.i.i.i103 = and i32 %112, 63
   %sh_prom.i37.i.i.i.i.i104 = zext nneg i32 %sub28.i.i.i.i.i103 to i64
   %notmask.i38.i.i.i.i.i105 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i104
   %idxprom.i40.i.i.i.i.i106 = zext nneg i32 %div27.i.i.i.i.i102 to i64
-  %arrayidx.i41.i.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %115, i64 %idxprom.i40.i.i.i.i.i106
-  %120 = load i64, ptr %arrayidx.i41.i.i.i.i.i107, align 8
-  %.demorgan.i.i.i108 = or i64 %120, %notmask.i38.i.i.i.i.i105
+  %arrayidx.i41.i.i.i.i.i107 = getelementptr inbounds nuw i64, ptr %114, i64 %idxprom.i40.i.i.i.i.i106
+  %119 = load i64, ptr %arrayidx.i41.i.i.i.i.i107, align 8
+  %.demorgan.i.i.i108 = or i64 %119, %notmask.i38.i.i.i.i.i105
   %cmp.i42.i.i.i.i.i109 = icmp eq i64 %.demorgan.i.i.i108, -1
-  %121 = zext i1 %cmp.i42.i.i.i.i.i109 to i16
-  %122 = or disjoint i16 %121, 256
+  %120 = zext i1 %cmp.i42.i.i.i.i.i109 to i16
+  %121 = or disjoint i16 %120, 256
   br label %land.end.i.i.i18
 
 land.end.i.i.i18:                                 ; preds = %for.body.i.i.i.i.i96, %if.then26.i.i.i.i.i101, %for.end.i.i.i.i.i99, %land.rhs.i.i.i89, %land.lhs.true.i.i.i87, %if.end.i.i.i17
-  %frombool.i.i.i19 = phi i16 [ 256, %land.lhs.true.i.i.i87 ], [ 256, %if.end.i.i.i17 ], [ 257, %land.rhs.i.i.i89 ], [ %122, %if.then26.i.i.i.i.i101 ], [ 257, %for.end.i.i.i.i.i99 ], [ 256, %for.body.i.i.i.i.i96 ]
+  %frombool.i.i.i19 = phi i16 [ 256, %land.lhs.true.i.i.i87 ], [ 256, %if.end.i.i.i17 ], [ 257, %land.rhs.i.i.i89 ], [ %121, %if.then26.i.i.i.i.i101 ], [ 257, %for.end.i.i.i.i.i99 ], [ 256, %for.body.i.i.i.i.i96 ]
   store i16 %frombool.i.i.i19, ptr %allSelected_.i7.i, align 4
-  %123 = trunc i16 %frombool.i.i.i19 to i8
+  %122 = trunc i16 %frombool.i.i.i19 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20: ; preds = %land.end.i.i.i18, %entry.return_crit_edge.i.i.i110
-  %retval.0.in.i.i.i21 = phi i8 [ %retval.0.in.pre.i.i.i111, %entry.return_crit_edge.i.i.i110 ], [ %123, %land.end.i.i.i18 ]
+  %retval.0.in.i.i.i21 = phi i8 [ %retval.0.in.pre.i.i.i111, %entry.return_crit_edge.i.i.i110 ], [ %122, %land.end.i.i.i18 ]
   %retval.0.i.i.i22 = trunc i8 %retval.0.in.i.i.i21 to i1
   br i1 %retval.0.i.i.i22, label %if.then.i.i82, label %if.else.i.i23
 
 if.then.i.i82:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
-  %124 = load i32, ptr %begin_.i5.i, align 4
-  %125 = load i32, ptr %end_.i6.i, align 8
-  %cmp10.i.i = icmp slt i32 %124, %125
+  %123 = load i32, ptr %begin_.i5.i, align 4
+  %124 = load i32, ptr %end_.i6.i, align 8
+  %cmp10.i.i = icmp slt i32 %123, %124
   br i1 %cmp10.i.i, label %for.body.lr.ph.i.i83, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit
 
 for.body.lr.ph.i.i83:                             ; preds = %if.then.i.i82
-  %126 = sext i32 %124 to i64
+  %125 = sext i32 %123 to i64
   br label %for.body.i.i84
 
 for.body.i.i84:                                   ; preds = %for.body.i.i84, %for.body.lr.ph.i.i83
-  %indvars.iv.i13.i85 = phi i64 [ %126, %for.body.lr.ph.i.i83 ], [ %indvars.iv.next.i14.i, %for.body.i.i84 ]
+  %indvars.iv.i13.i85 = phi i64 [ %125, %for.body.lr.ph.i.i83 ], [ %indvars.iv.next.i14.i, %for.body.i.i84 ]
   %func.val.val.i.i = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i.i86 = getelementptr inbounds i32, ptr %func.val.val.i.i, i64 %indvars.iv.i13.i85
   store i32 -1, ptr %add.ptr.i.i.i.i86, align 4
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i13.i85, 1
-  %127 = load i32, ptr %end_.i6.i, align 8
-  %128 = sext i32 %127 to i64
-  %cmp.i15.i = icmp slt i64 %indvars.iv.next.i14.i, %128
+  %126 = load i32, ptr %end_.i6.i, align 8
+  %127 = sext i32 %126 to i64
+  %cmp.i15.i = icmp slt i64 %indvars.iv.next.i14.i, %127
   br i1 %cmp.i15.i, label %for.body.i.i84, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, !llvm.loop !46
 
 if.else.i.i23:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
-  %129 = load ptr, ptr %invalidRows_.i, align 8
-  %130 = load i32, ptr %begin_.i5.i, align 4
-  %131 = load i32, ptr %end_.i6.i, align 8
-  %cmp.not.i.i.i.i.i24 = icmp slt i32 %130, %131
+  %128 = load ptr, ptr %invalidRows_.i, align 8
+  %129 = load i32, ptr %begin_.i5.i, align 4
+  %130 = load i32, ptr %end_.i6.i, align 8
+  %cmp.not.i.i.i.i.i24 = icmp slt i32 %129, %130
   br i1 %cmp.not.i.i.i.i.i24, label %if.end.i.i.i3.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit
 
 if.end.i.i.i3.i.i:                                ; preds = %if.else.i.i23
-  %add.i.i.i.i.i.i25 = add i32 %130, 63
-  %132 = srem i32 %add.i.i.i.i.i.i25, 64
-  %mul.i.i.i.i.i.i26 = sub nsw i32 %add.i.i.i.i.i.i25, %132
-  %133 = and i32 %131, -64
-  %cmp2.i.i.i.i.i27 = icmp slt i32 %133, %mul.i.i.i.i.i.i26
+  %add.i.i.i.i.i.i25 = add i32 %129, 63
+  %131 = srem i32 %add.i.i.i.i.i.i25, 64
+  %mul.i.i.i.i.i.i26 = sub nsw i32 %add.i.i.i.i.i.i25, %131
+  %132 = and i32 %130, -64
+  %cmp2.i.i.i.i.i27 = icmp slt i32 %132, %mul.i.i.i.i.i.i26
   br i1 %cmp2.i.i.i.i.i27, label %if.then3.i.i.i.i.i56, label %if.end8.i.i.i.i.i28
 
 if.then3.i.i.i.i.i56:                             ; preds = %if.end.i.i.i3.i.i
-  %div.i.i.i.i.i57 = ashr i32 %131, 6
-  %sub.i.i.i.i.i58 = and i32 %131, 63
+  %div.i.i.i.i.i57 = ashr i32 %130, 6
+  %sub.i.i.i.i.i58 = and i32 %130, 63
   %sh_prom.i.i.i.i.i.i59 = zext nneg i32 %sub.i.i.i.i.i58 to i64
   %notmask.i.i.i.i.i.i60 = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i59
   %sub.i22.i.i.i.i.i61 = xor i64 %notmask.i.i.i.i.i.i60, -1
-  %sub5.i.i.i.i.i62 = sub nsw i32 %mul.i.i.i.i.i.i26, %130
+  %sub5.i.i.i.i.i62 = sub nsw i32 %mul.i.i.i.i.i.i26, %129
   %sh_prom.i.i.i.i.i.i.i63 = zext nneg i32 %sub5.i.i.i.i.i62 to i64
   %notmask.i.i.i.i.i.i.i64 = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i.i63
   %sub.i.i.i.i.i.i.i65 = xor i64 %notmask.i.i.i.i.i.i.i64, -1
@@ -5146,17 +5145,17 @@ if.then3.i.i.i.i.i56:                             ; preds = %if.end.i.i.i3.i.i
   %shl.i.i.i.i.i.i68 = shl i64 %sub.i.i.i.i.i.i.i65, %sh_prom.i24.i.i.i.i.i67
   %and7.i.i.i.i.i69 = and i64 %shl.i.i.i.i.i.i68, %sub.i22.i.i.i.i.i61
   %idxprom.i.i.i.i.i.i70 = sext i32 %div.i.i.i.i.i57 to i64
-  %arrayidx.i.i.i.i.i.i71 = getelementptr inbounds i64, ptr %129, i64 %idxprom.i.i.i.i.i.i70
-  %134 = load i64, ptr %arrayidx.i.i.i.i.i.i71, align 8
-  %and.i.i.i.i.i.i72 = and i64 %and7.i.i.i.i.i69, %134
+  %arrayidx.i.i.i.i.i.i71 = getelementptr inbounds i64, ptr %128, i64 %idxprom.i.i.i.i.i.i70
+  %133 = load i64, ptr %arrayidx.i.i.i.i.i.i71, align 8
+  %and.i.i.i.i.i.i72 = and i64 %and7.i.i.i.i.i69, %133
   %tobool4.not.i.i.i.i.i.i73 = icmp eq i64 %and.i.i.i.i.i.i72, 0
   br i1 %tobool4.not.i.i.i.i.i.i73, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i.i.i.i.i.i75
 
 while.body.i.i.i.i.i.i75:                         ; preds = %if.then3.i.i.i.i.i56, %while.body.i.i.i.i.i.i75
   %word.0.i.i.i.i.i.i76 = phi i64 [ %and6.i.i.i.i.i.i80, %while.body.i.i.i.i.i.i75 ], [ %and.i.i.i.i.i.i72, %if.then3.i.i.i.i.i56 ]
-  %135 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i76, i1 true)
-  %cast.i.i.i.i.i.i77 = trunc nuw nsw i64 %135 to i32
-  %add.i26.i.i.i.i.i78 = or disjoint i32 %133, %cast.i.i.i.i.i.i77
+  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i76, i1 true)
+  %cast.i.i.i.i.i.i77 = trunc nuw nsw i64 %134 to i32
+  %add.i26.i.i.i.i.i78 = or disjoint i32 %132, %cast.i.i.i.i.i.i77
   %.val.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i78 to i64
   %add.ptr.i.i.i.i.i.i.i.i79 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
@@ -5167,12 +5166,12 @@ while.body.i.i.i.i.i.i75:                         ; preds = %if.then3.i.i.i.i.i5
   br i1 %tobool5.old.not.i.i.i.i.i.i81, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i.i.i.i.i.i75
 
 if.end8.i.i.i.i.i28:                              ; preds = %if.end.i.i.i3.i.i
-  %cmp9.not.i.i.i.i.i29 = icmp eq i32 %130, %mul.i.i.i.i.i.i26
+  %cmp9.not.i.i.i.i.i29 = icmp eq i32 %129, %mul.i.i.i.i.i.i26
   br i1 %cmp9.not.i.i.i.i.i29, label %if.end14.i.i.i.i.i33, label %if.then10.i.i.i.i.i30
 
 if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
-  %div11.i.i.i.i.i31 = sdiv i32 %130, 64
-  %sub12.i.i.i.i.i32 = sub nsw i32 %mul.i.i.i.i.i.i26, %130
+  %div11.i.i.i.i.i31 = sdiv i32 %129, 64
+  %sub12.i.i.i.i.i32 = sub nsw i32 %mul.i.i.i.i.i.i26, %129
   %sh_prom.i.i28.i.i.i.i.i = zext nneg i32 %sub12.i.i.i.i.i32 to i64
   %notmask.i.i29.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i28.i.i.i.i.i
   %sub.i.i30.i.i.i.i.i = xor i64 %notmask.i.i29.i.i.i.i.i, -1
@@ -5180,9 +5179,9 @@ if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
   %sh_prom.i32.i.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i.i to i64
   %shl.i33.i.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i.i, %sh_prom.i32.i.i.i.i.i
   %idxprom.i34.i.i.i.i.i = sext i32 %div11.i.i.i.i.i31 to i64
-  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %129, i64 %idxprom.i34.i.i.i.i.i
-  %136 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
-  %and.i38.i.i.i.i.i = and i64 %136, %shl.i33.i.i.i.i.i
+  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i34.i.i.i.i.i
+  %135 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
+  %and.i38.i.i.i.i.i = and i64 %135, %shl.i33.i.i.i.i.i
   %tobool4.not.i39.i.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i.i, 0
   br i1 %tobool4.not.i39.i.i.i.i.i, label %if.end14.i.i.i.i.i33, label %while.body.preheader.i40.i.i.i.i.i
 
@@ -5192,8 +5191,8 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %word.0.i43.i.i.i.i.i = phi i64 [ %and6.i51.i.i.i.i.i, %while.body.i42.i.i.i.i.i ], [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ]
-  %137 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
-  %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %137 to i32
+  %136 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
+  %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %136 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
   %.val.val.i47.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i48.i.i.i.i.i = sext i32 %add.i45.i.i.i.i.i to i64
@@ -5206,7 +5205,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
 
 if.end14.i.i.i.i.i33:                             ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i30, %if.end8.i.i.i.i.i28
   %add92.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i26, 64
-  %cmp15.not93.i.i.i.i.i = icmp sgt i32 %add92.i.i.i.i.i, %133
+  %cmp15.not93.i.i.i.i.i = icmp sgt i32 %add92.i.i.i.i.i, %132
   br i1 %cmp15.not93.i.i.i.i.i, label %for.end.i.i.i6.i.i39, label %for.body.i.i.i5.i.i35
 
 for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i33, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i
@@ -5214,9 +5213,9 @@ for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i3
   %i.094.i.i.i.i.i = phi i32 [ %add95.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i26, %if.end14.i.i.i.i.i33 ]
   %div16.i.i.i.i.i36 = sdiv i32 %i.094.i.i.i.i.i, 64
   %idxprom.i54.i.i.i.i.i = sext i32 %div16.i.i.i.i.i36 to i64
-  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %129, i64 %idxprom.i54.i.i.i.i.i
-  %138 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
-  switch i64 %138, label %while.body.lr.ph.i.i.i.i.i.i52 [
+  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i54.i.i.i.i.i
+  %137 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
+  switch i64 %137, label %while.body.lr.ph.i.i.i.i.i.i52 [
     i64 -1, label %if.then.i.i.i.i.i.i44
     i64 0, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i
   ]
@@ -5247,9 +5246,9 @@ for.body.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i.i.i1
   br i1 %cmp6.i.i.i.i.i.i51, label %for.body.i.i.i.i.i10.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !47
 
 while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i52
-  %word.015.i.i.i.i.i.i = phi i64 [ %138, %while.body.lr.ph.i.i.i.i.i.i52 ], [ %and.i66.i.i.i.i.i, %while.body.i60.i.i.i.i.i ]
-  %139 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.015.i.i.i.i.i.i, i1 true)
-  %cast.i61.i.i.i.i.i = trunc nuw nsw i64 %139 to i32
+  %word.015.i.i.i.i.i.i = phi i64 [ %137, %while.body.lr.ph.i.i.i.i.i.i52 ], [ %and.i66.i.i.i.i.i, %while.body.i60.i.i.i.i.i ]
+  %138 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.015.i.i.i.i.i.i, i1 true)
+  %cast.i61.i.i.i.i.i = trunc nuw nsw i64 %138 to i32
   %add9.i.i.i.i.i.i54 = or disjoint i32 %mul8.i.i.i.i.i.i53, %cast.i61.i.i.i.i.i
   %.val.val.i63.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i64.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i54 to i64
@@ -5262,31 +5261,31 @@ while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i10.i, %while.body.i60.i.i.i.i.i, %if.then.i.i.i.i.i.i44, %for.body.i.i.i5.i.i35
   %add.i.i.i.i.i37 = add nsw i32 %add95.i.i.i.i.i, 64
-  %cmp15.not.i.i.i.i.i38 = icmp sgt i32 %add.i.i.i.i.i37, %133
+  %cmp15.not.i.i.i.i.i38 = icmp sgt i32 %add.i.i.i.i.i37, %132
   br i1 %cmp15.not.i.i.i.i.i38, label %for.end.i.i.i6.i.i39, label %for.body.i.i.i5.i.i35, !llvm.loop !49
 
 for.end.i.i.i6.i.i39:                             ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i33
-  %cmp18.not.i.i.i.i.i40 = icmp eq i32 %131, %133
+  %cmp18.not.i.i.i.i.i40 = icmp eq i32 %130, %132
   br i1 %cmp18.not.i.i.i.i.i40, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %if.then19.i.i.i.i.i41
 
 if.then19.i.i.i.i.i41:                            ; preds = %for.end.i.i.i6.i.i39
-  %div20.i.i.i.i.i42 = ashr i32 %131, 6
-  %sub21.i.i.i.i.i43 = and i32 %131, 63
+  %div20.i.i.i.i.i42 = ashr i32 %130, 6
+  %sub21.i.i.i.i.i43 = and i32 %130, 63
   %sh_prom.i67.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i43 to i64
   %notmask.i68.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i67.i.i.i.i.i
   %sub.i69.i.i.i.i.i = xor i64 %notmask.i68.i.i.i.i.i, -1
   %idxprom.i70.i.i.i.i.i = sext i32 %div20.i.i.i.i.i42 to i64
-  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %129, i64 %idxprom.i70.i.i.i.i.i
-  %140 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
-  %and.i74.i.i.i.i.i = and i64 %140, %sub.i69.i.i.i.i.i
+  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %128, i64 %idxprom.i70.i.i.i.i.i
+  %139 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
+  %and.i74.i.i.i.i.i = and i64 %139, %sub.i69.i.i.i.i.i
   %tobool4.not.i75.i.i.i.i.i = icmp eq i64 %and.i74.i.i.i.i.i, 0
   br i1 %tobool4.not.i75.i.i.i.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i78.i.i.i.i.i
 
 while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i41, %while.body.i78.i.i.i.i.i
   %word.0.i79.i.i.i.i.i = phi i64 [ %and6.i87.i.i.i.i.i, %while.body.i78.i.i.i.i.i ], [ %and.i74.i.i.i.i.i, %if.then19.i.i.i.i.i41 ]
-  %141 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i79.i.i.i.i.i, i1 true)
-  %cast.i80.i.i.i.i.i = trunc nuw nsw i64 %141 to i32
-  %add.i81.i.i.i.i.i = or disjoint i32 %133, %cast.i80.i.i.i.i.i
+  %140 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i79.i.i.i.i.i, i1 true)
+  %cast.i80.i.i.i.i.i = trunc nuw nsw i64 %140 to i32
+  %add.i81.i.i.i.i.i = or disjoint i32 %132, %cast.i80.i.i.i.i.i
   %.val.val.i83.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i84.i.i.i.i.i = sext i32 %add.i81.i.i.i.i.i to i64
   %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
@@ -5297,13 +5296,13 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   br i1 %tobool5.old.not.i88.i.i.i.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i78.i.i.i.i.i
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE0EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit: ; preds = %while.body.i78.i.i.i.i.i, %while.body.i.i.i.i.i.i75, %for.body.i.i84, %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i, %if.then.i.i82, %if.else.i.i23, %if.then3.i.i.i.i.i56, %for.end.i.i.i6.i.i39, %if.then19.i.i.i.i.i41
-  %142 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i116 = getelementptr inbounds nuw i32, ptr %142, i64 %div8
+  %141 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i116 = getelementptr inbounds nuw i32, ptr %141, i64 %div8
   %partition_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %143 = load ptr, ptr %partition_, align 8
+  %142 = load ptr, ptr %partition_, align 8
   %valueIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %144 = load i32, ptr %valueIndex_, align 4
-  tail call void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %143, i32 noundef %144, ptr %142, ptr %add.ptr.i116, i32 noundef %resultOffset, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %143 = load i32, ptr %valueIndex_, align 4
+  tail call void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %142, i32 noundef %143, ptr %141, ptr %add.ptr.i116, i32 noundef %resultOffset, ptr noundef nonnull align 8 dereferenceable(16) %result)
   ret void
 }
 
@@ -7142,16 +7141,15 @@ for.cond2.preheader.i.i:                          ; preds = %for.cond2.preheader
 for.body5.preheader.i.i:                          ; preds = %for.cond2.preheader.i.i
   %15 = zext nneg i32 %i.0.lcssa.i.i to i64
   %16 = add nuw nsw i64 %15, 8
-  %17 = ashr i64 %call.fca.0.extract.i, 32
   br label %for.body5.i.i
 
 for.body.i.i:                                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i, %for.body.i.i
   %indvars.iv28.i.i = phi i64 [ %indvars.iv.next29.i.i, %for.body.i.i ], [ 0, %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.body.i.i ], [ 64, %_ZNK8facebook5velox6Buffer9asMutableIcEEPT_v.exit.i ]
-  %18 = lshr exact i64 %indvars.iv28.i.i, 3
-  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %19 = load i64, ptr %add.ptr.i.i, align 8
-  %not.i.i = xor i64 %19, -1
+  %17 = lshr exact i64 %indvars.iv28.i.i, 3
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %17
+  %18 = load i64, ptr %add.ptr.i.i, align 8
+  %not.i.i = xor i64 %18, -1
   store i64 %not.i.i, ptr %add.ptr.i.i, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 64
   %cmp.not.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i, %extractNullsResult.sroa.2.0.extract.shift.i
@@ -7159,34 +7157,34 @@ for.body.i.i:                                     ; preds = %_ZNK8facebook5velox
   br i1 %cmp.not.i.i, label %for.cond2.preheader.loopexit.i.i, label %for.body.i.i, !llvm.loop !37
 
 for.cond15.preheader.loopexit.i.i:                ; preds = %for.body5.i.i
-  %20 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
+  %19 = trunc nuw nsw i64 %indvars.iv34.i.i to i32
   br label %for.cond15.preheader.i.i
 
 for.cond15.preheader.i.i:                         ; preds = %for.cond15.preheader.loopexit.i.i, %for.cond2.preheader.i.i
-  %i.1.lcssa.i.i = phi i32 [ %i.0.lcssa.i.i, %for.cond2.preheader.i.i ], [ %20, %for.cond15.preheader.loopexit.i.i ]
+  %i.1.lcssa.i.i = phi i32 [ %i.0.lcssa.i.i, %for.cond2.preheader.i.i ], [ %19, %for.cond15.preheader.loopexit.i.i ]
   %cmp1626.i.i = icmp slt i32 %i.1.lcssa.i.i, %extractNullsResult.sroa.2.0.extract.trunc.i
   br i1 %cmp1626.i.i, label %for.body17.i.i, label %_ZN8facebook5velox4bits6negateEPci.exit.i
 
 for.body5.i.i:                                    ; preds = %for.body5.i.i, %for.body5.preheader.i.i
   %indvars.iv36.i.i = phi i64 [ %15, %for.body5.preheader.i.i ], [ %indvars.iv.next37.i.i, %for.body5.i.i ]
   %indvars.iv34.i.i = phi i64 [ %16, %for.body5.preheader.i.i ], [ %indvars.iv.next35.i.i, %for.body5.i.i ]
-  %21 = lshr exact i64 %indvars.iv36.i.i, 3
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %21
-  %22 = load i8, ptr %arrayidx.i.i, align 1
-  %23 = xor i8 %22, -1
-  store i8 %23, ptr %arrayidx.i.i, align 1
+  %20 = lshr exact i64 %indvars.iv36.i.i, 3
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %20
+  %21 = load i8, ptr %arrayidx.i.i, align 1
+  %22 = xor i8 %21, -1
+  store i8 %22, ptr %arrayidx.i.i, align 1
   %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 8
-  %cmp4.not.i.i = icmp sgt i64 %indvars.iv.next35.i.i, %17
+  %cmp4.not.i.i = icmp samesign ugt i64 %indvars.iv.next35.i.i, %extractNullsResult.sroa.2.0.extract.shift.i
   %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 8
   br i1 %cmp4.not.i.i, label %for.cond15.preheader.loopexit.i.i, label %for.body5.i.i, !llvm.loop !38
 
 for.body17.i.i:                                   ; preds = %for.cond15.preheader.i.i, %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
   %i.227.i.i = phi i32 [ %inc.i.i, %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i ], [ %i.1.lcssa.i.i, %for.cond15.preheader.i.i ]
-  %24 = lshr i32 %i.227.i.i, 3
-  %div2.i.i.i = zext nneg i32 %24 to i64
+  %23 = lshr i32 %i.227.i.i, 3
+  %div2.i.i.i = zext nneg i32 %23 to i64
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %div2.i.i.i
-  %25 = load i8, ptr %arrayidx.i.i.i, align 1
-  %conv13.i.i.i = zext i8 %25 to i32
+  %24 = load i8, ptr %arrayidx.i.i.i, align 1
+  %conv13.i.i.i = zext i8 %24 to i32
   %and.i.i.i = and i32 %i.227.i.i, 7
   %shl.i.i.i = shl nuw nsw i32 1, %and.i.i.i
   %and3.i.i.i = and i32 %shl.i.i.i, %conv13.i.i.i
@@ -7194,15 +7192,15 @@ for.body17.i.i:                                   ; preds = %for.cond15.preheade
   br i1 %tobool.i.not.i.i, label %cond.true.i.i.i, label %cond.false.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %for.body17.i.i
-  %26 = trunc nuw i32 %shl.i.i.i to i8
-  %conv1.i.i.i.i = or i8 %25, %26
+  %25 = trunc nuw i32 %shl.i.i.i to i8
+  %conv1.i.i.i.i = or i8 %24, %25
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
 
 cond.false.i.i.i:                                 ; preds = %for.body17.i.i
   %idxprom.i4.i.i.i = zext nneg i32 %and.i.i.i to i64
   %arrayidx.i5.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN8facebook5velox4bitsL13kZeroBitmasksE, i64 0, i64 %idxprom.i4.i.i.i
-  %27 = load i8, ptr %arrayidx.i5.i.i.i, align 1
-  %and3.i.i.i.i = and i8 %27, %25
+  %26 = load i8, ptr %arrayidx.i5.i.i.i, align 1
+  %and3.i.i.i.i = and i8 %26, %24
   br label %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i
 
 _ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
@@ -7213,19 +7211,19 @@ _ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i: ; preds = %cond.false.i.i.i, 
   br i1 %exitcond.not.i.i, label %_ZN8facebook5velox4bits6negateEPci.exit.i, label %for.body17.i.i, !llvm.loop !39
 
 _ZN8facebook5velox4bits6negateEPci.exit.i:        ; preds = %_ZN8facebook5velox4bits6setBitIcEEvPT_jb.exit.i.i, %for.cond15.preheader.i.i
-  %28 = load ptr, ptr %nulls_.i, align 8
-  %data_.i7.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %29 = load ptr, ptr %data_.i7.i, align 8
-  %30 = load ptr, ptr %frameStarts, align 8
-  %data_.i8.i = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %31 = load ptr, ptr %data_.i8.i, align 8
-  %32 = load ptr, ptr %frameEnds, align 8
-  %data_.i9.i = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %33 = load ptr, ptr %data_.i9.i, align 8
+  %27 = load ptr, ptr %nulls_.i, align 8
+  %data_.i7.i = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %28 = load ptr, ptr %data_.i7.i, align 8
+  %29 = load ptr, ptr %frameStarts, align 8
+  %data_.i8.i = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %30 = load ptr, ptr %data_.i8.i, align 8
+  %31 = load ptr, ptr %frameEnds, align 8
+  %data_.i9.i = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %32 = load ptr, ptr %data_.i9.i, align 8
   %allSelected_.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 36
   %_M_engaged.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 37
-  %34 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
-  %tobool.i.i.i.i.i = trunc i8 %34 to i1
+  %33 = load i8, ptr %_M_engaged.i.i.i.i.i, align 1
+  %tobool.i.i.i.i.i = trunc i8 %33 to i1
   br i1 %tobool.i.i.i.i.i, label %entry.return_crit_edge.i.i.i, label %if.end.i.i.i
 
 entry.return_crit_edge.i.i.i:                     ; preds = %_ZN8facebook5velox4bits6negateEPci.exit.i
@@ -7233,138 +7231,138 @@ entry.return_crit_edge.i.i.i:                     ; preds = %_ZN8facebook5velox4
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN8facebook5velox4bits6negateEPci.exit.i
-  %35 = load i32, ptr %begin_.i, align 4
-  %cmp.i.i.i = icmp eq i32 %35, 0
+  %34 = load i32, ptr %begin_.i, align 4
+  %cmp.i.i.i = icmp eq i32 %34, 0
   br i1 %cmp.i.i.i, label %land.lhs.true.i.i.i, label %land.end.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %if.end.i.i.i
-  %36 = load i32, ptr %end_.i, align 8
+  %35 = load i32, ptr %end_.i, align 8
   %size_.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %37 = load i32, ptr %size_.i.i.i, align 8
-  %cmp5.i.i.i = icmp eq i32 %36, %37
+  %36 = load i32, ptr %size_.i.i.i, align 8
+  %cmp5.i.i.i = icmp eq i32 %35, %36
   br i1 %cmp5.i.i.i, label %land.rhs.i.i.i, label %land.end.i.i.i
 
 land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %38 = load ptr, ptr %validRows, align 8
-  %cmp.not.i.i.i.i = icmp sgt i32 %36, 0
+  %37 = load ptr, ptr %validRows, align 8
+  %cmp.not.i.i.i.i = icmp sgt i32 %35, 0
   br i1 %cmp.not.i.i.i.i, label %if.end.i.i.i.i.i, label %land.end.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i.i.i
-  %39 = and i32 %36, 2147483584
-  %40 = zext nneg i32 %39 to i64
+  %38 = and i32 %35, 2147483584
+  %39 = zext nneg i32 %38 to i64
   br label %for.cond.i.i.i.i.i
 
 for.cond.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %for.body.i.i.i.i.i ], [ 0, %if.end.i.i.i.i.i ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 64
-  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %40
+  %cmp19.not.i.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i.i, %39
   br i1 %cmp19.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.cond.i.i.i.i.i
-  %41 = lshr exact i64 %indvars.iv.i.i.i, 3
-  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %41
-  %42 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
-  %cmp.i36.i.i.i.i.i = icmp eq i64 %42, -1
+  %40 = lshr exact i64 %indvars.iv.i.i.i, 3
+  %arrayidx.i35.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %40
+  %41 = load i64, ptr %arrayidx.i35.i.i.i.i.i, align 8
+  %cmp.i36.i.i.i.i.i = icmp eq i64 %41, -1
   br i1 %cmp.i36.i.i.i.i.i, label %for.cond.i.i.i.i.i, label %land.end.i.i.i, !llvm.loop !40
 
 for.end.i.i.i.i.i:                                ; preds = %for.cond.i.i.i.i.i
-  %cmp25.not.i.i.i.i.i = icmp eq i32 %36, %39
+  %cmp25.not.i.i.i.i.i = icmp eq i32 %35, %38
   br i1 %cmp25.not.i.i.i.i.i, label %land.end.i.i.i, label %if.then26.i.i.i.i.i
 
 if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
-  %div27.i.i.i.i.i = lshr i32 %36, 6
-  %sub28.i.i.i.i.i = and i32 %36, 63
+  %div27.i.i.i.i.i = lshr i32 %35, 6
+  %sub28.i.i.i.i.i = and i32 %35, 63
   %sh_prom.i37.i.i.i.i.i = zext nneg i32 %sub28.i.i.i.i.i to i64
   %notmask.i38.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i
   %idxprom.i40.i.i.i.i.i = zext nneg i32 %div27.i.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %38, i64 %idxprom.i40.i.i.i.i.i
-  %43 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
-  %.demorgan.i.i.i = or i64 %43, %notmask.i38.i.i.i.i.i
+  %arrayidx.i41.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %idxprom.i40.i.i.i.i.i
+  %42 = load i64, ptr %arrayidx.i41.i.i.i.i.i, align 8
+  %.demorgan.i.i.i = or i64 %42, %notmask.i38.i.i.i.i.i
   %cmp.i42.i.i.i.i.i = icmp eq i64 %.demorgan.i.i.i, -1
-  %44 = zext i1 %cmp.i42.i.i.i.i.i to i16
-  %45 = or disjoint i16 %44, 256
+  %43 = zext i1 %cmp.i42.i.i.i.i.i to i16
+  %44 = or disjoint i16 %43, 256
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %45, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i.i ], [ 257, %land.rhs.i.i.i ], [ %44, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
-  %46 = trunc i16 %frombool.i.i.i to i8
+  %45 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i: ; preds = %land.end.i.i.i, %entry.return_crit_edge.i.i.i
-  %retval.0.in.i.i.i = phi i8 [ %retval.0.in.pre.i.i.i, %entry.return_crit_edge.i.i.i ], [ %46, %land.end.i.i.i ]
+  %retval.0.in.i.i.i = phi i8 [ %retval.0.in.pre.i.i.i, %entry.return_crit_edge.i.i.i ], [ %45, %land.end.i.i.i ]
   %retval.0.i.i.i = trunc i8 %retval.0.in.i.i.i to i1
   br i1 %retval.0.i.i.i, label %if.then.i11.i, label %if.else.i.i
 
 if.then.i11.i:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
-  %47 = load i32, ptr %begin_.i, align 4
-  %48 = load i32, ptr %end_.i, align 8
-  %cmp16.i.i = icmp slt i32 %47, %48
+  %46 = load i32, ptr %begin_.i, align 4
+  %47 = load i32, ptr %end_.i, align 8
+  %cmp16.i.i = icmp slt i32 %46, %47
   br i1 %cmp16.i.i, label %for.body.lr.ph.i.i, label %if.end6
 
 for.body.lr.ph.i.i:                               ; preds = %if.then.i11.i
-  %49 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 16
-  %51 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 16
-  %53 = sext i32 %47 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i, i64 16
+  %52 = sext i32 %46 to i64
   br label %for.body.i12.i
 
 for.body.i12.i:                                   ; preds = %for.body.i12.i, %for.body.lr.ph.i.i
-  %indvars.iv.i13.i = phi i64 [ %53, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
-  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %31, i64 %indvars.iv.i13.i
-  %54 = load i32, ptr %arrayidx.i.i14.i, align 4
-  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %33, i64 %indvars.iv.i13.i
-  %55 = load i32, ptr %arrayidx3.i.i.i, align 4
-  %sub.i.i.i = sub nsw i32 %54, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub129 = sub i32 %55, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %indvars.iv.i13.i = phi i64 [ %52, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i15.i, %for.body.i12.i ]
+  %arrayidx.i.i14.i = getelementptr inbounds i32, ptr %30, i64 %indvars.iv.i13.i
+  %53 = load i32, ptr %arrayidx.i.i14.i, align 4
+  %arrayidx3.i.i.i = getelementptr inbounds i32, ptr %32, i64 %indvars.iv.i13.i
+  %54 = load i32, ptr %arrayidx3.i.i.i, align 4
+  %sub.i.i.i = sub nsw i32 %53, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub129 = sub i32 %54, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i = add i32 %reass.sub129, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i)
   store i32 -1, ptr %found.i.i.i.i, align 4
-  store ptr %29, ptr %agg.tmp.i.i.i.i, align 8
-  store ptr %found.i.i.i.i, ptr %49, align 8
-  store i8 1, ptr %50, align 8
-  store ptr %29, ptr %agg.tmp2.i.i.i.i, align 8
-  store ptr %found.i.i.i.i, ptr %51, align 8
-  store i8 1, ptr %52, align 8
+  store ptr %28, ptr %agg.tmp.i.i.i.i, align 8
+  store ptr %found.i.i.i.i, ptr %48, align 8
+  store i8 1, ptr %49, align 8
+  store ptr %28, ptr %agg.tmp2.i.i.i.i, align 8
+  store ptr %found.i.i.i.i, ptr %50, align 8
+  store i8 1, ptr %51, align 8
   %call.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i.i, i32 noundef %add.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i)
-  %56 = load i32, ptr %found.i.i.i.i, align 4
+  %55 = load i32, ptr %found.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i)
-  %57 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %57, i64 %indvars.iv.i13.i
-  store i32 %56, ptr %add.ptr.i.i.i.i, align 4
+  %56 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %56, i64 %indvars.iv.i13.i
+  store i32 %55, ptr %add.ptr.i.i.i.i, align 4
   %indvars.iv.next.i15.i = add nsw i64 %indvars.iv.i13.i, 1
-  %58 = load i32, ptr %end_.i, align 8
-  %59 = sext i32 %58 to i64
-  %cmp.i.i = icmp slt i64 %indvars.iv.next.i15.i, %59
+  %57 = load i32, ptr %end_.i, align 8
+  %58 = sext i32 %57 to i64
+  %cmp.i.i = icmp slt i64 %indvars.iv.next.i15.i, %58
   br i1 %cmp.i.i, label %for.body.i12.i, label %if.end6, !llvm.loop !75
 
 if.else.i.i:                                      ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
-  %60 = load ptr, ptr %validRows, align 8
-  %61 = load i32, ptr %begin_.i, align 4
-  %62 = load i32, ptr %end_.i, align 8
-  %cmp.not.i.i.i.i.i = icmp slt i32 %61, %62
+  %59 = load ptr, ptr %validRows, align 8
+  %60 = load i32, ptr %begin_.i, align 4
+  %61 = load i32, ptr %end_.i, align 8
+  %cmp.not.i.i.i.i.i = icmp slt i32 %60, %61
   br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i4.i.i, label %if.end6
 
 if.end.i.i.i4.i.i:                                ; preds = %if.else.i.i
-  %add.i.i.i.i.i.i = add i32 %61, 63
-  %63 = srem i32 %add.i.i.i.i.i.i, 64
-  %mul.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i, %63
-  %64 = and i32 %62, -64
-  %cmp2.i.i.i.i.i = icmp slt i32 %64, %mul.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = add i32 %60, 63
+  %62 = srem i32 %add.i.i.i.i.i.i, 64
+  %mul.i.i.i.i.i.i = sub nsw i32 %add.i.i.i.i.i.i, %62
+  %63 = and i32 %61, -64
+  %cmp2.i.i.i.i.i = icmp slt i32 %63, %mul.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i, label %if.then3.i.i.i.i.i, label %if.end8.i.i.i.i.i
 
 if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
-  %div.i.i.i.i.i = ashr i32 %62, 6
-  %sub.i.i.i.i.i = and i32 %62, 63
+  %div.i.i.i.i.i = ashr i32 %61, 6
+  %sub.i.i.i.i.i = and i32 %61, 63
   %sh_prom.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
   %notmask.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i
   %sub.i22.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i.i, -1
-  %sub5.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %61
+  %sub5.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %60
   %sh_prom.i.i.i.i.i.i.i = zext nneg i32 %sub5.i.i.i.i.i to i64
   %notmask.i.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i.i
   %sub.i.i.i.i.i.i.i = xor i64 %notmask.i.i.i.i.i.i.i, -1
@@ -7373,62 +7371,62 @@ if.then3.i.i.i.i.i:                               ; preds = %if.end.i.i.i4.i.i
   %shl.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i
   %and7.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i, %sub.i22.i.i.i.i.i
   %idxprom.i.i.i.i.i.i = sext i32 %div.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %60, i64 %idxprom.i.i.i.i.i.i
-  %65 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %65
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i.i.i.i.i.i
+  %64 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i, %64
   %tobool4.not.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i, 0
   br i1 %tobool4.not.i.i.i.i.i.i, label %if.end6, label %while.body.preheader.i.i.i.i.i.i
 
 while.body.preheader.i.i.i.i.i.i:                 ; preds = %if.then3.i.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i.i.i.i.i.i, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i.i.i.i.i.i, i64 16
   br label %while.body.i.i.i.i.i.i
 
 while.body.i.i.i.i.i.i:                           ; preds = %while.body.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i
   %word.0.i.i.i.i.i.i = phi i64 [ %and6.i.i.i.i.i.i, %while.body.i.i.i.i.i.i ], [ %and.i.i.i.i.i.i, %while.body.preheader.i.i.i.i.i.i ]
-  %70 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %70 to i32
-  %add.i26.i.i.i.i.i = or disjoint i32 %64, %cast.i.i.i.i.i.i
+  %69 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i.i = trunc nuw nsw i64 %69 to i32
+  %add.i26.i.i.i.i.i = or disjoint i32 %63, %cast.i.i.i.i.i.i
   %idxprom.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i.i.i.i.i.i
-  %71 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i.i.i.i.i.i
-  %72 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
-  %sub.i.i27.i.i.i.i.i = sub nsw i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub128 = sub i32 %72, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i.i.i.i.i.i
+  %70 = load i32, ptr %arrayidx.i.i.i.i.i.i.i, align 4
+  %arrayidx3.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i.i.i.i.i.i
+  %71 = load i32, ptr %arrayidx3.i.i.i.i.i.i.i, align 4
+  %sub.i.i27.i.i.i.i.i = sub nsw i32 %70, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub128 = sub i32 %71, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i.i.i.i.i.i = add i32 %reass.sub128, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
   store i32 -1, ptr %found.i.i.i.i.i.i.i.i, align 4
-  store ptr %29, ptr %agg.tmp.i.i.i.i.i.i.i.i, align 8
-  store ptr %found.i.i.i.i.i.i.i.i, ptr %66, align 8
-  store i8 1, ptr %67, align 8
-  store ptr %29, ptr %agg.tmp2.i.i.i.i.i.i.i.i, align 8
-  store ptr %found.i.i.i.i.i.i.i.i, ptr %68, align 8
-  store i8 1, ptr %69, align 8
+  store ptr %28, ptr %agg.tmp.i.i.i.i.i.i.i.i, align 8
+  store ptr %found.i.i.i.i.i.i.i.i, ptr %65, align 8
+  store i8 1, ptr %66, align 8
+  store ptr %28, ptr %agg.tmp2.i.i.i.i.i.i.i.i, align 8
+  store ptr %found.i.i.i.i.i.i.i.i, ptr %67, align 8
+  store i8 1, ptr %68, align 8
   %call.i.i.i.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i27.i.i.i.i.i, i32 noundef %add.i.i.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i.i.i.i.i.i)
-  %73 = load i32, ptr %found.i.i.i.i.i.i.i.i, align 4
+  %72 = load i32, ptr %found.i.i.i.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i.i.i.i.i.i)
-  %74 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %74, i64 %idxprom.i.i.i.i.i.i.i
-  store i32 %73, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
+  %73 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %73, i64 %idxprom.i.i.i.i.i.i.i
+  store i32 %72, ptr %add.ptr.i.i.i.i.i.i.i.i, align 4
   %sub.i28.i.i.i.i.i = add nsw i64 %word.0.i.i.i.i.i.i, -1
   %and6.i.i.i.i.i.i = and i64 %sub.i28.i.i.i.i.i, %word.0.i.i.i.i.i.i
   %tobool5.old.not.i.i.i.i.i.i = icmp eq i64 %and6.i.i.i.i.i.i, 0
   br i1 %tobool5.old.not.i.i.i.i.i.i, label %if.end6, label %while.body.i.i.i.i.i.i
 
 if.end8.i.i.i.i.i:                                ; preds = %if.end.i.i.i4.i.i
-  %cmp9.not.i.i.i.i.i = icmp eq i32 %61, %mul.i.i.i.i.i.i
+  %cmp9.not.i.i.i.i.i = icmp eq i32 %60, %mul.i.i.i.i.i.i
   br i1 %cmp9.not.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %if.then10.i.i.i.i.i
 
 if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
-  %div11.i.i.i.i.i = sdiv i32 %61, 64
-  %sub12.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %61
+  %div11.i.i.i.i.i = sdiv i32 %60, 64
+  %sub12.i.i.i.i.i = sub nsw i32 %mul.i.i.i.i.i.i, %60
   %sh_prom.i.i29.i.i.i.i.i = zext nneg i32 %sub12.i.i.i.i.i to i64
   %notmask.i.i30.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i29.i.i.i.i.i
   %sub.i.i31.i.i.i.i.i = xor i64 %notmask.i.i30.i.i.i.i.i, -1
@@ -7436,51 +7434,51 @@ if.then10.i.i.i.i.i:                              ; preds = %if.end8.i.i.i.i.i
   %sh_prom.i33.i.i.i.i.i = zext nneg i32 %sub.i32.i.i.i.i.i to i64
   %shl.i34.i.i.i.i.i = shl i64 %sub.i.i31.i.i.i.i.i, %sh_prom.i33.i.i.i.i.i
   %idxprom.i38.i.i.i.i.i = sext i32 %div11.i.i.i.i.i to i64
-  %arrayidx.i39.i.i.i.i.i = getelementptr inbounds i64, ptr %60, i64 %idxprom.i38.i.i.i.i.i
-  %75 = load i64, ptr %arrayidx.i39.i.i.i.i.i, align 8
-  %and.i42.i.i.i.i.i = and i64 %75, %shl.i34.i.i.i.i.i
+  %arrayidx.i39.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i38.i.i.i.i.i
+  %74 = load i64, ptr %arrayidx.i39.i.i.i.i.i, align 8
+  %and.i42.i.i.i.i.i = and i64 %74, %shl.i34.i.i.i.i.i
   %tobool4.not.i43.i.i.i.i.i = icmp eq i64 %and.i42.i.i.i.i.i, 0
   br i1 %tobool4.not.i43.i.i.i.i.i, label %if.end14.i.i.i.i.i, label %while.body.preheader.i44.i.i.i.i.i
 
 while.body.preheader.i44.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
   %mul.i45.i.i.i.i.i = shl nsw i32 %div11.i.i.i.i.i, 6
-  %76 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i36.i.i.i.i.i, i64 8
-  %77 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i36.i.i.i.i.i, i64 16
-  %78 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i36.i.i.i.i.i, i64 8
+  %76 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i36.i.i.i.i.i, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, i64 16
   br label %while.body.i46.i.i.i.i.i
 
 while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.i.i.i, %while.body.preheader.i44.i.i.i.i.i
   %word.0.i47.i.i.i.i.i = phi i64 [ %and6.i60.i.i.i.i.i, %while.body.i46.i.i.i.i.i ], [ %and.i42.i.i.i.i.i, %while.body.preheader.i44.i.i.i.i.i ]
-  %80 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i47.i.i.i.i.i, i1 true)
-  %cast.i48.i.i.i.i.i = trunc nuw nsw i64 %80 to i32
+  %79 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i47.i.i.i.i.i, i1 true)
+  %cast.i48.i.i.i.i.i = trunc nuw nsw i64 %79 to i32
   %add.i49.i.i.i.i.i = or disjoint i32 %mul.i45.i.i.i.i.i, %cast.i48.i.i.i.i.i
   %idxprom.i.i50.i.i.i.i.i = sext i32 %add.i49.i.i.i.i.i to i64
-  %arrayidx.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i50.i.i.i.i.i
-  %81 = load i32, ptr %arrayidx.i.i51.i.i.i.i.i, align 4
-  %arrayidx3.i.i52.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i50.i.i.i.i.i
-  %82 = load i32, ptr %arrayidx3.i.i52.i.i.i.i.i, align 4
-  %sub.i.i53.i.i.i.i.i = sub nsw i32 %81, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub = sub i32 %82, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i51.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i50.i.i.i.i.i
+  %80 = load i32, ptr %arrayidx.i.i51.i.i.i.i.i, align 4
+  %arrayidx3.i.i52.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i50.i.i.i.i.i
+  %81 = load i32, ptr %arrayidx3.i.i52.i.i.i.i.i, align 4
+  %sub.i.i53.i.i.i.i.i = sub nsw i32 %80, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub = sub i32 %81, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i55.i.i.i.i.i = add i32 %reass.sub, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i35.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i36.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i37.i.i.i.i.i)
   store i32 -1, ptr %found.i.i.i35.i.i.i.i.i, align 4
-  store ptr %29, ptr %agg.tmp.i.i.i36.i.i.i.i.i, align 8
-  store ptr %found.i.i.i35.i.i.i.i.i, ptr %76, align 8
-  store i8 1, ptr %77, align 8
-  store ptr %29, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, align 8
-  store ptr %found.i.i.i35.i.i.i.i.i, ptr %78, align 8
-  store i8 1, ptr %79, align 8
+  store ptr %28, ptr %agg.tmp.i.i.i36.i.i.i.i.i, align 8
+  store ptr %found.i.i.i35.i.i.i.i.i, ptr %75, align 8
+  store i8 1, ptr %76, align 8
+  store ptr %28, ptr %agg.tmp2.i.i.i37.i.i.i.i.i, align 8
+  store ptr %found.i.i.i35.i.i.i.i.i, ptr %77, align 8
+  store i8 1, ptr %78, align 8
   %call.i.i.i56.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i53.i.i.i.i.i, i32 noundef %add.i.i55.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i36.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i37.i.i.i.i.i)
-  %83 = load i32, ptr %found.i.i.i35.i.i.i.i.i, align 4
+  %82 = load i32, ptr %found.i.i.i35.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i.i35.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i36.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i37.i.i.i.i.i)
-  %84 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i58.i.i.i.i.i = getelementptr inbounds i32, ptr %84, i64 %idxprom.i.i50.i.i.i.i.i
-  store i32 %83, ptr %add.ptr.i.i.i58.i.i.i.i.i, align 4
+  %83 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i58.i.i.i.i.i = getelementptr inbounds i32, ptr %83, i64 %idxprom.i.i50.i.i.i.i.i
+  store i32 %82, ptr %add.ptr.i.i.i58.i.i.i.i.i, align 4
   %sub.i59.i.i.i.i.i = add i64 %word.0.i47.i.i.i.i.i, -1
   %and6.i60.i.i.i.i.i = and i64 %sub.i59.i.i.i.i.i, %word.0.i47.i.i.i.i.i
   %tobool5.old.not.i61.i.i.i.i.i = icmp eq i64 %and6.i60.i.i.i.i.i, 0
@@ -7488,14 +7486,14 @@ while.body.i46.i.i.i.i.i:                         ; preds = %while.body.i46.i.i.
 
 if.end14.i.i.i.i.i:                               ; preds = %while.body.i46.i.i.i.i.i, %if.then10.i.i.i.i.i, %if.end8.i.i.i.i.i
   %add138.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i, 64
-  %cmp15.not139.i.i.i.i.i = icmp sgt i32 %add138.i.i.i.i.i, %64
+  %cmp15.not139.i.i.i.i.i = icmp sgt i32 %add138.i.i.i.i.i, %63
   br i1 %cmp15.not139.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.lr.ph.i.i.i.i.i
 
 for.body.lr.ph.i.i.i.i.i:                         ; preds = %if.end14.i.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i64.i.i.i.i.i, i64 8
-  %86 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i64.i.i.i.i.i, i64 16
-  %87 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 8
-  %88 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i64.i.i.i.i.i, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i64.i.i.i.i.i, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, i64 16
   br label %for.body.i.i.i5.i.i
 
 for.body.i.i.i5.i.i:                              ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i
@@ -7503,9 +7501,9 @@ for.body.i.i.i5.i.i:                              ; preds = %_ZZN8facebook5velox
   %i.0140.i.i.i.i.i = phi i32 [ %mul.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i ], [ %add141.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i ]
   %div16.i.i.i.i.i = sdiv i32 %i.0140.i.i.i.i.i, 64
   %idxprom.i66.i.i.i.i.i = sext i32 %div16.i.i.i.i.i to i64
-  %arrayidx.i67.i.i.i.i.i = getelementptr inbounds i64, ptr %60, i64 %idxprom.i66.i.i.i.i.i
-  %89 = load i64, ptr %arrayidx.i67.i.i.i.i.i, align 8
-  switch i64 %89, label %while.body.lr.ph.i.i.i.i.i.i [
+  %arrayidx.i67.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i66.i.i.i.i.i
+  %88 = load i64, ptr %arrayidx.i67.i.i.i.i.i, align 8
+  switch i64 %88, label %while.body.lr.ph.i.i.i.i.i.i [
     i64 -1, label %if.then.i.i.i.i.i.i
     i64 0, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i
   ]
@@ -7528,57 +7526,57 @@ for.body.lr.ph.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i
   %row.025.i.i.i.i.i.i = phi i64 [ %conv.i.i.i.i.i.i, %for.body.lr.ph.i.i.i.i.i.i ], [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %arrayidx.i.i71.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %row.025.i.i.i.i.i.i
-  %90 = load i32, ptr %arrayidx.i.i71.i.i.i.i.i, align 4
-  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %row.025.i.i.i.i.i.i
-  %91 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
-  %sub.i.i72.i.i.i.i.i = sub nsw i32 %90, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub126 = sub i32 %91, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i71.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %row.025.i.i.i.i.i.i
+  %89 = load i32, ptr %arrayidx.i.i71.i.i.i.i.i, align 4
+  %arrayidx2.i.i.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %row.025.i.i.i.i.i.i
+  %90 = load i32, ptr %arrayidx2.i.i.i.i.i.i.i, align 4
+  %sub.i.i72.i.i.i.i.i = sub nsw i32 %89, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub126 = sub i32 %90, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i73.i.i.i.i.i = add i32 %reass.sub126, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i63.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i64.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i65.i.i.i.i.i)
   store i32 -1, ptr %found.i.i.i63.i.i.i.i.i, align 4
-  store ptr %29, ptr %agg.tmp.i.i.i64.i.i.i.i.i, align 8
-  store ptr %found.i.i.i63.i.i.i.i.i, ptr %85, align 8
-  store i8 1, ptr %86, align 8
-  store ptr %29, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, align 8
-  store ptr %found.i.i.i63.i.i.i.i.i, ptr %87, align 8
-  store i8 1, ptr %88, align 8
+  store ptr %28, ptr %agg.tmp.i.i.i64.i.i.i.i.i, align 8
+  store ptr %found.i.i.i63.i.i.i.i.i, ptr %84, align 8
+  store i8 1, ptr %85, align 8
+  store ptr %28, ptr %agg.tmp2.i.i.i65.i.i.i.i.i, align 8
+  store ptr %found.i.i.i63.i.i.i.i.i, ptr %86, align 8
+  store i8 1, ptr %87, align 8
   %call.i.i.i74.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i72.i.i.i.i.i, i32 noundef %add.i.i73.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i64.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i65.i.i.i.i.i)
-  %92 = load i32, ptr %found.i.i.i63.i.i.i.i.i, align 4
+  %91 = load i32, ptr %found.i.i.i63.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i.i63.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i64.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i65.i.i.i.i.i)
-  %93 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i76.i.i.i.i.i = getelementptr inbounds i32, ptr %93, i64 %row.025.i.i.i.i.i.i
-  store i32 %92, ptr %add.ptr.i.i.i76.i.i.i.i.i, align 4
+  %92 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i76.i.i.i.i.i = getelementptr inbounds i32, ptr %92, i64 %row.025.i.i.i.i.i.i
+  store i32 %91, ptr %add.ptr.i.i.i76.i.i.i.i.i, align 4
   %inc.i.i.i.i.i.i = add nuw i64 %row.025.i.i.i.i.i.i, 1
   %cmp6.i.i.i.i.i.i = icmp ult i64 %inc.i.i.i.i.i.i, %conv5.i.i.i.i.i.i
   br i1 %cmp6.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !76
 
 while.body.i77.i.i.i.i.i:                         ; preds = %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i
-  %word.023.i.i.i.i.i.i = phi i64 [ %89, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i83.i.i.i.i.i, %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i ]
-  %94 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.023.i.i.i.i.i.i, i1 true)
-  %cast.i78.i.i.i.i.i = trunc nuw nsw i64 %94 to i32
+  %word.023.i.i.i.i.i.i = phi i64 [ %88, %while.body.lr.ph.i.i.i.i.i.i ], [ %and.i83.i.i.i.i.i, %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i ]
+  %93 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.023.i.i.i.i.i.i, i1 true)
+  %cast.i78.i.i.i.i.i = trunc nuw nsw i64 %93 to i32
   %add9.i.i.i.i.i.i = or disjoint i32 %mul8.i.i.i.i.i.i, %cast.i78.i.i.i.i.i
   %idxprom.i.i79.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i to i64
-  %arrayidx.i14.i.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i79.i.i.i.i.i
-  %95 = load i32, ptr %arrayidx.i14.i.i.i.i.i.i, align 4
-  %arrayidx3.i.i80.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i79.i.i.i.i.i
-  %96 = load i32, ptr %arrayidx3.i.i80.i.i.i.i.i, align 4
-  %sub.i15.i.i.i.i.i.i = sub nsw i32 %95, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub41.i = sub i32 %96, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i14.i.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i79.i.i.i.i.i
+  %94 = load i32, ptr %arrayidx.i14.i.i.i.i.i.i, align 4
+  %arrayidx3.i.i80.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i79.i.i.i.i.i
+  %95 = load i32, ptr %arrayidx3.i.i80.i.i.i.i.i, align 4
+  %sub.i15.i.i.i.i.i.i = sub nsw i32 %94, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub41.i = sub i32 %95, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i16.i.i.i.i.i.i = add i32 %reass.sub41.i, 1
   %cmp.not.i.i.i.i.i.i = icmp slt i32 %sub.i15.i.i.i.i.i.i, %add.i16.i.i.i.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 if.end.i.i.i.i.i.i:                               ; preds = %while.body.i77.i.i.i.i.i
   %add.i.i117.i.i.i.i.i = add i32 %sub.i15.i.i.i.i.i.i, 63
-  %97 = srem i32 %add.i.i117.i.i.i.i.i, 64
-  %mul.i.i.i.i.i.i.i = sub nsw i32 %add.i.i117.i.i.i.i.i, %97
-  %98 = and i32 %add.i16.i.i.i.i.i.i, -64
-  %cmp2.i.i.i.i.i.i = icmp slt i32 %98, %mul.i.i.i.i.i.i.i
+  %96 = srem i32 %add.i.i117.i.i.i.i.i, 64
+  %mul.i.i.i.i.i.i.i = sub nsw i32 %add.i.i117.i.i.i.i.i, %96
+  %97 = and i32 %add.i16.i.i.i.i.i.i, -64
+  %cmp2.i.i.i.i.i.i = icmp slt i32 %97, %mul.i.i.i.i.i.i.i
   br i1 %cmp2.i.i.i.i.i.i, label %if.then3.i.i.i.i.i.i, label %if.end9.i.i.i.i.i.i
 
 if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
@@ -7596,21 +7594,21 @@ if.then3.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   %shl.i.i.i.i.i.i.i = shl i64 %sub.i.i.i.i.i.i.i.i, %sh_prom.i24.i.i.i.i.i.i
   %and7.i.i.i.i.i.i = and i64 %shl.i.i.i.i.i.i.i, %sub.i22.i.i.i.i.i.i
   %idxprom.i.i122.i.i.i.i.i = sext i32 %div.i.i.i.i.i.i to i64
-  %arrayidx.i.i123.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i.i122.i.i.i.i.i
-  %99 = load i64, ptr %arrayidx.i.i123.i.i.i.i.i, align 8
-  %and.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i, %99
+  %arrayidx.i.i123.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i.i122.i.i.i.i.i
+  %98 = load i64, ptr %arrayidx.i.i123.i.i.i.i.i, align 8
+  %and.i.i.i.i.i.i.i = and i64 %and7.i.i.i.i.i.i, %98
   %tobool4.not.i.i.i.i.i.i.i = icmp eq i64 %and.i.i.i.i.i.i.i, 0
   br i1 %tobool4.not.i.i.i.i.i.i.i, label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.then3.i.i.i.i.i.i
   %add.i26.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.i, 63
-  %100 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.i.i.i.i.i.i, i1 true)
-  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %100 to i32
+  %99 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i.i.i.i.i.i.i, i1 true)
+  %cast.i.i.i.i.i.i.i = trunc nuw nsw i64 %99 to i32
   %sub.i27.i.i.i.i.i.i = sub nuw nsw i32 %add.i26.i.i.i.i.i.i, %cast.i.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 if.end9.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i.i.i.i
-  %cmp10.not.i.i.i.i.i.i = icmp eq i32 %add.i16.i.i.i.i.i.i, %98
+  %cmp10.not.i.i.i.i.i.i = icmp eq i32 %add.i16.i.i.i.i.i.i, %97
   br i1 %cmp10.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.preheader, label %if.then11.i.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i.preheader:                   ; preds = %if.then11.i.i.i.i.i.i, %if.end9.i.i.i.i.i.i
@@ -7623,21 +7621,21 @@ if.then11.i.i.i.i.i.i:                            ; preds = %if.end9.i.i.i.i.i.i
   %notmask.i29.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i28.i.i.i.i.i.i
   %sub.i30.i.i.i.i.i.i = xor i64 %notmask.i29.i.i.i.i.i.i, -1
   %idxprom.i31.i.i.i.i.i.i = sext i32 %div12.i.i.i.i.i.i to i64
-  %arrayidx.i32.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i31.i.i.i.i.i.i
-  %101 = load i64, ptr %arrayidx.i32.i.i.i.i.i.i, align 8
-  %and.i35.i.i.i.i.i.i = and i64 %101, %sub.i30.i.i.i.i.i.i
+  %arrayidx.i32.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i31.i.i.i.i.i.i
+  %100 = load i64, ptr %arrayidx.i32.i.i.i.i.i.i, align 8
+  %and.i35.i.i.i.i.i.i = and i64 %100, %sub.i30.i.i.i.i.i.i
   %tobool4.not.i36.i.i.i.i.i.i = icmp eq i64 %and.i35.i.i.i.i.i.i, 0
   br i1 %tobool4.not.i36.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.preheader, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i: ; preds = %if.then11.i.i.i.i.i.i
   %add.i39.i.i.i.i.i.i = or i32 %add.i16.i.i.i.i.i.i, 63
-  %102 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i35.i.i.i.i.i.i, i1 true)
-  %cast.i40.i.i.i.i.i.i = trunc nuw nsw i64 %102 to i32
+  %101 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i35.i.i.i.i.i.i, i1 true)
+  %cast.i40.i.i.i.i.i.i = trunc nuw nsw i64 %101 to i32
   %sub.i41.i.i.i.i.i.i = sub nuw nsw i32 %add.i39.i.i.i.i.i.i, %cast.i40.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 for.cond.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i.preheader, %for.body.i118.i.i.i.i.i
-  %i.0.in.i.i.i.i.i.i = phi i32 [ %i.0.i.i.i.i.i.i, %for.body.i118.i.i.i.i.i ], [ %98, %for.cond.i.i.i.i.i.i.preheader ]
+  %i.0.in.i.i.i.i.i.i = phi i32 [ %i.0.i.i.i.i.i.i, %for.body.i118.i.i.i.i.i ], [ %97, %for.cond.i.i.i.i.i.i.preheader ]
   %i.0.i.i.i.i.i.i = add nsw i32 %i.0.in.i.i.i.i.i.i, -64
   %cmp20.not.i.i.i.i.i.i = icmp slt i32 %i.0.i.i.i.i.i.i, %mul.i.i.i.i.i.i.i
   br i1 %cmp20.not.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i, label %for.body.i118.i.i.i.i.i
@@ -7645,16 +7643,16 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.
 for.body.i118.i.i.i.i.i:                          ; preds = %for.cond.i.i.i.i.i.i
   %div21.i.i.i.i.i.i = ashr exact i32 %i.0.i.i.i.i.i.i, 6
   %idxprom.i43.i.i.i.i.i.i = sext i32 %div21.i.i.i.i.i.i to i64
-  %arrayidx.i44.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i43.i.i.i.i.i.i
-  %103 = load i64, ptr %arrayidx.i44.i.i.i.i.i.i, align 8
-  %tobool4.not.i46.i.i.i.i.i.i = icmp eq i64 %103, 0
+  %arrayidx.i44.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i43.i.i.i.i.i.i
+  %102 = load i64, ptr %arrayidx.i44.i.i.i.i.i.i, align 8
+  %tobool4.not.i46.i.i.i.i.i.i = icmp eq i64 %102, 0
   br i1 %tobool4.not.i46.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i
 
 _ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i: ; preds = %for.body.i118.i.i.i.i.i
-  %104 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %103, i1 true)
-  %cast.i51.i.i.i.i.i.i = trunc nuw nsw i64 %104 to i32
-  %105 = xor i32 %cast.i51.i.i.i.i.i.i, -1
-  %sub.i52.i.i.i.i.i.i = add i32 %i.0.in.i.i.i.i.i.i, %105
+  %103 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %102, i1 true)
+  %cast.i51.i.i.i.i.i.i = trunc nuw nsw i64 %103 to i32
+  %104 = xor i32 %cast.i51.i.i.i.i.i.i, -1
+  %sub.i52.i.i.i.i.i.i = add i32 %i.0.in.i.i.i.i.i.i, %104
   br label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 for.end.i.i.i.i.i.i:                              ; preds = %for.cond.i.i.i.i.i.i
@@ -7671,24 +7669,24 @@ if.then27.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
   %sh_prom.i57.i.i.i.i.i.i = zext nneg i32 %sub.i56.i.i.i.i.i.i to i64
   %shl.i58.i.i.i.i.i.i = shl i64 %sub.i.i55.i.i.i.i.i.i, %sh_prom.i57.i.i.i.i.i.i
   %idxprom.i59.i.i.i.i.i.i = sext i32 %div28.i.i.i.i.i.i to i64
-  %arrayidx.i60.i.i.i.i.i.i = getelementptr inbounds i64, ptr %29, i64 %idxprom.i59.i.i.i.i.i.i
-  %106 = load i64, ptr %arrayidx.i60.i.i.i.i.i.i, align 8
-  %and.i63.i.i.i.i.i.i = and i64 %106, %shl.i58.i.i.i.i.i.i
+  %arrayidx.i60.i.i.i.i.i.i = getelementptr inbounds i64, ptr %28, i64 %idxprom.i59.i.i.i.i.i.i
+  %105 = load i64, ptr %arrayidx.i60.i.i.i.i.i.i, align 8
+  %and.i63.i.i.i.i.i.i = and i64 %105, %shl.i58.i.i.i.i.i.i
   %tobool4.not.i64.i.i.i.i.i.i = icmp eq i64 %and.i63.i.i.i.i.i.i, 0
   br i1 %tobool4.not.i64.i.i.i.i.i.i, label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i, label %if.then.i65.i.i.i.i.i.i
 
 if.then.i65.i.i.i.i.i.i:                          ; preds = %if.then27.i.i.i.i.i.i
   %mul.i66.i.i.i.i.i.i = shl nsw i32 %div28.i.i.i.i.i.i, 6
   %add.i67.i.i.i.i.i.i = or disjoint i32 %mul.i66.i.i.i.i.i.i, 63
-  %107 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i63.i.i.i.i.i.i, i1 true)
-  %cast.i68.i.i.i.i.i.i = trunc nuw nsw i64 %107 to i32
+  %106 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %and.i63.i.i.i.i.i.i, i1 true)
+  %cast.i68.i.i.i.i.i.i = trunc nuw nsw i64 %106 to i32
   %sub.i69.i.i.i.i.i.i = sub nuw nsw i32 %add.i67.i.i.i.i.i.i, %cast.i68.i.i.i.i.i.i
   br label %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i
 
 _ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i: ; preds = %if.then.i65.i.i.i.i.i.i, %if.then27.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i, %while.body.i77.i.i.i.i.i
   %found.i.i11.i.0.i.i.i.i.i = phi i32 [ -1, %if.then3.i.i.i.i.i.i ], [ -1, %for.end.i.i.i.i.i.i ], [ -1, %if.then27.i.i.i.i.i.i ], [ -1, %while.body.i77.i.i.i.i.i ], [ %sub.i69.i.i.i.i.i.i, %if.then.i65.i.i.i.i.i.i ], [ %sub.i52.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUliE_clEi.exit.thread.i.i.i.i.i.i ], [ %sub.i41.i.i.i.i.i.i, %_ZZN8facebook5velox4bits11findLastBitEPKmiibENKUlimE_clEim.exit42.i.i.i.i.i.i ], [ %sub.i27.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ]
-  %108 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i19.i.i.i.i.i.i = getelementptr inbounds i32, ptr %108, i64 %idxprom.i.i79.i.i.i.i.i
+  %107 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i19.i.i.i.i.i.i = getelementptr inbounds i32, ptr %107, i64 %idxprom.i.i79.i.i.i.i.i
   store i32 %found.i.i11.i.0.i.i.i.i.i, ptr %add.ptr.i.i19.i.i.i.i.i.i, align 4
   %sub.i82.i.i.i.i.i = add i64 %word.023.i.i.i.i.i.i, -1
   %and.i83.i.i.i.i.i = and i64 %sub.i82.i.i.i.i.i, %word.023.i.i.i.i.i.i
@@ -7697,64 +7695,64 @@ _ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_1
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i.i, %_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_.exit.i.i.i.i.i, %if.then.i.i.i.i.i.i, %for.body.i.i.i5.i.i
   %add.i.i.i.i.i = add nsw i32 %add141.i.i.i.i.i, 64
-  %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %64
+  %cmp15.not.i.i.i.i.i = icmp sgt i32 %add.i.i.i.i.i, %63
   br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i6.i.i, label %for.body.i.i.i5.i.i, !llvm.loop !78
 
 for.end.i.i.i6.i.i:                               ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE24setRowNumbersIgnoreNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESH_EUlT_E_EEvPKmiibSI_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i
-  %cmp18.not.i.i.i.i.i = icmp eq i32 %62, %64
+  %cmp18.not.i.i.i.i.i = icmp eq i32 %61, %63
   br i1 %cmp18.not.i.i.i.i.i, label %if.end6, label %if.then19.i.i.i.i.i
 
 if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i6.i.i
-  %div20.i.i.i.i.i = ashr i32 %62, 6
-  %sub21.i.i.i.i.i = and i32 %62, 63
+  %div20.i.i.i.i.i = ashr i32 %61, 6
+  %sub21.i.i.i.i.i = and i32 %61, 63
   %sh_prom.i84.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i to i64
   %notmask.i85.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i84.i.i.i.i.i
   %sub.i86.i.i.i.i.i = xor i64 %notmask.i85.i.i.i.i.i, -1
   %idxprom.i90.i.i.i.i.i = sext i32 %div20.i.i.i.i.i to i64
-  %arrayidx.i91.i.i.i.i.i = getelementptr inbounds i64, ptr %60, i64 %idxprom.i90.i.i.i.i.i
-  %109 = load i64, ptr %arrayidx.i91.i.i.i.i.i, align 8
-  %and.i94.i.i.i.i.i = and i64 %109, %sub.i86.i.i.i.i.i
+  %arrayidx.i91.i.i.i.i.i = getelementptr inbounds i64, ptr %59, i64 %idxprom.i90.i.i.i.i.i
+  %108 = load i64, ptr %arrayidx.i91.i.i.i.i.i, align 8
+  %and.i94.i.i.i.i.i = and i64 %108, %sub.i86.i.i.i.i.i
   %tobool4.not.i95.i.i.i.i.i = icmp eq i64 %and.i94.i.i.i.i.i, 0
   br i1 %tobool4.not.i95.i.i.i.i.i, label %if.end6, label %while.body.preheader.i96.i.i.i.i.i
 
 while.body.preheader.i96.i.i.i.i.i:               ; preds = %if.then19.i.i.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i88.i.i.i.i.i, i64 8
-  %111 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i88.i.i.i.i.i, i64 16
-  %112 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 8
-  %113 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 16
+  %109 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i88.i.i.i.i.i, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %agg.tmp.i.i.i88.i.i.i.i.i, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, i64 16
   br label %while.body.i98.i.i.i.i.i
 
 while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.i.i.i, %while.body.preheader.i96.i.i.i.i.i
   %word.0.i99.i.i.i.i.i = phi i64 [ %and6.i112.i.i.i.i.i, %while.body.i98.i.i.i.i.i ], [ %and.i94.i.i.i.i.i, %while.body.preheader.i96.i.i.i.i.i ]
-  %114 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i99.i.i.i.i.i, i1 true)
-  %cast.i100.i.i.i.i.i = trunc nuw nsw i64 %114 to i32
-  %add.i101.i.i.i.i.i = or disjoint i32 %64, %cast.i100.i.i.i.i.i
+  %113 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i99.i.i.i.i.i, i1 true)
+  %cast.i100.i.i.i.i.i = trunc nuw nsw i64 %113 to i32
+  %add.i101.i.i.i.i.i = or disjoint i32 %63, %cast.i100.i.i.i.i.i
   %idxprom.i.i102.i.i.i.i.i = sext i32 %add.i101.i.i.i.i.i to i64
-  %arrayidx.i.i103.i.i.i.i.i = getelementptr inbounds i32, ptr %31, i64 %idxprom.i.i102.i.i.i.i.i
-  %115 = load i32, ptr %arrayidx.i.i103.i.i.i.i.i, align 4
-  %arrayidx3.i.i104.i.i.i.i.i = getelementptr inbounds i32, ptr %33, i64 %idxprom.i.i102.i.i.i.i.i
-  %116 = load i32, ptr %arrayidx3.i.i104.i.i.i.i.i, align 4
-  %sub.i.i105.i.i.i.i.i = sub nsw i32 %115, %extractNullsResult.sroa.0.0.extract.trunc.i
-  %reass.sub127 = sub i32 %116, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %arrayidx.i.i103.i.i.i.i.i = getelementptr inbounds i32, ptr %30, i64 %idxprom.i.i102.i.i.i.i.i
+  %114 = load i32, ptr %arrayidx.i.i103.i.i.i.i.i, align 4
+  %arrayidx3.i.i104.i.i.i.i.i = getelementptr inbounds i32, ptr %32, i64 %idxprom.i.i102.i.i.i.i.i
+  %115 = load i32, ptr %arrayidx3.i.i104.i.i.i.i.i, align 4
+  %sub.i.i105.i.i.i.i.i = sub nsw i32 %114, %extractNullsResult.sroa.0.0.extract.trunc.i
+  %reass.sub127 = sub i32 %115, %extractNullsResult.sroa.0.0.extract.trunc.i
   %add.i.i107.i.i.i.i.i = add i32 %reass.sub127, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %found.i.i.i87.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i88.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i89.i.i.i.i.i)
   store i32 -1, ptr %found.i.i.i87.i.i.i.i.i, align 4
-  store ptr %29, ptr %agg.tmp.i.i.i88.i.i.i.i.i, align 8
-  store ptr %found.i.i.i87.i.i.i.i.i, ptr %110, align 8
-  store i8 1, ptr %111, align 8
-  store ptr %29, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, align 8
-  store ptr %found.i.i.i87.i.i.i.i.i, ptr %112, align 8
-  store i8 1, ptr %113, align 8
+  store ptr %28, ptr %agg.tmp.i.i.i88.i.i.i.i.i, align 8
+  store ptr %found.i.i.i87.i.i.i.i.i, ptr %109, align 8
+  store i8 1, ptr %110, align 8
+  store ptr %28, ptr %agg.tmp2.i.i.i89.i.i.i.i.i, align 8
+  store ptr %found.i.i.i87.i.i.i.i.i, ptr %111, align 8
+  store i8 1, ptr %112, align 8
   %call.i.i.i108.i.i.i.i.i = call noundef zeroext i1 @_ZN8facebook5velox4bits16testWordsReverseIZNS1_11findLastBitEPKmiibEUlimE_ZNS1_11findLastBitES4_iibEUliE_EEbiiT_T0_(i32 noundef %sub.i.i105.i.i.i.i.i, i32 noundef %add.i.i107.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.150) align 8 %agg.tmp.i.i.i88.i.i.i.i.i, ptr noundef nonnull byval(%class.anon.152) align 8 %agg.tmp2.i.i.i89.i.i.i.i.i)
-  %117 = load i32, ptr %found.i.i.i87.i.i.i.i.i, align 4
+  %116 = load i32, ptr %found.i.i.i87.i.i.i.i.i, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %found.i.i.i87.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i.i.i88.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp2.i.i.i89.i.i.i.i.i)
-  %118 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i.i.i110.i.i.i.i.i = getelementptr inbounds i32, ptr %118, i64 %idxprom.i.i102.i.i.i.i.i
-  store i32 %117, ptr %add.ptr.i.i.i110.i.i.i.i.i, align 4
+  %117 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i.i.i110.i.i.i.i.i = getelementptr inbounds i32, ptr %117, i64 %idxprom.i.i102.i.i.i.i.i
+  store i32 %116, ptr %add.ptr.i.i.i110.i.i.i.i.i, align 4
   %sub.i111.i.i.i.i.i = add nsw i64 %word.0.i99.i.i.i.i.i, -1
   %and6.i112.i.i.i.i.i = and i64 %sub.i111.i.i.i.i.i, %word.0.i99.i.i.i.i.i
   %tobool5.old.not.i113.i.i.i.i.i = icmp eq i64 %and6.i112.i.i.i.i.i, 0
@@ -7762,16 +7760,16 @@ while.body.i98.i.i.i.i.i:                         ; preds = %while.body.i98.i.i.
 
 if.end6.sink.split:                               ; preds = %if.then, %if.then5
   %frameEnds.val.i = load ptr, ptr %frameEnds, align 8
-  %119 = getelementptr i8, ptr %frameEnds.val.i, i64 16
-  %frameEnds.val.val.i = load ptr, ptr %119, align 8
+  %118 = getelementptr i8, ptr %frameEnds.val.i, i64 16
+  %frameEnds.val.val.i = load ptr, ptr %118, align 8
   tail call fastcc void @_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE25setRowNumbersRespectNullsERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEESF_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(38) %validRows, ptr %frameEnds.val.val.i)
   br label %if.end6
 
 if.end6:                                          ; preds = %while.body.i98.i.i.i.i.i, %while.body.i.i.i.i.i.i, %for.body.i12.i, %if.end6.sink.split, %if.then19.i.i.i.i.i, %for.end.i.i.i6.i.i, %if.then3.i.i.i.i.i, %if.else.i.i, %if.then.i11.i, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %allSelected_.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 36
   %_M_engaged.i.i.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 37
-  %120 = load i8, ptr %_M_engaged.i.i.i.i, align 1
-  %tobool.i.i.i.i = trunc i8 %120 to i1
+  %119 = load i8, ptr %_M_engaged.i.i.i.i, align 1
+  %tobool.i.i.i.i = trunc i8 %119 to i1
   br i1 %tobool.i.i.i.i, label %entry.return_crit_edge.i.i, label %if.end.i.i
 
 entry.return_crit_edge.i.i:                       ; preds = %if.end6
@@ -7779,81 +7777,81 @@ entry.return_crit_edge.i.i:                       ; preds = %if.end6
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
 
 if.end.i.i:                                       ; preds = %if.end6
-  %121 = load i32, ptr %begin_.i, align 4
-  %cmp.i.i12 = icmp eq i32 %121, 0
+  %120 = load i32, ptr %begin_.i, align 4
+  %cmp.i.i12 = icmp eq i32 %120, 0
   br i1 %cmp.i.i12, label %land.lhs.true.i.i, label %land.end.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %122 = load i32, ptr %end_.i, align 8
+  %121 = load i32, ptr %end_.i, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %123 = load i32, ptr %size_.i.i, align 8
-  %cmp5.i.i = icmp eq i32 %122, %123
+  %122 = load i32, ptr %size_.i.i, align 8
+  %cmp5.i.i = icmp eq i32 %121, %122
   br i1 %cmp5.i.i, label %land.rhs.i.i, label %land.end.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i.i
-  %124 = load ptr, ptr %validRows, align 8
-  %cmp.not.i.i.i = icmp sgt i32 %122, 0
+  %123 = load ptr, ptr %validRows, align 8
+  %cmp.not.i.i.i = icmp sgt i32 %121, 0
   br i1 %cmp.not.i.i.i, label %if.end.i.i.i.i, label %land.end.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.rhs.i.i
-  %125 = and i32 %122, 2147483584
-  %126 = zext nneg i32 %125 to i64
+  %124 = and i32 %121, 2147483584
+  %125 = zext nneg i32 %124 to i64
   br label %for.cond.i.i.i.i
 
 for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end.i.i.i.i
   %indvars.iv.i.i115 = phi i64 [ %indvars.iv.next.i.i116, %for.body.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %indvars.iv.next.i.i116 = add nuw nsw i64 %indvars.iv.i.i115, 64
-  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i116, %126
+  %cmp19.not.i.i.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i116, %125
   br i1 %cmp19.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
-  %127 = lshr exact i64 %indvars.iv.i.i115, 3
-  %arrayidx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %124, i64 %127
-  %128 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
-  %cmp.i36.i.i.i.i = icmp eq i64 %128, -1
+  %126 = lshr exact i64 %indvars.iv.i.i115, 3
+  %arrayidx.i35.i.i.i.i = getelementptr inbounds nuw i8, ptr %123, i64 %126
+  %127 = load i64, ptr %arrayidx.i35.i.i.i.i, align 8
+  %cmp.i36.i.i.i.i = icmp eq i64 %127, -1
   br i1 %cmp.i36.i.i.i.i, label %for.cond.i.i.i.i, label %land.end.i.i, !llvm.loop !40
 
 for.end.i.i.i.i:                                  ; preds = %for.cond.i.i.i.i
-  %cmp25.not.i.i.i.i = icmp eq i32 %122, %125
+  %cmp25.not.i.i.i.i = icmp eq i32 %121, %124
   br i1 %cmp25.not.i.i.i.i, label %land.end.i.i, label %if.then26.i.i.i.i
 
 if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
-  %div27.i.i.i.i = lshr i32 %122, 6
-  %sub28.i.i.i.i = and i32 %122, 63
+  %div27.i.i.i.i = lshr i32 %121, 6
+  %sub28.i.i.i.i = and i32 %121, 63
   %sh_prom.i37.i.i.i.i = zext nneg i32 %sub28.i.i.i.i to i64
   %notmask.i38.i.i.i.i = shl nsw i64 -1, %sh_prom.i37.i.i.i.i
   %idxprom.i40.i.i.i.i = zext nneg i32 %div27.i.i.i.i to i64
-  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %124, i64 %idxprom.i40.i.i.i.i
-  %129 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
-  %.demorgan.i.i = or i64 %129, %notmask.i38.i.i.i.i
+  %arrayidx.i41.i.i.i.i = getelementptr inbounds nuw i64, ptr %123, i64 %idxprom.i40.i.i.i.i
+  %128 = load i64, ptr %arrayidx.i41.i.i.i.i, align 8
+  %.demorgan.i.i = or i64 %128, %notmask.i38.i.i.i.i
   %cmp.i42.i.i.i.i = icmp eq i64 %.demorgan.i.i, -1
-  %130 = zext i1 %cmp.i42.i.i.i.i to i16
-  %131 = or disjoint i16 %130, 256
+  %129 = zext i1 %cmp.i42.i.i.i.i to i16
+  %130 = or disjoint i16 %129, 256
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %131, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %130, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
-  %132 = trunc i16 %frombool.i.i to i8
+  %131 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i: ; preds = %land.end.i.i, %entry.return_crit_edge.i.i
-  %retval.0.in.i.i = phi i8 [ %retval.0.in.pre.i.i, %entry.return_crit_edge.i.i ], [ %132, %land.end.i.i ]
+  %retval.0.in.i.i = phi i8 [ %retval.0.in.pre.i.i, %entry.return_crit_edge.i.i ], [ %131, %land.end.i.i ]
   %retval.0.i.i = trunc i8 %retval.0.in.i.i to i1
   br i1 %retval.0.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %if.end.i13
 
 if.end.i13:                                       ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
   %invalidRows_.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   %size_.i3.i = getelementptr inbounds nuw i8, ptr %validRows, i64 24
-  %133 = load i32, ptr %size_.i3.i, align 8
-  %add.i.i.i.i = add i32 %133, 63
+  %132 = load i32, ptr %size_.i3.i, align 8
+  %add.i.i.i.i = add i32 %132, 63
   %div.i.i.i = sdiv i32 %add.i.i.i.i, 64
   %conv.i.i.i = sext i32 %div.i.i.i to i64
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
-  %134 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %135 = load ptr, ptr %invalidRows_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %134 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %135 to i64
+  %133 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %134 = load ptr, ptr %invalidRows_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %133 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %134 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 3
   %cmp.i.i.i14 = icmp ult i64 %sub.ptr.div.i.i.i.i, %conv.i.i.i
@@ -7872,8 +7870,8 @@ if.else.i.i.i:                                    ; preds = %if.end.i13
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %135, i64 %conv.i.i.i
-  %tobool.not.i.i.i.i = icmp eq ptr %134, %add.ptr.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %134, i64 %conv.i.i.i
+  %tobool.not.i.i.i.i = icmp eq ptr %133, %add.ptr.i.i.i
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i, label %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %if.then5.i.i.i
@@ -7882,31 +7880,31 @@ invoke.cont.i.i.i.i:                              ; preds = %if.then5.i.i.i
 
 _ZNSt6vectorImSaImEE6resizeEm.exit.i.i:           ; preds = %invoke.cont.i.i.i.i, %if.then5.i.i.i, %if.else.i.i.i, %if.then.i.i.i
   %.pre-phi.i = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i, %invoke.cont.i.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.then5.i.i.i ], [ %sub.ptr.rhs.cast.i.i.i.i, %if.else.i.i.i ], [ %.pre.i, %if.then.i.i.i ]
-  %136 = phi ptr [ %add.ptr.i.i.i, %invoke.cont.i.i.i.i ], [ %134, %if.then5.i.i.i ], [ %134, %if.else.i.i.i ], [ %.pre4.i.i, %if.then.i.i.i ]
-  %137 = phi ptr [ %135, %invoke.cont.i.i.i.i ], [ %135, %if.then5.i.i.i ], [ %135, %if.else.i.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
-  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %137, %136
+  %135 = phi ptr [ %add.ptr.i.i.i, %invoke.cont.i.i.i.i ], [ %133, %if.then5.i.i.i ], [ %133, %if.else.i.i.i ], [ %.pre4.i.i, %if.then.i.i.i ]
+  %136 = phi ptr [ %134, %invoke.cont.i.i.i.i ], [ %134, %if.then5.i.i.i ], [ %134, %if.else.i.i.i ], [ %.pre.i.i, %if.then.i.i.i ]
+  %cmp.not3.i.i.i.i.i.i = icmp eq ptr %136, %135
   br i1 %cmp.not3.i.i.i.i.i.i, label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i, label %for.body.i.i.i.i.i.preheader.i
 
 for.body.i.i.i.i.i.preheader.i:                   ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
-  %138 = ptrtoint ptr %136 to i64
-  %reass.sub130 = sub i64 %138, %.pre-phi.i
-  %139 = and i64 %reass.sub130, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %137, i8 -1, i64 %139, i1 false)
+  %137 = ptrtoint ptr %135 to i64
+  %reass.sub130 = sub i64 %137, %.pre-phi.i
+  %138 = and i64 %reass.sub130, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %136, i8 -1, i64 %138, i1 false)
   br label %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
 
 _ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i: ; preds = %for.body.i.i.i.i.i.preheader.i, %_ZNSt6vectorImSaImEE6resizeEm.exit.i.i
   %size_.i4.i = getelementptr inbounds nuw i8, ptr %this, i64 152
-  store i32 %133, ptr %size_.i4.i, align 8
+  store i32 %132, ptr %size_.i4.i, align 8
   %begin_.i5.i = getelementptr inbounds nuw i8, ptr %this, i64 156
   store i32 0, ptr %begin_.i5.i, align 4
   %end_.i6.i = getelementptr inbounds nuw i8, ptr %this, i64 160
-  store i32 %133, ptr %end_.i6.i, align 8
+  store i32 %132, ptr %end_.i6.i, align 8
   %allSelected_.i7.i = getelementptr inbounds nuw i8, ptr %this, i64 164
   store i16 257, ptr %allSelected_.i7.i, align 4
   call void @_ZN8facebook5velox17SelectivityVector8deselectERKS1_(ptr noundef nonnull align 8 dereferenceable(38) %invalidRows_.i, ptr noundef nonnull align 8 dereferenceable(38) %validRows)
   %_M_engaged.i.i.i.i.i15 = getelementptr inbounds nuw i8, ptr %this, i64 165
-  %140 = load i8, ptr %_M_engaged.i.i.i.i.i15, align 1
-  %tobool.i.i.i.i.i16 = trunc i8 %140 to i1
+  %139 = load i8, ptr %_M_engaged.i.i.i.i.i15, align 1
+  %tobool.i.i.i.i.i16 = trunc i8 %139 to i1
   br i1 %tobool.i.i.i.i.i16, label %entry.return_crit_edge.i.i.i111, label %if.end.i.i.i17
 
 entry.return_crit_edge.i.i.i111:                  ; preds = %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
@@ -7914,111 +7912,111 @@ entry.return_crit_edge.i.i.i111:                  ; preds = %_ZN8facebook5velox1
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
 
 if.end.i.i.i17:                                   ; preds = %_ZN8facebook5velox17SelectivityVector10resizeFillEib.exit.i
-  %141 = load i32, ptr %begin_.i5.i, align 4
-  %cmp.i.i8.i = icmp eq i32 %141, 0
+  %140 = load i32, ptr %begin_.i5.i, align 4
+  %cmp.i.i8.i = icmp eq i32 %140, 0
   br i1 %cmp.i.i8.i, label %land.lhs.true.i.i.i88, label %land.end.i.i.i18
 
 land.lhs.true.i.i.i88:                            ; preds = %if.end.i.i.i17
-  %142 = load i32, ptr %end_.i6.i, align 8
-  %143 = load i32, ptr %size_.i4.i, align 8
-  %cmp5.i.i.i89 = icmp eq i32 %142, %143
+  %141 = load i32, ptr %end_.i6.i, align 8
+  %142 = load i32, ptr %size_.i4.i, align 8
+  %cmp5.i.i.i89 = icmp eq i32 %141, %142
   br i1 %cmp5.i.i.i89, label %land.rhs.i.i.i90, label %land.end.i.i.i18
 
 land.rhs.i.i.i90:                                 ; preds = %land.lhs.true.i.i.i88
-  %144 = load ptr, ptr %invalidRows_.i, align 8
-  %cmp.not.i.i.i.i91 = icmp sgt i32 %142, 0
+  %143 = load ptr, ptr %invalidRows_.i, align 8
+  %cmp.not.i.i.i.i91 = icmp sgt i32 %141, 0
   br i1 %cmp.not.i.i.i.i91, label %if.end.i.i.i.i.i92, label %land.end.i.i.i18
 
 if.end.i.i.i.i.i92:                               ; preds = %land.rhs.i.i.i90
-  %145 = and i32 %142, 2147483584
-  %146 = zext nneg i32 %145 to i64
+  %144 = and i32 %141, 2147483584
+  %145 = zext nneg i32 %144 to i64
   br label %for.cond.i.i.i.i.i93
 
 for.cond.i.i.i.i.i93:                             ; preds = %for.body.i.i.i.i.i97, %if.end.i.i.i.i.i92
   %indvars.iv.i.i.i94 = phi i64 [ %indvars.iv.next.i.i.i95, %for.body.i.i.i.i.i97 ], [ 0, %if.end.i.i.i.i.i92 ]
   %indvars.iv.next.i.i.i95 = add nuw nsw i64 %indvars.iv.i.i.i94, 64
-  %cmp19.not.i.i.i.i.i96 = icmp samesign ugt i64 %indvars.iv.next.i.i.i95, %146
+  %cmp19.not.i.i.i.i.i96 = icmp samesign ugt i64 %indvars.iv.next.i.i.i95, %145
   br i1 %cmp19.not.i.i.i.i.i96, label %for.end.i.i.i.i.i100, label %for.body.i.i.i.i.i97
 
 for.body.i.i.i.i.i97:                             ; preds = %for.cond.i.i.i.i.i93
-  %147 = lshr exact i64 %indvars.iv.i.i.i94, 3
-  %arrayidx.i35.i.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %144, i64 %147
-  %148 = load i64, ptr %arrayidx.i35.i.i.i.i.i98, align 8
-  %cmp.i36.i.i.i.i.i99 = icmp eq i64 %148, -1
+  %146 = lshr exact i64 %indvars.iv.i.i.i94, 3
+  %arrayidx.i35.i.i.i.i.i98 = getelementptr inbounds nuw i8, ptr %143, i64 %146
+  %147 = load i64, ptr %arrayidx.i35.i.i.i.i.i98, align 8
+  %cmp.i36.i.i.i.i.i99 = icmp eq i64 %147, -1
   br i1 %cmp.i36.i.i.i.i.i99, label %for.cond.i.i.i.i.i93, label %land.end.i.i.i18, !llvm.loop !40
 
 for.end.i.i.i.i.i100:                             ; preds = %for.cond.i.i.i.i.i93
-  %cmp25.not.i.i.i.i.i101 = icmp eq i32 %142, %145
+  %cmp25.not.i.i.i.i.i101 = icmp eq i32 %141, %144
   br i1 %cmp25.not.i.i.i.i.i101, label %land.end.i.i.i18, label %if.then26.i.i.i.i.i102
 
 if.then26.i.i.i.i.i102:                           ; preds = %for.end.i.i.i.i.i100
-  %div27.i.i.i.i.i103 = lshr i32 %142, 6
-  %sub28.i.i.i.i.i104 = and i32 %142, 63
+  %div27.i.i.i.i.i103 = lshr i32 %141, 6
+  %sub28.i.i.i.i.i104 = and i32 %141, 63
   %sh_prom.i37.i.i.i.i.i105 = zext nneg i32 %sub28.i.i.i.i.i104 to i64
   %notmask.i38.i.i.i.i.i106 = shl nsw i64 -1, %sh_prom.i37.i.i.i.i.i105
   %idxprom.i40.i.i.i.i.i107 = zext nneg i32 %div27.i.i.i.i.i103 to i64
-  %arrayidx.i41.i.i.i.i.i108 = getelementptr inbounds nuw i64, ptr %144, i64 %idxprom.i40.i.i.i.i.i107
-  %149 = load i64, ptr %arrayidx.i41.i.i.i.i.i108, align 8
-  %.demorgan.i.i.i109 = or i64 %149, %notmask.i38.i.i.i.i.i106
+  %arrayidx.i41.i.i.i.i.i108 = getelementptr inbounds nuw i64, ptr %143, i64 %idxprom.i40.i.i.i.i.i107
+  %148 = load i64, ptr %arrayidx.i41.i.i.i.i.i108, align 8
+  %.demorgan.i.i.i109 = or i64 %148, %notmask.i38.i.i.i.i.i106
   %cmp.i42.i.i.i.i.i110 = icmp eq i64 %.demorgan.i.i.i109, -1
-  %150 = zext i1 %cmp.i42.i.i.i.i.i110 to i16
-  %151 = or disjoint i16 %150, 256
+  %149 = zext i1 %cmp.i42.i.i.i.i.i110 to i16
+  %150 = or disjoint i16 %149, 256
   br label %land.end.i.i.i18
 
 land.end.i.i.i18:                                 ; preds = %for.body.i.i.i.i.i97, %if.then26.i.i.i.i.i102, %for.end.i.i.i.i.i100, %land.rhs.i.i.i90, %land.lhs.true.i.i.i88, %if.end.i.i.i17
-  %frombool.i.i.i19 = phi i16 [ 256, %land.lhs.true.i.i.i88 ], [ 256, %if.end.i.i.i17 ], [ 257, %land.rhs.i.i.i90 ], [ %151, %if.then26.i.i.i.i.i102 ], [ 257, %for.end.i.i.i.i.i100 ], [ 256, %for.body.i.i.i.i.i97 ]
+  %frombool.i.i.i19 = phi i16 [ 256, %land.lhs.true.i.i.i88 ], [ 256, %if.end.i.i.i17 ], [ 257, %land.rhs.i.i.i90 ], [ %150, %if.then26.i.i.i.i.i102 ], [ 257, %for.end.i.i.i.i.i100 ], [ 256, %for.body.i.i.i.i.i97 ]
   store i16 %frombool.i.i.i19, ptr %allSelected_.i7.i, align 4
-  %152 = trunc i16 %frombool.i.i.i19 to i8
+  %151 = trunc i16 %frombool.i.i.i19 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
 
 _ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20: ; preds = %land.end.i.i.i18, %entry.return_crit_edge.i.i.i111
-  %retval.0.in.i.i.i21 = phi i8 [ %retval.0.in.pre.i.i.i112, %entry.return_crit_edge.i.i.i111 ], [ %152, %land.end.i.i.i18 ]
+  %retval.0.in.i.i.i21 = phi i8 [ %retval.0.in.pre.i.i.i112, %entry.return_crit_edge.i.i.i111 ], [ %151, %land.end.i.i.i18 ]
   %retval.0.i.i.i22 = trunc i8 %retval.0.in.i.i.i21 to i1
   br i1 %retval.0.i.i.i22, label %if.then.i.i83, label %if.else.i.i23
 
 if.then.i.i83:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
-  %153 = load i32, ptr %begin_.i5.i, align 4
-  %154 = load i32, ptr %end_.i6.i, align 8
-  %cmp10.i.i = icmp slt i32 %153, %154
+  %152 = load i32, ptr %begin_.i5.i, align 4
+  %153 = load i32, ptr %end_.i6.i, align 8
+  %cmp10.i.i = icmp slt i32 %152, %153
   br i1 %cmp10.i.i, label %for.body.lr.ph.i.i84, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit
 
 for.body.lr.ph.i.i84:                             ; preds = %if.then.i.i83
-  %155 = sext i32 %153 to i64
+  %154 = sext i32 %152 to i64
   br label %for.body.i.i85
 
 for.body.i.i85:                                   ; preds = %for.body.i.i85, %for.body.lr.ph.i.i84
-  %indvars.iv.i13.i86 = phi i64 [ %155, %for.body.lr.ph.i.i84 ], [ %indvars.iv.next.i14.i, %for.body.i.i85 ]
+  %indvars.iv.i13.i86 = phi i64 [ %154, %for.body.lr.ph.i.i84 ], [ %indvars.iv.next.i14.i, %for.body.i.i85 ]
   %func.val.val.i.i = load ptr, ptr %rowNumbers_, align 8
   %add.ptr.i.i.i.i87 = getelementptr inbounds i32, ptr %func.val.val.i.i, i64 %indvars.iv.i13.i86
   store i32 -1, ptr %add.ptr.i.i.i.i87, align 4
   %indvars.iv.next.i14.i = add nsw i64 %indvars.iv.i13.i86, 1
-  %156 = load i32, ptr %end_.i6.i, align 8
-  %157 = sext i32 %156 to i64
-  %cmp.i15.i = icmp slt i64 %indvars.iv.next.i14.i, %157
+  %155 = load i32, ptr %end_.i6.i, align 8
+  %156 = sext i32 %155 to i64
+  %cmp.i15.i = icmp slt i64 %indvars.iv.next.i14.i, %156
   br i1 %cmp.i15.i, label %for.body.i.i85, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, !llvm.loop !79
 
 if.else.i.i23:                                    ; preds = %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i20
-  %158 = load ptr, ptr %invalidRows_.i, align 8
-  %159 = load i32, ptr %begin_.i5.i, align 4
-  %160 = load i32, ptr %end_.i6.i, align 8
-  %cmp.not.i.i.i.i.i24 = icmp slt i32 %159, %160
+  %157 = load ptr, ptr %invalidRows_.i, align 8
+  %158 = load i32, ptr %begin_.i5.i, align 4
+  %159 = load i32, ptr %end_.i6.i, align 8
+  %cmp.not.i.i.i.i.i24 = icmp slt i32 %158, %159
   br i1 %cmp.not.i.i.i.i.i24, label %if.end.i.i.i3.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit
 
 if.end.i.i.i3.i.i:                                ; preds = %if.else.i.i23
-  %add.i.i.i.i.i.i25 = add i32 %159, 63
-  %161 = srem i32 %add.i.i.i.i.i.i25, 64
-  %mul.i.i.i.i.i.i26 = sub nsw i32 %add.i.i.i.i.i.i25, %161
-  %162 = and i32 %160, -64
-  %cmp2.i.i.i.i.i27 = icmp slt i32 %162, %mul.i.i.i.i.i.i26
+  %add.i.i.i.i.i.i25 = add i32 %158, 63
+  %160 = srem i32 %add.i.i.i.i.i.i25, 64
+  %mul.i.i.i.i.i.i26 = sub nsw i32 %add.i.i.i.i.i.i25, %160
+  %161 = and i32 %159, -64
+  %cmp2.i.i.i.i.i27 = icmp slt i32 %161, %mul.i.i.i.i.i.i26
   br i1 %cmp2.i.i.i.i.i27, label %if.then3.i.i.i.i.i57, label %if.end8.i.i.i.i.i28
 
 if.then3.i.i.i.i.i57:                             ; preds = %if.end.i.i.i3.i.i
-  %div.i.i.i.i.i58 = ashr i32 %160, 6
-  %sub.i.i.i.i.i59 = and i32 %160, 63
+  %div.i.i.i.i.i58 = ashr i32 %159, 6
+  %sub.i.i.i.i.i59 = and i32 %159, 63
   %sh_prom.i.i.i.i.i.i60 = zext nneg i32 %sub.i.i.i.i.i59 to i64
   %notmask.i.i.i.i.i.i61 = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i60
   %sub.i22.i.i.i.i.i62 = xor i64 %notmask.i.i.i.i.i.i61, -1
-  %sub5.i.i.i.i.i63 = sub nsw i32 %mul.i.i.i.i.i.i26, %159
+  %sub5.i.i.i.i.i63 = sub nsw i32 %mul.i.i.i.i.i.i26, %158
   %sh_prom.i.i.i.i.i.i.i64 = zext nneg i32 %sub5.i.i.i.i.i63 to i64
   %notmask.i.i.i.i.i.i.i65 = shl nsw i64 -1, %sh_prom.i.i.i.i.i.i.i64
   %sub.i.i.i.i.i.i.i66 = xor i64 %notmask.i.i.i.i.i.i.i65, -1
@@ -8027,17 +8025,17 @@ if.then3.i.i.i.i.i57:                             ; preds = %if.end.i.i.i3.i.i
   %shl.i.i.i.i.i.i69 = shl i64 %sub.i.i.i.i.i.i.i66, %sh_prom.i24.i.i.i.i.i68
   %and7.i.i.i.i.i70 = and i64 %shl.i.i.i.i.i.i69, %sub.i22.i.i.i.i.i62
   %idxprom.i.i.i.i.i.i71 = sext i32 %div.i.i.i.i.i58 to i64
-  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds i64, ptr %158, i64 %idxprom.i.i.i.i.i.i71
-  %163 = load i64, ptr %arrayidx.i.i.i.i.i.i72, align 8
-  %and.i.i.i.i.i.i73 = and i64 %and7.i.i.i.i.i70, %163
+  %arrayidx.i.i.i.i.i.i72 = getelementptr inbounds i64, ptr %157, i64 %idxprom.i.i.i.i.i.i71
+  %162 = load i64, ptr %arrayidx.i.i.i.i.i.i72, align 8
+  %and.i.i.i.i.i.i73 = and i64 %and7.i.i.i.i.i70, %162
   %tobool4.not.i.i.i.i.i.i74 = icmp eq i64 %and.i.i.i.i.i.i73, 0
   br i1 %tobool4.not.i.i.i.i.i.i74, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i.i.i.i.i.i76
 
 while.body.i.i.i.i.i.i76:                         ; preds = %if.then3.i.i.i.i.i57, %while.body.i.i.i.i.i.i76
   %word.0.i.i.i.i.i.i77 = phi i64 [ %and6.i.i.i.i.i.i81, %while.body.i.i.i.i.i.i76 ], [ %and.i.i.i.i.i.i73, %if.then3.i.i.i.i.i57 ]
-  %164 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i77, i1 true)
-  %cast.i.i.i.i.i.i78 = trunc nuw nsw i64 %164 to i32
-  %add.i26.i.i.i.i.i79 = or disjoint i32 %162, %cast.i.i.i.i.i.i78
+  %163 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i.i.i.i.i.i77, i1 true)
+  %cast.i.i.i.i.i.i78 = trunc nuw nsw i64 %163 to i32
+  %add.i26.i.i.i.i.i79 = or disjoint i32 %161, %cast.i.i.i.i.i.i78
   %.val.val.i.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i.i.i.i.i.i = sext i32 %add.i26.i.i.i.i.i79 to i64
   %add.ptr.i.i.i.i.i.i.i.i80 = getelementptr inbounds i32, ptr %.val.val.i.i.i.i.i.i, i64 %conv.i.i.i.i.i.i.i
@@ -8048,12 +8046,12 @@ while.body.i.i.i.i.i.i76:                         ; preds = %if.then3.i.i.i.i.i5
   br i1 %tobool5.old.not.i.i.i.i.i.i82, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i.i.i.i.i.i76
 
 if.end8.i.i.i.i.i28:                              ; preds = %if.end.i.i.i3.i.i
-  %cmp9.not.i.i.i.i.i29 = icmp eq i32 %159, %mul.i.i.i.i.i.i26
+  %cmp9.not.i.i.i.i.i29 = icmp eq i32 %158, %mul.i.i.i.i.i.i26
   br i1 %cmp9.not.i.i.i.i.i29, label %if.end14.i.i.i.i.i33, label %if.then10.i.i.i.i.i30
 
 if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
-  %div11.i.i.i.i.i31 = sdiv i32 %159, 64
-  %sub12.i.i.i.i.i32 = sub nsw i32 %mul.i.i.i.i.i.i26, %159
+  %div11.i.i.i.i.i31 = sdiv i32 %158, 64
+  %sub12.i.i.i.i.i32 = sub nsw i32 %mul.i.i.i.i.i.i26, %158
   %sh_prom.i.i28.i.i.i.i.i = zext nneg i32 %sub12.i.i.i.i.i32 to i64
   %notmask.i.i29.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i.i28.i.i.i.i.i
   %sub.i.i30.i.i.i.i.i = xor i64 %notmask.i.i29.i.i.i.i.i, -1
@@ -8061,9 +8059,9 @@ if.then10.i.i.i.i.i30:                            ; preds = %if.end8.i.i.i.i.i28
   %sh_prom.i32.i.i.i.i.i = zext nneg i32 %sub.i31.i.i.i.i.i to i64
   %shl.i33.i.i.i.i.i = shl i64 %sub.i.i30.i.i.i.i.i, %sh_prom.i32.i.i.i.i.i
   %idxprom.i34.i.i.i.i.i = sext i32 %div11.i.i.i.i.i31 to i64
-  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %158, i64 %idxprom.i34.i.i.i.i.i
-  %165 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
-  %and.i38.i.i.i.i.i = and i64 %165, %shl.i33.i.i.i.i.i
+  %arrayidx.i35.i.i.i4.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i34.i.i.i.i.i
+  %164 = load i64, ptr %arrayidx.i35.i.i.i4.i.i, align 8
+  %and.i38.i.i.i.i.i = and i64 %164, %shl.i33.i.i.i.i.i
   %tobool4.not.i39.i.i.i.i.i = icmp eq i64 %and.i38.i.i.i.i.i, 0
   br i1 %tobool4.not.i39.i.i.i.i.i, label %if.end14.i.i.i.i.i33, label %while.body.preheader.i40.i.i.i.i.i
 
@@ -8073,8 +8071,8 @@ while.body.preheader.i40.i.i.i.i.i:               ; preds = %if.then10.i.i.i.i.i
 
 while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i
   %word.0.i43.i.i.i.i.i = phi i64 [ %and6.i51.i.i.i.i.i, %while.body.i42.i.i.i.i.i ], [ %and.i38.i.i.i.i.i, %while.body.preheader.i40.i.i.i.i.i ]
-  %166 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
-  %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %166 to i32
+  %165 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i43.i.i.i.i.i, i1 true)
+  %cast.i44.i.i.i.i.i = trunc nuw nsw i64 %165 to i32
   %add.i45.i.i.i.i.i = or disjoint i32 %mul.i41.i.i.i.i.i, %cast.i44.i.i.i.i.i
   %.val.val.i47.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i48.i.i.i.i.i = sext i32 %add.i45.i.i.i.i.i to i64
@@ -8087,7 +8085,7 @@ while.body.i42.i.i.i.i.i:                         ; preds = %while.body.i42.i.i.
 
 if.end14.i.i.i.i.i33:                             ; preds = %while.body.i42.i.i.i.i.i, %if.then10.i.i.i.i.i30, %if.end8.i.i.i.i.i28
   %add92.i.i.i.i.i = add nsw i32 %mul.i.i.i.i.i.i26, 64
-  %cmp15.not93.i.i.i.i.i = icmp sgt i32 %add92.i.i.i.i.i, %162
+  %cmp15.not93.i.i.i.i.i = icmp sgt i32 %add92.i.i.i.i.i, %161
   br i1 %cmp15.not93.i.i.i.i.i, label %for.end.i.i.i6.i.i39, label %for.body.i.i.i5.i.i35
 
 for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i33, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i
@@ -8095,9 +8093,9 @@ for.body.i.i.i5.i.i35:                            ; preds = %if.end14.i.i.i.i.i3
   %i.094.i.i.i.i.i = phi i32 [ %add95.i.i.i.i.i, %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i ], [ %mul.i.i.i.i.i.i26, %if.end14.i.i.i.i.i33 ]
   %div16.i.i.i.i.i36 = sdiv i32 %i.094.i.i.i.i.i, 64
   %idxprom.i54.i.i.i.i.i = sext i32 %div16.i.i.i.i.i36 to i64
-  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %158, i64 %idxprom.i54.i.i.i.i.i
-  %167 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
-  switch i64 %167, label %while.body.lr.ph.i.i.i.i.i.i53 [
+  %arrayidx.i55.i.i.i.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i54.i.i.i.i.i
+  %166 = load i64, ptr %arrayidx.i55.i.i.i.i.i, align 8
+  switch i64 %166, label %while.body.lr.ph.i.i.i.i.i.i53 [
     i64 -1, label %if.then.i.i.i.i.i.i45
     i64 0, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i
   ]
@@ -8128,9 +8126,9 @@ for.body.i.i.i.i.i10.i:                           ; preds = %for.body.i.i.i.i.i1
   br i1 %cmp6.i.i.i.i.i.i52, label %for.body.i.i.i.i.i10.i, label %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i, !llvm.loop !80
 
 while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.i.i.i, %while.body.lr.ph.i.i.i.i.i.i53
-  %word.015.i.i.i.i.i.i = phi i64 [ %167, %while.body.lr.ph.i.i.i.i.i.i53 ], [ %and.i66.i.i.i.i.i, %while.body.i60.i.i.i.i.i ]
-  %168 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.015.i.i.i.i.i.i, i1 true)
-  %cast.i61.i.i.i.i.i = trunc nuw nsw i64 %168 to i32
+  %word.015.i.i.i.i.i.i = phi i64 [ %166, %while.body.lr.ph.i.i.i.i.i.i53 ], [ %and.i66.i.i.i.i.i, %while.body.i60.i.i.i.i.i ]
+  %167 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.015.i.i.i.i.i.i, i1 true)
+  %cast.i61.i.i.i.i.i = trunc nuw nsw i64 %167 to i32
   %add9.i.i.i.i.i.i55 = or disjoint i32 %mul8.i.i.i.i.i.i54, %cast.i61.i.i.i.i.i
   %.val.val.i63.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i64.i.i.i.i.i = sext i32 %add9.i.i.i.i.i.i55 to i64
@@ -8143,31 +8141,31 @@ while.body.i60.i.i.i.i.i:                         ; preds = %while.body.i60.i.i.
 
 _ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i10.i, %while.body.i60.i.i.i.i.i, %if.then.i.i.i.i.i.i45, %for.body.i.i.i5.i.i35
   %add.i.i.i.i.i37 = add nsw i32 %add95.i.i.i.i.i, 64
-  %cmp15.not.i.i.i.i.i38 = icmp sgt i32 %add.i.i.i.i.i37, %162
+  %cmp15.not.i.i.i.i.i38 = icmp sgt i32 %add.i.i.i.i.i37, %161
   br i1 %cmp15.not.i.i.i.i.i38, label %for.end.i.i.i6.i.i39, label %for.body.i.i.i5.i.i35, !llvm.loop !82
 
 for.end.i.i.i6.i.i39:                             ; preds = %_ZZN8facebook5velox4bits10forEachBitIZNS0_6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS5_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorEEUlT_E_EEvPKmiibSC_ENKUliE_clEi.exit.i.i.i.i.i, %if.end14.i.i.i.i.i33
-  %cmp18.not.i.i.i.i.i40 = icmp eq i32 %160, %162
+  %cmp18.not.i.i.i.i.i40 = icmp eq i32 %159, %161
   br i1 %cmp18.not.i.i.i.i.i40, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %if.then19.i.i.i.i.i41
 
 if.then19.i.i.i.i.i41:                            ; preds = %for.end.i.i.i6.i.i39
-  %div20.i.i.i.i.i42 = ashr i32 %160, 6
-  %sub21.i.i.i.i.i43 = and i32 %160, 63
+  %div20.i.i.i.i.i42 = ashr i32 %159, 6
+  %sub21.i.i.i.i.i43 = and i32 %159, 63
   %sh_prom.i67.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i43 to i64
   %notmask.i68.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i67.i.i.i.i.i
   %sub.i69.i.i.i.i.i = xor i64 %notmask.i68.i.i.i.i.i, -1
   %idxprom.i70.i.i.i.i.i = sext i32 %div20.i.i.i.i.i42 to i64
-  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %158, i64 %idxprom.i70.i.i.i.i.i
-  %169 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
-  %and.i74.i.i.i.i.i = and i64 %169, %sub.i69.i.i.i.i.i
+  %arrayidx.i71.i.i.i.i.i = getelementptr inbounds i64, ptr %157, i64 %idxprom.i70.i.i.i.i.i
+  %168 = load i64, ptr %arrayidx.i71.i.i.i.i.i, align 8
+  %and.i74.i.i.i.i.i = and i64 %168, %sub.i69.i.i.i.i.i
   %tobool4.not.i75.i.i.i.i.i = icmp eq i64 %and.i74.i.i.i.i.i, 0
   br i1 %tobool4.not.i75.i.i.i.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i78.i.i.i.i.i
 
 while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i41, %while.body.i78.i.i.i.i.i
   %word.0.i79.i.i.i.i.i = phi i64 [ %and6.i87.i.i.i.i.i, %while.body.i78.i.i.i.i.i ], [ %and.i74.i.i.i.i.i, %if.then19.i.i.i.i.i41 ]
-  %170 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i79.i.i.i.i.i, i1 true)
-  %cast.i80.i.i.i.i.i = trunc nuw nsw i64 %170 to i32
-  %add.i81.i.i.i.i.i = or disjoint i32 %162, %cast.i80.i.i.i.i.i
+  %169 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %word.0.i79.i.i.i.i.i, i1 true)
+  %cast.i80.i.i.i.i.i = trunc nuw nsw i64 %169 to i32
+  %add.i81.i.i.i.i.i = or disjoint i32 %161, %cast.i80.i.i.i.i.i
   %.val.val.i83.i.i.i.i.i = load ptr, ptr %rowNumbers_, align 8
   %conv.i.i84.i.i.i.i.i = sext i32 %add.i81.i.i.i.i.i to i64
   %add.ptr.i.i.i85.i.i.i.i.i = getelementptr inbounds i32, ptr %.val.val.i83.i.i.i.i.i, i64 %conv.i.i84.i.i.i.i.i
@@ -8178,13 +8176,13 @@ while.body.i78.i.i.i.i.i:                         ; preds = %if.then19.i.i.i.i.i
   br i1 %tobool5.old.not.i88.i.i.i.i.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit, label %while.body.i78.i.i.i.i.i
 
 _ZN8facebook5velox6window9prestosql12_GLOBAL__N_122FirstLastValueFunctionILNS3_9ValueTypeE1EE27setRowNumbersForEmptyFramesERKNS0_17SelectivityVectorE.exit: ; preds = %while.body.i78.i.i.i.i.i, %while.body.i.i.i.i.i.i76, %for.body.i.i85, %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i, %if.then.i.i83, %if.else.i.i23, %if.then3.i.i.i.i.i57, %for.end.i.i.i6.i.i39, %if.then19.i.i.i.i.i41
-  %171 = load ptr, ptr %rowNumbers_, align 8
-  %add.ptr.i117 = getelementptr inbounds nuw i32, ptr %171, i64 %div8
+  %170 = load ptr, ptr %rowNumbers_, align 8
+  %add.ptr.i117 = getelementptr inbounds nuw i32, ptr %170, i64 %div8
   %partition_ = getelementptr inbounds nuw i8, ptr %this, i64 88
-  %172 = load ptr, ptr %partition_, align 8
+  %171 = load ptr, ptr %partition_, align 8
   %valueIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %173 = load i32, ptr %valueIndex_, align 4
-  call void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %172, i32 noundef %173, ptr %171, ptr %add.ptr.i117, i32 noundef %resultOffset, ptr noundef nonnull align 8 dereferenceable(16) %result)
+  %172 = load i32, ptr %valueIndex_, align 4
+  call void @_ZNK8facebook5velox4exec15WindowPartition13extractColumnEiN5folly5RangeIPKiEEiRKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(72) %171, i32 noundef %172, ptr %170, ptr %add.ptr.i117, i32 noundef %resultOffset, ptr noundef nonnull align 8 dereferenceable(16) %result)
   ret void
 }
 

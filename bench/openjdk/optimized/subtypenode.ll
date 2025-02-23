@@ -65,112 +65,111 @@ define hidden noundef ptr @_ZNK16SubTypeCheckNode3subEPK4TypeS2_(ptr noundef non
   br i1 %.not18, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %22 = load i32, ptr %21, align 8
-  %23 = icmp ne i32 %22, 25
+  %21 = load i32, ptr %4, align 8
+  %22 = icmp ne i32 %21, 25
   %.not1928 = icmp eq ptr %7, null
-  %.not19 = select i1 %23, i1 true, i1 %.not1928
-  br i1 %.not19, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %24
+  %.not19 = select i1 %22, i1 true, i1 %.not1928
+  br i1 %.not19, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %23
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 272
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
-  br i1 %28, label %29, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %2, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 272
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call noundef zeroext i1 %26(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
+  br i1 %27, label %28, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
-29:                                               ; preds = %24
-  %30 = load ptr, ptr %2, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 232
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr %32(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 184
-  %36 = load ptr, ptr %35, align 8
-  %37 = tail call noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(44) %33) #5
-  br i1 %37, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %38
+28:                                               ; preds = %23
+  %29 = load ptr, ptr %2, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 232
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef ptr %31(ptr noundef nonnull align 8 dereferenceable(64) %2) #5
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 184
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call noundef zeroext i1 %35(ptr noundef nonnull align 8 dereferenceable(44) %32) #5
+  br i1 %36, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %37
 
-38:                                               ; preds = %29
-  %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 192
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(44) %33) #5
-  br i1 %42, label %43, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %32, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 192
+  %40 = load ptr, ptr %39, align 8
+  %41 = tail call noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(44) %32) #5
+  br i1 %41, label %42, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
 
-43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw i8, ptr %33, i64 68
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 2
-  br i1 %46, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %47
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %32, i64 68
+  %44 = load i32, ptr %43, align 4
+  %45 = icmp eq i32 %44, 2
+  br i1 %45, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %46
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %.sroa.0.0.copyload.i.i = load i64, ptr %48, align 8
-  %49 = and i64 %.sroa.0.0.copyload.i.i, 16
-  %.not.i = icmp eq i64 %49, 0
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %32, i64 80
+  %.sroa.0.0.copyload.i.i = load i64, ptr %47, align 8
+  %48 = and i64 %.sroa.0.0.copyload.i.i, 16
+  %.not.i = icmp eq i64 %48, 0
   br i1 %.not.i, label %_ZN15ciInstanceKlass12has_subklassEv.exit, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
 
-_ZN15ciInstanceKlass12has_subklassEv.exit:        ; preds = %47
-  %50 = tail call noundef zeroext i1 @_ZN15ciInstanceKlass27compute_shared_has_subklassEv(ptr noundef nonnull align 8 dereferenceable(144) %33) #5
-  br i1 %50, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
+_ZN15ciInstanceKlass12has_subklassEv.exit:        ; preds = %46
+  %49 = tail call noundef zeroext i1 @_ZN15ciInstanceKlass27compute_shared_has_subklassEv(ptr noundef nonnull align 8 dereferenceable(144) %32) #5
+  br i1 %49, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread, label %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
 
-_ZN15ciInstanceKlass12has_subklassEv.exit.thread24: ; preds = %47, %_ZN15ciInstanceKlass12has_subklassEv.exit
-  %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 1808
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 128
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 352
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  %60 = load ptr, ptr %59, align 8
-  tail call void @_ZN12Dependencies16assert_leaf_typeEP7ciKlass(ptr noundef nonnull align 8 dereferenceable(192) %60, ptr noundef nonnull %33) #5
-  %61 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  br label %81
+_ZN15ciInstanceKlass12has_subklassEv.exit.thread24: ; preds = %46, %_ZN15ciInstanceKlass12has_subklassEv.exit
+  %50 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1808
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 352
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
+  %59 = load ptr, ptr %58, align 8
+  tail call void @_ZN12Dependencies16assert_leaf_typeEP7ciKlass(ptr noundef nonnull align 8 dereferenceable(192) %59, ptr noundef nonnull %32) #5
+  %60 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  br label %80
 
-_ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %43, %29, %38, %_ZN15ciInstanceKlass12has_subklassEv.exit, %24, %20, %16
+_ZN15ciInstanceKlass12has_subklassEv.exit.thread: ; preds = %42, %28, %37, %_ZN15ciInstanceKlass12has_subklassEv.exit, %23, %20, %16
   %.not20 = icmp eq ptr %18, null
-  br i1 %.not20, label %76, label %62
+  br i1 %.not20, label %75, label %61
 
-62:                                               ; preds = %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
-  %63 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1808
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
-  %68 = load ptr, ptr %67, align 8
-  %69 = tail call noundef i32 @_ZN7Compile20static_subtype_checkEPK12TypeKlassPtrS2_b(ptr noundef nonnull align 8 dereferenceable(2316) %68, ptr noundef %7, ptr noundef nonnull %18, i1 noundef zeroext false) #5
-  switch i32 %69, label %74 [
-    i32 0, label %70
-    i32 1, label %72
-    i32 2, label %76
-    i32 3, label %76
+61:                                               ; preds = %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
+  %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 1808
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 128
+  %67 = load ptr, ptr %66, align 8
+  %68 = tail call noundef i32 @_ZN7Compile20static_subtype_checkEPK12TypeKlassPtrS2_b(ptr noundef nonnull align 8 dereferenceable(2316) %67, ptr noundef %7, ptr noundef nonnull %18, i1 noundef zeroext false) #5
+  switch i32 %68, label %73 [
+    i32 0, label %69
+    i32 1, label %71
+    i32 2, label %75
+    i32 3, label %75
   ]
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
-  br label %81
+69:                                               ; preds = %61
+  %70 = load ptr, ptr @_ZN7TypeInt5CC_GTE, align 8
+  br label %80
 
-72:                                               ; preds = %62
-  %73 = load ptr, ptr @_ZN7TypeInt5CC_EQE, align 8
-  br label %81
+71:                                               ; preds = %61
+  %72 = load ptr, ptr @_ZN7TypeInt5CC_EQE, align 8
+  br label %80
 
-74:                                               ; preds = %62
-  %75 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %75, align 1
+73:                                               ; preds = %61
+  %74 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %74, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 60) #6
   unreachable
 
-76:                                               ; preds = %62, %62, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
-  %77 = load ptr, ptr %0, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(68) %0) #5
-  br label %81
+75:                                               ; preds = %61, %61, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread
+  %76 = load ptr, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 40
+  %78 = load ptr, ptr %77, align 8
+  %79 = tail call noundef ptr %78(ptr noundef nonnull align 8 dereferenceable(68) %0) #5
+  br label %80
 
-81:                                               ; preds = %76, %72, %70, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
-  %.0 = phi ptr [ %80, %76 ], [ %73, %72 ], [ %71, %70 ], [ %61, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24 ]
+80:                                               ; preds = %75, %71, %69, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24
+  %.0 = phi ptr [ %79, %75 ], [ %72, %71 ], [ %70, %69 ], [ %60, %_ZN15ciInstanceKlass12has_subklassEv.exit.thread24 ]
   ret ptr %.0
 }
 

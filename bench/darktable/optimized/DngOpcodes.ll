@@ -3709,13 +3709,12 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %._ZNSt6vectorItSaIt
   %umax = call i64 @llvm.umax.i64(i64 %73, i64 1)
   br label %108
 
-._crit_edge42:                                    ; preds = %108, %_ZNSt6vectorItSaItEE6resizeEm.exit
-  %.pre4955 = phi ptr [ %.pre49, %_ZNSt6vectorItSaItEE6resizeEm.exit ], [ %.pre4954, %108 ]
-  %.not.i.i.i = icmp eq ptr %.pre4955, null
+._crit_edge42:                                    ; preds = %_ZNSt6vectorItSaItEE6resizeEm.exit
+  %.not.i.i.i = icmp eq ptr %.pre49, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %._crit_edge42.thread
 
-._crit_edge42.thread:                             ; preds = %._crit_edge.us, %._crit_edge42
-  %.pre495558 = phi ptr [ %.pre4955, %._crit_edge42 ], [ %.pre4954, %._crit_edge.us ]
+._crit_edge42.thread:                             ; preds = %108, %._crit_edge.us, %._crit_edge42
+  %.pre495558 = phi ptr [ %.pre49, %._crit_edge42 ], [ %.pre4954, %._crit_edge.us ], [ %.pre4954, %108 ]
   %104 = load ptr, ptr %50, align 8, !tbaa !236
   %105 = ptrtoint ptr %104 to i64
   %106 = ptrtoint ptr %.pre495558 to i64
@@ -3733,7 +3732,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge42, %._c
   store i16 %103, ptr %109, align 2, !tbaa !197
   %110 = add nuw i64 %.02540, 1
   %exitcond.not = icmp eq i64 %110, %umax
-  br i1 %exitcond.not, label %._crit_edge42, label %108, !llvm.loop !239
+  br i1 %exitcond.not, label %._crit_edge42.thread, label %108, !llvm.loop !239
 
 111:                                              ; preds = %47
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 16

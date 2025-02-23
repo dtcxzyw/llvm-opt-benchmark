@@ -3862,7 +3862,7 @@ st_mult.exit87.i:                                 ; preds = %.thread.i.st_mult.e
   %.056103.i = phi i32 [ %60, %.lr.ph105.i ], [ 1, %st_mult.exit87.i ]
   %59 = add nuw nsw i32 %.0104.i, 1
   %60 = mul nuw nsw i32 %.056103.i, 10
-  %61 = icmp sle i32 %60, %.16292135.i
+  %61 = icmp samesign ule i32 %60, %.16292135.i
   %62 = icmp samesign ult i32 %.0104.i, 3
   %63 = select i1 %61, i1 %62, i1 false
   br i1 %63, label %.lr.ph105.i, label %._crit_edge.loopexit.i, !llvm.loop !129

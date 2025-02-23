@@ -178,7 +178,6 @@ _read_topo_file.exit:                             ; preds = %14
   %25 = load ptr, ptr %3, align 8
   %.pre.i = load i32, ptr %2, align 4
   %26 = select i1 %.not.i, i32 0, i32 %.pre.i
-  %.sink.i = select i1 %.not.i, ptr null, ptr %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #7
   store i32 %26, ptr @switch_record_cnt, align 4
@@ -214,7 +213,7 @@ _read_topo_file.exit:                             ; preds = %14
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph226.preheader ], [ %indvars.iv.next, %108 ]
   %.0130223 = phi ptr [ %39, %.lr.ph226.preheader ], [ %109, %108 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %.sink.i, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %.0130223, i64 36
   store i16 -1, ptr %43, align 4

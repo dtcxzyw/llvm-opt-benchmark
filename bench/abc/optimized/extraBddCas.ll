@@ -42,17 +42,17 @@ define noundef ptr @Extra_bddEncodingBinary(ptr noundef %0, ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02627 = phi ptr [ %10, %.lr.ph.preheader ], [ %17, %.lr.ph ]
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  %13 = tail call ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %12, i32 noundef %4, ptr noundef %3, i32 noundef 1) #11
+  %13 = tail call ptr @Extra_bddBitsToCube(ptr noundef nonnull %0, i32 noundef %12, i32 noundef %4, ptr noundef %3, i32 noundef 1) #11
   tail call void @Cudd_Ref(ptr noundef %13) #11
   %14 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %13, ptr noundef %15) #11
+  %16 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %15) #11
   tail call void @Cudd_Ref(ptr noundef %16) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #11
-  %17 = tail call ptr @Cudd_bddOr(ptr noundef %0, ptr noundef %16, ptr noundef %.02627) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #11
+  %17 = tail call ptr @Cudd_bddOr(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %.02627) #11
   tail call void @Cudd_Ref(ptr noundef %17) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.02627) #11
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %16) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.02627) #11
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %16) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25

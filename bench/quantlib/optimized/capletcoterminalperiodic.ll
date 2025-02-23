@@ -782,8 +782,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0843 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %add.ptr.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i147, i64 %i.0843
   store double 1.000000e+00, ptr %add.ptr.i, align 8, !tbaa !18
-  %inc = add nuw i64 %i.0843, 1
-  %cmp82 = icmp ult i64 %inc, %div
+  %inc = add nuw nsw i64 %i.0843, 1
+  %cmp82 = icmp samesign ult i64 %inc, %div
   br i1 %cmp82, label %for.body, label %for.cond.cleanup, !llvm.loop !30
 
 _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i149: ; preds = %for.cond.cleanup

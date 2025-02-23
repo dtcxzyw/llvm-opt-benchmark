@@ -1708,7 +1708,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not, label %.critedge.thread, label %95
 
 95:                                               ; preds = %.critedge2
-  %96 = tail call i32 @Dch_ClassesRefineOneClass(ptr noundef nonnull %0, ptr noundef %62, i32 noundef 1)
+  %96 = tail call i32 @Dch_ClassesRefineOneClass(ptr noundef nonnull %0, ptr noundef nonnull %62, i32 noundef 1)
   %97 = add nsw i32 %96, 1
   br label %.critedge.thread
 

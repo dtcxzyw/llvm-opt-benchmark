@@ -798,7 +798,7 @@ Vec_IntPush.exit297:                              ; preds = %.Vec_IntGrow.exit10
   %155 = getelementptr i8, ptr %154, i64 4
   %.val219 = load i32, ptr %155, align 4, !tbaa !3
   %156 = add nsw i32 %.val219, -1
-  call void @Unr_ManSetup_rec(ptr noundef nonnull %0, i32 noundef %153, i32 noundef %156, ptr noundef %.0191402)
+  call void @Unr_ManSetup_rec(ptr noundef nonnull %0, i32 noundef %153, i32 noundef %156, ptr noundef nonnull %.0191402)
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
   %.0.val = load i32, ptr %113, align 4, !tbaa !3
   %157 = sext i32 %.0.val to i64

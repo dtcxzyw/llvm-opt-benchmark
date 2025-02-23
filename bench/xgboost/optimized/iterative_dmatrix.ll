@@ -16839,7 +16839,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i.i.i.us.us = getelementptr inbounds nuw i8, ptr %282, i64 4
   store i32 %.012.i35.i.i.i.us.us, ptr %.sroa_idx9.i36.i.i.i.us.us, align 4
   %283 = add i64 %.6.us.us, 1
-  %284 = add nuw i64 %.02640.i.i.i.us.us, 1
+  %284 = add i64 %.02640.i.i.i.us.us, 1
   %exitcond.not.i.i.i.us.us = icmp eq i64 %284, %252
   br i1 %exitcond.not.i.i.i.us.us, label %.loopexit.i.i.i.us253, label %.lr.ph.i.i.i.us.us, !llvm.loop !315
 
@@ -16929,7 +16929,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i.i.i = getelementptr inbounds nuw i8, ptr %329, i64 4
   store i32 %.012.i35.i.i.i, ptr %.sroa_idx9.i36.i.i.i, align 4
   %330 = add i64 %.6, 1
-  %331 = add nuw i64 %.02640.i.i.i, 1
+  %331 = add i64 %.02640.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %331, %291
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !315
 
@@ -17208,7 +17208,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i22.i.i.us.us = getelementptr inbounds nuw i8, ptr %476, i64 4
   store i32 %.012.i35.i21.i.i.us.us, ptr %.sroa_idx9.i36.i22.i.i.us.us, align 4
   %477 = add i64 %.2.us.us, 1
-  %478 = add nuw i64 %.02640.i11.i.i.us.us, 1
+  %478 = add i64 %.02640.i11.i.i.us.us, 1
   %exitcond.not.i23.i.i.us.us = icmp eq i64 %478, %446
   br i1 %exitcond.not.i23.i.i.us.us, label %.loopexit.i9.i.i.us243, label %.lr.ph.i10.i.i.us.us, !llvm.loop !319
 
@@ -17298,7 +17298,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i22.i.i = getelementptr inbounds nuw i8, ptr %523, i64 4
   store i32 %.012.i35.i21.i.i, ptr %.sroa_idx9.i36.i22.i.i, align 4
   %524 = add i64 %.2, 1
-  %525 = add nuw i64 %.02640.i11.i.i, 1
+  %525 = add i64 %.02640.i11.i.i, 1
   %exitcond.not.i23.i.i = icmp eq i64 %525, %485
   br i1 %exitcond.not.i23.i.i, label %.loopexit.i9.i.i, label %.lr.ph.i10.i.i, !llvm.loop !319
 
@@ -17603,7 +17603,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i.us = getelementptr inbounds nuw i8, ptr %667, i64 4
   store i32 %.012.i35.i.us, ptr %.sroa_idx9.i36.i.us, align 4
   %668 = add i64 %.10.us, 1
-  %669 = add nuw i64 %.02640.i.us, 1
+  %669 = add i64 %.02640.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %669, %641
   br i1 %exitcond.not.i.us, label %.loopexit.i, label %.lr.ph.i.us, !llvm.loop !323
 
@@ -17669,7 +17669,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
   %.sroa_idx9.i36.i = getelementptr inbounds nuw i8, ptr %699, i64 4
   store i32 %.012.i35.i, ptr %.sroa_idx9.i36.i, align 4
   %700 = add i64 %.10, 1
-  %701 = add nuw i64 %.02640.i, 1
+  %701 = add i64 %.02640.i, 1
   %exitcond.not.i = icmp eq i64 %701, %641
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !323
 
@@ -34822,9 +34822,9 @@ define linkonce_odr void @_ZN7xgboost16GHistIndexMatrix12GetRowCountsINS_4data20
   store float %3, ptr %7, align 4
   %9 = load i64, ptr %2, align 8
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %.loopexit.thread15, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
+  br i1 %10, label %.thread15, label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
 
-.loopexit.thread15:                               ; preds = %5
+.thread15:                                        ; preds = %5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   br label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
 
@@ -34842,9 +34842,9 @@ _ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit: ; preds = %5
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit
   %.not.i.i.i.i = icmp eq i64 %14, 0
-  br i1 %.not.i.i.i.i, label %.loopexit, label %.loopexit.thread
+  br i1 %.not.i.i.i.i, label %21, label %.noexc7
 
-.loopexit.thread:                                 ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+.noexc7:                                          ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
   %16 = shl nuw nsw i64 %14, 3
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #27
   store ptr %17, ptr %8, align 8
@@ -34854,62 +34854,55 @@ _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNK7xgboost4d
   store ptr %19, ptr %20, align 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %17, i8 0, i64 %16, i1 false)
   store ptr %19, ptr %18, align 8
-  br label %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i8
-
-.loopexit:                                        ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  br label %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i8
-
-_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i8: ; preds = %.loopexit, %.loopexit.thread
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %24 = load i64, ptr %23, align 8
   br label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
 
-_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9: ; preds = %.loopexit.thread15, %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i8
-  %25 = phi i64 [ %24, %_ZNK7xgboost6common4SpanINS_14ArrayInterfaceILi1ELb0EEELm18446744073709551615EE5frontEv.exit.i8 ], [ 0, %.loopexit.thread15 ]
+21:                                               ; preds = %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
+  br label %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
+
+_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9: ; preds = %.noexc7, %21, %.thread15
+  %22 = phi i64 [ 0, %.thread15 ], [ 0, %21 ], [ %14, %.noexc7 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   store ptr %2, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %7, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %.sroa.3.0..sroa_idx, align 8
-  invoke void @_ZN7xgboost6common11ParallelForImZNS_16GHistIndexMatrix12GetRowCountsINS_4data20ColumnarAdapterBatchEEEDaRKT_fiEUlmE_EEvS6_iNS0_5SchedET0_(i64 noundef %25, i32 noundef %4, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.312) align 8 %6)
-          to label %_ZNSt6vectorImSaImEED2Ev.exit unwind label %33
+  invoke void @_ZN7xgboost6common11ParallelForImZNS_16GHistIndexMatrix12GetRowCountsINS_4data20ColumnarAdapterBatchEEEDaRKT_fiEUlmE_EEvS6_iNS0_5SchedET0_(i64 noundef %22, i32 noundef %4, i32 2, i64 0, ptr noundef nonnull byval(%class.anon.312) align 8 %6)
+          to label %_ZNSt6vectorImSaImEED2Ev.exit unwind label %30
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  %26 = load ptr, ptr %8, align 8
-  store ptr %26, ptr %0, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %23 = load ptr, ptr %8, align 8
+  store ptr %23, ptr %0, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %26 = load ptr, ptr %25, align 8
+  store ptr %26, ptr %24, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %30, align 8
   ret void
 
-33:                                               ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
-  %34 = landingpad { ptr, i32 }
+30:                                               ; preds = %_ZNK7xgboost4data20ColumnarAdapterBatch4SizeEv.exit9
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %35 = load ptr, ptr %8, align 8
-  %.not.i.i.i11 = icmp eq ptr %35, null
-  br i1 %.not.i.i.i11, label %_ZNSt6vectorImSaImEED2Ev.exit12, label %36
+  %32 = load ptr, ptr %8, align 8
+  %.not.i.i.i11 = icmp eq ptr %32, null
+  br i1 %.not.i.i.i11, label %_ZNSt6vectorImSaImEED2Ev.exit12, label %33
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = ptrtoint ptr %38 to i64
-  %40 = ptrtoint ptr %35 to i64
-  %41 = sub i64 %39, %40
-  call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef %41) #28
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = ptrtoint ptr %32 to i64
+  %38 = sub i64 %36, %37
+  call void @_ZdlPvm(ptr noundef nonnull %32, i64 noundef %38) #28
   br label %_ZNSt6vectorImSaImEED2Ev.exit12
 
-_ZNSt6vectorImSaImEED2Ev.exit12:                  ; preds = %36, %33
-  resume { ptr, i32 } %34
+_ZNSt6vectorImSaImEED2Ev.exit12:                  ; preds = %33, %30
+  resume { ptr, i32 } %31
 }
 
 ; Function Attrs: mustprogress uwtable

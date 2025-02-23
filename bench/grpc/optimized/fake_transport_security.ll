@@ -1353,9 +1353,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   store i8 %conv7.i, ptr %cond.sroa.sel14, align 1
   %conv10.i = trunc i64 %.sroa.speculated to i8
   store i8 %conv10.i, ptr %cond, align 1
-  call void @grpc_slice_buffer_add(ptr noundef %protected_slices, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice)
+  call void @grpc_slice_buffer_add(ptr noundef nonnull %protected_slices, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %slice)
   %sub = add i64 %.sroa.speculated, -4
-  call void @grpc_slice_buffer_move_first(ptr noundef nonnull %unprotected_slices, i64 noundef %sub, ptr noundef %protected_slices)
+  call void @grpc_slice_buffer_move_first(ptr noundef nonnull %unprotected_slices, i64 noundef %sub, ptr noundef nonnull %protected_slices)
   %5 = load i64, ptr %length, align 8
   %cmp4.not = icmp eq i64 %5, 0
   br i1 %cmp4.not, label %return, label %while.body, !llvm.loop !8

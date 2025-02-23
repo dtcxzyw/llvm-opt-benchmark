@@ -225,7 +225,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i: ; preds = %_ZNS
   %.sroa.30.3.lcssa.i = phi ptr [ %.sroa.30.2.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i ], [ %.sroa.30.4.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit59.i ]
   %.sroa.067.3.lcssa.i = phi ptr [ %.sroa.067.2.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i ], [ %.sroa.067.4.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit59.i ]
   %.sroa.14.3.lcssa.i = phi ptr [ %.sroa.14.393.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit.i ], [ %.sroa.14.3.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit59.i ]
-  %72 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.064.0103.i) #17
+  %72 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.064.0103.i) #17
   %.not76.i = icmp eq ptr %72, %16
   br i1 %.not76.i, label %._crit_edge108.i, label %.lr.ph107.i
 
@@ -644,7 +644,7 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE9push_backEOS1_.exit84.i: ; preds = %_Z
   %.0.lcssa.i.i.i.i.i.i81.pn.i = phi ptr [ %.0.lcssa.i.i.i.i.i.i81.i, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83.i ], [ %.sroa.14.5115.i, %192 ]
   %.sroa.067.6.i = phi ptr [ %206, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i83.i ], [ %.sroa.067.5116.i, %192 ]
   %.sroa.14.6.i = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i81.pn.i, i64 40
-  %212 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.017.0113.i) #17
+  %212 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.0113.i) #17
   %.not77.i = icmp eq ptr %212, %19
   br i1 %.not77.i, label %._crit_edge119.i, label %.lr.ph118.i
 

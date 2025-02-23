@@ -150,7 +150,7 @@ _ZL8usingPmeRK22CoulombInteractionType.exit.thread: ; preds = %24, %24, %24, %24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %34, 1
-  br i1 %35, label %288, label %36
+  br i1 %35, label %282, label %36
 
 36:                                               ; preds = %32, %9
   store i8 0, ptr %16, align 8
@@ -435,13 +435,13 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit
 
 _ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit:    ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %132
-  br i1 %95, label %288, label %133
+  br i1 %95, label %282, label %133
 
 133:                                              ; preds = %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %135 = load i32, ptr %134, align 4
   %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %288, label %137
+  br i1 %136, label %282, label %137
 
 .body:                                            ; preds = %50, %77, %92, %105, %65, %125
   %.pn.pn = phi { ptr, i32 } [ %.pn, %125 ], [ %51, %50 ], [ %66, %65 ], [ %78, %77 ], [ %106, %105 ], [ %93, %92 ]
@@ -480,7 +480,7 @@ _ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit:    ; preds = %_ZSt8_DestroyIPNSt7
   %151 = load ptr, ptr %0, align 8
   %152 = icmp sgt i32 %149, 0
   %153 = icmp sgt i32 %.val108, 0
-  br i1 %152, label %154, label %207
+  br i1 %152, label %154, label %201
 
 154:                                              ; preds = %146
   br i1 %153, label %155, label %159
@@ -511,309 +511,300 @@ common.resume:                                    ; preds = %.body, %144, %157
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.40, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tiiENK3$_0clEv", ptr noundef nonnull @.str.4, i32 noundef 238) #17
   unreachable
 
-.preheader.i:                                     ; preds = %159, %.preheader.i
-  %.043.i = phi i32 [ %166, %.preheader.i ], [ %2, %159 ]
-  %162 = mul nsw i32 %.043.i, %.val108
-  %163 = icmp sgt i32 %162, %140
-  %164 = icmp samesign ugt i32 %.043.i, 1
-  %165 = and i1 %164, %163
-  %166 = add nsw i32 %.043.i, -1
-  br i1 %165, label %.preheader.i, label %167, !llvm.loop !6
+.preheader.i:                                     ; preds = %159
+  %162 = icmp samesign ult i32 %., %2
+  br i1 %162, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %163
 
-167:                                              ; preds = %.preheader.i
-  %168 = icmp slt i32 %., %.043.i
-  br i1 %168, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %169
+163:                                              ; preds = %.preheader.i
+  %164 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %165 = load i32, ptr %164, align 4
+  %166 = icmp eq i32 %165, 1
+  br i1 %166, label %167, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i
 
-169:                                              ; preds = %167
-  %170 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  %171 = load i32, ptr %170, align 4
-  %172 = icmp eq i32 %171, 1
-  br i1 %172, label %173, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i
-
-173:                                              ; preds = %169
-  %174 = getelementptr inbounds nuw i8, ptr %151, i64 72
-  %175 = load ptr, ptr %174, align 8
-  %176 = getelementptr inbounds nuw i8, ptr %151, i64 64
-  %.not10.i.i.i.i.i.i = icmp eq ptr %175, null
+167:                                              ; preds = %163
+  %168 = getelementptr inbounds nuw i8, ptr %151, i64 72
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %.not10.i.i.i.i.i.i = icmp eq ptr %169, null
   br i1 %.not10.i.i.i.i.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %173, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %175, %173 ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %176, %173 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
-  %178 = load i32, ptr %177, align 4
-  %179 = icmp slt i32 %178, 3
-  %.19.i.i.i.i.i.i = select i1 %179, ptr %.0811.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i
-  %.1.in.v.i.i.i.i.i.i = select i1 %179, i64 24, i64 16
+.lr.ph.i.i.i.i.i.i:                               ; preds = %167, %.lr.ph.i.i.i.i.i.i
+  %.012.i.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %169, %167 ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %.19.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %170, %167 ]
+  %171 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
+  %172 = load i32, ptr %171, align 4
+  %173 = icmp slt i32 %172, 3
+  %.19.i.i.i.i.i.i = select i1 %173, ptr %.0811.i.i.i.i.i.i, ptr %.012.i.i.i.i.i.i
+  %.1.in.v.i.i.i.i.i.i = select i1 %173, i64 24, i64 16
   %.1.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i.i
   %.1.i.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i.i, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !6
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %180 = icmp eq ptr %.19.i.i.i.i.i.i, %176
-  br i1 %180, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
+  %174 = icmp eq ptr %.19.i.i.i.i.i.i, %170
+  br i1 %174, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i:  ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i
-  %181 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
-  %182 = load i32, ptr %181, align 4
-  %183 = icmp sgt i32 %182, 3
-  br i1 %183, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
+  %175 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i, i64 32
+  %176 = load i32, ptr %175, align 4
+  %177 = icmp sgt i32 %176, 3
+  br i1 %177, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i, %173, %169
-  %184 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %151)
-  br i1 %184, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i, label %185
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i.i, %167, %163
+  %178 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %151)
+  br i1 %178, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i, label %179
 
-185:                                              ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i
-  %186 = load i32, ptr %170, align 4
-  switch i32 %186, label %.thread.i.i [
-    i32 2, label %187
+179:                                              ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i
+  %180 = load i32, ptr %164, align 4
+  switch i32 %180, label %.thread.i.i [
+    i32 2, label %181
     i32 7, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
   ]
 
-187:                                              ; preds = %185
-  %188 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %189 = load i32, ptr %188, align 8
-  %190 = icmp sgt i32 %189, 22
-  br i1 %190, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i, label %.thread.i.i
+181:                                              ; preds = %179
+  %182 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %183 = load i32, ptr %182, align 8
+  %184 = icmp sgt i32 %183, 22
+  br i1 %184, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %187, %185
+.thread.i.i:                                      ; preds = %181, %179
   br label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
 
-_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %187, %185, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
-  %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %187 ], [ 32, %185 ]
-  %191 = icmp samesign ugt i32 %., %.0.i.i
-  br i1 %191, label %.critedge.i.preheader, label %192
+_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i: ; preds = %.thread.i.i, %181, %179, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i
+  %.0.i.i = phi i32 [ 16, %.thread.i.i ], [ 32, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i.i ], [ 24, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i.i ], [ 32, %181 ], [ 32, %179 ]
+  %185 = icmp samesign ugt i32 %., %.0.i.i
+  br i1 %185, label %.critedge.i.preheader, label %186
 
-192:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
+186:                                              ; preds = %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
   %.not48.i = icmp eq i32 %149, 1
-  br i1 %.not48.i, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %193
+  br i1 %.not48.i, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %187
 
-193:                                              ; preds = %192
-  %194 = udiv i32 %., %2
-  %195 = icmp samesign ugt i32 %194, 6
-  br i1 %195, label %.critedge.i.preheader, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
+187:                                              ; preds = %186
+  %188 = udiv i32 %., %2
+  %189 = icmp samesign ugt i32 %188, 6
+  br i1 %189, label %.critedge.i.preheader, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
-.critedge.i.preheader:                            ; preds = %193, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
+.critedge.i.preheader:                            ; preds = %187, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i.backedge, %.critedge.i.preheader
-  %.0.i = phi i32 [ 1, %.critedge.i.preheader ], [ %196, %.critedge.i.backedge ]
-  %196 = add nuw nsw i32 %.0.i, 1
-  %197 = mul nuw nsw i32 %196, %149
-  %198 = udiv i32 %., %197
-  %199 = urem i32 %., %197
-  %200 = icmp samesign ugt i32 %198, 6
-  %201 = icmp samesign ult i32 %.0.i, 3
-  %or.cond.i = and i1 %201, %200
-  br i1 %or.cond.i, label %.critedge.i.backedge, label %202
+  %.0.i = phi i32 [ 1, %.critedge.i.preheader ], [ %190, %.critedge.i.backedge ]
+  %190 = add nuw nsw i32 %.0.i, 1
+  %191 = mul nuw nsw i32 %190, %149
+  %192 = udiv i32 %., %191
+  %193 = urem i32 %., %191
+  %194 = icmp samesign ugt i32 %192, 6
+  %195 = icmp samesign ult i32 %.0.i, 3
+  %or.cond.i = and i1 %195, %194
+  br i1 %or.cond.i, label %.critedge.i.backedge, label %196
 
-202:                                              ; preds = %.critedge.i
-  %203 = add nuw nsw i32 %.0.i, 2
-  %204 = mul nuw nsw i32 %203, %149
-  %205 = udiv i32 %., %204
-  %206 = icmp samesign ule i32 %205, 1
-  %.not49.i = icmp eq i32 %199, 0
-  %or.cond = or i1 %206, %.not49.i
+196:                                              ; preds = %.critedge.i
+  %197 = add nuw nsw i32 %.0.i, 2
+  %198 = mul nuw nsw i32 %197, %149
+  %199 = udiv i32 %., %198
+  %200 = icmp samesign ule i32 %199, 1
+  %.not49.i = icmp eq i32 %193, 0
+  %or.cond = or i1 %200, %.not49.i
   br i1 %or.cond, label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, label %.critedge.i.backedge
 
-.critedge.i.backedge:                             ; preds = %202, %.critedge.i
-  br label %.critedge.i, !llvm.loop !8
+.critedge.i.backedge:                             ; preds = %196, %.critedge.i
+  br label %.critedge.i, !llvm.loop !7
 
-207:                                              ; preds = %146
-  br i1 %153, label %208, label %210
+201:                                              ; preds = %146
+  br i1 %153, label %202, label %204
 
-208:                                              ; preds = %207
-  %209 = udiv i32 %., %.val108
-  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %209, i32 1)
+202:                                              ; preds = %201
+  %203 = udiv i32 %., %.val108
+  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %203, i32 1)
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
-210:                                              ; preds = %207
-  %211 = getelementptr inbounds nuw i8, ptr %151, i64 4
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp eq i32 %212, 1
-  br i1 %213, label %214, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i
+204:                                              ; preds = %201
+  %205 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  %206 = load i32, ptr %205, align 4
+  %207 = icmp eq i32 %206, 1
+  br i1 %207, label %208, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i
 
-214:                                              ; preds = %210
-  %215 = getelementptr inbounds nuw i8, ptr %151, i64 72
-  %216 = load ptr, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %151, i64 64
-  %.not10.i.i.i.i.i54.i = icmp eq ptr %216, null
+208:                                              ; preds = %204
+  %209 = getelementptr inbounds nuw i8, ptr %151, i64 72
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %151, i64 64
+  %.not10.i.i.i.i.i54.i = icmp eq ptr %210, null
   br i1 %.not10.i.i.i.i.i54.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %.lr.ph.i.i.i.i.i55.i
 
-.lr.ph.i.i.i.i.i55.i:                             ; preds = %214, %.lr.ph.i.i.i.i.i55.i
-  %.012.i.i.i.i.i56.i = phi ptr [ %.1.i.i.i.i.i61.i, %.lr.ph.i.i.i.i.i55.i ], [ %216, %214 ]
-  %.0811.i.i.i.i.i57.i = phi ptr [ %.19.i.i.i.i.i58.i, %.lr.ph.i.i.i.i.i55.i ], [ %217, %214 ]
-  %218 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i56.i, i64 32
-  %219 = load i32, ptr %218, align 4
-  %220 = icmp slt i32 %219, 3
-  %.19.i.i.i.i.i58.i = select i1 %220, ptr %.0811.i.i.i.i.i57.i, ptr %.012.i.i.i.i.i56.i
-  %.1.in.v.i.i.i.i.i59.i = select i1 %220, i64 24, i64 16
+.lr.ph.i.i.i.i.i55.i:                             ; preds = %208, %.lr.ph.i.i.i.i.i55.i
+  %.012.i.i.i.i.i56.i = phi ptr [ %.1.i.i.i.i.i61.i, %.lr.ph.i.i.i.i.i55.i ], [ %210, %208 ]
+  %.0811.i.i.i.i.i57.i = phi ptr [ %.19.i.i.i.i.i58.i, %.lr.ph.i.i.i.i.i55.i ], [ %211, %208 ]
+  %212 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i56.i, i64 32
+  %213 = load i32, ptr %212, align 4
+  %214 = icmp slt i32 %213, 3
+  %.19.i.i.i.i.i58.i = select i1 %214, ptr %.0811.i.i.i.i.i57.i, ptr %.012.i.i.i.i.i56.i
+  %.1.in.v.i.i.i.i.i59.i = select i1 %214, i64 24, i64 16
   %.1.in.i.i.i.i.i60.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i56.i, i64 %.1.in.v.i.i.i.i.i59.i
   %.1.i.i.i.i.i61.i = load ptr, ptr %.1.in.i.i.i.i.i60.i, align 8
   %.not.i.i.i.i.i62.i = icmp eq ptr %.1.i.i.i.i.i61.i, null
-  br i1 %.not.i.i.i.i.i62.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i, label %.lr.ph.i.i.i.i.i55.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i62.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i, label %.lr.ph.i.i.i.i.i55.i, !llvm.loop !6
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i: ; preds = %.lr.ph.i.i.i.i.i55.i
-  %221 = icmp eq ptr %.19.i.i.i.i.i58.i, %217
-  br i1 %221, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
+  %215 = icmp eq ptr %.19.i.i.i.i.i58.i, %211
+  br i1 %215, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
 
 _ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i: ; preds = %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i
-  %222 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i58.i, i64 32
-  %223 = load i32, ptr %222, align 4
-  %224 = icmp sgt i32 %223, 3
-  br i1 %224, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
+  %216 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i58.i, i64 32
+  %217 = load i32, ptr %216, align 4
+  %218 = icmp sgt i32 %217, 3
+  br i1 %218, label %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
 
-_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i, %214, %210
-  %225 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %151)
-  br i1 %225, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i, label %226
+_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i: ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i, %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i63.i, %208, %204
+  %219 = call noundef zeroext i1 @_ZN3gmx15cpuIsX86NehalemERKNS_7CpuInfoE(ptr noundef nonnull align 8 dereferenceable(128) %151)
+  br i1 %219, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i, label %220
 
-226:                                              ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i
-  %227 = load i32, ptr %211, align 4
-  switch i32 %227, label %.thread.i53.i [
-    i32 2, label %228
+220:                                              ; preds = %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i
+  %221 = load i32, ptr %205, align 4
+  switch i32 %221, label %.thread.i53.i [
+    i32 2, label %222
     i32 7, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
   ]
 
-228:                                              ; preds = %226
-  %229 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %230 = load i32, ptr %229, align 8
-  %231 = icmp sgt i32 %230, 22
-  br i1 %231, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i, label %.thread.i53.i
+222:                                              ; preds = %220
+  %223 = getelementptr inbounds nuw i8, ptr %151, i64 40
+  %224 = load i32, ptr %223, align 8
+  %225 = icmp sgt i32 %224, 22
+  br i1 %225, label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i, label %.thread.i53.i
 
-.thread.i53.i:                                    ; preds = %228, %226
+.thread.i53.i:                                    ; preds = %222, %220
   br label %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
 
-_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %228, %226, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
-  %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %228 ], [ 16, %226 ]
+_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i: ; preds = %.thread.i53.i, %222, %220, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i
+  %.0.i51.i = phi i32 [ 8, %.thread.i53.i ], [ 16, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.i64.i ], [ 12, %_ZNK3gmx7CpuInfo7featureENS0_7FeatureE.exit.thread.i50.i ], [ 16, %222 ], [ 16, %220 ]
   %.not.i = icmp samesign ugt i32 %., %.0.i51.i
   %..i = select i1 %.not.i, i32 %., i32 1
   br label %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
 
-_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; preds = %202, %167, %192, %193, %208, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
-  %.1.i = phi i32 [ %.043.i, %193 ], [ %.043.i, %192 ], [ %.sroa.speculated.i, %208 ], [ %., %167 ], [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %197, %202 ]
+_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit: ; preds = %196, %.preheader.i, %186, %187, %202, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i
+  %.1.i = phi i32 [ %2, %187 ], [ %2, %186 ], [ %.sroa.speculated.i, %202 ], [ %., %.preheader.i ], [ %..i, %_ZL19nthreads_omp_fasterRKN3gmx7CpuInfoEb.exit65.i ], [ %191, %196 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10)
-  %232 = load i32, ptr %38, align 4
-  switch i32 %232, label %233 [
-    i32 5, label %234
-    i32 7, label %234
-    i32 8, label %234
+  %226 = load i32, ptr %38, align 4
+  switch i32 %226, label %227 [
+    i32 5, label %228
+    i32 7, label %228
+    i32 8, label %228
   ]
 
-233:                                              ; preds = %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
+227:                                              ; preds = %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
   %.105 = select i1 %152, i32 900, i32 90
-  br label %234
+  br label %228
 
-234:                                              ; preds = %233, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
-  %.091 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ %.105, %233 ]
-  %235 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %236 = load i32, ptr %235, align 8
-  %237 = sdiv i32 %236, %.1.i
-  %238 = icmp slt i32 %237, %.091
-  br i1 %238, label %239, label %288
+228:                                              ; preds = %227, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit
+  %.091 = phi i32 [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ 1, %_ZL28get_tmpi_omp_thread_divisionPK13gmx_hw_info_tRK12gmx_hw_opt_tii.exit ], [ %.105, %227 ]
+  %229 = getelementptr inbounds nuw i8, ptr %6, i64 176
+  %230 = load i32, ptr %229, align 8
+  %231 = sdiv i32 %230, %.1.i
+  %232 = icmp slt i32 %231, %.091
+  br i1 %232, label %233, label %282
 
-239:                                              ; preds = %234
-  %240 = sdiv i32 %236, %.091
-  %.sroa.speculated133 = call i32 @llvm.smax.i32(i32 %240, i32 1)
-  %241 = call fastcc noundef zeroext i1 @_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE(ptr noundef nonnull align 8 dereferenceable(228) %23)
-  br i1 %241, label %242, label %246
+233:                                              ; preds = %228
+  %234 = sdiv i32 %230, %.091
+  %.sroa.speculated133 = call i32 @llvm.smax.i32(i32 %234, i32 1)
+  %235 = call fastcc noundef zeroext i1 @_ZL22gmxSmtIsUsedOnAllCoresRKN3gmx16HardwareTopologyE(ptr noundef nonnull align 8 dereferenceable(228) %23)
+  br i1 %235, label %236, label %240
 
-242:                                              ; preds = %239
-  %243 = lshr i32 %140, 1
-  %244 = icmp slt i32 %.sroa.speculated133, %140
-  %245 = call i32 @llvm.umin.i32(i32 %.sroa.speculated133, i32 %243)
-  %spec.select = select i1 %244, i32 %245, i32 %.sroa.speculated133
-  br label %246
+236:                                              ; preds = %233
+  %237 = lshr i32 %140, 1
+  %238 = icmp slt i32 %.sroa.speculated133, %140
+  %239 = call i32 @llvm.umin.i32(i32 %.sroa.speculated133, i32 %237)
+  %spec.select = select i1 %238, i32 %239, i32 %.sroa.speculated133
+  br label %240
 
-246:                                              ; preds = %242, %239
-  %.080 = phi i32 [ %.sroa.speculated133, %239 ], [ %spec.select, %242 ]
-  %247 = load i32, ptr %1, align 8
-  %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %.lr.ph.split.us, label %.critedge
+240:                                              ; preds = %236, %233
+  %.080 = phi i32 [ %.sroa.speculated133, %233 ], [ %spec.select, %236 ]
+  %241 = load i32, ptr %1, align 8
+  %242 = icmp sgt i32 %241, 0
+  br i1 %242, label %.lr.ph.split.us, label %.critedge
 
-.lr.ph.split.us:                                  ; preds = %246, %.lr.ph.split.us
-  %.181141.us = phi i32 [ %250, %.lr.ph.split.us ], [ %.080, %246 ]
-  %249 = srem i32 %247, %.181141.us
-  %.not.us = icmp eq i32 %249, 0
-  %250 = add nsw i32 %.181141.us, -1
+.lr.ph.split.us:                                  ; preds = %240, %.lr.ph.split.us
+  %.181141.us = phi i32 [ %244, %.lr.ph.split.us ], [ %.080, %240 ]
+  %243 = srem i32 %241, %.181141.us
+  %.not.us = icmp eq i32 %243, 0
+  %244 = add nsw i32 %.181141.us, -1
   br i1 %.not.us, label %.critedge, label %.lr.ph.split.us
 
-.critedge:                                        ; preds = %.lr.ph.split.us, %246
-  %.181.lcssa = phi i32 [ %.080, %246 ], [ %.181141.us, %.lr.ph.split.us ]
-  %251 = icmp sgt i32 %.181.lcssa, 5
-  br i1 %251, label %.preheader, label %258
+.critedge:                                        ; preds = %.lr.ph.split.us, %240
+  %.181.lcssa = phi i32 [ %.080, %240 ], [ %.181141.us, %.lr.ph.split.us ]
+  %245 = icmp sgt i32 %.181.lcssa, 5
+  br i1 %245, label %.preheader, label %252
 
 .preheader:                                       ; preds = %.critedge, %.preheader
-  %.079 = phi i32 [ %253, %.preheader ], [ 2, %.critedge ]
-  %252 = mul nuw nsw i32 %.079, 6
-  %.not100 = icmp samesign ugt i32 %252, %.181.lcssa
-  %253 = shl nsw i32 %.079, 1
-  br i1 %.not100, label %254, label %.preheader, !llvm.loop !9
+  %.079 = phi i32 [ %247, %.preheader ], [ 2, %.critedge ]
+  %246 = mul nuw nsw i32 %.079, 6
+  %.not100 = icmp samesign ugt i32 %246, %.181.lcssa
+  %247 = shl nsw i32 %.079, 1
+  br i1 %.not100, label %248, label %.preheader, !llvm.loop !8
 
-254:                                              ; preds = %.preheader
-  %255 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %.079, i1 true)
-  %256 = lshr i32 %.181.lcssa, %255
-  %257 = mul nuw nsw i32 %256, %.079
-  br label %260
+248:                                              ; preds = %.preheader
+  %249 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %.079, i1 true)
+  %250 = lshr i32 %.181.lcssa, %249
+  %251 = mul nuw nsw i32 %250, %.079
+  br label %254
 
-258:                                              ; preds = %.critedge
-  %259 = icmp eq i32 %.181.lcssa, 5
-  %spec.store.select = select i1 %259, i32 4, i32 %.181.lcssa
-  br label %260
+252:                                              ; preds = %.critedge
+  %253 = icmp eq i32 %.181.lcssa, 5
+  %spec.store.select = select i1 %253, i32 4, i32 %.181.lcssa
+  br label %254
 
-260:                                              ; preds = %258, %254
-  %.2 = phi i32 [ %257, %254 ], [ %spec.store.select, %258 ]
-  br i1 %152, label %261, label %268
+254:                                              ; preds = %252, %248
+  %.2 = phi i32 [ %251, %248 ], [ %spec.store.select, %252 ]
+  br i1 %152, label %255, label %262
 
-261:                                              ; preds = %260
-  %262 = srem i32 %.2, %2
-  %.not101 = icmp eq i32 %262, 0
-  br i1 %.not101, label %268, label %263
+255:                                              ; preds = %254
+  %256 = srem i32 %.2, %2
+  %.not101 = icmp eq i32 %256, 0
+  br i1 %.not101, label %262, label %257
 
-263:                                              ; preds = %261
-  %264 = icmp sgt i32 %.2, %149
-  br i1 %264, label %265, label %268
+257:                                              ; preds = %255
+  %258 = icmp sgt i32 %.2, %149
+  br i1 %258, label %259, label %262
 
-265:                                              ; preds = %263
-  %266 = udiv i32 %.2, %2
-  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %266, i32 4)
-  %267 = mul nuw nsw i32 %.sroa.speculated, %149
-  br label %268
+259:                                              ; preds = %257
+  %260 = udiv i32 %.2, %2
+  %.sroa.speculated = call i32 @llvm.umin.i32(i32 %260, i32 4)
+  %261 = mul nuw nsw i32 %.sroa.speculated, %149
+  br label %262
 
-268:                                              ; preds = %263, %265, %261, %260
-  %.3 = phi i32 [ %267, %265 ], [ %.2, %261 ], [ %.2, %260 ], [ %2, %263 ]
-  %269 = load i32, ptr %150, align 8
-  %270 = icmp slt i32 %269, 1
-  %271 = icmp slt i32 %247, 1
-  %or.cond139 = and i1 %271, %270
-  br i1 %or.cond139, label %272, label %280
+262:                                              ; preds = %257, %259, %255, %254
+  %.3 = phi i32 [ %261, %259 ], [ %.2, %255 ], [ %.2, %254 ], [ %2, %257 ]
+  %263 = load i32, ptr %150, align 8
+  %264 = icmp slt i32 %263, 1
+  %265 = icmp slt i32 %241, 1
+  %or.cond139 = and i1 %265, %264
+  br i1 %or.cond139, label %266, label %274
 
-272:                                              ; preds = %268
-  %273 = call fastcc noundef i32 @_ZL26nthreads_omp_efficient_maxiRKN3gmx7CpuInfoEb(i32 noundef %.3, ptr noundef nonnull align 8 dereferenceable(128) %21, i1 noundef zeroext %152)
-  %274 = mul nsw i32 %273, %.3
-  %275 = load ptr, ptr %22, align 8
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 224
-  %277 = load i32, ptr %276, align 8
-  %278 = icmp slt i32 %274, %277
-  br i1 %278, label %279, label %280
+266:                                              ; preds = %262
+  %267 = call fastcc noundef i32 @_ZL26nthreads_omp_efficient_maxiRKN3gmx7CpuInfoEb(i32 noundef %.3, ptr noundef nonnull align 8 dereferenceable(128) %21, i1 noundef zeroext %152)
+  %268 = mul nsw i32 %267, %.3
+  %269 = load ptr, ptr %22, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 224
+  %271 = load i32, ptr %270, align 8
+  %272 = icmp slt i32 %268, %271
+  br i1 %272, label %273, label %274
 
-279:                                              ; preds = %272
-  store i32 %273, ptr %150, align 8
-  br label %280
+273:                                              ; preds = %266
+  store i32 %267, ptr %150, align 8
+  br label %274
 
-280:                                              ; preds = %272, %279, %268
-  %281 = load ptr, ptr @stderr, align 8
-  %fputc = call i32 @fputc(i32 10, ptr %281)
-  %282 = load ptr, ptr @stderr, align 8
-  %283 = call i64 @fwrite(ptr nonnull @.str.9, i64 63, i64 1, ptr %282) #20
-  %284 = load ptr, ptr @stderr, align 8
-  %285 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %284, ptr noundef nonnull @.str.10, i32 noundef %.3) #21
-  %286 = load ptr, ptr @stderr, align 8
-  %287 = call i64 @fwrite(ptr nonnull @.str.11, i64 83, i64 1, ptr %286) #20
-  br label %288
+274:                                              ; preds = %266, %273, %262
+  %275 = load ptr, ptr @stderr, align 8
+  %fputc = call i32 @fputc(i32 10, ptr %275)
+  %276 = load ptr, ptr @stderr, align 8
+  %277 = call i64 @fwrite(ptr nonnull @.str.9, i64 63, i64 1, ptr %276) #20
+  %278 = load ptr, ptr @stderr, align 8
+  %279 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %278, ptr noundef nonnull @.str.10, i32 noundef %.3) #21
+  %280 = load ptr, ptr @stderr, align 8
+  %281 = call i64 @fwrite(ptr nonnull @.str.11, i64 83, i64 1, ptr %280) #20
+  br label %282
 
-288:                                              ; preds = %234, %280, %133, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit, %32
-  %.0 = phi i32 [ 1, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit ], [ 1, %32 ], [ %135, %133 ], [ %.3, %280 ], [ %.1.i, %234 ]
+282:                                              ; preds = %228, %274, %133, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit, %32
+  %.0 = phi i32 [ 1, %_ZN12_GLOBAL__N_117SingleRankCheckerD2Ev.exit ], [ 1, %32 ], [ %135, %133 ], [ %.3, %274 ], [ %.1.i, %228 ]
   ret i32 %.0
 }
 
@@ -1049,7 +1040,7 @@ define internal fastcc noundef range(i32 8, 33) i32 @_ZL26nthreads_omp_efficient
   %.1.in.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i, i64 %.1.in.v.i.i.i.i.i
   %.1.i.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i.i, align 8
   %.not.i.i.i.i.i = icmp eq ptr %.1.i.i.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
+  br i1 %.not.i.i.i.i.i, label %_ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
 _ZNKSt8_Rb_treeIN3gmx7CpuInfo7FeatureES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS2_EPKSt18_Rb_tree_node_baseRKS2_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %16 = icmp eq ptr %.19.i.i.i.i.i, %12
@@ -1925,7 +1916,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_c
   %22 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i, i64 32
   %23 = getelementptr inbounds nuw i8, ptr %.012.i.i.i, i64 32
   %.not.i.i.i = icmp eq ptr %22, %1
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %.lr.ph.i.i.i, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit
   %.0.lcssa.i.i.i = phi ptr [ %20, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12_M_check_lenEmPKc.exit ], [ %23, %.lr.ph.i.i.i ]
@@ -1941,7 +1932,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
   %25 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i19, i64 32
   %26 = getelementptr inbounds nuw i8, ptr %.012.i.i.i18, i64 32
   %.not.i.i.i20 = icmp eq ptr %25, %5
-  br i1 %.not.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !10
+  br i1 %.not.i.i.i20, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, label %.lr.ph.i.i.i17, !llvm.loop !9
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22: ; preds = %.lr.ph.i.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %.0.lcssa.i.i.i21 = phi ptr [ %24, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %26, %.lr.ph.i.i.i17 ]
@@ -2014,7 +2005,7 @@ _ZNK3gmx17IdentityFormatterclERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #18
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.012.i, i64 32
   %.not.i = icmp eq ptr %13, %8
-  br i1 %.not.i, label %_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEENS_17IdentityFormatterEEES8_T_SG_PKcRKT0_.exit, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %_ZN3gmx13formatAndJoinIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS8_SaIS8_EEEENS_17IdentityFormatterEEES8_T_SG_PKcRKT0_.exit, label %.lr.ph.i, !llvm.loop !10
 
 14:                                               ; preds = %10, %.lr.ph.i
   %15 = landingpad { ptr, i32 }
@@ -2234,4 +2225,3 @@ attributes #23 = { noreturn nounwind }
 !8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}

@@ -491,7 +491,7 @@ _ZN3std4sync6poison4Flag5guard17h47496af5b61686c3E.llvm.17208988669928403088.exi
           to label %88 unwind label %97, !noalias !31
 
 "_ZN4core3ptr63drop_in_place$LT$slab..Entry$LT$core..task..wake..Waker$GT$$GT$17hfe1f73715ddae98fE.exit.i": ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %84 = getelementptr i8, ptr %69, i64 8
   %85 = load i64, ptr %84, align 8, !noalias !31, !noundef !10
   store i64 %85, ptr %34, align 8, !alias.scope !20, !noalias !23
   store ptr %57, ptr %69, align 8, !noalias !31

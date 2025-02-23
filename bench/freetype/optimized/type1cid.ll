@@ -2047,7 +2047,7 @@ cid_get_offset.exit75:                            ; preds = %.lr.ph.i66, %cid_ge
 
 68:                                               ; preds = %58, %62, %66
   %.0.ph = phi i32 [ %spec.select, %66 ], [ 9, %62 ], [ 9, %58 ]
-  tail call void @FT_Stream_ExitFrame(ptr noundef %7) #13
+  tail call void @FT_Stream_ExitFrame(ptr noundef nonnull %7) #13
   br label %69
 
 69:                                               ; preds = %22, %5, %68

@@ -1046,7 +1046,7 @@ default.unreachable:                              ; preds = %142
 520:                                              ; preds = %.loopexit1054
   %.not9671112 = icmp slt i32 %509, 1
   %.pre1188 = load i32, ptr %6, align 4, !tbaa !3
-  br i1 %.not9671112, label %._crit_edge1116.thread, label %.lr.ph1115
+  br i1 %.not9671112, label %._crit_edge1116, label %.lr.ph1115
 
 .lr.ph1115:                                       ; preds = %520
   %521 = load double, ptr %49, align 8, !tbaa !7
@@ -1065,19 +1065,19 @@ default.unreachable:                              ; preds = %142
   store double %527, ptr %gep1195, align 8, !tbaa !7
   %indvars.iv.next1169 = add nuw nsw i64 %indvars.iv1168, 1
   %exitcond1172.not = icmp eq i64 %indvars.iv.next1169, %wide.trip.count1171
-  br i1 %exitcond1172.not, label %._crit_edge1116, label %524, !llvm.loop !19
+  br i1 %exitcond1172.not, label %._crit_edge1116.thread, label %524, !llvm.loop !19
 
-._crit_edge1116:                                  ; preds = %524
+._crit_edge1116:                                  ; preds = %520
   store i32 %.pre1188, ptr %31, align 4, !tbaa !3
   %.not9681122 = icmp slt i32 %.pre1188, 1
-  br i1 %.not9681122, label %.loopexit1052, label %.lr.ph1120.preheader
+  br i1 %.not9681122, label %.loopexit1052, label %..loopexit1052_crit_edge
 
-._crit_edge1116.thread:                           ; preds = %520
+._crit_edge1116.thread:                           ; preds = %524
   store i32 %.pre1188, ptr %31, align 4, !tbaa !3
   %.not96811221191 = icmp slt i32 %.pre1188, 1
-  br i1 %.not96811221191, label %.loopexit1052, label %..loopexit1052_crit_edge
+  br i1 %.not96811221191, label %.loopexit1052, label %.lr.ph1120.preheader
 
-.lr.ph1120.preheader:                             ; preds = %._crit_edge1116
+.lr.ph1120.preheader:                             ; preds = %._crit_edge1116.thread
   %528 = zext nneg i32 %.pre1188 to i64
   %529 = add nuw i32 %509, 1
   %530 = sext i32 %62 to i64
@@ -1110,7 +1110,7 @@ default.unreachable:                              ; preds = %142
   %exitcond1182.not = icmp eq i64 %indvars.iv.next1179, %wide.trip.count1181
   br i1 %exitcond1182.not, label %..loopexit1052_crit_edge, label %.lr.ph1120, !llvm.loop !21
 
-..loopexit1052_crit_edge:                         ; preds = %._crit_edge1121, %._crit_edge1116.thread
+..loopexit1052_crit_edge:                         ; preds = %._crit_edge1121, %._crit_edge1116
   store i32 %509, ptr %32, align 4, !tbaa !3
   br label %.loopexit1052
 

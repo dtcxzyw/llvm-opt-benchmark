@@ -4056,8 +4056,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16CheckTypeMatcher19isContradictor
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 14
-  %.not.not8 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not8, %5
+  %.not8 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not8, %5
   br i1 %.not.not.not, label %6, label %_ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit
 
 6:                                                ; preds = %2
@@ -4113,8 +4113,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21CheckChildTypeMatcher19isContrad
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 16
-  %.not.not10 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not10, %5
+  %.not10 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not10, %5
   br i1 %.not.not.not, label %6, label %_ZL21TypesAreContradictoryN4llvm3MVT15SimpleValueTypeES1_.exit
 
 6:                                                ; preds = %2
@@ -4178,8 +4178,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm19CheckIntegerMatcher19isContradic
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 17
-  %.not.not7 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not7, %5
+  %.not7 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not7, %5
   br i1 %.not.not.not, label %6, label %12
 
 6:                                                ; preds = %2
@@ -4200,8 +4200,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm24CheckChildIntegerMatcher19isCont
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 18
-  %.not.not9 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not9, %5
+  %.not9 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not9, %5
   br i1 %.not.not.not, label %6, label %17
 
 6:                                                ; preds = %2
@@ -4230,8 +4230,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21CheckValueTypeMatcher19isContrad
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 21
-  %.not.not7 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not7, %5
+  %.not7 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not7, %5
   br i1 %.not.not.not, label %6, label %12
 
 6:                                                ; preds = %2
@@ -4268,8 +4268,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20CheckCondCodeMatcher19isContradi
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 19
-  %.not.not14 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not14, %5
+  %.not14 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not14, %5
   br i1 %.not.not.not, label %6, label %_ZN4llvmneENS_9StringRefES0_.exit
 
 6:                                                ; preds = %2
@@ -4303,8 +4303,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm26CheckChild2CondCodeMatcher19isCo
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i32 %4, 20
-  %.not.not14 = icmp ne ptr %1, null
-  %.not.not.not = and i1 %.not.not14, %5
+  %.not14 = icmp ne ptr %1, null
+  %.not.not.not = and i1 %.not14, %5
   br i1 %.not.not.not, label %6, label %_ZN4llvmneENS_9StringRefES0_.exit
 
 6:                                                ; preds = %2

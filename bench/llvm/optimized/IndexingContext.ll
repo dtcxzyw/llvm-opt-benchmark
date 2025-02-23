@@ -403,14 +403,14 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_ZN
 92:                                               ; preds = %88, %90, %85
   %.not44 = icmp eq ptr %8, null
   %spec.select = select i1 %.not44, ptr %1, ptr %8
-  %93 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext31isTemplateImplicitInstantiationEPKNS_4DeclE(ptr noundef %1)
+  %93 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext31isTemplateImplicitInstantiationEPKNS_4DeclE(ptr noundef nonnull %1)
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %92
   br i1 %3, label %95, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread101
 
 95:                                               ; preds = %94
-  %96 = call fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5clang4DeclE(ptr noundef %1)
+  %96 = call fastcc noundef ptr @_ZL35adjustTemplateImplicitInstantiationPKN5clang4DeclE(ptr noundef nonnull %1)
   %.not45 = icmp eq ptr %96, null
   br i1 %.not45, label %_ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread101, label %.thread
 
@@ -419,7 +419,7 @@ _ZN5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit.thread: ; preds = %_ZN
 
 98:                                               ; preds = %97
   %99 = load ptr, ptr %28, align 8, !tbaa !27
-  %100 = call fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclEPKNS_11DeclContextERNS_10ASTContextE(ptr noundef %spec.select, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(23216) %99)
+  %100 = call fastcc noundef zeroext i1 @_ZL17isDeclADefinitionPKN5clang4DeclEPKNS_11DeclContextERNS_10ASTContextE(ptr noundef nonnull %spec.select, ptr noundef %9, ptr noundef nonnull align 8 dereferenceable(23216) %99)
   %. = select i1 %100, i32 2, i32 1
   br label %.thread
 

@@ -1165,10 +1165,12 @@ define internal void @asle_work(ptr noundef %0) #0 align 16 {
 
 .loopexit:                                        ; preds = %.preheader, %62
   call void @drm_connector_list_iter_end(ptr noundef nonnull %2) #12
-  %71 = mul nuw nsw i32 %54, 100
-  %72 = add nuw nsw i32 %71, 254
-  %73 = udiv i32 %72, 255
-  %74 = or disjoint i32 %73, -2147483648
+  %71 = trunc i32 %35 to i16
+  %72 = mul i16 %71, 100
+  %.lhs.trunc = add i16 %72, 254
+  %73 = udiv i16 %.lhs.trunc, 255
+  %.zext = zext nneg i16 %73 to i32
+  %74 = or disjoint i32 %.zext, -2147483648
   %75 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i32 %74, ptr %75, align 1
   call void @drm_modeset_unlock(ptr noundef %57) #12

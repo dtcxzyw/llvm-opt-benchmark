@@ -262,15 +262,15 @@ define void @Wlc_NtkSaveOneNode(ptr noundef readonly captures(none) %0, ptr noun
   %20 = icmp sgt i32 %.val28.fr, 0
   %wide.trip.count.i = zext nneg i32 %.val28.fr to i64
   %21 = sext i32 %16 to i64
-  %smax50 = tail call i32 @llvm.abs.i32(i32 %7, i1 false)
-  %22 = add nuw i32 %smax50, 1
-  %wide.trip.count51 = zext i32 %22 to i64
+  %smax49 = tail call i32 @llvm.abs.i32(i32 %7, i1 false)
+  %22 = add nuw i32 %smax49, 1
+  %wide.trip.count50 = zext i32 %22 to i64
   br i1 %20, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %4, %Abc_TtNot.exit39.us
-  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %Abc_TtNot.exit39.us ], [ 0, %4 ]
+  %indvars.iv46 = phi i64 [ %indvars.iv.next47, %Abc_TtNot.exit39.us ], [ 0, %4 ]
   %.val27.us = load ptr, ptr %17, align 8, !tbaa !26
-  %23 = getelementptr i32, ptr %.val27.us, i64 %indvars.iv47
+  %23 = getelementptr i32, ptr %.val27.us, i64 %indvars.iv46
   %24 = getelementptr i32, ptr %23, i64 %21
   %25 = load i32, ptr %24, align 4, !tbaa !9
   %26 = ashr i32 %25, 1
@@ -285,7 +285,7 @@ define void @Wlc_NtkSaveOneNode(ptr noundef readonly captures(none) %0, ptr noun
   %32 = trunc i64 %31 to i32
   %33 = and i32 %32, 1
   %.not.us = icmp eq i32 %33, 0
-  br i1 %.not.us, label %Abc_TtNot.exit.thread.us, label %.lr.ph.i.us
+  br i1 %.not.us, label %Abc_TtNot.exit.us, label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.split.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %.split.us ]
@@ -295,14 +295,14 @@ define void @Wlc_NtkSaveOneNode(ptr noundef readonly captures(none) %0, ptr noun
   store i64 %36, ptr %34, align 8, !tbaa !52
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
-  br i1 %exitcond.not.i.us, label %Abc_TtNot.exit.us, label %.lr.ph.i.us, !llvm.loop !53
+  br i1 %exitcond.not.i.us, label %.lr.ph.preheader.i33.us, label %.lr.ph.i.us, !llvm.loop !53
 
-Abc_TtNot.exit.us:                                ; preds = %.lr.ph.i.us
+.lr.ph.preheader.i33.us:                          ; preds = %.lr.ph.i.us
   %37 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %3, ptr noundef nonnull %30)
   br label %.lr.ph.i35.us
 
-.lr.ph.i35.us:                                    ; preds = %.lr.ph.i35.us, %Abc_TtNot.exit.us
-  %indvars.iv.i36.us = phi i64 [ 0, %Abc_TtNot.exit.us ], [ %indvars.iv.next.i37.us, %.lr.ph.i35.us ]
+.lr.ph.i35.us:                                    ; preds = %.lr.ph.i35.us, %.lr.ph.preheader.i33.us
+  %indvars.iv.i36.us = phi i64 [ 0, %.lr.ph.preheader.i33.us ], [ %indvars.iv.next.i37.us, %.lr.ph.i35.us ]
   %38 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv.i36.us
   %39 = load i64, ptr %38, align 8, !tbaa !52
   %40 = xor i64 %39, -1
@@ -311,21 +311,21 @@ Abc_TtNot.exit.us:                                ; preds = %.lr.ph.i.us
   %exitcond.not.i38.us = icmp eq i64 %indvars.iv.next.i37.us, %wide.trip.count.i
   br i1 %exitcond.not.i38.us, label %Abc_TtNot.exit39.us, label %.lr.ph.i35.us, !llvm.loop !53
 
-Abc_TtNot.exit.thread.us:                         ; preds = %.split.us
+Abc_TtNot.exit.us:                                ; preds = %.split.us
   %41 = tail call fastcc i32 @Vec_MemHashInsert(ptr noundef nonnull %3, ptr noundef nonnull %30)
   br label %Abc_TtNot.exit39.us
 
-Abc_TtNot.exit39.us:                              ; preds = %.lr.ph.i35.us, %Abc_TtNot.exit.thread.us
-  %42 = phi i32 [ %41, %Abc_TtNot.exit.thread.us ], [ %37, %.lr.ph.i35.us ]
+Abc_TtNot.exit39.us:                              ; preds = %.lr.ph.i35.us, %Abc_TtNot.exit.us
+  %42 = phi i32 [ %41, %Abc_TtNot.exit.us ], [ %37, %.lr.ph.i35.us ]
   %43 = xor i32 %25, %32
   %44 = and i32 %43, 1
   %45 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %42, i32 noundef %44)
   %46 = load ptr, ptr @stdout, align 8, !tbaa !54
   tail call void @Extra_PrintHex(ptr noundef %46, ptr noundef nonnull %30, i32 noundef 8) #18
   %putchar25.us = tail call i32 @putchar(i32 10)
-  %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
-  %exitcond52.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count51
-  br i1 %exitcond52.not, label %.split44.us, label %.split.us, !llvm.loop !56
+  %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
+  %exitcond51.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count50
+  br i1 %exitcond51.not, label %.split43.us, label %.split.us, !llvm.loop !56
 
 .split:                                           ; preds = %4, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %4 ]
@@ -351,10 +351,10 @@ Abc_TtNot.exit39.us:                              ; preds = %.lr.ph.i35.us, %Abc
   tail call void @Extra_PrintHex(ptr noundef %61, ptr noundef nonnull %54, i32 noundef 8) #18
   %putchar25 = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51
-  br i1 %exitcond.not, label %.split44.us, label %.split, !llvm.loop !56
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count50
+  br i1 %exitcond.not, label %.split43.us, label %.split, !llvm.loop !56
 
-.split44.us:                                      ; preds = %.split, %Abc_TtNot.exit39.us
+.split43.us:                                      ; preds = %.split, %Abc_TtNot.exit39.us
   %putchar = tail call i32 @putchar(i32 10)
   ret void
 }

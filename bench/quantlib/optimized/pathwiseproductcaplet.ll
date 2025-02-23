@@ -2184,10 +2184,10 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %for.body ]
-  %add = add nuw i64 %i.06, 1
+  %add = add nuw nsw i64 %i.06, 1
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %i.06
   store i64 %add, ptr %add.ptr.i, align 8, !tbaa !40
-  %cmp = icmp ult i64 %add, %0
+  %cmp = icmp samesign ult i64 %add, %0
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !55
 
 nrvo.skipdtor:                                    ; preds = %for.body, %invoke.cont
@@ -5087,8 +5087,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
   %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %i.06
   store i64 %i.06, ptr %add.ptr.i, align 8, !tbaa !40
-  %inc = add nuw i64 %i.06, 1
-  %cmp = icmp ult i64 %inc, %0
+  %inc = add nuw nsw i64 %i.06, 1
+  %cmp = icmp samesign ult i64 %inc, %0
   br i1 %cmp, label %for.body, label %nrvo.skipdtor, !llvm.loop !62
 
 nrvo.skipdtor:                                    ; preds = %for.body, %invoke.cont
@@ -6159,7 +6159,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %i.06.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4.i, i64 %i.06.i
   store i64 %i.06.i, ptr %add.ptr.i.i, align 8, !tbaa !40, !noalias !78
-  %inc.i = add nuw i64 %i.06.i, 1
+  %inc.i = add nuw nsw i64 %i.06.i, 1
   %exitcond.not = icmp eq i64 %inc.i, %0
   br i1 %exitcond.not, label %_ZNK8QuantLib38MarketModelPathwiseMultiDeflatedCaplet19suggestedNumerairesEv.exit, label %for.body.i, !llvm.loop !62
 

@@ -4861,7 +4861,7 @@ pfr_glyph_load_compound.exit.thread:              ; preds = %.lr.ph58.split.us.i
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 28
   %210 = load i32, ptr %209, align 4, !tbaa !282
   %211 = zext i32 %210 to i64
-  %212 = call fastcc i32 @pfr_glyph_load_rec(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %208, i64 noundef %211)
+  %212 = call fastcc i32 @pfr_glyph_load_rec(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %208, i64 noundef %211)
   %.not87 = icmp eq i32 %212, 0
   br i1 %.not87, label %213, label %.loopexit123
 

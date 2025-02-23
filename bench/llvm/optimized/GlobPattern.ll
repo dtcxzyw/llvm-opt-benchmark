@@ -1715,7 +1715,7 @@ _ZN4llvm5ErrorD2Ev.exit43:                        ; preds = %145
   store ptr %148, ptr %0, align 8, !tbaa !41, !alias.scope !149
   br label %_ZN4llvm8ExpectedINS_11GlobPattern14SubGlobPatternEEC2IS2_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS5_S2_EEvE4typeE.exit
 
-.sink.split:                                      ; preds = %138, %141, %140, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
+.sink.split:                                      ; preds = %138, %141, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %140
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #17
   br label %154
 

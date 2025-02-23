@@ -231,7 +231,7 @@ define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr noundef nonnull readon
   br label %.lr.ph162
 
 .loopexit:                                        ; preds = %.lr.ph158, %.lr.ph162
-  %42 = icmp sgt i64 %indvars.iv179, 1
+  %42 = icmp samesign ugt i64 %indvars.iv179, 1
   br i1 %42, label %.lr.ph162, label %.preheader145, !llvm.loop !27
 
 .preheader145:                                    ; preds = %.loopexit, %.preheader146

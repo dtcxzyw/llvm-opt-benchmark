@@ -1462,7 +1462,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread: ; preds
   %150 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %146, ptr %150, align 8, !tbaa !138
   %151 = icmp samesign ugt i64 %140, 384307168202282325
-  br i1 %151, label %152, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  br i1 %151, label %152, label %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i
 
 152:                                              ; preds = %.noexc298
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.42) #24
@@ -1471,13 +1471,13 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread: ; preds
 .noexc300:                                        ; preds = %152
   unreachable
 
-_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %.noexc298
+_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i: ; preds = %.noexc298
   %153 = mul nuw nsw i64 %140, 24
   %154 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %153) #27
           to label %_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i unwind label %210
 
-_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread
-  %155 = phi ptr [ null, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread ], [ %154, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ]
+_ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread
+  %155 = phi ptr [ null, %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread ], [ %154, %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i ]
   store ptr %155, ptr %10, align 8, !tbaa !142
   %156 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %157 = getelementptr inbounds nuw %"class.std::vector.45", ptr %155, i64 %140
@@ -1612,7 +1612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit329: ; preds = %_Z
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit331
 
-210:                                              ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i, %152
+210:                                              ; preds = %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i, %152
   %211 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -5861,16 +5861,16 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit24.us34.us83: ; preds = %.preheader.i2
   store double %50, ptr %.01019.i.us41.us, align 8, !tbaa !140
   %52 = add nuw nsw i64 %.020.i.us40.us, 1
   %exitcond.not.i.us43.us = icmp eq i64 %52, %.fr113
-  br i1 %exitcond.not.i.us43.us, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us, label %.lr.ph.i.us39.us, !llvm.loop !231
+  br i1 %exitcond.not.i.us43.us, label %.lr.ph.i17.us47.us.preheader, label %.lr.ph.i.us39.us, !llvm.loop !231
 
-_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us: ; preds = %.lr.ph.i.us39.us
+.lr.ph.i17.us47.us.preheader:                     ; preds = %.lr.ph.i.us39.us
   %53 = getelementptr inbounds nuw double, ptr %.01325.us36.us, i64 %.fr113
   br label %.lr.ph.i17.us47.us
 
-.lr.ph.i17.us47.us:                               ; preds = %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us, %.lr.ph.i17.us47.us
-  %.020.i18.us48.us = phi i64 [ %57, %.lr.ph.i17.us47.us ], [ 0, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us ]
-  %.01019.i19.us49.us = phi ptr [ %56, %.lr.ph.i17.us47.us ], [ %53, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us ]
-  %.01218.i20.us50.us = phi ptr [ %54, %.lr.ph.i17.us47.us ], [ %.fr112, %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit.us44.us ]
+.lr.ph.i17.us47.us:                               ; preds = %.lr.ph.i17.us47.us.preheader, %.lr.ph.i17.us47.us
+  %.020.i18.us48.us = phi i64 [ %57, %.lr.ph.i17.us47.us ], [ 0, %.lr.ph.i17.us47.us.preheader ]
+  %.01019.i19.us49.us = phi ptr [ %56, %.lr.ph.i17.us47.us ], [ %53, %.lr.ph.i17.us47.us.preheader ]
+  %.01218.i20.us50.us = phi ptr [ %54, %.lr.ph.i17.us47.us ], [ %.fr112, %.lr.ph.i17.us47.us.preheader ]
   %54 = getelementptr inbounds nuw i8, ptr %.01218.i20.us50.us, i64 8
   %55 = load double, ptr %.01218.i20.us50.us, align 8, !tbaa !140
   %56 = getelementptr inbounds nuw i8, ptr %.01019.i19.us49.us, i64 8

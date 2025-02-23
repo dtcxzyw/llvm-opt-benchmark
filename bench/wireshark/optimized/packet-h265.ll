@@ -3646,13 +3646,13 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %exitcond24.not, label %.lr.ph13.preheader, label %.lr.ph7, !llvm.loop !38
 
 .lr.ph13.preheader:                               ; preds = %.lr.ph7, %._crit_edge
-  %.2 = phi i32 [ %200, %._crit_edge ], [ %203, %.lr.ph7 ]
+  %.2.ph = phi i32 [ %200, %._crit_edge ], [ %203, %.lr.ph7 ]
   %wide.trip.count32 = zext nneg i32 %3 to i64
   br label %.lr.ph13
 
 .lr.ph13:                                         ; preds = %.lr.ph13.preheader, %377
   %indvars.iv29 = phi i64 [ 0, %.lr.ph13.preheader ], [ %indvars.iv.next30, %377 ]
-  %.410 = phi i32 [ %.2, %.lr.ph13.preheader ], [ %.7, %377 ]
+  %.410 = phi i32 [ %.2.ph, %.lr.ph13.preheader ], [ %.7, %377 ]
   %205 = getelementptr [32 x i8], ptr %9, i64 0, i64 %indvars.iv29
   %206 = load i8, ptr %205, align 1, !range !35, !noundef !36
   %207 = trunc nuw i8 %206 to i1
@@ -3875,7 +3875,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   %362 = getelementptr i8, ptr %341, i64 9
   %363 = load i8, ptr %362, align 1, !range !35, !noundef !36
   %364 = trunc nuw i8 %363 to i1
-  %spec.select42 = select i1 %364, ptr @hf_h265_sub_layer_inbld_flag, ptr @hf_h265_sub_layer_reserved_zero_bit
+  %spec.select43 = select i1 %364, ptr @hf_h265_sub_layer_inbld_flag, ptr @hf_h265_sub_layer_reserved_zero_bit
   br label %.sink.split
 
 switch.hole_check4:                               ; preds = %338
@@ -3885,7 +3885,7 @@ switch.hole_check4:                               ; preds = %338
   br i1 %switch.lobit8, label %.sink.split, label %340
 
 .sink.split:                                      ; preds = %switch.hole_check4, %361, %340, %345, %349, %353, %357
-  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %357 ], [ @hf_h265_sub_layer_inbld_flag, %353 ], [ @hf_h265_sub_layer_inbld_flag, %349 ], [ @hf_h265_sub_layer_inbld_flag, %345 ], [ @hf_h265_sub_layer_inbld_flag, %340 ], [ %spec.select42, %361 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check4 ]
+  %hf_h265_sub_layer_inbld_flag.sink = phi ptr [ @hf_h265_sub_layer_inbld_flag, %357 ], [ @hf_h265_sub_layer_inbld_flag, %353 ], [ @hf_h265_sub_layer_inbld_flag, %349 ], [ @hf_h265_sub_layer_inbld_flag, %345 ], [ @hf_h265_sub_layer_inbld_flag, %340 ], [ %spec.select43, %361 ], [ @hf_h265_sub_layer_inbld_flag, %switch.hole_check4 ]
   %365 = load i32, ptr %hf_h265_sub_layer_inbld_flag.sink, align 4
   %366 = call ptr @proto_tree_add_bits_item(ptr noundef %0, i32 noundef %365, ptr noundef %1, i32 noundef %.6, i32 noundef 1, i32 noundef 0)
   %367 = add i32 %.410, 88

@@ -4957,7 +4957,7 @@ select.unfold.us.i.i.i.i:                         ; preds = %.sink.split.i.us.i.
   br i1 %24, label %_ZN4core3ops8function6FnOnce9call_once17he309588a7ba6eed4E.exit.i, label %.sink.split.i7.i.i.i.i
 
 .sink.split.i7.i.i.i.i:                           ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h305bd262f13d419fE.exit.thread.i.i.i.i"
-  %25 = getelementptr inbounds nuw i8, ptr %.09.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %26 = load ptr, ptr %25, align 8, !alias.scope !2293, !nonnull !11, !noundef !11
   %27 = icmp eq ptr %23, %26
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 304
@@ -5045,7 +5045,7 @@ select.unfold.i.i.i.i:                            ; preds = %.sink.split.i.i.i.i
   br i1 %64, label %"_ZN4core6option15Option$LT$T$GT$7or_else17h482c328ff77193c1E.llvm.1686074433831124249.exit", label %.sink.split.i7.i.i.i.i4
 
 .sink.split.i7.i.i.i.i4:                          ; preds = %.loopexit.i.i.i.i
-  %65 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 72
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %66 = load ptr, ptr %65, align 8, !alias.scope !2354, !noalias !2303, !nonnull !11, !noundef !11
   %67 = icmp eq ptr %63, %66
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 304
@@ -16754,7 +16754,7 @@ select.unfold.us.i.i.i:                           ; preds = %.sink.split.i.us.i.
   br i1 %23, label %_ZN4core3ops8function6FnOnce9call_once17he309588a7ba6eed4E.exit, label %.sink.split.i7.i.i.i
 
 .sink.split.i7.i.i.i:                             ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h305bd262f13d419fE.exit.thread.i.i.i"
-  %24 = getelementptr inbounds nuw i8, ptr %.09, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8, !alias.scope !5734, !nonnull !11, !noundef !11
   %26 = icmp eq ptr %22, %25
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 304
@@ -17021,7 +17021,7 @@ select.unfold.i.i.i:                              ; preds = %.sink.split.i.i.i.i
   br i1 %39, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h4907e091276ddec7E.exit", label %.sink.split.i7.i.i.i
 
 .sink.split.i7.i.i.i:                             ; preds = %.loopexit.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.05.i, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %41 = load ptr, ptr %40, align 8, !alias.scope !5903, !nonnull !11, !noundef !11
   %42 = icmp eq ptr %38, %41
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 304
@@ -46664,7 +46664,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.118.i15 = phi i64 [ %90, %84 ], [ %.017.i13, %81 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %81 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20
 
 94:                                               ; preds = %92
@@ -46676,7 +46676,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.118.i15
   br label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit20
 

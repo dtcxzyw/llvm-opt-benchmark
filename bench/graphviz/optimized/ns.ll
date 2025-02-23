@@ -788,7 +788,7 @@ gv_alloc.exit.i.i:                                ; preds = %324
   tail call void @free(ptr noundef nonnull %325) #21
   %341 = getelementptr inbounds nuw ptr, ptr %314, i64 %.03384.i
   store ptr null, ptr %341, align 8, !tbaa !81
-  br label %STheapify.exit.thread.i
+  br label %merge_trees.exit.thread69.i
 
 ._crit_edge87.i:                                  ; preds = %337, %gv_calloc.exit.i
   %.promoted.i = phi i64 [ 0, %gv_calloc.exit.i ], [ %.1.i72, %337 ]
@@ -894,10 +894,10 @@ STheapify.exit.i.i:                               ; preds = %381, %380
 STbuildheap.exit.preheader.i:                     ; preds = %STheapify.exit.i.i
   %invariant.gep.i = getelementptr i8, ptr %314, i64 -8
   %391 = icmp ugt i64 %.promoted.i, 1
-  br i1 %391, label %.lr.ph90.i, label %STheapify.exit.thread.loopexit.i
+  br i1 %391, label %.lr.ph90.i, label %merge_trees.exit.thread69.loopexit.i
 
-.lr.ph90.i:                                       ; preds = %STbuildheap.exit.preheader.i, %STheapify.exit.i
-  %392 = phi i64 [ %397, %STheapify.exit.i ], [ %.promoted.i, %STbuildheap.exit.preheader.i ]
+.lr.ph90.i:                                       ; preds = %STbuildheap.exit.preheader.i, %merge_trees.exit.i
+  %392 = phi i64 [ %397, %merge_trees.exit.i ], [ %.promoted.i, %STbuildheap.exit.preheader.i ]
   %393 = load ptr, ptr %314, align 8, !tbaa !81
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 16
   store i64 -1, ptr %394, align 8, !tbaa !87
@@ -973,7 +973,7 @@ STextractmin.exit.i:                              ; preds = %426, %425
   %.val47.i = load ptr, ptr %393, align 8, !tbaa !76
   %435 = tail call fastcc ptr @inter_tree_edge_search(ptr noundef %.val47.i, ptr noundef null, ptr noundef null)
   %.not45.i75 = icmp eq ptr %435, null
-  br i1 %.not45.i75, label %STheapify.exit.thread.loopexit.i, label %436
+  br i1 %.not45.i75, label %merge_trees.exit.thread69.loopexit.i, label %436
 
 436:                                              ; preds = %STextractmin.exit.i
   %437 = load i32, ptr %435, align 8
@@ -1056,11 +1056,11 @@ STsetFind.exit.i.i:                               ; preds = %STsetFind.exit.loop
 
 STsetFind.exit49.i.loopexit.i:                    ; preds = %467, %.lr.ph.i41.i.i
   %.0.lcssa.i48.i.ph.i = phi ptr [ %466, %467 ], [ %463, %.lr.ph.i41.i.i ]
-  %.pre111.i = load i32, ptr %435, align 8
+  %.pre108.i = load i32, ptr %435, align 8
   br label %STsetFind.exit49.i.i
 
 STsetFind.exit49.i.i:                             ; preds = %STsetFind.exit49.i.loopexit.i, %STsetFind.exit.i.i
-  %468 = phi i32 [ %453, %STsetFind.exit.i.i ], [ %.pre111.i, %STsetFind.exit49.i.loopexit.i ]
+  %468 = phi i32 [ %453, %STsetFind.exit.i.i ], [ %.pre108.i, %STsetFind.exit49.i.loopexit.i ]
   %.0.lcssa.i48.i.i = phi ptr [ %.01.i37.i.i, %STsetFind.exit.i.i ], [ %.0.lcssa.i48.i.ph.i, %STsetFind.exit49.i.loopexit.i ]
   %469 = getelementptr i8, ptr %.0.lcssa.i.i.i, i64 16
   %.val36.i.i = load i64, ptr %469, align 8, !tbaa !87
@@ -1114,7 +1114,7 @@ STsetFind.exit49.i.i:                             ; preds = %STsetFind.exit49.i.
 498:                                              ; preds = %.sink.split.i.i, %495, %492
   %499 = tail call fastcc i32 @add_tree_edge(ptr noundef nonnull %435)
   %.not34.i.i = icmp eq i32 %499, 0
-  br i1 %.not34.i.i, label %.preheader.i60.i, label %STheapify.exit.thread.loopexit.i
+  br i1 %.not34.i.i, label %.preheader.i60.i, label %merge_trees.exit.thread69.loopexit.i
 
 .preheader.i60.i:                                 ; preds = %498, %.preheader.i60.i
   %.032.i.i.i = phi ptr [ %501, %.preheader.i60.i ], [ %.0.lcssa.i.i.i, %498 ]
@@ -1141,19 +1141,19 @@ STsetFind.exit49.i.i:                             ; preds = %STsetFind.exit49.i.
 .critedge2.i.i.i:                                 ; preds = %.critedge.i.i.i
   %505 = getelementptr inbounds nuw i8, ptr %.031.i.i.i, i64 24
   %506 = icmp eq ptr %.032.i.i.i, %.031.i.i.i
-  br i1 %506, label %merge_trees.exit.i, label %507
+  br i1 %506, label %524, label %507
 
 507:                                              ; preds = %.critedge2.i.i.i
   %508 = getelementptr i8, ptr %.031.i.i.i, i64 16
   %.031.val.i.i.i = load i64, ptr %508, align 8, !tbaa !87
   %.not40.i.i.i = icmp eq i64 %.031.val.i.i.i, -1
-  br i1 %.not40.i.i.i, label %merge_trees.exit.thread67.i, label %509
+  br i1 %.not40.i.i.i, label %517, label %509
 
 509:                                              ; preds = %507
   %510 = getelementptr i8, ptr %.032.i.i.i, i64 16
   %.032.val.i.i.i = load i64, ptr %510, align 8, !tbaa !87
   %.not41.i.i.i = icmp eq i64 %.032.val.i.i.i, -1
-  br i1 %.not41.i.i.i, label %merge_trees.exit.thread67.i, label %511
+  br i1 %.not41.i.i.i, label %517, label %511
 
 511:                                              ; preds = %509
   %512 = getelementptr inbounds nuw i8, ptr %.031.i.i.i, i64 8
@@ -1162,28 +1162,24 @@ STsetFind.exit49.i.i:                             ; preds = %STsetFind.exit49.i.
   %515 = load i32, ptr %514, align 8, !tbaa !79
   %516 = icmp slt i32 %513, %515
   %.032..031.i.i.i = select i1 %516, ptr %.032.i.i.i, ptr %.031.i.i.i
-  br label %merge_trees.exit.thread67.i
+  br label %517
 
-merge_trees.exit.thread67.i:                      ; preds = %511, %509, %507
+517:                                              ; preds = %511, %509, %507
   %.0.i.i.i = phi ptr [ %.032.i.i.i, %507 ], [ %.031.i.i.i, %509 ], [ %.032..031.i.i.i, %511 ]
   store ptr %.0.i.i.i, ptr %505, align 8, !tbaa !80
   store ptr %.0.i.i.i, ptr %502, align 8, !tbaa !80
-  %517 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 8
-  %518 = load i32, ptr %517, align 8, !tbaa !79
-  %519 = getelementptr inbounds nuw i8, ptr %.031.i.i.i, i64 8
-  %520 = load i32, ptr %519, align 8, !tbaa !79
-  %521 = add nsw i32 %520, %518
-  %522 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  store i32 %521, ptr %522, align 8, !tbaa !79
+  %518 = getelementptr inbounds nuw i8, ptr %.032.i.i.i, i64 8
+  %519 = load i32, ptr %518, align 8, !tbaa !79
+  %520 = getelementptr inbounds nuw i8, ptr %.031.i.i.i, i64 8
+  %521 = load i32, ptr %520, align 8, !tbaa !79
+  %522 = add nsw i32 %521, %519
+  %523 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  store i32 %522, ptr %523, align 8, !tbaa !79
   br label %524
 
-merge_trees.exit.i:                               ; preds = %.critedge2.i.i.i
-  %523 = icmp eq ptr %.032.i.i.i, null
-  br i1 %523, label %STheapify.exit.thread.loopexit.i, label %524
-
-524:                                              ; preds = %merge_trees.exit.i, %merge_trees.exit.thread67.i
-  %.0.i5969.i = phi ptr [ %.0.i.i.i, %merge_trees.exit.thread67.i ], [ %.032.i.i.i, %merge_trees.exit.i ]
-  %525 = getelementptr inbounds nuw i8, ptr %.0.i5969.i, i64 16
+524:                                              ; preds = %517, %.critedge2.i.i.i
+  %.0.i59.ph.i = phi ptr [ %.032.i.i.i, %.critedge2.i.i.i ], [ %.0.i.i.i, %517 ]
+  %525 = getelementptr inbounds nuw i8, ptr %.0.i59.ph.i, i64 16
   %526 = load i64, ptr %525, align 8, !tbaa !87
   br label %527
 
@@ -1229,7 +1225,7 @@ merge_trees.exit.i:                               ; preds = %.critedge2.i.i.i
 554:                                              ; preds = %544, %542
   %.140.i.i = phi i64 [ %.039.i.i, %542 ], [ %spec.select43.i.i, %544 ]
   %.not.i61.i = icmp eq i64 %.140.i.i, %.038.i.i
-  br i1 %.not.i61.i, label %STheapify.exit.i, label %555
+  br i1 %.not.i61.i, label %merge_trees.exit.i, label %555
 
 555:                                              ; preds = %554
   %556 = getelementptr inbounds nuw ptr, ptr %314, i64 %.038.i.i
@@ -1244,42 +1240,42 @@ merge_trees.exit.i:                               ; preds = %.critedge2.i.i.i
   %562 = getelementptr inbounds nuw i8, ptr %557, i64 16
   store i64 %.140.i.i, ptr %562, align 8, !tbaa !87
   %563 = icmp ult i64 %.140.i.i, %397
-  br i1 %563, label %527, label %STheapify.exit.i, !llvm.loop !89
+  br i1 %563, label %527, label %merge_trees.exit.i, !llvm.loop !89
 
-STheapify.exit.i:                                 ; preds = %555, %554
+merge_trees.exit.i:                               ; preds = %555, %554
   %564 = icmp ugt i64 %397, 1
-  br i1 %564, label %.lr.ph90.i, label %STheapify.exit.thread.loopexit.i
+  br i1 %564, label %.lr.ph90.i, label %merge_trees.exit.thread69.loopexit.i
 
-STheapify.exit.thread.loopexit.i:                 ; preds = %STheapify.exit.i, %merge_trees.exit.i, %498, %STextractmin.exit.i, %STbuildheap.exit.preheader.i
-  %565 = phi i64 [ %.promoted.i, %STbuildheap.exit.preheader.i ], [ 1, %STheapify.exit.i ], [ %397, %STextractmin.exit.i ], [ %397, %merge_trees.exit.i ], [ %397, %498 ]
-  %.not46.ph.i = phi i1 [ true, %STbuildheap.exit.preheader.i ], [ true, %STheapify.exit.i ], [ false, %STextractmin.exit.i ], [ false, %merge_trees.exit.i ], [ false, %498 ]
-  %.140.ph.i = phi i32 [ 0, %STbuildheap.exit.preheader.i ], [ 0, %STheapify.exit.i ], [ 1, %STextractmin.exit.i ], [ 2, %merge_trees.exit.i ], [ 2, %498 ]
+merge_trees.exit.thread69.loopexit.i:             ; preds = %merge_trees.exit.i, %498, %STextractmin.exit.i, %STbuildheap.exit.preheader.i
+  %565 = phi i64 [ %.promoted.i, %STbuildheap.exit.preheader.i ], [ 1, %merge_trees.exit.i ], [ %397, %STextractmin.exit.i ], [ %397, %498 ]
+  %.not46.ph.i = phi i1 [ true, %STbuildheap.exit.preheader.i ], [ true, %merge_trees.exit.i ], [ false, %STextractmin.exit.i ], [ false, %498 ]
+  %.140.ph.i = phi i32 [ 0, %STbuildheap.exit.preheader.i ], [ 0, %merge_trees.exit.i ], [ 1, %STextractmin.exit.i ], [ 2, %498 ]
   store i64 %565, ptr %347, align 8
-  br label %STheapify.exit.thread.i
+  br label %merge_trees.exit.thread69.i
 
-STheapify.exit.thread.i:                          ; preds = %STheapify.exit.thread.loopexit.i, %340
-  %.03376.i = phi i64 [ %.03384.i, %340 ], [ %.promoted.i, %STheapify.exit.thread.loopexit.i ]
-  %.not46.i = phi i1 [ false, %340 ], [ %.not46.ph.i, %STheapify.exit.thread.loopexit.i ]
-  %.140.i = phi i32 [ 2, %340 ], [ %.140.ph.i, %STheapify.exit.thread.loopexit.i ]
-  %.037.i74 = phi ptr [ null, %340 ], [ %342, %STheapify.exit.thread.loopexit.i ]
+merge_trees.exit.thread69.i:                      ; preds = %merge_trees.exit.thread69.loopexit.i, %340
+  %.03376.i = phi i64 [ %.03384.i, %340 ], [ %.promoted.i, %merge_trees.exit.thread69.loopexit.i ]
+  %.not46.i = phi i1 [ false, %340 ], [ %.not46.ph.i, %merge_trees.exit.thread69.loopexit.i ]
+  %.140.i = phi i32 [ 2, %340 ], [ %.140.ph.i, %merge_trees.exit.thread69.loopexit.i ]
+  %.037.i74 = phi ptr [ null, %340 ], [ %342, %merge_trees.exit.thread69.loopexit.i ]
   tail call void @free(ptr noundef %.037.i74) #21
-  %.not106.i = icmp eq i64 %.03376.i, 0
-  br i1 %.not106.i, label %._crit_edge105.i, label %.lr.ph104.i
+  %.not103.i = icmp eq i64 %.03376.i, 0
+  br i1 %.not103.i, label %._crit_edge102.i, label %.lr.ph101.i
 
-._crit_edge105.i:                                 ; preds = %.lr.ph104.i, %STheapify.exit.thread.i
+._crit_edge102.i:                                 ; preds = %.lr.ph101.i, %merge_trees.exit.thread69.i
   tail call void @free(ptr noundef %314) #21
   br i1 %.not46.i, label %569, label %feasible_tree.exit
 
-.lr.ph104.i:                                      ; preds = %STheapify.exit.thread.i, %.lr.ph104.i
-  %.0103.i = phi i64 [ %568, %.lr.ph104.i ], [ 0, %STheapify.exit.thread.i ]
-  %566 = getelementptr inbounds nuw ptr, ptr %314, i64 %.0103.i
+.lr.ph101.i:                                      ; preds = %merge_trees.exit.thread69.i, %.lr.ph101.i
+  %.0100.i = phi i64 [ %568, %.lr.ph101.i ], [ 0, %merge_trees.exit.thread69.i ]
+  %566 = getelementptr inbounds nuw ptr, ptr %314, i64 %.0100.i
   %567 = load ptr, ptr %566, align 8, !tbaa !81
   tail call void @free(ptr noundef %567) #21
-  %568 = add nuw i64 %.0103.i, 1
+  %568 = add nuw i64 %.0100.i, 1
   %exitcond.not.i = icmp eq i64 %568, %.03376.i
-  br i1 %exitcond.not.i, label %._crit_edge105.i, label %.lr.ph104.i, !llvm.loop !95
+  br i1 %exitcond.not.i, label %._crit_edge102.i, label %.lr.ph101.i, !llvm.loop !95
 
-569:                                              ; preds = %._crit_edge105.i
+569:                                              ; preds = %._crit_edge102.i
   %570 = load ptr, ptr @G, align 8, !tbaa !36
   %571 = getelementptr inbounds nuw i8, ptr %570, i64 16
   %572 = load ptr, ptr %571, align 8, !tbaa !6
@@ -1292,7 +1288,7 @@ STheapify.exit.thread.i:                          ; preds = %STheapify.exit.thre
   tail call fastcc void @dfs_cutval(ptr noundef %578, ptr noundef null)
   br label %feasible_tree.exit
 
-feasible_tree.exit:                               ; preds = %._crit_edge105.i, %569
+feasible_tree.exit:                               ; preds = %._crit_edge102.i, %569
   %.not42 = icmp eq i32 %.140.i, 0
   br i1 %.not42, label %.critedge, label %579
 

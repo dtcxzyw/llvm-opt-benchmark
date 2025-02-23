@@ -322,7 +322,7 @@ dt_iop_alpha_copy.exit.i:                         ; preds = %.lr.ph.i.i, %78, %.
 ._crit_edge9.i:                                   ; preds = %.lr.ph8.i, %._crit_edge5.thread.i
   call void @dt_gaussian_blur(ptr noundef nonnull %106, ptr noundef nonnull %107, ptr noundef nonnull %107) #22
   %135 = call i32 @pthread_mutex_lock(ptr noundef nonnull %110) #22
-  br i1 %.not14.i, label %._crit_edge13.i, label %.lr.ph12.i
+  br i1 %.not14.i, label %.thread.i, label %.lr.ph12.i
 
 .lr.ph12.i:                                       ; preds = %._crit_edge9.i
   %136 = add nsw i32 %72, -1
@@ -343,9 +343,10 @@ dt_iop_alpha_copy.exit.i:                         ; preds = %.lr.ph.i.i, %78, %.
   %exitcond19.not.i = icmp eq i64 %145, %59
   br i1 %exitcond19.not.i, label %._crit_edge9.i, label %.lr.ph8.i
 
-._crit_edge13.i:                                  ; preds = %147, %._crit_edge9.i
+.thread.i:                                        ; preds = %147, %._crit_edge9.i
   %146 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %110) #22
-  br label %158
+  call void @g_free(ptr noundef nonnull %107) #22
+  br label %159
 
 147:                                              ; preds = %147, %.lr.ph12.i
   %.010.i = phi i64 [ 0, %.lr.ph12.i ], [ %157, %147 ]
@@ -362,13 +363,13 @@ dt_iop_alpha_copy.exit.i:                         ; preds = %.lr.ph.i.i, %78, %.
   store i8 %154, ptr %156, align 1, !tbaa !89
   %157 = add nuw i64 %.010.i, 1
   %exitcond20.not.i = icmp eq i64 %157, %59
-  br i1 %exitcond20.not.i, label %._crit_edge13.i, label %147
+  br i1 %exitcond20.not.i, label %.thread.i, label %147
 
-158:                                              ; preds = %._crit_edge13.i, %99
+158:                                              ; preds = %99
   call void @g_free(ptr noundef %107) #22
   br i1 %108, label %159, label %160
 
-159:                                              ; preds = %158
+159:                                              ; preds = %158, %.thread.i
   call void @dt_gaussian_free(ptr noundef nonnull %106) #22
   br label %160
 

@@ -1345,15 +1345,15 @@ _ZN4llvm15SmallVectorImplIN5clang6interp16DynamicAllocator10AllocationEE5clearEv
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i.i, i64 8
   %69 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %68, %66
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i, label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !111
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i
+.lr.ph.i.preheader.i.i:                           ; preds = %.lr.ph.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !13
   %70 = getelementptr inbounds nuw %"struct.clang::interp::DynamicAllocator::Allocation", ptr %.pre.i.i, i64 %65
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i
-  %.05.i.i.i = phi ptr [ %71, %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i.i ], [ %70, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i.i ]
+.lr.ph.i.i.i:                                     ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i.i, %.lr.ph.i.preheader.i.i
+  %.05.i.i.i = phi ptr [ %71, %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i.i ], [ %70, %.lr.ph.i.preheader.i.i ]
   %71 = getelementptr inbounds i8, ptr %.05.i.i.i, i64 -8
   %72 = load ptr, ptr %71, align 8, !tbaa !16
   %.not.i.i.i.i.i = icmp eq ptr %72, null
@@ -1788,15 +1788,15 @@ _ZNSt10unique_ptrIA_St4byteSt14default_deleteIS1_EED2Ev.exit:
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i.i, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %13, %11
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !111
+  br i1 %.not.i.i.i.i.i.i, label %.lr.ph.i.preheader.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !111
 
-_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i
+.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.i.i.i.i.i
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw %"struct.clang::interp::DynamicAllocator::Allocation", ptr %.pre.i, i64 %7
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i
-  %.05.i.i = phi ptr [ %16, %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i ], [ %15, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6interp16DynamicAllocator10AllocationELb0EE18uninitialized_moveIPS4_S7_EEvT_S8_T0_.exit.i ]
+.lr.ph.i.i:                                       ; preds = %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i, %.lr.ph.i.preheader.i
+  %.05.i.i = phi ptr [ %16, %_ZN5clang6interp16DynamicAllocator10AllocationD2Ev.exit.i.i ], [ %15, %.lr.ph.i.preheader.i ]
   %16 = getelementptr inbounds i8, ptr %.05.i.i, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %.not.i.i.i.i = icmp eq ptr %17, null

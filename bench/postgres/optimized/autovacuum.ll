@@ -1343,8 +1343,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %20
   %spec.select = select i1 %75, i32 110, i32 %74
   %76 = zext nneg i32 %spec.select to i64
   %77 = mul nuw nsw i64 %76, 1000
-  %smax = call i32 @llvm.smax.i32(i32 %.5.lcssa, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %.5.lcssa to i64
   br label %78
 
 78:                                               ; preds = %.lr.ph97, %dlist_push_head.exit

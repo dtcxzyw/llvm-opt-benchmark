@@ -78,12 +78,12 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
 
 49:                                               ; preds = %.lr.ph, %49
   %.021 = phi i32 [ %.0.i.i, %.lr.ph ], [ %52, %49 ]
-  %50 = zext i32 %.021 to i64
+  %50 = zext nneg i32 %.021 to i64
   %51 = getelementptr inbounds nuw i32, ptr %0, i64 %50
   store i32 %48, ptr %51, align 4, !tbaa !4
-  %52 = add i32 %.021, 1
-  %.not = icmp ugt i32 %52, %.0.i.i18
-  br i1 %.not, label %.loopexit, label %49, !llvm.loop !8
+  %52 = add nuw nsw i32 %.021, 1
+  %.not.not = icmp ult i32 %.021, %.0.i.i18
+  br i1 %.not.not, label %49, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %49, %sz_size2index_compute.exit19, %4
   ret i1 %or.cond

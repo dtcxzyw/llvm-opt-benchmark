@@ -485,11 +485,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %1, align 8
   %10 = icmp sgt i32 %8, 0
-  br i1 %10, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %6
-  %11 = sitofp i32 %8 to float
-  br label %._crit_edge366
+  br i1 %10, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %6
   %wide.trip.count = zext nneg i32 %8 to i64
@@ -497,23 +493,27 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.0276361 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %12 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
-  %13 = load float, ptr %12, align 4
-  %14 = fadd fast float %13, %.0276361
+  %.0276361 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %13, %.lr.ph ]
+  %11 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %12 = load float, ptr %11, align 4
+  %13 = fadd fast float %12, %.0276361
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %.lr.ph365.preheader, label %.lr.ph, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %.lr.ph
-  %15 = sitofp i32 %8 to float
-  %16 = fdiv fast float %14, %15
+._crit_edge:                                      ; preds = %6
+  %14 = sitofp i32 %8 to float
+  br label %._crit_edge366
+
+.lr.ph365.preheader:                              ; preds = %.lr.ph
+  %15 = uitofp nneg i32 %8 to float
+  %16 = fdiv fast float %13, %15
   %wide.trip.count451 = zext nneg i32 %8 to i64
   br label %.lr.ph365
 
-.lr.ph365:                                        ; preds = %._crit_edge, %.lr.ph365
-  %indvars.iv448 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next449, %.lr.ph365 ]
-  %.0278363 = phi float [ 0.000000e+00, %._crit_edge ], [ %21, %.lr.ph365 ]
+.lr.ph365:                                        ; preds = %.lr.ph365.preheader, %.lr.ph365
+  %indvars.iv448 = phi i64 [ 0, %.lr.ph365.preheader ], [ %indvars.iv.next449, %.lr.ph365 ]
+  %.0278363 = phi float [ 0.000000e+00, %.lr.ph365.preheader ], [ %21, %.lr.ph365 ]
   %17 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv448
   %18 = load float, ptr %17, align 4
   %19 = fsub fast float %18, %16
@@ -523,10 +523,10 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %exitcond452.not = icmp eq i64 %indvars.iv.next449, %wide.trip.count451
   br i1 %exitcond452.not, label %._crit_edge366, label %.lr.ph365, !llvm.loop !6
 
-._crit_edge366:                                   ; preds = %.lr.ph365, %._crit_edge.thread
-  %22 = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %16, %.lr.ph365 ]
-  %23 = phi float [ %11, %._crit_edge.thread ], [ %15, %.lr.ph365 ]
-  %.0278.lcssa = phi float [ 0.000000e+00, %._crit_edge.thread ], [ %21, %.lr.ph365 ]
+._crit_edge366:                                   ; preds = %.lr.ph365, %._crit_edge
+  %22 = phi float [ 0.000000e+00, %._crit_edge ], [ %16, %.lr.ph365 ]
+  %23 = phi float [ %14, %._crit_edge ], [ %15, %.lr.ph365 ]
+  %.0278.lcssa = phi float [ 0.000000e+00, %._crit_edge ], [ %21, %.lr.ph365 ]
   %24 = fdiv fast float %.0278.lcssa, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %26 = load float, ptr %25, align 4
@@ -631,15 +631,15 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %78 = fadd fast float %77, %.0296373
   %indvars.iv.next464 = add nuw nsw i64 %indvars.iv463, 1
   %exitcond467.not = icmp eq i64 %indvars.iv.next464, %wide.trip.count466
-  br i1 %exitcond467.not, label %._crit_edge376, label %.lr.ph375, !llvm.loop !9
+  br i1 %exitcond467.not, label %.lr.ph381.preheader, label %.lr.ph375, !llvm.loop !9
 
-._crit_edge376:                                   ; preds = %.lr.ph375
+.lr.ph381.preheader:                              ; preds = %.lr.ph375
   %79 = fmul fast float %78, %62
   br label %.lr.ph381
 
-.lr.ph381:                                        ; preds = %._crit_edge376, %.lr.ph381
-  %indvars.iv468 = phi i64 [ %indvars.iv.next469, %.lr.ph381 ], [ 0, %._crit_edge376 ]
-  %.0297379 = phi float [ %84, %.lr.ph381 ], [ 0.000000e+00, %._crit_edge376 ]
+.lr.ph381:                                        ; preds = %.lr.ph381.preheader, %.lr.ph381
+  %indvars.iv468 = phi i64 [ 0, %.lr.ph381.preheader ], [ %indvars.iv.next469, %.lr.ph381 ]
+  %.0297379 = phi float [ 0.000000e+00, %.lr.ph381.preheader ], [ %84, %.lr.ph381 ]
   %80 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv468
   %81 = load float, ptr %80, align 4
   %82 = fsub fast float %81, %79
@@ -790,19 +790,19 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %153 = getelementptr inbounds i8, ptr %149, i64 %152
   br i1 %134, label %.lr.ph415.us, label %._crit_edge422.us
 
-._crit_edge416.us:                                ; preds = %.lr.ph415.us
+.lr.ph421.us.preheader:                           ; preds = %.lr.ph415.us
   %154 = fmul fast float %185, %136
   br label %.lr.ph421.us
 
 ._crit_edge422.us:                                ; preds = %.lr.ph421.us, %142
-  %.0292.lcssa.us547 = phi float [ 0.000000e+00, %142 ], [ %185, %.lr.ph421.us ]
+  %.0292.lcssa.us548 = phi float [ 0.000000e+00, %142 ], [ %185, %.lr.ph421.us ]
   %.0291.lcssa.us = phi float [ 0.000000e+00, %142 ], [ %182, %.lr.ph421.us ]
   %155 = fmul fast float %.0291.lcssa.us, %141
   %156 = load float, ptr %137, align 4
   %157 = fadd fast float %156, %155
   %158 = tail call fast float @llvm.sqrt.f32(float %157)
   %159 = fdiv fast float 1.000000e+00, %158
-  %.reass432.us = fmul fast float %.0292.lcssa.us547, %invariant.op431
+  %.reass432.us = fmul fast float %.0292.lcssa.us548, %invariant.op431
   %160 = fmul fast float %.reass432.us, %159
   %161 = load i32, ptr %138, align 8
   %.not339.us = icmp eq i32 %161, 0
@@ -843,9 +843,9 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %exitcond532.not = icmp eq i64 %indvars.iv.next529, %wide.trip.count531
   br i1 %exitcond532.not, label %.loopexit.us, label %.lr.ph427.us, !llvm.loop !16
 
-.lr.ph421.us:                                     ; preds = %._crit_edge416.us, %.lr.ph421.us
-  %indvars.iv518 = phi i64 [ %indvars.iv.next519, %.lr.ph421.us ], [ 0, %._crit_edge416.us ]
-  %.0291418.us = phi float [ %182, %.lr.ph421.us ], [ 0.000000e+00, %._crit_edge416.us ]
+.lr.ph421.us:                                     ; preds = %.lr.ph421.us.preheader, %.lr.ph421.us
+  %indvars.iv518 = phi i64 [ 0, %.lr.ph421.us.preheader ], [ %indvars.iv.next519, %.lr.ph421.us ]
+  %.0291418.us = phi float [ 0.000000e+00, %.lr.ph421.us.preheader ], [ %182, %.lr.ph421.us ]
   %178 = getelementptr inbounds nuw float, ptr %153, i64 %indvars.iv518
   %179 = load float, ptr %178, align 4
   %180 = fsub fast float %179, %154
@@ -863,7 +863,7 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %185 = fadd fast float %184, %.0292412.us
   %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
   %exitcond517.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count516
-  br i1 %exitcond517.not, label %._crit_edge416.us, label %.lr.ph415.us, !llvm.loop !18
+  br i1 %exitcond517.not, label %.lr.ph421.us.preheader, label %.lr.ph415.us, !llvm.loop !18
 
 .preheader.us:                                    ; preds = %._crit_edge422.us
   br i1 %134, label %.lr.ph427.us, label %.loopexit.us
@@ -894,15 +894,15 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   %195 = fadd fast float %194, %.0281392
   %indvars.iv.next489 = add nuw nsw i64 %indvars.iv488, 1
   %exitcond492.not = icmp eq i64 %indvars.iv.next489, %wide.trip.count491
-  br i1 %exitcond492.not, label %._crit_edge396, label %.lr.ph395, !llvm.loop !20
+  br i1 %exitcond492.not, label %.lr.ph401.preheader, label %.lr.ph395, !llvm.loop !20
 
-._crit_edge396:                                   ; preds = %.lr.ph395
+.lr.ph401.preheader:                              ; preds = %.lr.ph395
   %196 = fmul fast float %195, %125
   br label %.lr.ph401
 
-.lr.ph401:                                        ; preds = %._crit_edge396, %.lr.ph401
-  %indvars.iv493 = phi i64 [ %indvars.iv.next494, %.lr.ph401 ], [ 0, %._crit_edge396 ]
-  %.0280398 = phi float [ %201, %.lr.ph401 ], [ 0.000000e+00, %._crit_edge396 ]
+.lr.ph401:                                        ; preds = %.lr.ph401.preheader, %.lr.ph401
+  %indvars.iv493 = phi i64 [ 0, %.lr.ph401.preheader ], [ %indvars.iv.next494, %.lr.ph401 ]
+  %.0280398 = phi float [ 0.000000e+00, %.lr.ph401.preheader ], [ %201, %.lr.ph401 ]
   %197 = getelementptr inbounds nuw float, ptr %192, i64 %indvars.iv493
   %198 = load float, ptr %197, align 4
   %199 = fsub fast float %198, %196
@@ -913,14 +913,14 @@ define hidden noundef i32 @_ZNK4ncnn9LayerNorm15forward_inplaceERNS_3MatERKNS_6O
   br i1 %exitcond497.not, label %._crit_edge402, label %.lr.ph401, !llvm.loop !21
 
 ._crit_edge402:                                   ; preds = %.lr.ph401, %186
-  %.0281.lcssa549 = phi float [ 0.000000e+00, %186 ], [ %195, %.lr.ph401 ]
+  %.0281.lcssa551 = phi float [ 0.000000e+00, %186 ], [ %195, %.lr.ph401 ]
   %.0280.lcssa = phi float [ 0.000000e+00, %186 ], [ %201, %.lr.ph401 ]
   %202 = fmul fast float %.0280.lcssa, %130
   %203 = load float, ptr %126, align 4
   %204 = fadd fast float %203, %202
   %205 = tail call fast float @llvm.sqrt.f32(float %204)
   %206 = fdiv fast float 1.000000e+00, %205
-  %.reass411 = fmul fast float %.0281.lcssa549, %invariant.op410
+  %.reass411 = fmul fast float %.0281.lcssa551, %invariant.op410
   %207 = fmul fast float %.reass411, %206
   %208 = load i32, ptr %127, align 8
   %.not338 = icmp eq i32 %208, 0

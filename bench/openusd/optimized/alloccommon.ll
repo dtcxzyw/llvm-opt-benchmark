@@ -406,9 +406,9 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   %40 = load i32, ptr %4, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
-  br i1 %42, label %.preheader35, label %.preheader, !llvm.loop !12
+  br i1 %42, label %.preheader35, label %._crit_edge, !llvm.loop !12
 
-.preheader:                                       ; preds = %.preheader35, %._crit_edge.us, %1
+.preheader:                                       ; preds = %._crit_edge.us, %1
   %43 = icmp sgt i32 %3, 0
   br i1 %43, label %.lr.ph, label %._crit_edge
 
@@ -427,7 +427,7 @@ define hidden void @av1_free_above_context_buffers(ptr noundef captures(none) %0
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count50
   br i1 %exitcond51.not, label %._crit_edge, label %45, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %45, %.preheader
+._crit_edge:                                      ; preds = %.preheader35, %45, %.preheader
   %48 = load ptr, ptr %0, align 8
   tail call void @aom_free(ptr noundef %48) #4
   store ptr null, ptr %0, align 8

@@ -184,18 +184,18 @@ define void @dhseqr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ._crit_edge:                                      ; preds = %85, %83
   store i32 %49, ptr %15, align 4, !tbaa !3
-  %.not267.not293 = icmp slt i32 %57, %49
+  %.not267.not293 = icmp samesign ult i32 %57, %49
   br i1 %.not267.not293, label %.lr.ph296, label %._crit_edge297
 
 .lr.ph296:                                        ; preds = %._crit_edge
   %93 = add i32 %23, 1
-  %94 = sext i32 %57 to i64
+  %94 = zext nneg i32 %57 to i64
   %wide.trip.count316 = zext nneg i32 %49 to i64
   br label %95
 
 95:                                               ; preds = %.lr.ph296, %95
   %indvars.iv313 = phi i64 [ %94, %.lr.ph296 ], [ %indvars.iv.next314, %95 ]
-  %indvars.iv.next314 = add nsw i64 %indvars.iv313, 1
+  %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
   %96 = trunc nsw i64 %indvars.iv.next314 to i32
   %97 = mul i32 %93, %96
   %98 = sext i32 %97 to i64

@@ -32,7 +32,7 @@ define void @sscal_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader41
   %.0.lcssa = phi i32 [ 0, %.preheader41 ], [ %15, %.preheader.loopexit ]
-  %16 = icmp slt i32 %.0.lcssa, %5
+  %16 = icmp samesign ult i32 %.0.lcssa, %5
   br i1 %16, label %.lr.ph47.preheader, label %.loopexit
 
 .lr.ph47.preheader:                               ; preds = %.preheader

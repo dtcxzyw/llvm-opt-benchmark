@@ -756,7 +756,7 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef c
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %.041.us = phi ptr [ %21, %.lr.ph.us ], [ %18, %.lr.ph.us.preheader ]
   %.03540.us = phi i32 [ %22, %.lr.ph.us ], [ %17, %.lr.ph.us.preheader ]
-  %19 = tail call fastcc i32 @LZWReadByte(ptr noundef %1)
+  %19 = tail call fastcc i32 @LZWReadByte(ptr noundef nonnull %1)
   %20 = trunc i32 %19 to i8
   %21 = getelementptr inbounds nuw i8, ptr %.041.us, i64 1
   store i8 %20, ptr %.041.us, align 1, !tbaa !30
@@ -795,7 +795,7 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.041 = phi ptr [ %39, %.lr.ph ], [ %36, %.lr.ph.preheader ]
   %.03540 = phi i32 [ %40, %.lr.ph ], [ %35, %.lr.ph.preheader ]
-  %37 = tail call fastcc i32 @LZWReadByte(ptr noundef %1)
+  %37 = tail call fastcc i32 @LZWReadByte(ptr noundef nonnull %1)
   %38 = trunc i32 %37 to i8
   %39 = getelementptr inbounds nuw i8, ptr %.041, i64 1
   store i8 %38, ptr %.041, align 1, !tbaa !30
@@ -808,40 +808,42 @@ define internal noundef i32 @load_interlaced_image(ptr noundef %0, ptr noundef c
   %41 = load i32, ptr %5, align 4, !tbaa !86
   %42 = zext i32 %41 to i64
   %43 = icmp samesign ult i64 %indvars.iv.next, %42
-  br i1 %43, label %.lr.ph44.split, label %._crit_edge45, !llvm.loop !90
+  br i1 %43, label %.lr.ph44.split, label %._crit_edge45.thread, !llvm.loop !90
 
-._crit_edge45:                                    ; preds = %._crit_edge, %._crit_edge.us, %2
-  %.lcssa = phi i32 [ 0, %2 ], [ %24, %._crit_edge.us ], [ %41, %._crit_edge ]
+._crit_edge45:                                    ; preds = %._crit_edge.us, %2
+  %.lcssa = phi i32 [ 0, %2 ], [ %24, %._crit_edge.us ]
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %48, label %44
+  br i1 %.not, label %47, label %._crit_edge45.thread
 
-44:                                               ; preds = %._crit_edge45
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %46 = load i32, ptr %45, align 8, !tbaa !94
-  %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %45, align 8, !tbaa !94
-  br label %48
+._crit_edge45.thread:                             ; preds = %._crit_edge, %._crit_edge45
+  %.lcssa53 = phi i32 [ %.lcssa, %._crit_edge45 ], [ %41, %._crit_edge ]
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %45 = load i32, ptr %44, align 8, !tbaa !94
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %44, align 8, !tbaa !94
+  br label %47
 
-48:                                               ; preds = %44, %._crit_edge45
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr @get_interlaced_row, ptr %49, align 8, !tbaa !78
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  store i32 0, ptr %50, align 8, !tbaa !95
-  %51 = add i32 %.lcssa, 7
-  %52 = lshr i32 %51, 3
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 444
-  store i32 %52, ptr %53, align 4, !tbaa !96
-  %54 = add i32 %.lcssa, 3
-  %55 = lshr i32 %54, 3
-  %56 = add nuw nsw i32 %52, %55
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  store i32 %56, ptr %57, align 8, !tbaa !97
-  %58 = add i32 %.lcssa, 1
-  %59 = lshr i32 %58, 2
-  %60 = add nuw nsw i32 %56, %59
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  store i32 %60, ptr %61, align 4, !tbaa !98
-  %62 = tail call i32 @get_interlaced_row(ptr noundef nonnull %0, ptr noundef %1)
+47:                                               ; preds = %._crit_edge45.thread, %._crit_edge45
+  %.lcssa54 = phi i32 [ %.lcssa53, %._crit_edge45.thread ], [ %.lcssa, %._crit_edge45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr @get_interlaced_row, ptr %48, align 8, !tbaa !78
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  store i32 0, ptr %49, align 8, !tbaa !95
+  %50 = add i32 %.lcssa54, 7
+  %51 = lshr i32 %50, 3
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 444
+  store i32 %51, ptr %52, align 4, !tbaa !96
+  %53 = add i32 %.lcssa54, 3
+  %54 = lshr i32 %53, 3
+  %55 = add nuw nsw i32 %51, %54
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  store i32 %55, ptr %56, align 8, !tbaa !97
+  %57 = add i32 %.lcssa54, 1
+  %58 = lshr i32 %57, 2
+  %59 = add nuw nsw i32 %55, %58
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 452
+  store i32 %59, ptr %60, align 4, !tbaa !98
+  %61 = tail call i32 @get_interlaced_row(ptr noundef nonnull %0, ptr noundef %1)
   ret i32 1
 }
 
@@ -866,7 +868,7 @@ define internal noundef i32 @get_pixel_rows(ptr noundef readonly captures(none) 
 .lr.ph33:                                         ; preds = %13, %.lr.ph33
   %.032 = phi i32 [ %20, %.lr.ph33 ], [ %12, %13 ]
   %.02331 = phi ptr [ %19, %.lr.ph33 ], [ %7, %13 ]
-  %14 = tail call fastcc i32 @LZWReadByte(ptr noundef %1)
+  %14 = tail call fastcc i32 @LZWReadByte(ptr noundef nonnull %1)
   %15 = load ptr, ptr %4, align 8, !tbaa !83
   %16 = sext i32 %14 to i64
   %17 = getelementptr inbounds i8, ptr %15, i64 %16
@@ -888,7 +890,7 @@ define internal noundef i32 @get_pixel_rows(ptr noundef readonly captures(none) 
 24:                                               ; preds = %.lr.ph, %24
   %.129 = phi i32 [ %12, %.lr.ph ], [ %39, %24 ]
   %.12428 = phi ptr [ %7, %.lr.ph ], [ %38, %24 ]
-  %25 = tail call fastcc i32 @LZWReadByte(ptr noundef %1)
+  %25 = tail call fastcc i32 @LZWReadByte(ptr noundef nonnull %1)
   %26 = load ptr, ptr %4, align 8, !tbaa !83
   %27 = sext i32 %25 to i64
   %28 = getelementptr inbounds i8, ptr %26, i64 %27

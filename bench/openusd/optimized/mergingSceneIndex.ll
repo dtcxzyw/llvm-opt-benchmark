@@ -10288,11 +10288,11 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEn
           to label %_ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_16HdSceneIndexBaseEEC2ERKS2_.exit.i.i.i unwind label %.thread
 
 .thread:                                          ; preds = %34
-  %lpad.thr_comm49 = landingpad { ptr, i32 }
+  %lpad.thr_comm48 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %lpad.thr_comm49, 0
+  %35 = extractvalue { ptr, i32 } %lpad.thr_comm48, 0
   %36 = tail call ptr @__cxa_begin_catch(ptr %35) #8
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39
+  br label %.loopexit
 
 37:                                               ; preds = %24
   %38 = atomicrmw add ptr %25, i32 1 monotonic, align 4
@@ -10367,7 +10367,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_I
   %67 = extractvalue { ptr, i32 } %lpad.thr_comm.split-lp, 0
   %68 = tail call ptr @__cxa_begin_catch(ptr %67) #8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #8
-  br label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39
+  br label %.loopexit
 
 69:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryES3_SaIS2_EET0_T_S6_S5_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -10375,22 +10375,22 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_I
   %70 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %71 = tail call ptr @__cxa_begin_catch(ptr %70) #8
   %.not4.i.i.i33 = icmp eq ptr %21, %57
-  br i1 %.not4.i.i.i33, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39, label %.lr.ph.i.i.i34
+  br i1 %.not4.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %69, %.lr.ph.i.i.i34
   %.05.i.i.i35 = phi ptr [ %72, %.lr.ph.i.i.i34 ], [ %21, %69 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.05.i.i.i35) #8
   %72 = getelementptr inbounds nuw i8, ptr %.05.i.i.i35, i64 16
   %.not.i.i.i36 = icmp eq ptr %.05.i.i.i35, %56
-  br i1 %.not.i.i.i36, label %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39, label %.lr.ph.i.i.i34, !llvm.loop !61
+  br i1 %.not.i.i.i36, label %.loopexit, label %.lr.ph.i.i.i34, !llvm.loop !61
 
-73:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39
+73:                                               ; preds = %.loopexit
   %74 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %75 unwind label %76
 
-_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39: ; preds = %.lr.ph.i.i.i34, %69, %66, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i34, %.thread, %66, %69
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #19
   invoke void @__cxa_rethrow() #20
           to label %79 unwind label %73
@@ -10405,7 +10405,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_I
   tail call void @__clang_call_terminate(ptr %78) #18
   unreachable
 
-79:                                               ; preds = %_ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HdMergingSceneIndex11_InputEntryESaIS2_EE13_M_deallocateEPS2_m.exit39
+79:                                               ; preds = %.loopexit
   unreachable
 }
 

@@ -1629,15 +1629,15 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   %.not74 = icmp eq i32 %0, 0
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %.backedge151
+  br label %.backedge149
 
-.backedge151:                                     ; preds = %.backedge151.backedge, %1
-  %.062121 = phi i32 [ 0, %1 ], [ %.062121.be, %.backedge151.backedge ]
+.backedge149:                                     ; preds = %.backedge149.backedge, %1
+  %.062121 = phi i32 [ 0, %1 ], [ %.062121.be, %.backedge149.backedge ]
   %12 = lshr i32 %.062121, 1
   %13 = and i32 %.062121, 1
   br i1 %.not74, label %22, label %14
 
-14:                                               ; preds = %.backedge151
+14:                                               ; preds = %.backedge149
   %15 = icmp samesign ult i32 %.062121, 2
   %16 = select i1 %15, i32 32, i32 51
   %17 = mul nuw nsw i32 %12, 56
@@ -1647,15 +1647,15 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   %21 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %16, i32 noundef %18, ptr noundef nonnull %20)
   br label %22
 
-22:                                               ; preds = %14, %.backedge151
+22:                                               ; preds = %14, %.backedge149
   store i64 8367815003007840078, ptr %8, align 8
   switch i32 %.062121, label %default.unreachable [
     i32 0, label %23
-    i32 1, label %mbedtls_des_setkey_dec.exit.thread138
-    i32 2, label %37
-    i32 3, label %69
-    i32 4, label %101
-    i32 5, label %103
+    i32 1, label %37
+    i32 2, label %38
+    i32 3, label %70
+    i32 4, label %102
+    i32 5, label %104
   ]
 
 23:                                               ; preds = %22
@@ -1681,137 +1681,133 @@ define hidden range(i32 0, 2) i32 @mbedtls_des_self_test(i32 noundef %0) local_u
   store i32 %32, ptr %34, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 2
   %36 = icmp samesign ult i64 %indvars.iv.i, 14
-  br i1 %36, label %24, label %mbedtls_des_setkey_dec.exit, !llvm.loop !9
+  br i1 %36, label %24, label %mbedtls_des_setkey_dec.exit.split.us.preheader, !llvm.loop !9
 
-mbedtls_des_setkey_dec.exit.thread138:            ; preds = %22
+37:                                               ; preds = %22
   call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
   br label %mbedtls_des_setkey_dec.exit.split.us.preheader
 
-37:                                               ; preds = %22
+mbedtls_des_setkey_dec.exit.split.us.preheader:   ; preds = %24, %37
+  br label %mbedtls_des_setkey_dec.exit.split.us
+
+38:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %5)
   call void @mbedtls_des_setkey(ptr noundef nonnull %5, ptr noundef nonnull readonly @des3_test_keys)
   call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @des3_test_keys, i64 8))
-  br label %38
+  br label %39
 
-38:                                               ; preds = %38, %37
-  %indvars.iv.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i.i, %38 ]
-  %39 = sub nuw nsw i64 30, %indvars.iv.i.i
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %39
-  %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
-  store i32 %41, ptr %42, align 4
-  %43 = sub nuw nsw i64 31, %indvars.iv.i.i
-  %44 = getelementptr inbounds nuw i32, ptr %5, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = or disjoint i64 %indvars.iv.i.i, 1
-  %47 = getelementptr inbounds nuw i32, ptr %7, i64 %46
-  store i32 %45, ptr %47, align 4
-  %48 = sub nuw nsw i64 62, %indvars.iv.i.i
-  %49 = getelementptr inbounds nuw i32, ptr %7, i64 %48
-  %50 = load i32, ptr %49, align 4
-  %51 = or disjoint i64 %indvars.iv.i.i, 32
-  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %51
-  store i32 %50, ptr %52, align 8
-  %53 = sub nuw nsw i64 63, %indvars.iv.i.i
-  %54 = getelementptr inbounds nuw i32, ptr %7, i64 %53
-  %55 = load i32, ptr %54, align 4
-  %56 = or disjoint i64 %indvars.iv.i.i, 33
-  %57 = getelementptr inbounds nuw i32, ptr %5, i64 %56
-  store i32 %55, ptr %57, align 4
-  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
-  %59 = load i32, ptr %58, align 8
-  %60 = or disjoint i64 %indvars.iv.i.i, 64
-  %61 = getelementptr inbounds nuw i32, ptr %5, i64 %60
-  store i32 %59, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %46
-  %63 = load i32, ptr %62, align 4
-  %64 = or disjoint i64 %indvars.iv.i.i, 65
-  %65 = getelementptr inbounds nuw i32, ptr %5, i64 %64
-  store i32 %63, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i32, ptr %7, i64 %60
-  store i32 %41, ptr %66, align 4
-  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %64
-  store i32 %45, ptr %67, align 4
+39:                                               ; preds = %39, %38
+  %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %39 ]
+  %40 = sub nuw nsw i64 30, %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %40
+  %42 = load i32, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  store i32 %42, ptr %43, align 4
+  %44 = sub nuw nsw i64 31, %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = or disjoint i64 %indvars.iv.i.i, 1
+  %48 = getelementptr inbounds nuw i32, ptr %7, i64 %47
+  store i32 %46, ptr %48, align 4
+  %49 = sub nuw nsw i64 62, %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw i32, ptr %7, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = or disjoint i64 %indvars.iv.i.i, 32
+  %53 = getelementptr inbounds nuw i32, ptr %5, i64 %52
+  store i32 %51, ptr %53, align 8
+  %54 = sub nuw nsw i64 63, %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %54
+  %56 = load i32, ptr %55, align 4
+  %57 = or disjoint i64 %indvars.iv.i.i, 33
+  %58 = getelementptr inbounds nuw i32, ptr %5, i64 %57
+  store i32 %56, ptr %58, align 4
+  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %60 = load i32, ptr %59, align 8
+  %61 = or disjoint i64 %indvars.iv.i.i, 64
+  %62 = getelementptr inbounds nuw i32, ptr %5, i64 %61
+  store i32 %60, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %47
+  %64 = load i32, ptr %63, align 4
+  %65 = or disjoint i64 %indvars.iv.i.i, 65
+  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %65
+  store i32 %64, ptr %66, align 4
+  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %61
+  store i32 %42, ptr %67, align 4
+  %68 = getelementptr inbounds nuw i32, ptr %7, i64 %65
+  store i32 %46, ptr %68, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 2
-  %68 = icmp samesign ult i64 %indvars.iv.i.i, 30
-  br i1 %68, label %38, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !10
+  %69 = icmp samesign ult i64 %indvars.iv.i.i, 30
+  br i1 %69, label %39, label %mbedtls_des3_set2key_dec.exit, !llvm.loop !10
 
-mbedtls_des3_set2key_dec.exit:                    ; preds = %38
+mbedtls_des3_set2key_dec.exit:                    ; preds = %39
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %5, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %5)
-  br label %mbedtls_des_setkey_dec.exit
+  br label %mbedtls_des_setkey_dec.exit.split.preheader
 
-69:                                               ; preds = %22
+70:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %4)
   call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
   call void @mbedtls_des_setkey(ptr noundef nonnull %10, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @des3_test_keys, i64 8))
-  br label %70
+  br label %71
 
-70:                                               ; preds = %70, %69
-  %indvars.iv.i.i83 = phi i64 [ 0, %69 ], [ %indvars.iv.next.i.i84, %70 ]
-  %71 = sub nuw nsw i64 30, %indvars.iv.i.i83
-  %72 = getelementptr inbounds nuw i32, ptr %7, i64 %71
-  %73 = load i32, ptr %72, align 4
-  %74 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i83
-  store i32 %73, ptr %74, align 8
-  %75 = sub nuw nsw i64 31, %indvars.iv.i.i83
-  %76 = getelementptr inbounds nuw i32, ptr %7, i64 %75
-  %77 = load i32, ptr %76, align 4
-  %78 = or disjoint i64 %indvars.iv.i.i83, 1
-  %79 = getelementptr inbounds nuw i32, ptr %4, i64 %78
-  store i32 %77, ptr %79, align 4
-  %80 = sub nuw nsw i64 62, %indvars.iv.i.i83
-  %81 = getelementptr inbounds nuw i32, ptr %4, i64 %80
-  %82 = load i32, ptr %81, align 8
-  %83 = or disjoint i64 %indvars.iv.i.i83, 32
-  %84 = getelementptr inbounds nuw i32, ptr %7, i64 %83
-  store i32 %82, ptr %84, align 4
-  %85 = sub nuw nsw i64 63, %indvars.iv.i.i83
-  %86 = getelementptr inbounds nuw i32, ptr %4, i64 %85
-  %87 = load i32, ptr %86, align 4
-  %88 = or disjoint i64 %indvars.iv.i.i83, 33
-  %89 = getelementptr inbounds nuw i32, ptr %7, i64 %88
-  store i32 %87, ptr %89, align 4
-  %90 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i83
-  %91 = load i32, ptr %90, align 4
-  %92 = or disjoint i64 %indvars.iv.i.i83, 64
-  %93 = getelementptr inbounds nuw i32, ptr %7, i64 %92
-  store i32 %91, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i32, ptr %7, i64 %78
-  %95 = load i32, ptr %94, align 4
-  %96 = or disjoint i64 %indvars.iv.i.i83, 65
-  %97 = getelementptr inbounds nuw i32, ptr %7, i64 %96
-  store i32 %95, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i32, ptr %4, i64 %92
-  store i32 %73, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i32, ptr %4, i64 %96
-  store i32 %77, ptr %99, align 4
+71:                                               ; preds = %71, %70
+  %indvars.iv.i.i83 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i.i84, %71 ]
+  %72 = sub nuw nsw i64 30, %indvars.iv.i.i83
+  %73 = getelementptr inbounds nuw i32, ptr %7, i64 %72
+  %74 = load i32, ptr %73, align 4
+  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i.i83
+  store i32 %74, ptr %75, align 8
+  %76 = sub nuw nsw i64 31, %indvars.iv.i.i83
+  %77 = getelementptr inbounds nuw i32, ptr %7, i64 %76
+  %78 = load i32, ptr %77, align 4
+  %79 = or disjoint i64 %indvars.iv.i.i83, 1
+  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %79
+  store i32 %78, ptr %80, align 4
+  %81 = sub nuw nsw i64 62, %indvars.iv.i.i83
+  %82 = getelementptr inbounds nuw i32, ptr %4, i64 %81
+  %83 = load i32, ptr %82, align 8
+  %84 = or disjoint i64 %indvars.iv.i.i83, 32
+  %85 = getelementptr inbounds nuw i32, ptr %7, i64 %84
+  store i32 %83, ptr %85, align 4
+  %86 = sub nuw nsw i64 63, %indvars.iv.i.i83
+  %87 = getelementptr inbounds nuw i32, ptr %4, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = or disjoint i64 %indvars.iv.i.i83, 33
+  %90 = getelementptr inbounds nuw i32, ptr %7, i64 %89
+  store i32 %88, ptr %90, align 4
+  %91 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i83
+  %92 = load i32, ptr %91, align 4
+  %93 = or disjoint i64 %indvars.iv.i.i83, 64
+  %94 = getelementptr inbounds nuw i32, ptr %7, i64 %93
+  store i32 %92, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i32, ptr %7, i64 %79
+  %96 = load i32, ptr %95, align 4
+  %97 = or disjoint i64 %indvars.iv.i.i83, 65
+  %98 = getelementptr inbounds nuw i32, ptr %7, i64 %97
+  store i32 %96, ptr %98, align 4
+  %99 = getelementptr inbounds nuw i32, ptr %4, i64 %93
+  store i32 %74, ptr %99, align 8
+  %100 = getelementptr inbounds nuw i32, ptr %4, i64 %97
+  store i32 %78, ptr %100, align 4
   %indvars.iv.next.i.i84 = add nuw nsw i64 %indvars.iv.i.i83, 2
-  %100 = icmp samesign ult i64 %indvars.iv.i.i83, 30
-  br i1 %100, label %70, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !10
+  %101 = icmp samesign ult i64 %indvars.iv.i.i83, 30
+  br i1 %101, label %71, label %mbedtls_des3_set2key_enc.exit, !llvm.loop !10
 
-mbedtls_des3_set2key_enc.exit:                    ; preds = %70
+mbedtls_des3_set2key_enc.exit:                    ; preds = %71
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %4, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %4)
-  br label %mbedtls_des_setkey_dec.exit
-
-101:                                              ; preds = %22
-  %102 = call i32 @mbedtls_des3_set3key_dec(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
   br label %mbedtls_des_setkey_dec.exit.split.preheader
 
-103:                                              ; preds = %22
-  %104 = call i32 @mbedtls_des3_set3key_enc(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
+102:                                              ; preds = %22
+  %103 = call i32 @mbedtls_des3_set3key_dec(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
   br label %mbedtls_des_setkey_dec.exit.split.preheader
 
-mbedtls_des_setkey_dec.exit:                      ; preds = %24, %mbedtls_des3_set2key_dec.exit, %mbedtls_des3_set2key_enc.exit
-  %105 = icmp samesign ult i32 %.062121, 2
-  br i1 %105, label %mbedtls_des_setkey_dec.exit.split.us.preheader, label %mbedtls_des_setkey_dec.exit.split.preheader
+104:                                              ; preds = %22
+  %105 = call i32 @mbedtls_des3_set3key_enc(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
+  br label %mbedtls_des_setkey_dec.exit.split.preheader
 
-mbedtls_des_setkey_dec.exit.split.preheader:      ; preds = %103, %101, %mbedtls_des_setkey_dec.exit
+mbedtls_des_setkey_dec.exit.split.preheader:      ; preds = %mbedtls_des3_set2key_dec.exit, %mbedtls_des3_set2key_enc.exit, %102, %104
   br label %mbedtls_des_setkey_dec.exit.split
-
-mbedtls_des_setkey_dec.exit.split.us.preheader:   ; preds = %mbedtls_des_setkey_dec.exit.thread138, %mbedtls_des_setkey_dec.exit
-  br label %mbedtls_des_setkey_dec.exit.split.us
 
 mbedtls_des_setkey_dec.exit.split.us:             ; preds = %mbedtls_des_setkey_dec.exit.split.us.preheader, %mbedtls_des_setkey_dec.exit.split.us
   %.059120.us = phi i32 [ %107, %mbedtls_des_setkey_dec.exit.split.us ], [ 0, %mbedtls_des_setkey_dec.exit.split.us.preheader ]
@@ -1830,79 +1826,79 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
 .split.us:                                        ; preds = %mbedtls_des_setkey_dec.exit.split, %mbedtls_des_setkey_dec.exit.split.us
   %cond = icmp eq i32 %13, 0
   %110 = zext nneg i32 %12 to i64
-  %lhsv156 = load i64, ptr %8, align 8
+  %lhsv155 = load i64, ptr %8, align 8
   br i1 %cond, label %111, label %113
 
 111:                                              ; preds = %.split.us
   %112 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_ecb_dec, i64 0, i64 %110
-  %rhsv157 = load i64, ptr %112, align 8
-  %.not158 = icmp eq i64 %lhsv156, %rhsv157
-  br i1 %.not158, label %117, label %115
+  %rhsv156 = load i64, ptr %112, align 8
+  %.not157 = icmp eq i64 %lhsv155, %rhsv156
+  br i1 %.not157, label %117, label %115
 
 113:                                              ; preds = %.split.us
   %114 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_ecb_enc, i64 0, i64 %110
   %rhsv = load i64, ptr %114, align 8
-  %.not = icmp eq i64 %lhsv156, %rhsv
+  %.not = icmp eq i64 %lhsv155, %rhsv
   br i1 %.not, label %117, label %115
 
 115:                                              ; preds = %113, %111
-  br i1 %.not74, label %.loopexit148, label %116
+  br i1 %.not74, label %.loopexit146, label %116
 
 116:                                              ; preds = %115
   %puts81 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %.loopexit148
+  br label %.loopexit146
 
 117:                                              ; preds = %111, %113
-  br i1 %.not74, label %118, label %.thread139
+  br i1 %.not74, label %118, label %.thread138
 
 118:                                              ; preds = %117
   %119 = add nuw nsw i32 %.062121, 1
   %exitcond132.not = icmp eq i32 %119, 6
-  br i1 %exitcond132.not, label %.loopexit150, label %.backedge151.backedge
+  br i1 %exitcond132.not, label %.loopexit148, label %.backedge149.backedge
 
-.backedge151.backedge:                            ; preds = %118, %.thread139
-  %.062121.be = phi i32 [ %119, %118 ], [ %120, %.thread139 ]
-  br label %.backedge151, !llvm.loop !25
+.backedge149.backedge:                            ; preds = %118, %.thread138
+  %.062121.be = phi i32 [ %119, %118 ], [ %120, %.thread138 ]
+  br label %.backedge149, !llvm.loop !25
 
-.thread139:                                       ; preds = %117
+.thread138:                                       ; preds = %117
   %puts80 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %120 = add nuw nsw i32 %.062121, 1
-  %exitcond132.not140 = icmp eq i32 %120, 6
-  br i1 %exitcond132.not140, label %121, label %.backedge151.backedge
+  %exitcond132.not139 = icmp eq i32 %120, 6
+  br i1 %exitcond132.not139, label %121, label %.backedge149.backedge
 
-121:                                              ; preds = %.thread139
+121:                                              ; preds = %.thread138
   %putchar = call i32 @putchar(i32 10)
-  br label %.loopexit150
+  br label %.loopexit148
 
-.loopexit150:                                     ; preds = %118, %121
+.loopexit148:                                     ; preds = %118, %121
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 128
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.loopexit150
-  %.163127 = phi i32 [ 0, %.loopexit150 ], [ %.163127.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.loopexit148
+  %.163127 = phi i32 [ 0, %.loopexit148 ], [ %.163127.be, %.backedge.backedge ]
   %123 = lshr i32 %.163127, 1
-  %124 = and i32 %.163127, 1
-  br i1 %.not74, label %133, label %125
+  br i1 %.not74, label %133, label %124
 
-125:                                              ; preds = %.backedge
+124:                                              ; preds = %.backedge
+  %125 = and i32 %.163127, 1
   %126 = icmp samesign ult i32 %.163127, 2
   %127 = select i1 %126, i32 32, i32 51
   %128 = mul nuw nsw i32 %123, 56
   %129 = add nuw nsw i32 %128, 56
-  %130 = icmp eq i32 %124, 0
+  %130 = icmp eq i32 %125, 0
   %131 = select i1 %130, ptr @.str.1, ptr @.str.2
   %132 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %127, i32 noundef %129, ptr noundef nonnull %131)
   br label %133
 
-133:                                              ; preds = %125, %.backedge
+133:                                              ; preds = %124, %.backedge
   store i64 -1167088091436534766, ptr %9, align 8
   store i64 8367815003007840078, ptr %8, align 8
   switch i32 %.163127, label %default.unreachable115 [
     i32 0, label %134
-    i32 1, label %148
-    i32 2, label %149
-    i32 3, label %181
-    i32 4, label %.preheader.thread
+    i32 1, label %.preheader.i.preheader.us.preheader
+    i32 2, label %148
+    i32 3, label %180
+    i32 4, label %212
     i32 5, label %214
   ]
 
@@ -1929,291 +1925,282 @@ mbedtls_des_setkey_dec.exit.split:                ; preds = %mbedtls_des_setkey_
   store i32 %143, ptr %145, align 4
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 2
   %147 = icmp samesign ult i64 %indvars.iv.i85, 14
-  br i1 %147, label %135, label %mbedtls_des_setkey_dec.exit87, !llvm.loop !9
+  br i1 %147, label %135, label %.lr.ph.i.preheader.us, !llvm.loop !9
 
 148:                                              ; preds = %133
-  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
-  br label %.preheader118
-
-149:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %3)
   call void @mbedtls_des_setkey(ptr noundef nonnull %3, ptr noundef nonnull readonly @des3_test_keys)
   call void @mbedtls_des_setkey(ptr noundef nonnull %11, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @des3_test_keys, i64 8))
-  br label %150
+  br label %149
 
-150:                                              ; preds = %150, %149
-  %indvars.iv.i.i88 = phi i64 [ 0, %149 ], [ %indvars.iv.next.i.i89, %150 ]
-  %151 = sub nuw nsw i64 30, %indvars.iv.i.i88
-  %152 = getelementptr inbounds nuw i32, ptr %3, i64 %151
-  %153 = load i32, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i88
-  store i32 %153, ptr %154, align 4
-  %155 = sub nuw nsw i64 31, %indvars.iv.i.i88
-  %156 = getelementptr inbounds nuw i32, ptr %3, i64 %155
-  %157 = load i32, ptr %156, align 4
-  %158 = or disjoint i64 %indvars.iv.i.i88, 1
-  %159 = getelementptr inbounds nuw i32, ptr %7, i64 %158
-  store i32 %157, ptr %159, align 4
-  %160 = sub nuw nsw i64 62, %indvars.iv.i.i88
-  %161 = getelementptr inbounds nuw i32, ptr %7, i64 %160
-  %162 = load i32, ptr %161, align 4
-  %163 = or disjoint i64 %indvars.iv.i.i88, 32
-  %164 = getelementptr inbounds nuw i32, ptr %3, i64 %163
-  store i32 %162, ptr %164, align 8
-  %165 = sub nuw nsw i64 63, %indvars.iv.i.i88
-  %166 = getelementptr inbounds nuw i32, ptr %7, i64 %165
-  %167 = load i32, ptr %166, align 4
-  %168 = or disjoint i64 %indvars.iv.i.i88, 33
-  %169 = getelementptr inbounds nuw i32, ptr %3, i64 %168
-  store i32 %167, ptr %169, align 4
-  %170 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i88
-  %171 = load i32, ptr %170, align 8
-  %172 = or disjoint i64 %indvars.iv.i.i88, 64
-  %173 = getelementptr inbounds nuw i32, ptr %3, i64 %172
-  store i32 %171, ptr %173, align 8
-  %174 = getelementptr inbounds nuw i32, ptr %3, i64 %158
-  %175 = load i32, ptr %174, align 4
-  %176 = or disjoint i64 %indvars.iv.i.i88, 65
-  %177 = getelementptr inbounds nuw i32, ptr %3, i64 %176
-  store i32 %175, ptr %177, align 4
-  %178 = getelementptr inbounds nuw i32, ptr %7, i64 %172
-  store i32 %153, ptr %178, align 4
-  %179 = getelementptr inbounds nuw i32, ptr %7, i64 %176
-  store i32 %157, ptr %179, align 4
+149:                                              ; preds = %149, %148
+  %indvars.iv.i.i88 = phi i64 [ 0, %148 ], [ %indvars.iv.next.i.i89, %149 ]
+  %150 = sub nuw nsw i64 30, %indvars.iv.i.i88
+  %151 = getelementptr inbounds nuw i32, ptr %3, i64 %150
+  %152 = load i32, ptr %151, align 8
+  %153 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i88
+  store i32 %152, ptr %153, align 4
+  %154 = sub nuw nsw i64 31, %indvars.iv.i.i88
+  %155 = getelementptr inbounds nuw i32, ptr %3, i64 %154
+  %156 = load i32, ptr %155, align 4
+  %157 = or disjoint i64 %indvars.iv.i.i88, 1
+  %158 = getelementptr inbounds nuw i32, ptr %7, i64 %157
+  store i32 %156, ptr %158, align 4
+  %159 = sub nuw nsw i64 62, %indvars.iv.i.i88
+  %160 = getelementptr inbounds nuw i32, ptr %7, i64 %159
+  %161 = load i32, ptr %160, align 4
+  %162 = or disjoint i64 %indvars.iv.i.i88, 32
+  %163 = getelementptr inbounds nuw i32, ptr %3, i64 %162
+  store i32 %161, ptr %163, align 8
+  %164 = sub nuw nsw i64 63, %indvars.iv.i.i88
+  %165 = getelementptr inbounds nuw i32, ptr %7, i64 %164
+  %166 = load i32, ptr %165, align 4
+  %167 = or disjoint i64 %indvars.iv.i.i88, 33
+  %168 = getelementptr inbounds nuw i32, ptr %3, i64 %167
+  store i32 %166, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i88
+  %170 = load i32, ptr %169, align 8
+  %171 = or disjoint i64 %indvars.iv.i.i88, 64
+  %172 = getelementptr inbounds nuw i32, ptr %3, i64 %171
+  store i32 %170, ptr %172, align 8
+  %173 = getelementptr inbounds nuw i32, ptr %3, i64 %157
+  %174 = load i32, ptr %173, align 4
+  %175 = or disjoint i64 %indvars.iv.i.i88, 65
+  %176 = getelementptr inbounds nuw i32, ptr %3, i64 %175
+  store i32 %174, ptr %176, align 4
+  %177 = getelementptr inbounds nuw i32, ptr %7, i64 %171
+  store i32 %152, ptr %177, align 4
+  %178 = getelementptr inbounds nuw i32, ptr %7, i64 %175
+  store i32 %156, ptr %178, align 4
   %indvars.iv.next.i.i89 = add nuw nsw i64 %indvars.iv.i.i88, 2
-  %180 = icmp samesign ult i64 %indvars.iv.i.i88, 30
-  br i1 %180, label %150, label %mbedtls_des3_set2key_dec.exit90, !llvm.loop !10
+  %179 = icmp samesign ult i64 %indvars.iv.i.i88, 30
+  br i1 %179, label %149, label %mbedtls_des3_set2key_dec.exit90, !llvm.loop !10
 
-mbedtls_des3_set2key_dec.exit90:                  ; preds = %150
+mbedtls_des3_set2key_dec.exit90:                  ; preds = %149
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %3, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %3)
-  br label %mbedtls_des_setkey_dec.exit87
+  br label %.lr.ph.i96.preheader.preheader
 
-181:                                              ; preds = %133
+180:                                              ; preds = %133
   call void @llvm.lifetime.start.p0(i64 384, ptr nonnull %2)
   call void @mbedtls_des_setkey(ptr noundef nonnull %7, ptr noundef nonnull readonly @des3_test_keys)
   call void @mbedtls_des_setkey(ptr noundef nonnull %122, ptr noundef nonnull readonly getelementptr inbounds nuw (i8, ptr @des3_test_keys, i64 8))
-  br label %182
+  br label %181
 
-182:                                              ; preds = %182, %181
-  %indvars.iv.i.i91 = phi i64 [ 0, %181 ], [ %indvars.iv.next.i.i92, %182 ]
-  %183 = sub nuw nsw i64 30, %indvars.iv.i.i91
-  %184 = getelementptr inbounds nuw i32, ptr %7, i64 %183
-  %185 = load i32, ptr %184, align 4
-  %186 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i91
-  store i32 %185, ptr %186, align 8
-  %187 = sub nuw nsw i64 31, %indvars.iv.i.i91
-  %188 = getelementptr inbounds nuw i32, ptr %7, i64 %187
-  %189 = load i32, ptr %188, align 4
-  %190 = or disjoint i64 %indvars.iv.i.i91, 1
-  %191 = getelementptr inbounds nuw i32, ptr %2, i64 %190
-  store i32 %189, ptr %191, align 4
-  %192 = sub nuw nsw i64 62, %indvars.iv.i.i91
-  %193 = getelementptr inbounds nuw i32, ptr %2, i64 %192
-  %194 = load i32, ptr %193, align 8
-  %195 = or disjoint i64 %indvars.iv.i.i91, 32
-  %196 = getelementptr inbounds nuw i32, ptr %7, i64 %195
-  store i32 %194, ptr %196, align 4
-  %197 = sub nuw nsw i64 63, %indvars.iv.i.i91
-  %198 = getelementptr inbounds nuw i32, ptr %2, i64 %197
-  %199 = load i32, ptr %198, align 4
-  %200 = or disjoint i64 %indvars.iv.i.i91, 33
-  %201 = getelementptr inbounds nuw i32, ptr %7, i64 %200
-  store i32 %199, ptr %201, align 4
-  %202 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i91
-  %203 = load i32, ptr %202, align 4
-  %204 = or disjoint i64 %indvars.iv.i.i91, 64
-  %205 = getelementptr inbounds nuw i32, ptr %7, i64 %204
-  store i32 %203, ptr %205, align 4
-  %206 = getelementptr inbounds nuw i32, ptr %7, i64 %190
-  %207 = load i32, ptr %206, align 4
-  %208 = or disjoint i64 %indvars.iv.i.i91, 65
-  %209 = getelementptr inbounds nuw i32, ptr %7, i64 %208
-  store i32 %207, ptr %209, align 4
-  %210 = getelementptr inbounds nuw i32, ptr %2, i64 %204
-  store i32 %185, ptr %210, align 8
-  %211 = getelementptr inbounds nuw i32, ptr %2, i64 %208
-  store i32 %189, ptr %211, align 4
+181:                                              ; preds = %181, %180
+  %indvars.iv.i.i91 = phi i64 [ 0, %180 ], [ %indvars.iv.next.i.i92, %181 ]
+  %182 = sub nuw nsw i64 30, %indvars.iv.i.i91
+  %183 = getelementptr inbounds nuw i32, ptr %7, i64 %182
+  %184 = load i32, ptr %183, align 4
+  %185 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i91
+  store i32 %184, ptr %185, align 8
+  %186 = sub nuw nsw i64 31, %indvars.iv.i.i91
+  %187 = getelementptr inbounds nuw i32, ptr %7, i64 %186
+  %188 = load i32, ptr %187, align 4
+  %189 = or disjoint i64 %indvars.iv.i.i91, 1
+  %190 = getelementptr inbounds nuw i32, ptr %2, i64 %189
+  store i32 %188, ptr %190, align 4
+  %191 = sub nuw nsw i64 62, %indvars.iv.i.i91
+  %192 = getelementptr inbounds nuw i32, ptr %2, i64 %191
+  %193 = load i32, ptr %192, align 8
+  %194 = or disjoint i64 %indvars.iv.i.i91, 32
+  %195 = getelementptr inbounds nuw i32, ptr %7, i64 %194
+  store i32 %193, ptr %195, align 4
+  %196 = sub nuw nsw i64 63, %indvars.iv.i.i91
+  %197 = getelementptr inbounds nuw i32, ptr %2, i64 %196
+  %198 = load i32, ptr %197, align 4
+  %199 = or disjoint i64 %indvars.iv.i.i91, 33
+  %200 = getelementptr inbounds nuw i32, ptr %7, i64 %199
+  store i32 %198, ptr %200, align 4
+  %201 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i91
+  %202 = load i32, ptr %201, align 4
+  %203 = or disjoint i64 %indvars.iv.i.i91, 64
+  %204 = getelementptr inbounds nuw i32, ptr %7, i64 %203
+  store i32 %202, ptr %204, align 4
+  %205 = getelementptr inbounds nuw i32, ptr %7, i64 %189
+  %206 = load i32, ptr %205, align 4
+  %207 = or disjoint i64 %indvars.iv.i.i91, 65
+  %208 = getelementptr inbounds nuw i32, ptr %7, i64 %207
+  store i32 %206, ptr %208, align 4
+  %209 = getelementptr inbounds nuw i32, ptr %2, i64 %203
+  store i32 %184, ptr %209, align 8
+  %210 = getelementptr inbounds nuw i32, ptr %2, i64 %207
+  store i32 %188, ptr %210, align 4
   %indvars.iv.next.i.i92 = add nuw nsw i64 %indvars.iv.i.i91, 2
-  %212 = icmp samesign ult i64 %indvars.iv.i.i91, 30
-  br i1 %212, label %182, label %mbedtls_des3_set2key_enc.exit93, !llvm.loop !10
+  %211 = icmp samesign ult i64 %indvars.iv.i.i91, 30
+  br i1 %211, label %181, label %mbedtls_des3_set2key_enc.exit93, !llvm.loop !10
 
-mbedtls_des3_set2key_enc.exit93:                  ; preds = %182
+mbedtls_des3_set2key_enc.exit93:                  ; preds = %181
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %2, i64 noundef 384) #12
   call void @llvm.lifetime.end.p0(i64 384, ptr nonnull %2)
-  br label %mbedtls_des_setkey_dec.exit87
+  br label %.preheader.i106.preheader.preheader
 
-.preheader.thread:                                ; preds = %133
+.preheader.i106.preheader.preheader:              ; preds = %214, %mbedtls_des3_set2key_enc.exit93
+  br label %.preheader.i106.preheader
+
+212:                                              ; preds = %133
   %213 = call i32 @mbedtls_des3_set3key_dec(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
   br label %.lr.ph.i96.preheader.preheader
 
-214:                                              ; preds = %133
-  %215 = call i32 @mbedtls_des3_set3key_enc(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
-  br label %.preheader118
-
-mbedtls_des_setkey_dec.exit87:                    ; preds = %135, %mbedtls_des3_set2key_dec.exit90, %mbedtls_des3_set2key_enc.exit93
-  %216 = icmp eq i32 %124, 0
-  br i1 %216, label %.preheader, label %.preheader118
-
-.preheader118:                                    ; preds = %214, %148, %mbedtls_des_setkey_dec.exit87
-  %217 = icmp samesign ult i32 %.163127, 2
-  br i1 %217, label %.preheader.i.preheader.us, label %.preheader.i106.preheader
-
-.preheader.i.preheader.us:                        ; preds = %.preheader118, %mbedtls_des_crypt_cbc.exit105.loopexit.us
-  %.sroa.02.0123.us = phi i64 [ %225, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ -1167088091436534766, %.preheader118 ]
-  %.261122.us = phi i32 [ %226, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ 0, %.preheader118 ]
-  br label %218
-
-218:                                              ; preds = %218, %.preheader.i.preheader.us
-  %indvars.iv67.i.us = phi i64 [ 0, %.preheader.i.preheader.us ], [ %indvars.iv.next68.i.us, %218 ]
-  %219 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv67.i.us
-  %220 = load i8, ptr %219, align 1
-  %221 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv67.i.us
-  %222 = load i8, ptr %221, align 1
-  %223 = xor i8 %222, %220
-  store i8 %223, ptr %219, align 1
-  %indvars.iv.next68.i.us = add nuw nsw i64 %indvars.iv67.i.us, 1
-  %exitcond70.not.i.us = icmp eq i64 %indvars.iv.next68.i.us, 8
-  br i1 %exitcond70.not.i.us, label %mbedtls_des_crypt_cbc.exit105.loopexit.us, label %218, !llvm.loop !13
-
-mbedtls_des_crypt_cbc.exit105.loopexit.us:        ; preds = %218
-  %224 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
-  %225 = load i64, ptr %8, align 8
-  store i64 %225, ptr %9, align 8
-  store i64 %.sroa.02.0123.us, ptr %8, align 8
-  %226 = add nuw nsw i32 %.261122.us, 1
-  %exitcond134.not = icmp eq i32 %226, 100
-  br i1 %exitcond134.not, label %.split125.us, label %.preheader.i.preheader.us, !llvm.loop !26
-
-.preheader:                                       ; preds = %mbedtls_des_setkey_dec.exit87
-  %227 = icmp samesign ult i32 %.163127, 2
-  br i1 %227, label %.lr.ph.i.preheader.us, label %.lr.ph.i96.preheader.preheader
-
-.lr.ph.i96.preheader.preheader:                   ; preds = %.preheader.thread, %.preheader
+.lr.ph.i96.preheader.preheader:                   ; preds = %mbedtls_des3_set2key_dec.exit90, %212
   br label %.lr.ph.i96.preheader
 
-.lr.ph.i.preheader.us:                            ; preds = %.preheader, %mbedtls_des_crypt_cbc.exit.loopexit.us
-  %.160126.us = phi i32 [ %235, %mbedtls_des_crypt_cbc.exit.loopexit.us ], [ 0, %.preheader ]
-  %.sroa.0.0.copyload.i.us = load i64, ptr %8, align 8
-  %228 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
-  br label %229
+214:                                              ; preds = %133
+  %215 = call i32 @mbedtls_des3_set3key_enc(ptr noundef nonnull %7, ptr noundef nonnull @des3_test_keys)
+  br label %.preheader.i106.preheader.preheader
 
-229:                                              ; preds = %229, %.lr.ph.i.preheader.us
-  %indvars.iv.i94.us = phi i64 [ 0, %.lr.ph.i.preheader.us ], [ %indvars.iv.next.i95.us, %229 ]
-  %230 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i94.us
-  %231 = load i8, ptr %230, align 1
-  %232 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i94.us
-  %233 = load i8, ptr %232, align 1
-  %234 = xor i8 %233, %231
-  store i8 %234, ptr %230, align 1
+.preheader.i.preheader.us.preheader:              ; preds = %133
+  call void @mbedtls_des_setkey(ptr noundef nonnull %6, ptr noundef nonnull @des3_test_keys)
+  br label %.preheader.i.preheader.us
+
+.preheader.i.preheader.us:                        ; preds = %.preheader.i.preheader.us.preheader, %mbedtls_des_crypt_cbc.exit105.loopexit.us
+  %.sroa.02.0123.us = phi i64 [ %223, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ -1167088091436534766, %.preheader.i.preheader.us.preheader ]
+  %.261122.us = phi i32 [ %224, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ 0, %.preheader.i.preheader.us.preheader ]
+  br label %216
+
+216:                                              ; preds = %216, %.preheader.i.preheader.us
+  %indvars.iv67.i.us = phi i64 [ 0, %.preheader.i.preheader.us ], [ %indvars.iv.next68.i.us, %216 ]
+  %217 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv67.i.us
+  %218 = load i8, ptr %217, align 1
+  %219 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv67.i.us
+  %220 = load i8, ptr %219, align 1
+  %221 = xor i8 %220, %218
+  store i8 %221, ptr %217, align 1
+  %indvars.iv.next68.i.us = add nuw nsw i64 %indvars.iv67.i.us, 1
+  %exitcond70.not.i.us = icmp eq i64 %indvars.iv.next68.i.us, 8
+  br i1 %exitcond70.not.i.us, label %mbedtls_des_crypt_cbc.exit105.loopexit.us, label %216, !llvm.loop !13
+
+mbedtls_des_crypt_cbc.exit105.loopexit.us:        ; preds = %216
+  %222 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %223 = load i64, ptr %8, align 8
+  store i64 %223, ptr %9, align 8
+  store i64 %.sroa.02.0123.us, ptr %8, align 8
+  %224 = add nuw nsw i32 %.261122.us, 1
+  %exitcond134.not = icmp eq i32 %224, 100
+  br i1 %exitcond134.not, label %.loopexit.thread, label %.preheader.i.preheader.us, !llvm.loop !26
+
+.lr.ph.i.preheader.us:                            ; preds = %135, %mbedtls_des_crypt_cbc.exit.loopexit.us
+  %.160126.us = phi i32 [ %232, %mbedtls_des_crypt_cbc.exit.loopexit.us ], [ 0, %135 ]
+  %.sroa.0.0.copyload.i.us = load i64, ptr %8, align 8
+  %225 = call i32 @mbedtls_des_crypt_ecb(ptr noundef nonnull readonly %6, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  br label %226
+
+226:                                              ; preds = %226, %.lr.ph.i.preheader.us
+  %indvars.iv.i94.us = phi i64 [ 0, %.lr.ph.i.preheader.us ], [ %indvars.iv.next.i95.us, %226 ]
+  %227 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i94.us
+  %228 = load i8, ptr %227, align 1
+  %229 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i94.us
+  %230 = load i8, ptr %229, align 1
+  %231 = xor i8 %230, %228
+  store i8 %231, ptr %227, align 1
   %indvars.iv.next.i95.us = add nuw nsw i64 %indvars.iv.i94.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i95.us, 8
-  br i1 %exitcond.not.i.us, label %mbedtls_des_crypt_cbc.exit.loopexit.us, label %229, !llvm.loop !15
+  br i1 %exitcond.not.i.us, label %mbedtls_des_crypt_cbc.exit.loopexit.us, label %226, !llvm.loop !15
 
-mbedtls_des_crypt_cbc.exit.loopexit.us:           ; preds = %229
+mbedtls_des_crypt_cbc.exit.loopexit.us:           ; preds = %226
   store i64 %.sroa.0.0.copyload.i.us, ptr %9, align 8
-  %235 = add nuw nsw i32 %.160126.us, 1
-  %exitcond136.not = icmp eq i32 %235, 100
+  %232 = add nuw nsw i32 %.160126.us, 1
+  %exitcond136.not = icmp eq i32 %232, 100
   br i1 %exitcond136.not, label %.critedge, label %.lr.ph.i.preheader.us, !llvm.loop !27
 
 .lr.ph.i96.preheader:                             ; preds = %.lr.ph.i96.preheader.preheader, %mbedtls_des_crypt_cbc.exit.loopexit116
-  %.160126 = phi i32 [ %243, %mbedtls_des_crypt_cbc.exit.loopexit116 ], [ 0, %.lr.ph.i96.preheader.preheader ]
+  %.160126 = phi i32 [ %240, %mbedtls_des_crypt_cbc.exit.loopexit116 ], [ 0, %.lr.ph.i96.preheader.preheader ]
   %.sroa.0.0.copyload.i100 = load i64, ptr %8, align 8
-  %236 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
-  br label %237
+  %233 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  br label %234
 
-237:                                              ; preds = %237, %.lr.ph.i96.preheader
-  %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.i96.preheader ], [ %indvars.iv.next.i102, %237 ]
-  %238 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i101
-  %239 = load i8, ptr %238, align 1
-  %240 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i101
-  %241 = load i8, ptr %240, align 1
-  %242 = xor i8 %241, %239
-  store i8 %242, ptr %238, align 1
+234:                                              ; preds = %234, %.lr.ph.i96.preheader
+  %indvars.iv.i101 = phi i64 [ 0, %.lr.ph.i96.preheader ], [ %indvars.iv.next.i102, %234 ]
+  %235 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv.i101
+  %236 = load i8, ptr %235, align 1
+  %237 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv.i101
+  %238 = load i8, ptr %237, align 1
+  %239 = xor i8 %238, %236
+  store i8 %239, ptr %235, align 1
   %indvars.iv.next.i102 = add nuw nsw i64 %indvars.iv.i101, 1
   %exitcond.not.i103 = icmp eq i64 %indvars.iv.next.i102, 8
-  br i1 %exitcond.not.i103, label %mbedtls_des_crypt_cbc.exit.loopexit116, label %237, !llvm.loop !22
+  br i1 %exitcond.not.i103, label %mbedtls_des_crypt_cbc.exit.loopexit116, label %234, !llvm.loop !22
 
-mbedtls_des_crypt_cbc.exit.loopexit116:           ; preds = %237
+mbedtls_des_crypt_cbc.exit.loopexit116:           ; preds = %234
   store i64 %.sroa.0.0.copyload.i100, ptr %9, align 8
-  %243 = add nuw nsw i32 %.160126, 1
-  %exitcond135.not = icmp eq i32 %243, 100
+  %240 = add nuw nsw i32 %.160126, 1
+  %exitcond135.not = icmp eq i32 %240, 100
   br i1 %exitcond135.not, label %.critedge, label %.lr.ph.i96.preheader, !llvm.loop !27
 
-.preheader.i106.preheader:                        ; preds = %.preheader118, %mbedtls_des_crypt_cbc.exit105.loopexit117
-  %.sroa.02.0123 = phi i64 [ %251, %mbedtls_des_crypt_cbc.exit105.loopexit117 ], [ -1167088091436534766, %.preheader118 ]
-  %.261122 = phi i32 [ %252, %mbedtls_des_crypt_cbc.exit105.loopexit117 ], [ 0, %.preheader118 ]
-  br label %244
+.preheader.i106.preheader:                        ; preds = %.preheader.i106.preheader.preheader, %mbedtls_des_crypt_cbc.exit105.loopexit117
+  %.sroa.02.0123 = phi i64 [ %248, %mbedtls_des_crypt_cbc.exit105.loopexit117 ], [ -1167088091436534766, %.preheader.i106.preheader.preheader ]
+  %.261122 = phi i32 [ %249, %mbedtls_des_crypt_cbc.exit105.loopexit117 ], [ 0, %.preheader.i106.preheader.preheader ]
+  br label %241
 
-244:                                              ; preds = %244, %.preheader.i106.preheader
-  %indvars.iv67.i110 = phi i64 [ 0, %.preheader.i106.preheader ], [ %indvars.iv.next68.i111, %244 ]
-  %245 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv67.i110
-  %246 = load i8, ptr %245, align 1
-  %247 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv67.i110
-  %248 = load i8, ptr %247, align 1
-  %249 = xor i8 %248, %246
-  store i8 %249, ptr %245, align 1
+241:                                              ; preds = %241, %.preheader.i106.preheader
+  %indvars.iv67.i110 = phi i64 [ 0, %.preheader.i106.preheader ], [ %indvars.iv.next68.i111, %241 ]
+  %242 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv67.i110
+  %243 = load i8, ptr %242, align 1
+  %244 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv67.i110
+  %245 = load i8, ptr %244, align 1
+  %246 = xor i8 %245, %243
+  store i8 %246, ptr %242, align 1
   %indvars.iv.next68.i111 = add nuw nsw i64 %indvars.iv67.i110, 1
   %exitcond70.not.i112 = icmp eq i64 %indvars.iv.next68.i111, 8
-  br i1 %exitcond70.not.i112, label %mbedtls_des_crypt_cbc.exit105.loopexit117, label %244, !llvm.loop !20
+  br i1 %exitcond70.not.i112, label %mbedtls_des_crypt_cbc.exit105.loopexit117, label %241, !llvm.loop !20
 
-mbedtls_des_crypt_cbc.exit105.loopexit117:        ; preds = %244
-  %250 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
-  %251 = load i64, ptr %8, align 8
-  store i64 %251, ptr %9, align 8
+mbedtls_des_crypt_cbc.exit105.loopexit117:        ; preds = %241
+  %247 = call i32 @mbedtls_des3_crypt_ecb(ptr noundef nonnull readonly %7, ptr noundef nonnull %8, ptr noundef nonnull %8)
+  %248 = load i64, ptr %8, align 8
+  store i64 %248, ptr %9, align 8
   store i64 %.sroa.02.0123, ptr %8, align 8
-  %252 = add nuw nsw i32 %.261122, 1
-  %exitcond133.not = icmp eq i32 %252, 100
-  br i1 %exitcond133.not, label %.split125.us, label %.preheader.i106.preheader, !llvm.loop !26
+  %249 = add nuw nsw i32 %.261122, 1
+  %exitcond133.not = icmp eq i32 %249, 100
+  br i1 %exitcond133.not, label %.loopexit.thread, label %.preheader.i106.preheader, !llvm.loop !26
 
-.split125.us:                                     ; preds = %mbedtls_des_crypt_cbc.exit105.loopexit117, %mbedtls_des_crypt_cbc.exit105.loopexit.us
-  %.us-phi = phi i64 [ %225, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ %251, %mbedtls_des_crypt_cbc.exit105.loopexit117 ]
+.loopexit.thread:                                 ; preds = %mbedtls_des_crypt_cbc.exit105.loopexit117, %mbedtls_des_crypt_cbc.exit105.loopexit.us
+  %.us-phi = phi i64 [ %223, %mbedtls_des_crypt_cbc.exit105.loopexit.us ], [ %248, %mbedtls_des_crypt_cbc.exit105.loopexit117 ]
   store i64 %.us-phi, ptr %8, align 8
-  %253 = zext nneg i32 %123 to i64
-  %254 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_cbc_enc, i64 0, i64 %253
-  %rhsv160 = load i64, ptr %254, align 8
-  %.not161 = icmp eq i64 %.us-phi, %rhsv160
-  br i1 %.not161, label %.thread, label %257
+  %250 = zext nneg i32 %123 to i64
+  %251 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_cbc_enc, i64 0, i64 %250
+  %rhsv159 = load i64, ptr %251, align 8
+  %.not160 = icmp eq i64 %.us-phi, %rhsv159
+  br i1 %.not160, label %.thread, label %254
 
 .critedge:                                        ; preds = %mbedtls_des_crypt_cbc.exit.loopexit116, %mbedtls_des_crypt_cbc.exit.loopexit.us
-  %255 = zext nneg i32 %123 to i64
-  %256 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_cbc_dec, i64 0, i64 %255
-  %lhsv162 = load i64, ptr %8, align 8
-  %rhsv163 = load i64, ptr %256, align 8
-  %.not164 = icmp eq i64 %lhsv162, %rhsv163
-  br i1 %.not164, label %.thread, label %257
+  %252 = zext nneg i32 %123 to i64
+  %253 = getelementptr inbounds nuw [3 x [8 x i8]], ptr @des3_test_cbc_dec, i64 0, i64 %252
+  %lhsv161 = load i64, ptr %8, align 8
+  %rhsv162 = load i64, ptr %253, align 8
+  %.not163 = icmp eq i64 %lhsv161, %rhsv162
+  br i1 %.not163, label %.thread, label %254
 
-257:                                              ; preds = %.split125.us, %.critedge
-  br i1 %.not74, label %.loopexit148, label %258
+254:                                              ; preds = %.loopexit.thread, %.critedge
+  br i1 %.not74, label %.loopexit146, label %255
 
-258:                                              ; preds = %257
+255:                                              ; preds = %254
   %puts72 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %.loopexit148
+  br label %.loopexit146
 
-.thread:                                          ; preds = %.critedge, %.split125.us
-  br i1 %.not74, label %259, label %.thread143
+.thread:                                          ; preds = %.critedge, %.loopexit.thread
+  br i1 %.not74, label %256, label %.thread141
 
-259:                                              ; preds = %.thread
-  %260 = add nuw nsw i32 %.163127, 1
-  %exitcond137.not = icmp eq i32 %260, 6
-  br i1 %exitcond137.not, label %.loopexit148, label %.backedge.backedge
+256:                                              ; preds = %.thread
+  %257 = add nuw nsw i32 %.163127, 1
+  %exitcond137.not = icmp eq i32 %257, 6
+  br i1 %exitcond137.not, label %.loopexit146, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %259, %.thread143
-  %.163127.be = phi i32 [ %260, %259 ], [ %261, %.thread143 ]
+.backedge.backedge:                               ; preds = %256, %.thread141
+  %.163127.be = phi i32 [ %257, %256 ], [ %258, %.thread141 ]
   br label %.backedge, !llvm.loop !28
 
-.thread143:                                       ; preds = %.thread
+.thread141:                                       ; preds = %.thread
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
-  %261 = add nuw nsw i32 %.163127, 1
-  %exitcond137.not144 = icmp eq i32 %261, 6
-  br i1 %exitcond137.not144, label %262, label %.backedge.backedge
+  %258 = add nuw nsw i32 %.163127, 1
+  %exitcond137.not142 = icmp eq i32 %258, 6
+  br i1 %exitcond137.not142, label %259, label %.backedge.backedge
 
-262:                                              ; preds = %.thread143
+259:                                              ; preds = %.thread141
   %putchar66 = call i32 @putchar(i32 10)
-  br label %.loopexit148
+  br label %.loopexit146
 
-.loopexit148:                                     ; preds = %259, %257, %258, %115, %116, %262
-  %not..2 = phi i32 [ 0, %262 ], [ 1, %116 ], [ 1, %115 ], [ 1, %258 ], [ 1, %257 ], [ 0, %259 ]
+.loopexit146:                                     ; preds = %256, %254, %255, %115, %116, %259
+  %not..2 = phi i32 [ 0, %259 ], [ 1, %116 ], [ 1, %115 ], [ 1, %255 ], [ 1, %254 ], [ 0, %256 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %6, i64 noundef 128) #12
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %7, i64 noundef 384) #12
   ret i32 %not..2

@@ -2033,7 +2033,7 @@ ZSTD_rollingHash_compute.exit.i:                  ; preds = %ZSTD_rollingHash_co
   %202 = add i64 %201, %199
   %203 = and i64 %202, %126
   %204 = icmp eq i64 %203, %126
-  %205 = add i64 %.182.i, 1
+  %205 = add nuw i64 %.182.i, 1
   br i1 %204, label %findSynchronizationPoint.exit, label %206
 
 206:                                              ; preds = %.lr.ph.i

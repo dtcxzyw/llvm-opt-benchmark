@@ -816,8 +816,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i8, ptr %32, align 16
   %34 = icmp eq i8 %33, 13
-  %.not.not6.i.i.i = icmp ne ptr %31, null
-  %.not.not.not.i.i.i = and i1 %.not.not6.i.i.i, %34
+  %.not6.i.i.i = icmp ne ptr %31, null
+  %.not.not.not.i.i.i = and i1 %.not6.i.i.i, %34
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.i.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread.i.i
 
 _ZNK5clang4Type13isBooleanTypeEv.exit.i.i:        ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang4ento16TypedValueRegionEKNS2_9MemRegionEEEDaPT0_.exit.i

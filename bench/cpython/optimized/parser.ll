@@ -1078,7 +1078,7 @@ _loop1_2_rule.exit.thread59:                      ; preds = %60
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
-  %73 = tail call ptr @_PyPegen_seq_flatten(ptr noundef %0, ptr noundef nonnull %63) #5
+  %73 = tail call ptr @_PyPegen_seq_flatten(ptr noundef nonnull %0, ptr noundef nonnull %63) #5
   %74 = icmp eq ptr %73, null
   br i1 %74, label %75, label %._crit_edge..thread65_crit_edge
 
@@ -14239,7 +14239,7 @@ _loop1_61_rule.exit.thread163:                    ; preds = %205
   %storemerge.in.i = load i32, ptr %2, align 8, !tbaa !20
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %2, align 8, !tbaa !20
-  %218 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef %0) #5
+  %218 = tail call ptr @_PyPegen_get_last_nonnwhitespace_token(ptr noundef nonnull %0) #5
   %219 = icmp eq ptr %218, null
   br i1 %219, label %.thread169, label %220
 

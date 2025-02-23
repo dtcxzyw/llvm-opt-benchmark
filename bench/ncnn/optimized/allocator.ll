@@ -210,7 +210,7 @@ _ZN4ncnn20PoolAllocatorPrivateD2Ev.exit:          ; preds = %.lr.ph.i.i.i2.i, %_
   %45 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %46 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(40) %45) #16
   %47 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull align 8 dereferenceable(144) %39) #16
-  tail call void @_ZdlPvm(ptr noundef %39, i64 noundef 144) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef 144) #17
   br label %48
 
 48:                                               ; preds = %_ZN4ncnn20PoolAllocatorPrivateD2Ev.exit, %._crit_edge
@@ -729,7 +729,7 @@ _ZNSt7__cxx114listISt4pairImPvESaIS3_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %
   br i1 %.not.i.i.i4.i, label %_ZN4ncnn28UnlockedPoolAllocatorPrivateD2Ev.exit, label %.lr.ph.i.i.i2.i, !llvm.loop !6
 
 _ZN4ncnn28UnlockedPoolAllocatorPrivateD2Ev.exit:  ; preds = %.lr.ph.i.i.i2.i, %_ZNSt7__cxx114listISt4pairImPvESaIS3_EED2Ev.exit.i
-  tail call void @_ZdlPvm(ptr noundef %35, i64 noundef 64) #17
+  tail call void @_ZdlPvm(ptr noundef nonnull %35, i64 noundef 64) #17
   br label %41
 
 41:                                               ; preds = %_ZN4ncnn28UnlockedPoolAllocatorPrivateD2Ev.exit, %._crit_edge

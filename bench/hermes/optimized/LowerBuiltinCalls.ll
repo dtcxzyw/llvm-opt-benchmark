@@ -3927,7 +3927,6 @@ if.end.i:                                         ; preds = %for.body13.i
   %6 = add i8 %5, -49
   %7 = icmp ult i8 %6, -4
   %sub.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -16
-  %spec.select.i.i = select i1 %7, ptr null, ptr %sub.ptr.i.i.i.i
   br i1 %7, label %for.cond11.backedge.i, label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end.i
@@ -3942,7 +3941,6 @@ if.end27.i:                                       ; preds = %if.end22.i
   %10 = add i8 %9, -49
   %11 = icmp ult i8 %10, -4
   %sub.ptr.i.i.i34.i = getelementptr inbounds i8, ptr %call.i33.i, i64 -16
-  %spec.select.i35.i = select i1 %11, ptr null, ptr %sub.ptr.i.i.i34.i
   br i1 %11, label %for.cond11.backedge.i, label %if.end32.i
 
 if.end32.i:                                       ; preds = %if.end27.i
@@ -4119,8 +4117,7 @@ for.end.i:                                        ; preds = %_ZN4llvh23SmallVect
   %spec.select.i = select i1 %33, ptr null, ptr %add.ptr83.i
   call void @_ZN6hermes5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i, ptr noundef %spec.select.i) #12
   call void @_ZN6hermes11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(132) %it.sroa.0.069.i) #12
-  %add.ptr84.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 16
-  %call85.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr84.i) #12
+  %call85.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i) #12
   br i1 %call85.i, label %if.end87.i, label %if.then86.i
 
 if.then86.i:                                      ; preds = %for.end.i
@@ -4128,8 +4125,7 @@ if.then86.i:                                      ; preds = %for.end.i
   br label %if.end87.i
 
 if.end87.i:                                       ; preds = %if.then86.i, %for.end.i
-  %add.ptr88.i = getelementptr inbounds nuw i8, ptr %spec.select.i35.i, i64 16
-  %call89.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr88.i) #12
+  %call89.i = call noundef zeroext i1 @_ZNK6hermes5Value8hasUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %call.i33.i) #12
   br i1 %call89.i, label %if.end91.i, label %if.then90.i
 
 if.then90.i:                                      ; preds = %if.end87.i

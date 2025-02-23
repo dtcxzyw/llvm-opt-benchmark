@@ -220,7 +220,7 @@ define void @_ZN5ZXing6QRCode6EncodeERKNSt7__cxx1112basic_stringIwSt11char_trait
   %78 = add i8 %75, 32
   %79 = icmp ult i8 %78, 12
   %80 = or i1 %77, %79
-  %81 = add i64 %73, 2
+  %81 = add nuw i64 %73, 2
   %82 = icmp ult i64 %81, %65
   %83 = and i1 %82, %80
   br i1 %83, label %.preheader140, label %.loopexit141, !llvm.loop !12

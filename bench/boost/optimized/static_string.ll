@@ -62804,8 +62804,8 @@ _ZN5boost14static_strings19basic_static_stringILm20EcSt11char_traitsIcEEC2EPKc.e
   call void @llvm.lifetime.start.p0(i64 22, ptr nonnull %2) #36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(22) %2, i8 0, i64 22, i1 false)
   store i8 10, ptr %2, align 1, !tbaa !101
-  %.ptr2706 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.ptr2706, ptr noundef nonnull align 1 dereferenceable(10) @.str.3963, i64 10, i1 false)
+  %.ptr2705 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %.ptr2705, ptr noundef nonnull align 1 dereferenceable(10) @.str.3963, i64 10, i1 false)
   %1701 = getelementptr inbounds nuw i8, ptr %2, i64 11
   store i8 0, ptr %1701, align 1, !tbaa !9
   %1702 = getelementptr inbounds nuw i8, ptr %2, i64 6
@@ -62824,7 +62824,7 @@ _ZN5boost14static_strings19basic_static_stringILm20EcSt11char_traitsIcEEC2EPKc.e
 
 _ZN5boost14static_stringseqILm20EcSt11char_traitsIcEEEbRKNS0_19basic_static_stringIXT_ET0_T1_EEPKS5_.exit107: ; preds = %.lr.ph.i.i2443
   store i8 10, ptr %2, align 1, !tbaa !101
-  %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.ptr2706, ptr noundef nonnull dereferenceable(10) @.str.3965, i64 10)
+  %bcmp.i53 = call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %.ptr2705, ptr noundef nonnull dereferenceable(10) @.str.3965, i64 10)
   %1705 = icmp eq i32 %bcmp.i53, 0
   %1706 = tail call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.3964, ptr noundef nonnull @.str.13, i32 noundef 6074, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %1705)
   call void @llvm.lifetime.end.p0(i64 22, ptr nonnull %2) #36
@@ -63489,24 +63489,24 @@ _ZN5boost14static_stringseqILm400EcSt11char_traitsIcEEEbRKNS0_19basic_static_str
   %bcmp.i254 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.ptr.ptr, ptr noundef nonnull dereferenceable(8) @.str.4012, i64 8)
   %1947 = icmp eq i32 %bcmp.i254, 0
   %1948 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4011, ptr noundef nonnull @.str.13, i32 noundef 6217, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %1947)
-  %.ptr2708 = getelementptr inbounds nuw i8, ptr %36, i64 10
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %.ptr2708, ptr noundef nonnull align 2 dereferenceable(9) %.ptr.ptr, i64 9, i1 false)
-  %1949 = load i64, ptr %.ptr2708, align 2
+  %.ptr2707 = getelementptr inbounds nuw i8, ptr %36, i64 10
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(9) %.ptr2707, ptr noundef nonnull align 2 dereferenceable(9) %.ptr.ptr, i64 9, i1 false)
+  %1949 = load i64, ptr %.ptr2707, align 2
   store i64 %1949, ptr %.ptr.ptr, align 2
   store i16 16, ptr %36, align 2, !tbaa !54
   %bcmp.i275 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %.ptr.ptr, ptr noundef nonnull dereferenceable(16) @.str.4014, i64 16)
   %1950 = icmp eq i32 %bcmp.i275, 0
   %1951 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4013, ptr noundef nonnull @.str.13, i32 noundef 6218, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %1950)
-  %.ptr2709 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.ptr2709, ptr noundef nonnull align 2 dereferenceable(17) %.ptr.ptr, i64 17, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.ptr.ptr, ptr noundef nonnull align 2 dereferenceable(16) %.ptr2709, i64 16, i1 false)
+  %.ptr2708 = getelementptr inbounds nuw i8, ptr %36, i64 18
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(17) %.ptr2708, ptr noundef nonnull align 2 dereferenceable(17) %.ptr.ptr, i64 17, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %.ptr.ptr, ptr noundef nonnull align 2 dereferenceable(16) %.ptr2708, i64 16, i1 false)
   store i16 32, ptr %36, align 2, !tbaa !54
   %bcmp.i297 = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %.ptr.ptr, ptr noundef nonnull dereferenceable(32) @.str.4016, i64 32)
   %1952 = icmp eq i32 %bcmp.i297, 0
   %1953 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4015, ptr noundef nonnull @.str.13, i32 noundef 6219, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %1952)
-  %.ptr2711 = getelementptr inbounds nuw i8, ptr %37, i64 42
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(41) %.ptr2711, ptr noundef nonnull align 2 dereferenceable(41) %.ptr, i64 41, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.ptr, ptr noundef nonnull align 2 dereferenceable(40) %.ptr2711, i64 40, i1 false)
+  %.ptr2710 = getelementptr inbounds nuw i8, ptr %37, i64 42
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(41) %.ptr2710, ptr noundef nonnull align 2 dereferenceable(41) %.ptr, i64 41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.ptr, ptr noundef nonnull align 2 dereferenceable(40) %.ptr2710, i64 40, i1 false)
   store i16 80, ptr %37, align 2, !tbaa !54
   %bcmp.i319 = call i32 @bcmp(ptr noundef nonnull dereferenceable(80) %.ptr, ptr noundef nonnull dereferenceable(80) @.str.4018, i64 80)
   %1954 = icmp eq i32 %bcmp.i319, 0
@@ -64491,8 +64491,8 @@ _ZN5boost14static_strings5testRINS0_19basic_static_stringILm400EcSt11char_traits
   %2340 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %114, ptr noundef nonnull %2339, ptr noundef nonnull %2338, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2341 = load i16, ptr %114, align 2, !tbaa !54
   %or.cond.not.i.i559 = icmp eq i16 %2341, 1
-  %lhsc2723 = load i8, ptr %2337, align 2
-  %2342 = icmp eq i8 %lhsc2723, 97
+  %lhsc2722 = load i8, ptr %2337, align 2
+  %2342 = icmp eq i8 %lhsc2722, 97
   %.0.i.i.i.i560 = select i1 %or.cond.not.i.i559, i1 %2342, i1 false
   %2343 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4091, ptr noundef nonnull @.str.13, i32 noundef 6262, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i560)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %115, i8 0, i64 403, i1 false)
@@ -64903,9 +64903,9 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   %2505 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %145, ptr noundef nonnull %2504, ptr noundef nonnull %2503, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2506 = load i16, ptr %145, align 2, !tbaa !54
   %or.cond.not.i.i655 = icmp eq i16 %2506, 2
-  %lhsv2727 = load i16, ptr %2502, align 2
-  %.not2729 = icmp eq i16 %lhsv2727, 25185
-  %.0.i.i.i.i656 = select i1 %or.cond.not.i.i655, i1 %.not2729, i1 false
+  %lhsv2726 = load i16, ptr %2502, align 2
+  %.not2728 = icmp eq i16 %lhsv2726, 25185
+  %.0.i.i.i.i656 = select i1 %or.cond.not.i.i655, i1 %.not2728, i1 false
   %2507 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4122, ptr noundef nonnull @.str.13, i32 noundef 6278, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i656)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %146, i8 0, i64 403, i1 false)
   store i16 5, ptr %146, align 2, !tbaa !54
@@ -65611,8 +65611,8 @@ _ZN5boost14static_strings5testRINS0_19basic_static_stringILm400EcSt11char_traits
   %2773 = call noundef nonnull align 2 dereferenceable(403) ptr @_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE7replaceIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueERS4_E4typeES7_S7_S9_S9_(ptr noundef nonnull align 2 dereferenceable(403) %200, ptr noundef nonnull %2770, ptr noundef nonnull %2772, ptr noundef nonnull @.str.106, ptr noundef nonnull @.str.106)
   %2774 = load i16, ptr %200, align 2, !tbaa !54
   %or.cond.not.i.i823 = icmp eq i16 %2774, 1
-  %lhsc2730 = load i8, ptr %2770, align 2
-  %2775 = icmp eq i8 %lhsc2730, 106
+  %lhsc2729 = load i8, ptr %2770, align 2
+  %2775 = icmp eq i8 %lhsc2729, 106
   %.0.i.i.i.i824 = select i1 %or.cond.not.i.i823, i1 %2775, i1 false
   %2776 = call noundef zeroext i1 @_ZN5boost6detail9test_implEPKcS2_iS2_b(ptr noundef nonnull @.str.4175, ptr noundef nonnull @.str.13, i32 noundef 6306, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5boost14static_strings11testReplaceEv, i1 noundef zeroext %.0.i.i.i.i824)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %201, i8 0, i64 403, i1 false)
@@ -91820,10 +91820,10 @@ _ZN5boost14static_strings19basic_static_stringILm30EcSt11char_traitsIcEE6insertE
   %2082 = getelementptr inbounds nuw i8, ptr %56, i64 11
   store i8 0, ptr %2082, align 1, !tbaa !9
   %2083 = getelementptr inbounds nuw i8, ptr %56, i64 6
-  %2084 = getelementptr inbounds nuw i8, ptr %56, i64 10
-  %2085 = getelementptr inbounds nuw i8, ptr %56, i64 9
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2085, ptr noundef nonnull align 1 dereferenceable(6) %2083, i64 6, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2083, ptr noundef nonnull align 1 dereferenceable(3) %2084, i64 3, i1 false)
+  %2084 = getelementptr inbounds nuw i8, ptr %56, i64 9
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %2084, ptr noundef nonnull align 1 dereferenceable(6) %2083, i64 6, i1 false)
+  %2085 = getelementptr inbounds nuw i8, ptr %56, i64 10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %2083, ptr noundef nonnull align 1 dereferenceable(3) %2085, i64 3, i1 false)
   store i8 13, ptr %56, align 1, !tbaa !1560
   %bcmp.i939 = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %2081, ptr noundef nonnull dereferenceable(13) @.str.5725, i64 13)
   %2086 = icmp eq i32 %bcmp.i939, 0

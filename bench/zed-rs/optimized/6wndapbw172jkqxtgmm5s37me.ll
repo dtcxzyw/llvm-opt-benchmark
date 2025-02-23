@@ -12971,7 +12971,7 @@ define noundef zeroext i1 @_ZN4call4room4Room15contains_guests17h902d4cc57f4f9be
   br i1 %9, label %16, label %11
 
 10:                                               ; preds = %1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit
-  %.sroa.0.0 = phi i1 [ %.not6.not.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit ], [ true, %1 ]
+  %.sroa.0.0 = phi i1 [ %23, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit ], [ true, %1 ]
   ret i1 %.sroa.0.0
 
 11:                                               ; preds = %6
@@ -13004,22 +13004,22 @@ define noundef zeroext i1 @_ZN4call4room4Room15contains_guests17h902d4cc57f4f9be
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   br label %17
 
-17:                                               ; preds = %22, %16
+17:                                               ; preds = %24, %16
   %18 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0f8dd30407a86c89E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %2)
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = icmp ne ptr %19, null
   %21 = extractvalue { ptr, ptr } %18, 1
-  %.not67.i = icmp ne ptr %21, null
-  %.not6.not.i = select i1 %20, i1 %.not67.i, i1 false
-  br i1 %.not6.not.i, label %22, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit
+  %22 = icmp ne ptr %21, null
+  %23 = select i1 %20, i1 %22, i1 false
+  br i1 %23, label %24, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit
 
-22:                                               ; preds = %17
-  %23 = getelementptr i8, ptr %21, i64 120
-  %.val.i = load i32, ptr %23, align 8, !range !2365, !noundef !4
+24:                                               ; preds = %17
+  %25 = getelementptr i8, ptr %21, i64 120
+  %.val.i = load i32, ptr %25, align 8, !range !2365, !noundef !4
   %.not.i = icmp eq i32 %.val.i, 2
   br i1 %.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit, label %17
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit: ; preds = %17, %22
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h3548b96313ae2a21E.exit: ; preds = %17, %24
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %2)
   br label %10
 }

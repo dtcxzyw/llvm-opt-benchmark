@@ -7018,71 +7018,74 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   %sub.i.i.i8.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -1
   %div.i.i.i9.i = sdiv i64 %sub.i.i.i8.i, 2
   %cmp27.i.i.i10.i = icmp sgt i64 %sub.ptr.div.i.i.i7.i, 2
-  br i1 %cmp27.i.i.i10.i, label %while.body.i.i.i34.i, label %while.end.i.i.i11.i
+  br i1 %cmp27.i.i.i10.i, label %while.body.i.i.i31.i, label %while.end.i.i.i11.i
 
-while.body.i.i.i34.i:                             ; preds = %while.body.i.i, %while.body.i.i.i34.i
-  %__holeIndex.addr.028.i.i.i35.i = phi i64 [ %spec.select.i.i.i44.i, %while.body.i.i.i34.i ], [ 0, %while.body.i.i ]
-  %add.i.i.i36.i = shl i64 %__holeIndex.addr.028.i.i.i35.i, 1
-  %mul.i.i.i37.i = add i64 %add.i.i.i36.i, 2
-  %add.ptr.i.i.i.i38.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i37.i
-  %sub3.i.i.i39.i = or disjoint i64 %add.i.i.i36.i, 1
-  %add.ptr.i22.i.i.i40.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i39.i
-  %call.val.i.i.i.i41.i = load i64, ptr %add.ptr.i.i.i.i38.i, align 8
-  %call3.val.i.i.i.i42.i = load i64, ptr %add.ptr.i22.i.i.i40.i, align 8
-  %cmp.i.i.i.i.i43.i = icmp ult i64 %call.val.i.i.i.i41.i, %call3.val.i.i.i.i42.i
-  %spec.select.i.i.i44.i = select i1 %cmp.i.i.i.i.i43.i, i64 %sub3.i.i.i39.i, i64 %mul.i.i.i37.i
-  %add.ptr.i23.i.i.i45.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i44.i
-  %add.ptr.i24.i.i.i46.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i35.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i46.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i23.i.i.i45.i, i64 16, i1 false)
-  %cmp.i.i.i47.i = icmp slt i64 %spec.select.i.i.i44.i, %div.i.i.i9.i
-  br i1 %cmp.i.i.i47.i, label %while.body.i.i.i34.i, label %while.end.i.i.i11.i, !llvm.loop !107
+while.body.i.i.i31.i:                             ; preds = %while.body.i.i, %while.body.i.i.i31.i
+  %__holeIndex.addr.028.i.i.i32.i = phi i64 [ %spec.select.i.i.i41.i, %while.body.i.i.i31.i ], [ 0, %while.body.i.i ]
+  %add.i.i.i33.i = shl i64 %__holeIndex.addr.028.i.i.i32.i, 1
+  %mul.i.i.i34.i = add i64 %add.i.i.i33.i, 2
+  %add.ptr.i.i.i.i35.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %mul.i.i.i34.i
+  %sub3.i.i.i36.i = or disjoint i64 %add.i.i.i33.i, 1
+  %add.ptr.i22.i.i.i37.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %sub3.i.i.i36.i
+  %call.val.i.i.i.i38.i = load i64, ptr %add.ptr.i.i.i.i35.i, align 8
+  %call3.val.i.i.i.i39.i = load i64, ptr %add.ptr.i22.i.i.i37.i, align 8
+  %cmp.i.i.i.i.i40.i = icmp ult i64 %call.val.i.i.i.i38.i, %call3.val.i.i.i.i39.i
+  %spec.select.i.i.i41.i = select i1 %cmp.i.i.i.i.i40.i, i64 %sub3.i.i.i36.i, i64 %mul.i.i.i34.i
+  %add.ptr.i23.i.i.i42.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %spec.select.i.i.i41.i
+  %add.ptr.i24.i.i.i43.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.028.i.i.i32.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24.i.i.i43.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i23.i.i.i42.i, i64 16, i1 false)
+  %cmp.i.i.i44.i = icmp slt i64 %spec.select.i.i.i41.i, %div.i.i.i9.i
+  br i1 %cmp.i.i.i44.i, label %while.body.i.i.i31.i, label %while.end.i.i.i11.i, !llvm.loop !107
 
-while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i34.i, %while.body.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i44.i, %while.body.i.i.i34.i ]
+while.end.i.i.i11.i:                              ; preds = %while.body.i.i.i31.i, %while.body.i.i
+  %__holeIndex.addr.0.lcssa.i.i.i12.i = phi i64 [ 0, %while.body.i.i ], [ %spec.select.i.i.i41.i, %while.body.i.i.i31.i ]
   %1 = and i64 %sub.ptr.sub.i.i.i6.i, 16
   %cmp16.i.i.i13.i = icmp eq i64 %1, 0
   br i1 %cmp16.i.i.i13.i, label %land.lhs.true.i.i.i.i, label %if.end33.i.i.i14.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
-  %sub17.i.i.i28.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -2
-  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i28.i, 1
-  %cmp19.i.i.i29.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div18.i.i.i.i
-  br i1 %cmp19.i.i.i29.i, label %if.then20.i.i.i30.i, label %if.end33.i.i.i14.i
+  %sub17.i.i.i26.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -2
+  %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i26.i, 1
+  %cmp19.i.i.i27.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div18.i.i.i.i
+  br i1 %cmp19.i.i.i27.i, label %if.end33.i.thread.i.i.i, label %if.end33.i.i.i14.i
 
-if.then20.i.i.i30.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add21.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
-  %sub24.i.i.i31.i = or disjoint i64 %add21.i.i.i.i, 1
-  %add.ptr.i25.i.i.i32.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i31.i
-  %add.ptr.i26.i.i.i33.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i26.i.i.i33.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25.i.i.i32.i, i64 16, i1 false)
-  br label %if.end33.i.i.i14.i
+if.end33.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
+  %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
+  %sub24.i.i.i28.i = or disjoint i64 %add21.i.i.i.i, 1
+  %add.ptr.i25.i.i.i29.i = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %sub24.i.i.i28.i
+  %add.ptr.i26.i.i.i30.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i26.i.i.i30.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25.i.i.i29.i, i64 16, i1 false)
+  br label %land.rhs.i.i.i.i15.i.preheader
 
-if.end33.i.i.i14.i:                               ; preds = %if.then20.i.i.i30.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
-  %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub24.i.i.i31.i, %if.then20.i.i.i30.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
-  %cmp3.i.i.i.i16.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i15.i, 0
-  br i1 %cmp3.i.i.i.i16.i, label %land.rhs.i.i.i.i20.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
+if.end33.i.i.i14.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
+  %cmp3.i.i.not.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 0
+  br i1 %cmp3.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %land.rhs.i.i.i.i15.i.preheader
 
-land.rhs.i.i.i.i20.i:                             ; preds = %if.end33.i.i.i14.i, %while.body.i.i.i.i26.i
-  %__holeIndex.addr.04.i.i.i.i21.i = phi i64 [ %__parent.05.i.i12.i.i.i, %while.body.i.i.i.i26.i ], [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ]
-  %__parent.05.in.i.i.i.i22.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i21.i, -1
-  %__parent.05.i.i12.i.i.i = lshr i64 %__parent.05.in.i.i.i.i22.i, 1
-  %add.ptr.i.i.i.i.i23.i = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i.i
-  %call.val.i.i.i.i.i24.i = load i64, ptr %add.ptr.i.i.i.i.i23.i, align 8
-  %cmp.i.i.i.i.i.i25.i = icmp ult i64 %call.val.i.i.i.i.i24.i, %__value.sroa.0.0.copyload.i.i2.i
-  br i1 %cmp.i.i.i.i.i.i25.i, label %while.body.i.i.i.i26.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
+land.rhs.i.i.i.i15.i.preheader:                   ; preds = %if.end33.i.i.i14.i, %if.end33.i.thread.i.i.i
+  %__holeIndex.addr.04.i.i.i.i16.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %if.end33.i.i.i14.i ], [ %sub24.i.i.i28.i, %if.end33.i.thread.i.i.i ]
+  br label %land.rhs.i.i.i.i15.i
 
-while.body.i.i.i.i26.i:                           ; preds = %land.rhs.i.i.i.i20.i
-  %add.ptr.i11.i.i.i.i27.i = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i21.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i11.i.i.i.i27.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i23.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.05.in.i.i.i.i22.i, 2
-  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %land.rhs.i.i.i.i20.i, !llvm.loop !108
+land.rhs.i.i.i.i15.i:                             ; preds = %land.rhs.i.i.i.i15.i.preheader, %while.body.i.i.i.i24.i
+  %__holeIndex.addr.04.i.i.i.i16.i = phi i64 [ %__parent.05.i.i12.i.i.i, %while.body.i.i.i.i24.i ], [ %__holeIndex.addr.04.i.i.i.i16.i.ph, %land.rhs.i.i.i.i15.i.preheader ]
+  %__parent.05.in.i.i.i.i17.i = add nsw i64 %__holeIndex.addr.04.i.i.i.i16.i, -1
+  %__parent.05.i.i12.i.i.i = lshr i64 %__parent.05.in.i.i.i.i17.i, 1
+  %add.ptr.i.i.i.i.i18.i = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__parent.05.i.i12.i.i.i
+  %call.val.i.i.i.i.i19.i = load i64, ptr %add.ptr.i.i.i.i.i18.i, align 8
+  %cmp.i.i.i.i.i.i20.i = icmp ult i64 %call.val.i.i.i.i.i19.i, %__value.sroa.0.0.copyload.i.i2.i
+  br i1 %cmp.i.i.i.i.i.i20.i, label %while.body.i.i.i.i24.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i26.i, %land.rhs.i.i.i.i20.i, %if.end33.i.i.i14.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i17.i = phi i64 [ %__holeIndex.addr.1.i.i.i15.i, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.04.i.i.i.i21.i, %land.rhs.i.i.i.i20.i ], [ 0, %while.body.i.i.i.i26.i ]
-  %add.ptr.i12.i.i.i.i18.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i17.i
-  store i64 %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i12.i.i.i.i18.i, align 8
-  %__value.sroa.3.0.ref.tmp13.sroa.0.0.ref.tmp13.val.sroa_idx.i.i.i.i19.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i18.i, i64 8
-  store i64 %__value.sroa.2.0.copyload.i.i4.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0.ref.tmp13.val.sroa_idx.i.i.i.i19.i, align 8
+while.body.i.i.i.i24.i:                           ; preds = %land.rhs.i.i.i.i15.i
+  %add.ptr.i11.i.i.i.i25.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.04.i.i.i.i16.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i11.i.i.i.i25.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i18.i, i64 16, i1 false)
+  %cmp.i.i.not.i.i.i = icmp ult i64 %__parent.05.in.i.i.i.i17.i, 2
+  br i1 %cmp.i.i.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i", label %land.rhs.i.i.i.i15.i, !llvm.loop !108
+
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN9grpc_core12_GLOBAL__N_18RingHash4Ring9RingEntryESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS5_C1EPS4_PNS3_16RingHashLbConfigEE3$_0EEEvT_SJ_SJ_RT0_.exit.i.i": ; preds = %while.body.i.i.i.i24.i, %land.rhs.i.i.i.i15.i, %if.end33.i.i.i14.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i21.i = phi i64 [ 0, %if.end33.i.i.i14.i ], [ %__holeIndex.addr.04.i.i.i.i16.i, %land.rhs.i.i.i.i15.i ], [ 0, %while.body.i.i.i.i24.i ]
+  %add.ptr.i12.i.i.i.i22.i = getelementptr inbounds %"struct.grpc_core::(anonymous namespace)::RingHash::Ring::RingEntry", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i21.i
+  store i64 %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i12.i.i.i.i22.i, align 8
+  %__value.sroa.3.0.ref.tmp13.sroa.0.0.ref.tmp13.val.sroa_idx.i.i.i.i23.i = getelementptr inbounds nuw i8, ptr %add.ptr.i12.i.i.i.i22.i, i64 8
+  store i64 %__value.sroa.2.0.copyload.i.i4.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0.ref.tmp13.val.sroa_idx.i.i.i.i23.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i6.i, 16
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !110
 

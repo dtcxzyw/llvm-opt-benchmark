@@ -9454,7 +9454,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit72:     ; preds = %.lr.ph.i65, %_ZN6ca
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 640
   %109 = call i32 @CVodeGetNonlinSolvStats(ptr noundef %106, ptr noundef nonnull %107, ptr noundef nonnull %108)
   call void @_ZN6casadi15CvodesInterface12cvodes_errorEPKci(ptr noundef nonnull @.str.73, i32 noundef %109)
-  call void @_ZNK6casadi17SundialsInterface11add_offsetsEPNS_14SundialsMemoryE(ptr noundef nonnull align 8 dereferenceable(2184) %0, ptr noundef %8)
+  call void @_ZNK6casadi17SundialsInterface11add_offsetsEPNS_14SundialsMemoryE(ptr noundef nonnull align 8 dereferenceable(2184) %0, ptr noundef nonnull %8)
   ret void
 }
 

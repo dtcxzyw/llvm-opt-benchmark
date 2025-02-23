@@ -2327,8 +2327,8 @@ define dso_local i64 @tsqueryrecv(ptr noundef readonly captures(none) %0) local_
   %69 = sext i32 %.0128 to i64
   %70 = getelementptr inbounds ptr, ptr %15, i64 %69
   store ptr %30, ptr %70, align 8
-  %71 = add i32 %.097126, 1
-  %72 = add i32 %71, %47
+  %71 = add nsw i32 %.097126, 1
+  %72 = add nsw i32 %71, %47
   br label %98
 
 73:                                               ; preds = %23

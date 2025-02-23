@@ -1445,7 +1445,7 @@ define hidden void @_ZN2cv11bioinspired12RetinaFilter19_runGrayToneMappingERKSt8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %13, i8 0, i64 %12, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter18runFilter_LPfilterERKSt8valarrayIfERS3_j(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 2)
-          to label %15 unwind label %66
+          to label %15 unwind label %76
 
 15:                                               ; preds = %5
   %16 = fsub float 1.000000e+00, %3
@@ -1455,15 +1455,15 @@ define hidden void @_ZN2cv11bioinspired12RetinaFilter19_runGrayToneMappingERKSt8
   %.idx.i = shl nsw i64 %19, 2
   %20 = getelementptr inbounds i8, ptr %18, i64 %.idx.i
   %or.cond.i.i.i = icmp ult i64 %19, 2
-  %.pre = load float, ptr %18, align 4
-  br i1 %or.cond.i.i.i, label %.loopexit38, label %.lr.ph.preheader.i.i.i
+  br i1 %or.cond.i.i.i, label %29, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %.pre.i.i.i = load float, ptr %18, align 4
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %22 = phi float [ %26, %.lr.ph.i.i.i ], [ %.pre, %.lr.ph.preheader.i.i.i ]
+  %22 = phi float [ %26, %.lr.ph.i.i.i ], [ %.pre.i.i.i, %.lr.ph.preheader.i.i.i ]
   %23 = phi ptr [ %27, %.lr.ph.i.i.i ], [ %21, %.lr.ph.preheader.i.i.i ]
   %.018.i.i.i = phi ptr [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %18, %.lr.ph.preheader.i.i.i ]
   %24 = load float, ptr %23, align 4
@@ -1472,128 +1472,134 @@ define hidden void @_ZN2cv11bioinspired12RetinaFilter19_runGrayToneMappingERKSt8
   %spec.select.i.i.i = select i1 %25, ptr %23, ptr %.018.i.i.i
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not.i.i.i = icmp eq ptr %27, %20
-  br i1 %.not.i.i.i, label %.loopexit38.loopexit, label %.lr.ph.i.i.i, !llvm.loop !33
+  br i1 %.not.i.i.i, label %.thread, label %.lr.ph.i.i.i, !llvm.loop !33
 
-.loopexit38.loopexit:                             ; preds = %.lr.ph.i.i.i
-  %.pre42 = load float, ptr %spec.select.i.i.i, align 4
-  br label %.loopexit38
+.thread:                                          ; preds = %.lr.ph.i.i.i
+  %28 = load float, ptr %spec.select.i.i.i, align 4
+  br label %.lr.ph.i.preheader.i
 
-.loopexit38:                                      ; preds = %.loopexit38.loopexit, %15
-  %28 = phi float [ %.pre, %15 ], [ %.pre42, %.loopexit38.loopexit ]
+29:                                               ; preds = %15
+  %30 = load float, ptr %18, align 4
   %.not8.i.i = icmp eq i64 %19, 1
-  br i1 %.not8.i.i, label %.loopexit37, label %.lr.ph.i.preheader.i
+  br i1 %.not8.i.i, label %.loopexit41, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %.loopexit38
+.lr.ph.i.preheader.i:                             ; preds = %.thread, %29
+  %31 = phi float [ %.pre.i.i.i, %.thread ], [ %30, %29 ]
+  %32 = phi float [ %28, %.thread ], [ %30, %29 ]
   %.067.i.i = getelementptr inbounds nuw i8, ptr %18, i64 4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
   %.0610.i.i = phi ptr [ %.06.i.i, %.lr.ph.i.i ], [ %.067.i.i, %.lr.ph.i.preheader.i ]
-  %.09.i.i = phi float [ %30, %.lr.ph.i.i ], [ %.pre, %.lr.ph.i.preheader.i ]
-  %29 = load float, ptr %.0610.i.i, align 4
-  %30 = fadd float %.09.i.i, %29
+  %.09.i.i = phi float [ %34, %.lr.ph.i.i ], [ %31, %.lr.ph.i.preheader.i ]
+  %33 = load float, ptr %.0610.i.i, align 4
+  %34 = fadd float %.09.i.i, %33
   %.06.i.i = getelementptr inbounds nuw i8, ptr %.0610.i.i, i64 4
   %.not.i.i = icmp eq ptr %.06.i.i, %20
-  br i1 %.not.i.i, label %.loopexit37, label %.lr.ph.i.i, !llvm.loop !34
+  br i1 %.not.i.i, label %.loopexit41, label %.lr.ph.i.i, !llvm.loop !34
 
-.loopexit37:                                      ; preds = %.lr.ph.i.i, %.loopexit38
-  %.0.lcssa.i.i = phi float [ %.pre, %.loopexit38 ], [ %30, %.lr.ph.i.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %32 = load i64, ptr %31, align 8
-  %33 = trunc i64 %32 to i32
-  %34 = uitofp i32 %33 to float
-  %35 = fdiv float %.0.lcssa.i.i, %34
-  %36 = fmul float %16, %28
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store float %36, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 196
-  store float 1.000000e+00, ptr %38, align 4
-  %39 = fmul float %16, %35
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store float %39, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 188
-  store float %28, ptr %41, align 4
+.loopexit41:                                      ; preds = %.lr.ph.i.i, %29
+  %35 = phi float [ %30, %29 ], [ %32, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi float [ %30, %29 ], [ %34, %.lr.ph.i.i ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %37 = load i64, ptr %36, align 8
+  %38 = trunc i64 %37 to i32
+  %39 = uitofp i32 %38 to float
+  %40 = fdiv float %.0.lcssa.i.i, %39
+  %41 = fmul float %16, %35
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store float %41, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 196
+  store float 1.000000e+00, ptr %43, align 4
+  %44 = fmul float %16, %40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store float %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 188
+  store float %35, ptr %46, align 4
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter25runFilter_LocalAdapdationERKSt8valarrayIfES5_RS3_(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %6)
-          to label %42 unwind label %66
+          to label %47 unwind label %76
 
-42:                                               ; preds = %.loopexit37
+47:                                               ; preds = %.loopexit41
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter18runFilter_LPfilterERKSt8valarrayIfERS3_j(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef 1)
-          to label %43 unwind label %66
+          to label %48 unwind label %76
 
-43:                                               ; preds = %42
-  %44 = fsub float 1.000000e+00, %4
-  %45 = load ptr, ptr %11, align 8
-  %46 = load i64, ptr %6, align 8
-  %.idx.i15 = shl nsw i64 %46, 2
-  %47 = getelementptr inbounds i8, ptr %45, i64 %.idx.i15
-  %or.cond.i.i.i16 = icmp ult i64 %46, 2
-  %.pre41 = load float, ptr %45, align 4
-  br i1 %or.cond.i.i.i16, label %.loopexit36, label %.lr.ph.preheader.i.i.i17
+48:                                               ; preds = %47
+  %49 = fsub float 1.000000e+00, %4
+  %50 = load ptr, ptr %11, align 8
+  %51 = load i64, ptr %6, align 8
+  %.idx.i15 = shl nsw i64 %51, 2
+  %52 = getelementptr inbounds i8, ptr %50, i64 %.idx.i15
+  %or.cond.i.i.i16 = icmp ult i64 %51, 2
+  br i1 %or.cond.i.i.i16, label %61, label %.lr.ph.preheader.i.i.i17
 
-.lr.ph.preheader.i.i.i17:                         ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
+.lr.ph.preheader.i.i.i17:                         ; preds = %48
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %.pre.i.i.i18 = load float, ptr %50, align 4
   br label %.lr.ph.i.i.i19
 
 .lr.ph.i.i.i19:                                   ; preds = %.lr.ph.i.i.i19, %.lr.ph.preheader.i.i.i17
-  %49 = phi float [ %53, %.lr.ph.i.i.i19 ], [ %.pre41, %.lr.ph.preheader.i.i.i17 ]
-  %50 = phi ptr [ %54, %.lr.ph.i.i.i19 ], [ %48, %.lr.ph.preheader.i.i.i17 ]
-  %.018.i.i.i20 = phi ptr [ %spec.select.i.i.i21, %.lr.ph.i.i.i19 ], [ %45, %.lr.ph.preheader.i.i.i17 ]
-  %51 = load float, ptr %50, align 4
-  %52 = fcmp olt float %49, %51
-  %53 = select i1 %52, float %51, float %49
-  %spec.select.i.i.i21 = select i1 %52, ptr %50, ptr %.018.i.i.i20
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %.not.i.i.i22 = icmp eq ptr %54, %47
-  br i1 %.not.i.i.i22, label %.loopexit36.loopexit, label %.lr.ph.i.i.i19, !llvm.loop !33
+  %54 = phi float [ %58, %.lr.ph.i.i.i19 ], [ %.pre.i.i.i18, %.lr.ph.preheader.i.i.i17 ]
+  %55 = phi ptr [ %59, %.lr.ph.i.i.i19 ], [ %53, %.lr.ph.preheader.i.i.i17 ]
+  %.018.i.i.i20 = phi ptr [ %spec.select.i.i.i21, %.lr.ph.i.i.i19 ], [ %50, %.lr.ph.preheader.i.i.i17 ]
+  %56 = load float, ptr %55, align 4
+  %57 = fcmp olt float %54, %56
+  %58 = select i1 %57, float %56, float %54
+  %spec.select.i.i.i21 = select i1 %57, ptr %55, ptr %.018.i.i.i20
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %.not.i.i.i22 = icmp eq ptr %59, %52
+  br i1 %.not.i.i.i22, label %.thread38, label %.lr.ph.i.i.i19, !llvm.loop !33
 
-.loopexit36.loopexit:                             ; preds = %.lr.ph.i.i.i19
-  %.pre43 = load float, ptr %spec.select.i.i.i21, align 4
-  br label %.loopexit36
+.thread38:                                        ; preds = %.lr.ph.i.i.i19
+  %60 = load float, ptr %spec.select.i.i.i21, align 4
+  br label %.lr.ph.i.preheader.i27
 
-.loopexit36:                                      ; preds = %.loopexit36.loopexit, %43
-  %55 = phi float [ %.pre41, %43 ], [ %.pre43, %.loopexit36.loopexit ]
-  %.not8.i.i26 = icmp eq i64 %46, 1
+61:                                               ; preds = %48
+  %62 = load float, ptr %50, align 4
+  %.not8.i.i26 = icmp eq i64 %51, 1
   br i1 %.not8.i.i26, label %.loopexit, label %.lr.ph.i.preheader.i27
 
-.lr.ph.i.preheader.i27:                           ; preds = %.loopexit36
-  %.067.i.i28 = getelementptr inbounds nuw i8, ptr %45, i64 4
+.lr.ph.i.preheader.i27:                           ; preds = %.thread38, %61
+  %63 = phi float [ %.pre.i.i.i18, %.thread38 ], [ %62, %61 ]
+  %64 = phi float [ %60, %.thread38 ], [ %62, %61 ]
+  %.067.i.i28 = getelementptr inbounds nuw i8, ptr %50, i64 4
   br label %.lr.ph.i.i29
 
 .lr.ph.i.i29:                                     ; preds = %.lr.ph.i.i29, %.lr.ph.i.preheader.i27
   %.0610.i.i30 = phi ptr [ %.06.i.i32, %.lr.ph.i.i29 ], [ %.067.i.i28, %.lr.ph.i.preheader.i27 ]
-  %.09.i.i31 = phi float [ %57, %.lr.ph.i.i29 ], [ %.pre41, %.lr.ph.i.preheader.i27 ]
-  %56 = load float, ptr %.0610.i.i30, align 4
-  %57 = fadd float %.09.i.i31, %56
+  %.09.i.i31 = phi float [ %66, %.lr.ph.i.i29 ], [ %63, %.lr.ph.i.preheader.i27 ]
+  %65 = load float, ptr %.0610.i.i30, align 4
+  %66 = fadd float %.09.i.i31, %65
   %.06.i.i32 = getelementptr inbounds nuw i8, ptr %.0610.i.i30, i64 4
-  %.not.i.i33 = icmp eq ptr %.06.i.i32, %47
+  %.not.i.i33 = icmp eq ptr %.06.i.i32, %52
   br i1 %.not.i.i33, label %.loopexit, label %.lr.ph.i.i29, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.lr.ph.i.i29, %.loopexit36
-  %.0.lcssa.i.i34 = phi float [ %.pre41, %.loopexit36 ], [ %57, %.lr.ph.i.i29 ]
-  %58 = load i64, ptr %31, align 8
-  %59 = trunc i64 %58 to i32
-  %60 = uitofp i32 %59 to float
-  %61 = fdiv float %.0.lcssa.i.i34, %60
-  %62 = fmul float %44, %55
-  store float %62, ptr %37, align 8
-  store float 1.000000e+00, ptr %38, align 4
-  %63 = fmul float %44, %61
-  store float %63, ptr %40, align 8
-  store float %55, ptr %41, align 4
+.loopexit:                                        ; preds = %.lr.ph.i.i29, %61
+  %67 = phi float [ %62, %61 ], [ %64, %.lr.ph.i.i29 ]
+  %.0.lcssa.i.i34 = phi float [ %62, %61 ], [ %66, %.lr.ph.i.i29 ]
+  %68 = load i64, ptr %36, align 8
+  %69 = trunc i64 %68 to i32
+  %70 = uitofp i32 %69 to float
+  %71 = fdiv float %.0.lcssa.i.i34, %70
+  %72 = fmul float %49, %67
+  store float %72, ptr %42, align 8
+  store float 1.000000e+00, ptr %43, align 4
+  %73 = fmul float %49, %71
+  store float %73, ptr %45, align 8
+  store float %67, ptr %46, align 4
   invoke void @_ZN2cv11bioinspired17BasicRetinaFilter25runFilter_LocalAdapdationERKSt8valarrayIfES5_RS3_(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %2)
-          to label %64 unwind label %66
+          to label %74 unwind label %76
 
-64:                                               ; preds = %.loopexit
-  %65 = load ptr, ptr %11, align 8
-  call void @_ZdlPv(ptr noundef %65) #18
+74:                                               ; preds = %.loopexit
+  %75 = load ptr, ptr %11, align 8
+  call void @_ZdlPv(ptr noundef %75) #18
   ret void
 
-66:                                               ; preds = %.loopexit, %42, %.loopexit37, %5
-  %67 = landingpad { ptr, i32 }
+76:                                               ; preds = %.loopexit, %47, %.loopexit41, %5
+  %77 = landingpad { ptr, i32 }
           cleanup
-  %68 = load ptr, ptr %11, align 8
-  call void @_ZdlPv(ptr noundef %68) #18
-  resume { ptr, i32 } %67
+  %78 = load ptr, ptr %11, align 8
+  call void @_ZdlPv(ptr noundef %78) #18
+  resume { ptr, i32 } %77
 }
 
 declare void @_ZN2cv11bioinspired17BasicRetinaFilter18runFilter_LPfilterERKSt8valarrayIfERS3_j(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #0

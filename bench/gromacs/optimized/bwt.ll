@@ -294,13 +294,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
 
 .preheader143:                                    ; preds = %4
   %14 = icmp sgt i32 %1, 0
-  br i1 %14, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %.preheader143
-  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %10, i1 false)
-  tail call void @Ptngc_bwt_merge_sort_inner(ptr noundef %8, i32 noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %1, ptr noundef %11, ptr noundef %12)
-  store i32 0, ptr %3, align 4
-  br label %._crit_edge202
+  br i1 %14, label %.lr.ph.preheader, label %._crit_edge191.thread
 
 .lr.ph.preheader:                                 ; preds = %.preheader143
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -319,15 +313,21 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   store i32 %19, ptr %18, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %.lr.ph190.preheader, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge191.thread:                            ; preds = %.preheader143
+  tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %10, i1 false)
+  tail call void @Ptngc_bwt_merge_sort_inner(ptr noundef %8, i32 noundef %1, ptr noundef %0, i32 noundef 0, i32 noundef %1, ptr noundef %11, ptr noundef %12)
+  store i32 0, ptr %3, align 4
+  br label %._crit_edge202
+
+.lr.ph190.preheader:                              ; preds = %.lr.ph
   tail call void @llvm.memset.p0.i64(ptr align 4 %11, i8 0, i64 %10, i1 false)
   %wide.trip.count219 = zext nneg i32 %1 to i64
   br label %.lr.ph190
 
-.lr.ph190:                                        ; preds = %._crit_edge, %69
-  %indvars.iv216 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next217, %69 ]
+.lr.ph190:                                        ; preds = %.lr.ph190.preheader, %69
+  %indvars.iv216 = phi i64 [ 0, %.lr.ph190.preheader ], [ %indvars.iv.next217, %69 ]
   %20 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv216
   %21 = load i32, ptr %20, align 4
   %.not = icmp eq i32 %21, 0
@@ -508,7 +508,7 @@ define void @Ptngc_comp_to_bwt(ptr noundef %0, i32 noundef %1, ptr noundef write
   %exitcond230.not = icmp eq i64 %indvars.iv.next227, %wide.trip.count229
   br i1 %exitcond230.not, label %._crit_edge202, label %.lr.ph201, !llvm.loop !15
 
-._crit_edge202:                                   ; preds = %.lr.ph201, %._crit_edge.thread
+._crit_edge202:                                   ; preds = %.lr.ph201, %._crit_edge191.thread
   tail call void @free(ptr noundef %11) #10
   tail call void @free(ptr noundef %8) #10
   ret void

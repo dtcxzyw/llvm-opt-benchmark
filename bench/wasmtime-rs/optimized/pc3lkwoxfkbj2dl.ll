@@ -3024,7 +3024,7 @@ define void @_ZN4core5slice4sort14break_patterns17hc2099a4a36c5708fE(ptr align 2
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
   %spec.select = sub nuw i64 %19, %20
-  %21 = add i64 %10, %.sroa.0.020
+  %21 = add nuw nsw i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h46595ec51d4546a3E"(ptr align 2 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
   br i1 %22, label %.thread, label %11
@@ -3061,7 +3061,7 @@ define void @_ZN4core5slice4sort14break_patterns17he853480025fea7d1E(ptr align 8
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
   %spec.select = sub nuw i64 %19, %20
-  %21 = add i64 %10, %.sroa.0.020
+  %21 = add nuw nsw i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h18702fa380be58e0E"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
   br i1 %22, label %.thread, label %11
@@ -3098,7 +3098,7 @@ define void @_ZN4core5slice4sort14break_patterns17hf71923cc071afe92E(ptr align 8
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
   %spec.select = sub nuw i64 %19, %20
-  %21 = add i64 %10, %.sroa.0.020
+  %21 = add nuw nsw i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h0c67385dc6cd579dE"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
   br i1 %22, label %.thread, label %11
@@ -3135,7 +3135,7 @@ define void @_ZN4core5slice4sort14break_patterns17hf8a58d78dd464b1cE(ptr align 8
   %.not = icmp ult i64 %19, %1
   %20 = select i1 %.not, i64 0, i64 %1
   %spec.select = sub nuw i64 %19, %20
-  %21 = add i64 %10, %.sroa.0.020
+  %21 = add nuw nsw i64 %10, %.sroa.0.020
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17h42fae609d8a4cdc6E"(ptr align 8 %0, i64 %1, i64 %21, i64 %spec.select, ptr nonnull align 8 @anon.799167e198c8f28f48796f1a9c152206.19)
   %22 = icmp ugt i64 %12, 2
   br i1 %22, label %.thread, label %11

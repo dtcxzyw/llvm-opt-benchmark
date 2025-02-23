@@ -972,7 +972,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb(ptr noundef %0, i3
 
 34:                                               ; preds = %32, %20
   tail call void @mutex_unlock(ptr noundef nonnull %21) #6
-  tail call void @drm_mode_object_put(ptr noundef %15) #6
+  tail call void @drm_mode_object_put(ptr noundef nonnull %15) #6
   br label %70
 
 35:                                               ; preds = %32
@@ -986,7 +986,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb(ptr noundef %0, i3
   store volatile ptr %36, ptr %36, align 8
   store volatile ptr %36, ptr %37, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %21) #6
-  tail call void @drm_mode_object_put(ptr noundef %15) #6
+  tail call void @drm_mode_object_put(ptr noundef nonnull %15) #6
   %41 = getelementptr i8, ptr %15, i64 16
   %42 = load volatile i32, ptr %41, align 4
   %43 = icmp ugt i32 %42, 1
@@ -1047,7 +1047,7 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_rmfb(ptr noundef %0, i3
   br label %70
 
 69:                                               ; preds = %35
-  tail call void @drm_mode_object_put(ptr noundef %15) #6
+  tail call void @drm_mode_object_put(ptr noundef nonnull %15) #6
   br label %70
 
 70:                                               ; preds = %69, %64, %34, %14, %3
@@ -1186,12 +1186,12 @@ define dso_local noundef range(i32 -95, 1) i32 @drm_mode_closefb_ioctl(ptr nound
   store volatile ptr %40, ptr %40, align 8
   store volatile ptr %40, ptr %41, align 8
   tail call void @mutex_unlock(ptr noundef nonnull %25) #6
-  tail call void @drm_mode_object_put(ptr noundef %19) #6
+  tail call void @drm_mode_object_put(ptr noundef nonnull %19) #6
   br label %45
 
 45:                                               ; preds = %39, %38
   %46 = phi i32 [ 0, %39 ], [ -2, %38 ]
-  tail call void @drm_mode_object_put(ptr noundef %19) #6
+  tail call void @drm_mode_object_put(ptr noundef nonnull %19) #6
   br label %47
 
 47:                                               ; preds = %45, %17, %13, %3

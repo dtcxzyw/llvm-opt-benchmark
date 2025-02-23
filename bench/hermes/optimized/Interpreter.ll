@@ -1695,12 +1695,10 @@ _ZN6hermes2vm8JSObject23getNamedSlotValueUnsafeEPS1_RNS0_11PointerBaseENS0_23Nam
   %add.ptr.i.i.i.i.sink.i.i = phi ptr [ %directProps_.i.i.i, %if.then.i.i33 ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i32 ]
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %add.ptr.i.i.i.i.sink.i.i, i64 %sub.sink.i.i
   %retval.sroa.0.0.i.i = load i32, ptr %arrayidx.i.i.i, align 4
-  %cmp.i.not.i.i.i.i = icmp eq i32 %retval.sroa.0.0.i.i, 0
   %conv.i.i.i.i.i34 = zext i32 %retval.sroa.0.0.i.i to i64
   %add.i.i.i.i.i35 = add i64 %.pre-phi, %conv.i.i.i.i.i34
   %53 = inttoptr i64 %add.i.i.i.i.i35 to ptr
-  %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %53
-  %setter = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i, i64 8
+  %setter = getelementptr inbounds nuw i8, ptr %53, i64 8
   %54 = load i32, ptr %setter, align 4
   %cmp.i.i36.not = icmp eq i32 %54, 0
   br i1 %cmp.i.i36.not, label %if.then73, label %if.end79

@@ -3113,7 +3113,7 @@ _ZN4llvm11SmallVectorIiLj32EEC2Em.exit248:        ; preds = %_ZN4llvm15SmallVect
   br i1 %.not131.i, label %.preheader.i, label %1309, !llvm.loop !306
 
 ._crit_edge238.i:                                 ; preds = %1341, %.preheader.i
-  %1312 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef %1303) #16
+  %1312 = call noundef ptr @_ZN4llvm8Constant12getNullValueEPNS_4TypeE(ptr noundef nonnull %1303) #16
   %1313 = load ptr, ptr %34, align 8, !tbaa !70
   %1314 = load ptr, ptr %1313, align 8, !tbaa !84
   %1315 = load ptr, ptr %45, align 8, !tbaa !70

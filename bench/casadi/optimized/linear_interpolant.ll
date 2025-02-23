@@ -4954,7 +4954,7 @@ _ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit: ; pre
   br i1 %exitcond138.not, label %.loopexit112, label %77, !llvm.loop !185
 
 .loopexit112:                                     ; preds = %66, %77, %.preheader113, %.preheader
-  %90 = icmp sgt i64 %.097123.in, 1
+  %90 = icmp samesign ugt i64 %.097123.in, 1
   br i1 %90, label %.lr.ph124, label %.lr.ph.i109, !llvm.loop !186
 
 .lr.ph.i109:                                      ; preds = %.loopexit112, %93

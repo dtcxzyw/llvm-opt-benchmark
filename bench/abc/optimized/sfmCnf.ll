@@ -402,7 +402,7 @@ Vec_StrGrow.exit.i129:                            ; preds = %129, %127
   %.phi.trans.insert.i139 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %147 = shl nsw i32 %2, 1
   %wide.trip.count196 = zext nneg i32 %9 to i64
-  %wide.trip.count201 = zext nneg i32 %10 to i64
+  %wide.trip.count201 = zext nneg i32 %9 to i64
   br label %148
 
 148:                                              ; preds = %._crit_edge167.thread, %.critedge
@@ -430,14 +430,14 @@ Vec_StrGrow.exit.i129:                            ; preds = %129, %127
   store i64 %157, ptr %155, align 8, !tbaa !14
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond197.not = icmp eq i64 %indvars.iv.next194, %wide.trip.count196
-  br i1 %exitcond197.not, label %._crit_edge173, label %.lr.ph172, !llvm.loop !19
+  br i1 %exitcond197.not, label %.lr.ph176.preheader, label %.lr.ph172, !llvm.loop !19
 
-._crit_edge173:                                   ; preds = %.lr.ph172
+.lr.ph176.preheader:                              ; preds = %.lr.ph172
   %158 = call i32 @Kit_TruthIsop(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef 0) #13
-  br i1 %143, label %.loopexit, label %.lr.ph176
+  br label %.lr.ph176
 
-.lr.ph176:                                        ; preds = %._crit_edge173, %.lr.ph176
-  %indvars.iv198 = phi i64 [ %indvars.iv.next199, %.lr.ph176 ], [ 0, %._crit_edge173 ]
+.lr.ph176:                                        ; preds = %.lr.ph176.preheader, %.lr.ph176
+  %indvars.iv198 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next199, %.lr.ph176 ]
   %159 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv198
   %160 = load i64, ptr %159, align 8, !tbaa !14
   %161 = xor i64 %160, -1
@@ -451,7 +451,7 @@ Vec_StrGrow.exit.i129:                            ; preds = %129, %127
   %162 = call i32 @Kit_TruthIsop(ptr noundef %.sink, i32 noundef %2, ptr noundef %3, i32 noundef 0) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph176, %.loopexit.sink.split, %._crit_edge173
+.loopexit:                                        ; preds = %.lr.ph176, %.loopexit.sink.split
   %.val = load i32, ptr %144, align 4, !tbaa !21
   %163 = add nsw i32 %.val, %.0186
   %164 = icmp sgt i32 %.val, 0

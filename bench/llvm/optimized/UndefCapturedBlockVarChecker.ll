@@ -1383,8 +1383,8 @@ define internal fastcc noundef ptr @_ZL20FindBlockDeclRefExprPKN5clang4StmtEPKNS
   %15 = icmp eq ptr %14, %.sroa.430.24.copyload
   %16 = load i64, ptr %13, align 8
   %17 = icmp eq i64 %16, %.sroa.6.24.copyload
-  %.not3.i.not39 = select i1 %15, i1 %17, i1 false
-  br i1 %.not3.i.not39, label %._crit_edge, label %.lr.ph
+  %.not3.i.not40 = select i1 %15, i1 %17, i1 false
+  br i1 %.not3.i.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %18 = phi i64 [ %38, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %16, %11 ]

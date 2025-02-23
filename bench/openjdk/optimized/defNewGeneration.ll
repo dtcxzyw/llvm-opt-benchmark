@@ -2057,16 +2057,16 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i: ; preds = %_ZN5Stac
   %226 = load ptr, ptr %225, align 8
   call void %226(ptr noundef nonnull align 8 dereferenceable(72) %203, ptr noundef nonnull %.06.i4.i, i64 noundef %.pre-phi33) #19
   %.not.i5.i = icmp eq ptr %223, null
-  br i1 %.not.i5.i, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i, label %.lr.ph.i3.i, !llvm.loop !8
+  br i1 %.not.i5.i, label %.loopexit.loopexit.i, label %.lr.ph.i3.i, !llvm.loop !8
 
-_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i: ; preds = %.lr.ph.i3.i
-  %227 = load i64, ptr %206, align 8
+.loopexit.loopexit.i:                             ; preds = %.lr.ph.i3.i
+  %.pre.i = load i64, ptr %206, align 8
   br label %_ZN5StackIP7oopDescL8MEMFLAGS5EE5clearEb.exit
 
-_ZN5StackIP7oopDescL8MEMFLAGS5EE5clearEb.exit:    ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i
-  %.sink.i = phi i64 [ %227, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i ], [ %217, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i ]
+_ZN5StackIP7oopDescL8MEMFLAGS5EE5clearEb.exit:    ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i, %.loopexit.loopexit.i
+  %227 = phi i64 [ %.pre.i, %.loopexit.loopexit.i ], [ %217, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 576
-  store i64 %.sink.i, ptr %228, align 8
+  store i64 %227, ptr %228, align 8
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 584
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %229, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

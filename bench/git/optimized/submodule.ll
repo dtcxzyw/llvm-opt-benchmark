@@ -1748,7 +1748,7 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   %60 = load ptr, ptr %57, align 8, !tbaa !49
   %61 = load i64, ptr %58, align 8, !tbaa !145
   %62 = trunc i64 %61 to i32
-  call void @diff_emit_submodule_pipethrough(ptr noundef %0, ptr noundef %60, i32 noundef %62) #17
+  call void @diff_emit_submodule_pipethrough(ptr noundef nonnull %0, ptr noundef %60, i32 noundef %62) #17
   %63 = load i32, ptr %25, align 4, !tbaa !154
   %64 = call i32 @strbuf_getwholeline_fd(ptr noundef nonnull %10, i32 noundef %63, i32 noundef 10) #17
   %.not48 = icmp eq i32 %64, -1
@@ -1760,7 +1760,7 @@ define dso_local void @show_submodule_inline_diff(ptr noundef %0, ptr noundef %1
   br i1 %.not49, label %66, label %.sink.split
 
 .sink.split:                                      ; preds = %._crit_edge, %53
-  call void @diff_emit_submodule_error(ptr noundef %0, ptr noundef nonnull @.str.43) #17
+  call void @diff_emit_submodule_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #17
   br label %66
 
 66:                                               ; preds = %.sink.split, %._crit_edge, %48, %18, %21
@@ -2211,7 +2211,7 @@ submodule_push_check.exit:                        ; preds = %._crit_edge.i
   br i1 %59, label %30, label %._crit_edge, !llvm.loop !186
 
 ._crit_edge:                                      ; preds = %submodule_push_check.exit, %.preheader
-  call void @free(ptr noundef %21) #17
+  call void @free(ptr noundef nonnull %21) #17
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %10) #17
   br label %60
 

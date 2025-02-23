@@ -2694,7 +2694,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
   %21 = getelementptr inbounds nuw i8, ptr %.val10, i64 %.idx
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i32, ptr %22, align 4, !tbaa !33
-  %24 = tail call i32 @Gia_ManFindChains_rec(ptr noundef %0, i32 noundef %23, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
+  %24 = tail call i32 @Gia_ManFindChains_rec(ptr noundef nonnull %0, i32 noundef %23, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %17, align 4, !tbaa !3
   %25 = sdiv i32 %.val, 5
@@ -4916,13 +4916,13 @@ Vec_IntStartFull.exit.i:                          ; preds = %28, %Vec_IntAlloc.e
   br i1 %exitcond.not, label %Gia_ManCreateMap.exit, label %36, !llvm.loop !68
 
 Gia_ManCreateMap.exit:                            ; preds = %36, %Vec_IntStartFull.exit.i
-  call void @Gia_ManFindChains(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %20)
-  %41 = call ptr @Gia_ManCollectTopmost(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %20, i32 noundef %1)
+  call void @Gia_ManFindChains(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %20)
+  %41 = call ptr @Gia_ManCollectTopmost(ptr noundef nonnull %0, ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef %1)
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %43, label %42
 
 42:                                               ; preds = %Gia_ManCreateMap.exit
-  call void @Gia_ManPrintChains(ptr poison, ptr noundef %18, ptr nonnull poison, ptr noundef %41)
+  call void @Gia_ManPrintChains(ptr nonnull poison, ptr noundef nonnull %18, ptr nonnull poison, ptr noundef %41)
   br label %43
 
 43:                                               ; preds = %42, %Gia_ManCreateMap.exit
@@ -4996,7 +4996,7 @@ Vec_IntFree.exit133:                              ; preds = %Vec_IntFree.exit, %
 
 Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %._crit_edge.thread.i.i
   call void @free(ptr noundef nonnull %41) #30
-  %69 = call ptr @Gia_ManDup(ptr noundef %0) #30
+  %69 = call ptr @Gia_ManDup(ptr noundef nonnull %0) #30
   br label %265
 
 70:                                               ; preds = %43
@@ -5097,7 +5097,7 @@ Vec_IntStartFull.exit.i140:                       ; preds = %79, %Vec_IntAlloc.e
   br i1 %exitcond200.not, label %Gia_ManFindMapping.exit, label %86, !llvm.loop !84
 
 Gia_ManFindMapping.exit:                          ; preds = %.critedge2.i, %Vec_IntStartFull.exit.i140
-  %105 = call ptr @Gia_ManCollectTruthTables(ptr noundef %0, ptr noundef %18)
+  %105 = call ptr @Gia_ManCollectTruthTables(ptr noundef nonnull %0, ptr noundef nonnull %18)
   br i1 %.not, label %119, label %106
 
 106:                                              ; preds = %Gia_ManFindMapping.exit
@@ -5143,7 +5143,7 @@ Abc_Clock.exit148:                                ; preds = %106, %109
 Abc_Clock.exit150:                                ; preds = %119, %122
   %.0.i149.neg = phi i64 [ %.neg178, %122 ], [ 1, %119 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  call void @Gia_ManFillValue(ptr noundef %0) #30
+  call void @Gia_ManFillValue(ptr noundef nonnull %0) #30
   %.val121 = load i32, ptr %19, align 8, !tbaa !31
   %126 = call ptr @Gia_ManStart(i32 noundef %.val121) #30
   %127 = load ptr, ptr %0, align 8, !tbaa !111
@@ -5237,7 +5237,7 @@ Abc_UtilStrsav.exit153:                           ; preds = %Abc_UtilStrsav.exit
   %indvars.iv202 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next203, %167 ]
   %.val124 = load ptr, ptr %162, align 8, !tbaa !77
   %168 = getelementptr inbounds nuw %struct.Vec_Int_t_, ptr %.val124, i64 %indvars.iv202
-  call void @Gia_ManDupFadd(ptr noundef nonnull %126, ptr noundef nonnull %0, ptr noundef %168, ptr noundef %18, ptr noundef nonnull %20, ptr noundef nonnull %41, ptr noundef nonnull %71, ptr noundef %105)
+  call void @Gia_ManDupFadd(ptr noundef nonnull %126, ptr noundef nonnull %0, ptr noundef %168, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef nonnull %41, ptr noundef nonnull %71, ptr noundef %105)
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %.val122 = load i32, ptr %44, align 4, !tbaa !74
   %169 = sext i32 %.val122 to i64
@@ -5263,7 +5263,7 @@ Abc_UtilStrsav.exit153:                           ; preds = %Abc_UtilStrsav.exit
   %178 = and i64 %177, 536870911
   %179 = sub nsw i64 0, %178
   %180 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %176, i64 %179
-  call void @Gia_ManDupWithFaddBoxes_rec(ptr noundef nonnull %126, ptr noundef nonnull %0, ptr noundef nonnull %180, ptr noundef %18, ptr noundef nonnull %20, ptr noundef %41, ptr noundef nonnull %71, ptr noundef %105)
+  call void @Gia_ManDupWithFaddBoxes_rec(ptr noundef nonnull %126, ptr noundef nonnull %0, ptr noundef nonnull %180, ptr noundef nonnull %18, ptr noundef nonnull %20, ptr noundef %41, ptr noundef nonnull %71, ptr noundef %105)
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205223, 1
   %181 = load ptr, ptr %163, align 8, !tbaa !42
   %182 = getelementptr i8, ptr %181, i64 4

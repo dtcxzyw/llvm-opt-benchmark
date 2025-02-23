@@ -713,7 +713,11 @@ define linkonce_odr hidden void @_ZN2cv3dnn15CumSumLayerImpl7forwardERKNS_11_Inp
   br i1 %.not121, label %.loopexit104, label %.lr.ph
 
 .preheader:                                       ; preds = %88
-  br i1 %.not121, label %.loopexit104, label %.loopexit104.thread
+  br i1 %.not121, label %.loopexit104, label %.lr.ph109
+
+.lr.ph109:                                        ; preds = %.preheader
+  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %84, i1 false)
+  br label %.loopexit104
 
 92:                                               ; preds = %45, %60, %46, %33, %21, %20
   %93 = landingpad { ptr, i32 }
@@ -734,18 +738,11 @@ define linkonce_odr hidden void @_ZN2cv3dnn15CumSumLayerImpl7forwardERKNS_11_Inp
   %exitcond.not = icmp eq i64 %98, %67
   br i1 %exitcond.not, label %.loopexit104, label %.lr.ph, !llvm.loop !6
 
-.loopexit104:                                     ; preds = %.lr.ph, %.preheader105, %.preheader
-  br i1 %brmerge, label %._crit_edge, label %.lr.ph111.us.preheader
+.loopexit104:                                     ; preds = %.lr.ph, %.lr.ph109, %.preheader105, %.preheader
+  br i1 %brmerge, label %._crit_edge, label %.lr.ph111.us
 
-.loopexit104.thread:                              ; preds = %.preheader
-  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %84, i1 false)
-  br i1 %.not113, label %._crit_edge, label %.lr.ph111.us.preheader
-
-.lr.ph111.us.preheader:                           ; preds = %.loopexit104, %.loopexit104.thread
-  br label %.lr.ph111.us
-
-.lr.ph111.us:                                     ; preds = %.lr.ph111.us.preheader, %..loopexit_crit_edge.us
-  %indvars.iv = phi i64 [ %indvars.iv.next, %..loopexit_crit_edge.us ], [ %85, %.lr.ph111.us.preheader ]
+.lr.ph111.us:                                     ; preds = %.loopexit104, %..loopexit_crit_edge.us
+  %indvars.iv = phi i64 [ %indvars.iv.next, %..loopexit_crit_edge.us ], [ %85, %.loopexit104 ]
   %99 = mul i64 %67, %indvars.iv
   %100 = add i64 %99, %90
   %101 = sub i64 %100, %80
@@ -774,7 +771,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn15CumSumLayerImpl7forwardERKNS_11_Inp
   %.not.us = icmp eq i32 %71, %114
   br i1 %.not.us, label %._crit_edge, label %.lr.ph111.us, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.loopexit104, %.loopexit104.thread
+._crit_edge:                                      ; preds = %..loopexit_crit_edge.us, %.loopexit104
   %115 = add nuw i64 %.081116, 1
   %exitcond129.not = icmp eq i64 %115, %59
   br i1 %exitcond129.not, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %88, !llvm.loop !9

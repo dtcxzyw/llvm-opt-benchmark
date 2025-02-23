@@ -4157,26 +4157,26 @@ define dso_local void @_ZN19b3GpuGridBroadphase29calculateOverlappingPairsHostEi
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %.not.i16.i.i = icmp eq ptr %12, null
-  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi.exit.i, label %13
+  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %15 = load i8, ptr %14, align 8, !tbaa !53, !range !77, !noundef !78
   %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi.exit.i
+  br i1 %16, label %17, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
 
 17:                                               ; preds = %13
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %12)
-  br label %_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi.exit.i
+  br label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi.exit.i: ; preds = %17, %13, %10
+_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %17, %13, %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i8 1, ptr %18, align 8, !tbaa !53
   store ptr null, ptr %11, align 8, !tbaa !54
   store i32 0, ptr %7, align 8, !tbaa !56
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4E7reserveEi.exit.i, %6
+.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i, %6
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %20 = sext i32 %4 to i64
   br label %21
@@ -4360,27 +4360,27 @@ _ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i: ; preds = %103, %_ZNK2
   %.0.i18.i.i = phi ptr [ null, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit15.i.i ], [ %99, %.split.i.i ], [ %99, %103 ]
   %.0.i.i = phi i32 [ 0, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit15.i.i ], [ %94, %.split.i.i ], [ %94, %103 ]
   %107 = load ptr, ptr %31, align 8, !tbaa !54
-  %.not.i16.i.i23 = icmp eq ptr %107, null
-  br i1 %.not.i16.i.i23, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i, label %108
+  %.not.i16.i.i22 = icmp eq ptr %107, null
+  br i1 %.not.i16.i.i22, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23, label %108
 
 108:                                              ; preds = %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i
   %109 = load i8, ptr %32, align 8, !tbaa !53, !range !77, !noundef !78
   %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
+  br i1 %110, label %111, label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23
 
 111:                                              ; preds = %108
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %107)
-  br label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
+  br label %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23
 
-_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i: ; preds = %111, %108, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i
+_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23: ; preds = %111, %108, %_ZNK20b3AlignedObjectArrayI6b3Int4E4copyEiiPS0_.exit.i.i
   store i8 1, ptr %32, align 8, !tbaa !53
   store ptr %.0.i18.i.i, ptr %31, align 8, !tbaa !54
   store i32 %.0.i.i, ptr %30, align 8, !tbaa !56
   %.pre.i = load i32, ptr %3, align 4, !tbaa !55
   br label %_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit
 
-_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit: ; preds = %89, %92, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i
-  %112 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i ], [ %87, %92 ], [ %87, %89 ]
+_ZN20b3AlignedObjectArrayI6b3Int4E9push_backERKS0_.exit: ; preds = %89, %92, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23
+  %112 = phi i32 [ %.pre.i, %_ZN20b3AlignedObjectArrayI6b3Int4E10deallocateEv.exit.i.i23 ], [ %87, %92 ], [ %87, %89 ]
   %113 = load ptr, ptr %31, align 8, !tbaa !54
   %114 = sext i32 %112 to i64
   %115 = getelementptr inbounds %struct.b3Int4, ptr %113, i64 %114
@@ -4465,26 +4465,26 @@ _ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit.i.i: ; preds = %21, %_ZN
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %.not.i16.i.i = icmp eq ptr %26, null
-  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit.i, label %27
+  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i.i, label %27
 
 27:                                               ; preds = %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit.i.i
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %29 = load i8, ptr %28, align 8, !tbaa !41, !range !77, !noundef !78
   %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit.i
+  br i1 %30, label %31, label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i.i
 
 31:                                               ; preds = %27
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %26)
-  br label %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit.i
+  br label %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit.i: ; preds = %31, %27, %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit.i.i
+_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i.i: ; preds = %31, %27, %_ZNK20b3AlignedObjectArrayI9b3SapAabbE4copyEiiPS0_.exit.i.i
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 1, ptr %32, align 8, !tbaa !41
   store ptr %.0.i18.i.i, ptr %25, align 8, !tbaa !42
   store i32 %.0.i.i, ptr %11, align 8, !tbaa !44
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbE7reserveEi.exit.i, %10
+.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI9b3SapAabbE10deallocateEv.exit.i.i, %10
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %34 = sext i32 %8 to i64
   %sext3 = shl i64 %5, 32

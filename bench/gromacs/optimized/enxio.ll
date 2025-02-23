@@ -1635,8 +1635,8 @@ _Z11free_enxnmsiP11gmx_enxnm_t.exit:              ; preds = %.lr.ph.i, %_ZNKSt10
   br label %common.resume
 
 135:                                              ; preds = %_Z11free_enxnmsiP11gmx_enxnm_t.exit, %61
-  call void @_Z13free_enxframeP10t_enxframe(ptr noundef %27)
-  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.9, i32 noundef 869, ptr noundef %27)
+  call void @_Z13free_enxframeP10t_enxframe(ptr noundef nonnull %27)
+  call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.9, i32 noundef 869, ptr noundef nonnull %27)
   %136 = load ptr, ptr %25, align 8
   call void @_Z14gmx_fio_rewindP8t_fileio(ptr noundef %136)
   br label %137

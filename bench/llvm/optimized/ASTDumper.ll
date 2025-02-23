@@ -8288,7 +8288,7 @@ _ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit: ; preds = %_ZNK5clang4Type5g
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i16, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 512
   %.not44 = icmp eq i32 %46, 0
@@ -24165,7 +24165,7 @@ _ZNK5clang14ElaboratedType15getOwnedTagDeclEv.exit: ; preds = %_ZNK5clang4Type5g
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %39
-  %44 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i16, i64 28
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %45 = load i32, ptr %44, align 4
   %46 = and i32 %45, 512
   %.not44 = icmp eq i32 %46, 0

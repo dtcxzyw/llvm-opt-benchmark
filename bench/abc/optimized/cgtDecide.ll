@@ -645,7 +645,7 @@ Vec_VecAlloc.exit.i:                              ; preds = %16, %Abc_Clock.exit
 Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecAlloc.exit.i
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 %.val64, ptr %24, align 4, !tbaa !39
-  %25 = call ptr @Ssw_SmlSimulateSeq(ptr noundef %0, i32 noundef 0, i32 noundef 32, i32 noundef 1) #17
+  %25 = call ptr @Ssw_SmlSimulateSeq(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 32, i32 noundef 1) #17
   %.val6592 = load i32, ptr %13, align 8, !tbaa !48
   %26 = icmp sgt i32 %.val6592, 0
   br i1 %26, label %.lr.ph96, label %.critedge
@@ -786,7 +786,7 @@ Vec_VecSizeSize.exit:                             ; preds = %73, %69
   %.0.lcssa.i = phi i32 [ 0, %69 ], [ %78, %73 ]
   %.val66 = load i32, ptr %13, align 8, !tbaa !48
   %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa.i, i32 noundef %.052.lcssa, i32 noundef %.val66)
-  %80 = call ptr @Ssw_SmlSimulateSeq(ptr noundef %0, i32 noundef 0, i32 noundef 32, i32 noundef 1) #17
+  %80 = call ptr @Ssw_SmlSimulateSeq(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 32, i32 noundef 1) #17
   %.val1718.i = load i32, ptr %24, align 4, !tbaa !39
   %81 = icmp sgt i32 %.val1718.i, 0
   br i1 %81, label %.lr.ph.i77.preheader, label %Cgt_ManComputeCoverage.exit

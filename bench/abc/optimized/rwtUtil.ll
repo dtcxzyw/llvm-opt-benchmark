@@ -586,8 +586,8 @@ Abc_Clock.exit:                                   ; preds = %2, %8
   br label %Rwt_ManNodeVolume.exit
 
 Rwt_ManNodeVolume.exit:                           ; preds = %14, %.critedge.i.i
-  call void @Rwt_Trav_rec(ptr noundef nonnull %0, ptr noundef %26, ptr noundef nonnull %4)
-  call void @Rwt_Trav_rec(ptr noundef nonnull %0, ptr noundef %30, ptr noundef nonnull %4)
+  call void @Rwt_Trav_rec(ptr noundef nonnull %0, ptr noundef nonnull %26, ptr noundef nonnull %4)
+  call void @Rwt_Trav_rec(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %4)
   %49 = load i32, ptr %4, align 4, !tbaa !42
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #17
   %50 = and i32 %19, 1

@@ -4361,11 +4361,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br label %20
 
 20:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit"
-  %21 = phi i64 [ %13, %.lr.ph ], [ %150, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit" ]
-  %.030 = phi i64 [ %2, %.lr.ph ], [ %108, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit" ]
+  %21 = phi i64 [ %13, %.lr.ph ], [ %148, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit" ]
+  %.030 = phi i64 [ %2, %.lr.ph ], [ %106, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit" ]
   %storemerge29 = phi ptr [ %1, %.lr.ph ], [ %.sroa.016.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit" ]
   %22 = icmp eq i64 %.030, 0
-  br i1 %22, label %.split.i.i.i, label %107
+  br i1 %22, label %.split.i.i.i, label %105
 
 .split.i.i.i:                                     ; preds = %20
   %23 = udiv exact i64 %21, 12
@@ -4508,111 +4508,114 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
   %85 = and i64 %67, 1
   %86 = icmp eq i64 %85, 0
-  br i1 %86, label %87, label %96
+  br i1 %86, label %87, label %95
 
 87:                                               ; preds = %._crit_edge.i.i
   %88 = add nsw i64 %67, -2
   %89 = ashr exact i64 %88, 1
   %90 = icmp eq i64 %.0.lcssa.i.i, %89
-  br i1 %90, label %91, label %96
+  br i1 %90, label %.thread.i, label %95
 
-91:                                               ; preds = %87
-  %92 = shl nsw i64 %.0.lcssa.i.i, 1
-  %93 = or disjoint i64 %92, 1
-  %94 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %93
-  %95 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.0.lcssa.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull align 4 dereferenceable(12) %94, i64 12, i1 false)
-  br label %96
+.thread.i:                                        ; preds = %87
+  %91 = shl nuw nsw i64 %.0.lcssa.i.i, 1
+  %92 = or disjoint i64 %91, 1
+  %93 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %92
+  %94 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.0.lcssa.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %94, ptr noundef nonnull align 4 dereferenceable(12) %93, i64 12, i1 false)
+  br label %.lr.ph.i.i.preheader.i
 
-96:                                               ; preds = %91, %87, %._crit_edge.i.i
-  %.1.i.i = phi i64 [ %93, %91 ], [ %.0.lcssa.i.i, %87 ], [ %.0.lcssa.i.i, %._crit_edge.i.i ]
-  %.sroa.03.sroa.2.0.extract.shift.i.i.i = lshr i64 %.sroa.05.0.copyload.i, 8
-  %.sroa.03.sroa.2.0.extract.trunc.i.i.i = trunc i64 %.sroa.03.sroa.2.0.extract.shift.i.i.i to i8
-  %97 = icmp sgt i64 %.1.i.i, 0
-  br i1 %97, label %.lr.ph.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit"
+95:                                               ; preds = %87, %._crit_edge.i.i
+  %.not.i = icmp eq i64 %.0.lcssa.i.i, 0
+  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit", label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i.i:                                     ; preds = %96, %103
-  %.011.i.i.i = phi i64 [ %.01012.i.i56.i, %103 ], [ %.1.i.i, %96 ]
+.lr.ph.i.i.preheader.i:                           ; preds = %95, %.thread.i
+  %.1.i12.i = phi i64 [ %92, %.thread.i ], [ %.0.lcssa.i.i, %95 ]
+  %.sroa.03.sroa.2.0.extract.trunc.i.i13.in.i = lshr i64 %.sroa.05.0.copyload.i, 8
+  %.sroa.03.sroa.2.0.extract.trunc.i.i13.i = trunc i64 %.sroa.03.sroa.2.0.extract.trunc.i.i13.in.i to i8
+  br label %.lr.ph.i.i.i
+
+.lr.ph.i.i.i:                                     ; preds = %101, %.lr.ph.i.i.preheader.i
+  %.011.i.i.i = phi i64 [ %.01012.i.i56.i, %101 ], [ %.1.i12.i, %.lr.ph.i.i.preheader.i ]
   %.01012.in.i.i.i = add nsw i64 %.011.i.i.i, -1
   %.01012.i.i56.i = lshr i64 %.01012.in.i.i.i, 1
-  %98 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.01012.i.i56.i
-  %99 = getelementptr i8, ptr %98, i64 1
-  %.val.i.i.i.i = load i8, ptr %99, align 1
-  %100 = getelementptr i8, ptr %98, i64 8
-  %.val2.i.i.i.i = load i32, ptr %100, align 4
-  %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i, %.sroa.03.sroa.2.0.extract.trunc.i.i.i
-  %101 = icmp ult i8 %.val.i.i.i.i, %.sroa.03.sroa.2.0.extract.trunc.i.i.i
-  %102 = icmp slt i32 %.val2.i.i.i.i, %.sroa.26.0.copyload.i
-  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %102, i1 %101
-  br i1 %.0.i.i.i.i.i, label %103, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit"
+  %96 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.01012.i.i56.i
+  %97 = getelementptr i8, ptr %96, i64 1
+  %.val.i.i.i.i = load i8, ptr %97, align 1
+  %98 = getelementptr i8, ptr %96, i64 8
+  %.val2.i.i.i.i = load i32, ptr %98, align 4
+  %.not.i.i.i.i.i = icmp eq i8 %.val.i.i.i.i, %.sroa.03.sroa.2.0.extract.trunc.i.i13.i
+  %99 = icmp ult i8 %.val.i.i.i.i, %.sroa.03.sroa.2.0.extract.trunc.i.i13.i
+  %100 = icmp slt i32 %.val2.i.i.i.i, %.sroa.26.0.copyload.i
+  %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %100, i1 %99
+  br i1 %.0.i.i.i.i.i, label %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit"
 
-103:                                              ; preds = %.lr.ph.i.i.i
-  %104 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.011.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %104, ptr noundef nonnull align 4 dereferenceable(12) %98, i64 12, i1 false)
-  %.not.i = icmp ult i64 %.01012.in.i.i.i, 2
-  br i1 %.not.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !41
+101:                                              ; preds = %.lr.ph.i.i.i
+  %102 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.011.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %102, ptr noundef nonnull align 4 dereferenceable(12) %96, i64 12, i1 false)
+  %.not7.i = icmp ult i64 %.01012.in.i.i.i, 2
+  br i1 %.not7.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit", label %.lr.ph.i.i.i, !llvm.loop !41
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit": ; preds = %.lr.ph.i.i.i, %103, %96
-  %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %96 ], [ %.011.i.i.i, %.lr.ph.i.i.i ], [ 0, %103 ]
-  %105 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.0.lcssa.i.i.i
-  store i64 %.sroa.05.0.copyload.i, ptr %105, align 4
-  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %105, i64 8
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit": ; preds = %.lr.ph.i.i.i, %101, %95
+  %.0.lcssa.i.i.i = phi i64 [ 0, %95 ], [ %.011.i.i.i, %.lr.ph.i.i.i ], [ 0, %101 ]
+  %103 = getelementptr inbounds %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %.0.lcssa.i.i.i
+  store i64 %.sroa.05.0.copyload.i, ptr %103, align 4
+  %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i32 %.sroa.26.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 4
-  %106 = icmp sgt i64 %66, 12
-  br i1 %106, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !43
+  %104 = icmp sgt i64 %66, 12
+  br i1 %104, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !43
 
-107:                                              ; preds = %20
-  %108 = add nsw i64 %.030, -1
-  %109 = udiv i64 %21, 24
-  %110 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %109
-  %111 = getelementptr inbounds i8, ptr %storemerge29, i64 -12
+105:                                              ; preds = %20
+  %106 = add nsw i64 %.030, -1
+  %107 = udiv i64 %21, 24
+  %108 = getelementptr inbounds nuw %"struct.Luau::CodeGen::BytecodeRegTypeInfo", ptr %0, i64 %107
+  %109 = getelementptr inbounds i8, ptr %storemerge29, i64 -12
   %.val.i.i.i = load i8, ptr %16, align 1
   %.val1.i.i.i = load i32, ptr %17, align 4
-  %112 = getelementptr i8, ptr %110, i64 1
-  %.val2.i.i.i = load i8, ptr %112, align 1
-  %113 = getelementptr i8, ptr %110, i64 8
-  %.val3.i.i.i = load i32, ptr %113, align 4
+  %110 = getelementptr i8, ptr %108, i64 1
+  %.val2.i.i.i = load i8, ptr %110, align 1
+  %111 = getelementptr i8, ptr %108, i64 8
+  %.val3.i.i.i = load i32, ptr %111, align 4
   %.not.i.i.i.i = icmp eq i8 %.val.i.i.i, %.val2.i.i.i
-  %114 = icmp ult i8 %.val.i.i.i, %.val2.i.i.i
-  %115 = icmp slt i32 %.val1.i.i.i, %.val3.i.i.i
-  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %115, i1 %114
-  %116 = getelementptr i8, ptr %storemerge29, i64 -11
-  %.val2.i28.i.i = load i8, ptr %116, align 1
-  %117 = getelementptr i8, ptr %storemerge29, i64 -4
-  %.val3.i29.i.i = load i32, ptr %117, align 4
-  br i1 %.0.i.i.i.i, label %118, label %127
+  %112 = icmp ult i8 %.val.i.i.i, %.val2.i.i.i
+  %113 = icmp slt i32 %.val1.i.i.i, %.val3.i.i.i
+  %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %113, i1 %112
+  %114 = getelementptr i8, ptr %storemerge29, i64 -11
+  %.val2.i28.i.i = load i8, ptr %114, align 1
+  %115 = getelementptr i8, ptr %storemerge29, i64 -4
+  %.val3.i29.i.i = load i32, ptr %115, align 4
+  br i1 %.0.i.i.i.i, label %116, label %125
 
-118:                                              ; preds = %107
+116:                                              ; preds = %105
   %.not.i.i30.i.i = icmp eq i8 %.val2.i.i.i, %.val2.i28.i.i
-  %119 = icmp ult i8 %.val2.i.i.i, %.val2.i28.i.i
-  %120 = icmp slt i32 %.val3.i.i.i, %.val3.i29.i.i
-  %.0.i.i31.i.i = select i1 %.not.i.i30.i.i, i1 %120, i1 %119
-  br i1 %.0.i.i31.i.i, label %121, label %122
+  %117 = icmp ult i8 %.val2.i.i.i, %.val2.i28.i.i
+  %118 = icmp slt i32 %.val3.i.i.i, %.val3.i29.i.i
+  %.0.i.i31.i.i = select i1 %.not.i.i30.i.i, i1 %118, i1 %117
+  br i1 %.0.i.i31.i.i, label %119, label %120
 
-121:                                              ; preds = %118
+119:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %110, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %110, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %108, ptr noundef nonnull align 4 dereferenceable(12) %10, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-122:                                              ; preds = %118
+120:                                              ; preds = %116
   %.not.i.i36.i.i = icmp eq i8 %.val.i.i.i, %.val2.i28.i.i
-  %123 = icmp ult i8 %.val.i.i.i, %.val2.i28.i.i
-  %124 = icmp slt i32 %.val1.i.i.i, %.val3.i29.i.i
-  %.0.i.i37.i.i = select i1 %.not.i.i36.i.i, i1 %124, i1 %123
-  br i1 %.0.i.i37.i.i, label %125, label %126
+  %121 = icmp ult i8 %.val.i.i.i, %.val2.i28.i.i
+  %122 = icmp slt i32 %.val1.i.i.i, %.val3.i29.i.i
+  %.0.i.i37.i.i = select i1 %.not.i.i36.i.i, i1 %122, i1 %121
+  br i1 %.0.i.i37.i.i, label %123, label %124
 
-125:                                              ; preds = %122
+123:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %111, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %111, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %109, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-126:                                              ; preds = %122
+124:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
@@ -4620,14 +4623,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %8)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-127:                                              ; preds = %107
+125:                                              ; preds = %105
   %.not.i.i42.i.i = icmp eq i8 %.val.i.i.i, %.val2.i28.i.i
-  %128 = icmp ult i8 %.val.i.i.i, %.val2.i28.i.i
-  %129 = icmp slt i32 %.val1.i.i.i, %.val3.i29.i.i
-  %.0.i.i43.i.i = select i1 %.not.i.i42.i.i, i1 %129, i1 %128
-  br i1 %.0.i.i43.i.i, label %130, label %131
+  %126 = icmp ult i8 %.val.i.i.i, %.val2.i28.i.i
+  %127 = icmp slt i32 %.val1.i.i.i, %.val3.i29.i.i
+  %.0.i.i43.i.i = select i1 %.not.i.i42.i.i, i1 %127, i1 %126
+  br i1 %.0.i.i43.i.i, label %128, label %129
 
-130:                                              ; preds = %127
+128:                                              ; preds = %125
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %7, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %15, i64 12, i1 false)
@@ -4635,70 +4638,70 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %7)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-131:                                              ; preds = %127
+129:                                              ; preds = %125
   %.not.i.i48.i.i = icmp eq i8 %.val2.i.i.i, %.val2.i28.i.i
-  %132 = icmp ult i8 %.val2.i.i.i, %.val2.i28.i.i
-  %133 = icmp slt i32 %.val3.i.i.i, %.val3.i29.i.i
-  %.0.i.i49.i.i = select i1 %.not.i.i48.i.i, i1 %133, i1 %132
-  br i1 %.0.i.i49.i.i, label %134, label %135
+  %130 = icmp ult i8 %.val2.i.i.i, %.val2.i28.i.i
+  %131 = icmp slt i32 %.val3.i.i.i, %.val3.i29.i.i
+  %.0.i.i49.i.i = select i1 %.not.i.i48.i.i, i1 %131, i1 %130
+  br i1 %.0.i.i49.i.i, label %132, label %133
 
-134:                                              ; preds = %131
+132:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %111, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %111, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %109, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %109, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-135:                                              ; preds = %131
+133:                                              ; preds = %129
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %110, i64 12, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %110, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %108, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %108, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader": ; preds = %135, %134, %130, %126, %125, %121
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader": ; preds = %133, %132, %128, %124, %123, %119
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader", %148
-  %.sroa.016.0.i.i = phi ptr [ %141, %148 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %148 ], [ %storemerge29, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader", %146
+  %.sroa.016.0.i.i = phi ptr [ %139, %146 ], [ %15, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %146 ], [ %storemerge29, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i.preheader" ]
   %.val2.i.i13.i = load i8, ptr %18, align 1
   %.val3.i.i14.i = load i32, ptr %19, align 4
-  br label %136
+  br label %134
 
-136:                                              ; preds = %136, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i"
-  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ], [ %141, %136 ]
-  %137 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 1
-  %.val.i.i15.i = load i8, ptr %137, align 1
-  %138 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 8
-  %.val1.i.i16.i = load i32, ptr %138, align 4
+134:                                              ; preds = %134, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i"
+  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ], [ %139, %134 ]
+  %135 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 1
+  %.val.i.i15.i = load i8, ptr %135, align 1
+  %136 = getelementptr i8, ptr %.sroa.016.1.i.i, i64 8
+  %.val1.i.i16.i = load i32, ptr %136, align 4
   %.not.i.i.i17.i = icmp eq i8 %.val.i.i15.i, %.val2.i.i13.i
-  %139 = icmp ult i8 %.val.i.i15.i, %.val2.i.i13.i
-  %140 = icmp slt i32 %.val1.i.i16.i, %.val3.i.i14.i
-  %.0.i.i.i18.i = select i1 %.not.i.i.i17.i, i1 %140, i1 %139
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 12
-  br i1 %.0.i.i.i18.i, label %136, label %.preheader.i.i, !llvm.loop !44
+  %137 = icmp ult i8 %.val.i.i15.i, %.val2.i.i13.i
+  %138 = icmp slt i32 %.val1.i.i16.i, %.val3.i.i14.i
+  %.0.i.i.i18.i = select i1 %.not.i.i.i17.i, i1 %138, i1 %137
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 12
+  br i1 %.0.i.i.i18.i, label %134, label %.preheader.i.i, !llvm.loop !44
 
-.preheader.i.i:                                   ; preds = %136, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %136 ]
+.preheader.i.i:                                   ; preds = %134, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %134 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -12
-  %142 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -11
-  %.val2.i10.i.i = load i8, ptr %142, align 1
-  %143 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -4
-  %.val3.i11.i.i = load i32, ptr %143, align 4
+  %140 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -11
+  %.val2.i10.i.i = load i8, ptr %140, align 1
+  %141 = getelementptr i8, ptr %.sroa.0.0.pn.i.i, i64 -4
+  %.val3.i11.i.i = load i32, ptr %141, align 4
   %.not.i.i12.i.i = icmp eq i8 %.val2.i.i13.i, %.val2.i10.i.i
-  %144 = icmp ult i8 %.val2.i.i13.i, %.val2.i10.i.i
-  %145 = icmp slt i32 %.val3.i.i14.i, %.val3.i11.i.i
-  %.0.i.i13.i.i = select i1 %.not.i.i12.i.i, i1 %145, i1 %144
-  br i1 %.0.i.i13.i.i, label %.preheader.i.i, label %146, !llvm.loop !45
+  %142 = icmp ult i8 %.val2.i.i13.i, %.val2.i10.i.i
+  %143 = icmp slt i32 %.val3.i.i14.i, %.val3.i11.i.i
+  %.0.i.i13.i.i = select i1 %.not.i.i12.i.i, i1 %143, i1 %142
+  br i1 %.0.i.i13.i.i, label %.preheader.i.i, label %144, !llvm.loop !45
 
-146:                                              ; preds = %.preheader.i.i
-  %147 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
-  br i1 %147, label %148, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit"
+144:                                              ; preds = %.preheader.i.i
+  %145 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
+  br i1 %145, label %146, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit"
 
-148:                                              ; preds = %146
+146:                                              ; preds = %144
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.016.1.i.i, i64 12, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.016.1.i.i, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.1.i.i, i64 12, i1 false)
@@ -4706,12 +4709,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_SG_T0_.exit.i", !llvm.loop !46
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit": ; preds = %146
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_T0_T1_"(ptr %.sroa.016.1.i.i, ptr %storemerge29, i64 noundef %108)
-  %149 = ptrtoint ptr %.sroa.016.1.i.i to i64
-  %150 = sub i64 %149, %11
-  %151 = icmp sgt i64 %150, 192
-  br i1 %151, label %20, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !47
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit": ; preds = %144
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge29, i64 noundef %106)
+  %147 = ptrtoint ptr %.sroa.016.1.i.i to i64
+  %148 = sub i64 %147, %11
+  %149 = icmp sgt i64 %148, 192
+  br i1 %149, label %20, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !47
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEET_SG_SG_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau7CodeGen19BytecodeRegTypeInfoESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_L25prepareRegTypeInfoLookupsERNS3_16BytecodeTypeInfoEE3$_0EEEvT_SG_SG_RT0_.exit", %3
   ret void

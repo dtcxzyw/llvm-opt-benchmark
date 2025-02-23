@@ -679,7 +679,7 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   store <2 x float> %.sroa.02.4.vec.insert.i, ptr %306, align 4
   %indvars.iv.next369 = add nuw nsw i64 %indvars.iv368, 1
   %exitcond372.not = icmp eq i64 %indvars.iv.next369, %wide.trip.count371
-  br i1 %exitcond372.not, label %.loopexit, label %291, !llvm.loop !15
+  br i1 %exitcond372.not, label %.lr.ph313, label %291, !llvm.loop !15
 
 307:                                              ; preds = %.lr.ph306, %307
   %indvars.iv363 = phi i64 [ 0, %.lr.ph306 ], [ %indvars.iv.next364, %307 ]
@@ -709,12 +709,9 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   store <2 x float> %.sroa.02.4.vec.insert.i267, ptr %322, align 4
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
   %exitcond367.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count366
-  br i1 %exitcond367.not, label %.loopexit, label %307, !llvm.loop !16
+  br i1 %exitcond367.not, label %.lr.ph313, label %307, !llvm.loop !16
 
-.loopexit:                                        ; preds = %307, %291
-  br i1 %138, label %.lr.ph313, label %._crit_edge314
-
-.lr.ph313:                                        ; preds = %.loopexit
+.lr.ph313:                                        ; preds = %307, %291
   %323 = load ptr, ptr %109, align 8
   br label %324
 
@@ -732,9 +729,9 @@ _ZL24tabulateStructureFactorsiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEiPPSt5arrayI
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
   br i1 %exitcond377.not, label %._crit_edge314, label %324, !llvm.loop !17
 
-._crit_edge314:                                   ; preds = %324, %.preheader, %.preheader292, %.loopexit
-  %.0233.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.preheader292 ], [ 0.000000e+00, %.preheader ], [ %330, %324 ]
-  %.0232.lcssa = phi float [ 0.000000e+00, %.loopexit ], [ 0.000000e+00, %.preheader292 ], [ 0.000000e+00, %.preheader ], [ %327, %324 ]
+._crit_edge314:                                   ; preds = %324, %.preheader, %.preheader292
+  %.0233.lcssa = phi float [ 0.000000e+00, %.preheader292 ], [ 0.000000e+00, %.preheader ], [ %330, %324 ]
+  %.0232.lcssa = phi float [ 0.000000e+00, %.preheader292 ], [ 0.000000e+00, %.preheader ], [ %327, %324 ]
   %331 = fmul float %.0233.lcssa, %.0233.lcssa
   %332 = tail call float @llvm.fmuladd.f32(float %.0232.lcssa, float %.0232.lcssa, float %331)
   %333 = tail call float @llvm.fmuladd.f32(float %277, float %332, float %271)

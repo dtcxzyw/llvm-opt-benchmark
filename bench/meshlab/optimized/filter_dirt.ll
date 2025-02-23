@@ -4807,14 +4807,14 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %303, %_ZN9QtPrivate
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %.0120271.us = phi i32 [ %340, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  call void @_Z20MoveCloudMeshForwardP9MeshModelS0_N3vcg6Point3IfEES3_fffi(ptr noundef nonnull %217, ptr noundef %192, <2 x float> %.fca.0.extract, float %.fca.1.extract, <2 x float> %.fca.0.extract22, float %.fca.1.extract23, float noundef %279, float noundef %253, float noundef 1.000000e+00, i32 noundef 1)
+  call void @_Z20MoveCloudMeshForwardP9MeshModelS0_N3vcg6Point3IfEES3_fffi(ptr noundef nonnull %217, ptr noundef nonnull %192, <2 x float> %.fca.0.extract, float %.fca.1.extract, <2 x float> %.fca.0.extract22, float %.fca.1.extract23, float noundef %279, float noundef %253, float noundef 1.000000e+00, i32 noundef 1)
   %340 = add nuw nsw i32 %.0120271.us, 1
   %exitcond279.not = icmp eq i32 %340, %295
   br i1 %exitcond279.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.0120271 = phi i32 [ %345, %.lr.ph.split ], [ 0, %.lr.ph ]
-  call void @_Z20MoveCloudMeshForwardP9MeshModelS0_N3vcg6Point3IfEES3_fffi(ptr noundef nonnull %217, ptr noundef %192, <2 x float> %.fca.0.extract, float %.fca.1.extract, <2 x float> %.fca.0.extract22, float %.fca.1.extract23, float noundef %279, float noundef %253, float noundef 1.000000e+00, i32 noundef 1)
+  call void @_Z20MoveCloudMeshForwardP9MeshModelS0_N3vcg6Point3IfEES3_fffi(ptr noundef nonnull %217, ptr noundef nonnull %192, <2 x float> %.fca.0.extract, float %.fca.1.extract, <2 x float> %.fca.0.extract22, float %.fca.1.extract23, float noundef %279, float noundef %253, float noundef 1.000000e+00, i32 noundef 1)
   %341 = uitofp nneg i32 %.0120271 to float
   %342 = fmul float %338, %341
   %343 = fptosi float %342 to i32
@@ -4827,7 +4827,7 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %303, %_ZN9QtPrivate
   br i1 %302, label %346, label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
 346:                                              ; preds = %._crit_edge
-  call void @_Z12ColorizeMeshP9MeshModel(ptr noundef %192)
+  call void @_Z12ColorizeMeshP9MeshModel(ptr noundef nonnull %192)
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit
 
 347:                                              ; preds = %7

@@ -1257,7 +1257,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS4_IS3_SaIS3_EESaIS6_EES
 .noexc108:                                        ; preds = %445
   %457 = icmp eq i32 %456, 2
   %458 = zext i1 %457 to i32
-  %spec.select.i.i = add nsw i32 %.024160, %458
+  %spec.select.i.i = add nuw nsw i32 %.024160, %458
   %459 = getelementptr inbounds nuw i8, ptr %449, i64 24
   %460 = sext i32 %spec.select.i.i to i64
   %461 = getelementptr inbounds [0 x ptr], ptr %459, i64 0, i64 %460

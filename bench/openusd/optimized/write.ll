@@ -2112,7 +2112,7 @@ define hidden i32 @avifEncoderFinish(ptr noundef %0, ptr noundef %1) local_unnam
 
 472:                                              ; preds = %._crit_edge1142
   %473 = add nuw nsw i32 %462, 1
-  %474 = sext i32 %473 to i64
+  %474 = zext nneg i32 %473 to i64
   %mul = call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.0639.lcssa, i64 %474)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
   br i1 %mul.ov, label %.loopexit, label %475
@@ -5829,7 +5829,7 @@ avifCodecEncodeOutputDestroy.exit:                ; preds = %.lr.ph.i, %35
   %44 = load i16, ptr %9, align 8
   %45 = add i16 %44, -1
   store i16 %45, ptr %9, align 8
-  tail call void @avifArrayPop(ptr noundef %0) #13
+  tail call void @avifArrayPop(ptr noundef nonnull %0) #13
   br label %46
 
 46:                                               ; preds = %29, %5, %43

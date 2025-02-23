@@ -1573,7 +1573,7 @@ define internal i32 @acpi_wmi_probe(ptr noundef %0) #0 align 16 {
 
 78:                                               ; preds = %72
   %79 = udiv i32 %76, 20
-  %80 = getelementptr inbounds nuw i8, ptr %60, i64 616
+  %80 = getelementptr i8, ptr %57, i64 600
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %83 = getelementptr inbounds nuw i8, ptr %4, i64 3

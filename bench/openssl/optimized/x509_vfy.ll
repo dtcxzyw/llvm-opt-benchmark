@@ -4134,7 +4134,7 @@ define internal fastcc i32 @build_chain(ptr noundef nonnull %0) unnamed_addr #0 
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3310, ptr noundef nonnull @__func__.build_chain) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #10
-  br label %290
+  br label %289
 
 41:                                               ; preds = %35
   br i1 %17, label %.thread268, label %53
@@ -4165,7 +4165,7 @@ define internal fastcc i32 @build_chain(ptr noundef nonnull %0) unnamed_addr #0 
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3320, ptr noundef nonnull @__func__.build_chain) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #10
-  br label %290
+  br label %289
 
 53:                                               ; preds = %50, %47, %.thread268, %41
   %.0182265276 = phi i32 [ %.0182265277, %50 ], [ %.0182265277, %47 ], [ %.0182265277, %.thread268 ], [ %.0182, %41 ]
@@ -4181,7 +4181,7 @@ define internal fastcc i32 @build_chain(ptr noundef nonnull %0) unnamed_addr #0 
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3330, ptr noundef nonnull @__func__.build_chain) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #10
-  br label %290
+  br label %289
 
 58:                                               ; preds = %53
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4203,7 +4203,7 @@ define internal fastcc i32 @build_chain(ptr noundef nonnull %0) unnamed_addr #0 
 
 .loopexit.thread:                                 ; preds = %65
   tail call void @OPENSSL_sk_free(ptr noundef nonnull %54) #10
-  br label %227
+  br label %226
 
 .lr.ph363:                                        ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 172
@@ -4226,7 +4226,7 @@ define internal fastcc i32 @build_chain(ptr noundef nonnull %0) unnamed_addr #0 
   store i32 %77, ptr %68, align 4, !tbaa !55
   %78 = and i32 %.2184359, 2
   %.not226 = icmp eq i32 %78, 0
-  br i1 %.not226, label %176, label %79
+  br i1 %.not226, label %175, label %79
 
 79:                                               ; preds = %74
   %80 = and i32 %.2184359, 4
@@ -4307,12 +4307,12 @@ X509_self_signed.exit:                            ; preds = %97
   %111 = call ptr @OPENSSL_sk_pop(ptr noundef %110) #10
   call void @X509_free(ptr noundef %111) #10
   %112 = add nsw i32 %.1194357, -1
-  %113 = icmp sgt i32 %112, %spec.select247
+  %113 = icmp samesign ugt i32 %112, %.0173361
   br i1 %113, label %.lr.ph, label %._crit_edge, !llvm.loop !178
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  store i32 %spec.select247, ptr %10, align 4, !tbaa !86
-  br i1 %17, label %114, label %.critedge249
+  store i32 %.0173361, ptr %10, align 4, !tbaa !86
+  br i1 %17, label %114, label %.critedge249.thread
 
 114:                                              ; preds = %._crit_edge
   %115 = load ptr, ptr %70, align 8, !tbaa !61
@@ -4337,377 +4337,378 @@ X509_self_signed.exit:                            ; preds = %97
   %124 = load ptr, ptr %70, align 8, !tbaa !61
   %125 = call i32 @OPENSSL_sk_num(ptr noundef %124) #10
   %126 = icmp sgt i32 %125, 0
-  br i1 %126, label %127, label %.critedge249
+  br i1 %126, label %127, label %.critedge249.thread
 
 127:                                              ; preds = %123
   %128 = load i32, ptr %73, align 8, !tbaa !68
   %129 = load i32, ptr %10, align 4, !tbaa !86
   %.not231 = icmp slt i32 %128, %129
-  br i1 %.not231, label %.critedge249, label %130
+  br i1 %.not231, label %.critedge249.thread, label %130
 
 130:                                              ; preds = %127
   store i32 -1, ptr %73, align 8, !tbaa !68
-  br label %.critedge249
+  br label %.critedge249.thread
 
-.critedge249:                                     ; preds = %._crit_edge, %123, %127, %130, %X509_self_signed.exit
-  %.0193 = phi i32 [ %spec.select247, %130 ], [ %spec.select247, %127 ], [ %spec.select247, %123 ], [ %76, %X509_self_signed.exit ], [ %spec.select247, %._crit_edge ]
-  %.7189 = phi i32 [ %109, %130 ], [ %109, %127 ], [ %109, %123 ], [ %.2184359, %X509_self_signed.exit ], [ %109, %._crit_edge ]
+.critedge249:                                     ; preds = %X509_self_signed.exit
   %.not232 = icmp eq i32 %.lobit, 0
-  br i1 %.not232, label %131, label %147
+  br i1 %.not232, label %.critedge249.thread, label %146
 
-131:                                              ; preds = %.critedge249
-  %132 = load ptr, ptr %5, align 8, !tbaa !56
-  %133 = load ptr, ptr %2, align 8, !tbaa !90
-  %134 = call i32 @OPENSSL_sk_push(ptr noundef %132, ptr noundef %133) #10
-  %.not233 = icmp eq i32 %134, 0
-  %135 = load ptr, ptr %2, align 8, !tbaa !90
-  br i1 %.not233, label %.thread290.thread335, label %136
+.critedge249.thread:                              ; preds = %130, %127, %123, %._crit_edge, %.critedge249
+  %.7189372 = phi i32 [ %.2184359, %.critedge249 ], [ %109, %._crit_edge ], [ %109, %123 ], [ %109, %127 ], [ %109, %130 ]
+  %.0193370 = phi i32 [ %76, %.critedge249 ], [ %.0173361, %._crit_edge ], [ %.0173361, %123 ], [ %.0173361, %127 ], [ %.0173361, %130 ]
+  %131 = load ptr, ptr %5, align 8, !tbaa !56
+  %132 = load ptr, ptr %2, align 8, !tbaa !90
+  %133 = call i32 @OPENSSL_sk_push(ptr noundef %131, ptr noundef %132) #10
+  %.not233 = icmp eq i32 %133, 0
+  %134 = load ptr, ptr %2, align 8, !tbaa !90
+  br i1 %.not233, label %.thread290.thread335, label %135
 
-.thread290.thread335:                             ; preds = %131
-  call void @X509_free(ptr noundef %135) #10
+.thread290.thread335:                             ; preds = %.critedge249.thread
+  call void @X509_free(ptr noundef %134) #10
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3444, ptr noundef nonnull @__func__.build_chain) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524303, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
-  br label %290
+  br label %289
 
-136:                                              ; preds = %131
-  %137 = call ptr @X509_get0_pubkey(ptr noundef %135) #10
-  %138 = icmp eq ptr %137, null
-  br i1 %138, label %139, label %140
+135:                                              ; preds = %.critedge249.thread
+  %136 = call ptr @X509_get0_pubkey(ptr noundef %134) #10
+  %137 = icmp eq ptr %136, null
+  br i1 %137, label %138, label %139
 
-139:                                              ; preds = %136
+138:                                              ; preds = %135
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @__func__.X509_self_signed) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 108, ptr noundef null) #10
   br label %.critedge.sink.split
 
-140:                                              ; preds = %136
-  %141 = call i32 @ossl_x509v3_cache_extensions(ptr noundef %135) #10
-  %.not.i254 = icmp eq i32 %141, 0
-  br i1 %.not.i254, label %.critedge.sink.split, label %142
+139:                                              ; preds = %135
+  %140 = call i32 @ossl_x509v3_cache_extensions(ptr noundef %134) #10
+  %.not.i254 = icmp eq i32 %140, 0
+  br i1 %.not.i254, label %.critedge.sink.split, label %141
 
-142:                                              ; preds = %140
-  %143 = getelementptr inbounds nuw i8, ptr %135, i64 232
-  %144 = load i32, ptr %143, align 8, !tbaa !3
-  %145 = and i32 %144, 8192
-  %146 = icmp ne i32 %145, 0
-  br label %156
+141:                                              ; preds = %139
+  %142 = getelementptr inbounds nuw i8, ptr %134, i64 232
+  %143 = load i32, ptr %142, align 8, !tbaa !3
+  %144 = and i32 %143, 8192
+  %145 = icmp ne i32 %144, 0
+  br label %155
 
-147:                                              ; preds = %.critedge249
-  %148 = load ptr, ptr %2, align 8, !tbaa !90
-  %149 = call i32 @X509_cmp(ptr noundef %83, ptr noundef %148) #10
-  %.not234 = icmp eq i32 %149, 0
-  br i1 %.not234, label %150, label %.thread295
+146:                                              ; preds = %.critedge249
+  %147 = load ptr, ptr %2, align 8, !tbaa !90
+  %148 = call i32 @X509_cmp(ptr noundef nonnull %83, ptr noundef %147) #10
+  %.not234 = icmp eq i32 %148, 0
+  br i1 %.not234, label %149, label %.thread295
 
-150:                                              ; preds = %147
-  call void @X509_free(ptr noundef %83) #10
-  %151 = add nsw i32 %.0193, -1
-  store i32 %151, ptr %10, align 4, !tbaa !86
-  %152 = load ptr, ptr %5, align 8, !tbaa !56
-  %153 = load ptr, ptr %2, align 8, !tbaa !90
-  %154 = call ptr @OPENSSL_sk_set(ptr noundef %152, i32 noundef %151, ptr noundef %153) #10
-  br label %156
+149:                                              ; preds = %146
+  call void @X509_free(ptr noundef nonnull %83) #10
+  %150 = add nsw i32 %76, -1
+  store i32 %150, ptr %10, align 4, !tbaa !86
+  %151 = load ptr, ptr %5, align 8, !tbaa !56
+  %152 = load ptr, ptr %2, align 8, !tbaa !90
+  %153 = call ptr @OPENSSL_sk_set(ptr noundef %151, i32 noundef %150, ptr noundef %152) #10
+  br label %155
 
-.thread295:                                       ; preds = %147
-  %155 = load ptr, ptr %2, align 8, !tbaa !90
-  call void @X509_free(ptr noundef %155) #10
+.thread295:                                       ; preds = %146
+  %154 = load ptr, ptr %2, align 8, !tbaa !90
+  call void @X509_free(ptr noundef %154) #10
   br label %.thread279
 
-156:                                              ; preds = %142, %150
-  %.2195.ph = phi i32 [ %151, %150 ], [ %.0193, %142 ]
-  %.0.ph = phi i1 [ true, %150 ], [ %146, %142 ]
-  %157 = load i32, ptr %10, align 4, !tbaa !86
-  %.not236 = icmp sgt i32 %157, %.2195.ph
-  br i1 %.not236, label %.critedge.sink.split, label %158, !prof !164
+155:                                              ; preds = %141, %149
+  %.7189371 = phi i32 [ %.2184359, %149 ], [ %.7189372, %141 ]
+  %.2195.ph = phi i32 [ %150, %149 ], [ %.0193370, %141 ]
+  %.0.ph = phi i1 [ true, %149 ], [ %145, %141 ]
+  %156 = load i32, ptr %10, align 4, !tbaa !86
+  %.not236 = icmp sgt i32 %156, %.2195.ph
+  br i1 %.not236, label %.critedge.sink.split, label %157, !prof !164
 
-158:                                              ; preds = %156
-  %159 = call fastcc i32 @check_trust(ptr noundef %0, i32 noundef %.2195.ph)
-  %.not237 = icmp eq i32 %159, 3
-  br i1 %.not237, label %160, label %.loopexit.sink.split
+157:                                              ; preds = %155
+  %158 = call fastcc i32 @check_trust(ptr noundef %0, i32 noundef %.2195.ph)
+  %.not237 = icmp eq i32 %158, 3
+  br i1 %.not237, label %159, label %.loopexit.sink.split
 
-160:                                              ; preds = %158
-  %161 = and i32 %.7189, -2
+159:                                              ; preds = %157
+  %160 = and i32 %.7189371, -2
   br i1 %.0.ph, label %.thread279, label %.thread290
 
-.thread279:                                       ; preds = %79, %.thread295, %160, %92
-  %.5187 = phi i32 [ %161, %160 ], [ %.2184359, %92 ], [ %.7189, %.thread295 ], [ %.2184359, %79 ]
-  %.4 = phi i32 [ 3, %160 ], [ %.0175360, %92 ], [ %.0175360, %.thread295 ], [ %.0175360, %79 ]
-  %162 = and i32 %.5187, 1
-  %163 = icmp eq i32 %162, 0
-  br i1 %163, label %164, label %176
+.thread279:                                       ; preds = %79, %.thread295, %159, %92
+  %.5187 = phi i32 [ %160, %159 ], [ %.2184359, %92 ], [ %.2184359, %.thread295 ], [ %.2184359, %79 ]
+  %.4 = phi i32 [ 3, %159 ], [ %.0175360, %92 ], [ %.0175360, %.thread295 ], [ %.0175360, %79 ]
+  %161 = and i32 %.5187, 1
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %163, label %175
 
-164:                                              ; preds = %.thread279
-  %165 = and i32 %.5187, 4
-  %.not239 = icmp eq i32 %165, 0
-  br i1 %.not239, label %169, label %166
+163:                                              ; preds = %.thread279
+  %164 = and i32 %.5187, 4
+  %.not239 = icmp eq i32 %164, 0
+  br i1 %.not239, label %168, label %165
 
-166:                                              ; preds = %164
-  %167 = add nsw i32 %.0173361, -1
-  %168 = icmp sgt i32 %.0173361, 1
-  br i1 %168, label %.thread290, label %.loopexit.sink.split, !llvm.loop !179
+165:                                              ; preds = %163
+  %166 = add nsw i32 %.0173361, -1
+  %167 = icmp sgt i32 %.0173361, 1
+  br i1 %167, label %.thread290, label %.loopexit.sink.split, !llvm.loop !179
 
-169:                                              ; preds = %164
-  br i1 %.0179267272, label %.loopexit.sink.split, label %170
+168:                                              ; preds = %163
+  br i1 %.0179267272, label %.loopexit.sink.split, label %169
 
-170:                                              ; preds = %169
-  %171 = load i32, ptr %10, align 4, !tbaa !86
-  %172 = icmp slt i32 %171, 2
-  br i1 %172, label %.loopexit.sink.split, label %173
+169:                                              ; preds = %168
+  %170 = load i32, ptr %10, align 4, !tbaa !86
+  %171 = icmp slt i32 %170, 2
+  br i1 %171, label %.loopexit.sink.split, label %172
 
-173:                                              ; preds = %170
-  %174 = or disjoint i32 %.5187, 4
-  %175 = add nsw i32 %171, -1
-  br label %176
+172:                                              ; preds = %169
+  %173 = or disjoint i32 %.5187, 4
+  %174 = add nsw i32 %170, -1
+  br label %175
 
-176:                                              ; preds = %.thread279, %173, %74
-  %.3185 = phi i32 [ %174, %173 ], [ %.5187, %.thread279 ], [ %.2184359, %74 ]
-  %.2177 = phi i32 [ %.4, %173 ], [ %.4, %.thread279 ], [ %.0175360, %74 ]
-  %.1174 = phi i32 [ %175, %173 ], [ %.0173361, %.thread279 ], [ %.0173361, %74 ]
-  %177 = and i32 %.3185, 1
-  %.not241 = icmp eq i32 %177, 0
-  br i1 %.not241, label %.thread290, label %178
+175:                                              ; preds = %.thread279, %172, %74
+  %.3185 = phi i32 [ %173, %172 ], [ %.5187, %.thread279 ], [ %.2184359, %74 ]
+  %.2177 = phi i32 [ %.4, %172 ], [ %.4, %.thread279 ], [ %.0175360, %74 ]
+  %.1174 = phi i32 [ %174, %172 ], [ %.0173361, %.thread279 ], [ %.0173361, %74 ]
+  %176 = and i32 %.3185, 1
+  %.not241 = icmp eq i32 %176, 0
+  br i1 %.not241, label %.thread290, label %177
 
-178:                                              ; preds = %176
-  %179 = load ptr, ptr %5, align 8, !tbaa !56
-  %180 = call i32 @OPENSSL_sk_num(ptr noundef %179) #10
-  %181 = load i32, ptr %10, align 4, !tbaa !86
-  %182 = icmp eq i32 %180, %181
-  br i1 %182, label %183, label %.critedge.sink.split, !prof !175
+177:                                              ; preds = %175
+  %178 = load ptr, ptr %5, align 8, !tbaa !56
+  %179 = call i32 @OPENSSL_sk_num(ptr noundef %178) #10
+  %180 = load i32, ptr %10, align 4, !tbaa !86
+  %181 = icmp eq i32 %179, %180
+  br i1 %181, label %182, label %.critedge.sink.split, !prof !175
 
-183:                                              ; preds = %178
-  %184 = load ptr, ptr %5, align 8, !tbaa !56
-  %185 = add nsw i32 %180, -1
-  %186 = call ptr @OPENSSL_sk_value(ptr noundef %184, i32 noundef %185) #10
-  %187 = call ptr @X509_get0_pubkey(ptr noundef %186) #10
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %189, label %190
+182:                                              ; preds = %177
+  %183 = load ptr, ptr %5, align 8, !tbaa !56
+  %184 = add nsw i32 %179, -1
+  %185 = call ptr @OPENSSL_sk_value(ptr noundef %183, i32 noundef %184) #10
+  %186 = call ptr @X509_get0_pubkey(ptr noundef %185) #10
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %189
 
-189:                                              ; preds = %183
+188:                                              ; preds = %182
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 101, ptr noundef nonnull @__func__.X509_self_signed) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 108, ptr noundef null) #10
   br label %X509_self_signed.exit259
 
-190:                                              ; preds = %183
-  %191 = call i32 @ossl_x509v3_cache_extensions(ptr noundef %186) #10
-  %.not.i257 = icmp eq i32 %191, 0
-  br i1 %.not.i257, label %X509_self_signed.exit259, label %192
+189:                                              ; preds = %182
+  %190 = call i32 @ossl_x509v3_cache_extensions(ptr noundef %185) #10
+  %.not.i257 = icmp eq i32 %190, 0
+  br i1 %.not.i257, label %X509_self_signed.exit259, label %191
 
-192:                                              ; preds = %190
-  %193 = getelementptr inbounds nuw i8, ptr %186, i64 232
-  %194 = load i32, ptr %193, align 8, !tbaa !3
-  %195 = and i32 %194, 8192
-  %196 = icmp ne i32 %195, 0
-  %197 = icmp sgt i32 %180, %67
-  %or.cond = select i1 %196, i1 true, i1 %197
-  br i1 %or.cond, label %.thread307, label %198
+191:                                              ; preds = %189
+  %192 = getelementptr inbounds nuw i8, ptr %185, i64 232
+  %193 = load i32, ptr %192, align 8, !tbaa !3
+  %194 = and i32 %193, 8192
+  %195 = icmp ne i32 %194, 0
+  %196 = icmp sgt i32 %179, %67
+  %or.cond = select i1 %195, i1 true, i1 %196
+  br i1 %or.cond, label %.thread307, label %197
 
-X509_self_signed.exit259:                         ; preds = %189, %190
-  %.old = icmp sgt i32 %180, %67
-  br i1 %.old, label %.thread307, label %198
+X509_self_signed.exit259:                         ; preds = %188, %189
+  %.old = icmp sgt i32 %179, %67
+  br i1 %.old, label %.thread307, label %197
 
-198:                                              ; preds = %192, %X509_self_signed.exit259
-  %199 = call fastcc ptr @get0_best_issuer_sk(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %54, ptr noundef %186)
-  store ptr %199, ptr %2, align 8, !tbaa !90
-  %200 = icmp eq ptr %199, null
-  br i1 %200, label %.thread307, label %203
+197:                                              ; preds = %191, %X509_self_signed.exit259
+  %198 = call fastcc ptr @get0_best_issuer_sk(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %54, ptr noundef %185)
+  store ptr %198, ptr %2, align 8, !tbaa !90
+  %199 = icmp eq ptr %198, null
+  br i1 %199, label %.thread307, label %202
 
-.thread307:                                       ; preds = %192, %X509_self_signed.exit259, %198
-  %201 = and i32 %.3185, -2
-  %202 = or i32 %201, 2
-  %spec.select = select i1 %.not243266274, i32 %201, i32 %202
+.thread307:                                       ; preds = %191, %X509_self_signed.exit259, %197
+  %200 = and i32 %.3185, -2
+  %201 = or i32 %200, 2
+  %spec.select = select i1 %.not243266274, i32 %200, i32 %201
   br label %.thread290
 
-203:                                              ; preds = %198
-  %204 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef nonnull %54, ptr noundef nonnull %199) #10
-  %205 = load ptr, ptr %5, align 8, !tbaa !56
-  %206 = load ptr, ptr %2, align 8, !tbaa !90
-  %207 = call i32 @X509_add_cert(ptr noundef %205, ptr noundef %206, i32 noundef 1) #10
-  %.not242 = icmp eq i32 %207, 0
-  br i1 %.not242, label %.critedge.sink.split, label %208
+202:                                              ; preds = %197
+  %203 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef nonnull %54, ptr noundef nonnull %198) #10
+  %204 = load ptr, ptr %5, align 8, !tbaa !56
+  %205 = load ptr, ptr %2, align 8, !tbaa !90
+  %206 = call i32 @X509_add_cert(ptr noundef %204, ptr noundef %205, i32 noundef 1) #10
+  %.not242 = icmp eq i32 %206, 0
+  br i1 %.not242, label %.critedge.sink.split, label %207
 
-208:                                              ; preds = %203
-  %209 = load i32, ptr %10, align 4, !tbaa !86
-  %210 = add nsw i32 %209, 1
-  store i32 %210, ptr %10, align 4, !tbaa !86
-  %211 = load ptr, ptr %3, align 8, !tbaa !60
-  %.not.i260 = icmp eq ptr %211, null
-  br i1 %.not.i260, label %.thread290, label %212
+207:                                              ; preds = %202
+  %208 = load i32, ptr %10, align 4, !tbaa !86
+  %209 = add nsw i32 %208, 1
+  store i32 %209, ptr %10, align 4, !tbaa !86
+  %210 = load ptr, ptr %3, align 8, !tbaa !60
+  %.not.i260 = icmp eq ptr %210, null
+  br i1 %.not.i260, label %.thread290, label %211
 
-212:                                              ; preds = %208
-  %213 = getelementptr inbounds nuw i8, ptr %211, i64 40
-  %214 = load i32, ptr %213, align 8, !tbaa !87
-  %215 = and i32 %214, 5
-  %216 = icmp eq i32 %215, 0
-  %217 = icmp eq i32 %209, 0
-  %or.cond.i = or i1 %217, %216
-  br i1 %or.cond.i, label %.thread290, label %218
+211:                                              ; preds = %207
+  %212 = getelementptr inbounds nuw i8, ptr %210, i64 40
+  %213 = load i32, ptr %212, align 8, !tbaa !87
+  %214 = and i32 %213, 5
+  %215 = icmp eq i32 %214, 0
+  %216 = icmp eq i32 %208, 0
+  %or.cond.i = or i1 %216, %215
+  br i1 %or.cond.i, label %.thread290, label %217
 
-218:                                              ; preds = %212
-  %219 = load ptr, ptr %5, align 8, !tbaa !56
-  %220 = call ptr @OPENSSL_sk_value(ptr noundef %219, i32 noundef %209) #10
-  %.not20.i = icmp eq ptr %220, null
-  br i1 %.not20.i, label %.thread290, label %221
+217:                                              ; preds = %211
+  %218 = load ptr, ptr %5, align 8, !tbaa !56
+  %219 = call ptr @OPENSSL_sk_value(ptr noundef %218, i32 noundef %208) #10
+  %.not20.i = icmp eq ptr %219, null
+  br i1 %.not20.i, label %.thread290, label %220
 
-221:                                              ; preds = %218
+220:                                              ; preds = %217
   %.val.i = load i32, ptr %10, align 4, !tbaa !86
   %.val22.i = load ptr, ptr %3, align 8, !tbaa !60
-  %222 = call fastcc i32 @dane_match_cert(i32 %.val.i, ptr %.val22.i, ptr noundef nonnull %220, i32 noundef %209)
-  %223 = icmp slt i32 %222, 0
-  br i1 %223, label %.thread290, label %224
+  %221 = call fastcc i32 @dane_match_cert(i32 %.val.i, ptr %.val22.i, ptr noundef nonnull %219, i32 noundef %208)
+  %222 = icmp slt i32 %221, 0
+  br i1 %222, label %.thread290, label %223
 
-224:                                              ; preds = %221
-  %.not21.i = icmp eq i32 %222, 0
+223:                                              ; preds = %220
+  %.not21.i = icmp eq i32 %221, 0
   br i1 %.not21.i, label %.thread290, label %select.unfold
 
-select.unfold:                                    ; preds = %224
-  %225 = add nsw i32 %209, -1
-  store i32 %225, ptr %10, align 4, !tbaa !86
+select.unfold:                                    ; preds = %223
+  %224 = add nsw i32 %208, -1
+  store i32 %224, ptr %10, align 4, !tbaa !86
   br label %.loopexit.sink.split
 
-.thread290:                                       ; preds = %.thread307, %218, %224, %221, %208, %212, %176, %166, %160
-  %.4186 = phi i32 [ %161, %160 ], [ %.5187, %166 ], [ %.3185, %176 ], [ %.3185, %212 ], [ %.3185, %208 ], [ %.3185, %221 ], [ %.3185, %224 ], [ %.3185, %218 ], [ %spec.select, %.thread307 ]
-  %.3178 = phi i32 [ 3, %160 ], [ %.4, %166 ], [ %.2177, %176 ], [ 3, %212 ], [ 3, %208 ], [ -1, %221 ], [ 3, %224 ], [ 3, %218 ], [ %.2177, %.thread307 ]
-  %.2 = phi i32 [ %.0173361, %160 ], [ %167, %166 ], [ %.1174, %176 ], [ %.1174, %212 ], [ %.1174, %208 ], [ %.1174, %221 ], [ %.1174, %224 ], [ %.1174, %218 ], [ %.1174, %.thread307 ]
+.thread290:                                       ; preds = %.thread307, %217, %223, %220, %207, %211, %175, %165, %159
+  %.4186 = phi i32 [ %160, %159 ], [ %.5187, %165 ], [ %.3185, %175 ], [ %.3185, %211 ], [ %.3185, %207 ], [ %.3185, %220 ], [ %.3185, %223 ], [ %.3185, %217 ], [ %spec.select, %.thread307 ]
+  %.3178 = phi i32 [ 3, %159 ], [ %.4, %165 ], [ %.2177, %175 ], [ 3, %211 ], [ 3, %207 ], [ -1, %220 ], [ 3, %223 ], [ 3, %217 ], [ %.2177, %.thread307 ]
+  %.2 = phi i32 [ %.0173361, %159 ], [ %166, %165 ], [ %.1174, %175 ], [ %.1174, %211 ], [ %.1174, %207 ], [ %.1174, %220 ], [ %.1174, %223 ], [ %.1174, %217 ], [ %.1174, %.thread307 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   %.not225 = icmp eq i32 %.4186, 0
   br i1 %.not225, label %.loopexit, label %74
 
-.loopexit.sink.split:                             ; preds = %166, %170, %169, %158, %select.unfold, %90
-  %.1176.ph = phi i32 [ 1, %select.unfold ], [ -1, %90 ], [ %159, %158 ], [ %.4, %166 ], [ %.4, %170 ], [ %.4, %169 ]
+.loopexit.sink.split:                             ; preds = %165, %169, %168, %157, %select.unfold, %90
+  %.1176.ph = phi i32 [ 1, %select.unfold ], [ -1, %90 ], [ %158, %157 ], [ %.4, %165 ], [ %.4, %169 ], [ %.4, %168 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread290, %.loopexit.sink.split
   %.1176 = phi i32 [ %.1176.ph, %.loopexit.sink.split ], [ %.3178, %.thread290 ]
   call void @OPENSSL_sk_free(ptr noundef nonnull %54) #10
-  %226 = icmp slt i32 %.1176, 0
-  br i1 %226, label %293, label %227
+  %225 = icmp slt i32 %.1176, 0
+  br i1 %225, label %292, label %226
 
-227:                                              ; preds = %.loopexit.thread, %.loopexit
-  %.1176369 = phi i32 [ 3, %.loopexit.thread ], [ %.1176, %.loopexit ]
-  %228 = load ptr, ptr %5, align 8, !tbaa !56
-  %229 = call i32 @OPENSSL_sk_num(ptr noundef %228) #10
-  %.not244 = icmp sgt i32 %229, %67
-  br i1 %.not244, label %244, label %230
+226:                                              ; preds = %.loopexit.thread, %.loopexit
+  %.1176375 = phi i32 [ 3, %.loopexit.thread ], [ %.1176, %.loopexit ]
+  %227 = load ptr, ptr %5, align 8, !tbaa !56
+  %228 = call i32 @OPENSSL_sk_num(ptr noundef %227) #10
+  %.not244 = icmp sgt i32 %228, %67
+  br i1 %.not244, label %243, label %229
 
-230:                                              ; preds = %227
-  %231 = icmp eq i32 %.1176369, 3
-  %or.cond10 = and i1 %17, %231
-  br i1 %or.cond10, label %232, label %238
+229:                                              ; preds = %226
+  %230 = icmp eq i32 %.1176375, 3
+  %or.cond10 = and i1 %17, %230
+  br i1 %or.cond10, label %231, label %237
 
-232:                                              ; preds = %230
-  %233 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %234 = load i32, ptr %233, align 8, !tbaa !87
-  %235 = and i32 %234, 4
-  %.not245 = icmp eq i32 %235, 0
-  br i1 %.not245, label %.thread320, label %236
+231:                                              ; preds = %229
+  %232 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %233 = load i32, ptr %232, align 8, !tbaa !87
+  %234 = and i32 %233, 4
+  %.not245 = icmp eq i32 %234, 0
+  br i1 %.not245, label %.thread320, label %235
 
-236:                                              ; preds = %232
-  %237 = call fastcc i32 @check_dane_pkeys(ptr noundef %0)
-  br label %238
+235:                                              ; preds = %231
+  %236 = call fastcc i32 @check_dane_pkeys(ptr noundef %0)
+  br label %237
 
-238:                                              ; preds = %236, %230
-  %.9 = phi i32 [ %237, %236 ], [ %.1176369, %230 ]
-  %239 = icmp eq i32 %.9, 3
-  br i1 %239, label %.thread320, label %244
+237:                                              ; preds = %235, %229
+  %.9 = phi i32 [ %236, %235 ], [ %.1176375, %229 ]
+  %238 = icmp eq i32 %.9, 3
+  br i1 %238, label %.thread320, label %243
 
-.thread320:                                       ; preds = %232, %238
-  %240 = load i32, ptr %10, align 4, !tbaa !86
-  %241 = icmp eq i32 %229, %240
-  br i1 %241, label %242, label %.thread322
+.thread320:                                       ; preds = %231, %237
+  %239 = load i32, ptr %10, align 4, !tbaa !86
+  %240 = icmp eq i32 %228, %239
+  br i1 %240, label %241, label %.thread322
 
-242:                                              ; preds = %.thread320
-  %243 = call fastcc i32 @check_trust(ptr noundef %0, i32 noundef %229)
-  br label %244
+241:                                              ; preds = %.thread320
+  %242 = call fastcc i32 @check_trust(ptr noundef %0, i32 noundef %228)
+  br label %243
 
-244:                                              ; preds = %238, %242, %227
-  %.8 = phi i32 [ %243, %242 ], [ %.9, %238 ], [ %.1176369, %227 ]
+243:                                              ; preds = %237, %241, %226
+  %.8 = phi i32 [ %242, %241 ], [ %.9, %237 ], [ %.1176375, %226 ]
   switch i32 %.8, label %.thread322 [
-    i32 1, label %293
-    i32 2, label %245
+    i32 1, label %292
+    i32 2, label %244
   ]
 
-245:                                              ; preds = %244
-  br label %293
+244:                                              ; preds = %243
+  br label %292
 
-.thread322:                                       ; preds = %.thread320, %244
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %247 = load i32, ptr %246, align 8, !tbaa !58
-  switch i32 %247, label %248 [
-    i32 13, label %293
-    i32 9, label %293
-    i32 14, label %293
-    i32 10, label %293
-    i32 0, label %251
+.thread322:                                       ; preds = %.thread320, %243
+  %245 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %246 = load i32, ptr %245, align 8, !tbaa !58
+  switch i32 %246, label %247 [
+    i32 13, label %292
+    i32 9, label %292
+    i32 14, label %292
+    i32 10, label %292
+    i32 0, label %250
   ]
 
-248:                                              ; preds = %.thread322
-  %249 = add nsw i32 %229, -1
-  %250 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %249, i32 noundef %247)
-  br label %293
+247:                                              ; preds = %.thread322
+  %248 = add nsw i32 %228, -1
+  %249 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %248, i32 noundef %246)
+  br label %292
 
-251:                                              ; preds = %.thread322
-  br i1 %.not244, label %252, label %256
+250:                                              ; preds = %.thread322
+  br i1 %.not244, label %251, label %255
 
-252:                                              ; preds = %251
-  %253 = add nsw i32 %229, -1
-  %254 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %253, i32 noundef 22)
-  %255 = icmp eq i32 %254, 0
-  br i1 %255, label %293, label %256
+251:                                              ; preds = %250
+  %252 = add nsw i32 %228, -1
+  %253 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %252, i32 noundef 22)
+  %254 = icmp eq i32 %253, 0
+  br i1 %254, label %292, label %255
 
-256:                                              ; preds = %252, %251
-  br i1 %17, label %257, label %274
+255:                                              ; preds = %251, %250
+  br i1 %17, label %256, label %273
 
-257:                                              ; preds = %256
-  %258 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %259 = load ptr, ptr %258, align 8, !tbaa !61
-  %260 = call i32 @OPENSSL_sk_num(ptr noundef %259) #10
-  %261 = icmp sgt i32 %260, 0
-  br i1 %261, label %262, label %274
+256:                                              ; preds = %255
+  %257 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %258 = load ptr, ptr %257, align 8, !tbaa !61
+  %259 = call i32 @OPENSSL_sk_num(ptr noundef %258) #10
+  %260 = icmp sgt i32 %259, 0
+  br i1 %260, label %261, label %273
 
-262:                                              ; preds = %257
-  %263 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %264 = load i32, ptr %263, align 8, !tbaa !87
-  %265 = and i32 %264, 3
-  %.not246 = icmp eq i32 %265, 0
-  br i1 %.not246, label %270, label %266
+261:                                              ; preds = %256
+  %262 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %263 = load i32, ptr %262, align 8, !tbaa !87
+  %264 = and i32 %263, 3
+  %.not246 = icmp eq i32 %264, 0
+  br i1 %.not246, label %269, label %265
 
-266:                                              ; preds = %262
-  %267 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %268 = load i32, ptr %267, align 8, !tbaa !68
-  %269 = icmp sgt i32 %268, -1
-  br i1 %269, label %270, label %274
+265:                                              ; preds = %261
+  %266 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %267 = load i32, ptr %266, align 8, !tbaa !68
+  %268 = icmp sgt i32 %267, -1
+  br i1 %268, label %269, label %273
 
-270:                                              ; preds = %266, %262
-  %271 = add nsw i32 %229, -1
-  %272 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %271, i32 noundef 65)
-  %273 = icmp eq i32 %272, 0
-  br i1 %273, label %293, label %274
+269:                                              ; preds = %265, %261
+  %270 = add nsw i32 %228, -1
+  %271 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %270, i32 noundef 65)
+  %272 = icmp eq i32 %271, 0
+  br i1 %272, label %292, label %273
 
-274:                                              ; preds = %270, %266, %257, %256
-  %275 = load ptr, ptr %5, align 8, !tbaa !56
-  %276 = add nsw i32 %229, -1
-  %277 = call ptr @OPENSSL_sk_value(ptr noundef %275, i32 noundef %276) #10
-  %278 = call i32 @X509_self_signed(ptr noundef %277, i32 noundef 0)
-  %279 = icmp sgt i32 %278, 0
-  br i1 %279, label %280, label %284
+273:                                              ; preds = %269, %265, %256, %255
+  %274 = load ptr, ptr %5, align 8, !tbaa !56
+  %275 = add nsw i32 %228, -1
+  %276 = call ptr @OPENSSL_sk_value(ptr noundef %274, i32 noundef %275) #10
+  %277 = call i32 @X509_self_signed(ptr noundef %276, i32 noundef 0)
+  %278 = icmp sgt i32 %277, 0
+  br i1 %278, label %279, label %283
 
-280:                                              ; preds = %274
-  %281 = icmp eq i32 %229, 1
-  %282 = select i1 %281, i32 18, i32 19
-  %283 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %276, i32 noundef %282)
-  br label %293
+279:                                              ; preds = %273
+  %280 = icmp eq i32 %228, 1
+  %281 = select i1 %280, i32 18, i32 19
+  %282 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %275, i32 noundef %281)
+  br label %292
 
-284:                                              ; preds = %274
-  %285 = load i32, ptr %10, align 4, !tbaa !86
-  %286 = icmp slt i32 %285, %229
-  %287 = select i1 %286, i32 2, i32 20
-  %288 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %276, i32 noundef %287)
-  br label %293
+283:                                              ; preds = %273
+  %284 = load i32, ptr %10, align 4, !tbaa !86
+  %285 = icmp slt i32 %284, %228
+  %286 = select i1 %285, i32 2, i32 20
+  %287 = call fastcc i32 @verify_cb_cert(ptr noundef nonnull %0, ptr noundef null, i32 noundef %275, i32 noundef %286)
+  br label %292
 
-.critedge.sink.split:                             ; preds = %140, %156, %203, %178, %139, %.loopexit344, %107
+.critedge.sink.split:                             ; preds = %139, %155, %202, %177, %138, %.loopexit344, %107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #10
   br label %.critedge
 
@@ -4716,20 +4717,20 @@ select.unfold:                                    ; preds = %224
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3606, ptr noundef nonnull @__func__.build_chain) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 786691, ptr noundef null) #10
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 1, ptr %289, align 8, !tbaa !58
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 1, ptr %288, align 8, !tbaa !58
   call void @OPENSSL_sk_free(ptr noundef %.0192) #10
-  br label %293
+  br label %292
 
-290:                                              ; preds = %.thread290.thread335, %57, %52, %40
-  %291 = phi ptr [ %54, %57 ], [ %42, %52 ], [ null, %40 ], [ %54, %.thread290.thread335 ]
-  %292 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 17, ptr %292, align 8, !tbaa !58
-  call void @OPENSSL_sk_free(ptr noundef %291) #10
-  br label %293
+289:                                              ; preds = %.thread290.thread335, %57, %52, %40
+  %290 = phi ptr [ %54, %57 ], [ %42, %52 ], [ null, %40 ], [ %54, %.thread290.thread335 ]
+  %291 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 17, ptr %291, align 8, !tbaa !58
+  call void @OPENSSL_sk_free(ptr noundef %290) #10
+  br label %292
 
-293:                                              ; preds = %270, %252, %.thread322, %.thread322, %.thread322, %.thread322, %244, %.loopexit, %290, %.critedge, %284, %280, %248, %245
-  %.0172 = phi i32 [ -1, %290 ], [ -1, %.critedge ], [ %250, %248 ], [ %283, %280 ], [ %288, %284 ], [ 0, %245 ], [ %.1176, %.loopexit ], [ %.8, %244 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %252 ], [ 0, %270 ]
+292:                                              ; preds = %269, %251, %.thread322, %.thread322, %.thread322, %.thread322, %243, %.loopexit, %289, %.critedge, %283, %279, %247, %244
+  %.0172 = phi i32 [ -1, %289 ], [ -1, %.critedge ], [ %249, %247 ], [ %282, %279 ], [ %287, %283 ], [ 0, %244 ], [ %.1176, %.loopexit ], [ %.8, %243 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %.thread322 ], [ 0, %251 ], [ 0, %269 ]
   ret i32 %.0172
 }
 

@@ -4973,13 +4973,13 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4, label %for.body, label %for.cond19.preheader
 
 for.cond.cleanup:                                 ; preds = %for.body
-  br i1 %tobool10.not, label %if.then14, label %for.cond19.preheader
+  br i1 %tobool10.not, label %if.then14, label %for.body22.lr.ph
 
-for.cond19.preheader:                             ; preds = %for.cond.cleanup, %if.then
+for.cond19.preheader:                             ; preds = %if.then
   %cmp20.not116 = icmp slt i32 %conv, 1
   br i1 %cmp20.not116, label %nrvo.skipdtor.loopexit, label %for.body22.lr.ph
 
-for.body22.lr.ph:                                 ; preds = %for.cond19.preheader
+for.body22.lr.ph:                                 ; preds = %for.cond.cleanup, %for.cond19.preheader
   %_M_finish.i.i65 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %_M_end_of_storage.i.i66 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   br label %for.body22

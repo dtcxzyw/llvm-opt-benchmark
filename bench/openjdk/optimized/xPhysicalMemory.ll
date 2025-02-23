@@ -692,15 +692,15 @@ define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writ
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not40 = icmp eq i64 %2, 0
+  %.not43 = icmp eq i64 %2, 0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %11
 
-11:                                               ; preds = %.lr.ph, %69
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %.047 = phi i32 [ 0, %.lr.ph ], [ %.1, %69 ]
+11:                                               ; preds = %.lr.ph, %67
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
+  %.050 = phi i32 [ 0, %.lr.ph ], [ %.1, %67 ]
   %12 = load ptr, ptr %7, align 8
   %13 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %0, align 8
@@ -727,10 +727,10 @@ define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writ
 
 _ZNK15XPhysicalMemory4sizeEv.exit:                ; preds = %17
   %24 = icmp ult i64 %23, %2
-  br i1 %24, label %.lr.ph.i24, label %65
+  br i1 %24, label %.lr.ph.i24, label %63
 
 _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %11
-  br i1 %.not40, label %65, label %_ZNK15XPhysicalMemory4sizeEv.exit30.thread
+  br i1 %.not43, label %63, label %_ZNK15XPhysicalMemory4sizeEv.exit30
 
 .lr.ph.i24:                                       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit, %.lr.ph.i24
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.i24 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit ]
@@ -743,93 +743,88 @@ _ZNK15XPhysicalMemory4sizeEv.exit.thread:         ; preds = %11
   %30 = sub i64 %29, %28
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
   %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, %wide.trip.count.i
-  br i1 %exitcond.not.i29, label %_ZNK15XPhysicalMemory4sizeEv.exit30, label %.lr.ph.i24, !llvm.loop !10
+  br i1 %exitcond.not.i29, label %_ZNK15XPhysicalMemory4sizeEv.exit30.thread, label %.lr.ph.i24, !llvm.loop !10
 
-_ZNK15XPhysicalMemory4sizeEv.exit30:              ; preds = %.lr.ph.i24
+_ZNK15XPhysicalMemory4sizeEv.exit30:              ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit.thread
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = load i64, ptr %13, align 8
-  %34 = add i64 %32, %30
-  %35 = sub i64 %34, %33
-  %.not = icmp ugt i64 %35, %2
-  br i1 %.not, label %.lr.ph.i32, label %40
+  %34 = sub i64 %32, %33
+  %.not = icmp ugt i64 %34, %2
+  br i1 %.not, label %_ZNK15XPhysicalMemory4sizeEv.exit38, label %40
 
-_ZNK15XPhysicalMemory4sizeEv.exit30.thread:       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit.thread
-  %36 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %37 = load i64, ptr %36, align 8
-  %38 = load i64, ptr %13, align 8
-  %39 = sub i64 %37, %38
-  %.not52 = icmp ugt i64 %39, %2
-  br i1 %.not52, label %_ZNK15XPhysicalMemory4sizeEv.exit38, label %40
+_ZNK15XPhysicalMemory4sizeEv.exit30.thread:       ; preds = %.lr.ph.i24
+  %35 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %36 = load i64, ptr %35, align 8
+  %37 = load i64, ptr %13, align 8
+  %38 = add i64 %36, %30
+  %39 = sub i64 %38, %37
+  %.not41 = icmp ugt i64 %39, %2
+  br i1 %.not41, label %.lr.ph.i32, label %40
 
 40:                                               ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit30.thread, %_ZNK15XPhysicalMemory4sizeEv.exit30
   tail call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %13)
-  br label %69
+  br label %67
 
-.lr.ph.i32:                                       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit30
-  %41 = load ptr, ptr %8, align 8
-  %wide.trip.count.i33 = zext nneg i32 %14 to i64
-  br label %42
-
-42:                                               ; preds = %42, %.lr.ph.i32
-  %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i36, %42 ]
-  %.056.i35 = phi i64 [ 0, %.lr.ph.i32 ], [ %48, %42 ]
-  %43 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %41, i64 %indvars.iv.i34
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = load i64, ptr %43, align 8
-  %47 = add i64 %45, %.056.i35
-  %48 = sub i64 %47, %46
+.lr.ph.i32:                                       ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit30.thread, %.lr.ph.i32
+  %indvars.iv.i34 = phi i64 [ %indvars.iv.next.i36, %.lr.ph.i32 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ]
+  %.056.i35 = phi i64 [ %46, %.lr.ph.i32 ], [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ]
+  %41 = getelementptr inbounds nuw %class.XPhysicalMemorySegment, ptr %16, i64 %indvars.iv.i34
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = load i64, ptr %41, align 8
+  %45 = add i64 %43, %.056.i35
+  %46 = sub i64 %45, %44
   %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i33
-  br i1 %exitcond.not.i37, label %_ZNK15XPhysicalMemory4sizeEv.exit38, label %42, !llvm.loop !10
+  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i
+  br i1 %exitcond.not.i37, label %_ZNK15XPhysicalMemory4sizeEv.exit38, label %.lr.ph.i32, !llvm.loop !10
 
-_ZNK15XPhysicalMemory4sizeEv.exit38:              ; preds = %42, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread
-  %49 = phi ptr [ %36, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ], [ %31, %42 ]
-  %50 = phi i64 [ %38, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ], [ %33, %42 ]
-  %.05.lcssa.i31 = phi i64 [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30.thread ], [ %48, %42 ]
-  %51 = sub i64 %2, %.05.lcssa.i31
-  %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %53 = load i8, ptr %52, align 8
-  %54 = and i8 %53, 1
-  store i64 %50, ptr %4, align 8
-  %55 = add i64 %51, %50
-  store i64 %55, ptr %9, align 8
-  store i8 %54, ptr %10, align 8
+_ZNK15XPhysicalMemory4sizeEv.exit38:              ; preds = %.lr.ph.i32, %_ZNK15XPhysicalMemory4sizeEv.exit30
+  %47 = phi ptr [ %31, %_ZNK15XPhysicalMemory4sizeEv.exit30 ], [ %35, %.lr.ph.i32 ]
+  %48 = phi i64 [ %33, %_ZNK15XPhysicalMemory4sizeEv.exit30 ], [ %37, %.lr.ph.i32 ]
+  %.05.lcssa.i31 = phi i64 [ 0, %_ZNK15XPhysicalMemory4sizeEv.exit30 ], [ %46, %.lr.ph.i32 ]
+  %49 = sub i64 %2, %.05.lcssa.i31
+  %50 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %51 = load i8, ptr %50, align 8
+  %52 = and i8 %51, 1
+  store i64 %48, ptr %4, align 8
+  %53 = add i64 %49, %48
+  store i64 %53, ptr %9, align 8
+  store i8 %52, ptr %10, align 8
   call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %4)
-  %56 = add nsw i32 %.047, 1
-  %57 = load i64, ptr %13, align 8
-  %58 = add i64 %57, %51
-  %59 = load i64, ptr %49, align 8
-  %60 = load i8, ptr %52, align 8
-  %61 = and i8 %60, 1
-  %62 = load ptr, ptr %7, align 8
-  %63 = sext i32 %.047 to i64
-  %64 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %62, i64 %63
-  store i64 %58, ptr %64, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i64 %59, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i8 %61, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %69
+  %54 = add nsw i32 %.050, 1
+  %55 = load i64, ptr %13, align 8
+  %56 = add i64 %55, %49
+  %57 = load i64, ptr %47, align 8
+  %58 = load i8, ptr %50, align 8
+  %59 = and i8 %58, 1
+  %60 = load ptr, ptr %7, align 8
+  %61 = sext i32 %.050 to i64
+  %62 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %60, i64 %61
+  store i64 %56, ptr %62, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i64 %57, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store i8 %59, ptr %.sroa.3.0..sroa_idx, align 8
+  br label %67
 
-65:                                               ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit.thread, %_ZNK15XPhysicalMemory4sizeEv.exit
-  %66 = add nsw i32 %.047, 1
-  %67 = sext i32 %.047 to i64
-  %68 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %12, i64 %67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %68, ptr noundef nonnull align 8 dereferenceable(17) %13, i64 17, i1 false)
-  br label %69
+63:                                               ; preds = %_ZNK15XPhysicalMemory4sizeEv.exit.thread, %_ZNK15XPhysicalMemory4sizeEv.exit
+  %64 = add nsw i32 %.050, 1
+  %65 = sext i32 %.050 to i64
+  %66 = getelementptr inbounds %class.XPhysicalMemorySegment, ptr %12, i64 %65
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %66, ptr noundef nonnull align 8 dereferenceable(17) %13, i64 17, i1 false)
+  br label %67
 
-69:                                               ; preds = %65, %_ZNK15XPhysicalMemory4sizeEv.exit38, %40
-  %.1 = phi i32 [ %.047, %40 ], [ %56, %_ZNK15XPhysicalMemory4sizeEv.exit38 ], [ %66, %65 ]
+67:                                               ; preds = %63, %_ZNK15XPhysicalMemory4sizeEv.exit38, %40
+  %.1 = phi i32 [ %.050, %40 ], [ %54, %_ZNK15XPhysicalMemory4sizeEv.exit38 ], [ %64, %63 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = load i32, ptr %1, align 8
-  %71 = sext i32 %70 to i64
-  %72 = icmp slt i64 %indvars.iv.next, %71
-  br i1 %72, label %11, label %._crit_edge, !llvm.loop !14
+  %68 = load i32, ptr %1, align 8
+  %69 = sext i32 %68 to i64
+  %70 = icmp slt i64 %indvars.iv.next, %69
+  br i1 %70, label %11, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %69, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %69 ]
+._crit_edge:                                      ; preds = %67, %3
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %.1, %67 ]
   store i32 %.0.lcssa, ptr %1, align 8
   ret void
 }

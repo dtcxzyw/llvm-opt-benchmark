@@ -631,7 +631,7 @@ define hidden noundef ptr @luaH_new(ptr noundef %0, i32 noundef %1, i32 noundef 
 
 setarrayvector.exit:                              ; preds = %.lr.ph.i, %19
   store i32 %1, ptr %8, align 8, !tbaa !10
-  tail call fastcc void @setnodevector(ptr noundef %0, ptr noundef %4, i32 noundef %2)
+  tail call fastcc void @setnodevector(ptr noundef %0, ptr noundef nonnull %4, i32 noundef %2)
   ret ptr %4
 }
 
@@ -1285,7 +1285,7 @@ rehash.exit:                                      ; preds = %78
   br i1 %.not.not.i, label %95, label %._crit_edge.loopexit.i, !llvm.loop !39
 
 ._crit_edge.loopexit.i:                           ; preds = %95
-  %99 = add i32 %.021.i, 1
+  %99 = add nsw i32 %.021.i, 1
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %91

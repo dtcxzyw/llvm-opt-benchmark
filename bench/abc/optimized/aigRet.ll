@@ -2490,7 +2490,7 @@ define ptr @Rtm_ManToAig(ptr noundef readonly captures(none) %0) local_unnamed_a
   %.val118 = load ptr, ptr %41, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw ptr, ptr %.val118, i64 %indvars.iv162
   %43 = load ptr, ptr %42, align 8, !tbaa !34
-  %44 = tail call ptr @Aig_ObjCreateCi(ptr noundef %30) #23
+  %44 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %30) #23
   store ptr %44, ptr %43, align 8, !tbaa !77
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %45 = load ptr, ptr %35, align 8, !tbaa !30
@@ -2509,7 +2509,7 @@ define ptr @Rtm_ManToAig(ptr noundef readonly captures(none) %0) local_unnamed_a
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %.2133 = phi i32 [ %53, %.critedge4 ], [ 0, %.critedge4.preheader ]
-  %52 = tail call ptr @Aig_ObjCreateCi(ptr noundef %30) #23
+  %52 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %30) #23
   %53 = add nuw nsw i32 %.2133, 1
   %exitcond165.not = icmp eq i32 %53, %.0.lcssa
   br i1 %exitcond165.not, label %.preheader, label %.critedge4, !llvm.loop !82
@@ -2530,7 +2530,7 @@ define ptr @Rtm_ManToAig(ptr noundef readonly captures(none) %0) local_unnamed_a
   %.val117 = load ptr, ptr %60, align 8, !tbaa !25
   %61 = getelementptr inbounds nuw ptr, ptr %.val117, i64 %indvars.iv166
   %62 = load ptr, ptr %61, align 8, !tbaa !34
-  %63 = tail call ptr @Rtm_ManToAig_rec(ptr noundef %30, ptr noundef nonnull %0, ptr noundef %62, ptr noundef %7)
+  %63 = tail call ptr @Rtm_ManToAig_rec(ptr noundef nonnull %30, ptr noundef nonnull %0, ptr noundef %62, ptr noundef %7)
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %64 = load ptr, ptr %0, align 8, !tbaa !26
   %65 = getelementptr i8, ptr %64, i64 4
@@ -2563,7 +2563,7 @@ define ptr @Rtm_ManToAig(ptr noundef readonly captures(none) %0) local_unnamed_a
   %75 = getelementptr inbounds nuw ptr, ptr %.val116, i64 %indvars.iv169
   %76 = load ptr, ptr %75, align 8, !tbaa !34
   %77 = load ptr, ptr %76, align 8, !tbaa !77
-  %78 = tail call ptr @Aig_ObjCreateCo(ptr noundef %30, ptr noundef %77) #23
+  %78 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %30, ptr noundef %77) #23
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, 1
   %79 = load ptr, ptr %55, align 8, !tbaa !31
   %80 = getelementptr i8, ptr %79, i64 4

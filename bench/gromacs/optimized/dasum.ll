@@ -58,12 +58,12 @@ define double @dasum_(ptr noundef readonly captures(none) %0, ptr noundef readon
   br i1 %exitcond.not, label %25, label %.preheader, !llvm.loop !6
 
 25:                                               ; preds = %.preheader
-  %26 = icmp slt i32 %.fr, 6
+  %26 = icmp samesign ult i32 %.fr, 6
   br i1 %26, label %.loopexit, label %27
 
 27:                                               ; preds = %25, %17
   %.1 = phi double [ %24, %25 ], [ 0.000000e+00, %17 ]
-  %.not6270.not = icmp slt i32 %18, %.fr
+  %.not6270.not = icmp samesign ult i32 %18, %.fr
   br i1 %.not6270.not, label %.lr.ph73.preheader, label %.loopexit
 
 .lr.ph73.preheader:                               ; preds = %27

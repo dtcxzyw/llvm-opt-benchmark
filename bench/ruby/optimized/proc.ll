@@ -6831,7 +6831,7 @@ tailrecurse.i:                                    ; preds = %19, %tailrecurse.i
   br i1 %switch, label %vm_block_ep.exit, label %tailrecurse.i
 
 37:                                               ; preds = %vm_block_ep.exit
-  %38 = call ptr @rb_binding_add_dynavars(i64 noundef %0, ptr noundef %23, i32 noundef 1, ptr noundef nonnull %5) #21
+  %38 = call ptr @rb_binding_add_dynavars(i64 noundef %0, ptr noundef nonnull %23, i32 noundef 1, ptr noundef nonnull %5) #21
   %.val.i1220 = load i32, ptr %24, align 8, !tbaa !14
   %switch1621 = icmp ult i32 %.val.i1220, 2
   br i1 %switch1621, label %vm_block_ep.exit14, label %tailrecurse.i10

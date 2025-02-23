@@ -345,7 +345,7 @@ define dso_local noundef ptr @replace_outer_agg(ptr noundef captures(none) %0, p
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.027.lcssa = phi ptr [ %0, %2 ], [ %6, %.lr.ph ]
-  %8 = tail call ptr @copyObjectImpl(ptr noundef %1) #4
+  %8 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 76
   %10 = load i32, ptr %9, align 4
   %11 = sub i32 0, %10
@@ -433,7 +433,7 @@ define dso_local noundef ptr @replace_outer_grouping(ptr noundef captures(none) 
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %7, %.lr.ph ]
-  %9 = tail call ptr @copyObjectImpl(ptr noundef %1) #4
+  %9 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = sub i32 0, %11
@@ -597,7 +597,7 @@ define dso_local noundef ptr @replace_outer_returning(ptr noundef captures(none)
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.0.lcssa = phi ptr [ %0, %2 ], [ %9, %.lr.ph ]
-  %11 = tail call ptr @copyObjectImpl(ptr noundef %1) #4
+  %11 = tail call ptr @copyObjectImpl(ptr noundef nonnull %1) #4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4
   %14 = sub i32 0, %13

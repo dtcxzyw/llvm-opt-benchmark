@@ -39,18 +39,18 @@ define void @osage_layout(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.01822.i = phi ptr [ %6, %.lr.ph.i ], [ %5, %1 ]
   tail call void @neato_init_node(ptr noundef nonnull %.01822.i) #15
-  %6 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01822.i) #15
+  %6 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.01822.i) #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %7 = tail call ptr @agfstnode(ptr noundef %0) #15
+  %7 = tail call ptr @agfstnode(ptr noundef nonnull %0) #15
   %.not1928.i = icmp eq ptr %7, null
   br i1 %.not1928.i, label %cluster_init_graph.exit, label %.lr.ph31.i
 
 .lr.ph31.i:                                       ; preds = %._crit_edge.i, %._crit_edge27.i
   %.129.i = phi ptr [ %11, %._crit_edge27.i ], [ %7, %._crit_edge.i ]
-  %8 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.129.i) #15
+  %8 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.129.i) #15
   %.not2023.i = icmp eq ptr %8, null
   br i1 %.not2023.i, label %._crit_edge27.i, label %.lr.ph26.i
 
@@ -58,19 +58,19 @@ define void @osage_layout(ptr noundef %0) local_unnamed_addr #0 {
   %.024.i = phi ptr [ %10, %.lr.ph26.i ], [ %8, %.lr.ph31.i ]
   %9 = tail call ptr @agbindrec(ptr noundef nonnull %.024.i, ptr noundef nonnull @.str, i32 noundef 240, i32 noundef 1) #15
   tail call void @common_init_edge(ptr noundef nonnull %.024.i) #15
-  %10 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.024.i) #15
+  %10 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.024.i) #15
   %.not20.i = icmp eq ptr %10, null
   br i1 %.not20.i, label %._crit_edge27.i, label %.lr.ph26.i, !llvm.loop !35
 
 ._crit_edge27.i:                                  ; preds = %.lr.ph26.i, %.lr.ph31.i
-  %11 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.129.i) #15
+  %11 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.129.i) #15
   %.not19.i = icmp eq ptr %11, null
   br i1 %.not19.i, label %cluster_init_graph.exit, label %.lr.ph31.i, !llvm.loop !36
 
 cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %._crit_edge.i
-  tail call fastcc void @mkClusters(ptr noundef %0, ptr noundef null)
-  tail call fastcc void @layout(ptr noundef %0, i32 noundef 0)
-  tail call fastcc void @reposition(ptr noundef %0, i32 noundef 0)
+  tail call fastcc void @mkClusters(ptr noundef nonnull %0, ptr noundef null)
+  tail call fastcc void @layout(ptr noundef nonnull %0, i32 noundef 0)
+  tail call fastcc void @reposition(ptr noundef nonnull %0, i32 noundef 0)
   %12 = load ptr, ptr %2, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !37
@@ -420,7 +420,7 @@ define internal fastcc void @layout(ptr noundef %0, i32 noundef %1) unnamed_addr
 
 indent.exit:                                      ; preds = %.lr.ph.i, %8
   %14 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %15 = tail call ptr @agnameof(ptr noundef %0) #15
+  %15 = tail call ptr @agnameof(ptr noundef nonnull %0) #15
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.5, ptr noundef %15) #16
   br label %17
 
@@ -796,7 +796,7 @@ gv_calloc.exit181:                                ; preds = %.thread.i180, %gv_c
 
 indent.exit184:                                   ; preds = %.lr.ph.i182, %195
   %200 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %201 = call ptr @agnameof(ptr noundef %188) #15
+  %201 = call ptr @agnameof(ptr noundef nonnull %188) #15
   %202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %200, ptr noundef nonnull @.str.8, ptr noundef %201, double noundef %174, double noundef %176, double noundef %175, double noundef %177) #16
   br label %223
 
@@ -825,7 +825,7 @@ indent.exit184:                                   ; preds = %.lr.ph.i182, %195
 
 indent.exit187:                                   ; preds = %.lr.ph.i185, %210
   %215 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %216 = call ptr @agnameof(ptr noundef %188) #15
+  %216 = call ptr @agnameof(ptr noundef nonnull %188) #15
   %217 = load ptr, ptr %189, align 8, !tbaa !3
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 32
   %219 = load double, ptr %218, align 8, !tbaa !40
@@ -972,7 +972,7 @@ indent.exit190:                                   ; preds = %.lr.ph.i188, %256
 
 indent.exit197:                                   ; preds = %.lr.ph.i195, %282
   %287 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %288 = call ptr @agnameof(ptr noundef %271) #15
+  %288 = call ptr @agnameof(ptr noundef nonnull %271) #15
   %289 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %287, ptr noundef nonnull @.str.8, ptr noundef %288, double noundef %276, double noundef %277, double noundef %278, double noundef %279) #16
   br label %308
 
@@ -998,7 +998,7 @@ indent.exit197:                                   ; preds = %.lr.ph.i195, %282
 
 indent.exit202:                                   ; preds = %.lr.ph.i200, %295
   %300 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %301 = call ptr @agnameof(ptr noundef %271) #15
+  %301 = call ptr @agnameof(ptr noundef nonnull %271) #15
   %302 = load ptr, ptr %272, align 8, !tbaa !3
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 32
   %304 = load double, ptr %303, align 8, !tbaa !40
@@ -1084,7 +1084,7 @@ define internal fastcc void @reposition(ptr noundef %0, i32 noundef %1) unnamed_
 
 indent.exit:                                      ; preds = %.lr.ph.i, %8
   %14 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %15 = tail call ptr @agnameof(ptr noundef %0) #15
+  %15 = tail call ptr @agnameof(ptr noundef nonnull %0) #15
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.11, ptr noundef %15) #16
   br label %17
 
@@ -1093,7 +1093,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   br i1 %.not, label %.loopexit.thread66, label %18
 
 18:                                               ; preds = %17
-  %19 = tail call ptr @agfstnode(ptr noundef %0) #15
+  %19 = tail call ptr @agfstnode(ptr noundef nonnull %0) #15
   %.not4554 = icmp eq ptr %19, null
   br i1 %.not4554, label %.loopexit.thread, label %.lr.ph
 
@@ -1132,7 +1132,7 @@ indent.exit:                                      ; preds = %.lr.ph.i, %8
   br i1 %37, label %.lr.ph.i48.us, label %indent.exit50.loopexit.us, !llvm.loop !74
 
 38:                                               ; preds = %indent.exit50.loopexit.us, %25, %.lr.ph.split.us
-  %39 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04355.us) #15
+  %39 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.04355.us) #15
   %.not45.us = icmp eq ptr %39, null
   br i1 %.not45.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !98
 
@@ -1181,7 +1181,7 @@ indent.exit50:                                    ; preds = %52
   br label %69
 
 69:                                               ; preds = %52, %indent.exit50, %.lr.ph.split
-  %70 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.04355) #15
+  %70 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.04355) #15
   %.not45 = icmp eq ptr %70, null
   br i1 %.not45, label %.loopexit, label %.lr.ph.split, !llvm.loop !98
 
@@ -1266,7 +1266,7 @@ indent.exit50:                                    ; preds = %52
 
 indent.exit53:                                    ; preds = %.lr.ph.i51, %106
   %111 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %112 = tail call ptr @agnameof(ptr noundef %96) #15
+  %112 = tail call ptr @agnameof(ptr noundef nonnull %96) #15
   %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %111, ptr noundef nonnull @.str.8, ptr noundef %112, double noundef %100, double noundef %101, double noundef %102, double noundef %103) #16
   %.pre = load ptr, ptr %97, align 8, !tbaa !3
   br label %114

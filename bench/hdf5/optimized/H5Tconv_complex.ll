@@ -470,7 +470,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
 .preheader454.i:                                  ; preds = %180
   br i1 %.not473.i, label %.loopexit453.i, label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph459.preheader.i:                            ; preds = %.lr.ph.i
   %182 = getelementptr inbounds nuw i8, ptr %.1335469.i, i64 %116
   br label %.lr.ph459.i
 
@@ -485,10 +485,10 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   store i8 %188, ptr %183, align 1, !tbaa !33
   store i8 %184, ptr %187, align 1, !tbaa !33
   %exitcond.not.i = icmp eq i64 %185, %158
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !36
+  br i1 %exitcond.not.i, label %.lr.ph459.preheader.i, label %.lr.ph.i, !llvm.loop !36
 
-.lr.ph459.i:                                      ; preds = %.lr.ph459.i, %._crit_edge.i
-  %.0338457.i = phi i64 [ %191, %.lr.ph459.i ], [ 0, %._crit_edge.i ]
+.lr.ph459.i:                                      ; preds = %.lr.ph459.i, %.lr.ph459.preheader.i
+  %.0338457.i = phi i64 [ %191, %.lr.ph459.i ], [ 0, %.lr.ph459.preheader.i ]
   %189 = getelementptr inbounds nuw i8, ptr %182, i64 %.0338457.i
   %190 = load i8, ptr %189, align 1, !tbaa !33
   %191 = add nuw nsw i64 %.0338457.i, 1
@@ -763,7 +763,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
 .preheader.i:                                     ; preds = %302
   br i1 %.not475.i, label %.loopexit.i, label %.lr.ph461.i
 
-._crit_edge462.i:                                 ; preds = %.lr.ph461.i
+.lr.ph466.preheader.i:                            ; preds = %.lr.ph461.i
   %303 = getelementptr inbounds nuw i8, ptr %.0337.i, i64 %119
   br label %.lr.ph466.i
 
@@ -778,10 +778,10 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   store i8 %309, ptr %304, align 1, !tbaa !33
   store i8 %305, ptr %308, align 1, !tbaa !33
   %exitcond478.not.i = icmp eq i64 %306, %169
-  br i1 %exitcond478.not.i, label %._crit_edge462.i, label %.lr.ph461.i, !llvm.loop !39
+  br i1 %exitcond478.not.i, label %.lr.ph466.preheader.i, label %.lr.ph461.i, !llvm.loop !39
 
-.lr.ph466.i:                                      ; preds = %.lr.ph466.i, %._crit_edge462.i
-  %.0331464.i = phi i64 [ %312, %.lr.ph466.i ], [ 0, %._crit_edge462.i ]
+.lr.ph466.i:                                      ; preds = %.lr.ph466.i, %.lr.ph466.preheader.i
+  %.0331464.i = phi i64 [ %312, %.lr.ph466.i ], [ 0, %.lr.ph466.preheader.i ]
   %310 = getelementptr inbounds nuw i8, ptr %303, i64 %.0331464.i
   %311 = load i8, ptr %310, align 1, !tbaa !33
   %312 = add nuw nsw i64 %.0331464.i, 1
@@ -1416,7 +1416,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %exitcond454.not = icmp eq i64 %118, %108
   br i1 %exitcond454.not, label %.loopexit416, label %.lr.ph427, !llvm.loop !42
 
-._crit_edge:                                      ; preds = %.lr.ph422
+.lr.ph425.preheader:                              ; preds = %.lr.ph422
   %127 = getelementptr inbounds nuw i8, ptr %.1332435, i64 %108
   br label %.lr.ph425
 
@@ -1431,10 +1431,10 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   store i8 %133, ptr %128, align 1, !tbaa !33
   store i8 %129, ptr %132, align 1, !tbaa !33
   %exitcond.not = icmp eq i64 %130, %112
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph422, !llvm.loop !43
+  br i1 %exitcond.not, label %.lr.ph425.preheader, label %.lr.ph422, !llvm.loop !43
 
-.lr.ph425:                                        ; preds = %._crit_edge, %.lr.ph425
-  %.0313423 = phi i64 [ %136, %.lr.ph425 ], [ 0, %._crit_edge ]
+.lr.ph425:                                        ; preds = %.lr.ph425.preheader, %.lr.ph425
+  %.0313423 = phi i64 [ %136, %.lr.ph425 ], [ 0, %.lr.ph425.preheader ]
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 %.0313423
   %135 = load i8, ptr %134, align 1, !tbaa !33
   %136 = add nuw nsw i64 %.0313423, 1

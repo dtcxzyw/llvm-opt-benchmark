@@ -622,16 +622,16 @@ _ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i: ; preds = 
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull %.06.i4.i.i.i, i64 noundef %.pre-phi3.i.i) #11
   %.not.i5.i.i.i = icmp eq ptr %24, null
-  br i1 %.not.i5.i.i.i, label %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i, label %.lr.ph.i3.i.i.i, !llvm.loop !6
+  br i1 %.not.i5.i.i.i, label %.loopexit.loopexit.i.i.i, label %.lr.ph.i3.i.i.i, !llvm.loop !6
 
-_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i: ; preds = %.lr.ph.i3.i.i.i
-  %28 = load i64, ptr %7, align 8
+.loopexit.loopexit.i.i.i:                         ; preds = %.lr.ph.i3.i.i.i
+  %.pre.i.i.i = load i64, ptr %7, align 8
   br label %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit
 
-_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i
-  %.sink.i.i.i = phi i64 [ %28, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i ], [ %18, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i ]
+_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i, %.loopexit.loopexit.i.i.i
+  %28 = phi i64 [ %.pre.i.i.i, %.loopexit.loopexit.i.i.i ], [ %18, %_ZN5StackI12ObjArrayTaskL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 1408
-  store i64 %.sink.i.i.i, ptr %29, align 8
+  store i64 %28, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1416
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -686,16 +686,16 @@ _ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i: ; preds = %_ZN5
   %56 = load ptr, ptr %55, align 8
   tail call void %56(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull %.06.i4.i.i.i11, i64 noundef %.pre-phi3.i.i8) #11
   %.not.i5.i.i.i12 = icmp eq ptr %53, null
-  br i1 %.not.i5.i.i.i12, label %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i, label %.lr.ph.i3.i.i.i10, !llvm.loop !8
+  br i1 %.not.i5.i.i.i12, label %.loopexit.loopexit.i.i.i13, label %.lr.ph.i3.i.i.i10, !llvm.loop !8
 
-_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i: ; preds = %.lr.ph.i3.i.i.i10
-  %57 = load i64, ptr %36, align 8
+.loopexit.loopexit.i.i.i13:                       ; preds = %.lr.ph.i3.i.i.i10
+  %.pre.i.i.i14 = load i64, ptr %36, align 8
   br label %_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit
 
-_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i
-  %.sink.i.i.i13 = phi i64 [ %57, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit6.i.i.i ], [ %47, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i ]
+_ZN17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EED2Ev.exit: ; preds = %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i, %.loopexit.loopexit.i.i.i13
+  %57 = phi i64 [ %.pre.i.i.i14, %.loopexit.loopexit.i.i.i13 ], [ %47, %_ZN5StackIP7oopDescL8MEMFLAGS5EE13free_segmentsEPS1_.exit.i.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  store i64 %.sink.i.i.i13, ptr %58, align 8
+  store i64 %57, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 704
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %59, i8 0, i64 32, i1 false)
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 408

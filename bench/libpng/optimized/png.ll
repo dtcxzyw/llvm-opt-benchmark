@@ -463,7 +463,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %25 = load ptr, ptr %8, align 8, !tbaa !52
   %26 = getelementptr inbounds nuw %struct.png_text_struct, ptr %25, i64 %indvars.iv, i32 1
   %27 = load ptr, ptr %26, align 8, !tbaa !62
-  tail call void @png_free(ptr noundef %0, ptr noundef %27) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %27) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = load i32, ptr %16, align 4, !tbaa !61
   %29 = sext i32 %28 to i64
@@ -476,7 +476,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader185
   %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %9, %.preheader185 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %31) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %31) #28
   store ptr null, ptr %8, align 8, !tbaa !52
   store i32 0, ptr %16, align 4, !tbaa !61
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -498,7 +498,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   store i32 %41, ptr %39, align 8, !tbaa !66
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %43 = load ptr, ptr %42, align 8, !tbaa !67
-  tail call void @png_free(ptr noundef %0, ptr noundef %43) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %43) #28
   store ptr null, ptr %42, align 8, !tbaa !67
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 34
   store i16 0, ptr %44, align 2, !tbaa !68
@@ -515,10 +515,10 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %51 = load ptr, ptr %50, align 8, !tbaa !69
-  tail call void @png_free(ptr noundef %0, ptr noundef %51) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %51) #28
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %53 = load ptr, ptr %52, align 8, !tbaa !70
-  tail call void @png_free(ptr noundef %0, ptr noundef %53) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %53) #28
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
   %55 = load i32, ptr %54, align 8, !tbaa !66
@@ -537,10 +537,10 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %63 = load ptr, ptr %62, align 8, !tbaa !71
-  tail call void @png_free(ptr noundef %0, ptr noundef %63) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %63) #28
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %65 = load ptr, ptr %64, align 8, !tbaa !72
-  tail call void @png_free(ptr noundef %0, ptr noundef %65) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %65) #28
   store ptr null, ptr %62, align 8, !tbaa !71
   store ptr null, ptr %64, align 8, !tbaa !72
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -559,7 +559,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %70 = load ptr, ptr %66, align 8, !tbaa !73
   %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv204
   %72 = load ptr, ptr %71, align 8, !tbaa !44
-  tail call void @png_free(ptr noundef %0, ptr noundef %72) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %72) #28
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %73 = load i8, ptr %68, align 1, !tbaa !74
   %74 = zext i8 %73 to i64
@@ -572,7 +572,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 
 ._crit_edge191:                                   ; preds = %._crit_edge191.loopexit, %.preheader184
   %76 = phi ptr [ %.pre218, %._crit_edge191.loopexit ], [ %67, %.preheader184 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %76) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %76) #28
   store ptr null, ptr %66, align 8, !tbaa !73
   br label %77
 
@@ -594,10 +594,10 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %87 = load ptr, ptr %86, align 8, !tbaa !76
-  tail call void @png_free(ptr noundef %0, ptr noundef %87) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %87) #28
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !77
-  tail call void @png_free(ptr noundef %0, ptr noundef %89) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %89) #28
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %91 = load i32, ptr %90, align 8, !tbaa !66
@@ -632,11 +632,11 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %105 = sext i32 %3 to i64
   %106 = getelementptr inbounds %struct.png_sPLT_struct, ptr %95, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !80
-  tail call void @png_free(ptr noundef %0, ptr noundef %107) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %107) #28
   %108 = load ptr, ptr %94, align 8, !tbaa !78
   %109 = getelementptr inbounds %struct.png_sPLT_struct, ptr %108, i64 %105, i32 2
   %110 = load ptr, ptr %109, align 8, !tbaa !83
-  tail call void @png_free(ptr noundef %0, ptr noundef %110) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %110) #28
   %111 = load ptr, ptr %94, align 8, !tbaa !78
   %112 = getelementptr inbounds %struct.png_sPLT_struct, ptr %111, i64 %105
   store ptr null, ptr %112, align 8, !tbaa !80
@@ -649,11 +649,11 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %114 = load ptr, ptr %94, align 8, !tbaa !78
   %115 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %114, i64 %indvars.iv207
   %116 = load ptr, ptr %115, align 8, !tbaa !80
-  tail call void @png_free(ptr noundef %0, ptr noundef %116) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %116) #28
   %117 = load ptr, ptr %94, align 8, !tbaa !78
   %118 = getelementptr inbounds nuw %struct.png_sPLT_struct, ptr %117, i64 %indvars.iv207, i32 2
   %119 = load ptr, ptr %118, align 8, !tbaa !83
-  tail call void @png_free(ptr noundef %0, ptr noundef %119) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %119) #28
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
   %120 = load i32, ptr %101, align 8, !tbaa !79
   %121 = sext i32 %120 to i64
@@ -666,7 +666,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 
 ._crit_edge194:                                   ; preds = %._crit_edge194.loopexit, %.preheader183
   %123 = phi ptr [ %.pre220, %._crit_edge194.loopexit ], [ %95, %.preheader183 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %123) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %123) #28
   store ptr null, ptr %94, align 8, !tbaa !78
   store i32 0, ptr %101, align 8, !tbaa !79
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -702,7 +702,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %139 = sext i32 %3 to i64
   %140 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %129, i64 %139, i32 1
   %141 = load ptr, ptr %140, align 8, !tbaa !87
-  tail call void @png_free(ptr noundef %0, ptr noundef %141) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %141) #28
   %142 = load ptr, ptr %128, align 8, !tbaa !85
   %143 = getelementptr inbounds %struct.png_unknown_chunk_t, ptr %142, i64 %139, i32 1
   store ptr null, ptr %143, align 8, !tbaa !87
@@ -713,7 +713,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %144 = load ptr, ptr %128, align 8, !tbaa !85
   %145 = getelementptr inbounds nuw %struct.png_unknown_chunk_t, ptr %144, i64 %indvars.iv210, i32 1
   %146 = load ptr, ptr %145, align 8, !tbaa !87
-  tail call void @png_free(ptr noundef %0, ptr noundef %146) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %146) #28
   %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
   %147 = load i32, ptr %135, align 8, !tbaa !86
   %148 = sext i32 %147 to i64
@@ -726,7 +726,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 
 ._crit_edge197:                                   ; preds = %._crit_edge197.loopexit, %.preheader182
   %150 = phi ptr [ %.pre221, %._crit_edge197.loopexit ], [ %129, %.preheader182 ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %150) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %150) #28
   store ptr null, ptr %128, align 8, !tbaa !85
   store i32 0, ptr %135, align 8, !tbaa !86
   br label %151
@@ -745,7 +745,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   br i1 %.not176, label %159, label %158
 
 158:                                              ; preds = %155
-  tail call void @png_free(ptr noundef %0, ptr noundef nonnull %157) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %157) #28
   store ptr null, ptr %156, align 8, !tbaa !89
   %.pre222.pre = load i32, ptr %35, align 4, !tbaa !60
   br label %159
@@ -768,7 +768,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 167:                                              ; preds = %163
   %168 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %169 = load ptr, ptr %168, align 8, !tbaa !90
-  tail call void @png_free(ptr noundef %0, ptr noundef %169) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %169) #28
   store ptr null, ptr %168, align 8, !tbaa !90
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %171 = load i32, ptr %170, align 8, !tbaa !66
@@ -787,7 +787,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %179 = load ptr, ptr %178, align 8, !tbaa !91
-  tail call void @png_free(ptr noundef %0, ptr noundef %179) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %179) #28
   store ptr null, ptr %178, align 8, !tbaa !91
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %181 = load i32, ptr %180, align 8, !tbaa !66
@@ -822,7 +822,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
   %193 = load ptr, ptr %189, align 8, !tbaa !93
   %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv213
   %195 = load ptr, ptr %194, align 8, !tbaa !44
-  tail call void @png_free(ptr noundef %0, ptr noundef %195) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %195) #28
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
   %196 = load i32, ptr %191, align 4, !tbaa !94
   %197 = zext i32 %196 to i64
@@ -835,7 +835,7 @@ define void @png_free_data(ptr noalias noundef %0, ptr noalias noundef %1, i32 n
 
 ._crit_edge200:                                   ; preds = %._crit_edge200.loopexit, %.preheader
   %199 = phi ptr [ %.pre225, %._crit_edge200.loopexit ], [ %190, %.preheader ]
-  tail call void @png_free(ptr noundef %0, ptr noundef %199) #28
+  tail call void @png_free(ptr noundef nonnull %0, ptr noundef %199) #28
   store ptr null, ptr %189, align 8, !tbaa !93
   %.pre226.pre = load i32, ptr %35, align 4, !tbaa !60
   br label %200

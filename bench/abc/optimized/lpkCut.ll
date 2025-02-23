@@ -204,7 +204,7 @@ define ptr @Lpk_CutTruthBdd(ptr noundef readonly captures(none) %0, ptr noundef 
   %.142 = select i1 %.not, ptr %76, ptr %82
   %83 = getelementptr inbounds nuw i8, ptr %50, i64 64
   store ptr %.142, ptr %83, align 8, !tbaa !3
-  %84 = icmp sgt i64 %indvars.iv63, 1
+  %84 = icmp samesign ugt i64 %indvars.iv63, 1
   br i1 %84, label %42, label %.critedge2, !llvm.loop !62
 
 .critedge2:                                       ; preds = %.critedge4, %.critedge
@@ -575,7 +575,7 @@ select.unfold.i:                                  ; preds = %select.unfold.i, %s
 Kit_TruthNot.exit:                                ; preds = %select.unfold.i, %97, %.critedge4
   %109 = getelementptr inbounds nuw i8, ptr %66, i64 64
   store ptr %93, ptr %109, align 8, !tbaa !3
-  %110 = icmp sgt i64 %indvars.iv93, 1
+  %110 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %110, label %58, label %.critedge2, !llvm.loop !72
 
 .critedge2:                                       ; preds = %Kit_TruthNot.exit, %.critedge

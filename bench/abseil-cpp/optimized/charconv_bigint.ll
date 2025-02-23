@@ -521,7 +521,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %43, %_ZSt4findIPKcc
 
 ._crit_edge.i:                                    ; preds = %103
   %.not.i = icmp samesign ugt i64 %108, 4294967295
-  %102 = icmp slt i32 %.sroa.speculated.i172175, 4
+  %102 = icmp samesign ult i32 %.sroa.speculated.i172175, 4
   %or.cond17.i = and i1 %102, %.not.i
   br i1 %or.cond17.i, label %111, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
@@ -612,7 +612,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
 
 ._crit_edge.i97:                                  ; preds = %141
   %.not.i98 = icmp ugt i64 %146, 4294967295
-  %140 = icmp slt i32 %.sroa.speculated.i173, 4
+  %140 = icmp samesign ult i32 %.sroa.speculated.i173, 4
   %or.cond17.i99 = and i1 %140, %.not.i98
   br i1 %or.cond17.i99, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit100
 
@@ -823,7 +823,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE21M
 
 ._crit_edge.i.i:                                  ; preds = %11
   %.not.i.i = icmp samesign ugt i64 %16, 4294967295
-  %10 = icmp slt i32 %8, 4
+  %10 = icmp samesign ult i32 %8, 4
   %or.cond17.i.i = and i1 %10, %.not.i.i
   br i1 %or.cond17.i.i, label %19, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i
 
@@ -880,7 +880,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 ._crit_edge.i10.i:                                ; preds = %37
   %.not.i11.i = icmp ugt i64 %42, 4294967295
-  %36 = icmp slt i32 %27, 4
+  %36 = icmp samesign ult i32 %27, 4
   %or.cond17.i12.i = and i1 %36, %.not.i11.i
   br i1 %or.cond17.i12.i, label %._crit_edge.thread.sink.split.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE22MultiplyByFiveToTheNthEi.exit
 
@@ -997,7 +997,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
   %87 = getelementptr inbounds nuw [4 x i32], ptr %72, i64 0, i64 %indvars.iv.i
   store i32 %86, ptr %87, align 4, !tbaa !9
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %88 = icmp sgt i64 %indvars.iv.next.i, %73
+  %88 = icmp samesign ugt i64 %indvars.iv.next.i, %73
   br i1 %88, label %79, label %._crit_edge.i5, !llvm.loop !21
 
 89:                                               ; preds = %._crit_edge.i5
@@ -1013,7 +1013,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i:     ; preds = %93, %89, %._crit_edge.i5, %66, %62
-  %95 = icmp ult i32 %1, 32
+  %95 = icmp samesign ult i32 %1, 32
   br i1 %95, label %_ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -1047,7 +1047,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 ._crit_edge.i10:                                  ; preds = %112
   %.not.i11 = icmp ugt i64 %117, 4294967295
-  %111 = icmp slt i32 %102, 4
+  %111 = icmp samesign ult i32 %102, 4
   %or.cond17.i = and i1 %111, %.not.i11
   br i1 %or.cond17.i, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit
 
@@ -1263,7 +1263,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit: ; preds = %8, %_
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %21, %17, %._crit_edge, %46, %50
-  %52 = icmp ult i32 %1, 32
+  %52 = icmp samesign ult i32 %1, 32
   br i1 %52, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit:     ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
@@ -1312,7 +1312,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
 
 ._crit_edge:                                      ; preds = %18
   %.not = icmp ugt i64 %23, 4294967295
-  %17 = icmp slt i32 %3, 4
+  %17 = icmp samesign ult i32 %3, 4
   %or.cond17 = and i1 %17, %.not
   br i1 %or.cond17, label %26, label %._crit_edge.thread
 
@@ -1396,7 +1396,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %15
 
 ._crit_edge.i:                                    ; preds = %24
   %.not.i = icmp ugt i64 %29, 4294967295
-  %23 = icmp slt i32 %9, 4
+  %23 = icmp samesign ult i32 %9, 4
   %or.cond17.i = and i1 %23, %.not.i
   br i1 %or.cond17.i, label %32, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
@@ -1492,7 +1492,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE22M
 
 ._crit_edge.i:                                    ; preds = %9
   %.not.i = icmp samesign ugt i64 %14, 4294967295
-  %8 = icmp slt i32 %6, 4
+  %8 = icmp samesign ult i32 %6, 4
   %or.cond17.i = and i1 %8, %.not.i
   br i1 %or.cond17.i, label %17, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit
 
@@ -1550,7 +1550,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %5, 
 
 ._crit_edge.i10:                                  ; preds = %36
   %.not.i11 = icmp ugt i64 %41, 4294967295
-  %35 = icmp slt i32 %26, 4
+  %35 = icmp samesign ult i32 %26, 4
   %or.cond17.i12 = and i1 %35, %.not.i11
   br i1 %or.cond17.i12, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit13
 
@@ -1816,7 +1816,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEiPKj.exit: ; preds = %
 
 ._crit_edge.i.i:                                  ; preds = %108
   %.not.i.i = icmp samesign ugt i64 %113, 4294967295
-  %107 = icmp slt i32 %105, 4
+  %107 = icmp samesign ult i32 %105, 4
   %or.cond17.i.i = and i1 %107, %.not.i.i
   br i1 %or.cond17.i.i, label %116, label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i
 
@@ -1874,7 +1874,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 ._crit_edge.i10.i:                                ; preds = %135
   %.not.i11.i = icmp ugt i64 %140, 4294967295
-  %134 = icmp slt i32 %125, 4
+  %134 = icmp samesign ult i32 %125, 4
   %or.cond17.i12.i = and i1 %134, %.not.i11.i
   br i1 %or.cond17.i12.i, label %._crit_edge.thread.sink.split.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi4EE22MultiplyByFiveToTheNthEi.exit
 
@@ -2856,7 +2856,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %43, %_ZSt4findIPKcc
 
 ._crit_edge.i:                                    ; preds = %103
   %.not.i = icmp samesign ugt i64 %108, 4294967295
-  %102 = icmp slt i32 %.sroa.speculated.i172175, 84
+  %102 = icmp samesign ult i32 %.sroa.speculated.i172175, 84
   %or.cond17.i = and i1 %102, %.not.i
   br i1 %or.cond17.i, label %111, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -2947,7 +2947,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
 
 ._crit_edge.i97:                                  ; preds = %141
   %.not.i98 = icmp ugt i64 %146, 4294967295
-  %140 = icmp slt i32 %.sroa.speculated.i173, 84
+  %140 = icmp samesign ult i32 %.sroa.speculated.i173, 84
   %or.cond17.i99 = and i1 %140, %.not.i98
   br i1 %or.cond17.i99, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit100
 
@@ -3158,7 +3158,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE21
 
 ._crit_edge.i.i:                                  ; preds = %11
   %.not.i.i = icmp samesign ugt i64 %16, 4294967295
-  %10 = icmp slt i32 %8, 84
+  %10 = icmp samesign ult i32 %8, 84
   %or.cond17.i.i = and i1 %10, %.not.i.i
   br i1 %or.cond17.i.i, label %19, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i
 
@@ -3215,7 +3215,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 ._crit_edge.i10.i:                                ; preds = %37
   %.not.i11.i = icmp ugt i64 %42, 4294967295
-  %36 = icmp slt i32 %27, 84
+  %36 = icmp samesign ult i32 %27, 84
   %or.cond17.i12.i = and i1 %36, %.not.i11.i
   br i1 %or.cond17.i12.i, label %._crit_edge.thread.sink.split.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE22MultiplyByFiveToTheNthEi.exit
 
@@ -3332,7 +3332,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %87 = getelementptr inbounds nuw [84 x i32], ptr %72, i64 0, i64 %indvars.iv.i
   store i32 %86, ptr %87, align 4, !tbaa !9
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %88 = icmp sgt i64 %indvars.iv.next.i, %73
+  %88 = icmp samesign ugt i64 %indvars.iv.next.i, %73
   br i1 %88, label %79, label %._crit_edge.i5, !llvm.loop !53
 
 89:                                               ; preds = %._crit_edge.i5
@@ -3348,7 +3348,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i:     ; preds = %93, %89, %._crit_edge.i5, %66, %62
-  %95 = icmp ult i32 %1, 32
+  %95 = icmp samesign ult i32 %1, 32
   br i1 %95, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -3382,7 +3382,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 ._crit_edge.i10:                                  ; preds = %112
   %.not.i11 = icmp ugt i64 %117, 4294967295
-  %111 = icmp slt i32 %102, 84
+  %111 = icmp samesign ult i32 %102, 84
   %or.cond17.i = and i1 %111, %.not.i11
   br i1 %or.cond17.i, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit
 
@@ -3595,7 +3595,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit: ; preds = %8, %
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit:       ; preds = %21, %17, %._crit_edge, %46, %50
-  %52 = icmp ult i32 %1, 32
+  %52 = icmp samesign ult i32 %1, 32
   br i1 %52, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit:     ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
@@ -3644,7 +3644,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
 
 ._crit_edge:                                      ; preds = %18
   %.not = icmp ugt i64 %23, 4294967295
-  %17 = icmp slt i32 %3, 84
+  %17 = icmp samesign ult i32 %3, 84
   %or.cond17 = and i1 %17, %.not
   br i1 %or.cond17, label %26, label %._crit_edge.thread
 
@@ -3728,7 +3728,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %15
 
 ._crit_edge.i:                                    ; preds = %24
   %.not.i = icmp ugt i64 %29, 4294967295
-  %23 = icmp slt i32 %9, 84
+  %23 = icmp samesign ult i32 %9, 84
   %or.cond17.i = and i1 %23, %.not.i
   br i1 %or.cond17.i, label %32, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -3824,7 +3824,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE22
 
 ._crit_edge.i:                                    ; preds = %9
   %.not.i = icmp samesign ugt i64 %14, 4294967295
-  %8 = icmp slt i32 %6, 84
+  %8 = icmp samesign ult i32 %6, 84
   %or.cond17.i = and i1 %8, %.not.i
   br i1 %or.cond17.i, label %17, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -3882,7 +3882,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %5,
 
 ._crit_edge.i10:                                  ; preds = %36
   %.not.i11 = icmp ugt i64 %41, 4294967295
-  %35 = icmp slt i32 %26, 84
+  %35 = icmp samesign ult i32 %26, 84
   %or.cond17.i12 = and i1 %35, %.not.i11
   br i1 %or.cond17.i12, label %._crit_edge.thread.sink.split.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit13
 
@@ -4148,7 +4148,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEiPKj.exit: ; preds = 
 
 ._crit_edge.i.i:                                  ; preds = %108
   %.not.i.i = icmp samesign ugt i64 %113, 4294967295
-  %107 = icmp slt i32 %105, 84
+  %107 = icmp samesign ult i32 %105, 84
   %or.cond17.i.i = and i1 %107, %.not.i.i
   br i1 %or.cond17.i.i, label %116, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i
 
@@ -4206,7 +4206,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 ._crit_edge.i10.i:                                ; preds = %135
   %.not.i11.i = icmp ugt i64 %140, 4294967295
-  %134 = icmp slt i32 %125, 84
+  %134 = icmp samesign ult i32 %125, 84
   %or.cond17.i12.i = and i1 %134, %.not.i11.i
   br i1 %or.cond17.i12.i, label %._crit_edge.thread.sink.split.i.i, label %_ZN4absl16strings_internal11BigUnsignedILi84EE22MultiplyByFiveToTheNthEi.exit
 

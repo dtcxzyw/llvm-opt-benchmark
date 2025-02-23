@@ -884,7 +884,7 @@ _ZL17glnvg__checkErrorP12GLNVGcontextPKc.exit.i:  ; preds = %100, %98, %_ZL18gln
   %109 = add nsw i32 %108, %107
   %110 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %111 = load i32, ptr %110, align 4
-  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef %0, i32 noundef %109, i32 noundef %111)
+  tail call fastcc void @_ZL18glnvg__setUniformsP12GLNVGcontextii(ptr noundef nonnull %0, i32 noundef %109, i32 noundef %111)
   %.val.i = load i32, ptr %45, align 4
   %112 = and i32 %.val.i, 4
   %113 = icmp eq i32 %112, 0
@@ -5376,16 +5376,15 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %12 = add nsw i64 %.057.i.i.i.i.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit14, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !44
 
-.loopexit14:                                      ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
   store ptr %13, ptr %9, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit14, %19
-  %indvars.iv = phi i64 [ 0, %.loopexit14 ], [ %indvars.iv.next, %19 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %4, align 8

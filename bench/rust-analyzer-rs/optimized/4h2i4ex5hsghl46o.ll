@@ -1805,7 +1805,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit74: ; preds = %.noexc7
   %363 = load i64, ptr %59, align 8, !alias.scope !423, !noundef !4
   %364 = add i64 %363, 1
   store i64 %364, ptr %59, align 8, !alias.scope !423
-  %365 = add i64 %151, 1
+  %365 = add nuw i64 %151, 1
   %366 = load i64, ptr %15, align 8, !range !301, !noundef !4
   %367 = load i64, ptr %57, align 8
   %368 = load i64, ptr %62, align 8, !alias.scope !426, !noalias !429, !noundef !4
@@ -2828,7 +2828,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit71: ; preds = %.noexc6
   %359 = load i64, ptr %53, align 8, !alias.scope !552, !noundef !4
   %360 = add i64 %359, 1
   store i64 %360, ptr %53, align 8, !alias.scope !552
-  %361 = add i64 %145, 1
+  %361 = add nuw i64 %145, 1
   %362 = load i64, ptr %56, align 8, !alias.scope !555, !noalias !558, !noundef !4
   %363 = load i64, ptr %55, align 8, !alias.scope !555, !noalias !558, !noundef !4
   %364 = icmp eq i64 %362, %363
@@ -3816,7 +3816,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit74: ; preds = %.noexc7
   %351 = load i64, ptr %55, align 8, !alias.scope !664, !noundef !4
   %352 = add i64 %351, 1
   store i64 %352, ptr %55, align 8, !alias.scope !664
-  %353 = add i64 %147, 1
+  %353 = add nuw i64 %147, 1
   %354 = load i64, ptr %15, align 8, !range !350, !noundef !4
   %355 = load i64, ptr %53, align 8
   %356 = load i64, ptr %58, align 8, !alias.scope !667, !noalias !670, !noundef !4
@@ -5233,7 +5233,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   store i64 %229, ptr %21, align 8, !alias.scope !878
   %230 = load i8, ptr %27, align 1, !range !431, !noundef !4
   %231 = trunc nuw i8 %230 to i1
-  %232 = add i64 %.sroa.0.sroa.0.0.copyload, 1
+  %232 = add nuw i64 %.sroa.0.sroa.0.0.copyload, 1
   %233 = load i64, ptr %16, align 8, !alias.scope !881, !noalias !884, !noundef !4
   %234 = load i64, ptr %15, align 8, !alias.scope !881, !noalias !884, !noundef !4
   %235 = icmp eq i64 %233, %234

@@ -14628,15 +14628,12 @@ define dso_local noundef nonnull ptr @_ZNK5clang9LabelStmt7getNameEv(ptr noundef
   %3 = load ptr, ptr %2, align 8, !tbaa !1177
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !1178
-  %6 = and i64 %5, 7
-  %7 = icmp eq i64 %6, 0
-  %8 = and i64 %5, -8
-  %9 = inttoptr i64 %8 to ptr
-  %.0.i.i = select i1 %7, ptr %9, ptr null
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !1179
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  ret ptr %12
+  %6 = and i64 %5, -8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !1179
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -21209,13 +21206,12 @@ _ZN5clang4StmtC2ENS0_9StmtClassE.exit:            ; preds = %8, %14
   %30 = and i64 %4, 4294967295
   br label %41
 
-._crit_edge:                                      ; preds = %41, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
-  %.0.lcssa = phi ptr [ %28, %_ZN5clang4StmtC2ENS0_9StmtClassE.exit ], [ %44, %41 ]
-  store ptr %1, ptr %.0.lcssa, align 8, !tbaa !55
+._crit_edge:                                      ; preds = %_ZN5clang4StmtC2ENS0_9StmtClassE.exit
+  store ptr %1, ptr %28, align 8, !tbaa !55
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKN5clang12CapturedStmt7CaptureEPS2_ET0_T_S7_S6_.exit, label %31
 
-31:                                               ; preds = %._crit_edge
+31:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.idx = shl nuw nsw i64 %4, 4
   %32 = shl i32 %20, 3
   %33 = add i32 %32, 40
@@ -21242,7 +21238,11 @@ _ZSt4copyIPKN5clang12CapturedStmt7CaptureEPS2_ET0_T_S7_S6_.exit: ; preds = %._cr
   store ptr %43, ptr %.017, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %30
-  br i1 %.not, label %._crit_edge, label %41, !llvm.loop !1685
+  br i1 %.not, label %._crit_edge.thread, label %41, !llvm.loop !1685
+
+._crit_edge.thread:                               ; preds = %41
+  store ptr %1, ptr %44, align 8, !tbaa !55
+  br label %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

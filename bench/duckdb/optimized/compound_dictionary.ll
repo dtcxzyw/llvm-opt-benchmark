@@ -252,7 +252,7 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   br i1 %exitcond251.not.i, label %135, label %.preheader.i, !llvm.loop !23
 
 135:                                              ; preds = %134
-  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef %33)
+  tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef nonnull %33)
   br label %_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit
 
 _ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit: ; preds = %._crit_edge, %135

@@ -1841,12 +1841,12 @@ define void @_ZN7xgboost4data13SimpleDMatrix15ReindexFeaturesEPKNS_7ContextE(ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1
-  br i1 %7, label %8, label %_ZNSt6vectorImSaImEED2Ev.exit
+  br i1 %7, label %8, label %62
 
 8:                                                ; preds = %2
   %9 = tail call noundef i32 @_ZN7xgboost10collective12GetWorldSizeEv() #11
   %10 = icmp sgt i32 %9, 1
-  br i1 %10, label %11, label %_ZNSt6vectorImSaImEED2Ev.exit
+  br i1 %10, label %11, label %62
 
 11:                                               ; preds = %8
   %12 = tail call noundef i32 @_ZN7xgboost10collective12GetWorldSizeEv() #11
@@ -1904,50 +1904,43 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc13
   store i64 1, ptr %4, align 8, !alias.scope !13
   store i64 %30, ptr %35, align 8, !alias.scope !13
   invoke void @_ZN7xgboost10collective9AllgatherImEENS0_6ResultEPKNS_7ContextENS_6linalg10TensorViewIT_Li1EEE(ptr dead_on_unwind nonnull writable sret(%"struct.xgboost::collective::Result") align 8 %3, ptr noundef %1, ptr noundef nonnull %4)
-          to label %37 unwind label %.thread
+          to label %37 unwind label %47
 
 37:                                               ; preds = %21
   invoke void @_ZN7xgboost10collective8SafeCollERKNS0_6ResultE(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %39 unwind label %.thread32
+          to label %38 unwind label %49
 
-.thread32:                                        ; preds = %37
-  %38 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  br label %61
-
-39:                                               ; preds = %37
-  %40 = call noundef i32 @_ZN7xgboost10collective7GetRankEv() #11
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i64, ptr %.sroa.016.0, i64 %41
-  %.not5.i = icmp eq i32 %40, 0
+38:                                               ; preds = %37
+  %39 = call noundef i32 @_ZN7xgboost10collective7GetRankEv() #11
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i64, ptr %.sroa.016.0, i64 %40
+  %.not5.i = icmp eq i32 %39, 0
   br i1 %.not5.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %39, %.lr.ph.i
-  %.07.i = phi i32 [ %45, %.lr.ph.i ], [ 0, %39 ]
-  %.sroa.02.06.i = phi ptr [ %46, %.lr.ph.i ], [ %.sroa.016.0, %39 ]
-  %43 = load i64, ptr %.sroa.02.06.i, align 8
-  %44 = trunc i64 %43 to i32
-  %45 = add i32 %.07.i, %44
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
-  %.not.i = icmp eq ptr %46, %42
+.lr.ph.i:                                         ; preds = %38, %.lr.ph.i
+  %.07.i = phi i32 [ %44, %.lr.ph.i ], [ 0, %38 ]
+  %.sroa.02.06.i = phi ptr [ %45, %.lr.ph.i ], [ %.sroa.016.0, %38 ]
+  %42 = load i64, ptr %.sroa.02.06.i, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = add i32 %.07.i, %43
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
+  %.not.i = icmp eq ptr %45, %41
   br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit, label %.lr.ph.i, !llvm.loop !16
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit: ; preds = %.lr.ph.i
-  %47 = icmp eq i32 %45, 0
-  br i1 %47, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread, label %51
+  %46 = icmp eq i32 %44, 0
+  br i1 %46, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread, label %51
 
-.thread:                                          ; preds = %21
+47:                                               ; preds = %21
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %61
+  br label %_ZNSt6vectorImSaImEED2Ev.exit15
 
-49:                                               ; preds = %55, %51
+49:                                               ; preds = %55, %51, %37
   %50 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost10collective6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  %.not.i.i.i14 = icmp eq ptr %.sroa.016.0, null
-  br i1 %.not.i.i.i14, label %_ZNSt6vectorImSaImEED2Ev.exit15, label %61
+  br label %_ZNSt6vectorImSaImEED2Ev.exit15
 
 51:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1956,44 +1949,36 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_
           to label %55 unwind label %49
 
 55:                                               ; preds = %51
-  %56 = sext i32 %45 to i64
+  %56 = sext i32 %44 to i64
   invoke void @_ZN7xgboost10SparsePage7ReindexEmi(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef %56, i32 noundef %54)
           to label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread unwind label %49
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread: ; preds = %39, %55, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread: ; preds = %38, %55, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit
   %57 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %57, null
-  br i1 %.not.i.i, label %_ZN7xgboost10collective6ResultD2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
+  br i1 %.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
 
 _ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread
   call void @_ZN7xgboost10collective6detail10ResultImplD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %57) #11
   call void @_ZdlPvm(ptr noundef nonnull %57, i64 noundef 56) #27
-  br label %_ZN7xgboost10collective6ResultD2Ev.exit
-
-_ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
-  store ptr null, ptr %3, align 8
-  %.not.i.i.i = icmp eq ptr %.sroa.016.0, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit, label %58
-
-58:                                               ; preds = %_ZN7xgboost10collective6ResultD2Ev.exit
-  %59 = ptrtoint ptr %.sroa.12.0 to i64
-  %60 = sub i64 %59, %27
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %60) #27
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-61:                                               ; preds = %.thread32, %.thread, %49
-  %.pn30 = phi { ptr, i32 } [ %48, %.thread ], [ %50, %49 ], [ %38, %.thread32 ]
-  %62 = ptrtoint ptr %.sroa.12.0 to i64
-  %63 = sub i64 %62, %27
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %63) #27
-  br label %_ZNSt6vectorImSaImEED2Ev.exit15
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiET0_T_S9_S8_.exit.thread, %_ZNKSt14default_deleteIN7xgboost10collective6detail10ResultImplEEclEPS3_.exit.i.i
+  store ptr null, ptr %3, align 8
+  %58 = ptrtoint ptr %.sroa.12.0 to i64
+  %59 = sub i64 %58, %27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %59) #27
+  br label %62
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %58, %_ZN7xgboost10collective6ResultD2Ev.exit, %8, %2
+_ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %47, %49
+  %.pn.ph = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ]
+  %60 = ptrtoint ptr %.sroa.12.0 to i64
+  %61 = sub i64 %60, %27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.016.0, i64 noundef %61) #27
+  resume { ptr, i32 } %.pn.ph
+
+62:                                               ; preds = %_ZNSt6vectorImSaImEED2Ev.exit, %8, %2
   ret void
-
-_ZNSt6vectorImSaImEED2Ev.exit15:                  ; preds = %61, %49
-  %.pn.pn = phi { ptr, i32 } [ %50, %49 ], [ %.pn30, %61 ]
-  resume { ptr, i32 } %.pn.pn
 }
 
 declare void @_ZN7xgboost8MetaInfo26SynchronizeNumberOfColumnsEPKNS_7ContextE(ptr noundef nonnull align 8 dereferenceable(233), ptr noundef) local_unnamed_addr #0

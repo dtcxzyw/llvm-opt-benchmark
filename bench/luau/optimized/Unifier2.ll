@@ -2849,7 +2849,7 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit:
   store ptr %4, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %18)
   %.not.i.i35 = icmp eq ptr %19, null
@@ -5199,17 +5199,17 @@ _ZN4Luau4get2INS_9TableTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit: 
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %_ZN4Luau4get2INS_9TableTypeES1_PKNS_4TypeEEENS_7TryPairIPKT_PKT0_EET1_SD_.exit
-  %20 = getelementptr inbounds nuw i8, ptr %..i, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %..i, i64 8
   %.not64 = icmp eq ptr %21, %22
   br i1 %.not64, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.8.i, i64 16
-  %24 = getelementptr inbounds nuw i8, ptr %.8.i, i64 8
-  %25 = getelementptr inbounds nuw i8, ptr %.8.i, i64 72
-  %26 = getelementptr inbounds nuw i8, ptr %.8.i, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 64
   br label %27
 
 27:                                               ; preds = %.lr.ph, %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit.thread"
@@ -5307,16 +5307,16 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4Luau8PropertyES
   br i1 %.not, label %._crit_edge, label %27
 
 ._crit_edge:                                      ; preds = %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit.thread", %19
-  %65 = getelementptr inbounds nuw i8, ptr %.8.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.8.i, i64 8
   %.not6267 = icmp eq ptr %66, %67
   br i1 %.not6267, label %.loopexit, label %.lr.ph71
 
 .lr.ph71:                                         ; preds = %._crit_edge
-  %68 = getelementptr inbounds nuw i8, ptr %..i, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %..i, i64 72
-  %70 = getelementptr inbounds nuw i8, ptr %..i, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 64
   br label %71
 
 71:                                               ; preds = %.lr.ph71, %"_ZZN4LuauL13areCompatibleEPKNS_4TypeES2_ENK3$_0clERKNS_8PropertyEPKNS_9TableTypeE.exit43.thread"

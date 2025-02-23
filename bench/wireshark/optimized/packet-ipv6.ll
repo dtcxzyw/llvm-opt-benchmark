@@ -4113,7 +4113,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread92.thread105
   %70 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %69, i32 noundef 0)
   %71 = zext i16 %70 to i32
   %72 = add nuw nsw i32 %.0112.us, 1
-  %73 = icmp ult i32 %72, %.0729196103
+  %73 = icmp samesign ult i32 %72, %.0729196103
   %74 = icmp ne i16 %70, 0
   %75 = select i1 %73, i1 %74, i1 false
   br i1 %75, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !19
@@ -4131,7 +4131,7 @@ proto_item_set_generated.exit:                    ; preds = %.thread92.thread105
   %79 = add nuw nsw i32 %.069111, %.0739097102
   %80 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %79, i32 noundef 0)
   %81 = add nuw nsw i32 %.0112, 1
-  %82 = icmp ult i32 %81, %.0729196103
+  %82 = icmp samesign ult i32 %81, %.0729196103
   %83 = icmp ne i32 %80, 0
   %84 = select i1 %82, i1 %83, i1 false
   br i1 %84, label %.lr.ph.split, label %._crit_edge, !llvm.loop !19

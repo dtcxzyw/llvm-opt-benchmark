@@ -1283,33 +1283,30 @@ define dso_local range(i32 -2147483648, 1) i32 @set_pages_wb(ptr noundef %0, i32
 define dso_local range(i32 -2147483648, 1) i32 @set_pages_array_wb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @change_page_attr_set_clr(ptr noundef null, i32 noundef %1, i64 0, i64 152, i32 noundef 0, i32 noundef 4, ptr noundef %0)
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %.loopexit
+  %5 = icmp sgt i32 %1, 0
+  %or.cond = and i1 %5, %4
+  br i1 %or.cond, label %6, label %.loopexit
 
-5:                                                ; preds = %2
-  %6 = icmp sgt i32 %1, 0
-  br i1 %6, label %7, label %.loopexit
+6:                                                ; preds = %2
+  %7 = zext nneg i32 %1 to i64
+  br label %8
 
-7:                                                ; preds = %5
-  %8 = zext nneg i32 %1 to i64
-  br label %9
+8:                                                ; preds = %8, %6
+  %9 = phi i64 [ 0, %6 ], [ %18, %8 ]
+  %10 = getelementptr ptr, ptr %0, i64 %9
+  %11 = load ptr, ptr %10, align 8
+  %12 = load i64, ptr @vmemmap_base, align 8
+  %13 = ptrtoint ptr %11 to i64
+  %14 = sub i64 %13, %12
+  %15 = shl i64 %14, 6
+  %16 = add i64 %15, 4096
+  %17 = tail call i32 @memtype_free(i64 noundef %15, i64 noundef %16) #11
+  %18 = add nuw nsw i64 %9, 1
+  %19 = icmp eq i64 %18, %7
+  br i1 %19, label %.loopexit, label %8, !llvm.loop !38
 
-9:                                                ; preds = %9, %7
-  %10 = phi i64 [ 0, %7 ], [ %19, %9 ]
-  %11 = getelementptr ptr, ptr %0, i64 %10
-  %12 = load ptr, ptr %11, align 8
-  %13 = load i64, ptr @vmemmap_base, align 8
-  %14 = ptrtoint ptr %12 to i64
-  %15 = sub i64 %14, %13
-  %16 = shl i64 %15, 6
-  %17 = add i64 %16, 4096
-  %18 = tail call i32 @memtype_free(i64 noundef %16, i64 noundef %17) #11
-  %19 = add nuw nsw i64 %10, 1
-  %20 = icmp eq i64 %19, %8
-  br i1 %20, label %.loopexit, label %9, !llvm.loop !38
-
-.loopexit:                                        ; preds = %9, %5, %2
-  %21 = phi i32 [ %3, %2 ], [ 0, %5 ], [ 0, %9 ]
-  ret i32 %21
+.loopexit:                                        ; preds = %8, %2
+  ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

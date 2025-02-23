@@ -1802,8 +1802,8 @@ _ZN5clang14TypeLocBuilder4pushINS_22FunctionNoProtoTypeLocEEET_NS_8QualTypeE.exi
   %778 = getelementptr inbounds nuw i8, ptr %776, i64 16
   %779 = load i8, ptr %778, align 16
   %780 = icmp eq i8 %779, 26
-  %.not.not6.i.i.i = icmp ne ptr %776, null
-  %.not.not.not.i.i.i = and i1 %.not.not6.i.i.i, %780
+  %.not6.i.i.i = icmp ne ptr %776, null
+  %.not.not.not.i.i.i = and i1 %.not6.i.i.i, %780
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i: ; preds = %_ZN5clang14TypeLocBuilder4pushINS_22FunctionNoProtoTypeLocEEET_NS_8QualTypeE.exit
@@ -1873,8 +1873,8 @@ _ZN5clang14TypeLocBuilder4pushINS_20FunctionProtoTypeLocEEET_NS_8QualTypeE.exit:
   %808 = getelementptr inbounds nuw i8, ptr %806, i64 16
   %809 = load i8, ptr %808, align 16
   %810 = icmp eq i8 %809, 26
-  %.not.not6.i.i.i216 = icmp ne ptr %806, null
-  %.not.not.not.i.i.i217 = and i1 %.not.not6.i.i.i216, %810
+  %.not6.i.i.i216 = icmp ne ptr %806, null
+  %.not.not.not.i.i.i217 = and i1 %.not6.i.i.i216, %810
   br i1 %.not.not.not.i.i.i217, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i224, label %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i218
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i224: ; preds = %_ZN5clang14TypeLocBuilder4pushINS_20FunctionProtoTypeLocEEET_NS_8QualTypeE.exit

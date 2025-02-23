@@ -702,7 +702,7 @@ define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, 
   br i1 %53, label %54, label %56
 
 54:                                               ; preds = %52
-  %55 = call i32 @H5Dread(i64 noundef %0, i64 noundef %50, i64 noundef %44, i64 noundef %16, i64 noundef 0, ptr noundef %4) #9
+  %55 = call i32 @H5Dread(i64 noundef %0, i64 noundef %50, i64 noundef %44, i64 noundef %16, i64 noundef 0, ptr noundef nonnull %4) #9
   %.lobit.i = ashr i32 %55, 31
   br label %.thread.i
 

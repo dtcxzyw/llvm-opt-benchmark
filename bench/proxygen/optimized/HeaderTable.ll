@@ -2391,57 +2391,57 @@ invoke.cont:                                      ; preds = %entry
 
 if.then6:                                         ; preds = %invoke.cont
   invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %shr.i.i.i, i64 noundef %mul.i.i)
-          to label %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit unwind label %terminate.lpad
+          to label %if.end9 unwind label %terminate.lpad
 
 if.else:                                          ; preds = %invoke.cont
   invoke void @_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE11beforeClearEmm(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %shr.i.i.i, i64 noundef %mul.i.i)
           to label %if.end9.thread unwind label %terminate.lpad
 
+if.end9:                                          ; preds = %if.then6
+  %2 = load ptr, ptr %chunks_, align 8
+  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_, align 8
+  store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  tail call void @_ZdlPv(ptr noundef nonnull %2) #30
+  store ptr null, ptr %this, align 8
+  br label %if.end41
+
 if.end9.thread:                                   ; preds = %if.else
-  %2 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
-  %cmp.i28 = icmp ult i64 %2, 256
+  %3 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  %cmp.i28 = icmp ult i64 %3, 256
   br i1 %cmp.i28, label %if.end41, label %if.then13
 
 if.then13:                                        ; preds = %if.end9.thread
-  %3 = load ptr, ptr %chunks_, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %4 = load ptr, ptr %chunks_, align 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 12
   %v.0.copyload.i = load i16, ptr %arrayidx.i.i.i, align 1
   br label %for.body
 
 for.body:                                         ; preds = %if.then13, %for.body
   %ci.030 = phi i64 [ 0, %if.then13 ], [ %inc, %for.body ]
-  %4 = load ptr, ptr %chunks_, align 8
-  %arrayidx20 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %4, i64 %ci.030
+  %5 = load ptr, ptr %chunks_, align 8
+  %arrayidx20 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %5, i64 %ci.030
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx20, i8 0, i64 16, i1 false)
   %inc = add nuw i64 %ci.030, 1
-  %5 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
-  %sh_prom.i.i.i14 = and i64 %5, 255
+  %6 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
+  %sh_prom.i.i.i14 = and i64 %6, 255
   %ci.0.highbits = lshr i64 %inc, %sh_prom.i.i.i14
   %cmp18 = icmp eq i64 %ci.0.highbits, 0
   br i1 %cmp18, label %for.body, label %if.end25, !llvm.loop !46
 
 if.end25:                                         ; preds = %for.body
-  %6 = load ptr, ptr %chunks_, align 8
-  %control_.i = getelementptr inbounds nuw i8, ptr %6, i64 14
-  %7 = load i8, ptr %control_.i, align 2
-  %cmp.i16 = icmp eq i8 %7, 0
+  %7 = load ptr, ptr %chunks_, align 8
+  %control_.i = getelementptr inbounds nuw i8, ptr %7, i64 14
+  %8 = load i8, ptr %control_.i, align 2
+  %cmp.i16 = icmp eq i8 %8, 0
   tail call void @llvm.assume(i1 %cmp.i16)
-  %arrayidx.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %arrayidx.i.i.i.i18 = getelementptr inbounds nuw i8, ptr %7, i64 12
   store i16 %v.0.copyload.i, ptr %arrayidx.i.i.i.i18, align 1
   %.pre = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   %conv.i.i19 = and i64 %.pre, 255
   store i64 %conv.i.i19, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
   br label %if.end41
 
-_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit: ; preds = %if.then6
-  %8 = load ptr, ptr %chunks_, align 8
-  store ptr @_ZN5folly3f146detail15kEmptyTagVectorE, ptr %chunks_, align 8
-  store i64 0, ptr %sizeAndChunkShiftAndPackedBegin_.i, align 8
-  tail call void @_ZdlPv(ptr noundef nonnull %8) #30
-  store ptr null, ptr %this, align 8
-  br label %if.end41
-
-if.end41:                                         ; preds = %if.end25, %if.end9.thread, %_ZN5folly3f146detail21VectorContainerPolicyIN8proxygen15HPACKHeaderNameENSt7__cxx114listIjSaIjEEEvvvSt17integral_constantIbLb1EEE10afterResetEmmPhm.exit, %entry
+if.end41:                                         ; preds = %if.end25, %if.end9.thread, %if.end9, %entry
   ret void
 
 terminate.lpad:                                   ; preds = %if.then6, %if.else

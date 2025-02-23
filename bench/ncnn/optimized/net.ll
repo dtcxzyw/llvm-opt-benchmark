@@ -1131,9 +1131,9 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %414 = add i64 %.01012.i.i.i.i.i, -1
   %415 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %414, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit573, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
+  br i1 %.not.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i, !llvm.loop !9
 
-.loopexit573:                                     ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i
   %416 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %415, ptr %416, align 8
   %417 = getelementptr inbounds nuw i8, ptr %1, i64 9
@@ -1161,9 +1161,9 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %437 = icmp ult i64 %430, %436
   br i1 %437, label %438, label %._crit_edge, !llvm.loop !10
 
-438:                                              ; preds = %.loopexit573, %429
-  %439 = phi ptr [ %401, %.loopexit573 ], [ %432, %429 ]
-  %.0345576 = phi i64 [ 0, %.loopexit573 ], [ %430, %429 ]
+438:                                              ; preds = %.lr.ph, %429
+  %439 = phi ptr [ %401, %.lr.ph ], [ %432, %429 ]
+  %.0345576 = phi i64 [ 0, %.lr.ph ], [ %430, %429 ]
   %440 = getelementptr inbounds i32, ptr %439, i64 %.0345576
   %441 = load i32, ptr %440, align 4
   %442 = sext i32 %441 to i64

@@ -2367,7 +2367,7 @@ Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
   br i1 %.not24.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73, !llvm.loop !90
 
 91:                                               ; preds = %Gia_ManAreListCountListUsed.exit
-  tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %30)
+  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %30)
   %92 = load i32, ptr %.tr138, align 4
   %93 = and i32 %92, -1032193
   store i32 %93, ptr %.tr138, align 4
@@ -2512,7 +2512,7 @@ Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
   br i1 %.not24.i105, label %Gia_ManAreCompress.exit, label %.lr.ph.i92, !llvm.loop !90
 
 163:                                              ; preds = %Gia_ManAreListCountListUsed.exit86
-  tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %102)
+  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %102)
   %164 = load i32, ptr %.tr138, align 4
   %165 = and i32 %164, -66060289
   store i32 %165, ptr %.tr138, align 4
@@ -2596,11 +2596,11 @@ Gia_ManAreListCountListUsed.exit122:              ; preds = %.lr.ph.i114
   br i1 %208, label %209, label %210
 
 209:                                              ; preds = %Gia_ManAreListCountListUsed.exit122.thread, %Gia_ManAreListCountListUsed.exit122
-  tail call fastcc void @Gia_ManAreCompress(ptr noundef %0, ptr noundef nonnull %170)
+  tail call fastcc void @Gia_ManAreCompress(ptr noundef nonnull %0, ptr noundef nonnull %170)
   br label %Gia_ManAreCompress.exit
 
 210:                                              ; preds = %Gia_ManAreListCountListUsed.exit122
-  tail call fastcc void @Gia_ManAreRebalance(ptr noundef %0, ptr noundef nonnull %170)
+  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %170)
   %211 = load i32, ptr %.tr138, align 4
   %212 = and i32 %211, 67108863
   store i32 %212, ptr %.tr138, align 4
@@ -6132,17 +6132,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 .critedge2:                                       ; preds = %83, %70
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %64, !llvm.loop !140
+  br i1 %exitcond.not, label %.critedge.thread, label %64, !llvm.loop !140
 
-.critedge:                                        ; preds = %.critedge2, %._crit_edge
+.critedge:                                        ; preds = %._crit_edge
   %.not.i = icmp eq ptr %.pre, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %99
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
-99:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %.critedge2, %.critedge
   tail call void @free(ptr noundef nonnull %.pre) #27
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %99
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %3) #27
   tail call void @Gia_ManAreDeriveCexSatStop(ptr noundef nonnull %0)
   ret ptr %56

@@ -870,7 +870,7 @@ define internal noundef i32 @encode_mcu_DC_refine(ptr noundef readonly captures(
   %30 = load i16, ptr %29, align 2
   %31 = sext i16 %30 to i32
   %32 = ashr i32 %31, %6
-  tail call fastcc void @emit_bits(ptr noundef %4, i32 noundef %32, i32 noundef 1)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %4, i32 noundef %32, i32 noundef 1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load i32, ptr %25, align 8
   %34 = sext i32 %33 to i64
@@ -984,9 +984,9 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %33, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph204, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph204:                                        ; preds = %.lr.ph
   %44 = sext i32 %.190 to i64
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -1006,11 +1006,11 @@ define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(
   %60 = add i32 %7, 1
   br label %61
 
-61:                                               ; preds = %._crit_edge, %583
-  %indvars.iv224 = phi i64 [ %59, %._crit_edge ], [ %indvars.iv.next225, %583 ]
-  %.080202 = phi i32 [ 0, %._crit_edge ], [ %.1, %583 ]
-  %.083200 = phi i32 [ 0, %._crit_edge ], [ %.184, %583 ]
-  %.086199 = phi ptr [ %50, %._crit_edge ], [ %.187, %583 ]
+61:                                               ; preds = %.lr.ph204, %583
+  %indvars.iv224 = phi i64 [ %59, %.lr.ph204 ], [ %indvars.iv.next225, %583 ]
+  %.080202 = phi i32 [ 0, %.lr.ph204 ], [ %.1, %583 ]
+  %.083200 = phi i32 [ 0, %.lr.ph204 ], [ %.184, %583 ]
+  %.086199 = phi ptr [ %50, %.lr.ph204 ], [ %.187, %583 ]
   %62 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv224
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %63, 0
@@ -2619,7 +2619,7 @@ emit_symbol.exit:                                 ; preds = %22, %29
   %.0.i = phi i32 [ %52, %.preheader.i ], [ %43, %.preheader.i.preheader ]
   %49 = load i8, ptr %.07.i, align 1
   %50 = sext i8 %49 to i32
-  tail call fastcc void @emit_bits(ptr noundef %0, i32 noundef %50, i32 noundef 1)
+  tail call fastcc void @emit_bits(ptr noundef nonnull %0, i32 noundef %50, i32 noundef 1)
   %51 = getelementptr inbounds nuw i8, ptr %.07.i, i64 1
   %52 = add i32 %.0.i, -1
   %.old1.not.i = icmp eq i32 %52, 0

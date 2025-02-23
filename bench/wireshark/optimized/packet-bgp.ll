@@ -4048,7 +4048,7 @@ define hidden void @dissect_bgp_path_attr(ptr noundef %0, ptr noundef %1, i16 no
 
 .lr.ph93.i:                                       ; preds = %.preheader87.i, %.lr.ph93.i
   %.07592.i = phi i32 [ %113, %.lr.ph93.i ], [ 0, %.preheader87.i ]
-  %109 = shl nuw i32 %.07592.i, 1
+  %109 = shl nuw nsw i32 %.07592.i, 1
   %110 = add i32 %109, %100
   %111 = call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %110)
   %112 = icmp ne i16 %111, 0
@@ -4928,7 +4928,7 @@ save_afi_safi_data.exit1774:                      ; preds = %472, %490
 533:                                              ; preds = %.lr.ph1877, %533
   %.31875 = phi i32 [ %526, %.lr.ph1877 ], [ %541, %533 ]
   %534 = load i32, ptr @hf_bgp_update_path_attribute_cluster_id, align 4
-  %535 = add i32 %532, %.31875
+  %535 = add nsw i32 %532, %.31875
   %536 = call ptr @proto_tree_add_item(ptr noundef %529, i32 noundef %534, ptr noundef %1, i32 noundef %535, i32 noundef 4, i32 noundef 0)
   %537 = load ptr, ptr %10, align 8
   %538 = call ptr @tvb_address_to_str(ptr noundef %537, ptr noundef %1, i32 noundef 2, i32 noundef %535)
@@ -14665,7 +14665,7 @@ declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_bgp_capability_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65823) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483646, -2147483648) i32 @dissect_bgp_capability_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 65823) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr @hf_bgp_cap, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef -1, i32 noundef 0)
   %8 = load i32, ptr @ett_bgp_cap, align 4

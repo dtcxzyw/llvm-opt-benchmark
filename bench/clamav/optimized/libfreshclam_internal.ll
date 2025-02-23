@@ -3846,7 +3846,7 @@ printTime.exit40:                                 ; preds = %89, %100, %106
 printBytes.exit:                                  ; preds = %123, %130, %135
   %138 = load ptr, ptr @stdout, align 8, !tbaa !28
   %fputc34 = call i32 @fputc(i32 47, ptr %138)
-  %139 = icmp sgt i64 %1, 1048575
+  %139 = icmp samesign ugt i64 %1, 1048575
   br i1 %139, label %140, label %145
 
 140:                                              ; preds = %printBytes.exit
@@ -3857,7 +3857,7 @@ printBytes.exit:                                  ; preds = %123, %130, %135
   br label %printBytes.exit41
 
 145:                                              ; preds = %printBytes.exit
-  %146 = icmp sgt i64 %1, 1023
+  %146 = icmp samesign ugt i64 %1, 1023
   br i1 %146, label %147, label %152
 
 147:                                              ; preds = %145

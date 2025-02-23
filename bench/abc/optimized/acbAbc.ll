@@ -59,7 +59,7 @@ define noundef ptr @Acb_NtkFromAbc2(ptr noundef readonly captures(none) %0) loca
   %.val100.val = load ptr, ptr %22, align 8, !tbaa !44
   %23 = getelementptr inbounds nuw ptr, ptr %.val100.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !45
-  %25 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef %14, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc i32 @Acb_ObjAlloc(ptr noundef nonnull %14, i32 noundef 3, i32 noundef 0)
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store i32 %25, ptr %26, align 8, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

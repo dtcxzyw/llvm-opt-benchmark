@@ -101,7 +101,7 @@ define dso_local { ptr, i64 } @_ZN4absl13cord_internal21CordRepBtreeNavigator4Sk
   %.243.lcssa = phi i64 [ %.14284, %.lr.ph88 ], [ %48, %.lr.ph80 ]
   %.3.lcssa = phi i64 [ %44, %.lr.ph88 ], [ %49, %.lr.ph80 ]
   %.2.lcssa = phi ptr [ %.275, %.lr.ph88 ], [ %.2, %.lr.ph80 ]
-  %38 = icmp sgt i64 %indvars.iv103, 1
+  %38 = icmp samesign ugt i64 %indvars.iv103, 1
   br i1 %38, label %.lr.ph88, label %._crit_edge89, !llvm.loop !22
 
 .lr.ph88:                                         ; preds = %.lr.ph88.preheader, %.loopexit
@@ -547,7 +547,7 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
   %.290 = phi ptr [ %177, %.lr.ph162 ], [ %177, %178 ], [ %202, %193 ]
   %.487 = phi ptr [ %.386159, %.lr.ph162 ], [ %179, %178 ], [ %179, %193 ]
   %.5 = phi i64 [ %.4160, %.lr.ph162 ], [ 0, %178 ], [ %197, %193 ]
-  %204 = icmp sgt i64 %indvars.iv199, 1
+  %204 = icmp samesign ugt i64 %indvars.iv199, 1
   br i1 %204, label %.lr.ph162, label %._crit_edge163, !llvm.loop !35
 
 ._crit_edge163:                                   ; preds = %.loopexit, %164

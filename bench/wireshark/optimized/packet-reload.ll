@@ -3736,7 +3736,7 @@ dissect_dmflag.exit:                              ; preds = %27
 
 53:                                               ; preds = %44
   %54 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %47, ptr noundef nonnull @ei_reload_truncated_field, ptr noundef nonnull @.str.779)
-  %55 = add i32 %.081, -4
+  %55 = add nsw i32 %.081, -4
   br label %56
 
 56:                                               ; preds = %53, %44

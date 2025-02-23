@@ -7834,41 +7834,40 @@ define internal fastcc i32 @workqueue_apply_unbound_cpumask(ptr noundef readonly
   %27 = phi i32 [ %19, %17 ], [ 0, %1 ], [ 0, %24 ]
   %28 = load ptr, ptr %2, align 8
   %29 = icmp eq ptr %28, %2
-  br i1 %29, label %.loopexit, label %30
+  %30 = icmp eq i32 %27, 0
+  br i1 %29, label %.loopexit, label %31
 
-30:                                               ; preds = %.loopexit6
-  %31 = icmp eq i32 %27, 0
-  br i1 %31, label %.split.us, label %.split
+31:                                               ; preds = %.loopexit6
+  br i1 %30, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %30, %.split.us
-  %32 = phi ptr [ %34, %.split.us ], [ %28, %30 ]
+.split.us:                                        ; preds = %31, %.split.us
+  %32 = phi ptr [ %34, %.split.us ], [ %28, %31 ]
   %33 = getelementptr i8, ptr %32, i64 -16
   %34 = load ptr, ptr %32, align 8
   call fastcc void @apply_wqattrs_commit(ptr noundef %33)
   call fastcc void @apply_wqattrs_cleanup(ptr noundef %33)
   %35 = icmp eq ptr %34, %2
-  br i1 %35, label %.loopexit, label %.split.us, !llvm.loop !262
+  br i1 %35, label %.loopexit.thread, label %.split.us, !llvm.loop !262
 
-.split:                                           ; preds = %30, %.split
-  %36 = phi ptr [ %38, %.split ], [ %28, %30 ]
+.split:                                           ; preds = %31, %.split
+  %36 = phi ptr [ %38, %.split ], [ %28, %31 ]
   %37 = getelementptr i8, ptr %36, i64 -16
   %38 = load ptr, ptr %36, align 8
   call fastcc void @apply_wqattrs_cleanup(ptr noundef %37)
   %39 = icmp eq ptr %38, %2
-  br i1 %39, label %.loopexit, label %.split, !llvm.loop !262
+  br i1 %39, label %.loopexit.thread8, label %.split, !llvm.loop !262
 
-.loopexit:                                        ; preds = %.split, %.split.us, %.loopexit6
-  %40 = icmp eq i32 %27, 0
-  br i1 %40, label %41, label %43
+.loopexit:                                        ; preds = %.loopexit6
+  br i1 %30, label %.loopexit.thread, label %.loopexit.thread8
 
-41:                                               ; preds = %.loopexit
+.loopexit.thread:                                 ; preds = %.split.us, %.loopexit
   call void @mutex_lock(ptr noundef nonnull @wq_pool_attach_mutex) #26
-  %42 = load i64, ptr %0, align 8
-  store i64 %42, ptr @wq_unbound_cpumask, align 8
+  %40 = load i64, ptr %0, align 8
+  store i64 %40, ptr @wq_unbound_cpumask, align 8
   call void @mutex_unlock(ptr noundef nonnull @wq_pool_attach_mutex) #26
-  br label %43
+  br label %.loopexit.thread8
 
-43:                                               ; preds = %41, %.loopexit
+.loopexit.thread8:                                ; preds = %.split, %.loopexit.thread, %.loopexit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #26
   ret i32 %27
 }

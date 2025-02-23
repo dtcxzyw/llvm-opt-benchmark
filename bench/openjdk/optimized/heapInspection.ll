@@ -1610,27 +1610,27 @@ _ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit.preheader: ; preds = %_ZN15
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph, label %._crit_edge
 
-.preheader86:                                     ; preds = %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit
+.preheader87:                                     ; preds = %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit
   %55 = icmp sgt i32 %133, 0
-  br i1 %55, label %.lr.ph91, label %._crit_edge
+  br i1 %55, label %.lr.ph92, label %._crit_edge
 
-.lr.ph91:                                         ; preds = %.preheader86
+.lr.ph92:                                         ; preds = %.preheader87
   %56 = icmp eq ptr %3, null
-  br i1 %56, label %.lr.ph91.split.us, label %.lr.ph91.split
+  br i1 %56, label %.lr.ph92.split.us, label %.lr.ph92.split
 
-.lr.ph91.split.us:                                ; preds = %.lr.ph91
+.lr.ph92.split.us:                                ; preds = %.lr.ph92
   %57 = load ptr, ptr %30, align 8
   %wide.trip.count = zext nneg i32 %133 to i64
   br label %58
 
-58:                                               ; preds = %58, %.lr.ph91.split.us
-  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %58 ], [ 0, %.lr.ph91.split.us ]
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv103
+58:                                               ; preds = %58, %.lr.ph92.split.us
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %58 ], [ 0, %.lr.ph92.split.us ]
+  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv104
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   store i8 1, ptr %61, align 8
-  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next104, %wide.trip.count
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next105, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %58, !llvm.loop !14
 
 .lr.ph:                                           ; preds = %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit.preheader, %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit
@@ -1769,12 +1769,12 @@ _ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit: ; preds = %.lr.ph, %_ZN14K
   %133 = phi i32 [ %62, %.lr.ph ], [ %.pre, %_ZN14KlassInfoEntry12add_subclassEPS_.exit ]
   %134 = sext i32 %133 to i64
   %135 = icmp slt i64 %indvars.iv.next, %134
-  br i1 %135, label %.lr.ph, label %.preheader86, !llvm.loop !15
+  br i1 %135, label %.lr.ph, label %.preheader87, !llvm.loop !15
 
-.lr.ph91.split:                                   ; preds = %.lr.ph91, %145
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %145 ], [ 0, %.lr.ph91 ]
+.lr.ph92.split:                                   ; preds = %.lr.ph92, %145
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %145 ], [ 0, %.lr.ph92 ]
   %136 = load ptr, ptr %30, align 8
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv100
+  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv101
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
@@ -1783,18 +1783,18 @@ _ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit: ; preds = %.lr.ph, %_ZN14K
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %144, label %145
 
-144:                                              ; preds = %.lr.ph91.split
+144:                                              ; preds = %.lr.ph92.split
   call void @_ZN14KlassHierarchy32set_do_print_for_class_hierarchyEP14KlassInfoEntryP14KlassInfoTableb(ptr noundef nonnull %138, ptr noundef nonnull %9, i1 noundef zeroext %2)
   br label %145
 
-145:                                              ; preds = %144, %.lr.ph91.split
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+145:                                              ; preds = %144, %.lr.ph92.split
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %146 = load i32, ptr %8, align 8
   %147 = sext i32 %146 to i64
-  %148 = icmp slt i64 %indvars.iv.next101, %147
-  br i1 %148, label %.lr.ph91.split, label %._crit_edge, !llvm.loop !14
+  %148 = icmp slt i64 %indvars.iv.next102, %147
+  br i1 %148, label %.lr.ph92.split, label %._crit_edge, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %145, %58, %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit.preheader, %.preheader86
+._crit_edge:                                      ; preds = %145, %58, %_ZN14KlassInfoTable7iterateEP16KlassInfoClosure.exit.preheader, %.preheader87
   %149 = load ptr, ptr @_ZN9vmClasses8_klassesE, align 8
   %150 = ptrtoint ptr %149 to i64
   %151 = load i64, ptr %34, align 8
@@ -1914,15 +1914,15 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %._crit_edge.i
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %209 = load ptr, ptr %208, align 8
   %210 = icmp eq ptr %209, null
-  br i1 %210, label %._crit_edge95, label %.lr.ph94
+  br i1 %210, label %._crit_edge96, label %.lr.ph95
 
-.lr.ph94:                                         ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
+.lr.ph95:                                         ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
   %211 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 64
   br label %213
 
-213:                                              ; preds = %.lr.ph94, %.loopexit
-  %214 = phi ptr [ %209, %.lr.ph94 ], [ %290, %.loopexit ]
+213:                                              ; preds = %.lr.ph95, %.loopexit
+  %214 = phi ptr [ %209, %.lr.ph95 ], [ %290, %.loopexit ]
   %215 = load i64, ptr %26, align 8
   %216 = add i64 %215, -1
   store i64 %216, ptr %26, align 8
@@ -1985,22 +1985,22 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit: ; preds = %213, %_ZN5StackI
 .preheader:                                       ; preds = %244
   %247 = load i32, ptr %246, align 4
   %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %.lr.ph93, label %.loopexit
+  br i1 %248, label %.lr.ph94, label %.loopexit
 
-.lr.ph93:                                         ; preds = %.preheader, %285
+.lr.ph94:                                         ; preds = %.preheader, %285
   %249 = phi i32 [ %286, %285 ], [ %247, %.preheader ]
   %250 = phi ptr [ %287, %285 ], [ %246, %.preheader ]
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %285 ], [ 0, %.preheader ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %285 ], [ 0, %.preheader ]
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load ptr, ptr %251, align 8
-  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %indvars.iv106
+  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %indvars.iv107
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 40
   %256 = load i8, ptr %255, align 8
   %257 = trunc i8 %256 to i1
   br i1 %257, label %258, label %285
 
-258:                                              ; preds = %.lr.ph93
+258:                                              ; preds = %.lr.ph94
   %259 = load i64, ptr %26, align 8
   %260 = load i64, ptr %23, align 8
   %261 = icmp eq i64 %259, %260
@@ -2057,30 +2057,30 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65: ; preds = %._crit_edge
   store ptr %254, ptr %283, align 8
   %284 = add i64 %.0.i57, 1
   store i64 %284, ptr %26, align 8
-  %.pre109 = load ptr, ptr %245, align 8
-  %.pre110 = load i32, ptr %.pre109, align 4
+  %.pre110 = load ptr, ptr %245, align 8
+  %.pre111 = load i32, ptr %.pre110, align 4
   br label %285
 
-285:                                              ; preds = %.lr.ph93, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65
-  %286 = phi i32 [ %249, %.lr.ph93 ], [ %.pre110, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65 ]
-  %287 = phi ptr [ %250, %.lr.ph93 ], [ %.pre109, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65 ]
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
+285:                                              ; preds = %.lr.ph94, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65
+  %286 = phi i32 [ %249, %.lr.ph94 ], [ %.pre111, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65 ]
+  %287 = phi ptr [ %250, %.lr.ph94 ], [ %.pre110, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit65 ]
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %288 = sext i32 %286 to i64
-  %289 = icmp slt i64 %indvars.iv.next107, %288
-  br i1 %289, label %.lr.ph93, label %.loopexit, !llvm.loop !16
+  %289 = icmp slt i64 %indvars.iv.next108, %288
+  br i1 %289, label %.lr.ph94, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %285, %.preheader, %244, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
   %290 = load ptr, ptr %208, align 8
   %291 = icmp eq ptr %290, null
-  br i1 %291, label %._crit_edge95, label %213, !llvm.loop !17
+  br i1 %291, label %._crit_edge96, label %213, !llvm.loop !17
 
-._crit_edge95:                                    ; preds = %.loopexit, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
+._crit_edge96:                                    ; preds = %.loopexit, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
   %292 = load ptr, ptr %0, align 8
   %293 = load ptr, ptr %292, align 8
   call void %293(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
   br label %294
 
-294:                                              ; preds = %._crit_edge95, %45
+294:                                              ; preds = %._crit_edge96, %45
   %295 = load ptr, ptr %40, align 8
   %.not.i66 = icmp eq ptr %295, null
   br i1 %.not.i66, label %_ZN14KlassInfoTableD2Ev.exit, label %.preheader.i67
@@ -2166,8 +2166,8 @@ _ZN14KlassInfoTableD2Ev.exit:                     ; preds = %294, %312
 .loopexit.i:                                      ; preds = %316
   %319 = load ptr, ptr %30, align 8
   store i32 0, ptr %29, align 4
-  %.not.i77 = icmp eq ptr %319, null
-  br i1 %.not.i77, label %_ZN13GrowableArrayIP14KlassInfoEntryE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
+  %.not.i78 = icmp eq ptr %319, null
+  br i1 %.not.i78, label %_ZN13GrowableArrayIP14KlassInfoEntryE10deallocateEPS1_.exit.i, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i
   call void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef nonnull %319) #15
@@ -2225,19 +2225,19 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i: ; preds =
   %341 = load ptr, ptr %340, align 8
   call void %341(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull %.06.i4.i.i, i64 noundef %.pre-phi3.i) #15
   %.not.i5.i.i = icmp eq ptr %338, null
-  br i1 %.not.i5.i.i, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit6.i.i, label %.lr.ph.i3.i.i, !llvm.loop !18
+  br i1 %.not.i5.i.i, label %.loopexit.loopexit.i.i, label %.lr.ph.i3.i.i, !llvm.loop !18
 
-_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit6.i.i: ; preds = %.lr.ph.i3.i.i
-  %342 = load i64, ptr %23, align 8
+.loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i3.i.i
+  %.pre.i.i76 = load i64, ptr %23, align 8
   br label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EED2Ev.exit
 
-_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EED2Ev.exit: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit6.i.i
-  %.sink.i.i = phi i64 [ %342, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit6.i.i ], [ %332, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i ]
-  store i64 %.sink.i.i, ptr %26, align 8
+_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EED2Ev.exit: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, %.loopexit.loopexit.i.i
+  %342 = phi i64 [ %.pre.i.i76, %.loopexit.loopexit.i.i ], [ %332, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i ]
+  store i64 %342, ptr %26, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
   %343 = load ptr, ptr %16, align 8
-  %.not.i.i.i.i76 = icmp eq ptr %343, null
-  br i1 %.not.i.i.i.i76, label %345, label %344
+  %.not.i.i.i.i77 = icmp eq ptr %343, null
+  br i1 %.not.i.i.i.i77, label %345, label %344
 
 344:                                              ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EED2Ev.exit
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %14, i64 noundef %22) #15
@@ -2268,8 +2268,8 @@ define hidden void @_ZN14KlassHierarchy32set_do_print_for_class_hierarchyEP14Kla
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(464) %6) #15
-  %.not34 = icmp eq ptr %10, null
-  br i1 %.not34, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph
+  %.not35 = icmp eq ptr %10, null
+  br i1 %.not35, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph
 
 _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2277,8 +2277,8 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph: ; preds = %3
   br label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i
 
 _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i:  ; preds = %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph, %_ZN14KlassInfoTable6lookupEP5Klass.exit
-  %.035 = phi ptr [ %10, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph ], [ %42, %_ZN14KlassInfoTable6lookupEP5Klass.exit ]
-  %13 = ptrtoint ptr %.035 to i64
+  %.036 = phi ptr [ %10, %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i.lr.ph ], [ %42, %_ZN14KlassInfoTable6lookupEP5Klass.exit ]
+  %13 = ptrtoint ptr %.036 to i64
   %14 = load i64, ptr %11, align 8
   %15 = sub i64 %13, %14
   %16 = lshr i64 %15, 2
@@ -2287,7 +2287,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i:  ; preds = %_ZNK5Klass24java_mi
   %19 = load ptr, ptr %12, align 8
   %20 = zext nneg i32 %18 to i64
   %21 = getelementptr inbounds nuw %class.KlassInfoBucket, ptr %19, i64 %20
-  %22 = getelementptr inbounds nuw i8, ptr %.035, i64 112
+  %22 = getelementptr inbounds nuw i8, ptr %.036, i64 112
   %23 = load ptr, ptr %22, align 8, !nonnull !19, !noundef !19
   %24 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm544836EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull %23) #15
@@ -2304,7 +2304,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i:  ; preds = %_ZNK5Klass24java_mi
 27:                                               ; preds = %.preheader.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = icmp eq ptr %.035, %29
+  %30 = icmp eq ptr %.036, %29
   br i1 %30, label %_ZN14KlassInfoTable6lookupEP5Klass.exit, label %.preheader.i.i, !llvm.loop !6
 
 31:                                               ; preds = %.preheader.i.i
@@ -2314,7 +2314,7 @@ _ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i:  ; preds = %_ZNK5Klass24java_mi
   %34 = load ptr, ptr %21, align 8
   store ptr %34, ptr %32, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %.035, ptr %35, align 8
+  store ptr %.036, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
@@ -2330,7 +2330,7 @@ _ZN14KlassInfoTable6lookupEP5Klass.exit:          ; preds = %27, %31
   %.015.i.i = phi ptr [ %32, %31 ], [ %.0.i.i, %27 ]
   %40 = getelementptr inbounds nuw i8, ptr %.015.i.i, i64 40
   store i8 1, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %.035, i64 120
+  %41 = getelementptr inbounds nuw i8, ptr %.036, i64 120
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit, label %_ZNK5Klass24java_mirror_no_keepaliveEv.exit.i.i, !llvm.loop !20
@@ -2358,15 +2358,15 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
   store i64 1, ptr %46, align 8
   %52 = load ptr, ptr %.phi.trans.insert, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph37
+  br i1 %53, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph38
 
-.lr.ph37:                                         ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
+.lr.ph38:                                         ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  br i1 %2, label %.lr.ph37.split.us, label %.lr.ph37.split
+  br i1 %2, label %.lr.ph38.split.us, label %.lr.ph38.split
 
-.lr.ph37.split.us:                                ; preds = %.lr.ph37, %.loopexit.us
-  %55 = phi i64 [ %121, %.loopexit.us ], [ 1, %.lr.ph37 ]
-  %56 = phi ptr [ %122, %.loopexit.us ], [ %52, %.lr.ph37 ]
+.lr.ph38.split.us:                                ; preds = %.lr.ph38, %.loopexit.us
+  %55 = phi i64 [ %121, %.loopexit.us ], [ 1, %.lr.ph38 ]
+  %56 = phi ptr [ %122, %.loopexit.us ], [ %52, %.lr.ph38 ]
   %57 = add i64 %55, -1
   store i64 %57, ptr %46, align 8
   %58 = getelementptr inbounds ptr, ptr %56, i64 %57
@@ -2374,7 +2374,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit: ; preds = %_ZN14KlassInf
   %60 = icmp eq i64 %57, 0
   br i1 %60, label %61, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us
 
-61:                                               ; preds = %.lr.ph37.split.us
+61:                                               ; preds = %.lr.ph38.split.us
   %62 = load i64, ptr %43, align 8
   %63 = shl i64 %62, 3
   %64 = getelementptr inbounds i8, ptr %56, i64 %63
@@ -2412,8 +2412,8 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i.us: ; preds = %74
   store i64 %81, ptr %47, align 8
   br label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us
 
-_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i.us, %.lr.ph37.split.us
-  %82 = phi i64 [ %79, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i.us ], [ %57, %.lr.ph37.split.us ]
+_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i.us, %.lr.ph38.split.us
+  %82 = phi i64 [ %79, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i.us ], [ %57, %.lr.ph38.split.us ]
   %83 = getelementptr inbounds nuw i8, ptr %59, i64 40
   store i8 1, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %59, i64 48
@@ -2495,16 +2495,16 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit31.us: ; preds = %_ZN5Stac
   %121 = phi i64 [ %82, %.preheader.us ], [ %82, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us ], [ %116, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit31.us ]
   %122 = load ptr, ptr %.phi.trans.insert, align 8
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph37.split.us, !llvm.loop !22
+  br i1 %123, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph38.split.us, !llvm.loop !22
 
 .preheader.us:                                    ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit.us
   %124 = load i32, ptr %85, align 4
   %125 = icmp sgt i32 %124, 0
   br i1 %125, label %.lr.ph.us, label %.loopexit.us
 
-.lr.ph37.split:                                   ; preds = %.lr.ph37, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
-  %126 = phi i64 [ %153, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ 1, %.lr.ph37 ]
-  %127 = phi ptr [ %155, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ %52, %.lr.ph37 ]
+.lr.ph38.split:                                   ; preds = %.lr.ph38, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
+  %126 = phi i64 [ %153, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ 1, %.lr.ph38 ]
+  %127 = phi ptr [ %155, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit ], [ %52, %.lr.ph38 ]
   %128 = add i64 %126, -1
   store i64 %128, ptr %46, align 8
   %129 = getelementptr inbounds ptr, ptr %127, i64 %128
@@ -2512,7 +2512,7 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit31.us: ; preds = %_ZN5Stac
   %131 = icmp eq i64 %128, 0
   br i1 %131, label %132, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
 
-132:                                              ; preds = %.lr.ph37.split
+132:                                              ; preds = %.lr.ph38.split
   %133 = load i64, ptr %43, align 8
   %134 = shl i64 %133, 3
   %135 = getelementptr inbounds i8, ptr %127, i64 %134
@@ -2550,13 +2550,13 @@ _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i: ; preds = %144, 
   store i64 %152, ptr %47, align 8
   br label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit
 
-_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit: ; preds = %.lr.ph37.split, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i
-  %153 = phi i64 [ %128, %.lr.ph37.split ], [ %150, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i ]
+_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit: ; preds = %.lr.ph38.split, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i
+  %153 = phi i64 [ %128, %.lr.ph38.split ], [ %150, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE11pop_segmentEv.exit.i ]
   %154 = getelementptr inbounds nuw i8, ptr %130, i64 40
   store i8 1, ptr %154, align 8
   %155 = load ptr, ptr %.phi.trans.insert, align 8
   %156 = icmp eq ptr %155, null
-  br i1 %156, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph37.split, !llvm.loop !22
+  br i1 %156, label %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i, label %.lr.ph38.split, !llvm.loop !22
 
 _ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE13free_segmentsEPS1_.exit.i.i: ; preds = %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE3popEv.exit, %.loopexit.us, %_ZN5StackIP14KlassInfoEntryL8MEMFLAGS1EE4pushES1_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV5StackIP14KlassInfoEntryL8MEMFLAGS1EE, i64 16), ptr %4, align 8

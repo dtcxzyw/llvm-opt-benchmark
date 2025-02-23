@@ -21850,7 +21850,7 @@ invoke.cont6:                                     ; preds = %_ZN6bufferIP4sortLb
   %8 = load i32, ptr %m_pos.i.i, align 8
   %inc.i = add i32 %8, 1
   store i32 %inc.i, ptr %m_pos.i.i, align 8
-  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %mark, ptr noundef %s0, i1 noundef zeroext true)
+  invoke void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56) %mark, ptr noundef nonnull %s0, i1 noundef zeroext true)
           to label %while.cond.preheader unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 while.cond.preheader:                             ; preds = %invoke.cont6
@@ -22074,7 +22074,7 @@ invoke.cont66:                                    ; preds = %_ZNK4decl13get_fami
   br i1 %37, label %land.lhs.true, label %for.inc
 
 land.lhs.true:                                    ; preds = %invoke.cont66
-  %call69 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull %26, ptr noundef %s0)
+  %call69 = invoke noundef zeroext i1 @_ZN8datatype4util12are_siblingsEP4sortS2_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull %26, ptr noundef nonnull %s0)
           to label %invoke.cont68 unwind label %lpad.loopexit
 
 invoke.cont68:                                    ; preds = %land.lhs.true

@@ -94,14 +94,14 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %48 = load ptr, ptr %0, align 8
   %49 = tail call ptr @drm_find_edid_extension(ptr noundef %48, i32 noundef 112, ptr noundef nonnull %42) #6
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread19, label %51
+  br i1 %50, label %.thread20, label %51
 
 51:                                               ; preds = %46
   store i32 127, ptr %40, align 4
   store i32 1, ptr %41, align 4
   %52 = getelementptr i8, ptr %49, i64 1
   %53 = icmp ugt ptr %52, inttoptr (i64 -4096 to ptr)
-  br i1 %53, label %.thread19, label %54
+  br i1 %53, label %.thread20, label %54
 
 54:                                               ; preds = %51
   %55 = load i8, ptr %52, align 1
@@ -118,7 +118,7 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.1, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %65) #6
   %66 = load i8, ptr %57, align 1
   %67 = icmp ugt i8 %66, 121
-  br i1 %67, label %.thread19, label %68
+  br i1 %67, label %.thread20, label %68
 
 68:                                               ; preds = %54
   %69 = add nuw nsw i8 %66, 5
@@ -142,9 +142,9 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
 81:                                               ; preds = %79
   %82 = zext i8 %76 to i32
   %83 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, i32 noundef %82) #7
-  br label %.thread19
+  br label %.thread20
 
-.thread19:                                        ; preds = %51, %46, %54, %81
+.thread20:                                        ; preds = %51, %46, %54, %81
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %.loopexit
 
@@ -201,8 +201,8 @@ define dso_local ptr @__displayid_iter_next(ptr noundef %0) local_unnamed_addr #
   %117 = icmp eq ptr %116, null
   br i1 %117, label %46, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %115, %32, %.thread19, %.thread, %1
-  %118 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %.thread19 ], [ %33, %32 ], [ %116, %115 ]
+.loopexit:                                        ; preds = %115, %32, %.thread20, %.thread, %1
+  %118 = phi ptr [ null, %.thread ], [ null, %1 ], [ null, %.thread20 ], [ %33, %32 ], [ %116, %115 ]
   ret ptr %118
 }
 

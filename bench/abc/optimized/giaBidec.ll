@@ -966,7 +966,7 @@ Vec_PtrFree.exit:                                 ; preds = %178, %181
   br label %182
 
 182:                                              ; preds = %Vec_PtrFree.exit, %.critedge
-  %183 = tail call ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef nonnull %13, ptr noundef %3, i32 noundef %10, ptr noundef nonnull %4)
+  %183 = tail call ptr @Gia_ManConvertAigToTruth_rec(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %3, i32 noundef %10, ptr noundef nonnull %4)
   %184 = and i64 %11, 1
   %.not69 = icmp ne i64 %184, 0
   %185 = icmp sgt i32 %10, 0

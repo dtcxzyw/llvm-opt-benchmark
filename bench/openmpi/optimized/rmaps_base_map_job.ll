@@ -1356,7 +1356,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %715
   %721 = load ptr, ptr %74, align 8, !tbaa !48
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 136
   %723 = load i16, ptr %722, align 8, !tbaa !72
-  %724 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %44, ptr noundef nonnull %702, i16 noundef zeroext %723, i1 noundef zeroext true, i1 noundef zeroext true) #15
+  %724 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %44, ptr noundef nonnull %702, i16 noundef zeroext %723, i1 noundef zeroext true, i1 noundef zeroext true) #15
   %.not754 = icmp eq i32 %724, 0
   br i1 %.not754, label %792, label %.preheader
 
@@ -2658,7 +2658,7 @@ pmix_obj_update.exit797:                          ; preds = %pmix_pointer_array_
 .lr.ph.i829:                                      ; preds = %1400, %.lr.ph.i829
   %1406 = phi ptr [ %1408, %.lr.ph.i829 ], [ %1405, %1400 ]
   %.07.i830 = phi ptr [ %1407, %.lr.ph.i829 ], [ %1404, %1400 ]
-  call void %1406(ptr noundef %2) #15
+  call void %1406(ptr noundef nonnull %2) #15
   %1407 = getelementptr inbounds nuw i8, ptr %.07.i830, i64 8
   %1408 = load ptr, ptr %1407, align 8, !tbaa !56
   %.not.i831 = icmp eq ptr %1408, null
@@ -3192,7 +3192,7 @@ pmix_obj_update.exit798:                          ; preds = %1682
 .lr.ph.i841:                                      ; preds = %1692, %.lr.ph.i841
   %1698 = phi ptr [ %1700, %.lr.ph.i841 ], [ %1697, %1692 ]
   %.07.i842 = phi ptr [ %1699, %.lr.ph.i841 ], [ %1696, %1692 ]
-  call void %1698(ptr noundef %.0) #15
+  call void %1698(ptr noundef nonnull %.0) #15
   %1699 = getelementptr inbounds nuw i8, ptr %.07.i842, i64 8
   %1700 = load ptr, ptr %1699, align 8, !tbaa !56
   %.not.i843 = icmp eq ptr %1700, null
@@ -3632,7 +3632,7 @@ pmix_pointer_array_get_item.exit221.us:           ; preds = %pmix_pointer_array_
   br i1 %1, label %.lr.ph294.us, label %172
 
 172:                                              ; preds = %171
-  %173 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef nonnull %0, ptr noundef nonnull %169, ptr noundef nonnull %.0173306, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #15
+  %173 = call zeroext i1 @prte_rmaps_base_check_avail(ptr noundef %0, ptr noundef nonnull %169, ptr noundef nonnull %.0173306, ptr noundef nonnull %8, ptr noundef null, ptr noundef nonnull %5) #15
   br i1 %173, label %.lr.ph294.us, label %174
 
 174:                                              ; preds = %172
@@ -3992,7 +3992,7 @@ pmix_pointer_array_get_item.exit232:              ; preds = %pmix_pointer_array_
 
 351:                                              ; preds = %.lr.ph283, %382
   %.1179281 = phi i32 [ 0, %.lr.ph283 ], [ %383, %382 ]
-  %352 = call ptr @prte_rmaps_base_setup_proc(ptr noundef %0, i32 noundef %350, ptr noundef nonnull %.1174289, ptr noundef null, ptr noundef nonnull %5) #15
+  %352 = call ptr @prte_rmaps_base_setup_proc(ptr noundef nonnull %0, i32 noundef %350, ptr noundef nonnull %.1174289, ptr noundef null, ptr noundef nonnull %5) #15
   %353 = icmp eq ptr %352, null
   br i1 %353, label %.loopexit256, label %354
 

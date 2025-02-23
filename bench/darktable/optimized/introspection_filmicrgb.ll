@@ -13227,7 +13227,7 @@ define internal fastcc void @gauss_solve(ptr noundef nonnull captures(none) %0, 
 ._crit_edge114.i:                                 ; preds = %.lr.ph113.i
   %36 = zext i32 %.0101.lcssa.i to i64
   %.not.not.i = icmp eq i64 %indvars.iv145.i, %36
-  br i1 %.not.not.i, label %.loopexit108.i, label %.lr.ph116.preheader.i
+  br i1 %.not.not.i, label %.preheader.us.preheader.i, label %.lr.ph116.preheader.i
 
 .lr.ph116.preheader.i:                            ; preds = %._crit_edge114.i
   %invariant.gep154.i = getelementptr double, ptr %0, i64 %15
@@ -13256,14 +13256,14 @@ define internal fastcc void @gauss_solve(ptr noundef nonnull captures(none) %0, 
   store double %41, ptr %gep157.i, align 8, !tbaa !470
   %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
   %exitcond134.not.i = icmp eq i64 %indvars.iv.next131.i, %10
-  br i1 %exitcond134.not.i, label %.loopexit108.i, label %.lr.ph116.i
+  br i1 %exitcond134.not.i, label %.preheader.us.preheader.i, label %.lr.ph116.i
 
-.loopexit108.i:                                   ; preds = %.lr.ph116.i, %._crit_edge114.i
+.preheader.us.preheader.i:                        ; preds = %.lr.ph116.i, %._crit_edge114.i
   %invariant.gep158.i = getelementptr inbounds nuw double, ptr %0, i64 %19
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge119.us.i, %.loopexit108.i
-  %indvars.iv140.i = phi i64 [ %indvars.iv.i, %.loopexit108.i ], [ %indvars.iv.next141.i, %._crit_edge119.us.i ]
+.preheader.us.i:                                  ; preds = %._crit_edge119.us.i, %.preheader.us.preheader.i
+  %indvars.iv140.i = phi i64 [ %indvars.iv.i, %.preheader.us.preheader.i ], [ %indvars.iv.next141.i, %._crit_edge119.us.i ]
   %43 = mul nuw nsw i64 %indvars.iv140.i, %10
   %gep163.i = getelementptr inbounds nuw double, ptr %16, i64 %43
   %invariant.gep160.i = getelementptr inbounds nuw double, ptr %0, i64 %43

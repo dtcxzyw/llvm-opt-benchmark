@@ -316,7 +316,7 @@ define dso_local void @unblockClient(ptr noundef %0, i32 noundef %1) local_unnam
 
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %17 = phi ptr [ %18, %.lr.ph.i ], [ %16, %14 ]
-  tail call fastcc void @releaseBlockedEntry(ptr noundef %0, ptr noundef nonnull %17, i32 noundef 0)
+  tail call fastcc void @releaseBlockedEntry(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef 0)
   %18 = tail call ptr @dictNext(ptr noundef %15) #5
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !79

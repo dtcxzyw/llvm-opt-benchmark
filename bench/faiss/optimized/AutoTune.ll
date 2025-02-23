@@ -5561,7 +5561,7 @@ define void @_ZNK5faiss15OperatingPoints7displayEb(ptr noundef nonnull readonly 
   %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %26, ptr noundef %28, double noundef %29, double noundef %31, ptr noundef nonnull @.str.5)
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %33 = load ptr, ptr %20, align 8, !tbaa !163
-  %34 = load ptr, ptr %4, align 8, !tbaa !160
+  %34 = load ptr, ptr %3, align 8, !tbaa !160
   %35 = ptrtoint ptr %33 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36

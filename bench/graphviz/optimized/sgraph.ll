@@ -70,7 +70,7 @@ define void @reset(ptr noundef captures(none) initializes((0, 8)) %0) local_unna
   %11 = add nsw i32 %3, 2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !14
-  %wide.trip.count22 = zext i32 %11 to i64
+  %wide.trip.count22 = zext nneg i32 %11 to i64
   br label %20
 
 14:                                               ; preds = %.lr.ph, %14
@@ -194,7 +194,7 @@ gv_calloc.exit25:                                 ; preds = %.thread.i24, %29
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %45 = sext i32 %1 to i64
-  %wide.trip.count37 = zext i32 %42 to i64
+  %wide.trip.count37 = zext nneg i32 %42 to i64
   br label %50
 
 46:                                               ; preds = %.lr.ph, %46

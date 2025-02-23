@@ -1441,7 +1441,7 @@ define internal noundef i32 @gray_conic_to(ptr noundef readonly captures(none) %
   %63 = add nsw i64 %.075.i, %56
   %64 = ashr i64 %60, 32
   %65 = ashr i64 %61, 32
-  tail call fastcc void @gray_render_line(ptr noundef %2, i64 noundef %64, i64 noundef %65)
+  tail call fastcc void @gray_render_line(ptr noundef nonnull %2, i64 noundef %64, i64 noundef %65)
   %66 = add i32 %.0.i, -1
   %.not85.i = icmp eq i32 %66, 0
   br i1 %.not85.i, label %gray_render_conic.exit, label %59, !llvm.loop !127
@@ -2348,30 +2348,30 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %32, ptr %38, align 8, !tbaa !135
   %39 = icmp ult ptr %7, %14
-  br i1 %39, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %18
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %41 = load ptr, ptr %40, align 8, !tbaa !93
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %43 = load ptr, ptr %42, align 8, !tbaa !73
-  %44 = call i32 %41(ptr noundef %43, ptr noundef nonnull %4) #11
-  br label %.loopexit
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18, %.lr.ph
-  %.034 = phi ptr [ %50, %.lr.ph ], [ %7, %18 ]
-  %45 = load i64, ptr %.034, align 8, !tbaa !63
-  %46 = shl nsw i64 %45, 2
-  store i64 %46, ptr %.034, align 8, !tbaa !63
-  %47 = getelementptr inbounds nuw i8, ptr %.034, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !65
-  %49 = shl nsw i64 %48, 2
-  store i64 %49, ptr %47, align 8, !tbaa !65
-  %50 = getelementptr inbounds nuw i8, ptr %.034, i64 16
-  %51 = icmp ult ptr %50, %14
-  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !136
+  %.034 = phi ptr [ %45, %.lr.ph ], [ %7, %18 ]
+  %40 = load i64, ptr %.034, align 8, !tbaa !63
+  %41 = shl nsw i64 %40, 2
+  store i64 %41, ptr %.034, align 8, !tbaa !63
+  %42 = getelementptr inbounds nuw i8, ptr %.034, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !65
+  %44 = shl nsw i64 %43, 2
+  store i64 %44, ptr %42, align 8, !tbaa !65
+  %45 = getelementptr inbounds nuw i8, ptr %.034, i64 16
+  %46 = icmp ult ptr %45, %14
+  br i1 %46, label %.lr.ph, label %.lr.ph37.preheader, !llvm.loop !136
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %18
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %48 = load ptr, ptr %47, align 8, !tbaa !93
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %50 = load ptr, ptr %49, align 8, !tbaa !73
+  %51 = call i32 %48(ptr noundef %50, ptr noundef nonnull %4) #11
+  br label %.loopexit
+
+.lr.ph37.preheader:                               ; preds = %.lr.ph
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %53 = load ptr, ptr %52, align 8, !tbaa !93
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2379,8 +2379,8 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %56 = call i32 %53(ptr noundef %55, ptr noundef nonnull %4) #11
   br label %.lr.ph37
 
-.lr.ph37:                                         ; preds = %._crit_edge, %.lr.ph37
-  %.135 = phi ptr [ %62, %.lr.ph37 ], [ %7, %._crit_edge ]
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %.135 = phi ptr [ %62, %.lr.ph37 ], [ %7, %.lr.ph37.preheader ]
   %57 = load i64, ptr %.135, align 8, !tbaa !63
   %58 = sdiv i64 %57, 4
   store i64 %58, ptr %.135, align 8, !tbaa !63
@@ -2392,8 +2392,8 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %63 = icmp ult ptr %62, %14
   br i1 %63, label %.lr.ph37, label %.loopexit, !llvm.loop !137
 
-.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge.thread, %13
-  %.029 = phi i32 [ 98, %13 ], [ %44, %._crit_edge.thread ], [ %56, %.lr.ph37 ]
+.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge, %13
+  %.029 = phi i32 [ 98, %13 ], [ %51, %._crit_edge ], [ %56, %.lr.ph37 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4) #11
   ret i32 %.029

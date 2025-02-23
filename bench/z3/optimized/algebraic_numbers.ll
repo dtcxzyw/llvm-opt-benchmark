@@ -3419,8 +3419,7 @@ for.body28.lr.ph:                                 ; preds = %invoke.cont23
   %m_am.i61 = getelementptr inbounds nuw i8, ptr %ext_x2v34, i64 8
   %m_x2v.i62 = getelementptr inbounds nuw i8, ptr %ext_x2v34, i64 16
   %m_v.i63 = getelementptr inbounds nuw i8, ptr %ext_x2v34, i64 24
-  %umax = call i32 @llvm.umax.i32(i32 %1, i32 2)
-  %wide.trip.count114 = zext i32 %umax to i64
+  %wide.trip.count114 = zext i32 %1 to i64
   br label %for.body28
 
 for.body28:                                       ; preds = %for.body28.lr.ph, %invoke.cont43
@@ -12618,25 +12617,22 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %div15, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %2 = and i64 %sub.ptr.sub, 8
   %cmp7.i = icmp eq i64 %2, 0
-  %div9.i = ashr exact i64 %sub, 1
-  %cmp10.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div9.i
-  %or.cond = select i1 %cmp7.i, i1 %cmp10.i, i1 false
+  %cmp10.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div15
+  %or.cond = and i1 %cmp7.i, %cmp10.i
   br i1 %or.cond, label %if.then11.i, label %if.end18.i
 
 if.then11.i:                                      ; preds = %while.end.i
-  %add12.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
-  %sub14.i = or disjoint i64 %add12.i, 1
-  %add.ptr15.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %sub14.i
-  %add.ptr16.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %sub14.i = or disjoint i64 %sub, 1
+  %add.ptr15.i = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %__first, i64 %sub14.i
   %3 = load i64, ptr %add.ptr15.i, align 8
-  store i64 %3, ptr %add.ptr16.i, align 8
+  store i64 %3, ptr %add.ptr9, align 8
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then11.i, %while.end.i
   %__holeIndex.addr.1.i = phi i64 [ %sub14.i, %if.then11.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i)
   store ptr %__value.sroa.0.0.copyload10, ptr %__value.i.i, align 8
-  %cmp12.i.i = icmp sgt i64 %__holeIndex.addr.1.i, %div15
+  %cmp12.i.i = icmp samesign ugt i64 %__holeIndex.addr.1.i, %div15
   %4 = ptrtoint ptr %__value.sroa.0.0.copyload10 to i64
   br i1 %cmp12.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
 
@@ -12672,9 +12668,10 @@ _ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp
   br i1 %cmp868, label %return, label %if.end10.split.lr.ph
 
 if.end10.split.lr.ph:                             ; preds = %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
+  %div9.i44 = ashr exact i64 %sub, 1
   %sub14.i48 = or disjoint i64 %sub, 1
   %add.ptr15.i49 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %sub14.i48
-  %add.ptr16.i50 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %div9.i
+  %add.ptr16.i50 = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %div9.i44
   br label %if.end10.split
 
 if.end10.split:                                   ; preds = %if.end10.split.lr.ph, %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit64
@@ -12706,7 +12703,7 @@ while.body.i51:                                   ; preds = %if.end10.split, %wh
 
 while.end.i20:                                    ; preds = %while.body.i51, %if.end10.split
   %__holeIndex.addr.0.lcssa.i21 = phi i64 [ %dec, %if.end10.split ], [ %spec.select.i60, %while.body.i51 ]
-  %cmp10.i45 = icmp eq i64 %__holeIndex.addr.0.lcssa.i21, %div9.i
+  %cmp10.i45 = icmp eq i64 %__holeIndex.addr.0.lcssa.i21, %div9.i44
   %or.cond66 = select i1 %cmp7.i, i1 %cmp10.i45, i1 false
   br i1 %or.cond66, label %if.then11.i46, label %if.end18.i24
 
@@ -12803,27 +12800,32 @@ land.lhs.true.i:                                  ; preds = %while.end.i
   %sub8.i = add nsw i64 %sub.ptr.div, -2
   %div9.i = ashr exact i64 %sub8.i, 1
   %cmp10.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i, %div9.i
-  br i1 %cmp10.i, label %if.then11.i, label %if.end18.i
+  br i1 %cmp10.i, label %if.end18.i.thread, label %if.end18.i
 
-if.then11.i:                                      ; preds = %land.lhs.true.i
-  %add12.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i, 1
+if.end18.i.thread:                                ; preds = %land.lhs.true.i
+  %add12.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i, 1
   %sub14.i = or disjoint i64 %add12.i, 1
-  %add.ptr15.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %sub14.i
+  %add.ptr15.i = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %__first, i64 %sub14.i
   %add.ptr16.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %4 = load i64, ptr %add.ptr15.i, align 8
   store i64 %4, ptr %add.ptr16.i, align 8
-  br label %if.end18.i
-
-if.end18.i:                                       ; preds = %if.then11.i, %land.lhs.true.i, %while.end.i
-  %__holeIndex.addr.1.i = phi i64 [ %sub14.i, %if.then11.i ], [ %__holeIndex.addr.0.lcssa.i, %land.lhs.true.i ], [ %__holeIndex.addr.0.lcssa.i, %while.end.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i)
   store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
-  %cmp12.i.i = icmp sgt i64 %__holeIndex.addr.1.i, 0
-  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
-  br i1 %cmp12.i.i, label %land.rhs.i.i, label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit
+  br label %land.rhs.i.i.preheader
 
-land.rhs.i.i:                                     ; preds = %if.end18.i, %while.body.i.i
-  %__holeIndex.addr.013.i.i = phi i64 [ %__parent.014.i.i45, %while.body.i.i ], [ %__holeIndex.addr.1.i, %if.end18.i ]
+if.end18.i:                                       ; preds = %land.lhs.true.i, %while.end.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__value.i.i)
+  store ptr %__value.sroa.0.0.copyload, ptr %__value.i.i, align 8
+  %cmp12.i.i.not = icmp eq i64 %__holeIndex.addr.0.lcssa.i, 0
+  %5 = ptrtoint ptr %__value.sroa.0.0.copyload to i64
+  br i1 %cmp12.i.i.not, label %_ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit, label %land.rhs.i.i.preheader
+
+land.rhs.i.i.preheader:                           ; preds = %if.end18.i.thread, %if.end18.i
+  %__holeIndex.addr.013.i.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i, %if.end18.i ], [ %sub14.i, %if.end18.i.thread ]
+  br label %land.rhs.i.i
+
+land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
+  %__holeIndex.addr.013.i.i = phi i64 [ %__parent.014.i.i45, %while.body.i.i ], [ %__holeIndex.addr.013.i.i.ph, %land.rhs.i.i.preheader ]
   %__parent.014.in.i.i = add nsw i64 %__holeIndex.addr.013.i.i, -1
   %__parent.014.i.i45 = lshr i64 %__parent.014.in.i.i, 1
   %add.ptr.i.i = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %__first, i64 %__parent.014.i.i45
@@ -12833,7 +12835,7 @@ land.rhs.i.i:                                     ; preds = %if.end18.i, %while.
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i, label %while.end.loopexit.i.i
 
 while.body.i.i:                                   ; preds = %land.rhs.i.i
-  %add.ptr2.i.i = getelementptr inbounds nuw %"class.algebraic_numbers::anum", ptr %__first, i64 %__holeIndex.addr.013.i.i
+  %add.ptr2.i.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %__holeIndex.addr.013.i.i
   %7 = load i64, ptr %add.ptr.i.i, align 8
   store i64 %7, ptr %add.ptr2.i.i, align 8
   %cmp.i.i.not = icmp ult i64 %__parent.014.in.i.i, 2
@@ -12846,7 +12848,7 @@ while.end.loopexit.i.i:                           ; preds = %while.body.i.i, %la
 
 _ZSt13__adjust_heapIPN17algebraic_numbers4anumElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_7manager3imp7lt_procEEEEvT_T0_SB_T1_T2_.exit: ; preds = %if.end18.i, %while.end.loopexit.i.i
   %8 = phi i64 [ %5, %if.end18.i ], [ %.pre.i.i, %while.end.loopexit.i.i ]
-  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ %__holeIndex.addr.1.i, %if.end18.i ], [ %__holeIndex.addr.0.lcssa.ph.i.i, %while.end.loopexit.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i = phi i64 [ 0, %if.end18.i ], [ %__holeIndex.addr.0.lcssa.ph.i.i, %while.end.loopexit.i.i ]
   %add.ptr5.i.i = getelementptr inbounds %"class.algebraic_numbers::anum", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   store i64 %8, ptr %add.ptr5.i.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__value.i.i)

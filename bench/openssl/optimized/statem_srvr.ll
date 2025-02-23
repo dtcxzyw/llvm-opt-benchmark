@@ -3269,7 +3269,7 @@ define range(i32 0, 3) i32 @tls_construct_new_session_ticket(ptr noundef %0, ptr
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 1596
   %72 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %73 = call i32 @tls13_hkdf_expand(ptr noundef %0, ptr noundef %31, ptr noundef nonnull %71, ptr noundef nonnull @tls_construct_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef nonnull %16, i64 noundef 8, ptr noundef nonnull %72, i64 noundef %36, i32 noundef 1) #12
+  %73 = call i32 @tls13_hkdf_expand(ptr noundef nonnull %0, ptr noundef %31, ptr noundef nonnull %71, ptr noundef nonnull @tls_construct_new_session_ticket.nonce_label, i64 noundef 10, ptr noundef nonnull %16, i64 noundef 8, ptr noundef nonnull %72, i64 noundef %36, i32 noundef 1) #12
   %.not96 = icmp eq i32 %73, 0
   br i1 %.not96, label %.thread116, label %74
 

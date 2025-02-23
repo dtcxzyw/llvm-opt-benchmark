@@ -2911,28 +2911,28 @@ sub_0:                                            ; preds = %.lr.ph.i.i, %_ZN13C
   %24 = load i8, ptr %15, align 1
   %25 = zext i8 %24 to i32
   %26 = sub nsw i32 35, %25
-  %.not48 = icmp eq i8 %24, 35
-  br i1 %.not48, label %sub_1, label %.tail
+  %.not47 = icmp eq i8 %24, 35
+  br i1 %.not47, label %sub_1, label %_ZN13CompileReplay12parse_stringEv.exit.tail
 
 sub_1:                                            ; preds = %sub_0
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
   %30 = sub nsw i32 0, %29
-  br label %.tail
+  br label %_ZN13CompileReplay12parse_stringEv.exit.tail
 
-.tail:                                            ; preds = %sub_0, %sub_1
+_ZN13CompileReplay12parse_stringEv.exit.tail:     ; preds = %sub_0, %sub_1
   %31 = phi i32 [ %26, %sub_0 ], [ %30, %sub_1 ]
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %33, label %36
 
-33:                                               ; preds = %.tail
+33:                                               ; preds = %_ZN13CompileReplay12parse_stringEv.exit.tail
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %23) #19
   %35 = getelementptr inbounds i8, ptr %23, i64 %34
   store ptr %35, ptr %13, align 8
   br label %100
 
-36:                                               ; preds = %.tail
+36:                                               ; preds = %_ZN13CompileReplay12parse_stringEv.exit.tail
   %37 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(8) @.str.23, ptr noundef nonnull dereferenceable(1) %15) #19
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %57
@@ -2999,8 +2999,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay15process_compileEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %62 = load ptr, ptr %61, align 8
-  %.not40 = icmp eq ptr %62, null
-  br i1 %.not40, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not39 = icmp eq ptr %62, null
+  br i1 %.not39, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 63:                                               ; preds = %57
   br i1 %1, label %_ZN13CompileReplay12parse_stringEv.exit.thread.sink.split, label %64
@@ -3014,8 +3014,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay16process_ciMethodEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = load ptr, ptr %68, align 8
-  %.not39 = icmp eq ptr %69, null
-  br i1 %.not39, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not38 = icmp eq ptr %69, null
+  br i1 %.not38, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 70:                                               ; preds = %64
   %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(13) @.str.27, ptr noundef nonnull dereferenceable(1) %15) #19
@@ -3026,8 +3026,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay20process_ciMethodDataEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load ptr, ptr %74, align 8
-  %.not38 = icmp eq ptr %75, null
-  br i1 %.not38, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not37 = icmp eq ptr %75, null
+  br i1 %.not37, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 76:                                               ; preds = %70
   %77 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.28, ptr noundef nonnull dereferenceable(1) %15) #19
@@ -3038,8 +3038,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay19process_staticfieldEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load ptr, ptr %80, align 8
-  %.not37 = icmp eq ptr %81, null
-  br i1 %.not37, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not36 = icmp eq ptr %81, null
+  br i1 %.not36, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 82:                                               ; preds = %76
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.29, ptr noundef nonnull dereferenceable(1) %15) #19
@@ -3050,8 +3050,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay23process_ciInstanceKlassEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %87 = load ptr, ptr %86, align 8
-  %.not36 = icmp eq ptr %87, null
-  br i1 %.not36, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not35 = icmp eq ptr %87, null
+  br i1 %.not35, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 88:                                               ; preds = %82
   %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(14) @.str.30, ptr noundef nonnull dereferenceable(1) %15) #19
@@ -3062,8 +3062,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay21process_instanceKlassEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %93 = load ptr, ptr %92, align 8
-  %.not35 = icmp eq ptr %93, null
-  br i1 %.not35, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not34 = icmp eq ptr %93, null
+  br i1 %.not34, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 94:                                               ; preds = %88
   %95 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.31, ptr noundef nonnull dereferenceable(1) %15) #19
@@ -3074,8 +3074,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %46, %47
   tail call void @_ZN13CompileReplay19process_JvmtiExportEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %2)
   %98 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %99 = load ptr, ptr %98, align 8
-  %.not34 = icmp eq ptr %99, null
-  br i1 %.not34, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not33 = icmp eq ptr %99, null
+  br i1 %.not33, label %100, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 100:                                              ; preds = %_ZN13CompileReplay9parse_intEPKc.exit.thread, %_ZN13CompileReplay9parse_intEPKc.exit, %55, %73, %85, %97, %91, %79, %67, %60, %33
   %.pr = load ptr, ptr %6, align 8
@@ -3086,8 +3086,8 @@ _ZN13CompileReplay9had_errorEv.exit:              ; preds = %100
   %101 = load ptr, ptr %8, align 8
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
-  %.not41 = icmp eq ptr %103, null
-  br i1 %.not41, label %104, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.not40 = icmp eq ptr %103, null
+  br i1 %.not40, label %104, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 104:                                              ; preds = %_ZN13CompileReplay9had_errorEv.exit
   %105 = load ptr, ptr %13, align 8
@@ -5499,8 +5499,8 @@ define linkonce_odr hidden void @_ZN13CompileReplay21process_instanceKlassEP10Ja
   %3 = tail call noundef ptr @_ZN13CompileReplay11parse_klassEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
-  %.not17 = icmp eq ptr %5, null
-  br i1 %.not17, label %6, label %.thread
+  %.not = icmp eq ptr %5, null
+  br i1 %.not, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5573,7 +5573,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %15, %_ZN10HandleAre
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %43 = load ptr, ptr %42, align 8
   %.not.i.i = icmp eq ptr %43, null
-  br i1 %.not.i.i, label %_ZN13CompileReplay9had_errorEv.exit.i, label %.thr_comm
+  br i1 %.not.i.i, label %_ZN13CompileReplay9had_errorEv.exit.i, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5581,7 +5581,7 @@ _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %41
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
-  br i1 %.not.i, label %48, label %.thr_comm
+  br i1 %.not.i, label %48, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
 48:                                               ; preds = %_ZN13CompileReplay9had_errorEv.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5594,7 +5594,7 @@ _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %41
   switch i8 %52, label %.lr.ph.i.i [
     i8 32, label %.critedge.i.i
     i8 9, label %.critedge.i.i
-    i8 0, label %.thr_comm
+    i8 0, label %_ZN13CompileReplay12parse_stringEv.exit.thread
   ]
 
 .critedge.i.i:                                    ; preds = %50, %50
@@ -5618,14 +5618,14 @@ _ZN13CompileReplay18scan_and_terminateEc.exit.i:  ; preds = %.lr.ph.i.i
   store i8 0, ptr %55, align 1
   %.pre.i.i = load ptr, ptr %49, align 8
   %58 = icmp eq ptr %.pre.i.i, %51
-  br i1 %58, label %.thr_comm, label %sub_0
+  br i1 %58, label %_ZN13CompileReplay12parse_stringEv.exit.thread, label %sub_0
 
-.thr_comm:                                        ; preds = %50, %_ZN13CompileReplay18scan_and_terminateEc.exit.i, %41, %_ZN13CompileReplay9had_errorEv.exit.i
+_ZN13CompileReplay12parse_stringEv.exit.thread:   ; preds = %50, %_ZN13CompileReplay9had_errorEv.exit.i, %41, %_ZN13CompileReplay18scan_and_terminateEc.exit.i
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 164
   %.sroa.0.0.copyload.i.i16 = load i32, ptr %59, align 4
   %60 = and i32 %.sroa.0.0.copyload.i.i16, 67108864
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %.thread, label %72
+  %.not17 = icmp eq i32 %60, 0
+  br i1 %.not17, label %.thread, label %72
 
 sub_0:                                            ; preds = %.lr.ph.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i
   %61 = phi ptr [ %.pre.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i ], [ %55, %.lr.ph.i.i ]
@@ -5651,7 +5651,7 @@ sub_0..tail_crit_edge:                            ; preds = %sub_0
   %71 = xor i1 %67, %70
   br i1 %71, label %72, label %73
 
-72:                                               ; preds = %sub_0..tail_crit_edge, %.thr_comm, %.tail
+72:                                               ; preds = %sub_0..tail_crit_edge, %_ZN13CompileReplay12parse_stringEv.exit.thread, %.tail
   store ptr @.str.120, ptr %42, align 8
   br label %.thread
 
@@ -5664,7 +5664,7 @@ sub_0..tail_crit_edge:                            ; preds = %sub_0
   store ptr %76, ptr %49, align 8
   br label %.thread
 
-.thread:                                          ; preds = %sub_0..tail_crit_edge, %.thr_comm, %39, %2, %74, %73, %72
+.thread:                                          ; preds = %sub_0..tail_crit_edge, %_ZN13CompileReplay12parse_stringEv.exit.thread, %39, %2, %74, %73, %72
   ret void
 }
 
@@ -5995,7 +5995,7 @@ _ZN13CompileReplay9had_errorEv.exit.i:            ; preds = %3
   store ptr %19, ptr %13, align 8
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %.lr.ph.i.i [
-    i8 0, label %_ZN13CompileReplay18scan_and_terminateEc.exit.i.thread28
+    i8 0, label %_ZN13CompileReplay12parse_stringEv.exit
     i8 32, label %_ZN13CompileReplay18scan_and_terminateEc.exit.i
   ]
 
@@ -6005,19 +6005,19 @@ _ZN13CompileReplay18scan_and_terminateEc.exit.i:  ; preds = %.lr.ph.i.i
   store i8 0, ptr %19, align 1
   %.pre.i.i = load ptr, ptr %13, align 8
   %22 = icmp eq ptr %.pre.i.i, %15
-  br i1 %22, label %_ZN13CompileReplay12parse_stringEv.exit.thread, label %_ZN13CompileReplay18scan_and_terminateEc.exit.i.thread28
+  br i1 %22, label %_ZN13CompileReplay12parse_stringEv.exit.thread, label %_ZN13CompileReplay12parse_stringEv.exit
 
-_ZN13CompileReplay18scan_and_terminateEc.exit.i.thread28: ; preds = %.lr.ph.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i
+_ZN13CompileReplay12parse_stringEv.exit:          ; preds = %.lr.ph.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i
   %23 = phi ptr [ %.pre.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i ], [ %19, %.lr.ph.i.i ]
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %15) #19
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %26, label %25
 
-25:                                               ; preds = %_ZN13CompileReplay18scan_and_terminateEc.exit.i.thread28
+25:                                               ; preds = %_ZN13CompileReplay12parse_stringEv.exit
   store ptr %1, ptr %6, align 8
   br label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
-26:                                               ; preds = %_ZN13CompileReplay18scan_and_terminateEc.exit.i.thread28
+26:                                               ; preds = %_ZN13CompileReplay12parse_stringEv.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   %27 = load ptr, ptr %6, align 8
@@ -6547,8 +6547,8 @@ _ZN13CompileReplay9parse_intEPKc.exit:            ; preds = %_ZN12methodHandleC2
 118:                                              ; preds = %_ZN13CompileReplay9parse_intEPKc.exit
   call void @_ZN13InstanceKlass10link_classEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %49, ptr noundef nonnull %1) #17
   %119 = load ptr, ptr %39, align 8
-  %.not174 = icmp eq ptr %119, null
-  br i1 %.not174, label %120, label %250
+  %.not173 = icmp eq ptr %119, null
+  br i1 %.not173, label %120, label %250
 
 120:                                              ; preds = %118
   call void @llvm.experimental.noalias.scope.decl(metadata !28)
@@ -6578,8 +6578,8 @@ _ZN9Bytecodes10is_definedEi.exit:                 ; preds = %_Z21Bytecode_invoke
   %132 = zext nneg i32 %127 to i64
   %133 = getelementptr inbounds nuw [512 x i16], ptr @_ZN9Bytecodes6_flagsE, i64 0, i64 %132
   %134 = load i16, ptr %133, align 2
-  %.not175 = icmp eq i16 %134, 0
-  br i1 %.not175, label %_ZNK15Bytecode_invoke8is_validEv.exit, label %135
+  %.not174 = icmp eq i16 %134, 0
+  br i1 %.not174, label %_ZNK15Bytecode_invoke8is_validEv.exit, label %135
 
 135:                                              ; preds = %_ZN9Bytecodes10is_definedEi.exit
   %136 = icmp eq i32 %127, 233
@@ -6622,8 +6622,8 @@ _ZNK8Bytecode11invoke_codeEv.exit:                ; preds = %139, %145
   %149 = phi i32 [ %148, %145 ], [ 233, %139 ]
   call void @_ZN12LinkResolver14resolve_invokeER8CallInfo6HandleRK18constantPoolHandleiN9Bytecodes4CodeEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr null, ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %140, i32 noundef %149, ptr noundef nonnull %1) #17
   %150 = load ptr, ptr %39, align 8
-  %.not176 = icmp eq ptr %150, null
-  br i1 %.not176, label %151, label %248
+  %.not175 = icmp eq ptr %150, null
+  br i1 %.not175, label %151, label %248
 
 151:                                              ; preds = %_ZNK8Bytecode11invoke_codeEv.exit
   %152 = load i32, ptr %128, align 8
@@ -6763,7 +6763,7 @@ _ZNK15Bytecode_invoke15is_invokehandleEv.exit.thread: ; preds = %_ZNK15Bytecode_
   %243 = zext i16 %242 to i32
   %244 = call noundef ptr @_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %215, i32 noundef %243, ptr noundef nonnull %1)
   %245 = load ptr, ptr %39, align 8
-  %.not177.not = icmp eq ptr %245, null
+  %.not176.not = icmp eq ptr %245, null
   %246 = getelementptr inbounds nuw i8, ptr %14, i64 104
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %246) #17
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %216) #17
@@ -6774,7 +6774,7 @@ _ZNK15Bytecode_invoke15is_invokehandleEv.exit.thread: ; preds = %_ZNK15Bytecode_
   br label %248
 
 248:                                              ; preds = %214, %191, %_ZNK8Bytecode11invoke_codeEv.exit, %247, %204, %203, %200, %190
-  %.185 = phi i1 [ false, %203 ], [ false, %204 ], [ false, %200 ], [ false, %247 ], [ false, %190 ], [ false, %_ZNK8Bytecode11invoke_codeEv.exit ], [ true, %191 ], [ %.not177.not, %214 ]
+  %.185 = phi i1 [ false, %203 ], [ false, %204 ], [ false, %200 ], [ false, %247 ], [ false, %190 ], [ false, %_ZNK8Bytecode11invoke_codeEv.exit ], [ true, %191 ], [ %.not176.not, %214 ]
   %.179 = phi ptr [ null, %203 ], [ null, %204 ], [ null, %200 ], [ null, %247 ], [ null, %190 ], [ null, %_ZNK8Bytecode11invoke_codeEv.exit ], [ %.088, %191 ], [ %244, %214 ]
   %.2 = phi ptr [ null, %203 ], [ %210, %204 ], [ null, %200 ], [ null, %247 ], [ null, %190 ], [ null, %_ZNK8Bytecode11invoke_codeEv.exit ], [ null, %191 ], [ null, %214 ]
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 24
@@ -6916,8 +6916,8 @@ _ZN13CompileReplay9parse_intEPKc.exit130:         ; preds = %_ZN18constantPoolHa
 315:                                              ; preds = %307
   call void @_ZN13InstanceKlass10link_classEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %255, ptr noundef nonnull %1) #17
   %316 = load ptr, ptr %256, align 8
-  %.not172 = icmp eq ptr %316, null
-  br i1 %.not172, label %317, label %.thread156
+  %.not171 = icmp eq ptr %316, null
+  br i1 %.not171, label %317, label %.thread156
 
 .thread156.sink.split:                            ; preds = %307, %_ZN13CompileReplay9parse_intEPKc.exit130
   %.str.55.sink = phi ptr [ @.str.55, %_ZN13CompileReplay9parse_intEPKc.exit130 ], [ @.str.56, %307 ]
@@ -6932,9 +6932,9 @@ _ZN13CompileReplay9parse_intEPKc.exit130:         ; preds = %_ZN18constantPoolHa
   %318 = load ptr, ptr %15, align 8
   %319 = call noundef ptr @_ZN12ConstantPool35resolve_possibly_cached_constant_atEiP10JavaThread(ptr noundef nonnull align 8 dereferenceable(68) %318, i32 noundef %.0.i126, ptr noundef nonnull %1)
   %320 = load ptr, ptr %256, align 8
-  %.not173 = icmp eq ptr %320, null
+  %.not172 = icmp eq ptr %320, null
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #17
-  br i1 %.not173, label %321, label %_ZNK7oopDesc5klassEv.exit
+  br i1 %.not172, label %321, label %_ZNK7oopDesc5klassEv.exit
 
 321:                                              ; preds = %317, %250
   %.381 = phi ptr [ %.078, %250 ], [ %319, %317 ]
@@ -6971,14 +6971,14 @@ _ZN13CompileReplay7skip_wsEv.exit:                ; preds = %_ZN13CompileReplay7
   %.583 = phi ptr [ %.7, %419 ], [ %.381, %_ZN13CompileReplay7skip_wsEv.exit.preheader ]
   %331 = load ptr, ptr %16, align 8
   %.not.i.i131 = icmp eq ptr %331, null
-  br i1 %.not.i.i131, label %_ZN13CompileReplay9had_errorEv.exit.i133, label %_ZN13CompileReplay12parse_stringEv.exit146.thread
+  br i1 %.not.i.i131, label %_ZN13CompileReplay9had_errorEv.exit.i133, label %select.unfold
 
 _ZN13CompileReplay9had_errorEv.exit.i133:         ; preds = %_ZN13CompileReplay7skip_wsEv.exit
   %332 = load ptr, ptr %329, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8
   %.not.i134 = icmp eq ptr %334, null
-  br i1 %.not.i134, label %335, label %_ZN13CompileReplay12parse_stringEv.exit146.thread
+  br i1 %.not.i134, label %335, label %select.unfold
 
 335:                                              ; preds = %_ZN13CompileReplay9had_errorEv.exit.i133
   %.promoted.i.i135 = load ptr, ptr %325, align 8
@@ -6990,7 +6990,7 @@ _ZN13CompileReplay9had_errorEv.exit.i133:         ; preds = %_ZN13CompileReplay7
   switch i8 %338, label %.lr.ph.i.i145 [
     i8 32, label %.critedge.i.i136
     i8 9, label %.critedge.i.i136
-    i8 0, label %_ZN13CompileReplay12parse_stringEv.exit146.thread
+    i8 0, label %select.unfold
   ]
 
 .critedge.i.i136:                                 ; preds = %336, %336
@@ -7014,29 +7014,29 @@ _ZN13CompileReplay18scan_and_terminateEc.exit.i143: ; preds = %.lr.ph.i.i145
   store i8 0, ptr %341, align 1
   %.pre.i.i142 = load ptr, ptr %325, align 8
   %344 = icmp eq ptr %.pre.i.i142, %337
-  br i1 %344, label %_ZN13CompileReplay12parse_stringEv.exit146.thread, label %sub_0
+  br i1 %344, label %select.unfold, label %sub_0
 
-_ZN13CompileReplay12parse_stringEv.exit146.thread: ; preds = %_ZN13CompileReplay18scan_and_terminateEc.exit.i143, %_ZN13CompileReplay7skip_wsEv.exit, %_ZN13CompileReplay9had_errorEv.exit.i133, %336
+select.unfold:                                    ; preds = %_ZN13CompileReplay18scan_and_terminateEc.exit.i143, %_ZN13CompileReplay9had_errorEv.exit.i133, %_ZN13CompileReplay7skip_wsEv.exit, %336
   store ptr @.str.58, ptr %16, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
 sub_0:                                            ; preds = %.lr.ph.i.i145, %_ZN13CompileReplay18scan_and_terminateEc.exit.i143
   %345 = load i8, ptr %337, align 1
-  %.not194 = icmp eq i8 %345, 59
-  br i1 %.not194, label %.tail, label %.tail.thread
+  %.not193 = icmp eq i8 %345, 59
+  br i1 %.not193, label %_ZN13CompileReplay12parse_stringEv.exit146.tail, label %_ZN13CompileReplay12parse_stringEv.exit146.tail.thread
 
-.tail:                                            ; preds = %sub_0
+_ZN13CompileReplay12parse_stringEv.exit146.tail:  ; preds = %sub_0
   %346 = getelementptr inbounds nuw i8, ptr %337, i64 1
   %347 = load i8, ptr %346, align 1
   %348 = icmp eq i8 %347, 0
-  br i1 %348, label %420, label %.tail.thread
+  br i1 %348, label %420, label %_ZN13CompileReplay12parse_stringEv.exit146.tail.thread
 
-.tail.thread:                                     ; preds = %sub_0, %.tail
+_ZN13CompileReplay12parse_stringEv.exit146.tail.thread: ; preds = %sub_0, %_ZN13CompileReplay12parse_stringEv.exit146.tail
   %349 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %337, ptr noundef nonnull dereferenceable(11) @.str.60) #19
   %350 = icmp eq i32 %349, 0
   br i1 %350, label %351, label %365
 
-351:                                              ; preds = %.tail.thread
+351:                                              ; preds = %_ZN13CompileReplay12parse_stringEv.exit146.tail.thread
   %352 = call noundef ptr @_ZN27java_lang_invoke_MemberName8vmtargetEP7oopDesc(ptr noundef nonnull %.583) #17
   %353 = icmp eq ptr %352, null
   br i1 %353, label %.thread161, label %354
@@ -7063,7 +7063,7 @@ sub_0:                                            ; preds = %.lr.ph.i.i145, %_ZN
   store ptr @.str.62, ptr %16, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-365:                                              ; preds = %.tail.thread
+365:                                              ; preds = %_ZN13CompileReplay12parse_stringEv.exit146.tail.thread
   %366 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %337) #19
   %367 = trunc i64 %366 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -7141,12 +7141,12 @@ _ZN13CompileReplay9had_errorEv.exit.i150:         ; preds = %390
 
 404:                                              ; preds = %399, %398
   %405 = load i32, ptr %3, align 4
-  %.pre211 = load i8, ptr @UseCompressedClassPointers, align 1
-  %.pre212 = trunc i8 %.pre211 to i1
+  %.pre210 = load i8, ptr @UseCompressedClassPointers, align 1
+  %.pre211 = trunc i8 %.pre210 to i1
   br label %_ZN13CompileReplay9parse_intEPKc.exit153
 
 _ZN13CompileReplay9parse_intEPKc.exit153:         ; preds = %390, %_ZN13CompileReplay9had_errorEv.exit.i150, %404
-  %.pre-phi = phi i1 [ %373, %390 ], [ %373, %_ZN13CompileReplay9had_errorEv.exit.i150 ], [ %.pre212, %404 ]
+  %.pre-phi = phi i1 [ %373, %390 ], [ %373, %_ZN13CompileReplay9had_errorEv.exit.i150 ], [ %.pre211, %404 ]
   %.0.i149 = phi i32 [ 0, %390 ], [ 0, %_ZN13CompileReplay9had_errorEv.exit.i150 ], [ %405, %404 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
@@ -7182,7 +7182,7 @@ _ZN13CompileReplay9parse_intEPKc.exit153:         ; preds = %390, %_ZN13CompileR
   store ptr @.str.65, ptr %16, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-420:                                              ; preds = %.tail
+420:                                              ; preds = %_ZN13CompileReplay12parse_stringEv.exit146.tail
   %421 = load i8, ptr @UseCompressedClassPointers, align 1
   %422 = trunc i8 %421 to i1
   %423 = getelementptr inbounds nuw i8, ptr %.583, i64 8
@@ -7204,8 +7204,8 @@ _ZN13CompileReplay9parse_intEPKc.exit153:         ; preds = %390, %_ZN13CompileR
   %435 = load ptr, ptr %423, align 8
   br label %_ZNK7oopDesc5klassEv.exit
 
-_ZNK7oopDesc5klassEv.exit:                        ; preds = %434, %424, %.thread156, %362, %317, %254, %250, %37, %.thread169, %409, %364, %.thread161, %_ZN13CompileReplay12parse_stringEv.exit146.thread, %323, %253
-  %.0 = phi ptr [ %.1, %250 ], [ null, %323 ], [ null, %_ZN13CompileReplay12parse_stringEv.exit146.thread ], [ null, %.thread169 ], [ null, %.thread161 ], [ null, %364 ], [ null, %409 ], [ null, %253 ], [ null, %317 ], [ null, %37 ], [ null, %254 ], [ %360, %362 ], [ null, %.thread156 ], [ %433, %424 ], [ %435, %434 ]
+_ZNK7oopDesc5klassEv.exit:                        ; preds = %434, %424, %.thread156, %362, %317, %254, %250, %37, %.thread169, %409, %364, %.thread161, %select.unfold, %323, %253
+  %.0 = phi ptr [ %.1, %250 ], [ null, %323 ], [ null, %select.unfold ], [ null, %.thread169 ], [ null, %.thread161 ], [ null, %364 ], [ null, %409 ], [ null, %253 ], [ null, %317 ], [ null, %37 ], [ null, %254 ], [ %360, %362 ], [ null, %.thread156 ], [ %433, %424 ], [ %435, %434 ]
   ret ptr %.0
 }
 
@@ -7329,19 +7329,19 @@ _ZN13CompileReplay18scan_and_terminateEc.exit.i:  ; preds = %.lr.ph.i.i
 sub_0:                                            ; preds = %.lr.ph.i.i, %_ZN13CompileReplay18scan_and_terminateEc.exit.i
   %19 = load i8, ptr %11, align 1
   %.not = icmp eq i8 %19, 59
-  br i1 %.not, label %.tail, label %_ZN13CompileReplay12parse_stringEv.exit.thread
+  br i1 %.not, label %_ZN13CompileReplay12parse_stringEv.exit.tail, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
-.tail:                                            ; preds = %sub_0
+_ZN13CompileReplay12parse_stringEv.exit.tail:     ; preds = %sub_0
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %21 = load i8, ptr %20, align 1
   %22 = icmp eq i8 %21, 0
   br i1 %22, label %23, label %_ZN13CompileReplay12parse_stringEv.exit.thread
 
-_ZN13CompileReplay12parse_stringEv.exit.thread:   ; preds = %10, %sub_0, %_ZN13CompileReplay18scan_and_terminateEc.exit.i, %1, %_ZN13CompileReplay9had_errorEv.exit.i, %.tail
+_ZN13CompileReplay12parse_stringEv.exit.thread:   ; preds = %10, %sub_0, %_ZN13CompileReplay18scan_and_terminateEc.exit.i, %1, %_ZN13CompileReplay9had_errorEv.exit.i, %_ZN13CompileReplay12parse_stringEv.exit.tail
   br label %23
 
-23:                                               ; preds = %.tail, %_ZN13CompileReplay12parse_stringEv.exit.thread
-  %.0 = phi i1 [ false, %_ZN13CompileReplay12parse_stringEv.exit.thread ], [ true, %.tail ]
+23:                                               ; preds = %_ZN13CompileReplay12parse_stringEv.exit.tail, %_ZN13CompileReplay12parse_stringEv.exit.thread
+  %.0 = phi i1 [ false, %_ZN13CompileReplay12parse_stringEv.exit.thread ], [ true, %_ZN13CompileReplay12parse_stringEv.exit.tail ]
   ret i1 %.0
 }
 

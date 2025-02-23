@@ -1338,13 +1338,13 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
   %12 = load i8, ptr %11, align 8
   %13 = trunc i8 %12 to i1
   %14 = select i1 %13, i32 2, i32 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %wide.trip.count.i16 = zext nneg i32 %14 to i64
+  %umax = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   br label %15
 
 15:                                               ; preds = %.lr.ph, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23 ]
-  %.0934 = phi i64 [ 0, %.lr.ph ], [ %41, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23 ]
+  %.0932 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23 ]
   %16 = getelementptr inbounds nuw %"class.std::vector.26", ptr %6, i64 %indvars.iv
   %.val = load ptr, ptr %16, align 8
   %17 = getelementptr i8, ptr %16, i64 8
@@ -1367,7 +1367,7 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
 
 27:                                               ; preds = %19
   %.not3.i = icmp eq i32 %24, 0
-  br i1 %.not3.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25, label %.lr.ph.preheader.i
+  br i1 %.not3.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %27
   %wide.trip.count.i = and i64 %23, 2147483647
@@ -1381,46 +1381,46 @@ define linkonce_odr hidden noundef i64 @_ZNK2cv3dnn12MVNLayerImpl8getFLOPSERKSt6
   %30 = mul nsw i32 %29, %.0231.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit, label %.lr.ph.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !13
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.i
+.loopexit.loopexit:                               ; preds = %.lr.ph.i
   %31 = mul nsw i32 %30, 6
-  br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25
+  br label %.loopexit
 
-_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25: ; preds = %27, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit
-  %32 = phi i32 [ %31, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit ], [ 6, %27 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit, %27
+  %.024.i.ph = phi i32 [ 6, %27 ], [ %31, %.loopexit.loopexit ]
   %.not.i = icmp sgt i32 %14, %24
-  br i1 %.not.i, label %33, label %.lr.ph.i17
+  br i1 %.not.i, label %32, label %.lr.ph.i17
 
-33:                                               ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25
+32:                                               ; preds = %.loopexit
   tail call void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef %14, i32 noundef %24, ptr noundef nonnull align 8 dereferenceable(48) @_ZZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEiiE15__cv_check__173) #20
   unreachable
 
-.lr.ph.i17:                                       ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25, %.lr.ph.i17
-  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i17 ], [ 0, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25 ]
-  %.0231.i19 = phi i32 [ %36, %.lr.ph.i17 ], [ 1, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit.thread25 ]
-  %34 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i18
-  %35 = load i32, ptr %34, align 4
-  %36 = mul nsw i32 %35, %.0231.i19
+.lr.ph.i17:                                       ; preds = %.loopexit, %.lr.ph.i17
+  %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i20, %.lr.ph.i17 ], [ 0, %.loopexit ]
+  %.0231.i19 = phi i32 [ %35, %.lr.ph.i17 ], [ 1, %.loopexit ]
+  %33 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv.i18
+  %34 = load i32, ptr %33, align 4
+  %35 = mul nsw i32 %34, %.0231.i19
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i18, 1
   %exitcond.not.i21 = icmp eq i64 %indvars.iv.next.i20, %wide.trip.count.i16
   br i1 %exitcond.not.i21, label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit, label %.lr.ph.i17, !llvm.loop !13
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit: ; preds = %.lr.ph.i17
-  %37 = mul nsw i32 %36, 3
-  %38 = add nsw i32 %37, %32
-  %39 = sext i32 %38 to i64
+  %36 = mul nsw i32 %35, 3
+  %37 = add nsw i32 %36, %.024.i.ph
+  %38 = sext i32 %37 to i64
   br label %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23
 
 _ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23: ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit, %15
-  %40 = phi i64 [ 0, %15 ], [ %39, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit ]
-  %41 = add nsw i64 %.0934, %40
+  %39 = phi i64 [ 0, %15 ], [ %38, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23.loopexit ]
+  %40 = add nsw i64 %.0932, %39
   %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %umax
   br i1 %exitcond.not, label %._crit_edge, label %15, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23, %3
-  %.09.lcssa = phi i64 [ 0, %3 ], [ %41, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23 ]
+  %.09.lcssa = phi i64 [ 0, %3 ], [ %40, %_ZN2cv3dnn14dnn4_v20240521L5totalERKSt6vectorIiSaIiEEii.exit23 ]
   ret i64 %.09.lcssa
 }
 

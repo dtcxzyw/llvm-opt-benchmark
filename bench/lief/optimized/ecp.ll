@@ -1217,7 +1217,7 @@ ecp_pick_window_size.exit.i:                      ; preds = %.critedge.i.i, %104
   br i1 %.not.i.i69.i, label %mpi_init_many.exit.i.i, label %131, !llvm.loop !11
 
 mpi_init_many.exit.i.i:                           ; preds = %131
-  %134 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %121, ptr noundef %3) #19
+  %134 = call i32 @mbedtls_mpi_copy(ptr noundef nonnull %121, ptr noundef nonnull %3) #19
   %.not.i74.i.i = icmp eq i32 %134, 0
   br i1 %.not.i74.i.i, label %135, label %mbedtls_ecp_copy.exit.thread.i.i
 
@@ -1719,22 +1719,22 @@ mbedtls_ecp_get_type.exit:                        ; preds = %13
   br i1 %.not.i, label %mpi_init_many.exit, label %19, !llvm.loop !11
 
 mpi_init_many.exit:                               ; preds = %19
-  %22 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
+  %22 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %2, ptr noundef %3)
   %.not23 = icmp eq i32 %22, 0
   br i1 %.not23, label %23, label %29
 
 23:                                               ; preds = %mpi_init_many.exit
-  %24 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
+  %24 = call fastcc i32 @mbedtls_ecp_mul_shortcuts(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
   %.not24 = icmp eq i32 %24, 0
   br i1 %.not24, label %25, label %29
 
 25:                                               ; preds = %23
-  %26 = call fastcc i32 @ecp_add_mixed(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %9)
+  %26 = call fastcc i32 @ecp_add_mixed(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %9)
   %.not25 = icmp eq i32 %26, 0
   br i1 %.not25, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = call fastcc i32 @ecp_normalize_jac(ptr noundef %0, ptr noundef %1)
+  %28 = call fastcc i32 @ecp_normalize_jac(ptr noundef nonnull %0, ptr noundef %1)
   br label %29
 
 29:                                               ; preds = %27, %25, %23, %mpi_init_many.exit
@@ -3730,7 +3730,7 @@ mpi_init_many.exit:                               ; preds = %13
   br i1 %.not.i99, label %mpi_free_many.exit, label %73, !llvm.loop !14
 
 mpi_free_many.exit:                               ; preds = %73
-  call void @free(ptr noundef %10) #19
+  call void @free(ptr noundef nonnull %10) #19
   br label %76
 
 76:                                               ; preds = %9, %mpi_free_many.exit, %6

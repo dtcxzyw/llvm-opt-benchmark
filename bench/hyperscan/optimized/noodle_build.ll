@@ -111,7 +111,7 @@ do.end13:                                         ; preds = %do.end13.lr.ph, %do
   %inc = add i32 %i.0132, 1
   %inc24 = add i32 %j.0133, 1
   %conv11 = zext i32 %inc to i64
-  %cmp = icmp ugt i64 %.sroa.speculated, %conv11
+  %cmp = icmp samesign ugt i64 %.sroa.speculated, %conv11
   br i1 %cmp, label %do.end13, label %for.end, !llvm.loop !5
 
 ehcleanup114.thread:                              ; preds = %if.then.i.i.i.i.i51

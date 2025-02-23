@@ -163,7 +163,7 @@ define dso_local void @gistrescan(ptr noundef %0, ptr noundef readonly %1, i32 n
 .lr.ph130.preheader:                              ; preds = %.preheader
   %43 = zext nneg i32 %.0109.lcssa to i64
   %44 = add nuw nsw i32 %34, 1
-  %wide.trip.count152 = zext i32 %44 to i64
+  %wide.trip.count152 = zext nneg i32 %44 to i64
   br label %.lr.ph130
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

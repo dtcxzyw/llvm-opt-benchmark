@@ -139,7 +139,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %12 = alloca %struct.acpi_gpe_walk_info, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #6
   %13 = icmp eq i32 %3, 0
-  br i1 %13, label %144, label %14
+  br i1 %13, label %145, label %14
 
 14:                                               ; preds = %7
   %15 = icmp ugt i8 %2, 1
@@ -148,7 +148,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 16:                                               ; preds = %14
   %17 = zext i8 %2 to i32
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 318, ptr noundef nonnull @.str, i32 noundef %17) #6
-  br label %144
+  br label %145
 
 18:                                               ; preds = %14
   %19 = icmp eq i8 %2, 1
@@ -157,7 +157,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 20:                                               ; preds = %18
   %21 = tail call i32 @acpi_hw_validate_io_block(i64 noundef %1, i32 noundef 8, i32 noundef %3) #6
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %144
+  br i1 %22, label %23, label %145
 
 23:                                               ; preds = %20, %18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false), !annotation !5
@@ -172,7 +172,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %29 = call noalias align 8 dereferenceable_or_null(72) ptr @kmalloc_trace(ptr noundef %28, i32 noundef %27, i64 noundef 72) #7
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %144, label %31
+  br i1 %30, label %145, label %31
 
 31:                                               ; preds = %23
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -304,7 +304,7 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 105:                                              ; preds = %48, %103, %.thread
   %.ph = phi i32 [ 4, %.thread ], [ %104, %103 ], [ 4, %48 ]
   call void @kfree(ptr noundef nonnull %29) #6
-  br label %144
+  br label %145
 
 .loopexit:                                        ; preds = %97, %58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #6
@@ -316,82 +316,82 @@ define dso_local i32 @acpi_ev_create_gpe_block(ptr noundef %0, i64 noundef %1, i
 108:                                              ; preds = %.loopexit
   %109 = call i32 @acpi_ev_get_gpe_xrupt_block(i32 noundef %5, ptr noundef nonnull %8) #6
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %112, label %.thread18
+  br i1 %110, label %111, label %126
 
-.thread18:                                        ; preds = %108
-  %111 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
+111:                                              ; preds = %108
+  %112 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  %113 = call i64 @acpi_os_acquire_lock(ptr noundef %112) #6
+  %114 = load ptr, ptr %8, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  %116 = load ptr, ptr %115, align 8
+  %117 = icmp eq ptr %116, null
+  br i1 %117, label %125, label %.preheader
+
+.preheader:                                       ; preds = %111, %.preheader
+  %118 = phi ptr [ %120, %.preheader ], [ %116, %111 ]
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load ptr, ptr %119, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %122, label %.preheader, !llvm.loop !11
+
+122:                                              ; preds = %.preheader
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  store ptr %29, ptr %123, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store ptr %118, ptr %124, align 8
+  br label %131
+
+125:                                              ; preds = %111
+  store ptr %29, ptr %115, align 8
+  br label %131
+
+126:                                              ; preds = %108
+  %127 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
   br label %.thread17
 
-112:                                              ; preds = %108
-  %113 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  %114 = call i64 @acpi_os_acquire_lock(ptr noundef %113) #6
-  %115 = load ptr, ptr %8, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %126, label %.preheader
+.thread17:                                        ; preds = %.loopexit, %126
+  %128 = phi i32 [ %109, %126 ], [ %106, %.loopexit ]
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
+  %129 = load ptr, ptr %59, align 8
+  call void @kfree(ptr noundef %129) #6
+  %130 = load ptr, ptr %60, align 8
+  call void @kfree(ptr noundef %130) #6
+  call void @kfree(ptr noundef nonnull %29) #6
+  br label %145
 
-.preheader:                                       ; preds = %112, %.preheader
-  %119 = phi ptr [ %121, %.preheader ], [ %117, %112 ]
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %.preheader, !llvm.loop !11
-
-123:                                              ; preds = %.preheader
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store ptr %29, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %119, ptr %125, align 8
-  br label %127
-
-126:                                              ; preds = %112
-  store ptr %29, ptr %116, align 8
-  br label %127
-
-127:                                              ; preds = %123, %126
-  %128 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store ptr %115, ptr %128, align 8
-  %129 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
-  call void @acpi_os_release_lock(ptr noundef %129, i64 noundef %114) #6
-  %130 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
+131:                                              ; preds = %122, %125
+  %132 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store ptr %114, ptr %132, align 8
+  %133 = load ptr, ptr @acpi_gbl_gpe_lock, align 8
+  call void @acpi_os_release_lock(ptr noundef %133, i64 noundef %113) #6
+  %134 = call i32 @acpi_ut_release_mutex(i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   store i8 0, ptr @acpi_gbl_all_gpes_initialized, align 1
-  %131 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %29, ptr %131, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %29, ptr %135, align 8
   store ptr %0, ptr %12, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %12, i64 20
-  store i8 0, ptr %132, align 4
-  %133 = call i32 @acpi_ns_walk_namespace(i32 noundef 8, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ev_match_gpe_method, ptr noundef null, ptr noundef nonnull %12, ptr noundef null) #6
-  %134 = icmp eq ptr %6, null
-  br i1 %134, label %139, label %138
+  %136 = getelementptr inbounds nuw i8, ptr %12, i64 20
+  store i8 0, ptr %136, align 4
+  %137 = call i32 @acpi_ns_walk_namespace(i32 noundef 8, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull @acpi_ev_match_gpe_method, ptr noundef null, ptr noundef nonnull %12, ptr noundef null) #6
+  %138 = icmp eq ptr %6, null
+  br i1 %138, label %140, label %139
 
-.thread17:                                        ; preds = %.loopexit, %.thread18
-  %135 = phi i32 [ %109, %.thread18 ], [ %106, %.loopexit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
-  %136 = load ptr, ptr %59, align 8
-  call void @kfree(ptr noundef %136) #6
-  %137 = load ptr, ptr %60, align 8
-  call void @kfree(ptr noundef %137) #6
-  call void @kfree(ptr noundef nonnull %29) #6
-  br label %144
-
-138:                                              ; preds = %127
+139:                                              ; preds = %131
   store ptr %29, ptr %6, align 8
-  br label %139
+  br label %140
 
-139:                                              ; preds = %138, %127
-  %140 = load i16, ptr %36, align 4
-  %141 = zext i16 %140 to i32
-  %142 = load i32, ptr @acpi_current_gpe_count, align 4
-  %143 = add i32 %142, %141
-  store i32 %143, ptr @acpi_current_gpe_count, align 4
-  br label %144
+140:                                              ; preds = %139, %131
+  %141 = load i16, ptr %36, align 4
+  %142 = zext i16 %141 to i32
+  %143 = load i32, ptr @acpi_current_gpe_count, align 4
+  %144 = add i32 %143, %142
+  store i32 %144, ptr @acpi_current_gpe_count, align 4
+  br label %145
 
-144:                                              ; preds = %139, %.thread17, %105, %23, %20, %16, %7
-  %145 = phi i32 [ 15, %16 ], [ %.ph, %105 ], [ %135, %.thread17 ], [ 0, %139 ], [ 0, %7 ], [ %21, %20 ], [ 4, %23 ]
+145:                                              ; preds = %140, %.thread17, %105, %23, %20, %16, %7
+  %146 = phi i32 [ 15, %16 ], [ %.ph, %105 ], [ %128, %.thread17 ], [ 0, %140 ], [ 0, %7 ], [ %21, %20 ], [ 4, %23 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #6
-  ret i32 %145
+  ret i32 %146
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

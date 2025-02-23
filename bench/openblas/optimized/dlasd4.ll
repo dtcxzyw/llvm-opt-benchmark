@@ -99,7 +99,7 @@ define void @dlasd4_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr
   br i1 %exitcond1917.not, label %._crit_edge1768, label %52, !llvm.loop !9
 
 ._crit_edge1768:                                  ; preds = %52
-  %.not16361769 = icmp slt i32 %48, 3
+  %.not16361769 = icmp samesign ult i32 %48, 3
   br i1 %.not16361769, label %._crit_edge1774, label %.lr.ph1773.preheader
 
 .lr.ph1773.preheader:                             ; preds = %._crit_edge1768

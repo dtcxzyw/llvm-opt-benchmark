@@ -10534,7 +10534,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1389, %
   %1455 = icmp ne i64 %1454, 0
   %1456 = zext i1 %1455 to i32
   %1457 = add i32 %1451, %1456
-  %.not45.i12605092 = icmp ult i32 %.sroa.9.0.i393, 64
+  %.not45.i12605092 = icmp samesign ult i32 %.sroa.9.0.i393, 64
   br i1 %.not45.i12605092, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split
 
 1458:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229
@@ -10571,7 +10571,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1389, %
 ._crit_edge5082:                                  ; preds = %1467, %.preheader4184
   %1475 = add i32 %1462, %1461
   store i32 %1475, ptr %10, align 8, !tbaa !167
-  %.not47.i12735083 = icmp ult i32 %1459, 64
+  %.not47.i12735083 = icmp samesign ult i32 %1459, 64
   br i1 %.not47.i12735083, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265, label %.lr.ph5086
 
 .lr.ph5086:                                       ; preds = %._crit_edge5082
@@ -10624,7 +10624,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1229: ; preds = %1389, %
   %1505 = zext i1 %1504 to i32
   %1506 = add i32 %1500, %1505
   store i32 %1506, ptr %10, align 8, !tbaa !167
-  %.not45.i12695075 = icmp ult i32 %1459, 64
+  %.not45.i12695075 = icmp samesign ult i32 %1459, 64
   br i1 %.not45.i12695075, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1265.sink.split: ; preds = %._crit_edge5074, %._crit_edge5091, %.lr.ph5103.preheader, %.lr.ph5086
@@ -17314,7 +17314,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4781, %4727
   %4847 = icmp ne i64 %4846, 0
   %4848 = zext i1 %4847 to i32
   %4849 = add i32 %4843, %4848
-  %.not45.i4838 = icmp ult i32 %.sroa.9.0.i501, 64
+  %.not45.i4838 = icmp samesign ult i32 %.sroa.9.0.i501, 64
   br i1 %.not45.i4838, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 4850:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
@@ -17351,7 +17351,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4781, %4727
 ._crit_edge4828:                                  ; preds = %4859, %.preheader4224
   %4867 = add i32 %4854, %4853
   store i32 %4867, ptr %7, align 8, !tbaa !167
-  %.not47.i12554829 = icmp ult i32 %4851, 64
+  %.not47.i12554829 = icmp samesign ult i32 %4851, 64
   br i1 %.not47.i12554829, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph4832
 
 .lr.ph4832:                                       ; preds = %._crit_edge4828
@@ -17404,7 +17404,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %4781, %4727
   %4897 = zext i1 %4896 to i32
   %4898 = add i32 %4892, %4897
   store i32 %4898, ptr %7, align 8, !tbaa !167
-  %.not45.i12514821 = icmp ult i32 %4851, 64
+  %.not45.i12514821 = icmp samesign ult i32 %4851, 64
   br i1 %.not45.i12514821, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %._crit_edge4820, %._crit_edge4837, %.lr.ph4849.preheader, %.lr.ph4832
@@ -20767,7 +20767,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6425, %
   %6491 = icmp ne i64 %6490, 0
   %6492 = zext i1 %6491 to i32
   %6493 = add i32 %6487, %6492
-  %.not45.i12965675 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i12965675 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i12965675, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split
 
 6494:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241
@@ -20804,7 +20804,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6425, %
 ._crit_edge5665:                                  ; preds = %6503, %.preheader4089
   %6511 = add i32 %6498, %6497
   store i32 %6511, ptr %16, align 8, !tbaa !167
-  %.not47.i13095666 = icmp ult i32 %6495, 64
+  %.not47.i13095666 = icmp samesign ult i32 %6495, 64
   br i1 %.not47.i13095666, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301, label %.lr.ph5669
 
 .lr.ph5669:                                       ; preds = %._crit_edge5665
@@ -20857,7 +20857,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1241: ; preds = %6425, %
   %6541 = zext i1 %6540 to i32
   %6542 = add i32 %6536, %6541
   store i32 %6542, ptr %16, align 8, !tbaa !167
-  %.not45.i13055658 = icmp ult i32 %6495, 64
+  %.not45.i13055658 = icmp samesign ult i32 %6495, 64
   br i1 %.not45.i13055658, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1301.sink.split: ; preds = %._crit_edge5657, %._crit_edge5674, %.lr.ph5686.preheader, %.lr.ph5669
@@ -27309,7 +27309,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9740, %
   %9806 = icmp ne i64 %9805, 0
   %9807 = zext i1 %9806 to i32
   %9808 = add i32 %9802, %9807
-  %.not45.i12785449 = icmp ult i32 %.sroa.9.0.i285, 64
+  %.not45.i12785449 = icmp samesign ult i32 %.sroa.9.0.i285, 64
   br i1 %.not45.i12785449, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split
 
 9809:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235
@@ -27346,7 +27346,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9740, %
 ._crit_edge5439:                                  ; preds = %9818, %.preheader4129
   %9826 = add i32 %9813, %9812
   store i32 %9826, ptr %13, align 8, !tbaa !167
-  %.not47.i12915440 = icmp ult i32 %9810, 64
+  %.not47.i12915440 = icmp samesign ult i32 %9810, 64
   br i1 %.not47.i12915440, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283, label %.lr.ph5443
 
 .lr.ph5443:                                       ; preds = %._crit_edge5439
@@ -27399,7 +27399,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit1235: ; preds = %9740, %
   %9856 = zext i1 %9855 to i32
   %9857 = add i32 %9851, %9856
   store i32 %9857, ptr %13, align 8, !tbaa !167
-  %.not45.i12875432 = icmp ult i32 %9810, 64
+  %.not45.i12875432 = icmp samesign ult i32 %9810, 64
   br i1 %.not45.i12875432, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit1283.sink.split: ; preds = %._crit_edge5431, %._crit_edge5448, %.lr.ph5460.preheader, %.lr.ph5443
@@ -30833,7 +30833,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1177, %1123
   %1243 = icmp ne i64 %1242, 0
   %1244 = zext i1 %1243 to i32
   %1245 = add i32 %1239, %1244
-  %.not45.i848 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i848 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i848, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 1246:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
@@ -30870,7 +30870,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1177, %1123
 ._crit_edge838:                                   ; preds = %1255, %.preheader707
   %1263 = add i32 %1250, %1249
   store i32 %1263, ptr %8, align 8, !tbaa !167
-  %.not47.i236839 = icmp ult i32 %1247, 64
+  %.not47.i236839 = icmp samesign ult i32 %1247, 64
   br i1 %.not47.i236839, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph842
 
 .lr.ph842:                                        ; preds = %._crit_edge838
@@ -30923,7 +30923,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1177, %1123
   %1293 = zext i1 %1292 to i32
   %1294 = add i32 %1288, %1293
   store i32 %1294, ptr %8, align 8, !tbaa !167
-  %.not45.i232831 = icmp ult i32 %1247, 64
+  %.not45.i232831 = icmp samesign ult i32 %1247, 64
   br i1 %.not45.i232831, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %._crit_edge830, %._crit_edge847, %.lr.ph859.preheader, %.lr.ph842
@@ -35130,7 +35130,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1138, %1084
   %1204 = icmp ne i64 %1203, 0
   %1205 = zext i1 %1204 to i32
   %1206 = add i32 %1200, %1205
-  %.not45.i472 = icmp ult i32 %.sroa.9.0.i, 64
+  %.not45.i472 = icmp samesign ult i32 %.sroa.9.0.i, 64
   br i1 %.not45.i472, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 1207:                                             ; preds = %_ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit
@@ -35167,7 +35167,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1138, %1084
 ._crit_edge462:                                   ; preds = %1216, %.preheader368
   %1224 = add i32 %1211, %1210
   store i32 %1224, ptr %7, align 8, !tbaa !167
-  %.not47.i47463 = icmp ult i32 %1208, 64
+  %.not47.i47463 = icmp samesign ult i32 %1208, 64
   br i1 %.not47.i47463, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %.lr.ph466
 
 .lr.ph466:                                        ; preds = %._crit_edge462
@@ -35220,7 +35220,7 @@ _ZN13duckdb_yyjsonL16bigint_mul_pow10EPNS_6bigintEi.exit: ; preds = %1138, %1084
   %1254 = zext i1 %1253 to i32
   %1255 = add i32 %1249, %1254
   store i32 %1255, ptr %7, align 8, !tbaa !167
-  %.not45.i43455 = icmp ult i32 %1208, 64
+  %.not45.i43455 = icmp samesign ult i32 %1208, 64
   br i1 %.not45.i43455, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit, label %_ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split
 
 _ZN13duckdb_yyjsonL15bigint_mul_pow2EPNS_6bigintEj.exit.sink.split: ; preds = %._crit_edge454, %._crit_edge471, %.lr.ph483.preheader, %.lr.ph466

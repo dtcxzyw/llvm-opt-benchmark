@@ -80,7 +80,7 @@ define range(i32 -1, 1) i32 @dtrestore(ptr noundef %0, ptr noundef %1) local_unn
 37:                                               ; preds = %35, %37
   %.355 = phi ptr [ %1, %35 ], [ %38, %37 ]
   %38 = load ptr, ptr %.355, align 8, !tbaa !21
-  %39 = tail call ptr %5(ptr noundef %0, ptr noundef nonnull %.355, i32 noundef 32) #1
+  %39 = tail call ptr %5(ptr noundef nonnull %0, ptr noundef nonnull %.355, i32 noundef 32) #1
   %.not = icmp eq ptr %38, null
   br i1 %.not, label %.loopexit, label %37, !llvm.loop !25
 

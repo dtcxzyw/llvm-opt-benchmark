@@ -89,19 +89,19 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
   br i1 %.not26, label %._crit_edge34, label %.lr.ph33, !llvm.loop !46
 
 ._crit_edge34:                                    ; preds = %.lr.ph33, %._crit_edge
-  tail call void @gvjobs_delete(ptr noundef %0) #12
+  tail call void @gvjobs_delete(ptr noundef nonnull %0) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !47
   tail call void @free(ptr noundef %14) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load ptr, ptr %15, align 8, !tbaa !48
   tail call void @free(ptr noundef %16) #12
-  tail call void @textfont_dict_close(ptr noundef %0) #12
+  tail call void @textfont_dict_close(ptr noundef nonnull %0) #12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %22
 
 18:                                               ; preds = %._crit_edge39
-  tail call void @free(ptr noundef %0) #12
+  tail call void @free(ptr noundef nonnull %0) #12
   %19 = load i32, ptr @graphviz_errors, align 4, !tbaa !49
   %20 = tail call i32 @agerrors() #12
   %21 = add nsw i32 %20, %19

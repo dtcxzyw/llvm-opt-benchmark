@@ -734,7 +734,7 @@ define void @AddCubesToStartingCover(ptr noundef readonly captures(none) %0) loc
 
 .loopexit:                                        ; preds = %50, %.preheader, %.critedge2
   %55 = load i32, ptr @g_CoverInfo, align 8, !tbaa !16
-  tail call void @InsertVarsWithoutClearing(ptr noundef %36, ptr noundef %5, i32 noundef %55, ptr noundef %6, i32 noundef %23) #17
+  tail call void @InsertVarsWithoutClearing(ptr noundef nonnull %36, ptr noundef %5, i32 noundef %55, ptr noundef %6, i32 noundef %23) #17
   %.val59 = load i32, ptr %17, align 4, !tbaa !6
   %56 = trunc i32 %.val59 to i16
   %57 = getelementptr inbounds nuw i8, ptr %36, i64 2

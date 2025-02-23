@@ -1414,7 +1414,7 @@ ECPGfree_struct_member.exit:                      ; preds = %.lr.ph, %16, %4, %4
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = load ptr, ptr %29, align 8
   tail call void @free(ptr noundef %30) #7
-  tail call void @free(ptr noundef %0) #7
+  tail call void @free(ptr noundef nonnull %0) #7
   ret void
 }
 

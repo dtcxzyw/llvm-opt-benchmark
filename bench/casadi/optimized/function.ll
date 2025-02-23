@@ -31125,7 +31125,7 @@ define void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %.not9.i.i.i.i = icmp eq ptr %64, %61
   %65 = load i64, ptr %59, align 8, !tbaa !201
-  br i1 %.not9.i.i.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not9.i.i.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %63, %.lr.ph.i.i.i.i
   %66 = phi i64 [ %70, %.lr.ph.i.i.i.i ], [ %65, %63 ]
@@ -31137,21 +31137,21 @@ define void @_ZNK6casadi8Function8mapaccumERKNSt7__cxx1112basic_stringIcSt11char
   %spec.select.i.i.i.i = select i1 %69, ptr %67, ptr %.sroa.02.110.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.not.i.i.i.i = icmp eq ptr %71, %61
-  br i1 %.not.i.i.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !445
+  br i1 %.not.i.i.i.i, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !445
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i: ; preds = %63
+  %.not.i.i = icmp slt i64 %65, %55
+  br i1 %.not.i.i, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread
+
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i
   %72 = load i64, ptr %spec.select.i.i.i.i, align 8, !tbaa !201
-  %.not.i.i = icmp slt i64 %72, %55
-  br i1 %.not.i.i, label %.lr.ph.i.i16.i.i, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread
+  %.not23.i.i = icmp slt i64 %72, %55
+  br i1 %.not23.i.i, label %.lr.ph.i.i16.i.i, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i: ; preds = %63
-  %.not23.i.i = icmp slt i64 %65, %55
-  br i1 %.not23.i.i, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread
-
-.lr.ph.i.i16.i.i:                                 ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i, %.lr.ph.i.i16.i.i
-  %73 = phi i64 [ %77, %.lr.ph.i.i16.i.i ], [ %65, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i ]
-  %74 = phi ptr [ %78, %.lr.ph.i.i16.i.i ], [ %64, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i ]
-  %.sroa.02.110.i.i17.i.i = phi ptr [ %spec.select.i.i18.i.i, %.lr.ph.i.i16.i.i ], [ %59, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i ]
+.lr.ph.i.i16.i.i:                                 ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i, %.lr.ph.i.i16.i.i
+  %73 = phi i64 [ %77, %.lr.ph.i.i16.i.i ], [ %65, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i ]
+  %74 = phi ptr [ %78, %.lr.ph.i.i16.i.i ], [ %64, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i ]
+  %.sroa.02.110.i.i17.i.i = phi ptr [ %spec.select.i.i18.i.i, %.lr.ph.i.i16.i.i ], [ %59, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i ]
   %75 = load i64, ptr %74, align 8, !tbaa !201
   %76 = icmp slt i64 %75, %73
   %77 = tail call i64 @llvm.smin.i64(i64 %75, i64 %73)
@@ -31164,8 +31164,8 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_
   %.pre.i.i = load i64, ptr %spec.select.i.i18.i.i, align 8, !tbaa !201
   br label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit
 
-_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i
-  %79 = phi i64 [ %65, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i ], [ %.pre.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i ]
+_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i
+  %79 = phi i64 [ %65, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i ], [ %.pre.i.i, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i ]
   %80 = icmp sgt i64 %79, -1
   br i1 %80, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread294, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit.thread
 
@@ -31483,7 +31483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %.not9.i.i.i.i170 = icmp eq ptr %189, %186
   %190 = load i64, ptr %184, align 8, !tbaa !201
-  br i1 %.not9.i.i.i.i170, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i185, label %.lr.ph.i.i.i.i171
+  br i1 %.not9.i.i.i.i170, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i185, label %.lr.ph.i.i.i.i171
 
 .lr.ph.i.i.i.i171:                                ; preds = %188, %.lr.ph.i.i.i.i171
   %191 = phi i64 [ %195, %.lr.ph.i.i.i.i171 ], [ %190, %188 ]
@@ -31495,21 +31495,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
   %spec.select.i.i.i.i173 = select i1 %194, ptr %192, ptr %.sroa.02.110.i.i.i.i172
   %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %.not.i.i.i.i174 = icmp eq ptr %196, %186
-  br i1 %.not.i.i.i.i174, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175, label %.lr.ph.i.i.i.i171, !llvm.loop !445
+  br i1 %.not.i.i.i.i174, label %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175, label %.lr.ph.i.i.i.i171, !llvm.loop !445
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175: ; preds = %.lr.ph.i.i.i.i171
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i185: ; preds = %188
+  %.not.i.i186 = icmp slt i64 %190, %58
+  br i1 %.not.i.i186, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
+
+_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175: ; preds = %.lr.ph.i.i.i.i171
   %197 = load i64, ptr %spec.select.i.i.i.i173, align 8, !tbaa !201
-  %.not.i.i176 = icmp slt i64 %197, %58
-  br i1 %.not.i.i176, label %.lr.ph.i.i16.i.i178, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
+  %.not23.i.i176 = icmp slt i64 %197, %58
+  br i1 %.not23.i.i176, label %.lr.ph.i.i16.i.i178, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
 
-_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i185: ; preds = %188
-  %.not23.i.i186 = icmp slt i64 %190, %58
-  br i1 %.not23.i.i186, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
-
-.lr.ph.i.i16.i.i178:                              ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175, %.lr.ph.i.i16.i.i178
-  %198 = phi i64 [ %202, %.lr.ph.i.i16.i.i178 ], [ %190, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175 ]
-  %199 = phi ptr [ %203, %.lr.ph.i.i16.i.i178 ], [ %189, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175 ]
-  %.sroa.02.110.i.i17.i.i179 = phi ptr [ %spec.select.i.i18.i.i180, %.lr.ph.i.i16.i.i178 ], [ %184, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175 ]
+.lr.ph.i.i16.i.i178:                              ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175, %.lr.ph.i.i16.i.i178
+  %198 = phi i64 [ %202, %.lr.ph.i.i16.i.i178 ], [ %190, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175 ]
+  %199 = phi ptr [ %203, %.lr.ph.i.i16.i.i178 ], [ %189, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175 ]
+  %.sroa.02.110.i.i17.i.i179 = phi ptr [ %spec.select.i.i18.i.i180, %.lr.ph.i.i16.i.i178 ], [ %184, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175 ]
   %200 = load i64, ptr %199, align 8, !tbaa !201
   %201 = icmp slt i64 %200, %198
   %202 = call i64 @llvm.smin.i64(i64 %200, i64 %198)
@@ -31522,8 +31522,8 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_
   %.pre.i.i183 = load i64, ptr %spec.select.i.i18.i.i180, align 8, !tbaa !201
   br label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187
 
-_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i185, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i182
-  %204 = phi i64 [ %190, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i185 ], [ %.pre.i.i183, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i182 ]
+_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i185, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i182
+  %204 = phi i64 [ %190, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i185 ], [ %.pre.i.i183, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.loopexit.i.i182 ]
   %205 = icmp sgt i64 %204, -1
   br i1 %205, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread300, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
 
@@ -31555,7 +31555,7 @@ _ZN6casadi8isUniqueIxEEbRKSt6vectorIT_SaIS2_EE.exit188: ; preds = %_ZN6casadi8in
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #30
   br i1 %219, label %308, label %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread
 
-_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i185, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i175, %_ZN6casadi8isUniqueIxEEbRKSt6vectorIT_SaIS2_EE.exit188, %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187
+_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187.thread: ; preds = %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.thread.i.i175, %_ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPKxSt6vectorIxSaIxEEEEET_S8_S8_.exit.i.i185, %_ZN6casadi8isUniqueIxEEbRKSt6vectorIT_SaIS2_EE.exit188, %_ZN6casadi8in_rangeIxEEbRKSt6vectorIT_SaIS2_EEx.exit187
   %220 = call ptr @__cxa_allocate_exception(i64 40) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20) #30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #30
@@ -69320,7 +69320,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i29: ; preds = %75, %_ZSt8_Destro
 
 _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit30:        ; preds = %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit.i29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #30
-  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.031.043) #34
+  %83 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.031.043) #34
   %.not = icmp eq ptr %83, %18
   br i1 %.not, label %._crit_edge46, label %54
 

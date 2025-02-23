@@ -2883,7 +2883,7 @@ define void @Acb_NtkPushLogic(ptr noundef captures(none) %0, i32 noundef %1, i32
 
 Acb_NtkNodeNum.exit:                              ; preds = %9, %3
   %.0.lcssa.i.i = phi i32 [ 0, %3 ], [ %14, %9 ]
-  tail call fastcc void @Acb_NtkCreateFanout(ptr noundef %0)
+  tail call fastcc void @Acb_NtkCreateFanout(ptr noundef nonnull %0)
   %.val7595 = load i32, ptr %4, align 4, !tbaa !45
   %15 = icmp sgt i32 %.val7595, 1
   br i1 %15, label %.lr.ph, label %.preheader91
@@ -3024,7 +3024,7 @@ Acb_NtkNodeNum.exit:                              ; preds = %9, %3
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.2 = phi i32 [ %67, %.preheader ], [ %.1102, %.preheader.preheader ]
-  %66 = tail call i32 @Acb_ObjPushToFanins(ptr noundef %0, i32 noundef %65, i32 noundef %1)
+  %66 = tail call i32 @Acb_ObjPushToFanins(ptr noundef nonnull %0, i32 noundef %65, i32 noundef %1)
   %.not55 = icmp eq i32 %66, 0
   %67 = add nsw i32 %.2, 1
   br i1 %.not55, label %68, label %.preheader, !llvm.loop !49

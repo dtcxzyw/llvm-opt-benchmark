@@ -1292,7 +1292,7 @@ Vec_IntFree.exit:                                 ; preds = %.loopexit, %301
   br label %311
 
 311:                                              ; preds = %310, %309
-  call void @Cnf_DataFree(ptr noundef %114) #12
+  call void @Cnf_DataFree(ptr noundef nonnull %114) #12
   call void @Aig_ManStop(ptr noundef %.1149) #12
   br label %312
 

@@ -2531,7 +2531,7 @@ define linkonce_odr dso_local void @_ZN7V3Sched12LogicByScope3addEP8AstScopeP10A
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 184
   %25 = load ptr, ptr %24, align 8
   %.not12 = icmp eq ptr %25, %2
-  br i1 %.not12, label %.thread, label %26
+  br i1 %.not12, label %_ZN9AstActive9addStmtspEP7AstNode.exit, label %26
 
 26:                                               ; preds = %21, %18, %13
   %27 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #26
@@ -2573,7 +2573,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %40, ptr %15, align 8
-  br label %66
+  br label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit
 
 41:                                               ; preds = %33
   %42 = load ptr, ptr %0, align 8
@@ -2635,7 +2635,15 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_E
   store ptr %59, ptr %15, align 8
   %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %54, i64 %52
   store ptr %61, ptr %35, align 8
-  br label %66
+  br label %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit
+
+_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
+  %.pre = load ptr, ptr %15, align 8
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -8
+  %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %_ZN9AstActive9addStmtspEP7AstNode.exit
 
 62:                                               ; preds = %.noexc, %26
   %63 = landingpad { ptr, i32 }
@@ -2653,34 +2661,19 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_E
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  br i1 %.0, label %65, label %68
+  br i1 %.0, label %65, label %67
 
 65:                                               ; preds = %.body.thread, %.body
   %.pn24 = phi { ptr, i32 } [ %.pn.ph, %.body.thread ], [ %64, %.body ]
   call void @_ZdlPv(ptr noundef nonnull %27) #28
-  br label %68
+  br label %67
 
-66:                                               ; preds = %37, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_S4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %_ZN9AstActive9addStmtspEP7AstNode.exit, label %..thread_crit_edge
-
-..thread_crit_edge:                               ; preds = %66
-  %.pn.pre = load ptr, ptr %15, align 8
-  %.in.phi.trans.insert = getelementptr inbounds i8, ptr %.pn.pre, i64 -8
-  %.pre = load ptr, ptr %.in.phi.trans.insert, align 8
-  br label %.thread
-
-.thread:                                          ; preds = %..thread_crit_edge, %21
-  %67 = phi ptr [ %.pre, %..thread_crit_edge ], [ %23, %21 ]
-  call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(192) %67, ptr noundef nonnull %3)
-  br label %_ZN9AstActive9addStmtspEP7AstNode.exit
-
-_ZN9AstActive9addStmtspEP7AstNode.exit:           ; preds = %66, %.thread
+_ZN9AstActive9addStmtspEP7AstNode.exit:           ; preds = %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit, %21
+  %66 = phi ptr [ %.pre25, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit ], [ %23, %21 ]
+  call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(192) %66, ptr noundef nonnull %3)
   ret void
 
-68:                                               ; preds = %.body, %65
+67:                                               ; preds = %.body, %65
   %.pn23 = phi { ptr, i32 } [ %64, %.body ], [ %.pn24, %65 ]
   resume { ptr, i32 } %.pn23
 }

@@ -104,7 +104,7 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %47
 
 .critedge94:                                      ; preds = %.thread, %34, %.critedge, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit, %30, %22
   %.not109 = phi i1 [ %.not106, %.thread ], [ false, %34 ], [ false, %.critedge ], [ false, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ false, %30 ], [ %.not, %22 ]
-  %54 = phi i1 [ false, %.thread ], [ true, %34 ], [ true, %.critedge ], [ %25, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %30 ], [ %25, %22 ]
+  %54 = phi i1 [ false, %.thread ], [ true, %34 ], [ true, %.critedge ], [ true, %_Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit ], [ true, %30 ], [ %25, %22 ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48852
   %56 = load i8, ptr %55, align 4, !tbaa !71, !range !58, !noundef !59
   %57 = load ptr, ptr %0, align 8, !tbaa !72

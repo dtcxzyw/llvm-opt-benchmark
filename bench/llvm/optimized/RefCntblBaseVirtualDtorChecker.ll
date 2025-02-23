@@ -5102,7 +5102,6 @@ define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_130RefCntblBaseVir
   %16 = load i32, ptr %15, align 4
   %17 = and i32 %16, 126
   %18 = icmp eq i32 %17, 58
-  %spec.select.i.i = select i1 %18, ptr %0, ptr null
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br i1 %18, label %20, label %.critedge29.thread
 
@@ -5131,7 +5130,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZN12_GLOBAL__N_130RefCntblBaseVir
 .lr.ph116:                                        ; preds = %.lr.ph.i.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 168
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %8, i64 16

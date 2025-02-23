@@ -236,7 +236,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_1(ptr noundef %0, i32
   br i1 %110, label %111, label %125
 
 111:                                              ; preds = %109
-  %.neg = sub i32 %.3121, %.0114
+  %.neg = sub nsw i32 %.3121, %.0114
   %112 = shl i32 %.neg, 3
   %113 = add i32 %112, 64
   %114 = zext nneg i32 %113 to i64

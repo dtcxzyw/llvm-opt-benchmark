@@ -210,7 +210,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %90
   %96 = load ptr, ptr %19, align 8, !tbaa !31
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 136
   %98 = load i16, ptr %97, align 8, !tbaa !34
-  %99 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %0, ptr noundef nonnull %84, i16 noundef zeroext %98, i1 noundef zeroext %.085148, i1 noundef zeroext false) #11
+  %99 = call i32 @prte_rmaps_base_get_target_nodes(ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %0, ptr noundef nonnull %84, i16 noundef zeroext %98, i1 noundef zeroext %.085148, i1 noundef zeroext false) #11
   switch i32 %99, label %.loopexit.sink.split [
     i32 0, label %100
     i32 -43, label %.loopexit

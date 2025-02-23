@@ -437,7 +437,7 @@ define void @lv_draw_sw_triangle(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %232 = load i32, ptr %4, align 4, !tbaa !8
   %233 = call i32 @lv_draw_sw_mask_apply(ptr noundef nonnull %6, ptr noundef %136, i32 noundef %232, i32 noundef %.0123169, i32 noundef %134) #5
   store i32 %233, ptr %212, align 8, !tbaa !45
-  call void @lv_draw_sw_blend(ptr noundef %0, ptr noundef nonnull %11) #5
+  call void @lv_draw_sw_blend(ptr noundef nonnull %0, ptr noundef nonnull %11) #5
   %234 = add nsw i32 %.0123169, 1
   %235 = load i32, ptr %210, align 4, !tbaa !14
   %.not.not = icmp slt i32 %.0123169, %235

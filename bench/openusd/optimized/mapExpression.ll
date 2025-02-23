@@ -1147,7 +1147,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i84.i.i: ; preds = %286
   br i1 %294, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
-  %295 = icmp slt i32 %.sroa.0.0.i.i, 16
+  %295 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
   br i1 %295, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %297
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %291
@@ -3371,7 +3371,7 @@ _ZN3tbb6detail2d113spin_rw_mutex8try_lockEv.exit.i43.i.i: ; preds = %144
   br i1 %152, label %.lr.ph.i.i.i.i, label %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, !llvm.loop !6
 
 _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i:   ; preds = %.lr.ph.i.i.i.i
-  %153 = icmp slt i32 %.sroa.0.0.i.i, 16
+  %153 = icmp samesign ult i32 %.sroa.0.0.i.i, 16
   br i1 %153, label %_ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i, label %155
 
 _ZN3tbb6detail2d014atomic_backoff13bounded_pauseEv.exit.i.i: ; preds = %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i, %149

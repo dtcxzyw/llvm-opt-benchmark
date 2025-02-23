@@ -11339,7 +11339,15 @@ while.cond.i:                                     ; preds = %if.then10.i, %while
   %_M_right20.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 24
   %4 = load ptr, ptr %_M_right20.i, align 8, !tbaa !296
   %tobool21.not.i = icmp eq ptr %4, null
-  br i1 %tobool21.not.i, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, label %while.cond.i, !llvm.loop !316
+  br i1 %tobool21.not.i, label %while.end.i, label %while.cond.i, !llvm.loop !316
+
+while.end.i:                                      ; preds = %while.cond.i
+  %_M_left26.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
+  %5 = load ptr, ptr %_M_left26.i, align 8, !tbaa !297
+  %tobool27.not.i = icmp eq ptr %5, null
+  %spec.store.select.i = select i1 %tobool27.not.i, ptr %storemerge.i, ptr %5
+  store ptr %spec.store.select.i, ptr %_M_nodes.i, align 8
+  br label %if.then
 
 if.else.i:                                        ; preds = %if.then8.i
   %_M_left35.i = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11350,15 +11358,7 @@ if.else37.i:                                      ; preds = %if.end.i
   store ptr null, ptr %this, align 8, !tbaa !307
   br label %if.then
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit: ; preds = %while.cond.i
-  %_M_left26.i = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 16
-  %5 = load ptr, ptr %_M_left26.i, align 8, !tbaa !297
-  %tobool27.not.i = icmp eq ptr %5, null
-  %spec.store.select.i = select i1 %tobool27.not.i, ptr %storemerge.i, ptr %5
-  store ptr %spec.store.select.i, ptr %_M_nodes.i, align 8
-  br label %if.then
-
-if.then:                                          ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE20_Reuse_or_alloc_node10_M_extractEv.exit, %if.else37.i, %if.else.i, %if.then10.i
+if.then:                                          ; preds = %if.then10.i, %while.end.i, %if.else.i, %if.else37.i
   %_M_t = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %second.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64

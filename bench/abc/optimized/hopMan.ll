@@ -456,7 +456,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv29 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next30, %57 ]
   %58 = getelementptr inbounds nuw ptr, ptr %.pre33.pre, i64 %indvars.iv29
   %59 = load ptr, ptr %58, align 8, !tbaa !24
-  tail call void @Hop_ObjDelete_rec(ptr noundef %0, ptr noundef %59) #14
+  tail call void @Hop_ObjDelete_rec(ptr noundef nonnull %0, ptr noundef %59) #14
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.thread, label %57, !llvm.loop !41

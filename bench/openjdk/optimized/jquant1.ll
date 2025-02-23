@@ -121,14 +121,14 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
   %wide.trip.count82.i.i = zext nneg i32 %36 to i64
   br label %.lr.ph.i.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i.i
+.lr.ph64.us.preheader.i.i:                        ; preds = %.lr.ph.i.i
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %.lr.ph64.us.i.i
 
-.lr.ph64.us.i.i:                                  ; preds = %.lr.ph64.us.i.i.backedge, %.preheader.i.i
-  %indvars.iv84.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv84.i.i.be, %.lr.ph64.us.i.i.backedge ]
-  %.not5363.us.i.i = phi i1 [ true, %.preheader.i.i ], [ %.not5363.us.i.i.be, %.lr.ph64.us.i.i.backedge ]
-  %.262.us.i.i = phi i32 [ %75, %.preheader.i.i ], [ %.262.us.i.i.be, %.lr.ph64.us.i.i.backedge ]
+.lr.ph64.us.i.i:                                  ; preds = %.lr.ph64.us.i.i.backedge, %.lr.ph64.us.preheader.i.i
+  %indvars.iv84.i.i = phi i64 [ 0, %.lr.ph64.us.preheader.i.i ], [ %indvars.iv84.i.i.be, %.lr.ph64.us.i.i.backedge ]
+  %.not5363.us.i.i = phi i1 [ true, %.lr.ph64.us.preheader.i.i ], [ %.not5363.us.i.i.be, %.lr.ph64.us.i.i.backedge ]
+  %.262.us.i.i = phi i32 [ %75, %.lr.ph64.us.preheader.i.i ], [ %.262.us.i.i.be, %.lr.ph64.us.i.i.backedge ]
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 2
   %57 = trunc nuw nsw i64 %indvars.iv84.i.i to i32
@@ -178,7 +178,7 @@ define hidden void @jI1Quant(ptr noundef %0) local_unnamed_addr #0 {
   %75 = mul nuw nsw i32 %.04560.i.i, %.us-phi.i.i
   %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
   %exitcond83.not.i.i = icmp eq i64 %indvars.iv.next80.i.i, %wide.trip.count82.i.i
-  br i1 %exitcond83.not.i.i, label %.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !10
+  br i1 %exitcond83.not.i.i, label %.lr.ph64.us.preheader.i.i, label %.lr.ph.i.i, !llvm.loop !10
 
 select_ncolors.exit.i:                            ; preds = %._crit_edge.us70.i.i, %52
   %.us-phi73.i.i = phi i32 [ 1, %52 ], [ %.2.lcssa.us.i.i, %._crit_edge.us70.i.i ]

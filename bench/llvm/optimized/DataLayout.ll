@@ -6514,8 +6514,8 @@ define dso_local void @_ZNK4llvm10DataLayout20getGEPIndexForOffsetERPNS_4TypeERN
   %11 = load i32, ptr %10, align 8
   %12 = and i32 %11, 255
   %13 = icmp ne i32 %12, 16
-  %.not.not57 = icmp eq ptr %9, null
-  %.not.not = or i1 %.not.not57, %13
+  %.not.not55 = icmp eq ptr %9, null
+  %.not.not = or i1 %.not.not55, %13
   br i1 %.not.not, label %32, label %14
 
 14:                                               ; preds = %4
@@ -6546,7 +6546,7 @@ define dso_local void @_ZNK4llvm10DataLayout20getGEPIndexForOffsetERPNS_4TypeERN
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 1, ptr %31, align 8, !tbaa !324
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #21
-  br label %93
+  br label %.thread53
 
 32:                                               ; preds = %4
   %33 = add nsw i32 %12, -17
@@ -6556,12 +6556,12 @@ define dso_local void @_ZNK4llvm10DataLayout20getGEPIndexForOffsetERPNS_4TypeERN
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %35, align 8, !tbaa !324
-  br label %93
+  br label %.thread53
 
 36:                                               ; preds = %32
   %37 = icmp ne i32 %12, 15
-  %.not37.not = or i1 %.not.not57, %37
-  br i1 %.not37.not, label %.thread53, label %38
+  %.not37.not = or i1 %.not.not55, %37
+  br i1 %.not37.not, label %93, label %38
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 488
@@ -6622,78 +6622,78 @@ _ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit: ; preds = %43, %_
   %60 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %7) #21
   %.not38 = icmp ult i64 %.0.i43, %60
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #21
-  br i1 %.not38, label %62, label %.thread55
+  br i1 %.not38, label %63, label %61
 
-.thread55:                                        ; preds = %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %61, align 8, !tbaa !324
-  br label %93
+61:                                               ; preds = %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %62, align 8, !tbaa !324
+  br label %.thread53
 
-62:                                               ; preds = %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
-  %63 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
-  %65 = load i32, ptr %64, align 4
-  %66 = and i32 %65, 2147483647
-  %.not.i44 = icmp eq i32 %66, 0
-  br i1 %.not.i44, label %.loopexit, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i"
+63:                                               ; preds = %_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE.exit
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
+  %66 = load i32, ptr %65, align 4
+  %67 = and i32 %66, 2147483647
+  %.not.i44 = icmp eq i32 %67, 0
+  br i1 %.not.i44, label %_ZN4llvm5APIntD2Ev.exit50, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i": ; preds = %62
-  %67 = zext nneg i32 %66 to i64
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i": ; preds = %63
+  %68 = zext nneg i32 %67 to i64
   br label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i"
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i"
-  %.012.i.i.i = phi ptr [ %75, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
-  %.01111.i.i.i = phi i64 [ %74, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %67, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
-  %68 = lshr i64 %.01111.i.i.i, 1
-  %69 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %.012.i.i.i, i64 %68
-  %.val14.i.i.i = load i64, ptr %69, align 8
+  %.012.i.i.i = phi ptr [ %76, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %64, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
+  %.01111.i.i.i = phi i64 [ %75, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ], [ %68, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.preheader.i" ]
+  %69 = lshr i64 %.01111.i.i.i, 1
+  %70 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %.012.i.i.i, i64 %69
+  %.val14.i.i.i = load i64, ptr %70, align 8
   %.val14.i.i.fr.i = freeze i64 %.val14.i.i.i
-  %70 = icmp ult i64 %.0.i43, %.val14.i.i.fr.i
-  %71 = xor i64 %68, -1
-  %72 = add nsw i64 %.01111.i.i.i, %71
-  %73 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %74 = select i1 %70, i64 %68, i64 %72
-  %75 = select i1 %70, ptr %.012.i.i.i, ptr %73
-  %76 = icmp sgt i64 %74, 0
-  br i1 %76, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", label %.loopexit, !llvm.loop !27
+  %71 = icmp ult i64 %.0.i43, %.val14.i.i.fr.i
+  %72 = xor i64 %69, -1
+  %73 = add nsw i64 %.01111.i.i.i, %72
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %75 = select i1 %71, i64 %69, i64 %73
+  %76 = select i1 %71, ptr %.012.i.i.i, ptr %74
+  %77 = icmp sgt i64 %75, 0
+  br i1 %77, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", label %_ZN4llvm5APIntD2Ev.exit50, !llvm.loop !27
 
-.loopexit:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", %62
-  %.0.lcssa.i.i.i = phi ptr [ %63, %62 ], [ %75, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ]
-  %77 = ptrtoint ptr %63 to i64
-  %78 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -16
-  %79 = ptrtoint ptr %78 to i64
-  %80 = sub i64 %79, %77
-  %81 = lshr exact i64 %80, 4
+_ZN4llvm5APIntD2Ev.exit50:                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i", %63
+  %.0.lcssa.i.i.i = phi ptr [ %64, %63 ], [ %76, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZNK4llvm12StructLayout26getElementContainingOffsetEmE3$_0EclIKNS2_8TypeSizeEPS8_EEbRT_T0_.exit.i.i.i" ]
+  %78 = ptrtoint ptr %64 to i64
+  %79 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i, i64 -16
+  %80 = ptrtoint ptr %79 to i64
+  %81 = sub i64 %80, %78
+  %82 = lshr exact i64 %81, 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #21
-  %82 = and i64 %81, 4294967295
-  %83 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %63, i64 %82
-  %.sroa.0.0.copyload.i45 = load i64, ptr %83, align 8
-  %.sroa.2.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %83 = and i64 %82, 4294967295
+  %84 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %64, i64 %83
+  %.sroa.0.0.copyload.i45 = load i64, ptr %84, align 8
+  %.sroa.2.0..sroa_idx.i46 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.sroa.2.0.copyload.i47 = load i8, ptr %.sroa.2.0..sroa_idx.i46, align 8
   store i64 %.sroa.0.0.copyload.i45, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i8 %.sroa.2.0.copyload.i47, ptr %.sroa.2.0..sroa_idx, align 8
-  %84 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #21
-  %85 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIEm(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %84) #21
+  %85 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %8) #21
+  %86 = call noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntmIEm(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %85) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #21
-  %86 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !19
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %82
-  %89 = load ptr, ptr %88, align 8, !tbaa !20
-  store ptr %89, ptr %2, align 8, !tbaa !20
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 32, ptr %90, align 8, !tbaa !321
-  store i64 %82, ptr %0, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %91, align 8, !tbaa !324
-  br label %93
-
-.thread53:                                        ; preds = %36
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !19
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %83
+  %90 = load ptr, ptr %89, align 8, !tbaa !20
+  store ptr %90, ptr %2, align 8, !tbaa !20
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 32, ptr %91, align 8, !tbaa !321
+  store i64 %83, ptr %0, align 8
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 0, ptr %92, align 8, !tbaa !324
-  br label %93
+  store i8 1, ptr %92, align 8, !tbaa !324
+  br label %.thread53
 
-93:                                               ; preds = %.loopexit, %.thread55, %14, %.thread53, %34
+93:                                               ; preds = %36
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 0, ptr %94, align 8, !tbaa !324
+  br label %.thread53
+
+.thread53:                                        ; preds = %_ZN4llvm5APIntD2Ev.exit50, %61, %14, %93, %34
   ret void
 }
 

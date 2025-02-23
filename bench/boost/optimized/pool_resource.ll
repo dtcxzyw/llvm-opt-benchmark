@@ -699,7 +699,7 @@ _ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmR
 _ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit: ; preds = %75, %_ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmRNS1_15memory_resourceE.exit.i._ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit_crit_edge
   %79 = phi ptr [ %.pre, %_ZN5boost9container3pmr16block_slist_baseINS1_18block_slist_headerEE8allocateEmRNS1_15memory_resourceE.exit.i._ZN5boost9container3pmr11pool_data_t9replenishERNS1_15memory_resourceEmm.exit_crit_edge ], [ %.023.i, %75 ]
   %80 = lshr i64 %57, 1
-  %81 = icmp ult i64 %80, %.sroa.speculated.i15
+  %81 = icmp samesign ult i64 %80, %.sroa.speculated.i15
   %82 = shl nuw nsw i64 %.sroa.speculated.i15, 1
   %83 = select i1 %81, i64 %57, i64 %82
   store i64 %83, ptr %58, align 8, !tbaa !20

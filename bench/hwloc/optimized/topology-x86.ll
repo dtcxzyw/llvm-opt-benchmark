@@ -1530,7 +1530,7 @@ define internal fastcc noalias noundef ptr @cpuiddump_read(ptr noundef nonnull %
   br label %52
 
 50:                                               ; preds = %25, %15
-  call void @free(ptr noundef %11) #22
+  call void @free(ptr noundef nonnull %11) #22
   br label %51
 
 51:                                               ; preds = %8, %50

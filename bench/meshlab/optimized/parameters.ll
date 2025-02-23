@@ -1113,16 +1113,16 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr noundef nonnull readnone align 8
   %11 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %.01921)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph25.preheader, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph25.preheader:                               ; preds = %.lr.ph
   %12 = tail call double @sqrt(double noundef %11) #26
   %13 = fdiv double %3, %12
   %wide.trip.count31 = zext nneg i32 %1 to i64
   br label %.lr.ph25
 
-.lr.ph25:                                         ; preds = %._crit_edge, %.lr.ph25
-  %indvars.iv28 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next29, %.lr.ph25 ]
+.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next29, %.lr.ph25 ]
   %14 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv28
   %15 = load double, ptr %14, align 8
   %16 = fmul double %13, %15
@@ -1156,15 +1156,15 @@ define void @_ZN10Parameters6rattleEd(ptr noundef nonnull align 8 captures(none)
   %12 = tail call double @llvm.fmuladd.f64(double %10, double %10, double %.01921.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
+  br i1 %exitcond.not.i, label %.lr.ph25.preheader.i, label %.lr.ph.i, !llvm.loop !15
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph25.preheader.i:                             ; preds = %.lr.ph.i
   %13 = tail call double @sqrt(double noundef %12) #26
   %14 = fdiv double %1, %13
   br label %.lr.ph25.i
 
-.lr.ph25.i:                                       ; preds = %.lr.ph25.i, %._crit_edge.i
-  %indvars.iv28.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next29.i, %.lr.ph25.i ]
+.lr.ph25.i:                                       ; preds = %.lr.ph25.i, %.lr.ph25.preheader.i
+  %indvars.iv28.i = phi i64 [ 0, %.lr.ph25.preheader.i ], [ %indvars.iv.next29.i, %.lr.ph25.i ]
   %15 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv28.i
   %16 = load double, ptr %15, align 8
   %17 = fmul double %14, %16

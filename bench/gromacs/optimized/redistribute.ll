@@ -3033,7 +3033,7 @@ _ZL30correctVelocityForDisplacementILb0EEvPA3_KfPfPS0_.exit.i: ; preds = %301
   %459 = trunc nuw nsw i64 %indvars.iv.i.lcssa.sink221 to i32
   %460 = getelementptr inbounds nuw [3 x float], ptr %11, i64 0, i64 %indvars.iv.i.lcssa.sink221
   %461 = load float, ptr %460, align 4
-  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %451, ptr noundef %452, i64 noundef %453, i32 noundef %458, i32 noundef %459, i32 noundef %454, i1 noundef zeroext %25, float noundef %461, ptr noundef %455, ptr noundef %456, float noundef %457) #23
+  invoke fastcc void @_ZL13cg_move_errorP8_IO_FILEPK12gmx_domdec_tliiibfPfS4_f(ptr noundef %451, ptr noundef nonnull %452, i64 noundef %453, i32 noundef %458, i32 noundef %459, i32 noundef %454, i1 noundef zeroext %25, float noundef %461, ptr noundef %455, ptr noundef %456, float noundef %457) #23
           to label %.cont unwind label %305
 
 .cont:                                            ; preds = %.invoke

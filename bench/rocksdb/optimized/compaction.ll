@@ -1171,7 +1171,7 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE17_M_realloc_insert
   br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i
 
 _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i32
-  %inc.i = add nuw i64 %k.05.i, 1
+  %inc.i = add i64 %k.05.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %j.0135
   br i1 %exitcond.not.i, label %for.inc, label %for.body.i, !llvm.loop !17
 
@@ -1278,7 +1278,7 @@ _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE17_M_realloc_insert
   br label %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i55
 
 _ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE9push_backERKS1_.exit.i55: ; preds = %_ZNSt6vectorIN7rocksdb28AtomicCompactionUnitBoundaryESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i87, %if.then.i.i53
-  %inc.i56 = add nuw i64 %k.05.i48, 1
+  %inc.i56 = add i64 %k.05.i48, 1
   %exitcond.not.i57 = icmp eq i64 %inc.i56, %sub.ptr.div.i25.lcssa
   br i1 %exitcond.not.i57, label %for.inc41.loopexit, label %for.body.i47, !llvm.loop !17
 

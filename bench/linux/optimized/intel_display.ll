@@ -16495,7 +16495,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   %155 = load ptr, ptr %41, align 8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load i32, ptr %156, align 4
-  %158 = add i32 %157, %133
+  %158 = add i32 %157, 24596
   %159 = load ptr, ptr %54, align 8
   call void %159(ptr noundef nonnull %53, i32 %158, i32 noundef %40, i1 noundef zeroext true) #25
   %160 = load ptr, ptr %41, align 8
@@ -16514,7 +16514,7 @@ define dso_local void @i830_enable_pipe(ptr noundef %0, i32 noundef %1) local_un
   %169 = load ptr, ptr %41, align 8
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %171 = load i32, ptr %170, align 4
-  %172 = add i32 %171, %133
+  %172 = add i32 %171, %132
   %173 = load ptr, ptr %54, align 8
   call void %173(ptr noundef nonnull %53, i32 %172, i32 noundef %40, i1 noundef zeroext true) #25
   %174 = load ptr, ptr %41, align 8

@@ -3623,15 +3623,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14SmallSetVectorIPNS_5ValueELj4EEENS_12D
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14SmallSetVectorIPNS_5ValueELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14SmallSetVectorIPNS_5ValueELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_EixERKj.exit: ; preds = %149, %137, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_14SmallSetVectorIPNS_5ValueELj4EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS5_EEEEjS5_S7_SA_E16InsertIntoBucketIRKjJEEEPSA_SG_OT_DpOT0_.exit.i
-  %230 = icmp eq ptr %.sroa.022.042, null
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.022.042, i64 24
-  %spec.select.i.i.i.i = select i1 %230, ptr null, ptr %231
-  %232 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i, i64 8
-  %233 = load ptr, ptr %232, align 8, !tbaa !159
-  %234 = getelementptr inbounds i8, ptr %233, i64 -24
-  %235 = load i8, ptr %234, align 8, !tbaa !66
-  %236 = icmp eq i8 %235, 84
-  %spec.select.i.i.i1.i = select i1 %236, ptr %234, ptr null
+  %230 = getelementptr inbounds nuw i8, ptr %.sroa.022.042, i64 32
+  %231 = load ptr, ptr %230, align 8, !tbaa !159
+  %232 = getelementptr inbounds i8, ptr %231, i64 -24
+  %233 = load i8, ptr %232, align 8, !tbaa !66
+  %234 = icmp eq i8 %233, 84
+  %spec.select.i.i.i1.i = select i1 %234, ptr %232, ptr null
   %.not32 = icmp eq ptr %spec.select.i.i.i1.i, %75
   br i1 %.not32, label %._crit_edge, label %.lr.ph
 }

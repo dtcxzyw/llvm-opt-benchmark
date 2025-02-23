@@ -778,7 +778,7 @@ _ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit: ; preds = %96, %_ZNSt6v
   br label %118
 
 118:                                              ; preds = %_ZNSt6vectorIP10ConstraintSaIS1_EE9push_backERKS1_.exit, %28, %24
-  %119 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.039.047) #26
+  %119 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.039.047) #26
   %.not42 = icmp eq ptr %119, %6
   br i1 %.not42, label %._crit_edge, label %24
 }
@@ -2493,7 +2493,7 @@ _ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backI
 59:                                               ; preds = %_ZNSt6vectorISt10unique_ptrI4nodeSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit
   store ptr %57, ptr %58, align 8, !tbaa !92
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %60 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0168.0202) #26
+  %60 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0168.0202) #26
   %.not171 = icmp eq ptr %60, %12
   br i1 %.not171, label %._crit_edge.loopexit, label %16
 

@@ -2278,7 +2278,7 @@ define void @_ZNK5Ipopt16IndexPCalculator9PrintImplERKNS_10JournalistENS_13EJour
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph28
   %39 = add nuw nsw i32 %.01926, 1
-  %40 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.020.025) #24
+  %40 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.020.025) #24
   %.not = icmp eq ptr %40, %19
   br i1 %.not, label %._crit_edge29, label %.lr.ph28, !llvm.loop !68
 

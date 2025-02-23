@@ -177,7 +177,6 @@ pmix_obj_new_tma.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   switch i32 %23, label %60 [
     i32 0, label %67
     i32 -27, label %51
-    i32 -64, label %67
   ]
 
 51:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i
@@ -200,7 +199,7 @@ pmix_obj_new_tma.exit.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i, %
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %62, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.6, ptr noundef %65) #16
   br label %register_framework_params.exit
 
-67:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i, %pmix_obj_new_tma.exit.i.i.i, %.lr.ph.i.i
+67:                                               ; preds = %pmix_obj_new_tma.exit.i.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %68 = getelementptr inbounds nuw ptr, ptr @prte_frameworks, i64 %indvars.iv.next.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !29

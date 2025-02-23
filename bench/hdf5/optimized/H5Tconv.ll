@@ -232,7 +232,7 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
   %.not94 = icmp ult i64 %14, 2
   br i1 %.not94, label %.loopexit, label %.lr.ph86
 
-._crit_edge:                                      ; preds = %.lr.ph86
+.lr.ph89.preheader:                               ; preds = %.lr.ph86
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 %44
   br label %.lr.ph89
@@ -246,10 +246,10 @@ define noundef i32 @H5T__reverse_order(ptr noundef writeonly captures(none) %0, 
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 %50
   store i8 %48, ptr %51, align 1, !tbaa !15
   %exitcond101.not = icmp eq i64 %49, %44
-  br i1 %exitcond101.not, label %._crit_edge, label %.lr.ph86, !llvm.loop !35
+  br i1 %exitcond101.not, label %.lr.ph89.preheader, label %.lr.ph86, !llvm.loop !35
 
-.lr.ph89:                                         ; preds = %._crit_edge, %.lr.ph89
-  %.06787 = phi i64 [ %54, %.lr.ph89 ], [ 0, %._crit_edge ]
+.lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
+  %.06787 = phi i64 [ %54, %.lr.ph89 ], [ 0, %.lr.ph89.preheader ]
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 %.06787
   %53 = load i8, ptr %52, align 1, !tbaa !15
   %54 = add nuw nsw i64 %.06787, 1

@@ -6758,7 +6758,7 @@ define internal fastcc i32 @chunked_encoding_dissector(ptr noundef %0, ptr nound
 
 74:                                               ; preds = %74, %73
   %75 = load i32, ptr %6, align 4
-  %76 = sub i32 %75, %spec.select153
+  %76 = sub i32 %75, %70
   %77 = sub i32 %72, %76
   %78 = call i32 @tvb_find_line_end(ptr noundef nonnull %9, i32 noundef %75, i32 noundef %77, ptr noundef nonnull %6, i1 noundef zeroext true)
   %79 = icmp sgt i32 %78, 0
@@ -6770,12 +6770,12 @@ define internal fastcc i32 @chunked_encoding_dissector(ptr noundef %0, ptr nound
 
 82:                                               ; preds = %80
   %83 = load i32, ptr @hf_http_chunked_trailer_part, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %83, ptr noundef nonnull %9, i32 noundef %spec.select153, i32 noundef %76, i32 noundef 0)
+  %84 = call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %83, ptr noundef nonnull %9, i32 noundef %70, i32 noundef %76, i32 noundef 0)
   br label %85
 
 85:                                               ; preds = %82, %80
   %.3120 = phi i32 [ %77, %82 ], [ %72, %80 ]
-  %.3 = phi i32 [ %75, %82 ], [ %spec.select153, %80 ]
+  %.3 = phi i32 [ %75, %82 ], [ %70, %80 ]
   %86 = icmp eq i32 %78, 0
   br i1 %86, label %87, label %93
 

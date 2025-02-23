@@ -495,13 +495,13 @@ define ptr @Abc_SopCreateFromTruth(ptr noundef %0, i32 noundef %1, ptr noundef r
   store i8 10, ptr %30, align 1, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Abc_SopStart.exit.preheader, label %27, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.lr.ph50, label %27, !llvm.loop !6
 
-Abc_SopStart.exit.preheader:                      ; preds = %27
+.lr.ph50:                                         ; preds = %27
   %31 = icmp sgt i32 %1, 0
   br i1 %31, label %.lr.ph50.split.us.preheader, label %.loopexit
 
-.lr.ph50.split.us.preheader:                      ; preds = %Abc_SopStart.exit.preheader
+.lr.ph50.split.us.preheader:                      ; preds = %.lr.ph50
   %smax56 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %.lr.ph50.split.us
@@ -548,8 +548,8 @@ Abc_SopStart.exit.us:                             ; preds = %._crit_edge46.us, %
   %50 = add nsw i32 %.13647.us, 1
   br label %Abc_SopStart.exit.us
 
-.loopexit:                                        ; preds = %Abc_SopStart.exit.us, %.loopexit.sink.split, %7, %Abc_SopStart.exit.preheader, %._crit_edge
-  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %Abc_SopStart.exit.preheader ], [ null, %7 ], [ %6, %.loopexit.sink.split ], [ %22, %Abc_SopStart.exit.us ]
+.loopexit:                                        ; preds = %Abc_SopStart.exit.us, %.loopexit.sink.split, %7, %.lr.ph50, %._crit_edge
+  %.037 = phi ptr [ null, %._crit_edge ], [ %22, %.lr.ph50 ], [ null, %7 ], [ %6, %.loopexit.sink.split ], [ %22, %Abc_SopStart.exit.us ]
   ret ptr %.037
 }
 

@@ -4376,8 +4376,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetwe
   %1034 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %1025, i64 %.0108186.us203.i.i, i32 3
   %.val146.us204.i.i = load i64, ptr %1034, align 8, !noalias !16
   %1035 = icmp ult i64 %.val146.us204.i.i, 6
-  %1036 = add nuw i64 %.0108186.us203.i.i, 1
-  %1037 = icmp ult i64 %1036, %1018
+  %1036 = add nuw nsw i64 %.0108186.us203.i.i, 1
+  %1037 = icmp samesign ult i64 %1036, %1018
   %1038 = select i1 %1035, i1 %1037, i1 false
   br i1 %1038, label %.lr.ph187.split.us207.i.i, label %.loopexit170.us.i.i, !llvm.loop !42
 
@@ -4386,8 +4386,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetwe
   %1039 = getelementptr %"class.gmx::analysismodules::(anonymous namespace)::SecondaryStructuresData", ptr %1025, i64 %.0109188.us.i.i, i32 3
   %.val145.us.i.i = load i64, ptr %1039, align 8, !noalias !16
   %1040 = icmp ult i64 %.val145.us.i.i, 7
-  %1041 = add nuw i64 %.0109188.us.i.i, 1
-  %1042 = icmp ult i64 %1041, %1018
+  %1041 = add nuw nsw i64 %.0109188.us.i.i, 1
+  %1042 = icmp samesign ult i64 %1041, %1018
   %1043 = select i1 %1040, i1 %1042, i1 false
   br i1 %1043, label %.lr.ph189.us.i.i, label %.loopexit170.us.i.i, !llvm.loop !43
 
@@ -4444,8 +4444,8 @@ _ZNK3gmx15analysismodules12_GLOBAL__N_119SecondaryStructures20noChainBreaksBetwe
   %1056 = icmp ult i64 %.val146.us.us.i.i, 6
   %1057 = icmp eq i64 %.val146.us.us.i.i, 9
   %narrow.i.i = or i1 %1056, %1057
-  %1058 = add nuw i64 %.0108186.us.us.i.i, 1
-  %1059 = icmp ult i64 %1058, %1018
+  %1058 = add nuw nsw i64 %.0108186.us.us.i.i, 1
+  %1059 = icmp samesign ult i64 %1058, %1018
   %1060 = select i1 %narrow.i.i, i1 %1059, i1 false
   br i1 %1060, label %.lr.ph187.split.us.us.i.i, label %.loopexit170.us.i.i, !llvm.loop !42
 
@@ -4594,7 +4594,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i130.i.i: ; preds = %.lr.ph.
   br i1 %.not.i.i.i.i.i.i.i.i.i134.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit139.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i132.i.i, !llvm.loop !48
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit139.i.i:     ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i132.i.i
-  %1102 = icmp ugt i64 %1093, 2
+  %1102 = icmp samesign ugt i64 %1093, 2
   br i1 %1102, label %.lr.ph.i110.i, label %._crit_edge.thread.i.i
 
 .preheader.i114.i:                                ; preds = %1150

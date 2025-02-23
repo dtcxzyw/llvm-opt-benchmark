@@ -1669,7 +1669,7 @@ define hidden noundef zeroext i1 @_mi_free_delayed_block(ptr noundef %0) local_u
   %7 = select i1 %6, ptr null, ptr %5
   %8 = ptrtoint ptr %7 to i64
   %9 = sub i64 %2, %8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 144
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %11 = load i64, ptr %10, align 16, !tbaa !22
   %12 = lshr i64 %9, %11
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 160

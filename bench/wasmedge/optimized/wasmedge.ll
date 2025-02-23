@@ -7661,9 +7661,9 @@ _ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv
   %13 = add i64 %.057.i.i.i32.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.08.i.i.i31.i, i64 16
   %.not.i.i.i33.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i33.i, label %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE6resizeEm.exit, label %.lr.ph.i.i.i30.i, !llvm.loop !150
+  br i1 %.not.i.i.i33.i, label %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i, label %.lr.ph.i.i.i30.i, !llvm.loop !150
 
-_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i30.i
+_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i: ; preds = %.lr.ph.i.i.i30.i
   store ptr %12, ptr %4, align 8
   %15 = getelementptr inbounds nuw %"class.WasmEdge::Variant", ptr %12, i64 %8
   store ptr %15, ptr %9, align 8
@@ -7674,37 +7674,29 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #36
           to label %.noexc106 unwind label %49
 
-.noexc106:                                        ; preds = %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE6resizeEm.exit
+.noexc106:                                        ; preds = %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i
   store i64 0, ptr %19, align 4
   %20 = icmp eq i32 %2, 1
-  %21 = getelementptr %"class.WasmEdge::ValType", ptr %19, i64 %8
-  br i1 %20, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111, label %22
+  br i1 %20, label %.lr.ph.preheader, label %21
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111: ; preds = %.noexc106
-  store ptr %19, ptr %5, align 8
-  br label %.lr.ph.preheader
-
-22:                                               ; preds = %.noexc106
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
+21:                                               ; preds = %.noexc106
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %23 = getelementptr %"class.WasmEdge::ValType", ptr %19, i64 %8
   br label %.lr.ph.i.i.i.i.i.i.i30.i
 
-.lr.ph.i.i.i.i.i.i.i30.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i30.i, %22
-  %.06.i.i.i.i.i.i.i31.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i30.i ], [ %23, %22 ]
+.lr.ph.i.i.i.i.i.i.i30.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i30.i, %21
+  %.06.i.i.i.i.i.i.i31.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i.i.i30.i ], [ %22, %21 ]
   %24 = load i64, ptr %19, align 4
   store i64 %24, ptr %.06.i.i.i.i.i.i.i31.i, align 4
   %25 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i31.i, i64 8
-  %.not.i.i.i.i.i.i.i32.i = icmp eq ptr %25, %21
-  br i1 %.not.i.i.i.i.i.i.i32.i, label %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i.i.i30.i, !llvm.loop !151
+  %.not.i.i.i.i.i.i.i32.i = icmp eq ptr %25, %23
+  br i1 %.not.i.i.i.i.i.i.i32.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i.i.i30.i, !llvm.loop !151
 
-_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit: ; preds = %.lr.ph.i.i.i.i.i.i.i30.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i30.i, %.noexc106
   store ptr %19, ptr %5, align 8
   %26 = getelementptr inbounds nuw %"class.WasmEdge::ValType", ptr %19, i64 %8
-  br label %.lr.ph.preheader
-
-.lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111
-  %storemerge = phi ptr [ %26, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit ], [ %21, %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EE6resizeEm.exit.thread111 ]
-  store ptr %storemerge, ptr %16, align 8
-  store ptr %storemerge, ptr %17, align 8
+  store ptr %26, ptr %16, align 8
+  store ptr %26, ptr %17, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7763,7 +7755,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit: ; preds = %34, %36
 _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit: ; preds = %_ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit, %43
   ret void
 
-49:                                               ; preds = %._crit_edge.invoke, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE6resizeEm.exit, %_ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE12_M_check_lenEmPKc.exit.i
+49:                                               ; preds = %._crit_edge.invoke, %_ZNKSt6vectorIN8WasmEdge7ValTypeESaIS1_EE12_M_check_lenEmPKc.exit.i, %_ZNKSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EE12_M_check_lenEmPKc.exit.i
   %50 = landingpad { ptr, i32 }
           catch ptr null
   %51 = extractvalue { ptr, i32 } %50, 0
@@ -12236,7 +12228,7 @@ define range(i32 0, 1032) i32 @WasmEdge_TableInstanceGrow(ptr noundef %0, i32 no
   %24 = ashr exact i64 %23, 4
   %25 = sub nsw i64 %16, %24
   %.not.i.i = icmp ult i64 %25, %14
-  br i1 %.not.i.i, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i, label %26
+  br i1 %.not.i.i, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i, label %26
 
 26:                                               ; preds = %5
   %27 = add nsw i64 %24, %14
@@ -12262,7 +12254,7 @@ define range(i32 0, 1032) i32 @WasmEdge_TableInstanceGrow(ptr noundef %0, i32 no
 
 _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %34, %32, %30, %29
   %35 = icmp eq i32 %1, 0
-  br i1 %35, label %46, label %36
+  br i1 %35, label %.loopexit.i, label %36
 
 36:                                               ; preds = %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i
   %37 = load ptr, ptr %18, align 8, !noalias !174
@@ -12275,7 +12267,7 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.06.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 16 dereferenceable(16) %6, i64 16, i1 false), !noalias !174
   %40 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %40, %37
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !177
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !177
 
 41:                                               ; preds = %29
   %42 = landingpad { ptr, i32 }
@@ -12284,40 +12276,36 @@ _ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i: ; preds = %3
   tail call void @__clang_call_terminate(ptr %43) #40, !noalias !174
   unreachable
 
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %44 = add i32 %9, %1
-  br label %46
-
-_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i: ; preds = %5
+_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i: ; preds = %5
   store i32 1031, ptr %4, align 4, !noalias !174
-  %45 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc.i unwind label %48
+  %44 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
+          to label %.noexc.i unwind label %47
 
-.noexc.i:                                         ; preds = %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i
+.noexc.i:                                         ; preds = %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !174
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !noalias !174
-  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %45, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.151, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %4)
-          to label %47 unwind label %48
+  invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %44, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %3, i32 noundef 4, ptr nonnull @.str.151, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %4)
+          to label %46 unwind label %47
 
-46:                                               ; preds = %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i
-  %storemerge.i.i = phi i32 [ %44, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i ], [ %9, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i ]
-  store i32 %storemerge.i.i, ptr %8, align 4, !noalias !174
+.loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIN8WasmEdge10RefVariantESaIS1_EE6resizeEm.exit.i.i.i.i
+  %45 = add i32 %9, %1
+  store i32 %45, ptr %8, align 4, !noalias !174
   br label %.sink.split.i
 
-47:                                               ; preds = %.noexc.i
+46:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !174
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %47, %46
-  %.sroa.0.0.ph.i = phi i32 [ 1031, %47 ], [ 0, %46 ]
+.sink.split.i:                                    ; preds = %46, %.loopexit.i
+  %.sroa.0.0.ph.i = phi i32 [ 1031, %46 ], [ 0, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %"_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit"
 
-48:                                               ; preds = %.noexc.i, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.thread.i.i
-  %49 = landingpad { ptr, i32 }
+47:                                               ; preds = %.noexc.i, %_ZN8WasmEdge7Runtime8Instance13TableInstance9growTableEj.exit.i.i
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %50 = extractvalue { ptr, i32 } %49, 0
-  call void @__clang_call_terminate(ptr %50) #40
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #40
   unreachable
 
 "_ZN12_GLOBAL__N_14wrapIZ26WasmEdge_TableInstanceGrowE3$_0RNS_4$_10EJ29WasmEdge_TableInstanceContextEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit": ; preds = %2, %.sink.split.i

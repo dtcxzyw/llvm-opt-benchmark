@@ -23380,7 +23380,7 @@ define dso_local range(i32 0, 2) i32 @RM_CommandFilterArgInsert(ptr noundef capt
   %24 = getelementptr inbounds nuw ptr, ptr %.pre28, i64 %indvars.iv
   store ptr %23, ptr %24, align 8, !tbaa !141
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %25 = icmp sgt i64 %indvars.iv.next, %21
+  %25 = icmp samesign ugt i64 %indvars.iv.next, %21
   br i1 %25, label %22, label %._crit_edge, !llvm.loop !572
 
 ._crit_edge:                                      ; preds = %22, %17
@@ -26650,7 +26650,7 @@ define dso_local void @moduleFreeModuleStructure(ptr noundef %0) local_unnamed_a
   br i1 %30, label %24, label %._crit_edge.i, !llvm.loop !631
 
 moduleLoadQueueEntryFree.exit:                    ; preds = %1, %._crit_edge.i
-  tail call void @zfree(ptr noundef %0) #35
+  tail call void @zfree(ptr noundef nonnull %0) #35
   ret void
 }
 
@@ -29078,7 +29078,7 @@ define dso_local range(i32 0, 2) i32 @RM_RegisterEnumConfig(ptr noundef readonly
   store i32 0, ptr %26, align 8, !tbaa !671
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %28 = load ptr, ptr %27, align 8, !tbaa !251
-  %29 = tail call ptr @listAddNodeTail(ptr noundef %28, ptr noundef %16) #35
+  %29 = tail call ptr @listAddNodeTail(ptr noundef %28, ptr noundef nonnull %16) #35
   %.4.i = and i32 %3, 113
   %30 = lshr i32 %3, 5
   %spec.select.i = and i32 %30, 8

@@ -1883,20 +1883,19 @@ define noundef i32 @_Z21ir_optimal_nstpcouplePK10t_inputrec(ptr noundef readonly
   %33 = srem i32 100, %.2
   %.not = icmp eq i32 %33, 0
   %34 = add nsw i32 %.2, -1
-  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !24
+  br i1 %.not, label %.loopexit.thread, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.preheader, %13, %16
-  %.0 = phi i32 [ 100, %16 ], [ 100, %13 ], [ %.2, %.preheader ]
-  br i1 %7, label %.thread, label %37
+.loopexit:                                        ; preds = %13, %16
+  br i1 %7, label %.thread, label %.loopexit.thread
 
 .thread:                                          ; preds = %26, %.loopexit
-  %.024 = phi i32 [ %.0, %.loopexit ], [ %spec.select, %26 ]
+  %.024 = phi i32 [ 100, %.loopexit ], [ %spec.select, %26 ]
   %35 = srem i32 %.024, %14
   %36 = sub nsw i32 %.024, %35
-  br label %37
+  br label %.loopexit.thread
 
-37:                                               ; preds = %.thread, %.loopexit
-  %.3 = phi i32 [ %36, %.thread ], [ %.0, %.loopexit ]
+.loopexit.thread:                                 ; preds = %.preheader, %.thread, %.loopexit
+  %.3 = phi i32 [ %36, %.thread ], [ 100, %.loopexit ], [ %.2, %.preheader ]
   ret i32 %.3
 }
 

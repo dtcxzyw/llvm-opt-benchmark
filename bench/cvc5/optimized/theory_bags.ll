@@ -7386,7 +7386,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit286: ; preds = %609, %613, %619
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit289:           ; preds = %623, %627, %633
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  %637 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0403.0483) #29
+  %637 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0403.0483) #29
   %.not = icmp eq ptr %637, %38
   br i1 %.not, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit314.loopexit, label %50
 
@@ -9067,7 +9067,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKNS1_ILb0EEE.exit: ; preds = %274, %269
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %279, %282, %288
   %spec.select = select i1 %278, i1 true, i1 %.033
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %196, !llvm.loop !386
 
 292:                                              ; preds = %217

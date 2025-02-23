@@ -1522,8 +1522,8 @@ define internal range(i32 -1, 1) i32 @oneway_diff(ptr noundef readonly captures(
 
 70:                                               ; preds = %66
   %71 = load ptr, ptr %69, align 8, !tbaa !183
-  %72 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
-  %73 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %72 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %74 = load i32, ptr %73, align 4, !tbaa !92
   %75 = trunc i32 %74 to i16
   tail call void @fill_filespec(ptr noundef %71, ptr noundef nonnull %72, i32 noundef 1, i16 noundef zeroext %75) #15
@@ -1598,21 +1598,21 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br i1 %61, label %113, label %.thread12.i
 
 .thread12.i:                                      ; preds = %102, %.thread7.i, %45
-  %103 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %104 = load i32, ptr %103, align 4, !tbaa !92
   %105 = icmp eq i32 %104, 16384
   %106 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
   br i1 %105, label %107, label %110
 
 107:                                              ; preds = %.thread12.i
-  %108 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 108
+  %108 = getelementptr inbounds nuw i8, ptr %11, i64 108
   %109 = getelementptr inbounds nuw i8, ptr %.val17, i64 1472
   tail call void @diff_tree_oid(ptr noundef nonnull %106, ptr noundef null, ptr noundef nonnull %108, ptr noundef nonnull %109) #15
   br label %do_oneway_diff.exit
 
 110:                                              ; preds = %.thread12.i
   %111 = getelementptr inbounds nuw i8, ptr %.val17, i64 1472
-  %112 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 108
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 108
   tail call void @diff_addremove(ptr noundef nonnull %111, i32 noundef 45, i32 noundef %104, ptr noundef nonnull %106, i32 noundef 1, ptr noundef nonnull %112, i32 noundef 0) #15
   br label %do_oneway_diff.exit
 
@@ -1627,7 +1627,7 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br i1 %116, label %117, label %122
 
 117:                                              ; preds = %113
-  %118 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 72
   %120 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %121 = getelementptr inbounds nuw i8, ptr %.val17, i64 1472
@@ -1641,10 +1641,10 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br i1 %125, label %126, label %131
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
-  %128 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %127 = getelementptr inbounds nuw i8, ptr %11, i64 72
+  %128 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %129 = load i32, ptr %128, align 4, !tbaa !92
-  %130 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 108
+  %130 = getelementptr inbounds nuw i8, ptr %11, i64 108
   tail call void @diff_addremove(ptr noundef nonnull %123, i32 noundef 45, i32 noundef %129, ptr noundef nonnull %127, i32 noundef 1, ptr noundef nonnull %130, i32 noundef 0) #15
   br label %show_modified.exit.i
 
@@ -1690,13 +1690,13 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   store i32 %153, ptr %154, align 4, !tbaa !98
   %155 = getelementptr inbounds nuw i8, ptr %146, i64 112
   store i8 77, ptr %155, align 8, !tbaa !101
-  %156 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %156 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %157 = load i32, ptr %156, align 4, !tbaa !92
   %158 = getelementptr inbounds nuw i8, ptr %146, i64 116
   store i32 %157, ptr %158, align 4, !tbaa !99
   %159 = getelementptr inbounds nuw i8, ptr %146, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %159, ptr noundef nonnull readonly align 4 dereferenceable(32) %136, i64 32, i1 false)
-  %160 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 104
+  %160 = getelementptr inbounds nuw i8, ptr %11, i64 104
   %161 = load i32, ptr %160, align 4, !tbaa !98
   %162 = getelementptr inbounds nuw i8, ptr %146, i64 152
   store i32 %161, ptr %162, align 4, !tbaa !98
@@ -1705,7 +1705,7 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br label %show_modified.exit.i
 
 163:                                              ; preds = %137, %131
-  %164 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 52
+  %164 = getelementptr inbounds nuw i8, ptr %11, i64 52
   %165 = load i32, ptr %164, align 4, !tbaa !92
   %166 = load i32, ptr %3, align 4, !tbaa !92
   %167 = icmp eq i32 %166, %165
@@ -1713,7 +1713,7 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br i1 %167, label %168, label %174
 
 168:                                              ; preds = %163
-  %169 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
+  %169 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %bcmp.i50.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.pre.pre.i.i, ptr noundef nonnull readonly dereferenceable(32) %169, i64 32)
   %.not.i51.i.i = icmp ne i32 %bcmp.i50.i.i, 0
   %170 = icmp ne i32 %.pre54.i.i, 0
@@ -1727,11 +1727,11 @@ show_new_file.exit.i:                             ; preds = %96, %.split.i.i, %8
   br i1 %.not46.i.i, label %show_modified.exit.i, label %174
 
 174:                                              ; preds = %171, %168, %163
-  %175 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 72
+  %175 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %bcmp.i52.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %.pre.pre.i.i, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i53.i.i = icmp ne i32 %bcmp.i52.i.i, 0
   %176 = zext i1 %.not.i53.i.i to i32
-  %177 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 108
+  %177 = getelementptr inbounds nuw i8, ptr %11, i64 108
   tail call void @diff_change(ptr noundef nonnull %123, i32 noundef %165, i32 noundef %166, ptr noundef nonnull %175, ptr noundef nonnull %.pre.pre.i.i, i32 noundef 1, i32 noundef %176, ptr noundef nonnull %177, i32 noundef 0, i32 noundef %.pre54.i.i) #15
   br label %show_modified.exit.i
 

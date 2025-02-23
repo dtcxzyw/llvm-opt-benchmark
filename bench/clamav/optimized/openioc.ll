@@ -173,7 +173,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 72:                                               ; preds = %68
   %73 = load ptr, ptr @xmlFree, align 8, !tbaa !56
   tail call void %73(ptr noundef %59) #7
-  tail call void @free(ptr noundef %56) #7
+  tail call void @free(ptr noundef nonnull %56) #7
   br label %138
 
 74:                                               ; preds = %68

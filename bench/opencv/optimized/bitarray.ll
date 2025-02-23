@@ -1418,7 +1418,7 @@ _ZN5zxing8ArrayRefIhEaSERKS1_.exit:               ; preds = %._crit_edge, %46, %
   %66 = phi i32 [ %.pre32, %59 ], [ %.pre33, %55 ]
   %67 = add nsw i32 %66, 1
   store i32 %67, ptr %15, align 4
-  %68 = icmp sgt i32 %.027, 1
+  %68 = icmp samesign ugt i32 %.027, 1
   br i1 %68, label %55, label %._crit_edge29, !llvm.loop !13
 
 ._crit_edge29:                                    ; preds = %65, %_ZN5zxing8ArrayRefIhEaSERKS1_.exit

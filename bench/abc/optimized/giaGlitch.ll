@@ -1584,15 +1584,15 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %30
 
-.critedge.preheader:                              ; preds = %30
+.preheader.us.preheader:                          ; preds = %30
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   %wide.trip.count49 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
-.preheader.us:                                    ; preds = %.critedge.preheader, %._crit_edge.us
-  %.034.us = phi i32 [ %.1.us, %._crit_edge.us ], [ 0, %.critedge.preheader ]
-  %.12533.us = phi i32 [ %25, %._crit_edge.us ], [ 0, %.critedge.preheader ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
+  %.034.us = phi i32 [ %.1.us, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.12533.us = phi i32 [ %25, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
   %9 = shl nuw i32 1, %.12533.us
   br label %10
 
@@ -1647,7 +1647,7 @@ define i32 @Gli_ManSimulateSeqNode(ptr noundef readnone captures(none) %0, ptr n
   store i32 %35, ptr %36, align 4, !tbaa !26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge.preheader, label %30, !llvm.loop !50
+  br i1 %exitcond.not, label %.preheader.us.preheader, label %30, !llvm.loop !50
 
 .split.us:                                        ; preds = %._crit_edge.us, %.critedge.preheader.split
   %.us-phi = phi i32 [ %sext, %.critedge.preheader.split ], [ %.1.us, %._crit_edge.us ]
@@ -1775,66 +1775,66 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   %36 = and i32 %35, 7
   %invariant.gep.i = getelementptr i8, ptr %32, i64 16
   %.not.i = icmp eq i32 %36, 0
-  br i1 %.not.i, label %.critedge.preheader.thread.i, label %.lr.ph.i
-
-.critedge.preheader.thread.i:                     ; preds = %34
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !36
-  %39 = load i32, ptr %38, align 4, !tbaa !26
-  %.fr42.i = freeze i32 %39
-  %40 = and i32 %.fr42.i, 1
-  %sext.i = sub nsw i32 0, %40
-  br label %Gli_ManSimulateSeqNode.exit
+  br i1 %.not.i, label %.critedge.preheader.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 28
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 28
   %wide.trip.count.i = zext nneg i32 %36 to i64
   br label %61
 
-.critedge.preheader.i:                            ; preds = %61
-  %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !36
+.preheader.us.preheader.i:                        ; preds = %61
+  %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !36
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.critedge.preheader.i
-  %.034.us.i = phi i32 [ %.1.us.i, %._crit_edge.us.i ], [ 0, %.critedge.preheader.i ]
-  %.12533.us.i = phi i32 [ %60, %._crit_edge.us.i ], [ 0, %.critedge.preheader.i ]
-  %44 = shl nuw i32 1, %.12533.us.i
-  br label %45
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
+  %.034.us.i = phi i32 [ %.1.us.i, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+  %.12533.us.i = phi i32 [ %56, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
+  %40 = shl nuw i32 1, %.12533.us.i
+  br label %41
 
-45:                                               ; preds = %45, %.preheader.us.i
-  %indvars.iv46.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next47.i, %45 ]
-  %.02131.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.122.us.i, %45 ]
-  %46 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv46.i
-  %47 = load i32, ptr %46, align 4, !tbaa !26
-  %48 = and i32 %47, %44
-  %.not28.us.i = icmp eq i32 %48, 0
-  %49 = trunc nuw nsw i64 %indvars.iv46.i to i32
-  %50 = shl nuw nsw i32 1, %49
-  %51 = select i1 %.not28.us.i, i32 0, i32 %50
-  %.122.us.i = or i32 %51, %.02131.us.i
+41:                                               ; preds = %41, %.preheader.us.i
+  %indvars.iv46.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next47.i, %41 ]
+  %.02131.us.i = phi i32 [ 0, %.preheader.us.i ], [ %.122.us.i, %41 ]
+  %42 = getelementptr inbounds nuw [6 x i32], ptr %3, i64 0, i64 %indvars.iv46.i
+  %43 = load i32, ptr %42, align 4, !tbaa !26
+  %44 = and i32 %43, %40
+  %.not28.us.i = icmp eq i32 %44, 0
+  %45 = trunc nuw nsw i64 %indvars.iv46.i to i32
+  %46 = shl nuw nsw i32 1, %45
+  %47 = select i1 %.not28.us.i, i32 0, i32 %46
+  %.122.us.i = or i32 %47, %.02131.us.i
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count.i
-  br i1 %exitcond50.not.i, label %._crit_edge.us.i, label %45, !llvm.loop !48
+  br i1 %exitcond50.not.i, label %._crit_edge.us.i, label %41, !llvm.loop !48
 
-._crit_edge.us.i:                                 ; preds = %45
-  %52 = ashr i32 %.122.us.i, 5
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i32, ptr %43, i64 %53
-  %55 = load i32, ptr %54, align 4, !tbaa !26
-  %56 = and i32 %.122.us.i, 31
-  %57 = shl nuw i32 1, %56
-  %58 = and i32 %55, %57
-  %.not27.us.i = icmp eq i32 %58, 0
-  %59 = select i1 %.not27.us.i, i32 0, i32 %44
-  %.1.us.i = or i32 %59, %.034.us.i
-  %60 = add nuw nsw i32 %.12533.us.i, 1
-  %exitcond51.not.i = icmp eq i32 %60, 32
+._crit_edge.us.i:                                 ; preds = %41
+  %48 = ashr i32 %.122.us.i, 5
+  %49 = sext i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %39, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !26
+  %52 = and i32 %.122.us.i, 31
+  %53 = shl nuw i32 1, %52
+  %54 = and i32 %51, %53
+  %.not27.us.i = icmp eq i32 %54, 0
+  %55 = select i1 %.not27.us.i, i32 0, i32 %40
+  %.1.us.i = or i32 %55, %.034.us.i
+  %56 = add nuw nsw i32 %.12533.us.i, 1
+  %exitcond51.not.i = icmp eq i32 %56, 32
   br i1 %exitcond51.not.i, label %Gli_ManSimulateSeqNode.exit, label %.preheader.us.i, !llvm.loop !49
+
+.critedge.preheader.split.i:                      ; preds = %34
+  %57 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %58 = load ptr, ptr %57, align 8, !tbaa !36
+  %59 = load i32, ptr %58, align 4, !tbaa !26
+  %.fr42.i = freeze i32 %59
+  %60 = and i32 %.fr42.i, 1
+  %sext.i = sub nsw i32 0, %60
+  br label %Gli_ManSimulateSeqNode.exit
 
 61:                                               ; preds = %61, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %61 ]
-  %62 = getelementptr inbounds nuw [0 x i32], ptr %41, i64 0, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [0 x i32], ptr %37, i64 0, i64 %indvars.iv.i
   %63 = load i32, ptr %62, align 4, !tbaa !26
   %64 = sext i32 %63 to i64
   %65 = sub nsw i64 0, %64
@@ -1844,10 +1844,10 @@ define void @Gli_ManSimulateSeqPref(ptr noundef captures(none) %0, i32 noundef %
   store i32 %66, ptr %67, align 4, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge.preheader.i, label %61, !llvm.loop !50
+  br i1 %exitcond.not.i, label %.preheader.us.preheader.i, label %61, !llvm.loop !50
 
-Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %.critedge.preheader.thread.i
-  %.us-phi.i = phi i32 [ %sext.i, %.critedge.preheader.thread.i ], [ %.1.us.i, %._crit_edge.us.i ]
+Gli_ManSimulateSeqNode.exit:                      ; preds = %._crit_edge.us.i, %.critedge.preheader.split.i
+  %.us-phi.i = phi i32 [ %sext.i, %.critedge.preheader.split.i ], [ %.1.us.i, %._crit_edge.us.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #24
   store i32 %.us-phi.i, ptr %invariant.gep.i, align 8, !tbaa !39
   br label %68

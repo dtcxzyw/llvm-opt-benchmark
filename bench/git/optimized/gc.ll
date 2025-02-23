@@ -6107,9 +6107,9 @@ get_extra_config_parameters.exit:                 ; preds = %switch.lookup18, %.
   %35 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.253, ptr noundef %0, ptr noundef %0, ptr noundef %.05.i, ptr noundef nonnull %switch.load) #21
   %36 = load ptr, ptr %4, align 8, !tbaa !26
   call void @strvec_split(ptr noundef nonnull %5, ptr noundef %36) #21
-  %37 = call ptr @get_tempfile_path(ptr noundef %19) #21
+  %37 = call ptr @get_tempfile_path(ptr noundef nonnull %19) #21
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.255, ptr noundef %9, ptr noundef nonnull @.str.256, ptr noundef nonnull @.str.257, ptr noundef %37, ptr noundef null) #21
-  %38 = call i32 @close_tempfile_gently(ptr noundef %19) #21
+  %38 = call i32 @close_tempfile_gently(ptr noundef nonnull %19) #21
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %40 = load i16, ptr %39, align 8
   %41 = or i16 %40, 6

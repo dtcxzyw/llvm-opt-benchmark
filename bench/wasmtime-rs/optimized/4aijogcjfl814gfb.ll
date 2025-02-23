@@ -10700,7 +10700,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   %trunc = trunc i64 %.sroa.01.0.insert.insert.i to i1
   %.sroa.668.0.extract.shift = lshr i64 %.sroa.01.0.insert.insert.i, 32
   %.sroa.668.0.extract.trunc = trunc nuw i64 %.sroa.668.0.extract.shift to i32
-  %.sroa.815.0 = select i1 %trunc, i32 undef, i32 %.sroa.668.0.extract.trunc
   br i1 %trunc, label %.thread154.invoke, label %99
 
 99:                                               ; preds = %95
@@ -10729,7 +10728,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
 .thread156:                                       ; preds = %107, %99
   %.sroa.672.0.extract.trunc = phi i32 [ %108, %107 ], [ 0, %99 ]
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.815.0, ptr %109, align 4
+  store i32 %.sroa.668.0.extract.trunc, ptr %109, align 4
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.672.0.extract.trunc, ptr %110, align 8
   store i32 0, ptr %0, align 8
@@ -12100,7 +12099,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
   store i64 %.sroa.7.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
   %92 = icmp ult i64 %.sroa.7.0.copyload, 4294967296
   %93 = trunc nuw i64 %.sroa.7.0.copyload to i32
-  %.sroa.516.0 = select i1 %92, i32 %93, i32 undef
   br i1 %92, label %96, label %.invoke
 
 94:                                               ; preds = %86
@@ -12144,7 +12142,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h8b8037c42711e92dE.exit.th
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17habb798bfed67f6c7E.exit.thread": ; preds = %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17habb798bfed67f6c7E.exit"
   %.sroa.520.0114 = phi i32 [ %109, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17habb798bfed67f6c7E.exit" ], [ 0, %96 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sroa.516.0, ptr %110, align 4
+  store i32 %93, ptr %110, align 4
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %.sroa.520.0114, ptr %111, align 8
   store i32 0, ptr %0, align 8

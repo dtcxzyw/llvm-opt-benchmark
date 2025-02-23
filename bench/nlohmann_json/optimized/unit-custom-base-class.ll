@@ -13787,7 +13787,7 @@ if.then.i.i.i.i62:                                ; preds = %invoke.cont.i.i60
 
 _ZN8nlohmann16json_abi_v3_11_312json_pointerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit63: ; preds = %invoke.cont.i.i60, %if.then.i.i.i.i62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp27) #24
-  %inc = add i64 %i.0, 1
+  %inc = add nuw i64 %i.0, 1
   %.pr = load i8, ptr %this, align 8
   br label %for.cond22, !llvm.loop !117
 

@@ -917,7 +917,7 @@ define ptr @Aig_ManDupSimpleDfsPart(ptr noundef %0, ptr noundef readonly capture
   %.val32 = load ptr, ptr %12, align 8, !tbaa !36
   %17 = getelementptr inbounds nuw ptr, ptr %.val32, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !37
-  %19 = tail call ptr @Aig_ObjCreateCi(ptr noundef %6) #11
+  %19 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %6) #11
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   store ptr %19, ptr %20, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -936,14 +936,14 @@ define ptr @Aig_ManDupSimpleDfsPart(ptr noundef %0, ptr noundef readonly capture
   %26 = ptrtoint ptr %.val33 to i64
   %27 = and i64 %26, -2
   %28 = inttoptr i64 %27 to ptr
-  %29 = tail call ptr @Aig_ManDupSimpleDfs_rec(ptr noundef %6, ptr noundef %0, ptr noundef %28)
+  %29 = tail call ptr @Aig_ManDupSimpleDfs_rec(ptr noundef nonnull %6, ptr noundef nonnull %0, ptr noundef %28)
   %.val34 = load ptr, ptr %25, align 8, !tbaa !41
   %30 = ptrtoint ptr %.val34 to i64
   %31 = and i64 %30, 1
   %32 = ptrtoint ptr %29 to i64
   %33 = xor i64 %31, %32
   %34 = inttoptr i64 %33 to ptr
-  %35 = tail call ptr @Aig_ObjCreateCo(ptr noundef %6, ptr noundef %34) #11
+  %35 = tail call ptr @Aig_ObjCreateCo(ptr noundef nonnull %6, ptr noundef %34) #11
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %.val = load i32, ptr %13, align 4, !tbaa !21
   %36 = sext i32 %.val to i64
@@ -951,8 +951,8 @@ define ptr @Aig_ManDupSimpleDfsPart(ptr noundef %0, ptr noundef readonly capture
   br i1 %37, label %.critedge, label %.critedge2, !llvm.loop !55
 
 .critedge2:                                       ; preds = %.critedge, %.critedge.preheader
-  tail call void @Aig_ManSetRegNum(ptr noundef %6, i32 noundef 0) #11
-  %38 = tail call i32 @Aig_ManCheck(ptr noundef %6) #11
+  tail call void @Aig_ManSetRegNum(ptr noundef nonnull %6, i32 noundef 0) #11
+  %38 = tail call i32 @Aig_ManCheck(ptr noundef nonnull %6) #11
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %39, label %40
 
@@ -4470,7 +4470,7 @@ define ptr @Aig_ManCreateMiter(ptr noundef readonly captures(none) %0, ptr nound
   %.val88 = load ptr, ptr %21, align 8, !tbaa !36
   %22 = getelementptr inbounds nuw ptr, ptr %.val88, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !37
-  %24 = tail call ptr @Aig_ObjCreateCi(ptr noundef %9) #11
+  %24 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %9) #11
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 40
   store ptr %24, ptr %25, align 8, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

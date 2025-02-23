@@ -447,7 +447,7 @@ _ZN5folly6detailL6xnmodpEm.exit287:               ; preds = %.lr.ph36.i278, %.pr
   %.2237 = phi i32 [ %286, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1236, %28 ]
   %.2229 = phi i64 [ %.3230.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1228, %28 ]
   %.2 = phi ptr [ %.0243.lcssa, %_ZN5folly6detailL6xnmodpEm.exit287 ], [ %.1, %28 ]
-  %288 = icmp ugt i64 %.2229, 7
+  %288 = icmp samesign ugt i64 %.2229, 7
   br i1 %288, label %.lr.ph347, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph347, %287

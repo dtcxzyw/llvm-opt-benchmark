@@ -3302,7 +3302,7 @@ getdbname.exit:                                   ; preds = %49, %51
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.217, ptr noundef %447) #24
   %450 = call i32 @fclose(ptr noundef nonnull %394)
   %451 = call i32 @unlink(ptr noundef nonnull %336) #24
-  call void @free(ptr noundef %336) #24
+  call void @free(ptr noundef nonnull %336) #24
   br label %523
 
 452:                                              ; preds = %._crit_edge446
@@ -3314,7 +3314,7 @@ getdbname.exit:                                   ; preds = %49, %51
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.218, ptr noundef %447) #24
   %455 = call i32 @fclose(ptr noundef nonnull %394)
   %456 = call i32 @unlink(ptr noundef nonnull %336) #24
-  call void @free(ptr noundef %336) #24
+  call void @free(ptr noundef nonnull %336) #24
   %457 = call i32 @fclose(ptr noundef nonnull %448)
   %458 = call i32 @unlink(ptr noundef %447) #24
   br label %523

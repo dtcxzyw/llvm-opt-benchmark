@@ -1799,11 +1799,11 @@ define noalias noundef ptr @cli_genfname(ptr noundef %0) local_unnamed_addr #0 {
   %.0274357 = phi ptr [ %9, %13 ], [ %.0274356, %15 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34)
   %.not37 = icmp eq ptr %.0274357, null
-  br i1 %.not37, label %57, label %17
+  br i1 %.not37, label %59, label %17
 
 17:                                               ; preds = %16
   call void @free(ptr noundef nonnull %.0274357) #23
-  br label %57
+  br label %59
 
 cli_max_calloc.exit:                              ; preds = %.thread.thread
   %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @cli_gentemp_mutex) #23
@@ -1851,66 +1851,66 @@ cli_rndnum.exit:                                  ; preds = %20, %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @name_salt, ptr noundef nonnull align 16 dereferenceable(16) %2, i64 16, i1 false)
   %39 = call noalias dereferenceable_or_null(33) ptr @calloc(i64 noundef 33, i64 noundef 1) #27
   %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %cli_md5buff.exit.thread, label %cli_max_calloc.exit.i
-
-cli_md5buff.exit.thread:                          ; preds = %37
-  call void @perror(ptr noundef nonnull @.str.8) #26
-  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i64 noundef 33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
-  %40 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cli_gentemp_mutex) #23
-  call void @free(ptr noundef %14) #23
-  %.not40 = icmp eq ptr %.0274356, null
-  br i1 %.not40, label %49, label %48
+  br i1 %.not.i.i, label %45, label %cli_max_calloc.exit.i
 
 cli_max_calloc.exit.i:                            ; preds = %37, %cli_max_calloc.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %cli_max_calloc.exit.i ], [ 0, %37 ]
-  %.0113.i = phi ptr [ %45, %cli_max_calloc.exit.i ], [ %39, %37 ]
-  %41 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv.i
-  %42 = load i8, ptr %41, align 1, !tbaa !27
-  %43 = zext i8 %42 to i32
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0113.i, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %43) #23
-  %45 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 2
+  %.0113.i = phi ptr [ %44, %cli_max_calloc.exit.i ], [ %39, %37 ]
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 0, i64 %indvars.iv.i
+  %41 = load i8, ptr %40, align 1, !tbaa !27
+  %42 = zext i8 %41 to i32
+  %43 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.0113.i, ptr noundef nonnull dereferenceable(1) @.str.60, i32 noundef %42) #23
+  %44 = getelementptr inbounds nuw i8, ptr %.0113.i, i64 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
-  br i1 %exitcond.not.i, label %cli_md5buff.exit, label %cli_max_calloc.exit.i
+  br i1 %exitcond.not.i, label %49, label %cli_max_calloc.exit.i
 
-cli_md5buff.exit:                                 ; preds = %cli_max_calloc.exit.i
+45:                                               ; preds = %37
+  call void @perror(ptr noundef nonnull @.str.8) #26
+  call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.9, i64 noundef 33)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
   %46 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cli_gentemp_mutex) #23
-  %47 = load ptr, ptr %4, align 8, !tbaa !43
-  %.not38 = icmp eq ptr %47, null
-  br i1 %.not38, label %52, label %50
+  call void @free(ptr noundef %14) #23
+  %.not40 = icmp eq ptr %.0274356, null
+  br i1 %.not40, label %48, label %47
 
-48:                                               ; preds = %cli_md5buff.exit.thread
+47:                                               ; preds = %45
   call void @free(ptr noundef nonnull %.0274356) #23
-  br label %49
+  br label %48
 
-49:                                               ; preds = %48, %cli_md5buff.exit.thread
+48:                                               ; preds = %47, %45
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35)
-  br label %57
+  br label %59
 
-50:                                               ; preds = %cli_md5buff.exit
-  %51 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %.058, ptr noundef nonnull @.str.36, ptr noundef nonnull %47, i32 noundef 10, ptr noundef nonnull %39) #23
-  br label %54
+49:                                               ; preds = %cli_max_calloc.exit.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #23
+  %50 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @cli_gentemp_mutex) #23
+  %51 = load ptr, ptr %4, align 8, !tbaa !43
+  %.not38 = icmp eq ptr %51, null
+  br i1 %.not38, label %54, label %52
 
-52:                                               ; preds = %cli_md5buff.exit
-  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %.058, ptr noundef nonnull @.str.37, ptr noundef nonnull %39) #23
-  br label %54
-
-54:                                               ; preds = %52, %50
-  %.not39 = icmp eq ptr %.0274356, null
-  br i1 %.not39, label %56, label %55
-
-55:                                               ; preds = %54
-  call void @free(ptr noundef nonnull %.0274356) #23
+52:                                               ; preds = %49
+  %53 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %.058, ptr noundef nonnull @.str.36, ptr noundef nonnull %51, i32 noundef 10, ptr noundef nonnull %39) #23
   br label %56
 
-56:                                               ; preds = %55, %54
-  call void @free(ptr noundef nonnull %39) #23
-  br label %57
+54:                                               ; preds = %49
+  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %14, i64 noundef %.058, ptr noundef nonnull @.str.37, ptr noundef nonnull %39) #23
+  br label %56
 
-57:                                               ; preds = %16, %17, %56, %49
-  %.026 = phi ptr [ null, %49 ], [ %14, %56 ], [ null, %17 ], [ null, %16 ]
+56:                                               ; preds = %54, %52
+  %.not39 = icmp eq ptr %.0274356, null
+  br i1 %.not39, label %58, label %57
+
+57:                                               ; preds = %56
+  call void @free(ptr noundef nonnull %.0274356) #23
+  br label %58
+
+58:                                               ; preds = %57, %56
+  call void @free(ptr noundef nonnull %39) #23
+  br label %59
+
+59:                                               ; preds = %16, %17, %58, %48
+  %.026 = phi ptr [ null, %48 ], [ %14, %58 ], [ null, %17 ], [ null, %16 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #23
   ret ptr %.026

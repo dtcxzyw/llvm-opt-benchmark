@@ -6820,7 +6820,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %indvars.iv481 = phi i64 [ 0, %.critedge.us.preheader ], [ %indvars.iv.next482, %.critedge.us ]
   %.0103299.us = phi i32 [ 0, %.critedge.us.preheader ], [ %236, %.critedge.us ]
   %226 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx492 = shl i64 %indvars.iv481, 4
+  %.idx492 = shl nuw nsw i64 %indvars.iv481, 4
   %227 = getelementptr i8, ptr %226, i64 %.idx492
   %228 = getelementptr ptr, ptr %227, i64 %213
   %229 = load ptr, ptr %228, align 8, !tbaa !64
@@ -6856,7 +6856,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.split.us ]
   %.0103299.us304 = phi i32 [ 0, %.lr.ph.split.split.us.preheader ], [ %250, %.lr.ph.split.split.us ]
   %240 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx = shl i64 %indvars.iv, 4
+  %.idx = shl nuw nsw i64 %indvars.iv, 4
   %241 = getelementptr i8, ptr %240, i64 %.idx
   %242 = getelementptr ptr, ptr %241, i64 %238
   %243 = load ptr, ptr %242, align 8, !tbaa !64
@@ -9511,11 +9511,11 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   %129 = load i32, ptr %128, align 4, !tbaa !146
   %130 = icmp eq i32 %129, 2
   %131 = zext i1 %130 to i64
-  %spec.select221 = shl nuw nsw i64 %126, %131
+  %spec.select224 = shl nuw nsw i64 %126, %131
   br label %132
 
 132:                                              ; preds = %127, %125
-  %.sink = phi i64 [ %126, %125 ], [ %spec.select221, %127 ]
+  %.sink = phi i64 [ %126, %125 ], [ %spec.select224, %127 ]
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %.sink) #16
   %.not189 = icmp ult i64 %1, %.0.i
   br i1 %.not189, label %143, label %133
@@ -9629,14 +9629,14 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
 ._crit_edge211:                                   ; preds = %.lr.ph210, %167
   tail call void @dictReleaseIterator(ptr noundef %172) #16
   %180 = icmp ugt i64 %.0.i, %.0
-  br i1 %180, label %.lr.ph214, label %.preheader204
+  br i1 %180, label %.lr.ph214, label %.lr.ph216
 
-.preheader204:                                    ; preds = %.lr.ph214, %._crit_edge211
-  %.0170.lcssa = phi i64 [ %.0.i, %._crit_edge211 ], [ %186, %.lr.ph214 ]
-  %.not218 = icmp eq i64 %.0170.lcssa, 0
+.preheader204:                                    ; preds = %.lr.ph214
+  %.not218 = icmp eq i64 %186, 0
   br i1 %.not218, label %._crit_edge217, label %.lr.ph216
 
-.lr.ph216:                                        ; preds = %.preheader204
+.lr.ph216:                                        ; preds = %._crit_edge211, %.preheader204
+  %.0170.lcssa222 = phi i64 [ %186, %.preheader204 ], [ %.0.i, %._crit_edge211 ]
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 28
   br label %189
 
@@ -9722,11 +9722,11 @@ sdslen.exit203:                                   ; preds = %198, %205, %208, %2
 
 223:                                              ; preds = %194, %sdslen.exit203
   %224 = add nuw i64 %.1178215, 1
-  %exitcond.not = icmp eq i64 %224, %.0170.lcssa
+  %exitcond.not = icmp eq i64 %224, %.0170.lcssa222
   br i1 %exitcond.not, label %._crit_edge217, label %189, !llvm.loop !165
 
 ._crit_edge217:                                   ; preds = %223, %.preheader204
-  tail call void @zfree(ptr noundef %171) #16
+  tail call void @zfree(ptr noundef nonnull %171) #16
   br label %.loopexit
 
 225:                                              ; preds = %164

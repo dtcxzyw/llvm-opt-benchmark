@@ -706,7 +706,7 @@ define hidden void @zif_spl_autoload(ptr noundef readonly captures(none) %0, ptr
   br i1 %.not.i26, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %35
-  call void @zend_stream_init_filename_ex(ptr noundef nonnull %4, ptr noundef %41) #10
+  call void @zend_stream_init_filename_ex(ptr noundef nonnull %4, ptr noundef nonnull %41) #10
   %52 = call i32 @php_stream_open_for_zend_ex(ptr noundef nonnull %4, i32 noundef 129) #10
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %54, label %.thread.i
@@ -870,7 +870,7 @@ spl_autoload.exit.thread:                         ; preds = %.thread.i, %104, %1
 
 spl_autoload.exit:                                ; preds = %88, %92, %99, %100
   %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 464), align 8, !tbaa !50
-  %114 = call ptr @zend_hash_find(ptr noundef %113, ptr noundef %27) #10
+  %114 = call ptr @zend_hash_find(ptr noundef %113, ptr noundef nonnull %27) #10
   %.not30 = icmp eq ptr %114, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4) #10

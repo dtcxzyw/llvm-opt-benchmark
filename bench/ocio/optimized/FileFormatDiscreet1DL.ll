@@ -527,8 +527,8 @@ if.end77.i:                                       ; preds = %cleanup.i, %invoke.
   %depthScaled.0.i = phi i32 [ 0, %invoke.cont10.i ], [ %depthScaled.2.i, %cleanup.i ]
   %tablestart.0.i = phi i32 [ 1, %invoke.cont10.i ], [ 0, %cleanup.i ]
   %26 = load i32, ptr %numtables.i, align 4
-  %cmp78129.i = icmp sgt i32 %26, 0
-  br i1 %cmp78129.i, label %for.body.lr.ph.i, label %if.end94.i
+  %cmp78128.i = icmp sgt i32 %26, 0
+  br i1 %cmp78128.i, label %for.body.lr.ph.i, label %if.end94.i
 
 for.body.lr.ph.i:                                 ; preds = %if.end77.i
   %27 = load ptr, ptr %lut.i, align 8
@@ -1028,10 +1028,10 @@ if.end107.i:                                      ; preds = %cleanup.i.i, %invok
   br i1 %cmp108.not.i, label %if.end110.i, label %if.then109.i
 
 if.then109.i:                                     ; preds = %if.end107.i, %if.end94.i
-  %depthScaled.3105.i = phi i32 [ %retval.0.i58.i, %if.end107.i ], [ %depthScaled.0.i, %if.end94.i ]
+  %depthScaled.3104.i = phi i32 [ %retval.0.i58.i, %if.end107.i ], [ %depthScaled.0.i, %if.end94.i ]
   %79 = load ptr, ptr %lut.i, align 8
   %targetBitDepth.i = getelementptr inbounds nuw i8, ptr %79, i64 12
-  store i32 %depthScaled.3105.i, ptr %targetBitDepth.i, align 4
+  store i32 %depthScaled.3104.i, ptr %targetBitDepth.i, align 4
   br label %if.end110.i
 
 if.end110.i:                                      ; preds = %if.then109.i, %if.end107.i

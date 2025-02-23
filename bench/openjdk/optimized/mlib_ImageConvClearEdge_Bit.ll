@@ -106,7 +106,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %66 = and i32 %18, %65
   %67 = and i32 %65, 127
   %68 = xor i32 %67, 127
-  %69 = icmp ugt i32 %22, 16
+  %69 = icmp samesign ugt i32 %22, 16
   br i1 %69, label %.preheader284.lr.ph, label %.preheader282
 
 .preheader284.lr.ph:                              ; preds = %._crit_edge
@@ -249,7 +249,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageConvClearEdge_Bit(ptr noundef reado
   %140 = and i32 %18, %139
   %141 = and i32 %139, 127
   %142 = xor i32 %141, 127
-  %143 = icmp ugt i32 %96, 16
+  %143 = icmp samesign ugt i32 %96, 16
   br i1 %143, label %.preheader280.lr.ph, label %.preheader
 
 .preheader280.lr.ph:                              ; preds = %._crit_edge299

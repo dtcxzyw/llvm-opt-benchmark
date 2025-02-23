@@ -597,7 +597,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
 
 ._crit_edge:                                      ; preds = %38
   store float 1.000000e+00, ptr %23, align 4
-  %49 = icmp ugt i32 %1, 2
+  %49 = icmp samesign ugt i32 %1, 2
   br i1 %49, label %.lr.ph58, label %._crit_edge59
 
 .lr.ph58:                                         ; preds = %._crit_edge

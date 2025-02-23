@@ -3618,7 +3618,7 @@ _ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit
   br label %78
 
 78:                                               ; preds = %77, %_ZN15MetadataFactory13free_metadataI12ConstantPoolEEvP15ClassLoaderDataPT_.exit, %_ZN15MetadataFactory13free_metadataI13InstanceKlassEEvP15ClassLoaderDataPT_.exit, %_ZN15MetadataFactory13free_metadataI6MethodEEvP15ClassLoaderDataPT_.exit
-  %79 = icmp sgt i64 %indvars.iv, 1
+  %79 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %79, label %.lr.ph, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %78, %5, %1

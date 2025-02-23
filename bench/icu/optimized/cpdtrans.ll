@@ -513,13 +513,13 @@ call19.us.i.noexc:                                ; preds = %for.body.us.i
   %7 = load i32, ptr %count.i, align 8
   %8 = sext i32 %7 to i64
   %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
-  br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp15.us.i, label %for.body.us.i, label %if.end43.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %call19.us.i.noexc
+if.end43.i:                                       ; preds = %call19.us.i.noexc
   %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
-for.body.lr.ph.i.i:                               ; preds = %for.end.i
+for.body.lr.ph.i.i:                               ; preds = %if.end43.i
   %9 = load ptr, ptr %trans, align 8
   %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
@@ -536,8 +536,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
 
-_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
-  %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
+_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %if.end43.i
+  %max.0.lcssa.i.i = phi i32 [ 0, %if.end43.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
   invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 
@@ -619,7 +619,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %7 = load i32, ptr %count14, align 8
   %8 = sext i32 %7 to i64
   %cmp15.us = icmp slt i64 %indvars.iv.next34, %8
-  br i1 %cmp15.us, label %for.body.us, label %for.end, !llvm.loop !11
+  br i1 %cmp15.us, label %for.body.us, label %if.end43, !llvm.loop !11
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %for.body.lr.ph ]
@@ -637,8 +637,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp15 = icmp slt i64 %indvars.iv.next, %14
   br i1 %cmp15, label %for.body, label %for.end, !llvm.loop !11
 
-for.end:                                          ; preds = %for.body, %for.body.us, %for.cond.preheader
-  %15 = phi i32 [ %4, %for.cond.preheader ], [ %7, %for.body.us ], [ %13, %for.body ]
+for.end:                                          ; preds = %for.body, %for.cond.preheader
+  %15 = phi i32 [ %4, %for.cond.preheader ], [ %13, %for.body ]
   %cmp21 = icmp eq i32 %direction, 1
   %tobool22 = icmp ne i8 %fixReverseID, 0
   %or.cond = and i1 %cmp21, %tobool22
@@ -769,8 +769,8 @@ invoke.cont42:                                    ; preds = %if.else.i.i.i, %if.
   %.pre39 = load i32, ptr %count14, align 8
   br label %if.end43
 
-if.end43:                                         ; preds = %invoke.cont42, %for.end
-  %29 = phi i32 [ %.pre39, %invoke.cont42 ], [ %15, %for.end ]
+if.end43:                                         ; preds = %for.body.us, %invoke.cont42, %for.end
+  %29 = phi i32 [ %.pre39, %invoke.cont42 ], [ %15, %for.end ], [ %7, %for.body.us ]
   %cmp5.i = icmp sgt i32 %29, 0
   br i1 %cmp5.i, label %for.body.lr.ph.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit
 
@@ -864,13 +864,13 @@ call19.us.i.noexc:                                ; preds = %for.body.us.i
   %7 = load i32, ptr %count.i, align 8
   %8 = sext i32 %7 to i64
   %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
-  br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp15.us.i, label %for.body.us.i, label %if.end43.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %call19.us.i.noexc
+if.end43.i:                                       ; preds = %call19.us.i.noexc
   %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
-for.body.lr.ph.i.i:                               ; preds = %for.end.i
+for.body.lr.ph.i.i:                               ; preds = %if.end43.i
   %9 = load ptr, ptr %trans, align 8
   %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
@@ -887,8 +887,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
 
-_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
-  %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
+_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %if.end43.i
+  %max.0.lcssa.i.i = phi i32 [ 0, %if.end43.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
   invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 
@@ -985,13 +985,13 @@ call19.us.i.noexc:                                ; preds = %for.body.us.i
   %7 = load i32, ptr %count.i, align 8
   %8 = sext i32 %7 to i64
   %cmp15.us.i = icmp slt i64 %indvars.iv.next34.i, %8
-  br i1 %cmp15.us.i, label %for.body.us.i, label %for.end.i, !llvm.loop !11
+  br i1 %cmp15.us.i, label %for.body.us.i, label %if.end43.i, !llvm.loop !11
 
-for.end.i:                                        ; preds = %call19.us.i.noexc
+if.end43.i:                                       ; preds = %call19.us.i.noexc
   %cmp5.i.i = icmp sgt i32 %7, 0
   br i1 %cmp5.i.i, label %for.body.lr.ph.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i
 
-for.body.lr.ph.i.i:                               ; preds = %for.end.i
+for.body.lr.ph.i.i:                               ; preds = %if.end43.i
   %9 = load ptr, ptr %trans, align 8
   %wide.trip.count.i.i = zext nneg i32 %7 to i64
   br label %for.body.i.i
@@ -1008,8 +1008,8 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i, label %for.body.i.i, !llvm.loop !12
 
-_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %for.end.i
-  %max.0.lcssa.i.i = phi i32 [ 0, %for.end.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
+_ZN6icu_7522CompoundTransliterator27computeMaximumContextLengthEv.exit.i: ; preds = %for.body.i.i, %for.cond.preheader.i, %if.end43.i
+  %max.0.lcssa.i.i = phi i32 [ 0, %if.end43.i ], [ 0, %for.cond.preheader.i ], [ %spec.select.i.i, %for.body.i.i ]
   invoke void @_ZN6icu_7514Transliterator23setMaximumContextLengthEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max.0.lcssa.i.i)
           to label %invoke.cont3 unwind label %lpad2.loopexit.split-lp
 

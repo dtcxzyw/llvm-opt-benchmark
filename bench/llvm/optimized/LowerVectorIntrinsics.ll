@@ -341,7 +341,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %16) #8
   %167 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i16 257, ptr %167, align 8
-  %168 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreatePHIEPNS_4TypeEjRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef %32, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(34) %16)
+  %168 = call noundef ptr @_ZN4llvm13IRBuilderBase9CreatePHIEPNS_4TypeEjRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef nonnull %32, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(34) %16)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16) #8
   %169 = load i32, ptr %24, align 4
   %170 = and i32 %169, 134217727

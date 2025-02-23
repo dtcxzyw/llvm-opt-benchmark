@@ -21534,7 +21534,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj6EEC2INS_5SDUseEvEENS_8ArrayRefIT_EE.exit: ;
   %200 = load ptr, ptr %127, align 8, !tbaa !166
   %201 = load i32, ptr %188, align 8, !tbaa !181
   %202 = zext i32 %201 to i64
-  %203 = call noundef ptr @_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %200, ptr noundef %.sroa.0212.0, ptr nonnull %196, i64 %202) #19
+  %203 = call noundef ptr @_ZN4llvm12SelectionDAG18UpdateNodeOperandsEPNS_6SDNodeENS_8ArrayRefINS_7SDValueEEE(ptr noundef nonnull align 8 dereferenceable(952) %200, ptr noundef nonnull %.sroa.0212.0, ptr nonnull %196, i64 %202) #19
   %204 = load ptr, ptr %24, align 8, !tbaa !180
   %205 = icmp eq ptr %204, %187
   br i1 %205, label %_ZN4llvm11SmallVectorINS_7SDValueELj6EED2Ev.exit, label %206

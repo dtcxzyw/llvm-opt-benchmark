@@ -1047,8 +1047,8 @@ _ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i.loopexit.i: ; preds = %w
 _ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i.i: ; preds = %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i.loopexit.i, %while.body.i.i53
   %out.addr.3.i = phi ptr [ %out.addr.2.i, %while.body.i.i53 ], [ %incdec.ptr.i.i46.i.i, %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i.loopexit.i ]
   %lc.3.i = phi i32 [ %add.i.i38.i.i, %while.body.i.i53 ], [ %102, %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i.loopexit.i ]
-  %cmp5.i.i = icmp sgt i32 %runCount.addr.051.i.i, 0
-  br i1 %cmp5.i.i, label %while.body.i.i53, label %if.end.i49, !llvm.loop !20
+  %cmp5.not.i.i = icmp eq i32 %runCount.addr.051.i.i, 0
+  br i1 %cmp5.not.i.i, label %if.end.i49, label %while.body.i.i53, !llvm.loop !20
 
 if.end.loopexit.i:                                ; preds = %while.body.i.i.i56
   %103 = trunc nuw i64 %99 to i32
@@ -1215,8 +1215,8 @@ _ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i34.loopexit.i: ; preds = 
 _ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i34.i: ; preds = %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i34.loopexit.i, %while.body.i27.i
   %out.addr.12.i = phi ptr [ %out.addr.11.i, %while.body.i27.i ], [ %incdec.ptr.i.i46.i41.i, %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i34.loopexit.i ]
   %lc.8.i = phi i32 [ %add.i.i38.i31.i, %while.body.i27.i ], [ %119, %_ZN7Imf_3_212_GLOBAL__N_110outputCodeEmRmRiRPc.exit48.i34.loopexit.i ]
-  %cmp5.i35.i = icmp sgt i32 %runCount.addr.051.i28.i, 0
-  br i1 %cmp5.i35.i, label %while.body.i27.i, label %_ZN7Imf_3_212_GLOBAL__N_18sendCodeEmimRmRiRPc.exit87.i, !llvm.loop !20
+  %cmp5.not.i35.i = icmp eq i32 %runCount.addr.051.i28.i, 0
+  br i1 %cmp5.not.i35.i, label %_ZN7Imf_3_212_GLOBAL__N_18sendCodeEmimRmRiRPc.exit87.i, label %while.body.i27.i, !llvm.loop !20
 
 _ZN7Imf_3_212_GLOBAL__N_18sendCodeEmimRmRiRPc.exit87.loopexit.i: ; preds = %while.body.i.i62.i
   %120 = trunc nuw i64 %116 to i32

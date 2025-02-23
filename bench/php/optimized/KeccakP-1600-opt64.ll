@@ -154,7 +154,7 @@ define hidden void @KeccakP1600_AddLanes(ptr noundef captures(none) %0, ptr noun
 
 .preheader:                                       ; preds = %.lr.ph81, %.preheader76
   %.1.lcssa = phi i32 [ %.0.lcssa, %.preheader76 ], [ %63, %.lr.ph81 ]
-  %62 = add i32 %.1.lcssa, 2
+  %62 = add nuw i32 %.1.lcssa, 2
   %.not7583 = icmp ugt i32 %62, %2
   br i1 %.not7583, label %._crit_edge, label %.lr.ph85
 

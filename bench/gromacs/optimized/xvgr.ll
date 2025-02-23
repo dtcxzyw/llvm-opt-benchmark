@@ -1461,9 +1461,9 @@ _ZL9wordcountPc.exit:                             ; preds = %114
 128:                                              ; preds = %127
   %129 = add nsw i32 %.085185, 1024
   %130 = icmp sgt i32 %.291, 0
-  br i1 %130, label %.lr.ph, label %.loopexit148.thread
+  br i1 %130, label %.lr.ph, label %.loopexit148.thread219
 
-.loopexit148.thread:                              ; preds = %128
+.loopexit148.thread219:                           ; preds = %128
   store i8 0, ptr %.2141, align 1
   store i8 0, ptr %.2144, align 1
   br label %._crit_edge
@@ -1481,16 +1481,21 @@ _ZL9wordcountPc.exit:                             ; preds = %114
   store ptr %135, ptr %133, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit148, label %132, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit148.thread, label %132, !llvm.loop !9
 
-.loopexit148:                                     ; preds = %132, %127
-  %.2 = phi i32 [ %.085185, %127 ], [ %129, %132 ]
+.loopexit148.thread:                              ; preds = %132
+  store i8 0, ptr %.2141, align 1
+  store i8 0, ptr %.2144, align 1
+  br label %.lr.ph169
+
+.loopexit148:                                     ; preds = %127
   store i8 0, ptr %.2141, align 1
   store i8 0, ptr %.2144, align 1
   %136 = icmp sgt i32 %.291, 0
   br i1 %136, label %.lr.ph169, label %._crit_edge
 
-.lr.ph169:                                        ; preds = %.loopexit148
+.lr.ph169:                                        ; preds = %.loopexit148.thread, %.loopexit148
+  %.2218 = phi i32 [ %129, %.loopexit148.thread ], [ %.085185, %.loopexit148 ]
   %137 = sext i32 %.087184 to i64
   %138 = mul i32 %.291, 3
   %139 = add i32 %138, 4
@@ -1532,11 +1537,11 @@ _ZL9wordcountPc.exit:                             ; preds = %114
   %154 = trunc nuw nsw i64 %indvars.iv205 to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit148.thread, %.loopexit148
-  %.2217 = phi i32 [ %.2, %.loopexit148 ], [ %129, %.loopexit148.thread ], [ %.2, %._crit_edge.loopexit ]
-  %.3145.lcssa = phi ptr [ %.2144, %.loopexit148 ], [ %.2144, %.loopexit148.thread ], [ %.3145166, %._crit_edge.loopexit ]
-  %.3.lcssa = phi ptr [ %.2141, %.loopexit148 ], [ %.2141, %.loopexit148.thread ], [ %.3167, %._crit_edge.loopexit ]
-  %.194.lcssa = phi i32 [ 0, %.loopexit148 ], [ 0, %.loopexit148.thread ], [ %154, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit148.thread219, %.loopexit148
+  %.2217 = phi i32 [ %.085185, %.loopexit148 ], [ %129, %.loopexit148.thread219 ], [ %.2218, %._crit_edge.loopexit ]
+  %.3145.lcssa = phi ptr [ %.2144, %.loopexit148 ], [ %.2144, %.loopexit148.thread219 ], [ %.3145166, %._crit_edge.loopexit ]
+  %.3.lcssa = phi ptr [ %.2141, %.loopexit148 ], [ %.2141, %.loopexit148.thread219 ], [ %.3167, %._crit_edge.loopexit ]
+  %.194.lcssa = phi i32 [ 0, %.loopexit148 ], [ 0, %.loopexit148.thread219 ], [ %154, %._crit_edge.loopexit ]
   %.not114 = icmp eq i32 %.194.lcssa, %.291
   br i1 %.not114, label %.loopexit147, label %155
 
@@ -1581,19 +1586,19 @@ _ZNKSt10filesystem7__cxx114path6stringEv.exit:    ; preds = %155
   br i1 %171, label %166, label %.loopexit147, !llvm.loop !17
 
 .loopexit147:                                     ; preds = %147, %166, %_ZNKSt10filesystem7__cxx114path6stringEv.exit, %._crit_edge
-  %.3.lcssa225 = phi ptr [ %.3.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.3.lcssa, %._crit_edge ], [ %.3.lcssa, %166 ], [ %152, %147 ]
-  %.3145.lcssa224 = phi ptr [ %.3145.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.3145.lcssa, %._crit_edge ], [ %.3145.lcssa, %166 ], [ %153, %147 ]
-  %.2217223 = phi i32 [ %.2217, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.2217, %._crit_edge ], [ %.2217, %166 ], [ %.2, %147 ]
+  %.3.lcssa228 = phi ptr [ %.3.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.3.lcssa, %._crit_edge ], [ %.3.lcssa, %166 ], [ %152, %147 ]
+  %.3145.lcssa227 = phi ptr [ %.3145.lcssa, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.3145.lcssa, %._crit_edge ], [ %.3145.lcssa, %166 ], [ %153, %147 ]
+  %.2217226 = phi i32 [ %.2217, %_ZNKSt10filesystem7__cxx114path6stringEv.exit ], [ %.2217, %._crit_edge ], [ %.2217, %166 ], [ %.2218, %147 ]
   %172 = add nsw i32 %.087184, 1
   br label %173
 
 173:                                              ; preds = %23, %.loopexit147, %26, %_ZL16read_xvgr_stringPKc.exit120, %71
-  %.1143 = phi ptr [ %.3145.lcssa224, %.loopexit147 ], [ %.0142179, %23 ], [ %.0142179, %26 ], [ %.0142179, %71 ], [ %.0142179, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.1140 = phi ptr [ %.3.lcssa225, %.loopexit147 ], [ %.0139180, %23 ], [ %.0139180, %26 ], [ %.0139180, %71 ], [ %.0139180, %_ZL16read_xvgr_stringPKc.exit120 ]
+  %.1143 = phi ptr [ %.3145.lcssa227, %.loopexit147 ], [ %.0142179, %23 ], [ %.0142179, %26 ], [ %.0142179, %71 ], [ %.0142179, %_ZL16read_xvgr_stringPKc.exit120 ]
+  %.1140 = phi ptr [ %.3.lcssa228, %.loopexit147 ], [ %.0139180, %23 ], [ %.0139180, %26 ], [ %.0139180, %71 ], [ %.0139180, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.1137 = phi ptr [ %.2138, %.loopexit147 ], [ %.0136181, %23 ], [ %.0136181, %26 ], [ %.0136181, %71 ], [ %.0136181, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.190 = phi i32 [ %.291, %.loopexit147 ], [ %.089183, %23 ], [ %.089183, %26 ], [ %.089183, %71 ], [ %.089183, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.188 = phi i32 [ %172, %.loopexit147 ], [ %.087184, %23 ], [ %.087184, %26 ], [ %.087184, %71 ], [ %.087184, %_ZL16read_xvgr_stringPKc.exit120 ]
-  %.186 = phi i32 [ %.2217223, %.loopexit147 ], [ %.085185, %23 ], [ %.085185, %26 ], [ %.085185, %71 ], [ %.085185, %_ZL16read_xvgr_stringPKc.exit120 ]
+  %.186 = phi i32 [ %.2217226, %.loopexit147 ], [ %.085185, %23 ], [ %.085185, %26 ], [ %.085185, %71 ], [ %.085185, %_ZL16read_xvgr_stringPKc.exit120 ]
   %.1 = phi i32 [ %.0186, %.loopexit147 ], [ %.0186, %23 ], [ %.0186, %26 ], [ %.0186, %71 ], [ %75, %_ZL16read_xvgr_stringPKc.exit120 ]
   %174 = call fastcc noundef ptr @_ZL6fgets3P8_IO_FILEPPcPii(ptr noundef %14, ptr noundef %11, ptr noundef %12)
   %.not108 = icmp eq ptr %174, null

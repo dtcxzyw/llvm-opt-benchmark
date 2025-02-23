@@ -1228,7 +1228,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheYColsc
   %scevgep = getelementptr i8, ptr %52, i64 8
   %102 = shl nuw nsw i64 %99, 3
   %103 = getelementptr i8, ptr %54, i64 %102
-  %scevgep119 = getelementptr i8, ptr %103, i64 8
+  %scevgep123 = getelementptr i8, ptr %103, i64 8
   %ident.check.not = icmp eq i32 %56, 1
   br label %104
 
@@ -1322,21 +1322,21 @@ common.resume:                                    ; preds = %620, %502, %384, %2
   br i1 %89, label %.lr.ph129.i.preheader, label %.preheader.i
 
 .lr.ph129.i.preheader:                            ; preds = %._crit_edge.i
-  %load_initial120 = load double, ptr %scevgep119, align 8
+  %load_initial124 = load double, ptr %scevgep123, align 8
   br label %.lr.ph129.i
 
-.preheader.i:                                     ; preds = %.lr.ph129.i, %._crit_edge.i
-  br i1 %98, label %.lr.ph132.i, label %._crit_edge133.i
+.preheader.i:                                     ; preds = %._crit_edge.i
+  br i1 %98, label %.lr.ph132.i.preheader, label %._crit_edge133.i
 
 .lr.ph129.i:                                      ; preds = %.lr.ph129.i.preheader, %.lr.ph129.i
-  %store_forwarded121 = phi double [ %load_initial120, %.lr.ph129.i.preheader ], [ %155, %.lr.ph129.i ]
+  %store_forwarded125 = phi double [ %load_initial124, %.lr.ph129.i.preheader ], [ %155, %.lr.ph129.i ]
   %indvars.iv139.i = phi i64 [ %99, %.lr.ph129.i.preheader ], [ %indvars.iv.next140.i, %.lr.ph129.i ]
   %.pn123126.i = phi ptr [ %141, %.lr.ph129.i.preheader ], [ %.pn122.i, %.lr.ph129.i ]
   %.pn122.i = getelementptr inbounds i8, ptr %.pn123126.i, i64 %95
   %148 = load i8, ptr %.pn122.i, align 1
   %149 = uitofp i8 %148 to double
   %150 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv139.i
-  %151 = fmul double %77, %store_forwarded121
+  %151 = fmul double %77, %store_forwarded125
   %152 = fsub double %149, %151
   %153 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %154 = load double, ptr %153, align 8
@@ -1344,11 +1344,14 @@ common.resume:                                    ; preds = %620, %502, %384, %2
   store double %155, ptr %150, align 8
   %indvars.iv.next140.i = add nsw i64 %indvars.iv139.i, -1
   %156 = icmp sgt i64 %indvars.iv139.i, 0
-  br i1 %156, label %.lr.ph129.i, label %.preheader.i, !llvm.loop !9
+  br i1 %156, label %.lr.ph129.i, label %.lr.ph132.i.preheader, !llvm.loop !9
 
-.lr.ph132.i:                                      ; preds = %.preheader.i, %.lr.ph132.i
-  %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %.lr.ph132.i ], [ 0, %.preheader.i ]
-  %.0118130.i = phi ptr [ %164, %.lr.ph132.i ], [ %107, %.preheader.i ]
+.lr.ph132.i.preheader:                            ; preds = %.lr.ph129.i, %.preheader.i
+  br label %.lr.ph132.i
+
+.lr.ph132.i:                                      ; preds = %.lr.ph132.i.preheader, %.lr.ph132.i
+  %indvars.iv142.i = phi i64 [ %indvars.iv.next143.i, %.lr.ph132.i ], [ 0, %.lr.ph132.i.preheader ]
+  %.0118130.i = phi ptr [ %164, %.lr.ph132.i ], [ %107, %.lr.ph132.i.preheader ]
   %157 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv142.i
   %158 = load double, ptr %157, align 8
   %159 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv142.i
@@ -1452,11 +1455,11 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %229 = sext i32 %208 to i64
   %230 = sext i32 %221 to i64
   %wide.trip.count.i14 = zext nneg i32 %184 to i64
-  %scevgep124 = getelementptr i8, ptr %181, i64 8
+  %scevgep128 = getelementptr i8, ptr %181, i64 8
   %231 = shl nuw nsw i64 %228, 3
   %232 = getelementptr i8, ptr %183, i64 %231
-  %scevgep127 = getelementptr i8, ptr %232, i64 8
-  %ident.check122.not = icmp eq i32 %185, 1
+  %scevgep131 = getelementptr i8, ptr %232, i64 8
+  %ident.check126.not = icmp eq i32 %185, 1
   br label %233
 
 233:                                              ; preds = %._crit_edge133.i19, %.lr.ph136.i11
@@ -1475,19 +1478,19 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %244 = fmul double %206, %239
   %245 = fsub double %243, %244
   store double %245, ptr %217, align 8
-  br i1 %218, label %.lr.ph.i31.lver.check, label %._crit_edge.i17
+  br i1 %218, label %.lr.ph.i32.lver.check, label %._crit_edge.i17
 
-.lr.ph.i31.lver.check:                            ; preds = %233
-  br i1 %ident.check122.not, label %.lr.ph.i31.ph, label %.lr.ph.i31.lver.orig
+.lr.ph.i32.lver.check:                            ; preds = %233
+  br i1 %ident.check126.not, label %.lr.ph.i32.ph, label %.lr.ph.i32.lver.orig
 
-.lr.ph.i31.lver.orig:                             ; preds = %.lr.ph.i31.lver.check, %.lr.ph.i31.lver.orig
-  %indvars.iv.i32.lver.orig = phi i64 [ %indvars.iv.next.i35.lver.orig, %.lr.ph.i31.lver.orig ], [ 2, %.lr.ph.i31.lver.check ]
-  %.pn124.i33.lver.orig = phi ptr [ %.0115.i34.lver.orig, %.lr.ph.i31.lver.orig ], [ %240, %.lr.ph.i31.lver.check ]
-  %.0115.i34.lver.orig = getelementptr inbounds i8, ptr %.pn124.i33.lver.orig, i64 %214
-  %246 = getelementptr inbounds i8, ptr %.0115.i34.lver.orig, i64 %216
+.lr.ph.i32.lver.orig:                             ; preds = %.lr.ph.i32.lver.check, %.lr.ph.i32.lver.orig
+  %indvars.iv.i33.lver.orig = phi i64 [ %indvars.iv.next.i36.lver.orig, %.lr.ph.i32.lver.orig ], [ 2, %.lr.ph.i32.lver.check ]
+  %.pn124.i34.lver.orig = phi ptr [ %.0115.i35.lver.orig, %.lr.ph.i32.lver.orig ], [ %240, %.lr.ph.i32.lver.check ]
+  %.0115.i35.lver.orig = getelementptr inbounds i8, ptr %.pn124.i34.lver.orig, i64 %214
+  %246 = getelementptr inbounds i8, ptr %.0115.i35.lver.orig, i64 %216
   %247 = load i8, ptr %246, align 1
   %248 = sitofp i8 %247 to double
-  %249 = getelementptr double, ptr %181, i64 %indvars.iv.i32.lver.orig
+  %249 = getelementptr double, ptr %181, i64 %indvars.iv.i33.lver.orig
   %250 = getelementptr i8, ptr %249, i64 -8
   %251 = load double, ptr %250, align 8
   %252 = fmul double %206, %251
@@ -1496,39 +1499,39 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %255 = load double, ptr %254, align 8
   %256 = call double @llvm.fmuladd.f64(double %219, double %255, double %253)
   store double %256, ptr %249, align 8
-  %indvars.iv.next.i35.lver.orig = add nuw nsw i64 %indvars.iv.i32.lver.orig, 1
-  %exitcond.not.i36.lver.orig = icmp eq i64 %indvars.iv.next.i35.lver.orig, %wide.trip.count.i14
-  br i1 %exitcond.not.i36.lver.orig, label %._crit_edge.i17, label %.lr.ph.i31.lver.orig, !llvm.loop !12
+  %indvars.iv.next.i36.lver.orig = add nuw nsw i64 %indvars.iv.i33.lver.orig, 1
+  %exitcond.not.i37.lver.orig = icmp eq i64 %indvars.iv.next.i36.lver.orig, %wide.trip.count.i14
+  br i1 %exitcond.not.i37.lver.orig, label %._crit_edge.i17, label %.lr.ph.i32.lver.orig, !llvm.loop !12
 
-.lr.ph.i31.ph:                                    ; preds = %.lr.ph.i31.lver.check
-  %load_initial125 = load double, ptr %scevgep124, align 8
-  br label %.lr.ph.i31
+.lr.ph.i32.ph:                                    ; preds = %.lr.ph.i32.lver.check
+  %load_initial129 = load double, ptr %scevgep128, align 8
+  br label %.lr.ph.i32
 
-.lr.ph.i31:                                       ; preds = %.lr.ph.i31.ph, %.lr.ph.i31
-  %store_forwarded126 = phi double [ %load_initial125, %.lr.ph.i31.ph ], [ %265, %.lr.ph.i31 ]
-  %indvars.iv.i32 = phi i64 [ 2, %.lr.ph.i31.ph ], [ %indvars.iv.next.i35, %.lr.ph.i31 ]
-  %.pn124.i33 = phi ptr [ %240, %.lr.ph.i31.ph ], [ %.0115.i34, %.lr.ph.i31 ]
-  %.0115.i34 = getelementptr inbounds nuw i8, ptr %.pn124.i33, i64 %214
-  %257 = getelementptr inbounds i8, ptr %.0115.i34, i64 %216
+.lr.ph.i32:                                       ; preds = %.lr.ph.i32.ph, %.lr.ph.i32
+  %store_forwarded130 = phi double [ %load_initial129, %.lr.ph.i32.ph ], [ %265, %.lr.ph.i32 ]
+  %indvars.iv.i33 = phi i64 [ 2, %.lr.ph.i32.ph ], [ %indvars.iv.next.i36, %.lr.ph.i32 ]
+  %.pn124.i34 = phi ptr [ %240, %.lr.ph.i32.ph ], [ %.0115.i35, %.lr.ph.i32 ]
+  %.0115.i35 = getelementptr inbounds nuw i8, ptr %.pn124.i34, i64 %214
+  %257 = getelementptr inbounds i8, ptr %.0115.i35, i64 %216
   %258 = load i8, ptr %257, align 1
   %259 = sitofp i8 %258 to double
-  %260 = getelementptr double, ptr %181, i64 %indvars.iv.i32
-  %261 = fmul double %206, %store_forwarded126
+  %260 = getelementptr double, ptr %181, i64 %indvars.iv.i33
+  %261 = fmul double %206, %store_forwarded130
   %262 = fsub double %259, %261
   %263 = getelementptr i8, ptr %260, i64 -16
   %264 = load double, ptr %263, align 8
   %265 = call double @llvm.fmuladd.f64(double %219, double %264, double %262)
   store double %265, ptr %260, align 8
-  %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.not.i36 = icmp eq i64 %indvars.iv.next.i35, %wide.trip.count.i14
-  br i1 %exitcond.not.i36, label %._crit_edge.i17, label %.lr.ph.i31, !llvm.loop !12
+  %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i33, 1
+  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i14
+  br i1 %exitcond.not.i37, label %._crit_edge.i17, label %.lr.ph.i32, !llvm.loop !12
 
 266:                                              ; preds = %168
   %267 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i17:                                  ; preds = %.lr.ph.i31.lver.orig, %.lr.ph.i31, %233
+._crit_edge.i17:                                  ; preds = %.lr.ph.i32.lver.orig, %.lr.ph.i32, %233
   %268 = load ptr, ptr %212, align 8
   %269 = getelementptr i8, ptr %268, i64 %indvars.iv147.i16
   %270 = getelementptr i8, ptr %269, i64 %230
@@ -1540,50 +1543,53 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %275 = fmul double %206, %272
   %276 = fadd double %275, %274
   store double %276, ptr %gep.i13, align 8
-  br i1 %218, label %.lr.ph129.i26.preheader, label %.preheader.i18
+  br i1 %218, label %.lr.ph129.i27.preheader, label %.preheader.i18
 
-.lr.ph129.i26.preheader:                          ; preds = %._crit_edge.i17
-  %load_initial128 = load double, ptr %scevgep127, align 8
-  br label %.lr.ph129.i26
+.lr.ph129.i27.preheader:                          ; preds = %._crit_edge.i17
+  %load_initial132 = load double, ptr %scevgep131, align 8
+  br label %.lr.ph129.i27
 
-.preheader.i18:                                   ; preds = %.lr.ph129.i26, %._crit_edge.i17
-  br i1 %227, label %.lr.ph132.i21, label %._crit_edge133.i19
+.preheader.i18:                                   ; preds = %._crit_edge.i17
+  br i1 %227, label %.lr.ph132.i22.preheader, label %._crit_edge133.i19
 
-.lr.ph129.i26:                                    ; preds = %.lr.ph129.i26.preheader, %.lr.ph129.i26
-  %store_forwarded129 = phi double [ %load_initial128, %.lr.ph129.i26.preheader ], [ %284, %.lr.ph129.i26 ]
-  %indvars.iv139.i27 = phi i64 [ %228, %.lr.ph129.i26.preheader ], [ %indvars.iv.next140.i30, %.lr.ph129.i26 ]
-  %.pn123126.i28 = phi ptr [ %270, %.lr.ph129.i26.preheader ], [ %.pn122.i29, %.lr.ph129.i26 ]
-  %.pn122.i29 = getelementptr inbounds i8, ptr %.pn123126.i28, i64 %224
-  %277 = load i8, ptr %.pn122.i29, align 1
+.lr.ph129.i27:                                    ; preds = %.lr.ph129.i27.preheader, %.lr.ph129.i27
+  %store_forwarded133 = phi double [ %load_initial132, %.lr.ph129.i27.preheader ], [ %284, %.lr.ph129.i27 ]
+  %indvars.iv139.i28 = phi i64 [ %228, %.lr.ph129.i27.preheader ], [ %indvars.iv.next140.i31, %.lr.ph129.i27 ]
+  %.pn123126.i29 = phi ptr [ %270, %.lr.ph129.i27.preheader ], [ %.pn122.i30, %.lr.ph129.i27 ]
+  %.pn122.i30 = getelementptr inbounds i8, ptr %.pn123126.i29, i64 %224
+  %277 = load i8, ptr %.pn122.i30, align 1
   %278 = sitofp i8 %277 to double
-  %279 = getelementptr inbounds nuw double, ptr %183, i64 %indvars.iv139.i27
-  %280 = fmul double %206, %store_forwarded129
+  %279 = getelementptr inbounds nuw double, ptr %183, i64 %indvars.iv139.i28
+  %280 = fmul double %206, %store_forwarded133
   %281 = fsub double %278, %280
   %282 = getelementptr inbounds nuw i8, ptr %279, i64 16
   %283 = load double, ptr %282, align 8
   %284 = call double @llvm.fmuladd.f64(double %219, double %283, double %281)
   store double %284, ptr %279, align 8
-  %indvars.iv.next140.i30 = add nsw i64 %indvars.iv139.i27, -1
-  %285 = icmp sgt i64 %indvars.iv139.i27, 0
-  br i1 %285, label %.lr.ph129.i26, label %.preheader.i18, !llvm.loop !13
+  %indvars.iv.next140.i31 = add nsw i64 %indvars.iv139.i28, -1
+  %285 = icmp sgt i64 %indvars.iv139.i28, 0
+  br i1 %285, label %.lr.ph129.i27, label %.lr.ph132.i22.preheader, !llvm.loop !13
 
-.lr.ph132.i21:                                    ; preds = %.preheader.i18, %.lr.ph132.i21
-  %indvars.iv142.i22 = phi i64 [ %indvars.iv.next143.i24, %.lr.ph132.i21 ], [ 0, %.preheader.i18 ]
-  %.0118130.i23 = phi ptr [ %293, %.lr.ph132.i21 ], [ %236, %.preheader.i18 ]
-  %286 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv142.i22
+.lr.ph132.i22.preheader:                          ; preds = %.lr.ph129.i27, %.preheader.i18
+  br label %.lr.ph132.i22
+
+.lr.ph132.i22:                                    ; preds = %.lr.ph132.i22.preheader, %.lr.ph132.i22
+  %indvars.iv142.i23 = phi i64 [ %indvars.iv.next143.i25, %.lr.ph132.i22 ], [ 0, %.lr.ph132.i22.preheader ]
+  %.0118130.i24 = phi ptr [ %293, %.lr.ph132.i22 ], [ %236, %.lr.ph132.i22.preheader ]
+  %286 = getelementptr inbounds nuw double, ptr %181, i64 %indvars.iv142.i23
   %287 = load double, ptr %286, align 8
-  %288 = getelementptr inbounds nuw double, ptr %183, i64 %indvars.iv142.i22
+  %288 = getelementptr inbounds nuw double, ptr %183, i64 %indvars.iv142.i23
   %289 = load double, ptr %288, align 8
   %290 = fsub double %287, %289
   %291 = fmul double %202, %290
   %292 = fptrunc double %291 to float
-  store float %292, ptr %.0118130.i23, align 4
-  %indvars.iv.next143.i24 = add nuw nsw i64 %indvars.iv142.i22, 1
-  %293 = getelementptr inbounds float, ptr %.0118130.i23, i64 %214
-  %exitcond146.not.i25 = icmp eq i64 %indvars.iv.next143.i24, %wide.trip.count.i14
-  br i1 %exitcond146.not.i25, label %._crit_edge133.i19, label %.lr.ph132.i21, !llvm.loop !14
+  store float %292, ptr %.0118130.i24, align 4
+  %indvars.iv.next143.i25 = add nuw nsw i64 %indvars.iv142.i23, 1
+  %293 = getelementptr inbounds float, ptr %.0118130.i24, i64 %214
+  %exitcond146.not.i26 = icmp eq i64 %indvars.iv.next143.i25, %wide.trip.count.i14
+  br i1 %exitcond146.not.i26, label %._crit_edge133.i19, label %.lr.ph132.i22, !llvm.loop !14
 
-._crit_edge133.i19:                               ; preds = %.lr.ph132.i21, %.preheader.i18
+._crit_edge133.i19:                               ; preds = %.lr.ph132.i22, %.preheader.i18
   %indvars.iv.next148.i20 = add nsw i64 %indvars.iv147.i16, 1
   %294 = load i32, ptr %209, align 4
   %295 = sext i32 %294 to i64
@@ -1610,9 +1616,9 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %305 = load i32, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %307 = load i32, ptr %306, align 4
-  %..i37 = tail call i32 @llvm.smax.i32(i32 %305, i32 %307)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 1, i32 noundef %..i37, i32 noundef 6)
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 1, i32 noundef %..i37, i32 noundef 6)
+  %..i38 = tail call i32 @llvm.smax.i32(i32 %305, i32 %307)
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %7, i32 noundef 1, i32 noundef %..i38, i32 noundef 6)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %8, i32 noundef 1, i32 noundef %..i38, i32 noundef 6)
           to label %308 unwind label %384
 
 308:                                              ; preds = %297
@@ -1648,10 +1654,10 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %338 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %339 = load i32, ptr %338, align 4
   %340 = icmp slt i32 %337, %339
-  br i1 %340, label %.lr.ph136.i38, label %_ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %340, label %.lr.ph136.i39, label %_ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph136.i38:                                    ; preds = %308
-  %invariant.gep.i39 = getelementptr i8, ptr %312, i64 -16
+.lr.ph136.i39:                                    ; preds = %308
+  %invariant.gep.i40 = getelementptr i8, ptr %312, i64 -16
   %341 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %342 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %343 = sext i32 %314 to i64
@@ -1666,25 +1672,25 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %352 = getelementptr inbounds double, ptr %312, i64 %351
   %353 = sub nsw i64 0, %343
   %354 = sext i32 %313 to i64
-  %gep.i40 = getelementptr double, ptr %invariant.gep.i39, i64 %354
+  %gep.i41 = getelementptr double, ptr %invariant.gep.i40, i64 %354
   %355 = add i32 %313, -3
   %356 = icmp sgt i32 %313, 0
   %357 = zext i32 %355 to i64
   %358 = sext i32 %337 to i64
   %359 = sext i32 %350 to i64
-  %wide.trip.count.i41 = zext nneg i32 %313 to i64
-  %scevgep130 = getelementptr i8, ptr %310, i64 8
+  %wide.trip.count.i42 = zext nneg i32 %313 to i64
+  %scevgep134 = getelementptr i8, ptr %310, i64 8
   %360 = shl nuw nsw i64 %357, 3
   %361 = getelementptr i8, ptr %312, i64 %360
-  %scevgep133 = getelementptr i8, ptr %361, i64 8
+  %scevgep137 = getelementptr i8, ptr %361, i64 8
   br label %362
 
-362:                                              ; preds = %._crit_edge133.i46, %.lr.ph136.i38
-  %indvars.iv147.i43 = phi i64 [ %358, %.lr.ph136.i38 ], [ %indvars.iv.next148.i47, %._crit_edge133.i46 ]
+362:                                              ; preds = %._crit_edge133.i47, %.lr.ph136.i39
+  %indvars.iv147.i44 = phi i64 [ %358, %.lr.ph136.i39 ], [ %indvars.iv.next148.i48, %._crit_edge133.i47 ]
   %363 = load ptr, ptr %341, align 8
   %364 = load ptr, ptr %342, align 8
-  %365 = getelementptr inbounds float, ptr %364, i64 %indvars.iv147.i43
-  %366 = getelementptr inbounds i16, ptr %363, i64 %indvars.iv147.i43
+  %365 = getelementptr inbounds float, ptr %364, i64 %indvars.iv147.i44
+  %366 = getelementptr inbounds i16, ptr %363, i64 %indvars.iv147.i44
   %367 = load i16, ptr %366, align 2
   %368 = uitofp i16 %367 to double
   store double %368, ptr %310, align 8
@@ -1695,39 +1701,39 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %373 = fmul double %335, %368
   %374 = fsub double %372, %373
   store double %374, ptr %346, align 8
-  br i1 %347, label %.lr.ph.i58.preheader, label %._crit_edge.i44
+  br i1 %347, label %.lr.ph.i60.preheader, label %._crit_edge.i45
 
-.lr.ph.i58.preheader:                             ; preds = %362
-  %load_initial131 = load double, ptr %scevgep130, align 8
-  br label %.lr.ph.i58
+.lr.ph.i60.preheader:                             ; preds = %362
+  %load_initial135 = load double, ptr %scevgep134, align 8
+  br label %.lr.ph.i60
 
-.lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %.lr.ph.i58
-  %store_forwarded132 = phi double [ %load_initial131, %.lr.ph.i58.preheader ], [ %383, %.lr.ph.i58 ]
-  %indvars.iv.i59 = phi i64 [ 2, %.lr.ph.i58.preheader ], [ %indvars.iv.next.i62, %.lr.ph.i58 ]
-  %.pn124.i60 = phi ptr [ %369, %.lr.ph.i58.preheader ], [ %.0115.i61, %.lr.ph.i58 ]
-  %.0115.i61 = getelementptr inbounds i16, ptr %.pn124.i60, i64 %343
-  %375 = getelementptr inbounds i16, ptr %.0115.i61, i64 %345
+.lr.ph.i60:                                       ; preds = %.lr.ph.i60.preheader, %.lr.ph.i60
+  %store_forwarded136 = phi double [ %load_initial135, %.lr.ph.i60.preheader ], [ %383, %.lr.ph.i60 ]
+  %indvars.iv.i61 = phi i64 [ 2, %.lr.ph.i60.preheader ], [ %indvars.iv.next.i64, %.lr.ph.i60 ]
+  %.pn124.i62 = phi ptr [ %369, %.lr.ph.i60.preheader ], [ %.0115.i63, %.lr.ph.i60 ]
+  %.0115.i63 = getelementptr inbounds i16, ptr %.pn124.i62, i64 %343
+  %375 = getelementptr inbounds i16, ptr %.0115.i63, i64 %345
   %376 = load i16, ptr %375, align 2
   %377 = uitofp i16 %376 to double
-  %378 = getelementptr double, ptr %310, i64 %indvars.iv.i59
-  %379 = fmul double %335, %store_forwarded132
+  %378 = getelementptr double, ptr %310, i64 %indvars.iv.i61
+  %379 = fmul double %335, %store_forwarded136
   %380 = fsub double %377, %379
   %381 = getelementptr i8, ptr %378, i64 -16
   %382 = load double, ptr %381, align 8
   %383 = call double @llvm.fmuladd.f64(double %348, double %382, double %380)
   store double %383, ptr %378, align 8
-  %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i59, 1
-  %exitcond.not.i63 = icmp eq i64 %indvars.iv.next.i62, %wide.trip.count.i41
-  br i1 %exitcond.not.i63, label %._crit_edge.i44, label %.lr.ph.i58, !llvm.loop !16
+  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i61, 1
+  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i42
+  br i1 %exitcond.not.i65, label %._crit_edge.i45, label %.lr.ph.i60, !llvm.loop !16
 
 384:                                              ; preds = %297
   %385 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i44:                                  ; preds = %.lr.ph.i58, %362
+._crit_edge.i45:                                  ; preds = %.lr.ph.i60, %362
   %386 = load ptr, ptr %341, align 8
-  %387 = getelementptr i16, ptr %386, i64 %indvars.iv147.i43
+  %387 = getelementptr i16, ptr %386, i64 %indvars.iv147.i44
   %388 = getelementptr i16, ptr %387, i64 %359
   %389 = load i16, ptr %388, align 2
   %390 = uitofp i16 %389 to double
@@ -1736,58 +1742,61 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %392 = uitofp i16 %391 to double
   %393 = fmul double %335, %390
   %394 = fadd double %393, %392
-  store double %394, ptr %gep.i40, align 8
-  br i1 %347, label %.lr.ph129.i53.preheader, label %.preheader.i45
+  store double %394, ptr %gep.i41, align 8
+  br i1 %347, label %.lr.ph129.i55.preheader, label %.preheader.i46
 
-.lr.ph129.i53.preheader:                          ; preds = %._crit_edge.i44
-  %load_initial134 = load double, ptr %scevgep133, align 8
-  br label %.lr.ph129.i53
+.lr.ph129.i55.preheader:                          ; preds = %._crit_edge.i45
+  %load_initial138 = load double, ptr %scevgep137, align 8
+  br label %.lr.ph129.i55
 
-.preheader.i45:                                   ; preds = %.lr.ph129.i53, %._crit_edge.i44
-  br i1 %356, label %.lr.ph132.i48, label %._crit_edge133.i46
+.preheader.i46:                                   ; preds = %._crit_edge.i45
+  br i1 %356, label %.lr.ph132.i50.preheader, label %._crit_edge133.i47
 
-.lr.ph129.i53:                                    ; preds = %.lr.ph129.i53.preheader, %.lr.ph129.i53
-  %store_forwarded135 = phi double [ %load_initial134, %.lr.ph129.i53.preheader ], [ %402, %.lr.ph129.i53 ]
-  %indvars.iv139.i54 = phi i64 [ %357, %.lr.ph129.i53.preheader ], [ %indvars.iv.next140.i57, %.lr.ph129.i53 ]
-  %.pn123126.i55 = phi ptr [ %388, %.lr.ph129.i53.preheader ], [ %.pn122.i56, %.lr.ph129.i53 ]
-  %.pn122.i56 = getelementptr inbounds i16, ptr %.pn123126.i55, i64 %353
-  %395 = load i16, ptr %.pn122.i56, align 2
+.lr.ph129.i55:                                    ; preds = %.lr.ph129.i55.preheader, %.lr.ph129.i55
+  %store_forwarded139 = phi double [ %load_initial138, %.lr.ph129.i55.preheader ], [ %402, %.lr.ph129.i55 ]
+  %indvars.iv139.i56 = phi i64 [ %357, %.lr.ph129.i55.preheader ], [ %indvars.iv.next140.i59, %.lr.ph129.i55 ]
+  %.pn123126.i57 = phi ptr [ %388, %.lr.ph129.i55.preheader ], [ %.pn122.i58, %.lr.ph129.i55 ]
+  %.pn122.i58 = getelementptr inbounds i16, ptr %.pn123126.i57, i64 %353
+  %395 = load i16, ptr %.pn122.i58, align 2
   %396 = uitofp i16 %395 to double
-  %397 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv139.i54
-  %398 = fmul double %335, %store_forwarded135
+  %397 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv139.i56
+  %398 = fmul double %335, %store_forwarded139
   %399 = fsub double %396, %398
   %400 = getelementptr inbounds nuw i8, ptr %397, i64 16
   %401 = load double, ptr %400, align 8
   %402 = call double @llvm.fmuladd.f64(double %348, double %401, double %399)
   store double %402, ptr %397, align 8
-  %indvars.iv.next140.i57 = add nsw i64 %indvars.iv139.i54, -1
-  %403 = icmp sgt i64 %indvars.iv139.i54, 0
-  br i1 %403, label %.lr.ph129.i53, label %.preheader.i45, !llvm.loop !17
+  %indvars.iv.next140.i59 = add nsw i64 %indvars.iv139.i56, -1
+  %403 = icmp sgt i64 %indvars.iv139.i56, 0
+  br i1 %403, label %.lr.ph129.i55, label %.lr.ph132.i50.preheader, !llvm.loop !17
 
-.lr.ph132.i48:                                    ; preds = %.preheader.i45, %.lr.ph132.i48
-  %indvars.iv142.i49 = phi i64 [ %indvars.iv.next143.i51, %.lr.ph132.i48 ], [ 0, %.preheader.i45 ]
-  %.0118130.i50 = phi ptr [ %411, %.lr.ph132.i48 ], [ %365, %.preheader.i45 ]
-  %404 = getelementptr inbounds nuw double, ptr %310, i64 %indvars.iv142.i49
+.lr.ph132.i50.preheader:                          ; preds = %.lr.ph129.i55, %.preheader.i46
+  br label %.lr.ph132.i50
+
+.lr.ph132.i50:                                    ; preds = %.lr.ph132.i50.preheader, %.lr.ph132.i50
+  %indvars.iv142.i51 = phi i64 [ %indvars.iv.next143.i53, %.lr.ph132.i50 ], [ 0, %.lr.ph132.i50.preheader ]
+  %.0118130.i52 = phi ptr [ %411, %.lr.ph132.i50 ], [ %365, %.lr.ph132.i50.preheader ]
+  %404 = getelementptr inbounds nuw double, ptr %310, i64 %indvars.iv142.i51
   %405 = load double, ptr %404, align 8
-  %406 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv142.i49
+  %406 = getelementptr inbounds nuw double, ptr %312, i64 %indvars.iv142.i51
   %407 = load double, ptr %406, align 8
   %408 = fsub double %405, %407
   %409 = fmul double %331, %408
   %410 = fptrunc double %409 to float
-  store float %410, ptr %.0118130.i50, align 4
-  %indvars.iv.next143.i51 = add nuw nsw i64 %indvars.iv142.i49, 1
-  %411 = getelementptr inbounds float, ptr %.0118130.i50, i64 %343
-  %exitcond146.not.i52 = icmp eq i64 %indvars.iv.next143.i51, %wide.trip.count.i41
-  br i1 %exitcond146.not.i52, label %._crit_edge133.i46, label %.lr.ph132.i48, !llvm.loop !18
+  store float %410, ptr %.0118130.i52, align 4
+  %indvars.iv.next143.i53 = add nuw nsw i64 %indvars.iv142.i51, 1
+  %411 = getelementptr inbounds float, ptr %.0118130.i52, i64 %343
+  %exitcond146.not.i54 = icmp eq i64 %indvars.iv.next143.i53, %wide.trip.count.i42
+  br i1 %exitcond146.not.i54, label %._crit_edge133.i47, label %.lr.ph132.i50, !llvm.loop !18
 
-._crit_edge133.i46:                               ; preds = %.lr.ph132.i48, %.preheader.i45
-  %indvars.iv.next148.i47 = add nsw i64 %indvars.iv147.i43, 1
+._crit_edge133.i47:                               ; preds = %.lr.ph132.i50, %.preheader.i46
+  %indvars.iv.next148.i48 = add nsw i64 %indvars.iv147.i44, 1
   %412 = load i32, ptr %338, align 4
   %413 = sext i32 %412 to i64
-  %414 = icmp slt i64 %indvars.iv.next148.i47, %413
+  %414 = icmp slt i64 %indvars.iv.next148.i48, %413
   br i1 %414, label %362, label %_ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !19
 
-_ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i46, %308
+_ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i47, %308
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -1807,9 +1816,9 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %423 = load i32, ptr %422, align 8
   %424 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %425 = load i32, ptr %424, align 4
-  %..i64 = tail call i32 @llvm.smax.i32(i32 %423, i32 %425)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 1, i32 noundef %..i64, i32 noundef 6)
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef 1, i32 noundef %..i64, i32 noundef 6)
+  %..i66 = tail call i32 @llvm.smax.i32(i32 %423, i32 %425)
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef 1, i32 noundef %..i66, i32 noundef 6)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %6, i32 noundef 1, i32 noundef %..i66, i32 noundef 6)
           to label %426 unwind label %502
 
 426:                                              ; preds = %415
@@ -1845,10 +1854,10 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %456 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %457 = load i32, ptr %456, align 4
   %458 = icmp slt i32 %455, %457
-  br i1 %458, label %.lr.ph136.i65, label %_ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %458, label %.lr.ph136.i67, label %_ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph136.i65:                                    ; preds = %426
-  %invariant.gep.i66 = getelementptr i8, ptr %430, i64 -16
+.lr.ph136.i67:                                    ; preds = %426
+  %invariant.gep.i68 = getelementptr i8, ptr %430, i64 -16
   %459 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %460 = getelementptr inbounds nuw i8, ptr %417, i64 16
   %461 = sext i32 %432 to i64
@@ -1863,25 +1872,25 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %470 = getelementptr inbounds double, ptr %430, i64 %469
   %471 = sub nsw i64 0, %461
   %472 = sext i32 %431 to i64
-  %gep.i67 = getelementptr double, ptr %invariant.gep.i66, i64 %472
+  %gep.i69 = getelementptr double, ptr %invariant.gep.i68, i64 %472
   %473 = add i32 %431, -3
   %474 = icmp sgt i32 %431, 0
   %475 = zext i32 %473 to i64
   %476 = sext i32 %455 to i64
   %477 = sext i32 %468 to i64
-  %wide.trip.count.i68 = zext nneg i32 %431 to i64
-  %scevgep136 = getelementptr i8, ptr %428, i64 8
+  %wide.trip.count.i70 = zext nneg i32 %431 to i64
+  %scevgep140 = getelementptr i8, ptr %428, i64 8
   %478 = shl nuw nsw i64 %475, 3
   %479 = getelementptr i8, ptr %430, i64 %478
-  %scevgep139 = getelementptr i8, ptr %479, i64 8
+  %scevgep143 = getelementptr i8, ptr %479, i64 8
   br label %480
 
-480:                                              ; preds = %._crit_edge133.i73, %.lr.ph136.i65
-  %indvars.iv147.i70 = phi i64 [ %476, %.lr.ph136.i65 ], [ %indvars.iv.next148.i74, %._crit_edge133.i73 ]
+480:                                              ; preds = %._crit_edge133.i75, %.lr.ph136.i67
+  %indvars.iv147.i72 = phi i64 [ %476, %.lr.ph136.i67 ], [ %indvars.iv.next148.i76, %._crit_edge133.i75 ]
   %481 = load ptr, ptr %459, align 8
   %482 = load ptr, ptr %460, align 8
-  %483 = getelementptr inbounds float, ptr %482, i64 %indvars.iv147.i70
-  %484 = getelementptr inbounds i16, ptr %481, i64 %indvars.iv147.i70
+  %483 = getelementptr inbounds float, ptr %482, i64 %indvars.iv147.i72
+  %484 = getelementptr inbounds i16, ptr %481, i64 %indvars.iv147.i72
   %485 = load i16, ptr %484, align 2
   %486 = sitofp i16 %485 to double
   store double %486, ptr %428, align 8
@@ -1892,39 +1901,39 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %491 = fmul double %453, %486
   %492 = fsub double %490, %491
   store double %492, ptr %464, align 8
-  br i1 %465, label %.lr.ph.i85.preheader, label %._crit_edge.i71
+  br i1 %465, label %.lr.ph.i88.preheader, label %._crit_edge.i73
 
-.lr.ph.i85.preheader:                             ; preds = %480
-  %load_initial137 = load double, ptr %scevgep136, align 8
-  br label %.lr.ph.i85
+.lr.ph.i88.preheader:                             ; preds = %480
+  %load_initial141 = load double, ptr %scevgep140, align 8
+  br label %.lr.ph.i88
 
-.lr.ph.i85:                                       ; preds = %.lr.ph.i85.preheader, %.lr.ph.i85
-  %store_forwarded138 = phi double [ %load_initial137, %.lr.ph.i85.preheader ], [ %501, %.lr.ph.i85 ]
-  %indvars.iv.i86 = phi i64 [ 2, %.lr.ph.i85.preheader ], [ %indvars.iv.next.i89, %.lr.ph.i85 ]
-  %.pn124.i87 = phi ptr [ %487, %.lr.ph.i85.preheader ], [ %.0115.i88, %.lr.ph.i85 ]
-  %.0115.i88 = getelementptr inbounds i16, ptr %.pn124.i87, i64 %461
-  %493 = getelementptr inbounds i16, ptr %.0115.i88, i64 %463
+.lr.ph.i88:                                       ; preds = %.lr.ph.i88.preheader, %.lr.ph.i88
+  %store_forwarded142 = phi double [ %load_initial141, %.lr.ph.i88.preheader ], [ %501, %.lr.ph.i88 ]
+  %indvars.iv.i89 = phi i64 [ 2, %.lr.ph.i88.preheader ], [ %indvars.iv.next.i92, %.lr.ph.i88 ]
+  %.pn124.i90 = phi ptr [ %487, %.lr.ph.i88.preheader ], [ %.0115.i91, %.lr.ph.i88 ]
+  %.0115.i91 = getelementptr inbounds i16, ptr %.pn124.i90, i64 %461
+  %493 = getelementptr inbounds i16, ptr %.0115.i91, i64 %463
   %494 = load i16, ptr %493, align 2
   %495 = sitofp i16 %494 to double
-  %496 = getelementptr double, ptr %428, i64 %indvars.iv.i86
-  %497 = fmul double %453, %store_forwarded138
+  %496 = getelementptr double, ptr %428, i64 %indvars.iv.i89
+  %497 = fmul double %453, %store_forwarded142
   %498 = fsub double %495, %497
   %499 = getelementptr i8, ptr %496, i64 -16
   %500 = load double, ptr %499, align 8
   %501 = call double @llvm.fmuladd.f64(double %466, double %500, double %498)
   store double %501, ptr %496, align 8
-  %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i86, 1
-  %exitcond.not.i90 = icmp eq i64 %indvars.iv.next.i89, %wide.trip.count.i68
-  br i1 %exitcond.not.i90, label %._crit_edge.i71, label %.lr.ph.i85, !llvm.loop !20
+  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i89, 1
+  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i70
+  br i1 %exitcond.not.i93, label %._crit_edge.i73, label %.lr.ph.i88, !llvm.loop !20
 
 502:                                              ; preds = %415
   %503 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i71:                                  ; preds = %.lr.ph.i85, %480
+._crit_edge.i73:                                  ; preds = %.lr.ph.i88, %480
   %504 = load ptr, ptr %459, align 8
-  %505 = getelementptr i16, ptr %504, i64 %indvars.iv147.i70
+  %505 = getelementptr i16, ptr %504, i64 %indvars.iv147.i72
   %506 = getelementptr i16, ptr %505, i64 %477
   %507 = load i16, ptr %506, align 2
   %508 = sitofp i16 %507 to double
@@ -1933,58 +1942,61 @@ _ZN2cv8ximgprocL17VerticalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %510 = sitofp i16 %509 to double
   %511 = fmul double %453, %508
   %512 = fadd double %511, %510
-  store double %512, ptr %gep.i67, align 8
-  br i1 %465, label %.lr.ph129.i80.preheader, label %.preheader.i72
+  store double %512, ptr %gep.i69, align 8
+  br i1 %465, label %.lr.ph129.i83.preheader, label %.preheader.i74
 
-.lr.ph129.i80.preheader:                          ; preds = %._crit_edge.i71
-  %load_initial140 = load double, ptr %scevgep139, align 8
-  br label %.lr.ph129.i80
+.lr.ph129.i83.preheader:                          ; preds = %._crit_edge.i73
+  %load_initial144 = load double, ptr %scevgep143, align 8
+  br label %.lr.ph129.i83
 
-.preheader.i72:                                   ; preds = %.lr.ph129.i80, %._crit_edge.i71
-  br i1 %474, label %.lr.ph132.i75, label %._crit_edge133.i73
+.preheader.i74:                                   ; preds = %._crit_edge.i73
+  br i1 %474, label %.lr.ph132.i78.preheader, label %._crit_edge133.i75
 
-.lr.ph129.i80:                                    ; preds = %.lr.ph129.i80.preheader, %.lr.ph129.i80
-  %store_forwarded141 = phi double [ %load_initial140, %.lr.ph129.i80.preheader ], [ %520, %.lr.ph129.i80 ]
-  %indvars.iv139.i81 = phi i64 [ %475, %.lr.ph129.i80.preheader ], [ %indvars.iv.next140.i84, %.lr.ph129.i80 ]
-  %.pn123126.i82 = phi ptr [ %506, %.lr.ph129.i80.preheader ], [ %.pn122.i83, %.lr.ph129.i80 ]
-  %.pn122.i83 = getelementptr inbounds i16, ptr %.pn123126.i82, i64 %471
-  %513 = load i16, ptr %.pn122.i83, align 2
+.lr.ph129.i83:                                    ; preds = %.lr.ph129.i83.preheader, %.lr.ph129.i83
+  %store_forwarded145 = phi double [ %load_initial144, %.lr.ph129.i83.preheader ], [ %520, %.lr.ph129.i83 ]
+  %indvars.iv139.i84 = phi i64 [ %475, %.lr.ph129.i83.preheader ], [ %indvars.iv.next140.i87, %.lr.ph129.i83 ]
+  %.pn123126.i85 = phi ptr [ %506, %.lr.ph129.i83.preheader ], [ %.pn122.i86, %.lr.ph129.i83 ]
+  %.pn122.i86 = getelementptr inbounds i16, ptr %.pn123126.i85, i64 %471
+  %513 = load i16, ptr %.pn122.i86, align 2
   %514 = sitofp i16 %513 to double
-  %515 = getelementptr inbounds nuw double, ptr %430, i64 %indvars.iv139.i81
-  %516 = fmul double %453, %store_forwarded141
+  %515 = getelementptr inbounds nuw double, ptr %430, i64 %indvars.iv139.i84
+  %516 = fmul double %453, %store_forwarded145
   %517 = fsub double %514, %516
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 16
   %519 = load double, ptr %518, align 8
   %520 = call double @llvm.fmuladd.f64(double %466, double %519, double %517)
   store double %520, ptr %515, align 8
-  %indvars.iv.next140.i84 = add nsw i64 %indvars.iv139.i81, -1
-  %521 = icmp sgt i64 %indvars.iv139.i81, 0
-  br i1 %521, label %.lr.ph129.i80, label %.preheader.i72, !llvm.loop !21
+  %indvars.iv.next140.i87 = add nsw i64 %indvars.iv139.i84, -1
+  %521 = icmp sgt i64 %indvars.iv139.i84, 0
+  br i1 %521, label %.lr.ph129.i83, label %.lr.ph132.i78.preheader, !llvm.loop !21
 
-.lr.ph132.i75:                                    ; preds = %.preheader.i72, %.lr.ph132.i75
-  %indvars.iv142.i76 = phi i64 [ %indvars.iv.next143.i78, %.lr.ph132.i75 ], [ 0, %.preheader.i72 ]
-  %.0118130.i77 = phi ptr [ %529, %.lr.ph132.i75 ], [ %483, %.preheader.i72 ]
-  %522 = getelementptr inbounds nuw double, ptr %428, i64 %indvars.iv142.i76
+.lr.ph132.i78.preheader:                          ; preds = %.lr.ph129.i83, %.preheader.i74
+  br label %.lr.ph132.i78
+
+.lr.ph132.i78:                                    ; preds = %.lr.ph132.i78.preheader, %.lr.ph132.i78
+  %indvars.iv142.i79 = phi i64 [ %indvars.iv.next143.i81, %.lr.ph132.i78 ], [ 0, %.lr.ph132.i78.preheader ]
+  %.0118130.i80 = phi ptr [ %529, %.lr.ph132.i78 ], [ %483, %.lr.ph132.i78.preheader ]
+  %522 = getelementptr inbounds nuw double, ptr %428, i64 %indvars.iv142.i79
   %523 = load double, ptr %522, align 8
-  %524 = getelementptr inbounds nuw double, ptr %430, i64 %indvars.iv142.i76
+  %524 = getelementptr inbounds nuw double, ptr %430, i64 %indvars.iv142.i79
   %525 = load double, ptr %524, align 8
   %526 = fsub double %523, %525
   %527 = fmul double %449, %526
   %528 = fptrunc double %527 to float
-  store float %528, ptr %.0118130.i77, align 4
-  %indvars.iv.next143.i78 = add nuw nsw i64 %indvars.iv142.i76, 1
-  %529 = getelementptr inbounds float, ptr %.0118130.i77, i64 %461
-  %exitcond146.not.i79 = icmp eq i64 %indvars.iv.next143.i78, %wide.trip.count.i68
-  br i1 %exitcond146.not.i79, label %._crit_edge133.i73, label %.lr.ph132.i75, !llvm.loop !22
+  store float %528, ptr %.0118130.i80, align 4
+  %indvars.iv.next143.i81 = add nuw nsw i64 %indvars.iv142.i79, 1
+  %529 = getelementptr inbounds float, ptr %.0118130.i80, i64 %461
+  %exitcond146.not.i82 = icmp eq i64 %indvars.iv.next143.i81, %wide.trip.count.i70
+  br i1 %exitcond146.not.i82, label %._crit_edge133.i75, label %.lr.ph132.i78, !llvm.loop !22
 
-._crit_edge133.i73:                               ; preds = %.lr.ph132.i75, %.preheader.i72
-  %indvars.iv.next148.i74 = add nsw i64 %indvars.iv147.i70, 1
+._crit_edge133.i75:                               ; preds = %.lr.ph132.i78, %.preheader.i74
+  %indvars.iv.next148.i76 = add nsw i64 %indvars.iv147.i72, 1
   %530 = load i32, ptr %456, align 4
   %531 = sext i32 %530 to i64
-  %532 = icmp slt i64 %indvars.iv.next148.i74, %531
+  %532 = icmp slt i64 %indvars.iv.next148.i76, %531
   br i1 %532, label %480, label %_ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !23
 
-_ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i73, %426
+_ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i75, %426
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
@@ -2004,9 +2016,9 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %541 = load i32, ptr %540, align 8
   %542 = getelementptr inbounds nuw i8, ptr %36, i64 12
   %543 = load i32, ptr %542, align 4
-  %..i91 = tail call i32 @llvm.smax.i32(i32 %541, i32 %543)
-  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 1, i32 noundef %..i91, i32 noundef 6)
-  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1, i32 noundef %..i91, i32 noundef 6)
+  %..i94 = tail call i32 @llvm.smax.i32(i32 %541, i32 %543)
+  call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %3, i32 noundef 1, i32 noundef %..i94, i32 noundef 6)
+  invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef 1, i32 noundef %..i94, i32 noundef 6)
           to label %544 unwind label %620
 
 544:                                              ; preds = %533
@@ -2042,10 +2054,10 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %574 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %575 = load i32, ptr %574, align 4
   %576 = icmp slt i32 %573, %575
-  br i1 %576, label %.lr.ph136.i92, label %_ZN2cv8ximgprocL17VerticalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %576, label %.lr.ph136.i95, label %_ZN2cv8ximgprocL17VerticalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph136.i92:                                    ; preds = %544
-  %invariant.gep.i93 = getelementptr i8, ptr %548, i64 -16
+.lr.ph136.i95:                                    ; preds = %544
+  %invariant.gep.i96 = getelementptr i8, ptr %548, i64 -16
   %577 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %578 = getelementptr inbounds nuw i8, ptr %535, i64 16
   %579 = sext i32 %550 to i64
@@ -2060,25 +2072,25 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %588 = getelementptr inbounds double, ptr %548, i64 %587
   %589 = sub nsw i64 0, %579
   %590 = sext i32 %549 to i64
-  %gep.i94 = getelementptr double, ptr %invariant.gep.i93, i64 %590
+  %gep.i97 = getelementptr double, ptr %invariant.gep.i96, i64 %590
   %591 = add i32 %549, -3
   %592 = icmp sgt i32 %549, 0
   %593 = zext i32 %591 to i64
   %594 = sext i32 %573 to i64
   %595 = sext i32 %586 to i64
-  %wide.trip.count.i95 = zext nneg i32 %549 to i64
-  %scevgep142 = getelementptr i8, ptr %546, i64 8
+  %wide.trip.count.i98 = zext nneg i32 %549 to i64
+  %scevgep146 = getelementptr i8, ptr %546, i64 8
   %596 = shl nuw nsw i64 %593, 3
   %597 = getelementptr i8, ptr %548, i64 %596
-  %scevgep145 = getelementptr i8, ptr %597, i64 8
+  %scevgep149 = getelementptr i8, ptr %597, i64 8
   br label %598
 
-598:                                              ; preds = %._crit_edge133.i100, %.lr.ph136.i92
-  %indvars.iv147.i97 = phi i64 [ %594, %.lr.ph136.i92 ], [ %indvars.iv.next148.i101, %._crit_edge133.i100 ]
+598:                                              ; preds = %._crit_edge133.i103, %.lr.ph136.i95
+  %indvars.iv147.i100 = phi i64 [ %594, %.lr.ph136.i95 ], [ %indvars.iv.next148.i104, %._crit_edge133.i103 ]
   %599 = load ptr, ptr %577, align 8
   %600 = load ptr, ptr %578, align 8
-  %601 = getelementptr inbounds float, ptr %600, i64 %indvars.iv147.i97
-  %602 = getelementptr inbounds float, ptr %599, i64 %indvars.iv147.i97
+  %601 = getelementptr inbounds float, ptr %600, i64 %indvars.iv147.i100
+  %602 = getelementptr inbounds float, ptr %599, i64 %indvars.iv147.i100
   %603 = load float, ptr %602, align 4
   %604 = fpext float %603 to double
   store double %604, ptr %546, align 8
@@ -2089,39 +2101,39 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %609 = fmul double %571, %604
   %610 = fsub double %608, %609
   store double %610, ptr %582, align 8
-  br i1 %583, label %.lr.ph.i112.preheader, label %._crit_edge.i98
+  br i1 %583, label %.lr.ph.i116.preheader, label %._crit_edge.i101
 
-.lr.ph.i112.preheader:                            ; preds = %598
-  %load_initial143 = load double, ptr %scevgep142, align 8
-  br label %.lr.ph.i112
+.lr.ph.i116.preheader:                            ; preds = %598
+  %load_initial147 = load double, ptr %scevgep146, align 8
+  br label %.lr.ph.i116
 
-.lr.ph.i112:                                      ; preds = %.lr.ph.i112.preheader, %.lr.ph.i112
-  %store_forwarded144 = phi double [ %load_initial143, %.lr.ph.i112.preheader ], [ %619, %.lr.ph.i112 ]
-  %indvars.iv.i113 = phi i64 [ 2, %.lr.ph.i112.preheader ], [ %indvars.iv.next.i116, %.lr.ph.i112 ]
-  %.pn124.i114 = phi ptr [ %605, %.lr.ph.i112.preheader ], [ %.0115.i115, %.lr.ph.i112 ]
-  %.0115.i115 = getelementptr inbounds float, ptr %.pn124.i114, i64 %579
-  %611 = getelementptr inbounds float, ptr %.0115.i115, i64 %581
+.lr.ph.i116:                                      ; preds = %.lr.ph.i116.preheader, %.lr.ph.i116
+  %store_forwarded148 = phi double [ %load_initial147, %.lr.ph.i116.preheader ], [ %619, %.lr.ph.i116 ]
+  %indvars.iv.i117 = phi i64 [ 2, %.lr.ph.i116.preheader ], [ %indvars.iv.next.i120, %.lr.ph.i116 ]
+  %.pn124.i118 = phi ptr [ %605, %.lr.ph.i116.preheader ], [ %.0115.i119, %.lr.ph.i116 ]
+  %.0115.i119 = getelementptr inbounds float, ptr %.pn124.i118, i64 %579
+  %611 = getelementptr inbounds float, ptr %.0115.i119, i64 %581
   %612 = load float, ptr %611, align 4
   %613 = fpext float %612 to double
-  %614 = getelementptr double, ptr %546, i64 %indvars.iv.i113
-  %615 = fmul double %571, %store_forwarded144
+  %614 = getelementptr double, ptr %546, i64 %indvars.iv.i117
+  %615 = fmul double %571, %store_forwarded148
   %616 = fsub double %613, %615
   %617 = getelementptr i8, ptr %614, i64 -16
   %618 = load double, ptr %617, align 8
   %619 = call double @llvm.fmuladd.f64(double %584, double %618, double %616)
   store double %619, ptr %614, align 8
-  %indvars.iv.next.i116 = add nuw nsw i64 %indvars.iv.i113, 1
-  %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.i116, %wide.trip.count.i95
-  br i1 %exitcond.not.i117, label %._crit_edge.i98, label %.lr.ph.i112, !llvm.loop !24
+  %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i117, 1
+  %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i98
+  br i1 %exitcond.not.i121, label %._crit_edge.i101, label %.lr.ph.i116, !llvm.loop !24
 
 620:                                              ; preds = %533
   %621 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i98:                                  ; preds = %.lr.ph.i112, %598
+._crit_edge.i101:                                 ; preds = %.lr.ph.i116, %598
   %622 = load ptr, ptr %577, align 8
-  %623 = getelementptr float, ptr %622, i64 %indvars.iv147.i97
+  %623 = getelementptr float, ptr %622, i64 %indvars.iv147.i100
   %624 = getelementptr float, ptr %623, i64 %595
   %625 = load float, ptr %624, align 4
   %626 = fpext float %625 to double
@@ -2130,58 +2142,61 @@ _ZN2cv8ximgprocL17VerticalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds
   %628 = fpext float %627 to double
   %629 = fmul double %571, %626
   %630 = fadd double %629, %628
-  store double %630, ptr %gep.i94, align 8
-  br i1 %583, label %.lr.ph129.i107.preheader, label %.preheader.i99
+  store double %630, ptr %gep.i97, align 8
+  br i1 %583, label %.lr.ph129.i111.preheader, label %.preheader.i102
 
-.lr.ph129.i107.preheader:                         ; preds = %._crit_edge.i98
-  %load_initial146 = load double, ptr %scevgep145, align 8
-  br label %.lr.ph129.i107
+.lr.ph129.i111.preheader:                         ; preds = %._crit_edge.i101
+  %load_initial150 = load double, ptr %scevgep149, align 8
+  br label %.lr.ph129.i111
 
-.preheader.i99:                                   ; preds = %.lr.ph129.i107, %._crit_edge.i98
-  br i1 %592, label %.lr.ph132.i102, label %._crit_edge133.i100
+.preheader.i102:                                  ; preds = %._crit_edge.i101
+  br i1 %592, label %.lr.ph132.i106.preheader, label %._crit_edge133.i103
 
-.lr.ph129.i107:                                   ; preds = %.lr.ph129.i107.preheader, %.lr.ph129.i107
-  %store_forwarded147 = phi double [ %load_initial146, %.lr.ph129.i107.preheader ], [ %638, %.lr.ph129.i107 ]
-  %indvars.iv139.i108 = phi i64 [ %593, %.lr.ph129.i107.preheader ], [ %indvars.iv.next140.i111, %.lr.ph129.i107 ]
-  %.pn123126.i109 = phi ptr [ %624, %.lr.ph129.i107.preheader ], [ %.pn122.i110, %.lr.ph129.i107 ]
-  %.pn122.i110 = getelementptr inbounds float, ptr %.pn123126.i109, i64 %589
-  %631 = load float, ptr %.pn122.i110, align 4
+.lr.ph129.i111:                                   ; preds = %.lr.ph129.i111.preheader, %.lr.ph129.i111
+  %store_forwarded151 = phi double [ %load_initial150, %.lr.ph129.i111.preheader ], [ %638, %.lr.ph129.i111 ]
+  %indvars.iv139.i112 = phi i64 [ %593, %.lr.ph129.i111.preheader ], [ %indvars.iv.next140.i115, %.lr.ph129.i111 ]
+  %.pn123126.i113 = phi ptr [ %624, %.lr.ph129.i111.preheader ], [ %.pn122.i114, %.lr.ph129.i111 ]
+  %.pn122.i114 = getelementptr inbounds float, ptr %.pn123126.i113, i64 %589
+  %631 = load float, ptr %.pn122.i114, align 4
   %632 = fpext float %631 to double
-  %633 = getelementptr inbounds nuw double, ptr %548, i64 %indvars.iv139.i108
-  %634 = fmul double %571, %store_forwarded147
+  %633 = getelementptr inbounds nuw double, ptr %548, i64 %indvars.iv139.i112
+  %634 = fmul double %571, %store_forwarded151
   %635 = fsub double %632, %634
   %636 = getelementptr inbounds nuw i8, ptr %633, i64 16
   %637 = load double, ptr %636, align 8
   %638 = call double @llvm.fmuladd.f64(double %584, double %637, double %635)
   store double %638, ptr %633, align 8
-  %indvars.iv.next140.i111 = add nsw i64 %indvars.iv139.i108, -1
-  %639 = icmp sgt i64 %indvars.iv139.i108, 0
-  br i1 %639, label %.lr.ph129.i107, label %.preheader.i99, !llvm.loop !25
+  %indvars.iv.next140.i115 = add nsw i64 %indvars.iv139.i112, -1
+  %639 = icmp sgt i64 %indvars.iv139.i112, 0
+  br i1 %639, label %.lr.ph129.i111, label %.lr.ph132.i106.preheader, !llvm.loop !25
 
-.lr.ph132.i102:                                   ; preds = %.preheader.i99, %.lr.ph132.i102
-  %indvars.iv142.i103 = phi i64 [ %indvars.iv.next143.i105, %.lr.ph132.i102 ], [ 0, %.preheader.i99 ]
-  %.0118130.i104 = phi ptr [ %647, %.lr.ph132.i102 ], [ %601, %.preheader.i99 ]
-  %640 = getelementptr inbounds nuw double, ptr %546, i64 %indvars.iv142.i103
+.lr.ph132.i106.preheader:                         ; preds = %.lr.ph129.i111, %.preheader.i102
+  br label %.lr.ph132.i106
+
+.lr.ph132.i106:                                   ; preds = %.lr.ph132.i106.preheader, %.lr.ph132.i106
+  %indvars.iv142.i107 = phi i64 [ %indvars.iv.next143.i109, %.lr.ph132.i106 ], [ 0, %.lr.ph132.i106.preheader ]
+  %.0118130.i108 = phi ptr [ %647, %.lr.ph132.i106 ], [ %601, %.lr.ph132.i106.preheader ]
+  %640 = getelementptr inbounds nuw double, ptr %546, i64 %indvars.iv142.i107
   %641 = load double, ptr %640, align 8
-  %642 = getelementptr inbounds nuw double, ptr %548, i64 %indvars.iv142.i103
+  %642 = getelementptr inbounds nuw double, ptr %548, i64 %indvars.iv142.i107
   %643 = load double, ptr %642, align 8
   %644 = fsub double %641, %643
   %645 = fmul double %567, %644
   %646 = fptrunc double %645 to float
-  store float %646, ptr %.0118130.i104, align 4
-  %indvars.iv.next143.i105 = add nuw nsw i64 %indvars.iv142.i103, 1
-  %647 = getelementptr inbounds float, ptr %.0118130.i104, i64 %579
-  %exitcond146.not.i106 = icmp eq i64 %indvars.iv.next143.i105, %wide.trip.count.i95
-  br i1 %exitcond146.not.i106, label %._crit_edge133.i100, label %.lr.ph132.i102, !llvm.loop !26
+  store float %646, ptr %.0118130.i108, align 4
+  %indvars.iv.next143.i109 = add nuw nsw i64 %indvars.iv142.i107, 1
+  %647 = getelementptr inbounds float, ptr %.0118130.i108, i64 %579
+  %exitcond146.not.i110 = icmp eq i64 %indvars.iv.next143.i109, %wide.trip.count.i98
+  br i1 %exitcond146.not.i110, label %._crit_edge133.i103, label %.lr.ph132.i106, !llvm.loop !26
 
-._crit_edge133.i100:                              ; preds = %.lr.ph132.i102, %.preheader.i99
-  %indvars.iv.next148.i101 = add nsw i64 %indvars.iv147.i97, 1
+._crit_edge133.i103:                              ; preds = %.lr.ph132.i106, %.preheader.i102
+  %indvars.iv.next148.i104 = add nsw i64 %indvars.iv147.i100, 1
   %648 = load i32, ptr %574, align 4
   %649 = sext i32 %648 to i64
-  %650 = icmp slt i64 %indvars.iv.next148.i101, %649
+  %650 = icmp slt i64 %indvars.iv.next148.i104, %649
   br i1 %650, label %598, label %_ZN2cv8ximgprocL17VerticalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !27
 
-_ZN2cv8ximgprocL17VerticalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i100, %544
+_ZN2cv8ximgprocL17VerticalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %._crit_edge133.i103, %544
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
@@ -2463,8 +2478,8 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheYRowsc
   %load_initial145 = load double, ptr %scevgep144, align 8
   br label %.lr.ph122
 
-.preheader:                                       ; preds = %.lr.ph122, %._crit_edge
-  br i1 %114, label %.lr.ph125, label %.loopexit
+.preheader:                                       ; preds = %._crit_edge
+  br i1 %114, label %.lr.ph125.preheader, label %.loopexit
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %store_forwarded146 = phi double [ %load_initial145, %.lr.ph122.preheader ], [ %193, %.lr.ph122 ]
@@ -2487,11 +2502,14 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheYRowsc
   %indvars.iv.next134 = add nsw i64 %indvars.iv133, -1
   %194 = getelementptr inbounds i8, ptr %.1112119, i64 -4
   %195 = icmp sgt i64 %indvars.iv133, 0
-  br i1 %195, label %.lr.ph122, label %.preheader, !llvm.loop !30
+  br i1 %195, label %.lr.ph122, label %.lr.ph125.preheader, !llvm.loop !30
 
-.lr.ph125:                                        ; preds = %.preheader, %.lr.ph125
-  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph125 ], [ 0, %.preheader ]
-  %.0113123 = phi ptr [ %202, %.lr.ph125 ], [ %130, %.preheader ]
+.lr.ph125.preheader:                              ; preds = %.lr.ph122, %.preheader
+  br label %.lr.ph125
+
+.lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
+  %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph125 ], [ 0, %.lr.ph125.preheader ]
+  %.0113123 = phi ptr [ %202, %.lr.ph125 ], [ %130, %.lr.ph125.preheader ]
   %196 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv136
   %197 = load double, ptr %196, align 8
   %198 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv136
@@ -2639,7 +2657,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheXRowsc
   %scevgep = getelementptr i8, ptr %53, i64 8
   %94 = shl nuw nsw i64 %92, 3
   %95 = getelementptr i8, ptr %55, i64 %94
-  %scevgep122 = getelementptr i8, ptr %95, i64 8
+  %scevgep126 = getelementptr i8, ptr %95, i64 8
   br label %99
 
 .loopexit.i:                                      ; preds = %.lr.ph116.i, %.preheader.i
@@ -2726,21 +2744,21 @@ common.resume:                                    ; preds = %620, %497, %374, %2
 
 .lr.ph113.preheader.i:                            ; preds = %._crit_edge.i
   %142 = getelementptr i8, ptr %134, i64 -3
-  %load_initial123 = load double, ptr %scevgep122, align 8
+  %load_initial127 = load double, ptr %scevgep126, align 8
   br label %.lr.ph113.i
 
-.preheader.i:                                     ; preds = %.lr.ph113.i, %._crit_edge.i
-  br i1 %91, label %.lr.ph116.i, label %.loopexit.i
+.preheader.i:                                     ; preds = %._crit_edge.i
+  br i1 %91, label %.lr.ph116.i.preheader, label %.loopexit.i
 
 .lr.ph113.i:                                      ; preds = %.lr.ph113.i, %.lr.ph113.preheader.i
-  %store_forwarded124 = phi double [ %load_initial123, %.lr.ph113.preheader.i ], [ %151, %.lr.ph113.i ]
+  %store_forwarded128 = phi double [ %load_initial127, %.lr.ph113.preheader.i ], [ %151, %.lr.ph113.i ]
   %indvars.iv124.i = phi i64 [ %92, %.lr.ph113.preheader.i ], [ %indvars.iv.next125.i, %.lr.ph113.i ]
   %.1104110.i = phi ptr [ %142, %.lr.ph113.preheader.i ], [ %152, %.lr.ph113.i ]
   %143 = getelementptr inbounds nuw i8, ptr %.1104110.i, i64 1
   %144 = load i8, ptr %143, align 1
   %145 = uitofp i8 %144 to double
   %146 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv124.i
-  %147 = fmul double %76, %store_forwarded124
+  %147 = fmul double %76, %store_forwarded128
   %148 = fsub double %145, %147
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %150 = load double, ptr %149, align 8
@@ -2749,11 +2767,14 @@ common.resume:                                    ; preds = %620, %497, %374, %2
   %indvars.iv.next125.i = add nsw i64 %indvars.iv124.i, -1
   %152 = getelementptr inbounds i8, ptr %.1104110.i, i64 -1
   %153 = icmp sgt i64 %indvars.iv124.i, 0
-  br i1 %153, label %.lr.ph113.i, label %.preheader.i, !llvm.loop !34
+  br i1 %153, label %.lr.ph113.i, label %.lr.ph116.i.preheader, !llvm.loop !34
 
-.lr.ph116.i:                                      ; preds = %.preheader.i, %.lr.ph116.i
-  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph116.i ], [ 0, %.preheader.i ]
-  %.0106114.i = phi ptr [ %161, %.lr.ph116.i ], [ %104, %.preheader.i ]
+.lr.ph116.i.preheader:                            ; preds = %.lr.ph113.i, %.preheader.i
+  br label %.lr.ph116.i
+
+.lr.ph116.i:                                      ; preds = %.lr.ph116.i.preheader, %.lr.ph116.i
+  %indvars.iv127.i = phi i64 [ %indvars.iv.next128.i, %.lr.ph116.i ], [ 0, %.lr.ph116.i.preheader ]
+  %.0106114.i = phi ptr [ %161, %.lr.ph116.i ], [ %104, %.lr.ph116.i.preheader ]
   %154 = getelementptr inbounds nuw double, ptr %53, i64 %indvars.iv127.i
   %155 = load double, ptr %154, align 8
   %156 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv127.i
@@ -2843,13 +2864,13 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %215 = zext i32 %213 to i64
   %216 = sext i32 %201 to i64
   %wide.trip.count.i15 = zext nneg i32 %172 to i64
-  %scevgep125 = getelementptr i8, ptr %176, i64 8
+  %scevgep129 = getelementptr i8, ptr %176, i64 8
   %217 = shl nuw nsw i64 %215, 3
   %218 = getelementptr i8, ptr %178, i64 %217
-  %scevgep128 = getelementptr i8, ptr %218, i64 8
+  %scevgep132 = getelementptr i8, ptr %218, i64 8
   br label %222
 
-.loopexit.i21:                                    ; preds = %.lr.ph116.i22, %.preheader.i20
+.loopexit.i21:                                    ; preds = %.lr.ph116.i23, %.preheader.i20
   %219 = load i32, ptr %202, align 4
   %220 = sext i32 %219 to i64
   %221 = icmp slt i64 %indvars.iv.next133.i19, %220
@@ -2876,38 +2897,38 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %238 = fmul double %199, %234
   %239 = fsub double %237, %238
   store double %239, ptr %209, align 8
-  br i1 %210, label %.lr.ph.preheader.i32, label %._crit_edge.i18
+  br i1 %210, label %.lr.ph.preheader.i33, label %._crit_edge.i18
 
-.lr.ph.preheader.i32:                             ; preds = %222
+.lr.ph.preheader.i33:                             ; preds = %222
   %240 = getelementptr inbounds nuw i8, ptr %232, i64 2
-  %load_initial126 = load double, ptr %scevgep125, align 8
-  br label %.lr.ph.i33
+  %load_initial130 = load double, ptr %scevgep129, align 8
+  br label %.lr.ph.i34
 
-.lr.ph.i33:                                       ; preds = %.lr.ph.i33, %.lr.ph.preheader.i32
-  %store_forwarded127 = phi double [ %load_initial126, %.lr.ph.preheader.i32 ], [ %249, %.lr.ph.i33 ]
-  %indvars.iv.i34 = phi i64 [ 2, %.lr.ph.preheader.i32 ], [ %indvars.iv.next.i36, %.lr.ph.i33 ]
-  %.0103108.i35 = phi ptr [ %240, %.lr.ph.preheader.i32 ], [ %250, %.lr.ph.i33 ]
-  %241 = getelementptr inbounds i8, ptr %.0103108.i35, i64 -1
+.lr.ph.i34:                                       ; preds = %.lr.ph.i34, %.lr.ph.preheader.i33
+  %store_forwarded131 = phi double [ %load_initial130, %.lr.ph.preheader.i33 ], [ %249, %.lr.ph.i34 ]
+  %indvars.iv.i35 = phi i64 [ 2, %.lr.ph.preheader.i33 ], [ %indvars.iv.next.i37, %.lr.ph.i34 ]
+  %.0103108.i36 = phi ptr [ %240, %.lr.ph.preheader.i33 ], [ %250, %.lr.ph.i34 ]
+  %241 = getelementptr inbounds i8, ptr %.0103108.i36, i64 -1
   %242 = load i8, ptr %241, align 1
   %243 = sitofp i8 %242 to double
-  %244 = getelementptr double, ptr %176, i64 %indvars.iv.i34
-  %245 = fmul double %199, %store_forwarded127
+  %244 = getelementptr double, ptr %176, i64 %indvars.iv.i35
+  %245 = fmul double %199, %store_forwarded131
   %246 = fsub double %243, %245
   %247 = getelementptr i8, ptr %244, i64 -16
   %248 = load double, ptr %247, align 8
   %249 = call double @llvm.fmuladd.f64(double %211, double %248, double %246)
   store double %249, ptr %244, align 8
-  %indvars.iv.next.i36 = add nuw nsw i64 %indvars.iv.i34, 1
-  %250 = getelementptr inbounds nuw i8, ptr %.0103108.i35, i64 1
-  %exitcond.not.i37 = icmp eq i64 %indvars.iv.next.i36, %wide.trip.count.i15
-  br i1 %exitcond.not.i37, label %._crit_edge.i18, label %.lr.ph.i33, !llvm.loop !37
+  %indvars.iv.next.i37 = add nuw nsw i64 %indvars.iv.i35, 1
+  %250 = getelementptr inbounds nuw i8, ptr %.0103108.i36, i64 1
+  %exitcond.not.i38 = icmp eq i64 %indvars.iv.next.i37, %wide.trip.count.i15
+  br i1 %exitcond.not.i38, label %._crit_edge.i18, label %.lr.ph.i34, !llvm.loop !37
 
 251:                                              ; preds = %162
   %252 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i18:                                  ; preds = %.lr.ph.i33, %222
+._crit_edge.i18:                                  ; preds = %.lr.ph.i34, %222
   %253 = load ptr, ptr %207, align 8
   %indvars.iv.next133.i19 = add nsw i64 %indvars.iv132.i17, 1
   %254 = trunc nsw i64 %indvars.iv.next133.i19 to i32
@@ -2923,50 +2944,53 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIhEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %263 = fmul double %199, %260
   %264 = fsub double %262, %263
   store double %264, ptr %gep118.i14, align 8
-  br i1 %210, label %.lr.ph113.preheader.i27, label %.preheader.i20
+  br i1 %210, label %.lr.ph113.preheader.i28, label %.preheader.i20
 
-.lr.ph113.preheader.i27:                          ; preds = %._crit_edge.i18
+.lr.ph113.preheader.i28:                          ; preds = %._crit_edge.i18
   %265 = getelementptr i8, ptr %257, i64 -3
-  %load_initial129 = load double, ptr %scevgep128, align 8
-  br label %.lr.ph113.i28
+  %load_initial133 = load double, ptr %scevgep132, align 8
+  br label %.lr.ph113.i29
 
-.preheader.i20:                                   ; preds = %.lr.ph113.i28, %._crit_edge.i18
-  br i1 %214, label %.lr.ph116.i22, label %.loopexit.i21
+.preheader.i20:                                   ; preds = %._crit_edge.i18
+  br i1 %214, label %.lr.ph116.i23.preheader, label %.loopexit.i21
 
-.lr.ph113.i28:                                    ; preds = %.lr.ph113.i28, %.lr.ph113.preheader.i27
-  %store_forwarded130 = phi double [ %load_initial129, %.lr.ph113.preheader.i27 ], [ %274, %.lr.ph113.i28 ]
-  %indvars.iv124.i29 = phi i64 [ %215, %.lr.ph113.preheader.i27 ], [ %indvars.iv.next125.i31, %.lr.ph113.i28 ]
-  %.1104110.i30 = phi ptr [ %265, %.lr.ph113.preheader.i27 ], [ %275, %.lr.ph113.i28 ]
-  %266 = getelementptr inbounds nuw i8, ptr %.1104110.i30, i64 1
+.lr.ph113.i29:                                    ; preds = %.lr.ph113.i29, %.lr.ph113.preheader.i28
+  %store_forwarded134 = phi double [ %load_initial133, %.lr.ph113.preheader.i28 ], [ %274, %.lr.ph113.i29 ]
+  %indvars.iv124.i30 = phi i64 [ %215, %.lr.ph113.preheader.i28 ], [ %indvars.iv.next125.i32, %.lr.ph113.i29 ]
+  %.1104110.i31 = phi ptr [ %265, %.lr.ph113.preheader.i28 ], [ %275, %.lr.ph113.i29 ]
+  %266 = getelementptr inbounds nuw i8, ptr %.1104110.i31, i64 1
   %267 = load i8, ptr %266, align 1
   %268 = sitofp i8 %267 to double
-  %269 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv124.i29
-  %270 = fmul double %199, %store_forwarded130
+  %269 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv124.i30
+  %270 = fmul double %199, %store_forwarded134
   %271 = fsub double %268, %270
   %272 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %273 = load double, ptr %272, align 8
   %274 = call double @llvm.fmuladd.f64(double %211, double %273, double %271)
   store double %274, ptr %269, align 8
-  %indvars.iv.next125.i31 = add nsw i64 %indvars.iv124.i29, -1
-  %275 = getelementptr inbounds i8, ptr %.1104110.i30, i64 -1
-  %276 = icmp sgt i64 %indvars.iv124.i29, 0
-  br i1 %276, label %.lr.ph113.i28, label %.preheader.i20, !llvm.loop !38
+  %indvars.iv.next125.i32 = add nsw i64 %indvars.iv124.i30, -1
+  %275 = getelementptr inbounds i8, ptr %.1104110.i31, i64 -1
+  %276 = icmp sgt i64 %indvars.iv124.i30, 0
+  br i1 %276, label %.lr.ph113.i29, label %.lr.ph116.i23.preheader, !llvm.loop !38
 
-.lr.ph116.i22:                                    ; preds = %.preheader.i20, %.lr.ph116.i22
-  %indvars.iv127.i23 = phi i64 [ %indvars.iv.next128.i25, %.lr.ph116.i22 ], [ 0, %.preheader.i20 ]
-  %.0106114.i24 = phi ptr [ %284, %.lr.ph116.i22 ], [ %227, %.preheader.i20 ]
-  %277 = getelementptr inbounds nuw double, ptr %176, i64 %indvars.iv127.i23
+.lr.ph116.i23.preheader:                          ; preds = %.lr.ph113.i29, %.preheader.i20
+  br label %.lr.ph116.i23
+
+.lr.ph116.i23:                                    ; preds = %.lr.ph116.i23.preheader, %.lr.ph116.i23
+  %indvars.iv127.i24 = phi i64 [ %indvars.iv.next128.i26, %.lr.ph116.i23 ], [ 0, %.lr.ph116.i23.preheader ]
+  %.0106114.i25 = phi ptr [ %284, %.lr.ph116.i23 ], [ %227, %.lr.ph116.i23.preheader ]
+  %277 = getelementptr inbounds nuw double, ptr %176, i64 %indvars.iv127.i24
   %278 = load double, ptr %277, align 8
-  %279 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv127.i23
+  %279 = getelementptr inbounds nuw double, ptr %178, i64 %indvars.iv127.i24
   %280 = load double, ptr %279, align 8
   %281 = fsub double %278, %280
   %282 = fmul double %195, %281
   %283 = fptrunc double %282 to float
-  store float %283, ptr %.0106114.i24, align 4
-  %indvars.iv.next128.i25 = add nuw nsw i64 %indvars.iv127.i23, 1
-  %284 = getelementptr inbounds nuw i8, ptr %.0106114.i24, i64 4
-  %exitcond131.not.i26 = icmp eq i64 %indvars.iv.next128.i25, %wide.trip.count.i15
-  br i1 %exitcond131.not.i26, label %.loopexit.i21, label %.lr.ph116.i22, !llvm.loop !39
+  store float %283, ptr %.0106114.i25, align 4
+  %indvars.iv.next128.i26 = add nuw nsw i64 %indvars.iv127.i24, 1
+  %284 = getelementptr inbounds nuw i8, ptr %.0106114.i25, i64 4
+  %exitcond131.not.i27 = icmp eq i64 %indvars.iv.next128.i26, %wide.trip.count.i15
+  br i1 %exitcond131.not.i27, label %.loopexit.i21, label %.lr.ph116.i23, !llvm.loop !39
 
 _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i21, %174
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #15
@@ -3024,11 +3048,11 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %325 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %326 = load i32, ptr %325, align 4
   %327 = icmp slt i32 %324, %326
-  br i1 %327, label %.lr.ph121.i38, label %_ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %327, label %.lr.ph121.i39, label %_ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph121.i38:                                    ; preds = %297
-  %invariant.gep117.i39 = getelementptr i8, ptr %301, i64 -16
-  %invariant.gep.i40 = getelementptr i8, ptr %301, i64 -8
+.lr.ph121.i39:                                    ; preds = %297
+  %invariant.gep117.i40 = getelementptr i8, ptr %301, i64 -16
+  %invariant.gep.i41 = getelementptr i8, ptr %301, i64 -8
   %328 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %329 = getelementptr inbounds nuw i8, ptr %287, i64 72
   %330 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -3037,36 +3061,36 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %333 = icmp sgt i32 %295, 2
   %334 = fneg double %323
   %335 = sext i32 %295 to i64
-  %gep.i41 = getelementptr double, ptr %invariant.gep.i40, i64 %335
-  %gep118.i42 = getelementptr double, ptr %invariant.gep117.i39, i64 %335
+  %gep.i42 = getelementptr double, ptr %invariant.gep.i41, i64 %335
+  %gep118.i43 = getelementptr double, ptr %invariant.gep117.i40, i64 %335
   %336 = add i32 %295, -3
   %337 = icmp sgt i32 %295, 0
   %338 = zext i32 %336 to i64
   %339 = sext i32 %324 to i64
-  %wide.trip.count.i43 = zext nneg i32 %295 to i64
-  %scevgep131 = getelementptr i8, ptr %299, i64 8
+  %wide.trip.count.i44 = zext nneg i32 %295 to i64
+  %scevgep135 = getelementptr i8, ptr %299, i64 8
   %340 = shl nuw nsw i64 %338, 3
   %341 = getelementptr i8, ptr %301, i64 %340
-  %scevgep134 = getelementptr i8, ptr %341, i64 8
+  %scevgep138 = getelementptr i8, ptr %341, i64 8
   br label %345
 
-.loopexit.i49:                                    ; preds = %.lr.ph116.i50, %.preheader.i48
+.loopexit.i50:                                    ; preds = %.lr.ph116.i52, %.preheader.i49
   %342 = load i32, ptr %325, align 4
   %343 = sext i32 %342 to i64
-  %344 = icmp slt i64 %indvars.iv.next133.i47, %343
+  %344 = icmp slt i64 %indvars.iv.next133.i48, %343
   br i1 %344, label %345, label %_ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !40
 
-345:                                              ; preds = %.loopexit.i49, %.lr.ph121.i38
-  %indvars.iv132.i45 = phi i64 [ %339, %.lr.ph121.i38 ], [ %indvars.iv.next133.i47, %.loopexit.i49 ]
+345:                                              ; preds = %.loopexit.i50, %.lr.ph121.i39
+  %indvars.iv132.i46 = phi i64 [ %339, %.lr.ph121.i39 ], [ %indvars.iv.next133.i48, %.loopexit.i50 ]
   %346 = load ptr, ptr %328, align 8
   %347 = load ptr, ptr %329, align 8
   %348 = load i64, ptr %347, align 8
-  %349 = mul i64 %348, %indvars.iv132.i45
+  %349 = mul i64 %348, %indvars.iv132.i46
   %350 = getelementptr inbounds i8, ptr %346, i64 %349
   %351 = load ptr, ptr %330, align 8
   %352 = load ptr, ptr %331, align 8
   %353 = load i64, ptr %352, align 8
-  %354 = mul i64 %353, %indvars.iv132.i45
+  %354 = mul i64 %353, %indvars.iv132.i46
   %355 = getelementptr inbounds i8, ptr %351, i64 %354
   %356 = load i16, ptr %355, align 2
   %357 = uitofp i16 %356 to double
@@ -3077,99 +3101,102 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIcEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %361 = fmul double %322, %357
   %362 = fsub double %360, %361
   store double %362, ptr %332, align 8
-  br i1 %333, label %.lr.ph.preheader.i60, label %._crit_edge.i46
+  br i1 %333, label %.lr.ph.preheader.i62, label %._crit_edge.i47
 
-.lr.ph.preheader.i60:                             ; preds = %345
+.lr.ph.preheader.i62:                             ; preds = %345
   %363 = getelementptr inbounds nuw i8, ptr %355, i64 4
-  %load_initial132 = load double, ptr %scevgep131, align 8
-  br label %.lr.ph.i61
+  %load_initial136 = load double, ptr %scevgep135, align 8
+  br label %.lr.ph.i63
 
-.lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i60
-  %store_forwarded133 = phi double [ %load_initial132, %.lr.ph.preheader.i60 ], [ %372, %.lr.ph.i61 ]
-  %indvars.iv.i62 = phi i64 [ 2, %.lr.ph.preheader.i60 ], [ %indvars.iv.next.i64, %.lr.ph.i61 ]
-  %.0103108.i63 = phi ptr [ %363, %.lr.ph.preheader.i60 ], [ %373, %.lr.ph.i61 ]
-  %364 = getelementptr inbounds i8, ptr %.0103108.i63, i64 -2
+.lr.ph.i63:                                       ; preds = %.lr.ph.i63, %.lr.ph.preheader.i62
+  %store_forwarded137 = phi double [ %load_initial136, %.lr.ph.preheader.i62 ], [ %372, %.lr.ph.i63 ]
+  %indvars.iv.i64 = phi i64 [ 2, %.lr.ph.preheader.i62 ], [ %indvars.iv.next.i66, %.lr.ph.i63 ]
+  %.0103108.i65 = phi ptr [ %363, %.lr.ph.preheader.i62 ], [ %373, %.lr.ph.i63 ]
+  %364 = getelementptr inbounds i8, ptr %.0103108.i65, i64 -2
   %365 = load i16, ptr %364, align 2
   %366 = uitofp i16 %365 to double
-  %367 = getelementptr double, ptr %299, i64 %indvars.iv.i62
-  %368 = fmul double %322, %store_forwarded133
+  %367 = getelementptr double, ptr %299, i64 %indvars.iv.i64
+  %368 = fmul double %322, %store_forwarded137
   %369 = fsub double %366, %368
   %370 = getelementptr i8, ptr %367, i64 -16
   %371 = load double, ptr %370, align 8
   %372 = call double @llvm.fmuladd.f64(double %334, double %371, double %369)
   store double %372, ptr %367, align 8
-  %indvars.iv.next.i64 = add nuw nsw i64 %indvars.iv.i62, 1
-  %373 = getelementptr inbounds nuw i8, ptr %.0103108.i63, i64 2
-  %exitcond.not.i65 = icmp eq i64 %indvars.iv.next.i64, %wide.trip.count.i43
-  br i1 %exitcond.not.i65, label %._crit_edge.i46, label %.lr.ph.i61, !llvm.loop !41
+  %indvars.iv.next.i66 = add nuw nsw i64 %indvars.iv.i64, 1
+  %373 = getelementptr inbounds nuw i8, ptr %.0103108.i65, i64 2
+  %exitcond.not.i67 = icmp eq i64 %indvars.iv.next.i66, %wide.trip.count.i44
+  br i1 %exitcond.not.i67, label %._crit_edge.i47, label %.lr.ph.i63, !llvm.loop !41
 
 374:                                              ; preds = %285
   %375 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i46:                                  ; preds = %.lr.ph.i61, %345
+._crit_edge.i47:                                  ; preds = %.lr.ph.i63, %345
   %376 = load ptr, ptr %330, align 8
-  %indvars.iv.next133.i47 = add nsw i64 %indvars.iv132.i45, 1
-  %377 = trunc nsw i64 %indvars.iv.next133.i47 to i32
+  %indvars.iv.next133.i48 = add nsw i64 %indvars.iv132.i46, 1
+  %377 = trunc nsw i64 %indvars.iv.next133.i48 to i32
   %378 = mul i32 %295, %377
   %379 = sext i32 %378 to i64
   %380 = getelementptr i16, ptr %376, i64 %379
   %381 = getelementptr i8, ptr %380, i64 -2
   %382 = load i16, ptr %381, align 2
   %383 = uitofp i16 %382 to double
-  store double %383, ptr %gep.i41, align 8
+  store double %383, ptr %gep.i42, align 8
   %384 = load i16, ptr %381, align 2
   %385 = uitofp i16 %384 to double
   %386 = fmul double %322, %383
   %387 = fsub double %385, %386
-  store double %387, ptr %gep118.i42, align 8
-  br i1 %333, label %.lr.ph113.preheader.i55, label %.preheader.i48
+  store double %387, ptr %gep118.i43, align 8
+  br i1 %333, label %.lr.ph113.preheader.i57, label %.preheader.i49
 
-.lr.ph113.preheader.i55:                          ; preds = %._crit_edge.i46
+.lr.ph113.preheader.i57:                          ; preds = %._crit_edge.i47
   %388 = getelementptr i8, ptr %380, i64 -6
-  %load_initial135 = load double, ptr %scevgep134, align 8
-  br label %.lr.ph113.i56
+  %load_initial139 = load double, ptr %scevgep138, align 8
+  br label %.lr.ph113.i58
 
-.preheader.i48:                                   ; preds = %.lr.ph113.i56, %._crit_edge.i46
-  br i1 %337, label %.lr.ph116.i50, label %.loopexit.i49
+.preheader.i49:                                   ; preds = %._crit_edge.i47
+  br i1 %337, label %.lr.ph116.i52.preheader, label %.loopexit.i50
 
-.lr.ph113.i56:                                    ; preds = %.lr.ph113.i56, %.lr.ph113.preheader.i55
-  %store_forwarded136 = phi double [ %load_initial135, %.lr.ph113.preheader.i55 ], [ %397, %.lr.ph113.i56 ]
-  %indvars.iv124.i57 = phi i64 [ %338, %.lr.ph113.preheader.i55 ], [ %indvars.iv.next125.i59, %.lr.ph113.i56 ]
-  %.1104110.i58 = phi ptr [ %388, %.lr.ph113.preheader.i55 ], [ %398, %.lr.ph113.i56 ]
-  %389 = getelementptr inbounds nuw i8, ptr %.1104110.i58, i64 2
+.lr.ph113.i58:                                    ; preds = %.lr.ph113.i58, %.lr.ph113.preheader.i57
+  %store_forwarded140 = phi double [ %load_initial139, %.lr.ph113.preheader.i57 ], [ %397, %.lr.ph113.i58 ]
+  %indvars.iv124.i59 = phi i64 [ %338, %.lr.ph113.preheader.i57 ], [ %indvars.iv.next125.i61, %.lr.ph113.i58 ]
+  %.1104110.i60 = phi ptr [ %388, %.lr.ph113.preheader.i57 ], [ %398, %.lr.ph113.i58 ]
+  %389 = getelementptr inbounds nuw i8, ptr %.1104110.i60, i64 2
   %390 = load i16, ptr %389, align 2
   %391 = uitofp i16 %390 to double
-  %392 = getelementptr inbounds nuw double, ptr %301, i64 %indvars.iv124.i57
-  %393 = fmul double %322, %store_forwarded136
+  %392 = getelementptr inbounds nuw double, ptr %301, i64 %indvars.iv124.i59
+  %393 = fmul double %322, %store_forwarded140
   %394 = fsub double %391, %393
   %395 = getelementptr inbounds nuw i8, ptr %392, i64 16
   %396 = load double, ptr %395, align 8
   %397 = call double @llvm.fmuladd.f64(double %334, double %396, double %394)
   store double %397, ptr %392, align 8
-  %indvars.iv.next125.i59 = add nsw i64 %indvars.iv124.i57, -1
-  %398 = getelementptr inbounds i8, ptr %.1104110.i58, i64 -2
-  %399 = icmp sgt i64 %indvars.iv124.i57, 0
-  br i1 %399, label %.lr.ph113.i56, label %.preheader.i48, !llvm.loop !42
+  %indvars.iv.next125.i61 = add nsw i64 %indvars.iv124.i59, -1
+  %398 = getelementptr inbounds i8, ptr %.1104110.i60, i64 -2
+  %399 = icmp sgt i64 %indvars.iv124.i59, 0
+  br i1 %399, label %.lr.ph113.i58, label %.lr.ph116.i52.preheader, !llvm.loop !42
 
-.lr.ph116.i50:                                    ; preds = %.preheader.i48, %.lr.ph116.i50
-  %indvars.iv127.i51 = phi i64 [ %indvars.iv.next128.i53, %.lr.ph116.i50 ], [ 0, %.preheader.i48 ]
-  %.0106114.i52 = phi ptr [ %407, %.lr.ph116.i50 ], [ %350, %.preheader.i48 ]
-  %400 = getelementptr inbounds nuw double, ptr %299, i64 %indvars.iv127.i51
+.lr.ph116.i52.preheader:                          ; preds = %.lr.ph113.i58, %.preheader.i49
+  br label %.lr.ph116.i52
+
+.lr.ph116.i52:                                    ; preds = %.lr.ph116.i52.preheader, %.lr.ph116.i52
+  %indvars.iv127.i53 = phi i64 [ %indvars.iv.next128.i55, %.lr.ph116.i52 ], [ 0, %.lr.ph116.i52.preheader ]
+  %.0106114.i54 = phi ptr [ %407, %.lr.ph116.i52 ], [ %350, %.lr.ph116.i52.preheader ]
+  %400 = getelementptr inbounds nuw double, ptr %299, i64 %indvars.iv127.i53
   %401 = load double, ptr %400, align 8
-  %402 = getelementptr inbounds nuw double, ptr %301, i64 %indvars.iv127.i51
+  %402 = getelementptr inbounds nuw double, ptr %301, i64 %indvars.iv127.i53
   %403 = load double, ptr %402, align 8
   %404 = fsub double %401, %403
   %405 = fmul double %318, %404
   %406 = fptrunc double %405 to float
-  store float %406, ptr %.0106114.i52, align 4
-  %indvars.iv.next128.i53 = add nuw nsw i64 %indvars.iv127.i51, 1
-  %407 = getelementptr inbounds nuw i8, ptr %.0106114.i52, i64 4
-  %exitcond131.not.i54 = icmp eq i64 %indvars.iv.next128.i53, %wide.trip.count.i43
-  br i1 %exitcond131.not.i54, label %.loopexit.i49, label %.lr.ph116.i50, !llvm.loop !43
+  store float %406, ptr %.0106114.i54, align 4
+  %indvars.iv.next128.i55 = add nuw nsw i64 %indvars.iv127.i53, 1
+  %407 = getelementptr inbounds nuw i8, ptr %.0106114.i54, i64 4
+  %exitcond131.not.i56 = icmp eq i64 %indvars.iv.next128.i55, %wide.trip.count.i44
+  br i1 %exitcond131.not.i56, label %.loopexit.i50, label %.lr.ph116.i52, !llvm.loop !43
 
-_ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i49, %297
+_ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i50, %297
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %7)
@@ -3225,11 +3252,11 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %449 = load i32, ptr %448, align 4
   %450 = icmp slt i32 %447, %449
-  br i1 %450, label %.lr.ph121.i66, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %450, label %.lr.ph121.i68, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph121.i66:                                    ; preds = %420
-  %invariant.gep117.i67 = getelementptr i8, ptr %424, i64 -16
-  %invariant.gep.i68 = getelementptr i8, ptr %424, i64 -8
+.lr.ph121.i68:                                    ; preds = %420
+  %invariant.gep117.i69 = getelementptr i8, ptr %424, i64 -16
+  %invariant.gep.i70 = getelementptr i8, ptr %424, i64 -8
   %451 = getelementptr inbounds nuw i8, ptr %410, i64 16
   %452 = getelementptr inbounds nuw i8, ptr %410, i64 72
   %453 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -3238,36 +3265,36 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %456 = icmp sgt i32 %418, 2
   %457 = fneg double %446
   %458 = sext i32 %418 to i64
-  %gep.i69 = getelementptr double, ptr %invariant.gep.i68, i64 %458
-  %gep118.i70 = getelementptr double, ptr %invariant.gep117.i67, i64 %458
+  %gep.i71 = getelementptr double, ptr %invariant.gep.i70, i64 %458
+  %gep118.i72 = getelementptr double, ptr %invariant.gep117.i69, i64 %458
   %459 = add i32 %418, -3
   %460 = icmp sgt i32 %418, 0
   %461 = zext i32 %459 to i64
   %462 = sext i32 %447 to i64
-  %wide.trip.count.i71 = zext nneg i32 %418 to i64
-  %scevgep137 = getelementptr i8, ptr %422, i64 8
+  %wide.trip.count.i73 = zext nneg i32 %418 to i64
+  %scevgep141 = getelementptr i8, ptr %422, i64 8
   %463 = shl nuw nsw i64 %461, 3
   %464 = getelementptr i8, ptr %424, i64 %463
-  %scevgep140 = getelementptr i8, ptr %464, i64 8
+  %scevgep144 = getelementptr i8, ptr %464, i64 8
   br label %468
 
-.loopexit.i77:                                    ; preds = %.lr.ph116.i78, %.preheader.i76
+.loopexit.i79:                                    ; preds = %.lr.ph116.i81, %.preheader.i78
   %465 = load i32, ptr %448, align 4
   %466 = sext i32 %465 to i64
-  %467 = icmp slt i64 %indvars.iv.next133.i75, %466
+  %467 = icmp slt i64 %indvars.iv.next133.i77, %466
   br i1 %467, label %468, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !44
 
-468:                                              ; preds = %.loopexit.i77, %.lr.ph121.i66
-  %indvars.iv132.i73 = phi i64 [ %462, %.lr.ph121.i66 ], [ %indvars.iv.next133.i75, %.loopexit.i77 ]
+468:                                              ; preds = %.loopexit.i79, %.lr.ph121.i68
+  %indvars.iv132.i75 = phi i64 [ %462, %.lr.ph121.i68 ], [ %indvars.iv.next133.i77, %.loopexit.i79 ]
   %469 = load ptr, ptr %451, align 8
   %470 = load ptr, ptr %452, align 8
   %471 = load i64, ptr %470, align 8
-  %472 = mul i64 %471, %indvars.iv132.i73
+  %472 = mul i64 %471, %indvars.iv132.i75
   %473 = getelementptr inbounds i8, ptr %469, i64 %472
   %474 = load ptr, ptr %453, align 8
   %475 = load ptr, ptr %454, align 8
   %476 = load i64, ptr %475, align 8
-  %477 = mul i64 %476, %indvars.iv132.i73
+  %477 = mul i64 %476, %indvars.iv132.i75
   %478 = getelementptr inbounds i8, ptr %474, i64 %477
   %479 = load i16, ptr %478, align 2
   %480 = sitofp i16 %479 to double
@@ -3278,99 +3305,102 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterItEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %484 = fmul double %445, %480
   %485 = fsub double %483, %484
   store double %485, ptr %455, align 8
-  br i1 %456, label %.lr.ph.preheader.i88, label %._crit_edge.i74
+  br i1 %456, label %.lr.ph.preheader.i91, label %._crit_edge.i76
 
-.lr.ph.preheader.i88:                             ; preds = %468
+.lr.ph.preheader.i91:                             ; preds = %468
   %486 = getelementptr inbounds nuw i8, ptr %478, i64 4
-  %load_initial138 = load double, ptr %scevgep137, align 8
-  br label %.lr.ph.i89
+  %load_initial142 = load double, ptr %scevgep141, align 8
+  br label %.lr.ph.i92
 
-.lr.ph.i89:                                       ; preds = %.lr.ph.i89, %.lr.ph.preheader.i88
-  %store_forwarded139 = phi double [ %load_initial138, %.lr.ph.preheader.i88 ], [ %495, %.lr.ph.i89 ]
-  %indvars.iv.i90 = phi i64 [ 2, %.lr.ph.preheader.i88 ], [ %indvars.iv.next.i92, %.lr.ph.i89 ]
-  %.0103108.i91 = phi ptr [ %486, %.lr.ph.preheader.i88 ], [ %496, %.lr.ph.i89 ]
-  %487 = getelementptr inbounds i8, ptr %.0103108.i91, i64 -2
+.lr.ph.i92:                                       ; preds = %.lr.ph.i92, %.lr.ph.preheader.i91
+  %store_forwarded143 = phi double [ %load_initial142, %.lr.ph.preheader.i91 ], [ %495, %.lr.ph.i92 ]
+  %indvars.iv.i93 = phi i64 [ 2, %.lr.ph.preheader.i91 ], [ %indvars.iv.next.i95, %.lr.ph.i92 ]
+  %.0103108.i94 = phi ptr [ %486, %.lr.ph.preheader.i91 ], [ %496, %.lr.ph.i92 ]
+  %487 = getelementptr inbounds i8, ptr %.0103108.i94, i64 -2
   %488 = load i16, ptr %487, align 2
   %489 = sitofp i16 %488 to double
-  %490 = getelementptr double, ptr %422, i64 %indvars.iv.i90
-  %491 = fmul double %445, %store_forwarded139
+  %490 = getelementptr double, ptr %422, i64 %indvars.iv.i93
+  %491 = fmul double %445, %store_forwarded143
   %492 = fsub double %489, %491
   %493 = getelementptr i8, ptr %490, i64 -16
   %494 = load double, ptr %493, align 8
   %495 = call double @llvm.fmuladd.f64(double %457, double %494, double %492)
   store double %495, ptr %490, align 8
-  %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i90, 1
-  %496 = getelementptr inbounds nuw i8, ptr %.0103108.i91, i64 2
-  %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, %wide.trip.count.i71
-  br i1 %exitcond.not.i93, label %._crit_edge.i74, label %.lr.ph.i89, !llvm.loop !45
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i93, 1
+  %496 = getelementptr inbounds nuw i8, ptr %.0103108.i94, i64 2
+  %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i73
+  br i1 %exitcond.not.i96, label %._crit_edge.i76, label %.lr.ph.i92, !llvm.loop !45
 
 497:                                              ; preds = %408
   %498 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i74:                                  ; preds = %.lr.ph.i89, %468
+._crit_edge.i76:                                  ; preds = %.lr.ph.i92, %468
   %499 = load ptr, ptr %453, align 8
-  %indvars.iv.next133.i75 = add nsw i64 %indvars.iv132.i73, 1
-  %500 = trunc nsw i64 %indvars.iv.next133.i75 to i32
+  %indvars.iv.next133.i77 = add nsw i64 %indvars.iv132.i75, 1
+  %500 = trunc nsw i64 %indvars.iv.next133.i77 to i32
   %501 = mul i32 %418, %500
   %502 = sext i32 %501 to i64
   %503 = getelementptr i16, ptr %499, i64 %502
   %504 = getelementptr i8, ptr %503, i64 -2
   %505 = load i16, ptr %504, align 2
   %506 = sitofp i16 %505 to double
-  store double %506, ptr %gep.i69, align 8
+  store double %506, ptr %gep.i71, align 8
   %507 = load i16, ptr %504, align 2
   %508 = sitofp i16 %507 to double
   %509 = fmul double %445, %506
   %510 = fsub double %508, %509
-  store double %510, ptr %gep118.i70, align 8
-  br i1 %456, label %.lr.ph113.preheader.i83, label %.preheader.i76
+  store double %510, ptr %gep118.i72, align 8
+  br i1 %456, label %.lr.ph113.preheader.i86, label %.preheader.i78
 
-.lr.ph113.preheader.i83:                          ; preds = %._crit_edge.i74
+.lr.ph113.preheader.i86:                          ; preds = %._crit_edge.i76
   %511 = getelementptr i8, ptr %503, i64 -6
-  %load_initial141 = load double, ptr %scevgep140, align 8
-  br label %.lr.ph113.i84
+  %load_initial145 = load double, ptr %scevgep144, align 8
+  br label %.lr.ph113.i87
 
-.preheader.i76:                                   ; preds = %.lr.ph113.i84, %._crit_edge.i74
-  br i1 %460, label %.lr.ph116.i78, label %.loopexit.i77
+.preheader.i78:                                   ; preds = %._crit_edge.i76
+  br i1 %460, label %.lr.ph116.i81.preheader, label %.loopexit.i79
 
-.lr.ph113.i84:                                    ; preds = %.lr.ph113.i84, %.lr.ph113.preheader.i83
-  %store_forwarded142 = phi double [ %load_initial141, %.lr.ph113.preheader.i83 ], [ %520, %.lr.ph113.i84 ]
-  %indvars.iv124.i85 = phi i64 [ %461, %.lr.ph113.preheader.i83 ], [ %indvars.iv.next125.i87, %.lr.ph113.i84 ]
-  %.1104110.i86 = phi ptr [ %511, %.lr.ph113.preheader.i83 ], [ %521, %.lr.ph113.i84 ]
-  %512 = getelementptr inbounds nuw i8, ptr %.1104110.i86, i64 2
+.lr.ph113.i87:                                    ; preds = %.lr.ph113.i87, %.lr.ph113.preheader.i86
+  %store_forwarded146 = phi double [ %load_initial145, %.lr.ph113.preheader.i86 ], [ %520, %.lr.ph113.i87 ]
+  %indvars.iv124.i88 = phi i64 [ %461, %.lr.ph113.preheader.i86 ], [ %indvars.iv.next125.i90, %.lr.ph113.i87 ]
+  %.1104110.i89 = phi ptr [ %511, %.lr.ph113.preheader.i86 ], [ %521, %.lr.ph113.i87 ]
+  %512 = getelementptr inbounds nuw i8, ptr %.1104110.i89, i64 2
   %513 = load i16, ptr %512, align 2
   %514 = sitofp i16 %513 to double
-  %515 = getelementptr inbounds nuw double, ptr %424, i64 %indvars.iv124.i85
-  %516 = fmul double %445, %store_forwarded142
+  %515 = getelementptr inbounds nuw double, ptr %424, i64 %indvars.iv124.i88
+  %516 = fmul double %445, %store_forwarded146
   %517 = fsub double %514, %516
   %518 = getelementptr inbounds nuw i8, ptr %515, i64 16
   %519 = load double, ptr %518, align 8
   %520 = call double @llvm.fmuladd.f64(double %457, double %519, double %517)
   store double %520, ptr %515, align 8
-  %indvars.iv.next125.i87 = add nsw i64 %indvars.iv124.i85, -1
-  %521 = getelementptr inbounds i8, ptr %.1104110.i86, i64 -2
-  %522 = icmp sgt i64 %indvars.iv124.i85, 0
-  br i1 %522, label %.lr.ph113.i84, label %.preheader.i76, !llvm.loop !46
+  %indvars.iv.next125.i90 = add nsw i64 %indvars.iv124.i88, -1
+  %521 = getelementptr inbounds i8, ptr %.1104110.i89, i64 -2
+  %522 = icmp sgt i64 %indvars.iv124.i88, 0
+  br i1 %522, label %.lr.ph113.i87, label %.lr.ph116.i81.preheader, !llvm.loop !46
 
-.lr.ph116.i78:                                    ; preds = %.preheader.i76, %.lr.ph116.i78
-  %indvars.iv127.i79 = phi i64 [ %indvars.iv.next128.i81, %.lr.ph116.i78 ], [ 0, %.preheader.i76 ]
-  %.0106114.i80 = phi ptr [ %530, %.lr.ph116.i78 ], [ %473, %.preheader.i76 ]
-  %523 = getelementptr inbounds nuw double, ptr %422, i64 %indvars.iv127.i79
+.lr.ph116.i81.preheader:                          ; preds = %.lr.ph113.i87, %.preheader.i78
+  br label %.lr.ph116.i81
+
+.lr.ph116.i81:                                    ; preds = %.lr.ph116.i81.preheader, %.lr.ph116.i81
+  %indvars.iv127.i82 = phi i64 [ %indvars.iv.next128.i84, %.lr.ph116.i81 ], [ 0, %.lr.ph116.i81.preheader ]
+  %.0106114.i83 = phi ptr [ %530, %.lr.ph116.i81 ], [ %473, %.lr.ph116.i81.preheader ]
+  %523 = getelementptr inbounds nuw double, ptr %422, i64 %indvars.iv127.i82
   %524 = load double, ptr %523, align 8
-  %525 = getelementptr inbounds nuw double, ptr %424, i64 %indvars.iv127.i79
+  %525 = getelementptr inbounds nuw double, ptr %424, i64 %indvars.iv127.i82
   %526 = load double, ptr %525, align 8
   %527 = fsub double %524, %526
   %528 = fmul double %441, %527
   %529 = fptrunc double %528 to float
-  store float %529, ptr %.0106114.i80, align 4
-  %indvars.iv.next128.i81 = add nuw nsw i64 %indvars.iv127.i79, 1
-  %530 = getelementptr inbounds nuw i8, ptr %.0106114.i80, i64 4
-  %exitcond131.not.i82 = icmp eq i64 %indvars.iv.next128.i81, %wide.trip.count.i71
-  br i1 %exitcond131.not.i82, label %.loopexit.i77, label %.lr.ph116.i78, !llvm.loop !47
+  store float %529, ptr %.0106114.i83, align 4
+  %indvars.iv.next128.i84 = add nuw nsw i64 %indvars.iv127.i82, 1
+  %530 = getelementptr inbounds nuw i8, ptr %.0106114.i83, i64 4
+  %exitcond131.not.i85 = icmp eq i64 %indvars.iv.next128.i84, %wide.trip.count.i73
+  br i1 %exitcond131.not.i85, label %.loopexit.i79, label %.lr.ph116.i81, !llvm.loop !47
 
-_ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i77, %420
+_ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i79, %420
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5)
@@ -3426,11 +3456,11 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %571 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %572 = load i32, ptr %571, align 4
   %573 = icmp slt i32 %570, %572
-  br i1 %573, label %.lr.ph121.i94, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit
+  br i1 %573, label %.lr.ph121.i97, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit
 
-.lr.ph121.i94:                                    ; preds = %543
-  %invariant.gep117.i95 = getelementptr i8, ptr %547, i64 -16
-  %invariant.gep.i96 = getelementptr i8, ptr %547, i64 -8
+.lr.ph121.i97:                                    ; preds = %543
+  %invariant.gep117.i98 = getelementptr i8, ptr %547, i64 -16
+  %invariant.gep.i99 = getelementptr i8, ptr %547, i64 -8
   %574 = getelementptr inbounds nuw i8, ptr %533, i64 16
   %575 = getelementptr inbounds nuw i8, ptr %533, i64 72
   %576 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -3439,36 +3469,36 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %579 = icmp sgt i32 %541, 2
   %580 = fneg double %569
   %581 = sext i32 %541 to i64
-  %gep.i97 = getelementptr double, ptr %invariant.gep.i96, i64 %581
-  %gep118.i98 = getelementptr double, ptr %invariant.gep117.i95, i64 %581
+  %gep.i100 = getelementptr double, ptr %invariant.gep.i99, i64 %581
+  %gep118.i101 = getelementptr double, ptr %invariant.gep117.i98, i64 %581
   %582 = add i32 %541, -3
   %583 = icmp sgt i32 %541, 0
   %584 = zext i32 %582 to i64
   %585 = sext i32 %570 to i64
-  %wide.trip.count.i99 = zext nneg i32 %541 to i64
-  %scevgep143 = getelementptr i8, ptr %545, i64 8
+  %wide.trip.count.i102 = zext nneg i32 %541 to i64
+  %scevgep147 = getelementptr i8, ptr %545, i64 8
   %586 = shl nuw nsw i64 %584, 3
   %587 = getelementptr i8, ptr %547, i64 %586
-  %scevgep146 = getelementptr i8, ptr %587, i64 8
+  %scevgep150 = getelementptr i8, ptr %587, i64 8
   br label %591
 
-.loopexit.i105:                                   ; preds = %.lr.ph116.i106, %.preheader.i104
+.loopexit.i108:                                   ; preds = %.lr.ph116.i110, %.preheader.i107
   %588 = load i32, ptr %571, align 4
   %589 = sext i32 %588 to i64
-  %590 = icmp slt i64 %indvars.iv.next133.i103, %589
+  %590 = icmp slt i64 %indvars.iv.next133.i106, %589
   br i1 %590, label %591, label %_ZN2cv8ximgprocL19HorizontalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit, !llvm.loop !48
 
-591:                                              ; preds = %.loopexit.i105, %.lr.ph121.i94
-  %indvars.iv132.i101 = phi i64 [ %585, %.lr.ph121.i94 ], [ %indvars.iv.next133.i103, %.loopexit.i105 ]
+591:                                              ; preds = %.loopexit.i108, %.lr.ph121.i97
+  %indvars.iv132.i104 = phi i64 [ %585, %.lr.ph121.i97 ], [ %indvars.iv.next133.i106, %.loopexit.i108 ]
   %592 = load ptr, ptr %574, align 8
   %593 = load ptr, ptr %575, align 8
   %594 = load i64, ptr %593, align 8
-  %595 = mul i64 %594, %indvars.iv132.i101
+  %595 = mul i64 %594, %indvars.iv132.i104
   %596 = getelementptr inbounds i8, ptr %592, i64 %595
   %597 = load ptr, ptr %576, align 8
   %598 = load ptr, ptr %577, align 8
   %599 = load i64, ptr %598, align 8
-  %600 = mul i64 %599, %indvars.iv132.i101
+  %600 = mul i64 %599, %indvars.iv132.i104
   %601 = getelementptr inbounds i8, ptr %597, i64 %600
   %602 = load float, ptr %601, align 4
   %603 = fpext float %602 to double
@@ -3479,99 +3509,102 @@ _ZN2cv8ximgprocL19HorizontalIIRFilterIsEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; pre
   %607 = fmul double %568, %603
   %608 = fsub double %606, %607
   store double %608, ptr %578, align 8
-  br i1 %579, label %.lr.ph.preheader.i116, label %._crit_edge.i102
+  br i1 %579, label %.lr.ph.preheader.i120, label %._crit_edge.i105
 
-.lr.ph.preheader.i116:                            ; preds = %591
+.lr.ph.preheader.i120:                            ; preds = %591
   %609 = getelementptr inbounds nuw i8, ptr %601, i64 8
-  %load_initial144 = load double, ptr %scevgep143, align 8
-  br label %.lr.ph.i117
+  %load_initial148 = load double, ptr %scevgep147, align 8
+  br label %.lr.ph.i121
 
-.lr.ph.i117:                                      ; preds = %.lr.ph.i117, %.lr.ph.preheader.i116
-  %store_forwarded145 = phi double [ %load_initial144, %.lr.ph.preheader.i116 ], [ %618, %.lr.ph.i117 ]
-  %indvars.iv.i118 = phi i64 [ 2, %.lr.ph.preheader.i116 ], [ %indvars.iv.next.i120, %.lr.ph.i117 ]
-  %.0103108.i119 = phi ptr [ %609, %.lr.ph.preheader.i116 ], [ %619, %.lr.ph.i117 ]
-  %610 = getelementptr inbounds i8, ptr %.0103108.i119, i64 -4
+.lr.ph.i121:                                      ; preds = %.lr.ph.i121, %.lr.ph.preheader.i120
+  %store_forwarded149 = phi double [ %load_initial148, %.lr.ph.preheader.i120 ], [ %618, %.lr.ph.i121 ]
+  %indvars.iv.i122 = phi i64 [ 2, %.lr.ph.preheader.i120 ], [ %indvars.iv.next.i124, %.lr.ph.i121 ]
+  %.0103108.i123 = phi ptr [ %609, %.lr.ph.preheader.i120 ], [ %619, %.lr.ph.i121 ]
+  %610 = getelementptr inbounds i8, ptr %.0103108.i123, i64 -4
   %611 = load float, ptr %610, align 4
   %612 = fpext float %611 to double
-  %613 = getelementptr double, ptr %545, i64 %indvars.iv.i118
-  %614 = fmul double %568, %store_forwarded145
+  %613 = getelementptr double, ptr %545, i64 %indvars.iv.i122
+  %614 = fmul double %568, %store_forwarded149
   %615 = fsub double %612, %614
   %616 = getelementptr i8, ptr %613, i64 -16
   %617 = load double, ptr %616, align 8
   %618 = call double @llvm.fmuladd.f64(double %580, double %617, double %615)
   store double %618, ptr %613, align 8
-  %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i118, 1
-  %619 = getelementptr inbounds nuw i8, ptr %.0103108.i119, i64 4
-  %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, %wide.trip.count.i99
-  br i1 %exitcond.not.i121, label %._crit_edge.i102, label %.lr.ph.i117, !llvm.loop !49
+  %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i122, 1
+  %619 = getelementptr inbounds nuw i8, ptr %.0103108.i123, i64 4
+  %exitcond.not.i125 = icmp eq i64 %indvars.iv.next.i124, %wide.trip.count.i102
+  br i1 %exitcond.not.i125, label %._crit_edge.i105, label %.lr.ph.i121, !llvm.loop !49
 
 620:                                              ; preds = %531
   %621 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-._crit_edge.i102:                                 ; preds = %.lr.ph.i117, %591
+._crit_edge.i105:                                 ; preds = %.lr.ph.i121, %591
   %622 = load ptr, ptr %576, align 8
-  %indvars.iv.next133.i103 = add nsw i64 %indvars.iv132.i101, 1
-  %623 = trunc nsw i64 %indvars.iv.next133.i103 to i32
+  %indvars.iv.next133.i106 = add nsw i64 %indvars.iv132.i104, 1
+  %623 = trunc nsw i64 %indvars.iv.next133.i106 to i32
   %624 = mul i32 %541, %623
   %625 = sext i32 %624 to i64
   %626 = getelementptr float, ptr %622, i64 %625
   %627 = getelementptr i8, ptr %626, i64 -4
   %628 = load float, ptr %627, align 4
   %629 = fpext float %628 to double
-  store double %629, ptr %gep.i97, align 8
+  store double %629, ptr %gep.i100, align 8
   %630 = load float, ptr %627, align 4
   %631 = fpext float %630 to double
   %632 = fmul double %568, %629
   %633 = fsub double %631, %632
-  store double %633, ptr %gep118.i98, align 8
-  br i1 %579, label %.lr.ph113.preheader.i111, label %.preheader.i104
+  store double %633, ptr %gep118.i101, align 8
+  br i1 %579, label %.lr.ph113.preheader.i115, label %.preheader.i107
 
-.lr.ph113.preheader.i111:                         ; preds = %._crit_edge.i102
+.lr.ph113.preheader.i115:                         ; preds = %._crit_edge.i105
   %634 = getelementptr i8, ptr %626, i64 -12
-  %load_initial147 = load double, ptr %scevgep146, align 8
-  br label %.lr.ph113.i112
+  %load_initial151 = load double, ptr %scevgep150, align 8
+  br label %.lr.ph113.i116
 
-.preheader.i104:                                  ; preds = %.lr.ph113.i112, %._crit_edge.i102
-  br i1 %583, label %.lr.ph116.i106, label %.loopexit.i105
+.preheader.i107:                                  ; preds = %._crit_edge.i105
+  br i1 %583, label %.lr.ph116.i110.preheader, label %.loopexit.i108
 
-.lr.ph113.i112:                                   ; preds = %.lr.ph113.i112, %.lr.ph113.preheader.i111
-  %store_forwarded148 = phi double [ %load_initial147, %.lr.ph113.preheader.i111 ], [ %643, %.lr.ph113.i112 ]
-  %indvars.iv124.i113 = phi i64 [ %584, %.lr.ph113.preheader.i111 ], [ %indvars.iv.next125.i115, %.lr.ph113.i112 ]
-  %.1104110.i114 = phi ptr [ %634, %.lr.ph113.preheader.i111 ], [ %644, %.lr.ph113.i112 ]
-  %635 = getelementptr inbounds nuw i8, ptr %.1104110.i114, i64 4
+.lr.ph113.i116:                                   ; preds = %.lr.ph113.i116, %.lr.ph113.preheader.i115
+  %store_forwarded152 = phi double [ %load_initial151, %.lr.ph113.preheader.i115 ], [ %643, %.lr.ph113.i116 ]
+  %indvars.iv124.i117 = phi i64 [ %584, %.lr.ph113.preheader.i115 ], [ %indvars.iv.next125.i119, %.lr.ph113.i116 ]
+  %.1104110.i118 = phi ptr [ %634, %.lr.ph113.preheader.i115 ], [ %644, %.lr.ph113.i116 ]
+  %635 = getelementptr inbounds nuw i8, ptr %.1104110.i118, i64 4
   %636 = load float, ptr %635, align 4
   %637 = fpext float %636 to double
-  %638 = getelementptr inbounds nuw double, ptr %547, i64 %indvars.iv124.i113
-  %639 = fmul double %568, %store_forwarded148
+  %638 = getelementptr inbounds nuw double, ptr %547, i64 %indvars.iv124.i117
+  %639 = fmul double %568, %store_forwarded152
   %640 = fsub double %637, %639
   %641 = getelementptr inbounds nuw i8, ptr %638, i64 16
   %642 = load double, ptr %641, align 8
   %643 = call double @llvm.fmuladd.f64(double %580, double %642, double %640)
   store double %643, ptr %638, align 8
-  %indvars.iv.next125.i115 = add nsw i64 %indvars.iv124.i113, -1
-  %644 = getelementptr inbounds i8, ptr %.1104110.i114, i64 -4
-  %645 = icmp sgt i64 %indvars.iv124.i113, 0
-  br i1 %645, label %.lr.ph113.i112, label %.preheader.i104, !llvm.loop !50
+  %indvars.iv.next125.i119 = add nsw i64 %indvars.iv124.i117, -1
+  %644 = getelementptr inbounds i8, ptr %.1104110.i118, i64 -4
+  %645 = icmp sgt i64 %indvars.iv124.i117, 0
+  br i1 %645, label %.lr.ph113.i116, label %.lr.ph116.i110.preheader, !llvm.loop !50
 
-.lr.ph116.i106:                                   ; preds = %.preheader.i104, %.lr.ph116.i106
-  %indvars.iv127.i107 = phi i64 [ %indvars.iv.next128.i109, %.lr.ph116.i106 ], [ 0, %.preheader.i104 ]
-  %.0106114.i108 = phi ptr [ %653, %.lr.ph116.i106 ], [ %596, %.preheader.i104 ]
-  %646 = getelementptr inbounds nuw double, ptr %545, i64 %indvars.iv127.i107
+.lr.ph116.i110.preheader:                         ; preds = %.lr.ph113.i116, %.preheader.i107
+  br label %.lr.ph116.i110
+
+.lr.ph116.i110:                                   ; preds = %.lr.ph116.i110.preheader, %.lr.ph116.i110
+  %indvars.iv127.i111 = phi i64 [ %indvars.iv.next128.i113, %.lr.ph116.i110 ], [ 0, %.lr.ph116.i110.preheader ]
+  %.0106114.i112 = phi ptr [ %653, %.lr.ph116.i110 ], [ %596, %.lr.ph116.i110.preheader ]
+  %646 = getelementptr inbounds nuw double, ptr %545, i64 %indvars.iv127.i111
   %647 = load double, ptr %646, align 8
-  %648 = getelementptr inbounds nuw double, ptr %547, i64 %indvars.iv127.i107
+  %648 = getelementptr inbounds nuw double, ptr %547, i64 %indvars.iv127.i111
   %649 = load double, ptr %648, align 8
   %650 = fsub double %647, %649
   %651 = fmul double %564, %650
   %652 = fptrunc double %651 to float
-  store float %652, ptr %.0106114.i108, align 4
-  %indvars.iv.next128.i109 = add nuw nsw i64 %indvars.iv127.i107, 1
-  %653 = getelementptr inbounds nuw i8, ptr %.0106114.i108, i64 4
-  %exitcond131.not.i110 = icmp eq i64 %indvars.iv.next128.i109, %wide.trip.count.i99
-  br i1 %exitcond131.not.i110, label %.loopexit.i105, label %.lr.ph116.i106, !llvm.loop !51
+  store float %652, ptr %.0106114.i112, align 4
+  %indvars.iv.next128.i113 = add nuw nsw i64 %indvars.iv127.i111, 1
+  %653 = getelementptr inbounds nuw i8, ptr %.0106114.i112, i64 4
+  %exitcond131.not.i114 = icmp eq i64 %indvars.iv.next128.i113, %wide.trip.count.i102
+  br i1 %exitcond131.not.i114, label %.loopexit.i108, label %.lr.ph116.i110, !llvm.loop !51
 
-_ZN2cv8ximgprocL19HorizontalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i105, %543
+_ZN2cv8ximgprocL19HorizontalIIRFilterIfEEvRNS_3MatES3_RKNS_5RangeEdd.exit: ; preds = %.loopexit.i108, %543
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #15
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
@@ -3812,8 +3845,8 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheXColsc
   %load_initial158 = load double, ptr %scevgep157, align 8
   br label %.lr.ph137
 
-.preheader:                                       ; preds = %.lr.ph137, %._crit_edge
-  br i1 %121, label %.lr.ph139, label %._crit_edge140
+.preheader:                                       ; preds = %._crit_edge
+  br i1 %121, label %.lr.ph139.preheader, label %._crit_edge140
 
 .lr.ph137:                                        ; preds = %.lr.ph137.preheader, %.lr.ph137
   %store_forwarded159 = phi double [ %load_initial158, %.lr.ph137.preheader ], [ %184, %.lr.ph137 ]
@@ -3835,10 +3868,13 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc28ParallelGradientDericheXColsc
   store double %184, ptr %180, align 8
   %indvars.iv.next147 = add nsw i64 %indvars.iv146, -1
   %185 = icmp sgt i64 %indvars.iv146, 0
-  br i1 %185, label %.lr.ph137, label %.preheader, !llvm.loop !53
+  br i1 %185, label %.lr.ph137, label %.lr.ph139.preheader, !llvm.loop !53
 
-.lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
-  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph139 ], [ 0, %.preheader ]
+.lr.ph139.preheader:                              ; preds = %.lr.ph137, %.preheader
+  br label %.lr.ph139
+
+.lr.ph139:                                        ; preds = %.lr.ph139.preheader, %.lr.ph139
+  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph139 ], [ 0, %.lr.ph139.preheader ]
   %186 = load ptr, ptr %122, align 8
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %188 = load ptr, ptr %187, align 8

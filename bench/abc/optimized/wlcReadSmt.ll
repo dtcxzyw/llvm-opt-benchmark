@@ -2728,16 +2728,16 @@ Vec_IntAlloc.exit.i.thread:                       ; preds = %291
   store i32 %307, ptr %306, align 4, !tbaa !24
   %indvars.iv.next.i299 = add nuw nsw i64 %indvars.iv.i298, 1
   %exitcond.not.i300 = icmp eq i64 %indvars.iv.next.i299, %wide.trip.count.i
-  br i1 %exitcond.not.i300, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %exitcond.not.i300, label %.lr.ph.i301, label %.lr.ph.i, !llvm.loop !55
 
-Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i
+.lr.ph.i301:                                      ; preds = %.lr.ph.i
   %308 = getelementptr inbounds nuw i8, ptr %29, i64 696
   %309 = getelementptr inbounds nuw i8, ptr %29, i64 700
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %29, i64 704
   br label %310
 
-310:                                              ; preds = %Vec_IntPush.exit.i, %Vec_IntStartNatural.exit
-  %indvars.iv.i302 = phi i64 [ 0, %Vec_IntStartNatural.exit ], [ %indvars.iv.next.i303, %Vec_IntPush.exit.i ]
+310:                                              ; preds = %Vec_IntPush.exit.i, %.lr.ph.i301
+  %indvars.iv.i302 = phi i64 [ 0, %.lr.ph.i301 ], [ %indvars.iv.next.i303, %Vec_IntPush.exit.i ]
   %311 = getelementptr inbounds nuw i32, ptr %305, i64 %indvars.iv.i302
   %312 = load i32, ptr %311, align 4, !tbaa !24
   %313 = load i32, ptr %309, align 4, !tbaa !25
@@ -4358,16 +4358,16 @@ Vec_IntAlloc.exit.i.thread:                       ; preds = %209
   store i32 %225, ptr %224, align 4, !tbaa !24
   %indvars.iv.next.i173 = add nuw nsw i64 %indvars.iv.i172, 1
   %exitcond.not.i174 = icmp eq i64 %indvars.iv.next.i173, %wide.trip.count.i
-  br i1 %exitcond.not.i174, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !55
+  br i1 %exitcond.not.i174, label %.lr.ph.i175, label %.lr.ph.i, !llvm.loop !55
 
-Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i
+.lr.ph.i175:                                      ; preds = %.lr.ph.i
   %226 = getelementptr inbounds nuw i8, ptr %9, i64 696
   %227 = getelementptr inbounds nuw i8, ptr %9, i64 700
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %9, i64 704
   br label %228
 
-228:                                              ; preds = %Vec_IntPush.exit.i, %Vec_IntStartNatural.exit
-  %indvars.iv.i176 = phi i64 [ 0, %Vec_IntStartNatural.exit ], [ %indvars.iv.next.i177, %Vec_IntPush.exit.i ]
+228:                                              ; preds = %Vec_IntPush.exit.i, %.lr.ph.i175
+  %indvars.iv.i176 = phi i64 [ 0, %.lr.ph.i175 ], [ %indvars.iv.next.i177, %Vec_IntPush.exit.i ]
   %229 = getelementptr inbounds nuw i32, ptr %223, i64 %indvars.iv.i176
   %230 = load i32, ptr %229, align 4, !tbaa !24
   %231 = load i32, ptr %227, align 4, !tbaa !25

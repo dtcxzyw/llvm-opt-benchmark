@@ -113,7 +113,7 @@ pk_write_rsa_pubkey.exit:                         ; preds = %.thread.i, %26, %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %5)
   store i64 0, ptr %4, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %.0.i20, i64 272
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 272
   %48 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %.0.i20, ptr noundef nonnull %47, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 133) #5
   %.not.i21 = icmp eq i32 %48, 0
   br i1 %.not.i21, label %49, label %pk_write_ec_pubkey.exit
@@ -483,7 +483,7 @@ define hidden i32 @mbedtls_pk_write_key_der(ptr noundef %0, ptr noundef %1, i64 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 133, ptr nonnull %5)
   store i64 0, ptr %4, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %.0.i182, i64 272
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 272
   %99 = call i32 @mbedtls_ecp_point_write_binary(ptr noundef %.0.i182, ptr noundef nonnull %98, i32 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef 133) #5
   %.not.i = icmp eq i32 %99, 0
   br i1 %.not.i, label %100, label %pk_write_ec_pubkey.exit

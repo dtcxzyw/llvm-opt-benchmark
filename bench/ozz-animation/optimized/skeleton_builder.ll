@@ -160,14 +160,12 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
   br i1 %.not.i, label %.preheader282, label %.lr.ph289
 
 .lr.ph289:                                        ; preds = %.preheader284
-  %smax300 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count301 = zext nneg i32 %smax300 to i64
+  %wide.trip.count301 = zext nneg i32 %16 to i64
   %49 = getelementptr inbounds nuw i8, ptr %15, i64 32
   br label %51
 
 .lr.ph291:                                        ; preds = %51
-  %smax306 = tail call i32 @llvm.smax.i32(i32 %16, i32 1)
-  %wide.trip.count307 = zext nneg i32 %smax306 to i64
+  %wide.trip.count307 = zext nneg i32 %16 to i64
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br label %76
 
@@ -688,9 +686,6 @@ declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

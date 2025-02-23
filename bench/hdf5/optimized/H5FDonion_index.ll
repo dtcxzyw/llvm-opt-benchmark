@@ -1906,7 +1906,7 @@ define noundef i32 @H5FD__onion_revision_index_destroy(ptr noundef %0) local_unn
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
   %29 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %13, %20 ]
-  %30 = add i64 %.01421, 1
+  %30 = add nuw i64 %.01421, 1
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %.critedge, label %12, !llvm.loop !68
 

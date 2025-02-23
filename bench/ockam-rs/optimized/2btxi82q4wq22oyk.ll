@@ -12083,10 +12083,10 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   br label %509
 
 509:                                              ; preds = %527, %524, %506
-  %.sink712 = phi ptr [ %528, %527 ], [ %525, %524 ], [ %507, %506 ]
-  %.pn716 = phi { ptr, i64 } [ %490, %527 ], [ %488, %524 ], [ %486, %506 ]
-  %.sink = extractvalue { ptr, i64 } %.pn716, 1
-  store ptr %.sink712, ptr %0, align 8
+  %.sink713 = phi ptr [ %528, %527 ], [ %525, %524 ], [ %507, %506 ]
+  %.pn717 = phi { ptr, i64 } [ %490, %527 ], [ %488, %524 ], [ %486, %506 ]
+  %.sink = extractvalue { ptr, i64 } %.pn717, 1
+  store ptr %.sink713, ptr %0, align 8
   %.sroa.0116.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink, ptr %.sroa.0116.sroa.4.0..sroa_idx, align 8
   %.sroa.0116.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12391,12 +12391,12 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   br label %611
 
 611:                                              ; preds = %615, %612, %608
-  %.sink714 = phi ptr [ %616, %615 ], [ %613, %612 ], [ %609, %608 ]
-  %.pn715 = phi { ptr, i64 } [ %595, %615 ], [ %593, %612 ], [ %591, %608 ]
-  %.sink713 = extractvalue { ptr, i64 } %.pn715, 1
-  store ptr %.sink714, ptr %0, align 8
+  %.sink715 = phi ptr [ %616, %615 ], [ %613, %612 ], [ %609, %608 ]
+  %.pn716 = phi { ptr, i64 } [ %595, %615 ], [ %593, %612 ], [ %591, %608 ]
+  %.sink714 = extractvalue { ptr, i64 } %.pn716, 1
+  store ptr %.sink715, ptr %0, align 8
   %.sroa.0131.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink713, ptr %.sroa.0131.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink714, ptr %.sroa.0131.sroa.4.0..sroa_idx, align 8
   %.sroa.0131.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 24, ptr %.sroa.0131.sroa.5.0..sroa_idx, align 8
   %.sroa.4132.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -12486,13 +12486,13 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %644 = add nuw nsw i64 %.011.i.i402, 1
   %exitcond.not.i.i403 = icmp eq i64 %644, %636
-  br i1 %exitcond.not.i.i403, label %.loopexit542, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i401"
+  br i1 %exitcond.not.i.i403, label %.lr.ph581, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i401"
 
-.loopexit542:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i401", %.loopexit543
+.loopexit542:                                     ; preds = %.loopexit543
   %645 = icmp eq i64 %634, 0
   br i1 %645, label %select.unfold, label %.lr.ph581
 
-.lr.ph581:                                        ; preds = %.loopexit542
+.lr.ph581:                                        ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17heb045fa7a34919e9E.exit10.i.i401", %.loopexit542
   %646 = ptrtoint ptr %637 to i64
   br label %647
 

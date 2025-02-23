@@ -53626,7 +53626,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.i:            ; preds = %7
   br label %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i
 
 _ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i: ; preds = %.loopexit.i.i, %14
-  tail call void @_ZdlPvm(ptr noundef %12, i64 noundef 40) #36
+  tail call void @_ZdlPvm(ptr noundef nonnull %12, i64 noundef 40) #36
   br label %_ZN5QHashI7QString5QListIS0_EED2Ev.exit
 
 _ZN5QHashI7QString5QListIS0_EED2Ev.exit:          ; preds = %1, %7, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %11, %_ZN12QHashPrivate4DataINS_4NodeI7QString5QListIS2_EEEED2Ev.exit.i

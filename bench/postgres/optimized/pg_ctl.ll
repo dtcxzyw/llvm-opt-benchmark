@@ -1451,7 +1451,7 @@ unlimit_core_size.exit:                           ; preds = %59, %61, %64
 
 start_postmaster.exit:                            ; preds = %75
   %.b = load i1, ptr @do_wait, align 1
-  br i1 %.b, label %179, label %93
+  br i1 %.b, label %180, label %93
 
 93:                                               ; preds = %start_postmaster.exit
   store volatile i32 %71, ptr @postmasterPID, align 4
@@ -1472,8 +1472,8 @@ print_msg.exit:                                   ; preds = %93, %94
   %101 = icmp sgt i32 %100, 0
   br i1 %101, label %.lr.ph.i, label %.loopexit31
 
-.lr.ph.i:                                         ; preds = %print_msg.exit, %156
-  %.02851.i = phi i32 [ %157, %156 ], [ 0, %print_msg.exit ]
+.lr.ph.i:                                         ; preds = %print_msg.exit, %157
+  %.02851.i = phi i32 [ %158, %157 ], [ 0, %print_msg.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
   %102 = call fastcc ptr @readfile(ptr noundef nonnull @pid_file, ptr noundef %2)
   %103 = icmp ne ptr %102, null
@@ -1578,33 +1578,33 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   %148 = icmp eq i32 %147, 2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  br i1 %148, label %169, label %177
+  br i1 %148, label %170, label %178
 
 149:                                              ; preds = %free_readfile.exit38.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
-  %.urem.i = urem i32 %.02851.i, 10
-  %150 = icmp eq i32 %.urem.i, 0
-  br i1 %150, label %151, label %156
+  %150 = urem i32 %.02851.i, 10
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %152, label %157
 
-151:                                              ; preds = %149
+152:                                              ; preds = %149
   %.b1.i.i = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i.i, label %156, label %152
+  br i1 %.b1.i.i, label %157, label %153
 
-152:                                              ; preds = %151
-  %153 = load ptr, ptr @stdout, align 8
-  %fputc.i = call i32 @fputc(i32 46, ptr %153)
+153:                                              ; preds = %152
   %154 = load ptr, ptr @stdout, align 8
-  %155 = call i32 @fflush(ptr noundef %154)
-  br label %156
+  %fputc.i = call i32 @fputc(i32 46, ptr %154)
+  %155 = load ptr, ptr @stdout, align 8
+  %156 = call i32 @fflush(ptr noundef %155)
+  br label %157
 
-156:                                              ; preds = %152, %151, %149
+157:                                              ; preds = %153, %152, %149
   call void @pg_usleep(i64 noundef 100000) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #17
-  %157 = add nuw nsw i32 %.02851.i, 1
-  %158 = load i32, ptr @wait_seconds, align 4
-  %159 = mul i32 %158, 10
-  %160 = icmp slt i32 %157, %159
-  br i1 %160, label %.lr.ph.i, label %.loopexit31, !llvm.loop !10
+  %158 = add nuw nsw i32 %.02851.i, 1
+  %159 = load i32, ptr @wait_seconds, align 4
+  %160 = mul i32 %159, 10
+  %161 = icmp slt i32 %158, %160
+  br i1 %161, label %.lr.ph.i, label %.loopexit31, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph.i.i11, %.preheader.i.i9
   call void @free(ptr noundef nonnull %102) #17
@@ -1613,64 +1613,64 @@ free_readfile.exit38.i:                           ; preds = %._crit_edge.i37.i, 
   br i1 %.b1.i14, label %print_msg.exit17, label %print_msg.exit15
 
 print_msg.exit15:                                 ; preds = %.loopexit
-  %161 = load ptr, ptr @stdout, align 8
-  %162 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %161)
-  %163 = load ptr, ptr @stdout, align 8
-  %164 = call i32 @fflush(ptr noundef %163)
+  %162 = load ptr, ptr @stdout, align 8
+  %163 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %162)
+  %164 = load ptr, ptr @stdout, align 8
+  %165 = call i32 @fflush(ptr noundef %164)
   %.b1.i16.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i16.pr, label %print_msg.exit17, label %165
+  br i1 %.b1.i16.pr, label %print_msg.exit17, label %166
 
-165:                                              ; preds = %print_msg.exit15
-  %166 = load ptr, ptr @stdout, align 8
-  %167 = call i64 @fwrite(ptr nonnull @.str.126, i64 15, i64 1, ptr %166)
+166:                                              ; preds = %print_msg.exit15
+  %167 = load ptr, ptr @stdout, align 8
+  %168 = call i64 @fwrite(ptr nonnull @.str.126, i64 15, i64 1, ptr %167)
   br label %print_msg.exit17.sink.split
 
-.loopexit31:                                      ; preds = %156, %print_msg.exit
+.loopexit31:                                      ; preds = %157, %print_msg.exit
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
-  %168 = load ptr, ptr @progname, align 8
-  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.128, ptr noundef %168)
+  %169 = load ptr, ptr @progname, align 8
+  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.128, ptr noundef %169)
   call void @exit(i32 noundef 1) #20
   unreachable
 
-169:                                              ; preds = %.thread43.i
+170:                                              ; preds = %.thread43.i
   %.b1.i18 = load i1, ptr @silent_mode, align 1
   br i1 %.b1.i18, label %print_msg.exit17, label %print_msg.exit19
 
-print_msg.exit19:                                 ; preds = %169
-  %170 = load ptr, ptr @stdout, align 8
-  %171 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %170)
-  %172 = load ptr, ptr @stdout, align 8
-  %173 = call i32 @fflush(ptr noundef %172)
+print_msg.exit19:                                 ; preds = %170
+  %171 = load ptr, ptr @stdout, align 8
+  %172 = call i64 @fwrite(ptr nonnull @.str.125, i64 6, i64 1, ptr %171)
+  %173 = load ptr, ptr @stdout, align 8
+  %174 = call i32 @fflush(ptr noundef %173)
   %.b1.i20.pr = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i20.pr, label %print_msg.exit17, label %174
+  br i1 %.b1.i20.pr, label %print_msg.exit17, label %175
 
-174:                                              ; preds = %print_msg.exit19
-  %175 = load ptr, ptr @stdout, align 8
-  %176 = call i64 @fwrite(ptr nonnull @.str.129, i64 53, i64 1, ptr %175)
+175:                                              ; preds = %print_msg.exit19
+  %176 = load ptr, ptr @stdout, align 8
+  %177 = call i64 @fwrite(ptr nonnull @.str.129, i64 53, i64 1, ptr %176)
   br label %print_msg.exit17.sink.split
 
-177:                                              ; preds = %.thread43.i
+178:                                              ; preds = %.thread43.i
   call fastcc void @print_msg(ptr noundef nonnull @.str.127)
-  %178 = load ptr, ptr @progname, align 8
-  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.130, ptr noundef %178)
+  %179 = load ptr, ptr @progname, align 8
+  call void (ptr, ...) @write_stderr(ptr noundef nonnull @.str.130, ptr noundef %179)
   call void @exit(i32 noundef 1) #20
   unreachable
 
-179:                                              ; preds = %start_postmaster.exit
+180:                                              ; preds = %start_postmaster.exit
   %.b1.i22 = load i1, ptr @silent_mode, align 1
-  br i1 %.b1.i22, label %print_msg.exit17, label %180
+  br i1 %.b1.i22, label %print_msg.exit17, label %181
 
-180:                                              ; preds = %179
-  %181 = load ptr, ptr @stdout, align 8
-  %182 = call i64 @fwrite(ptr nonnull @.str.131, i64 16, i64 1, ptr %181)
+181:                                              ; preds = %180
+  %182 = load ptr, ptr @stdout, align 8
+  %183 = call i64 @fwrite(ptr nonnull @.str.131, i64 16, i64 1, ptr %182)
   br label %print_msg.exit17.sink.split
 
-print_msg.exit17.sink.split:                      ; preds = %165, %174, %180
-  %183 = load ptr, ptr @stdout, align 8
-  %184 = call i32 @fflush(ptr noundef %183)
+print_msg.exit17.sink.split:                      ; preds = %166, %175, %181
+  %184 = load ptr, ptr @stdout, align 8
+  %185 = call i32 @fflush(ptr noundef %184)
   br label %print_msg.exit17
 
-print_msg.exit17:                                 ; preds = %print_msg.exit17.sink.split, %169, %.loopexit, %179, %print_msg.exit19, %print_msg.exit15
+print_msg.exit17:                                 ; preds = %print_msg.exit17.sink.split, %170, %.loopexit, %180, %print_msg.exit19, %print_msg.exit15
   ret void
 }
 

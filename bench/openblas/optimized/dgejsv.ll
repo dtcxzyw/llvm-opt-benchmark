@@ -2070,7 +2070,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1011 = sext i32 %1010 to i64
   %1012 = getelementptr double, ptr %44, i64 %1011
   %1013 = getelementptr i8, ptr %1012, i64 8
-  call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1013, ptr noundef nonnull %16, ptr noundef nonnull %18) #7
+  call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %1013, ptr noundef nonnull %16, ptr noundef nonnull %18) #7
   %1014 = load i32, ptr %7, align 4, !tbaa !3
   %1015 = sext i32 %1014 to i64
   %1016 = getelementptr double, ptr %44, i64 %1015
@@ -2170,11 +2170,11 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %.not2182.not, label %.lr.ph2570, label %._crit_edge2571, !llvm.loop !36
 
 ._crit_edge2571:                                  ; preds = %.lr.ph2570, %1060
-  call void @dlacpy_(ptr noundef nonnull @.str.24, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %13, ptr noundef nonnull %14) #7
+  call void @dlacpy_(ptr noundef nonnull @.str.24, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %13, ptr noundef nonnull %14) #7
   br i1 %.01926.shrunk, label %1074, label %.loopexit2346
 
 1074:                                             ; preds = %._crit_edge2571
-  call void @dlacpy_(ptr noundef nonnull @.str.24, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef %13, ptr noundef nonnull %14, ptr noundef %11, ptr noundef nonnull %12) #7
+  call void @dlacpy_(ptr noundef nonnull @.str.24, ptr noundef nonnull %7, ptr noundef nonnull %7, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef %11, ptr noundef nonnull %12) #7
   br label %.loopexit2346
 
 1075:                                             ; preds = %932
@@ -2286,7 +2286,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1130 = sext i32 %1128 to i64
   %1131 = getelementptr double, ptr %44, i64 %1130
   %1132 = getelementptr i8, ptr %1131, i64 8
-  call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef %11, ptr noundef nonnull %12, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %1132, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
+  call void @dgesvj_(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef nonnull %31, ptr noundef nonnull %31, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef %10, ptr noundef nonnull %31, ptr noundef %8, ptr noundef nonnull %9, ptr noundef %1132, ptr noundef nonnull %20, ptr noundef nonnull %18) #7
   %1133 = load i32, ptr %7, align 4, !tbaa !3
   %1134 = sext i32 %1133 to i64
   %1135 = getelementptr double, ptr %44, i64 %1134
@@ -2323,7 +2323,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1156 = add i32 %1155, %1150
   %1157 = sext i32 %1156 to i64
   %1158 = getelementptr inbounds double, ptr %40, i64 %1157
-  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef %1158, ptr noundef nonnull %12) #7
+  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %31, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b34, ptr noundef nonnull %1158, ptr noundef nonnull %12) #7
   %1159 = load i32, ptr %31, align 4, !tbaa !3
   %1160 = load i32, ptr %28, align 4, !tbaa !3
   %1161 = icmp slt i32 %1159, %1160
@@ -2349,7 +2349,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %1175 = mul i32 %1174, %1155
   %1176 = sext i32 %1175 to i64
   %1177 = getelementptr inbounds double, ptr %40, i64 %1176
-  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef %1177, ptr noundef nonnull %12) #7
+  call void @dlaset_(ptr noundef nonnull @.str.6, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @c_b34, ptr noundef nonnull @c_b35, ptr noundef nonnull %1177, ptr noundef nonnull %12) #7
   br label %1178
 
 1178:                                             ; preds = %1153, %1162, %1148
@@ -3740,12 +3740,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv3171 = phi i64 [ 1, %.lr.ph2844.preheader ], [ %indvars.iv.next3172, %1965 ]
   %1935 = load i32, ptr %7, align 4, !tbaa !3
   %.not22322823 = icmp slt i32 %1935, 1
-  br i1 %.not22322823, label %._crit_edge2827.thread, label %.lr.ph2826
-
-._crit_edge2827.thread:                           ; preds = %.lr.ph2844
-  store i32 %1935, ptr %21, align 4, !tbaa !3
-  %.pre3244 = mul nsw i64 %indvars.iv3171, %1934
-  br label %._crit_edge2835
+  br i1 %.not22322823, label %._crit_edge2827.._crit_edge2835_crit_edge, label %.lr.ph2826
 
 .lr.ph2826:                                       ; preds = %.lr.ph2844
   %1936 = mul nsw i64 %indvars.iv3171, %1934
@@ -3770,9 +3765,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %1942, ptr %1946, align 8, !tbaa !7
   %indvars.iv.next3162 = add nuw nsw i64 %indvars.iv3161, 1
   %exitcond3165.not = icmp eq i64 %indvars.iv.next3162, %wide.trip.count3164
-  br i1 %exitcond3165.not, label %._crit_edge2827, label %1941, !llvm.loop !63
+  br i1 %exitcond3165.not, label %.lr.ph2834, label %1941, !llvm.loop !63
 
-._crit_edge2827:                                  ; preds = %1941
+._crit_edge2827.._crit_edge2835_crit_edge:        ; preds = %.lr.ph2844
+  store i32 %1935, ptr %21, align 4, !tbaa !3
+  %.pre3244 = mul nsw i64 %indvars.iv3171, %1934
+  br label %._crit_edge2835
+
+.lr.ph2834:                                       ; preds = %1941
   store i32 %1935, ptr %21, align 4, !tbaa !3
   %1947 = load i32, ptr %31, align 4, !tbaa !3
   %1948 = add i32 %1947, 2
@@ -3784,8 +3784,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %invariant.gep3363 = getelementptr double, ptr %43, i64 %1950
   br label %1952
 
-1952:                                             ; preds = %._crit_edge2827, %1952
-  %indvars.iv3166 = phi i64 [ 1, %._crit_edge2827 ], [ %indvars.iv.next3167, %1952 ]
+1952:                                             ; preds = %.lr.ph2834, %1952
+  %indvars.iv3166 = phi i64 [ 1, %.lr.ph2834 ], [ %indvars.iv.next3167, %1952 ]
   %1953 = trunc nuw nsw i64 %indvars.iv3166 to i32
   %.reass2838 = add i32 %invariant.op2837, %1953
   %1954 = sext i32 %.reass2838 to i64
@@ -3797,9 +3797,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %exitcond3170.not = icmp eq i64 %indvars.iv.next3167, %wide.trip.count3169
   br i1 %exitcond3170.not, label %._crit_edge2835, label %1952, !llvm.loop !64
 
-._crit_edge2835:                                  ; preds = %1952, %._crit_edge2827.thread
-  %.pre-phi3245 = phi i64 [ %.pre3244, %._crit_edge2827.thread ], [ %1950, %1952 ]
-  %storemerge2233.lcssa = phi i32 [ 1, %._crit_edge2827.thread ], [ %1951, %1952 ]
+._crit_edge2835:                                  ; preds = %1952, %._crit_edge2827.._crit_edge2835_crit_edge
+  %.pre-phi3245 = phi i64 [ %.pre3244, %._crit_edge2827.._crit_edge2835_crit_edge ], [ %1950, %1952 ]
+  %storemerge2233.lcssa = phi i32 [ 1, %._crit_edge2827.._crit_edge2835_crit_edge ], [ %1951, %1952 ]
   store i32 %storemerge2233.lcssa, ptr %27, align 4, !tbaa !3
   %gep2840 = getelementptr double, ptr %invariant.gep2839, i64 %.pre-phi3245
   %1957 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %gep2840, ptr noundef nonnull @c__1) #7
@@ -4669,12 +4669,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv3067 = phi i64 [ 1, %.lr.ph2646.preheader ], [ %indvars.iv.next3068, %2452 ]
   %2422 = load i32, ptr %7, align 4, !tbaa !3
   %.not22692624 = icmp slt i32 %2422, 1
-  br i1 %.not22692624, label %._crit_edge2628.thread, label %.lr.ph2627
-
-._crit_edge2628.thread:                           ; preds = %.lr.ph2646
-  store i32 %2422, ptr %21, align 4, !tbaa !3
-  %.pre3248 = mul nsw i64 %indvars.iv3067, %2421
-  br label %._crit_edge2637
+  br i1 %.not22692624, label %._crit_edge2628.._crit_edge2637_crit_edge, label %.lr.ph2627
 
 .lr.ph2627:                                       ; preds = %.lr.ph2646
   %2423 = mul nsw i64 %indvars.iv3067, %2421
@@ -4699,9 +4694,14 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %2429, ptr %2433, align 8, !tbaa !7
   %indvars.iv.next3058 = add nuw nsw i64 %indvars.iv3057, 1
   %exitcond3061.not = icmp eq i64 %indvars.iv.next3058, %wide.trip.count3060
-  br i1 %exitcond3061.not, label %._crit_edge2628, label %2428, !llvm.loop !79
+  br i1 %exitcond3061.not, label %.lr.ph2636, label %2428, !llvm.loop !79
 
-._crit_edge2628:                                  ; preds = %2428
+._crit_edge2628.._crit_edge2637_crit_edge:        ; preds = %.lr.ph2646
+  store i32 %2422, ptr %21, align 4, !tbaa !3
+  %.pre3248 = mul nsw i64 %indvars.iv3067, %2421
+  br label %._crit_edge2637
+
+.lr.ph2636:                                       ; preds = %2428
   store i32 %2422, ptr %21, align 4, !tbaa !3
   %2434 = load i32, ptr %31, align 4, !tbaa !3
   %2435 = add i32 %2434, 2
@@ -4713,8 +4713,8 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %invariant.gep3333 = getelementptr double, ptr %43, i64 %2437
   br label %2439
 
-2439:                                             ; preds = %._crit_edge2628, %2439
-  %indvars.iv3062 = phi i64 [ 1, %._crit_edge2628 ], [ %indvars.iv.next3063, %2439 ]
+2439:                                             ; preds = %.lr.ph2636, %2439
+  %indvars.iv3062 = phi i64 [ 1, %.lr.ph2636 ], [ %indvars.iv.next3063, %2439 ]
   %2440 = trunc nuw nsw i64 %indvars.iv3062 to i32
   %.reass2640 = add i32 %invariant.op2639, %2440
   %2441 = sext i32 %.reass2640 to i64
@@ -4726,9 +4726,9 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %exitcond3066.not = icmp eq i64 %indvars.iv.next3063, %wide.trip.count3065
   br i1 %exitcond3066.not, label %._crit_edge2637, label %2439, !llvm.loop !80
 
-._crit_edge2637:                                  ; preds = %2439, %._crit_edge2628.thread
-  %.pre-phi3249 = phi i64 [ %.pre3248, %._crit_edge2628.thread ], [ %2437, %2439 ]
-  %storemerge2270.lcssa = phi i32 [ 1, %._crit_edge2628.thread ], [ %2438, %2439 ]
+._crit_edge2637:                                  ; preds = %2439, %._crit_edge2628.._crit_edge2637_crit_edge
+  %.pre-phi3249 = phi i64 [ %.pre3248, %._crit_edge2628.._crit_edge2637_crit_edge ], [ %2437, %2439 ]
+  %storemerge2270.lcssa = phi i32 [ 1, %._crit_edge2628.._crit_edge2637_crit_edge ], [ %2438, %2439 ]
   store i32 %storemerge2270.lcssa, ptr %27, align 4, !tbaa !3
   %gep2642 = getelementptr double, ptr %invariant.gep2641, i64 %.pre-phi3249
   %2444 = call double @dnrm2_(ptr noundef nonnull %7, ptr noundef %gep2642, ptr noundef nonnull @c__1) #7

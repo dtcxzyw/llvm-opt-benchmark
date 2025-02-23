@@ -507,7 +507,7 @@ agnewsym.exit95.i:                                ; preds = %156, %154
   call void @addattr(ptr noundef %.010, ptr noundef nonnull %.081108.i, ptr noundef nonnull %145)
   %166 = call ptr @agnxtnode(ptr noundef %19, ptr noundef nonnull %.081108.i) #12
   %.not88.i = icmp eq ptr %166, null
-  br i1 %.not88.i, label %.loopexit.i, label %.lr.ph110.i, !llvm.loop !41
+  br i1 %.not88.i, label %setattr.exit, label %.lr.ph110.i, !llvm.loop !41
 
 167:                                              ; preds = %agnewsym.exit95.i, %agnewsym.exit95.i
   %168 = call ptr @agfstnode(ptr noundef %19) #12
@@ -588,8 +588,8 @@ addattr.exit.i:                                   ; preds = %192, %190
   call void @abort() #18
   unreachable
 
-.loopexit.i:                                      ; preds = %._crit_edge.i, %.lr.ph110.i, %agnewsym.exit.i, %104
-  %.082.i = phi ptr [ %36, %104 ], [ %113, %agnewsym.exit.i ], [ %145, %.lr.ph110.i ], [ %145, %._crit_edge.i ]
+.loopexit.i:                                      ; preds = %._crit_edge.i, %agnewsym.exit.i, %104
+  %.082.i = phi ptr [ %36, %104 ], [ %113, %agnewsym.exit.i ], [ %145, %._crit_edge.i ]
   %204 = icmp eq i32 %1, 0
   br i1 %204, label %205, label %setattr.exit
 
@@ -598,8 +598,8 @@ addattr.exit.i:                                   ; preds = %192, %190
   call fastcc void @agxset_(ptr noundef %.010, ptr noundef nonnull %.08299.i, ptr noundef nonnull %3, i1 noundef zeroext %4)
   br label %setattr.exit
 
-setattr.exit:                                     ; preds = %164, %167, %.loopexit.i, %205
-  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %167 ], [ %145, %164 ]
+setattr.exit:                                     ; preds = %.lr.ph110.i, %164, %167, %.loopexit.i, %205
+  %.08298.i = phi ptr [ %.08299.i, %205 ], [ %.082.i, %.loopexit.i ], [ %145, %167 ], [ %145, %164 ], [ %145, %.lr.ph110.i ]
   call void @agmethod_upd(ptr noundef %.010, ptr noundef %.010, ptr noundef %.08298.i) #12
   br label %getattr.exit
 

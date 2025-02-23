@@ -64878,7 +64878,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %inv
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %adapter.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp.i)
   %call7 = invoke noundef zeroext i1 @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEE9sax_parseINS1_19json_sax_dom_parserISF_EEEEbPT_b(ptr noundef nonnull align 8 dereferenceable(193) %ref.tmp, ptr noundef %sax, i1 noundef zeroext %strict)
-          to label %cleanup.action18 unwind label %ehcleanup.thread
+          to label %cleanup.action18 unwind label %cleanup.action21
 
 cond.false:                                       ; preds = %entry
   call void @_ZN8nlohmann16json_abi_v3_11_36detail13binary_readerINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEENS1_19json_sax_dom_parserISF_EEEC2EOSM_NS1_14input_format_tE(ptr noundef nonnull align 8 dereferenceable(520) %ref.tmp8, ptr noundef nonnull align 8 dereferenceable(16) %ia, i32 noundef %format) #29
@@ -64947,14 +64947,8 @@ cleanup.done25:                                   ; preds = %arraydestroy.body.i
   %cond28 = phi i1 [ %call7, %_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEED2Ev.exit ], [ %call7, %if.then.i.i13 ], [ %call13, %arraydestroy.body.i.i ]
   ret i1 %cond28
 
-ehcleanup.thread:                                 ; preds = %invoke.cont
-  %16 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %ref.tmp) #29
-  br label %cleanup.action28
-
 lpad11:                                           ; preds = %cond.false
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   %invariant.gep.i14 = getelementptr i8, ptr %ref.tmp8, i64 -32
   br label %arraydestroy.body.i.i15
@@ -64967,8 +64961,14 @@ arraydestroy.body.i.i15:                          ; preds = %arraydestroy.body.i
   %arraydestroy.done.i.i19 = icmp eq i64 %arraydestroy.elementPast.i.add.i17, 80
   br i1 %arraydestroy.done.i.i19, label %eh.resume, label %arraydestroy.body.i.i15
 
-cleanup.action28:                                 ; preds = %ehcleanup.thread, %lpad.i, %if.then.i.i4.i
-  %.pn.pn.ph = phi { ptr, i32 } [ %5, %lpad.i ], [ %5, %if.then.i.i4.i ], [ %16, %ehcleanup.thread ]
+cleanup.action21:                                 ; preds = %invoke.cont
+  %17 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail6parserINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEENS1_22iterator_input_adapterIN9__gnu_cxx17__normal_iteratorIPKcSB_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(193) %ref.tmp) #29
+  br label %cleanup.action28
+
+cleanup.action28:                                 ; preds = %cleanup.action21, %lpad.i, %if.then.i.i4.i
+  %.pn.pn.ph = phi { ptr, i32 } [ %5, %lpad.i ], [ %5, %if.then.i.i4.i ], [ %17, %cleanup.action21 ]
   %18 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i22 = icmp eq ptr %18, null
   br i1 %tobool.not.i.i22, label %eh.resume, label %if.then.i.i23
@@ -64985,7 +64985,7 @@ terminate.lpad.i.i25:                             ; preds = %if.then.i.i23
   unreachable
 
 eh.resume:                                        ; preds = %arraydestroy.body.i.i15, %if.then.i.i23, %cleanup.action28
-  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn.ph, %cleanup.action28 ], [ %.pn.pn.ph, %if.then.i.i23 ], [ %17, %arraydestroy.body.i.i15 ]
+  %.pn.pn34 = phi { ptr, i32 } [ %.pn.pn.ph, %cleanup.action28 ], [ %.pn.pn.ph, %if.then.i.i23 ], [ %16, %arraydestroy.body.i.i15 ]
   resume { ptr, i32 } %.pn.pn34
 }
 

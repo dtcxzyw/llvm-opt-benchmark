@@ -5554,6 +5554,7 @@ _ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2
 thread-pre-split:                                 ; preds = %_ZNK5draco7VectorDIiLi2EEmiERKS1_.exit.critedge, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit
   %40 = phi i32 [ %39, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit ], [ %10, %_ZNK5draco7VectorDIiLi2EEmiERKS1_.exit.critedge ]
   %41 = phi i32 [ %38, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit ], [ %7, %_ZNK5draco7VectorDIiLi2EEmiERKS1_.exit.critedge ]
+  %.fr96 = freeze i32 %40
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %45, label %43
 
@@ -5562,43 +5563,53 @@ thread-pre-split:                                 ; preds = %_ZNK5draco7VectorDI
   br i1 %44, label %49, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread
 
 45:                                               ; preds = %thread-pre-split
-  %46 = icmp eq i32 %40, 0
+  %46 = icmp eq i32 %.fr96, 0
   br i1 %46, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit, label %47
 
 47:                                               ; preds = %45
-  %.inv11.i = icmp slt i32 %40, 1
-  br i1 %.inv11.i, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110
+  %.inv11.i = icmp slt i32 %.fr96, 1
+  %..i = select i1 %.inv11.i, i32 1, i32 3
+  br label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread: ; preds = %43
-  %48 = icmp sgt i32 %40, -1
-  br i1 %48, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100
+  %48 = icmp sgt i32 %.fr96, -1
+  %.9.i = select i1 %48, i32 2, i32 1
+  br label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
 
 49:                                               ; preds = %43
-  %50 = icmp slt i32 %40, 1
-  %.inv.i = icmp sgt i32 %40, 0
-  %.10.i.neg = select i1 %.inv.i, i32 -3, i32 0
-  br i1 %50, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110
+  %50 = icmp slt i32 %.fr96, 1
+  %.inv.i = icmp sgt i32 %.fr96, 0
+  %.10.i = select i1 %.inv.i, i32 3, i32 0
+  br i1 %50, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
 
-_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100: ; preds = %47, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread
-  %51 = sub nsw i32 0, %41
-  br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
+_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge: ; preds = %47, %49, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread
+  %.0.i8.fr92 = phi i32 [ %.9.i, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread ], [ %..i, %47 ], [ %.10.i, %49 ]
+  switch i32 %.0.i8.fr92, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.unreachabledefault [
+    i32 1, label %51
+    i32 2, label %53
+    i32 3, label %56
+    i32 0, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
+  ]
 
-_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105: ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit.thread
+51:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
   %52 = sub nsw i32 0, %41
-  %53 = sub nsw i32 0, %40
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
 
-_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110: ; preds = %49, %47
-  %54 = sub nsw i32 0, %40
+53:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
+  %54 = sub nsw i32 0, %41
+  %55 = sub nsw i32 0, %.fr96
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
 
-default.unreachable:                              ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+56:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
+  %57 = sub nsw i32 0, %.fr96
+  br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
+
+_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.unreachabledefault: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge
   unreachable
 
-_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110
-  %.0.i89195.neg = phi i32 [ -3, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110 ], [ -2, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105 ], [ -1, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100 ]
-  %.sroa.750.0 = phi i32 [ %41, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110 ], [ %53, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105 ], [ %51, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100 ]
-  %.sroa.049.0 = phi i32 [ %54, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread110 ], [ %52, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread105 ], [ %40, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge.thread100 ]
+_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit: ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge, %51, %53, %56
+  %.sroa.750.0 = phi i32 [ %41, %56 ], [ %55, %53 ], [ %52, %51 ], [ %.fr96, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
+  %.sroa.049.0 = phi i32 [ %57, %56 ], [ %54, %53 ], [ %.fr96, %51 ], [ %41, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit10.critedge ]
   %.sroa.750.0.insert.ext = zext i32 %.sroa.750.0 to i64
   %.sroa.750.0.insert.shift = shl nuw i64 %.sroa.750.0.insert.ext, 32
   %.sroa.049.0.insert.ext = zext i32 %.sroa.049.0 to i64
@@ -5607,140 +5618,142 @@ _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11Rotat
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
 
 _ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit: ; preds = %45, %49, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit
-  %.0.i892.neg = phi i32 [ %.0.i89195.neg, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %.10.i.neg, %49 ], [ 0, %45 ]
-  %.0.i8390 = phi i1 [ false, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ true, %49 ], [ true, %45 ]
-  %55 = phi i32 [ %.sroa.750.0, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %40, %49 ], [ 0, %45 ]
-  %56 = phi i32 [ %.sroa.049.0, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %41, %49 ], [ 0, %45 ]
-  %57 = load i32, ptr %3, align 4, !tbaa !152
-  %58 = add i32 %57, %56
-  %59 = load i32, ptr %4, align 4, !tbaa !60
-  %60 = icmp sgt i32 %58, %59
-  br i1 %60, label %61, label %65
+  %.0.i8.fr93 = phi i32 [ %.0.i8.fr92, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %.10.i, %49 ], [ 0, %45 ]
+  %.0.i8391 = phi i1 [ false, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ true, %49 ], [ true, %45 ]
+  %58 = phi i32 [ %.sroa.750.0, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %.fr96, %49 ], [ 0, %45 ]
+  %59 = phi i32 [ %.sroa.049.0, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit ], [ %41, %49 ], [ 0, %45 ]
+  %60 = load i32, ptr %3, align 4, !tbaa !152
+  %61 = add i32 %60, %59
+  %62 = load i32, ptr %4, align 4, !tbaa !60
+  %63 = icmp sgt i32 %61, %62
+  br i1 %63, label %64, label %68
 
-61:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %63 = load i32, ptr %62, align 4, !tbaa !57
-  %64 = sub nsw i32 %58, %63
+64:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %66 = load i32, ptr %65, align 4, !tbaa !57
+  %67 = sub nsw i32 %61, %66
   br label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
 
-65:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
-  %66 = sub nsw i32 0, %59
-  %67 = icmp slt i32 %58, %66
-  br i1 %67, label %68, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
+68:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE16GetRotationCountENS_7VectorDIiLi2EEE.exit
+  %69 = sub nsw i32 0, %62
+  %70 = icmp slt i32 %61, %69
+  br i1 %70, label %71, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %70 = load i32, ptr %69, align 4, !tbaa !57
-  %71 = add nsw i32 %70, %58
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !57
+  %74 = add nsw i32 %73, %61
   br label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
 
-_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit: ; preds = %61, %65, %68
-  %72 = phi i32 [ %64, %61 ], [ %71, %68 ], [ %58, %65 ]
-  %73 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %74 = load i32, ptr %73, align 4, !tbaa !152
-  %75 = add i32 %74, %55
-  %76 = icmp sgt i32 %75, %59
-  br i1 %76, label %77, label %81
+_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit: ; preds = %64, %68, %71
+  %75 = phi i32 [ %67, %64 ], [ %74, %71 ], [ %61, %68 ]
+  %76 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %77 = load i32, ptr %76, align 4, !tbaa !152
+  %78 = add i32 %77, %58
+  %79 = icmp sgt i32 %78, %62
+  br i1 %79, label %80, label %84
 
-77:                                               ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %79 = load i32, ptr %78, align 4, !tbaa !57
-  %80 = sub nsw i32 %75, %79
+80:                                               ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %82 = load i32, ptr %81, align 4, !tbaa !57
+  %83 = sub nsw i32 %78, %82
   br label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
 
-81:                                               ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
-  %82 = sub nsw i32 0, %59
-  %83 = icmp slt i32 %75, %82
-  br i1 %83, label %84, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
+84:                                               ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit
+  %85 = sub nsw i32 0, %62
+  %86 = icmp slt i32 %78, %85
+  br i1 %86, label %87, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
 
-84:                                               ; preds = %81
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !57
-  %87 = add nsw i32 %86, %75
+87:                                               ; preds = %84
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %89 = load i32, ptr %88, align 4, !tbaa !57
+  %90 = add nsw i32 %89, %78
   br label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
 
-_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13: ; preds = %77, %81, %84
-  %88 = phi i32 [ %80, %77 ], [ %87, %84 ], [ %75, %81 ]
-  br i1 %.0.i8390, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13: ; preds = %80, %84, %87
+  %91 = phi i32 [ %83, %80 ], [ %90, %87 ], [ %78, %84 ]
+  br i1 %.0.i8391, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17, label %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
 
 _ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge: ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
-  %89 = and i32 %.0.i892.neg, 3
-  switch i32 %89, label %default.unreachable [
-    i32 1, label %90
-    i32 2, label %92
-    i32 3, label %95
-    i32 0, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
+  %92 = sub nsw i32 4, %.0.i8.fr93
+  %.urem = sub nsw i32 0, %.0.i8.fr93
+  %.cmp = icmp ult i32 %92, 4
+  %93 = select i1 %.cmp, i32 %92, i32 %.urem
+  switch i32 %93, label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 [
+    i32 1, label %94
+    i32 2, label %96
+    i32 3, label %99
   ]
 
-90:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
-  %91 = sub nsw i32 0, %72
+94:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+  %95 = sub nsw i32 0, %75
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
 
-92:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
-  %93 = sub nsw i32 0, %72
-  %94 = sub nsw i32 0, %88
+96:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+  %97 = sub nsw i32 0, %75
+  %98 = sub nsw i32 0, %91
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
 
-95:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
-  %96 = sub nsw i32 0, %88
+99:                                               ; preds = %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge
+  %100 = sub nsw i32 0, %91
   br label %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
 
-_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17: ; preds = %95, %92, %90, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
-  %97 = phi i32 [ %88, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %72, %95 ], [ %94, %92 ], [ %91, %90 ], [ %88, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
-  %98 = phi i32 [ %72, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %96, %95 ], [ %93, %92 ], [ %88, %90 ], [ %72, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
-  br i1 %.not, label %99, label %_ZNK5draco7VectorDIiLi2EEplERKS1_.exit.critedge
+_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17: ; preds = %99, %96, %94, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13
+  %101 = phi i32 [ %91, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %75, %99 ], [ %98, %96 ], [ %95, %94 ], [ %91, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  %102 = phi i32 [ %75, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE6ModMaxEi.exit13 ], [ %100, %99 ], [ %97, %96 ], [ %91, %94 ], [ %75, %_ZN5draco7VectorDIiLi2EEC2ERKS1_.exit15.critedge ]
+  br i1 %.not, label %103, label %_ZNK5draco7VectorDIiLi2EEplERKS1_.exit.critedge
 
-99:                                               ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
-  %100 = icmp sgt i32 %98, -1
-  br i1 %100, label %101, label %105
+103:                                              ; preds = %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
+  %104 = icmp sgt i32 %102, -1
+  br i1 %104, label %105, label %109
 
-101:                                              ; preds = %99
-  %102 = icmp sgt i32 %97, -1
-  br i1 %102, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, label %103
-
-103:                                              ; preds = %101
-  %104 = icmp eq i32 %98, 0
-  br i1 %104, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, label %107
-
-105:                                              ; preds = %99
-  %106 = icmp slt i32 %97, 1
+105:                                              ; preds = %103
+  %106 = icmp sgt i32 %101, -1
   br i1 %106, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, label %107
 
-107:                                              ; preds = %105, %103
-  %108 = phi i32 [ 1, %103 ], [ -1, %105 ]
-  %.inv22.i.i18 = icmp slt i32 %97, 1
-  %109 = select i1 %.inv22.i.i18, i32 -1, i32 1
+107:                                              ; preds = %105
+  %108 = icmp eq i32 %102, 0
+  br i1 %108, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, label %111
+
+109:                                              ; preds = %103
+  %110 = icmp slt i32 %101, 1
+  br i1 %110, label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, label %111
+
+111:                                              ; preds = %109, %107
+  %112 = phi i32 [ 1, %107 ], [ -1, %109 ]
+  %.inv22.i.i18 = icmp slt i32 %101, 1
+  %113 = select i1 %.inv22.i.i18, i32 -1, i32 1
   br label %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23
 
-_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23: ; preds = %101, %103, %105, %107
-  %.021.i.i19 = phi i32 [ %109, %107 ], [ 1, %101 ], [ -1, %105 ], [ -1, %103 ]
-  %.0.i.i20 = phi i32 [ %108, %107 ], [ 1, %101 ], [ -1, %105 ], [ -1, %103 ]
-  %110 = mul nsw i32 %.0.i.i20, %59
-  %111 = mul nsw i32 %.021.i.i19, %59
-  %112 = shl i32 %98, 1
-  %113 = sub i32 %112, %110
-  %114 = shl i32 %97, 1
-  %115 = sub i32 %114, %111
-  %116 = mul nsw i32 %.0.i.i20, %.021.i.i19
-  %117 = icmp sgt i32 %116, -1
-  %118 = sub i32 0, %115
-  %119 = sub i32 0, %113
-  %.028.i.i21 = select i1 %117, i32 %118, i32 %115
-  %.027.i.i22 = select i1 %117, i32 %119, i32 %113
-  %120 = add i32 %.028.i.i21, %110
-  %121 = add i32 %.027.i.i22, %111
-  %122 = sdiv i32 %120, 2
-  %123 = sdiv i32 %121, 2
+_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23: ; preds = %105, %107, %109, %111
+  %.021.i.i19 = phi i32 [ %113, %111 ], [ 1, %105 ], [ -1, %109 ], [ -1, %107 ]
+  %.0.i.i20 = phi i32 [ %112, %111 ], [ 1, %105 ], [ -1, %109 ], [ -1, %107 ]
+  %114 = mul nsw i32 %.0.i.i20, %62
+  %115 = mul nsw i32 %.021.i.i19, %62
+  %116 = shl i32 %102, 1
+  %117 = sub i32 %116, %114
+  %118 = shl i32 %101, 1
+  %119 = sub i32 %118, %115
+  %120 = mul nsw i32 %.0.i.i20, %.021.i.i19
+  %121 = icmp sgt i32 %120, -1
+  %122 = sub i32 0, %119
+  %123 = sub i32 0, %117
+  %.028.i.i21 = select i1 %121, i32 %122, i32 %119
+  %.027.i.i22 = select i1 %121, i32 %123, i32 %117
+  %124 = add i32 %.028.i.i21, %114
+  %125 = add i32 %.027.i.i22, %115
+  %126 = sdiv i32 %124, 2
+  %127 = sdiv i32 %125, 2
   br label %_ZNK5draco7VectorDIiLi2EEplERKS1_.exit.critedge
 
 _ZNK5draco7VectorDIiLi2EEplERKS1_.exit.critedge:  ; preds = %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17
-  %124 = phi i32 [ %123, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23 ], [ %97, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 ]
-  %125 = phi i32 [ %122, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23 ], [ %98, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 ]
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %127 = add nsw i32 %125, %5
-  %128 = add nsw i32 %124, %5
-  store i32 %127, ptr %0, align 4, !tbaa !159
-  store i32 %128, ptr %126, align 4, !tbaa !159
+  %128 = phi i32 [ %127, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23 ], [ %101, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 ]
+  %129 = phi i32 [ %126, %_ZNK5draco45PredictionSchemeNormalOctahedronTransformBaseIiE13InvertDiamondEPiS2_.exit23 ], [ %102, %_ZNK5draco58PredictionSchemeNormalOctahedronCanonicalizedTransformBaseIiE11RotatePointENS_7VectorDIiLi2EEEi.exit17 ]
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %131 = add nsw i32 %129, %5
+  %132 = add nsw i32 %128, %5
+  store i32 %131, ptr %0, align 4, !tbaa !159
+  store i32 %132, ptr %130, align 4, !tbaa !159
   ret void
 }
 

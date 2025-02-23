@@ -2118,7 +2118,7 @@ Abc_Base10Log.exit.i17:                           ; preds = %.lr.ph.i.i13, %Abc_
   br i1 %60, label %.lr.ph.i19, label %Abc_NtkAddDummyPoNames.exit, !llvm.loop !76
 
 Abc_NtkAddDummyPoNames.exit:                      ; preds = %.lr.ph.i19, %Abc_Base10Log.exit.i17
-  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef %0)
+  tail call void @Abc_NtkAddDummyBoxNames(ptr noundef nonnull %0)
   ret void
 }
 

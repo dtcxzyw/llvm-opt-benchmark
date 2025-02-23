@@ -1490,7 +1490,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone %1, ptr nou
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store float %81, ptr %82, align 4, !tbaa !17
   %indvars.iv.next42.i = add nsw i64 %indvars.iv41.i, -1
-  %83 = icmp sgt i64 %indvars.iv.next42.i, %.2.i69
+  %83 = icmp samesign ugt i64 %indvars.iv.next42.i, %.2.i69
   br i1 %83, label %.lr.ph37.i, label %_add_node.exit
 
 _add_node.exit:                                   ; preds = %.lr.ph37.i, %.thread.._crit_edge38_crit_edge.i
@@ -3517,10 +3517,10 @@ thread-pre-split:                                 ; preds = %29, %38
   %137 = load ptr, ptr %136, align 8, !tbaa !126
   %138 = load i32, ptr %131, align 4, !tbaa !6
   tail call void @dt_bauhaus_combobox_set(ptr noundef %137, i32 noundef %138) #25
-  tail call void @dt_iop_color_picker_reset(ptr noundef %2, i32 noundef 1) #25
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #25
   %139 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !90
   %140 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  tail call void @dt_dev_add_history_item_target(ptr noundef %139, ptr noundef %2, i32 noundef 1, ptr noundef %140) #25
+  tail call void @dt_dev_add_history_item_target(ptr noundef %139, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %140) #25
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %142 = load ptr, ptr %141, align 8, !tbaa !127
   %143 = tail call i64 @gtk_widget_get_type() #26
@@ -3611,10 +3611,10 @@ thread-pre-split:                                 ; preds = %29, %38
   %186 = load i32, ptr %21, align 4, !tbaa !6
   %187 = add nsw i32 %186, -1
   store i32 %187, ptr %21, align 4, !tbaa !6
-  tail call void @dt_iop_color_picker_reset(ptr noundef %2, i32 noundef 1) #25
+  tail call void @dt_iop_color_picker_reset(ptr noundef nonnull %2, i32 noundef 1) #25
   %188 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !90
   %189 = getelementptr inbounds %struct._GtkWidget, ptr %0, i64 %20
-  tail call void @dt_dev_add_history_item_target(ptr noundef %188, ptr noundef %2, i32 noundef 1, ptr noundef %189) #25
+  tail call void @dt_dev_add_history_item_target(ptr noundef %188, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %189) #25
   %190 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %191 = load ptr, ptr %190, align 8, !tbaa !127
   %192 = tail call i64 @gtk_widget_get_type() #26

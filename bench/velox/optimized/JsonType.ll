@@ -59458,24 +59458,24 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 entry:
   %agg.tmp7.i.i1.i = alloca %"struct.std::pair", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i7 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i8 = sub i64 %sub.ptr.lhs.cast.i7, %sub.ptr.rhs.cast.i
-  %cmp9 = icmp sgt i64 %sub.ptr.sub.i8, 384
-  br i1 %cmp9, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i8 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i9 = sub i64 %sub.ptr.lhs.cast.i8, %sub.ptr.rhs.cast.i
+  %cmp10 = icmp sgt i64 %sub.ptr.sub.i9, 384
+  br i1 %cmp10, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i1.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end
-  %sub.ptr.sub.i12 = phi i64 [ %sub.ptr.sub.i8, %while.body.lr.ph ], [ %sub.ptr.sub.i, %if.end ]
-  %__depth_limit.addr.011 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %if.end ]
-  %storemerge10 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %call25.i, %if.end ]
-  %cmp2 = icmp eq i64 %__depth_limit.addr.011, 0
+  %sub.ptr.sub.i13 = phi i64 [ %sub.ptr.sub.i9, %while.body.lr.ph ], [ %sub.ptr.sub.i, %if.end ]
+  %__depth_limit.addr.012 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %if.end ]
+  %storemerge11 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %call25.i, %if.end ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.012, 0
   br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
 if.end.i.i.i:                                     ; preds = %while.body
-  %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i12, 24
+  %sub.ptr.div.i.le = udiv exact i64 %sub.ptr.sub.i13, 24
   %sub.i.i.i = add nsw i64 %sub.ptr.div.i.le, -2
   %div1617.i.i.i = lshr i64 %sub.i.i.i, 1
   br label %while.body.i.i.i
@@ -59493,7 +59493,7 @@ while.body.lr.ph.i.i:                             ; preds = %while.body.i.i.i
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %while.body.lr.ph.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %storemerge10, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i3.i, %while.body.i.i ]
+  %__last.sroa.0.05.i.i = phi ptr [ %storemerge11, %while.body.lr.ph.i.i ], [ %incdec.ptr.i.i3.i, %while.body.i.i ]
   %incdec.ptr.i.i3.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp7.i.i1.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp7.i.i1.i, ptr noundef nonnull align 8 dereferenceable(24) %incdec.ptr.i.i3.i, i64 24, i1 false)
@@ -59510,13 +59510,13 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !293
 
 if.end:                                           ; preds = %while.body
-  %dec = add nsw i64 %__depth_limit.addr.011, -1
-  %div.i = udiv i64 %sub.ptr.sub.i12, 48
+  %dec = add nsw i64 %__depth_limit.addr.012, -1
+  %div.i = udiv i64 %sub.ptr.sub.i13, 48
   %add.ptr.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first.coerce, i64 %div.i
-  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge10, i64 -24
+  %add.ptr.i2.i = getelementptr inbounds i8, ptr %storemerge11, i64 -24
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIN8facebook5velox10StringViewEiESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEEvT_SE_SE_SE_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1.i, ptr %add.ptr.i.i, ptr nonnull %add.ptr.i2.i)
-  %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN8facebook5velox10StringViewEiESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEET_SE_SE_SE_T0_(ptr nonnull %add.ptr.i1.i, ptr %storemerge10, ptr %__first.coerce)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN8facebook5velox10StringViewEiESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr %call25.i, ptr %storemerge10, i64 noundef %dec)
+  %call25.i = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPSt4pairIN8facebook5velox10StringViewEiESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_less_iterEET_SE_SE_SE_T0_(ptr nonnull %add.ptr.i1.i, ptr %storemerge11, ptr %__first.coerce)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIN8facebook5velox10StringViewEiESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr %call25.i, ptr %storemerge11, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call25.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %cmp = icmp sgt i64 %sub.ptr.sub.i, 384
@@ -108306,21 +108306,21 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %arrayidx.i = getelementptr inbounds nuw %"struct.std::pair.906", ptr %9, i64 %idxprom.i
   call void @llvm.prefetch.p0(ptr %arrayidx.i, i32 0, i32 3, i32 1)
   %cmp.i.not = icmp eq i32 %piter.sroa.0.1, 0
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end.thread, label %for.body
 
 lpad10:                                           ; preds = %if.end
   %12 = landingpad { ptr, i32 }
           cleanup
   br i1 %cmp.not, label %invoke.cont5.i.i.i142, label %eh.resume
 
-for.end:                                          ; preds = %for.body
-  %cmp29 = icmp ult i8 %8, 16
+for.end.thread:                                   ; preds = %for.body
+  %cmp29179 = icmp ult i8 %8, 16
   %rawItems_.i.i48 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  br i1 %cmp29, label %while.body33, label %while.body52
+  br i1 %cmp29179, label %while.body33, label %while.body52
 
-while.body33:                                     ; preds = %for.end, %invoke.cont45
-  %iter.sroa.9.0176 = phi i32 [ %iter.sroa.9.2, %invoke.cont45 ], [ 0, %for.end ]
-  %iter.sroa.0.0175 = phi i32 [ %iter.sroa.0.2, %invoke.cont45 ], [ %iter.sroa.0.0.extract.trunc, %for.end ]
+while.body33:                                     ; preds = %for.end.thread, %invoke.cont45
+  %iter.sroa.9.0176 = phi i32 [ %iter.sroa.9.2, %invoke.cont45 ], [ 0, %for.end.thread ]
+  %iter.sroa.0.0175 = phi i32 [ %iter.sroa.0.2, %invoke.cont45 ], [ %iter.sroa.0.0.extract.trunc, %for.end.thread ]
   %and.i33 = and i32 %iter.sroa.0.0175, 1
   %cmp.not.i34 = icmp eq i32 %and.i33, 0
   %13 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.0175, i1 true)
@@ -108410,9 +108410,9 @@ invoke.cont45:                                    ; preds = %while.end.i
   %cmp.i32.not = icmp eq i32 %iter.sroa.0.2, 0
   br i1 %cmp.i32.not, label %if.end84, label %while.body33
 
-while.body52:                                     ; preds = %for.end, %invoke.cont79
-  %iter.sroa.9.1173 = phi i32 [ %iter.sroa.9.3, %invoke.cont79 ], [ 0, %for.end ]
-  %iter.sroa.0.1172 = phi i32 [ %iter.sroa.0.3, %invoke.cont79 ], [ %iter.sroa.0.0.extract.trunc, %for.end ]
+while.body52:                                     ; preds = %for.end.thread, %invoke.cont79
+  %iter.sroa.9.1173 = phi i32 [ %iter.sroa.9.3, %invoke.cont79 ], [ 0, %for.end.thread ]
+  %iter.sroa.0.1172 = phi i32 [ %iter.sroa.0.3, %invoke.cont79 ], [ %iter.sroa.0.0.extract.trunc, %for.end.thread ]
   %and.i66 = and i32 %iter.sroa.0.1172, 1
   %cmp.not.i67 = icmp eq i32 %and.i66, 0
   %28 = call range(i32 1, 33) i32 @llvm.cttz.i32(i32 %iter.sroa.0.1172, i1 true)

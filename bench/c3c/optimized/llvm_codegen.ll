@@ -3015,7 +3015,7 @@ define dso_local void @llvm_append_function_attributes(ptr noundef %0, ptr nound
   %50 = ashr exact i32 %49, 16
   %51 = add nsw i32 %50, 1
   %52 = ashr i32 %48, 16
-  tail call fastcc void @llvm_emit_param_attributes(ptr noundef %0, ptr noundef %7, ptr noundef nonnull %47, i1 noundef zeroext false, i32 noundef %51, i32 noundef %52)
+  tail call fastcc void @llvm_emit_param_attributes(ptr noundef nonnull %0, ptr noundef %7, ptr noundef nonnull %47, i1 noundef zeroext false, i32 noundef %51, i32 noundef %52)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !12

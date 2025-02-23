@@ -4667,7 +4667,7 @@ Vec_IntFill.exit.i:                               ; preds = %.lr.ph.i.i, %Vec_In
   br i1 %40, label %34, label %Wln_RetMarkChanges.exit, !llvm.loop !81
 
 Wln_RetMarkChanges.exit:                          ; preds = %34, %Vec_IntFill.exit.i
-  %41 = tail call i32 @Wln_RetPropDelay(ptr noundef %5)
+  %41 = tail call i32 @Wln_RetPropDelay(ptr noundef nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %5, i64 172
   store i32 %41, ptr %42, align 4, !tbaa !104
   %43 = getelementptr i8, ptr %5, i64 108

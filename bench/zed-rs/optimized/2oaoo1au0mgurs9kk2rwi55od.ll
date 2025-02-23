@@ -20358,7 +20358,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   br i1 %28, label %._crit_edge.i, label %20
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %.sroa.02.0., label %.critedge, label %32
+  br i1 %.sroa.02.0., label %.preheader.i.i.preheader, label %32
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %.sroa.02.013 = phi i1 [ %.sroa.02.0., %.lr.ph ], [ true, %8 ]
@@ -20374,7 +20374,7 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   store i64 -9223372036854775808, ptr %0, align 8
   br label %"_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h9a687daa8a10a466E.exit"
 
-.critedge:                                        ; preds = %._crit_edge
+.preheader.i.i.preheader:                         ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   store ptr %10, ptr %5, align 8
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -20384,8 +20384,8 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
   %.idx = and i64 %12, 1152921504606846975
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.critedge, %45
-  %.sroa.06.0.i.i.i.i.i.i.i.i = phi i64 [ %46, %45 ], [ 0, %.critedge ]
+.preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %45
+  %.sroa.06.0.i.i.i.i.i.i.i.i = phi i64 [ %46, %45 ], [ 0, %.preheader.i.i.preheader ]
   %34 = getelementptr inbounds { i8, [15 x i8] }, ptr %10, i64 %.sroa.06.0.i.i.i.i.i.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6348)

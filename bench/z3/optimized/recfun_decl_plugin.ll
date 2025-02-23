@@ -6516,7 +6516,7 @@ if.then:                                          ; preds = %if.then.i.i.i, %if.
   %m_cases.i = getelementptr inbounds nuw i8, ptr %7, i64 64
   %8 = load ptr, ptr %m_cases.i, align 8
   %cmp.i.i = icmp eq ptr %8, null
-  br i1 %cmp.i.i, label %for.end, label %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
+  br i1 %cmp.i.i, label %if.end.i, label %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
 
 _ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit:   ; preds = %if.then
   %arrayidx.i.i = getelementptr inbounds i8, ptr %8, i64 -4
@@ -6524,7 +6524,7 @@ _ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit:   ; preds = %if.then
   %10 = zext i32 %9 to i64
   %add.ptr.i = getelementptr inbounds nuw %"class.recfun::case_def", ptr %8, i64 %10
   %cmp.not15 = icmp eq i32 %9, 0
-  br i1 %cmp.not15, label %for.end, label %for.body.lr.ph
+  br i1 %cmp.not15, label %if.end.i, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
   %m_case_defs = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -6541,24 +6541,20 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin3.016, i64 64
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
-  br i1 %cmp.not, label %for.end, label %for.body
+  br i1 %cmp.not, label %if.end.i, label %for.body
 
-for.end:                                          ; preds = %for.body, %if.then, %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
+if.end.i:                                         ; preds = %for.body, %if.then, %_ZN6vectorIN6recfun8case_defELb1EjE3endEv.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i5)
   store ptr %f, ptr %ref.tmp.i.i5, align 8
   %m_value.i.i.i6 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i5, i64 8
   store ptr null, ptr %m_value.i.i.i6, align 8
   call void @_ZN14core_hashtableIN7obj_mapI9func_declPN6recfun3defEE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE6removeERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %m_defs, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i5)
-  %cmp.i = icmp eq ptr %7, null
-  br i1 %cmp.i, label %if.end, label %if.end.i
-
-if.end.i:                                         ; preds = %for.end
   call void @_ZN6recfun3defD2Ev(ptr noundef nonnull align 8 dereferenceable(109) %7) #23
   call void @_ZN6memory10deallocateEPv(ptr noundef nonnull %7)
   br label %if.end
 
-if.end:                                           ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %if.end.i, %for.end
+if.end:                                           ; preds = %for.body.i.i.i, %for.inc36.i.i.i, %for.body20.i.i.i, %for.cond18.preheader.i.i.i, %if.end.i
   ret void
 }
 

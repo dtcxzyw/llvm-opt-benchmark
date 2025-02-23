@@ -346,8 +346,7 @@ define internal i32 @crypto_cmac_digest_setkey(ptr noundef %0, ptr noundef %1, i
   br i1 %41, label %40, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %40, %22, %13, %3
-  %50 = phi i32 [ %11, %3 ], [ 0, %13 ], [ 0, %22 ], [ 0, %40 ]
-  ret i32 %50
+  ret i32 %11
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

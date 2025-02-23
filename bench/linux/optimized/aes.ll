@@ -25,7 +25,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_aes_decrypt:
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
 define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = lshr i32 %2, 2
-  switch i32 %2, label %308 [
+  switch i32 %2, label %304 [
     i32 16, label %5
     i32 24, label %5
     i32 32, label %5
@@ -35,361 +35,356 @@ define dso_local noundef range(i32 -22, 1) i32 @aes_expandkey(ptr noundef captur
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store i32 %2, ptr %6, align 4
   %7 = zext nneg i32 %4 to i64
-  br label %11
+  br label %8
 
-8:                                                ; preds = %11
-  %9 = add nsw i32 %4, -1
-  %10 = zext i32 %9 to i64
-  br label %19
+8:                                                ; preds = %8, %5
+  %9 = phi i64 [ 0, %5 ], [ %14, %8 ]
+  %10 = shl nuw nsw i64 %9, 2
+  %11 = getelementptr i8, ptr %1, i64 %10
+  %12 = load i32, ptr %11, align 1
+  %13 = getelementptr [60 x i32], ptr %0, i64 0, i64 %9
+  store i32 %12, ptr %13, align 4
+  %14 = add nuw nsw i64 %9, 1
+  %15 = icmp eq i64 %14, %7
+  br i1 %15, label %.preheader2, label %8, !llvm.loop !5
 
-11:                                               ; preds = %11, %5
-  %12 = phi i64 [ 0, %5 ], [ %17, %11 ]
-  %13 = shl nuw nsw i64 %12, 2
-  %14 = getelementptr i8, ptr %1, i64 %13
-  %15 = load i32, ptr %14, align 1
-  %16 = getelementptr [60 x i32], ptr %0, i64 0, i64 %12
-  store i32 %15, ptr %16, align 4
-  %17 = add nuw nsw i64 %12, 1
-  %18 = icmp eq i64 %17, %7
-  br i1 %18, label %8, label %11, !llvm.loop !5
-
-19:                                               ; preds = %130, %8
-  %20 = phi i64 [ 0, %8 ], [ %131, %130 ]
-  %21 = phi i32 [ 1, %8 ], [ %137, %130 ]
-  %22 = trunc i64 %20 to i32
-  %23 = mul i32 %4, %22
-  %24 = zext i32 %23 to i64
-  %25 = getelementptr i32, ptr %0, i64 %24
-  %26 = getelementptr i32, ptr %25, i64 %7
-  %27 = getelementptr i32, ptr %25, i64 %10
-  %28 = load i32, ptr %27, align 4
-  %29 = and i32 %28, 255
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %30
-  %32 = load volatile i8, ptr %31, align 1
-  %33 = zext i8 %32 to i32
-  %34 = lshr i32 %28, 8
-  %35 = and i32 %34, 255
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %36
-  %38 = load volatile i8, ptr %37, align 1
-  %39 = zext i8 %38 to i32
-  %40 = shl nuw nsw i32 %39, 8
-  %41 = or disjoint i32 %40, %33
-  %42 = lshr i32 %28, 16
-  %43 = and i32 %42, 255
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %44
-  %46 = load volatile i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = shl nuw nsw i32 %47, 16
-  %49 = or disjoint i32 %41, %48
-  %50 = lshr i32 %28, 24
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %51
-  %53 = load volatile i8, ptr %52, align 1
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw i32 %54, 24
-  %56 = or disjoint i32 %49, %55
-  %57 = tail call i32 @llvm.fshl.i32(i32 %56, i32 %56, i32 24)
-  %58 = load i32, ptr %25, align 4
-  %59 = xor i32 %58, %57
-  %60 = xor i32 %59, %21
-  store i32 %60, ptr %26, align 4
-  %61 = getelementptr i8, ptr %25, i64 4
+.preheader2:                                      ; preds = %8, %126
+  %16 = phi i64 [ %127, %126 ], [ 0, %8 ]
+  %17 = phi i32 [ %133, %126 ], [ 1, %8 ]
+  %18 = trunc i64 %16 to i32
+  %19 = mul i32 %4, %18
+  %20 = zext i32 %19 to i64
+  %21 = getelementptr i32, ptr %0, i64 %20
+  %22 = getelementptr i32, ptr %21, i64 %7
+  %23 = getelementptr i8, ptr %22, i64 -4
+  %24 = load i32, ptr %23, align 4
+  %25 = and i32 %24, 255
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %26
+  %28 = load volatile i8, ptr %27, align 1
+  %29 = zext i8 %28 to i32
+  %30 = lshr i32 %24, 8
+  %31 = and i32 %30, 255
+  %32 = zext nneg i32 %31 to i64
+  %33 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %32
+  %34 = load volatile i8, ptr %33, align 1
+  %35 = zext i8 %34 to i32
+  %36 = shl nuw nsw i32 %35, 8
+  %37 = or disjoint i32 %36, %29
+  %38 = lshr i32 %24, 16
+  %39 = and i32 %38, 255
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %40
+  %42 = load volatile i8, ptr %41, align 1
+  %43 = zext i8 %42 to i32
+  %44 = shl nuw nsw i32 %43, 16
+  %45 = or disjoint i32 %37, %44
+  %46 = lshr i32 %24, 24
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %47
+  %49 = load volatile i8, ptr %48, align 1
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw i32 %50, 24
+  %52 = or disjoint i32 %45, %51
+  %53 = tail call i32 @llvm.fshl.i32(i32 %52, i32 %52, i32 24)
+  %54 = load i32, ptr %21, align 4
+  %55 = xor i32 %54, %53
+  %56 = xor i32 %55, %17
+  store i32 %56, ptr %22, align 4
+  %57 = getelementptr i8, ptr %21, i64 4
+  %58 = load i32, ptr %57, align 4
+  %59 = xor i32 %56, %58
+  %60 = getelementptr i8, ptr %22, i64 4
+  store i32 %59, ptr %60, align 4
+  %61 = getelementptr i8, ptr %21, i64 8
   %62 = load i32, ptr %61, align 4
-  %63 = xor i32 %60, %62
-  %64 = getelementptr i8, ptr %26, i64 4
+  %63 = xor i32 %59, %62
+  %64 = getelementptr i8, ptr %22, i64 8
   store i32 %63, ptr %64, align 4
-  %65 = getelementptr i8, ptr %25, i64 8
+  %65 = getelementptr i8, ptr %21, i64 12
   %66 = load i32, ptr %65, align 4
   %67 = xor i32 %63, %66
-  %68 = getelementptr i8, ptr %26, i64 8
+  %68 = getelementptr i8, ptr %22, i64 12
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr i8, ptr %25, i64 12
-  %70 = load i32, ptr %69, align 4
-  %71 = xor i32 %67, %70
-  %72 = getelementptr i8, ptr %26, i64 12
-  store i32 %71, ptr %72, align 4
-  switch i32 %2, label %130 [
-    i32 24, label %73
-    i32 32, label %78
+  switch i32 %2, label %126 [
+    i32 24, label %69
+    i32 32, label %74
   ]
 
-73:                                               ; preds = %19
-  %74 = icmp samesign ugt i64 %20, 6
-  br i1 %74, label %139, label %75
+69:                                               ; preds = %.preheader2
+  %70 = icmp samesign ugt i64 %16, 6
+  br i1 %70, label %135, label %71
 
-75:                                               ; preds = %73
-  %76 = getelementptr i8, ptr %25, i64 16
-  %77 = load i32, ptr %76, align 4
-  br label %119
+71:                                               ; preds = %69
+  %72 = getelementptr i8, ptr %21, i64 16
+  %73 = load i32, ptr %72, align 4
+  br label %115
 
-78:                                               ; preds = %19
-  %79 = icmp samesign ugt i64 %20, 5
-  br i1 %79, label %139, label %80
+74:                                               ; preds = %.preheader2
+  %75 = icmp samesign ugt i64 %16, 5
+  br i1 %75, label %135, label %76
 
-80:                                               ; preds = %78
-  %81 = and i32 %71, 255
-  %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %82
-  %84 = load volatile i8, ptr %83, align 1
-  %85 = zext i8 %84 to i32
-  %86 = lshr i32 %71, 8
-  %87 = and i32 %86, 255
-  %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %88
-  %90 = load volatile i8, ptr %89, align 1
-  %91 = zext i8 %90 to i32
-  %92 = shl nuw nsw i32 %91, 8
-  %93 = or disjoint i32 %92, %85
-  %94 = lshr i32 %71, 16
-  %95 = and i32 %94, 255
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %96
-  %98 = load volatile i8, ptr %97, align 1
-  %99 = zext i8 %98 to i32
-  %100 = shl nuw nsw i32 %99, 16
-  %101 = or disjoint i32 %93, %100
-  %102 = lshr i32 %71, 24
-  %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %103
-  %105 = load volatile i8, ptr %104, align 1
-  %106 = zext i8 %105 to i32
-  %107 = shl nuw i32 %106, 24
-  %108 = or disjoint i32 %101, %107
-  %109 = getelementptr i8, ptr %25, i64 16
+76:                                               ; preds = %74
+  %77 = and i32 %67, 255
+  %78 = zext nneg i32 %77 to i64
+  %79 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %78
+  %80 = load volatile i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = lshr i32 %67, 8
+  %83 = and i32 %82, 255
+  %84 = zext nneg i32 %83 to i64
+  %85 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %84
+  %86 = load volatile i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = shl nuw nsw i32 %87, 8
+  %89 = or disjoint i32 %88, %81
+  %90 = lshr i32 %67, 16
+  %91 = and i32 %90, 255
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %92
+  %94 = load volatile i8, ptr %93, align 1
+  %95 = zext i8 %94 to i32
+  %96 = shl nuw nsw i32 %95, 16
+  %97 = or disjoint i32 %89, %96
+  %98 = lshr i32 %67, 24
+  %99 = zext nneg i32 %98 to i64
+  %100 = getelementptr [256 x i8], ptr @crypto_aes_sbox, i64 0, i64 %99
+  %101 = load volatile i8, ptr %100, align 1
+  %102 = zext i8 %101 to i32
+  %103 = shl nuw i32 %102, 24
+  %104 = or disjoint i32 %97, %103
+  %105 = getelementptr i8, ptr %21, i64 16
+  %106 = load i32, ptr %105, align 4
+  %107 = xor i32 %104, %106
+  %108 = getelementptr i8, ptr %22, i64 16
+  store i32 %107, ptr %108, align 4
+  %109 = getelementptr i8, ptr %21, i64 20
   %110 = load i32, ptr %109, align 4
-  %111 = xor i32 %108, %110
-  %112 = getelementptr i8, ptr %26, i64 16
+  %111 = xor i32 %107, %110
+  %112 = getelementptr i8, ptr %22, i64 20
   store i32 %111, ptr %112, align 4
-  %113 = getelementptr i8, ptr %25, i64 20
+  %113 = getelementptr i8, ptr %21, i64 24
   %114 = load i32, ptr %113, align 4
-  %115 = xor i32 %111, %114
-  %116 = getelementptr i8, ptr %26, i64 20
-  store i32 %115, ptr %116, align 4
-  %117 = getelementptr i8, ptr %25, i64 24
-  %118 = load i32, ptr %117, align 4
-  br label %119
+  br label %115
 
-119:                                              ; preds = %80, %75
-  %120 = phi i32 [ %71, %75 ], [ %118, %80 ]
-  %121 = phi i32 [ %77, %75 ], [ %115, %80 ]
-  %122 = phi i64 [ 16, %75 ], [ 24, %80 ]
-  %123 = phi i64 [ 20, %75 ], [ 28, %80 ]
-  %124 = xor i32 %121, %120
-  %125 = getelementptr i8, ptr %26, i64 %122
+115:                                              ; preds = %76, %71
+  %116 = phi i32 [ %67, %71 ], [ %114, %76 ]
+  %117 = phi i32 [ %73, %71 ], [ %111, %76 ]
+  %118 = phi i64 [ 16, %71 ], [ 24, %76 ]
+  %119 = phi i64 [ 20, %71 ], [ 28, %76 ]
+  %120 = xor i32 %117, %116
+  %121 = getelementptr i8, ptr %22, i64 %118
+  store i32 %120, ptr %121, align 4
+  %122 = getelementptr i8, ptr %21, i64 %119
+  %123 = load i32, ptr %122, align 4
+  %124 = xor i32 %123, %120
+  %125 = getelementptr i8, ptr %22, i64 %119
   store i32 %124, ptr %125, align 4
-  %126 = getelementptr i8, ptr %25, i64 %123
-  %127 = load i32, ptr %126, align 4
-  %128 = xor i32 %127, %124
-  %129 = getelementptr i8, ptr %26, i64 %123
-  store i32 %128, ptr %129, align 4
-  br label %130
+  br label %126
 
-130:                                              ; preds = %119, %19
-  %131 = add nuw nsw i64 %20, 1
-  %132 = shl i32 %21, 1
-  %133 = and i32 %132, -16843010
-  %134 = lshr i32 %21, 7
-  %135 = and i32 %134, 16843009
-  %136 = mul nuw nsw i32 %135, 27
-  %137 = xor i32 %136, %133
-  %138 = icmp eq i64 %131, 10
-  br i1 %138, label %139, label %19, !llvm.loop !8
+126:                                              ; preds = %115, %.preheader2
+  %127 = add nuw nsw i64 %16, 1
+  %128 = shl i32 %17, 1
+  %129 = and i32 %128, -16843010
+  %130 = lshr i32 %17, 7
+  %131 = and i32 %130, 16843009
+  %132 = mul nuw nsw i32 %131, 27
+  %133 = xor i32 %132, %129
+  %134 = icmp eq i64 %127, 10
+  br i1 %134, label %135, label %.preheader2, !llvm.loop !8
 
-139:                                              ; preds = %130, %78, %73
-  %140 = add i32 %2, 24
-  %141 = zext i32 %140 to i64
-  %142 = getelementptr [60 x i32], ptr %0, i64 0, i64 %141
-  %143 = load i32, ptr %142, align 4
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store i32 %143, ptr %144, align 4
-  %145 = add i32 %2, 25
-  %146 = zext i32 %145 to i64
-  %147 = getelementptr [60 x i32], ptr %0, i64 0, i64 %146
-  %148 = load i32, ptr %147, align 4
-  %149 = getelementptr i8, ptr %0, i64 244
-  store i32 %148, ptr %149, align 4
-  %150 = add i32 %2, 26
-  %151 = zext i32 %150 to i64
-  %152 = getelementptr [60 x i32], ptr %0, i64 0, i64 %151
-  %153 = load i32, ptr %152, align 4
-  %154 = getelementptr i8, ptr %0, i64 248
-  store i32 %153, ptr %154, align 4
-  %155 = add i32 %2, 27
-  %156 = zext i32 %155 to i64
-  %157 = getelementptr [60 x i32], ptr %0, i64 0, i64 %156
-  %158 = load i32, ptr %157, align 4
-  %159 = getelementptr i8, ptr %0, i64 252
-  store i32 %158, ptr %159, align 4
-  %160 = add i32 %2, 20
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %.loopexit, label %.preheader
+135:                                              ; preds = %126, %74, %69
+  %136 = add i32 %2, 24
+  %137 = zext i32 %136 to i64
+  %138 = getelementptr [60 x i32], ptr %0, i64 0, i64 %137
+  %139 = load i32, ptr %138, align 4
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store i32 %139, ptr %140, align 4
+  %141 = add i32 %2, 25
+  %142 = zext i32 %141 to i64
+  %143 = getelementptr [60 x i32], ptr %0, i64 0, i64 %142
+  %144 = load i32, ptr %143, align 4
+  %145 = getelementptr i8, ptr %0, i64 244
+  store i32 %144, ptr %145, align 4
+  %146 = add i32 %2, 26
+  %147 = zext i32 %146 to i64
+  %148 = getelementptr [60 x i32], ptr %0, i64 0, i64 %147
+  %149 = load i32, ptr %148, align 4
+  %150 = getelementptr i8, ptr %0, i64 248
+  store i32 %149, ptr %150, align 4
+  %151 = add i32 %2, 27
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr [60 x i32], ptr %0, i64 0, i64 %152
+  %154 = load i32, ptr %153, align 4
+  %155 = getelementptr i8, ptr %0, i64 252
+  store i32 %154, ptr %155, align 4
+  %156 = add i32 %2, 20
+  %157 = icmp eq i32 %156, 0
+  br i1 %157, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %139, %.preheader
-  %162 = phi i32 [ %287, %.preheader ], [ %160, %139 ]
-  %163 = phi i32 [ %286, %.preheader ], [ 4, %139 ]
-  %164 = zext i32 %162 to i64
-  %165 = getelementptr [60 x i32], ptr %0, i64 0, i64 %164
-  %166 = load i32, ptr %165, align 4
-  %167 = shl i32 %166, 2
-  %168 = and i32 %167, -50529028
-  %169 = lshr i32 %166, 7
+.preheader:                                       ; preds = %135, %.preheader
+  %158 = phi i32 [ %283, %.preheader ], [ %156, %135 ]
+  %159 = phi i32 [ %282, %.preheader ], [ 4, %135 ]
+  %160 = zext i32 %158 to i64
+  %161 = getelementptr [60 x i32], ptr %0, i64 0, i64 %160
+  %162 = load i32, ptr %161, align 4
+  %163 = shl i32 %162, 2
+  %164 = and i32 %163, -50529028
+  %165 = lshr i32 %162, 7
+  %166 = and i32 %165, 16843009
+  %167 = mul nuw nsw i32 %166, 54
+  %168 = xor i32 %167, %164
+  %169 = lshr i32 %162, 6
   %170 = and i32 %169, 16843009
-  %171 = mul nuw nsw i32 %170, 54
-  %172 = xor i32 %171, %168
-  %173 = lshr i32 %166, 6
-  %174 = and i32 %173, 16843009
-  %175 = mul nuw nsw i32 %174, 27
-  %176 = xor i32 %172, %175
-  %177 = tail call i32 @llvm.fshl.i32(i32 %176, i32 %176, i32 16)
-  %178 = xor i32 %166, %177
-  %179 = xor i32 %178, %176
-  %180 = shl i32 %179, 1
-  %181 = and i32 %180, -16843010
-  %182 = lshr i32 %179, 7
-  %183 = and i32 %182, 16843009
-  %184 = mul nuw nsw i32 %183, 27
-  %185 = tail call i32 @llvm.fshl.i32(i32 %179, i32 %179, i32 16)
-  %186 = xor i32 %181, %185
-  %187 = xor i32 %186, %184
-  %188 = xor i32 %187, %179
-  %189 = tail call i32 @llvm.fshl.i32(i32 %188, i32 %188, i32 24)
-  %190 = xor i32 %189, %187
-  %191 = zext i32 %163 to i64
-  %192 = getelementptr [60 x i32], ptr %144, i64 0, i64 %191
-  store i32 %190, ptr %192, align 4
-  %193 = add i32 %162, 1
-  %194 = zext i32 %193 to i64
-  %195 = getelementptr [60 x i32], ptr %0, i64 0, i64 %194
-  %196 = load i32, ptr %195, align 4
-  %197 = shl i32 %196, 2
-  %198 = and i32 %197, -50529028
-  %199 = lshr i32 %196, 7
+  %171 = mul nuw nsw i32 %170, 27
+  %172 = xor i32 %168, %171
+  %173 = tail call i32 @llvm.fshl.i32(i32 %172, i32 %172, i32 16)
+  %174 = xor i32 %162, %173
+  %175 = xor i32 %174, %172
+  %176 = shl i32 %175, 1
+  %177 = and i32 %176, -16843010
+  %178 = lshr i32 %175, 7
+  %179 = and i32 %178, 16843009
+  %180 = mul nuw nsw i32 %179, 27
+  %181 = tail call i32 @llvm.fshl.i32(i32 %175, i32 %175, i32 16)
+  %182 = xor i32 %177, %181
+  %183 = xor i32 %182, %180
+  %184 = xor i32 %183, %175
+  %185 = tail call i32 @llvm.fshl.i32(i32 %184, i32 %184, i32 24)
+  %186 = xor i32 %185, %183
+  %187 = zext i32 %159 to i64
+  %188 = getelementptr [60 x i32], ptr %140, i64 0, i64 %187
+  store i32 %186, ptr %188, align 4
+  %189 = add i32 %158, 1
+  %190 = zext i32 %189 to i64
+  %191 = getelementptr [60 x i32], ptr %0, i64 0, i64 %190
+  %192 = load i32, ptr %191, align 4
+  %193 = shl i32 %192, 2
+  %194 = and i32 %193, -50529028
+  %195 = lshr i32 %192, 7
+  %196 = and i32 %195, 16843009
+  %197 = mul nuw nsw i32 %196, 54
+  %198 = xor i32 %197, %194
+  %199 = lshr i32 %192, 6
   %200 = and i32 %199, 16843009
-  %201 = mul nuw nsw i32 %200, 54
-  %202 = xor i32 %201, %198
-  %203 = lshr i32 %196, 6
-  %204 = and i32 %203, 16843009
-  %205 = mul nuw nsw i32 %204, 27
-  %206 = xor i32 %202, %205
-  %207 = tail call i32 @llvm.fshl.i32(i32 %206, i32 %206, i32 16)
-  %208 = xor i32 %196, %207
-  %209 = xor i32 %208, %206
-  %210 = shl i32 %209, 1
-  %211 = and i32 %210, -16843010
-  %212 = lshr i32 %209, 7
-  %213 = and i32 %212, 16843009
-  %214 = mul nuw nsw i32 %213, 27
-  %215 = tail call i32 @llvm.fshl.i32(i32 %209, i32 %209, i32 16)
-  %216 = xor i32 %211, %215
-  %217 = xor i32 %216, %214
-  %218 = xor i32 %217, %209
-  %219 = tail call i32 @llvm.fshl.i32(i32 %218, i32 %218, i32 24)
-  %220 = xor i32 %219, %217
-  %221 = or disjoint i32 %163, 1
-  %222 = zext i32 %221 to i64
-  %223 = getelementptr [60 x i32], ptr %144, i64 0, i64 %222
-  store i32 %220, ptr %223, align 4
-  %224 = add i32 %162, 2
-  %225 = zext i32 %224 to i64
-  %226 = getelementptr [60 x i32], ptr %0, i64 0, i64 %225
-  %227 = load i32, ptr %226, align 4
-  %228 = shl i32 %227, 2
-  %229 = and i32 %228, -50529028
-  %230 = lshr i32 %227, 7
+  %201 = mul nuw nsw i32 %200, 27
+  %202 = xor i32 %198, %201
+  %203 = tail call i32 @llvm.fshl.i32(i32 %202, i32 %202, i32 16)
+  %204 = xor i32 %192, %203
+  %205 = xor i32 %204, %202
+  %206 = shl i32 %205, 1
+  %207 = and i32 %206, -16843010
+  %208 = lshr i32 %205, 7
+  %209 = and i32 %208, 16843009
+  %210 = mul nuw nsw i32 %209, 27
+  %211 = tail call i32 @llvm.fshl.i32(i32 %205, i32 %205, i32 16)
+  %212 = xor i32 %207, %211
+  %213 = xor i32 %212, %210
+  %214 = xor i32 %213, %205
+  %215 = tail call i32 @llvm.fshl.i32(i32 %214, i32 %214, i32 24)
+  %216 = xor i32 %215, %213
+  %217 = or disjoint i32 %159, 1
+  %218 = zext i32 %217 to i64
+  %219 = getelementptr [60 x i32], ptr %140, i64 0, i64 %218
+  store i32 %216, ptr %219, align 4
+  %220 = add i32 %158, 2
+  %221 = zext i32 %220 to i64
+  %222 = getelementptr [60 x i32], ptr %0, i64 0, i64 %221
+  %223 = load i32, ptr %222, align 4
+  %224 = shl i32 %223, 2
+  %225 = and i32 %224, -50529028
+  %226 = lshr i32 %223, 7
+  %227 = and i32 %226, 16843009
+  %228 = mul nuw nsw i32 %227, 54
+  %229 = xor i32 %228, %225
+  %230 = lshr i32 %223, 6
   %231 = and i32 %230, 16843009
-  %232 = mul nuw nsw i32 %231, 54
-  %233 = xor i32 %232, %229
-  %234 = lshr i32 %227, 6
-  %235 = and i32 %234, 16843009
-  %236 = mul nuw nsw i32 %235, 27
-  %237 = xor i32 %233, %236
-  %238 = tail call i32 @llvm.fshl.i32(i32 %237, i32 %237, i32 16)
-  %239 = xor i32 %227, %238
-  %240 = xor i32 %239, %237
-  %241 = shl i32 %240, 1
-  %242 = and i32 %241, -16843010
-  %243 = lshr i32 %240, 7
-  %244 = and i32 %243, 16843009
-  %245 = mul nuw nsw i32 %244, 27
-  %246 = tail call i32 @llvm.fshl.i32(i32 %240, i32 %240, i32 16)
-  %247 = xor i32 %242, %246
-  %248 = xor i32 %247, %245
-  %249 = xor i32 %248, %240
-  %250 = tail call i32 @llvm.fshl.i32(i32 %249, i32 %249, i32 24)
-  %251 = xor i32 %250, %248
-  %252 = or disjoint i32 %163, 2
-  %253 = zext i32 %252 to i64
-  %254 = getelementptr [60 x i32], ptr %144, i64 0, i64 %253
-  store i32 %251, ptr %254, align 4
-  %255 = add i32 %162, 3
-  %256 = zext i32 %255 to i64
-  %257 = getelementptr [60 x i32], ptr %0, i64 0, i64 %256
-  %258 = load i32, ptr %257, align 4
-  %259 = shl i32 %258, 2
-  %260 = and i32 %259, -50529028
-  %261 = lshr i32 %258, 7
+  %232 = mul nuw nsw i32 %231, 27
+  %233 = xor i32 %229, %232
+  %234 = tail call i32 @llvm.fshl.i32(i32 %233, i32 %233, i32 16)
+  %235 = xor i32 %223, %234
+  %236 = xor i32 %235, %233
+  %237 = shl i32 %236, 1
+  %238 = and i32 %237, -16843010
+  %239 = lshr i32 %236, 7
+  %240 = and i32 %239, 16843009
+  %241 = mul nuw nsw i32 %240, 27
+  %242 = tail call i32 @llvm.fshl.i32(i32 %236, i32 %236, i32 16)
+  %243 = xor i32 %238, %242
+  %244 = xor i32 %243, %241
+  %245 = xor i32 %244, %236
+  %246 = tail call i32 @llvm.fshl.i32(i32 %245, i32 %245, i32 24)
+  %247 = xor i32 %246, %244
+  %248 = or disjoint i32 %159, 2
+  %249 = zext i32 %248 to i64
+  %250 = getelementptr [60 x i32], ptr %140, i64 0, i64 %249
+  store i32 %247, ptr %250, align 4
+  %251 = add i32 %158, 3
+  %252 = zext i32 %251 to i64
+  %253 = getelementptr [60 x i32], ptr %0, i64 0, i64 %252
+  %254 = load i32, ptr %253, align 4
+  %255 = shl i32 %254, 2
+  %256 = and i32 %255, -50529028
+  %257 = lshr i32 %254, 7
+  %258 = and i32 %257, 16843009
+  %259 = mul nuw nsw i32 %258, 54
+  %260 = xor i32 %259, %256
+  %261 = lshr i32 %254, 6
   %262 = and i32 %261, 16843009
-  %263 = mul nuw nsw i32 %262, 54
-  %264 = xor i32 %263, %260
-  %265 = lshr i32 %258, 6
-  %266 = and i32 %265, 16843009
-  %267 = mul nuw nsw i32 %266, 27
-  %268 = xor i32 %264, %267
-  %269 = tail call i32 @llvm.fshl.i32(i32 %268, i32 %268, i32 16)
-  %270 = xor i32 %258, %269
-  %271 = xor i32 %270, %268
-  %272 = shl i32 %271, 1
-  %273 = and i32 %272, -16843010
-  %274 = lshr i32 %271, 7
-  %275 = and i32 %274, 16843009
-  %276 = mul nuw nsw i32 %275, 27
-  %277 = tail call i32 @llvm.fshl.i32(i32 %271, i32 %271, i32 16)
-  %278 = xor i32 %273, %277
-  %279 = xor i32 %278, %276
-  %280 = xor i32 %279, %271
-  %281 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %280, i32 24)
-  %282 = xor i32 %281, %279
-  %283 = or disjoint i32 %163, 3
-  %284 = zext i32 %283 to i64
-  %285 = getelementptr [60 x i32], ptr %144, i64 0, i64 %284
-  store i32 %282, ptr %285, align 4
-  %286 = add i32 %163, 4
-  %287 = add i32 %162, -4
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %.loopexit, label %.preheader, !llvm.loop !9
+  %263 = mul nuw nsw i32 %262, 27
+  %264 = xor i32 %260, %263
+  %265 = tail call i32 @llvm.fshl.i32(i32 %264, i32 %264, i32 16)
+  %266 = xor i32 %254, %265
+  %267 = xor i32 %266, %264
+  %268 = shl i32 %267, 1
+  %269 = and i32 %268, -16843010
+  %270 = lshr i32 %267, 7
+  %271 = and i32 %270, 16843009
+  %272 = mul nuw nsw i32 %271, 27
+  %273 = tail call i32 @llvm.fshl.i32(i32 %267, i32 %267, i32 16)
+  %274 = xor i32 %269, %273
+  %275 = xor i32 %274, %272
+  %276 = xor i32 %275, %267
+  %277 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %276, i32 24)
+  %278 = xor i32 %277, %275
+  %279 = or disjoint i32 %159, 3
+  %280 = zext i32 %279 to i64
+  %281 = getelementptr [60 x i32], ptr %140, i64 0, i64 %280
+  store i32 %278, ptr %281, align 4
+  %282 = add i32 %159, 4
+  %283 = add i32 %158, -4
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit:                                        ; preds = %.preheader, %139
-  %289 = phi i32 [ 4, %139 ], [ %286, %.preheader ]
-  %290 = load i32, ptr %0, align 4
-  %291 = zext i32 %289 to i64
-  %292 = getelementptr [60 x i32], ptr %144, i64 0, i64 %291
-  store i32 %290, ptr %292, align 4
-  %293 = getelementptr i8, ptr %0, i64 4
-  %294 = load i32, ptr %293, align 4
-  %295 = or disjoint i32 %289, 1
-  %296 = zext i32 %295 to i64
-  %297 = getelementptr [60 x i32], ptr %144, i64 0, i64 %296
-  store i32 %294, ptr %297, align 4
-  %298 = getelementptr i8, ptr %0, i64 8
-  %299 = load i32, ptr %298, align 4
-  %300 = or disjoint i32 %289, 2
-  %301 = zext i32 %300 to i64
-  %302 = getelementptr [60 x i32], ptr %144, i64 0, i64 %301
-  store i32 %299, ptr %302, align 4
-  %303 = getelementptr i8, ptr %0, i64 12
-  %304 = load i32, ptr %303, align 4
-  %305 = or disjoint i32 %289, 3
-  %306 = zext i32 %305 to i64
-  %307 = getelementptr [60 x i32], ptr %144, i64 0, i64 %306
-  store i32 %304, ptr %307, align 4
-  br label %308
+.loopexit:                                        ; preds = %.preheader, %135
+  %285 = phi i32 [ 4, %135 ], [ %282, %.preheader ]
+  %286 = load i32, ptr %0, align 4
+  %287 = zext i32 %285 to i64
+  %288 = getelementptr [60 x i32], ptr %140, i64 0, i64 %287
+  store i32 %286, ptr %288, align 4
+  %289 = getelementptr i8, ptr %0, i64 4
+  %290 = load i32, ptr %289, align 4
+  %291 = or disjoint i32 %285, 1
+  %292 = zext i32 %291 to i64
+  %293 = getelementptr [60 x i32], ptr %140, i64 0, i64 %292
+  store i32 %290, ptr %293, align 4
+  %294 = getelementptr i8, ptr %0, i64 8
+  %295 = load i32, ptr %294, align 4
+  %296 = or disjoint i32 %285, 2
+  %297 = zext i32 %296 to i64
+  %298 = getelementptr [60 x i32], ptr %140, i64 0, i64 %297
+  store i32 %295, ptr %298, align 4
+  %299 = getelementptr i8, ptr %0, i64 12
+  %300 = load i32, ptr %299, align 4
+  %301 = or disjoint i32 %285, 3
+  %302 = zext i32 %301 to i64
+  %303 = getelementptr [60 x i32], ptr %140, i64 0, i64 %302
+  store i32 %300, ptr %303, align 4
+  br label %304
 
-308:                                              ; preds = %3, %.loopexit
-  %309 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
-  ret i32 %309
+304:                                              ; preds = %3, %.loopexit
+  %305 = phi i32 [ 0, %.loopexit ], [ -22, %3 ]
+  ret i32 %305
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)

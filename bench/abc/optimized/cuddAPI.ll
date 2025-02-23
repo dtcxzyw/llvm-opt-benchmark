@@ -362,7 +362,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 48:                                               ; preds = %.preheader, %48
   store i32 0, ptr %24, align 8, !tbaa !24
   %49 = load ptr, ptr %46, align 8, !tbaa !39
-  %50 = getelementptr inbounds i32, ptr %49, i64 %indvars.iv.next
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4, !tbaa !36
   %52 = tail call ptr @cuddUniqueInterZdd(ptr noundef nonnull %0, i32 noundef %51, ptr noundef nonnull %.03644, ptr noundef nonnull %.03644) #20
   %53 = load i32, ptr %24, align 8, !tbaa !24
@@ -386,7 +386,7 @@ define ptr @Cudd_zddIthVar(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %64 = add i32 %63, 1
   store i32 %64, ptr %62, align 4, !tbaa !38
   tail call void @Cudd_RecursiveDerefZdd(ptr noundef nonnull %0, ptr noundef nonnull %.03644) #20
-  %65 = icmp sgt i64 %indvars.iv, 1
+  %65 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %65, label %.preheader, label %._crit_edge, !llvm.loop !41
 
 ._crit_edge:                                      ; preds = %58, %33

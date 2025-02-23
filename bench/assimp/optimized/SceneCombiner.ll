@@ -8896,14 +8896,14 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph.split, %30
   store ptr null, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %49 = icmp eq ptr %48, %44
-  br i1 %49, label %.loopexit, label %45
+  br i1 %49, label %.lr.ph83, label %45
 
 .loopexit.thread:                                 ; preds = %._crit_edge.thread, %._crit_edge
   %.ph = phi ptr [ %25, %._crit_edge ], [ %13, %._crit_edge.thread ]
   store ptr %.ph, ptr %8, align 8
   br label %._crit_edge84
 
-.loopexit:                                        ; preds = %45
+.lr.ph83:                                         ; preds = %45
   store ptr %43, ptr %8, align 8
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8916,8 +8916,8 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %.lr.ph.split, %30
 ._crit_edge84:                                    ; preds = %163, %.loopexit.thread
   ret void
 
-56:                                               ; preds = %.loopexit, %163
-  %.05981 = phi i64 [ 0, %.loopexit ], [ %164, %163 ]
+56:                                               ; preds = %.lr.ph83, %163
+  %.05981 = phi i64 [ 0, %.lr.ph83 ], [ %164, %163 ]
   %57 = load ptr, ptr %50, align 8
   %58 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %57, i64 %.05981
   %59 = load i32, ptr %58, align 8

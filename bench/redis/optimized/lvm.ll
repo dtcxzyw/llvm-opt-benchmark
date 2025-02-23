@@ -1003,7 +1003,7 @@ luaV_tostring.exit76:                             ; preds = %.lr.ph
 72:                                               ; preds = %61
   %73 = sub nsw i64 0, %60
   %74 = getelementptr inbounds %struct.lua_TValue, ptr %13, i64 %73
-  %75 = call ptr @luaS_newlstr(ptr noundef %0, ptr noundef %59, i64 noundef %69) #9
+  %75 = call ptr @luaS_newlstr(ptr noundef nonnull %0, ptr noundef %59, i64 noundef %69) #9
   store ptr %75, ptr %74, align 8, !tbaa !9
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i32 4, ptr %76, align 8, !tbaa !4

@@ -2767,8 +2767,8 @@ _ZN12_GLOBAL__N_112SafeCallbackEPFvjEj.exit:      ; preds = %17, %20
   br i1 %27, label %28, label %.critedge
 
 28:                                               ; preds = %.lr.ph43.split.us
-  %29 = add i32 %.02642.us, 1
-  %30 = icmp ugt i32 %29, 10
+  %29 = add nuw nsw i32 %.02642.us, 1
+  %30 = icmp ugt i32 %.02642.us, 9
   br i1 %30, label %39, label %.thread.us
 
 .thread.us:                                       ; preds = %28

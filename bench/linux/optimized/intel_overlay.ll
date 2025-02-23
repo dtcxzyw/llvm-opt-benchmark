@@ -2082,7 +2082,7 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = icmp ult i32 %3, 16777216
-  br i1 %4, label %.preheader7, label %120
+  br i1 %4, label %.preheader7, label %118
 
 .preheader7:                                      ; preds = %1, %.preheader7
   %5 = phi i32 [ %10, %.preheader7 ], [ 0, %1 ]
@@ -2096,14 +2096,14 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %12, label %.preheader7, label %13, !llvm.loop !46
 
 13:                                               ; preds = %.preheader7
-  br i1 %9, label %14, label %120
+  br i1 %9, label %14, label %118
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i32, ptr %15, align 4
   %17 = or i32 %16, %3
   %18 = icmp ult i32 %17, 16777216
-  br i1 %18, label %.preheader6, label %120
+  br i1 %18, label %.preheader6, label %118
 
 .preheader6:                                      ; preds = %14, %.preheader6
   %19 = phi i32 [ %26, %.preheader6 ], [ 0, %14 ]
@@ -2119,14 +2119,14 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %28, label %.preheader6, label %29, !llvm.loop !46
 
 29:                                               ; preds = %.preheader6
-  br i1 %25, label %30, label %120
+  br i1 %25, label %30, label %118
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %32 = load i32, ptr %31, align 4
   %33 = or i32 %32, %16
   %34 = icmp ult i32 %33, 16777216
-  br i1 %34, label %.preheader5, label %120
+  br i1 %34, label %.preheader5, label %118
 
 .preheader5:                                      ; preds = %30, %.preheader5
   %35 = phi i32 [ %42, %.preheader5 ], [ 0, %30 ]
@@ -2142,14 +2142,14 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %44, label %.preheader5, label %45, !llvm.loop !46
 
 45:                                               ; preds = %.preheader5
-  br i1 %41, label %46, label %120
+  br i1 %41, label %46, label %118
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %48 = load i32, ptr %47, align 4
   %49 = or i32 %48, %32
   %50 = icmp ult i32 %49, 16777216
-  br i1 %50, label %.preheader4, label %120
+  br i1 %50, label %.preheader4, label %118
 
 .preheader4:                                      ; preds = %46, %.preheader4
   %51 = phi i32 [ %58, %.preheader4 ], [ 0, %46 ]
@@ -2165,14 +2165,14 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %60, label %.preheader4, label %61, !llvm.loop !46
 
 61:                                               ; preds = %.preheader4
-  br i1 %57, label %62, label %120
+  br i1 %57, label %62, label %118
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, %48
   %66 = icmp ult i32 %65, 16777216
-  br i1 %66, label %.preheader3, label %120
+  br i1 %66, label %.preheader3, label %118
 
 .preheader3:                                      ; preds = %62, %.preheader3
   %67 = phi i32 [ %74, %.preheader3 ], [ 0, %62 ]
@@ -2188,14 +2188,14 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %76, label %.preheader3, label %77, !llvm.loop !46
 
 77:                                               ; preds = %.preheader3
-  br i1 %73, label %78, label %120
+  br i1 %73, label %78, label %118
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, %64
   %82 = icmp ult i32 %81, 16777216
-  br i1 %82, label %.preheader2, label %120
+  br i1 %82, label %.preheader2, label %118
 
 .preheader2:                                      ; preds = %78, %.preheader2
   %83 = phi i32 [ %90, %.preheader2 ], [ 0, %78 ]
@@ -2211,52 +2211,50 @@ define internal fastcc range(i32 -22, 1) i32 @check_gamma(ptr noundef readonly c
   br i1 %92, label %.preheader2, label %93, !llvm.loop !46
 
 93:                                               ; preds = %.preheader2
-  %94 = icmp ult i32 %80, 16777216
-  %95 = and i1 %94, %89
-  br i1 %95, label %.preheader1, label %120
+  br i1 %89, label %.preheader1, label %118
 
 .preheader1:                                      ; preds = %93, %.preheader1
-  %96 = phi i32 [ %103, %.preheader1 ], [ 0, %93 ]
-  %97 = shl nuw nsw i32 %96, 3
-  %98 = lshr i32 %80, %97
+  %94 = phi i32 [ %101, %.preheader1 ], [ 0, %93 ]
+  %95 = shl nuw nsw i32 %94, 3
+  %96 = lshr i32 %80, %95
+  %97 = and i32 %96, 255
+  %98 = lshr i32 16777215, %95
   %99 = and i32 %98, 255
-  %100 = lshr i32 16777215, %97
-  %101 = and i32 %100, 255
-  %102 = icmp samesign ult i32 %99, %101
-  %103 = add nuw nsw i32 %96, 1
-  %104 = icmp ne i32 %103, 3
-  %105 = select i1 %102, i1 %104, i1 false
-  br i1 %105, label %.preheader1, label %106, !llvm.loop !46
+  %100 = icmp samesign ult i32 %97, %99
+  %101 = add nuw nsw i32 %94, 1
+  %102 = icmp ne i32 %101, 3
+  %103 = select i1 %100, i1 %102, i1 false
+  br i1 %103, label %.preheader1, label %104, !llvm.loop !46
 
-106:                                              ; preds = %.preheader1
-  %107 = and i32 %80, 255
-  %108 = icmp ne i32 %107, 128
-  %109 = and i1 %108, %102
-  br i1 %109, label %.preheader, label %120
+104:                                              ; preds = %.preheader1
+  %105 = and i32 %80, 255
+  %106 = icmp ne i32 %105, 128
+  %107 = and i1 %106, %100
+  br i1 %107, label %.preheader, label %118
 
-.preheader:                                       ; preds = %106, %113
-  %110 = phi i32 [ %111, %113 ], [ 0, %106 ]
-  %111 = add i32 %110, 1
-  %112 = icmp eq i32 %111, 3
-  br i1 %112, label %.thread, label %113, !llvm.loop !47
+.preheader:                                       ; preds = %104, %111
+  %108 = phi i32 [ %109, %111 ], [ 0, %104 ]
+  %109 = add i32 %108, 1
+  %110 = icmp eq i32 %109, 3
+  br i1 %110, label %.thread, label %111, !llvm.loop !47
 
-113:                                              ; preds = %.preheader
-  %114 = shl nuw nsw i32 %111, 3
-  %115 = lshr i32 %80, %114
-  %116 = and i32 %115, 255
-  %117 = icmp eq i32 %116, 128
-  br i1 %117, label %118, label %.preheader, !llvm.loop !47
+111:                                              ; preds = %.preheader
+  %112 = shl nuw nsw i32 %109, 3
+  %113 = lshr i32 %80, %112
+  %114 = and i32 %113, 255
+  %115 = icmp eq i32 %114, 128
+  br i1 %115, label %116, label %.preheader, !llvm.loop !47
 
-118:                                              ; preds = %113
-  %119 = icmp ugt i32 %110, 1
-  br i1 %119, label %.thread, label %120
+116:                                              ; preds = %111
+  %117 = icmp ugt i32 %108, 1
+  br i1 %117, label %.thread, label %118
 
-.thread:                                          ; preds = %.preheader, %118
-  br label %120
+.thread:                                          ; preds = %.preheader, %116
+  br label %118
 
-120:                                              ; preds = %.thread, %118, %106, %93, %78, %77, %62, %61, %46, %45, %30, %29, %14, %13, %1
-  %121 = phi i32 [ -22, %106 ], [ -22, %93 ], [ -22, %77 ], [ -22, %61 ], [ -22, %45 ], [ -22, %29 ], [ -22, %13 ], [ -22, %1 ], [ -22, %14 ], [ -22, %30 ], [ -22, %46 ], [ -22, %62 ], [ -22, %78 ], [ 0, %.thread ], [ -22, %118 ]
-  ret i32 %121
+118:                                              ; preds = %.thread, %116, %104, %93, %78, %77, %62, %61, %46, %45, %30, %29, %14, %13, %1
+  %119 = phi i32 [ -22, %104 ], [ -22, %93 ], [ -22, %77 ], [ -22, %61 ], [ -22, %45 ], [ -22, %29 ], [ -22, %13 ], [ -22, %1 ], [ -22, %14 ], [ -22, %30 ], [ -22, %46 ], [ -22, %62 ], [ -22, %78 ], [ 0, %.thread ], [ -22, %116 ]
+  ret i32 %119
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -3355,7 +3355,7 @@ define linkonce_odr void @_ZN5folly4joinIA3_cSt6vectorINSt7__cxx1112basic_string
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %._crit_edge.i.i
-  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(3) %1, ptr nonnull %10, ptr %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
+  invoke void @_ZN5folly6detail18internalJoinAppendINS_5RangeIPKcEEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISD_SaISD_EEEESD_EEvT_T0_SL_RT1_(ptr nonnull align 1 dereferenceable(3) %1, ptr nonnull %10, ptr nonnull %6, ptr %8, ptr noundef nonnull align 8 dereferenceable(32) %0)
           to label %_ZN5folly4joinIA3_cN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS9_SaIS9_EEEES9_EEvRKT_T0_SJ_RT1_.exit unwind label %22
 
 22:                                               ; preds = %.noexc, %._crit_edge.i.i

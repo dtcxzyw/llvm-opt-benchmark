@@ -354,53 +354,53 @@ define hidden noundef zeroext i1 @_ZN2cv3dnn15NetNeedsUpgradeERKN12opencv_caffe1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, label %.thread
+  br i1 %4, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, label %5
 
-.thread:                                          ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %6 = load i32, ptr %5, align 8
-  %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.lr.ph.i4, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit
+5:                                                ; preds = %1
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %7 = load i32, ptr %6, align 8
+  %8 = icmp sgt i32 %7, 0
+  br i1 %8, label %.lr.ph.i4, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit
 
-.lr.ph.i4:                                        ; preds = %.thread
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %9
+.lr.ph.i4:                                        ; preds = %5
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  br label %10
 
-9:                                                ; preds = %29, %.lr.ph.i4
-  %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i6, %29 ]
-  %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %12 = getelementptr inbounds nuw [268435454 x ptr], ptr %11, i64 0, i64 %indvars.iv.i5
-  %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 216
-  %15 = load ptr, ptr %14, align 8
-  %16 = ptrtoint ptr %15 to i64
-  %17 = and i64 %16, -2
-  %18 = inttoptr i64 %17 to ptr
-  %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.96) #17
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %29
+10:                                               ; preds = %30, %.lr.ph.i4
+  %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i6, %30 ]
+  %11 = load ptr, ptr %9, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %13 = getelementptr inbounds nuw [268435454 x ptr], ptr %12, i64 0, i64 %indvars.iv.i5
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 216
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = and i64 %17, -2
+  %19 = inttoptr i64 %18 to ptr
+  %20 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.96) #17
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %22, label %30
 
-21:                                               ; preds = %9
-  %22 = load ptr, ptr %8, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %24 = getelementptr inbounds nuw [268435454 x ptr], ptr %23, i64 0, i64 %indvars.iv.i5
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 104
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp eq i32 %27, 3
-  br i1 %28, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, label %29
+22:                                               ; preds = %10
+  %23 = load ptr, ptr %9, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = getelementptr inbounds nuw [268435454 x ptr], ptr %24, i64 0, i64 %indvars.iv.i5
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
+  %28 = load i32, ptr %27, align 8
+  %29 = icmp eq i32 %28, 3
+  br i1 %29, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, label %30
 
-29:                                               ; preds = %21, %9
+30:                                               ; preds = %22, %10
   %indvars.iv.next.i6 = add nuw nsw i64 %indvars.iv.i5, 1
-  %30 = load i32, ptr %5, align 8
-  %31 = sext i32 %30 to i64
-  %32 = icmp slt i64 %indvars.iv.next.i6, %31
-  br i1 %32, label %9, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, !llvm.loop !4
+  %31 = load i32, ptr %6, align 8
+  %32 = sext i32 %31 to i64
+  %33 = icmp slt i64 %indvars.iv.next.i6, %32
+  br i1 %33, label %10, label %_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit, !llvm.loop !4
 
-_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit: ; preds = %29, %21, %1, %.thread
-  %33 = phi i1 [ false, %.thread ], [ true, %1 ], [ true, %21 ], [ false, %29 ]
-  ret i1 %33
+_ZN2cv3dnn24NetNeedsBatchNormUpgradeERKN12opencv_caffe12NetParameterE.exit: ; preds = %30, %22, %1, %5
+  %34 = phi i1 [ false, %5 ], [ true, %1 ], [ true, %22 ], [ false, %30 ]
+  ret i1 %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable

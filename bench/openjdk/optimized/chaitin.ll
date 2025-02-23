@@ -2607,7 +2607,6 @@ _ZN3LRG3ANDERK7RegMask.exit:                      ; preds = %144, %148
   %244 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %245 = getelementptr inbounds nuw i8, ptr %60, i64 54
   %246 = zext i32 %.0140 to i64
-  %wide.trip.count = zext i32 %233 to i64
   br label %247
 
 247:                                              ; preds = %.lr.ph, %373
@@ -2826,7 +2825,8 @@ _ZN3LRG3ANDERK7RegMask.exit166:                   ; preds = %321, %317, %281
 
 373:                                              ; preds = %.critedge, %372, %267, %247
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond.not = icmp eq i32 %233, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %247, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %373, %242
@@ -4913,11 +4913,11 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
   br i1 %182, label %183, label %184
 
 183:                                              ; preds = %177
-  call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %136, i32 noundef 1, ptr noundef %76) #14
+  call void @_ZN4Node7ins_reqEjPS_(ptr noundef nonnull align 8 dereferenceable(52) %136, i32 noundef 1, ptr noundef nonnull %76) #14
   br label %185
 
 184:                                              ; preds = %177, %_ZN4Node7set_reqEjPS_.exit
-  call void @_ZN4Node8add_precEPS_(ptr noundef nonnull align 8 dereferenceable(52) %136, ptr noundef %76) #14
+  call void @_ZN4Node8add_precEPS_(ptr noundef nonnull align 8 dereferenceable(52) %136, ptr noundef nonnull %76) #14
   br label %185
 
 185:                                              ; preds = %184, %183

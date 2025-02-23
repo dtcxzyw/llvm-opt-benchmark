@@ -1401,7 +1401,7 @@ define internal fastcc range(i32 -1, 1) i32 @new_code_arena() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
   %.03538 = phi i64 [ %17, %.lr.ph ], [ 0, %6 ]
-  %15 = mul i64 %.03538, %.1.i
+  %15 = mul nuw nsw i64 %.03538, %.1.i
   %16 = getelementptr i8, ptr %1, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull align 8 @_Py_trampoline_func_start, i64 sub (i64 ptrtoint (ptr @_Py_trampoline_func_end to i64), i64 ptrtoint (ptr @_Py_trampoline_func_start to i64)), i1 false)
   %17 = add nuw nsw i64 %.03538, 1

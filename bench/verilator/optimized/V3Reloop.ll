@@ -1440,7 +1440,7 @@ _ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %
   br i1 %.not61, label %.thread, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %spec.select.i82, i64 32
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %44 = load ptr, ptr %43, align 8
   %.not.i84 = icmp eq ptr %44, null
   br i1 %.not.i84, label %_ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit87, label %45
@@ -1454,7 +1454,7 @@ _ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %
 
 _ZN7AstNode11privateCastI8AstConstP11AstNodeExprEEPT_PS_.exit87: ; preds = %42, %45
   %48 = phi ptr [ null, %42 ], [ %spec.select.i86, %45 ]
-  %49 = getelementptr inbounds nuw i8, ptr %spec.select.i82, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %50 = load ptr, ptr %49, align 8
   %.not.i88 = icmp eq ptr %50, null
   br i1 %.not.i88, label %_ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit92.thread, label %_ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit92

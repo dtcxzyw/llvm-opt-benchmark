@@ -480,7 +480,7 @@ _lcm.exit.i:                                      ; preds = %.lr.ph.i.i.i, %117
   %298 = load i32, ptr %297, align 4, !tbaa !83
   %299 = call ptr @dt_dev_pixelpipe_type_to_str(i32 noundef %298) #12
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %301 = call ptr @dt_iop_get_instance_id(ptr noundef %0) #12
+  %301 = call ptr @dt_iop_get_instance_id(ptr noundef nonnull %0) #12
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.5, ptr noundef %299, ptr noundef nonnull %300, ptr noundef %301, i32 noundef %.0424.i, i32 noundef %.0425.i) #12
   br label %1352
 
@@ -2789,7 +2789,7 @@ _lcm.exit.i24:                                    ; preds = %.lr.ph.i.i.i20, %15
   %1731 = getelementptr inbounds nuw i8, ptr %1730, i64 272
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1731, ptr noundef nonnull align 16 dereferenceable(16) %10, i64 16, i1 false), !tbaa !101
   %1732 = load ptr, ptr %1640, align 8, !tbaa !113
-  call void %1732(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %1586, ptr noundef nonnull %1601, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
+  call void %1732(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1586, ptr noundef nonnull %1601, ptr noundef nonnull %12, ptr noundef nonnull %13) #12
   %1733 = sub i64 0, %.0314367.us375.i
   %.not344.us.i = icmp eq i64 %.0319371.us.i, %1733
   %1734 = load ptr, ptr %1372, align 8, !tbaa !28

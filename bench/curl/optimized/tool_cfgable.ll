@@ -428,7 +428,7 @@ free_config_fields.exit:                          ; preds = %.lr.ph.i, %.lr.ph
   %200 = getelementptr inbounds nuw i8, ptr %.07, i64 1456
   %201 = load ptr, ptr %200, align 8, !tbaa !128
   tail call void @free(ptr noundef %201) #4
-  tail call void @free(ptr noundef %.07) #4
+  tail call void @free(ptr noundef nonnull %.07) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 

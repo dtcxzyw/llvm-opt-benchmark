@@ -235,48 +235,42 @@ define dso_local i32 @root_nfs_parse_addr(ptr noundef %0) local_unnamed_addr #0 
   %15 = sub i64 %13, %14
   %16 = icmp sgt i64 %15, 3
   %17 = or i1 %12, %16
-  br i1 %17, label %27, label %18
+  br i1 %17, label %.thread, label %18
 
 18:                                               ; preds = %11
   %19 = icmp eq i8 %7, 46
   %20 = icmp eq i32 %4, 3
   %21 = or i1 %20, %19
   %22 = zext i1 %21 to i32
-  %23 = add i32 %4, %22
-  %24 = icmp slt i32 %23, 4
+  %23 = add nuw nsw i32 %4, %22
+  %24 = icmp samesign ult i32 %23, 4
   %25 = zext i1 %24 to i64
   %26 = getelementptr i8, ptr %6, i64 %25
   br i1 %24, label %2, label %27, !llvm.loop !8
 
-27:                                               ; preds = %18, %11
-  %28 = phi i32 [ %4, %11 ], [ %23, %18 ]
-  %29 = phi ptr [ %6, %11 ], [ %26, %18 ]
-  %30 = icmp eq i32 %28, 4
-  br i1 %30, label %31, label %40
-
-31:                                               ; preds = %27
-  %32 = load i8, ptr %29, align 1
-  switch i8 %32, label %40 [
-    i8 58, label %33
-    i8 0, label %35
+27:                                               ; preds = %18
+  %28 = load i8, ptr %26, align 1
+  switch i8 %28, label %.thread [
+    i8 58, label %29
+    i8 0, label %31
   ]
 
-33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %29, i64 1
-  store i8 0, ptr %29, align 1
-  br label %35
+29:                                               ; preds = %27
+  %30 = getelementptr i8, ptr %26, i64 1
+  store i8 0, ptr %26, align 1
+  br label %31
 
-35:                                               ; preds = %33, %31
-  %36 = phi ptr [ %34, %33 ], [ %29, %31 ]
-  %37 = tail call i32 @in_aton(ptr noundef %0) #17
-  %38 = tail call i64 @strlen(ptr noundef %36) #17
-  %39 = add i64 %38, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %36, i64 %39, i1 false)
-  br label %40
+31:                                               ; preds = %29, %27
+  %32 = phi ptr [ %30, %29 ], [ %26, %27 ]
+  %33 = tail call i32 @in_aton(ptr noundef %0) #17
+  %34 = tail call i64 @strlen(ptr noundef %32) #17
+  %35 = add i64 %34, 1
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %0, ptr align 1 %32, i64 %35, i1 false)
+  br label %.thread
 
-40:                                               ; preds = %35, %31, %27
-  %41 = phi i32 [ %37, %35 ], [ -1, %31 ], [ -1, %27 ]
-  ret i32 %41
+.thread:                                          ; preds = %11, %31, %27
+  %36 = phi i32 [ %33, %31 ], [ -1, %27 ], [ -1, %11 ]
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

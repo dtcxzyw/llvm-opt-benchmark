@@ -119,7 +119,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   %51 = shl nsw i32 %39, 2
   %52 = add nsw i32 %51, %37
   %53 = icmp slt i32 %52, %23
-  br i1 %53, label %.lr.ph513.preheader, label %.loopexit504
+  br i1 %53, label %.lr.ph513.preheader, label %.loopexit493
 
 .lr.ph513.preheader:                              ; preds = %._crit_edge510
   %54 = sext i32 %52 to i64
@@ -139,7 +139,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   store float %63, ptr %56, align 4
   %indvars.iv.next621 = add nsw i64 %indvars.iv620, 1
   %64 = icmp slt i64 %indvars.iv.next621, %55
-  br i1 %64, label %.lr.ph513, label %.loopexit504, !llvm.loop !7
+  br i1 %64, label %.lr.ph513, label %.loopexit493, !llvm.loop !7
 
 65:                                               ; preds = %21
   br i1 %27, label %.lr.ph516.preheader, label %._crit_edge517
@@ -191,7 +191,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   %84 = shl nsw i32 %74, 2
   %85 = add nsw i32 %84, %72
   %86 = icmp slt i32 %85, %23
-  br i1 %86, label %.lr.ph524.preheader, label %.loopexit504
+  br i1 %86, label %.lr.ph524.preheader, label %.loopexit493
 
 .lr.ph524.preheader:                              ; preds = %._crit_edge521
   %87 = sext i32 %85 to i64
@@ -208,7 +208,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   store float %93, ptr %89, align 4
   %indvars.iv.next634 = add nsw i64 %indvars.iv633, 1
   %94 = icmp slt i64 %indvars.iv.next634, %88
-  br i1 %94, label %.lr.ph524, label %.loopexit504, !llvm.loop !10
+  br i1 %94, label %.lr.ph524, label %.loopexit493, !llvm.loop !10
 
 95:                                               ; preds = %3
   %96 = mul i32 %17, %7
@@ -412,7 +412,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   %exitcond609.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond609.not, label %.loopexit504, label %104, !llvm.loop !17
 
-.loopexit504:                                     ; preds = %.loopexit495, %.lr.ph513, %.lr.ph524, %._crit_edge521, %._crit_edge510, %3
+.loopexit504:                                     ; preds = %.loopexit495, %3
   %195 = add i32 %15, -3
   %or.cond = icmp ult i32 %195, 2
   br i1 %or.cond, label %196, label %.loopexit493
@@ -621,7 +621,7 @@ define hidden noundef i32 @_ZNK4ncnn13Scale_x86_fma15forward_inplaceERSt6vectorI
   %exitcond642.not = icmp eq i64 %indvars.iv.next639, %wide.trip.count641
   br i1 %exitcond642.not, label %.loopexit493, label %208, !llvm.loop !24
 
-.loopexit493:                                     ; preds = %.loopexit, %95, %196, %.loopexit504
+.loopexit493:                                     ; preds = %.lr.ph513, %.lr.ph524, %.loopexit, %._crit_edge510, %._crit_edge521, %95, %196, %.loopexit504
   ret i32 0
 }
 

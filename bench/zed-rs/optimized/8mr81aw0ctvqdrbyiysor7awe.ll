@@ -6155,7 +6155,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.sroa.03.1.i12 = phi i64 [ %91, %84 ], [ %.sroa.03.0.i10, %81 ]
   %.sroa.0.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.0.0.i11, %81 ]
-  %93 = icmp ult i64 %.sroa.03.1.i12, %44
+  %93 = icmp samesign ult i64 %.sroa.03.1.i12, %44
   br i1 %93, label %94, label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 
 94:                                               ; preds = %92
@@ -6167,7 +6167,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.03.1.i12, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.0.1.i13
   br label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 

@@ -2606,7 +2606,7 @@ define void @spline_edges(ptr noundef %0) local_unnamed_addr #3 {
   %18 = load double, ptr %17, align 8, !tbaa !11
   %19 = fsub double %18, %9
   store double %19, ptr %17, align 8, !tbaa !11
-  %20 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.013) #20
+  %20 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.013) #20
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !171
 
@@ -2616,7 +2616,7 @@ define void @spline_edges(ptr noundef %0) local_unnamed_addr #3 {
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %25 = load double, ptr %24, align 8
-  tail call fastcc void @shiftClusters(ptr noundef %0, double %23, double %25)
+  tail call fastcc void @shiftClusters(ptr noundef nonnull %0, double %23, double %25)
   %26 = load ptr, ptr %2, align 8, !tbaa !20
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 152
   %28 = load i16, ptr %27, align 8, !tbaa !133

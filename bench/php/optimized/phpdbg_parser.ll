@@ -153,7 +153,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %31 = getelementptr inbounds %struct._phpdbg_param, ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -88
   %.not538 = icmp sgt i64 %spec.store.select, %16
-  br i1 %.not538, label %.thread589, label %.thread615.thread
+  br i1 %.not538, label %.thread589, label %.thread614.thread
 
 .thread589:                                       ; preds = %29, %8
   %.1512 = phi ptr [ %.0511, %8 ], [ %22, %29 ]
@@ -162,7 +162,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.2491 = phi ptr [ %.0489, %8 ], [ %32, %29 ]
   %.1482 = phi i64 [ %.0481, %8 ], [ %spec.store.select, %29 ]
   %33 = icmp eq i32 %.0475, 27
-  br i1 %33, label %.thread615, label %34
+  br i1 %33, label %.thread614, label %34
 
 34:                                               ; preds = %.thread589
   %35 = sext i32 %.0475 to i64
@@ -189,7 +189,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
 
 47:                                               ; preds = %45
   %48 = icmp eq i32 %.5, 256
-  br i1 %48, label %.thread615, label %49
+  br i1 %48, label %.thread614, label %49
 
 49:                                               ; preds = %47
   %50 = icmp samesign ult i32 %.5, 278
@@ -868,7 +868,7 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %265 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %264, ptr noundef nonnull @.str.42, ptr noundef nonnull %.0465) #12
   %.04.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !15
   %.not5.i = icmp eq ptr %.04.i, null
-  br i1 %.not5.i, label %yyerror.exit.thread, label %.lr.ph.i
+  br i1 %.not5.i, label %yyerror.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %263, %.lr.ph.i
   %.06.i = phi ptr [ %.0.i, %.lr.ph.i ], [ %.04.i, %263 ]
@@ -878,20 +878,17 @@ define hidden range(i32 0, 3) i32 @phpdbg_parse() local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %yyerror.exit, label %.lr.ph.i
 
-yyerror.exit:                                     ; preds = %.lr.ph.i
-  br i1 %.0, label %.thread582, label %.thread615
+yyerror.exit:                                     ; preds = %.lr.ph.i, %263
+  br i1 %.0, label %.thread582, label %.thread614
 
-yyerror.exit.thread:                              ; preds = %263
-  br i1 %.0, label %.thread582, label %.thread615
-
-.thread582:                                       ; preds = %18, %12, %yyerror.exit.thread, %yyerror.exit
-  %.0572 = phi ptr [ %.2, %yyerror.exit ], [ %.2, %yyerror.exit.thread ], [ %4, %12 ], [ %4, %18 ]
-  %.5516 = phi ptr [ %.1512, %yyerror.exit ], [ %.1512, %yyerror.exit.thread ], [ %.0511, %12 ], [ %.0511, %18 ]
+.thread582:                                       ; preds = %18, %12, %yyerror.exit
+  %.0572 = phi ptr [ %.2, %yyerror.exit ], [ %4, %12 ], [ %4, %18 ]
+  %.5516 = phi ptr [ %.1512, %yyerror.exit ], [ %.0511, %12 ], [ %.0511, %18 ]
   %267 = load i32, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 1508), align 4, !tbaa !52
   %268 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %267, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.3) #12
   %.04.i561 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @phpdbg_globals, i64 832), align 8, !tbaa !15
   %.not5.i562 = icmp eq ptr %.04.i561, null
-  br i1 %.not5.i562, label %.thread615, label %.lr.ph.i563
+  br i1 %.not5.i562, label %.thread614, label %.lr.ph.i563
 
 .lr.ph.i563:                                      ; preds = %.thread582, %.lr.ph.i563
   %.06.i564 = phi ptr [ %.0.i565, %.lr.ph.i563 ], [ %.04.i561, %.thread582 ]
@@ -899,30 +896,30 @@ yyerror.exit.thread:                              ; preds = %263
   %269 = getelementptr inbounds nuw i8, ptr %.06.i564, i64 72
   %.0.i565 = load ptr, ptr %269, align 8, !tbaa !15
   %.not.i566 = icmp eq ptr %.0.i565, null
-  br i1 %.not.i566, label %.thread615, label %.lr.ph.i563
+  br i1 %.not.i566, label %.thread614, label %.lr.ph.i563
 
-.thread615:                                       ; preds = %.thread589, %47, %.lr.ph.i563, %yyerror.exit.thread, %yyerror.exit, %.thread582
-  %.0487613 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 1, %yyerror.exit.thread ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %47 ]
-  %.6517607 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.1512, %yyerror.exit.thread ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %47 ], [ %.1512, %.thread589 ]
-  %.4575605 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.2, %yyerror.exit.thread ], [ %.0572, %.lr.ph.i563 ], [ %4, %47 ], [ %4, %.thread589 ]
-  %.not553 = icmp eq ptr %.6517607, %2
-  br i1 %.not553, label %270, label %.thread615.thread
+.thread614:                                       ; preds = %.thread589, %47, %.lr.ph.i563, %yyerror.exit, %.thread582
+  %.0487612 = phi i32 [ 2, %.thread582 ], [ 1, %yyerror.exit ], [ 2, %.lr.ph.i563 ], [ 0, %.thread589 ], [ 1, %47 ]
+  %.6517606 = phi ptr [ %.5516, %.thread582 ], [ %.1512, %yyerror.exit ], [ %.5516, %.lr.ph.i563 ], [ %.1512, %47 ], [ %.1512, %.thread589 ]
+  %.4575604 = phi ptr [ %.0572, %.thread582 ], [ %.2, %yyerror.exit ], [ %.0572, %.lr.ph.i563 ], [ %4, %47 ], [ %4, %.thread589 ]
+  %.not553 = icmp eq ptr %.6517606, %2
+  br i1 %.not553, label %270, label %.thread614.thread
 
-.thread615.thread:                                ; preds = %29, %.thread615
-  %.4575605673 = phi ptr [ %.4575605, %.thread615 ], [ %4, %29 ]
-  %.6517607672 = phi ptr [ %.6517607, %.thread615 ], [ %22, %29 ]
-  %.0487613670 = phi i32 [ %.0487613, %.thread615 ], [ 1, %29 ]
-  call void @free(ptr noundef %.6517607672) #12
+.thread614.thread:                                ; preds = %29, %.thread614
+  %.4575604672 = phi ptr [ %.4575604, %.thread614 ], [ %4, %29 ]
+  %.6517606671 = phi ptr [ %.6517606, %.thread614 ], [ %22, %29 ]
+  %.0487612669 = phi i32 [ %.0487612, %.thread614 ], [ 1, %29 ]
+  call void @free(ptr noundef %.6517606671) #12
   br label %270
 
-270:                                              ; preds = %.thread615.thread, %.thread615
-  %.4575605674 = phi ptr [ %.4575605673, %.thread615.thread ], [ %.4575605, %.thread615 ]
-  %.0487613671 = phi i32 [ %.0487613670, %.thread615.thread ], [ %.0487613, %.thread615 ]
-  %.not554 = icmp eq ptr %.4575605674, %4
+270:                                              ; preds = %.thread614.thread, %.thread614
+  %.4575604673 = phi ptr [ %.4575604672, %.thread614.thread ], [ %.4575604, %.thread614 ]
+  %.0487612670 = phi i32 [ %.0487612669, %.thread614.thread ], [ %.0487612, %.thread614 ]
+  %.not554 = icmp eq ptr %.4575604673, %4
   br i1 %.not554, label %272, label %271
 
 271:                                              ; preds = %270
-  call void @free(ptr noundef %.4575605674) #12
+  call void @free(ptr noundef %.4575604673) #12
   br label %272
 
 272:                                              ; preds = %270, %271
@@ -931,7 +928,7 @@ yyerror.exit.thread:                              ; preds = %263
   call void @llvm.lifetime.end.p0(i64 17600, ptr nonnull %3) #12
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %2) #12
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %1) #12
-  ret i32 %.0487613671
+  ret i32 %.0487612670
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

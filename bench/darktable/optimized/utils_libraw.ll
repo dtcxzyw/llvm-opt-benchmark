@@ -1394,9 +1394,9 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %36 = icmp samesign ugt i32 %spec.select78, 1
   %37 = icmp sgt i32 %spec.select, -1
   %or.cond = select i1 %36, i1 %37, i1 false
-  br i1 %or.cond, label %46, label %.preheader152
+  br i1 %or.cond, label %46, label %.preheader156
 
-.preheader152:                                    ; preds = %46, %35
+.preheader156:                                    ; preds = %46, %35
   br label %50
 
 38:                                               ; preds = %34, %38
@@ -1422,7 +1422,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %47 = zext nneg i32 %spec.select to i64
   %48 = getelementptr inbounds nuw [4 x i32], ptr %2, i64 0, i64 %47
   store i32 3, ptr %48, align 4, !tbaa !122
-  br label %.preheader152
+  br label %.preheader156
 
 49:                                               ; preds = %50
   store i32 0, ptr %30, align 4, !tbaa !122
@@ -1430,8 +1430,8 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #30
   br label %.thread
 
-50:                                               ; preds = %.preheader152, %50
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %50 ], [ 0, %.preheader152 ]
+50:                                               ; preds = %.preheader156, %50
+  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %50 ], [ 0, %.preheader156 ]
   %51 = trunc nuw nsw i64 %indvars.iv111 to i32
   %52 = lshr i32 %51, 1
   %53 = load i32, ptr %24, align 8, !tbaa !122
@@ -1519,13 +1519,13 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 136592
   %96 = load i32, ptr %95, align 8, !tbaa !122
   %.not74 = icmp eq i32 %96, 0
-  br i1 %.not74, label %.preheader151, label %97
+  br i1 %.not74, label %.preheader155, label %97
 
 97:                                               ; preds = %91
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 136596
   %99 = load i32, ptr %98, align 4, !tbaa !122
   %.not75 = icmp eq i32 %99, 0
-  br i1 %.not75, label %.preheader151, label %100
+  br i1 %.not75, label %.preheader155, label %100
 
 100:                                              ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 136600
@@ -1538,17 +1538,17 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %wide.trip.count = zext nneg i32 %103 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %100
-  %.256.lcssa = phi i32 [ %102, %100 ], [ %spec.select80, %.lr.ph ]
-  %105 = icmp sgt i32 %103, 0
+.preheader:                                       ; preds = %100
+  %105 = icmp eq i32 %103, 1
   br i1 %105, label %.lr.ph99.preheader, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader
-  %106 = add i32 %94, %.256.lcssa
+  %106 = add i32 %94, %102
   store i32 %106, ptr %92, align 8, !tbaa !121
   br label %117
 
-.lr.ph99.preheader:                               ; preds = %.preheader
+.lr.ph99.preheader:                               ; preds = %.lr.ph, %.preheader
+  %.256.lcssa145 = phi i32 [ %102, %.preheader ], [ %spec.select80, %.lr.ph ]
   %wide.trip.count130 = zext nneg i32 %103 to i64
   br label %.lr.ph99
 
@@ -1561,7 +1561,7 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %spec.select80 = tail call i32 @llvm.smin.i32(i32 %.25694, i32 %109)
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond126.not = icmp eq i64 %indvars.iv.next124, %wide.trip.count
-  br i1 %exitcond126.not, label %.preheader, label %.lr.ph, !llvm.loop !130
+  br i1 %exitcond126.not, label %.lr.ph99.preheader, label %.lr.ph, !llvm.loop !130
 
 .lr.ph99:                                         ; preds = %.lr.ph99.preheader, %.lr.ph99
   %indvars.iv127 = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next128, %.lr.ph99 ]
@@ -1569,9 +1569,9 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
   %110 = add nuw nsw i64 %indvars.iv127, 6
   %111 = getelementptr inbounds nuw [4104 x i32], ptr %10, i64 0, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !122
-  %113 = sub i32 %112, %.256.lcssa
+  %113 = sub i32 %112, %.256.lcssa145
   store i32 %113, ptr %111, align 4, !tbaa !122
-  %.not77 = icmp ne i32 %112, %.256.lcssa
+  %.not77 = icmp ne i32 %112, %.256.lcssa145
   %114 = zext i1 %.not77 to i32
   %spec.select81 = add nuw nsw i32 %.098, %114
   %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
@@ -1581,20 +1581,20 @@ define void @_ZN6LibRaw9adjust_blEv(ptr noundef nonnull align 8 captures(none) d
 ._crit_edge:                                      ; preds = %.lr.ph99
   %.pre = load i32, ptr %92, align 8, !tbaa !121
   %115 = icmp eq i32 %spec.select81, 0
-  %116 = add i32 %.pre, %.256.lcssa
+  %116 = add i32 %.pre, %.256.lcssa145
   store i32 %116, ptr %92, align 8, !tbaa !121
-  br i1 %115, label %117, label %.preheader151
+  br i1 %115, label %117, label %.preheader155
 
 117:                                              ; preds = %._crit_edge.thread, %._crit_edge
   store i32 0, ptr %98, align 4, !tbaa !122
   store i32 0, ptr %95, align 8, !tbaa !122
-  br label %.preheader151
+  br label %.preheader155
 
-.preheader151:                                    ; preds = %._crit_edge, %117, %97, %91
+.preheader155:                                    ; preds = %._crit_edge, %117, %97, %91
   br label %118
 
-118:                                              ; preds = %.preheader151, %118
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %118 ], [ 0, %.preheader151 ]
+118:                                              ; preds = %.preheader155, %118
+  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %118 ], [ 0, %.preheader155 ]
   %119 = load i32, ptr %92, align 8, !tbaa !121
   %120 = getelementptr inbounds nuw [4104 x i32], ptr %10, i64 0, i64 %indvars.iv132
   %121 = load i32, ptr %120, align 4, !tbaa !122

@@ -282,7 +282,7 @@ define void @Abc_MfsConvertHopToAig(ptr noundef captures(none) %0, ptr noundef %
   br i1 %38, label %24, label %.critedge, !llvm.loop !59
 
 .critedge:                                        ; preds = %24, %.preheader
-  tail call void @Abc_MfsConvertHopToAig_rec(ptr noundef %10, ptr noundef %1)
+  tail call void @Abc_MfsConvertHopToAig_rec(ptr noundef nonnull %10, ptr noundef %1)
   %39 = load ptr, ptr %10, align 8, !tbaa !3
   %40 = and i64 %8, 1
   %41 = ptrtoint ptr %39 to i64
@@ -480,8 +480,8 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %73 = load ptr, ptr %72, align 8, !tbaa !3
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !52
-  %76 = tail call ptr @Aig_Exor(ptr noundef %2, ptr noundef %73, ptr noundef %75) #4
-  %77 = tail call ptr @Aig_Or(ptr noundef %2, ptr noundef %.03650, ptr noundef %76) #4
+  %76 = tail call ptr @Aig_Exor(ptr noundef nonnull %2, ptr noundef %73, ptr noundef %75) #4
+  %77 = tail call ptr @Aig_Or(ptr noundef nonnull %2, ptr noundef %.03650, ptr noundef %76) #4
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %78 = load ptr, ptr %64, align 8, !tbaa !76
   %79 = getelementptr i8, ptr %78, i64 4

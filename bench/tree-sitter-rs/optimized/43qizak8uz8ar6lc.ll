@@ -969,7 +969,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i
 
 47:                                               ; preds = %.loopexit.i.i.i.i.i.i.i, %11
-  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !248)
   %49 = load ptr, ptr %48, align 8, !alias.scope !251, !noalias !206, !noundef !14
   %50 = icmp eq ptr %49, null
@@ -982,7 +982,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h5a977efe23e4feffE.exit.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i64, ptr %54, align 8, !alias.scope !264, !noalias !267, !noundef !14
   %.promoted.i.i.i.i.i.i4.i.i.i.i.i.i = load i64, ptr %53, align 8, !alias.scope !264, !noalias !267
   %56 = icmp ult i64 %.promoted.i.i.i.i.i.i4.i.i.i.i.i.i, %55
@@ -1067,7 +1067,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h6557e462dc518432E.exit.i.i.i: 
   br i1 %87, label %.loopexit.i, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %..i, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !293)
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
   %90 = load i64, ptr %89, align 8, !alias.scope !299, !noalias !302
@@ -1245,7 +1245,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i
 
 47:                                               ; preds = %.loopexit.i.i.i.i.i.i.i, %11
-  %48 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   call void @llvm.experimental.noalias.scope.decl(metadata !400)
   %49 = load ptr, ptr %48, align 8, !alias.scope !403, !noalias !358, !noundef !14
   %50 = icmp eq ptr %49, null
@@ -1258,7 +1258,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc2c85acfe796593cE.exit.i.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   call void @llvm.experimental.noalias.scope.decl(metadata !413)
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 40
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = load i64, ptr %54, align 8, !alias.scope !416, !noalias !419, !noundef !14
   %.promoted.i.i.i.i.i.i4.i.i.i.i.i.i = load i64, ptr %53, align 8, !alias.scope !416, !noalias !419
   %56 = icmp ult i64 %.promoted.i.i.i.i.i.i4.i.i.i.i.i.i, %55
@@ -1343,7 +1343,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h58fe394ae23fe23fE.exit.i.i.i: 
   br i1 %87, label %.loopexit.i, label %88
 
 88:                                               ; preds = %84
-  %89 = getelementptr inbounds nuw i8, ptr %..i, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.experimental.noalias.scope.decl(metadata !444)
   call void @llvm.experimental.noalias.scope.decl(metadata !447)
   %90 = load i64, ptr %89, align 8, !alias.scope !450, !noalias !453
@@ -22420,7 +22420,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %78
   %.117.i15 = phi i64 [ %90, %84 ], [ %.016.i13, %78 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %78 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20
 
 94:                                               ; preds = %92
@@ -22432,7 +22432,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.117.i15
   br label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit20
 

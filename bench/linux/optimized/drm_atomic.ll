@@ -3747,7 +3747,7 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call void @drm_modeset_unlock(ptr noundef %27) #10
   %31 = load ptr, ptr %26, align 8
   %32 = icmp eq ptr %31, %23
-  br i1 %32, label %.loopexit15, label %.preheader14.split.us, !llvm.loop !91
+  br i1 %32, label %.loopexit15.thread19, label %.preheader14.split.us, !llvm.loop !91
 
 .preheader14.split:                               ; preds = %.preheader14, %.preheader14.split
   %33 = phi ptr [ %36, %.preheader14.split ], [ %24, %.preheader14 ]
@@ -3756,128 +3756,158 @@ define internal fastcc void @__drm_state_dump(ptr noundef %0, ptr noundef %1, i1
   tail call fastcc void @drm_atomic_plane_print_state(ptr noundef %1, ptr noundef %35)
   %36 = load ptr, ptr %33, align 8
   %37 = icmp eq ptr %36, %23
-  br i1 %37, label %.loopexit15, label %.preheader14.split, !llvm.loop !91
+  br i1 %37, label %.loopexit15.thread, label %.preheader14.split, !llvm.loop !91
 
-.loopexit15:                                      ; preds = %.preheader14.split, %.preheader14.split.us, %22
+.loopexit15:                                      ; preds = %22
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %38
   br i1 %40, label %.loopexit13, label %.preheader12
 
-.preheader12:                                     ; preds = %.loopexit15
-  br i1 %2, label %.preheader12.split.us, label %.preheader12.split
+.loopexit15.thread19:                             ; preds = %.preheader14.split.us
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 736
+  %42 = load ptr, ptr %41, align 8
+  %43 = icmp eq ptr %42, %41
+  br i1 %43, label %.loopexit13.thread, label %.preheader12.split.us.preheader
 
-.preheader12.split.us:                            ; preds = %.preheader12, %.preheader12.split.us
-  %41 = phi ptr [ %46, %.preheader12.split.us ], [ %39, %.preheader12 ]
-  %42 = getelementptr i8, ptr %41, i64 24
-  %43 = tail call i32 @drm_modeset_lock(ptr noundef %42, ptr noundef null) #10
-  %44 = getelementptr i8, ptr %41, i64 1464
+.loopexit15.thread:                               ; preds = %.preheader14.split
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %45 = load ptr, ptr %44, align 8
-  tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %45)
-  tail call void @drm_modeset_unlock(ptr noundef %42) #10
-  %46 = load ptr, ptr %41, align 8
-  %47 = icmp eq ptr %46, %38
-  br i1 %47, label %.loopexit13, label %.preheader12.split.us, !llvm.loop !92
+  %46 = icmp eq ptr %45, %44
+  br i1 %46, label %.loopexit13.thread22, label %.preheader12.split.preheader
 
-.preheader12.split:                               ; preds = %.preheader12, %.preheader12.split
-  %48 = phi ptr [ %51, %.preheader12.split ], [ %39, %.preheader12 ]
-  %49 = getelementptr i8, ptr %48, i64 1464
-  %50 = load ptr, ptr %49, align 8
-  tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %50)
-  %51 = load ptr, ptr %48, align 8
-  %52 = icmp eq ptr %51, %38
-  br i1 %52, label %.loopexit13, label %.preheader12.split, !llvm.loop !92
+.preheader12:                                     ; preds = %.loopexit15
+  br i1 %2, label %.preheader12.split.us.preheader, label %.preheader12.split.preheader
 
-.loopexit13:                                      ; preds = %.preheader12.split, %.preheader12.split.us, %.loopexit15
+.preheader12.split.preheader:                     ; preds = %.loopexit15.thread, %.preheader12
+  %47 = phi ptr [ %38, %.preheader12 ], [ %44, %.loopexit15.thread ]
+  %48 = phi ptr [ %39, %.preheader12 ], [ %45, %.loopexit15.thread ]
+  br label %.preheader12.split
+
+.preheader12.split.us.preheader:                  ; preds = %.loopexit15.thread19, %.preheader12
+  %49 = phi ptr [ %38, %.preheader12 ], [ %41, %.loopexit15.thread19 ]
+  %50 = phi ptr [ %39, %.preheader12 ], [ %42, %.loopexit15.thread19 ]
+  br label %.preheader12.split.us
+
+.preheader12.split.us:                            ; preds = %.preheader12.split.us.preheader, %.preheader12.split.us
+  %51 = phi ptr [ %56, %.preheader12.split.us ], [ %50, %.preheader12.split.us.preheader ]
+  %52 = getelementptr i8, ptr %51, i64 24
+  %53 = tail call i32 @drm_modeset_lock(ptr noundef %52, ptr noundef null) #10
+  %54 = getelementptr i8, ptr %51, i64 1464
+  %55 = load ptr, ptr %54, align 8
+  tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %55)
+  tail call void @drm_modeset_unlock(ptr noundef %52) #10
+  %56 = load ptr, ptr %51, align 8
+  %57 = icmp eq ptr %56, %49
+  br i1 %57, label %.loopexit13.thread, label %.preheader12.split.us, !llvm.loop !92
+
+.preheader12.split:                               ; preds = %.preheader12.split.preheader, %.preheader12.split
+  %58 = phi ptr [ %61, %.preheader12.split ], [ %48, %.preheader12.split.preheader ]
+  %59 = getelementptr i8, ptr %58, i64 1464
+  %60 = load ptr, ptr %59, align 8
+  tail call fastcc void @drm_atomic_crtc_print_state(ptr noundef %1, ptr noundef %60)
+  %61 = load ptr, ptr %58, align 8
+  %62 = icmp eq ptr %61, %47
+  br i1 %62, label %.loopexit13.thread22, label %.preheader12.split, !llvm.loop !92
+
+.loopexit13.thread:                               ; preds = %.preheader12.split.us, %.loopexit15.thread19
   call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
-  br i1 %2, label %53, label %56
+  br label %63
 
-53:                                               ; preds = %.loopexit13
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %55 = call i32 @drm_modeset_lock(ptr noundef nonnull %54, ptr noundef null) #10
-  br label %56
+.loopexit13.thread22:                             ; preds = %.preheader12.split, %.loopexit15.thread
+  call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
+  br label %66
 
-56:                                               ; preds = %53, %.loopexit13
-  %57 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.loopexit11, label %.preheader10
+.loopexit13:                                      ; preds = %.loopexit15
+  call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %4) #10
+  br i1 %2, label %63, label %66
 
-.preheader10:                                     ; preds = %56, %.preheader10
-  %59 = phi ptr [ %62, %.preheader10 ], [ %57, %56 ]
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1904
-  %61 = load ptr, ptr %60, align 8
-  call fastcc void @drm_atomic_connector_print_state(ptr noundef %1, ptr noundef %61)
-  %62 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit11, label %.preheader10, !llvm.loop !93
+63:                                               ; preds = %.loopexit13.thread, %.loopexit13
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %65 = call i32 @drm_modeset_lock(ptr noundef nonnull %64, ptr noundef null) #10
+  br label %66
 
-.loopexit11:                                      ; preds = %.preheader10, %56
-  br i1 %2, label %64, label %.thread
+66:                                               ; preds = %.loopexit13.thread22, %63, %.loopexit13
+  %67 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %.loopexit11, label %.preheader10
 
-64:                                               ; preds = %.loopexit11
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  call void @drm_modeset_unlock(ptr noundef nonnull %65) #10
+.preheader10:                                     ; preds = %66, %.preheader10
+  %69 = phi ptr [ %72, %.preheader10 ], [ %67, %66 ]
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1904
+  %71 = load ptr, ptr %70, align 8
+  call fastcc void @drm_atomic_connector_print_state(ptr noundef %1, ptr noundef %71)
+  %72 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %4) #10
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.loopexit11, label %.preheader10, !llvm.loop !93
+
+.loopexit11:                                      ; preds = %.preheader10, %66
+  br i1 %2, label %74, label %.thread
+
+74:                                               ; preds = %.loopexit11
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  call void @drm_modeset_unlock(ptr noundef nonnull %75) #10
   call void @drm_connector_list_iter_end(ptr noundef nonnull %4) #10
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %67 = load ptr, ptr %66, align 8
-  %68 = icmp eq ptr %67, %66
-  br i1 %68, label %.loopexit, label %.preheader.split.us
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %77 = load ptr, ptr %76, align 8
+  %78 = icmp eq ptr %77, %76
+  br i1 %78, label %.loopexit, label %.preheader.split.us
 
 .thread:                                          ; preds = %.loopexit11
   call void @drm_connector_list_iter_end(ptr noundef nonnull %4) #10
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, %69
-  br i1 %71, label %.loopexit, label %.preheader.split
-
-.preheader.split.us:                              ; preds = %64, %85
-  %72 = phi ptr [ %86, %85 ], [ %67, %64 ]
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = call i32 @drm_modeset_lock(ptr noundef nonnull %73, ptr noundef null) #10
-  %75 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 80
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %85, label %84
+  %81 = icmp eq ptr %80, %79
+  br i1 %81, label %.loopexit, label %.preheader.split
 
-84:                                               ; preds = %.preheader.split.us
-  call void %82(ptr noundef %1, ptr noundef %76) #10
-  br label %85
-
-85:                                               ; preds = %84, %.preheader.split.us
-  call void @drm_modeset_unlock(ptr noundef nonnull %73) #10
-  %86 = load ptr, ptr %72, align 8
-  %87 = icmp eq ptr %86, %66
-  br i1 %87, label %.loopexit, label %.preheader.split.us, !llvm.loop !94
-
-.preheader.split:                                 ; preds = %.thread, %99
-  %88 = phi ptr [ %100, %99 ], [ %70, %.thread ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
+.preheader.split.us:                              ; preds = %74, %95
+  %82 = phi ptr [ %96, %95 ], [ %77, %74 ]
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
+  %84 = call i32 @drm_modeset_lock(ptr noundef nonnull %83, ptr noundef null) #10
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 72
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 80
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 80
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  %96 = load ptr, ptr %95, align 8
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %99, label %98
+  %93 = icmp eq ptr %92, null
+  br i1 %93, label %95, label %94
 
-98:                                               ; preds = %.preheader.split
-  call void %96(ptr noundef %1, ptr noundef %90) #10
-  br label %99
+94:                                               ; preds = %.preheader.split.us
+  call void %92(ptr noundef %1, ptr noundef %86) #10
+  br label %95
 
-99:                                               ; preds = %98, %.preheader.split
-  %100 = load ptr, ptr %88, align 8
-  %101 = icmp eq ptr %100, %69
-  br i1 %101, label %.loopexit, label %.preheader.split, !llvm.loop !94
+95:                                               ; preds = %94, %.preheader.split.us
+  call void @drm_modeset_unlock(ptr noundef nonnull %83) #10
+  %96 = load ptr, ptr %82, align 8
+  %97 = icmp eq ptr %96, %76
+  br i1 %97, label %.loopexit, label %.preheader.split.us, !llvm.loop !94
 
-.loopexit:                                        ; preds = %99, %85, %.thread, %64, %18, %14
+.preheader.split:                                 ; preds = %.thread, %109
+  %98 = phi ptr [ %110, %109 ], [ %80, %.thread ]
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 72
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 80
+  %104 = load ptr, ptr %103, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %106 = load ptr, ptr %105, align 8
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %109, label %108
+
+108:                                              ; preds = %.preheader.split
+  call void %106(ptr noundef %1, ptr noundef %100) #10
+  br label %109
+
+109:                                              ; preds = %108, %.preheader.split
+  %110 = load ptr, ptr %98, align 8
+  %111 = icmp eq ptr %110, %79
+  br i1 %111, label %.loopexit, label %.preheader.split, !llvm.loop !94
+
+.loopexit:                                        ; preds = %109, %95, %.thread, %74, %18, %14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #10
   ret void
 }

@@ -827,7 +827,7 @@ wc_RNG_HealthTestLocal.exit:                      ; preds = %.lr.ph.i.i
 
 32:                                               ; preds = %wc_RNG_HealthTestLocal.exit
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #9
-  %33 = call i32 @wc_GenerateSeed(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 36)
+  %33 = call i32 @wc_GenerateSeed(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef 36)
   %.not32.not = icmp eq i32 %33, 0
   br i1 %.not32.not, label %34, label %.thread35
 

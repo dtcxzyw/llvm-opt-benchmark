@@ -1554,7 +1554,7 @@ _ZN11Compilation12is_profilingEv.exit.thread:     ; preds = %_ZN13GrowableArrayI
   br label %125
 
 125:                                              ; preds = %._crit_edge22.i, %76
-  %126 = icmp sgt i64 %indvars.iv32.i, 1
+  %126 = icmp samesign ugt i64 %indvars.iv32.i, 1
   br i1 %126, label %76, label %_ZN22ComputeLinearScanOrder23clear_non_natural_loopsEP10BlockBegin.exit, !llvm.loop !17
 
 _ZN22ComputeLinearScanOrder23clear_non_natural_loopsEP10BlockBegin.exit: ; preds = %125, %71
@@ -2146,7 +2146,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.ex
   br label %162
 
 162:                                              ; preds = %81, %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE4pushERKS1_.exit20
-  %163 = icmp sgt i64 %indvars.iv, 1
+  %163 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %163, label %81, label %thread-pre-split.loopexit, !llvm.loop !24
 
 thread-pre-split.loopexit:                        ; preds = %162
@@ -2264,7 +2264,7 @@ define hidden void @_ZN22ComputeLinearScanOrder23clear_non_natural_loopsEP10Bloc
   br label %61
 
 61:                                               ; preds = %12, %._crit_edge22
-  %62 = icmp sgt i64 %indvars.iv32, 1
+  %62 = icmp samesign ugt i64 %indvars.iv32, 1
   br i1 %62, label %12, label %._crit_edge27, !llvm.loop !17
 
 ._crit_edge27:                                    ; preds = %61, %2
@@ -2546,7 +2546,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %144 = sext i32 %142 to i64
   %145 = getelementptr inbounds ptr, ptr %141, i64 %144
   store ptr %94, ptr %145, align 8
-  %146 = icmp sgt i64 %indvars.iv68, 1
+  %146 = icmp samesign ugt i64 %indvars.iv68, 1
   br i1 %146, label %.lr.ph62, label %._crit_edge63, !llvm.loop !28
 
 ._crit_edge63:                                    ; preds = %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit31, %._crit_edge, %_ZNK10BlockBegin13number_of_suxEv.exit
@@ -2681,7 +2681,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
   %205 = sext i32 %203 to i64
   %206 = getelementptr inbounds ptr, ptr %202, i64 %205
   store ptr %155, ptr %206, align 8
-  %207 = icmp sgt i64 %indvars.iv71, 1
+  %207 = icmp samesign ugt i64 %indvars.iv71, 1
   br i1 %207, label %152, label %.loopexit, !llvm.loop !29
 
 .loopexit:                                        ; preds = %_ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.exit35, %._crit_edge63, %41

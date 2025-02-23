@@ -602,13 +602,7 @@ define range(i32 -1, 2) i32 @rect_original_order(ptr noundef readonly captures(n
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %2, 0
-  br i1 %4, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %3
-  %5 = sext i32 %2 to i64
-  tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
-  tail call void @qsort(ptr noundef %1, i64 noundef %5, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
-  br label %._crit_edge63
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge58.thread
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -616,14 +610,20 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv, i32 5
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %7, ptr %6, align 4, !tbaa !34
+  %5 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv, i32 5
+  %6 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %6, ptr %5, align 4, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.lr.ph57, label %.lr.ph, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge58.thread:                             ; preds = %3
+  %7 = sext i32 %2 to i64
+  tail call void @qsort(ptr noundef %1, i64 noundef %7, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
+  tail call void @qsort(ptr noundef %1, i64 noundef %7, i64 noundef 24, ptr noundef nonnull @rect_original_order) #9
+  br label %._crit_edge63
+
+.lr.ph57:                                         ; preds = %.lr.ph
   %8 = zext nneg i32 %2 to i64
   tail call void @qsort(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 24, ptr noundef nonnull @rect_height_compare) #9
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -631,8 +631,8 @@ define range(i32 0, 2) i32 @stbrp_pack_rects(ptr noundef %0, ptr noundef %1, i32
   %wide.trip.count68 = zext nneg i32 %2 to i64
   br label %11
 
-11:                                               ; preds = %._crit_edge, %stbrp__skyline_pack_rectangle.exit
-  %indvars.iv65 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next66, %stbrp__skyline_pack_rectangle.exit ]
+11:                                               ; preds = %.lr.ph57, %stbrp__skyline_pack_rectangle.exit
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph57 ], [ %indvars.iv.next66, %stbrp__skyline_pack_rectangle.exit ]
   %12 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv65
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !33
@@ -775,8 +775,8 @@ stbrp__skyline_pack_rectangle.exit:               ; preds = %29, %25, %20, %.cri
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %._crit_edge63, label %.lr.ph62, !llvm.loop !39
 
-._crit_edge63:                                    ; preds = %70, %._crit_edge.thread
-  %.045.lcssa = phi i32 [ 1, %._crit_edge.thread ], [ %71, %70 ]
+._crit_edge63:                                    ; preds = %70, %._crit_edge58.thread
+  %.045.lcssa = phi i32 [ 1, %._crit_edge58.thread ], [ %71, %70 ]
   ret i32 %.045.lcssa
 }
 

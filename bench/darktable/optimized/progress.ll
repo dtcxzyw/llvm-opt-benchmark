@@ -339,7 +339,7 @@ global_progress_end.exit:                         ; preds = %59, %37, %._crit_ed
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !56
   call void @g_free(ptr noundef %70) #6
-  call void @free(ptr noundef %1) #6
+  call void @free(ptr noundef nonnull %1) #6
   ret void
 }
 

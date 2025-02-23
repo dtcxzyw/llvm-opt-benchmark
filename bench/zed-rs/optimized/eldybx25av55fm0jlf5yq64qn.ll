@@ -6838,7 +6838,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 12:                                               ; preds = %3
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %14 = load ptr, ptr %5, align 8, !noundef !5
-  br label %38
+  br label %37
 
 15:                                               ; preds = %9
   %16 = load i64, ptr %0, align 8, !range !1146, !noundef !5
@@ -6848,11 +6848,11 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 18:                                               ; preds = %9
   %19 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %20 = load ptr, ptr %5, align 8, !noundef !5
-  br label %38
+  br label %37
 
 21:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.33, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.35) #68
-          to label %22 unwind label %44
+          to label %22 unwind label %43
 
 22:                                               ; preds = %21
   unreachable
@@ -6867,47 +6867,46 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   store atomic i8 0, ptr %27 seq_cst, align 8, !noalias !1182
   %28 = load atomic i8, ptr %6 seq_cst, align 8
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %38, label %30
+  br i1 %29, label %37, label %30
 
 30:                                               ; preds = %23
   %31 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
   %.not42 = icmp eq i8 %31, 0
-  br i1 %.not42, label %32, label %38
+  br i1 %.not42, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 8, !range !1146, !noundef !5
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
+  %34 = load ptr, ptr %26, align 8
   store i64 2, ptr %0, align 8
-  %36 = icmp eq i64 %33, 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !5
-  %. = select i1 %36, ptr undef, ptr %35
-  br label %38
+  %35 = icmp eq i64 %33, 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %36 seq_cst, align 8, !noalias !5
+  %. = select i1 %35, ptr undef, ptr %34
+  br label %37
 
-38:                                               ; preds = %32, %18, %23, %30, %12
+37:                                               ; preds = %32, %18, %23, %30, %12
   %.sroa.5.0 = phi ptr [ %14, %12 ], [ %20, %18 ], [ undef, %23 ], [ undef, %30 ], [ %., %32 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ 2, %23 ], [ 2, %30 ], [ %33, %32 ]
-  %39 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %40 = insertvalue { i64, ptr } %39, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %40
+  %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %39 = insertvalue { i64, ptr } %38, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %39
 
-41:                                               ; preds = %44
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %43
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #69
   unreachable
 
-43:                                               ; preds = %44
-  resume { ptr, i32 } %45
+42:                                               ; preds = %43
+  resume { ptr, i32 } %44
 
-44:                                               ; preds = %21
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %21
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %46 seq_cst, align 8, !noalias !1187
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %45 seq_cst, align 8, !noalias !1187
   invoke fastcc void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$17h3674d535a3bec198E"(ptr noalias noundef align 8 dereferenceable(16) %4) #70
-          to label %43 unwind label %41
+          to label %42 unwind label %40
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -6930,7 +6929,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 12:                                               ; preds = %3
   %13 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %14 = load ptr, ptr %5, align 8, !noundef !5
-  br label %38
+  br label %37
 
 15:                                               ; preds = %9
   %16 = load i64, ptr %0, align 8, !range !1146, !noundef !5
@@ -6940,11 +6939,11 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
 18:                                               ; preds = %9
   %19 = load i64, ptr %4, align 8, !range !4, !noundef !5
   %20 = load ptr, ptr %5, align 8, !noundef !5
-  br label %38
+  br label %37
 
 21:                                               ; preds = %15
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.33, i64 noundef 32, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.879f5d28a4607fba0ebec5e8d3f3ee6e.35) #68
-          to label %22 unwind label %44
+          to label %22 unwind label %43
 
 22:                                               ; preds = %21
   unreachable
@@ -6959,47 +6958,46 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17
   store atomic i8 0, ptr %27 seq_cst, align 8, !noalias !1192
   %28 = load atomic i8, ptr %6 seq_cst, align 8
   %29 = icmp eq i8 %28, 0
-  br i1 %29, label %38, label %30
+  br i1 %29, label %37, label %30
 
 30:                                               ; preds = %23
   %31 = atomicrmw xchg ptr %10, i8 1 seq_cst, align 1
   %.not42 = icmp eq i8 %31, 0
-  br i1 %.not42, label %32, label %38
+  br i1 %.not42, label %32, label %37
 
 32:                                               ; preds = %30
   %33 = load i64, ptr %0, align 8, !range !1146, !noundef !5
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load ptr, ptr %34, align 8
+  %34 = load ptr, ptr %26, align 8
   store i64 2, ptr %0, align 8
-  %36 = icmp eq i64 %33, 2
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %37 seq_cst, align 8, !noalias !5
-  %. = select i1 %36, ptr undef, ptr %35
-  br label %38
+  %35 = icmp eq i64 %33, 2
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %36 seq_cst, align 8, !noalias !5
+  %. = select i1 %35, ptr undef, ptr %34
+  br label %37
 
-38:                                               ; preds = %32, %18, %23, %30, %12
+37:                                               ; preds = %32, %18, %23, %30, %12
   %.sroa.5.0 = phi ptr [ %14, %12 ], [ %20, %18 ], [ undef, %23 ], [ undef, %30 ], [ %., %32 ]
   %.sroa.0.0 = phi i64 [ %13, %12 ], [ %19, %18 ], [ 2, %23 ], [ 2, %30 ], [ %33, %32 ]
-  %39 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %40 = insertvalue { i64, ptr } %39, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %40
+  %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %39 = insertvalue { i64, ptr } %38, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %39
 
-41:                                               ; preds = %44
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %43
+  %41 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #69
   unreachable
 
-43:                                               ; preds = %44
-  resume { ptr, i32 } %45
+42:                                               ; preds = %43
+  resume { ptr, i32 } %44
 
-44:                                               ; preds = %21
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %21
+  %44 = landingpad { ptr, i32 }
           cleanup
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store atomic i8 0, ptr %46 seq_cst, align 8, !noalias !1197
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store atomic i8 0, ptr %45 seq_cst, align 8, !noalias !1197
   invoke fastcc void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$tree_sitter..Language$C$alloc..sync..Arc$LT$anyhow..Error$GT$$GT$$GT$17h1aeecc879970a3f0E"(ptr noalias noundef align 8 dereferenceable(16) %4) #70
-          to label %43 unwind label %41
+          to label %42 unwind label %40
 }
 
 ; Function Attrs: nonlazybind uwtable

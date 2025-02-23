@@ -2708,7 +2708,7 @@ set_island_marks.exit:                            ; preds = %84, %53, %79
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %3) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %3, ptr noundef nonnull readonly align 4 dereferenceable(36) %96, i64 36, i1 false), !tbaa.struct !17
-  %97 = call fastcc i32 @kh_put_oid_map(ptr noundef %94, ptr noundef nonnull byval(%struct.object_id) align 8 %3, ptr noundef %2)
+  %97 = call fastcc i32 @kh_put_oid_map(ptr noundef nonnull %94, ptr noundef nonnull byval(%struct.object_id) align 8 %3, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %3) #17
   %98 = load i32, ptr %2, align 4, !tbaa !15
   %.not.i13 = icmp eq i32 %98, 0

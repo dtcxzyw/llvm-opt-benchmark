@@ -269,7 +269,7 @@ define range(i32 0, 2) i32 @ssl3_cbc_digest_record(ptr noundef %0, ptr noundef %
 
 .loopexit:                                        ; preds = %117, %.lr.ph240, %108, %120, %98
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %15, i8 0, i64 64, i1 false)
-  %127 = add i64 %.0212, %61
+  %127 = add nsw i64 %.0212, %61
   %.not232246 = icmp ugt i64 %.0212, %127
   br i1 %.not232246, label %._crit_edge, label %.lr.ph249
 

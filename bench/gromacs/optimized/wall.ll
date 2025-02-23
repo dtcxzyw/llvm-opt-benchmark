@@ -950,78 +950,74 @@ _ZL10tableForcefRK12t_forcetableffPfS2_.exit.us.us: ; preds = %199, %186
 
 .split:                                           ; preds = %._crit_edge
   %.promoted = load double, ptr %83, align 8
-  br i1 %.not, label %.split.split.us, label %.split.split
-
-.split.split.us:                                  ; preds = %.split, %.split.split.us
-  %283 = phi double [ %284, %.split.split.us ], [ %.promoted, %.split ]
-  %.0160216.us231 = phi i32 [ %285, %.split.split.us ], [ 0, %.split ]
-  %284 = fadd double %283, %82
-  %285 = add nuw nsw i32 %.0160216.us231, 1
-  %exitcond257.not = icmp eq i32 %285, %70
-  br i1 %exitcond257.not, label %.split225, label %.split.split.us, !llvm.loop !25
+  br i1 %.not, label %.split225.loopexit, label %.split.split
 
 .split.split:                                     ; preds = %.split, %.split.split
-  %286 = phi double [ %291, %.split.split ], [ %.promoted, %.split ]
-  %.0154218 = phi float [ %290, %.split.split ], [ 0.000000e+00, %.split ]
-  %.0160216 = phi i32 [ %292, %.split.split ], [ 0, %.split ]
-  %287 = icmp eq i32 %.0160216, 0
-  %288 = select i1 %287, i32 -1, i32 1
-  %289 = sitofp i32 %288 to float
-  %290 = tail call float @llvm.fmuladd.f32(float %289, float 0.000000e+00, float %.0154218)
-  %291 = fadd double %286, %82
-  %292 = add nuw nsw i32 %.0160216, 1
-  %exitcond255.not = icmp eq i32 %292, %70
+  %283 = phi double [ %288, %.split.split ], [ %.promoted, %.split ]
+  %.0154218 = phi float [ %287, %.split.split ], [ 0.000000e+00, %.split ]
+  %.0160216 = phi i32 [ %289, %.split.split ], [ 0, %.split ]
+  %284 = icmp eq i32 %.0160216, 0
+  %285 = select i1 %284, i32 -1, i32 1
+  %286 = sitofp i32 %285 to float
+  %287 = tail call float @llvm.fmuladd.f32(float %286, float 0.000000e+00, float %.0154218)
+  %288 = fadd double %283, %82
+  %289 = add nuw nsw i32 %.0160216, 1
+  %exitcond255.not = icmp eq i32 %289, 2
   br i1 %exitcond255.not, label %.split225, label %.split.split, !llvm.loop !25
 
 .split.us:                                        ; preds = %123
-  %293 = trunc nuw nsw i64 %indvars.iv263 to i32
-  tail call fastcc void @_ZL10wall_erroriN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEf(i32 noundef %293, ptr nonnull %76, float noundef %.1157.us.us) #20
+  %290 = trunc nuw nsw i64 %indvars.iv263 to i32
+  tail call fastcc void @_ZL10wall_erroriN3gmx8ArrayRefIKNS_11BasicVectorIfEEEEf(i32 noundef %290, ptr nonnull %76, float noundef %.1157.us.us) #20
   unreachable
 
-.split225:                                        ; preds = %.split.split, %.split.split.us
-  %.us-phi = phi double [ %284, %.split.split.us ], [ %291, %.split.split ]
-  %.us-phi236 = phi float [ 0.000000e+00, %.split.split.us ], [ %290, %.split.split ]
+.split225.loopexit:                               ; preds = %.split
+  %291 = fadd double %.promoted, %82
+  br label %.split225
+
+.split225:                                        ; preds = %.split.split, %.split225.loopexit
+  %.us-phi = phi double [ %291, %.split225.loopexit ], [ %288, %.split.split ]
+  %.us-phi236 = phi float [ 0.000000e+00, %.split225.loopexit ], [ %287, %.split.split ]
   store double %.us-phi, ptr %83, align 8
   br label %.split225.us
 
 .split225.us.loopexit:                            ; preds = %._crit_edge210.us
-  %294 = fmul double %.us-phi213.us, -5.000000e-01
-  %295 = fptrunc double %294 to float
+  %292 = fmul double %.us-phi213.us, -5.000000e-01
+  %293 = fptrunc double %292 to float
   br label %.split225.us
 
 .split225.us:                                     ; preds = %.split225.us.loopexit, %.split225
-  %.us-phi226 = phi float [ -0.000000e+00, %.split225 ], [ %295, %.split225.us.loopexit ]
+  %.us-phi226 = phi float [ -0.000000e+00, %.split225 ], [ %293, %.split225.us.loopexit ]
   %.us-phi227 = phi float [ %.us-phi236, %.split225 ], [ %.1.us, %.split225.us.loopexit ]
-  %296 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %297 = load i8, ptr %296, align 8
-  %298 = trunc i8 %297 to i1
-  br i1 %298, label %.preheader.i, label %306
+  %294 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %295 = load i8, ptr %294, align 8
+  %296 = trunc i8 %295 to i1
+  br i1 %296, label %.preheader.i, label %304
 
 .preheader.i:                                     ; preds = %.split225.us
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %15)
   store <2 x float> zeroinitializer, ptr %15, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %.us-phi226, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %10, i64 20
-  br label %300
+  %297 = getelementptr inbounds nuw i8, ptr %10, i64 20
+  br label %298
 
-300:                                              ; preds = %300, %.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %300 ]
-  %301 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
+298:                                              ; preds = %298, %.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %298 ]
+  %299 = getelementptr inbounds nuw [3 x float], ptr %15, i64 0, i64 %indvars.iv.i
+  %300 = load float, ptr %299, align 4
+  %301 = getelementptr inbounds nuw [3 x [3 x float]], ptr %297, i64 0, i64 %indvars.iv.i, i64 %indvars.iv.i
   %302 = load float, ptr %301, align 4
-  %303 = getelementptr inbounds nuw [3 x [3 x float]], ptr %299, i64 0, i64 %indvars.iv.i, i64 %indvars.iv.i
-  %304 = load float, ptr %303, align 4
-  %305 = fadd float %302, %304
-  store float %305, ptr %303, align 4
+  %303 = fadd float %300, %302
+  store float %303, ptr %301, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, label %300, !llvm.loop !28
+  br i1 %exitcond.not.i, label %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, label %298, !llvm.loop !28
 
-_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit: ; preds = %300
+_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit: ; preds = %298
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %15)
-  br label %306
+  br label %304
 
-306:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, %.split225.us
+304:                                              ; preds = %_ZN3gmx15ForceWithVirial21addVirialContributionENS_11BasicVectorIfEE.exit, %.split225.us
   ret float %.us-phi227
 }
 

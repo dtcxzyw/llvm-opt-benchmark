@@ -1656,7 +1656,7 @@ for.body.i.preheader.i:                           ; preds = %if.end20.i.i
 
 for.end.i.i:                                      ; preds = %for.body.i.preheader.i, %if.end20.i.i
   %i.1.lcssa.i.i = phi i64 [ %i.0.i.i, %if.end20.i.i ], [ %12, %for.body.i.preheader.i ]
-  %cmp28.not.i.i = icmp ugt i64 %i.1.lcssa.i.i, %spec.select
+  %cmp28.not.i.i = icmp samesign ugt i64 %i.1.lcssa.i.i, %spec.select
   br i1 %cmp28.not.i.i, label %_ZN3ue29CharReach8setRangeEhh.exit, label %if.then29.i.i
 
 if.then29.i.i:                                    ; preds = %for.end.i.i

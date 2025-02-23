@@ -40,7 +40,7 @@ define noundef ptr @Pobsopen(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %10, label %11, label %._crit_edge.thread
 
 11:                                               ; preds = %._crit_edge
-  tail call void @free(ptr noundef %3) #11
+  tail call void @free(ptr noundef nonnull %3) #11
   br label %58
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge

@@ -534,7 +534,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
   %60 = zext i1 %59 to i32
   %spec.select = add i32 %.0.lcssa, %.059.neg
   %61 = add i32 %spec.select, %60
-  call void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %61) #7
+  call void @lv_textarea_set_cursor_pos(ptr noundef nonnull %0, i32 noundef %61) #7
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %2) #7
   ret void

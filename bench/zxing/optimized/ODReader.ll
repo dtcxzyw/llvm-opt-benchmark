@@ -1487,7 +1487,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPtSt6vectorItSaItEEEEEvT_S7_.exit: ;
   %194 = load i32, ptr %193, align 4
   %195 = load i32, ptr %.0128.ptr, align 4
   %196 = xor i32 %195, -1
-  %197 = add i32 %spec.select347, %196
+  %197 = add i32 %40, %196
   %.sroa.2302.0.insert.ext = zext i32 %197 to i64
   %.sroa.2302.0.insert.shift = shl nuw i64 %.sroa.2302.0.insert.ext, 32
   %.sroa.0301.0.insert.ext = zext i32 %194 to i64

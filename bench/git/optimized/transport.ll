@@ -1044,7 +1044,7 @@ define dso_local ptr @transport_get(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not77, label %47, label %45
 
 45:                                               ; preds = %44
-  %46 = tail call i32 @transport_helper_init(ptr noundef %4, ptr noundef nonnull %.066) #21
+  %46 = tail call i32 @transport_helper_init(ptr noundef nonnull %4, ptr noundef nonnull %.066) #21
   tail call void @free(ptr noundef %.067) #21
   br label %98
 
@@ -1156,7 +1156,7 @@ transport_check_allowed.exit:                     ; preds = %61
   %sext = shl i64 %94, 32
   %95 = ashr exact i64 %sext, 32
   %96 = tail call ptr @xmemdupz(ptr noundef nonnull %.0, i64 noundef %95) #21
-  %97 = tail call i32 @transport_helper_init(ptr noundef %4, ptr noundef %96) #21
+  %97 = tail call i32 @transport_helper_init(ptr noundef nonnull %4, ptr noundef %96) #21
   tail call void @free(ptr noundef %96) #21
   br label %98
 
@@ -2554,10 +2554,10 @@ define dso_local void @transport_unlock_pack(ptr noundef %0, i32 noundef %1) loc
   %11 = add nuw i64 %.010.us, 1
   %12 = load i64, ptr %5, align 8, !tbaa !124
   %13 = icmp ult i64 %11, %12
-  br i1 %13, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !126
+  br i1 %13, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !126
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
-  br i1 %.not, label %21, label %22
+._crit_edge:                                      ; preds = %2
+  br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread13
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.010 = phi i64 [ %18, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -2568,13 +2568,13 @@ define dso_local void @transport_unlock_pack(ptr noundef %0, i32 noundef %1) loc
   %18 = add nuw i64 %.010, 1
   %19 = load i64, ptr %5, align 8, !tbaa !124
   %20 = icmp ult i64 %18, %19
-  br i1 %20, label %.lr.ph.split, label %._crit_edge, !llvm.loop !126
+  br i1 %20, label %.lr.ph.split, label %._crit_edge.thread13, !llvm.loop !126
 
-21:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge
   tail call void @string_list_clear(ptr noundef nonnull %4, i32 noundef 0) #21
-  br label %22
+  br label %._crit_edge.thread13
 
-22:                                               ; preds = %21, %._crit_edge
+._crit_edge.thread13:                             ; preds = %.lr.ph.split, %._crit_edge.thread, %._crit_edge
   ret void
 }
 

@@ -3215,7 +3215,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.loopexit.i, %.lr.p
   %331 = load ptr, ptr %330, align 8
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
   %333 = load ptr, ptr %332, align 8
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %333) #8
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %333) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %334 = load i32, ptr %320, align 4
   %335 = sext i32 %334 to i64
@@ -3241,7 +3241,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.loopexit.i, %.lr.p
   %344 = load ptr, ptr %343, align 8
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
   %346 = load ptr, ptr %345, align 8
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %346) #8
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %346) #8
   %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   %347 = load i32, ptr %325, align 4
   %348 = sext i32 %347 to i64
@@ -3258,7 +3258,7 @@ reconsider_full_join_clause.exit.thread:          ; preds = %.loopexit.i, %.lr.p
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %354 = load ptr, ptr %353, align 8
-  call void @distribute_restrictinfo_to_rels(ptr noundef %0, ptr noundef %354) #8
+  call void @distribute_restrictinfo_to_rels(ptr noundef nonnull %0, ptr noundef %354) #8
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %355 = load i32, ptr %338, align 4
   %356 = sext i32 %355 to i64

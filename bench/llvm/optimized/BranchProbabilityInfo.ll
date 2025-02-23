@@ -6274,7 +6274,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm21BranchProbabilityInfo23calcEstima
   %30 = getelementptr inbounds i8, ptr %28, i64 -24
   %31 = load i8, ptr %30, align 8, !tbaa !147
   %.not.i = icmp eq i8 %31, 31
-  %spec.select.i.i.i = select i1 %.not.i, ptr %30, ptr null
   br i1 %.not.i, label %32, label %_ZL25computeUnlikelySuccessorsPKN4llvm10BasicBlockEPNS_4LoopERNS_15SmallPtrSetImplIS2_EE.exit
 
 32:                                               ; preds = %26
@@ -6513,8 +6512,8 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_7PHINodeEEEbPKT_.exit.
 .lr.ph201.i:                                      ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsINS_7PHINodeEEEbPKT_.exit.thread164.i
   %150 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %151 = getelementptr inbounds nuw i8, ptr %39, i64 2
-  %152 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 -32
-  %153 = getelementptr inbounds i8, ptr %spec.select.i.i.i, i64 -64
+  %152 = getelementptr inbounds i8, ptr %28, i64 -56
+  %153 = getelementptr inbounds i8, ptr %28, i64 -88
   br label %155
 
 .loopexit.loopexit.i:                             ; preds = %.critedge7.i
@@ -6899,8 +6898,8 @@ _ZL25computeUnlikelySuccessorsPKN4llvm10BasicBlockEPNS_4LoopERNS_15SmallPtrSetIm
 
 _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %321
   %326 = call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %322) #27, !noalias !412
-  %.not140 = icmp eq i32 %326, 0
-  br i1 %.not140, label %._crit_edge.thread, label %.lr.ph
+  %.not141 = icmp eq i32 %326, 0
+  br i1 %.not141, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit
   %327 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6915,10 +6914,10 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %321
   br i1 %or.cond.not, label %383, label %._crit_edge.thread
 
 332:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
-  %.044143 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
-  %.045142 = phi i64 [ 0, %.lr.ph ], [ %370, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
-  %.sroa.4108.0141 = phi i32 [ 0, %.lr.ph ], [ %382, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
-  %333 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %322, i32 noundef %.sroa.4108.0141) #27
+  %.044144 = phi i1 [ false, %.lr.ph ], [ %spec.select, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
+  %.045143 = phi i64 [ 0, %.lr.ph ], [ %370, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
+  %.sroa.4109.0142 = phi i32 [ 0, %.lr.ph ], [ %382, %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit ]
+  %333 = call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %322, i32 noundef %.sroa.4109.0142) #27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #23
   %334 = load ptr, ptr %15, align 8, !tbaa !213, !noalias !415
   %335 = load ptr, ptr %17, align 8, !tbaa !208, !noalias !415
@@ -6927,7 +6926,7 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %321
   store ptr %8, ptr %12, align 8, !tbaa !235
   store ptr %11, ptr %327, align 8, !tbaa !235
   %336 = call i64 @_ZNK4llvm21BranchProbabilityInfo22getEstimatedEdgeWeightERKSt4pairIRKNS0_9LoopBlockES4_E(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %.sroa.089.0.extract.trunc = trunc i64 %336 to i32
+  %.sroa.090.0.extract.trunc = trunc i64 %336 to i32
   %.sroa.10.0.extract.shift = lshr i64 %336, 32
   %.sroa.10.0.extract.trunc = trunc nuw nsw i64 %.sroa.10.0.extract.shift to i8
   %337 = load ptr, ptr %24, align 8, !tbaa !188
@@ -6952,23 +6951,23 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i: ; 
   %.not8.i.i = icmp ne i32 %342, -1
   %343 = load i32, ptr %330, align 8
   %344 = icmp ne i32 %343, %342
-  %or.cond126 = select i1 %.not8.i.i, i1 %344, i1 false
-  br i1 %or.cond126, label %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread, label %.critedge
+  %or.cond127 = select i1 %.not8.i.i, i1 %344, i1 false
+  br i1 %or.cond127, label %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread, label %.critedge
 
 _ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread: ; preds = %.lr.ph.i.i.i56, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i
   %345 = trunc nuw i64 %.sroa.10.0.extract.shift to i1
-  %346 = icmp eq i32 %.sroa.089.0.extract.trunc, 0
-  %.not129 = and i1 %346, %345
-  br i1 %.not129, label %.critedge, label %347
+  %346 = icmp eq i32 %.sroa.090.0.extract.trunc, 0
+  %.not130 = and i1 %346, %345
+  br i1 %.not130, label %.critedge, label %347
 
 347:                                              ; preds = %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread
-  %348 = udiv i32 %.sroa.089.0.extract.trunc, 31
+  %348 = udiv i32 %.sroa.090.0.extract.trunc, 31
   %349 = call i32 @llvm.umax.i32(i32 %348, i32 1)
-  %.sroa.089.0.extract.trunc91 = select i1 %345, i32 %349, i32 33825
+  %.sroa.090.0.extract.trunc92 = select i1 %345, i32 %349, i32 33825
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i, %347, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread
-  %.sroa.089.0 = phi i32 [ %.sroa.089.0.extract.trunc91, %347 ], [ 0, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.089.0.extract.trunc, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i ]
+  %.sroa.090.0 = phi i32 [ %.sroa.090.0.extract.trunc92, %347 ], [ 0, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.090.0.extract.trunc, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i ]
   %.sroa.10.0 = phi i8 [ 1, %347 ], [ 1, %_ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES4_E.exit.thread ], [ %.sroa.10.0.extract.trunc, %_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS2_.exit.thread.i.i ]
   br i1 %.not.i.i55, label %.critedge2, label %350
 
@@ -6994,33 +6993,33 @@ _ZNK4llvm21BranchProbabilityInfo17isLoopExitingEdgeERKSt4pairIRKNS0_9LoopBlockES
   %.0810.i.i = phi ptr [ %359, %358 ], [ %354, %353 ]
   %360 = load ptr, ptr %.0810.i.i, align 8, !tbaa !66
   %361 = icmp eq ptr %360, %333
-  br i1 %361, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120, label %358
+  br i1 %361, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121, label %358
 
 _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit: ; preds = %350
   %362 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %9, ptr noundef %333) #23
-  %.not130 = icmp eq ptr %362, null
-  br i1 %.not130, label %.critedge2, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120
+  %.not131 = icmp eq ptr %362, null
+  br i1 %.not131, label %.critedge2, label %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121
 
-_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit
+_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121: ; preds = %.lr.ph.i.i, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit
   %363 = trunc nuw i8 %.sroa.10.0 to i1
-  %364 = icmp eq i32 %.sroa.089.0, 0
-  %.not132 = select i1 %363, i1 %364, i1 false
-  br i1 %.not132, label %.critedge2, label %365
+  %364 = icmp eq i32 %.sroa.090.0, 0
+  %.not133 = select i1 %363, i1 %364, i1 false
+  br i1 %.not133, label %.critedge2, label %365
 
-365:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120
-  %366 = lshr i32 %.sroa.089.0, 1
+365:                                              ; preds = %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121
+  %366 = lshr i32 %.sroa.090.0, 1
   %367 = call i32 @llvm.umax.i32(i32 %366, i32 1)
-  %.sroa.089.0.extract.trunc92 = select i1 %363, i32 %367, i32 524287
+  %.sroa.090.0.extract.trunc93 = select i1 %363, i32 %367, i32 524287
   br label %.critedge2
 
-.critedge2:                                       ; preds = %358, %353, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit, %.critedge, %365, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120
-  %.sroa.089.1 = phi i32 [ %.sroa.089.0.extract.trunc92, %365 ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120 ], [ %.sroa.089.0, %.critedge ], [ %.sroa.089.0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit ], [ %.sroa.089.0, %353 ], [ %.sroa.089.0, %358 ]
-  %.sroa.10.1 = phi i8 [ 1, %365 ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread120 ], [ %.sroa.10.0, %.critedge ], [ %.sroa.10.0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit ], [ %.sroa.10.0, %353 ], [ %.sroa.10.0, %358 ]
+.critedge2:                                       ; preds = %358, %353, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit, %.critedge, %365, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121
+  %.sroa.090.1 = phi i32 [ %.sroa.090.0.extract.trunc93, %365 ], [ 0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121 ], [ %.sroa.090.0, %.critedge ], [ %.sroa.090.0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit ], [ %.sroa.090.0, %353 ], [ %.sroa.090.0, %358 ]
+  %.sroa.10.1 = phi i8 [ 1, %365 ], [ 1, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit.thread121 ], [ %.sroa.10.0, %.critedge ], [ %.sroa.10.0, %_ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE8containsES3_.exit ], [ %.sroa.10.0, %353 ], [ %.sroa.10.0, %358 ]
   %368 = trunc nuw i8 %.sroa.10.1 to i1
-  %spec.select = select i1 %368, i1 true, i1 %.044143
-  %.0.i64 = select i1 %368, i32 %.sroa.089.1, i32 1048575
+  %spec.select = select i1 %368, i1 true, i1 %.044144
+  %.0.i64 = select i1 %368, i32 %.sroa.090.1, i32 1048575
   %369 = zext i32 %.0.i64 to i64
-  %370 = add i64 %.045142, %369
+  %370 = add i64 %.045143, %369
   %371 = load i32, ptr %316, align 8, !tbaa !26
   %372 = load i32, ptr %317, align 4, !tbaa !27
   %.not.i.i.not.i = icmp ult i32 %371, %372
@@ -7044,7 +7043,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.critedge2
   store i32 %381, ptr %316, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #23
-  %382 = add nuw nsw i32 %.sroa.4108.0141, 1
+  %382 = add nuw nsw i32 %.sroa.4109.0142, 1
   %.not = icmp eq i32 %382, %326
   br i1 %.not, label %._crit_edge, label %332
 
@@ -7056,8 +7055,8 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %.critedge2
 386:                                              ; preds = %383
   %387 = udiv i64 %370, 4294967295
   %388 = add nuw nsw i64 %387, 1
-  %.not153 = icmp eq i32 %381, 0
-  br i1 %.not153, label %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread, label %.lr.ph148
+  %.not154 = icmp eq i32 %381, 0
+  br i1 %.not154, label %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread, label %.lr.ph149
 
 _ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread: ; preds = %386
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
@@ -7068,26 +7067,26 @@ _ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread: ; pre
   store i32 4, ptr %391, align 4, !tbaa !27
   br label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread
 
-.lr.ph148:                                        ; preds = %386, %.lr.ph148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph148 ], [ 0, %386 ]
-  %.2145 = phi i64 [ %399, %.lr.ph148 ], [ 0, %386 ]
+.lr.ph149:                                        ; preds = %386, %.lr.ph149
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph149 ], [ 0, %386 ]
+  %.2146 = phi i64 [ %399, %.lr.ph149 ], [ 0, %386 ]
   %392 = load ptr, ptr %10, align 8, !tbaa !25
   %393 = getelementptr inbounds nuw i32, ptr %392, i64 %indvars.iv
   %394 = load i32, ptr %393, align 4, !tbaa !136
   %395 = zext i32 %394 to i64
   %396 = udiv i64 %395, %388
   %397 = trunc nuw nsw i64 %396 to i32
-  %.not127 = icmp samesign ult i64 %387, %395
-  %spec.store.select = select i1 %.not127, i32 %397, i32 1
+  %.not128 = icmp samesign ult i64 %387, %395
+  %spec.store.select = select i1 %.not128, i32 %397, i32 1
   store i32 %spec.store.select, ptr %393, align 4
-  %398 = zext i32 %spec.store.select to i64
-  %399 = add i64 %.2145, %398
+  %398 = zext nneg i32 %spec.store.select to i64
+  %399 = add i64 %.2146, %398
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %384
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph148, !llvm.loop !418
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph149, !llvm.loop !418
 
-.loopexit:                                        ; preds = %.lr.ph148, %383
-  %.146 = phi i64 [ %370, %383 ], [ %399, %.lr.ph148 ]
+.loopexit:                                        ; preds = %.lr.ph149, %383
+  %.146 = phi i64 [ %370, %383 ], [ %399, %.lr.ph149 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #23
   %400 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %400, ptr %13, align 8, !tbaa !25
@@ -7101,19 +7100,19 @@ _ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread: ; pre
 .lr.ph.i.i.i.preheader.i.i.i:                     ; preds = %.loopexit
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull %400, i64 noundef %384, i64 noundef 4) #23
   %404 = load ptr, ptr %13, align 8, !tbaa !25
-  br label %.lr.ph151
+  br label %.lr.ph152
 
 _ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i: ; preds = %.loopexit
-  %.not.i.not.i = icmp eq i32 %381, 0
-  br i1 %.not.i.not.i, label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread, label %.lr.ph151
+  %.not.i67 = icmp eq i32 %381, 0
+  br i1 %.not.i67, label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread, label %.lr.ph152
 
 _ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread: ; preds = %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i
   %.ph = phi ptr [ %390, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread ], [ %401, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i ]
-  %.ph182 = phi ptr [ %389, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread ], [ %400, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i ]
+  %.ph183 = phi ptr [ %389, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i.thread ], [ %400, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i ]
   store i32 %381, ptr %.ph, align 8, !tbaa !26
-  br label %._crit_edge152
+  br label %._crit_edge153
 
-.lr.ph151:                                        ; preds = %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i, %.lr.ph.i.i.i.preheader.i.i.i
+.lr.ph152:                                        ; preds = %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i, %.lr.ph.i.i.i.preheader.i.i.i
   %.sink = phi ptr [ %404, %.lr.ph.i.i.i.preheader.i.i.i ], [ %400, %_ZSt6fill_nIPN4llvm17BranchProbabilityEmS1_ET_S3_T0_RKT1_.exit.i.i ]
   %405 = shl nuw nsw i64 %384, 2
   call void @llvm.memset.p0.i64(ptr align 4 %.sink, i8 -1, i64 %405, i1 false), !tbaa !136
@@ -7121,39 +7120,39 @@ _ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread: ; preds
   %406 = trunc i64 %.146 to i32
   br label %411
 
-._crit_edge152:                                   ; preds = %411, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread
-  %407 = phi ptr [ %.ph182, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread ], [ %400, %411 ]
+._crit_edge153:                                   ; preds = %411, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread
+  %407 = phi ptr [ %.ph183, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EEC2EmRKS1_.exit.thread ], [ %400, %411 ]
   call void @_ZN4llvm21BranchProbabilityInfo18setEdgeProbabilityEPKNS_10BasicBlockERKNS_15SmallVectorImplINS_17BranchProbabilityEEE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %13)
   %408 = load ptr, ptr %13, align 8, !tbaa !25
   %409 = icmp eq ptr %408, %407
   br i1 %409, label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit, label %410
 
-410:                                              ; preds = %._crit_edge152
+410:                                              ; preds = %._crit_edge153
   call void @free(ptr noundef %408) #23
   br label %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit: ; preds = %._crit_edge152, %410
+_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit: ; preds = %._crit_edge153, %410
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #23
   br label %._crit_edge.thread
 
-411:                                              ; preds = %.lr.ph151, %411
-  %indvars.iv165 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next166, %411 ]
+411:                                              ; preds = %.lr.ph152, %411
+  %indvars.iv166 = phi i64 [ 0, %.lr.ph152 ], [ %indvars.iv.next167, %411 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #23
   %412 = load ptr, ptr %10, align 8, !tbaa !25
-  %413 = getelementptr inbounds nuw i32, ptr %412, i64 %indvars.iv165
+  %413 = getelementptr inbounds nuw i32, ptr %412, i64 %indvars.iv166
   %414 = load i32, ptr %413, align 4, !tbaa !136
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef %414, i32 noundef %406) #23
   %415 = load ptr, ptr %13, align 8, !tbaa !25
-  %416 = getelementptr inbounds nuw %"class.llvm::BranchProbability", ptr %415, i64 %indvars.iv165
+  %416 = getelementptr inbounds nuw %"class.llvm::BranchProbability", ptr %415, i64 %indvars.iv166
   %417 = load i32, ptr %14, align 4, !tbaa !136
   store i32 %417, ptr %416, align 4, !tbaa !136
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #23
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %exitcond169.not = icmp eq i64 %indvars.iv.next166, %384
-  br i1 %exitcond169.not, label %._crit_edge152, label %411, !llvm.loop !419
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
+  %exitcond170.not = icmp eq i64 %indvars.iv.next167, %384
+  br i1 %exitcond170.not, label %._crit_edge153, label %411, !llvm.loop !419
 
 ._crit_edge.thread:                               ; preds = %_ZL25computeUnlikelySuccessorsPKN4llvm10BasicBlockEPNS_4LoopERNS_15SmallPtrSetImplIS2_EE.exit, %321, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit, %._crit_edge, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit
-  %or.cond.not176 = phi i1 [ false, %._crit_edge ], [ true, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit ], [ false, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ false, %321 ], [ false, %_ZL25computeUnlikelySuccessorsPKN4llvm10BasicBlockEPNS_4LoopERNS_15SmallPtrSetImplIS2_EE.exit ]
+  %or.cond.not177 = phi i1 [ false, %._crit_edge ], [ true, %_ZN4llvm11SmallVectorINS_17BranchProbabilityELj4EED2Ev.exit ], [ false, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ false, %321 ], [ false, %_ZL25computeUnlikelySuccessorsPKN4llvm10BasicBlockEPNS_4LoopERNS_15SmallPtrSetImplIS2_EE.exit ]
   %418 = load ptr, ptr %10, align 8, !tbaa !25
   %419 = icmp eq ptr %418, %315
   br i1 %419, label %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit, label %420
@@ -7176,7 +7175,7 @@ _ZN4llvm11SmallVectorIjLj4EED2Ev.exit:            ; preds = %._crit_edge.thread,
 _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %_ZN4llvm11SmallVectorIjLj4EED2Ev.exit, %423
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9) #23
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #23
-  ret i1 %or.cond.not176
+  ret i1 %or.cond.not177
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8310,7 +8309,7 @@ define dso_local i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !439
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.loopexit70, label %10
+  br i1 %9, label %.loopexit67, label %10
 
 10:                                               ; preds = %3
   %11 = ptrtoint ptr %1 to i64
@@ -8339,7 +8338,7 @@ define dso_local i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_
   %29 = icmp ne ptr %28, inttoptr (i64 -4096 to ptr)
   %30 = icmp ne i32 %27, -1
   %.not3.i.i = select i1 %29, i1 true, i1 %30
-  br i1 %.not3.i.i, label %31, label %.loopexit70, !prof !278
+  br i1 %.not3.i.i, label %31, label %.loopexit67, !prof !278
 
 31:                                               ; preds = %.lr.ph.i.i.i.i
   %32 = add i32 %.01527.i.i.i.i, 1
@@ -8355,13 +8354,13 @@ define dso_local i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_
   %42 = select i1 %38, i1 %41, i1 false
   br i1 %42, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E5countERKS6_.exit, label %.lr.ph.i.i.i.i, !prof !132, !llvm.loop !458
 
-.loopexit70:                                      ; preds = %.lr.ph.i.i.i.i, %3
+.loopexit67:                                      ; preds = %.lr.ph.i.i.i.i, %3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %44 = load ptr, ptr %43, align 8, !tbaa !156, !noalias !459
   %45 = icmp eq ptr %43, %44
   br i1 %45, label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit, label %46
 
-46:                                               ; preds = %.loopexit70
+46:                                               ; preds = %.loopexit67
   %47 = getelementptr inbounds i8, ptr %44, i64 -24
   %48 = load i8, ptr %47, align 8, !tbaa !147, !noalias !459
   %49 = add i8 %48, -30
@@ -8385,13 +8384,13 @@ _ZN4llvm10successorsEPKNS_10BasicBlockE.exit:     ; preds = %46
   br i1 %.not.i.i.i, label %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15, label %.lr.ph.i.i.i, !llvm.loop !462
 
 _ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15: ; preds = %.lr.ph.i.i.i, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit
-  %.0.lcssa.i.i.i6079 = phi i32 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
+  %.0.lcssa.i.i.i60.ph = phi i32 [ 0, %_ZN4llvm10successorsEPKNS_10BasicBlockE.exit ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %56 = tail call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %47) #27
   br label %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit
 
-_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit:       ; preds = %46, %.loopexit70, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15
-  %.0.lcssa.i.i.i61 = phi i32 [ %.0.lcssa.i.i.i6079, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15 ], [ 0, %.loopexit70 ], [ 0, %46 ]
-  %.sink.i.i.i14 = phi i32 [ %56, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15 ], [ 0, %.loopexit70 ], [ 0, %46 ]
+_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit:       ; preds = %46, %.loopexit67, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15
+  %.0.lcssa.i.i.i61 = phi i32 [ %.0.lcssa.i.i.i60.ph, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15 ], [ 0, %.loopexit67 ], [ 0, %46 ]
+  %.sink.i.i.i14 = phi i32 [ %56, %_ZNK4llvm10BasicBlock13getTerminatorEv.exit.i.i15 ], [ 0, %.loopexit67 ], [ 0, %46 ]
   call void @_ZN4llvm17BranchProbabilityC1Ejj(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %.0.lcssa.i.i.i61, i32 noundef %.sink.i.i.i14) #23
   %.pre = load i32, ptr %4, align 4
   br label %.loopexit
@@ -8411,8 +8410,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProb
 
 _ZN4llvm8succ_endEPKNS_10BasicBlockE.exit:        ; preds = %60
   %65 = tail call noundef i32 @_ZNK4llvm11Instruction16getNumSuccessorsEv(ptr noundef nonnull align 8 dereferenceable(72) %61) #27
-  %.not73 = icmp eq i32 %65, 0
-  br i1 %.not73, label %.loopexit, label %.lr.ph
+  %.not70 = icmp eq i32 %65, 0
+  br i1 %.not70, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm8succ_endEPKNS_10BasicBlockE.exit
   %66 = zext nneg i32 %15 to i64
@@ -8424,7 +8423,7 @@ _ZN4llvm8succ_endEPKNS_10BasicBlockE.exit:        ; preds = %60
 
 71:                                               ; preds = %.lr.ph, %117
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %117 ]
-  %spec.select.i7274 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i71, %117 ]
+  %spec.select.i6971 = phi i32 [ 0, %.lr.ph ], [ %spec.select.i68, %117 ]
   %72 = trunc nuw nsw i64 %indvars.iv to i32
   %73 = tail call noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72) %61, i32 noundef %72) #27
   %74 = icmp eq ptr %73, %2
@@ -8479,22 +8478,22 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProb
   %.sroa.0.1.i = phi ptr [ %85, %75 ], [ %69, %.lr.ph.i.i.i22 ], [ %103, %98 ]
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
   %.sroa.01.0.copyload = load i32, ptr %111, align 8, !tbaa !136
-  %112 = zext i32 %spec.select.i7274 to i64
+  %112 = zext i32 %spec.select.i6971 to i64
   %113 = zext i32 %.sroa.01.0.copyload to i64
   %114 = add nuw nsw i64 %112, %113
   %115 = icmp samesign ugt i64 %114, 2147483648
-  %116 = add i32 %spec.select.i7274, %.sroa.01.0.copyload
+  %116 = add i32 %spec.select.i6971, %.sroa.01.0.copyload
   %spec.select.i = select i1 %115, i32 -2147483648, i32 %116
   br label %117
 
 117:                                              ; preds = %71, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E4findERKS6_.exit
-  %spec.select.i71 = phi i32 [ %spec.select.i7274, %71 ], [ %spec.select.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E4findERKS6_.exit ]
+  %spec.select.i68 = phi i32 [ %spec.select.i6971, %71 ], [ %spec.select.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E4findERKS6_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %70
   br i1 %.not, label %.loopexit, label %71, !llvm.loop !463
 
 .loopexit:                                        ; preds = %117, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E5countERKS6_.exit, %60, %_ZN4llvm8succ_endEPKNS_10BasicBlockE.exit, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit
-  %118 = phi i32 [ 0, %_ZN4llvm8succ_endEPKNS_10BasicBlockE.exit ], [ %.pre, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit ], [ 0, %60 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E5countERKS6_.exit ], [ %spec.select.i71, %117 ]
+  %118 = phi i32 [ 0, %_ZN4llvm8succ_endEPKNS_10BasicBlockE.exit ], [ %.pre, %_ZN4llvm9succ_sizeEPKNS_10BasicBlockE.exit ], [ 0, %60 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProbabilityENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S7_EEEES6_S7_S9_SC_E5countERKS6_.exit ], [ %spec.select.i68, %117 ]
   ret i32 %118
 }
 

@@ -567,8 +567,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMem
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i8, ptr %46, align 16
   %48 = icmp eq i8 %47, 13
-  %.not.not6.i.i = icmp ne ptr %45, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %48
+  %.not6.i.i = icmp ne ptr %45, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %48
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit, label %.thread36
 
 _ZNK5clang4Type19isExtVectorBoolTypeEv.exit:      ; preds = %37
@@ -1422,8 +1422,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_4TypeENS_12DenseMapInfoIS
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load i8, ptr %184, align 16
   %186 = icmp eq i8 %185, 13
-  %.not.not7.i.i = icmp ne ptr %183, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %186
+  %.not7.i.i = icmp ne ptr %183, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %186
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isMFloat8TypeEv.exit, label %_ZNK5clang4Type13isMFloat8TypeEv.exit.thread
 
 _ZNK5clang4Type13isMFloat8TypeEv.exit:            ; preds = %175
@@ -1736,8 +1736,8 @@ _ZNK5clang17ConstantArrayType11getZExtSizeEv.exit: ; preds = %332, %336
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 16
   %361 = load i8, ptr %360, align 16
   %362 = icmp eq i8 %361, 13
-  %.not.not7.i.i132 = icmp ne ptr %359, null
-  %.not.not.not.i.i133 = and i1 %.not.not7.i.i132, %362
+  %.not7.i.i132 = icmp ne ptr %359, null
+  %.not.not.not.i.i133 = and i1 %.not7.i.i132, %362
   br i1 %.not.not.not.i.i133, label %_ZNK5clang4Type13isMFloat8TypeEv.exit135, label %_ZNK5clang4Type13isMFloat8TypeEv.exit135.thread
 
 _ZNK5clang4Type13isMFloat8TypeEv.exit135:         ; preds = %351
@@ -2025,8 +2025,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type19isExtVectorBoolT
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not6.i = icmp ne ptr %17, null
-  %.not.not.not.i = and i1 %.not.not6.i, %20
+  %.not6.i = icmp ne ptr %17, null
+  %.not.not.not.i = and i1 %.not6.i, %20
   br i1 %.not.not.not.i, label %21, label %_ZNK5clang4Type13isBooleanTypeEv.exit
 
 21:                                               ; preds = %9
@@ -2168,8 +2168,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen12CodeGenTypes23convertTypeForLoa
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load i8, ptr %57, align 16
   %59 = icmp eq i8 %58, 13
-  %.not.not6.i.i = icmp ne ptr %56, null
-  %.not.not.not.i.i = and i1 %.not.not6.i.i, %59
+  %.not6.i.i = icmp ne ptr %56, null
+  %.not.not.not.i.i = and i1 %.not6.i.i, %59
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit, label %_ZNK5clang4Type19isExtVectorBoolTypeEv.exit.thread
 
 _ZNK5clang4Type19isExtVectorBoolTypeEv.exit:      ; preds = %48

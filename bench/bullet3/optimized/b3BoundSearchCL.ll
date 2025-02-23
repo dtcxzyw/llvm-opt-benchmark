@@ -1442,41 +1442,41 @@ define dso_local void @_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArray
   %8 = alloca %class.b3AlignedObjectArray.9, align 8
   switch i32 %5, label %.loopexit [
     i32 0, label %.preheader
-    i32 1, label %.preheader135
+    i32 1, label %.preheader131
     i32 2, label %41
   ]
 
-.preheader135:                                    ; preds = %6
-  %.not148 = icmp slt i32 %2, 1
-  br i1 %.not148, label %.loopexit, label %.lr.ph150
+.preheader131:                                    ; preds = %6
+  %.not144 = icmp slt i32 %2, 1
+  br i1 %.not144, label %.loopexit, label %.lr.ph146
 
-.lr.ph150:                                        ; preds = %.preheader135
+.lr.ph146:                                        ; preds = %.preheader131
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !69
-  %invariant.gep151 = getelementptr i8, ptr %10, i64 -8
+  %invariant.gep147 = getelementptr i8, ptr %10, i64 -8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %2 to i64
   %14 = add nuw i32 %2, 1
-  %wide.trip.count175 = zext i32 %14 to i64
+  %wide.trip.count171 = zext i32 %14 to i64
   br label %30
 
 .preheader:                                       ; preds = %6
   %15 = icmp sgt i32 %2, 0
-  br i1 %15, label %.lr.ph154, label %.loopexit
+  br i1 %15, label %.lr.ph150, label %.loopexit
 
-.lr.ph154:                                        ; preds = %.preheader
+.lr.ph150:                                        ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %18 = load ptr, ptr %17, align 8
-  %wide.trip.count180 = zext nneg i32 %2 to i64
+  %wide.trip.count176 = zext nneg i32 %2 to i64
   br label %19
 
-19:                                               ; preds = %.lr.ph154, %29
-  %indvars.iv177 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next178, %29 ]
-  %20 = icmp eq i64 %indvars.iv177, 0
+19:                                               ; preds = %.lr.ph150, %29
+  %indvars.iv173 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next174, %29 ]
+  %20 = icmp eq i64 %indvars.iv173, 0
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr %struct.b3SortData, ptr %21, i64 %indvars.iv177
+  %22 = getelementptr %struct.b3SortData, ptr %21, i64 %indvars.iv173
   %.sroa.speculate.load.115 = load i32, ptr %22, align 4, !tbaa !61
   br i1 %20, label %.cont, label %.else
 
@@ -1493,43 +1493,43 @@ define dso_local void @_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArray
 25:                                               ; preds = %.cont
   %26 = sext i32 %.sroa.speculate.load.115 to i64
   %27 = getelementptr inbounds i32, ptr %18, i64 %26
-  %28 = trunc nuw nsw i64 %indvars.iv177 to i32
+  %28 = trunc nuw nsw i64 %indvars.iv173 to i32
   store i32 %28, ptr %27, align 4, !tbaa !35
   br label %29
 
 29:                                               ; preds = %25, %.cont
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %.loopexit, label %19, !llvm.loop !73
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count176
+  br i1 %exitcond177.not, label %.loopexit, label %19, !llvm.loop !73
 
-30:                                               ; preds = %.lr.ph150, %40
-  %indvars.iv172 = phi i64 [ 1, %.lr.ph150 ], [ %indvars.iv.next173, %40 ]
-  %gep152 = getelementptr %struct.b3SortData, ptr %invariant.gep151, i64 %indvars.iv172
-  %31 = icmp eq i64 %indvars.iv172, %13
+30:                                               ; preds = %.lr.ph146, %40
+  %indvars.iv168 = phi i64 [ 1, %.lr.ph146 ], [ %indvars.iv.next169, %40 ]
+  %gep148 = getelementptr %struct.b3SortData, ptr %invariant.gep147, i64 %indvars.iv168
+  %31 = icmp eq i64 %indvars.iv168, %13
   br i1 %31, label %34, label %32
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw %struct.b3SortData, ptr %10, i64 %indvars.iv172
+  %33 = getelementptr inbounds nuw %struct.b3SortData, ptr %10, i64 %indvars.iv168
   %.sroa.speculate.load. = load i32, ptr %33, align 4, !tbaa !61
   br label %34
 
 34:                                               ; preds = %30, %32
   %.sroa.speculated = phi i32 [ %.sroa.speculate.load., %32 ], [ %4, %30 ]
-  %35 = load i32, ptr %gep152, align 4, !tbaa !61
+  %35 = load i32, ptr %gep148, align 4, !tbaa !61
   %.not77 = icmp eq i32 %35, %.sroa.speculated
   br i1 %.not77, label %40, label %36
 
 36:                                               ; preds = %34
   %37 = sext i32 %35 to i64
   %38 = getelementptr inbounds i32, ptr %12, i64 %37
-  %39 = trunc nuw nsw i64 %indvars.iv172 to i32
+  %39 = trunc nuw nsw i64 %indvars.iv168 to i32
   store i32 %39, ptr %38, align 4, !tbaa !35
   br label %40
 
 40:                                               ; preds = %36, %34
-  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %.loopexit, label %30, !llvm.loop !74
+  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
+  %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count171
+  br i1 %exitcond172.not, label %.loopexit, label %30, !llvm.loop !74
 
 41:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #13
@@ -1541,245 +1541,244 @@ define dso_local void @_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArray
   store i32 0, ptr %44, align 4, !tbaa !80
   %45 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %45, align 8, !tbaa !81
-  %or.cond = icmp sgt i32 %4, 0
-  br i1 %or.cond, label %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i, label %.loopexit139.thread
+  %46 = icmp sgt i32 %4, 0
+  br i1 %46, label %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i, label %.loopexit135
 
 _ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i: ; preds = %41
-  %46 = zext nneg i32 %4 to i64
-  %47 = shl nuw nsw i64 %46, 2
-  %48 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %47, i32 noundef 16)
-          to label %.noexc unwind label %79
+  %47 = zext nneg i32 %4 to i64
+  %48 = shl nuw nsw i64 %47, 2
+  %49 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %48, i32 noundef 16)
+          to label %.noexc unwind label %80
 
 .noexc:                                           ; preds = %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i, label %.lr.ph.i
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i, label %.lr.ph.i
 
 _ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i: ; preds = %.noexc
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.13, i32 noundef 301)
-          to label %.noexc79 unwind label %79
+          to label %.noexc79 unwind label %80
 
 .noexc79:                                         ; preds = %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.14)
-          to label %.lr.ph.i unwind label %79
+          to label %.lr.ph.i unwind label %80
 
 .lr.ph.i:                                         ; preds = %.noexc79, %.noexc
   %.0.i.i = phi i32 [ %4, %.noexc ], [ 0, %.noexc79 ]
   store i8 1, ptr %42, align 8, !tbaa !75
-  store ptr %48, ptr %43, align 8, !tbaa !79
+  store ptr %49, ptr %43, align 8, !tbaa !79
   store i32 %.0.i.i, ptr %45, align 8, !tbaa !81
-  tail call void @llvm.memset.p0.i64(ptr align 4 %48, i8 0, i64 %47, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %49, i8 0, i64 %48, i1 false), !tbaa !35
   store i32 %4, ptr %44, align 4, !tbaa !80
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i8 1, ptr %50, align 8, !tbaa !75
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr null, ptr %51, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %52, align 4, !tbaa !80
-  %53 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %53, align 8, !tbaa !81
-  %54 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %47, i32 noundef 16)
-          to label %.noexc102 unwind label %81
+  %51 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i8 1, ptr %51, align 8, !tbaa !75
+  %52 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr null, ptr %52, align 8, !tbaa !79
+  %53 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %53, align 4, !tbaa !80
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %54, align 8, !tbaa !81
+  %55 = invoke noundef ptr @_Z22b3AlignedAllocInternalmi(i64 noundef %48, i32 noundef 16)
+          to label %.noexc102 unwind label %82
 
 .noexc102:                                        ; preds = %.lr.ph.i
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101, label %.lr.ph
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101, label %.lr.ph
 
 _ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101: ; preds = %.noexc102
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.13, i32 noundef 301)
-          to label %.noexc103 unwind label %81
+          to label %.noexc103 unwind label %82
 
 .noexc103:                                        ; preds = %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101
   invoke void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.14)
-          to label %.lr.ph unwind label %81
+          to label %.lr.ph unwind label %82
 
-.loopexit139.thread:                              ; preds = %41
+.loopexit135:                                     ; preds = %41
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #13
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %58 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %59 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %4, ptr %58, align 4, !tbaa !80
-  br label %.preheader138
+  %57 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %.preheader134
 
 .lr.ph:                                           ; preds = %.noexc103, %.noexc102
-  tail call void @llvm.memset.p0.i64(ptr align 4 %54, i8 0, i64 %47, i1 false), !tbaa !35
+  tail call void @llvm.memset.p0.i64(ptr align 4 %55, i8 0, i64 %48, i1 false), !tbaa !35
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %83
+  br label %84
 
-.preheader138:                                    ; preds = %83, %.loopexit139.thread
-  %60 = phi ptr [ %56, %.loopexit139.thread ], [ %50, %83 ]
-  %61 = phi ptr [ %57, %.loopexit139.thread ], [ %51, %83 ]
-  %62 = phi ptr [ %58, %.loopexit139.thread ], [ %52, %83 ]
-  %63 = phi ptr [ %59, %.loopexit139.thread ], [ %53, %83 ]
-  %64 = phi ptr [ null, %.loopexit139.thread ], [ %54, %83 ]
-  %65 = phi ptr [ null, %.loopexit139.thread ], [ %48, %83 ]
-  %66 = icmp sgt i32 %2, 0
-  br i1 %66, label %.lr.ph142, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader
+.preheader134:                                    ; preds = %84, %.loopexit135
+  %61 = phi ptr [ %57, %.loopexit135 ], [ %51, %84 ]
+  %62 = phi ptr [ %58, %.loopexit135 ], [ %52, %84 ]
+  %63 = phi ptr [ %59, %.loopexit135 ], [ %53, %84 ]
+  %64 = phi ptr [ %60, %.loopexit135 ], [ %54, %84 ]
+  %65 = phi ptr [ null, %.loopexit135 ], [ %55, %84 ]
+  %66 = phi ptr [ null, %.loopexit135 ], [ %49, %84 ]
+  %67 = icmp sgt i32 %2, 0
+  br i1 %67, label %.lr.ph138, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader
 
-.lr.ph142:                                        ; preds = %.preheader138
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %wide.trip.count160 = zext nneg i32 %2 to i64
-  br label %68
+.lr.ph138:                                        ; preds = %.preheader134
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %wide.trip.count156 = zext nneg i32 %2 to i64
+  br label %69
 
-68:                                               ; preds = %.lr.ph142, %78
-  %indvars.iv157 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next158, %78 ]
-  %69 = icmp eq i64 %indvars.iv157, 0
-  %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr %struct.b3SortData, ptr %70, i64 %indvars.iv157
-  %.sroa.speculate.load.121 = load i32, ptr %71, align 4, !tbaa !61
-  br i1 %69, label %.cont182, label %.else183
+69:                                               ; preds = %.lr.ph138, %79
+  %indvars.iv153 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next154, %79 ]
+  %70 = icmp eq i64 %indvars.iv153, 0
+  %71 = load ptr, ptr %68, align 8
+  %72 = getelementptr %struct.b3SortData, ptr %71, i64 %indvars.iv153
+  %.sroa.speculate.load.121 = load i32, ptr %72, align 4, !tbaa !61
+  br i1 %70, label %.cont178, label %.else179
 
-.else183:                                         ; preds = %68
-  %72 = getelementptr i8, ptr %71, i64 -8
-  %.else.val184 = load i32, ptr %72, align 4, !tbaa !61
-  br label %.cont182
+.else179:                                         ; preds = %69
+  %73 = getelementptr i8, ptr %72, i64 -8
+  %.else.val180 = load i32, ptr %73, align 4, !tbaa !61
+  br label %.cont178
 
-.cont182:                                         ; preds = %68, %.else183
-  %73 = phi i32 [ -1, %68 ], [ %.else.val184, %.else183 ]
-  %.not78.i = icmp eq i32 %73, %.sroa.speculate.load.121
-  br i1 %.not78.i, label %78, label %74
+.cont178:                                         ; preds = %69, %.else179
+  %74 = phi i32 [ -1, %69 ], [ %.else.val180, %.else179 ]
+  %.not78.i = icmp eq i32 %74, %.sroa.speculate.load.121
+  br i1 %.not78.i, label %79, label %75
 
-74:                                               ; preds = %.cont182
-  %75 = sext i32 %.sroa.speculate.load.121 to i64
-  %76 = getelementptr inbounds i32, ptr %65, i64 %75
-  %77 = trunc nuw nsw i64 %indvars.iv157 to i32
-  store i32 %77, ptr %76, align 4, !tbaa !35
-  br label %78
+75:                                               ; preds = %.cont178
+  %76 = sext i32 %.sroa.speculate.load.121 to i64
+  %77 = getelementptr inbounds i32, ptr %66, i64 %76
+  %78 = trunc nuw nsw i64 %indvars.iv153 to i32
+  store i32 %78, ptr %77, align 4, !tbaa !35
+  br label %79
 
-78:                                               ; preds = %74, %.cont182
-  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
-  %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
-  br i1 %exitcond161.not, label %.lr.ph145, label %68, !llvm.loop !73
+79:                                               ; preds = %75, %.cont178
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count156
+  br i1 %exitcond157.not, label %.lr.ph141, label %69, !llvm.loop !73
 
-79:                                               ; preds = %.noexc79, %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i, %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %.noexc79, %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i, %_ZN20b3AlignedObjectArrayIjE8allocateEi.exit.i.i
+  %81 = landingpad { ptr, i32 }
           cleanup
-  br label %116
+  br label %117
 
-81:                                               ; preds = %.noexc103, %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101, %.lr.ph.i
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %.noexc103, %_ZNK20b3AlignedObjectArrayIjE4copyEiiPj.exit15.i.i101, %.lr.ph.i
+  %83 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN20b3AlignedObjectArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %8) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
-  br label %116
+  br label %117
 
-83:                                               ; preds = %.lr.ph, %83
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %83 ]
-  %84 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv
-  store i32 0, ptr %84, align 4, !tbaa !35
-  %85 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+84:                                               ; preds = %.lr.ph, %84
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
+  %85 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
   store i32 0, ptr %85, align 4, !tbaa !35
+  %86 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv
+  store i32 0, ptr %86, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader138, label %83, !llvm.loop !82
+  br i1 %exitcond.not, label %.preheader134, label %84, !llvm.loop !82
 
-.lr.ph145:                                        ; preds = %78
-  %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !69
-  %invariant.gep = getelementptr i8, ptr %87, i64 -8
-  %88 = zext nneg i32 %2 to i64
-  %89 = add nuw i32 %2, 1
-  %wide.trip.count165 = zext i32 %89 to i64
-  br label %92
+.lr.ph141:                                        ; preds = %79
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %88 = load ptr, ptr %87, align 8, !tbaa !69
+  %invariant.gep = getelementptr i8, ptr %88, i64 -8
+  %89 = zext nneg i32 %2 to i64
+  %90 = add nuw i32 %2, 1
+  %wide.trip.count161 = zext i32 %90 to i64
+  br label %93
 
-_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader: ; preds = %102, %.preheader138
-  br i1 %or.cond, label %.lr.ph147, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge
+_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader: ; preds = %103, %.preheader134
+  br i1 %46, label %.lr.ph143, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge
 
-.lr.ph147:                                        ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader
-  %90 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !79
-  %wide.trip.count170 = zext nneg i32 %4 to i64
+.lr.ph143:                                        ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader
+  %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !79
+  %wide.trip.count166 = zext nneg i32 %4 to i64
   br label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108
 
-92:                                               ; preds = %.lr.ph145, %102
-  %indvars.iv162 = phi i64 [ 1, %.lr.ph145 ], [ %indvars.iv.next163, %102 ]
-  %gep = getelementptr %struct.b3SortData, ptr %invariant.gep, i64 %indvars.iv162
-  %93 = icmp eq i64 %indvars.iv162, %88
-  br i1 %93, label %96, label %94
+93:                                               ; preds = %.lr.ph141, %103
+  %indvars.iv158 = phi i64 [ 1, %.lr.ph141 ], [ %indvars.iv.next159, %103 ]
+  %gep = getelementptr %struct.b3SortData, ptr %invariant.gep, i64 %indvars.iv158
+  %94 = icmp eq i64 %indvars.iv158, %89
+  br i1 %94, label %97, label %95
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw %struct.b3SortData, ptr %87, i64 %indvars.iv162
-  %.sroa.speculate.load.128 = load i32, ptr %95, align 4, !tbaa !61
-  br label %96
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw %struct.b3SortData, ptr %88, i64 %indvars.iv158
+  %.sroa.speculate.load.128 = load i32, ptr %96, align 4, !tbaa !61
+  br label %97
 
-96:                                               ; preds = %94, %92
-  %.sroa.speculated127 = phi i32 [ %.sroa.speculate.load.128, %94 ], [ %4, %92 ]
-  %97 = load i32, ptr %gep, align 4, !tbaa !61
-  %.not77.i = icmp eq i32 %97, %.sroa.speculated127
-  br i1 %.not77.i, label %102, label %98
+97:                                               ; preds = %95, %93
+  %.sroa.speculated127 = phi i32 [ %.sroa.speculate.load.128, %95 ], [ %4, %93 ]
+  %98 = load i32, ptr %gep, align 4, !tbaa !61
+  %.not77.i = icmp eq i32 %98, %.sroa.speculated127
+  br i1 %.not77.i, label %103, label %99
 
-98:                                               ; preds = %96
-  %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds i32, ptr %64, i64 %99
-  %101 = trunc nuw nsw i64 %indvars.iv162 to i32
-  store i32 %101, ptr %100, align 4, !tbaa !35
-  br label %102
+99:                                               ; preds = %97
+  %100 = sext i32 %98 to i64
+  %101 = getelementptr inbounds i32, ptr %65, i64 %100
+  %102 = trunc nuw nsw i64 %indvars.iv158 to i32
+  store i32 %102, ptr %101, align 4, !tbaa !35
+  br label %103
 
-102:                                              ; preds = %98, %96
-  %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
-  %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader, label %92, !llvm.loop !74
+103:                                              ; preds = %99, %97
+  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
+  br i1 %exitcond162.not, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader, label %93, !llvm.loop !74
 
 _ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge: ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108.preheader
-  %.not.i.i.i109 = icmp eq ptr %64, null
+  %.not.i.i.i109 = icmp eq ptr %65, null
   br i1 %.not.i.i.i109, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread
 
 _ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread: ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %64)
-          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit unwind label %103
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %65)
+          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit unwind label %104
 
-103:                                              ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread
-  %104 = landingpad { ptr, i32 }
+104:                                              ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread
+  %105 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  tail call void @__clang_call_terminate(ptr %105) #16
+  %106 = extractvalue { ptr, i32 } %105, 0
+  tail call void @__clang_call_terminate(ptr %106) #16
   unreachable
 
 _ZN20b3AlignedObjectArrayIjED2Ev.exit:            ; preds = %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread
-  store i8 1, ptr %60, align 8, !tbaa !75
-  store ptr null, ptr %61, align 8, !tbaa !79
-  store i32 0, ptr %62, align 4, !tbaa !80
-  store i32 0, ptr %63, align 8, !tbaa !81
+  store i8 1, ptr %61, align 8, !tbaa !75
+  store ptr null, ptr %62, align 8, !tbaa !79
+  store i32 0, ptr %63, align 4, !tbaa !80
+  store i32 0, ptr %64, align 8, !tbaa !81
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #13
-  %.not.i.i.i110 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i110, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit111, label %106
+  %.not.i.i.i110 = icmp eq ptr %66, null
+  br i1 %.not.i.i.i110, label %_ZN20b3AlignedObjectArrayIjED2Ev.exit111, label %107
 
-106:                                              ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit
-  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %65)
-          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit111 unwind label %107
+107:                                              ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit
+  invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %66)
+          to label %_ZN20b3AlignedObjectArrayIjED2Ev.exit111 unwind label %108
 
-107:                                              ; preds = %106
-  %108 = landingpad { ptr, i32 }
+108:                                              ; preds = %107
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  %109 = extractvalue { ptr, i32 } %108, 0
-  tail call void @__clang_call_terminate(ptr %109) #16
+  %110 = extractvalue { ptr, i32 } %109, 0
+  tail call void @__clang_call_terminate(ptr %110) #16
   unreachable
 
-_ZN20b3AlignedObjectArrayIjED2Ev.exit111:         ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit, %106
+_ZN20b3AlignedObjectArrayIjED2Ev.exit111:         ; preds = %_ZN20b3AlignedObjectArrayIjED2Ev.exit, %107
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
   br label %.loopexit
 
-_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108: ; preds = %.lr.ph147, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108
-  %indvars.iv167 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next168, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108 ]
-  %110 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv167
-  %111 = load i32, ptr %110, align 4, !tbaa !35
-  %112 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv167
-  %113 = load i32, ptr %112, align 4, !tbaa !35
-  %114 = sub i32 %111, %113
-  %115 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv167
-  store i32 %114, ptr %115, align 4, !tbaa !35
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108, !llvm.loop !83
+_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108: ; preds = %.lr.ph143, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108
+  %indvars.iv163 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next164, %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108 ]
+  %111 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv163
+  %112 = load i32, ptr %111, align 4, !tbaa !35
+  %113 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv163
+  %114 = load i32, ptr %113, align 4, !tbaa !35
+  %115 = sub i32 %112, %114
+  %116 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv163
+  store i32 %115, ptr %116, align 4, !tbaa !35
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
+  br i1 %exitcond167.not, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108._crit_edge.thread, label %_ZN15b3BoundSearchCL11executeHostER20b3AlignedObjectArrayI10b3SortDataEiRS0_IjEiNS_6OptionE.exit108, !llvm.loop !83
 
-116:                                              ; preds = %81, %79
-  %.pn.pn.pn = phi { ptr, i32 } [ %82, %81 ], [ %80, %79 ]
+117:                                              ; preds = %82, %80
+  %.pn.pn.pn = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ]
   call void @_ZN20b3AlignedObjectArrayIjED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #13
   resume { ptr, i32 } %.pn.pn.pn
 
-.loopexit:                                        ; preds = %40, %29, %.preheader135, %.preheader, %6, %_ZN20b3AlignedObjectArrayIjED2Ev.exit111
+.loopexit:                                        ; preds = %40, %29, %.preheader131, %.preheader, %6, %_ZN20b3AlignedObjectArrayIjED2Ev.exit111
   ret void
 }
 

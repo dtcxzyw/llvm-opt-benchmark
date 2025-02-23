@@ -960,7 +960,7 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull readonl
   %7 = lshr i64 %2, 6
   %8 = icmp samesign ult i64 %6, %7
   %9 = and i64 %5, -64
-  br i1 %8, label %10, label %55
+  br i1 %8, label %10, label %59
 
 10:                                               ; preds = %4
   %.not.i = icmp eq i64 %1, %9
@@ -989,152 +989,157 @@ define hidden void @_ZN6BitMap16par_at_put_rangeEmmb(ptr noundef nonnull readonl
   %24 = or i64 %23, %notmask.i.i
   %25 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %24, i64 %23, ptr nonnull %14) #10, !srcloc !6
   %26 = icmp eq i64 %25, %23
-  br i1 %26, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %.lr.ph.split.us.i, !llvm.loop !7
+  br i1 %26, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %.lr.ph.split.us.i, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %27 = phi i64 [ %29, %.lr.ph.split.i ], [ %21, %.lr.ph.i ]
   %28 = and i64 %27, %17
   %29 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %28, i64 %27, ptr nonnull %14) #10, !srcloc !6
   %30 = icmp eq i64 %29, %27
-  br i1 %30, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %.lr.ph.split.i, !llvm.loop !7
+  br i1 %30, label %_ZN6BitMap20clear_range_of_wordsEmm.exit, label %.lr.ph.split.i, !llvm.loop !7
 
-_ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %10, %11
+_ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %10, %11
+  br i1 %3, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %_ZN6BitMap20clear_range_of_wordsEmm.exit
+
+_ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %.lr.ph.split.us.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   %31 = load ptr, ptr %0, align 8
   %32 = shl nuw nsw i64 %6, 3
   %scevgep.i = getelementptr i8, ptr %31, i64 %32
   %33 = sub nuw nsw i64 %7, %6
   %34 = shl nuw nsw i64 %33, 3
-  br i1 %3, label %_ZN6BitMap18set_range_of_wordsEmm.exit, label %_ZN6BitMap20clear_range_of_wordsEmm.exit
-
-_ZN6BitMap18set_range_of_wordsEmm.exit:           ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 -1, i64 %34, i1 false)
-  br label %35
+  br label %39
 
-_ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i, i8 0, i64 %34, i1 false)
-  br label %35
+_ZN6BitMap20clear_range_of_wordsEmm.exit:         ; preds = %.lr.ph.split.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
+  %35 = load ptr, ptr %0, align 8
+  %36 = shl nuw nsw i64 %6, 3
+  %scevgep.i.i = getelementptr i8, ptr %35, i64 %36
+  %37 = sub nuw nsw i64 %7, %6
+  %38 = shl nuw nsw i64 %37, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep.i.i, i8 0, i64 %38, i1 false)
+  br label %39
 
-35:                                               ; preds = %_ZN6BitMap20clear_range_of_wordsEmm.exit, %_ZN6BitMap18set_range_of_wordsEmm.exit
-  %36 = and i64 %2, 63
-  %.not.i26 = icmp eq i64 %36, 0
-  br i1 %.not.i26, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %37
+39:                                               ; preds = %_ZN6BitMap20clear_range_of_wordsEmm.exit, %_ZN6BitMap18set_range_of_wordsEmm.exit
+  %40 = and i64 %2, 63
+  %.not.i26 = icmp eq i64 %40, 0
+  br i1 %.not.i26, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %41
 
-37:                                               ; preds = %35
-  %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %7
-  %40 = load volatile i64, ptr %39, align 8
-  %.neg.i.i = shl nsw i64 -1, %36
-  %41 = xor i64 %.neg.i.i, -1
-  %42 = or i64 %40, %41
-  %43 = and i64 %40, %.neg.i.i
-  %44 = select i1 %3, i64 %42, i64 %43
-  %45 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %44, i64 %40, ptr nonnull %39) #10, !srcloc !6
-  %46 = icmp eq i64 %45, %40
-  br i1 %46, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.i30
+41:                                               ; preds = %39
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %7
+  %44 = load volatile i64, ptr %43, align 8
+  %.neg.i.i = shl nsw i64 -1, %40
+  %45 = xor i64 %.neg.i.i, -1
+  %46 = or i64 %44, %45
+  %47 = and i64 %44, %.neg.i.i
+  %48 = select i1 %3, i64 %46, i64 %47
+  %49 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, i64 %44, ptr nonnull %43) #10, !srcloc !6
+  %50 = icmp eq i64 %49, %44
+  br i1 %50, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.i30
 
-.lr.ph.i30:                                       ; preds = %37
+.lr.ph.i30:                                       ; preds = %41
   br i1 %3, label %.lr.ph.split.us.i32, label %.lr.ph.split.i31
 
 .lr.ph.split.us.i32:                              ; preds = %.lr.ph.i30, %.lr.ph.split.us.i32
-  %47 = phi i64 [ %49, %.lr.ph.split.us.i32 ], [ %45, %.lr.ph.i30 ]
-  %48 = or i64 %47, %41
-  %49 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %48, i64 %47, ptr nonnull %39) #10, !srcloc !6
-  %50 = icmp eq i64 %49, %47
-  br i1 %50, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.us.i32, !llvm.loop !7
+  %51 = phi i64 [ %53, %.lr.ph.split.us.i32 ], [ %49, %.lr.ph.i30 ]
+  %52 = or i64 %51, %45
+  %53 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %52, i64 %51, ptr nonnull %43) #10, !srcloc !6
+  %54 = icmp eq i64 %53, %51
+  br i1 %54, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.us.i32, !llvm.loop !7
 
 .lr.ph.split.i31:                                 ; preds = %.lr.ph.i30, %.lr.ph.split.i31
-  %51 = phi i64 [ %53, %.lr.ph.split.i31 ], [ %45, %.lr.ph.i30 ]
-  %52 = and i64 %51, %.neg.i.i
-  %53 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %52, i64 %51, ptr nonnull %39) #10, !srcloc !6
-  %54 = icmp eq i64 %53, %51
-  br i1 %54, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i31, !llvm.loop !7
+  %55 = phi i64 [ %57, %.lr.ph.split.i31 ], [ %49, %.lr.ph.i30 ]
+  %56 = and i64 %55, %.neg.i.i
+  %57 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %56, i64 %55, ptr nonnull %43) #10, !srcloc !6
+  %58 = icmp eq i64 %57, %55
+  br i1 %58, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i31, !llvm.loop !7
 
-55:                                               ; preds = %4
-  %56 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
-  %.not.i34 = icmp eq i64 %1, %56
-  br i1 %.not.i34, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %57
+59:                                               ; preds = %4
+  %60 = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %2)
+  %.not.i34 = icmp eq i64 %1, %60
+  br i1 %.not.i34, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %61
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %0, align 8
-  %59 = lshr i64 %1, 6
-  %60 = getelementptr inbounds nuw i64, ptr %58, i64 %59
-  %61 = load volatile i64, ptr %60, align 8
-  %62 = and i64 %1, 63
-  %notmask.i.i35 = shl nsw i64 -1, %62
-  %63 = xor i64 %notmask.i.i35, -1
-  %64 = and i64 %56, 63
-  %.not.i.i36 = icmp eq i64 %64, 0
-  %.neg.i.i37 = shl nsw i64 -1, %64
-  %65 = select i1 %.not.i.i36, i64 0, i64 %.neg.i.i37
-  %.0.i.i38 = or i64 %65, %63
-  %66 = xor i64 %.0.i.i38, -1
-  %67 = or i64 %61, %66
-  %68 = and i64 %61, %.0.i.i38
-  %69 = select i1 %3, i64 %67, i64 %68
-  %70 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %69, i64 %61, ptr nonnull %60) #10, !srcloc !6
-  %71 = icmp eq i64 %70, %61
-  br i1 %71, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.i39
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %0, align 8
+  %63 = lshr i64 %1, 6
+  %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
+  %65 = load volatile i64, ptr %64, align 8
+  %66 = and i64 %1, 63
+  %notmask.i.i35 = shl nsw i64 -1, %66
+  %67 = xor i64 %notmask.i.i35, -1
+  %68 = and i64 %60, 63
+  %.not.i.i36 = icmp eq i64 %68, 0
+  %.neg.i.i37 = shl nsw i64 -1, %68
+  %69 = select i1 %.not.i.i36, i64 0, i64 %.neg.i.i37
+  %.0.i.i38 = or i64 %69, %67
+  %70 = xor i64 %.0.i.i38, -1
+  %71 = or i64 %65, %70
+  %72 = and i64 %65, %.0.i.i38
+  %73 = select i1 %3, i64 %71, i64 %72
+  %74 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %73, i64 %65, ptr nonnull %64) #10, !srcloc !6
+  %75 = icmp eq i64 %74, %65
+  br i1 %75, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %57
+.lr.ph.i39:                                       ; preds = %61
   br i1 %3, label %.lr.ph.split.us.i41, label %.lr.ph.split.i40
 
 .lr.ph.split.us.i41:                              ; preds = %.lr.ph.i39, %.lr.ph.split.us.i41
-  %72 = phi i64 [ %74, %.lr.ph.split.us.i41 ], [ %70, %.lr.ph.i39 ]
-  %73 = or i64 %72, %66
-  %74 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %73, i64 %72, ptr nonnull %60) #10, !srcloc !6
-  %75 = icmp eq i64 %74, %72
-  br i1 %75, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.us.i41, !llvm.loop !7
+  %76 = phi i64 [ %78, %.lr.ph.split.us.i41 ], [ %74, %.lr.ph.i39 ]
+  %77 = or i64 %76, %70
+  %78 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %76, ptr nonnull %64) #10, !srcloc !6
+  %79 = icmp eq i64 %78, %76
+  br i1 %79, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.us.i41, !llvm.loop !7
 
 .lr.ph.split.i40:                                 ; preds = %.lr.ph.i39, %.lr.ph.split.i40
-  %76 = phi i64 [ %78, %.lr.ph.split.i40 ], [ %70, %.lr.ph.i39 ]
-  %77 = and i64 %76, %.0.i.i38
-  %78 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %77, i64 %76, ptr nonnull %60) #10, !srcloc !6
-  %79 = icmp eq i64 %78, %76
-  br i1 %79, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.i40, !llvm.loop !7
+  %80 = phi i64 [ %82, %.lr.ph.split.i40 ], [ %74, %.lr.ph.i39 ]
+  %81 = and i64 %80, %.0.i.i38
+  %82 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %81, i64 %80, ptr nonnull %64) #10, !srcloc !6
+  %83 = icmp eq i64 %82, %80
+  br i1 %83, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, label %.lr.ph.split.i40, !llvm.loop !7
 
-_ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %.lr.ph.split.us.i41, %55, %57
+_ZN6BitMap25par_put_range_within_wordEmmb.exit42: ; preds = %.lr.ph.split.i40, %.lr.ph.split.us.i41, %59, %61
   %.not.i43.not = icmp ugt i64 %2, %9
-  br i1 %.not.i43.not, label %80, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33
+  br i1 %.not.i43.not, label %84, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33
 
-80:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit42
-  %81 = load ptr, ptr %0, align 8
-  %82 = lshr i64 %56, 6
-  %83 = getelementptr inbounds nuw i64, ptr %81, i64 %82
-  %84 = load volatile i64, ptr %83, align 8
-  %85 = and i64 %56, 63
-  %notmask.i.i44 = shl nsw i64 -1, %85
-  %86 = xor i64 %notmask.i.i44, -1
-  %87 = and i64 %2, 63
-  %.not.i.i45 = icmp eq i64 %87, 0
-  %.neg.i.i46 = shl nsw i64 -1, %87
-  %88 = select i1 %.not.i.i45, i64 0, i64 %.neg.i.i46
-  %.0.i.i47 = or i64 %88, %86
-  %89 = xor i64 %.0.i.i47, -1
-  %90 = or i64 %84, %89
-  %91 = and i64 %84, %.0.i.i47
-  %92 = select i1 %3, i64 %90, i64 %91
-  %93 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %92, i64 %84, ptr nonnull %83) #10, !srcloc !6
-  %94 = icmp eq i64 %93, %84
-  br i1 %94, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.i48
+84:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit42
+  %85 = load ptr, ptr %0, align 8
+  %86 = lshr i64 %60, 6
+  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %88 = load volatile i64, ptr %87, align 8
+  %89 = and i64 %60, 63
+  %notmask.i.i44 = shl nsw i64 -1, %89
+  %90 = xor i64 %notmask.i.i44, -1
+  %91 = and i64 %2, 63
+  %.not.i.i45 = icmp eq i64 %91, 0
+  %.neg.i.i46 = shl nsw i64 -1, %91
+  %92 = select i1 %.not.i.i45, i64 0, i64 %.neg.i.i46
+  %.0.i.i47 = or i64 %92, %90
+  %93 = xor i64 %.0.i.i47, -1
+  %94 = or i64 %88, %93
+  %95 = and i64 %88, %.0.i.i47
+  %96 = select i1 %3, i64 %94, i64 %95
+  %97 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %88, ptr nonnull %87) #10, !srcloc !6
+  %98 = icmp eq i64 %97, %88
+  br i1 %98, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %80
+.lr.ph.i48:                                       ; preds = %84
   br i1 %3, label %.lr.ph.split.us.i50, label %.lr.ph.split.i49
 
 .lr.ph.split.us.i50:                              ; preds = %.lr.ph.i48, %.lr.ph.split.us.i50
-  %95 = phi i64 [ %97, %.lr.ph.split.us.i50 ], [ %93, %.lr.ph.i48 ]
-  %96 = or i64 %95, %89
-  %97 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %96, i64 %95, ptr nonnull %83) #10, !srcloc !6
-  %98 = icmp eq i64 %97, %95
-  br i1 %98, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.us.i50, !llvm.loop !7
+  %99 = phi i64 [ %101, %.lr.ph.split.us.i50 ], [ %97, %.lr.ph.i48 ]
+  %100 = or i64 %99, %93
+  %101 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %100, i64 %99, ptr nonnull %87) #10, !srcloc !6
+  %102 = icmp eq i64 %101, %99
+  br i1 %102, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.us.i50, !llvm.loop !7
 
 .lr.ph.split.i49:                                 ; preds = %.lr.ph.i48, %.lr.ph.split.i49
-  %99 = phi i64 [ %101, %.lr.ph.split.i49 ], [ %93, %.lr.ph.i48 ]
-  %100 = and i64 %99, %.0.i.i47
-  %101 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %100, i64 %99, ptr nonnull %83) #10, !srcloc !6
-  %102 = icmp eq i64 %101, %99
-  br i1 %102, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i49, !llvm.loop !7
+  %103 = phi i64 [ %105, %.lr.ph.split.i49 ], [ %97, %.lr.ph.i48 ]
+  %104 = and i64 %103, %.0.i.i47
+  %105 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %104, i64 %103, ptr nonnull %87) #10, !srcloc !6
+  %106 = icmp eq i64 %105, %103
+  br i1 %106, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit33, label %.lr.ph.split.i49, !llvm.loop !7
 
-_ZN6BitMap25par_put_range_within_wordEmmb.exit33: ; preds = %.lr.ph.split.i49, %.lr.ph.split.us.i50, %.lr.ph.split.i31, %.lr.ph.split.us.i32, %80, %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, %37, %35
+_ZN6BitMap25par_put_range_within_wordEmmb.exit33: ; preds = %.lr.ph.split.i49, %.lr.ph.split.us.i50, %.lr.ph.split.i31, %.lr.ph.split.us.i32, %84, %_ZN6BitMap25par_put_range_within_wordEmmb.exit42, %41, %39
   ret void
 }
 
@@ -1278,66 +1283,70 @@ define hidden void @_ZN6BitMap22par_at_put_large_rangeEmmb(ptr noundef nonnull r
   %25 = or i64 %24, %notmask.i.i
   %26 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %25, i64 %24, ptr nonnull %15) #10, !srcloc !6
   %27 = icmp eq i64 %26, %24
-  br i1 %27, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %.lr.ph.split.us.i, !llvm.loop !7
+  br i1 %27, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !7
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %28 = phi i64 [ %30, %.lr.ph.split.i ], [ %22, %.lr.ph.i ]
   %29 = and i64 %28, %18
   %30 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %29, i64 %28, ptr nonnull %15) #10, !srcloc !6
   %31 = icmp eq i64 %30, %28
-  br i1 %31, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit, label %.lr.ph.split.i, !llvm.loop !7
+  br i1 %31, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28, label %.lr.ph.split.i, !llvm.loop !7
 
-_ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %10, %12
+_ZN6BitMap25par_put_range_within_wordEmmb.exit:   ; preds = %10, %12
+  br i1 %3, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28
+
+_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread: ; preds = %.lr.ph.split.us.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   %32 = load ptr, ptr %0, align 8
   %33 = getelementptr inbounds nuw i64, ptr %32, i64 %6
   %34 = sub nsw i64 %7, %6
   %35 = shl nsw i64 %34, 3
-  br i1 %3, label %36, label %37
-
-36:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit
   tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 -1, i64 %35, i1 false)
-  br label %38
+  br label %40
 
-37:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit
-  tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %35, i1 false)
-  br label %38
+_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28: ; preds = %.lr.ph.split.i, %_ZN6BitMap25par_put_range_within_wordEmmb.exit
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %6
+  %38 = sub nsw i64 %7, %6
+  %39 = shl nsw i64 %38, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %37, i8 0, i64 %39, i1 false)
+  br label %40
 
-38:                                               ; preds = %37, %36
-  %39 = and i64 %2, 63
-  %.not.i20 = icmp eq i64 %39, 0
-  br i1 %.not.i20, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %40
+40:                                               ; preds = %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread28, %_ZN6BitMap25par_put_range_within_wordEmmb.exit.thread
+  %41 = and i64 %2, 63
+  %.not.i20 = icmp eq i64 %41, 0
+  br i1 %.not.i20, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %42
 
-40:                                               ; preds = %38
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %7
-  %43 = load volatile i64, ptr %42, align 8
-  %.neg.i.i = shl nsw i64 -1, %39
-  %44 = xor i64 %.neg.i.i, -1
-  %45 = or i64 %43, %44
-  %46 = and i64 %43, %.neg.i.i
-  %47 = select i1 %3, i64 %45, i64 %46
-  %48 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %47, i64 %43, ptr nonnull %42) #10, !srcloc !6
-  %49 = icmp eq i64 %48, %43
-  br i1 %49, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.i24
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %0, align 8
+  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %7
+  %45 = load volatile i64, ptr %44, align 8
+  %.neg.i.i = shl nsw i64 -1, %41
+  %46 = xor i64 %.neg.i.i, -1
+  %47 = or i64 %45, %46
+  %48 = and i64 %45, %.neg.i.i
+  %49 = select i1 %3, i64 %47, i64 %48
+  %50 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %49, i64 %45, ptr nonnull %44) #10, !srcloc !6
+  %51 = icmp eq i64 %50, %45
+  br i1 %51, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.i24
 
-.lr.ph.i24:                                       ; preds = %40
+.lr.ph.i24:                                       ; preds = %42
   br i1 %3, label %.lr.ph.split.us.i26, label %.lr.ph.split.i25
 
 .lr.ph.split.us.i26:                              ; preds = %.lr.ph.i24, %.lr.ph.split.us.i26
-  %50 = phi i64 [ %52, %.lr.ph.split.us.i26 ], [ %48, %.lr.ph.i24 ]
-  %51 = or i64 %50, %44
-  %52 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %51, i64 %50, ptr nonnull %42) #10, !srcloc !6
-  %53 = icmp eq i64 %52, %50
-  br i1 %53, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.us.i26, !llvm.loop !7
+  %52 = phi i64 [ %54, %.lr.ph.split.us.i26 ], [ %50, %.lr.ph.i24 ]
+  %53 = or i64 %52, %46
+  %54 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %53, i64 %52, ptr nonnull %44) #10, !srcloc !6
+  %55 = icmp eq i64 %54, %52
+  br i1 %55, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.us.i26, !llvm.loop !7
 
 .lr.ph.split.i25:                                 ; preds = %.lr.ph.i24, %.lr.ph.split.i25
-  %54 = phi i64 [ %56, %.lr.ph.split.i25 ], [ %48, %.lr.ph.i24 ]
-  %55 = and i64 %54, %.neg.i.i
-  %56 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %55, i64 %54, ptr nonnull %42) #10, !srcloc !6
-  %57 = icmp eq i64 %56, %54
-  br i1 %57, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.i25, !llvm.loop !7
+  %56 = phi i64 [ %58, %.lr.ph.split.i25 ], [ %50, %.lr.ph.i24 ]
+  %57 = and i64 %56, %.neg.i.i
+  %58 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %57, i64 %56, ptr nonnull %44) #10, !srcloc !6
+  %59 = icmp eq i64 %58, %56
+  br i1 %59, label %_ZN6BitMap25par_put_range_within_wordEmmb.exit27, label %.lr.ph.split.i25, !llvm.loop !7
 
-_ZN6BitMap25par_put_range_within_wordEmmb.exit27: ; preds = %.lr.ph.split.i25, %.lr.ph.split.us.i26, %40, %38, %9
+_ZN6BitMap25par_put_range_within_wordEmmb.exit27: ; preds = %.lr.ph.split.i25, %.lr.ph.split.us.i26, %42, %40, %9
   ret void
 }
 

@@ -11725,26 +11725,26 @@ define internal fastcc void @rtps_util_add_type_library(ptr noundef %0, ptr noun
   br label %18
 
 18:                                               ; preds = %.lr.ph, %rtps_util_add_type_library_element.exit
-  %.0129 = phi i32 [ 0, %.lr.ph ], [ %480, %rtps_util_add_type_library_element.exit ]
-  %.018128 = phi i32 [ %14, %.lr.ph ], [ %475, %rtps_util_add_type_library_element.exit ]
+  %.0128 = phi i32 [ 0, %.lr.ph ], [ %479, %rtps_util_add_type_library_element.exit ]
+  %.018127 = phi i32 [ %14, %.lr.ph ], [ %474, %rtps_util_add_type_library_element.exit ]
   %19 = call ptr @wmem_file_scope()
   %20 = call noalias dereferenceable_or_null(304) ptr @wmem_alloc(ptr noundef %19, i64 noundef 304) #18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 296
   store ptr null, ptr %21, align 8
-  %22 = call zeroext i16 @tvb_get_uint16(ptr noundef %2, i32 noundef %.018128, i32 noundef range(i32 0, -2147483647) %4)
-  %23 = add i32 %.018128, 2
+  %22 = call zeroext i16 @tvb_get_uint16(ptr noundef %2, i32 noundef %.018127, i32 noundef range(i32 0, -2147483647) %4)
+  %23 = add i32 %.018127, 2
   %24 = call zeroext i16 @tvb_get_uint16(ptr noundef %2, i32 noundef %23, i32 noundef range(i32 0, -2147483647) %4)
   %25 = zext i16 %24 to i32
-  %26 = add i32 %.018128, 4
+  %26 = add i32 %.018127, 4
   %27 = and i16 %22, 16129
   %28 = icmp eq i16 %27, 16129
   br i1 %28, label %29, label %rtps_util_dissect_parameter_header.exit54
 
 29:                                               ; preds = %18
   %30 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %26, i32 noundef range(i32 0, -2147483647) %4)
-  %31 = add i32 %.018128, 8
+  %31 = add i32 %.018127, 8
   %32 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %31, i32 noundef range(i32 0, -2147483647) %4)
-  %33 = add i32 %.018128, 12
+  %33 = add i32 %.018127, 12
   br label %rtps_util_dissect_parameter_header.exit54
 
 rtps_util_dissect_parameter_header.exit54:        ; preds = %18, %29
@@ -11785,9 +11785,9 @@ rtps_util_dissect_parameter_header.exit:          ; preds = %check_offset_additi
   %.087 = phi i32 [ %53, %49 ], [ %46, %check_offset_addition.exit53 ]
   %.086 = phi i32 [ %52, %49 ], [ %45, %check_offset_addition.exit53 ]
   %54 = add i32 %.086, %.087
-  %55 = sub i32 %54, %.018128
+  %55 = sub i32 %54, %.018127
   call void @proto_item_set_len(ptr noundef %37, i32 noundef %55)
-  switch i32 %34, label %462 [
+  switch i32 %34, label %461 [
     i32 14, label %56
     i32 16, label %111
     i32 17, label %127
@@ -11795,7 +11795,7 @@ rtps_util_dissect_parameter_header.exit:          ; preds = %check_offset_additi
     i32 19, label %244
     i32 21, label %299
     i32 22, label %396
-    i32 24, label %448
+    i32 24, label %447
   ]
 
 56:                                               ; preds = %rtps_util_dissect_parameter_header.exit
@@ -12463,7 +12463,7 @@ rtps_util_dissect_parameter_header.exit52.i:      ; preds = %418, %rtps_util_dis
   call void @proto_item_set_len(ptr noundef %434, i32 noundef %437)
   %438 = add nuw i32 %.04870.us.i, 1
   %exitcond72.not.i = icmp eq i32 %438, %423
-  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !48
+  br i1 %exitcond72.not.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !48
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %.04870.i = phi i32 [ %443, %.lr.ph.split.i ], [ 0, %.lr.ph.i ]
@@ -12477,83 +12477,83 @@ rtps_util_dissect_parameter_header.exit52.i:      ; preds = %418, %rtps_util_dis
   %exitcond.not.i = icmp eq i32 %443, %423
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !48
 
-._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %.lr.ph.split.us.i, %431
-  br i1 %425, label %444, label %rtps_util_add_type_element_struct.exit
+._crit_edge.i:                                    ; preds = %.lr.ph.split.i, %431
+  br i1 %425, label %._crit_edge.thread.i, label %rtps_util_add_type_element_struct.exit
 
-444:                                              ; preds = %._crit_edge.i
-  %445 = call i32 @wmem_array_get_count(ptr noundef %.0.i19)
-  %446 = getelementptr inbounds nuw i8, ptr %20, i64 292
-  store i32 %445, ptr %446, align 4
-  %447 = call ptr @wmem_array_finalize(ptr noundef %.0.i19)
-  store ptr %447, ptr %21, align 8
+._crit_edge.thread.i:                             ; preds = %.lr.ph.split.us.i, %._crit_edge.i
+  %444 = call i32 @wmem_array_get_count(ptr noundef %.0.i19)
+  %445 = getelementptr inbounds nuw i8, ptr %20, i64 292
+  store i32 %444, ptr %445, align 4
+  %446 = call ptr @wmem_array_finalize(ptr noundef %.0.i19)
+  store ptr %446, ptr %21, align 8
   br label %rtps_util_add_type_element_struct.exit
 
-rtps_util_add_type_element_struct.exit:           ; preds = %._crit_edge.i, %444
+rtps_util_add_type_element_struct.exit:           ; preds = %._crit_edge.i, %._crit_edge.thread.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %9) #17
   br label %rtps_util_add_type_element_array.exit
 
-448:                                              ; preds = %rtps_util_dissect_parameter_header.exit
-  %449 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %.087, i32 noundef range(i32 0, -2147483647) %4)
-  %450 = load ptr, ptr %15, align 8
-  %451 = add i32 %.087, 4
-  %452 = call ptr @tvb_get_string_enc(ptr noundef %450, ptr noundef %2, i32 noundef %451, i32 noundef %449, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %37, ptr noundef nonnull @.str.1252, ptr noundef %452)
-  %453 = load i32, ptr @hf_rtps_type_object_element_module_name, align 4
+447:                                              ; preds = %rtps_util_dissect_parameter_header.exit
+  %448 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %.087, i32 noundef range(i32 0, -2147483647) %4)
+  %449 = load ptr, ptr %15, align 8
+  %450 = add i32 %.087, 4
+  %451 = call ptr @tvb_get_string_enc(ptr noundef %449, ptr noundef %2, i32 noundef %450, i32 noundef %448, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %37, ptr noundef nonnull @.str.1252, ptr noundef %451)
+  %452 = load i32, ptr @hf_rtps_type_object_element_module_name, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #17
-  %454 = load i32, ptr @hf_rtps_string_length, align 4
-  %455 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %454, ptr noundef %2, i32 noundef %.087, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %4, ptr noundef nonnull %10)
-  %456 = load i32, ptr %10, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %453, ptr noundef %2, i32 noundef %451, i32 noundef %456, i32 noundef 0)
-  %458 = load i32, ptr %10, align 4
-  %459 = add i32 %458, 3
-  %460 = and i32 %459, -4
-  %461 = add i32 %460, %451
+  %453 = load i32, ptr @hf_rtps_string_length, align 4
+  %454 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %37, i32 noundef %453, ptr noundef %2, i32 noundef %.087, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %4, ptr noundef nonnull %10)
+  %455 = load i32, ptr %10, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %452, ptr noundef %2, i32 noundef %450, i32 noundef %455, i32 noundef 0)
+  %457 = load i32, ptr %10, align 4
+  %458 = add i32 %457, 3
+  %459 = and i32 %458, -4
+  %460 = add i32 %459, %450
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #17
-  call fastcc void @rtps_util_add_type_library(ptr noundef %37, ptr noundef %1, ptr noundef %2, i32 noundef %461, i32 noundef range(i32 0, -2147483647) %4, i32 noundef -1)
+  call fastcc void @rtps_util_add_type_library(ptr noundef %37, ptr noundef %1, ptr noundef %2, i32 noundef %460, i32 noundef range(i32 0, -2147483647) %4, i32 noundef -1)
   br label %rtps_util_add_type_element_array.exit
 
-462:                                              ; preds = %rtps_util_dissect_parameter_header.exit
+461:                                              ; preds = %rtps_util_dissect_parameter_header.exit
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.1239, i32 noundef %34)
-  %463 = load i32, ptr @hf_rtps_type_object_element_raw, align 4
-  %464 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %463, ptr noundef %2, i32 noundef %.087, i32 noundef %.086, i32 noundef range(i32 0, -2147483647) %4)
+  %462 = load i32, ptr @hf_rtps_type_object_element_raw, align 4
+  %463 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %462, ptr noundef %2, i32 noundef %.087, i32 noundef %.086, i32 noundef range(i32 0, -2147483647) %4)
   br label %rtps_util_add_type_element_array.exit
 
-rtps_util_add_type_element_array.exit:            ; preds = %.critedge.i, %.critedge.us.i, %rtps_util_dissect_parameter_header.exit27.i, %241, %rtps_util_dissect_parameter_header.exit30.i, %rtps_util_dissect_parameter_header.exit51.i, %462, %448, %rtps_util_add_type_element_struct.exit, %rtps_util_add_type_element_union.exit, %rtps_util_add_type_element_alias.exit, %rtps_util_add_type_element_enumeration.exit
-  %.0.i = phi i1 [ false, %462 ], [ false, %448 ], [ true, %rtps_util_add_type_element_struct.exit ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %241 ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
-  %465 = icmp slt i32 %54, %.087
-  br i1 %465, label %466, label %check_offset_addition.exit
+rtps_util_add_type_element_array.exit:            ; preds = %.critedge.i, %.critedge.us.i, %rtps_util_dissect_parameter_header.exit27.i, %241, %rtps_util_dissect_parameter_header.exit30.i, %rtps_util_dissect_parameter_header.exit51.i, %461, %447, %rtps_util_add_type_element_struct.exit, %rtps_util_add_type_element_union.exit, %rtps_util_add_type_element_alias.exit, %rtps_util_add_type_element_enumeration.exit
+  %.0.i = phi i1 [ false, %461 ], [ false, %447 ], [ true, %rtps_util_add_type_element_struct.exit ], [ true, %rtps_util_add_type_element_union.exit ], [ true, %rtps_util_add_type_element_alias.exit ], [ true, %rtps_util_add_type_element_enumeration.exit ], [ true, %rtps_util_dissect_parameter_header.exit51.i ], [ true, %rtps_util_dissect_parameter_header.exit30.i ], [ true, %241 ], [ true, %rtps_util_dissect_parameter_header.exit27.i ], [ true, %.critedge.us.i ], [ true, %.critedge.i ]
+  %464 = icmp slt i32 %54, %.087
+  br i1 %464, label %465, label %check_offset_addition.exit
 
-466:                                              ; preds = %rtps_util_add_type_element_array.exit
-  %467 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.086)
+465:                                              ; preds = %rtps_util_add_type_element_array.exit
+  %466 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.086)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
 check_offset_addition.exit:                       ; preds = %rtps_util_add_type_element_array.exit
-  %468 = add i32 %54, 3
-  %469 = and i32 %468, -4
-  %470 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %469, i32 noundef range(i32 0, -2147483647) %4)
-  %471 = and i32 %470, 16130
-  %.not.i = icmp eq i32 %471, 16130
-  br i1 %.not.i, label %474, label %472
+  %467 = add i32 %54, 3
+  %468 = and i32 %467, -4
+  %469 = call i32 @tvb_get_uint32(ptr noundef %2, i32 noundef %468, i32 noundef range(i32 0, -2147483647) %4)
+  %470 = and i32 %469, 16130
+  %.not.i = icmp eq i32 %470, 16130
+  br i1 %.not.i, label %473, label %471
 
-472:                                              ; preds = %check_offset_addition.exit
-  %473 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_rtps_parameter_value_invalid, ptr noundef nonnull @.str.1240)
-  br label %474
+471:                                              ; preds = %check_offset_addition.exit
+  %472 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %37, ptr noundef nonnull @ei_rtps_parameter_value_invalid, ptr noundef nonnull @.str.1240)
+  br label %473
 
-474:                                              ; preds = %472, %check_offset_addition.exit
-  %475 = add i32 %469, 4
-  %476 = sub i32 %475, %.018128
-  call void @proto_item_set_len(ptr noundef %37, i32 noundef %476)
-  br i1 %.0.i, label %477, label %rtps_util_add_type_library_element.exit
+473:                                              ; preds = %471, %check_offset_addition.exit
+  %474 = add i32 %468, 4
+  %475 = sub i32 %474, %.018127
+  call void @proto_item_set_len(ptr noundef %37, i32 noundef %475)
+  br i1 %.0.i, label %476, label %rtps_util_add_type_library_element.exit
 
-477:                                              ; preds = %474
-  %478 = load ptr, ptr @dissection_infos, align 8
-  %479 = call ptr @wmem_map_insert(ptr noundef %478, ptr noundef %20, ptr noundef %20)
+476:                                              ; preds = %473
+  %477 = load ptr, ptr @dissection_infos, align 8
+  %478 = call ptr @wmem_map_insert(ptr noundef %477, ptr noundef %20, ptr noundef %20)
   br label %rtps_util_add_type_library_element.exit
 
-rtps_util_add_type_library_element.exit:          ; preds = %474, %477
-  %480 = add nuw i32 %.0129, 1
-  %exitcond.not = icmp eq i32 %480, %11
+rtps_util_add_type_library_element.exit:          ; preds = %473, %476
+  %479 = add nuw i32 %.0128, 1
+  %exitcond.not = icmp eq i32 %479, %11
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %rtps_util_add_type_library_element.exit, %6

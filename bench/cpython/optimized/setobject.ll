@@ -1267,7 +1267,7 @@ frozenset_hash_impl.exit:                         ; preds = %.lr.ph.i, %15
   %47 = add i64 %46, 907133923
   %48 = icmp eq i64 %47, -1
   %spec.store.select.i = select i1 %48, i64 590923713, i64 %47
-  %49 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %0, ptr noundef %1, i64 noundef %spec.store.select.i)
+  %49 = tail call fastcc ptr @set_lookkey(ptr noundef readonly %0, ptr noundef nonnull %1, i64 noundef %spec.store.select.i)
   %.not.i15 = icmp eq ptr %49, null
   br i1 %.not.i15, label %set_contains_entry.exit, label %set_contains_entry.exit.sink.split
 
@@ -7654,7 +7654,7 @@ frozenset_hash_impl.exit.i:                       ; preds = %.lr.ph.i.i, %28
   %60 = add i64 %59, 907133923
   %61 = icmp eq i64 %60, -1
   %spec.store.select.i.i = select i1 %61, i64 590923713, i64 %60
-  %62 = tail call fastcc ptr @set_lookkey(ptr noundef %0, ptr noundef %1, i64 noundef %spec.store.select.i.i)
+  %62 = tail call fastcc ptr @set_lookkey(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %spec.store.select.i.i)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %set_discard_impl.exit, label %64
 
@@ -8343,7 +8343,7 @@ frozenset_hash_impl.exit.i:                       ; preds = %.lr.ph.i.i, %29
   %61 = add i64 %60, 907133923
   %62 = icmp eq i64 %61, -1
   %spec.store.select.i.i = select i1 %62, i64 590923713, i64 %61
-  %63 = tail call fastcc ptr @set_lookkey(ptr noundef %0, ptr noundef %1, i64 noundef %spec.store.select.i.i)
+  %63 = tail call fastcc ptr @set_lookkey(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %spec.store.select.i.i)
   %64 = icmp eq ptr %63, null
   br i1 %64, label %set_remove_impl.exit, label %65
 

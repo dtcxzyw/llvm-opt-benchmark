@@ -63,7 +63,7 @@ define void @daxpy_(ptr noundef readonly captures(none) %0, ptr noundef readonly
 
 .preheader:                                       ; preds = %.preheader.loopexit, %.preheader64
   %.1.lcssa = phi i32 [ 0, %.preheader64 ], [ %33, %.preheader.loopexit ]
-  %34 = icmp slt i32 %.1.lcssa, %7
+  %34 = icmp samesign ult i32 %.1.lcssa, %7
   br i1 %34, label %.lr.ph67.preheader, label %.loopexit
 
 .lr.ph67.preheader:                               ; preds = %.preheader

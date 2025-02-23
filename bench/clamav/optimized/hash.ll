@@ -122,11 +122,11 @@ onas_free_dirlist.exit.i.i:                       ; preds = %onas_free_listnode.
   %28 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   tail call void @free(ptr noundef %29) #20
-  tail call void @free(ptr noundef %19) #20
+  tail call void @free(ptr noundef nonnull %19) #20
   br label %onas_free_element.exit
 
 onas_free_element.exit:                           ; preds = %14, %onas_free_dirlist.exit.i.i
-  tail call void @free(ptr noundef %15) #20
+  tail call void @free(ptr noundef nonnull %15) #20
   %30 = add nuw i32 %.09.i, 1
   %31 = load i32, ptr %11, align 8, !tbaa !17
   %32 = icmp ult i32 %30, %31
@@ -226,11 +226,11 @@ onas_free_dirlist.exit.i:                         ; preds = %onas_free_listnode.
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   tail call void @free(ptr noundef %14) #20
-  tail call void @free(ptr noundef %4) #20
+  tail call void @free(ptr noundef nonnull %4) #20
   br label %onas_free_hashnode.exit
 
 onas_free_hashnode.exit:                          ; preds = %2, %onas_free_dirlist.exit.i
-  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %15
 
 15:                                               ; preds = %1, %onas_free_hashnode.exit
@@ -268,7 +268,7 @@ onas_free_dirlist.exit:                           ; preds = %onas_free_listnode.
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   tail call void @free(ptr noundef %11) #20
-  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %12
 
 12:                                               ; preds = %1, %onas_free_dirlist.exit
@@ -562,7 +562,7 @@ onas_hash.exit:                                   ; preds = %.lr.ph.i
   %49 = xor i32 %48, %47
   %50 = add i32 %.011.i.i, 1
   %51 = zext i32 %50 to i64
-  %52 = icmp ugt i64 %2, %51
+  %52 = icmp samesign ugt i64 %2, %51
   br i1 %52, label %.lr.ph.i.i, label %onas_hash.exit.i
 
 onas_hash.exit.i:                                 ; preds = %.lr.ph.i.i
@@ -1204,19 +1204,19 @@ onas_get_parent.exit.thread:                      ; preds = %21, %6, %onas_get_p
   store ptr null, ptr %25, align 8, !tbaa !35
   %26 = call ptr @fts_open(ptr noundef nonnull %3, i32 noundef 80, ptr noundef null) #20
   %.not65 = icmp eq ptr %26, null
-  br i1 %.not65, label %.thread109, label %.preheader116
+  br i1 %.not65, label %.thread109, label %.preheader117
 
-.preheader116:                                    ; preds = %onas_get_parent.exit.thread
+.preheader117:                                    ; preds = %onas_get_parent.exit.thread
   %27 = call ptr @fts_read(ptr noundef nonnull %26) #20
-  %.not66139 = icmp eq ptr %27, null
-  br i1 %.not66139, label %.thread112, label %.lr.ph
+  %.not66140 = icmp eq ptr %27, null
+  br i1 %.not66140, label %.thread112, label %.lr.ph
 
 .thread109:                                       ; preds = %onas_get_parent.exit.thread
   %28 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.1, ptr noundef nonnull %1) #20
   br label %122
 
-.lr.ph:                                           ; preds = %.preheader116, %119
-  %29 = phi ptr [ %120, %119 ], [ %27, %.preheader116 ]
+.lr.ph:                                           ; preds = %.preheader117, %119
+  %29 = phi ptr [ %120, %119 ], [ %27, %.preheader117 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 98
   %31 = load i16, ptr %30, align 2, !tbaa !51
   %cond = icmp eq i16 %31, 1
@@ -1469,8 +1469,8 @@ onas_free_hashnode.exit98:                        ; preds = %onas_free_hashnode.
   %.not66 = icmp eq ptr %120, null
   br i1 %.not66, label %.thread112, label %.lr.ph
 
-.thread112:                                       ; preds = %119, %32, %.preheader116, %onas_free_hashnode.exit98, %118, %onas_free_hashnode.exit, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
-  %.052114 = phi i32 [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit98 ], [ -1, %118 ], [ 20, %onas_free_hashnode.exit ], [ 20, %onas_free_hashnode.exit22.i ], [ 0, %.preheader116 ], [ 0, %119 ], [ 20, %32 ]
+.thread112:                                       ; preds = %119, %32, %.preheader117, %onas_free_hashnode.exit98, %118, %onas_free_hashnode.exit, %onas_free_hashnode.exit22.i, %onas_free_hashnode.exit.i
+  %.052114 = phi i32 [ 20, %onas_free_hashnode.exit.i ], [ 20, %onas_free_hashnode.exit22.i ], [ 20, %onas_free_hashnode.exit98 ], [ -1, %118 ], [ 20, %onas_free_hashnode.exit ], [ 0, %.preheader117 ], [ 0, %119 ], [ 20, %32 ]
   %121 = call i32 @fts_close(ptr noundef nonnull %26) #20
   br label %122
 

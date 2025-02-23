@@ -1507,21 +1507,22 @@ default.unreachable9:                             ; preds = %58
   br i1 %172, label %.loopexit8, label %161, !llvm.loop !55
 
 .loopexit8:                                       ; preds = %161, %152
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  store i32 %157, ptr %173, align 4
-  %174 = icmp eq i32 %157, 0
-  br i1 %174, label %.loopexit, label %.preheader
+  %173 = phi i32 [ %157, %152 ], [ %146, %161 ]
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  store i32 %173, ptr %174, align 4
+  %175 = icmp eq i32 %173, 0
+  br i1 %175, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit8, %.preheader
-  %175 = phi i32 [ %179, %.preheader ], [ 0, %.loopexit8 ]
-  %176 = load ptr, ptr %155, align 8
-  %177 = sext i32 %175 to i64
-  %178 = getelementptr %struct.i915_fence_reg, ptr %176, i64 %177
-  tail call fastcc void @fence_write(ptr noundef %178)
-  %179 = add nuw i32 %175, 1
-  %180 = load i32, ptr %173, align 4
-  %181 = icmp ult i32 %179, %180
-  br i1 %181, label %.preheader, label %.loopexit, !llvm.loop !35
+  %176 = phi i32 [ %180, %.preheader ], [ 0, %.loopexit8 ]
+  %177 = load ptr, ptr %155, align 8
+  %178 = sext i32 %176 to i64
+  %179 = getelementptr %struct.i915_fence_reg, ptr %177, i64 %178
+  tail call fastcc void @fence_write(ptr noundef %179)
+  %180 = add nuw i32 %176, 1
+  %181 = load i32, ptr %174, align 4
+  %182 = icmp ult i32 %180, %181
+  br i1 %182, label %.preheader, label %.loopexit, !llvm.loop !35
 
 .loopexit:                                        ; preds = %.preheader, %.thread7, %.loopexit8
   ret void

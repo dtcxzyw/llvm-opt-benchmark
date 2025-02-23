@@ -2507,9 +2507,9 @@ define hidden void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(pt
   %7 = add i64 %6, %.06881
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph97.preheader, label %.lr.ph, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph97.preheader:                               ; preds = %.lr.ph
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
@@ -2517,10 +2517,10 @@ define hidden void @_ZN18ReferenceProcessor14balance_queuesEP14DiscoveredList(pt
   %12 = add i64 %11, 1
   br label %.lr.ph97
 
-.lr.ph97:                                         ; preds = %._crit_edge, %._crit_edge91
-  %13 = phi i32 [ %122, %._crit_edge91 ], [ %4, %._crit_edge ]
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %._crit_edge91 ], [ 0, %._crit_edge ]
-  %.07294 = phi i32 [ %.1.lcssa, %._crit_edge91 ], [ 0, %._crit_edge ]
+.lr.ph97:                                         ; preds = %.lr.ph97.preheader, %._crit_edge91
+  %13 = phi i32 [ %4, %.lr.ph97.preheader ], [ %122, %._crit_edge91 ]
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph97.preheader ], [ %indvars.iv.next106, %._crit_edge91 ]
+  %.07294 = phi i32 [ 0, %.lr.ph97.preheader ], [ %.1.lcssa, %._crit_edge91 ]
   %14 = load i32, ptr %8, align 8
   %15 = zext i32 %14 to i64
   %.not = icmp samesign uge i64 %indvars.iv105, %15

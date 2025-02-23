@@ -5191,12 +5191,12 @@ Of_ObjUpdateRequired.exit.i:                      ; preds = %42, %.lr.ph64.split
   br label %Of_ManComputeOutputRequired.exit
 
 Of_ManComputeOutputRequired.exit:                 ; preds = %.preheader.i, %.critedge2.i, %50
-  %.0.lcssa89.i121 = phi i64 [ %46, %50 ], [ %46, %.critedge2.i ], [ 0, %.preheader.i ]
+  %.0.lcssa90.i121 = phi i64 [ %46, %50 ], [ %46, %.critedge2.i ], [ 0, %.preheader.i ]
   %51 = phi i32 [ %.pre117, %50 ], [ %.val46.i, %.critedge2.i ], [ %.val46.i, %.preheader.i ]
   %52 = phi ptr [ %.pre, %50 ], [ %6, %.critedge2.i ], [ %6, %.preheader.i ]
   %53 = phi ptr [ %.pre.i, %50 ], [ %3, %.critedge2.i ], [ %3, %.preheader.i ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
-  store i64 %.0.lcssa89.i121, ptr %54, align 8, !tbaa !123
+  store i64 %.0.lcssa90.i121, ptr %54, align 8, !tbaa !123
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 176
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 168
   %57 = icmp sgt i32 %51, 1
@@ -5531,12 +5531,12 @@ Of_ObjUpdateRequired.exit.us.i:                   ; preds = %29, %.lr.ph64.split
   br label %Of_ManComputeOutputRequired.exit
 
 Of_ManComputeOutputRequired.exit:                 ; preds = %.preheader.i, %.critedge2.i, %46
-  %.0.lcssa89.i78 = phi i64 [ %42, %46 ], [ %42, %.critedge2.i ], [ 0, %.preheader.i ]
+  %.0.lcssa90.i78 = phi i64 [ %42, %46 ], [ %42, %.critedge2.i ], [ 0, %.preheader.i ]
   %47 = phi i32 [ %.pre72, %46 ], [ %.val46.i, %.critedge2.i ], [ %.val46.i, %.preheader.i ]
   %48 = phi ptr [ %.pre, %46 ], [ %6, %.critedge2.i ], [ %6, %.preheader.i ]
   %49 = phi ptr [ %.pre.i, %46 ], [ %3, %.critedge2.i ], [ %3, %.preheader.i ]
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 160
-  store i64 %.0.lcssa89.i78, ptr %50, align 8, !tbaa !123
+  store i64 %.0.lcssa90.i78, ptr %50, align 8, !tbaa !123
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 176
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 168
   %53 = icmp sgt i32 %47, 1
@@ -5783,11 +5783,11 @@ Of_ObjUpdateRequired.exit.us.i:                   ; preds = %29, %.lr.ph64.split
   br label %Of_ManComputeOutputRequired.exit
 
 Of_ManComputeOutputRequired.exit:                 ; preds = %.preheader.i, %.critedge2.i, %46
-  %.0.lcssa89.i121 = phi i64 [ %42, %46 ], [ %42, %.critedge2.i ], [ 0, %.preheader.i ]
+  %.0.lcssa90.i121 = phi i64 [ %42, %46 ], [ %42, %.critedge2.i ], [ 0, %.preheader.i ]
   %47 = phi i32 [ %.pre110, %46 ], [ %.val46.i, %.critedge2.i ], [ %.val46.i, %.preheader.i ]
   %48 = phi ptr [ %.pre.i, %46 ], [ %3, %.critedge2.i ], [ %3, %.preheader.i ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 160
-  store i64 %.0.lcssa89.i121, ptr %49, align 8, !tbaa !123
+  store i64 %.0.lcssa90.i121, ptr %49, align 8, !tbaa !123
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 168
   %51 = icmp sgt i32 %47, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, i8 0, i64 16, i1 false)
@@ -6316,7 +6316,7 @@ define range(i32 -2147483648, 1000000001) i32 @Of_ManComputeForwardDirconObj(ptr
   %.03644 = phi i32 [ %25, %.lr.ph ], [ 1000000000, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #25
-  call void @Of_ManComputeForwardDirconCut(ptr noundef %0, i32 poison, ptr noundef nonnull %.03446, ptr noundef nonnull %3, ptr noundef nonnull %4)
+  call void @Of_ManComputeForwardDirconCut(ptr noundef nonnull %0, i32 poison, ptr noundef nonnull %.03446, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %20 = load i32, ptr %3, align 4, !tbaa !39
   %21 = icmp sgt i32 %.049, %20
   %spec.select = select i1 %21, ptr %.03446, ptr %.03247
@@ -6845,11 +6845,11 @@ Of_ObjUpdateRequired.exit.i:                      ; preds = %44, %.lr.ph64.split
   br i1 %exitcond82.not.i, label %.critedge2.i, label %.lr.ph64.split.i, !llvm.loop !153
 
 .critedge2.i:                                     ; preds = %Of_ObjUpdateRequired.exit.i, %.preheader.i
-  %.0.lcssa89.i = phi i32 [ 0, %.preheader.i ], [ %32, %Of_ObjUpdateRequired.exit.i ]
+  %.0.lcssa90.i = phi i32 [ 0, %.preheader.i ], [ %32, %Of_ObjUpdateRequired.exit.i ]
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %49 = load i64, ptr %48, align 8, !tbaa !123
   %.not.i = icmp ne i64 %49, 0
-  %50 = zext nneg i32 %.0.lcssa89.i to i64
+  %50 = zext nneg i32 %.0.lcssa90.i to i64
   %51 = icmp ult i64 %49, %50
   %or.cond.i = and i1 %.not.i, %51
   br i1 %or.cond.i, label %52, label %Of_ManComputeOutputRequired.exit
@@ -6863,7 +6863,7 @@ Of_ManComputeOutputRequired.exit:                 ; preds = %.critedge2.i, %52
   %53 = phi ptr [ %.pre.i, %52 ], [ %3, %.critedge2.i ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 160
   store i64 %50, ptr %54, align 8, !tbaa !123
-  %55 = uitofp nneg i32 %.0.lcssa89.i to double
+  %55 = uitofp nneg i32 %.0.lcssa90.i to double
   %56 = fmul double %55, 1.000000e-01
   %57 = fptrunc double %56 to float
   %58 = fpext float %57 to double

@@ -6195,12 +6195,12 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   store ptr %92, ptr %93, align 8
   %94 = add nuw i64 %.0114.us, 1
   %exitcond138.not = icmp eq i64 %94, %umax137
-  br i1 %exitcond138.not, label %.preheader, label %.lr.ph.split.us, !llvm.loop !49
+  br i1 %exitcond138.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !49
 
-.preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %83
+.preheader:                                       ; preds = %83
   br i1 %37, label %._crit_edge, label %.lr.ph123
 
-.lr.ph123:                                        ; preds = %.preheader
+.lr.ph123:                                        ; preds = %.lr.ph.split, %.preheader
   %95 = load ptr, ptr %45, align 8
   %96 = getelementptr inbounds nuw i8, ptr %59, i64 128
   %97 = icmp ne ptr %70, %71
@@ -6319,9 +6319,9 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   store ptr %154, ptr %155, align 8
   %156 = add nuw i64 %.0114, 1
   %exitcond.not = icmp eq i64 %156, %umax
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph.split, !llvm.loop !49
+  br i1 %exitcond.not, label %.lr.ph123, label %.lr.ph.split, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %.split119, %.split119.us.us, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph.split.us, %.split119, %.split119.us.us, %.preheader
   %157 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %158 = load ptr, ptr %157, align 8
   %.not98 = icmp eq ptr %158, null
@@ -7122,9 +7122,9 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
   store i32 1, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %93 = icmp eq ptr %92, %88
-  br i1 %93, label %.loopexit, label %89
+  br i1 %93, label %.lr.ph, label %89
 
-.loopexit:                                        ; preds = %89
+.lr.ph:                                           ; preds = %89
   store ptr %87, ptr %21, align 8
   %94 = trunc i64 %52 to i32
   %95 = getelementptr inbounds nuw i8, ptr %18, i64 1028
@@ -7161,8 +7161,8 @@ _ZNK6Assimp4Ogre8Skeleton10BoneByNameERKNSt7__cxx1112basic_stringIcSt11char_trai
 ._crit_edge:                                      ; preds = %120, %.loopexit.thread
   ret ptr %18
 
-120:                                              ; preds = %.loopexit, %120
-  %.04152 = phi i64 [ 0, %.loopexit ], [ %270, %120 ]
+120:                                              ; preds = %.lr.ph, %120
+  %.04152 = phi i64 [ 0, %.lr.ph ], [ %270, %120 ]
   %121 = load ptr, ptr %45, align 8
   %122 = getelementptr inbounds nuw %"struct.Assimp::Ogre::TransformKeyFrame", ptr %121, i64 %.04152
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #31

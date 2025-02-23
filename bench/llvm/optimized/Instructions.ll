@@ -17435,8 +17435,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
   %6 = and i32 %5, 255
   %trunc = trunc i32 %5 to i8
   switch i8 %trunc, label %7 [
-    i8 13, label %211
-    i8 7, label %211
+    i8 13, label %212
+    i8 7, label %212
   ]
 
 7:                                                ; preds = %3
@@ -17445,8 +17445,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
   %10 = and i32 %9, 255
   %trunc334 = trunc i32 %9 to i8
   switch i8 %trunc334, label %11 [
-    i8 13, label %211
-    i8 7, label %211
+    i8 13, label %212
+    i8 7, label %212
   ]
 
 11:                                               ; preds = %7
@@ -17455,7 +17455,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
   %13 = add nsw i32 %10, -15
   %spec.select.i48 = icmp ult i32 %13, 2
   %or.cond = select i1 %spec.select.i47, i1 true, i1 %spec.select.i48
-  br i1 %or.cond, label %211, label %14
+  br i1 %or.cond, label %212, label %14
 
 14:                                               ; preds = %11
   %15 = add nsw i32 %6, -19
@@ -17490,7 +17490,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
 
 28:                                               ; preds = %23, %24
   %storemerge33.in = phi i64 [ %.sroa.0.0.insert.insert.i.i52, %24 ], [ 0, %23 ]
-  switch i32 %0, label %211 [
+  switch i32 %0, label %212 [
     i32 38, label %29
     i32 39, label %44
     i32 40, label %59
@@ -17503,7 +17503,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
     i32 47, label %131
     i32 48, label %144
     i32 49, label %157
-    i32 50, label %190
+    i32 50, label %191
   ]
 
 29:                                               ; preds = %28
@@ -17521,7 +17521,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm8CastInst11castIsValidENS_11Instruc
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %29, %30
   %.pre-phi.i = phi i32 [ %6, %29 ], [ %.pre1.i, %30 ]
   %34 = icmp eq i32 %.pre-phi.i, 12
-  br i1 %34, label %35, label %211
+  br i1 %34, label %35, label %212
 
 35:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58, label %36
@@ -17538,13 +17538,13 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit:        ; preds = %29, %30
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58:      ; preds = %35, %36
   %.pre-phi.i54 = phi i32 [ %10, %35 ], [ %.pre1.i57, %36 ]
   %40 = icmp eq i32 %.pre-phi.i54, 12
-  br i1 %40, label %41, label %211
+  br i1 %40, label %41, label %212
 
 41:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58
   %42 = icmp eq i64 %storemerge.in, %storemerge33.in
   %43 = icmp ugt i32 %17, %18
   %spec.select = and i1 %43, %42
-  br label %211
+  br label %212
 
 44:                                               ; preds = %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64, label %45
@@ -17561,7 +17561,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58:      ; preds = %35, %36
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64:      ; preds = %44, %45
   %.pre-phi.i60 = phi i32 [ %6, %44 ], [ %.pre1.i63, %45 ]
   %49 = icmp eq i32 %.pre-phi.i60, 12
-  br i1 %49, label %50, label %211
+  br i1 %49, label %50, label %212
 
 50:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70, label %51
@@ -17578,13 +17578,13 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64:      ; preds = %44, %45
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70:      ; preds = %50, %51
   %.pre-phi.i66 = phi i32 [ %10, %50 ], [ %.pre1.i69, %51 ]
   %55 = icmp eq i32 %.pre-phi.i66, 12
-  br i1 %55, label %56, label %211
+  br i1 %55, label %56, label %212
 
 56:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70
   %57 = icmp eq i64 %storemerge.in, %storemerge33.in
   %58 = icmp ult i32 %17, %18
   %spec.select39 = and i1 %58, %57
-  br label %211
+  br label %212
 
 59:                                               ; preds = %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76, label %60
@@ -17601,7 +17601,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70:      ; preds = %50, %51
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76:      ; preds = %59, %60
   %.pre-phi.i72 = phi i32 [ %6, %59 ], [ %.pre1.i75, %60 ]
   %64 = icmp eq i32 %.pre-phi.i72, 12
-  br i1 %64, label %65, label %211
+  br i1 %64, label %65, label %212
 
 65:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82, label %66
@@ -17618,13 +17618,13 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76:      ; preds = %59, %60
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82:      ; preds = %65, %66
   %.pre-phi.i78 = phi i32 [ %10, %65 ], [ %.pre1.i81, %66 ]
   %70 = icmp eq i32 %.pre-phi.i78, 12
-  br i1 %70, label %71, label %211
+  br i1 %70, label %71, label %212
 
 71:                                               ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82
   %72 = icmp eq i64 %storemerge.in, %storemerge33.in
   %73 = icmp ult i32 %17, %18
   %spec.select40 = and i1 %73, %72
-  br label %211
+  br label %212
 
 74:                                               ; preds = %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i, label %75
@@ -17635,11 +17635,11 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82:      ; preds = %65, %66
   %78 = load ptr, ptr %77, align 8, !tbaa !153
   %.phi.trans.insert.i84 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %.pre.i85 = load i32, ptr %.phi.trans.insert.i84, align 8
-  %.pre371 = trunc i32 %.pre.i85 to i8
+  %.pre372 = trunc i32 %.pre.i85 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %75, %74
-  %trunc.i.i.i.pre-phi = phi i8 [ %.pre371, %75 ], [ %trunc, %74 ]
+  %trunc.i.i.i.pre-phi = phi i8 [ %.pre372, %75 ], [ %trunc, %74 ]
   %79 = phi i32 [ %.pre.i85, %75 ], [ %5, %74 ]
   switch i8 %trunc.i.i.i.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread
@@ -17652,7 +17652,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %75, %74
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit:          ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i
   %80 = and i32 %79, 253
   %spec.select.i.i = icmp eq i32 %80, 4
-  br i1 %spec.select.i.i, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread, label %211
+  br i1 %spec.select.i.i, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type13getScalarTypeEv.exit.i, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, label %81
@@ -17663,11 +17663,11 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread:   ; preds = %_ZNK4llvm4Type13get
   %84 = load ptr, ptr %83, align 8, !tbaa !153
   %.phi.trans.insert.i91 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %.pre.i92 = load i32, ptr %.phi.trans.insert.i91, align 8
-  %.pre372 = trunc i32 %.pre.i92 to i8
+  %.pre373 = trunc i32 %.pre.i92 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i87
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i87:         ; preds = %81, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread
-  %trunc.i.i.i88.pre-phi = phi i8 [ %.pre372, %81 ], [ %trunc334, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread ]
+  %trunc.i.i.i88.pre-phi = phi i8 [ %.pre373, %81 ], [ %trunc334, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread ]
   %85 = phi i32 [ %.pre.i92, %81 ], [ %9, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit.thread ]
   switch i8 %trunc.i.i.i88.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93 [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread
@@ -17680,13 +17680,13 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i87:         ; preds = %81, %_ZNK4llvm4Type
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93:        ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i87
   %86 = and i32 %85, 253
   %spec.select.i.i90 = icmp eq i32 %86, 4
-  br i1 %spec.select.i.i90, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread, label %211
+  br i1 %spec.select.i.i90, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, %_ZNK4llvm4Type13getScalarTypeEv.exit.i87, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93
   %87 = icmp eq i64 %storemerge.in, %storemerge33.in
   %88 = icmp ugt i32 %17, %18
   %spec.select41 = and i1 %88, %87
-  br label %211
+  br label %212
 
 89:                                               ; preds = %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, label %90
@@ -17697,11 +17697,11 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread: ; preds = %_ZNK4llvm4Type13get
   %93 = load ptr, ptr %92, align 8, !tbaa !153
   %.phi.trans.insert.i99 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.pre.i100 = load i32, ptr %.phi.trans.insert.i99, align 8
-  %.pre373 = trunc i32 %.pre.i100 to i8
+  %.pre374 = trunc i32 %.pre.i100 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i95
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i95:         ; preds = %90, %89
-  %trunc.i.i.i96.pre-phi = phi i8 [ %.pre373, %90 ], [ %trunc, %89 ]
+  %trunc.i.i.i96.pre-phi = phi i8 [ %.pre374, %90 ], [ %trunc, %89 ]
   %94 = phi i32 [ %.pre.i100, %90 ], [ %5, %89 ]
   switch i8 %trunc.i.i.i96.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101 [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread
@@ -17714,7 +17714,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i95:         ; preds = %90, %89
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101:       ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i95
   %95 = and i32 %94, 253
   %spec.select.i.i98 = icmp eq i32 %95, 4
-  br i1 %spec.select.i.i98, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread, label %211
+  br i1 %spec.select.i.i98, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, %_ZNK4llvm4Type13getScalarTypeEv.exit.i95, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, label %96
@@ -17725,11 +17725,11 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread: ; preds = %_ZNK4llvm4Type13ge
   %99 = load ptr, ptr %98, align 8, !tbaa !153
   %.phi.trans.insert.i107 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %.pre.i108 = load i32, ptr %.phi.trans.insert.i107, align 8
-  %.pre374 = trunc i32 %.pre.i108 to i8
+  %.pre375 = trunc i32 %.pre.i108 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i103
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i103:        ; preds = %96, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread
-  %trunc.i.i.i104.pre-phi = phi i8 [ %.pre374, %96 ], [ %trunc334, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread ]
+  %trunc.i.i.i104.pre-phi = phi i8 [ %.pre375, %96 ], [ %trunc334, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread ]
   %100 = phi i32 [ %.pre.i108, %96 ], [ %9, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101.thread ]
   switch i8 %trunc.i.i.i104.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109 [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread
@@ -17742,13 +17742,13 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i103:        ; preds = %96, %_ZNK4llvm4Type
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109:       ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i103
   %101 = and i32 %100, 253
   %spec.select.i.i106 = icmp eq i32 %101, 4
-  br i1 %spec.select.i.i106, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread, label %211
+  br i1 %spec.select.i.i106, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, %_ZNK4llvm4Type13getScalarTypeEv.exit.i103, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109
   %102 = icmp eq i64 %storemerge.in, %storemerge33.in
   %103 = icmp ult i32 %17, %18
   %spec.select42 = and i1 %103, %102
-  br label %211
+  br label %212
 
 104:                                              ; preds = %28, %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116, label %105
@@ -17765,7 +17765,7 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread: ; preds = %_ZNK4llvm4Type13ge
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116:     ; preds = %104, %105
   %.pre-phi.i112 = phi i32 [ %6, %104 ], [ %.pre1.i115, %105 ]
   %109 = icmp eq i32 %.pre-phi.i112, 12
-  br i1 %109, label %110, label %211
+  br i1 %109, label %110, label %212
 
 110:                                              ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, label %111
@@ -17776,11 +17776,11 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116:     ; preds = %104, %105
   %114 = load ptr, ptr %113, align 8, !tbaa !153
   %.phi.trans.insert.i122 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %.pre.i123 = load i32, ptr %.phi.trans.insert.i122, align 8
-  %.pre375 = trunc i32 %.pre.i123 to i8
+  %.pre376 = trunc i32 %.pre.i123 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i118
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i118:        ; preds = %111, %110
-  %trunc.i.i.i119.pre-phi = phi i8 [ %.pre375, %111 ], [ %trunc334, %110 ]
+  %trunc.i.i.i119.pre-phi = phi i8 [ %.pre376, %111 ], [ %trunc334, %110 ]
   %115 = phi i32 [ %.pre.i123, %111 ], [ %9, %110 ]
   switch i8 %trunc.i.i.i119.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124 [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread
@@ -17793,11 +17793,11 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i118:        ; preds = %111, %110
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124:       ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i118
   %116 = and i32 %115, 253
   %spec.select.i.i121 = icmp eq i32 %116, 4
-  br i1 %spec.select.i.i121, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread, label %211
+  br i1 %spec.select.i.i121, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, %_ZNK4llvm4Type13getScalarTypeEv.exit.i118, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124
   %117 = icmp eq i64 %storemerge.in, %storemerge33.in
-  br label %211
+  br label %212
 
 118:                                              ; preds = %28, %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, label %119
@@ -17808,11 +17808,11 @@ _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread: ; preds = %_ZNK4llvm4Type13ge
   %122 = load ptr, ptr %121, align 8, !tbaa !153
   %.phi.trans.insert.i130 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.pre.i131 = load i32, ptr %.phi.trans.insert.i130, align 8
-  %.pre376 = trunc i32 %.pre.i131 to i8
+  %.pre377 = trunc i32 %.pre.i131 to i8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i126
 
 _ZNK4llvm4Type13getScalarTypeEv.exit.i126:        ; preds = %119, %118
-  %trunc.i.i.i127.pre-phi = phi i8 [ %.pre376, %119 ], [ %trunc, %118 ]
+  %trunc.i.i.i127.pre-phi = phi i8 [ %.pre377, %119 ], [ %trunc, %118 ]
   %123 = phi i32 [ %.pre.i131, %119 ], [ %5, %118 ]
   switch i8 %trunc.i.i.i127.pre-phi, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132 [
     i8 3, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132.thread
@@ -17825,7 +17825,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i126:        ; preds = %119, %118
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132:       ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i126
   %124 = and i32 %123, 253
   %spec.select.i.i129 = icmp eq i32 %124, 4
-  br i1 %spec.select.i.i129, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132.thread, label %211
+  br i1 %spec.select.i.i129, label %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132.thread, label %212
 
 _ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132.thread: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, %_ZNK4llvm4Type13getScalarTypeEv.exit.i126, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139, label %125
@@ -17843,12 +17843,12 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139:     ; preds = %_ZNK4llvm4Type16isF
   %.pre-phi.i135 = phi i32 [ %10, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132.thread ], [ %.pre1.i138, %125 ]
   %129 = icmp eq i32 %.pre-phi.i135, 12
   %130 = icmp eq i64 %storemerge.in, %storemerge33.in
-  %spec.select363 = select i1 %129, i1 %130, i1 false
-  br label %211
+  %spec.select364 = select i1 %129, i1 %130, i1 false
+  br label %212
 
 131:                                              ; preds = %28
-  %.not348 = icmp eq i64 %storemerge.in, %storemerge33.in
-  br i1 %.not348, label %132, label %211
+  %.not349 = icmp eq i64 %storemerge.in, %storemerge33.in
+  br i1 %.not349, label %132, label %212
 
 132:                                              ; preds = %131
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, label %133
@@ -17865,7 +17865,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139:     ; preds = %_ZNK4llvm4Type16isF
 _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit:        ; preds = %132, %133
   %.pre-phi.i143 = phi i32 [ %6, %132 ], [ %.pre1.i146, %133 ]
   %137 = icmp eq i32 %.pre-phi.i143, 14
-  br i1 %137, label %138, label %211
+  br i1 %137, label %138, label %212
 
 138:                                              ; preds = %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153, label %139
@@ -17882,11 +17882,11 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit:        ; preds = %132, %133
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153:     ; preds = %138, %139
   %.pre-phi.i149 = phi i32 [ %10, %138 ], [ %.pre1.i152, %139 ]
   %143 = icmp eq i32 %.pre-phi.i149, 12
-  br label %211
+  br label %212
 
 144:                                              ; preds = %28
-  %.not345 = icmp eq i64 %storemerge.in, %storemerge33.in
-  br i1 %.not345, label %145, label %211
+  %.not346 = icmp eq i64 %storemerge.in, %storemerge33.in
+  br i1 %.not346, label %145, label %212
 
 145:                                              ; preds = %144
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161, label %146
@@ -17903,7 +17903,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153:     ; preds = %138, %139
 _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161:     ; preds = %145, %146
   %.pre-phi.i157 = phi i32 [ %6, %145 ], [ %.pre1.i160, %146 ]
   %150 = icmp eq i32 %.pre-phi.i157, 12
-  br i1 %150, label %151, label %211
+  br i1 %150, label %151, label %212
 
 151:                                              ; preds = %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161
   br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168, label %152
@@ -17920,7 +17920,7 @@ _ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161:     ; preds = %145, %146
 _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168:     ; preds = %151, %152
   %.pre-phi.i164 = phi i32 [ %10, %151 ], [ %.pre1.i167, %152 ]
   %156 = icmp eq i32 %.pre-phi.i164, 14
-  br label %211
+  br label %212
 
 157:                                              ; preds = %28
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit, label %158
@@ -17929,131 +17929,128 @@ _ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168:     ; preds = %151, %152
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %160 = load ptr, ptr %159, align 8, !tbaa !152
   %161 = load ptr, ptr %160, align 8, !tbaa !153
-  %.phi.trans.insert367 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %.pre368 = load i32, ptr %.phi.trans.insert367, align 8
-  %.pre377 = and i32 %.pre368, 255
+  %.phi.trans.insert368 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %.pre369 = load i32, ptr %.phi.trans.insert368, align 8
+  %162 = icmp eq ptr %161, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit
 
 _ZNK4llvm4Type13getScalarTypeEv.exit:             ; preds = %157, %158
-  %.pre-phi = phi i32 [ %6, %157 ], [ %.pre377, %158 ]
-  %.0.i = phi ptr [ %1, %157 ], [ %161, %158 ]
-  %162 = icmp eq i32 %.pre-phi, 14
-  %spec.select.i.i170 = select i1 %162, ptr %.0.i, ptr null
-  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit173, label %163
+  %163 = phi i32 [ %.pre369, %158 ], [ %5, %157 ]
+  %.0.i = phi i1 [ %162, %158 ], [ false, %157 ]
+  %164 = and i32 %163, 255
+  %165 = icmp ne i32 %164, 14
+  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit173, label %166
 
-163:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
-  %164 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %165 = load ptr, ptr %164, align 8, !tbaa !152
-  %166 = load ptr, ptr %165, align 8, !tbaa !153
-  %.phi.trans.insert369 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %.pre370 = load i32, ptr %.phi.trans.insert369, align 8
-  %.pre378 = and i32 %.pre370, 255
+166:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit
+  %167 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %168 = load ptr, ptr %167, align 8, !tbaa !152
+  %169 = load ptr, ptr %168, align 8, !tbaa !153
+  %.phi.trans.insert370 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  %.pre371 = load i32, ptr %.phi.trans.insert370, align 8
+  %.pre378 = and i32 %.pre371, 255
+  %170 = icmp ne ptr %169, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit173
 
-_ZNK4llvm4Type13getScalarTypeEv.exit173:          ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %163
-  %.pre-phi379 = phi i32 [ %10, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.pre378, %163 ]
-  %.0.i172 = phi ptr [ %2, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %166, %163 ]
-  %167 = icmp eq i32 %.pre-phi379, 14
-  %spec.select.i.i174 = select i1 %167, ptr %.0.i172, ptr null
-  %.not35 = icmp eq ptr %spec.select.i.i170, null
-  %168 = icmp ne ptr %spec.select.i.i174, null
-  %.not37 = xor i1 %.not35, %168
-  br i1 %.not37, label %169, label %211
+_ZNK4llvm4Type13getScalarTypeEv.exit173:          ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit, %166
+  %.pre-phi = phi i32 [ %10, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.pre378, %166 ]
+  %171 = phi i32 [ %9, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %.pre371, %166 ]
+  %.0.i172 = phi i1 [ true, %_ZNK4llvm4Type13getScalarTypeEv.exit ], [ %170, %166 ]
+  %172 = icmp eq i32 %.pre-phi, 14
+  %.not35 = or i1 %.0.i, %165
+  %173 = and i1 %.0.i172, %172
+  %.not37 = xor i1 %.not35, %173
+  br i1 %.not37, label %174, label %212
 
-169:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit173
-  br i1 %.not35, label %170, label %176
+174:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit173
+  br i1 %.not35, label %175, label %181
 
-170:                                              ; preds = %169
-  %171 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #33
-  %.fca.0.extract4 = extractvalue { i64, i8 } %171, 0
-  %.fca.1.extract5 = extractvalue { i64, i8 } %171, 1
-  %172 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #33
-  %.fca.0.extract = extractvalue { i64, i8 } %172, 0
-  %.fca.1.extract = extractvalue { i64, i8 } %172, 1
-  %173 = icmp eq i64 %.fca.0.extract4, %.fca.0.extract
-  %174 = icmp eq i8 %.fca.1.extract5, %.fca.1.extract
-  %175 = select i1 %173, i1 %174, i1 false
-  br label %211
+175:                                              ; preds = %174
+  %176 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #33
+  %.fca.0.extract4 = extractvalue { i64, i8 } %176, 0
+  %.fca.1.extract5 = extractvalue { i64, i8 } %176, 1
+  %177 = tail call { i64, i8 } @_ZNK4llvm4Type22getPrimitiveSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %2) #33
+  %.fca.0.extract = extractvalue { i64, i8 } %177, 0
+  %.fca.1.extract = extractvalue { i64, i8 } %177, 1
+  %178 = icmp eq i64 %.fca.0.extract4, %.fca.0.extract
+  %179 = icmp eq i8 %.fca.1.extract5, %.fca.1.extract
+  %180 = select i1 %178, i1 %179, i1 false
+  br label %212
 
-176:                                              ; preds = %169
-  %177 = getelementptr inbounds nuw i8, ptr %spec.select.i.i170, i64 8
-  %178 = load i32, ptr %177, align 8
-  %179 = getelementptr inbounds nuw i8, ptr %spec.select.i.i174, i64 8
-  %180 = load i32, ptr %179, align 8
-  %.not38.unshifted = xor i32 %180, %178
+181:                                              ; preds = %174
+  %.not38.unshifted = xor i32 %171, %163
   %.not38 = icmp ult i32 %.not38.unshifted, 256
-  br i1 %.not38, label %181, label %211
+  br i1 %.not38, label %182, label %212
 
-181:                                              ; preds = %176
-  %182 = and i32 %16, %15
-  %brmerge.not = icmp ugt i32 %182, -3
-  br i1 %brmerge.not, label %183, label %185
+182:                                              ; preds = %181
+  %183 = and i32 %16, %15
+  %brmerge.not = icmp ugt i32 %183, -3
+  br i1 %brmerge.not, label %184, label %186
 
-183:                                              ; preds = %181
-  %184 = icmp eq i64 %storemerge.in, %storemerge33.in
-  br label %211
+184:                                              ; preds = %182
+  %185 = icmp eq i64 %storemerge.in, %storemerge33.in
+  br label %212
 
-185:                                              ; preds = %181
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %188, label %186
+186:                                              ; preds = %182
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %189, label %187
 
-186:                                              ; preds = %185
-  %187 = icmp eq i64 %storemerge.in, 1
-  br label %211
+187:                                              ; preds = %186
+  %188 = icmp eq i64 %storemerge.in, 1
+  br label %212
 
-188:                                              ; preds = %185
-  %189 = icmp eq i64 %storemerge33.in, 1
-  %spec.select380 = select i1 %spec.select.i.i.i.i.i.i.i.i49, i1 true, i1 %189
-  br label %211
+189:                                              ; preds = %186
+  %190 = icmp eq i64 %storemerge33.in, 1
+  %spec.select379 = select i1 %spec.select.i.i.i.i.i.i.i.i49, i1 true, i1 %190
+  br label %212
 
-190:                                              ; preds = %28
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit177, label %191
+191:                                              ; preds = %28
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZNK4llvm4Type13getScalarTypeEv.exit177, label %192
 
-191:                                              ; preds = %190
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %193 = load ptr, ptr %192, align 8, !tbaa !152
-  %194 = load ptr, ptr %193, align 8, !tbaa !153
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %194, i64 8
+192:                                              ; preds = %191
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %194 = load ptr, ptr %193, align 8, !tbaa !152
+  %195 = load ptr, ptr %194, align 8, !tbaa !153
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %195, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %195 = icmp eq ptr %194, null
+  %196 = icmp eq ptr %195, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit177
 
-_ZNK4llvm4Type13getScalarTypeEv.exit177:          ; preds = %190, %191
-  %196 = phi i32 [ %.pre, %191 ], [ %5, %190 ]
-  %.0.i176 = phi i1 [ %195, %191 ], [ false, %190 ]
-  %197 = and i32 %196, 255
-  %198 = icmp ne i32 %197, 14
-  %.not = or i1 %.0.i176, %198
-  br i1 %.not, label %211, label %199
+_ZNK4llvm4Type13getScalarTypeEv.exit177:          ; preds = %191, %192
+  %197 = phi i32 [ %.pre, %192 ], [ %5, %191 ]
+  %.0.i176 = phi i1 [ %196, %192 ], [ false, %191 ]
+  %198 = and i32 %197, 255
+  %199 = icmp ne i32 %198, 14
+  %.not = or i1 %.0.i176, %199
+  br i1 %.not, label %212, label %200
 
-199:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit177
-  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit181, label %200
+200:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit177
+  br i1 %spec.select.i.i.i.i.i.i.i.i49, label %_ZNK4llvm4Type13getScalarTypeEv.exit181, label %201
 
-200:                                              ; preds = %199
-  %201 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %202 = load ptr, ptr %201, align 8, !tbaa !152
-  %203 = load ptr, ptr %202, align 8, !tbaa !153
-  %.phi.trans.insert365 = getelementptr inbounds nuw i8, ptr %203, i64 8
-  %.pre366 = load i32, ptr %.phi.trans.insert365, align 8
-  %204 = icmp eq ptr %203, null
+201:                                              ; preds = %200
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %203 = load ptr, ptr %202, align 8, !tbaa !152
+  %204 = load ptr, ptr %203, align 8, !tbaa !153
+  %.phi.trans.insert366 = getelementptr inbounds nuw i8, ptr %204, i64 8
+  %.pre367 = load i32, ptr %.phi.trans.insert366, align 8
+  %205 = icmp eq ptr %204, null
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit181
 
-_ZNK4llvm4Type13getScalarTypeEv.exit181:          ; preds = %199, %200
-  %205 = phi i32 [ %.pre366, %200 ], [ %9, %199 ]
-  %.0.i180 = phi i1 [ %204, %200 ], [ false, %199 ]
-  %206 = and i32 %205, 255
-  %207 = icmp ne i32 %206, 14
-  %.not34 = or i1 %.0.i180, %207
-  br i1 %.not34, label %211, label %208
+_ZNK4llvm4Type13getScalarTypeEv.exit181:          ; preds = %200, %201
+  %206 = phi i32 [ %.pre367, %201 ], [ %9, %200 ]
+  %.0.i180 = phi i1 [ %205, %201 ], [ false, %200 ]
+  %207 = and i32 %206, 255
+  %208 = icmp ne i32 %207, 14
+  %.not34 = or i1 %.0.i180, %208
+  br i1 %.not34, label %212, label %209
 
-208:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit181
-  %.unshifted = xor i32 %205, %196
-  %209 = icmp ugt i32 %.unshifted, 255
-  %210 = icmp eq i64 %storemerge.in, %storemerge33.in
-  %spec.select364 = select i1 %209, i1 %210, i1 false
-  br label %211
+209:                                              ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit181
+  %.unshifted = xor i32 %206, %197
+  %210 = icmp ugt i32 %.unshifted, 255
+  %211 = icmp eq i64 %storemerge.in, %storemerge33.in
+  %spec.select365 = select i1 %210, i1 %211, i1 false
+  br label %212
 
-211:                                              ; preds = %188, %208, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139, %7, %7, %3, %3, %28, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132, %131, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, %144, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161, %176, %_ZNK4llvm4Type13getScalarTypeEv.exit173, %186, %183, %170, %_ZNK4llvm4Type13getScalarTypeEv.exit181, %_ZNK4llvm4Type13getScalarTypeEv.exit177, %41, %56, %71, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread, %11
-  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ false, %3 ], [ false, %28 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %spec.select, %41 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64 ], [ %spec.select39, %56 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76 ], [ %spec.select40, %71 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit ], [ %spec.select41, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101 ], [ %spec.select42, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116 ], [ %117, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132 ], [ false, %131 ], [ false, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ %143, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153 ], [ false, %144 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161 ], [ %156, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168 ], [ %184, %183 ], [ %187, %186 ], [ %175, %170 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit173 ], [ false, %176 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit177 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit181 ], [ false, %3 ], [ false, %7 ], [ %spec.select363, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139 ], [ %spec.select364, %208 ], [ %spec.select380, %188 ]
+212:                                              ; preds = %189, %209, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139, %7, %7, %3, %3, %28, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132, %131, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit, %144, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161, %181, %_ZNK4llvm4Type13getScalarTypeEv.exit173, %187, %184, %175, %_ZNK4llvm4Type13getScalarTypeEv.exit181, %_ZNK4llvm4Type13getScalarTypeEv.exit177, %41, %56, %71, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread, %11
+  %.0 = phi i1 [ false, %11 ], [ false, %7 ], [ false, %3 ], [ false, %28 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit58 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit ], [ %spec.select, %41 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit70 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit64 ], [ %spec.select39, %56 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit82 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit76 ], [ %spec.select40, %71 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit ], [ %spec.select41, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit93.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109 ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit101 ], [ %spec.select42, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit109.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit116 ], [ %117, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit124.thread ], [ false, %_ZNK4llvm4Type16isFPOrFPVectorTyEv.exit132 ], [ false, %131 ], [ false, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit ], [ %143, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit153 ], [ false, %144 ], [ false, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit161 ], [ %156, %_ZNK4llvm4Type18isPtrOrPtrVectorTyEv.exit168 ], [ %185, %184 ], [ %188, %187 ], [ %180, %175 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit173 ], [ false, %181 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit177 ], [ false, %_ZNK4llvm4Type13getScalarTypeEv.exit181 ], [ false, %3 ], [ false, %7 ], [ %spec.select364, %_ZNK4llvm4Type18isIntOrIntVectorTyEv.exit139 ], [ %spec.select365, %209 ], [ %spec.select379, %189 ]
   ret i1 %.0
 }
 

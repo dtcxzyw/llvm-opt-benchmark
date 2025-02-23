@@ -2321,7 +2321,7 @@ define dso_local noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %24, label %13
+  br i1 %.not.i, label %.thread22, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 64
@@ -2348,18 +2348,22 @@ define dso_local noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef
   %or.cond.not.i.i = and i1 %23, %.not.i.i
   br i1 %or.cond.not.i.i, label %.lr.ph.i.i, label %_ZNK8Variable5matchEPKS_.exit, !llvm.loop !81
 
-24:                                               ; preds = %16, %13, %2
+24:                                               ; preds = %16, %13
   %25 = icmp eq ptr %6, %10
-  br i1 %25, label %_ZNK8Variable5matchEPKS_.exit.thread, label %26
+  br i1 %25, label %_ZNK8Variable5matchEPKS_.exit.thread, label %.preheader.i.preheader
+
+.thread22:                                        ; preds = %2
+  %26 = icmp eq ptr %6, %10
+  br i1 %26, label %_ZNK8Variable5matchEPKS_.exit.thread, label %_ZNK8Variable19get_container_unionEv.exit
 
 _ZNK8Variable5matchEPKS_.exit:                    ; preds = %.lr.ph.i.i
-  br i1 %.not.i.i, label %_ZNK8Variable5matchEPKS_.exit.thread, label %26
+  br i1 %.not.i.i, label %_ZNK8Variable5matchEPKS_.exit.thread, label %.preheader.i.preheader
 
-26:                                               ; preds = %24, %_ZNK8Variable5matchEPKS_.exit
-  br i1 %.not.i, label %_ZNK8Variable19get_container_unionEv.exit, label %.preheader.i
+.preheader.i.preheader:                           ; preds = %24, %_ZNK8Variable5matchEPKS_.exit
+  br label %.preheader.i
 
-.preheader.i:                                     ; preds = %26, %30
-  %.08.i = phi ptr [ %32, %30 ], [ %6, %26 ]
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %30
+  %.08.i = phi ptr [ %32, %30 ], [ %6, %.preheader.i.preheader ]
   %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !39
   %29 = load i32, ptr %28, align 8, !tbaa !57
@@ -2372,8 +2376,8 @@ _ZNK8Variable5matchEPKS_.exit:                    ; preds = %.lr.ph.i.i
   %.not.i14 = icmp eq ptr %32, null
   br i1 %.not.i14, label %_ZNK8Variable19get_container_unionEv.exit, label %.preheader.i, !llvm.loop !96
 
-_ZNK8Variable19get_container_unionEv.exit:        ; preds = %.preheader.i, %30, %26
-  %.06.i = phi ptr [ null, %26 ], [ null, %30 ], [ %.08.i, %.preheader.i ]
+_ZNK8Variable19get_container_unionEv.exit:        ; preds = %.preheader.i, %30, %.thread22
+  %.06.i = phi ptr [ null, %.thread22 ], [ null, %30 ], [ %.08.i, %.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %35 = icmp eq ptr %34, null
@@ -2402,8 +2406,8 @@ _ZNK8Variable19get_container_unionEv.exit20:      ; preds = %.preheader.i15, %39
   %spec.select = and i1 %44, %or.cond
   br label %_ZNK8Variable5matchEPKS_.exit.thread
 
-_ZNK8Variable5matchEPKS_.exit.thread:             ; preds = %19, %24, %_ZNK8Variable5matchEPKS_.exit, %_ZNK8Variable19get_container_unionEv.exit20
-  %.0 = phi i1 [ %spec.select, %_ZNK8Variable19get_container_unionEv.exit20 ], [ true, %_ZNK8Variable5matchEPKS_.exit ], [ true, %24 ], [ true, %19 ]
+_ZNK8Variable5matchEPKS_.exit.thread:             ; preds = %.thread22, %19, %24, %_ZNK8Variable5matchEPKS_.exit, %_ZNK8Variable19get_container_unionEv.exit20
+  %.0 = phi i1 [ %spec.select, %_ZNK8Variable19get_container_unionEv.exit20 ], [ true, %_ZNK8Variable5matchEPKS_.exit ], [ true, %24 ], [ true, %19 ], [ true, %.thread22 ]
   ret i1 %.0
 }
 

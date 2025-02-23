@@ -19047,7 +19047,7 @@ _ZNSt3mapItNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessItESaISt4p
   %112 = sext i32 %97 to i64
   %113 = getelementptr inbounds ptr, ptr %110, i64 %112
   store ptr %93, ptr %113, align 8
-  %114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.02.012.i) #42
+  %114 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02.012.i) #42
   %.not10.i = icmp eq ptr %114, %12
   br i1 %.not10.i, label %._crit_edge.i, label %70
 

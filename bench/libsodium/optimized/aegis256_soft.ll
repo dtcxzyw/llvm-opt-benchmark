@@ -431,10 +431,10 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   br i1 %129, label %.preheader, label %.preheader79
 
 .preheader79:                                     ; preds = %128
-  br i1 %.not6792, label %.loopexit.thread, label %.lr.ph90
+  br i1 %.not6792, label %.loopexit, label %.lr.ph90
 
 .preheader:                                       ; preds = %128
-  br i1 %.not6792, label %.loopexit.thread105, label %.lr.ph94
+  br i1 %.not6792, label %.loopexit, label %.lr.ph94
 
 .lr.ph94:                                         ; preds = %.preheader, %.lr.ph94
   %130 = phi i64 [ %134, %.lr.ph94 ], [ 16, %.preheader ]
@@ -461,68 +461,49 @@ define internal i32 @decrypt_detached(ptr noundef %0, ptr noundef readonly captu
   %.not66 = icmp ugt i64 %138, %2
   br i1 %.not66, label %.loopexit, label %.lr.ph90, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph90, %.lr.ph94
-  %.3 = phi i64 [ %130, %.lr.ph94 ], [ %135, %.lr.ph90 ]
+.loopexit:                                        ; preds = %.lr.ph90, %.lr.ph94, %.preheader79, %.preheader
+  %.3 = phi i64 [ 0, %.preheader ], [ 0, %.preheader79 ], [ %130, %.lr.ph94 ], [ %135, %.lr.ph90 ]
   %139 = and i64 %2, 15
   %.not68 = icmp eq i64 %139, 0
-  br i1 %.not68, label %146, label %140
+  br i1 %.not68, label %142, label %.sink.split
 
-.loopexit.thread105:                              ; preds = %.preheader
-  %.not68107 = icmp eq i64 %2, 0
-  br i1 %.not68107, label %146, label %.thread108
+.sink.split:                                      ; preds = %.loopexit
+  %140 = getelementptr i8, ptr %0, i64 %.3
+  %.sink = select i1 %129, ptr %140, ptr %12
+  %141 = getelementptr i8, ptr %1, i64 %.3
+  call fastcc void @aegis256_declast(ptr noundef %.sink, ptr noundef %141, i64 noundef %139, ptr noundef %10)
+  br label %142
 
-.loopexit.thread:                                 ; preds = %.preheader79
-  %.not68101 = icmp eq i64 %2, 0
-  br i1 %.not68101, label %146, label %.thread
+142:                                              ; preds = %.sink.split, %.loopexit
+  %143 = call fastcc i32 @aegis256_mac(ptr noundef nonnull %13, i64 noundef %4, i64 noundef %6, i64 noundef %2, ptr noundef %10)
+  %144 = icmp eq i32 %143, 0
+  br i1 %144, label %145, label %150
 
-140:                                              ; preds = %.loopexit
-  br i1 %129, label %.thread108, label %.thread
-
-.thread108:                                       ; preds = %.loopexit.thread105, %140
-  %.3102110 = phi i64 [ %.3, %140 ], [ 0, %.loopexit.thread105 ]
-  %141 = phi i64 [ %139, %140 ], [ %2, %.loopexit.thread105 ]
-  %142 = getelementptr i8, ptr %0, i64 %.3102110
-  %143 = getelementptr i8, ptr %1, i64 %.3102110
-  call fastcc void @aegis256_declast(ptr noundef %142, ptr noundef %143, i64 noundef %141, ptr noundef %10)
-  br label %146
-
-.thread:                                          ; preds = %.loopexit.thread, %140
-  %.3102104 = phi i64 [ %.3, %140 ], [ 0, %.loopexit.thread ]
-  %144 = phi i64 [ %139, %140 ], [ %2, %.loopexit.thread ]
-  %145 = getelementptr i8, ptr %1, i64 %.3102104
-  call fastcc void @aegis256_declast(ptr noundef nonnull %12, ptr noundef %145, i64 noundef %144, ptr noundef %10)
-  br label %146
-
-146:                                              ; preds = %.loopexit.thread105, %.loopexit.thread, %.thread108, %.thread, %.loopexit
-  %147 = call fastcc i32 @aegis256_mac(ptr noundef nonnull %13, i64 noundef %4, i64 noundef %6, i64 noundef %2, ptr noundef %10)
-  %148 = icmp eq i32 %147, 0
-  br i1 %148, label %149, label %154
-
-149:                                              ; preds = %146
-  switch i64 %4, label %154 [
-    i64 16, label %150
-    i64 32, label %152
+145:                                              ; preds = %142
+  switch i64 %4, label %150 [
+    i64 16, label %146
+    i64 32, label %148
   ]
 
-150:                                              ; preds = %149
-  %151 = call i32 @crypto_verify_16(ptr noundef nonnull %13, ptr noundef %3) #7
-  br label %154
+146:                                              ; preds = %145
+  %147 = call i32 @crypto_verify_16(ptr noundef nonnull %13, ptr noundef %3) #7
+  br label %150
 
-152:                                              ; preds = %149
-  %153 = call i32 @crypto_verify_32(ptr noundef nonnull %13, ptr noundef %3) #7
-  br label %154
+148:                                              ; preds = %145
+  %149 = call i32 @crypto_verify_32(ptr noundef nonnull %13, ptr noundef %3) #7
+  br label %150
 
-154:                                              ; preds = %149, %150, %152, %146
-  %.0 = phi i32 [ %151, %150 ], [ %153, %152 ], [ -1, %146 ], [ -1, %149 ]
-  %155 = icmp ne i32 %.0, 0
-  %or.cond = and i1 %129, %155
-  br i1 %or.cond, label %156, label %157
+150:                                              ; preds = %145, %146, %148, %142
+  %.0 = phi i32 [ %147, %146 ], [ %149, %148 ], [ -1, %142 ], [ -1, %145 ]
+  %151 = icmp ne i32 %.0, 0
+  %or.cond = and i1 %129, %151
+  br i1 %or.cond, label %152, label %153
 
-156:                                              ; preds = %154
+152:                                              ; preds = %150
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %0, i8 noundef 0, i64 noundef %2, i1 noundef false) #7
-  br label %157
+  br label %153
 
-157:                                              ; preds = %156, %154
+153:                                              ; preds = %152, %150
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #7

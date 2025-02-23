@@ -163,18 +163,18 @@ Sdb_CutGetSign.exit.thread.i:                     ; preds = %._crit_edge.i
   %65 = or i64 %64, %.067.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Sdb_CutGetSign.exit.i, label %59, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %.lr.ph.i35.i, label %59, !llvm.loop !43
 
-Sdb_CutGetSign.exit.i:                            ; preds = %59
+.lr.ph.i35.i:                                     ; preds = %59
   store i64 %65, ptr %36, align 8, !tbaa !42
   %66 = load ptr, ptr %34, align 8, !tbaa !44
   %67 = getelementptr i8, ptr %66, i64 8
   %.val.i.i = load ptr, ptr %67, align 8, !tbaa !36
   br label %68
 
-68:                                               ; preds = %68, %Sdb_CutGetSign.exit.i
-  %indvars.iv.i37.i = phi i64 [ 0, %Sdb_CutGetSign.exit.i ], [ %indvars.iv.next.i38.i, %68 ]
-  %.09.i.i = phi i32 [ 0, %Sdb_CutGetSign.exit.i ], [ %76, %68 ]
+68:                                               ; preds = %68, %.lr.ph.i35.i
+  %indvars.iv.i37.i = phi i64 [ 0, %.lr.ph.i35.i ], [ %indvars.iv.next.i38.i, %68 ]
+  %.09.i.i = phi i32 [ 0, %.lr.ph.i35.i ], [ %76, %68 ]
   %69 = getelementptr inbounds nuw [6 x i32], ptr %58, i64 0, i64 %indvars.iv.i37.i
   %70 = load i32, ptr %69, align 4, !tbaa !37
   %71 = sext i32 %70 to i64
@@ -299,18 +299,18 @@ Sdb_CutGetSign.exit.thread.i130:                  ; preds = %._crit_edge.i111
   %124 = or i64 %123, %.067.i.i117
   %indvars.iv.next.i.i118 = add nuw nsw i64 %indvars.iv.i.i116, 1
   %exitcond.not.i.i119 = icmp eq i64 %indvars.iv.next.i.i118, %wide.trip.count.i.i115
-  br i1 %exitcond.not.i.i119, label %Sdb_CutGetSign.exit.i120, label %118, !llvm.loop !43
+  br i1 %exitcond.not.i.i119, label %.lr.ph.i35.i120, label %118, !llvm.loop !43
 
-Sdb_CutGetSign.exit.i120:                         ; preds = %118
+.lr.ph.i35.i120:                                  ; preds = %118
   store i64 %124, ptr %95, align 8, !tbaa !42
   %125 = load ptr, ptr %92, align 8, !tbaa !44
   %126 = getelementptr i8, ptr %125, i64 8
   %.val.i.i121 = load ptr, ptr %126, align 8, !tbaa !36
   br label %127
 
-127:                                              ; preds = %127, %Sdb_CutGetSign.exit.i120
-  %indvars.iv.i37.i122 = phi i64 [ 0, %Sdb_CutGetSign.exit.i120 ], [ %indvars.iv.next.i38.i124, %127 ]
-  %.09.i.i123 = phi i32 [ 0, %Sdb_CutGetSign.exit.i120 ], [ %135, %127 ]
+127:                                              ; preds = %127, %.lr.ph.i35.i120
+  %indvars.iv.i37.i122 = phi i64 [ 0, %.lr.ph.i35.i120 ], [ %indvars.iv.next.i38.i124, %127 ]
+  %.09.i.i123 = phi i32 [ 0, %.lr.ph.i35.i120 ], [ %135, %127 ]
   %128 = getelementptr inbounds nuw [6 x i32], ptr %117, i64 0, i64 %indvars.iv.i37.i122
   %129 = load i32, ptr %128, align 4, !tbaa !37
   %130 = sext i32 %129 to i64

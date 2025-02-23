@@ -2352,7 +2352,7 @@ dt_iop_is_hidden.exit.thread:                     ; preds = %35, %27, %._crit_ed
   br i1 %.not58, label %104, label %103
 
 103:                                              ; preds = %dt_iop_is_hidden.exit.thread
-  call void @dt_iop_gui_set_expanded(ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  call void @dt_iop_gui_set_expanded(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1)
   call void @dt_iop_gui_set_expanded(ptr noundef nonnull %11, i32 noundef 1, i32 noundef 1)
   br label %104
 

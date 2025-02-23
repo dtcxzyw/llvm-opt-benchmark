@@ -1324,7 +1324,7 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %bvhPrimitives, i64 8
   %1 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.not181 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not181, label %for.end.thread, label %for.body.preheader
+  br i1 %cmp.i.not181, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %entry
   %pMax.i.promoted = load <2 x float>, ptr %pMax.i, align 4
@@ -1383,43 +1383,43 @@ for.body:                                         ; preds = %for.body.preheader,
   store float %.sroa.speculated.i10.i, ptr %z.i.i6.i, align 4
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0186, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
-  br i1 %cmp.i.not, label %for.end, label %for.body
+  br i1 %cmp.i.not, label %for.end.thread, label %for.body
 
-for.end:                                          ; preds = %for.body
-  store <2 x float> %retval.sroa.0.4.vec.insert.i.i24, ptr %bounds, align 8
+for.end:                                          ; preds = %entry
   %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 5
   %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.then.i.i.i.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i
 
-for.end.thread:                                   ; preds = %entry
+for.end.thread:                                   ; preds = %for.body
+  store <2 x float> %retval.sroa.0.4.vec.insert.i.i24, ptr %bounds, align 8
   %sub.ptr.lhs.cast.i202 = ptrtoint ptr %1 to i64
   %sub.ptr.rhs.cast.i203 = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i204 = sub i64 %sub.ptr.lhs.cast.i202, %sub.ptr.rhs.cast.i203
   %sub.ptr.div.i205 = ashr exact i64 %sub.ptr.sub.i204, 5
   %cmp.i.i206 = icmp ugt i64 %sub.ptr.div.i205, 1152921504606846975
-  br i1 %cmp.i.i206, label %if.then.i.i, label %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i
+  br i1 %cmp.i.i206, label %if.then.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i:                                      ; preds = %for.end.thread, %for.end
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.79) #26
   unreachable
 
-_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %for.end.thread
+_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %for.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mortonPrims, i8 0, i64 24, i1 false)
   br label %invoke.cont
 
-if.then.i.i.i.i.i:                                ; preds = %for.end
-  %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i, 2
+if.then.i.i.i.i.i:                                ; preds = %for.end.thread
+  %mul.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i204, 2
   %call5.i.i.i.i2.i.i27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #27
   store ptr %call5.i.i.i.i2.i.i27, ptr %mortonPrims, align 8
-  %add.ptr.i.i.i = getelementptr %"struct.pbrt::MortonPrimitive", ptr %call5.i.i.i.i2.i.i27, i64 %sub.ptr.div.i
+  %add.ptr.i.i.i = getelementptr %"struct.pbrt::MortonPrimitive", ptr %call5.i.i.i.i2.i.i27, i64 %sub.ptr.div.i205
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %mortonPrims, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   store i64 0, ptr %call5.i.i.i.i2.i.i27, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i27, i64 8
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i, 32
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.ptr.sub.i204, 32
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i
@@ -1431,7 +1431,7 @@ for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %if.then.i.i.i.i.i, 
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i, label %invoke.cont, label %for.body.i.i.i.i.i.i.i.i.i, !llvm.loop !11
 
 invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i, %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i
-  %sub.ptr.div.i208211 = phi i64 [ %sub.ptr.div.i, %if.then.i.i.i.i.i ], [ %sub.ptr.div.i205, %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %sub.ptr.div.i, %for.body.i.i.i.i.i.i.i.i.i ]
+  %sub.ptr.div.i208212 = phi i64 [ 1, %if.then.i.i.i.i.i ], [ %sub.ptr.div.i, %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %sub.ptr.div.i205, %for.body.i.i.i.i.i.i.i.i.i ]
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ null, %_ZNSt12_Vector_baseIN4pbrt15MortonPrimitiveESaIS1_EEC2EmRKS2_.exit.thread.i ], [ %add.ptr.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ]
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %mortonPrims, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8
@@ -1459,7 +1459,7 @@ invoke.cont16:                                    ; preds = %invoke.cont
   store i64 %8, ptr %agg.tmp.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E9_M_invokeERKSt9_Any_dataOlSA_, ptr %_M_invoker.i.i, align 8
   store ptr @_ZNSt17_Function_handlerIFvllEZN4pbrt11ParallelForEllSt8functionIFvlEEEUlllE_E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation, ptr %_M_manager.i.i.i, align 8
-  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %sub.ptr.div.i208211, ptr noundef nonnull %agg.tmp.i)
+  invoke void @_ZN4pbrt11ParallelForEllSt8functionIFvllEE(i64 noundef 0, i64 noundef %sub.ptr.div.i208212, ptr noundef nonnull %agg.tmp.i)
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %invoke.cont16
@@ -2221,50 +2221,50 @@ entry:
   %7 = load i64, ptr %0, align 8
   %add.ptr.i.idx = shl nsw i64 %7, 5
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %add.ptr.i.idx
-  %cmp.not571 = icmp eq i64 %7, 0
-  br i1 %cmp.not571, label %for.end, label %for.body
+  %cmp.not569 = icmp eq i64 %7, 0
+  br i1 %cmp.not569, label %for.end, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %__begin1.0576 = phi ptr [ %incdec.ptr, %for.body ], [ %6, %entry ]
-  %bounds.sroa.22.0575 = phi float [ %.sroa.speculated.i10.i, %for.body ], [ 0xC7EFFFFFE0000000, %entry ]
-  %bounds.sroa.14.0574 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i, %for.body ], [ splat (float 0xC7EFFFFFE0000000), %entry ]
-  %bounds.sroa.9.0573 = phi float [ %.sroa.speculated.i.i, %for.body ], [ 0x47EFFFFFE0000000, %entry ]
-  %bounds.sroa.0.0572 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i, %for.body ], [ splat (float 0x47EFFFFFE0000000), %entry ]
-  %bounds6 = getelementptr inbounds nuw i8, ptr %__begin1.0576, i64 8
+  %__begin1.0574 = phi ptr [ %incdec.ptr, %for.body ], [ %6, %entry ]
+  %bounds.sroa.22.0573 = phi float [ %.sroa.speculated.i10.i, %for.body ], [ 0xC7EFFFFFE0000000, %entry ]
+  %bounds.sroa.14.0572 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i, %for.body ], [ splat (float 0xC7EFFFFFE0000000), %entry ]
+  %bounds.sroa.9.0571 = phi float [ %.sroa.speculated.i.i, %for.body ], [ 0x47EFFFFFE0000000, %entry ]
+  %bounds.sroa.0.0570 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i, %for.body ], [ splat (float 0x47EFFFFFE0000000), %entry ]
+  %bounds6 = getelementptr inbounds nuw i8, ptr %__begin1.0574, i64 8
   %agg.tmp1.sroa.0.0.copyload.i = load <2 x float>, ptr %bounds6, align 4, !noalias !15
-  %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin1.0576, i64 16
+  %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin1.0574, i64 16
   %agg.tmp1.sroa.2.0.copyload.i = load float, ptr %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i, align 4, !noalias !15
   %t2.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i, i64 0
-  %t1.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %bounds.sroa.0.0572, i64 0
-  %8 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i, %bounds.sroa.0.0572
+  %t1.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %bounds.sroa.0.0570, i64 0
+  %8 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i, %bounds.sroa.0.0570
   %cmp.i.i.i = extractelement <2 x i1> %8, i64 0
   %9 = select i1 %cmp.i.i.i, float %t2.sroa.0.0.vec.extract.i.i, float %t1.sroa.0.0.vec.extract.i.i
   %t2.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i, i64 1
-  %t1.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %bounds.sroa.0.0572, i64 1
+  %t1.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %bounds.sroa.0.0570, i64 1
   %cmp.i1.i.i = fcmp olt float %t2.sroa.0.4.vec.extract.i.i, %t1.sroa.0.4.vec.extract.i.i
   %10 = select i1 %cmp.i1.i.i, float %t2.sroa.0.4.vec.extract.i.i, float %t1.sroa.0.4.vec.extract.i.i
-  %cmp.i3.i.i = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i, %bounds.sroa.9.0573
-  %.sroa.speculated.i.i = select i1 %cmp.i3.i.i, float %agg.tmp1.sroa.2.0.copyload.i, float %bounds.sroa.9.0573
+  %cmp.i3.i.i = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i, %bounds.sroa.9.0571
+  %.sroa.speculated.i.i = select i1 %cmp.i3.i.i, float %agg.tmp1.sroa.2.0.copyload.i, float %bounds.sroa.9.0571
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %9, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %10, i64 1
-  %pMax7.i = getelementptr inbounds nuw i8, ptr %__begin1.0576, i64 20
+  %pMax7.i = getelementptr inbounds nuw i8, ptr %__begin1.0574, i64 20
   %agg.tmp6.sroa.0.0.copyload.i = load <2 x float>, ptr %pMax7.i, align 4, !noalias !15
-  %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin1.0576, i64 28
+  %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin1.0574, i64 28
   %agg.tmp6.sroa.2.0.copyload.i = load float, ptr %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i, align 4, !noalias !15
-  %t1.sroa.0.0.vec.extract.i3.i = extractelement <2 x float> %bounds.sroa.14.0574, i64 0
+  %t1.sroa.0.0.vec.extract.i3.i = extractelement <2 x float> %bounds.sroa.14.0572, i64 0
   %t2.sroa.0.0.vec.extract.i4.i = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 0
-  %11 = fcmp olt <2 x float> %bounds.sroa.14.0574, %agg.tmp6.sroa.0.0.copyload.i
+  %11 = fcmp olt <2 x float> %bounds.sroa.14.0572, %agg.tmp6.sroa.0.0.copyload.i
   %cmp.i.i5.i = extractelement <2 x i1> %11, i64 0
   %12 = select i1 %cmp.i.i5.i, float %t2.sroa.0.0.vec.extract.i4.i, float %t1.sroa.0.0.vec.extract.i3.i
-  %t1.sroa.0.4.vec.extract.i6.i = extractelement <2 x float> %bounds.sroa.14.0574, i64 1
+  %t1.sroa.0.4.vec.extract.i6.i = extractelement <2 x float> %bounds.sroa.14.0572, i64 1
   %t2.sroa.0.4.vec.extract.i7.i = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i, i64 1
   %cmp.i1.i8.i = fcmp olt float %t1.sroa.0.4.vec.extract.i6.i, %t2.sroa.0.4.vec.extract.i7.i
   %13 = select i1 %cmp.i1.i8.i, float %t2.sroa.0.4.vec.extract.i7.i, float %t1.sroa.0.4.vec.extract.i6.i
-  %cmp.i3.i9.i = fcmp olt float %bounds.sroa.22.0575, %agg.tmp6.sroa.2.0.copyload.i
-  %.sroa.speculated.i10.i = select i1 %cmp.i3.i9.i, float %agg.tmp6.sroa.2.0.copyload.i, float %bounds.sroa.22.0575
+  %cmp.i3.i9.i = fcmp olt float %bounds.sroa.22.0573, %agg.tmp6.sroa.2.0.copyload.i
+  %.sroa.speculated.i10.i = select i1 %cmp.i3.i9.i, float %agg.tmp6.sroa.2.0.copyload.i, float %bounds.sroa.22.0573
   %retval.sroa.0.0.vec.insert.i11.i = insertelement <2 x float> poison, float %12, i64 0
   %retval.sroa.0.4.vec.insert.i12.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11.i, float %13, i64 1
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0576, i64 32
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin1.0574, i64 32
   %cmp.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp.not, label %for.end, label %for.body
 
@@ -2290,36 +2290,36 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %or.cond, label %if.then, label %for.cond30.preheader
 
 for.cond30.preheader:                             ; preds = %for.end
-  br i1 %cmp.not571, label %for.end38, label %for.body32
+  br i1 %cmp.not569, label %for.end38, label %for.body32
 
 if.then:                                          ; preds = %for.end
   %16 = load ptr, ptr %orderedPrimsOffset.addr, align 8
   %conv = trunc i64 %7 to i32
   %17 = atomicrmw add ptr %16, i32 %conv seq_cst, align 4
   %18 = load i64, ptr %0, align 8
-  %cmp15613.not = icmp eq i64 %18, 0
-  br i1 %cmp15613.not, label %for.end25, label %for.body16.lr.ph
+  %cmp15611.not = icmp eq i64 %18, 0
+  br i1 %cmp15611.not, label %for.end25, label %for.body16.lr.ph
 
 for.body16.lr.ph:                                 ; preds = %if.then
   %primitives = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv21 = sext i32 %17 to i64
-  %.pre648 = load ptr, ptr %bvhPrimitives, align 8
+  %.pre644 = load ptr, ptr %bvhPrimitives, align 8
   br label %for.body16
 
 for.body16:                                       ; preds = %for.body16.lr.ph, %for.body16
-  %i.0614 = phi i64 [ 0, %for.body16.lr.ph ], [ %inc, %for.body16 ]
-  %arrayidx.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre648, i64 %i.0614
+  %i.0612 = phi i64 [ 0, %for.body16.lr.ph ], [ %inc, %for.body16 ]
+  %arrayidx.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre644, i64 %i.0612
   %19 = load i64, ptr %arrayidx.i, align 8
   %sext84 = shl i64 %19, 32
   %20 = load ptr, ptr %primitives, align 8
   %21 = ashr exact i64 %sext84, 29
   %add.ptr.i92 = getelementptr inbounds i8, ptr %20, i64 %21
   %22 = load ptr, ptr %orderedPrims, align 8
-  %23 = getelementptr %"class.pbrt::Primitive", ptr %22, i64 %i.0614
+  %23 = getelementptr %"class.pbrt::Primitive", ptr %22, i64 %i.0612
   %add.ptr.i93 = getelementptr %"class.pbrt::Primitive", ptr %23, i64 %conv21
   %24 = load i64, ptr %add.ptr.i92, align 8
   store i64 %24, ptr %add.ptr.i93, align 8
-  %inc = add nuw i64 %i.0614, 1
+  %inc = add nuw i64 %i.0612, 1
   %cmp15 = icmp ult i64 %inc, %18
   br i1 %cmp15, label %for.body16, label %for.end25, !llvm.loop !18
 
@@ -2348,23 +2348,23 @@ for.end25:                                        ; preds = %for.body16, %if.the
   br label %return
 
 for.body32:                                       ; preds = %for.cond30.preheader, %for.body32
-  %__begin2.0585 = phi ptr [ %incdec.ptr37, %for.body32 ], [ %6, %for.cond30.preheader ]
-  %centroidBounds.sroa.0.0584 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i124, %for.body32 ], [ splat (float 0x47EFFFFFE0000000), %for.cond30.preheader ]
-  %centroidBounds.sroa.11.0583 = phi float [ %.sroa.speculated.i.i122, %for.body32 ], [ 0x47EFFFFFE0000000, %for.cond30.preheader ]
-  %centroidBounds.sroa.18.0582 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i133, %for.body32 ], [ splat (float 0xC7EFFFFFE0000000), %for.cond30.preheader ]
-  %centroidBounds.sroa.30.0581 = phi float [ %.sroa.speculated.i10.i131, %for.body32 ], [ 0xC7EFFFFFE0000000, %for.cond30.preheader ]
-  %bounds.i = getelementptr inbounds nuw i8, ptr %__begin2.0585, i64 8
+  %__begin2.0583 = phi ptr [ %incdec.ptr37, %for.body32 ], [ %6, %for.cond30.preheader ]
+  %centroidBounds.sroa.0.0582 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i124, %for.body32 ], [ splat (float 0x47EFFFFFE0000000), %for.cond30.preheader ]
+  %centroidBounds.sroa.11.0581 = phi float [ %.sroa.speculated.i.i122, %for.body32 ], [ 0x47EFFFFFE0000000, %for.cond30.preheader ]
+  %centroidBounds.sroa.18.0580 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i133, %for.body32 ], [ splat (float 0xC7EFFFFFE0000000), %for.cond30.preheader ]
+  %centroidBounds.sroa.30.0579 = phi float [ %.sroa.speculated.i10.i131, %for.body32 ], [ 0xC7EFFFFFE0000000, %for.cond30.preheader ]
+  %bounds.i = getelementptr inbounds nuw i8, ptr %__begin2.0583, i64 8
   %agg.tmp.sroa.0.0.copyload.i103 = load <2 x float>, ptr %bounds.i, align 8
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i104 = getelementptr inbounds nuw i8, ptr %__begin2.0585, i64 16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i104 = getelementptr inbounds nuw i8, ptr %__begin2.0583, i64 16
   %agg.tmp.sroa.2.0.copyload.i105 = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i104, align 8
   %t.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i103, i64 0
   %mul.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i, 5.000000e-01
   %t.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i103, i64 1
   %mul2.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i, 5.000000e-01
   %mul3.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i105, 5.000000e-01
-  %pMax.i106 = getelementptr inbounds nuw i8, ptr %__begin2.0585, i64 20
+  %pMax.i106 = getelementptr inbounds nuw i8, ptr %__begin2.0583, i64 20
   %agg.tmp3.sroa.0.0.copyload.i = load <2 x float>, ptr %pMax.i106, align 4
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin2.0585, i64 28
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin2.0583, i64 28
   %agg.tmp3.sroa.2.0.copyload.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i, align 4
   %t.sroa.0.0.vec.extract.i1.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i, i64 0
   %mul.i.i2.i = fmul float %t.sroa.0.0.vec.extract.i1.i, 5.000000e-01
@@ -2374,27 +2374,27 @@ for.body32:                                       ; preds = %for.cond30.preheade
   %add.i.i = fadd float %mul.i.i.i, %mul.i.i2.i
   %add4.i.i = fadd float %mul2.i.i.i, %mul2.i.i4.i
   %add6.i.i = fadd float %mul3.i.i.i, %mul3.i.i5.i
-  %t1.sroa.0.0.vec.extract.i.i116 = extractelement <2 x float> %centroidBounds.sroa.0.0584, i64 0
+  %t1.sroa.0.0.vec.extract.i.i116 = extractelement <2 x float> %centroidBounds.sroa.0.0582, i64 0
   %cmp.i.i.i117 = fcmp olt float %add.i.i, %t1.sroa.0.0.vec.extract.i.i116
   %30 = select i1 %cmp.i.i.i117, float %add.i.i, float %t1.sroa.0.0.vec.extract.i.i116
-  %t1.sroa.0.4.vec.extract.i.i119 = extractelement <2 x float> %centroidBounds.sroa.0.0584, i64 1
+  %t1.sroa.0.4.vec.extract.i.i119 = extractelement <2 x float> %centroidBounds.sroa.0.0582, i64 1
   %cmp.i1.i.i120 = fcmp olt float %add4.i.i, %t1.sroa.0.4.vec.extract.i.i119
   %31 = select i1 %cmp.i1.i.i120, float %add4.i.i, float %t1.sroa.0.4.vec.extract.i.i119
-  %cmp.i3.i.i121 = fcmp olt float %add6.i.i, %centroidBounds.sroa.11.0583
-  %.sroa.speculated.i.i122 = select i1 %cmp.i3.i.i121, float %add6.i.i, float %centroidBounds.sroa.11.0583
+  %cmp.i3.i.i121 = fcmp olt float %add6.i.i, %centroidBounds.sroa.11.0581
+  %.sroa.speculated.i.i122 = select i1 %cmp.i3.i.i121, float %add6.i.i, float %centroidBounds.sroa.11.0581
   %retval.sroa.0.0.vec.insert.i.i123 = insertelement <2 x float> poison, float %30, i64 0
   %retval.sroa.0.4.vec.insert.i.i124 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i123, float %31, i64 1
-  %t1.sroa.0.0.vec.extract.i3.i126 = extractelement <2 x float> %centroidBounds.sroa.18.0582, i64 0
+  %t1.sroa.0.0.vec.extract.i3.i126 = extractelement <2 x float> %centroidBounds.sroa.18.0580, i64 0
   %cmp.i.i5.i127 = fcmp olt float %t1.sroa.0.0.vec.extract.i3.i126, %add.i.i
   %32 = select i1 %cmp.i.i5.i127, float %add.i.i, float %t1.sroa.0.0.vec.extract.i3.i126
-  %t1.sroa.0.4.vec.extract.i6.i128 = extractelement <2 x float> %centroidBounds.sroa.18.0582, i64 1
+  %t1.sroa.0.4.vec.extract.i6.i128 = extractelement <2 x float> %centroidBounds.sroa.18.0580, i64 1
   %cmp.i1.i8.i129 = fcmp olt float %t1.sroa.0.4.vec.extract.i6.i128, %add4.i.i
   %33 = select i1 %cmp.i1.i8.i129, float %add4.i.i, float %t1.sroa.0.4.vec.extract.i6.i128
-  %cmp.i3.i9.i130 = fcmp olt float %centroidBounds.sroa.30.0581, %add6.i.i
-  %.sroa.speculated.i10.i131 = select i1 %cmp.i3.i9.i130, float %add6.i.i, float %centroidBounds.sroa.30.0581
+  %cmp.i3.i9.i130 = fcmp olt float %centroidBounds.sroa.30.0579, %add6.i.i
+  %.sroa.speculated.i10.i131 = select i1 %cmp.i3.i9.i130, float %add6.i.i, float %centroidBounds.sroa.30.0579
   %retval.sroa.0.0.vec.insert.i11.i132 = insertelement <2 x float> poison, float %32, i64 0
   %retval.sroa.0.4.vec.insert.i12.i133 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11.i132, float %33, i64 1
-  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %__begin2.0585, i64 32
+  %incdec.ptr37 = getelementptr inbounds nuw i8, ptr %__begin2.0583, i64 32
   %cmp31.not = icmp eq ptr %incdec.ptr37, %add.ptr.i
   br i1 %cmp31.not, label %for.end38, label %for.body32
 
@@ -2439,29 +2439,29 @@ if.then43:                                        ; preds = %_ZN4pbrt6Tuple3INS_
   %conv46 = trunc i64 %7 to i32
   %36 = atomicrmw add ptr %35, i32 %conv46 seq_cst, align 4
   %37 = load i64, ptr %0, align 8
-  %cmp51610.not = icmp eq i64 %37, 0
-  br i1 %cmp51610.not, label %for.end66, label %for.body52.lr.ph
+  %cmp51608.not = icmp eq i64 %37, 0
+  br i1 %cmp51608.not, label %for.end66, label %for.body52.lr.ph
 
 for.body52.lr.ph:                                 ; preds = %if.then43
   %primitives57 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %conv60 = sext i32 %36 to i64
-  %.pre647 = load ptr, ptr %bvhPrimitives, align 8
+  %.pre643 = load ptr, ptr %bvhPrimitives, align 8
   br label %for.body52
 
 for.body52:                                       ; preds = %for.body52.lr.ph, %for.body52
-  %i48.0611 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc65, %for.body52 ]
-  %arrayidx.i154 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre647, i64 %i48.0611
+  %i48.0609 = phi i64 [ 0, %for.body52.lr.ph ], [ %inc65, %for.body52 ]
+  %arrayidx.i154 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre643, i64 %i48.0609
   %38 = load i64, ptr %arrayidx.i154, align 8
   %sext83 = shl i64 %38, 32
   %39 = load ptr, ptr %primitives57, align 8
   %40 = ashr exact i64 %sext83, 29
   %add.ptr.i155 = getelementptr inbounds i8, ptr %39, i64 %40
   %41 = load ptr, ptr %orderedPrims, align 8
-  %42 = getelementptr %"class.pbrt::Primitive", ptr %41, i64 %i48.0611
+  %42 = getelementptr %"class.pbrt::Primitive", ptr %41, i64 %i48.0609
   %add.ptr.i156 = getelementptr %"class.pbrt::Primitive", ptr %42, i64 %conv60
   %43 = load i64, ptr %add.ptr.i155, align 8
   store i64 %43, ptr %add.ptr.i156, align 8
-  %inc65 = add nuw i64 %i48.0611, 1
+  %inc65 = add nuw i64 %i48.0609, 1
   %cmp51 = icmp ult i64 %inc65, %37
   br i1 %cmp51, label %for.body52, label %for.end66, !llvm.loop !19
 
@@ -2517,7 +2517,7 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit177:        ; preds = %sw.bb, %_ZN4pbrt6Tu
   %retval.0.i174.sroa.speculated = phi float [ %centroidBounds.sroa.18.4.vec.extract485, %if.then3.i172 ], [ %centroidBounds.sroa.18.0.vec.extract, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit171.thread535 ], [ %centroidBounds.sroa.30.0.lcssa, %sw.bb ]
   %add76 = fadd float %retval.0.i168.sroa.speculated533, %retval.0.i174.sroa.speculated
   %div77 = fmul float %add76, 5.000000e-01
-  br i1 %cmp.not571, label %sw.epilog, label %if.else.lr.ph.i.i
+  br i1 %cmp.not569, label %sw.epilog, label %if.else.lr.ph.i.i
 
 if.else.lr.ph.i.i:                                ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit177, %while.end18.i.i
   %__last.addr.074.i.i = phi ptr [ %__last.addr.1.i.i, %while.end18.i.i ], [ %add.ptr.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit177 ]
@@ -2657,13 +2657,13 @@ sw.bb89:                                          ; preds = %"_ZSt9partitionIPN4
   %52 = ashr exact i64 %sext545, 27
   %add.ptr = getelementptr inbounds i8, ptr %6, i64 %52
   %cmp1.i = icmp eq i64 %52, %add.ptr.i.idx
-  %or.cond.i188 = or i1 %cmp.not571, %cmp1.i
+  %or.cond.i188 = or i1 %cmp.not569, %cmp1.i
   br i1 %or.cond.i188, label %sw.epilog, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb89
   %sub.ptr.rhs.cast.i = ptrtoint ptr %6 to i64
-  %cmp113.i.i = icmp sgt i64 %7, 3
-  br i1 %cmp113.i.i, label %while.body.i.preheader.i, label %while.end.i.i
+  %cmp100.i.i = icmp sgt i64 %7, 3
+  br i1 %cmp100.i.i, label %while.body.i.preheader.i, label %while.end.i.i
 
 while.body.i.preheader.i:                         ; preds = %if.end.i
   %sub.ptr.div.i = and i64 %7, 576460752303423487
@@ -2692,7 +2692,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.end.i.i.i.i
   %__parent.0.i.i.i.i = phi i64 [ %div9.i.i.i.i, %if.end.i.i.i.i ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i.i, i64 %__parent.0.i.i.i.i
-  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0.call.i.i, i64 noundef %__parent.0.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i.i, i32 %retval.0.i)
+  tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef nonnull %__first.addr.0.call.i.i, i64 noundef %__parent.0.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i.i, i32 %retval.0.i)
   %cmp7.i.i.i.i = icmp eq i64 %__parent.0.i.i.i.i, 0
   %dec.i.i.i.i = add nsw i64 %__parent.0.i.i.i.i, -1
   br i1 %cmp7.i.i.i.i, label %"_ZSt11__make_heapIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_RT0_.exit.i.i.i", label %while.body.i.i.i.i, !llvm.loop !24
@@ -2787,18 +2787,18 @@ for.inc.i.i.i:                                    ; preds = %if.then.i.i.i, %"_Z
   br label %sw.epilog
 
 if.end.i.i:                                       ; preds = %while.body.i.i, %while.body.i.preheader.i
-  %__depth_limit.addr.0114.i20.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %while.body.i.preheader.i ]
-  %__last.addr.0115.i19.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %while.body.i.preheader.i ]
-  %__first.addr.0116.i18.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %while.body.i.preheader.i ]
-  %sub.ptr.sub118.i17.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %while.body.i.preheader.i ]
-  %dec.i.i = add nsw i64 %__depth_limit.addr.0114.i20.i, -1
-  %div.i99100.i.i = lshr i64 %sub.ptr.sub118.i17.i, 6
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0116.i18.i, i64 %div.i99100.i.i
-  %add.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 32
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -32
-  %bounds.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 40
+  %__depth_limit.addr.0101.i18.i = phi i64 [ %dec.i.i, %while.body.i.i ], [ %mul.i189, %while.body.i.preheader.i ]
+  %__last.addr.0102.i17.i = phi ptr [ %call.__last.addr.0.i.i, %while.body.i.i ], [ %add.ptr.i, %while.body.i.preheader.i ]
+  %__first.addr.0103.i16.i = phi ptr [ %__first.addr.0.call.i.i, %while.body.i.i ], [ %6, %while.body.i.preheader.i ]
+  %sub.ptr.sub105.i15.i = phi i64 [ %sub.ptr.sub.i.i, %while.body.i.i ], [ %add.ptr.i.idx, %while.body.i.preheader.i ]
+  %dec.i.i = add nsw i64 %__depth_limit.addr.0101.i18.i, -1
+  %div.i8889.i.i = lshr i64 %sub.ptr.sub105.i15.i, 6
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0103.i16.i, i64 %div.i8889.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 32
+  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -32
+  %bounds.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 40
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %bounds.i.i.i.i.i.i.i, align 8
-  %pMax.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 52
+  %pMax.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 52
   %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i = load <2 x float>, ptr %pMax.i.i.i.i.i.i.i, align 4
   switch i32 %retval.0.i, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i.i.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i.i.i.i
@@ -2832,10 +2832,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i.i.i.i: ; preds = %if.end.i
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i.i.i: ; preds = %if.end.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i.i, align 8
   %mul3.i.i.i.i.i.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i.i, align 4
   %mul3.i.i5.i.i.i.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i.i.i.i.i = fadd float %mul3.i.i.i.i.i.i.i.i.i, %mul3.i.i5.i.i.i.i.i.i.i
@@ -2871,10 +2871,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i42.i.i.i.i: ; preds = %if.then.
   %t.sroa.0.0.vec.extract.i1.i.i.i45.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i26.i.i.i.i, i64 0
   %mul.i.i2.i.i.i46.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i45.i.i.i.i, 5.000000e-01
   %add.i.i.i.i47.i.i.i.i = fadd float %mul.i.i.i.i.i44.i.i.i.i, %mul.i.i2.i.i.i46.i.i.i.i
-  %bounds.i12.i.i48.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -24
+  %bounds.i12.i.i48.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i49.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i48.i.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i50.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i49.i.i.i.i, i64 0
-  %pMax.i106.i.i51.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -12
+  %pMax.i106.i.i51.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i52.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i51.i.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i53.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i52.i.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit66.i.i.i.i"
@@ -2885,9 +2885,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i27.i.i.i.i: ; preds = %if.the
   %t.sroa.0.4.vec.extract.i3.i.i.i30.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i26.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i31.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i30.i.i.i.i, 5.000000e-01
   %add4.i.i.i.i32.i.i.i.i = fadd float %mul2.i.i.i.i.i29.i.i.i.i, %mul2.i.i4.i.i.i31.i.i.i.i
-  %58 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -20
+  %58 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i33.i.i.i.i = load float, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -8
+  %59 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i34.i.i.i.i = load float, ptr %59, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit66.i.i.i.i"
 
@@ -2899,9 +2899,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i54.i.i.i.i: ; preds = %if.then.i.i.i.i
   %agg.tmp3.sroa.2.0.copyload.i.i.i59.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i58.i.i.i.i, align 4
   %mul3.i.i5.i.i.i60.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i59.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i61.i.i.i.i = fadd float %mul3.i.i.i.i.i57.i.i.i.i, %mul3.i.i5.i.i.i60.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i63.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i65.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit66.i.i.i.i"
 
@@ -2917,8 +2917,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i54.i.i.i.i: ; preds = %if.then.i.i.i.i
 
 if.then3.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit66.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
@@ -2935,10 +2935,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i86.i.i.i.i: ; preds = %if.else.
   %t.sroa.0.0.vec.extract.i1.i.i.i89.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 0
   %mul.i.i2.i.i.i90.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i89.i.i.i.i, 5.000000e-01
   %add.i.i.i.i91.i.i.i.i = fadd float %mul.i.i.i.i.i88.i.i.i.i, %mul.i.i2.i.i.i90.i.i.i.i
-  %bounds.i12.i.i92.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -24
+  %bounds.i12.i.i92.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i93.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i92.i.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i94.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i93.i.i.i.i, i64 0
-  %pMax.i106.i.i95.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -12
+  %pMax.i106.i.i95.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i96.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i95.i.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i97.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i96.i.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit110.i.i.i.i"
@@ -2949,23 +2949,23 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i71.i.i.i.i: ; preds = %if.els
   %t.sroa.0.4.vec.extract.i3.i.i.i74.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i75.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i74.i.i.i.i, 5.000000e-01
   %add4.i.i.i.i76.i.i.i.i = fadd float %mul2.i.i.i.i.i73.i.i.i.i, %mul2.i.i4.i.i.i75.i.i.i.i
-  %60 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -20
+  %60 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i77.i.i.i.i = load float, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -8
+  %61 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i78.i.i.i.i = load float, ptr %61, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit110.i.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i98.i.i.i.i: ; preds = %if.else.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i100.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i.i, align 8
   %mul3.i.i.i.i.i101.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i100.i.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i103.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i.i, align 4
   %mul3.i.i5.i.i.i104.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i103.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i105.i.i.i.i = fadd float %mul3.i.i.i.i.i101.i.i.i.i, %mul3.i.i5.i.i.i104.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i107.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i109.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit110.i.i.i.i"
 
@@ -2981,16 +2981,16 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i98.i.i.i.i: ; preds = %if.else.i.i.i.i
 
 if.then5.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit110.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i111.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i111.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
 
 if.else6.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit110.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i112.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i112.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
@@ -3007,10 +3007,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i132.i.i.i.i: ; preds = %if.else
   %t.sroa.0.0.vec.extract.i1.i.i.i135.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 0
   %mul.i.i2.i.i.i136.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i135.i.i.i.i, 5.000000e-01
   %add.i.i.i.i137.i.i.i.i = fadd float %mul.i.i.i.i.i134.i.i.i.i, %mul.i.i2.i.i.i136.i.i.i.i
-  %bounds.i12.i.i138.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -24
+  %bounds.i12.i.i138.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i139.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i138.i.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i140.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i139.i.i.i.i, i64 0
-  %pMax.i106.i.i141.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -12
+  %pMax.i106.i.i141.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i142.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i141.i.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i143.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i142.i.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit156.i.i.i.i"
@@ -3021,23 +3021,23 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i117.i.i.i.i: ; preds = %if.el
   %t.sroa.0.4.vec.extract.i3.i.i.i120.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i121.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i120.i.i.i.i, 5.000000e-01
   %add4.i.i.i.i122.i.i.i.i = fadd float %mul2.i.i.i.i.i119.i.i.i.i, %mul2.i.i4.i.i.i121.i.i.i.i
-  %62 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -20
+  %62 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i123.i.i.i.i = load float, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -8
+  %63 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i124.i.i.i.i = load float, ptr %63, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit156.i.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i144.i.i.i.i: ; preds = %if.else8.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i146.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i.i, align 8
   %mul3.i.i.i.i.i147.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i146.i.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i149.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i.i, align 4
   %mul3.i.i5.i.i.i150.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i149.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i151.i.i.i.i = fadd float %mul3.i.i.i.i.i147.i.i.i.i, %mul3.i.i5.i.i.i150.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i153.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i155.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit156.i.i.i.i"
 
@@ -3053,8 +3053,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i144.i.i.i.i: ; preds = %if.else8.i.i.i
 
 if.then10.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit156.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i157.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i157.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
@@ -3075,10 +3075,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i177.i.i.i.i: ; preds = %if.else
   %t.sroa.0.0.vec.extract.i1.i.i.i180.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i161.i.i.i.i, i64 0
   %mul.i.i2.i.i.i181.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i180.i.i.i.i, 5.000000e-01
   %add.i.i.i.i182.i.i.i.i = fadd float %mul.i.i.i.i.i179.i.i.i.i, %mul.i.i2.i.i.i181.i.i.i.i
-  %bounds.i12.i.i183.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -24
+  %bounds.i12.i.i183.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i184.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i183.i.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i185.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i184.i.i.i.i, i64 0
-  %pMax.i106.i.i186.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -12
+  %pMax.i106.i.i186.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i187.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i186.i.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i188.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i187.i.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit201.i.i.i.i"
@@ -3089,9 +3089,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i162.i.i.i.i: ; preds = %if.el
   %t.sroa.0.4.vec.extract.i3.i.i.i165.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i161.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i166.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i165.i.i.i.i, 5.000000e-01
   %add4.i.i.i.i167.i.i.i.i = fadd float %mul2.i.i.i.i.i164.i.i.i.i, %mul2.i.i4.i.i.i166.i.i.i.i
-  %64 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -20
+  %64 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i168.i.i.i.i = load float, ptr %64, align 4
-  %65 = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -8
+  %65 = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i169.i.i.i.i = load float, ptr %65, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit201.i.i.i.i"
 
@@ -3103,9 +3103,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i189.i.i.i.i: ; preds = %if.else11.i.i.
   %agg.tmp3.sroa.2.0.copyload.i.i.i194.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i193.i.i.i.i, align 4
   %mul3.i.i5.i.i.i195.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i194.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i196.i.i.i.i = fadd float %mul3.i.i.i.i.i192.i.i.i.i, %mul3.i.i5.i.i.i195.i.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i198.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19.i, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17.i, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i200.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit201.i.i.i.i"
 
@@ -3121,84 +3121,137 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i189.i.i.i.i: ; preds = %if.else11.i.i.
 
 if.then13.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit201.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i202.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i202.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
 
 if.else14.i.i.i.i:                                ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit201.i.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i203.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i203.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
 
 "_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i": ; preds = %if.else14.i.i.i.i, %if.then13.i.i.i.i, %if.then10.i.i.i.i, %if.else6.i.i.i.i, %if.then5.i.i.i.i, %if.then3.i.i.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 12
-  %67 = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 24
-  %bounds.i12.i.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 8
-  %pMax.i106.i.i.i11.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 20
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 16
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18.i, i64 28
-  br label %while.body.i.i15.i.i
-
-while.body.i.i15.i.i:                             ; preds = %if.end.i.i17.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i"
-  %__last.addr.0.i.i.i.i = phi ptr [ %__last.addr.0115.i19.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ], [ %.us-phi76.i.i.i.i, %if.end.i.i17.i.i ]
-  %__first.addr.0.i.i.i.i = phi ptr [ %add.ptr2.i.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ], [ %incdec.ptr10.i.i.i.i, %if.end.i.i17.i.i ]
-  switch i32 %retval.0.i, label %while.body.split.i.i.i.i [
-    i32 0, label %while.body.split.us.i.i.i.i
-    i32 1, label %while.body.split.us57.i.i.i.i
+  %66 = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 12
+  %67 = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 24
+  %bounds.i12.i.i.i10.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 8
+  %pMax.i106.i.i.i11.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 20
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 16
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16.i, i64 28
+  switch i32 %retval.0.i, label %while.body.i.i15.i.i [
+    i32 0, label %while.body.i.us.i.i.i
+    i32 1, label %while.body.i.us31.i.i.i
   ]
 
-while.body.split.us.i.i.i.i:                      ; preds = %while.body.i.i15.i.i
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i.i, i64 0
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i.i, i64 0
-  %mul.i.i.i65.sink.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i.us.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i.i.i, %mul.i.i2.i159.i.i.us.i.i.i.i
-  br label %while.cond2.us.i.i.i.i
+while.body.i.us.i.i.i:                            ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i", %if.end.i.us.i.i.i
+  %__last.addr.0.i.us.i.i.i = phi ptr [ %__last.addr.1.us.i.us.i.i.i, %if.end.i.us.i.i.i ], [ %__last.addr.0102.i17.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
+  %__first.addr.0.i.us.i.i.i = phi ptr [ %incdec.ptr.us.i.us.i.i.i, %if.end.i.us.i.i.i ], [ %add.ptr2.i.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.us.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.us.i.i.i, i64 0
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.us.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.us.i.i.i, i64 0
+  %mul.i.i.i65.sink.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.us.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.us.i.i.i, %mul.i.i2.i159.i.i.us.i.us.i.i.i
+  br label %while.cond2.us.i.us.i.i.i
 
-while.cond2.us.i.i.i.i:                           ; preds = %while.cond2.us.i.i.i.i, %while.body.split.us.i.i.i.i
-  %__first.addr.1.us.i.i.i.i = phi ptr [ %__first.addr.0.i.i.i.i, %while.body.split.us.i.i.i.i ], [ %incdec.ptr.us.i.i.i.i, %while.cond2.us.i.i.i.i ]
-  %bounds.i.i.i.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i.i, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.i.i.i = load <2 x float>, ptr %bounds.i.i.i.us.i.i.i.i, align 8
-  %pMax.i.i.i.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i.i, i64 20
-  %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.i.i.i = load <2 x float>, ptr %pMax.i.i.i.us.i.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i.i.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.i.i.i, i64 0
-  %mul.i.i.i.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.us.i.i.i.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.i.i.i, i64 0
-  %mul.i.i2.i.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.i.i.i, 5.000000e-01
-  %add.i.i.i.i.us.i.i.i.i = fadd float %mul.i.i.i.i.i.us.i.i.i.i, %mul.i.i2.i.i.i.us.i.i.i.i
-  %cmp.i.i.us.i.i.i.i = fcmp olt float %add.i.i.i.i.us.i.i.i.i, %add.i.i1910.i.i.us.i.i.i.i
-  %incdec.ptr.us.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i.i, i64 32
-  br i1 %cmp.i.i.us.i.i.i.i, label %while.cond2.us.i.i.i.i, label %while.cond5.preheader.i.i.i.i, !llvm.loop !26
+while.cond2.us.i.us.i.i.i:                        ; preds = %while.cond2.us.i.us.i.i.i, %while.body.i.us.i.i.i
+  %__first.addr.1.us.i.us.i.i.i = phi ptr [ %__first.addr.0.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %incdec.ptr.us.i.us.i.i.i, %while.cond2.us.i.us.i.i.i ]
+  %bounds.i.i.i.us.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i.i, i64 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.us.i.i.i = load <2 x float>, ptr %bounds.i.i.i.us.i.us.i.i.i, align 8
+  %pMax.i.i.i.us.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i.i, i64 20
+  %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.us.i.i.i = load <2 x float>, ptr %pMax.i.i.i.us.i.us.i.i.i, align 4
+  %t.sroa.0.0.vec.extract.i.i.i.i.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.us.i.i.i, i64 0
+  %mul.i.i.i.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.us.i.us.i.i.i, 5.000000e-01
+  %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.us.i.i.i, i64 0
+  %mul.i.i2.i.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.us.i.i.i, 5.000000e-01
+  %add.i.i.i.i.us.i.us.i.i.i = fadd float %mul.i.i.i.i.i.us.i.us.i.i.i, %mul.i.i2.i.i.i.us.i.us.i.i.i
+  %cmp.i.i.us.i.us.i.i.i = fcmp olt float %add.i.i.i.i.us.i.us.i.i.i, %add.i.i1910.i.i.us.i.us.i.i.i
+  %incdec.ptr.us.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i.i, i64 32
+  br i1 %cmp.i.i.us.i.us.i.i.i, label %while.cond2.us.i.us.i.i.i, label %while.cond5.us.i.us.i.i.i, !llvm.loop !26
 
-while.body.split.us57.i.i.i.i:                    ; preds = %while.body.i.i15.i.i
-  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i.i = load float, ptr %66, align 4
-  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i.i = load float, ptr %67, align 4
-  %mul.i.i.i65.sink.i.i.us68.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us69.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i.us70.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us68.i.i.i.i, %mul.i.i2.i159.i.i.us69.i.i.i.i
-  br label %while.cond2.us58.i.i.i.i
+while.cond5.us.i.us.i.i.i:                        ; preds = %while.cond2.us.i.us.i.i.i, %while.cond5.us.i.us.i.i.i
+  %__last.addr.0.pn.us.i.us.i.i.i = phi ptr [ %__last.addr.1.us.i.us.i.i.i, %while.cond5.us.i.us.i.i.i ], [ %__last.addr.0.i.us.i.i.i, %while.cond2.us.i.us.i.i.i ]
+  %__last.addr.1.us.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i.i, i64 -32
+  %bounds.i12.i.i37.us.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i.i, i64 -24
+  %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.us.i.i.i = load <2 x float>, ptr %bounds.i12.i.i37.us.i.us.i.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.us.i.i.i, i64 0
+  %pMax.i106.i.i40.us.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i.i, i64 -12
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.us.i.i.i = load <2 x float>, ptr %pMax.i106.i.i40.us.i.us.i.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.us.i.i.i, i64 0
+  %mul.i.i.i65.sink.i.i27.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i28.us.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.us.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i29.us.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us.i.us.i.i.i, %mul.i.i2.i159.i.i28.us.i.us.i.i.i
+  %cmp.i.i30.us.i.us.i.i.i = fcmp olt float %add.i.i1910.i.i.us.i.us.i.i.i, %add.i.i1910.i.i29.us.i.us.i.i.i
+  br i1 %cmp.i.i30.us.i.us.i.i.i, label %while.cond5.us.i.us.i.i.i, label %while.end9.i.loopexit28.us.i.i.i, !llvm.loop !27
 
-while.cond2.us58.i.i.i.i:                         ; preds = %while.cond2.us58.i.i.i.i, %while.body.split.us57.i.i.i.i
-  %__first.addr.1.us59.i.i.i.i = phi ptr [ %__first.addr.0.i.i.i.i, %while.body.split.us57.i.i.i.i ], [ %incdec.ptr.us72.i.i.i.i, %while.cond2.us58.i.i.i.i ]
-  %68 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i.i, i64 12
-  %t.sroa.0.4.vec.extract.i.i.i.i.us.i.i.i.i = load float, ptr %68, align 4
-  %mul2.i.i.i.i.i.us.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i.i.i.i, 5.000000e-01
-  %69 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i.i, i64 24
-  %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.i.i.i = load float, ptr %69, align 4
-  %mul2.i.i4.i.i.i.us.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.i.i.i, 5.000000e-01
-  %add4.i.i.i.i.us.i.i.i.i = fadd float %mul2.i.i.i.i.i.us.i.i.i.i, %mul2.i.i4.i.i.i.us.i.i.i.i
-  %cmp.i.i.us71.i.i.i.i = fcmp olt float %add4.i.i.i.i.us.i.i.i.i, %add.i.i1910.i.i.us70.i.i.i.i
-  %incdec.ptr.us72.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i.i, i64 32
-  br i1 %cmp.i.i.us71.i.i.i.i, label %while.cond2.us58.i.i.i.i, label %while.cond5.preheader.i.i.i.i, !llvm.loop !26
+if.end.i.us.i.i.i:                                ; preds = %while.end9.i.loopexit28.us.i.i.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us.i.us.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us.i.us.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us.i.us.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us.i.us.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
+  br label %while.body.i.us.i.i.i, !llvm.loop !28
 
-while.body.split.i.i.i.i:                         ; preds = %while.body.i.i15.i.i
+while.end9.i.loopexit28.us.i.i.i:                 ; preds = %while.cond5.us.i.us.i.i.i
+  %cmp.i.us.i.i.i = icmp ult ptr %__first.addr.1.us.i.us.i.i.i, %__last.addr.1.us.i.us.i.i.i
+  br i1 %cmp.i.us.i.i.i, label %if.end.i.us.i.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i"
+
+while.body.i.us31.i.i.i:                          ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i", %if.end.i.us38.i.i.i
+  %__last.addr.0.i.us32.i.i.i = phi ptr [ %__last.addr.1.us80.i.us.i.i.i, %if.end.i.us38.i.i.i ], [ %__last.addr.0102.i17.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
+  %__first.addr.0.i.us33.i.i.i = phi ptr [ %incdec.ptr.us72.i.us.i.i.i, %if.end.i.us38.i.i.i ], [ %add.ptr2.i.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
+  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.us.i.i.i = load float, ptr %66, align 4
+  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.us.i.i.i = load float, ptr %67, align 4
+  %mul.i.i.i65.sink.i.i.us68.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us69.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.us.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us70.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us68.i.us.i.i.i, %mul.i.i2.i159.i.i.us69.i.us.i.i.i
+  br label %while.cond2.us58.i.us.i.i.i
+
+while.cond2.us58.i.us.i.i.i:                      ; preds = %while.cond2.us58.i.us.i.i.i, %while.body.i.us31.i.i.i
+  %__first.addr.1.us59.i.us.i.i.i = phi ptr [ %__first.addr.0.i.us33.i.i.i, %while.body.i.us31.i.i.i ], [ %incdec.ptr.us72.i.us.i.i.i, %while.cond2.us58.i.us.i.i.i ]
+  %68 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i.i, i64 12
+  %t.sroa.0.4.vec.extract.i.i.i.i.us.i.us.i.i.i = load float, ptr %68, align 4
+  %mul2.i.i.i.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i.us.i.i.i, 5.000000e-01
+  %69 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i.i, i64 24
+  %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.us.i.i.i = load float, ptr %69, align 4
+  %mul2.i.i4.i.i.i.us.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.us.i.i.i, 5.000000e-01
+  %add4.i.i.i.i.us.i.us.i.i.i = fadd float %mul2.i.i.i.i.i.us.i.us.i.i.i, %mul2.i.i4.i.i.i.us.i.us.i.i.i
+  %cmp.i.i.us71.i.us.i.i.i = fcmp olt float %add4.i.i.i.i.us.i.us.i.i.i, %add.i.i1910.i.i.us70.i.us.i.i.i
+  %incdec.ptr.us72.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i.i, i64 32
+  br i1 %cmp.i.i.us71.i.us.i.i.i, label %while.cond2.us58.i.us.i.i.i, label %while.cond5.us78.i.us.i.i.i, !llvm.loop !26
+
+while.cond5.us78.i.us.i.i.i:                      ; preds = %while.cond2.us58.i.us.i.i.i, %while.cond5.us78.i.us.i.i.i
+  %__last.addr.0.pn.us79.i.us.i.i.i = phi ptr [ %__last.addr.1.us80.i.us.i.i.i, %while.cond5.us78.i.us.i.i.i ], [ %__last.addr.0.i.us32.i.i.i, %while.cond2.us58.i.us.i.i.i ]
+  %__last.addr.1.us80.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i.i, i64 -32
+  %70 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i.i, i64 -20
+  %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.us.i.i.i = load float, ptr %70, align 4
+  %71 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i.i, i64 -8
+  %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.us.i.i.i = load float, ptr %71, align 4
+  %mul.i.i.i65.sink.i.i27.us85.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i28.us86.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.us.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i29.us87.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us85.i.us.i.i.i, %mul.i.i2.i159.i.i28.us86.i.us.i.i.i
+  %cmp.i.i30.us88.i.us.i.i.i = fcmp olt float %add.i.i1910.i.i.us70.i.us.i.i.i, %add.i.i1910.i.i29.us87.i.us.i.i.i
+  br i1 %cmp.i.i30.us88.i.us.i.i.i, label %while.cond5.us78.i.us.i.i.i, label %while.end9.i.loopexit29.us.i.i.i, !llvm.loop !27
+
+if.end.i.us38.i.i.i:                              ; preds = %while.end9.i.loopexit29.us.i.i.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us59.i.us.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us59.i.us.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us80.i.us.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us80.i.us.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
+  br label %while.body.i.us31.i.i.i, !llvm.loop !28
+
+while.end9.i.loopexit29.us.i.i.i:                 ; preds = %while.cond5.us78.i.us.i.i.i
+  %cmp.i.us37.i.i.i = icmp ult ptr %__first.addr.1.us59.i.us.i.i.i, %__last.addr.1.us80.i.us.i.i.i
+  br i1 %cmp.i.us37.i.i.i, label %if.end.i.us38.i.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i"
+
+while.body.i.i15.i.i:                             ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i", %if.end.i.i17.i.i
+  %__last.addr.0.i.i.i.i = phi ptr [ %__last.addr.1.i.i.i.i, %if.end.i.i17.i.i ], [ %__last.addr.0102.i17.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
+  %__first.addr.0.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %if.end.i.i17.i.i ], [ %add.ptr2.i.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_SR_SR_T0_.exit.i.i.i" ]
   %agg.tmp.sroa.2.0.copyload.i4.i.i.i15.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i.i, align 8
   %agg.tmp3.sroa.2.0.copyload.i13.i.i.i16.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i.i, align 4
   %mul.i.i.i65.sink.i.i.i17.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i15.i.i.i, 5.000000e-01
@@ -3206,8 +3259,8 @@ while.body.split.i.i.i.i:                         ; preds = %while.body.i.i15.i.
   %add.i.i1910.i.i.i19.i.i.i = fadd float %mul.i.i.i65.sink.i.i.i17.i.i.i, %mul.i.i2.i159.i.i.i18.i.i.i
   br label %while.cond2.i.i.i.i
 
-while.cond2.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i, %while.body.split.i.i.i.i
-  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.i.i.i.i, %while.body.split.i.i.i.i ], [ %incdec.ptr.i.i.i.i, %while.cond2.i.i.i.i ]
+while.cond2.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i, %while.body.i.i15.i.i
+  %__first.addr.1.i.i.i.i = phi ptr [ %__first.addr.0.i.i.i.i, %while.body.i.i15.i.i ], [ %incdec.ptr.i.i.i.i, %while.cond2.i.i.i.i ]
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i20.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i.i, i64 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i21.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i20.i.i.i, align 8
   %mul3.i.i.i.i.i.i22.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i21.i.i.i, 5.000000e-01
@@ -3217,65 +3270,10 @@ while.cond2.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i
   %add6.i.i.i.i.i26.i.i.i = fadd float %mul3.i.i.i.i.i.i22.i.i.i, %mul3.i.i5.i.i.i.i25.i.i.i
   %cmp.i.i.i27.i.i.i = fcmp olt float %add6.i.i.i.i.i26.i.i.i, %add.i.i1910.i.i.i19.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i.i, i64 32
-  br i1 %cmp.i.i.i27.i.i.i, label %while.cond2.i.i.i.i, label %while.cond5.preheader.i.i.i.i, !llvm.loop !26
+  br i1 %cmp.i.i.i27.i.i.i, label %while.cond2.i.i.i.i, label %while.cond5.i.i.i.i, !llvm.loop !26
 
-while.cond5.preheader.i.i.i.i:                    ; preds = %while.cond2.us58.i.i.i.i, %while.cond2.us.i.i.i.i, %while.cond2.i.i.i.i
-  %.us-phi.i.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.cond2.i.i.i.i ], [ %__first.addr.1.us.i.i.i.i, %while.cond2.us.i.i.i.i ], [ %__first.addr.1.us59.i.i.i.i, %while.cond2.us58.i.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i.i, align 8
-  %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i.i, align 4
-  %t.sroa.0.4.vec.extract.i.i.i.i17.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i.i, i64 1
-  %mul2.i.i.i.i.i18.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i17.i.i.i.i, 5.000000e-01
-  %t.sroa.0.4.vec.extract.i3.i.i.i19.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i.i, i64 1
-  %mul2.i.i4.i.i.i20.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i19.i.i.i.i, 5.000000e-01
-  %add4.i.i.i.i21.i.i.i.i = fadd float %mul2.i.i.i.i.i18.i.i.i.i, %mul2.i.i4.i.i.i20.i.i.i.i
-  %t.sroa.0.0.vec.extract.i.i.i.i32.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i.i, i64 0
-  %mul.i.i.i.i.i33.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i32.i.i.i.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i34.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i.i, i64 0
-  %mul.i.i2.i.i.i35.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i34.i.i.i.i, 5.000000e-01
-  %add.i.i.i.i36.i.i.i.i = fadd float %mul.i.i.i.i.i33.i.i.i.i, %mul.i.i2.i.i.i35.i.i.i.i
-  switch i32 %retval.0.i, label %while.cond5.preheader.split75.i.i.i.i [
-    i32 0, label %while.cond5.us.i.i.i.i
-    i32 1, label %while.cond5.us78.i.i.i.i
-  ]
-
-while.cond5.us.i.i.i.i:                           ; preds = %while.cond5.preheader.i.i.i.i, %while.cond5.us.i.i.i.i
-  %__last.addr.0.pn.us.i.i.i.i = phi ptr [ %__last.addr.1.us.i.i.i.i, %while.cond5.us.i.i.i.i ], [ %__last.addr.0.i.i.i.i, %while.cond5.preheader.i.i.i.i ]
-  %__last.addr.1.us.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i.i, i64 -32
-  %bounds.i12.i.i37.us.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i.i, i64 -24
-  %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i37.us.i.i.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.i.i.i, i64 0
-  %pMax.i106.i.i40.us.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i.i, i64 -12
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i40.us.i.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.i.i.i, i64 0
-  %mul.i.i.i65.sink.i.i27.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i28.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i29.us.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us.i.i.i.i, %mul.i.i2.i159.i.i28.us.i.i.i.i
-  %cmp.i.i30.us.i.i.i.i = fcmp olt float %add.i.i.i.i36.i.i.i.i, %add.i.i1910.i.i29.us.i.i.i.i
-  br i1 %cmp.i.i30.us.i.i.i.i, label %while.cond5.us.i.i.i.i, label %while.end9.i.i.i.i, !llvm.loop !27
-
-while.cond5.us78.i.i.i.i:                         ; preds = %while.cond5.preheader.i.i.i.i, %while.cond5.us78.i.i.i.i
-  %__last.addr.0.pn.us79.i.i.i.i = phi ptr [ %__last.addr.1.us80.i.i.i.i, %while.cond5.us78.i.i.i.i ], [ %__last.addr.0.i.i.i.i, %while.cond5.preheader.i.i.i.i ]
-  %__last.addr.1.us80.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i.i, i64 -32
-  %70 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i.i, i64 -20
-  %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.i.i.i = load float, ptr %70, align 4
-  %71 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i.i, i64 -8
-  %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.i.i.i = load float, ptr %71, align 4
-  %mul.i.i.i65.sink.i.i27.us85.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i28.us86.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i29.us87.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us85.i.i.i.i, %mul.i.i2.i159.i.i28.us86.i.i.i.i
-  %cmp.i.i30.us88.i.i.i.i = fcmp olt float %add4.i.i.i.i21.i.i.i.i, %add.i.i1910.i.i29.us87.i.i.i.i
-  br i1 %cmp.i.i30.us88.i.i.i.i, label %while.cond5.us78.i.i.i.i, label %while.end9.i.i.i.i, !llvm.loop !27
-
-while.cond5.preheader.split75.i.i.i.i:            ; preds = %while.cond5.preheader.i.i.i.i
-  %agg.tmp.sroa.2.0.copyload.i.i.i45.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i.i, align 8
-  %mul3.i.i.i.i.i46.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i45.i.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.copyload.i.i.i48.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i.i, align 4
-  %mul3.i.i5.i.i.i49.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i48.i.i.i.i, 5.000000e-01
-  %add6.i.i.i.i50.i.i.i.i = fadd float %mul3.i.i.i.i.i46.i.i.i.i, %mul3.i.i5.i.i.i49.i.i.i.i
-  br label %while.cond5.i.i.i.i
-
-while.cond5.i.i.i.i:                              ; preds = %while.cond5.i.i.i.i, %while.cond5.preheader.split75.i.i.i.i
-  %__last.addr.0.pn.i.i.i.i = phi ptr [ %__last.addr.1.i.i.i.i, %while.cond5.i.i.i.i ], [ %__last.addr.0.i.i.i.i, %while.cond5.preheader.split75.i.i.i.i ]
+while.cond5.i.i.i.i:                              ; preds = %while.cond2.i.i.i.i, %while.cond5.i.i.i.i
+  %__last.addr.0.pn.i.i.i.i = phi ptr [ %__last.addr.1.i.i.i.i, %while.cond5.i.i.i.i ], [ %__last.addr.0.i.i.i.i, %while.cond2.i.i.i.i ]
   %__last.addr.1.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i, i64 -32
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i51.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i52.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i51.i.i.i.i, align 8
@@ -3284,27 +3282,26 @@ while.cond5.i.i.i.i:                              ; preds = %while.cond5.i.i.i.i
   %mul.i.i.i65.sink.i.i27.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i52.i.i.i.i, 5.000000e-01
   %mul.i.i2.i159.i.i28.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i54.i.i.i.i, 5.000000e-01
   %add.i.i1910.i.i29.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.i.i.i.i, %mul.i.i2.i159.i.i28.i.i.i.i
-  %cmp.i.i30.i.i.i.i = fcmp olt float %add6.i.i.i.i50.i.i.i.i, %add.i.i1910.i.i29.i.i.i.i
-  br i1 %cmp.i.i30.i.i.i.i, label %while.cond5.i.i.i.i, label %while.end9.i.i.i.i, !llvm.loop !27
+  %cmp.i.i30.i.i.i.i = fcmp olt float %add.i.i1910.i.i.i19.i.i.i, %add.i.i1910.i.i29.i.i.i.i
+  br i1 %cmp.i.i30.i.i.i.i, label %while.cond5.i.i.i.i, label %while.end9.i.loopexit.i.i.i, !llvm.loop !27
 
-while.end9.i.i.i.i:                               ; preds = %while.cond5.us78.i.i.i.i, %while.cond5.us.i.i.i.i, %while.cond5.i.i.i.i
-  %.us-phi76.i.i.i.i = phi ptr [ %__last.addr.1.i.i.i.i, %while.cond5.i.i.i.i ], [ %__last.addr.1.us.i.i.i.i, %while.cond5.us.i.i.i.i ], [ %__last.addr.1.us80.i.i.i.i, %while.cond5.us78.i.i.i.i ]
-  %cmp.i.i16.i.i = icmp ult ptr %.us-phi.i.i.i.i, %.us-phi76.i.i.i.i
+while.end9.i.loopexit.i.i.i:                      ; preds = %while.cond5.i.i.i.i
+  %cmp.i.i16.i.i = icmp ult ptr %__first.addr.1.i.i.i.i, %__last.addr.1.i.i.i.i
   br i1 %cmp.i.i16.i.i, label %if.end.i.i17.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i"
 
-if.end.i.i17.i.i:                                 ; preds = %while.end9.i.i.i.i
+if.end.i.i17.i.i:                                 ; preds = %while.end9.i.loopexit.i.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.us-phi.i.i.i.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.us-phi76.i.i.i.i, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi76.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.i.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i.i)
-  %incdec.ptr10.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 32
   br label %while.body.i.i15.i.i, !llvm.loop !28
 
-"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i": ; preds = %while.end9.i.i.i.i
-  %cmp8.not.i.i = icmp ugt ptr %.us-phi.i.i.i.i, %add.ptr
-  %call.__last.addr.0.i.i = select i1 %cmp8.not.i.i, ptr %.us-phi.i.i.i.i, ptr %__last.addr.0115.i19.i
-  %__first.addr.0.call.i.i = select i1 %cmp8.not.i.i, ptr %__first.addr.0116.i18.i, ptr %.us-phi.i.i.i.i
+"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEET_SR_SR_T0_.exit.i.i": ; preds = %while.end9.i.loopexit29.us.i.i.i, %while.end9.i.loopexit28.us.i.i.i, %while.end9.i.loopexit.i.i.i
+  %.us-phi.i.i.i = phi ptr [ %__first.addr.1.i.i.i.i, %while.end9.i.loopexit.i.i.i ], [ %__first.addr.1.us.i.us.i.i.i, %while.end9.i.loopexit28.us.i.i.i ], [ %__first.addr.1.us59.i.us.i.i.i, %while.end9.i.loopexit29.us.i.i.i ]
+  %cmp8.not.i.i = icmp ugt ptr %.us-phi.i.i.i, %add.ptr
+  %call.__last.addr.0.i.i = select i1 %cmp8.not.i.i, ptr %.us-phi.i.i.i, ptr %__last.addr.0102.i17.i
+  %__first.addr.0.call.i.i = select i1 %cmp8.not.i.i, ptr %__first.addr.0103.i16.i, ptr %.us-phi.i.i.i
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %call.__last.addr.0.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %__first.addr.0.call.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -3333,28 +3330,28 @@ for.body.lr.ph.i19.i.i:                           ; preds = %for.cond.preheader.
   %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.lcssa.i.i, i64 28
   br label %for.body.i24.i.i
 
-for.body.i24.i.i:                                 ; preds = %for.inc.i59.i.i, %for.body.lr.ph.i19.i.i
-  %__i.018.i.i.i = phi ptr [ %__i.015.i.i.i, %for.body.lr.ph.i19.i.i ], [ %__i.0.i.i.i, %for.inc.i59.i.i ]
-  %__first.pn17.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.body.lr.ph.i19.i.i ], [ %__i.018.i.i.i, %for.inc.i59.i.i ]
+for.body.i24.i.i:                                 ; preds = %for.inc.i58.i.i, %for.body.lr.ph.i19.i.i
+  %__i.018.i.i.i = phi ptr [ %__i.015.i.i.i, %for.body.lr.ph.i19.i.i ], [ %__i.0.i.i.i, %for.inc.i58.i.i ]
+  %__first.pn17.i.i.i = phi ptr [ %__first.addr.0.lcssa.i.i, %for.body.lr.ph.i19.i.i ], [ %__i.018.i.i.i, %for.inc.i58.i.i ]
   %bounds.i.i.i.i25.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 40
   %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i.i = load <2 x float>, ptr %bounds.i.i.i.i25.i.i, align 8
   %pMax.i.i.i.i27.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 52
   %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i.i = load <2 x float>, ptr %pMax.i.i.i.i27.i.i, align 4
-  switch i32 %retval.0.i, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i [
-    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i
+  switch i32 %retval.0.i, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i [
+    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i
     i32 1, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i
   ]
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i: ; preds = %for.body.i24.i.i
-  %t.sroa.0.0.vec.extract.i.i.i.i.i80.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i.i, i64 0
-  %mul.i.i.i.i.i.i81.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.i80.i.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i.i82.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i.i, i64 0
-  %mul.i.i2.i.i.i.i83.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.i82.i.i, 5.000000e-01
-  %add.i.i.i.i.i84.i.i = fadd float %mul.i.i.i.i.i.i81.i.i, %mul.i.i2.i.i.i.i83.i.i
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.i85.i.i = load <2 x float>, ptr %bounds.i12.i.i.i20.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.i86.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.i85.i.i, i64 0
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.i87.i.i = load <2 x float>, ptr %pMax.i106.i.i.i21.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.i88.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.i87.i.i, i64 0
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i: ; preds = %for.body.i24.i.i
+  %t.sroa.0.0.vec.extract.i.i.i.i.i69.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i.i, i64 0
+  %mul.i.i.i.i.i.i70.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.i69.i.i, 5.000000e-01
+  %t.sroa.0.0.vec.extract.i1.i.i.i.i71.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i.i, i64 0
+  %mul.i.i2.i.i.i.i72.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.i71.i.i, 5.000000e-01
+  %add.i.i.i.i.i73.i.i = fadd float %mul.i.i.i.i.i.i70.i.i, %mul.i.i2.i.i.i.i72.i.i
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.i74.i.i = load <2 x float>, ptr %bounds.i12.i.i.i20.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.i75.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.i74.i.i, i64 0
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.i76.i.i = load <2 x float>, ptr %pMax.i106.i.i.i21.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.i77.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.i76.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i: ; preds = %for.body.i24.i.i
@@ -3367,22 +3364,22 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i: ; preds = %for.body
   %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i.i = load float, ptr %73, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i"
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i: ; preds = %for.body.i24.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i90.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 48
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i91.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i90.i.i, align 8
-  %mul3.i.i.i.i.i.i92.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i91.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i93.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 60
-  %agg.tmp3.sroa.2.0.copyload.i.i.i.i94.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i93.i.i, align 4
-  %mul3.i.i5.i.i.i.i95.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i94.i.i, 5.000000e-01
-  %add6.i.i.i.i.i96.i.i = fadd float %mul3.i.i.i.i.i.i92.i.i, %mul3.i.i5.i.i.i.i95.i.i
-  %agg.tmp.sroa.2.0.copyload.i4.i.i.i97.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i22.i.i, align 8
-  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i98.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i.i, align 4
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i: ; preds = %for.body.i24.i.i
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i79.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 48
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i80.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i79.i.i, align 8
+  %mul3.i.i.i.i.i.i81.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i80.i.i, 5.000000e-01
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i82.i.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 60
+  %agg.tmp3.sroa.2.0.copyload.i.i.i.i83.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i82.i.i, align 4
+  %mul3.i.i5.i.i.i.i84.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i83.i.i, 5.000000e-01
+  %add6.i.i.i.i.i85.i.i = fadd float %mul3.i.i.i.i.i.i81.i.i, %mul3.i.i5.i.i.i.i84.i.i
+  %agg.tmp.sroa.2.0.copyload.i4.i.i.i86.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i22.i.i, align 8
+  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i87.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i
-  %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i.i = phi float [ %t.sroa.0.0.vec.extract.i1.i148.i.i.i88.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i ], [ %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %agg.tmp3.sroa.2.0.copyload.i13.i.i.i98.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i ]
-  %mul.i.i.i65.sink.in.i.i.i39.i.i = phi float [ %t.sroa.0.0.vec.extract.i.i54.i.i.i86.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i ], [ %t.sroa.0.4.vec.extract.i.i7.i.i.i35.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %agg.tmp.sroa.2.0.copyload.i4.i.i.i97.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i ]
-  %retval.0.i.sroa.speculated11.i.i.i40.i.i = phi float [ %add.i.i.i.i.i84.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i.i ], [ %add4.i.i.i.i.i34.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %add6.i.i.i.i.i96.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i
+  %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i.i = phi float [ %t.sroa.0.0.vec.extract.i1.i148.i.i.i77.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i ], [ %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %agg.tmp3.sroa.2.0.copyload.i13.i.i.i87.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i ]
+  %mul.i.i.i65.sink.in.i.i.i39.i.i = phi float [ %t.sroa.0.0.vec.extract.i.i54.i.i.i75.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i ], [ %t.sroa.0.4.vec.extract.i.i7.i.i.i35.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %agg.tmp.sroa.2.0.copyload.i4.i.i.i86.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i ]
+  %retval.0.i.sroa.speculated11.i.i.i40.i.i = phi float [ %add.i.i.i.i.i73.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i.i ], [ %add4.i.i.i.i.i34.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i.i ], [ %add6.i.i.i.i.i85.i.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i.i ]
   %mul.i.i.i65.sink.i.i.i41.i.i = fmul float %mul.i.i.i65.sink.in.i.i.i39.i.i, 5.000000e-01
   %mul.i.i2.i159.i.i.i42.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i.i, 5.000000e-01
   %add.i.i1910.i.i.i43.i.i = fadd float %mul.i.i2.i159.i.i.i42.i.i, %mul.i.i.i65.sink.i.i.i41.i.i
@@ -3399,7 +3396,7 @@ if.then3.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %add.ptr4.i.i.i, i64 %idx.neg.i.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa.i.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.lcssa.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__val.i.i.i, i64 32, i1 false)
-  br label %for.inc.i59.i.i
+  br label %for.inc.i58.i.i
 
 if.else.i.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit.i37.i.i"
   %__val.sroa.0.0.copyload.i.i.i.i = load i64, ptr %__i.018.i.i.i, align 8
@@ -3443,16 +3440,16 @@ while.body.us.i.i.i.i:                            ; preds = %entry.split.us.i.i.
   %__next.0.us51.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.us50.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.us51.i.i.i.i, i64 32, i1 false)
   %bounds.i12.i.i.us.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i.i, i64 -56
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i62.i.i = load <2 x float>, ptr %bounds.i12.i.i.us.i.i.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i63.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i62.i.i, i64 0
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.us.i.i.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i.i, i64 0
   %pMax.i106.i.i.us.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i.i, i64 -44
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i64.i.i = load <2 x float>, ptr %pMax.i106.i.i.us.i.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i65.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i64.i.i, i64 0
-  %mul.i.i.i65.sink.i.i.us.i.i66.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i63.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us.i.i67.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i65.i.i, 5.000000e-01
-  %add.i.i1910.i.i.us.i.i68.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i66.i.i, %mul.i.i2.i159.i.i.us.i.i67.i.i
-  %cmp.i.i.us.i.i69.i.i = fcmp olt float %add.i.i.i.i.i.i54.i.i, %add.i.i1910.i.i.us.i.i68.i.i
-  br i1 %cmp.i.i.us.i.i69.i.i, label %while.body.us.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !29
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.us.i.i.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i.i, i64 0
+  %mul.i.i.i65.sink.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us.i.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i.i.i, %mul.i.i2.i159.i.i.us.i.i.i.i
+  %cmp.i.i.us.i.i.i.i = fcmp olt float %add.i.i.i.i.i.i54.i.i, %add.i.i1910.i.i.us.i.i.i.i
+  br i1 %cmp.i.i.us.i.i.i.i, label %while.body.us.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !29
 
 entry.split.us13.i.i.i.i:                         ; preds = %if.else.i.i.i
   %74 = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i.i, i64 12
@@ -3470,11 +3467,11 @@ while.body.us25.i.i.i.i:                          ; preds = %entry.split.us13.i.
   %__next.0.us1661.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.us1560.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.us1661.i.i.i.i, i64 32, i1 false)
   %76 = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i.i, i64 -52
-  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i60.i.i = load float, ptr %76, align 4
+  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i.i = load float, ptr %76, align 4
   %77 = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i.i, i64 -40
-  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i61.i.i = load float, ptr %77, align 4
-  %mul.i.i.i65.sink.i.i.us21.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i60.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us22.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i61.i.i, 5.000000e-01
+  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i.i = load float, ptr %77, align 4
+  %mul.i.i.i65.sink.i.i.us21.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us22.i.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i.i, 5.000000e-01
   %add.i.i1910.i.i.us23.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us21.i.i.i.i, %mul.i.i2.i159.i.i.us22.i.i.i.i
   %cmp.i.i.us24.i.i.i.i = fcmp olt float %add4.i.i.i.i.i.i49.i.i, %add.i.i1910.i.i.us23.i.i.i.i
   br i1 %cmp.i.i.us24.i.i.i.i, label %while.body.us25.i.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !29
@@ -3488,41 +3485,41 @@ entry.split.i.i.i.i:                              ; preds = %if.else.i.i.i
   %mul.i.i2.i159.i.i34.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i32.i.i.i.i, 5.000000e-01
   %add.i.i1910.i.i35.i.i.i.i = fadd float %mul.i.i.i65.sink.i.i33.i.i.i.i, %mul.i.i2.i159.i.i34.i.i.i.i
   %cmp.i.i36.i.i.i.i = fcmp olt float %add6.i.i.i.i.i.i57.i.i, %add.i.i1910.i.i35.i.i.i.i
-  br i1 %cmp.i.i36.i.i.i.i, label %while.body.i.i70.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i"
+  br i1 %cmp.i.i36.i.i.i.i, label %while.body.i.i59.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i"
 
-while.body.i.i70.i.i:                             ; preds = %entry.split.i.i.i.i, %while.body.i.i70.i.i
-  %__last.addr.037.i.i.i.i = phi ptr [ %__next.038.i.i.i.i, %while.body.i.i70.i.i ], [ %__i.018.i.i.i, %entry.split.i.i.i.i ]
+while.body.i.i59.i.i:                             ; preds = %entry.split.i.i.i.i, %while.body.i.i59.i.i
+  %__last.addr.037.i.i.i.i = phi ptr [ %__next.038.i.i.i.i, %while.body.i.i59.i.i ], [ %__i.018.i.i.i, %entry.split.i.i.i.i ]
   %__next.038.i.i.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.037.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.038.i.i.i.i, i64 32, i1 false)
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i71.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i.i, i64 -48
-  %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i72.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i71.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i73.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i.i, i64 -36
-  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i74.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i73.i.i, align 4
-  %mul.i.i.i65.sink.i.i.i.i75.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i72.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.i.i76.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i74.i.i, 5.000000e-01
-  %add.i.i1910.i.i.i.i77.i.i = fadd float %mul.i.i.i65.sink.i.i.i.i75.i.i, %mul.i.i2.i159.i.i.i.i76.i.i
-  %cmp.i.i.i.i78.i.i = fcmp olt float %add6.i.i.i.i.i.i57.i.i, %add.i.i1910.i.i.i.i77.i.i
-  br i1 %cmp.i.i.i.i78.i.i, label %while.body.i.i70.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !29
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i60.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i.i, i64 -48
+  %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i61.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i60.i.i, align 8
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i62.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i.i, i64 -36
+  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i63.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i62.i.i, align 4
+  %mul.i.i.i65.sink.i.i.i.i64.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i61.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.i.i65.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i63.i.i, 5.000000e-01
+  %add.i.i1910.i.i.i.i66.i.i = fadd float %mul.i.i.i65.sink.i.i.i.i64.i.i, %mul.i.i2.i159.i.i.i.i65.i.i
+  %cmp.i.i.i.i67.i.i = fcmp olt float %add6.i.i.i.i.i.i57.i.i, %add.i.i1910.i.i.i.i66.i.i
+  br i1 %cmp.i.i.i.i67.i.i, label %while.body.i.i59.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", !llvm.loop !29
 
-"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i": ; preds = %while.body.us25.i.i.i.i, %while.body.us.i.i.i.i, %while.body.i.i70.i.i, %entry.split.i.i.i.i, %entry.split.us13.i.i.i.i, %entry.split.us.i.i.i.i
-  %.us-phi.i.i58.i.i = phi ptr [ %__i.018.i.i.i, %entry.split.us.i.i.i.i ], [ %__i.018.i.i.i, %entry.split.us13.i.i.i.i ], [ %__i.018.i.i.i, %entry.split.i.i.i.i ], [ %__next.038.i.i.i.i, %while.body.i.i70.i.i ], [ %__next.0.us51.i.i.i.i, %while.body.us.i.i.i.i ], [ %__next.0.us1661.i.i.i.i, %while.body.us25.i.i.i.i ]
-  store i64 %__val.sroa.0.0.copyload.i.i.i.i, ptr %.us-phi.i.i58.i.i, align 8
-  %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i.i, i64 8
+"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i": ; preds = %while.body.us25.i.i.i.i, %while.body.us.i.i.i.i, %while.body.i.i59.i.i, %entry.split.i.i.i.i, %entry.split.us13.i.i.i.i, %entry.split.us.i.i.i.i
+  %.us-phi.i.i.i.i = phi ptr [ %__i.018.i.i.i, %entry.split.us.i.i.i.i ], [ %__i.018.i.i.i, %entry.split.us13.i.i.i.i ], [ %__i.018.i.i.i, %entry.split.i.i.i.i ], [ %__next.038.i.i.i.i, %while.body.i.i59.i.i ], [ %__next.0.us51.i.i.i.i, %while.body.us.i.i.i.i ], [ %__next.0.us1661.i.i.i.i, %while.body.us25.i.i.i.i ]
+  store i64 %__val.sroa.0.0.copyload.i.i.i.i, ptr %.us-phi.i.i.i.i, align 8
+  %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i.i, ptr %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i.i, align 8
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i.i, i64 16
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 16
   store float %__val.sroa.3.0.copyload.i.i.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i.i, align 8
-  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i.i, i64 20
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 20
   store <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i.i, align 4
-  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i.i, i64 28
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i.i, i64 28
   store float %__val.sroa.5.0.copyload.i.i.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i.i, align 4
-  br label %for.inc.i59.i.i
+  br label %for.inc.i58.i.i
 
-for.inc.i59.i.i:                                  ; preds = %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", %if.then3.i.i.i
+for.inc.i58.i.i:                                  ; preds = %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_.exit.i.i.i", %if.then3.i.i.i
   %__i.0.i.i.i = getelementptr inbounds nuw i8, ptr %__i.018.i.i.i, i64 32
   %cmp2.not.i.i.i = icmp eq ptr %__i.0.i.i.i, %__last.addr.0.lcssa.i.i
   br i1 %cmp2.not.i.i.i, label %"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_T0_.exit.i.i", label %for.body.i24.i.i, !llvm.loop !30
 
-"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_T0_.exit.i.i": ; preds = %for.inc.i59.i.i, %for.cond.preheader.i.i.i, %while.end.i.i
+"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_SR_T0_.exit.i.i": ; preds = %for.inc.i58.i.i, %for.cond.preheader.i.i.i, %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__val.i.i.i)
   br label %sw.epilog
 
@@ -3563,14 +3560,14 @@ for.body117.lr.ph:                                ; preds = %arrayctor.loop
   br label %for.body117
 
 for.body117:                                      ; preds = %for.body117.lr.ph, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
-  %__begin6.0591 = phi ptr [ %6, %for.body117.lr.ph ], [ %incdec.ptr146, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
-  %bounds.i202 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 8
+  %__begin6.0589 = phi ptr [ %6, %for.body117.lr.ph ], [ %incdec.ptr146, %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit ]
+  %bounds.i202 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 8
   %agg.tmp.sroa.0.0.copyload.i203 = load <2 x float>, ptr %bounds.i202, align 8
   %t.sroa.0.0.vec.extract.i.i206 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i203, i64 0
   %mul.i.i.i207 = fmul float %t.sroa.0.0.vec.extract.i.i206, 5.000000e-01
   %t.sroa.0.4.vec.extract.i.i208 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i203, i64 1
   %mul2.i.i.i209 = fmul float %t.sroa.0.4.vec.extract.i.i208, 5.000000e-01
-  %pMax.i211 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 20
+  %pMax.i211 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 20
   %agg.tmp3.sroa.0.0.copyload.i212 = load <2 x float>, ptr %pMax.i211, align 4
   %t.sroa.0.0.vec.extract.i1.i215 = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i212, i64 0
   %mul.i.i2.i216 = fmul float %t.sroa.0.0.vec.extract.i1.i215, 5.000000e-01
@@ -3600,10 +3597,10 @@ if.then3.i237:                                    ; preds = %for.body117
   br label %_ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit
 
 if.end4.i240:                                     ; preds = %for.body117
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i204 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i204 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 16
   %agg.tmp.sroa.2.0.copyload.i205 = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i204, align 8
   %mul3.i.i.i210 = fmul float %agg.tmp.sroa.2.0.copyload.i205, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i213 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 28
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i213 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 28
   %agg.tmp3.sroa.2.0.copyload.i214 = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i213, align 4
   %mul3.i.i5.i219 = fmul float %agg.tmp3.sroa.2.0.copyload.i214, 5.000000e-01
   %add6.i.i222 = fadd float %mul3.i.i.i210, %mul3.i.i5.i219
@@ -3627,7 +3624,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body117, %if.th
   %agg.tmp.sroa.0.0.copyload.i245 = load <2 x float>, ptr %bounds140, align 4, !noalias !31
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i246 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 12
   %agg.tmp.sroa.2.0.copyload.i247 = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i246, align 4, !noalias !31
-  %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i249 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 16
+  %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i249 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 16
   %agg.tmp1.sroa.2.0.copyload.i250 = load float, ptr %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i249, align 4, !noalias !31
   %t1.sroa.0.0.vec.extract.i.i252 = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i245, i64 0
   %80 = fcmp olt <2 x float> %agg.tmp.sroa.0.0.copyload.i203, %agg.tmp.sroa.0.0.copyload.i245
@@ -3644,7 +3641,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body117, %if.th
   %agg.tmp5.sroa.0.0.copyload.i262 = load <2 x float>, ptr %pMax.i261, align 4, !noalias !31
   %agg.tmp5.sroa.2.0.pMax.sroa_idx.i263 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %agg.tmp5.sroa.2.0.copyload.i264 = load float, ptr %agg.tmp5.sroa.2.0.pMax.sroa_idx.i263, align 4, !noalias !31
-  %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i267 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 28
+  %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i267 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 28
   %agg.tmp6.sroa.2.0.copyload.i268 = load float, ptr %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i267, align 4, !noalias !31
   %t1.sroa.0.0.vec.extract.i3.i269 = extractelement <2 x float> %agg.tmp5.sroa.0.0.copyload.i262, i64 0
   %83 = fcmp olt <2 x float> %agg.tmp5.sroa.0.0.copyload.i262, %agg.tmp3.sroa.0.0.copyload.i212
@@ -3661,7 +3658,7 @@ _ZN4pbrt6Tuple3INS_7Vector3EfEixEi.exit:          ; preds = %for.body117, %if.th
   store float %.sroa.speculated.i.i258, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i246, align 4
   store <2 x float> %retval.sroa.0.4.vec.insert.i12.i278, ptr %pMax.i261, align 4
   store float %.sroa.speculated.i10.i276, ptr %agg.tmp5.sroa.2.0.pMax.sroa_idx.i263, align 4
-  %incdec.ptr146 = getelementptr inbounds nuw i8, ptr %__begin6.0591, i64 32
+  %incdec.ptr146 = getelementptr inbounds nuw i8, ptr %__begin6.0589, i64 32
   %cmp116.not = icmp eq ptr %incdec.ptr146, %add.ptr.i
   br i1 %cmp116.not, label %for.end147, label %for.body117
 
@@ -3671,48 +3668,48 @@ for.end147:                                       ; preds = %_ZN4pbrt6Tuple3INS_
 
 for.body151:                                      ; preds = %for.end147, %for.body151
   %indvars.iv = phi i64 [ 0, %for.end147 ], [ %indvars.iv.next, %for.body151 ]
-  %countBelow.0597 = phi i32 [ 0, %for.end147 ], [ %add159, %for.body151 ]
-  %boundBelow.sroa.15.0595 = phi float [ 0xC7EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i10.i318, %for.body151 ]
-  %boundBelow.sroa.9.0594 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %for.end147 ], [ %retval.sroa.0.4.vec.insert.i12.i320, %for.body151 ]
-  %boundBelow.sroa.5.0593 = phi float [ 0x47EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i.i300, %for.body151 ]
-  %boundBelow.sroa.0.0592 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %for.end147 ], [ %retval.sroa.0.4.vec.insert.i.i302, %for.body151 ]
+  %countBelow.0595 = phi i32 [ 0, %for.end147 ], [ %add159, %for.body151 ]
+  %boundBelow.sroa.15.0593 = phi float [ 0xC7EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i10.i318, %for.body151 ]
+  %boundBelow.sroa.9.0592 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %for.end147 ], [ %retval.sroa.0.4.vec.insert.i12.i320, %for.body151 ]
+  %boundBelow.sroa.5.0591 = phi float [ 0x47EFFFFFE0000000, %for.end147 ], [ %.sroa.speculated.i.i300, %for.body151 ]
+  %boundBelow.sroa.0.0590 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %for.end147 ], [ %retval.sroa.0.4.vec.insert.i.i302, %for.body151 ]
   %arrayidx154 = getelementptr inbounds nuw [12 x %"struct.pbrt::BVHSplitBucket"], ptr %buckets, i64 0, i64 %indvars.iv
   %bounds155 = getelementptr inbounds nuw i8, ptr %arrayidx154, i64 4
   %agg.tmp1.sroa.0.0.copyload.i290 = load <2 x float>, ptr %bounds155, align 4, !noalias !34
   %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i291 = getelementptr inbounds nuw i8, ptr %arrayidx154, i64 12
   %agg.tmp1.sroa.2.0.copyload.i292 = load float, ptr %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i291, align 4, !noalias !34
   %t2.sroa.0.0.vec.extract.i.i293 = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i290, i64 0
-  %t1.sroa.0.0.vec.extract.i.i294 = extractelement <2 x float> %boundBelow.sroa.0.0592, i64 0
-  %86 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i290, %boundBelow.sroa.0.0592
+  %t1.sroa.0.0.vec.extract.i.i294 = extractelement <2 x float> %boundBelow.sroa.0.0590, i64 0
+  %86 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i290, %boundBelow.sroa.0.0590
   %cmp.i.i.i295 = extractelement <2 x i1> %86, i64 0
   %87 = select i1 %cmp.i.i.i295, float %t2.sroa.0.0.vec.extract.i.i293, float %t1.sroa.0.0.vec.extract.i.i294
   %t2.sroa.0.4.vec.extract.i.i296 = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i290, i64 1
-  %t1.sroa.0.4.vec.extract.i.i297 = extractelement <2 x float> %boundBelow.sroa.0.0592, i64 1
+  %t1.sroa.0.4.vec.extract.i.i297 = extractelement <2 x float> %boundBelow.sroa.0.0590, i64 1
   %cmp.i1.i.i298 = fcmp olt float %t2.sroa.0.4.vec.extract.i.i296, %t1.sroa.0.4.vec.extract.i.i297
   %88 = select i1 %cmp.i1.i.i298, float %t2.sroa.0.4.vec.extract.i.i296, float %t1.sroa.0.4.vec.extract.i.i297
-  %cmp.i3.i.i299 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i292, %boundBelow.sroa.5.0593
-  %.sroa.speculated.i.i300 = select i1 %cmp.i3.i.i299, float %agg.tmp1.sroa.2.0.copyload.i292, float %boundBelow.sroa.5.0593
+  %cmp.i3.i.i299 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i292, %boundBelow.sroa.5.0591
+  %.sroa.speculated.i.i300 = select i1 %cmp.i3.i.i299, float %agg.tmp1.sroa.2.0.copyload.i292, float %boundBelow.sroa.5.0591
   %retval.sroa.0.0.vec.insert.i.i301 = insertelement <2 x float> poison, float %87, i64 0
   %retval.sroa.0.4.vec.insert.i.i302 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i301, float %88, i64 1
   %pMax7.i307 = getelementptr inbounds nuw i8, ptr %arrayidx154, i64 16
   %agg.tmp6.sroa.0.0.copyload.i308 = load <2 x float>, ptr %pMax7.i307, align 4, !noalias !34
   %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i309 = getelementptr inbounds nuw i8, ptr %arrayidx154, i64 24
   %agg.tmp6.sroa.2.0.copyload.i310 = load float, ptr %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i309, align 4, !noalias !34
-  %t1.sroa.0.0.vec.extract.i3.i311 = extractelement <2 x float> %boundBelow.sroa.9.0594, i64 0
+  %t1.sroa.0.0.vec.extract.i3.i311 = extractelement <2 x float> %boundBelow.sroa.9.0592, i64 0
   %t2.sroa.0.0.vec.extract.i4.i312 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i308, i64 0
-  %89 = fcmp olt <2 x float> %boundBelow.sroa.9.0594, %agg.tmp6.sroa.0.0.copyload.i308
+  %89 = fcmp olt <2 x float> %boundBelow.sroa.9.0592, %agg.tmp6.sroa.0.0.copyload.i308
   %cmp.i.i5.i313 = extractelement <2 x i1> %89, i64 0
   %90 = select i1 %cmp.i.i5.i313, float %t2.sroa.0.0.vec.extract.i4.i312, float %t1.sroa.0.0.vec.extract.i3.i311
-  %t1.sroa.0.4.vec.extract.i6.i314 = extractelement <2 x float> %boundBelow.sroa.9.0594, i64 1
+  %t1.sroa.0.4.vec.extract.i6.i314 = extractelement <2 x float> %boundBelow.sroa.9.0592, i64 1
   %t2.sroa.0.4.vec.extract.i7.i315 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i308, i64 1
   %cmp.i1.i8.i316 = fcmp olt float %t1.sroa.0.4.vec.extract.i6.i314, %t2.sroa.0.4.vec.extract.i7.i315
   %91 = select i1 %cmp.i1.i8.i316, float %t2.sroa.0.4.vec.extract.i7.i315, float %t1.sroa.0.4.vec.extract.i6.i314
-  %cmp.i3.i9.i317 = fcmp olt float %boundBelow.sroa.15.0595, %agg.tmp6.sroa.2.0.copyload.i310
-  %.sroa.speculated.i10.i318 = select i1 %cmp.i3.i9.i317, float %agg.tmp6.sroa.2.0.copyload.i310, float %boundBelow.sroa.15.0595
+  %cmp.i3.i9.i317 = fcmp olt float %boundBelow.sroa.15.0593, %agg.tmp6.sroa.2.0.copyload.i310
+  %.sroa.speculated.i10.i318 = select i1 %cmp.i3.i9.i317, float %agg.tmp6.sroa.2.0.copyload.i310, float %boundBelow.sroa.15.0593
   %retval.sroa.0.0.vec.insert.i11.i319 = insertelement <2 x float> poison, float %90, i64 0
   %retval.sroa.0.4.vec.insert.i12.i320 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11.i319, float %91, i64 1
   %92 = load i32, ptr %arrayidx154, align 4
-  %add159 = add nsw i32 %92, %countBelow.0597
+  %add159 = add nsw i32 %92, %countBelow.0595
   %conv160 = sitofp i32 %add159 to float
   %sub.i.i.i326 = fsub float %90, %87
   %sub4.i.i.i329 = fsub float %91, %88
@@ -3733,49 +3730,49 @@ for.body151:                                      ; preds = %for.end147, %for.bo
   br i1 %exitcond.not, label %for.body172, label %for.body151, !llvm.loop !37
 
 for.body172:                                      ; preds = %for.body151, %for.body172
-  %indvars.iv640 = phi i64 [ %indvars.iv.next641, %for.body172 ], [ 11, %for.body151 ]
-  %countAbove.0602 = phi i32 [ %add180, %for.body172 ], [ 0, %for.body151 ]
-  %boundAbove.sroa.0.0601 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i361, %for.body172 ], [ splat (float 0x47EFFFFFE0000000), %for.body151 ]
-  %boundAbove.sroa.5.0600 = phi float [ %.sroa.speculated.i.i359, %for.body172 ], [ 0x47EFFFFFE0000000, %for.body151 ]
-  %boundAbove.sroa.9.0599 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i379, %for.body172 ], [ splat (float 0xC7EFFFFFE0000000), %for.body151 ]
-  %boundAbove.sroa.15.0598 = phi float [ %.sroa.speculated.i10.i377, %for.body172 ], [ 0xC7EFFFFFE0000000, %for.body151 ]
-  %arrayidx175 = getelementptr inbounds nuw [12 x %"struct.pbrt::BVHSplitBucket"], ptr %buckets, i64 0, i64 %indvars.iv640
+  %indvars.iv636 = phi i64 [ %indvars.iv.next637, %for.body172 ], [ 11, %for.body151 ]
+  %countAbove.0600 = phi i32 [ %add180, %for.body172 ], [ 0, %for.body151 ]
+  %boundAbove.sroa.0.0599 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i361, %for.body172 ], [ splat (float 0x47EFFFFFE0000000), %for.body151 ]
+  %boundAbove.sroa.5.0598 = phi float [ %.sroa.speculated.i.i359, %for.body172 ], [ 0x47EFFFFFE0000000, %for.body151 ]
+  %boundAbove.sroa.9.0597 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i12.i379, %for.body172 ], [ splat (float 0xC7EFFFFFE0000000), %for.body151 ]
+  %boundAbove.sroa.15.0596 = phi float [ %.sroa.speculated.i10.i377, %for.body172 ], [ 0xC7EFFFFFE0000000, %for.body151 ]
+  %arrayidx175 = getelementptr inbounds nuw [12 x %"struct.pbrt::BVHSplitBucket"], ptr %buckets, i64 0, i64 %indvars.iv636
   %bounds176 = getelementptr inbounds nuw i8, ptr %arrayidx175, i64 4
   %agg.tmp1.sroa.0.0.copyload.i349 = load <2 x float>, ptr %bounds176, align 4, !noalias !38
   %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i350 = getelementptr inbounds nuw i8, ptr %arrayidx175, i64 12
   %agg.tmp1.sroa.2.0.copyload.i351 = load float, ptr %agg.tmp1.sroa.2.0.pMin2.sroa_idx.i350, align 4, !noalias !38
   %t2.sroa.0.0.vec.extract.i.i352 = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i349, i64 0
-  %t1.sroa.0.0.vec.extract.i.i353 = extractelement <2 x float> %boundAbove.sroa.0.0601, i64 0
-  %94 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i349, %boundAbove.sroa.0.0601
+  %t1.sroa.0.0.vec.extract.i.i353 = extractelement <2 x float> %boundAbove.sroa.0.0599, i64 0
+  %94 = fcmp olt <2 x float> %agg.tmp1.sroa.0.0.copyload.i349, %boundAbove.sroa.0.0599
   %cmp.i.i.i354 = extractelement <2 x i1> %94, i64 0
   %95 = select i1 %cmp.i.i.i354, float %t2.sroa.0.0.vec.extract.i.i352, float %t1.sroa.0.0.vec.extract.i.i353
   %t2.sroa.0.4.vec.extract.i.i355 = extractelement <2 x float> %agg.tmp1.sroa.0.0.copyload.i349, i64 1
-  %t1.sroa.0.4.vec.extract.i.i356 = extractelement <2 x float> %boundAbove.sroa.0.0601, i64 1
+  %t1.sroa.0.4.vec.extract.i.i356 = extractelement <2 x float> %boundAbove.sroa.0.0599, i64 1
   %cmp.i1.i.i357 = fcmp olt float %t2.sroa.0.4.vec.extract.i.i355, %t1.sroa.0.4.vec.extract.i.i356
   %96 = select i1 %cmp.i1.i.i357, float %t2.sroa.0.4.vec.extract.i.i355, float %t1.sroa.0.4.vec.extract.i.i356
-  %cmp.i3.i.i358 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i351, %boundAbove.sroa.5.0600
-  %.sroa.speculated.i.i359 = select i1 %cmp.i3.i.i358, float %agg.tmp1.sroa.2.0.copyload.i351, float %boundAbove.sroa.5.0600
+  %cmp.i3.i.i358 = fcmp olt float %agg.tmp1.sroa.2.0.copyload.i351, %boundAbove.sroa.5.0598
+  %.sroa.speculated.i.i359 = select i1 %cmp.i3.i.i358, float %agg.tmp1.sroa.2.0.copyload.i351, float %boundAbove.sroa.5.0598
   %retval.sroa.0.0.vec.insert.i.i360 = insertelement <2 x float> poison, float %95, i64 0
   %retval.sroa.0.4.vec.insert.i.i361 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i360, float %96, i64 1
   %pMax7.i366 = getelementptr inbounds nuw i8, ptr %arrayidx175, i64 16
   %agg.tmp6.sroa.0.0.copyload.i367 = load <2 x float>, ptr %pMax7.i366, align 4, !noalias !38
   %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i368 = getelementptr inbounds nuw i8, ptr %arrayidx175, i64 24
   %agg.tmp6.sroa.2.0.copyload.i369 = load float, ptr %agg.tmp6.sroa.2.0.pMax7.sroa_idx.i368, align 4, !noalias !38
-  %t1.sroa.0.0.vec.extract.i3.i370 = extractelement <2 x float> %boundAbove.sroa.9.0599, i64 0
+  %t1.sroa.0.0.vec.extract.i3.i370 = extractelement <2 x float> %boundAbove.sroa.9.0597, i64 0
   %t2.sroa.0.0.vec.extract.i4.i371 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i367, i64 0
-  %97 = fcmp olt <2 x float> %boundAbove.sroa.9.0599, %agg.tmp6.sroa.0.0.copyload.i367
+  %97 = fcmp olt <2 x float> %boundAbove.sroa.9.0597, %agg.tmp6.sroa.0.0.copyload.i367
   %cmp.i.i5.i372 = extractelement <2 x i1> %97, i64 0
   %98 = select i1 %cmp.i.i5.i372, float %t2.sroa.0.0.vec.extract.i4.i371, float %t1.sroa.0.0.vec.extract.i3.i370
-  %t1.sroa.0.4.vec.extract.i6.i373 = extractelement <2 x float> %boundAbove.sroa.9.0599, i64 1
+  %t1.sroa.0.4.vec.extract.i6.i373 = extractelement <2 x float> %boundAbove.sroa.9.0597, i64 1
   %t2.sroa.0.4.vec.extract.i7.i374 = extractelement <2 x float> %agg.tmp6.sroa.0.0.copyload.i367, i64 1
   %cmp.i1.i8.i375 = fcmp olt float %t1.sroa.0.4.vec.extract.i6.i373, %t2.sroa.0.4.vec.extract.i7.i374
   %99 = select i1 %cmp.i1.i8.i375, float %t2.sroa.0.4.vec.extract.i7.i374, float %t1.sroa.0.4.vec.extract.i6.i373
-  %cmp.i3.i9.i376 = fcmp olt float %boundAbove.sroa.15.0598, %agg.tmp6.sroa.2.0.copyload.i369
-  %.sroa.speculated.i10.i377 = select i1 %cmp.i3.i9.i376, float %agg.tmp6.sroa.2.0.copyload.i369, float %boundAbove.sroa.15.0598
+  %cmp.i3.i9.i376 = fcmp olt float %boundAbove.sroa.15.0596, %agg.tmp6.sroa.2.0.copyload.i369
+  %.sroa.speculated.i10.i377 = select i1 %cmp.i3.i9.i376, float %agg.tmp6.sroa.2.0.copyload.i369, float %boundAbove.sroa.15.0596
   %retval.sroa.0.0.vec.insert.i11.i378 = insertelement <2 x float> poison, float %98, i64 0
   %retval.sroa.0.4.vec.insert.i12.i379 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i11.i378, float %99, i64 1
   %100 = load i32, ptr %arrayidx175, align 4
-  %add180 = add nsw i32 %100, %countAbove.0602
+  %add180 = add nsw i32 %100, %countAbove.0600
   %conv181 = sitofp i32 %add180 to float
   %sub.i.i.i385 = fsub float %98, %95
   %sub4.i.i.i388 = fsub float %99, %96
@@ -3787,27 +3784,27 @@ for.body172:                                      ; preds = %for.body151, %for.b
   %add7.i395 = fadd float %mul6.i394, %add.i393
   %mul8.i396 = fmul float %add7.i395, 2.000000e+00
   %mul183 = fmul float %mul8.i396, %conv181
-  %indvars.iv.next641 = add nsw i64 %indvars.iv640, -1
-  %arrayidx185 = getelementptr inbounds nuw [11 x float], ptr %costs, i64 0, i64 %indvars.iv.next641
+  %indvars.iv.next637 = add nsw i64 %indvars.iv636, -1
+  %arrayidx185 = getelementptr inbounds nuw [11 x float], ptr %costs, i64 0, i64 %indvars.iv.next637
   %101 = load float, ptr %arrayidx185, align 4
   %add186 = fadd float %101, %mul183
   store float %add186, ptr %arrayidx185, align 4
-  %cmp171 = icmp ugt i64 %indvars.iv640, 1
+  %cmp171 = icmp ugt i64 %indvars.iv636, 1
   br i1 %cmp171, label %for.body172, label %for.body192, !llvm.loop !41
 
 for.body192:                                      ; preds = %for.body172, %for.body192
-  %indvars.iv643 = phi i64 [ %indvars.iv.next644, %for.body192 ], [ 0, %for.body172 ]
-  %minCost.0605 = phi float [ %minCost.1, %for.body192 ], [ 0x7FF0000000000000, %for.body172 ]
-  %minCostSplitBucket.0604 = phi i32 [ %minCostSplitBucket.1, %for.body192 ], [ -1, %for.body172 ]
-  %arrayidx194 = getelementptr inbounds nuw [11 x float], ptr %costs, i64 0, i64 %indvars.iv643
+  %indvars.iv639 = phi i64 [ %indvars.iv.next640, %for.body192 ], [ 0, %for.body172 ]
+  %minCost.0603 = phi float [ %minCost.1, %for.body192 ], [ 0x7FF0000000000000, %for.body172 ]
+  %minCostSplitBucket.0602 = phi i32 [ %minCostSplitBucket.1, %for.body192 ], [ -1, %for.body172 ]
+  %arrayidx194 = getelementptr inbounds nuw [11 x float], ptr %costs, i64 0, i64 %indvars.iv639
   %102 = load float, ptr %arrayidx194, align 4
-  %cmp195 = fcmp olt float %102, %minCost.0605
-  %103 = trunc nuw nsw i64 %indvars.iv643 to i32
-  %minCostSplitBucket.1 = select i1 %cmp195, i32 %103, i32 %minCostSplitBucket.0604
-  %minCost.1 = select i1 %cmp195, float %102, float %minCost.0605
-  %indvars.iv.next644 = add nuw nsw i64 %indvars.iv643, 1
-  %exitcond646.not = icmp eq i64 %indvars.iv.next644, 11
-  br i1 %exitcond646.not, label %for.end202, label %for.body192, !llvm.loop !42
+  %cmp195 = fcmp olt float %102, %minCost.0603
+  %103 = trunc nuw nsw i64 %indvars.iv639 to i32
+  %minCostSplitBucket.1 = select i1 %cmp195, i32 %103, i32 %minCostSplitBucket.0602
+  %minCost.1 = select i1 %cmp195, float %102, float %minCost.0603
+  %indvars.iv.next640 = add nuw nsw i64 %indvars.iv639, 1
+  %exitcond642.not = icmp eq i64 %indvars.iv.next640, 11
+  br i1 %exitcond642.not, label %for.end202, label %for.body192, !llvm.loop !42
 
 for.end202:                                       ; preds = %for.body192
   %104 = load i32, ptr %this, align 8
@@ -3848,8 +3845,8 @@ if.else225:                                       ; preds = %lor.lhs.false211
   %conv228 = trunc i64 %7 to i32
   %108 = atomicrmw add ptr %107, i32 %conv228 seq_cst, align 4
   %109 = load i64, ptr %0, align 8
-  %cmp233607.not = icmp eq i64 %109, 0
-  br i1 %cmp233607.not, label %for.end248, label %for.body234.lr.ph
+  %cmp233605.not = icmp eq i64 %109, 0
+  br i1 %cmp233605.not, label %for.end248, label %for.body234.lr.ph
 
 for.body234.lr.ph:                                ; preds = %if.else225
   %primitives239 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3858,19 +3855,19 @@ for.body234.lr.ph:                                ; preds = %if.else225
   br label %for.body234
 
 for.body234:                                      ; preds = %for.body234.lr.ph, %for.body234
-  %i230.0608 = phi i64 [ 0, %for.body234.lr.ph ], [ %inc247, %for.body234 ]
-  %arrayidx.i420 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre, i64 %i230.0608
+  %i230.0606 = phi i64 [ 0, %for.body234.lr.ph ], [ %inc247, %for.body234 ]
+  %arrayidx.i420 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %.pre, i64 %i230.0606
   %110 = load i64, ptr %arrayidx.i420, align 8
   %sext = shl i64 %110, 32
   %111 = load ptr, ptr %primitives239, align 8
   %112 = ashr exact i64 %sext, 29
   %add.ptr.i421 = getelementptr inbounds i8, ptr %111, i64 %112
   %113 = load ptr, ptr %orderedPrims, align 8
-  %114 = getelementptr %"class.pbrt::Primitive", ptr %113, i64 %i230.0608
+  %114 = getelementptr %"class.pbrt::Primitive", ptr %113, i64 %i230.0606
   %add.ptr.i422 = getelementptr %"class.pbrt::Primitive", ptr %114, i64 %conv242
   %115 = load i64, ptr %add.ptr.i421, align 8
   store i64 %115, ptr %add.ptr.i422, align 8
-  %inc247 = add nuw i64 %i230.0608, 1
+  %inc247 = add nuw i64 %i230.0606, 1
   %cmp233 = icmp ult i64 %inc247, %109
   br i1 %cmp233, label %for.body234, label %for.end248, !llvm.loop !43
 
@@ -4084,11 +4081,11 @@ if.end269:                                        ; preds = %if.then.i.i434, %in
   br label %return
 
 return:                                           ; preds = %if.end269, %for.end248, %for.end66, %for.end25
-  %.sink679 = phi ptr [ %150, %if.end269 ], [ %120, %for.end248 ], [ %48, %for.end66 ], [ %29, %for.end25 ]
-  %.sink678 = phi i64 [ 1, %if.end269 ], [ %conv.i429, %for.end248 ], [ %conv.i163, %for.end66 ], [ %conv.i, %for.end25 ]
-  %151 = load i64, ptr %.sink679, align 8
-  %inc.i458 = add nsw i64 %151, %.sink678
-  store i64 %inc.i458, ptr %.sink679, align 8
+  %.sink673 = phi ptr [ %150, %if.end269 ], [ %120, %for.end248 ], [ %48, %for.end66 ], [ %29, %for.end25 ]
+  %.sink672 = phi i64 [ 1, %if.end269 ], [ %conv.i429, %for.end248 ], [ %conv.i163, %for.end66 ], [ %conv.i, %for.end25 ]
+  %151 = load i64, ptr %.sink673, align 8
+  %inc.i458 = add nsw i64 %151, %.sink672
+  store i64 %inc.i458, ptr %.sink673, align 8
   ret ptr %call.i.i.i.i
 }
 
@@ -4607,8 +4604,8 @@ if.end:                                           ; preds = %entry
   %sub.ptr.lhs.cast = ptrtoint ptr %__last to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %__first to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %cmp113.i = icmp sgt i64 %sub.ptr.sub, 96
-  br i1 %cmp113.i, label %while.body.i.preheader, label %while.end.i
+  %cmp100.i = icmp sgt i64 %sub.ptr.sub, 96
+  br i1 %cmp100.i, label %while.body.i.preheader, label %while.end.i
 
 while.body.i.preheader:                           ; preds = %if.end
   %sub.ptr.div = lshr exact i64 %sub.ptr.sub, 5
@@ -4732,18 +4729,18 @@ for.inc.i.i:                                      ; preds = %if.then.i.i, %"_ZN9
   br label %return
 
 if.end.i:                                         ; preds = %while.body.i.preheader, %while.body.i
-  %__depth_limit.addr.0114.i20 = phi i64 [ %dec.i, %while.body.i ], [ %mul, %while.body.i.preheader ]
-  %__last.addr.0115.i19 = phi ptr [ %call.__last.addr.0.i, %while.body.i ], [ %__last, %while.body.i.preheader ]
-  %__first.addr.0116.i18 = phi ptr [ %__first.addr.0.call.i, %while.body.i ], [ %__first, %while.body.i.preheader ]
-  %sub.ptr.sub118.i17 = phi i64 [ %sub.ptr.sub.i, %while.body.i ], [ %sub.ptr.sub, %while.body.i.preheader ]
-  %dec.i = add nsw i64 %__depth_limit.addr.0114.i20, -1
-  %div.i99100.i = lshr i64 %sub.ptr.sub118.i17, 6
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0116.i18, i64 %div.i99100.i
-  %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 32
-  %add.ptr3.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -32
-  %bounds.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 40
+  %__depth_limit.addr.0101.i18 = phi i64 [ %dec.i, %while.body.i ], [ %mul, %while.body.i.preheader ]
+  %__last.addr.0102.i17 = phi ptr [ %call.__last.addr.0.i, %while.body.i ], [ %__last, %while.body.i.preheader ]
+  %__first.addr.0103.i16 = phi ptr [ %__first.addr.0.call.i, %while.body.i ], [ %__first, %while.body.i.preheader ]
+  %sub.ptr.sub105.i15 = phi i64 [ %sub.ptr.sub.i, %while.body.i ], [ %sub.ptr.sub, %while.body.i.preheader ]
+  %dec.i = add nsw i64 %__depth_limit.addr.0101.i18, -1
+  %div.i8889.i = lshr i64 %sub.ptr.sub105.i15, 6
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0103.i16, i64 %div.i8889.i
+  %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 32
+  %add.ptr3.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -32
+  %bounds.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 40
   %agg.tmp.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %bounds.i.i.i.i.i.i, align 8
-  %pMax.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 52
+  %pMax.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 52
   %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i = load <2 x float>, ptr %pMax.i.i.i.i.i.i, align 4
   switch i32 %__comp.coerce, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i.i [
     i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i.i.i
@@ -4777,10 +4774,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i.i.i: ; preds = %if.end.i
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i.i.i: ; preds = %if.end.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i.i.i, align 8
   %mul3.i.i.i.i.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i.i.i, align 4
   %mul3.i.i5.i.i.i.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i.i.i, 5.000000e-01
   %add6.i.i.i.i.i.i.i = fadd float %mul3.i.i.i.i.i.i.i.i, %mul3.i.i5.i.i.i.i.i.i
@@ -4816,10 +4813,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i42.i.i.i: ; preds = %if.then.i.
   %t.sroa.0.0.vec.extract.i1.i.i.i45.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i26.i.i.i, i64 0
   %mul.i.i2.i.i.i46.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i45.i.i.i, 5.000000e-01
   %add.i.i.i.i47.i.i.i = fadd float %mul.i.i.i.i.i44.i.i.i, %mul.i.i2.i.i.i46.i.i.i
-  %bounds.i12.i.i48.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -24
+  %bounds.i12.i.i48.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i49.i.i.i = load <2 x float>, ptr %bounds.i12.i.i48.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i50.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i49.i.i.i, i64 0
-  %pMax.i106.i.i51.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -12
+  %pMax.i106.i.i51.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i52.i.i.i = load <2 x float>, ptr %pMax.i106.i.i51.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i53.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i52.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit66.i.i.i"
@@ -4830,9 +4827,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i27.i.i.i: ; preds = %if.then.
   %t.sroa.0.4.vec.extract.i3.i.i.i30.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i26.i.i.i, i64 1
   %mul2.i.i4.i.i.i31.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i30.i.i.i, 5.000000e-01
   %add4.i.i.i.i32.i.i.i = fadd float %mul2.i.i.i.i.i29.i.i.i, %mul2.i.i4.i.i.i31.i.i.i
-  %5 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -20
+  %5 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i33.i.i.i = load float, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -8
+  %6 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i34.i.i.i = load float, ptr %6, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit66.i.i.i"
 
@@ -4844,9 +4841,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i54.i.i.i: ; preds = %if.then.i.i.i
   %agg.tmp3.sroa.2.0.copyload.i.i.i59.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i58.i.i.i, align 4
   %mul3.i.i5.i.i.i60.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i59.i.i.i, 5.000000e-01
   %add6.i.i.i.i61.i.i.i = fadd float %mul3.i.i.i.i.i57.i.i.i, %mul3.i.i5.i.i.i60.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i63.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i62.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i65.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i64.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit66.i.i.i"
 
@@ -4862,8 +4859,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i54.i.i.i: ; preds = %if.then.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit66.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
@@ -4880,10 +4877,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i86.i.i.i: ; preds = %if.else.i.
   %t.sroa.0.0.vec.extract.i1.i.i.i89.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i, i64 0
   %mul.i.i2.i.i.i90.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i89.i.i.i, 5.000000e-01
   %add.i.i.i.i91.i.i.i = fadd float %mul.i.i.i.i.i88.i.i.i, %mul.i.i2.i.i.i90.i.i.i
-  %bounds.i12.i.i92.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -24
+  %bounds.i12.i.i92.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i93.i.i.i = load <2 x float>, ptr %bounds.i12.i.i92.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i94.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i93.i.i.i, i64 0
-  %pMax.i106.i.i95.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -12
+  %pMax.i106.i.i95.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i96.i.i.i = load <2 x float>, ptr %pMax.i106.i.i95.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i97.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i96.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit110.i.i.i"
@@ -4894,23 +4891,23 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i71.i.i.i: ; preds = %if.else.
   %t.sroa.0.4.vec.extract.i3.i.i.i74.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i75.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i74.i.i.i, 5.000000e-01
   %add4.i.i.i.i76.i.i.i = fadd float %mul2.i.i.i.i.i73.i.i.i, %mul2.i.i4.i.i.i75.i.i.i
-  %7 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -20
+  %7 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i77.i.i.i = load float, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -8
+  %8 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i78.i.i.i = load float, ptr %8, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit110.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i98.i.i.i: ; preds = %if.else.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i100.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i99.i.i.i, align 8
   %mul3.i.i.i.i.i101.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i100.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i103.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i102.i.i.i, align 4
   %mul3.i.i5.i.i.i104.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i103.i.i.i, 5.000000e-01
   %add6.i.i.i.i105.i.i.i = fadd float %mul3.i.i.i.i.i101.i.i.i, %mul3.i.i5.i.i.i104.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i107.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i106.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i109.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i108.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit110.i.i.i"
 
@@ -4926,16 +4923,16 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i98.i.i.i: ; preds = %if.else.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit110.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i111.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i111.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i111.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
 
 if.else6.i.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit110.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i112.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i112.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i112.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
@@ -4952,10 +4949,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i132.i.i.i: ; preds = %if.else8.
   %t.sroa.0.0.vec.extract.i1.i.i.i135.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i, i64 0
   %mul.i.i2.i.i.i136.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i135.i.i.i, 5.000000e-01
   %add.i.i.i.i137.i.i.i = fadd float %mul.i.i.i.i.i134.i.i.i, %mul.i.i2.i.i.i136.i.i.i
-  %bounds.i12.i.i138.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -24
+  %bounds.i12.i.i138.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i139.i.i.i = load <2 x float>, ptr %bounds.i12.i.i138.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i140.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i139.i.i.i, i64 0
-  %pMax.i106.i.i141.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -12
+  %pMax.i106.i.i141.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i142.i.i.i = load <2 x float>, ptr %pMax.i106.i.i141.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i143.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i142.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit156.i.i.i"
@@ -4966,23 +4963,23 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i117.i.i.i: ; preds = %if.else
   %t.sroa.0.4.vec.extract.i3.i.i.i120.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i.i.i, i64 1
   %mul2.i.i4.i.i.i121.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i120.i.i.i, 5.000000e-01
   %add4.i.i.i.i122.i.i.i = fadd float %mul2.i.i.i.i.i119.i.i.i, %mul2.i.i4.i.i.i121.i.i.i
-  %9 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -20
+  %9 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i123.i.i.i = load float, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -8
+  %10 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i124.i.i.i = load float, ptr %10, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit156.i.i.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i144.i.i.i: ; preds = %if.else8.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 48
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 48
   %agg.tmp.sroa.2.0.copyload.i.i.i146.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i145.i.i.i, align 8
   %mul3.i.i.i.i.i147.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i146.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 60
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 60
   %agg.tmp3.sroa.2.0.copyload.i.i.i149.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i148.i.i.i, align 4
   %mul3.i.i5.i.i.i150.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i149.i.i.i, 5.000000e-01
   %add6.i.i.i.i151.i.i.i = fadd float %mul3.i.i.i.i.i147.i.i.i, %mul3.i.i5.i.i.i150.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i153.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i152.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i155.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i154.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit156.i.i.i"
 
@@ -4998,8 +4995,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i144.i.i.i: ; preds = %if.else8.i.i.i
 
 if.then10.i.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit156.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i157.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i157.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i157.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
@@ -5020,10 +5017,10 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i177.i.i.i: ; preds = %if.else11
   %t.sroa.0.0.vec.extract.i1.i.i.i180.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i161.i.i.i, i64 0
   %mul.i.i2.i.i.i181.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i180.i.i.i, 5.000000e-01
   %add.i.i.i.i182.i.i.i = fadd float %mul.i.i.i.i.i179.i.i.i, %mul.i.i2.i.i.i181.i.i.i
-  %bounds.i12.i.i183.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -24
+  %bounds.i12.i.i183.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -24
   %agg.tmp.sroa.0.0.copyload.i23.i.i184.i.i.i = load <2 x float>, ptr %bounds.i12.i.i183.i.i.i, align 8
   %t.sroa.0.0.vec.extract.i.i54.i.i185.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i184.i.i.i, i64 0
-  %pMax.i106.i.i186.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -12
+  %pMax.i106.i.i186.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -12
   %agg.tmp3.sroa.0.0.copyload.i117.i.i187.i.i.i = load <2 x float>, ptr %pMax.i106.i.i186.i.i.i, align 4
   %t.sroa.0.0.vec.extract.i1.i148.i.i188.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i187.i.i.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit201.i.i.i"
@@ -5034,9 +5031,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i162.i.i.i: ; preds = %if.else
   %t.sroa.0.4.vec.extract.i3.i.i.i165.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i161.i.i.i, i64 1
   %mul2.i.i4.i.i.i166.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i165.i.i.i, 5.000000e-01
   %add4.i.i.i.i167.i.i.i = fadd float %mul2.i.i.i.i.i164.i.i.i, %mul2.i.i4.i.i.i166.i.i.i
-  %11 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -20
+  %11 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -20
   %t.sroa.0.4.vec.extract.i.i7.i.i168.i.i.i = load float, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -8
+  %12 = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -8
   %t.sroa.0.4.vec.extract.i3.i16.i.i169.i.i.i = load float, ptr %12, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit201.i.i.i"
 
@@ -5048,9 +5045,9 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i189.i.i.i: ; preds = %if.else11.i.i.i
   %agg.tmp3.sroa.2.0.copyload.i.i.i194.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i193.i.i.i, align 4
   %mul3.i.i5.i.i.i195.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i194.i.i.i, 5.000000e-01
   %add6.i.i.i.i196.i.i.i = fadd float %mul3.i.i.i.i.i192.i.i.i, %mul3.i.i5.i.i.i195.i.i.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -16
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i198.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i197.i.i.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0115.i19, i64 -4
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0102.i17, i64 -4
   %agg.tmp3.sroa.2.0.copyload.i13.i.i200.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i199.i.i.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit201.i.i.i"
 
@@ -5066,84 +5063,137 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i189.i.i.i: ; preds = %if.else11.i.i.i
 
 if.then13.i.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit201.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i202.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr3.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i202.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i202.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
 
 if.else14.i.i.i:                                  ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit201.i.i.i"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i203.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0116.i18, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0103.i16, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, i64 32, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i203.i.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i203.i.i.i)
   br label %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
 
 "_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i": ; preds = %if.else14.i.i.i, %if.then13.i.i.i, %if.then10.i.i.i, %if.else6.i.i.i, %if.then5.i.i.i, %if.then3.i.i.i
-  %13 = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 12
-  %14 = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 24
-  %bounds.i12.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 8
-  %pMax.i106.i.i.i11.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 20
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 16
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0116.i18, i64 28
-  br label %while.body.i.i15.i
-
-while.body.i.i15.i:                               ; preds = %if.end.i.i17.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i"
-  %__last.addr.0.i.i.i = phi ptr [ %__last.addr.0115.i19, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ], [ %.us-phi76.i.i.i, %if.end.i.i17.i ]
-  %__first.addr.0.i.i.i = phi ptr [ %add.ptr2.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ], [ %incdec.ptr10.i.i.i, %if.end.i.i17.i ]
-  switch i32 %__comp.coerce, label %while.body.split.i.i.i [
-    i32 0, label %while.body.split.us.i.i.i
-    i32 1, label %while.body.split.us57.i.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 24
+  %bounds.i12.i.i.i10.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 8
+  %pMax.i106.i.i.i11.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 20
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 16
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.0103.i16, i64 28
+  switch i32 %__comp.coerce, label %while.body.i.i15.i [
+    i32 0, label %while.body.i.us.i.i
+    i32 1, label %while.body.i.us31.i.i
   ]
 
-while.body.split.us.i.i.i:                        ; preds = %while.body.i.i15.i
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i, i64 0
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i, i64 0
-  %mul.i.i.i65.sink.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i.i, %mul.i.i2.i159.i.i.us.i.i.i
-  br label %while.cond2.us.i.i.i
+while.body.i.us.i.i:                              ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i", %if.end.i.us.i.i
+  %__last.addr.0.i.us.i.i = phi ptr [ %__last.addr.1.us.i.us.i.i, %if.end.i.us.i.i ], [ %__last.addr.0102.i17, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
+  %__first.addr.0.i.us.i.i = phi ptr [ %incdec.ptr.us.i.us.i.i, %if.end.i.us.i.i ], [ %add.ptr2.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.us.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.us.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.us.i.i, i64 0
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.us.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.us.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.us.i.i, i64 0
+  %mul.i.i.i65.sink.i.i.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.us.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.us.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us.i.us.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.us.i.i, %mul.i.i2.i159.i.i.us.i.us.i.i
+  br label %while.cond2.us.i.us.i.i
 
-while.cond2.us.i.i.i:                             ; preds = %while.cond2.us.i.i.i, %while.body.split.us.i.i.i
-  %__first.addr.1.us.i.i.i = phi ptr [ %__first.addr.0.i.i.i, %while.body.split.us.i.i.i ], [ %incdec.ptr.us.i.i.i, %while.cond2.us.i.i.i ]
-  %bounds.i.i.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i, i64 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.i.i = load <2 x float>, ptr %bounds.i.i.i.us.i.i.i, align 8
-  %pMax.i.i.i.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i, i64 20
-  %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.i.i = load <2 x float>, ptr %pMax.i.i.i.us.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i.i.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.i.i, i64 0
-  %mul.i.i.i.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.us.i.i.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.i.i, i64 0
-  %mul.i.i2.i.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.i.i, 5.000000e-01
-  %add.i.i.i.i.us.i.i.i = fadd float %mul.i.i.i.i.i.us.i.i.i, %mul.i.i2.i.i.i.us.i.i.i
-  %cmp.i.i.us.i.i.i = fcmp olt float %add.i.i.i.i.us.i.i.i, %add.i.i1910.i.i.us.i.i.i
-  %incdec.ptr.us.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.i.i, i64 32
-  br i1 %cmp.i.i.us.i.i.i, label %while.cond2.us.i.i.i, label %while.cond5.preheader.i.i.i, !llvm.loop !52
+while.cond2.us.i.us.i.i:                          ; preds = %while.cond2.us.i.us.i.i, %while.body.i.us.i.i
+  %__first.addr.1.us.i.us.i.i = phi ptr [ %__first.addr.0.i.us.i.i, %while.body.i.us.i.i ], [ %incdec.ptr.us.i.us.i.i, %while.cond2.us.i.us.i.i ]
+  %bounds.i.i.i.us.i.us.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i, i64 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.us.i.i = load <2 x float>, ptr %bounds.i.i.i.us.i.us.i.i, align 8
+  %pMax.i.i.i.us.i.us.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i, i64 20
+  %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.us.i.i = load <2 x float>, ptr %pMax.i.i.i.us.i.us.i.i, align 4
+  %t.sroa.0.0.vec.extract.i.i.i.i.us.i.us.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.us.i.us.i.i, i64 0
+  %mul.i.i.i.i.i.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.us.i.us.i.i, 5.000000e-01
+  %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.us.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.us.i.us.i.i, i64 0
+  %mul.i.i2.i.i.i.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.us.i.us.i.i, 5.000000e-01
+  %add.i.i.i.i.us.i.us.i.i = fadd float %mul.i.i.i.i.i.us.i.us.i.i, %mul.i.i2.i.i.i.us.i.us.i.i
+  %cmp.i.i.us.i.us.i.i = fcmp olt float %add.i.i.i.i.us.i.us.i.i, %add.i.i1910.i.i.us.i.us.i.i
+  %incdec.ptr.us.i.us.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us.i.us.i.i, i64 32
+  br i1 %cmp.i.i.us.i.us.i.i, label %while.cond2.us.i.us.i.i, label %while.cond5.us.i.us.i.i, !llvm.loop !52
 
-while.body.split.us57.i.i.i:                      ; preds = %while.body.i.i15.i
-  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i = load float, ptr %13, align 4
-  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i = load float, ptr %14, align 4
-  %mul.i.i.i65.sink.i.i.us68.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us69.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i.us70.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us68.i.i.i, %mul.i.i2.i159.i.i.us69.i.i.i
-  br label %while.cond2.us58.i.i.i
+while.cond5.us.i.us.i.i:                          ; preds = %while.cond2.us.i.us.i.i, %while.cond5.us.i.us.i.i
+  %__last.addr.0.pn.us.i.us.i.i = phi ptr [ %__last.addr.1.us.i.us.i.i, %while.cond5.us.i.us.i.i ], [ %__last.addr.0.i.us.i.i, %while.cond2.us.i.us.i.i ]
+  %__last.addr.1.us.i.us.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i, i64 -32
+  %bounds.i12.i.i37.us.i.us.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i, i64 -24
+  %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.us.i.i = load <2 x float>, ptr %bounds.i12.i.i37.us.i.us.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.us.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.us.i.i, i64 0
+  %pMax.i106.i.i40.us.i.us.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.us.i.i, i64 -12
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.us.i.i = load <2 x float>, ptr %pMax.i106.i.i40.us.i.us.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.us.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.us.i.i, i64 0
+  %mul.i.i.i65.sink.i.i27.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.us.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i28.us.i.us.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.us.i.i, 5.000000e-01
+  %add.i.i1910.i.i29.us.i.us.i.i = fadd float %mul.i.i.i65.sink.i.i27.us.i.us.i.i, %mul.i.i2.i159.i.i28.us.i.us.i.i
+  %cmp.i.i30.us.i.us.i.i = fcmp olt float %add.i.i1910.i.i.us.i.us.i.i, %add.i.i1910.i.i29.us.i.us.i.i
+  br i1 %cmp.i.i30.us.i.us.i.i, label %while.cond5.us.i.us.i.i, label %while.end9.i.loopexit28.us.i.i, !llvm.loop !53
 
-while.cond2.us58.i.i.i:                           ; preds = %while.cond2.us58.i.i.i, %while.body.split.us57.i.i.i
-  %__first.addr.1.us59.i.i.i = phi ptr [ %__first.addr.0.i.i.i, %while.body.split.us57.i.i.i ], [ %incdec.ptr.us72.i.i.i, %while.cond2.us58.i.i.i ]
-  %15 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i, i64 12
-  %t.sroa.0.4.vec.extract.i.i.i.i.us.i.i.i = load float, ptr %15, align 4
-  %mul2.i.i.i.i.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i.i.i, 5.000000e-01
-  %16 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i, i64 24
-  %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.i.i = load float, ptr %16, align 4
-  %mul2.i.i4.i.i.i.us.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.i.i, 5.000000e-01
-  %add4.i.i.i.i.us.i.i.i = fadd float %mul2.i.i.i.i.i.us.i.i.i, %mul2.i.i4.i.i.i.us.i.i.i
-  %cmp.i.i.us71.i.i.i = fcmp olt float %add4.i.i.i.i.us.i.i.i, %add.i.i1910.i.i.us70.i.i.i
-  %incdec.ptr.us72.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.i.i, i64 32
-  br i1 %cmp.i.i.us71.i.i.i, label %while.cond2.us58.i.i.i, label %while.cond5.preheader.i.i.i, !llvm.loop !52
+if.end.i.us.i.i:                                  ; preds = %while.end9.i.loopexit28.us.i.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us.i.us.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us.i.us.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us.i.us.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us.i.us.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
+  br label %while.body.i.us.i.i, !llvm.loop !54
 
-while.body.split.i.i.i:                           ; preds = %while.body.i.i15.i
+while.end9.i.loopexit28.us.i.i:                   ; preds = %while.cond5.us.i.us.i.i
+  %cmp.i.us.i.i = icmp ult ptr %__first.addr.1.us.i.us.i.i, %__last.addr.1.us.i.us.i.i
+  br i1 %cmp.i.us.i.i, label %if.end.i.us.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i"
+
+while.body.i.us31.i.i:                            ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i", %if.end.i.us38.i.i
+  %__last.addr.0.i.us32.i.i = phi ptr [ %__last.addr.1.us80.i.us.i.i, %if.end.i.us38.i.i ], [ %__last.addr.0102.i17, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
+  %__first.addr.0.i.us33.i.i = phi ptr [ %incdec.ptr.us72.i.us.i.i, %if.end.i.us38.i.i ], [ %add.ptr2.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
+  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.us.i.i = load float, ptr %13, align 4
+  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.us.i.i = load float, ptr %14, align 4
+  %mul.i.i.i65.sink.i.i.us68.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.us.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us69.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.us.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us70.i.us.i.i = fadd float %mul.i.i.i65.sink.i.i.us68.i.us.i.i, %mul.i.i2.i159.i.i.us69.i.us.i.i
+  br label %while.cond2.us58.i.us.i.i
+
+while.cond2.us58.i.us.i.i:                        ; preds = %while.cond2.us58.i.us.i.i, %while.body.i.us31.i.i
+  %__first.addr.1.us59.i.us.i.i = phi ptr [ %__first.addr.0.i.us33.i.i, %while.body.i.us31.i.i ], [ %incdec.ptr.us72.i.us.i.i, %while.cond2.us58.i.us.i.i ]
+  %15 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i, i64 12
+  %t.sroa.0.4.vec.extract.i.i.i.i.us.i.us.i.i = load float, ptr %15, align 4
+  %mul2.i.i.i.i.i.us.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i.us.i.i, 5.000000e-01
+  %16 = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i, i64 24
+  %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.us.i.i = load float, ptr %16, align 4
+  %mul2.i.i4.i.i.i.us.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i.us.i.us.i.i, 5.000000e-01
+  %add4.i.i.i.i.us.i.us.i.i = fadd float %mul2.i.i.i.i.i.us.i.us.i.i, %mul2.i.i4.i.i.i.us.i.us.i.i
+  %cmp.i.i.us71.i.us.i.i = fcmp olt float %add4.i.i.i.i.us.i.us.i.i, %add.i.i1910.i.i.us70.i.us.i.i
+  %incdec.ptr.us72.i.us.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.us59.i.us.i.i, i64 32
+  br i1 %cmp.i.i.us71.i.us.i.i, label %while.cond2.us58.i.us.i.i, label %while.cond5.us78.i.us.i.i, !llvm.loop !52
+
+while.cond5.us78.i.us.i.i:                        ; preds = %while.cond2.us58.i.us.i.i, %while.cond5.us78.i.us.i.i
+  %__last.addr.0.pn.us79.i.us.i.i = phi ptr [ %__last.addr.1.us80.i.us.i.i, %while.cond5.us78.i.us.i.i ], [ %__last.addr.0.i.us32.i.i, %while.cond2.us58.i.us.i.i ]
+  %__last.addr.1.us80.i.us.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i, i64 -32
+  %17 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i, i64 -20
+  %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.us.i.i = load float, ptr %17, align 4
+  %18 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.us.i.i, i64 -8
+  %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.us.i.i = load float, ptr %18, align 4
+  %mul.i.i.i65.sink.i.i27.us85.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.us.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i28.us86.i.us.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.us.i.i, 5.000000e-01
+  %add.i.i1910.i.i29.us87.i.us.i.i = fadd float %mul.i.i.i65.sink.i.i27.us85.i.us.i.i, %mul.i.i2.i159.i.i28.us86.i.us.i.i
+  %cmp.i.i30.us88.i.us.i.i = fcmp olt float %add.i.i1910.i.i.us70.i.us.i.i, %add.i.i1910.i.i29.us87.i.us.i.i
+  br i1 %cmp.i.i30.us88.i.us.i.i, label %while.cond5.us78.i.us.i.i, label %while.end9.i.loopexit29.us.i.i, !llvm.loop !53
+
+if.end.i.us38.i.i:                                ; preds = %while.end9.i.loopexit29.us.i.i
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us59.i.us.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.us59.i.us.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us80.i.us.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.us80.i.us.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, i64 32, i1 false)
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
+  br label %while.body.i.us31.i.i, !llvm.loop !54
+
+while.end9.i.loopexit29.us.i.i:                   ; preds = %while.cond5.us78.i.us.i.i
+  %cmp.i.us37.i.i = icmp ult ptr %__first.addr.1.us59.i.us.i.i, %__last.addr.1.us80.i.us.i.i
+  br i1 %cmp.i.us37.i.i, label %if.end.i.us38.i.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i"
+
+while.body.i.i15.i:                               ; preds = %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i", %if.end.i.i17.i
+  %__last.addr.0.i.i.i = phi ptr [ %__last.addr.1.i.i.i, %if.end.i.i17.i ], [ %__last.addr.0102.i17, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
+  %__first.addr.0.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i17.i ], [ %add.ptr2.i.i, %"_ZSt22__move_median_to_firstIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_SR_SR_T0_.exit.i.i" ]
   %agg.tmp.sroa.2.0.copyload.i4.i.i.i15.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i, align 8
   %agg.tmp3.sroa.2.0.copyload.i13.i.i.i16.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i, align 4
   %mul.i.i.i65.sink.i.i.i17.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i15.i.i, 5.000000e-01
@@ -5151,8 +5201,8 @@ while.body.split.i.i.i:                           ; preds = %while.body.i.i15.i
   %add.i.i1910.i.i.i19.i.i = fadd float %mul.i.i.i65.sink.i.i.i17.i.i, %mul.i.i2.i159.i.i.i18.i.i
   br label %while.cond2.i.i.i
 
-while.cond2.i.i.i:                                ; preds = %while.cond2.i.i.i, %while.body.split.i.i.i
-  %__first.addr.1.i.i.i = phi ptr [ %__first.addr.0.i.i.i, %while.body.split.i.i.i ], [ %incdec.ptr.i.i.i, %while.cond2.i.i.i ]
+while.cond2.i.i.i:                                ; preds = %while.cond2.i.i.i, %while.body.i.i15.i
+  %__first.addr.1.i.i.i = phi ptr [ %__first.addr.0.i.i.i, %while.body.i.i15.i ], [ %incdec.ptr.i.i.i, %while.cond2.i.i.i ]
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i20.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i, i64 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i21.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i20.i.i, align 8
   %mul3.i.i.i.i.i.i22.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i21.i.i, 5.000000e-01
@@ -5162,65 +5212,10 @@ while.cond2.i.i.i:                                ; preds = %while.cond2.i.i.i, 
   %add6.i.i.i.i.i26.i.i = fadd float %mul3.i.i.i.i.i.i22.i.i, %mul3.i.i5.i.i.i.i25.i.i
   %cmp.i.i.i27.i.i = fcmp olt float %add6.i.i.i.i.i26.i.i, %add.i.i1910.i.i.i19.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.1.i.i.i, i64 32
-  br i1 %cmp.i.i.i27.i.i, label %while.cond2.i.i.i, label %while.cond5.preheader.i.i.i, !llvm.loop !52
+  br i1 %cmp.i.i.i27.i.i, label %while.cond2.i.i.i, label %while.cond5.i.i.i, !llvm.loop !52
 
-while.cond5.preheader.i.i.i:                      ; preds = %while.cond2.us58.i.i.i, %while.cond2.us.i.i.i, %while.cond2.i.i.i
-  %.us-phi.i.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.cond2.i.i.i ], [ %__first.addr.1.us.i.i.i, %while.cond2.us.i.i.i ], [ %__first.addr.1.us59.i.i.i, %while.cond2.us58.i.i.i ]
-  %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.i10.i.i, align 8
-  %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.i11.i.i, align 4
-  %t.sroa.0.4.vec.extract.i.i.i.i17.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i, i64 1
-  %mul2.i.i.i.i.i18.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i17.i.i.i, 5.000000e-01
-  %t.sroa.0.4.vec.extract.i3.i.i.i19.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i, i64 1
-  %mul2.i.i4.i.i.i20.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i.i.i19.i.i.i, 5.000000e-01
-  %add4.i.i.i.i21.i.i.i = fadd float %mul2.i.i.i.i.i18.i.i.i, %mul2.i.i4.i.i.i20.i.i.i
-  %t.sroa.0.0.vec.extract.i.i.i.i32.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i13.i.i.i, i64 0
-  %mul.i.i.i.i.i33.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i32.i.i.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i34.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i15.i.i.i, i64 0
-  %mul.i.i2.i.i.i35.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i34.i.i.i, 5.000000e-01
-  %add.i.i.i.i36.i.i.i = fadd float %mul.i.i.i.i.i33.i.i.i, %mul.i.i2.i.i.i35.i.i.i
-  switch i32 %__comp.coerce, label %while.cond5.preheader.split75.i.i.i [
-    i32 0, label %while.cond5.us.i.i.i
-    i32 1, label %while.cond5.us78.i.i.i
-  ]
-
-while.cond5.us.i.i.i:                             ; preds = %while.cond5.preheader.i.i.i, %while.cond5.us.i.i.i
-  %__last.addr.0.pn.us.i.i.i = phi ptr [ %__last.addr.1.us.i.i.i, %while.cond5.us.i.i.i ], [ %__last.addr.0.i.i.i, %while.cond5.preheader.i.i.i ]
-  %__last.addr.1.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i, i64 -32
-  %bounds.i12.i.i37.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i, i64 -24
-  %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.i.i = load <2 x float>, ptr %bounds.i12.i.i37.us.i.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i38.us.i.i.i, i64 0
-  %pMax.i106.i.i40.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us.i.i.i, i64 -12
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.i.i = load <2 x float>, ptr %pMax.i106.i.i40.us.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i41.us.i.i.i, i64 0
-  %mul.i.i.i65.sink.i.i27.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i39.us.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i28.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i42.us.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i29.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us.i.i.i, %mul.i.i2.i159.i.i28.us.i.i.i
-  %cmp.i.i30.us.i.i.i = fcmp olt float %add.i.i.i.i36.i.i.i, %add.i.i1910.i.i29.us.i.i.i
-  br i1 %cmp.i.i30.us.i.i.i, label %while.cond5.us.i.i.i, label %while.end9.i.i.i, !llvm.loop !53
-
-while.cond5.us78.i.i.i:                           ; preds = %while.cond5.preheader.i.i.i, %while.cond5.us78.i.i.i
-  %__last.addr.0.pn.us79.i.i.i = phi ptr [ %__last.addr.1.us80.i.i.i, %while.cond5.us78.i.i.i ], [ %__last.addr.0.i.i.i, %while.cond5.preheader.i.i.i ]
-  %__last.addr.1.us80.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i, i64 -32
-  %17 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i, i64 -20
-  %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.i.i = load float, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %__last.addr.0.pn.us79.i.i.i, i64 -8
-  %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.i.i = load float, ptr %18, align 4
-  %mul.i.i.i65.sink.i.i27.us85.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i22.us.i.i.i, 5.000000e-01
-  %mul.i.i2.i159.i.i28.us86.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i23.us.i.i.i, 5.000000e-01
-  %add.i.i1910.i.i29.us87.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.us85.i.i.i, %mul.i.i2.i159.i.i28.us86.i.i.i
-  %cmp.i.i30.us88.i.i.i = fcmp olt float %add4.i.i.i.i21.i.i.i, %add.i.i1910.i.i29.us87.i.i.i
-  br i1 %cmp.i.i30.us88.i.i.i, label %while.cond5.us78.i.i.i, label %while.end9.i.i.i, !llvm.loop !53
-
-while.cond5.preheader.split75.i.i.i:              ; preds = %while.cond5.preheader.i.i.i
-  %agg.tmp.sroa.2.0.copyload.i.i.i45.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i12.i.i, align 8
-  %mul3.i.i.i.i.i46.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i45.i.i.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.copyload.i.i.i48.i.i.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i13.i.i, align 4
-  %mul3.i.i5.i.i.i49.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i48.i.i.i, 5.000000e-01
-  %add6.i.i.i.i50.i.i.i = fadd float %mul3.i.i.i.i.i46.i.i.i, %mul3.i.i5.i.i.i49.i.i.i
-  br label %while.cond5.i.i.i
-
-while.cond5.i.i.i:                                ; preds = %while.cond5.i.i.i, %while.cond5.preheader.split75.i.i.i
-  %__last.addr.0.pn.i.i.i = phi ptr [ %__last.addr.1.i.i.i, %while.cond5.i.i.i ], [ %__last.addr.0.i.i.i, %while.cond5.preheader.split75.i.i.i ]
+while.cond5.i.i.i:                                ; preds = %while.cond2.i.i.i, %while.cond5.i.i.i
+  %__last.addr.0.pn.i.i.i = phi ptr [ %__last.addr.1.i.i.i, %while.cond5.i.i.i ], [ %__last.addr.0.i.i.i, %while.cond2.i.i.i ]
   %__last.addr.1.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i, i64 -32
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i51.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.pn.i.i.i, i64 -16
   %agg.tmp.sroa.2.0.copyload.i4.i.i52.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i51.i.i.i, align 8
@@ -5229,27 +5224,26 @@ while.cond5.i.i.i:                                ; preds = %while.cond5.i.i.i, 
   %mul.i.i.i65.sink.i.i27.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i52.i.i.i, 5.000000e-01
   %mul.i.i2.i159.i.i28.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i54.i.i.i, 5.000000e-01
   %add.i.i1910.i.i29.i.i.i = fadd float %mul.i.i.i65.sink.i.i27.i.i.i, %mul.i.i2.i159.i.i28.i.i.i
-  %cmp.i.i30.i.i.i = fcmp olt float %add6.i.i.i.i50.i.i.i, %add.i.i1910.i.i29.i.i.i
-  br i1 %cmp.i.i30.i.i.i, label %while.cond5.i.i.i, label %while.end9.i.i.i, !llvm.loop !53
+  %cmp.i.i30.i.i.i = fcmp olt float %add.i.i1910.i.i.i19.i.i, %add.i.i1910.i.i29.i.i.i
+  br i1 %cmp.i.i30.i.i.i, label %while.cond5.i.i.i, label %while.end9.i.loopexit.i.i, !llvm.loop !53
 
-while.end9.i.i.i:                                 ; preds = %while.cond5.us78.i.i.i, %while.cond5.us.i.i.i, %while.cond5.i.i.i
-  %.us-phi76.i.i.i = phi ptr [ %__last.addr.1.i.i.i, %while.cond5.i.i.i ], [ %__last.addr.1.us.i.i.i, %while.cond5.us.i.i.i ], [ %__last.addr.1.us80.i.i.i, %while.cond5.us78.i.i.i ]
-  %cmp.i.i16.i = icmp ult ptr %.us-phi.i.i.i, %.us-phi76.i.i.i
+while.end9.i.loopexit.i.i:                        ; preds = %while.cond5.i.i.i
+  %cmp.i.i16.i = icmp ult ptr %__first.addr.1.i.i.i, %__last.addr.1.i.i.i
   br i1 %cmp.i.i16.i, label %if.end.i.i17.i, label %"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i"
 
-if.end.i.i17.i:                                   ; preds = %while.end9.i.i.i
+if.end.i.i17.i:                                   ; preds = %while.end9.i.loopexit.i.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.us-phi.i.i.i, i64 32, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.us-phi76.i.i.i, i64 32, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi76.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.i.i.i, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.1.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__tmp.i.i.i9.i.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__tmp.i.i.i9.i.i)
-  %incdec.ptr10.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 32
   br label %while.body.i.i15.i, !llvm.loop !54
 
-"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i": ; preds = %while.end9.i.i.i
-  %cmp8.not.i = icmp ugt ptr %.us-phi.i.i.i, %__nth
-  %call.__last.addr.0.i = select i1 %cmp8.not.i, ptr %.us-phi.i.i.i, ptr %__last.addr.0115.i19
-  %__first.addr.0.call.i = select i1 %cmp8.not.i, ptr %__first.addr.0116.i18, ptr %.us-phi.i.i.i
+"_ZSt27__unguarded_partition_pivotIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEET_SR_SR_T0_.exit.i": ; preds = %while.end9.i.loopexit29.us.i.i, %while.end9.i.loopexit28.us.i.i, %while.end9.i.loopexit.i.i
+  %.us-phi.i.i = phi ptr [ %__first.addr.1.i.i.i, %while.end9.i.loopexit.i.i ], [ %__first.addr.1.us.i.us.i.i, %while.end9.i.loopexit28.us.i.i ], [ %__first.addr.1.us59.i.us.i.i, %while.end9.i.loopexit29.us.i.i ]
+  %cmp8.not.i = icmp ugt ptr %.us-phi.i.i, %__nth
+  %call.__last.addr.0.i = select i1 %cmp8.not.i, ptr %.us-phi.i.i, ptr %__last.addr.0102.i17
+  %__first.addr.0.call.i = select i1 %cmp8.not.i, ptr %__first.addr.0103.i16, ptr %.us-phi.i.i
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call.__last.addr.0.i to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.addr.0.call.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
@@ -5278,28 +5272,28 @@ for.body.lr.ph.i19.i:                             ; preds = %for.cond.preheader.
   %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i = getelementptr inbounds nuw i8, ptr %__first.addr.0.lcssa.i, i64 28
   br label %for.body.i24.i
 
-for.body.i24.i:                                   ; preds = %for.inc.i59.i, %for.body.lr.ph.i19.i
-  %__i.018.i.i = phi ptr [ %__i.015.i.i, %for.body.lr.ph.i19.i ], [ %__i.0.i.i, %for.inc.i59.i ]
-  %__first.pn17.i.i = phi ptr [ %__first.addr.0.lcssa.i, %for.body.lr.ph.i19.i ], [ %__i.018.i.i, %for.inc.i59.i ]
+for.body.i24.i:                                   ; preds = %for.inc.i58.i, %for.body.lr.ph.i19.i
+  %__i.018.i.i = phi ptr [ %__i.015.i.i, %for.body.lr.ph.i19.i ], [ %__i.0.i.i, %for.inc.i58.i ]
+  %__first.pn17.i.i = phi ptr [ %__first.addr.0.lcssa.i, %for.body.lr.ph.i19.i ], [ %__i.018.i.i, %for.inc.i58.i ]
   %bounds.i.i.i.i25.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 40
   %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i = load <2 x float>, ptr %bounds.i.i.i.i25.i, align 8
   %pMax.i.i.i.i27.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 52
   %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i = load <2 x float>, ptr %pMax.i.i.i.i27.i, align 4
-  switch i32 %__comp.coerce, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i [
-    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i
+  switch i32 %__comp.coerce, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i [
+    i32 0, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i
     i32 1, label %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i
   ]
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i: ; preds = %for.body.i24.i
-  %t.sroa.0.0.vec.extract.i.i.i.i.i80.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i, i64 0
-  %mul.i.i.i.i.i.i81.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.i80.i, 5.000000e-01
-  %t.sroa.0.0.vec.extract.i1.i.i.i.i82.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i, i64 0
-  %mul.i.i2.i.i.i.i83.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.i82.i, 5.000000e-01
-  %add.i.i.i.i.i84.i = fadd float %mul.i.i.i.i.i.i81.i, %mul.i.i2.i.i.i.i83.i
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.i85.i = load <2 x float>, ptr %bounds.i12.i.i.i20.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.i86.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.i85.i, i64 0
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.i87.i = load <2 x float>, ptr %pMax.i106.i.i.i21.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.i88.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.i87.i, i64 0
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i: ; preds = %for.body.i24.i
+  %t.sroa.0.0.vec.extract.i.i.i.i.i69.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i, i64 0
+  %mul.i.i.i.i.i.i70.i = fmul float %t.sroa.0.0.vec.extract.i.i.i.i.i69.i, 5.000000e-01
+  %t.sroa.0.0.vec.extract.i1.i.i.i.i71.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i, i64 0
+  %mul.i.i2.i.i.i.i72.i = fmul float %t.sroa.0.0.vec.extract.i1.i.i.i.i71.i, 5.000000e-01
+  %add.i.i.i.i.i73.i = fadd float %mul.i.i.i.i.i.i70.i, %mul.i.i2.i.i.i.i72.i
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.i74.i = load <2 x float>, ptr %bounds.i12.i.i.i20.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.i75.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.i74.i, i64 0
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.i76.i = load <2 x float>, ptr %pMax.i106.i.i.i21.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.i77.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.i76.i, i64 0
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i"
 
 _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i: ; preds = %for.body.i24.i
@@ -5312,22 +5306,22 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i: ; preds = %for.body.i
   %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i = load float, ptr %20, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i"
 
-_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i: ; preds = %for.body.i24.i
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i90.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 48
-  %agg.tmp.sroa.2.0.copyload.i.i.i.i91.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i90.i, align 8
-  %mul3.i.i.i.i.i.i92.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i91.i, 5.000000e-01
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i93.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 60
-  %agg.tmp3.sroa.2.0.copyload.i.i.i.i94.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i93.i, align 4
-  %mul3.i.i5.i.i.i.i95.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i94.i, 5.000000e-01
-  %add6.i.i.i.i.i96.i = fadd float %mul3.i.i.i.i.i.i92.i, %mul3.i.i5.i.i.i.i95.i
-  %agg.tmp.sroa.2.0.copyload.i4.i.i.i97.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i22.i, align 8
-  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i98.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i, align 4
+_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i: ; preds = %for.body.i24.i
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i79.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 48
+  %agg.tmp.sroa.2.0.copyload.i.i.i.i80.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i79.i, align 8
+  %mul3.i.i.i.i.i.i81.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i80.i, 5.000000e-01
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i82.i = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 60
+  %agg.tmp3.sroa.2.0.copyload.i.i.i.i83.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i.i.i.i82.i, align 4
+  %mul3.i.i5.i.i.i.i84.i = fmul float %agg.tmp3.sroa.2.0.copyload.i.i.i.i83.i, 5.000000e-01
+  %add6.i.i.i.i.i85.i = fadd float %mul3.i.i.i.i.i.i81.i, %mul3.i.i5.i.i.i.i84.i
+  %agg.tmp.sroa.2.0.copyload.i4.i.i.i86.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i22.i, align 8
+  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i87.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i23.i, align 4
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i
-  %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i = phi float [ %t.sroa.0.0.vec.extract.i1.i148.i.i.i88.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i ], [ %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %agg.tmp3.sroa.2.0.copyload.i13.i.i.i98.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i ]
-  %mul.i.i.i65.sink.in.i.i.i39.i = phi float [ %t.sroa.0.0.vec.extract.i.i54.i.i.i86.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i ], [ %t.sroa.0.4.vec.extract.i.i7.i.i.i35.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %agg.tmp.sroa.2.0.copyload.i4.i.i.i97.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i ]
-  %retval.0.i.sroa.speculated11.i.i.i40.i = phi float [ %add.i.i.i.i.i84.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i79.i ], [ %add4.i.i.i.i.i34.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %add6.i.i.i.i.i96.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i89.i ]
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i": ; preds = %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i
+  %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i = phi float [ %t.sroa.0.0.vec.extract.i1.i148.i.i.i77.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i ], [ %t.sroa.0.4.vec.extract.i3.i16.i.i.i36.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %agg.tmp3.sroa.2.0.copyload.i13.i.i.i87.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i ]
+  %mul.i.i.i65.sink.in.i.i.i39.i = phi float [ %t.sroa.0.0.vec.extract.i.i54.i.i.i75.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i ], [ %t.sroa.0.4.vec.extract.i.i7.i.i.i35.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %agg.tmp.sroa.2.0.copyload.i4.i.i.i86.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i ]
+  %retval.0.i.sroa.speculated11.i.i.i40.i = phi float [ %add.i.i.i.i.i73.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread.i.i.i68.i ], [ %add4.i.i.i.i.i34.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.thread12.i.i.i29.i ], [ %add6.i.i.i.i.i85.i, %_ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i.i78.i ]
   %mul.i.i.i65.sink.i.i.i41.i = fmul float %mul.i.i.i65.sink.in.i.i.i39.i, 5.000000e-01
   %mul.i.i2.i159.i.i.i42.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.sink.i.i.i38.i, 5.000000e-01
   %add.i.i1910.i.i.i43.i = fadd float %mul.i.i2.i159.i.i.i42.i, %mul.i.i.i65.sink.i.i.i41.i
@@ -5344,7 +5338,7 @@ if.then3.i.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %add.ptr4.i.i, i64 %idx.neg.i.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %add.ptr.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1) %__first.addr.0.lcssa.i, i64 %sub.ptr.sub.i.i.i.i.i.i.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %__val.i.i, i64 32, i1 false)
-  br label %for.inc.i59.i
+  br label %for.inc.i58.i
 
 if.else.i.i:                                      ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit.i37.i"
   %__val.sroa.0.0.copyload.i.i.i = load i64, ptr %__i.018.i.i, align 8
@@ -5388,16 +5382,16 @@ while.body.us.i.i.i:                              ; preds = %entry.split.us.i.i.
   %__next.0.us51.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.us50.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.us51.i.i.i, i64 32, i1 false)
   %bounds.i12.i.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i, i64 -56
-  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i62.i = load <2 x float>, ptr %bounds.i12.i.i.us.i.i.i, align 8
-  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i63.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i62.i, i64 0
+  %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i = load <2 x float>, ptr %bounds.i12.i.i.us.i.i.i, align 8
+  %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp.sroa.0.0.copyload.i23.i.i.us.i.i.i, i64 0
   %pMax.i106.i.i.us.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us50.i.i.i, i64 -44
-  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i64.i = load <2 x float>, ptr %pMax.i106.i.i.us.i.i.i, align 4
-  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i65.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i64.i, i64 0
-  %mul.i.i.i65.sink.i.i.us.i.i66.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i63.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us.i.i67.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i65.i, 5.000000e-01
-  %add.i.i1910.i.i.us.i.i68.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i66.i, %mul.i.i2.i159.i.i.us.i.i67.i
-  %cmp.i.i.us.i.i69.i = fcmp olt float %add.i.i.i.i.i.i54.i, %add.i.i1910.i.i.us.i.i68.i
-  br i1 %cmp.i.i.us.i.i69.i, label %while.body.us.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !55
+  %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i = load <2 x float>, ptr %pMax.i106.i.i.us.i.i.i, align 4
+  %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i = extractelement <2 x float> %agg.tmp3.sroa.0.0.copyload.i117.i.i.us.i.i.i, i64 0
+  %mul.i.i.i65.sink.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i.i54.i.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us.i.i.i = fmul float %t.sroa.0.0.vec.extract.i1.i148.i.i.us.i.i.i, 5.000000e-01
+  %add.i.i1910.i.i.us.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us.i.i.i, %mul.i.i2.i159.i.i.us.i.i.i
+  %cmp.i.i.us.i.i.i = fcmp olt float %add.i.i.i.i.i.i54.i, %add.i.i1910.i.i.us.i.i.i
+  br i1 %cmp.i.i.us.i.i.i, label %while.body.us.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !55
 
 entry.split.us13.i.i.i:                           ; preds = %if.else.i.i
   %21 = getelementptr inbounds nuw i8, ptr %__first.pn17.i.i, i64 12
@@ -5415,11 +5409,11 @@ while.body.us25.i.i.i:                            ; preds = %entry.split.us13.i.
   %__next.0.us1661.i.i.i = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.0.us1560.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.0.us1661.i.i.i, i64 32, i1 false)
   %23 = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i, i64 -52
-  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i60.i = load float, ptr %23, align 4
+  %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i = load float, ptr %23, align 4
   %24 = getelementptr inbounds i8, ptr %__last.addr.0.us1560.i.i.i, i64 -40
-  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i61.i = load float, ptr %24, align 4
-  %mul.i.i.i65.sink.i.i.us21.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i60.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.us22.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i61.i, 5.000000e-01
+  %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i = load float, ptr %24, align 4
+  %mul.i.i.i65.sink.i.i.us21.i.i.i = fmul float %t.sroa.0.4.vec.extract.i.i7.i.i.us.i.i.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.us22.i.i.i = fmul float %t.sroa.0.4.vec.extract.i3.i16.i.i.us.i.i.i, 5.000000e-01
   %add.i.i1910.i.i.us23.i.i.i = fadd float %mul.i.i.i65.sink.i.i.us21.i.i.i, %mul.i.i2.i159.i.i.us22.i.i.i
   %cmp.i.i.us24.i.i.i = fcmp olt float %add4.i.i.i.i.i.i49.i, %add.i.i1910.i.i.us23.i.i.i
   br i1 %cmp.i.i.us24.i.i.i, label %while.body.us25.i.i.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !55
@@ -5433,41 +5427,41 @@ entry.split.i.i.i:                                ; preds = %if.else.i.i
   %mul.i.i2.i159.i.i34.i.i.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i32.i.i.i, 5.000000e-01
   %add.i.i1910.i.i35.i.i.i = fadd float %mul.i.i.i65.sink.i.i33.i.i.i, %mul.i.i2.i159.i.i34.i.i.i
   %cmp.i.i36.i.i.i = fcmp olt float %add6.i.i.i.i.i.i57.i, %add.i.i1910.i.i35.i.i.i
-  br i1 %cmp.i.i36.i.i.i, label %while.body.i.i70.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i"
+  br i1 %cmp.i.i36.i.i.i, label %while.body.i.i59.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i"
 
-while.body.i.i70.i:                               ; preds = %entry.split.i.i.i, %while.body.i.i70.i
-  %__last.addr.037.i.i.i = phi ptr [ %__next.038.i.i.i, %while.body.i.i70.i ], [ %__i.018.i.i, %entry.split.i.i.i ]
+while.body.i.i59.i:                               ; preds = %entry.split.i.i.i, %while.body.i.i59.i
+  %__last.addr.037.i.i.i = phi ptr [ %__next.038.i.i.i, %while.body.i.i59.i ], [ %__i.018.i.i, %entry.split.i.i.i ]
   %__next.038.i.i.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i, i64 -32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %__last.addr.037.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %__next.038.i.i.i, i64 32, i1 false)
-  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i71.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i, i64 -48
-  %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i72.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i71.i, align 8
-  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i73.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i, i64 -36
-  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i74.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i73.i, align 4
-  %mul.i.i.i65.sink.i.i.i.i75.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i72.i, 5.000000e-01
-  %mul.i.i2.i159.i.i.i.i76.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i74.i, 5.000000e-01
-  %add.i.i1910.i.i.i.i77.i = fadd float %mul.i.i.i65.sink.i.i.i.i75.i, %mul.i.i2.i159.i.i.i.i76.i
-  %cmp.i.i.i.i78.i = fcmp olt float %add6.i.i.i.i.i.i57.i, %add.i.i1910.i.i.i.i77.i
-  br i1 %cmp.i.i.i.i78.i, label %while.body.i.i70.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !55
+  %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i60.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i, i64 -48
+  %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i61.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i3.i.i.i.i60.i, align 8
+  %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i62.i = getelementptr inbounds i8, ptr %__last.addr.037.i.i.i, i64 -36
+  %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i63.i = load float, ptr %agg.tmp3.sroa.2.0.pMax.sroa_idx.i12.i.i.i.i62.i, align 4
+  %mul.i.i.i65.sink.i.i.i.i64.i = fmul float %agg.tmp.sroa.2.0.copyload.i4.i.i.i.i61.i, 5.000000e-01
+  %mul.i.i2.i159.i.i.i.i65.i = fmul float %agg.tmp3.sroa.2.0.copyload.i13.i.i.i.i63.i, 5.000000e-01
+  %add.i.i1910.i.i.i.i66.i = fadd float %mul.i.i.i65.sink.i.i.i.i64.i, %mul.i.i2.i159.i.i.i.i65.i
+  %cmp.i.i.i.i67.i = fcmp olt float %add6.i.i.i.i.i.i57.i, %add.i.i1910.i.i.i.i66.i
+  br i1 %cmp.i.i.i.i67.i, label %while.body.i.i59.i, label %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", !llvm.loop !55
 
-"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i": ; preds = %while.body.us25.i.i.i, %while.body.us.i.i.i, %while.body.i.i70.i, %entry.split.i.i.i, %entry.split.us13.i.i.i, %entry.split.us.i.i.i
-  %.us-phi.i.i58.i = phi ptr [ %__i.018.i.i, %entry.split.us.i.i.i ], [ %__i.018.i.i, %entry.split.us13.i.i.i ], [ %__i.018.i.i, %entry.split.i.i.i ], [ %__next.038.i.i.i, %while.body.i.i70.i ], [ %__next.0.us51.i.i.i, %while.body.us.i.i.i ], [ %__next.0.us1661.i.i.i, %while.body.us25.i.i.i ]
-  store i64 %__val.sroa.0.0.copyload.i.i.i, ptr %.us-phi.i.i58.i, align 8
-  %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i, i64 8
+"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i": ; preds = %while.body.us25.i.i.i, %while.body.us.i.i.i, %while.body.i.i59.i, %entry.split.i.i.i, %entry.split.us13.i.i.i, %entry.split.us.i.i.i
+  %.us-phi.i.i.i = phi ptr [ %__i.018.i.i, %entry.split.us.i.i.i ], [ %__i.018.i.i, %entry.split.us13.i.i.i ], [ %__i.018.i.i, %entry.split.i.i.i ], [ %__next.038.i.i.i, %while.body.i.i59.i ], [ %__next.0.us51.i.i.i, %while.body.us.i.i.i ], [ %__next.0.us1661.i.i.i, %while.body.us25.i.i.i ]
+  store i64 %__val.sroa.0.0.copyload.i.i.i, ptr %.us-phi.i.i.i, align 8
+  %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 8
   store <2 x float> %agg.tmp.sroa.0.0.copyload.i.i.i.i26.i, ptr %__val.sroa.2.0.__last.addr.0.sroa_idx.i.i.i, align 8
-  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i, i64 16
+  %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 16
   store float %__val.sroa.3.0.copyload.i.i.i, ptr %__val.sroa.3.0.__last.addr.0.sroa_idx.i.i.i, align 8
-  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i, i64 20
+  %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 20
   store <2 x float> %agg.tmp3.sroa.0.0.copyload.i.i.i.i28.i, ptr %__val.sroa.4.0.__last.addr.0.sroa_idx.i.i.i, align 4
-  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i58.i, i64 28
+  %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.us-phi.i.i.i, i64 28
   store float %__val.sroa.5.0.copyload.i.i.i, ptr %__val.sroa.5.0.__last.addr.0.sroa_idx.i.i.i, align 4
-  br label %for.inc.i59.i
+  br label %for.inc.i58.i
 
-for.inc.i59.i:                                    ; preds = %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", %if.then3.i.i
+for.inc.i58.i:                                    ; preds = %"_ZSt25__unguarded_linear_insertIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops14_Val_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_.exit.i.i", %if.then3.i.i
   %__i.0.i.i = getelementptr inbounds nuw i8, ptr %__i.018.i.i, i64 32
   %cmp2.not.i.i = icmp eq ptr %__i.0.i.i, %__last.addr.0.lcssa.i
   br i1 %cmp2.not.i.i, label %"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_T0_.exit.i", label %for.body.i24.i, !llvm.loop !56
 
-"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_T0_.exit.i": ; preds = %for.inc.i59.i, %for.cond.preheader.i.i, %while.end.i
+"_ZSt16__insertion_sortIPN4pbrt12BVHPrimitiveEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_SR_T0_.exit.i": ; preds = %for.inc.i58.i, %for.cond.preheader.i.i, %while.end.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %__val.i.i)
   br label %return
 
@@ -6497,10 +6491,10 @@ while.end.i:                                      ; preds = %while.body.i
 "_ZN4pbrt12FindIntervalIZNS_12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS6_EEPNS_15MortonPrimitiveEiPiRS5_INS_9PrimitiveESaISE_EEPSt6atomicIiEiE3$_0EEmmRKT_.exit": ; preds = %if.end24, %while.end.i
   %29 = phi i64 [ 0, %if.end24 ], [ %spec.select.i, %while.end.i ]
   %conv28 = trunc i64 %29 to i32
-  %inc29 = add nsw i32 %conv28, 1
+  %inc29 = add nuw nsw i32 %conv28, 1
   store i32 %inc29, ptr %va31, align 4
   store i32 %sub, ptr %vb32, align 4
-  %cmp34.not.not = icmp sgt i32 %sub, %conv28
+  %cmp34.not.not = icmp samesign ugt i32 %sub, %conv28
   br i1 %cmp34.not.not, label %do.body38, label %if.then35
 
 if.then35:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS6_EEPNS_15MortonPrimitiveEiPiRS5_INS_9PrimitiveESaISE_EEPSt6atomicIiEiE3$_0EEmmRKT_.exit"
@@ -6508,15 +6502,14 @@ if.then35:                                        ; preds = %"_ZN4pbrt12FindInte
   unreachable
 
 do.body38:                                        ; preds = %"_ZN4pbrt12FindIntervalIZNS_12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS6_EEPNS_15MortonPrimitiveEiPiRS5_INS_9PrimitiveESaISE_EEPSt6atomicIiEiE3$_0EEmmRKT_.exit"
-  %sext = shl i64 %29, 32
-  %30 = ashr exact i64 %sext, 29
-  %arrayidx42 = getelementptr inbounds i8, ptr %mortonPrims, i64 %30
+  %30 = shl nuw nsw i64 %29, 3
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %mortonPrims, i64 %30
   %mortonCode43 = getelementptr inbounds nuw i8, ptr %arrayidx42, i64 4
   %31 = load i32, ptr %mortonCode43, align 4
   %and44 = and i32 %31, %shl.us
   store i32 %and44, ptr %va39, align 4
-  %idxprom46 = sext i32 %inc29 to i64
-  %mortonCode48 = getelementptr inbounds %"struct.pbrt::MortonPrimitive", ptr %mortonPrims, i64 %idxprom46, i32 1
+  %idxprom46 = zext nneg i32 %inc29 to i64
+  %mortonCode48 = getelementptr inbounds nuw %"struct.pbrt::MortonPrimitive", ptr %mortonPrims, i64 %idxprom46, i32 1
   %32 = load i32, ptr %mortonCode48, align 4
   %and49 = and i32 %32, %shl.us
   store i32 %and49, ptr %vb45, align 4
@@ -6545,7 +6538,7 @@ do.end53:                                         ; preds = %do.body38
   store ptr %incdec.ptr56, ptr %buildNodes, align 8
   %sub57 = add nsw i32 %bitIndex.tr69.us76, -1
   %call58 = tail call noundef ptr @_ZN4pbrt12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS5_EEPNS_15MortonPrimitiveEiPiRS4_INS_9PrimitiveESaISD_EEPSt6atomicIiEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %buildNodes, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef nonnull %mortonPrims, i32 noundef %inc29, ptr noundef nonnull %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims, ptr noundef %orderedPrimsOffset, i32 noundef %sub57)
-  %arrayidx60 = getelementptr inbounds %"struct.pbrt::MortonPrimitive", ptr %mortonPrims, i64 %idxprom46
+  %arrayidx60 = getelementptr inbounds nuw %"struct.pbrt::MortonPrimitive", ptr %mortonPrims, i64 %idxprom46
   %sub61 = sub nsw i32 %nPrimitives, %inc29
   %call63 = tail call noundef ptr @_ZN4pbrt12BVHAggregate8emitLBVHERPNS_12BVHBuildNodeERKSt6vectorINS_12BVHPrimitiveESaIS5_EEPNS_15MortonPrimitiveEiPiRS4_INS_9PrimitiveESaISD_EEPSt6atomicIiEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %buildNodes, ptr noundef nonnull align 8 dereferenceable(24) %bvhPrimitives, ptr noundef nonnull %arrayidx60, i32 noundef %sub61, ptr noundef nonnull %totalNodes, ptr noundef nonnull align 8 dereferenceable(24) %orderedPrims, ptr noundef %orderedPrimsOffset, i32 noundef %sub57)
   %rem = srem i32 %bitIndex.tr69.us76, 3

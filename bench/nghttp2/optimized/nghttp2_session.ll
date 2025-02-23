@@ -7821,7 +7821,7 @@ return:                                           ; preds = %if.then.i38, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_close_stream_on_goaway(ptr noundef %session, i32 noundef %last_stream_id, i32 noundef range(i32 0, 2) %incoming) unnamed_addr #1 {
+define internal fastcc range(i32 -2147483648, 1) i32 @session_close_stream_on_goaway(ptr noundef %session, i32 noundef %last_stream_id, i32 noundef range(i32 0, 2) %incoming) unnamed_addr #1 {
 entry:
   %arg = alloca %struct.nghttp2_close_stream_on_goaway_arg, align 8
   store ptr %session, ptr %arg, align 8

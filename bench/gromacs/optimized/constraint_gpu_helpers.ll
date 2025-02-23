@@ -371,7 +371,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %.not.i.i = icmp ne ptr %.sroa.060.0, %.0.i.i.i.i.i
   tail call void @llvm.assume(i1 %.not.i.i)
   %.not13.i.i = icmp eq ptr %invariant.gep83, %.0.i.i.i.i.i
-  br i1 %.not13.i.i, label %_ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.thread80, label %.lr.ph.i.i.i.preheader
+  br i1 %.not13.i.i, label %.loopexit80, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %._crit_edge
   %35 = load i32, ptr %.sroa.060.0, align 4
@@ -385,9 +385,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %38 = getelementptr i8, ptr %.sroa.03.09.i.i.i, i64 4
   store i32 %37, ptr %.sroa.03.09.i.i.i, align 4
   %.not.i.i.i = icmp eq ptr %38, %.0.i.i.i.i.i
-  br i1 %.not.i.i.i, label %_ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.thread80, label %.lr.ph.i.i.i, !llvm.loop !8
+  br i1 %.not.i.i.i, label %.loopexit80, label %.lr.ph.i.i.i, !llvm.loop !8
 
-_ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.thread80: ; preds = %.lr.ph.i.i.i, %._crit_edge
+.loopexit80:                                      ; preds = %.lr.ph.i.i.i, %._crit_edge
   %39 = ptrtoint ptr %.0.i.i.i.i.i to i64
   %40 = ptrtoint ptr %.sroa.060.0 to i64
   %41 = sub i64 %39, %40
@@ -395,14 +395,14 @@ _ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_
   %42 = icmp ugt i64 %41, 9223372036854775804
   br i1 %42, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i
 
-.noexc.i.i:                                       ; preds = %_ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.thread80
+.noexc.i.i:                                       ; preds = %.loopexit80
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #18
           to label %.noexc39 unwind label %79
 
 .noexc39:                                         ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %_ZSt14inclusive_scanIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.thread80
+_ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %.loopexit80
   %43 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #19
           to label %44 unwind label %79
 

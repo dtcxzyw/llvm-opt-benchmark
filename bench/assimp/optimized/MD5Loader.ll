@@ -1739,9 +1739,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   store i32 1, ptr %479, align 8
   %480 = getelementptr inbounds nuw i8, ptr %474, i64 32
   %481 = icmp eq ptr %480, %472
-  br i1 %481, label %.loopexit193, label %473
+  br i1 %481, label %.lr.ph.preheader, label %473
 
-.loopexit193:                                     ; preds = %473
+.lr.ph.preheader:                                 ; preds = %473
   store ptr %468, ptr %443, align 8
   br label %.lr.ph
 
@@ -1755,8 +1755,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
           cleanup
   br label %532
 
-.lr.ph:                                           ; preds = %.loopexit193, %520
-  %indvars.iv = phi i64 [ %indvars.iv.next, %520 ], [ 0, %.loopexit193 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %520
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %520 ]
   %486 = load i32, ptr %.sroa.0163.0197, align 4
   %487 = trunc nuw i64 %indvars.iv to i32
   %488 = add i32 %486, %487

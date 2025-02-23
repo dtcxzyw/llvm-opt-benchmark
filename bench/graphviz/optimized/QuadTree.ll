@@ -1470,7 +1470,7 @@ QuadTree_new_in_quadrant.exit:                    ; preds = %.lr.ph.i135, %84
 99:                                               ; preds = %QuadTree_new_in_quadrant.exit, %QuadTree_get_quadrant.exit
   %100 = phi ptr [ %88, %QuadTree_new_in_quadrant.exit ], [ %82, %QuadTree_get_quadrant.exit ]
   %101 = add nsw i32 %4, 1
-  %102 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %100, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %101)
+  %102 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %100, ptr noundef %1, double noundef %2, i32 noundef %3, i32 noundef %101)
   %103 = load ptr, ptr %52, align 8, !tbaa !26
   %104 = getelementptr inbounds ptr, ptr %103, i64 %80
   store ptr %100, ptr %104, align 8, !tbaa !32
@@ -1554,7 +1554,7 @@ QuadTree_new_in_quadrant.exit155:                 ; preds = %.lr.ph.i148, %127
 
 144:                                              ; preds = %QuadTree_new_in_quadrant.exit155, %QuadTree_get_quadrant.exit145
   %145 = phi ptr [ %132, %QuadTree_new_in_quadrant.exit155 ], [ %125, %QuadTree_get_quadrant.exit145 ]
-  %146 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef %145, ptr noundef %111, double noundef %112, i32 noundef %109, i32 noundef %101)
+  %146 = tail call fastcc ptr @QuadTree_add_internal(ptr noundef nonnull %145, ptr noundef %111, double noundef %112, i32 noundef %109, i32 noundef %101)
   %147 = load ptr, ptr %52, align 8, !tbaa !26
   %148 = getelementptr inbounds ptr, ptr %147, i64 %123
   store ptr %145, ptr %148, align 8, !tbaa !32

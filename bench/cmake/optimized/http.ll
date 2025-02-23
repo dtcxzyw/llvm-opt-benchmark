@@ -3248,7 +3248,7 @@ define dso_local i32 @Curl_http_req_set_reader(ptr noundef %0, i32 noundef %1, p
   %.1.i.i = phi ptr [ %spec.select.i.i, %53 ], [ %.0.i.i, %49 ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %58 = load ptr, ptr %57, align 8, !tbaa !146
-  %59 = tail call i32 @curl_mime_headers(ptr noundef %43, ptr noundef %58, i32 noundef 0) #11
+  %59 = tail call i32 @curl_mime_headers(ptr noundef nonnull %43, ptr noundef %58, i32 noundef 0) #11
   %60 = load ptr, ptr %41, align 8, !tbaa !174
   %61 = tail call i32 @Curl_mime_prepare_headers(ptr noundef nonnull %0, ptr noundef %60, ptr noundef %.1.i.i, ptr noundef null, i32 noundef 1) #11
   %.not61.i.i = icmp eq i32 %61, 0

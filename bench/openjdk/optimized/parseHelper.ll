@@ -894,7 +894,7 @@ _ZN8GraphKit11set_controlEP4Node.exit:            ; preds = %179, %168, %_ZN4Nod
   %210 = load ptr, ptr %198, align 8
   %211 = load ptr, ptr %210, align 8
   %212 = call noundef ptr %211(ptr noundef nonnull align 8 dereferenceable(2400) %198, ptr noundef %209) #4
-  %213 = call noundef ptr @_ZN8GraphKit13gen_checkcastEP4NodeS1_PS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %17, ptr noundef %212, ptr noundef null) #4
+  %213 = call noundef ptr @_ZN8GraphKit13gen_checkcastEP4NodeS1_PS1_(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef nonnull %17, ptr noundef %212, ptr noundef null) #4
   br label %214
 
 214:                                              ; preds = %1, %204

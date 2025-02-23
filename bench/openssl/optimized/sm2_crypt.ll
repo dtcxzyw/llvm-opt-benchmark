@@ -291,7 +291,7 @@ ec_field_size.exit.thread:                        ; preds = %21, %ec_field_size.
   br label %131
 
 69:                                               ; preds = %66
-  %70 = tail call i32 @BN_bn2binpad(ptr noundef %42, ptr noundef %49, i32 noundef %26) #5
+  %70 = tail call i32 @BN_bn2binpad(ptr noundef %42, ptr noundef nonnull %49, i32 noundef %26) #5
   %71 = icmp slt i32 %70, 0
   br i1 %71, label %75, label %72
 
@@ -711,12 +711,12 @@ is_all_zeros.exit:                                ; preds = %.lr.ph.i
   br i1 %.not138, label %.sink.split, label %102
 
 102:                                              ; preds = %100
-  %103 = call i32 @EVP_DigestFinal(ptr noundef nonnull %92, ptr noundef %52, ptr noundef null) #5
+  %103 = call i32 @EVP_DigestFinal(ptr noundef nonnull %92, ptr noundef nonnull %52, ptr noundef null) #5
   %.not139 = icmp eq i32 %103, 0
   br i1 %.not139, label %.sink.split, label %104
 
 104:                                              ; preds = %102
-  %105 = call i32 @CRYPTO_memcmp(ptr noundef %52, ptr noundef %35, i64 noundef %51) #5
+  %105 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %52, ptr noundef %35, i64 noundef %51) #5
   %.not140 = icmp eq i32 %105, 0
   br i1 %.not140, label %106, label %.sink.split
 

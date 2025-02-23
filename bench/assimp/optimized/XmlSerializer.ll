@@ -1490,7 +1490,7 @@ _ZN10aiMetadata3SetI8aiStringEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
   br i1 %435, label %416, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %416, %409, %.lr.ph317
-  %436 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0196.0315) #29
+  %436 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0196.0315) #29
   %.not255 = icmp eq ptr %436, %401
   br i1 %.not255, label %_ZNK4pugi8xml_node5childEPKc.exit.thread, label %.lr.ph317
 

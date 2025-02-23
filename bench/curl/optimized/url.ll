@@ -3921,7 +3921,7 @@ str_has_ctrl.exit138:                             ; preds = %79
   br i1 %.not.i137.not, label %84, label %83
 
 83:                                               ; preds = %str_has_ctrl.exit138, %str_has_ctrl.exit
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.59) #11
+  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.59) #11
   br label %Curl_uc_to_curlcode.exit
 
 84:                                               ; preds = %str_has_ctrl.exit138, %65

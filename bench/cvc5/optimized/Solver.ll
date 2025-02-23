@@ -6069,11 +6069,11 @@ _ZNK4cvc58internal7Minisat6Solver9needProofEv.exit368.thread: ; preds = %306, %3
   %336 = trunc nuw nsw i64 %indvars.iv.next601 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader550, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit, %.loopexit.loopexit
-  %.pr = phi i32 [ %326, %.loopexit.loopexit ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ], [ %269, %.preheader550 ]
-  %.6 = phi i32 [ %.5, %.loopexit.loopexit ], [ %.1537.lcssa, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ], [ %.1537.lcssa, %.preheader550 ]
-  %.2165 = phi i32 [ %336, %.loopexit.loopexit ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ], [ 1, %.preheader550 ]
-  %.2162 = phi i32 [ %.1161, %.loopexit.loopexit ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ], [ 1, %.preheader550 ]
+.loopexit:                                        ; preds = %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit, %.preheader550, %.loopexit.loopexit
+  %.pr = phi i32 [ %326, %.loopexit.loopexit ], [ %269, %.preheader550 ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ]
+  %.6 = phi i32 [ %.5, %.loopexit.loopexit ], [ %.1537.lcssa, %.preheader550 ], [ %.1537.lcssa, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ]
+  %.2165 = phi i32 [ %336, %.loopexit.loopexit ], [ 1, %.preheader550 ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ]
+  %.2162 = phi i32 [ %.1161, %.loopexit.loopexit ], [ 1, %.preheader550 ], [ %269, %_ZNK4cvc58internal7Minisat3vecINS1_3LitEE6copyToERS4_.exit ]
   %337 = sext i32 %.pr to i64
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %339 = load i64, ptr %338, align 8, !tbaa !416

@@ -965,7 +965,7 @@ define range(i32 -2147483647, -2147483648) i32 @Cut_ManMappingArea_rec(ptr nound
   %.021 = phi i32 [ 0, %.lr.ph ], [ %20, %16 ]
   %17 = getelementptr inbounds nuw [0 x i32], ptr %15, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !35
-  %19 = tail call i32 @Cut_ManMappingArea_rec(ptr noundef %0, i32 noundef %18)
+  %19 = tail call i32 @Cut_ManMappingArea_rec(ptr noundef nonnull %0, i32 noundef %18)
   %20 = add nsw i32 %19, %.021
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load i32, ptr %10, align 8

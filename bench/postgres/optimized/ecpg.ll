@@ -781,7 +781,7 @@ thread-pre-split:                                 ; preds = %254, %.thread-pre-s
 ._crit_edge203:                                   ; preds = %.lr.ph202, %._crit_edge
   %297 = getelementptr inbounds nuw i8, ptr %.0109205, i64 72
   %298 = load ptr, ptr %297, align 8
-  call void @free(ptr noundef %.0109205) #11
+  call void @free(ptr noundef nonnull %.0109205) #11
   %.not123 = icmp eq ptr %298, null
   br i1 %.not123, label %._crit_edge208, label %.lr.ph207, !llvm.loop !11
 

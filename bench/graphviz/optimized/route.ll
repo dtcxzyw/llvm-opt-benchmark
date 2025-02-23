@@ -155,11 +155,11 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph198, label %.lr.ph, !llvm.loop !22
 
-.preheader:                                       ; preds = %41, %21
-  %40 = icmp sgt i32 %3, 0
+.preheader:                                       ; preds = %21
+  %40 = icmp eq i32 %3, 1
   br i1 %40, label %.lr.ph200.preheader, label %._crit_edge.i
 
-.lr.ph200.preheader:                              ; preds = %.preheader
+.lr.ph200.preheader:                              ; preds = %41, %.preheader
   %wide.trip.count230 = zext nneg i32 %3 to i64
   br label %.lr.ph200
 
@@ -172,7 +172,7 @@ define internal fastcc range(i32 -1, 1) i32 @reallyroutespline(ptr noundef %0, i
   store double %45, ptr %43, align 8, !tbaa !20
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
   %exitcond226.not = icmp eq i64 %indvars.iv.next223, %24
-  br i1 %exitcond226.not, label %.preheader, label %41, !llvm.loop !24
+  br i1 %exitcond226.not, label %.lr.ph200.preheader, label %41, !llvm.loop !24
 
 .lr.ph200:                                        ; preds = %.lr.ph200.preheader, %.lr.ph200
   %indvars.iv227 = phi i64 [ 0, %.lr.ph200.preheader ], [ %indvars.iv.next228, %.lr.ph200 ]

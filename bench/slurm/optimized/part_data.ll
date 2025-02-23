@@ -207,7 +207,7 @@ define dso_local void @part_data_build_row_bitmaps(ptr noundef captures(none) in
   br label %57
 
 57:                                               ; preds = %56, %53
-  tail call void @part_data_dump_res(ptr noundef %0)
+  tail call void @part_data_dump_res(ptr noundef nonnull %0)
   br label %58
 
 58:                                               ; preds = %57, %50

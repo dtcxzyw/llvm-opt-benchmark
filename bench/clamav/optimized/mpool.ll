@@ -81,7 +81,7 @@ define void @mpool_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = add i64 %9, 832
-  %11 = tail call i32 @munmap(ptr noundef %0, i64 noundef %10) #10
+  %11 = tail call i32 @munmap(ptr noundef nonnull %0, i64 noundef %10) #10
   ret void
 }
 

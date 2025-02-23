@@ -1752,7 +1752,7 @@ PyObject_TypeCheck.exit302.thread:                ; preds = %220, %PyObject_Type
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 40
   %273 = load ptr, ptr %272, align 8, !tbaa !51
-  call fastcc void @PyStgInfo_FromType(ptr noundef %.val.i, ptr noundef %273, ptr noundef %9)
+  call fastcc void @PyStgInfo_FromType(ptr noundef nonnull %.val.i, ptr noundef %273, ptr noundef %9)
   %274 = load ptr, ptr %272, align 8, !tbaa !51
   %275 = load ptr, ptr %268, align 8, !tbaa !52
   %276 = getelementptr i8, ptr %274, i64 8

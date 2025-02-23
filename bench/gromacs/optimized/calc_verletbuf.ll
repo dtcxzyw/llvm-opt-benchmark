@@ -5042,7 +5042,7 @@ _ZL20displacementVarianceRK10t_inputrecff.exit:   ; preds = %72, %._crit_edge.i,
   %98 = fptosi float %97 to i32
   %99 = add nsw i32 %98, 1
   %100 = icmp sgt i32 %98, 0
-  br i1 %100, label %.lr.ph, label %._crit_edge
+  br i1 %100, label %.lr.ph, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.loopexit107
   %101 = icmp eq ptr %2, %3
@@ -5085,7 +5085,7 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us:
   %.us-phi136 = phi i32 [ %116, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us.us ], [ %118, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us ]
   %120 = sitofp i32 %.us-phi136 to float
   %121 = fmul float %120, 0x3F50624DE0000000
-  br label %._crit_edge
+  br label %._crit_edge.thread
 
 .lr.ph.i57.preheader.us:                          ; preds = %.lr.ph.split.us, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us
   %.048132.us = phi i32 [ %.048..us, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ], [ %99, %.lr.ph.split.us ]
@@ -5760,16 +5760,16 @@ _ZL22getAtomConstraintPropsRK13gmx_moltype_tRK14gmx_ffparams_t.exit.i.i: ; preds
 
 511:                                              ; preds = %._crit_edge.i.i
   %512 = icmp samesign ugt i32 %spec.select.i.i, 2
-  br i1 %512, label %.preheader114.i.i, label %.thread.i.i
+  br i1 %512, label %.lr.ph141.i.i, label %.thread.i.i
 
-.preheader114.i.i:                                ; preds = %511
+.lr.ph141.i.i:                                    ; preds = %511
   %513 = add nsw i32 %spec.select.i.i, -1
   %514 = uitofp nneg i32 %spec.select.i.i to float
   br label %515
 
-515:                                              ; preds = %524, %.preheader114.i.i
-  %indvars.iv161.i.i = phi i64 [ %482, %.preheader114.i.i ], [ %indvars.iv.next162.i.i, %524 ]
-  %.1139.i.i = phi float [ 0.000000e+00, %.preheader114.i.i ], [ %.2.i.i, %524 ]
+515:                                              ; preds = %524, %.lr.ph141.i.i
+  %indvars.iv161.i.i = phi i64 [ %482, %.lr.ph141.i.i ], [ %indvars.iv.next162.i.i, %524 ]
+  %.1139.i.i = phi float [ 0.000000e+00, %.lr.ph141.i.i ], [ %.2.i.i, %524 ]
   %516 = getelementptr inbounds %struct.AtomConstraintProps, ptr %.sroa.0102.0.i.i, i64 %indvars.iv161.i.i
   %517 = load i32, ptr %516, align 4
   %518 = icmp eq i32 %517, %513
@@ -6004,18 +6004,20 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit: ; pre
   %.pre = load ptr, ptr %7, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us, %._crit_edge.loopexit142, %._crit_edge.split.us.split.us, %.loopexit107
-  %660 = phi ptr [ %78, %.loopexit107 ], [ %78, %._crit_edge.split.us.split.us ], [ %.pre, %._crit_edge.loopexit142 ], [ %78, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ]
-  %.047.lcssa = phi float [ 0.000000e+00, %.loopexit107 ], [ %121, %._crit_edge.split.us.split.us ], [ %344, %._crit_edge.loopexit142 ], [ %125, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ]
+._crit_edge:                                      ; preds = %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us, %._crit_edge.loopexit142
+  %660 = phi ptr [ %.pre, %._crit_edge.loopexit142 ], [ %78, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ]
+  %.047.lcssa = phi float [ %344, %._crit_edge.loopexit142 ], [ %125, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us ]
   %.not.i.i.i69 = icmp eq ptr %660, null
-  br i1 %.not.i.i.i69, label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit70, label %661
+  br i1 %.not.i.i.i69, label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit70, label %._crit_edge.thread
 
-661:                                              ; preds = %._crit_edge
-  tail call void @_ZdlPv(ptr noundef nonnull %660) #29
+._crit_edge.thread:                               ; preds = %._crit_edge.split.us.split.us, %.loopexit107, %._crit_edge
+  %.047.lcssa173 = phi float [ %.047.lcssa, %._crit_edge ], [ %121, %._crit_edge.split.us.split.us ], [ 0.000000e+00, %.loopexit107 ]
+  %661 = phi ptr [ %660, %._crit_edge ], [ %78, %._crit_edge.split.us.split.us ], [ %78, %.loopexit107 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %661) #29
   br label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit70
 
-_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit70: ; preds = %661, %._crit_edge, %14
-  %.046 = phi float [ %23, %14 ], [ %.047.lcssa, %._crit_edge ], [ %.047.lcssa, %661 ]
+_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit70: ; preds = %._crit_edge.thread, %._crit_edge, %14
+  %.046 = phi float [ %23, %14 ], [ %.047.lcssa, %._crit_edge ], [ %.047.lcssa173, %._crit_edge.thread ]
   ret float %.046
 }
 

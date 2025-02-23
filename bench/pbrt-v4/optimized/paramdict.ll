@@ -3243,11 +3243,11 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i.i.i.i.i.
 
 invoke.cont12.i.i:                                ; preds = %for.body.lr.ph.i.i, %invoke.cont12.i.i
   %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont12.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %.pre, i64 %i.017.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw float, ptr %.pre, i64 %i.017.i.i
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !59
-  %add.ptr.i.i.i = getelementptr inbounds float, ptr %call5.i.i.i.i2.i.i15.i.i, i64 %i.017.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw float, ptr %call5.i.i.i.i2.i.i15.i.i, i64 %i.017.i.i
   store float %7, ptr %add.ptr.i.i.i, align 4, !noalias !59
-  %inc.i.i = add nuw i64 %i.017.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.017.i.i, 1
   %exitcond.not = icmp eq i64 %inc.i.i, %5
   br i1 %exitcond.not, label %_ZNK4pbrt19ParameterDictionary11lookupArrayIfPFRKN4pstd6vectorIfNS2_3pmr21polymorphic_allocatorIfEEEERKNS_15ParsedParameterEEPFfPKfPKNS_7FileLocEEEESt6vectorIT_SaISN_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ParameterTypeEPKciT0_T1_.exit, label %invoke.cont12.i.i, !llvm.loop !60
 
@@ -3362,11 +3362,11 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i.i.i.i.i.i.
 
 invoke.cont12.i.i:                                ; preds = %for.body.lr.ph.i.i, %invoke.cont12.i.i
   %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont12.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i32, ptr %.pre, i64 %i.017.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i32, ptr %.pre, i64 %i.017.i.i
   %7 = load i32, ptr %arrayidx.i.i.i, align 4, !noalias !67
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i15.i.i, i64 %i.017.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i15.i.i, i64 %i.017.i.i
   store i32 %7, ptr %add.ptr.i.i.i, align 4, !noalias !67
-  %inc.i.i = add nuw i64 %i.017.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.017.i.i, 1
   %exitcond.not = icmp eq i64 %inc.i.i, %5
   br i1 %exitcond.not, label %_ZNK4pbrt19ParameterDictionary11lookupArrayIiPFRKN4pstd6vectorIiNS2_3pmr21polymorphic_allocatorIiEEEERKNS_15ParsedParameterEEPFiPKiPKNS_7FileLocEEEESt6vectorIT_SaISN_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ParameterTypeEPKciT0_T1_.exit, label %invoke.cont12.i.i, !llvm.loop !68
 
@@ -3480,13 +3480,13 @@ for.body.lr.ph.i.i:                               ; preds = %if.then.i.i.i.i.i.i
 
 invoke.cont12.i.i:                                ; preds = %for.body.lr.ph.i.i, %invoke.cont12.i.i
   %i.017.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %inc.i.i, %invoke.cont12.i.i ]
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %i.017.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %i.017.i.i
   %6 = load i8, ptr %arrayidx.i.i.i, align 1, !noalias !75
   %tobool.i = icmp ne i8 %6, 0
   %conv14.i.i = zext i1 %tobool.i to i8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i15.i.i, i64 %i.017.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i1.i.i15.i.i, i64 %i.017.i.i
   store i8 %conv14.i.i, ptr %add.ptr.i.i.i, align 1, !noalias !75
-  %inc.i.i = add nuw i64 %i.017.i.i, 1
+  %inc.i.i = add nuw nsw i64 %i.017.i.i, 1
   %exitcond.not = icmp eq i64 %inc.i.i, %5
   br i1 %exitcond.not, label %_ZNK4pbrt19ParameterDictionary11lookupArrayIhPFRKN4pstd6vectorIhNS2_3pmr21polymorphic_allocatorIhEEEERKNS_15ParsedParameterEEPFbPKhPKNS_7FileLocEEEESt6vectorIT_SaISN_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13ParameterTypeEPKciT0_T1_.exit, label %invoke.cont12.i.i, !llvm.loop !76
 
@@ -3605,8 +3605,8 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; p
 
 invoke.cont13.i.i:                                ; preds = %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %invoke.cont13.i.i
   %i.017.i.i = phi i64 [ 0, %_ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
-  %arrayidx.i.i.i.idx = shl i64 %i.017.i.i, 3
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
+  %arrayidx.i.i.i.idx = shl nsw i64 %i.017.i.i, 3
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !83
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
   %8 = load float, ptr %arrayidx1.i, align 4, !noalias !83
@@ -3737,8 +3737,8 @@ _ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i: ; 
 
 invoke.cont13.i.i:                                ; preds = %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i, %invoke.cont13.i.i
   %i.017.i.i = phi i64 [ 0, %_ZNSt6vectorIN4pbrt7Vector2IfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i.i ], [ %inc.i.i, %invoke.cont13.i.i ]
-  %arrayidx.i.i.i.idx = shl i64 %i.017.i.i, 3
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
+  %arrayidx.i.i.i.idx = shl nsw i64 %i.017.i.i, 3
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %.pre, i64 %arrayidx.i.i.i.idx
   %7 = load float, ptr %arrayidx.i.i.i, align 4, !noalias !91
   %arrayidx1.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 4
   %8 = load float, ptr %arrayidx1.i, align 4, !noalias !91
@@ -10949,16 +10949,16 @@ for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
   %dec.i.i.i.i.i.i = add i64 %__n.addr.05.i.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.06.i.i.i.i.i.i, i64 32
   %cmp.not.i.i.i.i.i.i = icmp eq i64 %dec.i.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %invoke.cont.i, label %for.body.i.i.i.i.i.i, !llvm.loop !144
+  br i1 %cmp.not.i.i.i.i.i.i, label %for.body.lr.ph.i, label %for.body.i.i.i.i.i.i, !llvm.loop !144
 
-invoke.cont.i:                                    ; preds = %for.body.i.i.i.i.i.i
+for.body.lr.ph.i:                                 ; preds = %for.body.i.i.i.i.i.i
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %_M_finish.i.i.i.i, align 8, !alias.scope !141
   %ptr.i.i11 = getelementptr inbounds nuw i8, ptr %call7, i64 8
   %loc13.i = getelementptr inbounds nuw i8, ptr %3, i64 64
   br label %for.body.i
 
-for.body.i:                                       ; preds = %invoke.cont14.i, %invoke.cont.i
-  %i.017.i = phi i64 [ 0, %invoke.cont.i ], [ %inc.i, %invoke.cont14.i ]
+for.body.i:                                       ; preds = %invoke.cont14.i, %for.body.lr.ph.i
+  %i.017.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %invoke.cont14.i ]
   %mul.i = mul i64 %i.017.i, %conv.i
   %7 = load ptr, ptr %ptr.i.i11, align 8, !noalias !141
   %arrayidx.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %7, i64 %mul.i

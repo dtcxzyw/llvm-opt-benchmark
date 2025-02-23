@@ -556,7 +556,7 @@ define void @Cgt_ManCollectVisited(ptr noundef %0, ptr noundef readonly captures
   %.val = load ptr, ptr %7, align 8, !tbaa !31
   %9 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !32
-  tail call void @Cgt_ManCollectVisited_rec(ptr noundef %0, ptr noundef %10, ptr noundef %2)
+  tail call void @Cgt_ManCollectVisited_rec(ptr noundef %0, ptr noundef %10, ptr noundef nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val9 = load i32, ptr %5, align 4, !tbaa !28
   %11 = sext i32 %.val9 to i64
@@ -598,7 +598,7 @@ define ptr @Cgt_ManConstructCareCondition(ptr noundef readonly captures(none) %0
   %.val.i = load ptr, ptr %20, align 8, !tbaa !31
   %22 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !32
-  tail call void @Cgt_ManCollectVisited_rec(ptr noundef %13, ptr noundef %23, ptr noundef %16)
+  tail call void @Cgt_ManCollectVisited_rec(ptr noundef %13, ptr noundef %23, ptr noundef nonnull %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.val9.i = load i32, ptr %18, align 4, !tbaa !28
   %24 = sext i32 %.val9.i to i64
@@ -947,8 +947,8 @@ Aig_ObjChild1CopyVec.exit134:                     ; preds = %Aig_ObjChild0CopyVe
   %.val80 = load ptr, ptr %195, align 8, !tbaa !31
   %205 = getelementptr inbounds ptr, ptr %.val80, i64 %202
   %206 = load ptr, ptr %205, align 8, !tbaa !32
-  %207 = tail call ptr @Aig_Exor(ptr noundef %1, ptr noundef %204, ptr noundef %206) #13
-  %208 = tail call ptr @Aig_Or(ptr noundef %1, ptr noundef %.073144, ptr noundef %207) #13
+  %207 = tail call ptr @Aig_Exor(ptr noundef nonnull %1, ptr noundef %204, ptr noundef %206) #13
+  %208 = tail call ptr @Aig_Or(ptr noundef nonnull %1, ptr noundef %.073144, ptr noundef %207) #13
   %indvars.iv.next152 = add nuw nsw i64 %indvars.iv151, 1
   %209 = load ptr, ptr %11, align 8, !tbaa !49
   %210 = getelementptr i8, ptr %209, i64 4

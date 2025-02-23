@@ -473,19 +473,19 @@ hash_to_str.exit:                                 ; preds = %246
   %261 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %257, i64 noundef 3, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2, i32 noundef %260)
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i100 = icmp eq i64 %indvars.iv.next.i99, 20
-  br i1 %exitcond.not.i100, label %hash_to_str.exit101, label %255, !llvm.loop !12
+  br i1 %exitcond.not.i100, label %hash_to_str.exit101.thread, label %255, !llvm.loop !12
 
-hash_to_str.exit101:                              ; preds = %255, %230
-  br i1 %234, label %262, label %264
+hash_to_str.exit101:                              ; preds = %230
+  br i1 %234, label %hash_to_str.exit101.thread, label %263
 
-262:                                              ; preds = %hash_to_str.exit101
-  %263 = call i32 @fclose(ptr noundef nonnull %233)
-  br label %264
+hash_to_str.exit101.thread:                       ; preds = %255, %hash_to_str.exit101
+  %262 = call i32 @fclose(ptr noundef nonnull %233)
+  br label %263
 
-264:                                              ; preds = %262, %hash_to_str.exit101
+263:                                              ; preds = %hash_to_str.exit101.thread, %hash_to_str.exit101
   call void @g_free(ptr noundef %231)
-  %265 = load ptr, ptr %7, align 8
-  call void @gcry_md_close(ptr noundef %265)
+  %264 = load ptr, ptr %7, align 8
+  call void @gcry_md_close(ptr noundef %264)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #8

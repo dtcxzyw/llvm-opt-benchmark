@@ -678,7 +678,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
 52:                                               ; preds = %41, %GifBitSize.exit.i, %33
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr null, ptr %53, align 8
-  tail call void @FreeLastSavedImage(ptr noundef %0)
+  tail call void @FreeLastSavedImage(ptr noundef nonnull %0)
   br label %89
 
 54:                                               ; preds = %GifMakeMapObject.exit, %22
@@ -695,7 +695,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %54
-  tail call void @FreeLastSavedImage(ptr noundef %0)
+  tail call void @FreeLastSavedImage(ptr noundef nonnull %0)
   br label %89
 
 65:                                               ; preds = %54
@@ -723,7 +723,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %75
-  tail call void @FreeLastSavedImage(ptr noundef %0)
+  tail call void @FreeLastSavedImage(ptr noundef nonnull %0)
   br label %89
 
 83:                                               ; preds = %75

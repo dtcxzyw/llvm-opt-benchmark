@@ -517,7 +517,7 @@ _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit.i.i40.i: ; preds = %
 _ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE6appendINS_12SuccIteratorINS_11InstructionES1_EEvEEvT_S8_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i44.i, %_ZN4llvm15SmallVectorImplIPNS_10BasicBlockEE7reserveEm.exit.i.i40.i
   %139 = add i32 %133, %.sink.i.i.i39.i
   store i32 %139, ptr %43, align 8, !tbaa !48
-  call void @_ZN4llvm15DeleteDeadBlockEPNS_10BasicBlockEPNS_14DomTreeUpdaterEb(ptr noundef %104, ptr noundef null, i1 noundef zeroext false) #17
+  call void @_ZN4llvm15DeleteDeadBlockEPNS_10BasicBlockEPNS_14DomTreeUpdaterEb(ptr noundef nonnull %104, ptr noundef null, i1 noundef zeroext false) #17
   %.pr.pre.i.i = load i32, ptr %43, align 8, !tbaa !48
   br label %_ZN4llvm10pred_emptyEPKNS_10BasicBlockE.exit.i.i
 
@@ -1720,7 +1720,7 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   %spec.select.i.i60 = select i1 %87, ptr null, ptr %88
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %89 = getelementptr inbounds nuw i8, ptr %spec.select.i.i60, i64 24
-  %90 = getelementptr inbounds nuw i8, ptr %spec.select.i.i60, i64 40
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !84
   store ptr %91, ptr %34, align 8, !tbaa !97
   store ptr %89, ptr %36, align 8

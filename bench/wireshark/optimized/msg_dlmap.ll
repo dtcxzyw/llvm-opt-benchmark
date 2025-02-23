@@ -5448,7 +5448,7 @@ define internal i32 @dissect_mac_mgmt_msg_dlmap_decoder(ptr noundef %0, ptr noun
 
 36:                                               ; preds = %._crit_edge
   %37 = load i32, ptr @hf_padding, align 4
-  %38 = sdiv i32 %33, 2
+  %38 = lshr i32 %33, 1
   %39 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %9, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 1, ptr noundef null, ptr noundef nonnull @.str.6)
   br label %._crit_edge.thread
 

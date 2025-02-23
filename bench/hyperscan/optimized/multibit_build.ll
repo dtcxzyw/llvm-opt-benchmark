@@ -72,8 +72,8 @@ if.then2:                                         ; preds = %if.end
 while.cond:                                       ; preds = %while.cond, %while.cond.preheader
   %current_level.0 = phi i64 [ %mul, %while.cond ], [ 1, %while.cond.preheader ]
   %total.0 = phi i64 [ %add5, %while.cond ], [ 0, %while.cond.preheader ]
-  %mul = shl i64 %current_level.0, 6
-  %cmp4 = icmp ult i64 %mul, %conv
+  %mul = shl nuw nsw i64 %current_level.0, 6
+  %cmp4 = icmp samesign ult i64 %mul, %conv
   %add5 = add i64 %total.0, %current_level.0
   br i1 %cmp4, label %while.cond, label %while.end, !llvm.loop !5
 
@@ -1094,7 +1094,7 @@ for.body.i.i.i.i.i:                               ; preds = %if.then.i.i.i167.i,
   br i1 %cmp.i.i.i.i.i, label %for.body.i.i.i.i.i, label %_ZNSt11_Deque_baseIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i, !llvm.loop !15
 
 _ZNSt11_Deque_baseIPKN3ue212_GLOBAL__N_18TreeNodeESaIS4_EE16_M_destroy_nodesEPPS4_S8_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i.i, %if.then.i.i.i167.i
-  call void @_ZdlPv(ptr noundef %95) #21
+  call void @_ZdlPv(ptr noundef nonnull %95) #21
   br label %do.end13
 
 invoke.cont82.i:                                  ; preds = %for.cond.cleanup34.i, %invoke.cont82.i

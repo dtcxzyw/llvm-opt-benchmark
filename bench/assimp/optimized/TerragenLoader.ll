@@ -258,13 +258,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i196, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i197
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #19
-  br label %424
+  br label %423
 
 32:                                               ; preds = %21
   %33 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %22) #19
-  br label %424
+  br label %423
 
 34:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #19
@@ -390,8 +390,8 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.preheader: ; preds = %67
   invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %91, ptr noundef nonnull @.str.32)
           to label %.invoke344 unwind label %93
 
-.invoke344:                                       ; preds = %90, %389
-  %92 = phi ptr [ %390, %389 ], [ %91, %90 ]
+.invoke344:                                       ; preds = %90, %388
+  %92 = phi ptr [ %389, %388 ], [ %91, %90 ]
   invoke void @__cxa_throw(ptr nonnull %92, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #21
           to label %.cont345 unwind label %107
 
@@ -405,8 +405,8 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.preheader: ; preds = %67
   br label %.body
 
 95:                                               ; preds = %.lr.ph, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244
-  %96 = phi i64 [ %80, %.lr.ph ], [ %384, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
-  %97 = phi ptr [ %75, %.lr.ph ], [ %382, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
+  %96 = phi i64 [ %80, %.lr.ph ], [ %383, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
+  %97 = phi ptr [ %75, %.lr.ph ], [ %381, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
   %.0136303 = phi i32 [ 0, %.lr.ph ], [ %.2138, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
   %.0139302 = phi i32 [ 0, %.lr.ph ], [ %.2141, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
@@ -485,7 +485,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203: ; preds = %95
   %121 = load i16, ptr %98, align 1
   store ptr %114, ptr %37, align 8
   %122 = zext i16 %121 to i32
-  br label %361
+  br label %360
 
 123:                                              ; preds = %111
   %124 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.13, i64 noundef 4) #22
@@ -512,7 +512,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203: ; preds = %95
   %133 = load i16, ptr %98, align 1
   store ptr %126, ptr %37, align 8
   %134 = zext i16 %133 to i32
-  br label %361
+  br label %360
 
 135:                                              ; preds = %123
   %136 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.14, i64 noundef 4) #22
@@ -540,7 +540,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203: ; preds = %95
   store ptr %138, ptr %37, align 8
   %146 = zext i16 %145 to i32
   %147 = add nuw nsw i32 %146, 1
-  br label %361
+  br label %360
 
 148:                                              ; preds = %135
   %149 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.15, i64 noundef 4) #22
@@ -605,7 +605,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203: ; preds = %95
   %174 = load float, ptr %159, align 1
   store ptr %167, ptr %37, align 8
   store float %174, ptr %72, align 4
-  br label %361
+  br label %360
 
 175:                                              ; preds = %148
   %176 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.16, i64 noundef 4) #22
@@ -630,7 +630,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203: ; preds = %95
 
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
   store ptr %178, ptr %37, align 8
-  br label %361
+  br label %360
 
 184:                                              ; preds = %175
   %185 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.17, i64 noundef 4) #22
@@ -657,7 +657,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
   %194 = load i8, ptr %98, align 1
   store ptr %187, ptr %37, align 8
   %.not174 = icmp eq i8 %194, 0
-  br i1 %.not174, label %361, label %195
+  br i1 %.not174, label %360, label %195
 
 195:                                              ; preds = %193
   %196 = invoke noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -665,12 +665,12 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
 
 197:                                              ; preds = %195
   invoke void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %196, ptr noundef nonnull @.str.18)
-          to label %361 unwind label %.loopexit274
+          to label %360 unwind label %.loopexit274
 
 198:                                              ; preds = %184
   %199 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef nonnull dereferenceable(5) @.str.19, i64 noundef 4) #22
   %.not175 = icmp eq i32 %199, 0
-  br i1 %.not175, label %200, label %361
+  br i1 %.not175, label %200, label %360
 
 200:                                              ; preds = %198
   %201 = getelementptr inbounds nuw i8, ptr %97, i64 6
@@ -856,7 +856,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
   store ptr %274, ptr %250, align 8
   %281 = load i8, ptr %86, align 8, !range !3, !noundef !4
   %282 = trunc nuw i8 %281 to i1
-  br i1 %282, label %283, label %303
+  br i1 %282, label %283, label %.preheader.us.preheader
 
 283:                                              ; preds = %.loopexit272
   %284 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %273) #23
@@ -880,7 +880,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
   %292 = fdiv float 1.000000e+00, %291
   %293 = uitofp nneg i32 %.0136303 to float
   %294 = fdiv float 1.000000e+00, %293
-  br label %303
+  br label %.preheader.us.preheader
 
 295:                                              ; preds = %245
   %296 = landingpad { ptr, i32 }
@@ -902,17 +902,11 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
           cleanup
   br label %.body
 
-303:                                              ; preds = %.loopexit, %.loopexit272
+.preheader.us.preheader:                          ; preds = %.loopexit, %.loopexit272
   %.0150 = phi ptr [ %284, %.loopexit ], [ null, %.loopexit272 ]
   %.0149 = phi float [ %292, %.loopexit ], [ 0.000000e+00, %.loopexit272 ]
   %.0148 = phi float [ %294, %.loopexit ], [ 0.000000e+00, %.loopexit272 ]
-  %.not305 = icmp eq i32 %255, 0
-  %.not306 = icmp eq i32 %254, 0
-  %or.cond350 = or i1 %.not305, %.not306
-  br i1 %or.cond350, label %._crit_edge300, label %.preheader.us.preheader
-
-.preheader.us.preheader:                          ; preds = %303
-  %304 = zext nneg i32 %.0136303 to i64
+  %303 = zext nneg i32 %.0136303 to i64
   %wide.trip.count324 = zext i32 %255 to i64
   %wide.trip.count = zext i32 %254 to i64
   %invariant.gep340 = getelementptr i8, ptr %97, i64 10
@@ -921,313 +915,313 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %177
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv319 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next320, %._crit_edge.us ]
-  %.0143299.us = phi i32 [ 0, %.preheader.us.preheader ], [ %355, %._crit_edge.us ]
+  %.0143299.us = phi i32 [ 0, %.preheader.us.preheader ], [ %354, %._crit_edge.us ]
   %.1151297.us = phi ptr [ %.0150, %.preheader.us.preheader ], [ %.3153.us, %._crit_edge.us ]
-  %.0154296.us = phi ptr [ %274, %.preheader.us.preheader ], [ %333, %._crit_edge.us ]
-  %.0156295.us = phi ptr [ %262, %.preheader.us.preheader ], [ %351, %._crit_edge.us ]
-  %305 = trunc nuw nsw i64 %indvars.iv319 to i32
-  %306 = uitofp nneg i32 %305 to float
-  %307 = mul nuw i64 %indvars.iv319, %304
-  %308 = fadd float %306, 1.000000e+00
+  %.0154296.us = phi ptr [ %274, %.preheader.us.preheader ], [ %332, %._crit_edge.us ]
+  %.0156295.us = phi ptr [ %262, %.preheader.us.preheader ], [ %350, %._crit_edge.us ]
+  %304 = trunc nuw nsw i64 %indvars.iv319 to i32
+  %305 = uitofp nneg i32 %304 to float
+  %306 = mul nuw i64 %indvars.iv319, %303
+  %307 = fadd float %305, 1.000000e+00
   %indvars.iv.next320 = add nuw nsw i64 %indvars.iv319, 1
-  %309 = mul nuw i64 %indvars.iv.next320, %304
-  %310 = fmul float %.0149, %306
-  %311 = trunc nuw nsw i64 %indvars.iv.next320 to i32
-  %312 = uitofp nneg i32 %311 to float
-  %313 = fmul float %.0149, %312
-  %invariant.gep = getelementptr i16, ptr %210, i64 %307
-  %invariant.gep330 = getelementptr i16, ptr %210, i64 %309
-  %gep341 = getelementptr i16, ptr %invariant.gep340, i64 %309
-  %gep343 = getelementptr i16, ptr %invariant.gep342, i64 %307
-  br label %314
+  %308 = mul nuw i64 %indvars.iv.next320, %303
+  %309 = fmul float %.0149, %305
+  %310 = trunc nuw nsw i64 %indvars.iv.next320 to i32
+  %311 = uitofp nneg i32 %310 to float
+  %312 = fmul float %.0149, %311
+  %invariant.gep = getelementptr i16, ptr %210, i64 %306
+  %invariant.gep330 = getelementptr i16, ptr %210, i64 %308
+  %gep341 = getelementptr i16, ptr %invariant.gep340, i64 %308
+  %gep343 = getelementptr i16, ptr %invariant.gep342, i64 %306
+  br label %313
 
-314:                                              ; preds = %.preheader.us, %350
-  %indvars.iv313 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next314, %350 ]
-  %.1144288.us = phi i32 [ %.0143299.us, %.preheader.us ], [ %355, %350 ]
-  %.2152287.us = phi ptr [ %.1151297.us, %.preheader.us ], [ %.3153.us, %350 ]
-  %.1155286.us = phi ptr [ %.0154296.us, %.preheader.us ], [ %333, %350 ]
-  %.1157285.us = phi ptr [ %.0156295.us, %.preheader.us ], [ %351, %350 ]
-  %315 = trunc nuw nsw i64 %indvars.iv313 to i32
-  %316 = uitofp nneg i32 %315 to float
+313:                                              ; preds = %.preheader.us, %349
+  %indvars.iv313 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next314, %349 ]
+  %.1144288.us = phi i32 [ %.0143299.us, %.preheader.us ], [ %354, %349 ]
+  %.2152287.us = phi ptr [ %.1151297.us, %.preheader.us ], [ %.3153.us, %349 ]
+  %.1155286.us = phi ptr [ %.0154296.us, %.preheader.us ], [ %332, %349 ]
+  %.1157285.us = phi ptr [ %.0156295.us, %.preheader.us ], [ %350, %349 ]
+  %314 = trunc nuw nsw i64 %indvars.iv313 to i32
+  %315 = uitofp nneg i32 %314 to float
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv313
-  %317 = load i16, ptr %gep, align 2
-  %318 = sitofp i16 %317 to float
-  %319 = call float @llvm.fmuladd.f32(float %318, float %.0158, float %220)
-  %320 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 12
-  store float %316, ptr %.1155286.us, align 4
+  %316 = load i16, ptr %gep, align 2
+  %317 = sitofp i16 %316 to float
+  %318 = call float @llvm.fmuladd.f32(float %317, float %.0158, float %220)
+  %319 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 12
+  store float %315, ptr %.1155286.us, align 4
   %.sroa.4264.0..1155.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 4
-  store float %306, ptr %.sroa.4264.0..1155.sroa_idx.us, align 4
+  store float %305, ptr %.sroa.4264.0..1155.sroa_idx.us, align 4
   %.sroa.5265.0..1155.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 8
-  store float %319, ptr %.sroa.5265.0..1155.sroa_idx.us, align 4
+  store float %318, ptr %.sroa.5265.0..1155.sroa_idx.us, align 4
   %gep331 = getelementptr i16, ptr %invariant.gep330, i64 %indvars.iv313
-  %321 = load i16, ptr %gep331, align 2
-  %322 = sitofp i16 %321 to float
-  %323 = call float @llvm.fmuladd.f32(float %322, float %.0158, float %220)
-  %324 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 24
-  store float %316, ptr %320, align 4
+  %320 = load i16, ptr %gep331, align 2
+  %321 = sitofp i16 %320 to float
+  %322 = call float @llvm.fmuladd.f32(float %321, float %.0158, float %220)
+  %323 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 24
+  store float %315, ptr %319, align 4
   %.sroa.4261.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 16
-  store float %308, ptr %.sroa.4261.0..sroa_idx.us, align 4
+  store float %307, ptr %.sroa.4261.0..sroa_idx.us, align 4
   %.sroa.5262.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 20
-  store float %323, ptr %.sroa.5262.0..sroa_idx.us, align 4
-  %325 = fadd float %316, 1.000000e+00
+  store float %322, ptr %.sroa.5262.0..sroa_idx.us, align 4
+  %324 = fadd float %315, 1.000000e+00
   %gep335 = getelementptr i16, ptr %gep341, i64 %indvars.iv313
-  %326 = load i16, ptr %gep335, align 2
-  %327 = sitofp i16 %326 to float
-  %328 = call float @llvm.fmuladd.f32(float %327, float %.0158, float %220)
-  %329 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 36
-  store float %325, ptr %324, align 4
+  %325 = load i16, ptr %gep335, align 2
+  %326 = sitofp i16 %325 to float
+  %327 = call float @llvm.fmuladd.f32(float %326, float %.0158, float %220)
+  %328 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 36
+  store float %324, ptr %323, align 4
   %.sroa.4258.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 28
-  store float %308, ptr %.sroa.4258.0..sroa_idx.us, align 4
+  store float %307, ptr %.sroa.4258.0..sroa_idx.us, align 4
   %.sroa.5259.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 32
-  store float %328, ptr %.sroa.5259.0..sroa_idx.us, align 4
+  store float %327, ptr %.sroa.5259.0..sroa_idx.us, align 4
   %gep339 = getelementptr i16, ptr %gep343, i64 %indvars.iv313
-  %330 = load i16, ptr %gep339, align 2
-  %331 = sitofp i16 %330 to float
-  %332 = call float @llvm.fmuladd.f32(float %331, float %.0158, float %220)
-  %333 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 48
-  store float %325, ptr %329, align 4
+  %329 = load i16, ptr %gep339, align 2
+  %330 = sitofp i16 %329 to float
+  %331 = call float @llvm.fmuladd.f32(float %330, float %.0158, float %220)
+  %332 = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 48
+  store float %324, ptr %328, align 4
   %.sroa.4255.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 40
-  store float %306, ptr %.sroa.4255.0..sroa_idx.us, align 4
+  store float %305, ptr %.sroa.4255.0..sroa_idx.us, align 4
   %.sroa.5256.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155286.us, i64 44
-  store float %332, ptr %.sroa.5256.0..sroa_idx.us, align 4
-  %334 = load i8, ptr %86, align 8, !range !3, !noundef !4
-  %335 = trunc nuw i8 %334 to i1
-  br i1 %335, label %336, label %346
+  store float %331, ptr %.sroa.5256.0..sroa_idx.us, align 4
+  %333 = load i8, ptr %86, align 8, !range !3, !noundef !4
+  %334 = trunc nuw i8 %333 to i1
+  br i1 %334, label %335, label %345
 
-336:                                              ; preds = %314
-  %337 = fmul float %.0148, %316
-  %338 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 12
-  store float %337, ptr %.2152287.us, align 4
+335:                                              ; preds = %313
+  %336 = fmul float %.0148, %315
+  %337 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 12
+  store float %336, ptr %.2152287.us, align 4
   %.sroa.4252.0..2152.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 4
-  store float %310, ptr %.sroa.4252.0..2152.sroa_idx.us, align 4
+  store float %309, ptr %.sroa.4252.0..2152.sroa_idx.us, align 4
   %.sroa.5253.0..2152.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 8
   store float 0.000000e+00, ptr %.sroa.5253.0..2152.sroa_idx.us, align 4
-  %339 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 24
-  store float %337, ptr %338, align 4
+  %338 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 24
+  store float %336, ptr %337, align 4
   %.sroa.4249.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 16
-  store float %313, ptr %.sroa.4249.0..sroa_idx.us, align 4
+  store float %312, ptr %.sroa.4249.0..sroa_idx.us, align 4
   %.sroa.5250.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 20
   store float 0.000000e+00, ptr %.sroa.5250.0..sroa_idx.us, align 4
-  %340 = trunc i64 %indvars.iv313 to i32
-  %341 = add i32 %340, 1
-  %342 = uitofp nneg i32 %341 to float
-  %343 = fmul float %.0148, %342
-  %344 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 36
-  store float %343, ptr %339, align 4
+  %339 = trunc i64 %indvars.iv313 to i32
+  %340 = add i32 %339, 1
+  %341 = uitofp nneg i32 %340 to float
+  %342 = fmul float %.0148, %341
+  %343 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 36
+  store float %342, ptr %338, align 4
   %.sroa.4246.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 28
-  store float %313, ptr %.sroa.4246.0..sroa_idx.us, align 4
+  store float %312, ptr %.sroa.4246.0..sroa_idx.us, align 4
   %.sroa.5247.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 32
   store float 0.000000e+00, ptr %.sroa.5247.0..sroa_idx.us, align 4
-  %345 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 48
-  store float %343, ptr %344, align 4
+  %344 = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 48
+  store float %342, ptr %343, align 4
   %.sroa.4.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 40
-  store float %310, ptr %.sroa.4.0..sroa_idx.us, align 4
+  store float %309, ptr %.sroa.4.0..sroa_idx.us, align 4
   %.sroa.5.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.2152287.us, i64 44
   store float 0.000000e+00, ptr %.sroa.5.0..sroa_idx.us, align 4
-  br label %346
+  br label %345
 
-346:                                              ; preds = %336, %314
-  %.3153.us = phi ptr [ %345, %336 ], [ %.2152287.us, %314 ]
+345:                                              ; preds = %335, %313
+  %.3153.us = phi ptr [ %344, %335 ], [ %.2152287.us, %313 ]
   store i32 4, ptr %.1157285.us, align 8
-  %347 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #23
-          to label %348 unwind label %.split.us
+  %346 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znam(i64 noundef 16) #23
+          to label %347 unwind label %.split.us
 
-348:                                              ; preds = %346
-  %349 = getelementptr inbounds nuw i8, ptr %.1157285.us, i64 8
-  store ptr %347, ptr %349, align 8
-  br label %352
+347:                                              ; preds = %345
+  %348 = getelementptr inbounds nuw i8, ptr %.1157285.us, i64 8
+  store ptr %346, ptr %348, align 8
+  br label %351
 
-350:                                              ; preds = %352
+349:                                              ; preds = %351
   %indvars.iv.next314 = add nuw nsw i64 %indvars.iv313, 1
-  %351 = getelementptr inbounds nuw i8, ptr %.1157285.us, i64 16
+  %350 = getelementptr inbounds nuw i8, ptr %.1157285.us, i64 16
   %exitcond318.not = icmp eq i64 %indvars.iv.next314, %wide.trip.count
-  br i1 %exitcond318.not, label %._crit_edge.us, label %314, !llvm.loop !5
+  br i1 %exitcond318.not, label %._crit_edge.us, label %313, !llvm.loop !5
 
-352:                                              ; preds = %352, %348
-  %indvars.iv = phi i64 [ %indvars.iv.next, %352 ], [ 0, %348 ]
-  %.2145283.us = phi i32 [ %355, %352 ], [ %.1144288.us, %348 ]
-  %353 = load ptr, ptr %349, align 8
-  %354 = getelementptr inbounds nuw i32, ptr %353, i64 %indvars.iv
-  store i32 %.2145283.us, ptr %354, align 4
-  %355 = add i32 %.2145283.us, 1
+351:                                              ; preds = %351, %347
+  %indvars.iv = phi i64 [ %indvars.iv.next, %351 ], [ 0, %347 ]
+  %.2145283.us = phi i32 [ %354, %351 ], [ %.1144288.us, %347 ]
+  %352 = load ptr, ptr %348, align 8
+  %353 = getelementptr inbounds nuw i32, ptr %352, i64 %indvars.iv
+  store i32 %.2145283.us, ptr %353, align 4
+  %354 = add i32 %.2145283.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %350, label %352, !llvm.loop !7
+  br i1 %exitcond.not, label %349, label %351, !llvm.loop !7
 
-._crit_edge.us:                                   ; preds = %350
+._crit_edge.us:                                   ; preds = %349
   %exitcond325.not = icmp eq i64 %indvars.iv.next320, %wide.trip.count324
   br i1 %exitcond325.not, label %._crit_edge300, label %.preheader.us, !llvm.loop !8
 
-.split.us:                                        ; preds = %346
-  %356 = landingpad { ptr, i32 }
+.split.us:                                        ; preds = %345
+  %355 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-._crit_edge300:                                   ; preds = %._crit_edge.us, %303
+._crit_edge300:                                   ; preds = %._crit_edge.us
   store i32 1, ptr %87, align 8
-  %357 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #23
-          to label %360 unwind label %358
+  %356 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znam(i64 noundef 4) #23
+          to label %359 unwind label %357
 
-358:                                              ; preds = %._crit_edge300
-  %359 = landingpad { ptr, i32 }
+357:                                              ; preds = %._crit_edge300
+  %358 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-360:                                              ; preds = %._crit_edge300
-  store ptr %357, ptr %88, align 8
-  store i32 0, ptr %357, align 4
-  br label %361
+359:                                              ; preds = %._crit_edge300
+  store ptr %356, ptr %88, align 8
+  store i32 0, ptr %356, align 4
+  br label %360
 
-361:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229, %132, %173, %197, %193, %360, %198, %144, %120
-  %.2141 = phi i32 [ %.0139302, %198 ], [ %.0139302, %360 ], [ %.0139302, %197 ], [ %.0139302, %193 ], [ %.0139302, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229 ], [ %.0139302, %173 ], [ %147, %144 ], [ %134, %132 ], [ %.0139302, %120 ]
-  %.2138 = phi i32 [ %.0136303, %198 ], [ %.0136303, %360 ], [ %.0136303, %197 ], [ %.0136303, %193 ], [ %.0136303, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229 ], [ %.0136303, %173 ], [ %147, %144 ], [ %.0136303, %132 ], [ %122, %120 ]
-  %362 = load ptr, ptr %37, align 8
-  %363 = load ptr, ptr %89, align 8
+360:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229, %132, %173, %197, %193, %359, %198, %144, %120
+  %.2141 = phi i32 [ %.0139302, %198 ], [ %.0139302, %359 ], [ %.0139302, %197 ], [ %.0139302, %193 ], [ %.0139302, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229 ], [ %.0139302, %173 ], [ %147, %144 ], [ %134, %132 ], [ %.0139302, %120 ]
+  %.2138 = phi i32 [ %.0136303, %198 ], [ %.0136303, %359 ], [ %.0136303, %197 ], [ %.0136303, %193 ], [ %.0136303, %_ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229 ], [ %.0136303, %173 ], [ %147, %144 ], [ %.0136303, %132 ], [ %122, %120 ]
+  %361 = load ptr, ptr %37, align 8
+  %362 = load ptr, ptr %89, align 8
+  %363 = ptrtoint ptr %361 to i64
   %364 = ptrtoint ptr %362 to i64
-  %365 = ptrtoint ptr %363 to i64
-  %366 = sub i64 %364, %365
-  %367 = trunc i64 %366 to i32
-  %368 = and i32 %367, 3
-  %.not185 = icmp eq i32 %368, 0
-  br i1 %.not185, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244, label %369
+  %365 = sub i64 %363, %364
+  %366 = trunc i64 %365 to i32
+  %367 = and i32 %366, 3
+  %.not185 = icmp eq i32 %367, 0
+  br i1 %.not185, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244, label %368
 
-369:                                              ; preds = %361
-  %370 = sub nuw nsw i32 4, %368
-  %371 = zext nneg i32 %370 to i64
-  %372 = getelementptr inbounds nuw i8, ptr %362, i64 %371
-  store ptr %372, ptr %37, align 8
-  %373 = load ptr, ptr %76, align 8
-  %374 = icmp ugt ptr %372, %373
-  br i1 %374, label %375, label %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge
+368:                                              ; preds = %360
+  %369 = sub nuw nsw i32 4, %367
+  %370 = zext nneg i32 %369 to i64
+  %371 = getelementptr inbounds nuw i8, ptr %361, i64 %370
+  store ptr %371, ptr %37, align 8
+  %372 = load ptr, ptr %76, align 8
+  %373 = icmp ugt ptr %371, %372
+  br i1 %373, label %374, label %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge
 
-._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge: ; preds = %369
-  %.pre = ptrtoint ptr %372 to i64
+._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge: ; preds = %368
+  %.pre = ptrtoint ptr %371 to i64
   br label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244
 
-375:                                              ; preds = %369
-  %376 = call ptr @__cxa_allocate_exception(i64 16) #19
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %376, ptr noundef nonnull @.str.32)
-          to label %377 unwind label %378
+374:                                              ; preds = %368
+  %375 = call ptr @__cxa_allocate_exception(i64 16) #19
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %375, ptr noundef nonnull @.str.32)
+          to label %376 unwind label %377
 
-377:                                              ; preds = %375
-  invoke void @__cxa_throw(ptr nonnull %376, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #21
-          to label %.noexc241 unwind label %380
+376:                                              ; preds = %374
+  invoke void @__cxa_throw(ptr nonnull %375, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #21
+          to label %.noexc241 unwind label %379
 
-.noexc241:                                        ; preds = %377
+.noexc241:                                        ; preds = %376
   unreachable
 
-378:                                              ; preds = %375
-  %379 = landingpad { ptr, i32 }
+377:                                              ; preds = %374
+  %378 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %376) #19
+  call void @__cxa_free_exception(ptr nonnull %375) #19
   br label %.body
 
-380:                                              ; preds = %377
-  %381 = landingpad { ptr, i32 }
+379:                                              ; preds = %376
+  %380 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244: ; preds = %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge, %361
-  %.pre-phi = phi i64 [ %.pre, %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge ], [ %364, %361 ]
-  %382 = phi ptr [ %372, %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge ], [ %362, %361 ]
-  %383 = load ptr, ptr %35, align 8
-  %384 = ptrtoint ptr %383 to i64
-  %385 = sub i64 %384, %.pre-phi
-  %386 = and i64 %385, 4294967292
-  %.not271 = icmp eq i64 %386, 0
+_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244: ; preds = %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge, %360
+  %.pre-phi = phi i64 [ %.pre, %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge ], [ %363, %360 ]
+  %381 = phi ptr [ %371, %._ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244_crit_edge ], [ %361, %360 ]
+  %382 = load ptr, ptr %35, align 8
+  %383 = ptrtoint ptr %382 to i64
+  %384 = sub i64 %383, %.pre-phi
+  %385 = and i64 %384, 4294967292
+  %.not271 = icmp eq i64 %385, 0
   br i1 %.not271, label %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread, label %95
 
 _ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread: ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit203, %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit.preheader
-  %387 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %388 = load i32, ptr %387, align 8
-  %.not188 = icmp eq i32 %388, 1
-  br i1 %.not188, label %393, label %389
+  %386 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %387 = load i32, ptr %386, align 8
+  %.not188 = icmp eq i32 %387, 1
+  br i1 %.not188, label %392, label %388
 
-389:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread
-  %390 = call ptr @__cxa_allocate_exception(i64 16) #19
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %390, ptr noundef nonnull @.str.22)
-          to label %.invoke344 unwind label %391
+388:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread
+  %389 = call ptr @__cxa_allocate_exception(i64 16) #19
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %389, ptr noundef nonnull @.str.22)
+          to label %.invoke344 unwind label %390
 
-391:                                              ; preds = %389
-  %392 = landingpad { ptr, i32 }
+390:                                              ; preds = %388
+  %391 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %390) #19
+  call void @__cxa_free_exception(ptr nonnull %389) #19
   br label %.body
 
-393:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread
-  %394 = load i32, ptr %2, align 8
-  %395 = or i32 %394, 16
-  store i32 %395, ptr %2, align 8
-  %396 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %397 = load ptr, ptr %396, align 8
-  %398 = icmp eq ptr %397, null
-  br i1 %398, label %400, label %399
+392:                                              ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE6IncPtrEl.exit244.thread
+  %393 = load i32, ptr %2, align 8
+  %394 = or i32 %393, 16
+  store i32 %394, ptr %2, align 8
+  %395 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %396 = load ptr, ptr %395, align 8
+  %397 = icmp eq ptr %396, null
+  br i1 %397, label %399, label %398
 
-399:                                              ; preds = %393
-  call void @_ZdaPv(ptr noundef nonnull %397) #20
-  br label %400
+398:                                              ; preds = %392
+  call void @_ZdaPv(ptr noundef nonnull %396) #20
+  br label %399
 
-400:                                              ; preds = %399, %393
-  %401 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %402 = load ptr, ptr %401, align 8
-  %.not.i.i.i = icmp eq ptr %402, null
-  br i1 %.not.i.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, label %403
+399:                                              ; preds = %398, %392
+  %400 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %401 = load ptr, ptr %400, align 8
+  %.not.i.i.i = icmp eq ptr %401, null
+  br i1 %.not.i.i.i, label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, label %402
 
-403:                                              ; preds = %400
-  %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  %405 = load atomic i64, ptr %404 acquire, align 8
-  %406 = icmp eq i64 %405, 4294967297
-  %407 = trunc i64 %405 to i32
-  br i1 %406, label %408, label %416
+402:                                              ; preds = %399
+  %403 = getelementptr inbounds nuw i8, ptr %401, i64 8
+  %404 = load atomic i64, ptr %403 acquire, align 8
+  %405 = icmp eq i64 %404, 4294967297
+  %406 = trunc i64 %404 to i32
+  br i1 %405, label %407, label %415
 
-408:                                              ; preds = %403
-  store i32 0, ptr %404, align 8
-  %409 = getelementptr inbounds nuw i8, ptr %402, i64 12
-  store i32 0, ptr %409, align 4
-  %410 = load ptr, ptr %402, align 8
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  %412 = load ptr, ptr %411, align 8
-  call void %412(ptr noundef nonnull align 8 dereferenceable(16) %402) #19
-  %413 = load ptr, ptr %402, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 24
-  %415 = load ptr, ptr %414, align 8
-  call void %415(ptr noundef nonnull align 8 dereferenceable(16) %402) #19
+407:                                              ; preds = %402
+  store i32 0, ptr %403, align 8
+  %408 = getelementptr inbounds nuw i8, ptr %401, i64 12
+  store i32 0, ptr %408, align 4
+  %409 = load ptr, ptr %401, align 8
+  %410 = getelementptr inbounds nuw i8, ptr %409, i64 16
+  %411 = load ptr, ptr %410, align 8
+  call void %411(ptr noundef nonnull align 8 dereferenceable(16) %401) #19
+  %412 = load ptr, ptr %401, align 8
+  %413 = getelementptr inbounds nuw i8, ptr %412, i64 24
+  %414 = load ptr, ptr %413, align 8
+  call void %414(ptr noundef nonnull align 8 dereferenceable(16) %401) #19
   br label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit
 
-416:                                              ; preds = %403
-  %417 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i = icmp eq i8 %417, 0
-  br i1 %.not.i.i.i.i, label %420, label %418
+415:                                              ; preds = %402
+  %416 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i = icmp eq i8 %416, 0
+  br i1 %.not.i.i.i.i, label %419, label %417
 
-418:                                              ; preds = %416
-  %419 = add nsw i32 %407, -1
-  store i32 %419, ptr %404, align 4
+417:                                              ; preds = %415
+  %418 = add nsw i32 %406, -1
+  store i32 %418, ptr %403, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-420:                                              ; preds = %416
-  %421 = atomicrmw volatile add ptr %404, i32 -1 acq_rel, align 4
+419:                                              ; preds = %415
+  %420 = atomicrmw volatile add ptr %403, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %420, %418
-  %.0.i.i.i.i.i = phi i32 [ %407, %418 ], [ %421, %420 ]
-  %422 = icmp eq i32 %.0.i.i.i.i.i, 1
-  br i1 %422, label %423, label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, !prof !9
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %419, %417
+  %.0.i.i.i.i.i = phi i32 [ %406, %417 ], [ %420, %419 ]
+  %421 = icmp eq i32 %.0.i.i.i.i.i, 1
+  br i1 %421, label %422, label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit, !prof !9
 
-423:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %402) #19
+422:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %401) #19
   br label %_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit
 
-_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %400, %408, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %423
+_ZN6Assimp12StreamReaderILb0ELb0EED2Ev.exit:      ; preds = %399, %407, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %422
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
   ret void
 
-.body:                                            ; preds = %.loopexit273, %.loopexit.split-lp, %.loopexit274, %.loopexit.split-lp275, %380, %378, %214, %229, %206, %104, %130, %155, %171, %191, %182, %163, %142, %118, %107, %93, %109, %391, %295, %299, %358, %.split.us, %301, %297, %241, %234, %62, %54, %48, %46
-  %.pn191 = phi { ptr, i32 } [ %47, %46 ], [ %49, %48 ], [ %55, %54 ], [ %63, %62 ], [ %392, %391 ], [ %110, %109 ], [ %235, %234 ], [ %242, %241 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %356, %.split.us ], [ %359, %358 ], [ %108, %107 ], [ %94, %93 ], [ %105, %104 ], [ %119, %118 ], [ %131, %130 ], [ %143, %142 ], [ %156, %155 ], [ %164, %163 ], [ %172, %171 ], [ %183, %182 ], [ %192, %191 ], [ %230, %229 ], [ %207, %206 ], [ %215, %214 ], [ %381, %380 ], [ %379, %378 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit.split-lp277, %.loopexit.split-lp275 ], [ %lpad.loopexit, %.loopexit273 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit273, %.loopexit.split-lp, %.loopexit274, %.loopexit.split-lp275, %379, %377, %214, %229, %206, %104, %130, %155, %171, %191, %182, %163, %142, %118, %107, %93, %109, %390, %295, %299, %357, %.split.us, %301, %297, %241, %234, %62, %54, %48, %46
+  %.pn191 = phi { ptr, i32 } [ %47, %46 ], [ %49, %48 ], [ %55, %54 ], [ %63, %62 ], [ %391, %390 ], [ %110, %109 ], [ %235, %234 ], [ %242, %241 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %355, %.split.us ], [ %358, %357 ], [ %108, %107 ], [ %94, %93 ], [ %105, %104 ], [ %119, %118 ], [ %131, %130 ], [ %143, %142 ], [ %156, %155 ], [ %164, %163 ], [ %172, %171 ], [ %183, %182 ], [ %192, %191 ], [ %230, %229 ], [ %207, %206 ], [ %215, %214 ], [ %380, %379 ], [ %378, %377 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit.split-lp277, %.loopexit.split-lp275 ], [ %lpad.loopexit, %.loopexit273 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6Assimp12StreamReaderILb0ELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(49) %5) #19
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #19
-  br label %424
+  br label %423
 
-424:                                              ; preds = %.body, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198
+423:                                              ; preds = %.body, %32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198
   %.pn193 = phi { ptr, i32 } [ %33, %32 ], [ %.pn191, %.body ], [ %25, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit198 ]
   resume { ptr, i32 } %.pn193
 }

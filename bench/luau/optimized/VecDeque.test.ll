@@ -27819,7 +27819,7 @@ _ZSt18uninitialized_moveIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6
 
 _ZN4Luau8VecDequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE15destroyElementsEv.exit: ; preds = %.lr.ph13.i, %.preheader.i
   %51 = load ptr, ptr %0, align 8
-  %52 = shl i64 %11, 5
+  %52 = shl nuw i64 %11, 5
   tail call void @_ZdlPvm(ptr noundef %51, i64 noundef %52) #21
   store ptr %22, ptr %0, align 8
   store i64 %1, ptr %10, align 8
@@ -28686,7 +28686,7 @@ _ZSt18uninitialized_moveIPSt10shared_ptrI10TestStructES3_ET0_T_S5_S4_.exit: ; pr
 _ZSt18uninitialized_moveIPSt10shared_ptrI10TestStructES3_ET0_T_S5_S4_.exit29: ; preds = %.lr.ph.i.i.i.i24, %_ZSt18uninitialized_moveIPSt10shared_ptrI10TestStructES3_ET0_T_S5_S4_.exit
   tail call void @_ZN4Luau8VecDequeISt10shared_ptrI10TestStructESaIS3_EE15destroyElementsEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #20
   %43 = load ptr, ptr %0, align 8
-  %44 = shl i64 %11, 4
+  %44 = shl nuw i64 %11, 4
   tail call void @_ZdlPvm(ptr noundef %43, i64 noundef %44) #21
   store ptr %22, ptr %0, align 8
   store i64 %1, ptr %10, align 8

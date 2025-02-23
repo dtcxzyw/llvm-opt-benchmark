@@ -901,7 +901,7 @@ define dso_local range(i32 0, 2) i32 @pkeyutl_main(i32 noundef %0, ptr noundef %
   br i1 %exitcond764.not, label %.loopexit, label %.lr.ph634, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph634, %292
-  %306 = icmp sgt i32 %287, 64
+  %306 = icmp samesign ugt i32 %287, 64
   %or.cond38 = and i1 %or.cond8394400403, %306
   br i1 %or.cond38, label %307, label %.thread441
 

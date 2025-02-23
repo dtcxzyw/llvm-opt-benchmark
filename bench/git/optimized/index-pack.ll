@@ -3266,7 +3266,7 @@ write_compressed.exit.i.i.i:                      ; preds = %1451
   %1466 = load ptr, ptr %1465, align 8, !tbaa !34
   %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 16
   %1468 = load i64, ptr %1467, align 8, !tbaa !81
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %1434, ptr nonnull readonly align 1 %1397, i64 %1468, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %1434, ptr nonnull readonly align 1 %1397, i64 %1468, i1 false)
   %1469 = load i64, ptr %1467, align 8, !tbaa !81
   %1470 = icmp ult i64 %1469, 32
   br i1 %1470, label %1471, label %.preheader

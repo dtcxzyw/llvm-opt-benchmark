@@ -576,15 +576,15 @@ prune_element_hashtable.exit:                     ; preds = %122, %100
   store float %229, ptr %230, align 4
   %231 = fdiv double %.0233.lcssa, %209
   %232 = fptrunc double %231 to float
-  %233 = shl i64 %indvars.iv314, 32
-  %sext324 = add i64 %233, 8589934592
+  %233 = shl nuw nsw i64 %indvars.iv314, 32
+  %sext324 = add nuw i64 %233, 8589934592
   %234 = ashr exact i64 %sext324, 30
   %235 = getelementptr inbounds i8, ptr %206, i64 %234
   store float %232, ptr %235, align 4
   %236 = fdiv double %.0218.lcssa, %209
   %237 = fptrunc double %236 to float
-  %238 = shl i64 %indvars.iv314, 32
-  %sext325 = add i64 %238, 12884901888
+  %238 = shl nuw nsw i64 %indvars.iv314, 32
+  %sext325 = add nuw i64 %238, 12884901888
   %239 = ashr exact i64 %sext325, 30
   %240 = getelementptr inbounds i8, ptr %206, i64 %239
   store float %237, ptr %240, align 4

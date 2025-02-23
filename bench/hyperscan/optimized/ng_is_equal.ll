@@ -2045,8 +2045,8 @@ _ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_de
   %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.fr.i14.lcssa, 16
   br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
 
-while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i ], [ %storemerge12.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i ]
+while.body.i.i:                                   ; preds = %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i1.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i ], [ %storemerge12.lcssa, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i ]
   %incdec.ptr.i.i1.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -16
   %__value.sroa.0.0.copyload.i.i2.i = load ptr, ptr %incdec.ptr.i.i1.i, align 8
   %__value.sroa.2.0.call.sroa_idx.i.i3.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
@@ -2091,49 +2091,49 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
   %sub19.i.i.i34.i = add nsw i64 %sub.ptr.div.i.i.i7.i, -2
   %div20.i.i.i.i = ashr exact i64 %sub19.i.i.i34.i, 1
   %cmp21.i.i.i35.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, %div20.i.i.i.i
-  br i1 %cmp21.i.i.i35.i, label %if.then22.i.i.i36.i, label %if.end35.i.i.i14.i
+  br i1 %cmp21.i.i.i35.i, label %if.end35.i.thread.i.i36.i, label %if.end35.i.i.i14.i
 
-if.then22.i.i.i36.i:                              ; preds = %land.lhs.true.i.i.i.i
-  %add23.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
+if.end35.i.thread.i.i36.i:                        ; preds = %land.lhs.true.i.i.i.i
+  %add23.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 1
   %sub26.i.i.i37.i = or disjoint i64 %add23.i.i.i.i, 1
-  %add.ptr.i20.i.i.i38.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %sub26.i.i.i37.i
+  %add.ptr.i20.i.i.i38.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %sub26.i.i.i37.i
   %add.ptr.i21.i.i.i39.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i21.i.i.i39.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i20.i.i.i38.i, i64 16, i1 false)
-  br label %if.end35.i.i.i14.i
+  br label %land.rhs.lr.ph.i.i.i.i16.i
 
-if.end35.i.i.i14.i:                               ; preds = %if.then22.i.i.i36.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
-  %__holeIndex.addr.1.i.i.i15.i = phi i64 [ %sub26.i.i.i37.i, %if.then22.i.i.i36.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %land.lhs.true.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %while.end.i.i.i11.i ]
-  %cmp6.i.i.i.i16.i = icmp sgt i64 %__holeIndex.addr.1.i.i.i15.i, 0
-  br i1 %cmp6.i.i.i.i16.i, label %land.rhs.lr.ph.i.i.i.i21.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i
+if.end35.i.i.i14.i:                               ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i11.i
+  %cmp6.i.i.not.i.i15.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i12.i, 0
+  br i1 %cmp6.i.i.not.i.i15.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i, label %land.rhs.lr.ph.i.i.i.i16.i
 
-land.rhs.lr.ph.i.i.i.i21.i:                       ; preds = %if.end35.i.i.i14.i
+land.rhs.lr.ph.i.i.i.i16.i:                       ; preds = %if.end35.i.i.i14.i, %if.end35.i.thread.i.i36.i
+  %__holeIndex.addr.1.i5.i.i17.i = phi i64 [ %sub26.i.i.i37.i, %if.end35.i.thread.i.i36.i ], [ %__holeIndex.addr.0.lcssa.i.i.i12.i, %if.end35.i.i.i14.i ]
   %8 = getelementptr i8, ptr %__value.sroa.0.0.copyload.i.i2.i, i64 80
-  br label %land.rhs.i.i.i.i22.i
+  br label %land.rhs.i.i.i.i18.i
 
-land.rhs.i.i.i.i22.i:                             ; preds = %while.body.i.i.i.i31.i, %land.rhs.lr.ph.i.i.i.i21.i
-  %__holeIndex.addr.07.i.i.i.i23.i = phi i64 [ %__holeIndex.addr.1.i.i.i15.i, %land.rhs.lr.ph.i.i.i.i21.i ], [ %__parent.08.i.i34.i.i25.i, %while.body.i.i.i.i31.i ]
-  %__parent.08.in.i.i.i.i24.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i23.i, -1
-  %__parent.08.i.i34.i.i25.i = lshr i64 %__parent.08.in.i.i.i.i24.i, 1
-  %add.ptr.i.i.i.i.i26.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__parent.08.i.i34.i.i25.i
-  %__value.val.val.i.i.i.i27.i = load i64, ptr %8, align 8
-  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i28.i = load ptr, ptr %add.ptr.i.i.i.i.i26.i, align 8
-  %9 = getelementptr i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i28.i, i64 80
-  %agg.tmp.sroa.0.0.copyload.val.i.i.i.i.i29.i = load i64, ptr %9, align 8
-  %cmp.i.i.i.i.i.i30.i = icmp ult i64 %agg.tmp.sroa.0.0.copyload.val.i.i.i.i.i29.i, %__value.val.val.i.i.i.i27.i
-  br i1 %cmp.i.i.i.i.i.i30.i, label %while.body.i.i.i.i31.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i
+land.rhs.i.i.i.i18.i:                             ; preds = %while.body.i.i.i.i31.i, %land.rhs.lr.ph.i.i.i.i16.i
+  %__holeIndex.addr.07.i.i.i.i19.i = phi i64 [ %__holeIndex.addr.1.i5.i.i17.i, %land.rhs.lr.ph.i.i.i.i16.i ], [ %__parent.08.i.i67.i.i21.i, %while.body.i.i.i.i31.i ]
+  %__parent.08.in.i.i.i.i20.i = add nsw i64 %__holeIndex.addr.07.i.i.i.i19.i, -1
+  %__parent.08.i.i67.i.i21.i = lshr i64 %__parent.08.in.i.i.i.i20.i, 1
+  %add.ptr.i.i.i.i.i22.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__parent.08.i.i67.i.i21.i
+  %__value.val.val.i.i.i.i23.i = load i64, ptr %8, align 8
+  %agg.tmp.sroa.0.0.copyload.i.i.i.i.i24.i = load ptr, ptr %add.ptr.i.i.i.i.i22.i, align 8
+  %9 = getelementptr i8, ptr %agg.tmp.sroa.0.0.copyload.i.i.i.i.i24.i, i64 80
+  %agg.tmp.sroa.0.0.copyload.val.i.i.i.i.i25.i = load i64, ptr %9, align 8
+  %cmp.i.i.i.i.i.i26.i = icmp ult i64 %agg.tmp.sroa.0.0.copyload.val.i.i.i.i.i25.i, %__value.val.val.i.i.i.i23.i
+  br i1 %cmp.i.i.i.i.i.i26.i, label %while.body.i.i.i.i31.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i
 
-while.body.i.i.i.i31.i:                           ; preds = %land.rhs.i.i.i.i22.i
-  %add.ptr.i9.i.i.i.i32.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i23.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i32.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i26.i, i64 16, i1 false)
-  %cmp.i.i.not.i.i33.i = icmp ult i64 %__parent.08.in.i.i.i.i24.i, 2
-  br i1 %cmp.i.i.not.i.i33.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i, label %land.rhs.i.i.i.i22.i, !llvm.loop !93
+while.body.i.i.i.i31.i:                           ; preds = %land.rhs.i.i.i.i18.i
+  %add.ptr.i9.i.i.i.i32.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.i.i19.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i9.i.i.i.i32.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i22.i, i64 16, i1 false)
+  %cmp.i.i.not.i.i33.i = icmp ult i64 %__parent.08.in.i.i.i.i20.i, 2
+  br i1 %cmp.i.i.not.i.i33.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i, label %land.rhs.i.i.i.i18.i, !llvm.loop !93
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i: ; preds = %while.body.i.i.i.i31.i, %land.rhs.i.i.i.i22.i, %if.end35.i.i.i14.i
-  %__holeIndex.addr.0.lcssa.i.i.i.i18.i = phi i64 [ %__holeIndex.addr.1.i.i.i15.i, %if.end35.i.i.i14.i ], [ %__holeIndex.addr.07.i.i.i.i23.i, %land.rhs.i.i.i.i22.i ], [ 0, %while.body.i.i.i.i31.i ]
-  %add.ptr.i10.i.i.i.i19.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i18.i
-  store ptr %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i10.i.i.i.i19.i, align 8
-  %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i20.i = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i.i.i19.i, i64 8
-  store i64 %__value.sroa.2.0.copyload.i.i4.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i20.i, align 8
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i: ; preds = %while.body.i.i.i.i31.i, %land.rhs.i.i.i.i18.i, %if.end35.i.i.i14.i
+  %__holeIndex.addr.0.lcssa.i.i.i.i28.i = phi i64 [ 0, %if.end35.i.i.i14.i ], [ %__holeIndex.addr.07.i.i.i.i19.i, %land.rhs.i.i.i.i18.i ], [ 0, %while.body.i.i.i.i31.i ]
+  %add.ptr.i10.i.i.i.i29.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.i.i28.i
+  store ptr %__value.sroa.0.0.copyload.i.i2.i, ptr %add.ptr.i10.i.i.i.i29.i, align 8
+  %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %add.ptr.i10.i.i.i.i29.i, i64 8
+  store i64 %__value.sroa.2.0.copyload.i.i4.i, ptr %__value.sroa.3.0.ref.tmp13.sroa.0.0..sroa_idx.i.i.i.i30.i, align 8
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i6.i, 16
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !95
 
@@ -2270,7 +2270,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_d
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !91
 
-while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEET_SM_SM_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i17.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i
+while.end:                                        ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEET_SM_SM_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_SM_RT0_.exit.i27.i, %entry, %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterINS2_12_GLOBAL__N_119VertexIndexOrderingIS6_EEEEEvT_SM_RT0_.exit.i.i
   ret void
 }
 

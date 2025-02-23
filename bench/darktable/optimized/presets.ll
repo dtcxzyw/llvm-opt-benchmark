@@ -1947,7 +1947,7 @@ define void @dt_gui_presets_apply_adjacent_preset(ptr noundef %0, i32 noundef %1
   br i1 %.not35, label %77, label %78
 
 77:                                               ; preds = %._crit_edge
-  call void @dt_gui_presets_apply_preset(ptr noundef %.0.lcssa, ptr noundef %0)
+  call void @dt_gui_presets_apply_preset(ptr noundef %.0.lcssa, ptr noundef nonnull %0)
   br label %78
 
 78:                                               ; preds = %77, %._crit_edge
@@ -1961,7 +1961,7 @@ define void @dt_gui_presets_apply_adjacent_preset(ptr noundef %0, i32 noundef %1
 
 82:                                               ; preds = %78, %80
   %83 = phi ptr [ %81, %80 ], [ %.0.lcssa, %78 ]
-  call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef %0, ptr noundef null, ptr noundef %79, ptr noundef nonnull %.028.lcssa, ptr noundef %83) #16
+  call void (ptr, ptr, ptr, ...) @dt_action_widget_toast(ptr noundef nonnull %0, ptr noundef null, ptr noundef %79, ptr noundef nonnull %.028.lcssa, ptr noundef %83) #16
   call void @g_free(ptr noundef %.0.lcssa) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
@@ -2689,7 +2689,7 @@ define internal void @_menuitem_manage_quick_presets(ptr readnone captures(none)
   %.not75 = icmp eq ptr %.fr, null
   br label %56
 
-._crit_edge81:                                    ; preds = %113, %2
+._crit_edge81:                                    ; preds = %114, %2
   call void @g_free(ptr noundef %.fr) #16
   call void @g_list_free(ptr noundef %44) #16
   %45 = tail call i64 @gtk_tree_model_get_type() #20
@@ -2715,8 +2715,8 @@ define internal void @_menuitem_manage_quick_presets(ptr readnone captures(none)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   ret void
 
-56:                                               ; preds = %.lr.ph80, %113
-  %.078 = phi ptr [ %44, %.lr.ph80 ], [ %115, %113 ]
+56:                                               ; preds = %.lr.ph80, %114
+  %.078 = phi ptr [ %44, %.lr.ph80 ], [ %116, %114 ]
   %57 = load ptr, ptr %.078, align 8, !tbaa !59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
@@ -2724,7 +2724,7 @@ define internal void @_menuitem_manage_quick_presets(ptr readnone captures(none)
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 496
   %60 = call i32 @dt_dev_modulegroups_is_visible(ptr noundef %58, ptr noundef nonnull %59) #16
   %.not71 = icmp eq i32 %60, 0
-  br i1 %.not71, label %113, label %61
+  br i1 %.not71, label %114, label %61
 
 61:                                               ; preds = %56
   call void @gtk_tree_store_append(ptr noundef %40, ptr noundef nonnull %4, ptr noundef null) #16
@@ -2776,59 +2776,59 @@ define internal void @_menuitem_manage_quick_presets(ptr readnone captures(none)
   %89 = load ptr, ptr %3, align 8, !tbaa !56
   %90 = call i32 @sqlite3_step(ptr noundef %89) #16
   %.not82 = icmp eq i32 %90, 100
-  br i1 %.not82, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %88
-  %91 = load ptr, ptr %3, align 8, !tbaa !56
-  %92 = call i32 @sqlite3_finalize(ptr noundef %91) #16
-  %93 = call i32 @gtk_tree_store_remove(ptr noundef %40, ptr noundef nonnull %4) #16
-  br label %113
+  br i1 %.not82, label %.lr.ph, label %110
 
 .lr.ph:                                           ; preds = %88
   br i1 %.not75, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %94 = load ptr, ptr %3, align 8, !tbaa !56
-  %95 = call ptr @sqlite3_column_text(ptr noundef %94, i32 noundef 0) #16
-  %96 = call ptr @g_markup_escape_text(ptr noundef %95, i64 noundef -1) #16
-  %97 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %59, ptr noundef %95) #16
-  call void @g_free(ptr noundef %97) #16
+  %91 = load ptr, ptr %3, align 8, !tbaa !56
+  %92 = call ptr @sqlite3_column_text(ptr noundef %91, i32 noundef 0) #16
+  %93 = call ptr @g_markup_escape_text(ptr noundef %92, i64 noundef -1) #16
+  %94 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %59, ptr noundef %92) #16
+  call void @g_free(ptr noundef %94) #16
   call void @gtk_tree_store_append(ptr noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %40, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %96, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef %95, i32 noundef -1) #16
-  call void @g_free(ptr noundef %96) #16
-  %98 = load ptr, ptr %3, align 8, !tbaa !56
-  %99 = call i32 @sqlite3_step(ptr noundef %98) #16
-  %100 = icmp eq i32 %99, 100
-  br i1 %100, label %.lr.ph.split.us, label %._crit_edge
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %40, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %93, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef %92, i32 noundef -1) #16
+  call void @g_free(ptr noundef %93) #16
+  %95 = load ptr, ptr %3, align 8, !tbaa !56
+  %96 = call i32 @sqlite3_step(ptr noundef %95) #16
+  %97 = icmp eq i32 %96, 100
+  br i1 %97, label %.lr.ph.split.us, label %._crit_edge.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %101 = load ptr, ptr %3, align 8, !tbaa !56
-  %102 = call ptr @sqlite3_column_text(ptr noundef %101, i32 noundef 0) #16
-  %103 = call ptr @g_markup_escape_text(ptr noundef %102, i64 noundef -1) #16
-  %104 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %59, ptr noundef %102) #16
-  %105 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.fr, ptr noundef nonnull dereferenceable(1) %104) #18
-  %106 = icmp ne ptr %105, null
-  %107 = zext i1 %106 to i32
-  call void @g_free(ptr noundef nonnull %104) #16
+  %98 = load ptr, ptr %3, align 8, !tbaa !56
+  %99 = call ptr @sqlite3_column_text(ptr noundef %98, i32 noundef 0) #16
+  %100 = call ptr @g_markup_escape_text(ptr noundef %99, i64 noundef -1) #16
+  %101 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.76, ptr noundef nonnull %59, ptr noundef %99) #16
+  %102 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.fr, ptr noundef nonnull dereferenceable(1) %101) #18
+  %103 = icmp ne ptr %102, null
+  %104 = zext i1 %103 to i32
+  call void @g_free(ptr noundef nonnull %101) #16
   call void @gtk_tree_store_append(ptr noundef %40, ptr noundef nonnull %5, ptr noundef nonnull %4) #16
-  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %40, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %103, i32 noundef 1, i32 noundef %107, i32 noundef 2, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef %102, i32 noundef -1) #16
-  call void @g_free(ptr noundef %103) #16
-  %108 = load ptr, ptr %3, align 8, !tbaa !56
-  %109 = call i32 @sqlite3_step(ptr noundef %108) #16
-  %110 = icmp eq i32 %109, 100
-  br i1 %110, label %.lr.ph.split, label %._crit_edge
+  call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %40, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %100, i32 noundef 1, i32 noundef %104, i32 noundef 2, i32 noundef 1, i32 noundef 3, ptr noundef nonnull %59, i32 noundef 4, ptr noundef %99, i32 noundef -1) #16
+  call void @g_free(ptr noundef %100) #16
+  %105 = load ptr, ptr %3, align 8, !tbaa !56
+  %106 = call i32 @sqlite3_step(ptr noundef %105) #16
+  %107 = icmp eq i32 %106, 100
+  br i1 %107, label %.lr.ph.split, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
+._crit_edge.thread:                               ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %108 = load ptr, ptr %3, align 8, !tbaa !56
+  %109 = call i32 @sqlite3_finalize(ptr noundef %108) #16
+  br label %114
+
+110:                                              ; preds = %88
   %111 = load ptr, ptr %3, align 8, !tbaa !56
   %112 = call i32 @sqlite3_finalize(ptr noundef %111) #16
-  br label %113
+  %113 = call i32 @gtk_tree_store_remove(ptr noundef %40, ptr noundef nonnull %4) #16
+  br label %114
 
-113:                                              ; preds = %._crit_edge, %._crit_edge.thread, %56
+114:                                              ; preds = %._crit_edge.thread, %110, %56
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #16
-  %114 = getelementptr inbounds nuw i8, ptr %.078, i64 8
-  %115 = load ptr, ptr %114, align 8, !tbaa !168
-  %.not = icmp eq ptr %115, null
+  %115 = getelementptr inbounds nuw i8, ptr %.078, i64 8
+  %116 = load ptr, ptr %115, align 8, !tbaa !168
+  %.not = icmp eq ptr %116, null
   br i1 %.not, label %._crit_edge81, label %56
 }
 

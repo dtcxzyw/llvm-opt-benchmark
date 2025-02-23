@@ -1086,7 +1086,7 @@ _ZL23getFrameIndexOperandNumRN4llvm12MachineInstrE.exit: ; preds = %175
   %183 = load ptr, ptr %182, align 8, !tbaa !205
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 568
   %185 = load ptr, ptr %184, align 8
-  %186 = tail call noundef zeroext i1 %185(ptr noundef nonnull align 8 dereferenceable(308) %182, ptr %.sroa.0.0.i.i.i10.i.i.i, i32 noundef %3, i32 noundef %.0.i, ptr noundef nonnull %0) #17
+  %186 = tail call noundef zeroext i1 %185(ptr noundef nonnull align 8 dereferenceable(308) %182, ptr nonnull %.sroa.0.0.i.i.i10.i.i.i, i32 noundef %3, i32 noundef %.0.i, ptr noundef nonnull %0) #17
   %187 = load ptr, ptr %156, align 8, !tbaa !207
   %188 = load ptr, ptr %112, align 8, !tbaa !221
   %.sroa.04.0.copyload = load ptr, ptr %5, align 8
@@ -1143,7 +1143,7 @@ _ZL23getFrameIndexOperandNumRN4llvm12MachineInstrE.exit98: ; preds = %205
   %213 = load ptr, ptr %212, align 8, !tbaa !205
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 568
   %215 = load ptr, ptr %214, align 8
-  %216 = tail call noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(308) %212, ptr %.sroa.0.0.i.i.i10.i.i.i88, i32 noundef %3, i32 noundef %.0.i97, ptr noundef nonnull %0) #17
+  %216 = tail call noundef zeroext i1 %215(ptr noundef nonnull align 8 dereferenceable(308) %212, ptr nonnull %.sroa.0.0.i.i.i10.i.i.i88, i32 noundef %3, i32 noundef %.0.i97, ptr noundef nonnull %0) #17
   br label %217
 
 217:                                              ; preds = %_ZL23getFrameIndexOperandNumRN4llvm12MachineInstrE.exit98, %107

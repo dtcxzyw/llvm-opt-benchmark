@@ -1004,7 +1004,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !73
   %101 = add nsw i32 %7, 1
-  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081153, i32 noundef %3, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %101)
+  call fastcc void @ll_diff_tree_paths(ptr noundef %0, ptr noundef %.0, ptr noundef %.081153, i32 noundef %3, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %101)
   br i1 %76, label %103, label %102
 
 102:                                              ; preds = %strbuf_addch.exit

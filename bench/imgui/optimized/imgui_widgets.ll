@@ -4726,9 +4726,9 @@ for.body49.preheader:                             ; preds = %while.end46
 
 while.cond64.preheader:                           ; preds = %for.body49
   %cmp6578 = fcmp ogt float %add, 0.000000e+00
-  br i1 %cmp6578, label %for.cond68.preheader.lr.ph, label %while.end89
+  br i1 %cmp6578, label %for.cond68.preheader.preheader, label %while.end89
 
-for.cond68.preheader.lr.ph:                       ; preds = %while.cond64.preheader
+for.cond68.preheader.preheader:                   ; preds = %while.cond64.preheader
   %11 = zext nneg i32 %count to i64
   br label %for.cond68.preheader
 
@@ -4751,8 +4751,8 @@ while.cond64.loopexit:                            ; preds = %for.body73, %for.co
   %cmp65 = fcmp ogt float %width_excess.addr.3.lcssa, 0.000000e+00
   br i1 %cmp65, label %for.cond68.preheader, label %while.end89, !llvm.loop !13
 
-for.cond68.preheader:                             ; preds = %for.cond68.preheader.lr.ph, %while.cond64.loopexit
-  %width_excess.addr.279 = phi float [ %width_excess.addr.3.lcssa, %while.cond64.loopexit ], [ %add, %for.cond68.preheader.lr.ph ]
+for.cond68.preheader:                             ; preds = %for.cond68.preheader.preheader, %while.cond64.loopexit
+  %width_excess.addr.279 = phi float [ %width_excess.addr.3.lcssa, %while.cond64.loopexit ], [ %add, %for.cond68.preheader.preheader ]
   %cmp7174 = fcmp ogt float %width_excess.addr.279, 0.000000e+00
   br i1 %cmp7174, label %for.body73, label %while.cond64.loopexit
 
@@ -18245,7 +18245,7 @@ if.end254.sink.split:                             ; preds = %if.then253, %if.end
   %tobool2471464.ph = phi i1 [ %tobool2471458, %if.end246.thread ], [ %tobool247, %if.then253 ]
   %state.01462.ph = phi ptr [ %cond.i, %if.end246.thread ], [ %state.0, %if.then253 ]
   %select_all.01461.ph = phi i8 [ 0, %if.end246.thread ], [ %select_all.0, %if.then253 ]
-  %.ph1543 = phi i1 [ false, %if.end246.thread ], [ %91, %if.then253 ]
+  %.ph1542 = phi i1 [ false, %if.end246.thread ], [ %91, %if.then253 ]
   %94 = load i32, ptr %ActiveId109, align 4
   br label %if.end254
 
@@ -18253,7 +18253,7 @@ if.end254:                                        ; preds = %if.end254.sink.spli
   %tobool2471464 = phi i1 [ %tobool247, %if.end246 ], [ %tobool2471464.ph, %if.end254.sink.split ]
   %state.01462 = phi ptr [ %state.0, %if.end246 ], [ %state.01462.ph, %if.end254.sink.split ]
   %select_all.01461 = phi i8 [ %select_all.0, %if.end246 ], [ %select_all.01461.ph, %if.end254.sink.split ]
-  %95 = phi i1 [ %91, %if.end246 ], [ %.ph1543, %if.end254.sink.split ]
+  %95 = phi i1 [ %91, %if.end246 ], [ %.ph1542, %if.end254.sink.split ]
   %96 = phi i32 [ %93, %if.end246 ], [ %94, %if.end254.sink.split ]
   %cmp256 = icmp eq i32 %96, %call4
   br i1 %cmp256, label %if.then257, label %if.end281
@@ -19086,12 +19086,12 @@ land.end708:                                      ; preds = %land.rhs703, %lor.r
 
 lor.end716.sink.split:                            ; preds = %land.end708, %lor.end700
   %.sink = phi i32 [ 526, %lor.end700 ], [ 634, %land.end708 ]
-  %.ph1545 = phi i1 [ false, %lor.end700 ], [ %204, %land.end708 ]
+  %.ph1544 = phi i1 [ false, %lor.end700 ], [ %204, %land.end708 ]
   %call7101329 = call noundef zeroext i1 @_ZN5ImGui8ShortcutEiji(i32 noundef %.sink, i32 noundef %call4, i32 noundef 1)
   br label %lor.end716
 
 lor.end716:                                       ; preds = %lor.end716.sink.split, %land.end708
-  %205 = phi i1 [ %204, %land.end708 ], [ %.ph1545, %lor.end716.sink.split ]
+  %205 = phi i1 [ %204, %land.end708 ], [ %.ph1544, %lor.end716.sink.split ]
   %206 = phi i1 [ true, %land.end708 ], [ %call7101329, %lor.end716.sink.split ]
   %call718 = call noundef zeroext i1 @_ZN5ImGui12IsKeyPressedE8ImGuiKeyb(i32 noundef 513, i1 noundef zeroext true)
   br i1 %call718, label %if.then719, label %if.else728
@@ -19281,8 +19281,8 @@ land.lhs.true847:                                 ; preds = %land.lhs.true844
   br i1 %tobool849, label %if.end853, label %if.end853.sink.split
 
 if.end853.sink.split:                             ; preds = %land.lhs.true847, %if.then836
-  %.sink1547 = phi i32 [ 6291468, %if.then836 ], [ 6291460, %land.lhs.true847 ]
-  call void @_ZN19ImGuiInputTextState12OnKeyPressedEi(ptr noundef nonnull align 8 dereferenceable(3724) %state.01462, i32 noundef %.sink1547)
+  %.sink1546 = phi i32 [ 6291468, %if.then836 ], [ 6291460, %land.lhs.true847 ]
+  call void @_ZN19ImGuiInputTextState12OnKeyPressedEi(ptr noundef nonnull align 8 dereferenceable(3724) %state.01462, i32 noundef %.sink1546)
   br label %if.end853
 
 if.end853:                                        ; preds = %if.end853.sink.split, %land.lhs.true847, %land.lhs.true844, %land.lhs.true841, %if.else839, %if.then834
@@ -19641,7 +19641,7 @@ _ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEP
   %select_start.i1083 = getelementptr inbounds nuw i8, ptr %state.01462, i64 88
   store i32 0, ptr %select_start.i1083, align 4
   store i32 0, ptr %Stb1048, align 4
-  br label %if.end1086
+  br label %if.then1088
 
 if.else1049:                                      ; preds = %if.then1044
   %Data1051 = getelementptr inbounds nuw i8, ptr %state.01462, i64 64
@@ -19699,27 +19699,25 @@ invoke.cont1083:                                  ; preds = %if.end1073
   call void @_ZN8ImVectorItED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %w_text) #39
   br label %if.then1088
 
-if.end1086:                                       ; preds = %land.lhs.true596, %land.lhs.true598, %if.then1040, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit
-  %value_changed.1 = phi i1 [ true, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ false, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
-  %revert_edit.014761512 = phi i1 [ %revert_edit.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %revert_edit.0, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
-  %validated.014771509 = phi i1 [ %validated.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %validated.0, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
-  %render_selection.1.in14801506 = phi i1 [ %render_selection.1.in, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %render_selection.1.in, %if.then1040 ], [ %render_selection.0.in, %land.lhs.true598 ], [ %render_selection.0.in, %land.lhs.true596 ]
-  %render_cursor.014821503 = phi i1 [ %render_cursor.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %render_cursor.0, %if.then1040 ], [ %103, %land.lhs.true598 ], [ %103, %land.lhs.true596 ]
-  %scroll_y.014841500 = phi float [ %scroll_y.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %scroll_y.0, %if.then1040 ], [ %cond151, %land.lhs.true598 ], [ %cond151, %land.lhs.true596 ]
-  %clear_active_id.114861497 = phi i8 [ %clear_active_id.1, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ %clear_active_id.1, %if.then1040 ], [ 1, %land.lhs.true598 ], [ %clear_active_id.01325, %land.lhs.true596 ]
-  %apply_new_text.1 = phi ptr [ @.str, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ], [ null, %if.then1040 ], [ null, %land.lhs.true598 ], [ null, %land.lhs.true596 ]
+if.end1086:                                       ; preds = %land.lhs.true596, %land.lhs.true598, %if.then1040
+  %revert_edit.014761512 = phi i1 [ %revert_edit.0, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
+  %validated.014771509 = phi i1 [ %validated.0, %if.then1040 ], [ false, %land.lhs.true598 ], [ false, %land.lhs.true596 ]
+  %render_selection.1.in14801506 = phi i1 [ %render_selection.1.in, %if.then1040 ], [ %render_selection.0.in, %land.lhs.true598 ], [ %render_selection.0.in, %land.lhs.true596 ]
+  %render_cursor.014821503 = phi i1 [ %render_cursor.0, %if.then1040 ], [ %103, %land.lhs.true598 ], [ %103, %land.lhs.true596 ]
+  %scroll_y.014841500 = phi float [ %scroll_y.0, %if.then1040 ], [ %cond151, %land.lhs.true598 ], [ %cond151, %land.lhs.true596 ]
+  %clear_active_id.114861497 = phi i8 [ %clear_active_id.1, %if.then1040 ], [ 1, %land.lhs.true598 ], [ %clear_active_id.01325, %land.lhs.true596 ]
   br i1 %cmp95, label %if.end1102, label %if.then1088
 
-if.then1088:                                      ; preds = %if.else1049, %invoke.cont1083, %if.end1086
-  %revert_edit.014761511 = phi i1 [ %revert_edit.014761512, %if.end1086 ], [ %revert_edit.0, %if.else1049 ], [ %revert_edit.0, %invoke.cont1083 ]
-  %validated.014771508 = phi i1 [ %validated.014771509, %if.end1086 ], [ %validated.0, %if.else1049 ], [ %validated.0, %invoke.cont1083 ]
-  %render_selection.1.in14801505 = phi i1 [ %render_selection.1.in14801506, %if.end1086 ], [ %render_selection.1.in, %if.else1049 ], [ %render_selection.1.in, %invoke.cont1083 ]
-  %render_cursor.014821502 = phi i1 [ %render_cursor.014821503, %if.end1086 ], [ %render_cursor.0, %if.else1049 ], [ %render_cursor.0, %invoke.cont1083 ]
-  %scroll_y.014841499 = phi float [ %scroll_y.014841500, %if.end1086 ], [ %scroll_y.0, %if.else1049 ], [ %scroll_y.0, %invoke.cont1083 ]
-  %clear_active_id.114861496 = phi i8 [ %clear_active_id.114861497, %if.end1086 ], [ %clear_active_id.1, %if.else1049 ], [ %clear_active_id.1, %invoke.cont1083 ]
-  %value_changed.11346 = phi i1 [ %value_changed.1, %if.end1086 ], [ false, %if.else1049 ], [ true, %invoke.cont1083 ]
-  %apply_new_text.11344 = phi ptr [ %apply_new_text.1, %if.end1086 ], [ null, %if.else1049 ], [ %263, %invoke.cont1083 ]
-  %apply_new_text_length.11342 = phi i32 [ 0, %if.end1086 ], [ 0, %if.else1049 ], [ %sub1059, %invoke.cont1083 ]
+if.then1088:                                      ; preds = %if.else1049, %invoke.cont1083, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit, %if.end1086
+  %revert_edit.014761510 = phi i1 [ %revert_edit.014761512, %if.end1086 ], [ %revert_edit.0, %if.else1049 ], [ %revert_edit.0, %invoke.cont1083 ], [ %revert_edit.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %validated.014771507 = phi i1 [ %validated.014771509, %if.end1086 ], [ %validated.0, %if.else1049 ], [ %validated.0, %invoke.cont1083 ], [ %validated.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %render_selection.1.in14801504 = phi i1 [ %render_selection.1.in14801506, %if.end1086 ], [ %render_selection.1.in, %if.else1049 ], [ %render_selection.1.in, %invoke.cont1083 ], [ %render_selection.1.in, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %render_cursor.014821501 = phi i1 [ %render_cursor.014821503, %if.end1086 ], [ %render_cursor.0, %if.else1049 ], [ %render_cursor.0, %invoke.cont1083 ], [ %render_cursor.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %scroll_y.014841498 = phi float [ %scroll_y.014841500, %if.end1086 ], [ %scroll_y.0, %if.else1049 ], [ %scroll_y.0, %invoke.cont1083 ], [ %scroll_y.0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %clear_active_id.114861495 = phi i8 [ %clear_active_id.114861497, %if.end1086 ], [ %clear_active_id.1, %if.else1049 ], [ %clear_active_id.1, %invoke.cont1083 ], [ %clear_active_id.1, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %value_changed.11346 = phi i1 [ false, %if.end1086 ], [ false, %if.else1049 ], [ true, %invoke.cont1083 ], [ true, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %apply_new_text.11344 = phi ptr [ null, %if.end1086 ], [ null, %if.else1049 ], [ %263, %invoke.cont1083 ], [ @.str, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
+  %apply_new_text_length.11342 = phi i32 [ 0, %if.end1086 ], [ 0, %if.else1049 ], [ %sub1059, %invoke.cont1083 ], [ 0, %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKti.exit ]
   %TextAIsValid1089 = getelementptr inbounds nuw i8, ptr %state.01462, i64 72
   store i8 1, ptr %TextAIsValid1089, align 8
   %TextA1090 = getelementptr inbounds nuw i8, ptr %state.01462, i64 40
@@ -19775,34 +19773,34 @@ _ZN8ImVectorIcE6resizeEi.exit1102:                ; preds = %if.then1088._ZN8ImV
   %Data1100 = getelementptr inbounds nuw i8, ptr %state.01462, i64 32
   %276 = load ptr, ptr %Data1100, align 8
   %call1101 = call noundef i32 @_Z15ImTextStrToUtf8PciPKtS1_(ptr noundef %275, i32 noundef %add1094, ptr noundef %276, ptr noundef null)
-  br i1 %revert_edit.014761511, label %lor.rhs1104, label %if.then1113
+  br i1 %revert_edit.014761510, label %lor.rhs1104, label %if.then1113
 
 if.end1102:                                       ; preds = %if.end1086
   br i1 %revert_edit.014761512, label %lor.rhs1104, label %if.then1113
 
 lor.rhs1104:                                      ; preds = %_ZN8ImVectorIcE6resizeEi.exit1102, %if.end1102
-  %apply_new_text_length.113431529 = phi i32 [ %apply_new_text_length.11342, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ 0, %if.end1102 ]
-  %apply_new_text.113451527 = phi ptr [ %apply_new_text.11344, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %apply_new_text.1, %if.end1102 ]
-  %value_changed.113471525 = phi i1 [ %value_changed.11346, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %value_changed.1, %if.end1102 ]
-  %clear_active_id.1148614951523 = phi i8 [ %clear_active_id.114861496, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %clear_active_id.114861497, %if.end1102 ]
-  %scroll_y.0148414981521 = phi float [ %scroll_y.014841499, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %scroll_y.014841500, %if.end1102 ]
-  %render_cursor.0148215011519 = phi i1 [ %render_cursor.014821502, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_cursor.014821503, %if.end1102 ]
-  %render_selection.1.in148015041517 = phi i1 [ %render_selection.1.in14801505, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_selection.1.in14801506, %if.end1102 ]
-  %validated.0147715071514 = phi i1 [ %validated.014771508, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %validated.014771509, %if.end1102 ]
+  %apply_new_text_length.113431528 = phi i32 [ %apply_new_text_length.11342, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ 0, %if.end1102 ]
+  %apply_new_text.113451526 = phi ptr [ %apply_new_text.11344, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ null, %if.end1102 ]
+  %value_changed.113471524 = phi i1 [ %value_changed.11346, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ false, %if.end1102 ]
+  %clear_active_id.1148614961522 = phi i8 [ %clear_active_id.114861495, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %clear_active_id.114861497, %if.end1102 ]
+  %scroll_y.0148414991520 = phi float [ %scroll_y.014841498, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %scroll_y.014841500, %if.end1102 ]
+  %render_cursor.0148215021518 = phi i1 [ %render_cursor.014821501, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_cursor.014821503, %if.end1102 ]
+  %render_selection.1.in148015051516 = phi i1 [ %render_selection.1.in14801504, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_selection.1.in14801506, %if.end1102 ]
+  %validated.0147715081513 = phi i1 [ %validated.014771507, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %validated.014771509, %if.end1102 ]
   %and1107 = and i32 %flags, 32
   %cmp1108 = icmp ne i32 %and1107, 0
-  %277 = and i1 %cmp1108, %validated.0147715071514
+  %277 = and i1 %cmp1108, %validated.0147715081513
   br i1 %277, label %if.then1113, label %if.end1292
 
 if.then1113:                                      ; preds = %_ZN8ImVectorIcE6resizeEi.exit1102, %if.end1102, %lor.rhs1104
-  %apply_new_text_length.113431528 = phi i32 [ %apply_new_text_length.11342, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ 0, %if.end1102 ], [ %apply_new_text_length.113431529, %lor.rhs1104 ]
-  %apply_new_text.113451526 = phi ptr [ %apply_new_text.11344, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %apply_new_text.1, %if.end1102 ], [ %apply_new_text.113451527, %lor.rhs1104 ]
-  %value_changed.113471524 = phi i1 [ %value_changed.11346, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %value_changed.1, %if.end1102 ], [ %value_changed.113471525, %lor.rhs1104 ]
-  %clear_active_id.1148614951522 = phi i8 [ %clear_active_id.114861496, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %clear_active_id.114861497, %if.end1102 ], [ %clear_active_id.1148614951523, %lor.rhs1104 ]
-  %scroll_y.0148414981520 = phi float [ %scroll_y.014841499, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %scroll_y.014841500, %if.end1102 ], [ %scroll_y.0148414981521, %lor.rhs1104 ]
-  %render_cursor.0148215011518 = phi i1 [ %render_cursor.014821502, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_cursor.014821503, %if.end1102 ], [ %render_cursor.0148215011519, %lor.rhs1104 ]
-  %render_selection.1.in148015041516 = phi i1 [ %render_selection.1.in14801505, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_selection.1.in14801506, %if.end1102 ], [ %render_selection.1.in148015041517, %lor.rhs1104 ]
-  %validated.0147715071515 = phi i1 [ %validated.014771508, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %validated.014771509, %if.end1102 ], [ %validated.0147715071514, %lor.rhs1104 ]
+  %apply_new_text_length.113431527 = phi i32 [ %apply_new_text_length.11342, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ 0, %if.end1102 ], [ %apply_new_text_length.113431528, %lor.rhs1104 ]
+  %apply_new_text.113451525 = phi ptr [ %apply_new_text.11344, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ null, %if.end1102 ], [ %apply_new_text.113451526, %lor.rhs1104 ]
+  %value_changed.113471523 = phi i1 [ %value_changed.11346, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ false, %if.end1102 ], [ %value_changed.113471524, %lor.rhs1104 ]
+  %clear_active_id.1148614961521 = phi i8 [ %clear_active_id.114861495, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %clear_active_id.114861497, %if.end1102 ], [ %clear_active_id.1148614961522, %lor.rhs1104 ]
+  %scroll_y.0148414991519 = phi float [ %scroll_y.014841498, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %scroll_y.014841500, %if.end1102 ], [ %scroll_y.0148414991520, %lor.rhs1104 ]
+  %render_cursor.0148215021517 = phi i1 [ %render_cursor.014821501, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_cursor.014821503, %if.end1102 ], [ %render_cursor.0148215021518, %lor.rhs1104 ]
+  %render_selection.1.in148015051515 = phi i1 [ %render_selection.1.in14801504, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %render_selection.1.in14801506, %if.end1102 ], [ %render_selection.1.in148015051516, %lor.rhs1104 ]
+  %validated.0147715081514 = phi i1 [ %validated.014771507, %_ZN8ImVectorIcE6resizeEi.exit1102 ], [ %validated.014771509, %if.end1102 ], [ %validated.0147715081513, %lor.rhs1104 ]
   %and1114 = and i32 %flags, 524736
   %cmp1115.not = icmp eq i32 %and1114, 0
   br i1 %cmp1115.not, label %if.end1279, label %if.then1116
@@ -20023,14 +20021,14 @@ if.then1286:                                      ; preds = %land.lhs.true1281
   br label %if.end1292
 
 if.end1292:                                       ; preds = %lor.rhs1104, %if.then1286, %land.lhs.true1281, %if.end1279, %if.end1037
-  %clear_active_id.11485 = phi i8 [ %clear_active_id.1148614951522, %if.end1279 ], [ %clear_active_id.1148614951522, %if.then1286 ], [ %clear_active_id.1148614951522, %land.lhs.true1281 ], [ %clear_active_id.1148614951523, %lor.rhs1104 ], [ %clear_active_id.1, %if.end1037 ]
-  %scroll_y.01483 = phi float [ %scroll_y.0148414981520, %if.end1279 ], [ %scroll_y.0148414981520, %if.then1286 ], [ %scroll_y.0148414981520, %land.lhs.true1281 ], [ %scroll_y.0148414981521, %lor.rhs1104 ], [ %scroll_y.0, %if.end1037 ]
-  %render_cursor.01481 = phi i1 [ %render_cursor.0148215011518, %if.end1279 ], [ %render_cursor.0148215011518, %if.then1286 ], [ %render_cursor.0148215011518, %land.lhs.true1281 ], [ %render_cursor.0148215011519, %lor.rhs1104 ], [ %render_cursor.0, %if.end1037 ]
-  %render_selection.1.in1479 = phi i1 [ %render_selection.1.in148015041516, %if.end1279 ], [ %render_selection.1.in148015041516, %if.then1286 ], [ %render_selection.1.in148015041516, %land.lhs.true1281 ], [ %render_selection.1.in148015041517, %lor.rhs1104 ], [ %render_selection.1.in, %if.end1037 ]
-  %validated.01478 = phi i1 [ %validated.0147715071515, %if.end1279 ], [ %validated.0147715071515, %if.then1286 ], [ %validated.0147715071515, %land.lhs.true1281 ], [ %validated.0147715071514, %lor.rhs1104 ], [ %validated.0, %if.end1037 ]
-  %apply_new_text_length.0 = phi i32 [ %apply_new_text_length.113431528, %if.end1279 ], [ %306, %if.then1286 ], [ %apply_new_text_length.113431528, %land.lhs.true1281 ], [ %apply_new_text_length.113431529, %lor.rhs1104 ], [ 0, %if.end1037 ]
-  %apply_new_text.0 = phi ptr [ %apply_new_text.113451526, %if.end1279 ], [ %305, %if.then1286 ], [ %apply_new_text.113451526, %land.lhs.true1281 ], [ %apply_new_text.113451527, %lor.rhs1104 ], [ null, %if.end1037 ]
-  %value_changed.0 = phi i1 [ %value_changed.113471524, %if.end1279 ], [ true, %if.then1286 ], [ %value_changed.113471524, %land.lhs.true1281 ], [ %value_changed.113471525, %lor.rhs1104 ], [ false, %if.end1037 ]
+  %clear_active_id.11485 = phi i8 [ %clear_active_id.1148614961521, %if.end1279 ], [ %clear_active_id.1148614961521, %if.then1286 ], [ %clear_active_id.1148614961521, %land.lhs.true1281 ], [ %clear_active_id.1148614961522, %lor.rhs1104 ], [ %clear_active_id.1, %if.end1037 ]
+  %scroll_y.01483 = phi float [ %scroll_y.0148414991519, %if.end1279 ], [ %scroll_y.0148414991519, %if.then1286 ], [ %scroll_y.0148414991519, %land.lhs.true1281 ], [ %scroll_y.0148414991520, %lor.rhs1104 ], [ %scroll_y.0, %if.end1037 ]
+  %render_cursor.01481 = phi i1 [ %render_cursor.0148215021517, %if.end1279 ], [ %render_cursor.0148215021517, %if.then1286 ], [ %render_cursor.0148215021517, %land.lhs.true1281 ], [ %render_cursor.0148215021518, %lor.rhs1104 ], [ %render_cursor.0, %if.end1037 ]
+  %render_selection.1.in1479 = phi i1 [ %render_selection.1.in148015051515, %if.end1279 ], [ %render_selection.1.in148015051515, %if.then1286 ], [ %render_selection.1.in148015051515, %land.lhs.true1281 ], [ %render_selection.1.in148015051516, %lor.rhs1104 ], [ %render_selection.1.in, %if.end1037 ]
+  %validated.01478 = phi i1 [ %validated.0147715081514, %if.end1279 ], [ %validated.0147715081514, %if.then1286 ], [ %validated.0147715081514, %land.lhs.true1281 ], [ %validated.0147715081513, %lor.rhs1104 ], [ %validated.0, %if.end1037 ]
+  %apply_new_text_length.0 = phi i32 [ %apply_new_text_length.113431527, %if.end1279 ], [ %306, %if.then1286 ], [ %apply_new_text_length.113431527, %land.lhs.true1281 ], [ %apply_new_text_length.113431528, %lor.rhs1104 ], [ 0, %if.end1037 ]
+  %apply_new_text.0 = phi ptr [ %apply_new_text.113451525, %if.end1279 ], [ %305, %if.then1286 ], [ %apply_new_text.113451525, %land.lhs.true1281 ], [ %apply_new_text.113451526, %lor.rhs1104 ], [ null, %if.end1037 ]
+  %value_changed.0 = phi i1 [ %value_changed.113471523, %if.end1279 ], [ true, %if.then1286 ], [ %value_changed.113471523, %land.lhs.true1281 ], [ %value_changed.113471524, %lor.rhs1104 ], [ false, %if.end1037 ]
   %InputTextDeactivatedState = getelementptr inbounds nuw i8, ptr %0, i64 23864
   %307 = load i32, ptr %InputTextDeactivatedState, align 8
   %cmp1294 = icmp eq i32 %307, %call4
@@ -24534,7 +24532,7 @@ _ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii.exit: ; preds = %w
   br i1 %cmp, label %if.end6, label %if.end
 
 if.end:                                           ; preds = %_ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii.exit
-  %call = tail call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKti(ptr noundef %str, i32 noundef 0, ptr noundef %text, i32 noundef %text_len)
+  %call = tail call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKti(ptr noundef nonnull %str, i32 noundef 0, ptr noundef %text, i32 noundef %text_len)
   br i1 %call, label %if.then2, label %if.end6
 
 if.then2:                                         ; preds = %if.end
@@ -40489,9 +40487,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #36
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #36
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #37
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.uadd.sat.i8(i8, i8) #34
 
@@ -40542,6 +40537,9 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #34

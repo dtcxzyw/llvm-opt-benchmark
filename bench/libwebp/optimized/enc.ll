@@ -1576,29 +1576,25 @@ VerticalPred.exit:                                ; preds = %.preheader.i11, %.p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %37, i8 %39, i64 16, i1 false), !alias.scope !155, !noalias !158
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 16
-  br i1 %exitcond.not.i22, label %HorizontalPred.exit.thread, label %.preheader.i19, !llvm.loop !160
-
-HorizontalPred.exit.thread:                       ; preds = %.preheader.i19
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %.not.i, label %64, label %44
+  br i1 %exitcond.not.i22, label %42, label %.preheader.i19, !llvm.loop !160
 
 .preheader34:                                     ; preds = %VerticalPred.exit, %.preheader34
   %indvars.iv.i.i23 = phi i64 [ %indvars.iv.next.i.i24, %.preheader34 ], [ 0, %VerticalPred.exit ]
-  %41 = shl nsw i64 %indvars.iv.i.i23, 5
-  %42 = getelementptr inbounds nuw i8, ptr %35, i64 %41
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %42, i8 -127, i64 16, i1 false), !alias.scope !155, !noalias !158
+  %40 = shl nsw i64 %indvars.iv.i.i23, 5
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 %40
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %41, i8 -127, i64 16, i1 false), !alias.scope !155, !noalias !158
   %indvars.iv.next.i.i24 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %exitcond.not.i.i25 = icmp eq i64 %indvars.iv.next.i.i24, 16
-  br i1 %exitcond.not.i.i25, label %HorizontalPred.exit, label %.preheader34, !llvm.loop !85
+  br i1 %exitcond.not.i.i25, label %69, label %.preheader34, !llvm.loop !85
 
-HorizontalPred.exit:                              ; preds = %.preheader34
+42:                                               ; preds = %.preheader.i19
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
-  br i1 %.not.i, label %.preheader, label %.preheader.i34.i
+  br i1 %.not.i, label %64, label %44
 
-44:                                               ; preds = %HorizontalPred.exit.thread
+44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %1, i64 -1
   %46 = load i8, ptr %45, align 1, !tbaa !14, !alias.scope !164, !noalias !168
   %47 = zext i8 %46 to i64
@@ -1608,7 +1604,7 @@ HorizontalPred.exit:                              ; preds = %.preheader34
 
 50:                                               ; preds = %62, %44
   %indvars.iv54.i = phi i64 [ 0, %44 ], [ %indvars.iv.next55.i, %62 ]
-  %.02649.i = phi ptr [ %40, %44 ], [ %63, %62 ]
+  %.02649.i = phi ptr [ %43, %44 ], [ %63, %62 ]
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv54.i
   %52 = load i8, ptr %51, align 1, !tbaa !14, !alias.scope !164, !noalias !168
   %53 = zext i8 %52 to i64
@@ -1634,7 +1630,7 @@ HorizontalPred.exit:                              ; preds = %.preheader34
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, 16
   br i1 %exitcond58.not.i, label %TrueMotion.exit, label %50, !llvm.loop !173
 
-64:                                               ; preds = %HorizontalPred.exit.thread
+64:                                               ; preds = %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !177)
   br label %.preheader.i.i
@@ -1642,7 +1638,7 @@ HorizontalPred.exit:                              ; preds = %.preheader34
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %64
   %indvars.iv.i.i30 = phi i64 [ %indvars.iv.next.i.i31, %.preheader.i.i ], [ 0, %64 ]
   %65 = shl nsw i64 %indvars.iv.i.i30, 5
-  %66 = getelementptr inbounds nuw i8, ptr %40, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %43, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i30
   %68 = load i8, ptr %67, align 1, !tbaa !14, !alias.scope !179, !noalias !180
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %66, i8 %68, i64 16, i1 false), !alias.scope !181, !noalias !182
@@ -1650,20 +1646,24 @@ HorizontalPred.exit:                              ; preds = %.preheader34
   %exitcond.not.i.i32 = icmp eq i64 %indvars.iv.next.i.i31, 16
   br i1 %exitcond.not.i.i32, label %TrueMotion.exit, label %.preheader.i.i, !llvm.loop !160
 
-.preheader.i34.i:                                 ; preds = %HorizontalPred.exit, %.preheader.i34.i
-  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader.i34.i ], [ 0, %HorizontalPred.exit ]
-  %69 = shl nsw i64 %indvars.iv.i35.i, 5
-  %70 = getelementptr inbounds nuw i8, ptr %43, i64 %69
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %70, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !183, !noalias !164
+69:                                               ; preds = %.preheader34
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %.not.i, label %.preheader, label %.preheader.i34.i
+
+.preheader.i34.i:                                 ; preds = %69, %.preheader.i34.i
+  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader.i34.i ], [ 0, %69 ]
+  %71 = shl nsw i64 %indvars.iv.i35.i, 5
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, ptr noundef nonnull readonly align 1 dereferenceable(16) %2, i64 16, i1 false), !alias.scope !183, !noalias !164
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, 16
   br i1 %exitcond.not.i37.i, label %TrueMotion.exit, label %.preheader.i34.i, !llvm.loop !153
 
-.preheader:                                       ; preds = %HorizontalPred.exit, %.preheader
-  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader ], [ 0, %HorizontalPred.exit ]
-  %71 = shl nsw i64 %indvars.iv.i41.i, 5
-  %72 = getelementptr inbounds nuw i8, ptr %43, i64 %71
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %72, i8 -127, i64 16, i1 false), !alias.scope !161, !noalias !171
+.preheader:                                       ; preds = %69, %.preheader
+  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader ], [ 0, %69 ]
+  %73 = shl nsw i64 %indvars.iv.i41.i, 5
+  %74 = getelementptr inbounds nuw i8, ptr %70, i64 %73
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %74, i8 -127, i64 16, i1 false), !alias.scope !161, !noalias !171
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
   %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i42.i, 16
   br i1 %exitcond.not.i43.i, label %TrueMotion.exit, label %.preheader, !llvm.loop !85
@@ -1795,7 +1795,7 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !201)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !204)
   %.not.i38 = icmp eq ptr %1, null
-  br i1 %.not.i38, label %.preheader133, label %.preheader.i39
+  br i1 %.not.i38, label %.preheader134, label %.preheader.i39
 
 .preheader.i39:                                   ; preds = %VerticalPred.exit, %.preheader.i39
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i41, %.preheader.i39 ], [ 0, %VerticalPred.exit ]
@@ -1806,333 +1806,322 @@ VerticalPred.exit:                                ; preds = %.preheader.i31, %.p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %39, i8 %41, i64 8, i1 false), !alias.scope !201, !noalias !204
   %indvars.iv.next.i41 = add nuw nsw i64 %indvars.iv.i40, 1
   %exitcond.not.i42 = icmp eq i64 %indvars.iv.next.i41, 8
-  br i1 %exitcond.not.i42, label %HorizontalPred.exit.thread, label %.preheader.i39, !llvm.loop !160
+  br i1 %exitcond.not.i42, label %44, label %.preheader.i39, !llvm.loop !160
 
-HorizontalPred.exit.thread:                       ; preds = %.preheader.i39
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1040
-  br i1 %.not.i, label %67, label %47
-
-.preheader133:                                    ; preds = %VerticalPred.exit, %.preheader133
-  %indvars.iv.i.i43 = phi i64 [ %indvars.iv.next.i.i44, %.preheader133 ], [ 0, %VerticalPred.exit ]
-  %43 = shl nsw i64 %indvars.iv.i.i43, 5
-  %44 = getelementptr inbounds nuw i8, ptr %37, i64 %43
-  store i64 -9114861777597660799, ptr %44, align 1
+.preheader134:                                    ; preds = %VerticalPred.exit, %.preheader134
+  %indvars.iv.i.i43 = phi i64 [ %indvars.iv.next.i.i44, %.preheader134 ], [ 0, %VerticalPred.exit ]
+  %42 = shl nsw i64 %indvars.iv.i.i43, 5
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 %42
+  store i64 -9114861777597660799, ptr %43, align 1
   %indvars.iv.next.i.i44 = add nuw nsw i64 %indvars.iv.i.i43, 1
   %exitcond.not.i.i45 = icmp eq i64 %indvars.iv.next.i.i44, 8
-  br i1 %exitcond.not.i.i45, label %HorizontalPred.exit, label %.preheader133, !llvm.loop !85
+  br i1 %exitcond.not.i.i45, label %71, label %.preheader134, !llvm.loop !85
 
-HorizontalPred.exit:                              ; preds = %.preheader133
+44:                                               ; preds = %.preheader.i39
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
-  br i1 %.not.i, label %.preheader132, label %.preheader.i34.i.preheader
+  br i1 %.not.i, label %66, label %46
 
-.preheader.i34.i.preheader:                       ; preds = %HorizontalPred.exit
-  %46 = load i64, ptr %2, align 1, !alias.scope !213, !noalias !209
-  br label %.preheader.i34.i
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %1, i64 -1
+  %48 = load i8, ptr %47, align 1, !tbaa !14, !alias.scope !209, !noalias !213
+  %49 = zext i8 %48 to i64
+  %50 = sub nsw i64 0, %49
+  %51 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %50
+  br label %52
 
-47:                                               ; preds = %HorizontalPred.exit.thread
-  %48 = getelementptr inbounds i8, ptr %1, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !14, !alias.scope !209, !noalias !217
-  %50 = zext i8 %49 to i64
-  %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %51
-  br label %53
+52:                                               ; preds = %64, %46
+  %indvars.iv54.i = phi i64 [ 0, %46 ], [ %indvars.iv.next55.i, %64 ]
+  %.02649.i = phi ptr [ %45, %46 ], [ %65, %64 ]
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv54.i
+  %54 = load i8, ptr %53, align 1, !tbaa !14, !alias.scope !209, !noalias !213
+  %55 = zext i8 %54 to i64
+  %56 = getelementptr inbounds nuw i8, ptr %51, i64 %55
+  br label %57
 
-53:                                               ; preds = %65, %47
-  %indvars.iv54.i = phi i64 [ 0, %47 ], [ %indvars.iv.next55.i, %65 ]
-  %.02649.i = phi ptr [ %42, %47 ], [ %66, %65 ]
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv54.i
-  %55 = load i8, ptr %54, align 1, !tbaa !14, !alias.scope !209, !noalias !217
-  %56 = zext i8 %55 to i64
-  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
-  br label %58
-
-58:                                               ; preds = %58, %53
-  %indvars.iv.i47 = phi i64 [ 0, %53 ], [ %indvars.iv.next.i48, %58 ]
-  %59 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i47
-  %60 = load i8, ptr %59, align 1, !tbaa !14, !alias.scope !211, !noalias !218
-  %61 = zext i8 %60 to i64
-  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
-  %63 = load i8, ptr %62, align 1, !tbaa !14, !noalias !219
-  %64 = getelementptr inbounds nuw i8, ptr %.02649.i, i64 %indvars.iv.i47
-  store i8 %63, ptr %64, align 1, !tbaa !14, !alias.scope !206, !noalias !220
+57:                                               ; preds = %57, %52
+  %indvars.iv.i47 = phi i64 [ 0, %52 ], [ %indvars.iv.next.i48, %57 ]
+  %58 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i47
+  %59 = load i8, ptr %58, align 1, !tbaa !14, !alias.scope !211, !noalias !214
+  %60 = zext i8 %59 to i64
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 %60
+  %62 = load i8, ptr %61, align 1, !tbaa !14, !noalias !215
+  %63 = getelementptr inbounds nuw i8, ptr %.02649.i, i64 %indvars.iv.i47
+  store i8 %62, ptr %63, align 1, !tbaa !14, !alias.scope !206, !noalias !216
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i47, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 8
-  br i1 %exitcond.not.i49, label %65, label %58, !llvm.loop !172
+  br i1 %exitcond.not.i49, label %64, label %57, !llvm.loop !172
 
-65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw i8, ptr %.02649.i, i64 32
+64:                                               ; preds = %57
+  %65 = getelementptr inbounds nuw i8, ptr %.02649.i, i64 32
   %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
   %exitcond58.not.i = icmp eq i64 %indvars.iv.next55.i, 8
-  br i1 %exitcond58.not.i, label %TrueMotion.exit.thread, label %53, !llvm.loop !173
+  br i1 %exitcond58.not.i, label %.preheader43.preheader.i54, label %52, !llvm.loop !173
 
-67:                                               ; preds = %HorizontalPred.exit.thread
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
+66:                                               ; preds = %44
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !220)
   br label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %.preheader.i.i, %67
-  %indvars.iv.i.i50 = phi i64 [ %indvars.iv.next.i.i51, %.preheader.i.i ], [ 0, %67 ]
-  %68 = shl nsw i64 %indvars.iv.i.i50, 5
-  %69 = getelementptr inbounds nuw i8, ptr %42, i64 %68
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i50
-  %71 = load i8, ptr %70, align 1, !tbaa !14, !alias.scope !226, !noalias !227
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %69, i8 %71, i64 8, i1 false), !alias.scope !228, !noalias !229
+.preheader.i.i:                                   ; preds = %.preheader.i.i, %66
+  %indvars.iv.i.i50 = phi i64 [ %indvars.iv.next.i.i51, %.preheader.i.i ], [ 0, %66 ]
+  %67 = shl nsw i64 %indvars.iv.i.i50, 5
+  %68 = getelementptr inbounds nuw i8, ptr %45, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i50
+  %70 = load i8, ptr %69, align 1, !tbaa !14, !alias.scope !222, !noalias !223
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %68, i8 %70, i64 8, i1 false), !alias.scope !224, !noalias !225
   %indvars.iv.next.i.i51 = add nuw nsw i64 %indvars.iv.i.i50, 1
   %exitcond.not.i.i52 = icmp eq i64 %indvars.iv.next.i.i51, 8
-  br i1 %exitcond.not.i.i52, label %TrueMotion.exit, label %.preheader.i.i, !llvm.loop !160
+  br i1 %exitcond.not.i.i52, label %93, label %.preheader.i.i, !llvm.loop !160
+
+71:                                               ; preds = %.preheader134
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1040
+  br i1 %.not.i, label %.preheader133, label %.preheader.i34.i.preheader
+
+.preheader.i34.i.preheader:                       ; preds = %71
+  %73 = load i64, ptr %2, align 1, !alias.scope !226, !noalias !209
+  br label %.preheader.i34.i
 
 .preheader.i34.i:                                 ; preds = %.preheader.i34.i.preheader, %.preheader.i34.i
   %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.preheader.i34.i ], [ 0, %.preheader.i34.i.preheader ]
-  %72 = shl nsw i64 %indvars.iv.i35.i, 5
-  %73 = getelementptr inbounds nuw i8, ptr %45, i64 %72
-  store i64 %46, ptr %73, align 1, !alias.scope !213, !noalias !209
+  %74 = shl nsw i64 %indvars.iv.i35.i, 5
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 %74
+  store i64 %73, ptr %75, align 1, !alias.scope !226, !noalias !209
   %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %exitcond.not.i37.i = icmp eq i64 %indvars.iv.next.i36.i, 8
-  br i1 %exitcond.not.i37.i, label %TrueMotion.exit.thread, label %.preheader.i34.i, !llvm.loop !153
+  br i1 %exitcond.not.i37.i, label %.preheader43.preheader.i54, label %.preheader.i34.i, !llvm.loop !153
 
-.preheader132:                                    ; preds = %HorizontalPred.exit, %.preheader132
-  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader132 ], [ 0, %HorizontalPred.exit ]
-  %74 = shl nsw i64 %indvars.iv.i41.i, 5
-  %75 = getelementptr inbounds nuw i8, ptr %45, i64 %74
-  store i64 -9114861777597660799, ptr %75, align 1
+.preheader133:                                    ; preds = %71, %.preheader133
+  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %.preheader133 ], [ 0, %71 ]
+  %76 = shl nsw i64 %indvars.iv.i41.i, 5
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 %76
+  store i64 -9114861777597660799, ptr %77, align 1
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
   %exitcond.not.i43.i = icmp eq i64 %indvars.iv.next.i42.i, 8
-  br i1 %exitcond.not.i43.i, label %TrueMotion.exit, label %.preheader132, !llvm.loop !85
+  br i1 %exitcond.not.i43.i, label %._crit_edge.i68, label %.preheader133, !llvm.loop !85
 
-TrueMotion.exit.thread:                           ; preds = %65, %.preheader.i34.i
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %spec.select119 = select i1 %.not.i, ptr null, ptr %76
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.025120 = select i1 %.not.i38, ptr null, ptr %77
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 1032
-  br label %.preheader43.preheader.i54
-
-TrueMotion.exit:                                  ; preds = %.preheader.i.i, %.preheader132
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %spec.select = select i1 %.not.i, ptr null, ptr %79
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.025 = select i1 %.not.i38, ptr null, ptr %80
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+.preheader43.preheader.i54:                       ; preds = %64, %.preheader.i34.i
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !233)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
-  br i1 %.not.i, label %96, label %.preheader43.preheader.i54
-
-.preheader43.preheader.i54:                       ; preds = %TrueMotion.exit.thread, %TrueMotion.exit
-  %82 = phi ptr [ %78, %TrueMotion.exit.thread ], [ %81, %TrueMotion.exit ]
-  %.025123 = phi ptr [ %.025120, %TrueMotion.exit.thread ], [ %.025, %TrueMotion.exit ]
-  %spec.select121 = phi ptr [ %spec.select119, %TrueMotion.exit.thread ], [ %79, %TrueMotion.exit ]
   br label %.preheader43.i55
 
 .preheader43.i55:                                 ; preds = %.preheader43.i55, %.preheader43.preheader.i54
   %indvars.iv.i56 = phi i64 [ 0, %.preheader43.preheader.i54 ], [ %indvars.iv.next.i58, %.preheader43.i55 ]
-  %.03344.i57 = phi i32 [ 0, %.preheader43.preheader.i54 ], [ %86, %.preheader43.i55 ]
-  %83 = getelementptr inbounds nuw i8, ptr %spec.select121, i64 %indvars.iv.i56
-  %84 = load i8, ptr %83, align 1, !tbaa !14, !alias.scope !235, !noalias !237
-  %85 = zext i8 %84 to i32
-  %86 = add nuw nsw i32 %.03344.i57, %85
+  %.03344.i57 = phi i32 [ 0, %.preheader43.preheader.i54 ], [ %83, %.preheader43.i55 ]
+  %80 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv.i56
+  %81 = load i8, ptr %80, align 1, !tbaa !14, !alias.scope !235, !noalias !237
+  %82 = zext i8 %81 to i32
+  %83 = add nuw nsw i32 %.03344.i57, %82
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i56, 1
   %exitcond.not.i59 = icmp eq i64 %indvars.iv.next.i58, 8
-  br i1 %exitcond.not.i59, label %87, label %.preheader43.i55, !llvm.loop !143
+  br i1 %exitcond.not.i59, label %84, label %.preheader43.i55, !llvm.loop !143
 
-87:                                               ; preds = %.preheader43.i55
-  br i1 %.not.i38, label %92, label %.preheader42.i61
+84:                                               ; preds = %.preheader43.i55
+  %.025 = select i1 %.not.i38, ptr null, ptr %79
+  br i1 %.not.i38, label %89, label %.preheader42.i61
 
-.preheader42.i61:                                 ; preds = %87, %.preheader42.i61
-  %indvars.iv53.i62 = phi i64 [ %indvars.iv.next54.i64, %.preheader42.i61 ], [ 0, %87 ]
-  %.13446.i63 = phi i32 [ %91, %.preheader42.i61 ], [ %86, %87 ]
-  %88 = getelementptr inbounds nuw i8, ptr %.025123, i64 %indvars.iv53.i62
-  %89 = load i8, ptr %88, align 1, !tbaa !14, !alias.scope !233, !noalias !238
-  %90 = zext i8 %89 to i32
-  %91 = add nuw nsw i32 %.13446.i63, %90
+.preheader42.i61:                                 ; preds = %84, %.preheader42.i61
+  %indvars.iv53.i62 = phi i64 [ %indvars.iv.next54.i64, %.preheader42.i61 ], [ 0, %84 ]
+  %.13446.i63 = phi i32 [ %88, %.preheader42.i61 ], [ %83, %84 ]
+  %85 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv53.i62
+  %86 = load i8, ptr %85, align 1, !tbaa !14, !alias.scope !233, !noalias !238
+  %87 = zext i8 %86 to i32
+  %88 = add nuw nsw i32 %.13446.i63, %87
   %indvars.iv.next54.i64 = add nuw nsw i64 %indvars.iv53.i62, 1
   %exitcond57.not.i65 = icmp eq i64 %indvars.iv.next54.i64, 8
   br i1 %exitcond57.not.i65, label %.loopexit.i66, label %.preheader42.i61, !llvm.loop !145
 
-92:                                               ; preds = %87
-  %93 = shl nuw nsw i32 %86, 1
+89:                                               ; preds = %84
+  %90 = shl nuw nsw i32 %83, 1
   br label %.loopexit.i66
 
-.loopexit.i66:                                    ; preds = %.preheader42.i61, %92
-  %.235.i67 = phi i32 [ %93, %92 ], [ %91, %.preheader42.i61 ]
-  %94 = add nsw i32 %.235.i67, 8
-  %95 = ashr i32 %94, 4
+.loopexit.i66:                                    ; preds = %.preheader42.i61, %89
+  %.235.i67 = phi i32 [ %90, %89 ], [ %88, %.preheader42.i61 ]
+  %91 = add nsw i32 %.235.i67, 8
+  %92 = ashr i32 %91, 4
   br label %._crit_edge.i68
 
-96:                                               ; preds = %TrueMotion.exit
-  br i1 %.not.i38, label %._crit_edge.i68, label %.preheader.i74
+93:                                               ; preds = %.preheader.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %.preheader.i74
 
-.preheader.i74:                                   ; preds = %96, %.preheader.i74
-  %indvars.iv58.i75 = phi i64 [ %indvars.iv.next59.i77, %.preheader.i74 ], [ 0, %96 ]
-  %.448.i76 = phi i32 [ %100, %.preheader.i74 ], [ 0, %96 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.025, i64 %indvars.iv58.i75
-  %98 = load i8, ptr %97, align 1, !tbaa !14, !alias.scope !233, !noalias !238
-  %99 = zext i8 %98 to i32
-  %100 = add nuw nsw i32 %.448.i76, %99
+.preheader.i74:                                   ; preds = %93, %.preheader.i74
+  %indvars.iv58.i75 = phi i64 [ %indvars.iv.next59.i77, %.preheader.i74 ], [ 0, %93 ]
+  %.448.i76 = phi i32 [ %98, %.preheader.i74 ], [ 0, %93 ]
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %indvars.iv58.i75
+  %96 = load i8, ptr %95, align 1, !tbaa !14, !alias.scope !233, !noalias !238
+  %97 = zext i8 %96 to i32
+  %98 = add nuw nsw i32 %.448.i76, %97
   %indvars.iv.next59.i77 = add nuw nsw i64 %indvars.iv58.i75, 1
   %exitcond62.not.i78 = icmp eq i64 %indvars.iv.next59.i77, 8
-  br i1 %exitcond62.not.i78, label %101, label %.preheader.i74, !llvm.loop !146
+  br i1 %exitcond62.not.i78, label %99, label %.preheader.i74, !llvm.loop !146
 
-101:                                              ; preds = %.preheader.i74
-  %102 = shl nuw nsw i32 %100, 1
-  %103 = add nuw nsw i32 %102, 8
-  %104 = lshr i32 %103, 4
+99:                                               ; preds = %.preheader.i74
+  %100 = shl nuw nsw i32 %98, 1
+  %101 = add nuw nsw i32 %100, 8
+  %102 = lshr i32 %101, 4
   br label %._crit_edge.i68
 
-._crit_edge.i68:                                  ; preds = %101, %96, %.loopexit.i66
-  %105 = phi ptr [ %81, %101 ], [ %82, %.loopexit.i66 ], [ %81, %96 ]
-  %.025124 = phi ptr [ %80, %101 ], [ %.025123, %.loopexit.i66 ], [ null, %96 ]
-  %spec.select122 = phi ptr [ %spec.select, %101 ], [ %spec.select121, %.loopexit.i66 ], [ null, %96 ]
-  %.3.i69 = phi i32 [ %104, %101 ], [ %95, %.loopexit.i66 ], [ 128, %96 ]
-  %106 = trunc i32 %.3.i69 to i8
-  br label %107
+._crit_edge.i68:                                  ; preds = %.preheader133, %99, %.loopexit.i66
+  %.025124 = phi ptr [ %94, %99 ], [ %.025, %.loopexit.i66 ], [ null, %.preheader133 ]
+  %spec.select121 = phi ptr [ null, %99 ], [ %78, %.loopexit.i66 ], [ null, %.preheader133 ]
+  %.3.i69 = phi i32 [ %102, %99 ], [ %92, %.loopexit.i66 ], [ 128, %.preheader133 ]
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 1032
+  %104 = trunc i32 %.3.i69 to i8
+  br label %105
 
-107:                                              ; preds = %107, %._crit_edge.i68
-  %indvars.iv.i.i70 = phi i64 [ 0, %._crit_edge.i68 ], [ %indvars.iv.next.i.i71, %107 ]
-  %108 = shl nsw i64 %indvars.iv.i.i70, 5
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 %108
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %109, i8 %106, i64 8, i1 false), !alias.scope !230, !noalias !239
+105:                                              ; preds = %105, %._crit_edge.i68
+  %indvars.iv.i.i70 = phi i64 [ 0, %._crit_edge.i68 ], [ %indvars.iv.next.i.i71, %105 ]
+  %106 = shl nsw i64 %indvars.iv.i.i70, 5
+  %107 = getelementptr inbounds nuw i8, ptr %103, i64 %106
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %107, i8 %104, i64 8, i1 false), !alias.scope !230, !noalias !239
   %indvars.iv.next.i.i71 = add nuw nsw i64 %indvars.iv.i.i70, 1
   %exitcond.not.i.i72 = icmp eq i64 %indvars.iv.next.i.i71, 8
-  br i1 %exitcond.not.i.i72, label %DCMode.exit79, label %107, !llvm.loop !85
+  br i1 %exitcond.not.i.i72, label %DCMode.exit79, label %105, !llvm.loop !85
 
-DCMode.exit79:                                    ; preds = %107
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 1288
-  br i1 %.not.i, label %.preheader130, label %.preheader.i81
+DCMode.exit79:                                    ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1288
+  br i1 %.not.i, label %.preheader131, label %.preheader.i81.preheader
 
-.preheader.i81:                                   ; preds = %DCMode.exit79, %.preheader.i81
-  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.preheader.i81 ], [ 0, %DCMode.exit79 ]
-  %111 = shl nsw i64 %indvars.iv.i82, 5
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 %111
-  %113 = load i64, ptr %spec.select122, align 1, !alias.scope !240
-  store i64 %113, ptr %112, align 1, !alias.scope !240
+.preheader.i81.preheader:                         ; preds = %DCMode.exit79
+  %109 = load i64, ptr %spec.select121, align 1, !alias.scope !240
+  br label %.preheader.i81
+
+.preheader.i81:                                   ; preds = %.preheader.i81.preheader, %.preheader.i81
+  %indvars.iv.i82 = phi i64 [ %indvars.iv.next.i83, %.preheader.i81 ], [ 0, %.preheader.i81.preheader ]
+  %110 = shl nsw i64 %indvars.iv.i82, 5
+  %111 = getelementptr inbounds nuw i8, ptr %108, i64 %110
+  store i64 %109, ptr %111, align 1, !alias.scope !240
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 8
   br i1 %exitcond.not.i84, label %VerticalPred.exit88, label %.preheader.i81, !llvm.loop !153
 
-.preheader130:                                    ; preds = %DCMode.exit79, %.preheader130
-  %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i86, %.preheader130 ], [ 0, %DCMode.exit79 ]
-  %114 = shl nsw i64 %indvars.iv.i.i85, 5
-  %115 = getelementptr inbounds nuw i8, ptr %110, i64 %114
-  store i64 9187201950435737471, ptr %115, align 1
+.preheader131:                                    ; preds = %DCMode.exit79, %.preheader131
+  %indvars.iv.i.i85 = phi i64 [ %indvars.iv.next.i.i86, %.preheader131 ], [ 0, %DCMode.exit79 ]
+  %112 = shl nsw i64 %indvars.iv.i.i85, 5
+  %113 = getelementptr inbounds nuw i8, ptr %108, i64 %112
+  store i64 9187201950435737471, ptr %113, align 1
   %indvars.iv.next.i.i86 = add nuw nsw i64 %indvars.iv.i.i85, 1
   %exitcond.not.i.i87 = icmp eq i64 %indvars.iv.next.i.i86, 8
-  br i1 %exitcond.not.i.i87, label %VerticalPred.exit88, label %.preheader130, !llvm.loop !85
+  br i1 %exitcond.not.i.i87, label %VerticalPred.exit88, label %.preheader131, !llvm.loop !85
 
-VerticalPred.exit88:                              ; preds = %.preheader.i81, %.preheader130
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 1304
+VerticalPred.exit88:                              ; preds = %.preheader.i81, %.preheader131
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !247)
   br i1 %.not.i38, label %.preheader128, label %.preheader.i90
 
 .preheader.i90:                                   ; preds = %VerticalPred.exit88, %.preheader.i90
   %indvars.iv.i91 = phi i64 [ %indvars.iv.next.i92, %.preheader.i90 ], [ 0, %VerticalPred.exit88 ]
-  %117 = shl nsw i64 %indvars.iv.i91, 5
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
-  %119 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i91
-  %120 = load i8, ptr %119, align 1, !tbaa !14, !alias.scope !247, !noalias !244
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %118, i8 %120, i64 8, i1 false), !alias.scope !244, !noalias !247
+  %115 = shl nsw i64 %indvars.iv.i91, 5
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i91
+  %118 = load i8, ptr %117, align 1, !tbaa !14, !alias.scope !247, !noalias !244
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %116, i8 %118, i64 8, i1 false), !alias.scope !244, !noalias !247
   %indvars.iv.next.i92 = add nuw nsw i64 %indvars.iv.i91, 1
   %exitcond.not.i93 = icmp eq i64 %indvars.iv.next.i92, 8
-  br i1 %exitcond.not.i93, label %HorizontalPred.exit97, label %.preheader.i90, !llvm.loop !160
+  br i1 %exitcond.not.i93, label %121, label %.preheader.i90, !llvm.loop !160
 
 .preheader128:                                    ; preds = %VerticalPred.exit88, %.preheader128
   %indvars.iv.i.i94 = phi i64 [ %indvars.iv.next.i.i95, %.preheader128 ], [ 0, %VerticalPred.exit88 ]
-  %121 = shl nsw i64 %indvars.iv.i.i94, 5
-  %122 = getelementptr inbounds nuw i8, ptr %116, i64 %121
-  store i64 -9114861777597660799, ptr %122, align 1
+  %119 = shl nsw i64 %indvars.iv.i.i94, 5
+  %120 = getelementptr inbounds nuw i8, ptr %114, i64 %119
+  store i64 -9114861777597660799, ptr %120, align 1
   %indvars.iv.next.i.i95 = add nuw nsw i64 %indvars.iv.i.i94, 1
   %exitcond.not.i.i96 = icmp eq i64 %indvars.iv.next.i.i95, 8
-  br i1 %exitcond.not.i.i96, label %HorizontalPred.exit97, label %.preheader128, !llvm.loop !85
+  br i1 %exitcond.not.i.i96, label %148, label %.preheader128, !llvm.loop !85
 
-HorizontalPred.exit97:                            ; preds = %.preheader.i90, %.preheader128
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+121:                                              ; preds = %.preheader.i90
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
-  br i1 %.not.i38, label %150, label %124
+  br i1 %.not.i, label %143, label %123
 
-124:                                              ; preds = %HorizontalPred.exit97
-  br i1 %.not.i, label %145, label %125
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds i8, ptr %.025124, i64 -1
+  %125 = load i8, ptr %124, align 1, !tbaa !14, !alias.scope !252, !noalias !256
+  %126 = zext i8 %125 to i64
+  %127 = sub nsw i64 0, %126
+  %128 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %127
+  br label %129
 
-125:                                              ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %.025124, i64 -1
-  %127 = load i8, ptr %126, align 1, !tbaa !14, !alias.scope !252, !noalias !256
-  %128 = zext i8 %127 to i64
-  %129 = sub nsw i64 0, %128
-  %130 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @clip1, i64 255), i64 %129
-  br label %131
+129:                                              ; preds = %141, %123
+  %indvars.iv54.i100 = phi i64 [ 0, %123 ], [ %indvars.iv.next55.i105, %141 ]
+  %.02649.i101 = phi ptr [ %122, %123 ], [ %142, %141 ]
+  %130 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv54.i100
+  %131 = load i8, ptr %130, align 1, !tbaa !14, !alias.scope !252, !noalias !256
+  %132 = zext i8 %131 to i64
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 %132
+  br label %134
 
-131:                                              ; preds = %143, %125
-  %indvars.iv54.i100 = phi i64 [ 0, %125 ], [ %indvars.iv.next55.i105, %143 ]
-  %.02649.i101 = phi ptr [ %123, %125 ], [ %144, %143 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv54.i100
-  %133 = load i8, ptr %132, align 1, !tbaa !14, !alias.scope !252, !noalias !256
-  %134 = zext i8 %133 to i64
-  %135 = getelementptr inbounds nuw i8, ptr %130, i64 %134
-  br label %136
-
-136:                                              ; preds = %136, %131
-  %indvars.iv.i102 = phi i64 [ 0, %131 ], [ %indvars.iv.next.i103, %136 ]
-  %137 = getelementptr inbounds nuw i8, ptr %spec.select122, i64 %indvars.iv.i102
-  %138 = load i8, ptr %137, align 1, !tbaa !14, !alias.scope !254, !noalias !257
-  %139 = zext i8 %138 to i64
-  %140 = getelementptr inbounds nuw i8, ptr %135, i64 %139
-  %141 = load i8, ptr %140, align 1, !tbaa !14, !noalias !258
-  %142 = getelementptr inbounds nuw i8, ptr %.02649.i101, i64 %indvars.iv.i102
-  store i8 %141, ptr %142, align 1, !tbaa !14, !alias.scope !249, !noalias !259
+134:                                              ; preds = %134, %129
+  %indvars.iv.i102 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i103, %134 ]
+  %135 = getelementptr inbounds nuw i8, ptr %spec.select121, i64 %indvars.iv.i102
+  %136 = load i8, ptr %135, align 1, !tbaa !14, !alias.scope !254, !noalias !257
+  %137 = zext i8 %136 to i64
+  %138 = getelementptr inbounds nuw i8, ptr %133, i64 %137
+  %139 = load i8, ptr %138, align 1, !tbaa !14, !noalias !258
+  %140 = getelementptr inbounds nuw i8, ptr %.02649.i101, i64 %indvars.iv.i102
+  store i8 %139, ptr %140, align 1, !tbaa !14, !alias.scope !249, !noalias !259
   %indvars.iv.next.i103 = add nuw nsw i64 %indvars.iv.i102, 1
   %exitcond.not.i104 = icmp eq i64 %indvars.iv.next.i103, 8
-  br i1 %exitcond.not.i104, label %143, label %136, !llvm.loop !172
+  br i1 %exitcond.not.i104, label %141, label %134, !llvm.loop !172
 
-143:                                              ; preds = %136
-  %144 = getelementptr inbounds nuw i8, ptr %.02649.i101, i64 32
+141:                                              ; preds = %134
+  %142 = getelementptr inbounds nuw i8, ptr %.02649.i101, i64 32
   %indvars.iv.next55.i105 = add nuw nsw i64 %indvars.iv54.i100, 1
   %exitcond58.not.i106 = icmp eq i64 %indvars.iv.next55.i105, 8
-  br i1 %exitcond58.not.i106, label %TrueMotion.exit118, label %131, !llvm.loop !173
+  br i1 %exitcond58.not.i106, label %TrueMotion.exit118, label %129, !llvm.loop !173
 
-145:                                              ; preds = %124
+143:                                              ; preds = %121
   tail call void @llvm.experimental.noalias.scope.decl(metadata !260)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !263)
   br label %.preheader.i.i107
 
-.preheader.i.i107:                                ; preds = %.preheader.i.i107, %145
-  %indvars.iv.i.i108 = phi i64 [ %indvars.iv.next.i.i109, %.preheader.i.i107 ], [ 0, %145 ]
-  %146 = shl nsw i64 %indvars.iv.i.i108, 5
-  %147 = getelementptr inbounds nuw i8, ptr %123, i64 %146
-  %148 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i.i108
-  %149 = load i8, ptr %148, align 1, !tbaa !14, !alias.scope !265, !noalias !266
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %147, i8 %149, i64 8, i1 false), !alias.scope !267, !noalias !268
+.preheader.i.i107:                                ; preds = %.preheader.i.i107, %143
+  %indvars.iv.i.i108 = phi i64 [ %indvars.iv.next.i.i109, %.preheader.i.i107 ], [ 0, %143 ]
+  %144 = shl nsw i64 %indvars.iv.i.i108, 5
+  %145 = getelementptr inbounds nuw i8, ptr %122, i64 %144
+  %146 = getelementptr inbounds nuw i8, ptr %.025124, i64 %indvars.iv.i.i108
+  %147 = load i8, ptr %146, align 1, !tbaa !14, !alias.scope !265, !noalias !266
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %145, i8 %147, i64 8, i1 false), !alias.scope !267, !noalias !268
   %indvars.iv.next.i.i109 = add nuw nsw i64 %indvars.iv.i.i108, 1
   %exitcond.not.i.i110 = icmp eq i64 %indvars.iv.next.i.i109, 8
   br i1 %exitcond.not.i.i110, label %TrueMotion.exit118, label %.preheader.i.i107, !llvm.loop !160
 
-150:                                              ; preds = %HorizontalPred.exit97
-  br i1 %.not.i, label %.preheader, label %.preheader.i34.i111
+148:                                              ; preds = %.preheader128
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  br i1 %.not.i, label %.preheader, label %.preheader.i34.i111.preheader
 
-.preheader.i34.i111:                              ; preds = %150, %.preheader.i34.i111
-  %indvars.iv.i35.i112 = phi i64 [ %indvars.iv.next.i36.i113, %.preheader.i34.i111 ], [ 0, %150 ]
+.preheader.i34.i111.preheader:                    ; preds = %148
+  %150 = load i64, ptr %spec.select121, align 1, !alias.scope !269, !noalias !252
+  br label %.preheader.i34.i111
+
+.preheader.i34.i111:                              ; preds = %.preheader.i34.i111.preheader, %.preheader.i34.i111
+  %indvars.iv.i35.i112 = phi i64 [ %indvars.iv.next.i36.i113, %.preheader.i34.i111 ], [ 0, %.preheader.i34.i111.preheader ]
   %151 = shl nsw i64 %indvars.iv.i35.i112, 5
-  %152 = getelementptr inbounds nuw i8, ptr %123, i64 %151
-  %153 = load i64, ptr %spec.select122, align 1, !alias.scope !269, !noalias !252
-  store i64 %153, ptr %152, align 1, !alias.scope !269, !noalias !252
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 %151
+  store i64 %150, ptr %152, align 1, !alias.scope !269, !noalias !252
   %indvars.iv.next.i36.i113 = add nuw nsw i64 %indvars.iv.i35.i112, 1
   %exitcond.not.i37.i114 = icmp eq i64 %indvars.iv.next.i36.i113, 8
   br i1 %exitcond.not.i37.i114, label %TrueMotion.exit118, label %.preheader.i34.i111, !llvm.loop !153
 
-.preheader:                                       ; preds = %150, %.preheader
-  %indvars.iv.i41.i115 = phi i64 [ %indvars.iv.next.i42.i116, %.preheader ], [ 0, %150 ]
-  %154 = shl nsw i64 %indvars.iv.i41.i115, 5
-  %155 = getelementptr inbounds nuw i8, ptr %123, i64 %154
-  store i64 -9114861777597660799, ptr %155, align 1
+.preheader:                                       ; preds = %148, %.preheader
+  %indvars.iv.i41.i115 = phi i64 [ %indvars.iv.next.i42.i116, %.preheader ], [ 0, %148 ]
+  %153 = shl nsw i64 %indvars.iv.i41.i115, 5
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 %153
+  store i64 -9114861777597660799, ptr %154, align 1
   %indvars.iv.next.i42.i116 = add nuw nsw i64 %indvars.iv.i41.i115, 1
   %exitcond.not.i43.i117 = icmp eq i64 %indvars.iv.next.i42.i116, 8
   br i1 %exitcond.not.i43.i117, label %TrueMotion.exit118, label %.preheader, !llvm.loop !85
 
-TrueMotion.exit118:                               ; preds = %143, %.preheader.i.i107, %.preheader.i34.i111, %.preheader
+TrueMotion.exit118:                               ; preds = %141, %.preheader.i.i107, %.preheader.i34.i111, %.preheader
   ret void
 }
 
@@ -2715,23 +2704,23 @@ attributes #15 = { nounwind }
 !210 = distinct !{!210, !208, !"TrueMotion: argument 1"}
 !211 = !{!212}
 !212 = distinct !{!212, !208, !"TrueMotion: argument 2"}
-!213 = !{!214, !216, !207, !212}
-!214 = distinct !{!214, !215, !"VerticalPred: argument 0"}
-!215 = distinct !{!215, !"VerticalPred"}
-!216 = distinct !{!216, !215, !"VerticalPred: argument 1"}
-!217 = !{!207, !212}
-!218 = !{!207, !210}
-!219 = !{!207, !210, !212}
-!220 = !{!210, !212}
-!221 = !{!222}
-!222 = distinct !{!222, !223, !"HorizontalPred: argument 0"}
-!223 = distinct !{!223, !"HorizontalPred"}
-!224 = !{!225}
-!225 = distinct !{!225, !223, !"HorizontalPred: argument 1"}
-!226 = !{!225, !210}
-!227 = !{!222, !207, !212}
-!228 = !{!222, !207}
-!229 = !{!225, !210, !212}
+!213 = !{!207, !212}
+!214 = !{!207, !210}
+!215 = !{!207, !210, !212}
+!216 = !{!210, !212}
+!217 = !{!218}
+!218 = distinct !{!218, !219, !"HorizontalPred: argument 0"}
+!219 = distinct !{!219, !"HorizontalPred"}
+!220 = !{!221}
+!221 = distinct !{!221, !219, !"HorizontalPred: argument 1"}
+!222 = !{!221, !210}
+!223 = !{!218, !207, !212}
+!224 = !{!218, !207}
+!225 = !{!221, !210, !212}
+!226 = !{!227, !229, !207, !212}
+!227 = distinct !{!227, !228, !"VerticalPred: argument 0"}
+!228 = distinct !{!228, !"VerticalPred"}
+!229 = distinct !{!229, !228, !"VerticalPred: argument 1"}
 !230 = !{!231}
 !231 = distinct !{!231, !232, !"DCMode: argument 0"}
 !232 = distinct !{!232, !"DCMode"}

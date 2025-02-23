@@ -24028,9 +24028,9 @@ common.resume:                                    ; preds = %76, %33
   store i64 %62, ptr %16, align 8, !alias.scope !4314, !noalias !4323
   %63 = icmp ne ptr %60, null
   %64 = getelementptr i8, ptr %60, i64 -24
-  %.not.not4.i.i = icmp ne ptr %64, null
-  %.not.not.not.i.i = and i1 %63, %.not.not4.i.i
-  br i1 %.not.not.not.i.i, label %65, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h43be18bd1f997d33E.exit.thread
+  %.not3.i.i = icmp ne ptr %64, null
+  %.not.i.i = and i1 %63, %.not3.i.i
+  br i1 %.not.i.i, label %65, label %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h43be18bd1f997d33E.exit.thread
 
 65:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h916834a414ccac0bE.llvm.13158159170862922693.exit.i.i"
   %66 = getelementptr i8, ptr %60, i64 -16

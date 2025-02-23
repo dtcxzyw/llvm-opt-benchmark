@@ -343,7 +343,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %umax = tail call i64 @llvm.umax.i64(i64 %29, i64 1)
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph47.i.preheader:                             ; preds = %.lr.ph.i
   %30 = fdiv double %40, %36
   %31 = load ptr, ptr %2, align 8, !tbaa !23, !noalias !37
   %32 = ptrtoint ptr %23 to i64
@@ -365,11 +365,11 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit22: ; preds = %_ZN9benchmark8in
   %40 = fadd double %.03539.i, %38
   %41 = add nuw i64 %.03638.i, 1
   %exitcond.not = icmp eq i64 %41, %umax
-  br i1 %exitcond.not, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !27
+  br i1 %exitcond.not, label %.lr.ph47.i.preheader, label %.lr.ph.i, !llvm.loop !27
 
-.lr.ph47.i:                                       ; preds = %._crit_edge.i, %.lr.ph47.i
-  %.03345.i = phi i64 [ %46, %.lr.ph47.i ], [ 0, %._crit_edge.i ]
-  %.03444.i = phi double [ %45, %.lr.ph47.i ], [ 0.000000e+00, %._crit_edge.i ]
+.lr.ph47.i:                                       ; preds = %.lr.ph47.i.preheader, %.lr.ph47.i
+  %.03345.i = phi i64 [ %46, %.lr.ph47.i ], [ 0, %.lr.ph47.i.preheader ]
+  %.03444.i = phi double [ %45, %.lr.ph47.i ], [ 0.000000e+00, %.lr.ph47.i.preheader ]
   %42 = getelementptr inbounds nuw double, ptr %31, i64 %.03345.i
   %43 = load double, ptr %42, align 8, !tbaa !26, !noalias !37
   %44 = fsub double %43, %30

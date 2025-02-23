@@ -1683,7 +1683,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %4 ]
   %9 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !85
-  %11 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %10, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef %3) #16
+  %11 = tail call i32 @g_signal_handlers_block_matched(ptr noundef %10, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef nonnull %3) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
@@ -1759,7 +1759,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.lr.ph38.split ], [ 0, %.loopexit ]
   %55 = getelementptr inbounds nuw [7 x ptr], ptr %7, i64 0, i64 %indvars.iv46
   %56 = load ptr, ptr %55, align 8, !tbaa !85
-  %57 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %56, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef %3) #16
+  %57 = call i32 @g_signal_handlers_unblock_matched(ptr noundef %56, i32 noundef 24, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_datetime_entry_changed, ptr noundef nonnull %3) #16
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next47, 7
   br i1 %exitcond49.not, label %._crit_edge39, label %.lr.ph38.split

@@ -1034,7 +1034,7 @@ Vec_PtrGrow.exit.i:                               ; preds = %12
   br label %Vec_VecExpand.exit
 
 Vec_VecExpand.exit:                               ; preds = %4, %._crit_edge.i
-  %25 = tail call ptr @IPdr_ManSetSolver(ptr noundef %0, i32 noundef 0, i32 noundef 1)
+  %25 = tail call ptr @IPdr_ManSetSolver(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1)
   %26 = getelementptr i8, ptr %1, i64 4
   %.val3862 = load i32, ptr %26, align 4, !tbaa !34
   %27 = icmp sgt i32 %.val3862, 1
@@ -1069,7 +1069,7 @@ Vec_VecExpand.exit:                               ; preds = %4, %._crit_edge.i
   %38 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %40 = add nsw i32 %.161, 1
-  %41 = tail call i32 @Pdr_ManCheckCube(ptr noundef %0, i32 noundef 0, ptr noundef %39, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #17
+  %41 = tail call i32 @Pdr_ManCheckCube(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %39, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 1) #17
   %42 = load ptr, ptr %29, align 8, !tbaa !55
   %43 = getelementptr i8, ptr %42, i64 8
   %.val39 = load ptr, ptr %43, align 8, !tbaa !59
@@ -1238,7 +1238,7 @@ Vec_VecPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %109 = getelementptr i8, ptr %108, i64 4
   %.val35 = load i32, ptr %109, align 4, !tbaa !27
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, i32 noundef %.val35, i32 noundef %.0.lcssa)
-  %110 = tail call ptr @IPdr_ManSetSolver(ptr noundef %0, i32 noundef 1, i32 noundef 0)
+  %110 = tail call ptr @IPdr_ManSetSolver(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0)
   %.val811.i = load i32, ptr %26, align 4, !tbaa !34
   %111 = icmp sgt i32 %.val811.i, 0
   br i1 %111, label %.lr.ph.i49, label %.critedge.i

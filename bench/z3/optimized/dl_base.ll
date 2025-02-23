@@ -1803,25 +1803,21 @@ for.inc90:                                        ; preds = %for.body75, %if.the
   br i1 %exitcond164.not, label %if.else95, label %for.body75, !llvm.loop !20
 
 if.then93:                                        ; preds = %_ZNK10union_findI22union_find_default_ctxS0_E4findEj.exit99
-  invoke void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14signature_base12from_projectERKNS_15table_signatureEjPKjRS4_(ptr noundef nonnull align 8 dereferenceable(12) %aux, i32 noundef %removed_col_cnt, ptr noundef %removed_cols, ptr noundef nonnull align 8 dereferenceable(12) %result)
-          to label %.noexc118 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp
+  invoke void @_ZN7datalog17tr_infrastructureINS_12table_traitsEE14signature_base12from_projectERKNS_15table_signatureEjPKjRS4_(ptr noundef nonnull align 8 dereferenceable(12) %aux, i32 noundef %removed_col_cnt, ptr noundef nonnull %removed_cols, ptr noundef nonnull align 8 dereferenceable(12) %result)
+          to label %if.end.i106 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp
 
-.noexc118:                                        ; preds = %if.then93
+if.end.i106:                                      ; preds = %if.then93
   %50 = load i32, ptr %m_functional_columns.i, align 8
-  %cmp.i105 = icmp eq ptr %removed_cols, null
-  br i1 %cmp.i105, label %if.end97, label %if.end.i106
-
-if.end.i106:                                      ; preds = %.noexc118
   %51 = load ptr, ptr %aux, align 8
   %cmp.i.i.i107 = icmp eq ptr %51, null
-  br i1 %cmp.i.i.i107, label %_ZNK7datalog15table_signature16first_functionalEv.exit.i110, label %if.end.i.i.i108
+  br i1 %cmp.i.i.i107, label %_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_.exit119, label %if.end.i.i.i108
 
 if.end.i.i.i108:                                  ; preds = %if.end.i106
   %arrayidx.i.i.i109 = getelementptr inbounds i8, ptr %51, i64 -4
   %52 = load i32, ptr %arrayidx.i.i.i109, align 4
-  br label %_ZNK7datalog15table_signature16first_functionalEv.exit.i110
+  br label %_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_.exit119
 
-_ZNK7datalog15table_signature16first_functionalEv.exit.i110: ; preds = %if.end.i.i.i108, %if.end.i106
+_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_.exit119: ; preds = %if.end.i106, %if.end.i.i.i108
   %retval.0.i.i.i111 = phi i32 [ %52, %if.end.i.i.i108 ], [ 0, %if.end.i106 ]
   %sub.i.i112 = sub i32 %retval.0.i.i.i111, %50
   %53 = load i32, ptr %removed_cols, align 4
@@ -1871,8 +1867,8 @@ if.end.i132:                                      ; preds = %for.body.i128
   %cmp.i133 = icmp sgt i32 %i.014.i, 0
   br i1 %cmp.i133, label %for.body.i128, label %if.end97, !llvm.loop !15
 
-if.end97:                                         ; preds = %if.end.i132, %for.body.i128, %_ZNK7datalog15table_signature16first_functionalEv.exit.i124, %_ZNK7datalog15table_signature16first_functionalEv.exit.i110, %.noexc118
-  %remaining_fun.0.lcssa.i.sink = phi i32 [ %50, %.noexc118 ], [ %spec.select.i115, %_ZNK7datalog15table_signature16first_functionalEv.exit.i110 ], [ %54, %_ZNK7datalog15table_signature16first_functionalEv.exit.i124 ], [ %57, %if.end.i132 ], [ %remaining_fun.013.i, %for.body.i128 ]
+if.end97:                                         ; preds = %if.end.i132, %for.body.i128, %_ZNK7datalog15table_signature16first_functionalEv.exit.i124, %_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_.exit119
+  %remaining_fun.0.lcssa.i.sink = phi i32 [ %spec.select.i115, %_ZN7datalog15table_signature12from_projectERKS0_jPKjRS0_.exit119 ], [ %54, %_ZNK7datalog15table_signature16first_functionalEv.exit.i124 ], [ %57, %if.end.i132 ], [ %remaining_fun.013.i, %for.body.i128 ]
   %m_functional_columns.i10.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i32 %remaining_fun.0.lcssa.i.sink, ptr %m_functional_columns.i10.i, align 8
   %m_next.i135 = getelementptr inbounds nuw i8, ptr %uf, i64 32

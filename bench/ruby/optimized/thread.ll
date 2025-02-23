@@ -7709,7 +7709,7 @@ rb_vm_lock_leave.exit:                            ; preds = %42, %rb_vm_lock_ent
 .lr.ph:                                           ; preds = %54, %.lr.ph
   %59 = phi i32 [ %62, %.lr.ph ], [ %58, %54 ]
   %.3146 = phi i32 [ %61, %.lr.ph ], [ %.064, %54 ]
-  %60 = call i32 @rb_signal_exec(ptr noundef %0, i32 noundef %59) #17
+  %60 = call i32 @rb_signal_exec(ptr noundef nonnull %0, i32 noundef %59) #17
   %61 = or i32 %60, %.3146
   %62 = call i32 @rb_get_next_signal() #17
   %.not78 = icmp eq i32 %62, 0
@@ -16799,11 +16799,11 @@ thread_sched_wakeup_running_thread.exit:          ; preds = %67, %59, %62
 thread_sched_wakeup_running_thread.exit.thread44: ; preds = %thread_sched_deq.exit.i, %thread_sched_wakeup_running_thread.exit.thread, %thread_sched_wakeup_running_thread.exit
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %71 = load ptr, ptr %70, align 8, !tbaa !53
-  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %71, ptr noundef null, ptr noundef %1, ptr noundef null)
+  call fastcc void @thread_sched_setup_running_threads(ptr noundef nonnull %0, ptr noundef %71, ptr noundef null, ptr noundef nonnull %1, ptr noundef null)
   br label %thread_sched_wakeup_next_thread.exit
 
 thread_sched_wakeup_next_thread.exit:             ; preds = %thread_sched_wakeup_running_thread.exit, %thread_sched_wakeup_running_thread.exit.thread44
-  call fastcc void @thread_sched_wait_running_turn(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
+  call fastcc void @thread_sched_wait_running_turn(ptr noundef nonnull %0, ptr noundef nonnull %1, i1 noundef zeroext true)
   br label %72
 
 72:                                               ; preds = %41, %thread_sched_wakeup_next_thread.exit, %thread_sched_lock_.exit

@@ -3269,7 +3269,7 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
 ._crit_edge85:                                    ; preds = %.lr.ph84, %._crit_edge
   store i32 0, ptr %13, align 4, !tbaa !3
   %46 = xor i32 %21, -1
-  %47 = add i32 %14, %46
+  %47 = add nsw i32 %14, %46
   br i1 %30, label %.lr.ph89.preheader, label %._crit_edge90.thread
 
 .lr.ph89.preheader:                               ; preds = %._crit_edge85
@@ -3299,7 +3299,7 @@ define range(i64 1, 0) i64 @HUFv07_readDTableX4(ptr noundef captures(none) %0, p
   br i1 %.not130, label %.lr.ph93.us.preheader, label %._crit_edge98
 
 ._crit_edge90.thread:                             ; preds = %._crit_edge85
-  %58 = sub i32 %23, %.069
+  %58 = sub nsw i32 %23, %.069
   br label %._crit_edge98
 
 .lr.ph93.us.preheader:                            ; preds = %._crit_edge90

@@ -525,7 +525,7 @@ xSAT_ReadInt.exit56.i:                            ; preds = %.lr.ph28.i52.i
 
 xSAT_ReadClause.exit.i:                           ; preds = %xSAT_ReadInt.exit56.i, %xSAT_ReadInt.exit71.i
   %.9.i = phi ptr [ %144, %xSAT_ReadInt.exit71.i ], [ %218, %xSAT_ReadInt.exit56.i ]
-  %227 = tail call i32 @xSAT_SolverAddClause(ptr noundef nonnull %.012.i.ph, ptr noundef %.013.i.ph) #15
+  %227 = tail call i32 @xSAT_SolverAddClause(ptr noundef nonnull %.012.i.ph, ptr noundef nonnull %.013.i.ph) #15
   %.not16.i = icmp eq i32 %227, 0
   br i1 %.not16.i, label %228, label %skipLine.exit.i.backedge
 

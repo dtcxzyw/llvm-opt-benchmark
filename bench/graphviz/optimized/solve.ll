@@ -209,7 +209,7 @@ gv_calloc.exit176.preheader:                      ; preds = %20
 
 .lr.ph215.preheader:                              ; preds = %80, %.preheader182
   %86 = shl nuw i64 %3, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %2, ptr align 8 %22, i64 %86, i1 false), !tbaa !8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %2, ptr align 8 %22, i64 %86, i1 false), !tbaa !8
   br label %.preheader
 
 87:                                               ; preds = %.lr.ph213, %._crit_edge210

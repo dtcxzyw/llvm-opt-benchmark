@@ -7959,7 +7959,7 @@ _ZL12normalizeACFPfS_ii.exit.i:                   ; preds = %.lr.ph.split.i.i, %
 ._crit_edge432.i:                                 ; preds = %2813
   %2819 = load ptr, ptr %2413, align 8
   %2820 = add nsw i32 %2441, -1
-  %2821 = icmp sgt i32 %2421, 5
+  %2821 = icmp samesign ugt i32 %2421, 5
   br i1 %2821, label %.lr.ph.preheader.i.i, label %_Z18compute_derivativeiPKfS0_Pf.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %._crit_edge432.i

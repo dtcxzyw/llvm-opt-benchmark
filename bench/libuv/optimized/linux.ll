@@ -2113,7 +2113,7 @@ define hidden void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   br i1 %.not143, label %118, label %117
 
 117:                                              ; preds = %.loopexit162
-  call void @uv__metrics_set_provider_entry_time(ptr noundef %0) #17
+  call void @uv__metrics_set_provider_entry_time(ptr noundef nonnull %0) #17
   br label %118
 
 118:                                              ; preds = %117, %.loopexit162

@@ -220,7 +220,7 @@ define void @dlarfgp_(ptr noundef readonly captures(none) %0, ptr noundef %1, pt
 
 107:                                              ; preds = %93, %._crit_edge, %102
   %.3 = phi double [ %.2, %93 ], [ %101, %._crit_edge ], [ %.2, %102 ]
-  %.not9195 = icmp slt i32 %.0, 1
+  %.not9195 = icmp eq i32 %.0, 0
   br i1 %.not9195, label %._crit_edge100, label %.lr.ph99
 
 .lr.ph99:                                         ; preds = %107, %.lr.ph99

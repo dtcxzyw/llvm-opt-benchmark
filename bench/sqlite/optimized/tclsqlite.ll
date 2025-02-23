@@ -2248,7 +2248,7 @@ strlen30.exit1213:                                ; preds = %675
   store i8 0, ptr %689, align 1, !tbaa !18
   %690 = load ptr, ptr %0, align 8, !tbaa !26
   %691 = call i32 @sqlite3_prepare(ptr noundef %690, ptr noundef nonnull %667, i32 noundef -1, ptr noundef nonnull %18, ptr noundef null) #14
-  call void @free(ptr noundef %667) #14
+  call void @free(ptr noundef nonnull %667) #14
   %.not1139 = icmp eq i32 %691, 0
   br i1 %.not1139, label %700, label %692
 

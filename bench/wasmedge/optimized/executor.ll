@@ -2554,21 +2554,21 @@ _ZNSt12_Vector_baseISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_
   %167 = add i64 %.01012.i.i.i.i.i, -1
   %168 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %167, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
+  br i1 %.not.i.i.i.i.i, label %.lr.ph137, label %.lr.ph.i.i.i.i.i, !llvm.loop !25
 
-_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit: ; preds = %.lr.ph.i.i.i.i.i
+.lr.ph137:                                        ; preds = %.lr.ph.i.i.i.i.i
   %169 = getelementptr inbounds nuw %"struct.std::pair", ptr %165, i64 %161
   %170 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %171 = getelementptr inbounds nuw i8, ptr %19, i64 2
   br label %172
 
-172:                                              ; preds = %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit, %233
-  %173 = phi ptr [ %157, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %.sink167, %233 ]
-  %174 = phi ptr [ %156, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %.sink168, %233 ]
-  %175 = phi i64 [ %160, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %236, %233 ]
-  %176 = phi i64 [ 0, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %242, %233 ]
-  %.054136 = phi i32 [ 0, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %241, %233 ]
-  %.sroa.191.0135 = phi ptr [ undef, %_ZNSt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS1_10RefVariantENS1_10StrVariantEEEENS1_7ValTypeEESaISH_EEC2EmRKSI_.exit ], [ %.sroa.191.2, %233 ]
+172:                                              ; preds = %.lr.ph137, %233
+  %173 = phi ptr [ %157, %.lr.ph137 ], [ %.sink167, %233 ]
+  %174 = phi ptr [ %156, %.lr.ph137 ], [ %.sink168, %233 ]
+  %175 = phi i64 [ %160, %.lr.ph137 ], [ %236, %233 ]
+  %176 = phi i64 [ 0, %.lr.ph137 ], [ %242, %233 ]
+  %.054136 = phi i32 [ 0, %.lr.ph137 ], [ %241, %233 ]
+  %.sroa.191.0135 = phi ptr [ undef, %.lr.ph137 ], [ %.sroa.191.2, %233 ]
   %177 = load ptr, ptr %134, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 -16
   %.sroa.0.0.copyload.i = load i64, ptr %178, align 16

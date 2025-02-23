@@ -171,7 +171,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   store double %94, ptr %90, align 8, !tbaa !18
   %95 = load double, ptr %92, align 8, !tbaa !18
   %96 = fmul double %78, %91
-  %97 = tail call double @llvm.fmuladd.f64(double %76, double %95, double %96)
+  %97 = tail call double @llvm.fmuladd.f64(double %74, double %95, double %96)
   store double %97, ptr %92, align 8, !tbaa !18
   %indvars.iv.next161 = add nsw i64 %indvars.iv160, 1
   %lftr.wideiv163 = trunc i64 %indvars.iv.next161 to i32
@@ -191,7 +191,7 @@ define range(i32 0, 2) i32 @cs_updown(ptr noundef readonly %0, i32 noundef %1, p
   store double %105, ptr %101, align 8, !tbaa !18
   %106 = load double, ptr %103, align 8, !tbaa !18
   %107 = fmul double %78, %105
-  %108 = tail call double @llvm.fmuladd.f64(double %76, double %106, double %107)
+  %108 = tail call double @llvm.fmuladd.f64(double %75, double %106, double %107)
   store double %108, ptr %103, align 8, !tbaa !18
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next157 to i32

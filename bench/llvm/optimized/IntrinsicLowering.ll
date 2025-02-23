@@ -3714,7 +3714,7 @@ _ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit: ; preds = %79
   %.1.i38 = phi ptr [ %89, %79 ], [ %91, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #16
   %104 = load ptr, ptr %52, align 8, !tbaa !53
-  %105 = zext i32 %.0354 to i64
+  %105 = zext nneg i32 %.0354 to i64
   %106 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_4TypeEmb(ptr noundef %104, i64 noundef %105, i1 noundef zeroext false) #16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #16
   store i8 1, ptr %34, align 1, !tbaa !48
@@ -3858,9 +3858,9 @@ _ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.
 _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit70: ; preds = %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit59, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i69
   %.1.i61 = phi ptr [ %149, %_ZN4llvm13IRBuilderBase9CreateAndEPNS_5ValueES2_RKNS_5TwineE.exit59 ], [ %151, %_ZNK4llvm13IRBuilderBase6InsertINS_14BinaryOperatorEEEPT_S4_RKNS_5TwineE.exit.i.i69 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14) #16
-  %164 = shl i32 %.0354, 1
+  %164 = shl nuw nsw i32 %.0354, 1
   %165 = add i32 %.0345, 1
-  %166 = icmp ult i32 %164, %50
+  %166 = icmp samesign ult i32 %164, %50
   br i1 %166, label %79, label %._crit_edge, !llvm.loop !120
 
 167:                                              ; preds = %_ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit

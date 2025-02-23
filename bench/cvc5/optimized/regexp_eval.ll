@@ -1756,7 +1756,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit32: ; preds = %_ZStl
   br i1 %.not40, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %.critedge, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31, %125, %_ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit
-  %135 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.037.049) #28
+  %135 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.037.049) #28
   %.not = icmp eq ptr %135, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph50
 }

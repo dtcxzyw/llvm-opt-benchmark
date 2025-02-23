@@ -4331,7 +4331,7 @@ define hidden void @"_ZN5uu_ls16create_hyperlink28_$u7b$$u7b$closure$u7d$$u7d$17
 
 .preheader.i.i.i:                                 ; preds = %109, %101
   %.sroa.025.0140.i.i.i = phi i64 [ %97, %101 ], [ 0, %109 ]
-  %.2139.i.i.i = phi i8 [ %.3.i.i.i, %101 ], [ %.064141.i.i.i, %109 ]
+  %.2139.i.i.i = phi i8 [ %.3.i.i.i, %101 ], [ 0, %109 ]
   %97 = add nuw nsw i64 %.sroa.025.0140.i.i.i, 1
   %98 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0140.i.i.i
   %99 = load i16, ptr %98, align 2, !noalias !2105, !noundef !4

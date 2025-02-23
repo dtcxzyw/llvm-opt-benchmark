@@ -564,8 +564,7 @@ define void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind noalias writable 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %123 = load ptr, ptr %105, align 8
   %124 = lshr i64 %indvars.iv, 6
-  %.zext = and i64 %124, 67108863
-  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %.zext
+  %125 = getelementptr inbounds nuw i64, ptr %123, i64 %124
   %126 = and i64 %indvars.iv, 63
   %127 = load i64, ptr %125, align 8
   %128 = lshr i64 %127, %126

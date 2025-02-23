@@ -943,9 +943,9 @@ if.end184:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1116, label %if.end201, label %for.body
 
 for.body:                                         ; preds = %if.end184, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885
-  %container_total.02164 = phi i64 [ %add195, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885 ], [ 0, %if.end184 ]
-  %__begin3.sroa.0.02163 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885 ], [ %27, %if.end184 ]
-  %29 = load i32, ptr %__begin3.sroa.0.02163, align 4
+  %container_total.02172 = phi i64 [ %add195, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885 ], [ 0, %if.end184 ]
+  %__begin3.sroa.0.02171 = phi ptr [ %incdec.ptr.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885 ], [ %27, %if.end184 ]
+  %29 = load i32, ptr %__begin3.sroa.0.02171, align 4
   %conv193 = sext i32 %29 to i64
   br label %do.body.i3881
 
@@ -958,8 +958,8 @@ do.body.i3881:                                    ; preds = %do.body.i3881, %for
   br i1 %cmp.i3884.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885, label %do.body.i3881, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3885: ; preds = %do.body.i3881
-  %add195 = add i64 %inc.i3882, %container_total.02164
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.02163, i64 4
+  %add195 = add i64 %inc.i3882, %container_total.02172
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.02171, i64 4
   %cmp.i1117 = icmp eq ptr %incdec.ptr.i, %28
   br i1 %cmp.i1117, label %do.body.i3874, label %for.body
 
@@ -987,9 +987,9 @@ if.end201:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1119, label %if.end228, label %for.body216
 
 for.body216:                                      ; preds = %if.end201, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871
-  %container_total204.02166 = phi i64 [ %add220, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871 ], [ 0, %if.end201 ]
-  %__begin3207.sroa.0.02165 = phi ptr [ %incdec.ptr.i1122, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871 ], [ %30, %if.end201 ]
-  %32 = load i64, ptr %__begin3207.sroa.0.02165, align 8
+  %container_total204.02174 = phi i64 [ %add220, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871 ], [ 0, %if.end201 ]
+  %__begin3207.sroa.0.02173 = phi ptr [ %incdec.ptr.i1122, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871 ], [ %30, %if.end201 ]
+  %32 = load i64, ptr %__begin3207.sroa.0.02173, align 8
   br label %do.body.i3867
 
 do.body.i3867:                                    ; preds = %do.body.i3867, %for.body216
@@ -1001,8 +1001,8 @@ do.body.i3867:                                    ; preds = %do.body.i3867, %for
   br i1 %cmp.i3870.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871, label %do.body.i3867, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3871: ; preds = %do.body.i3867
-  %add220 = add i64 %inc.i3868, %container_total204.02166
-  %incdec.ptr.i1122 = getelementptr inbounds nuw i8, ptr %__begin3207.sroa.0.02165, i64 8
+  %add220 = add i64 %inc.i3868, %container_total204.02174
+  %incdec.ptr.i1122 = getelementptr inbounds nuw i8, ptr %__begin3207.sroa.0.02173, i64 8
   %cmp.i1121 = icmp eq ptr %incdec.ptr.i1122, %31
   br i1 %cmp.i1121, label %do.body.i3860, label %for.body216
 
@@ -1030,9 +1030,9 @@ if.end228:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1124, label %if.end256, label %for.body243
 
 for.body243:                                      ; preds = %if.end228, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857
-  %container_total231.02168 = phi i64 [ %add248, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857 ], [ 0, %if.end228 ]
-  %__begin3234.sroa.0.02167 = phi ptr [ %incdec.ptr.i1127, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857 ], [ %33, %if.end228 ]
-  %35 = load i32, ptr %__begin3234.sroa.0.02167, align 4
+  %container_total231.02176 = phi i64 [ %add248, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857 ], [ 0, %if.end228 ]
+  %__begin3234.sroa.0.02175 = phi ptr [ %incdec.ptr.i1127, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857 ], [ %33, %if.end228 ]
+  %35 = load i32, ptr %__begin3234.sroa.0.02175, align 4
   %conv246 = zext i32 %35 to i64
   br label %do.body.i3853
 
@@ -1045,8 +1045,8 @@ do.body.i3853:                                    ; preds = %do.body.i3853, %for
   br i1 %cmp.i3856.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857, label %do.body.i3853, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3857: ; preds = %do.body.i3853
-  %add248 = add i64 %inc.i3854, %container_total231.02168
-  %incdec.ptr.i1127 = getelementptr inbounds nuw i8, ptr %__begin3234.sroa.0.02167, i64 4
+  %add248 = add i64 %inc.i3854, %container_total231.02176
+  %incdec.ptr.i1127 = getelementptr inbounds nuw i8, ptr %__begin3234.sroa.0.02175, i64 4
   %cmp.i1126 = icmp eq ptr %incdec.ptr.i1127, %34
   br i1 %cmp.i1126, label %do.body.i3846, label %for.body243
 
@@ -1074,9 +1074,9 @@ if.end256:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1129, label %if.end283, label %for.body271
 
 for.body271:                                      ; preds = %if.end256, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843
-  %container_total259.02170 = phi i64 [ %add275, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843 ], [ 0, %if.end256 ]
-  %__begin3262.sroa.0.02169 = phi ptr [ %incdec.ptr.i1132, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843 ], [ %36, %if.end256 ]
-  %38 = load i64, ptr %__begin3262.sroa.0.02169, align 8
+  %container_total259.02178 = phi i64 [ %add275, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843 ], [ 0, %if.end256 ]
+  %__begin3262.sroa.0.02177 = phi ptr [ %incdec.ptr.i1132, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843 ], [ %36, %if.end256 ]
+  %38 = load i64, ptr %__begin3262.sroa.0.02177, align 8
   br label %do.body.i3839
 
 do.body.i3839:                                    ; preds = %do.body.i3839, %for.body271
@@ -1088,8 +1088,8 @@ do.body.i3839:                                    ; preds = %do.body.i3839, %for
   br i1 %cmp.i3842.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843, label %do.body.i3839, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3843: ; preds = %do.body.i3839
-  %add275 = add i64 %inc.i3840, %container_total259.02170
-  %incdec.ptr.i1132 = getelementptr inbounds nuw i8, ptr %__begin3262.sroa.0.02169, i64 8
+  %add275 = add i64 %inc.i3840, %container_total259.02178
+  %incdec.ptr.i1132 = getelementptr inbounds nuw i8, ptr %__begin3262.sroa.0.02177, i64 8
   %cmp.i1131 = icmp eq ptr %incdec.ptr.i1132, %37
   br i1 %cmp.i1131, label %do.body.i3832, label %for.body271
 
@@ -1117,9 +1117,9 @@ if.end283:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1134, label %if.end312, label %for.body298
 
 for.body298:                                      ; preds = %if.end283, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829
-  %container_total286.02172 = phi i64 [ %add304, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829 ], [ 0, %if.end283 ]
-  %__begin3289.sroa.0.02171 = phi ptr [ %incdec.ptr.i1137, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829 ], [ %39, %if.end283 ]
-  %41 = load i32, ptr %__begin3289.sroa.0.02171, align 4
+  %container_total286.02180 = phi i64 [ %add304, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829 ], [ 0, %if.end283 ]
+  %__begin3289.sroa.0.02179 = phi ptr [ %incdec.ptr.i1137, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829 ], [ %39, %if.end283 ]
+  %41 = load i32, ptr %__begin3289.sroa.0.02179, align 4
   %shl.i4023 = shl i32 %41, 1
   %shr.i4024.neg = ashr i32 %41, 31
   %xor.i4026 = xor i32 %shl.i4023, %shr.i4024.neg
@@ -1135,8 +1135,8 @@ do.body.i3825:                                    ; preds = %do.body.i3825, %for
   br i1 %cmp.i3828.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829, label %do.body.i3825, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3829: ; preds = %do.body.i3825
-  %add304 = add i64 %inc.i3826, %container_total286.02172
-  %incdec.ptr.i1137 = getelementptr inbounds nuw i8, ptr %__begin3289.sroa.0.02171, i64 4
+  %add304 = add i64 %inc.i3826, %container_total286.02180
+  %incdec.ptr.i1137 = getelementptr inbounds nuw i8, ptr %__begin3289.sroa.0.02179, i64 4
   %cmp.i1136 = icmp eq ptr %incdec.ptr.i1137, %40
   br i1 %cmp.i1136, label %do.body.i3818, label %for.body298
 
@@ -1164,9 +1164,9 @@ if.end312:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1139, label %if.end340, label %for.body327
 
 for.body327:                                      ; preds = %if.end312, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815
-  %container_total315.02174 = phi i64 [ %add332, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815 ], [ 0, %if.end312 ]
-  %__begin3318.sroa.0.02173 = phi ptr [ %incdec.ptr.i1142, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815 ], [ %42, %if.end312 ]
-  %44 = load i64, ptr %__begin3318.sroa.0.02173, align 8
+  %container_total315.02182 = phi i64 [ %add332, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815 ], [ 0, %if.end312 ]
+  %__begin3318.sroa.0.02181 = phi ptr [ %incdec.ptr.i1142, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815 ], [ %42, %if.end312 ]
+  %44 = load i64, ptr %__begin3318.sroa.0.02181, align 8
   %shl.i4053 = shl i64 %44, 1
   %shr.i4054.neg = ashr i64 %44, 63
   %xor.i4056 = xor i64 %shl.i4053, %shr.i4054.neg
@@ -1181,8 +1181,8 @@ do.body.i3811:                                    ; preds = %do.body.i3811, %for
   br i1 %cmp.i3814.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815, label %do.body.i3811, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3815: ; preds = %do.body.i3811
-  %add332 = add i64 %inc.i3812, %container_total315.02174
-  %incdec.ptr.i1142 = getelementptr inbounds nuw i8, ptr %__begin3318.sroa.0.02173, i64 8
+  %add332 = add i64 %inc.i3812, %container_total315.02182
+  %incdec.ptr.i1142 = getelementptr inbounds nuw i8, ptr %__begin3318.sroa.0.02181, i64 8
   %cmp.i1141 = icmp eq ptr %incdec.ptr.i1142, %43
   br i1 %cmp.i1141, label %do.body.i3804, label %for.body327
 
@@ -1388,17 +1388,17 @@ if.end405:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %60, label %if.end433, label %for.body418
 
 for.body418:                                      ; preds = %if.end405, %for.body418
-  %container_total408.02179 = phi i64 [ %add425, %for.body418 ], [ 0, %if.end405 ]
-  %__begin3411.sroa.5.02178 = phi i32 [ %spec.select2140, %for.body418 ], [ 0, %if.end405 ]
-  %__begin3411.sroa.0.02177 = phi ptr [ %spec.select2139, %for.body418 ], [ %57, %if.end405 ]
-  %add425 = add i64 %container_total408.02179, 1
-  %inc.i.i1190 = add i32 %__begin3411.sroa.5.02178, 1
-  %cmp.i.i1191 = icmp eq i32 %__begin3411.sroa.5.02178, 63
-  %spec.select2139.idx = select i1 %cmp.i.i1191, i64 8, i64 0
-  %spec.select2139 = getelementptr inbounds nuw i8, ptr %__begin3411.sroa.0.02177, i64 %spec.select2139.idx
-  %spec.select2140 = select i1 %cmp.i.i1191, i32 0, i32 %inc.i.i1190
-  %cmp.i1186 = icmp eq ptr %spec.select2139, %58
-  %cmp3.i = icmp eq i32 %spec.select2140, %59
+  %container_total408.02187 = phi i64 [ %add425, %for.body418 ], [ 0, %if.end405 ]
+  %__begin3411.sroa.5.02186 = phi i32 [ %spec.select2148, %for.body418 ], [ 0, %if.end405 ]
+  %__begin3411.sroa.0.02185 = phi ptr [ %spec.select2147, %for.body418 ], [ %57, %if.end405 ]
+  %add425 = add i64 %container_total408.02187, 1
+  %inc.i.i1190 = add i32 %__begin3411.sroa.5.02186, 1
+  %cmp.i.i1191 = icmp eq i32 %__begin3411.sroa.5.02186, 63
+  %spec.select2147.idx = select i1 %cmp.i.i1191, i64 8, i64 0
+  %spec.select2147 = getelementptr inbounds nuw i8, ptr %__begin3411.sroa.0.02185, i64 %spec.select2147.idx
+  %spec.select2148 = select i1 %cmp.i.i1191, i32 0, i32 %inc.i.i1190
+  %cmp.i1186 = icmp eq ptr %spec.select2147, %58
+  %cmp3.i = icmp eq i32 %spec.select2148, %59
   %61 = select i1 %cmp.i1186, i1 %cmp3.i, i1 false
   br i1 %61, label %do.body.i3748, label %for.body418
 
@@ -1422,13 +1422,13 @@ if.end433:                                        ; preds = %_ZN9struct_pb8inter
   %62 = load ptr, ptr %repeated_string, align 8
   %_M_finish.i1193 = getelementptr inbounds nuw i8, ptr %t, i64 608
   %63 = load ptr, ptr %_M_finish.i1193, align 8
-  %cmp.i11942180 = icmp eq ptr %62, %63
-  br i1 %cmp.i11942180, label %for.end451, label %for.body441
+  %cmp.i11942188 = icmp eq ptr %62, %63
+  br i1 %cmp.i11942188, label %for.end451, label %for.body441
 
 for.body441:                                      ; preds = %if.end433, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745
-  %total.362182 = phi i64 [ %add448, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745 ], [ %total.35, %if.end433 ]
-  %__begin2.sroa.0.02181 = phi ptr [ %incdec.ptr.i1197, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745 ], [ %62, %if.end433 ]
-  %_M_string_length.i1195 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.02181, i64 8
+  %total.362190 = phi i64 [ %add448, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745 ], [ %total.35, %if.end433 ]
+  %__begin2.sroa.0.02189 = phi ptr [ %incdec.ptr.i1197, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745 ], [ %62, %if.end433 ]
+  %_M_string_length.i1195 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.02189, i64 8
   %64 = load i64, ptr %_M_string_length.i1195, align 8
   br label %do.body.i3741
 
@@ -1441,10 +1441,10 @@ do.body.i3741:                                    ; preds = %do.body.i3741, %for
   br i1 %cmp.i3744.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745, label %do.body.i3741, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3745: ; preds = %do.body.i3741
-  %add445 = add i64 %total.362182, 3
+  %add445 = add i64 %total.362190, 3
   %add447 = add i64 %add445, %64
   %add448 = add i64 %add447, %ret.i3740.0
-  %incdec.ptr.i1197 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.02181, i64 32
+  %incdec.ptr.i1197 = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.02189, i64 32
   %cmp.i1194 = icmp eq ptr %incdec.ptr.i1197, %63
   br i1 %cmp.i1194, label %for.end451, label %for.body441
 
@@ -1454,13 +1454,13 @@ for.end451:                                       ; preds = %_ZN9struct_pb8inter
   %65 = load ptr, ptr %repeated_bytes, align 8
   %_M_finish.i1198 = getelementptr inbounds nuw i8, ptr %t, i64 632
   %66 = load ptr, ptr %_M_finish.i1198, align 8
-  %cmp.i11992184 = icmp eq ptr %65, %66
-  br i1 %cmp.i11992184, label %for.end473, label %for.body462
+  %cmp.i11992192 = icmp eq ptr %65, %66
+  br i1 %cmp.i11992192, label %for.end473, label %for.body462
 
 for.body462:                                      ; preds = %for.end451, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738
-  %total.372186 = phi i64 [ %add470, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738 ], [ %total.36.lcssa, %for.end451 ]
-  %__begin2453.sroa.0.02185 = phi ptr [ %incdec.ptr.i1202, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738 ], [ %65, %for.end451 ]
-  %_M_string_length.i1200 = getelementptr inbounds nuw i8, ptr %__begin2453.sroa.0.02185, i64 8
+  %total.372194 = phi i64 [ %add470, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738 ], [ %total.36.lcssa, %for.end451 ]
+  %__begin2453.sroa.0.02193 = phi ptr [ %incdec.ptr.i1202, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738 ], [ %65, %for.end451 ]
+  %_M_string_length.i1200 = getelementptr inbounds nuw i8, ptr %__begin2453.sroa.0.02193, i64 8
   %67 = load i64, ptr %_M_string_length.i1200, align 8
   br label %do.body.i3734
 
@@ -1473,10 +1473,10 @@ do.body.i3734:                                    ; preds = %do.body.i3734, %for
   br i1 %cmp.i3737.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738, label %do.body.i3734, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3738: ; preds = %do.body.i3734
-  %add467 = add i64 %total.372186, 3
+  %add467 = add i64 %total.372194, 3
   %add469 = add i64 %add467, %67
   %add470 = add i64 %add469, %ret.i3733.0
-  %incdec.ptr.i1202 = getelementptr inbounds nuw i8, ptr %__begin2453.sroa.0.02185, i64 32
+  %incdec.ptr.i1202 = getelementptr inbounds nuw i8, ptr %__begin2453.sroa.0.02193, i64 32
   %cmp.i1199 = icmp eq ptr %incdec.ptr.i1202, %66
   br i1 %cmp.i1199, label %for.end473, label %for.body462
 
@@ -1490,10 +1490,10 @@ for.end473:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1204, label %if.end503, label %for.body487
 
 for.body487:                                      ; preds = %for.end473, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731
-  %total.392189 = phi i64 [ %add499, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731 ], [ %total.37.lcssa, %for.end473 ]
-  %__begin3478.sroa.0.02188 = phi ptr [ %incdec.ptr.i1210, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731 ], [ %68, %for.end473 ]
+  %total.392197 = phi i64 [ %add499, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731 ], [ %total.37.lcssa, %for.end473 ]
+  %__begin3478.sroa.0.02196 = phi ptr [ %incdec.ptr.i1210, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731 ], [ %68, %for.end473 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp491, i8 0, i64 24, i1 false)
-  %call495 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin3478.sroa.0.02188, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp491)
+  %call495 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin3478.sroa.0.02196, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp491)
   br label %do.body.i3727
 
 do.body.i3727:                                    ; preds = %for.body487, %do.body.i3727
@@ -1505,10 +1505,10 @@ do.body.i3727:                                    ; preds = %for.body487, %do.bo
   br i1 %cmp.i3730.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731, label %do.body.i3727, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3731: ; preds = %do.body.i3727
-  %add497 = add i64 %total.392189, 3
+  %add497 = add i64 %total.392197, 3
   %add498 = add i64 %add497, %call495
   %add499 = add i64 %add498, %ret.i3726.0
-  %incdec.ptr.i1210 = getelementptr inbounds nuw i8, ptr %__begin3478.sroa.0.02188, i64 16
+  %incdec.ptr.i1210 = getelementptr inbounds nuw i8, ptr %__begin3478.sroa.0.02196, i64 16
   %cmp.i1206 = icmp eq ptr %incdec.ptr.i1210, %69
   br i1 %cmp.i1206, label %if.end503, label %for.body487
 
@@ -1522,9 +1522,9 @@ if.end503:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1215, label %if.end533, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i1227
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i1227: ; preds = %if.end503, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724
-  %total.412191 = phi i64 [ %add529, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724 ], [ %total.38, %if.end503 ]
-  %__begin3508.sroa.0.02190 = phi ptr [ %incdec.ptr.i1246, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724 ], [ %70, %if.end503 ]
-  %72 = load i32, ptr %__begin3508.sroa.0.02190, align 4
+  %total.412199 = phi i64 [ %add529, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724 ], [ %total.38, %if.end503 ]
+  %__begin3508.sroa.0.02198 = phi ptr [ %incdec.ptr.i1246, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724 ], [ %70, %if.end503 ]
+  %72 = load i32, ptr %__begin3508.sroa.0.02198, align 4
   %cmp.not.i1229 = icmp eq i32 %72, 0
   br i1 %cmp.not.i1229, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit1245, label %if.then.i1230
 
@@ -1557,10 +1557,10 @@ do.body.i3720:                                    ; preds = %do.body.i3720, %_ZN
   br i1 %cmp.i3723.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724, label %do.body.i3720, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3724: ; preds = %do.body.i3720
-  %add527 = add i64 %total.412191, 3
+  %add527 = add i64 %total.412199, 3
   %add528 = add i64 %add527, %total.0.i1241
   %add529 = add i64 %add528, %ret.i3719.0
-  %incdec.ptr.i1246 = getelementptr inbounds nuw i8, ptr %__begin3508.sroa.0.02190, i64 4
+  %incdec.ptr.i1246 = getelementptr inbounds nuw i8, ptr %__begin3508.sroa.0.02198, i64 4
   %cmp.i1217 = icmp eq ptr %incdec.ptr.i1246, %71
   br i1 %cmp.i1217, label %if.end533, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i1227
 
@@ -1574,9 +1574,9 @@ if.end533:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1251, label %if.end560, label %for.body548
 
 for.body548:                                      ; preds = %if.end533, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717
-  %sz536.02193 = phi i64 [ %add552, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717 ], [ 0, %if.end533 ]
-  %__begin3539.sroa.0.02192 = phi ptr [ %incdec.ptr.i1254, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717 ], [ %73, %if.end533 ]
-  %75 = load i32, ptr %__begin3539.sroa.0.02192, align 4
+  %sz536.02201 = phi i64 [ %add552, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717 ], [ 0, %if.end533 ]
+  %__begin3539.sroa.0.02200 = phi ptr [ %incdec.ptr.i1254, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717 ], [ %73, %if.end533 ]
+  %75 = load i32, ptr %__begin3539.sroa.0.02200, align 4
   %conv550 = sext i32 %75 to i64
   br label %do.body.i3713
 
@@ -1589,8 +1589,8 @@ do.body.i3713:                                    ; preds = %do.body.i3713, %for
   br i1 %cmp.i3716.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717, label %do.body.i3713, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3717: ; preds = %do.body.i3713
-  %add552 = add i64 %inc.i3714, %sz536.02193
-  %incdec.ptr.i1254 = getelementptr inbounds nuw i8, ptr %__begin3539.sroa.0.02192, i64 4
+  %add552 = add i64 %inc.i3714, %sz536.02201
+  %incdec.ptr.i1254 = getelementptr inbounds nuw i8, ptr %__begin3539.sroa.0.02200, i64 4
   %cmp.i1253 = icmp eq ptr %incdec.ptr.i1254, %74
   br i1 %cmp.i1253, label %do.body.i3706, label %for.body548
 
@@ -1618,9 +1618,9 @@ if.end560:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1256, label %if.end588, label %for.body575
 
 for.body575:                                      ; preds = %if.end560, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703
-  %sz563.02195 = phi i64 [ %add580, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703 ], [ 0, %if.end560 ]
-  %__begin3566.sroa.0.02194 = phi ptr [ %incdec.ptr.i1259, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703 ], [ %76, %if.end560 ]
-  %78 = load i32, ptr %__begin3566.sroa.0.02194, align 4
+  %sz563.02203 = phi i64 [ %add580, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703 ], [ 0, %if.end560 ]
+  %__begin3566.sroa.0.02202 = phi ptr [ %incdec.ptr.i1259, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703 ], [ %76, %if.end560 ]
+  %78 = load i32, ptr %__begin3566.sroa.0.02202, align 4
   %conv578 = sext i32 %78 to i64
   br label %do.body.i3699
 
@@ -1633,8 +1633,8 @@ do.body.i3699:                                    ; preds = %do.body.i3699, %for
   br i1 %cmp.i3702.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703, label %do.body.i3699, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3703: ; preds = %do.body.i3699
-  %add580 = add i64 %inc.i3700, %sz563.02195
-  %incdec.ptr.i1259 = getelementptr inbounds nuw i8, ptr %__begin3566.sroa.0.02194, i64 4
+  %add580 = add i64 %inc.i3700, %sz563.02203
+  %incdec.ptr.i1259 = getelementptr inbounds nuw i8, ptr %__begin3566.sroa.0.02202, i64 4
   %cmp.i1258 = icmp eq ptr %incdec.ptr.i1259, %77
   br i1 %cmp.i1258, label %do.body.i3692, label %for.body575
 
@@ -1658,13 +1658,13 @@ if.end588:                                        ; preds = %_ZN9struct_pb8inter
   %79 = load ptr, ptr %repeated_string_piece, align 8
   %_M_finish.i1260 = getelementptr inbounds nuw i8, ptr %t, i64 752
   %80 = load ptr, ptr %_M_finish.i1260, align 8
-  %cmp.i12612196 = icmp eq ptr %79, %80
-  br i1 %cmp.i12612196, label %for.end610, label %for.body599
+  %cmp.i12612204 = icmp eq ptr %79, %80
+  br i1 %cmp.i12612204, label %for.end610, label %for.body599
 
 for.body599:                                      ; preds = %if.end588, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689
-  %total.442198 = phi i64 [ %add607, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689 ], [ %total.43, %if.end588 ]
-  %__begin2590.sroa.0.02197 = phi ptr [ %incdec.ptr.i1264, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689 ], [ %79, %if.end588 ]
-  %_M_string_length.i1262 = getelementptr inbounds nuw i8, ptr %__begin2590.sroa.0.02197, i64 8
+  %total.442206 = phi i64 [ %add607, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689 ], [ %total.43, %if.end588 ]
+  %__begin2590.sroa.0.02205 = phi ptr [ %incdec.ptr.i1264, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689 ], [ %79, %if.end588 ]
+  %_M_string_length.i1262 = getelementptr inbounds nuw i8, ptr %__begin2590.sroa.0.02205, i64 8
   %81 = load i64, ptr %_M_string_length.i1262, align 8
   br label %do.body.i3685
 
@@ -1677,10 +1677,10 @@ do.body.i3685:                                    ; preds = %do.body.i3685, %for
   br i1 %cmp.i3688.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689, label %do.body.i3685, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3689: ; preds = %do.body.i3685
-  %add604 = add i64 %total.442198, 3
+  %add604 = add i64 %total.442206, 3
   %add606 = add i64 %add604, %81
   %add607 = add i64 %add606, %ret.i3684.0
-  %incdec.ptr.i1264 = getelementptr inbounds nuw i8, ptr %__begin2590.sroa.0.02197, i64 32
+  %incdec.ptr.i1264 = getelementptr inbounds nuw i8, ptr %__begin2590.sroa.0.02205, i64 32
   %cmp.i1261 = icmp eq ptr %incdec.ptr.i1264, %80
   br i1 %cmp.i1261, label %for.end610, label %for.body599
 
@@ -1690,13 +1690,13 @@ for.end610:                                       ; preds = %_ZN9struct_pb8inter
   %82 = load ptr, ptr %repeated_cord, align 8
   %_M_finish.i1265 = getelementptr inbounds nuw i8, ptr %t, i64 776
   %83 = load ptr, ptr %_M_finish.i1265, align 8
-  %cmp.i12662200 = icmp eq ptr %82, %83
-  br i1 %cmp.i12662200, label %for.end632, label %for.body621
+  %cmp.i12662208 = icmp eq ptr %82, %83
+  br i1 %cmp.i12662208, label %for.end632, label %for.body621
 
 for.body621:                                      ; preds = %for.end610, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682
-  %total.452202 = phi i64 [ %add629, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682 ], [ %total.44.lcssa, %for.end610 ]
-  %__begin2612.sroa.0.02201 = phi ptr [ %incdec.ptr.i1269, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682 ], [ %82, %for.end610 ]
-  %_M_string_length.i1267 = getelementptr inbounds nuw i8, ptr %__begin2612.sroa.0.02201, i64 8
+  %total.452210 = phi i64 [ %add629, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682 ], [ %total.44.lcssa, %for.end610 ]
+  %__begin2612.sroa.0.02209 = phi ptr [ %incdec.ptr.i1269, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682 ], [ %82, %for.end610 ]
+  %_M_string_length.i1267 = getelementptr inbounds nuw i8, ptr %__begin2612.sroa.0.02209, i64 8
   %84 = load i64, ptr %_M_string_length.i1267, align 8
   br label %do.body.i3678
 
@@ -1709,10 +1709,10 @@ do.body.i3678:                                    ; preds = %do.body.i3678, %for
   br i1 %cmp.i3681.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682, label %do.body.i3678, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3682: ; preds = %do.body.i3678
-  %add626 = add i64 %total.452202, 3
+  %add626 = add i64 %total.452210, 3
   %add628 = add i64 %add626, %84
   %add629 = add i64 %add628, %ret.i3677.0
-  %incdec.ptr.i1269 = getelementptr inbounds nuw i8, ptr %__begin2612.sroa.0.02201, i64 32
+  %incdec.ptr.i1269 = getelementptr inbounds nuw i8, ptr %__begin2612.sroa.0.02209, i64 32
   %cmp.i1266 = icmp eq ptr %incdec.ptr.i1269, %83
   br i1 %cmp.i1266, label %for.end632, label %for.body621
 
@@ -1726,9 +1726,9 @@ for.end632:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1271, label %if.end660, label %for.body647
 
 for.body647:                                      ; preds = %for.end632, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675
-  %container_total635.02205 = phi i64 [ %add652, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675 ], [ 0, %for.end632 ]
-  %__begin3638.sroa.0.02204 = phi ptr [ %incdec.ptr.i1274, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675 ], [ %85, %for.end632 ]
-  %87 = load i32, ptr %__begin3638.sroa.0.02204, align 4
+  %container_total635.02213 = phi i64 [ %add652, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675 ], [ 0, %for.end632 ]
+  %__begin3638.sroa.0.02212 = phi ptr [ %incdec.ptr.i1274, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675 ], [ %85, %for.end632 ]
+  %87 = load i32, ptr %__begin3638.sroa.0.02212, align 4
   %conv650 = sext i32 %87 to i64
   br label %do.body.i3671
 
@@ -1741,8 +1741,8 @@ do.body.i3671:                                    ; preds = %do.body.i3671, %for
   br i1 %cmp.i3674.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675, label %do.body.i3671, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3675: ; preds = %do.body.i3671
-  %add652 = add i64 %inc.i3672, %container_total635.02205
-  %incdec.ptr.i1274 = getelementptr inbounds nuw i8, ptr %__begin3638.sroa.0.02204, i64 4
+  %add652 = add i64 %inc.i3672, %container_total635.02213
+  %incdec.ptr.i1274 = getelementptr inbounds nuw i8, ptr %__begin3638.sroa.0.02212, i64 4
   %cmp.i1273 = icmp eq ptr %incdec.ptr.i1274, %86
   br i1 %cmp.i1273, label %do.body.i3664, label %for.body647
 
@@ -1770,9 +1770,9 @@ if.end660:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1276, label %if.end687, label %for.body675
 
 for.body675:                                      ; preds = %if.end660, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661
-  %container_total663.02207 = phi i64 [ %add679, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661 ], [ 0, %if.end660 ]
-  %__begin3666.sroa.0.02206 = phi ptr [ %incdec.ptr.i1279, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661 ], [ %88, %if.end660 ]
-  %90 = load i64, ptr %__begin3666.sroa.0.02206, align 8
+  %container_total663.02215 = phi i64 [ %add679, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661 ], [ 0, %if.end660 ]
+  %__begin3666.sroa.0.02214 = phi ptr [ %incdec.ptr.i1279, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661 ], [ %88, %if.end660 ]
+  %90 = load i64, ptr %__begin3666.sroa.0.02214, align 8
   br label %do.body.i3657
 
 do.body.i3657:                                    ; preds = %do.body.i3657, %for.body675
@@ -1784,8 +1784,8 @@ do.body.i3657:                                    ; preds = %do.body.i3657, %for
   br i1 %cmp.i3660.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661, label %do.body.i3657, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3661: ; preds = %do.body.i3657
-  %add679 = add i64 %inc.i3658, %container_total663.02207
-  %incdec.ptr.i1279 = getelementptr inbounds nuw i8, ptr %__begin3666.sroa.0.02206, i64 8
+  %add679 = add i64 %inc.i3658, %container_total663.02215
+  %incdec.ptr.i1279 = getelementptr inbounds nuw i8, ptr %__begin3666.sroa.0.02214, i64 8
   %cmp.i1278 = icmp eq ptr %incdec.ptr.i1279, %89
   br i1 %cmp.i1278, label %do.body.i3650, label %for.body675
 
@@ -1813,9 +1813,9 @@ if.end687:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1281, label %if.end715, label %for.body702
 
 for.body702:                                      ; preds = %if.end687, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647
-  %container_total690.02209 = phi i64 [ %add707, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647 ], [ 0, %if.end687 ]
-  %__begin3693.sroa.0.02208 = phi ptr [ %incdec.ptr.i1284, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647 ], [ %91, %if.end687 ]
-  %93 = load i32, ptr %__begin3693.sroa.0.02208, align 4
+  %container_total690.02217 = phi i64 [ %add707, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647 ], [ 0, %if.end687 ]
+  %__begin3693.sroa.0.02216 = phi ptr [ %incdec.ptr.i1284, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647 ], [ %91, %if.end687 ]
+  %93 = load i32, ptr %__begin3693.sroa.0.02216, align 4
   %conv705 = zext i32 %93 to i64
   br label %do.body.i3643
 
@@ -1828,8 +1828,8 @@ do.body.i3643:                                    ; preds = %do.body.i3643, %for
   br i1 %cmp.i3646.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647, label %do.body.i3643, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3647: ; preds = %do.body.i3643
-  %add707 = add i64 %inc.i3644, %container_total690.02209
-  %incdec.ptr.i1284 = getelementptr inbounds nuw i8, ptr %__begin3693.sroa.0.02208, i64 4
+  %add707 = add i64 %inc.i3644, %container_total690.02217
+  %incdec.ptr.i1284 = getelementptr inbounds nuw i8, ptr %__begin3693.sroa.0.02216, i64 4
   %cmp.i1283 = icmp eq ptr %incdec.ptr.i1284, %92
   br i1 %cmp.i1283, label %do.body.i3636, label %for.body702
 
@@ -1857,9 +1857,9 @@ if.end715:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1286, label %if.end742, label %for.body730
 
 for.body730:                                      ; preds = %if.end715, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633
-  %container_total718.02211 = phi i64 [ %add734, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633 ], [ 0, %if.end715 ]
-  %__begin3721.sroa.0.02210 = phi ptr [ %incdec.ptr.i1289, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633 ], [ %94, %if.end715 ]
-  %96 = load i64, ptr %__begin3721.sroa.0.02210, align 8
+  %container_total718.02219 = phi i64 [ %add734, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633 ], [ 0, %if.end715 ]
+  %__begin3721.sroa.0.02218 = phi ptr [ %incdec.ptr.i1289, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633 ], [ %94, %if.end715 ]
+  %96 = load i64, ptr %__begin3721.sroa.0.02218, align 8
   br label %do.body.i3629
 
 do.body.i3629:                                    ; preds = %do.body.i3629, %for.body730
@@ -1871,8 +1871,8 @@ do.body.i3629:                                    ; preds = %do.body.i3629, %for
   br i1 %cmp.i3632.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633, label %do.body.i3629, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3633: ; preds = %do.body.i3629
-  %add734 = add i64 %inc.i3630, %container_total718.02211
-  %incdec.ptr.i1289 = getelementptr inbounds nuw i8, ptr %__begin3721.sroa.0.02210, i64 8
+  %add734 = add i64 %inc.i3630, %container_total718.02219
+  %incdec.ptr.i1289 = getelementptr inbounds nuw i8, ptr %__begin3721.sroa.0.02218, i64 8
   %cmp.i1288 = icmp eq ptr %incdec.ptr.i1289, %95
   br i1 %cmp.i1288, label %do.body.i3622, label %for.body730
 
@@ -1900,9 +1900,9 @@ if.end742:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1291, label %if.end771, label %for.body757
 
 for.body757:                                      ; preds = %if.end742, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619
-  %container_total745.02213 = phi i64 [ %add763, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619 ], [ 0, %if.end742 ]
-  %__begin3748.sroa.0.02212 = phi ptr [ %incdec.ptr.i1294, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619 ], [ %97, %if.end742 ]
-  %99 = load i32, ptr %__begin3748.sroa.0.02212, align 4
+  %container_total745.02221 = phi i64 [ %add763, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619 ], [ 0, %if.end742 ]
+  %__begin3748.sroa.0.02220 = phi ptr [ %incdec.ptr.i1294, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619 ], [ %97, %if.end742 ]
+  %99 = load i32, ptr %__begin3748.sroa.0.02220, align 4
   %shl.i4018 = shl i32 %99, 1
   %shr.i4019.neg = ashr i32 %99, 31
   %xor.i4021 = xor i32 %shl.i4018, %shr.i4019.neg
@@ -1918,8 +1918,8 @@ do.body.i3615:                                    ; preds = %do.body.i3615, %for
   br i1 %cmp.i3618.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619, label %do.body.i3615, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3619: ; preds = %do.body.i3615
-  %add763 = add i64 %inc.i3616, %container_total745.02213
-  %incdec.ptr.i1294 = getelementptr inbounds nuw i8, ptr %__begin3748.sroa.0.02212, i64 4
+  %add763 = add i64 %inc.i3616, %container_total745.02221
+  %incdec.ptr.i1294 = getelementptr inbounds nuw i8, ptr %__begin3748.sroa.0.02220, i64 4
   %cmp.i1293 = icmp eq ptr %incdec.ptr.i1294, %98
   br i1 %cmp.i1293, label %do.body.i3608, label %for.body757
 
@@ -1947,9 +1947,9 @@ if.end771:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1296, label %if.end799, label %for.body786
 
 for.body786:                                      ; preds = %if.end771, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605
-  %container_total774.02215 = phi i64 [ %add791, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605 ], [ 0, %if.end771 ]
-  %__begin3777.sroa.0.02214 = phi ptr [ %incdec.ptr.i1299, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605 ], [ %100, %if.end771 ]
-  %102 = load i64, ptr %__begin3777.sroa.0.02214, align 8
+  %container_total774.02223 = phi i64 [ %add791, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605 ], [ 0, %if.end771 ]
+  %__begin3777.sroa.0.02222 = phi ptr [ %incdec.ptr.i1299, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605 ], [ %100, %if.end771 ]
+  %102 = load i64, ptr %__begin3777.sroa.0.02222, align 8
   %shl.i4048 = shl i64 %102, 1
   %shr.i4049.neg = ashr i64 %102, 63
   %xor.i4051 = xor i64 %shl.i4048, %shr.i4049.neg
@@ -1964,8 +1964,8 @@ do.body.i3601:                                    ; preds = %do.body.i3601, %for
   br i1 %cmp.i3604.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605, label %do.body.i3601, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3605: ; preds = %do.body.i3601
-  %add791 = add i64 %inc.i3602, %container_total774.02215
-  %incdec.ptr.i1299 = getelementptr inbounds nuw i8, ptr %__begin3777.sroa.0.02214, i64 8
+  %add791 = add i64 %inc.i3602, %container_total774.02223
+  %incdec.ptr.i1299 = getelementptr inbounds nuw i8, ptr %__begin3777.sroa.0.02222, i64 8
   %cmp.i1298 = icmp eq ptr %incdec.ptr.i1299, %101
   br i1 %cmp.i1298, label %do.body.i3594, label %for.body786
 
@@ -2171,17 +2171,17 @@ if.end865:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %118, label %if.end894, label %for.body878
 
 for.body878:                                      ; preds = %if.end865, %for.body878
-  %container_total868.02220 = phi i64 [ %add886, %for.body878 ], [ 0, %if.end865 ]
-  %__begin3871.sroa.5.02219 = phi i32 [ %spec.select2142, %for.body878 ], [ 0, %if.end865 ]
-  %__begin3871.sroa.0.02218 = phi ptr [ %spec.select2141, %for.body878 ], [ %115, %if.end865 ]
-  %add886 = add i64 %container_total868.02220, 1
-  %inc.i.i1362 = add i32 %__begin3871.sroa.5.02219, 1
-  %cmp.i.i1363 = icmp eq i32 %__begin3871.sroa.5.02219, 63
-  %spec.select2141.idx = select i1 %cmp.i.i1363, i64 8, i64 0
-  %spec.select2141 = getelementptr inbounds nuw i8, ptr %__begin3871.sroa.0.02218, i64 %spec.select2141.idx
-  %spec.select2142 = select i1 %cmp.i.i1363, i32 0, i32 %inc.i.i1362
-  %cmp.i1352 = icmp eq ptr %spec.select2141, %116
-  %cmp3.i1355 = icmp eq i32 %spec.select2142, %117
+  %container_total868.02228 = phi i64 [ %add886, %for.body878 ], [ 0, %if.end865 ]
+  %__begin3871.sroa.5.02227 = phi i32 [ %spec.select2150, %for.body878 ], [ 0, %if.end865 ]
+  %__begin3871.sroa.0.02226 = phi ptr [ %spec.select2149, %for.body878 ], [ %115, %if.end865 ]
+  %add886 = add i64 %container_total868.02228, 1
+  %inc.i.i1362 = add i32 %__begin3871.sroa.5.02227, 1
+  %cmp.i.i1363 = icmp eq i32 %__begin3871.sroa.5.02227, 63
+  %spec.select2149.idx = select i1 %cmp.i.i1363, i64 8, i64 0
+  %spec.select2149 = getelementptr inbounds nuw i8, ptr %__begin3871.sroa.0.02226, i64 %spec.select2149.idx
+  %spec.select2150 = select i1 %cmp.i.i1363, i32 0, i32 %inc.i.i1362
+  %cmp.i1352 = icmp eq ptr %spec.select2149, %116
+  %cmp3.i1355 = icmp eq i32 %spec.select2150, %117
   %119 = select i1 %cmp.i1352, i1 %cmp3.i1355, i1 false
   br i1 %119, label %do.body.i3538, label %for.body878
 
@@ -2209,9 +2209,9 @@ if.end894:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1368, label %if.end922, label %for.body909
 
 for.body909:                                      ; preds = %if.end894, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535
-  %sz897.02223 = phi i64 [ %add914, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535 ], [ 0, %if.end894 ]
-  %__begin3900.sroa.0.02222 = phi ptr [ %incdec.ptr.i1371, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535 ], [ %120, %if.end894 ]
-  %122 = load i32, ptr %__begin3900.sroa.0.02222, align 4
+  %sz897.02231 = phi i64 [ %add914, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535 ], [ 0, %if.end894 ]
+  %__begin3900.sroa.0.02230 = phi ptr [ %incdec.ptr.i1371, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535 ], [ %120, %if.end894 ]
+  %122 = load i32, ptr %__begin3900.sroa.0.02230, align 4
   %conv912 = sext i32 %122 to i64
   br label %do.body.i3531
 
@@ -2224,8 +2224,8 @@ do.body.i3531:                                    ; preds = %do.body.i3531, %for
   br i1 %cmp.i3534.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535, label %do.body.i3531, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3535: ; preds = %do.body.i3531
-  %add914 = add i64 %inc.i3532, %sz897.02223
-  %incdec.ptr.i1371 = getelementptr inbounds nuw i8, ptr %__begin3900.sroa.0.02222, i64 4
+  %add914 = add i64 %inc.i3532, %sz897.02231
+  %incdec.ptr.i1371 = getelementptr inbounds nuw i8, ptr %__begin3900.sroa.0.02230, i64 4
   %cmp.i1370 = icmp eq ptr %incdec.ptr.i1371, %121
   br i1 %cmp.i1370, label %do.body.i3524, label %for.body909
 
@@ -2253,9 +2253,9 @@ if.end922:                                        ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1373, label %if.end948, label %for.body937
 
 for.body937:                                      ; preds = %if.end922, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521
-  %container_total925.02225 = phi i64 [ %add943, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521 ], [ 0, %if.end922 ]
-  %__begin3928.sroa.0.02224 = phi ptr [ %incdec.ptr.i1376, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521 ], [ %123, %if.end922 ]
-  %125 = load i32, ptr %__begin3928.sroa.0.02224, align 4
+  %container_total925.02233 = phi i64 [ %add943, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521 ], [ 0, %if.end922 ]
+  %__begin3928.sroa.0.02232 = phi ptr [ %incdec.ptr.i1376, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521 ], [ %123, %if.end922 ]
+  %125 = load i32, ptr %__begin3928.sroa.0.02232, align 4
   %conv941 = sext i32 %125 to i64
   br label %do.body.i3517
 
@@ -2268,9 +2268,9 @@ do.body.i3517:                                    ; preds = %do.body.i3517, %for
   br i1 %cmp.i3520.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521, label %do.body.i3517, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3521: ; preds = %do.body.i3517
-  %add940 = add i64 %container_total925.02225, 2
+  %add940 = add i64 %container_total925.02233, 2
   %add943 = add i64 %add940, %inc.i3518
-  %incdec.ptr.i1376 = getelementptr inbounds nuw i8, ptr %__begin3928.sroa.0.02224, i64 4
+  %incdec.ptr.i1376 = getelementptr inbounds nuw i8, ptr %__begin3928.sroa.0.02232, i64 4
   %cmp.i1375 = icmp eq ptr %incdec.ptr.i1376, %124
   br i1 %cmp.i1375, label %for.end946, label %for.body937
 
@@ -2288,9 +2288,9 @@ if.end948:                                        ; preds = %for.end946, %if.end
   br i1 %cmp.i.i1378, label %if.end973, label %for.body963
 
 for.body963:                                      ; preds = %if.end948, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514
-  %container_total951.02227 = phi i64 [ %add968, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514 ], [ 0, %if.end948 ]
-  %__begin3954.sroa.0.02226 = phi ptr [ %incdec.ptr.i1381, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514 ], [ %126, %if.end948 ]
-  %128 = load i64, ptr %__begin3954.sroa.0.02226, align 8
+  %container_total951.02235 = phi i64 [ %add968, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514 ], [ 0, %if.end948 ]
+  %__begin3954.sroa.0.02234 = phi ptr [ %incdec.ptr.i1381, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514 ], [ %126, %if.end948 ]
+  %128 = load i64, ptr %__begin3954.sroa.0.02234, align 8
   br label %do.body.i3510
 
 do.body.i3510:                                    ; preds = %do.body.i3510, %for.body963
@@ -2302,9 +2302,9 @@ do.body.i3510:                                    ; preds = %do.body.i3510, %for
   br i1 %cmp.i3513.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514, label %do.body.i3510, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3514: ; preds = %do.body.i3510
-  %add966 = add i64 %container_total951.02227, 2
+  %add966 = add i64 %container_total951.02235, 2
   %add968 = add i64 %add966, %inc.i3511
-  %incdec.ptr.i1381 = getelementptr inbounds nuw i8, ptr %__begin3954.sroa.0.02226, i64 8
+  %incdec.ptr.i1381 = getelementptr inbounds nuw i8, ptr %__begin3954.sroa.0.02234, i64 8
   %cmp.i1380 = icmp eq ptr %incdec.ptr.i1381, %127
   br i1 %cmp.i1380, label %for.end971, label %for.body963
 
@@ -2322,9 +2322,9 @@ if.end973:                                        ; preds = %for.end971, %if.end
   br i1 %cmp.i.i1383, label %if.end999, label %for.body988
 
 for.body988:                                      ; preds = %if.end973, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507
-  %container_total976.02229 = phi i64 [ %add994, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507 ], [ 0, %if.end973 ]
-  %__begin3979.sroa.0.02228 = phi ptr [ %incdec.ptr.i1386, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507 ], [ %129, %if.end973 ]
-  %131 = load i32, ptr %__begin3979.sroa.0.02228, align 4
+  %container_total976.02237 = phi i64 [ %add994, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507 ], [ 0, %if.end973 ]
+  %__begin3979.sroa.0.02236 = phi ptr [ %incdec.ptr.i1386, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507 ], [ %129, %if.end973 ]
+  %131 = load i32, ptr %__begin3979.sroa.0.02236, align 4
   %conv992 = zext i32 %131 to i64
   br label %do.body.i3503
 
@@ -2337,9 +2337,9 @@ do.body.i3503:                                    ; preds = %do.body.i3503, %for
   br i1 %cmp.i3506.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507, label %do.body.i3503, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3507: ; preds = %do.body.i3503
-  %add991 = add i64 %container_total976.02229, 2
+  %add991 = add i64 %container_total976.02237, 2
   %add994 = add i64 %add991, %inc.i3504
-  %incdec.ptr.i1386 = getelementptr inbounds nuw i8, ptr %__begin3979.sroa.0.02228, i64 4
+  %incdec.ptr.i1386 = getelementptr inbounds nuw i8, ptr %__begin3979.sroa.0.02236, i64 4
   %cmp.i1385 = icmp eq ptr %incdec.ptr.i1386, %130
   br i1 %cmp.i1385, label %for.end997, label %for.body988
 
@@ -2357,9 +2357,9 @@ if.end999:                                        ; preds = %for.end997, %if.end
   br i1 %cmp.i.i1388, label %if.end1024, label %for.body1014
 
 for.body1014:                                     ; preds = %if.end999, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500
-  %container_total1002.02231 = phi i64 [ %add1019, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500 ], [ 0, %if.end999 ]
-  %__begin31005.sroa.0.02230 = phi ptr [ %incdec.ptr.i1391, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500 ], [ %132, %if.end999 ]
-  %134 = load i64, ptr %__begin31005.sroa.0.02230, align 8
+  %container_total1002.02239 = phi i64 [ %add1019, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500 ], [ 0, %if.end999 ]
+  %__begin31005.sroa.0.02238 = phi ptr [ %incdec.ptr.i1391, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500 ], [ %132, %if.end999 ]
+  %134 = load i64, ptr %__begin31005.sroa.0.02238, align 8
   br label %do.body.i3496
 
 do.body.i3496:                                    ; preds = %do.body.i3496, %for.body1014
@@ -2371,9 +2371,9 @@ do.body.i3496:                                    ; preds = %do.body.i3496, %for
   br i1 %cmp.i3499.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500, label %do.body.i3496, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3500: ; preds = %do.body.i3496
-  %add1017 = add i64 %container_total1002.02231, 2
+  %add1017 = add i64 %container_total1002.02239, 2
   %add1019 = add i64 %add1017, %inc.i3497
-  %incdec.ptr.i1391 = getelementptr inbounds nuw i8, ptr %__begin31005.sroa.0.02230, i64 8
+  %incdec.ptr.i1391 = getelementptr inbounds nuw i8, ptr %__begin31005.sroa.0.02238, i64 8
   %cmp.i1390 = icmp eq ptr %incdec.ptr.i1391, %133
   br i1 %cmp.i1390, label %for.end1022, label %for.body1014
 
@@ -2391,9 +2391,9 @@ if.end1024:                                       ; preds = %for.end1022, %if.en
   br i1 %cmp.i.i1393, label %if.end1051, label %for.body1039
 
 for.body1039:                                     ; preds = %if.end1024, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493
-  %container_total1027.02233 = phi i64 [ %add1046, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493 ], [ 0, %if.end1024 ]
-  %__begin31030.sroa.0.02232 = phi ptr [ %incdec.ptr.i1396, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493 ], [ %135, %if.end1024 ]
-  %137 = load i32, ptr %__begin31030.sroa.0.02232, align 4
+  %container_total1027.02241 = phi i64 [ %add1046, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493 ], [ 0, %if.end1024 ]
+  %__begin31030.sroa.0.02240 = phi ptr [ %incdec.ptr.i1396, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493 ], [ %135, %if.end1024 ]
+  %137 = load i32, ptr %__begin31030.sroa.0.02240, align 4
   %shl.i4013 = shl i32 %137, 1
   %shr.i4014.neg = ashr i32 %137, 31
   %xor.i4016 = xor i32 %shl.i4013, %shr.i4014.neg
@@ -2409,9 +2409,9 @@ do.body.i3489:                                    ; preds = %do.body.i3489, %for
   br i1 %cmp.i3492.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493, label %do.body.i3489, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3493: ; preds = %do.body.i3489
-  %add1042 = add i64 %container_total1027.02233, 2
+  %add1042 = add i64 %container_total1027.02241, 2
   %add1046 = add i64 %add1042, %inc.i3490
-  %incdec.ptr.i1396 = getelementptr inbounds nuw i8, ptr %__begin31030.sroa.0.02232, i64 4
+  %incdec.ptr.i1396 = getelementptr inbounds nuw i8, ptr %__begin31030.sroa.0.02240, i64 4
   %cmp.i1395 = icmp eq ptr %incdec.ptr.i1396, %136
   br i1 %cmp.i1395, label %for.end1049, label %for.body1039
 
@@ -2429,9 +2429,9 @@ if.end1051:                                       ; preds = %for.end1049, %if.en
   br i1 %cmp.i.i1398, label %if.end1077, label %for.body1066
 
 for.body1066:                                     ; preds = %if.end1051, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486
-  %container_total1054.02235 = phi i64 [ %add1072, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486 ], [ 0, %if.end1051 ]
-  %__begin31057.sroa.0.02234 = phi ptr [ %incdec.ptr.i1401, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486 ], [ %138, %if.end1051 ]
-  %140 = load i64, ptr %__begin31057.sroa.0.02234, align 8
+  %container_total1054.02243 = phi i64 [ %add1072, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486 ], [ 0, %if.end1051 ]
+  %__begin31057.sroa.0.02242 = phi ptr [ %incdec.ptr.i1401, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486 ], [ %138, %if.end1051 ]
+  %140 = load i64, ptr %__begin31057.sroa.0.02242, align 8
   %shl.i4043 = shl i64 %140, 1
   %shr.i4044.neg = ashr i64 %140, 63
   %xor.i4046 = xor i64 %shl.i4043, %shr.i4044.neg
@@ -2446,9 +2446,9 @@ do.body.i3482:                                    ; preds = %do.body.i3482, %for
   br i1 %cmp.i3485.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486, label %do.body.i3482, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3486: ; preds = %do.body.i3482
-  %add1069 = add i64 %container_total1054.02235, 2
+  %add1069 = add i64 %container_total1054.02243, 2
   %add1072 = add i64 %add1069, %inc.i3483
-  %incdec.ptr.i1401 = getelementptr inbounds nuw i8, ptr %__begin31057.sroa.0.02234, i64 8
+  %incdec.ptr.i1401 = getelementptr inbounds nuw i8, ptr %__begin31057.sroa.0.02242, i64 8
   %cmp.i1400 = icmp eq ptr %incdec.ptr.i1401, %139
   br i1 %cmp.i1400, label %for.end1075, label %for.body1066
 
@@ -2578,17 +2578,17 @@ if.end1125:                                       ; preds = %if.then1119, %if.en
   br i1 %156, label %if.end1152, label %for.body1138
 
 for.body1138:                                     ; preds = %if.end1125, %for.body1138
-  %container_total1128.02240 = phi i64 [ %add1147, %for.body1138 ], [ 0, %if.end1125 ]
-  %__begin31131.sroa.5.02239 = phi i32 [ %spec.select2144, %for.body1138 ], [ 0, %if.end1125 ]
-  %__begin31131.sroa.0.02238 = phi ptr [ %spec.select2143, %for.body1138 ], [ %153, %if.end1125 ]
-  %add1147 = add i64 %container_total1128.02240, 3
-  %inc.i.i1464 = add i32 %__begin31131.sroa.5.02239, 1
-  %cmp.i.i1465 = icmp eq i32 %__begin31131.sroa.5.02239, 63
-  %spec.select2143.idx = select i1 %cmp.i.i1465, i64 8, i64 0
-  %spec.select2143 = getelementptr inbounds nuw i8, ptr %__begin31131.sroa.0.02238, i64 %spec.select2143.idx
-  %spec.select2144 = select i1 %cmp.i.i1465, i32 0, i32 %inc.i.i1464
-  %cmp.i1454 = icmp eq ptr %spec.select2143, %154
-  %cmp3.i1457 = icmp eq i32 %spec.select2144, %155
+  %container_total1128.02248 = phi i64 [ %add1147, %for.body1138 ], [ 0, %if.end1125 ]
+  %__begin31131.sroa.5.02247 = phi i32 [ %spec.select2152, %for.body1138 ], [ 0, %if.end1125 ]
+  %__begin31131.sroa.0.02246 = phi ptr [ %spec.select2151, %for.body1138 ], [ %153, %if.end1125 ]
+  %add1147 = add i64 %container_total1128.02248, 3
+  %inc.i.i1464 = add i32 %__begin31131.sroa.5.02247, 1
+  %cmp.i.i1465 = icmp eq i32 %__begin31131.sroa.5.02247, 63
+  %spec.select2151.idx = select i1 %cmp.i.i1465, i64 8, i64 0
+  %spec.select2151 = getelementptr inbounds nuw i8, ptr %__begin31131.sroa.0.02246, i64 %spec.select2151.idx
+  %spec.select2152 = select i1 %cmp.i.i1465, i32 0, i32 %inc.i.i1464
+  %cmp.i1454 = icmp eq ptr %spec.select2151, %154
+  %cmp3.i1457 = icmp eq i32 %spec.select2152, %155
   %157 = select i1 %cmp.i1454, i1 %cmp3.i1457, i1 false
   br i1 %157, label %for.end1150, label %for.body1138
 
@@ -2606,9 +2606,9 @@ if.end1152:                                       ; preds = %for.end1150, %if.en
   br i1 %cmp.i.i1470, label %if.end1178, label %for.body1167
 
 for.body1167:                                     ; preds = %if.end1152, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472
-  %sz1155.02243 = phi i64 [ %add1173, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472 ], [ 0, %if.end1152 ]
-  %__begin31158.sroa.0.02242 = phi ptr [ %incdec.ptr.i1473, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472 ], [ %158, %if.end1152 ]
-  %160 = load i32, ptr %__begin31158.sroa.0.02242, align 4
+  %sz1155.02251 = phi i64 [ %add1173, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472 ], [ 0, %if.end1152 ]
+  %__begin31158.sroa.0.02250 = phi ptr [ %incdec.ptr.i1473, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472 ], [ %158, %if.end1152 ]
+  %160 = load i32, ptr %__begin31158.sroa.0.02250, align 4
   %conv1171 = sext i32 %160 to i64
   br label %do.body.i3468
 
@@ -2621,9 +2621,9 @@ do.body.i3468:                                    ; preds = %do.body.i3468, %for
   br i1 %cmp.i3471.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472, label %do.body.i3468, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3472: ; preds = %do.body.i3468
-  %add1170 = add i64 %sz1155.02243, 2
+  %add1170 = add i64 %sz1155.02251, 2
   %add1173 = add i64 %add1170, %inc.i3469
-  %incdec.ptr.i1473 = getelementptr inbounds nuw i8, ptr %__begin31158.sroa.0.02242, i64 4
+  %incdec.ptr.i1473 = getelementptr inbounds nuw i8, ptr %__begin31158.sroa.0.02250, i64 4
   %cmp.i1472 = icmp eq ptr %incdec.ptr.i1473, %159
   br i1 %cmp.i1472, label %for.end1176, label %for.body1167
 
@@ -2636,13 +2636,13 @@ if.end1178:                                       ; preds = %for.end1176, %if.en
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %t, i64 1520
   %161 = load ptr, ptr %_M_left.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %t, i64 1504
-  %cmp.i14742244 = icmp eq ptr %161, %add.ptr.i.i
-  br i1 %cmp.i14742244, label %for.end1206, label %for.body1189
+  %cmp.i14742252 = icmp eq ptr %161, %add.ptr.i.i
+  br i1 %cmp.i14742252, label %for.end1206, label %for.body1189
 
 for.body1189:                                     ; preds = %if.end1178, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451
-  %total.742246 = phi i64 [ %add1203, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451 ], [ %total.73, %if.end1178 ]
-  %__begin21180.sroa.0.02245 = phi ptr [ %call.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451 ], [ %161, %if.end1178 ]
-  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin21180.sroa.0.02245, i64 32
+  %total.742254 = phi i64 [ %add1203, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451 ], [ %total.73, %if.end1178 ]
+  %__begin21180.sroa.0.02253 = phi ptr [ %call.i, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451 ], [ %161, %if.end1178 ]
+  %_M_storage.i.i = getelementptr inbounds nuw i8, ptr %__begin21180.sroa.0.02253, i64 32
   %162 = load i32, ptr %_M_storage.i.i, align 4
   %conv1192 = sext i32 %162 to i64
   br label %do.body.i3461
@@ -2656,7 +2656,7 @@ do.body.i3461:                                    ; preds = %do.body.i3461, %for
   br i1 %cmp.i3464.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3465, label %do.body.i3461, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3465: ; preds = %do.body.i3461
-  %second = getelementptr inbounds nuw i8, ptr %__begin21180.sroa.0.02245, i64 36
+  %second = getelementptr inbounds nuw i8, ptr %__begin21180.sroa.0.02253, i64 36
   %163 = load i32, ptr %second, align 4
   %conv1196 = sext i32 %163 to i64
   br label %do.body.i3454
@@ -2683,10 +2683,10 @@ do.body.i3447:                                    ; preds = %do.body.i3447, %_ZN
   br i1 %cmp.i3450.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451, label %do.body.i3447, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3451: ; preds = %do.body.i3447
-  %add1201 = add i64 %total.742246, 3
+  %add1201 = add i64 %total.742254, 3
   %add1202 = add i64 %add1201, %add1199
   %add1203 = add i64 %add1202, %ret.i3446.0
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21180.sroa.0.02245) #20
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21180.sroa.0.02253) #20
   %cmp.i1474 = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i1474, label %for.end1206, label %for.body1189
 
@@ -2695,13 +2695,13 @@ for.end1206:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1475 = getelementptr inbounds nuw i8, ptr %t, i64 1568
   %164 = load ptr, ptr %_M_left.i.i1475, align 8
   %add.ptr.i.i1476 = getelementptr inbounds nuw i8, ptr %t, i64 1552
-  %cmp.i14772248 = icmp eq ptr %164, %add.ptr.i.i1476
-  br i1 %cmp.i14772248, label %for.end1235, label %for.body1217
+  %cmp.i14772256 = icmp eq ptr %164, %add.ptr.i.i1476
+  br i1 %cmp.i14772256, label %for.end1235, label %for.body1217
 
 for.body1217:                                     ; preds = %for.end1206, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430
-  %total.752250 = phi i64 [ %add1232, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430 ], [ %total.74.lcssa, %for.end1206 ]
-  %__begin21208.sroa.0.02249 = phi ptr [ %call.i1479, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430 ], [ %164, %for.end1206 ]
-  %_M_storage.i.i1478 = getelementptr inbounds nuw i8, ptr %__begin21208.sroa.0.02249, i64 32
+  %total.752258 = phi i64 [ %add1232, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430 ], [ %total.74.lcssa, %for.end1206 ]
+  %__begin21208.sroa.0.02257 = phi ptr [ %call.i1479, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430 ], [ %164, %for.end1206 ]
+  %_M_storage.i.i1478 = getelementptr inbounds nuw i8, ptr %__begin21208.sroa.0.02257, i64 32
   %165 = load i64, ptr %_M_storage.i.i1478, align 8
   br label %do.body.i3440
 
@@ -2714,7 +2714,7 @@ do.body.i3440:                                    ; preds = %do.body.i3440, %for
   br i1 %cmp.i3443.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3444, label %do.body.i3440, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3444: ; preds = %do.body.i3440
-  %second1225 = getelementptr inbounds nuw i8, ptr %__begin21208.sroa.0.02249, i64 40
+  %second1225 = getelementptr inbounds nuw i8, ptr %__begin21208.sroa.0.02257, i64 40
   %166 = load i64, ptr %second1225, align 8
   br label %do.body.i3433
 
@@ -2740,10 +2740,10 @@ do.body.i3426:                                    ; preds = %do.body.i3426, %_ZN
   br i1 %cmp.i3429.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430, label %do.body.i3426, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3430: ; preds = %do.body.i3426
-  %add1230 = add i64 %total.752250, 3
+  %add1230 = add i64 %total.752258, 3
   %add1231 = add i64 %add1230, %add1228
   %add1232 = add i64 %add1231, %ret.i3425.0
-  %call.i1479 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21208.sroa.0.02249) #20
+  %call.i1479 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21208.sroa.0.02257) #20
   %cmp.i1477 = icmp eq ptr %call.i1479, %add.ptr.i.i1476
   br i1 %cmp.i1477, label %for.end1235, label %for.body1217
 
@@ -2752,13 +2752,13 @@ for.end1235:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1480 = getelementptr inbounds nuw i8, ptr %t, i64 1616
   %167 = load ptr, ptr %_M_left.i.i1480, align 8
   %add.ptr.i.i1481 = getelementptr inbounds nuw i8, ptr %t, i64 1600
-  %cmp.i14822252 = icmp eq ptr %167, %add.ptr.i.i1481
-  br i1 %cmp.i14822252, label %for.end1266, label %for.body1246
+  %cmp.i14822260 = icmp eq ptr %167, %add.ptr.i.i1481
+  br i1 %cmp.i14822260, label %for.end1266, label %for.body1246
 
 for.body1246:                                     ; preds = %for.end1235, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409
-  %total.762254 = phi i64 [ %add1263, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409 ], [ %total.75.lcssa, %for.end1235 ]
-  %__begin21237.sroa.0.02253 = phi ptr [ %call.i1484, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409 ], [ %167, %for.end1235 ]
-  %_M_storage.i.i1483 = getelementptr inbounds nuw i8, ptr %__begin21237.sroa.0.02253, i64 32
+  %total.762262 = phi i64 [ %add1263, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409 ], [ %total.75.lcssa, %for.end1235 ]
+  %__begin21237.sroa.0.02261 = phi ptr [ %call.i1484, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409 ], [ %167, %for.end1235 ]
+  %_M_storage.i.i1483 = getelementptr inbounds nuw i8, ptr %__begin21237.sroa.0.02261, i64 32
   %168 = load i32, ptr %_M_storage.i.i1483, align 4
   %conv1251 = zext i32 %168 to i64
   br label %do.body.i3419
@@ -2772,7 +2772,7 @@ do.body.i3419:                                    ; preds = %do.body.i3419, %for
   br i1 %cmp.i3422.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3423, label %do.body.i3419, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3423: ; preds = %do.body.i3419
-  %second1255 = getelementptr inbounds nuw i8, ptr %__begin21237.sroa.0.02253, i64 36
+  %second1255 = getelementptr inbounds nuw i8, ptr %__begin21237.sroa.0.02261, i64 36
   %169 = load i32, ptr %second1255, align 4
   %conv1256 = zext i32 %169 to i64
   br label %do.body.i3412
@@ -2799,10 +2799,10 @@ do.body.i3405:                                    ; preds = %do.body.i3405, %_ZN
   br i1 %cmp.i3408.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409, label %do.body.i3405, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3409: ; preds = %do.body.i3405
-  %add1261 = add i64 %total.762254, 3
+  %add1261 = add i64 %total.762262, 3
   %add1262 = add i64 %add1261, %add1259
   %add1263 = add i64 %add1262, %ret.i3404.0
-  %call.i1484 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21237.sroa.0.02253) #20
+  %call.i1484 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21237.sroa.0.02261) #20
   %cmp.i1482 = icmp eq ptr %call.i1484, %add.ptr.i.i1481
   br i1 %cmp.i1482, label %for.end1266, label %for.body1246
 
@@ -2811,13 +2811,13 @@ for.end1266:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1485 = getelementptr inbounds nuw i8, ptr %t, i64 1664
   %170 = load ptr, ptr %_M_left.i.i1485, align 8
   %add.ptr.i.i1486 = getelementptr inbounds nuw i8, ptr %t, i64 1648
-  %cmp.i14872256 = icmp eq ptr %170, %add.ptr.i.i1486
-  br i1 %cmp.i14872256, label %for.end1295, label %for.body1277
+  %cmp.i14872264 = icmp eq ptr %170, %add.ptr.i.i1486
+  br i1 %cmp.i14872264, label %for.end1295, label %for.body1277
 
 for.body1277:                                     ; preds = %for.end1266, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388
-  %total.772258 = phi i64 [ %add1292, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388 ], [ %total.76.lcssa, %for.end1266 ]
-  %__begin21268.sroa.0.02257 = phi ptr [ %call.i1489, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388 ], [ %170, %for.end1266 ]
-  %_M_storage.i.i1488 = getelementptr inbounds nuw i8, ptr %__begin21268.sroa.0.02257, i64 32
+  %total.772266 = phi i64 [ %add1292, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388 ], [ %total.76.lcssa, %for.end1266 ]
+  %__begin21268.sroa.0.02265 = phi ptr [ %call.i1489, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388 ], [ %170, %for.end1266 ]
+  %_M_storage.i.i1488 = getelementptr inbounds nuw i8, ptr %__begin21268.sroa.0.02265, i64 32
   %171 = load i64, ptr %_M_storage.i.i1488, align 8
   br label %do.body.i3398
 
@@ -2830,7 +2830,7 @@ do.body.i3398:                                    ; preds = %do.body.i3398, %for
   br i1 %cmp.i3401.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3402, label %do.body.i3398, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3402: ; preds = %do.body.i3398
-  %second1285 = getelementptr inbounds nuw i8, ptr %__begin21268.sroa.0.02257, i64 40
+  %second1285 = getelementptr inbounds nuw i8, ptr %__begin21268.sroa.0.02265, i64 40
   %172 = load i64, ptr %second1285, align 8
   br label %do.body.i3391
 
@@ -2856,10 +2856,10 @@ do.body.i3384:                                    ; preds = %do.body.i3384, %_ZN
   br i1 %cmp.i3387.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388, label %do.body.i3384, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3388: ; preds = %do.body.i3384
-  %add1290 = add i64 %total.772258, 3
+  %add1290 = add i64 %total.772266, 3
   %add1291 = add i64 %add1290, %add1288
   %add1292 = add i64 %add1291, %ret.i3383.0
-  %call.i1489 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21268.sroa.0.02257) #20
+  %call.i1489 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21268.sroa.0.02265) #20
   %cmp.i1487 = icmp eq ptr %call.i1489, %add.ptr.i.i1486
   br i1 %cmp.i1487, label %for.end1295, label %for.body1277
 
@@ -2868,13 +2868,13 @@ for.end1295:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1490 = getelementptr inbounds nuw i8, ptr %t, i64 1712
   %173 = load ptr, ptr %_M_left.i.i1490, align 8
   %add.ptr.i.i1491 = getelementptr inbounds nuw i8, ptr %t, i64 1696
-  %cmp.i14922260 = icmp eq ptr %173, %add.ptr.i.i1491
-  br i1 %cmp.i14922260, label %for.end1328, label %for.body1306
+  %cmp.i14922268 = icmp eq ptr %173, %add.ptr.i.i1491
+  br i1 %cmp.i14922268, label %for.end1328, label %for.body1306
 
 for.body1306:                                     ; preds = %for.end1295, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367
-  %total.782262 = phi i64 [ %add1325, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367 ], [ %total.77.lcssa, %for.end1295 ]
-  %__begin21297.sroa.0.02261 = phi ptr [ %call.i1494, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367 ], [ %173, %for.end1295 ]
-  %_M_storage.i.i1493 = getelementptr inbounds nuw i8, ptr %__begin21297.sroa.0.02261, i64 32
+  %total.782270 = phi i64 [ %add1325, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367 ], [ %total.77.lcssa, %for.end1295 ]
+  %__begin21297.sroa.0.02269 = phi ptr [ %call.i1494, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367 ], [ %173, %for.end1295 ]
+  %_M_storage.i.i1493 = getelementptr inbounds nuw i8, ptr %__begin21297.sroa.0.02269, i64 32
   %174 = load i32, ptr %_M_storage.i.i1493, align 4
   %shl.i4008 = shl i32 %174, 1
   %shr.i4009.neg = ashr i32 %174, 31
@@ -2891,7 +2891,7 @@ do.body.i3377:                                    ; preds = %do.body.i3377, %for
   br i1 %cmp.i3380.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3381, label %do.body.i3377, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3381: ; preds = %do.body.i3377
-  %second1316 = getelementptr inbounds nuw i8, ptr %__begin21297.sroa.0.02261, i64 36
+  %second1316 = getelementptr inbounds nuw i8, ptr %__begin21297.sroa.0.02269, i64 36
   %175 = load i32, ptr %second1316, align 4
   %shl.i = shl i32 %175, 1
   %shr.i4006.neg = ashr i32 %175, 31
@@ -2921,10 +2921,10 @@ do.body.i3363:                                    ; preds = %do.body.i3363, %_ZN
   br i1 %cmp.i3366.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367, label %do.body.i3363, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3367: ; preds = %do.body.i3363
-  %add1323 = add i64 %total.782262, 3
+  %add1323 = add i64 %total.782270, 3
   %add1324 = add i64 %add1323, %add1321
   %add1325 = add i64 %add1324, %ret.i3362.0
-  %call.i1494 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21297.sroa.0.02261) #20
+  %call.i1494 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21297.sroa.0.02269) #20
   %cmp.i1492 = icmp eq ptr %call.i1494, %add.ptr.i.i1491
   br i1 %cmp.i1492, label %for.end1328, label %for.body1306
 
@@ -2933,13 +2933,13 @@ for.end1328:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1495 = getelementptr inbounds nuw i8, ptr %t, i64 1760
   %176 = load ptr, ptr %_M_left.i.i1495, align 8
   %add.ptr.i.i1496 = getelementptr inbounds nuw i8, ptr %t, i64 1744
-  %cmp.i14972264 = icmp eq ptr %176, %add.ptr.i.i1496
-  br i1 %cmp.i14972264, label %for.end1359, label %for.body1339
+  %cmp.i14972272 = icmp eq ptr %176, %add.ptr.i.i1496
+  br i1 %cmp.i14972272, label %for.end1359, label %for.body1339
 
 for.body1339:                                     ; preds = %for.end1328, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346
-  %total.792266 = phi i64 [ %add1356, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346 ], [ %total.78.lcssa, %for.end1328 ]
-  %__begin21330.sroa.0.02265 = phi ptr [ %call.i1499, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346 ], [ %176, %for.end1328 ]
-  %_M_storage.i.i1498 = getelementptr inbounds nuw i8, ptr %__begin21330.sroa.0.02265, i64 32
+  %total.792274 = phi i64 [ %add1356, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346 ], [ %total.78.lcssa, %for.end1328 ]
+  %__begin21330.sroa.0.02273 = phi ptr [ %call.i1499, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346 ], [ %176, %for.end1328 ]
+  %_M_storage.i.i1498 = getelementptr inbounds nuw i8, ptr %__begin21330.sroa.0.02273, i64 32
   %177 = load i64, ptr %_M_storage.i.i1498, align 8
   %shl.i4038 = shl i64 %177, 1
   %shr.i4039.neg = ashr i64 %177, 63
@@ -2955,7 +2955,7 @@ do.body.i3356:                                    ; preds = %do.body.i3356, %for
   br i1 %cmp.i3359.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3360, label %do.body.i3356, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3360: ; preds = %do.body.i3356
-  %second1348 = getelementptr inbounds nuw i8, ptr %__begin21330.sroa.0.02265, i64 40
+  %second1348 = getelementptr inbounds nuw i8, ptr %__begin21330.sroa.0.02273, i64 40
   %178 = load i64, ptr %second1348, align 8
   %shl.i4033 = shl i64 %178, 1
   %shr.i4034.neg = ashr i64 %178, 63
@@ -2984,10 +2984,10 @@ do.body.i3342:                                    ; preds = %do.body.i3342, %_ZN
   br i1 %cmp.i3345.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346, label %do.body.i3342, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3346: ; preds = %do.body.i3342
-  %add1354 = add i64 %total.792266, 3
+  %add1354 = add i64 %total.792274, 3
   %add1355 = add i64 %add1354, %add1352
   %add1356 = add i64 %add1355, %ret.i3341.0
-  %call.i1499 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21330.sroa.0.02265) #20
+  %call.i1499 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21330.sroa.0.02273) #20
   %cmp.i1497 = icmp eq ptr %call.i1499, %add.ptr.i.i1496
   br i1 %cmp.i1497, label %for.end1359, label %for.body1339
 
@@ -2996,14 +2996,14 @@ for.end1359:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1500 = getelementptr inbounds nuw i8, ptr %t, i64 1808
   %179 = load ptr, ptr %_M_left.i.i1500, align 8
   %add.ptr.i.i1501 = getelementptr inbounds nuw i8, ptr %t, i64 1792
-  %cmp.i15022268 = icmp eq ptr %179, %add.ptr.i.i1501
-  br i1 %cmp.i15022268, label %for.end1382, label %for.body1370
+  %cmp.i15022276 = icmp eq ptr %179, %add.ptr.i.i1501
+  br i1 %cmp.i15022276, label %for.end1382, label %for.body1370
 
 for.body1370:                                     ; preds = %for.end1359, %for.body1370
-  %total.802270 = phi i64 [ %add1379, %for.body1370 ], [ %total.79.lcssa, %for.end1359 ]
-  %__begin21361.sroa.0.02269 = phi ptr [ %call.i1504, %for.body1370 ], [ %179, %for.end1359 ]
-  %add1379 = add i64 %total.802270, 13
-  %call.i1504 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21361.sroa.0.02269) #20
+  %total.802278 = phi i64 [ %add1379, %for.body1370 ], [ %total.79.lcssa, %for.end1359 ]
+  %__begin21361.sroa.0.02277 = phi ptr [ %call.i1504, %for.body1370 ], [ %179, %for.end1359 ]
+  %add1379 = add i64 %total.802278, 13
+  %call.i1504 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21361.sroa.0.02277) #20
   %cmp.i1502 = icmp eq ptr %call.i1504, %add.ptr.i.i1501
   br i1 %cmp.i1502, label %for.end1382, label %for.body1370
 
@@ -3012,14 +3012,14 @@ for.end1382:                                      ; preds = %for.body1370, %for.
   %_M_left.i.i1505 = getelementptr inbounds nuw i8, ptr %t, i64 1856
   %180 = load ptr, ptr %_M_left.i.i1505, align 8
   %add.ptr.i.i1506 = getelementptr inbounds nuw i8, ptr %t, i64 1840
-  %cmp.i15072272 = icmp eq ptr %180, %add.ptr.i.i1506
-  br i1 %cmp.i15072272, label %for.end1405, label %for.body1393
+  %cmp.i15072280 = icmp eq ptr %180, %add.ptr.i.i1506
+  br i1 %cmp.i15072280, label %for.end1405, label %for.body1393
 
 for.body1393:                                     ; preds = %for.end1382, %for.body1393
-  %total.812274 = phi i64 [ %add1402, %for.body1393 ], [ %total.80.lcssa, %for.end1382 ]
-  %__begin21384.sroa.0.02273 = phi ptr [ %call.i1509, %for.body1393 ], [ %180, %for.end1382 ]
-  %add1402 = add i64 %total.812274, 21
-  %call.i1509 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21384.sroa.0.02273) #20
+  %total.812282 = phi i64 [ %add1402, %for.body1393 ], [ %total.80.lcssa, %for.end1382 ]
+  %__begin21384.sroa.0.02281 = phi ptr [ %call.i1509, %for.body1393 ], [ %180, %for.end1382 ]
+  %add1402 = add i64 %total.812282, 21
+  %call.i1509 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21384.sroa.0.02281) #20
   %cmp.i1507 = icmp eq ptr %call.i1509, %add.ptr.i.i1506
   br i1 %cmp.i1507, label %for.end1405, label %for.body1393
 
@@ -3028,14 +3028,14 @@ for.end1405:                                      ; preds = %for.body1393, %for.
   %_M_left.i.i1510 = getelementptr inbounds nuw i8, ptr %t, i64 1904
   %181 = load ptr, ptr %_M_left.i.i1510, align 8
   %add.ptr.i.i1511 = getelementptr inbounds nuw i8, ptr %t, i64 1888
-  %cmp.i15122276 = icmp eq ptr %181, %add.ptr.i.i1511
-  br i1 %cmp.i15122276, label %for.end1428, label %for.body1416
+  %cmp.i15122284 = icmp eq ptr %181, %add.ptr.i.i1511
+  br i1 %cmp.i15122284, label %for.end1428, label %for.body1416
 
 for.body1416:                                     ; preds = %for.end1405, %for.body1416
-  %total.822278 = phi i64 [ %add1425, %for.body1416 ], [ %total.81.lcssa, %for.end1405 ]
-  %__begin21407.sroa.0.02277 = phi ptr [ %call.i1514, %for.body1416 ], [ %181, %for.end1405 ]
-  %add1425 = add i64 %total.822278, 13
-  %call.i1514 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21407.sroa.0.02277) #20
+  %total.822286 = phi i64 [ %add1425, %for.body1416 ], [ %total.81.lcssa, %for.end1405 ]
+  %__begin21407.sroa.0.02285 = phi ptr [ %call.i1514, %for.body1416 ], [ %181, %for.end1405 ]
+  %add1425 = add i64 %total.822286, 13
+  %call.i1514 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21407.sroa.0.02285) #20
   %cmp.i1512 = icmp eq ptr %call.i1514, %add.ptr.i.i1511
   br i1 %cmp.i1512, label %for.end1428, label %for.body1416
 
@@ -3044,14 +3044,14 @@ for.end1428:                                      ; preds = %for.body1416, %for.
   %_M_left.i.i1515 = getelementptr inbounds nuw i8, ptr %t, i64 1952
   %182 = load ptr, ptr %_M_left.i.i1515, align 8
   %add.ptr.i.i1516 = getelementptr inbounds nuw i8, ptr %t, i64 1936
-  %cmp.i15172280 = icmp eq ptr %182, %add.ptr.i.i1516
-  br i1 %cmp.i15172280, label %for.end1451, label %for.body1439
+  %cmp.i15172288 = icmp eq ptr %182, %add.ptr.i.i1516
+  br i1 %cmp.i15172288, label %for.end1451, label %for.body1439
 
 for.body1439:                                     ; preds = %for.end1428, %for.body1439
-  %total.832282 = phi i64 [ %add1448, %for.body1439 ], [ %total.82.lcssa, %for.end1428 ]
-  %__begin21430.sroa.0.02281 = phi ptr [ %call.i1519, %for.body1439 ], [ %182, %for.end1428 ]
-  %add1448 = add i64 %total.832282, 21
-  %call.i1519 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21430.sroa.0.02281) #20
+  %total.832290 = phi i64 [ %add1448, %for.body1439 ], [ %total.82.lcssa, %for.end1428 ]
+  %__begin21430.sroa.0.02289 = phi ptr [ %call.i1519, %for.body1439 ], [ %182, %for.end1428 ]
+  %add1448 = add i64 %total.832290, 21
+  %call.i1519 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21430.sroa.0.02289) #20
   %cmp.i1517 = icmp eq ptr %call.i1519, %add.ptr.i.i1516
   br i1 %cmp.i1517, label %for.end1451, label %for.body1439
 
@@ -3060,13 +3060,13 @@ for.end1451:                                      ; preds = %for.body1439, %for.
   %_M_left.i.i1520 = getelementptr inbounds nuw i8, ptr %t, i64 2000
   %183 = load ptr, ptr %_M_left.i.i1520, align 8
   %add.ptr.i.i1521 = getelementptr inbounds nuw i8, ptr %t, i64 1984
-  %cmp.i15222284 = icmp eq ptr %183, %add.ptr.i.i1521
-  br i1 %cmp.i15222284, label %for.end1478, label %for.body1462
+  %cmp.i15222292 = icmp eq ptr %183, %add.ptr.i.i1521
+  br i1 %cmp.i15222292, label %for.end1478, label %for.body1462
 
 for.body1462:                                     ; preds = %for.end1451, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304
-  %total.842286 = phi i64 [ %add1475, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304 ], [ %total.83.lcssa, %for.end1451 ]
-  %__begin21453.sroa.0.02285 = phi ptr [ %call.i1524, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304 ], [ %183, %for.end1451 ]
-  %_M_storage.i.i1523 = getelementptr inbounds nuw i8, ptr %__begin21453.sroa.0.02285, i64 32
+  %total.842294 = phi i64 [ %add1475, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304 ], [ %total.83.lcssa, %for.end1451 ]
+  %__begin21453.sroa.0.02293 = phi ptr [ %call.i1524, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304 ], [ %183, %for.end1451 ]
+  %_M_storage.i.i1523 = getelementptr inbounds nuw i8, ptr %__begin21453.sroa.0.02293, i64 32
   %184 = load i32, ptr %_M_storage.i.i1523, align 4
   %conv1467 = sext i32 %184 to i64
   br label %do.body.i3307
@@ -3092,10 +3092,10 @@ do.body.i3300:                                    ; preds = %do.body.i3300, %_ZN
   br i1 %cmp.i3303.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304, label %do.body.i3300, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3304: ; preds = %do.body.i3300
-  %add1473 = add i64 %total.842286, 3
+  %add1473 = add i64 %total.842294, 3
   %add1474 = add i64 %add1473, %add1471
   %add1475 = add i64 %add1474, %ret.i3299.0
-  %call.i1524 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21453.sroa.0.02285) #20
+  %call.i1524 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21453.sroa.0.02293) #20
   %cmp.i1522 = icmp eq ptr %call.i1524, %add.ptr.i.i1521
   br i1 %cmp.i1522, label %for.end1478, label %for.body1462
 
@@ -3104,13 +3104,13 @@ for.end1478:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1525 = getelementptr inbounds nuw i8, ptr %t, i64 2048
   %185 = load ptr, ptr %_M_left.i.i1525, align 8
   %add.ptr.i.i1526 = getelementptr inbounds nuw i8, ptr %t, i64 2032
-  %cmp.i15272288 = icmp eq ptr %185, %add.ptr.i.i1526
-  br i1 %cmp.i15272288, label %for.end1505, label %for.body1489
+  %cmp.i15272296 = icmp eq ptr %185, %add.ptr.i.i1526
+  br i1 %cmp.i15272296, label %for.end1505, label %for.body1489
 
 for.body1489:                                     ; preds = %for.end1478, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290
-  %total.852290 = phi i64 [ %add1502, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290 ], [ %total.84.lcssa, %for.end1478 ]
-  %__begin21480.sroa.0.02289 = phi ptr [ %call.i1529, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290 ], [ %185, %for.end1478 ]
-  %_M_storage.i.i1528 = getelementptr inbounds nuw i8, ptr %__begin21480.sroa.0.02289, i64 32
+  %total.852298 = phi i64 [ %add1502, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290 ], [ %total.84.lcssa, %for.end1478 ]
+  %__begin21480.sroa.0.02297 = phi ptr [ %call.i1529, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290 ], [ %185, %for.end1478 ]
+  %_M_storage.i.i1528 = getelementptr inbounds nuw i8, ptr %__begin21480.sroa.0.02297, i64 32
   %186 = load i32, ptr %_M_storage.i.i1528, align 8
   %conv1494 = sext i32 %186 to i64
   br label %do.body.i3293
@@ -3136,10 +3136,10 @@ do.body.i3286:                                    ; preds = %do.body.i3286, %_ZN
   br i1 %cmp.i3289.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290, label %do.body.i3286, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3290: ; preds = %do.body.i3286
-  %add1500 = add i64 %total.852290, 3
+  %add1500 = add i64 %total.852298, 3
   %add1501 = add i64 %add1500, %add1498
   %add1502 = add i64 %add1501, %ret.i3285.0
-  %call.i1529 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21480.sroa.0.02289) #20
+  %call.i1529 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21480.sroa.0.02297) #20
   %cmp.i1527 = icmp eq ptr %call.i1529, %add.ptr.i.i1526
   br i1 %cmp.i1527, label %for.end1505, label %for.body1489
 
@@ -3148,14 +3148,14 @@ for.end1505:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1530 = getelementptr inbounds nuw i8, ptr %t, i64 2096
   %187 = load ptr, ptr %_M_left.i.i1530, align 8
   %add.ptr.i.i1531 = getelementptr inbounds nuw i8, ptr %t, i64 2080
-  %cmp.i15322292 = icmp eq ptr %187, %add.ptr.i.i1531
-  br i1 %cmp.i15322292, label %for.end1538, label %for.body1516
+  %cmp.i15322300 = icmp eq ptr %187, %add.ptr.i.i1531
+  br i1 %cmp.i15322300, label %for.end1538, label %for.body1516
 
 for.body1516:                                     ; preds = %for.end1505, %for.body1516
-  %total.862294 = phi i64 [ %add1535, %for.body1516 ], [ %total.85.lcssa, %for.end1505 ]
-  %__begin21507.sroa.0.02293 = phi ptr [ %call.i1534, %for.body1516 ], [ %187, %for.end1505 ]
-  %add1535 = add i64 %total.862294, 7
-  %call.i1534 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21507.sroa.0.02293) #20
+  %total.862302 = phi i64 [ %add1535, %for.body1516 ], [ %total.85.lcssa, %for.end1505 ]
+  %__begin21507.sroa.0.02301 = phi ptr [ %call.i1534, %for.body1516 ], [ %187, %for.end1505 ]
+  %add1535 = add i64 %total.862302, 7
+  %call.i1534 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21507.sroa.0.02301) #20
   %cmp.i1532 = icmp eq ptr %call.i1534, %add.ptr.i.i1531
   br i1 %cmp.i1532, label %for.end1538, label %for.body1516
 
@@ -3164,13 +3164,13 @@ for.end1538:                                      ; preds = %for.body1516, %for.
   %_M_left.i.i1535 = getelementptr inbounds nuw i8, ptr %t, i64 2144
   %188 = load ptr, ptr %_M_left.i.i1535, align 8
   %add.ptr.i.i1536 = getelementptr inbounds nuw i8, ptr %t, i64 2128
-  %cmp.i15372296 = icmp eq ptr %188, %add.ptr.i.i1536
-  br i1 %cmp.i15372296, label %for.end1575, label %for.body1549
+  %cmp.i15372304 = icmp eq ptr %188, %add.ptr.i.i1536
+  br i1 %cmp.i15372304, label %for.end1575, label %for.body1549
 
 for.body1549:                                     ; preds = %for.end1538, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248
-  %total.872298 = phi i64 [ %add1572, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248 ], [ %total.86.lcssa, %for.end1538 ]
-  %__begin21540.sroa.0.02297 = phi ptr [ %call.i1543, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248 ], [ %188, %for.end1538 ]
-  %_M_string_length.i1539 = getelementptr inbounds nuw i8, ptr %__begin21540.sroa.0.02297, i64 40
+  %total.872306 = phi i64 [ %add1572, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248 ], [ %total.86.lcssa, %for.end1538 ]
+  %__begin21540.sroa.0.02305 = phi ptr [ %call.i1543, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248 ], [ %188, %for.end1538 ]
+  %_M_string_length.i1539 = getelementptr inbounds nuw i8, ptr %__begin21540.sroa.0.02305, i64 40
   %189 = load i64, ptr %_M_string_length.i1539, align 8
   br label %do.body.i3258
 
@@ -3183,7 +3183,7 @@ do.body.i3258:                                    ; preds = %do.body.i3258, %for
   br i1 %cmp.i3261.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3262, label %do.body.i3258, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3262: ; preds = %do.body.i3258
-  %_M_string_length.i1541 = getelementptr inbounds nuw i8, ptr %__begin21540.sroa.0.02297, i64 72
+  %_M_string_length.i1541 = getelementptr inbounds nuw i8, ptr %__begin21540.sroa.0.02305, i64 72
   %190 = load i64, ptr %_M_string_length.i1541, align 8
   br label %do.body.i3251
 
@@ -3211,10 +3211,10 @@ do.body.i3244:                                    ; preds = %do.body.i3244, %_ZN
   br i1 %cmp.i3247.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248, label %do.body.i3244, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3248: ; preds = %do.body.i3244
-  %add1570 = add i64 %total.872298, 3
+  %add1570 = add i64 %total.872306, 3
   %add1571 = add i64 %add1570, %add1568
   %add1572 = add i64 %add1571, %ret.i3243.0
-  %call.i1543 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21540.sroa.0.02297) #20
+  %call.i1543 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21540.sroa.0.02305) #20
   %cmp.i1537 = icmp eq ptr %call.i1543, %add.ptr.i.i1536
   br i1 %cmp.i1537, label %for.end1575, label %for.body1549
 
@@ -3223,13 +3223,13 @@ for.end1575:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1544 = getelementptr inbounds nuw i8, ptr %t, i64 2192
   %191 = load ptr, ptr %_M_left.i.i1544, align 8
   %add.ptr.i.i1545 = getelementptr inbounds nuw i8, ptr %t, i64 2176
-  %cmp.i15462300 = icmp eq ptr %191, %add.ptr.i.i1545
-  br i1 %cmp.i15462300, label %for.end1612, label %for.body1586
+  %cmp.i15462308 = icmp eq ptr %191, %add.ptr.i.i1545
+  br i1 %cmp.i15462308, label %for.end1612, label %for.body1586
 
 for.body1586:                                     ; preds = %for.end1575, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227
-  %total.882302 = phi i64 [ %add1609, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227 ], [ %total.87.lcssa, %for.end1575 ]
-  %__begin21577.sroa.0.02301 = phi ptr [ %call.i1552, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227 ], [ %191, %for.end1575 ]
-  %_M_string_length.i1548 = getelementptr inbounds nuw i8, ptr %__begin21577.sroa.0.02301, i64 40
+  %total.882310 = phi i64 [ %add1609, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227 ], [ %total.87.lcssa, %for.end1575 ]
+  %__begin21577.sroa.0.02309 = phi ptr [ %call.i1552, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227 ], [ %191, %for.end1575 ]
+  %_M_string_length.i1548 = getelementptr inbounds nuw i8, ptr %__begin21577.sroa.0.02309, i64 40
   %192 = load i64, ptr %_M_string_length.i1548, align 8
   br label %do.body.i3237
 
@@ -3242,7 +3242,7 @@ do.body.i3237:                                    ; preds = %do.body.i3237, %for
   br i1 %cmp.i3240.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3241, label %do.body.i3237, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3241: ; preds = %do.body.i3237
-  %_M_string_length.i1550 = getelementptr inbounds nuw i8, ptr %__begin21577.sroa.0.02301, i64 72
+  %_M_string_length.i1550 = getelementptr inbounds nuw i8, ptr %__begin21577.sroa.0.02309, i64 72
   %193 = load i64, ptr %_M_string_length.i1550, align 8
   br label %do.body.i3230
 
@@ -3270,10 +3270,10 @@ do.body.i3223:                                    ; preds = %do.body.i3223, %_ZN
   br i1 %cmp.i3226.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227, label %do.body.i3223, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3227: ; preds = %do.body.i3223
-  %add1607 = add i64 %total.882302, 3
+  %add1607 = add i64 %total.882310, 3
   %add1608 = add i64 %add1607, %add1605
   %add1609 = add i64 %add1608, %ret.i3222.0
-  %call.i1552 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21577.sroa.0.02301) #20
+  %call.i1552 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21577.sroa.0.02309) #20
   %cmp.i1546 = icmp eq ptr %call.i1552, %add.ptr.i.i1545
   br i1 %cmp.i1546, label %for.end1612, label %for.body1586
 
@@ -3282,13 +3282,13 @@ for.end1612:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1553 = getelementptr inbounds nuw i8, ptr %t, i64 2240
   %194 = load ptr, ptr %_M_left.i.i1553, align 8
   %add.ptr.i.i1554 = getelementptr inbounds nuw i8, ptr %t, i64 2224
-  %cmp.i15552304 = icmp eq ptr %194, %add.ptr.i.i1554
-  br i1 %cmp.i15552304, label %for.end1652, label %for.body1623
+  %cmp.i15552312 = icmp eq ptr %194, %add.ptr.i.i1554
+  br i1 %cmp.i15552312, label %for.end1652, label %for.body1623
 
 for.body1623:                                     ; preds = %for.end1612, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206
-  %total.892306 = phi i64 [ %add1649, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206 ], [ %total.88.lcssa, %for.end1612 ]
-  %__begin21614.sroa.0.02305 = phi ptr [ %call.i1562, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206 ], [ %194, %for.end1612 ]
-  %_M_string_length.i1557 = getelementptr inbounds nuw i8, ptr %__begin21614.sroa.0.02305, i64 40
+  %total.892314 = phi i64 [ %add1649, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206 ], [ %total.88.lcssa, %for.end1612 ]
+  %__begin21614.sroa.0.02313 = phi ptr [ %call.i1562, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206 ], [ %194, %for.end1612 ]
+  %_M_string_length.i1557 = getelementptr inbounds nuw i8, ptr %__begin21614.sroa.0.02313, i64 40
   %195 = load i64, ptr %_M_string_length.i1557, align 8
   br label %do.body.i3216
 
@@ -3301,7 +3301,7 @@ do.body.i3216:                                    ; preds = %do.body.i3216, %for
   br i1 %cmp.i3219.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3220, label %do.body.i3216, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3220: ; preds = %do.body.i3216
-  %second1636 = getelementptr inbounds nuw i8, ptr %__begin21614.sroa.0.02305, i64 64
+  %second1636 = getelementptr inbounds nuw i8, ptr %__begin21614.sroa.0.02313, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1637, i8 0, i64 24, i1 false)
   %call1641 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %second1636, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp1637)
   br label %do.body.i3209
@@ -3330,10 +3330,10 @@ do.body.i3202:                                    ; preds = %do.body.i3202, %_ZN
   br i1 %cmp.i3205.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206, label %do.body.i3202, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3206: ; preds = %do.body.i3202
-  %add1647 = add i64 %total.892306, 3
+  %add1647 = add i64 %total.892314, 3
   %add1648 = add i64 %add1647, %add1645
   %add1649 = add i64 %add1648, %ret.i3201.0
-  %call.i1562 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21614.sroa.0.02305) #20
+  %call.i1562 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21614.sroa.0.02313) #20
   %cmp.i1555 = icmp eq ptr %call.i1562, %add.ptr.i.i1554
   br i1 %cmp.i1555, label %for.end1652, label %for.body1623
 
@@ -3342,13 +3342,13 @@ for.end1652:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1566 = getelementptr inbounds nuw i8, ptr %t, i64 2288
   %196 = load ptr, ptr %_M_left.i.i1566, align 8
   %add.ptr.i.i1567 = getelementptr inbounds nuw i8, ptr %t, i64 2272
-  %cmp.i15682308 = icmp eq ptr %196, %add.ptr.i.i1567
-  br i1 %cmp.i15682308, label %for.end1692, label %for.body1663
+  %cmp.i15682316 = icmp eq ptr %196, %add.ptr.i.i1567
+  br i1 %cmp.i15682316, label %for.end1692, label %for.body1663
 
 for.body1663:                                     ; preds = %for.end1652, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185
-  %total.902310 = phi i64 [ %add1689, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185 ], [ %total.89.lcssa, %for.end1652 ]
-  %__begin21654.sroa.0.02309 = phi ptr [ %call.i1600, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185 ], [ %196, %for.end1652 ]
-  %_M_string_length.i1570 = getelementptr inbounds nuw i8, ptr %__begin21654.sroa.0.02309, i64 40
+  %total.902318 = phi i64 [ %add1689, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185 ], [ %total.89.lcssa, %for.end1652 ]
+  %__begin21654.sroa.0.02317 = phi ptr [ %call.i1600, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185 ], [ %196, %for.end1652 ]
+  %_M_string_length.i1570 = getelementptr inbounds nuw i8, ptr %__begin21654.sroa.0.02317, i64 40
   %197 = load i64, ptr %_M_string_length.i1570, align 8
   br label %do.body.i3195
 
@@ -3361,7 +3361,7 @@ do.body.i3195:                                    ; preds = %do.body.i3195, %for
   br i1 %cmp.i3198.not, label %_ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i1581, label %do.body.i3195, !llvm.loop !5
 
 _ZNK9struct_pb13UnknownFields10total_sizeEv.exit.i1581: ; preds = %do.body.i3195
-  %second1676 = getelementptr inbounds nuw i8, ptr %__begin21654.sroa.0.02309, i64 64
+  %second1676 = getelementptr inbounds nuw i8, ptr %__begin21654.sroa.0.02317, i64 64
   %198 = load i32, ptr %second1676, align 4
   %cmp.not.i1583 = icmp eq i32 %198, 0
   br i1 %cmp.not.i1583, label %_ZN9struct_pb13UnknownFieldsD2Ev.exit1599, label %if.then.i1584
@@ -3410,10 +3410,10 @@ do.body.i3181:                                    ; preds = %do.body.i3181, %_ZN
   br i1 %cmp.i3184.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185, label %do.body.i3181, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3185: ; preds = %do.body.i3181
-  %add1687 = add i64 %total.902310, 3
+  %add1687 = add i64 %total.902318, 3
   %add1688 = add i64 %add1687, %add1685
   %add1689 = add i64 %add1688, %ret.i3180.0
-  %call.i1600 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21654.sroa.0.02309) #20
+  %call.i1600 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21654.sroa.0.02317) #20
   %cmp.i1568 = icmp eq ptr %call.i1600, %add.ptr.i.i1567
   br i1 %cmp.i1568, label %for.end1692, label %for.body1663
 
@@ -3422,13 +3422,13 @@ for.end1692:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1604 = getelementptr inbounds nuw i8, ptr %t, i64 2336
   %199 = load ptr, ptr %_M_left.i.i1604, align 8
   %add.ptr.i.i1605 = getelementptr inbounds nuw i8, ptr %t, i64 2320
-  %cmp.i16062312 = icmp eq ptr %199, %add.ptr.i.i1605
-  br i1 %cmp.i16062312, label %for.end1726, label %for.body1703
+  %cmp.i16062320 = icmp eq ptr %199, %add.ptr.i.i1605
+  br i1 %cmp.i16062320, label %for.end1726, label %for.body1703
 
 for.body1703:                                     ; preds = %for.end1692, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164
-  %total.912314 = phi i64 [ %add1723, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164 ], [ %total.90.lcssa, %for.end1692 ]
-  %__begin21694.sroa.0.02313 = phi ptr [ %call.i1610, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164 ], [ %199, %for.end1692 ]
-  %_M_string_length.i1608 = getelementptr inbounds nuw i8, ptr %__begin21694.sroa.0.02313, i64 40
+  %total.912322 = phi i64 [ %add1723, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164 ], [ %total.90.lcssa, %for.end1692 ]
+  %__begin21694.sroa.0.02321 = phi ptr [ %call.i1610, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164 ], [ %199, %for.end1692 ]
+  %_M_string_length.i1608 = getelementptr inbounds nuw i8, ptr %__begin21694.sroa.0.02321, i64 40
   %200 = load i64, ptr %_M_string_length.i1608, align 8
   br label %do.body.i3174
 
@@ -3441,7 +3441,7 @@ do.body.i3174:                                    ; preds = %do.body.i3174, %for
   br i1 %cmp.i3177.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3178, label %do.body.i3174, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3178: ; preds = %do.body.i3174
-  %second1715 = getelementptr inbounds nuw i8, ptr %__begin21694.sroa.0.02313, i64 64
+  %second1715 = getelementptr inbounds nuw i8, ptr %__begin21694.sroa.0.02321, i64 64
   %201 = load i32, ptr %second1715, align 8
   %conv1716 = sext i32 %201 to i64
   br label %do.body.i3167
@@ -3469,10 +3469,10 @@ do.body.i3160:                                    ; preds = %do.body.i3160, %_ZN
   br i1 %cmp.i3163.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164, label %do.body.i3160, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3164: ; preds = %do.body.i3160
-  %add1721 = add i64 %total.912314, 3
+  %add1721 = add i64 %total.912322, 3
   %add1722 = add i64 %add1721, %add1719
   %add1723 = add i64 %add1722, %ret.i3159.0
-  %call.i1610 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21694.sroa.0.02313) #20
+  %call.i1610 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21694.sroa.0.02321) #20
   %cmp.i1606 = icmp eq ptr %call.i1610, %add.ptr.i.i1605
   br i1 %cmp.i1606, label %for.end1726, label %for.body1703
 
@@ -3481,13 +3481,13 @@ for.end1726:                                      ; preds = %_ZN9struct_pb8inter
   %_M_left.i.i1611 = getelementptr inbounds nuw i8, ptr %t, i64 2384
   %202 = load ptr, ptr %_M_left.i.i1611, align 8
   %add.ptr.i.i1612 = getelementptr inbounds nuw i8, ptr %t, i64 2368
-  %cmp.i16132316 = icmp eq ptr %202, %add.ptr.i.i1612
-  br i1 %cmp.i16132316, label %for.end1760, label %for.body1737
+  %cmp.i16132324 = icmp eq ptr %202, %add.ptr.i.i1612
+  br i1 %cmp.i16132324, label %for.end1760, label %for.body1737
 
 for.body1737:                                     ; preds = %for.end1726, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143
-  %total.922318 = phi i64 [ %add1757, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143 ], [ %total.91.lcssa, %for.end1726 ]
-  %__begin21728.sroa.0.02317 = phi ptr [ %call.i1617, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143 ], [ %202, %for.end1726 ]
-  %_M_string_length.i1615 = getelementptr inbounds nuw i8, ptr %__begin21728.sroa.0.02317, i64 40
+  %total.922326 = phi i64 [ %add1757, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143 ], [ %total.91.lcssa, %for.end1726 ]
+  %__begin21728.sroa.0.02325 = phi ptr [ %call.i1617, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143 ], [ %202, %for.end1726 ]
+  %_M_string_length.i1615 = getelementptr inbounds nuw i8, ptr %__begin21728.sroa.0.02325, i64 40
   %203 = load i64, ptr %_M_string_length.i1615, align 8
   br label %do.body.i3153
 
@@ -3500,7 +3500,7 @@ do.body.i3153:                                    ; preds = %do.body.i3153, %for
   br i1 %cmp.i3156.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3157, label %do.body.i3153, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3157: ; preds = %do.body.i3153
-  %second1749 = getelementptr inbounds nuw i8, ptr %__begin21728.sroa.0.02317, i64 64
+  %second1749 = getelementptr inbounds nuw i8, ptr %__begin21728.sroa.0.02325, i64 64
   %204 = load i32, ptr %second1749, align 8
   %conv1750 = sext i32 %204 to i64
   br label %do.body.i3146
@@ -3528,10 +3528,10 @@ do.body.i3139:                                    ; preds = %do.body.i3139, %_ZN
   br i1 %cmp.i3142.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143, label %do.body.i3139, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3143: ; preds = %do.body.i3139
-  %add1755 = add i64 %total.922318, 3
+  %add1755 = add i64 %total.922326, 3
   %add1756 = add i64 %add1755, %add1753
   %add1757 = add i64 %add1756, %ret.i3138.0
-  %call.i1617 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21728.sroa.0.02317) #20
+  %call.i1617 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21728.sroa.0.02325) #20
   %cmp.i1613 = icmp eq ptr %call.i1617, %add.ptr.i.i1612
   br i1 %cmp.i1613, label %for.end1760, label %for.body1737
 
@@ -3540,8 +3540,10 @@ for.end1760:                                      ; preds = %_ZN9struct_pb8inter
   %oneof_field = getelementptr inbounds nuw i8, ptr %t, i64 2408
   %_M_index.i = getelementptr inbounds nuw i8, ptr %t, i64 2440
   %205 = load i8, ptr %_M_index.i, align 8
-  %cmp1762 = icmp eq i8 %205, 1
-  br i1 %cmp1762, label %_ZSt3getILm1EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1770
+  switch i8 %205, label %if.end1793 [
+    i8 1, label %_ZSt3getILm1EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+    i8 2, label %_ZSt3getILm2EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+  ]
 
 _ZSt3getILm1EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %for.end1760
   %206 = load i32, ptr %oneof_field, align 8
@@ -3554,19 +3556,14 @@ do.body.i3132:                                    ; preds = %do.body.i3132, %_ZS
   %inc.i3133 = add nuw nsw i64 %ret.i3131.0, 1
   %shr.i3134 = lshr i64 %v.addr.i3130.0, 7
   %cmp.i3135.not = icmp samesign ult i64 %v.addr.i3130.0, 128
-  br i1 %cmp.i3135.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3136, label %do.body.i3132, !llvm.loop !5
+  br i1 %cmp.i3135.not, label %if.end1793.thread, label %do.body.i3132, !llvm.loop !5
 
-_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3136: ; preds = %do.body.i3132
+if.end1793.thread:                                ; preds = %do.body.i3132
   %add1768 = add i64 %total.92.lcssa, 3
   %add1769 = add i64 %add1768, %ret.i3131.0
-  br label %if.end1770
+  br label %if.end1879
 
-if.end1770:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3136, %for.end1760
-  %total.93 = phi i64 [ %add1769, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3136 ], [ %total.92.lcssa, %for.end1760 ]
-  %cmp1773 = icmp eq i8 %205, 2
-  br i1 %cmp1773, label %_ZSt3getILm2EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1793
-
-_ZSt3getILm2EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1770
+_ZSt3getILm2EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %for.end1760
   %207 = load ptr, ptr %oneof_field, align 8
   %cmp.i1628.not = icmp eq ptr %207, null
   br i1 %cmp.i1628.not, label %if.end1788, label %_ZSt3getILm2EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1634
@@ -3589,17 +3586,21 @@ do.body.i3125:                                    ; preds = %do.body.i3125, %if.
   br i1 %cmp.i3128.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129, label %do.body.i3125, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129: ; preds = %do.body.i3125
-  %add1790 = add i64 %total.93, 3
+  %add1790 = add i64 %total.92.lcssa, 3
   %add1791 = add i64 %add1790, %sz1775.0
   %add1792 = add i64 %add1791, %ret.i3124.0
   %.pre = load i8, ptr %_M_index.i, align 8
   br label %if.end1793
 
-if.end1793:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129, %if.end1770
-  %208 = phi i8 [ %.pre, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129 ], [ %205, %if.end1770 ]
-  %total.94 = phi i64 [ %add1792, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129 ], [ %total.93, %if.end1770 ]
-  %cmp1796 = icmp eq i8 %208, 3
-  br i1 %cmp1796, label %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1808
+if.end1793:                                       ; preds = %for.end1760, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129
+  %208 = phi i8 [ %.pre, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129 ], [ %205, %for.end1760 ]
+  %total.94 = phi i64 [ %add1792, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3129 ], [ %total.92.lcssa, %for.end1760 ]
+  switch i8 %208, label %if.end1845 [
+    i8 3, label %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+    i8 4, label %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+    i8 5, label %_ZSt3getILm5EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+    i8 6, label %_ZSt3getILm6EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+  ]
 
 _ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1793
   %_M_string_length.i1648 = getelementptr inbounds nuw i8, ptr %t, i64 2416
@@ -3612,20 +3613,15 @@ do.body.i3118:                                    ; preds = %do.body.i3118, %_ZS
   %inc.i3119 = add nuw nsw i64 %ret.i3117.0, 1
   %shr.i3120 = lshr i64 %v.addr.i3116.0, 7
   %cmp.i3121.not = icmp ult i64 %v.addr.i3116.0, 128
-  br i1 %cmp.i3121.not, label %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1654, label %do.body.i3118, !llvm.loop !5
+  br i1 %cmp.i3121.not, label %if.end1808.thread, label %do.body.i3118, !llvm.loop !5
 
-_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1654: ; preds = %do.body.i3118
+if.end1808.thread:                                ; preds = %do.body.i3118
   %add1802 = add i64 %total.94, 3
   %add1806 = add i64 %add1802, %209
   %add1807 = add i64 %add1806, %ret.i3117.0
-  br label %if.end1808
+  br label %if.end1879
 
-if.end1808:                                       ; preds = %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1654, %if.end1793
-  %total.95 = phi i64 [ %add1807, %_ZSt3getILm3EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1654 ], [ %total.94, %if.end1793 ]
-  %cmp1811 = icmp eq i8 %208, 4
-  br i1 %cmp1811, label %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1823
-
-_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1808
+_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1793
   %_M_string_length.i1663 = getelementptr inbounds nuw i8, ptr %t, i64 2416
   %210 = load i64, ptr %_M_string_length.i1663, align 8
   br label %do.body.i3111
@@ -3639,23 +3635,16 @@ do.body.i3111:                                    ; preds = %do.body.i3111, %_ZS
   br i1 %cmp.i3114.not, label %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669, label %do.body.i3111, !llvm.loop !5
 
 _ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669: ; preds = %do.body.i3111
-  %add1817 = add i64 %total.95, 3
+  %add1817 = add i64 %total.94, 3
   %add1821 = add i64 %add1817, %210
   %add1822 = add i64 %add1821, %ret.i3110.0
-  br label %if.end1823
+  br label %if.end1879
 
-if.end1823:                                       ; preds = %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669, %if.end1808
-  %total.96 = phi i64 [ %add1822, %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669 ], [ %total.95, %if.end1808 ]
-  switch i8 %208, label %if.end1845 [
-    i8 5, label %if.end1835.thread
-    i8 6, label %_ZSt3getILm6EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
-  ]
+_ZSt3getILm5EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1793
+  %add1834 = add i64 %total.94, 3
+  br label %if.end1879
 
-if.end1835.thread:                                ; preds = %if.end1823
-  %add1834 = add i64 %total.96, 3
-  br label %if.end1845
-
-_ZSt3getILm6EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1823
+_ZSt3getILm6EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1793
   %211 = load i64, ptr %oneof_field, align 8
   br label %do.body.i3097
 
@@ -3668,22 +3657,24 @@ do.body.i3097:                                    ; preds = %do.body.i3097, %_ZS
   br i1 %cmp.i3100.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101, label %do.body.i3097, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101: ; preds = %do.body.i3097
-  %add1843 = add i64 %total.96, 3
+  %add1843 = add i64 %total.94, 3
   %add1844 = add i64 %add1843, %ret.i3096.0
-  br label %if.end1845
+  br label %if.end1879
 
-if.end1845:                                       ; preds = %if.end1823, %if.end1835.thread, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101
-  %total.98 = phi i64 [ %add1844, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101 ], [ %add1834, %if.end1835.thread ], [ %total.96, %if.end1823 ]
+if.end1845:                                       ; preds = %if.end1793
   %cmp1848 = icmp eq i8 %208, 7
-  %add1850 = add i64 %total.98, 6
-  %spec.select1082 = select i1 %cmp1848, i64 %add1850, i64 %total.98
-  %cmp1854 = icmp eq i8 %208, 8
-  %add1856 = add i64 %spec.select1082, 10
-  %total.100 = select i1 %cmp1854, i64 %add1856, i64 %spec.select1082
-  %cmp1860 = icmp eq i8 %208, 9
-  br i1 %cmp1860, label %_ZSt3getILm9EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1868
+  %add1850 = add i64 %total.94, 6
+  br i1 %cmp1848, label %if.end1879, label %if.end1845.thread
 
-_ZSt3getILm9EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1845
+if.end1845.thread:                                ; preds = %if.end1845
+  %add1856 = add i64 %total.94, 10
+  switch i8 %208, label %if.end1879.fold.split [
+    i8 8, label %if.end1879
+    i8 9, label %_ZSt3getILm9EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+    i8 10, label %_ZSt3getILm10EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit
+  ]
+
+_ZSt3getILm9EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1845.thread
   %212 = load i32, ptr %oneof_field, align 8
   %conv1864 = sext i32 %212 to i64
   br label %do.body.i3090
@@ -3694,19 +3685,14 @@ do.body.i3090:                                    ; preds = %do.body.i3090, %_ZS
   %inc.i3091 = add nuw nsw i64 %ret.i3089.0, 1
   %shr.i3092 = lshr i64 %v.addr.i3088.0, 7
   %cmp.i3093.not = icmp ult i64 %v.addr.i3088.0, 128
-  br i1 %cmp.i3093.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3094, label %do.body.i3090, !llvm.loop !5
+  br i1 %cmp.i3093.not, label %if.end1868.thread, label %do.body.i3090, !llvm.loop !5
 
-_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3094: ; preds = %do.body.i3090
-  %add1866 = add i64 %total.100, 3
+if.end1868.thread:                                ; preds = %do.body.i3090
+  %add1866 = add i64 %total.94, 3
   %add1867 = add i64 %add1866, %ret.i3089.0
-  br label %if.end1868
+  br label %if.end1879
 
-if.end1868:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3094, %if.end1845
-  %total.101 = phi i64 [ %add1867, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3094 ], [ %total.100, %if.end1845 ]
-  %cmp1871 = icmp eq i8 %208, 10
-  br i1 %cmp1871, label %_ZSt3getILm10EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, label %if.end1879
-
-_ZSt3getILm10EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1868
+_ZSt3getILm10EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit: ; preds = %if.end1845.thread
   %213 = load i32, ptr %oneof_field, align 8
   %conv1875 = sext i32 %213 to i64
   br label %do.body.i3083
@@ -3720,12 +3706,15 @@ do.body.i3083:                                    ; preds = %do.body.i3083, %_ZS
   br i1 %cmp.i3086.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087, label %do.body.i3083, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087: ; preds = %do.body.i3083
-  %add1877 = add i64 %total.101, 3
+  %add1877 = add i64 %total.94, 3
   %add1878 = add i64 %add1877, %ret.i3082.0
   br label %if.end1879
 
-if.end1879:                                       ; preds = %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087, %if.end1868
-  %total.102 = phi i64 [ %add1878, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087 ], [ %total.101, %if.end1868 ]
+if.end1879.fold.split:                            ; preds = %if.end1845.thread
+  br label %if.end1879
+
+if.end1879:                                       ; preds = %if.end1845.thread, %if.end1879.fold.split, %if.end1845, %if.end1793.thread, %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669, %if.end1808.thread, %_ZSt3getILm5EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101, %if.end1868.thread, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087
+  %total.102 = phi i64 [ %add1878, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3087 ], [ %add1867, %if.end1868.thread ], [ %add1856, %if.end1845.thread ], [ %add1769, %if.end1793.thread ], [ %add1822, %_ZSt3getILm4EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit1669 ], [ %add1807, %if.end1808.thread ], [ %add1834, %_ZSt3getILm5EJSt9monostatejSt10unique_ptrIN22protobuf_test_messages6proto318TestAllTypesProto313NestedMessageESt14default_deleteIS5_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_bmfdNS4_10NestedEnumEN6google8protobuf9NullValueEEERKNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERKSN_.exit ], [ %add1844, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3101 ], [ %add1850, %if.end1845 ], [ %total.94, %if.end1879.fold.split ]
   %optional_bool_wrapper = getelementptr inbounds nuw i8, ptr %t, i64 2448
   %214 = load ptr, ptr %optional_bool_wrapper, align 8
   %cmp.i1703.not = icmp eq ptr %214, null
@@ -4139,10 +4128,10 @@ if.end2014:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1767, label %if.end2044, label %for.body2028
 
 for.body2028:                                     ; preds = %if.end2014, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017
-  %total.1132321 = phi i64 [ %add2040, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017 ], [ %total.111, %if.end2014 ]
-  %__begin32019.sroa.0.02320 = phi ptr [ %incdec.ptr.i1773, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017 ], [ %250, %if.end2014 ]
+  %total.1132329 = phi i64 [ %add2040, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017 ], [ %total.111, %if.end2014 ]
+  %__begin32019.sroa.0.02328 = phi ptr [ %incdec.ptr.i1773, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017 ], [ %250, %if.end2014 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2032, i8 0, i64 24, i1 false)
-  %call2036 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9BoolValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 1 dereferenceable(1) %__begin32019.sroa.0.02320, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2032)
+  %call2036 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9BoolValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 1 dereferenceable(1) %__begin32019.sroa.0.02328, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2032)
           to label %invoke.cont2035 unwind label %lpad2034
 
 invoke.cont2035:                                  ; preds = %for.body2028
@@ -4166,10 +4155,10 @@ do.body.i3013:                                    ; preds = %do.body.i3013.prehe
   br i1 %cmp.i3016.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017, label %do.body.i3013, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3017: ; preds = %do.body.i3013
-  %add2038 = add i64 %total.1132321, 3
+  %add2038 = add i64 %total.1132329, 3
   %add2039 = add i64 %add2038, %call2036
   %add2040 = add i64 %add2039, %ret.i3012.0
-  %incdec.ptr.i1773 = getelementptr inbounds nuw i8, ptr %__begin32019.sroa.0.02320, i64 1
+  %incdec.ptr.i1773 = getelementptr inbounds nuw i8, ptr %__begin32019.sroa.0.02328, i64 1
   %cmp.i1769 = icmp eq ptr %incdec.ptr.i1773, %251
   br i1 %cmp.i1769, label %if.end2044, label %for.body2028
 
@@ -4190,10 +4179,10 @@ if.end2044:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1778, label %if.end2074, label %for.body2058
 
 for.body2058:                                     ; preds = %if.end2044, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010
-  %total.1152323 = phi i64 [ %add2070, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010 ], [ %total.112, %if.end2044 ]
-  %__begin32049.sroa.0.02322 = phi ptr [ %incdec.ptr.i1784, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010 ], [ %255, %if.end2044 ]
+  %total.1152331 = phi i64 [ %add2070, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010 ], [ %total.112, %if.end2044 ]
+  %__begin32049.sroa.0.02330 = phi ptr [ %incdec.ptr.i1784, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010 ], [ %255, %if.end2044 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2062, i8 0, i64 24, i1 false)
-  %call2066 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10Int32ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32049.sroa.0.02322, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2062)
+  %call2066 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10Int32ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32049.sroa.0.02330, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2062)
           to label %invoke.cont2065 unwind label %lpad2064
 
 invoke.cont2065:                                  ; preds = %for.body2058
@@ -4217,10 +4206,10 @@ do.body.i3006:                                    ; preds = %do.body.i3006.prehe
   br i1 %cmp.i3009.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010, label %do.body.i3006, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3010: ; preds = %do.body.i3006
-  %add2068 = add i64 %total.1152323, 3
+  %add2068 = add i64 %total.1152331, 3
   %add2069 = add i64 %add2068, %call2066
   %add2070 = add i64 %add2069, %ret.i3005.0
-  %incdec.ptr.i1784 = getelementptr inbounds nuw i8, ptr %__begin32049.sroa.0.02322, i64 4
+  %incdec.ptr.i1784 = getelementptr inbounds nuw i8, ptr %__begin32049.sroa.0.02330, i64 4
   %cmp.i1780 = icmp eq ptr %incdec.ptr.i1784, %256
   br i1 %cmp.i1780, label %if.end2074, label %for.body2058
 
@@ -4241,10 +4230,10 @@ if.end2074:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1789, label %if.end2104, label %for.body2088
 
 for.body2088:                                     ; preds = %if.end2074, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003
-  %total.1172325 = phi i64 [ %add2100, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003 ], [ %total.114, %if.end2074 ]
-  %__begin32079.sroa.0.02324 = phi ptr [ %incdec.ptr.i1795, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003 ], [ %260, %if.end2074 ]
+  %total.1172333 = phi i64 [ %add2100, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003 ], [ %total.114, %if.end2074 ]
+  %__begin32079.sroa.0.02332 = phi ptr [ %incdec.ptr.i1795, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003 ], [ %260, %if.end2074 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2092, i8 0, i64 24, i1 false)
-  %call2096 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10Int64ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32079.sroa.0.02324, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2092)
+  %call2096 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10Int64ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32079.sroa.0.02332, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2092)
           to label %invoke.cont2095 unwind label %lpad2094
 
 invoke.cont2095:                                  ; preds = %for.body2088
@@ -4268,10 +4257,10 @@ do.body.i2999:                                    ; preds = %do.body.i2999.prehe
   br i1 %cmp.i3002.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003, label %do.body.i2999, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit3003: ; preds = %do.body.i2999
-  %add2098 = add i64 %total.1172325, 3
+  %add2098 = add i64 %total.1172333, 3
   %add2099 = add i64 %add2098, %call2096
   %add2100 = add i64 %add2099, %ret.i2998.0
-  %incdec.ptr.i1795 = getelementptr inbounds nuw i8, ptr %__begin32079.sroa.0.02324, i64 8
+  %incdec.ptr.i1795 = getelementptr inbounds nuw i8, ptr %__begin32079.sroa.0.02332, i64 8
   %cmp.i1791 = icmp eq ptr %incdec.ptr.i1795, %261
   br i1 %cmp.i1791, label %if.end2104, label %for.body2088
 
@@ -4292,10 +4281,10 @@ if.end2104:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1800, label %if.end2134, label %for.body2118
 
 for.body2118:                                     ; preds = %if.end2104, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996
-  %total.1192327 = phi i64 [ %add2130, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996 ], [ %total.116, %if.end2104 ]
-  %__begin32109.sroa.0.02326 = phi ptr [ %incdec.ptr.i1806, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996 ], [ %265, %if.end2104 ]
+  %total.1192335 = phi i64 [ %add2130, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996 ], [ %total.116, %if.end2104 ]
+  %__begin32109.sroa.0.02334 = phi ptr [ %incdec.ptr.i1806, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996 ], [ %265, %if.end2104 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2122, i8 0, i64 24, i1 false)
-  %call2126 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11UInt32ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32109.sroa.0.02326, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2122)
+  %call2126 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11UInt32ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32109.sroa.0.02334, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2122)
           to label %invoke.cont2125 unwind label %lpad2124
 
 invoke.cont2125:                                  ; preds = %for.body2118
@@ -4319,10 +4308,10 @@ do.body.i2992:                                    ; preds = %do.body.i2992.prehe
   br i1 %cmp.i2995.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996, label %do.body.i2992, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2996: ; preds = %do.body.i2992
-  %add2128 = add i64 %total.1192327, 3
+  %add2128 = add i64 %total.1192335, 3
   %add2129 = add i64 %add2128, %call2126
   %add2130 = add i64 %add2129, %ret.i2991.0
-  %incdec.ptr.i1806 = getelementptr inbounds nuw i8, ptr %__begin32109.sroa.0.02326, i64 4
+  %incdec.ptr.i1806 = getelementptr inbounds nuw i8, ptr %__begin32109.sroa.0.02334, i64 4
   %cmp.i1802 = icmp eq ptr %incdec.ptr.i1806, %266
   br i1 %cmp.i1802, label %if.end2134, label %for.body2118
 
@@ -4343,10 +4332,10 @@ if.end2134:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1811, label %if.end2164, label %for.body2148
 
 for.body2148:                                     ; preds = %if.end2134, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989
-  %total.1212329 = phi i64 [ %add2160, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989 ], [ %total.118, %if.end2134 ]
-  %__begin32139.sroa.0.02328 = phi ptr [ %incdec.ptr.i1817, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989 ], [ %270, %if.end2134 ]
+  %total.1212337 = phi i64 [ %add2160, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989 ], [ %total.118, %if.end2134 ]
+  %__begin32139.sroa.0.02336 = phi ptr [ %incdec.ptr.i1817, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989 ], [ %270, %if.end2134 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2152, i8 0, i64 24, i1 false)
-  %call2156 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11UInt64ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32139.sroa.0.02328, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2152)
+  %call2156 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11UInt64ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32139.sroa.0.02336, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2152)
           to label %invoke.cont2155 unwind label %lpad2154
 
 invoke.cont2155:                                  ; preds = %for.body2148
@@ -4370,10 +4359,10 @@ do.body.i2985:                                    ; preds = %do.body.i2985.prehe
   br i1 %cmp.i2988.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989, label %do.body.i2985, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2989: ; preds = %do.body.i2985
-  %add2158 = add i64 %total.1212329, 3
+  %add2158 = add i64 %total.1212337, 3
   %add2159 = add i64 %add2158, %call2156
   %add2160 = add i64 %add2159, %ret.i2984.0
-  %incdec.ptr.i1817 = getelementptr inbounds nuw i8, ptr %__begin32139.sroa.0.02328, i64 8
+  %incdec.ptr.i1817 = getelementptr inbounds nuw i8, ptr %__begin32139.sroa.0.02336, i64 8
   %cmp.i1813 = icmp eq ptr %incdec.ptr.i1817, %271
   br i1 %cmp.i1813, label %if.end2164, label %for.body2148
 
@@ -4394,10 +4383,10 @@ if.end2164:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1822, label %if.end2194, label %for.body2178
 
 for.body2178:                                     ; preds = %if.end2164, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982
-  %total.1232331 = phi i64 [ %add2190, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982 ], [ %total.120, %if.end2164 ]
-  %__begin32169.sroa.0.02330 = phi ptr [ %incdec.ptr.i1828, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982 ], [ %275, %if.end2164 ]
+  %total.1232339 = phi i64 [ %add2190, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982 ], [ %total.120, %if.end2164 ]
+  %__begin32169.sroa.0.02338 = phi ptr [ %incdec.ptr.i1828, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982 ], [ %275, %if.end2164 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2182, i8 0, i64 24, i1 false)
-  %call2186 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10FloatValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32169.sroa.0.02330, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2182)
+  %call2186 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10FloatValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 4 dereferenceable(4) %__begin32169.sroa.0.02338, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2182)
           to label %invoke.cont2185 unwind label %lpad2184
 
 invoke.cont2185:                                  ; preds = %for.body2178
@@ -4421,10 +4410,10 @@ do.body.i2978:                                    ; preds = %do.body.i2978.prehe
   br i1 %cmp.i2981.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982, label %do.body.i2978, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2982: ; preds = %do.body.i2978
-  %add2188 = add i64 %total.1232331, 3
+  %add2188 = add i64 %total.1232339, 3
   %add2189 = add i64 %add2188, %call2186
   %add2190 = add i64 %add2189, %ret.i2977.0
-  %incdec.ptr.i1828 = getelementptr inbounds nuw i8, ptr %__begin32169.sroa.0.02330, i64 4
+  %incdec.ptr.i1828 = getelementptr inbounds nuw i8, ptr %__begin32169.sroa.0.02338, i64 4
   %cmp.i1824 = icmp eq ptr %incdec.ptr.i1828, %276
   br i1 %cmp.i1824, label %if.end2194, label %for.body2178
 
@@ -4445,10 +4434,10 @@ if.end2194:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1833, label %if.end2224, label %for.body2208
 
 for.body2208:                                     ; preds = %if.end2194, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975
-  %total.1252333 = phi i64 [ %add2220, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975 ], [ %total.122, %if.end2194 ]
-  %__begin32199.sroa.0.02332 = phi ptr [ %incdec.ptr.i1839, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975 ], [ %280, %if.end2194 ]
+  %total.1252341 = phi i64 [ %add2220, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975 ], [ %total.122, %if.end2194 ]
+  %__begin32199.sroa.0.02340 = phi ptr [ %incdec.ptr.i1839, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975 ], [ %280, %if.end2194 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2212, i8 0, i64 24, i1 false)
-  %call2216 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11DoubleValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32199.sroa.0.02332, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2212)
+  %call2216 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11DoubleValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(8) %__begin32199.sroa.0.02340, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2212)
           to label %invoke.cont2215 unwind label %lpad2214
 
 invoke.cont2215:                                  ; preds = %for.body2208
@@ -4472,10 +4461,10 @@ do.body.i2971:                                    ; preds = %do.body.i2971.prehe
   br i1 %cmp.i2974.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975, label %do.body.i2971, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2975: ; preds = %do.body.i2971
-  %add2218 = add i64 %total.1252333, 3
+  %add2218 = add i64 %total.1252341, 3
   %add2219 = add i64 %add2218, %call2216
   %add2220 = add i64 %add2219, %ret.i2970.0
-  %incdec.ptr.i1839 = getelementptr inbounds nuw i8, ptr %__begin32199.sroa.0.02332, i64 8
+  %incdec.ptr.i1839 = getelementptr inbounds nuw i8, ptr %__begin32199.sroa.0.02340, i64 8
   %cmp.i1835 = icmp eq ptr %incdec.ptr.i1839, %281
   br i1 %cmp.i1835, label %if.end2224, label %for.body2208
 
@@ -4496,10 +4485,10 @@ if.end2224:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1844, label %if.end2254, label %for.body2238
 
 for.body2238:                                     ; preds = %if.end2224, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968
-  %total.1272335 = phi i64 [ %add2250, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968 ], [ %total.124, %if.end2224 ]
-  %__begin32229.sroa.0.02334 = phi ptr [ %incdec.ptr.i1850, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968 ], [ %285, %if.end2224 ]
+  %total.1272343 = phi i64 [ %add2250, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968 ], [ %total.124, %if.end2224 ]
+  %__begin32229.sroa.0.02342 = phi ptr [ %incdec.ptr.i1850, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968 ], [ %285, %if.end2224 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2242, i8 0, i64 24, i1 false)
-  %call2246 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11StringValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %__begin32229.sroa.0.02334, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2242)
+  %call2246 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf11StringValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %__begin32229.sroa.0.02342, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2242)
           to label %invoke.cont2245 unwind label %lpad2244
 
 invoke.cont2245:                                  ; preds = %for.body2238
@@ -4523,10 +4512,10 @@ do.body.i2964:                                    ; preds = %do.body.i2964.prehe
   br i1 %cmp.i2967.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968, label %do.body.i2964, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2968: ; preds = %do.body.i2964
-  %add2248 = add i64 %total.1272335, 3
+  %add2248 = add i64 %total.1272343, 3
   %add2249 = add i64 %add2248, %call2246
   %add2250 = add i64 %add2249, %ret.i2963.0
-  %incdec.ptr.i1850 = getelementptr inbounds nuw i8, ptr %__begin32229.sroa.0.02334, i64 32
+  %incdec.ptr.i1850 = getelementptr inbounds nuw i8, ptr %__begin32229.sroa.0.02342, i64 32
   %cmp.i1846 = icmp eq ptr %incdec.ptr.i1850, %286
   br i1 %cmp.i1846, label %if.end2254, label %for.body2238
 
@@ -4547,10 +4536,10 @@ if.end2254:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1855, label %if.end2284, label %for.body2268
 
 for.body2268:                                     ; preds = %if.end2254, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961
-  %total.1292337 = phi i64 [ %add2280, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961 ], [ %total.126, %if.end2254 ]
-  %__begin32259.sroa.0.02336 = phi ptr [ %incdec.ptr.i1861, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961 ], [ %290, %if.end2254 ]
+  %total.1292345 = phi i64 [ %add2280, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961 ], [ %total.126, %if.end2254 ]
+  %__begin32259.sroa.0.02344 = phi ptr [ %incdec.ptr.i1861, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961 ], [ %290, %if.end2254 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2272, i8 0, i64 24, i1 false)
-  %call2276 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10BytesValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %__begin32259.sroa.0.02336, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2272)
+  %call2276 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf10BytesValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(32) %__begin32259.sroa.0.02344, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2272)
           to label %invoke.cont2275 unwind label %lpad2274
 
 invoke.cont2275:                                  ; preds = %for.body2268
@@ -4574,10 +4563,10 @@ do.body.i2957:                                    ; preds = %do.body.i2957.prehe
   br i1 %cmp.i2960.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961, label %do.body.i2957, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2961: ; preds = %do.body.i2957
-  %add2278 = add i64 %total.1292337, 3
+  %add2278 = add i64 %total.1292345, 3
   %add2279 = add i64 %add2278, %call2276
   %add2280 = add i64 %add2279, %ret.i2956.0
-  %incdec.ptr.i1861 = getelementptr inbounds nuw i8, ptr %__begin32259.sroa.0.02336, i64 32
+  %incdec.ptr.i1861 = getelementptr inbounds nuw i8, ptr %__begin32259.sroa.0.02344, i64 32
   %cmp.i1857 = icmp eq ptr %incdec.ptr.i1861, %291
   br i1 %cmp.i1857, label %if.end2284, label %for.body2268
 
@@ -4892,10 +4881,10 @@ if.end2382:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1908, label %if.end2412, label %for.body2396
 
 for.body2396:                                     ; preds = %if.end2382, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905
-  %total.1382339 = phi i64 [ %add2408, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905 ], [ %total.136, %if.end2382 ]
-  %__begin32387.sroa.0.02338 = phi ptr [ %incdec.ptr.i1914, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905 ], [ %320, %if.end2382 ]
+  %total.1382347 = phi i64 [ %add2408, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905 ], [ %total.136, %if.end2382 ]
+  %__begin32387.sroa.0.02346 = phi ptr [ %incdec.ptr.i1914, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905 ], [ %320, %if.end2382 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2400, i8 0, i64 24, i1 false)
-  %call2404 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf8DurationEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin32387.sroa.0.02338, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2400)
+  %call2404 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf8DurationEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin32387.sroa.0.02346, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2400)
           to label %invoke.cont2403 unwind label %lpad2402
 
 invoke.cont2403:                                  ; preds = %for.body2396
@@ -4919,10 +4908,10 @@ do.body.i2901:                                    ; preds = %do.body.i2901.prehe
   br i1 %cmp.i2904.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905, label %do.body.i2901, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2905: ; preds = %do.body.i2901
-  %add2406 = add i64 %total.1382339, 3
+  %add2406 = add i64 %total.1382347, 3
   %add2407 = add i64 %add2406, %call2404
   %add2408 = add i64 %add2407, %ret.i2900.0
-  %incdec.ptr.i1914 = getelementptr inbounds nuw i8, ptr %__begin32387.sroa.0.02338, i64 16
+  %incdec.ptr.i1914 = getelementptr inbounds nuw i8, ptr %__begin32387.sroa.0.02346, i64 16
   %cmp.i1910 = icmp eq ptr %incdec.ptr.i1914, %321
   br i1 %cmp.i1910, label %if.end2412, label %for.body2396
 
@@ -4943,10 +4932,10 @@ if.end2412:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1919, label %if.end2442, label %for.body2426
 
 for.body2426:                                     ; preds = %if.end2412, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898
-  %total.1402341 = phi i64 [ %add2438, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898 ], [ %total.137, %if.end2412 ]
-  %__begin32417.sroa.0.02340 = phi ptr [ %incdec.ptr.i1925, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898 ], [ %325, %if.end2412 ]
+  %total.1402349 = phi i64 [ %add2438, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898 ], [ %total.137, %if.end2412 ]
+  %__begin32417.sroa.0.02348 = phi ptr [ %incdec.ptr.i1925, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898 ], [ %325, %if.end2412 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2430, i8 0, i64 24, i1 false)
-  %call2434 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9TimestampEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin32417.sroa.0.02340, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2430)
+  %call2434 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9TimestampEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin32417.sroa.0.02348, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2430)
           to label %invoke.cont2433 unwind label %lpad2432
 
 invoke.cont2433:                                  ; preds = %for.body2426
@@ -4970,10 +4959,10 @@ do.body.i2894:                                    ; preds = %do.body.i2894.prehe
   br i1 %cmp.i2897.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898, label %do.body.i2894, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2898: ; preds = %do.body.i2894
-  %add2436 = add i64 %total.1402341, 3
+  %add2436 = add i64 %total.1402349, 3
   %add2437 = add i64 %add2436, %call2434
   %add2438 = add i64 %add2437, %ret.i2893.0
-  %incdec.ptr.i1925 = getelementptr inbounds nuw i8, ptr %__begin32417.sroa.0.02340, i64 16
+  %incdec.ptr.i1925 = getelementptr inbounds nuw i8, ptr %__begin32417.sroa.0.02348, i64 16
   %cmp.i1921 = icmp eq ptr %incdec.ptr.i1925, %326
   br i1 %cmp.i1921, label %if.end2442, label %for.body2426
 
@@ -4994,10 +4983,10 @@ if.end2442:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1930, label %if.end2472, label %for.body2456
 
 for.body2456:                                     ; preds = %if.end2442, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891
-  %total.1422343 = phi i64 [ %add2468, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891 ], [ %total.139, %if.end2442 ]
-  %__begin32447.sroa.0.02342 = phi ptr [ %incdec.ptr.i1936, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891 ], [ %330, %if.end2442 ]
+  %total.1422351 = phi i64 [ %add2468, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891 ], [ %total.139, %if.end2442 ]
+  %__begin32447.sroa.0.02350 = phi ptr [ %incdec.ptr.i1936, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891 ], [ %330, %if.end2442 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2460, i8 0, i64 24, i1 false)
-  %call2464 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9FieldMaskEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %__begin32447.sroa.0.02342, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2460)
+  %call2464 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9FieldMaskEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %__begin32447.sroa.0.02350, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2460)
           to label %invoke.cont2463 unwind label %lpad2462
 
 invoke.cont2463:                                  ; preds = %for.body2456
@@ -5021,10 +5010,10 @@ do.body.i2887:                                    ; preds = %do.body.i2887.prehe
   br i1 %cmp.i2890.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891, label %do.body.i2887, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2891: ; preds = %do.body.i2887
-  %add2466 = add i64 %total.1422343, 3
+  %add2466 = add i64 %total.1422351, 3
   %add2467 = add i64 %add2466, %call2464
   %add2468 = add i64 %add2467, %ret.i2886.0
-  %incdec.ptr.i1936 = getelementptr inbounds nuw i8, ptr %__begin32447.sroa.0.02342, i64 24
+  %incdec.ptr.i1936 = getelementptr inbounds nuw i8, ptr %__begin32447.sroa.0.02350, i64 24
   %cmp.i1932 = icmp eq ptr %incdec.ptr.i1936, %331
   br i1 %cmp.i1932, label %if.end2472, label %for.body2456
 
@@ -5045,10 +5034,10 @@ if.end2472:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1941, label %if.end2502, label %for.body2486
 
 for.body2486:                                     ; preds = %if.end2472, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884
-  %total.1442345 = phi i64 [ %add2498, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884 ], [ %total.141, %if.end2472 ]
-  %__begin32477.sroa.0.02344 = phi ptr [ %incdec.ptr.i1947, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884 ], [ %335, %if.end2472 ]
+  %total.1442353 = phi i64 [ %add2498, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884 ], [ %total.141, %if.end2472 ]
+  %__begin32477.sroa.0.02352 = phi ptr [ %incdec.ptr.i1947, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884 ], [ %335, %if.end2472 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2490, i8 0, i64 24, i1 false)
-  %call2494 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6StructEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(48) %__begin32477.sroa.0.02344, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2490)
+  %call2494 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf6StructEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(48) %__begin32477.sroa.0.02352, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2490)
           to label %invoke.cont2493 unwind label %lpad2492
 
 invoke.cont2493:                                  ; preds = %for.body2486
@@ -5072,10 +5061,10 @@ do.body.i2880:                                    ; preds = %do.body.i2880.prehe
   br i1 %cmp.i2883.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884, label %do.body.i2880, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2884: ; preds = %do.body.i2880
-  %add2496 = add i64 %total.1442345, 3
+  %add2496 = add i64 %total.1442353, 3
   %add2497 = add i64 %add2496, %call2494
   %add2498 = add i64 %add2497, %ret.i2879.0
-  %incdec.ptr.i1947 = getelementptr inbounds nuw i8, ptr %__begin32477.sroa.0.02344, i64 48
+  %incdec.ptr.i1947 = getelementptr inbounds nuw i8, ptr %__begin32477.sroa.0.02352, i64 48
   %cmp.i1943 = icmp eq ptr %incdec.ptr.i1947, %336
   br i1 %cmp.i1943, label %if.end2502, label %for.body2486
 
@@ -5096,10 +5085,10 @@ if.end2502:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1952, label %if.end2532, label %for.body2516
 
 for.body2516:                                     ; preds = %if.end2502, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877
-  %total.1462347 = phi i64 [ %add2528, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877 ], [ %total.143, %if.end2502 ]
-  %__begin32507.sroa.0.02346 = phi ptr [ %incdec.ptr.i1958, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877 ], [ %340, %if.end2502 ]
+  %total.1462355 = phi i64 [ %add2528, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877 ], [ %total.143, %if.end2502 ]
+  %__begin32507.sroa.0.02354 = phi ptr [ %incdec.ptr.i1958, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877 ], [ %340, %if.end2502 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2520, i8 0, i64 24, i1 false)
-  %call2524 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf3AnyEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(64) %__begin32507.sroa.0.02346, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2520)
+  %call2524 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf3AnyEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(64) %__begin32507.sroa.0.02354, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2520)
           to label %invoke.cont2523 unwind label %lpad2522
 
 invoke.cont2523:                                  ; preds = %for.body2516
@@ -5123,10 +5112,10 @@ do.body.i2873:                                    ; preds = %do.body.i2873.prehe
   br i1 %cmp.i2876.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877, label %do.body.i2873, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2877: ; preds = %do.body.i2873
-  %add2526 = add i64 %total.1462347, 3
+  %add2526 = add i64 %total.1462355, 3
   %add2527 = add i64 %add2526, %call2524
   %add2528 = add i64 %add2527, %ret.i2872.0
-  %incdec.ptr.i1958 = getelementptr inbounds nuw i8, ptr %__begin32507.sroa.0.02346, i64 64
+  %incdec.ptr.i1958 = getelementptr inbounds nuw i8, ptr %__begin32507.sroa.0.02354, i64 64
   %cmp.i1954 = icmp eq ptr %incdec.ptr.i1958, %341
   br i1 %cmp.i1954, label %if.end2532, label %for.body2516
 
@@ -5147,10 +5136,10 @@ if.end2532:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1963, label %if.end2562, label %for.body2546
 
 for.body2546:                                     ; preds = %if.end2532, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870
-  %total.1482349 = phi i64 [ %add2558, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870 ], [ %total.145, %if.end2532 ]
-  %__begin32537.sroa.0.02348 = phi ptr [ %incdec.ptr.i1969, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870 ], [ %345, %if.end2532 ]
+  %total.1482357 = phi i64 [ %add2558, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870 ], [ %total.145, %if.end2532 ]
+  %__begin32537.sroa.0.02356 = phi ptr [ %incdec.ptr.i1969, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870 ], [ %345, %if.end2532 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2550, i8 0, i64 24, i1 false)
-  %call2554 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf5ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin32537.sroa.0.02348, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2550)
+  %call2554 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf5ValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(40) %__begin32537.sroa.0.02356, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2550)
           to label %invoke.cont2553 unwind label %lpad2552
 
 invoke.cont2553:                                  ; preds = %for.body2546
@@ -5174,10 +5163,10 @@ do.body.i2866:                                    ; preds = %do.body.i2866.prehe
   br i1 %cmp.i2869.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870, label %do.body.i2866, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2870: ; preds = %do.body.i2866
-  %add2556 = add i64 %total.1482349, 3
+  %add2556 = add i64 %total.1482357, 3
   %add2557 = add i64 %add2556, %call2554
   %add2558 = add i64 %add2557, %ret.i2865.0
-  %incdec.ptr.i1969 = getelementptr inbounds nuw i8, ptr %__begin32537.sroa.0.02348, i64 40
+  %incdec.ptr.i1969 = getelementptr inbounds nuw i8, ptr %__begin32537.sroa.0.02356, i64 40
   %cmp.i1965 = icmp eq ptr %incdec.ptr.i1969, %346
   br i1 %cmp.i1965, label %if.end2562, label %for.body2546
 
@@ -5198,10 +5187,10 @@ if.end2562:                                       ; preds = %_ZN9struct_pb8inter
   br i1 %cmp.i.i1974, label %if.end2592, label %for.body2576
 
 for.body2576:                                     ; preds = %if.end2562, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863
-  %total.1502351 = phi i64 [ %add2588, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863 ], [ %total.147, %if.end2562 ]
-  %__begin32567.sroa.0.02350 = phi ptr [ %incdec.ptr.i1980, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863 ], [ %350, %if.end2562 ]
+  %total.1502359 = phi i64 [ %add2588, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863 ], [ %total.147, %if.end2562 ]
+  %__begin32567.sroa.0.02358 = phi ptr [ %incdec.ptr.i1980, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863 ], [ %350, %if.end2562 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2580, i8 0, i64 24, i1 false)
-  %call2584 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9ListValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %__begin32567.sroa.0.02350, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2580)
+  %call2584 = invoke noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN6google8protobuf9ListValueEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(24) %__begin32567.sroa.0.02358, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2580)
           to label %invoke.cont2583 unwind label %lpad2582
 
 invoke.cont2583:                                  ; preds = %for.body2576
@@ -5225,10 +5214,10 @@ do.body.i2859:                                    ; preds = %do.body.i2859.prehe
   br i1 %cmp.i2862.not, label %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863, label %do.body.i2859, !llvm.loop !5
 
 _ZN9struct_pb8internal21calculate_varint_sizeEm.exit2863: ; preds = %do.body.i2859
-  %add2586 = add i64 %total.1502351, 3
+  %add2586 = add i64 %total.1502359, 3
   %add2587 = add i64 %add2586, %call2584
   %add2588 = add i64 %add2587, %ret.i2858.0
-  %incdec.ptr.i1980 = getelementptr inbounds nuw i8, ptr %__begin32567.sroa.0.02350, i64 24
+  %incdec.ptr.i1980 = getelementptr inbounds nuw i8, ptr %__begin32567.sroa.0.02358, i64 24
   %cmp.i1976 = icmp eq ptr %incdec.ptr.i1980, %351
   br i1 %cmp.i1976, label %if.end2592, label %for.body2576
 
@@ -8543,7 +8532,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7824: ; preds = %while.body.
   %inc2.i7816 = add i64 %pos.137.lcssa, 1
   %arrayidx3.i7817 = getelementptr inbounds i8, ptr %data, i64 %pos.137.lcssa
   store i8 %conv1.i7815, ptr %arrayidx3.i7817, align 1
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.06597) #20
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.06597) #20
   %cmp.i3883 = icmp eq ptr %call.i, %add.ptr.i.i3882
   br i1 %cmp.i3883, label %for.end800, label %for.body783
 
@@ -8665,7 +8654,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7728: ; preds = %while.body.
   %inc2.i7720 = add i64 %pos.142.lcssa, 1
   %arrayidx3.i7721 = getelementptr inbounds i8, ptr %data, i64 %pos.142.lcssa
   store i8 %conv1.i7719, ptr %arrayidx3.i7721, align 1
-  %call.i3888 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2802.sroa.0.06624) #20
+  %call.i3888 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2802.sroa.0.06624) #20
   %cmp.i3886 = icmp eq ptr %call.i3888, %add.ptr.i.i3885
   br i1 %cmp.i3886, label %for.end827, label %for.body811
 
@@ -8791,7 +8780,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7632: ; preds = %while.body.
   %inc2.i7624 = add i64 %pos.147.lcssa, 1
   %arrayidx3.i7625 = getelementptr inbounds i8, ptr %data, i64 %pos.147.lcssa
   store i8 %conv1.i7623, ptr %arrayidx3.i7625, align 1
-  %call.i3893 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2829.sroa.0.06651) #20
+  %call.i3893 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2829.sroa.0.06651) #20
   %cmp.i3891 = icmp eq ptr %call.i3893, %add.ptr.i.i3890
   br i1 %cmp.i3891, label %for.end858, label %for.body838
 
@@ -8913,7 +8902,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7536: ; preds = %while.body.
   %inc2.i7528 = add i64 %pos.152.lcssa, 1
   %arrayidx3.i7529 = getelementptr inbounds i8, ptr %data, i64 %pos.152.lcssa
   store i8 %conv1.i7527, ptr %arrayidx3.i7529, align 1
-  %call.i3898 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2860.sroa.0.06678) #20
+  %call.i3898 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2860.sroa.0.06678) #20
   %cmp.i3896 = icmp eq ptr %call.i3898, %add.ptr.i.i3895
   br i1 %cmp.i3896, label %for.end885, label %for.body869
 
@@ -9051,7 +9040,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7440: ; preds = %while.body.
   %inc2.i7432 = add i64 %pos.157.lcssa, 1
   %arrayidx3.i7433 = getelementptr inbounds i8, ptr %data, i64 %pos.157.lcssa
   store i8 %conv1.i7431, ptr %arrayidx3.i7433, align 1
-  %call.i3903 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2887.sroa.0.06705) #20
+  %call.i3903 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2887.sroa.0.06705) #20
   %cmp.i3901 = icmp eq ptr %call.i3903, %add.ptr.i.i3900
   br i1 %cmp.i3901, label %for.end920, label %for.body896
 
@@ -9185,7 +9174,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7344: ; preds = %while.body.
   %inc2.i7336 = add i64 %pos.162.lcssa, 1
   %arrayidx3.i7337 = getelementptr inbounds i8, ptr %data, i64 %pos.162.lcssa
   store i8 %conv1.i7335, ptr %arrayidx3.i7337, align 1
-  %call.i3908 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin2922.sroa.0.06732) #20
+  %call.i3908 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2922.sroa.0.06732) #20
   %cmp.i3906 = icmp eq ptr %call.i3908, %add.ptr.i.i3905
   br i1 %cmp.i3906, label %for.end951, label %for.body931
 
@@ -9421,7 +9410,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit7024: ; preds = %while.body.
   %339 = load i32, ptr %second1075, align 4
   store i32 %339, ptr %gep6818, align 1
   %add1076 = add i64 %pos.174.lcssa, 6
-  %call.i3934 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21053.sroa.0.06820) #20
+  %call.i3934 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21053.sroa.0.06820) #20
   %cmp.i3932 = icmp eq ptr %call.i3934, %add.ptr.i.i3931
   br i1 %cmp.i3932, label %for.end1079, label %for.body1062
 
@@ -9512,7 +9501,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6944: ; preds = %while.body.
   %346 = load i64, ptr %second1103, align 8
   store i64 %346, ptr %gep6842, align 1
   %add1104 = add i64 %pos.178.lcssa, 10
-  %call.i3939 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21081.sroa.0.06844) #20
+  %call.i3939 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21081.sroa.0.06844) #20
   %cmp.i3937 = icmp eq ptr %call.i3939, %add.ptr.i.i3936
   br i1 %cmp.i3937, label %for.end1107, label %for.body1090
 
@@ -9691,7 +9680,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6736: ; preds = %while.body.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr1185, ptr align 1 %362, i64 %363, i1 false)
   %364 = load i64, ptr %_M_string_length.i3952, align 8
   %add1192 = add i64 %364, %inc2.i6728
-  %call.i3960 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21144.sroa.0.06887) #20
+  %call.i3960 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21144.sroa.0.06887) #20
   %cmp.i3948 = icmp eq ptr %call.i3960, %add.ptr.i.i3947
   br i1 %cmp.i3948, label %for.end1195, label %for.body1153
 
@@ -9831,7 +9820,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6640: ; preds = %while.body.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr1238, ptr align 1 %377, i64 %378, i1 false)
   %379 = load i64, ptr %_M_string_length.i3967, align 8
   %add1245 = add i64 %379, %inc2.i6632
-  %call.i3975 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21197.sroa.0.06914) #20
+  %call.i3975 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21197.sroa.0.06914) #20
   %cmp.i3963 = icmp eq ptr %call.i3975, %add.ptr.i.i3962
   br i1 %cmp.i3963, label %for.end1248, label %for.body1206
 
@@ -10275,7 +10264,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i4162: ; preds = %while.bod
 
 _ZN9struct_pb13UnknownFieldsD2Ev.exit4191:        ; preds = %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6448, %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit.i4162
   %add1365 = add i64 %inc2.i6440, %total.0.i41538126
-  %call.i4192 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21310.sroa.0.06968) #20
+  %call.i4192 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21310.sroa.0.06968) #20
   %cmp.i4093 = icmp eq ptr %call.i4192, %add.ptr.i.i4092
   br i1 %cmp.i4093, label %for.end1368, label %for.body1319
 
@@ -10409,7 +10398,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6352: ; preds = %while.body.
   %inc2.i6344 = add i64 %pos.205.in.lcssa, 2
   %arrayidx3.i6345 = getelementptr inbounds i8, ptr %data, i64 %pos.205.lcssa
   store i8 %conv1.i6343, ptr %arrayidx3.i6345, align 1
-  %call.i4211 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21370.sroa.0.06995) #20
+  %call.i4211 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21370.sroa.0.06995) #20
   %cmp.i4204 = icmp eq ptr %call.i4211, %add.ptr.i.i4203
   br i1 %cmp.i4204, label %for.end1410, label %for.body1379
 
@@ -10543,7 +10532,7 @@ _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit6256: ; preds = %while.body.
   %inc2.i6248 = add i64 %pos.210.in.lcssa, 2
   %arrayidx3.i6249 = getelementptr inbounds i8, ptr %data, i64 %pos.210.lcssa
   store i8 %conv1.i6247, ptr %arrayidx3.i6249, align 1
-  %call.i4222 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin21412.sroa.0.07022) #20
+  %call.i4222 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin21412.sroa.0.07022) #20
   %cmp.i4215 = icmp eq ptr %call.i4222, %add.ptr.i.i4213
   br i1 %cmp.i4215, label %for.end1452, label %for.body1421
 
@@ -79315,18 +79304,18 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #20
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  %.pre111 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
-  %.pre112 = load i8, ptr %__k, align 1
-  %.pre113 = and i8 %.pre111, 1
-  %.pre114 = and i8 %.pre112, 1
+  %.pre = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
+  %.pre110 = load i8, ptr %__k, align 1
+  %.pre111 = and i8 %.pre, 1
+  %.pre112 = and i8 %.pre110, 1
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %.pre-phi115 = phi i8 [ %.pre114, %if.else.i ], [ %7, %while.end.i ]
-  %.pre-phi = phi i8 [ %.pre113, %if.else.i ], [ %9, %while.end.i ]
+  %.pre-phi113 = phi i8 [ %.pre112, %if.else.i ], [ %7, %while.end.i ]
+  %.pre-phi = phi i8 [ %.pre111, %if.else.i ], [ %9, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi115
+  %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi113
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
   %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
   br label %return
@@ -79365,7 +79354,7 @@ while.body.i26:                                   ; preds = %if.else25, %while.b
   br i1 %cmp.not.i33, label %while.end.i34, label %while.body.i26, !llvm.loop !234
 
 while.end.i34:                                    ; preds = %while.body.i26
-  br i1 %cmp.i.i29, label %if.then.i46, label %if.end12.i35
+  br i1 %cmp.i.i29, label %if.then.i46, label %return
 
 if.then.i46:                                      ; preds = %while.end.i34, %if.else25
   %__y.0.lcssa25.i47 = phi ptr [ %__x.021.i27, %while.end.i34 ], [ %add.ptr.i, %if.else25 ]
@@ -79374,18 +79363,6 @@ if.then.i46:                                      ; preds = %while.end.i34, %if.
 
 if.else.i50:                                      ; preds = %if.then.i46
   %call.i.i51 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i47) #20
-  %_M_storage.i.i.i.i38.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i51, i64 32
-  %.pre110 = load i8, ptr %_M_storage.i.i.i.i38.phi.trans.insert, align 1
-  %.pre116 = and i8 %.pre110, 1
-  br label %if.end12.i35
-
-if.end12.i35:                                     ; preds = %if.else.i50, %while.end.i34
-  %.pre-phi117 = phi i8 [ %.pre116, %if.else.i50 ], [ %17, %while.end.i34 ]
-  %__y.0.lcssa26.i36 = phi ptr [ %__y.0.lcssa25.i47, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
-  %__j.sroa.0.0.i37 = phi ptr [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ]
-  %cmp.i5.i39 = icmp samesign ult i8 %.pre-phi117, %12
-  %spec.select.i40 = select i1 %cmp.i5.i39, ptr null, ptr %__j.sroa.0.0.i37
-  %spec.select18.i41 = select i1 %cmp.i5.i39, ptr %__y.0.lcssa26.i36, ptr null
   br label %return
 
 if.else44:                                        ; preds = %if.else12
@@ -79406,45 +79383,35 @@ if.else57:                                        ; preds = %if.then50
 
 while.body.i69:                                   ; preds = %if.else57, %while.body.i69
   %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else57 ]
-  %_M_storage.i.i.i71 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 32
-  %19 = load i8, ptr %_M_storage.i.i.i71, align 1
-  %20 = and i8 %19, 1
-  %cmp.i.i72 = icmp samesign ult i8 %12, %20
-  %cond.in.v.i73 = select i1 %cmp.i.i72, i64 16, i64 24
-  %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 %cond.in.v.i73
+  %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 24
   %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
-  br i1 %cmp.not.i76, label %while.end.i77, label %while.body.i69, !llvm.loop !234
+  br i1 %cmp.not.i76, label %if.end12.i78, label %while.body.i69, !llvm.loop !234
 
-while.end.i77:                                    ; preds = %while.body.i69
-  br i1 %cmp.i.i72, label %if.then.i89, label %if.end12.i78
-
-if.then.i89:                                      ; preds = %while.end.i77, %if.else57
-  %__y.0.lcssa25.i90 = phi ptr [ %__x.021.i70, %while.end.i77 ], [ %add.ptr.i, %if.else57 ]
+if.then.i89:                                      ; preds = %if.else57
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %21 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %__y.0.lcssa25.i90, %21
+  %19 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %add.ptr.i, %19
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
-  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i90) #20
-  %_M_storage.i.i.i.i81.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i94, i64 32
-  %.pre = load i8, ptr %_M_storage.i.i.i.i81.phi.trans.insert, align 1
-  %.pre118 = and i8 %.pre, 1
+  %call.i.i94 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %add.ptr.i) #20
   br label %if.end12.i78
 
-if.end12.i78:                                     ; preds = %if.else.i93, %while.end.i77
-  %.pre-phi119 = phi i8 [ %.pre118, %if.else.i93 ], [ %20, %while.end.i77 ]
-  %__y.0.lcssa26.i79 = phi ptr [ %__y.0.lcssa25.i90, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
-  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.end.i77 ]
-  %cmp.i5.i82 = icmp samesign ult i8 %.pre-phi119, %12
+if.end12.i78:                                     ; preds = %while.body.i69, %if.else.i93
+  %__y.0.lcssa26.i79 = phi ptr [ %add.ptr.i, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
+  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
+  %_M_storage.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i80, i64 32
+  %20 = load i8, ptr %_M_storage.i.i.i.i81, align 1
+  %21 = and i8 %20, 1
+  %cmp.i5.i82 = icmp samesign ult i8 %21, %12
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80
   %spec.select18.i84 = select i1 %cmp.i5.i82, ptr %__y.0.lcssa26.i79, ptr null
   br label %return
 
-return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.end12.i35, %if.then.i46, %if.end12.i, %if.then.i, %if.else44, %if.then50, %if.then18, %land.lhs.true
-  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %15, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %spec.select.i40, %if.end12.i35 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %15, %if.then18 ], [ %18, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ %spec.select18.i41, %if.end12.i35 ], [ %__y.0.lcssa25.i90, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
+return:                                           ; preds = %if.end12.i78, %if.then.i89, %if.then.i46, %if.else.i50, %while.end.i34, %if.end12.i, %if.then.i, %if.else44, %if.then50, %if.then18, %land.lhs.true
+  %retval.sroa.0.0 = phi ptr [ null, %land.lhs.true ], [ %15, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %if.else44 ], [ null, %if.then.i ], [ %spec.select.i, %if.end12.i ], [ null, %if.then.i46 ], [ %call.i.i51, %if.else.i50 ], [ %__x.021.i27, %while.end.i34 ], [ null, %if.then.i89 ], [ %spec.select.i83, %if.end12.i78 ]
+  %retval.sroa.12.0 = phi ptr [ %1, %land.lhs.true ], [ %15, %if.then18 ], [ %18, %if.then50 ], [ null, %if.else44 ], [ %__y.0.lcssa25.i, %if.then.i ], [ %spec.select18.i, %if.end12.i ], [ %__y.0.lcssa25.i47, %if.then.i46 ], [ null, %if.else.i50 ], [ null, %while.end.i34 ], [ %add.ptr.i, %if.then.i89 ], [ %spec.select18.i84, %if.end12.i78 ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

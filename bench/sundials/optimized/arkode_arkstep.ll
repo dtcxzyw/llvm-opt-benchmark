@@ -2969,7 +2969,7 @@ define void @arkStep_Free(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader123 ]
   %72 = load ptr, ptr %67, align 8, !tbaa !139
   %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
-  call void @arkFreeVec(ptr noundef %0, ptr noundef %73) #13
+  call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef %73) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %69, align 4, !tbaa !140
   %75 = sext i32 %74 to i64
@@ -3008,7 +3008,7 @@ define void @arkStep_Free(ptr noundef %0) #0 {
   %indvars.iv134 = phi i64 [ %indvars.iv.next135, %.lr.ph128 ], [ 0, %.preheader122 ]
   %89 = load ptr, ptr %84, align 8, !tbaa !142
   %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv134
-  call void @arkFreeVec(ptr noundef %0, ptr noundef %90) #13
+  call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef %90) #13
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %91 = load i32, ptr %86, align 4, !tbaa !140
   %92 = sext i32 %91 to i64
@@ -3047,7 +3047,7 @@ define void @arkStep_Free(ptr noundef %0) #0 {
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph131 ], [ 0, %.preheader ]
   %106 = load ptr, ptr %101, align 8, !tbaa !143
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv137
-  call void @arkFreeVec(ptr noundef %0, ptr noundef %107) #13
+  call void @arkFreeVec(ptr noundef nonnull %0, ptr noundef %107) #13
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %108 = load i32, ptr %103, align 4, !tbaa !140
   %109 = sext i32 %108 to i64
@@ -4413,7 +4413,7 @@ define i32 @arkStep_Predict(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 87:                                               ; preds = %78, %75
   %.1127 = phi i32 [ %86, %78 ], [ %.0126, %75 ]
-  %88 = tail call i32 @arkPredict_Bootstrap(ptr noundef %0, double noundef %67, double noundef %37, i32 noundef %.1127, ptr noundef %19, ptr noundef %21, ptr noundef %2) #13
+  %88 = tail call i32 @arkPredict_Bootstrap(ptr noundef nonnull %0, double noundef %67, double noundef %37, i32 noundef %.1127, ptr noundef %19, ptr noundef %21, ptr noundef %2) #13
   %.not144 = icmp eq i32 %88, -22
   br i1 %.not144, label %._crit_edge.thread, label %138
 

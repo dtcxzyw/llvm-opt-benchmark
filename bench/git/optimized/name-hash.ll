@@ -253,7 +253,7 @@ lazy_update_dir_ref_counts.exit.i:                ; preds = %85, %76
 threaded_lazy_init_name_hash.exit:                ; preds = %.preheader.i
   %97 = load ptr, ptr @lazy_dir_mutex_array, align 8, !tbaa !27
   tail call void @free(ptr noundef %97) #14
-  tail call void @free(ptr noundef %37) #14
+  tail call void @free(ptr noundef nonnull %37) #14
   tail call void @free(ptr noundef %36) #14
   tail call void @free(ptr noundef %33) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #14

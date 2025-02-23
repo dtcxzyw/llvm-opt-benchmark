@@ -2029,18 +2029,18 @@ while.body.i267.i:                                ; preds = %for.body185.i, %whi
   %tobool.i.i = icmp samesign uge i64 %a.addr.016.i.i, %conv.i354.i
   %cmp.i269.i = icmp ult i64 %add.i268.i, %sub.i.i
   %139 = select i1 %tobool.i.i, i1 %cmp.i269.i, i1 false
-  br i1 %139, label %while.body.i267.i, label %_ZN4pbrt14RadicalInverseEim.exit.i, !llvm.loop !55
+  br i1 %139, label %while.body.i267.i, label %while.body.i278.preheader.i, !llvm.loop !55
 
-_ZN4pbrt14RadicalInverseEim.exit.i:               ; preds = %while.body.i267.i
+while.body.i278.preheader.i:                      ; preds = %while.body.i267.i
   %140 = uitofp i64 %add.i268.i to float
   %141 = fmul float %mul10.i.i, %140
   %cmp.i.i270.i = fcmp ogt float %141, 0x3FEFFFFFE0000000
   br label %while.body.i278.i
 
-while.body.i278.i:                                ; preds = %while.body.i278.i, %_ZN4pbrt14RadicalInverseEim.exit.i
-  %a.addr.016.i279.i = phi i64 [ %div5.i282.i, %while.body.i278.i ], [ %indvars.iv1033.i, %_ZN4pbrt14RadicalInverseEim.exit.i ]
-  %invBaseM.015.i280.i = phi float [ %mul10.i286.i, %while.body.i278.i ], [ 1.000000e+00, %_ZN4pbrt14RadicalInverseEim.exit.i ]
-  %reversedDigits.014.i281.i = phi i64 [ %add.i285.i, %while.body.i278.i ], [ 0, %_ZN4pbrt14RadicalInverseEim.exit.i ]
+while.body.i278.i:                                ; preds = %while.body.i278.i, %while.body.i278.preheader.i
+  %a.addr.016.i279.i = phi i64 [ %div5.i282.i, %while.body.i278.i ], [ %indvars.iv1033.i, %while.body.i278.preheader.i ]
+  %invBaseM.015.i280.i = phi float [ %mul10.i286.i, %while.body.i278.i ], [ 1.000000e+00, %while.body.i278.preheader.i ]
+  %reversedDigits.014.i281.i = phi i64 [ %add.i285.i, %while.body.i278.i ], [ 0, %while.body.i278.preheader.i ]
   %div5.i282.i = udiv i64 %a.addr.016.i279.i, %conv.i370.i
   %reass.add.i283.i = sub i64 %reversedDigits.014.i281.i, %div5.i282.i
   %reass.mul.i284.i = mul i64 %reass.add.i283.i, %conv.i370.i
@@ -5926,7 +5926,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
+  %cmp.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %5
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !115
 
 for.end.i:                                        ; preds = %for.body.i, %entry

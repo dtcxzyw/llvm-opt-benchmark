@@ -628,7 +628,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
   br i1 %155, label %.preheader.i93, label %176
 
 .preheader.i93:                                   ; preds = %145
-  br i1 %109, label %.lr.ph.i98, label %._crit_edge.i95
+  br i1 %109, label %.lr.ph.i98, label %_ZNK3net14StrikeRegister9BestMatchEPKh.exit101
 
 .lr.ph.i98:                                       ; preds = %.preheader.i93, %.lr.ph.i98
   %.01013.i99 = phi i32 [ %.010.i100, %.lr.ph.i98 ], [ %.01012.i, %.preheader.i93 ]
@@ -650,17 +650,17 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
   %171 = load i32, ptr %170, align 4, !tbaa !3
   %.010.i100 = lshr i32 %171, 8
   %172 = icmp sgt i32 %171, -1
-  br i1 %172, label %.lr.ph.i98, label %._crit_edge.i95, !llvm.loop !33
+  br i1 %172, label %.lr.ph.i98, label %_ZNK3net14StrikeRegister9BestMatchEPKh.exit101, !llvm.loop !33
 
-._crit_edge.i95:                                  ; preds = %.lr.ph.i98, %.preheader.i93
+_ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.preheader.i93
   %.010.lcssa.i96 = phi i32 [ %.01012.i, %.preheader.i93 ], [ %.010.i100, %.lr.ph.i98 ]
   %173 = and i32 %.010.lcssa.i96, 8388607
   %174 = mul nuw nsw i32 %173, 24
   %175 = zext nneg i32 %174 to i64
   br label %176
 
-176:                                              ; preds = %._crit_edge.i95, %145
-  %177 = phi i64 [ %175, %._crit_edge.i95 ], [ %133, %145 ]
+176:                                              ; preds = %_ZNK3net14StrikeRegister9BestMatchEPKh.exit101, %145
+  %177 = phi i64 [ %175, %_ZNK3net14StrikeRegister9BestMatchEPKh.exit101 ], [ %133, %145 ]
   %178 = getelementptr inbounds nuw i8, ptr %134, i64 %177
   br label %179
 

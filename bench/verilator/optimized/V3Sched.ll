@@ -15464,7 +15464,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI9AstActiveZZN7V3Sched12_
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i.i = load i16, ptr %3, align 8
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i, 0
-  br i1 %4, label %5, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4
+  br i1 %4, label %5, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -15508,7 +15508,7 @@ define internal fastcc void @"_ZZN7AstNode11foreachImplI9AstActiveZZN7V3Sched12_
   %29 = load ptr, ptr %22, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %30, ptr %22, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 31:                                               ; preds = %18
   %32 = load ptr, ptr %19, align 8
@@ -15565,7 +15565,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %50, ptr %22, align 8
   %52 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %44, i64 %42
   store ptr %52, ptr %24, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 53:                                               ; preds = %5
   %54 = tail call noundef zeroext i1 @_ZNK10AstSenTree10hasInitialEv(ptr noundef nonnull align 8 dereferenceable(160) %7)
@@ -15606,7 +15606,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   %76 = load ptr, ptr %69, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   store ptr %77, ptr %69, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 78:                                               ; preds = %64
   %79 = load ptr, ptr %66, align 8
@@ -15663,7 +15663,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %97, ptr %69, align 8
   %99 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %91, i64 %89
   store ptr %99, ptr %71, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 100:                                              ; preds = %53
   %101 = tail call noundef zeroext i1 @_ZNK10AstSenTree8hasFinalEv(ptr noundef nonnull align 8 dereferenceable(160) %7)
@@ -15704,7 +15704,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   %123 = load ptr, ptr %116, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   store ptr %124, ptr %116, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 125:                                              ; preds = %111
   %126 = load ptr, ptr %113, align 8
@@ -15761,7 +15761,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %144, ptr %116, align 8
   %146 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %138, i64 %136
   store ptr %146, ptr %118, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 147:                                              ; preds = %100
   %148 = tail call noundef zeroext i1 @_ZNK10AstSenTree8hasComboEv(ptr noundef nonnull align 8 dereferenceable(160) %7)
@@ -15814,7 +15814,7 @@ _ZN7AstNode9privateIsI18AstAlwaysPostponedPS_EEbPKS_.exit.i: ; preds = %158
   %175 = load ptr, ptr %168, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   store ptr %176, ptr %168, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 177:                                              ; preds = %163
   %178 = load ptr, ptr %165, align 8
@@ -15871,7 +15871,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %196, ptr %168, align 8
   %198 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %190, i64 %188
   store ptr %198, ptr %170, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 _ZN7AstNode9privateIsI18AstAlwaysPostponedPS_EEbPKS_.exit.thread.i: ; preds = %_ZN7AstNode9privateIsI18AstAlwaysPostponedPS_EEbPKS_.exit.i, %158
   %199 = load ptr, ptr %.0.val, align 8
@@ -15893,7 +15893,7 @@ _ZN7AstNode9privateIsI18AstAlwaysPostponedPS_EEbPKS_.exit.thread.i: ; preds = %_
   %210 = load ptr, ptr %203, align 8
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   store ptr %211, ptr %203, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 212:                                              ; preds = %_ZN7AstNode9privateIsI18AstAlwaysPostponedPS_EEbPKS_.exit.thread.i
   %213 = load ptr, ptr %200, align 8
@@ -15950,7 +15950,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %231, ptr %203, align 8
   %233 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %225, i64 %223
   store ptr %233, ptr %205, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 234:                                              ; preds = %147
   %235 = tail call noundef zeroext i1 @_ZNK10AstSenTree10hasClockedEv(ptr noundef nonnull align 8 dereferenceable(160) %7)
@@ -15998,7 +15998,7 @@ _ZN7AstNode9privateIsI17AstAlwaysObservedPS_EEbPKS_.exit.i: ; preds = %240
   %257 = load ptr, ptr %249, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   store ptr %258, ptr %249, align 8
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 259:                                              ; preds = %244
   %260 = load ptr, ptr %246, align 8
@@ -16055,7 +16055,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   store ptr %278, ptr %249, align 8
   %280 = getelementptr inbounds nuw %"struct.std::pair.207", ptr %272, i64 %270
   store ptr %280, ptr %251, align 8
-  br label %292
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 281:                                              ; preds = %_ZN7AstNode9privateIsI17AstAlwaysObservedPS_EEbPKS_.exit.i
   %282 = load ptr, ptr %.0.val, align 8
@@ -16063,7 +16063,7 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_
   %284 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %285 = load ptr, ptr %284, align 8
   %286 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_RS4_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %283, ptr noundef nonnull align 8 dereferenceable(8) %285, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %.thread2
+  br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
 _ZN7AstNode9privateIsI17AstAlwaysReactivePS_EEbPKS_.exit.thread.i: ; preds = %_ZN7AstNode9privateIsI17AstAlwaysObservedPS_EEbPKS_.exit.i, %240
   %287 = load ptr, ptr %.0.val, align 8
@@ -16071,75 +16071,67 @@ _ZN7AstNode9privateIsI17AstAlwaysReactivePS_EEbPKS_.exit.thread.i: ; preds = %_Z
   %289 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %290 = load ptr, ptr %289, align 8
   %291 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_RS4_EEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %288, ptr noundef nonnull align 8 dereferenceable(8) %290, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %.thread2
-
-.thread2:                                         ; preds = %_ZN7AstNode9privateIsI17AstAlwaysReactivePS_EEbPKS_.exit.thread.i, %281, %253, %207, %172, %120, %73, %26
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   br label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
 
-292:                                              ; preds = %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i84.i, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i68.i, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i54.i, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i39.i, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i25.i, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i
+_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit:   ; preds = %_ZN7AstNode9privateIsI17AstAlwaysReactivePS_EEbPKS_.exit.thread.i, %281, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i84.i, %253, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i68.i, %207, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i54.i, %172, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i39.i, %120, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i25.i, %73, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE17_M_realloc_insertIJRS2_RS4_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  %.not.i.i22 = icmp eq ptr %0, null
-  br i1 %.not.i.i22, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
-
-_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit:   ; preds = %292, %.thread2
   %.sroa.0.0.copyload.i.i.i.i23.pr = load i16, ptr %3, align 8
-  %.not6 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i23.pr, 0
-  br i1 %.not6, label %316, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4
+  %.not2 = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i23.pr, 0
+  br i1 %.not2, label %315, label %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread
 
-_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4: ; preds = %292, %1, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %294 = load ptr, ptr %293, align 8
-  %.not = icmp eq ptr %294, null
-  br i1 %.not, label %298, label %295
+_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread: ; preds = %1, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %293 = load ptr, ptr %292, align 8
+  %.not = icmp eq ptr %293, null
+  br i1 %.not, label %297, label %294
 
-295:                                              ; preds = %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4
-  %296 = load ptr, ptr %.8.val, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %296, i64 8
-  store ptr %297, ptr %.8.val, align 8
-  store ptr %294, ptr %296, align 8
-  br label %298
+294:                                              ; preds = %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread
+  %295 = load ptr, ptr %.8.val, align 8
+  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
+  store ptr %296, ptr %.8.val, align 8
+  store ptr %293, ptr %295, align 8
+  br label %297
 
-298:                                              ; preds = %295, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread4
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %300 = load ptr, ptr %299, align 8
-  %.not19 = icmp eq ptr %300, null
-  br i1 %.not19, label %304, label %301
+297:                                              ; preds = %294, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit.thread
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %299 = load ptr, ptr %298, align 8
+  %.not19 = icmp eq ptr %299, null
+  br i1 %.not19, label %303, label %300
 
-301:                                              ; preds = %298
-  %302 = load ptr, ptr %.8.val, align 8
-  %303 = getelementptr inbounds nuw i8, ptr %302, i64 8
-  store ptr %303, ptr %.8.val, align 8
-  store ptr %300, ptr %302, align 8
-  br label %304
+300:                                              ; preds = %297
+  %301 = load ptr, ptr %.8.val, align 8
+  %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  store ptr %302, ptr %.8.val, align 8
+  store ptr %299, ptr %301, align 8
+  br label %303
 
-304:                                              ; preds = %301, %298
-  %305 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %306 = load ptr, ptr %305, align 8
-  %.not20 = icmp eq ptr %306, null
-  br i1 %.not20, label %310, label %307
+303:                                              ; preds = %300, %297
+  %304 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %305 = load ptr, ptr %304, align 8
+  %.not20 = icmp eq ptr %305, null
+  br i1 %.not20, label %309, label %306
 
-307:                                              ; preds = %304
-  %308 = load ptr, ptr %.8.val, align 8
-  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
-  store ptr %309, ptr %.8.val, align 8
-  store ptr %306, ptr %308, align 8
-  br label %310
+306:                                              ; preds = %303
+  %307 = load ptr, ptr %.8.val, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
+  store ptr %308, ptr %.8.val, align 8
+  store ptr %305, ptr %307, align 8
+  br label %309
 
-310:                                              ; preds = %307, %304
-  %311 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %312 = load ptr, ptr %311, align 8
-  %.not21 = icmp eq ptr %312, null
-  br i1 %.not21, label %316, label %313
+309:                                              ; preds = %306, %303
+  %310 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %311 = load ptr, ptr %310, align 8
+  %.not21 = icmp eq ptr %311, null
+  br i1 %.not21, label %315, label %312
 
-313:                                              ; preds = %310
-  %314 = load ptr, ptr %.8.val, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
-  store ptr %315, ptr %.8.val, align 8
-  store ptr %312, ptr %314, align 8
-  br label %316
+312:                                              ; preds = %309
+  %313 = load ptr, ptr %.8.val, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  store ptr %314, ptr %.8.val, align 8
+  store ptr %311, ptr %313, align 8
+  br label %315
 
-316:                                              ; preds = %310, %313, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
+315:                                              ; preds = %309, %312, %_ZN7AstNode10mayBeUnderI9AstActiveEEbPKS_.exit
   ret void
 }
 
@@ -16990,13 +16982,13 @@ _ZN12VNUser2InUseC2Ev.exit:                       ; preds = %2
   br i1 %.not.i, label %57, label %45
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i69, i64 64
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %46, align 8
   %.not6.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 2
   br i1 %.not6.i, label %57, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i69, i64 64
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %49 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.56, i32 noundef 2428, i1 noundef zeroext true)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 

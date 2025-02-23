@@ -1422,7 +1422,7 @@ _ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_E
   %337 = load i32, ptr %317, align 4, !tbaa !22
   %338 = shl i32 %337, 1
   store i32 %338, ptr %317, align 4, !tbaa !22
-  %339 = icmp slt i32 %332, 84
+  %339 = icmp samesign ult i32 %332, 84
   br i1 %339, label %347, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit284
 
 340:                                              ; preds = %340, %.lr.ph.i
@@ -1538,7 +1538,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %390 = getelementptr inbounds nuw [84 x i32], ptr %318, i64 0, i64 %indvars.iv.i293
   store i32 %389, ptr %390, align 4, !tbaa !22
   %indvars.iv.next.i294 = add nsw i64 %indvars.iv.i293, -1
-  %391 = icmp sgt i64 %indvars.iv.next.i294, %377
+  %391 = icmp samesign ugt i64 %indvars.iv.next.i294, %377
   br i1 %391, label %382, label %._crit_edge.i289, !llvm.loop !77
 
 392:                                              ; preds = %._crit_edge.i289
@@ -2025,7 +2025,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit343: ; preds = %_Z
   %556 = getelementptr inbounds nuw [84 x i32], ptr %506, i64 0, i64 %indvars.iv.i352
   store i32 %555, ptr %556, align 4, !tbaa !22
   %indvars.iv.next.i353 = add nsw i64 %indvars.iv.i352, -1
-  %557 = icmp sgt i64 %indvars.iv.next.i353, %543
+  %557 = icmp samesign ugt i64 %indvars.iv.next.i353, %543
   br i1 %557, label %548, label %._crit_edge.i346, !llvm.loop !77
 
 558:                                              ; preds = %._crit_edge.i346
@@ -2583,7 +2583,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i434: ; preds = 
   %755 = getelementptr inbounds nuw [84 x i32], ptr %515, i64 0, i64 %indvars.iv.i424
   store i32 %754, ptr %755, align 4, !tbaa !22
   %indvars.iv.next.i425 = add nsw i64 %indvars.iv.i424, -1
-  %756 = icmp sgt i64 %indvars.iv.next.i425, %742
+  %756 = icmp samesign ugt i64 %indvars.iv.next.i425, %742
   br i1 %756, label %747, label %._crit_edge.i418, !llvm.loop !77
 
 757:                                              ; preds = %._crit_edge.i418
@@ -2599,7 +2599,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i434: ; preds = 
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i419
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i419:  ; preds = %761, %757, %._crit_edge.i418, %736, %732
-  %763 = icmp ult i32 %718, 32
+  %763 = icmp samesign ult i32 %718, 32
   br i1 %763, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit435, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i420
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i420: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i419
@@ -2860,7 +2860,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i484: ; preds = 
   %849 = getelementptr inbounds nuw [84 x i32], ptr %515, i64 0, i64 %indvars.iv.i474
   store i32 %848, ptr %849, align 4, !tbaa !22
   %indvars.iv.next.i475 = add nsw i64 %indvars.iv.i474, -1
-  %850 = icmp sgt i64 %indvars.iv.next.i475, %836
+  %850 = icmp samesign ugt i64 %indvars.iv.next.i475, %836
   br i1 %850, label %841, label %._crit_edge.i468, !llvm.loop !77
 
 851:                                              ; preds = %._crit_edge.i468
@@ -2876,7 +2876,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i484: ; preds = 
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i469
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i469:  ; preds = %855, %851, %._crit_edge.i468, %830, %826
-  %857 = icmp ult i32 %718, 32
+  %857 = icmp samesign ult i32 %718, 32
   br i1 %857, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit485, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i470
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i470: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i469
@@ -3162,7 +3162,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i534: ; preds = 
   %948 = getelementptr inbounds nuw [84 x i32], ptr %713, i64 0, i64 %indvars.iv.i524
   store i32 %947, ptr %948, align 4, !tbaa !22
   %indvars.iv.next.i525 = add nsw i64 %indvars.iv.i524, -1
-  %949 = icmp sgt i64 %indvars.iv.next.i525, %935
+  %949 = icmp samesign ugt i64 %indvars.iv.next.i525, %935
   br i1 %949, label %940, label %._crit_edge.i518, !llvm.loop !77
 
 950:                                              ; preds = %._crit_edge.i518
@@ -3178,7 +3178,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i534: ; preds = 
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i519
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i519:  ; preds = %954, %950, %._crit_edge.i518, %929, %925
-  %956 = icmp ult i32 %911, 32
+  %956 = icmp samesign ult i32 %911, 32
   br i1 %956, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit535, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i520
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i520: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i519
@@ -3439,7 +3439,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i584: ; preds = 
   %1042 = getelementptr inbounds nuw [84 x i32], ptr %715, i64 0, i64 %indvars.iv.i574
   store i32 %1041, ptr %1042, align 4, !tbaa !22
   %indvars.iv.next.i575 = add nsw i64 %indvars.iv.i574, -1
-  %1043 = icmp sgt i64 %indvars.iv.next.i575, %1029
+  %1043 = icmp samesign ugt i64 %indvars.iv.next.i575, %1029
   br i1 %1043, label %1034, label %._crit_edge.i568, !llvm.loop !77
 
 1044:                                             ; preds = %._crit_edge.i568
@@ -3455,7 +3455,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i584: ; preds = 
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i569
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i569:  ; preds = %1048, %1044, %._crit_edge.i568, %1023, %1019
-  %1050 = icmp ult i32 %911, 32
+  %1050 = icmp samesign ult i32 %911, 32
   br i1 %1050, label %_ZN4absl16strings_internal11BigUnsignedILi84EE9ShiftLeftEi.exit585, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i570
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i570: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i569
@@ -3802,7 +3802,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84
 
 ._crit_edge.i:                                    ; preds = %31
   %.not.i = icmp samesign ugt i64 %36, 4294967295
-  %30 = icmp slt i32 %27, 84
+  %30 = icmp samesign ult i32 %27, 84
   %or.cond17.i = and i1 %30, %.not.i
   br i1 %or.cond17.i, label %39, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -4094,7 +4094,7 @@ _ZN7testing8internal8EqHelper7CompareIN4absl16strings_internal11BigUnsignedILi84
 
 ._crit_edge.i:                                    ; preds = %60
   %.not.i = icmp samesign ugt i64 %65, 4294967295
-  %59 = icmp slt i32 %55, 84
+  %59 = icmp samesign ult i32 %55, 84
   %or.cond17.i = and i1 %59, %.not.i
   br i1 %or.cond17.i, label %68, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -4137,7 +4137,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %53
 
 ._crit_edge.i54:                                  ; preds = %78
   %.not.i55 = icmp samesign ugt i64 %83, 4294967295
-  %77 = icmp slt i32 %56, 84
+  %77 = icmp samesign ult i32 %56, 84
   %or.cond17.i56 = and i1 %77, %.not.i55
   br i1 %or.cond17.i56, label %86, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit57
 
@@ -4799,7 +4799,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us26.i: ; pred
 
 ._crit_edge.i.i239:                               ; preds = %326
   %.not.i.i240 = icmp ugt i64 %331, 4294967295
-  %325 = icmp slt i32 %.sink.i23.i, 84
+  %325 = icmp samesign ult i32 %.sink.i23.i, 84
   %or.cond17.i.i241 = and i1 %325, %.not.i.i240
   br i1 %or.cond17.i.i241, label %._crit_edge.thread.sink.split.i.i242, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i
 
@@ -4874,7 +4874,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i16.i: ; preds = %348
 
 ._crit_edge.i11.i:                                ; preds = %356
   %.not.i12.i = icmp ugt i64 %361, 4294967295
-  %355 = icmp slt i32 %340, 84
+  %355 = icmp samesign ult i32 %340, 84
   %or.cond17.i13.i = and i1 %355, %.not.i12.i
   br i1 %or.cond17.i13.i, label %364, label %.noexc185
 
@@ -4982,7 +4982,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i.i: ; preds = %
   %402 = getelementptr inbounds nuw [84 x i32], ptr %138, i64 0, i64 %indvars.iv.i.i
   store i32 %401, ptr %402, align 4, !tbaa !22
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %403 = icmp sgt i64 %indvars.iv.next.i.i, %389
+  %403 = icmp samesign ugt i64 %indvars.iv.next.i.i, %389
   br i1 %403, label %394, label %._crit_edge.i.i, !llvm.loop !77
 
 404:                                              ; preds = %._crit_edge.i.i
@@ -4998,7 +4998,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i.i: ; preds = %
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i:   ; preds = %408, %404, %._crit_edge.i.i, %383, %379
-  %410 = icmp ult i32 %305, 32
+  %410 = icmp samesign ult i32 %305, 32
   br i1 %410, label %_ZN4absl16strings_internal11BigUnsignedILi84EEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i
@@ -5042,7 +5042,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i10.i: ; preds = %422
 
 ._crit_edge.i8.i:                                 ; preds = %430
   %.not.i9.i = icmp ugt i64 %435, 4294967295
-  %429 = icmp slt i32 %417, 84
+  %429 = icmp samesign ult i32 %417, 84
   %or.cond17.i.i = and i1 %429, %.not.i9.i
   br i1 %or.cond17.i.i, label %438, label %_ZN4absl16strings_internal11BigUnsignedILi84EEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
@@ -5337,7 +5337,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.us26.i282: ; p
 
 ._crit_edge.i.i273:                               ; preds = %542
   %.not.i.i274 = icmp ugt i64 %547, 4294967295
-  %541 = icmp slt i32 %.sink.i23.i263, 84
+  %541 = icmp samesign ult i32 %.sink.i23.i263, 84
   %or.cond17.i.i275 = and i1 %541, %.not.i.i274
   br i1 %or.cond17.i.i275, label %._crit_edge.thread.sink.split.i.i276, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i265
 
@@ -5412,7 +5412,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i16.i257: ; preds = %564
 
 ._crit_edge.i11.i252:                             ; preds = %572
   %.not.i12.i253 = icmp ugt i64 %577, 4294967295
-  %571 = icmp slt i32 %556, 84
+  %571 = icmp samesign ult i32 %556, 84
   %or.cond17.i13.i254 = and i1 %571, %.not.i12.i253
   br i1 %or.cond17.i13.i254, label %580, label %.noexc221
 
@@ -5520,7 +5520,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i.i220: ; preds 
   %618 = getelementptr inbounds nuw [84 x i32], ptr %147, i64 0, i64 %indvars.iv.i.i210
   store i32 %617, ptr %618, align 4, !tbaa !22
   %indvars.iv.next.i.i211 = add nsw i64 %indvars.iv.i.i210, -1
-  %619 = icmp sgt i64 %indvars.iv.next.i.i211, %605
+  %619 = icmp samesign ugt i64 %indvars.iv.next.i.i211, %605
   br i1 %619, label %610, label %._crit_edge.i.i203, !llvm.loop !77
 
 620:                                              ; preds = %._crit_edge.i.i203
@@ -5536,7 +5536,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i.i220: ; preds 
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i205
 
 _ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i205: ; preds = %624, %620, %._crit_edge.i.i203, %599, %595
-  %626 = icmp ult i32 %521, 32
+  %626 = icmp samesign ult i32 %521, 32
   br i1 %626, label %_ZN4absl16strings_internal11BigUnsignedILi84EEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit125, label %_ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i206
 
 _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i206: ; preds = %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i.i205
@@ -5580,7 +5580,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i10.i198: ; preds = %638
 
 ._crit_edge.i8.i193:                              ; preds = %646
   %.not.i9.i194 = icmp ugt i64 %651, 4294967295
-  %645 = icmp slt i32 %633, 84
+  %645 = icmp samesign ult i32 %633, 84
   %or.cond17.i.i195 = and i1 %645, %.not.i9.i194
   br i1 %or.cond17.i.i195, label %654, label %_ZN4absl16strings_internal11BigUnsignedILi84EEC2ESt17basic_string_viewIcSt11char_traitsIcEE.exit125
 
@@ -6443,7 +6443,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit: ; preds = %54, %
   %79 = shl i32 %78, 18
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 %79, ptr %80, align 4, !tbaa !22
-  %81 = icmp slt i32 %69, 4
+  %81 = icmp samesign ult i32 %69, 4
   br i1 %81, label %92, label %_ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit27
 
 82:                                               ; preds = %82, %.lr.ph.i23
@@ -6810,7 +6810,7 @@ _ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_E
 
 ._crit_edge.i:                                    ; preds = %50
   %.not.i = icmp samesign ugt i64 %55, 4294967295
-  %49 = icmp slt i32 %47, 84
+  %49 = icmp samesign ult i32 %47, 84
   %or.cond17.i = and i1 %49, %.not.i
   br i1 %or.cond17.i, label %58, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 
@@ -7361,7 +7361,7 @@ _ZN4absl16strings_internaleqILi84ELi84EEEbRKNS0_11BigUnsignedIXT_EEERKNS2_IXT0_E
 
 ._crit_edge.i:                                    ; preds = %56
   %.not.i = icmp samesign ugt i64 %61, 4294967295
-  %55 = icmp slt i32 %53, 84
+  %55 = icmp samesign ult i32 %53, 84
   %or.cond17.i = and i1 %55, %.not.i
   br i1 %or.cond17.i, label %64, label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit
 

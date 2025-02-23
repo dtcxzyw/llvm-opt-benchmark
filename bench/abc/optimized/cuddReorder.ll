@@ -587,7 +587,7 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   br i1 %.not, label %34, label %32
 
 32:                                               ; preds = %28
-  %33 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef nonnull %31, ptr noundef nonnull %2)
+  %33 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef nonnull %2)
   %.not47 = icmp eq i32 %33, 0
   br i1 %.not47, label %._crit_edge.thread, label %34
 
@@ -598,7 +598,7 @@ define internal fastcc range(i32 0, 2) i32 @ddUpdateMtrTree(ptr noundef %0, ptr 
   br i1 %.not48, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef %0, ptr noundef nonnull %36, ptr noundef nonnull %2)
+  %38 = tail call fastcc i32 @ddUpdateMtrTree(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef nonnull %2)
   %.not49 = icmp eq i32 %38, 0
   br i1 %.not49, label %._crit_edge.thread, label %39
 

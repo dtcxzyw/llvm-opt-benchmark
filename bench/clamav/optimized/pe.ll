@@ -6480,7 +6480,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
 
 2633:                                             ; preds = %._crit_edge3300
   %2634 = zext i32 %spec.select2904 to i64
-  %2635 = call i32 @cli_checklimits(ptr noundef nonnull @.str.143, ptr noundef %0, i64 noundef %2634, i64 noundef 0, i64 noundef 0) #22
+  %2635 = call i32 @cli_checklimits(ptr noundef nonnull @.str.143, ptr noundef nonnull %0, i64 noundef %2634, i64 noundef 0, i64 noundef 0) #22
   %.not2756 = icmp eq i32 %2635, 0
   br i1 %.not2756, label %2637, label %2636
 
@@ -6838,7 +6838,7 @@ cli_rawaddr.exit2939:                             ; preds = %1627
 
 2800:                                             ; preds = %._crit_edge3317
   %2801 = zext i32 %spec.select2915 to i64
-  %2802 = call i32 @cli_checklimits(ptr noundef nonnull @.str.153, ptr noundef %0, i64 noundef %2801, i64 noundef 0, i64 noundef 0) #22
+  %2802 = call i32 @cli_checklimits(ptr noundef nonnull @.str.153, ptr noundef nonnull %0, i64 noundef %2801, i64 noundef 0, i64 noundef 0) #22
   %.not2778 = icmp eq i32 %2802, 0
   br i1 %.not2778, label %2804, label %2803
 

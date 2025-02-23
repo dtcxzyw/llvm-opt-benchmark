@@ -977,24 +977,17 @@ _ZN2cv24ParallelGetScaleFeaturesD2Ev.exit:        ; preds = %151, %156
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %157) #18
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %23) #18
   %.not4.i.i.i.i50 = icmp eq ptr %.pr.i55, %139
-  br i1 %.not4.i.i.i.i50, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56.thread, label %.lr.ph.i.i.i.i51
+  br i1 %.not4.i.i.i.i50, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58, label %.lr.ph.i.i.i.i51
 
 .lr.ph.i.i.i.i51:                                 ; preds = %_ZN2cv24ParallelGetScaleFeaturesD2Ev.exit, %.lr.ph.i.i.i.i51
   %.05.i.i.i.i52 = phi ptr [ %158, %.lr.ph.i.i.i.i51 ], [ %.pr.i55, %_ZN2cv24ParallelGetScaleFeaturesD2Ev.exit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i52) #18
   %158 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i52, i64 96
   %.not.i.i.i.i53 = icmp eq ptr %158, %139
-  br i1 %.not.i.i.i.i53, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56, label %.lr.ph.i.i.i.i51, !llvm.loop !6
+  br i1 %.not.i.i.i.i53, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58, label %.lr.ph.i.i.i.i51, !llvm.loop !6
 
-_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56: ; preds = %.lr.ph.i.i.i.i51
-  %.not.i.i.i57 = icmp eq ptr %.pr.i55, null
-  br i1 %.not.i.i.i57, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56.thread
-
-_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56.thread: ; preds = %_ZN2cv24ParallelGetScaleFeaturesD2Ev.exit, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56
+_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58:        ; preds = %.lr.ph.i.i.i.i51, %_ZN2cv24ParallelGetScaleFeaturesD2Ev.exit
   call void @_ZdlPv(ptr noundef nonnull %.pr.i55) #21
-  br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58
-
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit58:        ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i56.thread
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %10) #18
   ret void
 

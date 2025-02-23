@@ -1585,46 +1585,46 @@ Aig_ManObj.exit.thread:                           ; preds = %25, %Aig_ManObj.exi
 ; Function Attrs: nounwind uwtable
 define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
-  br i1 %5, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %4
-  %6 = tail call i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr noundef %1, ptr noundef %3) #20
-  br label %._crit_edge16
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %7 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16096
+  %6 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16096
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %9
+  br label %8
 
-9:                                                ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = load ptr, ptr %8, align 8, !tbaa !21
-  %11 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %10, i64 %indvars.iv
-  %12 = load ptr, ptr %11, align 8, !tbaa !35
-  %13 = ptrtoint ptr %12 to i64
-  %14 = and i64 %13, -2
-  %15 = inttoptr i64 %14 to ptr
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %17 = load i64, ptr %16, align 8
-  %18 = add i64 %17, 64
-  %19 = and i64 %18, 4294967232
-  %20 = and i64 %17, -4294967233
-  %21 = or disjoint i64 %19, %20
-  store i64 %21, ptr %16, align 8
+8:                                                ; preds = %.lr.ph, %8
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
+  %9 = load ptr, ptr %7, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %9, i64 %indvars.iv
+  %11 = load ptr, ptr %10, align 8, !tbaa !35
+  %12 = ptrtoint ptr %11 to i64
+  %13 = and i64 %12, -2
+  %14 = inttoptr i64 %13 to ptr
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load i64, ptr %15, align 8
+  %17 = add i64 %16, 64
+  %18 = and i64 %17, 4294967232
+  %19 = and i64 %16, -4294967233
+  %20 = or disjoint i64 %18, %19
+  store i64 %20, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !107
+  br i1 %exitcond.not, label %.lr.ph15, label %8, !llvm.loop !107
 
-._crit_edge:                                      ; preds = %9
+._crit_edge:                                      ; preds = %4
+  %21 = tail call i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr noundef %1, ptr noundef %3) #20
+  br label %._crit_edge16
+
+.lr.ph15:                                         ; preds = %8
   %22 = tail call i32 @Aig_NodeMffcLabel(ptr noundef %0, ptr noundef %1, ptr noundef %3) #20
   %23 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16096
   %wide.trip.count21 = zext nneg i32 %2 to i64
   br label %25
 
-25:                                               ; preds = %._crit_edge, %25
-  %indvars.iv18 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next19, %25 ]
+25:                                               ; preds = %.lr.ph15, %25
+  %indvars.iv18 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next19, %25 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !21
   %27 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %26, i64 %indvars.iv18
   %28 = load ptr, ptr %27, align 8, !tbaa !35
@@ -1642,8 +1642,8 @@ define i32 @Dar_LibCutMarkMffc(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
   %exitcond22.not = icmp eq i64 %indvars.iv.next19, %wide.trip.count21
   br i1 %exitcond22.not, label %._crit_edge16, label %25, !llvm.loop !108
 
-._crit_edge16:                                    ; preds = %25, %._crit_edge.thread
-  %38 = phi i32 [ %6, %._crit_edge.thread ], [ %22, %25 ]
+._crit_edge16:                                    ; preds = %25, %._crit_edge
+  %38 = phi i32 [ %21, %._crit_edge ], [ %22, %25 ]
   ret i32 %38
 }
 
@@ -2074,47 +2074,47 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   %.not76 = icmp eq i32 %26, 0
   %. = select i1 %.not76, ptr null, ptr %8
   %.not84 = icmp ult i32 %23, 536870912
-  br i1 %.not84, label %._crit_edge.thread.i, label %.lr.ph.i
+  br i1 %.not84, label %._crit_edge.i, label %.lr.ph.i
 
-._crit_edge.thread.i:                             ; preds = %20
-  %27 = call i32 @Aig_NodeMffcLabel(ptr noundef %22, ptr noundef %1, ptr noundef %.) #20
+.lr.ph.i:                                         ; preds = %20
+  %27 = lshr i32 %23, 29
+  %28 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16096
+  %wide.trip.count.i = zext nneg i32 %27 to i64
+  br label %30
+
+30:                                               ; preds = %30, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
+  %31 = load ptr, ptr %29, align 8, !tbaa !21
+  %32 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %31, i64 %indvars.iv.i
+  %33 = load ptr, ptr %32, align 8, !tbaa !35
+  %34 = ptrtoint ptr %33 to i64
+  %35 = and i64 %34, -2
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %38 = load i64, ptr %37, align 8
+  %39 = add i64 %38, 64
+  %40 = and i64 %39, 4294967232
+  %41 = and i64 %38, -4294967233
+  %42 = or disjoint i64 %40, %41
+  store i64 %42, ptr %37, align 8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
+  br i1 %exitcond.not.i, label %.lr.ph15.i, label %30, !llvm.loop !107
+
+._crit_edge.i:                                    ; preds = %20
+  %43 = call i32 @Aig_NodeMffcLabel(ptr noundef %22, ptr noundef %1, ptr noundef %.) #20
   %.pre = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   br label %Dar_LibCutMarkMffc.exit
 
-.lr.ph.i:                                         ; preds = %20
-  %28 = lshr i32 %23, 29
-  %29 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16096
-  %wide.trip.count.i = zext nneg i32 %28 to i64
-  br label %31
-
-31:                                               ; preds = %31, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %32 = load ptr, ptr %30, align 8, !tbaa !21
-  %33 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %32, i64 %indvars.iv.i
-  %34 = load ptr, ptr %33, align 8, !tbaa !35
-  %35 = ptrtoint ptr %34 to i64
-  %36 = and i64 %35, -2
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %39 = load i64, ptr %38, align 8
-  %40 = add i64 %39, 64
-  %41 = and i64 %40, 4294967232
-  %42 = and i64 %39, -4294967233
-  %43 = or disjoint i64 %41, %42
-  store i64 %43, ptr %38, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !107
-
-._crit_edge.i:                                    ; preds = %31
+.lr.ph15.i:                                       ; preds = %30
   %44 = call i32 @Aig_NodeMffcLabel(ptr noundef %22, ptr noundef %1, ptr noundef %.) #20
   %45 = load ptr, ptr @s_DarLib, align 8, !tbaa !33
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16096
   br label %47
 
-47:                                               ; preds = %47, %._crit_edge.i
-  %indvars.iv18.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next19.i, %47 ]
+47:                                               ; preds = %47, %.lr.ph15.i
+  %indvars.iv18.i = phi i64 [ 0, %.lr.ph15.i ], [ %indvars.iv.next19.i, %47 ]
   %48 = load ptr, ptr %46, align 8, !tbaa !21
   %49 = getelementptr inbounds nuw %struct.Dar_LibDat_t_, ptr %48, i64 %indvars.iv18.i
   %50 = load ptr, ptr %49, align 8, !tbaa !35
@@ -2132,9 +2132,9 @@ Abc_Clock.exit:                                   ; preds = %5, %12
   %exitcond22.not.i = icmp eq i64 %indvars.iv.next19.i, %wide.trip.count.i
   br i1 %exitcond22.not.i, label %Dar_LibCutMarkMffc.exit, label %47, !llvm.loop !108
 
-Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.thread.i
-  %60 = phi ptr [ %.pre, %._crit_edge.thread.i ], [ %45, %47 ]
-  %61 = phi i32 [ %27, %._crit_edge.thread.i ], [ %44, %47 ]
+Dar_LibCutMarkMffc.exit:                          ; preds = %47, %._crit_edge.i
+  %60 = phi ptr [ %.pre, %._crit_edge.i ], [ %45, %47 ]
+  %61 = phi i32 [ %43, %._crit_edge.i ], [ %44, %47 ]
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 16144
   %63 = load ptr, ptr %62, align 8, !tbaa !32
   %64 = load i32, ptr %16, align 4

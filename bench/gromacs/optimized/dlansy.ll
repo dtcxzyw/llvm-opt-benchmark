@@ -283,7 +283,7 @@ define double @dlansy_(ptr noundef readonly captures(none) %0, ptr noundef reado
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %104 = trunc i64 %indvars.iv to i32
-  %105 = add i32 %104, -1
+  %105 = add nsw i32 %104, -1
   store i32 %105, ptr %8, align 4
   %106 = mul nsw i64 %indvars.iv, %102
   %gep = getelementptr double, ptr %invariant.gep, i64 %106
@@ -299,7 +299,7 @@ define double @dlansy_(ptr noundef readonly captures(none) %0, ptr noundef reado
 .lr.ph169.preheader:                              ; preds = %107
   %108 = add nsw i32 %16, -1
   %109 = sext i32 %12 to i64
-  %110 = sext i32 %108 to i64
+  %110 = zext nneg i32 %108 to i64
   br label %.lr.ph169
 
 .lr.ph169:                                        ; preds = %.lr.ph169.preheader, %.lr.ph169
@@ -313,7 +313,7 @@ define double @dlansy_(ptr noundef readonly captures(none) %0, ptr noundef reado
   %115 = getelementptr double, ptr %14, i64 %indvars.iv.next245
   %116 = getelementptr double, ptr %115, i64 %114
   call void @dlassq_(ptr noundef nonnull %8, ptr noundef %116, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10)
-  %.not.not = icmp slt i64 %indvars.iv244, %110
+  %.not.not = icmp samesign ult i64 %indvars.iv244, %110
   br i1 %.not.not, label %.lr.ph169, label %.loopexit163, !llvm.loop !15
 
 .loopexit163:                                     ; preds = %.lr.ph, %.lr.ph169, %101, %107

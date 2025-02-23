@@ -2435,7 +2435,7 @@ define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr
 
 ._crit_edge41.us.us:                              ; preds = %27
   store i32 %25, ptr %49, align 4
-  %53 = icmp sgt i64 %indvars.iv93, 1
+  %53 = icmp samesign ugt i64 %indvars.iv93, 1
   br i1 %53, label %.preheader.us.us, label %._crit_edge43, !llvm.loop !15
 
 .preheader.lr.ph.split.split:                     ; preds = %.preheader.lr.ph
@@ -10498,8 +10498,7 @@ define nonnull ptr @cvReshapeMatND(ptr noundef %0, i32 noundef %1, ptr noundef r
 
 .lr.ph279.preheader:                              ; preds = %.lr.ph, %296
   %.0164.lcssa = phi i32 [ %297, %296 ], [ %301, %.lr.ph ]
-  %smax = call i32 @llvm.smax.i32(i32 %.0168, i32 1)
-  %wide.trip.count290 = zext nneg i32 %smax to i64
+  %wide.trip.count290 = zext nneg i32 %.0168 to i64
   br label %.lr.ph279
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

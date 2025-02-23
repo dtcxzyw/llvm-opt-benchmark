@@ -9324,7 +9324,7 @@ if.end237:                                        ; preds = %_ZN6hermes2vm15Hand
   br label %if.end240
 
 if.end240:                                        ; preds = %if.end237, %if.end220
-  %add241 = add i64 %.us-phi, 1
+  %add241 = add nuw i64 %.us-phi, 1
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %if.end205, %_ZN6hermes2vm15IdentifierTable15getSymbolHandleERNS0_7RuntimeEN4llvh8ArrayRefIDsEE.exit, %if.end240

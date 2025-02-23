@@ -1679,11 +1679,11 @@ define dso_local noundef i32 @_PyUnicode_CheckConsistency(ptr noundef %0, i32 no
 
 51:                                               ; preds = %44, %46, %14
   %.not93 = icmp eq i32 %1, 0
-  br i1 %.not93, label %102, label %52
+  br i1 %.not93, label %100, label %52
 
 .thread125:                                       ; preds = %35
   %.not93126 = icmp eq i32 %1, 0
-  br i1 %.not93126, label %102, label %.thread127
+  br i1 %.not93126, label %100, label %.thread127
 
 52:                                               ; preds = %51
   br i1 %.not87, label %.thread127, label %53
@@ -1720,7 +1720,7 @@ PyUnicode_READ.exit.us:                           ; preds = %.lr.ph, %PyUnicode_
   %spec.select.us = tail call i32 @llvm.umax.i32(i32 %60, i32 %.081104.us)
   %61 = add nuw nsw i64 %.0105.us, 1
   %exitcond120.not = icmp eq i64 %61, %56
-  br i1 %exitcond120.not, label %._crit_edge, label %PyUnicode_READ.exit.us, !llvm.loop !198
+  br i1 %exitcond120.not, label %._crit_edge.thread, label %PyUnicode_READ.exit.us, !llvm.loop !198
 
 PyUnicode_READ.exit.us111:                        ; preds = %.lr.ph, %PyUnicode_READ.exit.us111
   %.0105.us109 = phi i64 [ %65, %PyUnicode_READ.exit.us111 ], [ 0, %.lr.ph ]
@@ -1731,7 +1731,7 @@ PyUnicode_READ.exit.us111:                        ; preds = %.lr.ph, %PyUnicode_
   %spec.select.us113 = tail call i32 @llvm.umax.i32(i32 %64, i32 %.081104.us110)
   %65 = add nuw nsw i64 %.0105.us109, 1
   %exitcond.not = icmp eq i64 %65, %56
-  br i1 %exitcond.not, label %._crit_edge, label %PyUnicode_READ.exit.us111, !llvm.loop !198
+  br i1 %exitcond.not, label %._crit_edge.thread130, label %PyUnicode_READ.exit.us111, !llvm.loop !198
 
 PyUnicode_READ.exit:                              ; preds = %.lr.ph, %PyUnicode_READ.exit
   %.0105 = phi i64 [ %68, %PyUnicode_READ.exit ], [ 0, %.lr.ph ]
@@ -1743,99 +1743,101 @@ PyUnicode_READ.exit:                              ; preds = %.lr.ph, %PyUnicode_
   %exitcond121.not = icmp eq i64 %68, %56
   br i1 %exitcond121.not, label %._crit_edge, label %PyUnicode_READ.exit, !llvm.loop !198
 
-._crit_edge:                                      ; preds = %PyUnicode_READ.exit.us111, %PyUnicode_READ.exit.us, %PyUnicode_READ.exit, %_PyUnicode_DATA.exit
-  %.081.lcssa = phi i32 [ 0, %_PyUnicode_DATA.exit ], [ %spec.select, %PyUnicode_READ.exit ], [ %spec.select.us, %PyUnicode_READ.exit.us ], [ %spec.select.us113, %PyUnicode_READ.exit.us111 ]
-  switch i16 %10, label %85 [
-    i16 1, label %69
-    i16 2, label %79
+._crit_edge:                                      ; preds = %PyUnicode_READ.exit, %_PyUnicode_DATA.exit
+  %.081.lcssa = phi i32 [ 0, %_PyUnicode_DATA.exit ], [ %spec.select, %PyUnicode_READ.exit ]
+  switch i16 %10, label %83 [
+    i16 1, label %._crit_edge.thread
+    i16 2, label %._crit_edge.thread130
   ]
 
-69:                                               ; preds = %._crit_edge
-  br i1 %.not86, label %70, label %76
+._crit_edge.thread:                               ; preds = %PyUnicode_READ.exit.us, %._crit_edge
+  %.081.lcssa129 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %spec.select.us, %PyUnicode_READ.exit.us ]
+  br i1 %.not86, label %69, label %75
 
-70:                                               ; preds = %69
-  %71 = icmp ugt i32 %.081.lcssa, 127
-  br i1 %71, label %73, label %72
+69:                                               ; preds = %._crit_edge.thread
+  %70 = icmp ugt i32 %.081.lcssa129, 127
+  br i1 %70, label %72, label %71
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.8, i32 noundef 732, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-73:                                               ; preds = %70
-  %74 = icmp ult i32 %.081.lcssa, 256
-  br i1 %74, label %.thread, label %75
+72:                                               ; preds = %69
+  %73 = icmp ult i32 %.081.lcssa129, 256
+  br i1 %73, label %.thread, label %74
 
-75:                                               ; preds = %73
+74:                                               ; preds = %72
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.8, i32 noundef 733, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-76:                                               ; preds = %69
-  %77 = icmp ult i32 %.081.lcssa, 128
-  br i1 %77, label %.thread, label %78
+75:                                               ; preds = %._crit_edge.thread
+  %76 = icmp ult i32 %.081.lcssa129, 128
+  br i1 %76, label %.thread, label %77
 
-78:                                               ; preds = %76
+77:                                               ; preds = %75
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.8, i32 noundef 736, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-79:                                               ; preds = %._crit_edge
-  %80 = icmp ugt i32 %.081.lcssa, 255
-  br i1 %80, label %82, label %81
+._crit_edge.thread130:                            ; preds = %PyUnicode_READ.exit.us111, %._crit_edge
+  %.081.lcssa132 = phi i32 [ %.081.lcssa, %._crit_edge ], [ %spec.select.us113, %PyUnicode_READ.exit.us111 ]
+  %78 = icmp ugt i32 %.081.lcssa132, 255
+  br i1 %78, label %80, label %79
 
-81:                                               ; preds = %79
+79:                                               ; preds = %._crit_edge.thread130
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.8, i32 noundef 739, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-82:                                               ; preds = %79
-  %83 = icmp ult i32 %.081.lcssa, 65536
-  br i1 %83, label %.thread103, label %84
+80:                                               ; preds = %._crit_edge.thread130
+  %81 = icmp ult i32 %.081.lcssa132, 65536
+  br i1 %81, label %.thread103, label %82
 
-84:                                               ; preds = %82
+82:                                               ; preds = %80
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.8, i32 noundef 740, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-85:                                               ; preds = %._crit_edge
-  %86 = icmp ugt i32 %.081.lcssa, 65535
-  br i1 %86, label %88, label %87
+83:                                               ; preds = %._crit_edge
+  %84 = icmp ugt i32 %.081.lcssa, 65535
+  br i1 %84, label %86, label %85
 
-87:                                               ; preds = %85
+85:                                               ; preds = %83
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.8, i32 noundef 743, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-88:                                               ; preds = %85
-  %89 = icmp ult i32 %.081.lcssa, 1114112
-  br i1 %89, label %97, label %90
+86:                                               ; preds = %83
+  %87 = icmp ult i32 %.081.lcssa, 1114112
+  br i1 %87, label %95, label %88
 
-90:                                               ; preds = %88
+88:                                               ; preds = %86
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.8, i32 noundef 744, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-.thread:                                          ; preds = %73, %76
-  %91 = getelementptr i8, ptr %.0.i, i64 %56
-  %92 = load i8, ptr %91, align 1, !tbaa !195
-  %93 = zext i8 %92 to i32
+.thread:                                          ; preds = %72, %75
+  %89 = getelementptr i8, ptr %.0.i, i64 %56
+  %90 = load i8, ptr %89, align 1, !tbaa !195
+  %91 = zext i8 %90 to i32
   br label %PyUnicode_READ.exit102
 
-.thread103:                                       ; preds = %82
-  %94 = getelementptr i16, ptr %.0.i, i64 %56
-  %95 = load i16, ptr %94, align 2, !tbaa !199
-  %96 = zext i16 %95 to i32
+.thread103:                                       ; preds = %80
+  %92 = getelementptr i16, ptr %.0.i, i64 %56
+  %93 = load i16, ptr %92, align 2, !tbaa !199
+  %94 = zext i16 %93 to i32
   br label %PyUnicode_READ.exit102
 
-97:                                               ; preds = %88
-  %98 = getelementptr i32, ptr %.0.i, i64 %56
-  %99 = load i32, ptr %98, align 4, !tbaa !200
+95:                                               ; preds = %86
+  %96 = getelementptr i32, ptr %.0.i, i64 %56
+  %97 = load i32, ptr %96, align 4, !tbaa !200
   br label %PyUnicode_READ.exit102
 
-PyUnicode_READ.exit102:                           ; preds = %.thread, %.thread103, %97
-  %.0.i101 = phi i32 [ %93, %.thread ], [ %96, %.thread103 ], [ %99, %97 ]
-  %100 = icmp eq i32 %.0.i101, 0
-  br i1 %100, label %102, label %101
+PyUnicode_READ.exit102:                           ; preds = %.thread, %.thread103, %95
+  %.0.i101 = phi i32 [ %91, %.thread ], [ %94, %.thread103 ], [ %97, %95 ]
+  %98 = icmp eq i32 %.0.i101, 0
+  br i1 %98, label %100, label %99
 
-101:                                              ; preds = %PyUnicode_READ.exit102
+99:                                               ; preds = %PyUnicode_READ.exit102
   tail call void @_PyObject_AssertFailed(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.8, i32 noundef 746, ptr noundef nonnull @__func__._PyUnicode_CheckConsistency) #43
   unreachable
 
-102:                                              ; preds = %.thread125, %PyUnicode_READ.exit102, %51
+100:                                              ; preds = %.thread125, %PyUnicode_READ.exit102, %51
   ret i32 1
 }
 
@@ -45426,7 +45428,7 @@ PyUnicode_WRITE.exit217.i.i:                      ; preds = %825, %822, %819
 831:                                              ; preds = %830
   %832 = load ptr, ptr %32, align 8, !tbaa !229
   %833 = load i64, ptr %62, align 8, !tbaa !225
-  %834 = call fastcc i32 @_copy_characters(ptr noundef %832, i64 noundef %833, ptr noundef %624, i64 noundef %.4.i.i, i64 noundef %.3.i.i, i32 noundef 0)
+  %834 = call fastcc i32 @_copy_characters(ptr noundef %832, i64 noundef %833, ptr noundef nonnull %624, i64 noundef %.4.i.i, i64 noundef %.3.i.i, i32 noundef 0)
   %835 = load i64, ptr %62, align 8, !tbaa !225
   %836 = add i64 %835, %.3.i.i
   store i64 %836, ptr %62, align 8, !tbaa !225
@@ -64252,7 +64254,7 @@ unicode_fill.exit:                                ; preds = %.lr.ph.i, %.lr.ph30
 
 unicode_fill.exit50:                              ; preds = %.lr.ph.i46, %.lr.ph30.i48, %64, %57, %54, %unicode_fill.exit
   %71 = phi i64 [ %.pre55, %64 ], [ %.pre55, %57 ], [ %.pre, %54 ], [ %.pre55, %unicode_fill.exit ], [ %.pre55, %.lr.ph30.i48 ], [ %.pre55, %.lr.ph.i46 ]
-  %72 = tail call fastcc i32 @_copy_characters(ptr noundef nonnull %27, i64 noundef %spec.store.select, ptr noundef %0, i64 noundef 0, i64 noundef %71, i32 noundef 0)
+  %72 = tail call fastcc i32 @_copy_characters(ptr noundef nonnull %27, i64 noundef %spec.store.select, ptr noundef nonnull %0, i64 noundef 0, i64 noundef %71, i32 noundef 0)
   br label %73
 
 73:                                               ; preds = %PyUnicode_MAX_CHAR_VALUE.exit, %unicode_fill.exit50, %18, %7

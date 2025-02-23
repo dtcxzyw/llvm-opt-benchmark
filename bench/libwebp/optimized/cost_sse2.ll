@@ -150,13 +150,13 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr noundef readonly c
   %70 = zext i16 %69 to i32
   %71 = add nuw nsw i32 %.062.lcssa, %66
   %72 = add nuw nsw i32 %71, %70
-  %73 = icmp slt i32 %.060.lcssa, 15
+  %73 = icmp samesign ult i32 %.060.lcssa, 15
   br i1 %73, label %74, label %87
 
 74:                                               ; preds = %._crit_edge
-  %75 = add nsw i32 %.060.lcssa, 1
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %76
+  %75 = add nuw nsw i32 %.060.lcssa, 1
+  %76 = zext nneg i32 %75 to i64
+  %77 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !7
   %79 = getelementptr inbounds [16 x i8], ptr %4, i64 0, i64 %.pre-phi
   %80 = load i8, ptr %79, align 1, !tbaa !7

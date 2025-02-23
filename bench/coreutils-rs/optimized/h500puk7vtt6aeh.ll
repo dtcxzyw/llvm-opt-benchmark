@@ -3224,7 +3224,7 @@ _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.
   br i1 %.not.i, label %_ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i, label %_ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit
 
 _ZN7uu_tail6chunks10BytesChunk15get_buffer_with17hddbd217ea95ab49eE.exit.i: ; preds = %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
-  %26 = sub nuw i64 %10, %.08.lcssa.i
+  %26 = sub nuw nsw i64 %10, %.08.lcssa.i
   %27 = getelementptr inbounds i8, ptr %1, i64 %.08.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr nonnull readonly align 1 %27, i64 %26, i1 false), !alias.scope !386
   br label %_ZN7uu_tail6chunks10BytesChunk10from_chunk17ha2b55dae1c3667b5E.exit
@@ -4275,7 +4275,7 @@ _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.
 
 _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
   %.08.lcssa.i183 = phi i64 [ %169, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit ], [ 0, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i ]
-  %174 = sub nuw i64 %157, %.08.lcssa.i183
+  %174 = sub nuw nsw i64 %157, %.08.lcssa.i183
   %175 = getelementptr inbounds i8, ptr %11, i64 %.08.lcssa.i183
   call void @llvm.experimental.noalias.scope.decl(metadata !547)
   %176 = load i64, ptr %14, align 8, !alias.scope !550, !noalias !551, !noundef !4
@@ -4861,7 +4861,7 @@ _ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.
 
 _ZN7uu_tail6chunks10LinesChunk15get_buffer_with17h836418dc76b95580E.exit.i: ; preds = %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit
   %.08.lcssa.i192 = phi i64 [ %180, %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit ], [ 0, %_ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i ]
-  %185 = sub nuw i64 %168, %.08.lcssa.i192
+  %185 = sub nuw nsw i64 %168, %.08.lcssa.i192
   %186 = getelementptr inbounds i8, ptr %11, i64 %.08.lcssa.i192
   call void @llvm.experimental.noalias.scope.decl(metadata !614)
   %187 = load i64, ptr %14, align 8, !alias.scope !617, !noalias !618, !noundef !4

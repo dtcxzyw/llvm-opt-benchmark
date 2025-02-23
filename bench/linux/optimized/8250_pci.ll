@@ -957,7 +957,7 @@ define internal i32 @kt_serial_setup(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
+define internal noundef range(i32 -19, 3) i32 @pci_ite887x_init(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2849,7 +2849,7 @@ define internal i32 @pci_brcm_trumanage_setup(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 256) i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -22, 16) i32 @pci_fintek_init(ptr noundef %0) #0 align 16 {
   %2 = alloca [3 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -3115,7 +3115,7 @@ define internal i32 @pci_moxa_setup(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 256) i32 @pci_fintek_f815xxa_init(ptr noundef %0) #0 align 16 {
+define internal range(i32 -22, 16) i32 @pci_fintek_f815xxa_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 944
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 512

@@ -959,8 +959,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %34 = and i32 %33, 127
   %35 = add nsw i32 %34, -45
   %36 = icmp ult i32 %35, -7
-  %.not134.i = icmp eq ptr %31, null
-  %.not.i = or i1 %.not134.i, %36
+  %.not133.i = icmp eq ptr %31, null
+  %.not.i = or i1 %.not133.i, %36
   br i1 %.not.i, label %39, label %37
 
 37:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
@@ -970,7 +970,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
 39:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
   %40 = add nsw i32 %34, -65
   %41 = icmp ult i32 %40, -3
-  %.not29.not.i = or i1 %.not134.i, %41
+  %.not29.not.i = or i1 %.not133.i, %41
   br i1 %.not29.not.i, label %.critedge.i, label %42
 
 42:                                               ; preds = %39
@@ -1143,8 +1143,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50.i: ; p
   %.pre.i64.i = load ptr, ptr %26, align 8, !tbaa !200
   %99 = getelementptr inbounds nuw i8, ptr %.pre.i64.i, i64 56
   %100 = load ptr, ptr %99, align 8, !tbaa !201
-  %.not133.i = icmp eq ptr %.sroa.086.0.i, %100
-  br i1 %.not133.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit57.i, label %101
+  %.not134.i = icmp eq ptr %.sroa.086.0.i, %100
+  br i1 %.not134.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit57.i, label %101
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2816,8 +2816,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5cl
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i8, ptr %60, align 16
   %62 = icmp eq i8 %61, 13
-  %.not.not8.i.i = icmp ne ptr %59, null
-  %.not.not.not.i.i = and i1 %.not.not8.i.i, %62
+  %.not8.i.i = icmp ne ptr %59, null
+  %.not.not.not.i.i = and i1 %.not8.i.i, %62
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24

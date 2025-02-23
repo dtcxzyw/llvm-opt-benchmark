@@ -702,7 +702,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 compute_scratch_buffer_size.exit:                 ; preds = %for.body.i, %entry
   %comp.0.lcssa.i = phi i64 [ 0, %entry ], [ %add14.i, %for.body.i ]
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %comp.0.lcssa.i, i64 %uncompressed_size)
-  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %spec.select.i) #6
+  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %spec.select.i) #6
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end, label %return
 
@@ -1298,7 +1298,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 compute_scratch_buffer_size.exit:                 ; preds = %for.body.i, %entry
   %comp.0.lcssa.i = phi i64 [ 0, %entry ], [ %add14.i, %for.body.i ]
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %comp.0.lcssa.i, i64 %uncompressed_size)
-  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %spec.select.i) #6
+  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef nonnull %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %spec.select.i) #6
   %cmp.not = icmp eq i32 %call1, 0
   br i1 %cmp.not, label %if.end, label %return
 

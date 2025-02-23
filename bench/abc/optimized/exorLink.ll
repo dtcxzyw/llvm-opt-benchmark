@@ -81,15 +81,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %24 = select i1 %23, ptr @DiffVars, ptr getelementptr inbounds nuw (i8, ptr @DiffVars, i64 4)
   store ptr %24, ptr @pDiffVars, align 8, !tbaa !17
   %25 = icmp sgt i32 %22, 0
-  br i1 %25, label %.lr.ph111.preheader, label %._crit_edge112.thread
-
-._crit_edge112.thread:                            ; preds = %._crit_edge
-  %26 = load ptr, ptr @pCA, align 8, !tbaa !7
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 2
-  %28 = load i16, ptr %27, align 2, !tbaa !18
-  %29 = sext i16 %28 to i32
-  store i32 %29, ptr @StartingLiterals, align 4, !tbaa !3
-  br label %.preheader106
+  br i1 %25, label %.lr.ph111.preheader, label %._crit_edge112
 
 .lr.ph111.preheader:                              ; preds = %._crit_edge
   %wide.trip.count = zext nneg i32 %22 to i64
@@ -97,30 +89,38 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
 
 .lr.ph111:                                        ; preds = %.lr.ph111.preheader, %.lr.ph111
   %indvars.iv = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next, %.lr.ph111 ]
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
-  %31 = load i32, ptr %30, align 4, !tbaa !3
-  %32 = ashr i32 %31, 4
-  %33 = getelementptr inbounds nuw [5 x i32], ptr @DiffVarWords, i64 0, i64 %indvars.iv
-  store i32 %32, ptr %33, align 4, !tbaa !3
-  %34 = shl nsw i32 %31, 1
-  %35 = and i32 %34, 30
-  %36 = getelementptr inbounds nuw [5 x i32], ptr @DiffVarBits, i64 0, i64 %indvars.iv
-  store i32 %35, ptr %36, align 4, !tbaa !3
-  %37 = shl nuw i32 3, %35
-  %38 = xor i32 %37, -1
-  %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %39
-  %41 = load i32, ptr %40, align 4, !tbaa !3
-  %42 = and i32 %41, %38
-  store i32 %42, ptr %40, align 4, !tbaa !3
+  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %27 = load i32, ptr %26, align 4, !tbaa !3
+  %28 = ashr i32 %27, 4
+  %29 = getelementptr inbounds nuw [5 x i32], ptr @DiffVarWords, i64 0, i64 %indvars.iv
+  store i32 %28, ptr %29, align 4, !tbaa !3
+  %30 = shl nsw i32 %27, 1
+  %31 = and i32 %30, 30
+  %32 = getelementptr inbounds nuw [5 x i32], ptr @DiffVarBits, i64 0, i64 %indvars.iv
+  store i32 %31, ptr %32, align 4, !tbaa !3
+  %33 = shl nuw i32 3, %31
+  %34 = xor i32 %33, -1
+  %35 = sext i32 %28 to i64
+  %36 = getelementptr inbounds [78 x i32], ptr @DammyBitData, i64 0, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !3
+  %38 = and i32 %37, %34
+  store i32 %38, ptr %36, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge112, label %.lr.ph111, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph116, label %.lr.ph111, !llvm.loop !18
 
-._crit_edge112:                                   ; preds = %.lr.ph111
+._crit_edge112:                                   ; preds = %._crit_edge
+  %39 = load ptr, ptr @pCA, align 8, !tbaa !7
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
+  %41 = load i16, ptr %40, align 2, !tbaa !20
+  %42 = sext i16 %41 to i32
+  store i32 %42, ptr @StartingLiterals, align 4, !tbaa !3
+  br label %.preheader106
+
+.lr.ph116:                                        ; preds = %.lr.ph111
   %43 = load ptr, ptr @pCA, align 8, !tbaa !7
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
-  %45 = load i16, ptr %44, align 2, !tbaa !18
+  %45 = load i16, ptr %44, align 2, !tbaa !20
   %46 = sext i16 %45 to i32
   store i32 %46, ptr @StartingLiterals, align 4, !tbaa !3
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -131,8 +131,8 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %wide.trip.count174 = zext nneg i32 %22 to i64
   br label %55
 
-.preheader106:                                    ; preds = %72, %._crit_edge112.thread
-  %52 = phi i32 [ 0, %._crit_edge112.thread ], [ %87, %72 ]
+.preheader106:                                    ; preds = %72, %._crit_edge112
+  %52 = phi i32 [ 0, %._crit_edge112 ], [ %87, %72 ]
   %53 = load i32, ptr @nCubesInGroup, align 4, !tbaa !3
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph118, label %.preheader105
@@ -141,11 +141,11 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %wide.trip.count179 = zext nneg i32 %53 to i64
   br label %102
 
-55:                                               ; preds = %._crit_edge112, %72
-  %indvars.iv171 = phi i64 [ 0, %._crit_edge112 ], [ %indvars.iv.next172, %72 ]
-  %storemerge113 = phi i32 [ 0, %._crit_edge112 ], [ %88, %72 ]
-  %56 = phi i32 [ 0, %._crit_edge112 ], [ %87, %72 ]
-  %57 = phi i32 [ %46, %._crit_edge112 ], [ %73, %72 ]
+55:                                               ; preds = %.lr.ph116, %72
+  %indvars.iv171 = phi i64 [ 0, %.lr.ph116 ], [ %indvars.iv.next172, %72 ]
+  %storemerge113 = phi i32 [ 0, %.lr.ph116 ], [ %88, %72 ]
+  %56 = phi i32 [ 0, %.lr.ph116 ], [ %87, %72 ]
+  %57 = phi i32 [ %46, %.lr.ph116 ], [ %73, %72 ]
   %58 = getelementptr inbounds nuw [5 x i32], ptr @DiffVarWords, i64 0, i64 %indvars.iv171
   %59 = load i32, ptr %58, align 4, !tbaa !3
   %60 = sext i32 %59 to i64
@@ -525,7 +525,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorStart(ptr noundef writeonly capt
   %277 = add nsw i32 %276, %274
   %278 = trunc i32 %277 to i16
   %279 = getelementptr inbounds nuw i8, ptr %129, i64 2
-  store i16 %278, ptr %279, align 2, !tbaa !18
+  store i16 %278, ptr %279, align 2, !tbaa !20
   %280 = trunc i32 %254 to i16
   %281 = getelementptr inbounds nuw i8, ptr %129, i64 4
   store i16 %280, ptr %281, align 4, !tbaa !31
@@ -894,7 +894,7 @@ define range(i32 0, 2) i32 @ExorLinkCubeIteratorNext(ptr noundef writeonly captu
   %190 = add nsw i32 %189, %187
   %191 = trunc i32 %190 to i16
   %192 = getelementptr inbounds nuw i8, ptr %38, i64 2
-  store i16 %191, ptr %192, align 2, !tbaa !18
+  store i16 %191, ptr %192, align 2, !tbaa !20
   %193 = trunc i32 %165 to i16
   %194 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i16 %193, ptr %194, align 4, !tbaa !31
@@ -1105,37 +1105,37 @@ attributes #5 = { nounwind }
 !15 = !{!"short", !5, i64 0}
 !16 = !{!"p1 int", !9, i64 0}
 !17 = !{!16, !16, i64 0}
-!18 = !{!14, !15, i64 2}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = distinct !{!21, !20}
-!22 = distinct !{!22, !20}
-!23 = distinct !{!23, !20}
+!18 = distinct !{!18, !19}
+!19 = !{!"llvm.loop.mustprogress"}
+!20 = !{!14, !15, i64 2}
+!21 = distinct !{!21, !19}
+!22 = distinct !{!22, !19}
+!23 = distinct !{!23, !19}
 !24 = !{!5, !5, i64 0}
-!25 = distinct !{!25, !20}
-!26 = distinct !{!26, !20}
-!27 = distinct !{!27, !20}
+!25 = distinct !{!25, !19}
+!26 = distinct !{!26, !19}
+!27 = distinct !{!27, !19}
 !28 = !{!11, !4, i64 12}
 !29 = !{!14, !16, i64 16}
-!30 = distinct !{!30, !20}
+!30 = distinct !{!30, !19}
 !31 = !{!14, !15, i64 4}
-!32 = distinct !{!32, !20}
-!33 = distinct !{!33, !20}
-!34 = distinct !{!34, !20}
-!35 = distinct !{!35, !20}
+!32 = distinct !{!32, !19}
+!33 = distinct !{!33, !19}
+!34 = distinct !{!34, !19}
+!35 = distinct !{!35, !19}
 !36 = !{!14, !15, i64 6}
 !37 = !{!11, !4, i64 48}
 !38 = !{!14, !5, i64 1}
-!39 = distinct !{!39, !20}
-!40 = distinct !{!40, !20}
-!41 = distinct !{!41, !20}
-!42 = distinct !{!42, !20}
-!43 = distinct !{!43, !20}
-!44 = distinct !{!44, !20}
-!45 = distinct !{!45, !20}
-!46 = distinct !{!46, !20}
-!47 = distinct !{!47, !20}
-!48 = distinct !{!48, !20}
+!39 = distinct !{!39, !19}
+!40 = distinct !{!40, !19}
+!41 = distinct !{!41, !19}
+!42 = distinct !{!42, !19}
+!43 = distinct !{!43, !19}
+!44 = distinct !{!44, !19}
+!45 = distinct !{!45, !19}
+!46 = distinct !{!46, !19}
+!47 = distinct !{!47, !19}
+!48 = distinct !{!48, !19}
 !49 = !{!14, !5, i64 0}
-!50 = distinct !{!50, !20}
-!51 = distinct !{!51, !20}
+!50 = distinct !{!50, !19}
+!51 = distinct !{!51, !19}

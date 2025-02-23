@@ -10842,7 +10842,7 @@ define linkonce_odr dso_local void @_ZN4Luau12TypeChecker25visitEPNS_11AstExprCa
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  tail call void @_ZN4Luau12TypeChecker29visitCallEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1)
+  tail call void @_ZN4Luau12TypeChecker29visitCallEPNS_11AstExprCallE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull %1)
   ret void
 }
 
@@ -36363,8 +36363,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBrea
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4
   %6 = icmp ne i32 %4, %5
-  %.not25 = icmp eq ptr %1, null
-  %.not = or i1 %6, %.not25
+  %.not21 = icmp eq ptr %1, null
+  %.not = or i1 %.not21, %6
   br i1 %.not, label %19, label %.preheader
 
 .preheader:                                       ; preds = %2
@@ -36378,15 +36378,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBrea
   br label %14
 
 10:                                               ; preds = %14
-  %11 = add nuw i64 %.01422, 1
+  %11 = add nuw i64 %.01423, 1
   %12 = load i64, ptr %7, align 8
   %13 = icmp ult i64 %11, %12
   br i1 %13, label %14, label %.loopexit, !llvm.loop !156
 
 14:                                               ; preds = %.lr.ph, %10
-  %.01422 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
+  %.01423 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %15 = load ptr, ptr %9, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %.01422
+  %16 = getelementptr inbounds ptr, ptr %15, i64 %.01423
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBreakEPNS_7AstStatE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %17)
   br i1 %18, label %.loopexit, label %10
@@ -36399,7 +36399,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau12TypeChecker28hasBrea
 22:                                               ; preds = %19
   %23 = load i32, ptr @_ZN4Luau7AstRttiINS_9AstStatIfEE5valueE, align 4
   %24 = icmp ne i32 %4, %23
-  %.not18 = or i1 %.not25, %24
+  %.not18 = or i1 %.not21, %24
   br i1 %.not18, label %.loopexit, label %25
 
 25:                                               ; preds = %22

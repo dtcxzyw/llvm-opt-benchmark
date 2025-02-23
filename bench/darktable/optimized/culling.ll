@@ -678,7 +678,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %28 = load i32, ptr %7, align 4, !tbaa !102
   %29 = icmp ne i32 %28, 0
   %or.cond = select i1 %29, i1 %27, i1 false
-  br i1 %or.cond, label %35, label %131
+  br i1 %or.cond, label %35, label %.lr.ph120.preheader
 
 .lr.ph:                                           ; preds = %25, %.lr.ph
   %.083102 = phi ptr [ %.083, %.lr.ph ], [ %.08399, %25 ]
@@ -727,7 +727,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
 .preheader:                                       ; preds = %35
   %.086103 = load ptr, ptr %26, align 8, !tbaa !88
   %.not91104 = icmp eq ptr %.086103, null
-  br i1 %.not91104, label %._crit_edge115, label %.lr.ph106
+  br i1 %.not91104, label %.thread142, label %.lr.ph106
 
 .lr.ph106:                                        ; preds = %.preheader
   %64 = fpext reassoc nsz arcp contract afn float %52 to double
@@ -738,7 +738,7 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %67 = tail call i32 (...) @dt_control_get_mouse_over_id() #14
   %.085107 = load ptr, ptr %26, align 8, !tbaa !88
   %.not92108 = icmp eq ptr %.085107, null
-  br i1 %.not92108, label %._crit_edge115, label %.critedge
+  br i1 %.not92108, label %.thread142, label %.critedge
 
 68:                                               ; preds = %.critedge
   %69 = getelementptr inbounds nuw i8, ptr %.085109, i64 8
@@ -766,10 +766,6 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   store double %80, ptr %78, align 8, !tbaa !112
   br label %.lr.ph114.preheader
 
-.lr.ph114.preheader:                              ; preds = %81, %68, %72
-  %.084112.ph = phi ptr [ %.085107, %72 ], [ %.085107, %68 ], [ %.086103, %81 ]
-  br label %.lr.ph114
-
 81:                                               ; preds = %.lr.ph106, %81
   %.086105 = phi ptr [ %.086103, %.lr.ph106 ], [ %.086, %81 ]
   %82 = load ptr, ptr %.086105, align 8, !tbaa !89
@@ -786,15 +782,9 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %.not91 = icmp eq ptr %.086, null
   br i1 %.not91, label %.lr.ph114.preheader, label %81
 
-._crit_edge115.loopexit:                          ; preds = %129
-  %.080116.pre.pre = load ptr, ptr %26, align 8, !tbaa !88
-  br label %._crit_edge115
-
-._crit_edge115:                                   ; preds = %66, %.preheader, %._crit_edge115.loopexit
-  %.080116.pre = phi ptr [ %.080116.pre.pre, %._crit_edge115.loopexit ], [ null, %.preheader ], [ null, %66 ]
-  store double %37, ptr %47, align 8, !tbaa !100
-  store double %39, ptr %53, align 8, !tbaa !101
-  br label %131
+.lr.ph114.preheader:                              ; preds = %81, %68, %72
+  %.084112.ph = phi ptr [ %.085107, %72 ], [ %.085107, %68 ], [ %.086103, %81 ]
+  br label %.lr.ph114
 
 .lr.ph114:                                        ; preds = %.lr.ph114.preheader, %129
   %.084112 = phi ptr [ %.084, %129 ], [ %.084112.ph, %.lr.ph114.preheader ]
@@ -850,8 +840,8 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   br i1 %127, label %128, label %129
 
 128:                                              ; preds = %120
-  %simplifycfg.merge137 = select i1 %126, double %125, double %124
-  store double %simplifycfg.merge137, ptr %121, align 8, !tbaa !112
+  %simplifycfg.merge147 = select i1 %126, double %125, double %124
+  store double %simplifycfg.merge147, ptr %121, align 8, !tbaa !112
   br label %129
 
 129:                                              ; preds = %120, %128
@@ -860,15 +850,26 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %130 = getelementptr inbounds nuw i8, ptr %.084112, i64 8
   %.084 = load ptr, ptr %130, align 8, !tbaa !88
   %.not94 = icmp eq ptr %.084, null
-  br i1 %.not94, label %._crit_edge115.loopexit, label %.lr.ph114
+  br i1 %.not94, label %131, label %.lr.ph114
 
-131:                                              ; preds = %._crit_edge115, %._crit_edge
-  %.080116 = phi ptr [ %.080116.pre, %._crit_edge115 ], [ %.08399, %._crit_edge ]
-  %.not95117 = icmp eq ptr %.080116, null
-  br i1 %.not95117, label %.loopexit, label %.lr.ph120
+.thread142:                                       ; preds = %.preheader, %66
+  store double %37, ptr %47, align 8, !tbaa !100
+  store double %39, ptr %53, align 8, !tbaa !101
+  br label %.loopexit
 
-.lr.ph120:                                        ; preds = %131, %.lr.ph120
-  %.080118 = phi ptr [ %.080, %.lr.ph120 ], [ %.080116, %131 ]
+131:                                              ; preds = %129
+  %.080116.pre.pre = load ptr, ptr %26, align 8, !tbaa !88
+  store double %37, ptr %47, align 8, !tbaa !100
+  store double %39, ptr %53, align 8, !tbaa !101
+  %.not95117 = icmp eq ptr %.080116.pre.pre, null
+  br i1 %.not95117, label %.loopexit, label %.lr.ph120.preheader
+
+.lr.ph120.preheader:                              ; preds = %._crit_edge, %131
+  %.080118.ph = phi ptr [ %.08399, %._crit_edge ], [ %.080116.pre.pre, %131 ]
+  br label %.lr.ph120
+
+.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
+  %.080118 = phi ptr [ %.080, %.lr.ph120 ], [ %.080118.ph, %.lr.ph120.preheader ]
   %132 = load ptr, ptr %.080118, align 8, !tbaa !89
   call void @dt_thumbnail_image_refresh_position(ptr noundef %132) #14
   %133 = getelementptr inbounds nuw i8, ptr %.080118, i64 8
@@ -876,8 +877,8 @@ define internal range(i32 0, 2) i32 @_event_motion_notify(ptr readnone captures(
   %.not95 = icmp eq ptr %.080, null
   br i1 %.not95, label %.loopexit, label %.lr.ph120
 
-.loopexit:                                        ; preds = %.lr.ph120, %25, %131, %20, %9
-  %.0 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 1, %131 ], [ 1, %25 ], [ 1, %.lr.ph120 ]
+.loopexit:                                        ; preds = %.lr.ph120, %25, %.thread142, %131, %20, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %20 ], [ 1, %131 ], [ 1, %.thread142 ], [ 1, %25 ], [ 1, %.lr.ph120 ]
   ret i32 %.0
 }
 
@@ -2251,7 +2252,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.not425470.i = icmp eq ptr %297, null
   br i1 %.not425470.i, label %._crit_edge483.i, label %.lr.ph474.i
 
-._crit_edge475.i:                                 ; preds = %.lr.ph474.i
+.lr.ph482.i:                                      ; preds = %.lr.ph474.i
   %298 = sitofp i32 %318 to float
   %299 = fdiv reassoc nsz arcp contract afn float %237, %298
   %300 = fpext reassoc nsz arcp contract afn float %299 to double
@@ -2259,9 +2260,9 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %narrow.sel.i = select reassoc nsz arcp contract afn i1 %301, float %299, float 0x3FF3333340000000
   br i1 %238, label %.lr.ph482.split.us.i, label %.lr.ph482.split.i
 
-.lr.ph482.split.us.i:                             ; preds = %._crit_edge475.i, %.lr.ph482.split.us.i
-  %.0394479.us.i = phi ptr [ %314, %.lr.ph482.split.us.i ], [ %297, %._crit_edge475.i ]
-  %.0395478.us.i = phi i32 [ %.0395..us.i, %.lr.ph482.split.us.i ], [ 0, %._crit_edge475.i ]
+.lr.ph482.split.us.i:                             ; preds = %.lr.ph482.i, %.lr.ph482.split.us.i
+  %.0394479.us.i = phi ptr [ %314, %.lr.ph482.split.us.i ], [ %297, %.lr.ph482.i ]
+  %.0395478.us.i = phi i32 [ %.0395..us.i, %.lr.ph482.split.us.i ], [ 0, %.lr.ph482.i ]
   %302 = load ptr, ptr %.0394479.us.i, align 8, !tbaa !89
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 12
   %304 = load i32, ptr %303, align 4, !tbaa !119
@@ -2292,7 +2293,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %320 = getelementptr inbounds nuw i8, ptr %.0396471.i, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !164
   %.not425.i = icmp eq ptr %321, null
-  br i1 %.not425.i, label %._crit_edge475.i, label %.lr.ph474.i
+  br i1 %.not425.i, label %.lr.ph482.i, label %.lr.ph474.i
 
 ._crit_edge483.i:                                 ; preds = %.lr.ph482.split.i, %.lr.ph482.split.us.i, %295
   %.0395.lcssa.i = phi i32 [ 0, %295 ], [ %.0395..us.i, %.lr.ph482.split.us.i ], [ %.0395..i, %.lr.ph482.split.i ]
@@ -2303,9 +2304,9 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.not411.i = icmp eq ptr %325, null
   br i1 %.not411.i, label %._crit_edge495.loopexit.i, label %295
 
-.lr.ph482.split.i:                                ; preds = %._crit_edge475.i, %.lr.ph482.split.i
-  %.0394479.i = phi ptr [ %340, %.lr.ph482.split.i ], [ %297, %._crit_edge475.i ]
-  %.0395478.i = phi i32 [ %.0395..i, %.lr.ph482.split.i ], [ 0, %._crit_edge475.i ]
+.lr.ph482.split.i:                                ; preds = %.lr.ph482.i, %.lr.ph482.split.i
+  %.0394479.i = phi ptr [ %340, %.lr.ph482.split.i ], [ %297, %.lr.ph482.i ]
+  %.0395478.i = phi i32 [ %.0395..i, %.lr.ph482.split.i ], [ 0, %.lr.ph482.i ]
   %326 = load ptr, ptr %.0394479.i, align 8, !tbaa !89
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load i32, ptr %327, align 8, !tbaa !118
@@ -2601,7 +2602,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.not418543.i = icmp eq ptr %484, null
   br i1 %.not418543.i, label %._crit_edge554.i, label %.lr.ph547.i
 
-._crit_edge548.i:                                 ; preds = %.lr.ph547.i
+.lr.ph553.preheader.i:                            ; preds = %.lr.ph547.i
   %485 = sub i32 %464, %491
   %486 = sdiv i32 %485, 2
   br label %.lr.ph553.i
@@ -2617,7 +2618,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %492 = getelementptr inbounds nuw i8, ptr %.0348545.i, i64 8
   %493 = load ptr, ptr %492, align 8, !tbaa !164
   %.not418.i = icmp eq ptr %493, null
-  br i1 %.not418.i, label %._crit_edge548.i, label %.lr.ph547.i
+  br i1 %.not418.i, label %.lr.ph553.preheader.i, label %.lr.ph547.i
 
 ._crit_edge554.i:                                 ; preds = %.lr.ph553.i, %.lr.ph558.i
   call void @g_list_free(ptr noundef %484) #14
@@ -2626,8 +2627,8 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.not417.i = icmp eq ptr %495, null
   br i1 %.not417.i, label %._crit_edge559.i, label %.lr.ph558.i
 
-.lr.ph553.i:                                      ; preds = %.lr.ph553.i, %._crit_edge548.i
-  %.0345551.i = phi ptr [ %504, %.lr.ph553.i ], [ %484, %._crit_edge548.i ]
+.lr.ph553.i:                                      ; preds = %.lr.ph553.i, %.lr.ph553.preheader.i
+  %.0345551.i = phi ptr [ %504, %.lr.ph553.i ], [ %484, %.lr.ph553.preheader.i ]
   %496 = load ptr, ptr %.0345551.i, align 8, !tbaa !89
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 16
   %498 = load i32, ptr %497, align 8, !tbaa !165

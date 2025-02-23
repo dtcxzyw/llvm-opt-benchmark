@@ -2055,7 +2055,7 @@ for.inc77.i:                                      ; preds = %if.end.i.i.i.i65.i.
   call void @_ZN3ue28NGHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %rg.i.i) #21
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %rg.i.i), !noalias !40
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %mapping.i.i), !noalias !40
-  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin154.sroa.0.0302.i) #26
+  %call.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin154.sroa.0.0302.i) #26
   %cmp.i.i.i.i40.not.i = icmp eq ptr %call.i.i.i.i.i, %0
   br i1 %cmp.i.i.i.i40.not.i, label %invoke.cont, label %invoke.cont71.i
 
@@ -3177,7 +3177,7 @@ for.inc:                                          ; preds = %_ZNSt11_Deque_baseI
   %add.i.i = add i64 %sub.ptr.div6.i.i, %numVertices.0545
   %add12.i.i = add i64 %add.i.i, %mul.i.i
   %add = add i64 %add12.i.i, %sub.ptr.div11.i.i
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0544) #26
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0544) #26
   %cmp.i.i.i.i.not = icmp eq ptr %call.i.i.i.i, %0
   br i1 %cmp.i.i.i.i.not, label %while.cond.preheader, label %invoke.cont19
 

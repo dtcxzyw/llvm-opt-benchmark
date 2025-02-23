@@ -535,25 +535,25 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %130, label %9
+  br i1 %.not, label %129, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %.not64 = icmp eq i32 %11, 0
-  br i1 %.not64, label %130, label %12
+  br i1 %.not64, label %129, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %.not65 = icmp eq i32 %14, 0
-  br i1 %.not65, label %130, label %15
+  br i1 %.not65, label %129, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 824
   %17 = call i32 @_setjmp(ptr noundef nonnull %16) #26
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %19, label %130
+  br i1 %18, label %19, label %129
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -608,184 +608,182 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   %.06184 = phi ptr [ %.061, %.lr.ph ], [ %.06183, %38 ]
   %40 = getelementptr inbounds nuw i8, ptr %.06184, i64 8
   %41 = load i8, ptr %40, align 8
-  %42 = icmp eq i8 %41, -31
-  %spec.select = select i1 %42, ptr %.06184, ptr null
+  %42 = icmp ne i8 %41, -31
   %.061 = load ptr, ptr %.06184, align 8
   %43 = icmp ne ptr %.061, null
-  %44 = icmp eq ptr %spec.select, null
-  %45 = and i1 %44, %43
-  br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !9
+  %44 = and i1 %42, %43
+  br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  br i1 %44, label %._crit_edge.thread, label %46
+  br i1 %42, label %._crit_edge.thread, label %45
 
-46:                                               ; preds = %._crit_edge
-  %47 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
-  %48 = load i32, ptr %47, align 8
-  %49 = icmp ugt i32 %48, 6
-  br i1 %49, label %50, label %._crit_edge.thread
+45:                                               ; preds = %._crit_edge
+  %46 = getelementptr inbounds nuw i8, ptr %.06184, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = icmp ugt i32 %47, 6
+  br i1 %48, label %49, label %._crit_edge.thread
 
-50:                                               ; preds = %46
-  %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
-  %56 = add nsw i64 %51, -6
-  %57 = call noundef zeroext i1 @_ZN2cv10ExifReader9parseExifEPhm(ptr noundef nonnull align 8 dereferenceable(76) %52, ptr noundef nonnull %55, i64 noundef %56)
+49:                                               ; preds = %45
+  %50 = zext i32 %47 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %.06184, i64 24
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
+  %55 = add nsw i64 %50, -6
+  %56 = call noundef zeroext i1 @_ZN2cv10ExifReader9parseExifEPhm(ptr noundef nonnull align 8 dereferenceable(76) %51, ptr noundef nonnull %54, i64 noundef %55)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %38, %46, %50, %._crit_edge
-  %58 = call i32 @jpeg_start_decompress(ptr noundef nonnull %8)
-  br i1 %.058, label %.preheader, label %74
+._crit_edge.thread:                               ; preds = %38, %45, %49, %._crit_edge
+  %57 = call i32 @jpeg_start_decompress(ptr noundef nonnull %8)
+  br i1 %.058, label %.preheader, label %73
 
 .preheader:                                       ; preds = %._crit_edge.thread
-  %59 = load i32, ptr %13, align 4
-  %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph90, label %.loopexit
+  %58 = load i32, ptr %13, align 4
+  %59 = icmp sgt i32 %58, 0
+  br i1 %59, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %.preheader
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  br label %67
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  br label %66
 
-63:                                               ; preds = %67
+62:                                               ; preds = %66
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %64 = load i32, ptr %13, align 4
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next102, %65
-  br i1 %66, label %67, label %.loopexit, !llvm.loop !11
+  %63 = load i32, ptr %13, align 4
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next102, %64
+  br i1 %65, label %66, label %.loopexit, !llvm.loop !11
 
-67:                                               ; preds = %.lr.ph90, %63
-  %indvars.iv101 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next102, %63 ]
+66:                                               ; preds = %.lr.ph90, %62
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next102, %62 ]
+  %67 = load ptr, ptr %60, align 8
   %68 = load ptr, ptr %61, align 8
-  %69 = load ptr, ptr %62, align 8
-  %70 = load i64, ptr %69, align 8
-  %71 = mul i64 %70, %indvars.iv101
-  %72 = getelementptr inbounds i8, ptr %68, i64 %71
-  store ptr %72, ptr %4, align 8
-  %73 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1)
-  %.not70 = icmp eq i32 %73, 1
-  br i1 %.not70, label %63, label %.loopexit80
+  %69 = load i64, ptr %68, align 8
+  %70 = mul i64 %69, %indvars.iv101
+  %71 = getelementptr inbounds i8, ptr %67, i64 %70
+  store ptr %71, ptr %4, align 8
+  %72 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 1)
+  %.not70 = icmp eq i32 %72, 1
+  br i1 %.not70, label %62, label %.loopexit80
 
-74:                                               ; preds = %._crit_edge.thread
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = load i32, ptr %10, align 8
-  %80 = shl nsw i32 %79, 2
-  %81 = call noundef ptr %78(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %80, i32 noundef 1)
-  %82 = load i32, ptr %13, align 4
-  %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph88, label %.loopexit
+73:                                               ; preds = %._crit_edge.thread
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %10, align 8
+  %79 = shl nsw i32 %78, 2
+  %80 = call noundef ptr %77(ptr noundef nonnull %8, i32 noundef 1, i32 noundef %79, i32 noundef 1)
+  %81 = load i32, ptr %13, align 4
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %.lr.ph88, label %.loopexit
 
-.lr.ph88:                                         ; preds = %74
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  %87 = getelementptr inbounds nuw i8, ptr %8, i64 144
+.lr.ph88:                                         ; preds = %73
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 185
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 144
   br i1 %.not79, label %.lr.ph88.split.us, label %.lr.ph88.split
 
-.lr.ph88.split.us:                                ; preds = %.lr.ph88, %102
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %102 ], [ 0, %.lr.ph88 ]
+.lr.ph88.split.us:                                ; preds = %.lr.ph88, %101
+  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %101 ], [ 0, %.lr.ph88 ]
+  %87 = load ptr, ptr %83, align 8
   %88 = load ptr, ptr %84, align 8
-  %89 = load ptr, ptr %85, align 8
-  %90 = load i64, ptr %89, align 8
-  %91 = mul i64 %90, %indvars.iv98
-  %92 = getelementptr inbounds i8, ptr %88, i64 %91
-  %93 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef %81, i32 noundef 1)
-  %.not69.us = icmp eq i32 %93, 1
-  br i1 %.not69.us, label %94, label %.loopexit80
+  %89 = load i64, ptr %88, align 8
+  %90 = mul i64 %89, %indvars.iv98
+  %91 = getelementptr inbounds i8, ptr %87, i64 %90
+  %92 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef %80, i32 noundef 1)
+  %.not69.us = icmp eq i32 %92, 1
+  br i1 %.not69.us, label %93, label %.loopexit80
 
-94:                                               ; preds = %.lr.ph88.split.us
-  %95 = load i32, ptr %87, align 8
-  %96 = icmp eq i32 %95, 1
-  %97 = load ptr, ptr %81, align 8
-  %98 = load i32, ptr %10, align 8
-  br i1 %96, label %100, label %99
+93:                                               ; preds = %.lr.ph88.split.us
+  %94 = load i32, ptr %86, align 8
+  %95 = icmp eq i32 %94, 1
+  %96 = load ptr, ptr %80, align 8
+  %97 = load i32, ptr %10, align 8
+  br i1 %95, label %99, label %98
 
-99:                                               ; preds = %94
-  %.sroa.0.0.insert.ext.us = zext i32 %98 to i64
+98:                                               ; preds = %93
+  %.sroa.0.0.insert.ext.us = zext i32 %97 to i64
   %.sroa.0.0.insert.insert.us = or disjoint i64 %.sroa.0.0.insert.ext.us, 4294967296
-  call void @_ZN2cv25icvCvt_CMYK2Gray_8u_C4C1REPKhiPhiNS_5Size_IiEE(ptr noundef %97, i32 noundef 0, ptr noundef %92, i32 noundef 0, i64 %.sroa.0.0.insert.insert.us)
-  br label %102
+  call void @_ZN2cv25icvCvt_CMYK2Gray_8u_C4C1REPKhiPhiNS_5Size_IiEE(ptr noundef %96, i32 noundef 0, ptr noundef %91, i32 noundef 0, i64 %.sroa.0.0.insert.insert.us)
+  br label %101
 
-100:                                              ; preds = %94
-  %101 = sext i32 %98 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 1 %97, i64 %101, i1 false)
-  br label %102
+99:                                               ; preds = %93
+  %100 = sext i32 %97 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr align 1 %96, i64 %100, i1 false)
+  br label %101
 
-102:                                              ; preds = %100, %99
+101:                                              ; preds = %99, %98
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %103 = load i32, ptr %13, align 4
-  %104 = sext i32 %103 to i64
-  %105 = icmp slt i64 %indvars.iv.next99, %104
-  br i1 %105, label %.lr.ph88.split.us, label %.loopexit, !llvm.loop !12
+  %102 = load i32, ptr %13, align 4
+  %103 = sext i32 %102 to i64
+  %104 = icmp slt i64 %indvars.iv.next99, %103
+  br i1 %104, label %.lr.ph88.split.us, label %.loopexit, !llvm.loop !12
 
-.lr.ph88.split:                                   ; preds = %.lr.ph88, %125
-  %indvars.iv = phi i64 [ %indvars.iv.next, %125 ], [ 0, %.lr.ph88 ]
+.lr.ph88.split:                                   ; preds = %.lr.ph88, %124
+  %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ 0, %.lr.ph88 ]
+  %105 = load ptr, ptr %83, align 8
   %106 = load ptr, ptr %84, align 8
-  %107 = load ptr, ptr %85, align 8
-  %108 = load i64, ptr %107, align 8
-  %109 = mul i64 %108, %indvars.iv
-  %110 = getelementptr inbounds i8, ptr %106, i64 %109
-  %111 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef %81, i32 noundef 1)
-  %.not69 = icmp eq i32 %111, 1
-  br i1 %.not69, label %112, label %.loopexit80
+  %107 = load i64, ptr %106, align 8
+  %108 = mul i64 %107, %indvars.iv
+  %109 = getelementptr inbounds i8, ptr %105, i64 %108
+  %110 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %8, ptr noundef %80, i32 noundef 1)
+  %.not69 = icmp eq i32 %110, 1
+  br i1 %.not69, label %111, label %.loopexit80
 
-112:                                              ; preds = %.lr.ph88.split
-  %113 = load i8, ptr %86, align 1
-  %114 = trunc i8 %113 to i1
-  %115 = load i32, ptr %87, align 8
-  %116 = icmp eq i32 %115, 3
-  %117 = load ptr, ptr %81, align 8
-  %118 = load i32, ptr %10, align 8
-  %.sroa.077.0.insert.ext = zext i32 %118 to i64
+111:                                              ; preds = %.lr.ph88.split
+  %112 = load i8, ptr %85, align 1
+  %113 = trunc i8 %112 to i1
+  %114 = load i32, ptr %86, align 8
+  %115 = icmp eq i32 %114, 3
+  %116 = load ptr, ptr %80, align 8
+  %117 = load i32, ptr %10, align 8
+  %.sroa.077.0.insert.ext = zext i32 %117 to i64
   %.sroa.077.0.insert.insert = or disjoint i64 %.sroa.077.0.insert.ext, 4294967296
-  br i1 %114, label %119, label %122
+  br i1 %113, label %118, label %121
 
-119:                                              ; preds = %112
-  br i1 %116, label %120, label %121
+118:                                              ; preds = %111
+  br i1 %115, label %119, label %120
 
-120:                                              ; preds = %119
-  call void @_ZN2cv21icvCvt_BGR2RGB_8u_C3REPKhiPhiNS_5Size_IiEE(ptr noundef %117, i32 noundef 0, ptr noundef %110, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
-  br label %125
+119:                                              ; preds = %118
+  call void @_ZN2cv21icvCvt_BGR2RGB_8u_C3REPKhiPhiNS_5Size_IiEE(ptr noundef %116, i32 noundef 0, ptr noundef %109, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
+  br label %124
 
-121:                                              ; preds = %119
-  call void @_ZN2cv24icvCvt_CMYK2RGB_8u_C4C3REPKhiPhiNS_5Size_IiEE(ptr noundef %117, i32 noundef 0, ptr noundef %110, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
-  br label %125
+120:                                              ; preds = %118
+  call void @_ZN2cv24icvCvt_CMYK2RGB_8u_C4C3REPKhiPhiNS_5Size_IiEE(ptr noundef %116, i32 noundef 0, ptr noundef %109, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
+  br label %124
 
-122:                                              ; preds = %112
-  br i1 %116, label %123, label %124
+121:                                              ; preds = %111
+  br i1 %115, label %122, label %123
 
-123:                                              ; preds = %122
-  call void @_ZN2cv21icvCvt_BGR2RGB_8u_C3REPKhiPhiNS_5Size_IiEE(ptr noundef %117, i32 noundef 0, ptr noundef %110, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
-  br label %125
+122:                                              ; preds = %121
+  call void @_ZN2cv21icvCvt_BGR2RGB_8u_C3REPKhiPhiNS_5Size_IiEE(ptr noundef %116, i32 noundef 0, ptr noundef %109, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
+  br label %124
 
-124:                                              ; preds = %122
-  call void @_ZN2cv24icvCvt_CMYK2BGR_8u_C4C3REPKhiPhiNS_5Size_IiEE(ptr noundef %117, i32 noundef 0, ptr noundef %110, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
-  br label %125
+123:                                              ; preds = %121
+  call void @_ZN2cv24icvCvt_CMYK2BGR_8u_C4C3REPKhiPhiNS_5Size_IiEE(ptr noundef %116, i32 noundef 0, ptr noundef %109, i32 noundef 0, i64 %.sroa.077.0.insert.insert)
+  br label %124
 
-125:                                              ; preds = %123, %124, %120, %121
+124:                                              ; preds = %122, %123, %119, %120
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %126 = load i32, ptr %13, align 4
-  %127 = sext i32 %126 to i64
-  %128 = icmp slt i64 %indvars.iv.next, %127
-  br i1 %128, label %.lr.ph88.split, label %.loopexit, !llvm.loop !12
+  %125 = load i32, ptr %13, align 4
+  %126 = sext i32 %125 to i64
+  %127 = icmp slt i64 %indvars.iv.next, %126
+  br i1 %127, label %.lr.ph88.split, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %125, %102, %63, %74, %.preheader
+.loopexit:                                        ; preds = %124, %101, %62, %73, %.preheader
   store volatile i8 1, ptr %3, align 1
-  %129 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %8)
-  br label %130
+  %128 = call i32 @jpeg_finish_decompress(ptr noundef nonnull %8)
+  br label %129
 
-130:                                              ; preds = %15, %.loopexit, %12, %9, %2
+129:                                              ; preds = %15, %.loopexit, %12, %9, %2
   %.0..0..0..0.51 = load volatile i8, ptr %3, align 1
-  %131 = trunc i8 %.0..0..0..0.51 to i1
+  %130 = trunc i8 %.0..0..0..0.51 to i1
   br label %.loopexit80
 
-.loopexit80:                                      ; preds = %.lr.ph88.split, %.lr.ph88.split.us, %67, %130
-  %.0 = phi i1 [ %131, %130 ], [ false, %67 ], [ false, %.lr.ph88.split.us ], [ false, %.lr.ph88.split ]
+.loopexit80:                                      ; preds = %.lr.ph88.split, %.lr.ph88.split.us, %66, %129
+  %.0 = phi i1 [ %130, %129 ], [ false, %66 ], [ false, %.lr.ph88.split.us ], [ false, %.lr.ph88.split ]
   ret i1 %.0
 }
 

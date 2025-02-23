@@ -334,7 +334,7 @@ Saig_ManStartMap1.exit:                           ; preds = %Vec_IntAlloc.exit.t
   %40 = sext i32 %38 to i64
   %41 = getelementptr inbounds ptr, ptr %.val106, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !30
-  %43 = tail call ptr @Aig_ObjCreateCi(ptr noundef %22) #12
+  %43 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %22) #12
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 40
   store ptr %43, ptr %44, align 8, !tbaa !40
   %45 = add nuw nsw i32 %.096145, 1

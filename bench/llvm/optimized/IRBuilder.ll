@@ -5599,9 +5599,9 @@ define dso_local noundef ptr @_ZN4llvm13IRBuilderBase18CreateVectorSpliceEPNS_5V
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp ne i32 %16, 18
-  %.not.not41 = icmp eq ptr %13, null
-  %.not.not = or i1 %.not.not41, %17
-  br i1 %.not.not, label %.thread, label %18
+  %.not.not39 = icmp eq ptr %13, null
+  %.not.not = or i1 %.not.not39, %17
+  br i1 %.not.not, label %58, label %18
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5665,12 +5665,7 @@ _ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_1
   %52 = zext i32 %51 to i64
   %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %49, i64 %52
   %.not10.i.i = icmp eq i32 %51, 0
-  br i1 %.not10.i.i, label %.thread39, label %.lr.ph.i.i
-
-.thread39:                                        ; preds = %_ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
-  br label %89
+  br i1 %.not10.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit, %.lr.ph.i.i
   %.011.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %49, %_ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit ]
@@ -5680,14 +5675,14 @@ _ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_1
   call void @_ZN4llvm11Instruction11setMetadataEjPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(72) %38, i32 noundef %54, ptr noundef %56) #19
   %57 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 16
   %.not.i.i25 = icmp eq ptr %57, %53
-  br i1 %.not.i.i25, label %58, label %.lr.ph.i.i
+  br i1 %.not.i.i25, label %.loopexit, label %.lr.ph.i.i
 
-58:                                               ; preds = %.lr.ph.i.i
+.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_17OperandBundleDefTIS4_EEEERKNS_5TwineENS_14InsertPositionE.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
   br label %89
 
-.thread:                                          ; preds = %5
+58:                                               ; preds = %5
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %60 = load i32, ptr %59, align 8, !tbaa !84
   %61 = zext i32 %60 to i64
@@ -5709,9 +5704,9 @@ _ZN4llvm8CallInst6CreateENS_14FunctionCalleeENS_8ArrayRefIPNS_5ValueEEENS2_INS_1
   %68 = zext i32 %87 to i64
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.thread
-  %69 = phi i64 [ %68, %._crit_edge.loopexit ], [ 0, %.thread ]
-  %70 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %65, %.thread ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %58
+  %69 = phi i64 [ %68, %._crit_edge.loopexit ], [ 0, %58 ]
+  %70 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %65, %58 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #19
   %71 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i16 257, ptr %71, align 8
@@ -5729,10 +5724,10 @@ _ZN4llvm11SmallVectorIiLj8EED2Ev.exit:            ; preds = %._crit_edge, %75
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #19
   br label %89
 
-.lr.ph:                                           ; preds = %.thread, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
-  %76 = phi i32 [ %87, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %.thread ]
-  %.042 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %.thread ]
-  %77 = add i32 %.042, %64
+.lr.ph:                                           ; preds = %58, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
+  %76 = phi i32 [ %87, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
+  %.040 = phi i32 [ %88, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ 0, %58 ]
+  %77 = add i32 %.040, %64
   %78 = load i32, ptr %67, align 4, !tbaa !86
   %.not.i.i.not.i = icmp ult i32 %76, %78
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %79, !prof !87
@@ -5753,12 +5748,12 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %7
   %86 = load i32, ptr %66, align 8, !tbaa !65
   %87 = add i32 %86, 1
   store i32 %87, ptr %66, align 8, !tbaa !65
-  %88 = add nuw i32 %.042, 1
+  %88 = add nuw i32 %.040, 1
   %exitcond.not = icmp eq i32 %88, %60
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !213
 
-89:                                               ; preds = %58, %.thread39, %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
-  %.1 = phi ptr [ %38, %58 ], [ %72, %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit ], [ %38, %.thread39 ]
+89:                                               ; preds = %.loopexit, %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit
+  %.1 = phi ptr [ %38, %.loopexit ], [ %72, %_ZN4llvm11SmallVectorIiLj8EED2Ev.exit ]
   ret ptr %.1
 }
 

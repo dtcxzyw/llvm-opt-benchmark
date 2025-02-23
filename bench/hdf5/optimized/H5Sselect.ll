@@ -4620,7 +4620,7 @@ define range(i32 -1, 1) i32 @H5S_select_subtract(ptr noundef %0, ptr noundef %1)
   br label %67
 
 60:                                               ; preds = %.thread, %37
-  %61 = call i32 @H5S__modify_select(ptr noundef nonnull %0, i32 noundef 4, ptr noundef %1) #8
+  %61 = call i32 @H5S__modify_select(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull %1) #8
   %62 = icmp slt i32 %61, 0
   br i1 %62, label %63, label %67
 

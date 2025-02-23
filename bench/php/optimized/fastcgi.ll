@@ -926,7 +926,7 @@ define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_un
   br i1 %.not11.i, label %fcgi_hash_destroy.exit, label %.lr.ph17.i
 
 fcgi_hash_destroy.exit:                           ; preds = %.lr.ph17.i, %._crit_edge.i
-  tail call void @free(ptr noundef %0) #32
+  tail call void @free(ptr noundef nonnull %0) #32
   ret void
 }
 

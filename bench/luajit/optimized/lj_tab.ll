@@ -1393,10 +1393,10 @@ define hidden ptr @lj_tab_newkey(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %hashkey.exit
 
 hashkey.exit:                                     ; preds = %11, %18, %28, %31
-  %.sink181 = phi i32 [ %15, %11 ], [ %26, %18 ], [ %30, %28 ], [ %39, %31 ]
+  %.sink182 = phi i32 [ %15, %11 ], [ %26, %18 ], [ %30, %28 ], [ %39, %31 ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %41 = load i32, ptr %40, align 4, !tbaa !14
-  %42 = and i32 %41, %.sink181
+  %42 = and i32 %41, %.sink182
   %.sink.in.in.i = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
@@ -1405,8 +1405,8 @@ hashkey.exit:                                     ; preds = %11, %18, %28, %31
   %45 = load i64, ptr %44, align 8, !tbaa !13
   %46 = icmp ne i64 %45, -1
   %47 = icmp eq i32 %41, 0
-  %or.cond183 = or i1 %46, %47
-  br i1 %or.cond183, label %48, label %321
+  %or.cond184 = or i1 %46, %47
+  br i1 %or.cond184, label %48, label %.thread.thread
 
 48:                                               ; preds = %hashkey.exit
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1731,7 +1731,7 @@ hashkey.exit107:                                  ; preds = %167, %174, %184, %1
   store i64 -1, ptr %44, align 8, !tbaa !13
   %208 = load i64, ptr %205, align 8, !tbaa !16
   %.not95152 = icmp eq i64 %208, 0
-  br i1 %.not95152, label %.thread, label %.lr.ph
+  br i1 %.not95152, label %.thread.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %201
   %209 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -1799,9 +1799,9 @@ hashkey.exit107:                                  ; preds = %167, %174, %184, %1
   br label %hashkey.exit114
 
 hashkey.exit114:                                  ; preds = %223, %230, %240, %243
-  %.sink184 = phi i32 [ %227, %223 ], [ %238, %230 ], [ %242, %240 ], [ %251, %243 ]
+  %.sink185 = phi i32 [ %227, %223 ], [ %238, %230 ], [ %242, %240 ], [ %251, %243 ]
   %252 = load i32, ptr %209, align 4, !tbaa !14
-  %253 = and i32 %252, %.sink184
+  %253 = and i32 %252, %.sink185
   %.sink.in.i112 = load i64, ptr %.sink.in.in.i, align 8, !tbaa !15
   %.sink.i113 = inttoptr i64 %.sink.in.i112 to ptr
   %254 = zext i32 %253 to i64
@@ -1924,47 +1924,47 @@ hashkey.exit121:                                  ; preds = %276, %283, %293, %2
   %320 = getelementptr inbounds i8, ptr %.080, i64 -8
   store i64 %319, ptr %320, align 8, !tbaa !16
   store i64 %159, ptr %318, align 8, !tbaa !16
-  br label %321
+  br label %.thread.thread
 
-.thread:                                          ; preds = %315, %312, %201, %257, %rehashtab.exit
-  %.0 = phi ptr [ %152, %rehashtab.exit ], [ undef, %257 ], [ undef, %201 ], [ undef, %312 ], [ undef, %315 ]
-  br i1 %.not99, label %339, label %321
+.thread:                                          ; preds = %315, %312, %257, %rehashtab.exit
+  %.0 = phi ptr [ %152, %rehashtab.exit ], [ undef, %257 ], [ undef, %312 ], [ undef, %315 ]
+  br i1 %.not99, label %338, label %.thread.thread
 
-321:                                              ; preds = %hashkey.exit, %.thread137, %.thread
-  %.083 = phi ptr [ %44, %.thread ], [ %154, %.thread137 ], [ %44, %hashkey.exit ]
-  %322 = load i64, ptr %2, align 8, !tbaa !13
-  %323 = getelementptr inbounds nuw i8, ptr %.083, i64 8
-  %324 = icmp eq i64 %322, -9223372036854775808
-  br i1 %324, label %325, label %326, !prof !62
+.thread.thread:                                   ; preds = %hashkey.exit, %201, %.thread137, %.thread
+  %.083 = phi ptr [ %44, %.thread ], [ %154, %.thread137 ], [ %44, %201 ], [ %44, %hashkey.exit ]
+  %321 = load i64, ptr %2, align 8, !tbaa !13
+  %322 = getelementptr inbounds nuw i8, ptr %.083, i64 8
+  %323 = icmp eq i64 %321, -9223372036854775808
+  br i1 %323, label %324, label %325, !prof !62
 
-325:                                              ; preds = %321
-  br label %326
+324:                                              ; preds = %.thread.thread
+  br label %325
 
-326:                                              ; preds = %325, %321
-  %storemerge = phi i64 [ 0, %325 ], [ %322, %321 ]
-  store i64 %storemerge, ptr %323, align 8, !tbaa !13
-  %327 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %328 = load i8, ptr %327, align 8, !tbaa !13
-  %329 = and i8 %328, 4
-  %.not100 = icmp eq i8 %329, 0
-  br i1 %.not100, label %339, label %330, !prof !63
+325:                                              ; preds = %324, %.thread.thread
+  %storemerge = phi i64 [ 0, %324 ], [ %321, %.thread.thread ]
+  store i64 %storemerge, ptr %322, align 8, !tbaa !13
+  %326 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %327 = load i8, ptr %326, align 8, !tbaa !13
+  %328 = and i8 %327, 4
+  %.not100 = icmp eq i8 %328, 0
+  br i1 %.not100, label %338, label %329, !prof !63
 
-330:                                              ; preds = %326
-  %331 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %332 = load i64, ptr %331, align 8, !tbaa !24
-  %333 = inttoptr i64 %332 to ptr
-  %334 = and i8 %328, -5
-  store i8 %334, ptr %327, align 8, !tbaa !13
-  %335 = getelementptr inbounds nuw i8, ptr %333, i64 64
-  %336 = load i64, ptr %335, align 8, !tbaa !64
-  %337 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %336, ptr %337, align 8, !tbaa !65
-  %338 = ptrtoint ptr %1 to i64
-  store i64 %338, ptr %335, align 8, !tbaa !64
-  br label %339
+329:                                              ; preds = %325
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %331 = load i64, ptr %330, align 8, !tbaa !24
+  %332 = inttoptr i64 %331 to ptr
+  %333 = and i8 %327, -5
+  store i8 %333, ptr %326, align 8, !tbaa !13
+  %334 = getelementptr inbounds nuw i8, ptr %332, i64 64
+  %335 = load i64, ptr %334, align 8, !tbaa !64
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %335, ptr %336, align 8, !tbaa !65
+  %337 = ptrtoint ptr %1 to i64
+  store i64 %337, ptr %334, align 8, !tbaa !64
+  br label %338
 
-339:                                              ; preds = %326, %330, %.thread
-  %.1 = phi ptr [ %.0, %.thread ], [ %.083, %330 ], [ %.083, %326 ]
+338:                                              ; preds = %325, %329, %.thread
+  %.1 = phi ptr [ %.0, %.thread ], [ %.083, %329 ], [ %.083, %325 ]
   ret ptr %.1
 }
 

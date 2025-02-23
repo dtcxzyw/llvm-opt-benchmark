@@ -3745,7 +3745,7 @@ _ZN10ttf_parser6tables4hvar5Table14advance_offset17hfd61a0991e286758E.exit.threa
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %533
   %.sroa.025.047.i.i = phi i64 [ %529, %533 ], [ 0, %.preheader.i.i.preheader ]
-  %.246.i.i = phi i8 [ %.3.i.i, %533 ], [ %.06448.i.i, %.preheader.i.i.preheader ]
+  %.246.i.i = phi i8 [ %.3.i.i, %533 ], [ 0, %.preheader.i.i.preheader ]
   %529 = add nuw nsw i64 %.sroa.025.047.i.i, 1
   %530 = getelementptr inbounds nuw [4 x i16], ptr %28, i64 0, i64 %.sroa.025.047.i.i
   %531 = load i16, ptr %530, align 2, !noalias !643, !noundef !12

@@ -548,7 +548,7 @@ define i64 @H5HF__dtable_span_size(ptr noundef readonly captures(none) %0, i32 n
   %44 = zext i32 %.133.lcssa to i64
   %45 = getelementptr inbounds nuw i64, ptr %33, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !29
-  %47 = add i32 %18, 1
+  %47 = add nuw i32 %18, 1
   %48 = zext i32 %47 to i64
   %49 = mul i64 %46, %48
   %50 = add i64 %49, %.2.lcssa

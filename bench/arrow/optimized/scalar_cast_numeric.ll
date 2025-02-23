@@ -127431,23 +127431,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2120
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.066108
   %68 = load i8, ptr %67, align 1, !tbaa !142
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -127480,8 +127474,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2124
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.0105
   %89 = load i8, ptr %88, align 1, !tbaa !142
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -127498,7 +127492,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i8, ptr %.074114, i64 %96
@@ -127620,23 +127614,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2134
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.066108
   %68 = load i16, ptr %67, align 2, !tbaa !380
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -127669,8 +127657,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2138
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.0105
   %89 = load i16, ptr %88, align 2, !tbaa !380
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -127687,7 +127675,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i16, ptr %.074114, i64 %96
@@ -127809,23 +127797,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2148
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.066108
   %68 = load i32, ptr %67, align 4, !tbaa !143
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -127858,8 +127840,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2152
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.0105
   %89 = load i32, ptr %88, align 4, !tbaa !143
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -127876,7 +127858,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i32, ptr %.074114, i64 %96
@@ -127998,23 +127980,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2162
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.066108
   %68 = load i64, ptr %67, align 8, !tbaa !300
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -128047,8 +128023,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2166
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.0105
   %89 = load i64, ptr %88, align 8, !tbaa !300
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -128065,7 +128041,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i64, ptr %.074114, i64 %96
@@ -128187,23 +128163,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2176
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.066108
   %68 = load i8, ptr %67, align 1, !tbaa !142
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -128236,8 +128206,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2180
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.0105
   %89 = load i8, ptr %88, align 1, !tbaa !142
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -128254,7 +128224,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i8, ptr %.074114, i64 %96
@@ -128376,23 +128346,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2190
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.066108
   %68 = load i16, ptr %67, align 2, !tbaa !380
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -128425,8 +128389,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2194
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.0105
   %89 = load i16, ptr %88, align 2, !tbaa !380
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -128443,7 +128407,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i16, ptr %.074114, i64 %96
@@ -128565,23 +128529,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2204
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.066108
   %68 = load i32, ptr %67, align 4, !tbaa !143
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -128614,8 +128572,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2208
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.0105
   %89 = load i32, ptr %88, align 4, !tbaa !143
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -128632,7 +128590,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i32, ptr %.074114, i64 %96
@@ -128754,23 +128712,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2218
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.066108
   %68 = load i64, ptr %67, align 8, !tbaa !300
   %69 = getelementptr inbounds nuw float, ptr %.072117, i64 %.066108
@@ -128803,8 +128755,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2222
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.0105
   %89 = load i64, ptr %88, align 8, !tbaa !300
   %90 = getelementptr inbounds nuw float, ptr %.072117, i64 %.0105
@@ -128821,7 +128773,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_9F
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds float, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i64, ptr %.074114, i64 %96
@@ -129159,23 +129111,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2235
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.066108
   %68 = load i8, ptr %67, align 1, !tbaa !142
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -129208,8 +129154,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2239
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.0105
   %89 = load i8, ptr %88, align 1, !tbaa !142
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -129226,7 +129172,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i8, ptr %.074114, i64 %96
@@ -129348,23 +129294,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2249
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.066108
   %68 = load i16, ptr %67, align 2, !tbaa !380
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -129397,8 +129337,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2253
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.0105
   %89 = load i16, ptr %88, align 2, !tbaa !380
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -129415,7 +129355,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i16, ptr %.074114, i64 %96
@@ -129537,23 +129477,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2263
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.066108
   %68 = load i32, ptr %67, align 4, !tbaa !143
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -129586,8 +129520,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2267
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.0105
   %89 = load i32, ptr %88, align 4, !tbaa !143
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -129604,7 +129538,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i32, ptr %.074114, i64 %96
@@ -129726,23 +129660,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2277
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.066108
   %68 = load i64, ptr %67, align 8, !tbaa !300
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -129775,8 +129703,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2281
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.0105
   %89 = load i64, ptr %88, align 8, !tbaa !300
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -129793,7 +129721,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i64, ptr %.074114, i64 %96
@@ -129915,23 +129843,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2291
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.066108
   %68 = load i8, ptr %67, align 1, !tbaa !142
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -129964,8 +129886,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2295
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.0105
   %89 = load i8, ptr %88, align 1, !tbaa !142
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -129982,7 +129904,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i8, ptr %.074114, i64 %96
@@ -130104,23 +130026,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2305
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.066108
   %68 = load i16, ptr %67, align 2, !tbaa !380
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -130153,8 +130069,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2309
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i16, ptr %.074114, i64 %.0105
   %89 = load i16, ptr %88, align 2, !tbaa !380
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -130171,7 +130087,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i16, ptr %.074114, i64 %96
@@ -130293,23 +130209,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2319
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.066108
   %68 = load i32, ptr %67, align 4, !tbaa !143
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -130342,8 +130252,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2323
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i32, ptr %.074114, i64 %.0105
   %89 = load i32, ptr %88, align 4, !tbaa !143
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -130360,7 +130270,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i32, ptr %.074114, i64 %96
@@ -130482,23 +130392,17 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
 61:                                               ; preds = %.loopexit
   %62 = call noundef i64 @_ZNK5arrow9ArraySpan12GetNullCountEv(ptr noundef nonnull align 8 dereferenceable(128) %1)
   %63 = icmp sgt i64 %62, 0
-  %64 = sext i16 %.sroa.0.0.extract.trunc to i64
-  %.not81107 = icmp sgt i16 %.sroa.0.0.extract.trunc, 0
-  br i1 %63, label %.preheader, label %.preheader92
-
-.preheader92:                                     ; preds = %61
-  br i1 %.not81107, label %.lr.ph106, label %.thread
-
-.preheader:                                       ; preds = %61
-  br i1 %.not81107, label %.lr.ph109, label %.thread
+  %.sroa.0.0.extract.trunc.mask = and i32 %24, 65535
+  %64 = zext nneg i32 %.sroa.0.0.extract.trunc.mask to i64
+  br i1 %63, label %.lr.ph109, label %.lr.ph106
 
 65:                                               ; preds = %.lr.ph109
   %66 = add nuw nsw i64 %.066108, 1
   %exitcond130.not = icmp eq i64 %66, %64
   br i1 %exitcond130.not, label %.thread, label %.lr.ph109, !llvm.loop !2333
 
-.lr.ph109:                                        ; preds = %.preheader, %65
-  %.066108 = phi i64 [ %66, %65 ], [ 0, %.preheader ]
+.lr.ph109:                                        ; preds = %61, %65
+  %.066108 = phi i64 [ %66, %65 ], [ 0, %61 ]
   %67 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.066108
   %68 = load i64, ptr %67, align 8, !tbaa !300
   %69 = getelementptr inbounds nuw double, ptr %.072117, i64 %.066108
@@ -130531,8 +130435,8 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   %exitcond129.not = icmp eq i64 %87, %64
   br i1 %exitcond129.not, label %.thread, label %.lr.ph106, !llvm.loop !2337
 
-.lr.ph106:                                        ; preds = %.preheader92, %86
-  %.0105 = phi i64 [ %87, %86 ], [ 0, %.preheader92 ]
+.lr.ph106:                                        ; preds = %61, %86
+  %.0105 = phi i64 [ %87, %86 ], [ 0, %61 ]
   %88 = getelementptr inbounds nuw i64, ptr %.074114, i64 %.0105
   %89 = load i64, ptr %88, align 8, !tbaa !300
   %90 = getelementptr inbounds nuw double, ptr %.072117, i64 %.0105
@@ -130549,7 +130453,7 @@ define linkonce_odr void @_ZN5arrow7compute8internal20CheckFloatTruncationINS_10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %.thread86
 
-.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %.preheader92, %.preheader, %38, %.loopexit
+.thread:                                          ; preds = %86, %65, %.preheader95, %.preheader94, %38, %.loopexit
   %96 = sext i32 %26 to i64
   %97 = getelementptr inbounds double, ptr %.072117, i64 %96
   %98 = getelementptr inbounds i64, ptr %.074114, i64 %96

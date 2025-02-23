@@ -5915,14 +5915,13 @@ _ZN6V3ListI13V3GraphVertexXadL_ZNS0_5linksEvEES0_E15UnlinkableProxy5beginEv.exit
   %92 = load ptr, ptr %.sroa.0121.0198, align 8
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0121.0198, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i169 = select i1 %94, ptr %.sroa.0121.0198, ptr null
   %95 = load ptr, ptr %89, align 8
-  %.not145 = icmp ne ptr %..i169, %95
+  %.not145 = icmp ne ptr %.sroa.0121.0198, %95
   %or.cond.not = select i1 %94, i1 %.not145, i1 false
   br i1 %or.cond.not, label %96, label %100
 
 96:                                               ; preds = %90
-  %97 = getelementptr inbounds nuw i8, ptr %..i169, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0198, i64 24
   %98 = load ptr, ptr %97, align 8
   %.not.i.i = icmp eq ptr %98, null
   br i1 %.not.i.i, label %99, label %100
@@ -5967,21 +5966,20 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor13graphOptimizeEv(ptr nound
   %10 = load ptr, ptr %.sroa.0.034.i, align 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.034.i, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i.i = select i1 %12, ptr %.sroa.0.034.i, ptr null
   %13 = load ptr, ptr %5, align 8
-  %.not29.i = icmp ne ptr %..i.i, %13
+  %.not29.i = icmp ne ptr %.sroa.0.034.i, %13
   %or.cond.not.i = select i1 %12, i1 %.not29.i, i1 false
   br i1 %or.cond.not.i, label %.sink.split.i, label %19
 
 .sink.split.i:                                    ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %..i.i, i64 92
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 92
   %15 = load i8, ptr %14, align 4
   %16 = trunc i8 %15 to i1
   %.sink.i = select i1 %16, i32 0, i32 %.033.i
   %not..i = xor i1 %16, true
   %17 = zext i1 %not..i to i32
   %.1.ph.i = add i32 %.033.i, %17
-  %18 = getelementptr inbounds nuw i8, ptr %..i.i, i64 88
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 88
   store i32 %.sink.i, ptr %18, align 8
   br label %19
 
@@ -6007,33 +6005,33 @@ _ZN12TraceVisitor21assignactivityNumbersEv.exit:  ; preds = %19, %1
 
 25:                                               ; preds = %_ZN12TraceVisitor21assignactivityNumbersEv.exit
   %26 = load ptr, ptr %22, align 8
-  %.not7390 = icmp eq ptr %26, %20
-  br i1 %.not7390, label %._crit_edge, label %.preheader77.lr.ph
+  %.not7794 = icmp eq ptr %26, %20
+  br i1 %.not7794, label %._crit_edge, label %.preheader81.lr.ph
 
-.preheader77.lr.ph:                               ; preds = %25
+.preheader81.lr.ph:                               ; preds = %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  br label %.preheader77
+  br label %.preheader81
 
-.preheader77:                                     ; preds = %.preheader77.lr.ph, %.backedge
-  %.sroa.055.091 = phi ptr [ %26, %.preheader77.lr.ph ], [ %.sroa.055.182, %.backedge ]
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.055.091, i64 72
+.preheader81:                                     ; preds = %.preheader81.lr.ph, %.backedge
+  %.sroa.055.095 = phi ptr [ %26, %.preheader81.lr.ph ], [ %.sroa.055.186, %.backedge ]
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.055.095, i64 72
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.055.091, i64 56
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.055.095, i64 56
   br label %32
 
-32:                                               ; preds = %.preheader77, %97
-  %.01785 = phi i32 [ 0, %.preheader77 ], [ %.1, %97 ]
-  %.sroa.055.184 = phi ptr [ %.sroa.055.091, %.preheader77 ], [ %98, %97 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.055.184, i64 72
+32:                                               ; preds = %.preheader81, %97
+  %.01789 = phi i32 [ 0, %.preheader81 ], [ %.1, %97 ]
+  %.sroa.055.188 = phi ptr [ %.sroa.055.095, %.preheader81 ], [ %98, %97 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.055.188, i64 72
   %34 = load i64, ptr %33, align 8
   %35 = icmp eq i64 %34, %30
   br i1 %35, label %36, label %.critedge
 
 36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.055.184, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.055.188, i64 56
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.055.184, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.055.188, i64 40
   %.not6.i.i.i.i.i.i = icmp eq ptr %38, %39
   br i1 %.not6.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.preheader.i.i
 
@@ -6058,7 +6056,7 @@ _ZN12TraceVisitor21assignactivityNumbersEv.exit:  ; preds = %19, %1
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !20
 
 .loopexit:                                        ; preds = %46, %36
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.055.184, i64 80
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.055.188, i64 80
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 88
   %52 = load ptr, ptr %51, align 8
@@ -6128,10 +6126,10 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %53, %_ZNK12AstTrace
 93:                                               ; preds = %86, %_ZNK7AstNode6isWideEv.exit.thread
   %94 = phi i32 [ %92, %86 ], [ 1, %_ZNK7AstNode6isWideEv.exit.thread ]
   %95 = mul i32 %94, %82
-  %96 = add i32 %95, %.01785
+  %96 = add i32 %95, %.01789
   br label %97
 
-.loopexit76:                                      ; preds = %.lr.ph
+.loopexit80:                                      ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %137
@@ -6142,19 +6140,19 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %53, %_ZNK12AstTrace
   br label %137
 
 97:                                               ; preds = %.loopexit, %93
-  %.1 = phi i32 [ %.01785, %.loopexit ], [ %96, %93 ]
-  %98 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.055.184) #23
-  %.not74 = icmp eq ptr %98, %20
-  br i1 %.not74, label %.critedge, label %32, !llvm.loop !21
+  %.1 = phi i32 [ %.01789, %.loopexit ], [ %96, %93 ]
+  %98 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.055.188) #23
+  %.not78 = icmp eq ptr %98, %20
+  br i1 %.not78, label %.critedge, label %32, !llvm.loop !21
 
 .critedge:                                        ; preds = %32, %97, %.lr.ph.i.i.i.i.i.i
-  %.sroa.055.182 = phi ptr [ %.sroa.055.184, %.lr.ph.i.i.i.i.i.i ], [ %98, %97 ], [ %.sroa.055.184, %32 ]
-  %.01780 = phi i32 [ %.01785, %.lr.ph.i.i.i.i.i.i ], [ %.1, %97 ], [ %.01785, %32 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.055.091, i64 48
+  %.sroa.055.186 = phi ptr [ %.sroa.055.188, %.lr.ph.i.i.i.i.i.i ], [ %98, %97 ], [ %.sroa.055.188, %32 ]
+  %.01784 = phi i32 [ %.01789, %.lr.ph.i.i.i.i.i.i ], [ %.1, %97 ], [ %.01789, %32 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.055.095, i64 48
   %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.055.091, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.055.095, i64 40
   %.not10.i.i.i = icmp eq ptr %100, null
-  br i1 %.not10.i.i.i, label %.thread70, label %.lr.ph.i.i.i
+  br i1 %.not10.i.i.i, label %.thread74, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge, %.lr.ph.i.i.i
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %100, %.critedge ]
@@ -6179,7 +6177,7 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
   %109 = icmp ugt i32 %108, 2147483646
   br i1 %109, label %.lr.ph.i.i.i24.preheader, label %.backedge
 
-.lr.ph.i.i.i24.preheader:                         ; preds = %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i, %106
+.lr.ph.i.i.i24.preheader:                         ; preds = %106, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i
   br label %.lr.ph.i.i.i24
 
 .lr.ph.i.i.i24:                                   ; preds = %.lr.ph.i.i.i24.preheader, %.lr.ph.i.i.i24
@@ -6205,7 +6203,7 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %.lr.ph.i.i.i37.preheader, label %.backedge
 
-.lr.ph.i.i.i37.preheader:                         ; preds = %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i32, %114
+.lr.ph.i.i.i37.preheader:                         ; preds = %114, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i32
   br label %.lr.ph.i.i.i37
 
 .lr.ph.i.i.i37:                                   ; preds = %.lr.ph.i.i.i37.preheader, %.lr.ph.i.i.i37
@@ -6221,24 +6219,24 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
   %120 = icmp ne ptr %.012.i.i.i38, %101
   %.not.not = icmp eq i32 %119, 0
   %or.cond = select i1 %120, i1 %.not.not, i1 false
-  br i1 %or.cond, label %.backedge, label %.thread70
+  br i1 %or.cond, label %.backedge, label %.thread74
 
-.thread70:                                        ; preds = %.critedge, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i45
-  %121 = zext i32 %.01780 to i64
+.thread74:                                        ; preds = %.critedge, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i45
+  %121 = zext i32 %.01784 to i64
   %122 = shl i64 %30, 1
   %.not20 = icmp ult i64 %122, %121
-  %.not88 = icmp eq ptr %.sroa.055.091, %.sroa.055.182
-  %or.cond92 = or i1 %.not20, %.not88
-  br i1 %or.cond92, label %.backedge, label %.lr.ph
+  %.not92 = icmp eq ptr %.sroa.055.095, %.sroa.055.186
+  %or.cond96 = or i1 %.not20, %.not92
+  br i1 %or.cond96, label %.backedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.thread70, %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit
-  %.sroa.0.089 = phi ptr [ %129, %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit ], [ %.sroa.055.091, %.thread70 ]
+.lr.ph:                                           ; preds = %.thread74, %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit
+  %.sroa.0.093 = phi ptr [ %129, %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit ], [ %.sroa.055.095, %.thread74 ]
   %123 = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #24
-          to label %124 unwind label %.loopexit76
+          to label %124 unwind label %.loopexit80
 
 124:                                              ; preds = %.lr.ph
   %125 = load ptr, ptr %28, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.089, i64 80
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.0.093, i64 80
   %127 = load ptr, ptr %126, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %123, align 8
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 8
@@ -6247,8 +6245,8 @@ _ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree
           to label %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit unwind label %130
 
 _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %124
-  %129 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.089) #23
-  %.not = icmp eq ptr %129, %.sroa.055.182
+  %129 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.093) #23
+  %.not = icmp eq ptr %129, %.sroa.055.186
   br i1 %.not, label %.backedge, label %.lr.ph, !llvm.loop !23
 
 130:                                              ; preds = %124
@@ -6257,9 +6255,9 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %124
   call void @_ZdlPv(ptr noundef nonnull %123) #25
   br label %137
 
-.backedge:                                        ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit, %.thread70, %106, %114, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i45
-  %.not73 = icmp eq ptr %.sroa.055.182, %20
-  br i1 %.not73, label %._crit_edge, label %.preheader77, !llvm.loop !24
+.backedge:                                        ; preds = %_ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit, %.thread74, %106, %114, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i45
+  %.not77 = icmp eq ptr %.sroa.055.186, %20
+  br i1 %.not77, label %._crit_edge, label %.preheader81, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.backedge, %25
   invoke void @_ZN12TraceVisitor13graphSimplifyEb(ptr noundef nonnull align 8 dereferenceable(152) %0, i1 noundef zeroext false)
@@ -6280,8 +6278,8 @@ _ZN11V3GraphEdgeC2EP7V3GraphP13V3GraphVertexS3_ib.exit: ; preds = %124
 _ZNSt8multimapISt3setIjSt4lessIjESaIjEEP16TraceTraceVertexS1_IS4_ESaISt4pairIKS4_S6_EEED2Ev.exit: ; preds = %132
   ret void
 
-137:                                              ; preds = %.loopexit76, %.loopexit.split-lp, %130
-  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+137:                                              ; preds = %.loopexit80, %.loopexit.split-lp, %130
+  %.pn = phi { ptr, i32 } [ %131, %130 ], [ %lpad.loopexit, %.loopexit80 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt8multimapISt3setIjSt4lessIjESaIjEEP16TraceTraceVertexS1_IS4_ESaISt4pairIKS4_S6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #22
   resume { ptr, i32 } %.pn
 }
@@ -6311,21 +6309,20 @@ define linkonce_odr dso_local void @_ZN12TraceVisitor19createActivityFlagsEv(ptr
   %11 = load ptr, ptr %.sroa.0.034.i, align 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.0.034.i, i64 noundef ptrtoint (ptr @_ZZN19TraceActivityVertex11rttiClassIdEvE15aStaticVariable to i64))
-  %..i.i = select i1 %13, ptr %.sroa.0.034.i, ptr null
   %14 = load ptr, ptr %6, align 8
-  %.not29.i = icmp ne ptr %..i.i, %14
+  %.not29.i = icmp ne ptr %.sroa.0.034.i, %14
   %or.cond.not.i = select i1 %13, i1 %.not29.i, i1 false
   br i1 %or.cond.not.i, label %.sink.split.i, label %20
 
 .sink.split.i:                                    ; preds = %7
-  %15 = getelementptr inbounds nuw i8, ptr %..i.i, i64 92
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 92
   %16 = load i8, ptr %15, align 4
   %17 = trunc i8 %16 to i1
   %.sink.i = select i1 %17, i32 0, i32 %.033.i
   %not..i = xor i1 %17, true
   %18 = zext i1 %not..i to i32
   %.1.ph.i = add i32 %.033.i, %18
-  %19 = getelementptr inbounds nuw i8, ptr %..i.i, i64 88
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.034.i, i64 88
   store i32 %.sink.i, ptr %19, align 8
   br label %20
 
@@ -7524,7 +7521,7 @@ _ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit.thread: ; preds = %_ZNK12AstTraceDec
   %.138 = phi i32 [ %.03772, %36 ], [ %107, %_ZN11AstTraceIncC2EP8FileLineP12AstTraceDecl10VTraceTypej.exit ], [ %.03772, %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit ], [ %.03772, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %.03772, %_ZNK12AstTraceDecl7codeIncEv.exit ]
   %.135 = phi ptr [ %.03473, %36 ], [ %.236, %_ZN11AstTraceIncC2EP8FileLineP12AstTraceDecl10VTraceTypej.exit ], [ %.03473, %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit ], [ %.03473, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %.03473, %_ZNK12AstTraceDecl7codeIncEv.exit ]
   %.1 = phi i32 [ %.074, %36 ], [ %.2, %_ZN11AstTraceIncC2EP8FileLineP12AstTraceDecl10VTraceTypej.exit ], [ %.074, %_ZNKSt3setIjSt4lessIjESaIjEE5countERKj.exit ], [ %.074, %_ZNKSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE14_M_lower_boundEPKSt13_Rb_tree_nodeIjEPKSt18_Rb_tree_node_baseRKj.exit.i.i ], [ %.074, %_ZNK12AstTraceDecl7codeIncEv.exit ]
-  %110 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.056.071) #23
+  %110 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.056.071) #23
   %.not63 = icmp eq ptr %110, %9
   br i1 %.not63, label %._crit_edge, label %13, !llvm.loop !27
 

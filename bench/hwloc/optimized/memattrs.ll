@@ -2951,8 +2951,8 @@ hwloc_get_obj_by_type.exit:                       ; preds = %.loopexit
   br i1 %.not3944, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc_get_obj_by_type.exit
-  %.not.i = icmp ult i64 %4, 4
-  %.not11.i = icmp ult i64 %4, 2
+  %.not.i = icmp samesign ult i64 %4, 4
+  %.not11.i = icmp samesign ult i64 %4, 2
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph

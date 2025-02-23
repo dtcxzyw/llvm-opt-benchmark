@@ -3333,16 +3333,17 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %59 = and i1 %58, %57
   br i1 %59, label %.lr.ph, label %xas_load.exit
 
-60:                                               ; preds = %.split6.us.i
-  %61 = ptrtoint ptr %109 to i64
+.split6.us.i.thread21:                            ; preds = %.split.i, %.split6.us.i
+  %60 = phi ptr [ %75, %.split6.us.i ], [ %103, %.split.i ]
+  %61 = ptrtoint ptr %60 to i64
   %62 = and i64 %61, 3
   %63 = icmp eq i64 %62, 2
-  %64 = icmp ugt ptr %109, inttoptr (i64 4096 to ptr)
+  %64 = icmp ugt ptr %60, inttoptr (i64 4096 to ptr)
   %65 = and i1 %64, %63
   br i1 %65, label %.lr.ph, label %xas_load.exit
 
-.lr.ph:                                           ; preds = %53, %60
-  %66 = phi i64 [ %61, %60 ], [ %55, %53 ]
+.lr.ph:                                           ; preds = %53, %.split6.us.i.thread21
+  %66 = phi i64 [ %61, %.split6.us.i.thread21 ], [ %55, %53 ]
   %67 = add nsw i64 %66, -2
   %68 = inttoptr i64 %67 to ptr
   %69 = load i8, ptr %68, align 8
@@ -3357,14 +3358,14 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %78 = icmp eq i64 %77, 2
   %79 = icmp ult ptr %75, inttoptr (i64 254 to ptr)
   %80 = and i1 %79, %78
-  br i1 %80, label %81, label %.split6.us.i
+  %81 = icmp eq i8 %69, 0
+  br i1 %80, label %82, label %.split6.us.i
 
-81:                                               ; preds = %.lr.ph
-  %82 = icmp eq i8 %69, 0
-  br i1 %82, label %.split.us.i, label %.split.i
+82:                                               ; preds = %.lr.ph
+  br i1 %81, label %.split.us.i, label %.split.i
 
-.split.us.i:                                      ; preds = %81, %.split.us.i
-  %83 = phi i64 [ %88, %.split.us.i ], [ %76, %81 ]
+.split.us.i:                                      ; preds = %82, %.split.us.i
+  %83 = phi i64 [ %88, %.split.us.i ], [ %76, %82 ]
   %84 = lshr i64 %83, 2
   %85 = and i64 %84, 4294967295
   %86 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %85
@@ -3374,10 +3375,10 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %90 = icmp eq i64 %89, 2
   %91 = icmp ult ptr %87, inttoptr (i64 254 to ptr)
   %92 = and i1 %91, %90
-  br i1 %92, label %.split.us.i, label %.split6.us.i, !llvm.loop !5
+  br i1 %92, label %.split.us.i, label %xas_load.exit, !llvm.loop !5
 
-.split.i:                                         ; preds = %81, %.split.i
-  %93 = phi i64 [ %104, %.split.i ], [ %76, %81 ]
+.split.i:                                         ; preds = %82, %.split.i
+  %93 = phi i64 [ %104, %.split.i ], [ %76, %82 ]
   %94 = lshr i64 %93, 2
   %95 = and i64 %94, 4294967295
   %96 = getelementptr [64 x ptr], ptr %72, i64 0, i64 %95
@@ -3393,34 +3394,32 @@ define dso_local ptr @xa_load(ptr noundef %0, i64 noundef %1) #2 align 16 {
   %106 = icmp eq i64 %105, 2
   %107 = icmp ult ptr %103, inttoptr (i64 254 to ptr)
   %108 = and i1 %107, %106
-  br i1 %108, label %.split.i, label %.split6.us.i, !llvm.loop !5
+  br i1 %108, label %.split.i, label %.split6.us.i.thread21, !llvm.loop !5
 
-.split6.us.i:                                     ; preds = %.split.i, %.split.us.i, %.lr.ph
-  %109 = phi ptr [ %75, %.lr.ph ], [ %87, %.split.us.i ], [ %103, %.split.i ]
-  %.not.i = icmp eq i8 %69, 0
-  br i1 %.not.i, label %xas_load.exit, label %60
+.split6.us.i:                                     ; preds = %.lr.ph
+  br i1 %81, label %xas_load.exit, label %.split6.us.i.thread21
 
-xas_load.exit:                                    ; preds = %.split6.us.i, %60, %46, %45, %31, %53
-  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %46 ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ %68, %60 ], [ %68, %.split6.us.i ]
-  %110 = phi ptr [ %54, %53 ], [ null, %46 ], [ null, %45 ], [ null, %31 ], [ %109, %60 ], [ %109, %.split6.us.i ]
-  %111 = icmp eq ptr %110, inttoptr (i64 1030 to ptr)
-  %112 = select i1 %111, ptr null, ptr %110
-  %113 = ptrtoint ptr %112 to i64
-  switch i64 %113, label %115 [
+xas_load.exit:                                    ; preds = %.split6.us.i, %.split6.us.i.thread21, %.split.us.i, %46, %45, %31, %53
+  %.sroa.134.4 = phi ptr [ %.sroa.134.2, %53 ], [ inttoptr (i64 1 to ptr), %46 ], [ inttoptr (i64 1 to ptr), %45 ], [ %.sroa.134.0, %31 ], [ %68, %.split.us.i ], [ %68, %.split6.us.i.thread21 ], [ %68, %.split6.us.i ]
+  %109 = phi ptr [ %54, %53 ], [ null, %46 ], [ null, %45 ], [ null, %31 ], [ %87, %.split.us.i ], [ %75, %.split6.us.i ], [ %60, %.split6.us.i.thread21 ]
+  %110 = icmp eq ptr %109, inttoptr (i64 1030 to ptr)
+  %111 = select i1 %110, ptr null, ptr %109
+  %112 = ptrtoint ptr %111 to i64
+  switch i64 %112, label %114 [
     i64 1030, label %.backedge
-    i64 1026, label %114
+    i64 1026, label %113
   ]
 
-114:                                              ; preds = %xas_load.exit
+113:                                              ; preds = %xas_load.exit
   br label %.backedge
 
-.backedge:                                        ; preds = %114, %xas_load.exit
-  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %114 ], [ %.sroa.134.4, %xas_load.exit ]
+.backedge:                                        ; preds = %113, %xas_load.exit
+  %.sroa.134.0.be = phi ptr [ inttoptr (i64 3 to ptr), %113 ], [ %.sroa.134.4, %xas_load.exit ]
   br label %5
 
-115:                                              ; preds = %xas_load.exit
+114:                                              ; preds = %xas_load.exit
   tail call void @__rcu_read_unlock() #8
-  ret ptr %112
+  ret ptr %111
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

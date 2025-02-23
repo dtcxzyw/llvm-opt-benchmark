@@ -4276,13 +4276,13 @@ define noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull ali
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 172
   %15 = load i32, ptr %14, align 4
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %.sink.split, label %.preheader
+  br i1 %16, label %_ZN12MeshDocument16setCurrentRasterEi.exit, label %.preheader
 
 .preheader:                                       ; preds = %13, %17
   %.sroa.06.0.in.i.i = phi ptr [ %.sroa.06.0.i.i, %17 ], [ %3, %13 ]
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.0.in.i.i, align 8
   %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %3
-  br i1 %.not.i.i, label %.sink.split, label %17
+  br i1 %.not.i.i, label %_ZN12MeshDocument16setCurrentRasterEi.exit, label %17
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 172
@@ -4292,14 +4292,14 @@ define noundef zeroext i1 @_ZN12MeshDocument9delRasterEj(ptr noundef nonnull ali
 
 .split.loop.exit9.i.i:                            ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 16
-  br label %.sink.split
+  br label %_ZN12MeshDocument16setCurrentRasterEi.exit
 
-.sink.split:                                      ; preds = %.preheader, %.split.loop.exit9.i.i, %13
-  %.sink = phi ptr [ null, %13 ], [ %21, %.split.loop.exit9.i.i ], [ null, %.preheader ]
-  store ptr %.sink, ptr %10, align 8
+_ZN12MeshDocument16setCurrentRasterEi.exit:       ; preds = %.preheader, %13, %.split.loop.exit9.i.i
+  %.0.i.sink.i = phi ptr [ null, %13 ], [ %21, %.split.loop.exit9.i.i ], [ null, %.preheader ]
+  store ptr %.0.i.sink.i, ptr %10, align 8
   br label %22
 
-22:                                               ; preds = %9, %.sink.split
+22:                                               ; preds = %9, %_ZN12MeshDocument16setCurrentRasterEi.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, -1

@@ -1027,7 +1027,7 @@ Vec_PtrAlloc.exit:                                ; preds = %2, %7
   %15 = load ptr, ptr %12, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !40
-  tail call void @Abc_ObjPatchFanin(ptr noundef %17, ptr noundef %0, ptr noundef %1)
+  tail call void @Abc_ObjPatchFanin(ptr noundef %17, ptr noundef %0, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i32, ptr %6, align 4, !tbaa !47
   %19 = sext i32 %18 to i64

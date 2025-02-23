@@ -30,7 +30,7 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %11 = icmp slt i32 %1, 128
+  %11 = icmp samesign ult i32 %1, 128
   br i1 %11, label %.lr.ph59.preheader, label %._crit_edge60
 
 .lr.ph59.preheader:                               ; preds = %4, %._crit_edge
@@ -80,8 +80,8 @@ define void @RC2_set_key(ptr noundef captures(none) initializes((0, 1)) %0, i32 
   br i1 %.not61, label %._crit_edge66, label %.lr.ph65.preheader
 
 .lr.ph65.preheader:                               ; preds = %._crit_edge60
-  %narrow = sub nsw i32 128, %25
-  %38 = sext i32 %narrow to i64
+  %narrow = sub nuw nsw i32 128, %25
+  %38 = zext nneg i32 %narrow to i64
   %39 = zext nneg i32 %25 to i64
   %invariant.gep81 = getelementptr i8, ptr %0, i64 %39
   br label %.lr.ph65

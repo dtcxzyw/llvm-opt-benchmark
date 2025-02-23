@@ -986,9 +986,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %87 = getelementptr i8, ptr %86, i64 %55
   %88 = getelementptr i8, ptr %87, i64 3
   store i8 %85, ptr %88, align 1
-  %89 = shl nuw nsw i64 %5, 2
-  %90 = udiv i64 %89, 3
-  %umax = tail call i64 @llvm.umax.i64(i64 %90, i64 1)
+  %.tr = trunc nuw nsw i64 %5 to i8
+  %.lhs.trunc = shl nuw nsw i8 %.tr, 2
+  %89 = udiv i8 %.lhs.trunc, 3
+  %.zext = zext nneg i8 %89 to i64
   br label %.lr.ph39
 
 ._crit_edge:                                      ; preds = %.lr.ph39
@@ -996,14 +997,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   ret void
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %.038 = phi i64 [ %95, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
-  %91 = xor i64 %.038, -1
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr i8, ptr %92, i64 %8
-  %94 = getelementptr i8, ptr %93, i64 %91
-  store i8 61, ptr %94, align 1
-  %95 = add nuw nsw i64 %.038, 1
-  %exitcond41.not = icmp eq i64 %95, %umax
+  %.038 = phi i64 [ %94, %.lr.ph39 ], [ 0, %.lr.ph39.preheader ]
+  %90 = xor i64 %.038, -1
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr i8, ptr %91, i64 %8
+  %93 = getelementptr i8, ptr %92, i64 %90
+  store i8 61, ptr %93, align 1
+  %94 = add nuw nsw i64 %.038, 1
+  %exitcond41.not = icmp eq i64 %94, %.zext
   br i1 %exitcond41.not, label %._crit_edge, label %.lr.ph39, !llvm.loop !46
 }
 
@@ -1043,9 +1044,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

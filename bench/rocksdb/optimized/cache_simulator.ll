@@ -3965,7 +3965,7 @@ for.body17:                                       ; preds = %for.body, %for.body
   br i1 %cmp.i7.not, label %for.inc21, label %for.body17
 
 for.inc21:                                        ; preds = %for.body17, %for.body
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.027) #27
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.027) #27
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.end23, label %for.body
 
@@ -4001,7 +4001,7 @@ for.body46:                                       ; preds = %for.body33, %for.bo
   br i1 %cmp.i13.not, label %for.inc53, label %for.body46
 
 for.inc53:                                        ; preds = %for.body46, %for.body33
-  %call.i15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.031) #27
+  %call.i15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.031) #27
   %cmp.i10.not = icmp eq ptr %call.i15, %add.ptr.i.i9
   br i1 %cmp.i10.not, label %for.end55, label %for.body33
 

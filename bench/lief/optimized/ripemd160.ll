@@ -2102,7 +2102,7 @@ mbedtls_ripemd160_update.exit:                    ; preds = %._crit_edge.i, %._c
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %76 = zext nneg i32 %.05358.i75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr align 1 %.137.lcssa59.i74, i64 %.1.lcssa60.i73, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %.137.lcssa59.i74, i64 %.1.lcssa60.i73, i1 false)
   br label %mbedtls_ripemd160_update.exit79
 
 mbedtls_ripemd160_update.exit79:                  ; preds = %._crit_edge.i68, %._crit_edge.thread.i72

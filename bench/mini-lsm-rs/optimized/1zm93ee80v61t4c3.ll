@@ -6082,7 +6082,6 @@ common.resume:                                    ; preds = %64, %59
   %129 = load i64, ptr %121, align 8, !noundef !9
   %.not105 = icmp eq i64 %129, 0
   %130 = load ptr, ptr %120, align 8, !nonnull !9
-  %.0 = select i1 %.not105, ptr null, ptr %130
   br i1 %.not105, label %162, label %131
 
 131:                                              ; preds = %128
@@ -6404,7 +6403,7 @@ common.resume:                                    ; preds = %64, %59
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %35)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  %215 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %216 = load i64, ptr %215, align 8, !noundef !9
   store i64 %216, ptr %32, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)

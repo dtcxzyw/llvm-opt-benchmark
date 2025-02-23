@@ -1102,92 +1102,89 @@ define dso_local void @_ZN4llvm12SCEVDivision12visitMulExprEPKNS_11SCEVMulExprE(
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %101, ptr %102, align 8, !tbaa !25
   %103 = call noundef zeroext i1 @_ZNK4llvm4SCEV6isZeroEv(ptr noundef nonnull align 8 dereferenceable(30) %101) #11
-  br i1 %103, label %104, label %117
+  br i1 %103, label %104, label %114
 
 104:                                              ; preds = %94
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #11
   %107 = load ptr, ptr %14, align 8, !tbaa !26
-  %108 = icmp eq ptr %107, null
-  %109 = getelementptr inbounds i8, ptr %107, i64 -32
-  %110 = select i1 %108, ptr null, ptr %109
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  %112 = load ptr, ptr %111, align 8, !tbaa !44
-  store ptr %112, ptr %8, align 8, !tbaa !50
-  %113 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr %106, ptr %113, align 8, !tbaa !10
+  %108 = getelementptr inbounds i8, ptr %107, i64 -8
+  %109 = load ptr, ptr %108, align 8, !tbaa !44
+  store ptr %109, ptr %8, align 8, !tbaa !50
+  %110 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  store ptr %106, ptr %110, align 8, !tbaa !10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  %114 = load ptr, ptr %0, align 8, !tbaa !34
-  %115 = call noundef ptr @_ZN4llvm21SCEVParameterRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionERNS_8DenseMapIPKNS_5ValueES3_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S3_EEEE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1344) %114, ptr noundef nonnull align 8 dereferenceable(20) %6)
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %115, ptr %116, align 8, !tbaa !24
-  br label %138
+  %111 = load ptr, ptr %0, align 8, !tbaa !34
+  %112 = call noundef ptr @_ZN4llvm21SCEVParameterRewriter7rewriteEPKNS_4SCEVERNS_15ScalarEvolutionERNS_8DenseMapIPKNS_5ValueES3_NS_12DenseMapInfoIS9_vEENS_6detail12DenseMapPairIS9_S3_EEEE(ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(1344) %111, ptr noundef nonnull align 8 dereferenceable(20) %6)
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %112, ptr %113, align 8, !tbaa !24
+  br label %135
 
-117:                                              ; preds = %94
+114:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #11
-  %118 = load ptr, ptr %0, align 8, !tbaa !34
-  %119 = load ptr, ptr %102, align 8, !tbaa !25
-  %120 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %118, ptr noundef nonnull %1, ptr noundef %119, i32 noundef 0, i32 noundef 0) #11
-  %121 = call fastcc noundef i32 @_ZN12_GLOBAL__N_110sizeOfSCEVEPKN4llvm4SCEVE(ptr noundef %120)
-  %122 = call fastcc noundef i32 @_ZN12_GLOBAL__N_110sizeOfSCEVEPKN4llvm4SCEVE(ptr noundef nonnull %1)
-  %123 = icmp sgt i32 %121, %122
-  br i1 %123, label %124, label %127
+  %115 = load ptr, ptr %0, align 8, !tbaa !34
+  %116 = load ptr, ptr %102, align 8, !tbaa !25
+  %117 = call noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_11NoWrapFlagsEj(ptr noundef nonnull align 8 dereferenceable(1344) %115, ptr noundef nonnull %1, ptr noundef %116, i32 noundef 0, i32 noundef 0) #11
+  %118 = call fastcc noundef i32 @_ZN12_GLOBAL__N_110sizeOfSCEVEPKN4llvm4SCEVE(ptr noundef %117)
+  %119 = call fastcc noundef i32 @_ZN12_GLOBAL__N_110sizeOfSCEVEPKN4llvm4SCEVE(ptr noundef nonnull %1)
+  %120 = icmp sgt i32 %118, %119
+  br i1 %120, label %121, label %124
 
-124:                                              ; preds = %117
-  %125 = load ptr, ptr %95, align 8, !tbaa !11
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %125, ptr %126, align 8, !tbaa !24
+121:                                              ; preds = %114
+  %122 = load ptr, ptr %95, align 8, !tbaa !11
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %122, ptr %123, align 8, !tbaa !24
   store ptr %1, ptr %102, align 8, !tbaa !25
-  br label %137
+  br label %134
 
-127:                                              ; preds = %117
-  %128 = load ptr, ptr %0, align 8, !tbaa !34
-  %129 = load ptr, ptr %14, align 8, !tbaa !26
-  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %128, ptr noundef %120, ptr noundef %129, ptr noundef nonnull %9, ptr noundef nonnull %10)
-  %130 = load ptr, ptr %10, align 8, !tbaa !10
-  %131 = load ptr, ptr %95, align 8, !tbaa !11
-  %.not37 = icmp eq ptr %130, %131
-  br i1 %.not37, label %134, label %132
+124:                                              ; preds = %114
+  %125 = load ptr, ptr %0, align 8, !tbaa !34
+  %126 = load ptr, ptr %14, align 8, !tbaa !26
+  call void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1344) %125, ptr noundef %117, ptr noundef %126, ptr noundef nonnull %9, ptr noundef nonnull %10)
+  %127 = load ptr, ptr %10, align 8, !tbaa !10
+  %128 = load ptr, ptr %95, align 8, !tbaa !11
+  %.not37 = icmp eq ptr %127, %128
+  br i1 %.not37, label %131, label %129
 
-132:                                              ; preds = %127
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %128, ptr %130, align 8, !tbaa !24
+  store ptr %1, ptr %102, align 8, !tbaa !25
+  br label %134
+
+131:                                              ; preds = %124
+  %132 = load ptr, ptr %9, align 8, !tbaa !10
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %131, ptr %133, align 8, !tbaa !24
-  store ptr %1, ptr %102, align 8, !tbaa !25
-  br label %137
+  store ptr %132, ptr %133, align 8, !tbaa !24
+  br label %134
 
-134:                                              ; preds = %127
-  %135 = load ptr, ptr %9, align 8, !tbaa !10
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %135, ptr %136, align 8, !tbaa !24
-  br label %137
-
-137:                                              ; preds = %134, %132, %124
+134:                                              ; preds = %131, %129, %121
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #11
-  br label %138
+  br label %135
 
-138:                                              ; preds = %137, %104
-  %139 = load ptr, ptr %6, align 8, !tbaa !51
-  %140 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %141 = load i32, ptr %140, align 8, !tbaa !54
-  %142 = zext i32 %141 to i64
-  %143 = shl nuw nsw i64 %142, 4
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %139, i64 noundef %143, i64 noundef 8) #11
+135:                                              ; preds = %134, %104
+  %136 = load ptr, ptr %6, align 8, !tbaa !51
+  %137 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %138 = load i32, ptr %137, align 8, !tbaa !54
+  %139 = zext i32 %138 to i64
+  %140 = shl nuw nsw i64 %139, 4
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %136, i64 noundef %140, i64 noundef 8) #11
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #11
   br label %.thread55
 
-.thread55:                                        ; preds = %.thread, %64, %79, %82, %138, %89
-  %144 = load ptr, ptr %3, align 8, !tbaa !39
-  %145 = icmp eq ptr %144, %11
-  br i1 %145, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit, label %146
+.thread55:                                        ; preds = %.thread, %64, %79, %82, %135, %89
+  %141 = load ptr, ptr %3, align 8, !tbaa !39
+  %142 = icmp eq ptr %141, %11
+  br i1 %142, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit, label %143
 
-146:                                              ; preds = %.thread55
-  call void @free(ptr noundef %144) #11
+143:                                              ; preds = %.thread55
+  call void @free(ptr noundef %141) #11
   br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %.thread55, %146
+_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit:  ; preds = %.thread55, %143
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #11
   ret void
 }

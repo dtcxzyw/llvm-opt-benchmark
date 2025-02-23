@@ -379,7 +379,7 @@ default.unreachable:                              ; preds = %.loopexit54
   br i1 %108, label %.loopexit51, label %109
 
 109:                                              ; preds = %100
-  %110 = icmp ult i32 %3, 2
+  %110 = icmp samesign ult i32 %3, 2
   br i1 %110, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %109, %.loopexit50.us

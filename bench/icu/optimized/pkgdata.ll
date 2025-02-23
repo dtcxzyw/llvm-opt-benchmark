@@ -1710,7 +1710,7 @@ if.else107.i:                                     ; preds = %if.end55.i
 
 for.body.i69:                                     ; preds = %if.else107.i, %if.end119.i
   %indvars.iv.i70 = phi i64 [ %indvars.iv.next.i71, %if.end119.i ], [ 0, %if.else107.i ]
-  %arrayidx113.i = getelementptr inbounds nuw i8, ptr %cond86, i64 %indvars.iv.i70
+  %arrayidx113.i = getelementptr inbounds nuw i8, ptr %48, i64 %indvars.iv.i70
   %158 = load i8, ptr %arrayidx113.i, align 1
   %cmp115.i = icmp eq i8 %158, 46
   %arrayidx118.i = getelementptr inbounds nuw [10 x i8], ptr %version_major.i, i64 0, i64 %indvars.iv.i70

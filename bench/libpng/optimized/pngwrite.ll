@@ -1614,7 +1614,7 @@ png_do_write_intrapixel.exit:                     ; preds = %png_do_write_intrap
   br label %201
 
 201:                                              ; preds = %200, %196, %png_do_write_intrapixel.exit
-  call void @png_write_find_filter(ptr noundef %0, ptr noundef nonnull %3) #15
+  call void @png_write_find_filter(ptr noundef nonnull %0, ptr noundef nonnull %3) #15
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %203 = load ptr, ptr %202, align 8, !tbaa !171
   %.not70 = icmp eq ptr %203, null

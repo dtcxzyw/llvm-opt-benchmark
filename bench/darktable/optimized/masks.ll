@@ -677,7 +677,7 @@ define internal fastcc void @_lib_masks_list_recurs(ptr noundef %0, ptr noundef 
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 0, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %4, i32 noundef 2, i32 noundef %3, i32 noundef 3, i32 noundef %62, i32 noundef 4, i32 noundef %63, i32 noundef 5, ptr noundef %.089, i32 noundef 6, i32 noundef %67, i32 noundef 7, ptr noundef %.091, i32 noundef 8, i32 noundef %69, i32 noundef 9, ptr noundef %.097, i32 noundef 10, i32 noundef %72, i32 noundef 11, ptr noundef nonnull %10, i32 noundef -1) #12
   %73 = tail call i64 @gtk_tree_model_get_type() #13
   %74 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %73) #12
-  call fastcc void @_set_iter_name(ptr noundef nonnull %7, ptr noundef %2, i32 noundef %5, float noundef %6, ptr noundef %74, ptr noundef %12)
+  call fastcc void @_set_iter_name(ptr noundef nonnull %7, ptr noundef nonnull %2, i32 noundef %5, float noundef %6, ptr noundef %74, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #12
   br label %127
 

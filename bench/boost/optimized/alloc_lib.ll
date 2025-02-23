@@ -1524,7 +1524,7 @@ init_bins.exit:                                   ; preds = %96
   br i1 %101, label %102, label %115
 
 102:                                              ; preds = %init_bins.exit
-  %103 = add i64 %.1125, -80
+  %103 = add i64 %60, -80
   %104 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 0, %105
@@ -1549,7 +1549,7 @@ init_bins.exit:                                   ; preds = %96
   %118 = load i64, ptr %117, align 8, !tbaa !23
   %119 = and i64 %118, -8
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
-  %121 = getelementptr inbounds nuw i8, ptr %70, i64 %.1125
+  %121 = getelementptr inbounds nuw i8, ptr %70, i64 %60
   %122 = ptrtoint ptr %121 to i64
   %123 = ptrtoint ptr %120 to i64
   %124 = sub i64 %122, %123
@@ -8908,133 +8908,119 @@ spin_acquire_lock.exit:                           ; preds = %13, %7, %10
   store i32 %43, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   %44 = or disjoint i64 %23, 3
   %.not98.i = icmp eq i32 %42, 0
-  br label %45
+  %.not94.i19 = icmp eq i64 %0, 0
+  br i1 %.not94.i19, label %._crit_edge, label %.lr.ph
 
-45:                                               ; preds = %87, %40
-  %.089.i = phi i64 [ 0, %40 ], [ %49, %87 ]
-  %.sroa.0.0.i = phi ptr [ %25, %40 ], [ %.sroa.0.2.i, %87 ]
-  %.not94.i = icmp eq i64 %.089.i, %0
-  br i1 %.not94.i, label %88, label %46
+.lr.ph:                                           ; preds = %40, %76
+  %.089.i20 = phi i64 [ %47, %76 ], [ 0, %40 ]
+  %45 = sub i64 %0, %.089.i20
+  %46 = tail call i64 @llvm.umin.i64(i64 %45, i64 %.086.i)
+  %47 = add i64 %46, %.089.i20
+  %48 = mul i64 %46, %23
+  %49 = add i64 %48, -8
+  %50 = tail call ptr @mspace_malloc_lockless(ptr noundef nonnull @_gm_, i64 noundef %49)
+  %.not99.i = icmp eq ptr %50, null
+  br i1 %.not99.i, label %51, label %60
 
-46:                                               ; preds = %45
-  %47 = sub i64 %0, %.089.i
-  %48 = tail call i64 @llvm.umin.i64(i64 %47, i64 %.086.i)
-  %49 = add i64 %48, %.089.i
-  %50 = mul i64 %48, %23
-  %51 = add i64 %50, -8
-  %52 = tail call ptr @mspace_malloc_lockless(ptr noundef nonnull @_gm_, i64 noundef %51)
-  %.not99.i = icmp eq ptr %52, null
-  br i1 %.not99.i, label %53, label %65
+51:                                               ; preds = %.lr.ph
+  %.not979.i = icmp eq i64 %.089.i20, 0
+  br i1 %.not979.i, label %._crit_edge14.i, label %.lr.ph13.i.preheader
 
-53:                                               ; preds = %46
-  %54 = load ptr, ptr %.sroa.0.0.i, align 8, !tbaa !84
-  %.not979.i = icmp eq i64 %.089.i, 0
-  br i1 %.not979.i, label %._crit_edge14.i, label %.lr.ph13.i
+.lr.ph13.i.preheader:                             ; preds = %51
+  %52 = load ptr, ptr %25, align 8, !tbaa !84
+  br label %.lr.ph13.i
 
-.lr.ph13.i:                                       ; preds = %53, %.lr.ph13.i
-  %.sroa.0.111.i = phi ptr [ %56, %.lr.ph13.i ], [ %54, %53 ]
-  %.19010.i = phi i64 [ %55, %.lr.ph13.i ], [ %.089.i, %53 ]
-  %55 = add i64 %.19010.i, -1
-  %56 = load ptr, ptr %.sroa.0.111.i, align 8, !tbaa !84
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.111.i, i64 -8
-  %58 = load i64, ptr %57, align 8, !tbaa !23
-  %59 = and i64 %58, -8
-  %60 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
-  %61 = sub i64 %60, %59
-  store i64 %61, ptr @s_allocated_memory, align 8, !tbaa !36
+.lr.ph13.i:                                       ; preds = %.lr.ph13.i.preheader, %.lr.ph13.i
+  %.sroa.0.111.i = phi ptr [ %54, %.lr.ph13.i ], [ %52, %.lr.ph13.i.preheader ]
+  %.19010.i = phi i64 [ %53, %.lr.ph13.i ], [ %.089.i20, %.lr.ph13.i.preheader ]
+  %53 = add i64 %.19010.i, -1
+  %54 = load ptr, ptr %.sroa.0.111.i, align 8, !tbaa !84
+  %55 = getelementptr inbounds i8, ptr %.sroa.0.111.i, i64 -8
+  %56 = load i64, ptr %55, align 8, !tbaa !23
+  %57 = and i64 %56, -8
+  %58 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
+  %59 = sub i64 %58, %57
+  store i64 %59, ptr @s_allocated_memory, align 8, !tbaa !36
   tail call fastcc void @mspace_free_lockless(ptr noundef nonnull %.sroa.0.111.i)
-  %.not97.i = icmp eq i64 %55, 0
+  %.not97.i = icmp eq i64 %53, 0
   br i1 %.not97.i, label %._crit_edge14.i, label %.lr.ph13.i, !llvm.loop !92
 
-._crit_edge14.i:                                  ; preds = %.lr.ph13.i, %53
-  %.sroa.0.1.lcssa.i = phi ptr [ %54, %53 ], [ %56, %.lr.ph13.i ]
-  br i1 %.not98.i, label %87, label %62
+._crit_edge14.i:                                  ; preds = %.lr.ph13.i, %51
+  br i1 %.not98.i, label %internal_node_multialloc.exit, label %.loopexit.sink.split.i
 
-62:                                               ; preds = %._crit_edge14.i
-  %63 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  %64 = or i32 %63, 1
-  store i32 %64, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  br label %87
-
-65:                                               ; preds = %46
-  %66 = getelementptr inbounds i8, ptr %52, i64 -16
-  %67 = getelementptr inbounds i8, ptr %52, i64 -8
-  %68 = load i64, ptr %67, align 8, !tbaa !23
-  %69 = and i64 %68, -8
-  %70 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
-  %71 = add i64 %70, %69
-  store i64 %71, ptr @s_allocated_memory, align 8, !tbaa !36
-  %72 = add i64 %48, -1
-  %73 = mul i64 %72, %23
-  %74 = sub i64 %69, %73
-  %.not963.i = icmp eq i64 %72, 0
+60:                                               ; preds = %.lr.ph
+  %61 = getelementptr inbounds i8, ptr %50, i64 -16
+  %62 = getelementptr inbounds i8, ptr %50, i64 -8
+  %63 = load i64, ptr %62, align 8, !tbaa !23
+  %64 = and i64 %63, -8
+  %65 = load i64, ptr @s_allocated_memory, align 8, !tbaa !36
+  %66 = add i64 %65, %64
+  store i64 %66, ptr @s_allocated_memory, align 8, !tbaa !36
+  %67 = add i64 %46, -1
+  %68 = mul i64 %67, %23
+  %69 = sub i64 %64, %68
+  %.not963.i = icmp eq i64 %67, 0
   %.pre.i = load ptr, ptr %24, align 8, !tbaa !87
   %.pre21.i = load i64, ptr %3, align 8, !tbaa !89
-  br i1 %.not963.i, label %81, label %.lr.ph.i
+  br i1 %.not963.i, label %76, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %65, %.lr.ph.i
-  %75 = phi ptr [ %.0836.i, %.lr.ph.i ], [ %.pre.i, %65 ]
-  %.0836.i = phi ptr [ %79, %.lr.ph.i ], [ %52, %65 ]
-  %.0845.i = phi ptr [ %78, %.lr.ph.i ], [ %66, %65 ]
-  %.0854.i = phi i64 [ %76, %.lr.ph.i ], [ %72, %65 ]
-  %76 = add i64 %.0854.i, -1
-  %77 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 8
-  store i64 %44, ptr %77, align 8, !tbaa !23
-  store ptr %.0836.i, ptr %75, align 8, !tbaa !84
+.lr.ph.i:                                         ; preds = %60, %.lr.ph.i
+  %70 = phi ptr [ %.0836.i, %.lr.ph.i ], [ %.pre.i, %60 ]
+  %.0836.i = phi ptr [ %74, %.lr.ph.i ], [ %50, %60 ]
+  %.0845.i = phi ptr [ %73, %.lr.ph.i ], [ %61, %60 ]
+  %.0854.i = phi i64 [ %71, %.lr.ph.i ], [ %67, %60 ]
+  %71 = add i64 %.0854.i, -1
+  %72 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 8
+  store i64 %44, ptr %72, align 8, !tbaa !23
+  store ptr %.0836.i, ptr %70, align 8, !tbaa !84
   store ptr null, ptr %.0836.i, align 8, !tbaa !84
-  %78 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 %23
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %.not96.i = icmp eq i64 %76, 0
+  %73 = getelementptr inbounds nuw i8, ptr %.0845.i, i64 %23
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %.not96.i = icmp eq i64 %71, 0
   br i1 %.not96.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !93
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %80 = add i64 %72, %.pre21.i
-  br label %81
+  %75 = add i64 %67, %.pre21.i
+  br label %76
 
-81:                                               ; preds = %._crit_edge.i, %65
-  %82 = phi i64 [ %80, %._crit_edge.i ], [ %.pre21.i, %65 ]
-  %83 = phi ptr [ %.0836.i, %._crit_edge.i ], [ %.pre.i, %65 ]
-  %.084.lcssa.i = phi ptr [ %78, %._crit_edge.i ], [ %66, %65 ]
-  %.083.lcssa.i = phi ptr [ %79, %._crit_edge.i ], [ %52, %65 ]
-  %84 = or disjoint i64 %74, 3
-  %85 = getelementptr inbounds nuw i8, ptr %.084.lcssa.i, i64 8
-  store i64 %84, ptr %85, align 8, !tbaa !23
-  store ptr %.083.lcssa.i, ptr %83, align 8, !tbaa !84
+76:                                               ; preds = %._crit_edge.i, %60
+  %77 = phi i64 [ %75, %._crit_edge.i ], [ %.pre21.i, %60 ]
+  %78 = phi ptr [ %.0836.i, %._crit_edge.i ], [ %.pre.i, %60 ]
+  %.084.lcssa.i = phi ptr [ %73, %._crit_edge.i ], [ %61, %60 ]
+  %.083.lcssa.i = phi ptr [ %74, %._crit_edge.i ], [ %50, %60 ]
+  %79 = or disjoint i64 %69, 3
+  %80 = getelementptr inbounds nuw i8, ptr %.084.lcssa.i, i64 8
+  store i64 %79, ptr %80, align 8, !tbaa !23
+  store ptr %.083.lcssa.i, ptr %78, align 8, !tbaa !84
   store ptr null, ptr %.083.lcssa.i, align 8, !tbaa !84
   store ptr %.083.lcssa.i, ptr %24, align 8, !tbaa !87
-  %86 = add i64 %82, 1
-  store i64 %86, ptr %3, align 8, !tbaa !89
-  br label %87
+  %81 = add i64 %77, 1
+  store i64 %81, ptr %3, align 8, !tbaa !89
+  %.not94.i = icmp eq i64 %47, %0
+  br i1 %.not94.i, label %._crit_edge, label %.lr.ph, !llvm.loop !94
 
-87:                                               ; preds = %81, %62, %._crit_edge14.i
-  %.sroa.0.2.i = phi ptr [ %.sroa.0.0.i, %81 ], [ %.sroa.0.1.lcssa.i, %62 ], [ %.sroa.0.1.lcssa.i, %._crit_edge14.i ]
-  br i1 %.not99.i, label %.loopexit.i, label %45, !llvm.loop !94
+._crit_edge:                                      ; preds = %76, %40
+  br i1 %.not98.i, label %internal_node_multialloc.exit, label %.loopexit.sink.split.i
 
-88:                                               ; preds = %45
-  br i1 %.not98.i, label %.loopexit.i, label %89
-
-89:                                               ; preds = %88
-  %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  %91 = or i32 %90, 1
-  store i32 %91, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %87, %89, %88
-  %spec.select.i = zext i1 %.not94.i to i32
+.loopexit.sink.split.i:                           ; preds = %._crit_edge, %._crit_edge14.i
+  %.not94.i17 = phi i32 [ 1, %._crit_edge ], [ 0, %._crit_edge14.i ]
+  %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
+  %83 = or i32 %82, 1
+  store i32 %83, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   br label %internal_node_multialloc.exit
 
-internal_node_multialloc.exit:                    ; preds = %spin_acquire_lock.exit, %26, %33, %.loopexit.i
-  %.0.i14 = phi i32 [ 0, %26 ], [ 0, %33 ], [ 0, %spin_acquire_lock.exit ], [ %spec.select.i, %.loopexit.i ]
-  %92 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
-  %93 = and i32 %92, 2
-  %.not12 = icmp eq i32 %93, 0
-  br i1 %.not12, label %95, label %94
+internal_node_multialloc.exit:                    ; preds = %._crit_edge14.i, %._crit_edge, %.loopexit.sink.split.i, %spin_acquire_lock.exit, %26, %33
+  %.0.i14 = phi i32 [ 0, %26 ], [ 0, %33 ], [ 0, %spin_acquire_lock.exit ], [ 0, %._crit_edge14.i ], [ 1, %._crit_edge ], [ %.not94.i17, %.loopexit.sink.split.i ]
+  %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
+  %85 = and i32 %84, 2
+  %.not12 = icmp eq i32 %85, 0
+  br i1 %.not12, label %87, label %86
 
-94:                                               ; preds = %internal_node_multialloc.exit
+86:                                               ; preds = %internal_node_multialloc.exit
   store atomic i32 0, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 884) release, align 4
-  br label %95
+  br label %87
 
-95:                                               ; preds = %internal_node_multialloc.exit, %94
+87:                                               ; preds = %internal_node_multialloc.exit, %86
   ret i32 %.0.i14
 }
 

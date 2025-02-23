@@ -1328,7 +1328,7 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
   %64 = load i32, ptr %63, align 8
   %65 = and i32 %64, 512
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %apic_update_irq_cfg.exit.thread, label %67
+  br i1 %66, label %apic_update_irq_cfg.exit, label %67
 
 67:                                               ; preds = %58
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_vector_setup, i64 8), i32 2) #15
@@ -1408,7 +1408,7 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
   %115 = load i32, ptr %114, align 4
   %116 = load i32, ptr %97, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_vector_config, i64 8), i32 2) #15
-          to label %apic_update_irq_cfg.exit [label %117], !srcloc !32
+          to label %apic_update_irq_cfg.exit.thread [label %117], !srcloc !32
 
 117:                                              ; preds = %95
   %118 = tail call i32 asm sideeffect "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !54
@@ -1417,7 +1417,7 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
   %121 = icmp ult i8 %120, 2
   tail call void @llvm.assume(i1 %121)
   %122 = icmp eq i8 %120, 0
-  br i1 %122, label %apic_update_irq_cfg.exit, label %123
+  br i1 %122, label %apic_update_irq_cfg.exit.thread, label %123
 
 123:                                              ; preds = %117
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #15, !srcloc !34
@@ -1438,15 +1438,19 @@ define internal i32 @x86_vector_alloc_irqs(ptr noundef %0, i32 noundef %1, i32 n
   %132 = icmp ult i8 %131, 2
   tail call void @llvm.assume(i1 %132)
   %133 = icmp eq i8 %131, 0
-  br i1 %133, label %apic_update_irq_cfg.exit, label %134, !prof !27
+  br i1 %133, label %apic_update_irq_cfg.exit.thread, label %134, !prof !27
 
 134:                                              ; preds = %130
   %135 = tail call i64 @llvm.read_register.i64(metadata !0)
   %136 = tail call i64 asm sideeffect "call __SCT__preempt_schedule_notrace", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %135) #15, !srcloc !57
   tail call void @llvm.write_register.i64(metadata !0, i64 %136)
-  br label %apic_update_irq_cfg.exit
+  br label %apic_update_irq_cfg.exit.thread
 
-apic_update_irq_cfg.exit.thread:                  ; preds = %58
+apic_update_irq_cfg.exit.thread:                  ; preds = %134, %130, %117, %95
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vector_lock, i64 noundef %62) #15
+  br label %219
+
+apic_update_irq_cfg.exit:                         ; preds = %58
   %137 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %138 = load i8, ptr %137, align 8
   %139 = or i8 %138, 4
@@ -1459,11 +1463,7 @@ apic_update_irq_cfg.exit.thread:                  ; preds = %58
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vector_lock, i64 noundef %62) #15
   br label %143
 
-apic_update_irq_cfg.exit:                         ; preds = %134, %130, %117, %95
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vector_lock, i64 noundef %62) #15
-  br label %219
-
-143:                                              ; preds = %apic_update_irq_cfg.exit.thread, %40
+143:                                              ; preds = %apic_update_irq_cfg.exit, %40
   %144 = load ptr, ptr %28, align 8
   %145 = load i32, ptr %144, align 8
   %146 = and i32 %145, 2097152
@@ -1600,7 +1600,7 @@ apic_update_irq_cfg.exit:                         ; preds = %134, %130, %117, %9
   tail call void @kfree(ptr noundef nonnull %38) #15
   br label %.loopexit
 
-219:                                              ; preds = %apic_update_irq_cfg.exit, %216
+219:                                              ; preds = %apic_update_irq_cfg.exit.thread, %216
   %220 = add nuw nsw i64 %21, 1
   %221 = icmp eq i64 %220, %18
   br i1 %221, label %.loopexit9, label %20, !llvm.loop !63

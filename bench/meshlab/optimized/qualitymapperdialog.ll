@@ -17997,15 +17997,15 @@ define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonn
   %27 = fadd float %.01518.i, %26
   %28 = add nuw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %28, %umax.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !174
+  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %.lr.ph.i, !llvm.loop !174
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph23.preheader.i:                             ; preds = %.lr.ph.i
   %29 = fmul float %10, %27
   br label %.lr.ph23.i
 
-.lr.ph23.i:                                       ; preds = %34, %._crit_edge.i
-  %.121.i = phi i64 [ %35, %34 ], [ 0, %._crit_edge.i ]
-  %.01420.i = phi float [ %32, %34 ], [ 0.000000e+00, %._crit_edge.i ]
+.lr.ph23.i:                                       ; preds = %34, %.lr.ph23.preheader.i
+  %.121.i = phi i64 [ %35, %34 ], [ 0, %.lr.ph23.preheader.i ]
+  %.01420.i = phi float [ %32, %34 ], [ 0.000000e+00, %.lr.ph23.preheader.i ]
   %30 = getelementptr inbounds float, ptr %13, i64 %.121.i
   %31 = load float, ptr %30, align 4
   %32 = fadd float %.01420.i, %31
@@ -18073,15 +18073,15 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %15, %._crit_edge24.
   %65 = fadd float %.01518.i5, %64
   %66 = add nuw i64 %.019.i4, 1
   %exitcond.not.i6 = icmp eq i64 %66, %umax.i2
-  br i1 %exitcond.not.i6, label %._crit_edge.i7, label %.lr.ph.i3, !llvm.loop !174
+  br i1 %exitcond.not.i6, label %.lr.ph23.preheader.i7, label %.lr.ph.i3, !llvm.loop !174
 
-._crit_edge.i7:                                   ; preds = %.lr.ph.i3
+.lr.ph23.preheader.i7:                            ; preds = %.lr.ph.i3
   %67 = fmul float %48, %65
   br label %.lr.ph23.i9
 
-.lr.ph23.i9:                                      ; preds = %72, %._crit_edge.i7
-  %.121.i10 = phi i64 [ %73, %72 ], [ 0, %._crit_edge.i7 ]
-  %.01420.i11 = phi float [ %70, %72 ], [ 0.000000e+00, %._crit_edge.i7 ]
+.lr.ph23.i9:                                      ; preds = %72, %.lr.ph23.preheader.i7
+  %.121.i10 = phi i64 [ %73, %72 ], [ 0, %.lr.ph23.preheader.i7 ]
+  %.01420.i11 = phi float [ %70, %72 ], [ 0.000000e+00, %.lr.ph23.preheader.i7 ]
   %68 = getelementptr inbounds float, ptr %51, i64 %.121.i10
   %69 = load float, ptr %68, align 4
   %70 = fadd float %.01420.i11, %69

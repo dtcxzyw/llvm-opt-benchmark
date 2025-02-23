@@ -84,7 +84,7 @@ define hidden noundef ptr @Curl_doh(ptr noundef initializes((448, 456)) %0, ptr 
   %20 = load ptr, ptr %19, align 8, !tbaa !84
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = load ptr, ptr %21, align 8, !tbaa !85
-  %23 = tail call fastcc i32 @doh_run_probe(ptr noundef %0, ptr noundef %10, i32 noundef 1, ptr noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %17)
+  %23 = tail call fastcc i32 @doh_run_probe(ptr noundef nonnull %0, ptr noundef %10, i32 noundef 1, ptr noundef %1, ptr noundef %20, ptr noundef %22, ptr noundef nonnull %17)
   %.not39 = icmp eq i32 %23, 0
   br i1 %.not39, label %24, label %42
 
@@ -122,7 +122,7 @@ define hidden noundef ptr @Curl_doh(ptr noundef initializes((448, 456)) %0, ptr 
   br label %43
 
 42:                                               ; preds = %32, %18, %.preheader
-  tail call void @Curl_doh_cleanup(ptr noundef %0)
+  tail call void @Curl_doh_cleanup(ptr noundef nonnull %0)
   br label %43
 
 43:                                               ; preds = %4, %42, %41

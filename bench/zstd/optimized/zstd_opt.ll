@@ -38,7 +38,7 @@ define void @ZSTD_updateTree(ptr noundef captures(none) %0, ptr noundef %1, ptr 
   %.0.i4 = phi i32 [ %18, %.lr.ph ], [ %13, %3 ]
   %15 = zext i32 %.0.i4 to i64
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 %15
-  %17 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %0, ptr noundef %16, ptr noundef %2, i32 noundef %11, i32 noundef %5, i32 noundef 0)
+  %17 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %0, ptr noundef %16, ptr noundef %2, i32 noundef %11, i32 noundef %5, i32 noundef 0)
   %18 = add i32 %17, %.0.i4
   %19 = icmp ult i32 %18, %11
   br i1 %19, label %.lr.ph, label %ZSTD_updateTree_internal.exit, !llvm.loop !18
@@ -285,8 +285,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %96, %103, %ZSTD_LLc
   br i1 %exitcond.not, label %.preheader189.preheader, label %.preheader190, !llvm.loop !45
 
 .preheader189.preheader:                          ; preds = %.preheader190
-  %umax263 = call i32 @llvm.umax.i32(i32 %91, i32 1)
-  %wide.trip.count264 = zext i32 %umax263 to i64
+  %wide.trip.count264 = zext i32 %91 to i64
   br label %.preheader189
 
 .preheader189:                                    ; preds = %.preheader189.preheader, %._crit_edge
@@ -1770,8 +1769,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %108, %ZSTD_LLc
   br i1 %exitcond.not, label %.preheader306.preheader, label %.preheader307, !llvm.loop !45
 
 .preheader306.preheader:                          ; preds = %.preheader307
-  %umax376 = call i32 @llvm.umax.i32(i32 %93, i32 1)
-  %wide.trip.count377 = zext i32 %umax376 to i64
+  %wide.trip.count377 = zext i32 %93 to i64
   br label %.preheader306
 
 .preheader306:                                    ; preds = %.preheader306.preheader, %._crit_edge
@@ -4439,7 +4437,7 @@ sum_u32.exit.i:                                   ; preds = %127
   %137 = getelementptr inbounds nuw i32, ptr %126, i64 %indvars.iv.i.i
   %138 = load i32, ptr %137, align 4, !tbaa !23
   %139 = lshr i32 %138, %136
-  %140 = add i32 %139, 1
+  %140 = add nuw i32 %139, 1
   %141 = add i32 %140, %.01517.i.i
   store i32 %140, ptr %137, align 4, !tbaa !23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4483,7 +4481,7 @@ sum_u32.exit.i102:                                ; preds = %146
   %156 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv.i.i104
   %157 = load i32, ptr %156, align 4, !tbaa !23
   %158 = lshr i32 %157, %155
-  %159 = add i32 %158, 1
+  %159 = add nuw i32 %158, 1
   %160 = add i32 %159, %.01517.i.i105
   store i32 %159, ptr %156, align 4, !tbaa !23
   %indvars.iv.next.i.i106 = add nuw nsw i64 %indvars.iv.i.i104, 1
@@ -4523,7 +4521,7 @@ sum_u32.exit.i113:                                ; preds = %163
   %173 = getelementptr inbounds nuw i32, ptr %162, i64 %indvars.iv.i.i115
   %174 = load i32, ptr %173, align 4, !tbaa !23
   %175 = lshr i32 %174, %172
-  %176 = add i32 %175, 1
+  %176 = add nuw i32 %175, 1
   %177 = add i32 %176, %.01517.i.i116
   store i32 %176, ptr %173, align 4, !tbaa !23
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i115, 1
@@ -4564,7 +4562,7 @@ sum_u32.exit.i124:                                ; preds = %181
   %191 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i.i126
   %192 = load i32, ptr %191, align 4, !tbaa !23
   %193 = lshr i32 %192, %190
-  %194 = add i32 %193, 1
+  %194 = add nuw i32 %193, 1
   %195 = add i32 %194, %.01517.i.i127
   store i32 %194, ptr %191, align 4, !tbaa !23
   %indvars.iv.next.i.i128 = add nuw nsw i64 %indvars.iv.i.i126, 1
@@ -4814,7 +4812,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_3(ptr noundef writeonly capture
   %.0.i.i117 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i117 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i117
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -5471,7 +5469,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_4(ptr noundef writeonly capture
   %.0.i.i78 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i78 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i78
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -5951,7 +5949,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_5(ptr noundef writeonly capture
   %.0.i.i78 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i78 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i78
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -6431,7 +6429,7 @@ define internal i32 @ZSTD_btGetAllMatches_noDict_6(ptr noundef writeonly capture
   %.0.i.i78 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i78 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i78
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -6911,7 +6909,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_3(ptr noundef writeonly captur
   %.0.i.i124 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i124 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 1)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i124
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -7628,7 +7626,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_4(ptr noundef writeonly captur
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 1)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -8157,7 +8155,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_5(ptr noundef writeonly captur
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 1)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -8686,7 +8684,7 @@ define internal i32 @ZSTD_btGetAllMatches_extDict_6(ptr noundef writeonly captur
   %.0.i.i83 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i83 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 1)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 1)
   %26 = add i32 %25, %.0.i.i83
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -9215,7 +9213,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_3(ptr noundef writeonly
   %.0.i.i148 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i148 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 3, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i148
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -10038,7 +10036,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_4(ptr noundef writeonly
   %.0.i.i107 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i107 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 4, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i107
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -10682,7 +10680,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_5(ptr noundef writeonly
   %.0.i.i107 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i107 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 5, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i107
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18
@@ -11324,7 +11322,7 @@ define internal i32 @ZSTD_btGetAllMatches_dictMatchState_6(ptr noundef writeonly
   %.0.i.i107 = phi i32 [ %26, %.lr.ph ], [ %13, %17 ]
   %23 = zext i32 %.0.i.i107 to i64
   %24 = getelementptr inbounds nuw i8, ptr %11, i64 %23
-  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
+  %25 = tail call fastcc i32 @ZSTD_insertBt1(ptr noundef nonnull %1, ptr noundef %24, ptr noundef %4, i32 noundef %21, i32 noundef 6, i32 noundef 0)
   %26 = add i32 %25, %.0.i.i107
   %27 = icmp ult i32 %26, %21
   br i1 %27, label %.lr.ph, label %ZSTD_updateTree_internal.exit.i.loopexit, !llvm.loop !18

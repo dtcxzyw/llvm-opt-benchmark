@@ -6547,7 +6547,7 @@ for.inc:                                          ; preds = %_ZN6bufferIP4exprLb
   %18 = load i32, ptr %m_pos.i.i.i.i, align 8
   %inc.i.i = add i32 %18, 1
   store i32 %inc.i.i, ptr %m_pos.i.i.i.i, align 8
-  %inc = add i32 %i.0, 1
+  %inc = add nuw i32 %i.0, 1
   br label %for.cond, !llvm.loop !25
 
 lpad3.loopexit:                                   ; preds = %for.body, %_ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit, %invoke.cont13, %if.then.i.i7, %if.end.i.i.i.i.i
@@ -6879,7 +6879,7 @@ for.inc:                                          ; preds = %_ZN6bufferIP4exprLb
   %17 = load i32, ptr %m_pos.i.i.i.i, align 8
   %inc.i.i = add i32 %17, 1
   store i32 %inc.i.i, ptr %m_pos.i.i.i.i, align 8
-  %inc = add i32 %i.0, 1
+  %inc = add nuw i32 %i.0, 1
   br label %for.cond, !llvm.loop !27
 
 lpad3.loopexit:                                   ; preds = %for.body, %if.then.i.i5, %if.end.i.i.i.i.i

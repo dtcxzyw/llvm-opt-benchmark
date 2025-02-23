@@ -108,7 +108,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   %73 = sub nsw i32 0, %20
   %74 = and i32 %73, 7
   %75 = shl nuw nsw i32 255, %74
-  %76 = icmp ugt i32 %20, 16
+  %76 = icmp samesign ugt i32 %20, 16
   br i1 %76, label %.preheader685.us.preheader, label %.lr.ph763
 
 .preheader685.us.preheader:                       ; preds = %._crit_edge752
@@ -268,7 +268,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   %168 = sub nsw i32 0, %115
   %169 = and i32 %168, 7
   %170 = shl nuw nsw i32 255, %169
-  %171 = icmp ugt i32 %115, 16
+  %171 = icmp samesign ugt i32 %115, 16
   br i1 %171, label %.preheader681.us.preheader, label %.lr.ph781
 
 .preheader681.us.preheader:                       ; preds = %._crit_edge770
@@ -592,7 +592,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   %347 = sub nsw i32 0, %282
   %348 = and i32 %347, 7
   %349 = shl nuw nsw i32 255, %348
-  %350 = icmp ugt i32 %282, 16
+  %350 = icmp samesign ugt i32 %282, 16
   br i1 %350, label %.preheader694.us.preheader, label %.lr.ph704
 
 .preheader694.us.preheader:                       ; preds = %._crit_edge
@@ -778,7 +778,7 @@ define hidden noundef i32 @mlib_ImageConvCopyEdge_Bit(ptr noundef readonly captu
   %469 = sub nsw i32 0, %404
   %470 = and i32 %469, 7
   %471 = shl nuw nsw i32 255, %470
-  %472 = icmp ugt i32 %404, 16
+  %472 = icmp samesign ugt i32 %404, 16
   br i1 %472, label %.preheader690.us.preheader, label %.lr.ph720
 
 .preheader690.us.preheader:                       ; preds = %._crit_edge711

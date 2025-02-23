@@ -263,7 +263,6 @@ $_ZTISt15_Sp_counted_ptrIPSt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EE = comd
 @.str.27 = private unnamed_addr constant [44 x i8] c"last item when following prev is not head.\0A\00", align 1
 @.str.28 = private unnamed_addr constant [41 x i8] c"found cycle on linked_chunks.prev = %d.\0A\00", align 1
 @.str.29 = private unnamed_addr constant [51 x i8] c"ghost items in linked_chunks when following prev.\0A\00", align 1
-@.str.30 = private unnamed_addr constant [66 x i8] c"linked_chunks_head_tail.tail = NULL but linked_chunks not empty.\0A\00", align 1
 @.str.31 = private unnamed_addr constant [10 x i8] c"check ok\0A\00", align 1
 @.str.32 = private unnamed_addr constant [7 x i8] c"COMMIT\00", align 1
 @.str.33 = private unnamed_addr constant [60 x i8] c"SELECT id, prev, next FROM linked_chunks WHERE chunk_id = ?\00", align 1
@@ -896,8 +895,8 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj14DiskChunkCache16checkConsisten
   %10 = alloca %"class.std::unique_ptr.45", align 8
   call void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %2, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.10)
   %11 = load ptr, ptr %2, align 8
-  %.not155 = icmp eq ptr %11, null
-  br i1 %.not155, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123, label %12
+  %.not153 = icmp eq ptr %11, null
+  br i1 %.not153, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123, label %12
 
 12:                                               ; preds = %1
   %13 = load ptr, ptr %11, align 8
@@ -911,12 +910,12 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit:   ; preds = %12
 15:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
   %16 = load ptr, ptr @stderr, align 8
   %17 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 45, i64 1, ptr %16) #31
-  br label %298
+  br label %295
 
 18:                                               ; preds = %111, %105, %85, %77, %71, %65, %48, %31, %12, %94, %54, %37, %20
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %305
+  br label %302
 
 20:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
   invoke void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.12)
@@ -949,8 +948,8 @@ _ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i: ; pr
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i, %21
   %30 = phi ptr [ %.pr, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i ], [ %22, %21 ]
   store ptr null, ptr %3, align 8
-  %.not156 = icmp eq ptr %30, null
-  br i1 %.not156, label %298, label %31
+  %.not154 = icmp eq ptr %30, null
+  br i1 %.not154, label %295, label %31
 
 31:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit
   %32 = load ptr, ptr %30, align 8
@@ -964,7 +963,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit42: ; preds = %31
 34:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit42
   %35 = load ptr, ptr @stderr, align 8
   %36 = tail call i64 @fwrite(ptr nonnull @.str.13, i64 48, i64 1, ptr %35) #31
-  br label %298
+  br label %295
 
 37:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit42
   invoke void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.14)
@@ -997,8 +996,8 @@ _ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i44: ; 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i44, %38
   %47 = phi ptr [ %.pr142, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i44 ], [ %39, %38 ]
   store ptr null, ptr %4, align 8
-  %.not157 = icmp eq ptr %47, null
-  br i1 %.not157, label %298, label %48
+  %.not155 = icmp eq ptr %47, null
+  br i1 %.not155, label %295, label %48
 
 48:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48
   %49 = load ptr, ptr %47, align 8
@@ -1012,7 +1011,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit49: ; preds = %48
 51:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit49
   %52 = load ptr, ptr @stderr, align 8
   %53 = tail call i64 @fwrite(ptr nonnull @.str.15, i64 51, i64 1, ptr %52) #31
-  br label %298
+  br label %295
 
 54:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit49
   invoke void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.16)
@@ -1045,8 +1044,8 @@ _ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i51: ; 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i51, %55
   %64 = phi ptr [ %.pr143, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i51 ], [ %56, %55 ]
   store ptr null, ptr %5, align 8
-  %.not158 = icmp eq ptr %64, null
-  br i1 %.not158, label %298, label %65
+  %.not156 = icmp eq ptr %64, null
+  br i1 %.not156, label %295, label %65
 
 65:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55
   %66 = load ptr, ptr %64, align 8
@@ -1060,7 +1059,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit56: ; preds = %65
 68:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit56
   %69 = load ptr, ptr @stderr, align 8
   %70 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 31, i64 1, ptr %69) #31
-  br label %298
+  br label %295
 
 71:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit56
   %72 = load ptr, ptr %2, align 8
@@ -1097,7 +1096,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit58: ; preds = %85
 91:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit58
   %92 = load ptr, ptr @stderr, align 8
   %93 = tail call i64 @fwrite(ptr nonnull @.str.18, i64 47, i64 1, ptr %92) #31
-  br label %298
+  br label %295
 
 94:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit58
   invoke void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %6, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.19)
@@ -1130,8 +1129,8 @@ _ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i60: ; 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64: ; preds = %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i60, %95
   %104 = phi ptr [ %.pr144, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i.i.i.i60 ], [ %96, %95 ]
   store ptr null, ptr %6, align 8
-  %.not159 = icmp eq ptr %104, null
-  br i1 %.not159, label %298, label %105
+  %.not157 = icmp eq ptr %104, null
+  br i1 %.not157, label %295, label %105
 
 105:                                              ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64
   %106 = load ptr, ptr %104, align 8
@@ -1145,7 +1144,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit65: ; preds = %105
 108:                                              ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit65
   %109 = load ptr, ptr @stderr, align 8
   %110 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 31, i64 1, ptr %109) #31
-  br label %298
+  br label %295
 
 111:                                              ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit65
   %112 = load ptr, ptr %2, align 8
@@ -1174,42 +1173,42 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit65: ; preds = %105
   %125 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i64 0, ptr %125, align 8
   invoke void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.20)
-          to label %126 unwind label %.loopexit.split-lp166
+          to label %126 unwind label %.loopexit.split-lp164
 
 126:                                              ; preds = %120
   %127 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   %128 = load ptr, ptr %2, align 8
-  %.not160 = icmp eq ptr %128, null
-  br i1 %.not160, label %.critedge, label %.preheader164.preheader
+  %.not158 = icmp eq ptr %128, null
+  br i1 %.not158, label %.critedge, label %.preheader162.preheader
 
-.preheader164.preheader:                          ; preds = %126
+.preheader162.preheader:                          ; preds = %126
   %.02022.i.i.i.pre = load ptr, ptr %122, align 8
-  br label %.preheader164
+  br label %.preheader162
 
-.loopexit165:                                     ; preds = %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, %150, %154, %162, %172
-  %lpad.loopexit167 = landingpad { ptr, i32 }
+.loopexit163:                                     ; preds = %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i, %150, %154, %162, %172
+  %lpad.loopexit165 = landingpad { ptr, i32 }
           cleanup
   br label %129
 
-.loopexit.split-lp166:                            ; preds = %120
-  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
+.loopexit.split-lp164:                            ; preds = %120
+  %lpad.loopexit.split-lp166 = landingpad { ptr, i32 }
           cleanup
   br label %129
 
-129:                                              ; preds = %.loopexit.split-lp166, %.loopexit165
-  %lpad.phi169 = phi { ptr, i32 } [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ]
+129:                                              ; preds = %.loopexit.split-lp164, %.loopexit163
+  %lpad.phi167 = phi { ptr, i32 } [ %lpad.loopexit165, %.loopexit163 ], [ %lpad.loopexit.split-lp166, %.loopexit.split-lp164 ]
   call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
-  br label %305
+  br label %302
 
-.preheader164:                                    ; preds = %.preheader164.backedge, %.preheader164.preheader
-  %.02022.i.i.i = phi ptr [ %.02022.i.i.i.pre, %.preheader164.preheader ], [ %187, %.preheader164.backedge ]
-  %.0140 = phi i64 [ %76, %.preheader164.preheader ], [ %177, %.preheader164.backedge ]
+.preheader162:                                    ; preds = %.preheader162.backedge, %.preheader162.preheader
+  %.02022.i.i.i = phi ptr [ %.02022.i.i.i.pre, %.preheader162.preheader ], [ %187, %.preheader162.backedge ]
+  %.0140 = phi i64 [ %76, %.preheader162.preheader ], [ %177, %.preheader162.backedge ]
   %.not23.i.i.i = icmp eq ptr %.02022.i.i.i, null
   br i1 %.not23.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.preheader164, %.lr.ph.i.i.i
-  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %.preheader164 ]
+.lr.ph.i.i.i:                                     ; preds = %.preheader162, %.lr.ph.i.i.i
+  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i ], [ %.02022.i.i.i, %.preheader162 ]
   %130 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
   %131 = load i64, ptr %130, align 8
   %132 = icmp slt i64 %.0140, %131
@@ -1222,8 +1221,8 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit65: ; preds = %105
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   br i1 %132, label %._crit_edge.thread.i.i.i, label %137
 
-._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.preheader164
-  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %121, %.preheader164 ]
+._crit_edge.thread.i.i.i:                         ; preds = %._crit_edge.i.i.i, %.preheader162
+  %.019.lcssa28.i.i.i = phi ptr [ %.02024.i.i.i, %._crit_edge.i.i.i ], [ %121, %.preheader162 ]
   %133 = load ptr, ptr %123, align 8
   %134 = icmp eq ptr %.019.lcssa28.i.i.i, %133
   br i1 %134, label %select.unfold.i.i, label %135
@@ -1254,7 +1253,7 @@ select.unfold.i.i:                                ; preds = %137, %._crit_edge.t
 _ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i: ; preds = %141, %select.unfold.i.i
   %145 = phi i1 [ true, %select.unfold.i.i ], [ %144, %141 ]
   %146 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #29
-          to label %.noexc unwind label %.loopexit165
+          to label %.noexc unwind label %.loopexit163
 
 .noexc:                                           ; preds = %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIxEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
@@ -1269,7 +1268,7 @@ _ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nod
   %151 = load ptr, ptr %2, align 8
   %152 = load ptr, ptr %151, align 8
   %153 = invoke i32 @sqlite3_reset(ptr noundef %152)
-          to label %154 unwind label %.loopexit165
+          to label %154 unwind label %.loopexit163
 
 154:                                              ; preds = %150
   %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
@@ -1281,7 +1280,7 @@ _ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nod
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %160 = load i32, ptr %159, align 8
   %161 = invoke i32 @sqlite3_bind_int64(ptr noundef %158, i32 noundef %160, i64 noundef %.0140)
-          to label %162 unwind label %.loopexit165
+          to label %162 unwind label %.loopexit163
 
 162:                                              ; preds = %154
   %163 = load i32, ptr %159, align 8
@@ -1290,7 +1289,7 @@ _ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE10_M_insert_IRKxNS5_11_Alloc_nod
   %165 = load ptr, ptr %2, align 8
   %166 = load ptr, ptr %165, align 8
   %167 = invoke noundef i32 @sqlite3_step(ptr noundef %166)
-          to label %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit70 unwind label %.loopexit165
+          to label %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit70 unwind label %.loopexit163
 
 _ZN5osgeo4proj15SQLiteStatement7executeEv.exit70: ; preds = %162
   %.not31 = icmp eq i32 %167, 100
@@ -1308,7 +1307,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit70: ; preds = %162
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 12
   %176 = load i32, ptr %175, align 4
   %177 = invoke noundef i64 @sqlite3_column_int64(ptr noundef %174, i32 noundef %176)
-          to label %178 unwind label %.loopexit165
+          to label %178 unwind label %.loopexit163
 
 178:                                              ; preds = %172
   %179 = load i32, ptr %175, align 4
@@ -1329,10 +1328,10 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit70: ; preds = %162
 186:                                              ; preds = %178
   %187 = load ptr, ptr %122, align 8
   %.not10.i.i.i = icmp eq ptr %187, null
-  br i1 %.not10.i.i.i, label %.preheader164.backedge, label %.lr.ph.i.i.i73
+  br i1 %.not10.i.i.i, label %.preheader162.backedge, label %.lr.ph.i.i.i73
 
-.preheader164.backedge:                           ; preds = %186, %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE14_M_lower_boundEPSt13_Rb_tree_nodeIxEPSt18_Rb_tree_node_baseRKx.exit.i.i, %_ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit
-  br label %.preheader164, !llvm.loop !8
+.preheader162.backedge:                           ; preds = %186, %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE14_M_lower_boundEPSt13_Rb_tree_nodeIxEPSt18_Rb_tree_node_baseRKx.exit.i.i, %_ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit
+  br label %.preheader162, !llvm.loop !8
 
 .lr.ph.i.i.i73:                                   ; preds = %186, %.lr.ph.i.i.i73
   %.012.i.i.i = phi ptr [ %.1.i.i.i, %.lr.ph.i.i.i73 ], [ %187, %186 ]
@@ -1349,14 +1348,14 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit70: ; preds = %162
 
 _ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE14_M_lower_boundEPSt13_Rb_tree_nodeIxEPSt18_Rb_tree_node_baseRKx.exit.i.i: ; preds = %.lr.ph.i.i.i73
   %191 = icmp eq ptr %.19.i.i.i, %121
-  br i1 %191, label %.preheader164.backedge, label %_ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit
+  br i1 %191, label %.preheader162.backedge, label %_ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit
 
 _ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit:        ; preds = %_ZNSt8_Rb_treeIxxSt9_IdentityIxESt4lessIxESaIxEE14_M_lower_boundEPSt13_Rb_tree_nodeIxEPSt18_Rb_tree_node_baseRKx.exit.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %190, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %192 = load i64, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 8
   %193 = icmp slt i64 %177, %192
-  br i1 %193, label %.preheader164.backedge, label %194
+  br i1 %193, label %.preheader162.backedge, label %194
 
 194:                                              ; preds = %_ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit
   %195 = load ptr, ptr @stderr, align 8
@@ -1367,30 +1366,29 @@ _ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit:        ; preds = %_ZNSt8_Rb_treeIxxSt
 198:                                              ; preds = %182
   %199 = load i64, ptr %125, align 8
   %.not33 = icmp eq i64 %199, %116
-  br i1 %.not33, label %207, label %200
+  br i1 %.not33, label %.thread, label %200
 
 200:                                              ; preds = %198
   %201 = load ptr, ptr @stderr, align 8
   %202 = call i64 @fwrite(ptr nonnull @.str.24, i64 50, i64 1, ptr %201) #31
   br label %.critedge
 
+.thread:                                          ; preds = %198
+  call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
+  br label %208
+
 203:                                              ; preds = %117
   %.not30 = icmp eq i64 %116, 0
-  br i1 %.not30, label %.thread, label %204
+  br i1 %.not30, label %207, label %204
 
 204:                                              ; preds = %203
   %205 = load ptr, ptr @stderr, align 8
   %206 = tail call i64 @fwrite(ptr nonnull @.str.25, i64 65, i64 1, ptr %205) #31
-  br label %298
+  br label %295
 
-207:                                              ; preds = %198
-  call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
+207:                                              ; preds = %203
   %.not34 = icmp eq i64 %84, 0
   br i1 %.not34, label %292, label %208
-
-.thread:                                          ; preds = %203
-  %.not34147 = icmp eq i64 %84, 0
-  br i1 %.not34147, label %.thread148, label %208
 
 208:                                              ; preds = %.thread, %207
   %209 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1410,8 +1408,8 @@ _ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit:        ; preds = %_ZNSt8_Rb_treeIxxSt
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #27
   %216 = load ptr, ptr %2, align 8
-  %.not162 = icmp eq ptr %216, null
-  br i1 %.not162, label %.critedge41, label %.preheader.preheader
+  %.not160 = icmp eq ptr %216, null
+  br i1 %.not160, label %.critedge41, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %214
   %.02022.i.i.i75.pre = load ptr, ptr %210, align 8
@@ -1430,7 +1428,7 @@ _ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit:        ; preds = %_ZNSt8_Rb_treeIxxSt
 217:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #27
-  br label %305
+  br label %302
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.preheader
   %.02022.i.i.i75 = phi ptr [ %.02022.i.i.i75.pre, %.preheader.preheader ], [ %275, %.preheader.backedge ]
@@ -1606,58 +1604,49 @@ _ZNSt3setIxSt4lessIxESaIxEE4findERKx.exit120:     ; preds = %_ZNSt8_Rb_treeIxxSt
 
 291:                                              ; preds = %286
   call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #27
-  br label %.thread148
+  br label %292
 
-292:                                              ; preds = %207
-  %.not35 = icmp eq i64 %116, 0
-  br i1 %.not35, label %.thread148, label %293
-
-293:                                              ; preds = %292
-  %294 = load ptr, ptr @stderr, align 8
-  %295 = call i64 @fwrite(ptr nonnull @.str.30, i64 65, i64 1, ptr %294) #31
-  br label %298
-
-.thread148:                                       ; preds = %.thread, %291, %292
-  %296 = load ptr, ptr @stderr, align 8
-  %297 = call i64 @fwrite(ptr nonnull @.str.31, i64 9, i64 1, ptr %296) #31
-  br label %298
+292:                                              ; preds = %207, %291
+  %293 = load ptr, ptr @stderr, align 8
+  %294 = call i64 @fwrite(ptr nonnull @.str.31, i64 9, i64 1, ptr %293) #31
+  br label %295
 
 .critedge:                                        ; preds = %126, %194, %200, %183, %168
   call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #27
-  br label %298
+  br label %295
 
 .critedge41:                                      ; preds = %214, %282, %288, %271, %256
   call void @_ZNSt3setIxSt4lessIxESaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #27
-  br label %298
+  br label %295
 
-298:                                              ; preds = %.critedge41, %.critedge, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit, %.thread148, %293, %204, %108, %91, %68, %51, %34, %15
-  %.0.ph = phi i1 [ false, %.critedge41 ], [ false, %.critedge ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit ], [ false, %204 ], [ false, %293 ], [ true, %.thread148 ], [ false, %108 ], [ false, %91 ], [ false, %68 ], [ false, %51 ], [ false, %34 ], [ false, %15 ]
-  %.pr150 = load ptr, ptr %2, align 8
-  %.not.i121 = icmp eq ptr %.pr150, null
-  br i1 %.not.i121, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123, label %299
+295:                                              ; preds = %.critedge41, %.critedge, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit, %292, %204, %108, %91, %68, %51, %34, %15
+  %.0.ph = phi i1 [ false, %.critedge41 ], [ false, %.critedge ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit64 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit55 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit48 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit ], [ false, %204 ], [ true, %292 ], [ false, %108 ], [ false, %91 ], [ false, %68 ], [ false, %51 ], [ false, %34 ], [ false, %15 ]
+  %.pr148 = load ptr, ptr %2, align 8
+  %.not.i121 = icmp eq ptr %.pr148, null
+  br i1 %.not.i121, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123, label %296
 
-299:                                              ; preds = %298
-  %300 = load ptr, ptr %.pr150, align 8
-  %301 = invoke i32 @sqlite3_finalize(ptr noundef %300)
-          to label %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122 unwind label %302
+296:                                              ; preds = %295
+  %297 = load ptr, ptr %.pr148, align 8
+  %298 = invoke i32 @sqlite3_finalize(ptr noundef %297)
+          to label %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122 unwind label %299
 
-302:                                              ; preds = %299
-  %303 = landingpad { ptr, i32 }
+299:                                              ; preds = %296
+  %300 = landingpad { ptr, i32 }
           catch ptr null
-  %304 = extractvalue { ptr, i32 } %303, 0
-  call void @__clang_call_terminate(ptr %304) #32
+  %301 = extractvalue { ptr, i32 } %300, 0
+  call void @__clang_call_terminate(ptr %301) #32
   unreachable
 
-_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122: ; preds = %299
-  call void @_ZdlPv(ptr noundef nonnull %.pr150) #28
+_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122: ; preds = %296
+  call void @_ZdlPv(ptr noundef nonnull %.pr148) #28
   br label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123
 
-_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123: ; preds = %1, %298, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122
-  %.0154 = phi i1 [ %.0.ph, %298 ], [ %.0.ph, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122 ], [ false, %1 ]
-  ret i1 %.0154
+_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit123: ; preds = %1, %295, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122
+  %.0152 = phi i1 [ %.0.ph, %295 ], [ %.0.ph, %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i122 ], [ false, %1 ]
+  ret i1 %.0152
 
-305:                                              ; preds = %217, %129, %18
-  %.pn = phi { ptr, i32 } [ %lpad.phi, %217 ], [ %lpad.phi169, %129 ], [ %19, %18 ]
+302:                                              ; preds = %217, %129, %18
+  %.pn = phi { ptr, i32 } [ %lpad.phi, %217 ], [ %lpad.phi167, %129 ], [ %19, %18 ]
   call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #27
   resume { ptr, i32 } %.pn
 }

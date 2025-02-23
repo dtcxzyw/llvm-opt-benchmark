@@ -852,12 +852,12 @@ define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %
   %20 = load i32, ptr @message_format, align 4
   switch i32 %20, label %22 [
     i32 0, label %guess_imb_format.exit.thread
-    i32 1, label %.thread161.i
+    i32 1, label %.thread137.i
     i32 2, label %21
   ]
 
 21:                                               ; preds = %.critedge
-  br label %.thread161.i
+  br label %.thread137.i
 
 22:                                               ; preds = %.critedge
   switch i8 %15, label %27 [
@@ -866,24 +866,24 @@ define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %
   ]
 
 23:                                               ; preds = %22
-  switch i8 %14, label %.thread161.i [
+  switch i8 %14, label %.thread137.i [
     i8 0, label %29
     i8 3, label %24
   ]
 
 24:                                               ; preds = %23
-  br label %.thread161.i
+  br label %.thread137.i
 
 25:                                               ; preds = %22
   %26 = icmp eq i8 %14, 3
   %spec.store.select.i = select i1 %26, i32 10, i32 8
-  br label %.thread161.i
+  br label %.thread137.i
 
 27:                                               ; preds = %22
   switch i8 %14, label %28 [
     i8 0, label %29
     i8 1, label %46
-    i8 2, label %.thread161.i
+    i8 2, label %.thread137.i
   ]
 
 28:                                               ; preds = %27
@@ -893,27 +893,27 @@ define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %
   store i32 8, ptr %17, align 4
   %30 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %31 = icmp ugt i32 %30, 7
-  br i1 %31, label %32, label %.thread136.i
+  br i1 %31, label %32, label %.thread142.i
 
 32:                                               ; preds = %29
   %33 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
   %.not79.i = icmp eq i8 %33, 0
-  br i1 %.not79.i, label %.preheader141.i, label %.thread136.i
+  br i1 %.not79.i, label %.preheader147.i, label %.thread142.i
 
-.preheader141.i:                                  ; preds = %32, %.preheader141.i
-  %.08.i.i = phi i32 [ %34, %.preheader141.i ], [ 3, %32 ]
-  %.047.i.i = phi i32 [ %35, %.preheader141.i ], [ 1, %32 ]
-  %.056.i.i = phi i8 [ %37, %.preheader141.i ], [ 0, %32 ]
+.preheader147.i:                                  ; preds = %32, %.preheader147.i
+  %.08.i.i = phi i32 [ %34, %.preheader147.i ], [ 3, %32 ]
+  %.047.i.i = phi i32 [ %35, %.preheader147.i ], [ 1, %32 ]
+  %.056.i.i = phi i8 [ %37, %.preheader147.i ], [ 0, %32 ]
   %34 = add nsw i32 %.08.i.i, -1
   %35 = add nuw nsw i32 %.047.i.i, 1
   %36 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i.i)
   %37 = add i8 %36, %.056.i.i
   %.not.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i.i, label %calc_cks.exit.i, label %.preheader141.i, !llvm.loop !11
+  br i1 %.not.i.i, label %calc_cks.exit.i, label %.preheader147.i, !llvm.loop !11
 
-calc_cks.exit.i:                                  ; preds = %.preheader141.i
+calc_cks.exit.i:                                  ; preds = %.preheader147.i
   %.not80.i = icmp eq i8 %37, 0
-  br i1 %.not80.i, label %38, label %.thread136.i
+  br i1 %.not80.i, label %38, label %.thread142.i
 
 38:                                               ; preds = %calc_cks.exit.i
   %39 = add i32 %30, -4
@@ -932,34 +932,34 @@ calc_cks.exit.i:                                  ; preds = %.preheader141.i
 
 calc_cks.exit93.i:                                ; preds = %40
   %.not81.i = icmp eq i8 %44, 0
-  br i1 %.not81.i, label %.sink.split.sink.split.i, label %.thread136.i
+  br i1 %.not81.i, label %.sink.split.sink.split.i, label %.thread142.i
 
-.thread161.i:                                     ; preds = %27, %25, %24, %23, %21, %.critedge
+.thread137.i:                                     ; preds = %27, %25, %24, %23, %21, %.critedge
   %spec.store.select.sink.i = phi i32 [ %spec.store.select.i, %25 ], [ 0, %24 ], [ 10, %21 ], [ 8, %.critedge ], [ 8, %23 ], [ 8, %27 ]
   store i32 %spec.store.select.sink.i, ptr %17, align 4
   %45 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %.thread136.i
+  br label %.thread142.i
 
 46:                                               ; preds = %28, %27
-  %.sink.i = phi i32 [ 0, %28 ], [ 8, %27 ]
+  %storemerge.i = phi i32 [ 0, %28 ], [ 8, %27 ]
   %.070.ph.i = phi i1 [ true, %28 ], [ false, %27 ]
-  store i32 %.sink.i, ptr %17, align 4
+  store i32 %storemerge.i, ptr %17, align 4
   %47 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %48 = icmp ugt i32 %47, 7
-  br i1 %48, label %.preheader140.i, label %60
+  br i1 %48, label %.preheader146.i, label %60
 
-.preheader140.i:                                  ; preds = %46, %.preheader140.i
-  %.08.i94.i = phi i32 [ %49, %.preheader140.i ], [ 3, %46 ]
-  %.047.i95.i = phi i32 [ %50, %.preheader140.i ], [ 1, %46 ]
-  %.056.i96.i = phi i8 [ %52, %.preheader140.i ], [ 0, %46 ]
+.preheader146.i:                                  ; preds = %46, %.preheader146.i
+  %.08.i94.i = phi i32 [ %49, %.preheader146.i ], [ 3, %46 ]
+  %.047.i95.i = phi i32 [ %50, %.preheader146.i ], [ 1, %46 ]
+  %.056.i96.i = phi i8 [ %52, %.preheader146.i ], [ 0, %46 ]
   %49 = add nsw i32 %.08.i94.i, -1
   %50 = add nuw nsw i32 %.047.i95.i, 1
   %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.047.i95.i)
   %52 = add i8 %51, %.056.i96.i
   %.not.i97.i = icmp eq i32 %49, 0
-  br i1 %.not.i97.i, label %calc_cks.exit98.i, label %.preheader140.i, !llvm.loop !11
+  br i1 %.not.i97.i, label %calc_cks.exit98.i, label %.preheader146.i, !llvm.loop !11
 
-calc_cks.exit98.i:                                ; preds = %.preheader140.i
+calc_cks.exit98.i:                                ; preds = %.preheader146.i
   %.not82.i = icmp eq i8 %52, 0
   br i1 %.not82.i, label %53, label %60
 
@@ -985,7 +985,7 @@ calc_cks.exit103.i:                               ; preds = %55
 60:                                               ; preds = %calc_cks.exit103.i, %calc_cks.exit98.i, %46
   %61 = icmp ugt i32 %47, 6
   %or.cond5.i = and i1 %.070.ph.i, %61
-  br i1 %or.cond5.i, label %.preheader.i, label %.thread136.i
+  br i1 %or.cond5.i, label %.preheader.i, label %.thread142.i
 
 .preheader.i:                                     ; preds = %60, %.preheader.i
   %.08.i104.i = phi i32 [ %62, %.preheader.i ], [ 3, %60 ]
@@ -1000,7 +1000,7 @@ calc_cks.exit103.i:                               ; preds = %55
 
 calc_cks.exit108.i:                               ; preds = %.preheader.i
   %.not84.i = icmp eq i8 %65, 0
-  br i1 %.not84.i, label %66, label %.thread136.i
+  br i1 %.not84.i, label %66, label %.thread142.i
 
 66:                                               ; preds = %calc_cks.exit108.i
   %67 = add i32 %47, -3
@@ -1019,23 +1019,22 @@ calc_cks.exit108.i:                               ; preds = %.preheader.i
 
 calc_cks.exit113.i:                               ; preds = %68
   %.not85.i = icmp eq i8 %72, 0
-  br i1 %.not85.i, label %.sink.split.sink.split.i, label %.thread136.i
+  br i1 %.not85.i, label %.sink.split.sink.split.i, label %.thread142.i
 
-.thread136.i:                                     ; preds = %calc_cks.exit113.i, %calc_cks.exit108.i, %60, %.thread161.i, %calc_cks.exit93.i, %calc_cks.exit.i, %32, %29
-  %73 = phi i32 [ %.sink.i, %calc_cks.exit113.i ], [ %.sink.i, %calc_cks.exit108.i ], [ %.sink.i, %60 ], [ 8, %29 ], [ 8, %32 ], [ %spec.store.select.sink.i, %.thread161.i ], [ 8, %calc_cks.exit93.i ], [ 8, %calc_cks.exit.i ]
-  %74 = phi i32 [ %47, %calc_cks.exit113.i ], [ %47, %calc_cks.exit108.i ], [ %47, %60 ], [ %30, %29 ], [ %30, %32 ], [ %45, %.thread161.i ], [ %30, %calc_cks.exit93.i ], [ %30, %calc_cks.exit.i ]
+.thread142.i:                                     ; preds = %calc_cks.exit113.i, %calc_cks.exit108.i, %60, %.thread137.i, %calc_cks.exit93.i, %calc_cks.exit.i, %32, %29
+  %73 = phi i32 [ %storemerge.i, %calc_cks.exit113.i ], [ %storemerge.i, %calc_cks.exit108.i ], [ %storemerge.i, %60 ], [ %spec.store.select.sink.i, %.thread137.i ], [ 8, %calc_cks.exit93.i ], [ 8, %calc_cks.exit.i ], [ 8, %32 ], [ 8, %29 ]
+  %74 = phi i32 [ %47, %calc_cks.exit113.i ], [ %47, %calc_cks.exit108.i ], [ %47, %60 ], [ %45, %.thread137.i ], [ %30, %calc_cks.exit93.i ], [ %30, %calc_cks.exit.i ], [ %30, %32 ], [ %30, %29 ]
   %75 = and i32 %73, 2
   %.not86.not.i = icmp eq i32 %75, 0
   %76 = lshr i32 %73, 3
-  %.lobit.i = and i32 %76, 1
-  %.lobit139.i = lshr exact i32 %75, 1
-  %.067.i = select i1 %.not86.not.i, i32 %.lobit.i, i32 1
-  %77 = or disjoint i32 %.lobit139.i, 6
+  %.lobit145.i = lshr exact i32 %75, 1
+  %.067.i = select i1 %.not86.not.i, i32 %76, i32 1
+  %77 = or disjoint i32 %.lobit145.i, 6
   %78 = add nuw nsw i32 %77, %.067.i
   %79 = icmp ult i32 %74, %78
   br i1 %79, label %guess_imb_format.exit.thread, label %80
 
-80:                                               ; preds = %.thread136.i
+80:                                               ; preds = %.thread142.i
   %81 = and i32 %73, 10
   %82 = icmp eq i32 %81, 0
   %.0.i = select i1 %82, i8 32, i8 0
@@ -1044,7 +1043,7 @@ calc_cks.exit113.i:                               ; preds = %68
 
 84:                                               ; preds = %84, %80
   %.08.i114.i = phi i32 [ %83, %80 ], [ %85, %84 ]
-  %.047.i115.i = phi i32 [ %.lobit139.i, %80 ], [ %86, %84 ]
+  %.047.i115.i = phi i32 [ %.lobit145.i, %80 ], [ %86, %84 ]
   %.056.i116.i = phi i8 [ %.0.i, %80 ], [ %88, %84 ]
   %85 = add nsw i32 %.08.i114.i, -1
   %86 = add nuw nsw i32 %.047.i115.i, 1
@@ -1055,10 +1054,10 @@ calc_cks.exit113.i:                               ; preds = %68
 
 calc_cks.exit118.i:                               ; preds = %84
   store i8 %88, ptr %18, align 4
-  %89 = add nuw nsw i32 %.067.i, %.lobit139.i
+  %89 = add nuw nsw i32 %.067.i, %.lobit145.i
   %90 = add nuw nsw i32 %89, 2
   %91 = add i32 %74, -2
-  %92 = sub i32 %91, %89
+  %92 = sub nuw i32 %91, %89
   br label %93
 
 93:                                               ; preds = %93, %calc_cks.exit118.i
@@ -1073,15 +1072,15 @@ calc_cks.exit118.i:                               ; preds = %84
   br i1 %.not.i122.i, label %.loopexit, label %93, !llvm.loop !11
 
 .sink.split.sink.split.i:                         ; preds = %calc_cks.exit113.i, %calc_cks.exit103.i, %calc_cks.exit93.i
-  %.sink175.i = phi i32 [ 12, %calc_cks.exit93.i ], [ 10, %calc_cks.exit103.i ], [ 8, %calc_cks.exit113.i ]
-  store i32 %.sink175.i, ptr %17, align 4
+  %.sink.i = phi i32 [ 12, %calc_cks.exit93.i ], [ 10, %calc_cks.exit103.i ], [ 8, %calc_cks.exit113.i ]
+  store i32 %.sink.i, ptr %17, align 4
   store i8 0, ptr %18, align 4
-  %.pre = and i32 %.sink175.i, 2
+  %.pre = and i32 %.sink.i, 2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %93, %.sink.split.sink.split.i
   %.pre-phi = phi i32 [ %.pre, %.sink.split.sink.split.i ], [ %75, %93 ]
-  %98 = phi i32 [ %.sink175.i, %.sink.split.sink.split.i ], [ %73, %93 ]
+  %98 = phi i32 [ %.sink.i, %.sink.split.sink.split.i ], [ %73, %93 ]
   %.lcssa.sink.i = phi i8 [ 0, %.sink.split.sink.split.i ], [ %97, %93 ]
   store i8 %.lcssa.sink.i, ptr %19, align 1
   %99 = lshr i32 %98, 2
@@ -1187,8 +1186,8 @@ calc_cks.exit118.i:                               ; preds = %84
   %152 = call fastcc i32 @dissect_ipmi_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %7)
   br label %guess_imb_format.exit.thread
 
-guess_imb_format.exit.thread:                     ; preds = %.thread136.i, %.critedge, %151
-  %.0 = phi i32 [ %152, %151 ], [ %20, %.critedge ], [ 0, %.thread136.i ]
+guess_imb_format.exit.thread:                     ; preds = %.thread142.i, %.critedge, %151
+  %.0 = phi i32 [ %152, %151 ], [ %20, %.critedge ], [ 0, %.thread142.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #15
   ret i32 %.0
 }

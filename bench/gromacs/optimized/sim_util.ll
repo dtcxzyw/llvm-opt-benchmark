@@ -4200,7 +4200,7 @@ _ZNK20DispersionCorrection10Correction13correctVirialEPA3_f.exit: ; preds = %239
   %2426 = getelementptr inbounds nuw i8, ptr %23, i64 45
   %2427 = load i8, ptr %2426, align 1
   %2428 = trunc i8 %2427 to i1
-  call fastcc void @_ZL22pme_receive_force_enerP10t_forcerecPK9t_commrecPN3gmx15ForceWithVirialEP14gmx_enerdata_tbbP13gmx_wallcycle(ptr noundef %22, ptr noundef nonnull %1, ptr noundef %.sroa.phi, ptr noundef %20, i1 noundef zeroext %2425, i1 noundef zeroext %2428, ptr noundef %11)
+  call fastcc void @_ZL22pme_receive_force_enerP10t_forcerecPK9t_commrecPN3gmx15ForceWithVirialEP14gmx_enerdata_tbbP13gmx_wallcycle(ptr noundef nonnull %22, ptr noundef nonnull %1, ptr noundef %.sroa.phi, ptr noundef %20, i1 noundef zeroext %2425, i1 noundef zeroext %2428, ptr noundef %11)
   br label %.thread1166
 
 .thread1166:                                      ; preds = %2399, %2406, %2412, %2421, %2423, %2422, %2415

@@ -199,7 +199,7 @@ for.body.lr.ph:                                   ; preds = %if.end
   %26 = shl i64 %25, 3
   %27 = add i64 %26, 8
   %28 = add i64 %26, -16
-  %invariant.gep514 = getelementptr i8, ptr %24, i64 8
+  %invariant.gep519 = getelementptr i8, ptr %24, i64 8
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.inc, %if.end
@@ -215,7 +215,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %if.end
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.0449 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %31 = mul i64 %27, %i.0449
-  %gep515 = getelementptr i8, ptr %invariant.gep514, i64 %31
+  %gep520 = getelementptr i8, ptr %invariant.gep519, i64 %31
   %32 = shl i64 %i.0449, 3
   %33 = sub i64 %28, %32
   %34 = add i64 %33, 8
@@ -274,7 +274,7 @@ if.else:                                          ; preds = %invoke.cont39
   br i1 %cmp.not3.i.i.i141, label %for.inc, label %for.body.i.i.i142.preheader
 
 for.body.i.i.i142.preheader:                      ; preds = %if.else
-  tail call void @llvm.memset.p0.i64(ptr align 8 %gep515, i8 0, i64 %34, i1 false), !tbaa !20
+  tail call void @llvm.memset.p0.i64(ptr align 8 %gep520, i8 0, i64 %34, i1 false), !tbaa !20
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i142.preheader, %if.else, %invoke.cont56
@@ -431,19 +431,23 @@ invoke.cont180.us:                                ; preds = %invoke.cont180.lr.p
   store double %add.us, ptr %arrayidx.i221.us, align 8, !tbaa !20
   %inc188.us = add nuw i64 %l.0459.us, 1
   %exitcond486.not = icmp eq i64 %inc188.us, %0
-  br i1 %exitcond486.not, label %for.cond192.preheader, label %invoke.cont180.us, !llvm.loop !29
+  br i1 %exitcond486.not, label %for.cond192.preheader.thread, label %invoke.cont180.us, !llvm.loop !29
 
-for.cond192.preheader:                            ; preds = %_ZSt13inner_productIPdN8QuantLib13step_iteratorIS0_EEdET1_T_S5_T0_S4_.exit.loopexit, %invoke.cont180.us
+for.cond192.preheader:                            ; preds = %_ZSt13inner_productIPdN8QuantLib13step_iteratorIS0_EEdET1_T_S5_T0_S4_.exit.loopexit
   %cmp193464 = icmp ugt i64 %1, %indvars.iv.next489
-  br i1 %cmp193464, label %for.body195.lr.ph, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
+  br i1 %cmp193464, label %for.body195.us.preheader, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
 
-for.body195.lr.ph:                                ; preds = %for.cond192.preheader
+for.cond192.preheader.thread:                     ; preds = %invoke.cont180.us
+  %cmp193464497 = icmp ugt i64 %1, %indvars.iv.next489
+  br i1 %cmp193464497, label %for.body195.us.preheader, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
+
+for.body195.us.preheader:                         ; preds = %for.cond192.preheader, %for.cond192.preheader.thread
   %65 = load ptr, ptr %q, align 8
   %66 = load i64, ptr %columns_.i147, align 8
   br label %for.body195.us
 
-for.body195.us:                                   ; preds = %for.body195.lr.ph, %for.cond200.for.cond.cleanup202_crit_edge.us
-  %k.0465.us = phi i64 [ %inc217.us, %for.cond200.for.cond.cleanup202_crit_edge.us ], [ %indvars.iv.next489, %for.body195.lr.ph ]
+for.body195.us:                                   ; preds = %for.body195.us.preheader, %for.cond200.for.cond.cleanup202_crit_edge.us
+  %k.0465.us = phi i64 [ %inc217.us, %for.cond200.for.cond.cleanup202_crit_edge.us ], [ %indvars.iv.next489, %for.body195.us.preheader ]
   %arrayidx.i228.us = getelementptr inbounds nuw double, ptr %call.i178, i64 %k.0465.us
   %67 = load double, ptr %arrayidx.i228.us, align 8, !tbaa !20
   %mul.i.i231.us = mul i64 %66, %k.0465.us
@@ -495,7 +499,7 @@ _ZSt13inner_productIPdN8QuantLib13step_iteratorIS0_EEdET1_T_S5_T0_S4_.exit.loope
   %exitcond485.not = icmp eq i64 %inc188, %0
   br i1 %exitcond485.not, label %for.cond192.preheader, label %invoke.cont180, !llvm.loop !29
 
-_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226: ; preds = %for.cond200.for.cond.cleanup202_crit_edge.us, %for.cond192.preheader
+_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226: ; preds = %for.cond200.for.cond.cleanup202_crit_edge.us, %for.cond192.preheader.thread, %for.cond192.preheader
   tail call void @_ZdaPv(ptr noundef nonnull %call.i207) #20
   br label %for.inc224
 

@@ -165,7 +165,7 @@ size_class.exit182.i:                             ; preds = %29
   %66 = trunc i64 %65 to i32
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 20
   store i32 %66, ptr %67, align 4, !tbaa !15
-  %68 = icmp ult i64 %51, 4097
+  %68 = icmp samesign ult i64 %51, 4097
   %spec.select.i = select i1 %68, i32 %40, i32 0
   br label %size_class.exit186.i
 

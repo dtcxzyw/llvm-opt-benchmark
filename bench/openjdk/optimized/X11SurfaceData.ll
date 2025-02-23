@@ -1346,7 +1346,7 @@ X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCach
   %254 = load ptr, ptr %253, align 8
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %256 = load i32, ptr %255, align 4
-  call fastcc void @X11SD_SwapBytes(ptr noundef %1, ptr noundef nonnull %.3.i, i32 noundef %45, i32 noundef %256)
+  call fastcc void @X11SD_SwapBytes(ptr noundef nonnull %1, ptr noundef nonnull %.3.i, i32 noundef %45, i32 noundef %256)
   br label %281
 
 257:                                              ; preds = %X11SD_GetSharedImage.exit.i

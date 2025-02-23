@@ -682,8 +682,8 @@ while.body.i.i:                                   ; preds = %while.body.i.i.preh
   %pos.08.i.i = phi i32 [ %add7.i.i, %while.body.i.i ], [ %shl3.i.i164, %while.body.i.i.preheader ]
   %shl4.i.i = shl i32 %sub.i.i162, %pos.08.i.i
   %or.i.i = or i32 %shl4.i.i, %mask.09.i.i
-  %add7.i.i = add nuw i32 %pos.08.i.i, %shl3.i.i164
-  %cmp.i.i = icmp ult i32 %add7.i.i, 32
+  %add7.i.i = add nuw nsw i32 %pos.08.i.i, %shl3.i.i164
+  %cmp.i.i = icmp samesign ult i32 %add7.i.i, 32
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZN3sat6binspr7mk_maskEj.exit.i, !llvm.loop !11
 
 _ZN3sat6binspr7mk_maskEj.exit.i:                  ; preds = %while.body.i.i
@@ -1477,8 +1477,8 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %pos.08.i = phi i32 [ %add7.i, %while.body.i ], [ %shl3.i, %for.body ]
   %shl4.i = shl i32 %sub.i, %pos.08.i
   %or.i = or i32 %shl4.i, %mask.09.i
-  %add7.i = add nuw i32 %pos.08.i, %shl3.i
-  %cmp.i = icmp ult i32 %add7.i, 32
+  %add7.i = add nuw nsw i32 %pos.08.i, %shl3.i
+  %cmp.i = icmp samesign ult i32 %add7.i, 32
   br i1 %cmp.i, label %while.body.i, label %_ZN3sat6binspr7mk_maskEj.exit, !llvm.loop !11
 
 _ZN3sat6binspr7mk_maskEj.exit:                    ; preds = %while.body.i

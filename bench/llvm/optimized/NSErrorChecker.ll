@@ -5118,8 +5118,8 @@ define internal void @_ZN5clang4ento5check7ASTDeclINS_14ObjCMethodDeclEE10_check
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load i8, ptr %23, align 16
   %25 = icmp eq i8 %24, 13
-  %.not.not7.i.i.i = icmp ne ptr %22, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %25
+  %.not7.i.i.i = icmp ne ptr %22, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %25
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZNK12_GLOBAL__N_120NSErrorMethodChecker12checkASTDeclEPKN5clang14ObjCMethodDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %14
@@ -5325,8 +5325,8 @@ _ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i: ; preds = %30, %_ZNK5clang12Fu
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load i8, ptr %40, align 16
   %42 = icmp eq i8 %41, 13
-  %.not.not7.i.i.i = icmp ne ptr %39, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %42
+  %.not7.i.i.i = icmp ne ptr %39, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %42
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZNK12_GLOBAL__N_122CFErrorFunctionChecker12checkASTDeclEPKN5clang12FunctionDeclERNS1_4ento15AnalysisManagerERNS5_11BugReporterE.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %_ZNK5clang12FunctionDecl13getReturnTypeEv.exit.i

@@ -1034,8 +1034,8 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
 .loopexit.i:                                      ; preds = %113
   %.zext.i = zext nneg i8 %111 to i32
   %86 = trunc nuw i64 %indvars.iv.next.i to i32
-  %87 = add i32 %.047.i, 1
-  %88 = add i32 %87, %.zext.i
+  %87 = add nsw i32 %.047.i, 1
+  %88 = add nsw i32 %87, %.zext.i
   %89 = icmp slt i32 %88, 10
   br i1 %89, label %90, label %122, !llvm.loop !163
 
@@ -1605,8 +1605,8 @@ _ZN8rawspeed23PanasonicV5Decompressor11ProxyStreamD2Ev.exit: ; preds = %._crit_e
 .loopexit.i:                                      ; preds = %113
   %.zext.i = zext nneg i8 %111 to i32
   %86 = trunc nuw i64 %indvars.iv.next.i to i32
-  %87 = add i32 %.047.i, 1
-  %88 = add i32 %87, %.zext.i
+  %87 = add nsw i32 %.047.i, 1
+  %88 = add nsw i32 %87, %.zext.i
   %89 = icmp slt i32 %88, 9
   br i1 %89, label %90, label %122, !llvm.loop !174
 

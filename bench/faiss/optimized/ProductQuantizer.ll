@@ -2540,16 +2540,13 @@ define void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull reado
   %76 = add nsw i32 %70, -8
   %77 = lshr i32 %76, 3
   %78 = icmp samesign ugt i32 %70, 15
-  br i1 %78, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
-
-.lr.ph.i.preheader.i:                             ; preds = %72
-  %79 = add nsw i32 %77, -1
-  br label %.lr.ph.i.i
+  br i1 %78, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i
-  %80 = zext i32 %79 to i64
   %scevgep.i = getelementptr i8, ptr %.sroa.0.017.i, i64 2
-  %scevgep21.i = getelementptr i8, ptr %scevgep.i, i64 %80
+  %79 = zext nneg i32 %77 to i64
+  %80 = getelementptr i8, ptr %scevgep.i, i64 %79
+  %scevgep21.i = getelementptr i8, ptr %80, i64 -1
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %72
@@ -2561,11 +2558,11 @@ define void @_ZNK5faiss16ProductQuantizer6decodeEPKhPf(ptr noundef nonnull reado
   %.not.i.i = icmp eq i8 %82, 0
   br i1 %.not.i.i, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i, label %91
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.i.preheader.i
-  %.013.i.i = phi i32 [ %90, %.lr.ph.i.i ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0812.i.i = phi i64 [ %89, %.lr.ph.i.i ], [ %74, %.lr.ph.i.preheader.i ]
-  %.0911.i.i = phi i64 [ %88, %.lr.ph.i.i ], [ %69, %.lr.ph.i.preheader.i ]
-  %83 = phi ptr [ %84, %.lr.ph.i.i ], [ %75, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i:                                       ; preds = %72, %.lr.ph.i.i
+  %.013.i.i = phi i32 [ %90, %.lr.ph.i.i ], [ 0, %72 ]
+  %.0812.i.i = phi i64 [ %89, %.lr.ph.i.i ], [ %74, %72 ]
+  %.0911.i.i = phi i64 [ %88, %.lr.ph.i.i ], [ %69, %72 ]
+  %83 = phi ptr [ %84, %.lr.ph.i.i ], [ %75, %72 ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
   %85 = load i8, ptr %83, align 1, !tbaa !76
   %86 = zext i8 %85 to i64
@@ -5538,16 +5535,13 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
   %714 = add nsw i32 %708, -8
   %715 = lshr i32 %714, 3
   %716 = icmp samesign ugt i32 %708, 15
-  br i1 %716, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
-
-.lr.ph.i.preheader.i:                             ; preds = %710
-  %717 = add nsw i32 %715, -1
-  br label %.lr.ph.i.i182
+  br i1 %716, label %.lr.ph.i.i182, label %._crit_edge.i.i
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i182
-  %718 = zext i32 %717 to i64
   %scevgep.i184 = getelementptr i8, ptr %.sroa.0.036.i, i64 2
-  %scevgep50.i = getelementptr i8, ptr %scevgep.i184, i64 %718
+  %717 = zext nneg i32 %715 to i64
+  %718 = getelementptr i8, ptr %scevgep.i184, i64 %717
+  %scevgep50.i = getelementptr i8, ptr %718, i64 -1
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %710
@@ -5559,11 +5553,11 @@ _ZN5faiss16heap_replace_topINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
   %.not.i.i181 = icmp eq i8 %720, 0
   br i1 %.not.i.i181, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i, label %729
 
-.lr.ph.i.i182:                                    ; preds = %.lr.ph.i.i182, %.lr.ph.i.preheader.i
-  %.013.i.i = phi i32 [ %728, %.lr.ph.i.i182 ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0812.i.i = phi i64 [ %727, %.lr.ph.i.i182 ], [ %712, %.lr.ph.i.preheader.i ]
-  %.0911.i.i = phi i64 [ %726, %.lr.ph.i.i182 ], [ %707, %.lr.ph.i.preheader.i ]
-  %721 = phi ptr [ %722, %.lr.ph.i.i182 ], [ %713, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i182:                                    ; preds = %710, %.lr.ph.i.i182
+  %.013.i.i = phi i32 [ %728, %.lr.ph.i.i182 ], [ 0, %710 ]
+  %.0812.i.i = phi i64 [ %727, %.lr.ph.i.i182 ], [ %712, %710 ]
+  %.0911.i.i = phi i64 [ %726, %.lr.ph.i.i182 ], [ %707, %710 ]
+  %721 = phi ptr [ %722, %.lr.ph.i.i182 ], [ %713, %710 ]
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 1
   %723 = load i8, ptr %721, align 1, !tbaa !76
   %724 = zext i8 %723 to i64
@@ -7386,16 +7380,13 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
   %714 = add nsw i32 %708, -8
   %715 = lshr i32 %714, 3
   %716 = icmp samesign ugt i32 %708, 15
-  br i1 %716, label %.lr.ph.i.preheader.i, label %._crit_edge.i.i
-
-.lr.ph.i.preheader.i:                             ; preds = %710
-  %717 = add nsw i32 %715, -1
-  br label %.lr.ph.i.i182
+  br i1 %716, label %.lr.ph.i.i182, label %._crit_edge.i.i
 
 ._crit_edge.i.loopexit.i:                         ; preds = %.lr.ph.i.i182
-  %718 = zext i32 %717 to i64
   %scevgep.i184 = getelementptr i8, ptr %.sroa.0.036.i, i64 2
-  %scevgep50.i = getelementptr i8, ptr %scevgep.i184, i64 %718
+  %717 = zext nneg i32 %715 to i64
+  %718 = getelementptr i8, ptr %scevgep.i184, i64 %717
+  %scevgep50.i = getelementptr i8, ptr %718, i64 -1
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit.i, %710
@@ -7407,11 +7398,11 @@ _ZN5faiss16heap_replace_topINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIES4_S6_.exit.i70: ; 
   %.not.i.i181 = icmp eq i8 %720, 0
   br i1 %.not.i.i181, label %_ZN5faiss16PQDecoderGeneric6decodeEv.exit.i, label %729
 
-.lr.ph.i.i182:                                    ; preds = %.lr.ph.i.i182, %.lr.ph.i.preheader.i
-  %.013.i.i = phi i32 [ %728, %.lr.ph.i.i182 ], [ 0, %.lr.ph.i.preheader.i ]
-  %.0812.i.i = phi i64 [ %727, %.lr.ph.i.i182 ], [ %712, %.lr.ph.i.preheader.i ]
-  %.0911.i.i = phi i64 [ %726, %.lr.ph.i.i182 ], [ %707, %.lr.ph.i.preheader.i ]
-  %721 = phi ptr [ %722, %.lr.ph.i.i182 ], [ %713, %.lr.ph.i.preheader.i ]
+.lr.ph.i.i182:                                    ; preds = %710, %.lr.ph.i.i182
+  %.013.i.i = phi i32 [ %728, %.lr.ph.i.i182 ], [ 0, %710 ]
+  %.0812.i.i = phi i64 [ %727, %.lr.ph.i.i182 ], [ %712, %710 ]
+  %.0911.i.i = phi i64 [ %726, %.lr.ph.i.i182 ], [ %707, %710 ]
+  %721 = phi ptr [ %722, %.lr.ph.i.i182 ], [ %713, %710 ]
   %722 = getelementptr inbounds nuw i8, ptr %721, i64 1
   %723 = load i8, ptr %721, align 1, !tbaa !76
   %724 = zext i8 %723 to i64

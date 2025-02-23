@@ -9734,7 +9734,7 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   %.sroa.0.08.i.i = getelementptr inbounds i8, ptr %.sink61, i64 -4
   %35 = icmp ult ptr %24, %.sroa.0.08.i.i
   %or.cond.i.i = select i1 %34, i1 %35, i1 false
-  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i30
+  br i1 %or.cond.i.i, label %.lr.ph.i.i, label %.loopexit
 
 .lr.ph.i.i:                                       ; preds = %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, %.lr.ph.i.i
   %.sroa.0.010.i.i = phi ptr [ %.sroa.0.0.i.i, %.lr.ph.i.i ], [ %.sroa.0.08.i.i, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit ]
@@ -9746,15 +9746,15 @@ _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: 
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.09.i.i, i64 4
   %.sroa.0.0.i.i = getelementptr inbounds i8, ptr %.sroa.0.010.i.i, i64 -4
   %39 = icmp ult ptr %38, %.sroa.0.0.i.i
-  br i1 %39, label %.lr.ph.i.i, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i30, !llvm.loop !35
+  br i1 %39, label %.lr.ph.i.i, label %.loopexit, !llvm.loop !35
 
-_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i30: ; preds = %.lr.ph.i.i, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
+.loopexit:                                        ; preds = %.lr.ph.i.i, %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %40 = shl nuw nsw i64 %19, 2
   %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #28
           to label %.noexc36 unwind label %82
 
-.noexc36:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i30
+.noexc36:                                         ; preds = %.loopexit
   store ptr %41, ptr %5, align 8
   %42 = getelementptr i32, ptr %41, i64 %19
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9869,7 +9869,7 @@ _ZSt7reverseIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit44:
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit50
 
-82:                                               ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i30
+82:                                               ; preds = %.loopexit
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit48

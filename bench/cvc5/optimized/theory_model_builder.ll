@@ -2431,7 +2431,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit148: ; preds = %387, %382, %362, 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #25
   %407 = load ptr, ptr %11, align 8, !tbaa !41
   store ptr %407, ptr %16, align 8, !tbaa !52
-  invoke void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder9normalizeEPNS1_11TheoryModelENS0_12NodeTemplateILb0EEEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %15, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef %2, ptr noundef nonnull %16, i1 noundef zeroext %4)
+  invoke void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder9normalizeEPNS1_11TheoryModelENS0_12NodeTemplateILb0EEEb(ptr dead_on_unwind nonnull writable sret(%"class.cvc5::internal::NodeTemplate") align 8 %15, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull %2, ptr noundef nonnull %16, i1 noundef zeroext %4)
           to label %408 unwind label %449
 
 408:                                              ; preds = %.critedge
@@ -9064,7 +9064,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeENS1_7IntegerESt4lessIS2_ESaISt4pairIKS2_S3_EE
 
 _ZN4cvc58internal7IntegerD2Ev.exit:               ; preds = %1297
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %75) #25
-  %1301 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.02497.03355) #29
+  %1301 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.02497.03355) #29
   %.not2647 = icmp eq ptr %1301, %185
   br i1 %.not2647, label %._crit_edge3356, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit929, !llvm.loop !486
 
@@ -13160,7 +13160,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724: ; preds = %3108, %3115, %312
   br i1 %.not26553375, label %.critedge488, label %.lr.ph3377, !llvm.loop !501
 
 .critedge488:                                     ; preds = %.outer, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit1405, %_ZN4cvc58internal8TypeNodeD2Ev.exit1393, %2508, %_ZNSt3setIN4cvc58internal8TypeNodeESt4lessIS2_ESaIS2_EE4findERKS2_.exit
-  %.4329 = phi i8 [ %.13263392, %_ZNSt3setIN4cvc58internal8TypeNodeESt4lessIS2_ESaIS2_EE4findERKS2_.exit ], [ 0, %2508 ], [ %.13263392, %_ZN4cvc58internal8TypeNodeD2Ev.exit1393 ], [ %.5330.ph3384, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit1405 ], [ %.7332, %.outer ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
+  %.4329 = phi i8 [ 0, %_ZNSt3setIN4cvc58internal8TypeNodeESt4lessIS2_ESaIS2_EE4findERKS2_.exit ], [ 0, %2508 ], [ %.13263392, %_ZN4cvc58internal8TypeNodeD2Ev.exit1393 ], [ %.5330.ph3384, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit1405 ], [ %.7332, %.outer ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
   %.11317 = phi i1 [ %.83143393, %_ZNSt3setIN4cvc58internal8TypeNodeESt4lessIS2_ESaIS2_EE4findERKS2_.exit ], [ %.83143393, %2508 ], [ %.83143393, %_ZN4cvc58internal8TypeNodeD2Ev.exit1393 ], [ %.12318.ph3386, %_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EE4findERKS3_.exit1405 ], [ %.14320, %.outer ], [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1724 ]
   %3130 = load ptr, ptr %97, align 8, !tbaa !27
   %3131 = load i64, ptr %3130, align 8
@@ -21486,7 +21486,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit403: ; preds = %_ZNSt6vectorIN4cvc
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit406: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit403, %881, %887
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #25
-  %indvars.iv.next = add i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %681, !llvm.loop !658
 
 891:                                              ; preds = %816, %790
@@ -31834,7 +31834,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_mESt10_Select1stIS5_ESt4less
 
 60:                                               ; preds = %.noexc23, %.noexc25
   %.sroa.010.1.i = phi ptr [ %.sroa.010.0.i, %.noexc25 ], [ %62, %.noexc23 ]
-  %61 = invoke noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal12SortTypeSizeEEclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr %.sroa.010.1.i, ptr nonnull %0)
+  %61 = invoke noundef zeroext i1 @_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal12SortTypeSizeEEclINS_17__normal_iteratorIPNS3_12NodeTemplateILb1EEESt6vectorIS9_SaIS9_EEEESE_EEbT_T0_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr nonnull %.sroa.010.1.i, ptr nonnull %0)
           to label %.noexc23 unwind label %.loopexit.split-lp.loopexit
 
 .noexc23:                                         ; preds = %60
@@ -32026,7 +32026,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_mESt10_Select1stIS5_ESt4less
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal12SortTypeSizeEEC2ERKS5_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal12SortTypeSizeEEC2ERKS5_.exit: ; preds = %62, %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit16
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12SortTypeSizeEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.012, i64 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterINS3_12SortTypeSizeEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef %.012, i64 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7)
           to label %64 unwind label %99
 
 64:                                               ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN4cvc58internal12SortTypeSizeEEC2ERKS5_.exit

@@ -3879,7 +3879,6 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; p
   %235 = load ptr, ptr %234, align 8, !nonnull !8, !align !767
   %236 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %237 = load i64, ptr %236, align 8
-  %.sroa.02.0 = select i1 %trunc14, ptr null, ptr %235
   %.sroa.64.0 = select i1 %trunc14, i64 undef, i64 %237
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br i1 %trunc14, label %238, label %239
@@ -4217,7 +4216,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h059b059c41608861E.exit.i: ; p
   %.sroa.327.3.us.i.i = phi i64 [ -1, %.preheader.us.i.preheader.split.i ], [ -1, %.preheader.us.i.us.i ], [ 0, %.preheader57.us.i.i ]
   %.sroa.6.4.us.i.i = phi i64 [ %342, %.preheader.us.i.preheader.split.i ], [ %342, %.preheader.us.i.us.i ], [ %300, %.preheader57.us.i.i ]
   %.sroa.20.3.us.i.i = add i64 %.sroa.6.4.us.i.i, %.sroa.03.sroa.15.0.copyload.i.i
-  %361 = getelementptr inbounds i8, ptr %.sroa.02.0, i64 %.0.us.i.i
+  %361 = getelementptr inbounds i8, ptr %235, i64 %.0.us.i.i
   %362 = sub i64 %.sroa.6.4.us.i.i, %.0.us.i.i
   %363 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !833, !noalias !840, !noundef !8
   %364 = load i64, ptr %8, align 8, !alias.scope !833, !noalias !840, !noundef !8
@@ -4497,7 +4496,7 @@ _ZN4core3str11validations15next_code_point17h3577cbb96977ec4bE.exit.thread.i.i.i
 
 "_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hb439849e2ef65cffE.exit.i.i": ; preds = %_ZN4core3str11validations15next_code_point17h3577cbb96977ec4bE.exit.thread.i.i.i.i.i, %.thread.i.i.i.i.i
   %.sroa.4.1215.i.i = phi i64 [ %.sroa.4.1216.i.i, %.thread.i.i.i.i.i ], [ %.sroa.4.1.i.i, %_ZN4core3str11validations15next_code_point17h3577cbb96977ec4bE.exit.thread.i.i.i.i.i ]
-  %481 = getelementptr inbounds i8, ptr %.sroa.02.0, i64 %.0156.i.i
+  %481 = getelementptr inbounds i8, ptr %235, i64 %.0156.i.i
   %482 = sub i64 %.sroa.4.1215.i.i, %.0156.i.i
   %483 = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !833, !noalias !840, !noundef !8
   %484 = load i64, ptr %8, align 8, !alias.scope !833, !noalias !840, !noundef !8
@@ -4569,7 +4568,7 @@ _ZN4core3str11validations15next_code_point17h3577cbb96977ec4bE.exit.thread.i.i.i
 
 511:                                              ; preds = %.noexc17.i.i, %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hb439849e2ef65cffE.exit.thread.i.i"
   %512 = phi i64 [ %473, %"_ZN4core3str4iter29MatchIndicesInternal$LT$P$GT$4next17hb439849e2ef65cffE.exit.thread.i.i" ], [ %.pre.i.i.i.i26, %.noexc17.i.i ]
-  %513 = getelementptr inbounds i8, ptr %.sroa.02.0, i64 %.0116.i.i
+  %513 = getelementptr inbounds i8, ptr %235, i64 %.0116.i.i
   %514 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !881, !noalias !879, !nonnull !8, !noundef !8
   %515 = getelementptr inbounds i8, ptr %514, i64 %512
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %515, ptr nonnull readonly align 1 %513, i64 %472, i1 false), !noalias !805

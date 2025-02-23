@@ -169,7 +169,7 @@ Vec_WrdDup.exit:                                  ; preds = %Vec_WrdStartRandom.
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr align 8 %50, i64 %.pre-phi12.i, i1 false)
   store ptr %42, ptr %14, align 8, !tbaa !38
   %51 = tail call ptr @Gia_ManSimPatSim(ptr noundef nonnull %0) #19
-  %52 = tail call ptr @Gia_ManSimPatSim(ptr noundef %1) #19
+  %52 = tail call ptr @Gia_ManSimPatSim(ptr noundef nonnull %1) #19
   %53 = getelementptr i8, ptr %0, i64 72
   %.val121194 = load ptr, ptr %53, align 8, !tbaa !39
   %54 = getelementptr i8, ptr %.val121194, i64 4

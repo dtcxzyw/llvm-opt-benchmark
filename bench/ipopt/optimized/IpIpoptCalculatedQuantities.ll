@@ -1043,7 +1043,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED2Ev(ptr noundef nonnull al
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit, %1
@@ -1103,7 +1103,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit, %1
@@ -1163,7 +1163,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit, %1
@@ -1223,7 +1223,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6Vect
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !13
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit, %1
@@ -1283,7 +1283,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEE
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !15
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit, %1
@@ -1343,7 +1343,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED
   br i1 %.not.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit, label %.lr.ph.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit: ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  tail call void @_ZdlPv(ptr noundef %.lcssa13) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13) #24
   br label %15
 
 15:                                               ; preds = %._crit_edge, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit, %1
@@ -1697,7 +1697,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit22:       ; preds = %_ZN5Ipopt8SmartPtrI
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit22, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i
@@ -1757,7 +1757,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %_ZN5Ipopt8SmartPtrI
   br i1 %.not.i.i.i.i40, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i41, label %.lr.ph.i.i.i.i38, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i41: ; preds = %.lr.ph.i.i.i.i38, %._crit_edge.thread.i35
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i36) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i36) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit42
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit42:           ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit, %._crit_edge.i34, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i41
@@ -1817,7 +1817,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit42:           ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i60, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i61, label %.lr.ph.i.i.i.i58, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i61: ; preds = %.lr.ph.i.i.i.i58, %._crit_edge.thread.i55
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i56) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i56) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit62
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit62:           ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit42, %._crit_edge.i54, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i61
@@ -1877,7 +1877,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit62:           ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i80, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i78, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i78, %._crit_edge.thread.i75
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i76) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i76) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit62, %._crit_edge.i74, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i
@@ -1937,7 +1937,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit: ; preds = %_ZN5I
   br i1 %.not.i.i.i.i98, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i99, label %.lr.ph.i.i.i.i96, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i99: ; preds = %.lr.ph.i.i.i.i96, %._crit_edge.thread.i93
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i94) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i94) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit, %._crit_edge.i92, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i99
@@ -1997,7 +1997,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100: ; preds = %_Z
   br i1 %.not.i.i.i.i118, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119, label %.lr.ph.i.i.i.i116, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119: ; preds = %.lr.ph.i.i.i.i116, %._crit_edge.thread.i113
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i114) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i114) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit120
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit120:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit100, %._crit_edge.i112, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i119
@@ -2057,7 +2057,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit120:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i138, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139, label %.lr.ph.i.i.i.i136, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139: ; preds = %.lr.ph.i.i.i.i136, %._crit_edge.thread.i133
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i134) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i134) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit140
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit140:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit120, %._crit_edge.i132, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i139
@@ -2117,7 +2117,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit140:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i158, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i159, label %.lr.ph.i.i.i.i156, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i159: ; preds = %.lr.ph.i.i.i.i156, %._crit_edge.thread.i153
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i154) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i154) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit160
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit160:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit140, %._crit_edge.i152, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i159
@@ -2177,7 +2177,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit160:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i178, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i, label %.lr.ph.i.i.i.i176, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i176, %._crit_edge.thread.i173
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i174) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i174) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit160, %._crit_edge.i172, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i
@@ -2237,7 +2237,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %_ZN5Ip
   br i1 %.not.i.i.i.i196, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i197, label %.lr.ph.i.i.i.i194, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i197: ; preds = %.lr.ph.i.i.i.i194, %._crit_edge.thread.i191
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i192) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i192) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit, %._crit_edge.i190, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i197
@@ -2297,7 +2297,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198: ; preds = %_ZN
   br i1 %.not.i.i.i.i216, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i217, label %.lr.ph.i.i.i.i214, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i217: ; preds = %.lr.ph.i.i.i.i214, %._crit_edge.thread.i211
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i212) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i212) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit218
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit218:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit198, %._crit_edge.i210, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i217
@@ -2357,7 +2357,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit218:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i236, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i, label %.lr.ph.i.i.i.i234, !llvm.loop !13
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i234, %._crit_edge.thread.i231
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i232) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i232) #24
   br label %_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit
 
 _ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit218, %._crit_edge.i230, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i
@@ -2417,7 +2417,7 @@ _ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit: ; pre
   br i1 %.not.i.i.i.i254, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i255, label %.lr.ph.i.i.i.i252, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i255: ; preds = %.lr.ph.i.i.i.i252, %._crit_edge.thread.i249
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i250) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i250) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit256
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit256:          ; preds = %_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit, %._crit_edge.i248, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i255
@@ -2477,7 +2477,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit256:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i274, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i275, label %.lr.ph.i.i.i.i272, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i275: ; preds = %.lr.ph.i.i.i.i272, %._crit_edge.thread.i269
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i270) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i270) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit276
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit276:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit256, %._crit_edge.i268, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i275
@@ -2537,7 +2537,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit276:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i294, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i295, label %.lr.ph.i.i.i.i292, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i295: ; preds = %.lr.ph.i.i.i.i292, %._crit_edge.thread.i289
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i290) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i290) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit296
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit296:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit276, %._crit_edge.i288, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i295
@@ -2597,7 +2597,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit296:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i314, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i315, label %.lr.ph.i.i.i.i312, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i315: ; preds = %.lr.ph.i.i.i.i312, %._crit_edge.thread.i309
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i310) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i310) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit316
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit316:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit296, %._crit_edge.i308, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i315
@@ -2657,7 +2657,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit316:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i334, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i335, label %.lr.ph.i.i.i.i332, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i335: ; preds = %.lr.ph.i.i.i.i332, %._crit_edge.thread.i329
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i330) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i330) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit336
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit336:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit316, %._crit_edge.i328, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i335
@@ -2717,7 +2717,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit336:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i354, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i355, label %.lr.ph.i.i.i.i352, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i355: ; preds = %.lr.ph.i.i.i.i352, %._crit_edge.thread.i349
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i350) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i350) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit356
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit356:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit336, %._crit_edge.i348, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i355
@@ -2777,7 +2777,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit356:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i374, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i375, label %.lr.ph.i.i.i.i372, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i375: ; preds = %.lr.ph.i.i.i.i372, %._crit_edge.thread.i369
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i370) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i370) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit376
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit376:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit356, %._crit_edge.i368, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i375
@@ -2837,7 +2837,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit376:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i394, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i395, label %.lr.ph.i.i.i.i392, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i395: ; preds = %.lr.ph.i.i.i.i392, %._crit_edge.thread.i389
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i390) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i390) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit396
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit396:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit376, %._crit_edge.i388, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i395
@@ -2897,7 +2897,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit396:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i414, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i415, label %.lr.ph.i.i.i.i412, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i415: ; preds = %.lr.ph.i.i.i.i412, %._crit_edge.thread.i409
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i410) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i410) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit416
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit416:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit396, %._crit_edge.i408, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i415
@@ -2957,7 +2957,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit416:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i434, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i435, label %.lr.ph.i.i.i.i432, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i435: ; preds = %.lr.ph.i.i.i.i432, %._crit_edge.thread.i429
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i430) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i430) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit436
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit436:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit416, %._crit_edge.i428, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i435
@@ -3017,7 +3017,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit436:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i454, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i455, label %.lr.ph.i.i.i.i452, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i455: ; preds = %.lr.ph.i.i.i.i452, %._crit_edge.thread.i449
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i450) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i450) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit456
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit456:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit436, %._crit_edge.i448, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i455
@@ -3077,7 +3077,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit456:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i474, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i475, label %.lr.ph.i.i.i.i472, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i475: ; preds = %.lr.ph.i.i.i.i472, %._crit_edge.thread.i469
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i470) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i470) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit476
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit476:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit456, %._crit_edge.i468, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i475
@@ -3137,7 +3137,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit476:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i494, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i495, label %.lr.ph.i.i.i.i492, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i495: ; preds = %.lr.ph.i.i.i.i492, %._crit_edge.thread.i489
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i490) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i490) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit496
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit496:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit476, %._crit_edge.i488, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i495
@@ -3197,7 +3197,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit496:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i514, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i515, label %.lr.ph.i.i.i.i512, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i515: ; preds = %.lr.ph.i.i.i.i512, %._crit_edge.thread.i509
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i510) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i510) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit496, %._crit_edge.i508, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i515
@@ -3257,7 +3257,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516: ; preds = %_Z
   br i1 %.not.i.i.i.i534, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i535, label %.lr.ph.i.i.i.i532, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i535: ; preds = %.lr.ph.i.i.i.i532, %._crit_edge.thread.i529
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i530) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i530) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit516, %._crit_edge.i528, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i535
@@ -3317,7 +3317,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536: ; preds = %_Z
   br i1 %.not.i.i.i.i554, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i555, label %.lr.ph.i.i.i.i552, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i555: ; preds = %.lr.ph.i.i.i.i552, %._crit_edge.thread.i549
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i550) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i550) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit536, %._crit_edge.i548, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i555
@@ -3377,7 +3377,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556: ; preds = %_Z
   br i1 %.not.i.i.i.i574, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i575, label %.lr.ph.i.i.i.i572, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i575: ; preds = %.lr.ph.i.i.i.i572, %._crit_edge.thread.i569
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i570) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i570) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit556, %._crit_edge.i568, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i575
@@ -3437,7 +3437,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576: ; preds = %_Z
   br i1 %.not.i.i.i.i594, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i595, label %.lr.ph.i.i.i.i592, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i595: ; preds = %.lr.ph.i.i.i.i592, %._crit_edge.thread.i589
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i590) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i590) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit576, %._crit_edge.i588, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i595
@@ -3497,7 +3497,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596: ; preds = %_Z
   br i1 %.not.i.i.i.i614, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i615, label %.lr.ph.i.i.i.i612, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i615: ; preds = %.lr.ph.i.i.i.i612, %._crit_edge.thread.i609
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i610) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i610) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit596, %._crit_edge.i608, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i615
@@ -3557,7 +3557,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616: ; preds = %_Z
   br i1 %.not.i.i.i.i634, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i635, label %.lr.ph.i.i.i.i632, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i635: ; preds = %.lr.ph.i.i.i.i632, %._crit_edge.thread.i629
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i630) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i630) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit616, %._crit_edge.i628, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i635
@@ -3617,7 +3617,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636: ; preds = %_Z
   br i1 %.not.i.i.i.i654, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i655, label %.lr.ph.i.i.i.i652, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i655: ; preds = %.lr.ph.i.i.i.i652, %._crit_edge.thread.i649
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i650) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i650) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit636, %._crit_edge.i648, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i655
@@ -3677,7 +3677,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656: ; preds = %_Z
   br i1 %.not.i.i.i.i674, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i675, label %.lr.ph.i.i.i.i672, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i675: ; preds = %.lr.ph.i.i.i.i672, %._crit_edge.thread.i669
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i670) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i670) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit656, %._crit_edge.i668, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i675
@@ -3737,7 +3737,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676: ; preds = %_Z
   br i1 %.not.i.i.i.i694, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i695, label %.lr.ph.i.i.i.i692, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i695: ; preds = %.lr.ph.i.i.i.i692, %._crit_edge.thread.i689
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i690) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i690) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit676, %._crit_edge.i688, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i695
@@ -3797,7 +3797,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696: ; preds = %_Z
   br i1 %.not.i.i.i.i714, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i715, label %.lr.ph.i.i.i.i712, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i715: ; preds = %.lr.ph.i.i.i.i712, %._crit_edge.thread.i709
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i710) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i710) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit696, %._crit_edge.i708, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i715
@@ -3857,7 +3857,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716: ; preds = %_Z
   br i1 %.not.i.i.i.i734, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i735, label %.lr.ph.i.i.i.i732, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i735: ; preds = %.lr.ph.i.i.i.i732, %._crit_edge.thread.i729
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i730) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i730) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit716, %._crit_edge.i728, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i735
@@ -3917,7 +3917,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736: ; preds = %_Z
   br i1 %.not.i.i.i.i754, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i755, label %.lr.ph.i.i.i.i752, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i755: ; preds = %.lr.ph.i.i.i.i752, %._crit_edge.thread.i749
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i750) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i750) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit736, %._crit_edge.i748, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i755
@@ -3977,7 +3977,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756: ; preds = %_Z
   br i1 %.not.i.i.i.i774, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i775, label %.lr.ph.i.i.i.i772, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i775: ; preds = %.lr.ph.i.i.i.i772, %._crit_edge.thread.i769
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i770) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i770) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit756, %._crit_edge.i768, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i775
@@ -4037,7 +4037,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776: ; preds = %_Z
   br i1 %.not.i.i.i.i794, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i795, label %.lr.ph.i.i.i.i792, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i795: ; preds = %.lr.ph.i.i.i.i792, %._crit_edge.thread.i789
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i790) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i790) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit776, %._crit_edge.i788, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i795
@@ -4097,7 +4097,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796: ; preds = %_Z
   br i1 %.not.i.i.i.i814, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i815, label %.lr.ph.i.i.i.i812, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i815: ; preds = %.lr.ph.i.i.i.i812, %._crit_edge.thread.i809
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i810) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i810) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit796, %._crit_edge.i808, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i815
@@ -4157,7 +4157,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816: ; preds = %_Z
   br i1 %.not.i.i.i.i834, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i835, label %.lr.ph.i.i.i.i832, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i835: ; preds = %.lr.ph.i.i.i.i832, %._crit_edge.thread.i829
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i830) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i830) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit816, %._crit_edge.i828, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i835
@@ -4217,7 +4217,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836: ; preds = %_Z
   br i1 %.not.i.i.i.i854, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i855, label %.lr.ph.i.i.i.i852, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i855: ; preds = %.lr.ph.i.i.i.i852, %._crit_edge.thread.i849
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i850) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i850) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit836, %._crit_edge.i848, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i855
@@ -4277,7 +4277,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856: ; preds = %_Z
   br i1 %.not.i.i.i.i874, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i872, !llvm.loop !15
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i872, %._crit_edge.thread.i869
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i870) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i870) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit856, %._crit_edge.i868, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i
@@ -4337,7 +4337,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit: ; preds = %_Z
   br i1 %.not.i.i.i.i892, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i893, label %.lr.ph.i.i.i.i890, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i893: ; preds = %.lr.ph.i.i.i.i890, %._crit_edge.thread.i887
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i888) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i888) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit894
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit894:          ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit, %._crit_edge.i886, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i893
@@ -4397,7 +4397,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit894:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i912, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i913, label %.lr.ph.i.i.i.i910, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i913: ; preds = %.lr.ph.i.i.i.i910, %._crit_edge.thread.i907
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i908) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i908) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit914
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit914:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit894, %._crit_edge.i906, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i913
@@ -4457,7 +4457,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit914:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i932, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i933, label %.lr.ph.i.i.i.i930, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i933: ; preds = %.lr.ph.i.i.i.i930, %._crit_edge.thread.i927
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i928) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i928) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit934
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit934:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit914, %._crit_edge.i926, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i933
@@ -4517,7 +4517,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit934:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i952, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i953, label %.lr.ph.i.i.i.i950, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i953: ; preds = %.lr.ph.i.i.i.i950, %._crit_edge.thread.i947
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i948) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i948) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit954
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit954:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit934, %._crit_edge.i946, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i953
@@ -4577,7 +4577,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit954:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i972, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i973, label %.lr.ph.i.i.i.i970, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i973: ; preds = %.lr.ph.i.i.i.i970, %._crit_edge.thread.i967
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i968) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i968) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit974
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit974:          ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit954, %._crit_edge.i966, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i973
@@ -4637,7 +4637,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit974:          ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i992, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i993, label %.lr.ph.i.i.i.i990, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i993: ; preds = %.lr.ph.i.i.i.i990, %._crit_edge.thread.i987
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i988) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i988) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit974, %._crit_edge.i986, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i993
@@ -4697,7 +4697,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994: ; preds = %_Z
   br i1 %.not.i.i.i.i1012, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1013, label %.lr.ph.i.i.i.i1010, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1013: ; preds = %.lr.ph.i.i.i.i1010, %._crit_edge.thread.i1007
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1008) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1008) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit994, %._crit_edge.i1006, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1013
@@ -4757,7 +4757,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014: ; preds = %_
   br i1 %.not.i.i.i.i1032, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1033, label %.lr.ph.i.i.i.i1030, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1033: ; preds = %.lr.ph.i.i.i.i1030, %._crit_edge.thread.i1027
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1028) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1028) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1014, %._crit_edge.i1026, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1033
@@ -4817,7 +4817,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034: ; preds = %_
   br i1 %.not.i.i.i.i1052, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1053, label %.lr.ph.i.i.i.i1050, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1053: ; preds = %.lr.ph.i.i.i.i1050, %._crit_edge.thread.i1047
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1048) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1048) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1034, %._crit_edge.i1046, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1053
@@ -4877,7 +4877,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054: ; preds = %_
   br i1 %.not.i.i.i.i1072, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1073, label %.lr.ph.i.i.i.i1070, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1073: ; preds = %.lr.ph.i.i.i.i1070, %._crit_edge.thread.i1067
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1068) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1068) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1054, %._crit_edge.i1066, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1073
@@ -4937,7 +4937,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074: ; preds = %_
   br i1 %.not.i.i.i.i1092, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1093, label %.lr.ph.i.i.i.i1090, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1093: ; preds = %.lr.ph.i.i.i.i1090, %._crit_edge.thread.i1087
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1088) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1088) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1074, %._crit_edge.i1086, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1093
@@ -4997,7 +4997,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094: ; preds = %_
   br i1 %.not.i.i.i.i1112, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i1110, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i1110, %._crit_edge.thread.i1107
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1108) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1108) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1094, %._crit_edge.i1106, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i
@@ -5057,7 +5057,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit: ; preds = %_ZN5I
   br i1 %.not.i.i.i.i1130, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1131, label %.lr.ph.i.i.i.i1128, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1131: ; preds = %.lr.ph.i.i.i.i1128, %._crit_edge.thread.i1125
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1126) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1126) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit, %._crit_edge.i1124, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1131
@@ -5117,7 +5117,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132: ; preds = %_
   br i1 %.not.i.i.i.i1150, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1151, label %.lr.ph.i.i.i.i1148, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1151: ; preds = %.lr.ph.i.i.i.i1148, %._crit_edge.thread.i1145
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1146) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1146) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1132, %._crit_edge.i1144, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1151
@@ -5177,7 +5177,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152: ; preds = %_
   br i1 %.not.i.i.i.i1170, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1171, label %.lr.ph.i.i.i.i1168, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1171: ; preds = %.lr.ph.i.i.i.i1168, %._crit_edge.thread.i1165
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1166) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1166) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1152, %._crit_edge.i1164, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i1171
@@ -5237,7 +5237,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172: ; preds = %_
   br i1 %.not.i.i.i.i1190, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1191, label %.lr.ph.i.i.i.i1188, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1191: ; preds = %.lr.ph.i.i.i.i1188, %._crit_edge.thread.i1185
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1186) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1186) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit1172, %._crit_edge.i1184, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1191
@@ -5297,7 +5297,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192: ; preds = %_
   br i1 %.not.i.i.i.i1210, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1211, label %.lr.ph.i.i.i.i1208, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1211: ; preds = %.lr.ph.i.i.i.i1208, %._crit_edge.thread.i1205
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1206) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1206) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1192, %._crit_edge.i1204, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1211
@@ -5357,7 +5357,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212: ; preds = %_
   br i1 %.not.i.i.i.i1230, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1231, label %.lr.ph.i.i.i.i1228, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1231: ; preds = %.lr.ph.i.i.i.i1228, %._crit_edge.thread.i1225
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1226) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1226) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1212, %._crit_edge.i1224, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1231
@@ -5417,7 +5417,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232: ; preds = %_
   br i1 %.not.i.i.i.i1250, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1251, label %.lr.ph.i.i.i.i1248, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1251: ; preds = %.lr.ph.i.i.i.i1248, %._crit_edge.thread.i1245
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1246) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1246) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1232, %._crit_edge.i1244, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1251
@@ -5477,7 +5477,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252: ; preds = %_
   br i1 %.not.i.i.i.i1270, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1271, label %.lr.ph.i.i.i.i1268, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1271: ; preds = %.lr.ph.i.i.i.i1268, %._crit_edge.thread.i1265
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1266) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1266) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1252, %._crit_edge.i1264, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1271
@@ -5537,7 +5537,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272: ; preds = %_
   br i1 %.not.i.i.i.i1290, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1291, label %.lr.ph.i.i.i.i1288, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1291: ; preds = %.lr.ph.i.i.i.i1288, %._crit_edge.thread.i1285
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1286) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1286) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1272, %._crit_edge.i1284, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1291
@@ -5597,7 +5597,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292: ; preds = %_
   br i1 %.not.i.i.i.i1310, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1311, label %.lr.ph.i.i.i.i1308, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1311: ; preds = %.lr.ph.i.i.i.i1308, %._crit_edge.thread.i1305
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1306) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1306) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1292, %._crit_edge.i1304, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1311
@@ -5657,7 +5657,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312: ; preds = %_
   br i1 %.not.i.i.i.i1330, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1331, label %.lr.ph.i.i.i.i1328, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1331: ; preds = %.lr.ph.i.i.i.i1328, %._crit_edge.thread.i1325
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1326) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1326) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1312, %._crit_edge.i1324, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1331
@@ -5717,7 +5717,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332: ; preds = %_
   br i1 %.not.i.i.i.i1350, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1351, label %.lr.ph.i.i.i.i1348, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1351: ; preds = %.lr.ph.i.i.i.i1348, %._crit_edge.thread.i1345
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1346) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1346) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1332, %._crit_edge.i1344, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1351
@@ -5777,7 +5777,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352: ; preds = %_
   br i1 %.not.i.i.i.i1370, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1371, label %.lr.ph.i.i.i.i1368, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1371: ; preds = %.lr.ph.i.i.i.i1368, %._crit_edge.thread.i1365
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1366) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1366) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1352, %._crit_edge.i1364, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1371
@@ -5837,7 +5837,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372: ; preds = %_
   br i1 %.not.i.i.i.i1390, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1391, label %.lr.ph.i.i.i.i1388, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1391: ; preds = %.lr.ph.i.i.i.i1388, %._crit_edge.thread.i1385
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1386) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1386) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit1392
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1392:         ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1372, %._crit_edge.i1384, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1391
@@ -5897,7 +5897,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit1392:         ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i1410, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1411, label %.lr.ph.i.i.i.i1408, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1411: ; preds = %.lr.ph.i.i.i.i1408, %._crit_edge.thread.i1405
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1406) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1406) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit1412
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1412:         ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1392, %._crit_edge.i1404, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1411
@@ -5957,7 +5957,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit1412:         ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i1430, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1431, label %.lr.ph.i.i.i.i1428, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1431: ; preds = %.lr.ph.i.i.i.i1428, %._crit_edge.thread.i1425
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1426) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1426) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1412, %._crit_edge.i1424, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1431
@@ -6017,7 +6017,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432: ; preds = %_
   br i1 %.not.i.i.i.i1450, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1451, label %.lr.ph.i.i.i.i1448, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1451: ; preds = %.lr.ph.i.i.i.i1448, %._crit_edge.thread.i1445
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1446) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1446) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1432, %._crit_edge.i1444, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i1451
@@ -6077,7 +6077,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452: ; preds = %_
   br i1 %.not.i.i.i.i1470, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1471, label %.lr.ph.i.i.i.i1468, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1471: ; preds = %.lr.ph.i.i.i.i1468, %._crit_edge.thread.i1465
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1466) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1466) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit1472
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1472:         ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit1452, %._crit_edge.i1464, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1471
@@ -6137,7 +6137,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit1472:         ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i1490, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1491, label %.lr.ph.i.i.i.i1488, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1491: ; preds = %.lr.ph.i.i.i.i1488, %._crit_edge.thread.i1485
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1486) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1486) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit1492
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit1492:         ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1472, %._crit_edge.i1484, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i1491
@@ -6197,7 +6197,7 @@ _ZN5Ipopt13CachedResultsIdED2Ev.exit1492:         ; preds = %_ZN5Ipopt13CachedRe
   br i1 %.not.i.i.i.i1510, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1511, label %.lr.ph.i.i.i.i1508, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1511: ; preds = %.lr.ph.i.i.i.i1508, %._crit_edge.thread.i1505
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1506) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1506) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512: ; preds = %_ZN5Ipopt13CachedResultsIdED2Ev.exit1492, %._crit_edge.i1504, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1511
@@ -6257,7 +6257,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512: ; preds = %_Z
   br i1 %.not.i.i.i.i1530, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1531, label %.lr.ph.i.i.i.i1528, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1531: ; preds = %.lr.ph.i.i.i.i1528, %._crit_edge.thread.i1525
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1526) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1526) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1512, %._crit_edge.i1524, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1531
@@ -6317,7 +6317,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532: ; preds = %_Z
   br i1 %.not.i.i.i.i1550, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1551, label %.lr.ph.i.i.i.i1548, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1551: ; preds = %.lr.ph.i.i.i.i1548, %._crit_edge.thread.i1545
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1546) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1546) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1532, %._crit_edge.i1544, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1551
@@ -6377,7 +6377,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552: ; preds = %_Z
   br i1 %.not.i.i.i.i1570, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1571, label %.lr.ph.i.i.i.i1568, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1571: ; preds = %.lr.ph.i.i.i.i1568, %._crit_edge.thread.i1565
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1566) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1566) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1552, %._crit_edge.i1564, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1571
@@ -6437,7 +6437,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572: ; preds = %_Z
   br i1 %.not.i.i.i.i1590, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1591, label %.lr.ph.i.i.i.i1588, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1591: ; preds = %.lr.ph.i.i.i.i1588, %._crit_edge.thread.i1585
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1586) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1586) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1572, %._crit_edge.i1584, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1591
@@ -6497,7 +6497,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592: ; preds = %_Z
   br i1 %.not.i.i.i.i1610, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1611, label %.lr.ph.i.i.i.i1608, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1611: ; preds = %.lr.ph.i.i.i.i1608, %._crit_edge.thread.i1605
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1606) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1606) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1592, %._crit_edge.i1604, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1611
@@ -6557,7 +6557,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612: ; preds = %_Z
   br i1 %.not.i.i.i.i1630, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1631, label %.lr.ph.i.i.i.i1628, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1631: ; preds = %.lr.ph.i.i.i.i1628, %._crit_edge.thread.i1625
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1626) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1626) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1632
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1632: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1612, %._crit_edge.i1624, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1631
@@ -6617,7 +6617,7 @@ _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1632: ; preds = %_Z
   br i1 %.not.i.i.i.i1650, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1651, label %.lr.ph.i.i.i.i1648, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1651: ; preds = %.lr.ph.i.i.i.i1648, %._crit_edge.thread.i1645
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i1646) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i1646) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1652
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1652: ; preds = %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit1632, %._crit_edge.i1644, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i1651
@@ -68248,7 +68248,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsIdED0Ev(ptr noundef nonnull al
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !7
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsIdED2Ev.exit
 
 _ZN5Ipopt13CachedResultsIdED2Ev.exit:             ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit.i
@@ -68313,7 +68313,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED0
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !11
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrINS_6VectorEEEED2Ev.exit: ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7_EED2Ev.exit.i
@@ -68378,7 +68378,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !9
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEED2Ev.exit: ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6VectorEEEEESaIS8_EED2Ev.exit.i
@@ -68443,7 +68443,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_6MatrixEEEED2Ev.exit: ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS8_EED2Ev.exit.i
@@ -68508,7 +68508,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEE
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !15
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit
 
 _ZN5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEED2Ev.exit: ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_9SymMatrixEEEEESaIS8_EED2Ev.exit.i
@@ -68573,7 +68573,7 @@ define linkonce_odr void @_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6Vect
   br i1 %.not.i.i.i.i, label %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !13
 
 _ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i: ; preds = %.lr.ph.i.i.i.i, %._crit_edge.thread.i
-  tail call void @_ZdlPv(ptr noundef %.lcssa13.i) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.lcssa13.i) #24
   br label %_ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit
 
 _ZN5Ipopt13CachedResultsISt4pairINS_8SmartPtrINS_6VectorEEES4_EED2Ev.exit: ; preds = %1, %._crit_edge.i, %_ZNSt7__cxx114listIPN5Ipopt15DependentResultISt4pairINS1_8SmartPtrINS1_6VectorEEES6_EEESaIS9_EED2Ev.exit.i

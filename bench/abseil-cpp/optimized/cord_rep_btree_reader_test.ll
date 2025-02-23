@@ -5670,7 +5670,9 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !24
-  %20 = udiv i64 %18, %.zext
+  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %20 = udiv i32 %.lhs.trunc, %12
+  %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit
 
 21:                                               ; preds = %3
@@ -5714,7 +5716,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %19
   %40 = phi i64 [ %7, %19 ], [ %7, %35 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %20, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
   %41 = add i64 %40, %.0
   ret i64 %41
 }
@@ -10292,7 +10294,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i: ; preds = %.lr.ph.i
   %165 = trunc i64 %.0.lcssa.i28.i.i to i8
   %166 = getelementptr inbounds nuw [12 x i8], ptr %37, i64 0, i64 %indvars.iv.next.i.i
   store i8 %165, ptr %166, align 1, !tbaa !32
-  %167 = icmp sgt i64 %indvars.iv.i.i, 1
+  %167 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %167, label %.lr.ph.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i, !llvm.loop !313
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i
@@ -12387,7 +12389,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i: ; preds = %.lr.ph.i
   %95 = trunc i64 %.0.lcssa.i28.i.i to i8
   %96 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 0, i64 %indvars.iv.next.i.i
   store i8 %95, ptr %96, align 1, !tbaa !32
-  %97 = icmp sgt i64 %indvars.iv.i.i, 1
+  %97 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %97, label %.lr.ph.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i, !llvm.loop !313
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i
@@ -12791,7 +12793,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i105: ; preds = %.lr.p
   %248 = trunc i64 %.0.lcssa.i28.i.i107 to i8
   %249 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 0, i64 %indvars.iv.next.i.i99
   store i8 %248, ptr %249, align 1, !tbaa !32
-  %250 = icmp sgt i64 %indvars.iv.i.i95, 1
+  %250 = icmp samesign ugt i64 %indvars.iv.i.i95, 1
   br i1 %250, label %.lr.ph.i.i94, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i81, !llvm.loop !313
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i81: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i105, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i78

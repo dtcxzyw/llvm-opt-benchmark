@@ -1709,9 +1709,11 @@ define internal i32 @intel_dp_mst_compute_config(ptr noundef %0, ptr noundef %1,
 134:                                              ; preds = %131, %.loopexit
   %135 = phi ptr [ %133, %131 ], [ null, %.loopexit ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %135, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %130, i32 noundef %129) #12
-  %136 = call i32 @llvm.smin.i32(i32 %101, i32 %129)
-  %137 = udiv i32 %136, 3
-  %138 = call i32 @intel_dp_dsc_sink_max_compressed_bpp(ptr noundef %82, ptr noundef %1, i32 noundef %137) #12
+  %136 = call i32 @llvm.umin.i32(i32 %101, i32 %129)
+  %.lhs.trunc = trunc nuw nsw i32 %136 to i8
+  %137 = udiv i8 %.lhs.trunc, 3
+  %.zext = zext nneg i8 %137 to i32
+  %138 = call i32 @intel_dp_dsc_sink_max_compressed_bpp(ptr noundef %82, ptr noundef %1, i32 noundef %.zext) #12
   %139 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %140 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %141 = load i32, ptr %140, align 4

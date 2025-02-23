@@ -1357,8 +1357,8 @@ define internal fastcc void @_ZL30getScalarZeroExpressionForTypeB5cxx11RKN5clang
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i8, ptr %43, align 16
   %45 = icmp eq i8 %44, 13
-  %.not.not6.i = icmp ne ptr %42, null
-  %.not.not.not.i = and i1 %.not.not6.i, %45
+  %.not6.i = icmp ne ptr %42, null
+  %.not.not.not.i = and i1 %.not6.i, %45
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %_ZNK5clang4Type13isBooleanTypeEv.exit.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %39
@@ -2732,8 +2732,8 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZNK5clang8QualType
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i8, ptr %29, align 16
   %31 = icmp eq i8 %30, 13
-  %.not.not7.i.i = icmp ne ptr %28, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %31
+  %.not7.i.i = icmp ne ptr %28, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %31
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit

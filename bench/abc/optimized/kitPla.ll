@@ -1642,164 +1642,141 @@ Kit_TruthClear.exit:                              ; preds = %11, %select.unfold.
   br i1 %25, label %.lr.ph71.split.us, label %.lr.ph71.split
 
 .lr.ph71.split.us:                                ; preds = %.lr.ph71
-  br i1 %15, label %Kit_TruthFill.exit.us.us, label %select.unfold.preheader.i47.us.preheader
+  br i1 %15, label %Kit_TruthNot.exit, label %select.unfold.preheader.i47.us.preheader
 
 select.unfold.preheader.i47.us.preheader:         ; preds = %.lr.ph71.split.us
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %select.unfold.preheader.i47.us
 
-Kit_TruthFill.exit.us.us:                         ; preds = %.lr.ph71.split.us, %Kit_TruthFill.exit.us.us
-  %.03969.us.us = phi ptr [ %27, %Kit_TruthFill.exit.us.us ], [ %0, %.lr.ph71.split.us ]
-  %.04068.us.us = phi i32 [ %28, %Kit_TruthFill.exit.us.us ], [ 0, %.lr.ph71.split.us ]
-  %27 = getelementptr inbounds nuw i8, ptr %.03969.us.us, i64 %8
-  %28 = add nuw nsw i32 %.04068.us.us, 1
-  %29 = icmp slt i32 %28, %20
-  br i1 %29, label %Kit_TruthFill.exit.us.us, label %.loopexit.sink.split, !llvm.loop !38
-
 select.unfold.preheader.i47.us:                   ; preds = %select.unfold.preheader.i47.us.preheader, %Kit_TruthOr.exit.loopexit.us
-  %.03969.us = phi ptr [ %59, %Kit_TruthOr.exit.loopexit.us ], [ %0, %select.unfold.preheader.i47.us.preheader ]
-  %.04068.us = phi i32 [ %60, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
-  %30 = getelementptr i8, ptr %.03969.us, i64 %22
-  %31 = getelementptr i8, ptr %30, i64 1
-  %32 = load i8, ptr %31, align 1, !tbaa !3
+  %.03969.us = phi ptr [ %56, %Kit_TruthOr.exit.loopexit.us ], [ %0, %select.unfold.preheader.i47.us.preheader ]
+  %.04068.us = phi i32 [ %57, %Kit_TruthOr.exit.loopexit.us ], [ 0, %select.unfold.preheader.i47.us.preheader ]
+  %27 = getelementptr i8, ptr %.03969.us, i64 %22
+  %28 = getelementptr i8, ptr %27, i64 1
+  %29 = load i8, ptr %28, align 1, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %24, i1 false), !tbaa !18
-  br label %39
+  br label %36
 
 select.unfold.i57.us:                             ; preds = %Kit_TruthAnd.exit.us74, %select.unfold.i57.us
   %indvars.iv.i58.us = phi i64 [ %indvars.iv.next.i59.us, %select.unfold.i57.us ], [ %23, %Kit_TruthAnd.exit.us74 ]
   %indvars.iv.next.i59.us = add nsw i64 %indvars.iv.i58.us, -1
-  %33 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59.us
-  %34 = load i32, ptr %33, align 4, !tbaa !18
-  %35 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59.us
-  %36 = load i32, ptr %35, align 4, !tbaa !18
-  %37 = or i32 %36, %34
-  store i32 %37, ptr %33, align 4, !tbaa !18
-  %38 = icmp samesign ugt i64 %indvars.iv.i58.us, 1
-  br i1 %38, label %select.unfold.i57.us, label %Kit_TruthOr.exit.loopexit.us, !llvm.loop !39
+  %30 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59.us
+  %31 = load i32, ptr %30, align 4, !tbaa !18
+  %32 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59.us
+  %33 = load i32, ptr %32, align 4, !tbaa !18
+  %34 = or i32 %33, %31
+  store i32 %34, ptr %30, align 4, !tbaa !18
+  %35 = icmp samesign ugt i64 %indvars.iv.i58.us, 1
+  br i1 %35, label %select.unfold.i57.us, label %Kit_TruthOr.exit.loopexit.us, !llvm.loop !38
 
-39:                                               ; preds = %select.unfold.preheader.i47.us, %Kit_TruthAnd.exit.us74
+36:                                               ; preds = %select.unfold.preheader.i47.us, %Kit_TruthAnd.exit.us74
   %indvars.iv = phi i64 [ 0, %select.unfold.preheader.i47.us ], [ %indvars.iv.next, %Kit_TruthAnd.exit.us74 ]
-  %40 = getelementptr inbounds nuw i8, ptr %.03969.us, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 1, !tbaa !3
-  switch i8 %41, label %Kit_TruthAnd.exit.us74 [
+  %37 = getelementptr inbounds nuw i8, ptr %.03969.us, i64 %indvars.iv
+  %38 = load i8, ptr %37, align 1, !tbaa !3
+  switch i8 %38, label %Kit_TruthAnd.exit.us74 [
     i8 49, label %select.unfold.preheader.i49.us
     i8 48, label %select.unfold.preheader.i51.us
   ]
 
-select.unfold.preheader.i51.us:                   ; preds = %39
-  %.val45.us = load ptr, ptr %26, align 8, !tbaa !40
-  %42 = getelementptr inbounds nuw ptr, ptr %.val45.us, i64 %indvars.iv
-  %43 = load ptr, ptr %42, align 8, !tbaa !42
+select.unfold.preheader.i51.us:                   ; preds = %36
+  %.val45.us = load ptr, ptr %26, align 8, !tbaa !39
+  %39 = getelementptr inbounds nuw ptr, ptr %.val45.us, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8, !tbaa !41
   br label %select.unfold.i52.us
 
 select.unfold.i52.us:                             ; preds = %select.unfold.i52.us, %select.unfold.preheader.i51.us
   %indvars.iv.i53.us = phi i64 [ %23, %select.unfold.preheader.i51.us ], [ %indvars.iv.next.i54.us, %select.unfold.i52.us ]
   %indvars.iv.next.i54.us = add nsw i64 %indvars.iv.i53.us, -1
-  %44 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i54.us
-  %45 = load i32, ptr %44, align 4, !tbaa !18
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.next.i54.us
-  %47 = load i32, ptr %46, align 4, !tbaa !18
-  %48 = xor i32 %47, -1
-  %49 = and i32 %45, %48
-  store i32 %49, ptr %44, align 4, !tbaa !18
-  %50 = icmp samesign ugt i64 %indvars.iv.i53.us, 1
-  br i1 %50, label %select.unfold.i52.us, label %Kit_TruthAnd.exit.us74, !llvm.loop !43
+  %41 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i54.us
+  %42 = load i32, ptr %41, align 4, !tbaa !18
+  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.next.i54.us
+  %44 = load i32, ptr %43, align 4, !tbaa !18
+  %45 = xor i32 %44, -1
+  %46 = and i32 %42, %45
+  store i32 %46, ptr %41, align 4, !tbaa !18
+  %47 = icmp samesign ugt i64 %indvars.iv.i53.us, 1
+  br i1 %47, label %select.unfold.i52.us, label %Kit_TruthAnd.exit.us74, !llvm.loop !42
 
-select.unfold.preheader.i49.us:                   ; preds = %39
-  %.val.us = load ptr, ptr %26, align 8, !tbaa !40
-  %51 = getelementptr inbounds nuw ptr, ptr %.val.us, i64 %indvars.iv
-  %52 = load ptr, ptr %51, align 8, !tbaa !42
+select.unfold.preheader.i49.us:                   ; preds = %36
+  %.val.us = load ptr, ptr %26, align 8, !tbaa !39
+  %48 = getelementptr inbounds nuw ptr, ptr %.val.us, i64 %indvars.iv
+  %49 = load ptr, ptr %48, align 8, !tbaa !41
   br label %select.unfold.i.us
 
 select.unfold.i.us:                               ; preds = %select.unfold.i.us, %select.unfold.preheader.i49.us
   %indvars.iv.i.us = phi i64 [ %23, %select.unfold.preheader.i49.us ], [ %indvars.iv.next.i.us, %select.unfold.i.us ]
   %indvars.iv.next.i.us = add nsw i64 %indvars.iv.i.us, -1
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.us
-  %54 = load i32, ptr %53, align 4, !tbaa !18
-  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.next.i.us
-  %56 = load i32, ptr %55, align 4, !tbaa !18
-  %57 = and i32 %56, %54
-  store i32 %57, ptr %53, align 4, !tbaa !18
-  %58 = icmp samesign ugt i64 %indvars.iv.i.us, 1
-  br i1 %58, label %select.unfold.i.us, label %Kit_TruthAnd.exit.us74, !llvm.loop !44
+  %50 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i.us
+  %51 = load i32, ptr %50, align 4, !tbaa !18
+  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv.next.i.us
+  %53 = load i32, ptr %52, align 4, !tbaa !18
+  %54 = and i32 %53, %51
+  store i32 %54, ptr %50, align 4, !tbaa !18
+  %55 = icmp samesign ugt i64 %indvars.iv.i.us, 1
+  br i1 %55, label %select.unfold.i.us, label %Kit_TruthAnd.exit.us74, !llvm.loop !43
 
-Kit_TruthAnd.exit.us74:                           ; preds = %select.unfold.i52.us, %select.unfold.i.us, %39
+Kit_TruthAnd.exit.us74:                           ; preds = %select.unfold.i52.us, %select.unfold.i.us, %36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %select.unfold.i57.us, label %39, !llvm.loop !45
+  br i1 %exitcond.not, label %select.unfold.i57.us, label %36, !llvm.loop !44
 
 Kit_TruthOr.exit.loopexit.us:                     ; preds = %select.unfold.i57.us
-  %59 = getelementptr inbounds nuw i8, ptr %.03969.us, i64 %8
-  %60 = add nuw nsw i32 %.04068.us, 1
-  %61 = icmp slt i32 %60, %20
-  br i1 %61, label %select.unfold.preheader.i47.us, label %.loopexit, !llvm.loop !38
+  %56 = getelementptr inbounds nuw i8, ptr %.03969.us, i64 %8
+  %57 = add nuw nsw i32 %.04068.us, 1
+  %58 = icmp slt i32 %57, %20
+  br i1 %58, label %select.unfold.preheader.i47.us, label %.loopexit, !llvm.loop !45
 
 .lr.ph71.split:                                   ; preds = %.lr.ph71
-  br i1 %15, label %Kit_TruthFill.exit.us80, label %select.unfold.preheader.i47
-
-Kit_TruthFill.exit.us80:                          ; preds = %.lr.ph71.split, %Kit_TruthFill.exit.us80
-  %.03969.us77 = phi ptr [ %62, %Kit_TruthFill.exit.us80 ], [ %0, %.lr.ph71.split ]
-  %.04068.us78 = phi i32 [ %63, %Kit_TruthFill.exit.us80 ], [ 0, %.lr.ph71.split ]
-  %62 = getelementptr inbounds i8, ptr %.03969.us77, i64 %8
-  %63 = add nuw nsw i32 %.04068.us78, 1
-  %64 = icmp slt i32 %63, %20
-  br i1 %64, label %Kit_TruthFill.exit.us80, label %.loopexit.sink.split, !llvm.loop !38
+  br i1 %15, label %Kit_TruthNot.exit, label %select.unfold.preheader.i47
 
 select.unfold.preheader.i47:                      ; preds = %.lr.ph71.split, %Kit_TruthOr.exit.loopexit
-  %.03969 = phi ptr [ %74, %Kit_TruthOr.exit.loopexit ], [ %0, %.lr.ph71.split ]
-  %.04068 = phi i32 [ %75, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
-  %65 = getelementptr i8, ptr %.03969, i64 %22
-  %66 = getelementptr i8, ptr %65, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !3
+  %.03969 = phi ptr [ %68, %Kit_TruthOr.exit.loopexit ], [ %0, %.lr.ph71.split ]
+  %.04068 = phi i32 [ %69, %Kit_TruthOr.exit.loopexit ], [ 0, %.lr.ph71.split ]
+  %59 = getelementptr i8, ptr %.03969, i64 %22
+  %60 = getelementptr i8, ptr %59, i64 1
+  %61 = load i8, ptr %60, align 1, !tbaa !3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %3, i8 -1, i64 %24, i1 false), !tbaa !18
   br label %select.unfold.i57
 
 select.unfold.i57:                                ; preds = %select.unfold.i57, %select.unfold.preheader.i47
   %indvars.iv.i58 = phi i64 [ %23, %select.unfold.preheader.i47 ], [ %indvars.iv.next.i59, %select.unfold.i57 ]
   %indvars.iv.next.i59 = add nsw i64 %indvars.iv.i58, -1
-  %68 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59
-  %69 = load i32, ptr %68, align 4, !tbaa !18
-  %70 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59
-  %71 = load i32, ptr %70, align 4, !tbaa !18
-  %72 = or i32 %71, %69
-  store i32 %72, ptr %68, align 4, !tbaa !18
-  %73 = icmp samesign ugt i64 %indvars.iv.i58, 1
-  br i1 %73, label %select.unfold.i57, label %Kit_TruthOr.exit.loopexit, !llvm.loop !39
+  %62 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i59
+  %63 = load i32, ptr %62, align 4, !tbaa !18
+  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i59
+  %65 = load i32, ptr %64, align 4, !tbaa !18
+  %66 = or i32 %65, %63
+  store i32 %66, ptr %62, align 4, !tbaa !18
+  %67 = icmp samesign ugt i64 %indvars.iv.i58, 1
+  br i1 %67, label %select.unfold.i57, label %Kit_TruthOr.exit.loopexit, !llvm.loop !38
 
 Kit_TruthOr.exit.loopexit:                        ; preds = %select.unfold.i57
-  %74 = getelementptr inbounds i8, ptr %.03969, i64 %8
-  %75 = add nuw nsw i32 %.04068, 1
-  %76 = icmp slt i32 %75, %20
-  br i1 %76, label %select.unfold.preheader.i47, label %.loopexit, !llvm.loop !38
+  %68 = getelementptr inbounds i8, ptr %.03969, i64 %8
+  %69 = add nuw nsw i32 %.04068, 1
+  %70 = icmp slt i32 %69, %20
+  br i1 %70, label %select.unfold.preheader.i47, label %.loopexit, !llvm.loop !45
 
-.loopexit.sink.split:                             ; preds = %Kit_TruthFill.exit.us80, %Kit_TruthFill.exit.us.us
-  %.03969.us.us.lcssa.sink = phi ptr [ %.03969.us.us, %Kit_TruthFill.exit.us.us ], [ %.03969.us77, %Kit_TruthFill.exit.us80 ]
-  %77 = getelementptr i8, ptr %.03969.us.us.lcssa.sink, i64 %22
-  %78 = getelementptr i8, ptr %77, i64 1
-  %79 = load i8, ptr %78, align 1, !tbaa !3
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %Kit_TruthOr.exit.loopexit, %Kit_TruthOr.exit.loopexit.us, %.loopexit.sink.split
-  %.us-phi = phi i8 [ %79, %.loopexit.sink.split ], [ %32, %Kit_TruthOr.exit.loopexit.us ], [ %67, %Kit_TruthOr.exit.loopexit ]
-  %80 = icmp ne i8 %.us-phi, 48
-  %brmerge = or i1 %15, %80
+.loopexit:                                        ; preds = %Kit_TruthOr.exit.loopexit, %Kit_TruthOr.exit.loopexit.us
+  %.us-phi = phi i8 [ %29, %Kit_TruthOr.exit.loopexit.us ], [ %61, %Kit_TruthOr.exit.loopexit ]
+  %71 = icmp ne i8 %.us-phi, 48
+  %brmerge = or i1 %15, %71
   br i1 %brmerge, label %Kit_TruthNot.exit, label %select.unfold.preheader.i61
 
 select.unfold.preheader.i61:                      ; preds = %.loopexit
-  %81 = zext nneg i32 %spec.select.i to i64
+  %72 = zext nneg i32 %spec.select.i to i64
   br label %select.unfold.i62
 
 select.unfold.i62:                                ; preds = %select.unfold.i62, %select.unfold.preheader.i61
-  %indvars.iv.i63 = phi i64 [ %81, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
+  %indvars.iv.i63 = phi i64 [ %72, %select.unfold.preheader.i61 ], [ %indvars.iv.next.i64, %select.unfold.i62 ]
   %indvars.iv.next.i64 = add nsw i64 %indvars.iv.i63, -1
-  %82 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i64
-  %83 = load i32, ptr %82, align 4, !tbaa !18
-  %84 = xor i32 %83, -1
-  store i32 %84, ptr %82, align 4, !tbaa !18
-  %85 = icmp samesign ugt i64 %indvars.iv.i63, 1
-  br i1 %85, label %select.unfold.i62, label %Kit_TruthNot.exit, !llvm.loop !46
+  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i64
+  %74 = load i32, ptr %73, align 4, !tbaa !18
+  %75 = xor i32 %74, -1
+  store i32 %75, ptr %73, align 4, !tbaa !18
+  %76 = icmp samesign ugt i64 %indvars.iv.i63, 1
+  br i1 %76, label %select.unfold.i62, label %Kit_TruthNot.exit, !llvm.loop !46
 
-Kit_TruthNot.exit:                                ; preds = %select.unfold.i62, %Kit_TruthClear.exit, %.loopexit, %10
+Kit_TruthNot.exit:                                ; preds = %select.unfold.i62, %.lr.ph71.split, %.lr.ph71.split.us, %Kit_TruthClear.exit, %.loopexit, %10
   ret void
 }
 
@@ -1870,10 +1847,10 @@ attributes #15 = { nounwind willreturn memory(read) }
 !36 = distinct !{!36, !7}
 !37 = distinct !{!37, !7}
 !38 = distinct !{!38, !7}
-!39 = distinct !{!39, !7}
-!40 = !{!41, !16, i64 8}
-!41 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !16, i64 8}
-!42 = !{!16, !16, i64 0}
+!39 = !{!40, !16, i64 8}
+!40 = !{!"Vec_Ptr_t_", !14, i64 0, !14, i64 4, !16, i64 8}
+!41 = !{!16, !16, i64 0}
+!42 = distinct !{!42, !7}
 !43 = distinct !{!43, !7}
 !44 = distinct !{!44, !7}
 !45 = distinct !{!45, !7}

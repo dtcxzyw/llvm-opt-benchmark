@@ -2259,154 +2259,146 @@ while.end.i.i:                                    ; preds = %while.body.i.i
 
 _ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i: ; preds = %entry, %while.end.i.i
   %4 = phi i64 [ %spec.select.i.i, %while.end.i.i ], [ 0, %entry ]
-  %sext11.i = shl i64 %4, 32
-  %conv6.i = ashr exact i64 %sext11.i, 32
-  %arrayidx.i.i = getelementptr inbounds float, ptr %1, i64 %conv6.i
+  %arrayidx.i.i = getelementptr float, ptr %1, i64 %4
   %5 = load float, ptr %arrayidx.i.i, align 4
-  %sext12.i = add i64 %sext11.i, 4294967296
-  %6 = ashr exact i64 %sext12.i, 30
-  %arrayidx.i14.i = getelementptr inbounds i8, ptr %1, i64 %6
-  %7 = load float, ptr %arrayidx.i14.i, align 4
+  %arrayidx.i14.i = getelementptr i8, ptr %arrayidx.i.i, i64 4
+  %6 = load float, ptr %arrayidx.i14.i, align 4
   %funcInt.i = getelementptr inbounds nuw i8, ptr %this, i64 120
-  %8 = load float, ptr %funcInt.i, align 8
-  %cmp27.i = fcmp ogt float %8, 0.000000e+00
+  %7 = load float, ptr %funcInt.i, align 8
+  %cmp27.i = fcmp ogt float %7, 0.000000e+00
   br i1 %cmp27.i, label %cond.true.i, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit
 
 cond.true.i:                                      ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i
   %ptr.i21.i = getelementptr inbounds nuw i8, ptr %this, i64 56
-  %9 = load ptr, ptr %ptr.i21.i, align 8
-  %arrayidx.i22.i = getelementptr inbounds float, ptr %9, i64 %conv6.i
-  %10 = load float, ptr %arrayidx.i22.i, align 4
-  %div31.i = fdiv float %10, %8
+  %8 = load ptr, ptr %ptr.i21.i, align 8
+  %arrayidx.i22.i = getelementptr inbounds float, ptr %8, i64 %4
+  %9 = load float, ptr %arrayidx.i22.i, align 4
+  %div31.i = fdiv float %9, %7
   br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit
 
 _ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i, %cond.true.i
   %cond.i = phi float [ %div31.i, %cond.true.i ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i ]
   %nStored.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
-  %11 = load i64, ptr %nStored.i.i.i, align 8
+  %10 = load i64, ptr %nStored.i.i.i, align 8
   %min.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %12 = load float, ptr %min.i, align 8
+  %11 = load float, ptr %min.i, align 8
   %max.i = getelementptr inbounds nuw i8, ptr %this, i64 116
-  %13 = load float, ptr %max.i, align 4
+  %12 = load float, ptr %max.i, align 4
   %ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %14 = load ptr, ptr %ptr.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.pbrt::PiecewiseConstant1D", ptr %14, i64 %conv6.i
+  %13 = load ptr, ptr %ptr.i, align 8
+  %arrayidx.i = getelementptr inbounds nuw %"class.pbrt::PiecewiseConstant1D", ptr %13, i64 %4
   %u.sroa.0.0.vec.extract = extractelement <2 x float> %u.coerce, i64 0
   %nStored.i.i7 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 56
-  %15 = load i64, ptr %nStored.i.i7, align 8
-  %sext.i8 = shl i64 %15, 32
+  %14 = load i64, ptr %nStored.i.i7, align 8
+  %sext.i8 = shl i64 %14, 32
   %conv2.i9 = ashr exact i64 %sext.i8, 32
   %sub.i.i10 = add nsw i64 %conv2.i9, -2
   %cmp11.i.i11 = icmp sgt i64 %conv2.i9, 2
-  %ptr.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
-  %16 = load ptr, ptr %ptr.i.i.i.i44, align 8
-  br i1 %cmp11.i.i11, label %while.body.i.i45, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
+  %ptr.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 40
+  %15 = load ptr, ptr %ptr.i.i.i.i41, align 8
+  br i1 %cmp11.i.i11, label %while.body.i.i42, label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
 
-while.body.i.i45:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i45
-  %size.013.i.i46 = phi i64 [ %cond8.i.i58, %while.body.i.i45 ], [ %sub.i.i10, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %first.012.i.i47 = phi i64 [ %cond.fr20.i.i55, %while.body.i.i45 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %shr.i.i48 = lshr i64 %size.013.i.i46, 1
-  %add.i.i49 = add i64 %shr.i.i48, %first.012.i.i47
-  %sext.i.i50 = shl i64 %add.i.i49, 32
-  %17 = ashr exact i64 %sext.i.i50, 30
-  %arrayidx.i.i.i.i51 = getelementptr inbounds i8, ptr %16, i64 %17
-  %18 = load float, ptr %arrayidx.i.i.i.i51, align 4
-  %cmp.i.i.i52 = fcmp ole float %18, %u.sroa.0.0.vec.extract
-  %add1.i.i53 = add i64 %add.i.i49, 1
-  %cond.i.i54 = select i1 %cmp.i.i.i52, i64 %add1.i.i53, i64 %first.012.i.i47
-  %cond.fr20.i.i55 = freeze i64 %cond.i.i54
-  %add4.neg.i.i56 = xor i64 %shr.i.i48, -1
-  %sub5.i.i57 = add nsw i64 %size.013.i.i46, %add4.neg.i.i56
-  %cond8.i.i58 = select i1 %cmp.i.i.i52, i64 %sub5.i.i57, i64 %shr.i.i48
-  %cmp.i.i59 = icmp sgt i64 %cond8.i.i58, 0
-  br i1 %cmp.i.i59, label %while.body.i.i45, label %while.end.i.i60, !llvm.loop !60
+while.body.i.i42:                                 ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.body.i.i42
+  %size.013.i.i43 = phi i64 [ %cond8.i.i55, %while.body.i.i42 ], [ %sub.i.i10, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %first.012.i.i44 = phi i64 [ %cond.fr20.i.i52, %while.body.i.i42 ], [ 1, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %shr.i.i45 = lshr i64 %size.013.i.i43, 1
+  %add.i.i46 = add i64 %shr.i.i45, %first.012.i.i44
+  %sext.i.i47 = shl i64 %add.i.i46, 32
+  %16 = ashr exact i64 %sext.i.i47, 30
+  %arrayidx.i.i.i.i48 = getelementptr inbounds i8, ptr %15, i64 %16
+  %17 = load float, ptr %arrayidx.i.i.i.i48, align 4
+  %cmp.i.i.i49 = fcmp ole float %17, %u.sroa.0.0.vec.extract
+  %add1.i.i50 = add i64 %add.i.i46, 1
+  %cond.i.i51 = select i1 %cmp.i.i.i49, i64 %add1.i.i50, i64 %first.012.i.i44
+  %cond.fr20.i.i52 = freeze i64 %cond.i.i51
+  %add4.neg.i.i53 = xor i64 %shr.i.i45, -1
+  %sub5.i.i54 = add nsw i64 %size.013.i.i43, %add4.neg.i.i53
+  %cond8.i.i55 = select i1 %cmp.i.i.i49, i64 %sub5.i.i54, i64 %shr.i.i45
+  %cmp.i.i56 = icmp sgt i64 %cond8.i.i55, 0
+  br i1 %cmp.i.i56, label %while.body.i.i42, label %while.end.i.i57, !llvm.loop !60
 
-while.end.i.i60:                                  ; preds = %while.body.i.i45
-  %sub9.i.i61 = add nsw i64 %cond.fr20.i.i55, -1
-  %high.val.i.i.i62 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i61, i64 %sub.i.i10)
-  %cmp.i10.inv.i.i63 = icmp sgt i64 %cond.fr20.i.i55, 0
-  %spec.select.i.i64 = select i1 %cmp.i10.inv.i.i63, i64 %high.val.i.i.i62, i64 0
+while.end.i.i57:                                  ; preds = %while.body.i.i42
+  %sub9.i.i58 = add nsw i64 %cond.fr20.i.i52, -1
+  %high.val.i.i.i59 = tail call i64 @llvm.umin.i64(i64 %sub9.i.i58, i64 %sub.i.i10)
+  %cmp.i10.inv.i.i60 = icmp sgt i64 %cond.fr20.i.i52, 0
+  %spec.select.i.i61 = select i1 %cmp.i10.inv.i.i60, i64 %high.val.i.i.i59, i64 0
   br label %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
 
-_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i60
-  %19 = phi i64 [ %spec.select.i.i64, %while.end.i.i60 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
-  %sext11.i14 = shl i64 %19, 32
-  %conv6.i15 = ashr exact i64 %sext11.i14, 32
-  %arrayidx.i.i17 = getelementptr inbounds float, ptr %16, i64 %conv6.i15
-  %20 = load float, ptr %arrayidx.i.i17, align 4
-  %sext12.i18 = add i64 %sext11.i14, 4294967296
-  %21 = ashr exact i64 %sext12.i18, 30
-  %arrayidx.i14.i19 = getelementptr inbounds i8, ptr %16, i64 %21
-  %22 = load float, ptr %arrayidx.i14.i19, align 4
-  %funcInt.i20 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 72
-  %23 = load float, ptr %funcInt.i20, align 8
-  %cmp27.i21 = fcmp ogt float %23, 0.000000e+00
-  br i1 %cmp27.i21, label %cond.true.i39, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12: ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit, %while.end.i.i57
+  %18 = phi i64 [ %spec.select.i.i61, %while.end.i.i57 ], [ 0, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit ]
+  %arrayidx.i.i15 = getelementptr float, ptr %15, i64 %18
+  %19 = load float, ptr %arrayidx.i.i15, align 4
+  %arrayidx.i14.i16 = getelementptr i8, ptr %arrayidx.i.i15, i64 4
+  %20 = load float, ptr %arrayidx.i14.i16, align 4
+  %funcInt.i17 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 72
+  %21 = load float, ptr %funcInt.i17, align 8
+  %cmp27.i18 = fcmp ogt float %21, 0.000000e+00
+  br i1 %cmp27.i18, label %cond.true.i36, label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit62
 
-cond.true.i39:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
-  %ptr.i21.i40 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
-  %24 = load ptr, ptr %ptr.i21.i40, align 8
-  %arrayidx.i22.i41 = getelementptr inbounds float, ptr %24, i64 %conv6.i15
-  %25 = load float, ptr %arrayidx.i22.i41, align 4
-  %div31.i42 = fdiv float %25, %23
-  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+cond.true.i36:                                    ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12
+  %ptr.i21.i37 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
+  %22 = load ptr, ptr %ptr.i21.i37, align 8
+  %arrayidx.i22.i38 = getelementptr inbounds float, ptr %22, i64 %18
+  %23 = load float, ptr %arrayidx.i22.i38, align 4
+  %div31.i39 = fdiv float %23, %21
+  br label %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit62
 
-_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12, %cond.true.i39
-  %cond.i22 = phi float [ %div31.i42, %cond.true.i39 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12 ]
-  %nStored.i.i.i30 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
-  %26 = load i64, ptr %nStored.i.i.i30, align 8
-  %min.i33 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 64
-  %27 = load float, ptr %min.i33, align 8
-  %max.i34 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 68
-  %28 = load float, ptr %max.i34, align 4
+_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit62: ; preds = %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12, %cond.true.i36
+  %cond.i19 = phi float [ %div31.i39, %cond.true.i36 ], [ 0.000000e+00, %_ZN4pbrt12FindIntervalIZNKS_19PiecewiseConstant1D6SampleEfPfPiEUliE_EEmmRKT_.exit.i12 ]
+  %nStored.i.i.i27 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
+  %24 = load i64, ptr %nStored.i.i.i27, align 8
+  %min.i30 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 64
+  %25 = load float, ptr %min.i30, align 8
+  %max.i31 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 68
+  %26 = load float, ptr %max.i31, align 4
   %tobool.not = icmp eq ptr %pdf, null
   br i1 %tobool.not, label %if.end, label %if.then
 
-if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
-  %mul = fmul float %cond.i, %cond.i22
+if.then:                                          ; preds = %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit62
+  %mul = fmul float %cond.i, %cond.i19
   store float %mul, ptr %pdf, align 4
   br label %if.end
 
-if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit65
+if.end:                                           ; preds = %if.then, %_ZNK4pbrt19PiecewiseConstant1D6SampleEfPfPi.exit62
   %tobool12.not = icmp eq ptr %offset, null
   br i1 %tobool12.not, label %if.end14, label %if.then13
 
 if.then13:                                        ; preds = %if.end
-  %uv.sroa.0.0.insert.ext = and i64 %19, 4294967295
-  %uv.sroa.0.0.insert.insert = or disjoint i64 %uv.sroa.0.0.insert.ext, %sext11.i
+  %uv.sroa.3.0.insert.ext = shl nuw nsw i64 %4, 32
+  %uv.sroa.0.0.insert.insert = or disjoint i64 %18, %uv.sroa.3.0.insert.ext
   store i64 %uv.sroa.0.0.insert.insert, ptr %offset, align 4
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then13, %if.end
-  %conv4.i13 = trunc i64 %19 to i32
+  %conv4.i13 = trunc i64 %18 to i32
   %conv4.i = trunc i64 %4 to i32
-  %cmp.i23 = fcmp ogt float %22, %20
-  %sub.i24 = fsub float %u.sroa.0.0.vec.extract, %20
-  %sub23.i25 = fsub float %22, %20
-  %div.i26 = fdiv float %sub.i24, %sub23.i25
-  %du.0.i27 = select i1 %cmp.i23, float %div.i26, float %sub.i24
-  %conv33.i28 = sitofp i32 %conv4.i13 to float
-  %add34.i29 = fadd float %du.0.i27, %conv33.i28
-  %conv36.i31 = uitofp i64 %26 to float
-  %div37.i32 = fdiv float %add34.i29, %conv36.i31
-  %mul1.i.i37 = fmul float %div37.i32, %28
-  %sub.i23.i35 = fsub float 1.000000e+00, %div37.i32
-  %mul.i.i36 = fmul float %27, %sub.i23.i35
-  %add.i24.i38 = fadd float %mul1.i.i37, %mul.i.i36
-  %cmp.i = fcmp ogt float %7, %5
+  %cmp.i20 = fcmp ogt float %20, %19
+  %sub.i21 = fsub float %u.sroa.0.0.vec.extract, %19
+  %sub23.i22 = fsub float %20, %19
+  %div.i23 = fdiv float %sub.i21, %sub23.i22
+  %du.0.i24 = select i1 %cmp.i20, float %div.i23, float %sub.i21
+  %conv33.i25 = uitofp nneg i32 %conv4.i13 to float
+  %add34.i26 = fadd float %du.0.i24, %conv33.i25
+  %conv36.i28 = uitofp i64 %24 to float
+  %div37.i29 = fdiv float %add34.i26, %conv36.i28
+  %mul1.i.i34 = fmul float %div37.i29, %26
+  %sub.i23.i32 = fsub float 1.000000e+00, %div37.i29
+  %mul.i.i33 = fmul float %25, %sub.i23.i32
+  %add.i24.i35 = fadd float %mul1.i.i34, %mul.i.i33
+  %cmp.i = fcmp ogt float %6, %5
   %sub.i = fsub float %u.sroa.0.4.vec.extract, %5
-  %sub23.i = fsub float %7, %5
+  %sub23.i = fsub float %6, %5
   %div.i = fdiv float %sub.i, %sub23.i
   %du.0.i = select i1 %cmp.i, float %div.i, float %sub.i
-  %conv33.i = sitofp i32 %conv4.i to float
+  %conv33.i = uitofp nneg i32 %conv4.i to float
   %add34.i = fadd float %du.0.i, %conv33.i
-  %conv36.i = uitofp i64 %11 to float
+  %conv36.i = uitofp i64 %10 to float
   %div37.i = fdiv float %add34.i, %conv36.i
-  %mul1.i.i = fmul float %div37.i, %13
+  %mul1.i.i = fmul float %div37.i, %12
   %sub.i23.i = fsub float 1.000000e+00, %div37.i
-  %mul.i.i = fmul float %12, %sub.i23.i
+  %mul.i.i = fmul float %11, %sub.i23.i
   %add.i24.i = fadd float %mul1.i.i, %mul.i.i
-  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i24.i38, i64 0
+  %retval.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %add.i24.i35, i64 0
   %retval.sroa.0.4.vec.insert = insertelement <2 x float> %retval.sroa.0.0.vec.insert, float %add.i24.i, i64 1
   ret <2 x float> %retval.sroa.0.4.vec.insert
 }
@@ -10572,7 +10564,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
+  %cmp.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %5
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.body.i, %entry
@@ -10859,7 +10851,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %conv17.i = zext i8 %11 to i64
   %shl.i = shl i64 %conv17.i, %sh_prom.i
   %or.i = or i64 %shl.i, %sampleIndex.021.i
-  %cmp.not.not.i = icmp sgt i64 %indvars.iv.next.i, %5
+  %cmp.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %5
   br i1 %cmp.not.not.i, label %for.body.i, label %for.end.i, !llvm.loop !169
 
 for.end.i:                                        ; preds = %for.body.i, %entry

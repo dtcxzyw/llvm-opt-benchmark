@@ -75611,7 +75611,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit: ; preds = %41, %19
 
 .preheader.i30:                                   ; preds = %70, %85
   %.sroa.025.0124.i = phi i64 [ %81, %85 ], [ 0, %70 ]
-  %.sroa.011.2123.i = phi i8 [ %.sroa.011.3.i, %85 ], [ %.sroa.011.0125.i, %70 ]
+  %.sroa.011.2123.i = phi i8 [ %.sroa.011.3.i, %85 ], [ 0, %70 ]
   %81 = add nuw nsw i64 %.sroa.025.0124.i, 1
   %82 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0124.i
   %83 = load i16, ptr %82, align 2, !noalias !22359, !noundef !5
@@ -109262,7 +109262,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.sroa.03.1.i12 = phi i64 [ %91, %84 ], [ %.sroa.03.0.i10, %81 ]
   %.sroa.0.1.i13 = phi i64 [ %90, %84 ], [ %.sroa.0.0.i11, %81 ]
-  %93 = icmp ult i64 %.sroa.03.1.i12, %44
+  %93 = icmp samesign ult i64 %.sroa.03.1.i12, %44
   br i1 %93, label %94, label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 
 94:                                               ; preds = %92
@@ -109274,7 +109274,7 @@ _ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.sroa.03.1.i12, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.sroa.0.1.i13
   br label %_ZN9siphasher6sip1289u8to64_le17h36be52c1b1613c2bE.exit17
 

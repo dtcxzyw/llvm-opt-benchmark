@@ -161,7 +161,7 @@ define internal noundef i32 @H5S__point_release(ptr noundef captures(none) %0) #
   br i1 %.not.i, label %H5S__free_pnt_list.exit, label %.lr.ph.i, !llvm.loop !26
 
 H5S__free_pnt_list.exit:                          ; preds = %.lr.ph.i, %8
-  %15 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_pnt_list_t_reg_free_list, ptr noundef %10) #15
+  %15 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_pnt_list_t_reg_free_list, ptr noundef nonnull %10) #15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   br label %17
@@ -1040,9 +1040,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_deserialize(ptr noundef capture
 
 .preheader279:                                    ; preds = %218
   %.not330 = icmp eq i64 %.0204255, 0
-  %.not331 = icmp eq i32 %112, 0
-  %or.cond363 = or i1 %.not330, %.not331
-  br i1 %or.cond363, label %._crit_edge305, label %.preheader.lr.ph.split.us
+  br i1 %.not330, label %._crit_edge305, label %.preheader.lr.ph.split.us
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader279
   switch i8 %.0212249, label %.split.us [
@@ -3485,7 +3483,7 @@ define internal noundef i32 @H5S__point_iter_release(ptr noundef readonly captur
   br i1 %.not.i, label %H5S__free_pnt_list.exit, label %.lr.ph.i, !llvm.loop !26
 
 H5S__free_pnt_list.exit:                          ; preds = %.lr.ph.i, %12
-  %19 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_pnt_list_t_reg_free_list, ptr noundef %14) #15
+  %19 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5S_pnt_list_t_reg_free_list, ptr noundef nonnull %14) #15
   br label %20
 
 20:                                               ; preds = %8, %H5S__free_pnt_list.exit, %1

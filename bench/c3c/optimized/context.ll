@@ -135,7 +135,7 @@ char_is_letter.exit.thread.i:                     ; preds = %char_is_letter.exit
   br i1 %29, label %.lr.ph39.i, label %filename_to_module_in_buffer.exit.thread, !llvm.loop !9
 
 filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
-  tail call void (ptr, ptr, ...) @sema_error(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
+  tail call void (ptr, ptr, ...) @sema_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
   br label %47
 
 filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit.thread.i, %19

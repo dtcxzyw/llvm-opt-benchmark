@@ -650,7 +650,7 @@ pmix_obj_update.exit84:                           ; preds = %81
 .lr.ph.i90:                                       ; preds = %91, %.lr.ph.i90
   %97 = phi ptr [ %99, %.lr.ph.i90 ], [ %96, %91 ]
   %.07.i91 = phi ptr [ %98, %.lr.ph.i90 ], [ %95, %91 ]
-  tail call void %97(ptr noundef %31) #17
+  tail call void %97(ptr noundef nonnull %31) #17
   %98 = getelementptr inbounds nuw i8, ptr %.07.i91, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !18
   %.not.i92 = icmp eq ptr %99, null
@@ -715,7 +715,7 @@ pmix_obj_update.exit83:                           ; preds = %111
 .lr.ph.i96:                                       ; preds = %121, %.lr.ph.i96
   %127 = phi ptr [ %129, %.lr.ph.i96 ], [ %126, %121 ]
   %.07.i97 = phi ptr [ %128, %.lr.ph.i96 ], [ %125, %121 ]
-  tail call void %127(ptr noundef %31) #17
+  tail call void %127(ptr noundef nonnull %31) #17
   %128 = getelementptr inbounds nuw i8, ptr %.07.i97, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !18
   %.not.i98 = icmp eq ptr %129, null
@@ -849,7 +849,7 @@ pmix_obj_update.exit81:                           ; preds = %170
 .lr.ph.i108:                                      ; preds = %180, %.lr.ph.i108
   %186 = phi ptr [ %188, %.lr.ph.i108 ], [ %185, %180 ]
   %.07.i109 = phi ptr [ %187, %.lr.ph.i108 ], [ %184, %180 ]
-  tail call void %186(ptr noundef %31) #17
+  tail call void %186(ptr noundef nonnull %31) #17
   %187 = getelementptr inbounds nuw i8, ptr %.07.i109, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !18
   %.not.i110 = icmp eq ptr %188, null
@@ -909,7 +909,7 @@ pmix_obj_update.exit:                             ; preds = %197
 .lr.ph.i114:                                      ; preds = %207, %.lr.ph.i114
   %213 = phi ptr [ %215, %.lr.ph.i114 ], [ %212, %207 ]
   %.07.i115 = phi ptr [ %214, %.lr.ph.i114 ], [ %211, %207 ]
-  tail call void %213(ptr noundef %31) #17
+  tail call void %213(ptr noundef nonnull %31) #17
   %214 = getelementptr inbounds nuw i8, ptr %.07.i115, i64 8
   %215 = load ptr, ptr %214, align 8, !tbaa !18
   %.not.i116 = icmp eq ptr %215, null

@@ -39,7 +39,7 @@ define internal fastcc void @doBlock(ptr noundef %0, ptr noundef %1, double noun
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.024.lcssa = phi i64 [ 0, %4 ], [ %7, %.lr.ph ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
-  call void @layout_block(ptr dead_on_unwind nonnull writable sret(%struct.nodelist_t) align 8 %5, ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3) #11
+  call void @layout_block(ptr dead_on_unwind nonnull writable sret(%struct.nodelist_t) align 8 %5, ptr noundef %0, ptr noundef nonnull %1, double noundef %2, ptr noundef %3) #11
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !17
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16

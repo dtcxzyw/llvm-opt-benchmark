@@ -26,8 +26,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly %12, ptr noundef initializes((0, 4)) %13) local_unnamed_addr #0 {
-  %.sroa.05816 = alloca ptr, align 16
-  %.sroa.65817 = alloca ptr, align 8
+  %.sroa.05819 = alloca ptr, align 16
+  %.sroa.65820 = alloca ptr, align 8
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [2 x i8], align 1
@@ -45,8 +45,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %29 = alloca i32, align 4
   %30 = alloca [1 x double], align 8
   %31 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05816)
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.65817)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.05819)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %.sroa.65820)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #6
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %17) #6
@@ -146,8 +146,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %or.cond5504 = select i1 %80, i1 true, i1 %or.cond5499
   %82 = icmp slt i32 %79, %.
   %or.cond5501 = select i1 %54, i1 %82, i1 false
-  %or.cond5785 = select i1 %or.cond5504, i1 true, i1 %or.cond5501
-  br i1 %or.cond5785, label %.thread5485.sink.split, label %83
+  %or.cond5786 = select i1 %or.cond5504, i1 true, i1 %or.cond5501
+  br i1 %or.cond5786, label %.thread5485.sink.split, label %83
 
 83:                                               ; preds = %78
   %.pr = load i32, ptr %13, align 4, !tbaa !3
@@ -161,8 +161,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %or.cond15, label %88, label %304
 
 88:                                               ; preds = %85
-  store ptr %0, ptr %.sroa.05816, align 16, !tbaa !7
-  store ptr %1, ptr %.sroa.65817, align 8, !tbaa !7
+  store ptr %0, ptr %.sroa.05819, align 16, !tbaa !7
+  store ptr %1, ptr %.sroa.65820, align 8, !tbaa !7
   br label %91
 
 .preheader:                                       ; preds = %._crit_edge5600
@@ -176,7 +176,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 91:                                               ; preds = %88, %._crit_edge5600
   %92 = phi i1 [ true, %88 ], [ false, %._crit_edge5600 ]
-  %indvars.iv5740.sroa.phi = phi ptr [ %.sroa.05816, %88 ], [ %.sroa.65817, %._crit_edge5600 ]
+  %indvars.iv5740.sroa.phi = phi ptr [ %.sroa.05819, %88 ], [ %.sroa.65820, %._crit_edge5600 ]
   %.051555604 = phi ptr [ %17, %88 ], [ %.15156.lcssa, %._crit_edge5600 ]
   %.051595603 = phi i32 [ 2, %88 ], [ %93, %._crit_edge5600 ]
   %spec.select5465 = tail call i32 @llvm.smin.i32(i32 %.051595603, i32 1)
@@ -518,8 +518,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %87, label %305, label %519
 
 305:                                              ; preds = %304
-  store ptr %0, ptr %.sroa.05816, align 16, !tbaa !7
-  store ptr %1, ptr %.sroa.65817, align 8, !tbaa !7
+  store ptr %0, ptr %.sroa.05819, align 16, !tbaa !7
+  store ptr %1, ptr %.sroa.65820, align 8, !tbaa !7
   br label %308
 
 .preheader5584:                                   ; preds = %._crit_edge
@@ -533,7 +533,7 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 308:                                              ; preds = %305, %._crit_edge
   %309 = phi i1 [ true, %305 ], [ false, %._crit_edge ]
-  %indvars.iv.sroa.phi = phi ptr [ %.sroa.05816, %305 ], [ %.sroa.65817, %._crit_edge ]
+  %indvars.iv.sroa.phi = phi ptr [ %.sroa.05819, %305 ], [ %.sroa.65820, %._crit_edge ]
   %.05590 = phi ptr [ %17, %305 ], [ %.1.lcssa, %._crit_edge ]
   %.051505589 = phi i32 [ 2, %305 ], [ %310, %._crit_edge ]
   %spec.select5466 = tail call i32 @llvm.smin.i32(i32 %.051505589, i32 1)
@@ -899,20 +899,20 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %525 = sub nsw i32 0, %524
   store i32 %525, ptr %15, align 4, !tbaa !3
   %526 = call i32 @xerbla_(ptr noundef nonnull @.str.4, ptr noundef nonnull %15, i32 noundef 6) #6
-  br label %2234
+  br label %2233
 
 527:                                              ; preds = %.thread
-  br i1 %59, label %2234, label %528
+  br i1 %59, label %2233, label %528
 
 528:                                              ; preds = %527
   %529 = load i32, ptr %2, align 4, !tbaa !3
   %530 = icmp eq i32 %529, 0
-  br i1 %530, label %2234, label %531
+  br i1 %530, label %2233, label %531
 
 531:                                              ; preds = %528
   %532 = load i32, ptr %3, align 4, !tbaa !3
   %533 = icmp eq i32 %532, 0
-  br i1 %533, label %2234, label %534
+  br i1 %533, label %2233, label %534
 
 534:                                              ; preds = %531
   %535 = call double @dlamch_(ptr noundef nonnull @.str.5) #6
@@ -936,8 +936,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %546, label %.sink.split, label %547
 
 .sink.split:                                      ; preds = %544, %534
-  %.sink5786 = phi ptr [ %27, %534 ], [ %24, %544 ]
-  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %18, ptr noundef nonnull %.sink5786, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %19) #6
+  %.sink5787 = phi ptr [ %27, %534 ], [ %24, %544 ]
+  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %18, ptr noundef nonnull %.sink5787, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %19) #6
   br label %547
 
 547:                                              ; preds = %.sink.split, %544
@@ -1061,11 +1061,11 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %611
 
 611:                                              ; preds = %605, %598, %607
-  %.sink5788 = phi i32 [ %610, %607 ], [ %599, %598 ], [ %599, %605 ]
-  %.sink5787 = phi i32 [ %550, %607 ], [ %599, %598 ], [ %550, %605 ]
+  %.sink5789 = phi i32 [ %610, %607 ], [ %599, %598 ], [ %599, %605 ]
+  %.sink5788 = phi i32 [ %550, %607 ], [ %599, %598 ], [ %550, %605 ]
   %.pre-phi5766 = phi i32 [ %595, %607 ], [ %603, %598 ], [ %595, %605 ]
-  store i32 %.sink5788, ptr %26, align 4, !tbaa !3
-  store i32 %.sink5787, ptr %25, align 4, !tbaa !3
+  store i32 %.sink5789, ptr %26, align 4, !tbaa !3
+  store i32 %.sink5788, ptr %25, align 4, !tbaa !3
   %612 = add nsw i32 %.pre-phi5766, 1
   %613 = add nsw i32 %612, %550
   %614 = add i32 %594, 1
@@ -1215,11 +1215,11 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %704
 
 704:                                              ; preds = %698, %691, %700
-  %.sink5790 = phi i32 [ %703, %700 ], [ %692, %691 ], [ %692, %698 ]
-  %.sink5789 = phi i32 [ %550, %700 ], [ %692, %691 ], [ %550, %698 ]
+  %.sink5791 = phi i32 [ %703, %700 ], [ %692, %691 ], [ %692, %698 ]
+  %.sink5790 = phi i32 [ %550, %700 ], [ %692, %691 ], [ %550, %698 ]
   %.pre-phi5767 = phi i32 [ %688, %700 ], [ %696, %691 ], [ %688, %698 ]
-  store i32 %.sink5790, ptr %26, align 4, !tbaa !3
-  store i32 %.sink5789, ptr %25, align 4, !tbaa !3
+  store i32 %.sink5791, ptr %26, align 4, !tbaa !3
+  store i32 %.sink5790, ptr %25, align 4, !tbaa !3
   %705 = add nsw i32 %.pre-phi5767, 1
   %706 = add nsw i32 %705, %550
   %707 = add i32 %687, 1
@@ -1550,10 +1550,10 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %902
 
 902:                                              ; preds = %899, %901, %893
-  %.sink5791 = phi i32 [ %550, %899 ], [ %550, %901 ], [ %889, %893 ]
+  %.sink5792 = phi i32 [ %550, %899 ], [ %550, %901 ], [ %889, %893 ]
   %.pre-phi5768 = phi i32 [ %884, %899 ], [ %884, %901 ], [ %894, %893 ]
   %.05171.in = phi i32 [ %900, %899 ], [ %884, %901 ], [ %894, %893 ]
-  store i32 %.sink5791, ptr %25, align 4, !tbaa !3
+  store i32 %.sink5792, ptr %25, align 4, !tbaa !3
   %.05171 = add nsw i32 %.05171.in, 1
   %903 = add nsw i32 %.pre-phi5768, %.05171
   %904 = add nsw i32 %903, %550
@@ -2501,11 +2501,11 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1429
 
 1429:                                             ; preds = %1425, %1426, %1422
-  %.sink5793 = phi i32 [ %550, %1425 ], [ %1428, %1426 ], [ %550, %1422 ]
-  %.sink5792 = phi i32 [ %549, %1425 ], [ %549, %1426 ], [ %1416, %1422 ]
+  %.sink5794 = phi i32 [ %550, %1425 ], [ %1428, %1426 ], [ %550, %1422 ]
+  %.sink5793 = phi i32 [ %549, %1425 ], [ %549, %1426 ], [ %1416, %1422 ]
   %.pre-phi = phi i32 [ %1412, %1425 ], [ %1412, %1426 ], [ %1420, %1422 ]
-  store i32 %.sink5793, ptr %22, align 4, !tbaa !3
-  store i32 %.sink5792, ptr %25, align 4, !tbaa !3
+  store i32 %.sink5794, ptr %22, align 4, !tbaa !3
+  store i32 %.sink5793, ptr %25, align 4, !tbaa !3
   %1430 = add nsw i32 %.pre-phi, 1
   %1431 = add nsw i32 %1430, %549
   %1432 = add i32 %1411, 1
@@ -2669,11 +2669,11 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br label %1525
 
 1525:                                             ; preds = %1521, %1522, %1518
-  %.sink5795 = phi i32 [ %550, %1521 ], [ %1524, %1522 ], [ %550, %1518 ]
-  %.sink5794 = phi i32 [ %549, %1521 ], [ %549, %1522 ], [ %1512, %1518 ]
+  %.sink5796 = phi i32 [ %550, %1521 ], [ %1524, %1522 ], [ %550, %1518 ]
+  %.sink5795 = phi i32 [ %549, %1521 ], [ %549, %1522 ], [ %1512, %1518 ]
   %.pre-phi5761 = phi i32 [ %1508, %1521 ], [ %1508, %1522 ], [ %1516, %1518 ]
-  store i32 %.sink5795, ptr %22, align 4, !tbaa !3
-  store i32 %.sink5794, ptr %25, align 4, !tbaa !3
+  store i32 %.sink5796, ptr %22, align 4, !tbaa !3
+  store i32 %.sink5795, ptr %25, align 4, !tbaa !3
   %1526 = add nsw i32 %.pre-phi5761, 1
   %1527 = add nsw i32 %1526, %549
   %1528 = add i32 %1507, 1
@@ -3826,114 +3826,114 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %invariant.gep5627 = getelementptr i8, ptr %11, i64 -16
   %2192 = zext nneg i32 %.05175 to i64
   %wide.trip.count = zext nneg i32 %2190 to i64
-  %invariant.gep5783 = getelementptr double, ptr %invariant.gep5627, i64 %2192
+  %invariant.gep5784 = getelementptr double, ptr %invariant.gep5627, i64 %2192
   br label %.lr.ph5632
 
 .lr.ph5632:                                       ; preds = %.lr.ph5632.preheader, %.lr.ph5632
   %indvars.iv5746 = phi i64 [ 1, %.lr.ph5632.preheader ], [ %indvars.iv.next5747, %.lr.ph5632 ]
-  %gep5784 = getelementptr double, ptr %invariant.gep5783, i64 %indvars.iv5746
-  %2193 = load double, ptr %gep5784, align 8, !tbaa !14
+  %gep5785 = getelementptr double, ptr %invariant.gep5784, i64 %indvars.iv5746
+  %2193 = load double, ptr %gep5785, align 8, !tbaa !14
   %indvars.iv.next5747 = add nuw nsw i64 %indvars.iv5746, 1
   %2194 = getelementptr double, ptr %11, i64 %indvars.iv5746
   store double %2193, ptr %2194, align 8, !tbaa !14
   %exitcond5749.not = icmp eq i64 %indvars.iv.next5747, %wide.trip.count
-  br i1 %exitcond5749.not, label %.loopexit5579, label %.lr.ph5632, !llvm.loop !22
+  br i1 %exitcond5749.not, label %.loopexit, label %.lr.ph5632, !llvm.loop !22
 
-.loopexit5579:                                    ; preds = %.lr.ph5632, %2187
-  %2195 = icmp slt i32 %.05175, 2
-  br i1 %2195, label %2196, label %.loopexit
+.loopexit5579:                                    ; preds = %2187
+  %.not = icmp eq i32 %.05175, 2
+  br i1 %.not, label %.loopexit, label %2195
 
-2196:                                             ; preds = %.loopexit5579
-  %2197 = load i32, ptr %23, align 4, !tbaa !3
+2195:                                             ; preds = %.loopexit5579
+  %2196 = load i32, ptr %23, align 4, !tbaa !3
   %invariant.op = add i32 %.05175, -1
   %invariant.gep5633 = getelementptr i8, ptr %11, i64 -16
-  %2198 = icmp sgt i32 %2197, 1
-  br i1 %2198, label %.lr.ph5637.preheader, label %.loopexit
+  %2197 = icmp sgt i32 %2196, 1
+  br i1 %2197, label %.lr.ph5637.preheader, label %.loopexit
 
-.lr.ph5637.preheader:                             ; preds = %2196
-  %2199 = zext nneg i32 %2197 to i64
+.lr.ph5637.preheader:                             ; preds = %2195
+  %2198 = zext nneg i32 %2196 to i64
   br label %.lr.ph5637
 
 .lr.ph5637:                                       ; preds = %.lr.ph5637.preheader, %.lr.ph5637
-  %indvars.iv5750 = phi i64 [ %2199, %.lr.ph5637.preheader ], [ %indvars.iv.next5751, %.lr.ph5637 ]
+  %indvars.iv5750 = phi i64 [ %2198, %.lr.ph5637.preheader ], [ %indvars.iv.next5751, %.lr.ph5637 ]
   %indvars.iv.next5751 = add nsw i64 %indvars.iv5750, -1
-  %2200 = trunc nuw nsw i64 %indvars.iv5750 to i32
-  %.reass = add i32 %invariant.op, %2200
-  %2201 = sext i32 %.reass to i64
-  %gep5634 = getelementptr double, ptr %invariant.gep5633, i64 %2201
-  %2202 = load double, ptr %gep5634, align 8, !tbaa !14
-  %2203 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv5750
-  store double %2202, ptr %2203, align 8, !tbaa !14
-  %2204 = icmp samesign ugt i64 %indvars.iv5750, 2
-  br i1 %2204, label %.lr.ph5637, label %.loopexit, !llvm.loop !23
+  %2199 = trunc nuw nsw i64 %indvars.iv5750 to i32
+  %.reass = add i32 %invariant.op, %2199
+  %2200 = sext i32 %.reass to i64
+  %gep5634 = getelementptr double, ptr %invariant.gep5633, i64 %2200
+  %2201 = load double, ptr %gep5634, align 8, !tbaa !14
+  %2202 = getelementptr inbounds nuw double, ptr %41, i64 %indvars.iv5750
+  store double %2201, ptr %2202, align 8, !tbaa !14
+  %2203 = icmp samesign ugt i64 %indvars.iv5750, 2
+  br i1 %2203, label %.lr.ph5637, label %.loopexit, !llvm.loop !23
 
-.loopexit:                                        ; preds = %.lr.ph5637, %2189, %2196, %.loopexit5579, %.loopexit5580
-  br i1 %548, label %2205, label %2233
+.loopexit:                                        ; preds = %.lr.ph5637, %.lr.ph5632, %2189, %2195, %.loopexit5579, %.loopexit5580
+  br i1 %548, label %2204, label %2232
 
-2205:                                             ; preds = %.loopexit
-  %2206 = load double, ptr %18, align 8, !tbaa !14
-  %2207 = load double, ptr %24, align 8, !tbaa !14
-  %2208 = fcmp ogt double %2206, %2207
-  br i1 %2208, label %2209, label %2210
+2204:                                             ; preds = %.loopexit
+  %2205 = load double, ptr %18, align 8, !tbaa !14
+  %2206 = load double, ptr %24, align 8, !tbaa !14
+  %2207 = fcmp ogt double %2205, %2206
+  br i1 %2207, label %2208, label %2209
 
-2209:                                             ; preds = %2205
+2208:                                             ; preds = %2204
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull %23, ptr noundef nonnull @c__1, ptr noundef %6, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
   %.pre5757 = load i32, ptr %13, align 4, !tbaa !3
   %.pre5759.pre = load double, ptr %18, align 8, !tbaa !14
-  br label %2210
+  br label %2209
 
-2210:                                             ; preds = %2209, %2205
-  %.pre5759 = phi double [ %.pre5759.pre, %2209 ], [ %2206, %2205 ]
-  %2211 = phi i32 [ %.pre5757, %2209 ], [ %2186, %2205 ]
-  %.not5463 = icmp ne i32 %2211, 0
-  %2212 = load double, ptr %24, align 8
-  %2213 = fcmp ogt double %.pre5759, %2212
-  %or.cond5797 = select i1 %.not5463, i1 %2213, i1 false
-  br i1 %or.cond5797, label %2214, label %2218
+2209:                                             ; preds = %2208, %2204
+  %.pre5759 = phi double [ %.pre5759.pre, %2208 ], [ %2205, %2204 ]
+  %2210 = phi i32 [ %.pre5757, %2208 ], [ %2186, %2204 ]
+  %.not5463 = icmp ne i32 %2210, 0
+  %2211 = load double, ptr %24, align 8
+  %2212 = fcmp ogt double %.pre5759, %2211
+  %or.cond5798 = select i1 %.not5463, i1 %2212, i1 false
+  br i1 %or.cond5798, label %2213, label %2217
 
-2214:                                             ; preds = %2210
-  %2215 = load i32, ptr %23, align 4, !tbaa !3
-  %2216 = add nsw i32 %2215, -1
-  store i32 %2216, ptr %15, align 4, !tbaa !3
-  %2217 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef nonnull %2217, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
+2213:                                             ; preds = %2209
+  %2214 = load i32, ptr %23, align 4, !tbaa !3
+  %2215 = add nsw i32 %2214, -1
+  store i32 %2215, ptr %15, align 4, !tbaa !3
+  %2216 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %24, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef nonnull %2216, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
   %.pre5758 = load double, ptr %18, align 8, !tbaa !14
-  br label %2218
+  br label %2217
 
-2218:                                             ; preds = %2214, %2210
-  %2219 = phi double [ %.pre5758, %2214 ], [ %.pre5759, %2210 ]
-  %2220 = load double, ptr %27, align 8, !tbaa !14
-  %2221 = fcmp olt double %2219, %2220
-  br i1 %2221, label %2222, label %2223
+2217:                                             ; preds = %2213, %2209
+  %2218 = phi double [ %.pre5758, %2213 ], [ %.pre5759, %2209 ]
+  %2219 = load double, ptr %27, align 8, !tbaa !14
+  %2220 = fcmp olt double %2218, %2219
+  br i1 %2220, label %2221, label %2222
 
-2222:                                             ; preds = %2218
+2221:                                             ; preds = %2217
   call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %27, ptr noundef nonnull %18, ptr noundef nonnull %23, ptr noundef nonnull @c__1, ptr noundef %6, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
-  br label %2223
+  br label %2222
 
-2223:                                             ; preds = %2222, %2218
-  %2224 = load i32, ptr %13, align 4, !tbaa !3
-  %.not5464 = icmp eq i32 %2224, 0
-  br i1 %.not5464, label %2233, label %2225
+2222:                                             ; preds = %2221, %2217
+  %2223 = load i32, ptr %13, align 4, !tbaa !3
+  %.not5464 = icmp eq i32 %2223, 0
+  br i1 %.not5464, label %2232, label %2224
 
-2225:                                             ; preds = %2223
-  %2226 = load double, ptr %18, align 8, !tbaa !14
-  %2227 = load double, ptr %27, align 8, !tbaa !14
-  %2228 = fcmp olt double %2226, %2227
-  br i1 %2228, label %2229, label %2233
+2224:                                             ; preds = %2222
+  %2225 = load double, ptr %18, align 8, !tbaa !14
+  %2226 = load double, ptr %27, align 8, !tbaa !14
+  %2227 = fcmp olt double %2225, %2226
+  br i1 %2227, label %2228, label %2232
 
-2229:                                             ; preds = %2225
-  %2230 = load i32, ptr %23, align 4, !tbaa !3
-  %2231 = add nsw i32 %2230, -1
-  store i32 %2231, ptr %15, align 4, !tbaa !3
-  %2232 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %27, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef nonnull %2232, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
+2228:                                             ; preds = %2224
+  %2229 = load i32, ptr %23, align 4, !tbaa !3
+  %2230 = add nsw i32 %2229, -1
+  store i32 %2230, ptr %15, align 4, !tbaa !3
+  %2231 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @dlascl_(ptr noundef nonnull @.str.8, ptr noundef nonnull @c__0, ptr noundef nonnull @c__0, ptr noundef nonnull %27, ptr noundef nonnull %18, ptr noundef nonnull %15, ptr noundef nonnull @c__1, ptr noundef nonnull %2231, ptr noundef nonnull %23, ptr noundef nonnull %19) #6
+  br label %2232
+
+2232:                                             ; preds = %2222, %2224, %2228, %.loopexit
+  store double %521, ptr %11, align 8, !tbaa !14
   br label %2233
 
-2233:                                             ; preds = %2223, %2225, %2229, %.loopexit
-  store double %521, ptr %11, align 8, !tbaa !14
-  br label %2234
-
-2234:                                             ; preds = %528, %531, %527, %2233, %.thread5485
+2233:                                             ; preds = %528, %531, %527, %2232, %.thread5485
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %29) #6
@@ -3951,8 +3951,8 @@ define void @dgesvd_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %17) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #6
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #6
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05816)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.65817)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.05819)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.65820)
   ret void
 }
 

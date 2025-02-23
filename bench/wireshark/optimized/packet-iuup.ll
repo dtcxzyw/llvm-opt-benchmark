@@ -3896,8 +3896,8 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.2768, ptr noundef nonnull @.str.2769, i32 noundef 391, ptr noundef nonnull @.str.2785) #11
   unreachable
 
-9:                                                ; preds = %.preheader, %81
-  %indvars.iv10 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next11, %81 ]
+9:                                                ; preds = %.preheader, %80
+  %indvars.iv10 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next11, %80 ]
   %10 = tail call ptr @wmem_file_scope()
   %11 = tail call noalias dereferenceable_or_null(56) ptr @wmem_alloc0(ptr noundef %10, i64 noundef 56) #10
   %exitcond.not = icmp eq i64 %indvars.iv10, 64
@@ -3934,95 +3934,94 @@ define internal fastcc range(i32 0, 64) i32 @dissect_rfcis(ptr noundef %0, ptr n
   %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 %35, ptr %36, align 8
   %37 = and i32 %33, 64
-  %.not65.not = icmp eq i32 %37, 0
-  %38 = select i1 %.not65.not, i32 1, i32 2
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %16, ptr noundef nonnull @.str.2787, i32 noundef %34)
-  %39 = load i32, ptr %5, align 4
+  %38 = load i32, ptr %5, align 4
   %.lobit = lshr exact i32 %37, 6
-  %40 = shl i32 %39, %.lobit
-  %41 = add i32 %40, 1
-  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %41)
-  %42 = load i32, ptr %2, align 4
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %2, align 4
-  %44 = load i32, ptr %5, align 4
-  %.not3 = icmp eq i32 %44, 0
+  %39 = shl i32 %38, %.lobit
+  %40 = add i32 %39, 1
+  tail call void @proto_item_set_len(ptr noundef %16, i32 noundef %40)
+  %41 = load i32, ptr %2, align 4
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %2, align 4
+  %43 = load i32, ptr %5, align 4
+  %.not3 = icmp eq i32 %43, 0
   br i1 %.not3, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %.not65.not = icmp eq i32 %37, 0
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 4
   br i1 %.not65.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %47 = phi i32 [ %58, %.lr.ph.split.us ], [ %43, %.lr.ph ]
+  %46 = phi i32 [ %57, %.lr.ph.split.us ], [ %42, %.lr.ph ]
   %indvars.iv7 = phi i64 [ %indvars.iv.next8, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %48 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %47)
-  %49 = zext i8 %48 to i32
-  %50 = getelementptr [8 x %struct.anon.0], ptr %45, i64 0, i64 %indvars.iv7
-  store i32 %49, ptr %50, align 4
-  %51 = load i32, ptr %46, align 4
-  %52 = add i32 %51, %49
-  store i32 %52, ptr %46, align 4
-  %53 = getelementptr [64 x [8 x i32]], ptr @hf_iuup_init_rfci_flow_len, i64 0, i64 %indvars.iv10, i64 %indvars.iv7
-  %54 = load i32, ptr %53, align 4
-  %55 = load i32, ptr %2, align 4
-  %56 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef %38, i32 noundef %49)
-  %57 = load i32, ptr %2, align 4
-  %58 = add i32 %57, %38
-  store i32 %58, ptr %2, align 4
+  %47 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %46)
+  %48 = zext i8 %47 to i32
+  %49 = getelementptr [8 x %struct.anon.0], ptr %44, i64 0, i64 %indvars.iv7
+  store i32 %48, ptr %49, align 4
+  %50 = load i32, ptr %45, align 4
+  %51 = add i32 %50, %48
+  store i32 %51, ptr %45, align 4
+  %52 = getelementptr [64 x [8 x i32]], ptr @hf_iuup_init_rfci_flow_len, i64 0, i64 %indvars.iv10, i64 %indvars.iv7
+  %53 = load i32, ptr %52, align 4
+  %54 = load i32, ptr %2, align 4
+  %55 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %53, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef %48)
+  %56 = load i32, ptr %2, align 4
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %2, align 4
   %indvars.iv.next8 = add nuw nsw i64 %indvars.iv7, 1
-  %59 = load i32, ptr %5, align 4
-  %60 = zext i32 %59 to i64
-  %61 = icmp samesign ult i64 %indvars.iv.next8, %60
-  br i1 %61, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
+  %58 = load i32, ptr %5, align 4
+  %59 = zext i32 %58 to i64
+  %60 = icmp samesign ult i64 %indvars.iv.next8, %59
+  br i1 %60, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %62 = phi i32 [ %73, %.lr.ph.split ], [ %43, %.lr.ph ]
+  %61 = phi i32 [ %72, %.lr.ph.split ], [ %42, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %63 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %62)
-  %64 = zext i16 %63 to i32
-  %65 = getelementptr [8 x %struct.anon.0], ptr %45, i64 0, i64 %indvars.iv
-  store i32 %64, ptr %65, align 4
-  %66 = load i32, ptr %46, align 4
-  %67 = add i32 %66, %64
-  store i32 %67, ptr %46, align 4
-  %68 = getelementptr [64 x [8 x i32]], ptr @hf_iuup_init_rfci_flow_len, i64 0, i64 %indvars.iv10, i64 %indvars.iv
-  %69 = load i32, ptr %68, align 4
-  %70 = load i32, ptr %2, align 4
-  %71 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef %38, i32 noundef %64)
-  %72 = load i32, ptr %2, align 4
-  %73 = add i32 %72, %38
-  store i32 %73, ptr %2, align 4
+  %62 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %61)
+  %63 = zext i16 %62 to i32
+  %64 = getelementptr [8 x %struct.anon.0], ptr %44, i64 0, i64 %indvars.iv
+  store i32 %63, ptr %64, align 4
+  %65 = load i32, ptr %45, align 4
+  %66 = add i32 %65, %63
+  store i32 %66, ptr %45, align 4
+  %67 = getelementptr [64 x [8 x i32]], ptr @hf_iuup_init_rfci_flow_len, i64 0, i64 %indvars.iv10, i64 %indvars.iv
+  %68 = load i32, ptr %67, align 4
+  %69 = load i32, ptr %2, align 4
+  %70 = tail call ptr @proto_tree_add_uint(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef %63)
+  %71 = load i32, ptr %2, align 4
+  %72 = add i32 %71, 2
+  store i32 %72, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = load i32, ptr %5, align 4
-  %75 = zext i32 %74 to i64
-  %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
+  %73 = load i32, ptr %5, align 4
+  %74 = zext i32 %73 to i64
+  %75 = icmp samesign ult i64 %indvars.iv.next, %74
+  br i1 %75, label %.lr.ph.split, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %13
-  %77 = load ptr, ptr %6, align 8
-  %.not66 = icmp eq ptr %77, null
-  br i1 %.not66, label %80, label %78
+  %76 = load ptr, ptr %6, align 8
+  %.not66 = icmp eq ptr %76, null
+  br i1 %.not66, label %79, label %77
 
-78:                                               ; preds = %._crit_edge
-  %79 = getelementptr inbounds nuw i8, ptr %77, i64 48
-  store ptr %11, ptr %79, align 8
-  br label %81
+77:                                               ; preds = %._crit_edge
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  store ptr %11, ptr %78, align 8
+  br label %80
 
-80:                                               ; preds = %._crit_edge
+79:                                               ; preds = %._crit_edge
   store ptr %11, ptr %7, align 8
-  br label %81
+  br label %80
 
-81:                                               ; preds = %80, %78
+80:                                               ; preds = %79, %77
   store ptr %11, ptr %6, align 8
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
   %.not67 = icmp sgt i8 %32, -1
-  br i1 %.not67, label %9, label %82, !llvm.loop !18
+  br i1 %.not67, label %9, label %81, !llvm.loop !18
 
-82:                                               ; preds = %81
-  %83 = trunc nuw nsw i64 %indvars.iv10 to i32
-  ret i32 %83
+81:                                               ; preds = %80
+  %82 = trunc nuw nsw i64 %indvars.iv10 to i32
+  ret i32 %82
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -553,12 +553,12 @@ while.body.i.i.i11:                               ; preds = %_ZNSt7__cxx114listI
 _ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EED2Ev.exit14: ; preds = %while.body.i.i.i11, %_ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EED2Ev.exit
   resume { ptr, i32 } %5
 
-if.then.i16:                                      ; preds = %for.body, %invoke.cont, %for.end.i.i
-  %memlist_history_1464 = getelementptr inbounds nuw i8, ptr %old, i64 24
-  %10 = load ptr, ptr %memlist_history_1464, align 8
+if.then.i16:                                      ; preds = %for.body, %for.end.i.i, %invoke.cont
+  %memlist_history_14 = getelementptr inbounds nuw i8, ptr %old, i64 24
+  %10 = load ptr, ptr %memlist_history_14, align 8
   %__first1.sroa.0.013.i.i17 = load ptr, ptr %memlist_history_, align 8
   %cmp.i14.i.i18 = icmp ne ptr %__first1.sroa.0.013.i.i17, %memlist_history_
-  %cmp.i115.i.i19 = icmp ne ptr %10, %memlist_history_1464
+  %cmp.i115.i.i19 = icmp ne ptr %10, %memlist_history_14
   %or.cond16.i.i20 = select i1 %cmp.i14.i.i18, i1 %cmp.i115.i.i19, i1 false
   br i1 %or.cond16.i.i20, label %for.body.i.i34, label %for.end.i.i21
 
@@ -572,14 +572,14 @@ for.body.i.i34:                                   ; preds = %if.then.i16, %for.b
   %12 = load ptr, ptr %__first2.sroa.0.017.i.i36, align 8
   %__first1.sroa.0.0.i.i39 = load ptr, ptr %__first1.sroa.0.018.i.i35, align 8
   %cmp.i.i.i40 = icmp ne ptr %__first1.sroa.0.0.i.i39, %memlist_history_
-  %cmp.i1.i.i41 = icmp ne ptr %12, %memlist_history_1464
+  %cmp.i1.i.i41 = icmp ne ptr %12, %memlist_history_14
   %or.cond.i.i42 = select i1 %cmp.i.i.i40, i1 %cmp.i1.i.i41, i1 false
   br i1 %or.cond.i.i42, label %for.body.i.i34, label %for.end.i.i21, !llvm.loop !6
 
 for.end.i.i21:                                    ; preds = %for.body.i.i34, %if.then.i16
   %__first2.sroa.0.0.lcssa.i.i22 = phi ptr [ %10, %if.then.i16 ], [ %12, %for.body.i.i34 ]
   %__first1.sroa.0.0.lcssa.i.i23 = phi ptr [ %__first1.sroa.0.013.i.i17, %if.then.i16 ], [ %__first1.sroa.0.0.i.i39, %for.body.i.i34 ]
-  %cmp.i3.i.i24 = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i22, %memlist_history_1464
+  %cmp.i3.i.i24 = icmp eq ptr %__first2.sroa.0.0.lcssa.i.i22, %memlist_history_14
   br i1 %cmp.i3.i.i24, label %if.then.i.i26, label %if.else.i.i25
 
 if.then.i.i26:                                    ; preds = %for.end.i.i21
@@ -598,7 +598,7 @@ while.body.i.i.i30:                               ; preds = %if.then.i.i26, %whi
   br i1 %cmp.i.not.i.i.i33, label %invoke.cont16, label %while.body.i.i.i30, !llvm.loop !7
 
 if.else.i.i25:                                    ; preds = %for.end.i.i21
-  %call24.i.i44 = invoke ptr @_ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %memlist_history_, ptr nonnull align 8 dereferenceable(24) %memlist_history_, ptr %__first2.sroa.0.0.lcssa.i.i22, ptr nonnull align 8 dereferenceable(24) %memlist_history_1464)
+  %call24.i.i44 = invoke ptr @_ZNSt7__cxx114listIPN7rocksdb8MemTableESaIS3_EE6insertISt20_List_const_iteratorIS3_EvEESt14_List_iteratorIS3_ES8_T_SB_(ptr noundef nonnull align 8 dereferenceable(24) %memlist_history_, ptr nonnull align 8 dereferenceable(24) %memlist_history_, ptr %__first2.sroa.0.0.lcssa.i.i22, ptr nonnull align 8 dereferenceable(24) %memlist_history_14)
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %while.body.i.i.i30, %entry, %if.then.i.i26, %if.else.i.i25

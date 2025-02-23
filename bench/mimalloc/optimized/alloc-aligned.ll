@@ -1054,7 +1054,7 @@ define internal fastcc ptr @mi_heap_malloc_zero_aligned_at_overalloc(ptr noundef
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 160
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %19, %34
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 144
+  %36 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %37 = load i64, ptr %36, align 16, !tbaa !19
   %38 = lshr i64 %35, %37
   %39 = getelementptr inbounds nuw [1 x %struct.mi_page_s], ptr %33, i64 0, i64 %38

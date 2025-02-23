@@ -10611,7 +10611,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %146, ptr %144, align 4
   %indvars.iv.next1170 = add nuw nsw i64 %indvars.iv1169, 1
   %exitcond1174.not = icmp eq i64 %indvars.iv.next1170, %wide.trip.count1173
-  br i1 %exitcond1174.not, label %.loopexit996, label %.lr.ph1059, !llvm.loop !129
+  br i1 %exitcond1174.not, label %.lr.ph1065.preheader, label %.lr.ph1059, !llvm.loop !129
 
 .lr.ph1057:                                       ; preds = %.lr.ph1057.preheader, %.lr.ph1057
   %indvars.iv1163 = phi i64 [ 0, %.lr.ph1057.preheader ], [ %indvars.iv.next1164, %.lr.ph1057 ]
@@ -10655,7 +10655,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %181, ptr %179, align 4
   %indvars.iv.next1164 = add nuw nsw i64 %indvars.iv1163, 1
   %exitcond1168.not = icmp eq i64 %indvars.iv.next1164, %wide.trip.count1167
-  br i1 %exitcond1168.not, label %.loopexit996, label %.lr.ph1057, !llvm.loop !130
+  br i1 %exitcond1168.not, label %.lr.ph1065.preheader, label %.lr.ph1057, !llvm.loop !130
 
 .lr.ph1055:                                       ; preds = %.lr.ph1055.preheader, %.lr.ph1055
   %indvars.iv1157 = phi i64 [ 0, %.lr.ph1055.preheader ], [ %indvars.iv.next1158, %.lr.ph1055 ]
@@ -10699,7 +10699,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %216, ptr %214, align 4
   %indvars.iv.next1158 = add nuw nsw i64 %indvars.iv1157, 1
   %exitcond1162.not = icmp eq i64 %indvars.iv.next1158, %wide.trip.count1161
-  br i1 %exitcond1162.not, label %.loopexit996, label %.lr.ph1055, !llvm.loop !131
+  br i1 %exitcond1162.not, label %.lr.ph1065.preheader, label %.lr.ph1055, !llvm.loop !131
 
 .lr.ph1053:                                       ; preds = %.lr.ph1053.preheader, %.lr.ph1053
   %indvars.iv1151 = phi i64 [ 0, %.lr.ph1053.preheader ], [ %indvars.iv.next1152, %.lr.ph1053 ]
@@ -10743,7 +10743,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %251, ptr %249, align 4
   %indvars.iv.next1152 = add nuw nsw i64 %indvars.iv1151, 1
   %exitcond1156.not = icmp eq i64 %indvars.iv.next1152, %wide.trip.count1155
-  br i1 %exitcond1156.not, label %.loopexit996, label %.lr.ph1053, !llvm.loop !132
+  br i1 %exitcond1156.not, label %.lr.ph1065.preheader, label %.lr.ph1053, !llvm.loop !132
 
 .lr.ph1051:                                       ; preds = %.lr.ph1051.preheader, %.lr.ph1051
   %indvars.iv1145 = phi i64 [ 0, %.lr.ph1051.preheader ], [ %indvars.iv.next1146, %.lr.ph1051 ]
@@ -10783,7 +10783,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %282, ptr %280, align 4
   %indvars.iv.next1146 = add nuw nsw i64 %indvars.iv1145, 1
   %exitcond1150.not = icmp eq i64 %indvars.iv.next1146, %wide.trip.count1149
-  br i1 %exitcond1150.not, label %.loopexit996, label %.lr.ph1051, !llvm.loop !133
+  br i1 %exitcond1150.not, label %.lr.ph1065.preheader, label %.lr.ph1051, !llvm.loop !133
 
 .lr.ph1049:                                       ; preds = %.lr.ph1049.preheader, %.lr.ph1049
   %indvars.iv1139 = phi i64 [ 0, %.lr.ph1049.preheader ], [ %indvars.iv.next1140, %.lr.ph1049 ]
@@ -10821,7 +10821,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %311, ptr %309, align 4
   %indvars.iv.next1140 = add nuw nsw i64 %indvars.iv1139, 1
   %exitcond1144.not = icmp eq i64 %indvars.iv.next1140, %wide.trip.count1143
-  br i1 %exitcond1144.not, label %.loopexit996, label %.lr.ph1049, !llvm.loop !134
+  br i1 %exitcond1144.not, label %.lr.ph1065.preheader, label %.lr.ph1049, !llvm.loop !134
 
 .lr.ph1047:                                       ; preds = %.lr.ph1047.preheader, %.lr.ph1047
   %indvars.iv1136 = phi i64 [ 0, %.lr.ph1047.preheader ], [ %indvars.iv.next1137, %.lr.ph1047 ]
@@ -10861,7 +10861,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit499.thread:          ; preds = %96
   store float %342, ptr %340, align 4
   %indvars.iv.next1137 = add nuw nsw i64 %indvars.iv1136, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next1137, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit996, label %.lr.ph1047, !llvm.loop !135
+  br i1 %exitcond.not, label %.lr.ph1065.preheader, label %.lr.ph1047, !llvm.loop !135
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit.unreachabledefault: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE2atEm.exit
   unreachable
@@ -10897,12 +10897,8 @@ default.unreachable:                              ; preds = %645, %894
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #23
   br label %378
 
-.loopexit996:                                     ; preds = %.lr.ph1047, %.lr.ph1049, %.lr.ph1051, %.lr.ph1053, %.lr.ph1055, %.lr.ph1057, %.lr.ph1059
-  br i1 %.not.i.i.i.i483, label %._crit_edge1066, label %.lr.ph1065.preheader
-
-.lr.ph1065.preheader:                             ; preds = %.loopexit996
-  %smax1178 = call i32 @llvm.smax.i32(i32 %86, i32 1)
-  %wide.trip.count1179 = zext nneg i32 %smax1178 to i64
+.lr.ph1065.preheader:                             ; preds = %.lr.ph1047, %.lr.ph1049, %.lr.ph1051, %.lr.ph1053, %.lr.ph1055, %.lr.ph1057, %.lr.ph1059
+  %wide.trip.count1179 = zext nneg i32 %86 to i64
   br label %.lr.ph1065
 
 .lr.ph1065:                                       ; preds = %.lr.ph1065.preheader, %.lr.ph1065
@@ -10927,10 +10923,10 @@ default.unreachable:                              ; preds = %645, %894
   %360 = fadd float %356, 0.000000e+00
   br label %._crit_edge1066
 
-._crit_edge1066:                                  ; preds = %.preheader995, %.preheader997, %.preheader999, %.preheader1001, %.preheader1003, %.preheader1005, %.preheader1007, %._crit_edge1066.loopexit, %.loopexit996
-  %.0442.lcssa = phi float [ 1.000000e+00, %.loopexit996 ], [ %358, %._crit_edge1066.loopexit ], [ 1.000000e+00, %.preheader1007 ], [ 1.000000e+00, %.preheader1005 ], [ 1.000000e+00, %.preheader1003 ], [ 1.000000e+00, %.preheader1001 ], [ 1.000000e+00, %.preheader999 ], [ 1.000000e+00, %.preheader997 ], [ 1.000000e+00, %.preheader995 ]
-  %.0441.lcssa = phi float [ 0.000000e+00, %.loopexit996 ], [ %360, %._crit_edge1066.loopexit ], [ 0.000000e+00, %.preheader1007 ], [ 0.000000e+00, %.preheader1005 ], [ 0.000000e+00, %.preheader1003 ], [ 0.000000e+00, %.preheader1001 ], [ 0.000000e+00, %.preheader999 ], [ 0.000000e+00, %.preheader997 ], [ 0.000000e+00, %.preheader995 ]
-  %.0440.lcssa = phi float [ 1.000000e+00, %.loopexit996 ], [ %359, %._crit_edge1066.loopexit ], [ 1.000000e+00, %.preheader1007 ], [ 1.000000e+00, %.preheader1005 ], [ 1.000000e+00, %.preheader1003 ], [ 1.000000e+00, %.preheader1001 ], [ 1.000000e+00, %.preheader999 ], [ 1.000000e+00, %.preheader997 ], [ 1.000000e+00, %.preheader995 ]
+._crit_edge1066:                                  ; preds = %.preheader995, %.preheader997, %.preheader999, %.preheader1001, %.preheader1003, %.preheader1005, %.preheader1007, %._crit_edge1066.loopexit
+  %.0442.lcssa = phi float [ %358, %._crit_edge1066.loopexit ], [ 1.000000e+00, %.preheader1007 ], [ 1.000000e+00, %.preheader1005 ], [ 1.000000e+00, %.preheader1003 ], [ 1.000000e+00, %.preheader1001 ], [ 1.000000e+00, %.preheader999 ], [ 1.000000e+00, %.preheader997 ], [ 1.000000e+00, %.preheader995 ]
+  %.0441.lcssa = phi float [ %360, %._crit_edge1066.loopexit ], [ 0.000000e+00, %.preheader1007 ], [ 0.000000e+00, %.preheader1005 ], [ 0.000000e+00, %.preheader1003 ], [ 0.000000e+00, %.preheader1001 ], [ 0.000000e+00, %.preheader999 ], [ 0.000000e+00, %.preheader997 ], [ 0.000000e+00, %.preheader995 ]
+  %.0440.lcssa = phi float [ %359, %._crit_edge1066.loopexit ], [ 1.000000e+00, %.preheader1007 ], [ 1.000000e+00, %.preheader1005 ], [ 1.000000e+00, %.preheader1003 ], [ 1.000000e+00, %.preheader1001 ], [ 1.000000e+00, %.preheader999 ], [ 1.000000e+00, %.preheader997 ], [ 1.000000e+00, %.preheader995 ]
   %361 = fneg float %.0441.lcssa
   %362 = fmul float %.0441.lcssa, %361
   %363 = call float @llvm.fmuladd.f32(float %.0442.lcssa, float %.0440.lcssa, float %362)

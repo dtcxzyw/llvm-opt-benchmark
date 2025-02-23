@@ -3214,7 +3214,7 @@ define i32 @Ifd_ManOper(ptr noundef captures(none) %0, i32 noundef %1, i32 nound
 
 .critedge:                                        ; preds = %.lr.ph, %38
   %.069.lcssa = phi i32 [ %51, %38 ], [ %59, %.lr.ph ]
-  %64 = icmp sgt i32 %.064.ph, 0
+  %64 = icmp ne i32 %.064.ph, 0
   %65 = zext i1 %64 to i32
   %66 = xor i32 %.069.lcssa, %65
   br label %67
@@ -3268,7 +3268,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph78:                                         ; preds = %16, %.lr.ph78
   %.06176 = phi i32 [ %26, %.lr.ph78 ], [ 1, %16 ]
-  %25 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
+  %25 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %26 = tail call i32 @Ifd_ManOper(ptr noundef %0, i32 noundef %.06176, i32 noundef %25, i32 noundef 0, i32 noundef 1)
   %27 = load ptr, ptr %2, align 8, !tbaa !68
   %storemerge66 = getelementptr inbounds nuw i8, ptr %27, i64 1
@@ -3297,7 +3297,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph73:                                         ; preds = %31, %.lr.ph73
   %.06071 = phi i32 [ %41, %.lr.ph73 ], [ 0, %31 ]
-  %40 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
+  %40 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %41 = tail call i32 @Ifd_ManOper(ptr noundef %0, i32 noundef %.06071, i32 noundef %40, i32 noundef 0, i32 noundef 2)
   %42 = load ptr, ptr %2, align 8, !tbaa !68
   %storemerge64 = getelementptr inbounds nuw i8, ptr %42, i64 1
@@ -3327,7 +3327,7 @@ define i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
   %.05969 = phi ptr [ %56, %.lr.ph ], [ %5, %46 ]
-  %55 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3)
+  %55 = tail call i32 @Ifd_ManFindDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %56 = getelementptr inbounds nuw i8, ptr %.05969, i64 4
   store i32 %55, ptr %.05969, align 4, !tbaa !37
   %57 = load ptr, ptr %2, align 8, !tbaa !68
@@ -4520,17 +4520,17 @@ Ifd_ManDsdPermPrint.exit:                         ; preds = %.lr.ph.i
   %putchar.i = tail call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %6, !llvm.loop !89
+  br i1 %exitcond.not, label %.critedge.thread, label %6, !llvm.loop !89
 
-.critedge:                                        ; preds = %Ifd_ManDsdPermPrint.exit, %0
+.critedge:                                        ; preds = %0
   %.not.i = icmp eq ptr %.val10, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %19
+  br i1 %.not.i, label %Vec_IntFree.exit, label %.critedge.thread
 
-19:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %Ifd_ManDsdPermPrint.exit, %.critedge
   tail call void @free(ptr noundef nonnull %.val10) #28
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %19
+Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %2) #28
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1) #28
   ret i32 1

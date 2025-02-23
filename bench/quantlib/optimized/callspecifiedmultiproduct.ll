@@ -1338,7 +1338,7 @@ invoke.cont231:                                   ; preds = %for.body.i.i.i.i.i.
   %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc306 ], [ null, %_ZNSt12_Vector_baseIN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EEC2EmRKS3_.exit.thread.i ], [ %add.ptr.i.i.i297, %for.body.i.i.i.i.i.i.i.i.i299 ]
   %_M_finish.i.i7.i303 = getelementptr inbounds nuw i8, ptr %ref.tmp228, i64 8
   store ptr %__first.addr.0.i.i.i.i.i, ptr %_M_finish.i.i7.i303, align 8, !tbaa !87
-  %cmp.i.i308 = icmp ugt i64 %call8, 384307168202282325
+  %cmp.i.i308 = icmp samesign ugt i64 %call8, 384307168202282325
   br i1 %cmp.i.i308, label %if.then.i.i318, label %_ZNSt6vectorIS_IN8QuantLib23MarketModelMultiProduct8CashFlowESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
 
 if.then.i.i318:                                   ; preds = %invoke.cont231

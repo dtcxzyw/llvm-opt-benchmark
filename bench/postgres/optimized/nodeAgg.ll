@@ -3344,7 +3344,7 @@ list_length.exit189:                              ; preds = %120, %123
   %231 = load ptr, ptr %230, align 8
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %233 = load ptr, ptr %232, align 8
-  %234 = call ptr @execTuplesMatchPrepare(ptr noundef %229, i32 noundef %.0167194206, ptr noundef %231, ptr noundef %207, ptr noundef %233, ptr noundef %1) #12
+  %234 = call ptr @execTuplesMatchPrepare(ptr noundef %229, i32 noundef %.0167194206, ptr noundef %231, ptr noundef %207, ptr noundef %233, ptr noundef nonnull %1) #12
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 280
   store ptr %234, ptr %235, align 8
   br label %236
@@ -4475,7 +4475,7 @@ slot_getsomeattrs.exit.i:                         ; preds = %139
   br i1 %162, label %.lr.ph31.i, label %prepare_projection_slot.exit
 
 prepare_projection_slot.exit:                     ; preds = %159, %._crit_edge.i, %135, %137, %slot_getsomeattrs.exit.i, %.lr.ph.i14
-  call fastcc void @finalize_aggregates(ptr noundef %0, ptr noundef %42, ptr noundef %124)
+  call fastcc void @finalize_aggregates(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %124)
   %163 = load ptr, ptr %9, align 8
   %164 = load ptr, ptr %14, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #12
@@ -4858,7 +4858,7 @@ prepare_hash_slot.exit.i:                         ; preds = %346, %slot_getsomea
 
 371:                                              ; preds = %368
   %372 = load ptr, ptr %267, align 8
-  call fastcc void @initialize_hash_entry(ptr noundef %0, ptr noundef %372, ptr noundef %367)
+  call fastcc void @initialize_hash_entry(ptr noundef nonnull %0, ptr noundef %372, ptr noundef %367)
   br label %373
 
 373:                                              ; preds = %371, %368
@@ -4897,7 +4897,7 @@ prepare_hash_slot.exit.i:                         ; preds = %346, %slot_getsomea
   br label %393
 
 393:                                              ; preds = %389, %387
-  call fastcc void @hashagg_spill_tuple(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %285, i32 noundef %298)
+  call fastcc void @hashagg_spill_tuple(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef %285, i32 noundef %298)
   %394 = load ptr, ptr %28, align 8
   %395 = load i32, ptr %188, align 8
   %396 = sext i32 %395 to i64
@@ -5271,7 +5271,7 @@ prepare_hash_slot.exit:                           ; preds = %49, %slot_getsomeat
   br i1 %72, label %73, label %74
 
 73:                                               ; preds = %70
-  call fastcc void @initialize_hash_entry(ptr noundef %0, ptr noundef %27, ptr noundef %69)
+  call fastcc void @initialize_hash_entry(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %69)
   br label %74
 
 74:                                               ; preds = %73, %70

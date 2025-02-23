@@ -6961,7 +6961,7 @@ png_do_quantize.exit._crit_edge:                  ; preds = %png_do_quantize.exi
   br label %2088
 
 2087:                                             ; preds = %png_do_quantize.exit
-  tail call void @png_error(ptr noundef %0, ptr noundef nonnull @.str.17) #12
+  tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.17) #12
   unreachable
 
 2088:                                             ; preds = %png_do_quantize.exit._crit_edge, %png_do_chop.exit
@@ -8090,7 +8090,7 @@ png_do_read_swap_alpha.exit:                      ; preds = %.lr.ph.i280, %.lr.p
 2634:                                             ; preds = %png_do_read_swap_alpha.exit
   %2635 = load ptr, ptr %4, align 8, !tbaa !194
   %2636 = getelementptr inbounds nuw i8, ptr %2635, i64 1
-  tail call void @png_do_swap(ptr noundef %1, ptr noundef nonnull %2636) #11
+  tail call void @png_do_swap(ptr noundef nonnull %1, ptr noundef nonnull %2636) #11
   %.pre406 = load i32, ptr %14, align 4, !tbaa !25
   br label %2637
 
@@ -8109,7 +8109,7 @@ png_do_read_swap_alpha.exit:                      ; preds = %.lr.ph.i280, %.lr.p
 2643:                                             ; preds = %2640
   %2644 = load ptr, ptr %4, align 8, !tbaa !194
   %2645 = getelementptr inbounds nuw i8, ptr %2644, i64 1
-  tail call void %2642(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %2645) #11
+  tail call void %2642(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2645) #11
   br label %2646
 
 2646:                                             ; preds = %2643, %2640

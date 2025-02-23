@@ -1132,7 +1132,7 @@ Ssw_ObjSatNum.exit:                               ; preds = %Ssw_ObjFrame_.exit,
 
 161:                                              ; preds = %155
   %162 = trunc nuw nsw i64 %indvars.iv to i32
-  %163 = call ptr @Ssw_BmcGetCounterExample(ptr noundef %11, ptr noundef nonnull %10, i32 noundef %162, i32 noundef %.060111)
+  %163 = call ptr @Ssw_BmcGetCounterExample(ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %162, i32 noundef %.060111)
   store ptr %163, ptr %38, align 8, !tbaa !65
   br i1 %.not66, label %.critedge, label %.critedge.sink.split
 

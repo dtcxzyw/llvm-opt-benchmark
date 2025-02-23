@@ -3543,7 +3543,6 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %for.inc.i.i.i21.
   %add.ptr37.i69 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %call5.i.i.i.i74, i64 %num_keys
   store ptr %add.ptr37.i69, ptr %_M_finish.i.i980, align 8
   store ptr %add.ptr37.i69, ptr %_M_end_of_storage.i5381, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %num_keys, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %for.body
@@ -3556,7 +3555,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7rock
   %add.ptr.i25 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i74, i64 %i.075
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx4, i64 16, i1 false)
   %inc = add nuw i64 %i.075, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %num_keys
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !51
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %for.end
@@ -3928,7 +3927,6 @@ _ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit: ; preds = %for.inc.i.i.i21.
   %add.ptr37.i68 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %call5.i.i.i.i73, i64 %num_keys
   store ptr %add.ptr37.i68, ptr %_M_finish.i.i879, align 8
   store ptr %add.ptr37.i68, ptr %_M_end_of_storage.i5280, align 8
-  %umax = tail call i64 @llvm.umax.i64(i64 %num_keys, i64 1)
   br label %for.body
 
 for.body:                                         ; preds = %_ZNSt6vectorIN7rocksdb5SliceESaIS1_EE6resizeEm.exit, %for.body
@@ -3939,7 +3937,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIN7rock
   %add.ptr.i24 = getelementptr inbounds %"class.rocksdb::Slice", ptr %call5.i.i.i.i73, i64 %i.074
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i24, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %inc = add nuw i64 %i.074, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
+  %exitcond.not = icmp eq i64 %inc, %num_keys
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !59
 
 _ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev.exit.thread: ; preds = %for.end

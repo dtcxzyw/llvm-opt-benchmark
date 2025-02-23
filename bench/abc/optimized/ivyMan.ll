@@ -202,7 +202,7 @@ define noundef ptr @Ivy_ManStartFrom(ptr noundef readonly captures(none) %0) loc
   %.val11 = load ptr, ptr %10, align 8, !tbaa !21
   %11 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !29
-  %13 = tail call ptr @Ivy_ObjCreatePi(ptr noundef %2) #17
+  %13 = tail call ptr @Ivy_ObjCreatePi(ptr noundef nonnull %2) #17
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 72
   store ptr %13, ptr %14, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -255,7 +255,7 @@ define noundef ptr @Ivy_ManDup(ptr noundef %0) local_unnamed_addr #0 {
   %.val73 = load ptr, ptr %16, align 8, !tbaa !21
   %17 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !29
-  %19 = call ptr @Ivy_ObjCreatePi(ptr noundef %4) #17
+  %19 = call ptr @Ivy_ObjCreatePi(ptr noundef nonnull %4) #17
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 72
   store ptr %19, ptr %20, align 8, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -713,7 +713,7 @@ Vec_PtrStart.exit:                                ; preds = %._crit_edge, %35
 
 .lr.ph134:                                        ; preds = %52, %.lr.ph134
   %indvars.iv159 = phi i64 [ %indvars.iv.next160, %.lr.ph134 ], [ 0, %52 ]
-  %56 = tail call ptr @Ivy_ObjCreatePi(ptr noundef %13) #17
+  %56 = tail call ptr @Ivy_ObjCreatePi(ptr noundef nonnull %13) #17
   %.val118 = load ptr, ptr %0, align 8, !tbaa !22
   %57 = getelementptr i8, ptr %.val118, i64 8
   %.val118.val = load ptr, ptr %57, align 8, !tbaa !21

@@ -639,7 +639,7 @@ IsXLogFileName.exit.thread:                       ; preds = %._crit_edge, %IsXLo
   %31 = load i32, ptr %3, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #9
-  %32 = call i32 @get_call_result_type(ptr noundef %0, ptr noundef null, ptr noundef nonnull %7) #9
+  %32 = call i32 @get_call_result_type(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7) #9
   %.not13 = icmp eq i32 %32, 1
   br i1 %.not13, label %36, label %33
 

@@ -1447,9 +1447,9 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   br i1 %86, label %.thread, label %.split.us, !llvm.loop !32
 
 .preheader9:                                      ; preds = %68, %.loopexit
-  %87 = phi ptr [ %136, %.loopexit ], [ %23, %68 ]
-  %88 = phi i32 [ %137, %.loopexit ], [ 0, %68 ]
-  %89 = phi ptr [ %135, %.loopexit ], [ %76, %68 ]
+  %87 = phi ptr [ %135, %.loopexit ], [ %23, %68 ]
+  %88 = phi i32 [ %136, %.loopexit ], [ 0, %68 ]
+  %89 = phi ptr [ %134, %.loopexit ], [ %76, %68 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %63, ptr align 1 %89, i64 %64, i1 false)
   br label %90
 
@@ -1476,46 +1476,45 @@ define dso_local void @drm_fb_xrgb8888_to_mono(ptr noundef readonly captures(non
   %108 = icmp eq i64 %107, %78
   br i1 %108, label %.preheader, label %90, !llvm.loop !25
 
-.preheader:                                       ; preds = %90, %128
-  %109 = phi i32 [ %130, %128 ], [ %10, %90 ]
-  %110 = phi ptr [ %131, %128 ], [ %87, %90 ]
-  %111 = phi ptr [ %129, %128 ], [ %65, %90 ]
+.preheader:                                       ; preds = %90, %127
+  %109 = phi i32 [ %129, %127 ], [ %10, %90 ]
+  %110 = phi ptr [ %130, %127 ], [ %87, %90 ]
+  %111 = phi ptr [ %128, %127 ], [ %65, %90 ]
   %112 = tail call i32 @llvm.umin.i32(i32 %109, i32 8)
-  %113 = tail call i32 @llvm.umax.i32(i32 %112, i32 1)
-  %114 = zext nneg i32 %113 to i64
-  br label %115
+  %113 = zext nneg i32 %112 to i64
+  br label %114
 
-115:                                              ; preds = %115, %.preheader
-  %116 = phi i64 [ 0, %.preheader ], [ %126, %115 ]
-  %117 = phi i8 [ 0, %.preheader ], [ %125, %115 ]
-  %118 = phi ptr [ %111, %.preheader ], [ %119, %115 ]
-  %119 = getelementptr i8, ptr %118, i64 1
-  %120 = load i8, ptr %118, align 1
-  %121 = icmp slt i8 %120, 0
-  %122 = shl nuw i64 1, %116
-  %123 = trunc i64 %122 to i8
-  %124 = select i1 %121, i8 %123, i8 0
-  %125 = or i8 %124, %117
-  %126 = add nuw nsw i64 %116, 1
-  %127 = icmp eq i64 %126, %114
-  br i1 %127, label %128, label %115, !llvm.loop !33
+114:                                              ; preds = %114, %.preheader
+  %115 = phi i64 [ 0, %.preheader ], [ %125, %114 ]
+  %116 = phi i8 [ 0, %.preheader ], [ %124, %114 ]
+  %117 = phi ptr [ %111, %.preheader ], [ %118, %114 ]
+  %118 = getelementptr i8, ptr %117, i64 1
+  %119 = load i8, ptr %117, align 1
+  %120 = icmp slt i8 %119, 0
+  %121 = shl nuw i64 1, %115
+  %122 = trunc i64 %121 to i8
+  %123 = select i1 %120, i8 %122, i8 0
+  %124 = or i8 %123, %116
+  %125 = add nuw nsw i64 %115, 1
+  %126 = icmp eq i64 %125, %113
+  br i1 %126, label %127, label %114, !llvm.loop !33
 
-128:                                              ; preds = %115
-  %129 = getelementptr i8, ptr %111, i64 %114
-  %130 = sub i32 %109, %113
-  %131 = getelementptr i8, ptr %110, i64 1
-  store i8 %125, ptr %110, align 1
-  %132 = icmp eq i32 %130, 0
-  br i1 %132, label %.loopexit, label %.preheader, !llvm.loop !34
+127:                                              ; preds = %114
+  %128 = getelementptr i8, ptr %111, i64 %113
+  %129 = sub i32 %109, %112
+  %130 = getelementptr i8, ptr %110, i64 1
+  store i8 %124, ptr %110, align 1
+  %131 = icmp eq i32 %129, 0
+  br i1 %131, label %.loopexit, label %.preheader, !llvm.loop !34
 
-.loopexit:                                        ; preds = %128
-  %133 = load i32, ptr %66, align 8
-  %134 = zext i32 %133 to i64
-  %135 = getelementptr i8, ptr %89, i64 %134
-  %136 = getelementptr i8, ptr %87, i64 %79
-  %137 = add nuw i32 %88, 1
-  %138 = icmp eq i32 %137, %15
-  br i1 %138, label %.thread, label %.preheader9, !llvm.loop !32
+.loopexit:                                        ; preds = %127
+  %132 = load i32, ptr %66, align 8
+  %133 = zext i32 %132 to i64
+  %134 = getelementptr i8, ptr %89, i64 %133
+  %135 = getelementptr i8, ptr %87, i64 %79
+  %136 = add nuw i32 %88, 1
+  %137 = icmp eq i32 %136, %15
+  br i1 %137, label %.thread, label %.preheader9, !llvm.loop !32
 
 .thread:                                          ; preds = %.loopexit, %.split.us, %56, %52, %62, %60, %37
   ret void
@@ -1791,9 +1790,6 @@ define internal void @drm_fb_xrgb8888_to_abgr8888_line(ptr noundef writeonly cap
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #10
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

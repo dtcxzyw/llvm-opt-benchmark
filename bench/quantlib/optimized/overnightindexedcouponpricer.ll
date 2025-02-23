@@ -1429,7 +1429,7 @@ invoke.cont132:                                   ; preds = %_ZNSt3mapIN8QuantLi
   br i1 %cmp134, label %if.then136, label %if.end172
 
 if.then136:                                       ; preds = %invoke.cont132
-  %add138 = add i64 %i.0503, 1
+  %add138 = add nuw i64 %i.0503, 1
   %90 = load ptr, ptr %interestDates_.i, align 8, !tbaa !75
   %add.ptr.i178 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %90, i64 %add138
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp151) #29
@@ -3576,7 +3576,7 @@ if.then118:                                       ; preds = %invoke.cont114
   %add.ptr.i210 = getelementptr inbounds nuw double, ptr %91, i64 %i.0529
   %92 = load double, ptr %add.ptr.i210, align 8, !tbaa !80
   %93 = call double @llvm.fmuladd.f64(double %retval.0.i200, double %92, double %accumulatedRate.0528)
-  %inc120 = add i64 %i.0529, 1
+  %inc120 = add nuw i64 %i.0529, 1
   br label %if.end126
 
 lpad98:                                           ; preds = %cond.false.i174, %invoke.cont99

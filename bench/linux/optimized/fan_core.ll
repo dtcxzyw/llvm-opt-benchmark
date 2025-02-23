@@ -182,7 +182,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %1
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 616
+  %18 = getelementptr i8, ptr %11, i64 600
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %18, ptr noundef nonnull @.str.4) #12
   br label %161
 
@@ -284,7 +284,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
 
 71:                                               ; preds = %48, %42, %45
   %.str.16.sink = phi ptr [ @.str.16, %45 ], [ @.str.16, %42 ], [ @.str.17, %48 ]
-  %72 = getelementptr inbounds nuw i8, ptr %14, i64 616
+  %72 = getelementptr i8, ptr %11, i64 600
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %72, ptr noundef nonnull %.str.16.sink) #12
   call void @kfree(ptr noundef %43) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #11
@@ -335,7 +335,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   br i1 %88, label %89, label %91
 
 89:                                               ; preds = %85, %82, %79
-  %90 = getelementptr inbounds nuw i8, ptr %14, i64 616
+  %90 = getelementptr i8, ptr %11, i64 600
   call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %90, ptr noundef nonnull @.str.18) #12
   br label %.thread20
 
@@ -442,7 +442,7 @@ define internal i32 @acpi_fan_probe(ptr noundef %0) #0 align 16 {
   br i1 %132, label %135, label %133
 
 133:                                              ; preds = %130
-  %134 = getelementptr inbounds nuw i8, ptr %14, i64 616
+  %134 = getelementptr i8, ptr %11, i64 600
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef nonnull %134, ptr noundef nonnull @.str.5) #12
   br label %156
 

@@ -1120,7 +1120,7 @@ RGBToY.exit.us.i:                                 ; preds = %.lr.ph.i214, %RGBTo
   %indvars.iv.next25.i = add nuw nsw i64 %indvars.iv24.i, 1
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, %102
   %exitcond30.not.i = icmp eq i64 %indvars.iv.next25.i, %wide.trip.count29.i
-  br i1 %exitcond30.not.i, label %ConvertRowToY.exit, label %RGBToY.exit.us.i, !llvm.loop !40
+  br i1 %exitcond30.not.i, label %RGBToY.exit.us.i225.preheader, label %RGBToY.exit.us.i, !llvm.loop !40
 
 RGBToY.exit.i:                                    ; preds = %.lr.ph.i214, %RGBToY.exit.i
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %RGBToY.exit.i ], [ 0, %.lr.ph.i214 ]
@@ -1174,9 +1174,9 @@ RGBToY.exit.i:                                    ; preds = %.lr.ph.i214, %RGBTo
   %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, %102
   %exitcond.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count29.i
-  br i1 %exitcond.not.i, label %ConvertRowToY.exit.thread, label %RGBToY.exit.i, !llvm.loop !40
+  br i1 %exitcond.not.i, label %RGBToY.exit.i217.preheader, label %RGBToY.exit.i, !llvm.loop !40
 
-ConvertRowToY.exit.thread:                        ; preds = %RGBToY.exit.i
+RGBToY.exit.i217.preheader:                       ; preds = %RGBToY.exit.i
   %175 = getelementptr inbounds i8, ptr %.0188313, i64 %98
   %176 = getelementptr inbounds i8, ptr %.0190312, i64 %98
   %177 = getelementptr inbounds i8, ptr %.0191311, i64 %98
@@ -1185,7 +1185,7 @@ ConvertRowToY.exit.thread:                        ; preds = %RGBToY.exit.i
   %180 = getelementptr inbounds i8, ptr %.0184314, i64 %179
   br label %RGBToY.exit.i217
 
-ConvertRowToY.exit:                               ; preds = %RGBToY.exit.us.i
+RGBToY.exit.us.i225.preheader:                    ; preds = %RGBToY.exit.us.i
   %181 = getelementptr inbounds i8, ptr %.0188313, i64 %98
   %182 = getelementptr inbounds i8, ptr %.0190312, i64 %98
   %183 = getelementptr inbounds i8, ptr %.0191311, i64 %98
@@ -1194,9 +1194,9 @@ ConvertRowToY.exit:                               ; preds = %RGBToY.exit.us.i
   %186 = getelementptr inbounds i8, ptr %.0184314, i64 %185
   br label %RGBToY.exit.us.i225
 
-RGBToY.exit.us.i225:                              ; preds = %ConvertRowToY.exit, %RGBToY.exit.us.i225
-  %indvars.iv24.i226 = phi i64 [ %indvars.iv.next25.i228, %RGBToY.exit.us.i225 ], [ 0, %ConvertRowToY.exit ]
-  %indvars.iv22.i227 = phi i64 [ %indvars.iv.next23.i229, %RGBToY.exit.us.i225 ], [ 0, %ConvertRowToY.exit ]
+RGBToY.exit.us.i225:                              ; preds = %RGBToY.exit.us.i225.preheader, %RGBToY.exit.us.i225
+  %indvars.iv24.i226 = phi i64 [ %indvars.iv.next25.i228, %RGBToY.exit.us.i225 ], [ 0, %RGBToY.exit.us.i225.preheader ]
+  %indvars.iv22.i227 = phi i64 [ %indvars.iv.next23.i229, %RGBToY.exit.us.i225 ], [ 0, %RGBToY.exit.us.i225.preheader ]
   %187 = getelementptr inbounds nuw i8, ptr %181, i64 %indvars.iv22.i227
   %188 = load i8, ptr %187, align 1, !tbaa !30
   %189 = zext i8 %188 to i32
@@ -1221,9 +1221,9 @@ RGBToY.exit.us.i225:                              ; preds = %ConvertRowToY.exit,
   %exitcond30.not.i230 = icmp eq i64 %indvars.iv.next25.i228, %wide.trip.count29.i
   br i1 %exitcond30.not.i230, label %ConvertRowToY.exit231, label %RGBToY.exit.us.i225, !llvm.loop !40
 
-RGBToY.exit.i217:                                 ; preds = %ConvertRowToY.exit.thread, %RGBToY.exit.i217
-  %indvars.iv17.i218 = phi i64 [ %indvars.iv.next18.i222, %RGBToY.exit.i217 ], [ 0, %ConvertRowToY.exit.thread ]
-  %indvars.iv.i219 = phi i64 [ %indvars.iv.next.i223, %RGBToY.exit.i217 ], [ 0, %ConvertRowToY.exit.thread ]
+RGBToY.exit.i217:                                 ; preds = %RGBToY.exit.i217.preheader, %RGBToY.exit.i217
+  %indvars.iv17.i218 = phi i64 [ %indvars.iv.next18.i222, %RGBToY.exit.i217 ], [ 0, %RGBToY.exit.i217.preheader ]
+  %indvars.iv.i219 = phi i64 [ %indvars.iv.next.i223, %RGBToY.exit.i217 ], [ 0, %RGBToY.exit.i217.preheader ]
   %205 = getelementptr inbounds nuw i8, ptr %175, i64 %indvars.iv.i219
   %206 = load i8, ptr %205, align 1, !tbaa !30
   %207 = zext i8 %206 to i32

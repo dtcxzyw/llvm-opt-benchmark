@@ -3117,8 +3117,8 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %106, %118, %123
   br i1 %.not127, label %.loopexit, label %.loopexit.loopexit.critedge
 
 .loopexit.loopexit.critedge:                      ; preds = %135, %138
-  tail call fastcc void @inherit_property_hook(ptr noundef %2, ptr noundef %0, ptr noundef %7, i32 noundef 0)
-  tail call fastcc void @inherit_property_hook(ptr noundef %2, ptr noundef %0, ptr noundef %7, i32 noundef 1)
+  tail call fastcc void @inherit_property_hook(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 0)
+  tail call fastcc void @inherit_property_hook(ptr noundef nonnull %2, ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef 1)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit.critedge, %138
@@ -3155,12 +3155,12 @@ prop_get_variance.exit:                           ; preds = %145, %148, %150
   br i1 %.not128, label %158, label %154
 
 154:                                              ; preds = %prop_get_variance.exit
-  %155 = tail call fastcc i32 @verify_property_type_compatibility(ptr noundef nonnull %0, ptr noundef %7, i32 noundef %.0.i144, i1 noundef zeroext true, i1 noundef zeroext false)
+  %155 = tail call fastcc i32 @verify_property_type_compatibility(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %.0.i144, i1 noundef zeroext true, i1 noundef zeroext false)
   %156 = icmp eq i32 %155, -1
   br i1 %156, label %157, label %228
 
 157:                                              ; preds = %154
-  tail call fastcc void @add_property_compatibility_obligation(ptr noundef %2, ptr noundef %7, ptr noundef nonnull %0, i32 noundef %.0.i144)
+  tail call fastcc void @add_property_compatibility_obligation(ptr noundef nonnull %2, ptr noundef nonnull %7, ptr noundef nonnull %0, i32 noundef %.0.i144)
   br label %228
 
 158:                                              ; preds = %prop_get_variance.exit

@@ -2487,7 +2487,7 @@ define internal fastcc void @keepout_othernodes(ptr noundef %0) unnamed_addr #0 
   br label %split
 
 .backedge:                                        ; preds = %56, %.lr.ph, %64
-  %73 = icmp sgt i64 %indvars.iv, 1
+  %73 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %73, label %.lr.ph, label %.loopexit59, !llvm.loop !170
 
 split:                                            ; preds = %.lr.ph, %._crit_edge87

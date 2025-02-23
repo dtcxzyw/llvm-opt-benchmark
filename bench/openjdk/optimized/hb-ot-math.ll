@@ -1293,7 +1293,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %.052.lcssa = phi ptr [ %45, %14 ], [ %62, %.lr.ph.split ]
   %.049.lcssa = phi i32 [ 0, %14 ], [ %49, %.lr.ph.split ]
   %.047.lcssa = phi float [ 0.000000e+00, %14 ], [ %81, %.lr.ph.split ]
-  %50 = icmp ult i32 %.049.lcssa, %32
+  %50 = icmp samesign ult i32 %.049.lcssa, %32
   br i1 %50, label %.lr.ph65, label %.preheader
 
 .lr.ph65:                                         ; preds = %.preheader54
@@ -1343,7 +1343,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT7VarData9get_deltaEjPKijRKNS_13
   %.150.lcssa = phi i32 [ %.049.lcssa, %.preheader54 ], [ %32, %86 ]
   %.048.lcssa = phi ptr [ %.052.lcssa, %.preheader54 ], [ %96, %86 ]
   %.1.lcssa = phi float [ %.047.lcssa, %.preheader54 ], [ %105, %86 ]
-  %82 = icmp ult i32 %.150.lcssa, %22
+  %82 = icmp samesign ult i32 %.150.lcssa, %22
   br i1 %82, label %.lr.ph72, label %.loopexit
 
 .lr.ph72:                                         ; preds = %.preheader

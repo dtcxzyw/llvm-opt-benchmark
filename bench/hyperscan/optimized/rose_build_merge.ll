@@ -30095,7 +30095,7 @@ invoke.cont34.i:                                  ; preds = %invoke.cont32.i
 
 invoke.cont35.i:                                  ; preds = %invoke.cont34.i
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp.i.i) #19
-  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.0181.i) #24
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.0181.i) #24
   %cmp.i86.not.i = icmp eq ptr %call.i.i, %7
   br i1 %cmp.i86.not.i, label %for.cond.cleanup21.i, label %for.body22.i
 
@@ -48207,7 +48207,7 @@ _ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESa
 
 _ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE17_M_insert_unique_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_ESt23_Rb_tree_const_iteratorIS5_EOT_RT0_.exit.i: ; preds = %_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i, %if.end12.i.i
   %13 = phi i64 [ %0, %if.end12.i.i ], [ %inc.i.i.i, %_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE10_M_insert_IRKS5_NSB_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS5_EPSt18_Rb_tree_node_baseSJ_OT_RT0_.exit.i.i ]
-  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__first.sroa.0.013.i) #24
+  %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first.sroa.0.013.i) #24
   %cmp.i.not.i = icmp eq ptr %call.i.i, %__last.coerce
   br i1 %cmp.i.not.i, label %_ZNSt8_Rb_treeIPN3ue28NGHolderESt4pairIKS2_S2_ESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE22_M_insert_range_uniqueISt23_Rb_tree_const_iteratorIS5_EEENSt9enable_ifIXsr17__same_value_typeIT_EE5valueEvE4typeESG_SG_.exit, label %for.body.i, !llvm.loop !1280
 
@@ -55261,9 +55261,9 @@ for.body.i.i.i.i.i146:                            ; preds = %_ZSt22__uninitializ
   %incdec.ptr.i.i.i.i.i.i149 = getelementptr inbounds nuw i8, ptr %__first.sroa.0.018.i.i.i.i.i148, i64 16
   %incdec.ptr.i.i.i.i.i150 = getelementptr inbounds nuw i8, ptr %__cur.019.i.i.i.i.i147, i64 16
   %cmp.i.i.not.i.i.i.i.i151 = icmp eq ptr %incdec.ptr.i.i.i.i.i.i149, %1
-  br i1 %cmp.i.i.not.i.i.i.i.i151, label %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit153.loopexit, label %for.body.i.i.i.i.i146, !llvm.loop !589
+  br i1 %cmp.i.i.not.i.i.i.i.i151, label %if.then.i.i.i.i.i158, label %for.body.i.i.i.i.i146, !llvm.loop !589
 
-_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit153.loopexit: ; preds = %for.body.i.i.i.i.i146
+if.then.i.i.i.i.i158:                             ; preds = %for.body.i.i.i.i.i146
   %.pre199 = load ptr, ptr %_M_finish, align 8
   %add.ptr58 = getelementptr inbounds i8, ptr %.pre199, i64 %sub.ptr.sub.i
   store ptr %add.ptr58, ptr %_M_finish, align 8
@@ -55358,7 +55358,7 @@ if.end109.critedge:                               ; preds = %_ZSt22__uninitializ
   store ptr %add.ptr58.c, ptr %_M_finish, align 8
   br label %if.end109
 
-if.end109:                                        ; preds = %if.end109.critedge, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE13_M_deallocateEPS8_m.exit, %_ZSt22__uninitialized_move_aIPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEES9_SaIS8_EET0_T_SC_SB_RT1_.exit153.loopexit, %if.then.i.i.i.i.i141, %entry
+if.end109:                                        ; preds = %if.end109.critedge, %_ZNSt12_Vector_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESaIS8_EE13_M_deallocateEPS8_m.exit, %if.then.i.i.i.i.i158, %if.then.i.i.i.i.i141, %entry
   ret void
 }
 

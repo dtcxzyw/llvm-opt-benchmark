@@ -11393,11 +11393,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %10, label %.split.i.i.i, label %.lr.ph43
 
 11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit"
-  %12 = icmp eq i64 %109, 0
+  %12 = icmp eq i64 %107, 0
   br i1 %12, label %.split.i.i.i, label %.lr.ph43, !llvm.loop !107
 
 .split.i.i.i:                                     ; preds = %11, %.lr.ph
-  %.fr.i.i.i26.lcssa = phi i64 [ %6, %.lr.ph ], [ %148, %11 ]
+  %.fr.i.i.i26.lcssa = phi i64 [ %6, %.lr.ph ], [ %146, %11 ]
   %storemerge24.lcssa = phi ptr [ %.fr32, %.lr.ph ], [ %.sroa.012.1.i.i, %11 ]
   %13 = lshr i64 %.fr.i.i.i26.lcssa, 3
   %14 = add nsw i64 %13, -2
@@ -11536,8 +11536,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %68 = icmp sgt i64 %.fr.i.i.i26.lcssa, 8
   br i1 %68, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit"
 
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i"
-  %.sroa.0.03.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i" ], [ %storemerge24.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
+  %.sroa.0.03.i.i = phi ptr [ %69, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i" ], [ %storemerge24.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i" ]
   %69 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %.sroa.03.0.copyload.i.i10.i = load i64, ptr %69, align 4
   %70 = load i64, ptr %.fr27, align 4
@@ -11548,189 +11548,192 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %74 = add nsw i64 %73, -1
   %75 = sdiv i64 %74, 2
   %76 = icmp sgt i64 %73, 2
-  br i1 %76, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i11.i
+  br i1 %76, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i11.i
 
-.lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i23.i
-  %.035.i.i.i24.i = phi i64 [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
-  %77 = shl i64 %.035.i.i.i24.i, 1
+.lr.ph.i.i.i18.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i18.i
+  %.035.i.i.i19.i = phi i64 [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ], [ 0, %.lr.ph.i9.i ]
+  %77 = shl i64 %.035.i.i.i19.i, 1
   %78 = add i64 %77, 2
   %79 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %78
   %80 = or disjoint i64 %77, 1
   %81 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %80
-  %.val.i.i.i.i25.i = load i32, ptr %79, align 4
-  %.val1.i.i.i.i26.i = load i32, ptr %81, align 4
-  %82 = icmp ult i32 %.val.i.i.i.i25.i, %.val1.i.i.i.i26.i
-  %spec.select.i.i.i27.i = select i1 %82, i64 %80, i64 %78
-  %83 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %spec.select.i.i.i27.i
-  %84 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.035.i.i.i24.i
+  %.val.i.i.i.i20.i = load i32, ptr %79, align 4
+  %.val1.i.i.i.i21.i = load i32, ptr %81, align 4
+  %82 = icmp ult i32 %.val.i.i.i.i20.i, %.val1.i.i.i.i21.i
+  %spec.select.i.i.i22.i = select i1 %82, i64 %80, i64 %78
+  %83 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %spec.select.i.i.i22.i
+  %84 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.035.i.i.i19.i
   %85 = load i64, ptr %83, align 4
   store i64 %85, ptr %84, align 4
-  %86 = icmp slt i64 %spec.select.i.i.i27.i, %75
-  br i1 %86, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i11.i, !llvm.loop !108
+  %86 = icmp slt i64 %spec.select.i.i.i22.i, %75
+  br i1 %86, label %.lr.ph.i.i.i18.i, label %._crit_edge.i.i.i11.i, !llvm.loop !108
 
-._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i9.i
-  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i27.i, %.lr.ph.i.i.i23.i ]
+._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i18.i, %.lr.ph.i9.i
+  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i22.i, %.lr.ph.i.i.i18.i ]
   %87 = and i64 %72, 8
   %88 = icmp eq i64 %87, 0
-  br i1 %88, label %89, label %99
+  br i1 %88, label %89, label %98
 
 89:                                               ; preds = %._crit_edge.i.i.i11.i
   %90 = add nsw i64 %73, -2
   %91 = ashr exact i64 %90, 1
   %92 = icmp eq i64 %.0.lcssa.i.i.i12.i, %91
-  br i1 %92, label %93, label %99
+  br i1 %92, label %.thread.i.i.i, label %98
 
-93:                                               ; preds = %89
-  %94 = shl nsw i64 %.0.lcssa.i.i.i12.i, 1
-  %95 = or disjoint i64 %94, 1
-  %96 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %95
-  %97 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0.lcssa.i.i.i12.i
-  %98 = load i64, ptr %96, align 4
-  store i64 %98, ptr %97, align 4
-  br label %99
+.thread.i.i.i:                                    ; preds = %89
+  %93 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %94 = or disjoint i64 %93, 1
+  %95 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %94
+  %96 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0.lcssa.i.i.i12.i
+  %97 = load i64, ptr %95, align 4
+  store i64 %97, ptr %96, align 4
+  br label %.lr.ph.i.i.preheader.i.i.i
 
-99:                                               ; preds = %93, %89, %._crit_edge.i.i.i11.i
-  %.1.i.i.i13.i = phi i64 [ %95, %93 ], [ %.0.lcssa.i.i.i12.i, %89 ], [ %.0.lcssa.i.i.i12.i, %._crit_edge.i.i.i11.i ]
-  %.sroa.03.0.extract.trunc.i.i.i.i14.i = trunc i64 %.sroa.03.0.copyload.i.i10.i to i32
-  %100 = icmp sgt i64 %.1.i.i.i13.i, 0
-  br i1 %100, label %.lr.ph.i.i.i.i17.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i"
+98:                                               ; preds = %89, %._crit_edge.i.i.i11.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
+  br i1 %.not.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %.lr.ph.i.i.preheader.i.i.i
 
-.lr.ph.i.i.i.i17.i:                               ; preds = %99, %103
-  %.010.i.i.i.i18.i = phi i64 [ %.0911.i.i56.i.i20.i, %103 ], [ %.1.i.i.i13.i, %99 ]
-  %.0911.in.i.i.i.i19.i = add nsw i64 %.010.i.i.i.i18.i, -1
-  %.0911.i.i56.i.i20.i = lshr i64 %.0911.in.i.i.i.i19.i, 1
-  %101 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0911.i.i56.i.i20.i
-  %.val.i.i.i.i.i21.i = load i32, ptr %101, align 4
-  %102 = icmp ult i32 %.val.i.i.i.i.i21.i, %.sroa.03.0.extract.trunc.i.i.i.i14.i
-  br i1 %102, label %103, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i"
+.lr.ph.i.i.preheader.i.i.i:                       ; preds = %98, %.thread.i.i.i
+  %.1.i11.i.i.i = phi i64 [ %94, %.thread.i.i.i ], [ %.0.lcssa.i.i.i12.i, %98 ]
+  %.sroa.03.0.extract.trunc.i.i12.i.i.i = trunc i64 %.sroa.03.0.copyload.i.i10.i to i32
+  br label %.lr.ph.i.i.i.i13.i
 
-103:                                              ; preds = %.lr.ph.i.i.i.i17.i
-  %104 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.010.i.i.i.i18.i
-  %105 = load i64, ptr %101, align 4
-  store i64 %105, ptr %104, align 4
-  %.not.i.i22.i = icmp ult i64 %.0911.in.i.i.i.i19.i, 2
-  br i1 %.not.i.i22.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i", label %.lr.ph.i.i.i.i17.i, !llvm.loop !109
+.lr.ph.i.i.i.i13.i:                               ; preds = %101, %.lr.ph.i.i.preheader.i.i.i
+  %.010.i.i.i.i14.i = phi i64 [ %.0911.i.i56.i.i.i, %101 ], [ %.1.i11.i.i.i, %.lr.ph.i.i.preheader.i.i.i ]
+  %.0911.in.i.i.i.i15.i = add nsw i64 %.010.i.i.i.i14.i, -1
+  %.0911.i.i56.i.i.i = lshr i64 %.0911.in.i.i.i.i15.i, 1
+  %99 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0911.i.i56.i.i.i
+  %.val.i.i.i.i.i16.i = load i32, ptr %99, align 4
+  %100 = icmp ult i32 %.val.i.i.i.i.i16.i, %.sroa.03.0.extract.trunc.i.i12.i.i.i
+  br i1 %100, label %101, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i": ; preds = %103, %.lr.ph.i.i.i.i17.i, %99
-  %.0.lcssa.i.i.i.i16.i = phi i64 [ %.1.i.i.i13.i, %99 ], [ %.010.i.i.i.i18.i, %.lr.ph.i.i.i.i17.i ], [ 0, %103 ]
-  %106 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0.lcssa.i.i.i.i16.i
-  store i64 %.sroa.03.0.copyload.i.i10.i, ptr %106, align 4
-  %107 = icmp sgt i64 %72, 8
-  br i1 %107, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !111
+101:                                              ; preds = %.lr.ph.i.i.i.i13.i
+  %102 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.010.i.i.i.i14.i
+  %103 = load i64, ptr %99, align 4
+  store i64 %103, ptr %102, align 4
+  %.not7.i.i.i = icmp ult i64 %.0911.in.i.i.i.i15.i, 2
+  br i1 %.not7.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %.lr.ph.i.i.i.i13.i, !llvm.loop !109
+
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %101, %.lr.ph.i.i.i.i13.i, %98
+  %.0.lcssa.i.i.i.i17.i = phi i64 [ 0, %98 ], [ %.010.i.i.i.i14.i, %.lr.ph.i.i.i.i13.i ], [ 0, %101 ]
+  %104 = getelementptr inbounds %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %.0.lcssa.i.i.i.i17.i
+  store i64 %.sroa.03.0.copyload.i.i10.i, ptr %104, align 4
+  %105 = icmp sgt i64 %72, 8
+  br i1 %105, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !111
 
 .lr.ph43:                                         ; preds = %.lr.ph, %11
   %storemerge2442 = phi ptr [ %.sroa.012.1.i.i, %11 ], [ %.fr32, %.lr.ph ]
-  %.02541 = phi i64 [ %109, %11 ], [ %2, %.lr.ph ]
-  %108 = phi i64 [ %149, %11 ], [ %7, %.lr.ph ]
-  %109 = add nsw i64 %.02541, -1
-  %110 = lshr i64 %108, 1
-  %111 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %110
-  %112 = getelementptr inbounds i8, ptr %storemerge2442, i64 -8
+  %.02541 = phi i64 [ %107, %11 ], [ %2, %.lr.ph ]
+  %106 = phi i64 [ %147, %11 ], [ %7, %.lr.ph ]
+  %107 = add nsw i64 %.02541, -1
+  %108 = lshr i64 %106, 1
+  %109 = getelementptr inbounds nuw %"struct.Luau::BytecodeBuilder::Jump", ptr %.fr27, i64 %108
+  %110 = getelementptr inbounds i8, ptr %storemerge2442, i64 -8
   %.val.i.i.i = load i32, ptr %9, align 4
-  %.val1.i.i.i = load i32, ptr %111, align 4
-  %113 = icmp ult i32 %.val.i.i.i, %.val1.i.i.i
-  %.val1.i27.i.i = load i32, ptr %112, align 4
-  br i1 %113, label %114, label %126
+  %.val1.i.i.i = load i32, ptr %109, align 4
+  %111 = icmp ult i32 %.val.i.i.i, %.val1.i.i.i
+  %.val1.i27.i.i = load i32, ptr %110, align 4
+  br i1 %111, label %112, label %124
 
-114:                                              ; preds = %.lr.ph43
-  %115 = icmp ult i32 %.val1.i.i.i, %.val1.i27.i.i
-  br i1 %115, label %116, label %119
+112:                                              ; preds = %.lr.ph43
+  %113 = icmp ult i32 %.val1.i.i.i, %.val1.i27.i.i
+  br i1 %113, label %114, label %117
 
-116:                                              ; preds = %114
-  %117 = load i64, ptr %.fr27, align 4
-  %118 = load i64, ptr %111, align 4
-  store i64 %118, ptr %.fr27, align 4
-  store i64 %117, ptr %111, align 4
+114:                                              ; preds = %112
+  %115 = load i64, ptr %.fr27, align 4
+  %116 = load i64, ptr %109, align 4
+  store i64 %116, ptr %.fr27, align 4
+  store i64 %115, ptr %109, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-119:                                              ; preds = %114
-  %120 = icmp ult i32 %.val.i.i.i, %.val1.i27.i.i
-  %121 = load i64, ptr %.fr27, align 4
-  br i1 %120, label %122, label %124
+117:                                              ; preds = %112
+  %118 = icmp ult i32 %.val.i.i.i, %.val1.i27.i.i
+  %119 = load i64, ptr %.fr27, align 4
+  br i1 %118, label %120, label %122
 
-122:                                              ; preds = %119
-  %123 = load i64, ptr %112, align 4
+120:                                              ; preds = %117
+  %121 = load i64, ptr %110, align 4
+  store i64 %121, ptr %.fr27, align 4
+  store i64 %119, ptr %110, align 4
+  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
+
+122:                                              ; preds = %117
+  %123 = load i64, ptr %9, align 4
   store i64 %123, ptr %.fr27, align 4
-  store i64 %121, ptr %112, align 4
+  store i64 %119, ptr %9, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-124:                                              ; preds = %119
-  %125 = load i64, ptr %9, align 4
-  store i64 %125, ptr %.fr27, align 4
-  store i64 %121, ptr %9, align 4
+124:                                              ; preds = %.lr.ph43
+  %125 = icmp ult i32 %.val.i.i.i, %.val1.i27.i.i
+  br i1 %125, label %126, label %129
+
+126:                                              ; preds = %124
+  %127 = load i64, ptr %.fr27, align 4
+  %128 = load i64, ptr %9, align 4
+  store i64 %128, ptr %.fr27, align 4
+  store i64 %127, ptr %9, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-126:                                              ; preds = %.lr.ph43
-  %127 = icmp ult i32 %.val.i.i.i, %.val1.i27.i.i
-  br i1 %127, label %128, label %131
+129:                                              ; preds = %124
+  %130 = icmp ult i32 %.val1.i.i.i, %.val1.i27.i.i
+  %131 = load i64, ptr %.fr27, align 4
+  br i1 %130, label %132, label %134
 
-128:                                              ; preds = %126
-  %129 = load i64, ptr %.fr27, align 4
-  %130 = load i64, ptr %9, align 4
-  store i64 %130, ptr %.fr27, align 4
-  store i64 %129, ptr %9, align 4
+132:                                              ; preds = %129
+  %133 = load i64, ptr %110, align 4
+  store i64 %133, ptr %.fr27, align 4
+  store i64 %131, ptr %110, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-131:                                              ; preds = %126
-  %132 = icmp ult i32 %.val1.i.i.i, %.val1.i27.i.i
-  %133 = load i64, ptr %.fr27, align 4
-  br i1 %132, label %134, label %136
-
-134:                                              ; preds = %131
-  %135 = load i64, ptr %112, align 4
+134:                                              ; preds = %129
+  %135 = load i64, ptr %109, align 4
   store i64 %135, ptr %.fr27, align 4
-  store i64 %133, ptr %112, align 4
+  store i64 %131, ptr %109, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-136:                                              ; preds = %131
-  %137 = load i64, ptr %111, align 4
-  store i64 %137, ptr %.fr27, align 4
-  store i64 %133, ptr %111, align 4
-  br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
-
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %136, %134, %128, %124, %122, %116
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %134, %132, %126, %122, %120, %114
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %144
-  %.sroa.012.0.i.i = phi ptr [ %140, %144 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %144 ], [ %storemerge2442, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %142
+  %.sroa.012.0.i.i = phi ptr [ %138, %142 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %142 ], [ %storemerge2442, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %.val1.i.i13.i = load i32, ptr %.fr27, align 4
-  br label %138
+  br label %136
 
-138:                                              ; preds = %138, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %140, %138 ]
+136:                                              ; preds = %136, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %138, %136 ]
   %.val.i.i14.i = load i32, ptr %.sroa.012.1.i.i, align 4
-  %139 = icmp ult i32 %.val.i.i14.i, %.val1.i.i13.i
-  %140 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
-  br i1 %139, label %138, label %.preheader.i.i, !llvm.loop !112
+  %137 = icmp ult i32 %.val.i.i14.i, %.val1.i.i13.i
+  %138 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 8
+  br i1 %137, label %136, label %.preheader.i.i, !llvm.loop !112
 
-.preheader.i.i:                                   ; preds = %138, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %138 ]
+.preheader.i.i:                                   ; preds = %136, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %136 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %.val1.i9.i.i = load i32, ptr %.sroa.0.1.i.i, align 4
-  %141 = icmp ult i32 %.val1.i.i13.i, %.val1.i9.i.i
-  br i1 %141, label %.preheader.i.i, label %142, !llvm.loop !113
+  %139 = icmp ult i32 %.val1.i.i13.i, %.val1.i9.i.i
+  br i1 %139, label %.preheader.i.i, label %140, !llvm.loop !113
 
-142:                                              ; preds = %.preheader.i.i
-  %143 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
-  br i1 %143, label %144, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit"
+140:                                              ; preds = %.preheader.i.i
+  %141 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.0.1.i.i
+  br i1 %141, label %142, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit"
 
-144:                                              ; preds = %142
-  %145 = load i64, ptr %.sroa.012.1.i.i, align 4
-  %146 = load i64, ptr %.sroa.0.1.i.i, align 4
-  store i64 %146, ptr %.sroa.012.1.i.i, align 4
-  store i64 %145, ptr %.sroa.0.1.i.i, align 4
+142:                                              ; preds = %140
+  %143 = load i64, ptr %.sroa.012.1.i.i, align 4
+  %144 = load i64, ptr %.sroa.0.1.i.i, align 4
+  store i64 %144, ptr %.sroa.012.1.i.i, align 4
+  store i64 %143, ptr %.sroa.0.1.i.i, align 4
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !114
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %142
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2442, i64 noundef %109)
-  %147 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %148 = sub i64 %147, %4
-  %149 = ashr exact i64 %148, 3
-  %150 = icmp sgt i64 %149, 16
-  br i1 %150, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !107
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %140
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2442, i64 noundef %107)
+  %145 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %146 = sub i64 %145, %4
+  %147 = ashr exact i64 %146, 3
+  %148 = icmp sgt i64 %147, 16
+  br i1 %148, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !107
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i15.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4Luau15BytecodeBuilder4JumpESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_11expandJumpsEvE3$_0EEEvT_SE_RT0_.exit.i.i"
   ret void
 }
 

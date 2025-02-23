@@ -10466,7 +10466,7 @@ default.unreachable:                              ; preds = %68, %33
   store i32 0, ptr %4, align 4
   %164 = call ptr @construct_md_array(ptr noundef nonnull %151, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 25, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105) #12
   %165 = ptrtoint ptr %164 to i64
-  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %165, i1 noundef zeroext false, i1 noundef zeroext true)
+  call fastcc void @assign_simple_var(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %165, i1 noundef zeroext false, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #12
   br label %225

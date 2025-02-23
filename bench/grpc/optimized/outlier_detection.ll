@@ -10419,7 +10419,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelSt
 
 lpad.loopexit.split-lp:                           ; preds = %if.then19, %lor.lhs.false.i.i
   %subchannel_state.sroa.0.0.ph = phi ptr [ null, %lor.lhs.false.i.i ], [ %subchannel_state.sroa.0.1, %if.then19 ]
-  %lpad.loopexit.split-lp93 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp98 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup52
 
@@ -10937,11 +10937,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
 
 _ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrINS_19SubchannelInterfaceEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  br i1 %cmp.not.i.i25, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread, label %if.then45
-
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread: ; preds = %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
-  store ptr %call.i39, ptr %agg.result, align 8
-  br label %return
+  br i1 %cmp.not.i.i25, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, label %if.then45
 
 if.then45:                                        ; preds = %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
   %76 = getelementptr inbounds nuw i8, ptr %subchannel_state.sroa.0.1, i64 32
@@ -10997,9 +10993,9 @@ lor.rhs.i.i.i.i:                                  ; preds = %if.then.i.i.i57
 _ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i: ; preds = %lor.rhs.i.i.i.i, %if.then.i.i.i57
   %81 = phi i1 [ true, %if.then.i.i.i57 ], [ %cmp.i.i7.i.i.i, %lor.rhs.i.i.i.i ]
   %call5.i.i.i.i.i.i.i.i.i60 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread91 unwind label %lpad42
+          to label %call5.i.i.i.i.i.i.i.i.i.noexc unwind label %ehcleanup52.thread
 
-_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread91: ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
+call5.i.i.i.i.i.i.i.i.i.noexc:                    ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i58 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i.i60, i64 32
   store ptr %call.i39, ptr %_M_storage.i.i.i.i.i.i.i.i58, align 8
   call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %81, ptr noundef nonnull %call5.i.i.i.i.i.i.i.i.i60, ptr noundef nonnull %retval.sroa.4.0.i.ph.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i.i.i) #27
@@ -11029,13 +11025,17 @@ ehcleanup:                                        ; preds = %lpad40.body, %lpad3
   call void @_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp31) #27
   br label %ehcleanup52
 
-lpad42:                                           ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
+ehcleanup52.thread:                               ; preds = %_ZNSt8_Rb_treeIPN9grpc_core12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i.i.i
   %85 = landingpad { ptr, i32 }
           cleanup
   call fastcc void @_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev(ptr nonnull %call.i39) #27
-  br label %ehcleanup52
+  br label %if.then.i83
 
-if.then.i75:                                      ; preds = %if.end12.i.i.i.i, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread91
+_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN9grpc_core14WorkSerializerEED2Ev.exit
+  store ptr %call.i39, ptr %agg.result, align 8
+  br label %return
+
+if.then.i75:                                      ; preds = %if.end12.i.i.i.i, %call5.i.i.i.i.i.i.i.i.i.noexc
   store ptr %call.i39, ptr %agg.result, align 8
   %refs_.i.i76 = getelementptr inbounds nuw i8, ptr %subchannel_state.sroa.0.1, i64 8
   %86 = atomicrmw sub ptr %refs_.i.i76, i64 1 acq_rel, align 8
@@ -11049,29 +11049,32 @@ if.then.i.i78:                                    ; preds = %if.then.i75
   call void %87(ptr noundef nonnull align 8 dereferenceable(80) %subchannel_state.sroa.0.1) #27
   br label %return
 
-ehcleanup52:                                      ; preds = %lpad.loopexit.split-lp, %lpad42, %ehcleanup, %lpad24, %lpad22
-  %subchannel_state.sroa.0.2 = phi ptr [ %subchannel_state.sroa.0.1, %lpad42 ], [ %subchannel_state.sroa.0.1, %ehcleanup ], [ %subchannel_state.sroa.0.1, %lpad24 ], [ %subchannel_state.sroa.0.1, %lpad22 ], [ %subchannel_state.sroa.0.0.ph, %lpad.loopexit.split-lp ]
-  %.pn4 = phi { ptr, i32 } [ %85, %lpad42 ], [ %.pn, %ehcleanup ], [ %10, %lpad24 ], [ %9, %lpad22 ], [ %lpad.loopexit.split-lp93, %lpad.loopexit.split-lp ]
+ehcleanup52:                                      ; preds = %lpad.loopexit.split-lp, %ehcleanup, %lpad24, %lpad22
+  %subchannel_state.sroa.0.2 = phi ptr [ %subchannel_state.sroa.0.1, %ehcleanup ], [ %subchannel_state.sroa.0.1, %lpad24 ], [ %subchannel_state.sroa.0.1, %lpad22 ], [ %subchannel_state.sroa.0.0.ph, %lpad.loopexit.split-lp ]
+  %.pn4 = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %10, %lpad24 ], [ %9, %lpad22 ], [ %lpad.loopexit.split-lp98, %lpad.loopexit.split-lp ]
   %cmp.not.i82 = icmp eq ptr %subchannel_state.sroa.0.2, null
   br i1 %cmp.not.i82, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit89, label %if.then.i83
 
-if.then.i83:                                      ; preds = %ehcleanup52
-  %refs_.i.i84 = getelementptr inbounds nuw i8, ptr %subchannel_state.sroa.0.2, i64 8
+if.then.i83:                                      ; preds = %ehcleanup52.thread, %ehcleanup52
+  %.pn495 = phi { ptr, i32 } [ %85, %ehcleanup52.thread ], [ %.pn4, %ehcleanup52 ]
+  %subchannel_state.sroa.0.294 = phi ptr [ %subchannel_state.sroa.0.1, %ehcleanup52.thread ], [ %subchannel_state.sroa.0.2, %ehcleanup52 ]
+  %refs_.i.i84 = getelementptr inbounds nuw i8, ptr %subchannel_state.sroa.0.294, i64 8
   %88 = atomicrmw sub ptr %refs_.i.i84, i64 1 acq_rel, align 8
   %cmp.i.i.i85 = icmp eq i64 %88, 1
   br i1 %cmp.i.i.i85, label %if.then.i.i86, label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit89
 
 if.then.i.i86:                                    ; preds = %if.then.i83
-  %vtable.i.i.i87 = load ptr, ptr %subchannel_state.sroa.0.2, align 8
+  %vtable.i.i.i87 = load ptr, ptr %subchannel_state.sroa.0.294, align 8
   %vfn.i.i.i88 = getelementptr inbounds nuw i8, ptr %vtable.i.i.i87, i64 8
   %89 = load ptr, ptr %vfn.i.i.i88, align 8
-  call void %89(ptr noundef nonnull align 8 dereferenceable(80) %subchannel_state.sroa.0.2) #27
+  call void %89(ptr noundef nonnull align 8 dereferenceable(80) %subchannel_state.sroa.0.294) #27
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit89
 
 _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb15SubchannelStateEED2Ev.exit89: ; preds = %ehcleanup52, %if.then.i83, %if.then.i.i86
-  resume { ptr, i32 } %.pn4
+  %.pn496 = phi { ptr, i32 } [ %.pn4, %ehcleanup52 ], [ %.pn495, %if.then.i83 ], [ %.pn495, %if.then.i.i86 ]
+  resume { ptr, i32 } %.pn496
 
-return:                                           ; preds = %if.then.i.i78, %if.then.i75, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit.thread, %if.then
+return:                                           ; preds = %if.then.i.i78, %if.then.i75, %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_118OutlierDetectionLb17SubchannelWrapperEED2Ev.exit, %if.then
   ret void
 }
 

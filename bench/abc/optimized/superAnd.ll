@@ -99,15 +99,15 @@ define void @Super2_Precompute(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
 
 .preheader40.i:                                   ; preds = %.lr.ph.i
   %.not.i = icmp eq i32 %0, 31
-  br i1 %.not.i, label %Super2_LibFirst.exit, label %.preheader.lr.ph.i
+  br i1 %.not.i, label %Super2_LibFirst.exit, label %.preheader.us.preheader.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader40.i
-  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %28, i64 8
+.preheader.us.preheader.i:                        ; preds = %.preheader40.i
+  %invariant.gep55.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %smax.i = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
   br label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.lr.ph.i
-  %.044.us.i = phi i32 [ %42, %._crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
+.preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
+  %.044.us.i = phi i32 [ %42, %._crit_edge.us.i ], [ 0, %.preheader.us.preheader.i ]
   %32 = shl nuw i32 1, %.044.us.i
   br label %33
 
@@ -120,7 +120,7 @@ define void @Super2_Precompute(i32 noundef %0, i32 noundef %1, i32 noundef %2) l
   br i1 %.not.us.i, label %41, label %37
 
 37:                                               ; preds = %33
-  %gep.us.i = getelementptr inbounds nuw ptr, ptr %invariant.gep.i, i64 %indvars.iv48.i
+  %gep.us.i = getelementptr inbounds nuw ptr, ptr %invariant.gep55.i, i64 %indvars.iv48.i
   %38 = load ptr, ptr %gep.us.i, align 8, !tbaa !20
   %39 = load i32, ptr %38, align 8, !tbaa !22
   %40 = or i32 %39, %32
@@ -1135,7 +1135,7 @@ define internal fastcc ptr @Super2_LibWriteGate_rec(ptr noundef readonly capture
   br i1 %62, label %.preheader, label %63
 
 63:                                               ; preds = %61
-  %64 = icmp slt i8 %52, %55
+  %64 = icmp samesign ult i8 %52, %55
   br i1 %64, label %select.unfold63, label %Super2_LibWriteCompare.exit
 
 select.unfold63:                                  ; preds = %63, %60

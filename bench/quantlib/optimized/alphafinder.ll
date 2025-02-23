@@ -732,7 +732,7 @@ while.body65:                                     ; preds = %while.body65.lr.ph,
 
 while.end76.loopexit:                             ; preds = %while.body65
   %14 = add nsw i32 %steps, -2
-  %15 = sitofp i32 %14 to double
+  %15 = uitofp nneg i32 %14 to double
   br label %while.end76
 
 while.end76:                                      ; preds = %while.end76.loopexit, %while.cond60.preheader

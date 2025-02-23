@@ -1002,11 +1002,11 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %44, ptr %45, align 8, !tbaa !83
   %46 = tail call ptr @g_type_check_instance_cast(ptr noundef %44, i64 noundef 80) #20
-  tail call void @g_object_set_data(ptr noundef %46, ptr noundef nonnull @.str.16, ptr noundef %0) #20
+  tail call void @g_object_set_data(ptr noundef %46, ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #20
   %47 = load ptr, ptr %45, align 8, !tbaa !83
   %48 = tail call i64 @gtk_widget_get_type() #22
   %49 = tail call ptr @g_type_check_instance_cast(ptr noundef %47, i64 noundef %48) #20
-  %50 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef %49, ptr noundef null) #20
+  %50 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.17, ptr noundef %49, ptr noundef null) #20
   %51 = load ptr, ptr %41, align 16, !tbaa !124
   %52 = tail call i64 @gtk_box_get_type() #22
   %53 = tail call ptr @g_type_check_instance_cast(ptr noundef %51, i64 noundef %52) #20
@@ -1015,23 +1015,23 @@ _iop_gui_alloc.exit:                              ; preds = %1, %3
   tail call void @gtk_box_pack_start(ptr noundef %53, ptr noundef %55, i32 noundef 0, i32 noundef 0, i32 noundef 0) #20
   %56 = load ptr, ptr %45, align 8, !tbaa !83
   %57 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef 80) #20
-  %58 = tail call i64 @g_signal_connect_data(ptr noundef %57, ptr noundef nonnull @.str.18, ptr noundef nonnull @lowlight_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %58 = tail call i64 @g_signal_connect_data(ptr noundef %57, ptr noundef nonnull @.str.18, ptr noundef nonnull @lowlight_draw, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %59 = load ptr, ptr %45, align 8, !tbaa !83
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %59, i64 noundef 80) #20
-  %61 = tail call i64 @g_signal_connect_data(ptr noundef %60, ptr noundef nonnull @.str.19, ptr noundef nonnull @lowlight_button_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %61 = tail call i64 @g_signal_connect_data(ptr noundef %60, ptr noundef nonnull @.str.19, ptr noundef nonnull @lowlight_button_press, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %62 = load ptr, ptr %45, align 8, !tbaa !83
   %63 = tail call ptr @g_type_check_instance_cast(ptr noundef %62, i64 noundef 80) #20
-  %64 = tail call i64 @g_signal_connect_data(ptr noundef %63, ptr noundef nonnull @.str.20, ptr noundef nonnull @lowlight_button_release, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %64 = tail call i64 @g_signal_connect_data(ptr noundef %63, ptr noundef nonnull @.str.20, ptr noundef nonnull @lowlight_button_release, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %65 = load ptr, ptr %45, align 8, !tbaa !83
   %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef 80) #20
-  %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.21, ptr noundef nonnull @lowlight_motion_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.21, ptr noundef nonnull @lowlight_motion_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %68 = load ptr, ptr %45, align 8, !tbaa !83
   %69 = tail call ptr @g_type_check_instance_cast(ptr noundef %68, i64 noundef 80) #20
-  %70 = tail call i64 @g_signal_connect_data(ptr noundef %69, ptr noundef nonnull @.str.22, ptr noundef nonnull @lowlight_leave_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
+  %70 = tail call i64 @g_signal_connect_data(ptr noundef %69, ptr noundef nonnull @.str.22, ptr noundef nonnull @lowlight_leave_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
   %71 = load ptr, ptr %45, align 8, !tbaa !83
   %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef 80) #20
-  %73 = tail call i64 @g_signal_connect_data(ptr noundef %72, ptr noundef nonnull @.str.23, ptr noundef nonnull @lowlight_scrolled, ptr noundef %0, ptr noundef null, i32 noundef 0) #20
-  %74 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.24) #20
+  %73 = tail call i64 @g_signal_connect_data(ptr noundef %72, ptr noundef nonnull @.str.23, ptr noundef nonnull @lowlight_scrolled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #20
+  %74 = tail call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.24) #20
   %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %74, ptr %75, align 8, !tbaa !79
   tail call void @dt_bauhaus_slider_set_format(ptr noundef %74, ptr noundef nonnull @.str.25) #20
@@ -1830,7 +1830,7 @@ define internal range(i32 0, 2) i32 @lowlight_button_press(ptr noundef %0, ptr n
 
 24:                                               ; preds = %30
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !154
-  tail call void @dt_dev_add_history_item_target(ptr noundef %25, ptr noundef %2, i32 noundef 1, ptr noundef %0) #20
+  tail call void @dt_dev_add_history_item_target(ptr noundef %25, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #20
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !83
   %28 = tail call i64 @gtk_widget_get_type() #22
@@ -2189,7 +2189,7 @@ define internal noundef i32 @lowlight_motion_notify(ptr noundef %0, ptr noundef 
 dt_iop_lowlight_get_params.exit:                  ; preds = %112, %76, %79
   call void @gtk_widget_queue_draw(ptr noundef %0) #20
   %131 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !154
-  call void @dt_dev_add_history_item_target(ptr noundef %131, ptr noundef %2, i32 noundef 1, ptr noundef %0) #20
+  call void @dt_dev_add_history_item_target(ptr noundef %131, ptr noundef nonnull %2, i32 noundef 1, ptr noundef %0) #20
   br label %157
 
 132:                                              ; preds = %55

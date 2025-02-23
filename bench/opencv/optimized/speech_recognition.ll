@@ -2116,7 +2116,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   %202 = call double @llvm.fmuladd.f64(double %201, double %201, double %.075148)
   %203 = add nuw i64 %.074149, 1
   %exitcond.not = icmp eq i64 %203, %umax
-  br i1 %exitcond.not, label %._crit_edge151, label %.lr.ph150, !llvm.loop !24
+  br i1 %exitcond.not, label %.lr.ph155.preheader, label %.lr.ph150, !llvm.loop !24
 
 204:                                              ; preds = %._crit_edge160
   %205 = landingpad { ptr, i32 }
@@ -2124,14 +2124,14 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
   call void @_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit97
 
-._crit_edge151:                                   ; preds = %.lr.ph150
+.lr.ph155.preheader:                              ; preds = %.lr.ph150
   %206 = fdiv double %202, %187
   %207 = call double @sqrt(double noundef %206) #20
   %208 = fadd double %207, 1.000000e-10
   br label %.lr.ph155
 
-.lr.ph155:                                        ; preds = %._crit_edge151, %.lr.ph155
-  %.072153 = phi i64 [ %214, %.lr.ph155 ], [ 0, %._crit_edge151 ]
+.lr.ph155:                                        ; preds = %.lr.ph155.preheader, %.lr.ph155
+  %.072153 = phi i64 [ %214, %.lr.ph155 ], [ 0, %.lr.ph155.preheader ]
   %209 = load ptr, ptr %190, align 8
   %210 = getelementptr inbounds double, ptr %209, i64 %.072153
   %211 = load double, ptr %210, align 8

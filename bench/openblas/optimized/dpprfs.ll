@@ -172,17 +172,17 @@ define void @dpprfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %79, ptr %80, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.thread:                               ; preds = %.lr.ph
   %81 = add nuw i32 %74, 1
   br i1 %.not, label %.lr.ph416, label %.lr.ph404.preheader
 
-.lr.ph404.preheader:                              ; preds = %._crit_edge
+.lr.ph404.preheader:                              ; preds = %._crit_edge.thread
   %wide.trip.count487 = zext i32 %81 to i64
   br label %.lr.ph404
 
-.lr.ph416:                                        ; preds = %._crit_edge
+.lr.ph416:                                        ; preds = %._crit_edge.thread
   %82 = zext nneg i32 %74 to i64
   %wide.trip.count506 = zext i32 %81 to i64
   br label %116

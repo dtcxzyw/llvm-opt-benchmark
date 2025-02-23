@@ -3784,7 +3784,7 @@ if.end4:                                          ; preds = %if.end9.i, %if.end6
   %mul.i = mul i32 %h, %w
   %conv.i = zext i32 %mul.i to i64
   %cmp49.not.i = icmp eq i32 %mul.i, 0
-  br i1 %cmp49.not.i, label %for.end.thread.i, label %for.body.preheader.i
+  br i1 %cmp49.not.i, label %for.end.i, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.end4
   %mul1.i = shl nuw nsw i64 %conv.i, 2
@@ -3798,22 +3798,22 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   store float %7, ptr %arrayidx2.i, align 4
   %inc.i = add nuw nsw i64 %i.050.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %mul1.i
-  br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !26
+  br i1 %exitcond.not.i, label %for.end.thread.i, label %for.body.i, !llvm.loop !26
 
-for.end.i:                                        ; preds = %for.body.i
+for.end.i:                                        ; preds = %if.end4
   %tobool.not.i10 = icmp eq i32 %use_icc.0, 0
-  br i1 %tobool.not.i10, label %if.else.i, label %for.cond3.preheader.i
+  br i1 %tobool.not.i10, label %if.else.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
 
-for.end.thread.i:                                 ; preds = %if.end4
+for.end.thread.i:                                 ; preds = %for.body.i
   %tobool.not68.i = icmp eq i32 %use_icc.0, 0
-  br i1 %tobool.not68.i, label %if.else.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit
+  br i1 %tobool.not68.i, label %if.else.i, label %for.cond6.preheader.lr.ph.i
 
-for.cond3.preheader.i:                            ; preds = %for.end.i
+for.cond6.preheader.lr.ph.i:                      ; preds = %for.end.thread.i
   %trc.i = getelementptr inbounds nuw i8, ptr %icc, i64 128
   br label %for.cond6.preheader.i
 
-for.cond6.preheader.i:                            ; preds = %for.inc18.i, %for.cond3.preheader.i
-  %i.153.i = phi i64 [ 0, %for.cond3.preheader.i ], [ %inc19.i, %for.inc18.i ]
+for.cond6.preheader.i:                            ; preds = %for.inc18.i, %for.cond6.preheader.lr.ph.i
+  %i.153.i = phi i64 [ 0, %for.cond6.preheader.lr.ph.i ], [ %inc19.i, %for.inc18.i ]
   %mul10.i = shl nuw nsw i64 %i.153.i, 2
   br label %for.body8.i
 
@@ -4077,7 +4077,7 @@ for.inc74.i:                                      ; preds = %cond.end66.i
   %exitcond67.not.i = icmp eq i64 %inc75.i, %conv.i
   br i1 %exitcond67.not.i, label %_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit, label %for.cond52.preheader.i, !llvm.loop !38
 
-_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit: ; preds = %for.inc18.i, %for.inc45.i, %for.inc74.i, %for.end.thread.i, %if.then23.i, %if.then25.i, %if.else48.i
+_ZN7lodepngL18convertToXYZ_gammaEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCE.exit: ; preds = %for.inc18.i, %for.inc45.i, %for.inc74.i, %for.end.i, %if.then23.i, %if.then25.i, %if.else48.i
   call fastcc void @_ZN7lodepngL17convertToXYZ_chrmEPfjjPK11LodePNGInfojPKNS_10LodePNGICCES0_(ptr noundef %out, i32 noundef %w, i32 noundef %h, ptr noundef nonnull %info_png, i32 noundef %use_icc.0, ptr noundef %icc, ptr noundef %whitepoint)
   br label %cleanup
 
@@ -5092,11 +5092,7 @@ define noundef i32 @_ZN7lodepng15convertRGBModelEPhPKhjjPK12LodePNGStateS5_j(ptr
 entry:
   %whitepoint = alloca [3 x float], align 4
   %tobool.not.i = icmp eq ptr %state_in, null
-  %info_png.i = getelementptr inbounds nuw i8, ptr %state_in, i64 208
-  %cond.i = select i1 %tobool.not.i, ptr null, ptr %info_png.i
   %tobool1.not.i = icmp eq ptr %state_out, null
-  %info_png3.i = getelementptr inbounds nuw i8, ptr %state_out, i64 208
-  %cond6.i = select i1 %tobool1.not.i, ptr null, ptr %info_png3.i
   br i1 %tobool.not.i, label %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %entry
@@ -5259,9 +5255,9 @@ _ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i:     ; preds = %if.end30.i81.i, %lo
   br i1 %cmp.not.i, label %if.end.i, label %if.else
 
 if.end.i:                                         ; preds = %_ZN7lodepngL6isSRGBEPK11LodePNGInfo.exit82.i
-  %iccp_defined.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 232
+  %iccp_defined.i = getelementptr inbounds nuw i8, ptr %state_in, i64 440
   %24 = load i32, ptr %iccp_defined.i, align 8
-  %iccp_defined8.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 232
+  %iccp_defined8.i = getelementptr inbounds nuw i8, ptr %state_out, i64 440
   %25 = load i32, ptr %iccp_defined8.i, align 8
   %cmp9.not.i = icmp eq i32 %24, %25
   br i1 %cmp9.not.i, label %if.end11.i, label %if.else
@@ -5271,9 +5267,9 @@ if.end11.i:                                       ; preds = %if.end.i
   br i1 %tobool13.not.i, label %if.end28.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end11.i
-  %iccp_profile_size.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 256
+  %iccp_profile_size.i = getelementptr inbounds nuw i8, ptr %state_in, i64 464
   %26 = load i32, ptr %iccp_profile_size.i, align 8
-  %iccp_profile_size15.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 256
+  %iccp_profile_size15.i = getelementptr inbounds nuw i8, ptr %state_out, i64 464
   %27 = load i32, ptr %iccp_profile_size15.i, align 8
   %cmp16.not.i = icmp eq i32 %26, %27
   br i1 %cmp16.not.i, label %for.cond.preheader.i, label %if.else
@@ -5284,9 +5280,9 @@ for.cond.preheader.i:                             ; preds = %if.then14.i
   br i1 %cmp2083.not.i, label %if.then, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %for.cond.preheader.i
-  %iccp_profile.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 248
+  %iccp_profile.i = getelementptr inbounds nuw i8, ptr %state_in, i64 456
   %28 = load ptr, ptr %iccp_profile.i, align 8
-  %iccp_profile22.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 248
+  %iccp_profile22.i = getelementptr inbounds nuw i8, ptr %state_out, i64 456
   %29 = load ptr, ptr %iccp_profile22.i, align 8
   br label %for.body.i
 
@@ -5305,9 +5301,9 @@ for.body.i:                                       ; preds = %for.cond.i, %for.bo
   br i1 %cmp25.not.i, label %for.cond.i, label %if.else
 
 if.end28.i:                                       ; preds = %if.end11.i
-  %srgb_defined.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 224
+  %srgb_defined.i = getelementptr inbounds nuw i8, ptr %state_in, i64 432
   %32 = load i32, ptr %srgb_defined.i, align 8
-  %srgb_defined29.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 224
+  %srgb_defined29.i = getelementptr inbounds nuw i8, ptr %state_out, i64 432
   %33 = load i32, ptr %srgb_defined29.i, align 8
   %cmp30.not.i = icmp eq i32 %32, %33
   br i1 %cmp30.not.i, label %if.end32.i, label %if.else
@@ -5317,9 +5313,9 @@ if.end32.i:                                       ; preds = %if.end28.i
   br i1 %tobool34.not.i, label %if.end36.i, label %if.then
 
 if.end36.i:                                       ; preds = %if.end32.i
-  %gama_defined.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 180
+  %gama_defined.i = getelementptr inbounds nuw i8, ptr %state_in, i64 388
   %34 = load i32, ptr %gama_defined.i, align 4
-  %gama_defined37.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 180
+  %gama_defined37.i = getelementptr inbounds nuw i8, ptr %state_out, i64 388
   %35 = load i32, ptr %gama_defined37.i, align 4
   %cmp38.not.i = icmp eq i32 %34, %35
   br i1 %cmp38.not.i, label %if.end40.i, label %if.else
@@ -5329,17 +5325,17 @@ if.end40.i:                                       ; preds = %if.end36.i
   br i1 %tobool42.not.i, label %if.end48.i, label %if.then43.i
 
 if.then43.i:                                      ; preds = %if.end40.i
-  %gama_gamma.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 184
+  %gama_gamma.i = getelementptr inbounds nuw i8, ptr %state_in, i64 392
   %36 = load i32, ptr %gama_gamma.i, align 8
-  %gama_gamma44.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 184
+  %gama_gamma44.i = getelementptr inbounds nuw i8, ptr %state_out, i64 392
   %37 = load i32, ptr %gama_gamma44.i, align 8
   %cmp45.not.i = icmp eq i32 %36, %37
   br i1 %cmp45.not.i, label %if.end48.i, label %if.else
 
 if.end48.i:                                       ; preds = %if.then43.i, %if.end40.i
-  %chrm_defined.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 188
+  %chrm_defined.i = getelementptr inbounds nuw i8, ptr %state_in, i64 396
   %38 = load i32, ptr %chrm_defined.i, align 4
-  %chrm_defined49.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 188
+  %chrm_defined49.i = getelementptr inbounds nuw i8, ptr %state_out, i64 396
   %39 = load i32, ptr %chrm_defined49.i, align 4
   %cmp50.not.i = icmp eq i32 %38, %39
   br i1 %cmp50.not.i, label %if.end52.i, label %if.else
@@ -5349,65 +5345,65 @@ if.end52.i:                                       ; preds = %if.end48.i
   br i1 %tobool54.not.i, label %if.then, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end52.i
-  %chrm_white_x.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 192
+  %chrm_white_x.i = getelementptr inbounds nuw i8, ptr %state_in, i64 400
   %40 = load i32, ptr %chrm_white_x.i, align 8
-  %chrm_white_x56.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 192
+  %chrm_white_x56.i = getelementptr inbounds nuw i8, ptr %state_out, i64 400
   %41 = load i32, ptr %chrm_white_x56.i, align 8
   %cmp57.not.i = icmp eq i32 %40, %41
   br i1 %cmp57.not.i, label %if.end59.i, label %if.else
 
 if.end59.i:                                       ; preds = %if.then55.i
-  %chrm_white_y.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 196
+  %chrm_white_y.i = getelementptr inbounds nuw i8, ptr %state_in, i64 404
   %42 = load i32, ptr %chrm_white_y.i, align 4
-  %chrm_white_y60.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 196
+  %chrm_white_y60.i = getelementptr inbounds nuw i8, ptr %state_out, i64 404
   %43 = load i32, ptr %chrm_white_y60.i, align 4
   %cmp61.not.i = icmp eq i32 %42, %43
   br i1 %cmp61.not.i, label %if.end63.i, label %if.else
 
 if.end63.i:                                       ; preds = %if.end59.i
-  %chrm_red_x.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 200
+  %chrm_red_x.i = getelementptr inbounds nuw i8, ptr %state_in, i64 408
   %44 = load i32, ptr %chrm_red_x.i, align 8
-  %chrm_red_x64.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 200
+  %chrm_red_x64.i = getelementptr inbounds nuw i8, ptr %state_out, i64 408
   %45 = load i32, ptr %chrm_red_x64.i, align 8
   %cmp65.not.i = icmp eq i32 %44, %45
   br i1 %cmp65.not.i, label %if.end67.i, label %if.else
 
 if.end67.i:                                       ; preds = %if.end63.i
-  %chrm_red_y.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 204
+  %chrm_red_y.i = getelementptr inbounds nuw i8, ptr %state_in, i64 412
   %46 = load i32, ptr %chrm_red_y.i, align 4
-  %chrm_red_y68.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 204
+  %chrm_red_y68.i = getelementptr inbounds nuw i8, ptr %state_out, i64 412
   %47 = load i32, ptr %chrm_red_y68.i, align 4
   %cmp69.not.i = icmp eq i32 %46, %47
   br i1 %cmp69.not.i, label %if.end71.i, label %if.else
 
 if.end71.i:                                       ; preds = %if.end67.i
-  %chrm_green_x.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 208
+  %chrm_green_x.i = getelementptr inbounds nuw i8, ptr %state_in, i64 416
   %48 = load i32, ptr %chrm_green_x.i, align 8
-  %chrm_green_x72.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 208
+  %chrm_green_x72.i = getelementptr inbounds nuw i8, ptr %state_out, i64 416
   %49 = load i32, ptr %chrm_green_x72.i, align 8
   %cmp73.not.i = icmp eq i32 %48, %49
   br i1 %cmp73.not.i, label %if.end75.i, label %if.else
 
 if.end75.i:                                       ; preds = %if.end71.i
-  %chrm_green_y.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 212
+  %chrm_green_y.i = getelementptr inbounds nuw i8, ptr %state_in, i64 420
   %50 = load i32, ptr %chrm_green_y.i, align 4
-  %chrm_green_y76.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 212
+  %chrm_green_y76.i = getelementptr inbounds nuw i8, ptr %state_out, i64 420
   %51 = load i32, ptr %chrm_green_y76.i, align 4
   %cmp77.not.i = icmp eq i32 %50, %51
   br i1 %cmp77.not.i, label %if.end79.i, label %if.else
 
 if.end79.i:                                       ; preds = %if.end75.i
-  %chrm_blue_x.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 216
+  %chrm_blue_x.i = getelementptr inbounds nuw i8, ptr %state_in, i64 424
   %52 = load i32, ptr %chrm_blue_x.i, align 8
-  %chrm_blue_x80.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 216
+  %chrm_blue_x80.i = getelementptr inbounds nuw i8, ptr %state_out, i64 424
   %53 = load i32, ptr %chrm_blue_x80.i, align 8
   %cmp81.not.i = icmp eq i32 %52, %53
   br i1 %cmp81.not.i, label %if.end83.i, label %if.else
 
 if.end83.i:                                       ; preds = %if.end79.i
-  %chrm_blue_y.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 220
+  %chrm_blue_y.i = getelementptr inbounds nuw i8, ptr %state_in, i64 428
   %54 = load i32, ptr %chrm_blue_y.i, align 4
-  %chrm_blue_y84.i = getelementptr inbounds nuw i8, ptr %cond6.i, i64 220
+  %chrm_blue_y84.i = getelementptr inbounds nuw i8, ptr %state_out, i64 428
   %55 = load i32, ptr %chrm_blue_y84.i, align 4
   %cmp85.not.i = icmp eq i32 %54, %55
   br i1 %cmp85.not.i, label %if.then, label %if.else

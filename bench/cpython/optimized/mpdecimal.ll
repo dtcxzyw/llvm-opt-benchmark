@@ -15774,7 +15774,7 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit
 
 mpd_del.exit:                                     ; preds = %ln_schedule_prec.exit, %56, %101, %104
   store i64 %1, ptr %6, align 8, !tbaa !15
-  call void @mpd_qfinalize(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2)
+  call void @mpd_qfinalize(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %2)
   br label %106
 
 106:                                              ; preds = %mpd_del.exit, %52, %mpd_seterror.exit
@@ -17375,7 +17375,7 @@ mpd_qadd.exit._crit_edge:                         ; preds = %mpd_qadd.exit, %.th
   br i1 %.not21.i95, label %325, label %320
 
 320:                                              ; preds = %317, %mpd_qadd.exit._crit_edge
-  %321 = call i32 @mpd_qcheck_nans(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %0, ptr noundef nonnull readonly %9, ptr noundef %3)
+  %321 = call i32 @mpd_qcheck_nans(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef nonnull readonly %9, ptr noundef %3)
   %.not22.i93 = icmp eq i32 %321, 0
   br i1 %.not22.i93, label %322, label %mpd_qadd.exit96
 

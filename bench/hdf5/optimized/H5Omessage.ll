@@ -1426,9 +1426,9 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
 
 ._crit_edge:                                      ; preds = %8
   %.pre = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7
-  %.pre24 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %.pre25 = trunc nuw i8 %.pre to i1
-  %.pre26 = trunc nuw i8 %.pre24 to i1
+  %.pre19 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %.pre20 = trunc nuw i8 %.pre to i1
+  %.pre21 = trunc nuw i8 %.pre19 to i1
   br label %15
 
 11:                                               ; preds = %8
@@ -1436,14 +1436,14 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %12 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !10
   %13 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %14 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O_msg_count, i32 noundef 702, i64 noundef %12, i64 noundef %13, ptr noundef nonnull @.str.1) #7
-  br label %H5O__msg_count_real.exit.thread
+  br label %H5O__msg_count_real.exit
 
 15:                                               ; preds = %._crit_edge, %2
-  %.pre-phi27 = phi i1 [ %.pre26, %._crit_edge ], [ %6, %2 ]
-  %.pre-phi = phi i1 [ %.pre25, %._crit_edge ], [ %4, %2 ]
-  %16 = xor i1 %.pre-phi27, true
+  %.pre-phi22 = phi i1 [ %.pre21, %._crit_edge ], [ %6, %2 ]
+  %.pre-phi = phi i1 [ %.pre20, %._crit_edge ], [ %4, %2 ]
+  %16 = xor i1 %.pre-phi22, true
   %17 = select i1 %.pre-phi, i1 true, i1 %16
-  br i1 %17, label %18, label %H5O__msg_count_real.exit.thread, !prof !9
+  br i1 %17, label %18, label %H5O__msg_count_real.exit, !prof !9
 
 18:                                               ; preds = %15
   %19 = zext i32 %1 to i64
@@ -1457,7 +1457,7 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %25 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %26 = load i64, ptr @H5E_CANTPROTECT_g, align 8, !tbaa !10
   %27 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O_msg_count, i32 noundef 714, i64 noundef %25, i64 noundef %26, ptr noundef nonnull @.str.14) #7
-  br label %H5O__msg_count_real.exit.thread
+  br label %H5O__msg_count_real.exit
 
 28:                                               ; preds = %18
   %29 = load i8, ptr @H5O_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1466,13 +1466,13 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %32 = trunc nuw i8 %31 to i1
   %33 = xor i1 %32, true
   %34 = select i1 %30, i1 true, i1 %33
-  br i1 %34, label %.preheader.i, label %H5O__msg_count_real.exit.thread18, !prof !9
+  br i1 %34, label %.preheader.i, label %.loopexit, !prof !9
 
 .preheader.i:                                     ; preds = %28
   %35 = getelementptr inbounds nuw i8, ptr %22, i64 336
   %36 = load i64, ptr %35, align 8, !tbaa !49
   %.not.i = icmp eq i64 %36, 0
-  br i1 %.not.i, label %H5O__msg_count_real.exit.thread18, label %.lr.ph.i
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 352
@@ -1491,22 +1491,22 @@ define i32 @H5O_msg_count(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 
   %45 = add i32 %.079.i, 1
   %46 = zext i32 %45 to i64
   %47 = icmp ugt i64 %36, %46
-  br i1 %47, label %39, label %H5O__msg_count_real.exit.thread18, !llvm.loop !70
+  br i1 %47, label %39, label %.loopexit, !llvm.loop !70
 
-H5O__msg_count_real.exit.thread18:                ; preds = %39, %.preheader.i, %28
-  %.023 = phi i32 [ 0, %28 ], [ 0, %.preheader.i ], [ %spec.select.i, %39 ]
+.loopexit:                                        ; preds = %39, %28, %.preheader.i
+  %.0.ph = phi i32 [ 0, %.preheader.i ], [ 0, %28 ], [ %spec.select.i, %39 ]
   %48 = tail call i32 @H5O_unprotect(ptr noundef %0, ptr noundef nonnull %22, i32 noundef 0) #7
   %49 = icmp slt i32 %48, 0
-  br i1 %49, label %50, label %H5O__msg_count_real.exit.thread
+  br i1 %49, label %50, label %H5O__msg_count_real.exit
 
-50:                                               ; preds = %H5O__msg_count_real.exit.thread18
+50:                                               ; preds = %.loopexit
   %51 = load i64, ptr @H5E_OHDR_g, align 8, !tbaa !10
   %52 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !10
   %53 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5O_msg_count, i32 noundef 722, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.16) #7
-  br label %H5O__msg_count_real.exit.thread
+  br label %H5O__msg_count_real.exit
 
-H5O__msg_count_real.exit.thread:                  ; preds = %24, %11, %H5O__msg_count_real.exit.thread18, %50, %15
-  %.1 = phi i32 [ -1, %50 ], [ %.023, %H5O__msg_count_real.exit.thread18 ], [ -1, %15 ], [ -1, %11 ], [ -1, %24 ]
+H5O__msg_count_real.exit:                         ; preds = %11, %24, %.loopexit, %50, %15
+  %.1 = phi i32 [ -1, %50 ], [ %.0.ph, %.loopexit ], [ -1, %15 ], [ -1, %11 ], [ -1, %24 ]
   ret i32 %.1
 }
 

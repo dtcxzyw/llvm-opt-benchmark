@@ -2119,7 +2119,7 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %82
 
 158:                                              ; preds = %154
   call void @PMIx_Byte_object_destruct(ptr noundef nonnull %12) #20
-  call void @free(ptr noundef %47) #20
+  call void @free(ptr noundef nonnull %47) #20
   br i1 %.not139.i.i, label %construct_message.exit.thread.i, label %159
 
 159:                                              ; preds = %158
@@ -2274,7 +2274,7 @@ pmix_obj_run_constructors.exit.i.i:               ; preds = %.lr.ph.i.i.i, %82
   br i1 %.not.i150.i.i, label %pmix_obj_run_destructors.exit151.i.i, label %.lr.ph.i148.i.i, !llvm.loop !95
 
 pmix_obj_run_destructors.exit151.i.i:             ; preds = %.lr.ph.i148.i.i, %234, %233
-  call void @free(ptr noundef %calloc.i.i) #20
+  call void @free(ptr noundef nonnull %calloc.i.i) #20
   br label %construct_message.exit.thread.i
 
 242:                                              ; preds = %218, %203, %195, %186
@@ -2330,7 +2330,7 @@ construct_message.exit.thread20.i:                ; preds = %.lr.ph.i153.i.i, %2
   %266 = load i32, ptr %17, align 4, !tbaa !138
   %267 = call i32 @pmix_ptl_base_send_blocking(i32 noundef %266, ptr noundef nonnull %calloc.i.i, i64 noundef %156) #20
   %.not12.i = icmp eq i32 %267, 0
-  call void @free(ptr noundef %calloc.i.i) #20
+  call void @free(ptr noundef nonnull %calloc.i.i) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #20
   br i1 %.not12.i, label %send_connect_ack.exit.thread41, label %send_connect_ack.exit.thread
 
@@ -4072,7 +4072,7 @@ pmix_obj_new_tma.exit165.i:                       ; preds = %.lr.ph.i.i162.i, %3
   %323 = load volatile i64, ptr %41, align 8, !tbaa !107
   %324 = add i64 %323, 1
   store volatile i64 %324, ptr %41, align 8, !tbaa !107
-  call void @free(ptr noundef %295) #20
+  call void @free(ptr noundef nonnull %295) #20
   %325 = call ptr @pmix_getline(ptr noundef nonnull %.0199.i) #20
   %326 = icmp eq ptr %325, null
   br i1 %326, label %366, label %327

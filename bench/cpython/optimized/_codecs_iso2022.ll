@@ -1355,7 +1355,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
   br i1 %or.cond75.i, label %105, label %101, !llvm.loop !66
 
 105:                                              ; preds = %101
-  br i1 %.not71.i, label %iso2022processesc.exit, label %iso2022processesc.exit.thread150
+  br i1 %.not71.i, label %.thread159, label %iso2022processesc.exit.thread150
 
 iso2022processesc.exit.thread150:                 ; preds = %97, %105
   %.05584.i = phi i64 [ %.055.i, %97 ], [ %.05583.i, %105 ]
@@ -1368,7 +1368,7 @@ iso2022processesc.exit.thread150:                 ; preds = %97, %105
   store ptr %109, ptr %2, align 8, !tbaa !39
   br label %307
 
-iso2022processesc.exit:                           ; preds = %60, %105
+iso2022processesc.exit:                           ; preds = %60
   %.not123 = icmp eq i64 %61, 0
   br i1 %.not123, label %307, label %.thread159
 
@@ -1688,8 +1688,8 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   %279 = trunc i32 %263 to i8
   %280 = getelementptr i8, ptr %277, i64 %275
   store i8 %279, ptr %280, align 1, !tbaa !36
-  %.pre235 = load ptr, ptr %14, align 8, !tbaa !74
-  %.pre236 = load i64, ptr %12, align 8, !tbaa !72
+  %.pre237 = load ptr, ptr %14, align 8, !tbaa !74
+  %.pre238 = load i64, ptr %12, align 8, !tbaa !72
   br label %PyUnicode_WRITE.exit
 
 281:                                              ; preds = %.thread
@@ -1704,8 +1704,8 @@ iso2022processg2.exit:                            ; preds = %122, %133, %143, %1
   br label %PyUnicode_WRITE.exit
 
 PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
-  %286 = phi i64 [ %.pre236, %278 ], [ %275, %281 ], [ %275, %284 ]
-  %287 = phi ptr [ %.pre235, %278 ], [ %277, %281 ], [ %277, %284 ]
+  %286 = phi i64 [ %.pre238, %278 ], [ %275, %281 ], [ %275, %284 ]
+  %287 = phi ptr [ %.pre237, %278 ], [ %277, %281 ], [ %277, %284 ]
   %288 = load i32, ptr %13, align 8, !tbaa !73
   %289 = add i64 %286, 1
   switch i32 %288, label %296 [
@@ -1717,7 +1717,7 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %291 = trunc i32 %247 to i8
   %292 = getelementptr i8, ptr %287, i64 %289
   store i8 %291, ptr %292, align 1, !tbaa !36
-  %.pre237 = load i64, ptr %12, align 8, !tbaa !72
+  %.pre239 = load i64, ptr %12, align 8, !tbaa !72
   br label %298
 
 293:                                              ; preds = %PyUnicode_WRITE.exit
@@ -1732,7 +1732,7 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   br label %298
 
 298:                                              ; preds = %296, %293, %290
-  %299 = phi i64 [ %286, %296 ], [ %286, %293 ], [ %.pre237, %290 ]
+  %299 = phi i64 [ %286, %296 ], [ %286, %293 ], [ %.pre239, %290 ]
   %300 = add i64 %299, 2
   store i64 %300, ptr %12, align 8, !tbaa !72
   br label %301
@@ -1752,8 +1752,8 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 
-.thread159:                                       ; preds = %307, %22, %34, %iso2022processesc.exit, %115, %180, %207, %217, %222, %.loopexit, %254, %259, %60, %68, %73, %74, %93, %89, %85, %81, %122, %118, %133, %143, %156, %161, %164, %167, %160, %170, %173, %117, %272, %switch.lookup, %57, %5, %249
-  %.5 = phi i64 [ %251, %249 ], [ 0, %5 ], [ 1, %57 ], [ -2, %switch.lookup ], [ 0, %307 ], [ -4, %22 ], [ -2, %34 ], [ %61, %iso2022processesc.exit ], [ -2, %115 ], [ -4, %180 ], [ -4, %207 ], [ 1, %217 ], [ -4, %222 ], [ -2, %.loopexit ], [ -4, %254 ], [ -4, %259 ], [ 1, %60 ], [ 3, %68 ], [ 4, %73 ], [ 4, %74 ], [ 6, %93 ], [ 6, %89 ], [ 6, %85 ], [ 6, %81 ], [ -4, %122 ], [ 3, %118 ], [ -4, %133 ], [ -4, %143 ], [ -4, %156 ], [ -4, %161 ], [ -4, %164 ], [ -4, %167 ], [ 3, %160 ], [ 3, %170 ], [ -4, %173 ], [ -3, %117 ], [ -4, %272 ]
+.thread159:                                       ; preds = %307, %22, %34, %iso2022processesc.exit, %115, %180, %207, %217, %222, %.loopexit, %254, %259, %105, %60, %68, %73, %74, %93, %89, %85, %81, %122, %118, %133, %143, %156, %161, %164, %167, %160, %170, %173, %117, %272, %switch.lookup, %57, %5, %249
+  %.5 = phi i64 [ %251, %249 ], [ 0, %5 ], [ 1, %57 ], [ -2, %switch.lookup ], [ 0, %307 ], [ -4, %22 ], [ -2, %34 ], [ %61, %iso2022processesc.exit ], [ -2, %115 ], [ -4, %180 ], [ -4, %207 ], [ 1, %217 ], [ -4, %222 ], [ -2, %.loopexit ], [ -4, %254 ], [ -4, %259 ], [ %61, %105 ], [ 1, %60 ], [ 3, %68 ], [ 4, %73 ], [ 4, %74 ], [ 6, %93 ], [ 6, %89 ], [ 6, %85 ], [ 6, %81 ], [ -4, %122 ], [ 3, %118 ], [ -4, %133 ], [ -4, %143 ], [ -4, %156 ], [ -4, %161 ], [ -4, %164 ], [ -4, %167 ], [ 3, %160 ], [ 3, %170 ], [ -4, %173 ], [ -3, %117 ], [ -4, %272 ]
   ret i64 %.5
 }
 

@@ -141937,7 +141937,7 @@ while.body.us.i:                                  ; preds = %while.body.lr.ph.i,
   %_M_right.i.us.i = getelementptr inbounds nuw i8, ptr %__x.028.us.i, i64 24
   %__x.0.us.i = load ptr, ptr %_M_right.i.us.i, align 8
   %cmp.not.us.i = icmp eq ptr %__x.0.us.i, null
-  br i1 %cmp.not.us.i, label %if.end12.i, label %while.body.us.i, !llvm.loop !1737
+  br i1 %cmp.not.us.i, label %return, label %while.body.us.i, !llvm.loop !1737
 
 while.body.i:                                     ; preds = %while.body.lr.ph.i, %while.body.i.backedge
   %__x.028.i = phi ptr [ %__x.028.i.be, %while.body.i.backedge ], [ %__x.026.i, %while.body.lr.ph.i ]
@@ -141982,16 +141982,16 @@ if.else.i:                                        ; preds = %if.then.i
   %.pre217 = load i8, ptr %__k, align 1
   br label %if.end12.i
 
-if.end12.i:                                       ; preds = %while.body.us.i, %cond.end.i.thread, %if.else.i
-  %11 = phi i8 [ %.pre217, %if.else.i ], [ %.fr.i, %cond.end.i.thread ], [ %.fr.i, %while.body.us.i ]
-  %__y.0.lcssa34.i = phi ptr [ %__y.0.lcssa35.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ], [ %__x.028.us.i, %while.body.us.i ]
-  %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ], [ %__x.028.us.i, %while.body.us.i ]
+if.end12.i:                                       ; preds = %cond.end.i.thread, %if.else.i
+  %11 = phi i8 [ %.pre217, %if.else.i ], [ %.fr.i, %cond.end.i.thread ]
+  %__y.0.lcssa34.i = phi ptr [ %__y.0.lcssa35.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
+  %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.028.i, %cond.end.i.thread ]
   %_M_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i, i64 32
   %12 = load i8, ptr %_M_storage.i.i.i.i, align 1
   %cmp.i.i4.i = icmp ult i8 %12, 9
   %cmp3.i.i5.i = icmp ult i8 %11, 9
   %or.cond.i.i6.i = and i1 %cmp.i.i4.i, %cmp3.i.i5.i
-  br i1 %or.cond.i.i6.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i, label %if.end18.i
+  br i1 %or.cond.i.i6.i, label %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i, label %return
 
 _ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i: ; preds = %if.end12.i
   %conv1.i.i8.i = zext nneg i8 %11 to i64
@@ -142001,9 +142001,8 @@ _ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i: ; p
   %arrayidx.i.i3.i.i11.i = getelementptr inbounds nuw [9 x i8], ptr @_ZZN8nlohmann16json_abi_v3_11_36detailltENS1_7value_tES2_E5order, i64 0, i64 %conv1.i.i8.i
   %14 = load i8, ptr %arrayidx.i.i3.i.i11.i, align 1
   %cmp8.i.i12.i = icmp ult i8 %13, %14
-  br i1 %cmp8.i.i12.i, label %return, label %if.end18.i
-
-if.end18.i:                                       ; preds = %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i, %if.end12.i
+  %spec.select231 = select i1 %cmp8.i.i12.i, ptr null, ptr %__j.sroa.0.0.i
+  %spec.select232 = select i1 %cmp8.i.i12.i, ptr %__y.0.lcssa34.i, ptr null
   br label %return
 
 if.else12:                                        ; preds = %entry
@@ -142216,9 +142215,9 @@ _ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149: 
 if.end18.i144:                                    ; preds = %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149, %if.end12.i137
   br label %return
 
-return:                                           ; preds = %if.end18.i144, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149, %if.then.i166, %if.end18.i61, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66, %if.then.i83, %if.end18.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i, %if.then.i, %if.then64, %if.then32, %if.else12, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104, %if.then50, %if.then18, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit
-  %retval.sroa.0.0 = phi ptr [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit ], [ %19, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104 ], [ %__position.coerce, %if.else12 ], [ %spec.select, %if.then32 ], [ %spec.select204, %if.then64 ], [ %__j.sroa.0.0.i, %if.end18.i ], [ null, %if.then.i ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i ], [ %__j.sroa.0.0.i56, %if.end18.i61 ], [ null, %if.then.i83 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66 ], [ %__j.sroa.0.0.i139, %if.end18.i144 ], [ null, %if.then.i166 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149 ]
-  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit ], [ %19, %if.then18 ], [ %27, %if.then50 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104 ], [ null, %if.else12 ], [ %spec.select203, %if.then32 ], [ %spec.select205, %if.then64 ], [ null, %if.end18.i ], [ %__y.0.lcssa35.i, %if.then.i ], [ %__y.0.lcssa34.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i ], [ null, %if.end18.i61 ], [ %__y.0.lcssa35.i84, %if.then.i83 ], [ %__y.0.lcssa34.i55, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66 ], [ null, %if.end18.i144 ], [ %__y.0.lcssa35.i167, %if.then.i166 ], [ %__y.0.lcssa34.i138, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149 ]
+return:                                           ; preds = %while.body.us.i, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i, %if.end12.i, %if.end18.i144, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149, %if.then.i166, %if.end18.i61, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66, %if.then.i83, %if.then.i, %if.then64, %if.then32, %if.else12, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104, %if.then50, %if.then18, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit
+  %retval.sroa.0.0 = phi ptr [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit ], [ %19, %if.then18 ], [ null, %if.then50 ], [ %__position.coerce, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104 ], [ %__position.coerce, %if.else12 ], [ %spec.select, %if.then32 ], [ %spec.select204, %if.then64 ], [ null, %if.then.i ], [ %__j.sroa.0.0.i56, %if.end18.i61 ], [ null, %if.then.i83 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66 ], [ %__j.sroa.0.0.i139, %if.end18.i144 ], [ null, %if.then.i166 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149 ], [ %__j.sroa.0.0.i, %if.end12.i ], [ %spec.select231, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i ], [ %__x.028.us.i, %while.body.us.i ]
+  %retval.sroa.12.0 = phi ptr [ %1, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit ], [ %19, %if.then18 ], [ %27, %if.then50 ], [ null, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit104 ], [ null, %if.else12 ], [ %spec.select203, %if.then32 ], [ %spec.select205, %if.then64 ], [ %__y.0.lcssa35.i, %if.then.i ], [ null, %if.end18.i61 ], [ %__y.0.lcssa35.i84, %if.then.i83 ], [ %__y.0.lcssa34.i55, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i66 ], [ null, %if.end18.i144 ], [ %__y.0.lcssa35.i167, %if.then.i166 ], [ %__y.0.lcssa34.i138, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i149 ], [ null, %if.end12.i ], [ %spec.select232, %_ZNKSt4lessIN8nlohmann16json_abi_v3_11_36detail7value_tEEclES3_S3_.exit13.i ], [ null, %while.body.us.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.12.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -156,13 +156,13 @@ switch.lookup:                                    ; preds = %16
   %switch.gep = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep196 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw.1, i64 0, i64 %27
-  %switch.load197 = load ptr, ptr %switch.gep196, align 8
+  %switch.gep192 = getelementptr inbounds nuw [9 x ptr], ptr @switch.table.iousers_draw.1, i64 0, i64 %27
+  %switch.load193 = load ptr, ptr %switch.gep192, align 8
   br label %28
 
 28:                                               ; preds = %16, %switch.lookup
   %.str.16.sink = phi ptr [ %switch.load, %switch.lookup ], [ @.str.16, %16 ]
-  %.str.17.sink = phi ptr [ %switch.load197, %switch.lookup ], [ @.str.17, %16 ]
+  %.str.17.sink = phi ptr [ %switch.load193, %switch.lookup ], [ @.str.17, %16 ]
   %29 = select i1 %17, ptr @.str.9, ptr @.str.10
   %30 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.16.sink, ptr noundef nonnull %29)
   %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %.str.17.sink, ptr noundef nonnull %29)
@@ -173,7 +173,7 @@ switch.lookup:                                    ; preds = %16
 33:                                               ; preds = %.critedge2, %28
   %34 = phi ptr [ %.pre, %28 ], [ %218, %.critedge2 ]
   %35 = phi ptr [ %.pre, %28 ], [ %219, %.critedge2 ]
-  %.0128 = phi i64 [ 4294967295, %28 ], [ %.0.lcssa191, %.critedge2 ]
+  %.0128 = phi i64 [ 4294967295, %28 ], [ %.0.lcssa.ph, %.critedge2 ]
   %.not144 = icmp eq ptr %35, null
   br i1 %.not144, label %.critedge2.thread, label %.lr.ph
 
@@ -205,7 +205,7 @@ switch.lookup:                                    ; preds = %16
   br i1 %exitcond.not, label %.lr.ph168.preheader, label %39
 
 .lr.ph168.preheader:                              ; preds = %39, %.lr.ph
-  %.0.lcssa191 = phi i64 [ 0, %.lr.ph ], [ %.1, %39 ]
+  %.0.lcssa.ph = phi i64 [ 0, %.lr.ph ], [ %.1, %39 ]
   br label %.lr.ph168
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %216
@@ -226,7 +226,7 @@ switch.lookup:                                    ; preds = %16
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %58
-  %62 = icmp eq i64 %61, %.0.lcssa191
+  %62 = icmp eq i64 %61, %.0.lcssa.ph
   br i1 %62, label %63, label %216
 
 63:                                               ; preds = %54
@@ -465,7 +465,7 @@ switch.lookup:                                    ; preds = %16
 .critedge2:                                       ; preds = %.lr.ph168, %216
   %218 = phi ptr [ null, %216 ], [ %48, %.lr.ph168 ]
   %219 = phi ptr [ null, %216 ], [ %49, %.lr.ph168 ]
-  %.not146 = icmp eq i64 %.0.lcssa191, 0
+  %.not146 = icmp eq i64 %.0.lcssa.ph, 0
   br i1 %.not146, label %.critedge2.thread, label %33, !llvm.loop !9
 
 .critedge2.thread:                                ; preds = %33, %.critedge2

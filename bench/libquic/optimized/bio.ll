@@ -1396,7 +1396,7 @@ bio_read_all.exit:                                ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 2 dereferenceable(1) %5, i64 %.059, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.059
   %94 = trunc nuw nsw i64 %.061 to i32
-  %95 = call fastcc i32 @bio_io(ptr noundef %0, ptr noundef nonnull %93, i32 noundef %94, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
+  %95 = call fastcc i32 @bio_io(ptr noundef nonnull %0, ptr noundef nonnull %93, i32 noundef %94, i64 noundef 24, i32 noundef 2, ptr noundef nonnull %6)
   %.not71 = icmp eq i32 %95, %94
   br i1 %.not71, label %bio_read_all.exit.thread, label %96
 

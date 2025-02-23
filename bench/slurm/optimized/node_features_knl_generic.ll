@@ -1544,9 +1544,9 @@ define internal noalias noundef ptr @_ume_agent(ptr readnone captures(none) %0) 
   %78 = call i32 @nanosleep(ptr noundef nonnull %2, ptr noundef null) #14
   %79 = load i64, ptr @shutdown_time, align 8
   %.not = icmp eq i64 %79, 0
-  br i1 %.not, label %.preheader.preheader, label %._crit_edge47, !llvm.loop !23
+  br i1 %.not, label %.preheader.preheader, label %._crit_edge, !llvm.loop !23
 
-._crit_edge47:                                    ; preds = %.preheader.preheader, %.thread, %._crit_edge.us, %43, %36
+._crit_edge47:                                    ; preds = %.thread, %._crit_edge.us, %43, %36
   %80 = icmp sgt i64 %indvars.iv, 0
   br i1 %80, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1564,7 +1564,7 @@ define internal noalias noundef ptr @_ume_agent(ptr readnone captures(none) %0) 
   %exitcond63.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
-._crit_edge:                                      ; preds = %.lr.ph, %._crit_edge47
+._crit_edge:                                      ; preds = %.preheader.preheader, %.lr.ph, %._crit_edge47
   call void @slurm_xfree(ptr noundef nonnull %3) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14

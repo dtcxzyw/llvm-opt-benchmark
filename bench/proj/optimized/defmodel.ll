@@ -919,8 +919,8 @@ define hidden void @_ZN16DeformationModel5EpochC2ERKNSt7__cxx1112basic_stringIcS
 ._crit_edge.i:                                    ; preds = %52, %47
   %.036.lcssa.i = phi i32 [ %49, %47 ], [ %56, %52 ]
   %57 = add nsw i32 %19, -1
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds [2 x [12 x i32]], ptr @__const._ZN16DeformationModelL20ISO8601ToDecimalYearERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.month_table, i64 0, i64 %51, i64 %58
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw [2 x [12 x i32]], ptr @__const._ZN16DeformationModelL20ISO8601ToDecimalYearERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.month_table, i64 0, i64 %51, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = icmp sgt i32 %22, %60
   br i1 %61, label %62, label %72
@@ -8975,7 +8975,7 @@ define internal fastcc noundef zeroext i1 @_ZN16DeformationModel9EvaluatorIN12_G
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader463
   %.1426.lcssa = phi double [ %2, %.preheader463 ], [ %60, %.lr.ph ]
-  %58 = fadd double %51, %55
+  %58 = fadd double %55, 1.000000e-10
   %59 = fcmp ogt double %.1426.lcssa, %58
   br i1 %59, label %.lr.ph492, label %.loopexit
 

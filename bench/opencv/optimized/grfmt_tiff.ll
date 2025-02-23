@@ -3804,7 +3804,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
 
 .lr.ph997.preheader:                              ; preds = %.preheader949
   %875 = add nsw i32 %873, -4
-  %876 = sext i32 %875 to i64
+  %876 = zext nneg i32 %875 to i64
   br label %.lr.ph997
 
 .preheader.loopexit:                              ; preds = %.lr.ph997
@@ -3818,7 +3818,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
 
 .lr.ph999.preheader:                              ; preds = %.preheader
   %879 = zext nneg i32 %.0593.lcssa to i64
-  %880 = sext i32 %873 to i64
+  %880 = zext nneg i32 %873 to i64
   br label %.lr.ph999
 
 .lr.ph997:                                        ; preds = %.lr.ph997.preheader, %.lr.ph997
@@ -3848,7 +3848,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   %900 = getelementptr inbounds nuw i8, ptr %750, i64 %899
   store i8 %898, ptr %900, align 1
   %indvars.iv.next1044 = add nuw nsw i64 %indvars.iv1043, 4
-  %901 = icmp slt i64 %indvars.iv.next1044, %876
+  %901 = icmp samesign ult i64 %indvars.iv.next1044, %876
   br i1 %901, label %.lr.ph997, label %.preheader.loopexit, !llvm.loop !10
 
 .lr.ph999:                                        ; preds = %.lr.ph999.preheader, %.lr.ph999
@@ -3860,7 +3860,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit762:         ; preds = %.noexc, %_ZN2cv10Au
   %906 = getelementptr inbounds nuw i8, ptr %750, i64 %indvars.iv1046
   store i8 %905, ptr %906, align 1
   %indvars.iv.next1047 = add nuw nsw i64 %indvars.iv1046, 1
-  %907 = icmp slt i64 %indvars.iv.next1047, %880
+  %907 = icmp samesign ult i64 %indvars.iv.next1047, %880
   br i1 %907, label %.lr.ph999, label %.loopexit948, !llvm.loop !12
 
 908:                                              ; preds = %829

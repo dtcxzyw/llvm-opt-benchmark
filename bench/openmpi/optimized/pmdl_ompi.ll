@@ -3677,7 +3677,7 @@ pmix_obj_run_destructors.exit294:                 ; preds = %.lr.ph.i291, %449
   br i1 %469, label %pmix_obj_run_destructors.exit264, label %470
 
 470:                                              ; preds = %464
-  call void @PMIx_Load_procid(ptr noundef nonnull %8, ptr noundef %0, i32 noundef -1) #17
+  call void @PMIx_Load_procid(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef -1) #17
   %471 = call i32 @PMIx_Info_load(ptr noundef nonnull %9, ptr noundef nonnull @.str.77, ptr noundef null, i16 noundef zeroext 1) #17
   store ptr null, ptr %6, align 8, !tbaa !41
   store i32 0, ptr %10, align 4, !tbaa !21
@@ -4284,7 +4284,7 @@ pmix_obj_update.exit:                             ; preds = %9
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %31 = phi ptr [ %33, %.lr.ph.i ], [ %30, %25 ]
   %.07.i = phi ptr [ %32, %.lr.ph.i ], [ %29, %25 ]
-  tail call void %31(ptr noundef %.017) #17
+  tail call void %31(ptr noundef nonnull %.017) #17
   %32 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !27
   %.not.i = icmp eq ptr %33, null
@@ -4298,11 +4298,11 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
 
 36:                                               ; preds = %pmix_obj_run_destructors.exit
   %37 = getelementptr inbounds nuw i8, ptr %.017, i64 56
-  tail call void %35(ptr noundef nonnull %37, ptr noundef nonnull %.017) #17
+  tail call void %35(ptr noundef nonnull %37, ptr noundef %.017) #17
   br label %.loopexit
 
 38:                                               ; preds = %pmix_obj_run_destructors.exit
-  tail call void @free(ptr noundef nonnull %.017) #17
+  tail call void @free(ptr noundef %.017) #17
   br label %.loopexit
 
 39:                                               ; preds = %3

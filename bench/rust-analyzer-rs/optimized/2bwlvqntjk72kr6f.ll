@@ -194,7 +194,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h0704c00a27d28f42E.exit.threa
 44:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17hc334582579f8eacdE.exit.thread.i.i.i.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
-  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 64
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %46 = load ptr, ptr %45, align 8, !alias.scope !122, !noalias !131, !nonnull !11, !noundef !11
   %47 = icmp eq ptr %42, %46
   br i1 %47, label %_ZN4core3ops8function6FnOnce9call_once17hbc6f372ea48dd8e3E.exit.thread.i8.i.i.i.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17hbc6f372ea48dd8e3E.exit.i2.i.i.i.i.i.i.i
@@ -207,7 +207,7 @@ _ZN4core3ops8function6FnOnce9call_once17hbc6f372ea48dd8e3E.exit.i2.i.i.i.i.i.i.i
   %51 = add i64 %50, 1
   store i64 %51, ptr %49, align 8, !alias.scope !134, !noalias !131
   %52 = trunc i64 %50 to i32
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 80
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 160
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !135
   invoke void @"_ZN13project_model9workspace16ProjectWorkspace8to_roots28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hff0a8a992ac4c06dE.llvm.3506456842714578515"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %53, i32 noundef %52)
           to label %.noexc3.i.i.i.i unwind label %.loopexit.split-lp.i.i.i.i, !noalias !86
@@ -740,7 +740,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h1104fda248d8b3faE.exit.threa
 88:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h052b19677f8c5c7aE.exit.thread.i.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %90 = load ptr, ptr %89, align 8, !alias.scope !351, !noalias !360, !nonnull !11, !noundef !11
   %91 = icmp eq ptr %86, %90
   br i1 %91, label %_ZN4core3ops8function6FnOnce9call_once17h1af933333cf095ccE.exit.thread.i8.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h1af933333cf095ccE.exit.i2.i.i.i.i
@@ -753,7 +753,7 @@ _ZN4core3ops8function6FnOnce9call_once17h1af933333cf095ccE.exit.i2.i.i.i.i: ; pr
   %95 = add i64 %94, 1
   store i64 %95, ptr %93, align 8, !alias.scope !363, !noalias !360
   %96 = trunc i64 %94 to i32
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 72
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !364
   invoke void @"_ZN13project_model9workspace16ProjectWorkspace8to_roots28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc2074c84c3a7d513E.llvm.3506456842714578515"(ptr noalias noundef nonnull sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(8) %97, i32 noundef %96)
           to label %.noexc3.i unwind label %.loopexit.split-lp.i, !noalias !308

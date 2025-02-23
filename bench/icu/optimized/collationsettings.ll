@@ -633,7 +633,7 @@ for.body.preheader:                               ; preds = %if.end15
   br label %for.body
 
 while.cond36.preheader:                           ; preds = %for.inc
-  %cmp3753 = icmp slt i32 %b.2, 256
+  %cmp3753 = icmp samesign ult i32 %b.2, 256
   br i1 %cmp3753, label %while.body38.preheader, label %while.end43
 
 while.body38.preheader:                           ; preds = %if.end15, %while.cond36.preheader

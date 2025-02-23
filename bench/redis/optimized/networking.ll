@@ -3913,7 +3913,7 @@ define dso_local void @addReplyDouble(ptr noundef %0, double noundef %1) local_u
   store i8 0, ptr %45, align 1, !tbaa !12
   %46 = sub nsw i32 %43, %25
   %47 = sext i32 %46 to i64
-  call void @addReplyProto(ptr noundef %0, ptr noundef nonnull %30, i64 noundef %47)
+  call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull %30, i64 noundef %47)
   call void @llvm.lifetime.end.p0(i64 5152, ptr nonnull %4) #26
   br label %59
 
@@ -5538,9 +5538,9 @@ define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly
   %13 = phi ptr [ %16, %.lr.ph ], [ %12, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %13) #30
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 1)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull readonly %13, i64 noundef %14)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 2)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i64 noundef 1)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull readonly %13, i64 noundef %14)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
   %15 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
   %16 = load ptr, ptr %15, align 8, !tbaa !107
   %.not = icmp eq ptr %16, null
@@ -5565,9 +5565,9 @@ define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly
   %19 = phi ptr [ %22, %.lr.ph34 ], [ %18, %.preheader ]
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %20 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %19) #30
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 1)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull readonly %19, i64 noundef %20)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 2)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i64 noundef 1)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull readonly %19, i64 noundef %20)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
   %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next39
   %22 = load ptr, ptr %21, align 8, !tbaa !107
   %.not29 = icmp eq ptr %22, null
@@ -5580,12 +5580,12 @@ define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %.preheader ], [ %23, %.loopexit.loopexit ]
   %24 = add nuw nsw i32 %.0, %.025.lcssa
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 1)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull readonly @.str.37, i64 noundef 4)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 2)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.18, i64 noundef 1)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull readonly @.str.38, i64 noundef 20)
-  tail call void @addReplyProto(ptr noundef %0, ptr noundef nonnull @.str.6, i64 noundef 2)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i64 noundef 1)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.37, i64 noundef 4)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, i64 noundef 1)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull readonly @.str.38, i64 noundef 20)
+  tail call void @addReplyProto(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 2)
   %25 = add nuw nsw i32 %24, 3
   %26 = zext nneg i32 %25 to i64
   %27 = icmp eq ptr %11, null
@@ -5602,14 +5602,14 @@ define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly
   %34 = load ptr, ptr %33, align 8, !tbaa !147
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !6
-  tail call void @setDeferredReply(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %36, i64 noundef %32)
+  tail call void @setDeferredReply(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %36, i64 noundef %32)
   br label %setDeferredArrayLen.exit
 
 37:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #26
   %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.21, i32 noundef 42, i64 noundef %26) #26
   %39 = sext i32 %38 to i64
-  call void @setDeferredReply(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %39)
+  call void @setDeferredReply(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull %4, i64 noundef %39)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #26
   br label %setDeferredArrayLen.exit
 

@@ -358,7 +358,7 @@ define void @lu_solve(ptr noundef captures(none) %0, ptr noundef readonly captur
   %43 = load double, ptr %42, align 8, !tbaa !14
   %44 = fdiv double %41, %43
   store double %44, ptr %39, align 8, !tbaa !14
-  %45 = icmp sgt i64 %indvars.iv60, 1
+  %45 = icmp samesign ugt i64 %indvars.iv60, 1
   br i1 %45, label %.preheader, label %._crit_edge52, !llvm.loop !28
 
 ._crit_edge52:                                    ; preds = %._crit_edge47, %3

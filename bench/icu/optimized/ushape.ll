@@ -371,24 +371,24 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %indvars.iv.next14.i = add nsw i64 %indvars.iv13.i, 1
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %cmp.i253 = icmp slt i64 %indvars.iv.next14.i, %indvars.iv.next.i
-  br i1 %cmp.i253, label %for.body.i, label %if.end225, !llvm.loop !6
+  br i1 %cmp.i253, label %for.body.i, label %if.end233, !llvm.loop !6
 
-if.end225:                                        ; preds = %for.body.i, %if.end221
-  %20 = and i32 %options, 67108868
-  %or.cond249.not = icmp eq i32 %20, 67108868
-  br i1 %or.cond249.not, label %if.then231, label %if.end233
+if.end225:                                        ; preds = %if.end221
+  %and229 = and i32 %options, 67108864
+  %cmp230.not = icmp eq i32 %and229, 0
+  br i1 %cmp230.not, label %if.end233, label %if.then231
 
 if.then231:                                       ; preds = %if.end225
   br label %if.end233
 
-if.end233:                                        ; preds = %if.then224, %if.then231, %if.end225
-  %shapeVars.sroa.9.0 = phi i32 [ 393216, %if.then231 ], [ 262144, %if.end225 ], [ 262144, %if.then224 ]
-  %shapeVars.sroa.8.0 = phi i32 [ 3, %if.then231 ], [ 2, %if.end225 ], [ 2, %if.then224 ]
-  %shapeVars.sroa.770.0 = phi i32 [ 2, %if.then231 ], [ 3, %if.end225 ], [ 3, %if.then224 ]
-  %shapeVars.sroa.10.0 = phi i32 [ 262144, %if.then231 ], [ 393216, %if.end225 ], [ 393216, %if.then224 ]
-  %shapeVars.sroa.11.0 = phi i32 [ 1, %if.then231 ], [ 0, %if.end225 ], [ 0, %if.then224 ]
-  %21 = lshr exact i32 %and12, 3
-  switch i32 %21, label %default.unreachable [
+if.end233:                                        ; preds = %for.body.i, %if.then224, %if.then231, %if.end225
+  %shapeVars.sroa.9.0 = phi i32 [ 393216, %if.then231 ], [ 262144, %if.end225 ], [ 262144, %if.then224 ], [ 262144, %for.body.i ]
+  %shapeVars.sroa.8.0 = phi i32 [ 3, %if.then231 ], [ 2, %if.end225 ], [ 2, %if.then224 ], [ 2, %for.body.i ]
+  %shapeVars.sroa.770.0 = phi i32 [ 2, %if.then231 ], [ 3, %if.end225 ], [ 3, %if.then224 ], [ 3, %for.body.i ]
+  %shapeVars.sroa.10.0 = phi i32 [ 262144, %if.then231 ], [ 393216, %if.end225 ], [ 393216, %if.then224 ], [ 393216, %for.body.i ]
+  %shapeVars.sroa.11.0 = phi i32 [ 1, %if.then231 ], [ 0, %if.end225 ], [ 0, %if.then224 ], [ 0, %for.body.i ]
+  %20 = lshr exact i32 %and12, 3
+  switch i32 %20, label %default.unreachable [
     i32 1, label %sw.bb
     i32 3, label %sw.bb251
     i32 2, label %sw.bb254
@@ -437,7 +437,7 @@ if.else242:                                       ; preds = %sw.bb, %sw.bb
   br i1 %cmp246, label %if.then247, label %sw.epilog
 
 if.then247:                                       ; preds = %if.else242
-  %22 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef %tempbuffer.0, i32 noundef %call244)
+  %21 = call fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr noundef %tempbuffer.0, i32 noundef %call244)
   br label %sw.epilog
 
 sw.bb251:                                         ; preds = %if.end233
@@ -478,32 +478,32 @@ default.unreachable:                              ; preds = %if.end233
   unreachable
 
 sw.epilog:                                        ; preds = %if.end233, %if.then240, %if.then247, %if.else242, %sw.bb254, %sw.bb251
-  %destLength.0 = phi i32 [ %call256, %sw.bb254 ], [ %call253, %sw.bb251 ], [ %call241, %if.then240 ], [ %call244, %if.then247 ], [ %call244, %if.else242 ], [ %21, %if.end233 ]
+  %destLength.0 = phi i32 [ %call256, %sw.bb254 ], [ %call253, %sw.bb251 ], [ %call241, %if.then240 ], [ %call244, %if.then247 ], [ %call244, %if.else242 ], [ %20, %if.end233 ]
   br i1 %cmp223, label %if.then259, label %if.end260
 
 if.then259:                                       ; preds = %sw.epilog
   call fastcc void @_ZL11countSpacesPDsijPiS0_(ptr noundef %tempbuffer.0, i32 noundef %destLength.0, ptr noundef %spacesCountl, ptr noundef %spacesCountr)
-  %23 = load i32, ptr %spacesCountl, align 4
-  %24 = load i32, ptr %spacesCountr, align 4
-  %25 = xor i32 %24, -1
-  %sub1.i254 = add i32 %destLength.0, %25
-  %cmp10.i255 = icmp slt i32 %23, %sub1.i254
+  %22 = load i32, ptr %spacesCountl, align 4
+  %23 = load i32, ptr %spacesCountr, align 4
+  %24 = xor i32 %23, -1
+  %sub1.i254 = add i32 %destLength.0, %24
+  %cmp10.i255 = icmp slt i32 %22, %sub1.i254
   br i1 %cmp10.i255, label %for.body.preheader.i256, label %if.end260
 
 for.body.preheader.i256:                          ; preds = %if.then259
-  %26 = sext i32 %sub1.i254 to i64
-  %27 = sext i32 %23 to i64
+  %25 = sext i32 %sub1.i254 to i64
+  %26 = sext i32 %22 to i64
   br label %for.body.i257
 
 for.body.i257:                                    ; preds = %for.body.i257, %for.body.preheader.i256
-  %indvars.iv13.i258 = phi i64 [ %27, %for.body.preheader.i256 ], [ %indvars.iv.next14.i262, %for.body.i257 ]
-  %indvars.iv.i259 = phi i64 [ %26, %for.body.preheader.i256 ], [ %indvars.iv.next.i263, %for.body.i257 ]
+  %indvars.iv13.i258 = phi i64 [ %26, %for.body.preheader.i256 ], [ %indvars.iv.next14.i262, %for.body.i257 ]
+  %indvars.iv.i259 = phi i64 [ %25, %for.body.preheader.i256 ], [ %indvars.iv.next.i263, %for.body.i257 ]
   %arrayidx.i260 = getelementptr inbounds i16, ptr %tempbuffer.0, i64 %indvars.iv13.i258
-  %28 = load i16, ptr %arrayidx.i260, align 2
+  %27 = load i16, ptr %arrayidx.i260, align 2
   %arrayidx3.i261 = getelementptr inbounds i16, ptr %tempbuffer.0, i64 %indvars.iv.i259
-  %29 = load i16, ptr %arrayidx3.i261, align 2
-  store i16 %29, ptr %arrayidx.i260, align 2
-  store i16 %28, ptr %arrayidx3.i261, align 2
+  %28 = load i16, ptr %arrayidx3.i261, align 2
+  store i16 %28, ptr %arrayidx.i260, align 2
+  store i16 %27, ptr %arrayidx3.i261, align 2
   %indvars.iv.next14.i262 = add nsw i64 %indvars.iv13.i258, 1
   %indvars.iv.next.i263 = add nsw i64 %indvars.iv.i259, -1
   %cmp.i264 = icmp slt i64 %indvars.iv.next14.i262, %indvars.iv.next.i263
@@ -548,9 +548,9 @@ if.then278:                                       ; preds = %if.end275
   %and280 = and i32 %options, 256
   %switch = icmp eq i32 %and280, 0
   %.252 = select i1 %switch, i16 1632, i16 1776
-  %30 = add nsw i32 %and24, -32
-  %31 = lshr exact i32 %30, 5
-  switch i32 %31, label %if.end337 [
+  %29 = add nsw i32 %and24, -32
+  %30 = lshr exact i32 %29, 5
+  switch i32 %30, label %if.end337 [
     i32 0, label %sw.bb286
     i32 1, label %for.cond306.preheader
     i32 2, label %if.end337.sink.split
@@ -579,13 +579,13 @@ for.body.preheader:                               ; preds = %sw.bb286
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv299 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next300, %for.inc ]
   %arrayidx292 = getelementptr inbounds nuw i16, ptr %dest, i64 %indvars.iv299
-  %32 = load i16, ptr %arrayidx292, align 2
-  %33 = add i16 %32, -48
-  %cmp295 = icmp ult i16 %33, 10
+  %31 = load i16, ptr %arrayidx292, align 2
+  %32 = add i16 %31, -48
+  %cmp295 = icmp ult i16 %32, 10
   br i1 %cmp295, label %if.then296, label %for.inc
 
 if.then296:                                       ; preds = %for.body
-  %add301 = add nuw nsw i16 %sub288, %32
+  %add301 = add nuw nsw i16 %sub288, %31
   store i16 %add301, ptr %arrayidx292, align 2
   br label %for.inc
 
@@ -597,14 +597,14 @@ for.inc:                                          ; preds = %for.body, %if.then2
 for.body308:                                      ; preds = %for.body308.lr.ph, %for.inc324
   %indvars.iv296 = phi i64 [ 0, %for.body308.lr.ph ], [ %indvars.iv.next297, %for.inc324 ]
   %arrayidx310 = getelementptr inbounds nuw i16, ptr %dest, i64 %indvars.iv296
-  %34 = load i16, ptr %arrayidx310, align 2
-  %conv311 = zext i16 %34 to i32
+  %33 = load i16, ptr %arrayidx310, align 2
+  %conv311 = zext i16 %33 to i32
   %sub313 = sub nsw i32 %conv311, %conv312
   %cmp314 = icmp ult i32 %sub313, 10
   br i1 %cmp314, label %if.then315, label %for.inc324
 
 if.then315:                                       ; preds = %for.body308
-  %sub321 = add i16 %sub317.neg, %34
+  %sub321 = add i16 %sub317.neg, %33
   store i16 %sub321, ptr %arrayidx310, align 2
   br label %for.inc324
 

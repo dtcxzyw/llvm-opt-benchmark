@@ -2219,7 +2219,7 @@ define void @Dar_BalancePrintStats(ptr noundef readonly captures(none) %0) local
   br i1 %exitcond.not, label %.critedge4, label %55, !llvm.loop !72
 
 .critedge4:                                       ; preds = %55
-  %61 = icmp slt i32 %.val63, 3
+  %61 = icmp samesign ult i32 %.val63, 3
   br i1 %61, label %.critedge4.thread, label %62
 
 62:                                               ; preds = %.critedge4

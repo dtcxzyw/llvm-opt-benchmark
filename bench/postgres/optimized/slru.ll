@@ -205,7 +205,7 @@ define dso_local void @SimpleLruInit(ptr noundef %0, ptr noundef %1, i32 noundef
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %82 = icmp sgt i32 %2, 15
+  %82 = icmp samesign ugt i32 %2, 15
   br i1 %82, label %.lr.ph102.preheader, label %.loopexit
 
 .lr.ph102.preheader:                              ; preds = %.preheader

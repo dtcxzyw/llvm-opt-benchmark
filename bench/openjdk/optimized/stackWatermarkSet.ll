@@ -132,7 +132,7 @@ define hidden void @_ZN17StackWatermarkSet13before_unwindEP10JavaThread(ptr noun
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef %0) #10
+  tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -252,7 +252,7 @@ define hidden void @_ZN17StackWatermarkSet12after_unwindEP10JavaThread(ptr nound
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef %0) #10
+  tail call void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noundef nonnull %0) #10
   ret void
 }
 

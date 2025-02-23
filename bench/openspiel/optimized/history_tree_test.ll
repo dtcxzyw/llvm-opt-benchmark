@@ -4353,7 +4353,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i317.i: ; pr
   %1659 = shl i64 %.sroa.50.4.i, 3
   %1660 = add i64 %1658, %1659
   %1661 = and i64 %1660, -8
-  call void @_ZdlPvm(ptr noundef %.sroa.0411.0.i, i64 noundef %1661) #27
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0411.0.i, i64 noundef %1661) #27
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE28rehash_and_grow_if_necessaryEv.exit.i.i
 
 _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE28rehash_and_grow_if_necessaryEv.exit.i.i: ; preds = %.noexc290.i, %.noexc289.i, %.noexc352.i
@@ -4865,7 +4865,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit.i360.i: ; pr
   %1943 = shl i64 %1710, 3
   %1944 = add i64 %1942, %1943
   %1945 = and i64 %1944, -8
-  call void @_ZdlPvm(ptr noundef %1709, i64 noundef %1945) #27
+  call void @_ZdlPvm(ptr noundef nonnull %1709, i64 noundef %1945) #27
   %.pre.i87 = load i64, ptr %1286, align 8
   br label %_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashSetPolicyIlEENS0_13hash_internal4HashIlEESt8equal_toIlESaIlEE28rehash_and_grow_if_necessaryEv.exit.i.i
 
@@ -10978,7 +10978,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %80 = mul i64 %7, 40
   %81 = add i64 %79, %80
   %82 = and i64 %81, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %82) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %82) #27
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_iEEE16initialize_slotsEv.exit, %._crit_edge
@@ -15024,7 +15024,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %80 = mul i64 %7, 40
   %81 = add i64 %79, %80
   %82 = and i64 %81, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %82) #27
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %82) #27
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_dEEE16initialize_slotsEv.exit, %._crit_edge

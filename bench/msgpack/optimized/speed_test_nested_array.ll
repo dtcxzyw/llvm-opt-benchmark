@@ -1298,7 +1298,7 @@ define dso_local void @_Z19test_array_of_arrayv() local_unnamed_addr #5 personal
   br i1 %481, label %.loopexit, label %.preheader42, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.preheader42, %.loopexit44
-  call void @free(ptr noundef %456) #24
+  call void @free(ptr noundef nonnull %456) #24
   br label %482
 
 482:                                              ; preds = %.loopexit, %455
@@ -1697,7 +1697,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v113object_handleD2Ev(ptr nounde
   br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7
-  tail call void @free(ptr noundef %3) #24
+  tail call void @free(ptr noundef nonnull %3) #24
   br label %29
 
 29:                                               ; preds = %.loopexit, %1
@@ -2026,7 +2026,7 @@ define linkonce_odr dso_local void @_ZN7msgpack2v36unpackERNS_2v113object_handle
 
 .loopexit:                                        ; preds = %.preheader27, %.preheader23, %.preheader, %.loopexit22, %.loopexit30, %.loopexit26
   %149 = phi ptr [ %72, %.loopexit26 ], [ %101, %.loopexit30 ], [ %12, %.loopexit22 ], [ %12, %.preheader ], [ %72, %.preheader23 ], [ %101, %.preheader27 ]
-  call void @free(ptr noundef %149) #24
+  call void @free(ptr noundef nonnull %149) #24
   br label %150
 
 150:                                              ; preds = %.loopexit, %98, %69
@@ -2092,7 +2092,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrIN7msgpack2v14zoneESt14defa
   br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !81
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit7
-  tail call void @free(ptr noundef %2) #24
+  tail call void @free(ptr noundef nonnull %2) #24
   br label %28
 
 28:                                               ; preds = %.loopexit, %1

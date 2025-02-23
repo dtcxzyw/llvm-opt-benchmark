@@ -1245,23 +1245,26 @@ _ZNK2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl21singleClusterFallback
   %.1.i86 = select i1 %337, float %336, float %.01720.i
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i87, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %333, !llvm.loop !22
+  br i1 %exitcond.not.i, label %.lr.ph23.preheader.i, label %333, !llvm.loop !22
 
-._crit_edge.i:                                    ; preds = %333, %324
-  %.017.lcssa.i = phi float [ %328, %324 ], [ %.1.i86, %333 ]
-  %338 = fdiv float 1.000000e+00, %.017.lcssa.i
-  %339 = icmp sgt i32 %329, 0
-  br i1 %339, label %.lr.ph23.i, label %_ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl16normalizeWeightsERNS_3MatE.exit
+._crit_edge.i:                                    ; preds = %324
+  %338 = icmp eq i32 %329, 1
+  br i1 %338, label %.lr.ph23.preheader.i, label %_ZN2cv11xfeatures2d14pct_signatures19PCTClusterizer_Impl16normalizeWeightsERNS_3MatE.exit
 
-.lr.ph23.i:                                       ; preds = %._crit_edge.i, %.lr.ph23.i
-  %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph23.i ], [ 0, %._crit_edge.i ]
+.lr.ph23.preheader.i:                             ; preds = %333, %._crit_edge.i
+  %.1.pn.i = phi float [ %328, %._crit_edge.i ], [ %.1.i86, %333 ]
+  %339 = fdiv float 1.000000e+00, %.1.pn.i
+  br label %.lr.ph23.i
+
+.lr.ph23.i:                                       ; preds = %.lr.ph23.i, %.lr.ph23.preheader.i
+  %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.preheader.i ], [ %indvars.iv.next27.i, %.lr.ph23.i ]
   %340 = load ptr, ptr %325, align 8
   %341 = load ptr, ptr %327, align 8
   %342 = load i64, ptr %341, align 8
   %343 = mul i64 %342, %indvars.iv26.i
   %344 = getelementptr inbounds i8, ptr %340, i64 %343
   %345 = load float, ptr %344, align 4
-  %346 = fmul float %338, %345
+  %346 = fmul float %339, %345
   store float %346, ptr %344, align 4
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %347 = load i32, ptr %62, align 8

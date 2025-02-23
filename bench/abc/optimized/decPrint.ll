@@ -390,7 +390,7 @@ Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
   %68 = load i32, ptr %37, align 8
   %69 = lshr i32 %68, 16
   %70 = and i32 %69, 1
-  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %70, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19, i32 noundef %70, ptr noundef %4, ptr noundef nonnull %5)
   br label %94
 
 71:                                               ; preds = %Dec_GraphPrintUpdatePos.exit
@@ -401,7 +401,7 @@ Dec_GraphPrintUpdatePos.exit:                     ; preds = %55, %63
   %74 = load i32, ptr %37, align 8
   %75 = lshr i32 %74, 16
   %76 = and i32 %75, 1
-  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %19, i32 noundef %76, ptr noundef %4, ptr noundef nonnull %5)
+  tail call fastcc void @Dec_GraphPrint_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19, i32 noundef %76, ptr noundef %4, ptr noundef nonnull %5)
   %fputc81 = tail call i32 @fputc(i32 41, ptr %0)
   %77 = load i32, ptr %5, align 4, !tbaa !18
   %78 = add nsw i32 %77, 1

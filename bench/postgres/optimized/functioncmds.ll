@@ -4155,7 +4155,7 @@ list_length.exit.thread:                          ; preds = %43, %list_length.ex
   %82 = getelementptr inbounds nuw %union.ListCell, ptr %81, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #8
   %83 = load ptr, ptr %82, align 8
-  %84 = call ptr @ExecPrepareExpr(ptr noundef %83, ptr noundef %68) #8
+  %84 = call ptr @ExecPrepareExpr(ptr noundef %83, ptr noundef nonnull %68) #8
   %85 = load ptr, ptr %77, align 8
   %86 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %85, ptr @CurrentMemoryContext, align 8
@@ -4257,7 +4257,7 @@ list_length.exit.thread:                          ; preds = %43, %list_length.ex
   unreachable
 
 137:                                              ; preds = %97, %132
-  call void @FreeExecutorState(ptr noundef %68) #8
+  call void @FreeExecutorState(ptr noundef nonnull %68) #8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #8
   call void @llvm.lifetime.end.p0(i64 1632, ptr nonnull %5) #8

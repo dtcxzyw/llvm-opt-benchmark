@@ -893,7 +893,7 @@ Vec_VecExpand.exit:                               ; preds = %19, %._crit_edge.i
   %45 = load ptr, ptr %44, align 8, !tbaa !21
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 0, ptr %46, align 4, !tbaa !17
-  tail call void @Hop_ObjCollectMulti_rec(ptr noundef %9, ptr noundef %9, ptr noundef %45)
+  tail call void @Hop_ObjCollectMulti_rec(ptr noundef nonnull %9, ptr noundef nonnull %9, ptr noundef %45)
   %47 = icmp eq i32 %3, 0
   %48 = select i1 %47, ptr @.str.3, ptr @.str.5
   %fputs = tail call i32 @fputs(ptr nonnull %48, ptr %0)
@@ -1055,7 +1055,7 @@ Vec_VecExpand.exit:                               ; preds = %24, %._crit_edge.i
   %50 = load ptr, ptr %49, align 8, !tbaa !21
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %51, align 4, !tbaa !17
-  tail call void @Hop_ObjCollectMulti_rec(ptr noundef %12, ptr noundef %12, ptr noundef %50)
+  tail call void @Hop_ObjCollectMulti_rec(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef %50)
   %52 = icmp eq i32 %3, 0
   %53 = select i1 %52, ptr @.str.3, ptr @.str.5
   %fputs = tail call i32 @fputs(ptr nonnull %53, ptr %0)
@@ -1224,7 +1224,7 @@ Vec_VecExpand.exit144:                            ; preds = %.critedge119, %._cr
   %133 = load ptr, ptr %132, align 8, !tbaa !21
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 4
   store i32 0, ptr %134, align 4, !tbaa !17
-  tail call void @Hop_ObjCollectMulti_rec(ptr noundef %12, ptr noundef %12, ptr noundef %133)
+  tail call void @Hop_ObjCollectMulti_rec(ptr noundef nonnull %12, ptr noundef nonnull %12, ptr noundef %133)
   %135 = icmp eq i32 %3, 0
   %136 = select i1 %135, ptr @.str.3, ptr @.str.5
   %fputs113 = tail call i32 @fputs(ptr nonnull %136, ptr %0)

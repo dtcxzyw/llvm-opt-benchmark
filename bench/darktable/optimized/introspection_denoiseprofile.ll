@@ -5032,25 +5032,25 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
   %101 = getelementptr inbounds nuw i8, ptr %10, i64 200
   store ptr %100, ptr %101, align 8, !tbaa !308
   %102 = tail call ptr @g_type_check_instance_cast(ptr noundef %100, i64 noundef %37) #21
-  %103 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %102, ptr noundef null) #21
+  %103 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %102, ptr noundef null) #21
   %104 = load ptr, ptr %101, align 8, !tbaa !308
   %105 = tail call ptr @g_type_check_instance_cast(ptr noundef %104, i64 noundef 80) #21
-  %106 = tail call i64 @g_signal_connect_data(ptr noundef %105, ptr noundef nonnull @.str.40, ptr noundef nonnull @denoiseprofile_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %106 = tail call i64 @g_signal_connect_data(ptr noundef %105, ptr noundef nonnull @.str.40, ptr noundef nonnull @denoiseprofile_draw, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %107 = load ptr, ptr %101, align 8, !tbaa !308
   %108 = tail call ptr @g_type_check_instance_cast(ptr noundef %107, i64 noundef 80) #21
-  %109 = tail call i64 @g_signal_connect_data(ptr noundef %108, ptr noundef nonnull @.str.41, ptr noundef nonnull @denoiseprofile_button_press, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %109 = tail call i64 @g_signal_connect_data(ptr noundef %108, ptr noundef nonnull @.str.41, ptr noundef nonnull @denoiseprofile_button_press, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %110 = load ptr, ptr %101, align 8, !tbaa !308
   %111 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef 80) #21
-  %112 = tail call i64 @g_signal_connect_data(ptr noundef %111, ptr noundef nonnull @.str.42, ptr noundef nonnull @denoiseprofile_button_release, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %112 = tail call i64 @g_signal_connect_data(ptr noundef %111, ptr noundef nonnull @.str.42, ptr noundef nonnull @denoiseprofile_button_release, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %113 = load ptr, ptr %101, align 8, !tbaa !308
   %114 = tail call ptr @g_type_check_instance_cast(ptr noundef %113, i64 noundef 80) #21
-  %115 = tail call i64 @g_signal_connect_data(ptr noundef %114, ptr noundef nonnull @.str.43, ptr noundef nonnull @denoiseprofile_motion_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %115 = tail call i64 @g_signal_connect_data(ptr noundef %114, ptr noundef nonnull @.str.43, ptr noundef nonnull @denoiseprofile_motion_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %116 = load ptr, ptr %101, align 8, !tbaa !308
   %117 = tail call ptr @g_type_check_instance_cast(ptr noundef %116, i64 noundef 80) #21
-  %118 = tail call i64 @g_signal_connect_data(ptr noundef %117, ptr noundef nonnull @.str.44, ptr noundef nonnull @denoiseprofile_leave_notify, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %118 = tail call i64 @g_signal_connect_data(ptr noundef %117, ptr noundef nonnull @.str.44, ptr noundef nonnull @denoiseprofile_leave_notify, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %119 = load ptr, ptr %101, align 8, !tbaa !308
   %120 = tail call ptr @g_type_check_instance_cast(ptr noundef %119, i64 noundef 80) #21
-  %121 = tail call i64 @g_signal_connect_data(ptr noundef %120, ptr noundef nonnull @.str.45, ptr noundef nonnull @denoiseprofile_scrolled, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %121 = tail call i64 @g_signal_connect_data(ptr noundef %120, ptr noundef nonnull @.str.45, ptr noundef nonnull @denoiseprofile_scrolled, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %122 = load ptr, ptr %30, align 16, !tbaa !286
   %123 = tail call i64 @gtk_box_get_type() #27
   %124 = tail call ptr @g_type_check_instance_cast(ptr noundef %122, i64 noundef %123) #21
@@ -5148,13 +5148,13 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
   %184 = getelementptr inbounds nuw i8, ptr %10, i64 184
   store ptr %183, ptr %184, align 8, !tbaa !287
   %185 = call ptr @g_type_check_instance_cast(ptr noundef %183, i64 noundef 80) #21
-  %186 = call i64 @g_signal_connect_data(ptr noundef %185, ptr noundef nonnull @.str.40, ptr noundef nonnull @denoiseprofile_draw_variance, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
-  %187 = call ptr @dt_bauhaus_combobox_new(ptr noundef %0) #21
+  %186 = call i64 @g_signal_connect_data(ptr noundef %185, ptr noundef nonnull @.str.40, ptr noundef nonnull @denoiseprofile_draw_variance, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
+  %187 = call ptr @dt_bauhaus_combobox_new(ptr noundef nonnull %0) #21
   store ptr %187, ptr %10, align 16, !tbaa !248
   %188 = call ptr @dt_bauhaus_widget_set_label(ptr noundef %187, ptr noundef null, ptr noundef nonnull @.str.55) #21
   %189 = load ptr, ptr %10, align 16, !tbaa !248
   %190 = call ptr @g_type_check_instance_cast(ptr noundef %189, i64 noundef 80) #21
-  %191 = call i64 @g_signal_connect_data(ptr noundef %190, ptr noundef nonnull @.str.56, ptr noundef nonnull @profile_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #21
+  %191 = call i64 @g_signal_connect_data(ptr noundef %190, ptr noundef nonnull @.str.56, ptr noundef nonnull @profile_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #21
   %192 = call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #21
   %193 = call ptr @g_type_check_instance_cast(ptr noundef %192, i64 noundef %123) #21
   %194 = load ptr, ptr %10, align 16, !tbaa !248
@@ -5163,10 +5163,10 @@ _iop_gui_alloc.exit:                              ; preds = %1, %11
   store ptr inttoptr (i64 -1 to ptr), ptr %195, align 8, !tbaa !128
   %196 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.46, i32 noundef 3750, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %193, ptr noundef nonnull %7) #21
   store ptr %196, ptr %18, align 16, !tbaa !299
-  %197 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef %0, ptr noundef nonnull @.str.57) #21
+  %197 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.57) #21
   %198 = getelementptr inbounds nuw i8, ptr %10, i64 2216
   store ptr %197, ptr %198, align 8, !tbaa !252
-  %199 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef %0, ptr noundef nonnull @.str.58) #21
+  %199 = call ptr @dt_bauhaus_combobox_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #21
   %200 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %199, ptr %200, align 8, !tbaa !285
   %201 = call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.59) #21
@@ -6131,7 +6131,7 @@ define internal range(i32 0, 2) i32 @denoiseprofile_button_press(ptr noundef %0,
 
 27:                                               ; preds = %33
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !343
-  tail call void @dt_dev_add_history_item(ptr noundef %28, ptr noundef %2, i32 noundef 1) #21
+  tail call void @dt_dev_add_history_item(ptr noundef %28, ptr noundef nonnull %2, i32 noundef 1) #21
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %30 = load ptr, ptr %29, align 8, !tbaa !308
   %31 = tail call i64 @gtk_widget_get_type() #27
@@ -6436,7 +6436,7 @@ define internal noundef i32 @denoiseprofile_motion_notify(ptr noundef %0, ptr no
 
 dt_iop_denoiseprofile_get_params.exit:            ; preds = %77, %55
   %96 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !343
-  call void @dt_dev_add_history_item(ptr noundef %96, ptr noundef %2, i32 noundef 1) #21
+  call void @dt_dev_add_history_item(ptr noundef %96, ptr noundef nonnull %2, i32 noundef 1) #21
   br label %99
 
 97:                                               ; preds = %48
@@ -6670,7 +6670,7 @@ define internal void @profile_callback(ptr noundef %0, ptr noundef %1) #1 {
 
 20:                                               ; preds = %22
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !343
-  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef %1, i32 noundef 1) #21
+  tail call void @dt_dev_add_history_item(ptr noundef %21, ptr noundef nonnull %1, i32 noundef 1) #21
   ret void
 
 22:                                               ; preds = %15, %22

@@ -4370,7 +4370,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117:         ; preds = %.lr.ph.i.i.i.i.i.i.
   %222 = ptrtoint ptr %219 to i64
   %223 = sub i64 %221, %222
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %218, ptr align 4 %219, i64 %223, i1 false)
-  %224 = icmp ugt i64 %33, 1152921504606846975
+  %224 = icmp samesign ugt i64 %33, 1152921504606846975
   br i1 %224, label %225, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i
 
 225:                                              ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit117

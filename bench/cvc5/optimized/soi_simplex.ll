@@ -6214,7 +6214,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit:  ; preds = %1
   br label %79
 
 _ZN4cvc58internal6theory5arith6linear23SumOfInfeasibilitiesSPD8logPivotENS3_18WitnessImprovementE.exit: ; preds = %._crit_edge.i.i, %36, %34, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
-  %.0 = phi i32 [ 0, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ %.0.i, %34 ], [ %13, %36 ], [ %.0.i, %._crit_edge.i.i ]
+  %.0 = phi i32 [ 0, %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit ], [ %.0.i, %34 ], [ %13, %36 ], [ %13, %._crit_edge.i.i ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %57 = load i8, ptr %56, align 8, !tbaa !394, !range !372, !noundef !373

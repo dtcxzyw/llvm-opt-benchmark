@@ -787,7 +787,7 @@ _ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128: ; preds = %.lr.ph.i47.us117
   %82 = fadd float %79, 0xBF1A36E2E0000000
   %83 = fcmp uge float %82, %76
   %not..i.us127 = and i1 %81, %83
-  br i1 %not..i.us127, label %._crit_edge, label %.loopexit
+  br i1 %not..i.us127, label %.lr.ph134, label %.loopexit
 
 _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %84 = tail call noundef float @llvm.fmuladd.f32(float %62, float %7, float %66)
@@ -800,11 +800,11 @@ _ZL11projectPolyPKfS0_iRfS1_.exit:                ; preds = %.lr.ph.split
   %not..i = and i1 %88, %90
   br i1 %not..i, label %._crit_edge, label %.loopexit
 
-._crit_edge:                                      ; preds = %29, %_ZL11projectPolyPKfS0_iRfS1_.exit, %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %4
+._crit_edge:                                      ; preds = %29, %_ZL11projectPolyPKfS0_iRfS1_.exit, %4
   %91 = icmp sgt i32 %3, 0
   br i1 %91, label %.lr.ph134, label %.loopexit
 
-.lr.ph134:                                        ; preds = %._crit_edge
+.lr.ph134:                                        ; preds = %_ZL11projectPolyPKfS0_iRfS1_.exit52.loopexit.us128, %._crit_edge
   %92 = add nsw i32 %3, -1
   %93 = load float, ptr %0, align 4
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -906,60 +906,60 @@ _ZL11projectPolyPKfS0_iRfS1_.exit68:              ; preds = %.lr.ph.i63, %_ZL11p
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
 define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, float noundef %3, float noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #4 {
   %7 = icmp sgt i32 %1, 2
-  br i1 %7, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %6
-  %8 = add nsw i32 %1, -1
-  br label %.loopexit
+  br i1 %7, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %10
+  br label %9
 
-10:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %.074 = phi float [ 0.000000e+00, %.lr.ph ], [ %36, %10 ]
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %12 = mul i32 %11, 3
-  %13 = add i32 %12, -3
-  %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds float, ptr %0, i64 %14
-  %16 = zext nneg i32 %12 to i64
-  %17 = getelementptr inbounds nuw float, ptr %0, i64 %16
-  %18 = load float, ptr %15, align 4
-  %19 = load float, ptr %0, align 4
-  %20 = fsub float %18, %19
-  %21 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %22 = load float, ptr %21, align 4
-  %23 = load float, ptr %9, align 4
-  %24 = fsub float %22, %23
-  %25 = load float, ptr %17, align 4
-  %26 = fsub float %25, %19
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %28 = load float, ptr %27, align 4
-  %29 = fsub float %28, %23
-  %30 = fneg float %29
-  %31 = fmul float %20, %30
-  %32 = tail call noundef float @llvm.fmuladd.f32(float %26, float %24, float %31)
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  store float %32, ptr %33, align 4
-  %34 = fcmp olt float %32, 0x3F50624DE0000000
-  %35 = select i1 %34, float 0x3F50624DE0000000, float %32
-  %36 = fadd float %.074, %35
+9:                                                ; preds = %.lr.ph, %9
+  %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %9 ]
+  %.074 = phi float [ 0.000000e+00, %.lr.ph ], [ %35, %9 ]
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
+  %11 = mul i32 %10, 3
+  %12 = add i32 %11, -3
+  %13 = sext i32 %12 to i64
+  %14 = getelementptr inbounds float, ptr %0, i64 %13
+  %15 = zext nneg i32 %11 to i64
+  %16 = getelementptr inbounds nuw float, ptr %0, i64 %15
+  %17 = load float, ptr %14, align 4
+  %18 = load float, ptr %0, align 4
+  %19 = fsub float %17, %18
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %21 = load float, ptr %20, align 4
+  %22 = load float, ptr %8, align 4
+  %23 = fsub float %21, %22
+  %24 = load float, ptr %16, align 4
+  %25 = fsub float %24, %18
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %27 = load float, ptr %26, align 4
+  %28 = fsub float %27, %22
+  %29 = fneg float %28
+  %30 = fmul float %19, %29
+  %31 = tail call noundef float @llvm.fmuladd.f32(float %25, float %23, float %30)
+  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  store float %31, ptr %32, align 4
+  %33 = fcmp olt float %31, 0x3F50624DE0000000
+  %34 = select i1 %33, float 0x3F50624DE0000000, float %31
+  %35 = fadd float %.074, %34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !12
+  br i1 %exitcond.not, label %.lr.ph78.preheader, label %9, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %10
-  %37 = fmul float %3, %36
+._crit_edge:                                      ; preds = %6
+  %36 = add nsw i32 %1, -1
+  br label %.loopexit
+
+.lr.ph78.preheader:                               ; preds = %9
+  %37 = fmul float %3, %35
   %38 = add nsw i32 %1, -1
   %wide.trip.count87 = zext nneg i32 %1 to i64
   br label %.lr.ph78
 
-.lr.ph78:                                         ; preds = %._crit_edge, %48
-  %indvars.iv84 = phi i64 [ 2, %._crit_edge ], [ %indvars.iv.next85, %48 ]
-  %.06476 = phi float [ 0.000000e+00, %._crit_edge ], [ %42, %48 ]
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %48
+  %indvars.iv84 = phi i64 [ 2, %.lr.ph78.preheader ], [ %indvars.iv.next85, %48 ]
+  %.06476 = phi float [ 0.000000e+00, %.lr.ph78.preheader ], [ %42, %48 ]
   %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv84
   %40 = load float, ptr %39, align 4
   %41 = fcmp oge float %37, %.06476
@@ -979,9 +979,9 @@ define void @_Z25dtRandomPointInConvexPolyPKfiPfffS1_(ptr noundef readonly captu
   %exitcond88.not = icmp eq i64 %indvars.iv.next85, %wide.trip.count87
   br i1 %exitcond88.not, label %.loopexit, label %.lr.ph78, !llvm.loop !13
 
-.loopexit:                                        ; preds = %48, %._crit_edge.thread, %44
-  %.066 = phi i32 [ %45, %44 ], [ %8, %._crit_edge.thread ], [ %38, %48 ]
-  %.065 = phi float [ %47, %44 ], [ 1.000000e+00, %._crit_edge.thread ], [ 1.000000e+00, %48 ]
+.loopexit:                                        ; preds = %48, %._crit_edge, %44
+  %.066 = phi i32 [ %45, %44 ], [ %36, %._crit_edge ], [ %38, %48 ]
+  %.065 = phi float [ %47, %44 ], [ 1.000000e+00, %._crit_edge ], [ 1.000000e+00, %48 ]
   %49 = tail call noundef float @sqrtf(float noundef %4) #6
   %50 = fsub float 1.000000e+00, %49
   %51 = fsub float 1.000000e+00, %.065

@@ -1477,7 +1477,7 @@ Log2.exit.i:                                      ; preds = %91, %dt_Lab_to_XYZ.
   %109 = add nsw i32 %108, -1
   store i32 %109, ptr %107, align 8, !tbaa !158
   %110 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !166
-  tail call void @dt_dev_add_history_item(ptr noundef %110, ptr noundef %0, i32 noundef 1) #20
+  tail call void @dt_dev_add_history_item(ptr noundef %110, ptr noundef nonnull %0, i32 noundef 1) #20
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %112 = load ptr, ptr %111, align 16, !tbaa !167
   tail call void @gtk_widget_queue_draw(ptr noundef %112) #20
@@ -1627,7 +1627,7 @@ dt_Lab_to_XYZ.exit.i21:                           ; preds = %.preheader.i.i18
 
 sanitize_latitude.exit.i:                         ; preds = %197, %dt_Lab_to_XYZ.exit.i21
   %204 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !166
-  tail call void @dt_dev_add_history_item(ptr noundef %204, ptr noundef %0, i32 noundef 1) #20
+  tail call void @dt_dev_add_history_item(ptr noundef %204, ptr noundef nonnull %0, i32 noundef 1) #20
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %206 = load ptr, ptr %205, align 16, !tbaa !167
   tail call void @gtk_widget_queue_draw(ptr noundef %206) #20
@@ -1776,7 +1776,7 @@ dt_Lab_to_XYZ.exit.i30:                           ; preds = %.preheader.i.i27
 
 sanitize_latitude.exit.i31:                       ; preds = %290, %dt_Lab_to_XYZ.exit.i30
   %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !166
-  tail call void @dt_dev_add_history_item(ptr noundef %297, ptr noundef %0, i32 noundef 1) #20
+  tail call void @dt_dev_add_history_item(ptr noundef %297, ptr noundef nonnull %0, i32 noundef 1) #20
   %298 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %299 = load ptr, ptr %298, align 16, !tbaa !167
   tail call void @gtk_widget_queue_draw(ptr noundef %299) #20
@@ -2096,7 +2096,7 @@ dt_Lab_to_XYZ.exit46.i:                           ; preds = %.preheader.i43.i
 
 apply_autotune.exit:                              ; preds = %dt_Lab_to_XYZ.exit46.i, %488
   %495 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !166
-  tail call void @dt_dev_add_history_item(ptr noundef %495, ptr noundef %0, i32 noundef 1) #20
+  tail call void @dt_dev_add_history_item(ptr noundef %495, ptr noundef nonnull %0, i32 noundef 1) #20
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %497 = load ptr, ptr %496, align 16, !tbaa !167
   tail call void @gtk_widget_queue_draw(ptr noundef %497) #20
@@ -2398,7 +2398,7 @@ define hidden void @compute_curve_lut(ptr noundef readonly captures(none) %0, pt
 
 dt_draw_curve_calc_values.exit:                   ; preds = %157, %154
   tail call void @free(ptr noundef %.pre) #20
-  tail call void @free(ptr noundef %141) #20
+  tail call void @free(ptr noundef nonnull %141) #20
   br label %.loopexit
 
 163:                                              ; preds = %.lr.ph, %163
@@ -2471,7 +2471,7 @@ dt_draw_curve_calc_values.exit:                   ; preds = %157, %154
 
 dt_draw_curve_calc_values.exit283:                ; preds = %189, %186
   tail call void @free(ptr noundef %.pre332) #20
-  tail call void @free(ptr noundef %173) #20
+  tail call void @free(ptr noundef nonnull %173) #20
   %195 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #22
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 184
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 188
@@ -2550,7 +2550,7 @@ dt_draw_curve_calc_values.exit283:                ; preds = %189, %186
 
 dt_draw_curve_calc_values.exit293:                ; preds = %222, %220
   tail call void @free(ptr noundef %.pre333) #20
-  tail call void @free(ptr noundef %195) #20
+  tail call void @free(ptr noundef nonnull %195) #20
   br i1 %188, label %.lr.ph314.preheader, label %.loopexit
 
 .lr.ph314.preheader:                              ; preds = %dt_draw_curve_calc_values.exit293

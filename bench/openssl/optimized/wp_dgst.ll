@@ -419,7 +419,7 @@ define range(i32 0, 2) i32 @WHIRLPOOL_Final(ptr noundef writeonly %0, ptr nounde
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  tail call void @whirlpool_block(ptr noundef %1, ptr noundef nonnull %53, i64 noundef 1) #6
+  tail call void @whirlpool_block(ptr noundef nonnull %1, ptr noundef nonnull %53, i64 noundef 1) #6
   %.not46 = icmp eq ptr %0, null
   br i1 %.not46, label %55, label %54
 

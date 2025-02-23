@@ -6170,71 +6170,71 @@ define linkonce_odr hidden void @_ZNK2cv4usac17NormTransformImpl21getNormTransfo
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = icmp sgt i32 %3, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %6
-  %11 = sitofp i32 %3 to double
-  %12 = fdiv double 0.000000e+00, %11
-  %13 = fdiv double 0.000000e+00, %11
-  %14 = fdiv double 0.000000e+00, %11
-  %15 = fdiv double 0.000000e+00, %11
-  br label %._crit_edge143
+  br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
-  %16 = load ptr, ptr %2, align 8
+  %11 = load ptr, ptr %2, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %17
+  br label %12
 
-17:                                               ; preds = %.lr.ph, %17
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %.0110134 = phi double [ 0.000000e+00, %.lr.ph ], [ %25, %17 ]
-  %.0111133 = phi double [ 0.000000e+00, %.lr.ph ], [ %31, %17 ]
-  %.0112132 = phi double [ 0.000000e+00, %.lr.ph ], [ %37, %17 ]
-  %.0113131 = phi double [ 0.000000e+00, %.lr.ph ], [ %43, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
-  %19 = load i32, ptr %18, align 4
-  %20 = shl nsw i32 %19, 2
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds float, ptr %9, i64 %21
-  %23 = load float, ptr %22, align 4
-  %24 = fpext float %23 to double
-  %25 = fadd double %.0110134, %24
-  %26 = or disjoint i32 %20, 1
-  %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds float, ptr %9, i64 %27
-  %29 = load float, ptr %28, align 4
-  %30 = fpext float %29 to double
-  %31 = fadd double %.0111133, %30
-  %32 = or disjoint i32 %20, 2
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %9, i64 %33
-  %35 = load float, ptr %34, align 4
-  %36 = fpext float %35 to double
-  %37 = fadd double %.0112132, %36
-  %38 = or disjoint i32 %20, 3
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %9, i64 %39
-  %41 = load float, ptr %40, align 4
-  %42 = fpext float %41 to double
-  %43 = fadd double %.0113131, %42
+12:                                               ; preds = %.lr.ph, %12
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
+  %.0110134 = phi double [ 0.000000e+00, %.lr.ph ], [ %20, %12 ]
+  %.0111133 = phi double [ 0.000000e+00, %.lr.ph ], [ %26, %12 ]
+  %.0112132 = phi double [ 0.000000e+00, %.lr.ph ], [ %32, %12 ]
+  %.0113131 = phi double [ 0.000000e+00, %.lr.ph ], [ %38, %12 ]
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4
+  %15 = shl nsw i32 %14, 2
+  %16 = sext i32 %15 to i64
+  %17 = getelementptr inbounds float, ptr %9, i64 %16
+  %18 = load float, ptr %17, align 4
+  %19 = fpext float %18 to double
+  %20 = fadd double %.0110134, %19
+  %21 = or disjoint i32 %15, 1
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds float, ptr %9, i64 %22
+  %24 = load float, ptr %23, align 4
+  %25 = fpext float %24 to double
+  %26 = fadd double %.0111133, %25
+  %27 = or disjoint i32 %15, 2
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds float, ptr %9, i64 %28
+  %30 = load float, ptr %29, align 4
+  %31 = fpext float %30 to double
+  %32 = fadd double %.0112132, %31
+  %33 = or disjoint i32 %15, 3
+  %34 = sext i32 %33 to i64
+  %35 = getelementptr inbounds float, ptr %9, i64 %34
+  %36 = load float, ptr %35, align 4
+  %37 = fpext float %36 to double
+  %38 = fadd double %.0113131, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %17, !llvm.loop !80
+  br i1 %exitcond.not, label %.lr.ph142, label %12, !llvm.loop !80
 
-._crit_edge:                                      ; preds = %17
-  %44 = sitofp i32 %3 to double
-  %45 = fdiv double %25, %44
-  %46 = fdiv double %31, %44
-  %47 = fdiv double %37, %44
-  %48 = fdiv double %43, %44
+._crit_edge:                                      ; preds = %6
+  %39 = sitofp i32 %3 to double
+  %40 = fdiv double 0.000000e+00, %39
+  %41 = fdiv double 0.000000e+00, %39
+  %42 = fdiv double 0.000000e+00, %39
+  %43 = fdiv double 0.000000e+00, %39
+  br label %._crit_edge143
+
+.lr.ph142:                                        ; preds = %12
+  %44 = uitofp nneg i32 %3 to double
+  %45 = fdiv double %20, %44
+  %46 = fdiv double %26, %44
+  %47 = fdiv double %32, %44
+  %48 = fdiv double %38, %44
   %49 = load ptr, ptr %2, align 8
   %wide.trip.count160 = zext nneg i32 %3 to i64
   br label %50
 
-50:                                               ; preds = %._crit_edge, %50
-  %indvars.iv157 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next158, %50 ]
-  %.0116140 = phi double [ 0.000000e+00, %._crit_edge ], [ %79, %50 ]
-  %.0117139 = phi double [ 0.000000e+00, %._crit_edge ], [ %82, %50 ]
+50:                                               ; preds = %.lr.ph142, %50
+  %indvars.iv157 = phi i64 [ 0, %.lr.ph142 ], [ %indvars.iv.next158, %50 ]
+  %.0116140 = phi double [ 0.000000e+00, %.lr.ph142 ], [ %79, %50 ]
+  %.0117139 = phi double [ 0.000000e+00, %.lr.ph142 ], [ %82, %50 ]
   %51 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv157
   %52 = load i32, ptr %51, align 4
   %53 = shl nsw i32 %52, 2
@@ -6273,14 +6273,14 @@ define linkonce_odr hidden void @_ZNK2cv4usac17NormTransformImpl21getNormTransfo
   %exitcond161.not = icmp eq i64 %indvars.iv.next158, %wide.trip.count160
   br i1 %exitcond161.not, label %._crit_edge143, label %50, !llvm.loop !81
 
-._crit_edge143:                                   ; preds = %50, %._crit_edge.thread
-  %83 = phi double [ %15, %._crit_edge.thread ], [ %48, %50 ]
-  %84 = phi double [ %14, %._crit_edge.thread ], [ %47, %50 ]
-  %85 = phi double [ %13, %._crit_edge.thread ], [ %46, %50 ]
-  %86 = phi double [ %12, %._crit_edge.thread ], [ %45, %50 ]
-  %87 = phi double [ %11, %._crit_edge.thread ], [ %44, %50 ]
-  %.0117.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %82, %50 ]
-  %.0116.lcssa = phi double [ 0.000000e+00, %._crit_edge.thread ], [ %79, %50 ]
+._crit_edge143:                                   ; preds = %50, %._crit_edge
+  %83 = phi double [ %43, %._crit_edge ], [ %48, %50 ]
+  %84 = phi double [ %42, %._crit_edge ], [ %47, %50 ]
+  %85 = phi double [ %41, %._crit_edge ], [ %46, %50 ]
+  %86 = phi double [ %40, %._crit_edge ], [ %45, %50 ]
+  %87 = phi double [ %39, %._crit_edge ], [ %44, %50 ]
+  %.0117.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %82, %50 ]
+  %.0116.lcssa = phi double [ 0.000000e+00, %._crit_edge ], [ %79, %50 ]
   %88 = fdiv double %.0116.lcssa, %87
   %89 = fdiv double 0x3FF6A09E667F3BCD, %88
   %90 = fdiv double %.0117.lcssa, %87

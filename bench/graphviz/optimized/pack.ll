@@ -1359,7 +1359,7 @@ gv_calloc.exit186:                                ; preds = %96, %gv_calloc.exit
   store ptr @ucmpf, ptr %119, align 8, !tbaa !66
   %120 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @gv_sort_arg)
   store ptr %114, ptr %120, align 8, !tbaa !66
-  %121 = icmp ugt i64 %0, 1
+  %121 = icmp samesign ugt i64 %0, 1
   br i1 %121, label %122, label %gv_sort.exit
 
 122:                                              ; preds = %118
@@ -3362,7 +3362,7 @@ define internal fastcc void @fillEdge(ptr noundef nonnull readonly captures(none
   br i1 %145, label %fillLine.exit, label %.lr.ph.i
 
 fillLine.exit:                                    ; preds = %.lr.ph.i, %.lr.ph83.i, %122, %134
-  %146 = add nuw i64 %.1154, 1
+  %146 = add i64 %.1154, 1
   %exitcond.not = icmp eq i64 %146, %.sroa.7.0.copyload
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !184
 

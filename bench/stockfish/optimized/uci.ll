@@ -2580,7 +2580,7 @@ _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.l
   br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i, !llvm.loop !15
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %38
-  call void @_ZdlPv(ptr noundef %37) #24
+  call void @_ZdlPv(ptr noundef nonnull %37) #24
   br label %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit
 
 _ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit: ; preds = %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i
@@ -2722,8 +2722,8 @@ define linkonce_odr dso_local void @_ZN9Stockfish5perftERKNSt7__cxx1112basic_str
   br i1 %7, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %.ptr5.ptr.ptr = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %.pre.i.i.i = load ptr, ptr %.ptr5.ptr.ptr, align 8
+  %.ptr4.ptr.ptr = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.pre.i.i.i = load ptr, ptr %.ptr4.ptr.ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(11264) %.pre.i.i.i, i8 0, i64 11264, i1 false)
   %8 = call noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPNS_9StateInfoE(ptr noundef nonnull align 8 dereferenceable(865) %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i1 noundef zeroext %2, ptr noundef nonnull %.pre.i.i.i) #21
   %9 = call noundef i64 @_ZN9Stockfish5perftILb1EEEmRNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %4, i32 noundef %1)

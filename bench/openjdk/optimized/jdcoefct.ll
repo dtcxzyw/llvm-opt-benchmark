@@ -884,7 +884,7 @@ define internal range(i32 0, 5) i32 @decompress_onepass(ptr noundef %0, ptr noun
   %93 = add nsw i64 %indvars.iv, %83
   %94 = getelementptr inbounds [10 x ptr], ptr %17, i64 0, i64 %93
   %95 = load ptr, ptr %94, align 8
-  tail call void %56(ptr noundef %0, ptr noundef nonnull %42, ptr noundef %95, ptr noundef %.07690.us, i32 noundef %.07488.us) #4
+  tail call void %56(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef %95, ptr noundef %.07690.us, i32 noundef %.07488.us) #4
   %96 = load i32, ptr %60, align 4
   %97 = add i32 %96, %.07488.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

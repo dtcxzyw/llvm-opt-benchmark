@@ -19461,7 +19461,6 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
 85:                                               ; preds = %.thread498, %67, %73
   %.0455501 = phi ptr [ %52, %73 ], [ %52, %67 ], [ null, %.thread498 ]
   %86 = phi i1 [ false, %73 ], [ true, %67 ], [ false, %.thread498 ]
-  %.7 = phi i32 [ 0, %73 ], [ 1, %67 ], [ 0, %.thread498 ]
   br label %87
 
 87:                                               ; preds = %87, %85
@@ -19492,21 +19491,20 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   br label %106
 
 106:                                              ; preds = %92, %94, %91
-  %.9 = phi i32 [ %.7, %91 ], [ 0, %94 ], [ 1, %92 ]
-  br label %107
+  %107 = phi i1 [ false, %91 ], [ false, %94 ], [ true, %92 ]
+  br label %108
 
-107:                                              ; preds = %107, %106
-  %108 = call i32 @wolfSSL_write(ptr noundef %.0455501, ptr noundef nonnull @.str.1583, i32 noundef 3) #27
-  %109 = call i32 @wolfSSL_get_error(ptr noundef %.0455501, i32 noundef 0) #27
-  %110 = icmp eq i32 %109, -108
-  br i1 %110, label %107, label %111, !llvm.loop !138
+108:                                              ; preds = %108, %106
+  %109 = call i32 @wolfSSL_write(ptr noundef %.0455501, ptr noundef nonnull @.str.1583, i32 noundef 3) #27
+  %110 = call i32 @wolfSSL_get_error(ptr noundef %.0455501, i32 noundef 0) #27
+  %111 = icmp eq i32 %110, -108
+  br i1 %111, label %108, label %112, !llvm.loop !138
 
-111:                                              ; preds = %107
-  %112 = icmp eq i32 %.9, 1
-  br i1 %112, label %113, label %127
+112:                                              ; preds = %108
+  br i1 %107, label %113, label %127
 
-113:                                              ; preds = %111
-  %114 = icmp eq i32 %108, 3
+113:                                              ; preds = %112
+  %114 = icmp eq i32 %109, 3
   br i1 %114, label %127, label %115
 
 115:                                              ; preds = %113
@@ -19516,29 +19514,28 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   %119 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1076, ptr noundef nonnull @.str.1594)
   %120 = load ptr, ptr @stdout, align 8, !tbaa !22
   %121 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %120)
-  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %108, i32 noundef 3)
+  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %109, i32 noundef 3)
   %123 = load ptr, ptr @stdout, align 8, !tbaa !22
   %124 = call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %123)
   %125 = load ptr, ptr @stdout, align 8, !tbaa !22
   %126 = call i32 @fflush(ptr noundef %125)
   br label %127
 
-127:                                              ; preds = %113, %115, %111
-  %.11 = phi i32 [ %.9, %111 ], [ 0, %115 ], [ 1, %113 ]
-  br label %128
+127:                                              ; preds = %113, %115, %112
+  %128 = phi i1 [ false, %112 ], [ false, %115 ], [ true, %113 ]
+  br label %129
 
-128:                                              ; preds = %128, %127
-  %129 = call i32 @wolfSSL_read(ptr noundef %.0455501, ptr noundef nonnull %5, i32 noundef 80) #27
-  %130 = call i32 @wolfSSL_get_error(ptr noundef %.0455501, i32 noundef 0) #27
-  %131 = icmp eq i32 %130, -108
-  br i1 %131, label %128, label %132, !llvm.loop !139
+129:                                              ; preds = %129, %127
+  %130 = call i32 @wolfSSL_read(ptr noundef %.0455501, ptr noundef nonnull %5, i32 noundef 80) #27
+  %131 = call i32 @wolfSSL_get_error(ptr noundef %.0455501, i32 noundef 0) #27
+  %132 = icmp eq i32 %131, -108
+  br i1 %132, label %129, label %133, !llvm.loop !139
 
-132:                                              ; preds = %128
-  %133 = icmp eq i32 %.11, 1
-  br i1 %133, label %134, label %.thread511
+133:                                              ; preds = %129
+  br i1 %128, label %134, label %.thread511
 
-134:                                              ; preds = %132
-  %135 = icmp eq i32 %129, 23
+134:                                              ; preds = %133
+  %135 = icmp eq i32 %130, 23
   br i1 %135, label %144, label %136
 
 136:                                              ; preds = %134
@@ -19548,7 +19545,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1076, ptr noundef nonnull @.str.1595)
   %141 = load ptr, ptr @stdout, align 8, !tbaa !22
   %142 = call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %141)
-  %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %129, i32 noundef 23)
+  %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %130, i32 noundef 23)
   br label %.thread511.sink.split
 
 144:                                              ; preds = %134
@@ -19605,15 +19602,14 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   %178 = call i32 @fflush(ptr noundef %177)
   br label %.thread511
 
-.thread511:                                       ; preds = %.thread511.sink.split, %132, %164
-  %.0460516 = phi ptr [ %155, %164 ], [ null, %132 ], [ %.0460516.ph, %.thread511.sink.split ]
-  %.0458509515 = phi ptr [ %145, %164 ], [ null, %132 ], [ %.0458509515.ph, %.thread511.sink.split ]
-  %.19 = phi i32 [ 1, %164 ], [ %.11, %132 ], [ 0, %.thread511.sink.split ]
+.thread511:                                       ; preds = %.thread511.sink.split, %133, %164
+  %.0460516 = phi ptr [ %155, %164 ], [ null, %133 ], [ %.0460516.ph, %.thread511.sink.split ]
+  %.0458509515 = phi ptr [ %145, %164 ], [ null, %133 ], [ %.0458509515.ph, %.thread511.sink.split ]
+  %179 = phi i1 [ true, %164 ], [ false, %133 ], [ false, %.thread511.sink.split ]
   call void @wolfSSL_SESSION_free(ptr noundef %.0460516) #27
   call void @wolfSSL_SESSION_free(ptr noundef %.0458509515) #27
-  %179 = call ptr @wolfSSL_get_session(ptr noundef %.0455501) #27
-  %180 = icmp eq i32 %.19, 1
-  br i1 %180, label %181, label %195
+  %180 = call ptr @wolfSSL_get_session(ptr noundef %.0455501) #27
+  br i1 %179, label %181, label %195
 
 181:                                              ; preds = %.thread511
   %182 = call ptr @wolfSSL_get1_session(ptr noundef %.0455501) #27
@@ -19635,17 +19631,16 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
   br label %195
 
 195:                                              ; preds = %.thread511, %183, %181
-  %.1459 = phi ptr [ null, %183 ], [ %179, %.thread511 ], [ %182, %181 ]
-  %.20 = phi i32 [ 0, %183 ], [ %.19, %.thread511 ], [ 1, %181 ]
-  %196 = call i32 @wolfSSL_shutdown(ptr noundef %.0455501) #27
+  %.1459 = phi ptr [ null, %183 ], [ %180, %.thread511 ], [ %182, %181 ]
+  %196 = phi i1 [ false, %183 ], [ false, %.thread511 ], [ true, %181 ]
+  %197 = call i32 @wolfSSL_shutdown(ptr noundef %.0455501) #27
   call void @wolfSSL_free(ptr noundef %.0455501) #27
-  %197 = load i32, ptr %1, align 4, !tbaa !67
-  %198 = call i32 @close(i32 noundef %197) #27
-  %199 = load i64, ptr %4, align 8, !tbaa !56
-  call void @join_thread(i64 noundef %199) #27
+  %198 = load i32, ptr %1, align 4, !tbaa !67
+  %199 = call i32 @close(i32 noundef %198) #27
+  %200 = load i64, ptr %4, align 8, !tbaa !56
+  call void @join_thread(i64 noundef %200) #27
   call fastcc void @FreeTcpReady(ptr noundef %2)
-  %200 = icmp eq i32 %.20, 1
-  br i1 %200, label %201, label %.thread518
+  br i1 %196, label %201, label %.thread518
 
 201:                                              ; preds = %195
   %202 = call ptr @wolfSSL_new(ptr noundef %7) #27
@@ -19687,7 +19682,7 @@ define internal range(i32 0, 2) i32 @test_wolfSSL_SESSION() #0 {
 
 .thread518:                                       ; preds = %.thread518.sink.split, %195, %211
   %.1456521 = phi ptr [ %202, %211 ], [ null, %195 ], [ %.1456521.ph, %.thread518.sink.split ]
-  %.23 = phi i32 [ 1, %211 ], [ %.20, %195 ], [ 0, %.thread518.sink.split ]
+  %.23 = phi i32 [ 1, %211 ], [ 0, %195 ], [ 0, %.thread518.sink.split ]
   call void @wolfSSL_free(ptr noundef %.1456521) #27
   call void @wolfSSL_SESSION_free(ptr noundef %.1459) #27
   call void @wolfSSL_CTX_free(ptr noundef %7) #27
@@ -23124,7 +23119,6 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
 
 42:                                               ; preds = %.sink.split, %27
   %43 = phi i1 [ true, %27 ], [ false, %.sink.split ]
-  %.2 = phi i32 [ 1, %27 ], [ 0, %.sink.split ]
   br label %44
 
 44:                                               ; preds = %44, %42
@@ -23154,20 +23148,19 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
   br label %62
 
 62:                                               ; preds = %48, %50, %47
-  %.4 = phi i32 [ %.2, %47 ], [ 0, %50 ], [ 1, %48 ]
-  br label %63
+  %63 = phi i1 [ false, %47 ], [ false, %50 ], [ true, %48 ]
+  br label %64
 
-63:                                               ; preds = %63, %62
-  %64 = tail call i32 @wolfSSL_UseKeyShare(ptr noundef %6, i16 noundef zeroext 23) #27
-  %65 = icmp eq i32 %64, -108
-  br i1 %65, label %63, label %66, !llvm.loop !141
+64:                                               ; preds = %64, %62
+  %65 = tail call i32 @wolfSSL_UseKeyShare(ptr noundef %6, i16 noundef zeroext 23) #27
+  %66 = icmp eq i32 %65, -108
+  br i1 %66, label %64, label %67, !llvm.loop !141
 
-66:                                               ; preds = %63
-  %67 = icmp eq i32 %.4, 1
-  br i1 %67, label %68, label %82
+67:                                               ; preds = %64
+  br i1 %63, label %68, label %82
 
-68:                                               ; preds = %66
-  %69 = icmp eq i32 %64, 1
+68:                                               ; preds = %67
+  %69 = icmp eq i32 %65, 1
   br i1 %69, label %82, label %70
 
 70:                                               ; preds = %68
@@ -23177,28 +23170,27 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
   %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1076, ptr noundef nonnull @.str.993)
   %75 = load ptr, ptr @stdout, align 8, !tbaa !22
   %76 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %75)
-  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %64, i32 noundef 1)
+  %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %65, i32 noundef 1)
   %78 = load ptr, ptr @stdout, align 8, !tbaa !22
   %79 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %78)
   %80 = load ptr, ptr @stdout, align 8, !tbaa !22
   %81 = tail call i32 @fflush(ptr noundef %80)
   br label %82
 
-82:                                               ; preds = %68, %70, %66
-  %.6 = phi i32 [ %.4, %66 ], [ 0, %70 ], [ 1, %68 ]
-  br label %83
+82:                                               ; preds = %68, %70, %67
+  %83 = phi i1 [ false, %67 ], [ false, %70 ], [ true, %68 ]
+  br label %84
 
-83:                                               ; preds = %83, %82
-  %84 = tail call i32 @wolfSSL_UseKeyShare(ptr noundef %14, i16 noundef zeroext 23) #27
-  %85 = icmp eq i32 %84, -108
-  br i1 %85, label %83, label %86, !llvm.loop !142
+84:                                               ; preds = %84, %82
+  %85 = tail call i32 @wolfSSL_UseKeyShare(ptr noundef %14, i16 noundef zeroext 23) #27
+  %86 = icmp eq i32 %85, -108
+  br i1 %86, label %84, label %87, !llvm.loop !142
 
-86:                                               ; preds = %83
-  %87 = icmp eq i32 %.6, 1
-  br i1 %87, label %88, label %.thread2174
+87:                                               ; preds = %84
+  br i1 %83, label %88, label %.thread2174
 
-88:                                               ; preds = %86
-  %89 = icmp eq i32 %84, 1
+88:                                               ; preds = %87
+  %89 = icmp eq i32 %85, 1
   br i1 %89, label %102, label %90
 
 90:                                               ; preds = %88
@@ -23208,7 +23200,7 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
   %94 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef nonnull @.str.1076, ptr noundef nonnull @.str.993)
   %95 = load ptr, ptr @stdout, align 8, !tbaa !22
   %96 = tail call i64 @fwrite(ptr nonnull @.str.6, i64 15, i64 1, ptr %95)
-  %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %84, i32 noundef 1)
+  %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %85, i32 noundef 1)
   %98 = load ptr, ptr @stdout, align 8, !tbaa !22
   %99 = tail call i64 @fwrite(ptr nonnull @.str.8, i64 2, i64 1, ptr %98)
   %100 = load ptr, ptr @stdout, align 8, !tbaa !22
@@ -24184,8 +24176,8 @@ define internal range(i32 0, 2) i32 @test_tls13_apis() #0 {
   %866 = call i32 @fflush(ptr noundef %865)
   br label %.thread2174
 
-.thread2174:                                      ; preds = %90, %86, %105, %120, %135, %150, %165, %180, %195, %210, %225, %240, %255, %270, %285, %300, %315, %330, %345, %360, %375, %390, %405, %420, %435, %450, %465, %480, %495, %510, %525, %540, %555, %570, %585, %600, %615, %630, %645, %660, %675, %690, %705, %720, %735, %750, %765, %780, %795, %810, %825, %840, %852, %855
-  %.110 = phi i32 [ 0, %855 ], [ 1, %852 ], [ 0, %840 ], [ 0, %825 ], [ 0, %810 ], [ 0, %795 ], [ 0, %780 ], [ 0, %765 ], [ 0, %750 ], [ 0, %735 ], [ 0, %720 ], [ 0, %705 ], [ 0, %690 ], [ 0, %675 ], [ 0, %660 ], [ 0, %645 ], [ 0, %630 ], [ 0, %615 ], [ 0, %600 ], [ 0, %585 ], [ 0, %570 ], [ 0, %555 ], [ 0, %540 ], [ 0, %525 ], [ 0, %510 ], [ 0, %495 ], [ 0, %480 ], [ 0, %465 ], [ 0, %450 ], [ 0, %435 ], [ 0, %420 ], [ 0, %405 ], [ 0, %390 ], [ 0, %375 ], [ 0, %360 ], [ 0, %345 ], [ 0, %330 ], [ 0, %315 ], [ 0, %300 ], [ 0, %285 ], [ 0, %270 ], [ 0, %255 ], [ 0, %240 ], [ 0, %225 ], [ 0, %210 ], [ 0, %195 ], [ 0, %180 ], [ 0, %165 ], [ 0, %150 ], [ 0, %135 ], [ 0, %120 ], [ 0, %105 ], [ 0, %90 ], [ %.6, %86 ]
+.thread2174:                                      ; preds = %90, %87, %105, %120, %135, %150, %165, %180, %195, %210, %225, %240, %255, %270, %285, %300, %315, %330, %345, %360, %375, %390, %405, %420, %435, %450, %465, %480, %495, %510, %525, %540, %555, %570, %585, %600, %615, %630, %645, %660, %675, %690, %705, %720, %735, %750, %765, %780, %795, %810, %825, %840, %852, %855
+  %.110 = phi i32 [ 0, %855 ], [ 1, %852 ], [ 0, %840 ], [ 0, %825 ], [ 0, %810 ], [ 0, %795 ], [ 0, %780 ], [ 0, %765 ], [ 0, %750 ], [ 0, %735 ], [ 0, %720 ], [ 0, %705 ], [ 0, %690 ], [ 0, %675 ], [ 0, %660 ], [ 0, %645 ], [ 0, %630 ], [ 0, %615 ], [ 0, %600 ], [ 0, %585 ], [ 0, %570 ], [ 0, %555 ], [ 0, %540 ], [ 0, %525 ], [ 0, %510 ], [ 0, %495 ], [ 0, %480 ], [ 0, %465 ], [ 0, %450 ], [ 0, %435 ], [ 0, %420 ], [ 0, %405 ], [ 0, %390 ], [ 0, %375 ], [ 0, %360 ], [ 0, %345 ], [ 0, %330 ], [ 0, %315 ], [ 0, %300 ], [ 0, %285 ], [ 0, %270 ], [ 0, %255 ], [ 0, %240 ], [ 0, %225 ], [ 0, %210 ], [ 0, %195 ], [ 0, %180 ], [ 0, %165 ], [ 0, %150 ], [ 0, %135 ], [ 0, %120 ], [ 0, %105 ], [ 0, %90 ], [ 0, %87 ]
   call void @wolfSSL_free(ptr noundef %19) #27
   call void @wolfSSL_CTX_free(ptr noundef %16) #27
   call void @wolfSSL_free(ptr noundef %14) #27

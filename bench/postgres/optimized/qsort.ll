@@ -25,8 +25,8 @@ define dso_local void @pg_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
   %.0.lcssa = phi i64 [ %1, %4 ], [ %149, %148 ], [ %138, %.outer ]
   %9 = mul i64 %.0.lcssa, %2
   %10 = getelementptr inbounds nuw i8, ptr %.0176.ph.lcssa257, i64 %9
-  %.not429 = icmp samesign ult i64 %2, %9
-  br i1 %.not429, label %.preheader.preheader, label %.critedge208
+  %.not390 = icmp samesign ult i64 %2, %9
+  br i1 %.not390, label %.preheader.preheader, label %.critedge208
 
 .preheader.preheader:                             ; preds = %.preheader240
   %.0178304 = getelementptr inbounds nuw i8, ptr %.0176.ph.lcssa257, i64 %2

@@ -166,7 +166,7 @@ define dso_local void @add_pathspec_matches_against_index(ptr noundef %0, ptr no
   %narrow.i = or i1 %45, %46
   %47 = zext i1 %narrow.i to i32
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 108
-  %49 = tail call i32 @match_pathspec(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %48, i32 noundef %41, i32 noundef 0, ptr noundef %2, i32 noundef %47) #17
+  %49 = tail call i32 @match_pathspec(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %48, i32 noundef %41, i32 noundef 0, ptr noundef nonnull %2, i32 noundef %47) #17
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %50 = load i32, ptr %11, align 4, !tbaa !14
   %51 = zext i32 %50 to i64

@@ -4347,7 +4347,7 @@ switch.lookup997:                                 ; preds = %919
   br i1 %exitcond939.not, label %1072, label %1069, !llvm.loop !170
 
 1072:                                             ; preds = %1069
-  %1073 = icmp ugt i32 %4, 66
+  %1073 = icmp samesign ugt i32 %4, 66
   br i1 %1073, label %1074, label %.thread917
 
 1074:                                             ; preds = %1072

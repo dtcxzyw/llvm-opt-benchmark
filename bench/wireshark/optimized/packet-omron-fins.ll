@@ -1655,7 +1655,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
 39:                                               ; preds = %.thread, %38, %25, %23
   %.024002490 = xor i1 %.not, true
   %.not2439 = icmp eq ptr %2, null
-  br i1 %.not2439, label %1620, label %40
+  br i1 %.not2439, label %1616, label %40
 
 40:                                               ; preds = %39
   %41 = load i32, ptr @ett_omron_header, align 4
@@ -1692,7 +1692,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
 69:                                               ; preds = %40
   %70 = load ptr, ptr %4, align 8
   %71 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %70, ptr noundef nonnull @ei_omron_command_code)
-  br label %1620
+  br label %1616
 
 72:                                               ; preds = %40
   switch i16 %10, label %96 [
@@ -1716,11 +1716,11 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
 
 74:                                               ; preds = %73
   %.not2440 = icmp eq i32 %66, 0
-  br i1 %.not2440, label %1620, label %75
+  br i1 %.not2440, label %1616, label %75
 
 75:                                               ; preds = %74
   %76 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @ei_omron_bad_length, ptr noundef nonnull @.str.931)
-  br label %1620
+  br label %1616
 
 77:                                               ; preds = %72
   %78 = icmp ne i32 %66, 0
@@ -1729,30 +1729,30 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
 
 .thread2491:                                      ; preds = %77
   %79 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @ei_omron_bad_length, ptr noundef nonnull @.str.931)
-  br label %1620
+  br label %1616
 
 80:                                               ; preds = %77
-  br i1 %.not, label %1620, label %81
+  br i1 %.not, label %1616, label %81
 
 81:                                               ; preds = %80
   %82 = load ptr, ptr %4, align 8
   %83 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %82, ptr noundef nonnull @ei_omron_command_code, ptr noundef nonnull @.str.932)
-  br label %1620
+  br label %1616
 
 84:                                               ; preds = %72
   %85 = icmp eq i32 %66, 0
   %or.cond10 = select i1 %.not, i1 %85, i1 false
-  br i1 %or.cond10, label %1620, label %.thread2492
+  br i1 %or.cond10, label %1616, label %.thread2492
 
 .thread2492:                                      ; preds = %84
   %86 = load i32, ptr @ett_omron_command_data, align 4
   %87 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef %86, ptr noundef null, ptr noundef nonnull @.str.54)
-  br label %1040
+  br label %1039
 
 88:                                               ; preds = %72
   %89 = icmp eq i32 %66, 0
   %or.cond12 = select i1 %.not, i1 %89, i1 false
-  br i1 %or.cond12, label %1620, label %90
+  br i1 %or.cond12, label %1616, label %90
 
 90:                                               ; preds = %88
   br i1 %.not, label %.thread2493, label %93
@@ -1760,12 +1760,12 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
 .thread2493:                                      ; preds = %90
   %91 = load i32, ptr @ett_omron_command_data, align 4
   %92 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef %91, ptr noundef null, ptr noundef nonnull @.str.54)
-  br label %1061
+  br label %1060
 
 93:                                               ; preds = %90
   %94 = load ptr, ptr %4, align 8
   %95 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %94, ptr noundef nonnull @ei_omron_command_code, ptr noundef nonnull @.str.932)
-  br label %1620
+  br label %1616
 
 96:                                               ; preds = %72, %73
   %97 = load i32, ptr @ett_omron_command_data, align 4
@@ -1781,52 +1781,52 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
     i16 515, label %246
     i16 544, label %265
     i16 545, label %305
-    i16 772, label %346
-    i16 773, label %346
-    i16 774, label %363
-    i16 775, label %388
-    i16 776, label %413
-    i16 1025, label %424
-    i16 1026, label %440
-    i16 1281, label %445
-    i16 1282, label %598
-    i16 1537, label %622
-    i16 1538, label %644
-    i16 1539, label %722
-    i16 1568, label %979
-    i16 1793, label %997
-    i16 1794, label %1016
-    i16 2049, label %1040
-    i16 2050, label %1054
-    i16 2051, label %1061
-    i16 2336, label %1068
-    i16 3073, label %1109
-    i16 3074, label %1129
-    i16 3075, label %1139
-    i16 8449, label %1149
-    i16 8450, label %1159
-    i16 8451, label %1206
-    i16 8705, label %1211
-    i16 8706, label %1288
-    i16 8707, label %1315
-    i16 8708, label %1338
-    i16 8709, label %1348
-    i16 8710, label %1368
-    i16 8711, label %1384
-    i16 8712, label %1399
-    i16 8713, label %1412
-    i16 8714, label %1423
-    i16 8715, label %1444
-    i16 8716, label %1465
-    i16 8719, label %1486
-    i16 8720, label %1512
-    i16 8721, label %1529
-    i16 8961, label %1546
-    i16 8962, label %1567
-    i16 8970, label %1572
-    i16 9729, label %1594
-    i16 9730, label %1604
-    i16 9731, label %1609
+    i16 772, label %345
+    i16 773, label %345
+    i16 774, label %362
+    i16 775, label %387
+    i16 776, label %412
+    i16 1025, label %423
+    i16 1026, label %439
+    i16 1281, label %444
+    i16 1282, label %597
+    i16 1537, label %621
+    i16 1538, label %643
+    i16 1539, label %721
+    i16 1568, label %978
+    i16 1793, label %996
+    i16 1794, label %1015
+    i16 2049, label %1039
+    i16 2050, label %1053
+    i16 2051, label %1060
+    i16 2336, label %1067
+    i16 3073, label %1108
+    i16 3074, label %1128
+    i16 3075, label %1138
+    i16 8449, label %1148
+    i16 8450, label %1158
+    i16 8451, label %1205
+    i16 8705, label %1210
+    i16 8706, label %1287
+    i16 8707, label %1314
+    i16 8708, label %1337
+    i16 8709, label %1347
+    i16 8710, label %1365
+    i16 8711, label %1381
+    i16 8712, label %1396
+    i16 8713, label %1409
+    i16 8714, label %1420
+    i16 8715, label %1441
+    i16 8716, label %1462
+    i16 8719, label %1483
+    i16 8720, label %1509
+    i16 8721, label %1526
+    i16 8961, label %1543
+    i16 8962, label %1563
+    i16 8970, label %1568
+    i16 9729, label %1590
+    i16 9730, label %1600
+    i16 9731, label %1605
   ]
 
 99:                                               ; preds = %96
@@ -2075,7 +2075,7 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %189 = zext i8 %186 to i32
   %190 = load ptr, ptr %4, align 8
   %191 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %190, ptr noundef nonnull @ei_oomron_command_memory_area_code, ptr noundef nonnull @.str.933, i32 noundef %189)
-  br label %1620
+  br label %1616
 
 192:                                              ; preds = %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %.lr.ph2666, %187, %188
   %.02378.ph = phi i32 [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 1, %.lr.ph2666 ], [ 2, %187 ], [ 4, %188 ]
@@ -2297,1869 +2297,1859 @@ define internal fastcc i32 @dissect_omron_fins_common(ptr noundef %0, ptr nounde
   %338 = add i32 %.1423972655, 8
   %339 = add nsw i32 %.62656, -8
   %340 = icmp samesign ugt i32 %339, 7
-  br i1 %340, label %.lr.ph2657, label %.loopexit2609, !llvm.loop !9
+  br i1 %340, label %.lr.ph2657, label %.thread2535, !llvm.loop !9
 
-.loopexit2609:                                    ; preds = %.lr.ph2657, %305
-  %.132396 = phi i32 [ 12, %305 ], [ %338, %.lr.ph2657 ]
-  %.5 = phi i32 [ %66, %305 ], [ %339, %.lr.ph2657 ]
-  %341 = icmp ne i32 %.5, 2
+.loopexit2609:                                    ; preds = %305
+  %341 = icmp ne i32 %66, 2
   %or.cond59.not = select i1 %.not, i1 true, i1 %341
   br i1 %or.cond59.not, label %.thread2535, label %342
 
 342:                                              ; preds = %.loopexit2609
   %343 = load i32, ptr @hf_omron_response_code, align 4
-  %344 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %343, ptr noundef %0, i32 noundef %.132396, i32 noundef 2, i32 noundef 0)
-  %345 = add i32 %.132396, 2
+  %344 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %343, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-346:                                              ; preds = %96, %96
-  %347 = icmp eq i32 %66, 15
-  %or.cond62 = select i1 %.not, i1 %347, i1 false
-  br i1 %or.cond62, label %.thread2522, label %358
+345:                                              ; preds = %96, %96
+  %346 = icmp eq i32 %66, 15
+  %or.cond62 = select i1 %.not, i1 %346, i1 false
+  br i1 %or.cond62, label %.thread2522, label %357
 
-.thread2522:                                      ; preds = %346
-  %348 = load i32, ptr @hf_omron_program_number, align 4
-  %349 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %348, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %350 = load i32, ptr @hf_omron_protect_code, align 4
-  %351 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %350, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %352 = load i32, ptr @hf_omron_begin_word, align 4
-  %353 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %352, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef 0)
-  %354 = load i32, ptr @hf_omron_last_word, align 4
-  %355 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %354, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0)
-  %356 = load i32, ptr @hf_omron_password, align 4
-  %357 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %356, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0)
+.thread2522:                                      ; preds = %345
+  %347 = load i32, ptr @hf_omron_program_number, align 4
+  %348 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %347, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %349 = load i32, ptr @hf_omron_protect_code, align 4
+  %350 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %349, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %351 = load i32, ptr @hf_omron_begin_word, align 4
+  %352 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %351, ptr noundef %0, i32 noundef 15, i32 noundef 4, i32 noundef 0)
+  %353 = load i32, ptr @hf_omron_last_word, align 4
+  %354 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %353, ptr noundef %0, i32 noundef 19, i32 noundef 4, i32 noundef 0)
+  %355 = load i32, ptr @hf_omron_password, align 4
+  %356 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %355, ptr noundef %0, i32 noundef 23, i32 noundef 4, i32 noundef 0)
   br label %.thread2535
 
-358:                                              ; preds = %346
-  %359 = icmp ne i32 %66, 2
-  %or.cond65.not = select i1 %.not, i1 true, i1 %359
-  br i1 %or.cond65.not, label %.thread2535, label %360
+357:                                              ; preds = %345
+  %358 = icmp ne i32 %66, 2
+  %or.cond65.not = select i1 %.not, i1 true, i1 %358
+  br i1 %or.cond65.not, label %.thread2535, label %359
 
-360:                                              ; preds = %358
-  %361 = load i32, ptr @hf_omron_response_code, align 4
-  %362 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %361, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+359:                                              ; preds = %357
+  %360 = load i32, ptr @hf_omron_response_code, align 4
+  %361 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %360, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-363:                                              ; preds = %96
-  %364 = icmp eq i32 %66, 8
-  %or.cond68 = select i1 %.not, i1 %364, i1 false
-  br i1 %or.cond68, label %.thread2525, label %371
+362:                                              ; preds = %96
+  %363 = icmp eq i32 %66, 8
+  %or.cond68 = select i1 %.not, i1 %363, i1 false
+  br i1 %or.cond68, label %.thread2525, label %370
 
-.thread2525:                                      ; preds = %363
-  %365 = load i32, ptr @hf_omron_program_number, align 4
-  %366 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %365, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %367 = load i32, ptr @hf_omron_begin_word, align 4
-  %368 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %367, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
-  %369 = load i32, ptr @hf_omron_num_words, align 4
-  %370 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %369, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+.thread2525:                                      ; preds = %362
+  %364 = load i32, ptr @hf_omron_program_number, align 4
+  %365 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %364, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %366 = load i32, ptr @hf_omron_begin_word, align 4
+  %367 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %366, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
+  %368 = load i32, ptr @hf_omron_num_words, align 4
+  %369 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %368, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-371:                                              ; preds = %363
-  %372 = icmp slt i32 %66, 10
-  %or.cond71.not = select i1 %.not, i1 true, i1 %372
-  br i1 %or.cond71.not, label %.thread2535, label %373
+370:                                              ; preds = %362
+  %371 = icmp slt i32 %66, 10
+  %or.cond71.not = select i1 %.not, i1 true, i1 %371
+  br i1 %or.cond71.not, label %.thread2535, label %372
 
-373:                                              ; preds = %371
-  %374 = load i32, ptr @hf_omron_response_code, align 4
-  %375 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %374, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %376 = load i32, ptr @hf_omron_program_number, align 4
-  %377 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %376, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %378 = load i32, ptr @hf_omron_begin_word, align 4
-  %379 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %378, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %380 = load i32, ptr @hf_omron_num_words, align 4
-  %381 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %380, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
-  %382 = icmp samesign ugt i32 %66, 10
-  br i1 %382, label %383, label %386
+372:                                              ; preds = %370
+  %373 = load i32, ptr @hf_omron_response_code, align 4
+  %374 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %373, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %375 = load i32, ptr @hf_omron_program_number, align 4
+  %376 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %375, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %377 = load i32, ptr @hf_omron_begin_word, align 4
+  %378 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %377, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %379 = load i32, ptr @hf_omron_num_words, align 4
+  %380 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %379, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+  %381 = icmp samesign ugt i32 %66, 10
+  br i1 %381, label %382, label %385
 
-383:                                              ; preds = %373
-  %384 = load i32, ptr @hf_omron_response_data, align 4
-  %385 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %384, ptr noundef %0, i32 noundef 22, i32 noundef -1, i32 noundef 0)
-  br label %386
+382:                                              ; preds = %372
+  %383 = load i32, ptr @hf_omron_response_data, align 4
+  %384 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %383, ptr noundef %0, i32 noundef 22, i32 noundef -1, i32 noundef 0)
+  br label %385
 
-386:                                              ; preds = %383, %373
-  %387 = add nuw i32 %66, 12
+385:                                              ; preds = %382, %372
+  %386 = add nuw i32 %66, 12
   br label %.thread2535
 
-388:                                              ; preds = %96
-  %389 = icmp sgt i32 %66, 7
-  %or.cond74 = select i1 %.not, i1 %389, i1 false
-  br i1 %or.cond74, label %390, label %402
+387:                                              ; preds = %96
+  %388 = icmp sgt i32 %66, 7
+  %or.cond74 = select i1 %.not, i1 %388, i1 false
+  br i1 %or.cond74, label %389, label %401
 
-390:                                              ; preds = %388
-  %391 = load i32, ptr @hf_omron_program_number, align 4
-  %392 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %391, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %393 = load i32, ptr @hf_omron_begin_word, align 4
-  %394 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %393, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
-  %395 = load i32, ptr @hf_omron_num_words, align 4
-  %396 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %395, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %397 = icmp samesign ugt i32 %66, 8
-  br i1 %397, label %398, label %.thread2528
+389:                                              ; preds = %387
+  %390 = load i32, ptr @hf_omron_program_number, align 4
+  %391 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %390, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %392 = load i32, ptr @hf_omron_begin_word, align 4
+  %393 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %392, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
+  %394 = load i32, ptr @hf_omron_num_words, align 4
+  %395 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %394, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %396 = icmp samesign ugt i32 %66, 8
+  br i1 %396, label %397, label %.thread2528
 
-398:                                              ; preds = %390
-  %399 = load i32, ptr @hf_omron_command_data, align 4
-  %400 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %399, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0)
+397:                                              ; preds = %389
+  %398 = load i32, ptr @hf_omron_command_data, align 4
+  %399 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %398, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0)
   br label %.thread2528
 
-.thread2528:                                      ; preds = %390, %398
-  %401 = add nuw i32 %66, 12
+.thread2528:                                      ; preds = %389, %397
+  %400 = add nuw i32 %66, 12
   br label %.thread2535
 
-402:                                              ; preds = %388
-  %403 = icmp ne i32 %66, 10
-  %or.cond77.not = select i1 %.not, i1 true, i1 %403
-  br i1 %or.cond77.not, label %.thread2535, label %404
+401:                                              ; preds = %387
+  %402 = icmp ne i32 %66, 10
+  %or.cond77.not = select i1 %.not, i1 true, i1 %402
+  br i1 %or.cond77.not, label %.thread2535, label %403
 
-404:                                              ; preds = %402
-  %405 = load i32, ptr @hf_omron_response_code, align 4
-  %406 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %405, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %407 = load i32, ptr @hf_omron_program_number, align 4
-  %408 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %407, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %409 = load i32, ptr @hf_omron_begin_word, align 4
-  %410 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %409, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %411 = load i32, ptr @hf_omron_num_words, align 4
-  %412 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %411, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+403:                                              ; preds = %401
+  %404 = load i32, ptr @hf_omron_response_code, align 4
+  %405 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %404, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %406 = load i32, ptr @hf_omron_program_number, align 4
+  %407 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %406, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %408 = load i32, ptr @hf_omron_begin_word, align 4
+  %409 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %408, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %410 = load i32, ptr @hf_omron_num_words, align 4
+  %411 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %410, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-413:                                              ; preds = %96
-  %414 = icmp eq i32 %66, 3
-  %or.cond80 = select i1 %.not, i1 %414, i1 false
-  br i1 %or.cond80, label %.thread2531, label %419
+412:                                              ; preds = %96
+  %413 = icmp eq i32 %66, 3
+  %or.cond80 = select i1 %.not, i1 %413, i1 false
+  br i1 %or.cond80, label %.thread2531, label %418
 
-.thread2531:                                      ; preds = %413
-  %415 = load i32, ptr @hf_omron_program_number, align 4
-  %416 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %415, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %417 = load i32, ptr @hf_omron_clear_code, align 4
-  %418 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %417, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+.thread2531:                                      ; preds = %412
+  %414 = load i32, ptr @hf_omron_program_number, align 4
+  %415 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %414, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %416 = load i32, ptr @hf_omron_clear_code, align 4
+  %417 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %416, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-419:                                              ; preds = %413
-  %420 = icmp ne i32 %66, 2
-  %or.cond83.not = select i1 %.not, i1 true, i1 %420
-  br i1 %or.cond83.not, label %.thread2535, label %421
+418:                                              ; preds = %412
+  %419 = icmp ne i32 %66, 2
+  %or.cond83.not = select i1 %.not, i1 true, i1 %419
+  br i1 %or.cond83.not, label %.thread2535, label %420
 
-421:                                              ; preds = %419
-  %422 = load i32, ptr @hf_omron_response_code, align 4
-  %423 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %422, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+420:                                              ; preds = %418
+  %421 = load i32, ptr @hf_omron_response_code, align 4
+  %422 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %421, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-424:                                              ; preds = %96
-  br i1 %.not, label %425, label %436
+423:                                              ; preds = %96
+  br i1 %.not, label %424, label %435
+
+424:                                              ; preds = %423
+  switch i32 %66, label %.thread2535 [
+    i32 3, label %425
+    i32 2, label %430
+  ]
 
 425:                                              ; preds = %424
-  switch i32 %66, label %.thread2535 [
-    i32 3, label %426
-    i32 2, label %431
-  ]
-
-426:                                              ; preds = %425
-  %427 = load i32, ptr @hf_omron_program_number, align 4
-  %428 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %427, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %429 = load i32, ptr @hf_omron_mode_code, align 4
-  %430 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %429, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %426 = load i32, ptr @hf_omron_program_number, align 4
+  %427 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %426, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %428 = load i32, ptr @hf_omron_mode_code, align 4
+  %429 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %428, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-431:                                              ; preds = %425
-  %432 = load i32, ptr @hf_omron_program_number, align 4
-  %433 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %432, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %434 = load i32, ptr @hf_omron_monitor_label, align 4
-  %435 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %434, ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef 0)
+430:                                              ; preds = %424
+  %431 = load i32, ptr @hf_omron_program_number, align 4
+  %432 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %431, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %433 = load i32, ptr @hf_omron_monitor_label, align 4
+  %434 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %433, ptr noundef %0, i32 noundef 12, i32 noundef 0, i32 noundef 0)
   br label %.thread2535
 
-436:                                              ; preds = %424
+435:                                              ; preds = %423
   %.not2607 = icmp eq i32 %66, 2
-  br i1 %.not2607, label %437, label %.thread2535
+  br i1 %.not2607, label %436, label %.thread2535
 
-437:                                              ; preds = %436
-  %438 = load i32, ptr @hf_omron_response_code, align 4
-  %439 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %438, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+436:                                              ; preds = %435
+  %437 = load i32, ptr @hf_omron_response_code, align 4
+  %438 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %437, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-440:                                              ; preds = %96
-  %441 = icmp ne i32 %66, 2
-  %or.cond89.not = select i1 %.not, i1 true, i1 %441
-  br i1 %or.cond89.not, label %.thread2535, label %442
+439:                                              ; preds = %96
+  %440 = icmp ne i32 %66, 2
+  %or.cond89.not = select i1 %.not, i1 true, i1 %440
+  br i1 %or.cond89.not, label %.thread2535, label %441
 
-442:                                              ; preds = %440
-  %443 = load i32, ptr @hf_omron_response_code, align 4
-  %444 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %443, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+441:                                              ; preds = %439
+  %442 = load i32, ptr @hf_omron_response_code, align 4
+  %443 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %442, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-445:                                              ; preds = %96
-  %446 = icmp eq i32 %66, 1
-  %or.cond92 = select i1 %.not, i1 %446, i1 false
-  br i1 %or.cond92, label %.thread2538, label %449
+444:                                              ; preds = %96
+  %445 = icmp eq i32 %66, 1
+  %or.cond92 = select i1 %.not, i1 %445, i1 false
+  br i1 %or.cond92, label %.thread2538, label %448
 
-.thread2538:                                      ; preds = %445
-  %447 = load i32, ptr @hf_omron_command_data, align 4
-  %448 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %447, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
+.thread2538:                                      ; preds = %444
+  %446 = load i32, ptr @hf_omron_command_data, align 4
+  %447 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %446, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
   br label %.thread2535
 
-449:                                              ; preds = %445
-  br i1 %.not, label %.thread2535, label %450
+448:                                              ; preds = %444
+  br i1 %.not, label %.thread2535, label %449
+
+449:                                              ; preds = %448
+  switch i32 %66, label %.thread2535 [
+    i32 94, label %450
+    i32 69, label %477
+    i32 161, label %525
+  ]
 
 450:                                              ; preds = %449
-  switch i32 %66, label %.thread2535 [
-    i32 94, label %451
-    i32 69, label %478
-    i32 161, label %526
-  ]
-
-451:                                              ; preds = %450
-  %452 = load i32, ptr @hf_omron_response_code, align 4
-  %453 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %452, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %454 = load i32, ptr @hf_omron_controller_model, align 4
-  %455 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %454, ptr noundef %0, i32 noundef 14, i32 noundef 20, i32 noundef 0)
-  %456 = load i32, ptr @hf_omron_controller_version, align 4
-  %457 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %456, ptr noundef %0, i32 noundef 34, i32 noundef 20, i32 noundef 0)
-  %458 = load i32, ptr @hf_omron_for_system_use, align 4
-  %459 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %458, ptr noundef %0, i32 noundef 54, i32 noundef 40, i32 noundef 0)
-  %460 = load i32, ptr @ett_area_data, align 4
-  %461 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 94, i32 noundef 12, i32 noundef %460, ptr noundef null, ptr noundef nonnull @.str.935)
-  %462 = load i32, ptr @hf_omron_program_area_size, align 4
-  %463 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %462, ptr noundef %0, i32 noundef 94, i32 noundef 2, i32 noundef 0)
-  %464 = load i32, ptr @hf_omron_iom_size, align 4
-  %465 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %464, ptr noundef %0, i32 noundef 96, i32 noundef 1, i32 noundef 0)
-  %466 = load i32, ptr @hf_omron_num_dm_words, align 4
-  %467 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %466, ptr noundef %0, i32 noundef 97, i32 noundef 2, i32 noundef 0)
-  %468 = load i32, ptr @hf_omron_timer_counter_size, align 4
-  %469 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %468, ptr noundef %0, i32 noundef 99, i32 noundef 1, i32 noundef 0)
-  %470 = load i32, ptr @hf_omron_expansion_dm_size, align 4
-  %471 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %470, ptr noundef %0, i32 noundef 100, i32 noundef 1, i32 noundef 0)
-  %472 = load i32, ptr @hf_omron_num_step_transitions, align 4
-  %473 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %472, ptr noundef %0, i32 noundef 101, i32 noundef 2, i32 noundef 0)
-  %474 = load i32, ptr @hf_omron_kind_memory_card, align 4
-  %475 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %474, ptr noundef %0, i32 noundef 103, i32 noundef 1, i32 noundef 0)
-  %476 = load i32, ptr @hf_omron_memory_card_size, align 4
-  %477 = call ptr @proto_tree_add_item(ptr noundef %461, i32 noundef %476, ptr noundef %0, i32 noundef 104, i32 noundef 2, i32 noundef 0)
+  %451 = load i32, ptr @hf_omron_response_code, align 4
+  %452 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %451, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %453 = load i32, ptr @hf_omron_controller_model, align 4
+  %454 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %453, ptr noundef %0, i32 noundef 14, i32 noundef 20, i32 noundef 0)
+  %455 = load i32, ptr @hf_omron_controller_version, align 4
+  %456 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %455, ptr noundef %0, i32 noundef 34, i32 noundef 20, i32 noundef 0)
+  %457 = load i32, ptr @hf_omron_for_system_use, align 4
+  %458 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %457, ptr noundef %0, i32 noundef 54, i32 noundef 40, i32 noundef 0)
+  %459 = load i32, ptr @ett_area_data, align 4
+  %460 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 94, i32 noundef 12, i32 noundef %459, ptr noundef null, ptr noundef nonnull @.str.935)
+  %461 = load i32, ptr @hf_omron_program_area_size, align 4
+  %462 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %461, ptr noundef %0, i32 noundef 94, i32 noundef 2, i32 noundef 0)
+  %463 = load i32, ptr @hf_omron_iom_size, align 4
+  %464 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %463, ptr noundef %0, i32 noundef 96, i32 noundef 1, i32 noundef 0)
+  %465 = load i32, ptr @hf_omron_num_dm_words, align 4
+  %466 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %465, ptr noundef %0, i32 noundef 97, i32 noundef 2, i32 noundef 0)
+  %467 = load i32, ptr @hf_omron_timer_counter_size, align 4
+  %468 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %467, ptr noundef %0, i32 noundef 99, i32 noundef 1, i32 noundef 0)
+  %469 = load i32, ptr @hf_omron_expansion_dm_size, align 4
+  %470 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %469, ptr noundef %0, i32 noundef 100, i32 noundef 1, i32 noundef 0)
+  %471 = load i32, ptr @hf_omron_num_step_transitions, align 4
+  %472 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %471, ptr noundef %0, i32 noundef 101, i32 noundef 2, i32 noundef 0)
+  %473 = load i32, ptr @hf_omron_kind_memory_card, align 4
+  %474 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %473, ptr noundef %0, i32 noundef 103, i32 noundef 1, i32 noundef 0)
+  %475 = load i32, ptr @hf_omron_memory_card_size, align 4
+  %476 = call ptr @proto_tree_add_item(ptr noundef %460, i32 noundef %475, ptr noundef %0, i32 noundef 104, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-478:                                              ; preds = %450
-  %479 = load i32, ptr @hf_omron_response_code, align 4
-  %480 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %479, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %481 = load i32, ptr @ett_cpu_bus, align 4
-  %482 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 64, i32 noundef %481, ptr noundef null, ptr noundef nonnull @.str.936)
-  %483 = load i32, ptr @hf_omron_cpu_bus_unit_0, align 4
-  %484 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %483, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %485 = load i32, ptr @hf_omron_cpu_bus_unit_1, align 4
-  %486 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %485, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  %487 = load i32, ptr @hf_omron_cpu_bus_unit_2, align 4
-  %488 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %487, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %489 = load i32, ptr @hf_omron_cpu_bus_unit_3, align 4
-  %490 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %489, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
-  %491 = load i32, ptr @hf_omron_cpu_bus_unit_4, align 4
-  %492 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %491, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  %493 = load i32, ptr @hf_omron_cpu_bus_unit_5, align 4
-  %494 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %493, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
-  %495 = load i32, ptr @hf_omron_cpu_bus_unit_6, align 4
-  %496 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %495, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
-  %497 = load i32, ptr @hf_omron_cpu_bus_unit_7, align 4
-  %498 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %497, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef 0)
-  %499 = load i32, ptr @hf_omron_cpu_bus_unit_8, align 4
-  %500 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %499, ptr noundef %0, i32 noundef 30, i32 noundef 2, i32 noundef 0)
-  %501 = load i32, ptr @hf_omron_cpu_bus_unit_9, align 4
-  %502 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %501, ptr noundef %0, i32 noundef 32, i32 noundef 2, i32 noundef 0)
-  %503 = load i32, ptr @hf_omron_cpu_bus_unit_10, align 4
-  %504 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %503, ptr noundef %0, i32 noundef 34, i32 noundef 2, i32 noundef 0)
-  %505 = load i32, ptr @hf_omron_cpu_bus_unit_11, align 4
-  %506 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %505, ptr noundef %0, i32 noundef 36, i32 noundef 2, i32 noundef 0)
-  %507 = load i32, ptr @hf_omron_cpu_bus_unit_12, align 4
-  %508 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %507, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
-  %509 = load i32, ptr @hf_omron_cpu_bus_unit_13, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %509, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
-  %511 = load i32, ptr @hf_omron_cpu_bus_unit_14, align 4
-  %512 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %511, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
-  %513 = load i32, ptr @hf_omron_cpu_bus_unit_15, align 4
-  %514 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %513, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef 0)
-  %515 = load i32, ptr @hf_omron_cpu_bus_reserved, align 4
-  %516 = call ptr @proto_tree_add_item(ptr noundef %482, i32 noundef %515, ptr noundef %0, i32 noundef 46, i32 noundef 32, i32 noundef 0)
-  %517 = load i32, ptr @ett_io_data, align 4
-  %518 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 78, i32 noundef 2, i32 noundef %517, ptr noundef null, ptr noundef nonnull @.str.937)
-  %519 = load i32, ptr @hf_omron_io_data_num_sysmac_1, align 4
-  %520 = call ptr @proto_tree_add_item(ptr noundef %518, i32 noundef %519, ptr noundef %0, i32 noundef 78, i32 noundef 1, i32 noundef 0)
-  %521 = load i32, ptr @hf_omron_io_data_num_sysmac_2, align 4
-  %522 = call ptr @proto_tree_add_item(ptr noundef %518, i32 noundef %521, ptr noundef %0, i32 noundef 79, i32 noundef 1, i32 noundef 0)
-  %523 = load i32, ptr @hf_omron_pc_status, align 4
-  %524 = load i32, ptr @ett_pc_status_fields, align 4
-  %525 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 80, i32 noundef %523, i32 noundef %524, ptr noundef nonnull @pc_status_fields, i32 noundef 0)
+477:                                              ; preds = %449
+  %478 = load i32, ptr @hf_omron_response_code, align 4
+  %479 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %478, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %480 = load i32, ptr @ett_cpu_bus, align 4
+  %481 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 64, i32 noundef %480, ptr noundef null, ptr noundef nonnull @.str.936)
+  %482 = load i32, ptr @hf_omron_cpu_bus_unit_0, align 4
+  %483 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %482, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %484 = load i32, ptr @hf_omron_cpu_bus_unit_1, align 4
+  %485 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %484, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %486 = load i32, ptr @hf_omron_cpu_bus_unit_2, align 4
+  %487 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %486, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %488 = load i32, ptr @hf_omron_cpu_bus_unit_3, align 4
+  %489 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %488, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+  %490 = load i32, ptr @hf_omron_cpu_bus_unit_4, align 4
+  %491 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %490, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
+  %492 = load i32, ptr @hf_omron_cpu_bus_unit_5, align 4
+  %493 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %492, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
+  %494 = load i32, ptr @hf_omron_cpu_bus_unit_6, align 4
+  %495 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %494, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
+  %496 = load i32, ptr @hf_omron_cpu_bus_unit_7, align 4
+  %497 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %496, ptr noundef %0, i32 noundef 28, i32 noundef 2, i32 noundef 0)
+  %498 = load i32, ptr @hf_omron_cpu_bus_unit_8, align 4
+  %499 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %498, ptr noundef %0, i32 noundef 30, i32 noundef 2, i32 noundef 0)
+  %500 = load i32, ptr @hf_omron_cpu_bus_unit_9, align 4
+  %501 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %500, ptr noundef %0, i32 noundef 32, i32 noundef 2, i32 noundef 0)
+  %502 = load i32, ptr @hf_omron_cpu_bus_unit_10, align 4
+  %503 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %502, ptr noundef %0, i32 noundef 34, i32 noundef 2, i32 noundef 0)
+  %504 = load i32, ptr @hf_omron_cpu_bus_unit_11, align 4
+  %505 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %504, ptr noundef %0, i32 noundef 36, i32 noundef 2, i32 noundef 0)
+  %506 = load i32, ptr @hf_omron_cpu_bus_unit_12, align 4
+  %507 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %506, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
+  %508 = load i32, ptr @hf_omron_cpu_bus_unit_13, align 4
+  %509 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %508, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
+  %510 = load i32, ptr @hf_omron_cpu_bus_unit_14, align 4
+  %511 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %510, ptr noundef %0, i32 noundef 42, i32 noundef 2, i32 noundef 0)
+  %512 = load i32, ptr @hf_omron_cpu_bus_unit_15, align 4
+  %513 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %512, ptr noundef %0, i32 noundef 44, i32 noundef 2, i32 noundef 0)
+  %514 = load i32, ptr @hf_omron_cpu_bus_reserved, align 4
+  %515 = call ptr @proto_tree_add_item(ptr noundef %481, i32 noundef %514, ptr noundef %0, i32 noundef 46, i32 noundef 32, i32 noundef 0)
+  %516 = load i32, ptr @ett_io_data, align 4
+  %517 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 78, i32 noundef 2, i32 noundef %516, ptr noundef null, ptr noundef nonnull @.str.937)
+  %518 = load i32, ptr @hf_omron_io_data_num_sysmac_1, align 4
+  %519 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %518, ptr noundef %0, i32 noundef 78, i32 noundef 1, i32 noundef 0)
+  %520 = load i32, ptr @hf_omron_io_data_num_sysmac_2, align 4
+  %521 = call ptr @proto_tree_add_item(ptr noundef %517, i32 noundef %520, ptr noundef %0, i32 noundef 79, i32 noundef 1, i32 noundef 0)
+  %522 = load i32, ptr @hf_omron_pc_status, align 4
+  %523 = load i32, ptr @ett_pc_status_fields, align 4
+  %524 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 80, i32 noundef %522, i32 noundef %523, ptr noundef nonnull @pc_status_fields, i32 noundef 0)
   br label %.thread2535
 
-526:                                              ; preds = %450
-  %527 = load i32, ptr @hf_omron_response_code, align 4
-  %528 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %527, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %529 = load i32, ptr @hf_omron_controller_model, align 4
-  %530 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %529, ptr noundef %0, i32 noundef 14, i32 noundef 20, i32 noundef 0)
-  %531 = load i32, ptr @hf_omron_controller_version, align 4
-  %532 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %531, ptr noundef %0, i32 noundef 34, i32 noundef 20, i32 noundef 0)
-  %533 = load i32, ptr @hf_omron_for_system_use, align 4
-  %534 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %533, ptr noundef %0, i32 noundef 54, i32 noundef 40, i32 noundef 0)
-  %535 = load i32, ptr @ett_area_data, align 4
-  %536 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 94, i32 noundef 12, i32 noundef %535, ptr noundef null, ptr noundef nonnull @.str.935)
-  %537 = load i32, ptr @hf_omron_program_area_size, align 4
-  %538 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %537, ptr noundef %0, i32 noundef 94, i32 noundef 2, i32 noundef 0)
-  %539 = load i32, ptr @hf_omron_iom_size, align 4
-  %540 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %539, ptr noundef %0, i32 noundef 96, i32 noundef 1, i32 noundef 0)
-  %541 = load i32, ptr @hf_omron_num_dm_words, align 4
-  %542 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %541, ptr noundef %0, i32 noundef 97, i32 noundef 2, i32 noundef 0)
-  %543 = load i32, ptr @hf_omron_timer_counter_size, align 4
-  %544 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %543, ptr noundef %0, i32 noundef 99, i32 noundef 1, i32 noundef 0)
-  %545 = load i32, ptr @hf_omron_expansion_dm_size, align 4
-  %546 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %545, ptr noundef %0, i32 noundef 100, i32 noundef 1, i32 noundef 0)
-  %547 = load i32, ptr @hf_omron_num_step_transitions, align 4
-  %548 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %547, ptr noundef %0, i32 noundef 101, i32 noundef 2, i32 noundef 0)
-  %549 = load i32, ptr @hf_omron_kind_memory_card, align 4
-  %550 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %549, ptr noundef %0, i32 noundef 103, i32 noundef 1, i32 noundef 0)
-  %551 = load i32, ptr @hf_omron_memory_card_size, align 4
-  %552 = call ptr @proto_tree_add_item(ptr noundef %536, i32 noundef %551, ptr noundef %0, i32 noundef 104, i32 noundef 2, i32 noundef 0)
-  %553 = load i32, ptr @ett_cpu_bus, align 4
-  %554 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 106, i32 noundef 64, i32 noundef %553, ptr noundef null, ptr noundef nonnull @.str.936)
-  %555 = load i32, ptr @hf_omron_cpu_bus_unit_0, align 4
-  %556 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %555, ptr noundef %0, i32 noundef 106, i32 noundef 2, i32 noundef 0)
-  %557 = load i32, ptr @hf_omron_cpu_bus_unit_1, align 4
-  %558 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %557, ptr noundef %0, i32 noundef 108, i32 noundef 2, i32 noundef 0)
-  %559 = load i32, ptr @hf_omron_cpu_bus_unit_2, align 4
-  %560 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %559, ptr noundef %0, i32 noundef 110, i32 noundef 2, i32 noundef 0)
-  %561 = load i32, ptr @hf_omron_cpu_bus_unit_3, align 4
-  %562 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %561, ptr noundef %0, i32 noundef 112, i32 noundef 2, i32 noundef 0)
-  %563 = load i32, ptr @hf_omron_cpu_bus_unit_4, align 4
-  %564 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %563, ptr noundef %0, i32 noundef 114, i32 noundef 2, i32 noundef 0)
-  %565 = load i32, ptr @hf_omron_cpu_bus_unit_5, align 4
-  %566 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %565, ptr noundef %0, i32 noundef 116, i32 noundef 2, i32 noundef 0)
-  %567 = load i32, ptr @hf_omron_cpu_bus_unit_6, align 4
-  %568 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %567, ptr noundef %0, i32 noundef 118, i32 noundef 2, i32 noundef 0)
-  %569 = load i32, ptr @hf_omron_cpu_bus_unit_7, align 4
-  %570 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %569, ptr noundef %0, i32 noundef 120, i32 noundef 2, i32 noundef 0)
-  %571 = load i32, ptr @hf_omron_cpu_bus_unit_8, align 4
-  %572 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %571, ptr noundef %0, i32 noundef 122, i32 noundef 2, i32 noundef 0)
-  %573 = load i32, ptr @hf_omron_cpu_bus_unit_9, align 4
-  %574 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %573, ptr noundef %0, i32 noundef 124, i32 noundef 2, i32 noundef 0)
-  %575 = load i32, ptr @hf_omron_cpu_bus_unit_10, align 4
-  %576 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %575, ptr noundef %0, i32 noundef 126, i32 noundef 2, i32 noundef 0)
-  %577 = load i32, ptr @hf_omron_cpu_bus_unit_11, align 4
-  %578 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %577, ptr noundef %0, i32 noundef 128, i32 noundef 2, i32 noundef 0)
-  %579 = load i32, ptr @hf_omron_cpu_bus_unit_12, align 4
-  %580 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %579, ptr noundef %0, i32 noundef 130, i32 noundef 2, i32 noundef 0)
-  %581 = load i32, ptr @hf_omron_cpu_bus_unit_13, align 4
-  %582 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %581, ptr noundef %0, i32 noundef 132, i32 noundef 2, i32 noundef 0)
-  %583 = load i32, ptr @hf_omron_cpu_bus_unit_14, align 4
-  %584 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %583, ptr noundef %0, i32 noundef 134, i32 noundef 2, i32 noundef 0)
-  %585 = load i32, ptr @hf_omron_cpu_bus_unit_15, align 4
-  %586 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %585, ptr noundef %0, i32 noundef 136, i32 noundef 2, i32 noundef 0)
-  %587 = load i32, ptr @hf_omron_cpu_bus_reserved, align 4
-  %588 = call ptr @proto_tree_add_item(ptr noundef %554, i32 noundef %587, ptr noundef %0, i32 noundef 138, i32 noundef 32, i32 noundef 0)
-  %589 = load i32, ptr @ett_io_data, align 4
-  %590 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 170, i32 noundef 2, i32 noundef %589, ptr noundef null, ptr noundef nonnull @.str.937)
-  %591 = load i32, ptr @hf_omron_io_data_num_sysmac_1, align 4
-  %592 = call ptr @proto_tree_add_item(ptr noundef %590, i32 noundef %591, ptr noundef %0, i32 noundef 170, i32 noundef 1, i32 noundef 0)
-  %593 = load i32, ptr @hf_omron_io_data_num_sysmac_2, align 4
-  %594 = call ptr @proto_tree_add_item(ptr noundef %590, i32 noundef %593, ptr noundef %0, i32 noundef 171, i32 noundef 1, i32 noundef 0)
-  %595 = load i32, ptr @hf_omron_pc_status, align 4
-  %596 = load i32, ptr @ett_pc_status_fields, align 4
-  %597 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 172, i32 noundef %595, i32 noundef %596, ptr noundef nonnull @pc_status_fields, i32 noundef 0)
+525:                                              ; preds = %449
+  %526 = load i32, ptr @hf_omron_response_code, align 4
+  %527 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %526, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %528 = load i32, ptr @hf_omron_controller_model, align 4
+  %529 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %528, ptr noundef %0, i32 noundef 14, i32 noundef 20, i32 noundef 0)
+  %530 = load i32, ptr @hf_omron_controller_version, align 4
+  %531 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %530, ptr noundef %0, i32 noundef 34, i32 noundef 20, i32 noundef 0)
+  %532 = load i32, ptr @hf_omron_for_system_use, align 4
+  %533 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %532, ptr noundef %0, i32 noundef 54, i32 noundef 40, i32 noundef 0)
+  %534 = load i32, ptr @ett_area_data, align 4
+  %535 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 94, i32 noundef 12, i32 noundef %534, ptr noundef null, ptr noundef nonnull @.str.935)
+  %536 = load i32, ptr @hf_omron_program_area_size, align 4
+  %537 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %536, ptr noundef %0, i32 noundef 94, i32 noundef 2, i32 noundef 0)
+  %538 = load i32, ptr @hf_omron_iom_size, align 4
+  %539 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %538, ptr noundef %0, i32 noundef 96, i32 noundef 1, i32 noundef 0)
+  %540 = load i32, ptr @hf_omron_num_dm_words, align 4
+  %541 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %540, ptr noundef %0, i32 noundef 97, i32 noundef 2, i32 noundef 0)
+  %542 = load i32, ptr @hf_omron_timer_counter_size, align 4
+  %543 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %542, ptr noundef %0, i32 noundef 99, i32 noundef 1, i32 noundef 0)
+  %544 = load i32, ptr @hf_omron_expansion_dm_size, align 4
+  %545 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %544, ptr noundef %0, i32 noundef 100, i32 noundef 1, i32 noundef 0)
+  %546 = load i32, ptr @hf_omron_num_step_transitions, align 4
+  %547 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %546, ptr noundef %0, i32 noundef 101, i32 noundef 2, i32 noundef 0)
+  %548 = load i32, ptr @hf_omron_kind_memory_card, align 4
+  %549 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %548, ptr noundef %0, i32 noundef 103, i32 noundef 1, i32 noundef 0)
+  %550 = load i32, ptr @hf_omron_memory_card_size, align 4
+  %551 = call ptr @proto_tree_add_item(ptr noundef %535, i32 noundef %550, ptr noundef %0, i32 noundef 104, i32 noundef 2, i32 noundef 0)
+  %552 = load i32, ptr @ett_cpu_bus, align 4
+  %553 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 106, i32 noundef 64, i32 noundef %552, ptr noundef null, ptr noundef nonnull @.str.936)
+  %554 = load i32, ptr @hf_omron_cpu_bus_unit_0, align 4
+  %555 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %554, ptr noundef %0, i32 noundef 106, i32 noundef 2, i32 noundef 0)
+  %556 = load i32, ptr @hf_omron_cpu_bus_unit_1, align 4
+  %557 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %556, ptr noundef %0, i32 noundef 108, i32 noundef 2, i32 noundef 0)
+  %558 = load i32, ptr @hf_omron_cpu_bus_unit_2, align 4
+  %559 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %558, ptr noundef %0, i32 noundef 110, i32 noundef 2, i32 noundef 0)
+  %560 = load i32, ptr @hf_omron_cpu_bus_unit_3, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %560, ptr noundef %0, i32 noundef 112, i32 noundef 2, i32 noundef 0)
+  %562 = load i32, ptr @hf_omron_cpu_bus_unit_4, align 4
+  %563 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %562, ptr noundef %0, i32 noundef 114, i32 noundef 2, i32 noundef 0)
+  %564 = load i32, ptr @hf_omron_cpu_bus_unit_5, align 4
+  %565 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %564, ptr noundef %0, i32 noundef 116, i32 noundef 2, i32 noundef 0)
+  %566 = load i32, ptr @hf_omron_cpu_bus_unit_6, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %566, ptr noundef %0, i32 noundef 118, i32 noundef 2, i32 noundef 0)
+  %568 = load i32, ptr @hf_omron_cpu_bus_unit_7, align 4
+  %569 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %568, ptr noundef %0, i32 noundef 120, i32 noundef 2, i32 noundef 0)
+  %570 = load i32, ptr @hf_omron_cpu_bus_unit_8, align 4
+  %571 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %570, ptr noundef %0, i32 noundef 122, i32 noundef 2, i32 noundef 0)
+  %572 = load i32, ptr @hf_omron_cpu_bus_unit_9, align 4
+  %573 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %572, ptr noundef %0, i32 noundef 124, i32 noundef 2, i32 noundef 0)
+  %574 = load i32, ptr @hf_omron_cpu_bus_unit_10, align 4
+  %575 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %574, ptr noundef %0, i32 noundef 126, i32 noundef 2, i32 noundef 0)
+  %576 = load i32, ptr @hf_omron_cpu_bus_unit_11, align 4
+  %577 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %576, ptr noundef %0, i32 noundef 128, i32 noundef 2, i32 noundef 0)
+  %578 = load i32, ptr @hf_omron_cpu_bus_unit_12, align 4
+  %579 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %578, ptr noundef %0, i32 noundef 130, i32 noundef 2, i32 noundef 0)
+  %580 = load i32, ptr @hf_omron_cpu_bus_unit_13, align 4
+  %581 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %580, ptr noundef %0, i32 noundef 132, i32 noundef 2, i32 noundef 0)
+  %582 = load i32, ptr @hf_omron_cpu_bus_unit_14, align 4
+  %583 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %582, ptr noundef %0, i32 noundef 134, i32 noundef 2, i32 noundef 0)
+  %584 = load i32, ptr @hf_omron_cpu_bus_unit_15, align 4
+  %585 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %584, ptr noundef %0, i32 noundef 136, i32 noundef 2, i32 noundef 0)
+  %586 = load i32, ptr @hf_omron_cpu_bus_reserved, align 4
+  %587 = call ptr @proto_tree_add_item(ptr noundef %553, i32 noundef %586, ptr noundef %0, i32 noundef 138, i32 noundef 32, i32 noundef 0)
+  %588 = load i32, ptr @ett_io_data, align 4
+  %589 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 170, i32 noundef 2, i32 noundef %588, ptr noundef null, ptr noundef nonnull @.str.937)
+  %590 = load i32, ptr @hf_omron_io_data_num_sysmac_1, align 4
+  %591 = call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %590, ptr noundef %0, i32 noundef 170, i32 noundef 1, i32 noundef 0)
+  %592 = load i32, ptr @hf_omron_io_data_num_sysmac_2, align 4
+  %593 = call ptr @proto_tree_add_item(ptr noundef %589, i32 noundef %592, ptr noundef %0, i32 noundef 171, i32 noundef 1, i32 noundef 0)
+  %594 = load i32, ptr @hf_omron_pc_status, align 4
+  %595 = load i32, ptr @ett_pc_status_fields, align 4
+  %596 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 172, i32 noundef %594, i32 noundef %595, ptr noundef nonnull @pc_status_fields, i32 noundef 0)
   br label %.thread2535
 
-598:                                              ; preds = %96
-  %599 = icmp sgt i32 %66, 0
-  %or.cond95 = select i1 %.not, i1 %599, i1 false
-  br i1 %or.cond95, label %600, label %607
+597:                                              ; preds = %96
+  %598 = icmp sgt i32 %66, 0
+  %or.cond95 = select i1 %.not, i1 %598, i1 false
+  br i1 %or.cond95, label %599, label %606
 
-600:                                              ; preds = %598
-  %601 = load i32, ptr @hf_omron_unit_address, align 4
-  %602 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %601, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
-  %603 = icmp eq i32 %66, 2
-  br i1 %603, label %604, label %.thread2535
+599:                                              ; preds = %597
+  %600 = load i32, ptr @hf_omron_unit_address, align 4
+  %601 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %600, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
+  %602 = icmp eq i32 %66, 2
+  br i1 %602, label %603, label %.thread2535
 
-604:                                              ; preds = %600
-  %605 = load i32, ptr @hf_omron_num_units, align 4
-  %606 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %605, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+603:                                              ; preds = %599
+  %604 = load i32, ptr @hf_omron_num_units, align 4
+  %605 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %604, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-607:                                              ; preds = %598
-  %608 = icmp slt i32 %66, 24
-  %or.cond98.not = select i1 %.not, i1 true, i1 %608
+606:                                              ; preds = %597
+  %607 = icmp slt i32 %66, 24
+  %or.cond98.not = select i1 %.not, i1 true, i1 %607
   br i1 %or.cond98.not, label %.thread2535, label %.lr.ph2653.preheader
 
-.lr.ph2653.preheader:                             ; preds = %607
-  %609 = load i32, ptr @hf_omron_response_code, align 4
-  %610 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %609, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %611 = load i32, ptr @hf_omron_num_units, align 4
-  %612 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %611, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %613 = add nsw i32 %66, -3
+.lr.ph2653.preheader:                             ; preds = %606
+  %608 = load i32, ptr @hf_omron_response_code, align 4
+  %609 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %608, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %610 = load i32, ptr @hf_omron_num_units, align 4
+  %611 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %610, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %612 = add nsw i32 %66, -3
   br label %.lr.ph2653
 
 .lr.ph2653:                                       ; preds = %.lr.ph2653.preheader, %.lr.ph2653
-  %.72652 = phi i32 [ %620, %.lr.ph2653 ], [ %613, %.lr.ph2653.preheader ]
-  %.232651 = phi i32 [ %619, %.lr.ph2653 ], [ 15, %.lr.ph2653.preheader ]
-  %614 = load i32, ptr @hf_omron_unit_address, align 4
-  %615 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %614, ptr noundef %0, i32 noundef %.232651, i32 noundef 1, i32 noundef 0)
-  %616 = load i32, ptr @hf_omron_model_number, align 4
-  %617 = add nuw nsw i32 %.232651, 1
-  %618 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %616, ptr noundef %0, i32 noundef %617, i32 noundef 20, i32 noundef 0)
-  %619 = add nuw i32 %.232651, 21
-  %620 = add nsw i32 %.72652, -21
-  %621 = icmp samesign ugt i32 %.72652, 41
-  br i1 %621, label %.lr.ph2653, label %.thread2535, !llvm.loop !10
+  %.72652 = phi i32 [ %619, %.lr.ph2653 ], [ %612, %.lr.ph2653.preheader ]
+  %.232651 = phi i32 [ %618, %.lr.ph2653 ], [ 15, %.lr.ph2653.preheader ]
+  %613 = load i32, ptr @hf_omron_unit_address, align 4
+  %614 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %613, ptr noundef %0, i32 noundef %.232651, i32 noundef 1, i32 noundef 0)
+  %615 = load i32, ptr @hf_omron_model_number, align 4
+  %616 = add nuw nsw i32 %.232651, 1
+  %617 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %615, ptr noundef %0, i32 noundef %616, i32 noundef 20, i32 noundef 0)
+  %618 = add nuw i32 %.232651, 21
+  %619 = add nsw i32 %.72652, -21
+  %620 = icmp samesign ugt i32 %.72652, 41
+  br i1 %620, label %.lr.ph2653, label %.thread2535, !llvm.loop !10
 
-622:                                              ; preds = %96
-  %623 = icmp ne i32 %66, 28
-  %or.cond101.not = select i1 %.not, i1 true, i1 %623
-  br i1 %or.cond101.not, label %.thread2535, label %624
+621:                                              ; preds = %96
+  %622 = icmp ne i32 %66, 28
+  %or.cond101.not = select i1 %.not, i1 true, i1 %622
+  br i1 %or.cond101.not, label %.thread2535, label %623
 
-624:                                              ; preds = %622
-  %625 = load i32, ptr @hf_omron_response_code, align 4
-  %626 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %625, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %627 = load i32, ptr @hf_omron_status, align 4
-  %628 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %627, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %629 = load i32, ptr @hf_omron_mode_code, align 4
-  %630 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %629, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %631 = load i32, ptr @hf_omron_fatal_error_data, align 4
-  %632 = load i32, ptr @ett_fatal_fields, align 4
-  %633 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 16, i32 noundef %631, i32 noundef %632, ptr noundef nonnull @fatal_error_fields, i32 noundef 0)
-  %634 = load i32, ptr @hf_omron_non_fatal_error_data, align 4
-  %635 = load i32, ptr @ett_non_fatal_fields, align 4
-  %636 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 18, i32 noundef %634, i32 noundef %635, ptr noundef nonnull @non_fatal_error_fields, i32 noundef 0)
-  %637 = load i32, ptr @hf_omron_message, align 4
-  %638 = load i32, ptr @ett_message_fields, align 4
-  %639 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 20, i32 noundef %637, i32 noundef %638, ptr noundef nonnull @message_fields, i32 noundef 0)
-  %640 = load i32, ptr @hf_omron_fals, align 4
-  %641 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %640, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  %642 = load i32, ptr @hf_omron_error_message, align 4
-  %643 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %642, ptr noundef %0, i32 noundef 24, i32 noundef 16, i32 noundef 0)
+623:                                              ; preds = %621
+  %624 = load i32, ptr @hf_omron_response_code, align 4
+  %625 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %624, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %626 = load i32, ptr @hf_omron_status, align 4
+  %627 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %626, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %628 = load i32, ptr @hf_omron_mode_code, align 4
+  %629 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %628, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %630 = load i32, ptr @hf_omron_fatal_error_data, align 4
+  %631 = load i32, ptr @ett_fatal_fields, align 4
+  %632 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 16, i32 noundef %630, i32 noundef %631, ptr noundef nonnull @fatal_error_fields, i32 noundef 0)
+  %633 = load i32, ptr @hf_omron_non_fatal_error_data, align 4
+  %634 = load i32, ptr @ett_non_fatal_fields, align 4
+  %635 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 18, i32 noundef %633, i32 noundef %634, ptr noundef nonnull @non_fatal_error_fields, i32 noundef 0)
+  %636 = load i32, ptr @hf_omron_message, align 4
+  %637 = load i32, ptr @ett_message_fields, align 4
+  %638 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 20, i32 noundef %636, i32 noundef %637, ptr noundef nonnull @message_fields, i32 noundef 0)
+  %639 = load i32, ptr @hf_omron_fals, align 4
+  %640 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %639, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
+  %641 = load i32, ptr @hf_omron_error_message, align 4
+  %642 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %641, ptr noundef %0, i32 noundef 24, i32 noundef 16, i32 noundef 0)
   br label %.thread2535
 
-644:                                              ; preds = %96
-  %645 = icmp ne i32 %66, 108
-  %or.cond104.not = select i1 %.not, i1 true, i1 %645
-  br i1 %or.cond104.not, label %.thread2535, label %646
+643:                                              ; preds = %96
+  %644 = icmp ne i32 %66, 108
+  %or.cond104.not = select i1 %.not, i1 true, i1 %644
+  br i1 %or.cond104.not, label %.thread2535, label %645
 
-646:                                              ; preds = %644
-  %647 = load i32, ptr @hf_omron_response_code, align 4
-  %648 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %647, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %649 = load i32, ptr @ett_omron_netw_nodes_sts, align 4
-  %650 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 31, i32 noundef %649, ptr noundef null, ptr noundef nonnull @.str.938)
-  br label %651
+645:                                              ; preds = %643
+  %646 = load i32, ptr @hf_omron_response_code, align 4
+  %647 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %646, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %648 = load i32, ptr @ett_omron_netw_nodes_sts, align 4
+  %649 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 31, i32 noundef %648, ptr noundef null, ptr noundef nonnull @.str.938)
+  br label %650
 
-651:                                              ; preds = %646, %651
-  %.023742647 = phi i32 [ 1, %646 ], [ %675, %651 ]
-  %.242645 = phi i32 [ 14, %646 ], [ %676, %651 ]
-  %652 = load i32, ptr @ett_omron_netw_node_sts, align 4
-  %653 = and i32 %.023742647, 255
-  %654 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %650, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef %652, ptr noundef null, ptr noundef nonnull @.str.939, i32 noundef %653)
-  %655 = load i32, ptr @hf_omron_netw_node_sts_low_3, align 4
-  %656 = call ptr @proto_tree_add_item(ptr noundef %654, i32 noundef %655, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %657 = load i32, ptr @hf_omron_netw_node_sts_low_2, align 4
-  %658 = call ptr @proto_tree_add_item(ptr noundef %654, i32 noundef %657, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %659 = load i32, ptr @hf_omron_netw_node_sts_low_1, align 4
-  %660 = call ptr @proto_tree_add_item(ptr noundef %654, i32 noundef %659, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %661 = load i32, ptr @hf_omron_netw_node_sts_low_0, align 4
-  %662 = call ptr @proto_tree_add_item(ptr noundef %654, i32 noundef %661, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %663 = add nuw nsw i32 %.023742647, 1
-  %664 = load i32, ptr @ett_omron_netw_node_sts, align 4
-  %665 = and i32 %663, 255
-  %666 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %650, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef %664, ptr noundef null, ptr noundef nonnull @.str.939, i32 noundef %665)
-  %667 = load i32, ptr @hf_omron_netw_node_sts_high_3, align 4
-  %668 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %667, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %669 = load i32, ptr @hf_omron_netw_node_sts_high_2, align 4
-  %670 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %669, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %671 = load i32, ptr @hf_omron_netw_node_sts_high_1, align 4
-  %672 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %671, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %673 = load i32, ptr @hf_omron_netw_node_sts_high_0, align 4
-  %674 = call ptr @proto_tree_add_item(ptr noundef %666, i32 noundef %673, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
-  %675 = add nuw nsw i32 %665, 1
-  %676 = add nuw nsw i32 %.242645, 1
-  %exitcond.not = icmp eq i32 %676, 45
-  br i1 %exitcond.not, label %677, label %651, !llvm.loop !11
+650:                                              ; preds = %645, %650
+  %.023742647 = phi i32 [ 1, %645 ], [ %674, %650 ]
+  %.242645 = phi i32 [ 14, %645 ], [ %675, %650 ]
+  %651 = load i32, ptr @ett_omron_netw_node_sts, align 4
+  %652 = and i32 %.023742647, 255
+  %653 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %649, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef %651, ptr noundef null, ptr noundef nonnull @.str.939, i32 noundef %652)
+  %654 = load i32, ptr @hf_omron_netw_node_sts_low_3, align 4
+  %655 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %654, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %656 = load i32, ptr @hf_omron_netw_node_sts_low_2, align 4
+  %657 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %656, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %658 = load i32, ptr @hf_omron_netw_node_sts_low_1, align 4
+  %659 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %658, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %660 = load i32, ptr @hf_omron_netw_node_sts_low_0, align 4
+  %661 = call ptr @proto_tree_add_item(ptr noundef %653, i32 noundef %660, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %662 = add nuw nsw i32 %.023742647, 1
+  %663 = load i32, ptr @ett_omron_netw_node_sts, align 4
+  %664 = and i32 %662, 255
+  %665 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %649, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef %663, ptr noundef null, ptr noundef nonnull @.str.939, i32 noundef %664)
+  %666 = load i32, ptr @hf_omron_netw_node_sts_high_3, align 4
+  %667 = call ptr @proto_tree_add_item(ptr noundef %665, i32 noundef %666, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %668 = load i32, ptr @hf_omron_netw_node_sts_high_2, align 4
+  %669 = call ptr @proto_tree_add_item(ptr noundef %665, i32 noundef %668, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %670 = load i32, ptr @hf_omron_netw_node_sts_high_1, align 4
+  %671 = call ptr @proto_tree_add_item(ptr noundef %665, i32 noundef %670, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %672 = load i32, ptr @hf_omron_netw_node_sts_high_0, align 4
+  %673 = call ptr @proto_tree_add_item(ptr noundef %665, i32 noundef %672, ptr noundef %0, i32 noundef %.242645, i32 noundef 1, i32 noundef 0)
+  %674 = add nuw nsw i32 %664, 1
+  %675 = add nuw nsw i32 %.242645, 1
+  %exitcond.not = icmp eq i32 %675, 45
+  br i1 %exitcond.not, label %676, label %650, !llvm.loop !11
 
-677:                                              ; preds = %651
-  %678 = load i32, ptr @hf_omron_com_cycle_time, align 4
-  %679 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %678, ptr noundef %0, i32 noundef 45, i32 noundef 2, i32 noundef 0)
-  %680 = load i32, ptr @hf_omron_polling_unit_node_num, align 4
-  %681 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %680, ptr noundef %0, i32 noundef 47, i32 noundef 1, i32 noundef 0)
-  %682 = load i32, ptr @hf_omron_cyclic_operation, align 4
-  %683 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %682, ptr noundef %0, i32 noundef 48, i32 noundef 1, i32 noundef 0)
-  %684 = load i32, ptr @hf_omron_cyclic_trans_status, align 4
-  %685 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %684, ptr noundef %0, i32 noundef 49, i32 noundef 1, i32 noundef 0)
-  %686 = load i32, ptr @ett_omron_netw_nodes_non_fatal_err_sts, align 4
-  %687 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 50, i32 noundef 8, i32 noundef %686, ptr noundef null, ptr noundef nonnull @.str.940)
-  %688 = load i32, ptr @hf_omron_cyclic_label_1, align 4
-  %689 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %690 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 50, i32 noundef %688, i32 noundef %689, ptr noundef nonnull @cyclic_non_fatal_1_fields, i32 noundef 0)
-  %691 = load i32, ptr @hf_omron_cyclic_label_2, align 4
-  %692 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %693 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 51, i32 noundef %691, i32 noundef %692, ptr noundef nonnull @cyclic_non_fatal_2_fields, i32 noundef 0)
-  %694 = load i32, ptr @hf_omron_cyclic_label_3, align 4
-  %695 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %696 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 52, i32 noundef %694, i32 noundef %695, ptr noundef nonnull @cyclic_non_fatal_3_fields, i32 noundef 0)
-  %697 = load i32, ptr @hf_omron_cyclic_label_4, align 4
-  %698 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %699 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 53, i32 noundef %697, i32 noundef %698, ptr noundef nonnull @cyclic_non_fatal_4_fields, i32 noundef 0)
-  %700 = load i32, ptr @hf_omron_cyclic_label_5, align 4
-  %701 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %702 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 54, i32 noundef %700, i32 noundef %701, ptr noundef nonnull @cyclic_non_fatal_5_fields, i32 noundef 0)
-  %703 = load i32, ptr @hf_omron_cyclic_label_6, align 4
-  %704 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %705 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 55, i32 noundef %703, i32 noundef %704, ptr noundef nonnull @cyclic_non_fatal_6_fields, i32 noundef 0)
-  %706 = load i32, ptr @hf_omron_cyclic_label_7, align 4
-  %707 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %708 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 56, i32 noundef %706, i32 noundef %707, ptr noundef nonnull @cyclic_non_fatal_7_fields, i32 noundef 0)
-  %709 = load i32, ptr @hf_omron_cyclic_label_8, align 4
-  %710 = load i32, ptr @ett_omron_cyclic_fields, align 4
-  %711 = call ptr @proto_tree_add_bitmask(ptr noundef %687, ptr noundef %0, i32 noundef 57, i32 noundef %709, i32 noundef %710, ptr noundef nonnull @cyclic_non_fatal_8_fields, i32 noundef 0)
-  %712 = load i32, ptr @ett_omron_netw_nodes_cyclic_err_ctrs, align 4
-  %713 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 58, i32 noundef 62, i32 noundef %712, ptr noundef null, ptr noundef nonnull @.str.941)
-  br label %714
+676:                                              ; preds = %650
+  %677 = load i32, ptr @hf_omron_com_cycle_time, align 4
+  %678 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %677, ptr noundef %0, i32 noundef 45, i32 noundef 2, i32 noundef 0)
+  %679 = load i32, ptr @hf_omron_polling_unit_node_num, align 4
+  %680 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %679, ptr noundef %0, i32 noundef 47, i32 noundef 1, i32 noundef 0)
+  %681 = load i32, ptr @hf_omron_cyclic_operation, align 4
+  %682 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %681, ptr noundef %0, i32 noundef 48, i32 noundef 1, i32 noundef 0)
+  %683 = load i32, ptr @hf_omron_cyclic_trans_status, align 4
+  %684 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %683, ptr noundef %0, i32 noundef 49, i32 noundef 1, i32 noundef 0)
+  %685 = load i32, ptr @ett_omron_netw_nodes_non_fatal_err_sts, align 4
+  %686 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 50, i32 noundef 8, i32 noundef %685, ptr noundef null, ptr noundef nonnull @.str.940)
+  %687 = load i32, ptr @hf_omron_cyclic_label_1, align 4
+  %688 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %689 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 50, i32 noundef %687, i32 noundef %688, ptr noundef nonnull @cyclic_non_fatal_1_fields, i32 noundef 0)
+  %690 = load i32, ptr @hf_omron_cyclic_label_2, align 4
+  %691 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %692 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 51, i32 noundef %690, i32 noundef %691, ptr noundef nonnull @cyclic_non_fatal_2_fields, i32 noundef 0)
+  %693 = load i32, ptr @hf_omron_cyclic_label_3, align 4
+  %694 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %695 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 52, i32 noundef %693, i32 noundef %694, ptr noundef nonnull @cyclic_non_fatal_3_fields, i32 noundef 0)
+  %696 = load i32, ptr @hf_omron_cyclic_label_4, align 4
+  %697 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %698 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 53, i32 noundef %696, i32 noundef %697, ptr noundef nonnull @cyclic_non_fatal_4_fields, i32 noundef 0)
+  %699 = load i32, ptr @hf_omron_cyclic_label_5, align 4
+  %700 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %701 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 54, i32 noundef %699, i32 noundef %700, ptr noundef nonnull @cyclic_non_fatal_5_fields, i32 noundef 0)
+  %702 = load i32, ptr @hf_omron_cyclic_label_6, align 4
+  %703 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %704 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 55, i32 noundef %702, i32 noundef %703, ptr noundef nonnull @cyclic_non_fatal_6_fields, i32 noundef 0)
+  %705 = load i32, ptr @hf_omron_cyclic_label_7, align 4
+  %706 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %707 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 56, i32 noundef %705, i32 noundef %706, ptr noundef nonnull @cyclic_non_fatal_7_fields, i32 noundef 0)
+  %708 = load i32, ptr @hf_omron_cyclic_label_8, align 4
+  %709 = load i32, ptr @ett_omron_cyclic_fields, align 4
+  %710 = call ptr @proto_tree_add_bitmask(ptr noundef %686, ptr noundef %0, i32 noundef 57, i32 noundef %708, i32 noundef %709, ptr noundef nonnull @cyclic_non_fatal_8_fields, i32 noundef 0)
+  %711 = load i32, ptr @ett_omron_netw_nodes_cyclic_err_ctrs, align 4
+  %712 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 58, i32 noundef 62, i32 noundef %711, ptr noundef null, ptr noundef nonnull @.str.941)
+  br label %713
 
-714:                                              ; preds = %677, %714
-  %.123752650 = phi i32 [ 1, %677 ], [ %720, %714 ]
-  %.252648 = phi i32 [ 58, %677 ], [ %721, %714 ]
-  %715 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.252648)
-  %716 = load i32, ptr @hf_omron_node_error_count, align 4
-  %717 = zext i8 %715 to i32
-  %718 = and i32 %.123752650, 255
-  %719 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %713, i32 noundef %716, ptr noundef %0, i32 noundef %.252648, i32 noundef 1, i32 noundef %717, ptr noundef nonnull @.str.942, i32 noundef %718, i32 noundef %717)
-  %720 = add nuw nsw i32 %718, 1
-  %721 = add nuw nsw i32 %.252648, 1
-  %exitcond2693.not = icmp eq i32 %721, 120
-  br i1 %exitcond2693.not, label %.thread2535, label %714, !llvm.loop !12
+713:                                              ; preds = %676, %713
+  %.123752650 = phi i32 [ 1, %676 ], [ %719, %713 ]
+  %.252648 = phi i32 [ 58, %676 ], [ %720, %713 ]
+  %714 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.252648)
+  %715 = load i32, ptr @hf_omron_node_error_count, align 4
+  %716 = zext i8 %714 to i32
+  %717 = and i32 %.123752650, 255
+  %718 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %712, i32 noundef %715, ptr noundef %0, i32 noundef %.252648, i32 noundef 1, i32 noundef %716, ptr noundef nonnull @.str.942, i32 noundef %717, i32 noundef %716)
+  %719 = add nuw nsw i32 %717, 1
+  %720 = add nuw nsw i32 %.252648, 1
+  %exitcond2693.not = icmp eq i32 %720, 120
+  br i1 %exitcond2693.not, label %.thread2535, label %713, !llvm.loop !12
 
-722:                                              ; preds = %96
-  %723 = icmp ne i32 %66, 16
-  %or.cond107.not = select i1 %.not, i1 true, i1 %723
-  br i1 %or.cond107.not, label %.thread2535, label %724
+721:                                              ; preds = %96
+  %722 = icmp ne i32 %66, 16
+  %or.cond107.not = select i1 %.not, i1 true, i1 %722
+  br i1 %or.cond107.not, label %.thread2535, label %723
 
-724:                                              ; preds = %722
-  %725 = load i32, ptr @hf_omron_response_code, align 4
-  %726 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %725, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %727 = load i32, ptr @hf_omron_status_flags, align 4
-  %728 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %727, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  store ptr %728, ptr %4, align 8
-  %729 = load i32, ptr @ett_omron_status_block, align 4
-  %730 = call ptr @proto_item_add_subtree(ptr noundef %728, i32 noundef %729)
-  %731 = load i32, ptr @hf_omron_status_flags_slave_master, align 4
-  %732 = call ptr @proto_tree_add_item(ptr noundef %730, i32 noundef %731, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %733 = load i32, ptr @hf_omron_status_flags_data_link, align 4
-  %734 = call ptr @proto_tree_add_item(ptr noundef %730, i32 noundef %733, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %735 = load i32, ptr @hf_omron_master_node_number, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %735, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %737 = load i32, ptr @ett_omron_data_link_status_tree, align 4
-  %738 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 16, i32 noundef 96, i32 noundef %737, ptr noundef null, ptr noundef nonnull @.str.943)
-  %739 = load i32, ptr @hf_omron_status_flags, align 4
-  %740 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %739, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
-  store ptr %740, ptr %4, align 8
-  %741 = load i32, ptr @ett_omron_status_block, align 4
-  %742 = call ptr @proto_item_add_subtree(ptr noundef %740, i32 noundef %741)
-  %743 = load i32, ptr @hf_omron_status_node_0, align 4
-  %744 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %743, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %745 = load i32, ptr @hf_omron_status_node_1, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %745, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %747 = load i32, ptr @hf_omron_status_node_2, align 4
-  %748 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %747, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %749 = load i32, ptr @hf_omron_status_node_3, align 4
-  %750 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %749, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %751 = load i32, ptr @hf_omron_status_node_4, align 4
-  %752 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %751, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %753 = load i32, ptr @hf_omron_status_node_5, align 4
-  %754 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %753, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %755 = load i32, ptr @hf_omron_status_node_6, align 4
-  %756 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %755, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %757 = load i32, ptr @hf_omron_status_node_7, align 4
-  %758 = call ptr @proto_tree_add_item(ptr noundef %742, i32 noundef %757, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %759 = load i32, ptr @hf_omron_status_flags, align 4
-  %760 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %759, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
-  store ptr %760, ptr %4, align 8
-  %761 = load i32, ptr @ett_omron_status_block, align 4
-  %762 = call ptr @proto_item_add_subtree(ptr noundef %760, i32 noundef %761)
-  %763 = load i32, ptr @hf_omron_status_1_node_0, align 4
-  %764 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %763, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %765 = load i32, ptr @hf_omron_status_1_node_1, align 4
-  %766 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %765, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %767 = load i32, ptr @hf_omron_status_1_node_2, align 4
-  %768 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %767, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %769 = load i32, ptr @hf_omron_status_1_node_3, align 4
-  %770 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %769, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %771 = load i32, ptr @hf_omron_status_1_node_4, align 4
-  %772 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %771, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %773 = load i32, ptr @hf_omron_status_1_node_5, align 4
-  %774 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %773, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %775 = load i32, ptr @hf_omron_status_1_node_6, align 4
-  %776 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %775, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %777 = load i32, ptr @hf_omron_status_1_node_7, align 4
-  %778 = call ptr @proto_tree_add_item(ptr noundef %762, i32 noundef %777, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %779 = load i32, ptr @hf_omron_status_flags, align 4
-  %780 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %779, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
-  store ptr %780, ptr %4, align 8
-  %781 = load i32, ptr @ett_omron_status_block, align 4
-  %782 = call ptr @proto_item_add_subtree(ptr noundef %780, i32 noundef %781)
-  %783 = load i32, ptr @hf_omron_status_2_node_0, align 4
-  %784 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %783, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %785 = load i32, ptr @hf_omron_status_2_node_1, align 4
-  %786 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %785, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %787 = load i32, ptr @hf_omron_status_2_node_2, align 4
-  %788 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %787, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %789 = load i32, ptr @hf_omron_status_2_node_3, align 4
-  %790 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %789, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %791 = load i32, ptr @hf_omron_status_2_node_4, align 4
-  %792 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %791, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %793 = load i32, ptr @hf_omron_status_2_node_5, align 4
-  %794 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %793, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %795 = load i32, ptr @hf_omron_status_2_node_6, align 4
-  %796 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %795, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %797 = load i32, ptr @hf_omron_status_2_node_7, align 4
-  %798 = call ptr @proto_tree_add_item(ptr noundef %782, i32 noundef %797, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %799 = load i32, ptr @hf_omron_status_flags, align 4
-  %800 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %799, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
-  store ptr %800, ptr %4, align 8
-  %801 = load i32, ptr @ett_omron_status_block, align 4
-  %802 = call ptr @proto_item_add_subtree(ptr noundef %800, i32 noundef %801)
-  %803 = load i32, ptr @hf_omron_status_node_0, align 4
-  %804 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %803, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %805 = load i32, ptr @hf_omron_status_node_1, align 4
-  %806 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %805, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %807 = load i32, ptr @hf_omron_status_node_2, align 4
-  %808 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %807, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %809 = load i32, ptr @hf_omron_status_node_3, align 4
-  %810 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %809, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %811 = load i32, ptr @hf_omron_status_node_4, align 4
-  %812 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %811, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %813 = load i32, ptr @hf_omron_status_node_5, align 4
-  %814 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %813, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %815 = load i32, ptr @hf_omron_status_node_6, align 4
-  %816 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %815, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %817 = load i32, ptr @hf_omron_status_node_7, align 4
-  %818 = call ptr @proto_tree_add_item(ptr noundef %802, i32 noundef %817, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %819 = load i32, ptr @hf_omron_status_flags, align 4
-  %820 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %819, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
-  store ptr %820, ptr %4, align 8
-  %821 = load i32, ptr @ett_omron_status_block, align 4
-  %822 = call ptr @proto_item_add_subtree(ptr noundef %820, i32 noundef %821)
-  %823 = load i32, ptr @hf_omron_status_1_node_0, align 4
-  %824 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %823, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %825 = load i32, ptr @hf_omron_status_1_node_1, align 4
-  %826 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %825, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %827 = load i32, ptr @hf_omron_status_1_node_2, align 4
-  %828 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %827, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %829 = load i32, ptr @hf_omron_status_1_node_3, align 4
-  %830 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %829, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %831 = load i32, ptr @hf_omron_status_1_node_4, align 4
-  %832 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %831, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %833 = load i32, ptr @hf_omron_status_1_node_5, align 4
-  %834 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %833, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %835 = load i32, ptr @hf_omron_status_1_node_6, align 4
-  %836 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %835, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %837 = load i32, ptr @hf_omron_status_1_node_7, align 4
-  %838 = call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %837, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
-  %839 = load i32, ptr @hf_omron_status_flags, align 4
-  %840 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %839, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
-  store ptr %840, ptr %4, align 8
-  %841 = load i32, ptr @ett_omron_status_block, align 4
-  %842 = call ptr @proto_item_add_subtree(ptr noundef %840, i32 noundef %841)
-  %843 = load i32, ptr @hf_omron_status_2_node_0, align 4
-  %844 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %843, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %845 = load i32, ptr @hf_omron_status_2_node_1, align 4
-  %846 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %845, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %847 = load i32, ptr @hf_omron_status_2_node_2, align 4
-  %848 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %847, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %849 = load i32, ptr @hf_omron_status_2_node_3, align 4
-  %850 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %849, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %851 = load i32, ptr @hf_omron_status_2_node_4, align 4
-  %852 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %851, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %853 = load i32, ptr @hf_omron_status_2_node_5, align 4
-  %854 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %853, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %855 = load i32, ptr @hf_omron_status_2_node_6, align 4
-  %856 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %855, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %857 = load i32, ptr @hf_omron_status_2_node_7, align 4
-  %858 = call ptr @proto_tree_add_item(ptr noundef %842, i32 noundef %857, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
-  %859 = load i32, ptr @hf_omron_status_flags, align 4
-  %860 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %859, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
-  store ptr %860, ptr %4, align 8
-  %861 = load i32, ptr @ett_omron_status_block, align 4
-  %862 = call ptr @proto_item_add_subtree(ptr noundef %860, i32 noundef %861)
-  %863 = load i32, ptr @hf_omron_status_node_0, align 4
-  %864 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %863, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %865 = load i32, ptr @hf_omron_status_node_1, align 4
-  %866 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %865, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %867 = load i32, ptr @hf_omron_status_node_2, align 4
-  %868 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %867, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %869 = load i32, ptr @hf_omron_status_node_3, align 4
-  %870 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %869, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %871 = load i32, ptr @hf_omron_status_node_4, align 4
-  %872 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %871, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %873 = load i32, ptr @hf_omron_status_node_5, align 4
-  %874 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %873, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %875 = load i32, ptr @hf_omron_status_node_6, align 4
-  %876 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %875, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %877 = load i32, ptr @hf_omron_status_node_7, align 4
-  %878 = call ptr @proto_tree_add_item(ptr noundef %862, i32 noundef %877, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
-  %879 = load i32, ptr @hf_omron_status_flags, align 4
-  %880 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %879, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
-  store ptr %880, ptr %4, align 8
-  %881 = load i32, ptr @ett_omron_status_block, align 4
-  %882 = call ptr @proto_item_add_subtree(ptr noundef %880, i32 noundef %881)
-  %883 = load i32, ptr @hf_omron_status_1_node_0, align 4
-  %884 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %883, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %885 = load i32, ptr @hf_omron_status_1_node_1, align 4
-  %886 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %885, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %887 = load i32, ptr @hf_omron_status_1_node_2, align 4
-  %888 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %887, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %889 = load i32, ptr @hf_omron_status_1_node_3, align 4
-  %890 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %889, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %891 = load i32, ptr @hf_omron_status_1_node_4, align 4
-  %892 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %891, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %893 = load i32, ptr @hf_omron_status_1_node_5, align 4
-  %894 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %893, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %895 = load i32, ptr @hf_omron_status_1_node_6, align 4
-  %896 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %895, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %897 = load i32, ptr @hf_omron_status_1_node_7, align 4
-  %898 = call ptr @proto_tree_add_item(ptr noundef %882, i32 noundef %897, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
-  %899 = load i32, ptr @hf_omron_status_flags, align 4
-  %900 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %899, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
-  store ptr %900, ptr %4, align 8
-  %901 = load i32, ptr @ett_omron_status_block, align 4
-  %902 = call ptr @proto_item_add_subtree(ptr noundef %900, i32 noundef %901)
-  %903 = load i32, ptr @hf_omron_status_2_node_0, align 4
-  %904 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %903, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %905 = load i32, ptr @hf_omron_status_2_node_1, align 4
-  %906 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %905, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %907 = load i32, ptr @hf_omron_status_2_node_2, align 4
-  %908 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %907, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %909 = load i32, ptr @hf_omron_status_2_node_3, align 4
-  %910 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %909, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %911 = load i32, ptr @hf_omron_status_2_node_4, align 4
-  %912 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %911, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %913 = load i32, ptr @hf_omron_status_2_node_5, align 4
-  %914 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %913, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %915 = load i32, ptr @hf_omron_status_2_node_6, align 4
-  %916 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %915, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %917 = load i32, ptr @hf_omron_status_2_node_7, align 4
-  %918 = call ptr @proto_tree_add_item(ptr noundef %902, i32 noundef %917, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
-  %919 = load i32, ptr @hf_omron_status_flags, align 4
-  %920 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %919, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
-  store ptr %920, ptr %4, align 8
-  %921 = load i32, ptr @ett_omron_status_block, align 4
-  %922 = call ptr @proto_item_add_subtree(ptr noundef %920, i32 noundef %921)
-  %923 = load i32, ptr @hf_omron_status_node_0, align 4
-  %924 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %923, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %925 = load i32, ptr @hf_omron_status_node_1, align 4
-  %926 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %925, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %927 = load i32, ptr @hf_omron_status_node_2, align 4
-  %928 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %927, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %929 = load i32, ptr @hf_omron_status_node_3, align 4
-  %930 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %929, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %931 = load i32, ptr @hf_omron_status_node_4, align 4
-  %932 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %931, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %933 = load i32, ptr @hf_omron_status_node_5, align 4
-  %934 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %933, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %935 = load i32, ptr @hf_omron_status_node_6, align 4
-  %936 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %935, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %937 = load i32, ptr @hf_omron_status_node_7, align 4
-  %938 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %937, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
-  %939 = load i32, ptr @hf_omron_status_flags, align 4
-  %940 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %939, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
-  store ptr %940, ptr %4, align 8
-  %941 = load i32, ptr @ett_omron_status_block, align 4
-  %942 = call ptr @proto_item_add_subtree(ptr noundef %940, i32 noundef %941)
-  %943 = load i32, ptr @hf_omron_status_1_node_0, align 4
-  %944 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %943, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %945 = load i32, ptr @hf_omron_status_1_node_1, align 4
-  %946 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %945, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %947 = load i32, ptr @hf_omron_status_1_node_2, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %947, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %949 = load i32, ptr @hf_omron_status_1_node_3, align 4
-  %950 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %949, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %951 = load i32, ptr @hf_omron_status_1_node_4, align 4
-  %952 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %951, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %953 = load i32, ptr @hf_omron_status_1_node_5, align 4
-  %954 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %953, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %955 = load i32, ptr @hf_omron_status_1_node_6, align 4
-  %956 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %955, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %957 = load i32, ptr @hf_omron_status_1_node_7, align 4
-  %958 = call ptr @proto_tree_add_item(ptr noundef %942, i32 noundef %957, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
-  %959 = load i32, ptr @hf_omron_status_flags, align 4
-  %960 = call ptr @proto_tree_add_item(ptr noundef %738, i32 noundef %959, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
-  store ptr %960, ptr %4, align 8
-  %961 = load i32, ptr @ett_omron_status_block, align 4
-  %962 = call ptr @proto_item_add_subtree(ptr noundef %960, i32 noundef %961)
-  %963 = load i32, ptr @hf_omron_status_2_node_0, align 4
-  %964 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %963, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %965 = load i32, ptr @hf_omron_status_2_node_1, align 4
-  %966 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %965, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %967 = load i32, ptr @hf_omron_status_2_node_2, align 4
-  %968 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %967, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %969 = load i32, ptr @hf_omron_status_2_node_3, align 4
-  %970 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %969, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %971 = load i32, ptr @hf_omron_status_2_node_4, align 4
-  %972 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %971, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %973 = load i32, ptr @hf_omron_status_2_node_5, align 4
-  %974 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %973, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %975 = load i32, ptr @hf_omron_status_2_node_6, align 4
-  %976 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %975, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
-  %977 = load i32, ptr @hf_omron_status_2_node_7, align 4
-  %978 = call ptr @proto_tree_add_item(ptr noundef %962, i32 noundef %977, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+723:                                              ; preds = %721
+  %724 = load i32, ptr @hf_omron_response_code, align 4
+  %725 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %724, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %726 = load i32, ptr @hf_omron_status_flags, align 4
+  %727 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %726, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  store ptr %727, ptr %4, align 8
+  %728 = load i32, ptr @ett_omron_status_block, align 4
+  %729 = call ptr @proto_item_add_subtree(ptr noundef %727, i32 noundef %728)
+  %730 = load i32, ptr @hf_omron_status_flags_slave_master, align 4
+  %731 = call ptr @proto_tree_add_item(ptr noundef %729, i32 noundef %730, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %732 = load i32, ptr @hf_omron_status_flags_data_link, align 4
+  %733 = call ptr @proto_tree_add_item(ptr noundef %729, i32 noundef %732, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %734 = load i32, ptr @hf_omron_master_node_number, align 4
+  %735 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %734, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %736 = load i32, ptr @ett_omron_data_link_status_tree, align 4
+  %737 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 16, i32 noundef 96, i32 noundef %736, ptr noundef null, ptr noundef nonnull @.str.943)
+  %738 = load i32, ptr @hf_omron_status_flags, align 4
+  %739 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %738, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
+  store ptr %739, ptr %4, align 8
+  %740 = load i32, ptr @ett_omron_status_block, align 4
+  %741 = call ptr @proto_item_add_subtree(ptr noundef %739, i32 noundef %740)
+  %742 = load i32, ptr @hf_omron_status_node_0, align 4
+  %743 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %742, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %744 = load i32, ptr @hf_omron_status_node_1, align 4
+  %745 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %744, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %746 = load i32, ptr @hf_omron_status_node_2, align 4
+  %747 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %746, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %748 = load i32, ptr @hf_omron_status_node_3, align 4
+  %749 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %748, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %750 = load i32, ptr @hf_omron_status_node_4, align 4
+  %751 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %750, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %752 = load i32, ptr @hf_omron_status_node_5, align 4
+  %753 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %752, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %754 = load i32, ptr @hf_omron_status_node_6, align 4
+  %755 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %754, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %756 = load i32, ptr @hf_omron_status_node_7, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %741, i32 noundef %756, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %758 = load i32, ptr @hf_omron_status_flags, align 4
+  %759 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %758, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
+  store ptr %759, ptr %4, align 8
+  %760 = load i32, ptr @ett_omron_status_block, align 4
+  %761 = call ptr @proto_item_add_subtree(ptr noundef %759, i32 noundef %760)
+  %762 = load i32, ptr @hf_omron_status_1_node_0, align 4
+  %763 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %762, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %764 = load i32, ptr @hf_omron_status_1_node_1, align 4
+  %765 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %764, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %766 = load i32, ptr @hf_omron_status_1_node_2, align 4
+  %767 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %766, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %768 = load i32, ptr @hf_omron_status_1_node_3, align 4
+  %769 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %768, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %770 = load i32, ptr @hf_omron_status_1_node_4, align 4
+  %771 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %770, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %772 = load i32, ptr @hf_omron_status_1_node_5, align 4
+  %773 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %772, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %774 = load i32, ptr @hf_omron_status_1_node_6, align 4
+  %775 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %774, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %776 = load i32, ptr @hf_omron_status_1_node_7, align 4
+  %777 = call ptr @proto_tree_add_item(ptr noundef %761, i32 noundef %776, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %778 = load i32, ptr @hf_omron_status_flags, align 4
+  %779 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %778, ptr noundef %0, i32 noundef 16, i32 noundef 3, i32 noundef 0)
+  store ptr %779, ptr %4, align 8
+  %780 = load i32, ptr @ett_omron_status_block, align 4
+  %781 = call ptr @proto_item_add_subtree(ptr noundef %779, i32 noundef %780)
+  %782 = load i32, ptr @hf_omron_status_2_node_0, align 4
+  %783 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %782, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %784 = load i32, ptr @hf_omron_status_2_node_1, align 4
+  %785 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %784, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %786 = load i32, ptr @hf_omron_status_2_node_2, align 4
+  %787 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %786, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %788 = load i32, ptr @hf_omron_status_2_node_3, align 4
+  %789 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %788, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %790 = load i32, ptr @hf_omron_status_2_node_4, align 4
+  %791 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %790, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %792 = load i32, ptr @hf_omron_status_2_node_5, align 4
+  %793 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %792, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %794 = load i32, ptr @hf_omron_status_2_node_6, align 4
+  %795 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %794, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %796 = load i32, ptr @hf_omron_status_2_node_7, align 4
+  %797 = call ptr @proto_tree_add_item(ptr noundef %781, i32 noundef %796, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %798 = load i32, ptr @hf_omron_status_flags, align 4
+  %799 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %798, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
+  store ptr %799, ptr %4, align 8
+  %800 = load i32, ptr @ett_omron_status_block, align 4
+  %801 = call ptr @proto_item_add_subtree(ptr noundef %799, i32 noundef %800)
+  %802 = load i32, ptr @hf_omron_status_node_0, align 4
+  %803 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %802, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %804 = load i32, ptr @hf_omron_status_node_1, align 4
+  %805 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %804, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %806 = load i32, ptr @hf_omron_status_node_2, align 4
+  %807 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %806, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %808 = load i32, ptr @hf_omron_status_node_3, align 4
+  %809 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %808, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %810 = load i32, ptr @hf_omron_status_node_4, align 4
+  %811 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %810, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %812 = load i32, ptr @hf_omron_status_node_5, align 4
+  %813 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %812, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %814 = load i32, ptr @hf_omron_status_node_6, align 4
+  %815 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %814, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %816 = load i32, ptr @hf_omron_status_node_7, align 4
+  %817 = call ptr @proto_tree_add_item(ptr noundef %801, i32 noundef %816, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %818 = load i32, ptr @hf_omron_status_flags, align 4
+  %819 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %818, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
+  store ptr %819, ptr %4, align 8
+  %820 = load i32, ptr @ett_omron_status_block, align 4
+  %821 = call ptr @proto_item_add_subtree(ptr noundef %819, i32 noundef %820)
+  %822 = load i32, ptr @hf_omron_status_1_node_0, align 4
+  %823 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %822, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %824 = load i32, ptr @hf_omron_status_1_node_1, align 4
+  %825 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %824, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %826 = load i32, ptr @hf_omron_status_1_node_2, align 4
+  %827 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %826, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %828 = load i32, ptr @hf_omron_status_1_node_3, align 4
+  %829 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %828, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %830 = load i32, ptr @hf_omron_status_1_node_4, align 4
+  %831 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %830, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %832 = load i32, ptr @hf_omron_status_1_node_5, align 4
+  %833 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %832, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %834 = load i32, ptr @hf_omron_status_1_node_6, align 4
+  %835 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %834, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %836 = load i32, ptr @hf_omron_status_1_node_7, align 4
+  %837 = call ptr @proto_tree_add_item(ptr noundef %821, i32 noundef %836, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+  %838 = load i32, ptr @hf_omron_status_flags, align 4
+  %839 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %838, ptr noundef %0, i32 noundef 19, i32 noundef 3, i32 noundef 0)
+  store ptr %839, ptr %4, align 8
+  %840 = load i32, ptr @ett_omron_status_block, align 4
+  %841 = call ptr @proto_item_add_subtree(ptr noundef %839, i32 noundef %840)
+  %842 = load i32, ptr @hf_omron_status_2_node_0, align 4
+  %843 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %842, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %844 = load i32, ptr @hf_omron_status_2_node_1, align 4
+  %845 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %844, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %846 = load i32, ptr @hf_omron_status_2_node_2, align 4
+  %847 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %846, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %848 = load i32, ptr @hf_omron_status_2_node_3, align 4
+  %849 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %848, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %850 = load i32, ptr @hf_omron_status_2_node_4, align 4
+  %851 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %850, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %852 = load i32, ptr @hf_omron_status_2_node_5, align 4
+  %853 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %852, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %854 = load i32, ptr @hf_omron_status_2_node_6, align 4
+  %855 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %854, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %856 = load i32, ptr @hf_omron_status_2_node_7, align 4
+  %857 = call ptr @proto_tree_add_item(ptr noundef %841, i32 noundef %856, ptr noundef %0, i32 noundef 21, i32 noundef 1, i32 noundef 0)
+  %858 = load i32, ptr @hf_omron_status_flags, align 4
+  %859 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %858, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
+  store ptr %859, ptr %4, align 8
+  %860 = load i32, ptr @ett_omron_status_block, align 4
+  %861 = call ptr @proto_item_add_subtree(ptr noundef %859, i32 noundef %860)
+  %862 = load i32, ptr @hf_omron_status_node_0, align 4
+  %863 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %862, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %864 = load i32, ptr @hf_omron_status_node_1, align 4
+  %865 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %864, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %866 = load i32, ptr @hf_omron_status_node_2, align 4
+  %867 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %866, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %868 = load i32, ptr @hf_omron_status_node_3, align 4
+  %869 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %868, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %870 = load i32, ptr @hf_omron_status_node_4, align 4
+  %871 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %870, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %872 = load i32, ptr @hf_omron_status_node_5, align 4
+  %873 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %872, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %874 = load i32, ptr @hf_omron_status_node_6, align 4
+  %875 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %874, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %876 = load i32, ptr @hf_omron_status_node_7, align 4
+  %877 = call ptr @proto_tree_add_item(ptr noundef %861, i32 noundef %876, ptr noundef %0, i32 noundef 22, i32 noundef 1, i32 noundef 0)
+  %878 = load i32, ptr @hf_omron_status_flags, align 4
+  %879 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %878, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
+  store ptr %879, ptr %4, align 8
+  %880 = load i32, ptr @ett_omron_status_block, align 4
+  %881 = call ptr @proto_item_add_subtree(ptr noundef %879, i32 noundef %880)
+  %882 = load i32, ptr @hf_omron_status_1_node_0, align 4
+  %883 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %882, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %884 = load i32, ptr @hf_omron_status_1_node_1, align 4
+  %885 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %884, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %886 = load i32, ptr @hf_omron_status_1_node_2, align 4
+  %887 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %886, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %888 = load i32, ptr @hf_omron_status_1_node_3, align 4
+  %889 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %888, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %890 = load i32, ptr @hf_omron_status_1_node_4, align 4
+  %891 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %890, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %892 = load i32, ptr @hf_omron_status_1_node_5, align 4
+  %893 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %892, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %894 = load i32, ptr @hf_omron_status_1_node_6, align 4
+  %895 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %894, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %896 = load i32, ptr @hf_omron_status_1_node_7, align 4
+  %897 = call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %896, ptr noundef %0, i32 noundef 23, i32 noundef 1, i32 noundef 0)
+  %898 = load i32, ptr @hf_omron_status_flags, align 4
+  %899 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %898, ptr noundef %0, i32 noundef 22, i32 noundef 3, i32 noundef 0)
+  store ptr %899, ptr %4, align 8
+  %900 = load i32, ptr @ett_omron_status_block, align 4
+  %901 = call ptr @proto_item_add_subtree(ptr noundef %899, i32 noundef %900)
+  %902 = load i32, ptr @hf_omron_status_2_node_0, align 4
+  %903 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %902, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %904 = load i32, ptr @hf_omron_status_2_node_1, align 4
+  %905 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %904, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %906 = load i32, ptr @hf_omron_status_2_node_2, align 4
+  %907 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %906, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %908 = load i32, ptr @hf_omron_status_2_node_3, align 4
+  %909 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %908, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %910 = load i32, ptr @hf_omron_status_2_node_4, align 4
+  %911 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %910, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %912 = load i32, ptr @hf_omron_status_2_node_5, align 4
+  %913 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %912, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %914 = load i32, ptr @hf_omron_status_2_node_6, align 4
+  %915 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %914, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %916 = load i32, ptr @hf_omron_status_2_node_7, align 4
+  %917 = call ptr @proto_tree_add_item(ptr noundef %901, i32 noundef %916, ptr noundef %0, i32 noundef 24, i32 noundef 1, i32 noundef 0)
+  %918 = load i32, ptr @hf_omron_status_flags, align 4
+  %919 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %918, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
+  store ptr %919, ptr %4, align 8
+  %920 = load i32, ptr @ett_omron_status_block, align 4
+  %921 = call ptr @proto_item_add_subtree(ptr noundef %919, i32 noundef %920)
+  %922 = load i32, ptr @hf_omron_status_node_0, align 4
+  %923 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %922, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %924 = load i32, ptr @hf_omron_status_node_1, align 4
+  %925 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %924, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %926 = load i32, ptr @hf_omron_status_node_2, align 4
+  %927 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %926, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %928 = load i32, ptr @hf_omron_status_node_3, align 4
+  %929 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %928, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %930 = load i32, ptr @hf_omron_status_node_4, align 4
+  %931 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %930, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %932 = load i32, ptr @hf_omron_status_node_5, align 4
+  %933 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %932, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %934 = load i32, ptr @hf_omron_status_node_6, align 4
+  %935 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %934, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %936 = load i32, ptr @hf_omron_status_node_7, align 4
+  %937 = call ptr @proto_tree_add_item(ptr noundef %921, i32 noundef %936, ptr noundef %0, i32 noundef 25, i32 noundef 1, i32 noundef 0)
+  %938 = load i32, ptr @hf_omron_status_flags, align 4
+  %939 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %938, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
+  store ptr %939, ptr %4, align 8
+  %940 = load i32, ptr @ett_omron_status_block, align 4
+  %941 = call ptr @proto_item_add_subtree(ptr noundef %939, i32 noundef %940)
+  %942 = load i32, ptr @hf_omron_status_1_node_0, align 4
+  %943 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %942, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %944 = load i32, ptr @hf_omron_status_1_node_1, align 4
+  %945 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %944, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %946 = load i32, ptr @hf_omron_status_1_node_2, align 4
+  %947 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %946, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %948 = load i32, ptr @hf_omron_status_1_node_3, align 4
+  %949 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %948, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %950 = load i32, ptr @hf_omron_status_1_node_4, align 4
+  %951 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %950, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %952 = load i32, ptr @hf_omron_status_1_node_5, align 4
+  %953 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %952, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %954 = load i32, ptr @hf_omron_status_1_node_6, align 4
+  %955 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %954, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %956 = load i32, ptr @hf_omron_status_1_node_7, align 4
+  %957 = call ptr @proto_tree_add_item(ptr noundef %941, i32 noundef %956, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef 0)
+  %958 = load i32, ptr @hf_omron_status_flags, align 4
+  %959 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %958, ptr noundef %0, i32 noundef 25, i32 noundef 3, i32 noundef 0)
+  store ptr %959, ptr %4, align 8
+  %960 = load i32, ptr @ett_omron_status_block, align 4
+  %961 = call ptr @proto_item_add_subtree(ptr noundef %959, i32 noundef %960)
+  %962 = load i32, ptr @hf_omron_status_2_node_0, align 4
+  %963 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %962, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %964 = load i32, ptr @hf_omron_status_2_node_1, align 4
+  %965 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %964, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %966 = load i32, ptr @hf_omron_status_2_node_2, align 4
+  %967 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %966, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %968 = load i32, ptr @hf_omron_status_2_node_3, align 4
+  %969 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %968, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %970 = load i32, ptr @hf_omron_status_2_node_4, align 4
+  %971 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %970, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %972 = load i32, ptr @hf_omron_status_2_node_5, align 4
+  %973 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %972, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %974 = load i32, ptr @hf_omron_status_2_node_6, align 4
+  %975 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %974, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
+  %976 = load i32, ptr @hf_omron_status_2_node_7, align 4
+  %977 = call ptr @proto_tree_add_item(ptr noundef %961, i32 noundef %976, ptr noundef %0, i32 noundef 27, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-979:                                              ; preds = %96
-  %980 = icmp eq i32 %66, 1
-  %or.cond110 = select i1 %.not, i1 %980, i1 false
-  br i1 %or.cond110, label %.thread2544, label %983
+978:                                              ; preds = %96
+  %979 = icmp eq i32 %66, 1
+  %or.cond110 = select i1 %.not, i1 %979, i1 false
+  br i1 %or.cond110, label %.thread2544, label %982
 
-.thread2544:                                      ; preds = %979
-  %981 = load i32, ptr @hf_omron_parameter, align 4
-  %982 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %981, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
+.thread2544:                                      ; preds = %978
+  %980 = load i32, ptr @hf_omron_parameter, align 4
+  %981 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %980, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-983:                                              ; preds = %979
-  br i1 %.not, label %.thread2535, label %984
+982:                                              ; preds = %978
+  br i1 %.not, label %.thread2535, label %983
 
-984:                                              ; preds = %983
+983:                                              ; preds = %982
   switch i32 %66, label %.thread2535 [
-    i32 2, label %985
-    i32 14, label %988
+    i32 2, label %984
+    i32 14, label %987
   ]
 
-985:                                              ; preds = %984
-  %986 = load i32, ptr @hf_omron_response_code, align 4
-  %987 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %986, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+984:                                              ; preds = %983
+  %985 = load i32, ptr @hf_omron_response_code, align 4
+  %986 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %985, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-988:                                              ; preds = %984
-  %989 = load i32, ptr @hf_omron_response_code, align 4
-  %990 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %989, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %991 = load i32, ptr @hf_omron_avg_cycle_time, align 4
-  %992 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %991, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
-  %993 = load i32, ptr @hf_omron_max_cycle_time, align 4
-  %994 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %993, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0)
-  %995 = load i32, ptr @hf_omron_min_cycle_time, align 4
-  %996 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %995, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0)
+987:                                              ; preds = %983
+  %988 = load i32, ptr @hf_omron_response_code, align 4
+  %989 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %988, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %990 = load i32, ptr @hf_omron_avg_cycle_time, align 4
+  %991 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %990, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
+  %992 = load i32, ptr @hf_omron_max_cycle_time, align 4
+  %993 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %992, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0)
+  %994 = load i32, ptr @hf_omron_min_cycle_time, align 4
+  %995 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %994, ptr noundef %0, i32 noundef 22, i32 noundef 4, i32 noundef 0)
   br label %.thread2535
 
-997:                                              ; preds = %96
-  %998 = icmp ne i32 %66, 9
-  %or.cond113.not = select i1 %.not, i1 true, i1 %998
-  br i1 %or.cond113.not, label %.thread2535, label %999
+996:                                              ; preds = %96
+  %997 = icmp ne i32 %66, 9
+  %or.cond113.not = select i1 %.not, i1 true, i1 %997
+  br i1 %or.cond113.not, label %.thread2535, label %998
 
-999:                                              ; preds = %997
-  %1000 = load i32, ptr @hf_omron_response_code, align 4
-  %1001 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1000, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1002 = load i32, ptr @hf_omron_year, align 4
-  %1003 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1002, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %1004 = load i32, ptr @hf_omron_month, align 4
-  %1005 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1004, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %1006 = load i32, ptr @hf_omron_date, align 4
-  %1007 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1006, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %1008 = load i32, ptr @hf_omron_hour, align 4
-  %1009 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1008, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %1010 = load i32, ptr @hf_omron_minute, align 4
-  %1011 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1010, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %1012 = load i32, ptr @hf_omron_second, align 4
-  %1013 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1012, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
-  %1014 = load i32, ptr @hf_omron_day, align 4
-  %1015 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1014, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
+998:                                              ; preds = %996
+  %999 = load i32, ptr @hf_omron_response_code, align 4
+  %1000 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %999, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1001 = load i32, ptr @hf_omron_year, align 4
+  %1002 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1001, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %1003 = load i32, ptr @hf_omron_month, align 4
+  %1004 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1003, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %1005 = load i32, ptr @hf_omron_date, align 4
+  %1006 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1005, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %1007 = load i32, ptr @hf_omron_hour, align 4
+  %1008 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1007, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %1009 = load i32, ptr @hf_omron_minute, align 4
+  %1010 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1009, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %1011 = load i32, ptr @hf_omron_second, align 4
+  %1012 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1011, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0)
+  %1013 = load i32, ptr @hf_omron_day, align 4
+  %1014 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1013, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-1016:                                             ; preds = %96
-  %1017 = icmp sgt i32 %66, 4
-  %or.cond116 = select i1 %.not, i1 %1017, i1 false
-  br i1 %or.cond116, label %1018, label %1035
+1015:                                             ; preds = %96
+  %1016 = icmp sgt i32 %66, 4
+  %or.cond116 = select i1 %.not, i1 %1016, i1 false
+  br i1 %or.cond116, label %1017, label %1034
 
-1018:                                             ; preds = %1016
-  %1019 = load i32, ptr @hf_omron_year, align 4
-  %1020 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1019, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
-  %1021 = load i32, ptr @hf_omron_month, align 4
-  %1022 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1021, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
-  %1023 = load i32, ptr @hf_omron_date, align 4
-  %1024 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1023, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %1025 = load i32, ptr @hf_omron_hour, align 4
-  %1026 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1025, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %1027 = load i32, ptr @hf_omron_minute, align 4
-  %1028 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1027, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
-  %1029 = icmp eq i32 %66, 7
-  br i1 %1029, label %1030, label %.thread2535
+1017:                                             ; preds = %1015
+  %1018 = load i32, ptr @hf_omron_year, align 4
+  %1019 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1018, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
+  %1020 = load i32, ptr @hf_omron_month, align 4
+  %1021 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1020, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  %1022 = load i32, ptr @hf_omron_date, align 4
+  %1023 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1022, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %1024 = load i32, ptr @hf_omron_hour, align 4
+  %1025 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1024, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %1026 = load i32, ptr @hf_omron_minute, align 4
+  %1027 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1026, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+  %1028 = icmp eq i32 %66, 7
+  br i1 %1028, label %1029, label %.thread2535
 
-1030:                                             ; preds = %1018
-  %1031 = load i32, ptr @hf_omron_second, align 4
-  %1032 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1031, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
-  %1033 = load i32, ptr @hf_omron_day, align 4
-  %1034 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1033, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+1029:                                             ; preds = %1017
+  %1030 = load i32, ptr @hf_omron_second, align 4
+  %1031 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1030, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0)
+  %1032 = load i32, ptr @hf_omron_day, align 4
+  %1033 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1032, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-1035:                                             ; preds = %1016
-  %1036 = icmp ne i32 %66, 2
-  %or.cond119.not = select i1 %.not, i1 true, i1 %1036
-  br i1 %or.cond119.not, label %.thread2535, label %1037
+1034:                                             ; preds = %1015
+  %1035 = icmp ne i32 %66, 2
+  %or.cond119.not = select i1 %.not, i1 true, i1 %1035
+  br i1 %or.cond119.not, label %.thread2535, label %1036
 
-1037:                                             ; preds = %1035
-  %1038 = load i32, ptr @hf_omron_response_code, align 4
-  %1039 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1038, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1036:                                             ; preds = %1034
+  %1037 = load i32, ptr @hf_omron_response_code, align 4
+  %1038 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1037, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1040:                                             ; preds = %.thread2492, %96
-  %1041 = phi ptr [ %87, %.thread2492 ], [ %98, %96 ]
-  %1042 = icmp sgt i32 %66, 0
-  %or.cond122 = select i1 %.not, i1 %1042, i1 false
-  br i1 %or.cond122, label %.thread2550, label %1046
+1039:                                             ; preds = %.thread2492, %96
+  %1040 = phi ptr [ %87, %.thread2492 ], [ %98, %96 ]
+  %1041 = icmp sgt i32 %66, 0
+  %or.cond122 = select i1 %.not, i1 %1041, i1 false
+  br i1 %or.cond122, label %.thread2550, label %1045
 
-.thread2550:                                      ; preds = %1040
-  %1043 = load i32, ptr @hf_omron_data, align 4
-  %1044 = call ptr @proto_tree_add_item(ptr noundef %1041, i32 noundef %1043, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
-  %1045 = add nuw i32 %66, 12
+.thread2550:                                      ; preds = %1039
+  %1042 = load i32, ptr @hf_omron_data, align 4
+  %1043 = call ptr @proto_tree_add_item(ptr noundef %1040, i32 noundef %1042, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
+  %1044 = add nuw i32 %66, 12
   br label %.thread2535
 
-1046:                                             ; preds = %1040
-  %1047 = icmp slt i32 %66, 3
-  %or.cond125.not = select i1 %.not, i1 true, i1 %1047
-  br i1 %or.cond125.not, label %.thread2535, label %1048
+1045:                                             ; preds = %1039
+  %1046 = icmp slt i32 %66, 3
+  %or.cond125.not = select i1 %.not, i1 true, i1 %1046
+  br i1 %or.cond125.not, label %.thread2535, label %1047
 
-1048:                                             ; preds = %1046
-  %1049 = load i32, ptr @hf_omron_response_code, align 4
-  %1050 = call ptr @proto_tree_add_item(ptr noundef %1041, i32 noundef %1049, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1051 = load i32, ptr @hf_omron_data, align 4
-  %1052 = call ptr @proto_tree_add_item(ptr noundef %1041, i32 noundef %1051, ptr noundef %0, i32 noundef 14, i32 noundef -1, i32 noundef 0)
-  %1053 = add nuw i32 %66, 12
+1047:                                             ; preds = %1045
+  %1048 = load i32, ptr @hf_omron_response_code, align 4
+  %1049 = call ptr @proto_tree_add_item(ptr noundef %1040, i32 noundef %1048, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1050 = load i32, ptr @hf_omron_data, align 4
+  %1051 = call ptr @proto_tree_add_item(ptr noundef %1040, i32 noundef %1050, ptr noundef %0, i32 noundef 14, i32 noundef -1, i32 noundef 0)
+  %1052 = add nuw i32 %66, 12
   br label %.thread2535
 
-1054:                                             ; preds = %96
-  %1055 = icmp ne i32 %66, 4
-  %or.cond128.not = select i1 %.not, i1 true, i1 %1055
-  br i1 %or.cond128.not, label %.thread2535, label %1056
+1053:                                             ; preds = %96
+  %1054 = icmp ne i32 %66, 4
+  %or.cond128.not = select i1 %.not, i1 true, i1 %1054
+  br i1 %or.cond128.not, label %.thread2535, label %1055
 
-1056:                                             ; preds = %1054
-  %1057 = load i32, ptr @hf_omron_response_code, align 4
-  %1058 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1057, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1059 = load i32, ptr @hf_omron_num_receptions, align 4
-  %1060 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1059, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+1055:                                             ; preds = %1053
+  %1056 = load i32, ptr @hf_omron_response_code, align 4
+  %1057 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1056, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1058 = load i32, ptr @hf_omron_num_receptions, align 4
+  %1059 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1058, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1061:                                             ; preds = %.thread2493, %96
-  %1062 = phi ptr [ %92, %.thread2493 ], [ %98, %96 ]
-  %1063 = icmp sgt i32 %66, 0
-  %or.cond131 = select i1 %.not, i1 %1063, i1 false
-  br i1 %or.cond131, label %1064, label %.thread2535
+1060:                                             ; preds = %.thread2493, %96
+  %1061 = phi ptr [ %92, %.thread2493 ], [ %98, %96 ]
+  %1062 = icmp sgt i32 %66, 0
+  %or.cond131 = select i1 %.not, i1 %1062, i1 false
+  br i1 %or.cond131, label %1063, label %.thread2535
 
-1064:                                             ; preds = %1061
-  %1065 = load i32, ptr @hf_omron_data, align 4
-  %1066 = call ptr @proto_tree_add_item(ptr noundef %1062, i32 noundef %1065, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
-  %1067 = add nuw i32 %66, 12
+1063:                                             ; preds = %1060
+  %1064 = load i32, ptr @hf_omron_data, align 4
+  %1065 = call ptr @proto_tree_add_item(ptr noundef %1061, i32 noundef %1064, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
+  %1066 = add nuw i32 %66, 12
   br label %.thread2535
 
-1068:                                             ; preds = %96
-  %1069 = icmp eq i32 %66, 2
-  %or.cond134 = select i1 %.not, i1 %1069, i1 false
-  br i1 %or.cond134, label %1070, label %1080
+1067:                                             ; preds = %96
+  %1068 = icmp eq i32 %66, 2
+  %or.cond134 = select i1 %.not, i1 %1068, i1 false
+  br i1 %or.cond134, label %1069, label %1079
 
-1070:                                             ; preds = %1068
-  %1071 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %1072 = icmp slt i16 %1071, -16384
-  br i1 %1072, label %1073, label %1076
+1069:                                             ; preds = %1067
+  %1070 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
+  %1071 = icmp slt i16 %1070, -16384
+  br i1 %1071, label %1072, label %1075
 
-1073:                                             ; preds = %1070
-  %1074 = load i32, ptr @hf_omron_fals, align 4
-  %1075 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1074, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1072:                                             ; preds = %1069
+  %1073 = load i32, ptr @hf_omron_fals, align 4
+  %1074 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1073, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1076:                                             ; preds = %1070
-  %1077 = load i32, ptr @hf_omron_message, align 4
-  %1078 = load i32, ptr @ett_message_fields, align 4
-  %1079 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 12, i32 noundef %1077, i32 noundef %1078, ptr noundef nonnull @message_yes_no_fields, i32 noundef 0)
+1075:                                             ; preds = %1069
+  %1076 = load i32, ptr @hf_omron_message, align 4
+  %1077 = load i32, ptr @ett_message_fields, align 4
+  %1078 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 12, i32 noundef %1076, i32 noundef %1077, ptr noundef nonnull @message_yes_no_fields, i32 noundef 0)
   br label %.thread2535
 
-1080:                                             ; preds = %1068
-  br i1 %.not, label %.thread2535, label %1081
+1079:                                             ; preds = %1067
+  br i1 %.not, label %.thread2535, label %1080
+
+1080:                                             ; preds = %1079
+  br i1 %1068, label %1081, label %1084
 
 1081:                                             ; preds = %1080
-  br i1 %1069, label %1082, label %1085
-
-1082:                                             ; preds = %1081
-  %1083 = load i32, ptr @hf_omron_response_code, align 4
-  %1084 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1083, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1082 = load i32, ptr @hf_omron_response_code, align 4
+  %1083 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1082, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1085:                                             ; preds = %1081
-  %1086 = icmp eq i32 %66, 20
-  br i1 %1086, label %1087, label %1094
+1084:                                             ; preds = %1080
+  %1085 = icmp eq i32 %66, 20
+  br i1 %1085, label %1086, label %1093
 
-1087:                                             ; preds = %1085
-  %1088 = load i32, ptr @hf_omron_response_code, align 4
-  %1089 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1088, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1090 = load i32, ptr @hf_omron_fals, align 4
-  %1091 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1090, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1092 = load i32, ptr @hf_omron_error_message, align 4
-  %1093 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1092, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
+1086:                                             ; preds = %1084
+  %1087 = load i32, ptr @hf_omron_response_code, align 4
+  %1088 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1087, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1089 = load i32, ptr @hf_omron_fals, align 4
+  %1090 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1089, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1091 = load i32, ptr @hf_omron_error_message, align 4
+  %1092 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1091, ptr noundef %0, i32 noundef 16, i32 noundef 16, i32 noundef 0)
   br label %.thread2535
 
-1094:                                             ; preds = %1085
-  %1095 = icmp sgt i32 %66, 3
-  br i1 %1095, label %1096, label %.thread2535
+1093:                                             ; preds = %1084
+  %1094 = icmp sgt i32 %66, 3
+  br i1 %1094, label %1095, label %.thread2535
 
-1096:                                             ; preds = %1094
-  %1097 = load i32, ptr @hf_omron_response_code, align 4
-  %1098 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1097, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1099 = load i32, ptr @hf_omron_message, align 4
-  %1100 = load i32, ptr @ett_message_fields, align 4
-  %1101 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef %1099, i32 noundef %1100, ptr noundef nonnull @message_yes_no_fields, i32 noundef 0)
-  %1102 = icmp samesign ugt i32 %66, 35
-  br i1 %1102, label %.lr.ph2643.preheader, label %.thread2535
+1095:                                             ; preds = %1093
+  %1096 = load i32, ptr @hf_omron_response_code, align 4
+  %1097 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1096, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1098 = load i32, ptr @hf_omron_message, align 4
+  %1099 = load i32, ptr @ett_message_fields, align 4
+  %1100 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef %1098, i32 noundef %1099, ptr noundef nonnull @message_yes_no_fields, i32 noundef 0)
+  %1101 = icmp samesign ugt i32 %66, 35
+  br i1 %1101, label %.lr.ph2643.preheader, label %.thread2535
 
-.lr.ph2643.preheader:                             ; preds = %1096
-  %1103 = add nsw i32 %66, -4
+.lr.ph2643.preheader:                             ; preds = %1095
+  %1102 = add nsw i32 %66, -4
   br label %.lr.ph2643
 
 .lr.ph2643:                                       ; preds = %.lr.ph2643.preheader, %.lr.ph2643
-  %.82642 = phi i32 [ %1107, %.lr.ph2643 ], [ %1103, %.lr.ph2643.preheader ]
-  %.312641 = phi i32 [ %1106, %.lr.ph2643 ], [ 16, %.lr.ph2643.preheader ]
-  %1104 = load i32, ptr @hf_omron_read_message, align 4
-  %1105 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1104, ptr noundef %0, i32 noundef %.312641, i32 noundef 32, i32 noundef 0)
-  %1106 = add nuw nsw i32 %.312641, 32
-  %1107 = add nsw i32 %.82642, -32
-  %1108 = icmp samesign ugt i32 %.82642, 63
-  br i1 %1108, label %.lr.ph2643, label %.thread2535, !llvm.loop !13
+  %.82642 = phi i32 [ %1106, %.lr.ph2643 ], [ %1102, %.lr.ph2643.preheader ]
+  %.312641 = phi i32 [ %1105, %.lr.ph2643 ], [ 16, %.lr.ph2643.preheader ]
+  %1103 = load i32, ptr @hf_omron_read_message, align 4
+  %1104 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1103, ptr noundef %0, i32 noundef %.312641, i32 noundef 32, i32 noundef 0)
+  %1105 = add nuw nsw i32 %.312641, 32
+  %1106 = add nsw i32 %.82642, -32
+  %1107 = icmp samesign ugt i32 %.82642, 63
+  br i1 %1107, label %.lr.ph2643, label %.thread2535, !llvm.loop !13
 
-1109:                                             ; preds = %96
-  %1110 = icmp eq i32 %66, 2
-  %or.cond137 = select i1 %.not, i1 %1110, i1 false
-  br i1 %or.cond137, label %.thread2556, label %1113
+1108:                                             ; preds = %96
+  %1109 = icmp eq i32 %66, 2
+  %or.cond137 = select i1 %.not, i1 %1109, i1 false
+  br i1 %or.cond137, label %.thread2556, label %1112
 
-.thread2556:                                      ; preds = %1109
-  %1111 = load i32, ptr @hf_omron_program_number, align 4
-  %1112 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1111, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+.thread2556:                                      ; preds = %1108
+  %1110 = load i32, ptr @hf_omron_program_number, align 4
+  %1111 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1110, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1113:                                             ; preds = %1109
-  br i1 %.not, label %.thread2535, label %1114
+1112:                                             ; preds = %1108
+  br i1 %.not, label %.thread2535, label %1113
+
+1113:                                             ; preds = %1112
+  br i1 %1109, label %1114, label %1117
 
 1114:                                             ; preds = %1113
-  br i1 %1110, label %1115, label %1118
-
-1115:                                             ; preds = %1114
-  %1116 = load i32, ptr @hf_omron_response_code, align 4
-  %1117 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1116, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1115 = load i32, ptr @hf_omron_response_code, align 4
+  %1116 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1115, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1118:                                             ; preds = %1114
-  %1119 = icmp eq i32 %66, 5
-  br i1 %1119, label %1120, label %.thread2535
+1117:                                             ; preds = %1113
+  %1118 = icmp eq i32 %66, 5
+  br i1 %1118, label %1119, label %.thread2535
 
-1120:                                             ; preds = %1118
-  %1121 = load i32, ptr @hf_omron_response_code, align 4
-  %1122 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1121, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1123 = load i32, ptr @hf_omron_unit_address, align 4
-  %1124 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1123, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %1125 = load i32, ptr @hf_omron_node_number, align 4
-  %1126 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1125, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %1127 = load i32, ptr @hf_omron_network_address, align 4
-  %1128 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1127, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
+1119:                                             ; preds = %1117
+  %1120 = load i32, ptr @hf_omron_response_code, align 4
+  %1121 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1120, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1122 = load i32, ptr @hf_omron_unit_address, align 4
+  %1123 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1122, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %1124 = load i32, ptr @hf_omron_node_number, align 4
+  %1125 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1124, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %1126 = load i32, ptr @hf_omron_network_address, align 4
+  %1127 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1126, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-1129:                                             ; preds = %96
-  %1130 = icmp eq i32 %66, 2
-  %or.cond140 = select i1 %.not, i1 %1130, i1 false
-  br i1 %or.cond140, label %1131, label %1134
+1128:                                             ; preds = %96
+  %1129 = icmp eq i32 %66, 2
+  %or.cond140 = select i1 %.not, i1 %1129, i1 false
+  br i1 %or.cond140, label %1130, label %1133
 
-1131:                                             ; preds = %1129
-  %1132 = load i32, ptr @hf_omron_program_number, align 4
-  %1133 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1132, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %1134
+1130:                                             ; preds = %1128
+  %1131 = load i32, ptr @hf_omron_program_number, align 4
+  %1132 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1131, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  br label %1133
 
-1134:                                             ; preds = %1131, %1129
-  %.33 = phi i32 [ 14, %1131 ], [ 12, %1129 ]
-  %or.cond143 = select i1 %.024002490, i1 %1130, i1 false
-  br i1 %or.cond143, label %1135, label %.thread2535
+1133:                                             ; preds = %1130, %1128
+  %.33 = phi i32 [ 14, %1130 ], [ 12, %1128 ]
+  %or.cond143 = select i1 %.024002490, i1 %1129, i1 false
+  br i1 %or.cond143, label %1134, label %.thread2535
 
-1135:                                             ; preds = %1134
-  %1136 = load i32, ptr @hf_omron_response_code, align 4
-  %1137 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1136, ptr noundef %0, i32 noundef %.33, i32 noundef 2, i32 noundef 0)
-  %1138 = add nuw nsw i32 %.33, 2
+1134:                                             ; preds = %1133
+  %1135 = load i32, ptr @hf_omron_response_code, align 4
+  %1136 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1135, ptr noundef %0, i32 noundef %.33, i32 noundef 2, i32 noundef 0)
+  %1137 = add nuw nsw i32 %.33, 2
   br label %.thread2535
 
-1139:                                             ; preds = %96
-  %1140 = icmp eq i32 %66, 2
-  %or.cond146 = select i1 %.not, i1 %1140, i1 false
-  br i1 %or.cond146, label %1141, label %1144
+1138:                                             ; preds = %96
+  %1139 = icmp eq i32 %66, 2
+  %or.cond146 = select i1 %.not, i1 %1139, i1 false
+  br i1 %or.cond146, label %1140, label %1143
 
-1141:                                             ; preds = %1139
-  %1142 = load i32, ptr @hf_omron_program_number, align 4
-  %1143 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1142, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %1144
+1140:                                             ; preds = %1138
+  %1141 = load i32, ptr @hf_omron_program_number, align 4
+  %1142 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1141, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  br label %1143
 
-1144:                                             ; preds = %1141, %1139
-  %.34 = phi i32 [ 14, %1141 ], [ 12, %1139 ]
-  %or.cond149 = select i1 %.024002490, i1 %1140, i1 false
-  br i1 %or.cond149, label %1145, label %.thread2535
+1143:                                             ; preds = %1140, %1138
+  %.34 = phi i32 [ 14, %1140 ], [ 12, %1138 ]
+  %or.cond149 = select i1 %.024002490, i1 %1139, i1 false
+  br i1 %or.cond149, label %1144, label %.thread2535
 
-1145:                                             ; preds = %1144
-  %1146 = load i32, ptr @hf_omron_response_code, align 4
-  %1147 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1146, ptr noundef %0, i32 noundef %.34, i32 noundef 2, i32 noundef 0)
-  %1148 = add nuw nsw i32 %.34, 2
+1144:                                             ; preds = %1143
+  %1145 = load i32, ptr @hf_omron_response_code, align 4
+  %1146 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1145, ptr noundef %0, i32 noundef %.34, i32 noundef 2, i32 noundef 0)
+  %1147 = add nuw nsw i32 %.34, 2
   br label %.thread2535
 
-1149:                                             ; preds = %96
-  %1150 = icmp eq i32 %66, 2
-  %or.cond152 = select i1 %.not, i1 %1150, i1 false
-  br i1 %or.cond152, label %1151, label %1154
+1148:                                             ; preds = %96
+  %1149 = icmp eq i32 %66, 2
+  %or.cond152 = select i1 %.not, i1 %1149, i1 false
+  br i1 %or.cond152, label %1150, label %1153
 
-1151:                                             ; preds = %1149
-  %1152 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
-  %1153 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1152, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %1154
+1150:                                             ; preds = %1148
+  %1151 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
+  %1152 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1151, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  br label %1153
 
-1154:                                             ; preds = %1151, %1149
-  %.35 = phi i32 [ 14, %1151 ], [ 12, %1149 ]
-  %or.cond155 = select i1 %.024002490, i1 %1150, i1 false
-  br i1 %or.cond155, label %1155, label %.thread2535
+1153:                                             ; preds = %1150, %1148
+  %.35 = phi i32 [ 14, %1150 ], [ 12, %1148 ]
+  %or.cond155 = select i1 %.024002490, i1 %1149, i1 false
+  br i1 %or.cond155, label %1154, label %.thread2535
 
-1155:                                             ; preds = %1154
-  %1156 = load i32, ptr @hf_omron_response_code, align 4
-  %1157 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1156, ptr noundef %0, i32 noundef %.35, i32 noundef 2, i32 noundef 0)
-  %1158 = add nuw nsw i32 %.35, 2
+1154:                                             ; preds = %1153
+  %1155 = load i32, ptr @hf_omron_response_code, align 4
+  %1156 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1155, ptr noundef %0, i32 noundef %.35, i32 noundef 2, i32 noundef 0)
+  %1157 = add nuw nsw i32 %.35, 2
   br label %.thread2535
 
-1159:                                             ; preds = %96
-  %1160 = icmp eq i32 %66, 4
-  %or.cond158 = select i1 %.not, i1 %1160, i1 false
-  br i1 %or.cond158, label %.thread2558, label %1165
+1158:                                             ; preds = %96
+  %1159 = icmp eq i32 %66, 4
+  %or.cond158 = select i1 %.not, i1 %1159, i1 false
+  br i1 %or.cond158, label %.thread2558, label %1164
 
-.thread2558:                                      ; preds = %1159
-  %1161 = load i32, ptr @hf_omron_beginning_record_no, align 4
-  %1162 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1161, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1163 = load i32, ptr @hf_omron_no_of_records, align 4
-  %1164 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1163, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+.thread2558:                                      ; preds = %1158
+  %1160 = load i32, ptr @hf_omron_beginning_record_no, align 4
+  %1161 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1160, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1162 = load i32, ptr @hf_omron_no_of_records, align 4
+  %1163 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1162, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1165:                                             ; preds = %1159
-  %1166 = icmp slt i32 %66, 8
-  %or.cond161.not = select i1 %.not, i1 true, i1 %1166
-  br i1 %or.cond161.not, label %.thread2535, label %1167
+1164:                                             ; preds = %1158
+  %1165 = icmp slt i32 %66, 8
+  %or.cond161.not = select i1 %.not, i1 true, i1 %1165
+  br i1 %or.cond161.not, label %.thread2535, label %1166
 
-1167:                                             ; preds = %1165
-  %1168 = load i32, ptr @hf_omron_response_code, align 4
-  %1169 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1168, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1170 = load i32, ptr @hf_omron_max_no_of_stored_records, align 4
-  %1171 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1170, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1172 = load i32, ptr @hf_omron_no_of_stored_records, align 4
-  %1173 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1172, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  %1174 = load i32, ptr @hf_omron_no_of_records, align 4
-  %1175 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1174, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %1176 = icmp samesign ugt i32 %66, 17
-  br i1 %1176, label %.lr.ph2639.preheader, label %.thread2535
+1166:                                             ; preds = %1164
+  %1167 = load i32, ptr @hf_omron_response_code, align 4
+  %1168 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1167, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1169 = load i32, ptr @hf_omron_max_no_of_stored_records, align 4
+  %1170 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1169, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1171 = load i32, ptr @hf_omron_no_of_stored_records, align 4
+  %1172 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1171, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %1173 = load i32, ptr @hf_omron_no_of_records, align 4
+  %1174 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1173, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %1175 = icmp samesign ugt i32 %66, 17
+  br i1 %1175, label %.lr.ph2639.preheader, label %.thread2535
 
-.lr.ph2639.preheader:                             ; preds = %1167
-  %1177 = add nsw i32 %66, -8
+.lr.ph2639.preheader:                             ; preds = %1166
+  %1176 = add nsw i32 %66, -8
   br label %.lr.ph2639
 
 .lr.ph2639:                                       ; preds = %.lr.ph2639.preheader, %.lr.ph2639
-  %.92638 = phi i32 [ %1204, %.lr.ph2639 ], [ %1177, %.lr.ph2639.preheader ]
-  %.372637 = phi i32 [ %1203, %.lr.ph2639 ], [ 20, %.lr.ph2639.preheader ]
-  %1178 = load i32, ptr @ett_omron_error_log_data, align 4
-  %1179 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef %.372637, i32 noundef 10, i32 noundef %1178, ptr noundef null, ptr noundef nonnull @.str.944)
-  %1180 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
-  %1181 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1180, ptr noundef %0, i32 noundef %.372637, i32 noundef 2, i32 noundef 0)
-  %1182 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
-  %1183 = add nuw i32 %.372637, 2
-  %1184 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1182, ptr noundef %0, i32 noundef %1183, i32 noundef 2, i32 noundef 0)
-  %1185 = load i32, ptr @hf_omron_minute, align 4
-  %1186 = add nuw i32 %.372637, 4
-  %1187 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1185, ptr noundef %0, i32 noundef %1186, i32 noundef 1, i32 noundef 0)
-  %1188 = load i32, ptr @hf_omron_second, align 4
-  %1189 = add nuw i32 %.372637, 5
-  %1190 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1188, ptr noundef %0, i32 noundef %1189, i32 noundef 1, i32 noundef 0)
-  %1191 = load i32, ptr @hf_omron_day, align 4
-  %1192 = add nuw i32 %.372637, 6
-  %1193 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1191, ptr noundef %0, i32 noundef %1192, i32 noundef 1, i32 noundef 0)
-  %1194 = load i32, ptr @hf_omron_hour, align 4
-  %1195 = add nuw i32 %.372637, 7
-  %1196 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1194, ptr noundef %0, i32 noundef %1195, i32 noundef 1, i32 noundef 0)
-  %1197 = load i32, ptr @hf_omron_year, align 4
-  %1198 = add nuw i32 %.372637, 8
-  %1199 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1197, ptr noundef %0, i32 noundef %1198, i32 noundef 1, i32 noundef 0)
-  %1200 = load i32, ptr @hf_omron_month, align 4
-  %1201 = add nuw i32 %.372637, 9
-  %1202 = call ptr @proto_tree_add_item(ptr noundef %1179, i32 noundef %1200, ptr noundef %0, i32 noundef %1201, i32 noundef 1, i32 noundef 0)
-  %1203 = add nuw i32 %.372637, 10
-  %1204 = add nsw i32 %.92638, -10
-  %1205 = icmp samesign ugt i32 %.92638, 19
-  br i1 %1205, label %.lr.ph2639, label %.thread2535, !llvm.loop !14
+  %.92638 = phi i32 [ %1203, %.lr.ph2639 ], [ %1176, %.lr.ph2639.preheader ]
+  %.372637 = phi i32 [ %1202, %.lr.ph2639 ], [ 20, %.lr.ph2639.preheader ]
+  %1177 = load i32, ptr @ett_omron_error_log_data, align 4
+  %1178 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef %.372637, i32 noundef 10, i32 noundef %1177, ptr noundef null, ptr noundef nonnull @.str.944)
+  %1179 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
+  %1180 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1179, ptr noundef %0, i32 noundef %.372637, i32 noundef 2, i32 noundef 0)
+  %1181 = load i32, ptr @hf_omron_error_reset_fals_no, align 4
+  %1182 = add nuw i32 %.372637, 2
+  %1183 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1181, ptr noundef %0, i32 noundef %1182, i32 noundef 2, i32 noundef 0)
+  %1184 = load i32, ptr @hf_omron_minute, align 4
+  %1185 = add nuw i32 %.372637, 4
+  %1186 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1184, ptr noundef %0, i32 noundef %1185, i32 noundef 1, i32 noundef 0)
+  %1187 = load i32, ptr @hf_omron_second, align 4
+  %1188 = add nuw i32 %.372637, 5
+  %1189 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1187, ptr noundef %0, i32 noundef %1188, i32 noundef 1, i32 noundef 0)
+  %1190 = load i32, ptr @hf_omron_day, align 4
+  %1191 = add nuw i32 %.372637, 6
+  %1192 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1190, ptr noundef %0, i32 noundef %1191, i32 noundef 1, i32 noundef 0)
+  %1193 = load i32, ptr @hf_omron_hour, align 4
+  %1194 = add nuw i32 %.372637, 7
+  %1195 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1193, ptr noundef %0, i32 noundef %1194, i32 noundef 1, i32 noundef 0)
+  %1196 = load i32, ptr @hf_omron_year, align 4
+  %1197 = add nuw i32 %.372637, 8
+  %1198 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1196, ptr noundef %0, i32 noundef %1197, i32 noundef 1, i32 noundef 0)
+  %1199 = load i32, ptr @hf_omron_month, align 4
+  %1200 = add nuw i32 %.372637, 9
+  %1201 = call ptr @proto_tree_add_item(ptr noundef %1178, i32 noundef %1199, ptr noundef %0, i32 noundef %1200, i32 noundef 1, i32 noundef 0)
+  %1202 = add nuw i32 %.372637, 10
+  %1203 = add nsw i32 %.92638, -10
+  %1204 = icmp samesign ugt i32 %.92638, 19
+  br i1 %1204, label %.lr.ph2639, label %.thread2535, !llvm.loop !14
 
-1206:                                             ; preds = %96
-  %1207 = icmp ne i32 %66, 2
-  %or.cond164.not = select i1 %.not, i1 true, i1 %1207
-  br i1 %or.cond164.not, label %.thread2535, label %1208
+1205:                                             ; preds = %96
+  %1206 = icmp ne i32 %66, 2
+  %or.cond164.not = select i1 %.not, i1 true, i1 %1206
+  br i1 %or.cond164.not, label %.thread2535, label %1207
 
-1208:                                             ; preds = %1206
-  %1209 = load i32, ptr @hf_omron_response_code, align 4
-  %1210 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1209, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1207:                                             ; preds = %1205
+  %1208 = load i32, ptr @hf_omron_response_code, align 4
+  %1209 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1208, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1211:                                             ; preds = %96
-  %1212 = icmp eq i32 %66, 6
-  %or.cond167 = select i1 %.not, i1 %1212, i1 false
-  br i1 %or.cond167, label %.thread2561, label %1219
+1210:                                             ; preds = %96
+  %1211 = icmp eq i32 %66, 6
+  %or.cond167 = select i1 %.not, i1 %1211, i1 false
+  br i1 %or.cond167, label %.thread2561, label %1218
 
-.thread2561:                                      ; preds = %1211
-  %1213 = load i32, ptr @hf_omron_disk_no, align 4
-  %1214 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1213, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1215 = load i32, ptr @hf_omron_beginning_file_position, align 4
-  %1216 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1215, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1217 = load i32, ptr @hf_omron_no_of_files, align 4
-  %1218 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1217, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+.thread2561:                                      ; preds = %1210
+  %1212 = load i32, ptr @hf_omron_disk_no, align 4
+  %1213 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1212, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1214 = load i32, ptr @hf_omron_beginning_file_position, align 4
+  %1215 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1214, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1216 = load i32, ptr @hf_omron_no_of_files, align 4
+  %1217 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1216, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1219:                                             ; preds = %1211
-  %1220 = icmp slt i32 %66, 50
-  %or.cond170.not = select i1 %.not, i1 true, i1 %1220
+1218:                                             ; preds = %1210
+  %1219 = icmp slt i32 %66, 50
+  %or.cond170.not = select i1 %.not, i1 true, i1 %1219
   br i1 %or.cond170.not, label %.thread2535, label %.lr.ph2635.preheader
 
-.lr.ph2635.preheader:                             ; preds = %1219
-  %1221 = load i32, ptr @hf_omron_response_code, align 4
-  %1222 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1221, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1223 = load i32, ptr @ett_omron_disk_data, align 4
-  %1224 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 26, i32 noundef %1223, ptr noundef null, ptr noundef nonnull @.str.945)
-  %1225 = load i32, ptr @hf_omron_volume_label, align 4
-  %1226 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1225, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
-  %1227 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
-  %1228 = load i32, ptr @hf_omron_date_year, align 4
-  %1229 = zext i8 %1227 to i32
-  %1230 = lshr i32 %1229, 1
-  %1231 = add nuw nsw i32 %1230, 1980
-  %1232 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1224, i32 noundef %1228, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef %1229, ptr noundef nonnull @.str.946, i32 noundef %1231)
-  %1233 = load i32, ptr @hf_omron_date_month, align 4
-  %1234 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1233, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
-  %1235 = load i32, ptr @hf_omron_date_day, align 4
-  %1236 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1235, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
-  %1237 = load i32, ptr @hf_omron_date_hour, align 4
-  %1238 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1237, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
-  %1239 = load i32, ptr @hf_omron_date_minute, align 4
-  %1240 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1239, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
-  %1241 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 29)
-  %1242 = load i32, ptr @hf_omron_date_second, align 4
-  %1243 = zext i8 %1241 to i32
-  %1244 = shl nuw nsw i32 %1243, 1
-  %1245 = and i32 %1244, 62
-  %1246 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1224, i32 noundef %1242, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef %1243, ptr noundef nonnull @.str.946, i32 noundef %1245)
-  %1247 = load i32, ptr @hf_omron_total_capacity, align 4
-  %1248 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1247, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef 0)
-  %1249 = load i32, ptr @hf_omron_unused_capacity, align 4
-  %1250 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1249, ptr noundef %0, i32 noundef 34, i32 noundef 4, i32 noundef 0)
-  %1251 = load i32, ptr @hf_omron_total_no_files, align 4
-  %1252 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1251, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
-  %1253 = load i32, ptr @hf_omron_no_files, align 4
-  %1254 = call ptr @proto_tree_add_item(ptr noundef %1224, i32 noundef %1253, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
-  %1255 = add nsw i32 %66, -30
+.lr.ph2635.preheader:                             ; preds = %1218
+  %1220 = load i32, ptr @hf_omron_response_code, align 4
+  %1221 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1220, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1222 = load i32, ptr @ett_omron_disk_data, align 4
+  %1223 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef 26, i32 noundef %1222, ptr noundef null, ptr noundef nonnull @.str.945)
+  %1224 = load i32, ptr @hf_omron_volume_label, align 4
+  %1225 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1224, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
+  %1226 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 26)
+  %1227 = load i32, ptr @hf_omron_date_year, align 4
+  %1228 = zext i8 %1226 to i32
+  %1229 = lshr i32 %1228, 1
+  %1230 = add nuw nsw i32 %1229, 1980
+  %1231 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1223, i32 noundef %1227, ptr noundef %0, i32 noundef 26, i32 noundef 1, i32 noundef %1228, ptr noundef nonnull @.str.946, i32 noundef %1230)
+  %1232 = load i32, ptr @hf_omron_date_month, align 4
+  %1233 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1232, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %1234 = load i32, ptr @hf_omron_date_day, align 4
+  %1235 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1234, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %1236 = load i32, ptr @hf_omron_date_hour, align 4
+  %1237 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1236, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %1238 = load i32, ptr @hf_omron_date_minute, align 4
+  %1239 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1238, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %1240 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 29)
+  %1241 = load i32, ptr @hf_omron_date_second, align 4
+  %1242 = zext i8 %1240 to i32
+  %1243 = shl nuw nsw i32 %1242, 1
+  %1244 = and i32 %1243, 62
+  %1245 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1223, i32 noundef %1241, ptr noundef %0, i32 noundef 29, i32 noundef 1, i32 noundef %1242, ptr noundef nonnull @.str.946, i32 noundef %1244)
+  %1246 = load i32, ptr @hf_omron_total_capacity, align 4
+  %1247 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1246, ptr noundef %0, i32 noundef 30, i32 noundef 4, i32 noundef 0)
+  %1248 = load i32, ptr @hf_omron_unused_capacity, align 4
+  %1249 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1248, ptr noundef %0, i32 noundef 34, i32 noundef 4, i32 noundef 0)
+  %1250 = load i32, ptr @hf_omron_total_no_files, align 4
+  %1251 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1250, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
+  %1252 = load i32, ptr @hf_omron_no_files, align 4
+  %1253 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1252, ptr noundef %0, i32 noundef 40, i32 noundef 2, i32 noundef 0)
+  %1254 = add nsw i32 %66, -30
   br label %.lr.ph2635
 
 .lr.ph2635:                                       ; preds = %.lr.ph2635.preheader, %.lr.ph2635
-  %.102634 = phi i32 [ %1286, %.lr.ph2635 ], [ %1255, %.lr.ph2635.preheader ]
-  %.392633 = phi i32 [ %1285, %.lr.ph2635 ], [ 42, %.lr.ph2635.preheader ]
-  %1256 = load i32, ptr @ett_omron_file_data, align 4
-  %1257 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef %.392633, i32 noundef 20, i32 noundef %1256, ptr noundef null, ptr noundef nonnull @.str.318)
-  %1258 = load i32, ptr @hf_omron_filename, align 4
-  %1259 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1258, ptr noundef %0, i32 noundef %.392633, i32 noundef 12, i32 noundef 0)
-  %1260 = add nuw i32 %.392633, 12
-  %1261 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1260)
-  %1262 = load i32, ptr @hf_omron_date_year, align 4
-  %1263 = zext i8 %1261 to i32
-  %1264 = lshr i32 %1263, 1
-  %1265 = add nuw nsw i32 %1264, 1980
-  %1266 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1257, i32 noundef %1262, ptr noundef %0, i32 noundef %1260, i32 noundef 1, i32 noundef %1263, ptr noundef nonnull @.str.946, i32 noundef %1265)
-  %1267 = load i32, ptr @hf_omron_date_month, align 4
-  %1268 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1267, ptr noundef %0, i32 noundef %1260, i32 noundef 4, i32 noundef 0)
-  %1269 = load i32, ptr @hf_omron_date_day, align 4
-  %1270 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1269, ptr noundef %0, i32 noundef %1260, i32 noundef 4, i32 noundef 0)
-  %1271 = load i32, ptr @hf_omron_date_hour, align 4
-  %1272 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1271, ptr noundef %0, i32 noundef %1260, i32 noundef 4, i32 noundef 0)
-  %1273 = load i32, ptr @hf_omron_date_minute, align 4
-  %1274 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1273, ptr noundef %0, i32 noundef %1260, i32 noundef 4, i32 noundef 0)
-  %1275 = add nuw i32 %.392633, 15
-  %1276 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1275)
-  %1277 = load i32, ptr @hf_omron_date_second, align 4
-  %1278 = zext i8 %1276 to i32
-  %1279 = shl nuw nsw i32 %1278, 1
-  %1280 = and i32 %1279, 62
-  %1281 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1257, i32 noundef %1277, ptr noundef %0, i32 noundef %1275, i32 noundef 1, i32 noundef %1278, ptr noundef nonnull @.str.946, i32 noundef %1280)
-  %1282 = load i32, ptr @hf_omron_file_capacity, align 4
-  %1283 = add nuw i32 %.392633, 16
-  %1284 = call ptr @proto_tree_add_item(ptr noundef %1257, i32 noundef %1282, ptr noundef %0, i32 noundef %1283, i32 noundef 4, i32 noundef 0)
-  %1285 = add nuw i32 %.392633, 20
-  %1286 = add nsw i32 %.102634, -20
-  %1287 = icmp samesign ugt i32 %.102634, 39
-  br i1 %1287, label %.lr.ph2635, label %.thread2535, !llvm.loop !15
+  %.102634 = phi i32 [ %1285, %.lr.ph2635 ], [ %1254, %.lr.ph2635.preheader ]
+  %.392633 = phi i32 [ %1284, %.lr.ph2635 ], [ 42, %.lr.ph2635.preheader ]
+  %1255 = load i32, ptr @ett_omron_file_data, align 4
+  %1256 = call ptr @proto_tree_add_subtree(ptr noundef %98, ptr noundef %0, i32 noundef %.392633, i32 noundef 20, i32 noundef %1255, ptr noundef null, ptr noundef nonnull @.str.318)
+  %1257 = load i32, ptr @hf_omron_filename, align 4
+  %1258 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1257, ptr noundef %0, i32 noundef %.392633, i32 noundef 12, i32 noundef 0)
+  %1259 = add nuw i32 %.392633, 12
+  %1260 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1259)
+  %1261 = load i32, ptr @hf_omron_date_year, align 4
+  %1262 = zext i8 %1260 to i32
+  %1263 = lshr i32 %1262, 1
+  %1264 = add nuw nsw i32 %1263, 1980
+  %1265 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1256, i32 noundef %1261, ptr noundef %0, i32 noundef %1259, i32 noundef 1, i32 noundef %1262, ptr noundef nonnull @.str.946, i32 noundef %1264)
+  %1266 = load i32, ptr @hf_omron_date_month, align 4
+  %1267 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1266, ptr noundef %0, i32 noundef %1259, i32 noundef 4, i32 noundef 0)
+  %1268 = load i32, ptr @hf_omron_date_day, align 4
+  %1269 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1268, ptr noundef %0, i32 noundef %1259, i32 noundef 4, i32 noundef 0)
+  %1270 = load i32, ptr @hf_omron_date_hour, align 4
+  %1271 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1270, ptr noundef %0, i32 noundef %1259, i32 noundef 4, i32 noundef 0)
+  %1272 = load i32, ptr @hf_omron_date_minute, align 4
+  %1273 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1272, ptr noundef %0, i32 noundef %1259, i32 noundef 4, i32 noundef 0)
+  %1274 = add nuw i32 %.392633, 15
+  %1275 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1274)
+  %1276 = load i32, ptr @hf_omron_date_second, align 4
+  %1277 = zext i8 %1275 to i32
+  %1278 = shl nuw nsw i32 %1277, 1
+  %1279 = and i32 %1278, 62
+  %1280 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1256, i32 noundef %1276, ptr noundef %0, i32 noundef %1274, i32 noundef 1, i32 noundef %1277, ptr noundef nonnull @.str.946, i32 noundef %1279)
+  %1281 = load i32, ptr @hf_omron_file_capacity, align 4
+  %1282 = add nuw i32 %.392633, 16
+  %1283 = call ptr @proto_tree_add_item(ptr noundef %1256, i32 noundef %1281, ptr noundef %0, i32 noundef %1282, i32 noundef 4, i32 noundef 0)
+  %1284 = add nuw i32 %.392633, 20
+  %1285 = add nsw i32 %.102634, -20
+  %1286 = icmp samesign ugt i32 %.102634, 39
+  br i1 %1286, label %.lr.ph2635, label %.thread2535, !llvm.loop !15
 
-1288:                                             ; preds = %96
-  %1289 = icmp eq i32 %66, 20
-  %or.cond173 = select i1 %.not, i1 %1289, i1 false
-  br i1 %or.cond173, label %.thread2564, label %1298
+1287:                                             ; preds = %96
+  %1288 = icmp eq i32 %66, 20
+  %or.cond173 = select i1 %.not, i1 %1288, i1 false
+  br i1 %or.cond173, label %.thread2564, label %1297
 
-.thread2564:                                      ; preds = %1288
-  %1290 = load i32, ptr @hf_omron_disk_no, align 4
-  %1291 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1290, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1292 = load i32, ptr @hf_omron_filename, align 4
-  %1293 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1292, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
-  %1294 = load i32, ptr @hf_omron_file_position, align 4
-  %1295 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1294, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
-  %1296 = load i32, ptr @hf_omron_data_length, align 4
-  %1297 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1296, ptr noundef %0, i32 noundef 30, i32 noundef 2, i32 noundef 0)
+.thread2564:                                      ; preds = %1287
+  %1289 = load i32, ptr @hf_omron_disk_no, align 4
+  %1290 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1289, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1291 = load i32, ptr @hf_omron_filename, align 4
+  %1292 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1291, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
+  %1293 = load i32, ptr @hf_omron_file_position, align 4
+  %1294 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1293, ptr noundef %0, i32 noundef 26, i32 noundef 4, i32 noundef 0)
+  %1295 = load i32, ptr @hf_omron_data_length, align 4
+  %1296 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1295, ptr noundef %0, i32 noundef 30, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1298:                                             ; preds = %1288
-  %1299 = icmp slt i32 %66, 12
-  %or.cond176.not = select i1 %.not, i1 true, i1 %1299
-  br i1 %or.cond176.not, label %.thread2535, label %1300
+1297:                                             ; preds = %1287
+  %1298 = icmp slt i32 %66, 12
+  %or.cond176.not = select i1 %.not, i1 true, i1 %1298
+  br i1 %or.cond176.not, label %.thread2535, label %1299
 
-1300:                                             ; preds = %1298
-  %1301 = load i32, ptr @hf_omron_response_code, align 4
-  %1302 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1301, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1303 = load i32, ptr @hf_omron_file_capacity, align 4
-  %1304 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1303, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
-  %1305 = load i32, ptr @hf_omron_file_position, align 4
-  %1306 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1305, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0)
-  %1307 = load i32, ptr @hf_omron_data_length, align 4
-  %1308 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1307, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
-  %1309 = icmp samesign ugt i32 %66, 12
-  br i1 %1309, label %1310, label %1313
+1299:                                             ; preds = %1297
+  %1300 = load i32, ptr @hf_omron_response_code, align 4
+  %1301 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1300, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1302 = load i32, ptr @hf_omron_file_capacity, align 4
+  %1303 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1302, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
+  %1304 = load i32, ptr @hf_omron_file_position, align 4
+  %1305 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1304, ptr noundef %0, i32 noundef 18, i32 noundef 4, i32 noundef 0)
+  %1306 = load i32, ptr @hf_omron_data_length, align 4
+  %1307 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1306, ptr noundef %0, i32 noundef 22, i32 noundef 2, i32 noundef 0)
+  %1308 = icmp samesign ugt i32 %66, 12
+  br i1 %1308, label %1309, label %1312
 
-1310:                                             ; preds = %1300
-  %1311 = load i32, ptr @hf_omron_file_data, align 4
-  %1312 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1311, ptr noundef %0, i32 noundef 24, i32 noundef -1, i32 noundef 0)
-  br label %1313
+1309:                                             ; preds = %1299
+  %1310 = load i32, ptr @hf_omron_file_data, align 4
+  %1311 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1310, ptr noundef %0, i32 noundef 24, i32 noundef -1, i32 noundef 0)
+  br label %1312
 
-1313:                                             ; preds = %1310, %1300
-  %1314 = add nuw i32 %66, 12
+1312:                                             ; preds = %1309, %1299
+  %1313 = add nuw i32 %66, 12
   br label %.thread2535
 
-1315:                                             ; preds = %96
-  %1316 = icmp sgt i32 %66, 21
-  %or.cond179 = select i1 %.not, i1 %1316, i1 false
-  br i1 %or.cond179, label %1317, label %1333
+1314:                                             ; preds = %96
+  %1315 = icmp sgt i32 %66, 21
+  %or.cond179 = select i1 %.not, i1 %1315, i1 false
+  br i1 %or.cond179, label %1316, label %1332
 
-1317:                                             ; preds = %1315
-  %1318 = load i32, ptr @hf_omron_disk_no, align 4
-  %1319 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1318, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1320 = load i32, ptr @hf_omron_file_parameter_code, align 4
-  %1321 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1320, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1322 = load i32, ptr @hf_omron_filename, align 4
-  %1323 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1322, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0)
-  %1324 = load i32, ptr @hf_omron_file_position, align 4
-  %1325 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1324, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
-  %1326 = load i32, ptr @hf_omron_data_length, align 4
-  %1327 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1326, ptr noundef %0, i32 noundef 32, i32 noundef 2, i32 noundef 0)
-  %1328 = icmp samesign ugt i32 %66, 22
-  br i1 %1328, label %1329, label %.thread2567
+1316:                                             ; preds = %1314
+  %1317 = load i32, ptr @hf_omron_disk_no, align 4
+  %1318 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1317, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1319 = load i32, ptr @hf_omron_file_parameter_code, align 4
+  %1320 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1319, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1321 = load i32, ptr @hf_omron_filename, align 4
+  %1322 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1321, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0)
+  %1323 = load i32, ptr @hf_omron_file_position, align 4
+  %1324 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1323, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0)
+  %1325 = load i32, ptr @hf_omron_data_length, align 4
+  %1326 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1325, ptr noundef %0, i32 noundef 32, i32 noundef 2, i32 noundef 0)
+  %1327 = icmp samesign ugt i32 %66, 22
+  br i1 %1327, label %1328, label %.thread2567
 
-1329:                                             ; preds = %1317
-  %1330 = load i32, ptr @hf_omron_file_data, align 4
-  %1331 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1330, ptr noundef %0, i32 noundef 34, i32 noundef -1, i32 noundef 0)
+1328:                                             ; preds = %1316
+  %1329 = load i32, ptr @hf_omron_file_data, align 4
+  %1330 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1329, ptr noundef %0, i32 noundef 34, i32 noundef -1, i32 noundef 0)
   br label %.thread2567
 
-.thread2567:                                      ; preds = %1317, %1329
-  %1332 = add nuw i32 %66, 12
+.thread2567:                                      ; preds = %1316, %1328
+  %1331 = add nuw i32 %66, 12
   br label %.thread2535
 
-1333:                                             ; preds = %1315
-  %1334 = icmp ne i32 %66, 2
-  %or.cond182.not = select i1 %.not, i1 true, i1 %1334
-  br i1 %or.cond182.not, label %.thread2535, label %1335
+1332:                                             ; preds = %1314
+  %1333 = icmp ne i32 %66, 2
+  %or.cond182.not = select i1 %.not, i1 true, i1 %1333
+  br i1 %or.cond182.not, label %.thread2535, label %1334
 
-1335:                                             ; preds = %1333
-  %1336 = load i32, ptr @hf_omron_response_code, align 4
-  %1337 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1336, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1334:                                             ; preds = %1332
+  %1335 = load i32, ptr @hf_omron_response_code, align 4
+  %1336 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1335, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1338:                                             ; preds = %96
-  %1339 = icmp eq i32 %66, 2
-  %or.cond185 = select i1 %.not, i1 %1339, i1 false
-  br i1 %or.cond185, label %1340, label %1343
+1337:                                             ; preds = %96
+  %1338 = icmp eq i32 %66, 2
+  %or.cond185 = select i1 %.not, i1 %1338, i1 false
+  br i1 %or.cond185, label %1339, label %1342
 
-1340:                                             ; preds = %1338
-  %1341 = load i32, ptr @hf_omron_disk_no, align 4
-  %1342 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1341, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  br label %1343
+1339:                                             ; preds = %1337
+  %1340 = load i32, ptr @hf_omron_disk_no, align 4
+  %1341 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1340, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  br label %1342
 
-1343:                                             ; preds = %1340, %1338
-  %.42 = phi i32 [ 14, %1340 ], [ 12, %1338 ]
-  %or.cond188 = select i1 %.024002490, i1 %1339, i1 false
-  br i1 %or.cond188, label %1344, label %.thread2535
+1342:                                             ; preds = %1339, %1337
+  %.42 = phi i32 [ 14, %1339 ], [ 12, %1337 ]
+  %or.cond188 = select i1 %.024002490, i1 %1338, i1 false
+  br i1 %or.cond188, label %1343, label %.thread2535
 
-1344:                                             ; preds = %1343
-  %1345 = load i32, ptr @hf_omron_response_code, align 4
-  %1346 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1345, ptr noundef %0, i32 noundef %.42, i32 noundef 2, i32 noundef 0)
-  %1347 = add nuw nsw i32 %.42, 2
+1343:                                             ; preds = %1342
+  %1344 = load i32, ptr @hf_omron_response_code, align 4
+  %1345 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1344, ptr noundef %0, i32 noundef %.42, i32 noundef 2, i32 noundef 0)
+  %1346 = add nuw nsw i32 %.42, 2
   br label %.thread2535
 
-1348:                                             ; preds = %96
-  %1349 = icmp sgt i32 %66, 15
-  %or.cond191 = select i1 %.not, i1 %1349, i1 false
+1347:                                             ; preds = %96
+  %1348 = icmp sgt i32 %66, 15
+  %or.cond191 = select i1 %.not, i1 %1348, i1 false
   br i1 %or.cond191, label %.lr.ph2630.preheader, label %.loopexit2615
 
-.lr.ph2630.preheader:                             ; preds = %1348
-  %1350 = load i32, ptr @hf_omron_disk_no, align 4
-  %1351 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1350, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1352 = load i32, ptr @hf_omron_no_files, align 4
-  %1353 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1352, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1354 = add nsw i32 %66, -4
+.lr.ph2630.preheader:                             ; preds = %1347
+  %1349 = load i32, ptr @hf_omron_disk_no, align 4
+  %1350 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1349, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1351 = load i32, ptr @hf_omron_no_files, align 4
+  %1352 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1351, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1353 = add nsw i32 %66, -4
   br label %.lr.ph2630
 
 .lr.ph2630:                                       ; preds = %.lr.ph2630.preheader, %.lr.ph2630
-  %.122629 = phi i32 [ %1358, %.lr.ph2630 ], [ %1354, %.lr.ph2630.preheader ]
-  %.442628 = phi i32 [ %1357, %.lr.ph2630 ], [ 16, %.lr.ph2630.preheader ]
-  %1355 = load i32, ptr @hf_omron_filename, align 4
-  %1356 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1355, ptr noundef %0, i32 noundef %.442628, i32 noundef 12, i32 noundef 0)
-  %1357 = add nuw i32 %.442628, 12
-  %1358 = add nsw i32 %.122629, -12
-  %1359 = icmp samesign ugt i32 %.122629, 23
-  br i1 %1359, label %.lr.ph2630, label %.loopexit2615, !llvm.loop !16
+  %.122629 = phi i32 [ %1357, %.lr.ph2630 ], [ %1353, %.lr.ph2630.preheader ]
+  %.442628 = phi i32 [ %1356, %.lr.ph2630 ], [ 16, %.lr.ph2630.preheader ]
+  %1354 = load i32, ptr @hf_omron_filename, align 4
+  %1355 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1354, ptr noundef %0, i32 noundef %.442628, i32 noundef 12, i32 noundef 0)
+  %1356 = add nuw i32 %.442628, 12
+  %1357 = add nsw i32 %.122629, -12
+  %1358 = icmp samesign ugt i32 %.122629, 23
+  br i1 %1358, label %.lr.ph2630, label %.thread2535, !llvm.loop !16
 
-.loopexit2615:                                    ; preds = %.lr.ph2630, %1348
-  %.43 = phi i32 [ 12, %1348 ], [ %1357, %.lr.ph2630 ]
-  %.11 = phi i32 [ %66, %1348 ], [ %1358, %.lr.ph2630 ]
-  %1360 = icmp ne i32 %.11, 4
-  %or.cond194.not = select i1 %.not, i1 true, i1 %1360
-  br i1 %or.cond194.not, label %.thread2535, label %1361
+.loopexit2615:                                    ; preds = %1347
+  %1359 = icmp ne i32 %66, 4
+  %or.cond194.not = select i1 %.not, i1 true, i1 %1359
+  br i1 %or.cond194.not, label %.thread2535, label %1360
 
-1361:                                             ; preds = %.loopexit2615
-  %1362 = load i32, ptr @hf_omron_response_code, align 4
-  %1363 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1362, ptr noundef %0, i32 noundef %.43, i32 noundef 2, i32 noundef 0)
-  %1364 = load i32, ptr @hf_omron_no_files, align 4
-  %1365 = or disjoint i32 %.43, 2
-  %1366 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1364, ptr noundef %0, i32 noundef %1365, i32 noundef 2, i32 noundef 0)
-  %1367 = add i32 %.43, 4
+1360:                                             ; preds = %.loopexit2615
+  %1361 = load i32, ptr @hf_omron_response_code, align 4
+  %1362 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1361, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1363 = load i32, ptr @hf_omron_no_files, align 4
+  %1364 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1363, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1368:                                             ; preds = %96
-  %1369 = icmp sgt i32 %66, 3
-  %or.cond197 = select i1 %.not, i1 %1369, i1 false
-  br i1 %or.cond197, label %1370, label %1379
+1365:                                             ; preds = %96
+  %1366 = icmp sgt i32 %66, 3
+  %or.cond197 = select i1 %.not, i1 %1366, i1 false
+  br i1 %or.cond197, label %1367, label %1376
 
-1370:                                             ; preds = %1368
-  %1371 = load i32, ptr @hf_omron_disk_no, align 4
-  %1372 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1371, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1373 = load i32, ptr @hf_omron_volume_parameter_code, align 4
-  %1374 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1373, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1375 = icmp eq i32 %66, 16
-  br i1 %1375, label %1376, label %.thread2535
+1367:                                             ; preds = %1365
+  %1368 = load i32, ptr @hf_omron_disk_no, align 4
+  %1369 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1368, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1370 = load i32, ptr @hf_omron_volume_parameter_code, align 4
+  %1371 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1370, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1372 = icmp eq i32 %66, 16
+  br i1 %1372, label %1373, label %.thread2535
 
-1376:                                             ; preds = %1370
-  %1377 = load i32, ptr @hf_omron_volume_label, align 4
-  %1378 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1377, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0)
+1373:                                             ; preds = %1367
+  %1374 = load i32, ptr @hf_omron_volume_label, align 4
+  %1375 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1374, ptr noundef %0, i32 noundef 16, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1379:                                             ; preds = %1368
-  %1380 = icmp ne i32 %66, 2
-  %or.cond200.not = select i1 %.not, i1 true, i1 %1380
-  br i1 %or.cond200.not, label %.thread2535, label %1381
+1376:                                             ; preds = %1365
+  %1377 = icmp ne i32 %66, 2
+  %or.cond200.not = select i1 %.not, i1 true, i1 %1377
+  br i1 %or.cond200.not, label %.thread2535, label %1378
 
-1381:                                             ; preds = %1379
-  %1382 = load i32, ptr @hf_omron_response_code, align 4
-  %1383 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1382, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1378:                                             ; preds = %1376
+  %1379 = load i32, ptr @hf_omron_response_code, align 4
+  %1380 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1379, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1384:                                             ; preds = %96
-  %1385 = icmp eq i32 %66, 28
-  %or.cond203 = select i1 %.not, i1 %1385, i1 false
-  br i1 %or.cond203, label %.thread2574, label %1394
+1381:                                             ; preds = %96
+  %1382 = icmp eq i32 %66, 28
+  %or.cond203 = select i1 %.not, i1 %1382, i1 false
+  br i1 %or.cond203, label %.thread2574, label %1391
 
-.thread2574:                                      ; preds = %1384
-  %1386 = load i32, ptr @hf_omron_disk_no, align 4
-  %1387 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1386, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1388 = load i32, ptr @hf_omron_filename, align 4
-  %1389 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1388, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
-  %1390 = load i32, ptr @hf_omron_disk_no, align 4
-  %1391 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1390, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
-  %1392 = load i32, ptr @hf_omron_filename, align 4
-  %1393 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1392, ptr noundef %0, i32 noundef 28, i32 noundef 12, i32 noundef 0)
+.thread2574:                                      ; preds = %1381
+  %1383 = load i32, ptr @hf_omron_disk_no, align 4
+  %1384 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1383, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1385 = load i32, ptr @hf_omron_filename, align 4
+  %1386 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1385, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
+  %1387 = load i32, ptr @hf_omron_disk_no, align 4
+  %1388 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1387, ptr noundef %0, i32 noundef 26, i32 noundef 2, i32 noundef 0)
+  %1389 = load i32, ptr @hf_omron_filename, align 4
+  %1390 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1389, ptr noundef %0, i32 noundef 28, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1394:                                             ; preds = %1384
-  %1395 = icmp ne i32 %66, 2
-  %or.cond206.not = select i1 %.not, i1 true, i1 %1395
-  br i1 %or.cond206.not, label %.thread2535, label %1396
+1391:                                             ; preds = %1381
+  %1392 = icmp ne i32 %66, 2
+  %or.cond206.not = select i1 %.not, i1 true, i1 %1392
+  br i1 %or.cond206.not, label %.thread2535, label %1393
 
-1396:                                             ; preds = %1394
-  %1397 = load i32, ptr @hf_omron_response_code, align 4
-  %1398 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1397, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1393:                                             ; preds = %1391
+  %1394 = load i32, ptr @hf_omron_response_code, align 4
+  %1395 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1394, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1399:                                             ; preds = %96
-  %1400 = icmp eq i32 %66, 26
-  %or.cond209 = select i1 %.not, i1 %1400, i1 false
-  br i1 %or.cond209, label %.thread2577, label %1407
+1396:                                             ; preds = %96
+  %1397 = icmp eq i32 %66, 26
+  %or.cond209 = select i1 %.not, i1 %1397, i1 false
+  br i1 %or.cond209, label %.thread2577, label %1404
 
-.thread2577:                                      ; preds = %1399
-  %1401 = load i32, ptr @hf_omron_disk_no, align 4
-  %1402 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1401, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1403 = load i32, ptr @hf_omron_filename, align 4
-  %1404 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1403, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
-  %1405 = load i32, ptr @hf_omron_filename, align 4
-  %1406 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1405, ptr noundef %0, i32 noundef 26, i32 noundef 12, i32 noundef 0)
+.thread2577:                                      ; preds = %1396
+  %1398 = load i32, ptr @hf_omron_disk_no, align 4
+  %1399 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1398, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1400 = load i32, ptr @hf_omron_filename, align 4
+  %1401 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1400, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
+  %1402 = load i32, ptr @hf_omron_filename, align 4
+  %1403 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1402, ptr noundef %0, i32 noundef 26, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1407:                                             ; preds = %1399
-  %1408 = icmp ne i32 %66, 2
-  %or.cond212.not = select i1 %.not, i1 true, i1 %1408
-  br i1 %or.cond212.not, label %.thread2535, label %1409
+1404:                                             ; preds = %1396
+  %1405 = icmp ne i32 %66, 2
+  %or.cond212.not = select i1 %.not, i1 true, i1 %1405
+  br i1 %or.cond212.not, label %.thread2535, label %1406
 
-1409:                                             ; preds = %1407
-  %1410 = load i32, ptr @hf_omron_response_code, align 4
-  %1411 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1410, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1406:                                             ; preds = %1404
+  %1407 = load i32, ptr @hf_omron_response_code, align 4
+  %1408 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1407, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1412:                                             ; preds = %96
-  %1413 = icmp eq i32 %66, 14
-  %or.cond215 = select i1 %.not, i1 %1413, i1 false
-  br i1 %or.cond215, label %.thread2580, label %1418
+1409:                                             ; preds = %96
+  %1410 = icmp eq i32 %66, 14
+  %or.cond215 = select i1 %.not, i1 %1410, i1 false
+  br i1 %or.cond215, label %.thread2580, label %1415
 
-.thread2580:                                      ; preds = %1412
-  %1414 = load i32, ptr @hf_omron_disk_no, align 4
-  %1415 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1414, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1416 = load i32, ptr @hf_omron_filename, align 4
-  %1417 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1416, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
+.thread2580:                                      ; preds = %1409
+  %1411 = load i32, ptr @hf_omron_disk_no, align 4
+  %1412 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1411, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1413 = load i32, ptr @hf_omron_filename, align 4
+  %1414 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1413, ptr noundef %0, i32 noundef 14, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1418:                                             ; preds = %1412
-  %1419 = icmp ne i32 %66, 2
-  %or.cond218.not = select i1 %.not, i1 true, i1 %1419
-  br i1 %or.cond218.not, label %.thread2535, label %1420
+1415:                                             ; preds = %1409
+  %1416 = icmp ne i32 %66, 2
+  %or.cond218.not = select i1 %.not, i1 true, i1 %1416
+  br i1 %or.cond218.not, label %.thread2535, label %1417
 
-1420:                                             ; preds = %1418
-  %1421 = load i32, ptr @hf_omron_response_code, align 4
-  %1422 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1421, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1417:                                             ; preds = %1415
+  %1418 = load i32, ptr @hf_omron_response_code, align 4
+  %1419 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1418, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1423:                                             ; preds = %96
-  %1424 = icmp eq i32 %66, 22
-  %or.cond221 = select i1 %.not, i1 %1424, i1 false
-  br i1 %or.cond221, label %.thread2583, label %1437
+1420:                                             ; preds = %96
+  %1421 = icmp eq i32 %66, 22
+  %or.cond221 = select i1 %.not, i1 %1421, i1 false
+  br i1 %or.cond221, label %.thread2583, label %1434
 
-.thread2583:                                      ; preds = %1423
-  %1425 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
-  %1426 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1425, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1427 = load i32, ptr @hf_omron_command_memory_area_code, align 4
-  %1428 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1427, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %1429 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
-  %1430 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1429, ptr noundef %0, i32 noundef 15, i32 noundef 3, i32 noundef 0)
-  %1431 = load i32, ptr @hf_omron_num_items, align 4
-  %1432 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1431, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %1433 = load i32, ptr @hf_omron_disk_no, align 4
-  %1434 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1433, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
-  %1435 = load i32, ptr @hf_omron_filename, align 4
-  %1436 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1435, ptr noundef %0, i32 noundef 22, i32 noundef 12, i32 noundef 0)
+.thread2583:                                      ; preds = %1420
+  %1422 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
+  %1423 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1422, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1424 = load i32, ptr @hf_omron_command_memory_area_code, align 4
+  %1425 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1424, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %1426 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
+  %1427 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1426, ptr noundef %0, i32 noundef 15, i32 noundef 3, i32 noundef 0)
+  %1428 = load i32, ptr @hf_omron_num_items, align 4
+  %1429 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1428, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %1430 = load i32, ptr @hf_omron_disk_no, align 4
+  %1431 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1430, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+  %1432 = load i32, ptr @hf_omron_filename, align 4
+  %1433 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1432, ptr noundef %0, i32 noundef 22, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1437:                                             ; preds = %1423
-  %1438 = icmp ne i32 %66, 4
-  %or.cond224.not = select i1 %.not, i1 true, i1 %1438
-  br i1 %or.cond224.not, label %.thread2535, label %1439
+1434:                                             ; preds = %1420
+  %1435 = icmp ne i32 %66, 4
+  %or.cond224.not = select i1 %.not, i1 true, i1 %1435
+  br i1 %or.cond224.not, label %.thread2535, label %1436
 
-1439:                                             ; preds = %1437
-  %1440 = load i32, ptr @hf_omron_response_code, align 4
-  %1441 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1440, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1442 = load i32, ptr @hf_omron_num_items, align 4
-  %1443 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1442, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+1436:                                             ; preds = %1434
+  %1437 = load i32, ptr @hf_omron_response_code, align 4
+  %1438 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1437, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1439 = load i32, ptr @hf_omron_num_items, align 4
+  %1440 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1439, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1444:                                             ; preds = %96
-  %1445 = icmp eq i32 %66, 22
-  %or.cond227 = select i1 %.not, i1 %1445, i1 false
-  br i1 %or.cond227, label %.thread2586, label %1458
+1441:                                             ; preds = %96
+  %1442 = icmp eq i32 %66, 22
+  %or.cond227 = select i1 %.not, i1 %1442, i1 false
+  br i1 %or.cond227, label %.thread2586, label %1455
 
-.thread2586:                                      ; preds = %1444
-  %1446 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
-  %1447 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1446, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1448 = load i32, ptr @hf_omron_parameter_area_code, align 4
-  %1449 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1448, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1450 = load i32, ptr @hf_omron_address, align 4
-  %1451 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1450, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  %1452 = load i32, ptr @hf_omron_num_words, align 4
-  %1453 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1452, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %1454 = load i32, ptr @hf_omron_disk_no, align 4
-  %1455 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1454, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
-  %1456 = load i32, ptr @hf_omron_filename, align 4
-  %1457 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1456, ptr noundef %0, i32 noundef 22, i32 noundef 12, i32 noundef 0)
+.thread2586:                                      ; preds = %1441
+  %1443 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
+  %1444 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1443, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1445 = load i32, ptr @hf_omron_parameter_area_code, align 4
+  %1446 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1445, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1447 = load i32, ptr @hf_omron_address, align 4
+  %1448 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1447, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %1449 = load i32, ptr @hf_omron_num_words, align 4
+  %1450 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1449, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %1451 = load i32, ptr @hf_omron_disk_no, align 4
+  %1452 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1451, ptr noundef %0, i32 noundef 20, i32 noundef 2, i32 noundef 0)
+  %1453 = load i32, ptr @hf_omron_filename, align 4
+  %1454 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1453, ptr noundef %0, i32 noundef 22, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1458:                                             ; preds = %1444
-  %1459 = icmp ne i32 %66, 4
-  %or.cond230.not = select i1 %.not, i1 true, i1 %1459
-  br i1 %or.cond230.not, label %.thread2535, label %1460
+1455:                                             ; preds = %1441
+  %1456 = icmp ne i32 %66, 4
+  %or.cond230.not = select i1 %.not, i1 true, i1 %1456
+  br i1 %or.cond230.not, label %.thread2535, label %1457
 
-1460:                                             ; preds = %1458
-  %1461 = load i32, ptr @hf_omron_response_code, align 4
-  %1462 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1461, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1463 = load i32, ptr @hf_omron_num_words, align 4
-  %1464 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1463, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+1457:                                             ; preds = %1455
+  %1458 = load i32, ptr @hf_omron_response_code, align 4
+  %1459 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1458, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1460 = load i32, ptr @hf_omron_num_words, align 4
+  %1461 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1460, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1465:                                             ; preds = %96
-  %1466 = icmp eq i32 %66, 26
-  %or.cond233 = select i1 %.not, i1 %1466, i1 false
-  br i1 %or.cond233, label %.thread2589, label %1479
+1462:                                             ; preds = %96
+  %1463 = icmp eq i32 %66, 26
+  %or.cond233 = select i1 %.not, i1 %1463, i1 false
+  br i1 %or.cond233, label %.thread2589, label %1476
 
-.thread2589:                                      ; preds = %1465
-  %1467 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
-  %1468 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1467, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1469 = load i32, ptr @hf_omron_program_number, align 4
-  %1470 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1469, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1471 = load i32, ptr @hf_omron_begin_word, align 4
-  %1472 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1471, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
-  %1473 = load i32, ptr @hf_omron_number_of_bytes, align 4
-  %1474 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1473, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
-  %1475 = load i32, ptr @hf_omron_disk_no, align 4
-  %1476 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1475, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
-  %1477 = load i32, ptr @hf_omron_filename, align 4
-  %1478 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1477, ptr noundef %0, i32 noundef 26, i32 noundef 12, i32 noundef 0)
+.thread2589:                                      ; preds = %1462
+  %1464 = load i32, ptr @hf_omron_transfer_parameter_code, align 4
+  %1465 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1464, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1466 = load i32, ptr @hf_omron_program_number, align 4
+  %1467 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1466, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1468 = load i32, ptr @hf_omron_begin_word, align 4
+  %1469 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1468, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0)
+  %1470 = load i32, ptr @hf_omron_number_of_bytes, align 4
+  %1471 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1470, ptr noundef %0, i32 noundef 20, i32 noundef 4, i32 noundef 0)
+  %1472 = load i32, ptr @hf_omron_disk_no, align 4
+  %1473 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1472, ptr noundef %0, i32 noundef 24, i32 noundef 2, i32 noundef 0)
+  %1474 = load i32, ptr @hf_omron_filename, align 4
+  %1475 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1474, ptr noundef %0, i32 noundef 26, i32 noundef 12, i32 noundef 0)
   br label %.thread2535
 
-1479:                                             ; preds = %1465
-  %1480 = icmp ne i32 %66, 6
-  %or.cond236.not = select i1 %.not, i1 true, i1 %1480
-  br i1 %or.cond236.not, label %.thread2535, label %1481
+1476:                                             ; preds = %1462
+  %1477 = icmp ne i32 %66, 6
+  %or.cond236.not = select i1 %.not, i1 true, i1 %1477
+  br i1 %or.cond236.not, label %.thread2535, label %1478
 
-1481:                                             ; preds = %1479
-  %1482 = load i32, ptr @hf_omron_response_code, align 4
-  %1483 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1482, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1484 = load i32, ptr @hf_omron_number_of_bytes, align 4
-  %1485 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1484, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
+1478:                                             ; preds = %1476
+  %1479 = load i32, ptr @hf_omron_response_code, align 4
+  %1480 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1479, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1481 = load i32, ptr @hf_omron_number_of_bytes, align 4
+  %1482 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1481, ptr noundef %0, i32 noundef 14, i32 noundef 4, i32 noundef 0)
   br label %.thread2535
 
-1486:                                             ; preds = %96
-  %1487 = icmp eq i32 %66, 3
-  %or.cond239 = select i1 %.not, i1 %1487, i1 false
-  br i1 %or.cond239, label %.thread2592, label %1492
+1483:                                             ; preds = %96
+  %1484 = icmp eq i32 %66, 3
+  %or.cond239 = select i1 %.not, i1 %1484, i1 false
+  br i1 %or.cond239, label %.thread2592, label %1489
 
-.thread2592:                                      ; preds = %1486
-  %1488 = load i32, ptr @hf_omron_beginning_block_num, align 4
-  %1489 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1488, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1490 = load i32, ptr @hf_omron_num_blocks, align 4
-  %1491 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1490, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+.thread2592:                                      ; preds = %1483
+  %1485 = load i32, ptr @hf_omron_beginning_block_num, align 4
+  %1486 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1485, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1487 = load i32, ptr @hf_omron_num_blocks, align 4
+  %1488 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1487, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
   br label %.thread2535
 
-1492:                                             ; preds = %1486
-  %1493 = icmp slt i32 %66, 9
-  %or.cond242.not = select i1 %.not, i1 true, i1 %1493
+1489:                                             ; preds = %1483
+  %1490 = icmp slt i32 %66, 9
+  %or.cond242.not = select i1 %.not, i1 true, i1 %1490
   br i1 %or.cond242.not, label %.thread2535, label %.lr.ph2626.preheader
 
-.lr.ph2626.preheader:                             ; preds = %1492
-  %1494 = load i32, ptr @hf_omron_response_code, align 4
-  %1495 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1494, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1496 = load i32, ptr @hf_omron_num_blocks_remaining, align 4
-  %1497 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1496, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1498 = load i32, ptr @hf_omron_total_num_blocks, align 4
-  %1499 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1498, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
-  %1500 = load i32, ptr @hf_omron_type, align 4
-  %1501 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1500, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
-  %1502 = add nsw i32 %66, -7
+.lr.ph2626.preheader:                             ; preds = %1489
+  %1491 = load i32, ptr @hf_omron_response_code, align 4
+  %1492 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1491, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1493 = load i32, ptr @hf_omron_num_blocks_remaining, align 4
+  %1494 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1493, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1495 = load i32, ptr @hf_omron_total_num_blocks, align 4
+  %1496 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1495, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+  %1497 = load i32, ptr @hf_omron_type, align 4
+  %1498 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1497, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0)
+  %1499 = add nsw i32 %66, -7
   br label %.lr.ph2626
 
 .lr.ph2626:                                       ; preds = %.lr.ph2626.preheader, %.lr.ph2626
-  %.132625 = phi i32 [ %1510, %.lr.ph2626 ], [ %1502, %.lr.ph2626.preheader ]
-  %.542624 = phi i32 [ %1509, %.lr.ph2626 ], [ 19, %.lr.ph2626.preheader ]
-  %1503 = load i32, ptr @hf_omron_data_type, align 4
-  %1504 = load i32, ptr @ett_omron_data_type, align 4
-  %1505 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef %.542624, i32 noundef %1503, i32 noundef %1504, ptr noundef nonnull @data_type_fields, i32 noundef 0)
-  %1506 = load i32, ptr @hf_omron_control_data, align 4
-  %1507 = add nuw i32 %.542624, 1
-  %1508 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1506, ptr noundef %0, i32 noundef %1507, i32 noundef 1, i32 noundef 0)
-  %1509 = add nuw i32 %.542624, 2
-  %1510 = add nsw i32 %.132625, -2
-  %1511 = icmp samesign ugt i32 %.132625, 3
-  br i1 %1511, label %.lr.ph2626, label %.thread2535, !llvm.loop !17
+  %.132625 = phi i32 [ %1507, %.lr.ph2626 ], [ %1499, %.lr.ph2626.preheader ]
+  %.542624 = phi i32 [ %1506, %.lr.ph2626 ], [ 19, %.lr.ph2626.preheader ]
+  %1500 = load i32, ptr @hf_omron_data_type, align 4
+  %1501 = load i32, ptr @ett_omron_data_type, align 4
+  %1502 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef %.542624, i32 noundef %1500, i32 noundef %1501, ptr noundef nonnull @data_type_fields, i32 noundef 0)
+  %1503 = load i32, ptr @hf_omron_control_data, align 4
+  %1504 = add nuw i32 %.542624, 1
+  %1505 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1503, ptr noundef %0, i32 noundef %1504, i32 noundef 1, i32 noundef 0)
+  %1506 = add nuw i32 %.542624, 2
+  %1507 = add nsw i32 %.132625, -2
+  %1508 = icmp samesign ugt i32 %.132625, 3
+  br i1 %1508, label %.lr.ph2626, label %.thread2535, !llvm.loop !17
 
-1512:                                             ; preds = %96
-  %1513 = icmp eq i32 %66, 2
-  %or.cond245 = select i1 %.not, i1 %1513, i1 false
-  br i1 %or.cond245, label %.thread2595, label %1516
+1509:                                             ; preds = %96
+  %1510 = icmp eq i32 %66, 2
+  %or.cond245 = select i1 %.not, i1 %1510, i1 false
+  br i1 %or.cond245, label %.thread2595, label %1513
 
-.thread2595:                                      ; preds = %1512
-  %1514 = load i32, ptr @hf_omron_block_num, align 4
-  %1515 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1514, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+.thread2595:                                      ; preds = %1509
+  %1511 = load i32, ptr @hf_omron_block_num, align 4
+  %1512 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1511, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1516:                                             ; preds = %1512
-  %1517 = icmp slt i32 %66, 4
-  %or.cond248.not = select i1 %.not, i1 true, i1 %1517
-  br i1 %or.cond248.not, label %.thread2535, label %1518
+1513:                                             ; preds = %1509
+  %1514 = icmp slt i32 %66, 4
+  %or.cond248.not = select i1 %.not, i1 true, i1 %1514
+  br i1 %or.cond248.not, label %.thread2535, label %1515
 
-1518:                                             ; preds = %1516
-  %1519 = load i32, ptr @hf_omron_response_code, align 4
-  %1520 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1519, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1521 = load i32, ptr @hf_omron_data_type, align 4
-  %1522 = load i32, ptr @ett_omron_data_type, align 4
-  %1523 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef %1521, i32 noundef %1522, ptr noundef nonnull @data_type_fields, i32 noundef 0)
-  %1524 = load i32, ptr @hf_omron_control_data, align 4
-  %1525 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1524, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
-  %1526 = load i32, ptr @hf_omron_data, align 4
-  %1527 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1526, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef 0)
-  %1528 = add nuw i32 %66, 12
+1515:                                             ; preds = %1513
+  %1516 = load i32, ptr @hf_omron_response_code, align 4
+  %1517 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1516, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1518 = load i32, ptr @hf_omron_data_type, align 4
+  %1519 = load i32, ptr @ett_omron_data_type, align 4
+  %1520 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 14, i32 noundef %1518, i32 noundef %1519, ptr noundef nonnull @data_type_fields, i32 noundef 0)
+  %1521 = load i32, ptr @hf_omron_control_data, align 4
+  %1522 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1521, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0)
+  %1523 = load i32, ptr @hf_omron_data, align 4
+  %1524 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1523, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef 0)
+  %1525 = add nuw i32 %66, 12
   br label %.thread2535
 
-1529:                                             ; preds = %96
-  %1530 = icmp sgt i32 %66, 3
-  %or.cond251 = select i1 %.not, i1 %1530, i1 false
-  br i1 %or.cond251, label %.thread2598, label %1541
+1526:                                             ; preds = %96
+  %1527 = icmp sgt i32 %66, 3
+  %or.cond251 = select i1 %.not, i1 %1527, i1 false
+  br i1 %or.cond251, label %.thread2598, label %1538
 
-.thread2598:                                      ; preds = %1529
-  %1531 = load i32, ptr @hf_omron_data_type, align 4
-  %1532 = load i32, ptr @ett_omron_data_type, align 4
-  %1533 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 12, i32 noundef %1531, i32 noundef %1532, ptr noundef nonnull @data_type_fields, i32 noundef 0)
-  %1534 = load i32, ptr @hf_omron_control_data, align 4
-  %1535 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1534, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
-  %1536 = load i32, ptr @hf_omron_block_num, align 4
-  %1537 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1536, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %1538 = load i32, ptr @hf_omron_data, align 4
-  %1539 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1538, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef 0)
-  %1540 = add nuw i32 %66, 12
+.thread2598:                                      ; preds = %1526
+  %1528 = load i32, ptr @hf_omron_data_type, align 4
+  %1529 = load i32, ptr @ett_omron_data_type, align 4
+  %1530 = call ptr @proto_tree_add_bitmask(ptr noundef %98, ptr noundef %0, i32 noundef 12, i32 noundef %1528, i32 noundef %1529, ptr noundef nonnull @data_type_fields, i32 noundef 0)
+  %1531 = load i32, ptr @hf_omron_control_data, align 4
+  %1532 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1531, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  %1533 = load i32, ptr @hf_omron_block_num, align 4
+  %1534 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1533, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %1535 = load i32, ptr @hf_omron_data, align 4
+  %1536 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1535, ptr noundef %0, i32 noundef 16, i32 noundef -1, i32 noundef 0)
+  %1537 = add nuw i32 %66, 12
   br label %.thread2535
 
-1541:                                             ; preds = %1529
-  %1542 = icmp ne i32 %66, 2
-  %or.cond254.not = select i1 %.not, i1 true, i1 %1542
-  br i1 %or.cond254.not, label %.thread2535, label %1543
+1538:                                             ; preds = %1526
+  %1539 = icmp ne i32 %66, 2
+  %or.cond254.not = select i1 %.not, i1 true, i1 %1539
+  br i1 %or.cond254.not, label %.thread2535, label %1540
 
-1543:                                             ; preds = %1541
-  %1544 = load i32, ptr @hf_omron_response_code, align 4
-  %1545 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1544, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1540:                                             ; preds = %1538
+  %1541 = load i32, ptr @hf_omron_response_code, align 4
+  %1542 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1541, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1546:                                             ; preds = %96
-  %1547 = icmp sgt i32 %66, 7
-  %or.cond257 = select i1 %.not, i1 %1547, i1 false
+1543:                                             ; preds = %96
+  %1544 = icmp sgt i32 %66, 7
+  %or.cond257 = select i1 %.not, i1 %1544, i1 false
   br i1 %or.cond257, label %.lr.ph.preheader, label %.loopexit2617
 
-.lr.ph.preheader:                                 ; preds = %1546
-  %1548 = load i32, ptr @hf_omron_number_of_bits_flags, align 4
-  %1549 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1548, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1550 = add nsw i32 %66, -2
+.lr.ph.preheader:                                 ; preds = %1543
+  %1545 = load i32, ptr @hf_omron_number_of_bits_flags, align 4
+  %1546 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1545, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1547 = add nsw i32 %66, -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.152622 = phi i32 [ %1560, %.lr.ph ], [ %1550, %.lr.ph.preheader ]
-  %.582621 = phi i32 [ %1559, %.lr.ph ], [ 14, %.lr.ph.preheader ]
-  %1551 = load i32, ptr @hf_omron_set_reset_specification, align 4
-  %1552 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1551, ptr noundef %0, i32 noundef %.582621, i32 noundef 2, i32 noundef 0)
-  %1553 = load i32, ptr @hf_omron_command_memory_area_code, align 4
-  %1554 = add nuw i32 %.582621, 2
-  %1555 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1553, ptr noundef %0, i32 noundef %1554, i32 noundef 1, i32 noundef 0)
-  %1556 = load i32, ptr @hf_omron_bit_flag, align 4
-  %1557 = add nuw i32 %.582621, 3
-  %1558 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1556, ptr noundef %0, i32 noundef %1557, i32 noundef 3, i32 noundef 0)
-  %1559 = add nuw i32 %.582621, 6
-  %1560 = add nsw i32 %.152622, -6
-  %1561 = icmp samesign ugt i32 %.152622, 11
-  br i1 %1561, label %.lr.ph, label %.loopexit2617, !llvm.loop !18
+  %.152622 = phi i32 [ %1557, %.lr.ph ], [ %1547, %.lr.ph.preheader ]
+  %.582621 = phi i32 [ %1556, %.lr.ph ], [ 14, %.lr.ph.preheader ]
+  %1548 = load i32, ptr @hf_omron_set_reset_specification, align 4
+  %1549 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1548, ptr noundef %0, i32 noundef %.582621, i32 noundef 2, i32 noundef 0)
+  %1550 = load i32, ptr @hf_omron_command_memory_area_code, align 4
+  %1551 = add nuw i32 %.582621, 2
+  %1552 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1550, ptr noundef %0, i32 noundef %1551, i32 noundef 1, i32 noundef 0)
+  %1553 = load i32, ptr @hf_omron_bit_flag, align 4
+  %1554 = add nuw i32 %.582621, 3
+  %1555 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1553, ptr noundef %0, i32 noundef %1554, i32 noundef 3, i32 noundef 0)
+  %1556 = add nuw i32 %.582621, 6
+  %1557 = add nsw i32 %.152622, -6
+  %1558 = icmp samesign ugt i32 %.152622, 11
+  br i1 %1558, label %.lr.ph, label %.thread2535, !llvm.loop !18
 
-.loopexit2617:                                    ; preds = %.lr.ph, %1546
-  %.57 = phi i32 [ 12, %1546 ], [ %1559, %.lr.ph ]
-  %.14 = phi i32 [ %66, %1546 ], [ %1560, %.lr.ph ]
-  %1562 = icmp ne i32 %.14, 2
-  %or.cond260.not = select i1 %.not, i1 true, i1 %1562
-  br i1 %or.cond260.not, label %.thread2535, label %1563
+.loopexit2617:                                    ; preds = %1543
+  %1559 = icmp ne i32 %66, 2
+  %or.cond260.not = select i1 %.not, i1 true, i1 %1559
+  br i1 %or.cond260.not, label %.thread2535, label %1560
 
-1563:                                             ; preds = %.loopexit2617
-  %1564 = load i32, ptr @hf_omron_response_code, align 4
-  %1565 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1564, ptr noundef %0, i32 noundef %.57, i32 noundef 2, i32 noundef 0)
-  %1566 = add i32 %.57, 2
+1560:                                             ; preds = %.loopexit2617
+  %1561 = load i32, ptr @hf_omron_response_code, align 4
+  %1562 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1561, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1567:                                             ; preds = %96
-  %1568 = icmp ne i32 %66, 2
-  %or.cond263.not = select i1 %.not, i1 true, i1 %1568
-  br i1 %or.cond263.not, label %.thread2535, label %1569
+1563:                                             ; preds = %96
+  %1564 = icmp ne i32 %66, 2
+  %or.cond263.not = select i1 %.not, i1 true, i1 %1564
+  br i1 %or.cond263.not, label %.thread2535, label %1565
 
-1569:                                             ; preds = %1567
-  %1570 = load i32, ptr @hf_omron_response_code, align 4
-  %1571 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1570, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1565:                                             ; preds = %1563
+  %1566 = load i32, ptr @hf_omron_response_code, align 4
+  %1567 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1566, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1572:                                             ; preds = %96
-  %1573 = icmp eq i32 %66, 6
-  %or.cond266 = select i1 %.not, i1 %1573, i1 false
-  br i1 %or.cond266, label %.thread2601, label %1580
+1568:                                             ; preds = %96
+  %1569 = icmp eq i32 %66, 6
+  %or.cond266 = select i1 %.not, i1 %1569, i1 false
+  br i1 %or.cond266, label %.thread2601, label %1576
 
-.thread2601:                                      ; preds = %1572
-  %1574 = load i32, ptr @hf_omron_command_memory_area_code, align 4
-  %1575 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1574, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
-  %1576 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
-  %1577 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1576, ptr noundef %0, i32 noundef 13, i32 noundef 3, i32 noundef 0)
-  %1578 = load i32, ptr @hf_omron_num_unit_uint16, align 4
-  %1579 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1578, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
+.thread2601:                                      ; preds = %1568
+  %1570 = load i32, ptr @hf_omron_command_memory_area_code, align 4
+  %1571 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1570, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0)
+  %1572 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
+  %1573 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1572, ptr noundef %0, i32 noundef 13, i32 noundef 3, i32 noundef 0)
+  %1574 = load i32, ptr @hf_omron_num_unit_uint16, align 4
+  %1575 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1574, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1580:                                             ; preds = %1572
-  %1581 = icmp slt i32 %66, 8
-  %or.cond269.not = select i1 %.not, i1 true, i1 %1581
-  br i1 %or.cond269.not, label %.thread2535, label %1582
+1576:                                             ; preds = %1568
+  %1577 = icmp slt i32 %66, 8
+  %or.cond269.not = select i1 %.not, i1 true, i1 %1577
+  br i1 %or.cond269.not, label %.thread2535, label %1578
 
-1582:                                             ; preds = %1580
-  %1583 = load i32, ptr @hf_omron_response_code, align 4
-  %1584 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1583, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1585 = load i32, ptr @hf_omron_command_memory_area_code, align 4
-  %1586 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1585, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
-  %1587 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
-  %1588 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1587, ptr noundef %0, i32 noundef 15, i32 noundef 3, i32 noundef 0)
-  %1589 = load i32, ptr @hf_omron_num_unit_uint16, align 4
-  %1590 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1589, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
-  %1591 = load i32, ptr @hf_omron_data, align 4
-  %1592 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1591, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0)
-  %1593 = add nuw i32 %66, 12
+1578:                                             ; preds = %1576
+  %1579 = load i32, ptr @hf_omron_response_code, align 4
+  %1580 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1579, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1581 = load i32, ptr @hf_omron_command_memory_area_code, align 4
+  %1582 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1581, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0)
+  %1583 = load i32, ptr @hf_omron_transfer_beginning_address, align 4
+  %1584 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1583, ptr noundef %0, i32 noundef 15, i32 noundef 3, i32 noundef 0)
+  %1585 = load i32, ptr @hf_omron_num_unit_uint16, align 4
+  %1586 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1585, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef 0)
+  %1587 = load i32, ptr @hf_omron_data, align 4
+  %1588 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1587, ptr noundef %0, i32 noundef 20, i32 noundef -1, i32 noundef 0)
+  %1589 = add nuw i32 %66, 12
   br label %.thread2535
 
-1594:                                             ; preds = %96
-  %1595 = add i32 %66, -1
-  %or.cond4 = icmp ult i32 %1595, 8
+1590:                                             ; preds = %96
+  %1591 = add i32 %66, -1
+  %or.cond4 = icmp ult i32 %1591, 8
   %or.cond2486 = select i1 %.not, i1 %or.cond4, i1 false
-  br i1 %or.cond2486, label %.thread2604, label %1599
+  br i1 %or.cond2486, label %.thread2604, label %1595
 
-.thread2604:                                      ; preds = %1594
-  %1596 = load i32, ptr @hf_omron_name_data, align 4
-  %1597 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1596, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
-  %1598 = add nuw nsw i32 %66, 12
+.thread2604:                                      ; preds = %1590
+  %1592 = load i32, ptr @hf_omron_name_data, align 4
+  %1593 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1592, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
+  %1594 = add nuw nsw i32 %66, 12
   br label %.thread2535
 
-1599:                                             ; preds = %1594
-  %1600 = icmp ne i32 %66, 2
-  %or.cond272.not = select i1 %.not, i1 true, i1 %1600
-  br i1 %or.cond272.not, label %.thread2535, label %1601
+1595:                                             ; preds = %1590
+  %1596 = icmp ne i32 %66, 2
+  %or.cond272.not = select i1 %.not, i1 true, i1 %1596
+  br i1 %or.cond272.not, label %.thread2535, label %1597
 
-1601:                                             ; preds = %1599
-  %1602 = load i32, ptr @hf_omron_response_code, align 4
-  %1603 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1602, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1597:                                             ; preds = %1595
+  %1598 = load i32, ptr @hf_omron_response_code, align 4
+  %1599 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1598, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1604:                                             ; preds = %96
-  %1605 = icmp ne i32 %66, 2
-  %or.cond275.not = select i1 %.not, i1 true, i1 %1605
-  br i1 %or.cond275.not, label %.thread2535, label %1606
+1600:                                             ; preds = %96
+  %1601 = icmp ne i32 %66, 2
+  %or.cond275.not = select i1 %.not, i1 true, i1 %1601
+  br i1 %or.cond275.not, label %.thread2535, label %1602
 
-1606:                                             ; preds = %1604
-  %1607 = load i32, ptr @hf_omron_response_code, align 4
-  %1608 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1607, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+1602:                                             ; preds = %1600
+  %1603 = load i32, ptr @hf_omron_response_code, align 4
+  %1604 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1603, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
   br label %.thread2535
 
-1609:                                             ; preds = %96
-  %1610 = add i32 %66, -11
-  %or.cond6 = icmp ult i32 %1610, -8
+1605:                                             ; preds = %96
+  %1606 = add i32 %66, -11
+  %or.cond6 = icmp ult i32 %1606, -8
   %or.cond2487.not = select i1 %.not, i1 true, i1 %or.cond6
-  br i1 %or.cond2487.not, label %.thread2535, label %1611
+  br i1 %or.cond2487.not, label %.thread2535, label %1607
 
-1611:                                             ; preds = %1609
-  %1612 = load i32, ptr @hf_omron_response_code, align 4
-  %1613 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1612, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
-  %1614 = load i32, ptr @hf_omron_name_data, align 4
-  %1615 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1614, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
-  %1616 = add nuw nsw i32 %66, 12
+1607:                                             ; preds = %1605
+  %1608 = load i32, ptr @hf_omron_response_code, align 4
+  %1609 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1608, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef 0)
+  %1610 = load i32, ptr @hf_omron_name_data, align 4
+  %1611 = call ptr @proto_tree_add_item(ptr noundef %98, i32 noundef %1610, ptr noundef %0, i32 noundef 12, i32 noundef -1, i32 noundef 0)
+  %1612 = add nuw nsw i32 %66, 12
   br label %.thread2535
 
-.thread2535:                                      ; preds = %.lr.ph2626, %.lr.ph2635, %.lr.ph2639, %.lr.ph2643, %714, %.lr.ph2653, %.lr.ph2662, %192, %307, %1167, %1096, %277, %178, %1376, %1370, %1076, %1073, %1030, %1018, %604, %600, %431, %426, %425, %.thread2604, %.thread2601, %.thread2598, %.thread2595, %.thread2592, %.thread2589, %.thread2586, %.thread2583, %.thread2580, %.thread2577, %.thread2574, %.thread2567, %.thread2564, %.thread2561, %.thread2558, %.thread2556, %.thread2550, %.thread2544, %.thread2538, %.thread2531, %.thread2528, %.thread2525, %.thread2522, %.thread2519, %.thread2516, %.thread2513, %.thread2510, %.thread2500, %.thread2497, %.thread2494, %984, %450, %96, %1609, %1611, %1604, %1606, %1599, %1601, %1580, %1582, %1567, %1569, %.loopexit2617, %1563, %1541, %1543, %1516, %1518, %1492, %1479, %1481, %1458, %1460, %1437, %1439, %1418, %1420, %1407, %1409, %1394, %1396, %1379, %1381, %.loopexit2615, %1361, %1343, %1344, %1333, %1335, %1298, %1313, %1219, %1206, %1208, %1165, %1154, %1155, %1144, %1145, %1134, %1135, %1113, %1118, %1120, %1115, %1080, %1087, %1094, %1082, %1061, %1064, %1054, %1056, %1046, %1048, %1035, %1037, %997, %999, %983, %988, %985, %722, %724, %644, %622, %624, %607, %449, %478, %526, %451, %440, %442, %436, %437, %419, %421, %402, %404, %371, %386, %358, %360, %.loopexit2609, %342, %275, %260, %262, %229, %244, %216, %218, %.loopexit, %150, %152, %133, %135, %109, %118
-  %.12384 = phi i32 [ 12, %96 ], [ %1616, %1611 ], [ 12, %1609 ], [ 14, %1606 ], [ 12, %1604 ], [ 14, %1601 ], [ 12, %1599 ], [ %1593, %1582 ], [ 12, %1580 ], [ 14, %1569 ], [ 12, %1567 ], [ %1566, %1563 ], [ %.57, %.loopexit2617 ], [ 14, %1543 ], [ 12, %1541 ], [ %1528, %1518 ], [ 12, %1516 ], [ 12, %1492 ], [ 18, %1481 ], [ 12, %1479 ], [ 16, %1460 ], [ 12, %1458 ], [ 16, %1439 ], [ 12, %1437 ], [ 14, %1420 ], [ 12, %1418 ], [ 14, %1409 ], [ 12, %1407 ], [ 14, %1396 ], [ 12, %1394 ], [ 14, %1381 ], [ 12, %1379 ], [ %1367, %1361 ], [ %.43, %.loopexit2615 ], [ %1347, %1344 ], [ %.42, %1343 ], [ 14, %1335 ], [ 12, %1333 ], [ %1314, %1313 ], [ 12, %1298 ], [ 12, %1219 ], [ 14, %1208 ], [ 12, %1206 ], [ 12, %1165 ], [ %1158, %1155 ], [ %.35, %1154 ], [ %1148, %1145 ], [ %.34, %1144 ], [ %1138, %1135 ], [ %.33, %1134 ], [ 14, %1115 ], [ 17, %1120 ], [ 12, %1118 ], [ 12, %1113 ], [ 14, %1082 ], [ 32, %1087 ], [ 12, %1094 ], [ 12, %1080 ], [ %1067, %1064 ], [ 12, %1061 ], [ 16, %1056 ], [ 12, %1054 ], [ %1053, %1048 ], [ 12, %1046 ], [ 14, %1037 ], [ 12, %1035 ], [ 21, %999 ], [ 12, %997 ], [ 14, %985 ], [ 26, %988 ], [ 12, %983 ], [ 28, %724 ], [ 12, %722 ], [ 12, %644 ], [ 40, %624 ], [ 12, %622 ], [ 12, %607 ], [ 106, %451 ], [ 81, %478 ], [ 173, %526 ], [ 12, %449 ], [ 14, %442 ], [ 12, %440 ], [ 14, %437 ], [ 12, %436 ], [ 14, %421 ], [ 12, %419 ], [ 22, %404 ], [ 12, %402 ], [ %387, %386 ], [ 12, %371 ], [ 14, %360 ], [ 12, %358 ], [ %345, %342 ], [ %.132396, %.loopexit2609 ], [ 12, %275 ], [ 14, %262 ], [ 12, %260 ], [ %245, %244 ], [ 12, %229 ], [ 14, %218 ], [ 12, %216 ], [ %.42387, %.loopexit ], [ 14, %152 ], [ 12, %150 ], [ 14, %135 ], [ 12, %133 ], [ %119, %118 ], [ 12, %109 ], [ 12, %450 ], [ 12, %984 ], [ 18, %.thread2494 ], [ %132, %.thread2497 ], [ 20, %.thread2500 ], [ 22, %.thread2510 ], [ 18, %.thread2513 ], [ %259, %.thread2516 ], [ 20, %.thread2519 ], [ 27, %.thread2522 ], [ 20, %.thread2525 ], [ %401, %.thread2528 ], [ 15, %.thread2531 ], [ 13, %.thread2538 ], [ 13, %.thread2544 ], [ %1045, %.thread2550 ], [ 14, %.thread2556 ], [ 16, %.thread2558 ], [ 18, %.thread2561 ], [ 32, %.thread2564 ], [ %1332, %.thread2567 ], [ 40, %.thread2574 ], [ 38, %.thread2577 ], [ 26, %.thread2580 ], [ 34, %.thread2583 ], [ 34, %.thread2586 ], [ 38, %.thread2589 ], [ 15, %.thread2592 ], [ 14, %.thread2595 ], [ %1540, %.thread2598 ], [ 18, %.thread2601 ], [ %1598, %.thread2604 ], [ 12, %425 ], [ 14, %431 ], [ 15, %426 ], [ 13, %600 ], [ 14, %604 ], [ 17, %1018 ], [ 19, %1030 ], [ 14, %1073 ], [ 14, %1076 ], [ 16, %1370 ], [ 28, %1376 ], [ %181, %178 ], [ 15, %277 ], [ 16, %1096 ], [ 20, %1167 ], [ 21, %307 ], [ %196, %192 ], [ %302, %.lr.ph2662 ], [ %619, %.lr.ph2653 ], [ 120, %714 ], [ %1106, %.lr.ph2643 ], [ %1203, %.lr.ph2639 ], [ %1285, %.lr.ph2635 ], [ %1509, %.lr.ph2626 ]
-  %1617 = call i32 @tvb_reported_length(ptr noundef %0)
-  %.not2485 = icmp eq i32 %.12384, %1617
-  br i1 %.not2485, label %1620, label %1618
+.thread2535:                                      ; preds = %.lr.ph, %.lr.ph2626, %.lr.ph2630, %.lr.ph2635, %.lr.ph2639, %.lr.ph2643, %713, %.lr.ph2653, %.lr.ph2657, %.lr.ph2662, %192, %307, %1166, %1095, %277, %178, %1373, %1367, %1075, %1072, %1029, %1017, %603, %599, %430, %425, %424, %.thread2604, %.thread2601, %.thread2598, %.thread2595, %.thread2592, %.thread2589, %.thread2586, %.thread2583, %.thread2580, %.thread2577, %.thread2574, %.thread2567, %.thread2564, %.thread2561, %.thread2558, %.thread2556, %.thread2550, %.thread2544, %.thread2538, %.thread2531, %.thread2528, %.thread2525, %.thread2522, %.thread2519, %.thread2516, %.thread2513, %.thread2510, %.thread2500, %.thread2497, %.thread2494, %983, %449, %96, %1605, %1607, %1600, %1602, %1595, %1597, %1576, %1578, %1563, %1565, %.loopexit2617, %1560, %1538, %1540, %1513, %1515, %1489, %1476, %1478, %1455, %1457, %1434, %1436, %1415, %1417, %1404, %1406, %1391, %1393, %1376, %1378, %.loopexit2615, %1360, %1342, %1343, %1332, %1334, %1297, %1312, %1218, %1205, %1207, %1164, %1153, %1154, %1143, %1144, %1133, %1134, %1112, %1117, %1119, %1114, %1079, %1086, %1093, %1081, %1060, %1063, %1053, %1055, %1045, %1047, %1034, %1036, %996, %998, %982, %987, %984, %721, %723, %643, %621, %623, %606, %448, %477, %525, %450, %439, %441, %435, %436, %418, %420, %401, %403, %370, %385, %357, %359, %.loopexit2609, %342, %275, %260, %262, %229, %244, %216, %218, %.loopexit, %150, %152, %133, %135, %109, %118
+  %.12384 = phi i32 [ 12, %96 ], [ %1612, %1607 ], [ 12, %1605 ], [ 14, %1602 ], [ 12, %1600 ], [ 14, %1597 ], [ 12, %1595 ], [ %1589, %1578 ], [ 12, %1576 ], [ 14, %1565 ], [ 12, %1563 ], [ 14, %1560 ], [ 12, %.loopexit2617 ], [ 14, %1540 ], [ 12, %1538 ], [ %1525, %1515 ], [ 12, %1513 ], [ 12, %1489 ], [ 18, %1478 ], [ 12, %1476 ], [ 16, %1457 ], [ 12, %1455 ], [ 16, %1436 ], [ 12, %1434 ], [ 14, %1417 ], [ 12, %1415 ], [ 14, %1406 ], [ 12, %1404 ], [ 14, %1393 ], [ 12, %1391 ], [ 14, %1378 ], [ 12, %1376 ], [ 16, %1360 ], [ 12, %.loopexit2615 ], [ %1346, %1343 ], [ %.42, %1342 ], [ 14, %1334 ], [ 12, %1332 ], [ %1313, %1312 ], [ 12, %1297 ], [ 12, %1218 ], [ 14, %1207 ], [ 12, %1205 ], [ 12, %1164 ], [ %1157, %1154 ], [ %.35, %1153 ], [ %1147, %1144 ], [ %.34, %1143 ], [ %1137, %1134 ], [ %.33, %1133 ], [ 14, %1114 ], [ 17, %1119 ], [ 12, %1117 ], [ 12, %1112 ], [ 14, %1081 ], [ 32, %1086 ], [ 12, %1093 ], [ 12, %1079 ], [ %1066, %1063 ], [ 12, %1060 ], [ 16, %1055 ], [ 12, %1053 ], [ %1052, %1047 ], [ 12, %1045 ], [ 14, %1036 ], [ 12, %1034 ], [ 21, %998 ], [ 12, %996 ], [ 14, %984 ], [ 26, %987 ], [ 12, %982 ], [ 28, %723 ], [ 12, %721 ], [ 12, %643 ], [ 40, %623 ], [ 12, %621 ], [ 12, %606 ], [ 106, %450 ], [ 81, %477 ], [ 173, %525 ], [ 12, %448 ], [ 14, %441 ], [ 12, %439 ], [ 14, %436 ], [ 12, %435 ], [ 14, %420 ], [ 12, %418 ], [ 22, %403 ], [ 12, %401 ], [ %386, %385 ], [ 12, %370 ], [ 14, %359 ], [ 12, %357 ], [ 14, %342 ], [ 12, %.loopexit2609 ], [ 12, %275 ], [ 14, %262 ], [ 12, %260 ], [ %245, %244 ], [ 12, %229 ], [ 14, %218 ], [ 12, %216 ], [ %.42387, %.loopexit ], [ 14, %152 ], [ 12, %150 ], [ 14, %135 ], [ 12, %133 ], [ %119, %118 ], [ 12, %109 ], [ 12, %449 ], [ 12, %983 ], [ 18, %.thread2494 ], [ %132, %.thread2497 ], [ 20, %.thread2500 ], [ 22, %.thread2510 ], [ 18, %.thread2513 ], [ %259, %.thread2516 ], [ 20, %.thread2519 ], [ 27, %.thread2522 ], [ 20, %.thread2525 ], [ %400, %.thread2528 ], [ 15, %.thread2531 ], [ 13, %.thread2538 ], [ 13, %.thread2544 ], [ %1044, %.thread2550 ], [ 14, %.thread2556 ], [ 16, %.thread2558 ], [ 18, %.thread2561 ], [ 32, %.thread2564 ], [ %1331, %.thread2567 ], [ 40, %.thread2574 ], [ 38, %.thread2577 ], [ 26, %.thread2580 ], [ 34, %.thread2583 ], [ 34, %.thread2586 ], [ 38, %.thread2589 ], [ 15, %.thread2592 ], [ 14, %.thread2595 ], [ %1537, %.thread2598 ], [ 18, %.thread2601 ], [ %1594, %.thread2604 ], [ 12, %424 ], [ 14, %430 ], [ 15, %425 ], [ 13, %599 ], [ 14, %603 ], [ 17, %1017 ], [ 19, %1029 ], [ 14, %1072 ], [ 14, %1075 ], [ 16, %1367 ], [ 28, %1373 ], [ %181, %178 ], [ 15, %277 ], [ 16, %1095 ], [ 20, %1166 ], [ 21, %307 ], [ %196, %192 ], [ %302, %.lr.ph2662 ], [ %338, %.lr.ph2657 ], [ %618, %.lr.ph2653 ], [ 120, %713 ], [ %1105, %.lr.ph2643 ], [ %1202, %.lr.ph2639 ], [ %1284, %.lr.ph2635 ], [ %1356, %.lr.ph2630 ], [ %1506, %.lr.ph2626 ], [ %1556, %.lr.ph ]
+  %1613 = call i32 @tvb_reported_length(ptr noundef %0)
+  %.not2485 = icmp eq i32 %.12384, %1613
+  br i1 %.not2485, label %1616, label %1614
 
-1618:                                             ; preds = %.thread2535
-  %1619 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @ei_omron_bad_length)
-  br label %1620
+1614:                                             ; preds = %.thread2535
+  %1615 = call ptr @expert_add_info(ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull @ei_omron_bad_length)
+  br label %1616
 
-1620:                                             ; preds = %39, %1618, %.thread2535, %88, %84, %80, %81, %.thread2491, %74, %75, %.thread2506, %93, %69
-  %1621 = call i32 @tvb_captured_length(ptr noundef %0)
+1616:                                             ; preds = %39, %1614, %.thread2535, %88, %84, %80, %81, %.thread2491, %74, %75, %.thread2506, %93, %69
+  %1617 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #3
-  ret i32 %1621
+  ret i32 %1617
 }
 
 ; Function Attrs: null_pointer_is_valid

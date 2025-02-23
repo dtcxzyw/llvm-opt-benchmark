@@ -16985,8 +16985,8 @@ default.unreachable:                              ; preds = %277
   call void @llvm.experimental.noalias.scope.decl(metadata !3743)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %28), !noalias !3746
   call void @llvm.experimental.noalias.scope.decl(metadata !3748)
-  %.cmp.i.i = icmp ugt i64 %.val107, -8446744073709551617
-  %.neg.i.i.i = select i1 %.cmp.i.i, i64 8446744073709551616, i64 0
+  %.cmp.i.i = icmp ult i64 %.val107, -8446744073709551616
+  %.neg.i.i.i = select i1 %.cmp.i.i, i64 0, i64 8446744073709551616
   %860 = add i64 %.neg.i.i.i, %.val107
   %861 = getelementptr inbounds nuw i8, ptr %28, i64 19
   call void @llvm.experimental.noalias.scope.decl(metadata !3751)
@@ -17063,7 +17063,7 @@ default.unreachable:                              ; preds = %277
 
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i": ; preds = %896, %890
   %.sroa.012.2.i.i.i = phi i64 [ %897, %896 ], [ %892, %890 ]
-  br i1 %.cmp.i.i, label %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread", label %.noexc6.i
+  br i1 %.cmp.i.i, label %.noexc6.i, label %"_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread"
 
 "_ZN10num_format5impls8integers78_$LT$impl$u20$num_format..to_formatted_str..ToFormattedStr$u20$for$u20$u64$GT$14read_to_buffer17h7af649475dac105cE.exit.i.i.thread.thread": ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u64$GT$5write17haa199b5baa1e0090E.exit.i.i"
   %901 = getelementptr inbounds nuw i8, ptr %28, i64 20

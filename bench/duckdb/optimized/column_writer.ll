@@ -30355,7 +30355,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   br label %185
 
 185:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143, %_ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit
-  %186 = add nuw i64 %.0114183, 1
+  %186 = add i64 %.0114183, 1
   %exitcond.not = icmp eq i64 %186, %6
   br i1 %exitcond.not, label %.loopexit, label %162, !llvm.loop !1087
 
@@ -32597,7 +32597,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %1
   br label %185
 
 185:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit143, %_ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit
-  %186 = add nuw i64 %.0114183, 1
+  %186 = add i64 %.0114183, 1
   %exitcond.not = icmp eq i64 %186, %6
   br i1 %exitcond.not, label %.loopexit, label %162, !llvm.loop !1156
 
@@ -47633,7 +47633,7 @@ _ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
   br label %222
 
 222:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142, %_ZN6duckdb11bss_encoder10WriteValueIfEEvRNS_10BssEncoderERKT_.exit
-  %223 = add nuw i64 %.0107182, 1
+  %223 = add i64 %.0107182, 1
   %exitcond.not = icmp eq i64 %223, %6
   br i1 %exitcond.not, label %.loopexit, label %194, !llvm.loop !1644
 
@@ -50096,7 +50096,7 @@ _ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit: ; preds = %2
   br label %222
 
 222:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit142, %_ZN6duckdb11bss_encoder10WriteValueIdEEvRNS_10BssEncoderERKT_.exit
-  %223 = add nuw i64 %.0107182, 1
+  %223 = add i64 %.0107182, 1
   %exitcond.not = icmp eq i64 %223, %6
   br i1 %exitcond.not, label %.loopexit, label %194, !llvm.loop !1716
 
@@ -52025,7 +52025,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @_ZN6duckdb11dbp_encoder10BeginWriteINS_21ParquetUUIDTargetTypeEEEvRNS_10DbpEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18480) %122, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(16) %19)
   store i8 1, ptr %94, align 4, !tbaa !1763
-  %123 = add i64 %.us-phi253, 1
+  %123 = add nuw i64 %.us-phi253, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #26
   br label %.loopexit234
 
@@ -52107,7 +52107,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   br label %153
 
 153:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit141, %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit152
-  %154 = add nuw i64 %.2123254, 1
+  %154 = add i64 %.2123254, 1
   %exitcond283.not = icmp eq i64 %154, %6
   br i1 %exitcond283.not, label %_ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %129, !llvm.loop !1779
 
@@ -52182,7 +52182,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   %184 = getelementptr inbounds nuw i8, ptr %3, i64 18504
   call void @_ZN6duckdb12dlba_encoder10BeginWriteINS_21ParquetUUIDTargetTypeEEEvRNS_11DlbaEncoderERNS_11WriteStreamERKT_(ptr noundef nonnull align 8 dereferenceable(18520) %184, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(16) %21)
   store i8 1, ptr %156, align 8, !tbaa !1766
-  %185 = add i64 %.us-phi, 1
+  %185 = add nuw i64 %.us-phi, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #26
   br label %.loopexit237
 
@@ -52264,7 +52264,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   br label %215
 
 215:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit171, %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit182
-  %216 = add nuw i64 %.2126248, 1
+  %216 = add i64 %.2126248, 1
   %exitcond281.not = icmp eq i64 %216, %6
   br i1 %exitcond281.not, label %_ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %191, !llvm.loop !1781
 
@@ -52330,7 +52330,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   br label %241
 
 241:                                              ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit186, %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit197
-  %242 = add nuw i64 %.0127245, 1
+  %242 = add i64 %.0127245, 1
   %exitcond.not = icmp eq i64 %242, %6
   br i1 %exitcond.not, label %_ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %217, !llvm.loop !1782
 
@@ -52394,7 +52394,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   %266 = load ptr, ptr %265, align 8
   call void %266(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 1 dereferenceable(16) %11, i64 noundef 16)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #26
-  %267 = add nuw i64 %.01.i, 1
+  %267 = add i64 %.01.i, 1
   %exitcond.not.i199 = icmp eq i64 %267, %6
   br i1 %exitcond.not.i199, label %_ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %248, !llvm.loop !1783
 
@@ -52470,7 +52470,7 @@ _ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTy
   br label %296
 
 296:                                              ; preds = %_ZN6duckdb19ParquetUUIDOperator9OperationINS_9hugeint_tENS_21ParquetUUIDTargetTypeEEET0_T_.exit.i211, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.i
-  %297 = add nuw i64 %.02.i, 1
+  %297 = add i64 %.02.i, 1
   %exitcond.not.i214 = icmp eq i64 %297, %6
   br i1 %exitcond.not.i214, label %_ZN6duckdbL19TemplatedWritePlainINS_9hugeint_tENS_21ParquetUUIDTargetTypeENS_19ParquetUUIDOperatorELb1EEEvRNS_6VectorEPNS_22ColumnWriterStatisticsEmmRKNS_12ValidityMaskERNS_11WriteStreamE.exit, label %270, !llvm.loop !1784
 

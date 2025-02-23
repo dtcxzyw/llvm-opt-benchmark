@@ -5769,9 +5769,9 @@ _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appe
   %59 = load i64, ptr %58, align 8, !tbaa !191, !noalias !483
   %.not.i.i.i.i = icmp eq i64 %59, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %56, label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, !llvm.loop !339
+  br i1 %.not.i.i.i.i, label %56, label %.lr.ph, !llvm.loop !339
 
-_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %56
+.lr.ph:                                           ; preds = %56
   %60 = shl i32 %54, 7
   %61 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %62 = shl nuw nsw i32 %61, 6
@@ -6001,7 +6001,7 @@ _ZN4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEED2Ev.exit: ; preds = %_ZN4llvm
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #19
   br label %158
 
-138:                                              ; preds = %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, %138
+138:                                              ; preds = %.lr.ph, %138
   %139 = load i32, ptr %49, align 8, !tbaa !491
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
   %140 = zext i32 %139 to i64

@@ -853,59 +853,59 @@ Mini_AigDump.exit:                                ; preds = %11, %13
   %24 = icmp sgt i32 %.val.i.i, 3
   br i1 %24, label %.lr.ph.i.i, label %Mini_AigPoNum.exit.thread.i
 
-.lr.ph.i.i:                                       ; preds = %Mini_AigDump.exit
-  %25 = lshr i32 %.val.i.i, 1
-  %26 = getelementptr i8, ptr %8, i64 16
-  %.val.i.i.i = load ptr, ptr %26, align 8, !tbaa !3
-  %wide.trip.count.i.i = zext nneg i32 %25 to i64
-  br label %27
+Mini_AigPoNum.exit.thread.i:                      ; preds = %Mini_AigDump.exit
+  %25 = getelementptr i8, ptr %8, i64 8
+  %.val28.i = load i32, ptr %25, align 8, !tbaa !43
+  br label %Mini_AigPrintStats.exit
 
-27:                                               ; preds = %27, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
-  %.08.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %27 ]
+.lr.ph.i.i:                                       ; preds = %Mini_AigDump.exit
+  %26 = lshr i32 %.val.i.i, 1
+  %27 = getelementptr i8, ptr %8, i64 16
+  %.val.i.i.i = load ptr, ptr %27, align 8, !tbaa !3
+  %wide.trip.count.i.i = zext nneg i32 %26 to i64
+  br label %28
+
+28:                                               ; preds = %28, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %28 ]
+  %.08.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %28 ]
   %.idx.i.i = shl nuw nsw i64 %indvars.iv.i.i, 3
-  %28 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i
-  %29 = load i32, ptr %28, align 4, !tbaa !10
-  %.not.i.i = icmp eq i32 %29, 2147483647
-  %30 = zext i1 %.not.i.i to i32
-  %spec.select.i.i = add nuw nsw i32 %.08.i.i, %30
+  %29 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 %.idx.i.i
+  %30 = load i32, ptr %29, align 4, !tbaa !10
+  %.not.i.i = icmp eq i32 %30, 2147483647
+  %31 = zext i1 %.not.i.i to i32
+  %spec.select.i.i = add nuw nsw i32 %.08.i.i, %31
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i6.i, label %27, !llvm.loop !54
+  br i1 %exitcond.not.i.i, label %.lr.ph.i6.i, label %28, !llvm.loop !54
 
-.lr.ph.i6.i:                                      ; preds = %27, %38
-  %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i11.i, %38 ], [ 1, %27 ]
-  %.010.i.i = phi i32 [ %39, %38 ], [ 0, %27 ]
-  %31 = shl nuw nsw i64 %indvars.iv.i9.i, 1
-  %32 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !10
-  %.not.i.i.i = icmp eq i32 %33, 2147483647
+.lr.ph.i6.i:                                      ; preds = %28, %39
+  %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i11.i, %39 ], [ 1, %28 ]
+  %.010.i.i = phi i32 [ %40, %39 ], [ 0, %28 ]
+  %32 = shl nuw nsw i64 %indvars.iv.i9.i, 1
+  %33 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %32
+  %34 = load i32, ptr %33, align 4, !tbaa !10
+  %.not.i.i.i = icmp eq i32 %34, 2147483647
   br i1 %.not.i.i.i, label %Mini_AigNodeIsPo.exit.thread.i.i, label %Mini_AigNodeIsPo.exit.i.i
 
 Mini_AigNodeIsPo.exit.i.i:                        ; preds = %.lr.ph.i6.i
-  %34 = or disjoint i64 %31, 1
-  %35 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %34
-  %36 = load i32, ptr %35, align 4, !tbaa !10
-  %.fr.i.i = freeze i32 %36
+  %35 = or disjoint i64 %32, 1
+  %36 = getelementptr inbounds nuw i32, ptr %.val.i.i.i, i64 %35
+  %37 = load i32, ptr %36, align 4, !tbaa !10
+  %.fr.i.i = freeze i32 %37
   %.not.i10.i = icmp eq i32 %.fr.i.i, 2147483647
-  %37 = add nsw i32 %.010.i.i, 1
-  br i1 %.not.i10.i, label %38, label %Mini_AigNodeIsPo.exit.thread.i.i
+  %38 = add nsw i32 %.010.i.i, 1
+  br i1 %.not.i10.i, label %39, label %Mini_AigNodeIsPo.exit.thread.i.i
 
 Mini_AigNodeIsPo.exit.thread.i.i:                 ; preds = %Mini_AigNodeIsPo.exit.i.i, %.lr.ph.i6.i
-  br label %38
+  br label %39
 
-38:                                               ; preds = %Mini_AigNodeIsPo.exit.thread.i.i, %Mini_AigNodeIsPo.exit.i.i
-  %39 = phi i32 [ %.010.i.i, %Mini_AigNodeIsPo.exit.thread.i.i ], [ %37, %Mini_AigNodeIsPo.exit.i.i ]
+39:                                               ; preds = %Mini_AigNodeIsPo.exit.thread.i.i, %Mini_AigNodeIsPo.exit.i.i
+  %40 = phi i32 [ %.010.i.i, %Mini_AigNodeIsPo.exit.thread.i.i ], [ %38, %Mini_AigNodeIsPo.exit.i.i ]
   %indvars.iv.next.i11.i = add nuw nsw i64 %indvars.iv.i9.i, 1
   %exitcond.not.i12.i = icmp eq i64 %indvars.iv.next.i11.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i12.i, label %Mini_AigPoNum.exit.i, label %.lr.ph.i6.i, !llvm.loop !55
 
-Mini_AigPoNum.exit.thread.i:                      ; preds = %Mini_AigDump.exit
-  %40 = getelementptr i8, ptr %8, i64 8
-  %.val27.i = load i32, ptr %40, align 8, !tbaa !43
-  br label %Mini_AigPrintStats.exit
-
-Mini_AigPoNum.exit.i:                             ; preds = %38
+Mini_AigPoNum.exit.i:                             ; preds = %39
   %41 = getelementptr i8, ptr %8, i64 8
   %.val.i = load i32, ptr %41, align 8, !tbaa !43
   br label %42
@@ -938,11 +938,11 @@ Mini_AigNodeIsAnd.exit.thread.i.i:                ; preds = %Mini_AigNodeIsAnd.e
   br i1 %exitcond.not.i22.i, label %Mini_AigPrintStats.exit, label %42, !llvm.loop !56
 
 Mini_AigPrintStats.exit:                          ; preds = %50, %Mini_AigPoNum.exit.thread.i
-  %.val30.i = phi i32 [ %.val27.i, %Mini_AigPoNum.exit.thread.i ], [ %.val.i, %50 ]
-  %.0.lcssa.i529.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %39, %50 ]
-  %.0.lcssa.i2428.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %spec.select.i.i, %50 ]
+  %.val31.i = phi i32 [ %.val28.i, %Mini_AigPoNum.exit.thread.i ], [ %.val.i, %50 ]
+  %.0.lcssa.i530.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %40, %50 ]
+  %.0.lcssa.i2429.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %spec.select.i.i, %50 ]
   %.0.lcssa.i14.i = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i ], [ %51, %50 ]
-  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2428.i, i32 noundef %.0.lcssa.i529.i, i32 noundef %.val30.i, i32 noundef %.0.lcssa.i14.i)
+  %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2429.i, i32 noundef %.0.lcssa.i530.i, i32 noundef %.val31.i, i32 noundef %.0.lcssa.i14.i)
   %53 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !3
   %.not.i11 = icmp eq ptr %54, null
@@ -992,59 +992,59 @@ Mini_AigLoad.exit:                                ; preds = %58, %60
   %76 = icmp sgt i32 %.val.i.i13, 3
   br i1 %76, label %.lr.ph.i.i20, label %Mini_AigPoNum.exit.thread.i14
 
-.lr.ph.i.i20:                                     ; preds = %Mini_AigLoad.exit
-  %77 = lshr i32 %.val.i.i13, 1
-  %78 = getelementptr i8, ptr %.0.i, i64 16
-  %.val.i.i.i21 = load ptr, ptr %78, align 8, !tbaa !3
-  %wide.trip.count.i.i22 = zext nneg i32 %77 to i64
-  br label %79
+Mini_AigPoNum.exit.thread.i14:                    ; preds = %Mini_AigLoad.exit
+  %77 = getelementptr i8, ptr %.0.i, i64 8
+  %.val28.i15 = load i32, ptr %77, align 8, !tbaa !43
+  br label %Mini_AigPrintStats.exit51
 
-79:                                               ; preds = %79, %.lr.ph.i.i20
-  %indvars.iv.i.i23 = phi i64 [ 1, %.lr.ph.i.i20 ], [ %indvars.iv.next.i.i28, %79 ]
-  %.08.i.i24 = phi i32 [ 0, %.lr.ph.i.i20 ], [ %spec.select.i.i27, %79 ]
+.lr.ph.i.i20:                                     ; preds = %Mini_AigLoad.exit
+  %78 = lshr i32 %.val.i.i13, 1
+  %79 = getelementptr i8, ptr %.0.i, i64 16
+  %.val.i.i.i21 = load ptr, ptr %79, align 8, !tbaa !3
+  %wide.trip.count.i.i22 = zext nneg i32 %78 to i64
+  br label %80
+
+80:                                               ; preds = %80, %.lr.ph.i.i20
+  %indvars.iv.i.i23 = phi i64 [ 1, %.lr.ph.i.i20 ], [ %indvars.iv.next.i.i28, %80 ]
+  %.08.i.i24 = phi i32 [ 0, %.lr.ph.i.i20 ], [ %spec.select.i.i27, %80 ]
   %.idx.i.i25 = shl nuw nsw i64 %indvars.iv.i.i23, 3
-  %80 = getelementptr inbounds nuw i8, ptr %.val.i.i.i21, i64 %.idx.i.i25
-  %81 = load i32, ptr %80, align 4, !tbaa !10
-  %.not.i.i26 = icmp eq i32 %81, 2147483647
-  %82 = zext i1 %.not.i.i26 to i32
-  %spec.select.i.i27 = add nuw nsw i32 %.08.i.i24, %82
+  %81 = getelementptr inbounds nuw i8, ptr %.val.i.i.i21, i64 %.idx.i.i25
+  %82 = load i32, ptr %81, align 4, !tbaa !10
+  %.not.i.i26 = icmp eq i32 %82, 2147483647
+  %83 = zext i1 %.not.i.i26 to i32
+  %spec.select.i.i27 = add nuw nsw i32 %.08.i.i24, %83
   %indvars.iv.next.i.i28 = add nuw nsw i64 %indvars.iv.i.i23, 1
   %exitcond.not.i.i29 = icmp eq i64 %indvars.iv.next.i.i28, %wide.trip.count.i.i22
-  br i1 %exitcond.not.i.i29, label %.lr.ph.i6.i30, label %79, !llvm.loop !54
+  br i1 %exitcond.not.i.i29, label %.lr.ph.i6.i30, label %80, !llvm.loop !54
 
-.lr.ph.i6.i30:                                    ; preds = %79, %90
-  %indvars.iv.i9.i31 = phi i64 [ %indvars.iv.next.i11.i38, %90 ], [ 1, %79 ]
-  %.010.i.i32 = phi i32 [ %91, %90 ], [ 0, %79 ]
-  %83 = shl nuw nsw i64 %indvars.iv.i9.i31, 1
-  %84 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %83
-  %85 = load i32, ptr %84, align 4, !tbaa !10
-  %.not.i.i.i33 = icmp eq i32 %85, 2147483647
+.lr.ph.i6.i30:                                    ; preds = %80, %91
+  %indvars.iv.i9.i31 = phi i64 [ %indvars.iv.next.i11.i38, %91 ], [ 1, %80 ]
+  %.010.i.i32 = phi i32 [ %92, %91 ], [ 0, %80 ]
+  %84 = shl nuw nsw i64 %indvars.iv.i9.i31, 1
+  %85 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %84
+  %86 = load i32, ptr %85, align 4, !tbaa !10
+  %.not.i.i.i33 = icmp eq i32 %86, 2147483647
   br i1 %.not.i.i.i33, label %Mini_AigNodeIsPo.exit.thread.i.i37, label %Mini_AigNodeIsPo.exit.i.i34
 
 Mini_AigNodeIsPo.exit.i.i34:                      ; preds = %.lr.ph.i6.i30
-  %86 = or disjoint i64 %83, 1
-  %87 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !10
-  %.fr.i.i35 = freeze i32 %88
+  %87 = or disjoint i64 %84, 1
+  %88 = getelementptr inbounds nuw i32, ptr %.val.i.i.i21, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !10
+  %.fr.i.i35 = freeze i32 %89
   %.not.i10.i36 = icmp eq i32 %.fr.i.i35, 2147483647
-  %89 = add nsw i32 %.010.i.i32, 1
-  br i1 %.not.i10.i36, label %90, label %Mini_AigNodeIsPo.exit.thread.i.i37
+  %90 = add nsw i32 %.010.i.i32, 1
+  br i1 %.not.i10.i36, label %91, label %Mini_AigNodeIsPo.exit.thread.i.i37
 
 Mini_AigNodeIsPo.exit.thread.i.i37:               ; preds = %Mini_AigNodeIsPo.exit.i.i34, %.lr.ph.i6.i30
-  br label %90
+  br label %91
 
-90:                                               ; preds = %Mini_AigNodeIsPo.exit.thread.i.i37, %Mini_AigNodeIsPo.exit.i.i34
-  %91 = phi i32 [ %.010.i.i32, %Mini_AigNodeIsPo.exit.thread.i.i37 ], [ %89, %Mini_AigNodeIsPo.exit.i.i34 ]
+91:                                               ; preds = %Mini_AigNodeIsPo.exit.thread.i.i37, %Mini_AigNodeIsPo.exit.i.i34
+  %92 = phi i32 [ %.010.i.i32, %Mini_AigNodeIsPo.exit.thread.i.i37 ], [ %90, %Mini_AigNodeIsPo.exit.i.i34 ]
   %indvars.iv.next.i11.i38 = add nuw nsw i64 %indvars.iv.i9.i31, 1
   %exitcond.not.i12.i39 = icmp eq i64 %indvars.iv.next.i11.i38, %wide.trip.count.i.i22
   br i1 %exitcond.not.i12.i39, label %Mini_AigPoNum.exit.i40, label %.lr.ph.i6.i30, !llvm.loop !55
 
-Mini_AigPoNum.exit.thread.i14:                    ; preds = %Mini_AigLoad.exit
-  %92 = getelementptr i8, ptr %.0.i, i64 8
-  %.val27.i15 = load i32, ptr %92, align 8, !tbaa !43
-  br label %Mini_AigPrintStats.exit51
-
-Mini_AigPoNum.exit.i40:                           ; preds = %90
+Mini_AigPoNum.exit.i40:                           ; preds = %91
   %93 = getelementptr i8, ptr %.0.i, i64 8
   %.val.i41 = load i32, ptr %93, align 8, !tbaa !43
   br label %94
@@ -1077,11 +1077,11 @@ Mini_AigNodeIsAnd.exit.thread.i.i50:              ; preds = %Mini_AigNodeIsAnd.e
   br i1 %exitcond.not.i22.i49, label %Mini_AigPrintStats.exit51, label %94, !llvm.loop !56
 
 Mini_AigPrintStats.exit51:                        ; preds = %102, %Mini_AigPoNum.exit.thread.i14
-  %.val30.i16 = phi i32 [ %.val27.i15, %Mini_AigPoNum.exit.thread.i14 ], [ %.val.i41, %102 ]
-  %.0.lcssa.i529.i17 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %91, %102 ]
-  %.0.lcssa.i2428.i18 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %spec.select.i.i27, %102 ]
+  %.val31.i16 = phi i32 [ %.val28.i15, %Mini_AigPoNum.exit.thread.i14 ], [ %.val.i41, %102 ]
+  %.0.lcssa.i530.i17 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %92, %102 ]
+  %.0.lcssa.i2429.i18 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %spec.select.i.i27, %102 ]
   %.0.lcssa.i14.i19 = phi i32 [ 0, %Mini_AigPoNum.exit.thread.i14 ], [ %103, %102 ]
-  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2428.i18, i32 noundef %.0.lcssa.i529.i17, i32 noundef %.val30.i16, i32 noundef %.0.lcssa.i14.i19)
+  %104 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.0.lcssa.i2429.i18, i32 noundef %.0.lcssa.i530.i17, i32 noundef %.val31.i16, i32 noundef %.0.lcssa.i14.i19)
   %105 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !3
   %.not.i52 = icmp eq ptr %106, null

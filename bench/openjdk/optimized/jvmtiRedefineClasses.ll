@@ -15293,26 +15293,26 @@ define linkonce_odr hidden noundef ptr @_ZN34TransferNativeFunctionRegistration2
   %18 = load ptr, ptr %17, align 8
   %19 = call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(196) %15, ptr noundef nonnull %8, ptr noundef %4, i32 noundef 0, i32 noundef 0) #19
   %.not34 = icmp eq ptr %19, null
-  br i1 %.not34, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40, label %20
+  br i1 %.not34, label %.loopexit, label %20
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %21, align 8
   %22 = and i32 %.sroa.0.0.copyload.i.i, 256
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %23, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40
+  br i1 %.not, label %23, label %.loopexit
 
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %24, align 8
   %26 = icmp slt i32 %1, %25
-  br i1 %26, label %27, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40
+  br i1 %26, label %27, label %.loopexit
 
 27:                                               ; preds = %23
   %28 = add nsw i32 %1, 1
   %29 = call noundef ptr @_ZN34TransferNativeFunctionRegistration24search_prefix_name_spaceEiPcmP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %28, ptr noundef %2, i64 noundef %3, ptr noundef %4)
   %.not35 = icmp eq ptr %29, null
-  br i1 %.not35, label %30, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40
+  br i1 %.not35, label %30, label %.loopexit
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15328,7 +15328,7 @@ define linkonce_odr hidden noundef ptr @_ZN34TransferNativeFunctionRegistration2
   %41 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %2) #19
   %42 = call noundef ptr @_ZN34TransferNativeFunctionRegistration24search_prefix_name_spaceEiPcmP6Symbol(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %28, ptr noundef nonnull %39, i64 noundef %37, ptr noundef %4)
   %.not36 = icmp eq ptr %42, null
-  br i1 %.not36, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40, label %43
+  br i1 %.not36, label %.loopexit, label %43
 
 43:                                               ; preds = %30
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 48
@@ -15340,15 +15340,15 @@ define linkonce_odr hidden noundef ptr @_ZN34TransferNativeFunctionRegistration2
   %47 = or i32 %.0.i.i.i.i.i.i, 32
   %48 = call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %47, i32 %.0.i.i.i.i.i.i, ptr nonnull align 4 dereferenceable(4) %44) #19, !srcloc !70
   %.not.i.i.i.i.i.i = icmp eq i32 %.0.i.i.i.i.i.i, %48
-  br i1 %.not.i.i.i.i.i.i, label %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40, label %46, !llvm.loop !71
+  br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %46, !llvm.loop !71
 
-_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40: ; preds = %46, %20, %27, %14, %30, %23
-  %.042 = phi ptr [ null, %23 ], [ null, %30 ], [ null, %14 ], [ %29, %27 ], [ %19, %20 ], [ %42, %46 ]
+.loopexit:                                        ; preds = %46, %23, %30, %14, %27, %20
+  %.0.ph = phi ptr [ null, %23 ], [ null, %30 ], [ null, %14 ], [ %29, %27 ], [ %19, %20 ], [ %42, %46 ]
   call void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8) %8) #19
   br label %_ZN16SymbolHandleBaseILb1EED2Ev.exit
 
-_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %5, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40
-  %.043 = phi ptr [ %.042, %_ZN16SymbolHandleBaseILb1EEC2EP6Symbol.exit.thread40 ], [ null, %5 ]
+_ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %5, %.loopexit
+  %.043 = phi ptr [ %.0.ph, %.loopexit ], [ null, %5 ]
   ret ptr %.043
 }
 

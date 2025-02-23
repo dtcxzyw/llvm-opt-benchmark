@@ -959,7 +959,7 @@ copystrings.exit103.i:                            ; preds = %._crit_edge.i100.i,
   br i1 %140, label %148, label %149
 
 148:                                              ; preds = %147
-  call void @free(ptr noundef %108) #13
+  call void @free(ptr noundef nonnull %108) #13
   br label %spawnChild.exit
 
 149:                                              ; preds = %147, %142, %141
@@ -1002,7 +1002,7 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
   br i1 %.not60.i, label %167, label %166
 
 166:                                              ; preds = %copystrings.exit114.i
-  call void @free(ptr noundef %108) #13
+  call void @free(ptr noundef nonnull %108) #13
   br label %spawnChild.exit
 
 167:                                              ; preds = %copystrings.exit114.i
@@ -1024,7 +1024,7 @@ copystrings.exit114.i:                            ; preds = %.lr.ph.i106.i, %152
   br i1 %.not63.i, label %177, label %176
 
 176:                                              ; preds = %173, %170, %167
-  call void @free(ptr noundef %108) #13
+  call void @free(ptr noundef nonnull %108) #13
   br label %spawnChild.exit
 
 177:                                              ; preds = %173

@@ -445,7 +445,7 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %7 = getelementptr inbounds nuw i8, ptr %.02839.us.us, i64 272
   %8 = load ptr, ptr %7, align 8
   %.not.us.us = icmp eq ptr %8, null
-  br i1 %.not.us.us, label %.preheader, label %.split.us.split.us, !llvm.loop !12
+  br i1 %.not.us.us, label %.preheader.thread, label %.split.us.split.us, !llvm.loop !12
 
 .split.us.split:                                  ; preds = %.split.us, %14
   %.040.us = phi i32 [ %15, %14 ], [ 0, %.split.us ]
@@ -490,21 +490,31 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %.not.us43 = icmp eq ptr %26, null
   br i1 %.not.us43, label %.preheader, label %.split.split.us, !llvm.loop !12
 
-.preheader:                                       ; preds = %52, %23, %14, %.split.us.split.us
-  %.us-phi = phi i32 [ %6, %.split.us.split.us ], [ %15, %14 ], [ %24, %23 ], [ %53, %52 ]
+.preheader:                                       ; preds = %52, %23, %14
+  %.us-phi = phi i32 [ %15, %14 ], [ %24, %23 ], [ %53, %52 ]
   %.12947 = load ptr, ptr %5, align 8
   %.not3448 = icmp eq ptr %.12947, null
   br i1 %.not3448, label %._crit_edge, label %.lr.ph
+
+.preheader.thread:                                ; preds = %.split.us.split.us
+  %.1294773 = load ptr, ptr %5, align 8
+  %.not344874 = icmp eq ptr %.1294773, null
+  br i1 %.not344874, label %._crit_edge, label %.lr.ph.split.us.split.us.preheader
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %.not38, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
+  br i1 %.not38, label %.lr.ph.split.us.split.us.preheader, label %.lr.ph.split.us.split
 
-.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %.lr.ph.split.us.split.us
-  %.12950.us.us = phi ptr [ %.129.us.us, %.lr.ph.split.us.split.us ], [ %.12947, %.lr.ph.split.us ]
-  %.149.us.us = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %.us-phi, %.lr.ph.split.us ]
+.lr.ph.split.us.split.us.preheader:               ; preds = %.preheader.thread, %.lr.ph.split.us
+  %.12950.us.us.ph = phi ptr [ %.1294773, %.preheader.thread ], [ %.12947, %.lr.ph.split.us ]
+  %.149.us.us.ph = phi i32 [ %6, %.preheader.thread ], [ %.us-phi, %.lr.ph.split.us ]
+  br label %.lr.ph.split.us.split.us
+
+.lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %.lr.ph.split.us.split.us
+  %.12950.us.us = phi ptr [ %.129.us.us, %.lr.ph.split.us.split.us ], [ %.12950.us.us.ph, %.lr.ph.split.us.split.us.preheader ]
+  %.149.us.us = phi i32 [ %27, %.lr.ph.split.us.split.us ], [ %.149.us.us.ph, %.lr.ph.split.us.split.us.preheader ]
   %27 = add i32 %.149.us.us, 1
   %28 = getelementptr inbounds nuw i8, ptr %.12950.us.us, i64 272
   %.129.us.us = load ptr, ptr %28, align 8
@@ -600,8 +610,8 @@ define hidden i32 @cmsGetSupportedIntentsTHR(ptr noundef %0, i32 noundef %1, ptr
   %.not34 = icmp eq ptr %.129, null
   br i1 %.not34, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %63, %42, %34, %.lr.ph.split.us.split.us, %.preheader
-  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %27, %.lr.ph.split.us.split.us ], [ %35, %34 ], [ %43, %42 ], [ %64, %63 ]
+._crit_edge:                                      ; preds = %63, %42, %34, %.lr.ph.split.us.split.us, %.preheader.thread, %.preheader
+  %.1.lcssa = phi i32 [ %.us-phi, %.preheader ], [ %6, %.preheader.thread ], [ %27, %.lr.ph.split.us.split.us ], [ %35, %34 ], [ %43, %42 ], [ %64, %63 ]
   ret i32 %.1.lcssa
 }
 

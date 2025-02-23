@@ -4890,9 +4890,9 @@ for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, 
   %dec.i.i.i.i.i = add i64 %__n.addr.07.i.i.i.i.i, -1
   %incdec.ptr.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i, i64 16
   %cmp.not.i.i.i.i.i65 = icmp eq i64 %dec.i.i.i.i.i, 0
-  br i1 %cmp.not.i.i.i.i.i65, label %invoke.cont18, label %for.inc.i.i.i.i.i, !llvm.loop !32
+  br i1 %cmp.not.i.i.i.i.i65, label %for.body23.lr.ph, label %for.inc.i.i.i.i.i, !llvm.loop !32
 
-invoke.cont18:                                    ; preds = %for.inc.i.i.i.i.i
+for.body23.lr.ph:                                 ; preds = %for.inc.i.i.i.i.i
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %incdec.ptr.i.i.i.i.i64, ptr %_M_finish.i.i7.i, align 8
   %subcode_.i = getelementptr inbounds nuw i8, ptr %ref.tmp24, i64 1
@@ -4904,8 +4904,8 @@ invoke.cont18:                                    ; preds = %for.inc.i.i.i.i.i
   %umax86 = call i64 @llvm.umax.i64(i64 %sub.ptr.div.i, i64 1)
   br label %for.body23
 
-for.body23:                                       ; preds = %invoke.cont18, %_ZN7rocksdb6StatusD2Ev.exit79
-  %i20.084 = phi i64 [ 0, %invoke.cont18 ], [ %inc35, %_ZN7rocksdb6StatusD2Ev.exit79 ]
+for.body23:                                       ; preds = %for.body23.lr.ph, %_ZN7rocksdb6StatusD2Ev.exit79
+  %i20.084 = phi i64 [ 0, %for.body23.lr.ph ], [ %inc35, %_ZN7rocksdb6StatusD2Ev.exit79 ]
   %19 = load ptr, ptr %column_family, align 8
   %add.ptr.i70 = getelementptr inbounds ptr, ptr %19, i64 %i20.084
   %20 = load ptr, ptr %add.ptr.i70, align 8

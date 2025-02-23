@@ -5095,8 +5095,8 @@ entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %tgt, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
   %cmp.not = icmp eq ptr %0, %this
-  %m_plugin.i36.phi.trans.insert = getelementptr inbounds nuw i8, ptr %src, i64 8
-  %.pre = load ptr, ptr %m_plugin.i36.phi.trans.insert, align 8
+  %m_plugin.i37.phi.trans.insert = getelementptr inbounds nuw i8, ptr %src, i64 8
+  %.pre = load ptr, ptr %m_plugin.i37.phi.trans.insert, align 8
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
@@ -5106,161 +5106,155 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %or.cond, label %land.lhs.true5, label %if.end
 
 land.lhs.true5:                                   ; preds = %land.lhs.true
-  %m_plugin.i34 = getelementptr inbounds nuw i8, ptr %delta, i64 8
-  %1 = load ptr, ptr %m_plugin.i34, align 8
+  %m_plugin.i35 = getelementptr inbounds nuw i8, ptr %delta, i64 8
+  %1 = load ptr, ptr %m_plugin.i35, align 8
   %cmp7.not = icmp eq ptr %1, %this
   br i1 %cmp7.not, label %if.end.thread, label %return
 
 if.end.thread:                                    ; preds = %land.lhs.true5
-  %m_special_type.i85 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %2 = load i32, ptr %m_special_type.i85, align 8
-  %cmp.i86 = icmp eq i32 %2, 4
-  %m_special_type.i3788 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %3 = load i32, ptr %m_special_type.i3788, align 8
-  %cmp.i3889 = icmp eq i32 %3, 4
-  br label %land.end
+  %m_special_type.i86 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %2 = load i32, ptr %m_special_type.i86, align 8
+  %cmp.i87 = icmp eq i32 %2, 4
+  %m_special_type.i3889 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %3 = load i32, ptr %m_special_type.i3889, align 8
+  %cmp.i3990 = icmp eq i32 %3, 4
+  %m_special_type.i41180 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %4 = load i32, ptr %m_special_type.i41180, align 8
+  %cmp.i42181 = icmp eq i32 %4, 4
+  br i1 %cmp.i87, label %cond.true29, label %cond.end32
 
 if.end:                                           ; preds = %entry, %land.lhs.true
   %m_special_type.i = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %4 = load i32, ptr %m_special_type.i, align 8
-  %cmp.i = icmp eq i32 %4, 4
-  %m_special_type.i37 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %5 = load i32, ptr %m_special_type.i37, align 8
-  %cmp.i38 = icmp eq i32 %5, 4
+  %5 = load i32, ptr %m_special_type.i, align 8
+  %cmp.i = icmp eq i32 %5, 4
+  %m_special_type.i38 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %6 = load i32, ptr %m_special_type.i38, align 8
+  %cmp.i39 = icmp eq i32 %6, 4
   %tobool13.not = icmp eq ptr %delta, null
-  br i1 %tobool13.not, label %land.end.thread, label %if.end.land.end_crit_edge
+  br i1 %tobool13.not, label %land.end, label %land.rhs
 
-if.end.land.end_crit_edge:                        ; preds = %if.end
-  %m_plugin.i39.phi.trans.insert = getelementptr inbounds nuw i8, ptr %delta, i64 8
-  %.pre192 = load ptr, ptr %m_plugin.i39.phi.trans.insert, align 8
-  br label %land.end
+land.rhs:                                         ; preds = %if.end
+  %m_plugin.i40 = getelementptr inbounds nuw i8, ptr %delta, i64 8
+  %7 = load ptr, ptr %m_plugin.i40, align 8
+  %m_special_type.i41 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %8 = load i32, ptr %m_special_type.i41, align 8
+  %cmp.i42 = icmp eq i32 %8, 4
+  br i1 %cmp.i, label %cond.true29, label %cond.end32
 
-land.end.thread:                                  ; preds = %if.end
+land.end:                                         ; preds = %if.end
   br i1 %cmp.i, label %cond.true29.thread, label %cond.end32.thread
 
-land.end:                                         ; preds = %if.end.land.end_crit_edge, %if.end.thread
-  %6 = phi ptr [ %1, %if.end.thread ], [ %.pre192, %if.end.land.end_crit_edge ]
-  %cmp.i3893 = phi i1 [ %cmp.i3889, %if.end.thread ], [ %cmp.i38, %if.end.land.end_crit_edge ]
-  %cmp.i91 = phi i1 [ %cmp.i86, %if.end.thread ], [ %cmp.i, %if.end.land.end_crit_edge ]
-  %m_special_type.i40 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %7 = load i32, ptr %m_special_type.i40, align 8
-  %.fr = freeze i32 %7
-  %cmp.i41 = icmp eq i32 %.fr, 4
-  %cond = select i1 %cmp.i91, ptr %tgt, ptr null
-  %delta. = select i1 %cmp.i41, ptr %delta, ptr null
-  %tgt.cond = select i1 %cmp.i41, ptr %tgt, ptr %cond
-  %.cond = select i1 %cmp.i41, ptr null, ptr %cond
-  br i1 %cmp.i91, label %cond.true29, label %cond.end32
-
-cond.true29:                                      ; preds = %land.end
+cond.true29:                                      ; preds = %if.end.thread, %land.rhs
+  %9 = phi i1 [ %cmp.i42, %land.rhs ], [ %cmp.i42181, %if.end.thread ]
+  %cmp.i3995102 = phi i1 [ %cmp.i39, %land.rhs ], [ %cmp.i3990, %if.end.thread ]
   %m_inner.i = getelementptr inbounds nuw i8, ptr %tgt, i64 64
-  %8 = load ptr, ptr %m_inner.i, align 8
-  br i1 %cmp.i3893, label %cond.true34, label %cond.end37
+  %10 = load ptr, ptr %m_inner.i, align 8
+  br i1 %cmp.i3995102, label %cond.true34, label %cond.end37
 
-cond.true29.thread:                               ; preds = %land.end.thread
-  %m_inner.i224 = getelementptr inbounds nuw i8, ptr %tgt, i64 64
-  %9 = load ptr, ptr %m_inner.i224, align 8
-  br i1 %cmp.i38, label %cond.true34.thread, label %land.lhs.true63.thread
+cond.true29.thread:                               ; preds = %land.end
+  %m_inner.i218 = getelementptr inbounds nuw i8, ptr %tgt, i64 64
+  %11 = load ptr, ptr %m_inner.i218, align 8
+  br i1 %cmp.i39, label %cond.true34.thread, label %land.lhs.true63.thread
 
-cond.end32:                                       ; preds = %land.end
-  br i1 %cmp.i3893, label %cond.true34, label %cond.end37.thread
+cond.end32:                                       ; preds = %if.end.thread, %land.rhs
+  %12 = phi i1 [ %cmp.i42, %land.rhs ], [ %cmp.i42181, %if.end.thread ]
+  %cmp.i3995101 = phi i1 [ %cmp.i39, %land.rhs ], [ %cmp.i3990, %if.end.thread ]
+  br i1 %cmp.i3995101, label %cond.true34, label %cond.end37.thread
 
-cond.end32.thread:                                ; preds = %land.end.thread
-  br i1 %cmp.i38, label %cond.true34.thread, label %if.end75
+cond.end32.thread:                                ; preds = %land.end
+  br i1 %cmp.i39, label %cond.true34.thread, label %if.end75
 
 cond.true34.thread:                               ; preds = %cond.true29.thread, %cond.end32.thread
-  %cond-lvalue129.ph = phi ptr [ %tgt, %cond.end32.thread ], [ %9, %cond.true29.thread ]
-  %cond106110125.ph = phi ptr [ null, %cond.end32.thread ], [ %tgt, %cond.true29.thread ]
-  %m_inner.i42251 = getelementptr inbounds nuw i8, ptr %src, i64 64
-  %10 = load ptr, ptr %m_inner.i42251, align 8
+  %cond-lvalue116.ph = phi ptr [ %tgt, %cond.end32.thread ], [ %11, %cond.true29.thread ]
+  %cond105108.ph = phi ptr [ null, %cond.end32.thread ], [ %tgt, %cond.true29.thread ]
+  %m_inner.i43230 = getelementptr inbounds nuw i8, ptr %src, i64 64
+  %13 = load ptr, ptr %m_inner.i43230, align 8
   br label %cond.end43
 
 cond.true34:                                      ; preds = %cond.true29, %cond.end32
-  %cond-lvalue129 = phi ptr [ %8, %cond.true29 ], [ %tgt, %cond.end32 ]
-  %cond106110125 = phi ptr [ %tgt.cond, %cond.true29 ], [ %.cond, %cond.end32 ]
-  %m_inner.i42 = getelementptr inbounds nuw i8, ptr %src, i64 64
-  %11 = load ptr, ptr %m_inner.i42, align 8
-  br i1 %cmp.i41, label %cond.true40, label %cond.end43
+  %cond-lvalue116 = phi ptr [ %10, %cond.true29 ], [ %tgt, %cond.end32 ]
+  %cmp.i93103110 = phi i1 [ true, %cond.true29 ], [ false, %cond.end32 ]
+  %14 = phi i1 [ %9, %cond.true29 ], [ %12, %cond.end32 ]
+  %cond105108 = phi ptr [ %tgt, %cond.true29 ], [ null, %cond.end32 ]
+  %m_inner.i43 = getelementptr inbounds nuw i8, ptr %src, i64 64
+  %15 = load ptr, ptr %m_inner.i43, align 8
+  br i1 %14, label %cond.true40, label %cond.end43
 
 cond.end37:                                       ; preds = %cond.true29
-  br i1 %cmp.i41, label %cond.true40, label %land.lhs.true63.thread
+  br i1 %9, label %cond.true40, label %land.lhs.true63.thread
 
 cond.end37.thread:                                ; preds = %cond.end32
-  br i1 %cmp.i41, label %cond.true40, label %lor.lhs.false69
+  br i1 %12, label %cond.true40, label %if.end75
 
 cond.true40:                                      ; preds = %cond.end37.thread, %cond.true34, %cond.end37
-  %cond-lvalue38143 = phi ptr [ %11, %cond.true34 ], [ %src, %cond.end37 ], [ %src, %cond.end37.thread ]
-  %12 = phi ptr [ %delta, %cond.true34 ], [ %delta., %cond.end37 ], [ %delta., %cond.end37.thread ]
-  %cmp.i3894104114120139 = phi i1 [ true, %cond.true34 ], [ false, %cond.end37 ], [ false, %cond.end37.thread ]
-  %cmp.i92105112122137 = phi i1 [ %cmp.i91, %cond.true34 ], [ true, %cond.end37 ], [ false, %cond.end37.thread ]
-  %cond106110124135 = phi ptr [ %cond106110125, %cond.true34 ], [ %tgt.cond, %cond.end37 ], [ %.cond, %cond.end37.thread ]
-  %cond22107108126133 = phi ptr [ %src, %cond.true34 ], [ null, %cond.end37 ], [ null, %cond.end37.thread ]
-  %cond-lvalue128131 = phi ptr [ %cond-lvalue129, %cond.true34 ], [ %8, %cond.end37 ], [ %tgt, %cond.end37.thread ]
-  %m_inner.i43 = getelementptr inbounds nuw i8, ptr %delta, i64 64
-  %13 = load ptr, ptr %m_inner.i43, align 8
+  %cond-lvalue38128 = phi ptr [ %15, %cond.true34 ], [ %src, %cond.end37 ], [ %src, %cond.end37.thread ]
+  %cond105107126 = phi ptr [ %cond105108, %cond.true34 ], [ %tgt, %cond.end37 ], [ null, %cond.end37.thread ]
+  %cmp.i93103109124 = phi i1 [ %cmp.i93103110, %cond.true34 ], [ true, %cond.end37 ], [ false, %cond.end37.thread ]
+  %cmp.i3995101111122 = phi i1 [ true, %cond.true34 ], [ false, %cond.end37 ], [ false, %cond.end37.thread ]
+  %cond-lvalue115118 = phi ptr [ %cond-lvalue116, %cond.true34 ], [ %10, %cond.end37 ], [ %tgt, %cond.end37.thread ]
+  %m_inner.i44 = getelementptr inbounds nuw i8, ptr %delta, i64 64
+  %16 = load ptr, ptr %m_inner.i44, align 8
   br label %cond.end43
 
 cond.end43:                                       ; preds = %cond.true34.thread, %cond.true34, %cond.true40
-  %cond-lvalue38142 = phi ptr [ %cond-lvalue38143, %cond.true40 ], [ %11, %cond.true34 ], [ %10, %cond.true34.thread ]
-  %14 = phi ptr [ %12, %cond.true40 ], [ %delta., %cond.true34 ], [ null, %cond.true34.thread ]
-  %tobool13.not96103116118140 = phi i1 [ false, %cond.true40 ], [ false, %cond.true34 ], [ true, %cond.true34.thread ]
-  %cmp.i3894104114120138 = phi i1 [ %cmp.i3894104114120139, %cond.true40 ], [ true, %cond.true34 ], [ true, %cond.true34.thread ]
-  %cmp.i92105112122136 = phi i1 [ %cmp.i92105112122137, %cond.true40 ], [ %cmp.i91, %cond.true34 ], [ %cmp.i, %cond.true34.thread ]
-  %15 = phi i1 [ true, %cond.true40 ], [ false, %cond.true34 ], [ false, %cond.true34.thread ]
-  %cond106110124134 = phi ptr [ %cond106110124135, %cond.true40 ], [ %cond106110125, %cond.true34 ], [ %cond106110125.ph, %cond.true34.thread ]
-  %cond22107108126132 = phi ptr [ %cond22107108126133, %cond.true40 ], [ %src, %cond.true34 ], [ %src, %cond.true34.thread ]
-  %cond-lvalue128130 = phi ptr [ %cond-lvalue128131, %cond.true40 ], [ %cond-lvalue129, %cond.true34 ], [ %cond-lvalue129.ph, %cond.true34.thread ]
-  %cond44 = phi ptr [ %13, %cond.true40 ], [ %delta, %cond.true34 ], [ null, %cond.true34.thread ]
-  %brmerge31 = or i1 %tobool13.not96103116118140, %15
-  %16 = and i1 %cmp.i3894104114120138, %brmerge31
-  %or.cond32 = and i1 %cmp.i92105112122136, %16
-  br i1 %or.cond32, label %if.then51, label %if.else
+  %cond-lvalue38127 = phi ptr [ %cond-lvalue38128, %cond.true40 ], [ %15, %cond.true34 ], [ %13, %cond.true34.thread ]
+  %cond105107125 = phi ptr [ %cond105107126, %cond.true40 ], [ %cond105108, %cond.true34 ], [ %cond105108.ph, %cond.true34.thread ]
+  %17 = phi i1 [ true, %cond.true40 ], [ false, %cond.true34 ], [ false, %cond.true34.thread ]
+  %cmp.i93103109123 = phi i1 [ %cmp.i93103109124, %cond.true40 ], [ %cmp.i93103110, %cond.true34 ], [ %cmp.i, %cond.true34.thread ]
+  %cmp.i3995101111121 = phi i1 [ %cmp.i3995101111122, %cond.true40 ], [ true, %cond.true34 ], [ true, %cond.true34.thread ]
+  %tobool13.not9799113119 = phi i1 [ false, %cond.true40 ], [ false, %cond.true34 ], [ true, %cond.true34.thread ]
+  %cond-lvalue115117 = phi ptr [ %cond-lvalue115118, %cond.true40 ], [ %cond-lvalue116, %cond.true34 ], [ %cond-lvalue116.ph, %cond.true34.thread ]
+  %cond44 = phi ptr [ %16, %cond.true40 ], [ %delta, %cond.true34 ], [ null, %cond.true34.thread ]
+  %brmerge32 = or i1 %17, %tobool13.not9799113119
+  %18 = and i1 %cmp.i3995101111121, %brmerge32
+  %or.cond33 = and i1 %cmp.i93103109123, %18
+  br i1 %or.cond33, label %if.then51, label %if.else
 
 if.then51:                                        ; preds = %cond.end43
-  %m_inner_cols = getelementptr inbounds nuw i8, ptr %cond106110124134, i64 32
-  %m_inner_cols52 = getelementptr inbounds nuw i8, ptr %cond22107108126132, i64 32
-  %17 = load ptr, ptr %m_inner_cols, align 8
-  %cmp.i.i = icmp eq ptr %17, null
+  %m_inner_cols = getelementptr inbounds nuw i8, ptr %cond105107125, i64 32
+  %m_inner_cols52 = getelementptr inbounds nuw i8, ptr %src, i64 32
+  %19 = load ptr, ptr %m_inner_cols, align 8
+  %cmp.i.i = icmp eq ptr %19, null
   br i1 %cmp.i.i, label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then51
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %17, i64 -4
-  %18 = load i32, ptr %arrayidx.i.i, align 4
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %19, i64 -4
+  %20 = load i32, ptr %arrayidx.i.i, align 4
   br label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i
 
 _ZNK6vectorIbLb0EjE4sizeEv.exit.i:                ; preds = %if.end.i.i, %if.then51
-  %retval.0.i.i = phi i32 [ %18, %if.end.i.i ], [ 0, %if.then51 ]
-  %19 = load ptr, ptr %m_inner_cols52, align 8
-  %cmp.i8.i = icmp eq ptr %19, null
+  %retval.0.i.i = phi i32 [ %20, %if.end.i.i ], [ 0, %if.then51 ]
+  %21 = load ptr, ptr %m_inner_cols52, align 8
+  %cmp.i8.i = icmp eq ptr %21, null
   br i1 %cmp.i8.i, label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i, label %if.end.i9.i
 
 if.end.i9.i:                                      ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i
-  %arrayidx.i10.i = getelementptr inbounds i8, ptr %19, i64 -4
-  %20 = load i32, ptr %arrayidx.i10.i, align 4
+  %arrayidx.i10.i = getelementptr inbounds i8, ptr %21, i64 -4
+  %22 = load i32, ptr %arrayidx.i10.i, align 4
   br label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i
 
 _ZNK6vectorIbLb0EjE4sizeEv.exit12.i:              ; preds = %if.end.i9.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i
-  %retval.0.i11.i = phi i32 [ %20, %if.end.i9.i ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i ]
+  %retval.0.i11.i = phi i32 [ %22, %if.end.i9.i ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i ]
   %cmp.not.i = icmp ne i32 %retval.0.i.i, %retval.0.i11.i
   %brmerge.i = or i1 %cmp.i.i, %cmp.not.i
   br i1 %brmerge.i, label %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit, label %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i
 
 _ZNK6vectorIbLb0EjE4sizeEv.exit17.i:              ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i
-  %arrayidx.i15.i = getelementptr inbounds i8, ptr %17, i64 -4
-  %21 = load i32, ptr %arrayidx.i15.i, align 4
-  %22 = zext i32 %21 to i64
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %17, i64 %22
-  %cmp6.not18.i = icmp eq i32 %21, 0
+  %arrayidx.i15.i = getelementptr inbounds i8, ptr %19, i64 -4
+  %23 = load i32, ptr %arrayidx.i15.i, align 4
+  %24 = zext i32 %23 to i64
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %19, i64 %24
+  %cmp6.not18.i = icmp eq i32 %23, 0
   br i1 %cmp6.not18.i, label %lor.lhs.false54, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i, %for.inc.i
-  %it2.020.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %19, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i ]
-  %it1.019.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %17, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i ]
-  %23 = load i8, ptr %it1.019.i, align 1
-  %24 = load i8, ptr %it2.020.i, align 1
-  %25 = xor i8 %24, %23
-  %26 = and i8 %25, 1
-  %cmp9.not.i = icmp eq i8 %26, 0
+  %it2.020.i = phi ptr [ %incdec.ptr12.i, %for.inc.i ], [ %21, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i ]
+  %it1.019.i = phi ptr [ %incdec.ptr.i, %for.inc.i ], [ %19, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i ]
+  %25 = load i8, ptr %it1.019.i, align 1
+  %26 = load i8, ptr %it2.020.i, align 1
+  %27 = xor i8 %26, %25
+  %28 = and i8 %27, 1
+  %cmp9.not.i = icmp eq i8 %28, 0
   br i1 %cmp9.not.i, label %for.inc.i, label %return
 
 for.inc.i:                                        ; preds = %for.body.i
@@ -5273,144 +5267,144 @@ _ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit: ; preds = %_ZNK6vec
   br i1 %cmp.not.i, label %return, label %lor.lhs.false54
 
 lor.lhs.false54:                                  ; preds = %for.inc.i, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit
-  br i1 %tobool13.not96103116118140, label %if.end75, label %land.lhs.true56
+  br i1 %tobool13.not9799113119, label %if.end75, label %land.lhs.true56
 
 land.lhs.true56:                                  ; preds = %lor.lhs.false54
-  %m_inner_cols58 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  br i1 %cmp.i.i, label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i47, label %if.end.i.i45
+  %m_inner_cols58 = getelementptr inbounds nuw i8, ptr %delta, i64 32
+  br i1 %cmp.i.i, label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i48, label %if.end.i.i46
 
-if.end.i.i45:                                     ; preds = %land.lhs.true56
-  %arrayidx.i.i46 = getelementptr inbounds i8, ptr %17, i64 -4
-  %27 = load i32, ptr %arrayidx.i.i46, align 4
-  br label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i47
+if.end.i.i46:                                     ; preds = %land.lhs.true56
+  %arrayidx.i.i47 = getelementptr inbounds i8, ptr %19, i64 -4
+  %29 = load i32, ptr %arrayidx.i.i47, align 4
+  br label %_ZNK6vectorIbLb0EjE4sizeEv.exit.i48
 
-_ZNK6vectorIbLb0EjE4sizeEv.exit.i47:              ; preds = %if.end.i.i45, %land.lhs.true56
-  %retval.0.i.i48 = phi i32 [ %27, %if.end.i.i45 ], [ 0, %land.lhs.true56 ]
-  %28 = load ptr, ptr %m_inner_cols58, align 8
-  %cmp.i8.i49 = icmp eq ptr %28, null
-  br i1 %cmp.i8.i49, label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i52, label %if.end.i9.i50
+_ZNK6vectorIbLb0EjE4sizeEv.exit.i48:              ; preds = %if.end.i.i46, %land.lhs.true56
+  %retval.0.i.i49 = phi i32 [ %29, %if.end.i.i46 ], [ 0, %land.lhs.true56 ]
+  %30 = load ptr, ptr %m_inner_cols58, align 8
+  %cmp.i8.i50 = icmp eq ptr %30, null
+  br i1 %cmp.i8.i50, label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i53, label %if.end.i9.i51
 
-if.end.i9.i50:                                    ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i47
-  %arrayidx.i10.i51 = getelementptr inbounds i8, ptr %28, i64 -4
-  %29 = load i32, ptr %arrayidx.i10.i51, align 4
-  br label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i52
+if.end.i9.i51:                                    ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit.i48
+  %arrayidx.i10.i52 = getelementptr inbounds i8, ptr %30, i64 -4
+  %31 = load i32, ptr %arrayidx.i10.i52, align 4
+  br label %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i53
 
-_ZNK6vectorIbLb0EjE4sizeEv.exit12.i52:            ; preds = %if.end.i9.i50, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i47
-  %retval.0.i11.i53 = phi i32 [ %29, %if.end.i9.i50 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i47 ]
-  %cmp.not.i54 = icmp ne i32 %retval.0.i.i48, %retval.0.i11.i53
-  %brmerge.i55 = or i1 %cmp.i.i, %cmp.not.i54
-  br i1 %brmerge.i55, label %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70, label %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57
+_ZNK6vectorIbLb0EjE4sizeEv.exit12.i53:            ; preds = %if.end.i9.i51, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i48
+  %retval.0.i11.i54 = phi i32 [ %31, %if.end.i9.i51 ], [ 0, %_ZNK6vectorIbLb0EjE4sizeEv.exit.i48 ]
+  %cmp.not.i55 = icmp ne i32 %retval.0.i.i49, %retval.0.i11.i54
+  %brmerge.i56 = or i1 %cmp.i.i, %cmp.not.i55
+  br i1 %brmerge.i56, label %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71, label %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58
 
-_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57:            ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i52
-  %arrayidx.i15.i58 = getelementptr inbounds i8, ptr %17, i64 -4
-  %30 = load i32, ptr %arrayidx.i15.i58, align 4
-  %31 = zext i32 %30 to i64
-  %add.ptr.i59 = getelementptr inbounds nuw i8, ptr %17, i64 %31
-  %cmp6.not18.i60 = icmp eq i32 %30, 0
-  br i1 %cmp6.not18.i60, label %if.end75, label %for.body.i61
+_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58:            ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i53
+  %arrayidx.i15.i59 = getelementptr inbounds i8, ptr %19, i64 -4
+  %32 = load i32, ptr %arrayidx.i15.i59, align 4
+  %33 = zext i32 %32 to i64
+  %add.ptr.i60 = getelementptr inbounds nuw i8, ptr %19, i64 %33
+  %cmp6.not18.i61 = icmp eq i32 %32, 0
+  br i1 %cmp6.not18.i61, label %if.end75, label %for.body.i62
 
-for.body.i61:                                     ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57, %for.inc.i66
-  %it2.020.i62 = phi ptr [ %incdec.ptr12.i68, %for.inc.i66 ], [ %28, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57 ]
-  %it1.019.i63 = phi ptr [ %incdec.ptr.i67, %for.inc.i66 ], [ %17, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57 ]
-  %32 = load i8, ptr %it1.019.i63, align 1
-  %33 = load i8, ptr %it2.020.i62, align 1
-  %34 = xor i8 %33, %32
-  %35 = and i8 %34, 1
-  %cmp9.not.i64 = icmp eq i8 %35, 0
-  br i1 %cmp9.not.i64, label %for.inc.i66, label %return
+for.body.i62:                                     ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58, %for.inc.i67
+  %it2.020.i63 = phi ptr [ %incdec.ptr12.i69, %for.inc.i67 ], [ %30, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58 ]
+  %it1.019.i64 = phi ptr [ %incdec.ptr.i68, %for.inc.i67 ], [ %19, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58 ]
+  %34 = load i8, ptr %it1.019.i64, align 1
+  %35 = load i8, ptr %it2.020.i63, align 1
+  %36 = xor i8 %35, %34
+  %37 = and i8 %36, 1
+  %cmp9.not.i65 = icmp eq i8 %37, 0
+  br i1 %cmp9.not.i65, label %for.inc.i67, label %return
 
-for.inc.i66:                                      ; preds = %for.body.i61
-  %incdec.ptr.i67 = getelementptr inbounds nuw i8, ptr %it1.019.i63, i64 1
-  %incdec.ptr12.i68 = getelementptr inbounds nuw i8, ptr %it2.020.i62, i64 1
-  %cmp6.not.i69 = icmp eq ptr %incdec.ptr.i67, %add.ptr.i59
-  br i1 %cmp6.not.i69, label %if.end75, label %for.body.i61, !llvm.loop !25
+for.inc.i67:                                      ; preds = %for.body.i62
+  %incdec.ptr.i68 = getelementptr inbounds nuw i8, ptr %it1.019.i64, i64 1
+  %incdec.ptr12.i69 = getelementptr inbounds nuw i8, ptr %it2.020.i63, i64 1
+  %cmp6.not.i70 = icmp eq ptr %incdec.ptr.i68, %add.ptr.i60
+  br i1 %cmp6.not.i70, label %if.end75, label %for.body.i62, !llvm.loop !25
 
-_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70: ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i52
-  br i1 %cmp.not.i54, label %return, label %if.end75
+_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71: ; preds = %_ZNK6vectorIbLb0EjE4sizeEv.exit12.i53
+  br i1 %cmp.not.i55, label %return, label %if.end75
 
 if.else:                                          ; preds = %cond.end43
-  br i1 %cmp.i92105112122136, label %land.lhs.true63, label %lor.lhs.false65
+  br i1 %cmp.i93103109123, label %land.lhs.true63, label %lor.lhs.false65
 
 land.lhs.true63:                                  ; preds = %if.else
   %m_ignored_cols.i = getelementptr inbounds nuw i8, ptr %tgt, i64 56
-  %36 = load ptr, ptr %m_ignored_cols.i, align 8
-  %cmp.i.i71 = icmp eq ptr %36, null
-  br i1 %cmp.i.i71, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit
+  %38 = load ptr, ptr %m_ignored_cols.i, align 8
+  %cmp.i.i72 = icmp eq ptr %38, null
+  br i1 %cmp.i.i72, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit
 
 land.lhs.true63.thread:                           ; preds = %cond.true29.thread, %cond.end37
-  %37 = phi ptr [ %delta., %cond.end37 ], [ null, %cond.true29.thread ]
-  %38 = phi ptr [ %8, %cond.end37 ], [ %9, %cond.true29.thread ]
-  %m_ignored_cols.i206 = getelementptr inbounds nuw i8, ptr %tgt, i64 56
-  %39 = load ptr, ptr %m_ignored_cols.i206, align 8
-  %cmp.i.i71207 = icmp eq ptr %39, null
-  br i1 %cmp.i.i71207, label %lor.lhs.false69, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit
+  %39 = phi ptr [ %10, %cond.end37 ], [ %11, %cond.true29.thread ]
+  %m_ignored_cols.i197 = getelementptr inbounds nuw i8, ptr %tgt, i64 56
+  %40 = load ptr, ptr %m_ignored_cols.i197, align 8
+  %cmp.i.i72198 = icmp eq ptr %40, null
+  br i1 %cmp.i.i72198, label %if.end75, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit
 
 _ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread: ; preds = %land.lhs.true63
-  br i1 %cmp.i3894104114120138, label %land.lhs.true67, label %lor.lhs.false69
+  br i1 %cmp.i3995101111121, label %land.lhs.true67, label %lor.lhs.false69
 
 _ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit: ; preds = %land.lhs.true63.thread, %land.lhs.true63
-  %40 = phi ptr [ %39, %land.lhs.true63.thread ], [ %36, %land.lhs.true63 ]
-  %cond44165173214 = phi ptr [ %delta, %land.lhs.true63.thread ], [ %cond44, %land.lhs.true63 ]
-  %cond-lvalue128130163175212 = phi ptr [ %38, %land.lhs.true63.thread ], [ %cond-lvalue128130, %land.lhs.true63 ]
-  %cmp.i3894104114120138160177210 = phi i1 [ false, %land.lhs.true63.thread ], [ %cmp.i3894104114120138, %land.lhs.true63 ]
-  %41 = phi ptr [ %37, %land.lhs.true63.thread ], [ %14, %land.lhs.true63 ]
-  %cond-lvalue38142159179208 = phi ptr [ %src, %land.lhs.true63.thread ], [ %cond-lvalue38142, %land.lhs.true63 ]
-  %arrayidx.i.i72 = getelementptr inbounds i8, ptr %40, i64 -4
-  %42 = load i32, ptr %arrayidx.i.i72, align 4
-  %cmp3.i.i = icmp eq i32 %42, 0
+  %41 = phi ptr [ %40, %land.lhs.true63.thread ], [ %38, %land.lhs.true63 ]
+  %cond44149157205 = phi ptr [ %delta, %land.lhs.true63.thread ], [ %cond44, %land.lhs.true63 ]
+  %cond-lvalue115117147159203 = phi ptr [ %39, %land.lhs.true63.thread ], [ %cond-lvalue115117, %land.lhs.true63 ]
+  %cmp.i3995101111121145161201 = phi i1 [ false, %land.lhs.true63.thread ], [ %cmp.i3995101111121, %land.lhs.true63 ]
+  %42 = phi i1 [ false, %land.lhs.true63.thread ], [ %17, %land.lhs.true63 ]
+  %cond-lvalue38127143163199 = phi ptr [ %src, %land.lhs.true63.thread ], [ %cond-lvalue38127, %land.lhs.true63 ]
+  %arrayidx.i.i73 = getelementptr inbounds i8, ptr %41, i64 -4
+  %43 = load i32, ptr %arrayidx.i.i73, align 4
+  %cmp3.i.i = icmp eq i32 %43, 0
   br i1 %cmp3.i.i, label %lor.lhs.false65, label %return
 
 lor.lhs.false65:                                  ; preds = %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit, %if.else
-  %cond-lvalue38142159178 = phi ptr [ %cond-lvalue38142159179208, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond-lvalue38142, %if.else ]
-  %43 = phi ptr [ %41, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %14, %if.else ]
-  %cmp.i3894104114120138160176 = phi i1 [ %cmp.i3894104114120138160177210, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cmp.i3894104114120138, %if.else ]
-  %cond-lvalue128130163174 = phi ptr [ %cond-lvalue128130163175212, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond-lvalue128130, %if.else ]
-  %cond44165172 = phi ptr [ %cond44165173214, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond44, %if.else ]
-  br i1 %cmp.i3894104114120138160176, label %land.lhs.true67, label %lor.lhs.false69
+  %cond-lvalue38127143162 = phi ptr [ %cond-lvalue38127143163199, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond-lvalue38127, %if.else ]
+  %44 = phi i1 [ %42, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %17, %if.else ]
+  %cmp.i3995101111121145160 = phi i1 [ %cmp.i3995101111121145161201, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cmp.i3995101111121, %if.else ]
+  %cond-lvalue115117147158 = phi ptr [ %cond-lvalue115117147159203, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond-lvalue115117, %if.else ]
+  %cond44149156 = phi ptr [ %cond44149157205, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ %cond44, %if.else ]
+  br i1 %cmp.i3995101111121145160, label %land.lhs.true67, label %lor.lhs.false69
 
 land.lhs.true67:                                  ; preds = %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread, %lor.lhs.false65
-  %cond44165172189 = phi ptr [ %cond44, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond44165172, %lor.lhs.false65 ]
-  %cond-lvalue128130163174188 = phi ptr [ %cond-lvalue128130, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue128130163174, %lor.lhs.false65 ]
-  %44 = phi ptr [ %14, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %43, %lor.lhs.false65 ]
-  %cond-lvalue38142159178187 = phi ptr [ %cond-lvalue38142, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue38142159178, %lor.lhs.false65 ]
-  %m_ignored_cols.i73 = getelementptr inbounds nuw i8, ptr %src, i64 56
-  %45 = load ptr, ptr %m_ignored_cols.i73, align 8
-  %cmp.i.i74 = icmp eq ptr %45, null
-  br i1 %cmp.i.i74, label %lor.lhs.false69, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78
+  %cond44149156173 = phi ptr [ %cond44, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond44149156, %lor.lhs.false65 ]
+  %cond-lvalue115117147158172 = phi ptr [ %cond-lvalue115117, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue115117147158, %lor.lhs.false65 ]
+  %45 = phi i1 [ %17, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %44, %lor.lhs.false65 ]
+  %cond-lvalue38127143162171 = phi ptr [ %cond-lvalue38127, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue38127143162, %lor.lhs.false65 ]
+  %m_ignored_cols.i74 = getelementptr inbounds nuw i8, ptr %src, i64 56
+  %46 = load ptr, ptr %m_ignored_cols.i74, align 8
+  %cmp.i.i75 = icmp eq ptr %46, null
+  br i1 %cmp.i.i75, label %lor.lhs.false69, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79
 
-_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78: ; preds = %land.lhs.true67
-  %arrayidx.i.i76 = getelementptr inbounds i8, ptr %45, i64 -4
-  %46 = load i32, ptr %arrayidx.i.i76, align 4
-  %cmp3.i.i77 = icmp eq i32 %46, 0
-  br i1 %cmp3.i.i77, label %lor.lhs.false69, label %return
+_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79: ; preds = %land.lhs.true67
+  %arrayidx.i.i77 = getelementptr inbounds i8, ptr %46, i64 -4
+  %47 = load i32, ptr %arrayidx.i.i77, align 4
+  %cmp3.i.i78 = icmp eq i32 %47, 0
+  br i1 %cmp3.i.i78, label %lor.lhs.false69, label %return
 
-lor.lhs.false69:                                  ; preds = %land.lhs.true63.thread, %cond.end37.thread, %land.lhs.true67, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78, %lor.lhs.false65
-  %cond44165172186 = phi ptr [ %cond44165172189, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78 ], [ %cond44165172, %lor.lhs.false65 ], [ %cond44, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond44165172189, %land.lhs.true67 ], [ %delta, %cond.end37.thread ], [ %delta, %land.lhs.true63.thread ]
-  %cond-lvalue128130163174185 = phi ptr [ %cond-lvalue128130163174188, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78 ], [ %cond-lvalue128130163174, %lor.lhs.false65 ], [ %cond-lvalue128130, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue128130163174188, %land.lhs.true67 ], [ %tgt, %cond.end37.thread ], [ %38, %land.lhs.true63.thread ]
-  %47 = phi ptr [ %44, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78 ], [ %43, %lor.lhs.false65 ], [ %14, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %44, %land.lhs.true67 ], [ %delta., %cond.end37.thread ], [ %37, %land.lhs.true63.thread ]
-  %cond-lvalue38142159178184 = phi ptr [ %cond-lvalue38142159178187, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78 ], [ %cond-lvalue38142159178, %lor.lhs.false65 ], [ %cond-lvalue38142, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue38142159178187, %land.lhs.true67 ], [ %src, %cond.end37.thread ], [ %src, %land.lhs.true63.thread ]
-  %tobool70.not = icmp eq ptr %47, null
-  br i1 %tobool70.not, label %if.end75, label %land.lhs.true71
+lor.lhs.false69:                                  ; preds = %land.lhs.true67, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79, %lor.lhs.false65
+  %cond44149156170 = phi ptr [ %cond44149156173, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79 ], [ %cond44149156, %lor.lhs.false65 ], [ %cond44, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond44149156173, %land.lhs.true67 ]
+  %cond-lvalue115117147158169 = phi ptr [ %cond-lvalue115117147158172, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79 ], [ %cond-lvalue115117147158, %lor.lhs.false65 ], [ %cond-lvalue115117, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue115117147158172, %land.lhs.true67 ]
+  %48 = phi i1 [ %45, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79 ], [ %44, %lor.lhs.false65 ], [ %17, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %45, %land.lhs.true67 ]
+  %cond-lvalue38127143162168 = phi ptr [ %cond-lvalue38127143162171, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79 ], [ %cond-lvalue38127143162, %lor.lhs.false65 ], [ %cond-lvalue38127, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit.thread ], [ %cond-lvalue38127143162171, %land.lhs.true67 ]
+  %tobool70.not31 = icmp ne ptr %delta, null
+  %tobool70.not.not = and i1 %tobool70.not31, %48
+  br i1 %tobool70.not.not, label %land.lhs.true71, label %if.end75
 
 land.lhs.true71:                                  ; preds = %lor.lhs.false69
-  %m_ignored_cols.i79 = getelementptr inbounds nuw i8, ptr %delta, i64 56
-  %48 = load ptr, ptr %m_ignored_cols.i79, align 8
-  %cmp.i.i80 = icmp eq ptr %48, null
-  br i1 %cmp.i.i80, label %if.end75, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84
+  %m_ignored_cols.i80 = getelementptr inbounds nuw i8, ptr %delta, i64 56
+  %49 = load ptr, ptr %m_ignored_cols.i80, align 8
+  %cmp.i.i81 = icmp eq ptr %49, null
+  br i1 %cmp.i.i81, label %if.end75, label %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85
 
-_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84: ; preds = %land.lhs.true71
-  %arrayidx.i.i82 = getelementptr inbounds i8, ptr %48, i64 -4
-  %49 = load i32, ptr %arrayidx.i.i82, align 4
-  %cmp3.i.i83 = icmp eq i32 %49, 0
-  br i1 %cmp3.i.i83, label %if.end75, label %return
+_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85: ; preds = %land.lhs.true71
+  %arrayidx.i.i83 = getelementptr inbounds i8, ptr %49, i64 -4
+  %50 = load i32, ptr %arrayidx.i.i83, align 4
+  %cmp3.i.i84 = icmp eq i32 %50, 0
+  br i1 %cmp3.i.i84, label %if.end75, label %return
 
-if.end75:                                         ; preds = %for.inc.i66, %cond.end32.thread, %land.lhs.true71, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57, %lor.lhs.false69, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84, %lor.lhs.false54, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70
-  %cond44164 = phi ptr [ %cond44165172186, %lor.lhs.false69 ], [ %cond44165172186, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84 ], [ %cond44, %lor.lhs.false54 ], [ %cond44, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70 ], [ %cond44, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57 ], [ %cond44165172186, %land.lhs.true71 ], [ null, %cond.end32.thread ], [ %cond44, %for.inc.i66 ]
-  %cond-lvalue128130162 = phi ptr [ %cond-lvalue128130163174185, %lor.lhs.false69 ], [ %cond-lvalue128130163174185, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84 ], [ %cond-lvalue128130, %lor.lhs.false54 ], [ %cond-lvalue128130, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70 ], [ %cond-lvalue128130, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57 ], [ %cond-lvalue128130163174185, %land.lhs.true71 ], [ %tgt, %cond.end32.thread ], [ %cond-lvalue128130, %for.inc.i66 ]
-  %cond-lvalue38142158 = phi ptr [ %cond-lvalue38142159178184, %lor.lhs.false69 ], [ %cond-lvalue38142159178184, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84 ], [ %cond-lvalue38142, %lor.lhs.false54 ], [ %cond-lvalue38142, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70 ], [ %cond-lvalue38142, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i57 ], [ %cond-lvalue38142159178184, %land.lhs.true71 ], [ %src, %cond.end32.thread ], [ %cond-lvalue38142, %for.inc.i66 ]
+if.end75:                                         ; preds = %for.inc.i67, %cond.end32.thread, %land.lhs.true63.thread, %cond.end37.thread, %land.lhs.true71, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58, %lor.lhs.false69, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85, %lor.lhs.false54, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71
+  %cond44148 = phi ptr [ %cond44149156170, %lor.lhs.false69 ], [ %cond44149156170, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85 ], [ %cond44, %lor.lhs.false54 ], [ %cond44, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71 ], [ %cond44, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58 ], [ %cond44149156170, %land.lhs.true71 ], [ %delta, %cond.end37.thread ], [ %delta, %land.lhs.true63.thread ], [ null, %cond.end32.thread ], [ %cond44, %for.inc.i67 ]
+  %cond-lvalue115117146 = phi ptr [ %cond-lvalue115117147158169, %lor.lhs.false69 ], [ %cond-lvalue115117147158169, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85 ], [ %cond-lvalue115117, %lor.lhs.false54 ], [ %cond-lvalue115117, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71 ], [ %cond-lvalue115117, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58 ], [ %cond-lvalue115117147158169, %land.lhs.true71 ], [ %tgt, %cond.end37.thread ], [ %39, %land.lhs.true63.thread ], [ %tgt, %cond.end32.thread ], [ %cond-lvalue115117, %for.inc.i67 ]
+  %cond-lvalue38127142 = phi ptr [ %cond-lvalue38127143162168, %lor.lhs.false69 ], [ %cond-lvalue38127143162168, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85 ], [ %cond-lvalue38127, %lor.lhs.false54 ], [ %cond-lvalue38127, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71 ], [ %cond-lvalue38127, %_ZNK6vectorIbLb0EjE4sizeEv.exit17.i58 ], [ %cond-lvalue38127143162168, %land.lhs.true71 ], [ %src, %cond.end37.thread ], [ %src, %land.lhs.true63.thread ], [ %src, %cond.end32.thread ], [ %cond-lvalue38127, %for.inc.i67 ]
   %m_manager.i = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %50 = load ptr, ptr %m_manager.i, align 8
-  %call77 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %50, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue128130162, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue38142158, ptr noundef %cond44164)
+  %51 = load ptr, ptr %m_manager.i, align 8
+  %call77 = tail call noundef ptr @_ZN7datalog16relation_manager11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull align 8 dereferenceable(200) %51, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue115117146, ptr noundef nonnull align 8 dereferenceable(28) %cond-lvalue38127142, ptr noundef %cond44148)
   %tobool78.not = icmp eq ptr %call77, null
   br i1 %tobool78.not, label %return, label %if.end80
 
@@ -5421,8 +5415,8 @@ if.end80:                                         ; preds = %if.end75
   store ptr %call77, ptr %m_union_fun.i, align 8
   br label %return
 
-return:                                           ; preds = %for.body.i, %for.body.i61, %if.end75, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70, %land.lhs.true5, %if.end80
-  %retval.0 = phi ptr [ %call81, %if.end80 ], [ null, %land.lhs.true5 ], [ null, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit70 ], [ null, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit84 ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit78 ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ null, %if.end75 ], [ null, %for.body.i61 ], [ null, %for.body.i ]
+return:                                           ; preds = %for.body.i, %for.body.i62, %if.end75, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71, %land.lhs.true5, %if.end80
+  %retval.0 = phi ptr [ %call81, %if.end80 ], [ null, %land.lhs.true5 ], [ null, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit71 ], [ null, %_ZN7datalog13vectors_equalI7svectorIbjES2_EEbRKT_RKT0_.exit ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit85 ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit79 ], [ null, %_ZNK7datalog14sieve_relation17no_sieved_columnsEv.exit ], [ null, %if.end75 ], [ null, %for.body.i62 ], [ null, %for.body.i ]
   ret ptr %retval.0
 }
 

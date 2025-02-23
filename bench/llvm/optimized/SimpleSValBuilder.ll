@@ -3150,8 +3150,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load i8, ptr %245, align 16
   %247 = icmp eq i8 %246, 13
-  %.not.not7.i.i = icmp ne ptr %244, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %247
+  %.not7.i.i = icmp ne ptr %244, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %247
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %237
@@ -3653,8 +3653,8 @@ _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24: ; preds = %42, %_ZN5cl
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i8, ptr %60, align 16
   %62 = icmp eq i8 %61, 13
-  %.not.not8.i.i = icmp ne ptr %59, null
-  %.not.not.not.i.i = and i1 %.not.not8.i.i, %62
+  %.not8.i.i = icmp ne ptr %59, null
+  %.not.not.not.i.i = and i1 %.not8.i.i, %62
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type16isFixedPointTypeEv.exit.i, label %_ZNK5clang4Type24isUnsignedFixedPointTypeEv.exit.thread
 
 _ZNK5clang4Type16isFixedPointTypeEv.exit.i:       ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread24

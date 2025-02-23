@@ -50080,7 +50080,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   %.08632136 = phi i64 [ %40, %.lr.ph ], [ 0, %.preheader ]
   %37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %36, i64 %.08632136
   %38 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %37) #36
-  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.30, ptr noundef %38) #36
+  %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.236, ptr noundef nonnull @.str.30, ptr noundef %38) #36
   %40 = add nuw i64 %.08632136, 1
   %41 = load ptr, ptr %33, align 8
   %42 = load ptr, ptr %32, align 8
@@ -50104,48 +50104,48 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   br i1 %.not896, label %76, label %51
 
 51:                                               ; preds = %._crit_edge
-  %52 = tail call i64 @fwrite(ptr nonnull @.str.237, i64 17, i64 1, ptr %25)
-  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.301) #36
-  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.301) #36
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.301) #36
-  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.301) #36
-  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.301) #36
-  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.301) #36
-  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.244, ptr noundef nonnull @.str.301) #36
-  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.301) #36
-  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.301) #36
-  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.301) #36
-  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.301) #36
-  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.301) #36
-  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.301) #36
-  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.301) #36
-  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.301) #36
-  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.301) #36
-  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.301) #36
-  %70 = tail call i64 @fwrite(ptr nonnull @.str.255, i64 23, i64 1, ptr %25)
-  %71 = tail call i64 @fwrite(ptr nonnull @.str.256, i64 23, i64 1, ptr %25)
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.301) #36
-  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.301) #36
-  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.301) #36
-  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.301) #36
+  %52 = tail call i64 @fwrite(ptr nonnull @.str.237, i64 17, i64 1, ptr nonnull %25)
+  %53 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.238, ptr noundef nonnull @.str.301) #36
+  %54 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.301) #36
+  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.301) #36
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.241, ptr noundef nonnull @.str.301) #36
+  %57 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.242, ptr noundef nonnull @.str.301) #36
+  %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.243, ptr noundef nonnull @.str.301) #36
+  %59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.244, ptr noundef nonnull @.str.301) #36
+  %60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.301) #36
+  %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.246, ptr noundef nonnull @.str.301) #36
+  %62 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.301) #36
+  %63 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.301) #36
+  %64 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.249, ptr noundef nonnull @.str.301) #36
+  %65 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.250, ptr noundef nonnull @.str.301) #36
+  %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.301) #36
+  %67 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.252, ptr noundef nonnull @.str.301) #36
+  %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.301) #36
+  %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.254, ptr noundef nonnull @.str.301) #36
+  %70 = tail call i64 @fwrite(ptr nonnull @.str.255, i64 23, i64 1, ptr nonnull %25)
+  %71 = tail call i64 @fwrite(ptr nonnull @.str.256, i64 23, i64 1, ptr nonnull %25)
+  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.257, ptr noundef nonnull @.str.301) #36
+  %73 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.258, ptr noundef nonnull @.str.301) #36
+  %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.301) #36
+  %75 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.301) #36
   br label %76
 
 76:                                               ; preds = %._crit_edge, %51
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load i32, ptr %77, align 8
-  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.261, i32 noundef %78) #36
-  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.301) #36
-  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.301) #36
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.301) #36
+  %79 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.261, i32 noundef %78) #36
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.262, ptr noundef nonnull @.str.301) #36
+  %81 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.263, ptr noundef nonnull @.str.301) #36
+  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.264, ptr noundef nonnull @.str.301) #36
   %83 = load i32, ptr %29, align 4
   %84 = and i32 %83, 16
   %.not897 = icmp eq i32 %84, 0
   br i1 %.not897, label %89, label %85
 
 85:                                               ; preds = %76
-  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.301) #36
-  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.301) #36
-  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.301) #36
+  %86 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.265, ptr noundef nonnull @.str.301) #36
+  %87 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.266, ptr noundef nonnull @.str.301) #36
+  %88 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.267, ptr noundef nonnull @.str.301) #36
   %.pre2226 = load i32, ptr %29, align 4
   br label %89
 
@@ -50156,7 +50156,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   br i1 %.not898, label %94, label %92
 
 92:                                               ; preds = %89
-  %93 = tail call i64 @fwrite(ptr nonnull @.str.268, i64 19, i64 1, ptr %25)
+  %93 = tail call i64 @fwrite(ptr nonnull @.str.268, i64 19, i64 1, ptr nonnull %25)
   %.pre2227 = load i32, ptr %29, align 4
   br label %94
 
@@ -50167,7 +50167,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   br i1 %.not899, label %99, label %97
 
 97:                                               ; preds = %94
-  %98 = tail call i64 @fwrite(ptr nonnull @.str.269, i64 81, i64 1, ptr %25)
+  %98 = tail call i64 @fwrite(ptr nonnull @.str.269, i64 81, i64 1, ptr nonnull %25)
   %.pre2228 = load i32, ptr %29, align 4
   br label %99
 
@@ -50178,7 +50178,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   br i1 %.not900, label %104, label %102
 
 102:                                              ; preds = %99
-  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.301) #36
+  %103 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.270, ptr noundef nonnull @.str.301) #36
   %.pre2229 = load i32, ptr %29, align 4
   br label %104
 
@@ -50189,7 +50189,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ExporterPLYI4MeshE4SaveERKS3_PK
   br i1 %.not902, label %109, label %107
 
 107:                                              ; preds = %104
-  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %25, ptr noundef nonnull @.str.272, ptr noundef nonnull @.str.301, ptr noundef nonnull @.str.301) #36
+  %108 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %25, ptr noundef nonnull @.str.272, ptr noundef nonnull @.str.301, ptr noundef nonnull @.str.301) #36
   br label %109
 
 109:                                              ; preds = %107, %104

@@ -498,7 +498,7 @@ define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(n
   %37 = zext i32 %34 to i64
   %38 = shl nuw nsw i64 %37, 3
   %39 = getelementptr i8, ptr %12, i64 %38
-  %40 = add i32 %7, 1
+  %40 = add nuw i32 %7, 1
   %41 = sub i32 %40, %34
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3

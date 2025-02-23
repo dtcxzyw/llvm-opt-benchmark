@@ -1506,7 +1506,7 @@ BuildTls13Nonce.exit.i:                           ; preds = %.lr.ph38.i.i.i, %.l
   %138 = load ptr, ptr %131, align 8, !tbaa !78
   %139 = zext i16 %60 to i64
   %140 = getelementptr inbounds nuw i8, ptr %48, i64 %139
-  %141 = tail call i32 @wc_AesGcmEncrypt_ex(ptr noundef %136, ptr noundef nonnull %48, ptr noundef nonnull %48, i32 noundef %137, ptr noundef %138, i32 noundef 12, ptr noundef nonnull %140, i32 noundef %59, ptr noundef %1, i32 noundef 5) #11
+  %141 = tail call i32 @wc_AesGcmEncrypt_ex(ptr noundef %136, ptr noundef nonnull %48, ptr noundef nonnull %48, i32 noundef %137, ptr noundef %138, i32 noundef 12, ptr noundef nonnull %140, i32 noundef %59, ptr noundef nonnull %1, i32 noundef 5) #11
   br label %169
 
 142:                                              ; preds = %126

@@ -193,15 +193,15 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store double %94, ptr %95, align 8, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge.thread:                               ; preds = %.lr.ph
   %96 = add nuw i32 %89, 1
   %wide.trip.count458 = zext i32 %96 to i64
   br i1 %.not, label %.preheader, label %.lr.ph373
 
-.lr.ph373:                                        ; preds = %._crit_edge, %._crit_edge374
-  %indvars.iv445 = phi i64 [ %indvars.iv.next446, %._crit_edge374 ], [ 1, %._crit_edge ]
+.lr.ph373:                                        ; preds = %._crit_edge.thread, %._crit_edge374
+  %indvars.iv445 = phi i64 [ %indvars.iv.next446, %._crit_edge374 ], [ 1, %._crit_edge.thread ]
   %gep506 = getelementptr double, ptr %invariant.gep505, i64 %indvars.iv445
   %97 = load double, ptr %gep506, align 8, !tbaa !7
   %98 = fcmp oge double %97, 0.000000e+00
@@ -231,8 +231,8 @@ define void @dgerfs_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %exitcond449.not = icmp eq i64 %indvars.iv.next446, %wide.trip.count458
   br i1 %exitcond449.not, label %.lr.ph389.preheader, label %.lr.ph373, !llvm.loop !14
 
-.preheader:                                       ; preds = %._crit_edge, %._crit_edge382
-  %indvars.iv455 = phi i64 [ %indvars.iv.next456, %._crit_edge382 ], [ 1, %._crit_edge ]
+.preheader:                                       ; preds = %._crit_edge.thread, %._crit_edge382
+  %indvars.iv455 = phi i64 [ %indvars.iv.next456, %._crit_edge382 ], [ 1, %._crit_edge.thread ]
   %110 = mul nsw i64 %indvars.iv455, %77
   %invariant.gep507 = getelementptr double, ptr %24, i64 %110
   br label %111

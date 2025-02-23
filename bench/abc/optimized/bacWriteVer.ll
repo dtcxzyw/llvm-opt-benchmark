@@ -208,7 +208,7 @@ define internal fastcc void @Psr_ManWriteVerilogSignal(ptr noundef captures(none
   %.val.i23 = load ptr, ptr @Psr_CatSignals.V.2, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i32, ptr %.val.i23, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !10
-  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %0, ptr noundef %1, i32 noundef %34)
+  tail call fastcc void @Psr_ManWriteVerilogSignal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %34)
   %35 = icmp eq i64 %indvars.iv, %31
   %36 = select i1 %35, ptr @.str.1, ptr @.str.2
   %fputs.i = tail call i32 @fputs(ptr nonnull %36, ptr %0)

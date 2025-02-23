@@ -3759,7 +3759,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %1554 = getelementptr inbounds nuw i8, ptr %1531, i64 8
-  %.not.i.i.i.i119.i = icmp ult i32 %.val.i, 64
+  %.not.i.i.i.i119.i = icmp samesign ult i32 %.val.i, 64
   %.idx = shl nuw nsw i64 %.zext.i.i, 3
   %.not27.i.i.i.i120.i = icmp eq i32 %1541, 0
   %1555 = sub nuw nsw i32 64, %1541
@@ -3774,7 +3774,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit.i:             ; preds = %_ZSt6fill_nIPimiET_
   %1563 = lshr i64 %1562, 3
   %1564 = and i64 %1563, 34359738360
   %1565 = lshr i64 %1562, 6
-  %1566 = sitofp i32 %.val.i to double
+  %1566 = uitofp nneg i32 %.val.i to double
   br label %_ZN2cv3RNG7uniformEii.exit64.i.i
 
 _ZN2cv3RNG7uniformEii.exit64.i.i:                 ; preds = %_ZNSt6vectorIbSaIbEED2Ev.exit81.i.i, %._crit_edge.i.i
@@ -6513,9 +6513,9 @@ define internal fastcc noundef zeroext i1 @"_ZZZL9getPlanesRKN2cv11_InputArrayER
   %38 = fadd double %.010817, %37
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.08.016, i64 4
   %.not = icmp eq ptr %39, %.8.val
-  br i1 %.not, label %._crit_edge, label %26
+  br i1 %.not, label %.lr.ph31, label %26
 
-._crit_edge:                                      ; preds = %26
+.lr.ph31:                                         ; preds = %26
   %40 = uitofp nneg i32 %19 to double
   %41 = fdiv double %32, %40
   %42 = fdiv double %35, %40
@@ -6523,14 +6523,14 @@ define internal fastcc noundef zeroext i1 @"_ZZZL9getPlanesRKN2cv11_InputArrayER
   %44 = load ptr, ptr %.0.val, align 8
   br label %45
 
-45:                                               ; preds = %._crit_edge, %45
-  %.010929 = phi double [ 0.000000e+00, %._crit_edge ], [ %58, %45 ]
-  %.011028 = phi double [ 0.000000e+00, %._crit_edge ], [ %59, %45 ]
-  %.011127 = phi double [ 0.000000e+00, %._crit_edge ], [ %60, %45 ]
-  %.011226 = phi double [ 0.000000e+00, %._crit_edge ], [ %61, %45 ]
-  %.011325 = phi double [ 0.000000e+00, %._crit_edge ], [ %62, %45 ]
-  %.011424 = phi double [ 0.000000e+00, %._crit_edge ], [ %63, %45 ]
-  %.sroa.04.023 = phi ptr [ %.0.val1, %._crit_edge ], [ %64, %45 ]
+45:                                               ; preds = %.lr.ph31, %45
+  %.010929 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %58, %45 ]
+  %.011028 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %59, %45 ]
+  %.011127 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %60, %45 ]
+  %.011226 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %61, %45 ]
+  %.011325 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %62, %45 ]
+  %.011424 = phi double [ 0.000000e+00, %.lr.ph31 ], [ %63, %45 ]
+  %.sroa.04.023 = phi ptr [ %.0.val1, %.lr.ph31 ], [ %64, %45 ]
   %46 = load i32, ptr %.sroa.04.023, align 4
   %47 = mul nsw i32 %46, 3
   %48 = sext i32 %47 to i64

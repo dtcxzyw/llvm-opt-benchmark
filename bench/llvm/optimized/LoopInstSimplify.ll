@@ -305,7 +305,6 @@ _ZN4llvm16MemorySSAUpdaterD2Ev.exit:              ; preds = %_ZN4llvm23SmallVect
   call void @_ZN4llvm13LoopBlocksDFSC2EPNS_4LoopE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(144) %2)
   call void @_ZN4llvm13LoopBlocksDFS7performEPKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull align 8 dereferenceable(144) %70) #8
   %99 = load ptr, ptr %16, align 8
-  %spec.select25 = select i1 %76, ptr %99, ptr null
   %100 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.4239.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -321,8 +320,8 @@ _ZN4llvm16MemorySSAUpdaterD2Ev.exit:              ; preds = %_ZN4llvm23SmallVect
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 76
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 68
-  %108 = getelementptr inbounds nuw i8, ptr %spec.select25, i64 32
-  %109 = getelementptr inbounds nuw i8, ptr %spec.select25, i64 48
+  %108 = getelementptr inbounds nuw i8, ptr %99, i64 32
+  %109 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %111 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %112 = ptrtoint ptr %14 to i64

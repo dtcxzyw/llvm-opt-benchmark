@@ -749,7 +749,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i:      ; preds = %_ZN6bufferIjLb0ELj1
   %8 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i = add i32 %8, 1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %i.013.i, %lnum
   br i1 %exitcond.not.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit, label %for.body.i, !llvm.loop !18
 
@@ -833,7 +833,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i85:    ; preds = %_ZN6bufferIjLb0ELj1
   %16 = load i32, ptr %m_pos.i.i51, align 8
   %inc.i.i88 = add i32 %16, 1
   store i32 %inc.i.i88, ptr %m_pos.i.i51, align 8
-  %inc.i89 = add nuw i32 %i.013.i60, 1
+  %inc.i89 = add i32 %i.013.i60, 1
   %exitcond.not.i90 = icmp eq i32 %inc.i89, %lden
   br i1 %exitcond.not.i90, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit93, label %for.body.i59, !llvm.loop !18
 
@@ -1118,7 +1118,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i:      ; preds = %_ZN6bufferIjLb0ELj1
   %9 = load i32, ptr %m_pos.i.i, align 8
   %inc.i.i = add i32 %9, 1
   store i32 %inc.i.i, ptr %m_pos.i.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %i.013.i, %1
   br i1 %exitcond.not.i, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit, label %for.body.i, !llvm.loop !18
 
@@ -1352,7 +1352,7 @@ _ZN6bufferIjLb0ELj16EE9push_backERKj.exit.i112:   ; preds = %_ZN6bufferIjLb0ELj1
   %35 = load i32, ptr %m_pos.i.i78, align 8
   %inc.i.i115 = add i32 %35, 1
   store i32 %inc.i.i115, ptr %m_pos.i.i78, align 8
-  %inc.i116 = add nuw i32 %i.013.i87, 1
+  %inc.i116 = add i32 %i.013.i87, 1
   %exitcond.not.i117 = icmp eq i32 %inc.i116, %add50
   br i1 %exitcond.not.i117, label %_ZN6bufferIjLb0ELj16EE6resizeEjRKj.exit120, label %for.body.i86, !llvm.loop !18
 

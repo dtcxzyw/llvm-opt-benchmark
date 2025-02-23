@@ -1800,7 +1800,7 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %23 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %19)
   %24 = load ptr, ptr @dtls_handle, align 8
   %25 = tail call i32 @call_dissector(ptr noundef %24, ptr noundef %23, ptr noundef %1, ptr noundef %2)
-  br label %.thread76
+  br label %83
 
 26:                                               ; preds = %4
   %27 = call fastcc i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %18, i32 noundef %19, ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
@@ -1809,17 +1809,17 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %30 = load i8, ptr %29, align 8, !range !6, !noundef !7
   %31 = load i8, ptr @global_capwap_reassemble, align 1, !range !6, !noundef !7
   %32 = trunc nuw i8 %31 to i1
-  br i1 %32, label %33, label %66
+  br i1 %32, label %33, label %67
 
 33:                                               ; preds = %26
   %34 = load i8, ptr %8, align 1, !range !6, !noundef !7
   %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %66
+  br i1 %35, label %36, label %67
 
 36:                                               ; preds = %33
   %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %28)
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %.thread76
+  br i1 %38, label %39, label %83
 
 39:                                               ; preds = %36
   store i8 1, ptr %29, align 8
@@ -1830,80 +1830,80 @@ define internal i32 @dissect_capwap_control(ptr noundef %0, ptr noundef %1, ptr 
   %44 = tail call ptr @fragment_add_check(ptr noundef nonnull @capwap_reassembly_table, ptr noundef %0, i32 noundef %28, ptr noundef %1, i32 noundef %40, ptr noundef null, i32 noundef %41, i32 noundef %37, i1 noundef zeroext %43)
   %45 = tail call ptr @process_reassembled_data(ptr noundef %0, i32 noundef %28, ptr noundef %1, ptr noundef nonnull @.str.1083, ptr noundef %44, ptr noundef nonnull @capwap_frag_items, ptr noundef null, ptr noundef %2)
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread, label %50
+  br i1 %46, label %47, label %51
 
-.thread:                                          ; preds = %39
-  %47 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
-  %48 = tail call i32 @call_data_dissector(ptr noundef %47, ptr noundef %1, ptr noundef %2)
-  %49 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %49, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %40, i32 noundef %41)
-  br label %82
+47:                                               ; preds = %39
+  %48 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %28)
+  %49 = tail call i32 @call_data_dissector(ptr noundef %48, ptr noundef %1, ptr noundef %2)
+  %50 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %50, i32 noundef 25, ptr noundef nonnull @.str.1084, i32 noundef %40, i32 noundef %41)
+  br label %.thread
 
-50:                                               ; preds = %39
+51:                                               ; preds = %39
   tail call fastcc void @dissect_capwap_control_header(ptr noundef nonnull %45, ptr noundef %18, i32 noundef 0, ptr noundef %1)
-  %51 = load i32, ptr @hf_capwap_message_element, align 4
-  %52 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
-  %53 = add i32 %52, -8
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %51, ptr noundef nonnull %45, i32 noundef 8, i32 noundef %53, i32 noundef 0)
-  %55 = load i32, ptr @ett_capwap_message_element, align 4
-  %56 = tail call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %55)
-  %57 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
-  %58 = icmp ugt i32 %57, 8
-  br i1 %58, label %.lr.ph.i, label %.loopexit
+  %52 = load i32, ptr @hf_capwap_message_element, align 4
+  %53 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
+  %54 = add i32 %53, -8
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %52, ptr noundef nonnull %45, i32 noundef 8, i32 noundef %54, i32 noundef 0)
+  %56 = load i32, ptr @ett_capwap_message_element, align 4
+  %57 = tail call ptr @proto_item_add_subtree(ptr noundef %55, i32 noundef %56)
+  %58 = tail call i32 @tvb_reported_length(ptr noundef nonnull %45)
+  %59 = icmp ugt i32 %58, 8
+  br i1 %59, label %.lr.ph.i, label %dissect_capwap_message_element.exit
 
-.lr.ph.i:                                         ; preds = %50, %.lr.ph.i
-  %.017.i = phi i32 [ %61, %.lr.ph.i ], [ 0, %50 ]
-  %59 = add i32 %.017.i, 8
-  %60 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %45, ptr noundef %56, i32 noundef %59, ptr noundef %1)
-  %61 = add i32 %60, %.017.i
-  %62 = add i32 %61, 8
-  %63 = icmp ult i32 %62, %57
-  br i1 %63, label %.lr.ph.i, label %.loopexit.loopexit, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %51, %.lr.ph.i
+  %.017.i = phi i32 [ %62, %.lr.ph.i ], [ 0, %51 ]
+  %60 = add i32 %.017.i, 8
+  %61 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef nonnull %45, ptr noundef %57, i32 noundef %60, ptr noundef %1)
+  %62 = add i32 %61, %.017.i
+  %63 = add i32 %62, 8
+  %64 = icmp ult i32 %63, %58
+  br i1 %64, label %.lr.ph.i, label %dissect_capwap_message_element.exit.loopexit, !llvm.loop !8
 
-.loopexit.loopexit:                               ; preds = %.lr.ph.i
-  %64 = add i32 %61, 8
-  br label %.loopexit
+dissect_capwap_message_element.exit.loopexit:     ; preds = %.lr.ph.i
+  %65 = add nuw i32 %62, 8
+  br label %dissect_capwap_message_element.exit
 
-.loopexit:                                        ; preds = %50, %.loopexit.loopexit
-  %.0.lcssa.i = phi i32 [ %64, %.loopexit.loopexit ], [ 8, %50 ]
-  %65 = load ptr, ptr %12, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %40)
-  br label %82
+dissect_capwap_message_element.exit:              ; preds = %51, %dissect_capwap_message_element.exit.loopexit
+  %.0.lcssa.i = phi i32 [ %65, %dissect_capwap_message_element.exit.loopexit ], [ 8, %51 ]
+  %66 = load ptr, ptr %12, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %66, i32 noundef 25, ptr noundef nonnull @.str.1085, i32 noundef %40)
+  br label %.thread
 
-66:                                               ; preds = %33, %26
+67:                                               ; preds = %33, %26
   tail call fastcc void @dissect_capwap_control_header(ptr noundef %0, ptr noundef %18, i32 noundef %28, ptr noundef %1)
-  %67 = add nuw nsw i32 %28, 8
-  %68 = load i32, ptr @hf_capwap_message_element, align 4
-  %69 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %70 = sub i32 %69, %67
-  %71 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %68, ptr noundef %0, i32 noundef range(i32 8, 1032) %67, i32 noundef %70, i32 noundef 0)
-  %72 = load i32, ptr @ett_capwap_message_element, align 4
-  %73 = tail call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %72)
-  %74 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %75 = icmp ult i32 %67, %74
-  br i1 %75, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73
+  %68 = add nuw nsw i32 %28, 8
+  %69 = load i32, ptr @hf_capwap_message_element, align 4
+  %70 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %71 = sub i32 %70, %68
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %69, ptr noundef %0, i32 noundef range(i32 8, 1032) %68, i32 noundef %71, i32 noundef 0)
+  %73 = load i32, ptr @ett_capwap_message_element, align 4
+  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73)
+  %75 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %76 = icmp ult i32 %68, %75
+  br i1 %76, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73
 
-.lr.ph.i71:                                       ; preds = %66, %.lr.ph.i71
-  %.017.i72 = phi i32 [ %78, %.lr.ph.i71 ], [ 0, %66 ]
-  %76 = add i32 %.017.i72, %67
-  %77 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %73, i32 noundef %76, ptr noundef %1)
-  %78 = add i32 %77, %.017.i72
-  %79 = add i32 %78, %67
-  %80 = icmp ult i32 %79, %74
-  br i1 %80, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73, !llvm.loop !8
+.lr.ph.i71:                                       ; preds = %67, %.lr.ph.i71
+  %.017.i72 = phi i32 [ %79, %.lr.ph.i71 ], [ 0, %67 ]
+  %77 = add i32 %.017.i72, %68
+  %78 = tail call fastcc i32 @dissect_capwap_message_element_type(ptr noundef %0, ptr noundef %74, i32 noundef %77, ptr noundef %1)
+  %79 = add i32 %78, %.017.i72
+  %80 = add i32 %79, %68
+  %81 = icmp ult i32 %80, %75
+  br i1 %81, label %.lr.ph.i71, label %dissect_capwap_message_element.exit73, !llvm.loop !8
 
-dissect_capwap_message_element.exit73:            ; preds = %.lr.ph.i71, %66
-  %.0.lcssa.i70 = phi i32 [ 0, %66 ], [ %78, %.lr.ph.i71 ]
-  %81 = add i32 %.0.lcssa.i70, %67
-  br label %82
+dissect_capwap_message_element.exit73:            ; preds = %.lr.ph.i71, %67
+  %.0.lcssa.i70 = phi i32 [ 0, %67 ], [ %79, %.lr.ph.i71 ]
+  %82 = add i32 %.0.lcssa.i70, %68
+  br label %.thread
 
-82:                                               ; preds = %.loopexit, %.thread, %dissect_capwap_message_element.exit73
-  %.2 = phi i32 [ %.0.lcssa.i, %.loopexit ], [ %81, %dissect_capwap_message_element.exit73 ], [ %28, %.thread ]
+.thread:                                          ; preds = %dissect_capwap_message_element.exit, %47, %dissect_capwap_message_element.exit73
+  %.2 = phi i32 [ %82, %dissect_capwap_message_element.exit73 ], [ %.0.lcssa.i, %dissect_capwap_message_element.exit ], [ %28, %47 ]
   store i8 %30, ptr %29, align 8
-  br label %.thread76
+  br label %83
 
-.thread76:                                        ; preds = %36, %82, %22
-  %.0 = phi i32 [ %19, %22 ], [ %.2, %82 ], [ %28, %36 ]
+83:                                               ; preds = %36, %.thread, %22
+  %.0 = phi i32 [ %19, %22 ], [ %.2, %.thread ], [ %28, %36 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #3
@@ -2484,7 +2484,7 @@ define internal fastcc range(i32 4, 65540) i32 @dissect_capwap_message_element_t
   %20 = load i32, ptr @hf_capwap_msg_element_value, align 4
   %21 = add i32 %2, 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %20, ptr noundef %0, i32 noundef %21, i32 noundef %9, i32 noundef 0)
-  switch i16 %5, label %910 [
+  switch i16 %5, label %908 [
     i16 1, label %23
     i16 2, label %83
     i16 3, label %96
@@ -2521,25 +2521,25 @@ define internal fastcc range(i32 4, 65540) i32 @dissect_capwap_message_element_t
     i16 53, label %489
     i16 1024, label %495
     i16 1025, label %546
-    i16 1026, label %573
-    i16 1027, label %585
-    i16 1028, label %594
-    i16 1029, label %612
-    i16 1030, label %632
-    i16 1031, label %659
-    i16 1032, label %671
-    i16 1033, label %689
-    i16 1034, label %708
-    i16 1036, label %721
-    i16 1038, label %750
-    i16 1040, label %774
-    i16 1041, label %787
-    i16 1042, label %799
-    i16 1044, label %821
-    i16 1046, label %849
-    i16 1048, label %873
-    i16 1060, label %891
-    i16 1061, label %904
+    i16 1026, label %572
+    i16 1027, label %584
+    i16 1028, label %593
+    i16 1029, label %611
+    i16 1030, label %631
+    i16 1031, label %658
+    i16 1032, label %670
+    i16 1033, label %688
+    i16 1034, label %707
+    i16 1036, label %720
+    i16 1038, label %749
+    i16 1040, label %773
+    i16 1041, label %786
+    i16 1042, label %798
+    i16 1044, label %819
+    i16 1046, label %847
+    i16 1048, label %871
+    i16 1060, label %889
+    i16 1061, label %902
   ]
 
 23:                                               ; preds = %4
@@ -3455,515 +3455,513 @@ dissect_capwap_wtp_descriptor.exit:               ; preds = %.lr.ph1005, %switch
   br label %565
 
 565:                                              ; preds = %.lr.ph1000, %565
-  %566 = phi i32 [ 0, %.lr.ph1000 ], [ %571, %565 ]
+  %566 = phi i32 [ 0, %.lr.ph1000 ], [ %570, %565 ]
   %567 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_antenna_selection, align 4
   %568 = add i32 %564, %566
   %569 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %567, ptr noundef %0, i32 noundef %568, i32 noundef 1, i32 noundef 0)
   %570 = add nuw nsw i32 %566, 1
-  %571 = and i32 %570, 255
-  %572 = icmp samesign ult i32 %571, %563
-  br i1 %572, label %565, label %.loopexit, !llvm.loop !17
+  %571 = icmp samesign ult i32 %570, %563
+  br i1 %571, label %565, label %.loopexit, !llvm.loop !17
 
-573:                                              ; preds = %4
+572:                                              ; preds = %4
   %.not950 = icmp eq i16 %8, 8
-  br i1 %.not950, label %576, label %574
+  br i1 %.not950, label %575, label %573
 
-574:                                              ; preds = %573
-  %575 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1130, i32 noundef %9)
+573:                                              ; preds = %572
+  %574 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1130, i32 noundef %9)
   br label %.loopexit
 
-576:                                              ; preds = %573
-  %577 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_radio_id, align 4
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %577, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %579 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_wlan_id, align 4
-  %580 = add i32 %2, 5
-  %581 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %579, ptr noundef %0, i32 noundef %580, i32 noundef 1, i32 noundef 0)
-  %582 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_bssid, align 4
-  %583 = add i32 %2, 6
-  %584 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef 6, i32 noundef 0)
+575:                                              ; preds = %572
+  %576 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_radio_id, align 4
+  %577 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %576, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %578 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_wlan_id, align 4
+  %579 = add i32 %2, 5
+  %580 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %578, ptr noundef %0, i32 noundef %579, i32 noundef 1, i32 noundef 0)
+  %581 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_assigned_wtp_bssid_bssid, align 4
+  %582 = add i32 %2, 6
+  %583 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %581, ptr noundef %0, i32 noundef %582, i32 noundef 6, i32 noundef 0)
   br label %.loopexit
 
-585:                                              ; preds = %4
+584:                                              ; preds = %4
   %.not949 = icmp eq i16 %8, 2
-  br i1 %.not949, label %588, label %586
+  br i1 %.not949, label %587, label %585
 
-586:                                              ; preds = %585
-  %587 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1131, i32 noundef %9)
+585:                                              ; preds = %584
+  %586 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1131, i32 noundef %9)
   br label %.loopexit
 
-588:                                              ; preds = %585
-  %589 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_delete_wlan_radio_id, align 4
-  %590 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %589, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %591 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_delete_wlan_wlan_id, align 4
-  %592 = add i32 %2, 5
-  %593 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %591, ptr noundef %0, i32 noundef %592, i32 noundef 1, i32 noundef 0)
+587:                                              ; preds = %584
+  %588 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_delete_wlan_radio_id, align 4
+  %589 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %588, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %590 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_delete_wlan_wlan_id, align 4
+  %591 = add i32 %2, 5
+  %592 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %590, ptr noundef %0, i32 noundef %591, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-594:                                              ; preds = %4
+593:                                              ; preds = %4
   %.not948 = icmp eq i16 %8, 8
-  br i1 %.not948, label %597, label %595
+  br i1 %.not948, label %596, label %594
 
-595:                                              ; preds = %594
-  %596 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1132, i32 noundef %9)
+594:                                              ; preds = %593
+  %595 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1132, i32 noundef %9)
   br label %.loopexit
 
-597:                                              ; preds = %594
-  %598 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_radio_id, align 4
-  %599 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %598, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %600 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_reserved, align 4
-  %601 = add i32 %2, 5
-  %602 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %600, ptr noundef %0, i32 noundef %601, i32 noundef 1, i32 noundef 0)
-  %603 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_current_channel, align 4
-  %604 = add i32 %2, 6
-  %605 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %603, ptr noundef %0, i32 noundef %604, i32 noundef 1, i32 noundef 0)
-  %606 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_current_cca, align 4
-  %607 = add i32 %2, 7
-  %608 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %606, ptr noundef %0, i32 noundef %607, i32 noundef 1, i32 noundef 0)
-  %609 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_energy_detect_threshold, align 4
-  %610 = add i32 %2, 8
-  %611 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %609, ptr noundef %0, i32 noundef %610, i32 noundef 4, i32 noundef 0)
+596:                                              ; preds = %593
+  %597 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_radio_id, align 4
+  %598 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %597, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %599 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_reserved, align 4
+  %600 = add i32 %2, 5
+  %601 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %599, ptr noundef %0, i32 noundef %600, i32 noundef 1, i32 noundef 0)
+  %602 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_current_channel, align 4
+  %603 = add i32 %2, 6
+  %604 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %602, ptr noundef %0, i32 noundef %603, i32 noundef 1, i32 noundef 0)
+  %605 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_current_cca, align 4
+  %606 = add i32 %2, 7
+  %607 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %605, ptr noundef %0, i32 noundef %606, i32 noundef 1, i32 noundef 0)
+  %608 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_direct_sequence_control_energy_detect_threshold, align 4
+  %609 = add i32 %2, 8
+  %610 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %608, ptr noundef %0, i32 noundef %609, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
-612:                                              ; preds = %4
-  %613 = icmp ult i16 %8, 4
-  br i1 %613, label %614, label %616
+611:                                              ; preds = %4
+  %612 = icmp ult i16 %8, 4
+  br i1 %612, label %613, label %615
 
-614:                                              ; preds = %612
-  %615 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1133, i32 noundef %9)
+613:                                              ; preds = %611
+  %614 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1133, i32 noundef %9)
   br label %.loopexit
 
-616:                                              ; preds = %612
-  %617 = add i32 %21, %9
-  %618 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_radio_id, align 4
-  %619 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %618, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %620 = add i32 %2, 5
-  %621 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_wlan_id, align 4
-  %622 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %621, ptr noundef %0, i32 noundef %620, i32 noundef 1, i32 noundef 0)
-  %623 = add i32 %2, 6
-  %624 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_flags, align 4
-  %625 = load i32, ptr @ett_capwap_ieee80211_ie_flags, align 4
-  %626 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %623, i32 noundef %624, i32 noundef %625, ptr noundef nonnull @ieee80211_ie_flags, i32 noundef 0, i32 noundef 1)
-  %627 = add i32 %2, 7
-  %628 = icmp ult i32 %627, %617
-  br i1 %628, label %.lr.ph999, label %.loopexit
+615:                                              ; preds = %611
+  %616 = add i32 %21, %9
+  %617 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_radio_id, align 4
+  %618 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %617, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %619 = add i32 %2, 5
+  %620 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_wlan_id, align 4
+  %621 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 1, i32 noundef 0)
+  %622 = add i32 %2, 6
+  %623 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ie_flags, align 4
+  %624 = load i32, ptr @ett_capwap_ieee80211_ie_flags, align 4
+  %625 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %622, i32 noundef %623, i32 noundef %624, ptr noundef nonnull @ieee80211_ie_flags, i32 noundef 0, i32 noundef 1)
+  %626 = add i32 %2, 7
+  %627 = icmp ult i32 %626, %616
+  br i1 %627, label %.lr.ph999, label %.loopexit
 
-.lr.ph999:                                        ; preds = %616, %.lr.ph999
-  %.6998 = phi i32 [ %630, %.lr.ph999 ], [ %627, %616 ]
-  %629 = tail call i32 @add_tagged_field(ptr noundef %3, ptr noundef %15, ptr noundef %0, i32 noundef %.6998, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null)
-  %630 = add i32 %629, %.6998
-  %631 = icmp ult i32 %630, %617
-  br i1 %631, label %.lr.ph999, label %.loopexit, !llvm.loop !18
+.lr.ph999:                                        ; preds = %615, %.lr.ph999
+  %.6998 = phi i32 [ %629, %.lr.ph999 ], [ %626, %615 ]
+  %628 = tail call i32 @add_tagged_field(ptr noundef %3, ptr noundef %15, ptr noundef %0, i32 noundef %.6998, i32 noundef 0, ptr noundef null, i32 noundef 0, ptr noundef null)
+  %629 = add i32 %628, %.6998
+  %630 = icmp ult i32 %629, %616
+  br i1 %630, label %.lr.ph999, label %.loopexit, !llvm.loop !18
 
-632:                                              ; preds = %4
+631:                                              ; preds = %4
   %.not947 = icmp eq i16 %8, 16
-  br i1 %.not947, label %635, label %633
+  br i1 %.not947, label %634, label %632
 
-633:                                              ; preds = %632
-  %634 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1134, i32 noundef %9)
+632:                                              ; preds = %631
+  %633 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1134, i32 noundef %9)
   br label %.loopexit
 
-635:                                              ; preds = %632
-  %636 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_radio_id, align 4
-  %637 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %636, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %638 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_reserved, align 4
-  %639 = add i32 %2, 5
-  %640 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %638, ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef 0)
-  %641 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_rts_threshold, align 4
-  %642 = add i32 %2, 6
-  %643 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %641, ptr noundef %0, i32 noundef %642, i32 noundef 2, i32 noundef 0)
-  %644 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_short_retry, align 4
-  %645 = add i32 %2, 8
-  %646 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %644, ptr noundef %0, i32 noundef %645, i32 noundef 1, i32 noundef 0)
-  %647 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_long_retry, align 4
-  %648 = add i32 %2, 9
-  %649 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %647, ptr noundef %0, i32 noundef %648, i32 noundef 1, i32 noundef 0)
-  %650 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_fragmentation_threshold, align 4
-  %651 = add i32 %2, 10
-  %652 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %650, ptr noundef %0, i32 noundef %651, i32 noundef 2, i32 noundef 0)
-  %653 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_tx_msdu_lifetime, align 4
-  %654 = add i32 %2, 12
-  %655 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %653, ptr noundef %0, i32 noundef %654, i32 noundef 4, i32 noundef 0)
-  %656 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_rx_msdu_lifetime, align 4
-  %657 = add i32 %2, 16
-  %658 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %656, ptr noundef %0, i32 noundef %657, i32 noundef 4, i32 noundef 0)
+634:                                              ; preds = %631
+  %635 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_radio_id, align 4
+  %636 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %635, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %637 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_reserved, align 4
+  %638 = add i32 %2, 5
+  %639 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %637, ptr noundef %0, i32 noundef %638, i32 noundef 1, i32 noundef 0)
+  %640 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_rts_threshold, align 4
+  %641 = add i32 %2, 6
+  %642 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %640, ptr noundef %0, i32 noundef %641, i32 noundef 2, i32 noundef 0)
+  %643 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_short_retry, align 4
+  %644 = add i32 %2, 8
+  %645 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %643, ptr noundef %0, i32 noundef %644, i32 noundef 1, i32 noundef 0)
+  %646 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_long_retry, align 4
+  %647 = add i32 %2, 9
+  %648 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %646, ptr noundef %0, i32 noundef %647, i32 noundef 1, i32 noundef 0)
+  %649 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_fragmentation_threshold, align 4
+  %650 = add i32 %2, 10
+  %651 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 2, i32 noundef 0)
+  %652 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_tx_msdu_lifetime, align 4
+  %653 = add i32 %2, 12
+  %654 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %652, ptr noundef %0, i32 noundef %653, i32 noundef 4, i32 noundef 0)
+  %655 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_operation_rx_msdu_lifetime, align 4
+  %656 = add i32 %2, 16
+  %657 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %655, ptr noundef %0, i32 noundef %656, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
-659:                                              ; preds = %4
+658:                                              ; preds = %4
   %.not946 = icmp eq i16 %8, 8
-  br i1 %.not946, label %662, label %660
+  br i1 %.not946, label %661, label %659
 
-660:                                              ; preds = %659
-  %661 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1135, i32 noundef %9)
+659:                                              ; preds = %658
+  %660 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1135, i32 noundef %9)
   br label %.loopexit
 
-662:                                              ; preds = %659
-  %663 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_radio_id, align 4
-  %664 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %663, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %665 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_wlan_id, align 4
-  %666 = add i32 %2, 5
-  %667 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %665, ptr noundef %0, i32 noundef %666, i32 noundef 1, i32 noundef 0)
-  %668 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_mac_address, align 4
-  %669 = add i32 %2, 6
-  %670 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %668, ptr noundef %0, i32 noundef %669, i32 noundef 6, i32 noundef 0)
+661:                                              ; preds = %658
+  %662 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_radio_id, align 4
+  %663 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %662, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %664 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_wlan_id, align 4
+  %665 = add i32 %2, 5
+  %666 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %664, ptr noundef %0, i32 noundef %665, i32 noundef 1, i32 noundef 0)
+  %667 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mic_countermeasures_mac_address, align 4
+  %668 = add i32 %2, 6
+  %669 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %667, ptr noundef %0, i32 noundef %668, i32 noundef 6, i32 noundef 0)
   br label %.loopexit
 
-671:                                              ; preds = %4
+670:                                              ; preds = %4
   %.not945 = icmp eq i16 %8, 8
-  br i1 %.not945, label %674, label %672
+  br i1 %.not945, label %673, label %671
 
-672:                                              ; preds = %671
-  %673 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1136, i32 noundef %9)
+671:                                              ; preds = %670
+  %672 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1136, i32 noundef %9)
   br label %.loopexit
 
-674:                                              ; preds = %671
-  %675 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_radio_id, align 4
-  %676 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %675, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %677 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_reserved, align 4
-  %678 = add i32 %2, 5
-  %679 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %677, ptr noundef %0, i32 noundef %678, i32 noundef 1, i32 noundef 0)
-  %680 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_first_channel, align 4
-  %681 = add i32 %2, 6
-  %682 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %680, ptr noundef %0, i32 noundef %681, i32 noundef 2, i32 noundef 0)
-  %683 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_number_of_channels, align 4
-  %684 = add i32 %2, 8
-  %685 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %683, ptr noundef %0, i32 noundef %684, i32 noundef 2, i32 noundef 0)
-  %686 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_max_tx_power_level, align 4
-  %687 = add i32 %2, 10
-  %688 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %686, ptr noundef %0, i32 noundef %687, i32 noundef 2, i32 noundef 0)
+673:                                              ; preds = %670
+  %674 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_radio_id, align 4
+  %675 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %674, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %676 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_reserved, align 4
+  %677 = add i32 %2, 5
+  %678 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %676, ptr noundef %0, i32 noundef %677, i32 noundef 1, i32 noundef 0)
+  %679 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_first_channel, align 4
+  %680 = add i32 %2, 6
+  %681 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %679, ptr noundef %0, i32 noundef %680, i32 noundef 2, i32 noundef 0)
+  %682 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_number_of_channels, align 4
+  %683 = add i32 %2, 8
+  %684 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %682, ptr noundef %0, i32 noundef %683, i32 noundef 2, i32 noundef 0)
+  %685 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_multi_domain_capability_max_tx_power_level, align 4
+  %686 = add i32 %2, 10
+  %687 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %685, ptr noundef %0, i32 noundef %686, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-689:                                              ; preds = %4
+688:                                              ; preds = %4
   %.not944 = icmp eq i16 %8, 8
-  br i1 %.not944, label %692, label %690
+  br i1 %.not944, label %691, label %689
 
-690:                                              ; preds = %689
-  %691 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1137, i32 noundef %9)
+689:                                              ; preds = %688
+  %690 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1137, i32 noundef %9)
   br label %.loopexit
 
-692:                                              ; preds = %689
-  %693 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_radio_id, align 4
-  %694 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %693, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %695 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_reserved, align 4
-  %696 = add i32 %2, 5
-  %697 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %695, ptr noundef %0, i32 noundef %696, i32 noundef 1, i32 noundef 0)
-  %698 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_current_channel, align 4
-  %699 = add i32 %2, 6
-  %700 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %698, ptr noundef %0, i32 noundef %699, i32 noundef 1, i32 noundef 0)
-  %701 = add i32 %2, 7
-  %702 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_band_support, align 4
-  %703 = load i32, ptr @ett_capwap_ieee80211_ofdm_control_band_support, align 4
-  %704 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %701, i32 noundef %702, i32 noundef %703, ptr noundef nonnull @ieee80211_ofdm_control_band_support_flags, i32 noundef 0, i32 noundef 1)
-  %705 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_ti_threshold, align 4
-  %706 = add i32 %2, 8
-  %707 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %705, ptr noundef %0, i32 noundef %706, i32 noundef 4, i32 noundef 0)
+691:                                              ; preds = %688
+  %692 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_radio_id, align 4
+  %693 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %692, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %694 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_reserved, align 4
+  %695 = add i32 %2, 5
+  %696 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %694, ptr noundef %0, i32 noundef %695, i32 noundef 1, i32 noundef 0)
+  %697 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_current_channel, align 4
+  %698 = add i32 %2, 6
+  %699 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %697, ptr noundef %0, i32 noundef %698, i32 noundef 1, i32 noundef 0)
+  %700 = add i32 %2, 7
+  %701 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_band_support, align 4
+  %702 = load i32, ptr @ett_capwap_ieee80211_ofdm_control_band_support, align 4
+  %703 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %700, i32 noundef %701, i32 noundef %702, ptr noundef nonnull @ieee80211_ofdm_control_band_support_flags, i32 noundef 0, i32 noundef 1)
+  %704 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_ofdm_control_ti_threshold, align 4
+  %705 = add i32 %2, 8
+  %706 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %704, ptr noundef %0, i32 noundef %705, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
-708:                                              ; preds = %4
-  %709 = icmp ult i16 %8, 3
-  br i1 %709, label %710, label %712
+707:                                              ; preds = %4
+  %708 = icmp ult i16 %8, 3
+  br i1 %708, label %709, label %711
 
-710:                                              ; preds = %708
-  %711 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1138, i32 noundef %9)
+709:                                              ; preds = %707
+  %710 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1138, i32 noundef %9)
   br label %.loopexit
 
-712:                                              ; preds = %708
-  %713 = add i32 %21, %9
-  %714 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_rate_set_radio_id, align 4
-  %715 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %714, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %716 = add i32 %2, 5
-  %717 = icmp ult i32 %716, %713
-  br i1 %717, label %.lr.ph997, label %.loopexit
+711:                                              ; preds = %707
+  %712 = add i32 %21, %9
+  %713 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_rate_set_radio_id, align 4
+  %714 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %713, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %715 = add i32 %2, 5
+  %716 = icmp ult i32 %715, %712
+  br i1 %716, label %.lr.ph997, label %.loopexit
 
-.lr.ph997:                                        ; preds = %712, %.lr.ph997
-  %.7996 = phi i32 [ %720, %.lr.ph997 ], [ %716, %712 ]
-  %718 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_rate_set_rate_set, align 4
-  %719 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %718, ptr noundef %0, i32 noundef %.7996, i32 noundef 1, i32 noundef 0)
-  %720 = add i32 %.7996, 1
-  %exitcond1031.not = icmp eq i32 %720, %713
+.lr.ph997:                                        ; preds = %711, %.lr.ph997
+  %.7996 = phi i32 [ %719, %.lr.ph997 ], [ %715, %711 ]
+  %717 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_rate_set_rate_set, align 4
+  %718 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %717, ptr noundef %0, i32 noundef %.7996, i32 noundef 1, i32 noundef 0)
+  %719 = add i32 %.7996, 1
+  %exitcond1031.not = icmp eq i32 %719, %712
   br i1 %exitcond1031.not, label %.loopexit, label %.lr.ph997, !llvm.loop !19
 
-721:                                              ; preds = %4
-  %722 = icmp ult i16 %8, 14
-  br i1 %722, label %723, label %725
+720:                                              ; preds = %4
+  %721 = icmp ult i16 %8, 14
+  br i1 %721, label %722, label %724
 
-723:                                              ; preds = %721
-  %724 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1139, i32 noundef %9)
+722:                                              ; preds = %720
+  %723 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1139, i32 noundef %9)
   br label %.loopexit
 
-725:                                              ; preds = %721
-  %726 = add i32 %21, %9
-  %727 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_radio_id, align 4
-  %728 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %727, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %729 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_association_id, align 4
-  %730 = add i32 %2, 5
-  %731 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %729, ptr noundef %0, i32 noundef %730, i32 noundef 2, i32 noundef 0)
-  %732 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_flags, align 4
-  %733 = add i32 %2, 7
-  %734 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %732, ptr noundef %0, i32 noundef %733, i32 noundef 1, i32 noundef 0)
-  %735 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_mac_address, align 4
-  %736 = add i32 %2, 8
-  %737 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %735, ptr noundef %0, i32 noundef %736, i32 noundef 6, i32 noundef 0)
-  %738 = add i32 %2, 14
-  %739 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_capabilities, align 4
-  %740 = load i32, ptr @ett_capwap_ieee80211_station_capabilities, align 4
-  %741 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %738, i32 noundef %739, i32 noundef %740, ptr noundef nonnull @ieee80211_station_capabilities_flags, i32 noundef 0, i32 noundef 1)
-  %742 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_wlan_id, align 4
-  %743 = add i32 %2, 16
-  %744 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %742, ptr noundef %0, i32 noundef %743, i32 noundef 1, i32 noundef 0)
-  %745 = add i32 %2, 17
-  %746 = icmp ult i32 %745, %726
-  br i1 %746, label %.lr.ph995, label %.loopexit
+724:                                              ; preds = %720
+  %725 = add i32 %21, %9
+  %726 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_radio_id, align 4
+  %727 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %726, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %728 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_association_id, align 4
+  %729 = add i32 %2, 5
+  %730 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %728, ptr noundef %0, i32 noundef %729, i32 noundef 2, i32 noundef 0)
+  %731 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_flags, align 4
+  %732 = add i32 %2, 7
+  %733 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %731, ptr noundef %0, i32 noundef %732, i32 noundef 1, i32 noundef 0)
+  %734 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_mac_address, align 4
+  %735 = add i32 %2, 8
+  %736 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %734, ptr noundef %0, i32 noundef %735, i32 noundef 6, i32 noundef 0)
+  %737 = add i32 %2, 14
+  %738 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_capabilities, align 4
+  %739 = load i32, ptr @ett_capwap_ieee80211_station_capabilities, align 4
+  %740 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %737, i32 noundef %738, i32 noundef %739, ptr noundef nonnull @ieee80211_station_capabilities_flags, i32 noundef 0, i32 noundef 1)
+  %741 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_wlan_id, align 4
+  %742 = add i32 %2, 16
+  %743 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %741, ptr noundef %0, i32 noundef %742, i32 noundef 1, i32 noundef 0)
+  %744 = add i32 %2, 17
+  %745 = icmp ult i32 %744, %725
+  br i1 %745, label %.lr.ph995, label %.loopexit
 
-.lr.ph995:                                        ; preds = %725, %.lr.ph995
-  %.8994 = phi i32 [ %749, %.lr.ph995 ], [ %745, %725 ]
-  %747 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_supported_rates, align 4
-  %748 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %747, ptr noundef %0, i32 noundef %.8994, i32 noundef 1, i32 noundef 0)
-  %749 = add i32 %.8994, 1
-  %exitcond1030.not = icmp eq i32 %749, %726
+.lr.ph995:                                        ; preds = %724, %.lr.ph995
+  %.8994 = phi i32 [ %748, %.lr.ph995 ], [ %744, %724 ]
+  %746 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_supported_rates, align 4
+  %747 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %746, ptr noundef %0, i32 noundef %.8994, i32 noundef 1, i32 noundef 0)
+  %748 = add i32 %.8994, 1
+  %exitcond1030.not = icmp eq i32 %748, %725
   br i1 %exitcond1030.not, label %.loopexit, label %.lr.ph995, !llvm.loop !20
 
-750:                                              ; preds = %4
-  %751 = icmp ult i16 %8, 25
-  br i1 %751, label %752, label %754
+749:                                              ; preds = %4
+  %750 = icmp ult i16 %8, 25
+  br i1 %750, label %751, label %753
 
-752:                                              ; preds = %750
-  %753 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1140, i32 noundef %9)
+751:                                              ; preds = %749
+  %752 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1140, i32 noundef %9)
   br label %.loopexit
 
-754:                                              ; preds = %750
-  %755 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_mac, align 4
-  %756 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %755, ptr noundef %0, i32 noundef %21, i32 noundef 6, i32 noundef 0)
-  %757 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags, align 4
-  %758 = add i32 %2, 10
-  %759 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %757, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef 0)
-  %760 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags_a, align 4
-  %761 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %760, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef 0)
-  %762 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags_c, align 4
-  %763 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %762, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef 0)
-  %764 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_pairwire_tsc, align 4
-  %765 = add i32 %2, 12
-  %766 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %764, ptr noundef %0, i32 noundef %765, i32 noundef 6, i32 noundef 0)
-  %767 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_pairwire_rsc, align 4
-  %768 = add i32 %2, 18
-  %769 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %767, ptr noundef %0, i32 noundef %768, i32 noundef 6, i32 noundef 0)
-  %770 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_key, align 4
-  %771 = add i32 %2, 24
-  %772 = add nsw i32 %9, -24
-  %773 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %770, ptr noundef %0, i32 noundef %771, i32 noundef %772, i32 noundef 0)
+753:                                              ; preds = %749
+  %754 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_mac, align 4
+  %755 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %754, ptr noundef %0, i32 noundef %21, i32 noundef 6, i32 noundef 0)
+  %756 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags, align 4
+  %757 = add i32 %2, 10
+  %758 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %756, ptr noundef %0, i32 noundef %757, i32 noundef 2, i32 noundef 0)
+  %759 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags_a, align 4
+  %760 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %759, ptr noundef %0, i32 noundef %757, i32 noundef 2, i32 noundef 0)
+  %761 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_flags_c, align 4
+  %762 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %761, ptr noundef %0, i32 noundef %757, i32 noundef 2, i32 noundef 0)
+  %763 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_pairwire_tsc, align 4
+  %764 = add i32 %2, 12
+  %765 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %763, ptr noundef %0, i32 noundef %764, i32 noundef 6, i32 noundef 0)
+  %766 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_pairwire_rsc, align 4
+  %767 = add i32 %2, 18
+  %768 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %766, ptr noundef %0, i32 noundef %767, i32 noundef 6, i32 noundef 0)
+  %769 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_station_session_key_key, align 4
+  %770 = add i32 %2, 24
+  %771 = add nsw i32 %9, -24
+  %772 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %769, ptr noundef %0, i32 noundef %770, i32 noundef %771, i32 noundef 0)
   br label %.loopexit
 
-774:                                              ; preds = %4
-  %775 = icmp ult i16 %8, 3
-  br i1 %775, label %776, label %778
+773:                                              ; preds = %4
+  %774 = icmp ult i16 %8, 3
+  br i1 %774, label %775, label %777
 
-776:                                              ; preds = %774
-  %777 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1141, i32 noundef %9)
+775:                                              ; preds = %773
+  %776 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1141, i32 noundef %9)
   br label %.loopexit
 
-778:                                              ; preds = %774
-  %779 = add i32 %21, %9
-  %780 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_rates_radio_id, align 4
-  %781 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %780, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %782 = add i32 %2, 5
-  %783 = icmp ult i32 %782, %779
-  br i1 %783, label %.lr.ph993, label %.loopexit
+777:                                              ; preds = %773
+  %778 = add i32 %21, %9
+  %779 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_rates_radio_id, align 4
+  %780 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %779, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %781 = add i32 %2, 5
+  %782 = icmp ult i32 %781, %778
+  br i1 %782, label %.lr.ph993, label %.loopexit
 
-.lr.ph993:                                        ; preds = %778, %.lr.ph993
-  %.9992 = phi i32 [ %786, %.lr.ph993 ], [ %782, %778 ]
-  %784 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_rates_rate, align 4
-  %785 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %784, ptr noundef %0, i32 noundef %.9992, i32 noundef 1, i32 noundef 0)
-  %786 = add i32 %.9992, 1
-  %exitcond.not = icmp eq i32 %786, %779
+.lr.ph993:                                        ; preds = %777, %.lr.ph993
+  %.9992 = phi i32 [ %785, %.lr.ph993 ], [ %781, %777 ]
+  %783 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_rates_rate, align 4
+  %784 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %783, ptr noundef %0, i32 noundef %.9992, i32 noundef 1, i32 noundef 0)
+  %785 = add i32 %.9992, 1
+  %exitcond.not = icmp eq i32 %785, %778
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph993, !llvm.loop !21
 
-787:                                              ; preds = %4
+786:                                              ; preds = %4
   %.not943 = icmp eq i16 %8, 4
-  br i1 %.not943, label %790, label %788
+  br i1 %.not943, label %789, label %787
 
-788:                                              ; preds = %787
-  %789 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1142, i32 noundef %9)
+787:                                              ; preds = %786
+  %788 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1142, i32 noundef %9)
   br label %.loopexit
 
-790:                                              ; preds = %787
-  %791 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_radio_id, align 4
-  %792 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %791, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %793 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_reserved, align 4
-  %794 = add i32 %2, 5
-  %795 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %793, ptr noundef %0, i32 noundef %794, i32 noundef 1, i32 noundef 0)
-  %796 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_current_tx_power, align 4
-  %797 = add i32 %2, 6
-  %798 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %796, ptr noundef %0, i32 noundef %797, i32 noundef 2, i32 noundef 0)
+789:                                              ; preds = %786
+  %790 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_radio_id, align 4
+  %791 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %790, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %792 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_reserved, align 4
+  %793 = add i32 %2, 5
+  %794 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %792, ptr noundef %0, i32 noundef %793, i32 noundef 1, i32 noundef 0)
+  %795 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_current_tx_power, align 4
+  %796 = add i32 %2, 6
+  %797 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %795, ptr noundef %0, i32 noundef %796, i32 noundef 2, i32 noundef 0)
   br label %.loopexit
 
-799:                                              ; preds = %4
-  %800 = icmp ult i16 %8, 3
-  br i1 %800, label %801, label %803
+798:                                              ; preds = %4
+  %799 = icmp ult i16 %8, 3
+  br i1 %799, label %800, label %802
 
-801:                                              ; preds = %799
-  %802 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1143, i32 noundef %9)
+800:                                              ; preds = %798
+  %801 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1143, i32 noundef %9)
   br label %.loopexit
 
-803:                                              ; preds = %799
-  %804 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_radio_id, align 4
-  %805 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %804, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %806 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_num_levels, align 4
-  %807 = add i32 %2, 5
-  %808 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %806, ptr noundef %0, i32 noundef %807, i32 noundef 1, i32 noundef 0)
-  %809 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %807)
-  %810 = zext i8 %809 to i32
-  %.not1016 = icmp eq i8 %809, 0
+802:                                              ; preds = %798
+  %803 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_radio_id, align 4
+  %804 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %803, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %805 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_num_levels, align 4
+  %806 = add i32 %2, 5
+  %807 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %805, ptr noundef %0, i32 noundef %806, i32 noundef 1, i32 noundef 0)
+  %808 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %806)
+  %809 = zext i8 %808 to i32
+  %.not1016 = icmp eq i8 %808, 0
   br i1 %.not1016, label %.loopexit, label %.lr.ph991
 
-.lr.ph991:                                        ; preds = %803
-  %811 = add i32 %2, 6
-  br label %812
+.lr.ph991:                                        ; preds = %802
+  %810 = add i32 %2, 6
+  br label %811
 
-812:                                              ; preds = %.lr.ph991, %812
-  %813 = phi i32 [ 0, %.lr.ph991 ], [ %819, %812 ]
-  %814 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_power_level, align 4
-  %815 = shl nuw nsw i32 %813, 1
-  %816 = add i32 %811, %815
-  %817 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %814, ptr noundef %0, i32 noundef %816, i32 noundef 2, i32 noundef 0)
-  %818 = add nuw nsw i32 %813, 1
-  %819 = and i32 %818, 255
-  %820 = icmp samesign ult i32 %819, %810
-  br i1 %820, label %812, label %.loopexit, !llvm.loop !22
+811:                                              ; preds = %.lr.ph991, %811
+  %812 = phi i32 [ 0, %.lr.ph991 ], [ %817, %811 ]
+  %813 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_tx_power_level_power_level, align 4
+  %814 = shl nuw nsw i32 %812, 1
+  %815 = add i32 %810, %814
+  %816 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %813, ptr noundef %0, i32 noundef %815, i32 noundef 2, i32 noundef 0)
+  %817 = add nuw nsw i32 %812, 1
+  %818 = icmp samesign ult i32 %817, %809
+  br i1 %818, label %811, label %.loopexit, !llvm.loop !22
 
-821:                                              ; preds = %4
-  %822 = icmp ult i16 %8, 8
-  br i1 %822, label %823, label %825
+819:                                              ; preds = %4
+  %820 = icmp ult i16 %8, 8
+  br i1 %820, label %821, label %823
 
-823:                                              ; preds = %821
-  %824 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1144, i32 noundef %9)
+821:                                              ; preds = %819
+  %822 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1144, i32 noundef %9)
   br label %.loopexit
 
-825:                                              ; preds = %821
-  %826 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_radio_id, align 4
-  %827 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %826, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %828 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_wlan_id, align 4
-  %829 = add i32 %2, 5
-  %830 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %828, ptr noundef %0, i32 noundef %829, i32 noundef 1, i32 noundef 0)
-  %831 = add i32 %2, 6
-  %832 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_capability, align 4
-  %833 = load i32, ptr @ett_capwap_ieee80211_update_wlan_capability, align 4
-  %834 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %831, i32 noundef %832, i32 noundef %833, ptr noundef nonnull @ieee80211_update_wlan_capability_flags, i32 noundef 0, i32 noundef 1)
-  %835 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_index, align 4
-  %836 = add i32 %2, 8
-  %837 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %835, ptr noundef %0, i32 noundef %836, i32 noundef 1, i32 noundef 0)
-  %838 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_status, align 4
-  %839 = add i32 %2, 9
-  %840 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %838, ptr noundef %0, i32 noundef %839, i32 noundef 1, i32 noundef 0)
-  %841 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_length, align 4
-  %842 = add i32 %2, 10
-  %843 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %841, ptr noundef %0, i32 noundef %842, i32 noundef 2, i32 noundef 0)
-  %844 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %842)
-  %845 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key, align 4
-  %846 = add i32 %2, 12
-  %847 = zext i16 %844 to i32
-  %848 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %845, ptr noundef %0, i32 noundef %846, i32 noundef %847, i32 noundef 0)
+823:                                              ; preds = %819
+  %824 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_radio_id, align 4
+  %825 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %824, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %826 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_wlan_id, align 4
+  %827 = add i32 %2, 5
+  %828 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %826, ptr noundef %0, i32 noundef %827, i32 noundef 1, i32 noundef 0)
+  %829 = add i32 %2, 6
+  %830 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_capability, align 4
+  %831 = load i32, ptr @ett_capwap_ieee80211_update_wlan_capability, align 4
+  %832 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %15, ptr noundef %0, i32 noundef %829, i32 noundef %830, i32 noundef %831, ptr noundef nonnull @ieee80211_update_wlan_capability_flags, i32 noundef 0, i32 noundef 1)
+  %833 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_index, align 4
+  %834 = add i32 %2, 8
+  %835 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %833, ptr noundef %0, i32 noundef %834, i32 noundef 1, i32 noundef 0)
+  %836 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_status, align 4
+  %837 = add i32 %2, 9
+  %838 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %836, ptr noundef %0, i32 noundef %837, i32 noundef 1, i32 noundef 0)
+  %839 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key_length, align 4
+  %840 = add i32 %2, 10
+  %841 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %839, ptr noundef %0, i32 noundef %840, i32 noundef 2, i32 noundef 0)
+  %842 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %840)
+  %843 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_update_wlan_key, align 4
+  %844 = add i32 %2, 12
+  %845 = zext i16 %842 to i32
+  %846 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %843, ptr noundef %0, i32 noundef %844, i32 noundef %845, i32 noundef 0)
   br label %.loopexit
 
-849:                                              ; preds = %4
+847:                                              ; preds = %4
   %.not942 = icmp eq i16 %8, 16
-  br i1 %.not942, label %852, label %850
+  br i1 %.not942, label %850, label %848
 
-850:                                              ; preds = %849
-  %851 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1145, i32 noundef %9)
+848:                                              ; preds = %847
+  %849 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1145, i32 noundef %9)
   br label %.loopexit
 
-852:                                              ; preds = %849
-  %853 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_radio_id, align 4
-  %854 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %853, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %855 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_short_preamble, align 4
-  %856 = add i32 %2, 5
-  %857 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %855, ptr noundef %0, i32 noundef %856, i32 noundef 1, i32 noundef 0)
-  %858 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_num_of_bssids, align 4
-  %859 = add i32 %2, 6
-  %860 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %858, ptr noundef %0, i32 noundef %859, i32 noundef 1, i32 noundef 0)
-  %861 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_dtim_period, align 4
-  %862 = add i32 %2, 7
-  %863 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %861, ptr noundef %0, i32 noundef %862, i32 noundef 1, i32 noundef 0)
-  %864 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_bssid, align 4
-  %865 = add i32 %2, 8
-  %866 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %864, ptr noundef %0, i32 noundef %865, i32 noundef 6, i32 noundef 0)
-  %867 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_beacon_period, align 4
-  %868 = add i32 %2, 14
-  %869 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %867, ptr noundef %0, i32 noundef %868, i32 noundef 2, i32 noundef 0)
-  %870 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_country_string, align 4
-  %871 = add i32 %2, 16
-  %872 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %870, ptr noundef %0, i32 noundef %871, i32 noundef 4, i32 noundef 0)
+850:                                              ; preds = %847
+  %851 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_radio_id, align 4
+  %852 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %851, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %853 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_short_preamble, align 4
+  %854 = add i32 %2, 5
+  %855 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %853, ptr noundef %0, i32 noundef %854, i32 noundef 1, i32 noundef 0)
+  %856 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_num_of_bssids, align 4
+  %857 = add i32 %2, 6
+  %858 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %856, ptr noundef %0, i32 noundef %857, i32 noundef 1, i32 noundef 0)
+  %859 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_dtim_period, align 4
+  %860 = add i32 %2, 7
+  %861 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %859, ptr noundef %0, i32 noundef %860, i32 noundef 1, i32 noundef 0)
+  %862 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_bssid, align 4
+  %863 = add i32 %2, 8
+  %864 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %862, ptr noundef %0, i32 noundef %863, i32 noundef 6, i32 noundef 0)
+  %865 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_beacon_period, align 4
+  %866 = add i32 %2, 14
+  %867 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %865, ptr noundef %0, i32 noundef %866, i32 noundef 2, i32 noundef 0)
+  %868 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_cfg_country_string, align 4
+  %869 = add i32 %2, 16
+  %870 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %868, ptr noundef %0, i32 noundef %869, i32 noundef 4, i32 noundef 0)
   br label %.loopexit
 
-873:                                              ; preds = %4
+871:                                              ; preds = %4
   %.not941 = icmp eq i16 %8, 5
-  br i1 %.not941, label %876, label %874
+  br i1 %.not941, label %874, label %872
 
-874:                                              ; preds = %873
-  %875 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1146, i32 noundef %9)
+872:                                              ; preds = %871
+  %873 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1146, i32 noundef %9)
   br label %.loopexit
 
-876:                                              ; preds = %873
-  %877 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_id, align 4
-  %878 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %877, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %879 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_reserved, align 4
-  %880 = add i32 %2, 5
-  %881 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %879, ptr noundef %0, i32 noundef %880, i32 noundef 3, i32 noundef 0)
-  %882 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_n, align 4
-  %883 = add i32 %2, 8
-  %884 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %882, ptr noundef %0, i32 noundef %883, i32 noundef 1, i32 noundef 0)
-  %885 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_g, align 4
-  %886 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %885, ptr noundef %0, i32 noundef %883, i32 noundef 1, i32 noundef 0)
-  %887 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_a, align 4
-  %888 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %887, ptr noundef %0, i32 noundef %883, i32 noundef 1, i32 noundef 0)
-  %889 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_b, align 4
-  %890 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %889, ptr noundef %0, i32 noundef %883, i32 noundef 1, i32 noundef 0)
+874:                                              ; preds = %871
+  %875 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_id, align 4
+  %876 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %875, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %877 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_reserved, align 4
+  %878 = add i32 %2, 5
+  %879 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %877, ptr noundef %0, i32 noundef %878, i32 noundef 3, i32 noundef 0)
+  %880 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_n, align 4
+  %881 = add i32 %2, 8
+  %882 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %880, ptr noundef %0, i32 noundef %881, i32 noundef 1, i32 noundef 0)
+  %883 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_g, align 4
+  %884 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %883, ptr noundef %0, i32 noundef %881, i32 noundef 1, i32 noundef 0)
+  %885 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_a, align 4
+  %886 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %885, ptr noundef %0, i32 noundef %881, i32 noundef 1, i32 noundef 0)
+  %887 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_wtp_radio_info_radio_type_b, align 4
+  %888 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %887, ptr noundef %0, i32 noundef %881, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-891:                                              ; preds = %4
-  %892 = icmp ult i16 %8, 2
-  br i1 %892, label %893, label %895
+889:                                              ; preds = %4
+  %890 = icmp ult i16 %8, 2
+  br i1 %890, label %891, label %893
 
-893:                                              ; preds = %891
-  %894 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1147, i32 noundef %9)
+891:                                              ; preds = %889
+  %892 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1147, i32 noundef %9)
   br label %.loopexit
 
-895:                                              ; preds = %891
-  %896 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_mac_profiles_numbers, align 4
-  %897 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %896, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
-  %898 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
-  %.not940988 = icmp eq i8 %898, 0
+893:                                              ; preds = %889
+  %894 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_mac_profiles_numbers, align 4
+  %895 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %894, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+  %896 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %2)
+  %.not940988 = icmp eq i8 %896, 0
   br i1 %.not940988, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %895, %.lr.ph
-  %.0990 = phi i8 [ %903, %.lr.ph ], [ %898, %895 ]
-  %.10989 = phi i32 [ %902, %.lr.ph ], [ %2, %895 ]
-  %899 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_mac_profiles_profile, align 4
-  %900 = add i32 %.10989, 5
-  %901 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %899, ptr noundef %0, i32 noundef %900, i32 noundef 1, i32 noundef 0)
-  %902 = add i32 %.10989, 1
-  %903 = add i8 %.0990, -1
-  %.not940 = icmp eq i8 %903, 0
+.lr.ph:                                           ; preds = %893, %.lr.ph
+  %.0990 = phi i8 [ %901, %.lr.ph ], [ %896, %893 ]
+  %.10989 = phi i32 [ %900, %.lr.ph ], [ %2, %893 ]
+  %897 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_supported_mac_profiles_profile, align 4
+  %898 = add i32 %.10989, 5
+  %899 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %897, ptr noundef %0, i32 noundef %898, i32 noundef 1, i32 noundef 0)
+  %900 = add i32 %.10989, 1
+  %901 = add i8 %.0990, -1
+  %.not940 = icmp eq i8 %901, 0
   br i1 %.not940, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-904:                                              ; preds = %4
+902:                                              ; preds = %4
   %.not = icmp eq i16 %8, 1
-  br i1 %.not, label %907, label %905
+  br i1 %.not, label %905, label %903
 
-905:                                              ; preds = %904
-  %906 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1148, i32 noundef %9)
+903:                                              ; preds = %902
+  %904 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %19, ptr noundef nonnull @ei_capwap_msg_element_length, ptr noundef nonnull @.str.1148, i32 noundef %9)
   br label %.loopexit
 
-907:                                              ; preds = %904
-  %908 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_profile, align 4
-  %909 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %908, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
+905:                                              ; preds = %902
+  %906 = load i32, ptr @hf_capwap_msg_element_type_ieee80211_mac_profile, align 4
+  %907 = tail call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %906, ptr noundef %0, i32 noundef %21, i32 noundef 1, i32 noundef 0)
   br label %.loopexit
 
-910:                                              ; preds = %4
-  %911 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @message_element_type_vals, ptr noundef nonnull @.str.1150)
-  %912 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %17, ptr noundef nonnull @ei_capwap_message_element_type, ptr noundef nonnull @.str.1149, ptr noundef %911)
+908:                                              ; preds = %4
+  %909 = tail call ptr @val_to_str(i32 noundef %6, ptr noundef nonnull @message_element_type_vals, ptr noundef nonnull @.str.1150)
+  %910 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %3, ptr noundef %17, ptr noundef nonnull @ei_capwap_message_element_type, ptr noundef nonnull @.str.1149, ptr noundef %909)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %812, %.lr.ph993, %.lr.ph995, %.lr.ph997, %.lr.ph999, %565, %dissect_capwap_wtp_descriptor.exit, %dissect_capwap_board_data.exit, %104, %91, %dissect_capwap_ac_information.exit, %895, %803, %778, %725, %712, %616, %550, %388, %309, %27, %893, %823, %825, %801, %548, %497, %499, %290, %292, %304, %303, %196, %213, %209, %205, %135, %152, %148, %100, %87, %910, %907, %905, %876, %874, %852, %850, %790, %788, %776, %754, %752, %723, %710, %692, %690, %674, %672, %662, %660, %635, %633, %614, %597, %595, %588, %586, %576, %574, %492, %490, %486, %484, %479, %477, %473, %471, %446, %444, %440, %438, %433, %431, %426, %424, %420, %418, %343, %307, %285, %283, %279, %277, %273, %271, %261, %259, %252, %250, %246, %244, %240, %238, %234, %232, %227, %225, %221, %219, %188, %186, %179, %177, %170, %168, %161, %159, %130, %128, %120, %118, %113, %111, %98, %85, %25
+.loopexit:                                        ; preds = %.lr.ph, %811, %.lr.ph993, %.lr.ph995, %.lr.ph997, %.lr.ph999, %565, %dissect_capwap_wtp_descriptor.exit, %dissect_capwap_board_data.exit, %104, %91, %dissect_capwap_ac_information.exit, %893, %802, %777, %724, %711, %615, %550, %388, %309, %27, %891, %821, %823, %800, %548, %497, %499, %290, %292, %304, %303, %196, %213, %209, %205, %135, %152, %148, %100, %87, %908, %905, %903, %874, %872, %850, %848, %789, %787, %775, %753, %751, %722, %709, %691, %689, %673, %671, %661, %659, %634, %632, %613, %596, %594, %587, %585, %575, %573, %492, %490, %486, %484, %479, %477, %473, %471, %446, %444, %440, %438, %433, %431, %426, %424, %420, %418, %343, %307, %285, %283, %279, %277, %273, %271, %261, %259, %252, %250, %246, %244, %240, %238, %234, %232, %227, %225, %221, %219, %188, %186, %179, %177, %170, %168, %161, %159, %130, %128, %120, %118, %113, %111, %98, %85, %25
   ret i32 %11
 }
 

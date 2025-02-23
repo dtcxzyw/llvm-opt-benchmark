@@ -452,7 +452,7 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i:    ; preds = %.lr.ph.i.i.i, %14
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 48
   store i64 %29, ptr %30, align 8, !alias.scope !41
   %.not16.i.i = icmp eq i64 %29, 0
-  br i1 %.not16.i.i, label %.preheader.i.i.thread, label %.lr.ph.i.i
+  br i1 %.not16.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i, %.lr.ph.i.i
   %.sroa.012.017.i.i = phi i64 [ %41, %.lr.ph.i.i ], [ 0, %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i ]
@@ -470,27 +470,27 @@ _ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i:    ; preds = %.lr.ph.i.i.i, %14
   store i32 %39, ptr %40, align 4, !alias.scope !41
   %41 = add nuw i64 %.sroa.012.017.i.i, 1
   %.not.i.i = icmp eq i64 %41, %29
-  br i1 %.not.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit.thread, label %.lr.ph.i.i
 
-_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i
-  %.pr = load i64, ptr %30, align 8
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %.not.i.i17 = icmp eq i64 %.pr, %29
-  br i1 %.not.i.i17, label %.lr.ph.i.i18, label %.loopexit
-
-.preheader.i.i.thread:                            ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i
+_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %_ZNK3ade4util9DynMdSpanILm6EE6originEv.exit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   br label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
+
+_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit.thread: ; preds = %.lr.ph.i.i
+  %.pr = load i64, ptr %30, align 8
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
+  %.not.i.i1732 = icmp eq i64 %.pr, %29
+  br i1 %.not.i.i1732, label %.lr.ph.i.i18, label %.loopexit
 
 42:                                               ; preds = %.lr.ph.i.i18
   %43 = add nuw i64 %.sroa.07.013.i.i, 1
   %.not11.i.i = icmp eq i64 %43, %29
   br i1 %.not11.i.i, label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit, label %.lr.ph.i.i18
 
-.lr.ph.i.i18:                                     ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %42
-  %.sroa.07.013.i.i = phi i64 [ %43, %42 ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit ]
+.lr.ph.i.i18:                                     ; preds = %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit.thread, %42
+  %.sroa.07.013.i.i = phi i64 [ %43, %42 ], [ 0, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit.thread ]
   %44 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %7, i64 0, i64 %.sroa.07.013.i.i
   %45 = getelementptr inbounds [6 x %"struct.ade::util::Span"], ptr %17, i64 0, i64 %.sroa.07.013.i.i
   %46 = load i32, ptr %44, align 8
@@ -504,7 +504,7 @@ _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit: ; preds = %.lr.ph.i.i
   %.not3.i.not.i.not.i = select i1 %48, i1 true, i1 %53
   br i1 %.not3.i.not.i.not.i, label %.loopexit, label %42
 
-.loopexit:                                        ; preds = %.lr.ph.i.i18, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit
+.loopexit:                                        ; preds = %.lr.ph.i.i18, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit.thread
   %54 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %55 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull @.str.3)
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
@@ -565,7 +565,7 @@ _ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29: ; preds = %.lr.ph.i.i26, %_Z
   %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef nonnull @.str.2)
   br label %_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit
 
-_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit:       ; preds = %42, %.preheader.i.i.thread, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29
+_ZNK3ade4util9DynMdSpanILm6EEneERKS2_.exit:       ; preds = %42, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit, %_ZNK3ade19MemoryDescriptorRef10originSpanEv.exit29
   %79 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %80 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %79, ptr noundef nonnull @.str.4)
   %81 = load ptr, ptr %1, align 8

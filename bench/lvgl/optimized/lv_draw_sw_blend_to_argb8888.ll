@@ -4556,11 +4556,11 @@ blend_non_normal_pixel.exit.us:                   ; preds = %lv_color_32_32_mix.
   %172 = getelementptr inbounds nuw i8, ptr %.1214381, i64 %168
   %173 = add nuw nsw i32 %.0227380, 1
   %exitcond488.not = icmp eq i32 %173, %7
-  br i1 %exitcond488.not, label %.loopexit359, label %169, !llvm.loop !107
+  br i1 %exitcond488.not, label %.loopexit, label %169, !llvm.loop !107
 
-.loopexit359:                                     ; preds = %._crit_edge.us378, %169, %140
-  %.0213 = phi ptr [ %14, %140 ], [ %172, %169 ], [ %162, %._crit_edge.us378 ]
-  %.0 = phi ptr [ %10, %140 ], [ %171, %169 ], [ %161, %._crit_edge.us378 ]
+.loopexit359:                                     ; preds = %._crit_edge.us378, %140
+  %.0213 = phi ptr [ %14, %140 ], [ %162, %._crit_edge.us378 ]
+  %.0 = phi ptr [ %10, %140 ], [ %161, %._crit_edge.us378 ]
   %174 = icmp ult i8 %.fr445, -3
   %or.cond5 = and i1 %141, %174
   %175 = icmp sgt i32 %7, 0
@@ -5053,7 +5053,7 @@ lv_color_32_32_mix.exit308.us:                    ; preds = %353, %._crit_edge.i
   %exitcond533.not = icmp eq i32 %358, %7
   br i1 %exitcond533.not, label %.loopexit, label %.preheader.us, !llvm.loop !113
 
-.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us440, %.preheader361, %164, %.preheader360.lr.ph, %.preheader356.lr.ph, %.preheader.lr.ph, %.preheader363.lr.ph, %.preheader364, %.loopexit355
+.loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us440, %169, %.preheader361, %164, %.preheader360.lr.ph, %.preheader356.lr.ph, %.preheader.lr.ph, %.preheader363.lr.ph, %.preheader364, %.loopexit355
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %3) #5
   ret void
 }

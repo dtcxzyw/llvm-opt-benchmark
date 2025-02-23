@@ -390,7 +390,7 @@ define ptr @Cudd_addResidue(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
   %indvars.iv219 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next220, %65 ]
   %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv219
   %67 = load ptr, ptr %66, align 8, !tbaa !26
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %67) #7
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %67) #7
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %exitcond223.not = icmp eq i64 %indvars.iv.next220, %wide.trip.count222
   br i1 %exitcond223.not, label %._crit_edge175, label %65, !llvm.loop !35

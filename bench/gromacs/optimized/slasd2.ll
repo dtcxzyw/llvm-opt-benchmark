@@ -137,7 +137,6 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %exitcond542, label %._crit_edge453, label %.lr.ph452, !llvm.loop !7
 
 ._crit_edge453:                                   ; preds = %.lr.ph452, %._crit_edge448
-  store i32 %57, ptr %24, align 4
   %.not423454 = icmp sgt i32 %60, %57
   br i1 %.not423454, label %._crit_edge463, label %.lr.ph457.preheader
 
@@ -157,6 +156,7 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   br i1 %exitcond547.not, label %.lr.ph462.preheader, label %.lr.ph457, !llvm.loop !8
 
 .lr.ph462.preheader:                              ; preds = %.lr.ph457
+  store i32 %57, ptr %24, align 4
   %100 = sext i32 %60 to i64
   %101 = add i32 %55, %54
   %102 = add i32 %101, 2
@@ -542,9 +542,9 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   store i32 %295, ptr %290, align 4
   %indvars.iv.next582 = add nuw nsw i64 %indvars.iv581, 1
   %exitcond585.not = icmp eq i64 %indvars.iv.next582, %wide.trip.count584
-  br i1 %exitcond585.not, label %._crit_edge509, label %.lr.ph508, !llvm.loop !13
+  br i1 %exitcond585.not, label %.lr.ph519.preheader, label %.lr.ph508, !llvm.loop !13
 
-._crit_edge509:                                   ; preds = %.lr.ph508
+.lr.ph519.preheader:                              ; preds = %.lr.ph508
   store i32 %264, ptr %24, align 4
   %invariant.gep512 = getelementptr i8, ptr %38, i64 4
   %invariant.gep514 = getelementptr i8, ptr %45, i64 4
@@ -554,8 +554,8 @@ define void @slasd2_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captur
   %298 = zext nneg i32 %264 to i64
   br label %.lr.ph519
 
-.lr.ph519:                                        ; preds = %._crit_edge509, %.lr.ph519
-  %indvars.iv586 = phi i64 [ 2, %._crit_edge509 ], [ %indvars.iv.next587, %.lr.ph519 ]
+.lr.ph519:                                        ; preds = %.lr.ph519.preheader, %.lr.ph519
+  %indvars.iv586 = phi i64 [ 2, %.lr.ph519.preheader ], [ %indvars.iv.next587, %.lr.ph519 ]
   %299 = getelementptr inbounds nuw i32, ptr %49, i64 %indvars.iv586
   %300 = load i32, ptr %299, align 4
   %301 = sext i32 %300 to i64

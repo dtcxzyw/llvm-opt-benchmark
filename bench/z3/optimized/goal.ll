@@ -6293,7 +6293,7 @@ for.body15:                                       ; preds = %for.body15.lr.ph, %
   %exitcond22.not = icmp eq i32 %inc18, %retval.0.i.i.i
   br i1 %exitcond22.not, label %if.end, label %for.body15, !llvm.loop !32
 
-if.end:                                           ; preds = %for.body15, %entry, %_ZNK4goal4sizeEv.exit, %for.end10
+if.end:                                           ; preds = %for.body15, %_ZNK4goal4sizeEv.exit, %entry, %for.end10
   ret void
 }
 

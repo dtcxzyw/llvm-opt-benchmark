@@ -9074,8 +9074,8 @@ define dso_local noundef ptr @_ZN5clang26ResolvedUnexpandedPackExpr11getFromDecl
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 127
   %5 = icmp ne i32 %4, 50
-  %.not.not7 = icmp eq ptr %0, null
-  %.not.not = or i1 %.not.not7, %5
+  %.not7 = icmp eq ptr %0, null
+  %.not.not = or i1 %.not7, %5
   br i1 %.not.not, label %_ZN4llvm19dyn_cast_if_presentIN5clang26ResolvedUnexpandedPackExprENS1_4ExprEEEDaPT0_.exit, label %6
 
 6:                                                ; preds = %1

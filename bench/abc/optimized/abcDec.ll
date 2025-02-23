@@ -795,12 +795,7 @@ define noalias noundef ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %1) loca
   %9 = load i32, ptr %4, align 4
   %10 = icmp ne i32 %9, 0
   %or.cond4.not = select i1 %or.cond, i1 %10, i1 false
-  br i1 %or.cond4.not, label %11, label %.thread
-
-.thread:                                          ; preds = %6
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
-  br label %Abc_TruthStoreAlloc2.exit.thread
+  br i1 %or.cond4.not, label %11, label %34
 
 11:                                               ; preds = %6
   %12 = call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #22
@@ -829,13 +824,7 @@ define noalias noundef ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %1) loca
   %30 = shl i64 %22, %29
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %26, i8 0, i64 %30, i1 false)
   %31 = icmp sgt i32 %9, 1
-  br i1 %31, label %.lr.ph.preheader.i, label %.thread43
-
-.thread43:                                        ; preds = %11
-  call void @Abc_TruthStoreRead(ptr noundef %0, ptr noundef nonnull %12)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
-  br label %Abc_TruthStoreAlloc2.exit.thread
+  br i1 %31, label %.lr.ph.preheader.i, label %.thread
 
 .lr.ph.preheader.i:                               ; preds = %11
   %wide.trip.count.i = zext nneg i32 %9 to i64
@@ -850,13 +839,18 @@ define noalias noundef ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %1) loca
   store ptr %33, ptr %32, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %34, label %.lr.ph.i, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !21
 
-34:                                               ; preds = %.lr.ph.i
+.thread:                                          ; preds = %.lr.ph.i, %11
   call void @Abc_TruthStoreRead(ptr noundef %0, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
-  br label %Abc_TruthStoreAlloc2.exit.thread
+  br label %Abc_TruthStoreAlloc2.exit
+
+34:                                               ; preds = %6
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
+  br label %Abc_TruthStoreAlloc2.exit
 
 35:                                               ; preds = %2
   %36 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
@@ -865,7 +859,7 @@ define noalias noundef ptr @Abc_TtStoreLoad(ptr noundef %0, i32 noundef %1) loca
 
 Abc_FileSize.exit.thread:                         ; preds = %35
   %38 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %0)
-  br label %Abc_TruthStoreAlloc2.exit.thread
+  br label %Abc_TruthStoreAlloc2.exit
 
 Abc_FileSize.exit:                                ; preds = %35
   %39 = tail call i32 @fseek(ptr noundef nonnull %36, i64 noundef 0, i32 noundef 2)
@@ -877,7 +871,7 @@ Abc_FileSize.exit:                                ; preds = %35
   %45 = sdiv i32 %41, %44
   %46 = srem i32 %41, %44
   %.not35 = icmp eq i32 %41, -1
-  br i1 %.not35, label %Abc_TruthStoreAlloc2.exit.thread, label %47
+  br i1 %.not35, label %Abc_TruthStoreAlloc2.exit, label %47
 
 47:                                               ; preds = %Abc_FileSize.exit
   %.not = icmp eq i32 %46, 0
@@ -906,26 +900,26 @@ Abc_FileSize.exit:                                ; preds = %35
   store ptr %60, ptr %61, align 8, !tbaa !18
   store ptr %50, ptr %60, align 8, !tbaa !19
   %62 = icmp sgt i32 %45, 1
-  br i1 %62, label %.lr.ph.i37, label %Abc_TruthStoreAlloc2.exit.thread
+  br i1 %62, label %.lr.ph.i37, label %Abc_TruthStoreAlloc2.exit
 
 .lr.ph.i37:                                       ; preds = %49
   %63 = sext i32 %55 to i64
   %wide.trip.count.i38 = zext nneg i32 %45 to i64
-  %load_initial52 = load ptr, ptr %60, align 8
+  %load_initial48 = load ptr, ptr %60, align 8
   br label %64
 
 64:                                               ; preds = %64, %.lr.ph.i37
-  %store_forwarded53 = phi ptr [ %load_initial52, %.lr.ph.i37 ], [ %66, %64 ]
+  %store_forwarded49 = phi ptr [ %load_initial48, %.lr.ph.i37 ], [ %66, %64 ]
   %indvars.iv.i39 = phi i64 [ 1, %.lr.ph.i37 ], [ %indvars.iv.next.i40, %64 ]
   %65 = getelementptr ptr, ptr %60, i64 %indvars.iv.i39
-  %66 = getelementptr inbounds i64, ptr %store_forwarded53, i64 %63
+  %66 = getelementptr inbounds i64, ptr %store_forwarded49, i64 %63
   store ptr %66, ptr %65, align 8, !tbaa !19
   %indvars.iv.next.i40 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i41 = icmp eq i64 %indvars.iv.next.i40, %wide.trip.count.i38
-  br i1 %exitcond.not.i41, label %Abc_TruthStoreAlloc2.exit.thread, label %64, !llvm.loop !22
+  br i1 %exitcond.not.i41, label %Abc_TruthStoreAlloc2.exit, label %64, !llvm.loop !22
 
-Abc_TruthStoreAlloc2.exit.thread:                 ; preds = %64, %.thread43, %49, %34, %Abc_FileSize.exit.thread, %Abc_FileSize.exit, %.thread
-  %.1 = phi ptr [ null, %.thread ], [ null, %Abc_FileSize.exit ], [ null, %Abc_FileSize.exit.thread ], [ %12, %34 ], [ %12, %.thread43 ], [ %51, %49 ], [ %51, %64 ]
+Abc_TruthStoreAlloc2.exit:                        ; preds = %64, %Abc_FileSize.exit.thread, %Abc_FileSize.exit, %.thread, %49, %34
+  %.1 = phi ptr [ null, %34 ], [ %12, %.thread ], [ %51, %49 ], [ null, %Abc_FileSize.exit ], [ null, %Abc_FileSize.exit.thread ], [ %51, %64 ]
   ret ptr %.1
 }
 

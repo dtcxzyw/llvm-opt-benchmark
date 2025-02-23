@@ -2524,9 +2524,8 @@ land.rhs.lr.ph:                                   ; preds = %if.end10
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
-  %3 = phi i32 [ 0, %land.rhs.lr.ph ], [ %12, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
   %indvars.iv = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
-  %partIndex.026 = phi i32 [ 0, %land.rhs.lr.ph ], [ %7, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
+  %partIndex.026 = phi i32 [ 0, %land.rhs.lr.ph ], [ %6, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
   %cmp.not.i = icmp eq i32 %partIndex.026, 0
   %.pre.i = load ptr, ptr %parts.i.i5.phi.trans.insert.i, align 8
   br i1 %cmp.not.i, label %for.cond.i.preheader, label %if.then.i
@@ -2534,37 +2533,37 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
 if.then.i:                                        ; preds = %land.rhs
   %idxprom.i.i.i = zext nneg i32 %partIndex.026 to i64
   %limitPartIndex.i.i = getelementptr inbounds nuw %"class.icu_75::MessagePattern::Part", ptr %.pre.i, i64 %idxprom.i.i.i, i32 4
-  %4 = load i32, ptr %limitPartIndex.i.i, align 4
-  %start..i.i = call noundef i32 @llvm.smax.i32(i32 %4, i32 %partIndex.026)
-  %5 = zext nneg i32 %start..i.i to i64
+  %3 = load i32, ptr %limitPartIndex.i.i, align 4
+  %start..i.i = call noundef i32 @llvm.smax.i32(i32 %3, i32 %partIndex.026)
+  %4 = zext nneg i32 %start..i.i to i64
   br label %for.cond.i.preheader
 
 for.cond.i.preheader:                             ; preds = %if.then.i, %land.rhs
-  %indvars.iv.i.ph = phi i64 [ 0, %land.rhs ], [ %5, %if.then.i ]
+  %indvars.iv.i.ph = phi i64 [ 0, %land.rhs ], [ %4, %if.then.i ]
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.preheader, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ %indvars.iv.i.ph, %for.cond.i.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %arrayidx.i.i.i = getelementptr inbounds nuw %"class.icu_75::MessagePattern::Part", ptr %.pre.i, i64 %indvars.iv.next.i
-  %6 = load i32, ptr %arrayidx.i.i.i, align 4
-  switch i32 %6, label %for.cond.i [
+  %5 = load i32, ptr %arrayidx.i.i.i, align 4
+  switch i32 %5, label %for.cond.i [
     i32 5, label %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit
-    i32 1, label %for.end
+    i32 1, label %if.end26
   ]
 
 _ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit: ; preds = %for.cond.i
-  %7 = trunc nsw i64 %indvars.iv.next.i to i32
+  %6 = trunc nsw i64 %indvars.iv.next.i to i32
   %arrayidx = getelementptr inbounds nuw ptr, ptr %newFormats, i64 %indvars.iv
-  %8 = load ptr, ptr %arrayidx, align 8
-  %cmp14.not = icmp eq ptr %8, null
+  %7 = load ptr, ptr %arrayidx, align 8
+  %cmp14.not = icmp eq ptr %7, null
   br i1 %cmp14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit
-  %vtable = load ptr, ptr %8, align 8
+  %vtable = load ptr, ptr %7, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %9 = load ptr, ptr %vfn, align 8
-  %call18 = call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(322) %8)
+  %8 = load ptr, ptr %vfn, align 8
+  %call18 = call noundef ptr %8(ptr noundef nonnull align 8 dereferenceable(322) %7)
   %cmp19 = icmp eq ptr %call18, null
   br i1 %cmp19, label %if.then20, label %if.end22
 
@@ -2574,9 +2573,9 @@ if.then20:                                        ; preds = %if.then15
 
 if.end22:                                         ; preds = %if.then15, %if.then20, %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit
   %newFormat.0 = phi ptr [ null, %if.then20 ], [ %call18, %if.then15 ], [ null, %_ZNK6icu_7513MessageFormat20nextTopLevelArgStartEi.exit ]
-  call void @_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %7, ptr noundef %newFormat.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  %10 = load ptr, ptr %customFormatArgStarts, align 8
-  %cmp.i11 = icmp eq ptr %10, null
+  call void @_ZN6icu_7513MessageFormat17setArgStartFormatEiPNS_6FormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(816) %this, i32 noundef %6, ptr noundef %newFormat.0, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %9 = load ptr, ptr %customFormatArgStarts, align 8
+  %cmp.i11 = icmp eq ptr %9, null
   br i1 %cmp.i11, label %if.then.i13, label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 if.then.i13:                                      ; preds = %if.end22
@@ -2585,28 +2584,27 @@ if.then.i13:                                      ; preds = %if.end22
   br label %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
 
 _ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit: ; preds = %if.end22, %if.then.i13
-  %11 = phi ptr [ %call.i, %if.then.i13 ], [ %10, %if.end22 ]
-  %call4.i = call i32 @uhash_iputi_75(ptr noundef %11, i32 noundef %7, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  %10 = phi ptr [ %call.i, %if.then.i13 ], [ %9, %if.end22 ]
+  %call4.i = call i32 @uhash_iputi_75(ptr noundef %10, i32 noundef %6, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %cmp11 = icmp samesign uge i64 %indvars.iv.next, %2
-  %12 = load i32, ptr %status, align 4
-  %cmp.i = icmp sgt i32 %12, 0
+  %11 = load i32, ptr %status, align 4
+  %cmp.i = icmp sgt i32 %11, 0
   %or.cond19 = select i1 %cmp11, i1 true, i1 %cmp.i
   br i1 %or.cond19, label %for.end, label %land.rhs, !llvm.loop !19
 
-for.end:                                          ; preds = %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit, %for.cond.i
-  %13 = phi i32 [ %3, %for.cond.i ], [ %12, %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit ]
-  %cmp.i14 = icmp slt i32 %13, 1
+for.end:                                          ; preds = %_ZN6icu_7513MessageFormat23setCustomArgStartFormatEiPNS_6FormatER10UErrorCode.exit
+  %cmp.i14 = icmp slt i32 %11, 1
   br i1 %cmp.i14, label %if.end26, label %if.then25
 
 if.then25:                                        ; preds = %for.end
   %msgPattern.i = getelementptr inbounds nuw i8, ptr %this, i64 552
   call void @_ZN6icu_7514MessagePattern5clearEv(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern.i)
-  %14 = load ptr, ptr %cachedFormatters, align 8
-  call void @uhash_close_75(ptr noundef %14)
+  %12 = load ptr, ptr %cachedFormatters, align 8
+  call void @uhash_close_75(ptr noundef %12)
   store ptr null, ptr %cachedFormatters, align 8
-  %15 = load ptr, ptr %customFormatArgStarts, align 8
-  call void @uhash_close_75(ptr noundef %15)
+  %13 = load ptr, ptr %customFormatArgStarts, align 8
+  call void @uhash_close_75(ptr noundef %13)
   store ptr null, ptr %customFormatArgStarts, align 8
   %argTypeCount.i = getelementptr inbounds nuw i8, ptr %this, i64 704
   store i32 0, ptr %argTypeCount.i, align 8
@@ -2614,7 +2612,7 @@ if.then25:                                        ; preds = %for.end
   store i8 0, ptr %hasArgTypeConflicts.i, align 8
   br label %if.end26
 
-if.end26:                                         ; preds = %if.end10, %entry, %if.then25, %for.end
+if.end26:                                         ; preds = %for.cond.i, %if.end10, %entry, %if.then25, %for.end
   ret void
 }
 
@@ -3561,14 +3559,14 @@ lpad3.loopexit:                                   ; preds = %invoke.cont13
           cleanup
   br label %delete.notnull.i56
 
-ehcleanup.thread116:                              ; preds = %if.end8
+ehcleanup.thread112:                              ; preds = %if.end8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %delete.notnull.i56
 
 if.end8:                                          ; preds = %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %call12 = invoke noundef ptr @_ZN6icu_757UVector10setDeleterEPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %call2, ptr noundef nonnull @uprv_deleteUObject_75)
-          to label %for.cond.preheader unwind label %ehcleanup.thread116
+          to label %for.cond.preheader unwind label %ehcleanup.thread112
 
 for.cond.preheader:                               ; preds = %if.end8
   %parts.i.i5.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %this, i64 640
@@ -3713,15 +3711,15 @@ ehcleanup.thread:                                 ; preds = %delete.notnull.i46,
   call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %call31) #20
   br label %eh.resume
 
-delete.notnull.i51:                               ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %if.then.i33, %new.cont39, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
+delete.notnull.i51:                               ; preds = %_ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit, %new.cont39, %if.then.i33, %_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_R10UErrorCode.exit
   %vtable.i52 = load ptr, ptr %call2, align 8
   %vfn.i53 = getelementptr inbounds nuw i8, ptr %vtable.i52, i64 8
   %21 = load ptr, ptr %vfn.i53, align 8
   call void %21(ptr noundef nonnull align 8 dereferenceable(40) %call2) #20
   br label %return
 
-delete.notnull.i56:                               ; preds = %lpad16, %lpad3.loopexit, %ehcleanup.thread116, %ehcleanup.thread93
-  %.pn98 = phi { ptr, i32 } [ %13, %ehcleanup.thread93 ], [ %lpad.loopexit.split-lp, %ehcleanup.thread116 ], [ %12, %lpad16 ], [ %lpad.loopexit, %lpad3.loopexit ]
+delete.notnull.i56:                               ; preds = %lpad16, %lpad3.loopexit, %ehcleanup.thread112, %ehcleanup.thread93
+  %.pn98 = phi { ptr, i32 } [ %13, %ehcleanup.thread93 ], [ %lpad.loopexit.split-lp, %ehcleanup.thread112 ], [ %12, %lpad16 ], [ %lpad.loopexit, %lpad3.loopexit ]
   %vtable.i57 = load ptr, ptr %call2, align 8
   %vfn.i58 = getelementptr inbounds nuw i8, ptr %vtable.i57, i64 8
   %22 = load ptr, ptr %vfn.i58, align 8

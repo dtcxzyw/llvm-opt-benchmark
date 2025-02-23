@@ -47,12 +47,12 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %21 = tail call ptr @dt_alloc_aligned(i64 noundef %16) #7
   call void @llvm.assume(i1 true) [ "align"(ptr %21, i64 64) ]
   %.not113 = icmp eq i64 %2, 0
-  %.not115128 = icmp eq i64 %3, 0
-  br i1 %.not113, label %.preheader.thread127, label %.preheader85.lr.ph
+  %.not115 = icmp eq i64 %3, 0
+  br i1 %.not113, label %.preheader, label %.preheader85.lr.ph
 
 .preheader85.lr.ph:                               ; preds = %.loopexit
   %22 = trunc i64 %3 to i32
-  br i1 %.not115128, label %.preheader85, label %.preheader85.us.us
+  br i1 %.not115, label %.preheader85, label %.preheader85.us.us
 
 .preheader85.us.us:                               ; preds = %.preheader85.lr.ph, %._crit_edge95.us.us
   %.07996.us.us = phi i64 [ %33, %._crit_edge95.us.us ], [ 0, %.preheader85.lr.ph ]
@@ -97,8 +97,8 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %exitcond122.not = icmp eq i64 %34, %2
   br i1 %exitcond122.not, label %._crit_edge110, label %.preheader85
 
-.preheader.thread127:                             ; preds = %.loopexit
-  br i1 %.not115128, label %._crit_edge110, label %.lr.ph109.split
+.preheader:                                       ; preds = %.loopexit
+  br i1 %.not115, label %._crit_edge110, label %.lr.ph109.split
 
 .lr.ph106.us.preheader:                           ; preds = %._crit_edge95.us.us
   %35 = trunc i64 %2 to i32
@@ -109,7 +109,7 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %.081107.us = phi float [ %43, %._crit_edge.us112 ], [ 0.000000e+00, %.lr.ph106.us.preheader ]
   %36 = mul i64 %.076108.us, %2
   %37 = getelementptr inbounds nuw float, ptr %1, i64 %36
-  tail call fastcc void @_image_distance_transform(ptr noundef %37, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef %35)
+  tail call fastcc void @_image_distance_transform(ptr noundef %37, ptr noundef %19, ptr noundef nonnull %20, ptr noundef %21, i32 noundef %35)
   br label %38
 
 38:                                               ; preds = %.lr.ph106.us, %38
@@ -130,16 +130,16 @@ define float @dt_image_distance_transform(ptr noundef readonly captures(none) %0
   %exitcond124.not = icmp eq i64 %45, %3
   br i1 %exitcond124.not, label %._crit_edge110, label %.lr.ph106.us
 
-._crit_edge110:                                   ; preds = %._crit_edge.us112, %.preheader85, %.lr.ph109.split, %.preheader.thread127
-  %.081.lcssa = phi float [ 0.000000e+00, %.preheader.thread127 ], [ 0.000000e+00, %.lr.ph109.split ], [ 0.000000e+00, %.preheader85 ], [ %43, %._crit_edge.us112 ]
+._crit_edge110:                                   ; preds = %._crit_edge.us112, %.preheader85, %.lr.ph109.split, %.preheader
+  %.081.lcssa = phi float [ 0.000000e+00, %.preheader ], [ 0.000000e+00, %.lr.ph109.split ], [ 0.000000e+00, %.preheader85 ], [ %43, %._crit_edge.us112 ]
   tail call void @free(ptr noundef %17) #7
   tail call void @free(ptr noundef %20) #7
   tail call void @free(ptr noundef %19) #7
   tail call void @free(ptr noundef %21) #7
   br label %47
 
-.lr.ph109.split:                                  ; preds = %.preheader.thread127, %.lr.ph109.split
-  %.076108 = phi i64 [ %46, %.lr.ph109.split ], [ 0, %.preheader.thread127 ]
+.lr.ph109.split:                                  ; preds = %.preheader, %.lr.ph109.split
+  %.076108 = phi i64 [ %46, %.lr.ph109.split ], [ 0, %.preheader ]
   tail call fastcc void @_image_distance_transform(ptr noundef %1, ptr noundef %19, ptr noundef %20, ptr noundef %21, i32 noundef 0)
   %46 = add nuw i64 %.076108, 1
   %exitcond125.not = icmp eq i64 %46, %3

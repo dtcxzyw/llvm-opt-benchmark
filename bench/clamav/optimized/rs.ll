@@ -497,8 +497,8 @@ define void @_ZN7RSCoder6EncodeEPhiS0_(ptr noundef nonnull readonly align 4 capt
   %37 = load i32, ptr %36, align 4, !tbaa !10
   br label %_ZN7RSCoder6gfMultEii.exit.us
 
-_ZN7RSCoder6gfMultEii.exit.us:                    ; preds = %31, %._crit_edge.us
-  %38 = phi i32 [ %37, %31 ], [ 0, %._crit_edge.us ]
+_ZN7RSCoder6gfMultEii.exit.us:                    ; preds = %_ZN7RSCoder6gfMultEii.exit25.us.us, %31, %._crit_edge.us
+  %38 = phi i32 [ %37, %31 ], [ 0, %._crit_edge.us ], [ 0, %_ZN7RSCoder6gfMultEii.exit25.us.us ]
   store i32 %38, ptr %5, align 16, !tbaa !10
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
@@ -533,9 +533,8 @@ _ZN7RSCoder6gfMultEii.exit25.us35:                ; preds = %44, %.lr.ph31.split
   %56 = icmp sgt i64 %indvars.iv49, 1
   br i1 %56, label %.lr.ph31.split.us37, label %._crit_edge.us, !llvm.loop !20
 
-._crit_edge.us:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit25.us35, %_ZN7RSCoder6gfMultEii.exit25.us.us
-  %or.cond.i.us = or i1 %.fr.us, %19
-  br i1 %or.cond.i.us, label %_ZN7RSCoder6gfMultEii.exit.us, label %31
+._crit_edge.us:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit25.us35
+  br i1 %19, label %_ZN7RSCoder6gfMultEii.exit.us, label %31
 
 _ZN7RSCoder6gfMultEii.exit25.us.us:               ; preds = %.lr.ph31.us, %_ZN7RSCoder6gfMultEii.exit25.us.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %_ZN7RSCoder6gfMultEii.exit25.us.us ], [ %22, %.lr.ph31.us ]
@@ -545,7 +544,7 @@ _ZN7RSCoder6gfMultEii.exit25.us.us:               ; preds = %.lr.ph31.us, %_ZN7R
   %59 = getelementptr inbounds nuw [256 x i32], ptr %5, i64 0, i64 %indvars.iv52
   store i32 %58, ptr %59, align 4, !tbaa !10
   %60 = icmp sgt i64 %indvars.iv52, 1
-  br i1 %60, label %_ZN7RSCoder6gfMultEii.exit25.us.us, label %._crit_edge.us, !llvm.loop !20
+  br i1 %60, label %_ZN7RSCoder6gfMultEii.exit25.us.us, label %_ZN7RSCoder6gfMultEii.exit.us, !llvm.loop !20
 
 .lr.ph33.split:                                   ; preds = %.lr.ph33
   br i1 %19, label %.lr.ph33.split.split.us, label %.lr.ph33.split.split.preheader

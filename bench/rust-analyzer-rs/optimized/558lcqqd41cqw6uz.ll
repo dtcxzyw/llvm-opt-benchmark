@@ -1077,7 +1077,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit67: ; preds = %.noexc5
   %346 = load i64, ptr %52, align 8, !alias.scope !114, !noundef !8
   %347 = add i64 %346, 1
   store i64 %347, ptr %52, align 8, !alias.scope !114
-  %348 = add i64 %144, 1
+  %348 = add nuw i64 %144, 1
   %349 = load i64, ptr %55, align 8, !alias.scope !117, !noalias !120, !noundef !8
   %350 = load i64, ptr %54, align 8, !alias.scope !117, !noalias !120, !noundef !8
   %351 = icmp eq i64 %349, %350
@@ -2064,7 +2064,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit71: ; preds = %.noexc6
   %355 = load i64, ptr %54, align 8, !alias.scope !228, !noundef !8
   %356 = add i64 %355, 1
   store i64 %356, ptr %54, align 8, !alias.scope !228
-  %357 = add i64 %146, 1
+  %357 = add nuw i64 %146, 1
   %358 = load i64, ptr %57, align 8, !alias.scope !231, !noalias !234, !noundef !8
   %359 = load i64, ptr %56, align 8, !alias.scope !231, !noalias !234, !noundef !8
   %360 = icmp eq i64 %358, %359
@@ -2730,7 +2730,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   store i64 %202, ptr %13, align 8, !alias.scope !308
   %203 = load i8, ptr %18, align 1, !range !122, !noundef !8
   %204 = trunc nuw i8 %203 to i1
-  %205 = add i64 %.sroa.0.sroa.0.0.copyload, 1
+  %205 = add nuw i64 %.sroa.0.sroa.0.0.copyload, 1
   %206 = load i64, ptr %8, align 8, !alias.scope !311, !noalias !314, !noundef !8
   %207 = load i64, ptr %7, align 8, !alias.scope !311, !noalias !314, !noundef !8
   %208 = icmp eq i64 %206, %207
@@ -3411,7 +3411,7 @@ _ZN3fst3raw4node4Node10transition17hae6f45be205f0e35E.exit: ; preds = %_ZN3fst3r
   store i64 %215, ptr %18, align 8, !alias.scope !400
   %216 = load i8, ptr %20, align 1, !range !122, !noundef !8
   %217 = trunc nuw i8 %216 to i1
-  %218 = add i64 %.sroa.0.sroa.0.0.copyload, 1
+  %218 = add nuw i64 %.sroa.0.sroa.0.0.copyload, 1
   %219 = load i64, ptr %8, align 8, !alias.scope !403, !noalias !406, !noundef !8
   %220 = load i64, ptr %7, align 8, !alias.scope !403, !noalias !406, !noundef !8
   %221 = icmp eq i64 %219, %220

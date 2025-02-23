@@ -1107,7 +1107,7 @@ define dso_local void @zend_observer_fiber_init_notify(ptr noundef initializes((
   %.08 = phi ptr [ %.0, %.lr.ph ], [ %.06, %1 ]
   %3 = getelementptr inbounds nuw i8, ptr %.08, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
-  tail call void %4(ptr noundef %0) #8
+  tail call void %4(ptr noundef nonnull %0) #8
   %.0 = load ptr, ptr %.08, align 8, !tbaa !72
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

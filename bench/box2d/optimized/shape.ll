@@ -773,7 +773,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %133 = load i32, ptr %132, align 4, !tbaa !159
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i32 %133, ptr %134, align 8, !tbaa !160
-  %135 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
+  %135 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef nonnull %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
   %136 = load i32, ptr %135, align 8, !tbaa !23
   %137 = load ptr, ptr %81, align 8, !tbaa !144
   %138 = getelementptr inbounds i32, ptr %137, i64 %102
@@ -809,7 +809,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %157 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %158 = load i32, ptr %157, align 4, !tbaa !159
   store i32 %158, ptr %134, align 8, !tbaa !160
-  %159 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
+  %159 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef nonnull %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
   %160 = load i32, ptr %159, align 8, !tbaa !23
   %161 = load ptr, ptr %81, align 8, !tbaa !144
   %162 = getelementptr inbounds i32, ptr %161, i64 %106
@@ -857,7 +857,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %187 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %188 = load i32, ptr %187, align 4, !tbaa !159
   store i32 %188, ptr %96, align 8, !tbaa !160
-  %189 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
+  %189 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef nonnull %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 4)
   %190 = load i32, ptr %189, align 8, !tbaa !23
   %191 = load ptr, ptr %81, align 8, !tbaa !144
   %192 = getelementptr inbounds nuw i32, ptr %191, i64 %indvars.iv186
@@ -927,7 +927,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %230 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %231 = load i32, ptr %230, align 4, !tbaa !159
   store i32 %231, ptr %211, align 8, !tbaa !160
-  %232 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 4)
+  %232 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef nonnull %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 4)
   %233 = load i32, ptr %232, align 8, !tbaa !23
   %234 = load ptr, ptr %198, align 8, !tbaa !144
   %235 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv181
@@ -974,7 +974,7 @@ b2ChainShapeArray_Push.exit:                      ; preds = %.b2ChainShapeArray_
   %255 = getelementptr inbounds nuw i8, ptr %245, i64 16
   %256 = load i32, ptr %255, align 4, !tbaa !159
   store i32 %256, ptr %211, align 8, !tbaa !160
-  %257 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 4)
+  %257 = call fastcc ptr @b2CreateShapeInternal(ptr noundef %8, ptr noundef nonnull %11, <2 x float> %13, <2 x float> %14, ptr noundef nonnull %3, ptr noundef nonnull %5, i32 noundef 4)
   %258 = load i32, ptr %257, align 8, !tbaa !23
   %259 = load ptr, ptr %198, align 8, !tbaa !144
   %260 = getelementptr inbounds nuw i32, ptr %259, i64 %indvars.iv176

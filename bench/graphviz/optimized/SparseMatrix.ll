@@ -7967,7 +7967,7 @@ SparseMatrix_new.exit:                            ; preds = %3, %7
   %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count62
   br i1 %exitcond63.not, label %._crit_edge51, label %.preheader.us, !llvm.loop !203
 
-._crit_edge51:                                    ; preds = %._crit_edge47.us, %SparseMatrix_new.exit, %.preheader.lr.ph
+._crit_edge51:                                    ; preds = %._crit_edge47.us, %.preheader.lr.ph, %SparseMatrix_new.exit
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %4, ptr %29, align 8, !tbaa !14
   ret ptr %5

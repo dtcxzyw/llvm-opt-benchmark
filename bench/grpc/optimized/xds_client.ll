@@ -1736,7 +1736,7 @@ _ZNSt8_Rb_treeIN9grpc_core13RefCountedPtrINS0_9XdsClient24ResourceWatcherInterfa
   br label %invoke.cont98
 
 invoke.cont98:                                    ; preds = %if.end12.i.i, %_ZNSt8_Rb_treeIN9grpc_core13RefCountedPtrINS0_9XdsClient24ResourceWatcherInterfaceEEES4_St9_IdentityIS4_ESt4lessIS4_ESaIS4_EE10_M_insert_IRKS4_NSA_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSI_OT_RT0_.exit.i
-  %call.i66 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0109) #31
+  %call.i66 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0109) #31
   %cmp.i62.not = icmp eq ptr %call.i66, %add.ptr.i.i61
   br i1 %cmp.i62.not, label %for.inc101, label %for.body95
 
@@ -7819,7 +7819,7 @@ invoke.cont30:                                    ; preds = %.noexc, %if.then.i
   %14 = load ptr, ptr %second32, align 8
   %subscription_sent_.i = getelementptr inbounds nuw i8, ptr %14, i64 120
   store i8 1, ptr %subscription_sent_.i, align 8
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.028) #31
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.028) #31
   %cmp.i11.not = icmp eq ptr %call.i, %add.ptr.i.i10
   br i1 %cmp.i11.not, label %for.inc36, label %for.body20
 
@@ -7844,7 +7844,7 @@ lpad29:                                           ; preds = %lpad29.loopexit.spl
   br label %ehcleanup
 
 for.inc36:                                        ; preds = %invoke.cont30, %for.body
-  %call.i14 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin2.sroa.0.030) #31
+  %call.i14 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin2.sroa.0.030) #31
   %cmp.i7.not = icmp eq ptr %call.i14, %add.ptr.i.i6
   br i1 %cmp.i7.not, label %nrvo.skipdtor, label %for.body
 
@@ -8342,7 +8342,7 @@ if.then.i.i13:                                    ; preds = %if.then.i11
   br label %_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEED2Ev.exit: ; preds = %if.then.i.i, %if.then.i.i.i, %invoke.cont.i, %if.then.i11, %if.then.i.i13
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin3.sroa.0.078) #31
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin3.sroa.0.078) #31
   %cmp.i8.not = icmp eq ptr %call.i, %add.ptr.i.i7
   br i1 %cmp.i8.not, label %for.inc23, label %invoke.cont19
 

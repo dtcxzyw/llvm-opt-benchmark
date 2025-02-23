@@ -189,7 +189,7 @@ define range(i32 0, 2) i32 @hsearch_r(ptr %0, ptr %1, i32 noundef %2, ptr nounde
   %35 = getelementptr inbounds nuw i8, ptr %.042, i64 16
   %36 = load ptr, ptr %35, align 8
   tail call void @free(ptr noundef %36)
-  tail call void @free(ptr noundef %.042)
+  tail call void @free(ptr noundef nonnull %.042)
   br label %47
 
 37:                                               ; preds = %.thread

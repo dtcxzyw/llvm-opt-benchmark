@@ -4141,7 +4141,7 @@ _ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i: ; preds
   %conv16.i = trunc i64 %index.0.lcssa.i30.i to i8
   %arrayidx19.i = getelementptr inbounds nuw [12 x i8], ptr %index_.i, i64 0, i64 %indvars.iv.next.i
   store i8 %conv16.i, ptr %arrayidx19.i, align 1
-  %cmp7.i = icmp sgt i64 %indvars.iv.i, 1
+  %cmp7.i = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %cmp7.i, label %while.body.i, label %_ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4SeekEm.exit, !llvm.loop !21
 
 _ZN4absl12lts_2023080213cord_internal21CordRepBtreeNavigator4SeekEm.exit: ; preds = %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit33.i, %_ZNK4absl12lts_2023080213cord_internal12CordRepBtree7IndexOfEm.exit.i

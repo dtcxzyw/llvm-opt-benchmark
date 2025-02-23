@@ -140,7 +140,7 @@ define ptr @dtrenew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %76 = load ptr, ptr %75, align 8, !tbaa !32
   %77 = load ptr, ptr %76, align 8, !tbaa !33
-  %78 = tail call ptr %77(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 32) #2
+  %78 = tail call ptr %77(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 32) #2
   %.not63 = icmp eq ptr %78, null
   %79 = select i1 %.not63, ptr null, ptr %1
   br label %80

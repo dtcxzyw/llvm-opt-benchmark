@@ -9869,7 +9869,7 @@ if.then.i:                                        ; preds = %_ZN14numeral_buffer
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
 _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %_ZN14numeral_bufferI3mpq11mpq_managerILb0EEE5resetEv.exit, %if.then.i
-  tail call void @_ZN16bound_simplifier15expr2linear_polEP4exprR14numeral_bufferI3mpq11mpq_managerILb0EEER7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(16) %m_num_buffer, ptr noundef nonnull align 8 dereferenceable(8) %m_var_buffer)
+  tail call void @_ZN16bound_simplifier15expr2linear_polEP4exprR14numeral_bufferI3mpq11mpq_managerILb0EEER7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(16) %m_num_buffer, ptr noundef nonnull align 8 dereferenceable(8) %m_var_buffer)
   %nm = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %nm, ptr %implied_k, align 8
   %m_num.i = getelementptr inbounds nuw i8, ptr %implied_k, i64 8
@@ -10123,7 +10123,7 @@ if.then.i:                                        ; preds = %_ZN14numeral_buffer
   br label %_ZN6vectorIjLb0EjE5resetEv.exit
 
 _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %_ZN14numeral_bufferI3mpq11mpq_managerILb0EEE5resetEv.exit, %if.then.i
-  tail call void @_ZN16bound_simplifier15expr2linear_polEP4exprR14numeral_bufferI3mpq11mpq_managerILb0EEER7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(16) %m_num_buffer, ptr noundef nonnull align 8 dereferenceable(8) %m_var_buffer)
+  tail call void @_ZN16bound_simplifier15expr2linear_polEP4exprR14numeral_bufferI3mpq11mpq_managerILb0EEER7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(3156) %this, ptr noundef nonnull %p, ptr noundef nonnull align 8 dereferenceable(16) %m_num_buffer, ptr noundef nonnull align 8 dereferenceable(8) %m_var_buffer)
   %nm = getelementptr inbounds nuw i8, ptr %this, i64 72
   store ptr %nm, ptr %implied_k, align 8
   %m_num.i = getelementptr inbounds nuw i8, ptr %implied_k, i64 8

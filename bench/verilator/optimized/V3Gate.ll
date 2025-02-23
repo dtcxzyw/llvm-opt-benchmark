@@ -12443,57 +12443,60 @@ define linkonce_odr dso_local void @_ZSt10__pop_heapIN9__gnu_cxx17__normal_itera
   %.0.lcssa.i = phi i64 [ 0, %4 ], [ %spec.select.i, %.lr.ph.i ]
   %30 = and i64 %10, 16
   %31 = icmp eq i64 %30, 0
-  br i1 %31, label %32, label %45
+  br i1 %31, label %32, label %44
 
 32:                                               ; preds = %._crit_edge.i
   %33 = add nsw i64 %11, -2
   %34 = ashr exact i64 %33, 1
   %35 = icmp eq i64 %.0.lcssa.i, %34
-  br i1 %35, label %36, label %45
+  br i1 %35, label %.thread, label %44
 
-36:                                               ; preds = %32
-  %37 = shl nsw i64 %.0.lcssa.i, 1
-  %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i
-  %41 = load ptr, ptr %39, align 8
-  store ptr %41, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i64 %43, ptr %44, align 8
-  br label %45
+.thread:                                          ; preds = %32
+  %36 = shl nuw nsw i64 %.0.lcssa.i, 1
+  %37 = or disjoint i64 %36, 1
+  %38 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %37
+  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i
+  %40 = load ptr, ptr %38, align 8
+  store ptr %40, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %42 = load i64, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i64 %42, ptr %43, align 8
+  br label %.lr.ph.i.i.preheader
 
-45:                                               ; preds = %36, %32, %._crit_edge.i
-  %.1.i = phi i64 [ %38, %36 ], [ %.0.lcssa.i, %32 ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %46 = icmp sgt i64 %.1.i, 0
-  br i1 %46, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit
+44:                                               ; preds = %32, %._crit_edge.i
+  %.not = icmp eq i64 %.0.lcssa.i, 0
+  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit, label %.lr.ph.i.i.preheader
 
-.lr.ph.i.i:                                       ; preds = %45, %51
-  %.020.i.i = phi i64 [ %.0921.i.i910, %51 ], [ %.1.i, %45 ]
+.lr.ph.i.i.preheader:                             ; preds = %.thread, %44
+  %.020.i.i.ph = phi i64 [ %.0.lcssa.i, %44 ], [ %37, %.thread ]
+  br label %.lr.ph.i.i
+
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %49
+  %.020.i.i = phi i64 [ %.0921.i.i910, %49 ], [ %.020.i.i.ph, %.lr.ph.i.i.preheader ]
   %.0921.in.i.i = add nsw i64 %.020.i.i, -1
   %.0921.i.i910 = lshr i64 %.0921.in.i.i, 1
-  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0921.i.i910
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ult i64 %49, %.sroa.24.0.copyload
-  br i1 %50, label %51, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit
+  %45 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0921.i.i910
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i64, ptr %46, align 8
+  %48 = icmp ult i64 %47, %.sroa.24.0.copyload
+  br i1 %48, label %49, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit
 
-51:                                               ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.020.i.i
-  %53 = load ptr, ptr %47, align 8
-  store ptr %53, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i64 %49, ptr %54, align 8
-  %.not = icmp ult i64 %.0921.in.i.i, 2
-  br i1 %.not, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !105
+49:                                               ; preds = %.lr.ph.i.i
+  %50 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.020.i.i
+  %51 = load ptr, ptr %45, align 8
+  store ptr %51, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i64 %47, ptr %52, align 8
+  %.not11 = icmp ult i64 %.0921.in.i.i, 2
+  br i1 %.not11, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit, label %.lr.ph.i.i, !llvm.loop !105
 
-_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit: ; preds = %.lr.ph.i.i, %51, %45
-  %.0.lcssa.i.i = phi i64 [ %.1.i, %45 ], [ 0, %51 ], [ %.020.i.i, %.lr.ph.i.i ]
-  %55 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
-  store ptr %.sroa.03.0.copyload, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i64 %.sroa.24.0.copyload, ptr %56, align 8
+_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIP7AstNodemESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZN10GateInlineC1ER9GateGraphEUlRKS5_SH_E_EEEvT_T0_SL_T1_T2_.exit: ; preds = %.lr.ph.i.i, %49, %44
+  %.0.lcssa.i.i = phi i64 [ 0, %44 ], [ 0, %49 ], [ %.020.i.i, %.lr.ph.i.i ]
+  %53 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
+  store ptr %.sroa.03.0.copyload, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i64 %.sroa.24.0.copyload, ptr %54, align 8
   ret void
 }
 
@@ -14903,9 +14906,9 @@ _ZN6AstVar17propagateAttrFromEPKS_.exit.i:        ; preds = %331, %328
   %343 = load i64, ptr %342, align 4
   %344 = or i64 %343, 2048
   store i64 %344, ptr %342, align 4
-  %345 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 97
+  %345 = getelementptr inbounds nuw i8, ptr %127, i64 97
   store i8 1, ptr %345, align 1
-  %346 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 82
+  %346 = getelementptr inbounds nuw i8, ptr %127, i64 82
   store i8 1, ptr %346, align 2
   br label %_ZN13GateVarVertex23propagateAttrClocksFromEPS_.exit
 

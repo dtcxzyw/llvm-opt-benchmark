@@ -400,44 +400,52 @@ Tru_ManNot.exit.thread:                           ; preds = %27
   store i64 %34, ptr %32, align 8, !tbaa !14
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i46 = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i42
-  br i1 %exitcond.not.i46, label %Tru_ManNot.exit, label %.lr.ph.i43, !llvm.loop !37
+  br i1 %exitcond.not.i46, label %Tru_ManNot.exit.thread89, label %.lr.ph.i43, !llvm.loop !37
 
-Tru_ManNot.exit:                                  ; preds = %.lr.ph.i43, %23
+Tru_ManNot.exit.thread89:                         ; preds = %.lr.ph.i43
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = load i32, ptr %18, align 4, !tbaa !13
-  %38 = icmp sgt i32 %.pr.pre, 0
-  br i1 %38, label %.lr.ph.preheader.i.i, label %Tru_ManHash.exit.i
+  br label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %Tru_ManNot.exit
+Tru_ManNot.exit:                                  ; preds = %23
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %39 = load ptr, ptr %38, align 8, !tbaa !3
+  %40 = load i32, ptr %18, align 4, !tbaa !13
+  %41 = icmp sgt i32 %.pr.pre, 0
+  br i1 %41, label %.lr.ph.preheader.i.i, label %Tru_ManHash.exit.i
+
+.lr.ph.preheader.i.i:                             ; preds = %Tru_ManNot.exit.thread89, %Tru_ManNot.exit
+  %42 = phi i32 [ %37, %Tru_ManNot.exit.thread89 ], [ %40, %Tru_ManNot.exit ]
+  %43 = phi ptr [ %36, %Tru_ManNot.exit.thread89 ], [ %39, %Tru_ManNot.exit ]
   %wide.trip.count.i.i = zext nneg i32 %.pr.pre to i64
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %46, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
-  %40 = load i64, ptr %39, align 8, !tbaa !14
-  %41 = and i64 %indvars.iv.i.i, 7
-  %42 = getelementptr inbounds nuw i32, ptr @Tru_ManLookup.s_Primes, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !16
-  %44 = trunc i64 %40 to i32
-  %45 = mul i32 %43, %44
-  %46 = xor i32 %45, %.02.i.i
+  %.02.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %51, %.lr.ph.i.i ]
+  %44 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i.i
+  %45 = load i64, ptr %44, align 8, !tbaa !14
+  %46 = and i64 %indvars.iv.i.i, 7
+  %47 = getelementptr inbounds nuw i32, ptr @Tru_ManLookup.s_Primes, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !16
+  %49 = trunc i64 %45 to i32
+  %50 = mul i32 %48, %49
+  %51 = xor i32 %50, %.02.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %Tru_ManHash.exit.i, label %.lr.ph.i.i, !llvm.loop !17
 
 Tru_ManHash.exit.i:                               ; preds = %.lr.ph.i.i, %Tru_ManNot.exit.thread, %Tru_ManNot.exit
-  %47 = phi i1 [ false, %Tru_ManNot.exit ], [ false, %Tru_ManNot.exit.thread ], [ true, %.lr.ph.i.i ]
-  %48 = phi i32 [ %37, %Tru_ManNot.exit ], [ %31, %Tru_ManNot.exit.thread ], [ %37, %.lr.ph.i.i ]
-  %49 = phi ptr [ %36, %Tru_ManNot.exit ], [ %30, %Tru_ManNot.exit.thread ], [ %36, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %Tru_ManNot.exit ], [ 0, %Tru_ManNot.exit.thread ], [ %46, %.lr.ph.i.i ]
-  %50 = urem i32 %.0.lcssa.i.i, %48
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !16
-  %.not.i.i = icmp eq i32 %53, 0
+  %52 = phi i1 [ false, %Tru_ManNot.exit ], [ false, %Tru_ManNot.exit.thread ], [ true, %.lr.ph.i.i ]
+  %53 = phi i32 [ %40, %Tru_ManNot.exit ], [ %31, %Tru_ManNot.exit.thread ], [ %42, %.lr.ph.i.i ]
+  %54 = phi ptr [ %39, %Tru_ManNot.exit ], [ %30, %Tru_ManNot.exit.thread ], [ %43, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %Tru_ManNot.exit ], [ 0, %Tru_ManNot.exit.thread ], [ %51, %.lr.ph.i.i ]
+  %55 = urem i32 %.0.lcssa.i.i, %53
+  %56 = zext i32 %55 to i64
+  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !16
+  %.not.i.i = icmp eq i32 %58, 0
   %.pre = load ptr, ptr %15, align 8, !tbaa !19
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   %.pre86 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !20
@@ -445,222 +453,222 @@ Tru_ManHash.exit.i:                               ; preds = %.lr.ph.i.i, %Tru_Ma
   br i1 %.not.i.i, label %Tru_ManLookup.exit.thread, label %Tru_ManReadOne.exit.i
 
 Tru_ManReadOne.exit.i:                            ; preds = %Tru_ManHash.exit.i
-  %54 = ashr i32 %53, %.pre87
-  %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds ptr, ptr %.pre86, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !24
-  %.not35.i = icmp eq ptr %57, null
+  %59 = ashr i32 %58, %.pre87
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds ptr, ptr %.pre86, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !24
+  %.not35.i = icmp eq ptr %62, null
   br i1 %.not35.i, label %Tru_ManLookup.exit, label %.lr.ph.i47
 
 .lr.ph.i47:                                       ; preds = %Tru_ManReadOne.exit.i
-  %58 = getelementptr i8, ptr %.pre, i64 4
-  %.val4.i.i.i = load i32, ptr %58, align 4, !tbaa !25
+  %63 = getelementptr i8, ptr %.pre, i64 4
+  %.val4.i.i.i = load i32, ptr %63, align 4, !tbaa !25
   %wide.trip.count.i20.i = zext nneg i32 %.pr.pre to i64
-  br i1 %47, label %.lr.ph.preheader.i19.us.i.preheader, label %Tru_ManLookup.exit
+  br i1 %52, label %.lr.ph.preheader.i19.us.i.preheader, label %Tru_ManLookup.exit
 
 .lr.ph.preheader.i19.us.i.preheader:              ; preds = %.lr.ph.i47
-  %59 = and i32 %.val4.i.i.i, %53
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i64, ptr %57, i64 %60
+  %64 = and i32 %.val4.i.i.i, %58
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i64, ptr %62, i64 %65
   br label %.lr.ph.preheader.i19.us.i
 
 .lr.ph.preheader.i19.us.i:                        ; preds = %.lr.ph.preheader.i19.us.i.preheader, %Tru_ManReadOne.exit29.us.i
-  %.037.us.i = phi ptr [ %67, %Tru_ManReadOne.exit29.us.i ], [ %52, %.lr.ph.preheader.i19.us.i.preheader ]
-  %.01636.us.i = phi ptr [ %75, %Tru_ManReadOne.exit29.us.i ], [ %61, %.lr.ph.preheader.i19.us.i.preheader ]
-  %62 = getelementptr inbounds nuw i8, ptr %.01636.us.i, i64 8
+  %.037.us.i = phi ptr [ %72, %Tru_ManReadOne.exit29.us.i ], [ %57, %.lr.ph.preheader.i19.us.i.preheader ]
+  %.01636.us.i = phi ptr [ %80, %Tru_ManReadOne.exit29.us.i ], [ %66, %.lr.ph.preheader.i19.us.i.preheader ]
+  %67 = getelementptr inbounds nuw i8, ptr %.01636.us.i, i64 8
   br label %.lr.ph.i21.us.i
 
-.lr.ph.i21.us.i:                                  ; preds = %76, %.lr.ph.preheader.i19.us.i
-  %indvars.iv.i22.us.i = phi i64 [ 0, %.lr.ph.preheader.i19.us.i ], [ %indvars.iv.next.i24.us.i, %76 ]
-  %63 = getelementptr inbounds nuw i64, ptr %62, i64 %indvars.iv.i22.us.i
-  %64 = load i64, ptr %63, align 8, !tbaa !14
-  %65 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i22.us.i
-  %66 = load i64, ptr %65, align 8, !tbaa !14
-  %.not.i23.us.i = icmp eq i64 %64, %66
-  br i1 %.not.i23.us.i, label %76, label %Tru_ManEqual.exit.us.i
+.lr.ph.i21.us.i:                                  ; preds = %81, %.lr.ph.preheader.i19.us.i
+  %indvars.iv.i22.us.i = phi i64 [ 0, %.lr.ph.preheader.i19.us.i ], [ %indvars.iv.next.i24.us.i, %81 ]
+  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv.i22.us.i
+  %69 = load i64, ptr %68, align 8, !tbaa !14
+  %70 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i22.us.i
+  %71 = load i64, ptr %70, align 8, !tbaa !14
+  %.not.i23.us.i = icmp eq i64 %69, %71
+  br i1 %.not.i23.us.i, label %81, label %Tru_ManEqual.exit.us.i
 
 Tru_ManEqual.exit.us.i:                           ; preds = %.lr.ph.i21.us.i
-  %67 = getelementptr inbounds nuw i8, ptr %.01636.us.i, i64 4
-  %68 = load i32, ptr %67, align 4, !tbaa !16
-  %.not.i26.us.i = icmp eq i32 %68, 0
+  %72 = getelementptr inbounds nuw i8, ptr %.01636.us.i, i64 4
+  %73 = load i32, ptr %72, align 4, !tbaa !16
+  %.not.i26.us.i = icmp eq i32 %73, 0
   br i1 %.not.i26.us.i, label %Tru_ManLookup.exit.thread, label %Tru_ManReadOne.exit29.us.i
 
 Tru_ManReadOne.exit29.us.i:                       ; preds = %Tru_ManEqual.exit.us.i
-  %69 = ashr i32 %68, %.pre87
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds ptr, ptr %.pre86, i64 %70
-  %72 = load ptr, ptr %71, align 8, !tbaa !24
-  %73 = and i32 %68, %.val4.i.i.i
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i64, ptr %72, i64 %74
-  %.not.us.i = icmp eq ptr %72, null
+  %74 = ashr i32 %73, %.pre87
+  %75 = sext i32 %74 to i64
+  %76 = getelementptr inbounds ptr, ptr %.pre86, i64 %75
+  %77 = load ptr, ptr %76, align 8, !tbaa !24
+  %78 = and i32 %73, %.val4.i.i.i
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds i64, ptr %77, i64 %79
+  %.not.us.i = icmp eq ptr %77, null
   br i1 %.not.us.i, label %Tru_ManLookup.exit, label %.lr.ph.preheader.i19.us.i, !llvm.loop !26
 
-76:                                               ; preds = %.lr.ph.i21.us.i
+81:                                               ; preds = %.lr.ph.i21.us.i
   %indvars.iv.next.i24.us.i = add nuw nsw i64 %indvars.iv.i22.us.i, 1
   %exitcond.not.i25.us.i = icmp eq i64 %indvars.iv.next.i24.us.i, %wide.trip.count.i20.i
   br i1 %exitcond.not.i25.us.i, label %Tru_ManLookup.exit, label %.lr.ph.i21.us.i, !llvm.loop !27
 
 Tru_ManLookup.exit.thread:                        ; preds = %Tru_ManEqual.exit.us.i, %Tru_ManHash.exit.i
-  %.034.i70 = phi ptr [ %52, %Tru_ManHash.exit.i ], [ %67, %Tru_ManEqual.exit.us.i ]
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %78 = load i32, ptr %77, align 8, !tbaa !38
-  %79 = add nsw i32 %78, 1
-  %80 = ashr i32 %79, 1
-  %81 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !36
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %81, align 8, !tbaa !36
-  %84 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %85 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
-  %86 = load i32, ptr %85, align 4, !tbaa !39
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %.pre86, i64 %87
-  %89 = load ptr, ptr %88, align 8, !tbaa !24
-  %.val.i = load i64, ptr %89, align 8, !tbaa !14
-  %90 = trunc i64 %.val.i to i32
-  %91 = add nsw i32 %80, %90
-  %92 = shl nuw i32 1, %.pre87
-  %.not.i48 = icmp slt i32 %91, %92
-  br i1 %.not.i48, label %Vec_SetAppend.exit, label %93
+  %.034.i70 = phi ptr [ %57, %Tru_ManHash.exit.i ], [ %72, %Tru_ManEqual.exit.us.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %83 = load i32, ptr %82, align 8, !tbaa !38
+  %84 = add nsw i32 %83, 1
+  %85 = ashr i32 %84, 1
+  %86 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %87 = load i32, ptr %86, align 8, !tbaa !36
+  %88 = add nsw i32 %87, 1
+  store i32 %88, ptr %86, align 8, !tbaa !36
+  %89 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  %90 = getelementptr inbounds nuw i8, ptr %.pre, i64 12
+  %91 = load i32, ptr %90, align 4, !tbaa !39
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds ptr, ptr %.pre86, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !24
+  %.val.i = load i64, ptr %94, align 8, !tbaa !14
+  %95 = trunc i64 %.val.i to i32
+  %96 = add nsw i32 %85, %95
+  %97 = shl nuw i32 1, %.pre87
+  %.not.i48 = icmp slt i32 %96, %97
+  br i1 %.not.i48, label %Vec_SetAppend.exit, label %98
 
-93:                                               ; preds = %Tru_ManLookup.exit.thread
-  %94 = add nsw i32 %86, 1
-  store i32 %94, ptr %85, align 4, !tbaa !39
-  %95 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
-  %96 = load i32, ptr %95, align 4, !tbaa !40
-  %97 = icmp eq i32 %94, %96
-  br i1 %97, label %98, label %108
+98:                                               ; preds = %Tru_ManLookup.exit.thread
+  %99 = add nsw i32 %91, 1
+  store i32 %99, ptr %90, align 4, !tbaa !39
+  %100 = getelementptr inbounds nuw i8, ptr %.pre, i64 20
+  %101 = load i32, ptr %100, align 4, !tbaa !40
+  %102 = icmp eq i32 %99, %101
+  br i1 %102, label %103, label %113
 
-98:                                               ; preds = %93
-  %99 = shl nsw i32 %94, 1
-  %100 = sext i32 %99 to i64
-  %101 = shl nsw i64 %100, 3
-  %102 = tail call ptr @realloc(ptr noundef nonnull %.pre86, i64 noundef %101) #12
-  store ptr %102, ptr %84, align 8, !tbaa !20
-  %103 = load i32, ptr %95, align 4, !tbaa !40
-  %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds ptr, ptr %102, i64 %104
-  %106 = shl nsw i64 %104, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %106, i1 false)
-  %107 = shl nsw i32 %103, 1
-  store i32 %107, ptr %95, align 4, !tbaa !40
-  %.pre.i = load i32, ptr %85, align 4, !tbaa !39
+103:                                              ; preds = %98
+  %104 = shl nsw i32 %99, 1
+  %105 = sext i32 %104 to i64
+  %106 = shl nsw i64 %105, 3
+  %107 = tail call ptr @realloc(ptr noundef nonnull %.pre86, i64 noundef %106) #12
+  store ptr %107, ptr %89, align 8, !tbaa !20
+  %108 = load i32, ptr %100, align 4, !tbaa !40
+  %109 = sext i32 %108 to i64
+  %110 = getelementptr inbounds ptr, ptr %107, i64 %109
+  %111 = shl nsw i64 %109, 3
+  tail call void @llvm.memset.p0.i64(ptr align 8 %110, i8 0, i64 %111, i1 false)
+  %112 = shl nsw i32 %108, 1
+  store i32 %112, ptr %100, align 4, !tbaa !40
+  %.pre.i = load i32, ptr %90, align 4, !tbaa !39
   %.pre1.pre.pre.i = load i32, ptr %.pre, align 8, !tbaa !23
-  br label %108
+  br label %113
 
-108:                                              ; preds = %98, %93
-  %.pre1.pre.i = phi i32 [ %.pre1.pre.pre.i, %98 ], [ %.pre87, %93 ]
-  %109 = phi i32 [ %.pre.i, %98 ], [ %94, %93 ]
-  %110 = phi ptr [ %102, %98 ], [ %.pre86, %93 ]
-  %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %111
-  %113 = load ptr, ptr %112, align 8, !tbaa !24
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %115, label %119
+113:                                              ; preds = %103, %98
+  %.pre1.pre.i = phi i32 [ %.pre1.pre.pre.i, %103 ], [ %.pre87, %98 ]
+  %114 = phi i32 [ %.pre.i, %103 ], [ %99, %98 ]
+  %115 = phi ptr [ %107, %103 ], [ %.pre86, %98 ]
+  %116 = sext i32 %114 to i64
+  %117 = getelementptr inbounds ptr, ptr %115, i64 %116
+  %118 = load ptr, ptr %117, align 8, !tbaa !24
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %120, label %124
 
-115:                                              ; preds = %108
-  %116 = zext nneg i32 %.pre1.pre.i to i64
-  %sext.i = shl i64 4294967296, %116
-  %117 = ashr exact i64 %sext.i, 29
-  %118 = tail call noalias ptr @malloc(i64 noundef %117) #13
-  store ptr %118, ptr %112, align 8, !tbaa !24
-  br label %119
+120:                                              ; preds = %113
+  %121 = zext nneg i32 %.pre1.pre.i to i64
+  %sext.i = shl i64 4294967296, %121
+  %122 = ashr exact i64 %sext.i, 29
+  %123 = tail call noalias ptr @malloc(i64 noundef %122) #13
+  store ptr %123, ptr %117, align 8, !tbaa !24
+  br label %124
 
-119:                                              ; preds = %115, %108
-  %120 = phi ptr [ %118, %115 ], [ %113, %108 ]
-  store i64 2, ptr %120, align 8, !tbaa !14
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  store i64 -1, ptr %121, align 8, !tbaa !14
+124:                                              ; preds = %120, %113
+  %125 = phi ptr [ %123, %120 ], [ %118, %113 ]
+  store i64 2, ptr %125, align 8, !tbaa !14
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store i64 -1, ptr %126, align 8, !tbaa !14
   br label %Vec_SetAppend.exit
 
-Vec_SetAppend.exit:                               ; preds = %Tru_ManLookup.exit.thread, %119
-  %122 = phi i32 [ %.pre87, %Tru_ManLookup.exit.thread ], [ %.pre1.pre.i, %119 ]
-  %123 = phi i64 [ %.val.i, %Tru_ManLookup.exit.thread ], [ 2, %119 ]
-  %124 = phi ptr [ %89, %Tru_ManLookup.exit.thread ], [ %120, %119 ]
-  %125 = phi i32 [ %86, %Tru_ManLookup.exit.thread ], [ %109, %119 ]
-  %126 = sext i32 %80 to i64
-  %127 = add i64 %123, %126
-  store i64 %127, ptr %124, align 8, !tbaa !14
-  %128 = shl i32 %125, %122
-  %129 = trunc i64 %127 to i32
-  %130 = sub i32 %129, %80
-  %131 = add i32 %130, %128
-  store i32 %131, ptr %.034.i70, align 4, !tbaa !16
-  %.not.i49 = icmp eq i32 %131, 0
-  br i1 %.not.i49, label %Tru_ManReadOne.exit, label %132
+Vec_SetAppend.exit:                               ; preds = %Tru_ManLookup.exit.thread, %124
+  %127 = phi i32 [ %.pre87, %Tru_ManLookup.exit.thread ], [ %.pre1.pre.i, %124 ]
+  %128 = phi i64 [ %.val.i, %Tru_ManLookup.exit.thread ], [ 2, %124 ]
+  %129 = phi ptr [ %94, %Tru_ManLookup.exit.thread ], [ %125, %124 ]
+  %130 = phi i32 [ %91, %Tru_ManLookup.exit.thread ], [ %114, %124 ]
+  %131 = sext i32 %85 to i64
+  %132 = add i64 %128, %131
+  store i64 %132, ptr %129, align 8, !tbaa !14
+  %133 = shl i32 %130, %127
+  %134 = trunc i64 %132 to i32
+  %135 = sub i32 %134, %85
+  %136 = add i32 %135, %133
+  store i32 %136, ptr %.034.i70, align 4, !tbaa !16
+  %.not.i49 = icmp eq i32 %136, 0
+  br i1 %.not.i49, label %Tru_ManReadOne.exit, label %137
 
-132:                                              ; preds = %Vec_SetAppend.exit
-  %133 = load ptr, ptr %15, align 8, !tbaa !19
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
-  %135 = load ptr, ptr %134, align 8, !tbaa !20
-  %.val.i.i = load i32, ptr %133, align 8, !tbaa !23
-  %136 = ashr i32 %131, %.val.i.i
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds ptr, ptr %135, i64 %137
-  %139 = load ptr, ptr %138, align 8, !tbaa !24
-  %140 = getelementptr i8, ptr %133, i64 4
-  %.val4.i.i = load i32, ptr %140, align 4, !tbaa !25
-  %141 = and i32 %.val4.i.i, %131
+137:                                              ; preds = %Vec_SetAppend.exit
+  %138 = load ptr, ptr %15, align 8, !tbaa !19
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
+  %140 = load ptr, ptr %139, align 8, !tbaa !20
+  %.val.i.i = load i32, ptr %138, align 8, !tbaa !23
+  %141 = ashr i32 %136, %.val.i.i
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i64, ptr %139, i64 %142
+  %143 = getelementptr inbounds ptr, ptr %140, i64 %142
+  %144 = load ptr, ptr %143, align 8, !tbaa !24
+  %145 = getelementptr i8, ptr %138, i64 4
+  %.val4.i.i = load i32, ptr %145, align 4, !tbaa !25
+  %146 = and i32 %.val4.i.i, %136
+  %147 = sext i32 %146 to i64
+  %148 = getelementptr inbounds i64, ptr %144, i64 %147
   br label %Tru_ManReadOne.exit
 
-Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit, %132
-  %144 = phi ptr [ %143, %132 ], [ null, %Vec_SetAppend.exit ]
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load i32, ptr %3, align 4, !tbaa !12
-  %147 = icmp sgt i32 %146, 0
-  br i1 %147, label %.lr.ph.preheader.i50, label %Tru_ManCopy.exit
+Tru_ManReadOne.exit:                              ; preds = %Vec_SetAppend.exit, %137
+  %149 = phi ptr [ %148, %137 ], [ null, %Vec_SetAppend.exit ]
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %151 = load i32, ptr %3, align 4, !tbaa !12
+  %152 = icmp sgt i32 %151, 0
+  br i1 %152, label %.lr.ph.preheader.i50, label %Tru_ManCopy.exit
 
 .lr.ph.preheader.i50:                             ; preds = %Tru_ManReadOne.exit
-  %wide.trip.count.i51 = zext nneg i32 %146 to i64
+  %wide.trip.count.i51 = zext nneg i32 %151 to i64
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52, %.lr.ph.preheader.i50
   %indvars.iv.i53 = phi i64 [ 0, %.lr.ph.preheader.i50 ], [ %indvars.iv.next.i54, %.lr.ph.i52 ]
-  %148 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i53
-  %149 = load i64, ptr %148, align 8, !tbaa !14
-  %150 = getelementptr inbounds nuw i64, ptr %145, i64 %indvars.iv.i53
-  store i64 %149, ptr %150, align 8, !tbaa !14
+  %153 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i53
+  %154 = load i64, ptr %153, align 8, !tbaa !14
+  %155 = getelementptr inbounds nuw i64, ptr %150, i64 %indvars.iv.i53
+  store i64 %154, ptr %155, align 8, !tbaa !14
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %wide.trip.count.i51
   br i1 %exitcond.not.i55, label %Tru_ManCopy.exit, label %.lr.ph.i52, !llvm.loop !41
 
 Tru_ManCopy.exit:                                 ; preds = %.lr.ph.i52, %Tru_ManReadOne.exit
-  store i32 %131, ptr %144, align 8, !tbaa !30
-  %151 = getelementptr inbounds nuw i8, ptr %144, i64 4
-  store i32 0, ptr %151, align 4, !tbaa !28
+  store i32 %136, ptr %149, align 8, !tbaa !30
+  %156 = getelementptr inbounds nuw i8, ptr %149, i64 4
+  store i32 0, ptr %156, align 4, !tbaa !28
   br label %Tru_ManLookup.exit
 
-Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit29.us.i, %76, %.lr.ph.i47, %Tru_ManReadOne.exit.i, %Tru_ManCopy.exit
-  %152 = phi i32 [ %146, %Tru_ManCopy.exit ], [ %.pr.pre, %Tru_ManReadOne.exit.i ], [ %.pr.pre, %.lr.ph.i47 ], [ %.pr.pre, %76 ], [ %.pr.pre, %Tru_ManReadOne.exit29.us.i ]
-  %.034.i71 = phi ptr [ %.034.i70, %Tru_ManCopy.exit ], [ %52, %Tru_ManReadOne.exit.i ], [ %52, %.lr.ph.i47 ], [ %.037.us.i, %76 ], [ %67, %Tru_ManReadOne.exit29.us.i ]
-  %153 = icmp sgt i32 %152, 0
-  %or.cond = select i1 %.not32, i1 %153, i1 false
+Tru_ManLookup.exit:                               ; preds = %Tru_ManReadOne.exit29.us.i, %81, %.lr.ph.i47, %Tru_ManReadOne.exit.i, %Tru_ManCopy.exit
+  %157 = phi i32 [ %151, %Tru_ManCopy.exit ], [ %.pr.pre, %Tru_ManReadOne.exit.i ], [ %.pr.pre, %.lr.ph.i47 ], [ %.pr.pre, %81 ], [ %.pr.pre, %Tru_ManReadOne.exit29.us.i ]
+  %.034.i71 = phi ptr [ %.034.i70, %Tru_ManCopy.exit ], [ %57, %Tru_ManReadOne.exit.i ], [ %57, %.lr.ph.i47 ], [ %.037.us.i, %81 ], [ %72, %Tru_ManReadOne.exit29.us.i ]
+  %158 = icmp sgt i32 %157, 0
+  %or.cond = select i1 %.not32, i1 %158, i1 false
   br i1 %or.cond, label %.lr.ph.preheader.i56, label %Tru_ManNot.exit62
 
 .lr.ph.preheader.i56:                             ; preds = %Tru_ManLookup.exit
-  %wide.trip.count.i57 = zext nneg i32 %152 to i64
+  %wide.trip.count.i57 = zext nneg i32 %157 to i64
   br label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i56
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i56 ], [ %indvars.iv.next.i60, %.lr.ph.i58 ]
-  %154 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i59
-  %155 = load i64, ptr %154, align 8, !tbaa !14
-  %156 = xor i64 %155, -1
-  store i64 %156, ptr %154, align 8, !tbaa !14
+  %159 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i59
+  %160 = load i64, ptr %159, align 8, !tbaa !14
+  %161 = xor i64 %160, -1
+  store i64 %161, ptr %159, align 8, !tbaa !14
   %indvars.iv.next.i60 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i61 = icmp eq i64 %indvars.iv.next.i60, %wide.trip.count.i57
   br i1 %exitcond.not.i61, label %Tru_ManNot.exit62, label %.lr.ph.i58, !llvm.loop !37
 
 Tru_ManNot.exit62:                                ; preds = %.lr.ph.i58, %Tru_ManLookup.exit
-  %157 = load i32, ptr %.034.i71, align 4, !tbaa !16
-  %158 = xor i32 %157, %26
+  %162 = load i32, ptr %.034.i71, align 4, !tbaa !16
+  %163 = xor i32 %162, %26
   br label %Tru_ManEqual0.exit.thread
 
 Tru_ManEqual0.exit.thread:                        ; preds = %6, %9, %2, %Tru_ManNot.exit62
-  %.0 = phi i32 [ %158, %Tru_ManNot.exit62 ], [ 0, %2 ], [ 1, %9 ], [ 0, %6 ]
+  %.0 = phi i32 [ %163, %Tru_ManNot.exit62 ], [ 0, %2 ], [ 1, %9 ], [ 0, %6 ]
   ret i32 %.0
 }
 

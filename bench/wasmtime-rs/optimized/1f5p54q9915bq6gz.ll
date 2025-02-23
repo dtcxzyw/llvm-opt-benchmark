@@ -14282,7 +14282,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i: ; p
   br i1 %.not.i, label %15, label %50
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %17 = load i32, ptr %16, align 4, !noundef !4
   %18 = zext i32 %17 to i64
   %19 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %18, i64 noundef 136), !noalias !3659
@@ -14297,10 +14297,8 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %24 = icmp ult i64 %22, 136
   %25 = ptrtoint ptr %20 to i64
   %26 = and i64 %25, 7
-  %27 = icmp eq i64 %26, 0
-  %spec.select.i.i = select i1 %27, ptr %20, ptr null
-  %.not67.i = icmp eq ptr %spec.select.i.i, null
-  %or.cond.i36 = or i1 %24, %.not67.i
+  %27 = icmp ne i64 %26, 0
+  %or.cond.i36 = or i1 %24, %27
   br i1 %or.cond.i36, label %91, label %28
 
 28:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
@@ -14309,13 +14307,13 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   br i1 %.not.i37, label %29, label %91
 
 29:                                               ; preds = %28
-  %30 = getelementptr i8, ptr %spec.select.i.i, i64 24
+  %30 = getelementptr i8, ptr %20, i64 24
   %.val56.i = load i16, ptr %30, align 8, !noalias !3667, !noundef !4
   %31 = icmp eq i16 %.val56.i, 523
   br i1 %31, label %32, label %91
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %34 = load i16, ptr %33, align 4, !noalias !3667, !noundef !4
   %35 = zext i16 %34 to i64
   %36 = add nsw i64 %35, -112
@@ -14331,7 +14329,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 42:                                               ; preds = %38
   %43 = extractvalue { ptr, i64 } %39, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3671
-  %44 = getelementptr i8, ptr %spec.select.i.i, i64 132
+  %44 = getelementptr i8, ptr %20, i64 132
   %.val57.i = load i32, ptr %44, align 4, !noalias !3667, !noundef !4
   call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17hbc30f64e67bbe24eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %43, i32 noundef %.val57.i), !noalias !3667
   %45 = load i64, ptr %4, align 8, !range !18, !noalias !3671, !noundef !4
@@ -14490,7 +14488,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i: ; p
   br i1 %.not.i, label %15, label %50
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 60
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 60
   %17 = load i32, ptr %16, align 4, !noundef !4
   %18 = zext i32 %17 to i64
   %19 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %18, i64 noundef 120), !noalias !3721
@@ -14505,10 +14503,8 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %24 = icmp ult i64 %22, 120
   %25 = ptrtoint ptr %20 to i64
   %26 = and i64 %25, 3
-  %27 = icmp eq i64 %26, 0
-  %spec.select.i.i = select i1 %27, ptr %20, ptr null
-  %.not67.i = icmp eq ptr %spec.select.i.i, null
-  %or.cond.i36 = or i1 %24, %.not67.i
+  %27 = icmp ne i64 %26, 0
+  %or.cond.i36 = or i1 %24, %27
   br i1 %or.cond.i36, label %92, label %28
 
 28:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
@@ -14517,13 +14513,13 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   br i1 %.not.i37, label %29, label %92
 
 29:                                               ; preds = %28
-  %30 = getelementptr i8, ptr %spec.select.i.i, i64 24
+  %30 = getelementptr i8, ptr %20, i64 24
   %.val56.i = load i16, ptr %30, align 4, !noalias !3729, !noundef !4
   %31 = icmp eq i16 %.val56.i, 267
   br i1 %31, label %32, label %92
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %34 = load i16, ptr %33, align 4, !noalias !3729, !noundef !4
   %35 = zext i16 %34 to i64
   %36 = add nsw i64 %35, -96
@@ -14539,7 +14535,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 42:                                               ; preds = %38
   %43 = extractvalue { ptr, i64 } %39, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3733
-  %44 = getelementptr i8, ptr %spec.select.i.i, i64 116
+  %44 = getelementptr i8, ptr %20, i64 116
   %.val57.i = load i32, ptr %44, align 4, !noalias !3729, !noundef !4
   call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17hbc30f64e67bbe24eE(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef %43, i32 noundef %.val57.i), !noalias !3729
   %45 = load i64, ptr %4, align 8, !range !18, !noalias !3733, !noundef !4
@@ -14686,10 +14682,8 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i: ; p
   %8 = icmp ult i64 %7, 64
   %9 = ptrtoint ptr %5 to i64
   %10 = and i64 %9, 3
-  %11 = icmp eq i64 %10, 0
-  %spec.select.i.i.i = select i1 %11, ptr %5, ptr null
-  %.not9.i = icmp eq ptr %spec.select.i.i.i, null
-  %or.cond.i = or i1 %8, %.not9.i
+  %11 = icmp ne i64 %10, 0
+  %or.cond.i = or i1 %8, %11
   br i1 %or.cond.i, label %26, label %12
 
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i
@@ -14698,7 +14692,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i: ; p
   br i1 %.not.i, label %14, label %26
 
 14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 60
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 60
   %16 = load i32, ptr %15, align 4, !noundef !4
   %17 = zext i32 %16 to i64
   %18 = tail call { ptr, i64 } @"_ZN68_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$object..read..read_ref..ReadRef$GT$13read_bytes_at17h2b58a6c03518c321E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef range(i64 0, 4294967296) %17, i64 noundef 120), !noalias !3783
@@ -14712,10 +14706,8 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
   %22 = icmp ult i64 %21, 120
   %23 = ptrtoint ptr %19 to i64
   %24 = and i64 %23, 3
-  %25 = icmp eq i64 %24, 0
-  %spec.select.i.i = select i1 %25, ptr %19, ptr null
-  %.not22 = icmp eq ptr %spec.select.i.i, null
-  %or.cond = or i1 %22, %.not22
+  %25 = icmp ne i64 %24, 0
+  %or.cond = or i1 %22, %25
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef7read_at17h240d7c2851599917E.exit.thread, label %28
 
 26:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i.i, %3, %12
@@ -14738,7 +14730,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h240d7c2851599917E.exit.thread: ; pred
   br label %37
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %33 = load i16, ptr %32, align 4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i16 %33, ptr %34, align 8
@@ -15428,7 +15420,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i: ; preds =
   br label %_ZN6object4read3elf4file10FileHeader5phnum17h18774ded37a5a4f5E.exit
 
 34:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i
-  %35 = getelementptr i8, ptr %spec.select.i.i.i.i, i64 28
+  %35 = getelementptr i8, ptr %23, i64 28
   %.val.i = load i32, ptr %35, align 4, !noalias !3846, !noundef !4
   %36 = tail call i32 @llvm.bswap.i32(i32 %.val.i)
   %.0.i.i11.i = select i1 %2, i32 %36, i32 %.val.i
@@ -15536,7 +15528,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i: ; preds =
   br label %_ZN6object4read3elf4file10FileHeader5phnum17he2a9d216d3be438eE.exit
 
 32:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i
-  %33 = getelementptr i8, ptr %spec.select.i.i.i.i, i64 44
+  %33 = getelementptr i8, ptr %21, i64 44
   %.val.i = load i32, ptr %33, align 4, !noalias !3865, !noundef !4
   %34 = tail call i32 @llvm.bswap.i32(i32 %.val.i)
   %.0.i.i11.i = select i1 %2, i32 %34, i32 %.val.i
@@ -15639,22 +15631,22 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
   %13 = load i32, ptr %5, align 1, !alias.scope !3876
   %14 = icmp eq i32 %13, 1179403647
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %16 = load i8, ptr %15, align 4, !alias.scope !3876
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %16 = load i8, ptr %15, align 1, !alias.scope !3876
   %17 = icmp eq i8 %16, 2
   %or.cond.i = select i1 %14, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %_ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281577753466666573.exit.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %20 = load i8, ptr %19, align 1, !alias.scope !3879, !noundef !4
   %.off.i = add i8 %20, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %_ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281577753466666573.exit, label %_ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281577753466666573.exit.thread
 
 _ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281577753466666573.exit: ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 6
-  %22 = load i8, ptr %21, align 2, !alias.scope !3876, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %22 = load i8, ptr %21, align 1, !alias.scope !3876, !noundef !4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %_ZN6object4read3elf4file10FileHeader12is_supported17h1b0c3c6464cb8d5aE.llvm.5281577753466666573.exit.thread
 
@@ -15702,22 +15694,22 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
   %13 = load i32, ptr %5, align 1, !alias.scope !3887
   %14 = icmp eq i32 %13, 1179403647
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %16 = load i8, ptr %15, align 4, !alias.scope !3887
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %16 = load i8, ptr %15, align 1, !alias.scope !3887
   %17 = icmp eq i8 %16, 2
   %or.cond.i = select i1 %14, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %_ZN6object4read3elf4file10FileHeader12is_supported17h0cbf374b56fb0889E.llvm.5281577753466666573.exit.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %20 = load i8, ptr %19, align 1, !alias.scope !3890, !noundef !4
   %.off.i = add i8 %20, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %_ZN6object4read3elf4file10FileHeader12is_supported17h0cbf374b56fb0889E.llvm.5281577753466666573.exit, label %_ZN6object4read3elf4file10FileHeader12is_supported17h0cbf374b56fb0889E.llvm.5281577753466666573.exit.thread
 
 _ZN6object4read3elf4file10FileHeader12is_supported17h0cbf374b56fb0889E.llvm.5281577753466666573.exit: ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 6
-  %22 = load i8, ptr %21, align 2, !alias.scope !3887, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %22 = load i8, ptr %21, align 1, !alias.scope !3887, !noundef !4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %_ZN6object4read3elf4file10FileHeader12is_supported17h0cbf374b56fb0889E.llvm.5281577753466666573.exit.thread
 
@@ -15765,22 +15757,22 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
   %13 = load i32, ptr %5, align 1, !alias.scope !3898
   %14 = icmp eq i32 %13, 1179403647
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %16 = load i8, ptr %15, align 4, !alias.scope !3898
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %16 = load i8, ptr %15, align 1, !alias.scope !3898
   %17 = icmp eq i8 %16, 2
   %or.cond.i = select i1 %14, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %_ZN6object4read3elf4file10FileHeader12is_supported17hbea96724c2bff795E.llvm.5281577753466666573.exit.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %20 = load i8, ptr %19, align 1, !alias.scope !3901, !noundef !4
   %.off.i = add i8 %20, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %_ZN6object4read3elf4file10FileHeader12is_supported17hbea96724c2bff795E.llvm.5281577753466666573.exit, label %_ZN6object4read3elf4file10FileHeader12is_supported17hbea96724c2bff795E.llvm.5281577753466666573.exit.thread
 
 _ZN6object4read3elf4file10FileHeader12is_supported17hbea96724c2bff795E.llvm.5281577753466666573.exit: ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 6
-  %22 = load i8, ptr %21, align 2, !alias.scope !3898, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %22 = load i8, ptr %21, align 1, !alias.scope !3898, !noundef !4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %_ZN6object4read3elf4file10FileHeader12is_supported17hbea96724c2bff795E.llvm.5281577753466666573.exit.thread
 
@@ -15828,22 +15820,22 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i: ; pre
 12:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i.i
   %13 = load i32, ptr %5, align 1, !alias.scope !3909
   %14 = icmp eq i32 %13, 1179403647
-  %15 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 4
-  %16 = load i8, ptr %15, align 4, !alias.scope !3909
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %16 = load i8, ptr %15, align 1, !alias.scope !3909
   %17 = icmp eq i8 %16, 1
   %or.cond.i = select i1 %14, i1 %17, i1 false
   br i1 %or.cond.i, label %18, label %_ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281577753466666573.exit.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 5
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 5
   %20 = load i8, ptr %19, align 1, !alias.scope !3912, !noundef !4
   %.off.i = add i8 %20, -1
   %switch.i = icmp ult i8 %.off.i, 2
   br i1 %switch.i, label %_ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281577753466666573.exit, label %_ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281577753466666573.exit.thread
 
 _ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281577753466666573.exit: ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 6
-  %22 = load i8, ptr %21, align 2, !alias.scope !3909, !noundef !4
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %22 = load i8, ptr %21, align 1, !alias.scope !3909, !noundef !4
   %23 = icmp eq i8 %22, 1
   br i1 %23, label %26, label %_ZN6object4read3elf4file10FileHeader12is_supported17ha5edaf9c516ee3b4E.llvm.5281577753466666573.exit.thread
 
@@ -15941,7 +15933,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h4c8cfa4594cfb1a0E.exit.i.i.i: ; preds
   br label %30
 
 26:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17h4c8cfa4594cfb1a0E.exit.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !3941, !noalias !3944, !noundef !4
   %29 = tail call noundef i64 @llvm.bswap.i64(i64 %28)
   br label %30
@@ -16010,7 +16002,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h4c8cfa4594cfb1a0E.exit.i.i.i38: ; pre
   br label %64
 
 61:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17h4c8cfa4594cfb1a0E.exit.i.i.i38
-  %62 = getelementptr i8, ptr %spec.select.i.i.i.i.i39, i64 40
+  %62 = getelementptr i8, ptr %49, i64 40
   %.val14.i.i = load i32, ptr %62, align 8, !noalias !3971, !noundef !4
   %63 = tail call noundef i32 @llvm.bswap.i32(i32 %.val14.i.i)
   br label %64
@@ -16142,7 +16134,7 @@ _ZN6object4read3elf4file10FileHeader5shnum17h764392aaff558ed8E.exit.thread19.i: 
   br label %31
 
 _ZN6object4read3elf4file10FileHeader5shnum17h764392aaff558ed8E.exit.i: ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %28 = load i64, ptr %27, align 8, !alias.scope !4005, !noalias !4008, !noundef !4
   %29 = tail call i64 @llvm.bswap.i64(i64 %28)
   %.0.i.i13.i.i = select i1 %2, i64 %29, i64 %28
@@ -16217,7 +16209,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i.i39: ; pre
   br label %64
 
 61:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17h84a18667f2ce1586E.exit.i.i.i39
-  %62 = getelementptr i8, ptr %spec.select.i.i.i.i.i40, i64 40
+  %62 = getelementptr i8, ptr %50, i64 40
   %.val.i.i = load i32, ptr %62, align 8, !noalias !4035, !noundef !4
   %63 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i)
   %.0.i.i15.i.i = select i1 %2, i32 %63, i32 %.val.i.i
@@ -16355,7 +16347,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i.i: ; preds
   br label %34
 
 28:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %30 = load i32, ptr %29, align 4, !alias.scope !4069, !noalias !4072, !noundef !4
   %31 = tail call i32 @llvm.bswap.i32(i32 %30)
   %.0.i.i13.i.i = select i1 %2, i32 %31, i32 %30
@@ -16431,7 +16423,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i.i39: ; pre
   br label %67
 
 64:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17hd80b2b3fa2dde838E.exit.i.i.i39
-  %65 = getelementptr i8, ptr %spec.select.i.i.i.i.i40, i64 24
+  %65 = getelementptr i8, ptr %53, i64 24
   %.val.i.i = load i32, ptr %65, align 4, !noalias !4099, !noundef !4
   %66 = tail call i32 @llvm.bswap.i32(i32 %.val.i.i)
   %.0.i.i15.i.i = select i1 %2, i32 %66, i32 %.val.i.i
@@ -16555,7 +16547,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hddde92c7c1e54887E.exit.i.i.i: ; preds
   br i1 %20, label %_ZN6object4read8read_ref7ReadRef13read_slice_at17ha59ac9823f0d4a50E.exit.thread.i, label %_ZN6object4read3elf4file10FileHeader5shnum17hfe4711c5a9371861E.exit.i
 
 _ZN6object4read3elf4file10FileHeader5shnum17hfe4711c5a9371861E.exit.i: ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17hddde92c7c1e54887E.exit.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %23 = load i64, ptr %22, align 8, !alias.scope !4133, !noalias !4136, !noundef !4
   %24 = icmp eq i64 %23, 0
   br i1 %24, label %_ZN6object4read3elf7section13SectionHeader10file_range17h70a7831f0233753fE.exit.thread.i, label %28
@@ -16620,7 +16612,7 @@ _ZN6object4read8read_ref7ReadRef7read_at17hddde92c7c1e54887E.exit.i.i.i38: ; pre
   br label %55
 
 53:                                               ; preds = %_ZN6object4read8read_ref7ReadRef7read_at17hddde92c7c1e54887E.exit.i.i.i38
-  %54 = getelementptr i8, ptr %spec.select.i.i.i.i.i39, i64 40
+  %54 = getelementptr i8, ptr %42, i64 40
   %.val14.i.i = load i32, ptr %54, align 8, !noalias !4163, !noundef !4
   br label %55
 
@@ -20803,7 +20795,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i: ; preds
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17h2f25871ac002240cE.exit.thread, label %15
 
 15:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h2755cbe2cadf92d1E.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i16, ptr %16, align 4, !noundef !4
   %18 = zext i16 %17 to i64
   %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %18)
@@ -21054,7 +21046,7 @@ _ZN6object4read8read_ref7ReadRef4read17h38dde8783862bc83E.exit.thread: ; preds =
   br label %33
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %20 = load i16, ptr %19, align 2, !noundef !4
   %21 = icmp eq i16 %20, -1
   br i1 %21, label %24, label %22
@@ -21066,14 +21058,14 @@ _ZN6object4read8read_ref7ReadRef4read17h38dde8783862bc83E.exit.thread: ; preds =
   br label %33
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %26 = load i16, ptr %25, align 4, !noundef !4
   %27 = icmp ult i16 %26, 2
   br i1 %27, label %22, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
-  %30 = load i128, ptr %29, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %30 = load i128, ptr %29, align 1
   %.not6 = icmp eq i128 %30, -94558775597840357164513783596303343161
   br i1 %.not6, label %31, label %22
 

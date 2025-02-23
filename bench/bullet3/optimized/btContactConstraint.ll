@@ -100,7 +100,6 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %12 = load i32, ptr %11, align 8, !tbaa !7
   %13 = and i32 %12, 2
   %.not.i = icmp eq i32 %13, 0
-  %..i = select i1 %.not.i, ptr null, ptr %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #14
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load float, ptr %2, align 4, !tbaa !22
@@ -162,15 +161,16 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 428
   %61 = load float, ptr %60, align 4, !tbaa !22
   %62 = fadd float %54, %61
-  %.not = icmp eq ptr %..i, null
+  %.not81 = icmp eq ptr %1, null
+  %.not = or i1 %.not81, %.not.i
   br i1 %.not, label %88, label %63
 
 63:                                               ; preds = %6
-  %64 = getelementptr inbounds nuw i8, ptr %..i, i64 420
-  %65 = getelementptr inbounds nuw i8, ptr %..i, i64 436
-  %66 = getelementptr inbounds nuw i8, ptr %..i, i64 440
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 420
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 436
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 440
   %67 = load float, ptr %66, align 4, !tbaa !22
-  %68 = getelementptr inbounds nuw i8, ptr %..i, i64 444
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 444
   %69 = load float, ptr %68, align 4, !tbaa !22
   %70 = fneg float %34
   %71 = fmul float %69, %70
@@ -184,10 +184,10 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %79 = tail call float @llvm.fmuladd.f32(float %73, float %34, float %78)
   %80 = load float, ptr %64, align 4, !tbaa !22
   %81 = fadd float %72, %80
-  %82 = getelementptr inbounds nuw i8, ptr %..i, i64 424
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %83 = load float, ptr %82, align 4, !tbaa !22
   %84 = fadd float %83, %76
-  %85 = getelementptr inbounds nuw i8, ptr %..i, i64 428
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 428
   %86 = load float, ptr %85, align 4, !tbaa !22
   %87 = fadd float %79, %86
   %.sroa.0.0.vec.insert.i2.i43 = insertelement <2 x float> poison, float %81, i64 0
@@ -274,116 +274,107 @@ define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCol
   %159 = tail call float @llvm.fmuladd.f32(float %92, float %149, float %158)
   %160 = tail call noundef float @llvm.fmuladd.f32(float %98, float %155, float %159)
   %161 = fadd float %157, %160
-  br i1 %.not, label %220, label %162
+  br i1 %.not, label %211, label %162
 
 162:                                              ; preds = %88
-  %163 = getelementptr inbounds nuw i8, ptr %..i, i64 56
-  %164 = load float, ptr %163, align 4, !tbaa !22
-  %165 = fsub float %15, %164
-  %166 = getelementptr inbounds nuw i8, ptr %..i, i64 60
-  %167 = load float, ptr %166, align 4, !tbaa !22
-  %168 = fsub float %19, %167
-  %169 = getelementptr inbounds nuw i8, ptr %..i, i64 64
+  %163 = fmul float %37, %111
+  %164 = tail call float @llvm.fmuladd.f32(float %34, float %98, float %163)
+  %165 = fmul float %31, %114
+  %166 = tail call float @llvm.fmuladd.f32(float %37, float %92, float %165)
+  %167 = fmul float %34, %117
+  %168 = tail call float @llvm.fmuladd.f32(float %31, float %94, float %167)
+  %169 = getelementptr inbounds nuw i8, ptr %1, i64 372
   %170 = load float, ptr %169, align 4, !tbaa !22
-  %171 = fsub float %24, %170
-  %172 = fmul float %171, %111
-  %173 = tail call float @llvm.fmuladd.f32(float %168, float %98, float %172)
-  %174 = fmul float %165, %114
-  %175 = tail call float @llvm.fmuladd.f32(float %171, float %92, float %174)
-  %176 = fmul float %168, %117
-  %177 = tail call float @llvm.fmuladd.f32(float %165, float %94, float %176)
-  %178 = getelementptr inbounds nuw i8, ptr %..i, i64 372
+  %171 = getelementptr inbounds nuw i8, ptr %1, i64 388
+  %172 = load float, ptr %171, align 4, !tbaa !22
+  %173 = fmul float %166, %172
+  %174 = tail call float @llvm.fmuladd.f32(float %170, float %164, float %173)
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 404
+  %176 = load float, ptr %175, align 4, !tbaa !22
+  %177 = tail call noundef float @llvm.fmuladd.f32(float %176, float %168, float %174)
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %179 = load float, ptr %178, align 4, !tbaa !22
-  %180 = getelementptr inbounds nuw i8, ptr %..i, i64 388
+  %180 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %181 = load float, ptr %180, align 4, !tbaa !22
-  %182 = fmul float %175, %181
-  %183 = tail call float @llvm.fmuladd.f32(float %179, float %173, float %182)
-  %184 = getelementptr inbounds nuw i8, ptr %..i, i64 404
+  %182 = fmul float %166, %181
+  %183 = tail call float @llvm.fmuladd.f32(float %179, float %164, float %182)
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %185 = load float, ptr %184, align 4, !tbaa !22
-  %186 = tail call noundef float @llvm.fmuladd.f32(float %185, float %177, float %183)
-  %187 = getelementptr inbounds nuw i8, ptr %..i, i64 376
+  %186 = tail call noundef float @llvm.fmuladd.f32(float %185, float %168, float %183)
+  %187 = getelementptr inbounds nuw i8, ptr %1, i64 380
   %188 = load float, ptr %187, align 4, !tbaa !22
-  %189 = getelementptr inbounds nuw i8, ptr %..i, i64 392
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 396
   %190 = load float, ptr %189, align 4, !tbaa !22
-  %191 = fmul float %175, %190
-  %192 = tail call float @llvm.fmuladd.f32(float %188, float %173, float %191)
-  %193 = getelementptr inbounds nuw i8, ptr %..i, i64 408
+  %191 = fmul float %166, %190
+  %192 = tail call float @llvm.fmuladd.f32(float %188, float %164, float %191)
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 412
   %194 = load float, ptr %193, align 4, !tbaa !22
-  %195 = tail call noundef float @llvm.fmuladd.f32(float %194, float %177, float %192)
-  %196 = getelementptr inbounds nuw i8, ptr %..i, i64 380
-  %197 = load float, ptr %196, align 4, !tbaa !22
-  %198 = getelementptr inbounds nuw i8, ptr %..i, i64 396
-  %199 = load float, ptr %198, align 4, !tbaa !22
-  %200 = fmul float %175, %199
-  %201 = tail call float @llvm.fmuladd.f32(float %197, float %173, float %200)
-  %202 = getelementptr inbounds nuw i8, ptr %..i, i64 412
-  %203 = load float, ptr %202, align 4, !tbaa !22
-  %204 = tail call noundef float @llvm.fmuladd.f32(float %203, float %177, float %201)
-  %205 = fneg float %168
-  %206 = fmul float %204, %205
-  %207 = tail call float @llvm.fmuladd.f32(float %195, float %171, float %206)
-  %208 = fneg float %171
-  %209 = fmul float %186, %208
-  %210 = tail call float @llvm.fmuladd.f32(float %204, float %165, float %209)
-  %211 = fneg float %165
-  %212 = fmul float %195, %211
-  %213 = tail call float @llvm.fmuladd.f32(float %186, float %168, float %212)
-  %214 = getelementptr inbounds nuw i8, ptr %..i, i64 452
-  %215 = load float, ptr %214, align 4, !tbaa !26
-  %216 = fmul float %94, %210
-  %217 = tail call float @llvm.fmuladd.f32(float %92, float %207, float %216)
-  %218 = tail call noundef float @llvm.fmuladd.f32(float %98, float %213, float %217)
-  %219 = fadd float %215, %218
-  br label %220
+  %195 = tail call noundef float @llvm.fmuladd.f32(float %194, float %168, float %192)
+  %196 = fneg float %34
+  %197 = fmul float %195, %196
+  %198 = tail call float @llvm.fmuladd.f32(float %186, float %37, float %197)
+  %199 = fneg float %37
+  %200 = fmul float %177, %199
+  %201 = tail call float @llvm.fmuladd.f32(float %195, float %31, float %200)
+  %202 = fneg float %31
+  %203 = fmul float %186, %202
+  %204 = tail call float @llvm.fmuladd.f32(float %177, float %34, float %203)
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 452
+  %206 = load float, ptr %205, align 4, !tbaa !26
+  %207 = fmul float %94, %201
+  %208 = tail call float @llvm.fmuladd.f32(float %92, float %198, float %207)
+  %209 = tail call noundef float @llvm.fmuladd.f32(float %98, float %204, float %208)
+  %210 = fadd float %206, %209
+  br label %211
 
-220:                                              ; preds = %88, %162
-  %221 = phi float [ %219, %162 ], [ 0.000000e+00, %88 ]
-  %222 = fadd float %161, %221
-  %223 = fdiv float 1.000000e+00, %222
-  %224 = fmul float %107, %223
-  %225 = fmul float %110, %223
-  %226 = fadd float %224, %225
-  %227 = fcmp olt float %226, 0.000000e+00
-  %228 = select i1 %227, float 0.000000e+00, float %226
+211:                                              ; preds = %88, %162
+  %212 = phi float [ %210, %162 ], [ 0.000000e+00, %88 ]
+  %213 = fadd float %161, %212
+  %214 = fdiv float 1.000000e+00, %213
+  %215 = fmul float %107, %214
+  %216 = fmul float %110, %214
+  %217 = fadd float %215, %216
+  %218 = fcmp olt float %217, 0.000000e+00
+  %219 = select i1 %218, float 0.000000e+00, float %217
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #14
-  %229 = fmul float %92, %228
-  %230 = fmul float %94, %228
-  %231 = fmul float %98, %228
-  %.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %229, i64 0
-  %.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %.sroa.0.0.vec.insert.i53, float %230, i64 1
-  %.sroa.3.12.vec.insert.i55 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %231, i64 0
+  %220 = fmul float %92, %219
+  %221 = fmul float %94, %219
+  %222 = fmul float %98, %219
+  %.sroa.0.0.vec.insert.i53 = insertelement <2 x float> poison, float %220, i64 0
+  %.sroa.0.4.vec.insert.i54 = insertelement <2 x float> %.sroa.0.0.vec.insert.i53, float %221, i64 1
+  %.sroa.3.12.vec.insert.i55 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %222, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i54, ptr %9, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i55, ptr %232, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i55, ptr %223, align 8
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #14
-  br i1 %.not, label %244, label %233
+  br i1 %.not, label %235, label %224
 
-233:                                              ; preds = %220
+224:                                              ; preds = %211
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #14
-  %234 = load float, ptr %3, align 4, !tbaa !22
-  %235 = fneg float %234
-  %236 = load float, ptr %93, align 4, !tbaa !22
-  %237 = fneg float %236
-  %238 = load float, ptr %97, align 4, !tbaa !22
-  %239 = fneg float %238
-  %240 = fmul float %228, %235
-  %241 = fmul float %228, %237
-  %242 = fmul float %228, %239
-  %.sroa.0.0.vec.insert.i63 = insertelement <2 x float> poison, float %240, i64 0
-  %.sroa.0.4.vec.insert.i64 = insertelement <2 x float> %.sroa.0.0.vec.insert.i63, float %241, i64 1
-  %.sroa.3.12.vec.insert.i65 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %242, i64 0
+  %225 = load float, ptr %3, align 4, !tbaa !22
+  %226 = fneg float %225
+  %227 = load float, ptr %93, align 4, !tbaa !22
+  %228 = fneg float %227
+  %229 = load float, ptr %97, align 4, !tbaa !22
+  %230 = fneg float %229
+  %231 = fmul float %219, %226
+  %232 = fmul float %219, %228
+  %233 = fmul float %219, %230
+  %.sroa.0.0.vec.insert.i63 = insertelement <2 x float> poison, float %231, i64 0
+  %.sroa.0.4.vec.insert.i64 = insertelement <2 x float> %.sroa.0.0.vec.insert.i63, float %232, i64 1
+  %.sroa.3.12.vec.insert.i65 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %233, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i64, ptr %10, align 8
-  %243 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store <2 x float> %.sroa.3.12.vec.insert.i65, ptr %243, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store <2 x float> %.sroa.3.12.vec.insert.i65, ptr %234, align 8
   call void @_ZN11btRigidBody12applyImpulseERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #14
-  br label %244
+  br label %235
 
-244:                                              ; preds = %233, %220
+235:                                              ; preds = %224, %211
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #14
-  ret float %228
+  ret float %219
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

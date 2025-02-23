@@ -3984,7 +3984,7 @@ define noundef i32 @pmix20_bfrop_unpack_kval(ptr noundef %0, ptr noundef %1, ptr
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.i
   %32 = phi ptr [ %34, %.lr.ph.i ], [ %31, %25 ]
   %.07.i = phi ptr [ %33, %.lr.ph.i ], [ %30, %25 ]
-  call void %32(ptr noundef %26) #10
+  call void %32(ptr noundef nonnull %26) #10
   %33 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !31
   %.not.i = icmp eq ptr %34, null

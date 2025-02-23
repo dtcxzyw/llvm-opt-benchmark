@@ -952,7 +952,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i.i.i.i: ; preds = %93
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %106, %114
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #18
-  %115 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %.us-phi135, ptr noundef nonnull %8)
+  %115 = invoke noundef i64 @_ZN5draco21ComputeShannonEntropyEPKjiiPi(ptr noundef nonnull %0, i32 noundef range(i32 1, -2147483648) %1, i32 noundef %.us-phi135, ptr noundef nonnull %8)
           to label %116 unwind label %186
 
 116:                                              ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit
@@ -1251,7 +1251,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %202, %207
   ]
 
 216:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %217 = invoke noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAnsSymbolEncoderEEEbPKjiiRKSt6vectorIjSaIjEEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %4)
+  %217 = invoke noundef zeroext i1 @_ZN5draco19EncodeTaggedSymbolsINS_17RAnsSymbolEncoderEEEbPKjiiRKSt6vectorIjSaIjEEPNS_13EncoderBufferE(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %spec.store.select, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %4)
           to label %._crit_edge unwind label %220
 
 ._crit_edge:                                      ; preds = %216
@@ -1271,7 +1271,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %202, %207
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit86
 
 222:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %223 = invoke noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSymbolEncoderEEEbPKjijiPKNS_7OptionsEPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %.us-phi135, i32 noundef %117, ptr noundef %3, ptr noundef nonnull %4)
+  %223 = invoke noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSymbolEncoderEEEbPKjijiPKNS_7OptionsEPNS_13EncoderBufferE(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.us-phi135, i32 noundef %117, ptr noundef %3, ptr noundef nonnull %4)
           to label %224 unwind label %220
 
 224:                                              ; preds = %._crit_edge, %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit, %222
@@ -4738,7 +4738,7 @@ _ZN5draco17RAnsSymbolEncoderILi1EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !114
 
 80:                                               ; preds = %._crit_edge40
@@ -4925,7 +4925,7 @@ _ZN5draco17RAnsSymbolEncoderILi2EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !119
 
 80:                                               ; preds = %._crit_edge40
@@ -5112,7 +5112,7 @@ _ZN5draco17RAnsSymbolEncoderILi3EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !124
 
 80:                                               ; preds = %._crit_edge40
@@ -5299,7 +5299,7 @@ _ZN5draco17RAnsSymbolEncoderILi4EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !129
 
 80:                                               ; preds = %._crit_edge40
@@ -5477,7 +5477,7 @@ _ZN5draco17RAnsSymbolEncoderILi5EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !64
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -5673,7 +5673,7 @@ _ZN5draco17RAnsSymbolEncoderILi6EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !135
 
 80:                                               ; preds = %._crit_edge40
@@ -5860,7 +5860,7 @@ _ZN5draco17RAnsSymbolEncoderILi7EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !140
 
 80:                                               ; preds = %._crit_edge40
@@ -6047,7 +6047,7 @@ _ZN5draco17RAnsSymbolEncoderILi8EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !64
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !145
 
 80:                                               ; preds = %._crit_edge40
@@ -6225,7 +6225,7 @@ _ZN5draco17RAnsSymbolEncoderILi9EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i, 
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !153
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -6412,7 +6412,7 @@ _ZN5draco17RAnsSymbolEncoderILi10EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !162
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -6599,7 +6599,7 @@ _ZN5draco17RAnsSymbolEncoderILi11EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !171
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -6786,7 +6786,7 @@ _ZN5draco17RAnsSymbolEncoderILi12EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !180
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -6973,7 +6973,7 @@ _ZN5draco17RAnsSymbolEncoderILi13EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !189
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -7160,7 +7160,7 @@ _ZN5draco17RAnsSymbolEncoderILi14EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %71 = load i32, ptr %70, align 4, !tbaa !69
   %72 = add i32 %69, %71
   store i32 %72, ptr %44, align 4, !tbaa !198
-  %73 = icmp sgt i64 %indvars.iv45, 1
+  %73 = icmp samesign ugt i64 %indvars.iv45, 1
   br i1 %73, label %.lr.ph42, label %._crit_edge43
 
 74:                                               ; preds = %._crit_edge43
@@ -7356,7 +7356,7 @@ _ZN5draco17RAnsSymbolEncoderILi15EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !198
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !204
 
 80:                                               ; preds = %._crit_edge40
@@ -7543,7 +7543,7 @@ _ZN5draco17RAnsSymbolEncoderILi16EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !198
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !209
 
 80:                                               ; preds = %._crit_edge40
@@ -7730,7 +7730,7 @@ _ZN5draco17RAnsSymbolEncoderILi17EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !198
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !214
 
 80:                                               ; preds = %._crit_edge40
@@ -7917,7 +7917,7 @@ _ZN5draco17RAnsSymbolEncoderILi18EE12EncodeSymbolEj.exit: ; preds = %.lr.ph.i.i,
   %77 = load i32, ptr %76, align 4, !tbaa !69
   %78 = add i32 %75, %77
   store i32 %78, ptr %44, align 4, !tbaa !198
-  %79 = icmp sgt i64 %indvars.iv42, 1
+  %79 = icmp samesign ugt i64 %indvars.iv42, 1
   br i1 %79, label %.lr.ph39, label %._crit_edge40, !llvm.loop !219
 
 80:                                               ; preds = %._crit_edge40

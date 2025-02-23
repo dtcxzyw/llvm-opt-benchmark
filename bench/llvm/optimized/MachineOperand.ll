@@ -2105,20 +2105,20 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %180, %196
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %260, align 8, !tbaa !56
   %.not.i74 = icmp eq ptr %.val, null
-  br i1 %.not.i74, label %_ZNSt6vectorImSaImEED2Ev.exit.thread, label %261
+  br i1 %.not.i74, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %261
 
 261:                                              ; preds = %259
   %262 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %263 = load ptr, ptr %262, align 8, !tbaa !79
   %.not16.i = icmp eq ptr %263, null
-  br i1 %.not16.i, label %_ZNSt6vectorImSaImEED2Ev.exit.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
+  br i1 %.not16.i, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
 
 _ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit: ; preds = %261
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
   %265 = load ptr, ptr %264, align 8, !tbaa !80
   %.fr.i = freeze ptr %265
   %.not.not = icmp eq ptr %.fr.i, null
-  br i1 %.not.not, label %_ZNSt6vectorImSaImEED2Ev.exit.thread, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
+  br i1 %.not.not, label %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, label %_ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %266 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 16
@@ -2196,7 +2196,7 @@ _ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit:     ; preds = %_ZNSt6vectorImSaImE
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0122.0, i64 noundef %.sroa.8.0.idx) #25
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
-_ZNSt6vectorImSaImEED2Ev.exit.thread:             ; preds = %261, %259, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
+_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread: ; preds = %261, %259, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit
   %305 = and i32 %47, 255
   %306 = icmp eq i32 %305, 0
   %307 = lshr i32 %47, 8
@@ -2411,8 +2411,8 @@ _ZNSt6vectorImSaImEED2Ev.exit.thread:             ; preds = %261, %259, %_ZL16ge
 425:                                              ; preds = %1
   unreachable
 
-_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %304, %409, %394, %379, %364, %345, %330, %315, %_ZNSt6vectorImSaImEED2Ev.exit.thread, %234, %209, %_ZN4llvm9StringRefC2EPKc.exit, %165, %140, %125, %110, %95, %80, %65, %49
-  %.sroa.0.0 = phi i64 [ %424, %409 ], [ %408, %394 ], [ %393, %379 ], [ %378, %364 ], [ %363, %345 ], [ %344, %330 ], [ %329, %315 ], [ %314, %_ZNSt6vectorImSaImEED2Ev.exit.thread ], [ %258, %234 ], [ %233, %209 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %179, %165 ], [ %164, %140 ], [ %139, %125 ], [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %65 ], [ %64, %49 ], [ %303, %304 ], [ %303, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ]
+_ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit, %304, %409, %394, %379, %364, %345, %330, %315, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread, %234, %209, %_ZN4llvm9StringRefC2EPKc.exit, %165, %140, %125, %110, %95, %80, %65, %49
+  %.sroa.0.0 = phi i64 [ %424, %409 ], [ %408, %394 ], [ %393, %379 ], [ %378, %364 ], [ %363, %345 ], [ %344, %330 ], [ %329, %315 ], [ %314, %_ZL16getMFIfAvailableRKN4llvm14MachineOperandE.exit.thread ], [ %258, %234 ], [ %233, %209 ], [ %208, %_ZN4llvm9StringRefC2EPKc.exit ], [ %179, %165 ], [ %164, %140 ], [ %139, %125 ], [ %124, %110 ], [ %109, %95 ], [ %94, %80 ], [ %79, %65 ], [ %64, %49 ], [ %303, %_ZNSt6vectorImSaImEEC2IPKjvEET_S5_RKS0_.exit ], [ %303, %304 ]
   ret i64 %.sroa.0.0
 }
 

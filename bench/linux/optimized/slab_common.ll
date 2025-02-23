@@ -3000,22 +3000,21 @@ define dso_local void @create_boot_cache(ptr noundef initializes((24, 32), (96, 
 
 26:                                               ; preds = %24, %.thread
   %27 = phi i32 [ %25, %24 ], [ %15, %.thread ]
-  %28 = tail call i32 @llvm.umax.i32(i32 %27, i32 8)
-  %29 = add i32 %28, 7
-  %30 = and i32 %29, -8
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %30, ptr %31, align 4
-  %32 = tail call i32 @__kmem_cache_create(ptr noundef %0, i32 noundef %3) #22
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %35, label %34
+  %28 = add i32 %27, 7
+  %29 = and i32 %28, -8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 %29, ptr %30, align 4
+  %31 = tail call i32 @__kmem_cache_create(ptr noundef %0, i32 noundef %3) #22
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %34, label %33
 
-34:                                               ; preds = %26
-  tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.41, ptr noundef %1, i32 noundef %2, i32 noundef %32) #25
+33:                                               ; preds = %26
+  tail call void (ptr, ...) @panic(ptr noundef nonnull @.str.41, ptr noundef %1, i32 noundef %2, i32 noundef %31) #25
   unreachable
 
-35:                                               ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 -1, ptr %36, align 8
+34:                                               ; preds = %26
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 -1, ptr %35, align 8
   ret void
 }
 

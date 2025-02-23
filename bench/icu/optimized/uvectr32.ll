@@ -609,7 +609,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %11 = load i32, ptr %arrayidx, align 4
   store i32 %11, ptr %10, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %cmp6 = icmp sgt i64 %indvars.iv.next, %8
+  %cmp6 = icmp samesign ugt i64 %indvars.iv.next, %8
   br i1 %cmp6, label %for.body, label %for.end, !llvm.loop !8
 
 for.end:                                          ; preds = %for.body, %if.then

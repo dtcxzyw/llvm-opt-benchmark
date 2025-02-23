@@ -10758,7 +10758,7 @@ invoke.cont21:                                    ; preds = %invoke.cont12.i
   br i1 %cmp.not, label %if.end29, label %if.then24
 
 if.then24:                                        ; preds = %invoke.cont21
-  %sext57 = add i64 %sext, 4294967296
+  %sext57 = add nuw i64 %sext, 4294967296
   %conv26 = ashr exact i64 %sext57, 32
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp25, ptr noundef nonnull align 8 dereferenceable(32) %fullname, i64 noundef %conv26, i64 noundef -1)
           to label %invoke.cont27 unwind label %lpad15
@@ -12875,7 +12875,7 @@ invoke.cont27:                                    ; preds = %.noexc
   br i1 %cmp.not, label %if.end35, label %if.then30
 
 if.then30:                                        ; preds = %invoke.cont27
-  %sext31 = add i64 %sext, 4294967296
+  %sext31 = add nuw i64 %sext, 4294967296
   %conv32 = ashr exact i64 %sext31, 32
   invoke void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp31, ptr noundef nonnull align 8 dereferenceable(32) %fullname, i64 noundef %conv32, i64 noundef -1)
           to label %invoke.cont33 unwind label %lpad20.loopexit.split-lp.loopexit.split-lp

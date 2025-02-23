@@ -101,9 +101,9 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   %load_initial = load ptr, ptr %33, align 8
   br label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %Abc_AttachSetupTruthTables.exit
-  %39 = icmp sgt i32 %30, 0
-  br i1 %39, label %.lr.ph157, label %._crit_edge
+.preheader:                                       ; preds = %Abc_AttachSetupTruthTables.exit
+  %39 = icmp eq i32 %30, 1
+  br i1 %39, label %.lr.ph157.preheader, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %41, %.lr.ph ]
@@ -113,10 +113,13 @@ Abc_AttachSetupTruthTables.exit:                  ; preds = %.preheader.i
   store ptr %41, ptr %40, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.lr.ph157.preheader, label %.lr.ph, !llvm.loop !15
 
-.lr.ph157:                                        ; preds = %.preheader, %.lr.ph157
-  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph157 ], [ 0, %.preheader ]
+.lr.ph157.preheader:                              ; preds = %.lr.ph, %.preheader
+  br label %.lr.ph157
+
+.lr.ph157:                                        ; preds = %.lr.ph157.preheader, %.lr.ph157
+  %indvars.iv181 = phi i64 [ %indvars.iv.next182, %.lr.ph157 ], [ 0, %.lr.ph157.preheader ]
   %42 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv181
   %43 = load ptr, ptr %42, align 8, !tbaa !16
   %44 = call i32 @Mio_GateReadPinNum(ptr noundef %43) #7

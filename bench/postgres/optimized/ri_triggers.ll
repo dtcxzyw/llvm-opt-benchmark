@@ -4150,7 +4150,7 @@ quoteOneName.exit177:                             ; preds = %262
   br i1 %exitcond.not, label %._crit_edge195, label %311, !llvm.loop !23
 
 314:                                              ; preds = %._crit_edge195
-  %315 = call fastcc i32 @ri_NullCheck(ptr noundef %298, ptr noundef nonnull %10, i1 noundef zeroext false)
+  %315 = call fastcc i32 @ri_NullCheck(ptr noundef nonnull %298, ptr noundef nonnull %10, i1 noundef zeroext false)
   %.not138 = icmp eq i32 %315, 2
   br i1 %.not138, label %325, label %316
 
@@ -4168,7 +4168,7 @@ quoteOneName.exit177:                             ; preds = %262
   unreachable
 
 325:                                              ; preds = %314, %._crit_edge195
-  call fastcc void @ri_ReportViolation(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %1, ptr noundef %298, ptr noundef %297, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false) #13
+  call fastcc void @ri_ReportViolation(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %298, ptr noundef %297, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false) #13
   unreachable
 
 326:                                              ; preds = %290
@@ -5120,7 +5120,7 @@ quoteOneName.exit115:                             ; preds = %157
   br i1 %exitcond.not, label %._crit_edge130, label %212, !llvm.loop !29
 
 ._crit_edge130:                                   ; preds = %212, %196
-  call fastcc void @ri_ReportViolation(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %1, ptr noundef %202, ptr noundef %201, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #13
+  call fastcc void @ri_ReportViolation(ptr noundef nonnull %10, ptr noundef %2, ptr noundef %1, ptr noundef nonnull %202, ptr noundef %201, i32 noundef 0, i1 noundef zeroext false, i1 noundef zeroext true) #13
   unreachable
 
 215:                                              ; preds = %194

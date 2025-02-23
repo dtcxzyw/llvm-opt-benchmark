@@ -180,7 +180,7 @@ _ZN6icu_7517double_conversion6Bignum12AssignUInt64Em.exit.i: ; preds = %for.body
 
 _ZN6icu_7517double_conversion6Bignum9AddUInt64Em.exit: ; preds = %_ZN6icu_7517double_conversionL10ReadUInt64ENS0_6VectorIKcEEii.exit, %_ZN6icu_7517double_conversion6Bignum12AssignUInt64Em.exit.i
   call void @llvm.lifetime.end.p0(i64 516, ptr nonnull %other.i)
-  %cmp = icmp sgt i32 %length.045, 37
+  %cmp = icmp samesign ugt i32 %length.045, 37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 19
   br i1 %cmp, label %while.body, label %while.end.loopexit, !llvm.loop !8
 
@@ -490,7 +490,7 @@ for.body.lr.ph.i25:                               ; preds = %if.end4.i
 
 while.cond.preheader.i40:                         ; preds = %for.body.i29
   %cmp15.not19.i41 = icmp ult i64 %add.i35, 268435456
-  br i1 %cmp15.not19.i41, label %if.end14, label %while.body.i44
+  br i1 %cmp15.not19.i41, label %if.end.i, label %while.body.i44
 
 for.body.i29:                                     ; preds = %for.body.i29, %for.body.lr.ph.i25
   %indvars.iv.i30 = phi i64 [ 0, %for.body.lr.ph.i25 ], [ %indvars.iv.next.i38, %for.body.i29 ]
@@ -531,20 +531,21 @@ _ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i47: ; preds = %whil
   %cmp15.not.i53 = icmp samesign ult i64 %carry.120.i45, 268435456
   br i1 %cmp15.not.i53, label %if.end14, label %while.body.i44, !llvm.loop !15
 
-if.end14:                                         ; preds = %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i47, %while.cond.preheader.i40, %if.then12, %while.end10, %if.end4.i
-  %34 = phi i16 [ %.pr, %if.end4.i ], [ %.pr, %while.end10 ], [ %.pr, %if.then12 ], [ %.pr, %while.cond.preheader.i40 ], [ %inc25.i51, %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i47 ]
+if.end14:                                         ; preds = %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i47, %if.then12, %while.end10, %if.end4.i
+  %34 = phi i16 [ %.pr, %if.end4.i ], [ %.pr, %while.end10 ], [ %.pr, %if.then12 ], [ %inc25.i51, %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i47 ]
   %cmp.i = icmp eq i16 %34, 0
   br i1 %cmp.i, label %return, label %if.end.i
 
-if.end.i:                                         ; preds = %if.end14
+if.end.i:                                         ; preds = %while.cond.preheader.i40, %if.end14
+  %35 = phi i16 [ %34, %if.end14 ], [ %.pr, %while.cond.preheader.i40 ]
   %div.i = sdiv i32 %exponent, 28
   %exponent_.i = getelementptr inbounds nuw i8, ptr %this, i64 2
-  %35 = load i16, ptr %exponent_.i, align 2
-  %36 = trunc i32 %div.i to i16
-  %conv5.i = add i16 %35, %36
+  %36 = load i16, ptr %exponent_.i, align 2
+  %37 = trunc i32 %div.i to i16
+  %conv5.i = add i16 %36, %37
   store i16 %conv5.i, ptr %exponent_.i, align 2
   %rem.i = srem i32 %exponent, 28
-  %cmp.i.i56 = icmp sgt i16 %34, 127
+  %cmp.i.i56 = icmp sgt i16 %35, 127
   br i1 %cmp.i.i56, label %if.then.i.i58, label %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i57
 
 if.then.i.i58:                                    ; preds = %if.end.i
@@ -552,11 +553,11 @@ if.then.i.i58:                                    ; preds = %if.end.i
   unreachable
 
 _ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i57: ; preds = %if.end.i
-  %cmp17.i.i = icmp sgt i16 %34, 0
+  %cmp17.i.i = icmp sgt i16 %35, 0
   br i1 %cmp17.i.i, label %for.body.lr.ph.i.i, label %return
 
 for.body.lr.ph.i.i:                               ; preds = %_ZN6icu_7517double_conversion6Bignum14EnsureCapacityEi.exit.i57
-  %conv.i.i = zext nneg i16 %34 to i64
+  %conv.i.i = zext nneg i16 %35 to i64
   %bigits_buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4
   %sub.i.i = sub nsw i32 28, %rem.i
   br label %for.body.i.i
@@ -565,9 +566,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %indvars.iv.i.i = phi i64 [ 0, %for.body.lr.ph.i.i ], [ %indvars.iv.next.i.i, %for.body.i.i ]
   %carry.019.i.i = phi i32 [ 0, %for.body.lr.ph.i.i ], [ %shr.i.i, %for.body.i.i ]
   %arrayidx.i.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %indvars.iv.i.i
-  %37 = load i32, ptr %arrayidx.i.i.i, align 4
-  %shr.i.i = lshr i32 %37, %sub.i.i
-  %shl.i.i = shl i32 %37, %rem.i
+  %38 = load i32, ptr %arrayidx.i.i.i, align 4
+  %shr.i.i = lshr i32 %38, %sub.i.i
+  %shl.i.i = shl i32 %38, %rem.i
   %add.i.i = add i32 %shl.i.i, %carry.019.i.i
   %and.i.i = and i32 %add.i.i, 268435455
   store i32 %and.i.i, ptr %arrayidx.i.i.i, align 4
@@ -582,7 +583,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 if.then.i2.i:                                     ; preds = %for.end.i.i
   %arrayidx.i16.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
   store i32 %shr.i.i, ptr %arrayidx.i16.i.i, align 4
-  %inc9.i.i = add nuw i16 %34, 1
+  %inc9.i.i = add nuw nsw i16 %35, 1
   store i16 %inc9.i.i, ptr %this, align 4
   br label %return
 
@@ -1278,7 +1279,7 @@ for.end.i:                                        ; preds = %for.body.i
 if.then.i2:                                       ; preds = %for.end.i
   %arrayidx.i16.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i, i64 0, i64 %conv.i
   store i32 %shr.i, ptr %arrayidx.i16.i, align 4
-  %inc9.i = add nuw i16 %0, 1
+  %inc9.i = add nuw nsw i16 %0, 1
   store i16 %inc9.i, ptr %this, align 4
   br label %return
 
@@ -1850,7 +1851,7 @@ for.body.i35:                                     ; preds = %for.body.i35, %for.
   br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i35, !llvm.loop !14
 
 while.body.i:                                     ; preds = %while.cond.preheader.i
-  %cmp.i.i = icmp sgt i16 %5, 127
+  %cmp.i.i = icmp samesign ugt i16 %5, 127
   br i1 %cmp.i.i, label %if.then.i.i, label %if.end40.loopexit
 
 if.then.i.i:                                      ; preds = %while.body.i
@@ -1924,7 +1925,7 @@ for.body.i48:                                     ; preds = %for.body.i48, %for.
   br i1 %exitcond.not.i58, label %while.cond.preheader.i59, label %for.body.i48, !llvm.loop !14
 
 while.body.i63:                                   ; preds = %while.cond.preheader.i59
-  %cmp.i.i65 = icmp sgt i16 %11, 127
+  %cmp.i.i65 = icmp samesign ugt i16 %11, 127
   br i1 %cmp.i.i65, label %if.then.i.i73, label %if.end48.loopexit
 
 if.then.i.i73:                                    ; preds = %while.body.i63
@@ -2001,7 +2002,7 @@ for.end.i.i:                                      ; preds = %for.body.i.i
 if.then.i2.i:                                     ; preds = %for.end.i.i
   %arrayidx.i16.i.i = getelementptr inbounds nuw [128 x i32], ptr %bigits_buffer_.i.i.i, i64 0, i64 %conv.i.i
   store i32 %shr.i.i, ptr %arrayidx.i16.i.i, align 4
-  %inc9.i.i = add nuw i16 %16, 1
+  %inc9.i.i = add nuw nsw i16 %16, 1
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then.i2.i

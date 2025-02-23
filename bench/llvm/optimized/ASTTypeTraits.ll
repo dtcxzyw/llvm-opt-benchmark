@@ -1283,7 +1283,7 @@ define dso_local i32 @_ZN5clang11ASTNodeKind18getMostDerivedTypeES0_S0_(i32 %0, 
 
 .preheader.i.i:                                   ; preds = %2
   %.not.i.i = icmp eq i32 %1, %0
-  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.011.i.i = phi i32 [ %7, %.lr.ph.i.i ], [ %1, %.preheader.i.i ]
@@ -1297,7 +1297,7 @@ define dso_local i32 @_ZN5clang11ASTNodeKind18getMostDerivedTypeES0_S0_(i32 %0, 
 
 _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit:        ; preds = %.lr.ph.i.i
   %11 = icmp eq i32 %7, %0
-  br i1 %11, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17, label %.lr.ph.i.i5
+  br i1 %11, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread, label %.lr.ph.i.i5
 
 .lr.ph.i.i5:                                      ; preds = %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %.lr.ph.i.i5
   %.011.i.i6 = phi i32 [ %14, %.lr.ph.i.i5 ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ]
@@ -1311,13 +1311,13 @@ _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit:        ; preds = %.lr.ph.i.i
 
 _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10:      ; preds = %.lr.ph.i.i5
   %18 = icmp eq i32 %14, %1
-  br i1 %18, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
+  br i1 %18, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread, label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
 
 _ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread: ; preds = %2, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10
-  br label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17
+  br label %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread
 
-_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread17: ; preds = %.preheader.i.i, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
-  %.sroa.015.0 = phi i32 [ 0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread ], [ %1, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10 ], [ %0, %.preheader.i.i ]
+_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit.thread: ; preds = %.preheader.i.i, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread
+  %.sroa.015.0 = phi i32 [ 0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10.thread ], [ %1, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit ], [ %0, %_ZNK5clang11ASTNodeKind8isBaseOfES0_.exit10 ], [ %1, %.preheader.i.i ]
   ret i32 %.sroa.015.0
 }
 
@@ -1557,10 +1557,8 @@ _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i97,
   br label %68
 
 _ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i97, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit
-  switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i102 [
-    i32 176, label %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
-    i32 0, label %.thread
-  ]
+  %cond = icmp eq i32 %.sroa.0.0.copyload.i, 176
+  br i1 %cond, label %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit, label %.lr.ph.i.i.i.i102
 
 .lr.ph.i.i.i.i102:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i102
   %.011.i.i.i.i103 = phi i32 [ %39, %.lr.ph.i.i.i.i102 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread ]
@@ -1583,10 +1581,8 @@ _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i102
   br label %68
 
 _ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i102, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit
-  switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i107 [
-    i32 450, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
-    i32 0, label %.thread
-  ]
+  %cond136 = icmp eq i32 %.sroa.0.0.copyload.i, 450
+  br i1 %cond136, label %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit, label %.lr.ph.i.i.i.i107
 
 .lr.ph.i.i.i.i107:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i107
   %.011.i.i.i.i108 = phi i32 [ %44, %.lr.ph.i.i.i.i107 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread ]
@@ -1617,10 +1613,8 @@ _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit: ; preds = %.lr.ph.i.i.i.i107
   br label %68
 
 _ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i.i.i107, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit
-  switch i32 %.sroa.0.0.copyload.i, label %.lr.ph.i.i.i.i112 [
-    i32 614, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit
-    i32 0, label %.thread
-  ]
+  %cond137 = icmp eq i32 %.sroa.0.0.copyload.i, 614
+  br i1 %cond137, label %_ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit, label %.lr.ph.i.i.i.i112
 
 .lr.ph.i.i.i.i112:                                ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread, %.lr.ph.i.i.i.i112
   %.011.i.i.i.i113 = phi i32 [ %52, %.lr.ph.i.i.i.i112 ], [ %.sroa.0.0.copyload.i, %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread ]
@@ -1656,7 +1650,7 @@ _ZNK5clang12DynTypedNode3getINS_4AttrEEEPKT_v.exit.thread: ; preds = %.lr.ph.i.i
   tail call void @_ZNK5clang16ConceptReference5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   br label %68
 
-.thread:                                          ; preds = %_ZNK5clang12DynTypedNode3getINS_4TypeEEEPKT_v.exit.thread, %_ZNK5clang12DynTypedNode3getINS_4StmtEEEPKT_v.exit.thread, %_ZNK5clang12DynTypedNode3getINS_4DeclEEEPKT_v.exit.thread, %32, %18, %55
+.thread:                                          ; preds = %32, %18, %55
   %58 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull @.str.1049)
   %59 = load i32, ptr %0, align 8, !tbaa !3
   %60 = zext i32 %59 to i64

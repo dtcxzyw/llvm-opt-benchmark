@@ -688,7 +688,7 @@ HeapTupleHeaderGetUpdateXid.exit.thread99.i:      ; preds = %239, %235, %225, %2
   %indvars.iv150.i = phi i64 [ %286, %.lr.ph136.preheader.i ], [ %indvars.iv.next151.i, %.lr.ph136.i ]
   %287 = getelementptr inbounds nuw [291 x i16], ptr %11, i64 0, i64 %indvars.iv150.i
   %288 = load i16, ptr %287, align 2
-  call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %288)
+  call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %288)
   %indvars.iv.next151.i = add nuw nsw i64 %indvars.iv150.i, 1
   %exitcond154.not.i = icmp eq i64 %indvars.iv.next151.i, %wide.trip.count153.i
   br i1 %exitcond154.not.i, label %heap_prune_chain.exit, label %.lr.ph136.i, !llvm.loop !9
@@ -838,7 +838,7 @@ heap_prune_record_redirect.exit.i:                ; preds = %347, %329
   %indvars.iv141.i = phi i64 [ %indvars.iv.next142.i, %.lr.ph131.i ], [ %330, %.preheader.i ]
   %364 = getelementptr inbounds [291 x i16], ptr %11, i64 0, i64 %indvars.iv141.i
   %365 = load i16, ptr %364, align 2
-  call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %365)
+  call fastcc void @heap_prune_record_unchanged_lp_normal(ptr noundef nonnull %.0.i.i, ptr noundef nonnull %13, i16 noundef zeroext %365)
   %indvars.iv.next142.i = add nsw i64 %indvars.iv141.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next142.i to i32
   %exitcond144.not.i = icmp eq i32 %.18196.i, %lftr.wideiv.i
@@ -1257,7 +1257,7 @@ heap_page_prune_execute.exit:                     ; preds = %530, %.preheader.i1
   %582 = load i32, ptr %41, align 4
   %583 = getelementptr inbounds nuw i8, ptr %13, i64 1794
   %584 = load i32, ptr %40, align 8
-  call void @log_heap_prune_and_freeze(ptr noundef %0, i32 noundef %1, i32 noundef %.0, i1 noundef zeroext true, i32 noundef %6, ptr noundef nonnull %577, i32 noundef %578, ptr noundef nonnull %579, i32 noundef %580, ptr noundef nonnull %581, i32 noundef %582, ptr noundef nonnull %583, i32 noundef %584)
+  call void @log_heap_prune_and_freeze(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %.0, i1 noundef zeroext true, i32 noundef %6, ptr noundef nonnull %577, i32 noundef %578, ptr noundef nonnull %579, i32 noundef %580, ptr noundef nonnull %581, i32 noundef %582, ptr noundef nonnull %583, i32 noundef %584)
   br label %585
 
 585:                                              ; preds = %484, %.loopexit, %554, %550, %541

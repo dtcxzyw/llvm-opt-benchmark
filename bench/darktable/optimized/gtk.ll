@@ -4091,7 +4091,7 @@ define void @dt_ui_restore_panels(ptr noundef readonly captures(none) %0) local_
 
 .preheader30:                                     ; preds = %1, %.preheader30
   %.02732 = phi i32 [ %7, %.preheader30 ], [ 0, %1 ]
-  tail call void @dt_ui_panel_show(ptr noundef %0, i32 noundef %.02732, i32 noundef 0, i32 noundef 0)
+  tail call void @dt_ui_panel_show(ptr noundef nonnull %0, i32 noundef %.02732, i32 noundef 0, i32 noundef 0)
   %7 = add nuw nsw i32 %.02732, 1
   %exitcond.not = icmp eq i32 %7, 6
   br i1 %exitcond.not, label %.loopexit, label %.preheader30
@@ -5944,8 +5944,7 @@ define internal void @_notebook_size_callback(ptr noundef %0, ptr noundef %1, pt
   %34 = tail call i64 @gtk_widget_get_type() #19
   %35 = call ptr @g_type_check_instance_cast(ptr noundef %0, i64 noundef %34) #18
   call void @gtk_widget_size_allocate(ptr noundef %35, ptr noundef %1) #18
-  %smax = call i32 @llvm.smax.i32(i32 %7, i32 1)
-  %wide.trip.count59 = zext nneg i32 %smax to i64
+  %wide.trip.count59 = zext nneg i32 %7 to i64
   br label %.lr.ph49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

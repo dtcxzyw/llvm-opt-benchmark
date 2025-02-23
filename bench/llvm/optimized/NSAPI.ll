@@ -1452,21 +1452,18 @@ define dso_local { ptr, i64 } @_ZNK5clang5NSAPI17GetNSIntegralKindENS_8QualTypeE
   br i1 %.not6286, label %.thread270, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
-  %12 = phi ptr [ %38, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread ], [ %11, %.preheader ]
+  %12 = phi ptr [ %36, %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread ], [ %11, %.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 16, !tbaa !404
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !409
-  %16 = and i64 %.sroa.0.0.copyload.i, 7
-  %17 = icmp eq i64 %16, 0
-  %18 = and i64 %.sroa.0.0.copyload.i, -8
-  %19 = inttoptr i64 %18 to ptr
-  %.0.i = select i1 %17, ptr %19, ptr null
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !390
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = load i64, ptr %21, align 8, !tbaa !410
-  %trunc = trunc i64 %23 to i32
+  %16 = and i64 %.sroa.0.0.copyload.i, -8
+  %17 = inttoptr i64 %16 to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %19 = load ptr, ptr %18, align 8, !tbaa !390
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %21 = load i64, ptr %19, align 8, !tbaa !410
+  %trunc = trunc i64 %21 to i32
   switch i32 %trunc, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread [
     i32 6, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i32 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i12
@@ -1476,62 +1473,62 @@ define dso_local { ptr, i64 } @_ZNK5clang5NSAPI17GetNSIntegralKindENS_8QualTypeE
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.lr.ph
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %22, ptr noundef nonnull dereferenceable(6) @.str.76, i64 6)
-  %24 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %24, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %20, ptr noundef nonnull dereferenceable(6) @.str.76, i64 6)
+  %22 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %22, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i12:          ; preds = %.lr.ph
-  %bcmp.i.i.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %22, ptr noundef nonnull dereferenceable(7) @.str.77, i64 7)
-  %25 = icmp eq i32 %bcmp.i.i.i13, 0
-  br i1 %25, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21
+  %bcmp.i.i.i13 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %20, ptr noundef nonnull dereferenceable(7) @.str.77, i64 7)
+  %23 = icmp eq i32 %bcmp.i.i.i13, 0
+  br i1 %23, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i21:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i12
-  %bcmp.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %22, ptr noundef nonnull dereferenceable(7) @.str.78, i64 7)
-  %26 = icmp eq i32 %bcmp.i.i.i22, 0
-  br i1 %26, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39
+  %bcmp.i.i.i22 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %20, ptr noundef nonnull dereferenceable(7) @.str.78, i64 7)
+  %24 = icmp eq i32 %bcmp.i.i.i22, 0
+  br i1 %24, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i30:          ; preds = %.lr.ph
-  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %22, ptr noundef nonnull dereferenceable(9) @.str.74, i64 9)
-  %27 = icmp eq i32 %bcmp.i.i.i31, 0
-  br i1 %27, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
+  %bcmp.i.i.i31 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %20, ptr noundef nonnull dereferenceable(9) @.str.74, i64 9)
+  %25 = icmp eq i32 %bcmp.i.i.i31, 0
+  br i1 %25, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i39:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21
-  %bcmp.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %22, ptr noundef nonnull dereferenceable(7) @.str.79, i64 7)
-  %28 = icmp eq i32 %bcmp.i.i.i40, 0
-  br i1 %28, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48
+  %bcmp.i.i.i40 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %20, ptr noundef nonnull dereferenceable(7) @.str.79, i64 7)
+  %26 = icmp eq i32 %bcmp.i.i.i40, 0
+  br i1 %26, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i48:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39
-  %bcmp.i.i.i49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %22, ptr noundef nonnull dereferenceable(7) @.str.80, i64 7)
-  %29 = icmp eq i32 %bcmp.i.i.i49, 0
-  br i1 %29, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
+  %bcmp.i.i.i49 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %20, ptr noundef nonnull dereferenceable(7) @.str.80, i64 7)
+  %27 = icmp eq i32 %bcmp.i.i.i49, 0
+  br i1 %27, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i57:          ; preds = %.lr.ph
-  %bcmp.i.i.i58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) @.str.81, i64 8)
-  %30 = icmp eq i32 %bcmp.i.i.i58, 0
-  br i1 %30, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66
+  %bcmp.i.i.i58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %20, ptr noundef nonnull dereferenceable(8) @.str.81, i64 8)
+  %28 = icmp eq i32 %bcmp.i.i.i58, 0
+  br i1 %28, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i66:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57
-  %bcmp.i.i.i67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) @.str.82, i64 8)
-  %31 = icmp eq i32 %bcmp.i.i.i67, 0
-  br i1 %31, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84
+  %bcmp.i.i.i67 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %20, ptr noundef nonnull dereferenceable(8) @.str.82, i64 8)
+  %29 = icmp eq i32 %bcmp.i.i.i67, 0
+  br i1 %29, label %.thread270, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i75:          ; preds = %.lr.ph
-  %bcmp.i.i.i76 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %22, ptr noundef nonnull dereferenceable(10) @.str.75, i64 10)
-  %32 = icmp eq i32 %bcmp.i.i.i76, 0
-  br i1 %32, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
+  %bcmp.i.i.i76 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(10) %20, ptr noundef nonnull dereferenceable(10) @.str.75, i64 10)
+  %30 = icmp eq i32 %bcmp.i.i.i76, 0
+  br i1 %30, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i84:          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66
-  %bcmp.i.i.i85 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %22, ptr noundef nonnull dereferenceable(8) @.str.83, i64 8)
-  %33 = icmp eq i32 %bcmp.i.i.i85, 0
-  br i1 %33, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
+  %bcmp.i.i.i85 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %20, ptr noundef nonnull dereferenceable(8) @.str.83, i64 8)
+  %31 = icmp eq i32 %bcmp.i.i.i85, 0
+  br i1 %31, label %.thread270, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread
 
 _ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i75, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84, %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48
-  %34 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %12) #12
-  %35 = and i64 %34, -16
-  %36 = inttoptr i64 %35 to ptr
-  %37 = load ptr, ptr %36, align 16, !tbaa !400
-  %38 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %37) #12
-  %.not6 = icmp eq ptr %38, null
+  %32 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %12) #12
+  %33 = and i64 %32, -16
+  %34 = inttoptr i64 %33 to ptr
+  %35 = load ptr, ptr %34, align 16, !tbaa !400
+  %36 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %35) #12
+  %.not6 = icmp eq ptr %36, null
   br i1 %.not6, label %.thread270, label %.lr.ph
 
 .thread270:                                       ; preds = %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i84, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i57, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i39, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i12, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i48, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i75, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i66, %.preheader, %2

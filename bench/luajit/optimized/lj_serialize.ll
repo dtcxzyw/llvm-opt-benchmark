@@ -552,7 +552,7 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %.6264 = phi ptr [ %197, %.lr.ph ], [ %.4, %.lr.ph.preheader ]
   %.0187263 = phi ptr [ %196, %.lr.ph ], [ %195, %.lr.ph.preheader ]
   %196 = getelementptr inbounds nuw i8, ptr %.0187263, i64 8
-  %197 = tail call fastcc ptr @serialize_put(ptr noundef %.6264, ptr noundef %1, ptr noundef %.0187263)
+  %197 = tail call fastcc ptr @serialize_put(ptr noundef %.6264, ptr noundef nonnull %1, ptr noundef %.0187263)
   %198 = icmp ult ptr %196, %192
   br i1 %198, label %.lr.ph, label %.loopexit253, !llvm.loop !37
 

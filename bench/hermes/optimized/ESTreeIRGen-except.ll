@@ -207,7 +207,7 @@ if.end.i23.i:                                     ; preds = %_ZNSt7variantIJSt9m
   %retval.sroa.0.0.copyload.i.i25.i = load ptr, ptr %debugLoc_.i.i24.i, align 8
   store ptr %retval.sroa.0.0.copyload.i.i25.i, ptr %Location.i.i.i, align 8
   %call13.i.i = call noundef ptr @_ZN6hermes5irgen11ESTreeIRGen12prepareCatchEPNS_6ESTree15CatchClauseNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %spec.select.i.i.i)
-  %_body.i.i = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i, i64 56
+  %_body.i.i = getelementptr inbounds nuw i8, ptr %17, i64 56
   %26 = load ptr, ptr %_body.i.i, align 8
   call void @_ZN6hermes5irgen11ESTreeIRGen15genCatchHandlerEPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %26) #11
   %27 = load ptr, ptr %_handler.i.i, align 8

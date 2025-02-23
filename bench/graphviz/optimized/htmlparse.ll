@@ -585,7 +585,7 @@ agxbuse.exit:                                     ; preds = %agxbuse.exit.prehea
   ]
 
 235:                                              ; preds = %agxbuse.exit
-  call void @htmlerror(ptr noundef %0, ptr noundef nonnull @.str) #16
+  call void @htmlerror(ptr noundef nonnull %0, ptr noundef nonnull @.str) #16
   call fastcc void @cleanup(ptr noundef nonnull %5)
   br label %.loopexit361
 
@@ -650,7 +650,7 @@ agxbuse.exit322:                                  ; preds = %agxbuse.exit322.pre
   ]
 
 262:                                              ; preds = %agxbuse.exit322
-  call void @htmlerror(ptr noundef %0, ptr noundef nonnull @.str.1) #16
+  call void @htmlerror(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #16
   call fastcc void @cleanup(ptr noundef nonnull %5)
   br label %.loopexit361
 

@@ -1615,7 +1615,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 
 .lr.ph345.preheader:                              ; preds = %.preheader
   %629 = zext nneg i32 %.181.lcssa to i64
-  %wide.trip.count431 = zext i32 %627 to i64
+  %wide.trip.count431 = zext nneg i32 %627 to i64
   br label %.lr.ph345
 
 .lr.ph342:                                        ; preds = %.lr.ph342.preheader, %.lr.ph342

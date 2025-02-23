@@ -2984,9 +2984,9 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 48
   %52 = load i64, ptr %51, align 8
-  %.fr186 = freeze i64 %52
-  %.not185 = icmp eq i64 %.fr186, 0
-  br i1 %.not185, label %.loopexit, label %.lr.ph
+  %.fr187 = freeze i64 %52
+  %.not186 = icmp eq i64 %.fr187, 0
+  br i1 %.not186, label %.loopexit, label %.lr.ph
 
 .thread:                                          ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -3002,35 +3002,35 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %.pre = load ptr, ptr %3, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %.pre196 = load i64, ptr %.phi.trans.insert, align 8
-  %.not185199 = icmp eq i64 %.pre196, 0
-  br i1 %.not185199, label %.loopexit, label %.lr.ph.split.preheader
+  %.not186199 = icmp eq i64 %.pre196, 0
+  br i1 %.not186199, label %.loopexit, label %.lr.ph.split.preheader
 
 .lr.ph:                                           ; preds = %50
-  %63 = icmp ult i64 %.fr186, 3
+  %63 = icmp ult i64 %.fr187, 3
   br i1 %63, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.thread, %.lr.ph
   %.ph = phi ptr [ %.pre, %.thread ], [ %49, %.lr.ph ]
-  %.sroa.0150.2174.ph = phi i64 [ %62, %.thread ], [ 2, %.lr.ph ]
+  %.sroa.0150.2175.ph = phi i64 [ %62, %.thread ], [ 2, %.lr.ph ]
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %64 = phi ptr [ %78, %.lr.ph.split.us ], [ %49, %.lr.ph ]
-  %.0175.us = phi i64 [ %77, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %.sroa.0150.2174.us = phi i64 [ %76, %.lr.ph.split.us ], [ 2, %.lr.ph ]
+  %.0176.us = phi i64 [ %77, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %.sroa.0150.2175.us = phi i64 [ %76, %.lr.ph.split.us ], [ 2, %.lr.ph ]
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds ptr, ptr %66, i64 %.0175.us
+  %67 = getelementptr inbounds ptr, ptr %66, i64 %.0176.us
   %68 = load ptr, ptr %67, align 8
   %69 = call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %68)
   %70 = extractvalue { i64, i64 } %69, 0
-  %71 = add i64 %70, %.sroa.0150.2174.us
+  %71 = add i64 %70, %.sroa.0150.2175.us
   %72 = and i64 %71, -9187201950435737472
   %73 = and i64 %71, 9187201950435737471
   %74 = lshr exact i64 %72, 7
   %75 = sub i64 %72, %74
   %76 = or i64 %75, %73
-  %77 = add nuw i64 %.0175.us, 1
+  %77 = add nuw i64 %.0176.us, 1
   %78 = load ptr, ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
   %80 = load i64, ptr %79, align 8
@@ -3039,22 +3039,22 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %82 = phi ptr [ %96, %.lr.ph.split ], [ %.ph, %.lr.ph.split.preheader ]
-  %.0175 = phi i64 [ %95, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
-  %.sroa.0150.2174 = phi i64 [ %94, %.lr.ph.split ], [ %.sroa.0150.2174.ph, %.lr.ph.split.preheader ]
+  %.0176 = phi i64 [ %95, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.sroa.0150.2175 = phi i64 [ %94, %.lr.ph.split ], [ %.sroa.0150.2175.ph, %.lr.ph.split.preheader ]
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %.0175
+  %85 = getelementptr inbounds ptr, ptr %84, i64 %.0176
   %86 = load ptr, ptr %85, align 8
   %87 = call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %86)
   %88 = extractvalue { i64, i64 } %87, 0
   %spec.select = call i64 @llvm.umax.i64(i64 %88, i64 1)
-  %89 = add i64 %spec.select, %.sroa.0150.2174
+  %89 = add i64 %spec.select, %.sroa.0150.2175
   %90 = and i64 %89, -9187201950435737472
   %91 = and i64 %89, 9187201950435737471
   %92 = lshr exact i64 %90, 7
   %93 = sub i64 %90, %92
   %94 = or i64 %93, %91
-  %95 = add nuw i64 %.0175, 1
+  %95 = add nuw i64 %.0176, 1
   %96 = load ptr, ptr %3, align 8
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %98 = load i64, ptr %97, align 8
@@ -3118,24 +3118,24 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 141:                                              ; preds = %138
   %142 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4
   %143 = icmp ne i32 %9, %142
-  %.not85 = or i1 %143, %.not162
+  %.not85 = or i1 %.not162, %143
   br i1 %.not85, label %181, label %.preheader
 
 .preheader:                                       ; preds = %141
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %145 = load i64, ptr %144, align 8
   %.not189 = icmp eq i64 %145, 0
-  br i1 %.not189, label %.loopexit, label %.lr.ph178
+  br i1 %.not189, label %.loopexit, label %.lr.ph179
 
-.lr.ph178:                                        ; preds = %.preheader
+.lr.ph179:                                        ; preds = %.preheader
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %147
 
-147:                                              ; preds = %.lr.ph178, %161
-  %.066177 = phi i64 [ 0, %.lr.ph178 ], [ %178, %161 ]
-  %.sroa.0150.3176 = phi i64 [ 10, %.lr.ph178 ], [ %177, %161 ]
+147:                                              ; preds = %.lr.ph179, %161
+  %.066178 = phi i64 [ 0, %.lr.ph179 ], [ %178, %161 ]
+  %.sroa.0150.3177 = phi i64 [ 10, %.lr.ph179 ], [ %177, %161 ]
   %148 = load ptr, ptr %146, align 8
-  %149 = getelementptr inbounds %"struct.Luau::AstExprTable::Item", ptr %148, i64 %.066177
+  %149 = getelementptr inbounds %"struct.Luau::AstExprTable::Item", ptr %148, i64 %.066178
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8
   %.not92 = icmp eq ptr %151, null
@@ -3144,7 +3144,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
 152:                                              ; preds = %147
   %153 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %151)
   %154 = extractvalue { i64, i64 } %153, 0
-  %155 = add i64 %154, %.sroa.0150.3176
+  %155 = add i64 %154, %.sroa.0150.3177
   %156 = and i64 %155, -9187201950435737472
   %157 = and i64 %155, 9187201950435737471
   %158 = lshr exact i64 %156, 7
@@ -3153,7 +3153,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   br label %161
 
 161:                                              ; preds = %152, %147
-  %.sroa.0150.4 = phi i64 [ %.sroa.0150.3176, %147 ], [ %160, %152 ]
+  %.sroa.0150.4 = phi i64 [ %.sroa.0150.3177, %147 ], [ %160, %152 ]
   %162 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %163 = load ptr, ptr %162, align 8
   %164 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %163)
@@ -3170,7 +3170,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %175 = lshr exact i64 %173, 7
   %176 = sub i64 %173, %175
   %177 = or i64 %176, %174
-  %178 = add nuw i64 %.066177, 1
+  %178 = add nuw i64 %.066178, 1
   %179 = load i64, ptr %144, align 8
   %180 = icmp ult i64 %178, %179
   br i1 %180, label %147, label %.loopexit, !llvm.loop !14
@@ -3291,28 +3291,28 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelE
   %263 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %264 = load i64, ptr %263, align 8
   %265 = getelementptr inbounds ptr, ptr %262, i64 %264
-  %.not91180 = icmp eq i64 %264, 0
-  br i1 %.not91180, label %.loopexit, label %.lr.ph183
+  %.not91181 = icmp eq i64 %264, 0
+  br i1 %.not91181, label %.loopexit, label %.lr.ph184
 
-.lr.ph183:                                        ; preds = %260, %.lr.ph183
-  %.067182 = phi ptr [ %275, %.lr.ph183 ], [ %262, %260 ]
-  %.sroa.0150.5181 = phi i64 [ %274, %.lr.ph183 ], [ 3, %260 ]
-  %266 = load ptr, ptr %.067182, align 8
+.lr.ph184:                                        ; preds = %260, %.lr.ph184
+  %.067183 = phi ptr [ %275, %.lr.ph184 ], [ %262, %260 ]
+  %.sroa.0150.5182 = phi i64 [ %274, %.lr.ph184 ], [ 3, %260 ]
+  %266 = load ptr, ptr %.067183, align 8
   %267 = tail call { i64, i64 } @_ZN4Luau7Compile11CostVisitor5modelEPNS_7AstExprE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %266)
   %268 = extractvalue { i64, i64 } %267, 0
-  %269 = add i64 %268, %.sroa.0150.5181
+  %269 = add i64 %268, %.sroa.0150.5182
   %270 = and i64 %269, -9187201950435737472
   %271 = and i64 %269, 9187201950435737471
   %272 = lshr exact i64 %270, 7
   %273 = sub i64 %270, %272
   %274 = or i64 %273, %271
-  %275 = getelementptr inbounds nuw i8, ptr %.067182, i64 8
+  %275 = getelementptr inbounds nuw i8, ptr %.067183, i64 8
   %.not91 = icmp eq ptr %275, %265
-  br i1 %.not91, label %.loopexit, label %.lr.ph183
+  br i1 %.not91, label %.loopexit, label %.lr.ph184
 
-.loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph183, %.thread, %50, %.preheader, %260, %257, %138, %39, %36, %34, %30, %18, %226, %217, %198, %184, %117, %103, %12
-  %.sroa.0150.0 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ %16, %12 ], [ 0, %18 ], [ 0, %30 ], [ 0, %34 ], [ 1, %36 ], [ 3, %39 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph183 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
-  %.sroa.29.0 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ %17, %12 ], [ -1, %18 ], [ 0, %30 ], [ %35, %34 ], [ 0, %36 ], [ 0, %39 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph183 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
+.loopexit:                                        ; preds = %.lr.ph.split.us, %.lr.ph.split, %161, %.lr.ph184, %.thread, %50, %.preheader, %260, %257, %138, %39, %36, %34, %30, %18, %226, %217, %198, %184, %117, %103, %12
+  %.sroa.0150.0 = phi i64 [ %256, %226 ], [ %221, %217 ], [ %212, %198 ], [ %193, %184 ], [ %137, %117 ], [ %113, %103 ], [ %16, %12 ], [ 0, %18 ], [ 0, %30 ], [ 0, %34 ], [ 1, %36 ], [ 3, %39 ], [ 10, %138 ], [ 0, %257 ], [ 3, %260 ], [ 10, %.preheader ], [ 2, %50 ], [ %62, %.thread ], [ %274, %.lr.ph184 ], [ %177, %161 ], [ %94, %.lr.ph.split ], [ %76, %.lr.ph.split.us ]
+  %.sroa.29.0 = phi i64 [ 0, %226 ], [ %222, %217 ], [ %213, %198 ], [ %194, %184 ], [ 0, %117 ], [ 0, %103 ], [ %17, %12 ], [ -1, %18 ], [ 0, %30 ], [ %35, %34 ], [ 0, %36 ], [ 0, %39 ], [ 0, %138 ], [ 0, %257 ], [ 0, %260 ], [ 0, %.preheader ], [ 0, %50 ], [ 0, %.thread ], [ 0, %.lr.ph184 ], [ 0, %161 ], [ 0, %.lr.ph.split ], [ 0, %.lr.ph.split.us ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0150.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.29.0, 1
   ret { i64, i64 } %.fca.1.insert

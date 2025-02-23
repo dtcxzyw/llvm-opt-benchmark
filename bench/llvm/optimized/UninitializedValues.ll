@@ -2197,8 +2197,8 @@ _ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBAL__N_112ClassifyRefsEvJEE13Vi
   %566 = getelementptr inbounds nuw i8, ptr %565, i64 16
   %567 = load i8, ptr %566, align 16
   %568 = icmp eq i8 %567, 13
-  %.not.not7.i.i.i.i = icmp ne ptr %565, null
-  %.not.not.not.i.i.i.i = and i1 %.not.not7.i.i.i.i, %568
+  %.not7.i.i.i.i = icmp ne ptr %565, null
+  %.not.not.not.i.i.i.i = and i1 %.not7.i.i.i.i, %568
   br i1 %.not.not.not.i.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i:           ; preds = %557
@@ -2239,8 +2239,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i: ; preds = %_ZNK5clang4
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 16
   %590 = load i8, ptr %589, align 16
   %591 = icmp eq i8 %590, 13
-  %.not.not7.i.i.i.i.i719 = icmp ne ptr %588, null
-  %.not.not.not.i.i.i.i.i720 = and i1 %.not.not7.i.i.i.i.i719, %591
+  %.not7.i.i.i.i.i719 = icmp ne ptr %588, null
+  %.not.not.not.i.i.i.i.i720 = and i1 %.not7.i.i.i.i.i719, %591
   br i1 %.not.not.not.i.i.i.i.i720, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i721, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i721:      ; preds = %580
@@ -2281,8 +2281,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i722: ; preds = %_ZNK5c
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %613 = load i8, ptr %612, align 16
   %614 = icmp eq i8 %613, 13
-  %.not.not7.i.i.i.i.i.i711 = icmp ne ptr %611, null
-  %.not.not.not.i.i.i.i.i.i712 = and i1 %.not.not7.i.i.i.i.i.i711, %614
+  %.not7.i.i.i.i.i.i711 = icmp ne ptr %611, null
+  %.not.not.not.i.i.i.i.i.i712 = and i1 %.not7.i.i.i.i.i.i711, %614
   br i1 %.not.not.not.i.i.i.i.i.i712, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i713, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i713:    ; preds = %603
@@ -2323,8 +2323,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i.i714: ; preds = %_ZNK
   %635 = getelementptr inbounds nuw i8, ptr %634, i64 16
   %636 = load i8, ptr %635, align 16
   %637 = icmp eq i8 %636, 13
-  %.not.not7.i.i.i.i.i.i703 = icmp ne ptr %634, null
-  %.not.not.not.i.i.i.i.i.i704 = and i1 %.not.not7.i.i.i.i.i.i703, %637
+  %.not7.i.i.i.i.i.i703 = icmp ne ptr %634, null
+  %.not.not.not.i.i.i.i.i.i704 = and i1 %.not7.i.i.i.i.i.i703, %637
   br i1 %.not.not.not.i.i.i.i.i.i704, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i705, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i705:    ; preds = %626
@@ -2365,8 +2365,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i.i706: ; preds = %_ZNK
   %658 = getelementptr inbounds nuw i8, ptr %657, i64 16
   %659 = load i8, ptr %658, align 16
   %660 = icmp eq i8 %659, 13
-  %.not.not7.i.i.i.i.i.i695 = icmp ne ptr %657, null
-  %.not.not.not.i.i.i.i.i.i696 = and i1 %.not.not7.i.i.i.i.i.i695, %660
+  %.not7.i.i.i.i.i.i695 = icmp ne ptr %657, null
+  %.not.not.not.i.i.i.i.i.i696 = and i1 %.not7.i.i.i.i.i.i695, %660
   br i1 %.not.not.not.i.i.i.i.i.i696, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i697, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i697:    ; preds = %649
@@ -2407,8 +2407,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i.i698: ; preds = %_ZNK
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 16
   %682 = load i8, ptr %681, align 16
   %683 = icmp eq i8 %682, 13
-  %.not.not7.i.i.i.i.i.i687 = icmp ne ptr %680, null
-  %.not.not.not.i.i.i.i.i.i688 = and i1 %.not.not7.i.i.i.i.i.i687, %683
+  %.not7.i.i.i.i.i.i687 = icmp ne ptr %680, null
+  %.not.not.not.i.i.i.i.i.i688 = and i1 %.not7.i.i.i.i.i.i687, %683
   br i1 %.not.not.not.i.i.i.i.i.i688, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i689, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i689:    ; preds = %672
@@ -2449,8 +2449,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i.i690: ; preds = %_ZNK
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 16
   %705 = load i8, ptr %704, align 16
   %706 = icmp eq i8 %705, 13
-  %.not.not7.i.i.i.i.i.i = icmp ne ptr %703, null
-  %.not.not.not.i.i.i.i.i.i = and i1 %.not.not7.i.i.i.i.i.i, %706
+  %.not7.i.i.i.i.i.i = icmp ne ptr %703, null
+  %.not.not.not.i.i.i.i.i.i = and i1 %.not7.i.i.i.i.i.i, %706
   br i1 %.not.not.not.i.i.i.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i.i:       ; preds = %695
@@ -2491,8 +2491,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i.i: ; preds = %_ZNK5cl
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 16
   %728 = load i8, ptr %727, align 16
   %729 = icmp eq i8 %728, 13
-  %.not.not7.i.i.i.i.i678 = icmp ne ptr %726, null
-  %.not.not.not.i.i.i.i.i679 = and i1 %.not.not7.i.i.i.i.i678, %729
+  %.not7.i.i.i.i.i678 = icmp ne ptr %726, null
+  %.not.not.not.i.i.i.i.i679 = and i1 %.not7.i.i.i.i.i678, %729
   br i1 %.not.not.not.i.i.i.i.i679, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i680, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i680:      ; preds = %718
@@ -2533,8 +2533,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i681: ; preds = %_ZNK5c
   %750 = getelementptr inbounds nuw i8, ptr %749, i64 16
   %751 = load i8, ptr %750, align 16
   %752 = icmp eq i8 %751, 13
-  %.not.not7.i.i.i.i.i670 = icmp ne ptr %749, null
-  %.not.not.not.i.i.i.i.i671 = and i1 %.not.not7.i.i.i.i.i670, %752
+  %.not7.i.i.i.i.i670 = icmp ne ptr %749, null
+  %.not.not.not.i.i.i.i.i671 = and i1 %.not7.i.i.i.i.i670, %752
   br i1 %.not.not.not.i.i.i.i.i671, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i672, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i672:      ; preds = %741
@@ -2575,8 +2575,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread.sink.split.i.i.i673: ; preds = %_ZNK5c
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 16
   %774 = load i8, ptr %773, align 16
   %775 = icmp eq i8 %774, 13
-  %.not.not7.i.i.i.i.i = icmp ne ptr %772, null
-  %.not.not.not.i.i.i.i.i = and i1 %.not.not7.i.i.i.i.i, %775
+  %.not7.i.i.i.i.i = icmp ne ptr %772, null
+  %.not.not.not.i.i.i.i.i = and i1 %.not7.i.i.i.i.i, %775
   br i1 %.not.not.not.i.i.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i.i.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i.i.i:         ; preds = %764
@@ -13938,60 +13938,70 @@ define linkonce_odr hidden void @_ZNSt14priority_queueIPKN5clang8CFGBlockEN4llvm
   %.0.lcssa.i.i.i = phi i64 [ 0, %8 ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %34 = and i64 %17, 8
   %35 = icmp eq i64 %34, 0
-  br i1 %35, label %36, label %46
+  br i1 %35, label %36, label %._crit_edge.i.i._crit_edge.i
+
+._crit_edge.i.i._crit_edge.i:                     ; preds = %._crit_edge.i.i.i
+  %.pre.i = load i64, ptr %2, align 8, !tbaa !141
+  br label %45
 
 36:                                               ; preds = %._crit_edge.i.i.i
   %37 = add nsw i64 %18, -2
   %38 = ashr exact i64 %37, 1
   %39 = icmp eq i64 %.0.lcssa.i.i.i, %38
-  br i1 %39, label %40, label %46
+  %.pre7.i = load i64, ptr %2, align 8, !tbaa !141
+  br i1 %39, label %.thread.i.i, label %45
 
-40:                                               ; preds = %36
-  %41 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds ptr, ptr %4, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !131
-  %45 = getelementptr inbounds ptr, ptr %4, i64 %.0.lcssa.i.i.i
-  store ptr %44, ptr %45, align 8, !tbaa !131
-  br label %46
-
-46:                                               ; preds = %40, %36, %._crit_edge.i.i.i
-  %.128.i.i.i = phi i64 [ %42, %40 ], [ %.0.lcssa.i.i.i, %36 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+.thread.i.i:                                      ; preds = %36
+  %40 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %41 = or disjoint i64 %40, 1
+  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !131
+  %44 = getelementptr inbounds ptr, ptr %4, i64 %.0.lcssa.i.i.i
+  store ptr %43, ptr %44, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
-  %47 = load i64, ptr %2, align 8, !tbaa !141
-  store i64 %47, ptr %3, align 8, !tbaa !141
-  %48 = icmp sgt i64 %.128.i.i.i, 0
-  br i1 %48, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
+  store i64 %.pre7.i, ptr %3, align 8, !tbaa !141
+  br label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %46, %52
-  %.01317.i.i.i.i = phi i64 [ %.018.i.i89.i.i, %52 ], [ %.128.i.i.i, %46 ]
+45:                                               ; preds = %36, %._crit_edge.i.i._crit_edge.i
+  %46 = phi i64 [ %.pre.i, %._crit_edge.i.i._crit_edge.i ], [ %.pre7.i, %36 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
+  store i64 %46, ptr %3, align 8, !tbaa !141
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %45, %.thread.i.i
+  %.01317.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %45 ], [ %41, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %50
+  %.01317.i.i.i.i = phi i64 [ %.018.i.i89.i.i, %50 ], [ %.01317.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i89.i.i = lshr i64 %.018.in.i.i.i.i, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %4, i64 %.018.i.i89.i.i
-  %50 = load ptr, ptr %49, align 8, !tbaa !131
-  %51 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef %50) #18
-  br i1 %51, label %52, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
+  %47 = getelementptr inbounds nuw ptr, ptr %4, i64 %.018.i.i89.i.i
+  %48 = load ptr, ptr %47, align 8, !tbaa !131
+  %49 = call noundef zeroext i1 @_ZNK5clang16PostOrderCFGView17BlockOrderCompareclEPKNS_8CFGBlockES4_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %14, ptr noundef %48) #18
+  br i1 %49, label %50, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
 
-52:                                               ; preds = %.lr.ph.i.i.i.i
-  %53 = load ptr, ptr %49, align 8, !tbaa !131
-  %54 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01317.i.i.i.i
-  store ptr %53, ptr %54, align 8, !tbaa !131
-  %.not.i.i = icmp ult i64 %.018.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
+50:                                               ; preds = %.lr.ph.i.i.i.i
+  %51 = load ptr, ptr %47, align 8, !tbaa !131
+  %52 = getelementptr inbounds ptr, ptr %4, i64 %.01317.i.i.i.i
+  store ptr %51, ptr %52, align 8, !tbaa !131
+  %.not10.i.i = icmp ult i64 %.018.in.i.i.i.i, 2
+  br i1 %.not10.i.i, label %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
-_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i: ; preds = %52, %.lr.ph.i.i.i.i, %46
-  %.013.lcssa.i.i.i.i = phi i64 [ %.128.i.i.i, %46 ], [ 0, %52 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %55 = getelementptr inbounds ptr, ptr %4, i64 %.013.lcssa.i.i.i.i
-  store ptr %14, ptr %55, align 8, !tbaa !131
+_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i: ; preds = %50, %.lr.ph.i.i.i.i, %45
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %45 ], [ 0, %50 ], [ %.01317.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %53 = getelementptr inbounds ptr, ptr %4, i64 %.013.lcssa.i.i.i.i
+  store ptr %14, ptr %53, align 8, !tbaa !131
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %.pre = load i32, ptr %5, align 8, !tbaa !11
   br label %_ZSt8pop_heapIPPKN5clang8CFGBlockENS0_23ReversePostOrderCompareEEvT_S6_T0_.exit
 
 _ZSt8pop_heapIPPKN5clang8CFGBlockENS0_23ReversePostOrderCompareEEvT_S6_T0_.exit: ; preds = %1, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i
-  %56 = phi i32 [ %6, %1 ], [ %.pre, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i ]
-  %57 = add i32 %56, -1
-  store i32 %57, ptr %5, align 8, !tbaa !11
+  %54 = phi i32 [ %6, %1 ], [ %.pre, %_ZSt10__pop_heapIPPKN5clang8CFGBlockEN9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_SA_SA_RT0_.exit.i ]
+  %55 = add i32 %54, -1
+  store i32 %55, ptr %5, align 8, !tbaa !11
   ret void
 }
 

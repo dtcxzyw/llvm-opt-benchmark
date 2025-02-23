@@ -1795,44 +1795,41 @@ _ZNK12_GLOBAL__N_119TrustNonnullChecker20checkPostObjCMessageERKN5clang4ento14Ob
 define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullChecker22interfaceHasSuperclassEPKN5clang17ObjCInterfaceDeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr readonly captures(none) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !716
-  %6 = and i64 %5, 7
-  %7 = icmp eq i64 %6, 0
-  %8 = and i64 %5, -8
-  %9 = inttoptr i64 %8 to ptr
-  %.0.i.i = select i1 %7, ptr %9, ptr null
-  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !569
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i64, ptr %11, align 8, !tbaa !576
-  %14 = and i64 %13, 4294967295
-  %.not.i = icmp eq i64 %14, %2
-  br i1 %.not.i, label %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
+  %6 = and i64 %5, -8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8, !tbaa !569
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i64, ptr %9, align 8, !tbaa !576
+  %12 = and i64 %11, 4294967295
+  %.not.i = icmp eq i64 %12, %2
+  br i1 %.not.i, label %13, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
 
-15:                                               ; preds = %3
-  %16 = icmp eq i64 %2, 0
-  br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
+13:                                               ; preds = %3
+  %14 = icmp eq i64 %2, 0
+  br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %15
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %12, ptr %1, i64 %2)
-  %17 = icmp eq i32 %bcmp.i, 0
-  br i1 %17, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
+_ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %13
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %10, ptr %1, i64 %2)
+  %15 = icmp eq i32 %bcmp.i, 0
+  br i1 %15, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread2:        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %18 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #17
-  %.not.not = icmp ne ptr %18, null
-  br i1 %.not.not, label %19, label %21
+  %16 = tail call noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128) %0) #17
+  %.not.not = icmp ne ptr %16, null
+  br i1 %.not.not, label %17, label %19
 
-19:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
-  %20 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullChecker22interfaceHasSuperclassEPKN5clang17ObjCInterfaceDeclEN4llvm9StringRefE(ptr noundef %18, ptr %1, i64 %2)
-  br label %21
+17:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2
+  %18 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_119TrustNonnullChecker22interfaceHasSuperclassEPKN5clang17ObjCInterfaceDeclEN4llvm9StringRefE(ptr noundef %16, ptr %1, i64 %2)
+  br label %19
 
-21:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2, %19
-  %.1 = phi i1 [ %20, %19 ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2 ]
+19:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread2, %17
+  %.1 = phi i1 [ %18, %17 ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit.thread2 ]
   %spec.select = and i1 %.not.not, %.1
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %15, %21, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.012 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %spec.select, %21 ], [ true, %15 ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %13, %19, %_ZN4llvmeqENS_9StringRefES0_.exit
+  %.012 = phi i1 [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %spec.select, %19 ], [ true, %13 ]
   ret i1 %.012
 }
 

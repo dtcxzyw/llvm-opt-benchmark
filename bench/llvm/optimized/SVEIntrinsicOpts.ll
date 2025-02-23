@@ -586,8 +586,8 @@ _ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_11InstructionEvE10isPossibleERKS
   %111 = icmp ult i32 %110, 65
   %112 = load ptr, ptr %108, align 8
   %.0.in.i.i.i.i = select i1 %111, ptr %108, ptr %112
-  %.0.i.i36.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !85
-  switch i64 %.0.i.i36.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i [
+  %.0.i.i35.i.i = load i64, ptr %.0.in.i.i.i.i, align 8, !tbaa !85
+  switch i64 %.0.i.i35.i.i, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.i.i [
     i64 31, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_11InstructionEEEDcPT0_.exit.thread.sink.split.i.i
     i64 0, label %113
   ]
@@ -2983,19 +2983,19 @@ define internal noundef zeroext i1 @_ZL15isPTruePromotedPN4llvm13IntrinsicInstE(
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 4, ptr %5, align 4, !tbaa !32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.064.073 = load ptr, ptr %6, align 8, !tbaa !45
-  %.not7174 = icmp eq ptr %.sroa.064.073, null
-  br i1 %.not7174, label %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit, label %.lr.ph
+  %.sroa.063.072 = load ptr, ptr %6, align 8, !tbaa !45
+  %.not7073 = icmp eq ptr %.sroa.063.072, null
+  br i1 %.not7073, label %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread
   %.pre.pre = load ptr, ptr %2, align 8, !tbaa !28
   %.not.i = icmp eq i32 %37, 0
-  br i1 %.not.i, label %.critedge44, label %.lr.ph84
+  br i1 %.not.i, label %.critedge44, label %.lr.ph83
 
 .lr.ph:                                           ; preds = %1, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread
   %7 = phi i32 [ %37, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ 0, %1 ]
-  %.sroa.064.075 = phi ptr [ %.sroa.064.0, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ %.sroa.064.073, %1 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.064.075, i64 24
+  %.sroa.063.074 = phi ptr [ %.sroa.063.0, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ %.sroa.063.072, %1 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !46
   %10 = load i8, ptr %9, align 8, !tbaa !61
   %.not.i.i = icmp eq i8 %10, 85
@@ -3052,12 +3052,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE9push_backES2_.exit: 
 
 _ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i, %11, %14, %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE9push_backES2_.exit, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit
   %37 = phi i32 [ %7, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i ], [ %7, %11 ], [ %7, %14 ], [ %7, %.lr.ph ], [ %36, %_ZN4llvm23SmallVectorTemplateBaseIPNS_13IntrinsicInstELb1EE9push_backES2_.exit ], [ %7, %_ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.064.075, i64 8
-  %.sroa.064.0 = load ptr, ptr %38, align 8, !tbaa !45
-  %.not71 = icmp eq ptr %.sroa.064.0, null
-  br i1 %.not71, label %._crit_edge, label %.lr.ph
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.063.074, i64 8
+  %.sroa.063.0 = load ptr, ptr %38, align 8, !tbaa !45
+  %.not70 = icmp eq ptr %.sroa.063.0, null
+  br i1 %.not70, label %._crit_edge, label %.lr.ph
 
-.lr.ph84:                                         ; preds = %._crit_edge
+.lr.ph83:                                         ; preds = %._crit_edge
   %39 = zext i32 %37 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3065,23 +3065,23 @@ _ZN4llvm12PatternMatch5matchINS_4UserENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.t
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
   br label %44
 
-44:                                               ; preds = %.lr.ph84, %.critedge42
-  %.03782 = phi ptr [ %.pre.pre, %.lr.ph84 ], [ %75, %.critedge42 ]
-  %45 = load ptr, ptr %.03782, align 8, !tbaa !81
+44:                                               ; preds = %.lr.ph83, %.critedge42
+  %.03781 = phi ptr [ %.pre.pre, %.lr.ph83 ], [ %75, %.critedge42 ]
+  %45 = load ptr, ptr %.03781, align 8, !tbaa !81
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  %.sroa.058.076 = load ptr, ptr %46, align 8, !tbaa !45
-  %.not77 = icmp eq ptr %.sroa.058.076, null
-  br i1 %.not77, label %.critedge42, label %.lr.ph80
+  %.sroa.057.075 = load ptr, ptr %46, align 8, !tbaa !45
+  %.not76 = icmp eq ptr %.sroa.057.075, null
+  br i1 %.not76, label %.critedge42, label %.lr.ph79
 
-.lr.ph80:                                         ; preds = %44, %.critedge
-  %.sroa.058.078 = phi ptr [ %.sroa.058.0, %.critedge ], [ %.sroa.058.076, %44 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.058.078, i64 24
+.lr.ph79:                                         ; preds = %44, %.critedge
+  %.sroa.057.077 = phi ptr [ %.sroa.057.0, %.critedge ], [ %.sroa.057.075, %44 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.057.077, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !46
   %49 = load i8, ptr %48, align 8, !tbaa !61
   %50 = icmp eq i8 %49, 85
   br i1 %50, label %51, label %.critedge
 
-51:                                               ; preds = %.lr.ph80
+51:                                               ; preds = %.lr.ph79
   %52 = getelementptr inbounds i8, ptr %48, i64 -32
   %53 = load ptr, ptr %52, align 8, !tbaa !62
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %53, null
@@ -3122,14 +3122,14 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit: ; preds = %_ZN4llvm
   %.not40 = icmp ugt i32 %72, %73
   br i1 %.not40, label %.critedge44, label %.critedge
 
-.critedge:                                        ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %51, %54, %.lr.ph80, %68, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.058.078, i64 8
-  %.sroa.058.0 = load ptr, ptr %74, align 8, !tbaa !45
-  %.not = icmp eq ptr %.sroa.058.0, null
-  br i1 %.not, label %.critedge42, label %.lr.ph80
+.critedge:                                        ; preds = %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %51, %54, %.lr.ph79, %68, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.057.077, i64 8
+  %.sroa.057.0 = load ptr, ptr %74, align 8, !tbaa !45
+  %.not = icmp eq ptr %.sroa.057.0, null
+  br i1 %.not, label %.critedge42, label %.lr.ph79
 
 .critedge42:                                      ; preds = %.critedge, %44
-  %75 = getelementptr inbounds nuw i8, ptr %.03782, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.03781, i64 8
   %.not.not = icmp eq ptr %75, %40
   br i1 %.not.not, label %.critedge44, label %44
 
@@ -3143,9 +3143,9 @@ _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit: ; preds = %_ZN4llvm
   br label %_ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPNS_13IntrinsicInstELj4EED2Ev.exit: ; preds = %1, %.critedge44, %77
-  %.092 = phi i1 [ %.0, %.critedge44 ], [ %.0, %77 ], [ false, %1 ]
+  %.091 = phi i1 [ %.0, %.critedge44 ], [ %.0, %77 ], [ false, %1 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2) #16
-  ret i1 %.092
+  ret i1 %.091
 }
 
 declare void @_ZN4llvm11Instruction10moveBeforeERNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS0_Lb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(80), ptr, i64) local_unnamed_addr #3

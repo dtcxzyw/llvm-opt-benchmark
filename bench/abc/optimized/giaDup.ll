@@ -14849,7 +14849,7 @@ define i32 @Gia_ManDupConeBack(ptr noundef %0, ptr noundef %1, ptr noundef reado
   %42 = and i64 %41, 536870911
   %43 = sub nsw i64 0, %42
   %44 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %40, i64 %43
-  tail call void @Gia_ManDupConeBack_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %44)
+  tail call void @Gia_ManDupConeBack_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %44)
   %45 = load i64, ptr %40, align 4
   %46 = and i64 %45, 536870911
   %47 = sub nsw i64 0, %46
@@ -14913,7 +14913,7 @@ define i32 @Gia_ManDupConeBackObjs(ptr noundef %0, ptr noundef %1, ptr noundef r
   %25 = and i64 %24, 536870911
   %26 = sub nsw i64 0, %25
   %27 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %23, i64 %26
-  tail call void @Gia_ManDupConeBack_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27)
+  tail call void @Gia_ManDupConeBack_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %27)
   %28 = load i64, ptr %23, align 4
   %29 = and i64 %28, 536870911
   %30 = sub nsw i64 0, %29
@@ -24911,7 +24911,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val133 = load ptr, ptr %16, align 8, !tbaa !119
   %64 = getelementptr inbounds nuw ptr, ptr %.val133, i64 %indvars.iv179
   %65 = load ptr, ptr %64, align 8, !tbaa !120
-  tail call void @Gia_ManDupCones_rec(ptr noundef %0, ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %13)
+  tail call void @Gia_ManDupCones_rec(ptr noundef nonnull %0, ptr noundef %65, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %13)
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
   %.val128 = load i32, ptr %14, align 4, !tbaa !116
   %66 = sext i32 %.val128 to i64
@@ -25385,7 +25385,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val108 = load ptr, ptr %16, align 8, !tbaa !119
   %59 = getelementptr inbounds nuw ptr, ptr %.val108, i64 %indvars.iv149
   %60 = load ptr, ptr %59, align 8, !tbaa !120
-  tail call void @Gia_ManDupCones_rec(ptr noundef %0, ptr noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %13)
+  tail call void @Gia_ManDupCones_rec(ptr noundef nonnull %0, ptr noundef %60, ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef nonnull %13)
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %.val104 = load i32, ptr %14, align 4, !tbaa !116
   %61 = sext i32 %.val104 to i64
@@ -30516,7 +30516,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
   br i1 %47, label %40, label %.lr.ph120.preheader, !llvm.loop !482
 
 .lr.ph120.preheader:                              ; preds = %40, %Vec_IntStart.exit
-  tail call void @Gia_ManFillValue(ptr noundef %0) #31
+  tail call void @Gia_ManFillValue(ptr noundef nonnull %0) #31
   %48 = getelementptr i8, ptr %0, i64 24
   %.val59 = load i32, ptr %48, align 8, !tbaa !36
   %49 = tail call ptr @Gia_ManStart(i32 noundef %.val59) #31
@@ -43094,7 +43094,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %.crited
 
 ._crit_edge86:                                    ; preds = %77, %.preheader
   %89 = sdiv i32 %.05788, 2
-  %90 = icmp sgt i64 %indvars.iv94, 1
+  %90 = icmp samesign ugt i64 %indvars.iv94, 1
   br i1 %90, label %.preheader, label %Vec_IntFree.exit76, !llvm.loop !628
 
 Vec_IntFree.exit76:                               ; preds = %._crit_edge86, %Vec_IntFree.exit
@@ -43245,7 +43245,7 @@ Vec_IntRandomizeOrder.exit:                       ; preds = %.lr.ph.i24, %Vec_In
 
 .critedge:                                        ; preds = %.lr.ph31, %Vec_IntRandomizeOrder.exit
   %37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.56)
-  %38 = tail call ptr @Gia_ManCofClassPattern(ptr noundef %0, ptr noundef nonnull %12, i32 noundef 1)
+  %38 = tail call ptr @Gia_ManCofClassPattern(ptr noundef nonnull %0, ptr noundef nonnull %12, i32 noundef 1)
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !10
   %.not.i = icmp eq ptr %40, null

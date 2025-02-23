@@ -75,7 +75,7 @@ define i32 @libdeflate_gzip_decompress_ex(ptr noundef %0, ptr noundef %1, i64 no
 
 43:                                               ; preds = %38, %31
   %.2 = phi ptr [ %33, %38 ], [ %.062, %31 ]
-  %.not74 = icmp ult i8 %21, 16
+  %.not74 = icmp samesign ult i8 %21, 16
   br i1 %.not74, label %54, label %.preheader
 
 .preheader:                                       ; preds = %43, %.preheader

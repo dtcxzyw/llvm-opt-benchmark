@@ -5208,7 +5208,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIN2cv6P
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %38
-  %39 = add i64 %.013, 1
+  %39 = add nuw i64 %.013, 1
   %40 = load i32, ptr %5, align 4
   %41 = sext i32 %40 to i64
   %42 = icmp ult i64 %39, %41

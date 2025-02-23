@@ -4602,7 +4602,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %_ZNSt6vectorIiSaIiE
   store float %46, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.lr.ph54.preheader, label %.lr.ph, !llvm.loop !21
 
 .thread:                                          ; preds = %32, %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -4619,14 +4619,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %48, %.thread
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.0) #22
   resume { ptr, i32 } %lpad.phi49
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph54.preheader:                               ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %50 = load ptr, ptr %49, align 8
   %wide.trip.count60 = and i64 %39, 2147483647
   br label %.lr.ph54
 
-.lr.ph54:                                         ; preds = %._crit_edge, %.lr.ph54
-  %indvars.iv57 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next58, %.lr.ph54 ]
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
+  %indvars.iv57 = phi i64 [ 0, %.lr.ph54.preheader ], [ %indvars.iv.next58, %.lr.ph54 ]
   %51 = load ptr, ptr %3, align 8
   %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv57
   %53 = load i32, ptr %52, align 4

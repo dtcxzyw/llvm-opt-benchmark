@@ -602,7 +602,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   store ptr %53, ptr %50, align 8
   store volatile ptr %48, ptr %53, align 8
   %54 = icmp eq ptr %49, %33
-  br i1 %54, label %.loopexit, label %47, !llvm.loop !15
+  br i1 %54, label %.thread13, label %47, !llvm.loop !15
 
 55:                                               ; preds = %38
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -618,7 +618,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
   %60 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, %60
-  br i1 %62, label %.loopexit18, label %.preheader
+  br i1 %62, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %59, %72
   %63 = phi ptr [ %65, %72 ], [ %61, %59 ]
@@ -640,9 +640,9 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 72:                                               ; preds = %70, %.preheader
   %73 = icmp eq ptr %65, %60
-  br i1 %73, label %.loopexit18, label %.preheader, !llvm.loop !9
+  br i1 %73, label %.loopexit, label %.preheader, !llvm.loop !9
 
-.loopexit18:                                      ; preds = %72, %59
+.loopexit:                                        ; preds = %72, %59
   %74 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store i32 2, ptr %74, align 8
   br label %.thread16
@@ -826,7 +826,7 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 
 178:                                              ; preds = %175
   %179 = call fastcc i32 @dev_exception_add(ptr noundef %8, ptr noundef nonnull %6), !range !14
-  br label %.loopexit
+  br label %191
 
 180:                                              ; preds = %.thread
   %181 = getelementptr inbounds nuw i8, ptr %8, i64 216
@@ -846,40 +846,40 @@ define internal noundef i64 @devcgroup_access_write(ptr noundef %0, ptr noundef 
 187:                                              ; preds = %.thread11, %184
   %188 = call fastcc i32 @propagate_exception(ptr noundef %8, ptr noundef nonnull %6)
   %189 = freeze i32 %188
-  br label %.loopexit
+  br label %191
 
-.thread13:                                        ; preds = %157, %4, %22, %26, %32, %57, %21, %19, %76, %110, %92, %113, %142, %124, %146, %172, %175, %184, %.thread, %42
-  %.ph = phi i32 [ %40, %42 ], [ -22, %.thread ], [ %185, %184 ], [ -1, %175 ], [ -1, %172 ], [ -22, %146 ], [ -22, %124 ], [ -22, %142 ], [ -22, %113 ], [ -22, %92 ], [ -22, %110 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -1, %4 ], [ -22, %157 ]
+.thread13:                                        ; preds = %157, %47, %4, %22, %26, %32, %57, %21, %19, %76, %110, %92, %113, %142, %124, %146, %172, %175, %184, %.thread, %42
+  %.ph = phi i32 [ %40, %42 ], [ -22, %.thread ], [ %185, %184 ], [ -1, %175 ], [ -1, %172 ], [ -22, %146 ], [ -22, %124 ], [ -22, %142 ], [ -22, %113 ], [ -22, %92 ], [ -22, %110 ], [ -22, %76 ], [ -22, %19 ], [ -22, %21 ], [ -22, %57 ], [ %36, %32 ], [ -1, %26 ], [ -22, %22 ], [ -1, %4 ], [ %40, %47 ], [ -22, %157 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
   %190 = sext i32 %.ph to i64
-  br label %194
+  br label %195
 
-.thread16:                                        ; preds = %.loopexit18, %55, %30, %174
+.thread16:                                        ; preds = %.loopexit, %55, %30, %174
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
-  br label %193
+  br label %194
 
-.loopexit:                                        ; preds = %47, %187, %178
-  %.fr = phi i32 [ %189, %187 ], [ %179, %178 ], [ %40, %47 ]
+191:                                              ; preds = %187, %178
+  %.fr = phi i32 [ %189, %187 ], [ %179, %178 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5) #9
   call void @mutex_unlock(ptr noundef nonnull @devcgroup_mutex) #9
-  %191 = icmp eq i32 %.fr, 0
-  %192 = sext i32 %.fr to i64
-  br i1 %191, label %193, label %194
+  %192 = icmp eq i32 %.fr, 0
+  %193 = sext i32 %.fr to i64
+  br i1 %192, label %194, label %195
 
-193:                                              ; preds = %.thread16, %.loopexit
-  br label %194
+194:                                              ; preds = %.thread16, %191
+  br label %195
 
-194:                                              ; preds = %.thread13, %.loopexit, %193
-  %195 = phi i64 [ %2, %193 ], [ %192, %.loopexit ], [ %190, %.thread13 ]
-  ret i64 %195
+195:                                              ; preds = %.thread13, %191, %194
+  %196 = phi i64 [ %2, %194 ], [ %193, %191 ], [ %190, %.thread13 ]
+  ret i64 %196
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

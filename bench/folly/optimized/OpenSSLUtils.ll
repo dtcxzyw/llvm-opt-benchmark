@@ -2245,12 +2245,12 @@ define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr
   br label %7
 
 7:                                                ; preds = %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i, %2
-  %8 = phi ptr [ %41, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
-  %9 = phi ptr [ %42, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
-  %10 = phi ptr [ %43, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
+  %8 = phi ptr [ %40, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
+  %9 = phi ptr [ %41, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
+  %10 = phi ptr [ %42, %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i ], [ null, %2 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
   %11 = invoke ptr @PEM_read_bio_X509(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef null)
-          to label %.noexc unwind label %47
+          to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %7
   store ptr %11, ptr %4, align 8, !tbaa !92
@@ -2259,20 +2259,20 @@ define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr
 
 12:                                               ; preds = %.noexc
   invoke void @ERR_clear_error()
-          to label %49 unwind label %.loopexit.split-lp8.i
+          to label %48 unwind label %.loopexit.split-lp7.i
 
-.loopexit7.i:                                     ; preds = %.noexc.i, %13
-  %lpad.loopexit9.i = landingpad { ptr, i32 }
+.loopexit6.i:                                     ; preds = %.noexc.i, %13
+  %lpad.loopexit8.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.loopexit.split-lp8.i:                            ; preds = %12
-  %lpad.loopexit.split-lp10.i = landingpad { ptr, i32 }
+.loopexit.split-lp7.i:                            ; preds = %12
+  %lpad.loopexit.split-lp9.i = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
-.body.i:                                          ; preds = %37, %.loopexit.split-lp8.i, %.loopexit7.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i, %37 ], [ %lpad.loopexit9.i, %.loopexit7.i ], [ %lpad.loopexit.split-lp10.i, %.loopexit.split-lp8.i ]
+.body.i:                                          ; preds = %38, %.loopexit.split-lp7.i, %.loopexit6.i
+  %eh.lpad-body.i = phi { ptr, i32 } [ %lpad.phi.i, %38 ], [ %lpad.loopexit8.i, %.loopexit6.i ], [ %lpad.loopexit.split-lp9.i, %.loopexit.split-lp7.i ]
   call void @_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br label %.body
@@ -2280,23 +2280,23 @@ define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr
 13:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
   %14 = invoke ptr @X509_get_subject_name(ptr noundef nonnull %11)
-          to label %.noexc.i unwind label %.loopexit7.i
+          to label %.noexc.i unwind label %.loopexit6.i
 
 .noexc.i:                                         ; preds = %13
   %15 = invoke ptr @X509_NAME_dup(ptr noundef %14)
-          to label %.noexc4.i unwind label %.loopexit7.i
+          to label %.noexc4.i unwind label %.loopexit6.i
 
 .noexc4.i:                                        ; preds = %.noexc.i
   store ptr %15, ptr %3, align 8, !tbaa !94
   %.not.i.i.i.i = icmp eq ptr %10, %9
   %16 = ptrtoint ptr %15 to i64
-  br i1 %.not.i.i.i.i, label %18, label %.thread6.i
+  br i1 %.not.i.i.i.i, label %18, label %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i
 
-.thread6.i:                                       ; preds = %.noexc4.i
+_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i: ; preds = %.noexc4.i
   store i64 %16, ptr %10, align 8, !tbaa !94
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %17, ptr %5, align 8, !tbaa !96
-  br label %40
+  br label %39
 
 18:                                               ; preds = %.noexc4.i
   %19 = ptrtoint ptr %9 to i64
@@ -2348,65 +2348,65 @@ _ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_Xa
   %.0.lcssa.i.i.i.i.i.i = phi ptr [ %30, %.noexc5.i.i ], [ %34, %.lr.ph.i.i.i.i.i.i ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
   %.not.i23.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i23.i.i.i, label %38, label %36
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i, label %36
 
 36:                                               ; preds = %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %8, i64 noundef %21) #27
-  br label %38
+  br label %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i
+
+_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i: ; preds = %36, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
+  store ptr %30, ptr %0, align 8, !tbaa !105
+  store ptr %35, ptr %5, align 8, !tbaa !96
+  %37 = getelementptr inbounds nuw %"class.std::unique_ptr.66", ptr %30, i64 %28
+  store ptr %37, ptr %6, align 8, !tbaa !106
+  br label %39
 
 .loopexit.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %38
 
 .loopexit.split-lp.i:                             ; preds = %23
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %37
+  br label %38
 
-37:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
+38:                                               ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZNSt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS0_XadL_Z14X509_NAME_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   br label %.body.i
 
-38:                                               ; preds = %36, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
-  store ptr %30, ptr %0, align 8, !tbaa !105
-  store ptr %35, ptr %5, align 8, !tbaa !96
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.66", ptr %30, i64 %28
-  store ptr %39, ptr %6, align 8, !tbaa !106
-  br label %40
-
-40:                                               ; preds = %38, %.thread6.i
-  %41 = phi ptr [ %30, %38 ], [ %8, %.thread6.i ]
-  %42 = phi ptr [ %39, %38 ], [ %9, %.thread6.i ]
-  %43 = phi ptr [ %35, %38 ], [ %17, %.thread6.i ]
+39:                                               ; preds = %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i
+  %40 = phi ptr [ %30, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i ], [ %8, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i ]
+  %41 = phi ptr [ %37, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i ], [ %9, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i ]
+  %42 = phi ptr [ %35, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.i.i ], [ %17, %_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EE9push_backEOS5_.exit.thread.i.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   invoke void @X509_free(ptr noundef nonnull %11)
-          to label %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i unwind label %44
+          to label %_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i unwind label %43
 
-44:                                               ; preds = %40
-  %45 = landingpad { ptr, i32 }
+43:                                               ; preds = %39
+  %44 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #25
+  %45 = extractvalue { ptr, i32 } %44, 0
+  tail call void @__clang_call_terminate(ptr %45) #25
   unreachable
 
-_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i: ; preds = %40
+_ZNSt10unique_ptrI7x509_stN5folly23static_function_deleterIS0_XadL_Z9X509_freeEEEEED2Ev.exit.i: ; preds = %39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   br label %7
 
-47:                                               ; preds = %7
-  %48 = landingpad { ptr, i32 }
+46:                                               ; preds = %7
+  %47 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.body.i, %47
-  %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %eh.lpad-body.i, %.body.i ]
+.body:                                            ; preds = %.body.i, %46
+  %eh.lpad-body = phi { ptr, i32 } [ %47, %46 ], [ %eh.lpad-body.i, %.body.i ]
   call void @_ZNSt6vectorISt10unique_ptrI12X509_name_stN5folly23static_function_deleterIS1_XadL_Z14X509_NAME_freeEEEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
   resume { ptr, i32 } %eh.lpad-body
 
-49:                                               ; preds = %12
+48:                                               ; preds = %12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   ret void
 }

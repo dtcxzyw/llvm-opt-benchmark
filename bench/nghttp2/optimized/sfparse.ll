@@ -47,7 +47,7 @@ entry:
   ]
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
-  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
+  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef nonnull %sfp, ptr noundef null)
   switch i32 %call.i, label %sw.default.i [
     i32 0, label %for.cond.i
     i32 -2, label %sw.bb1.loopexit
@@ -532,7 +532,7 @@ parser_discard_sp.exit:                           ; preds = %land.rhs.i, %for.in
   br i1 %cmp.i22.not, label %return, label %sw.epilog17thread-pre-split
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
-  %call.i = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
+  %call.i = tail call i32 @sf_parser_param(ptr noundef nonnull %sfp, ptr noundef null, ptr noundef null)
   switch i32 %call.i, label %default.unreachable48 [
     i32 0, label %for.cond.i
     i32 -2, label %sw.bb5
@@ -623,7 +623,7 @@ for.cond.i16.preheader:                           ; preds = %for.cond.i, %entry
   br label %for.cond.i16
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
-  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
+  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef nonnull %sfp, ptr noundef null)
   switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i16.preheader
@@ -634,7 +634,7 @@ default.unreachable:                              ; preds = %for.cond.i, %for.co
   unreachable
 
 for.cond.i16:                                     ; preds = %for.cond.i16.preheader, %for.cond.i16
-  %call.i17 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
+  %call.i17 = tail call i32 @sf_parser_param(ptr noundef nonnull %sfp, ptr noundef null, ptr noundef null)
   switch i32 %call.i17, label %default.unreachable [
     i32 0, label %for.cond.i16
     i32 -2, label %sw.bb6
@@ -811,7 +811,7 @@ for.cond.i22.preheader:                           ; preds = %for.cond.i, %entry
   br label %for.cond.i22
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
-  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
+  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef nonnull %sfp, ptr noundef null)
   switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i22.preheader
@@ -822,7 +822,7 @@ default.unreachable:                              ; preds = %for.cond.i, %for.co
   unreachable
 
 for.cond.i22:                                     ; preds = %for.cond.i22.preheader, %for.cond.i22
-  %call.i23 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
+  %call.i23 = tail call i32 @sf_parser_param(ptr noundef nonnull %sfp, ptr noundef null, ptr noundef null)
   switch i32 %call.i23, label %default.unreachable [
     i32 0, label %for.cond.i22
     i32 -2, label %sw.bb6
@@ -994,7 +994,7 @@ parser_discard_sp.exit:                           ; preds = %land.rhs.i, %for.in
   br i1 %cmp.i23.not, label %return, label %sw.epilog
 
 for.cond.i:                                       ; preds = %entry, %for.cond.i
-  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef %sfp, ptr noundef null)
+  %call.i = tail call i32 @sf_parser_inner_list(ptr noundef nonnull %sfp, ptr noundef null)
   switch i32 %call.i, label %default.unreachable [
     i32 0, label %for.cond.i
     i32 -2, label %for.cond.i24.preheader
@@ -1005,7 +1005,7 @@ default.unreachable:                              ; preds = %for.cond.i, %for.co
   unreachable
 
 for.cond.i24:                                     ; preds = %for.cond.i24.preheader, %for.cond.i24
-  %call.i25 = tail call i32 @sf_parser_param(ptr noundef %sfp, ptr noundef null, ptr noundef null)
+  %call.i25 = tail call i32 @sf_parser_param(ptr noundef nonnull %sfp, ptr noundef null, ptr noundef null)
   switch i32 %call.i25, label %default.unreachable [
     i32 0, label %for.cond.i24
     i32 -2, label %sw.bb10

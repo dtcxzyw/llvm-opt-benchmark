@@ -845,18 +845,23 @@ define dso_local noundef zeroext i1 @LWLockAcquire(ptr noundef %0, i32 noundef %
 
 .split18.i:                                       ; preds = %.split.i
   %29 = icmp eq i32 %24, 0
-  br i1 %29, label %.loopexit, label %30
+  br i1 %29, label %.loopexit, label %.split.i22.preheader
 
 LWLockAttemptLock.exit:                           ; preds = %.split.us.i
-  br i1 %19, label %.loopexit, label %30
+  br i1 %19, label %.loopexit, label %.split.us.i30.preheader
 
-30:                                               ; preds = %.split18.i, %LWLockAttemptLock.exit
-  tail call fastcc void @LWLockQueueSelf(ptr noundef %0, i32 noundef %1)
+.split.i22.preheader:                             ; preds = %.split18.i
+  tail call fastcc void @LWLockQueueSelf(ptr noundef nonnull %0, i32 noundef %1)
+  %30 = load volatile i32, ptr %12, align 4
+  br label %.split.i22
+
+.split.us.i30.preheader:                          ; preds = %LWLockAttemptLock.exit
+  tail call fastcc void @LWLockQueueSelf(ptr noundef nonnull %0, i32 noundef %1)
   %31 = load volatile i32, ptr %12, align 4
-  br i1 %13, label %.split.us.i30, label %.split.i22
+  br label %.split.us.i30
 
-.split.us.i30:                                    ; preds = %30, %.split.us.i30
-  %.0.us.i31 = phi i32 [ %36, %.split.us.i30 ], [ %31, %30 ]
+.split.us.i30:                                    ; preds = %.split.us.i30.preheader, %.split.us.i30
+  %.0.us.i31 = phi i32 [ %36, %.split.us.i30 ], [ %31, %.split.us.i30.preheader ]
   %32 = and i32 %.0.us.i31, 33554431
   %33 = icmp eq i32 %32, 0
   %34 = or disjoint i32 %.0.us.i31, 16777216
@@ -867,8 +872,8 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %.not.us.i33 = icmp eq i8 %37, 0
   br i1 %.not.us.i33, label %.split.us.i30, label %LWLockAttemptLock.exit34
 
-.split.i22:                                       ; preds = %30, %.split.i22
-  %.0.i23 = phi i32 [ %41, %.split.i22 ], [ %31, %30 ]
+.split.i22:                                       ; preds = %.split.i22.preheader, %.split.i22
+  %.0.i23 = phi i32 [ %41, %.split.i22 ], [ %30, %.split.i22.preheader ]
   %38 = and i32 %.0.i23, 16777216
   %.lobit.i24 = lshr exact i32 %38, 24
   %39 = xor i32 %.lobit.i24, 1
@@ -887,7 +892,7 @@ LWLockAttemptLock.exit34:                         ; preds = %.split.us.i30
   br i1 %33, label %44, label %45
 
 44:                                               ; preds = %.split18.i27, %LWLockAttemptLock.exit34
-  tail call fastcc void @LWLockDequeueSelf(ptr noundef %0)
+  tail call fastcc void @LWLockDequeueSelf(ptr noundef nonnull %0)
   br label %.loopexit
 
 45:                                               ; preds = %.split18.i27, %LWLockAttemptLock.exit34
@@ -1379,18 +1384,23 @@ define dso_local noundef zeroext i1 @LWLockAcquireOrWait(ptr noundef %0, i32 nou
 
 .split18.i:                                       ; preds = %.split.i
   %26 = icmp eq i32 %21, 0
-  br i1 %26, label %._crit_edge, label %27
+  br i1 %26, label %._crit_edge, label %.split.i18.preheader
 
 LWLockAttemptLock.exit:                           ; preds = %.split.us.i
-  br i1 %16, label %._crit_edge, label %27
+  br i1 %16, label %._crit_edge, label %.split.us.i26.preheader
 
-27:                                               ; preds = %.split18.i, %LWLockAttemptLock.exit
-  tail call fastcc void @LWLockQueueSelf(ptr noundef %0, i32 noundef 2)
+.split.i18.preheader:                             ; preds = %.split18.i
+  tail call fastcc void @LWLockQueueSelf(ptr noundef nonnull %0, i32 noundef 2)
+  %27 = load volatile i32, ptr %12, align 4
+  br label %.split.i18
+
+.split.us.i26.preheader:                          ; preds = %LWLockAttemptLock.exit
+  tail call fastcc void @LWLockQueueSelf(ptr noundef nonnull %0, i32 noundef 2)
   %28 = load volatile i32, ptr %12, align 4
-  br i1 %14, label %.split.us.i26, label %.split.i18
+  br label %.split.us.i26
 
-.split.us.i26:                                    ; preds = %27, %.split.us.i26
-  %.0.us.i27 = phi i32 [ %33, %.split.us.i26 ], [ %28, %27 ]
+.split.us.i26:                                    ; preds = %.split.us.i26.preheader, %.split.us.i26
+  %.0.us.i27 = phi i32 [ %33, %.split.us.i26 ], [ %28, %.split.us.i26.preheader ]
   %29 = and i32 %.0.us.i27, 33554431
   %30 = icmp eq i32 %29, 0
   %31 = or disjoint i32 %.0.us.i27, 16777216
@@ -1401,8 +1411,8 @@ LWLockAttemptLock.exit:                           ; preds = %.split.us.i
   %.not.us.i29 = icmp eq i8 %34, 0
   br i1 %.not.us.i29, label %.split.us.i26, label %LWLockAttemptLock.exit30
 
-.split.i18:                                       ; preds = %27, %.split.i18
-  %.0.i19 = phi i32 [ %38, %.split.i18 ], [ %28, %27 ]
+.split.i18:                                       ; preds = %.split.i18.preheader, %.split.i18
+  %.0.i19 = phi i32 [ %38, %.split.i18 ], [ %27, %.split.i18.preheader ]
   %35 = and i32 %.0.i19, 16777216
   %.lobit.i20 = lshr exact i32 %35, 24
   %36 = xor i32 %.lobit.i20, 1
@@ -1440,7 +1450,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
   br i1 %51, label %54, label %48
 
 53:                                               ; preds = %.split18.i23, %LWLockAttemptLock.exit30
-  tail call fastcc void @LWLockDequeueSelf(ptr noundef %0)
+  tail call fastcc void @LWLockDequeueSelf(ptr noundef nonnull %0)
   br label %._crit_edge
 
 54:                                               ; preds = %48

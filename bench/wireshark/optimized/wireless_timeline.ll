@@ -2291,42 +2291,42 @@ _ZL9reset_rgbPA3_f.exit:                          ; preds = %42
   %107 = icmp ne ptr %102, null
   %108 = icmp ne ptr %105, null
   %or.cond = and i1 %107, %108
-  br i1 %or.cond, label %121, label %591
+  br i1 %or.cond, label %121, label %590
 
 109:                                              ; preds = %25, %2
   %110 = landingpad { ptr, i32 }
           cleanup
-  br label %597
+  br label %596
 
 111:                                              ; preds = %_ZL9reset_rgbPA3_f.exit
   %112 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #19
-  br label %596
+  br label %595
 
 113:                                              ; preds = %75
   %114 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #19
-  br label %596
+  br label %595
 
 115:                                              ; preds = %86, %82
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13) #19
-  br label %596
+  br label %595
 
 117:                                              ; preds = %99
   %118 = landingpad { ptr, i32 }
           cleanup
-  br label %596
+  br label %595
 
 119:                                              ; preds = %103
   %120 = landingpad { ptr, i32 }
           cleanup
-  br label %596
+  br label %595
 
 121:                                              ; preds = %106
   %122 = icmp eq i32 %83, -1
@@ -2552,29 +2552,29 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
 267:                                              ; preds = %123
   %268 = landingpad { ptr, i32 }
           cleanup
-  br label %596
+  br label %595
 
 269:                                              ; preds = %162
   %270 = landingpad { ptr, i32 }
           cleanup
-  br label %596
+  br label %595
 
 271:                                              ; preds = %_ZN16WirelessTimeline8positionEmf.exit207
   %272 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15) #19
-  br label %596
+  br label %595
 
 273:                                              ; preds = %204
   %274 = landingpad { ptr, i32 }
           cleanup
-  br label %596
+  br label %595
 
 275:                                              ; preds = %_ZN16WirelessTimeline8positionEmf.exit214
   %276 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16) #19
-  br label %596
+  br label %595
 
 277:                                              ; preds = %_ZN16WirelessTimeline14get_wlan_radioEj.exit208, %266, %202
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17) #19
@@ -2689,7 +2689,7 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.n
   br label %335
 
 335:                                              ; preds = %.lr.ph, %.loopexit
-  %.0152286 = phi i32 [ %.0.i216296, %.lr.ph ], [ %569, %.loopexit ]
+  %.0152286 = phi i32 [ %.0.i216296, %.lr.ph ], [ %568, %.loopexit ]
   %.0153285 = phi i32 [ -1, %.lr.ph ], [ %.1154.ph, %.loopexit ]
   %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
   %337 = invoke ptr @frame_data_sequence_find(ptr noundef %336, i32 noundef %.0152286)
@@ -2710,27 +2710,27 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
 345:                                              ; preds = %277
   %346 = landingpad { ptr, i32 }
           cleanup
-  br label %595
+  br label %594
 
 .loopexit280:                                     ; preds = %306
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 .loopexit.split-lp:                               ; preds = %287, %.noexc
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 347:                                              ; preds = %335
   %348 = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 349:                                              ; preds = %338
   %350 = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 351:                                              ; preds = %_ZN16WirelessTimeline14get_wlan_radioEj.exit221
   %352 = load ptr, ptr %343, align 8
@@ -2775,7 +2775,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
 376:                                              ; preds = %375
   %377 = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 378:                                              ; preds = %375, %367
   %.3156 = phi i32 [ %.0153285, %367 ], [ -1, %375 ]
@@ -2923,7 +2923,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %18) #19
-  br label %594
+  br label %593
 
 463:                                              ; preds = %457, %421, %414
   %464 = fptosi float %389 to i32
@@ -3072,7 +3072,7 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
 549:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit234, %509
   %550 = landingpad { ptr, i32 }
           cleanup
-  br label %594
+  br label %593
 
 551:                                              ; preds = %546, %505
   %.0165 = phi float [ %547, %546 ], [ %506, %505 ]
@@ -3081,110 +3081,112 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   br i1 %552, label %.lr.ph.preheader.i237, label %.loopexit
 
 .lr.ph.preheader.i237:                            ; preds = %551
-  %553 = fptosi float %.0165 to i32
-  %554 = load i16, ptr %487, align 1
-  %555 = and i16 %554, 1
-  %.not.i236 = icmp eq i16 %555, 0
-  %556 = zext nneg i32 %490 to i64
-  %wide.trip.count.i238 = select i1 %.not.i236, i64 32, i64 %556
+  %553 = load i16, ptr %487, align 1
+  %554 = and i16 %553, 1
+  %.not.i236 = icmp eq i16 %554, 0
+  %wide.trip.count.i238 = select i1 %.not.i236, i64 32, i64 %492
   br label %.lr.ph.i239
 
 .lr.ph.i239:                                      ; preds = %.lr.ph.i239, %.lr.ph.preheader.i237
   %indvars.iv.i240 = phi i64 [ %491, %.lr.ph.preheader.i237 ], [ %indvars.iv.next.i241, %.lr.ph.i239 ]
-  %557 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i240
-  %558 = load float, ptr %557, align 4
-  %559 = fsub float %558, %.0164
-  %560 = call float @llvm.fmuladd.f32(float %.0164, float %.0163, float %559)
-  store float %560, ptr %557, align 4
-  %561 = getelementptr i8, ptr %557, i64 4
-  %562 = load float, ptr %561, align 4
-  %563 = fsub float %562, %.0164
-  %564 = call float @llvm.fmuladd.f32(float %.0164, float %.0162, float %563)
-  store float %564, ptr %561, align 4
-  %565 = getelementptr i8, ptr %557, i64 8
-  %566 = load float, ptr %565, align 4
-  %567 = fsub float %566, %.0164
-  %568 = call float @llvm.fmuladd.f32(float %.0164, float %.0161, float %567)
-  store float %568, ptr %565, align 4
+  %555 = getelementptr [3 x float], ptr %9, i64 %indvars.iv.i240
+  %556 = load float, ptr %555, align 4
+  %557 = fsub float %556, %.0164
+  %558 = call float @llvm.fmuladd.f32(float %.0164, float %.0163, float %557)
+  store float %558, ptr %555, align 4
+  %559 = getelementptr i8, ptr %555, i64 4
+  %560 = load float, ptr %559, align 4
+  %561 = fsub float %560, %.0164
+  %562 = call float @llvm.fmuladd.f32(float %.0164, float %.0162, float %561)
+  store float %562, ptr %559, align 4
+  %563 = getelementptr i8, ptr %555, i64 8
+  %564 = load float, ptr %563, align 4
+  %565 = fsub float %564, %.0164
+  %566 = call float @llvm.fmuladd.f32(float %.0164, float %.0161, float %565)
+  store float %566, ptr %563, align 4
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i240, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, %wide.trip.count.i238
-  br i1 %exitcond.not.i242, label %.loopexit, label %.lr.ph.i239, !llvm.loop !15
+  br i1 %exitcond.not.i242, label %.loopexit.loopexit290, label %.lr.ph.i239, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph.i239, %.lr.ph.i223, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %363, %351, %380, %388, %551
-  %.1154.ph = phi i32 [ -1, %551 ], [ %.3156, %388 ], [ %.3156, %380 ], [ %.0153285, %351 ], [ %.0153285, %363 ], [ %.0153285, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %374, %.lr.ph.i223 ], [ %553, %.lr.ph.i239 ]
-  %569 = add i32 %.0152286, 1
-  %570 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %.not182 = icmp ugt i32 %569, %570
+.loopexit.loopexit290:                            ; preds = %.lr.ph.i239
+  %567 = fptosi float %.0165 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit290, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %363, %351, %380, %388, %551
+  %.1154.ph = phi i32 [ -1, %551 ], [ %.3156, %388 ], [ %.3156, %380 ], [ %.0153285, %351 ], [ %.0153285, %363 ], [ %.0153285, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %567, %.loopexit.loopexit290 ], [ %374, %.lr.ph.i223 ]
+  %568 = add i32 %.0152286, 1
+  %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
+  %.not182 = icmp ugt i32 %568, %569
   br i1 %.not182, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %335, !llvm.loop !16
 
 _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.loopexit, %378, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21) #19
-  %571 = load ptr, ptr %48, align 8
-  %572 = getelementptr inbounds nuw i8, ptr %571, i64 20
-  %573 = getelementptr inbounds nuw i8, ptr %571, i64 28
-  %574 = load i32, ptr %573, align 4
-  %575 = load i32, ptr %572, align 4
-  %576 = getelementptr inbounds nuw i8, ptr %571, i64 32
-  %577 = load i32, ptr %576, align 4
-  %578 = getelementptr inbounds nuw i8, ptr %571, i64 24
-  %579 = load i32, ptr %578, align 4
-  %580 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %581 = add i32 %574, 1
-  %582 = sub i32 %581, %575
-  %583 = sitofp i32 %582 to double
+  %570 = load ptr, ptr %48, align 8
+  %571 = getelementptr inbounds nuw i8, ptr %570, i64 20
+  %572 = getelementptr inbounds nuw i8, ptr %570, i64 28
+  %573 = load i32, ptr %572, align 4
+  %574 = load i32, ptr %571, align 4
+  %575 = getelementptr inbounds nuw i8, ptr %570, i64 32
+  %576 = load i32, ptr %575, align 4
+  %577 = getelementptr inbounds nuw i8, ptr %570, i64 24
+  %578 = load i32, ptr %577, align 4
+  %579 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %580 = add i32 %573, 1
+  %581 = sub i32 %580, %574
+  %582 = sitofp i32 %581 to double
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  store double %583, ptr %580, align 8
-  %584 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %585 = add i32 %577, 1
-  %586 = sub i32 %585, %579
-  %587 = sitofp i32 %586 to double
-  store double %587, ptr %584, align 8
+  store double %582, ptr %579, align 8
+  %583 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %584 = add i32 %576, 1
+  %585 = sub i32 %584, %578
+  %586 = sitofp i32 %585 to double
+  store double %586, ptr %583, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22) #19
-  %588 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  %587 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
-  store double %583, ptr %588, align 8
-  %589 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store double %587, ptr %589, align 8
+  store double %582, ptr %587, align 8
+  %588 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store double %586, ptr %588, align 8
   invoke void @_ZN14QGraphicsScene6renderEP8QPainterRK6QRectFS4_N2Qt15AspectRatioModeE(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17, ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %22, i32 noundef 1)
-          to label %590 unwind label %592
+          to label %589 unwind label %591
 
-590:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit
+589:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #19
   call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
-  br label %591
+  br label %590
 
-591:                                              ; preds = %106, %590
+590:                                              ; preds = %106, %589
   call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %9) #19
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   ret void
 
-592:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit
-  %593 = landingpad { ptr, i32 }
+591:                                              ; preds = %_ZL14accumulate_rgbPA3_fiiffff.exit
+  %592 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21) #19
+  br label %593
+
+593:                                              ; preds = %.loopexit280, %.loopexit.split-lp, %347, %376, %462, %549, %349, %591
+  %.pn192 = phi { ptr, i32 } [ %592, %591 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit280 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17) #19
   br label %594
 
-594:                                              ; preds = %.loopexit280, %.loopexit.split-lp, %347, %376, %462, %549, %349, %592
-  %.pn192 = phi { ptr, i32 } [ %593, %592 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit280 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17) #19
+594:                                              ; preds = %593, %345
+  %.pn192.pn = phi { ptr, i32 } [ %.pn192, %593 ], [ %346, %345 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
   br label %595
 
-595:                                              ; preds = %594, %345
-  %.pn192.pn = phi { ptr, i32 } [ %.pn192, %594 ], [ %346, %345 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #19
+595:                                              ; preds = %113, %117, %267, %273, %275, %594, %271, %269, %119, %115, %111
+  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %268, %267 ], [ %.pn192.pn, %594 ], [ %272, %271 ], [ %270, %269 ], [ %276, %275 ], [ %274, %273 ]
+  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %9) #19
   br label %596
 
-596:                                              ; preds = %113, %117, %267, %273, %275, %595, %271, %269, %119, %115, %111
-  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %112, %111 ], [ %114, %113 ], [ %116, %115 ], [ %118, %117 ], [ %120, %119 ], [ %268, %267 ], [ %.pn192.pn, %595 ], [ %272, %271 ], [ %270, %269 ], [ %276, %275 ], [ %274, %273 ]
-  call void @llvm.lifetime.end.p0(i64 768, ptr nonnull %9) #19
-  br label %597
-
-597:                                              ; preds = %596, %109
-  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn192.pn.pn.pn.pn.pn.pn.pn.pn, %596 ], [ %110, %109 ]
+596:                                              ; preds = %595, %109
+  %.pn192.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn192.pn.pn.pn.pn.pn.pn.pn.pn, %595 ], [ %110, %109 ]
   call void @_ZN8QPainterD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(8) %8) #19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #19
   resume { ptr, i32 } %.pn192.pn.pn.pn.pn.pn.pn.pn.pn.pn

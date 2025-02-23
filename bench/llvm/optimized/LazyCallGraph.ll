@@ -17906,7 +17906,7 @@ define dso_local void @_ZN4llvm13LazyCallGraph9buildSCCsERNS0_6RefSCCENS_14itera
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %6) #18
   br label %_ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph61.i:                                       ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %5) #18
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %15, ptr %5, align 8, !tbaa !17
@@ -17958,8 +17958,8 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit.i: ; preds = %._c
   call void @free(ptr noundef %38) #18
   br label %"_ZN4llvm13LazyCallGraph16buildGenericSCCsIRNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEZNS0_9buildSCCsERNS0_6RefSCCES8_E3$_0ZNS0_9buildSCCsESB_S8_E3$_1ZNS0_9buildSCCsESB_S8_E3$_2ZNS0_9buildSCCsESB_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_.exit"
 
-41:                                               ; preds = %.loopexit.i, %._crit_edge
-  %.sroa.027.059.i = phi ptr [ %9, %._crit_edge ], [ %42, %.loopexit.i ]
+41:                                               ; preds = %.loopexit.i, %.lr.ph61.i
+  %.sroa.027.059.i = phi ptr [ %9, %.lr.ph61.i ], [ %42, %.loopexit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %42 = getelementptr inbounds i8, ptr %.sroa.027.059.i, i64 -8
   %43 = load ptr, ptr %42, align 8, !tbaa !7
@@ -18717,7 +18717,7 @@ _ZN4llvm15SmallVectorImplIPNS_13LazyCallGraph4NodeEE5eraseEPKS3_S6_.exit.i: ; pr
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 16
   store i32 0, ptr %373, align 8, !tbaa !126
   %.not = icmp eq ptr %370, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.lr.ph61.i, label %.lr.ph
 
 ._crit_edge43:                                    ; preds = %374, %"_ZN4llvm13LazyCallGraph16buildGenericSCCsIRNS_14iterator_rangeISt16reverse_iteratorIPPNS0_4NodeEEEEZNS0_9buildSCCsERNS0_6RefSCCES8_E3$_0ZNS0_9buildSCCsESB_S8_E3$_1ZNS0_9buildSCCsESB_S8_E3$_2ZNS0_9buildSCCsESB_S8_E3$_3EEvOT_OT0_OT1_OT2_OT3_.exit"
   ret void

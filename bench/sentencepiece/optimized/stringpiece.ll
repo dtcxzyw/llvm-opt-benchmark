@@ -567,7 +567,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece17find_first_not_ofEcm(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece12find_last_ofES1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11StringPiece12find_last_ofES1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -616,36 +616,32 @@ select.unfold.i.i:                                ; preds = %15
 
 _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %22
   %28 = add nsw i64 %7, -1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %28, i64 %3)
-  %29 = icmp sgt i64 %.sroa.speculated, -1
-  br i1 %29, label %.lr.ph, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %28, i64 %3)
+  %29 = load ptr, ptr %0, align 8
+  br label %30
 
-.lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %30 = load ptr, ptr %0, align 8
-  br label %31
+30:                                               ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %select.unfold
+  %.017 = phi i64 [ %spec.select, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ], [ %37, %select.unfold ]
+  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.017
+  %32 = load i8, ptr %31, align 1
+  %33 = zext i8 %32 to i64
+  %34 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %33
+  %35 = load i8, ptr %34, align 1
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, label %select.unfold
 
-31:                                               ; preds = %.lr.ph, %38
-  %.017 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %39, %38 ]
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 %.017
-  %33 = load i8, ptr %32, align 1
-  %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %34
-  %36 = load i8, ptr %35, align 1
-  %37 = trunc i8 %36 to i1
-  br i1 %37, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, label %38
+select.unfold:                                    ; preds = %30
+  %37 = add nsw i64 %.017, -1
+  %38 = icmp sgt i64 %.017, 0
+  br i1 %38, label %30, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, !llvm.loop !10
 
-38:                                               ; preds = %31
-  %39 = add nsw i64 %.017, -1
-  %40 = icmp sgt i64 %.017, 0
-  br i1 %40, label %31, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, !llvm.loop !10
-
-_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit: ; preds = %31, %38, %select.unfold.i.i, %15, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %4
-  %.010 = phi i64 [ -1, %4 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ], [ %.011.i.i, %15 ], [ -1, %select.unfold.i.i ], [ %.017, %31 ], [ -1, %38 ]
+_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit: ; preds = %30, %select.unfold, %select.unfold.i.i, %15, %4
+  %.010 = phi i64 [ -1, %4 ], [ %.011.i.i, %15 ], [ -1, %select.unfold.i.i ], [ %.017, %30 ], [ -1, %select.unfold ]
   ret i64 %.010
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -1, -9223372036854775808) i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofES1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
+define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11StringPiece16find_last_not_ofES1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr readonly captures(none) %1, i64 %2, i64 noundef %3) local_unnamed_addr #9 align 2 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
@@ -692,33 +688,29 @@ select.unfold.i:                                  ; preds = %16
   store i8 1, ptr %26, align 1
   %27 = add nuw nsw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %27, %2
-  br i1 %exitcond.not.i, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, label %22, !llvm.loop !6
+  br i1 %exitcond.not.i, label %.lr.ph, label %22, !llvm.loop !6
 
-_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader: ; preds = %22
-  %28 = icmp sgt i64 %.sroa.speculated, -1
-  br i1 %28, label %.lr.ph, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit
+.lr.ph:                                           ; preds = %22
+  %28 = load ptr, ptr %0, align 8
+  br label %29
 
-.lr.ph:                                           ; preds = %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader
-  %29 = load ptr, ptr %0, align 8
-  br label %30
+29:                                               ; preds = %.lr.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
+  %.0918 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %36, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 %.0918
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i64
+  %33 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %32
+  %34 = load i8, ptr %33, align 1
+  %35 = trunc i8 %34 to i1
+  br i1 %35, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit
 
-30:                                               ; preds = %.lr.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit
-  %.0918 = phi i64 [ %.sroa.speculated, %.lr.ph ], [ %37, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 %.0918
-  %32 = load i8, ptr %31, align 1
-  %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw [256 x i8], ptr %5, i64 0, i64 %33
-  %35 = load i8, ptr %34, align 1
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit
+_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %29
+  %36 = add nsw i64 %.0918, -1
+  %37 = icmp sgt i64 %.0918, 0
+  br i1 %37, label %29, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !12
 
-_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit: ; preds = %30
-  %37 = add nsw i64 %.0918, -1
-  %38 = icmp sgt i64 %.0918, 0
-  br i1 %38, label %30, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !12
-
-_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit: ; preds = %30, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %select.unfold.i, %16, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader, %9, %4
-  %.0 = phi i64 [ -1, %4 ], [ %.sroa.speculated, %9 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit.preheader ], [ -1, %select.unfold.i ], [ %.011.i, %16 ], [ %.0918, %30 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
+_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit: ; preds = %29, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit, %select.unfold.i, %16, %9, %4
+  %.0 = phi i64 [ -1, %4 ], [ %.sroa.speculated, %9 ], [ -1, %select.unfold.i ], [ %.011.i, %16 ], [ %.0918, %29 ], [ -1, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit ]
   ret i64 %.0
 }
 

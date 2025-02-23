@@ -49,7 +49,7 @@ define internal noundef i32 @rc2_init_key(ptr noundef %0, ptr noundef readonly c
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !17
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %16 = icmp slt i32 %8, 128
+  %16 = icmp samesign ult i32 %8, 128
   br i1 %16, label %.lr.ph59.preheader.i, label %._crit_edge60.i
 
 .lr.ph59.preheader.i:                             ; preds = %._crit_edge.i, %4

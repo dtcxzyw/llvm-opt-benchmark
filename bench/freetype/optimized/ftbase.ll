@@ -893,14 +893,14 @@ ft_lookup_glyph_renderer.exit:                    ; preds = %.lr.ph.i.i, %286
   %331 = getelementptr inbounds nuw i8, ptr %.014.i, i64 16
   %332 = add nuw i16 %.01113.i, 1
   %exitcond.not.i218 = icmp eq i16 %332, %323
-  br i1 %exitcond.not.i218, label %FT_Outline_Translate.exit, label %.lr.ph.i, !llvm.loop !159
+  br i1 %exitcond.not.i218, label %FT_Outline_Translate.exit.thread, label %.lr.ph.i, !llvm.loop !159
 
-FT_Outline_Translate.exit:                        ; preds = %.lr.ph.i, %.loopexit
+FT_Outline_Translate.exit:                        ; preds = %.loopexit
   %.not230 = icmp eq ptr %275, null
   br i1 %.not230, label %FT_Vector_Transform.exit, label %FT_Outline_Translate.exit.thread
 
-FT_Outline_Translate.exit.thread:                 ; preds = %ft_lookup_glyph_renderer.exit, %314, %317, %FT_Outline_Translate.exit
-  %.5229 = phi i32 [ %.1143, %FT_Outline_Translate.exit ], [ %.1143, %317 ], [ %.1143, %314 ], [ %308, %ft_lookup_glyph_renderer.exit ]
+FT_Outline_Translate.exit.thread:                 ; preds = %.lr.ph.i, %ft_lookup_glyph_renderer.exit, %314, %317, %FT_Outline_Translate.exit
+  %.5229 = phi i32 [ %.1143, %FT_Outline_Translate.exit ], [ %.1143, %317 ], [ %.1143, %314 ], [ %308, %ft_lookup_glyph_renderer.exit ], [ %.1143, %.lr.ph.i ]
   %333 = load i64, ptr %239, align 8, !tbaa !157
   %334 = load i64, ptr %275, align 8, !tbaa !160
   %sext.i.i = shl i64 %333, 32
@@ -13441,11 +13441,7 @@ define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #11 {
   %14 = and i64 %8, 4294967295
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %15 = icmp samesign ult i64 %14, %12
-  br i1 %15, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %7
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %._crit_edge44
+  br i1 %15, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %7
   %16 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %13, i64 %12
@@ -13461,18 +13457,22 @@ define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #11 {
   %18 = getelementptr inbounds nuw i8, ptr %.03538, i64 16
   %19 = getelementptr inbounds i8, ptr %.03439, i64 -16
   %20 = icmp ult ptr %18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !488
+  br i1 %20, label %.lr.ph, label %.lr.ph43.preheader, !llvm.loop !488
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %7
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
+  br label %._crit_edge44
+
+.lr.ph43.preheader:                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %21 = load ptr, ptr %6, align 8, !tbaa !202
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %14
   br label %.lr.ph43
 
-.lr.ph43:                                         ; preds = %._crit_edge, %.lr.ph43
-  %.03241 = phi ptr [ %27, %.lr.ph43 ], [ %22, %._crit_edge ]
-  %.03340 = phi ptr [ %26, %.lr.ph43 ], [ %23, %._crit_edge ]
+.lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
+  %.03241 = phi ptr [ %27, %.lr.ph43 ], [ %22, %.lr.ph43.preheader ]
+  %.03340 = phi ptr [ %26, %.lr.ph43 ], [ %23, %.lr.ph43.preheader ]
   %24 = load i8, ptr %.03340, align 1, !tbaa !222
   %25 = load i8, ptr %.03241, align 1, !tbaa !222
   store i8 %25, ptr %.03340, align 1, !tbaa !222
@@ -13482,7 +13482,7 @@ define void @FT_Outline_Reverse(ptr noundef %0) local_unnamed_addr #11 {
   %28 = icmp ult ptr %26, %27
   br i1 %28, label %.lr.ph43, label %._crit_edge44, !llvm.loop !489
 
-._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge.thread
+._crit_edge44:                                    ; preds = %.lr.ph43, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i16, ptr %0, align 8, !tbaa !130
   %30 = zext i16 %29 to i64

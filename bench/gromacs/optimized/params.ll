@@ -8026,58 +8026,63 @@ define linkonce_odr void @_ZSt14__partial_sortIPSt5arrayIiLm2EEN9__gnu_cxx5__ops
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %28 = and i64 %13, 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %._crit_edge.i.i.i
   %31 = add nsw i64 %14, -2
   %32 = ashr exact i64 %31, 1
   %33 = icmp eq i64 %.0.lcssa.i.i.i, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %.thread.i.i, label %39
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.0.lcssa.i.i.i
-  %39 = load i64, ptr %37, align 4
-  store i64 %39, ptr %38, align 4
-  br label %40
-
-40:                                               ; preds = %34, %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %36, %34 ], [ %.0.lcssa.i.i.i, %30 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+.thread.i.i:                                      ; preds = %30
+  %34 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %35 = or disjoint i64 %34, 1
+  %36 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %35
+  %37 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.0.lcssa.i.i.i
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i.i, ptr %5, align 8
-  %41 = icmp sgt i64 %.1.i.i.i, 0
-  br i1 %41, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i
+  br label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %40, %44
-  %.01316.i.i.i.i = phi i64 [ %.017.i.i910.i.i, %44 ], [ %.1.i.i.i, %40 ]
+39:                                               ; preds = %30, %._crit_edge.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store i64 %.sroa.02.0.copyload.i.i, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %39, %.thread.i.i
+  %.01316.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %39 ], [ %35, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %42
+  %.01316.i.i.i.i = phi i64 [ %.017.i.i910.i.i, %42 ], [ %.01316.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i910.i.i = lshr i64 %.017.in.i.i.i.i, 1
-  %42 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.017.i.i910.i.i
-  %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %42, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %43, label %44, label %.critedge.loopexit.i.i.i.i
+  %40 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.017.i.i910.i.i
+  %41 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %41, label %42, label %.critedge.loopexit.i.i.i.i
 
-44:                                               ; preds = %.lr.ph.i.i.i.i
-  %45 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.01316.i.i.i.i
-  %46 = load i64, ptr %42, align 4
-  store i64 %46, ptr %45, align 4
-  %.not.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !66
+42:                                               ; preds = %.lr.ph.i.i.i.i
+  %43 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i.i.i
+  %44 = load i64, ptr %40, align 4
+  store i64 %44, ptr %43, align 4
+  %.not11.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
+  br i1 %.not11.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !66
 
-.critedge.loopexit.i.i.i.i:                       ; preds = %44, %.lr.ph.i.i.i.i
-  %.013.lcssa.ph.i.i.i.i = phi i64 [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %44 ]
+.critedge.loopexit.i.i.i.i:                       ; preds = %42, %.lr.ph.i.i.i.i
+  %.013.lcssa.ph.i.i.i.i = phi i64 [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %42 ]
   %.pre.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i
 
-_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %40
-  %47 = phi i64 [ %.sroa.02.0.copyload.i.i, %40 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.013.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %48 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i.i.i
-  store i64 %47, ptr %48, align 4
+_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %39
+  %45 = phi i64 [ %.sroa.02.0.copyload.i.i, %39 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %39 ], [ %.013.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %46 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i.i.i
+  store i64 %45, ptr %46, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %49 = icmp sgt i64 %13, 8
-  br i1 %49, label %.lr.ph.i, label %_ZSt11__sort_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit, !llvm.loop !67
+  %47 = icmp sgt i64 %13, 8
+  br i1 %47, label %.lr.ph.i, label %_ZSt11__sort_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit, !llvm.loop !67
 
 _ZSt11__sort_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit: ; preds = %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i, %4
   ret void
@@ -8108,15 +8113,15 @@ define linkonce_odr void @_ZSt13__heap_selectIPSt5arrayIiLm2EEN9__gnu_cxx5__ops1
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %19 = or disjoint i64 %17, 1
-  %20 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %19
   %21 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %18
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %.011.us = phi ptr [ %47, %46 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %44
+  %.011.us = phi ptr [ %45, %44 ], [ %1, %.lr.ph.split.us.preheader ]
   %22 = load ptr, ptr %6, align 8
   %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 4 dereferenceable(8) %.011.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %23, label %.lr.ph.i.i.preheader.us, label %46
+  br i1 %23, label %.lr.ph.i.i.preheader.us, label %44
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.02.0.copyload.i.us = load i64, ptr %.011.us, align 4
@@ -8142,140 +8147,145 @@ define linkonce_odr void @_ZSt13__heap_selectIPSt5arrayIiLm2EEN9__gnu_cxx5__ops1
   br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !65
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %36 = load i64, ptr %20, align 4
-  store i64 %36, ptr %21, align 4
-  br label %37
-
-37:                                               ; preds = %35, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %19, %35 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i.us, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %41
-  %.01316.i.i.i.us = phi i64 [ %.017.i.i910.i.us, %41 ], [ %.1.i.i.us, %37 ]
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
+  %36 = load i64, ptr %20, align 4
+  store i64 %36, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store i64 %.sroa.02.0.copyload.i.us, ptr %5, align 8
+  br label %.lr.ph.i.i.i.us.preheader
+
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %35
+  %.01316.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %35 ], [ %19, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
+
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %39
+  %.01316.i.i.i.us = phi i64 [ %.017.i.i910.i.us, %39 ], [ %.01316.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.017.in.i.i.i.us = add nsw i64 %.01316.i.i.i.us, -1
   %.017.i.i910.i.us = lshr i64 %.017.in.i.i.i.us, 1
-  %39 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.017.i.i910.i.us
-  %40 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %40, label %41, label %.critedge.loopexit.i.i.i.us
+  %37 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.017.i.i910.i.us
+  %38 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %38, label %39, label %.critedge.loopexit.i.i.i.us
 
-41:                                               ; preds = %.lr.ph.i.i.i.us
-  %42 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.01316.i.i.i.us
-  %43 = load i64, ptr %39, align 4
-  store i64 %43, ptr %42, align 4
-  %.not.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !66
+39:                                               ; preds = %.lr.ph.i.i.i.us
+  %40 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i.i.us
+  %41 = load i64, ptr %37, align 4
+  store i64 %41, ptr %40, align 4
+  %.not11.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
+  br i1 %.not11.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !66
 
-.critedge.loopexit.i.i.i.us:                      ; preds = %41, %.lr.ph.i.i.i.us
-  %.013.lcssa.ph.i.i.i.us = phi i64 [ %.01316.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %41 ]
+.critedge.loopexit.i.i.i.us:                      ; preds = %39, %.lr.ph.i.i.i.us
+  %.013.lcssa.ph.i.i.i.us = phi i64 [ %.01316.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %39 ]
   %.pre.i.i.i.us = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us
 
-_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %37
-  %44 = phi i64 [ %.sroa.02.0.copyload.i.us, %37 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %.013.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.013.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %45 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i.i.us
-  store i64 %44, ptr %45, align 4
+_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %35
+  %42 = phi i64 [ %.sroa.02.0.copyload.i.us, %35 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %.013.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.013.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %43 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i.i.us
+  store i64 %42, ptr %43, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %46
+  br label %44
 
-46:                                               ; preds = %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, %.lr.ph.split.us
-  %47 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
-  %48 = icmp ult ptr %47, %2
-  br i1 %48, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
+44:                                               ; preds = %_ZSt10__pop_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, %.lr.ph.split.us
+  %45 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
+  %46 = icmp ult ptr %45, %2
+  br i1 %46, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !68
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %49 = icmp eq i64 %spec.select.i.i.us, %18
-  %or.cond = select i1 %16, i1 %49, i1 false
-  br i1 %or.cond, label %35, label %37
+  %47 = icmp eq i64 %spec.select.i.i.us, %18
+  %or.cond = select i1 %16, i1 %47, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %16, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %51 = icmp eq i64 %17, 0
-  br i1 %51, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %49 = icmp eq i64 %17, 0
+  br i1 %49, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %60
-  %.011.us12.us = phi ptr [ %61, %60 ], [ %1, %.lr.ph.split.split.us ]
-  %52 = load ptr, ptr %6, align 8
-  %53 = call noundef zeroext i1 %52(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %53, label %._crit_edge.i.i.us13.us, label %60
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %58
+  %.011.us12.us = phi ptr [ %59, %58 ], [ %1, %.lr.ph.split.split.us ]
+  %50 = load ptr, ptr %6, align 8
+  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %51, label %._crit_edge.i.i.us13.us, label %58
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.02.0.copyload.i.us14.us = load i64, ptr %.011.us12.us, align 4
-  %54 = load i64, ptr %0, align 4
-  store i64 %54, ptr %.011.us12.us, align 4
+  %52 = load i64, ptr %0, align 4
+  store i64 %52, ptr %.011.us12.us, align 4
   %.sroa.0.0.copyload.i.us15.us = load ptr, ptr %6, align 8
-  %55 = load i64, ptr %50, align 4
-  store i64 %55, ptr %0, align 4
+  %53 = load i64, ptr %48, align 4
+  store i64 %53, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i.us14.us, ptr %5, align 8
-  %56 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %56, label %57, label %.critedge.loopexit.i.i.i.us22.us
+  %54 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %54, label %55, label %.critedge.loopexit.i.i.i.us22.us
 
-57:                                               ; preds = %._crit_edge.i.i.us13.us
-  %58 = load i64, ptr %0, align 4
-  store i64 %58, ptr %50, align 4
+55:                                               ; preds = %._crit_edge.i.i.us13.us
+  %56 = load i64, ptr %0, align 4
+  store i64 %56, ptr %48, align 4
   br label %.critedge.loopexit.i.i.i.us22.us
 
-.critedge.loopexit.i.i.i.us22.us:                 ; preds = %57, %._crit_edge.i.i.us13.us
-  %.013.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %57 ]
+.critedge.loopexit.i.i.i.us22.us:                 ; preds = %55, %._crit_edge.i.i.us13.us
+  %.013.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %55 ]
   %.pre.i.i.i.us24.us = load i64, ptr %5, align 8
-  %59 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.013.lcssa.ph.i.i.i.us23.us
-  store i64 %.pre.i.i.i.us24.us, ptr %59, align 4
+  %57 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %.013.lcssa.ph.i.i.i.us23.us
+  store i64 %.pre.i.i.i.us24.us, ptr %57, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %60
+  br label %58
 
-60:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
-  %61 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
-  %62 = icmp ult ptr %61, %2
-  br i1 %62, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !68
+58:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
+  %59 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
+  %60 = icmp ult ptr %59, %2
+  br i1 %60, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !68
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %66
-  %.011.us12 = phi ptr [ %67, %66 ], [ %1, %.lr.ph.split.split.us ]
-  %63 = load ptr, ptr %6, align 8
-  %64 = call noundef zeroext i1 %63(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %64, label %._crit_edge.i.i.us13, label %66
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %64
+  %.011.us12 = phi ptr [ %65, %64 ], [ %1, %.lr.ph.split.split.us ]
+  %61 = load ptr, ptr %6, align 8
+  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %62, label %._crit_edge.i.i.us13, label %64
 
 ._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
   %.sroa.02.0.copyload.i.us14 = load i64, ptr %.011.us12, align 4
-  %65 = load i64, ptr %0, align 4
-  store i64 %65, ptr %.011.us12, align 4
+  %63 = load i64, ptr %0, align 4
+  store i64 %63, ptr %.011.us12, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i.us14, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %66
+  br label %64
 
-66:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %67 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
-  %68 = icmp ult ptr %67, %2
-  br i1 %68, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !68
+64:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %65 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
+  %66 = icmp ult ptr %65, %2
+  br i1 %66, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !68
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %72
-  %.011 = phi ptr [ %73, %72 ], [ %1, %.lr.ph.split ]
-  %69 = load ptr, ptr %6, align 8
-  %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 4 dereferenceable(8) %.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %70, label %._crit_edge.i.i, label %72
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %70
+  %.011 = phi ptr [ %71, %70 ], [ %1, %.lr.ph.split ]
+  %67 = load ptr, ptr %6, align 8
+  %68 = call noundef zeroext i1 %67(ptr noundef nonnull align 4 dereferenceable(8) %.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %68, label %._crit_edge.i.i, label %70
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
   %.sroa.02.0.copyload.i = load i64, ptr %.011, align 4
-  %71 = load i64, ptr %0, align 4
-  store i64 %71, ptr %.011, align 4
+  %69 = load i64, ptr %0, align 4
+  store i64 %69, ptr %.011, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload.i, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %72
+  br label %70
 
-72:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %73 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %74 = icmp ult ptr %73, %2
-  br i1 %74, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !68
+70:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %71 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %72 = icmp ult ptr %71, %2
+  br i1 %72, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %72, %66, %60, %46, %4
+._crit_edge:                                      ; preds = %70, %64, %58, %44, %4
   ret void
 }
 
@@ -8321,70 +8331,68 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIiLm2EEN9__gnu_cxx5__ops15_
   %.0.lcssa.i = phi i64 [ %12, %.split ], [ %spec.select.i, %.lr.ph.i ]
   %27 = and i64 %8, 8
   %28 = icmp eq i64 %27, 0
-  %29 = ashr exact i64 %11, 1
-  %30 = icmp eq i64 %.0.lcssa.i, %29
-  %or.cond = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %37
+  %29 = icmp eq i64 %.0.lcssa.i, %12
+  %or.cond = and i1 %28, %29
+  br i1 %or.cond, label %30, label %34
 
-31:                                               ; preds = %._crit_edge.i
-  %32 = shl nsw i64 %.0.lcssa.i, 1
-  %33 = or disjoint i64 %32, 1
-  %34 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.0.lcssa.i
-  %36 = load i64, ptr %34, align 4
-  store i64 %36, ptr %35, align 4
-  br label %37
+30:                                               ; preds = %._crit_edge.i
+  %31 = or disjoint i64 %11, 1
+  %32 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %31
+  %33 = load i64, ptr %32, align 4
+  store i64 %33, ptr %13, align 4
+  br label %34
 
-37:                                               ; preds = %31, %._crit_edge.i
-  %.1.i = phi i64 [ %33, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
+34:                                               ; preds = %30, %._crit_edge.i
+  %.1.i = phi i64 [ %31, %30 ], [ %.0.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store i64 %.sroa.02.0.copyload14, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i, %12
-  br i1 %38, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
+  %35 = icmp samesign ugt i64 %.1.i, %12
+  br i1 %35, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %37, %41
-  %.01316.i.i = phi i64 [ %.017.i.i, %41 ], [ %.1.i, %37 ]
+.lr.ph.i.i:                                       ; preds = %34, %38
+  %.01316.i.i = phi i64 [ %.017.i.i, %38 ], [ %.1.i, %34 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %39 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i
-  %40 = call noundef zeroext i1 %.sroa.0.0.copyload15(ptr noundef nonnull align 4 dereferenceable(8) %39, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %40, label %41, label %.critedge.loopexit.i.i
+  %36 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i
+  %37 = call noundef zeroext i1 %.sroa.0.0.copyload15(ptr noundef nonnull align 4 dereferenceable(8) %36, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %37, label %38, label %.critedge.loopexit.i.i
 
-41:                                               ; preds = %.lr.ph.i.i
-  %42 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i
-  %43 = load i64, ptr %39, align 4
-  store i64 %43, ptr %42, align 4
-  %44 = icmp sgt i64 %.017.i.i, %12
-  br i1 %44, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !66
+38:                                               ; preds = %.lr.ph.i.i
+  %39 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i
+  %40 = load i64, ptr %36, align 4
+  store i64 %40, ptr %39, align 4
+  %41 = icmp sgt i64 %.017.i.i, %12
+  br i1 %41, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !66
 
-.critedge.loopexit.i.i:                           ; preds = %41, %.lr.ph.i.i
-  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %41 ]
+.critedge.loopexit.i.i:                           ; preds = %38, %.lr.ph.i.i
+  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %38 ]
   %.pre.i.i = load i64, ptr %5, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
 
-_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit: ; preds = %37, %.critedge.loopexit.i.i
-  %45 = phi i64 [ %.sroa.02.0.copyload14, %37 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %37 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %46 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i
-  store i64 %45, ptr %46, align 4
+_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit: ; preds = %34, %.critedge.loopexit.i.i
+  %42 = phi i64 [ %.sroa.02.0.copyload14, %34 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %34 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
+  %43 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %42, ptr %43, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %47 = icmp ult i64 %11, 2
-  br i1 %47, label %.loopexit, label %.split17.lr.ph
+  %44 = icmp ult i64 %11, 2
+  br i1 %44, label %.loopexit, label %.split17.lr.ph
 
 .split17.lr.ph:                                   ; preds = %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
+  %45 = ashr exact i64 %11, 1
   br i1 %28, label %.split17.preheader, label %.split17.us
 
 .split17.preheader:                               ; preds = %.split17.lr.ph
-  %48 = or disjoint i64 %11, 1
-  %49 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %48
-  %50 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %29
+  %46 = or disjoint i64 %11, 1
+  %47 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %46
+  %48 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %45
   br label %.split17
 
 .split17.us:                                      ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
-  %.041.us = phi i64 [ %51, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
-  %51 = add nsw i64 %.041.us, -1
-  %52 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %51
-  %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
+  %.041.us = phi i64 [ %49, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
+  %49 = add nsw i64 %.041.us, -1
+  %50 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %49
+  %.sroa.02.0.copyload18.us = load i64, ptr %50, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
@@ -8394,20 +8402,20 @@ _ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   br label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
 
 .lr.ph.i32.us:                                    ; preds = %.split17.us, %.lr.ph.i32.us
-  %.031.i33.us = phi i64 [ %spec.select.i34.us, %.lr.ph.i32.us ], [ %51, %.split17.us ]
-  %53 = shl i64 %.031.i33.us, 1
-  %54 = add i64 %53, 2
+  %.031.i33.us = phi i64 [ %spec.select.i34.us, %.lr.ph.i32.us ], [ %49, %.split17.us ]
+  %51 = shl i64 %.031.i33.us, 1
+  %52 = add i64 %51, 2
+  %53 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %52
+  %54 = or disjoint i64 %51, 1
   %55 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %54
-  %56 = or disjoint i64 %53, 1
-  %57 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %56
-  %58 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %55, ptr noundef nonnull align 4 dereferenceable(8) %57)
-  %spec.select.i34.us = select i1 %58, i64 %56, i64 %54
-  %59 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %spec.select.i34.us
-  %60 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.031.i33.us
-  %61 = load i64, ptr %59, align 4
-  store i64 %61, ptr %60, align 4
-  %62 = icmp slt i64 %spec.select.i34.us, %15
-  br i1 %62, label %.lr.ph.i32.us, label %._crit_edge.i21.us, !llvm.loop !65
+  %56 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %53, ptr noundef nonnull align 4 dereferenceable(8) %55)
+  %spec.select.i34.us = select i1 %56, i64 %54, i64 %52
+  %57 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %spec.select.i34.us
+  %58 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.031.i33.us
+  %59 = load i64, ptr %57, align 4
+  store i64 %59, ptr %58, align 4
+  %60 = icmp slt i64 %spec.select.i34.us, %15
+  br i1 %60, label %.lr.ph.i32.us, label %._crit_edge.i21.us, !llvm.loop !65
 
 ._crit_edge.i21.us:                               ; preds = %.lr.ph.i32.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -8415,105 +8423,105 @@ _ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRK
   %.not39.us = icmp slt i64 %spec.select.i34.us, %.041.us
   br i1 %.not39.us, label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us, label %.lr.ph.i.i25.us
 
-.lr.ph.i.i25.us:                                  ; preds = %._crit_edge.i21.us, %65
-  %.01316.i.i26.us = phi i64 [ %.017.i.i28.us, %65 ], [ %spec.select.i34.us, %._crit_edge.i21.us ]
+.lr.ph.i.i25.us:                                  ; preds = %._crit_edge.i21.us, %63
+  %.01316.i.i26.us = phi i64 [ %.017.i.i28.us, %63 ], [ %spec.select.i34.us, %._crit_edge.i21.us ]
   %.017.in.i.i27.us = add nsw i64 %.01316.i.i26.us, -1
   %.017.i.i28.us = sdiv i64 %.017.in.i.i27.us, 2
-  %63 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i28.us
-  %64 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %63, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %64, label %65, label %.critedge.loopexit.i.i29.us
+  %61 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i28.us
+  %62 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %61, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %62, label %63, label %.critedge.loopexit.i.i29.us
 
-65:                                               ; preds = %.lr.ph.i.i25.us
-  %66 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i26.us
-  %67 = load i64, ptr %63, align 4
-  store i64 %67, ptr %66, align 4
+63:                                               ; preds = %.lr.ph.i.i25.us
+  %64 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i26.us
+  %65 = load i64, ptr %61, align 4
+  store i64 %65, ptr %64, align 4
   %.not40.us = icmp slt i64 %.017.i.i28.us, %.041.us
   br i1 %.not40.us, label %.critedge.loopexit.i.i29.us, label %.lr.ph.i.i25.us, !llvm.loop !66
 
-.critedge.loopexit.i.i29.us:                      ; preds = %65, %.lr.ph.i.i25.us
-  %.013.lcssa.ph.i.i30.us = phi i64 [ %.01316.i.i26.us, %.lr.ph.i.i25.us ], [ %.017.i.i28.us, %65 ]
+.critedge.loopexit.i.i29.us:                      ; preds = %63, %.lr.ph.i.i25.us
+  %.013.lcssa.ph.i.i30.us = phi i64 [ %.01316.i.i26.us, %.lr.ph.i.i25.us ], [ %.017.i.i28.us, %63 ]
   %.pre.i.i31.us = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
 
 _ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us: ; preds = %._crit_edge.i21.us.thread, %.critedge.loopexit.i.i29.us, %._crit_edge.i21.us
-  %68 = phi i64 [ %.sroa.02.0.copyload18.us, %._crit_edge.i21.us ], [ %.pre.i.i31.us, %.critedge.loopexit.i.i29.us ], [ %.sroa.02.0.copyload18.us, %._crit_edge.i21.us.thread ]
-  %.013.lcssa.i.i24.us = phi i64 [ %spec.select.i34.us, %._crit_edge.i21.us ], [ %.013.lcssa.ph.i.i30.us, %.critedge.loopexit.i.i29.us ], [ %51, %._crit_edge.i21.us.thread ]
-  %69 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i24.us
-  store i64 %68, ptr %69, align 4
+  %66 = phi i64 [ %.sroa.02.0.copyload18.us, %._crit_edge.i21.us ], [ %.pre.i.i31.us, %.critedge.loopexit.i.i29.us ], [ %.sroa.02.0.copyload18.us, %._crit_edge.i21.us.thread ]
+  %.013.lcssa.i.i24.us = phi i64 [ %spec.select.i34.us, %._crit_edge.i21.us ], [ %.013.lcssa.ph.i.i30.us, %.critedge.loopexit.i.i29.us ], [ %49, %._crit_edge.i21.us.thread ]
+  %67 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i24.us
+  store i64 %66, ptr %67, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %70 = icmp eq i64 %51, 0
-  br i1 %70, label %.loopexit, label %.split17.us, !llvm.loop !69
+  %68 = icmp eq i64 %49, 0
+  br i1 %68, label %.loopexit, label %.split17.us, !llvm.loop !69
 
 .split17:                                         ; preds = %.split17.preheader, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35
-  %.041 = phi i64 [ %71, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
-  %71 = add nsw i64 %.041, -1
-  %72 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %71
-  %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
+  %.041 = phi i64 [ %69, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
+  %69 = add nsw i64 %.041, -1
+  %70 = getelementptr inbounds nuw %"struct.std::array", ptr %0, i64 %69
+  %.sroa.02.0.copyload18 = load i64, ptr %70, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32
-  %.031.i33 = phi i64 [ %spec.select.i34, %.lr.ph.i32 ], [ %71, %.split17 ]
-  %73 = shl i64 %.031.i33, 1
-  %74 = add i64 %73, 2
+  %.031.i33 = phi i64 [ %spec.select.i34, %.lr.ph.i32 ], [ %69, %.split17 ]
+  %71 = shl i64 %.031.i33, 1
+  %72 = add i64 %71, 2
+  %73 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %72
+  %74 = or disjoint i64 %71, 1
   %75 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %74
-  %76 = or disjoint i64 %73, 1
-  %77 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %76
-  %78 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %75, ptr noundef nonnull align 4 dereferenceable(8) %77)
-  %spec.select.i34 = select i1 %78, i64 %76, i64 %74
-  %79 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %spec.select.i34
-  %80 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.031.i33
-  %81 = load i64, ptr %79, align 4
-  store i64 %81, ptr %80, align 4
-  %82 = icmp slt i64 %spec.select.i34, %15
-  br i1 %82, label %.lr.ph.i32, label %._crit_edge.i21, !llvm.loop !65
+  %76 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %73, ptr noundef nonnull align 4 dereferenceable(8) %75)
+  %spec.select.i34 = select i1 %76, i64 %74, i64 %72
+  %77 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %spec.select.i34
+  %78 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.031.i33
+  %79 = load i64, ptr %77, align 4
+  store i64 %79, ptr %78, align 4
+  %80 = icmp slt i64 %spec.select.i34, %15
+  br i1 %80, label %.lr.ph.i32, label %._crit_edge.i21, !llvm.loop !65
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph.i32, %.split17
-  %.0.lcssa.i22 = phi i64 [ %71, %.split17 ], [ %spec.select.i34, %.lr.ph.i32 ]
-  %83 = icmp eq i64 %.0.lcssa.i22, %29
-  br i1 %83, label %84, label %86
+  %.0.lcssa.i22 = phi i64 [ %69, %.split17 ], [ %spec.select.i34, %.lr.ph.i32 ]
+  %81 = icmp eq i64 %.0.lcssa.i22, %45
+  br i1 %81, label %82, label %84
 
-84:                                               ; preds = %._crit_edge.i21
-  %85 = load i64, ptr %49, align 4
-  store i64 %85, ptr %50, align 4
-  br label %86
+82:                                               ; preds = %._crit_edge.i21
+  %83 = load i64, ptr %47, align 4
+  store i64 %83, ptr %48, align 4
+  br label %84
 
-86:                                               ; preds = %84, %._crit_edge.i21
-  %.1.i23 = phi i64 [ %48, %84 ], [ %.0.lcssa.i22, %._crit_edge.i21 ]
+84:                                               ; preds = %82, %._crit_edge.i21
+  %.1.i23 = phi i64 [ %46, %82 ], [ %.0.lcssa.i22, %._crit_edge.i21 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.sroa.02.0.copyload18, ptr %4, align 8
   %.not39 = icmp slt i64 %.1.i23, %.041
   br i1 %.not39, label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35, label %.lr.ph.i.i25
 
-.lr.ph.i.i25:                                     ; preds = %86, %89
-  %.01316.i.i26 = phi i64 [ %.017.i.i28, %89 ], [ %.1.i23, %86 ]
+.lr.ph.i.i25:                                     ; preds = %84, %87
+  %.01316.i.i26 = phi i64 [ %.017.i.i28, %87 ], [ %.1.i23, %84 ]
   %.017.in.i.i27 = add nsw i64 %.01316.i.i26, -1
   %.017.i.i28 = sdiv i64 %.017.in.i.i27, 2
-  %87 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i28
-  %88 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %87, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %88, label %89, label %.critedge.loopexit.i.i29
+  %85 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.017.i.i28
+  %86 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %85, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %86, label %87, label %.critedge.loopexit.i.i29
 
-89:                                               ; preds = %.lr.ph.i.i25
-  %90 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i26
-  %91 = load i64, ptr %87, align 4
-  store i64 %91, ptr %90, align 4
+87:                                               ; preds = %.lr.ph.i.i25
+  %88 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.01316.i.i26
+  %89 = load i64, ptr %85, align 4
+  store i64 %89, ptr %88, align 4
   %.not40 = icmp slt i64 %.017.i.i28, %.041
   br i1 %.not40, label %.critedge.loopexit.i.i29, label %.lr.ph.i.i25, !llvm.loop !66
 
-.critedge.loopexit.i.i29:                         ; preds = %89, %.lr.ph.i.i25
-  %.013.lcssa.ph.i.i30 = phi i64 [ %.01316.i.i26, %.lr.ph.i.i25 ], [ %.017.i.i28, %89 ]
+.critedge.loopexit.i.i29:                         ; preds = %87, %.lr.ph.i.i25
+  %.013.lcssa.ph.i.i30 = phi i64 [ %.01316.i.i26, %.lr.ph.i.i25 ], [ %.017.i.i28, %87 ]
   %.pre.i.i31 = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35
 
-_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35: ; preds = %86, %.critedge.loopexit.i.i29
-  %92 = phi i64 [ %.sroa.02.0.copyload18, %86 ], [ %.pre.i.i31, %.critedge.loopexit.i.i29 ]
-  %.013.lcssa.i.i24 = phi i64 [ %.1.i23, %86 ], [ %.013.lcssa.ph.i.i30, %.critedge.loopexit.i.i29 ]
-  %93 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i24
-  store i64 %92, ptr %93, align 4
+_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35: ; preds = %84, %.critedge.loopexit.i.i29
+  %90 = phi i64 [ %.sroa.02.0.copyload18, %84 ], [ %.pre.i.i31, %.critedge.loopexit.i.i29 ]
+  %.013.lcssa.i.i24 = phi i64 [ %.1.i23, %84 ], [ %.013.lcssa.ph.i.i30, %.critedge.loopexit.i.i29 ]
+  %91 = getelementptr inbounds %"struct.std::array", ptr %0, i64 %.013.lcssa.i.i24
+  store i64 %90, ptr %91, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %94 = icmp eq i64 %71, 0
-  br i1 %94, label %.loopexit, label %.split17, !llvm.loop !69
+  %92 = icmp eq i64 %69, 0
+  br i1 %92, label %.loopexit, label %.split17, !llvm.loop !69
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35, %_ZSt13__adjust_heapIPSt5arrayIiLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit, %3
   ret void
@@ -8751,59 +8759,64 @@ define linkonce_odr void @_ZSt14__partial_sortIPSt5arrayIfLm2EEN9__gnu_cxx5__ops
   %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %spec.select.i.i.i, %.lr.ph.i.i.i ]
   %28 = and i64 %13, 8
   %29 = icmp eq i64 %28, 0
-  br i1 %29, label %30, label %40
+  br i1 %29, label %30, label %39
 
 30:                                               ; preds = %._crit_edge.i.i.i
   %31 = add nsw i64 %14, -2
   %32 = ashr exact i64 %31, 1
   %33 = icmp eq i64 %.0.lcssa.i.i.i, %32
-  br i1 %33, label %34, label %40
+  br i1 %33, label %.thread.i.i, label %39
 
-34:                                               ; preds = %30
-  %35 = shl nsw i64 %.0.lcssa.i.i.i, 1
-  %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %36
-  %38 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.0.lcssa.i.i.i
-  %39 = load i64, ptr %37, align 4
-  store i64 %39, ptr %38, align 4
-  br label %40
-
-40:                                               ; preds = %34, %30, %._crit_edge.i.i.i
-  %.1.i.i.i = phi i64 [ %36, %34 ], [ %.0.lcssa.i.i.i, %30 ], [ %.0.lcssa.i.i.i, %._crit_edge.i.i.i ]
+.thread.i.i:                                      ; preds = %30
+  %34 = shl nuw nsw i64 %.0.lcssa.i.i.i, 1
+  %35 = or disjoint i64 %34, 1
+  %36 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %35
+  %37 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.0.lcssa.i.i.i
+  %38 = load i64, ptr %36, align 4
+  store i64 %38, ptr %37, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload.i.i, ptr %5, align 8
-  %41 = icmp sgt i64 %.1.i.i.i, 0
-  %42 = bitcast <2 x float> %.sroa.02.0.copyload.i.i to i64
-  br i1 %41, label %.lr.ph.i.i.i.i, label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i
+  br label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i:                                   ; preds = %40, %45
-  %.01316.i.i.i.i = phi i64 [ %.017.i.i910.i.i, %45 ], [ %.1.i.i.i, %40 ]
+39:                                               ; preds = %30, %._crit_edge.i.i.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store <2 x float> %.sroa.02.0.copyload.i.i, ptr %5, align 8
+  %.not.i.i = icmp eq i64 %.0.lcssa.i.i.i, 0
+  %40 = bitcast <2 x float> %.sroa.02.0.copyload.i.i to i64
+  br i1 %.not.i.i, label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i, label %.lr.ph.i.i.i.i.preheader
+
+.lr.ph.i.i.i.i.preheader:                         ; preds = %39, %.thread.i.i
+  %.01316.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i, %39 ], [ %35, %.thread.i.i ]
+  br label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %43
+  %.01316.i.i.i.i = phi i64 [ %.017.i.i910.i.i, %43 ], [ %.01316.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i910.i.i = lshr i64 %.017.in.i.i.i.i, 1
-  %43 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.017.i.i910.i.i
-  %44 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %43, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %44, label %45, label %.critedge.loopexit.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.017.i.i910.i.i
+  %42 = call noundef zeroext i1 %3(ptr noundef nonnull align 4 dereferenceable(8) %41, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %42, label %43, label %.critedge.loopexit.i.i.i.i
 
-45:                                               ; preds = %.lr.ph.i.i.i.i
-  %46 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.01316.i.i.i.i
-  %47 = load i64, ptr %43, align 4
-  store i64 %47, ptr %46, align 4
-  %.not.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
-  br i1 %.not.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !76
+43:                                               ; preds = %.lr.ph.i.i.i.i
+  %44 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i.i.i
+  %45 = load i64, ptr %41, align 4
+  store i64 %45, ptr %44, align 4
+  %.not11.i.i = icmp ult i64 %.017.in.i.i.i.i, 2
+  br i1 %.not11.i.i, label %.critedge.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !76
 
-.critedge.loopexit.i.i.i.i:                       ; preds = %45, %.lr.ph.i.i.i.i
-  %.013.lcssa.ph.i.i.i.i = phi i64 [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %45 ]
+.critedge.loopexit.i.i.i.i:                       ; preds = %43, %.lr.ph.i.i.i.i
+  %.013.lcssa.ph.i.i.i.i = phi i64 [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %43 ]
   %.pre.i.i.i.i = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i
 
-_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %40
-  %48 = phi i64 [ %42, %40 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %.013.lcssa.i.i.i.i = phi i64 [ %.1.i.i.i, %40 ], [ %.013.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
-  %49 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i.i.i
-  store i64 %48, ptr %49, align 4
+_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i: ; preds = %.critedge.loopexit.i.i.i.i, %39
+  %46 = phi i64 [ %40, %39 ], [ %.pre.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %.013.lcssa.i.i.i.i = phi i64 [ 0, %39 ], [ %.013.lcssa.ph.i.i.i.i, %.critedge.loopexit.i.i.i.i ]
+  %47 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i.i.i
+  store i64 %46, ptr %47, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %50 = icmp sgt i64 %13, 8
-  br i1 %50, label %.lr.ph.i, label %_ZSt11__sort_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit, !llvm.loop !77
+  %48 = icmp sgt i64 %13, 8
+  br i1 %48, label %.lr.ph.i, label %_ZSt11__sort_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit, !llvm.loop !77
 
 _ZSt11__sort_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_RT0_.exit: ; preds = %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i, %4
   ret void
@@ -8834,15 +8847,15 @@ define linkonce_odr void @_ZSt13__heap_selectIPSt5arrayIfLm2EEN9__gnu_cxx5__ops1
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %19 = or disjoint i64 %17, 1
-  %20 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %19
   %21 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %18
   br label %.lr.ph.split.us
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %47
-  %.011.us = phi ptr [ %48, %47 ], [ %1, %.lr.ph.split.us.preheader ]
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %45
+  %.011.us = phi ptr [ %46, %45 ], [ %1, %.lr.ph.split.us.preheader ]
   %22 = load ptr, ptr %6, align 8
   %23 = call noundef zeroext i1 %22(ptr noundef nonnull align 4 dereferenceable(8) %.011.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %23, label %.lr.ph.i.i.preheader.us, label %47
+  br i1 %23, label %.lr.ph.i.i.preheader.us, label %45
 
 .lr.ph.i.i.preheader.us:                          ; preds = %.lr.ph.split.us
   %.sroa.02.0.copyload.i.us = load <2 x float>, ptr %.011.us, align 4
@@ -8868,141 +8881,146 @@ define linkonce_odr void @_ZSt13__heap_selectIPSt5arrayIfLm2EEN9__gnu_cxx5__ops1
   br i1 %34, label %.lr.ph.i.i.us, label %._crit_edge.i.i.loopexit.us, !llvm.loop !75
 
 35:                                               ; preds = %._crit_edge.i.i.loopexit.us
-  %36 = load i64, ptr %20, align 4
-  store i64 %36, ptr %21, align 4
-  br label %37
-
-37:                                               ; preds = %35, %._crit_edge.i.i.loopexit.us
-  %.1.i.i.us = phi i64 [ %19, %35 ], [ %spec.select.i.i.us, %._crit_edge.i.i.loopexit.us ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload.i.us, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i.i.us, 0
-  %39 = bitcast <2 x float> %.sroa.02.0.copyload.i.us to i64
-  br i1 %38, label %.lr.ph.i.i.i.us, label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us
+  %.not.i.us = icmp eq i64 %spec.select.i.i.us, 0
+  %36 = bitcast <2 x float> %.sroa.02.0.copyload.i.us to i64
+  br i1 %.not.i.us, label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, label %.lr.ph.i.i.i.us.preheader
 
-.lr.ph.i.i.i.us:                                  ; preds = %37, %42
-  %.01316.i.i.i.us = phi i64 [ %.017.i.i910.i.us, %42 ], [ %.1.i.i.us, %37 ]
+.thread.i.us:                                     ; preds = %._crit_edge.i.i.loopexit.us
+  %37 = load i64, ptr %20, align 4
+  store i64 %37, ptr %21, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
+  store <2 x float> %.sroa.02.0.copyload.i.us, ptr %5, align 8
+  br label %.lr.ph.i.i.i.us.preheader
+
+.lr.ph.i.i.i.us.preheader:                        ; preds = %.thread.i.us, %35
+  %.01316.i.i.i.us.ph = phi i64 [ %spec.select.i.i.us, %35 ], [ %19, %.thread.i.us ]
+  br label %.lr.ph.i.i.i.us
+
+.lr.ph.i.i.i.us:                                  ; preds = %.lr.ph.i.i.i.us.preheader, %40
+  %.01316.i.i.i.us = phi i64 [ %.017.i.i910.i.us, %40 ], [ %.01316.i.i.i.us.ph, %.lr.ph.i.i.i.us.preheader ]
   %.017.in.i.i.i.us = add nsw i64 %.01316.i.i.i.us, -1
   %.017.i.i910.i.us = lshr i64 %.017.in.i.i.i.us, 1
-  %40 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.017.i.i910.i.us
-  %41 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %41, label %42, label %.critedge.loopexit.i.i.i.us
+  %38 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.017.i.i910.i.us
+  %39 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us(ptr noundef nonnull align 4 dereferenceable(8) %38, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %39, label %40, label %.critedge.loopexit.i.i.i.us
 
-42:                                               ; preds = %.lr.ph.i.i.i.us
-  %43 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.01316.i.i.i.us
-  %44 = load i64, ptr %40, align 4
-  store i64 %44, ptr %43, align 4
-  %.not.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
-  br i1 %.not.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !76
+40:                                               ; preds = %.lr.ph.i.i.i.us
+  %41 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i.i.us
+  %42 = load i64, ptr %38, align 4
+  store i64 %42, ptr %41, align 4
+  %.not11.i.us = icmp ult i64 %.017.in.i.i.i.us, 2
+  br i1 %.not11.i.us, label %.critedge.loopexit.i.i.i.us, label %.lr.ph.i.i.i.us, !llvm.loop !76
 
-.critedge.loopexit.i.i.i.us:                      ; preds = %42, %.lr.ph.i.i.i.us
-  %.013.lcssa.ph.i.i.i.us = phi i64 [ %.01316.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %42 ]
+.critedge.loopexit.i.i.i.us:                      ; preds = %40, %.lr.ph.i.i.i.us
+  %.013.lcssa.ph.i.i.i.us = phi i64 [ %.01316.i.i.i.us, %.lr.ph.i.i.i.us ], [ 0, %40 ]
   %.pre.i.i.i.us = load i64, ptr %5, align 8
   br label %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us
 
-_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %37
-  %45 = phi i64 [ %39, %37 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %.013.lcssa.i.i.i.us = phi i64 [ %.1.i.i.us, %37 ], [ %.013.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
-  %46 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i.i.us
-  store i64 %45, ptr %46, align 4
+_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us: ; preds = %.critedge.loopexit.i.i.i.us, %35
+  %43 = phi i64 [ %36, %35 ], [ %.pre.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %.013.lcssa.i.i.i.us = phi i64 [ 0, %35 ], [ %.013.lcssa.ph.i.i.i.us, %.critedge.loopexit.i.i.i.us ]
+  %44 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i.i.us
+  store i64 %43, ptr %44, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %47
+  br label %45
 
-47:                                               ; preds = %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, %.lr.ph.split.us
-  %48 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
-  %49 = icmp ult ptr %48, %2
-  br i1 %49, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !78
+45:                                               ; preds = %_ZSt10__pop_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.us, %.lr.ph.split.us
+  %46 = getelementptr inbounds nuw i8, ptr %.011.us, i64 8
+  %47 = icmp ult ptr %46, %2
+  br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge.i.i.loopexit.us:                      ; preds = %.lr.ph.i.i.us
-  %50 = icmp eq i64 %spec.select.i.i.us, %18
-  %or.cond = select i1 %16, i1 %50, i1 false
-  br i1 %or.cond, label %35, label %37
+  %48 = icmp eq i64 %spec.select.i.i.us, %18
+  %or.cond = select i1 %16, i1 %48, i1 false
+  br i1 %or.cond, label %.thread.i.us, label %35
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br i1 %16, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split
-  %52 = icmp eq i64 %17, 0
-  br i1 %52, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
+  %50 = icmp eq i64 %17, 0
+  br i1 %50, label %.lr.ph.split.split.us.split.us, label %.lr.ph.split.split.us.split
 
-.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %61
-  %.011.us12.us = phi ptr [ %62, %61 ], [ %1, %.lr.ph.split.split.us ]
-  %53 = load ptr, ptr %6, align 8
-  %54 = call noundef zeroext i1 %53(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %54, label %._crit_edge.i.i.us13.us, label %61
+.lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %59
+  %.011.us12.us = phi ptr [ %60, %59 ], [ %1, %.lr.ph.split.split.us ]
+  %51 = load ptr, ptr %6, align 8
+  %52 = call noundef zeroext i1 %51(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12.us, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %52, label %._crit_edge.i.i.us13.us, label %59
 
 ._crit_edge.i.i.us13.us:                          ; preds = %.lr.ph.split.split.us.split.us
   %.sroa.02.0.copyload.i.us14.us = load <2 x float>, ptr %.011.us12.us, align 4
-  %55 = load i64, ptr %0, align 4
-  store i64 %55, ptr %.011.us12.us, align 4
+  %53 = load i64, ptr %0, align 4
+  store i64 %53, ptr %.011.us12.us, align 4
   %.sroa.0.0.copyload.i.us15.us = load ptr, ptr %6, align 8
-  %56 = load i64, ptr %51, align 4
-  store i64 %56, ptr %0, align 4
+  %54 = load i64, ptr %49, align 4
+  store i64 %54, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload.i.us14.us, ptr %5, align 8
-  %57 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %57, label %58, label %.critedge.loopexit.i.i.i.us22.us
+  %55 = call noundef zeroext i1 %.sroa.0.0.copyload.i.us15.us(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %55, label %56, label %.critedge.loopexit.i.i.i.us22.us
 
-58:                                               ; preds = %._crit_edge.i.i.us13.us
-  %59 = load i64, ptr %0, align 4
-  store i64 %59, ptr %51, align 4
+56:                                               ; preds = %._crit_edge.i.i.us13.us
+  %57 = load i64, ptr %0, align 4
+  store i64 %57, ptr %49, align 4
   br label %.critedge.loopexit.i.i.i.us22.us
 
-.critedge.loopexit.i.i.i.us22.us:                 ; preds = %58, %._crit_edge.i.i.us13.us
-  %.013.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %58 ]
+.critedge.loopexit.i.i.i.us22.us:                 ; preds = %56, %._crit_edge.i.i.us13.us
+  %.013.lcssa.ph.i.i.i.us23.us = phi i64 [ 1, %._crit_edge.i.i.us13.us ], [ 0, %56 ]
   %.pre.i.i.i.us24.us = load i64, ptr %5, align 8
-  %60 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.013.lcssa.ph.i.i.i.us23.us
-  store i64 %.pre.i.i.i.us24.us, ptr %60, align 4
+  %58 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %.013.lcssa.ph.i.i.i.us23.us
+  store i64 %.pre.i.i.i.us24.us, ptr %58, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %61
+  br label %59
 
-61:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
-  %62 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
-  %63 = icmp ult ptr %62, %2
-  br i1 %63, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !78
+59:                                               ; preds = %.critedge.loopexit.i.i.i.us22.us, %.lr.ph.split.split.us.split.us
+  %60 = getelementptr inbounds nuw i8, ptr %.011.us12.us, i64 8
+  %61 = icmp ult ptr %60, %2
+  br i1 %61, label %.lr.ph.split.split.us.split.us, label %._crit_edge, !llvm.loop !78
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %67
-  %.011.us12 = phi ptr [ %68, %67 ], [ %1, %.lr.ph.split.split.us ]
-  %64 = load ptr, ptr %6, align 8
-  %65 = call noundef zeroext i1 %64(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %65, label %._crit_edge.i.i.us13, label %67
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %65
+  %.011.us12 = phi ptr [ %66, %65 ], [ %1, %.lr.ph.split.split.us ]
+  %62 = load ptr, ptr %6, align 8
+  %63 = call noundef zeroext i1 %62(ptr noundef nonnull align 4 dereferenceable(8) %.011.us12, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %63, label %._crit_edge.i.i.us13, label %65
 
 ._crit_edge.i.i.us13:                             ; preds = %.lr.ph.split.split.us.split
   %.sroa.02.0.copyload.i.us14 = load <2 x float>, ptr %.011.us12, align 4
-  %66 = load i64, ptr %0, align 4
-  store i64 %66, ptr %.011.us12, align 4
+  %64 = load i64, ptr %0, align 4
+  store i64 %64, ptr %.011.us12, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload.i.us14, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %67
+  br label %65
 
-67:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
-  %68 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
-  %69 = icmp ult ptr %68, %2
-  br i1 %69, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !78
+65:                                               ; preds = %._crit_edge.i.i.us13, %.lr.ph.split.split.us.split
+  %66 = getelementptr inbounds nuw i8, ptr %.011.us12, i64 8
+  %67 = icmp ult ptr %66, %2
+  br i1 %67, label %.lr.ph.split.split.us.split, label %._crit_edge, !llvm.loop !78
 
-.lr.ph.split.split:                               ; preds = %.lr.ph.split, %73
-  %.011 = phi ptr [ %74, %73 ], [ %1, %.lr.ph.split ]
-  %70 = load ptr, ptr %6, align 8
-  %71 = call noundef zeroext i1 %70(ptr noundef nonnull align 4 dereferenceable(8) %.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
-  br i1 %71, label %._crit_edge.i.i, label %73
+.lr.ph.split.split:                               ; preds = %.lr.ph.split, %71
+  %.011 = phi ptr [ %72, %71 ], [ %1, %.lr.ph.split ]
+  %68 = load ptr, ptr %6, align 8
+  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 4 dereferenceable(8) %.011, ptr noundef nonnull align 4 dereferenceable(8) %0)
+  br i1 %69, label %._crit_edge.i.i, label %71
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.split.split
   %.sroa.02.0.copyload.i = load <2 x float>, ptr %.011, align 4
-  %72 = load i64, ptr %0, align 4
-  store i64 %72, ptr %.011, align 4
+  %70 = load i64, ptr %0, align 4
+  store i64 %70, ptr %.011, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload.i, ptr %0, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %73
+  br label %71
 
-73:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.011, i64 8
-  %75 = icmp ult ptr %74, %2
-  br i1 %75, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !78
+71:                                               ; preds = %.lr.ph.split.split, %._crit_edge.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %.011, i64 8
+  %73 = icmp ult ptr %72, %2
+  br i1 %73, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !78
 
-._crit_edge:                                      ; preds = %73, %67, %61, %47, %4
+._crit_edge:                                      ; preds = %71, %65, %59, %45, %4
   ret void
 }
 
@@ -9048,203 +9066,201 @@ define linkonce_odr void @_ZSt11__make_heapIPSt5arrayIfLm2EEN9__gnu_cxx5__ops15_
   %.0.lcssa.i = phi i64 [ %12, %.split ], [ %spec.select.i, %.lr.ph.i ]
   %27 = and i64 %8, 8
   %28 = icmp eq i64 %27, 0
-  %29 = ashr exact i64 %11, 1
-  %30 = icmp eq i64 %.0.lcssa.i, %29
-  %or.cond = select i1 %28, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %37
+  %29 = icmp eq i64 %.0.lcssa.i, %12
+  %or.cond = and i1 %28, %29
+  br i1 %or.cond, label %30, label %34
 
-31:                                               ; preds = %._crit_edge.i
-  %32 = shl nsw i64 %.0.lcssa.i, 1
-  %33 = or disjoint i64 %32, 1
-  %34 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.0.lcssa.i
-  %36 = load i64, ptr %34, align 4
-  store i64 %36, ptr %35, align 4
-  br label %37
+30:                                               ; preds = %._crit_edge.i
+  %31 = or disjoint i64 %11, 1
+  %32 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %31
+  %33 = load i64, ptr %32, align 4
+  store i64 %33, ptr %13, align 4
+  br label %34
 
-37:                                               ; preds = %31, %._crit_edge.i
-  %.1.i = phi i64 [ %33, %31 ], [ %.0.lcssa.i, %._crit_edge.i ]
+34:                                               ; preds = %30, %._crit_edge.i
+  %.1.i = phi i64 [ %31, %30 ], [ %.0.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store <2 x float> %.sroa.02.0.copyload14, ptr %5, align 8
-  %38 = icmp sgt i64 %.1.i, %12
-  %39 = bitcast <2 x float> %.sroa.02.0.copyload14 to i64
-  br i1 %38, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
+  %35 = icmp samesign ugt i64 %.1.i, %12
+  %36 = bitcast <2 x float> %.sroa.02.0.copyload14 to i64
+  br i1 %35, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
 
-.lr.ph.i.i:                                       ; preds = %37, %42
-  %.01316.i.i = phi i64 [ %.017.i.i, %42 ], [ %.1.i, %37 ]
+.lr.ph.i.i:                                       ; preds = %34, %39
+  %.01316.i.i = phi i64 [ %.017.i.i, %39 ], [ %.1.i, %34 ]
   %.017.in.i.i = add nsw i64 %.01316.i.i, -1
   %.017.i.i = sdiv i64 %.017.in.i.i, 2
-  %40 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i
-  %41 = call noundef zeroext i1 %.sroa.0.0.copyload15(ptr noundef nonnull align 4 dereferenceable(8) %40, ptr noundef nonnull align 4 dereferenceable(8) %5)
-  br i1 %41, label %42, label %.critedge.loopexit.i.i
+  %37 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i
+  %38 = call noundef zeroext i1 %.sroa.0.0.copyload15(ptr noundef nonnull align 4 dereferenceable(8) %37, ptr noundef nonnull align 4 dereferenceable(8) %5)
+  br i1 %38, label %39, label %.critedge.loopexit.i.i
 
-42:                                               ; preds = %.lr.ph.i.i
-  %43 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i
-  %44 = load i64, ptr %40, align 4
-  store i64 %44, ptr %43, align 4
-  %45 = icmp sgt i64 %.017.i.i, %12
-  br i1 %45, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !76
+39:                                               ; preds = %.lr.ph.i.i
+  %40 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i
+  %41 = load i64, ptr %37, align 4
+  store i64 %41, ptr %40, align 4
+  %42 = icmp sgt i64 %.017.i.i, %12
+  br i1 %42, label %.lr.ph.i.i, label %.critedge.loopexit.i.i, !llvm.loop !76
 
-.critedge.loopexit.i.i:                           ; preds = %42, %.lr.ph.i.i
-  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %42 ]
+.critedge.loopexit.i.i:                           ; preds = %39, %.lr.ph.i.i
+  %.013.lcssa.ph.i.i = phi i64 [ %.01316.i.i, %.lr.ph.i.i ], [ %.017.i.i, %39 ]
   %.pre.i.i = load i64, ptr %5, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
 
-_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit: ; preds = %37, %.critedge.loopexit.i.i
-  %46 = phi i64 [ %39, %37 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
-  %.013.lcssa.i.i = phi i64 [ %.1.i, %37 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
-  %47 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i
-  store i64 %46, ptr %47, align 4
+_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit: ; preds = %34, %.critedge.loopexit.i.i
+  %43 = phi i64 [ %36, %34 ], [ %.pre.i.i, %.critedge.loopexit.i.i ]
+  %.013.lcssa.i.i = phi i64 [ %.1.i, %34 ], [ %.013.lcssa.ph.i.i, %.critedge.loopexit.i.i ]
+  %44 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i
+  store i64 %43, ptr %44, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %48 = icmp ult i64 %11, 2
-  br i1 %48, label %.loopexit, label %.split17.lr.ph
+  %45 = icmp ult i64 %11, 2
+  br i1 %45, label %.loopexit, label %.split17.lr.ph
 
 .split17.lr.ph:                                   ; preds = %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit
+  %46 = ashr exact i64 %11, 1
   br i1 %28, label %.split17.preheader, label %.split17.us
 
 .split17.preheader:                               ; preds = %.split17.lr.ph
-  %49 = or disjoint i64 %11, 1
-  %50 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %49
-  %51 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %29
+  %47 = or disjoint i64 %11, 1
+  %48 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %47
+  %49 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %46
   br label %.split17
 
 .split17.us:                                      ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
-  %.041.us = phi i64 [ %52, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
-  %52 = add nsw i64 %.041.us, -1
-  %53 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %52
-  %.sroa.02.0.copyload18.us = load <2 x float>, ptr %53, align 4
+  %.041.us = phi i64 [ %50, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
+  %50 = add nsw i64 %.041.us, -1
+  %51 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %50
+  %.sroa.02.0.copyload18.us = load <2 x float>, ptr %51, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.041.us, %15
   br i1 %.not.us, label %._crit_edge.i21.us.thread, label %.lr.ph.i32.us
 
 ._crit_edge.i21.us.thread:                        ; preds = %.split17.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %54 = bitcast <2 x float> %.sroa.02.0.copyload18.us to i64
+  %52 = bitcast <2 x float> %.sroa.02.0.copyload18.us to i64
   br label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
 
 .lr.ph.i32.us:                                    ; preds = %.split17.us, %.lr.ph.i32.us
-  %.031.i33.us = phi i64 [ %spec.select.i34.us, %.lr.ph.i32.us ], [ %52, %.split17.us ]
-  %55 = shl i64 %.031.i33.us, 1
-  %56 = add i64 %55, 2
+  %.031.i33.us = phi i64 [ %spec.select.i34.us, %.lr.ph.i32.us ], [ %50, %.split17.us ]
+  %53 = shl i64 %.031.i33.us, 1
+  %54 = add i64 %53, 2
+  %55 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %54
+  %56 = or disjoint i64 %53, 1
   %57 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %56
-  %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %58
-  %60 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %57, ptr noundef nonnull align 4 dereferenceable(8) %59)
-  %spec.select.i34.us = select i1 %60, i64 %58, i64 %56
-  %61 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %spec.select.i34.us
-  %62 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.031.i33.us
-  %63 = load i64, ptr %61, align 4
-  store i64 %63, ptr %62, align 4
-  %64 = icmp slt i64 %spec.select.i34.us, %15
-  br i1 %64, label %.lr.ph.i32.us, label %._crit_edge.i21.us, !llvm.loop !75
+  %58 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %55, ptr noundef nonnull align 4 dereferenceable(8) %57)
+  %spec.select.i34.us = select i1 %58, i64 %56, i64 %54
+  %59 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %spec.select.i34.us
+  %60 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.031.i33.us
+  %61 = load i64, ptr %59, align 4
+  store i64 %61, ptr %60, align 4
+  %62 = icmp slt i64 %spec.select.i34.us, %15
+  br i1 %62, label %.lr.ph.i32.us, label %._crit_edge.i21.us, !llvm.loop !75
 
 ._crit_edge.i21.us:                               ; preds = %.lr.ph.i32.us
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store <2 x float> %.sroa.02.0.copyload18.us, ptr %4, align 8
   %.not39.us = icmp slt i64 %spec.select.i34.us, %.041.us
-  %65 = bitcast <2 x float> %.sroa.02.0.copyload18.us to i64
+  %63 = bitcast <2 x float> %.sroa.02.0.copyload18.us to i64
   br i1 %.not39.us, label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us, label %.lr.ph.i.i25.us
 
-.lr.ph.i.i25.us:                                  ; preds = %._crit_edge.i21.us, %68
-  %.01316.i.i26.us = phi i64 [ %.017.i.i28.us, %68 ], [ %spec.select.i34.us, %._crit_edge.i21.us ]
+.lr.ph.i.i25.us:                                  ; preds = %._crit_edge.i21.us, %66
+  %.01316.i.i26.us = phi i64 [ %.017.i.i28.us, %66 ], [ %spec.select.i34.us, %._crit_edge.i21.us ]
   %.017.in.i.i27.us = add nsw i64 %.01316.i.i26.us, -1
   %.017.i.i28.us = sdiv i64 %.017.in.i.i27.us, 2
-  %66 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i28.us
-  %67 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %66, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %67, label %68, label %.critedge.loopexit.i.i29.us
+  %64 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i28.us
+  %65 = call noundef zeroext i1 %.sroa.0.0.copyload19.us(ptr noundef nonnull align 4 dereferenceable(8) %64, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %65, label %66, label %.critedge.loopexit.i.i29.us
 
-68:                                               ; preds = %.lr.ph.i.i25.us
-  %69 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i26.us
-  %70 = load i64, ptr %66, align 4
-  store i64 %70, ptr %69, align 4
+66:                                               ; preds = %.lr.ph.i.i25.us
+  %67 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i26.us
+  %68 = load i64, ptr %64, align 4
+  store i64 %68, ptr %67, align 4
   %.not40.us = icmp slt i64 %.017.i.i28.us, %.041.us
   br i1 %.not40.us, label %.critedge.loopexit.i.i29.us, label %.lr.ph.i.i25.us, !llvm.loop !76
 
-.critedge.loopexit.i.i29.us:                      ; preds = %68, %.lr.ph.i.i25.us
-  %.013.lcssa.ph.i.i30.us = phi i64 [ %.01316.i.i26.us, %.lr.ph.i.i25.us ], [ %.017.i.i28.us, %68 ]
+.critedge.loopexit.i.i29.us:                      ; preds = %66, %.lr.ph.i.i25.us
+  %.013.lcssa.ph.i.i30.us = phi i64 [ %.01316.i.i26.us, %.lr.ph.i.i25.us ], [ %.017.i.i28.us, %66 ]
   %.pre.i.i31.us = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us
 
 _ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us: ; preds = %._crit_edge.i21.us.thread, %.critedge.loopexit.i.i29.us, %._crit_edge.i21.us
-  %71 = phi i64 [ %65, %._crit_edge.i21.us ], [ %.pre.i.i31.us, %.critedge.loopexit.i.i29.us ], [ %54, %._crit_edge.i21.us.thread ]
-  %.013.lcssa.i.i24.us = phi i64 [ %spec.select.i34.us, %._crit_edge.i21.us ], [ %.013.lcssa.ph.i.i30.us, %.critedge.loopexit.i.i29.us ], [ %52, %._crit_edge.i21.us.thread ]
-  %72 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i24.us
-  store i64 %71, ptr %72, align 4
+  %69 = phi i64 [ %63, %._crit_edge.i21.us ], [ %.pre.i.i31.us, %.critedge.loopexit.i.i29.us ], [ %52, %._crit_edge.i21.us.thread ]
+  %.013.lcssa.i.i24.us = phi i64 [ %spec.select.i34.us, %._crit_edge.i21.us ], [ %.013.lcssa.ph.i.i30.us, %.critedge.loopexit.i.i29.us ], [ %50, %._crit_edge.i21.us.thread ]
+  %70 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i24.us
+  store i64 %69, ptr %70, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %73 = icmp eq i64 %52, 0
-  br i1 %73, label %.loopexit, label %.split17.us, !llvm.loop !79
+  %71 = icmp eq i64 %50, 0
+  br i1 %71, label %.loopexit, label %.split17.us, !llvm.loop !79
 
 .split17:                                         ; preds = %.split17.preheader, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35
-  %.041 = phi i64 [ %74, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
-  %74 = add nsw i64 %.041, -1
-  %75 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %74
-  %.sroa.02.0.copyload18 = load <2 x float>, ptr %75, align 4
+  %.041 = phi i64 [ %72, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
+  %72 = add nsw i64 %.041, -1
+  %73 = getelementptr inbounds nuw %"struct.std::array.55", ptr %0, i64 %72
+  %.sroa.02.0.copyload18 = load <2 x float>, ptr %73, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.041, %15
   br i1 %.not, label %._crit_edge.i21, label %.lr.ph.i32
 
 .lr.ph.i32:                                       ; preds = %.split17, %.lr.ph.i32
-  %.031.i33 = phi i64 [ %spec.select.i34, %.lr.ph.i32 ], [ %74, %.split17 ]
-  %76 = shl i64 %.031.i33, 1
-  %77 = add i64 %76, 2
+  %.031.i33 = phi i64 [ %spec.select.i34, %.lr.ph.i32 ], [ %72, %.split17 ]
+  %74 = shl i64 %.031.i33, 1
+  %75 = add i64 %74, 2
+  %76 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %75
+  %77 = or disjoint i64 %74, 1
   %78 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %77
-  %79 = or disjoint i64 %76, 1
-  %80 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %79
-  %81 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %78, ptr noundef nonnull align 4 dereferenceable(8) %80)
-  %spec.select.i34 = select i1 %81, i64 %79, i64 %77
-  %82 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %spec.select.i34
-  %83 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.031.i33
-  %84 = load i64, ptr %82, align 4
-  store i64 %84, ptr %83, align 4
-  %85 = icmp slt i64 %spec.select.i34, %15
-  br i1 %85, label %.lr.ph.i32, label %._crit_edge.i21, !llvm.loop !75
+  %79 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %76, ptr noundef nonnull align 4 dereferenceable(8) %78)
+  %spec.select.i34 = select i1 %79, i64 %77, i64 %75
+  %80 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %spec.select.i34
+  %81 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.031.i33
+  %82 = load i64, ptr %80, align 4
+  store i64 %82, ptr %81, align 4
+  %83 = icmp slt i64 %spec.select.i34, %15
+  br i1 %83, label %.lr.ph.i32, label %._crit_edge.i21, !llvm.loop !75
 
 ._crit_edge.i21:                                  ; preds = %.lr.ph.i32, %.split17
-  %.0.lcssa.i22 = phi i64 [ %74, %.split17 ], [ %spec.select.i34, %.lr.ph.i32 ]
-  %86 = icmp eq i64 %.0.lcssa.i22, %29
-  br i1 %86, label %87, label %89
+  %.0.lcssa.i22 = phi i64 [ %72, %.split17 ], [ %spec.select.i34, %.lr.ph.i32 ]
+  %84 = icmp eq i64 %.0.lcssa.i22, %46
+  br i1 %84, label %85, label %87
 
-87:                                               ; preds = %._crit_edge.i21
-  %88 = load i64, ptr %50, align 4
-  store i64 %88, ptr %51, align 4
-  br label %89
+85:                                               ; preds = %._crit_edge.i21
+  %86 = load i64, ptr %48, align 4
+  store i64 %86, ptr %49, align 4
+  br label %87
 
-89:                                               ; preds = %87, %._crit_edge.i21
-  %.1.i23 = phi i64 [ %49, %87 ], [ %.0.lcssa.i22, %._crit_edge.i21 ]
+87:                                               ; preds = %85, %._crit_edge.i21
+  %.1.i23 = phi i64 [ %47, %85 ], [ %.0.lcssa.i22, %._crit_edge.i21 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store <2 x float> %.sroa.02.0.copyload18, ptr %4, align 8
   %.not39 = icmp slt i64 %.1.i23, %.041
-  %90 = bitcast <2 x float> %.sroa.02.0.copyload18 to i64
+  %88 = bitcast <2 x float> %.sroa.02.0.copyload18 to i64
   br i1 %.not39, label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35, label %.lr.ph.i.i25
 
-.lr.ph.i.i25:                                     ; preds = %89, %93
-  %.01316.i.i26 = phi i64 [ %.017.i.i28, %93 ], [ %.1.i23, %89 ]
+.lr.ph.i.i25:                                     ; preds = %87, %91
+  %.01316.i.i26 = phi i64 [ %.017.i.i28, %91 ], [ %.1.i23, %87 ]
   %.017.in.i.i27 = add nsw i64 %.01316.i.i26, -1
   %.017.i.i28 = sdiv i64 %.017.in.i.i27, 2
-  %91 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i28
-  %92 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %91, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  br i1 %92, label %93, label %.critedge.loopexit.i.i29
+  %89 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.017.i.i28
+  %90 = call noundef zeroext i1 %.sroa.0.0.copyload19(ptr noundef nonnull align 4 dereferenceable(8) %89, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  br i1 %90, label %91, label %.critedge.loopexit.i.i29
 
-93:                                               ; preds = %.lr.ph.i.i25
-  %94 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i26
-  %95 = load i64, ptr %91, align 4
-  store i64 %95, ptr %94, align 4
+91:                                               ; preds = %.lr.ph.i.i25
+  %92 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.01316.i.i26
+  %93 = load i64, ptr %89, align 4
+  store i64 %93, ptr %92, align 4
   %.not40 = icmp slt i64 %.017.i.i28, %.041
   br i1 %.not40, label %.critedge.loopexit.i.i29, label %.lr.ph.i.i25, !llvm.loop !76
 
-.critedge.loopexit.i.i29:                         ; preds = %93, %.lr.ph.i.i25
-  %.013.lcssa.ph.i.i30 = phi i64 [ %.01316.i.i26, %.lr.ph.i.i25 ], [ %.017.i.i28, %93 ]
+.critedge.loopexit.i.i29:                         ; preds = %91, %.lr.ph.i.i25
+  %.013.lcssa.ph.i.i30 = phi i64 [ %.01316.i.i26, %.lr.ph.i.i25 ], [ %.017.i.i28, %91 ]
   %.pre.i.i31 = load i64, ptr %4, align 8
   br label %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35
 
-_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35: ; preds = %89, %.critedge.loopexit.i.i29
-  %96 = phi i64 [ %90, %89 ], [ %.pre.i.i31, %.critedge.loopexit.i.i29 ]
-  %.013.lcssa.i.i24 = phi i64 [ %.1.i23, %89 ], [ %.013.lcssa.ph.i.i30, %.critedge.loopexit.i.i29 ]
-  %97 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i24
-  store i64 %96, ptr %97, align 4
+_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35: ; preds = %87, %.critedge.loopexit.i.i29
+  %94 = phi i64 [ %88, %87 ], [ %.pre.i.i31, %.critedge.loopexit.i.i29 ]
+  %.013.lcssa.i.i24 = phi i64 [ %.1.i23, %87 ], [ %.013.lcssa.ph.i.i30, %.critedge.loopexit.i.i29 ]
+  %95 = getelementptr inbounds %"struct.std::array.55", ptr %0, i64 %.013.lcssa.i.i24
+  store i64 %94, ptr %95, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %98 = icmp eq i64 %74, 0
-  br i1 %98, label %.loopexit, label %.split17, !llvm.loop !79
+  %96 = icmp eq i64 %72, 0
+  br i1 %96, label %.loopexit, label %.split17, !llvm.loop !79
 
 .loopexit:                                        ; preds = %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35.us, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit35, %_ZSt13__adjust_heapIPSt5arrayIfLm2EElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit, %3
   ret void

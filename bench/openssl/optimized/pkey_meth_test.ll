@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @test_pkey_meths() #0 {
   br i1 %16, label %.lr.ph18, label %.loopexit, !llvm.loop !15
 
 .loopexit:                                        ; preds = %.lr.ph18, %0, %9, %._crit_edge
-  %.0.lcssa23 = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge ], [ 1, %0 ], [ %spec.select, %.lr.ph18 ]
+  %.0.lcssa23 = phi i32 [ 0, %9 ], [ %spec.select, %._crit_edge ], [ 1, %0 ], [ 0, %.lr.ph18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1) #3
   ret i32 %.0.lcssa23
 }

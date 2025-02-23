@@ -235,7 +235,7 @@ define void @_ZN4dmlc2io23IndexedRecordIOSplitter14ResetPartitionEjj(ptr noundef
   %21 = zext i32 %1 to i64
   %22 = mul i64 %20, %21
   %23 = icmp ult i64 %22, %11
-  br i1 %23, label %24, label %157
+  br i1 %23, label %24, label %154
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -257,7 +257,7 @@ define void @_ZN4dmlc2io23IndexedRecordIOSplitter14ResetPartitionEjj(ptr noundef
   %36 = load i64, ptr %35, align 8, !tbaa !35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %36, ptr %37, align 8, !tbaa !39
-  br label %77
+  br label %74
 
 38:                                               ; preds = %24
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -276,7 +276,7 @@ define void @_ZN4dmlc2io23IndexedRecordIOSplitter14ResetPartitionEjj(ptr noundef
   %46 = load ptr, ptr %5, align 8, !tbaa !41
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %47, ptr %5, align 8, !tbaa !41
-  br label %77
+  br label %74
 
 48:                                               ; preds = %38
   %49 = icmp eq i64 %10, 9223372036854775792
@@ -304,7 +304,7 @@ define void @_ZN4dmlc2io23IndexedRecordIOSplitter14ResetPartitionEjj(ptr noundef
 
 62:                                               ; preds = %51
   %63 = getelementptr i8, ptr %58, i64 16
-  br label %72
+  br label %71
 
 .preheader9:                                      ; preds = %51, %.preheader9
   %64 = phi ptr [ %67, %.preheader9 ], [ %58, %51 ]
@@ -317,132 +317,127 @@ define void @_ZN4dmlc2io23IndexedRecordIOSplitter14ResetPartitionEjj(ptr noundef
 
 69:                                               ; preds = %.preheader9
   %70 = getelementptr i8, ptr %64, i64 32
-  %71 = icmp eq ptr %7, null
-  br i1 %71, label %74, label %72
+  br label %71
 
-72:                                               ; preds = %69, %62
-  %73 = phi ptr [ %63, %62 ], [ %70, %69 ]
+71:                                               ; preds = %62, %69
+  %72 = phi ptr [ %63, %62 ], [ %70, %69 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %7, i64 noundef %10) #28
+  store ptr %58, ptr %4, align 8, !tbaa !48
+  store ptr %72, ptr %5, align 8, !tbaa !41
+  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %55
+  store ptr %73, ptr %41, align 8, !tbaa !40
   br label %74
 
-74:                                               ; preds = %72, %69
-  %75 = phi ptr [ %73, %72 ], [ %70, %69 ]
-  store ptr %58, ptr %4, align 8, !tbaa !48
-  store ptr %75, ptr %5, align 8, !tbaa !41
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %58, i64 %55
-  store ptr %76, ptr %41, align 8, !tbaa !40
-  br label %77
+74:                                               ; preds = %71, %44, %33
+  %75 = load i64, ptr %28, align 8, !tbaa !7
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %75, ptr %76, align 8, !tbaa !49
+  %77 = load ptr, ptr %12, align 8, !tbaa !3
+  %78 = load ptr, ptr %13, align 8, !tbaa !3
+  %79 = ptrtoint ptr %78 to i64
+  %80 = ptrtoint ptr %77 to i64
+  %81 = sub i64 %79, %80
+  %82 = ashr exact i64 %81, 3
+  %83 = icmp sgt i64 %82, 0
+  br i1 %83, label %.preheader, label %84
 
-77:                                               ; preds = %74, %44, %33
-  %78 = load i64, ptr %28, align 8, !tbaa !7
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %78, ptr %79, align 8, !tbaa !49
-  %80 = load ptr, ptr %12, align 8, !tbaa !3
-  %81 = load ptr, ptr %13, align 8, !tbaa !3
-  %82 = ptrtoint ptr %81 to i64
-  %83 = ptrtoint ptr %80 to i64
-  %84 = sub i64 %82, %83
-  %85 = ashr exact i64 %84, 3
-  %86 = icmp sgt i64 %85, 0
-  br i1 %86, label %.preheader, label %87
+84:                                               ; preds = %74
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 -1, ptr %85, align 8, !tbaa !50
+  br label %121
 
-87:                                               ; preds = %77
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 -1, ptr %88, align 8, !tbaa !50
-  br label %124
+.preheader:                                       ; preds = %74, %.preheader
+  %86 = phi i64 [ %96, %.preheader ], [ %82, %74 ]
+  %87 = phi ptr [ %95, %.preheader ], [ %77, %74 ]
+  %88 = lshr i64 %86, 1
+  %89 = getelementptr inbounds nuw i64, ptr %87, i64 %88
+  %90 = load i64, ptr %89, align 8, !tbaa !7
+  %91 = icmp ult i64 %75, %90
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %93 = xor i64 %88, -1
+  %94 = add nsw i64 %86, %93
+  %95 = select i1 %91, ptr %87, ptr %92
+  %96 = select i1 %91, i64 %88, i64 %94
+  %97 = icmp sgt i64 %96, 0
+  br i1 %97, label %.preheader, label %98, !llvm.loop !51
 
-.preheader:                                       ; preds = %77, %.preheader
-  %89 = phi i64 [ %99, %.preheader ], [ %85, %77 ]
-  %90 = phi ptr [ %98, %.preheader ], [ %80, %77 ]
-  %91 = lshr i64 %89, 1
-  %92 = getelementptr inbounds nuw i64, ptr %90, i64 %91
-  %93 = load i64, ptr %92, align 8, !tbaa !7
-  %94 = icmp ult i64 %78, %93
-  %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %96 = xor i64 %91, -1
-  %97 = add nsw i64 %89, %96
-  %98 = select i1 %94, ptr %90, ptr %95
-  %99 = select i1 %94, i64 %91, i64 %97
-  %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %.preheader, label %101, !llvm.loop !51
+98:                                               ; preds = %.preheader
+  %99 = ptrtoint ptr %95 to i64
+  %100 = sub i64 %99, %80
+  %101 = ashr exact i64 %100, 3
+  %102 = add nsw i64 %101, -1
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i64 %102, ptr %103, align 8, !tbaa !50
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %105 = load i64, ptr %104, align 8, !tbaa !7
+  br label %106
 
-101:                                              ; preds = %.preheader
-  %102 = ptrtoint ptr %98 to i64
-  %103 = sub i64 %102, %83
-  %104 = ashr exact i64 %103, 3
-  %105 = add nsw i64 %104, -1
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %105, ptr %106, align 8, !tbaa !50
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %108 = load i64, ptr %107, align 8, !tbaa !7
-  br label %109
+106:                                              ; preds = %106, %98
+  %107 = phi i64 [ %82, %98 ], [ %117, %106 ]
+  %108 = phi ptr [ %77, %98 ], [ %116, %106 ]
+  %109 = lshr i64 %107, 1
+  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %111 = load i64, ptr %110, align 8, !tbaa !7
+  %112 = icmp ult i64 %105, %111
+  %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %114 = xor i64 %109, -1
+  %115 = add nsw i64 %107, %114
+  %116 = select i1 %112, ptr %108, ptr %113
+  %117 = select i1 %112, i64 %109, i64 %115
+  %118 = icmp sgt i64 %117, 0
+  br i1 %118, label %106, label %119, !llvm.loop !51
 
-109:                                              ; preds = %109, %101
-  %110 = phi i64 [ %85, %101 ], [ %120, %109 ]
-  %111 = phi ptr [ %80, %101 ], [ %119, %109 ]
-  %112 = lshr i64 %110, 1
-  %113 = getelementptr inbounds nuw i64, ptr %111, i64 %112
-  %114 = load i64, ptr %113, align 8, !tbaa !7
-  %115 = icmp ult i64 %108, %114
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %117 = xor i64 %112, -1
-  %118 = add nsw i64 %110, %117
-  %119 = select i1 %115, ptr %111, ptr %116
-  %120 = select i1 %115, i64 %112, i64 %118
-  %121 = icmp sgt i64 %120, 0
-  br i1 %121, label %109, label %122, !llvm.loop !51
+119:                                              ; preds = %106
+  %120 = ptrtoint ptr %116 to i64
+  br label %121
 
-122:                                              ; preds = %109
-  %123 = ptrtoint ptr %119 to i64
-  br label %124
+121:                                              ; preds = %119, %84
+  %122 = phi i64 [ %120, %119 ], [ %80, %84 ]
+  %123 = phi i64 [ %102, %119 ], [ -1, %84 ]
+  %124 = phi ptr [ %103, %119 ], [ %85, %84 ]
+  %125 = sub i64 %122, %80
+  %126 = ashr exact i64 %125, 3
+  %127 = add nsw i64 %126, -1
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i64 %127, ptr %128, align 8, !tbaa !52
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %130 = load ptr, ptr %129, align 8, !tbaa !53
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %137, label %132
 
-124:                                              ; preds = %122, %87
-  %125 = phi i64 [ %123, %122 ], [ %83, %87 ]
-  %126 = phi i64 [ %105, %122 ], [ -1, %87 ]
-  %127 = phi ptr [ %106, %122 ], [ %88, %87 ]
-  %128 = sub i64 %125, %83
-  %129 = ashr exact i64 %128, 3
-  %130 = add nsw i64 %129, -1
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i64 %130, ptr %131, align 8, !tbaa !52
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %133 = load ptr, ptr %132, align 8, !tbaa !53
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %140, label %135
+132:                                              ; preds = %121
+  %133 = load ptr, ptr %130, align 8, !tbaa !54
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %135 = load ptr, ptr %134, align 8
+  tail call void %135(ptr noundef nonnull align 8 dereferenceable(8) %130) #11
+  store ptr null, ptr %129, align 8, !tbaa !53
+  %136 = load i64, ptr %124, align 8, !tbaa !50
+  br label %137
 
-135:                                              ; preds = %124
-  %136 = load ptr, ptr %133, align 8, !tbaa !54
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %138 = load ptr, ptr %137, align 8
-  tail call void %138(ptr noundef nonnull align 8 dereferenceable(8) %133) #11
-  store ptr null, ptr %132, align 8, !tbaa !53
-  %139 = load i64, ptr %127, align 8, !tbaa !50
-  br label %140
+137:                                              ; preds = %132, %121
+  %138 = phi i64 [ %136, %132 ], [ %123, %121 ]
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %140 = load ptr, ptr %139, align 8, !tbaa !56
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %142 = load ptr, ptr %141, align 8, !tbaa !57
+  %143 = getelementptr inbounds %"struct.dmlc::io::FileInfo", ptr %142, i64 %138
+  %144 = load ptr, ptr %140, align 8, !tbaa !54
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 48
+  %146 = load ptr, ptr %145, align 8
+  %147 = tail call noundef ptr %146(ptr noundef nonnull align 8 dereferenceable(8) %140, ptr noundef nonnull align 8 dereferenceable(96) %143, i1 noundef zeroext false)
+  store ptr %147, ptr %129, align 8, !tbaa !53
+  %148 = load i64, ptr %25, align 8, !tbaa !9
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %148, ptr %149, align 8, !tbaa !58
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  store i64 0, ptr %150, align 8, !tbaa !59
+  %151 = load ptr, ptr %0, align 8, !tbaa !54
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  %153 = load ptr, ptr %152, align 8
+  tail call void %153(ptr noundef nonnull align 8 dereferenceable(5304) %0)
+  br label %154
 
-140:                                              ; preds = %135, %124
-  %141 = phi i64 [ %139, %135 ], [ %126, %124 ]
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %143 = load ptr, ptr %142, align 8, !tbaa !56
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %145 = load ptr, ptr %144, align 8, !tbaa !57
-  %146 = getelementptr inbounds %"struct.dmlc::io::FileInfo", ptr %145, i64 %141
-  %147 = load ptr, ptr %143, align 8, !tbaa !54
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 48
-  %149 = load ptr, ptr %148, align 8
-  %150 = tail call noundef ptr %149(ptr noundef nonnull align 8 dereferenceable(8) %143, ptr noundef nonnull align 8 dereferenceable(96) %146, i1 noundef zeroext false)
-  store ptr %150, ptr %132, align 8, !tbaa !53
-  %151 = load i64, ptr %25, align 8, !tbaa !9
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %151, ptr %152, align 8, !tbaa !58
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  store i64 0, ptr %153, align 8, !tbaa !59
-  %154 = load ptr, ptr %0, align 8, !tbaa !54
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
-  %156 = load ptr, ptr %155, align 8
-  tail call void %156(ptr noundef nonnull align 8 dereferenceable(5304) %0)
-  br label %157
-
-157:                                              ; preds = %140, %3
+154:                                              ; preds = %137, %3
   ret void
 }
 

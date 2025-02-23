@@ -118,7 +118,7 @@ sub_1:                                            ; preds = %sub_0
   br label %40
 
 40:                                               ; preds = %37, %._crit_edge.i
-  call void @free(ptr noundef %20) #10
+  call void @free(ptr noundef nonnull %20) #10
   br label %41
 
 41:                                               ; preds = %40, %18

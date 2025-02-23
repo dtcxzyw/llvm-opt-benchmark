@@ -215,7 +215,6 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i: ; 
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %58 = load i64, ptr %57, align 8, !range !55, !alias.scope !56, !noalias !15, !noundef !17
   %59 = icmp eq i64 %58, 4
-  %..i.i.i.i = select i1 %59, ptr null, ptr %57
   br i1 %59, label %91, label %.noexc.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %56
@@ -299,7 +298,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h47d8e1296ff1f34fE.exit.i.i: ; 
   br label %93
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4d77986a31f8fd4eE.exit.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h7ee6886b61a64814E.exit.i.i.i.i.i.i", %"_ZN4core3ptr148drop_in_place$LT$core..option..Option$LT$either..Either$LT$syntax..ast..generated..nodes..Attr$C$syntax..ast..generated..tokens..Comment$GT$$GT$$GT$17h5ebb22e763672b9aE.exit.i.i.i.i.i.i"
-  %87 = getelementptr inbounds nuw i8, ptr %..i.i.i.i, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %88 = call fastcc { i64, ptr } @_ZN4core4iter8adapters7flatten17and_then_or_clear17h29696ed02cb62cf7E(ptr noalias noundef align 8 dereferenceable(16) %87), !noalias !15
   %.pre.i.i.i.i = extractvalue { i64, ptr } %88, 0
   %89 = extractvalue { i64, ptr } %88, 1

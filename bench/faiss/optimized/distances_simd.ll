@@ -225,18 +225,18 @@ middle.block:                                     ; preds = %vector.body
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %.preheader31.thread, label %.lr.ph
+  br i1 %.not, label %.preheader31, label %.lr.ph
 
-.preheader31:                                     ; preds = %.lr.ph
+.preheader31:                                     ; preds = %7
   %.not40 = icmp eq i64 %6, 0
-  br i1 %.not40, label %._crit_edge39, label %.preheader.us
+  br i1 %.not40, label %._crit_edge39, label %.preheader
 
-.preheader31.thread:                              ; preds = %7
+.preheader31.thread:                              ; preds = %.lr.ph
   %.not4048 = icmp eq i64 %6, 0
-  br i1 %.not4048, label %._crit_edge39, label %.preheader
+  br i1 %.not4048, label %._crit_edge39, label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader31, %._crit_edge.us
-  %.02738.us = phi i64 [ %22, %._crit_edge.us ], [ 0, %.preheader31 ]
+.preheader.us:                                    ; preds = %.preheader31.thread, %._crit_edge.us
+  %.02738.us = phi i64 [ %22, %._crit_edge.us ], [ 0, %.preheader31.thread ]
   %8 = getelementptr float, ptr %2, i64 %.02738.us
   br label %9
 
@@ -272,10 +272,10 @@ define void @_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm(ptr nounde
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02932)
   %26 = add nuw i64 %.02833, 1
   %exitcond.not = icmp eq i64 %26, %4
-  br i1 %exitcond.not, label %.preheader31, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.preheader31.thread, label %.lr.ph, !llvm.loop !20
 
-.preheader:                                       ; preds = %.preheader31.thread, %.preheader
-  %.02738 = phi i64 [ %31, %.preheader ], [ 0, %.preheader31.thread ]
+.preheader:                                       ; preds = %.preheader31, %.preheader
+  %.02738 = phi i64 [ %31, %.preheader ], [ 0, %.preheader31 ]
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %.02738
   %28 = load float, ptr %27, align 4, !tbaa !4
   %29 = fadd float %28, 0.000000e+00
@@ -480,18 +480,18 @@ _ZN5faiss17fvec_L2sqr_ny_refEPfPKfS2_mm.exit:     ; preds = %_ZN5faiss10fvec_L2s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader31.thread.i, label %.lr.ph.i
+  br i1 %.not.i, label %.preheader31.i, label %.lr.ph.i
 
-.preheader31.i:                                   ; preds = %.lr.ph.i
+.preheader31.i:                                   ; preds = %7
   %.not40.i = icmp eq i64 %6, 0
-  br i1 %.not40.i, label %._crit_edge, label %.preheader.us.i
+  br i1 %.not40.i, label %._crit_edge, label %.preheader.i
 
-.preheader31.thread.i:                            ; preds = %7
+.preheader31.thread.i:                            ; preds = %.lr.ph.i
   %.not4048.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i, label %._crit_edge, label %.preheader.i
+  br i1 %.not4048.i, label %._crit_edge, label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %.preheader31.i, %._crit_edge.us.i
-  %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.i ]
+.preheader.us.i:                                  ; preds = %.preheader31.thread.i, %._crit_edge.us.i
+  %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.thread.i ]
   %8 = getelementptr float, ptr %2, i64 %.02738.us.i
   br label %9
 
@@ -527,10 +527,10 @@ define noundef i64 @_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02932.i)
   %26 = add nuw i64 %.02833.i, 1
   %exitcond.not.i = icmp eq i64 %26, %4
-  br i1 %exitcond.not.i, label %.preheader31.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.preheader31.thread.i, label %.lr.ph.i, !llvm.loop !20
 
-.preheader.i:                                     ; preds = %.preheader31.thread.i, %.preheader.i
-  %.02738.i = phi i64 [ %31, %.preheader.i ], [ 0, %.preheader31.thread.i ]
+.preheader.i:                                     ; preds = %.preheader31.i, %.preheader.i
+  %.02738.i = phi i64 [ %31, %.preheader.i ], [ 0, %.preheader31.i ]
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %.02738.i
   %28 = load float, ptr %27, align 4, !tbaa !4
   %29 = fadd float %28, 0.000000e+00
@@ -1039,18 +1039,18 @@ _ZN5faiss13fvec_Linf_refEPKfS1_m.exit:            ; preds = %.lr.ph.i, %3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @_ZN5faiss24fvec_L2sqr_ny_transposedEPfPKfS2_S2_mmm(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %.not.i = icmp eq i64 %4, 0
-  br i1 %.not.i, label %.preheader31.thread.i, label %.lr.ph.i
+  br i1 %.not.i, label %.preheader31.i, label %.lr.ph.i
 
-.preheader31.i:                                   ; preds = %.lr.ph.i
+.preheader31.i:                                   ; preds = %7
   %.not40.i = icmp eq i64 %6, 0
-  br i1 %.not40.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i
+  br i1 %.not40.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i
 
-.preheader31.thread.i:                            ; preds = %7
+.preheader31.thread.i:                            ; preds = %.lr.ph.i
   %.not4048.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i
+  br i1 %.not4048.i, label %_ZN5faiss30fvec_L2sqr_ny_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %.preheader31.i, %._crit_edge.us.i
-  %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.i ]
+.preheader.us.i:                                  ; preds = %.preheader31.thread.i, %._crit_edge.us.i
+  %.02738.us.i = phi i64 [ %22, %._crit_edge.us.i ], [ 0, %.preheader31.thread.i ]
   %8 = getelementptr float, ptr %2, i64 %.02738.us.i
   br label %9
 
@@ -1086,10 +1086,10 @@ define void @_ZN5faiss24fvec_L2sqr_ny_transposedEPfPKfS2_S2_mmm(ptr noundef writ
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02932.i)
   %26 = add nuw i64 %.02833.i, 1
   %exitcond.not.i = icmp eq i64 %26, %4
-  br i1 %exitcond.not.i, label %.preheader31.i, label %.lr.ph.i, !llvm.loop !20
+  br i1 %exitcond.not.i, label %.preheader31.thread.i, label %.lr.ph.i, !llvm.loop !20
 
-.preheader.i:                                     ; preds = %.preheader31.thread.i, %.preheader.i
-  %.02738.i = phi i64 [ %31, %.preheader.i ], [ 0, %.preheader31.thread.i ]
+.preheader.i:                                     ; preds = %.preheader31.i, %.preheader.i
+  %.02738.i = phi i64 [ %31, %.preheader.i ], [ 0, %.preheader31.i ]
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %.02738.i
   %28 = load float, ptr %27, align 4, !tbaa !4
   %29 = fadd float %28, 0.000000e+00
@@ -1207,18 +1207,18 @@ _ZN5faiss25fvec_L2sqr_ny_nearest_refEPfPKfS2_mm.exit: ; preds = %.lr.ph.i, %5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define noundef i64 @_ZN5faiss34fvec_L2sqr_ny_nearest_y_transposedEPfPKfS2_S2_mmm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %.not.i.i = icmp eq i64 %4, 0
-  br i1 %.not.i.i, label %.preheader31.thread.i.i, label %.lr.ph.i.i
+  br i1 %.not.i.i, label %.preheader31.i.i, label %.lr.ph.i.i
 
-.preheader31.i.i:                                 ; preds = %.lr.ph.i.i
+.preheader31.i.i:                                 ; preds = %7
   %.not40.i.i = icmp eq i64 %6, 0
-  br i1 %.not40.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i.i
+  br i1 %.not40.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i.i
 
-.preheader31.thread.i.i:                          ; preds = %7
+.preheader31.thread.i.i:                          ; preds = %.lr.ph.i.i
   %.not4048.i.i = icmp eq i64 %6, 0
-  br i1 %.not4048.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.i.i
+  br i1 %.not4048.i.i, label %_ZN5faiss38fvec_L2sqr_ny_nearest_y_transposed_refEPfPKfS2_S2_mmm.exit, label %.preheader.us.i.i
 
-.preheader.us.i.i:                                ; preds = %.preheader31.i.i, %._crit_edge.us.i.i
-  %.02738.us.i.i = phi i64 [ %22, %._crit_edge.us.i.i ], [ 0, %.preheader31.i.i ]
+.preheader.us.i.i:                                ; preds = %.preheader31.thread.i.i, %._crit_edge.us.i.i
+  %.02738.us.i.i = phi i64 [ %22, %._crit_edge.us.i.i ], [ 0, %.preheader31.thread.i.i ]
   %8 = getelementptr float, ptr %2, i64 %.02738.us.i.i
   br label %9
 
@@ -1254,10 +1254,10 @@ define noundef i64 @_ZN5faiss34fvec_L2sqr_ny_nearest_y_transposedEPfPKfS2_S2_mmm
   %25 = tail call float @llvm.fmuladd.f32(float %24, float %24, float %.02932.i.i)
   %26 = add nuw i64 %.02833.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, %4
-  br i1 %exitcond.not.i.i, label %.preheader31.i.i, label %.lr.ph.i.i, !llvm.loop !20
+  br i1 %exitcond.not.i.i, label %.preheader31.thread.i.i, label %.lr.ph.i.i, !llvm.loop !20
 
-.preheader.i.i:                                   ; preds = %.preheader31.thread.i.i, %.preheader.i.i
-  %.02738.i.i = phi i64 [ %31, %.preheader.i.i ], [ 0, %.preheader31.thread.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader31.i.i, %.preheader.i.i
+  %.02738.i.i = phi i64 [ %31, %.preheader.i.i ], [ 0, %.preheader31.i.i ]
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %.02738.i.i
   %28 = load float, ptr %27, align 4, !tbaa !4
   %29 = fadd float %28, 0.000000e+00

@@ -893,10 +893,10 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %285 = call i32 %284(ptr noundef %56, ptr noundef %0, i32 noundef 1) #9
   %286 = load ptr, ptr %3, align 8
   %287 = icmp eq ptr %286, %3
-  br i1 %287, label %.loopexit43, label %.preheader42
+  br i1 %287, label %.loopexit42, label %.preheader41
 
-.preheader42:                                     ; preds = %283, %.preheader42
-  %288 = phi ptr [ %289, %.preheader42 ], [ %286, %283 ]
+.preheader41:                                     ; preds = %283, %.preheader41
+  %288 = phi ptr [ %289, %.preheader41 ], [ %286, %283 ]
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr inbounds nuw i8, ptr %288, i64 8
   %291 = load ptr, ptr %290, align 8
@@ -907,9 +907,9 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %290, align 8
   call void @kfree(ptr noundef %288) #9
   %293 = icmp eq ptr %289, %3
-  br i1 %293, label %.loopexit43, label %.preheader42, !llvm.loop !17
+  br i1 %293, label %.loopexit42, label %.preheader41, !llvm.loop !17
 
-.loopexit43:                                      ; preds = %.preheader42, %283
+.loopexit42:                                      ; preds = %.preheader41, %283
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
   %294 = load ptr, ptr %106, align 8
   call void @module_put(ptr noundef %294) #9
@@ -924,7 +924,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %299 = call i32 %298(ptr noundef %56, ptr noundef %0) #9
   switch i32 %299, label %300 [
     i32 -11, label %279
-    i32 0, label %.thread39
+    i32 0, label %.loopexit43
   ]
 
 300:                                              ; preds = %297
@@ -932,7 +932,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %302 = call i32 %301(ptr noundef %56, ptr noundef %0, i32 noundef 0) #9
   %303 = load ptr, ptr %7, align 8
   call void @netlink_ack(ptr noundef %0, ptr noundef %303, i32 noundef %299, ptr noundef null) #9
-  br label %.thread39
+  br label %.loopexit43
 
 304:                                              ; preds = %295
   %305 = shl i32 %280, 1
@@ -941,12 +941,12 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %308 = load ptr, ptr %101, align 8
   %309 = call i32 %308(ptr noundef %56, ptr noundef %0, i32 noundef %307) #9
   %310 = icmp eq i32 %309, -11
-  br i1 %310, label %311, label %.thread39
+  br i1 %310, label %311, label %.loopexit43
 
 311:                                              ; preds = %304
   %312 = load ptr, ptr %3, align 8
   %313 = icmp eq ptr %312, %3
-  br i1 %313, label %.loopexit41, label %.preheader40
+  br i1 %313, label %.thread39, label %.preheader40
 
 .preheader40:                                     ; preds = %311, %.preheader40
   %314 = phi ptr [ %315, %.preheader40 ], [ %312, %311 ]
@@ -960,28 +960,28 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %316, align 8
   call void @kfree(ptr noundef %314) #9
   %319 = icmp eq ptr %315, %3
-  br i1 %319, label %.loopexit41, label %.preheader40, !llvm.loop !17
+  br i1 %319, label %.thread39, label %.preheader40, !llvm.loop !17
 
-.loopexit41:                                      ; preds = %.preheader40, %311
+.thread39:                                        ; preds = %.preheader40, %311
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
   %320 = load ptr, ptr %106, align 8
   call void @module_put(ptr noundef %320) #9
   %321 = or i32 %280, 1
   br label %322
 
-322:                                              ; preds = %.loopexit41, %.loopexit43
-  %323 = phi i32 [ %321, %.loopexit41 ], [ 0, %.loopexit43 ]
+322:                                              ; preds = %.thread39, %.loopexit42
+  %323 = phi i32 [ 0, %.loopexit42 ], [ %321, %.thread39 ]
   %324 = call ptr @skb_clone(ptr noundef %0, i32 noundef 3264) #9
   %325 = icmp eq ptr %324, null
   br i1 %325, label %._crit_edge, label %.lr.ph104
 
-.thread39:                                        ; preds = %304, %297, %300
+.loopexit43:                                      ; preds = %304, %297, %300
   %326 = load ptr, ptr %3, align 8
   %327 = icmp eq ptr %326, %3
   br i1 %327, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.thread39, %.preheader
-  %328 = phi ptr [ %329, %.preheader ], [ %326, %.thread39 ]
+.preheader:                                       ; preds = %.loopexit43, %.preheader
+  %328 = phi ptr [ %329, %.preheader ], [ %326, %.loopexit43 ]
   %329 = load ptr, ptr %328, align 8
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %331 = load ptr, ptr %330, align 8
@@ -1001,7 +1001,7 @@ define internal void @nfnetlink_rcv(ptr noundef %0) #0 align 16 {
   %339 = icmp eq ptr %329, %3
   br i1 %339, label %.loopexit, label %.preheader, !llvm.loop !18
 
-.loopexit:                                        ; preds = %.preheader, %.thread39
+.loopexit:                                        ; preds = %.preheader, %.loopexit43
   call void @kfree_skb_reason(ptr noundef nonnull %75, i32 noundef 2) #9
   %340 = load ptr, ptr %106, align 8
   call void @module_put(ptr noundef %340) #9

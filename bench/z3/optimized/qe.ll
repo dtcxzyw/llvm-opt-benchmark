@@ -32425,15 +32425,11 @@ while.body.i129:                                  ; preds = %while.body.i129, %i
   %arrayidx.i.i130 = getelementptr inbounds nuw i32, ptr %97, i64 %idxprom.i.i
   %98 = load i32, ptr %arrayidx.i.i130, align 4
   %cmp.i131 = icmp eq i32 %98, %v.addr.0.i
-  br i1 %cmp.i131, label %for.cond75.preheader, label %while.body.i129, !llvm.loop !141
+  br i1 %cmp.i131, label %if.end.i134, label %while.body.i129, !llvm.loop !141
 
-for.cond75.preheader:                             ; preds = %while.body.i129
-  %umax = call i32 @llvm.umax.i32(i32 %96, i32 1)
-  br label %if.end.i134
-
-if.end.i134:                                      ; preds = %for.cond75.preheader, %invoke.cont80
-  %idx74.0439 = phi i32 [ 1, %for.cond75.preheader ], [ %inc84, %invoke.cont80 ]
-  %exitcond454.not = icmp eq i32 %idx74.0439, %umax
+if.end.i134:                                      ; preds = %while.body.i129, %invoke.cont80
+  %idx74.0439 = phi i32 [ %inc84, %invoke.cont80 ], [ 1, %while.body.i129 ]
+  %exitcond454.not = icmp eq i32 %idx74.0439, %96
   br i1 %exitcond454.not, label %cleanup, label %while.body.i139
 
 while.body.i139:                                  ; preds = %if.end.i134, %while.body.i139

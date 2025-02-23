@@ -776,7 +776,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   call fastcc void @storeOperators(ptr noundef %273, i32 noundef %34, i32 noundef %.0167, ptr noundef %241, i1 noundef zeroext false)
   %274 = load ptr, ptr %57, align 8
   call fastcc void @storeProcedures(ptr noundef %274, i32 noundef %.0167, ptr noundef %246, i1 noundef zeroext false)
-  call void @EventTriggerCollectCreateOpClass(ptr noundef %0, i32 noundef %219, ptr noundef %241, ptr noundef %246) #6
+  call void @EventTriggerCollectCreateOpClass(ptr noundef nonnull %0, i32 noundef %219, ptr noundef %241, ptr noundef %246) #6
   store i32 2616, ptr %2, align 8
   %275 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %219, ptr %275, align 4
@@ -819,7 +819,7 @@ define dso_local { i64, i32 } @DefineOpClass(ptr noundef %0) local_unnamed_addr 
   br label %284
 
 284:                                              ; preds = %283, %280
-  call void @table_close(ptr noundef %175, i32 noundef 3) #6
+  call void @table_close(ptr noundef nonnull %175, i32 noundef 3) #6
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %7) #6

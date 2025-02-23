@@ -7540,7 +7540,7 @@ rb_hash_new_with_size.exit:                       ; preds = %RHASH_SIZE.exit, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @rb_hash_update(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
+define internal range(i64 1, -7) i64 @rb_hash_update(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) #0 {
   %4 = tail call i32 @rb_block_given_p() #28
   %.fr = freeze i32 %4
   %.not = icmp eq i32 %.fr, 0
@@ -7608,7 +7608,7 @@ rb_hash_modify.exit:                              ; preds = %rbimpl_RB_TYPE_P_fa
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_hash_merge(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal range(i64 1, -7) i64 @rb_hash_merge(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = tail call i64 @rb_hash_dup(i64 noundef %2)
   %5 = inttoptr i64 %2 to ptr
   %6 = load i64, ptr %5, align 8, !tbaa !11

@@ -3721,7 +3721,7 @@ dissect_openflow_group_desc_v4.exit:              ; preds = %.lr.ph.i131, %.lr.p
 dissect_openflow_meter_stats_v4.exit:             ; preds = %.lr.ph.i133, %.lr.ph165
   %.0.lcssa.i132 = phi i32 [ %513, %.lr.ph165 ], [ %523, %.lr.ph.i133 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #4
-  %525 = icmp slt i32 %.0.lcssa.i132, %35
+  %525 = icmp samesign ult i32 %.0.lcssa.i132, %35
   br i1 %525, label %.lr.ph165, label %.loopexit, !llvm.loop !25
 
 .lr.ph163:                                        ; preds = %.preheader149, %dissect_openflow_meter_config_v4.exit
@@ -4526,7 +4526,7 @@ dissect_openflow_action_header_v4.exit:           ; preds = %4, %19
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @dissect_openflow_instruction_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483644, -2147483648) i32 @dissect_openflow_instruction_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3)
   %6 = add nsw i32 %3, 2
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %6)
@@ -4621,7 +4621,7 @@ dissect_openflow_instruction_header_v4.exit:      ; preds = %4, %18
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @dissect_openflow_bucket_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483632, -2147483648) i32 @dissect_openflow_bucket_v4(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 -2147483648, 131069) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #4
   %6 = load i32, ptr @ett_openflow_v4_bucket, align 4

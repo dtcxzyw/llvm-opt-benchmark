@@ -2493,7 +2493,7 @@ define internal void @tele_param_srvc_cat_prog_results(ptr noundef %0, ptr nound
   br i1 %23, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !20
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %24 = add i32 %10, 3
+  %24 = add nuw i32 %10, 3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6

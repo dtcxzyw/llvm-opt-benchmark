@@ -139,7 +139,7 @@ define i32 @Abc_NtkTestTimNodeStrash(ptr noundef %0, ptr noundef %1) local_unnam
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load i32, ptr %29, align 8, !tbaa !11
   %31 = trunc nuw nsw i64 %indvars.iv to i32
-  %32 = tail call ptr @Hop_IthVar(ptr noundef %5, i32 noundef %31) #12
+  %32 = tail call ptr @Hop_IthVar(ptr noundef nonnull %5, i32 noundef %31) #12
   store i32 %30, ptr %32, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val21 = load i32, ptr %15, align 4, !tbaa !36

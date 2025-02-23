@@ -12,7 +12,7 @@ define double @sdsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, 
   %8 = icmp eq i64 %2, 1
   %9 = icmp eq i64 %4, 1
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %56
+  br i1 %or.cond, label %10, label %55
 
 10:                                               ; preds = %7
   %11 = and i64 %0, 9223372036854775776
@@ -61,98 +61,98 @@ define double @sdsdot_k(i64 noundef %0, ptr noundef readonly captures(none) %1, 
 
 .loopexit:                                        ; preds = %.preheader, %10
   %.064 = phi double [ 0.000000e+00, %10 ], [ %40, %.preheader ]
-  %45 = icmp slt i64 %11, %0
-  br i1 %45, label %.lr.ph97, label %._crit_edge
+  %.not111 = icmp eq i64 %11, %0
+  br i1 %.not111, label %._crit_edge, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %.loopexit, %.lr.ph97
-  %.06596 = phi double [ %52, %.lr.ph97 ], [ 0.000000e+00, %.loopexit ]
-  %.17295 = phi i64 [ %53, %.lr.ph97 ], [ %11, %.loopexit ]
-  %46 = getelementptr inbounds nuw float, ptr %3, i64 %.17295
-  %47 = load float, ptr %46, align 4, !tbaa !8
-  %48 = fpext float %47 to double
-  %49 = getelementptr inbounds nuw float, ptr %1, i64 %.17295
-  %50 = load float, ptr %49, align 4, !tbaa !8
-  %51 = fpext float %50 to double
-  %52 = tail call double @llvm.fmuladd.f64(double %48, double %51, double %.06596)
-  %53 = add nuw nsw i64 %.17295, 1
-  %54 = icmp slt i64 %53, %0
-  br i1 %54, label %.lr.ph97, label %._crit_edge, !llvm.loop !10
+  %.06596 = phi double [ %51, %.lr.ph97 ], [ 0.000000e+00, %.loopexit ]
+  %.17295 = phi i64 [ %52, %.lr.ph97 ], [ %11, %.loopexit ]
+  %45 = getelementptr inbounds nuw float, ptr %3, i64 %.17295
+  %46 = load float, ptr %45, align 4, !tbaa !8
+  %47 = fpext float %46 to double
+  %48 = getelementptr inbounds nuw float, ptr %1, i64 %.17295
+  %49 = load float, ptr %48, align 4, !tbaa !8
+  %50 = fpext float %49 to double
+  %51 = tail call double @llvm.fmuladd.f64(double %47, double %50, double %.06596)
+  %52 = add nuw nsw i64 %.17295, 1
+  %53 = icmp slt i64 %52, %0
+  br i1 %53, label %.lr.ph97, label %._crit_edge, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %.lr.ph97, %.loopexit
-  %.065.lcssa = phi double [ 0.000000e+00, %.loopexit ], [ %52, %.lr.ph97 ]
-  %55 = fadd double %.064, %.065.lcssa
+  %.065.lcssa = phi double [ 0.000000e+00, %.loopexit ], [ %51, %.lr.ph97 ]
+  %54 = fadd double %.064, %.065.lcssa
   br label %.loopexit77
 
-56:                                               ; preds = %7
-  %57 = and i64 %0, 9223372036854775806
-  %.not99 = icmp eq i64 %57, 0
+55:                                               ; preds = %7
+  %56 = and i64 %0, 9223372036854775806
+  %.not99 = icmp eq i64 %56, 0
   br i1 %.not99, label %.preheader76, label %.lr.ph
 
-.lr.ph:                                           ; preds = %56
-  %58 = shl nsw i64 %2, 1
-  %59 = shl nsw i64 %4, 1
-  %60 = add nsw i64 %57, -1
-  %61 = and i64 %60, -2
-  br label %64
+.lr.ph:                                           ; preds = %55
+  %57 = shl nsw i64 %2, 1
+  %58 = shl nsw i64 %4, 1
+  %59 = add nsw i64 %56, -1
+  %60 = and i64 %59, -2
+  br label %63
 
-.preheader76.loopexit:                            ; preds = %64
-  %62 = add i64 %61, 2
+.preheader76.loopexit:                            ; preds = %63
+  %61 = add nuw nsw i64 %60, 2
   br label %.preheader76
 
-.preheader76:                                     ; preds = %.preheader76.loopexit, %56
-  %.273.lcssa = phi i64 [ 0, %56 ], [ %62, %.preheader76.loopexit ]
-  %.069.lcssa = phi i64 [ 0, %56 ], [ %80, %.preheader76.loopexit ]
-  %.067.lcssa = phi i64 [ 0, %56 ], [ %81, %.preheader76.loopexit ]
-  %.166.lcssa = phi double [ 0.000000e+00, %56 ], [ %79, %.preheader76.loopexit ]
-  %63 = icmp slt i64 %.273.lcssa, %0
-  br i1 %63, label %.lr.ph89, label %.loopexit77
+.preheader76:                                     ; preds = %.preheader76.loopexit, %55
+  %.273.lcssa = phi i64 [ 0, %55 ], [ %61, %.preheader76.loopexit ]
+  %.069.lcssa = phi i64 [ 0, %55 ], [ %79, %.preheader76.loopexit ]
+  %.067.lcssa = phi i64 [ 0, %55 ], [ %80, %.preheader76.loopexit ]
+  %.166.lcssa = phi double [ 0.000000e+00, %55 ], [ %78, %.preheader76.loopexit ]
+  %62 = icmp samesign ult i64 %.273.lcssa, %0
+  br i1 %62, label %.lr.ph89, label %.loopexit77
 
-64:                                               ; preds = %.lr.ph, %64
-  %.16681 = phi double [ 0.000000e+00, %.lr.ph ], [ %79, %64 ]
-  %.06780 = phi i64 [ 0, %.lr.ph ], [ %81, %64 ]
-  %.06979 = phi i64 [ 0, %.lr.ph ], [ %80, %64 ]
-  %.27378 = phi i64 [ 0, %.lr.ph ], [ %82, %64 ]
-  %65 = getelementptr inbounds float, ptr %3, i64 %.06780
-  %66 = load float, ptr %65, align 4, !tbaa !8
-  %67 = fpext float %66 to double
-  %68 = getelementptr inbounds float, ptr %1, i64 %.06979
-  %69 = load float, ptr %68, align 4, !tbaa !8
-  %70 = fpext float %69 to double
-  %71 = getelementptr float, ptr %65, i64 %4
-  %72 = load float, ptr %71, align 4, !tbaa !8
-  %73 = fpext float %72 to double
-  %74 = getelementptr float, ptr %68, i64 %2
-  %75 = load float, ptr %74, align 4, !tbaa !8
-  %76 = fpext float %75 to double
-  %77 = fmul double %73, %76
-  %78 = tail call double @llvm.fmuladd.f64(double %67, double %70, double %77)
-  %79 = fadd double %.16681, %78
-  %80 = add nsw i64 %.06979, %58
-  %81 = add nsw i64 %.06780, %59
-  %82 = add nuw nsw i64 %.27378, 2
-  %83 = icmp samesign ult i64 %82, %57
-  br i1 %83, label %64, label %.preheader76.loopexit, !llvm.loop !11
+63:                                               ; preds = %.lr.ph, %63
+  %.16681 = phi double [ 0.000000e+00, %.lr.ph ], [ %78, %63 ]
+  %.06780 = phi i64 [ 0, %.lr.ph ], [ %80, %63 ]
+  %.06979 = phi i64 [ 0, %.lr.ph ], [ %79, %63 ]
+  %.27378 = phi i64 [ 0, %.lr.ph ], [ %81, %63 ]
+  %64 = getelementptr inbounds float, ptr %3, i64 %.06780
+  %65 = load float, ptr %64, align 4, !tbaa !8
+  %66 = fpext float %65 to double
+  %67 = getelementptr inbounds float, ptr %1, i64 %.06979
+  %68 = load float, ptr %67, align 4, !tbaa !8
+  %69 = fpext float %68 to double
+  %70 = getelementptr float, ptr %64, i64 %4
+  %71 = load float, ptr %70, align 4, !tbaa !8
+  %72 = fpext float %71 to double
+  %73 = getelementptr float, ptr %67, i64 %2
+  %74 = load float, ptr %73, align 4, !tbaa !8
+  %75 = fpext float %74 to double
+  %76 = fmul double %72, %75
+  %77 = tail call double @llvm.fmuladd.f64(double %66, double %69, double %76)
+  %78 = fadd double %.16681, %77
+  %79 = add nsw i64 %.06979, %57
+  %80 = add nsw i64 %.06780, %58
+  %81 = add nuw nsw i64 %.27378, 2
+  %82 = icmp samesign ult i64 %81, %56
+  br i1 %82, label %63, label %.preheader76.loopexit, !llvm.loop !11
 
 .lr.ph89:                                         ; preds = %.preheader76, %.lr.ph89
-  %.288 = phi double [ %90, %.lr.ph89 ], [ %.166.lcssa, %.preheader76 ]
-  %.16887 = phi i64 [ %92, %.lr.ph89 ], [ %.067.lcssa, %.preheader76 ]
-  %.17086 = phi i64 [ %91, %.lr.ph89 ], [ %.069.lcssa, %.preheader76 ]
-  %.385 = phi i64 [ %93, %.lr.ph89 ], [ %.273.lcssa, %.preheader76 ]
-  %84 = getelementptr inbounds float, ptr %3, i64 %.16887
-  %85 = load float, ptr %84, align 4, !tbaa !8
-  %86 = fpext float %85 to double
-  %87 = getelementptr inbounds float, ptr %1, i64 %.17086
-  %88 = load float, ptr %87, align 4, !tbaa !8
-  %89 = fpext float %88 to double
-  %90 = tail call double @llvm.fmuladd.f64(double %86, double %89, double %.288)
-  %91 = add nsw i64 %.17086, %2
-  %92 = add nsw i64 %.16887, %4
-  %93 = add nuw nsw i64 %.385, 1
-  %exitcond.not = icmp eq i64 %93, %0
+  %.288 = phi double [ %89, %.lr.ph89 ], [ %.166.lcssa, %.preheader76 ]
+  %.16887 = phi i64 [ %91, %.lr.ph89 ], [ %.067.lcssa, %.preheader76 ]
+  %.17086 = phi i64 [ %90, %.lr.ph89 ], [ %.069.lcssa, %.preheader76 ]
+  %.385 = phi i64 [ %92, %.lr.ph89 ], [ %.273.lcssa, %.preheader76 ]
+  %83 = getelementptr inbounds float, ptr %3, i64 %.16887
+  %84 = load float, ptr %83, align 4, !tbaa !8
+  %85 = fpext float %84 to double
+  %86 = getelementptr inbounds float, ptr %1, i64 %.17086
+  %87 = load float, ptr %86, align 4, !tbaa !8
+  %88 = fpext float %87 to double
+  %89 = tail call double @llvm.fmuladd.f64(double %85, double %88, double %.288)
+  %90 = add nsw i64 %.17086, %2
+  %91 = add nsw i64 %.16887, %4
+  %92 = add nuw nsw i64 %.385, 1
+  %exitcond.not = icmp eq i64 %92, %0
   br i1 %exitcond.not, label %.loopexit77, label %.lr.ph89, !llvm.loop !12
 
 .loopexit77:                                      ; preds = %.lr.ph89, %.preheader76, %5, %._crit_edge
-  %.0 = phi double [ %55, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.166.lcssa, %.preheader76 ], [ %90, %.lr.ph89 ]
+  %.0 = phi double [ %54, %._crit_edge ], [ 0.000000e+00, %5 ], [ %.166.lcssa, %.preheader76 ], [ %89, %.lr.ph89 ]
   ret double %.0
 }
 

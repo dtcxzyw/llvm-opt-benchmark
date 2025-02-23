@@ -407,9 +407,9 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 80:                                               ; preds = %77
   store i32 1, ptr %43, align 16
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %82 = add i32 %32, 1
+  %82 = add nsw i32 %32, 1
   store ptr %81, ptr %44, align 8
-  %83 = zext i32 %82 to i64
+  %83 = zext nneg i32 %82 to i64
   %84 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %83
   store i32 0, ptr %84, align 16
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -652,9 +652,9 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
 222:                                              ; preds = %.thread584
   store i32 1, ptr %202, align 16
   %223 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %224 = add i32 %191, 1
+  %224 = add nsw i32 %191, 1
   store ptr %223, ptr %203, align 8
-  %225 = zext i32 %224 to i64
+  %225 = zext nneg i32 %224 to i64
   %226 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %225
   store i32 0, ptr %226, align 16
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
@@ -1305,7 +1305,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %22, %25
   %592 = zext i32 %583 to i64
   %593 = getelementptr [5 x %struct._wmem_tree_key_t], ptr %9, i64 0, i64 %592
   store i32 1, ptr %593, align 16
-  %594 = add i32 %583, 1
+  %594 = add nsw i32 %583, 1
   %595 = getelementptr inbounds nuw i8, ptr %593, i64 8
   store ptr %554, ptr %595, align 8
   %596 = zext i32 %594 to i64

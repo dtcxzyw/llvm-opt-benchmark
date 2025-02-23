@@ -1945,7 +1945,7 @@ lv_obj_update_layout.exit:                        ; preds = %8, %._crit_edge.i
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %lv_obj_update_layout.exit
-  %22 = tail call ptr @lv_obj_get_parent(ptr noundef %0) #8
+  %22 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %0) #8
   %.not129 = icmp eq ptr %22, null
   br i1 %.not129, label %.preheader300, label %.thread
 
@@ -1954,7 +1954,7 @@ lv_obj_update_layout.exit:                        ; preds = %8, %._crit_edge.i
 
 .thread:                                          ; preds = %lv_obj_update_layout.exit, %21
   %.0280 = phi ptr [ %22, %21 ], [ %1, %lv_obj_update_layout.exit ]
-  %23 = tail call ptr @lv_obj_get_parent(ptr noundef %0) #8
+  %23 = tail call ptr @lv_obj_get_parent(ptr noundef nonnull %0) #8
   %.not130 = icmp eq ptr %23, null
   br i1 %.not130, label %.preheader301, label %24
 
@@ -2323,7 +2323,7 @@ lv_obj_get_height.exit274:                        ; preds = %208
   %242 = add i32 %241, %236
   %243 = sub i32 %242, %238
   %244 = add i32 %243, %239
-  tail call void @lv_obj_set_style_align(ptr noundef %0, i32 noundef 1, i32 noundef 0) #8
+  tail call void @lv_obj_set_style_align(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0) #8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   %245 = call i32 @lv_obj_get_local_style_prop(ptr noundef nonnull %0, i8 noundef zeroext 8, ptr noundef nonnull %7, i32 noundef 0) #8
   switch i32 %245, label %249 [

@@ -7601,7 +7601,7 @@ switch.early.test3485:                            ; preds = %.thread4295, %1686
 ._crit_edge4161:                                  ; preds = %.lr.ph4160, %3300
   %.03113.lcssa = phi ptr [ %3264, %3300 ], [ %3322, %.lr.ph4160 ]
   %3325 = sub i64 %.1285441974255, %187
-  %3326 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef %361, ptr noundef %.128544197, i64 noundef %3325, ptr noundef %3309, i32 noundef 2, ptr noundef nonnull %3310, i32 noundef 1000, i32 noundef %35, ptr noundef %.03565)
+  %3326 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef nonnull %361, ptr noundef %.128544197, i64 noundef %3325, ptr noundef nonnull %3309, i32 noundef 2, ptr noundef nonnull %3310, i32 noundef 1000, i32 noundef %35, ptr noundef nonnull %.03565)
   %3327 = load i32, ptr %3306, align 4, !tbaa !12
   %3328 = add i32 %3327, 1004
   store i32 %3328, ptr %3306, align 4, !tbaa !12
@@ -7903,7 +7903,7 @@ do_callout_dfa.exit:                              ; preds = %3402, %3407
 ._crit_edge4156:                                  ; preds = %.lr.ph4155, %3483
   %.03044.lcssa = phi ptr [ %3475, %3483 ], [ %3506, %.lr.ph4155 ]
   %3509 = sub i64 %.1285441974255, %187
-  %3510 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef nonnull %3429, ptr noundef %.128544197, i64 noundef %3509, ptr noundef %3493, i32 noundef 2, ptr noundef nonnull %3494, i32 noundef 1000, i32 noundef %35, ptr noundef %3485)
+  %3510 = call fastcc i32 @internal_dfa_match(ptr noundef %0, ptr noundef nonnull %3429, ptr noundef %.128544197, i64 noundef %3509, ptr noundef nonnull %3493, i32 noundef 2, ptr noundef nonnull %3494, i32 noundef 1000, i32 noundef %35, ptr noundef nonnull %3485)
   %3511 = load ptr, ptr %16, align 8, !tbaa !118
   %3512 = getelementptr inbounds nuw i8, ptr %3511, i64 12
   %3513 = load i32, ptr %3512, align 4, !tbaa !12

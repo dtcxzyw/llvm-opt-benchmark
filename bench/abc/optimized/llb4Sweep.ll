@@ -920,13 +920,13 @@ define noundef ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef readonly captures(no
   %17 = sext i32 %.val23 to i64
   %18 = getelementptr inbounds i32, ptr %.val22, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !25
-  %20 = tail call ptr @Cudd_bddIthVar(ptr noundef %2, i32 noundef %19) #13
+  %20 = tail call ptr @Cudd_bddIthVar(ptr noundef nonnull %2, i32 noundef %19) #13
   %21 = ptrtoint ptr %20 to i64
   %22 = xor i64 %21, 1
   %23 = inttoptr i64 %22 to ptr
-  %24 = tail call ptr @Cudd_bddAnd(ptr noundef %2, ptr noundef %.027, ptr noundef %23) #13
+  %24 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %2, ptr noundef %.027, ptr noundef %23) #13
   tail call void @Cudd_Ref(ptr noundef %24) #13
-  tail call void @Cudd_RecursiveDeref(ptr noundef %2, ptr noundef %.027) #13
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %2, ptr noundef %.027) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val24 = load i32, ptr %7, align 8, !tbaa !48
   %25 = sext i32 %.val24 to i64
@@ -1184,11 +1184,11 @@ Vec_IntFill.exit.i:                               ; preds = %11, %3
 
 Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %21, %Vec_IntFill.exit.i
   %29 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
-  %30 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %29, ptr noundef %0, ptr noundef %1, i32 noundef 0)
-  %31 = tail call ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef %0, ptr noundef %1, ptr noundef %29)
+  %30 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %29, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0)
+  %31 = tail call ptr @Llb4_Nonlin4SweepBadMonitor(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %29)
   tail call void @Cudd_Ref(ptr noundef %31) #13
   tail call void @Cudd_AutodynEnable(ptr noundef %29, i32 noundef 6) #13
-  %32 = tail call ptr @Llb_Nonlin4Image(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef %calloc.i) #13
+  %32 = tail call ptr @Llb_Nonlin4Image(ptr noundef %29, ptr noundef %30, ptr noundef %31, ptr noundef nonnull %calloc.i) #13
   tail call void @Cudd_Ref(ptr noundef %32) #13
   tail call void @Cudd_RecursiveDeref(ptr noundef %29, ptr noundef %31) #13
   %33 = getelementptr i8, ptr %30, i64 4
@@ -1339,9 +1339,9 @@ Vec_IntFill.exit.i:                               ; preds = %14, %6
 
 Llb_Nonlin4SweepVars2Q.exit:                      ; preds = %37, %Vec_IntFill.exit.i
   %45 = tail call ptr @Cudd_Init(i32 noundef %2, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #13
-  %46 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %45, ptr noundef %0, ptr noundef %1, i32 noundef 1)
+  %46 = tail call ptr @Llb_Nonlin4SweepPartitions(ptr noundef %45, ptr noundef nonnull %0, ptr noundef %1, i32 noundef 1)
   tail call void @Cudd_AutodynEnable(ptr noundef %45, i32 noundef 6) #13
-  %47 = tail call ptr @Llb_Nonlin4Group(ptr noundef %45, ptr noundef %46, ptr noundef %calloc.i, i32 noundef %4) #13
+  %47 = tail call ptr @Llb_Nonlin4Group(ptr noundef %45, ptr noundef %46, ptr noundef nonnull %calloc.i, i32 noundef %4) #13
   store ptr %47, ptr %3, align 8, !tbaa !74
   %48 = getelementptr i8, ptr %46, i64 4
   %.val8.i = load i32, ptr %48, align 4, !tbaa !29

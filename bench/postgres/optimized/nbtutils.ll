@@ -575,128 +575,135 @@ _bt_compare_array_skey.exit114.thread.us.us.us:   ; preds = %.lr.ph.split.us.spl
   %85 = add i32 %84, %.282157.us.us.us
   %86 = add i32 %85, 1
   %87 = icmp sgt i32 %.071, %86
-  br i1 %87, label %_bt_compare_array_skey.exit114.thread.us.us.us, label %._crit_edge.thread, !llvm.loop !9
+  br i1 %87, label %_bt_compare_array_skey.exit114.thread.us.us.us, label %.thread182, !llvm.loop !9
+
+.thread182:                                       ; preds = %_bt_compare_array_skey.exit114.thread.us.us.us
+  %88 = load i32, ptr %6, align 8
+  %89 = and i32 %88, 1
+  %.not14.i115184 = icmp eq i32 %89, 0
+  br i1 %.not14.i115184, label %131, label %_bt_compare_array_skey.exit.thread
 
 _bt_compare_array_skey.exit114.thread.us.us:      ; preds = %.lr.ph.split.us.split.us, %_bt_compare_array_skey.exit114.thread.us.us
-  %.273158.us.us = phi i32 [ %90, %_bt_compare_array_skey.exit114.thread.us.us ], [ %.071, %.lr.ph.split.us.split.us ]
-  %88 = sub i32 %.273158.us.us, %.080
-  %89 = sdiv i32 %88, 2
-  %90 = add i32 %89, %.080
-  %91 = icmp sgt i32 %90, %.080
-  br i1 %91, label %_bt_compare_array_skey.exit114.thread.us.us, label %._crit_edge, !llvm.loop !9
+  %.273158.us.us = phi i32 [ %92, %_bt_compare_array_skey.exit114.thread.us.us ], [ %.071, %.lr.ph.split.us.split.us ]
+  %90 = sub i32 %.273158.us.us, %.080
+  %91 = sdiv i32 %90, 2
+  %92 = add i32 %91, %.080
+  %93 = icmp sgt i32 %92, %.080
+  br i1 %93, label %_bt_compare_array_skey.exit114.thread.us.us, label %._crit_edge, !llvm.loop !9
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
-  %92 = sub i32 %.071, %.080
-  %93 = sdiv i32 %92, 2
-  %94 = add i32 %93, %.080
+  %94 = sub i32 %.071, %.080
+  %95 = sdiv i32 %94, 2
+  %96 = add i32 %95, %.080
   br label %_bt_compare_array_skey.exit.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_bt_compare_array_skey.exit114.thread
-  %95 = phi i32 [ %116, %_bt_compare_array_skey.exit114.thread ], [ %.fr171, %.lr.ph ]
+  %97 = phi i32 [ %118, %_bt_compare_array_skey.exit114.thread ], [ %.fr171, %.lr.ph ]
   %.273158 = phi i32 [ %.374, %_bt_compare_array_skey.exit114.thread ], [ %.071, %.lr.ph ]
   %.282157 = phi i32 [ %.484, %_bt_compare_array_skey.exit114.thread ], [ %.080, %.lr.ph ]
-  %96 = sub i32 %.273158, %.282157
-  %97 = sdiv i32 %96, 2
-  %98 = add i32 %97, %.282157
-  %99 = and i32 %95, 1
-  %.not14.i107 = icmp eq i32 %99, 0
-  br i1 %.not14.i107, label %102, label %100
+  %98 = sub i32 %.273158, %.282157
+  %99 = sdiv i32 %98, 2
+  %100 = add i32 %99, %.282157
+  %101 = and i32 %97, 1
+  %.not14.i107 = icmp eq i32 %101, 0
+  br i1 %.not14.i107, label %104, label %102
 
-100:                                              ; preds = %.lr.ph.split
-  %101 = and i32 %95, 33554432
-  %.not13.i108 = icmp eq i32 %101, 0
+102:                                              ; preds = %.lr.ph.split
+  %103 = and i32 %97, 33554432
+  %.not13.i108 = icmp eq i32 %103, 0
   %.16.i109 = select i1 %.not13.i108, i32 -1, i32 1
   br label %_bt_compare_array_skey.exit114.thread
 
-102:                                              ; preds = %.lr.ph.split
-  %103 = load ptr, ptr %78, align 8
-  %104 = sext i32 %98 to i64
-  %105 = getelementptr inbounds i64, ptr %103, i64 %104
-  %106 = load i64, ptr %105, align 8
-  %107 = load i32, ptr %79, align 4
-  %108 = tail call i64 @FunctionCall2Coll(ptr noundef %0, i32 noundef %107, i64 noundef %3, i64 noundef %106) #14
-  %109 = trunc i64 %108 to i32
-  %110 = load i32, ptr %6, align 8
-  %111 = and i32 %110, 16777216
-  %.not12.i111 = icmp eq i32 %111, 0
-  br i1 %.not12.i111, label %_bt_compare_array_skey.exit114, label %112
+104:                                              ; preds = %.lr.ph.split
+  %105 = load ptr, ptr %78, align 8
+  %106 = sext i32 %100 to i64
+  %107 = getelementptr inbounds i64, ptr %105, i64 %106
+  %108 = load i64, ptr %107, align 8
+  %109 = load i32, ptr %79, align 4
+  %110 = tail call i64 @FunctionCall2Coll(ptr noundef %0, i32 noundef %109, i64 noundef %3, i64 noundef %108) #14
+  %111 = trunc i64 %110 to i32
+  %112 = load i32, ptr %6, align 8
+  %113 = and i32 %112, 16777216
+  %.not12.i111 = icmp eq i32 %113, 0
+  br i1 %.not12.i111, label %_bt_compare_array_skey.exit114, label %114
 
-112:                                              ; preds = %102
-  %113 = icmp slt i32 %109, 0
-  %114 = sub nsw i32 0, %109
-  br i1 %113, label %_bt_compare_array_skey.exit114.thread, label %_bt_compare_array_skey.exit114
+114:                                              ; preds = %104
+  %115 = icmp slt i32 %111, 0
+  %116 = sub nsw i32 0, %111
+  br i1 %115, label %_bt_compare_array_skey.exit114.thread, label %_bt_compare_array_skey.exit114
 
-_bt_compare_array_skey.exit114:                   ; preds = %112, %102
-  %.0.i110 = phi i32 [ %114, %112 ], [ %109, %102 ]
-  %115 = icmp eq i32 %.0.i110, 0
-  br i1 %115, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit114.thread
+_bt_compare_array_skey.exit114:                   ; preds = %114, %104
+  %.0.i110 = phi i32 [ %116, %114 ], [ %111, %104 ]
+  %117 = icmp eq i32 %.0.i110, 0
+  br i1 %117, label %_bt_compare_array_skey.exit.thread, label %_bt_compare_array_skey.exit114.thread
 
-_bt_compare_array_skey.exit114.thread:            ; preds = %112, %100, %_bt_compare_array_skey.exit114
-  %116 = phi i32 [ %110, %_bt_compare_array_skey.exit114 ], [ %95, %100 ], [ %110, %112 ]
-  %.0.i110145 = phi i32 [ %.0.i110, %_bt_compare_array_skey.exit114 ], [ %.16.i109, %100 ], [ 1, %112 ]
-  %117 = icmp sgt i32 %.0.i110145, 0
-  %118 = add i32 %98, 1
-  %.484 = select i1 %117, i32 %118, i32 %.282157
-  %.374 = select i1 %117, i32 %.273158, i32 %98
-  %119 = icmp sgt i32 %.374, %.484
-  br i1 %119, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
+_bt_compare_array_skey.exit114.thread:            ; preds = %114, %102, %_bt_compare_array_skey.exit114
+  %118 = phi i32 [ %112, %_bt_compare_array_skey.exit114 ], [ %97, %102 ], [ %112, %114 ]
+  %.0.i110145 = phi i32 [ %.0.i110, %_bt_compare_array_skey.exit114 ], [ %.16.i109, %102 ], [ 1, %114 ]
+  %119 = icmp sgt i32 %.0.i110145, 0
+  %120 = add i32 %100, 1
+  %.484 = select i1 %119, i32 %120, i32 %.282157
+  %.374 = select i1 %119, i32 %.273158, i32 %100
+  %121 = icmp sgt i32 %.374, %.484
+  br i1 %121, label %.lr.ph.split, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %_bt_compare_array_skey.exit114.thread, %_bt_compare_array_skey.exit114.thread.us.us, %76
   %.282.lcssa = phi i32 [ %.080, %76 ], [ %.080, %_bt_compare_array_skey.exit114.thread.us.us ], [ %.484, %_bt_compare_array_skey.exit114.thread ]
-  %.378.lcssa = phi i32 [ %.075, %76 ], [ %90, %_bt_compare_array_skey.exit114.thread.us.us ], [ %98, %_bt_compare_array_skey.exit114.thread ]
+  %.378.lcssa = phi i32 [ %.075, %76 ], [ %92, %_bt_compare_array_skey.exit114.thread.us.us ], [ %100, %_bt_compare_array_skey.exit114.thread ]
   %.3.lcssa = phi i32 [ %.0, %76 ], [ -1, %_bt_compare_array_skey.exit114.thread.us.us ], [ %.0.i110145, %_bt_compare_array_skey.exit114.thread ]
   %.not98 = icmp eq i32 %.282.lcssa, %.378.lcssa
-  br i1 %.not98, label %_bt_compare_array_skey.exit.thread, label %._crit_edge.thread
+  br i1 %.not98, label %_bt_compare_array_skey.exit.thread, label %122
 
-._crit_edge.thread:                               ; preds = %_bt_compare_array_skey.exit114.thread.us.us.us, %._crit_edge
-  %.282.lcssa181 = phi i32 [ %.282.lcssa, %._crit_edge ], [ %86, %_bt_compare_array_skey.exit114.thread.us.us.us ]
-  %120 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %121 = load ptr, ptr %120, align 8
-  %122 = sext i32 %.282.lcssa181 to i64
-  %123 = getelementptr inbounds i64, ptr %121, i64 %122
-  %124 = load i64, ptr %123, align 8
-  %125 = load i32, ptr %6, align 8
-  %126 = and i32 %125, 1
-  %.not14.i115 = icmp eq i32 %126, 0
-  br i1 %4, label %127, label %130
+122:                                              ; preds = %._crit_edge
+  %123 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %124 = load ptr, ptr %123, align 8
+  %125 = sext i32 %.282.lcssa to i64
+  %126 = getelementptr inbounds i64, ptr %124, i64 %125
+  %127 = load i64, ptr %126, align 8
+  %128 = load i32, ptr %6, align 8
+  %129 = and i32 %128, 1
+  %.not14.i115 = icmp eq i32 %129, 0
+  br i1 %4, label %130, label %134
 
-127:                                              ; preds = %._crit_edge.thread
-  br i1 %.not14.i115, label %128, label %_bt_compare_array_skey.exit.thread
+130:                                              ; preds = %122
+  br i1 %.not14.i115, label %131, label %_bt_compare_array_skey.exit.thread
 
-128:                                              ; preds = %127
-  %129 = and i32 %125, 33554432
-  %.not15.i120 = icmp eq i32 %129, 0
+131:                                              ; preds = %.thread182, %130
+  %.282.lcssa181185187 = phi i32 [ %86, %.thread182 ], [ %.282.lcssa, %130 ]
+  %132 = phi i32 [ %88, %.thread182 ], [ %128, %130 ]
+  %133 = and i32 %132, 33554432
+  %.not15.i120 = icmp eq i32 %133, 0
   %..i121 = select i1 %.not15.i120, i32 1, i32 -1
   br label %_bt_compare_array_skey.exit.thread
 
-130:                                              ; preds = %._crit_edge.thread
-  br i1 %.not14.i115, label %133, label %131
+134:                                              ; preds = %122
+  br i1 %.not14.i115, label %137, label %135
 
-131:                                              ; preds = %130
-  %132 = and i32 %125, 33554432
-  %.not13.i116 = icmp eq i32 %132, 0
+135:                                              ; preds = %134
+  %136 = and i32 %128, 33554432
+  %.not13.i116 = icmp eq i32 %136, 0
   %.16.i117 = select i1 %.not13.i116, i32 -1, i32 1
   br label %_bt_compare_array_skey.exit.thread
 
-133:                                              ; preds = %130
-  %134 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %135 = load i32, ptr %134, align 4
-  %136 = tail call i64 @FunctionCall2Coll(ptr noundef %0, i32 noundef %135, i64 noundef %3, i64 noundef %124) #14
-  %137 = trunc i64 %136 to i32
-  %138 = load i32, ptr %6, align 8
-  %139 = and i32 %138, 16777216
-  %.not12.i119 = icmp eq i32 %139, 0
-  br i1 %.not12.i119, label %_bt_compare_array_skey.exit.thread, label %140
+137:                                              ; preds = %134
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %139 = load i32, ptr %138, align 4
+  %140 = tail call i64 @FunctionCall2Coll(ptr noundef %0, i32 noundef %139, i64 noundef %3, i64 noundef %127) #14
+  %141 = trunc i64 %140 to i32
+  %142 = load i32, ptr %6, align 8
+  %143 = and i32 %142, 16777216
+  %.not12.i119 = icmp eq i32 %143, 0
+  br i1 %.not12.i119, label %_bt_compare_array_skey.exit.thread, label %144
 
-140:                                              ; preds = %133
-  %141 = icmp slt i32 %137, 0
-  %142 = sub i32 0, %137
-  %143 = select i1 %141, i32 1, i32 %142
+144:                                              ; preds = %137
+  %145 = icmp slt i32 %141, 0
+  %146 = sub i32 0, %141
+  %147 = select i1 %145, i32 1, i32 %146
   br label %_bt_compare_array_skey.exit.thread
 
-_bt_compare_array_skey.exit.thread:               ; preds = %_bt_compare_array_skey.exit114, %._crit_edge, %127, %128, %131, %133, %140, %.lr.ph.split.us.split, %_bt_compare_array_skey.exit106.thread137, %46, %_bt_compare_array_skey.exit106, %57, %61, %70, %58, %44, %_bt_compare_array_skey.exit, %26, %27, %30
-  %.5.sink = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ -1, %27 ], [ 0, %26 ], [ -1, %30 ], [ 1, %44 ], [ %.0.i102, %_bt_compare_array_skey.exit106 ], [ 1, %61 ], [ 0, %57 ], [ 1, %70 ], [ 1, %58 ], [ -1, %46 ], [ -1, %_bt_compare_array_skey.exit106.thread137 ], [ %.3.lcssa, %._crit_edge ], [ 0, %127 ], [ %..i121, %128 ], [ %.16.i117, %131 ], [ %137, %133 ], [ %143, %140 ], [ 0, %.lr.ph.split.us.split ], [ 0, %_bt_compare_array_skey.exit114 ]
-  %.085 = phi i32 [ %17, %_bt_compare_array_skey.exit ], [ %17, %27 ], [ %17, %26 ], [ %17, %30 ], [ %11, %44 ], [ %47, %_bt_compare_array_skey.exit106 ], [ %47, %61 ], [ %47, %57 ], [ %47, %70 ], [ %47, %58 ], [ 0, %46 ], [ 0, %_bt_compare_array_skey.exit106.thread137 ], [ %.282.lcssa, %._crit_edge ], [ %.282.lcssa181, %127 ], [ %.282.lcssa181, %128 ], [ %.282.lcssa181, %131 ], [ %.282.lcssa181, %133 ], [ %.282.lcssa181, %140 ], [ %94, %.lr.ph.split.us.split ], [ %98, %_bt_compare_array_skey.exit114 ]
+_bt_compare_array_skey.exit.thread:               ; preds = %_bt_compare_array_skey.exit114, %._crit_edge, %130, %131, %135, %137, %144, %.lr.ph.split.us.split, %.thread182, %_bt_compare_array_skey.exit106.thread137, %46, %_bt_compare_array_skey.exit106, %57, %61, %70, %58, %44, %_bt_compare_array_skey.exit, %26, %27, %30
+  %.5.sink = phi i32 [ %.0.i, %_bt_compare_array_skey.exit ], [ -1, %27 ], [ 0, %26 ], [ -1, %30 ], [ 1, %44 ], [ %.0.i102, %_bt_compare_array_skey.exit106 ], [ 1, %61 ], [ 0, %57 ], [ 1, %70 ], [ 1, %58 ], [ -1, %46 ], [ -1, %_bt_compare_array_skey.exit106.thread137 ], [ %.3.lcssa, %._crit_edge ], [ 0, %130 ], [ %..i121, %131 ], [ %.16.i117, %135 ], [ %141, %137 ], [ %147, %144 ], [ 0, %.lr.ph.split.us.split ], [ 0, %.thread182 ], [ 0, %_bt_compare_array_skey.exit114 ]
+  %.085 = phi i32 [ %17, %_bt_compare_array_skey.exit ], [ %17, %27 ], [ %17, %26 ], [ %17, %30 ], [ %11, %44 ], [ %47, %_bt_compare_array_skey.exit106 ], [ %47, %61 ], [ %47, %57 ], [ %47, %70 ], [ %47, %58 ], [ 0, %46 ], [ 0, %_bt_compare_array_skey.exit106.thread137 ], [ %.282.lcssa, %._crit_edge ], [ %.282.lcssa, %130 ], [ %.282.lcssa181185187, %131 ], [ %.282.lcssa, %135 ], [ %.282.lcssa, %137 ], [ %.282.lcssa, %144 ], [ %96, %.lr.ph.split.us.split ], [ %86, %.thread182 ], [ %100, %_bt_compare_array_skey.exit114 ]
   store i32 %.5.sink, ptr %7, align 4
   ret i32 %.085
 }

@@ -2500,7 +2500,7 @@ if.end25:                                         ; preds = %for.body5.i21, %if.
 
 if.then.i:                                        ; preds = %if.end25
   %data_.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %idx.ext.i = zext i32 %7 to i64
+  %idx.ext.i = zext nneg i32 %7 to i64
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i, i64 %idx.ext.i
   %idx.ext4.i = zext nneg i32 %add12 to i64
   %add.ptr5.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase", ptr %data_.i, i64 %idx.ext4.i
@@ -5616,7 +5616,7 @@ if.end25:                                         ; preds = %for.body5.i21, %if.
 
 if.then.i:                                        ; preds = %if.end25
   %data_.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i32, i64 8
-  %idx.ext.i = zext i32 %9 to i64
+  %idx.ext.i = zext nneg i32 %9 to i64
   %add.ptr.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i, i64 %idx.ext.i
   %idx.ext4.i = zext nneg i32 %add12 to i64
   %add.ptr5.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.160", ptr %data_.i, i64 %idx.ext4.i

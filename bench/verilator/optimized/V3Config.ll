@@ -2411,67 +2411,67 @@ _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %1, %11, %13
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19: ; preds = %.lr.ph.i.i.i.i11
   %27 = icmp eq ptr %.19.i.i.i.i14, %23
-  br i1 %27, label %.thread26.i25, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20
+  br i1 %27, label %.lr.ph.i.i.i5.i26.preheader, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20
 
 _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19
   %28 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i14, i64 32
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.thread26.i25, label %31
+  br i1 %30, label %.lr.ph.i.i.i5.i26.preheader, label %31
 
 31:                                               ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20
   store i32 0, ptr %3, align 4
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %.noexc38 unwind label %74
+          to label %.noexc37 unwind label %74
 
-.noexc38:                                         ; preds = %31
+.noexc37:                                         ; preds = %31
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 1024
   %.not.i21 = icmp eq i64 %34, 0
-  br i1 %.not.i21, label %..thread26_crit_edge.i23, label %.noexc.thread42
+  br i1 %.not.i21, label %.thread26.i23, label %.noexc.thread41
 
-.noexc.thread42:                                  ; preds = %.noexc38
+.noexc.thread41:                                  ; preds = %.noexc37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %46
 
-..thread26_crit_edge.i23:                         ; preds = %.noexc38
+.thread26.i23:                                    ; preds = %.noexc37
   %.pr.pre.i24 = load ptr, ptr %21, align 8
-  br label %.thread26.i25
+  %.not10.i.i.i4.i25 = icmp eq ptr %.pr.pre.i24, null
+  br i1 %.not10.i.i.i4.i25, label %.noexc.thread, label %.lr.ph.i.i.i5.i26.preheader
 
-.thread26.i25:                                    ; preds = %..thread26_crit_edge.i23, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19
-  %.pr.i26 = phi ptr [ %.pr.pre.i24, %..thread26_crit_edge.i23 ], [ %22, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20 ], [ %22, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19 ]
-  %.not10.i.i.i4.i27 = icmp eq ptr %.pr.i26, null
-  br i1 %.not10.i.i.i4.i27, label %.noexc.thread, label %.lr.ph.i.i.i5.i28
+.lr.ph.i.i.i5.i26.preheader:                      ; preds = %.thread26.i23, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19
+  %.012.i.i.i6.i28.ph = phi ptr [ %22, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i19 ], [ %22, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i20 ], [ %.pr.pre.i24, %.thread26.i23 ]
+  br label %.lr.ph.i.i.i5.i26
 
-.lr.ph.i.i.i5.i28:                                ; preds = %.thread26.i25, %.lr.ph.i.i.i5.i28
-  %.012.i.i.i6.i29 = phi ptr [ %.1.i.i.i11.i34, %.lr.ph.i.i.i5.i28 ], [ %.pr.i26, %.thread26.i25 ]
-  %.0811.i.i.i7.i30 = phi ptr [ %.19.i.i.i8.i31, %.lr.ph.i.i.i5.i28 ], [ %23, %.thread26.i25 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i29, i64 32
+.lr.ph.i.i.i5.i26:                                ; preds = %.lr.ph.i.i.i5.i26.preheader, %.lr.ph.i.i.i5.i26
+  %.012.i.i.i6.i28 = phi ptr [ %.1.i.i.i11.i33, %.lr.ph.i.i.i5.i26 ], [ %.012.i.i.i6.i28.ph, %.lr.ph.i.i.i5.i26.preheader ]
+  %.0811.i.i.i7.i29 = phi ptr [ %.19.i.i.i8.i30, %.lr.ph.i.i.i5.i26 ], [ %23, %.lr.ph.i.i.i5.i26.preheader ]
+  %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i28, i64 32
   %36 = load i32, ptr %35, align 4
   %37 = icmp slt i32 %36, %20
-  %.19.i.i.i8.i31 = select i1 %37, ptr %.0811.i.i.i7.i30, ptr %.012.i.i.i6.i29
-  %.1.in.v.i.i.i9.i32 = select i1 %37, i64 24, i64 16
-  %.1.in.i.i.i10.i33 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i29, i64 %.1.in.v.i.i.i9.i32
-  %.1.i.i.i11.i34 = load ptr, ptr %.1.in.i.i.i10.i33, align 8
-  %.not.i.i.i12.i35 = icmp eq ptr %.1.i.i.i11.i34, null
-  br i1 %.not.i.i.i12.i35, label %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i36, label %.lr.ph.i.i.i5.i28, !llvm.loop !24
+  %.19.i.i.i8.i30 = select i1 %37, ptr %.0811.i.i.i7.i29, ptr %.012.i.i.i6.i28
+  %.1.in.v.i.i.i9.i31 = select i1 %37, i64 24, i64 16
+  %.1.in.i.i.i10.i32 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i28, i64 %.1.in.v.i.i.i9.i31
+  %.1.i.i.i11.i33 = load ptr, ptr %.1.in.i.i.i10.i32, align 8
+  %.not.i.i.i12.i34 = icmp eq ptr %.1.i.i.i11.i33, null
+  br i1 %.not.i.i.i12.i34, label %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i35, label %.lr.ph.i.i.i5.i26, !llvm.loop !24
 
-_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i36: ; preds = %.lr.ph.i.i.i5.i28
-  %38 = icmp eq ptr %.19.i.i.i8.i31, %23
-  br i1 %38, label %.noexc.thread, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37
+_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i35: ; preds = %.lr.ph.i.i.i5.i26
+  %38 = icmp eq ptr %.19.i.i.i8.i30, %23
+  br i1 %38, label %.noexc.thread, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i36
 
-_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i36
-  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i8.i31, i64 32
+_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i36: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i35
+  %39 = getelementptr inbounds nuw i8, ptr %.19.i.i.i8.i30, i64 32
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %20, %40
   br i1 %41, label %.noexc.thread, label %42
 
-42:                                               ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37
+42:                                               ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i36
   %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEEixERS5_(ptr noundef nonnull align 8 dereferenceable(136) %15, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %.noexc unwind label %74
 
-.noexc.thread:                                    ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i36, %.thread26.i25, %17
+.noexc.thread:                                    ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i36, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i13.i35, %.thread26.i23, %17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   br label %48
@@ -2479,12 +2479,12 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37: ;
 .noexc:                                           ; preds = %42
   %44 = load i64, ptr %43, align 8
   %45 = and i64 %44, 1024
-  %.not47 = icmp eq i64 %45, 0
+  %.not46 = icmp eq i64 %45, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
-  br i1 %.not47, label %48, label %46
+  br i1 %.not46, label %48, label %46
 
-46:                                               ; preds = %.noexc.thread42, %.noexc
+46:                                               ; preds = %.noexc.thread41, %.noexc
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 1, ptr %47, align 1
   br label %48
@@ -2512,13 +2512,13 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i37: ;
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %53 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %53, label %.thread26.i, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
+  br i1 %53, label %.lr.ph.i.i.i5.i.preheader, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %55 = load i32, ptr %54, align 4
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.thread26.i, label %57
+  br i1 %56, label %.lr.ph.i.i.i5.i.preheader, label %57
 
 57:                                               ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
   store i32 0, ptr %5, align 4
@@ -2529,25 +2529,25 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; pre
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 2048
   %.not.i7 = icmp eq i64 %60, 0
-  br i1 %.not.i7, label %..thread26_crit_edge.i, label %.noexc6.thread45
+  br i1 %.not.i7, label %.thread26.i, label %.noexc6.thread44
 
-.noexc6.thread45:                                 ; preds = %.noexc8
+.noexc6.thread44:                                 ; preds = %.noexc8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %72
 
-..thread26_crit_edge.i:                           ; preds = %.noexc8
+.thread26.i:                                      ; preds = %.noexc8
   %.pr.pre.i = load ptr, ptr %21, align 8
-  br label %.thread26.i
+  %.not10.i.i.i4.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i.i4.i, label %.noexc6.thread, label %.lr.ph.i.i.i5.i.preheader
 
-.thread26.i:                                      ; preds = %..thread26_crit_edge.i, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %.pr.i = phi ptr [ %.pr.pre.i, %..thread26_crit_edge.i ], [ %49, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %49, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %.not10.i.i.i4.i = icmp eq ptr %.pr.i, null
-  br i1 %.not10.i.i.i4.i, label %.noexc6.thread, label %.lr.ph.i.i.i5.i
+.lr.ph.i.i.i5.i.preheader:                        ; preds = %.thread26.i, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
+  %.012.i.i.i6.i.ph = phi ptr [ %49, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %49, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %.pr.pre.i, %.thread26.i ]
+  br label %.lr.ph.i.i.i5.i
 
-.lr.ph.i.i.i5.i:                                  ; preds = %.thread26.i, %.lr.ph.i.i.i5.i
-  %.012.i.i.i6.i = phi ptr [ %.1.i.i.i11.i, %.lr.ph.i.i.i5.i ], [ %.pr.i, %.thread26.i ]
-  %.0811.i.i.i7.i = phi ptr [ %.19.i.i.i8.i, %.lr.ph.i.i.i5.i ], [ %23, %.thread26.i ]
+.lr.ph.i.i.i5.i:                                  ; preds = %.lr.ph.i.i.i5.i.preheader, %.lr.ph.i.i.i5.i
+  %.012.i.i.i6.i = phi ptr [ %.1.i.i.i11.i, %.lr.ph.i.i.i5.i ], [ %.012.i.i.i6.i.ph, %.lr.ph.i.i.i5.i.preheader ]
+  %.0811.i.i.i7.i = phi ptr [ %.19.i.i.i8.i, %.lr.ph.i.i.i5.i ], [ %23, %.lr.ph.i.i.i5.i.preheader ]
   %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i, i64 32
   %62 = load i32, ptr %61, align 4
   %63 = icmp slt i32 %62, %20
@@ -2580,12 +2580,12 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit16.i: ; p
 .noexc6:                                          ; preds = %68
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 2048
-  %.not48 = icmp eq i64 %71, 0
+  %.not47 = icmp eq i64 %71, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br i1 %.not48, label %_ZN12V3ConfigFile9applyCaseEP7AstCase.exit, label %72
+  br i1 %.not47, label %_ZN12V3ConfigFile9applyCaseEP7AstCase.exit, label %72
 
-72:                                               ; preds = %.noexc6.thread45, %.noexc6
+72:                                               ; preds = %.noexc6.thread44, %.noexc6
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i8 1, ptr %73, align 2
   br label %_ZN12V3ConfigFile9applyCaseEP7AstCase.exit
@@ -2909,13 +2909,13 @@ _ZN16V3ConfigResolver1sEv.exit:                   ; preds = %2, %11, %13
 
 _ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %27 = icmp eq ptr %.19.i.i.i.i, %23
-  br i1 %27, label %.thread26.i, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
+  br i1 %27, label %.lr.ph.i.i.i5.i.preheader, label %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
 
 _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
   %29 = load i32, ptr %28, align 4
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.thread26.i, label %31
+  br i1 %30, label %.lr.ph.i.i.i5.i.preheader, label %31
 
 31:                                               ; preds = %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i
   store i32 0, ptr %4, align 4
@@ -2926,25 +2926,25 @@ _ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i: ; pre
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 2
   %.not.i20 = icmp eq i64 %34, 0
-  br i1 %.not.i20, label %..thread26_crit_edge.i, label %.noexc.thread24
+  br i1 %.not.i20, label %.thread26.i, label %.noexc.thread24
 
 .noexc.thread24:                                  ; preds = %.noexc21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   br label %46
 
-..thread26_crit_edge.i:                           ; preds = %.noexc21
+.thread26.i:                                      ; preds = %.noexc21
   %.pr.pre.i = load ptr, ptr %21, align 8
-  br label %.thread26.i
+  %.not10.i.i.i4.i = icmp eq ptr %.pr.pre.i, null
+  br i1 %.not10.i.i.i4.i, label %.noexc.thread, label %.lr.ph.i.i.i5.i.preheader
 
-.thread26.i:                                      ; preds = %..thread26_crit_edge.i, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %.pr.i = phi ptr [ %.pr.pre.i, %..thread26_crit_edge.i ], [ %22, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %22, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ]
-  %.not10.i.i.i4.i = icmp eq ptr %.pr.i, null
-  br i1 %.not10.i.i.i4.i, label %.noexc.thread, label %.lr.ph.i.i.i5.i
+.lr.ph.i.i.i5.i.preheader:                        ; preds = %.thread26.i, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i
+  %.012.i.i.i6.i.ph = phi ptr [ %22, %_ZNSt8_Rb_treeIiSt4pairIKiSt6bitsetILm12EEESt10_Select1stIS4_ESt4lessIiESaIS4_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS4_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i ], [ %22, %_ZNSt3mapIiSt6bitsetILm12EESt4lessIiESaISt4pairIKiS1_EEE4findERS5_.exit.i ], [ %.pr.pre.i, %.thread26.i ]
+  br label %.lr.ph.i.i.i5.i
 
-.lr.ph.i.i.i5.i:                                  ; preds = %.thread26.i, %.lr.ph.i.i.i5.i
-  %.012.i.i.i6.i = phi ptr [ %.1.i.i.i11.i, %.lr.ph.i.i.i5.i ], [ %.pr.i, %.thread26.i ]
-  %.0811.i.i.i7.i = phi ptr [ %.19.i.i.i8.i, %.lr.ph.i.i.i5.i ], [ %23, %.thread26.i ]
+.lr.ph.i.i.i5.i:                                  ; preds = %.lr.ph.i.i.i5.i.preheader, %.lr.ph.i.i.i5.i
+  %.012.i.i.i6.i = phi ptr [ %.1.i.i.i11.i, %.lr.ph.i.i.i5.i ], [ %.012.i.i.i6.i.ph, %.lr.ph.i.i.i5.i.preheader ]
+  %.0811.i.i.i7.i = phi ptr [ %.19.i.i.i8.i, %.lr.ph.i.i.i5.i ], [ %23, %.lr.ph.i.i.i5.i.preheader ]
   %35 = getelementptr inbounds nuw i8, ptr %.012.i.i.i6.i, i64 32
   %36 = load i32, ptr %35, align 4
   %37 = icmp slt i32 %36, %20
@@ -12395,7 +12395,7 @@ _ZNSt8_Rb_treeI11VPragmaTypeS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_
   br label %_ZNSt3setI11VPragmaTypeSt4lessIS0_ESaIS0_EE6insertERKS0_.exit
 
 _ZNSt3setI11VPragmaTypeSt4lessIS0_ESaIS0_EE6insertERKS0_.exit: ; preds = %39, %_ZNSt8_Rb_treeI11VPragmaTypeS0_St9_IdentityIS0_ESt4lessIS0_ESaIS0_EE10_M_insert_IRKS0_NS6_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS0_EPSt18_Rb_tree_node_baseSE_OT_RT0_.exit.i.i
-  %52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.013.026) #24
+  %52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.013.026) #24
   %.not20 = icmp eq ptr %52, %25
   br i1 %.not20, label %._crit_edge29, label %30, !llvm.loop !103
 

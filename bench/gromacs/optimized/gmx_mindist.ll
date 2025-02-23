@@ -2646,8 +2646,8 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit385.i:     ; preds = %949, %946
   br i1 %963, label %.lr.ph515.i, label %._crit_edge516.i
 
 .lr.ph515.i:                                      ; preds = %961
-  %964 = getelementptr inbounds nuw i8, ptr %261, i64 48
-  %965 = getelementptr inbounds nuw i8, ptr %261, i64 8
+  %964 = getelementptr inbounds nuw i8, ptr %.0186, i64 2368
+  %965 = getelementptr inbounds nuw i8, ptr %.0186, i64 2328
   %wide.trip.count617.i = zext nneg i32 %.047 to i64
   br label %966
 

@@ -617,7 +617,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not263, label %._crit_edge393, label %.lr.ph392, !llvm.loop !31
 
 ._crit_edge393:                                   ; preds = %.lr.ph392, %.preheader287
-  tail call void @free(ptr noundef %.0204) #5
+  tail call void @free(ptr noundef nonnull %.0204) #5
   br label %243
 
 243:                                              ; preds = %._crit_edge393, %.thread281
@@ -639,7 +639,7 @@ define hidden range(i32 0, 2) i32 @ec_wNAF_mul(ptr noundef %0, ptr noundef %1, p
   br i1 %.not265, label %._crit_edge397, label %.lr.ph396, !llvm.loop !32
 
 ._crit_edge397:                                   ; preds = %.lr.ph396, %.preheader
-  tail call void @free(ptr noundef %.0198) #5
+  tail call void @free(ptr noundef nonnull %.0198) #5
   br label %248
 
 248:                                              ; preds = %._crit_edge397, %243

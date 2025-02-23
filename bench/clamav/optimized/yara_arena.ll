@@ -341,7 +341,7 @@ define void @yr_arena_destroy(ptr noundef captures(none) %0) local_unnamed_addr 
   %10 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   tail call void @free(ptr noundef %11) #12
-  tail call void @free(ptr noundef %.01217) #12
+  tail call void @free(ptr noundef nonnull %.01217) #12
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge20, label %.lr.ph19
 

@@ -3580,7 +3580,7 @@ _ZNK4Luau6TxnLog10getMutableINS_9TableTypeEPKNS_4TypeEEEPT_T0_.exit: ; preds = %
   call void @_ZN4Luau9TableTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %3) #16
   call void @llvm.lifetime.end.p0(i64 336, ptr nonnull %3)
   call void @_ZN4Luau9TableTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %4) #16
-  br label %58
+  br label %54
 
 32:                                               ; preds = %23, %_ZNK4Luau6TxnLog10getMutableINS_9TableTypeEPKNS_4TypeEEEPT_T0_.exit
   %33 = landingpad { ptr, i32 }
@@ -3595,7 +3595,7 @@ _ZNK4Luau6TxnLog10getMutableINS_9TableTypeEPKNS_4TypeEEEPT_T0_.exit: ; preds = %
 34:                                               ; preds = %9, %11, %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PNS_11PendingTypeE.exit.sink.split.i
   %35 = load i8, ptr @_ZN5FFlag37DebugLuauDeferredConstraintResolutionE, align 8
   %36 = trunc i8 %35 to i1
-  br i1 %36, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, label %51
+  br i1 %36, label %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, label %47
 
 _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -3609,28 +3609,24 @@ _ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit: ; preds = %34
   %44 = tail call noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef %42)
   %.not.i.i = icmp ne ptr %44, null
   tail call void @llvm.assume(i1 %.not.i.i)
-  %45 = load i32, ptr %44, align 8
-  %46 = icmp eq i32 %45, 2
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %48 = select i1 %46, ptr %47, ptr null
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %50 = load i64, ptr %43, align 8
-  store i64 %50, ptr %49, align 4
-  br label %58
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  %46 = load i64, ptr %43, align 8
+  store i64 %46, ptr %45, align 4
+  br label %54
 
-51:                                               ; preds = %34
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 488
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 480
-  %.sroa.0.0.copyload = load i64, ptr %54, align 8
-  call void @_ZN4Luau8FreeTypeC1EPNS_5ScopeENS_9TypeLevelE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %53, i64 %.sroa.0.0.copyload)
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %56 = load ptr, ptr %55, align 8
-  %57 = call noundef ptr @_ZN4Luau9TypeArena7addTypeINS_8FreeTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %56, ptr noundef nonnull byval(%"struct.Luau::FreeType") align 8 %5)
-  br label %58
+47:                                               ; preds = %34
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 488
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 480
+  %.sroa.0.0.copyload = load i64, ptr %50, align 8
+  call void @_ZN4Luau8FreeTypeC1EPNS_5ScopeENS_9TypeLevelE(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %49, i64 %.sroa.0.0.copyload)
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %52 = load ptr, ptr %51, align 8
+  %53 = call noundef ptr @_ZN4Luau9TypeArena7addTypeINS_8FreeTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %52, ptr noundef nonnull byval(%"struct.Luau::FreeType") align 8 %5)
+  br label %54
 
-58:                                               ; preds = %51, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, %31
-  %.0 = phi ptr [ %28, %31 ], [ %42, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit ], [ %57, %51 ]
+54:                                               ; preds = %47, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit, %31
+  %.0 = phi ptr [ %28, %31 ], [ %42, %_ZN4Luau10getMutableINS_8FreeTypeEEEPT_PKNS_4TypeE.exit ], [ %53, %47 ]
   ret ptr %.0
 }
 

@@ -58301,116 +58301,116 @@ define internal void @randrGetCrtcTransform_Reply(ptr noundef %0, ptr noundef re
   %52 = add i32 %51, 2
   store i32 %52, ptr %2, align 4
   %53 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %52, i32 noundef %4)
-  %54 = zext i16 %53 to i32
-  %55 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_len, align 4
-  %56 = load i32, ptr %2, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %55, ptr noundef %0, i32 noundef %56, i32 noundef 2, i32 noundef %4)
-  %58 = load i32, ptr %2, align 4
-  %59 = add i32 %58, 2
-  store i32 %59, ptr %2, align 4
-  %60 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %59, i32 noundef %4)
-  %61 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_nparams, align 4
-  %62 = load i32, ptr %2, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef 2, i32 noundef %4)
-  %64 = load i32, ptr %2, align 4
-  %65 = add i32 %64, 2
-  store i32 %65, ptr %2, align 4
-  %66 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_filter_name, align 4
-  %67 = tail call i16 @llvm.umax.i16(i16 %40, i16 1)
-  %68 = zext i16 %67 to i32
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef %68, i32 noundef %4)
-  %70 = load i32, ptr %2, align 4
-  %71 = add i32 %70, %68
-  store i32 %71, ptr %2, align 4
-  %72 = srem i32 %71, 4
-  %.not = icmp eq i32 %72, 0
-  br i1 %.not, label %80, label %73
+  %54 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_len, align 4
+  %55 = load i32, ptr %2, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 2, i32 noundef %4)
+  %57 = load i32, ptr %2, align 4
+  %58 = add i32 %57, 2
+  store i32 %58, ptr %2, align 4
+  %59 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %58, i32 noundef %4)
+  %60 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_nparams, align 4
+  %61 = load i32, ptr %2, align 4
+  %62 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %60, ptr noundef %0, i32 noundef %61, i32 noundef 2, i32 noundef %4)
+  %63 = load i32, ptr %2, align 4
+  %64 = add i32 %63, 2
+  store i32 %64, ptr %2, align 4
+  %65 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_filter_name, align 4
+  %66 = tail call i16 @llvm.umax.i16(i16 %40, i16 1)
+  %67 = zext i16 %66 to i32
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %67, i32 noundef %4)
+  %69 = load i32, ptr %2, align 4
+  %70 = add i32 %69, %67
+  store i32 %70, ptr %2, align 4
+  %71 = srem i32 %70, 4
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %79, label %72
 
-73:                                               ; preds = %5
-  %74 = load i32, ptr @hf_x11_unused, align 4
-  %75 = sub nsw i32 4, %72
-  %76 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %74, ptr noundef %0, i32 noundef %71, i32 noundef %75, i32 noundef 0)
-  %77 = load i32, ptr %2, align 4
-  %78 = srem i32 %77, 4
-  %reass.sub = add i32 %77, 4
-  %79 = sub i32 %reass.sub, %78
-  store i32 %79, ptr %2, align 4
-  br label %80
+72:                                               ; preds = %5
+  %73 = load i32, ptr @hf_x11_unused, align 4
+  %74 = sub nsw i32 4, %71
+  %75 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %73, ptr noundef %0, i32 noundef %70, i32 noundef %74, i32 noundef 0)
+  %76 = load i32, ptr %2, align 4
+  %77 = srem i32 %76, 4
+  %reass.sub = add i32 %76, 4
+  %78 = sub i32 %reass.sub, %77
+  store i32 %78, ptr %2, align 4
+  br label %79
 
-80:                                               ; preds = %73, %5
-  %81 = phi i32 [ %79, %73 ], [ %71, %5 ]
-  %82 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_params, align 4
-  %83 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_params_item, align 4
-  %84 = shl nuw nsw i32 %47, 2
-  %85 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef %84, i32 noundef %4)
-  %86 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %87 = tail call ptr @proto_item_add_subtree(ptr noundef %85, i32 noundef %86)
+79:                                               ; preds = %72, %5
+  %80 = phi i32 [ %78, %72 ], [ %70, %5 ]
+  %81 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_params, align 4
+  %82 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_pending_params_item, align 4
+  %83 = shl nuw nsw i32 %47, 2
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef %83, i32 noundef %4)
+  %85 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %86 = tail call ptr @proto_item_add_subtree(ptr noundef %84, i32 noundef %85)
   %.not13.i = icmp eq i16 %46, 0
   %.pre = load i32, ptr %2, align 4
   br i1 %.not13.i, label %listOfInt32.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %80, %.lr.ph.i
-  %88 = phi i32 [ %92, %.lr.ph.i ], [ %.pre, %80 ]
-  %.014.i = phi i32 [ %89, %.lr.ph.i ], [ %47, %80 ]
-  %89 = add nsw i32 %.014.i, -1
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %87, i32 noundef %83, ptr noundef %0, i32 noundef %88, i32 noundef 4, i32 noundef %4)
-  %91 = load i32, ptr %2, align 4
-  %92 = add i32 %91, 4
-  store i32 %92, ptr %2, align 4
-  %.not.i = icmp eq i32 %89, 0
+.lr.ph.i:                                         ; preds = %79, %.lr.ph.i
+  %87 = phi i32 [ %91, %.lr.ph.i ], [ %.pre, %79 ]
+  %.014.i = phi i32 [ %88, %.lr.ph.i ], [ %47, %79 ]
+  %88 = add nsw i32 %.014.i, -1
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %86, i32 noundef %82, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef %4)
+  %90 = load i32, ptr %2, align 4
+  %91 = add i32 %90, 4
+  store i32 %91, ptr %2, align 4
+  %.not.i = icmp eq i32 %88, 0
   br i1 %.not.i, label %listOfInt32.exit, label %.lr.ph.i, !llvm.loop !62
 
-listOfInt32.exit:                                 ; preds = %.lr.ph.i, %80
-  %93 = phi i32 [ %.pre, %80 ], [ %92, %.lr.ph.i ]
-  %94 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_filter_name, align 4
-  %spec.store.select.i112 = tail call i32 @llvm.smax.i32(i32 %54, i32 1)
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef %spec.store.select.i112, i32 noundef %4)
-  %96 = load i32, ptr %2, align 4
-  %97 = add i32 %96, %spec.store.select.i112
-  store i32 %97, ptr %2, align 4
-  %98 = srem i32 %97, 4
-  %.not110 = icmp eq i32 %98, 0
-  br i1 %.not110, label %106, label %99
+listOfInt32.exit:                                 ; preds = %.lr.ph.i, %79
+  %92 = phi i32 [ %.pre, %79 ], [ %91, %.lr.ph.i ]
+  %93 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_filter_name, align 4
+  %94 = tail call i16 @llvm.umax.i16(i16 %53, i16 1)
+  %95 = zext i16 %94 to i32
+  %96 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef %95, i32 noundef %4)
+  %97 = load i32, ptr %2, align 4
+  %98 = add i32 %97, %95
+  store i32 %98, ptr %2, align 4
+  %99 = srem i32 %98, 4
+  %.not110 = icmp eq i32 %99, 0
+  br i1 %.not110, label %107, label %100
 
-99:                                               ; preds = %listOfInt32.exit
-  %100 = load i32, ptr @hf_x11_unused, align 4
-  %101 = sub nsw i32 4, %98
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %100, ptr noundef %0, i32 noundef %97, i32 noundef %101, i32 noundef 0)
-  %103 = load i32, ptr %2, align 4
-  %104 = srem i32 %103, 4
-  %reass.sub111 = add i32 %103, 4
-  %105 = sub i32 %reass.sub111, %104
-  store i32 %105, ptr %2, align 4
-  br label %106
+100:                                              ; preds = %listOfInt32.exit
+  %101 = load i32, ptr @hf_x11_unused, align 4
+  %102 = sub nsw i32 4, %99
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %101, ptr noundef %0, i32 noundef %98, i32 noundef %102, i32 noundef 0)
+  %104 = load i32, ptr %2, align 4
+  %105 = srem i32 %104, 4
+  %reass.sub111 = add i32 %104, 4
+  %106 = sub i32 %reass.sub111, %105
+  store i32 %106, ptr %2, align 4
+  br label %107
 
-106:                                              ; preds = %99, %listOfInt32.exit
-  %107 = phi i32 [ %105, %99 ], [ %97, %listOfInt32.exit ]
-  %108 = zext i16 %60 to i32
-  %109 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_params, align 4
-  %110 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_params_item, align 4
-  %111 = shl nuw nsw i32 %108, 2
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %109, ptr noundef %0, i32 noundef %107, i32 noundef %111, i32 noundef %4)
-  %113 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %114 = tail call ptr @proto_item_add_subtree(ptr noundef %112, i32 noundef %113)
-  %.not13.i113 = icmp eq i16 %60, 0
+107:                                              ; preds = %100, %listOfInt32.exit
+  %108 = phi i32 [ %106, %100 ], [ %98, %listOfInt32.exit ]
+  %109 = zext i16 %59 to i32
+  %110 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_params, align 4
+  %111 = load i32, ptr @hf_x11_randr_GetCrtcTransform_reply_current_params_item, align 4
+  %112 = shl nuw nsw i32 %109, 2
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %110, ptr noundef %0, i32 noundef %108, i32 noundef %112, i32 noundef %4)
+  %114 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %115 = tail call ptr @proto_item_add_subtree(ptr noundef %113, i32 noundef %114)
+  %.not13.i113 = icmp eq i16 %59, 0
   br i1 %.not13.i113, label %listOfInt32.exit119, label %.lr.ph.preheader.i114
 
-.lr.ph.preheader.i114:                            ; preds = %106
+.lr.ph.preheader.i114:                            ; preds = %107
   %.pre.i115 = load i32, ptr %2, align 4
   br label %.lr.ph.i116
 
 .lr.ph.i116:                                      ; preds = %.lr.ph.i116, %.lr.ph.preheader.i114
-  %115 = phi i32 [ %119, %.lr.ph.i116 ], [ %.pre.i115, %.lr.ph.preheader.i114 ]
-  %.014.i117 = phi i32 [ %116, %.lr.ph.i116 ], [ %108, %.lr.ph.preheader.i114 ]
-  %116 = add nsw i32 %.014.i117, -1
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %114, i32 noundef %110, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef %4)
-  %118 = load i32, ptr %2, align 4
-  %119 = add i32 %118, 4
-  store i32 %119, ptr %2, align 4
-  %.not.i118 = icmp eq i32 %116, 0
+  %116 = phi i32 [ %120, %.lr.ph.i116 ], [ %.pre.i115, %.lr.ph.preheader.i114 ]
+  %.014.i117 = phi i32 [ %117, %.lr.ph.i116 ], [ %109, %.lr.ph.preheader.i114 ]
+  %117 = add nsw i32 %.014.i117, -1
+  %118 = tail call ptr @proto_tree_add_item(ptr noundef %115, i32 noundef %111, ptr noundef %0, i32 noundef %116, i32 noundef 4, i32 noundef %4)
+  %119 = load i32, ptr %2, align 4
+  %120 = add i32 %119, 4
+  store i32 %120, ptr %2, align 4
+  %.not.i118 = icmp eq i32 %117, 0
   br i1 %.not.i118, label %listOfInt32.exit119, label %.lr.ph.i116, !llvm.loop !62
 
-listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %106
+listOfInt32.exit119:                              ; preds = %.lr.ph.i116, %107
   ret void
 }
 
@@ -70850,7 +70850,7 @@ listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, 
   store i32 %70, ptr %1, align 4
   br label %listOfCard32.exit
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i81, %listOfCard32.exit.sink.split, %listOfCard16.exit, %53, %33, %4
+listOfCard32.exit:                                ; preds = %.lr.ph.i81, %listOfCard32.exit.sink.split, %53, %listOfCard16.exit, %33, %4
   ret void
 }
 
@@ -71641,7 +71641,7 @@ listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, 
   store i32 %63, ptr %1, align 4
   br label %listOfCard32.exit
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i76, %listOfCard32.exit.sink.split, %listOfCard16.exit, %46, %26, %4
+listOfCard32.exit:                                ; preds = %.lr.ph.i76, %listOfCard32.exit.sink.split, %46, %listOfCard16.exit, %26, %4
   ret void
 }
 
@@ -75637,7 +75637,7 @@ listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, 
   store i32 %88, ptr %2, align 4
   br label %listOfCard32.exit
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i92, %listOfCard32.exit.sink.split, %listOfCard16.exit, %71, %51, %5
+listOfCard32.exit:                                ; preds = %.lr.ph.i92, %listOfCard32.exit.sink.split, %71, %listOfCard16.exit, %51, %5
   ret void
 }
 
@@ -76307,7 +76307,7 @@ listOfCard32.exit.sink.split:                     ; preds = %listOfCard16.exit, 
   store i32 %84, ptr %2, align 4
   br label %listOfCard32.exit
 
-listOfCard32.exit:                                ; preds = %.lr.ph.i86, %listOfCard32.exit.sink.split, %listOfCard16.exit, %67, %47, %5
+listOfCard32.exit:                                ; preds = %.lr.ph.i86, %listOfCard32.exit.sink.split, %67, %listOfCard16.exit, %47, %5
   ret void
 }
 
@@ -76397,21 +76397,21 @@ requestLength.exit:                               ; preds = %5, %16
     i8 7, label %333
     i8 8, label %475
     i8 9, label %556
-    i8 10, label %802
-    i8 11, label %825
-    i8 12, label %867
-    i8 13, label %877
-    i8 14, label %891
-    i8 15, label %910
-    i8 16, label %929
-    i8 17, label %1003
-    i8 18, label %1018
-    i8 21, label %1276
-    i8 22, label %1311
-    i8 23, label %1321
-    i8 24, label %1345
-    i8 25, label %1376
-    i8 101, label %1405
+    i8 10, label %803
+    i8 11, label %826
+    i8 12, label %868
+    i8 13, label %878
+    i8 14, label %892
+    i8 15, label %911
+    i8 16, label %930
+    i8 17, label %1004
+    i8 18, label %1019
+    i8 21, label %1278
+    i8 22, label %1313
+    i8 23, label %1323
+    i8 24, label %1347
+    i8 25, label %1378
+    i8 101, label %1407
   ]
 
 25:                                               ; preds = %requestLength.exit
@@ -77189,957 +77189,957 @@ requestLength.exit:                               ; preds = %5, %16
   %611 = add i32 %610, 1
   store i32 %611, ptr %2, align 4
   %612 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %611)
-  %613 = zext i8 %612 to i32
-  %614 = load i32, ptr @hf_x11_xkb_SetMap_nKeyActions, align 4
-  %615 = load i32, ptr %2, align 4
-  %616 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %614, ptr noundef %0, i32 noundef %615, i32 noundef 1, i32 noundef %4)
-  %617 = load i32, ptr %2, align 4
-  %618 = add i32 %617, 1
-  store i32 %618, ptr %2, align 4
-  %619 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %618, i32 noundef %4)
-  %620 = zext i16 %619 to i32
-  %621 = load i32, ptr @hf_x11_xkb_SetMap_totalActions, align 4
-  %622 = load i32, ptr %2, align 4
-  %623 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %621, ptr noundef %0, i32 noundef %622, i32 noundef 2, i32 noundef %4)
-  %624 = load i32, ptr %2, align 4
-  %625 = add i32 %624, 2
-  store i32 %625, ptr %2, align 4
-  %626 = load i32, ptr @hf_x11_xkb_SetMap_firstKeyBehavior, align 4
-  %627 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %626, ptr noundef %0, i32 noundef %625, i32 noundef 1, i32 noundef %4)
-  %628 = load i32, ptr %2, align 4
-  %629 = add i32 %628, 1
-  store i32 %629, ptr %2, align 4
-  %630 = load i32, ptr @hf_x11_xkb_SetMap_nKeyBehaviors, align 4
-  %631 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %630, ptr noundef %0, i32 noundef %629, i32 noundef 1, i32 noundef %4)
-  %632 = load i32, ptr %2, align 4
-  %633 = add i32 %632, 1
-  store i32 %633, ptr %2, align 4
-  %634 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %633)
-  %635 = zext i8 %634 to i32
-  %636 = load i32, ptr @hf_x11_xkb_SetMap_totalKeyBehaviors, align 4
-  %637 = load i32, ptr %2, align 4
-  %638 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %636, ptr noundef %0, i32 noundef %637, i32 noundef 1, i32 noundef %4)
-  %639 = load i32, ptr %2, align 4
-  %640 = add i32 %639, 1
-  store i32 %640, ptr %2, align 4
-  %641 = load i32, ptr @hf_x11_xkb_SetMap_firstKeyExplicit, align 4
-  %642 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %641, ptr noundef %0, i32 noundef %640, i32 noundef 1, i32 noundef %4)
-  %643 = load i32, ptr %2, align 4
-  %644 = add i32 %643, 1
-  store i32 %644, ptr %2, align 4
-  %645 = load i32, ptr @hf_x11_xkb_SetMap_nKeyExplicit, align 4
-  %646 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %645, ptr noundef %0, i32 noundef %644, i32 noundef 1, i32 noundef %4)
-  %647 = load i32, ptr %2, align 4
-  %648 = add i32 %647, 1
-  store i32 %648, ptr %2, align 4
-  %649 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %648)
-  %650 = zext i8 %649 to i32
-  %651 = load i32, ptr @hf_x11_xkb_SetMap_totalKeyExplicit, align 4
-  %652 = load i32, ptr %2, align 4
-  %653 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %651, ptr noundef %0, i32 noundef %652, i32 noundef 1, i32 noundef %4)
-  %654 = load i32, ptr %2, align 4
-  %655 = add i32 %654, 1
-  store i32 %655, ptr %2, align 4
-  %656 = load i32, ptr @hf_x11_xkb_SetMap_firstModMapKey, align 4
-  %657 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %656, ptr noundef %0, i32 noundef %655, i32 noundef 1, i32 noundef %4)
-  %658 = load i32, ptr %2, align 4
-  %659 = add i32 %658, 1
-  store i32 %659, ptr %2, align 4
-  %660 = load i32, ptr @hf_x11_xkb_SetMap_nModMapKeys, align 4
-  %661 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %660, ptr noundef %0, i32 noundef %659, i32 noundef 1, i32 noundef %4)
-  %662 = load i32, ptr %2, align 4
-  %663 = add i32 %662, 1
-  store i32 %663, ptr %2, align 4
-  %664 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %663)
-  %665 = zext i8 %664 to i32
-  %666 = load i32, ptr @hf_x11_xkb_SetMap_totalModMapKeys, align 4
-  %667 = load i32, ptr %2, align 4
-  %668 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %666, ptr noundef %0, i32 noundef %667, i32 noundef 1, i32 noundef %4)
-  %669 = load i32, ptr %2, align 4
-  %670 = add i32 %669, 1
-  store i32 %670, ptr %2, align 4
-  %671 = load i32, ptr @hf_x11_xkb_SetMap_firstVModMapKey, align 4
-  %672 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %671, ptr noundef %0, i32 noundef %670, i32 noundef 1, i32 noundef %4)
-  %673 = load i32, ptr %2, align 4
-  %674 = add i32 %673, 1
-  store i32 %674, ptr %2, align 4
-  %675 = load i32, ptr @hf_x11_xkb_SetMap_nVModMapKeys, align 4
-  %676 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %675, ptr noundef %0, i32 noundef %674, i32 noundef 1, i32 noundef %4)
-  %677 = load i32, ptr %2, align 4
-  %678 = add i32 %677, 1
-  store i32 %678, ptr %2, align 4
-  %679 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %678)
-  %680 = zext i8 %679 to i32
-  %681 = load i32, ptr @hf_x11_xkb_SetMap_totalVModMapKeys, align 4
-  %682 = load i32, ptr %2, align 4
-  %683 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %681, ptr noundef %0, i32 noundef %682, i32 noundef 1, i32 noundef %4)
-  %684 = load i32, ptr %2, align 4
-  %685 = add i32 %684, 1
-  store i32 %685, ptr %2, align 4
-  %686 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %685, i32 noundef %4)
-  %687 = load i32, ptr %2, align 4
-  %688 = load i32, ptr @hf_x11_xkb_SetMap_virtualMods, align 4
-  %689 = load i32, ptr @ett_x11_rectangle, align 4
-  %690 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %687, i32 noundef %688, i32 noundef %689, ptr noundef nonnull @xkbSetMap.virtualMods_bits, i32 noundef %4)
-  %691 = load i32, ptr %2, align 4
-  %692 = add i32 %691, 2
-  store i32 %692, ptr %2, align 4
-  %693 = and i32 %563, 1
-  %.not.i154 = icmp eq i32 %693, 0
-  br i1 %.not.i154, label %struct_xkb_SetKeyType.exit.i, label %694
+  %613 = load i32, ptr @hf_x11_xkb_SetMap_nKeyActions, align 4
+  %614 = load i32, ptr %2, align 4
+  %615 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %613, ptr noundef %0, i32 noundef %614, i32 noundef 1, i32 noundef %4)
+  %616 = load i32, ptr %2, align 4
+  %617 = add i32 %616, 1
+  store i32 %617, ptr %2, align 4
+  %618 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %617, i32 noundef %4)
+  %619 = zext i16 %618 to i32
+  %620 = load i32, ptr @hf_x11_xkb_SetMap_totalActions, align 4
+  %621 = load i32, ptr %2, align 4
+  %622 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %620, ptr noundef %0, i32 noundef %621, i32 noundef 2, i32 noundef %4)
+  %623 = load i32, ptr %2, align 4
+  %624 = add i32 %623, 2
+  store i32 %624, ptr %2, align 4
+  %625 = load i32, ptr @hf_x11_xkb_SetMap_firstKeyBehavior, align 4
+  %626 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %625, ptr noundef %0, i32 noundef %624, i32 noundef 1, i32 noundef %4)
+  %627 = load i32, ptr %2, align 4
+  %628 = add i32 %627, 1
+  store i32 %628, ptr %2, align 4
+  %629 = load i32, ptr @hf_x11_xkb_SetMap_nKeyBehaviors, align 4
+  %630 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %629, ptr noundef %0, i32 noundef %628, i32 noundef 1, i32 noundef %4)
+  %631 = load i32, ptr %2, align 4
+  %632 = add i32 %631, 1
+  store i32 %632, ptr %2, align 4
+  %633 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %632)
+  %634 = zext i8 %633 to i32
+  %635 = load i32, ptr @hf_x11_xkb_SetMap_totalKeyBehaviors, align 4
+  %636 = load i32, ptr %2, align 4
+  %637 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %635, ptr noundef %0, i32 noundef %636, i32 noundef 1, i32 noundef %4)
+  %638 = load i32, ptr %2, align 4
+  %639 = add i32 %638, 1
+  store i32 %639, ptr %2, align 4
+  %640 = load i32, ptr @hf_x11_xkb_SetMap_firstKeyExplicit, align 4
+  %641 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %640, ptr noundef %0, i32 noundef %639, i32 noundef 1, i32 noundef %4)
+  %642 = load i32, ptr %2, align 4
+  %643 = add i32 %642, 1
+  store i32 %643, ptr %2, align 4
+  %644 = load i32, ptr @hf_x11_xkb_SetMap_nKeyExplicit, align 4
+  %645 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %644, ptr noundef %0, i32 noundef %643, i32 noundef 1, i32 noundef %4)
+  %646 = load i32, ptr %2, align 4
+  %647 = add i32 %646, 1
+  store i32 %647, ptr %2, align 4
+  %648 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %647)
+  %649 = zext i8 %648 to i32
+  %650 = load i32, ptr @hf_x11_xkb_SetMap_totalKeyExplicit, align 4
+  %651 = load i32, ptr %2, align 4
+  %652 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %650, ptr noundef %0, i32 noundef %651, i32 noundef 1, i32 noundef %4)
+  %653 = load i32, ptr %2, align 4
+  %654 = add i32 %653, 1
+  store i32 %654, ptr %2, align 4
+  %655 = load i32, ptr @hf_x11_xkb_SetMap_firstModMapKey, align 4
+  %656 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %655, ptr noundef %0, i32 noundef %654, i32 noundef 1, i32 noundef %4)
+  %657 = load i32, ptr %2, align 4
+  %658 = add i32 %657, 1
+  store i32 %658, ptr %2, align 4
+  %659 = load i32, ptr @hf_x11_xkb_SetMap_nModMapKeys, align 4
+  %660 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %659, ptr noundef %0, i32 noundef %658, i32 noundef 1, i32 noundef %4)
+  %661 = load i32, ptr %2, align 4
+  %662 = add i32 %661, 1
+  store i32 %662, ptr %2, align 4
+  %663 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %662)
+  %664 = zext i8 %663 to i32
+  %665 = load i32, ptr @hf_x11_xkb_SetMap_totalModMapKeys, align 4
+  %666 = load i32, ptr %2, align 4
+  %667 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %665, ptr noundef %0, i32 noundef %666, i32 noundef 1, i32 noundef %4)
+  %668 = load i32, ptr %2, align 4
+  %669 = add i32 %668, 1
+  store i32 %669, ptr %2, align 4
+  %670 = load i32, ptr @hf_x11_xkb_SetMap_firstVModMapKey, align 4
+  %671 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %670, ptr noundef %0, i32 noundef %669, i32 noundef 1, i32 noundef %4)
+  %672 = load i32, ptr %2, align 4
+  %673 = add i32 %672, 1
+  store i32 %673, ptr %2, align 4
+  %674 = load i32, ptr @hf_x11_xkb_SetMap_nVModMapKeys, align 4
+  %675 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %674, ptr noundef %0, i32 noundef %673, i32 noundef 1, i32 noundef %4)
+  %676 = load i32, ptr %2, align 4
+  %677 = add i32 %676, 1
+  store i32 %677, ptr %2, align 4
+  %678 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %677)
+  %679 = zext i8 %678 to i32
+  %680 = load i32, ptr @hf_x11_xkb_SetMap_totalVModMapKeys, align 4
+  %681 = load i32, ptr %2, align 4
+  %682 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %680, ptr noundef %0, i32 noundef %681, i32 noundef 1, i32 noundef %4)
+  %683 = load i32, ptr %2, align 4
+  %684 = add i32 %683, 1
+  store i32 %684, ptr %2, align 4
+  %685 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %684, i32 noundef %4)
+  %686 = load i32, ptr %2, align 4
+  %687 = load i32, ptr @hf_x11_xkb_SetMap_virtualMods, align 4
+  %688 = load i32, ptr @ett_x11_rectangle, align 4
+  %689 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %686, i32 noundef %687, i32 noundef %688, ptr noundef nonnull @xkbSetMap.virtualMods_bits, i32 noundef %4)
+  %690 = load i32, ptr %2, align 4
+  %691 = add i32 %690, 2
+  store i32 %691, ptr %2, align 4
+  %692 = and i32 %563, 1
+  %.not.i154 = icmp eq i32 %692, 0
+  br i1 %.not.i154, label %struct_xkb_SetKeyType.exit.i, label %693
 
-694:                                              ; preds = %556
-  %695 = zext i8 %587 to i32
+693:                                              ; preds = %556
+  %694 = zext i8 %587 to i32
   %.not.i.i = icmp eq i8 %587, 0
   br i1 %.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %694, %.lr.ph.i.i
-  %.058.i.i = phi i32 [ %751, %.lr.ph.i.i ], [ 0, %694 ]
-  %696 = load i32, ptr @hf_x11_struct_xkb_SetKeyType, align 4
-  %697 = load i32, ptr %2, align 4
-  %698 = add i32 %697, 5
-  %699 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %698)
-  %700 = zext i8 %699 to i32
-  %701 = load i32, ptr %2, align 4
-  %702 = add i32 %701, 6
-  %703 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %702)
-  %704 = zext i8 %703 to i32
-  %705 = add nuw nsw i32 %704, 1
-  %706 = shl nuw nsw i32 %700, 2
-  %707 = mul nuw nsw i32 %706, %705
-  %708 = add nuw nsw i32 %707, 8
-  %709 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %696, ptr noundef %0, i32 noundef %697, i32 noundef %708, i32 noundef 0)
-  %710 = load i32, ptr @ett_x11_rectangle, align 4
-  %711 = call ptr @proto_item_add_subtree(ptr noundef %709, i32 noundef %710)
-  %712 = load i32, ptr %2, align 4
-  %713 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_mask, align 4
-  %714 = load i32, ptr @ett_x11_rectangle, align 4
-  %715 = call ptr @proto_tree_add_bitmask(ptr noundef %711, ptr noundef %0, i32 noundef %712, i32 noundef %713, i32 noundef %714, ptr noundef nonnull @struct_xkb_SetKeyType.mask_bits, i32 noundef %4)
-  %716 = load i32, ptr %2, align 4
-  %717 = add i32 %716, 1
-  store i32 %717, ptr %2, align 4
-  %718 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_realMods, align 4
-  %719 = load i32, ptr @ett_x11_rectangle, align 4
-  %720 = call ptr @proto_tree_add_bitmask(ptr noundef %711, ptr noundef %0, i32 noundef %717, i32 noundef %718, i32 noundef %719, ptr noundef nonnull @struct_xkb_SetKeyType.realMods_bits, i32 noundef %4)
-  %721 = load i32, ptr %2, align 4
-  %722 = add i32 %721, 1
-  store i32 %722, ptr %2, align 4
-  %723 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_virtualMods, align 4
-  %724 = load i32, ptr @ett_x11_rectangle, align 4
-  %725 = call ptr @proto_tree_add_bitmask(ptr noundef %711, ptr noundef %0, i32 noundef %722, i32 noundef %723, i32 noundef %724, ptr noundef nonnull @struct_xkb_SetKeyType.virtualMods_bits, i32 noundef %4)
-  %726 = load i32, ptr %2, align 4
-  %727 = add i32 %726, 2
-  store i32 %727, ptr %2, align 4
-  %728 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_numLevels, align 4
-  %729 = call ptr @proto_tree_add_item(ptr noundef %711, i32 noundef %728, ptr noundef %0, i32 noundef %727, i32 noundef 1, i32 noundef %4)
-  %730 = load i32, ptr %2, align 4
-  %731 = add i32 %730, 1
-  store i32 %731, ptr %2, align 4
-  %732 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %731)
-  %733 = zext i8 %732 to i32
-  %734 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_nMapEntries, align 4
-  %735 = load i32, ptr %2, align 4
-  %736 = call ptr @proto_tree_add_item(ptr noundef %711, i32 noundef %734, ptr noundef %0, i32 noundef %735, i32 noundef 1, i32 noundef %4)
-  %737 = load i32, ptr %2, align 4
-  %738 = add i32 %737, 1
-  store i32 %738, ptr %2, align 4
-  %739 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %738)
-  %740 = zext i8 %739 to i32
-  %741 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_preserve, align 4
-  %742 = load i32, ptr %2, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %711, i32 noundef %741, ptr noundef %0, i32 noundef %742, i32 noundef 1, i32 noundef %4)
-  %744 = load i32, ptr %2, align 4
-  %745 = add i32 %744, 1
-  store i32 %745, ptr %2, align 4
-  %746 = load i32, ptr @hf_x11_unused, align 4
-  %747 = call ptr @proto_tree_add_item(ptr noundef %711, i32 noundef %746, ptr noundef %0, i32 noundef %745, i32 noundef 1, i32 noundef 0)
-  %748 = load i32, ptr %2, align 4
-  %749 = add i32 %748, 1
-  store i32 %749, ptr %2, align 4
-  call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef %2, ptr noundef %711, i32 noundef %4, i32 noundef %733)
-  %750 = mul nuw nsw i32 %740, %733
-  call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef %2, ptr noundef %711, i32 noundef %4, i32 noundef %750)
-  %751 = add nuw nsw i32 %.058.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %751, %695
+.lr.ph.i.i:                                       ; preds = %693, %.lr.ph.i.i
+  %.058.i.i = phi i32 [ %750, %.lr.ph.i.i ], [ 0, %693 ]
+  %695 = load i32, ptr @hf_x11_struct_xkb_SetKeyType, align 4
+  %696 = load i32, ptr %2, align 4
+  %697 = add i32 %696, 5
+  %698 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %697)
+  %699 = zext i8 %698 to i32
+  %700 = load i32, ptr %2, align 4
+  %701 = add i32 %700, 6
+  %702 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %701)
+  %703 = zext i8 %702 to i32
+  %704 = add nuw nsw i32 %703, 1
+  %705 = shl nuw nsw i32 %699, 2
+  %706 = mul nuw nsw i32 %705, %704
+  %707 = add nuw nsw i32 %706, 8
+  %708 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %695, ptr noundef %0, i32 noundef %696, i32 noundef %707, i32 noundef 0)
+  %709 = load i32, ptr @ett_x11_rectangle, align 4
+  %710 = call ptr @proto_item_add_subtree(ptr noundef %708, i32 noundef %709)
+  %711 = load i32, ptr %2, align 4
+  %712 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_mask, align 4
+  %713 = load i32, ptr @ett_x11_rectangle, align 4
+  %714 = call ptr @proto_tree_add_bitmask(ptr noundef %710, ptr noundef %0, i32 noundef %711, i32 noundef %712, i32 noundef %713, ptr noundef nonnull @struct_xkb_SetKeyType.mask_bits, i32 noundef %4)
+  %715 = load i32, ptr %2, align 4
+  %716 = add i32 %715, 1
+  store i32 %716, ptr %2, align 4
+  %717 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_realMods, align 4
+  %718 = load i32, ptr @ett_x11_rectangle, align 4
+  %719 = call ptr @proto_tree_add_bitmask(ptr noundef %710, ptr noundef %0, i32 noundef %716, i32 noundef %717, i32 noundef %718, ptr noundef nonnull @struct_xkb_SetKeyType.realMods_bits, i32 noundef %4)
+  %720 = load i32, ptr %2, align 4
+  %721 = add i32 %720, 1
+  store i32 %721, ptr %2, align 4
+  %722 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_virtualMods, align 4
+  %723 = load i32, ptr @ett_x11_rectangle, align 4
+  %724 = call ptr @proto_tree_add_bitmask(ptr noundef %710, ptr noundef %0, i32 noundef %721, i32 noundef %722, i32 noundef %723, ptr noundef nonnull @struct_xkb_SetKeyType.virtualMods_bits, i32 noundef %4)
+  %725 = load i32, ptr %2, align 4
+  %726 = add i32 %725, 2
+  store i32 %726, ptr %2, align 4
+  %727 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_numLevels, align 4
+  %728 = call ptr @proto_tree_add_item(ptr noundef %710, i32 noundef %727, ptr noundef %0, i32 noundef %726, i32 noundef 1, i32 noundef %4)
+  %729 = load i32, ptr %2, align 4
+  %730 = add i32 %729, 1
+  store i32 %730, ptr %2, align 4
+  %731 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %730)
+  %732 = zext i8 %731 to i32
+  %733 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_nMapEntries, align 4
+  %734 = load i32, ptr %2, align 4
+  %735 = call ptr @proto_tree_add_item(ptr noundef %710, i32 noundef %733, ptr noundef %0, i32 noundef %734, i32 noundef 1, i32 noundef %4)
+  %736 = load i32, ptr %2, align 4
+  %737 = add i32 %736, 1
+  store i32 %737, ptr %2, align 4
+  %738 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %737)
+  %739 = zext i8 %738 to i32
+  %740 = load i32, ptr @hf_x11_struct_xkb_SetKeyType_preserve, align 4
+  %741 = load i32, ptr %2, align 4
+  %742 = call ptr @proto_tree_add_item(ptr noundef %710, i32 noundef %740, ptr noundef %0, i32 noundef %741, i32 noundef 1, i32 noundef %4)
+  %743 = load i32, ptr %2, align 4
+  %744 = add i32 %743, 1
+  store i32 %744, ptr %2, align 4
+  %745 = load i32, ptr @hf_x11_unused, align 4
+  %746 = call ptr @proto_tree_add_item(ptr noundef %710, i32 noundef %745, ptr noundef %0, i32 noundef %744, i32 noundef 1, i32 noundef 0)
+  %747 = load i32, ptr %2, align 4
+  %748 = add i32 %747, 1
+  store i32 %748, ptr %2, align 4
+  call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef %2, ptr noundef %710, i32 noundef %4, i32 noundef %732)
+  %749 = mul nuw nsw i32 %739, %732
+  call fastcc void @struct_xkb_KTSetMapEntry(ptr noundef %0, ptr noundef %2, ptr noundef %710, i32 noundef %4, i32 noundef %749)
+  %750 = add nuw nsw i32 %.058.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %750, %694
   br i1 %exitcond.not.i.i, label %struct_xkb_SetKeyType.exit.i, label %.lr.ph.i.i, !llvm.loop !119
 
-struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %694, %556
-  %752 = and i32 %563, 2
-  %.not240.i = icmp eq i32 %752, 0
-  br i1 %.not240.i, label %754, label %753
+struct_xkb_SetKeyType.exit.i:                     ; preds = %.lr.ph.i.i, %693, %556
+  %751 = and i32 %563, 2
+  %.not240.i = icmp eq i32 %751, 0
+  br i1 %.not240.i, label %753, label %752
 
-753:                                              ; preds = %struct_xkb_SetKeyType.exit.i
+752:                                              ; preds = %struct_xkb_SetKeyType.exit.i
   call fastcc void @struct_xkb_KeySymMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %598)
-  br label %754
+  br label %753
 
-754:                                              ; preds = %753, %struct_xkb_SetKeyType.exit.i
-  %755 = and i32 %563, 16
-  %.not241.i = icmp eq i32 %755, 0
-  br i1 %.not241.i, label %771, label %756
+753:                                              ; preds = %752, %struct_xkb_SetKeyType.exit.i
+  %754 = and i32 %563, 16
+  %.not241.i = icmp eq i32 %754, 0
+  br i1 %.not241.i, label %772, label %755
 
-756:                                              ; preds = %754
-  %757 = load i32, ptr @hf_x11_xkb_SetMap_KeyActions_actionsCount, align 4
-  %spec.store.select.i.i = call i32 @llvm.smax.i32(i32 %613, i32 1)
-  %758 = load i32, ptr %2, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %757, ptr noundef %0, i32 noundef %758, i32 noundef %spec.store.select.i.i, i32 noundef %4)
-  %760 = load i32, ptr %2, align 4
-  %761 = add i32 %760, %spec.store.select.i.i
-  store i32 %761, ptr %2, align 4
-  %762 = srem i32 %761, 4
-  %.not242.i = icmp eq i32 %762, 0
-  br i1 %.not242.i, label %770, label %763
+755:                                              ; preds = %753
+  %756 = load i32, ptr @hf_x11_xkb_SetMap_KeyActions_actionsCount, align 4
+  %757 = call i8 @llvm.umax.i8(i8 %612, i8 1)
+  %758 = zext i8 %757 to i32
+  %759 = load i32, ptr %2, align 4
+  %760 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %756, ptr noundef %0, i32 noundef %759, i32 noundef %758, i32 noundef %4)
+  %761 = load i32, ptr %2, align 4
+  %762 = add i32 %761, %758
+  store i32 %762, ptr %2, align 4
+  %763 = srem i32 %762, 4
+  %.not242.i = icmp eq i32 %763, 0
+  br i1 %.not242.i, label %771, label %764
 
-763:                                              ; preds = %756
-  %764 = load i32, ptr @hf_x11_unused, align 4
-  %765 = sub nsw i32 4, %762
-  %766 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %764, ptr noundef %0, i32 noundef %761, i32 noundef %765, i32 noundef 0)
-  %767 = load i32, ptr %2, align 4
-  %768 = srem i32 %767, 4
-  %reass.sub.i = add i32 %767, 4
-  %769 = sub i32 %reass.sub.i, %768
-  store i32 %769, ptr %2, align 4
-  br label %770
-
-770:                                              ; preds = %763, %756
-  call fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %620)
+764:                                              ; preds = %755
+  %765 = load i32, ptr @hf_x11_unused, align 4
+  %766 = sub nsw i32 4, %763
+  %767 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %765, ptr noundef %0, i32 noundef %762, i32 noundef %766, i32 noundef 0)
+  %768 = load i32, ptr %2, align 4
+  %769 = srem i32 %768, 4
+  %reass.sub.i = add i32 %768, 4
+  %770 = sub i32 %reass.sub.i, %769
+  store i32 %770, ptr %2, align 4
   br label %771
 
-771:                                              ; preds = %770, %754
-  %772 = and i32 %563, 32
-  %.not243.i = icmp eq i32 %772, 0
-  br i1 %.not243.i, label %774, label %773
+771:                                              ; preds = %764, %755
+  call fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %619)
+  br label %772
 
-773:                                              ; preds = %771
-  call fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %635)
-  br label %774
+772:                                              ; preds = %771, %753
+  %773 = and i32 %563, 32
+  %.not243.i = icmp eq i32 %773, 0
+  br i1 %.not243.i, label %775, label %774
 
-774:                                              ; preds = %773, %771
-  %775 = and i32 %563, 64
-  %.not244.i = icmp eq i32 %775, 0
-  br i1 %.not244.i, label %793, label %776
+774:                                              ; preds = %772
+  call fastcc void @struct_xkb_SetBehavior(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %634)
+  br label %775
 
-776:                                              ; preds = %774
-  %777 = load i32, ptr @hf_x11_xkb_SetMap_VirtualMods_vmods, align 4
-  %778 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %686)
-  %779 = call i16 @llvm.umax.i16(i16 %778, i16 1)
-  %780 = zext nneg i16 %779 to i32
-  %781 = load i32, ptr %2, align 4
-  %782 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %777, ptr noundef %0, i32 noundef %781, i32 noundef %780, i32 noundef %4)
-  %783 = load i32, ptr %2, align 4
-  %784 = add i32 %783, %780
-  store i32 %784, ptr %2, align 4
-  %785 = srem i32 %784, 4
-  %.not245.i = icmp eq i32 %785, 0
-  br i1 %.not245.i, label %793, label %786
+775:                                              ; preds = %774, %772
+  %776 = and i32 %563, 64
+  %.not244.i = icmp eq i32 %776, 0
+  br i1 %.not244.i, label %794, label %777
 
-786:                                              ; preds = %776
-  %787 = load i32, ptr @hf_x11_unused, align 4
-  %788 = sub nsw i32 4, %785
-  %789 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %787, ptr noundef %0, i32 noundef %784, i32 noundef %788, i32 noundef 0)
-  %790 = load i32, ptr %2, align 4
-  %791 = srem i32 %790, 4
-  %reass.sub246.i = add i32 %790, 4
-  %792 = sub i32 %reass.sub246.i, %791
-  store i32 %792, ptr %2, align 4
-  br label %793
+777:                                              ; preds = %775
+  %778 = load i32, ptr @hf_x11_xkb_SetMap_VirtualMods_vmods, align 4
+  %779 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %685)
+  %780 = call i16 @llvm.umax.i16(i16 %779, i16 1)
+  %781 = zext nneg i16 %780 to i32
+  %782 = load i32, ptr %2, align 4
+  %783 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %778, ptr noundef %0, i32 noundef %782, i32 noundef %781, i32 noundef %4)
+  %784 = load i32, ptr %2, align 4
+  %785 = add i32 %784, %781
+  store i32 %785, ptr %2, align 4
+  %786 = srem i32 %785, 4
+  %.not245.i = icmp eq i32 %786, 0
+  br i1 %.not245.i, label %794, label %787
 
-793:                                              ; preds = %786, %776, %774
-  %794 = and i32 %563, 8
-  %.not247.i = icmp eq i32 %794, 0
-  br i1 %.not247.i, label %796, label %795
+787:                                              ; preds = %777
+  %788 = load i32, ptr @hf_x11_unused, align 4
+  %789 = sub nsw i32 4, %786
+  %790 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %788, ptr noundef %0, i32 noundef %785, i32 noundef %789, i32 noundef 0)
+  %791 = load i32, ptr %2, align 4
+  %792 = srem i32 %791, 4
+  %reass.sub246.i = add i32 %791, 4
+  %793 = sub i32 %reass.sub246.i, %792
+  store i32 %793, ptr %2, align 4
+  br label %794
 
-795:                                              ; preds = %793
-  call fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %650)
-  br label %796
+794:                                              ; preds = %787, %777, %775
+  %795 = and i32 %563, 8
+  %.not247.i = icmp eq i32 %795, 0
+  br i1 %.not247.i, label %797, label %796
 
-796:                                              ; preds = %795, %793
-  %797 = and i32 %563, 4
-  %.not248.i = icmp eq i32 %797, 0
-  br i1 %.not248.i, label %799, label %798
+796:                                              ; preds = %794
+  call fastcc void @struct_xkb_SetExplicit(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %649)
+  br label %797
 
-798:                                              ; preds = %796
-  call fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %665)
-  br label %799
+797:                                              ; preds = %796, %794
+  %798 = and i32 %563, 4
+  %.not248.i = icmp eq i32 %798, 0
+  br i1 %.not248.i, label %800, label %799
 
-799:                                              ; preds = %798, %796
-  %800 = and i32 %563, 128
-  %.not249.i = icmp eq i32 %800, 0
-  br i1 %.not249.i, label %xkbSelectEvents.exit, label %801
+799:                                              ; preds = %797
+  call fastcc void @struct_xkb_KeyModMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %664)
+  br label %800
 
-801:                                              ; preds = %799
-  call fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %680)
+800:                                              ; preds = %799, %797
+  %801 = and i32 %563, 128
+  %.not249.i = icmp eq i32 %801, 0
+  br i1 %.not249.i, label %xkbSelectEvents.exit, label %802
+
+802:                                              ; preds = %800
+  call fastcc void @struct_xkb_KeyVModMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %679)
   br label %xkbSelectEvents.exit
 
-802:                                              ; preds = %requestLength.exit
-  %803 = load i32, ptr @hf_x11_xkb_GetCompatMap_deviceSpec, align 4
-  %804 = load i32, ptr %2, align 4
-  %805 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %803, ptr noundef %0, i32 noundef %804, i32 noundef 2, i32 noundef %4)
-  %806 = load i32, ptr %2, align 4
-  %807 = add i32 %806, 2
-  store i32 %807, ptr %2, align 4
-  %808 = load i32, ptr @hf_x11_xkb_GetCompatMap_groups, align 4
-  %809 = load i32, ptr @ett_x11_rectangle, align 4
-  %810 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %807, i32 noundef %808, i32 noundef %809, ptr noundef nonnull @xkbGetCompatMap.groups_bits, i32 noundef %4)
-  %811 = load i32, ptr %2, align 4
-  %812 = add i32 %811, 1
-  store i32 %812, ptr %2, align 4
-  %813 = load i32, ptr @hf_x11_xkb_GetCompatMap_getAllSI, align 4
-  %814 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %813, ptr noundef %0, i32 noundef %812, i32 noundef 1, i32 noundef %4)
-  %815 = load i32, ptr %2, align 4
-  %816 = add i32 %815, 1
-  store i32 %816, ptr %2, align 4
-  %817 = load i32, ptr @hf_x11_xkb_GetCompatMap_firstSI, align 4
-  %818 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %817, ptr noundef %0, i32 noundef %816, i32 noundef 2, i32 noundef %4)
-  %819 = load i32, ptr %2, align 4
-  %820 = add i32 %819, 2
-  store i32 %820, ptr %2, align 4
-  %821 = load i32, ptr @hf_x11_xkb_GetCompatMap_nSI, align 4
-  %822 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %821, ptr noundef %0, i32 noundef %820, i32 noundef 2, i32 noundef %4)
-  %823 = load i32, ptr %2, align 4
-  %824 = add i32 %823, 2
-  store i32 %824, ptr %2, align 4
+803:                                              ; preds = %requestLength.exit
+  %804 = load i32, ptr @hf_x11_xkb_GetCompatMap_deviceSpec, align 4
+  %805 = load i32, ptr %2, align 4
+  %806 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %804, ptr noundef %0, i32 noundef %805, i32 noundef 2, i32 noundef %4)
+  %807 = load i32, ptr %2, align 4
+  %808 = add i32 %807, 2
+  store i32 %808, ptr %2, align 4
+  %809 = load i32, ptr @hf_x11_xkb_GetCompatMap_groups, align 4
+  %810 = load i32, ptr @ett_x11_rectangle, align 4
+  %811 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %808, i32 noundef %809, i32 noundef %810, ptr noundef nonnull @xkbGetCompatMap.groups_bits, i32 noundef %4)
+  %812 = load i32, ptr %2, align 4
+  %813 = add i32 %812, 1
+  store i32 %813, ptr %2, align 4
+  %814 = load i32, ptr @hf_x11_xkb_GetCompatMap_getAllSI, align 4
+  %815 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %814, ptr noundef %0, i32 noundef %813, i32 noundef 1, i32 noundef %4)
+  %816 = load i32, ptr %2, align 4
+  %817 = add i32 %816, 1
+  store i32 %817, ptr %2, align 4
+  %818 = load i32, ptr @hf_x11_xkb_GetCompatMap_firstSI, align 4
+  %819 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %818, ptr noundef %0, i32 noundef %817, i32 noundef 2, i32 noundef %4)
+  %820 = load i32, ptr %2, align 4
+  %821 = add i32 %820, 2
+  store i32 %821, ptr %2, align 4
+  %822 = load i32, ptr @hf_x11_xkb_GetCompatMap_nSI, align 4
+  %823 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %822, ptr noundef %0, i32 noundef %821, i32 noundef 2, i32 noundef %4)
+  %824 = load i32, ptr %2, align 4
+  %825 = add i32 %824, 2
+  store i32 %825, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-825:                                              ; preds = %requestLength.exit
-  %826 = load i32, ptr @hf_x11_xkb_SetCompatMap_deviceSpec, align 4
-  %827 = load i32, ptr %2, align 4
-  %828 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %826, ptr noundef %0, i32 noundef %827, i32 noundef 2, i32 noundef %4)
-  %829 = load i32, ptr %2, align 4
-  %830 = add i32 %829, 2
-  store i32 %830, ptr %2, align 4
-  %831 = load i32, ptr @hf_x11_unused, align 4
-  %832 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %831, ptr noundef %0, i32 noundef %830, i32 noundef 1, i32 noundef 0)
-  %833 = load i32, ptr %2, align 4
-  %834 = add i32 %833, 1
-  store i32 %834, ptr %2, align 4
-  %835 = load i32, ptr @hf_x11_xkb_SetCompatMap_recomputeActions, align 4
-  %836 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %835, ptr noundef %0, i32 noundef %834, i32 noundef 1, i32 noundef %4)
-  %837 = load i32, ptr %2, align 4
-  %838 = add i32 %837, 1
-  store i32 %838, ptr %2, align 4
-  %839 = load i32, ptr @hf_x11_xkb_SetCompatMap_truncateSI, align 4
-  %840 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %839, ptr noundef %0, i32 noundef %838, i32 noundef 1, i32 noundef %4)
-  %841 = load i32, ptr %2, align 4
-  %842 = add i32 %841, 1
-  store i32 %842, ptr %2, align 4
-  %843 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %842)
-  %844 = load i32, ptr %2, align 4
-  %845 = load i32, ptr @hf_x11_xkb_SetCompatMap_groups, align 4
-  %846 = load i32, ptr @ett_x11_rectangle, align 4
-  %847 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %844, i32 noundef %845, i32 noundef %846, ptr noundef nonnull @xkbSetCompatMap.groups_bits, i32 noundef %4)
-  %848 = load i32, ptr %2, align 4
-  %849 = add i32 %848, 1
-  store i32 %849, ptr %2, align 4
-  %850 = load i32, ptr @hf_x11_xkb_SetCompatMap_firstSI, align 4
-  %851 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %850, ptr noundef %0, i32 noundef %849, i32 noundef 2, i32 noundef %4)
-  %852 = load i32, ptr %2, align 4
-  %853 = add i32 %852, 2
-  store i32 %853, ptr %2, align 4
-  %854 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %853, i32 noundef %4)
-  %855 = zext i16 %854 to i32
-  %856 = load i32, ptr @hf_x11_xkb_SetCompatMap_nSI, align 4
-  %857 = load i32, ptr %2, align 4
-  %858 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %856, ptr noundef %0, i32 noundef %857, i32 noundef 2, i32 noundef %4)
-  %859 = load i32, ptr %2, align 4
-  %860 = add i32 %859, 2
-  store i32 %860, ptr %2, align 4
-  %861 = load i32, ptr @hf_x11_unused, align 4
-  %862 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %861, ptr noundef %0, i32 noundef %860, i32 noundef 2, i32 noundef 0)
-  %863 = load i32, ptr %2, align 4
-  %864 = add i32 %863, 2
-  store i32 %864, ptr %2, align 4
-  call fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %855)
-  %865 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %843)
-  %866 = zext nneg i8 %865 to i32
-  call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %866)
+826:                                              ; preds = %requestLength.exit
+  %827 = load i32, ptr @hf_x11_xkb_SetCompatMap_deviceSpec, align 4
+  %828 = load i32, ptr %2, align 4
+  %829 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %827, ptr noundef %0, i32 noundef %828, i32 noundef 2, i32 noundef %4)
+  %830 = load i32, ptr %2, align 4
+  %831 = add i32 %830, 2
+  store i32 %831, ptr %2, align 4
+  %832 = load i32, ptr @hf_x11_unused, align 4
+  %833 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %832, ptr noundef %0, i32 noundef %831, i32 noundef 1, i32 noundef 0)
+  %834 = load i32, ptr %2, align 4
+  %835 = add i32 %834, 1
+  store i32 %835, ptr %2, align 4
+  %836 = load i32, ptr @hf_x11_xkb_SetCompatMap_recomputeActions, align 4
+  %837 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %836, ptr noundef %0, i32 noundef %835, i32 noundef 1, i32 noundef %4)
+  %838 = load i32, ptr %2, align 4
+  %839 = add i32 %838, 1
+  store i32 %839, ptr %2, align 4
+  %840 = load i32, ptr @hf_x11_xkb_SetCompatMap_truncateSI, align 4
+  %841 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %840, ptr noundef %0, i32 noundef %839, i32 noundef 1, i32 noundef %4)
+  %842 = load i32, ptr %2, align 4
+  %843 = add i32 %842, 1
+  store i32 %843, ptr %2, align 4
+  %844 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %843)
+  %845 = load i32, ptr %2, align 4
+  %846 = load i32, ptr @hf_x11_xkb_SetCompatMap_groups, align 4
+  %847 = load i32, ptr @ett_x11_rectangle, align 4
+  %848 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %845, i32 noundef %846, i32 noundef %847, ptr noundef nonnull @xkbSetCompatMap.groups_bits, i32 noundef %4)
+  %849 = load i32, ptr %2, align 4
+  %850 = add i32 %849, 1
+  store i32 %850, ptr %2, align 4
+  %851 = load i32, ptr @hf_x11_xkb_SetCompatMap_firstSI, align 4
+  %852 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %851, ptr noundef %0, i32 noundef %850, i32 noundef 2, i32 noundef %4)
+  %853 = load i32, ptr %2, align 4
+  %854 = add i32 %853, 2
+  store i32 %854, ptr %2, align 4
+  %855 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %854, i32 noundef %4)
+  %856 = zext i16 %855 to i32
+  %857 = load i32, ptr @hf_x11_xkb_SetCompatMap_nSI, align 4
+  %858 = load i32, ptr %2, align 4
+  %859 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %857, ptr noundef %0, i32 noundef %858, i32 noundef 2, i32 noundef %4)
+  %860 = load i32, ptr %2, align 4
+  %861 = add i32 %860, 2
+  store i32 %861, ptr %2, align 4
+  %862 = load i32, ptr @hf_x11_unused, align 4
+  %863 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %862, ptr noundef %0, i32 noundef %861, i32 noundef 2, i32 noundef 0)
+  %864 = load i32, ptr %2, align 4
+  %865 = add i32 %864, 2
+  store i32 %865, ptr %2, align 4
+  call fastcc void @struct_xkb_SymInterpret(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %856)
+  %866 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %844)
+  %867 = zext nneg i8 %866 to i32
+  call fastcc void @struct_xkb_ModDef(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %867)
   br label %xkbSelectEvents.exit
 
-867:                                              ; preds = %requestLength.exit
-  %868 = load i32, ptr @hf_x11_xkb_GetIndicatorState_deviceSpec, align 4
-  %869 = load i32, ptr %2, align 4
-  %870 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %868, ptr noundef %0, i32 noundef %869, i32 noundef 2, i32 noundef %4)
-  %871 = load i32, ptr %2, align 4
-  %872 = add i32 %871, 2
-  store i32 %872, ptr %2, align 4
-  %873 = load i32, ptr @hf_x11_unused, align 4
-  %874 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %873, ptr noundef %0, i32 noundef %872, i32 noundef 2, i32 noundef 0)
-  %875 = load i32, ptr %2, align 4
-  %876 = add i32 %875, 2
-  store i32 %876, ptr %2, align 4
+868:                                              ; preds = %requestLength.exit
+  %869 = load i32, ptr @hf_x11_xkb_GetIndicatorState_deviceSpec, align 4
+  %870 = load i32, ptr %2, align 4
+  %871 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %869, ptr noundef %0, i32 noundef %870, i32 noundef 2, i32 noundef %4)
+  %872 = load i32, ptr %2, align 4
+  %873 = add i32 %872, 2
+  store i32 %873, ptr %2, align 4
+  %874 = load i32, ptr @hf_x11_unused, align 4
+  %875 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %874, ptr noundef %0, i32 noundef %873, i32 noundef 2, i32 noundef 0)
+  %876 = load i32, ptr %2, align 4
+  %877 = add i32 %876, 2
+  store i32 %877, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-877:                                              ; preds = %requestLength.exit
-  %878 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_deviceSpec, align 4
-  %879 = load i32, ptr %2, align 4
-  %880 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %878, ptr noundef %0, i32 noundef %879, i32 noundef 2, i32 noundef %4)
-  %881 = load i32, ptr %2, align 4
-  %882 = add i32 %881, 2
-  store i32 %882, ptr %2, align 4
-  %883 = load i32, ptr @hf_x11_unused, align 4
-  %884 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %883, ptr noundef %0, i32 noundef %882, i32 noundef 2, i32 noundef 0)
-  %885 = load i32, ptr %2, align 4
-  %886 = add i32 %885, 2
-  store i32 %886, ptr %2, align 4
-  %887 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_which, align 4
-  %888 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %887, ptr noundef %0, i32 noundef %886, i32 noundef 4, i32 noundef %4)
-  %889 = load i32, ptr %2, align 4
-  %890 = add i32 %889, 4
-  store i32 %890, ptr %2, align 4
+878:                                              ; preds = %requestLength.exit
+  %879 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_deviceSpec, align 4
+  %880 = load i32, ptr %2, align 4
+  %881 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %879, ptr noundef %0, i32 noundef %880, i32 noundef 2, i32 noundef %4)
+  %882 = load i32, ptr %2, align 4
+  %883 = add i32 %882, 2
+  store i32 %883, ptr %2, align 4
+  %884 = load i32, ptr @hf_x11_unused, align 4
+  %885 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %884, ptr noundef %0, i32 noundef %883, i32 noundef 2, i32 noundef 0)
+  %886 = load i32, ptr %2, align 4
+  %887 = add i32 %886, 2
+  store i32 %887, ptr %2, align 4
+  %888 = load i32, ptr @hf_x11_xkb_GetIndicatorMap_which, align 4
+  %889 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 4, i32 noundef %4)
+  %890 = load i32, ptr %2, align 4
+  %891 = add i32 %890, 4
+  store i32 %891, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-891:                                              ; preds = %requestLength.exit
-  %892 = load i32, ptr @hf_x11_xkb_SetIndicatorMap_deviceSpec, align 4
-  %893 = load i32, ptr %2, align 4
-  %894 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %892, ptr noundef %0, i32 noundef %893, i32 noundef 2, i32 noundef %4)
-  %895 = load i32, ptr %2, align 4
-  %896 = add i32 %895, 2
-  store i32 %896, ptr %2, align 4
-  %897 = load i32, ptr @hf_x11_unused, align 4
-  %898 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %897, ptr noundef %0, i32 noundef %896, i32 noundef 2, i32 noundef 0)
-  %899 = load i32, ptr %2, align 4
-  %900 = add i32 %899, 2
-  store i32 %900, ptr %2, align 4
-  %901 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %900, i32 noundef %4)
-  %902 = load i32, ptr @hf_x11_xkb_SetIndicatorMap_which, align 4
-  %903 = load i32, ptr %2, align 4
-  %904 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %902, ptr noundef %0, i32 noundef %903, i32 noundef 4, i32 noundef %4)
-  %905 = load i32, ptr %2, align 4
-  %906 = add i32 %905, 4
-  store i32 %906, ptr %2, align 4
-  %907 = sext i32 %901 to i64
-  %908 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %907)
-  %909 = trunc nuw nsw i64 %908 to i32
-  call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %909)
+892:                                              ; preds = %requestLength.exit
+  %893 = load i32, ptr @hf_x11_xkb_SetIndicatorMap_deviceSpec, align 4
+  %894 = load i32, ptr %2, align 4
+  %895 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %893, ptr noundef %0, i32 noundef %894, i32 noundef 2, i32 noundef %4)
+  %896 = load i32, ptr %2, align 4
+  %897 = add i32 %896, 2
+  store i32 %897, ptr %2, align 4
+  %898 = load i32, ptr @hf_x11_unused, align 4
+  %899 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %898, ptr noundef %0, i32 noundef %897, i32 noundef 2, i32 noundef 0)
+  %900 = load i32, ptr %2, align 4
+  %901 = add i32 %900, 2
+  store i32 %901, ptr %2, align 4
+  %902 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %901, i32 noundef %4)
+  %903 = load i32, ptr @hf_x11_xkb_SetIndicatorMap_which, align 4
+  %904 = load i32, ptr %2, align 4
+  %905 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %903, ptr noundef %0, i32 noundef %904, i32 noundef 4, i32 noundef %4)
+  %906 = load i32, ptr %2, align 4
+  %907 = add i32 %906, 4
+  store i32 %907, ptr %2, align 4
+  %908 = sext i32 %902 to i64
+  %909 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %908)
+  %910 = trunc nuw nsw i64 %909 to i32
+  call fastcc void @struct_xkb_IndicatorMap(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %910)
   br label %xkbSelectEvents.exit
 
-910:                                              ; preds = %requestLength.exit
-  %911 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_deviceSpec, align 4
-  %912 = load i32, ptr %2, align 4
-  %913 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %911, ptr noundef %0, i32 noundef %912, i32 noundef 2, i32 noundef %4)
-  %914 = load i32, ptr %2, align 4
-  %915 = add i32 %914, 2
-  store i32 %915, ptr %2, align 4
-  %916 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledClass, align 4
-  %917 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %916, i32 noundef %4)
-  %918 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledID, align 4
-  %919 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %918, i32 noundef %4)
-  %920 = load i32, ptr @hf_x11_unused, align 4
-  %921 = load i32, ptr %2, align 4
-  %922 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %920, ptr noundef %0, i32 noundef %921, i32 noundef 2, i32 noundef 0)
-  %923 = load i32, ptr %2, align 4
-  %924 = add i32 %923, 2
-  store i32 %924, ptr %2, align 4
-  %925 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_indicator, align 4
-  %926 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %925, ptr noundef %0, i32 noundef %924, i32 noundef 4, i32 noundef %4)
-  %927 = load i32, ptr %2, align 4
-  %928 = add i32 %927, 4
-  store i32 %928, ptr %2, align 4
+911:                                              ; preds = %requestLength.exit
+  %912 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_deviceSpec, align 4
+  %913 = load i32, ptr %2, align 4
+  %914 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %912, ptr noundef %0, i32 noundef %913, i32 noundef 2, i32 noundef %4)
+  %915 = load i32, ptr %2, align 4
+  %916 = add i32 %915, 2
+  store i32 %916, ptr %2, align 4
+  %917 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledClass, align 4
+  %918 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %917, i32 noundef %4)
+  %919 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_ledID, align 4
+  %920 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %919, i32 noundef %4)
+  %921 = load i32, ptr @hf_x11_unused, align 4
+  %922 = load i32, ptr %2, align 4
+  %923 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %921, ptr noundef %0, i32 noundef %922, i32 noundef 2, i32 noundef 0)
+  %924 = load i32, ptr %2, align 4
+  %925 = add i32 %924, 2
+  store i32 %925, ptr %2, align 4
+  %926 = load i32, ptr @hf_x11_xkb_GetNamedIndicator_indicator, align 4
+  %927 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %926, ptr noundef %0, i32 noundef %925, i32 noundef 4, i32 noundef %4)
+  %928 = load i32, ptr %2, align 4
+  %929 = add i32 %928, 4
+  store i32 %929, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-929:                                              ; preds = %requestLength.exit
-  %930 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_deviceSpec, align 4
-  %931 = load i32, ptr %2, align 4
-  %932 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %930, ptr noundef %0, i32 noundef %931, i32 noundef 2, i32 noundef %4)
-  %933 = load i32, ptr %2, align 4
-  %934 = add i32 %933, 2
-  store i32 %934, ptr %2, align 4
-  %935 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledClass, align 4
-  %936 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %935, i32 noundef %4)
-  %937 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledID, align 4
-  %938 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %937, i32 noundef %4)
-  %939 = load i32, ptr @hf_x11_unused, align 4
-  %940 = load i32, ptr %2, align 4
-  %941 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %939, ptr noundef %0, i32 noundef %940, i32 noundef 2, i32 noundef 0)
-  %942 = load i32, ptr %2, align 4
-  %943 = add i32 %942, 2
-  store i32 %943, ptr %2, align 4
-  %944 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_indicator, align 4
-  %945 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %944, ptr noundef %0, i32 noundef %943, i32 noundef 4, i32 noundef %4)
-  %946 = load i32, ptr %2, align 4
-  %947 = add i32 %946, 4
-  store i32 %947, ptr %2, align 4
-  %948 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_setState, align 4
-  %949 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %948, ptr noundef %0, i32 noundef %947, i32 noundef 1, i32 noundef %4)
-  %950 = load i32, ptr %2, align 4
-  %951 = add i32 %950, 1
-  store i32 %951, ptr %2, align 4
-  %952 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_on, align 4
-  %953 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %952, ptr noundef %0, i32 noundef %951, i32 noundef 1, i32 noundef %4)
-  %954 = load i32, ptr %2, align 4
-  %955 = add i32 %954, 1
-  store i32 %955, ptr %2, align 4
-  %956 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_setMap, align 4
-  %957 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %956, ptr noundef %0, i32 noundef %955, i32 noundef 1, i32 noundef %4)
-  %958 = load i32, ptr %2, align 4
-  %959 = add i32 %958, 1
-  store i32 %959, ptr %2, align 4
-  %960 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_createMap, align 4
-  %961 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %960, ptr noundef %0, i32 noundef %959, i32 noundef 1, i32 noundef %4)
-  %962 = load i32, ptr %2, align 4
-  %963 = add i32 %962, 1
-  store i32 %963, ptr %2, align 4
-  %964 = load i32, ptr @hf_x11_unused, align 4
-  %965 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %964, ptr noundef %0, i32 noundef %963, i32 noundef 1, i32 noundef 0)
-  %966 = load i32, ptr %2, align 4
-  %967 = add i32 %966, 1
-  store i32 %967, ptr %2, align 4
-  %968 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_flags, align 4
-  %969 = load i32, ptr @ett_x11_rectangle, align 4
-  %970 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %967, i32 noundef %968, i32 noundef %969, ptr noundef nonnull @xkbSetNamedIndicator.map_flags_bits, i32 noundef %4)
-  %971 = load i32, ptr %2, align 4
-  %972 = add i32 %971, 1
-  store i32 %972, ptr %2, align 4
-  %973 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_whichGroups, align 4
-  %974 = load i32, ptr @ett_x11_rectangle, align 4
-  %975 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %972, i32 noundef %973, i32 noundef %974, ptr noundef nonnull @xkbSetNamedIndicator.map_whichGroups_bits, i32 noundef %4)
-  %976 = load i32, ptr %2, align 4
-  %977 = add i32 %976, 1
-  store i32 %977, ptr %2, align 4
-  %978 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_groups, align 4
-  %979 = load i32, ptr @ett_x11_rectangle, align 4
-  %980 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %977, i32 noundef %978, i32 noundef %979, ptr noundef nonnull @xkbSetNamedIndicator.map_groups_bits, i32 noundef %4)
-  %981 = load i32, ptr %2, align 4
-  %982 = add i32 %981, 1
-  store i32 %982, ptr %2, align 4
-  %983 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_whichMods, align 4
-  %984 = load i32, ptr @ett_x11_rectangle, align 4
-  %985 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %982, i32 noundef %983, i32 noundef %984, ptr noundef nonnull @xkbSetNamedIndicator.map_whichMods_bits, i32 noundef %4)
-  %986 = load i32, ptr %2, align 4
-  %987 = add i32 %986, 1
-  store i32 %987, ptr %2, align 4
-  %988 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_realMods, align 4
-  %989 = load i32, ptr @ett_x11_rectangle, align 4
-  %990 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %987, i32 noundef %988, i32 noundef %989, ptr noundef nonnull @xkbSetNamedIndicator.map_realMods_bits, i32 noundef %4)
-  %991 = load i32, ptr %2, align 4
-  %992 = add i32 %991, 1
-  store i32 %992, ptr %2, align 4
-  %993 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_vmods, align 4
-  %994 = load i32, ptr @ett_x11_rectangle, align 4
-  %995 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %992, i32 noundef %993, i32 noundef %994, ptr noundef nonnull @xkbSetNamedIndicator.map_vmods_bits, i32 noundef %4)
-  %996 = load i32, ptr %2, align 4
-  %997 = add i32 %996, 2
-  store i32 %997, ptr %2, align 4
-  %998 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_ctrls, align 4
-  %999 = load i32, ptr @ett_x11_rectangle, align 4
-  %1000 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %997, i32 noundef %998, i32 noundef %999, ptr noundef nonnull @xkbSetNamedIndicator.map_ctrls_bits, i32 noundef %4)
-  %1001 = load i32, ptr %2, align 4
-  %1002 = add i32 %1001, 4
-  store i32 %1002, ptr %2, align 4
+930:                                              ; preds = %requestLength.exit
+  %931 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_deviceSpec, align 4
+  %932 = load i32, ptr %2, align 4
+  %933 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %931, ptr noundef %0, i32 noundef %932, i32 noundef 2, i32 noundef %4)
+  %934 = load i32, ptr %2, align 4
+  %935 = add i32 %934, 2
+  store i32 %935, ptr %2, align 4
+  %936 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledClass, align 4
+  %937 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %936, i32 noundef %4)
+  %938 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_ledID, align 4
+  %939 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %938, i32 noundef %4)
+  %940 = load i32, ptr @hf_x11_unused, align 4
+  %941 = load i32, ptr %2, align 4
+  %942 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %940, ptr noundef %0, i32 noundef %941, i32 noundef 2, i32 noundef 0)
+  %943 = load i32, ptr %2, align 4
+  %944 = add i32 %943, 2
+  store i32 %944, ptr %2, align 4
+  %945 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_indicator, align 4
+  %946 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %945, ptr noundef %0, i32 noundef %944, i32 noundef 4, i32 noundef %4)
+  %947 = load i32, ptr %2, align 4
+  %948 = add i32 %947, 4
+  store i32 %948, ptr %2, align 4
+  %949 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_setState, align 4
+  %950 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %949, ptr noundef %0, i32 noundef %948, i32 noundef 1, i32 noundef %4)
+  %951 = load i32, ptr %2, align 4
+  %952 = add i32 %951, 1
+  store i32 %952, ptr %2, align 4
+  %953 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_on, align 4
+  %954 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %953, ptr noundef %0, i32 noundef %952, i32 noundef 1, i32 noundef %4)
+  %955 = load i32, ptr %2, align 4
+  %956 = add i32 %955, 1
+  store i32 %956, ptr %2, align 4
+  %957 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_setMap, align 4
+  %958 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %957, ptr noundef %0, i32 noundef %956, i32 noundef 1, i32 noundef %4)
+  %959 = load i32, ptr %2, align 4
+  %960 = add i32 %959, 1
+  store i32 %960, ptr %2, align 4
+  %961 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_createMap, align 4
+  %962 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %961, ptr noundef %0, i32 noundef %960, i32 noundef 1, i32 noundef %4)
+  %963 = load i32, ptr %2, align 4
+  %964 = add i32 %963, 1
+  store i32 %964, ptr %2, align 4
+  %965 = load i32, ptr @hf_x11_unused, align 4
+  %966 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %965, ptr noundef %0, i32 noundef %964, i32 noundef 1, i32 noundef 0)
+  %967 = load i32, ptr %2, align 4
+  %968 = add i32 %967, 1
+  store i32 %968, ptr %2, align 4
+  %969 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_flags, align 4
+  %970 = load i32, ptr @ett_x11_rectangle, align 4
+  %971 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %968, i32 noundef %969, i32 noundef %970, ptr noundef nonnull @xkbSetNamedIndicator.map_flags_bits, i32 noundef %4)
+  %972 = load i32, ptr %2, align 4
+  %973 = add i32 %972, 1
+  store i32 %973, ptr %2, align 4
+  %974 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_whichGroups, align 4
+  %975 = load i32, ptr @ett_x11_rectangle, align 4
+  %976 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %973, i32 noundef %974, i32 noundef %975, ptr noundef nonnull @xkbSetNamedIndicator.map_whichGroups_bits, i32 noundef %4)
+  %977 = load i32, ptr %2, align 4
+  %978 = add i32 %977, 1
+  store i32 %978, ptr %2, align 4
+  %979 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_groups, align 4
+  %980 = load i32, ptr @ett_x11_rectangle, align 4
+  %981 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %978, i32 noundef %979, i32 noundef %980, ptr noundef nonnull @xkbSetNamedIndicator.map_groups_bits, i32 noundef %4)
+  %982 = load i32, ptr %2, align 4
+  %983 = add i32 %982, 1
+  store i32 %983, ptr %2, align 4
+  %984 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_whichMods, align 4
+  %985 = load i32, ptr @ett_x11_rectangle, align 4
+  %986 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %983, i32 noundef %984, i32 noundef %985, ptr noundef nonnull @xkbSetNamedIndicator.map_whichMods_bits, i32 noundef %4)
+  %987 = load i32, ptr %2, align 4
+  %988 = add i32 %987, 1
+  store i32 %988, ptr %2, align 4
+  %989 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_realMods, align 4
+  %990 = load i32, ptr @ett_x11_rectangle, align 4
+  %991 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %988, i32 noundef %989, i32 noundef %990, ptr noundef nonnull @xkbSetNamedIndicator.map_realMods_bits, i32 noundef %4)
+  %992 = load i32, ptr %2, align 4
+  %993 = add i32 %992, 1
+  store i32 %993, ptr %2, align 4
+  %994 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_vmods, align 4
+  %995 = load i32, ptr @ett_x11_rectangle, align 4
+  %996 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %993, i32 noundef %994, i32 noundef %995, ptr noundef nonnull @xkbSetNamedIndicator.map_vmods_bits, i32 noundef %4)
+  %997 = load i32, ptr %2, align 4
+  %998 = add i32 %997, 2
+  store i32 %998, ptr %2, align 4
+  %999 = load i32, ptr @hf_x11_xkb_SetNamedIndicator_map_ctrls, align 4
+  %1000 = load i32, ptr @ett_x11_rectangle, align 4
+  %1001 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %998, i32 noundef %999, i32 noundef %1000, ptr noundef nonnull @xkbSetNamedIndicator.map_ctrls_bits, i32 noundef %4)
+  %1002 = load i32, ptr %2, align 4
+  %1003 = add i32 %1002, 4
+  store i32 %1003, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-1003:                                             ; preds = %requestLength.exit
-  %1004 = load i32, ptr @hf_x11_xkb_GetNames_deviceSpec, align 4
-  %1005 = load i32, ptr %2, align 4
-  %1006 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1004, ptr noundef %0, i32 noundef %1005, i32 noundef 2, i32 noundef %4)
-  %1007 = load i32, ptr %2, align 4
-  %1008 = add i32 %1007, 2
-  store i32 %1008, ptr %2, align 4
-  %1009 = load i32, ptr @hf_x11_unused, align 4
-  %1010 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1009, ptr noundef %0, i32 noundef %1008, i32 noundef 2, i32 noundef 0)
-  %1011 = load i32, ptr %2, align 4
-  %1012 = add i32 %1011, 2
-  store i32 %1012, ptr %2, align 4
-  %1013 = load i32, ptr @hf_x11_xkb_GetNames_which, align 4
-  %1014 = load i32, ptr @ett_x11_rectangle, align 4
-  %1015 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1012, i32 noundef %1013, i32 noundef %1014, ptr noundef nonnull @xkbGetNames.which_bits, i32 noundef %4)
-  %1016 = load i32, ptr %2, align 4
-  %1017 = add i32 %1016, 4
-  store i32 %1017, ptr %2, align 4
+1004:                                             ; preds = %requestLength.exit
+  %1005 = load i32, ptr @hf_x11_xkb_GetNames_deviceSpec, align 4
+  %1006 = load i32, ptr %2, align 4
+  %1007 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1005, ptr noundef %0, i32 noundef %1006, i32 noundef 2, i32 noundef %4)
+  %1008 = load i32, ptr %2, align 4
+  %1009 = add i32 %1008, 2
+  store i32 %1009, ptr %2, align 4
+  %1010 = load i32, ptr @hf_x11_unused, align 4
+  %1011 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1010, ptr noundef %0, i32 noundef %1009, i32 noundef 2, i32 noundef 0)
+  %1012 = load i32, ptr %2, align 4
+  %1013 = add i32 %1012, 2
+  store i32 %1013, ptr %2, align 4
+  %1014 = load i32, ptr @hf_x11_xkb_GetNames_which, align 4
+  %1015 = load i32, ptr @ett_x11_rectangle, align 4
+  %1016 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1013, i32 noundef %1014, i32 noundef %1015, ptr noundef nonnull @xkbGetNames.which_bits, i32 noundef %4)
+  %1017 = load i32, ptr %2, align 4
+  %1018 = add i32 %1017, 4
+  store i32 %1018, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-1018:                                             ; preds = %requestLength.exit
-  %1019 = load i32, ptr @hf_x11_xkb_SetNames_deviceSpec, align 4
-  %1020 = load i32, ptr %2, align 4
-  %1021 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1019, ptr noundef %0, i32 noundef %1020, i32 noundef 2, i32 noundef %4)
-  %1022 = load i32, ptr %2, align 4
-  %1023 = add i32 %1022, 2
-  store i32 %1023, ptr %2, align 4
-  %1024 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1023, i32 noundef %4)
-  %1025 = load i32, ptr %2, align 4
-  %1026 = load i32, ptr @hf_x11_xkb_SetNames_virtualMods, align 4
-  %1027 = load i32, ptr @ett_x11_rectangle, align 4
-  %1028 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1025, i32 noundef %1026, i32 noundef %1027, ptr noundef nonnull @xkbSetNames.virtualMods_bits, i32 noundef %4)
-  %1029 = load i32, ptr %2, align 4
-  %1030 = add i32 %1029, 2
-  store i32 %1030, ptr %2, align 4
-  %1031 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %1030, i32 noundef %4)
-  %1032 = load i32, ptr %2, align 4
-  %1033 = load i32, ptr @hf_x11_xkb_SetNames_which, align 4
-  %1034 = load i32, ptr @ett_x11_rectangle, align 4
-  %1035 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1032, i32 noundef %1033, i32 noundef %1034, ptr noundef nonnull @xkbSetNames.which_bits, i32 noundef %4)
-  %1036 = load i32, ptr %2, align 4
-  %1037 = add i32 %1036, 4
-  store i32 %1037, ptr %2, align 4
-  %1038 = load i32, ptr @hf_x11_xkb_SetNames_firstType, align 4
-  %1039 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1038, ptr noundef %0, i32 noundef %1037, i32 noundef 1, i32 noundef %4)
-  %1040 = load i32, ptr %2, align 4
-  %1041 = add i32 %1040, 1
-  store i32 %1041, ptr %2, align 4
-  %1042 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1041)
-  %1043 = zext i8 %1042 to i32
-  %1044 = load i32, ptr @hf_x11_xkb_SetNames_nTypes, align 4
-  %1045 = load i32, ptr %2, align 4
-  %1046 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1044, ptr noundef %0, i32 noundef %1045, i32 noundef 1, i32 noundef %4)
-  %1047 = load i32, ptr %2, align 4
-  %1048 = add i32 %1047, 1
-  store i32 %1048, ptr %2, align 4
-  %1049 = load i32, ptr @hf_x11_xkb_SetNames_firstKTLevelt, align 4
-  %1050 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1049, ptr noundef %0, i32 noundef %1048, i32 noundef 1, i32 noundef %4)
-  %1051 = load i32, ptr %2, align 4
-  %1052 = add i32 %1051, 1
-  store i32 %1052, ptr %2, align 4
-  %1053 = load i32, ptr @hf_x11_xkb_SetNames_nKTLevels, align 4
-  %1054 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1053, ptr noundef %0, i32 noundef %1052, i32 noundef 1, i32 noundef %4)
-  %1055 = load i32, ptr %2, align 4
-  %1056 = add i32 %1055, 1
-  store i32 %1056, ptr %2, align 4
-  %1057 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %1056, i32 noundef %4)
-  %1058 = load i32, ptr @hf_x11_xkb_SetNames_indicators, align 4
-  %1059 = load i32, ptr %2, align 4
-  %1060 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1058, ptr noundef %0, i32 noundef %1059, i32 noundef 4, i32 noundef %4)
-  %1061 = load i32, ptr %2, align 4
-  %1062 = add i32 %1061, 4
-  store i32 %1062, ptr %2, align 4
-  %1063 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1062)
-  %1064 = load i32, ptr %2, align 4
-  %1065 = load i32, ptr @hf_x11_xkb_SetNames_groupNames, align 4
-  %1066 = load i32, ptr @ett_x11_rectangle, align 4
-  %1067 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1064, i32 noundef %1065, i32 noundef %1066, ptr noundef nonnull @xkbSetNames.groupNames_bits, i32 noundef %4)
-  %1068 = load i32, ptr %2, align 4
-  %1069 = add i32 %1068, 1
-  store i32 %1069, ptr %2, align 4
-  %1070 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1069)
-  %1071 = zext i8 %1070 to i32
-  %1072 = load i32, ptr @hf_x11_xkb_SetNames_nRadioGroups, align 4
-  %1073 = load i32, ptr %2, align 4
-  %1074 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1072, ptr noundef %0, i32 noundef %1073, i32 noundef 1, i32 noundef %4)
-  %1075 = load i32, ptr %2, align 4
-  %1076 = add i32 %1075, 1
-  store i32 %1076, ptr %2, align 4
-  %1077 = load i32, ptr @hf_x11_xkb_SetNames_firstKey, align 4
-  %1078 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1077, ptr noundef %0, i32 noundef %1076, i32 noundef 1, i32 noundef %4)
-  %1079 = load i32, ptr %2, align 4
-  %1080 = add i32 %1079, 1
-  store i32 %1080, ptr %2, align 4
-  %1081 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1080)
-  %1082 = zext i8 %1081 to i32
-  %1083 = load i32, ptr @hf_x11_xkb_SetNames_nKeys, align 4
-  %1084 = load i32, ptr %2, align 4
-  %1085 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1083, ptr noundef %0, i32 noundef %1084, i32 noundef 1, i32 noundef %4)
-  %1086 = load i32, ptr %2, align 4
-  %1087 = add i32 %1086, 1
-  store i32 %1087, ptr %2, align 4
-  %1088 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1087)
-  %1089 = zext i8 %1088 to i32
-  %1090 = load i32, ptr @hf_x11_xkb_SetNames_nKeyAliases, align 4
-  %1091 = load i32, ptr %2, align 4
-  %1092 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1090, ptr noundef %0, i32 noundef %1091, i32 noundef 1, i32 noundef %4)
-  %1093 = load i32, ptr %2, align 4
-  %1094 = add i32 %1093, 1
-  store i32 %1094, ptr %2, align 4
-  %1095 = load i32, ptr @hf_x11_unused, align 4
-  %1096 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1095, ptr noundef %0, i32 noundef %1094, i32 noundef 1, i32 noundef 0)
-  %1097 = load i32, ptr %2, align 4
-  %1098 = add i32 %1097, 1
-  store i32 %1098, ptr %2, align 4
-  %1099 = load i32, ptr @hf_x11_xkb_SetNames_totalKTLevelNames, align 4
-  %1100 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1099, ptr noundef %0, i32 noundef %1098, i32 noundef 2, i32 noundef %4)
-  %1101 = load i32, ptr %2, align 4
-  %1102 = add i32 %1101, 2
-  store i32 %1102, ptr %2, align 4
-  %1103 = and i32 %1031, 1
-  %.not.i155 = icmp eq i32 %1103, 0
-  br i1 %.not.i155, label %1109, label %1104
+1019:                                             ; preds = %requestLength.exit
+  %1020 = load i32, ptr @hf_x11_xkb_SetNames_deviceSpec, align 4
+  %1021 = load i32, ptr %2, align 4
+  %1022 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1020, ptr noundef %0, i32 noundef %1021, i32 noundef 2, i32 noundef %4)
+  %1023 = load i32, ptr %2, align 4
+  %1024 = add i32 %1023, 2
+  store i32 %1024, ptr %2, align 4
+  %1025 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1024, i32 noundef %4)
+  %1026 = load i32, ptr %2, align 4
+  %1027 = load i32, ptr @hf_x11_xkb_SetNames_virtualMods, align 4
+  %1028 = load i32, ptr @ett_x11_rectangle, align 4
+  %1029 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1026, i32 noundef %1027, i32 noundef %1028, ptr noundef nonnull @xkbSetNames.virtualMods_bits, i32 noundef %4)
+  %1030 = load i32, ptr %2, align 4
+  %1031 = add i32 %1030, 2
+  store i32 %1031, ptr %2, align 4
+  %1032 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %1031, i32 noundef %4)
+  %1033 = load i32, ptr %2, align 4
+  %1034 = load i32, ptr @hf_x11_xkb_SetNames_which, align 4
+  %1035 = load i32, ptr @ett_x11_rectangle, align 4
+  %1036 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1033, i32 noundef %1034, i32 noundef %1035, ptr noundef nonnull @xkbSetNames.which_bits, i32 noundef %4)
+  %1037 = load i32, ptr %2, align 4
+  %1038 = add i32 %1037, 4
+  store i32 %1038, ptr %2, align 4
+  %1039 = load i32, ptr @hf_x11_xkb_SetNames_firstType, align 4
+  %1040 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1039, ptr noundef %0, i32 noundef %1038, i32 noundef 1, i32 noundef %4)
+  %1041 = load i32, ptr %2, align 4
+  %1042 = add i32 %1041, 1
+  store i32 %1042, ptr %2, align 4
+  %1043 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1042)
+  %1044 = zext i8 %1043 to i32
+  %1045 = load i32, ptr @hf_x11_xkb_SetNames_nTypes, align 4
+  %1046 = load i32, ptr %2, align 4
+  %1047 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1045, ptr noundef %0, i32 noundef %1046, i32 noundef 1, i32 noundef %4)
+  %1048 = load i32, ptr %2, align 4
+  %1049 = add i32 %1048, 1
+  store i32 %1049, ptr %2, align 4
+  %1050 = load i32, ptr @hf_x11_xkb_SetNames_firstKTLevelt, align 4
+  %1051 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1050, ptr noundef %0, i32 noundef %1049, i32 noundef 1, i32 noundef %4)
+  %1052 = load i32, ptr %2, align 4
+  %1053 = add i32 %1052, 1
+  store i32 %1053, ptr %2, align 4
+  %1054 = load i32, ptr @hf_x11_xkb_SetNames_nKTLevels, align 4
+  %1055 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1054, ptr noundef %0, i32 noundef %1053, i32 noundef 1, i32 noundef %4)
+  %1056 = load i32, ptr %2, align 4
+  %1057 = add i32 %1056, 1
+  store i32 %1057, ptr %2, align 4
+  %1058 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %1057, i32 noundef %4)
+  %1059 = load i32, ptr @hf_x11_xkb_SetNames_indicators, align 4
+  %1060 = load i32, ptr %2, align 4
+  %1061 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1059, ptr noundef %0, i32 noundef %1060, i32 noundef 4, i32 noundef %4)
+  %1062 = load i32, ptr %2, align 4
+  %1063 = add i32 %1062, 4
+  store i32 %1063, ptr %2, align 4
+  %1064 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1063)
+  %1065 = load i32, ptr %2, align 4
+  %1066 = load i32, ptr @hf_x11_xkb_SetNames_groupNames, align 4
+  %1067 = load i32, ptr @ett_x11_rectangle, align 4
+  %1068 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1065, i32 noundef %1066, i32 noundef %1067, ptr noundef nonnull @xkbSetNames.groupNames_bits, i32 noundef %4)
+  %1069 = load i32, ptr %2, align 4
+  %1070 = add i32 %1069, 1
+  store i32 %1070, ptr %2, align 4
+  %1071 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1070)
+  %1072 = zext i8 %1071 to i32
+  %1073 = load i32, ptr @hf_x11_xkb_SetNames_nRadioGroups, align 4
+  %1074 = load i32, ptr %2, align 4
+  %1075 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1073, ptr noundef %0, i32 noundef %1074, i32 noundef 1, i32 noundef %4)
+  %1076 = load i32, ptr %2, align 4
+  %1077 = add i32 %1076, 1
+  store i32 %1077, ptr %2, align 4
+  %1078 = load i32, ptr @hf_x11_xkb_SetNames_firstKey, align 4
+  %1079 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1078, ptr noundef %0, i32 noundef %1077, i32 noundef 1, i32 noundef %4)
+  %1080 = load i32, ptr %2, align 4
+  %1081 = add i32 %1080, 1
+  store i32 %1081, ptr %2, align 4
+  %1082 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1081)
+  %1083 = zext i8 %1082 to i32
+  %1084 = load i32, ptr @hf_x11_xkb_SetNames_nKeys, align 4
+  %1085 = load i32, ptr %2, align 4
+  %1086 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1084, ptr noundef %0, i32 noundef %1085, i32 noundef 1, i32 noundef %4)
+  %1087 = load i32, ptr %2, align 4
+  %1088 = add i32 %1087, 1
+  store i32 %1088, ptr %2, align 4
+  %1089 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1088)
+  %1090 = zext i8 %1089 to i32
+  %1091 = load i32, ptr @hf_x11_xkb_SetNames_nKeyAliases, align 4
+  %1092 = load i32, ptr %2, align 4
+  %1093 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1091, ptr noundef %0, i32 noundef %1092, i32 noundef 1, i32 noundef %4)
+  %1094 = load i32, ptr %2, align 4
+  %1095 = add i32 %1094, 1
+  store i32 %1095, ptr %2, align 4
+  %1096 = load i32, ptr @hf_x11_unused, align 4
+  %1097 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1096, ptr noundef %0, i32 noundef %1095, i32 noundef 1, i32 noundef 0)
+  %1098 = load i32, ptr %2, align 4
+  %1099 = add i32 %1098, 1
+  store i32 %1099, ptr %2, align 4
+  %1100 = load i32, ptr @hf_x11_xkb_SetNames_totalKTLevelNames, align 4
+  %1101 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1100, ptr noundef %0, i32 noundef %1099, i32 noundef 2, i32 noundef %4)
+  %1102 = load i32, ptr %2, align 4
+  %1103 = add i32 %1102, 2
+  store i32 %1103, ptr %2, align 4
+  %1104 = and i32 %1032, 1
+  %.not.i155 = icmp eq i32 %1104, 0
+  br i1 %.not.i155, label %1110, label %1105
 
-1104:                                             ; preds = %1018
-  %1105 = load i32, ptr @hf_x11_xkb_SetNames_Keycodes_keycodesName, align 4
-  %1106 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1105, ptr noundef %0, i32 noundef %1102, i32 noundef 4, i32 noundef %4)
-  %1107 = load i32, ptr %2, align 4
-  %1108 = add i32 %1107, 4
-  store i32 %1108, ptr %2, align 4
-  br label %1109
+1105:                                             ; preds = %1019
+  %1106 = load i32, ptr @hf_x11_xkb_SetNames_Keycodes_keycodesName, align 4
+  %1107 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1106, ptr noundef %0, i32 noundef %1103, i32 noundef 4, i32 noundef %4)
+  %1108 = load i32, ptr %2, align 4
+  %1109 = add i32 %1108, 4
+  store i32 %1109, ptr %2, align 4
+  br label %1110
 
-1109:                                             ; preds = %1104, %1018
-  %1110 = phi i32 [ %1108, %1104 ], [ %1102, %1018 ]
-  %1111 = and i32 %1031, 2
-  %.not218.i = icmp eq i32 %1111, 0
-  br i1 %.not218.i, label %1117, label %1112
+1110:                                             ; preds = %1105, %1019
+  %1111 = phi i32 [ %1109, %1105 ], [ %1103, %1019 ]
+  %1112 = and i32 %1032, 2
+  %.not218.i = icmp eq i32 %1112, 0
+  br i1 %.not218.i, label %1118, label %1113
 
-1112:                                             ; preds = %1109
-  %1113 = load i32, ptr @hf_x11_xkb_SetNames_Geometry_geometryName, align 4
-  %1114 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1113, ptr noundef %0, i32 noundef %1110, i32 noundef 4, i32 noundef %4)
-  %1115 = load i32, ptr %2, align 4
-  %1116 = add i32 %1115, 4
-  store i32 %1116, ptr %2, align 4
-  br label %1117
+1113:                                             ; preds = %1110
+  %1114 = load i32, ptr @hf_x11_xkb_SetNames_Geometry_geometryName, align 4
+  %1115 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1114, ptr noundef %0, i32 noundef %1111, i32 noundef 4, i32 noundef %4)
+  %1116 = load i32, ptr %2, align 4
+  %1117 = add i32 %1116, 4
+  store i32 %1117, ptr %2, align 4
+  br label %1118
 
-1117:                                             ; preds = %1112, %1109
-  %1118 = phi i32 [ %1116, %1112 ], [ %1110, %1109 ]
-  %1119 = and i32 %1031, 4
-  %.not219.i = icmp eq i32 %1119, 0
-  br i1 %.not219.i, label %1125, label %1120
+1118:                                             ; preds = %1113, %1110
+  %1119 = phi i32 [ %1117, %1113 ], [ %1111, %1110 ]
+  %1120 = and i32 %1032, 4
+  %.not219.i = icmp eq i32 %1120, 0
+  br i1 %.not219.i, label %1126, label %1121
 
-1120:                                             ; preds = %1117
-  %1121 = load i32, ptr @hf_x11_xkb_SetNames_Symbols_symbolsName, align 4
-  %1122 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1121, ptr noundef %0, i32 noundef %1118, i32 noundef 4, i32 noundef %4)
-  %1123 = load i32, ptr %2, align 4
-  %1124 = add i32 %1123, 4
-  store i32 %1124, ptr %2, align 4
-  br label %1125
+1121:                                             ; preds = %1118
+  %1122 = load i32, ptr @hf_x11_xkb_SetNames_Symbols_symbolsName, align 4
+  %1123 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1122, ptr noundef %0, i32 noundef %1119, i32 noundef 4, i32 noundef %4)
+  %1124 = load i32, ptr %2, align 4
+  %1125 = add i32 %1124, 4
+  store i32 %1125, ptr %2, align 4
+  br label %1126
 
-1125:                                             ; preds = %1120, %1117
-  %1126 = phi i32 [ %1124, %1120 ], [ %1118, %1117 ]
-  %1127 = and i32 %1031, 8
-  %.not220.i = icmp eq i32 %1127, 0
-  br i1 %.not220.i, label %1133, label %1128
+1126:                                             ; preds = %1121, %1118
+  %1127 = phi i32 [ %1125, %1121 ], [ %1119, %1118 ]
+  %1128 = and i32 %1032, 8
+  %.not220.i = icmp eq i32 %1128, 0
+  br i1 %.not220.i, label %1134, label %1129
 
-1128:                                             ; preds = %1125
-  %1129 = load i32, ptr @hf_x11_xkb_SetNames_PhysSymbols_physSymbolsName, align 4
-  %1130 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1129, ptr noundef %0, i32 noundef %1126, i32 noundef 4, i32 noundef %4)
-  %1131 = load i32, ptr %2, align 4
-  %1132 = add i32 %1131, 4
-  store i32 %1132, ptr %2, align 4
-  br label %1133
+1129:                                             ; preds = %1126
+  %1130 = load i32, ptr @hf_x11_xkb_SetNames_PhysSymbols_physSymbolsName, align 4
+  %1131 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1130, ptr noundef %0, i32 noundef %1127, i32 noundef 4, i32 noundef %4)
+  %1132 = load i32, ptr %2, align 4
+  %1133 = add i32 %1132, 4
+  store i32 %1133, ptr %2, align 4
+  br label %1134
 
-1133:                                             ; preds = %1128, %1125
-  %1134 = phi i32 [ %1132, %1128 ], [ %1126, %1125 ]
-  %1135 = and i32 %1031, 16
-  %.not221.i = icmp eq i32 %1135, 0
-  br i1 %.not221.i, label %1141, label %1136
+1134:                                             ; preds = %1129, %1126
+  %1135 = phi i32 [ %1133, %1129 ], [ %1127, %1126 ]
+  %1136 = and i32 %1032, 16
+  %.not221.i = icmp eq i32 %1136, 0
+  br i1 %.not221.i, label %1142, label %1137
 
-1136:                                             ; preds = %1133
-  %1137 = load i32, ptr @hf_x11_xkb_SetNames_Types_typesName, align 4
-  %1138 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1137, ptr noundef %0, i32 noundef %1134, i32 noundef 4, i32 noundef %4)
-  %1139 = load i32, ptr %2, align 4
-  %1140 = add i32 %1139, 4
-  store i32 %1140, ptr %2, align 4
-  br label %1141
+1137:                                             ; preds = %1134
+  %1138 = load i32, ptr @hf_x11_xkb_SetNames_Types_typesName, align 4
+  %1139 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1138, ptr noundef %0, i32 noundef %1135, i32 noundef 4, i32 noundef %4)
+  %1140 = load i32, ptr %2, align 4
+  %1141 = add i32 %1140, 4
+  store i32 %1141, ptr %2, align 4
+  br label %1142
 
-1141:                                             ; preds = %1136, %1133
-  %1142 = phi i32 [ %1140, %1136 ], [ %1134, %1133 ]
-  %1143 = and i32 %1031, 32
-  %.not222.i = icmp eq i32 %1143, 0
-  br i1 %.not222.i, label %1149, label %1144
+1142:                                             ; preds = %1137, %1134
+  %1143 = phi i32 [ %1141, %1137 ], [ %1135, %1134 ]
+  %1144 = and i32 %1032, 32
+  %.not222.i = icmp eq i32 %1144, 0
+  br i1 %.not222.i, label %1150, label %1145
 
-1144:                                             ; preds = %1141
-  %1145 = load i32, ptr @hf_x11_xkb_SetNames_Compat_compatName, align 4
-  %1146 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1145, ptr noundef %0, i32 noundef %1142, i32 noundef 4, i32 noundef %4)
-  %1147 = load i32, ptr %2, align 4
-  %1148 = add i32 %1147, 4
-  store i32 %1148, ptr %2, align 4
-  br label %1149
+1145:                                             ; preds = %1142
+  %1146 = load i32, ptr @hf_x11_xkb_SetNames_Compat_compatName, align 4
+  %1147 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1146, ptr noundef %0, i32 noundef %1143, i32 noundef 4, i32 noundef %4)
+  %1148 = load i32, ptr %2, align 4
+  %1149 = add i32 %1148, 4
+  store i32 %1149, ptr %2, align 4
+  br label %1150
 
-1149:                                             ; preds = %1144, %1141
-  %1150 = phi i32 [ %1148, %1144 ], [ %1142, %1141 ]
-  %1151 = and i32 %1031, 64
-  %.not223.i = icmp eq i32 %1151, 0
-  br i1 %.not223.i, label %listOfCard32.exit.i, label %1152
+1150:                                             ; preds = %1145, %1142
+  %1151 = phi i32 [ %1149, %1145 ], [ %1143, %1142 ]
+  %1152 = and i32 %1032, 64
+  %.not223.i = icmp eq i32 %1152, 0
+  br i1 %.not223.i, label %listOfCard32.exit.i, label %1153
 
-1152:                                             ; preds = %1149
-  %1153 = load i32, ptr @hf_x11_xkb_SetNames_KeyTypeNames_typeNames, align 4
-  %1154 = load i32, ptr @hf_x11_xkb_SetNames_KeyTypeNames_typeNames_item, align 4
-  %1155 = shl nuw nsw i32 %1043, 2
-  %1156 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1153, ptr noundef %0, i32 noundef %1150, i32 noundef %1155, i32 noundef %4)
-  %1157 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1158 = call ptr @proto_item_add_subtree(ptr noundef %1156, i32 noundef %1157)
-  %.not13.i.i = icmp eq i8 %1042, 0
+1153:                                             ; preds = %1150
+  %1154 = load i32, ptr @hf_x11_xkb_SetNames_KeyTypeNames_typeNames, align 4
+  %1155 = load i32, ptr @hf_x11_xkb_SetNames_KeyTypeNames_typeNames_item, align 4
+  %1156 = shl nuw nsw i32 %1044, 2
+  %1157 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1154, ptr noundef %0, i32 noundef %1151, i32 noundef %1156, i32 noundef %4)
+  %1158 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1159 = call ptr @proto_item_add_subtree(ptr noundef %1157, i32 noundef %1158)
+  %.not13.i.i = icmp eq i8 %1043, 0
   br i1 %.not13.i.i, label %listOfCard32.exit.thread.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %1152
+.lr.ph.preheader.i.i:                             ; preds = %1153
   %.pre.i.i = load i32, ptr %2, align 4
   br label %.lr.ph.i.i156
 
 .lr.ph.i.i156:                                    ; preds = %.lr.ph.i.i156, %.lr.ph.preheader.i.i
-  %1159 = phi i32 [ %1163, %.lr.ph.i.i156 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %.014.i.i = phi i32 [ %1160, %.lr.ph.i.i156 ], [ %1043, %.lr.ph.preheader.i.i ]
-  %1160 = add nsw i32 %.014.i.i, -1
-  %1161 = call ptr @proto_tree_add_item(ptr noundef %1158, i32 noundef %1154, ptr noundef %0, i32 noundef %1159, i32 noundef 4, i32 noundef %4)
-  %1162 = load i32, ptr %2, align 4
-  %1163 = add i32 %1162, 4
-  store i32 %1163, ptr %2, align 4
-  %.not.i.i157 = icmp eq i32 %1160, 0
+  %1160 = phi i32 [ %1164, %.lr.ph.i.i156 ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %.014.i.i = phi i32 [ %1161, %.lr.ph.i.i156 ], [ %1044, %.lr.ph.preheader.i.i ]
+  %1161 = add nsw i32 %.014.i.i, -1
+  %1162 = call ptr @proto_tree_add_item(ptr noundef %1159, i32 noundef %1155, ptr noundef %0, i32 noundef %1160, i32 noundef 4, i32 noundef %4)
+  %1163 = load i32, ptr %2, align 4
+  %1164 = add i32 %1163, 4
+  store i32 %1164, ptr %2, align 4
+  %.not.i.i157 = icmp eq i32 %1161, 0
   br i1 %.not.i.i157, label %listOfCard32.exit.i, label %.lr.ph.i.i156, !llvm.loop !44
 
-listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i156, %1149
-  %1164 = and i32 %1031, 128
-  %.not224.i = icmp eq i32 %1164, 0
+listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i156, %1150
+  %1165 = and i32 %1032, 128
+  %.not224.i = icmp eq i32 %1165, 0
   br i1 %.not224.i, label %listOfCard32.exit238.i, label %.preheader.i
 
-listOfCard32.exit.thread.i:                       ; preds = %1152
-  %1165 = and i32 %1031, 128
-  %.not2244.i = icmp eq i32 %1165, 0
+listOfCard32.exit.thread.i:                       ; preds = %1153
+  %1166 = and i32 %1032, 128
+  %.not2244.i = icmp eq i32 %1166, 0
   br i1 %.not2244.i, label %listOfCard32.exit238.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %listOfCard32.exit.i
-  %.not3.i = icmp eq i8 %1042, 0
+  %.not3.i = icmp eq i8 %1043, 0
   br i1 %.not3.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.02.i = phi i32 [ %1171, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.02141.i = phi i32 [ %1170, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %1166 = load i32, ptr %2, align 4
-  %1167 = add i32 %1166, %.02.i
-  %1168 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1167)
-  %1169 = zext i8 %1168 to i32
-  %1170 = add i32 %.02141.i, %1169
-  %1171 = add nuw nsw i32 %.02.i, 1
-  %exitcond.not.i = icmp eq i32 %1171, %1043
+  %.02.i = phi i32 [ %1172, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.02141.i = phi i32 [ %1171, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %1167 = load i32, ptr %2, align 4
+  %1168 = add i32 %1167, %.02.i
+  %1169 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1168)
+  %1170 = zext i8 %1169 to i32
+  %1171 = add i32 %.02141.i, %1170
+  %1172 = add nuw nsw i32 %.02.i, 1
+  %exitcond.not.i = icmp eq i32 %1172, %1044
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !120
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i, %listOfCard32.exit.thread.i
-  %.0214.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %listOfCard32.exit.thread.i ], [ %1170, %.lr.ph.i ]
-  %1172 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_nLevelsPerType, align 4
-  %spec.store.select.i.i158 = call i32 @llvm.smax.i32(i32 %1043, i32 1)
-  %1173 = load i32, ptr %2, align 4
-  %1174 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1172, ptr noundef %0, i32 noundef %1173, i32 noundef %spec.store.select.i.i158, i32 noundef %4)
+  %.0214.lcssa.i = phi i32 [ 0, %.preheader.i ], [ 0, %listOfCard32.exit.thread.i ], [ %1171, %.lr.ph.i ]
+  %1173 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_nLevelsPerType, align 4
+  %1174 = call i32 @llvm.umax.i32(i32 %1044, i32 1)
   %1175 = load i32, ptr %2, align 4
-  %1176 = add i32 %1175, %spec.store.select.i.i158
-  store i32 %1176, ptr %2, align 4
-  %1177 = srem i32 %1176, 4
-  %.not225.i = icmp eq i32 %1177, 0
-  br i1 %.not225.i, label %1185, label %1178
+  %1176 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1173, ptr noundef %0, i32 noundef %1175, i32 noundef %1174, i32 noundef %4)
+  %1177 = load i32, ptr %2, align 4
+  %1178 = add i32 %1177, %1174
+  store i32 %1178, ptr %2, align 4
+  %1179 = srem i32 %1178, 4
+  %.not225.i = icmp eq i32 %1179, 0
+  br i1 %.not225.i, label %1187, label %1180
 
-1178:                                             ; preds = %._crit_edge.i
-  %1179 = load i32, ptr @hf_x11_unused, align 4
-  %1180 = sub nsw i32 4, %1177
-  %1181 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1179, ptr noundef %0, i32 noundef %1176, i32 noundef %1180, i32 noundef 0)
-  %1182 = load i32, ptr %2, align 4
-  %1183 = srem i32 %1182, 4
-  %reass.sub.i159 = add i32 %1182, 4
-  %1184 = sub i32 %reass.sub.i159, %1183
-  store i32 %1184, ptr %2, align 4
-  br label %1185
+1180:                                             ; preds = %._crit_edge.i
+  %1181 = load i32, ptr @hf_x11_unused, align 4
+  %1182 = sub nsw i32 4, %1179
+  %1183 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1181, ptr noundef %0, i32 noundef %1178, i32 noundef %1182, i32 noundef 0)
+  %1184 = load i32, ptr %2, align 4
+  %1185 = srem i32 %1184, 4
+  %reass.sub.i158 = add i32 %1184, 4
+  %1186 = sub i32 %reass.sub.i158, %1185
+  store i32 %1186, ptr %2, align 4
+  br label %1187
 
-1185:                                             ; preds = %1178, %._crit_edge.i
-  %1186 = phi i32 [ %1184, %1178 ], [ %1176, %._crit_edge.i ]
-  %1187 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_ktLevelNames, align 4
-  %1188 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_ktLevelNames_item, align 4
-  %1189 = shl i32 %.0214.lcssa.i, 2
-  %1190 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1187, ptr noundef %0, i32 noundef %1186, i32 noundef %1189, i32 noundef %4)
-  %1191 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1192 = call ptr @proto_item_add_subtree(ptr noundef %1190, i32 noundef %1191)
+1187:                                             ; preds = %1180, %._crit_edge.i
+  %1188 = phi i32 [ %1186, %1180 ], [ %1178, %._crit_edge.i ]
+  %1189 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_ktLevelNames, align 4
+  %1190 = load i32, ptr @hf_x11_xkb_SetNames_KTLevelNames_ktLevelNames_item, align 4
+  %1191 = shl i32 %.0214.lcssa.i, 2
+  %1192 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1189, ptr noundef %0, i32 noundef %1188, i32 noundef %1191, i32 noundef %4)
+  %1193 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1194 = call ptr @proto_item_add_subtree(ptr noundef %1192, i32 noundef %1193)
   %.not13.i232.i = icmp eq i32 %.0214.lcssa.i, 0
   br i1 %.not13.i232.i, label %listOfCard32.exit238.i, label %.lr.ph.preheader.i233.i
 
-.lr.ph.preheader.i233.i:                          ; preds = %1185
+.lr.ph.preheader.i233.i:                          ; preds = %1187
   %.pre.i234.i = load i32, ptr %2, align 4
   br label %.lr.ph.i235.i
 
 .lr.ph.i235.i:                                    ; preds = %.lr.ph.i235.i, %.lr.ph.preheader.i233.i
-  %1193 = phi i32 [ %1197, %.lr.ph.i235.i ], [ %.pre.i234.i, %.lr.ph.preheader.i233.i ]
-  %.014.i236.i = phi i32 [ %1194, %.lr.ph.i235.i ], [ %.0214.lcssa.i, %.lr.ph.preheader.i233.i ]
-  %1194 = add i32 %.014.i236.i, -1
-  %1195 = call ptr @proto_tree_add_item(ptr noundef %1192, i32 noundef %1188, ptr noundef %0, i32 noundef %1193, i32 noundef 4, i32 noundef %4)
-  %1196 = load i32, ptr %2, align 4
-  %1197 = add i32 %1196, 4
-  store i32 %1197, ptr %2, align 4
-  %.not.i237.i = icmp eq i32 %1194, 0
+  %1195 = phi i32 [ %1199, %.lr.ph.i235.i ], [ %.pre.i234.i, %.lr.ph.preheader.i233.i ]
+  %.014.i236.i = phi i32 [ %1196, %.lr.ph.i235.i ], [ %.0214.lcssa.i, %.lr.ph.preheader.i233.i ]
+  %1196 = add i32 %.014.i236.i, -1
+  %1197 = call ptr @proto_tree_add_item(ptr noundef %1194, i32 noundef %1190, ptr noundef %0, i32 noundef %1195, i32 noundef 4, i32 noundef %4)
+  %1198 = load i32, ptr %2, align 4
+  %1199 = add i32 %1198, 4
+  store i32 %1199, ptr %2, align 4
+  %.not.i237.i = icmp eq i32 %1196, 0
   br i1 %.not.i237.i, label %listOfCard32.exit238.i, label %.lr.ph.i235.i, !llvm.loop !44
 
-listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %1185, %listOfCard32.exit.thread.i, %listOfCard32.exit.i
-  %1198 = and i32 %1031, 256
-  %.not226.i = icmp eq i32 %1198, 0
-  br i1 %.not226.i, label %listOfCard32.exit245.i, label %1199
+listOfCard32.exit238.i:                           ; preds = %.lr.ph.i235.i, %1187, %listOfCard32.exit.thread.i, %listOfCard32.exit.i
+  %1200 = and i32 %1032, 256
+  %.not226.i = icmp eq i32 %1200, 0
+  br i1 %.not226.i, label %listOfCard32.exit245.i, label %1201
 
-1199:                                             ; preds = %listOfCard32.exit238.i
-  %1200 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames, align 4
-  %1201 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames_item, align 4
-  %1202 = sext i32 %1057 to i64
-  %1203 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %1202)
-  %1204 = trunc nuw nsw i64 %1203 to i32
-  %1205 = load i32, ptr %2, align 4
-  %1206 = shl nuw nsw i32 %1204, 2
-  %1207 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1200, ptr noundef %0, i32 noundef %1205, i32 noundef %1206, i32 noundef %4)
-  %1208 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1209 = call ptr @proto_item_add_subtree(ptr noundef %1207, i32 noundef %1208)
-  %.not13.i239.i = icmp eq i32 %1057, 0
+1201:                                             ; preds = %listOfCard32.exit238.i
+  %1202 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames, align 4
+  %1203 = load i32, ptr @hf_x11_xkb_SetNames_IndicatorNames_indicatorNames_item, align 4
+  %1204 = sext i32 %1058 to i64
+  %1205 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %1204)
+  %1206 = trunc nuw nsw i64 %1205 to i32
+  %1207 = load i32, ptr %2, align 4
+  %1208 = shl nuw nsw i32 %1206, 2
+  %1209 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1202, ptr noundef %0, i32 noundef %1207, i32 noundef %1208, i32 noundef %4)
+  %1210 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1211 = call ptr @proto_item_add_subtree(ptr noundef %1209, i32 noundef %1210)
+  %.not13.i239.i = icmp eq i32 %1058, 0
   br i1 %.not13.i239.i, label %listOfCard32.exit245.i, label %.lr.ph.preheader.i240.i
 
-.lr.ph.preheader.i240.i:                          ; preds = %1199
+.lr.ph.preheader.i240.i:                          ; preds = %1201
   %.pre.i241.i = load i32, ptr %2, align 4
   br label %.lr.ph.i242.i
 
 .lr.ph.i242.i:                                    ; preds = %.lr.ph.i242.i, %.lr.ph.preheader.i240.i
-  %1210 = phi i32 [ %1214, %.lr.ph.i242.i ], [ %.pre.i241.i, %.lr.ph.preheader.i240.i ]
-  %.014.i243.i = phi i32 [ %1211, %.lr.ph.i242.i ], [ %1204, %.lr.ph.preheader.i240.i ]
-  %1211 = add i32 %.014.i243.i, -1
-  %1212 = call ptr @proto_tree_add_item(ptr noundef %1209, i32 noundef %1201, ptr noundef %0, i32 noundef %1210, i32 noundef 4, i32 noundef %4)
-  %1213 = load i32, ptr %2, align 4
-  %1214 = add i32 %1213, 4
-  store i32 %1214, ptr %2, align 4
-  %.not.i244.i = icmp eq i32 %1211, 0
+  %1212 = phi i32 [ %1216, %.lr.ph.i242.i ], [ %.pre.i241.i, %.lr.ph.preheader.i240.i ]
+  %.014.i243.i = phi i32 [ %1213, %.lr.ph.i242.i ], [ %1206, %.lr.ph.preheader.i240.i ]
+  %1213 = add i32 %.014.i243.i, -1
+  %1214 = call ptr @proto_tree_add_item(ptr noundef %1211, i32 noundef %1203, ptr noundef %0, i32 noundef %1212, i32 noundef 4, i32 noundef %4)
+  %1215 = load i32, ptr %2, align 4
+  %1216 = add i32 %1215, 4
+  store i32 %1216, ptr %2, align 4
+  %.not.i244.i = icmp eq i32 %1213, 0
   br i1 %.not.i244.i, label %listOfCard32.exit245.i, label %.lr.ph.i242.i, !llvm.loop !44
 
-listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %1199, %listOfCard32.exit238.i
-  %1215 = and i32 %1031, 2048
-  %.not227.i = icmp eq i32 %1215, 0
-  br i1 %.not227.i, label %listOfCard32.exit252.i, label %1216
+listOfCard32.exit245.i:                           ; preds = %.lr.ph.i242.i, %1201, %listOfCard32.exit238.i
+  %1217 = and i32 %1032, 2048
+  %.not227.i = icmp eq i32 %1217, 0
+  br i1 %.not227.i, label %listOfCard32.exit252.i, label %1218
 
-1216:                                             ; preds = %listOfCard32.exit245.i
-  %1217 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames, align 4
-  %1218 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames_item, align 4
-  %1219 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %1024)
-  %1220 = zext nneg i16 %1219 to i32
-  %1221 = load i32, ptr %2, align 4
-  %1222 = shl nuw nsw i32 %1220, 2
-  %1223 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1217, ptr noundef %0, i32 noundef %1221, i32 noundef %1222, i32 noundef %4)
-  %1224 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1225 = call ptr @proto_item_add_subtree(ptr noundef %1223, i32 noundef %1224)
-  %.not13.i246.i = icmp eq i16 %1024, 0
+1218:                                             ; preds = %listOfCard32.exit245.i
+  %1219 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames, align 4
+  %1220 = load i32, ptr @hf_x11_xkb_SetNames_VirtualModNames_virtualModNames_item, align 4
+  %1221 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %1025)
+  %1222 = zext nneg i16 %1221 to i32
+  %1223 = load i32, ptr %2, align 4
+  %1224 = shl nuw nsw i32 %1222, 2
+  %1225 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1219, ptr noundef %0, i32 noundef %1223, i32 noundef %1224, i32 noundef %4)
+  %1226 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1227 = call ptr @proto_item_add_subtree(ptr noundef %1225, i32 noundef %1226)
+  %.not13.i246.i = icmp eq i16 %1025, 0
   br i1 %.not13.i246.i, label %listOfCard32.exit252.i, label %.lr.ph.preheader.i247.i
 
-.lr.ph.preheader.i247.i:                          ; preds = %1216
+.lr.ph.preheader.i247.i:                          ; preds = %1218
   %.pre.i248.i = load i32, ptr %2, align 4
   br label %.lr.ph.i249.i
 
 .lr.ph.i249.i:                                    ; preds = %.lr.ph.i249.i, %.lr.ph.preheader.i247.i
-  %1226 = phi i32 [ %1230, %.lr.ph.i249.i ], [ %.pre.i248.i, %.lr.ph.preheader.i247.i ]
-  %.014.i250.i = phi i32 [ %1227, %.lr.ph.i249.i ], [ %1220, %.lr.ph.preheader.i247.i ]
-  %1227 = add i32 %.014.i250.i, -1
-  %1228 = call ptr @proto_tree_add_item(ptr noundef %1225, i32 noundef %1218, ptr noundef %0, i32 noundef %1226, i32 noundef 4, i32 noundef %4)
-  %1229 = load i32, ptr %2, align 4
-  %1230 = add i32 %1229, 4
-  store i32 %1230, ptr %2, align 4
-  %.not.i251.i = icmp eq i32 %1227, 0
+  %1228 = phi i32 [ %1232, %.lr.ph.i249.i ], [ %.pre.i248.i, %.lr.ph.preheader.i247.i ]
+  %.014.i250.i = phi i32 [ %1229, %.lr.ph.i249.i ], [ %1222, %.lr.ph.preheader.i247.i ]
+  %1229 = add i32 %.014.i250.i, -1
+  %1230 = call ptr @proto_tree_add_item(ptr noundef %1227, i32 noundef %1220, ptr noundef %0, i32 noundef %1228, i32 noundef 4, i32 noundef %4)
+  %1231 = load i32, ptr %2, align 4
+  %1232 = add i32 %1231, 4
+  store i32 %1232, ptr %2, align 4
+  %.not.i251.i = icmp eq i32 %1229, 0
   br i1 %.not.i251.i, label %listOfCard32.exit252.i, label %.lr.ph.i249.i, !llvm.loop !44
 
-listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %1216, %listOfCard32.exit245.i
-  %1231 = and i32 %1031, 4096
-  %.not228.i = icmp eq i32 %1231, 0
-  br i1 %.not228.i, label %listOfCard32.exit259.i, label %1232
+listOfCard32.exit252.i:                           ; preds = %.lr.ph.i249.i, %1218, %listOfCard32.exit245.i
+  %1233 = and i32 %1032, 4096
+  %.not228.i = icmp eq i32 %1233, 0
+  br i1 %.not228.i, label %listOfCard32.exit259.i, label %1234
 
-1232:                                             ; preds = %listOfCard32.exit252.i
-  %1233 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups, align 4
-  %1234 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups_item, align 4
-  %1235 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1063)
-  %1236 = zext nneg i8 %1235 to i32
-  %1237 = load i32, ptr %2, align 4
-  %1238 = shl nuw nsw i32 %1236, 2
-  %1239 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1233, ptr noundef %0, i32 noundef %1237, i32 noundef %1238, i32 noundef %4)
-  %1240 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1241 = call ptr @proto_item_add_subtree(ptr noundef %1239, i32 noundef %1240)
-  %.not13.i253.i = icmp eq i8 %1063, 0
+1234:                                             ; preds = %listOfCard32.exit252.i
+  %1235 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups, align 4
+  %1236 = load i32, ptr @hf_x11_xkb_SetNames_GroupNames_groups_item, align 4
+  %1237 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1064)
+  %1238 = zext nneg i8 %1237 to i32
+  %1239 = load i32, ptr %2, align 4
+  %1240 = shl nuw nsw i32 %1238, 2
+  %1241 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1235, ptr noundef %0, i32 noundef %1239, i32 noundef %1240, i32 noundef %4)
+  %1242 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1243 = call ptr @proto_item_add_subtree(ptr noundef %1241, i32 noundef %1242)
+  %.not13.i253.i = icmp eq i8 %1064, 0
   br i1 %.not13.i253.i, label %listOfCard32.exit259.i, label %.lr.ph.preheader.i254.i
 
-.lr.ph.preheader.i254.i:                          ; preds = %1232
+.lr.ph.preheader.i254.i:                          ; preds = %1234
   %.pre.i255.i = load i32, ptr %2, align 4
   br label %.lr.ph.i256.i
 
 .lr.ph.i256.i:                                    ; preds = %.lr.ph.i256.i, %.lr.ph.preheader.i254.i
-  %1242 = phi i32 [ %1246, %.lr.ph.i256.i ], [ %.pre.i255.i, %.lr.ph.preheader.i254.i ]
-  %.014.i257.i = phi i32 [ %1243, %.lr.ph.i256.i ], [ %1236, %.lr.ph.preheader.i254.i ]
-  %1243 = add i32 %.014.i257.i, -1
-  %1244 = call ptr @proto_tree_add_item(ptr noundef %1241, i32 noundef %1234, ptr noundef %0, i32 noundef %1242, i32 noundef 4, i32 noundef %4)
-  %1245 = load i32, ptr %2, align 4
-  %1246 = add i32 %1245, 4
-  store i32 %1246, ptr %2, align 4
-  %.not.i258.i = icmp eq i32 %1243, 0
+  %1244 = phi i32 [ %1248, %.lr.ph.i256.i ], [ %.pre.i255.i, %.lr.ph.preheader.i254.i ]
+  %.014.i257.i = phi i32 [ %1245, %.lr.ph.i256.i ], [ %1238, %.lr.ph.preheader.i254.i ]
+  %1245 = add i32 %.014.i257.i, -1
+  %1246 = call ptr @proto_tree_add_item(ptr noundef %1243, i32 noundef %1236, ptr noundef %0, i32 noundef %1244, i32 noundef 4, i32 noundef %4)
+  %1247 = load i32, ptr %2, align 4
+  %1248 = add i32 %1247, 4
+  store i32 %1248, ptr %2, align 4
+  %.not.i258.i = icmp eq i32 %1245, 0
   br i1 %.not.i258.i, label %listOfCard32.exit259.i, label %.lr.ph.i256.i, !llvm.loop !44
 
-listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %1232, %listOfCard32.exit252.i
-  %1247 = and i32 %1031, 512
-  %.not229.i = icmp eq i32 %1247, 0
-  %.not.i260.i = icmp eq i8 %1081, 0
+listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %1234, %listOfCard32.exit252.i
+  %1249 = and i32 %1032, 512
+  %.not229.i = icmp eq i32 %1249, 0
+  %.not.i260.i = icmp eq i8 %1082, 0
   %or.cond.i = select i1 %.not229.i, i1 true, i1 %.not.i260.i
   br i1 %or.cond.i, label %struct_xkb_KeyName.exit.i, label %.lr.ph.preheader.i261.i
 
@@ -78148,272 +78148,272 @@ listOfCard32.exit259.i:                           ; preds = %.lr.ph.i256.i, %123
   br label %.lr.ph.i263.i
 
 .lr.ph.i263.i:                                    ; preds = %.lr.ph.i263.i, %.lr.ph.preheader.i261.i
-  %1248 = phi i32 [ %1257, %.lr.ph.i263.i ], [ %.pre.i262.i, %.lr.ph.preheader.i261.i ]
-  %.010.i.i = phi i32 [ %1258, %.lr.ph.i263.i ], [ 0, %.lr.ph.preheader.i261.i ]
-  %1249 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
-  %1250 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1249, ptr noundef %0, i32 noundef %1248, i32 noundef 4, i32 noundef 0)
-  %1251 = load i32, ptr @ett_x11_rectangle, align 4
-  %1252 = call ptr @proto_item_add_subtree(ptr noundef %1250, i32 noundef %1251)
-  %1253 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
-  %1254 = load i32, ptr %2, align 4
-  %1255 = call ptr @proto_tree_add_item(ptr noundef %1252, i32 noundef %1253, ptr noundef %0, i32 noundef %1254, i32 noundef 4, i32 noundef %4)
+  %1250 = phi i32 [ %1259, %.lr.ph.i263.i ], [ %.pre.i262.i, %.lr.ph.preheader.i261.i ]
+  %.010.i.i = phi i32 [ %1260, %.lr.ph.i263.i ], [ 0, %.lr.ph.preheader.i261.i ]
+  %1251 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
+  %1252 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1251, ptr noundef %0, i32 noundef %1250, i32 noundef 4, i32 noundef 0)
+  %1253 = load i32, ptr @ett_x11_rectangle, align 4
+  %1254 = call ptr @proto_item_add_subtree(ptr noundef %1252, i32 noundef %1253)
+  %1255 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
   %1256 = load i32, ptr %2, align 4
-  %1257 = add i32 %1256, 4
-  store i32 %1257, ptr %2, align 4
-  %1258 = add nuw nsw i32 %.010.i.i, 1
-  %exitcond.not.i.i160 = icmp eq i32 %1258, %1082
-  br i1 %exitcond.not.i.i160, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i263.i, !llvm.loop !121
+  %1257 = call ptr @proto_tree_add_item(ptr noundef %1254, i32 noundef %1255, ptr noundef %0, i32 noundef %1256, i32 noundef 4, i32 noundef %4)
+  %1258 = load i32, ptr %2, align 4
+  %1259 = add i32 %1258, 4
+  store i32 %1259, ptr %2, align 4
+  %1260 = add nuw nsw i32 %.010.i.i, 1
+  %exitcond.not.i.i159 = icmp eq i32 %1260, %1083
+  br i1 %exitcond.not.i.i159, label %struct_xkb_KeyName.exit.i, label %.lr.ph.i263.i, !llvm.loop !121
 
 struct_xkb_KeyName.exit.i:                        ; preds = %.lr.ph.i263.i, %listOfCard32.exit259.i
-  %1259 = and i32 %1031, 1024
-  %.not230.i = icmp eq i32 %1259, 0
-  br i1 %.not230.i, label %1261, label %1260
+  %1261 = and i32 %1032, 1024
+  %.not230.i = icmp eq i32 %1261, 0
+  br i1 %.not230.i, label %1263, label %1262
 
-1260:                                             ; preds = %struct_xkb_KeyName.exit.i
-  call fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1089)
-  br label %1261
+1262:                                             ; preds = %struct_xkb_KeyName.exit.i
+  call fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1090)
+  br label %1263
 
-1261:                                             ; preds = %1260, %struct_xkb_KeyName.exit.i
-  %1262 = and i32 %1031, 8192
-  %.not231.i = icmp eq i32 %1262, 0
-  br i1 %.not231.i, label %xkbSelectEvents.exit, label %1263
+1263:                                             ; preds = %1262, %struct_xkb_KeyName.exit.i
+  %1264 = and i32 %1032, 8192
+  %.not231.i = icmp eq i32 %1264, 0
+  br i1 %.not231.i, label %xkbSelectEvents.exit, label %1265
 
-1263:                                             ; preds = %1261
-  %1264 = load i32, ptr @hf_x11_xkb_SetNames_RGNames_radioGroupNames, align 4
-  %1265 = load i32, ptr @hf_x11_xkb_SetNames_RGNames_radioGroupNames_item, align 4
-  %1266 = load i32, ptr %2, align 4
-  %1267 = shl nuw nsw i32 %1071, 2
-  %1268 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1264, ptr noundef %0, i32 noundef %1266, i32 noundef %1267, i32 noundef %4)
-  %1269 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %1270 = call ptr @proto_item_add_subtree(ptr noundef %1268, i32 noundef %1269)
-  %.not13.i264.i = icmp eq i8 %1070, 0
+1265:                                             ; preds = %1263
+  %1266 = load i32, ptr @hf_x11_xkb_SetNames_RGNames_radioGroupNames, align 4
+  %1267 = load i32, ptr @hf_x11_xkb_SetNames_RGNames_radioGroupNames_item, align 4
+  %1268 = load i32, ptr %2, align 4
+  %1269 = shl nuw nsw i32 %1072, 2
+  %1270 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1266, ptr noundef %0, i32 noundef %1268, i32 noundef %1269, i32 noundef %4)
+  %1271 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %1272 = call ptr @proto_item_add_subtree(ptr noundef %1270, i32 noundef %1271)
+  %.not13.i264.i = icmp eq i8 %1071, 0
   br i1 %.not13.i264.i, label %xkbSelectEvents.exit, label %.lr.ph.preheader.i265.i
 
-.lr.ph.preheader.i265.i:                          ; preds = %1263
+.lr.ph.preheader.i265.i:                          ; preds = %1265
   %.pre.i266.i = load i32, ptr %2, align 4
   br label %.lr.ph.i267.i
 
 .lr.ph.i267.i:                                    ; preds = %.lr.ph.i267.i, %.lr.ph.preheader.i265.i
-  %1271 = phi i32 [ %1275, %.lr.ph.i267.i ], [ %.pre.i266.i, %.lr.ph.preheader.i265.i ]
-  %.014.i268.i = phi i32 [ %1272, %.lr.ph.i267.i ], [ %1071, %.lr.ph.preheader.i265.i ]
-  %1272 = add nsw i32 %.014.i268.i, -1
-  %1273 = call ptr @proto_tree_add_item(ptr noundef %1270, i32 noundef %1265, ptr noundef %0, i32 noundef %1271, i32 noundef 4, i32 noundef %4)
-  %1274 = load i32, ptr %2, align 4
-  %1275 = add i32 %1274, 4
-  store i32 %1275, ptr %2, align 4
-  %.not.i269.i = icmp eq i32 %1272, 0
+  %1273 = phi i32 [ %1277, %.lr.ph.i267.i ], [ %.pre.i266.i, %.lr.ph.preheader.i265.i ]
+  %.014.i268.i = phi i32 [ %1274, %.lr.ph.i267.i ], [ %1072, %.lr.ph.preheader.i265.i ]
+  %1274 = add nsw i32 %.014.i268.i, -1
+  %1275 = call ptr @proto_tree_add_item(ptr noundef %1272, i32 noundef %1267, ptr noundef %0, i32 noundef %1273, i32 noundef 4, i32 noundef %4)
+  %1276 = load i32, ptr %2, align 4
+  %1277 = add i32 %1276, 4
+  store i32 %1277, ptr %2, align 4
+  %.not.i269.i = icmp eq i32 %1274, 0
   br i1 %.not.i269.i, label %xkbSelectEvents.exit, label %.lr.ph.i267.i, !llvm.loop !44
 
-1276:                                             ; preds = %requestLength.exit
-  %1277 = load i32, ptr @hf_x11_xkb_PerClientFlags_deviceSpec, align 4
-  %1278 = load i32, ptr %2, align 4
-  %1279 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1277, ptr noundef %0, i32 noundef %1278, i32 noundef 2, i32 noundef %4)
+1278:                                             ; preds = %requestLength.exit
+  %1279 = load i32, ptr @hf_x11_xkb_PerClientFlags_deviceSpec, align 4
   %1280 = load i32, ptr %2, align 4
-  %1281 = add i32 %1280, 2
-  store i32 %1281, ptr %2, align 4
-  %1282 = load i32, ptr @hf_x11_unused, align 4
-  %1283 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1282, ptr noundef %0, i32 noundef %1281, i32 noundef 2, i32 noundef 0)
-  %1284 = load i32, ptr %2, align 4
-  %1285 = add i32 %1284, 2
-  store i32 %1285, ptr %2, align 4
-  %1286 = load i32, ptr @hf_x11_xkb_PerClientFlags_change, align 4
-  %1287 = load i32, ptr @ett_x11_rectangle, align 4
-  %1288 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1285, i32 noundef %1286, i32 noundef %1287, ptr noundef nonnull @xkbPerClientFlags.change_bits, i32 noundef %4)
-  %1289 = load i32, ptr %2, align 4
-  %1290 = add i32 %1289, 4
-  store i32 %1290, ptr %2, align 4
-  %1291 = load i32, ptr @hf_x11_xkb_PerClientFlags_value, align 4
-  %1292 = load i32, ptr @ett_x11_rectangle, align 4
-  %1293 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1290, i32 noundef %1291, i32 noundef %1292, ptr noundef nonnull @xkbPerClientFlags.value_bits, i32 noundef %4)
-  %1294 = load i32, ptr %2, align 4
-  %1295 = add i32 %1294, 4
-  store i32 %1295, ptr %2, align 4
-  %1296 = load i32, ptr @hf_x11_xkb_PerClientFlags_ctrlsToChange, align 4
-  %1297 = load i32, ptr @ett_x11_rectangle, align 4
-  %1298 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1295, i32 noundef %1296, i32 noundef %1297, ptr noundef nonnull @xkbPerClientFlags.ctrlsToChange_bits, i32 noundef %4)
-  %1299 = load i32, ptr %2, align 4
-  %1300 = add i32 %1299, 4
-  store i32 %1300, ptr %2, align 4
-  %1301 = load i32, ptr @hf_x11_xkb_PerClientFlags_autoCtrls, align 4
-  %1302 = load i32, ptr @ett_x11_rectangle, align 4
-  %1303 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1300, i32 noundef %1301, i32 noundef %1302, ptr noundef nonnull @xkbPerClientFlags.autoCtrls_bits, i32 noundef %4)
-  %1304 = load i32, ptr %2, align 4
-  %1305 = add i32 %1304, 4
-  store i32 %1305, ptr %2, align 4
-  %1306 = load i32, ptr @hf_x11_xkb_PerClientFlags_autoCtrlsValues, align 4
-  %1307 = load i32, ptr @ett_x11_rectangle, align 4
-  %1308 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1305, i32 noundef %1306, i32 noundef %1307, ptr noundef nonnull @xkbPerClientFlags.autoCtrlsValues_bits, i32 noundef %4)
-  %1309 = load i32, ptr %2, align 4
-  %1310 = add i32 %1309, 4
-  store i32 %1310, ptr %2, align 4
+  %1281 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1279, ptr noundef %0, i32 noundef %1280, i32 noundef 2, i32 noundef %4)
+  %1282 = load i32, ptr %2, align 4
+  %1283 = add i32 %1282, 2
+  store i32 %1283, ptr %2, align 4
+  %1284 = load i32, ptr @hf_x11_unused, align 4
+  %1285 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1284, ptr noundef %0, i32 noundef %1283, i32 noundef 2, i32 noundef 0)
+  %1286 = load i32, ptr %2, align 4
+  %1287 = add i32 %1286, 2
+  store i32 %1287, ptr %2, align 4
+  %1288 = load i32, ptr @hf_x11_xkb_PerClientFlags_change, align 4
+  %1289 = load i32, ptr @ett_x11_rectangle, align 4
+  %1290 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1287, i32 noundef %1288, i32 noundef %1289, ptr noundef nonnull @xkbPerClientFlags.change_bits, i32 noundef %4)
+  %1291 = load i32, ptr %2, align 4
+  %1292 = add i32 %1291, 4
+  store i32 %1292, ptr %2, align 4
+  %1293 = load i32, ptr @hf_x11_xkb_PerClientFlags_value, align 4
+  %1294 = load i32, ptr @ett_x11_rectangle, align 4
+  %1295 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1292, i32 noundef %1293, i32 noundef %1294, ptr noundef nonnull @xkbPerClientFlags.value_bits, i32 noundef %4)
+  %1296 = load i32, ptr %2, align 4
+  %1297 = add i32 %1296, 4
+  store i32 %1297, ptr %2, align 4
+  %1298 = load i32, ptr @hf_x11_xkb_PerClientFlags_ctrlsToChange, align 4
+  %1299 = load i32, ptr @ett_x11_rectangle, align 4
+  %1300 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1297, i32 noundef %1298, i32 noundef %1299, ptr noundef nonnull @xkbPerClientFlags.ctrlsToChange_bits, i32 noundef %4)
+  %1301 = load i32, ptr %2, align 4
+  %1302 = add i32 %1301, 4
+  store i32 %1302, ptr %2, align 4
+  %1303 = load i32, ptr @hf_x11_xkb_PerClientFlags_autoCtrls, align 4
+  %1304 = load i32, ptr @ett_x11_rectangle, align 4
+  %1305 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1302, i32 noundef %1303, i32 noundef %1304, ptr noundef nonnull @xkbPerClientFlags.autoCtrls_bits, i32 noundef %4)
+  %1306 = load i32, ptr %2, align 4
+  %1307 = add i32 %1306, 4
+  store i32 %1307, ptr %2, align 4
+  %1308 = load i32, ptr @hf_x11_xkb_PerClientFlags_autoCtrlsValues, align 4
+  %1309 = load i32, ptr @ett_x11_rectangle, align 4
+  %1310 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1307, i32 noundef %1308, i32 noundef %1309, ptr noundef nonnull @xkbPerClientFlags.autoCtrlsValues_bits, i32 noundef %4)
+  %1311 = load i32, ptr %2, align 4
+  %1312 = add i32 %1311, 4
+  store i32 %1312, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-1311:                                             ; preds = %requestLength.exit
-  %1312 = load i32, ptr @hf_x11_xkb_ListComponents_deviceSpec, align 4
-  %1313 = load i32, ptr %2, align 4
-  %1314 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1312, ptr noundef %0, i32 noundef %1313, i32 noundef 2, i32 noundef %4)
+1313:                                             ; preds = %requestLength.exit
+  %1314 = load i32, ptr @hf_x11_xkb_ListComponents_deviceSpec, align 4
   %1315 = load i32, ptr %2, align 4
-  %1316 = add i32 %1315, 2
-  store i32 %1316, ptr %2, align 4
-  %1317 = load i32, ptr @hf_x11_xkb_ListComponents_maxNames, align 4
-  %1318 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1317, ptr noundef %0, i32 noundef %1316, i32 noundef 2, i32 noundef %4)
-  %1319 = load i32, ptr %2, align 4
-  %1320 = add i32 %1319, 2
-  store i32 %1320, ptr %2, align 4
+  %1316 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1314, ptr noundef %0, i32 noundef %1315, i32 noundef 2, i32 noundef %4)
+  %1317 = load i32, ptr %2, align 4
+  %1318 = add i32 %1317, 2
+  store i32 %1318, ptr %2, align 4
+  %1319 = load i32, ptr @hf_x11_xkb_ListComponents_maxNames, align 4
+  %1320 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1319, ptr noundef %0, i32 noundef %1318, i32 noundef 2, i32 noundef %4)
+  %1321 = load i32, ptr %2, align 4
+  %1322 = add i32 %1321, 2
+  store i32 %1322, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-1321:                                             ; preds = %requestLength.exit
-  %1322 = load i32, ptr @hf_x11_xkb_GetKbdByName_deviceSpec, align 4
-  %1323 = load i32, ptr %2, align 4
-  %1324 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1322, ptr noundef %0, i32 noundef %1323, i32 noundef 2, i32 noundef %4)
+1323:                                             ; preds = %requestLength.exit
+  %1324 = load i32, ptr @hf_x11_xkb_GetKbdByName_deviceSpec, align 4
   %1325 = load i32, ptr %2, align 4
-  %1326 = add i32 %1325, 2
-  store i32 %1326, ptr %2, align 4
-  %1327 = load i32, ptr @hf_x11_xkb_GetKbdByName_need, align 4
-  %1328 = load i32, ptr @ett_x11_rectangle, align 4
-  %1329 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1326, i32 noundef %1327, i32 noundef %1328, ptr noundef nonnull @xkbGetKbdByName.need_bits, i32 noundef %4)
-  %1330 = load i32, ptr %2, align 4
-  %1331 = add i32 %1330, 2
-  store i32 %1331, ptr %2, align 4
-  %1332 = load i32, ptr @hf_x11_xkb_GetKbdByName_want, align 4
-  %1333 = load i32, ptr @ett_x11_rectangle, align 4
-  %1334 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1331, i32 noundef %1332, i32 noundef %1333, ptr noundef nonnull @xkbGetKbdByName.want_bits, i32 noundef %4)
-  %1335 = load i32, ptr %2, align 4
-  %1336 = add i32 %1335, 2
-  store i32 %1336, ptr %2, align 4
-  %1337 = load i32, ptr @hf_x11_xkb_GetKbdByName_load, align 4
-  %1338 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1337, ptr noundef %0, i32 noundef %1336, i32 noundef 1, i32 noundef %4)
-  %1339 = load i32, ptr %2, align 4
-  %1340 = add i32 %1339, 1
-  store i32 %1340, ptr %2, align 4
-  %1341 = load i32, ptr @hf_x11_unused, align 4
-  %1342 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1341, ptr noundef %0, i32 noundef %1340, i32 noundef 1, i32 noundef 0)
-  %1343 = load i32, ptr %2, align 4
-  %1344 = add i32 %1343, 1
-  store i32 %1344, ptr %2, align 4
+  %1326 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1324, ptr noundef %0, i32 noundef %1325, i32 noundef 2, i32 noundef %4)
+  %1327 = load i32, ptr %2, align 4
+  %1328 = add i32 %1327, 2
+  store i32 %1328, ptr %2, align 4
+  %1329 = load i32, ptr @hf_x11_xkb_GetKbdByName_need, align 4
+  %1330 = load i32, ptr @ett_x11_rectangle, align 4
+  %1331 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1328, i32 noundef %1329, i32 noundef %1330, ptr noundef nonnull @xkbGetKbdByName.need_bits, i32 noundef %4)
+  %1332 = load i32, ptr %2, align 4
+  %1333 = add i32 %1332, 2
+  store i32 %1333, ptr %2, align 4
+  %1334 = load i32, ptr @hf_x11_xkb_GetKbdByName_want, align 4
+  %1335 = load i32, ptr @ett_x11_rectangle, align 4
+  %1336 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1333, i32 noundef %1334, i32 noundef %1335, ptr noundef nonnull @xkbGetKbdByName.want_bits, i32 noundef %4)
+  %1337 = load i32, ptr %2, align 4
+  %1338 = add i32 %1337, 2
+  store i32 %1338, ptr %2, align 4
+  %1339 = load i32, ptr @hf_x11_xkb_GetKbdByName_load, align 4
+  %1340 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1339, ptr noundef %0, i32 noundef %1338, i32 noundef 1, i32 noundef %4)
+  %1341 = load i32, ptr %2, align 4
+  %1342 = add i32 %1341, 1
+  store i32 %1342, ptr %2, align 4
+  %1343 = load i32, ptr @hf_x11_unused, align 4
+  %1344 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1343, ptr noundef %0, i32 noundef %1342, i32 noundef 1, i32 noundef 0)
+  %1345 = load i32, ptr %2, align 4
+  %1346 = add i32 %1345, 1
+  store i32 %1346, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-1345:                                             ; preds = %requestLength.exit
-  %1346 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_deviceSpec, align 4
-  %1347 = load i32, ptr %2, align 4
-  %1348 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1346, ptr noundef %0, i32 noundef %1347, i32 noundef 2, i32 noundef %4)
+1347:                                             ; preds = %requestLength.exit
+  %1348 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_deviceSpec, align 4
   %1349 = load i32, ptr %2, align 4
-  %1350 = add i32 %1349, 2
-  store i32 %1350, ptr %2, align 4
-  %1351 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_wanted, align 4
-  %1352 = load i32, ptr @ett_x11_rectangle, align 4
-  %1353 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1350, i32 noundef %1351, i32 noundef %1352, ptr noundef nonnull @xkbGetDeviceInfo.wanted_bits, i32 noundef %4)
-  %1354 = load i32, ptr %2, align 4
-  %1355 = add i32 %1354, 2
-  store i32 %1355, ptr %2, align 4
-  %1356 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_allButtons, align 4
-  %1357 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1356, ptr noundef %0, i32 noundef %1355, i32 noundef 1, i32 noundef %4)
-  %1358 = load i32, ptr %2, align 4
-  %1359 = add i32 %1358, 1
-  store i32 %1359, ptr %2, align 4
-  %1360 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_firstButton, align 4
-  %1361 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1360, ptr noundef %0, i32 noundef %1359, i32 noundef 1, i32 noundef %4)
-  %1362 = load i32, ptr %2, align 4
-  %1363 = add i32 %1362, 1
-  store i32 %1363, ptr %2, align 4
-  %1364 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_nButtons, align 4
-  %1365 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1364, ptr noundef %0, i32 noundef %1363, i32 noundef 1, i32 noundef %4)
-  %1366 = load i32, ptr %2, align 4
-  %1367 = add i32 %1366, 1
-  store i32 %1367, ptr %2, align 4
-  %1368 = load i32, ptr @hf_x11_unused, align 4
-  %1369 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1368, ptr noundef %0, i32 noundef %1367, i32 noundef 1, i32 noundef 0)
-  %1370 = load i32, ptr %2, align 4
-  %1371 = add i32 %1370, 1
-  store i32 %1371, ptr %2, align 4
-  %1372 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledClass, align 4
-  %1373 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1372, i32 noundef %4)
-  %1374 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledID, align 4
+  %1350 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1348, ptr noundef %0, i32 noundef %1349, i32 noundef 2, i32 noundef %4)
+  %1351 = load i32, ptr %2, align 4
+  %1352 = add i32 %1351, 2
+  store i32 %1352, ptr %2, align 4
+  %1353 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_wanted, align 4
+  %1354 = load i32, ptr @ett_x11_rectangle, align 4
+  %1355 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1352, i32 noundef %1353, i32 noundef %1354, ptr noundef nonnull @xkbGetDeviceInfo.wanted_bits, i32 noundef %4)
+  %1356 = load i32, ptr %2, align 4
+  %1357 = add i32 %1356, 2
+  store i32 %1357, ptr %2, align 4
+  %1358 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_allButtons, align 4
+  %1359 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1358, ptr noundef %0, i32 noundef %1357, i32 noundef 1, i32 noundef %4)
+  %1360 = load i32, ptr %2, align 4
+  %1361 = add i32 %1360, 1
+  store i32 %1361, ptr %2, align 4
+  %1362 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_firstButton, align 4
+  %1363 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1362, ptr noundef %0, i32 noundef %1361, i32 noundef 1, i32 noundef %4)
+  %1364 = load i32, ptr %2, align 4
+  %1365 = add i32 %1364, 1
+  store i32 %1365, ptr %2, align 4
+  %1366 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_nButtons, align 4
+  %1367 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1366, ptr noundef %0, i32 noundef %1365, i32 noundef 1, i32 noundef %4)
+  %1368 = load i32, ptr %2, align 4
+  %1369 = add i32 %1368, 1
+  store i32 %1369, ptr %2, align 4
+  %1370 = load i32, ptr @hf_x11_unused, align 4
+  %1371 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1370, ptr noundef %0, i32 noundef %1369, i32 noundef 1, i32 noundef 0)
+  %1372 = load i32, ptr %2, align 4
+  %1373 = add i32 %1372, 1
+  store i32 %1373, ptr %2, align 4
+  %1374 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledClass, align 4
   %1375 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1374, i32 noundef %4)
+  %1376 = load i32, ptr @hf_x11_xkb_GetDeviceInfo_ledID, align 4
+  %1377 = call fastcc i32 @field16(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %1376, i32 noundef %4)
   br label %xkbSelectEvents.exit
 
-1376:                                             ; preds = %requestLength.exit
-  %1377 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_deviceSpec, align 4
-  %1378 = load i32, ptr %2, align 4
-  %1379 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1377, ptr noundef %0, i32 noundef %1378, i32 noundef 2, i32 noundef %4)
+1378:                                             ; preds = %requestLength.exit
+  %1379 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_deviceSpec, align 4
   %1380 = load i32, ptr %2, align 4
-  %1381 = add i32 %1380, 2
-  store i32 %1381, ptr %2, align 4
-  %1382 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_firstBtn, align 4
-  %1383 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1382, ptr noundef %0, i32 noundef %1381, i32 noundef 1, i32 noundef %4)
-  %1384 = load i32, ptr %2, align 4
-  %1385 = add i32 %1384, 1
-  store i32 %1385, ptr %2, align 4
-  %1386 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1385)
-  %1387 = zext i8 %1386 to i32
-  %1388 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_nBtns, align 4
-  %1389 = load i32, ptr %2, align 4
-  %1390 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1388, ptr noundef %0, i32 noundef %1389, i32 noundef 1, i32 noundef %4)
+  %1381 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1379, ptr noundef %0, i32 noundef %1380, i32 noundef 2, i32 noundef %4)
+  %1382 = load i32, ptr %2, align 4
+  %1383 = add i32 %1382, 2
+  store i32 %1383, ptr %2, align 4
+  %1384 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_firstBtn, align 4
+  %1385 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1384, ptr noundef %0, i32 noundef %1383, i32 noundef 1, i32 noundef %4)
+  %1386 = load i32, ptr %2, align 4
+  %1387 = add i32 %1386, 1
+  store i32 %1387, ptr %2, align 4
+  %1388 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1387)
+  %1389 = zext i8 %1388 to i32
+  %1390 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_nBtns, align 4
   %1391 = load i32, ptr %2, align 4
-  %1392 = add i32 %1391, 1
-  store i32 %1392, ptr %2, align 4
-  %1393 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_change, align 4
-  %1394 = load i32, ptr @ett_x11_rectangle, align 4
-  %1395 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1392, i32 noundef %1393, i32 noundef %1394, ptr noundef nonnull @xkbSetDeviceInfo.change_bits, i32 noundef %4)
-  %1396 = load i32, ptr %2, align 4
-  %1397 = add i32 %1396, 2
-  store i32 %1397, ptr %2, align 4
-  %1398 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1397, i32 noundef %4)
-  %1399 = zext i16 %1398 to i32
-  %1400 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_nDeviceLedFBs, align 4
-  %1401 = load i32, ptr %2, align 4
-  %1402 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1400, ptr noundef %0, i32 noundef %1401, i32 noundef 2, i32 noundef %4)
+  %1392 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1390, ptr noundef %0, i32 noundef %1391, i32 noundef 1, i32 noundef %4)
+  %1393 = load i32, ptr %2, align 4
+  %1394 = add i32 %1393, 1
+  store i32 %1394, ptr %2, align 4
+  %1395 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_change, align 4
+  %1396 = load i32, ptr @ett_x11_rectangle, align 4
+  %1397 = call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1394, i32 noundef %1395, i32 noundef %1396, ptr noundef nonnull @xkbSetDeviceInfo.change_bits, i32 noundef %4)
+  %1398 = load i32, ptr %2, align 4
+  %1399 = add i32 %1398, 2
+  store i32 %1399, ptr %2, align 4
+  %1400 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1399, i32 noundef %4)
+  %1401 = zext i16 %1400 to i32
+  %1402 = load i32, ptr @hf_x11_xkb_SetDeviceInfo_nDeviceLedFBs, align 4
   %1403 = load i32, ptr %2, align 4
-  %1404 = add i32 %1403, 2
-  store i32 %1404, ptr %2, align 4
-  call fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1387)
-  call fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1399)
+  %1404 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1402, ptr noundef %0, i32 noundef %1403, i32 noundef 2, i32 noundef %4)
+  %1405 = load i32, ptr %2, align 4
+  %1406 = add i32 %1405, 2
+  store i32 %1406, ptr %2, align 4
+  call fastcc void @struct_xkb_Action(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1389)
+  call fastcc void @struct_xkb_DeviceLedInfo(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %1401)
   br label %xkbSelectEvents.exit
 
-1405:                                             ; preds = %requestLength.exit
-  %1406 = load i32, ptr %2, align 4
-  %1407 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1406, i32 noundef %4)
-  %1408 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_msgLength, align 4
-  %1409 = load i32, ptr %2, align 4
-  %1410 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1408, ptr noundef %0, i32 noundef %1409, i32 noundef 2, i32 noundef %4)
+1407:                                             ; preds = %requestLength.exit
+  %1408 = load i32, ptr %2, align 4
+  %1409 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %1408, i32 noundef %4)
+  %1410 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_msgLength, align 4
   %1411 = load i32, ptr %2, align 4
-  %1412 = add i32 %1411, 2
-  store i32 %1412, ptr %2, align 4
-  %1413 = load i32, ptr @hf_x11_unused, align 4
-  %1414 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1413, ptr noundef %0, i32 noundef %1412, i32 noundef 2, i32 noundef 0)
-  %1415 = load i32, ptr %2, align 4
-  %1416 = add i32 %1415, 2
-  store i32 %1416, ptr %2, align 4
-  %1417 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_affectFlags, align 4
-  %1418 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1417, ptr noundef %0, i32 noundef %1416, i32 noundef 4, i32 noundef %4)
-  %1419 = load i32, ptr %2, align 4
-  %1420 = add i32 %1419, 4
-  store i32 %1420, ptr %2, align 4
-  %1421 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_flags, align 4
-  %1422 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1421, ptr noundef %0, i32 noundef %1420, i32 noundef 4, i32 noundef %4)
-  %1423 = load i32, ptr %2, align 4
-  %1424 = add i32 %1423, 4
-  store i32 %1424, ptr %2, align 4
-  %1425 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_affectCtrls, align 4
-  %1426 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1425, ptr noundef %0, i32 noundef %1424, i32 noundef 4, i32 noundef %4)
-  %1427 = load i32, ptr %2, align 4
-  %1428 = add i32 %1427, 4
-  store i32 %1428, ptr %2, align 4
-  %1429 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_ctrls, align 4
-  %1430 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1429, ptr noundef %0, i32 noundef %1428, i32 noundef 4, i32 noundef %4)
-  %1431 = load i32, ptr %2, align 4
-  %1432 = add i32 %1431, 4
-  store i32 %1432, ptr %2, align 4
-  %1433 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_message, align 4
-  %1434 = call i16 @llvm.umax.i16(i16 %1407, i16 1)
-  %1435 = zext i16 %1434 to i32
-  %1436 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1433, ptr noundef %0, i32 noundef %1432, i32 noundef %1435, i32 noundef %4)
-  %1437 = load i32, ptr %2, align 4
-  %1438 = add i32 %1437, %1435
-  store i32 %1438, ptr %2, align 4
+  %1412 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1410, ptr noundef %0, i32 noundef %1411, i32 noundef 2, i32 noundef %4)
+  %1413 = load i32, ptr %2, align 4
+  %1414 = add i32 %1413, 2
+  store i32 %1414, ptr %2, align 4
+  %1415 = load i32, ptr @hf_x11_unused, align 4
+  %1416 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1415, ptr noundef %0, i32 noundef %1414, i32 noundef 2, i32 noundef 0)
+  %1417 = load i32, ptr %2, align 4
+  %1418 = add i32 %1417, 2
+  store i32 %1418, ptr %2, align 4
+  %1419 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_affectFlags, align 4
+  %1420 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1419, ptr noundef %0, i32 noundef %1418, i32 noundef 4, i32 noundef %4)
+  %1421 = load i32, ptr %2, align 4
+  %1422 = add i32 %1421, 4
+  store i32 %1422, ptr %2, align 4
+  %1423 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_flags, align 4
+  %1424 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1423, ptr noundef %0, i32 noundef %1422, i32 noundef 4, i32 noundef %4)
+  %1425 = load i32, ptr %2, align 4
+  %1426 = add i32 %1425, 4
+  store i32 %1426, ptr %2, align 4
+  %1427 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_affectCtrls, align 4
+  %1428 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1427, ptr noundef %0, i32 noundef %1426, i32 noundef 4, i32 noundef %4)
+  %1429 = load i32, ptr %2, align 4
+  %1430 = add i32 %1429, 4
+  store i32 %1430, ptr %2, align 4
+  %1431 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_ctrls, align 4
+  %1432 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1431, ptr noundef %0, i32 noundef %1430, i32 noundef 4, i32 noundef %4)
+  %1433 = load i32, ptr %2, align 4
+  %1434 = add i32 %1433, 4
+  store i32 %1434, ptr %2, align 4
+  %1435 = load i32, ptr @hf_x11_xkb_SetDebuggingFlags_message, align 4
+  %1436 = call i16 @llvm.umax.i16(i16 %1409, i16 1)
+  %1437 = zext i16 %1436 to i32
+  %1438 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1435, ptr noundef %0, i32 noundef %1434, i32 noundef %1437, i32 noundef %4)
+  %1439 = load i32, ptr %2, align 4
+  %1440 = add i32 %1439, %1437
+  store i32 %1440, ptr %2, align 4
   br label %xkbSelectEvents.exit
 
-xkbSelectEvents.exit:                             ; preds = %.lr.ph.i267.i, %1263, %1261, %801, %799, %208, %205, %1405, %1376, %1345, %1321, %1311, %1276, %1003, %929, %910, %891, %877, %867, %825, %802, %475, %333, %323, %279, %269, %219, %25, %requestLength.exit
+xkbSelectEvents.exit:                             ; preds = %.lr.ph.i267.i, %1265, %1263, %802, %800, %208, %205, %1407, %1378, %1347, %1323, %1313, %1278, %1004, %930, %911, %892, %878, %868, %826, %803, %475, %333, %323, %279, %269, %219, %25, %requestLength.exit
   ret void
 }
 
@@ -81662,156 +81662,156 @@ listOfCard32.exit.thread:                         ; preds = %150
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0209.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %168, %.lr.ph ]
   %170 = load i32, ptr @hf_x11_xkb_GetNames_reply_KTLevelNames_nLevelsPerType, align 4
-  %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %42, i32 1)
-  %171 = load i32, ptr %2, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %170, ptr noundef %0, i32 noundef %171, i32 noundef %spec.store.select.i, i32 noundef %4)
-  %173 = load i32, ptr %2, align 4
-  %174 = add i32 %173, %spec.store.select.i
-  store i32 %174, ptr %2, align 4
-  %175 = srem i32 %174, 4
-  %.not219 = icmp eq i32 %175, 0
-  br i1 %.not219, label %183, label %176
+  %171 = tail call i32 @llvm.umax.i32(i32 %42, i32 1)
+  %172 = load i32, ptr %2, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %170, ptr noundef %0, i32 noundef %172, i32 noundef %171, i32 noundef %4)
+  %174 = load i32, ptr %2, align 4
+  %175 = add i32 %174, %171
+  store i32 %175, ptr %2, align 4
+  %176 = srem i32 %175, 4
+  %.not219 = icmp eq i32 %176, 0
+  br i1 %.not219, label %184, label %177
 
-176:                                              ; preds = %._crit_edge
-  %177 = load i32, ptr @hf_x11_unused, align 4
-  %178 = sub nsw i32 4, %175
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %177, ptr noundef %0, i32 noundef %174, i32 noundef %178, i32 noundef 0)
-  %180 = load i32, ptr %2, align 4
-  %181 = srem i32 %180, 4
-  %reass.sub = add i32 %180, 4
-  %182 = sub i32 %reass.sub, %181
-  store i32 %182, ptr %2, align 4
-  br label %183
+177:                                              ; preds = %._crit_edge
+  %178 = load i32, ptr @hf_x11_unused, align 4
+  %179 = sub nsw i32 4, %176
+  %180 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %178, ptr noundef %0, i32 noundef %175, i32 noundef %179, i32 noundef 0)
+  %181 = load i32, ptr %2, align 4
+  %182 = srem i32 %181, 4
+  %reass.sub = add i32 %181, 4
+  %183 = sub i32 %reass.sub, %182
+  store i32 %183, ptr %2, align 4
+  br label %184
 
-183:                                              ; preds = %176, %._crit_edge
-  %184 = phi i32 [ %182, %176 ], [ %174, %._crit_edge ]
-  %185 = load i32, ptr @hf_x11_xkb_GetNames_reply_KTLevelNames_ktLevelNames, align 4
-  %186 = load i32, ptr @hf_x11_xkb_GetNames_reply_KTLevelNames_ktLevelNames_item, align 4
-  %187 = shl i32 %.0209.lcssa, 2
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %185, ptr noundef %0, i32 noundef %184, i32 noundef %187, i32 noundef %4)
-  %189 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %190 = tail call ptr @proto_item_add_subtree(ptr noundef %188, i32 noundef %189)
+184:                                              ; preds = %177, %._crit_edge
+  %185 = phi i32 [ %183, %177 ], [ %175, %._crit_edge ]
+  %186 = load i32, ptr @hf_x11_xkb_GetNames_reply_KTLevelNames_ktLevelNames, align 4
+  %187 = load i32, ptr @hf_x11_xkb_GetNames_reply_KTLevelNames_ktLevelNames_item, align 4
+  %188 = shl i32 %.0209.lcssa, 2
+  %189 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %186, ptr noundef %0, i32 noundef %185, i32 noundef %188, i32 noundef %4)
+  %190 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %191 = tail call ptr @proto_item_add_subtree(ptr noundef %189, i32 noundef %190)
   %.not13.i226 = icmp eq i32 %.0209.lcssa, 0
   br i1 %.not13.i226, label %listOfCard32.exit232, label %.lr.ph.preheader.i227
 
-.lr.ph.preheader.i227:                            ; preds = %183
+.lr.ph.preheader.i227:                            ; preds = %184
   %.pre.i228 = load i32, ptr %2, align 4
   br label %.lr.ph.i229
 
 .lr.ph.i229:                                      ; preds = %.lr.ph.i229, %.lr.ph.preheader.i227
-  %191 = phi i32 [ %195, %.lr.ph.i229 ], [ %.pre.i228, %.lr.ph.preheader.i227 ]
-  %.014.i230 = phi i32 [ %192, %.lr.ph.i229 ], [ %.0209.lcssa, %.lr.ph.preheader.i227 ]
-  %192 = add i32 %.014.i230, -1
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %190, i32 noundef %186, ptr noundef %0, i32 noundef %191, i32 noundef 4, i32 noundef %4)
-  %194 = load i32, ptr %2, align 4
-  %195 = add i32 %194, 4
-  store i32 %195, ptr %2, align 4
-  %.not.i231 = icmp eq i32 %192, 0
+  %192 = phi i32 [ %196, %.lr.ph.i229 ], [ %.pre.i228, %.lr.ph.preheader.i227 ]
+  %.014.i230 = phi i32 [ %193, %.lr.ph.i229 ], [ %.0209.lcssa, %.lr.ph.preheader.i227 ]
+  %193 = add i32 %.014.i230, -1
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %191, i32 noundef %187, ptr noundef %0, i32 noundef %192, i32 noundef 4, i32 noundef %4)
+  %195 = load i32, ptr %2, align 4
+  %196 = add i32 %195, 4
+  store i32 %196, ptr %2, align 4
+  %.not.i231 = icmp eq i32 %193, 0
   br i1 %.not.i231, label %listOfCard32.exit232, label %.lr.ph.i229, !llvm.loop !44
 
-listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listOfCard32.exit.thread, %183, %listOfCard32.exit
-  %196 = and i32 %26, 256
-  %.not220 = icmp eq i32 %196, 0
-  br i1 %.not220, label %listOfCard32.exit239, label %197
+listOfCard32.exit232:                             ; preds = %.lr.ph.i229, %listOfCard32.exit.thread, %184, %listOfCard32.exit
+  %197 = and i32 %26, 256
+  %.not220 = icmp eq i32 %197, 0
+  br i1 %.not220, label %listOfCard32.exit239, label %198
 
-197:                                              ; preds = %listOfCard32.exit232
-  %198 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames, align 4
-  %199 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames_item, align 4
-  %200 = sext i32 %73 to i64
-  %201 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %200)
-  %202 = trunc nuw nsw i64 %201 to i32
-  %203 = load i32, ptr %2, align 4
-  %204 = shl nuw nsw i32 %202, 2
-  %205 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %198, ptr noundef %0, i32 noundef %203, i32 noundef %204, i32 noundef %4)
-  %206 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %207 = tail call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %206)
+198:                                              ; preds = %listOfCard32.exit232
+  %199 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames, align 4
+  %200 = load i32, ptr @hf_x11_xkb_GetNames_reply_IndicatorNames_indicatorNames_item, align 4
+  %201 = sext i32 %73 to i64
+  %202 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %201)
+  %203 = trunc nuw nsw i64 %202 to i32
+  %204 = load i32, ptr %2, align 4
+  %205 = shl nuw nsw i32 %203, 2
+  %206 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %199, ptr noundef %0, i32 noundef %204, i32 noundef %205, i32 noundef %4)
+  %207 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %208 = tail call ptr @proto_item_add_subtree(ptr noundef %206, i32 noundef %207)
   %.not13.i233 = icmp eq i32 %73, 0
   br i1 %.not13.i233, label %listOfCard32.exit239, label %.lr.ph.preheader.i234
 
-.lr.ph.preheader.i234:                            ; preds = %197
+.lr.ph.preheader.i234:                            ; preds = %198
   %.pre.i235 = load i32, ptr %2, align 4
   br label %.lr.ph.i236
 
 .lr.ph.i236:                                      ; preds = %.lr.ph.i236, %.lr.ph.preheader.i234
-  %208 = phi i32 [ %212, %.lr.ph.i236 ], [ %.pre.i235, %.lr.ph.preheader.i234 ]
-  %.014.i237 = phi i32 [ %209, %.lr.ph.i236 ], [ %202, %.lr.ph.preheader.i234 ]
-  %209 = add i32 %.014.i237, -1
-  %210 = tail call ptr @proto_tree_add_item(ptr noundef %207, i32 noundef %199, ptr noundef %0, i32 noundef %208, i32 noundef 4, i32 noundef %4)
-  %211 = load i32, ptr %2, align 4
-  %212 = add i32 %211, 4
-  store i32 %212, ptr %2, align 4
-  %.not.i238 = icmp eq i32 %209, 0
+  %209 = phi i32 [ %213, %.lr.ph.i236 ], [ %.pre.i235, %.lr.ph.preheader.i234 ]
+  %.014.i237 = phi i32 [ %210, %.lr.ph.i236 ], [ %203, %.lr.ph.preheader.i234 ]
+  %210 = add i32 %.014.i237, -1
+  %211 = tail call ptr @proto_tree_add_item(ptr noundef %208, i32 noundef %200, ptr noundef %0, i32 noundef %209, i32 noundef 4, i32 noundef %4)
+  %212 = load i32, ptr %2, align 4
+  %213 = add i32 %212, 4
+  store i32 %213, ptr %2, align 4
+  %.not.i238 = icmp eq i32 %210, 0
   br i1 %.not.i238, label %listOfCard32.exit239, label %.lr.ph.i236, !llvm.loop !44
 
-listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %197, %listOfCard32.exit232
-  %213 = and i32 %26, 2048
-  %.not221 = icmp eq i32 %213, 0
-  br i1 %.not221, label %listOfCard32.exit246, label %214
+listOfCard32.exit239:                             ; preds = %.lr.ph.i236, %198, %listOfCard32.exit232
+  %214 = and i32 %26, 2048
+  %.not221 = icmp eq i32 %214, 0
+  br i1 %.not221, label %listOfCard32.exit246, label %215
 
-214:                                              ; preds = %listOfCard32.exit239
-  %215 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames, align 4
-  %216 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames_item, align 4
-  %217 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %55)
-  %218 = zext nneg i16 %217 to i32
-  %219 = load i32, ptr %2, align 4
-  %220 = shl nuw nsw i32 %218, 2
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %215, ptr noundef %0, i32 noundef %219, i32 noundef %220, i32 noundef %4)
-  %222 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %223 = tail call ptr @proto_item_add_subtree(ptr noundef %221, i32 noundef %222)
+215:                                              ; preds = %listOfCard32.exit239
+  %216 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames, align 4
+  %217 = load i32, ptr @hf_x11_xkb_GetNames_reply_VirtualModNames_virtualModNames_item, align 4
+  %218 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %55)
+  %219 = zext nneg i16 %218 to i32
+  %220 = load i32, ptr %2, align 4
+  %221 = shl nuw nsw i32 %219, 2
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %216, ptr noundef %0, i32 noundef %220, i32 noundef %221, i32 noundef %4)
+  %223 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %224 = tail call ptr @proto_item_add_subtree(ptr noundef %222, i32 noundef %223)
   %.not13.i240 = icmp eq i16 %55, 0
   br i1 %.not13.i240, label %listOfCard32.exit246, label %.lr.ph.preheader.i241
 
-.lr.ph.preheader.i241:                            ; preds = %214
+.lr.ph.preheader.i241:                            ; preds = %215
   %.pre.i242 = load i32, ptr %2, align 4
   br label %.lr.ph.i243
 
 .lr.ph.i243:                                      ; preds = %.lr.ph.i243, %.lr.ph.preheader.i241
-  %224 = phi i32 [ %228, %.lr.ph.i243 ], [ %.pre.i242, %.lr.ph.preheader.i241 ]
-  %.014.i244 = phi i32 [ %225, %.lr.ph.i243 ], [ %218, %.lr.ph.preheader.i241 ]
-  %225 = add i32 %.014.i244, -1
-  %226 = tail call ptr @proto_tree_add_item(ptr noundef %223, i32 noundef %216, ptr noundef %0, i32 noundef %224, i32 noundef 4, i32 noundef %4)
-  %227 = load i32, ptr %2, align 4
-  %228 = add i32 %227, 4
-  store i32 %228, ptr %2, align 4
-  %.not.i245 = icmp eq i32 %225, 0
+  %225 = phi i32 [ %229, %.lr.ph.i243 ], [ %.pre.i242, %.lr.ph.preheader.i241 ]
+  %.014.i244 = phi i32 [ %226, %.lr.ph.i243 ], [ %219, %.lr.ph.preheader.i241 ]
+  %226 = add i32 %.014.i244, -1
+  %227 = tail call ptr @proto_tree_add_item(ptr noundef %224, i32 noundef %217, ptr noundef %0, i32 noundef %225, i32 noundef 4, i32 noundef %4)
+  %228 = load i32, ptr %2, align 4
+  %229 = add i32 %228, 4
+  store i32 %229, ptr %2, align 4
+  %.not.i245 = icmp eq i32 %226, 0
   br i1 %.not.i245, label %listOfCard32.exit246, label %.lr.ph.i243, !llvm.loop !44
 
-listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %214, %listOfCard32.exit239
-  %229 = and i32 %26, 4096
-  %.not222 = icmp eq i32 %229, 0
-  br i1 %.not222, label %listOfCard32.exit253, label %230
+listOfCard32.exit246:                             ; preds = %.lr.ph.i243, %215, %listOfCard32.exit239
+  %230 = and i32 %26, 4096
+  %.not222 = icmp eq i32 %230, 0
+  br i1 %.not222, label %listOfCard32.exit253, label %231
 
-230:                                              ; preds = %listOfCard32.exit246
-  %231 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups, align 4
-  %232 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups_item, align 4
-  %233 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %48)
-  %234 = zext nneg i8 %233 to i32
-  %235 = load i32, ptr %2, align 4
-  %236 = shl nuw nsw i32 %234, 2
-  %237 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %231, ptr noundef %0, i32 noundef %235, i32 noundef %236, i32 noundef %4)
-  %238 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %239 = tail call ptr @proto_item_add_subtree(ptr noundef %237, i32 noundef %238)
+231:                                              ; preds = %listOfCard32.exit246
+  %232 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups, align 4
+  %233 = load i32, ptr @hf_x11_xkb_GetNames_reply_GroupNames_groups_item, align 4
+  %234 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %48)
+  %235 = zext nneg i8 %234 to i32
+  %236 = load i32, ptr %2, align 4
+  %237 = shl nuw nsw i32 %235, 2
+  %238 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %232, ptr noundef %0, i32 noundef %236, i32 noundef %237, i32 noundef %4)
+  %239 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %240 = tail call ptr @proto_item_add_subtree(ptr noundef %238, i32 noundef %239)
   %.not13.i247 = icmp eq i8 %48, 0
   br i1 %.not13.i247, label %listOfCard32.exit253, label %.lr.ph.preheader.i248
 
-.lr.ph.preheader.i248:                            ; preds = %230
+.lr.ph.preheader.i248:                            ; preds = %231
   %.pre.i249 = load i32, ptr %2, align 4
   br label %.lr.ph.i250
 
 .lr.ph.i250:                                      ; preds = %.lr.ph.i250, %.lr.ph.preheader.i248
-  %240 = phi i32 [ %244, %.lr.ph.i250 ], [ %.pre.i249, %.lr.ph.preheader.i248 ]
-  %.014.i251 = phi i32 [ %241, %.lr.ph.i250 ], [ %234, %.lr.ph.preheader.i248 ]
-  %241 = add i32 %.014.i251, -1
-  %242 = tail call ptr @proto_tree_add_item(ptr noundef %239, i32 noundef %232, ptr noundef %0, i32 noundef %240, i32 noundef 4, i32 noundef %4)
-  %243 = load i32, ptr %2, align 4
-  %244 = add i32 %243, 4
-  store i32 %244, ptr %2, align 4
-  %.not.i252 = icmp eq i32 %241, 0
+  %241 = phi i32 [ %245, %.lr.ph.i250 ], [ %.pre.i249, %.lr.ph.preheader.i248 ]
+  %.014.i251 = phi i32 [ %242, %.lr.ph.i250 ], [ %235, %.lr.ph.preheader.i248 ]
+  %242 = add i32 %.014.i251, -1
+  %243 = tail call ptr @proto_tree_add_item(ptr noundef %240, i32 noundef %233, ptr noundef %0, i32 noundef %241, i32 noundef 4, i32 noundef %4)
+  %244 = load i32, ptr %2, align 4
+  %245 = add i32 %244, 4
+  store i32 %245, ptr %2, align 4
+  %.not.i252 = icmp eq i32 %242, 0
   br i1 %.not.i252, label %listOfCard32.exit253, label %.lr.ph.i250, !llvm.loop !44
 
-listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %230, %listOfCard32.exit246
-  %245 = and i32 %26, 512
-  %.not223 = icmp eq i32 %245, 0
+listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %231, %listOfCard32.exit246
+  %246 = and i32 %26, 512
+  %.not223 = icmp eq i32 %246, 0
   %.not.i254 = icmp eq i8 %66, 0
   %or.cond = select i1 %.not223, i1 true, i1 %.not.i254
   br i1 %or.cond, label %struct_xkb_KeyName.exit, label %.lr.ph.preheader.i255
@@ -81821,63 +81821,63 @@ listOfCard32.exit253:                             ; preds = %.lr.ph.i250, %230, 
   br label %.lr.ph.i257
 
 .lr.ph.i257:                                      ; preds = %.lr.ph.i257, %.lr.ph.preheader.i255
-  %246 = phi i32 [ %255, %.lr.ph.i257 ], [ %.pre.i256, %.lr.ph.preheader.i255 ]
-  %.010.i = phi i32 [ %256, %.lr.ph.i257 ], [ 0, %.lr.ph.preheader.i255 ]
-  %247 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
-  %248 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %247, ptr noundef %0, i32 noundef %246, i32 noundef 4, i32 noundef 0)
-  %249 = load i32, ptr @ett_x11_rectangle, align 4
-  %250 = tail call ptr @proto_item_add_subtree(ptr noundef %248, i32 noundef %249)
-  %251 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
-  %252 = load i32, ptr %2, align 4
-  %253 = tail call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %252, i32 noundef 4, i32 noundef %4)
-  %254 = load i32, ptr %2, align 4
-  %255 = add i32 %254, 4
-  store i32 %255, ptr %2, align 4
-  %256 = add nuw nsw i32 %.010.i, 1
-  %exitcond.not.i = icmp eq i32 %256, %67
+  %247 = phi i32 [ %256, %.lr.ph.i257 ], [ %.pre.i256, %.lr.ph.preheader.i255 ]
+  %.010.i = phi i32 [ %257, %.lr.ph.i257 ], [ 0, %.lr.ph.preheader.i255 ]
+  %248 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
+  %249 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %248, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef 0)
+  %250 = load i32, ptr @ett_x11_rectangle, align 4
+  %251 = tail call ptr @proto_item_add_subtree(ptr noundef %249, i32 noundef %250)
+  %252 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
+  %253 = load i32, ptr %2, align 4
+  %254 = tail call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %252, ptr noundef %0, i32 noundef %253, i32 noundef 4, i32 noundef %4)
+  %255 = load i32, ptr %2, align 4
+  %256 = add i32 %255, 4
+  store i32 %256, ptr %2, align 4
+  %257 = add nuw nsw i32 %.010.i, 1
+  %exitcond.not.i = icmp eq i32 %257, %67
   br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i257, !llvm.loop !121
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i257, %listOfCard32.exit253
-  %257 = and i32 %26, 1024
-  %.not224 = icmp eq i32 %257, 0
-  br i1 %.not224, label %259, label %258
+  %258 = and i32 %26, 1024
+  %.not224 = icmp eq i32 %258, 0
+  br i1 %.not224, label %260, label %259
 
-258:                                              ; preds = %struct_xkb_KeyName.exit
+259:                                              ; preds = %struct_xkb_KeyName.exit
   tail call fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %87)
-  br label %259
+  br label %260
 
-259:                                              ; preds = %258, %struct_xkb_KeyName.exit
-  %260 = and i32 %26, 8192
-  %.not225 = icmp eq i32 %260, 0
-  br i1 %.not225, label %listOfCard32.exit264, label %261
+260:                                              ; preds = %259, %struct_xkb_KeyName.exit
+  %261 = and i32 %26, 8192
+  %.not225 = icmp eq i32 %261, 0
+  br i1 %.not225, label %listOfCard32.exit264, label %262
 
-261:                                              ; preds = %259
-  %262 = load i32, ptr @hf_x11_xkb_GetNames_reply_RGNames_radioGroupNames, align 4
-  %263 = load i32, ptr @hf_x11_xkb_GetNames_reply_RGNames_radioGroupNames_item, align 4
-  %264 = load i32, ptr %2, align 4
-  %265 = shl nuw nsw i32 %80, 2
-  %266 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %262, ptr noundef %0, i32 noundef %264, i32 noundef %265, i32 noundef %4)
-  %267 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %268 = tail call ptr @proto_item_add_subtree(ptr noundef %266, i32 noundef %267)
+262:                                              ; preds = %260
+  %263 = load i32, ptr @hf_x11_xkb_GetNames_reply_RGNames_radioGroupNames, align 4
+  %264 = load i32, ptr @hf_x11_xkb_GetNames_reply_RGNames_radioGroupNames_item, align 4
+  %265 = load i32, ptr %2, align 4
+  %266 = shl nuw nsw i32 %80, 2
+  %267 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %263, ptr noundef %0, i32 noundef %265, i32 noundef %266, i32 noundef %4)
+  %268 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %269 = tail call ptr @proto_item_add_subtree(ptr noundef %267, i32 noundef %268)
   %.not13.i258 = icmp eq i8 %79, 0
   br i1 %.not13.i258, label %listOfCard32.exit264, label %.lr.ph.preheader.i259
 
-.lr.ph.preheader.i259:                            ; preds = %261
+.lr.ph.preheader.i259:                            ; preds = %262
   %.pre.i260 = load i32, ptr %2, align 4
   br label %.lr.ph.i261
 
 .lr.ph.i261:                                      ; preds = %.lr.ph.i261, %.lr.ph.preheader.i259
-  %269 = phi i32 [ %273, %.lr.ph.i261 ], [ %.pre.i260, %.lr.ph.preheader.i259 ]
-  %.014.i262 = phi i32 [ %270, %.lr.ph.i261 ], [ %80, %.lr.ph.preheader.i259 ]
-  %270 = add nsw i32 %.014.i262, -1
-  %271 = tail call ptr @proto_tree_add_item(ptr noundef %268, i32 noundef %263, ptr noundef %0, i32 noundef %269, i32 noundef 4, i32 noundef %4)
-  %272 = load i32, ptr %2, align 4
-  %273 = add i32 %272, 4
-  store i32 %273, ptr %2, align 4
-  %.not.i263 = icmp eq i32 %270, 0
+  %270 = phi i32 [ %274, %.lr.ph.i261 ], [ %.pre.i260, %.lr.ph.preheader.i259 ]
+  %.014.i262 = phi i32 [ %271, %.lr.ph.i261 ], [ %80, %.lr.ph.preheader.i259 ]
+  %271 = add nsw i32 %.014.i262, -1
+  %272 = tail call ptr @proto_tree_add_item(ptr noundef %269, i32 noundef %264, ptr noundef %0, i32 noundef %270, i32 noundef 4, i32 noundef %4)
+  %273 = load i32, ptr %2, align 4
+  %274 = add i32 %273, 4
+  store i32 %274, ptr %2, align 4
+  %.not.i263 = icmp eq i32 %271, 0
   br i1 %.not.i263, label %listOfCard32.exit264, label %.lr.ph.i261, !llvm.loop !44
 
-listOfCard32.exit264:                             ; preds = %.lr.ph.i261, %261, %259
+listOfCard32.exit264:                             ; preds = %.lr.ph.i261, %262, %260
   ret void
 }
 
@@ -82811,156 +82811,156 @@ listOfCard32.exit.thread:                         ; preds = %523
 ._crit_edge:                                      ; preds = %.lr.ph, %listOfCard32.exit.thread, %.preheader
   %.0728.lcssa = phi i32 [ 0, %.preheader ], [ 0, %listOfCard32.exit.thread ], [ %541, %.lr.ph ]
   %543 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_KTLevelNames_nLevelsPerType, align 4
-  %spec.store.select.i776 = tail call i32 @llvm.smax.i32(i32 %415, i32 1)
-  %544 = load i32, ptr %2, align 4
-  %545 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %543, ptr noundef %0, i32 noundef %544, i32 noundef %spec.store.select.i776, i32 noundef %4)
-  %546 = load i32, ptr %2, align 4
-  %547 = add i32 %546, %spec.store.select.i776
-  store i32 %547, ptr %2, align 4
-  %548 = srem i32 %547, 4
-  %.not764 = icmp eq i32 %548, 0
-  br i1 %.not764, label %556, label %549
+  %544 = tail call i32 @llvm.umax.i32(i32 %415, i32 1)
+  %545 = load i32, ptr %2, align 4
+  %546 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %543, ptr noundef %0, i32 noundef %545, i32 noundef %544, i32 noundef %4)
+  %547 = load i32, ptr %2, align 4
+  %548 = add i32 %547, %544
+  store i32 %548, ptr %2, align 4
+  %549 = srem i32 %548, 4
+  %.not764 = icmp eq i32 %549, 0
+  br i1 %.not764, label %557, label %550
 
-549:                                              ; preds = %._crit_edge
-  %550 = load i32, ptr @hf_x11_unused, align 4
-  %551 = sub nsw i32 4, %548
-  %552 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %550, ptr noundef %0, i32 noundef %547, i32 noundef %551, i32 noundef 0)
-  %553 = load i32, ptr %2, align 4
-  %554 = srem i32 %553, 4
-  %reass.sub765 = add i32 %553, 4
-  %555 = sub i32 %reass.sub765, %554
-  store i32 %555, ptr %2, align 4
-  br label %556
+550:                                              ; preds = %._crit_edge
+  %551 = load i32, ptr @hf_x11_unused, align 4
+  %552 = sub nsw i32 4, %549
+  %553 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %551, ptr noundef %0, i32 noundef %548, i32 noundef %552, i32 noundef 0)
+  %554 = load i32, ptr %2, align 4
+  %555 = srem i32 %554, 4
+  %reass.sub765 = add i32 %554, 4
+  %556 = sub i32 %reass.sub765, %555
+  store i32 %556, ptr %2, align 4
+  br label %557
 
-556:                                              ; preds = %549, %._crit_edge
-  %557 = phi i32 [ %555, %549 ], [ %547, %._crit_edge ]
-  %558 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_KTLevelNames_ktLevelNames, align 4
-  %559 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_KTLevelNames_ktLevelNames_item, align 4
-  %560 = shl i32 %.0728.lcssa, 2
-  %561 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %558, ptr noundef %0, i32 noundef %557, i32 noundef %560, i32 noundef %4)
-  %562 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %563 = tail call ptr @proto_item_add_subtree(ptr noundef %561, i32 noundef %562)
+557:                                              ; preds = %550, %._crit_edge
+  %558 = phi i32 [ %556, %550 ], [ %548, %._crit_edge ]
+  %559 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_KTLevelNames_ktLevelNames, align 4
+  %560 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_KTLevelNames_ktLevelNames_item, align 4
+  %561 = shl i32 %.0728.lcssa, 2
+  %562 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %559, ptr noundef %0, i32 noundef %558, i32 noundef %561, i32 noundef %4)
+  %563 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %564 = tail call ptr @proto_item_add_subtree(ptr noundef %562, i32 noundef %563)
   %.not13.i777 = icmp eq i32 %.0728.lcssa, 0
   br i1 %.not13.i777, label %listOfCard32.exit783, label %.lr.ph.preheader.i778
 
-.lr.ph.preheader.i778:                            ; preds = %556
+.lr.ph.preheader.i778:                            ; preds = %557
   %.pre.i779 = load i32, ptr %2, align 4
   br label %.lr.ph.i780
 
 .lr.ph.i780:                                      ; preds = %.lr.ph.i780, %.lr.ph.preheader.i778
-  %564 = phi i32 [ %568, %.lr.ph.i780 ], [ %.pre.i779, %.lr.ph.preheader.i778 ]
-  %.014.i781 = phi i32 [ %565, %.lr.ph.i780 ], [ %.0728.lcssa, %.lr.ph.preheader.i778 ]
-  %565 = add i32 %.014.i781, -1
-  %566 = tail call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %559, ptr noundef %0, i32 noundef %564, i32 noundef 4, i32 noundef %4)
-  %567 = load i32, ptr %2, align 4
-  %568 = add i32 %567, 4
-  store i32 %568, ptr %2, align 4
-  %.not.i782 = icmp eq i32 %565, 0
+  %565 = phi i32 [ %569, %.lr.ph.i780 ], [ %.pre.i779, %.lr.ph.preheader.i778 ]
+  %.014.i781 = phi i32 [ %566, %.lr.ph.i780 ], [ %.0728.lcssa, %.lr.ph.preheader.i778 ]
+  %566 = add i32 %.014.i781, -1
+  %567 = tail call ptr @proto_tree_add_item(ptr noundef %564, i32 noundef %560, ptr noundef %0, i32 noundef %565, i32 noundef 4, i32 noundef %4)
+  %568 = load i32, ptr %2, align 4
+  %569 = add i32 %568, 4
+  store i32 %569, ptr %2, align 4
+  %.not.i782 = icmp eq i32 %566, 0
   br i1 %.not.i782, label %listOfCard32.exit783, label %.lr.ph.i780, !llvm.loop !44
 
-listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listOfCard32.exit.thread, %556, %listOfCard32.exit
-  %569 = and i32 %399, 256
-  %.not766 = icmp eq i32 %569, 0
-  br i1 %.not766, label %listOfCard32.exit790, label %570
+listOfCard32.exit783:                             ; preds = %.lr.ph.i780, %listOfCard32.exit.thread, %557, %listOfCard32.exit
+  %570 = and i32 %399, 256
+  %.not766 = icmp eq i32 %570, 0
+  br i1 %.not766, label %listOfCard32.exit790, label %571
 
-570:                                              ; preds = %listOfCard32.exit783
-  %571 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames, align 4
-  %572 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames_item, align 4
-  %573 = sext i32 %446 to i64
-  %574 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %573)
-  %575 = trunc nuw nsw i64 %574 to i32
-  %576 = load i32, ptr %2, align 4
-  %577 = shl nuw nsw i32 %575, 2
-  %578 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %571, ptr noundef %0, i32 noundef %576, i32 noundef %577, i32 noundef %4)
-  %579 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %580 = tail call ptr @proto_item_add_subtree(ptr noundef %578, i32 noundef %579)
+571:                                              ; preds = %listOfCard32.exit783
+  %572 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames, align 4
+  %573 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_IndicatorNames_indicatorNames_item, align 4
+  %574 = sext i32 %446 to i64
+  %575 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 range(i64 -2147483648, 2147483648) %574)
+  %576 = trunc nuw nsw i64 %575 to i32
+  %577 = load i32, ptr %2, align 4
+  %578 = shl nuw nsw i32 %576, 2
+  %579 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %572, ptr noundef %0, i32 noundef %577, i32 noundef %578, i32 noundef %4)
+  %580 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %581 = tail call ptr @proto_item_add_subtree(ptr noundef %579, i32 noundef %580)
   %.not13.i784 = icmp eq i32 %446, 0
   br i1 %.not13.i784, label %listOfCard32.exit790, label %.lr.ph.preheader.i785
 
-.lr.ph.preheader.i785:                            ; preds = %570
+.lr.ph.preheader.i785:                            ; preds = %571
   %.pre.i786 = load i32, ptr %2, align 4
   br label %.lr.ph.i787
 
 .lr.ph.i787:                                      ; preds = %.lr.ph.i787, %.lr.ph.preheader.i785
-  %581 = phi i32 [ %585, %.lr.ph.i787 ], [ %.pre.i786, %.lr.ph.preheader.i785 ]
-  %.014.i788 = phi i32 [ %582, %.lr.ph.i787 ], [ %575, %.lr.ph.preheader.i785 ]
-  %582 = add i32 %.014.i788, -1
-  %583 = tail call ptr @proto_tree_add_item(ptr noundef %580, i32 noundef %572, ptr noundef %0, i32 noundef %581, i32 noundef 4, i32 noundef %4)
-  %584 = load i32, ptr %2, align 4
-  %585 = add i32 %584, 4
-  store i32 %585, ptr %2, align 4
-  %.not.i789 = icmp eq i32 %582, 0
+  %582 = phi i32 [ %586, %.lr.ph.i787 ], [ %.pre.i786, %.lr.ph.preheader.i785 ]
+  %.014.i788 = phi i32 [ %583, %.lr.ph.i787 ], [ %576, %.lr.ph.preheader.i785 ]
+  %583 = add i32 %.014.i788, -1
+  %584 = tail call ptr @proto_tree_add_item(ptr noundef %581, i32 noundef %573, ptr noundef %0, i32 noundef %582, i32 noundef 4, i32 noundef %4)
+  %585 = load i32, ptr %2, align 4
+  %586 = add i32 %585, 4
+  store i32 %586, ptr %2, align 4
+  %.not.i789 = icmp eq i32 %583, 0
   br i1 %.not.i789, label %listOfCard32.exit790, label %.lr.ph.i787, !llvm.loop !44
 
-listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %570, %listOfCard32.exit783
-  %586 = and i32 %399, 2048
-  %.not767 = icmp eq i32 %586, 0
-  br i1 %.not767, label %listOfCard32.exit797, label %587
+listOfCard32.exit790:                             ; preds = %.lr.ph.i787, %571, %listOfCard32.exit783
+  %587 = and i32 %399, 2048
+  %.not767 = icmp eq i32 %587, 0
+  br i1 %.not767, label %listOfCard32.exit797, label %588
 
-587:                                              ; preds = %listOfCard32.exit790
-  %588 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames, align 4
-  %589 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames_item, align 4
-  %590 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %428)
-  %591 = zext nneg i16 %590 to i32
-  %592 = load i32, ptr %2, align 4
-  %593 = shl nuw nsw i32 %591, 2
-  %594 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %588, ptr noundef %0, i32 noundef %592, i32 noundef %593, i32 noundef %4)
-  %595 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %596 = tail call ptr @proto_item_add_subtree(ptr noundef %594, i32 noundef %595)
+588:                                              ; preds = %listOfCard32.exit790
+  %589 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames, align 4
+  %590 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_VirtualModNames_virtualModNames_item, align 4
+  %591 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %428)
+  %592 = zext nneg i16 %591 to i32
+  %593 = load i32, ptr %2, align 4
+  %594 = shl nuw nsw i32 %592, 2
+  %595 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %589, ptr noundef %0, i32 noundef %593, i32 noundef %594, i32 noundef %4)
+  %596 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %597 = tail call ptr @proto_item_add_subtree(ptr noundef %595, i32 noundef %596)
   %.not13.i791 = icmp eq i16 %428, 0
   br i1 %.not13.i791, label %listOfCard32.exit797, label %.lr.ph.preheader.i792
 
-.lr.ph.preheader.i792:                            ; preds = %587
+.lr.ph.preheader.i792:                            ; preds = %588
   %.pre.i793 = load i32, ptr %2, align 4
   br label %.lr.ph.i794
 
 .lr.ph.i794:                                      ; preds = %.lr.ph.i794, %.lr.ph.preheader.i792
-  %597 = phi i32 [ %601, %.lr.ph.i794 ], [ %.pre.i793, %.lr.ph.preheader.i792 ]
-  %.014.i795 = phi i32 [ %598, %.lr.ph.i794 ], [ %591, %.lr.ph.preheader.i792 ]
-  %598 = add i32 %.014.i795, -1
-  %599 = tail call ptr @proto_tree_add_item(ptr noundef %596, i32 noundef %589, ptr noundef %0, i32 noundef %597, i32 noundef 4, i32 noundef %4)
-  %600 = load i32, ptr %2, align 4
-  %601 = add i32 %600, 4
-  store i32 %601, ptr %2, align 4
-  %.not.i796 = icmp eq i32 %598, 0
+  %598 = phi i32 [ %602, %.lr.ph.i794 ], [ %.pre.i793, %.lr.ph.preheader.i792 ]
+  %.014.i795 = phi i32 [ %599, %.lr.ph.i794 ], [ %592, %.lr.ph.preheader.i792 ]
+  %599 = add i32 %.014.i795, -1
+  %600 = tail call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %590, ptr noundef %0, i32 noundef %598, i32 noundef 4, i32 noundef %4)
+  %601 = load i32, ptr %2, align 4
+  %602 = add i32 %601, 4
+  store i32 %602, ptr %2, align 4
+  %.not.i796 = icmp eq i32 %599, 0
   br i1 %.not.i796, label %listOfCard32.exit797, label %.lr.ph.i794, !llvm.loop !44
 
-listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %587, %listOfCard32.exit790
-  %602 = and i32 %399, 4096
-  %.not768 = icmp eq i32 %602, 0
-  br i1 %.not768, label %listOfCard32.exit804, label %603
+listOfCard32.exit797:                             ; preds = %.lr.ph.i794, %588, %listOfCard32.exit790
+  %603 = and i32 %399, 4096
+  %.not768 = icmp eq i32 %603, 0
+  br i1 %.not768, label %listOfCard32.exit804, label %604
 
-603:                                              ; preds = %listOfCard32.exit797
-  %604 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups, align 4
-  %605 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups_item, align 4
-  %606 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %421)
-  %607 = zext nneg i8 %606 to i32
-  %608 = load i32, ptr %2, align 4
-  %609 = shl nuw nsw i32 %607, 2
-  %610 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %604, ptr noundef %0, i32 noundef %608, i32 noundef %609, i32 noundef %4)
-  %611 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %612 = tail call ptr @proto_item_add_subtree(ptr noundef %610, i32 noundef %611)
+604:                                              ; preds = %listOfCard32.exit797
+  %605 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups, align 4
+  %606 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_GroupNames_groups_item, align 4
+  %607 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %421)
+  %608 = zext nneg i8 %607 to i32
+  %609 = load i32, ptr %2, align 4
+  %610 = shl nuw nsw i32 %608, 2
+  %611 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %605, ptr noundef %0, i32 noundef %609, i32 noundef %610, i32 noundef %4)
+  %612 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %613 = tail call ptr @proto_item_add_subtree(ptr noundef %611, i32 noundef %612)
   %.not13.i798 = icmp eq i8 %421, 0
   br i1 %.not13.i798, label %listOfCard32.exit804, label %.lr.ph.preheader.i799
 
-.lr.ph.preheader.i799:                            ; preds = %603
+.lr.ph.preheader.i799:                            ; preds = %604
   %.pre.i800 = load i32, ptr %2, align 4
   br label %.lr.ph.i801
 
 .lr.ph.i801:                                      ; preds = %.lr.ph.i801, %.lr.ph.preheader.i799
-  %613 = phi i32 [ %617, %.lr.ph.i801 ], [ %.pre.i800, %.lr.ph.preheader.i799 ]
-  %.014.i802 = phi i32 [ %614, %.lr.ph.i801 ], [ %607, %.lr.ph.preheader.i799 ]
-  %614 = add i32 %.014.i802, -1
-  %615 = tail call ptr @proto_tree_add_item(ptr noundef %612, i32 noundef %605, ptr noundef %0, i32 noundef %613, i32 noundef 4, i32 noundef %4)
-  %616 = load i32, ptr %2, align 4
-  %617 = add i32 %616, 4
-  store i32 %617, ptr %2, align 4
-  %.not.i803 = icmp eq i32 %614, 0
+  %614 = phi i32 [ %618, %.lr.ph.i801 ], [ %.pre.i800, %.lr.ph.preheader.i799 ]
+  %.014.i802 = phi i32 [ %615, %.lr.ph.i801 ], [ %608, %.lr.ph.preheader.i799 ]
+  %615 = add i32 %.014.i802, -1
+  %616 = tail call ptr @proto_tree_add_item(ptr noundef %613, i32 noundef %606, ptr noundef %0, i32 noundef %614, i32 noundef 4, i32 noundef %4)
+  %617 = load i32, ptr %2, align 4
+  %618 = add i32 %617, 4
+  store i32 %618, ptr %2, align 4
+  %.not.i803 = icmp eq i32 %615, 0
   br i1 %.not.i803, label %listOfCard32.exit804, label %.lr.ph.i801, !llvm.loop !44
 
-listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %603, %listOfCard32.exit797
-  %618 = and i32 %399, 512
-  %.not769 = icmp eq i32 %618, 0
+listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %604, %listOfCard32.exit797
+  %619 = and i32 %399, 512
+  %.not769 = icmp eq i32 %619, 0
   %.not.i805 = icmp eq i8 %439, 0
   %or.cond816 = select i1 %.not769, i1 true, i1 %.not.i805
   br i1 %or.cond816, label %struct_xkb_KeyName.exit, label %.lr.ph.preheader.i806
@@ -82970,190 +82970,190 @@ listOfCard32.exit804:                             ; preds = %.lr.ph.i801, %603, 
   br label %.lr.ph.i808
 
 .lr.ph.i808:                                      ; preds = %.lr.ph.i808, %.lr.ph.preheader.i806
-  %619 = phi i32 [ %628, %.lr.ph.i808 ], [ %.pre.i807, %.lr.ph.preheader.i806 ]
-  %.010.i = phi i32 [ %629, %.lr.ph.i808 ], [ 0, %.lr.ph.preheader.i806 ]
-  %620 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
-  %621 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %620, ptr noundef %0, i32 noundef %619, i32 noundef 4, i32 noundef 0)
-  %622 = load i32, ptr @ett_x11_rectangle, align 4
-  %623 = tail call ptr @proto_item_add_subtree(ptr noundef %621, i32 noundef %622)
-  %624 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
-  %625 = load i32, ptr %2, align 4
-  %626 = tail call ptr @proto_tree_add_item(ptr noundef %623, i32 noundef %624, ptr noundef %0, i32 noundef %625, i32 noundef 4, i32 noundef %4)
-  %627 = load i32, ptr %2, align 4
-  %628 = add i32 %627, 4
-  store i32 %628, ptr %2, align 4
-  %629 = add nuw nsw i32 %.010.i, 1
-  %exitcond.not.i = icmp eq i32 %629, %440
+  %620 = phi i32 [ %629, %.lr.ph.i808 ], [ %.pre.i807, %.lr.ph.preheader.i806 ]
+  %.010.i = phi i32 [ %630, %.lr.ph.i808 ], [ 0, %.lr.ph.preheader.i806 ]
+  %621 = load i32, ptr @hf_x11_struct_xkb_KeyName, align 4
+  %622 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %621, ptr noundef %0, i32 noundef %620, i32 noundef 4, i32 noundef 0)
+  %623 = load i32, ptr @ett_x11_rectangle, align 4
+  %624 = tail call ptr @proto_item_add_subtree(ptr noundef %622, i32 noundef %623)
+  %625 = load i32, ptr @hf_x11_struct_xkb_KeyName_name, align 4
+  %626 = load i32, ptr %2, align 4
+  %627 = tail call ptr @proto_tree_add_item(ptr noundef %624, i32 noundef %625, ptr noundef %0, i32 noundef %626, i32 noundef 4, i32 noundef %4)
+  %628 = load i32, ptr %2, align 4
+  %629 = add i32 %628, 4
+  store i32 %629, ptr %2, align 4
+  %630 = add nuw nsw i32 %.010.i, 1
+  %exitcond.not.i = icmp eq i32 %630, %440
   br i1 %exitcond.not.i, label %struct_xkb_KeyName.exit, label %.lr.ph.i808, !llvm.loop !121
 
 struct_xkb_KeyName.exit:                          ; preds = %.lr.ph.i808, %listOfCard32.exit804
-  %630 = and i32 %399, 1024
-  %.not770 = icmp eq i32 %630, 0
-  br i1 %.not770, label %632, label %631
+  %631 = and i32 %399, 1024
+  %.not770 = icmp eq i32 %631, 0
+  br i1 %.not770, label %633, label %632
 
-631:                                              ; preds = %struct_xkb_KeyName.exit
+632:                                              ; preds = %struct_xkb_KeyName.exit
   tail call fastcc void @struct_xkb_KeyAlias(ptr noundef %0, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %460)
-  br label %632
+  br label %633
 
-632:                                              ; preds = %631, %struct_xkb_KeyName.exit
-  %633 = and i32 %399, 8192
-  %.not771 = icmp eq i32 %633, 0
-  br i1 %.not771, label %listOfCard32.exit815, label %634
+633:                                              ; preds = %632, %struct_xkb_KeyName.exit
+  %634 = and i32 %399, 8192
+  %.not771 = icmp eq i32 %634, 0
+  br i1 %.not771, label %listOfCard32.exit815, label %635
 
-634:                                              ; preds = %632
-  %635 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_RGNames_radioGroupNames, align 4
-  %636 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_RGNames_radioGroupNames_item, align 4
-  %637 = load i32, ptr %2, align 4
-  %638 = shl nuw nsw i32 %453, 2
-  %639 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %635, ptr noundef %0, i32 noundef %637, i32 noundef %638, i32 noundef %4)
-  %640 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %641 = tail call ptr @proto_item_add_subtree(ptr noundef %639, i32 noundef %640)
+635:                                              ; preds = %633
+  %636 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_RGNames_radioGroupNames, align 4
+  %637 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_KeyNames_RGNames_radioGroupNames_item, align 4
+  %638 = load i32, ptr %2, align 4
+  %639 = shl nuw nsw i32 %453, 2
+  %640 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %636, ptr noundef %0, i32 noundef %638, i32 noundef %639, i32 noundef %4)
+  %641 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %642 = tail call ptr @proto_item_add_subtree(ptr noundef %640, i32 noundef %641)
   %.not13.i809 = icmp eq i8 %452, 0
   br i1 %.not13.i809, label %listOfCard32.exit815, label %.lr.ph.preheader.i810
 
-.lr.ph.preheader.i810:                            ; preds = %634
+.lr.ph.preheader.i810:                            ; preds = %635
   %.pre.i811 = load i32, ptr %2, align 4
   br label %.lr.ph.i812
 
 .lr.ph.i812:                                      ; preds = %.lr.ph.i812, %.lr.ph.preheader.i810
-  %642 = phi i32 [ %646, %.lr.ph.i812 ], [ %.pre.i811, %.lr.ph.preheader.i810 ]
-  %.014.i813 = phi i32 [ %643, %.lr.ph.i812 ], [ %453, %.lr.ph.preheader.i810 ]
-  %643 = add nsw i32 %.014.i813, -1
-  %644 = tail call ptr @proto_tree_add_item(ptr noundef %641, i32 noundef %636, ptr noundef %0, i32 noundef %642, i32 noundef 4, i32 noundef %4)
-  %645 = load i32, ptr %2, align 4
-  %646 = add i32 %645, 4
-  store i32 %646, ptr %2, align 4
-  %.not.i814 = icmp eq i32 %643, 0
+  %643 = phi i32 [ %647, %.lr.ph.i812 ], [ %.pre.i811, %.lr.ph.preheader.i810 ]
+  %.014.i813 = phi i32 [ %644, %.lr.ph.i812 ], [ %453, %.lr.ph.preheader.i810 ]
+  %644 = add nsw i32 %.014.i813, -1
+  %645 = tail call ptr @proto_tree_add_item(ptr noundef %642, i32 noundef %637, ptr noundef %0, i32 noundef %643, i32 noundef 4, i32 noundef %4)
+  %646 = load i32, ptr %2, align 4
+  %647 = add i32 %646, 4
+  store i32 %647, ptr %2, align 4
+  %.not.i814 = icmp eq i32 %644, 0
   br i1 %.not.i814, label %listOfCard32.exit815, label %.lr.ph.i812, !llvm.loop !44
 
-listOfCard32.exit815:                             ; preds = %.lr.ph.i812, %634, %632, %379
-  %647 = and i32 %48, 64
-  %.not772 = icmp eq i32 %647, 0
-  br i1 %.not772, label %746, label %648
+listOfCard32.exit815:                             ; preds = %.lr.ph.i812, %635, %633, %379
+  %648 = and i32 %48, 64
+  %.not772 = icmp eq i32 %648, 0
+  br i1 %.not772, label %747, label %649
 
-648:                                              ; preds = %listOfCard32.exit815
-  %649 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_type, align 4
-  %650 = load i32, ptr %2, align 4
-  %651 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %649, ptr noundef %0, i32 noundef %650, i32 noundef 1, i32 noundef %4)
-  %652 = load i32, ptr %2, align 4
-  %653 = add i32 %652, 1
-  store i32 %653, ptr %2, align 4
-  %654 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometryDeviceID, align 4
-  %655 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %654, ptr noundef %0, i32 noundef %653, i32 noundef 1, i32 noundef %4)
-  %656 = load i32, ptr %2, align 4
-  %657 = add i32 %656, 1
-  store i32 %657, ptr %2, align 4
-  %658 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_sequence, align 4
-  %659 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %658, ptr noundef %0, i32 noundef %657, i32 noundef 2, i32 noundef %4)
-  %660 = load i32, ptr %2, align 4
-  %661 = add i32 %660, 2
-  store i32 %661, ptr %2, align 4
-  %662 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_length, align 4
-  %663 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %662, ptr noundef %0, i32 noundef %661, i32 noundef 4, i32 noundef %4)
-  %664 = load i32, ptr %2, align 4
-  %665 = add i32 %664, 4
-  store i32 %665, ptr %2, align 4
-  %666 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_name, align 4
-  %667 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %666, ptr noundef %0, i32 noundef %665, i32 noundef 4, i32 noundef %4)
-  %668 = load i32, ptr %2, align 4
-  %669 = add i32 %668, 4
-  store i32 %669, ptr %2, align 4
-  %670 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometryFound, align 4
-  %671 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %670, ptr noundef %0, i32 noundef %669, i32 noundef 1, i32 noundef %4)
-  %672 = load i32, ptr %2, align 4
-  %673 = add i32 %672, 1
-  store i32 %673, ptr %2, align 4
-  %674 = load i32, ptr @hf_x11_unused, align 4
-  %675 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %674, ptr noundef %0, i32 noundef %673, i32 noundef 1, i32 noundef 0)
-  %676 = load i32, ptr %2, align 4
-  %677 = add i32 %676, 1
-  store i32 %677, ptr %2, align 4
-  %678 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_widthMM, align 4
-  %679 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %678, ptr noundef %0, i32 noundef %677, i32 noundef 2, i32 noundef %4)
-  %680 = load i32, ptr %2, align 4
-  %681 = add i32 %680, 2
-  store i32 %681, ptr %2, align 4
-  %682 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_heightMM, align 4
-  %683 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %682, ptr noundef %0, i32 noundef %681, i32 noundef 2, i32 noundef %4)
-  %684 = load i32, ptr %2, align 4
-  %685 = add i32 %684, 2
-  store i32 %685, ptr %2, align 4
-  %686 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nProperties, align 4
-  %687 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %686, ptr noundef %0, i32 noundef %685, i32 noundef 2, i32 noundef %4)
-  %688 = load i32, ptr %2, align 4
-  %689 = add i32 %688, 2
-  store i32 %689, ptr %2, align 4
-  %690 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nColors, align 4
-  %691 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %690, ptr noundef %0, i32 noundef %689, i32 noundef 2, i32 noundef %4)
-  %692 = load i32, ptr %2, align 4
-  %693 = add i32 %692, 2
-  store i32 %693, ptr %2, align 4
-  %694 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nShapes, align 4
-  %695 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %694, ptr noundef %0, i32 noundef %693, i32 noundef 2, i32 noundef %4)
-  %696 = load i32, ptr %2, align 4
-  %697 = add i32 %696, 2
-  store i32 %697, ptr %2, align 4
-  %698 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nSections, align 4
-  %699 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %698, ptr noundef %0, i32 noundef %697, i32 noundef 2, i32 noundef %4)
-  %700 = load i32, ptr %2, align 4
-  %701 = add i32 %700, 2
-  store i32 %701, ptr %2, align 4
-  %702 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nDoodads, align 4
-  %703 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %702, ptr noundef %0, i32 noundef %701, i32 noundef 2, i32 noundef %4)
-  %704 = load i32, ptr %2, align 4
-  %705 = add i32 %704, 2
-  store i32 %705, ptr %2, align 4
-  %706 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nKeyAliases, align 4
-  %707 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %706, ptr noundef %0, i32 noundef %705, i32 noundef 2, i32 noundef %4)
-  %708 = load i32, ptr %2, align 4
-  %709 = add i32 %708, 2
-  store i32 %709, ptr %2, align 4
-  %710 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_baseColorNdx, align 4
-  %711 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %710, ptr noundef %0, i32 noundef %709, i32 noundef 1, i32 noundef %4)
-  %712 = load i32, ptr %2, align 4
-  %713 = add i32 %712, 1
-  store i32 %713, ptr %2, align 4
-  %714 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_labelColorNdx, align 4
-  %715 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %714, ptr noundef %0, i32 noundef %713, i32 noundef 1, i32 noundef %4)
-  %716 = load i32, ptr %2, align 4
-  %717 = add i32 %716, 1
-  store i32 %717, ptr %2, align 4
-  %718 = load i32, ptr @hf_x11_struct_xkb_CountedString16, align 4
-  %719 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %717, i32 noundef %4)
-  %720 = zext i16 %719 to i32
-  %721 = add nuw nsw i32 %720, 5
-  %722 = and i32 %721, 131068
-  %723 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %718, ptr noundef %0, i32 noundef %717, i32 noundef %722, i32 noundef 0)
-  %724 = load i32, ptr @ett_x11_rectangle, align 4
-  %725 = tail call ptr @proto_item_add_subtree(ptr noundef %723, i32 noundef %724)
-  %726 = load i32, ptr %2, align 4
-  %727 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %726, i32 noundef %4)
-  %728 = zext i16 %727 to i32
-  %729 = load i32, ptr @hf_x11_struct_xkb_CountedString16_length, align 4
-  %730 = load i32, ptr %2, align 4
-  %731 = tail call ptr @proto_tree_add_item(ptr noundef %725, i32 noundef %729, ptr noundef %0, i32 noundef %730, i32 noundef 2, i32 noundef %4)
-  %732 = load i32, ptr %2, align 4
-  %733 = add i32 %732, 2
-  store i32 %733, ptr %2, align 4
-  %734 = load i32, ptr @hf_x11_struct_xkb_CountedString16_string, align 4
-  %735 = tail call i32 @llvm.umax.i32(i32 %728, i32 1)
-  %736 = tail call ptr @proto_tree_add_item(ptr noundef %725, i32 noundef %734, ptr noundef %0, i32 noundef %733, i32 noundef %735, i32 noundef %4)
-  %737 = load i32, ptr %2, align 4
-  %738 = add i32 %737, %735
-  store i32 %738, ptr %2, align 4
-  %739 = load i32, ptr @hf_x11_struct_xkb_CountedString16_alignment_pad, align 4
-  %740 = add nuw nsw i32 %728, 5
-  %741 = and i32 %740, 131068
-  %reass.sub.i = sub nsw i32 %741, %728
-  %742 = tail call i32 @llvm.smax.i32(i32 %reass.sub.i, i32 3)
-  %spec.store.select.i28.i = add nsw i32 %742, -2
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %725, i32 noundef %739, ptr noundef %0, i32 noundef %738, i32 noundef %spec.store.select.i28.i, i32 noundef %4)
-  %744 = load i32, ptr %2, align 4
-  %745 = add i32 %744, %spec.store.select.i28.i
-  store i32 %745, ptr %2, align 4
-  br label %746
+649:                                              ; preds = %listOfCard32.exit815
+  %650 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_type, align 4
+  %651 = load i32, ptr %2, align 4
+  %652 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %650, ptr noundef %0, i32 noundef %651, i32 noundef 1, i32 noundef %4)
+  %653 = load i32, ptr %2, align 4
+  %654 = add i32 %653, 1
+  store i32 %654, ptr %2, align 4
+  %655 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometryDeviceID, align 4
+  %656 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %655, ptr noundef %0, i32 noundef %654, i32 noundef 1, i32 noundef %4)
+  %657 = load i32, ptr %2, align 4
+  %658 = add i32 %657, 1
+  store i32 %658, ptr %2, align 4
+  %659 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_sequence, align 4
+  %660 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %659, ptr noundef %0, i32 noundef %658, i32 noundef 2, i32 noundef %4)
+  %661 = load i32, ptr %2, align 4
+  %662 = add i32 %661, 2
+  store i32 %662, ptr %2, align 4
+  %663 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometry_length, align 4
+  %664 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %663, ptr noundef %0, i32 noundef %662, i32 noundef 4, i32 noundef %4)
+  %665 = load i32, ptr %2, align 4
+  %666 = add i32 %665, 4
+  store i32 %666, ptr %2, align 4
+  %667 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_name, align 4
+  %668 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %667, ptr noundef %0, i32 noundef %666, i32 noundef 4, i32 noundef %4)
+  %669 = load i32, ptr %2, align 4
+  %670 = add i32 %669, 4
+  store i32 %670, ptr %2, align 4
+  %671 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_geometryFound, align 4
+  %672 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %671, ptr noundef %0, i32 noundef %670, i32 noundef 1, i32 noundef %4)
+  %673 = load i32, ptr %2, align 4
+  %674 = add i32 %673, 1
+  store i32 %674, ptr %2, align 4
+  %675 = load i32, ptr @hf_x11_unused, align 4
+  %676 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %675, ptr noundef %0, i32 noundef %674, i32 noundef 1, i32 noundef 0)
+  %677 = load i32, ptr %2, align 4
+  %678 = add i32 %677, 1
+  store i32 %678, ptr %2, align 4
+  %679 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_widthMM, align 4
+  %680 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %679, ptr noundef %0, i32 noundef %678, i32 noundef 2, i32 noundef %4)
+  %681 = load i32, ptr %2, align 4
+  %682 = add i32 %681, 2
+  store i32 %682, ptr %2, align 4
+  %683 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_heightMM, align 4
+  %684 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %683, ptr noundef %0, i32 noundef %682, i32 noundef 2, i32 noundef %4)
+  %685 = load i32, ptr %2, align 4
+  %686 = add i32 %685, 2
+  store i32 %686, ptr %2, align 4
+  %687 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nProperties, align 4
+  %688 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %687, ptr noundef %0, i32 noundef %686, i32 noundef 2, i32 noundef %4)
+  %689 = load i32, ptr %2, align 4
+  %690 = add i32 %689, 2
+  store i32 %690, ptr %2, align 4
+  %691 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nColors, align 4
+  %692 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %691, ptr noundef %0, i32 noundef %690, i32 noundef 2, i32 noundef %4)
+  %693 = load i32, ptr %2, align 4
+  %694 = add i32 %693, 2
+  store i32 %694, ptr %2, align 4
+  %695 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nShapes, align 4
+  %696 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %695, ptr noundef %0, i32 noundef %694, i32 noundef 2, i32 noundef %4)
+  %697 = load i32, ptr %2, align 4
+  %698 = add i32 %697, 2
+  store i32 %698, ptr %2, align 4
+  %699 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nSections, align 4
+  %700 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %699, ptr noundef %0, i32 noundef %698, i32 noundef 2, i32 noundef %4)
+  %701 = load i32, ptr %2, align 4
+  %702 = add i32 %701, 2
+  store i32 %702, ptr %2, align 4
+  %703 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nDoodads, align 4
+  %704 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %703, ptr noundef %0, i32 noundef %702, i32 noundef 2, i32 noundef %4)
+  %705 = load i32, ptr %2, align 4
+  %706 = add i32 %705, 2
+  store i32 %706, ptr %2, align 4
+  %707 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_nKeyAliases, align 4
+  %708 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %707, ptr noundef %0, i32 noundef %706, i32 noundef 2, i32 noundef %4)
+  %709 = load i32, ptr %2, align 4
+  %710 = add i32 %709, 2
+  store i32 %710, ptr %2, align 4
+  %711 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_baseColorNdx, align 4
+  %712 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %711, ptr noundef %0, i32 noundef %710, i32 noundef 1, i32 noundef %4)
+  %713 = load i32, ptr %2, align 4
+  %714 = add i32 %713, 1
+  store i32 %714, ptr %2, align 4
+  %715 = load i32, ptr @hf_x11_xkb_GetKbdByName_reply_Geometry_labelColorNdx, align 4
+  %716 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %715, ptr noundef %0, i32 noundef %714, i32 noundef 1, i32 noundef %4)
+  %717 = load i32, ptr %2, align 4
+  %718 = add i32 %717, 1
+  store i32 %718, ptr %2, align 4
+  %719 = load i32, ptr @hf_x11_struct_xkb_CountedString16, align 4
+  %720 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %718, i32 noundef %4)
+  %721 = zext i16 %720 to i32
+  %722 = add nuw nsw i32 %721, 5
+  %723 = and i32 %722, 131068
+  %724 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %719, ptr noundef %0, i32 noundef %718, i32 noundef %723, i32 noundef 0)
+  %725 = load i32, ptr @ett_x11_rectangle, align 4
+  %726 = tail call ptr @proto_item_add_subtree(ptr noundef %724, i32 noundef %725)
+  %727 = load i32, ptr %2, align 4
+  %728 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %727, i32 noundef %4)
+  %729 = zext i16 %728 to i32
+  %730 = load i32, ptr @hf_x11_struct_xkb_CountedString16_length, align 4
+  %731 = load i32, ptr %2, align 4
+  %732 = tail call ptr @proto_tree_add_item(ptr noundef %726, i32 noundef %730, ptr noundef %0, i32 noundef %731, i32 noundef 2, i32 noundef %4)
+  %733 = load i32, ptr %2, align 4
+  %734 = add i32 %733, 2
+  store i32 %734, ptr %2, align 4
+  %735 = load i32, ptr @hf_x11_struct_xkb_CountedString16_string, align 4
+  %736 = tail call i32 @llvm.umax.i32(i32 %729, i32 1)
+  %737 = tail call ptr @proto_tree_add_item(ptr noundef %726, i32 noundef %735, ptr noundef %0, i32 noundef %734, i32 noundef %736, i32 noundef %4)
+  %738 = load i32, ptr %2, align 4
+  %739 = add i32 %738, %736
+  store i32 %739, ptr %2, align 4
+  %740 = load i32, ptr @hf_x11_struct_xkb_CountedString16_alignment_pad, align 4
+  %741 = add nuw nsw i32 %729, 5
+  %742 = and i32 %741, 131068
+  %reass.sub.i = sub nsw i32 %742, %729
+  %743 = tail call i32 @llvm.smax.i32(i32 %reass.sub.i, i32 3)
+  %spec.store.select.i28.i = add nsw i32 %743, -2
+  %744 = tail call ptr @proto_tree_add_item(ptr noundef %726, i32 noundef %740, ptr noundef %0, i32 noundef %739, i32 noundef %spec.store.select.i28.i, i32 noundef %4)
+  %745 = load i32, ptr %2, align 4
+  %746 = add i32 %745, %spec.store.select.i28.i
+  store i32 %746, ptr %2, align 4
+  br label %747
 
-746:                                              ; preds = %648, %listOfCard32.exit815
+747:                                              ; preds = %649, %listOfCard32.exit815
   ret void
 }
 

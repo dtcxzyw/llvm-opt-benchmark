@@ -49,23 +49,23 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   br label %34
 
 34:                                               ; preds = %.lr.ph, %SYMCOPY_U.exit.loopexit
-  %.07693 = phi i64 [ %33, %.lr.ph ], [ %101, %SYMCOPY_U.exit.loopexit ]
-  %35 = sub nsw i64 %0, %.07693
+  %.07691 = phi i64 [ %33, %.lr.ph ], [ %101, %SYMCOPY_U.exit.loopexit ]
+  %35 = sub nsw i64 %0, %.07691
   %36 = tail call i64 @llvm.smin.i64(i64 %35, i64 8)
-  %37 = icmp sgt i64 %.07693, 0
-  %38 = mul nsw i64 %.07693, %4
+  %37 = icmp sgt i64 %.07691, 0
+  %38 = mul nsw i64 %.07691, %4
   br i1 %37, label %39, label %.lr.ph134.i
 
 39:                                               ; preds = %34
   %40 = getelementptr inbounds double, ptr %3, i64 %38
-  %41 = getelementptr inbounds nuw double, ptr %.079, i64 %.07693
-  %42 = tail call i32 @dgemv_t(i64 noundef %.07693, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %40, i64 noundef %4, ptr noundef %.078, i64 noundef 1, ptr noundef nonnull %41, i64 noundef 1, ptr noundef %.1) #3
-  %43 = getelementptr inbounds nuw double, ptr %.078, i64 %.07693
-  %44 = tail call i32 @dgemv_n(i64 noundef %.07693, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %40, i64 noundef %4, ptr noundef nonnull %43, i64 noundef 1, ptr noundef %.079, i64 noundef 1, ptr noundef %.1) #3
+  %41 = getelementptr inbounds nuw double, ptr %.079, i64 %.07691
+  %42 = tail call i32 @dgemv_t(i64 noundef %.07691, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %40, i64 noundef %4, ptr noundef %.078, i64 noundef 1, ptr noundef nonnull %41, i64 noundef 1, ptr noundef %.1) #3
+  %43 = getelementptr inbounds nuw double, ptr %.078, i64 %.07691
+  %44 = tail call i32 @dgemv_n(i64 noundef %.07691, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %40, i64 noundef %4, ptr noundef nonnull %43, i64 noundef 1, ptr noundef %.079, i64 noundef 1, ptr noundef %.1) #3
   br label %.lr.ph134.i
 
 .lr.ph134.i:                                      ; preds = %34, %39
-  %45 = getelementptr inbounds double, ptr %3, i64 %.07693
+  %45 = getelementptr inbounds double, ptr %3, i64 %.07691
   %46 = getelementptr inbounds double, ptr %45, i64 %38
   %47 = shl nuw nsw i64 %36, 1
   br label %48
@@ -87,7 +87,7 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %56 = getelementptr inbounds nuw double, ptr %.097131.i, i64 %36
   %57 = getelementptr inbounds double, ptr %.0105128.i, i64 %4
   %.not.i = icmp eq i64 %.0102129.i, 0
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %55, %.lr.ph.i
   %.1113.i = phi ptr [ %73, %.lr.ph.i ], [ %51, %55 ]
@@ -123,15 +123,13 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   %73 = getelementptr inbounds nuw double, ptr %.1113.i, i64 %47
   %74 = add nuw nsw i64 %.0103107.i, 2
   %75 = icmp samesign ult i64 %74, %.0102129.i
-  br i1 %75, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %75, label %.lr.ph.i, label %.thread.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %55
+.thread.i:                                        ; preds = %.lr.ph.i, %55
   %.1100.lcssa.i = phi ptr [ %.0105128.i, %55 ], [ %64, %.lr.ph.i ]
   %.098.lcssa.i = phi ptr [ %57, %55 ], [ %65, %.lr.ph.i ]
   %.194.lcssa.i = phi ptr [ %.097131.i, %55 ], [ %70, %.lr.ph.i ]
   %.092.lcssa.i = phi ptr [ %56, %55 ], [ %71, %.lr.ph.i ]
-  %.190.lcssa.i = phi ptr [ %.096132.i, %55 ], [ %72, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %51, %55 ], [ %73, %.lr.ph.i ]
   %76 = load double, ptr %.1100.lcssa.i, align 8, !tbaa !3
   %77 = load double, ptr %.098.lcssa.i, align 8, !tbaa !3
   %78 = getelementptr inbounds nuw i8, ptr %.098.lcssa.i, i64 8
@@ -142,13 +140,9 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   store double %77, ptr %.092.lcssa.i, align 8, !tbaa !3
   %81 = getelementptr inbounds nuw i8, ptr %.092.lcssa.i, i64 8
   store double %79, ptr %81, align 8, !tbaa !3
-  br label %82
+  br label %95
 
-82:                                               ; preds = %._crit_edge.i, %48
-  %.099.i = phi ptr [ %.1100.lcssa.i, %._crit_edge.i ], [ %.0105128.i, %48 ]
-  %.093.i = phi ptr [ %.194.lcssa.i, %._crit_edge.i ], [ %.097131.i, %48 ]
-  %.089.i = phi ptr [ %.190.lcssa.i, %._crit_edge.i ], [ %.096132.i, %48 ]
-  %.0.i = phi ptr [ %.1.lcssa.i, %._crit_edge.i ], [ %51, %48 ]
+82:                                               ; preds = %48
   %83 = icmp eq i64 %53, 1
   br i1 %83, label %.preheader.i, label %95
 
@@ -157,10 +151,10 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   br i1 %.not136.i, label %._crit_edge125.i, label %.lr.ph124.i
 
 .lr.ph124.i:                                      ; preds = %.preheader.i, %.lr.ph124.i
-  %.2123.i = phi ptr [ %91, %.lr.ph124.i ], [ %.0.i, %.preheader.i ]
-  %.291122.i = phi ptr [ %90, %.lr.ph124.i ], [ %.089.i, %.preheader.i ]
-  %.295121.i = phi ptr [ %89, %.lr.ph124.i ], [ %.093.i, %.preheader.i ]
-  %.2101120.i = phi ptr [ %87, %.lr.ph124.i ], [ %.099.i, %.preheader.i ]
+  %.2123.i = phi ptr [ %91, %.lr.ph124.i ], [ %51, %.preheader.i ]
+  %.291122.i = phi ptr [ %90, %.lr.ph124.i ], [ %.096132.i, %.preheader.i ]
+  %.295121.i = phi ptr [ %89, %.lr.ph124.i ], [ %.097131.i, %.preheader.i ]
+  %.2101120.i = phi ptr [ %87, %.lr.ph124.i ], [ %.0105128.i, %.preheader.i ]
   %.1104119.i = phi i64 [ %92, %.lr.ph124.i ], [ 0, %.preheader.i ]
   %84 = load double, ptr %.2101120.i, align 8, !tbaa !3
   %85 = getelementptr inbounds nuw i8, ptr %.2101120.i, i64 8
@@ -179,22 +173,22 @@ define noundef i32 @dsymv_U(i64 noundef %0, i64 noundef %1, double noundef %2, p
   br i1 %93, label %.lr.ph124.i, label %._crit_edge125.i, !llvm.loop !9
 
 ._crit_edge125.i:                                 ; preds = %.lr.ph124.i, %.preheader.i
-  %.2101.lcssa.i = phi ptr [ %.099.i, %.preheader.i ], [ %87, %.lr.ph124.i ]
-  %.295.lcssa.i = phi ptr [ %.093.i, %.preheader.i ], [ %89, %.lr.ph124.i ]
+  %.2101.lcssa.i = phi ptr [ %.0105128.i, %.preheader.i ], [ %87, %.lr.ph124.i ]
+  %.295.lcssa.i = phi ptr [ %.097131.i, %.preheader.i ], [ %89, %.lr.ph124.i ]
   %94 = load double, ptr %.2101.lcssa.i, align 8, !tbaa !3
   store double %94, ptr %.295.lcssa.i, align 8, !tbaa !3
   br label %95
 
-95:                                               ; preds = %._crit_edge125.i, %82
+95:                                               ; preds = %._crit_edge125.i, %82, %.thread.i
   %96 = add nuw nsw i64 %.0102129.i, 2
   %97 = icmp slt i64 %96, %36
   br i1 %97, label %48, label %SYMCOPY_U.exit.loopexit, !llvm.loop !10
 
 SYMCOPY_U.exit.loopexit:                          ; preds = %95
-  %98 = getelementptr inbounds double, ptr %.078, i64 %.07693
-  %99 = getelementptr inbounds double, ptr %.079, i64 %.07693
+  %98 = getelementptr inbounds double, ptr %.078, i64 %.07691
+  %99 = getelementptr inbounds double, ptr %.079, i64 %.07691
   %100 = tail call i32 @dgemv_n(i64 noundef %36, i64 noundef %36, i64 noundef 0, double noundef %2, ptr noundef %9, i64 noundef %36, ptr noundef %98, i64 noundef 1, ptr noundef %99, i64 noundef 1, ptr noundef %.1) #3
-  %101 = add nsw i64 %.07693, 8
+  %101 = add nsw i64 %.07691, 8
   %102 = icmp slt i64 %101, %0
   br i1 %102, label %34, label %._crit_edge, !llvm.loop !11
 

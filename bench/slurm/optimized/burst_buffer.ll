@@ -1488,7 +1488,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_post_run(ptr nound
   %19 = load ptr, ptr @ops, align 8
   %20 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv, i32 15
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #11
+  %22 = tail call i32 %21(ptr noundef nonnull %0) #11
   %23 = tail call i32 @llvm.smin.i32(i32 %.01722, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @g_context_cnt, align 4
@@ -1566,7 +1566,7 @@ define dso_local range(i32 -2147483648, 2) i32 @bb_g_job_test_stage_out(ptr noun
   %19 = load ptr, ptr @ops, align 8
   %20 = getelementptr inbounds nuw %struct.slurm_bb_ops, ptr %19, i64 %indvars.iv, i32 16
   %21 = load ptr, ptr %20, align 8
-  %22 = tail call i32 %21(ptr noundef %0) #11
+  %22 = tail call i32 %21(ptr noundef nonnull %0) #11
   %23 = tail call i32 @llvm.smin.i32(i32 %.02128, i32 %22)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr @g_context_cnt, align 4

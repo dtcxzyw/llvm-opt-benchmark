@@ -992,7 +992,7 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   store float %23, ptr %17, align 4
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count145
-  br i1 %exitcond146.not, label %._crit_edge, label %13, !llvm.loop !6
+  br i1 %exitcond146.not, label %.loopexit, label %13, !llvm.loop !6
 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -1047,7 +1047,7 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   %exitcond141.not = icmp eq i64 %indvars.iv.next138, %wide.trip.count140
   br i1 %exitcond141.not, label %._crit_edge, label %.lr.ph121.us, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %._crit_edge122.us, %13, %3
+._crit_edge:                                      ; preds = %._crit_edge122.us, %3
   %52 = add i32 %5, -3
   %or.cond = icmp ult i32 %52, 2
   br i1 %or.cond, label %53, label %.loopexit
@@ -1111,7 +1111,7 @@ define hidden noundef i32 @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6O
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %.loopexit, label %.lr.ph128.us, !llvm.loop !10
 
-.loopexit:                                        ; preds = %._crit_edge129.us, %6, %24, %.lr.ph125, %.lr.ph132, %53, %._crit_edge
+.loopexit:                                        ; preds = %13, %._crit_edge129.us, %6, %24, %.lr.ph125, %.lr.ph132, %53, %._crit_edge
   ret i32 0
 }
 

@@ -2236,7 +2236,7 @@ find_commits_for_midx_bitmap.exit:                ; preds = %931
   br i1 %exitcond.not.i401, label %._crit_edge.i402, label %961, !llvm.loop !176
 
 ._crit_edge.i402:                                 ; preds = %961, %find_commits_for_midx_bitmap.exit
-  call void @bitmap_writer_init(ptr noundef nonnull %11, ptr noundef %0, ptr noundef nonnull %31) #19
+  call void @bitmap_writer_init(ptr noundef nonnull %11, ptr noundef nonnull %0, ptr noundef nonnull %31) #19
   %964 = and i32 %.0195, 1
   call void @bitmap_writer_show_progress(ptr noundef nonnull %11, i32 noundef %964) #19
   call void @bitmap_writer_build_type_index(ptr noundef nonnull %11, ptr noundef %957) #19
@@ -2274,7 +2274,7 @@ write_midx_bitmap.exit:                           ; preds = %._crit_edge46.i
   call void @free(ptr noundef %957) #19
   call void @free(ptr noundef %949) #19
   call void @bitmap_writer_free(ptr noundef nonnull %11) #19
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef %0) #19
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef nonnull %0) #19
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11) #19
   call void @clear_packing_data(ptr noundef nonnull %31) #19
   call void @free(ptr noundef %942) #19
@@ -2285,7 +2285,7 @@ write_midx_bitmap.exit:                           ; preds = %._crit_edge46.i
   call void @free(ptr noundef %957) #19
   call void @free(ptr noundef %949) #19
   call void @bitmap_writer_free(ptr noundef nonnull %11) #19
-  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef %0) #19
+  call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str.16, i32 noundef 897, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.68, ptr noundef nonnull %0) #19
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %11) #19
   %976 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !40
   %.not4.i403 = icmp eq i32 %976, 0
@@ -2588,7 +2588,7 @@ _.exit417:                                        ; preds = %1044, %1046
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.split.i ], [ 0, %1100 ]
   %1109 = getelementptr inbounds nuw [3 x ptr], ptr @__const.clear_midx_files.exts, i64 0, i64 %indvars.iv31.i
   %1110 = load ptr, ptr %1109, align 8, !tbaa !57
-  call void @clear_incremental_midx_files_ext(ptr noundef %1, ptr noundef %1110, ptr noundef %986, i32 noundef 0) #19
+  call void @clear_incremental_midx_files_ext(ptr noundef %1, ptr noundef %1110, ptr noundef nonnull %986, i32 noundef 0) #19
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond34.not.i = icmp eq i64 %indvars.iv.next32.i, 3
   br i1 %exitcond34.not.i, label %.split23.us.i, label %.split.i, !llvm.loop !187

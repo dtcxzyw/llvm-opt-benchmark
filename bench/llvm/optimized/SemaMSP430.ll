@@ -1024,8 +1024,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit42: ; preds = %_ZN
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 16
   %484 = load i8, ptr %483, align 16
   %485 = icmp eq i8 %484, 13
-  %.not.not7.i.i = icmp ne ptr %482, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %485
+  %.not7.i.i = icmp ne ptr %482, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %485
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %472

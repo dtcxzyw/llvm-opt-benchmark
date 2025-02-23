@@ -109,15 +109,22 @@ sub_2:                                            ; preds = %sub_1
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %23) #8
   %24 = add nsw i32 %.086, -16
   %25 = icmp samesign ugt i32 %.086, 16
-  br i1 %25, label %.lr.ph, label %._crit_edge
+  br i1 %25, label %.lr.ph, label %._crit_edge.thread
 
-._crit_edge:                                      ; preds = %.lr.ph, %.critedge
+._crit_edge.thread:                               ; preds = %.lr.ph
+  call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 16) #8
+  br label %.lr.ph90.preheader
+
+._crit_edge:                                      ; preds = %.critedge
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 16) #8
   %.not5987 = icmp eq i32 %7, 0
-  br i1 %.not5987, label %._crit_edge91, label %.lr.ph90
+  br i1 %.not5987, label %._crit_edge91, label %.lr.ph90.preheader
 
-.lr.ph90:                                         ; preds = %._crit_edge, %.lr.ph90
-  %.05688 = phi i32 [ %27, %.lr.ph90 ], [ %7, %._crit_edge ]
+.lr.ph90.preheader:                               ; preds = %._crit_edge.thread, %._crit_edge
+  br label %.lr.ph90
+
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %.lr.ph90
+  %.05688 = phi i32 [ %27, %.lr.ph90 ], [ %7, %.lr.ph90.preheader ]
   %26 = and i32 %.05688, 1
   %.not63 = icmp eq i32 %26, 0
   %. = select i1 %.not63, ptr %0, ptr %3

@@ -483,7 +483,7 @@ invoke.cont30:                                    ; preds = %invoke.cont27
   %12 = load ptr, ptr %scope_.i, align 8
   %cond.i = select i1 %bf.cast.not.i, ptr null, ptr %12
   store ptr %cond.i, ptr %oneof, align 8
-  %containing_type_.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 16
+  %containing_type_.i = getelementptr inbounds nuw i8, ptr %12, i64 16
   %13 = load ptr, ptr %containing_type_.i, align 8
   %oneof_decls_.i = getelementptr inbounds nuw i8, ptr %13, i64 64
   %14 = load ptr, ptr %oneof_decls_.i, align 8

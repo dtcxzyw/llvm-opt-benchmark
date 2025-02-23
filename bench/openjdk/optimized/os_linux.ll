@@ -4028,7 +4028,7 @@ define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStr
   %5 = alloca [33 x i8], align 16
   %6 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0) #26
   %7 = icmp ne i32 %6, -1
-  br i1 %7, label %8, label %28
+  br i1 %7, label %8, label %27
 
 8:                                                ; preds = %4
   %.not = icmp eq ptr %3, null
@@ -4054,7 +4054,7 @@ define internal fastcc noundef zeroext i1 @_ZL17_print_ascii_filePKcP12outputStr
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull %5, i64 noundef %14) #26
   %15 = call i64 @read(i32 noundef %6, ptr noundef nonnull %5, i64 noundef 32) #26
   %16 = icmp sgt i64 %15, 0
-  br i1 %16, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !21
+  br i1 %16, label %.lr.ph.split.us, label %._crit_edge.thread, !llvm.loop !21
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZL14count_newlinesPKc.exit
   %17 = phi i64 [ %23, %_ZL14count_newlinesPKc.exit ], [ %12, %.lr.ph ]
@@ -4080,20 +4080,20 @@ _ZL14count_newlinesPKc.exit:                      ; preds = %.lr.ph.i, %.lr.ph.s
   %24 = icmp sgt i64 %23, 0
   br i1 %24, label %.lr.ph.split, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %_ZL14count_newlinesPKc.exit, %.lr.ph.split.us, %10
-  %.0.lcssa = phi i32 [ 0, %10 ], [ 0, %.lr.ph.split.us ], [ %22, %_ZL14count_newlinesPKc.exit ]
+._crit_edge:                                      ; preds = %_ZL14count_newlinesPKc.exit, %10
+  %.0.lcssa = phi i32 [ 0, %10 ], [ %22, %_ZL14count_newlinesPKc.exit ]
   %.not19 = icmp eq ptr %2, null
-  br i1 %.not19, label %26, label %25
+  br i1 %.not19, label %._crit_edge.thread, label %25
 
 25:                                               ; preds = %._crit_edge
   store i32 %.0.lcssa, ptr %2, align 4
-  br label %26
+  br label %._crit_edge.thread
 
-26:                                               ; preds = %25, %._crit_edge
-  %27 = call i32 @close(i32 noundef %6) #26
-  br label %28
+._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %25, %._crit_edge
+  %26 = call i32 @close(i32 noundef %6) #26
+  br label %27
 
-28:                                               ; preds = %4, %26
+27:                                               ; preds = %4, %._crit_edge.thread
   ret i1 %7
 }
 
@@ -4211,47 +4211,42 @@ define hidden void @_ZN2os5Linux17print_distro_infoEP12outputStream(ptr noundef 
   %5 = icmp eq ptr %4, null
   br i1 %5, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread ], [ 0, %1 ]
-  %6 = phi ptr [ %9, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread ], [ %4, %1 ]
+.lr.ph:                                           ; preds = %1, %16
+  %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %1 ]
+  %6 = phi ptr [ %18, %16 ], [ %4, %1 ]
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %3)
   %7 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull readonly %6, i32 noundef 0) #26
   %.not = icmp eq i32 %7, -1
-  br i1 %.not, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, label %11
+  br i1 %.not, label %16, label %8
 
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %3)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %._crit_edge, label %.lr.ph, !llvm.loop !24
+8:                                                ; preds = %.lr.ph
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 0, ptr %9, align 16
+  %10 = call i64 @read(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 32) #26
+  %11 = icmp sgt i64 %10, 0
+  br i1 %11, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread
 
-11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 0, ptr %12, align 16
+.lr.ph.split.us.i:                                ; preds = %8, %.lr.ph.split.us.i
+  %12 = phi i64 [ %13, %.lr.ph.split.us.i ], [ %10, %8 ]
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef %12) #26
   %13 = call i64 @read(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 32) #26
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread12
+  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !21
 
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread12: ; preds = %11
-  %15 = tail call i32 @close(i32 noundef %7) #26
+_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.split.us.i, %8
+  %15 = call i32 @close(i32 noundef %7) #26
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %3)
   br label %32
 
-.lr.ph.split.us.i:                                ; preds = %11, %.lr.ph.split.us.i
-  %16 = phi i64 [ %17, %.lr.ph.split.us.i ], [ %13, %11 ]
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %3, i64 noundef %16) #26
-  %17 = call i64 @read(i32 noundef %7, ptr noundef nonnull %3, i64 noundef 32) #26
-  %18 = icmp sgt i64 %17, 0
-  br i1 %18, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit, !llvm.loop !21
-
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %.lr.ph.split.us.i
-  %19 = call i32 @close(i32 noundef %7) #26
+16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %3)
-  br label %32
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %17 = getelementptr inbounds nuw [14 x ptr], ptr @distro_files, i64 0, i64 %indvars.iv.next
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
-._crit_edge:                                      ; preds = %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, %1
+._crit_edge:                                      ; preds = %16, %1
   %20 = tail call noundef zeroext i1 @_ZN2os11file_existsEPKc(ptr noundef nonnull @.str.103) #26
   br i1 %20, label %21, label %31
 
@@ -4260,27 +4255,27 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %.lr.ph.split.us.i
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %2)
   %22 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull @.str.103, i32 noundef 0) #26
   %.not13 = icmp eq i32 %22, -1
-  br i1 %.not13, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11, label %23
+  br i1 %.not13, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit12, label %23
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i8 0, ptr %24, align 16
   %25 = call i64 @read(i32 noundef %22, ptr noundef nonnull %2, i64 noundef 32) #26
   %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %.lr.ph.split.us.i10, label %._crit_edge.i8
+  br i1 %26, label %.lr.ph.split.us.i11, label %._crit_edge.thread.i9
 
-.lr.ph.split.us.i10:                              ; preds = %23, %.lr.ph.split.us.i10
-  %27 = phi i64 [ %28, %.lr.ph.split.us.i10 ], [ %25, %23 ]
+.lr.ph.split.us.i11:                              ; preds = %23, %.lr.ph.split.us.i11
+  %27 = phi i64 [ %28, %.lr.ph.split.us.i11 ], [ %25, %23 ]
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, i64 noundef %27) #26
   %28 = call i64 @read(i32 noundef %22, ptr noundef nonnull %2, i64 noundef 32) #26
   %29 = icmp sgt i64 %28, 0
-  br i1 %29, label %.lr.ph.split.us.i10, label %._crit_edge.i8, !llvm.loop !21
+  br i1 %29, label %.lr.ph.split.us.i11, label %._crit_edge.thread.i9, !llvm.loop !21
 
-._crit_edge.i8:                                   ; preds = %.lr.ph.split.us.i10, %23
+._crit_edge.thread.i9:                            ; preds = %.lr.ph.split.us.i11, %23
   %30 = call i32 @close(i32 noundef %22) #26
-  br label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11
+  br label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit12
 
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11: ; preds = %21, %._crit_edge.i8
+_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit12: ; preds = %21, %._crit_edge.thread.i9
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2)
   br label %32
 
@@ -4288,7 +4283,7 @@ _ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11: ; preds = %21, %._crit_edg
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.105) #26
   br label %32
 
-32:                                               ; preds = %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread12, %31, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit11
+32:                                               ; preds = %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, %31, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit12
   ret void
 }
 
@@ -4595,20 +4590,20 @@ define hidden noundef zeroext i1 @_ZN2os5Linux21print_ld_preload_fileEP12outputS
   store i8 0, ptr %6, align 16
   %7 = call i64 @read(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 32) #26
   %8 = icmp sgt i64 %7, 0
-  br i1 %8, label %.lr.ph.split.us.i, label %._crit_edge.i
+  br i1 %8, label %.lr.ph.split.us.i, label %._crit_edge.thread.i
 
 .lr.ph.split.us.i:                                ; preds = %5, %.lr.ph.split.us.i
   %9 = phi i64 [ %10, %.lr.ph.split.us.i ], [ %7, %5 ]
   call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2, i64 noundef %9) #26
   %10 = call i64 @read(i32 noundef %3, ptr noundef nonnull %2, i64 noundef 32) #26
   %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.split.us.i, label %._crit_edge.i, !llvm.loop !21
+  br i1 %11, label %.lr.ph.split.us.i, label %._crit_edge.thread.i, !llvm.loop !21
 
-._crit_edge.i:                                    ; preds = %.lr.ph.split.us.i, %5
+._crit_edge.thread.i:                             ; preds = %.lr.ph.split.us.i, %5
   %12 = call i32 @close(i32 noundef %3) #26
   br label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit
 
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %1, %._crit_edge.i
+_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %1, %._crit_edge.thread.i
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %2)
   ret i1 %4
 }
@@ -4802,38 +4797,33 @@ define internal fastcc void @_ZL19_print_ascii_file_hPKcS0_P12outputStreamb(ptr 
   call void @llvm.lifetime.start.p0(i64 33, ptr nonnull %5)
   %7 = tail call i32 (ptr, i32, ...) @open64(ptr noundef readonly %1, i32 noundef 0) #26
   %.not = icmp eq i32 %7, -1
-  br i1 %.not, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, label %8
-
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %4
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5)
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.289) #26
-  br label %17
+  br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i8 0, ptr %9, align 16
   %10 = call i64 @read(i32 noundef %7, ptr noundef nonnull %5, i64 noundef 32) #26
   %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread5
-
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread5: ; preds = %8
-  %12 = tail call i32 @close(i32 noundef %7) #26
-  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5)
-  br label %17
+  br i1 %11, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread
 
 .lr.ph.split.us.i:                                ; preds = %8, %.lr.ph.split.us.i
-  %13 = phi i64 [ %14, %.lr.ph.split.us.i ], [ %10, %8 ]
-  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %5, i64 noundef %13) #26
-  %14 = call i64 @read(i32 noundef %7, ptr noundef nonnull %5, i64 noundef 32) #26
-  %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit, !llvm.loop !21
+  %12 = phi i64 [ %13, %.lr.ph.split.us.i ], [ %10, %8 ]
+  call void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull %5, i64 noundef %12) #26
+  %13 = call i64 @read(i32 noundef %7, ptr noundef nonnull %5, i64 noundef 32) #26
+  %14 = icmp sgt i64 %13, 0
+  br i1 %14, label %.lr.ph.split.us.i, label %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, !llvm.loop !21
 
-_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit: ; preds = %.lr.ph.split.us.i
-  %16 = call i32 @close(i32 noundef %7) #26
+_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread: ; preds = %.lr.ph.split.us.i, %8
+  %15 = call i32 @close(i32 noundef %7) #26
   call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5)
   br label %17
 
-17:                                               ; preds = %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread5, %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread
+16:                                               ; preds = %4
+  call void @llvm.lifetime.end.p0(i64 33, ptr nonnull %5)
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.289) #26
+  br label %17
+
+17:                                               ; preds = %_ZL17_print_ascii_filePKcP12outputStreamPjS0_.exit.thread, %16
   ret void
 }
 

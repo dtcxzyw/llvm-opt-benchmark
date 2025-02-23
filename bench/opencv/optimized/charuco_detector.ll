@@ -7240,9 +7240,9 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6ve
   %329 = add i64 %.068.i.i.i.i.i.i, -1
   %330 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i134 = icmp eq i64 %329, 0
-  br i1 %.not.i.i.i.i.i.i134, label %.loopexit357, label %.lr.ph.i.i.i.i.i.i133, !llvm.loop !20
+  br i1 %.not.i.i.i.i.i.i134, label %.lr.ph402, label %.lr.ph.i.i.i.i.i.i133, !llvm.loop !20
 
-.loopexit357:                                     ; preds = %.lr.ph.i.i.i.i.i.i133
+.lr.ph402:                                        ; preds = %.lr.ph.i.i.i.i.i.i133
   store ptr %330, ptr %326, align 8
   %331 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %332 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -7264,8 +7264,8 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt6ve
   %umax = call i64 @llvm.umax.i64(i64 %320, i64 1)
   br label %348
 
-348:                                              ; preds = %.loopexit357, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit212
-  %.080399 = phi i64 [ 0, %.loopexit357 ], [ %527, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit212 ]
+348:                                              ; preds = %.lr.ph402, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit212
+  %.080399 = phi i64 [ 0, %.lr.ph402 ], [ %527, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit212 ]
   invoke void @_ZNK2cv5aruco12CharucoBoard20getChessboardCornersEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.46") align 8 %24, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %349 unwind label %444
 

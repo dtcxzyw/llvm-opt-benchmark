@@ -66,7 +66,7 @@ define hidden ptr @get_args_as_string(i32 noundef %0, ptr noundef readonly captu
   %18 = getelementptr ptr, ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @g_strlcat(ptr noundef %16, ptr noundef %19, i64 noundef %15)
-  %21 = add i32 %2, 1
+  %21 = add nsw i32 %2, 1
   %22 = icmp eq i32 %21, %0
   br i1 %22, label %.loopexit, label %.lr.ph29
 

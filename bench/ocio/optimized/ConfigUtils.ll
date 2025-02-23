@@ -1748,8 +1748,8 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIfSaIfE
 invoke.cont:                                      ; preds = %if.end.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %out.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %call5.i.i.i.i2.i.i12, %if.end.i.i.i.i.i.i.i ]
   %retval.0.i.i.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ]
-  %div44 = lshr i64 %sub.ptr.div.i, 2
-  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %desc, ptr noundef nonnull %1, i64 noundef %div44, i64 noundef 1, i32 noundef 0)
+  %div4445 = lshr i64 %sub.ptr.div.i, 2
+  invoke void @_ZN19OpenColorIO_v2_4dev15PackedImageDescC1EPvllNS_15ChannelOrderingE(ptr noundef nonnull align 8 dereferenceable(16) %desc, ptr noundef nonnull %1, i64 noundef %div4445, i64 noundef 1, i32 noundef 0)
           to label %invoke.cont5 unwind label %ehcleanup26
 
 invoke.cont5:                                     ; preds = %invoke.cont
@@ -1774,8 +1774,8 @@ invoke.cont13:                                    ; preds = %invoke.cont10
           to label %for.cond.preheader unwind label %lpad15
 
 for.cond.preheader:                               ; preds = %invoke.cont13
-  %cmp45 = icmp eq ptr %retval.0.i.i.i.i.i.i.i, %out.sroa.0.0
-  br i1 %cmp45, label %cleanup, label %for.body.lr.ph
+  %cmp46 = icmp eq ptr %retval.0.i.i.i.i.i.i.i, %out.sroa.0.0
+  br i1 %cmp46, label %cleanup, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub.ptr.lhs.cast.i24 = ptrtoint ptr %retval.0.i.i.i.i.i.i.i to i64
@@ -1787,17 +1787,17 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
-  %i.046 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds float, ptr %10, i64 %i.046
+  %i.047 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
+  %add.ptr.i = getelementptr inbounds float, ptr %10, i64 %i.047
   %11 = load float, ptr %add.ptr.i, align 4
-  %add.ptr.i28 = getelementptr inbounds float, ptr %out.sroa.0.0, i64 %i.046
+  %add.ptr.i28 = getelementptr inbounds float, ptr %out.sroa.0.0, i64 %i.047
   %12 = load float, ptr %add.ptr.i28, align 4
   %cmp.i = fcmp ogt float %11, %12
   %sub.i = fsub float %11, %12
   %sub1.i = fsub float %12, %11
   %cond.i = select i1 %cmp.i, float %sub.i, float %sub1.i
   %cmp2.i = fcmp ole float %cond.i, %absTolerance
-  %inc = add nuw i64 %i.046, 1
+  %inc = add nuw i64 %i.047, 1
   %exitcond.not = icmp ne i64 %inc, %umax
   %or.cond.not = select i1 %cmp2.i, i1 %exitcond.not, i1 false
   br i1 %or.cond.not, label %for.body, label %cleanup, !llvm.loop !12

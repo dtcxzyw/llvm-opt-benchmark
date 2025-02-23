@@ -709,7 +709,7 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 152
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTV9LogStream, i64 16), ptr %7, align 8
-  br i1 %.not, label %.critedge, label %.thread
+  br i1 %.not, label %._crit_edge30, label %.thread
 
 .thread:                                          ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.10, i32 noundef %3) #17
@@ -777,14 +777,14 @@ _ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread: ; preds = %5,
 
 ._crit_edge30.thread:                             ; preds = %.lr.ph29.split, %.critedge.thread
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %7) #17
-  br label %.critedge
+  br label %._crit_edge30
 
-.critedge:                                        ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread, %._crit_edge30.thread
+._crit_edge30:                                    ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit.thread, %._crit_edge30.thread
   call void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull align 8 dereferenceable(160) %7) #17
   br label %76
 
-76:                                               ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, %.critedge
-  %.0 = phi i1 [ false, %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit ], [ true, %.critedge ]
+76:                                               ; preds = %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit, %._crit_edge30
+  %.0 = phi i1 [ false, %_ZNK17InterpreterOopMap11iterate_oopEP13OffsetClosure.exit ], [ true, %._crit_edge30 ]
   ret i1 %.0
 }
 

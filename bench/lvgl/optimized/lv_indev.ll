@@ -3676,7 +3676,7 @@ lv_indev_send_event.exit145:                      ; preds = %84, %91
 93:                                               ; preds = %lv_indev_send_event.exit145, %81
   %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.not107 = icmp eq ptr %94, null
-  br i1 %.not107, label %173, label %95
+  br i1 %.not107, label %172, label %95
 
 95:                                               ; preds = %93
   %96 = call zeroext i1 @lv_obj_has_state(ptr noundef nonnull %94, i16 noundef zeroext 128) #11
@@ -3820,7 +3820,7 @@ indev_reset_check.exit151:                        ; preds = %125
   %or.cond = select i1 %158, i1 true, i1 %159
   %160 = icmp ne i16 %151, 256
   %or.cond5 = select i1 %or.cond, i1 true, i1 %160
-  br i1 %or.cond5, label %161, label %172
+  br i1 %or.cond5, label %161, label %.thread
 
 161:                                              ; preds = %150
   %spec.store.select = call i16 @llvm.umax.i16(i16 %151, i16 1)
@@ -3839,23 +3839,23 @@ indev_reset_check.exit151:                        ; preds = %125
   call void @lv_point_transform(ptr noundef nonnull %167, i32 noundef %168, i32 noundef %169, i32 noundef %170, ptr noundef nonnull %6, i1 noundef zeroext false) #11
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 136
   call void @lv_point_transform(ptr noundef nonnull %171, i32 noundef %168, i32 noundef %169, i32 noundef %170, ptr noundef nonnull %6, i1 noundef zeroext false) #11
-  br label %172
+  br label %.thread
 
-172:                                              ; preds = %150, %161
+.thread:                                          ; preds = %161, %150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   br label %173
 
-173:                                              ; preds = %172, %93
+172:                                              ; preds = %93
   %.not114 = icmp eq ptr %70, null
-  br i1 %.not114, label %.critedge118, label %174
+  br i1 %.not114, label %.critedge118, label %173
 
-174:                                              ; preds = %173
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %176 = load ptr, ptr %175, align 8, !tbaa !140
-  %.not115 = icmp eq ptr %176, null
-  br i1 %.not115, label %177, label %179
+173:                                              ; preds = %.thread, %172
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %175 = load ptr, ptr %174, align 8, !tbaa !140
+  %.not115 = icmp eq ptr %175, null
+  br i1 %.not115, label %176, label %178
 
-177:                                              ; preds = %174
+176:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %2) #11
   call void @lv_anim_init(ptr noundef nonnull %2) #11
   call void @lv_anim_set_var(ptr noundef nonnull %2, ptr noundef nonnull %0) #11
@@ -3865,22 +3865,22 @@ indev_reset_check.exit151:                        ; preds = %125
   call void @lv_anim_set_completed_cb(ptr noundef nonnull %2, ptr noundef nonnull @indev_scroll_throw_anim_completed_cb) #11
   call void @lv_anim_set_deleted_cb(ptr noundef nonnull %2, ptr noundef nonnull @indev_scroll_throw_anim_completed_cb) #11
   call void @lv_anim_set_repeat_count(ptr noundef nonnull %2, i32 noundef -1) #11
-  %178 = call ptr @lv_anim_start(ptr noundef nonnull %2) #11
-  store ptr %178, ptr %175, align 8, !tbaa !140
+  %177 = call ptr @lv_anim_start(ptr noundef nonnull %2) #11
+  store ptr %177, ptr %174, align 8, !tbaa !140
   call void @llvm.lifetime.end.p0(i64 136, ptr nonnull %2) #11
-  br label %179
+  br label %178
 
-179:                                              ; preds = %177, %174
-  %180 = load i8, ptr %7, align 4
-  %181 = and i8 %180, 2
-  %.not.i153 = icmp eq i8 %181, 0
-  br i1 %.not.i153, label %.critedge118, label %182
+178:                                              ; preds = %176, %173
+  %179 = load i8, ptr %7, align 4
+  %180 = and i8 %179, 2
+  %.not.i153 = icmp eq i8 %180, 0
+  br i1 %.not.i153, label %.critedge118, label %181
 
-182:                                              ; preds = %179
+181:                                              ; preds = %178
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   br label %.critedge118
 
-.critedge118:                                     ; preds = %.critedge116.thread, %indev_reset_check.exit137, %indev_reset_check.exit129, %indev_reset_check.exit124, %indev_reset_check.exit, %182, %179, %.critedge116, %173, %indev_reset_check.exit151, %121, %118, %send_event.exit.thread, %send_event.exit, %61
+.critedge118:                                     ; preds = %.critedge116.thread, %indev_reset_check.exit137, %indev_reset_check.exit129, %indev_reset_check.exit124, %indev_reset_check.exit, %181, %178, %.critedge116, %172, %indev_reset_check.exit151, %121, %118, %send_event.exit.thread, %send_event.exit, %61
   ret void
 }
 

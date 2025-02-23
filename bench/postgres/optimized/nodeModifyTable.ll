@@ -1370,7 +1370,7 @@ ExecSetupTransitionCaptureState.exit:             ; preds = %126, %122, %106, %1
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 64
   %289 = load ptr, ptr %288, align 8
-  %290 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %284, ptr noundef %278, ptr noundef %272, ptr noundef %27, ptr noundef %289) #9
+  %290 = tail call ptr @ExecBuildProjectionInfo(ptr noundef %284, ptr noundef %278, ptr noundef %272, ptr noundef nonnull %27, ptr noundef %289) #9
   %291 = getelementptr inbounds nuw i8, ptr %.2324471, i64 264
   store ptr %290, ptr %291, align 8
   %292 = getelementptr inbounds nuw i8, ptr %.2324471, i64 392

@@ -706,9 +706,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIP10aiVector3tIdESt6vectorIS3_SaIS3_EEEE
   store ptr null, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   %66 = icmp eq ptr %65, %61
-  br i1 %66, label %.loopexit, label %62
+  br i1 %66, label %.lr.ph37.preheader, label %62
 
-.loopexit:                                        ; preds = %62
+.lr.ph37.preheader:                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store ptr %57, ptr %67, align 8
   br label %.lr.ph37
@@ -722,11 +722,11 @@ _ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit: ; preds = %96, %.loo
           cleanup
   br label %100
 
-.lr.ph37:                                         ; preds = %.loopexit, %96
-  %70 = phi i32 [ %97, %96 ], [ %51, %.loopexit ]
-  %.02035 = phi i32 [ %.1, %96 ], [ 0, %.loopexit ]
-  %.02134 = phi i32 [ %98, %96 ], [ 0, %.loopexit ]
-  %.02233 = phi i32 [ %.123, %96 ], [ 0, %.loopexit ]
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %96
+  %70 = phi i32 [ %97, %96 ], [ %51, %.lr.ph37.preheader ]
+  %.02035 = phi i32 [ %.1, %96 ], [ 0, %.lr.ph37.preheader ]
+  %.02134 = phi i32 [ %98, %96 ], [ 0, %.lr.ph37.preheader ]
+  %.02233 = phi i32 [ %.123, %96 ], [ 0, %.lr.ph37.preheader ]
   %71 = load ptr, ptr %67, align 8
   %72 = zext i32 %.02233 to i64
   %73 = getelementptr inbounds nuw %struct.aiFace, ptr %71, i64 %72
@@ -758,7 +758,7 @@ _ZNSt10unique_ptrI6aiMeshSt14default_deleteIS0_EED2Ev.exit: ; preds = %96, %.loo
 
 ._crit_edge:                                      ; preds = %.lr.ph, %84
   %.2.lcssa = phi i32 [ %.02035, %84 ], [ %90, %.lr.ph ]
-  %87 = add i32 %.02233, 1
+  %87 = add nuw i32 %.02233, 1
   %.pre = load i32, ptr %10, align 8
   br label %96
 
@@ -1873,7 +1873,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc180
   %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.preheader578.lr.ph:                              ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #25
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i32 0, ptr %54, align 8
@@ -1899,12 +1899,12 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc180
   %64 = add i64 %.0142621, %63
   %65 = add nuw i64 %.0143620, 1
   %exitcond.not = icmp eq i64 %65, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
+  br i1 %exitcond.not, label %.preheader578.lr.ph, label %.lr.ph, !llvm.loop !59
 
-.preheader578:                                    ; preds = %._crit_edge, %._crit_edge624
-  %66 = phi ptr [ %37, %._crit_edge ], [ %89, %._crit_edge624 ]
-  %67 = phi ptr [ %36, %._crit_edge ], [ %90, %._crit_edge624 ]
-  %storemerge625 = phi i64 [ 0, %._crit_edge ], [ %91, %._crit_edge624 ]
+.preheader578:                                    ; preds = %.preheader578.lr.ph, %._crit_edge624
+  %66 = phi ptr [ %37, %.preheader578.lr.ph ], [ %89, %._crit_edge624 ]
+  %67 = phi ptr [ %36, %.preheader578.lr.ph ], [ %90, %._crit_edge624 ]
+  %storemerge625 = phi i64 [ 0, %.preheader578.lr.ph ], [ %91, %._crit_edge624 ]
   %68 = getelementptr inbounds nuw i32, ptr %66, i64 %storemerge625
   %69 = load i32, ptr %68, align 4
   %.not669 = icmp eq i32 %69, 0

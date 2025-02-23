@@ -62,15 +62,15 @@ define noalias noundef ptr @Extra_bddImageStart(ptr noundef %0, ptr noundef %1, 
   %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !26
   %28 = trunc nuw nsw i64 %indvars.iv.i to i32
-  tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %27, ptr noundef %13, ptr noundef %14, i32 noundef %28)
+  tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %27, ptr noundef %13, ptr noundef %14, i32 noundef %28)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Extra_bddImagePrintLatchDependency.exit, label %.lr.ph35.i, !llvm.loop !27
 
 Extra_bddImagePrintLatchDependency.exit:          ; preds = %.lr.ph35.i, %._crit_edge.i
-  tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef %0, ptr noundef %1, ptr noundef %13, ptr noundef %14, i32 noundef %2)
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %13) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %14) #10
+  tail call fastcc void @Extra_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %13, ptr noundef %14, i32 noundef %2)
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %13) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %14) #10
   br label %29
 
 29:                                               ; preds = %Extra_bddImagePrintLatchDependency.exit, %8, %7
@@ -491,7 +491,7 @@ Extra_CreateNodes.exit:                           ; preds = %._crit_edge, %.preh
 
 Extra_FindBestVariable.exit.i:                    ; preds = %214
   %215 = icmp eq i32 %.122.i.i, -1
-  br i1 %215, label %.critedge, label %216
+  br i1 %215, label %.critedge.thread, label %216
 
 216:                                              ; preds = %Extra_FindBestVariable.exit.i
   %217 = sext i32 %.122.i.i to i64
@@ -705,98 +705,98 @@ Extra_BuildTreeNode.exit:                         ; preds = %326, %298
   %330 = icmp sgt i32 %329, 0
   br i1 %330, label %.lr.ph34.i.i, label %.critedge, !llvm.loop !70
 
-.critedge:                                        ; preds = %Extra_FindBestVariable.exit.i, %Extra_BuildTreeNode.exit, %Extra_CreateNodes.exit
+.critedge:                                        ; preds = %Extra_BuildTreeNode.exit, %Extra_CreateNodes.exit
   %.not58 = icmp eq ptr %calloc.i, null
-  br i1 %.not58, label %332, label %331
+  br i1 %.not58, label %331, label %.critedge.thread
 
-331:                                              ; preds = %.critedge
+.critedge.thread:                                 ; preds = %Extra_FindBestVariable.exit.i, %.critedge
   tail call void @free(ptr noundef nonnull %calloc.i) #10
-  br label %332
+  br label %331
 
-332:                                              ; preds = %.critedge, %331
+331:                                              ; preds = %.critedge, %.critedge.thread
   %wide.trip.count.i93 = zext nneg i32 %30 to i64
   br i1 %67, label %.lr.ph.i94.us, label %.split
 
-.lr.ph.i94.us:                                    ; preds = %332, %.lr.ph.i94.us.backedge
-  %indvars.iv.i95.us = phi i64 [ %indvars.iv.i95.us.be, %.lr.ph.i94.us.backedge ], [ 0, %332 ]
-  %.02732.i.us = phi i32 [ %.02732.i.us.be, %.lr.ph.i94.us.backedge ], [ -1, %332 ]
-  %333 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv.i95.us
-  %334 = load ptr, ptr %333, align 8, !tbaa !51
-  %.not.i96.us = icmp eq ptr %334, null
-  br i1 %.not.i96.us, label %347, label %335
+.lr.ph.i94.us:                                    ; preds = %331, %.lr.ph.i94.us.backedge
+  %indvars.iv.i95.us = phi i64 [ %indvars.iv.i95.us.be, %.lr.ph.i94.us.backedge ], [ 0, %331 ]
+  %.02732.i.us = phi i32 [ %.02732.i.us.be, %.lr.ph.i94.us.backedge ], [ -1, %331 ]
+  %332 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv.i95.us
+  %333 = load ptr, ptr %332, align 8, !tbaa !51
+  %.not.i96.us = icmp eq ptr %333, null
+  br i1 %.not.i96.us, label %346, label %334
 
-335:                                              ; preds = %.lr.ph.i94.us
-  %336 = icmp eq i32 %.02732.i.us, -1
-  %337 = trunc nuw nsw i64 %indvars.iv.i95.us to i32
-  br i1 %336, label %347, label %338
+334:                                              ; preds = %.lr.ph.i94.us
+  %335 = icmp eq i32 %.02732.i.us, -1
+  %336 = trunc nuw nsw i64 %indvars.iv.i95.us to i32
+  br i1 %335, label %346, label %337
 
-338:                                              ; preds = %335
-  %339 = load ptr, ptr %83, align 8, !tbaa !39
-  %340 = sext i32 %.02732.i.us to i64
-  %341 = getelementptr inbounds ptr, ptr %126, i64 %340
-  %342 = load ptr, ptr %341, align 8, !tbaa !51
-  %343 = and i64 %indvars.iv.i95.us, 4294967295
-  %344 = getelementptr inbounds nuw ptr, ptr %126, i64 %343
-  %345 = load ptr, ptr %344, align 8, !tbaa !51
-  %346 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %339, ptr noundef %342, ptr noundef %345)
-  store ptr %346, ptr %341, align 8, !tbaa !51
-  store ptr null, ptr %344, align 8, !tbaa !51
+337:                                              ; preds = %334
+  %338 = load ptr, ptr %83, align 8, !tbaa !39
+  %339 = sext i32 %.02732.i.us to i64
+  %340 = getelementptr inbounds ptr, ptr %126, i64 %339
+  %341 = load ptr, ptr %340, align 8, !tbaa !51
+  %342 = and i64 %indvars.iv.i95.us, 4294967295
+  %343 = getelementptr inbounds nuw ptr, ptr %126, i64 %342
+  %344 = load ptr, ptr %343, align 8, !tbaa !51
+  %345 = tail call fastcc ptr @Extra_CombineTwoNodes(ptr noundef %0, ptr noundef %338, ptr noundef %341, ptr noundef %344)
+  store ptr %345, ptr %340, align 8, !tbaa !51
+  store ptr null, ptr %343, align 8, !tbaa !51
   br label %Extra_MergeTopNodes.exit.us
 
-347:                                              ; preds = %335, %.lr.ph.i94.us
-  %.1.i.us = phi i32 [ %.02732.i.us, %.lr.ph.i94.us ], [ %337, %335 ]
+346:                                              ; preds = %334, %.lr.ph.i94.us
+  %.1.i.us = phi i32 [ %.02732.i.us, %.lr.ph.i94.us ], [ %336, %334 ]
   %indvars.iv.next.i97.us = add nuw nsw i64 %indvars.iv.i95.us, 1
   %exitcond.not.i98.us = icmp eq i64 %indvars.iv.next.i97.us, %wide.trip.count.i93
   br i1 %exitcond.not.i98.us, label %._crit_edge.loopexit.i.us, label %.lr.ph.i94.us.backedge
 
-.lr.ph.i94.us.backedge:                           ; preds = %347, %Extra_MergeTopNodes.exit.us
-  %indvars.iv.i95.us.be = phi i64 [ %indvars.iv.next.i97.us, %347 ], [ 0, %Extra_MergeTopNodes.exit.us ]
-  %.02732.i.us.be = phi i32 [ %.1.i.us, %347 ], [ -1, %Extra_MergeTopNodes.exit.us ]
+.lr.ph.i94.us.backedge:                           ; preds = %346, %Extra_MergeTopNodes.exit.us
+  %indvars.iv.i95.us.be = phi i64 [ %indvars.iv.next.i97.us, %346 ], [ 0, %Extra_MergeTopNodes.exit.us ]
+  %.02732.i.us.be = phi i32 [ %.1.i.us, %346 ], [ -1, %Extra_MergeTopNodes.exit.us ]
   br label %.lr.ph.i94.us, !llvm.loop !71
 
-._crit_edge.loopexit.i.us:                        ; preds = %347
-  %348 = sext i32 %.1.i.us to i64
-  %349 = getelementptr inbounds ptr, ptr %126, i64 %348
-  %350 = load ptr, ptr %349, align 8, !tbaa !51
-  store ptr null, ptr %349, align 8, !tbaa !51
+._crit_edge.loopexit.i.us:                        ; preds = %346
+  %347 = sext i32 %.1.i.us to i64
+  %348 = getelementptr inbounds ptr, ptr %126, i64 %347
+  %349 = load ptr, ptr %348, align 8, !tbaa !51
+  store ptr null, ptr %348, align 8, !tbaa !51
   br label %Extra_MergeTopNodes.exit.us
 
-Extra_MergeTopNodes.exit.us:                      ; preds = %._crit_edge.loopexit.i.us, %338
-  %.028.i.us = phi ptr [ %350, %._crit_edge.loopexit.i.us ], [ null, %338 ]
+Extra_MergeTopNodes.exit.us:                      ; preds = %._crit_edge.loopexit.i.us, %337
+  %.028.i.us = phi ptr [ %349, %._crit_edge.loopexit.i.us ], [ null, %337 ]
   store ptr %.028.i.us, ptr %calloc, align 8, !tbaa !72
-  %351 = icmp eq ptr %.028.i.us, null
-  br i1 %351, label %.lr.ph.i94.us.backedge, label %.loopexit
+  %350 = icmp eq ptr %.028.i.us, null
+  br i1 %350, label %.lr.ph.i94.us.backedge, label %.loopexit
 
-.split:                                           ; preds = %332
-  %352 = getelementptr inbounds i8, ptr %126, i64 -8
-  %.promoted = load ptr, ptr %352, align 8, !tbaa !51
+.split:                                           ; preds = %331
+  %351 = getelementptr inbounds i8, ptr %126, i64 -8
+  %.promoted = load ptr, ptr %351, align 8, !tbaa !51
   br label %._crit_edge.i91
 
 ._crit_edge.i91:                                  ; preds = %._crit_edge.i91, %.split
-  %353 = phi ptr [ null, %._crit_edge.i91 ], [ %.promoted, %.split ]
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %._crit_edge.i91, label %.preheader.split, !llvm.loop !71
+  %352 = phi ptr [ null, %._crit_edge.i91 ], [ %.promoted, %.split ]
+  %353 = icmp eq ptr %352, null
+  br i1 %353, label %._crit_edge.i91, label %.preheader.split, !llvm.loop !71
 
 .preheader.split:                                 ; preds = %._crit_edge.i91
-  store ptr %353, ptr %calloc, align 8, !tbaa !72
+  store ptr %352, ptr %calloc, align 8, !tbaa !72
   br label %.loopexit
 
 .loopexit:                                        ; preds = %Extra_MergeTopNodes.exit.us, %.preheader.split
-  %.us-phi = phi ptr [ %353, %.preheader.split ], [ %.028.i.us, %Extra_MergeTopNodes.exit.us ]
+  %.us-phi = phi ptr [ %352, %.preheader.split ], [ %.028.i.us, %Extra_MergeTopNodes.exit.us ]
   tail call void @free(ptr noundef nonnull %126) #10
-  %355 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
-  %356 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
-  store ptr %355, ptr %356, align 8, !tbaa !73
-  tail call void @Cudd_Ref(ptr noundef %355) #10
+  %354 = tail call ptr @Cudd_Support(ptr noundef %0, ptr noundef %1) #10
+  %355 = getelementptr inbounds nuw i8, ptr %calloc, i64 16
+  store ptr %354, ptr %355, align 8, !tbaa !73
+  tail call void @Cudd_Ref(ptr noundef %354) #10
   tail call fastcc void @Extra_DeleteParts_rec(ptr noundef nonnull %.us-phi)
   %.not61 = icmp eq ptr %33, null
-  br i1 %.not61, label %358, label %357
+  br i1 %.not61, label %357, label %356
 
-357:                                              ; preds = %.loopexit
+356:                                              ; preds = %.loopexit
   tail call void @free(ptr noundef nonnull %33) #10
-  br label %358
+  br label %357
 
-358:                                              ; preds = %.loopexit, %357
+357:                                              ; preds = %.loopexit, %356
   ret ptr %calloc
 }
 
@@ -1142,9 +1142,9 @@ define noalias noundef ptr @Extra_bddImageStart2(ptr noundef %0, ptr noundef %1,
   %22 = phi ptr [ %18, %.lr.ph ], [ %25, %21 ]
   %23 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !26
-  %25 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %22, ptr noundef %24) #10
+  %25 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %22, ptr noundef %24) #10
   tail call void @Cudd_Ref(ptr noundef %25) #10
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %22) #10
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %22) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.Extra_bddImageCompute2.exit_crit_edge, label %21, !llvm.loop !83
@@ -1156,7 +1156,7 @@ define noalias noundef ptr @Extra_bddImageStart2(ptr noundef %0, ptr noundef %1,
 Extra_bddImageCompute2.exit:                      ; preds = %.Extra_bddImageCompute2.exit_crit_edge, %7
   %26 = phi ptr [ %25, %.Extra_bddImageCompute2.exit_crit_edge ], [ %18, %7 ]
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %28 = tail call ptr @Cudd_bddAndAbstract(ptr noundef %0, ptr noundef %26, ptr noundef %1, ptr noundef %15) #10
+  %28 = tail call ptr @Cudd_bddAndAbstract(ptr noundef nonnull %0, ptr noundef %26, ptr noundef %1, ptr noundef %15) #10
   store ptr %28, ptr %27, align 8, !tbaa !84
   tail call void @Cudd_Ref(ptr noundef %28) #10
   ret ptr %8

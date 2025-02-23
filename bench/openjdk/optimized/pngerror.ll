@@ -502,76 +502,72 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
 
 .critedge2:                                       ; preds = %.preheader
   %15 = icmp samesign ult i64 %indvars.iv, 8
-  br i1 %15, label %16, label %.critedge2._crit_edge
+  br i1 %15, label %.lr.ph.preheader, label %.critedge2._crit_edge
 
-16:                                               ; preds = %.critedge2
-  %17 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
-  %18 = icmp samesign ult i64 %.03148, 191
-  br i1 %18, label %.lr.ph.preheader, label %.critedge4
-
-.lr.ph.preheader:                                 ; preds = %16
-  %19 = sub nuw nsw i64 191, %.03148
+.lr.ph.preheader:                                 ; preds = %.critedge2
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
+  %17 = sub nuw nsw i64 191, %.03148
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %22
-  %.029.idx45 = phi i64 [ %.029.add, %22 ], [ 0, %.lr.ph.preheader ]
-  %.13244 = phi i64 [ %23, %22 ], [ %.03148, %.lr.ph.preheader ]
-  %.029.ptr = getelementptr inbounds nuw i8, ptr %17, i64 %.029.idx45
-  %20 = load i8, ptr %.029.ptr, align 1
-  %.not41 = icmp ne i8 %20, 0
-  %21 = icmp samesign ult i64 %.029.idx45, 32
-  %or.cond43 = select i1 %.not41, i1 %21, i1 false
-  br i1 %or.cond43, label %22, label %.critedge4
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %20
+  %.029.idx45 = phi i64 [ %.029.add, %20 ], [ 0, %.lr.ph.preheader ]
+  %.13244 = phi i64 [ %21, %20 ], [ %.03148, %.lr.ph.preheader ]
+  %.029.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.029.idx45
+  %18 = load i8, ptr %.029.ptr, align 1
+  %.not41 = icmp ne i8 %18, 0
+  %19 = icmp samesign ult i64 %.029.idx45, 32
+  %or.cond43 = select i1 %.not41, i1 %19, i1 false
+  br i1 %or.cond43, label %20, label %.critedge4
 
-22:                                               ; preds = %.lr.ph
+20:                                               ; preds = %.lr.ph
   %.029.add = add nuw nsw i64 %.029.idx45, 1
-  %23 = add nuw nsw i64 %.13244, 1
-  %24 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.13244
-  store i8 %20, ptr %24, align 1
-  %exitcond.not = icmp eq i64 %.029.add, %19
+  %21 = add nuw nsw i64 %.13244, 1
+  %22 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.13244
+  store i8 %18, ptr %22, align 1
+  %exitcond.not = icmp eq i64 %.029.add, %17
   br i1 %exitcond.not, label %.critedge4, label %.lr.ph, !llvm.loop !12
 
-.critedge4:                                       ; preds = %22, %.lr.ph, %16
-  %.132.lcssa = phi i64 [ %.03148, %16 ], [ %.13244, %.lr.ph ], [ 191, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.049, i64 2
+.critedge4:                                       ; preds = %20, %.lr.ph
+  %.132.lcssa.ph = phi i64 [ 191, %20 ], [ %.13244, %.lr.ph ]
+  %23 = getelementptr inbounds nuw i8, ptr %.049, i64 2
   br label %.backedge
 
 .backedge:                                        ; preds = %.critedge4, %.critedge2._crit_edge
-  %.031.be = phi i64 [ %.132.lcssa, %.critedge4 ], [ %29, %.critedge2._crit_edge ]
-  %.0.be = phi ptr [ %25, %.critedge4 ], [ %28, %.critedge2._crit_edge ]
-  %26 = icmp ult i64 %.031.be, 191
-  br i1 %26, label %.split, label %.critedge, !llvm.loop !10
+  %.031.be = phi i64 [ %.132.lcssa.ph, %.critedge4 ], [ %27, %.critedge2._crit_edge ]
+  %.0.be = phi ptr [ %23, %.critedge4 ], [ %26, %.critedge2._crit_edge ]
+  %24 = icmp ult i64 %.031.be, 191
+  br i1 %24, label %.split, label %.critedge, !llvm.loop !10
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %.split, %10
-  %27 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
+  %25 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
   %.1 = phi ptr [ %.049, %10 ], [ %.049, %.split ], [ %11, %.critedge2 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %29 = add nuw nsw i64 %.03148, 1
-  %30 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.03148
-  store i8 %27, ptr %30, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %27 = add nuw nsw i64 %.03148, 1
+  %28 = getelementptr inbounds nuw [192 x i8], ptr %4, i64 0, i64 %.03148
+  store i8 %25, ptr %28, align 1
   br label %.backedge
 
 .critedge:                                        ; preds = %.backedge, %.split, %.split.us, %.backedge.us
   %.us-phi = phi i64 [ 191, %.backedge.us ], [ %.03148.us, %.split.us ], [ %.031.be, %.backedge ], [ %.03148, %.split ]
-  %31 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.us-phi
-  store i8 0, ptr %31, align 1
+  %29 = getelementptr inbounds [192 x i8], ptr %4, i64 0, i64 %.us-phi
+  store i8 0, ptr %29, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %.split.i, label %32
+  br i1 %.not.i, label %.split.i, label %30
 
-32:                                               ; preds = %.critedge
-  %33 = load i8, ptr %4, align 16, !noalias !13
-  %34 = icmp eq i8 %33, 35
-  br i1 %34, label %.preheader.i, label %.thread20.i
+30:                                               ; preds = %.critedge
+  %31 = load i8, ptr %4, align 16, !noalias !13
+  %32 = icmp eq i8 %31, 35
+  br i1 %32, label %.preheader.i, label %.thread20.i
 
-.preheader.i:                                     ; preds = %32, %38
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 1, %32 ]
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
-  %36 = load i8, ptr %35, align 1, !noalias !13
-  %37 = icmp eq i8 %36, 32
-  br i1 %37, label %.thread20.loopexit.i, label %38
+.preheader.i:                                     ; preds = %30, %36
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %36 ], [ 1, %30 ]
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
+  %34 = load i8, ptr %33, align 1, !noalias !13
+  %35 = icmp eq i8 %34, 32
+  br i1 %35, label %.thread20.loopexit.i, label %36
 
-38:                                               ; preds = %.preheader.i
+36:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 15
   br i1 %exitcond.not.i, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !9
@@ -580,28 +576,28 @@ define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef re
   call fastcc void @png_default_warning(ptr noundef nonnull %4)
   br label %png_warning.exit
 
-.thread20.loopexit.i:                             ; preds = %38, %.preheader.i
-  %.022.ph.i = phi i64 [ 15, %38 ], [ %indvars.iv.i, %.preheader.i ]
-  %39 = and i64 %.022.ph.i, 4294967295
+.thread20.loopexit.i:                             ; preds = %36, %.preheader.i
+  %.022.ph.i = phi i64 [ 15, %36 ], [ %indvars.iv.i, %.preheader.i ]
+  %37 = and i64 %.022.ph.i, 4294967295
   br label %.thread20.i
 
-.thread20.i:                                      ; preds = %.thread20.loopexit.i, %32
-  %.022.i = phi i64 [ 0, %32 ], [ %39, %.thread20.loopexit.i ]
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %41 = load ptr, ptr %40, align 8, !alias.scope !13
-  %.not17.i = icmp eq ptr %41, null
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
-  br i1 %.not17.i, label %.split14.i, label %43
+.thread20.i:                                      ; preds = %.thread20.loopexit.i, %30
+  %.022.i = phi i64 [ 0, %30 ], [ %37, %.thread20.loopexit.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %39 = load ptr, ptr %38, align 8, !alias.scope !13
+  %.not17.i = icmp eq ptr %39, null
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 %.022.i
+  br i1 %.not17.i, label %.split14.i, label %41
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %42)
+  call fastcc void @png_default_warning(ptr noundef nonnull %40)
   br label %png_warning.exit
 
-43:                                               ; preds = %.thread20.i
-  call void %41(ptr noundef nonnull %0, ptr noundef nonnull %42) #20
+41:                                               ; preds = %.thread20.i
+  call void %39(ptr noundef nonnull %0, ptr noundef nonnull %40) #20
   br label %png_warning.exit
 
-png_warning.exit:                                 ; preds = %.split.i, %.split14.i, %43
+png_warning.exit:                                 ; preds = %.split.i, %.split14.i, %41
   ret void
 }
 

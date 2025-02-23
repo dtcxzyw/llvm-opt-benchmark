@@ -1013,7 +1013,7 @@ define internal fastcc i32 @typesize(ptr noundef %0, i16 noundef zeroext %1) unn
   %28 = load ptr, ptr %26, align 8, !tbaa !119
   %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !110
-  %31 = tail call fastcc i32 @typesize(ptr noundef %0, i16 noundef zeroext %30)
+  %31 = tail call fastcc i32 @typesize(ptr noundef nonnull %0, i16 noundef zeroext %30)
   %32 = load i32, ptr %19, align 4, !tbaa !116
   %33 = add i32 %32, %31
   store i32 %33, ptr %19, align 4, !tbaa !116
@@ -9447,7 +9447,7 @@ get_geptypesize.exit:                             ; preds = %623
   %716 = load ptr, ptr %713, align 8, !tbaa !119
   %717 = getelementptr inbounds nuw i16, ptr %716, i64 %indvars.iv.i
   %718 = load i16, ptr %717, align 2, !tbaa !110
-  %719 = tail call fastcc i32 @typesize(ptr noundef %0, i16 noundef zeroext %718)
+  %719 = tail call fastcc i32 @typesize(ptr noundef nonnull %0, i16 noundef zeroext %718)
   %720 = add i32 %719, %.03242.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %721 = load i32, ptr %709, align 4, !tbaa !114
@@ -9478,7 +9478,7 @@ get_geptypesize.exit:                             ; preds = %623
   %733 = trunc nuw i64 %indvars.iv2011 to i32
   %734 = trunc nuw nsw i64 %729 to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.407, i32 noundef %727, i32 noundef %734, i32 noundef %733, i32 noundef %732) #25
-  tail call void @free(ptr noundef %185) #25
+  tail call void @free(ptr noundef nonnull %185) #25
   tail call void @free(ptr noundef %8) #25
   br label %.thread1186
 
@@ -9498,7 +9498,7 @@ get_geptypesize.exit:                             ; preds = %623
   %742 = trunc nuw i64 %indvars.iv2014 to i32
   %743 = trunc nuw i64 %indvars.iv2011 to i32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.408, i32 noundef %725, i32 noundef %182, i32 noundef %743, i32 noundef %742) #25
-  tail call void @free(ptr noundef %185) #25
+  tail call void @free(ptr noundef nonnull %185) #25
   tail call void @free(ptr noundef %8) #25
   br label %.thread1186
 
@@ -10902,7 +10902,7 @@ common.ret42:                                     ; preds = %._crit_edge40, %._c
   %49 = load ptr, ptr %47, align 8, !tbaa !119
   %50 = load i16, ptr %49, align 2, !tbaa !110
   %51 = zext i16 %50 to i32
-  tail call fastcc void @cli_bytetype_helper(ptr noundef %0, i32 noundef %51)
+  tail call fastcc void @cli_bytetype_helper(ptr noundef nonnull %0, i32 noundef %51)
   %putchar32 = tail call i32 @putchar(i32 32)
   %52 = add nuw i32 %.136, 1
   %53 = load i32, ptr %45, align 8, !tbaa !118
@@ -12601,7 +12601,7 @@ define internal fastcc zeroext i16 @type_components(ptr noundef %0, i16 noundef 
   %19 = load ptr, ptr %17, align 8, !tbaa !119
   %20 = getelementptr inbounds nuw i16, ptr %19, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2, !tbaa !110
-  %22 = tail call fastcc zeroext i16 @type_components(ptr noundef %0, i16 noundef zeroext %21, ptr noundef %2)
+  %22 = tail call fastcc zeroext i16 @type_components(ptr noundef nonnull %0, i16 noundef zeroext %21, ptr noundef %2)
   %23 = add i16 %22, %.02024
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %15, align 8, !tbaa !118

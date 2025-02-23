@@ -5289,7 +5289,7 @@ Ver_NtkIsDefined.exit231:                         ; preds = %177
 
 194:                                              ; preds = %.critedge20
   %.val216 = load ptr, ptr %163, align 8, !tbaa !45
-  %195 = tail call ptr @Abc_ObjName(ptr noundef %168) #20
+  %195 = tail call ptr @Abc_ObjName(ptr noundef nonnull %168) #20
   %196 = getelementptr i8, ptr %175, i64 8
   %.val215 = load ptr, ptr %196, align 8, !tbaa !45
   %.val202 = load ptr, ptr %178, align 8, !tbaa !61

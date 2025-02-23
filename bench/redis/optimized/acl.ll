@@ -9207,7 +9207,7 @@ sdslen.exit358.us:                                ; preds = %310, %306, %302, %2
   %321 = load ptr, ptr %320, align 8, !tbaa !144
   %322 = call ptr @sdscatsds(ptr noundef %318, ptr noundef %321) #25
   call void @decrRefCount(ptr noundef %319) #25
-  call void @addReplyBulkSds(ptr noundef %0, ptr noundef %322) #25
+  call void @addReplyBulkSds(ptr noundef nonnull %0, ptr noundef %322) #25
   %323 = call i32 @raxNext(ptr noundef nonnull %7) #25
   %.not312 = icmp eq i32 %323, 0
   br i1 %.not312, label %._crit_edge394, label %.lr.ph393.split, !llvm.loop !230
@@ -9381,7 +9381,7 @@ sdslen.exit360:                                   ; preds = %333, %339, %342, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph389 ], [ 0, %396 ]
   %401 = phi ptr [ %404, %.lr.ph389 ], [ %398, %396 ]
   %402 = load ptr, ptr %401, align 8, !tbaa !12
-  tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef %402) #25
+  tail call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef %402) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %403 = load ptr, ptr @ACLCommandCategories, align 8, !tbaa !9
   %404 = getelementptr inbounds nuw %struct.ACLCategoryItem, ptr %403, i64 %indvars.iv.next
@@ -9392,7 +9392,7 @@ sdslen.exit360:                                   ; preds = %333, %339, %342, %3
 
 ._crit_edge:                                      ; preds = %.lr.ph389, %396
   %.lcssa379 = phi i64 [ 0, %396 ], [ %indvars.iv.next, %.lr.ph389 ]
-  tail call void @setDeferredArrayLen(ptr noundef %0, ptr noundef %397, i64 noundef %.lcssa379) #25
+  tail call void @setDeferredArrayLen(ptr noundef nonnull %0, ptr noundef %397, i64 noundef %.lcssa379) #25
   br label %.critedge339
 
 407:                                              ; preds = %393

@@ -1188,7 +1188,7 @@ _print_launch_msg.exit:                           ; preds = %._crit_edge.i, %45
   call void @slurm_xfree(ptr noundef nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  call void @free(ptr noundef %25) #14
+  call void @free(ptr noundef nonnull %25) #14
   %50 = call ptr @hostlist_shift(ptr noundef %19) #14
   %.not50 = icmp eq ptr %50, null
   br i1 %.not50, label %._crit_edge, label %24, !llvm.loop !14
@@ -3576,7 +3576,7 @@ define internal void @_handle_msg(ptr noundef %0, ptr noundef %1) #3 {
   unreachable
 
 _launch_handler.exit:                             ; preds = %29, %32, %56, %108
-  %112 = tail call i32 @slurm_send_rc_msg(ptr noundef %1, i32 noundef 0) #14
+  %112 = tail call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef 0) #14
   br label %_job_complete_handler.exit
 
 113:                                              ; preds = %15

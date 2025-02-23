@@ -341,7 +341,7 @@ multipleOfPowerOf5.exit172.i:                     ; preds = %.lr.ph.i.i168.i, %1
   %202 = icmp ne i32 %201, 0
   %or.cond165.i = select i1 %or.cond.i23, i1 true, i1 %202
   %203 = icmp eq i32 %.1123.lcssa.i, %.1133.lcssa.i
-  %204 = icmp ugt i8 %.3148.lcssa.i, 4
+  %204 = icmp samesign ugt i8 %.3148.lcssa.i, 4
   %205 = select i1 %or.cond165.i, i1 %204, i1 false
   %206 = select i1 %203, i1 true, i1 %205
   br label %220
@@ -369,7 +369,7 @@ multipleOfPowerOf5.exit172.i:                     ; preds = %.lr.ph.i.i168.i, %1
   %.4126.lcssa.i = phi i32 [ %209, %._crit_edge198.i ], [ %.4126.ph.i, %.preheader.i ]
   %.4.lcssa.i = phi i32 [ %211, %._crit_edge198.i ], [ 0, %.preheader.i ]
   %217 = icmp eq i32 %.4126.lcssa.i, %.4136.lcssa.i
-  %218 = icmp ugt i8 %.7.lcssa.i, 4
+  %218 = icmp samesign ugt i8 %.7.lcssa.i, 4
   %219 = select i1 %217, i1 true, i1 %218
   br label %220
 
@@ -508,8 +508,8 @@ decimalLength.exit.i:                             ; preds = %239, %237, %235, %2
   %283 = shl nuw nsw i16 %282, 1
   %284 = udiv i16 %.lhs.trunc.i.i, 100
   %.zext77.i.i = zext nneg i16 %284 to i32
-  %285 = sext i32 %.0.i94.i to i64
-  %286 = getelementptr inbounds i8, ptr %248, i64 %285
+  %285 = zext nneg i32 %.0.i94.i to i64
+  %286 = getelementptr inbounds nuw i8, ptr %248, i64 %285
   %287 = zext nneg i32 %.0.i.i to i64
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 %287
   %289 = zext i32 %.071.lcssa.i.i to i64
@@ -531,8 +531,8 @@ decimalLength.exit.i:                             ; preds = %239, %237, %235, %2
 
 299:                                              ; preds = %297
   %300 = shl nuw nsw i32 %.170.i.i, 1
-  %301 = sext i32 %.0.i94.i to i64
-  %302 = getelementptr inbounds i8, ptr %248, i64 %301
+  %301 = zext nneg i32 %.0.i94.i to i64
+  %302 = getelementptr inbounds nuw i8, ptr %248, i64 %301
   %303 = zext nneg i32 %.0.i.i to i64
   %304 = getelementptr inbounds nuw i8, ptr %302, i64 %303
   %305 = zext i32 %.172.i.i to i64
@@ -548,8 +548,8 @@ decimalLength.exit.i:                             ; preds = %239, %237, %235, %2
 312:                                              ; preds = %297
   %313 = trunc nuw i32 %.170.i.i to i8
   %314 = or disjoint i8 %313, 48
-  %315 = sext i32 %.0.i94.i to i64
-  %316 = getelementptr inbounds i8, ptr %248, i64 %315
+  %315 = zext nneg i32 %.0.i94.i to i64
+  %316 = getelementptr inbounds nuw i8, ptr %248, i64 %315
   store i8 %314, ptr %316, align 1
   br label %317
 

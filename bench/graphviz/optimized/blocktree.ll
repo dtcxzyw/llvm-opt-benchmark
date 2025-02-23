@@ -178,7 +178,7 @@ define void @freeBlocktree(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @freeBlock(ptr noundef %0) #15
+  tail call void @freeBlock(ptr noundef nonnull %0) #15
   ret void
 
 .lr.ph:                                           ; preds = %1, %.lr.ph

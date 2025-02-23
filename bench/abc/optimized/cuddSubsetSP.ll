@@ -426,7 +426,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
   store ptr %127, ptr %128, align 8, !tbaa !51
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 24
   store i32 %spec.select, ptr %129, align 8, !tbaa !52
-  %130 = call i32 @st__lookup(ptr noundef %39, ptr noundef nonnull %27, ptr noundef nonnull %6) #9
+  %130 = call i32 @st__lookup(ptr noundef nonnull %39, ptr noundef nonnull %27, ptr noundef nonnull %6) #9
   %.not118 = icmp eq i32 %130, 0
   br i1 %.not118, label %131, label %135
 
@@ -490,7 +490,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 
 159:                                              ; preds = %156, %157
   %.0 = phi ptr [ %158, %157 ], [ null, %156 ]
-  %160 = call fastcc ptr @BuildSubsetBdd(ptr noundef %0, ptr noundef %39, ptr noundef nonnull %1, ptr noundef nonnull %124, ptr noundef %.0)
+  %160 = call fastcc ptr @BuildSubsetBdd(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull %1, ptr noundef nonnull %124, ptr noundef %.0)
   %.not125 = icmp eq ptr %160, null
   br i1 %.not125, label %168, label %161
 
@@ -515,7 +515,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 170:                                              ; preds = %169, %168
   %171 = load ptr, ptr %128, align 8, !tbaa !51
   call void @st__free_table(ptr noundef %171) #9
-  %172 = call i32 @st__foreach(ptr noundef nonnull %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef %0) #9
+  %172 = call i32 @st__foreach(ptr noundef nonnull %39, ptr noundef nonnull @stPathTableDdFree, ptr noundef nonnull %0) #9
   call void @free(ptr noundef nonnull %124) #9
   br label %177
 
@@ -528,7 +528,7 @@ AssessPathLength.exit:                            ; preds = %119, %121
 
 177:                                              ; preds = %173, %170
   %.097 = phi ptr [ %160, %170 ], [ %1, %173 ]
-  call void @st__free_table(ptr noundef %39) #9
+  call void @st__free_table(ptr noundef nonnull %39) #9
   %.not127 = icmp eq ptr %34, null
   br i1 %.not127, label %179, label %178
 

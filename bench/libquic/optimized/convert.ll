@@ -677,7 +677,7 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   %.neg = add i64 %14, %37
   %38 = sub i64 %.neg, %36
   %39 = load i64, ptr %35, align 8, !tbaa !16
-  %40 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %.044, i64 noundef %38, ptr noundef nonnull @.str.1, i64 noundef %39) #9
+  %40 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.044, i64 noundef %38, ptr noundef nonnull @.str.1, i64 noundef %39) #9
   br label %41
 
 41:                                               ; preds = %41, %._crit_edge

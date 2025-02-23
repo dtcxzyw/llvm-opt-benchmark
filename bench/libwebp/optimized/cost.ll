@@ -152,13 +152,13 @@ define internal i32 @GetResidualCost_C(i32 noundef %0, ptr noundef readonly capt
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %.041.lcssa, %51
   %58 = add nuw nsw i32 %57, %56
-  %59 = icmp slt i32 %.039.lcssa, 15
+  %59 = icmp samesign ult i32 %.039.lcssa, 15
   br i1 %59, label %60, label %72
 
 60:                                               ; preds = %._crit_edge
-  %61 = add nsw i32 %.039.lcssa, 1
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
+  %61 = add nuw nsw i32 %.039.lcssa, 1
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw [17 x i8], ptr @VP8EncBands, i64 0, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !15
   %65 = icmp eq i16 %47, 1
   %66 = zext i8 %64 to i64

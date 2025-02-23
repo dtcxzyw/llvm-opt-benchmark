@@ -4765,11 +4765,11 @@ define void @_ZN2cv21getStructuringElementEiNS_5Size_IiEENS_6Point_IiEE(ptr dead
   br i1 %90, label %.lr.ph93.preheader, label %._crit_edge
 
 .lr.ph93.preheader:                               ; preds = %.preheader
-  %91 = zext i32 %.1.lcssa to i64
+  %91 = zext nneg i32 %.1.lcssa to i64
   %92 = getelementptr i8, ptr %64, i64 %67
   %scevgep133 = getelementptr i8, ptr %92, i64 %91
   %93 = xor i32 %.1.lcssa, -1
-  %94 = add i32 %93, %.sroa.082.0.extract.trunc
+  %94 = add nsw i32 %93, %.sroa.082.0.extract.trunc
   %95 = zext i32 %94 to i64
   %96 = add nuw nsw i64 %95, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep133, i8 0, i64 %96, i1 false)

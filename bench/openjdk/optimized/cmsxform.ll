@@ -1830,7 +1830,7 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .loopexit.us:                                     ; preds = %.preheader.us, %.loopexit.us.sink.split
   %31 = load ptr, ptr %14, align 8
   %32 = load i32, ptr %15, align 4
-  %33 = call ptr %31(ptr noundef %0, ptr noundef nonnull %8, ptr noundef %.03843.us, i32 noundef %32) #11
+  %33 = call ptr %31(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %.03843.us, i32 noundef %32) #11
   %34 = add nuw i32 %.03644.us, 1
   %exitcond54.not = icmp eq i32 %34, %3
   br i1 %exitcond54.not, label %._crit_edge.us, label %21, !llvm.loop !17
@@ -1997,7 +1997,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %44, %
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   %50 = load ptr, ptr %15, align 8
   %51 = load i32, ptr %16, align 4
-  %52 = call ptr %50(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.03134.us, i32 noundef %51) #11
+  %52 = call ptr %50(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.03134.us, i32 noundef %51) #11
   %53 = add nuw i32 %.02935.us, 1
   %exitcond.not = icmp eq i32 %53, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %22, !llvm.loop !21

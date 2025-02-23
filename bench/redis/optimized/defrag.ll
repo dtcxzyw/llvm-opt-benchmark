@@ -1680,7 +1680,7 @@ define dso_local void @defragHash(ptr noundef readonly captures(none) %0, ptr no
 
 26:                                               ; preds = %26, %25
   %.0.i = phi i64 [ 0, %25 ], [ %27, %26 ]
-  %27 = call i64 @dictScanDefrag(ptr noundef %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %3, ptr noundef %11) #10
+  %27 = call i64 @dictScanDefrag(ptr noundef nonnull %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragHfieldDictCallback, ptr noundef nonnull %3, ptr noundef nonnull %11) #10
   %.not.i = icmp eq i64 %27, 0
   br i1 %.not.i, label %activeDefragHfieldDict.exit, label %26, !llvm.loop !73
 
@@ -1747,7 +1747,7 @@ define dso_local void @defragSet(ptr noundef readonly captures(none) %0, ptr nou
 
 28:                                               ; preds = %28, %25
   %.0.i = phi i64 [ 0, %25 ], [ %29, %28 ]
-  %29 = call i64 @dictScanDefrag(ptr noundef %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %3, ptr noundef null) #10
+  %29 = call i64 @dictScanDefrag(ptr noundef nonnull %11, i64 noundef %.0.i, ptr noundef nonnull @activeDefragSdsDictCallback, ptr noundef nonnull %3, ptr noundef null) #10
   %.not.i = icmp eq i64 %29, 0
   br i1 %.not.i, label %activeDefragSdsDict.exit, label %28, !llvm.loop !72
 

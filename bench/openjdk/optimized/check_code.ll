@@ -5764,8 +5764,8 @@ pop_and_free.exit.i45.us:                         ; preds = %938, %935, %883, %8
   %.0.i43108.us = phi i16 [ %808, %883 ], [ %808, %822 ], [ %808, %815 ], [ %808, %817 ], [ %808, %821 ], [ %808, %871 ], [ %808, %869 ], [ %808, %876 ], [ %808, %878 ], [ %808, %880 ], [ %808, %881 ], [ %808, %882 ], [ %808, %860 ], [ %808, %856 ], [ %808, %859 ], [ %.0.i43109.us, %935 ], [ %.0.i43109.us, %938 ]
   %.0102.i.us = phi ptr [ %886, %883 ], [ @.str.1, %822 ], [ @.str.1, %815 ], [ %820, %817 ], [ @.str.1, %821 ], [ @.str.1, %871 ], [ @.str.1, %869 ], [ @.str.1, %876 ], [ @.str.1, %878 ], [ @.str.3, %880 ], [ @.str.5, %881 ], [ @.str.4, %882 ], [ @.str.2, %860 ], [ %4, %856 ], [ %4, %859 ], [ %.1103.i.us, %935 ], [ %.1103.i.us, %938 ]
   %940 = load i8, ptr %.0102.i.us, align 1
-  %.not132.i.us = icmp eq i8 %940, 0
-  br i1 %.not132.i.us, label %._crit_edge.i49.us, label %.lr.ph.i46.us
+  %.not131.i.us = icmp eq i8 %940, 0
+  br i1 %.not131.i.us, label %._crit_edge.i49.us, label %.lr.ph.i46.us
 
 .lr.ph.i46.us:                                    ; preds = %pop_and_free.exit.i45.us
   %941 = load i32, ptr %3, align 4
@@ -5775,9 +5775,9 @@ pop_and_free.exit.i45.us:                         ; preds = %938, %935, %883, %8
 
 944:                                              ; preds = %983, %.lr.ph.i46.us
   %945 = phi i8 [ %940, %.lr.ph.i46.us ], [ %986, %983 ]
-  %.0135.i.us = phi i32 [ %.0296.lcssa.i.us, %.lr.ph.i46.us ], [ %984, %983 ]
-  %.0100134.i.us = phi ptr [ %.0295.lcssa.i.us, %.lr.ph.i46.us ], [ %963, %983 ]
-  %.0104133.i.us = phi ptr [ %.0102.i.us, %.lr.ph.i46.us ], [ %985, %983 ]
+  %.0134.i.us = phi i32 [ %.0296.lcssa.i.us, %.lr.ph.i46.us ], [ %984, %983 ]
+  %.0100133.i.us = phi ptr [ %.0295.lcssa.i.us, %.lr.ph.i46.us ], [ %963, %983 ]
+  %.0104132.i.us = phi ptr [ %.0102.i.us, %.lr.ph.i46.us ], [ %985, %983 ]
   %946 = sext i8 %945 to i64
   %947 = load i32, ptr %40, align 8
   %948 = icmp slt i32 %947, 16
@@ -5822,7 +5822,7 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
   %965 = add nsw i32 %962, -16
   store i32 %965, ptr %40, align 8
   %966 = getelementptr inbounds nuw i8, ptr %963, i64 8
-  store ptr %.0100134.i.us, ptr %966, align 8
+  store ptr %.0100133.i.us, ptr %966, align 8
   switch i8 %945, label %.split504.us [
     i8 73, label %982
     i8 70, label %981
@@ -5850,8 +5850,8 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
   br i1 %or.cond.i52.us, label %973, label %983
 
 973:                                              ; preds = %968
-  %974 = add nsw i32 %.0135.i.us, 1
-  %975 = getelementptr inbounds nuw i8, ptr %.0104133.i.us, i64 1
+  %974 = add nsw i32 %.0134.i.us, 1
+  %975 = getelementptr inbounds nuw i8, ptr %.0104132.i.us, i64 1
   br label %983
 
 976:                                              ; preds = %CCalloc.exit.i.us
@@ -5860,12 +5860,12 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
 
 977:                                              ; preds = %CCalloc.exit.i.us
   store i32 6, ptr %963, align 8
-  %978 = add nsw i32 %.0135.i.us, 1
+  %978 = add nsw i32 %.0134.i.us, 1
   br label %983
 
 979:                                              ; preds = %CCalloc.exit.i.us
   store i32 4, ptr %963, align 8
-  %980 = add nsw i32 %.0135.i.us, 1
+  %980 = add nsw i32 %.0134.i.us, 1
   br label %983
 
 981:                                              ; preds = %CCalloc.exit.i.us
@@ -5877,8 +5877,8 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
   br label %983
 
 983:                                              ; preds = %982, %981, %979, %977, %976, %973, %968, %967
-  %.1105.i.us = phi ptr [ %.0104133.i.us, %967 ], [ %975, %973 ], [ %.0104133.i.us, %968 ], [ %.0104133.i.us, %976 ], [ %.0104133.i.us, %977 ], [ %.0104133.i.us, %979 ], [ %.0104133.i.us, %981 ], [ %.0104133.i.us, %982 ]
-  %.1.i47.us = phi i32 [ %.0135.i.us, %967 ], [ %974, %973 ], [ %.0135.i.us, %968 ], [ %.0135.i.us, %976 ], [ %978, %977 ], [ %980, %979 ], [ %.0135.i.us, %981 ], [ %.0135.i.us, %982 ]
+  %.1105.i.us = phi ptr [ %.0104132.i.us, %967 ], [ %975, %973 ], [ %.0104132.i.us, %968 ], [ %.0104132.i.us, %976 ], [ %.0104132.i.us, %977 ], [ %.0104132.i.us, %979 ], [ %.0104132.i.us, %981 ], [ %.0104132.i.us, %982 ]
+  %.1.i47.us = phi i32 [ %.0134.i.us, %967 ], [ %974, %973 ], [ %.0134.i.us, %968 ], [ %.0134.i.us, %976 ], [ %978, %977 ], [ %980, %979 ], [ %.0134.i.us, %981 ], [ %.0134.i.us, %982 ]
   %984 = add nsw i32 %.1.i47.us, 1
   %985 = getelementptr inbounds nuw i8, ptr %.1105.i.us, i64 1
   %986 = load i8, ptr %985, align 1
@@ -5892,22 +5892,22 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
 
 987:                                              ; preds = %._crit_edge.i49.us
   %988 = load i32, ptr %31, align 8
-  %.not110137.i.us = icmp eq ptr %.0100.lcssa.i.us, null
-  br i1 %.not110137.i.us, label %push_stack.exit.us, label %.lr.ph140.i.us
+  %.not110136.i.us = icmp eq ptr %.0100.lcssa.i.us, null
+  br i1 %.not110136.i.us, label %push_stack.exit.us, label %.lr.ph139.i.us
 
-.lr.ph140.i.us:                                   ; preds = %987, %991
-  %.098138.i.us = phi ptr [ %993, %991 ], [ %.0100.lcssa.i.us, %987 ]
-  %989 = load i32, ptr %.098138.i.us, align 8
+.lr.ph139.i.us:                                   ; preds = %987, %991
+  %.098137.i.us = phi ptr [ %993, %991 ], [ %.0100.lcssa.i.us, %987 ]
+  %989 = load i32, ptr %.098137.i.us, align 8
   %990 = icmp eq i32 %989, %988
   br i1 %990, label %.lr.ph.i.preheader.i.us, label %991
 
-991:                                              ; preds = %.lr.ph140.i.us
-  %992 = getelementptr inbounds nuw i8, ptr %.098138.i.us, i64 8
+991:                                              ; preds = %.lr.ph139.i.us
+  %992 = getelementptr inbounds nuw i8, ptr %.098137.i.us, i64 8
   %993 = load ptr, ptr %992, align 8
   %.not110.i.us = icmp eq ptr %993, null
-  br i1 %.not110.i.us, label %push_stack.exit.us, label %.lr.ph140.i.us, !llvm.loop !51
+  br i1 %.not110.i.us, label %push_stack.exit.us, label %.lr.ph139.i.us, !llvm.loop !51
 
-.lr.ph.i.preheader.i.us:                          ; preds = %.lr.ph140.i.us
+.lr.ph.i.preheader.i.us:                          ; preds = %.lr.ph139.i.us
   %994 = load i32, ptr %33, align 4
   br label %.lr.ph.i.i51.us
 
@@ -5918,19 +5918,19 @@ CCalloc.exit.i.us:                                ; preds = %958, %._crit_edge.i
   %996 = load ptr, ptr %995, align 8
   %997 = add nuw nsw i32 %.02125.i.i.us, 1
   %.not.i119.i.us = icmp eq ptr %996, null
-  br i1 %.not.i119.i.us, label %._crit_edge.i120.i.us, label %.lr.ph.i.i51.us, !llvm.loop !52
+  br i1 %.not.i119.i.us, label %.lr.ph31.preheader.i.i.us, label %.lr.ph.i.i51.us, !llvm.loop !52
 
-._crit_edge.i120.i.us:                            ; preds = %.lr.ph.i.i51.us
+.lr.ph31.preheader.i.i.us:                        ; preds = %.lr.ph.i.i51.us
   %998 = shl i32 %997, 4
   %999 = load i32, ptr %40, align 8
   %1000 = icmp slt i32 %999, %998
   br i1 %1000, label %1001, label %._crit_edge.i100.us
 
-._crit_edge.i100.us:                              ; preds = %._crit_edge.i120.i.us
+._crit_edge.i100.us:                              ; preds = %.lr.ph31.preheader.i.i.us
   %.pre.i102.us = load ptr, ptr %.phi.trans.insert.i89, align 8
   br label %CCalloc.exit105.us
 
-1001:                                             ; preds = %._crit_edge.i120.i.us
+1001:                                             ; preds = %.lr.ph31.preheader.i.i.us
   %1002 = load ptr, ptr %41, align 8
   %1003 = icmp sgt i32 %998, 2000
   br i1 %1003, label %1012, label %1004
@@ -5997,30 +5997,30 @@ CCalloc.exit105.us:                               ; preds = %1019, %._crit_edge.
   %1031 = getelementptr inbounds nuw i8, ptr %.128.i.i.us, i64 8
   %1032 = load ptr, ptr %1031, align 8
   %.not23.i.i.us = icmp eq ptr %1032, null
-  br i1 %.not23.i.i.us, label %.lr.ph143.preheader.i.us, label %.lr.ph31.i.i.us, !llvm.loop !53
+  br i1 %.not23.i.i.us, label %.lr.ph142.preheader.i.us, label %.lr.ph31.i.i.us, !llvm.loop !53
 
-.lr.ph143.preheader.i.us:                         ; preds = %.lr.ph31.i.i.us
+.lr.ph142.preheader.i.us:                         ; preds = %.lr.ph31.i.i.us
   %1033 = zext nneg i32 %997 to i64
   %1034 = getelementptr %struct.stack_item_type, ptr %1024, i64 %1033
   %1035 = getelementptr i8, ptr %1034, i64 -8
   store ptr null, ptr %1035, align 8
-  br label %.lr.ph143.i.us
+  br label %.lr.ph142.i.us
 
-.lr.ph143.i.us:                                   ; preds = %1039, %.lr.ph143.preheader.i.us
-  %.199142.i.us = phi ptr [ %1041, %1039 ], [ %1024, %.lr.ph143.preheader.i.us ]
-  %1036 = load i32, ptr %.199142.i.us, align 8
+.lr.ph142.i.us:                                   ; preds = %1039, %.lr.ph142.preheader.i.us
+  %.199141.i.us = phi ptr [ %1041, %1039 ], [ %1024, %.lr.ph142.preheader.i.us ]
+  %1036 = load i32, ptr %.199141.i.us, align 8
   %1037 = icmp eq i32 %1036, %988
   br i1 %1037, label %1038, label %1039
 
-1038:                                             ; preds = %.lr.ph143.i.us
-  store i32 %994, ptr %.199142.i.us, align 8
+1038:                                             ; preds = %.lr.ph142.i.us
+  store i32 %994, ptr %.199141.i.us, align 8
   br label %1039
 
-1039:                                             ; preds = %1038, %.lr.ph143.i.us
-  %1040 = getelementptr inbounds nuw i8, ptr %.199142.i.us, i64 8
+1039:                                             ; preds = %1038, %.lr.ph142.i.us
+  %1040 = getelementptr inbounds nuw i8, ptr %.199141.i.us, i64 8
   %1041 = load ptr, ptr %1040, align 8
   %.not111.i.us = icmp eq ptr %1041, null
-  br i1 %.not111.i.us, label %push_stack.exit.us, label %.lr.ph143.i.us, !llvm.loop !54
+  br i1 %.not111.i.us, label %push_stack.exit.us, label %.lr.ph142.i.us, !llvm.loop !54
 
 push_stack.exit.us:                               ; preds = %991, %1039, %987, %._crit_edge.i49.us
   %.1101.i.us = phi ptr [ %.0100.lcssa.i.us, %._crit_edge.i49.us ], [ null, %987 ], [ %1024, %1039 ], [ %.0100.lcssa.i.us, %991 ]
@@ -7790,16 +7790,16 @@ define internal fastcc void @merge_into_one_successor(ptr noundef nonnull %0, i3
   %26 = load ptr, ptr %25, align 8
   %27 = add nuw nsw i32 %.02125.i, 1
   %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not.i, label %.lr.ph31.preheader.i, label %.lr.ph.i, !llvm.loop !52
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph31.preheader.i:                             ; preds = %.lr.ph.i
   %28 = shl i32 %27, 4
   %29 = tail call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %28)
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
-  %.029.i = phi ptr [ %31, %.lr.ph31.i ], [ %29, %._crit_edge.i ]
-  %.128.i = phi ptr [ %34, %.lr.ph31.i ], [ %.0132172, %._crit_edge.i ]
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
+  %.029.i = phi ptr [ %31, %.lr.ph31.i ], [ %29, %.lr.ph31.preheader.i ]
+  %.128.i = phi ptr [ %34, %.lr.ph31.i ], [ %.0132172, %.lr.ph31.preheader.i ]
   %30 = load i32, ptr %.128.i, align 8
   store i32 %30, ptr %.029.i, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
@@ -8134,16 +8134,16 @@ define internal fastcc void @merge_stack(ptr noundef nonnull %0, i32 noundef %1,
   %25 = load ptr, ptr %24, align 8
   %26 = add nuw nsw i32 %.02125.i, 1
   %.not.i = icmp eq ptr %25, null
-  br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !52
+  br i1 %.not.i, label %.lr.ph31.preheader.i, label %.lr.ph.i, !llvm.loop !52
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph31.preheader.i:                             ; preds = %.lr.ph.i
   %27 = shl i32 %26, 4
   %28 = tail call fastcc ptr @CCalloc(ptr noundef nonnull %0, i32 noundef %27)
   br label %.lr.ph31.i
 
-.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %._crit_edge.i
-  %.029.i = phi ptr [ %30, %.lr.ph31.i ], [ %28, %._crit_edge.i ]
-  %.128.i = phi ptr [ %33, %.lr.ph31.i ], [ %15, %._crit_edge.i ]
+.lr.ph31.i:                                       ; preds = %.lr.ph31.i, %.lr.ph31.preheader.i
+  %.029.i = phi ptr [ %30, %.lr.ph31.i ], [ %28, %.lr.ph31.preheader.i ]
+  %.128.i = phi ptr [ %33, %.lr.ph31.i ], [ %15, %.lr.ph31.preheader.i ]
   %29 = load i32, ptr %.128.i, align 8
   store i32 %29, ptr %.029.i, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16

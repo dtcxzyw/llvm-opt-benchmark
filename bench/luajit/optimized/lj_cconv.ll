@@ -1347,7 +1347,7 @@ lightudV.exit:                                    ; preds = %123, %127
   %153 = zext nneg i32 %152 to i64
   %154 = getelementptr inbounds nuw %struct.CType, ptr %149, i64 %153
   %.2 = select i1 %151, ptr %154, ptr %.1
-  call void @lj_cconv_ct_ct(ptr noundef %0, ptr noundef %.2, ptr noundef %.0112, ptr noundef %2, ptr noundef %.2115, i32 noundef %.1100)
+  call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef %.2, ptr noundef %.0112, ptr noundef %2, ptr noundef %.2115, i32 noundef %.1100)
   br label %155
 
 155:                                              ; preds = %85, %144, %148, %97, %94

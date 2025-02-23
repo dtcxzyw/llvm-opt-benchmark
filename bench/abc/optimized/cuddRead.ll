@@ -205,7 +205,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 106:                                              ; preds = %.preheader231, %106
   store i32 0, ptr %103, align 8, !tbaa !31
-  %107 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.0193253, ptr noundef %20, ptr noundef %22) #6
+  %107 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0193253, ptr noundef %20, ptr noundef %22) #6
   store ptr %107, ptr %105, align 8, !tbaa !32
   %108 = load i32, ptr %103, align 8, !tbaa !31
   %109 = icmp eq i32 %108, 1
@@ -272,7 +272,7 @@ define range(i32 0, 2) i32 @Cudd_addRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 141:                                              ; preds = %.preheader229, %141
   store i32 0, ptr %138, align 8, !tbaa !31
-  %142 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.1256, ptr noundef %20, ptr noundef %22) #6
+  %142 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.1256, ptr noundef %20, ptr noundef %22) #6
   store ptr %142, ptr %140, align 8, !tbaa !32
   %143 = load i32, ptr %138, align 8, !tbaa !31
   %144 = icmp eq i32 %143, 1
@@ -676,7 +676,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 76:                                               ; preds = %.preheader171, %76
   store i32 0, ptr %73, align 8, !tbaa !31
-  %77 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.0142185, ptr noundef %17, ptr noundef %20) #6
+  %77 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0142185, ptr noundef %17, ptr noundef %20) #6
   store ptr %77, ptr %75, align 8, !tbaa !32
   %78 = load i32, ptr %73, align 8, !tbaa !31
   %79 = icmp eq i32 %78, 1
@@ -720,7 +720,7 @@ define range(i32 0, 2) i32 @Cudd_bddRead(ptr noundef %0, ptr noundef %1, ptr nou
 
 97:                                               ; preds = %.preheader169, %97
   store i32 0, ptr %94, align 8, !tbaa !31
-  %98 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.1188, ptr noundef %17, ptr noundef %20) #6
+  %98 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.1188, ptr noundef %17, ptr noundef %20) #6
   store ptr %98, ptr %96, align 8, !tbaa !32
   %99 = load i32, ptr %94, align 8, !tbaa !31
   %100 = icmp eq i32 %99, 1

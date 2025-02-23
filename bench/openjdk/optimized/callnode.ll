@@ -2007,13 +2007,13 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %129, %_ZN7RegMask6I
   store i64 %140, ptr %138, align 8
   %141 = add nsw i32 %.048, 1
   %exitcond.not = icmp eq i32 %.048, %130
-  br i1 %exitcond.not, label %.loopexit, label %_ZN7RegMask6InsertEi.exit, !llvm.loop !14
+  br i1 %exitcond.not, label %_ZN7RegMask6InsertEi.exit25, label %_ZN7RegMask6InsertEi.exit, !llvm.loop !14
 
-.loopexit:                                        ; preds = %_ZN7RegMask6InsertEi.exit, %_ZN7RegMaskC2Ei.exit, %129
+.loopexit:                                        ; preds = %_ZN7RegMaskC2Ei.exit, %129
   %.not46 = icmp eq i32 %sext, -65536
   br i1 %.not46, label %153, label %_ZN7RegMask6InsertEi.exit25
 
-_ZN7RegMask6InsertEi.exit25:                      ; preds = %.loopexit
+_ZN7RegMask6InsertEi.exit25:                      ; preds = %_ZN7RegMask6InsertEi.exit, %.loopexit
   %142 = ashr exact i32 %sext, 16
   %143 = lshr i32 %142, 6
   %144 = load i32, ptr %113, align 4
@@ -6430,9 +6430,9 @@ define hidden noundef ptr @_ZN8LockNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
 
 28:                                               ; preds = %23
   %29 = tail call noundef zeroext i1 @_ZN15ConnectionGraph18can_eliminate_lockEP16AbstractLockNode(ptr noundef nonnull align 8 dereferenceable(232) %27, ptr noundef nonnull %0) #15
-  br i1 %29, label %30, label %._crit_edge41
+  br i1 %29, label %30, label %._crit_edge42
 
-._crit_edge41:                                    ; preds = %28
+._crit_edge42:                                    ; preds = %28
   %.pre = load ptr, ptr %24, align 8
   br label %31
 
@@ -6440,8 +6440,8 @@ define hidden noundef ptr @_ZN8LockNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   store i32 1, ptr %20, align 8
   br label %_ZN13GrowableArrayIP16AbstractLockNodeED2Ev.exit
 
-31:                                               ; preds = %._crit_edge41, %23
-  %32 = phi ptr [ %.pre, %._crit_edge41 ], [ %25, %23 ]
+31:                                               ; preds = %._crit_edge42, %23
+  %32 = phi ptr [ %.pre, %._crit_edge42 ], [ %25, %23 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 25
   %34 = load i8, ptr %33, align 1
   %35 = trunc i8 %34 to i1
@@ -6451,12 +6451,10 @@ define hidden noundef ptr @_ZN8LockNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %38 = load i8, ptr %37, align 8
   %39 = trunc i8 %38 to i1
-  %..i36 = select i1 %39, ptr %1, ptr null
-  %.not34 = icmp eq ptr %..i36, null
   %40 = load i32, ptr %20, align 8
-  %41 = icmp ne i32 %40, 0
-  %or.cond = select i1 %.not34, i1 true, i1 %41
-  br i1 %or.cond, label %_ZN13GrowableArrayIP16AbstractLockNodeED2Ev.exit, label %42
+  %41 = icmp eq i32 %40, 0
+  %or.cond.not = select i1 %39, i1 %41, i1 false
+  br i1 %or.cond.not, label %42, label %_ZN13GrowableArrayIP16AbstractLockNodeED2Ev.exit
 
 42:                                               ; preds = %36
   %43 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #15
@@ -6529,7 +6527,7 @@ define hidden noundef ptr @_ZN8LockNode5IdealEP8PhaseGVNb(ptr noundef nonnull al
   br i1 %77, label %78, label %_ZN16Unique_Node_List6memberEP4Node.exit.thread
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %..i36, i64 2408
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 2408
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = getelementptr inbounds nuw i8, ptr %49, i64 40

@@ -1937,19 +1937,19 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
   br i1 %.not139, label %.critedge, label %.split
 
 .split:                                           ; preds = %89, %213
-  %indvars.iv240 = phi i64 [ %indvars.iv.next241, %213 ], [ 0, %89 ]
+  %indvars.iv237 = phi i64 [ %indvars.iv.next238, %213 ], [ 0, %89 ]
   %.0113 = phi ptr [ %221, %213 ], [ null, %89 ]
   br i1 %.not137, label %106, label %99
 
 99:                                               ; preds = %.split
   %100 = load i32, ptr %94, align 4
   %101 = sext i32 %100 to i64
-  %102 = icmp slt i64 %indvars.iv240, %101
+  %102 = icmp slt i64 %indvars.iv237, %101
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %95, align 8
-  %105 = getelementptr inbounds nuw %union.ListCell, ptr %104, i64 %indvars.iv240
+  %105 = getelementptr inbounds nuw %union.ListCell, ptr %104, i64 %indvars.iv237
   br label %106
 
 106:                                              ; preds = %.split, %99, %103
@@ -1959,24 +1959,24 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
 108:                                              ; preds = %106
   %109 = load i32, ptr %96, align 4
   %110 = sext i32 %109 to i64
-  %111 = icmp slt i64 %indvars.iv240, %110
+  %111 = icmp slt i64 %indvars.iv237, %110
   br i1 %111, label %112, label %115
 
 112:                                              ; preds = %108
   %113 = load ptr, ptr %97, align 8
-  %114 = getelementptr inbounds nuw %union.ListCell, ptr %113, i64 %indvars.iv240
+  %114 = getelementptr inbounds nuw %union.ListCell, ptr %113, i64 %indvars.iv237
   br label %115
 
 115:                                              ; preds = %106, %108, %112
   %116 = phi ptr [ %114, %112 ], [ null, %108 ], [ null, %106 ]
   %117 = load i32, ptr %93, align 4
   %118 = sext i32 %117 to i64
-  %119 = icmp slt i64 %indvars.iv240, %118
+  %119 = icmp slt i64 %indvars.iv237, %118
   br i1 %119, label %120, label %.critedge
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %98, align 8
-  %122 = getelementptr inbounds nuw %union.ListCell, ptr %121, i64 %indvars.iv240
+  %122 = getelementptr inbounds nuw %union.ListCell, ptr %121, i64 %indvars.iv237
   %123 = icmp ne ptr %107, null
   %124 = icmp ne ptr %116, null
   %or.cond = select i1 %123, i1 %124, i1 false
@@ -2025,14 +2025,10 @@ define dso_local void @split_pathtarget_at_srfs(ptr noundef %0, ptr noundef %1, 
 add_sp_items_to_pathtarget.exit:                  ; preds = %.lr.ph15.i, %134, %.lr.ph.i
   %146 = load ptr, ptr %20, align 8
   %147 = getelementptr i8, ptr %146, i64 4
-  %148 = getelementptr i8, ptr %146, i64 16
-  %.not140 = icmp eq ptr %146, null
-  br i1 %.not140, label %for_each_cell_setup.exit163, label %.lr.ph212.split
-
-.lr.ph212.split:                                  ; preds = %add_sp_items_to_pathtarget.exit
-  %149 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  %.val150 = load ptr, ptr %148, align 8
   %.val149 = load i32, ptr %147, align 4
+  %148 = getelementptr i8, ptr %146, i64 16
+  %.val150 = load ptr, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %150 = sext i32 %.val149 to i64
   %151 = getelementptr inbounds %union.ListCell, ptr %.val150, i64 %150
   %.not191 = icmp ult ptr %149, %151
@@ -2044,20 +2040,20 @@ add_sp_items_to_pathtarget.exit:                  ; preds = %.lr.ph15.i, %134, %
   %156 = trunc i64 %155 to i32
   %157 = select i1 %.not191, i32 %156, i32 %.val149
   %158 = icmp slt i32 %157, %.val149
-  br i1 %158, label %.lr.ph215.preheader, label %for_each_cell_setup.exit163
+  br i1 %158, label %.lr.ph212.preheader, label %for_each_cell_setup.exit163
 
-.lr.ph215.preheader:                              ; preds = %.lr.ph212.split
+.lr.ph212.preheader:                              ; preds = %add_sp_items_to_pathtarget.exit
   %159 = sext i32 %157 to i64
-  br label %.lr.ph215
+  br label %.lr.ph212
 
-for_each_cell_setup.exit163:                      ; preds = %add_sp_items_to_pathtarget.exit169, %.lr.ph212.split, %add_sp_items_to_pathtarget.exit
+for_each_cell_setup.exit163:                      ; preds = %add_sp_items_to_pathtarget.exit169, %add_sp_items_to_pathtarget.exit
   %160 = load ptr, ptr %22, align 8
   %161 = getelementptr i8, ptr %160, i64 4
   %162 = getelementptr i8, ptr %160, i64 16
   %.not142 = icmp eq ptr %160, null
-  br i1 %.not142, label %._crit_edge226.split.us, label %.lr.ph224.split
+  br i1 %.not142, label %._crit_edge223.split.us, label %.lr.ph221.split
 
-.lr.ph224.split:                                  ; preds = %for_each_cell_setup.exit163
+.lr.ph221.split:                                  ; preds = %for_each_cell_setup.exit163
   %163 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %.val148 = load ptr, ptr %162, align 8
   %.val = load i32, ptr %161, align 4
@@ -2072,23 +2068,23 @@ for_each_cell_setup.exit163:                      ; preds = %add_sp_items_to_pat
   %170 = trunc i64 %169 to i32
   %171 = select i1 %.not192, i32 %170, i32 %.val
   %172 = icmp slt i32 %171, %.val
-  br i1 %172, label %.lr.ph230.preheader, label %._crit_edge226.split.us
+  br i1 %172, label %.lr.ph227.preheader, label %._crit_edge223.split.us
 
-.lr.ph230.preheader:                              ; preds = %.lr.ph224.split
+.lr.ph227.preheader:                              ; preds = %.lr.ph221.split
   %173 = sext i32 %171 to i64
-  br label %.lr.ph230
+  br label %.lr.ph227
 
-.lr.ph215:                                        ; preds = %.lr.ph215.preheader, %add_sp_items_to_pathtarget.exit169
-  %174 = phi i32 [ %.val149, %.lr.ph215.preheader ], [ %188, %add_sp_items_to_pathtarget.exit169 ]
-  %indvars.iv231 = phi i64 [ %159, %.lr.ph215.preheader ], [ %indvars.iv.next232, %add_sp_items_to_pathtarget.exit169 ]
+.lr.ph212:                                        ; preds = %.lr.ph212.preheader, %add_sp_items_to_pathtarget.exit169
+  %174 = phi i32 [ %.val149, %.lr.ph212.preheader ], [ %188, %add_sp_items_to_pathtarget.exit169 ]
+  %indvars.iv228 = phi i64 [ %159, %.lr.ph212.preheader ], [ %indvars.iv.next229, %add_sp_items_to_pathtarget.exit169 ]
   %175 = load ptr, ptr %148, align 8
-  %176 = getelementptr inbounds %union.ListCell, ptr %175, i64 %indvars.iv231
+  %176 = getelementptr inbounds %union.ListCell, ptr %175, i64 %indvars.iv228
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 4
   %.not.i164 = icmp eq ptr %177, null
   br i1 %.not.i164, label %add_sp_items_to_pathtarget.exit169, label %.lr.ph.i165
 
-.lr.ph.i165:                                      ; preds = %.lr.ph215
+.lr.ph.i165:                                      ; preds = %.lr.ph212
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
   %180 = load i32, ptr %178, align 4
   %181 = icmp sgt i32 %180, 0
@@ -2110,66 +2106,66 @@ add_sp_items_to_pathtarget.exit169.loopexit:      ; preds = %.lr.ph15.i166
   %.pre = load i32, ptr %147, align 4
   br label %add_sp_items_to_pathtarget.exit169
 
-add_sp_items_to_pathtarget.exit169:               ; preds = %add_sp_items_to_pathtarget.exit169.loopexit, %.lr.ph215, %.lr.ph.i165
-  %188 = phi i32 [ %.pre, %add_sp_items_to_pathtarget.exit169.loopexit ], [ %174, %.lr.ph215 ], [ %174, %.lr.ph.i165 ]
-  %indvars.iv.next232 = add nsw i64 %indvars.iv231, 1
+add_sp_items_to_pathtarget.exit169:               ; preds = %add_sp_items_to_pathtarget.exit169.loopexit, %.lr.ph212, %.lr.ph.i165
+  %188 = phi i32 [ %.pre, %add_sp_items_to_pathtarget.exit169.loopexit ], [ %174, %.lr.ph212 ], [ %174, %.lr.ph.i165 ]
+  %indvars.iv.next229 = add nsw i64 %indvars.iv228, 1
   %189 = sext i32 %188 to i64
-  %190 = icmp slt i64 %indvars.iv.next232, %189
-  br i1 %190, label %.lr.ph215, label %for_each_cell_setup.exit163
+  %190 = icmp slt i64 %indvars.iv.next229, %189
+  br i1 %190, label %.lr.ph212, label %for_each_cell_setup.exit163, !llvm.loop !9
 
-._crit_edge226.split.us:                          ; preds = %._crit_edge219, %.lr.ph224.split, %for_each_cell_setup.exit163
+._crit_edge223.split.us:                          ; preds = %._crit_edge216, %.lr.ph221.split, %for_each_cell_setup.exit163
   %191 = call ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef nonnull %135) #10
   br label %213
 
-.lr.ph230:                                        ; preds = %.lr.ph230.preheader, %._crit_edge219
-  %192 = phi i32 [ %.val, %.lr.ph230.preheader ], [ %200, %._crit_edge219 ]
-  %indvars.iv237 = phi i64 [ %173, %.lr.ph230.preheader ], [ %indvars.iv.next238, %._crit_edge219 ]
+.lr.ph227:                                        ; preds = %.lr.ph227.preheader, %._crit_edge216
+  %192 = phi i32 [ %.val, %.lr.ph227.preheader ], [ %200, %._crit_edge216 ]
+  %indvars.iv234 = phi i64 [ %173, %.lr.ph227.preheader ], [ %indvars.iv.next235, %._crit_edge216 ]
   %193 = load ptr, ptr %162, align 8
-  %194 = getelementptr inbounds %union.ListCell, ptr %193, i64 %indvars.iv237
+  %194 = getelementptr inbounds %union.ListCell, ptr %193, i64 %indvars.iv234
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %.not144 = icmp eq ptr %195, null
-  br i1 %.not144, label %._crit_edge219, label %.lr.ph218
+  br i1 %.not144, label %._crit_edge216, label %.lr.ph215
 
-.lr.ph218:                                        ; preds = %.lr.ph230
+.lr.ph215:                                        ; preds = %.lr.ph227
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
   %198 = load i32, ptr %196, align 4
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %.lr.ph222, label %._crit_edge219
+  br i1 %199, label %.lr.ph219, label %._crit_edge216
 
-._crit_edge219.loopexit:                          ; preds = %209
-  %.pre243 = load i32, ptr %161, align 4
-  br label %._crit_edge219
+._crit_edge216.loopexit:                          ; preds = %209
+  %.pre240 = load i32, ptr %161, align 4
+  br label %._crit_edge216
 
-._crit_edge219:                                   ; preds = %._crit_edge219.loopexit, %.lr.ph218, %.lr.ph230
-  %200 = phi i32 [ %.pre243, %._crit_edge219.loopexit ], [ %192, %.lr.ph218 ], [ %192, %.lr.ph230 ]
-  %indvars.iv.next238 = add nsw i64 %indvars.iv237, 1
+._crit_edge216:                                   ; preds = %._crit_edge216.loopexit, %.lr.ph215, %.lr.ph227
+  %200 = phi i32 [ %.pre240, %._crit_edge216.loopexit ], [ %192, %.lr.ph215 ], [ %192, %.lr.ph227 ]
+  %indvars.iv.next235 = add nsw i64 %indvars.iv234, 1
   %201 = sext i32 %200 to i64
-  %202 = icmp slt i64 %indvars.iv.next238, %201
-  br i1 %202, label %.lr.ph230, label %._crit_edge226.split.us
+  %202 = icmp slt i64 %indvars.iv.next235, %201
+  br i1 %202, label %.lr.ph227, label %._crit_edge223.split.us
 
-.lr.ph222:                                        ; preds = %.lr.ph218, %209
-  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %209 ], [ 0, %.lr.ph218 ]
+.lr.ph219:                                        ; preds = %.lr.ph215, %209
+  %indvars.iv231 = phi i64 [ %indvars.iv.next232, %209 ], [ 0, %.lr.ph215 ]
   %203 = load ptr, ptr %197, align 8
-  %204 = getelementptr inbounds nuw %union.ListCell, ptr %203, i64 %indvars.iv234
+  %204 = getelementptr inbounds nuw %union.ListCell, ptr %203, i64 %indvars.iv231
   %205 = load ptr, ptr %204, align 8
   %206 = load ptr, ptr %205, align 8
   %207 = call zeroext i1 @list_member(ptr noundef %.0113, ptr noundef %206) #10
   br i1 %207, label %208, label %209
 
-208:                                              ; preds = %.lr.ph222
+208:                                              ; preds = %.lr.ph219
   call fastcc void @add_sp_item_to_pathtarget(ptr noundef nonnull %135, ptr noundef nonnull %205)
   br label %209
 
-209:                                              ; preds = %208, %.lr.ph222
-  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
+209:                                              ; preds = %208, %.lr.ph219
+  %indvars.iv.next232 = add nuw nsw i64 %indvars.iv231, 1
   %210 = load i32, ptr %196, align 4
   %211 = sext i32 %210 to i64
-  %212 = icmp slt i64 %indvars.iv.next235, %211
-  br i1 %212, label %.lr.ph222, label %._crit_edge219.loopexit
+  %212 = icmp slt i64 %indvars.iv.next232, %211
+  br i1 %212, label %.lr.ph219, label %._crit_edge216.loopexit
 
-213:                                              ; preds = %126, %._crit_edge226.split.us
-  %.0119 = phi ptr [ %135, %._crit_edge226.split.us ], [ %1, %126 ]
+213:                                              ; preds = %126, %._crit_edge223.split.us
+  %.0119 = phi ptr [ %135, %._crit_edge223.split.us ], [ %1, %126 ]
   %214 = load ptr, ptr %3, align 8
   %215 = call ptr @lappend(ptr noundef %214, ptr noundef %.0119) #10
   store ptr %215, ptr %3, align 8
@@ -2180,8 +2176,8 @@ add_sp_items_to_pathtarget.exit169:               ; preds = %add_sp_items_to_pat
   store ptr %219, ptr %4, align 8
   %220 = getelementptr inbounds nuw i8, ptr %.0119, i64 8
   %221 = load ptr, ptr %220, align 8
-  %indvars.iv.next241 = add nuw nsw i64 %indvars.iv240, 1
-  br label %.split, !llvm.loop !9
+  %indvars.iv.next238 = add nuw nsw i64 %indvars.iv237, 1
+  br label %.split, !llvm.loop !10
 
 .critedge.sink.split:                             ; preds = %8, %._crit_edge.thread
   %.sink = phi ptr [ %64, %._crit_edge.thread ], [ %10, %8 ]
@@ -2558,3 +2554,4 @@ attributes #11 = { cold nounwind }
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = distinct !{!8, !7}
 !9 = distinct !{!9, !7}
+!10 = distinct !{!10, !7}

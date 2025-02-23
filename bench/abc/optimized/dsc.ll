@@ -945,7 +945,7 @@ define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef 
   store i64 %52, ptr %53, align 8, !tbaa !22
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %exitcond60.not.i = icmp eq i64 %indvars.iv.next57.i, %wide.trip.count59.i
-  br i1 %exitcond60.not.i, label %Abc_TtCofactor0p.exit, label %47, !llvm.loop !33
+  br i1 %exitcond60.not.i, label %.lr.ph.i173.preheader, label %47, !llvm.loop !33
 
 54:                                               ; preds = %39
   %55 = add nsw i64 %indvars.iv, -6
@@ -987,12 +987,9 @@ define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef 
   %66 = getelementptr inbounds i64, ptr %.04250.us.i, i64 %60
   %67 = getelementptr inbounds i64, ptr %.051.us.i, i64 %60
   %68 = icmp ult ptr %66, %26
-  br i1 %68, label %.preheader.us.i, label %Abc_TtCofactor0p.exit, !llvm.loop !35
+  br i1 %68, label %.preheader.us.i, label %.lr.ph.i173.preheader, !llvm.loop !35
 
-Abc_TtCofactor0p.exit:                            ; preds = %._crit_edge.us.i, %47
-  br i1 %27, label %.lr.ph.i173.preheader, label %Abc_TtEqual.exit.thread
-
-.lr.ph.i173.preheader:                            ; preds = %.preheader.lr.ph.i, %29, %Abc_TtCofactor0p.exit
+.lr.ph.i173.preheader:                            ; preds = %._crit_edge.us.i, %47, %.preheader.lr.ph.i, %29
   br label %.lr.ph.i173
 
 69:                                               ; preds = %.lr.ph.i173
@@ -1140,22 +1137,22 @@ Abc_TtXor.exit:                                   ; preds = %.lr.ph.i191
   store ptr %74, ptr %141, align 8, !tbaa !41
   br label %Abc_TtEqual.exit.thread
 
-Abc_TtEqual.exit.thread:                          ; preds = %69, %54, %41, %Abc_TtCofactor0p.exit, %Abc_TtXor.exit
-  %.1157 = phi i32 [ %139, %Abc_TtXor.exit ], [ %.0156448, %Abc_TtCofactor0p.exit ], [ %.0156448, %41 ], [ %.0156448, %54 ], [ %.0156448, %69 ]
-  %.1155 = phi ptr [ %126, %Abc_TtXor.exit ], [ %.0154449, %Abc_TtCofactor0p.exit ], [ %.0154449, %41 ], [ %.0154449, %54 ], [ %.0154449, %69 ]
+Abc_TtEqual.exit.thread:                          ; preds = %69, %54, %41, %Abc_TtXor.exit
+  %.1157 = phi i32 [ %139, %Abc_TtXor.exit ], [ %.0156448, %41 ], [ %.0156448, %54 ], [ %.0156448, %69 ]
+  %.1155 = phi ptr [ %126, %Abc_TtXor.exit ], [ %.0154449, %41 ], [ %.0154449, %54 ], [ %.0154449, %69 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %Abc_TtEqual.exit.thread
   %142 = icmp eq i32 %.1157, 0
-  br i1 %142, label %._crit_edge.thread, label %.preheader426
+  br i1 %142, label %._crit_edge.thread, label %.preheader427
 
-.preheader426:                                    ; preds = %._crit_edge
+.preheader427:                                    ; preds = %._crit_edge
   %143 = icmp sgt i32 %.1157, 0
   br i1 %143, label %.preheader.lr.ph, label %._crit_edge487.thread
 
-.preheader.lr.ph:                                 ; preds = %.preheader426
+.preheader.lr.ph:                                 ; preds = %.preheader427
   %144 = icmp sgt i32 %12, 0
   %wide.trip.count.i.i = zext nneg i32 %12 to i64
   %145 = icmp eq i32 %12, 1
@@ -1217,23 +1214,23 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i205
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr nonnull poison)
   br label %484
 
-.loopexit425:                                     ; preds = %448
+.loopexit426:                                     ; preds = %448
   %158 = icmp sgt i32 %.1148, 0
   br i1 %158, label %.preheader, label %._crit_edge487, !llvm.loop !46
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit425
-  %.0141486 = phi i32 [ 0, %.preheader.lr.ph ], [ %.3144399, %.loopexit425 ]
-  %.0149485 = phi i32 [ 0, %.preheader.lr.ph ], [ %.3152, %.loopexit425 ]
-  %.2158484 = phi i32 [ %.1157, %.preheader.lr.ph ], [ %.1148, %.loopexit425 ]
-  %wide.trip.count527 = zext nneg i32 %.2158484 to i64
+.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit426
+  %.0141486 = phi i32 [ 0, %.preheader.lr.ph ], [ %.3144400, %.loopexit426 ]
+  %.0149485 = phi i32 [ 0, %.preheader.lr.ph ], [ %.3152, %.loopexit426 ]
+  %.2158484 = phi i32 [ %.1157, %.preheader.lr.ph ], [ %.1148, %.loopexit426 ]
+  %wide.trip.count526 = zext nneg i32 %.2158484 to i64
   br label %159
 
 159:                                              ; preds = %.preheader, %448
-  %indvars.iv524 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next525, %448 ]
-  %.1142483 = phi i32 [ %.0141486, %.preheader ], [ %.3144399, %448 ]
+  %indvars.iv523 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next524, %448 ]
+  %.1142483 = phi i32 [ %.0141486, %.preheader ], [ %.3144400, %448 ]
   %.0147479 = phi i32 [ 0, %.preheader ], [ %.1148, %448 ]
   %.1150476 = phi i32 [ %.0149485, %.preheader ], [ %.3152, %448 ]
-  %160 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv524
+  %160 = getelementptr inbounds nuw [16 x ptr], ptr %6, i64 0, i64 %indvars.iv523
   %161 = load ptr, ptr %160, align 8, !tbaa !41
   %162 = icmp sgt i32 %.1150476, 0
   br i1 %162, label %.lr.ph461, label %._crit_edge462.split.us
@@ -1245,12 +1242,12 @@ Abc_TtIsConst1.exit:                              ; preds = %.lr.ph.i205
   br i1 %144, label %.lr.ph.preheader.i.i.us.preheader, label %.lr.ph461.split
 
 .lr.ph.preheader.i.i.us.preheader:                ; preds = %.lr.ph461
-  %wide.trip.count517 = zext nneg i32 %.1150476 to i64
+  %wide.trip.count516 = zext nneg i32 %.1150476 to i64
   br label %.lr.ph.preheader.i.i.us
 
 .lr.ph.preheader.i.i.us:                          ; preds = %.lr.ph.preheader.i.i.us.preheader, %dsc_xor_test.exit.us
-  %indvars.iv514 = phi i64 [ 0, %.lr.ph.preheader.i.i.us.preheader ], [ %indvars.iv.next515, %dsc_xor_test.exit.us ]
-  %166 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
+  %indvars.iv513 = phi i64 [ 0, %.lr.ph.preheader.i.i.us.preheader ], [ %indvars.iv.next514, %dsc_xor_test.exit.us ]
+  %166 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv513
   %167 = load ptr, ptr %166, align 8, !tbaa !41
   %168 = load ptr, ptr %167, align 8, !tbaa !16
   br label %.lr.ph.i.i.us
@@ -1316,9 +1313,9 @@ dsc_and_test.exit.us:                             ; preds = %.lr.ph.i44.i.us
   br i1 %.not.i.i229.us, label %193, label %dsc_xor_test.exit.us
 
 dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
-  %indvars.iv.next515 = add nuw nsw i64 %indvars.iv514, 1
-  %exitcond518.not = icmp eq i64 %indvars.iv.next515, %wide.trip.count517
-  br i1 %exitcond518.not, label %._crit_edge462.split.us, label %.lr.ph.preheader.i.i.us, !llvm.loop !47
+  %indvars.iv.next514 = add nuw nsw i64 %indvars.iv513, 1
+  %exitcond517.not = icmp eq i64 %indvars.iv.next514, %wide.trip.count516
+  br i1 %exitcond517.not, label %._crit_edge462.split.us, label %.lr.ph.preheader.i.i.us, !llvm.loop !47
 
 193:                                              ; preds = %.lr.ph.i.i227.us
   %indvars.iv.next.i.i230.us = add nuw nsw i64 %indvars.iv.i.i228.us, 1
@@ -1328,12 +1325,12 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
 194:                                              ; preds = %.lr.ph.i44.i.us
   %indvars.iv.next.i47.i.us = add nuw nsw i64 %indvars.iv.i45.i.us, 1
   %exitcond.not.i48.i.us = icmp eq i64 %indvars.iv.next.i47.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i48.i.us, label %.loopexit419.split.us, label %.lr.ph.i44.i.us, !llvm.loop !36
+  br i1 %exitcond.not.i48.i.us, label %.loopexit420.split.us, label %.lr.ph.i44.i.us, !llvm.loop !36
 
 195:                                              ; preds = %.lr.ph.i35.i.us
   %indvars.iv.next.i38.i.us = add nuw nsw i64 %indvars.iv.i36.i.us, 1
   %exitcond.not.i39.i.us = icmp eq i64 %indvars.iv.next.i38.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i39.i.us, label %.loopexit419.split.us, label %.lr.ph.i35.i.us, !llvm.loop !36
+  br i1 %exitcond.not.i39.i.us, label %.loopexit420.split.us, label %.lr.ph.i35.i.us, !llvm.loop !36
 
 196:                                              ; preds = %.lr.ph.i26.i.us
   %indvars.iv.next.i29.i.us = add nuw nsw i64 %indvars.iv.i27.i.us, 1
@@ -1343,31 +1340,31 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
 197:                                              ; preds = %.lr.ph.i.i.us
   %indvars.iv.next.i.i.us = add nuw nsw i64 %indvars.iv.i.i.us, 1
   %exitcond.not.i.i.us = icmp eq i64 %indvars.iv.next.i.i.us, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i.us, label %.thread.loopexit540, label %.lr.ph.i.i.us, !llvm.loop !36
+  br i1 %exitcond.not.i.i.us, label %.thread.loopexit539, label %.lr.ph.i.i.us, !llvm.loop !36
 
 .split.us:                                        ; preds = %193
-  %198 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
+  %198 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv513
   %199 = sext i32 %.1142483 to i64
   %200 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %199
   call void @dsc_xor_group(ptr noundef nonnull %200, ptr noundef nonnull %161, ptr noundef nonnull %167, i32 poison, i32 noundef %12)
-  br label %dsc_and_test.exit.thread367
+  br label %dsc_and_test.exit.thread368
 
 .lr.ph461.split:                                  ; preds = %.lr.ph461
   %201 = load ptr, ptr %7, align 16, !tbaa !41
   br label %.thread
 
 .thread.loopexit:                                 ; preds = %196
-  %202 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
+  %202 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv513
   br label %.thread
 
-.thread.loopexit540:                              ; preds = %197
-  %203 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
+.thread.loopexit539:                              ; preds = %197
+  %203 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv513
   br label %.thread
 
-.thread:                                          ; preds = %.thread.loopexit540, %.thread.loopexit, %.lr.ph461.split
-  %204 = phi ptr [ %7, %.lr.ph461.split ], [ %202, %.thread.loopexit ], [ %203, %.thread.loopexit540 ]
-  %205 = phi ptr [ %201, %.lr.ph461.split ], [ %167, %.thread.loopexit ], [ %167, %.thread.loopexit540 ]
-  %.4337.ph.ph = phi i32 [ 1, %.lr.ph461.split ], [ 0, %.thread.loopexit ], [ 1, %.thread.loopexit540 ]
+.thread:                                          ; preds = %.thread.loopexit539, %.thread.loopexit, %.lr.ph461.split
+  %204 = phi ptr [ %7, %.lr.ph461.split ], [ %202, %.thread.loopexit ], [ %203, %.thread.loopexit539 ]
+  %205 = phi ptr [ %201, %.lr.ph461.split ], [ %167, %.thread.loopexit ], [ %167, %.thread.loopexit539 ]
+  %.4337.ph.ph = phi i32 [ 1, %.lr.ph461.split ], [ 0, %.thread.loopexit ], [ 1, %.thread.loopexit539 ]
   %206 = sext i32 %.1142483 to i64
   %207 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 160
@@ -1375,9 +1372,9 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
   store i8 40, ptr %208, align 16, !tbaa !3
   br label %216
 
-.loopexit419.split.us:                            ; preds = %195, %194
+.loopexit420.split.us:                            ; preds = %195, %194
   %.4337.ph = phi i32 [ 0, %194 ], [ 1, %195 ]
-  %210 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv514
+  %210 = getelementptr inbounds nuw [16 x ptr], ptr %7, i64 0, i64 %indvars.iv513
   %211 = sext i32 %.1142483 to i64
   %212 = getelementptr inbounds [16 x %struct.Dsc_node_t_], ptr %8, i64 0, i64 %211
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 160
@@ -1387,14 +1384,14 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
   store i8 33, ptr %214, align 1, !tbaa !3
   br label %216
 
-216:                                              ; preds = %.thread, %.loopexit419.split.us
-  %217 = phi ptr [ %210, %.loopexit419.split.us ], [ %204, %.thread ]
-  %218 = phi ptr [ %167, %.loopexit419.split.us ], [ %205, %.thread ]
-  %219 = phi i1 [ true, %.loopexit419.split.us ], [ %144, %.thread ]
-  %.not.i.i210365 = phi i1 [ true, %.loopexit419.split.us ], [ false, %.thread ]
-  %220 = phi ptr [ %212, %.loopexit419.split.us ], [ %207, %.thread ]
-  %.4337.ph364 = phi i32 [ %.4337.ph, %.loopexit419.split.us ], [ %.4337.ph.ph, %.thread ]
-  %.0.i.i = phi ptr [ %215, %.loopexit419.split.us ], [ %209, %.thread ]
+216:                                              ; preds = %.thread, %.loopexit420.split.us
+  %217 = phi ptr [ %210, %.loopexit420.split.us ], [ %204, %.thread ]
+  %218 = phi ptr [ %167, %.loopexit420.split.us ], [ %205, %.thread ]
+  %219 = phi i1 [ true, %.loopexit420.split.us ], [ %144, %.thread ]
+  %.not.i.i210366 = phi i1 [ true, %.loopexit420.split.us ], [ false, %.thread ]
+  %220 = phi ptr [ %212, %.loopexit420.split.us ], [ %207, %.thread ]
+  %.4337.ph365 = phi i32 [ %.4337.ph, %.loopexit420.split.us ], [ %.4337.ph.ph, %.thread ]
+  %.0.i.i = phi ptr [ %215, %.loopexit420.split.us ], [ %209, %.thread ]
   %221 = getelementptr inbounds nuw i8, ptr %161, i64 160
   %222 = getelementptr inbounds nuw i8, ptr %218, i64 160
   %223 = load i8, ptr %221, align 1, !tbaa !3
@@ -1414,7 +1411,7 @@ dsc_xor_test.exit.us:                             ; preds = %.lr.ph.i.i227.us
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i211, %216
   %.1.lcssa.i.i = phi ptr [ %.0.i.i, %216 ], [ %226, %.lr.ph.i.i211 ]
-  %.not17.i.i = icmp eq i32 %.4337.ph364, 0
+  %.not17.i.i = icmp eq i32 %.4337.ph365, 0
   br i1 %.not17.i.i, label %228, label %230
 
 228:                                              ; preds = %._crit_edge.i.i
@@ -1446,8 +1443,8 @@ concat.exit.i:                                    ; preds = %.lr.ph26.i.i, %230
   store i8 0, ptr %236, align 1, !tbaa !3
   %237 = getelementptr inbounds nuw i8, ptr %161, i64 92
   %238 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  %.082.i = select i1 %.not.i.i210365, ptr %237, ptr %238
-  %.0.i212 = select i1 %.not.i.i210365, ptr %238, ptr %237
+  %.082.i = select i1 %.not.i.i210366, ptr %237, ptr %238
+  %.0.i212 = select i1 %.not.i.i210366, ptr %238, ptr %237
   %239 = getelementptr inbounds nuw i8, ptr %218, i64 92
   %240 = getelementptr inbounds nuw i8, ptr %218, i64 24
   %.088.i = select i1 %.not17.i.i, ptr %239, ptr %240
@@ -1499,7 +1496,7 @@ concat.exit.i:                                    ; preds = %.lr.ph26.i.i, %230
   br i1 %exitcond129.not.i, label %.loopexit.i, label %.lr.ph111.i, !llvm.loop !12
 
 .loopexit.i:                                      ; preds = %.lr.ph.i215, %.lr.ph111.i, %249, %244
-  %.in.i = select i1 %.not.i.i210365, ptr %164, ptr %161
+  %.in.i = select i1 %.not.i.i210366, ptr %164, ptr %161
   %254 = load ptr, ptr %.in.i, align 8, !tbaa !13
   store ptr %254, ptr %220, align 8, !tbaa !16
   %255 = load i32, ptr %.082.i, align 4, !tbaa !9
@@ -1552,7 +1549,7 @@ concat.exit.i:                                    ; preds = %.lr.ph26.i.i, %230
   br i1 %.not99.i, label %350, label %267
 
 267:                                              ; preds = %._crit_edge.i
-  %.in101.i = select i1 %.not.i.i210365, ptr %161, ptr %164
+  %.in101.i = select i1 %.not.i.i210366, ptr %161, ptr %164
   %268 = load ptr, ptr %.in101.i, align 8, !tbaa !13
   %269 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store ptr %268, ptr %269, align 8, !tbaa !20
@@ -1943,7 +1940,7 @@ cubeCofactor.exit332:                             ; preds = %Abc_TtCofactor1.exi
   %434 = load ptr, ptr %.in102.i, align 8, !tbaa !13
   %435 = getelementptr inbounds nuw i8, ptr %220, i64 16
   store ptr %434, ptr %435, align 8, !tbaa !21
-  br i1 %219, label %.lr.ph.i104.i, label %dsc_and_test.exit.thread367
+  br i1 %219, label %.lr.ph.i104.i, label %dsc_and_test.exit.thread368
 
 .lr.ph.i104.i:                                    ; preds = %cubeCofactor.exit332, %.lr.ph.i104.i
   %indvars.iv.i.i221 = phi i64 [ %indvars.iv.next.i.i222, %.lr.ph.i104.i ], [ 0, %cubeCofactor.exit332 ]
@@ -1955,9 +1952,9 @@ cubeCofactor.exit332:                             ; preds = %Abc_TtCofactor1.exi
   store i64 %440, ptr %438, align 8, !tbaa !22
   %indvars.iv.next.i.i222 = add nuw nsw i64 %indvars.iv.i.i221, 1
   %exitcond.not.i.i223 = icmp eq i64 %indvars.iv.next.i.i222, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i223, label %dsc_and_test.exit.thread367, label %.lr.ph.i104.i, !llvm.loop !24
+  br i1 %exitcond.not.i.i223, label %dsc_and_test.exit.thread368, label %.lr.ph.i104.i, !llvm.loop !24
 
-dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cubeCofactor.exit332, %.split.us
+dsc_and_test.exit.thread368:                      ; preds = %.lr.ph.i104.i, %cubeCofactor.exit332, %.split.us
   %441 = phi ptr [ %198, %.split.us ], [ %217, %cubeCofactor.exit332 ], [ %217, %.lr.ph.i104.i ]
   %.3.ph = phi ptr [ %200, %.split.us ], [ %220, %cubeCofactor.exit332 ], [ %220, %.lr.ph.i104.i ]
   %.5.ph = add nsw i32 %.1142483, 1
@@ -1973,21 +1970,21 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %447 = add nsw i32 %.1150476, 1
   br label %448
 
-448:                                              ; preds = %dsc_and_test.exit.thread367, %._crit_edge462.split.us
-  %.0147479.sink = phi i32 [ %.0147479, %dsc_and_test.exit.thread367 ], [ %.1150476, %._crit_edge462.split.us ]
-  %.sink562 = phi ptr [ %6, %dsc_and_test.exit.thread367 ], [ %7, %._crit_edge462.split.us ]
-  %.3.ph.sink = phi ptr [ %.3.ph, %dsc_and_test.exit.thread367 ], [ %161, %._crit_edge462.split.us ]
-  %.3144399 = phi i32 [ %.5.ph, %dsc_and_test.exit.thread367 ], [ %.1142483, %._crit_edge462.split.us ]
-  %.3152 = phi i32 [ %442, %dsc_and_test.exit.thread367 ], [ %447, %._crit_edge462.split.us ]
-  %.1148 = phi i32 [ %446, %dsc_and_test.exit.thread367 ], [ %.0147479, %._crit_edge462.split.us ]
+448:                                              ; preds = %dsc_and_test.exit.thread368, %._crit_edge462.split.us
+  %.0147479.sink = phi i32 [ %.0147479, %dsc_and_test.exit.thread368 ], [ %.1150476, %._crit_edge462.split.us ]
+  %.sink560 = phi ptr [ %6, %dsc_and_test.exit.thread368 ], [ %7, %._crit_edge462.split.us ]
+  %.3.ph.sink = phi ptr [ %.3.ph, %dsc_and_test.exit.thread368 ], [ %161, %._crit_edge462.split.us ]
+  %.3144400 = phi i32 [ %.5.ph, %dsc_and_test.exit.thread368 ], [ %.1142483, %._crit_edge462.split.us ]
+  %.3152 = phi i32 [ %442, %dsc_and_test.exit.thread368 ], [ %447, %._crit_edge462.split.us ]
+  %.1148 = phi i32 [ %446, %dsc_and_test.exit.thread368 ], [ %.0147479, %._crit_edge462.split.us ]
   %449 = sext i32 %.0147479.sink to i64
-  %450 = getelementptr inbounds [16 x ptr], ptr %.sink562, i64 0, i64 %449
+  %450 = getelementptr inbounds [16 x ptr], ptr %.sink560, i64 0, i64 %449
   store ptr %.3.ph.sink, ptr %450, align 8, !tbaa !41
-  %indvars.iv.next525 = add nuw nsw i64 %indvars.iv524, 1
-  %exitcond528.not = icmp eq i64 %indvars.iv.next525, %wide.trip.count527
-  br i1 %exitcond528.not, label %.loopexit425, label %159, !llvm.loop !48
+  %indvars.iv.next524 = add nuw nsw i64 %indvars.iv523, 1
+  %exitcond527.not = icmp eq i64 %indvars.iv.next524, %wide.trip.count526
+  br i1 %exitcond527.not, label %.loopexit426, label %159, !llvm.loop !48
 
-._crit_edge487:                                   ; preds = %.loopexit425
+._crit_edge487:                                   ; preds = %.loopexit426
   %451 = icmp eq i32 %.3152, 1
   br i1 %451, label %452, label %._crit_edge487.thread
 
@@ -1995,7 +1992,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %453 = load ptr, ptr %7, align 16, !tbaa !41
   %454 = load ptr, ptr %453, align 8, !tbaa !16
   %455 = icmp sgt i32 %12, 0
-  br i1 %455, label %.lr.ph.preheader.i234, label %.thread403
+  br i1 %455, label %.lr.ph.preheader.i234, label %.thread404
 
 .lr.ph.preheader.i234:                            ; preds = %452
   %wide.trip.count.i235 = zext nneg i32 %12 to i64
@@ -2021,7 +2018,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
 461:                                              ; preds = %.lr.ph.i246
   %indvars.iv.next.i249 = add nuw nsw i64 %indvars.iv.i247, 1
   %exitcond.not.i250 = icmp eq i64 %indvars.iv.next.i249, %wide.trip.count.i235
-  br i1 %exitcond.not.i250, label %.thread403, label %.lr.ph.i246, !llvm.loop !45
+  br i1 %exitcond.not.i250, label %.thread404, label %.lr.ph.i246, !llvm.loop !45
 
 .lr.ph.i246:                                      ; preds = %461, %.lr.ph.preheader.i244
   %indvars.iv.i247 = phi i64 [ 0, %.lr.ph.preheader.i244 ], [ %indvars.iv.next.i249, %461 ]
@@ -2033,14 +2030,14 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
 .lr.ph.i256.preheader:                            ; preds = %.lr.ph.i236, %.lr.ph.i246
   br label %.lr.ph.i256
 
-.thread403:                                       ; preds = %461, %452
+.thread404:                                       ; preds = %461, %452
   %464 = getelementptr inbounds nuw i8, ptr %453, i64 160
   %465 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %464) #20
   %466 = icmp ne ptr %.0140, null
   %or.cond3 = and i1 %13, %466
   br i1 %or.cond3, label %467, label %484
 
-467:                                              ; preds = %.thread403
+467:                                              ; preds = %.thread404
   call void @free(ptr noundef nonnull %.0140) #20
   br label %484
 
@@ -2064,7 +2061,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
 473:                                              ; preds = %.lr.ph.i266
   %indvars.iv.next.i269 = add nuw nsw i64 %indvars.iv.i267, 1
   %exitcond.not.i270 = icmp eq i64 %indvars.iv.next.i269, %wide.trip.count.i235
-  br i1 %exitcond.not.i270, label %.thread408, label %.lr.ph.i266, !llvm.loop !44
+  br i1 %exitcond.not.i270, label %.thread409, label %.lr.ph.i266, !llvm.loop !44
 
 .lr.ph.i266:                                      ; preds = %473, %.lr.ph.preheader.i264
   %indvars.iv.i267 = phi i64 [ 0, %.lr.ph.preheader.i264 ], [ %indvars.iv.next.i269, %473 ]
@@ -2073,7 +2070,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %.not.i268 = icmp eq i64 %475, 0
   br i1 %.not.i268, label %473, label %Abc_TtIsConst1.exit261
 
-.thread408:                                       ; preds = %473
+.thread409:                                       ; preds = %473
   store i8 33, ptr %2, align 1, !tbaa !3
   %476 = getelementptr inbounds nuw i8, ptr %453, i64 160
   %477 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %476) #20
@@ -2081,7 +2078,7 @@ dsc_and_test.exit.thread367:                      ; preds = %.lr.ph.i104.i, %cub
   %or.cond5 = and i1 %13, %478
   br i1 %or.cond5, label %479, label %484
 
-479:                                              ; preds = %.thread408
+479:                                              ; preds = %.thread409
   call void @free(ptr noundef nonnull %.0140) #20
   br label %484
 
@@ -2095,7 +2092,7 @@ Abc_TtIsConst1.exit261:                           ; preds = %.lr.ph.i256, %.lr.p
   call void @free(ptr noundef nonnull %.0140) #20
   br label %484
 
-._crit_edge487.thread:                            ; preds = %.preheader426, %._crit_edge487
+._crit_edge487.thread:                            ; preds = %.preheader427, %._crit_edge487
   %482 = icmp ne ptr %.0140, null
   %or.cond9 = and i1 %13, %482
   br i1 %or.cond9, label %483, label %484
@@ -2104,8 +2101,8 @@ Abc_TtIsConst1.exit261:                           ; preds = %.lr.ph.i256, %.lr.p
   call void @free(ptr noundef nonnull %.0140) #20
   br label %484
 
-484:                                              ; preds = %._crit_edge487.thread, %483, %467, %.thread403, %479, %.thread408, %481, %Abc_TtIsConst1.exit261, %Abc_TtIsConst1.exit, %157, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %157 ], [ -1, %Abc_TtIsConst1.exit ], [ 0, %467 ], [ 0, %.thread403 ], [ 0, %479 ], [ 0, %.thread408 ], [ -1, %481 ], [ -1, %Abc_TtIsConst1.exit261 ], [ -1, %483 ], [ -1, %._crit_edge487.thread ]
+484:                                              ; preds = %._crit_edge487.thread, %483, %467, %.thread404, %479, %.thread409, %481, %Abc_TtIsConst1.exit261, %Abc_TtIsConst1.exit, %157, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ 0, %157 ], [ -1, %Abc_TtIsConst1.exit ], [ 0, %467 ], [ 0, %.thread404 ], [ 0, %479 ], [ 0, %.thread409 ], [ -1, %481 ], [ -1, %Abc_TtIsConst1.exit261 ], [ -1, %483 ], [ -1, %._crit_edge487.thread ]
   call void @llvm.lifetime.end.p0(i64 3584, ptr nonnull %8) #20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %7) #20
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #20
@@ -2321,7 +2318,7 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .lr.ph73:                                         ; preds = %36, %.lr.ph73
   %.05372 = phi i32 [ %49, %.lr.ph73 ], [ 0, %36 ]
-  %47 = tail call i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %47 = tail call i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %48 = add i32 %.05372, %38
   %49 = add i32 %48, %47
   %50 = load ptr, ptr %1, align 8, !tbaa !55
@@ -2351,7 +2348,7 @@ define i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 
 .lr.ph:                                           ; preds = %.thread82, %.lr.ph
   %.05269 = phi i32 [ %63, %.lr.ph ], [ 3, %.thread82 ]
-  %62 = tail call i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2)
+  %62 = tail call i32 @Dsc_CountAnds_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2)
   %63 = add nsw i32 %62, %.05269
   %64 = load ptr, ptr %1, align 8, !tbaa !55
   %storemerge = getelementptr inbounds nuw i8, ptr %64, i64 1

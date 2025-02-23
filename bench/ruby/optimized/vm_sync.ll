@@ -128,7 +128,7 @@ vm_need_barrier.exit:                             ; preds = %8
   br label %25
 
 25:                                               ; preds = %25, %13
-  call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %1, ptr noundef %0) #7
+  call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %1, ptr noundef nonnull %0) #7
   %.val15 = load i8, ptr %11, align 8, !tbaa !75, !range !76, !noundef !77
   %26 = trunc nuw i8 %.val15 to i1
   br i1 %26, label %25, label %vm_need_barrier.exit.thread, !llvm.loop !81

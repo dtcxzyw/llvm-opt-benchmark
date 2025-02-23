@@ -725,7 +725,7 @@ gv_calloc.exit38.preheader48:                     ; preds = %gv_calloc.exit38.pr
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
-gv_calloc.exit38._crit_edge:                      ; preds = %gv_calloc.exit38
+.preheader.preheader:                             ; preds = %gv_calloc.exit38
   tail call fastcc void @constructSierpinski(i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef %3, ptr noundef nonnull %15)
   br label %.preheader
 
@@ -739,10 +739,10 @@ gv_calloc.exit38:                                 ; preds = %gv_calloc.exit38.pr
   store i32 0, ptr %30, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %gv_calloc.exit38._crit_edge, label %gv_calloc.exit38, !llvm.loop !39
+  br i1 %exitcond, label %.preheader.preheader, label %gv_calloc.exit38, !llvm.loop !39
 
-.preheader:                                       ; preds = %gv_calloc.exit38._crit_edge, %._crit_edge
-  %.03145 = phi i32 [ %39, %._crit_edge ], [ 1, %gv_calloc.exit38._crit_edge ]
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
+  %.03145 = phi i32 [ %39, %._crit_edge ], [ 1, %.preheader.preheader ]
   %33 = zext i32 %.03145 to i64
   %34 = getelementptr inbounds nuw %struct.vtx_data, ptr %15, i64 %33
   %35 = load i32, ptr %34, align 8, !tbaa !38
@@ -912,7 +912,7 @@ gv_calloc.exit37.preheader47:                     ; preds = %gv_calloc.exit37.pr
   tail call fastcc void @graphviz_exit() #18
   unreachable
 
-gv_calloc.exit37._crit_edge:                      ; preds = %gv_calloc.exit37
+.preheader.preheader:                             ; preds = %gv_calloc.exit37
   tail call fastcc void @constructTetrix(i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef 4, i32 noundef %3, ptr noundef nonnull %11)
   %umax55 = tail call i32 @llvm.umax.i32(i32 %9, i32 2)
   %wide.trip.count56 = zext i32 %umax55 to i64
@@ -928,10 +928,10 @@ gv_calloc.exit37:                                 ; preds = %gv_calloc.exit37.pr
   store i32 0, ptr %26, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %gv_calloc.exit37._crit_edge, label %gv_calloc.exit37, !llvm.loop !42
+  br i1 %exitcond, label %.preheader.preheader, label %gv_calloc.exit37, !llvm.loop !42
 
-.preheader:                                       ; preds = %gv_calloc.exit37._crit_edge, %._crit_edge
-  %indvars.iv52 = phi i64 [ 1, %gv_calloc.exit37._crit_edge ], [ %indvars.iv.next53, %._crit_edge ]
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
+  %indvars.iv52 = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next53, %._crit_edge ]
   %29 = getelementptr inbounds nuw %struct.vtx_data, ptr %11, i64 %indvars.iv52
   %30 = load i32, ptr %29, align 8, !tbaa !38
   %.not46 = icmp eq i32 %30, 0

@@ -541,7 +541,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   %exitcond712.not = icmp eq i64 %133, %123
   br i1 %exitcond712.not, label %.loopexit674, label %.lr.ph685, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.lr.ph680
+.lr.ph683.preheader:                              ; preds = %.lr.ph680
   %142 = getelementptr inbounds nuw i8, ptr %.1511694, i64 %123
   br label %.lr.ph683
 
@@ -556,10 +556,10 @@ define range(i32 -1, 1) i32 @H5T__conv_f_f_loop(ptr noundef %0, ptr noundef read
   store i8 %148, ptr %143, align 1, !tbaa !32
   store i8 %144, ptr %147, align 1, !tbaa !32
   %exitcond.not = icmp eq i64 %145, %127
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph680, !llvm.loop !37
+  br i1 %exitcond.not, label %.lr.ph683.preheader, label %.lr.ph680, !llvm.loop !37
 
-.lr.ph683:                                        ; preds = %._crit_edge, %.lr.ph683
-  %.0488681 = phi i64 [ %151, %.lr.ph683 ], [ 0, %._crit_edge ]
+.lr.ph683:                                        ; preds = %.lr.ph683.preheader, %.lr.ph683
+  %.0488681 = phi i64 [ %151, %.lr.ph683 ], [ 0, %.lr.ph683.preheader ]
   %149 = getelementptr inbounds nuw i8, ptr %142, i64 %.0488681
   %150 = load i8, ptr %149, align 1, !tbaa !32
   %151 = add nuw nsw i64 %.0488681, 1
@@ -1723,7 +1723,7 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i_loop(ptr noundef %0, ptr noundef read
   %exitcond653.not = icmp eq i64 %145, %135
   br i1 %exitcond653.not, label %.loopexit622, label %.lr.ph634, !llvm.loop !44
 
-._crit_edge:                                      ; preds = %.lr.ph629
+.lr.ph632.preheader:                              ; preds = %.lr.ph629
   %154 = getelementptr inbounds nuw i8, ptr %.1639, i64 %135
   br label %.lr.ph632
 
@@ -1738,10 +1738,10 @@ define range(i32 -1, 1) i32 @H5T__conv_f_i_loop(ptr noundef %0, ptr noundef read
   store i8 %160, ptr %155, align 1, !tbaa !32
   store i8 %156, ptr %159, align 1, !tbaa !32
   %exitcond.not = icmp eq i64 %157, %139
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph629, !llvm.loop !45
+  br i1 %exitcond.not, label %.lr.ph632.preheader, label %.lr.ph629, !llvm.loop !45
 
-.lr.ph632:                                        ; preds = %._crit_edge, %.lr.ph632
-  %.0426630 = phi i64 [ %163, %.lr.ph632 ], [ 0, %._crit_edge ]
+.lr.ph632:                                        ; preds = %.lr.ph632.preheader, %.lr.ph632
+  %.0426630 = phi i64 [ %163, %.lr.ph632 ], [ 0, %.lr.ph632.preheader ]
   %161 = getelementptr inbounds nuw i8, ptr %154, i64 %.0426630
   %162 = load i8, ptr %161, align 1, !tbaa !32
   %163 = add nuw nsw i64 %.0426630, 1

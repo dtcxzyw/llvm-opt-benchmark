@@ -1627,21 +1627,21 @@ H5G__component.exit51:                            ; preds = %.preheader.i49
 H5G__component.exit55:                            ; preds = %.preheader.i53
   %81 = tail call i64 @strcspn(ptr noundef nonnull %.1.i54, ptr noundef nonnull @.str) #10
   %82 = icmp eq i64 %81, -1
-  br i1 %82, label %H5G__component.exit55.thread, label %.preheader, !llvm.loop !50
+  br i1 %82, label %83, label %.preheader, !llvm.loop !50
 
-H5G__component.exit55.thread:                     ; preds = %H5G__component.exit55
-  %83 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !13
-  %84 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !13
-  %85 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5G__common_path, i32 noundef 243, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.22) #11
+83:                                               ; preds = %H5G__component.exit55
+  %84 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !13
+  %85 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !13
+  %86 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5G__common_path, i32 noundef 243, i64 noundef %84, i64 noundef %85, ptr noundef nonnull @.str.22) #11
   br label %.loopexit
 
 .critedge:                                        ; preds = %.preheader
-  %86 = icmp eq i8 %53, 0
-  %spec.select = zext i1 %86 to i32
+  %87 = icmp eq i8 %53, 0
+  %spec.select = zext i1 %87 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %55, %57, %.critedge, %12, %H5G__component.exit.thread, %34, %H5G__component.exit39.thread, %74, %H5G__component.exit55.thread, %2
-  %.0 = phi i32 [ -1, %12 ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ -1, %H5G__component.exit39.thread ], [ -1, %74 ], [ -1, %H5G__component.exit55.thread ], [ 0, %2 ], [ %spec.select, %.critedge ], [ 0, %57 ], [ 0, %55 ]
+.loopexit:                                        ; preds = %55, %57, %.critedge, %12, %H5G__component.exit.thread, %34, %H5G__component.exit39.thread, %74, %83, %2
+  %.0 = phi i32 [ -1, %12 ], [ -1, %H5G__component.exit.thread ], [ -1, %34 ], [ -1, %H5G__component.exit39.thread ], [ -1, %74 ], [ -1, %83 ], [ 0, %2 ], [ %spec.select, %.critedge ], [ 0, %57 ], [ 0, %55 ]
   ret i32 %.0
 }
 

@@ -420,9 +420,9 @@ gv_calloc.exit.thread:                            ; preds = %17
   %48 = zext nneg i32 %4 to i64
   br label %.lr.ph
 
-.lr.ph76.preheader:                               ; preds = %.lr.ph
-  %wide.trip.count83 = zext nneg i32 %4 to i64
-  br label %.lr.ph76
+.lr.ph77.preheader:                               ; preds = %.lr.ph
+  %wide.trip.count84 = zext nneg i32 %4 to i64
+  br label %.lr.ph77
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -430,19 +430,19 @@ gv_calloc.exit.thread:                            ; preds = %17
   store double 1.000000e+00, ptr %49, align 8, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %48
-  br i1 %exitcond.not, label %.lr.ph76.preheader, label %.lr.ph, !llvm.loop !44
+  br i1 %exitcond.not, label %.lr.ph77.preheader, label %.lr.ph, !llvm.loop !44
 
-.lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
-  %indvars.iv80 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next81, %.lr.ph76 ]
-  %50 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv80
-  %51 = trunc nuw nsw i64 %indvars.iv80 to i32
+.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
+  %indvars.iv81 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next82, %.lr.ph77 ]
+  %50 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv81
+  %51 = trunc nuw nsw i64 %indvars.iv81 to i32
   store i32 %51, ptr %50, align 4, !tbaa !27
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count83
-  br i1 %exitcond84.not, label %._crit_edge, label %.lr.ph76, !llvm.loop !45
+  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
+  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
+  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph77, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %.lr.ph76, %.preheader.thread
-  %52 = phi ptr [ %24, %.preheader.thread ], [ %18, %.lr.ph76 ]
+._crit_edge:                                      ; preds = %.lr.ph77, %.preheader.thread
+  %52 = phi ptr [ %24, %.preheader.thread ], [ %18, %.lr.ph77 ]
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %54 = load i32, ptr %0, align 8, !tbaa !14
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -783,23 +783,23 @@ gv_calloc.exit.thread:                            ; preds = %17
   br label %get_mq.exit
 
 get_mq.exit:                                      ; preds = %._crit_edge179.i.thread, %._crit_edge179.i, %211
-  %.0107.lcssa258260.i69 = phi double [ %.0107.lcssa.i, %211 ], [ %.0107.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
-  %.0110.lcssa256262.i68 = phi double [ %.0110.lcssa.i, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
-  %.0101.lcssa250254264.i67 = phi i32 [ %spec.select.i, %211 ], [ %spec.select.i, %._crit_edge179.i ], [ 0, %._crit_edge179.i.thread ]
+  %.0107.lcssa258274.i70 = phi double [ %.0107.lcssa.i, %211 ], [ %.0107.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
+  %.0110.lcssa256276.i69 = phi double [ %.0110.lcssa.i, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
+  %.0101.lcssa250254278.i68 = phi i32 [ %spec.select.i, %211 ], [ %spec.select.i, %._crit_edge179.i ], [ 0, %._crit_edge179.i.thread ]
   %219 = phi ptr [ %156, %211 ], [ %156, %._crit_edge179.i ], [ %79, %._crit_edge179.i.thread ]
   %.0.in.i = phi double [ %218, %211 ], [ %.0110.lcssa.i, %._crit_edge179.i ], [ 0.000000e+00, %._crit_edge179.i.thread ]
   %.0.i = fmul double %.0.in.i, 2.000000e+00
   %220 = load ptr, ptr @stderr, align 8, !tbaa !24
-  %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str, i32 noundef %.0101.lcssa250254264.i67, double noundef %.0.i) #14
+  %221 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %220, ptr noundef nonnull @.str, i32 noundef %.0101.lcssa250254278.i68, double noundef %.0.i) #14
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store double %.0.i, ptr %222, align 8, !tbaa !29
   %223 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store double %.0110.lcssa256262.i68, ptr %223, align 8, !tbaa !54
+  store double %.0110.lcssa256276.i69, ptr %223, align 8, !tbaa !54
   %224 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  store double %.0107.lcssa258260.i69, ptr %224, align 8, !tbaa !55
+  store double %.0107.lcssa258274.i70, ptr %224, align 8, !tbaa !55
   store ptr %219, ptr %53, align 8, !tbaa !41
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i32 %.0101.lcssa250254264.i67, ptr %225, align 8, !tbaa !56
+  store i32 %.0101.lcssa250254278.i68, ptr %225, align 8, !tbaa !56
   br label %226
 
 226:                                              ; preds = %gv_calloc.exit.thread, %gv_calloc.exit, %get_mq.exit

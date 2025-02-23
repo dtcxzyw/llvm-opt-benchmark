@@ -335,23 +335,23 @@ define hidden noundef ptr @lj_debug_slotname(ptr noundef %0, ptr noundef %1, i32
 debug_varname.exit.us.preheader:                  ; preds = %4
   %11 = getelementptr inbounds i8, ptr %1, i64 -4
   %12 = icmp ugt ptr %11, %6
-  br i1 %12, label %.lr.ph261, label %.thread67
+  br i1 %12, label %.lr.ph247, label %.thread67
 
 debug_varname.exit.us.loopexit:                   ; preds = %29
   %13 = lshr i32 %19, 16
   %14 = getelementptr inbounds i8, ptr %18, i64 -4
   %15 = icmp ugt ptr %14, %6
-  br i1 %15, label %.lr.ph261, label %.thread67
+  br i1 %15, label %.lr.ph247, label %.thread67
 
-.lr.ph261:                                        ; preds = %debug_varname.exit.us.preheader, %debug_varname.exit.us.loopexit
+.lr.ph247:                                        ; preds = %debug_varname.exit.us.preheader, %debug_varname.exit.us.loopexit
   %16 = phi ptr [ %14, %debug_varname.exit.us.loopexit ], [ %11, %debug_varname.exit.us.preheader ]
-  %.044.us264 = phi ptr [ %18, %debug_varname.exit.us.loopexit ], [ %1, %debug_varname.exit.us.preheader ]
-  %.046.us263 = phi i32 [ %13, %debug_varname.exit.us.loopexit ], [ %2, %debug_varname.exit.us.preheader ]
+  %.044.us250 = phi ptr [ %18, %debug_varname.exit.us.loopexit ], [ %1, %debug_varname.exit.us.preheader ]
+  %.046.us249 = phi i32 [ %13, %debug_varname.exit.us.loopexit ], [ %2, %debug_varname.exit.us.preheader ]
   br label %17
 
-17:                                               ; preds = %.backedge, %.lr.ph261
-  %18 = phi ptr [ %16, %.lr.ph261 ], [ %.be, %.backedge ]
-  %.145.us260 = phi ptr [ %.044.us264, %.lr.ph261 ], [ %18, %.backedge ]
+17:                                               ; preds = %.backedge, %.lr.ph247
+  %18 = phi ptr [ %16, %.lr.ph247 ], [ %.be, %.backedge ]
+  %.145.us246 = phi ptr [ %.044.us250, %.lr.ph247 ], [ %18, %.backedge ]
   %19 = load i32, ptr %18, align 4, !tbaa !18
   %20 = and i32 %19, 255
   %21 = lshr i32 %19, 8
@@ -366,36 +366,36 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   ]
 
 27:                                               ; preds = %17
-  %28 = icmp eq i32 %22, %.046.us263
+  %28 = icmp eq i32 %22, %.046.us249
   br i1 %28, label %29, label %35
 
 29:                                               ; preds = %27
   %trunc.us = trunc i32 %19 to i8
   switch i8 %trunc.us, label %.thread67 [
     i8 18, label %debug_varname.exit.us.loopexit
-    i8 54, label %.split102.us
-    i8 57, label %.split105.us
-    i8 45, label %.split110.us
+    i8 54, label %.split98.us
+    i8 57, label %.split100.us
+    i8 45, label %.split105.us
   ]
 
 30:                                               ; preds = %17
-  %.not55.us = icmp ult i32 %.046.us263, %22
+  %.not55.us = icmp ult i32 %.046.us249, %22
   br i1 %.not55.us, label %35, label %31
 
 31:                                               ; preds = %30
   %.not56.us = icmp eq i32 %20, 44
   %32 = lshr i32 %19, 16
-  %.not57.us = icmp ugt i32 %.046.us263, %32
+  %.not57.us = icmp ugt i32 %.046.us249, %32
   %or.cond.us = and i1 %.not56.us, %.not57.us
   %33 = getelementptr inbounds i8, ptr %18, i64 -4
   %34 = icmp ugt ptr %33, %6
-  %or.cond266 = select i1 %or.cond.us, i1 %34, i1 false
-  br i1 %or.cond266, label %.backedge, label %.thread67
+  %or.cond252 = select i1 %or.cond.us, i1 %34, i1 false
+  br i1 %or.cond252, label %.backedge, label %.thread67
 
 35:                                               ; preds = %30, %27, %17
   %.old = getelementptr inbounds i8, ptr %18, i64 -4
-  %.old265 = icmp ugt ptr %.old, %6
-  br i1 %.old265, label %.backedge, label %.thread67
+  %.old251 = icmp ugt ptr %.old, %6
+  br i1 %.old251, label %.backedge, label %.thread67
 
 .backedge:                                        ; preds = %35, %31
   %.be = phi ptr [ %.old, %35 ], [ %33, %31 ]
@@ -418,7 +418,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   %41 = inttoptr i64 %.val to ptr
   store ptr %41, ptr %5, align 8, !tbaa !35
   %.not.i = icmp eq i64 %.val, 0
-  br i1 %.not.i, label %debug_varname.exit.thread165, label %.preheader19.i
+  br i1 %.not.i, label %debug_varname.exit, label %.preheader19.i
 
 .preheader19.i:                                   ; preds = %.split, %69
   %.promoted.i = phi ptr [ %.pre.i, %69 ], [ %41, %.split ]
@@ -430,7 +430,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
 
 44:                                               ; preds = %.preheader19.i
   %45 = icmp eq i8 %42, 0
-  br i1 %45, label %debug_varname.exit.thread165, label %.loopexit.i
+  br i1 %45, label %debug_varname.exit, label %.loopexit.i
 
 .preheader18.i:                                   ; preds = %.preheader19.i, %.preheader18.i
   %46 = phi ptr [ %47, %.preheader18.i ], [ %.promoted.i, %.preheader19.i ]
@@ -447,7 +447,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   %51 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %5) #11
   %52 = add i32 %51, %.026.i
   %53 = icmp ugt i32 %52, %40
-  br i1 %53, label %debug_varname.exit.thread165, label %54
+  br i1 %53, label %debug_varname.exit, label %54
 
 54:                                               ; preds = %.loopexit.i
   %55 = call i32 @lj_buf_ruleb128(ptr noundef nonnull %5) #11
@@ -461,13 +461,13 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %58
-  br i1 %43, label %62, label %.loopexit72
+  br i1 %43, label %62, label %.loopexit
 
 62:                                               ; preds = %61
   %63 = zext nneg i8 %42 to i32
   %64 = add nsw i32 %63, -1
   %.not36.i = icmp eq i32 %64, 0
-  br i1 %.not36.i, label %.loopexit72, label %.preheader.i.outer
+  br i1 %.not36.i, label %.loopexit, label %.preheader.i.outer
 
 .preheader.i.outer:                               ; preds = %62, %67
   %.125.i.ph = phi ptr [ %65, %67 ], [ @.str.34, %62 ]
@@ -484,28 +484,28 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
 67:                                               ; preds = %.preheader.i
   %68 = add i32 %.022.i.ph, -1
   %.not38.i = icmp eq i32 %68, 0
-  br i1 %.not38.i, label %.loopexit72, label %.preheader.i.outer, !llvm.loop !38
+  br i1 %.not38.i, label %.loopexit, label %.preheader.i.outer, !llvm.loop !38
 
 69:                                               ; preds = %58, %54
   %.120.i = phi i32 [ %59, %58 ], [ %.019.i, %54 ]
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !35
   br label %.preheader19.i
 
-debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %.split
+debug_varname.exit:                               ; preds = %44, %.loopexit.i, %.split
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
   %70 = getelementptr inbounds i8, ptr %.044, i64 -4
   %71 = icmp ugt ptr %70, %6
   br i1 %71, label %.lr.ph, label %.thread67
 
-.loopexit72:                                      ; preds = %67, %61, %62
-  %.2.i64 = phi ptr [ @.str.34, %62 ], [ %.promoted.i, %61 ], [ %65, %67 ]
+.loopexit:                                        ; preds = %67, %61, %62
+  %.2.i.ph = phi ptr [ @.str.34, %62 ], [ %.promoted.i, %61 ], [ %65, %67 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #11
-  store ptr %.2.i64, ptr %3, align 8, !tbaa !35
+  store ptr %.2.i.ph, ptr %3, align 8, !tbaa !35
   br label %.thread67
 
-.lr.ph:                                           ; preds = %debug_varname.exit.thread165, %.lr.ph.backedge
-  %72 = phi ptr [ %.be288, %.lr.ph.backedge ], [ %70, %debug_varname.exit.thread165 ]
-  %.145259 = phi ptr [ %72, %.lr.ph.backedge ], [ %.044, %debug_varname.exit.thread165 ]
+.lr.ph:                                           ; preds = %debug_varname.exit, %.lr.ph.backedge
+  %72 = phi ptr [ %.be274, %.lr.ph.backedge ], [ %70, %debug_varname.exit ]
+  %.145244 = phi ptr [ %72, %.lr.ph.backedge ], [ %.044, %debug_varname.exit ]
   %73 = load i32, ptr %72, align 4, !tbaa !18
   %74 = and i32 %73, 255
   %75 = lshr i32 %73, 8
@@ -514,14 +514,14 @@ debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %
   %78 = getelementptr inbounds nuw [0 x i16], ptr @lj_bc_mode, i64 0, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !25
   %80 = and i16 %79, 7
-  switch i16 %80, label %.preheader [
+  switch i16 %80, label %133 [
     i16 2, label %81
     i16 1, label %86
   ]
 
 81:                                               ; preds = %.lr.ph
   %.not55 = icmp ult i32 %.046, %76
-  br i1 %.not55, label %.preheader, label %82
+  br i1 %.not55, label %133, label %82
 
 82:                                               ; preds = %81
   %.not56 = icmp eq i32 %74, 44
@@ -530,28 +530,28 @@ debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %
   %or.cond = and i1 %.not56, %.not57
   %84 = getelementptr inbounds i8, ptr %72, i64 -4
   %85 = icmp ugt ptr %84, %6
-  %or.cond269 = select i1 %or.cond, i1 %85, i1 false
-  br i1 %or.cond269, label %.lr.ph.backedge, label %.thread67
+  %or.cond255 = select i1 %or.cond, i1 %85, i1 false
+  br i1 %or.cond255, label %.lr.ph.backedge, label %.thread67
 
 86:                                               ; preds = %.lr.ph
   %87 = icmp eq i32 %76, %.046
-  br i1 %87, label %88, label %.preheader
+  br i1 %87, label %88, label %133
 
 88:                                               ; preds = %86
   %trunc = trunc i32 %73 to i8
   switch i8 %trunc, label %.thread67 [
     i8 18, label %.split.loopexit
-    i8 54, label %.split102.us
-    i8 57, label %.split105.us
-    i8 45, label %.split110.us
+    i8 54, label %.split98.us
+    i8 57, label %.split100.us
+    i8 45, label %.split105.us
   ]
 
-.split102.us:                                     ; preds = %88, %29
-  %.us-phi103 = phi i32 [ %19, %29 ], [ %73, %88 ]
+.split98.us:                                      ; preds = %88, %29
+  %.us-phi = phi i32 [ %19, %29 ], [ %73, %88 ]
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load i64, ptr %89, align 8, !tbaa !39
   %91 = inttoptr i64 %90 to ptr
-  %92 = lshr i32 %.us-phi103, 16
+  %92 = lshr i32 %.us-phi, 16
   %93 = xor i32 %92, -1
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds %struct.GCRef, ptr %91, i64 %94
@@ -561,14 +561,14 @@ debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %
   store ptr %98, ptr %3, align 8, !tbaa !35
   br label %.thread67
 
-.split105.us:                                     ; preds = %88, %29
-  %.us-phi106 = phi i32 [ %19, %29 ], [ %73, %88 ]
-  %.us-phi107 = phi i32 [ %.046.us263, %29 ], [ %.046, %88 ]
-  %.us-phi108 = phi ptr [ %.145.us260, %29 ], [ %.145259, %88 ]
+.split100.us:                                     ; preds = %88, %29
+  %.us-phi101 = phi i32 [ %19, %29 ], [ %73, %88 ]
+  %.us-phi102 = phi i32 [ %.046.us249, %29 ], [ %.046, %88 ]
+  %.us-phi103 = phi ptr [ %.145.us246, %29 ], [ %.145244, %88 ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %100 = load i64, ptr %99, align 8, !tbaa !39
   %101 = inttoptr i64 %100 to ptr
-  %102 = lshr i32 %.us-phi106, 16
+  %102 = lshr i32 %.us-phi101, 16
   %103 = and i32 %102, 255
   %104 = xor i32 %103, -1
   %105 = sext i32 %104 to i64
@@ -577,42 +577,42 @@ debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store ptr %109, ptr %3, align 8, !tbaa !35
-  %110 = getelementptr inbounds i8, ptr %.us-phi108, i64 -8
+  %110 = getelementptr inbounds i8, ptr %.us-phi103, i64 -8
   %111 = load i32, ptr %110, align 4, !tbaa !18
   %112 = and i32 %111, 255
   %113 = icmp eq i32 %112, 18
   br i1 %113, label %114, label %123
 
-114:                                              ; preds = %.split105.us
+114:                                              ; preds = %.split100.us
   %115 = lshr i32 %111, 8
   %116 = and i32 %115, 255
-  %117 = add nuw nsw i32 %.us-phi107, 2
+  %117 = add nuw nsw i32 %.us-phi102, 2
   %118 = icmp eq i32 %116, %117
   br i1 %118, label %119, label %123
 
 119:                                              ; preds = %114
   %120 = lshr i32 %111, 16
-  %121 = lshr i32 %.us-phi106, 24
+  %121 = lshr i32 %.us-phi101, 24
   %122 = icmp eq i32 %120, %121
   br i1 %122, label %.thread67, label %123
 
-123:                                              ; preds = %.split105.us, %114, %119
+123:                                              ; preds = %.split100.us, %114, %119
   br label %.thread67
 
-.split110.us:                                     ; preds = %88, %29
-  %.us-phi111 = phi i32 [ %19, %29 ], [ %73, %88 ]
+.split105.us:                                     ; preds = %88, %29
+  %.us-phi106 = phi i32 [ %19, %29 ], [ %73, %88 ]
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %125 = load i64, ptr %124, align 8, !tbaa !26
   %.not.i58 = icmp eq i64 %125, 0
   br i1 %.not.i58, label %lj_debug_uvname.exit, label %126
 
-126:                                              ; preds = %.split110.us
+126:                                              ; preds = %.split105.us
   %127 = inttoptr i64 %125 to ptr
-  %.not12.i = icmp ult i32 %.us-phi111, 65536
+  %.not12.i = icmp ult i32 %.us-phi106, 65536
   br i1 %.not12.i, label %lj_debug_uvname.exit, label %.preheader.i59.preheader
 
 .preheader.i59.preheader:                         ; preds = %126
-  %128 = lshr i32 %.us-phi111, 16
+  %128 = lshr i32 %.us-phi106, 16
   br label %.preheader.i59.outer
 
 .preheader.i59.outer:                             ; preds = %131, %.preheader.i59.preheader
@@ -632,22 +632,22 @@ debug_varname.exit.thread165:                     ; preds = %.loopexit.i, %44, %
   %.not14.i = icmp eq i32 %132, 0
   br i1 %.not14.i, label %lj_debug_uvname.exit, label %.preheader.i59.outer, !llvm.loop !27
 
-lj_debug_uvname.exit:                             ; preds = %131, %.split110.us, %126
-  %.08.i = phi ptr [ @.str, %.split110.us ], [ %127, %126 ], [ %129, %131 ]
+lj_debug_uvname.exit:                             ; preds = %131, %.split105.us, %126
+  %.08.i = phi ptr [ @.str, %.split105.us ], [ %127, %126 ], [ %129, %131 ]
   store ptr %.08.i, ptr %3, align 8, !tbaa !35
   br label %.thread67
 
-.preheader:                                       ; preds = %81, %86, %.lr.ph
-  %.old267 = getelementptr inbounds i8, ptr %72, i64 -4
-  %.old268 = icmp ugt ptr %.old267, %6
-  br i1 %.old268, label %.lr.ph.backedge, label %.thread67
+133:                                              ; preds = %81, %86, %.lr.ph
+  %.old253 = getelementptr inbounds i8, ptr %72, i64 -4
+  %.old254 = icmp ugt ptr %.old253, %6
+  br i1 %.old254, label %.lr.ph.backedge, label %.thread67
 
-.lr.ph.backedge:                                  ; preds = %.preheader, %82
-  %.be288 = phi ptr [ %.old267, %.preheader ], [ %84, %82 ]
+.lr.ph.backedge:                                  ; preds = %133, %82
+  %.be274 = phi ptr [ %.old253, %133 ], [ %84, %82 ]
   br label %.lr.ph, !llvm.loop !33
 
-.thread67:                                        ; preds = %88, %debug_varname.exit.thread165, %82, %.preheader, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %.split102.us, %lj_debug_uvname.exit, %.loopexit72
-  %.1 = phi ptr [ @.str.1, %.loopexit72 ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ @.str.2, %.split102.us ], [ @.str.5, %lj_debug_uvname.exit ], [ null, %debug_varname.exit.us.preheader ], [ null, %31 ], [ null, %35 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %29 ], [ null, %.preheader ], [ null, %82 ], [ null, %debug_varname.exit.thread165 ], [ null, %88 ]
+.thread67:                                        ; preds = %88, %debug_varname.exit, %82, %133, %29, %debug_varname.exit.us.loopexit, %35, %31, %debug_varname.exit.us.preheader, %123, %119, %.split98.us, %lj_debug_uvname.exit, %.loopexit
+  %.1 = phi ptr [ @.str.1, %.loopexit ], [ @.str.3, %119 ], [ @.str.4, %123 ], [ @.str.2, %.split98.us ], [ @.str.5, %lj_debug_uvname.exit ], [ null, %debug_varname.exit.us.preheader ], [ null, %31 ], [ null, %35 ], [ null, %debug_varname.exit.us.loopexit ], [ null, %29 ], [ null, %133 ], [ null, %82 ], [ null, %debug_varname.exit ], [ null, %88 ]
   ret ptr %.1
 }
 
@@ -1493,7 +1493,7 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   br label %.thread
 
 49:                                               ; preds = %24
-  br i1 %.not54, label %91, label %50
+  br i1 %.not54, label %90, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1552,7 +1552,7 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   br i1 %75, label %76, label %84
 
 76:                                               ; preds = %73
-  br i1 %58, label %77, label %debug_varname.exit
+  br i1 %58, label %77, label %debug_varname.exit.thread
 
 77:                                               ; preds = %76
   %78 = zext nneg i8 %57 to i32
@@ -1582,46 +1582,43 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !35
   br label %.preheader19.i
 
-debug_varname.exit.thread:                        ; preds = %82, %77
-  %.2.i.ph = phi ptr [ @.str.34, %77 ], [ %80, %82 ]
+debug_varname.exit.thread:                        ; preds = %82, %76, %77
+  %.2.i.ph = phi ptr [ @.str.34, %77 ], [ %.promoted.i, %76 ], [ %80, %82 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
   br label %.sink.split
 
-debug_varname.exit:                               ; preds = %59, %.loopexit.i, %50, %76
-  %.2.i = phi ptr [ %.promoted.i, %76 ], [ null, %50 ], [ null, %.loopexit.i ], [ null, %59 ]
+debug_varname.exit:                               ; preds = %59, %.loopexit.i, %50
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #11
-  store ptr %.2.i, ptr %1, align 8, !tbaa !35
-  %85 = icmp eq ptr %.2.i, null
-  %86 = icmp ne i32 %2, 0
-  %or.cond = and i1 %86, %85
-  %87 = zext nneg i32 %2 to i64
-  %88 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %87
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %90 = icmp ult ptr %89, %.046
-  %or.cond59 = select i1 %or.cond, i1 %90, i1 false
-  br i1 %or.cond59, label %.sink.split, label %92
+  store ptr null, ptr %1, align 8, !tbaa !35
+  %85 = icmp ne i32 %2, 0
+  %86 = zext nneg i32 %2 to i64
+  %87 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  %89 = icmp ult ptr %88, %.046
+  %or.cond59 = select i1 %85, i1 %89, i1 false
+  br i1 %or.cond59, label %.sink.split, label %91
 
-91:                                               ; preds = %49
+90:                                               ; preds = %49
   %.old1.not = icmp ne i32 %2, 0
   %.old = zext nneg i32 %2 to i64
   %.old56 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %.old
   %.old57 = getelementptr inbounds nuw i8, ptr %.old56, i64 8
   %.old58 = icmp ult ptr %.old57, %.046
   %or.cond60 = select i1 %.old1.not, i1 %.old58, i1 false
-  br i1 %or.cond60, label %.sink.split, label %92
+  br i1 %or.cond60, label %.sink.split, label %91
 
-.sink.split:                                      ; preds = %debug_varname.exit, %91, %debug_varname.exit.thread
-  %.2.i.ph.sink = phi ptr [ %.2.i.ph, %debug_varname.exit.thread ], [ @.str.36, %91 ], [ @.str.36, %debug_varname.exit ]
+.sink.split:                                      ; preds = %debug_varname.exit, %90, %debug_varname.exit.thread
+  %.2.i.ph.sink = phi ptr [ %.2.i.ph, %debug_varname.exit.thread ], [ @.str.36, %90 ], [ @.str.36, %debug_varname.exit ]
   store ptr %.2.i.ph.sink, ptr %1, align 8, !tbaa !35
-  br label %92
+  br label %91
 
-92:                                               ; preds = %.sink.split, %91, %debug_varname.exit
-  %93 = zext nneg i32 %2 to i64
-  %94 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %93
+91:                                               ; preds = %.sink.split, %90, %debug_varname.exit
+  %92 = zext nneg i32 %2 to i64
+  %93 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %92
   br label %.thread
 
-.thread:                                          ; preds = %27, %34, %26, %48, %92
-  %.1 = phi ptr [ %45, %48 ], [ %94, %92 ], [ null, %26 ], [ null, %34 ], [ null, %27 ]
+.thread:                                          ; preds = %27, %34, %26, %48, %91
+  %.1 = phi ptr [ %45, %48 ], [ %93, %91 ], [ null, %26 ], [ null, %34 ], [ null, %27 ]
   ret ptr %.1
 }
 

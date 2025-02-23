@@ -1483,7 +1483,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly
   %indvars.iv = phi i64 [ %18, %.lr.ph122.preheader ], [ %indvars.iv.next, %.lr.ph122 ]
   %19 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
   %20 = load i16, ptr %19, align 2
-  tail call void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext %20)
+  tail call void @PageIndexTupleDelete(ptr noundef nonnull %0, i16 noundef zeroext %20)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not131 = icmp eq i64 %indvars.iv, 0
   br i1 %.not131, label %.loopexit, label %.lr.ph122, !llvm.loop !22

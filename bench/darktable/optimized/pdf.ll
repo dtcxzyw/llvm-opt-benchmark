@@ -759,11 +759,11 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   %35 = tail call ptr @g_type_check_instance_cast(ptr noundef %34, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %35, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 1) #16
   %36 = tail call ptr @dt_conf_get_string(ptr noundef nonnull @.str.11) #16
-  tail call fastcc void @_set_paper_size(ptr noundef %0, ptr noundef %36)
+  tail call fastcc void @_set_paper_size(ptr noundef nonnull %0, ptr noundef %36)
   tail call void @g_free(ptr noundef %36) #16
   %37 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.15, i32 noundef 5) #16
   %38 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.16) #16
-  %39 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %37, i32 noundef %38, ptr noundef nonnull @orientation_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts) #16
+  %39 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.14, ptr noundef %37, i32 noundef %38, ptr noundef nonnull @orientation_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts) #16
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !114
   %41 = tail call ptr @g_type_check_instance_cast(ptr noundef %39, i64 noundef %26) #16
@@ -774,7 +774,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %43, i32 noundef 0, i32 noundef 4, i32 noundef 1, i32 noundef 1) #16
   %44 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 5) #16
   %45 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.19) #16
-  %46 = tail call ptr @dt_action_entry_new(ptr noundef %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @border_changed_callback, ptr noundef %0, ptr noundef %44, ptr noundef %45) #16
+  %46 = tail call ptr @dt_action_entry_new(ptr noundef nonnull %0, ptr noundef nonnull @.str.17, ptr noundef nonnull @border_changed_callback, ptr noundef nonnull %0, ptr noundef %44, ptr noundef %45) #16
   %47 = tail call ptr @g_type_check_instance_cast(ptr noundef %46, i64 noundef %23) #16
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr %47, ptr %48, align 8, !tbaa !115
@@ -805,17 +805,17 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @gtk_spin_button_set_value(ptr noundef %62, double noundef %64) #16
   %65 = load ptr, ptr %57, align 8, !tbaa !116
   %66 = tail call ptr @g_type_check_instance_cast(ptr noundef %65, i64 noundef 80) #16
-  %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.24, ptr noundef nonnull @dpi_changed_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
+  %67 = tail call i64 @g_signal_connect_data(ptr noundef %66, ptr noundef nonnull @.str.24, ptr noundef nonnull @dpi_changed_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
   %68 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.29, i32 noundef 5) #16
   %69 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.30) #16
-  %70 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %68, i32 noundef %69, ptr noundef nonnull @rotate_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.25) #16
+  %70 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.28, ptr noundef %68, i32 noundef %69, ptr noundef nonnull @rotate_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.25) #16
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %70, ptr %71, align 8, !tbaa !117
   %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %70, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %72, i32 noundef 0, i32 noundef 6, i32 noundef 2, i32 noundef 1) #16
   %73 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.36, i32 noundef 5) #16
   %74 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.37) #16
-  %75 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %73, i32 noundef %74, ptr noundef nonnull @pages_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.31) #16
+  %75 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.35, ptr noundef %73, i32 noundef %74, ptr noundef nonnull @pages_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.31) #16
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 48
   store ptr %75, ptr %76, align 8, !tbaa !118
   %77 = tail call ptr @g_type_check_instance_cast(ptr noundef %75, i64 noundef %26) #16
@@ -824,12 +824,12 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @gtk_widget_set_no_show_all(ptr noundef %78, i32 noundef 1) #16
   %79 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.40, i32 noundef 5) #16
   %80 = tail call i32 @dt_conf_get_bool(ptr noundef nonnull @.str.41) #16
-  %81 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %79, i32 noundef %80, ptr noundef nonnull @icc_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.38) #16
+  %81 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.39, ptr noundef %79, i32 noundef %80, ptr noundef nonnull @icc_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.38) #16
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 56
   store ptr %81, ptr %82, align 8, !tbaa !119
   %83 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %83, i32 noundef 0, i32 noundef 8, i32 noundef 2, i32 noundef 1) #16
-  %84 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #16
+  %84 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #16
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store ptr %84, ptr %85, align 8, !tbaa !120
   %86 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %84, ptr noundef null, ptr noundef nonnull @.str.42) #16
@@ -854,7 +854,7 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %96, i32 noundef 0, i32 noundef 9, i32 noundef 2, i32 noundef 1) #16
   %97 = load ptr, ptr %85, align 8, !tbaa !120
   %98 = tail call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef 80) #16
-  %99 = tail call i64 @g_signal_connect_data(ptr noundef %98, ptr noundef nonnull @.str.24, ptr noundef nonnull @bpp_toggle_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
+  %99 = tail call i64 @g_signal_connect_data(ptr noundef %98, ptr noundef nonnull @.str.24, ptr noundef nonnull @bpp_toggle_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
   %100 = load ptr, ptr %85, align 8, !tbaa !120
   %101 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.44, i32 noundef 5) #16
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %100, ptr noundef %101) #16
@@ -862,14 +862,14 @@ define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr
   tail call void @dt_bauhaus_combobox_set(ptr noundef %102, i32 noundef %spec.select) #16
   %103 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.49, i32 noundef 5) #16
   %104 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.50) #16
-  %105 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %103, i32 noundef %104, ptr noundef nonnull @compression_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.45) #16
+  %105 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.48, ptr noundef %103, i32 noundef %104, ptr noundef nonnull @compression_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.45) #16
   %106 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store ptr %105, ptr %106, align 8, !tbaa !123
   %107 = tail call ptr @g_type_check_instance_cast(ptr noundef %105, i64 noundef %26) #16
   tail call void @gtk_grid_attach(ptr noundef %7, ptr noundef %107, i32 noundef 0, i32 noundef 10, i32 noundef 2, i32 noundef 1) #16
   %108 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.56, i32 noundef 5) #16
   %109 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.57) #16
-  %110 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef %108, i32 noundef %109, ptr noundef nonnull @mode_toggle_callback, ptr noundef %0, ptr noundef nonnull @gui_init.texts.51) #16
+  %110 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.55, ptr noundef %108, i32 noundef %109, ptr noundef nonnull @mode_toggle_callback, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.51) #16
   %111 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store ptr %110, ptr %111, align 8, !tbaa !124
   %112 = tail call ptr @g_type_check_instance_cast(ptr noundef %110, i64 noundef %26) #16

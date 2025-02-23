@@ -2478,7 +2478,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %131 = fpext float %82 to double
-  %132 = sitofp i32 %3 to double
+  %132 = uitofp nneg i32 %3 to double
   %133 = sitofp i32 %.078 to double
   br label %134
 
@@ -3214,9 +3214,9 @@ _ZL9eps_poly1fff.exit431.thread:                  ; preds = %_ZL9eps_poly1fff.ex
   %595 = fadd float %.134.i428, %594
   %596 = add nsw i32 %.12833.i429, -1
   %597 = icmp ugt i32 %.12833.i429, 1
-  br i1 %597, label %.preheader.i427, label %_ZL9eps_poly1fff.exit431, !llvm.loop !15
+  br i1 %597, label %.preheader.i427, label %.preheader30.i432, !llvm.loop !15
 
-_ZL9eps_poly1fff.exit431:                         ; preds = %.preheader.i427
+.preheader30.i432:                                ; preds = %.preheader.i427
   %598 = fpext float %578 to double
   %599 = fmul double %598, 0x401921FB54442D18
   %600 = fptrunc double %599 to float
@@ -3225,9 +3225,9 @@ _ZL9eps_poly1fff.exit431:                         ; preds = %.preheader.i427
   %603 = fneg float %595
   %604 = fdiv float %603, %602
   %605 = fpext float %604 to double
+  %.pre306.pre337.pre339.pre = load ptr, ptr %130, align 8
   %606 = fpext float %535 to double
   %607 = call double @llvm.fmuladd.f64(double %.029.i421, double %605, double %606)
-  %.pre306.pre337.pre339.pre = load ptr, ptr %130, align 8
   %608 = load i32, ptr %.pre306.pre337.pre339.pre, align 4
   %609 = sitofp i32 %608 to float
   %610 = load ptr, ptr %84, align 8
@@ -3237,9 +3237,9 @@ _ZL9eps_poly1fff.exit431:                         ; preds = %.preheader.i427
   %614 = fneg float %609
   br label %615
 
-615:                                              ; preds = %615, %_ZL9eps_poly1fff.exit431
-  %.032.i433 = phi float [ 0.000000e+00, %_ZL9eps_poly1fff.exit431 ], [ %622, %615 ]
-  %.02731.i434 = phi i32 [ -6, %_ZL9eps_poly1fff.exit431 ], [ %623, %615 ]
+615:                                              ; preds = %615, %.preheader30.i432
+  %.032.i433 = phi float [ 0.000000e+00, %.preheader30.i432 ], [ %622, %615 ]
+  %.02731.i434 = phi i32 [ -6, %.preheader30.i432 ], [ %623, %615 ]
   %616 = sitofp i32 %.02731.i434 to float
   %617 = fadd float %613, %616
   %618 = fpext float %617 to double

@@ -1634,7 +1634,7 @@ _ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClas
   %285 = phi ptr [ %238, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit.i ], [ %.pre, %283 ]
   %286 = load i8, ptr %276, align 8
   %287 = trunc i8 %286 to i1
-  %288 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %288 = getelementptr inbounds nuw i8, ptr %275, i64 40
   %289 = load i8, ptr %288, align 8
   %290 = trunc i8 %289 to i1
   %291 = select i1 %287, i1 true, i1 %290
@@ -8890,7 +8890,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
 _ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit: ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit.i, %51
   %52 = load i8, ptr %44, align 8
   %53 = trunc i8 %52 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %55 = load i8, ptr %54, align 8
   %56 = trunc i8 %55 to i1
   %57 = select i1 %53, i1 true, i1 %56
@@ -8984,7 +8984,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
 103:                                              ; preds = %102, %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit.i19
   %104 = load i8, ptr %95, align 8
   %105 = trunc i8 %104 to i1
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i.i21, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %94, i64 40
   %107 = load i8, ptr %106, align 8
   %108 = trunc i8 %107 to i1
   %109 = select i1 %105, i1 true, i1 %108
@@ -9094,7 +9094,7 @@ _ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceK
 _ZN22SystemDictionaryShared19check_for_exclusionEP13InstanceKlassP17DumpTimeClassInfo.exit33: ; preds = %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit.i29, %165
   %166 = load i8, ptr %158, align 8
   %167 = trunc i8 %166 to i1
-  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i31, i64 24
+  %168 = getelementptr inbounds nuw i8, ptr %157, i64 40
   %169 = load i8, ptr %168, align 8
   %170 = trunc i8 %169 to i1
   %171 = select i1 %167, i1 true, i1 %170

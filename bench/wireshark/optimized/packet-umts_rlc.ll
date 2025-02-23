@@ -3451,26 +3451,26 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
   %181 = zext nneg i16 %180 to i32
   %182 = sub nsw i32 1, %117
   %183 = and i16 %179, %175
-  %.not.i272298 = icmp samesign ugt i16 %183, %180
-  %184 = select i1 %.not.i272298, i32 %117, i32 0
+  %.not.i272301 = icmp samesign ugt i16 %183, %180
+  %184 = select i1 %.not.i272301, i32 %117, i32 0
   %185 = zext nneg i16 %183 to i32
   %186 = add nuw nsw i32 %184, %181
-  %.0.i273301 = sub nsw i32 %185, %186
-  %187 = icmp eq i32 %.0.i273301, %182
-  %188 = icmp sgt i32 %.0.i273301, 0
+  %.0.i273304 = sub nsw i32 %185, %186
+  %187 = icmp eq i32 %.0.i273304, %182
+  %188 = icmp sgt i32 %.0.i273304, 0
   %189 = or i1 %187, %188
   br i1 %189, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %169, %194
-  %.0213302 = phi i16 [ %198, %194 ], [ %175, %169 ]
-  %190 = sext i16 %.0213302 to i64
+  %.0213305 = phi i16 [ %198, %194 ], [ %175, %169 ]
+  %190 = sext i16 %.0213305 to i64
   %191 = getelementptr ptr, ptr %.0.i271, i64 %190
   %192 = load ptr, ptr %191, align 8
   %193 = icmp eq ptr %192, null
   br i1 %193, label %206, label %194
 
 194:                                              ; preds = %.lr.ph
-  %195 = sext i16 %.0213302 to i32
+  %195 = sext i16 %.0213305 to i32
   %196 = add nsw i32 %195, 1
   %197 = srem i32 %196, %117
   %198 = trunc nsw i32 %197 to i16
@@ -3503,12 +3503,12 @@ get_frags.exit:                                   ; preds = %142, %144, %rlc_cha
 
 212:                                              ; preds = %208
   %213 = load i32, ptr %211, align 8
-  %214 = sext i16 %.0213302 to i32
+  %214 = sext i16 %.0213305 to i32
   %215 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef nonnull %3, ptr noundef %2, ptr noundef nonnull @ei_rlc_reassembly_fail_unfinished_sequence, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.213, i32 noundef %174, i32 noundef %207, i32 noundef %213, i32 noundef %214)
   br label %.critedge269
 
 216:                                              ; preds = %208, %206
-  %217 = sext i16 %.0213302 to i32
+  %217 = sext i16 %.0213305 to i32
   %218 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef nonnull %3, ptr noundef %2, ptr noundef nonnull @ei_rlc_reassembly_fail_unfinished_sequence, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.214, i32 noundef %174, i32 noundef %207, i32 noundef %217)
   br label %.critedge269
 
@@ -3660,10 +3660,10 @@ thread-pre-split:                                 ; preds = %286, %288
   %297 = trunc i64 %296 to i32
   %298 = add i32 %297, 1
   %299 = srem i32 %298, %117
-  br i1 %.not244, label %374, label %300
+  %300 = trunc nsw i32 %299 to i16
+  br i1 %.not244, label %374, label %301
 
-300:                                              ; preds = %292
-  %301 = trunc nsw i32 %299 to i16
+301:                                              ; preds = %292
   %302 = load ptr, ptr %294, align 8
   %303 = ptrtoint ptr %302 to i64
   %304 = trunc i64 %303 to i16
@@ -3674,18 +3674,18 @@ thread-pre-split:                                 ; preds = %286, %288
   %308 = icmp eq ptr %307, null
   br i1 %308, label %309, label %311
 
-309:                                              ; preds = %300
+309:                                              ; preds = %301
   %310 = load i32, ptr %63, align 4
   store i32 %310, ptr %243, align 8
   br label %.critedge269
 
-311:                                              ; preds = %300
+311:                                              ; preds = %301
   %312 = sext i16 %304 to i32
   %313 = icmp eq i32 %299, %312
   br i1 %313, label %314, label %335
 
 314:                                              ; preds = %311
-  %315 = sext i16 %301 to i64
+  %315 = sext i16 %300 to i64
   %316 = getelementptr ptr, ptr %.0.i271, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 32
@@ -3725,27 +3725,27 @@ thread-pre-split:                                 ; preds = %286, %288
   %337 = and i16 %336, %304
   %338 = zext nneg i16 %337 to i32
   %339 = sub nsw i32 1, %117
-  %340 = and i16 %336, %301
-  %.not.i274303 = icmp samesign ugt i16 %340, %337
-  %341 = select i1 %.not.i274303, i32 %117, i32 0
+  %340 = and i16 %336, %300
+  %.not.i274306 = icmp samesign ugt i16 %340, %337
+  %341 = select i1 %.not.i274306, i32 %117, i32 0
   %342 = zext nneg i16 %340 to i32
   %343 = add nuw nsw i32 %341, %338
-  %.0.i275306 = sub nsw i32 %342, %343
-  %344 = icmp ne i32 %.0.i275306, %339
-  %345 = icmp slt i32 %.0.i275306, 0
+  %.0.i275309 = sub nsw i32 %342, %343
+  %344 = icmp ne i32 %.0.i275309, %339
+  %345 = icmp slt i32 %.0.i275309, 0
   %346 = and i1 %344, %345
-  br i1 %346, label %.lr.ph308, label %._crit_edge
+  br i1 %346, label %.lr.ph311, label %._crit_edge
 
-.lr.ph308:                                        ; preds = %335, %363
-  %.0210307 = phi i16 [ %366, %363 ], [ %301, %335 ]
-  %347 = sext i16 %.0210307 to i64
+.lr.ph311:                                        ; preds = %335, %363
+  %.0210310 = phi i16 [ %366, %363 ], [ %300, %335 ]
+  %347 = sext i16 %.0210310 to i64
   %348 = getelementptr ptr, ptr %.0.i271, i64 %347
   %349 = load ptr, ptr %348, align 8
   %350 = icmp eq ptr %349, null
-  %351 = sext i16 %.0210307 to i32
+  %351 = sext i16 %.0210310 to i32
   br i1 %350, label %352, label %363
 
-352:                                              ; preds = %.lr.ph308
+352:                                              ; preds = %.lr.ph311
   %353 = zext nneg i16 %5 to i32
   %354 = sub nsw i32 %117, %353
   %355 = add nsw i32 %354, %351
@@ -3763,7 +3763,7 @@ thread-pre-split:                                 ; preds = %286, %288
   store i32 %362, ptr %243, align 8
   br label %.critedge269
 
-363:                                              ; preds = %.lr.ph308
+363:                                              ; preds = %.lr.ph311
   %364 = add nsw i32 %351, 1
   %365 = srem i32 %364, %117
   %366 = trunc nsw i32 %365 to i16
@@ -3776,31 +3776,31 @@ thread-pre-split:                                 ; preds = %286, %288
   %371 = icmp ne i32 %.0.i275, %339
   %372 = icmp slt i32 %.0.i275, 0
   %373 = and i1 %371, %372
-  br i1 %373, label %.lr.ph308, label %._crit_edge, !llvm.loop !16
+  br i1 %373, label %.lr.ph311, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %363, %335
-  call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %301, i16 noundef zeroext %304)
+  call fastcc void @reassemble_sequence(ptr noundef %.0.i271, ptr noundef %154, ptr noundef nonnull %12, i16 noundef zeroext %300, i16 noundef zeroext %304)
   br label %.critedge269
 
 374:                                              ; preds = %292
-  %375 = zext nneg i16 %5 to i32
-  %376 = sub nsw i32 %117, %375
-  %377 = add nsw i32 %376, %299
-  %378 = srem i32 %377, %117
-  %379 = add nuw nsw i32 %117, %375
-  %380 = sub nsw i32 %379, %299
-  %381 = srem i32 %380, %117
-  %.267 = call i32 @llvm.smin.i32(i32 %378, i32 %381)
-  %382 = lshr exact i32 %117, 2
-  %.not247 = icmp slt i32 %.267, %382
-  br i1 %.not247, label %.critedge269, label %383
+  %375 = sub nsw i16 %..i, %5
+  %.lhs.trunc = add nsw i16 %375, %300
+  %376 = srem i16 %.lhs.trunc, %..i
+  %377 = add nuw nsw i16 %..i, %5
+  %.lhs.trunc287 = sub nsw i16 %377, %300
+  %378 = srem i16 %.lhs.trunc287, %..i
+  %379 = call i16 @llvm.smin.i16(i16 %376, i16 %378)
+  %.267 = sext i16 %379 to i32
+  %380 = lshr exact i32 %117, 2
+  %.not247 = icmp sgt i32 %380, %.267
+  br i1 %.not247, label %.critedge269, label %381
 
-383:                                              ; preds = %374
-  %384 = load i32, ptr %63, align 4
-  store i32 %384, ptr %243, align 8
+381:                                              ; preds = %374
+  %382 = load i32, ptr %63, align 4
+  store i32 %382, ptr %243, align 8
   br label %.critedge269
 
-.critedge269:                                     ; preds = %352, %326, %330, %361, %309, %thread-pre-split, %35, %10, %374, %._crit_edge, %383, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
+.critedge269:                                     ; preds = %352, %326, %330, %361, %309, %thread-pre-split, %35, %10, %374, %._crit_edge, %381, %242, %160, %240, %224, %212, %216, %.critedge, %238, %235, %120, %135, %130, %267
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %13) #16
@@ -6019,6 +6019,9 @@ declare i32 @llvm.ucmp.i32.i16(i16, i16) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i16 @llvm.smin.i16(i16, i16) #15
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

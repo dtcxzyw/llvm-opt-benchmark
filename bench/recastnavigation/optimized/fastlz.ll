@@ -76,7 +76,7 @@ define internal fastcc i32 @fastlz1_compress(ptr noundef %0, i32 noundef %1, ptr
   %23 = load i8, ptr %19, align 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %23, ptr %21, align 1
-  %25 = icmp sgt i32 %1, 14
+  %25 = icmp samesign ugt i32 %1, 14
   br i1 %25, label %.lr.ph206, label %._crit_edge
 
 .lr.ph206:                                        ; preds = %17, %.backedge
@@ -495,7 +495,7 @@ define internal fastcc i32 @fastlz2_compress(ptr noundef %0, i32 noundef %1, ptr
   %23 = load i8, ptr %19, align 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %23, ptr %21, align 1
-  %25 = icmp sgt i32 %1, 14
+  %25 = icmp samesign ugt i32 %1, 14
   br i1 %25, label %.lr.ph270, label %._crit_edge271
 
 .lr.ph270:                                        ; preds = %17, %.backedge

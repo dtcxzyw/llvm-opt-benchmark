@@ -371,7 +371,7 @@ define hidden { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$
 _ZN5alloc11collections5btree3mem7replace17hadbc2dcb8c3c7a0fE.llvm.495310588694779438.exit: ; preds = %37, %31
   %.sroa.06.0.i.i = phi ptr [ %.sroa.0.0.ph.i.i, %31 ], [ %.pn30.i.i.i, %37 ]
   %.sroa.7.0.i.i = phi i64 [ %33, %31 ], [ 0, %37 ]
-  %44 = icmp ult i64 %.sroa.6.sroa.4.0.ph.i.i, 11
+  %44 = icmp samesign ult i64 %.sroa.6.sroa.4.0.ph.i.i, 11
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw { [18 x i64] }, ptr %.sroa.0.0.ph.i.i, i64 %.sroa.6.sroa.4.0.ph.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i.i, i64 1584
@@ -22608,7 +22608,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17hadbc2dcb8
 .loopexit:                                        ; preds = %25, %19
   %.sroa.06.0.i = phi ptr [ %.sroa.0.0.ph.i, %19 ], [ %.pn30.i.i, %25 ]
   %.sroa.7.0.i = phi i64 [ %21, %19 ], [ 0, %25 ]
-  %30 = icmp ult i64 %.sroa.6.sroa.4.0.ph.i, 11
+  %30 = icmp samesign ult i64 %.sroa.6.sroa.4.0.ph.i, 11
   tail call void @llvm.assume(i1 %30)
   %31 = getelementptr inbounds nuw { [18 x i64] }, ptr %.sroa.0.0.ph.i, i64 %.sroa.6.sroa.4.0.ph.i
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph.i, i64 1584
@@ -23267,7 +23267,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
 "_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h7c94dcf26a03e40cE.llvm.495310588694779438.exit": ; preds = %30, %24
   %.sroa.06.0 = phi ptr [ %.sroa.0.0.ph, %24 ], [ %.pn30.i, %30 ]
   %.sroa.7.0 = phi i64 [ %26, %24 ], [ 0, %30 ]
-  %33 = icmp ult i64 %.sroa.6.sroa.4.0.ph, 11
+  %33 = icmp samesign ult i64 %.sroa.6.sroa.4.0.ph, 11
   tail call void @llvm.assume(i1 %33)
   %34 = getelementptr inbounds nuw { [18 x i64] }, ptr %.sroa.0.0.ph, i64 %.sroa.6.sroa.4.0.ph
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph, i64 1584

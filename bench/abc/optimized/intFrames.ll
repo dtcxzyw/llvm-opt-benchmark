@@ -71,7 +71,7 @@ define ptr @Inter_ManFramesInter(ptr noundef readonly captures(none) %0, i32 nou
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds ptr, ptr %.val125, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !28
-  %39 = tail call ptr @Aig_ObjCreateCi(ptr noundef %9) #2
+  %39 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %9) #2
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store ptr %39, ptr %40, align 8, !tbaa !22
   %41 = add nuw nsw i32 %.1175, 1

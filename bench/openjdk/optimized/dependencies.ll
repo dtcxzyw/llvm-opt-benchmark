@@ -3904,12 +3904,7 @@ _ZN12Dependencies9DepStream14argument_countEv.exit: ; preds = %4, %23
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %28, ptr %30, align 8
   %31 = icmp sgt i32 %.0.i.i, 0
-  br i1 %31, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
-
-_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 0, ptr %32, align 8
-  br label %._crit_edge
+  br i1 %31, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
   %wide.trip.count.i.i = zext nneg i32 %.0.i.i to i64
@@ -3917,17 +3912,22 @@ _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_Z
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %33 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %28, i64 %indvars.iv.i.i
-  store i8 0, ptr %33, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store i8 0, ptr %34, align 1
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store ptr null, ptr %35, align 8
+  %32 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %28, i64 %indvars.iv.i.i
+  store i8 0, ptr %32, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1
+  store i8 0, ptr %33, align 1
+  %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store ptr null, ptr %34, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.lr.ph, label %.lr.ph.i.i, !llvm.loop !33
 
-_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %.lr.ph.i.i
+_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i64 0, ptr %35, align 8
+  br label %._crit_edge
+
+.lr.ph:                                           ; preds = %.lr.ph.i.i
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store i64 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3935,8 +3935,8 @@ _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %.lr.ph.i.
   %wide.trip.count = zext nneg i32 %.0.i.i to i64
   br label %39
 
-39:                                               ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
+39:                                               ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %40 = load i32, ptr %17, align 8
   %41 = icmp eq i32 %40, 8
   br i1 %41, label %42, label %70
@@ -4034,7 +4034,7 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %39, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
+._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
   %87 = load i32, ptr %27, align 4
   %88 = load i32, ptr %17, align 8
   tail call void @_ZN12Dependencies16print_dependencyENS_7DepTypeEP13GrowableArrayINS_11DepArgumentEEP5KlassP12outputStream(i32 noundef %88, ptr noundef nonnull %27, ptr noundef %2, ptr noundef %1)
@@ -5221,12 +5221,7 @@ _ZN12Dependencies9DepStream14argument_countEv.exit: ; preds = %8, %27
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %34, align 8
   %35 = icmp sgt i32 %.0.i.i, 0
-  br i1 %35, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
-
-_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
-  %36 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 0, ptr %36, align 8
-  br label %._crit_edge
+  br i1 %35, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
   %wide.trip.count.i.i = zext nneg i32 %.0.i.i to i64
@@ -5234,25 +5229,30 @@ _ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread: ; preds = %_Z
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %37 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %32, i64 %indvars.iv.i.i
-  store i8 0, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
-  store i8 0, ptr %38, align 1
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr null, ptr %39, align 8
+  %36 = getelementptr inbounds nuw %"class.Dependencies::DepArgument", ptr %32, i64 %indvars.iv.i.i
+  store i8 0, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 0, ptr %37, align 1
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr null, ptr %38, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, label %.lr.ph.i.i, !llvm.loop !33
+  br i1 %exitcond.not.i.i, label %.lr.ph, label %.lr.ph.i.i, !llvm.loop !33
 
-_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %.lr.ph.i.i
+_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit: ; preds = %_ZN12Dependencies9DepStream14argument_countEv.exit
+  %39 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i64 0, ptr %39, align 8
+  br label %._crit_edge
+
+.lr.ph:                                           ; preds = %.lr.ph.i.i
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i64 0, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %wide.trip.count = zext nneg i32 %.0.i.i to i64
   br label %42
 
-42:                                               ; preds = %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
-  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
+42:                                               ; preds = %.lr.ph, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit ]
   %43 = load i32, ptr %21, align 8
   %44 = icmp eq i32 %43, 8
   br i1 %44, label %45, label %73
@@ -5350,7 +5350,7 @@ _ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !45
 
-._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit.thread
+._crit_edge:                                      ; preds = %_ZN26GrowableArrayWithAllocatorIN12Dependencies11DepArgumentE13GrowableArrayIS1_EE4pushERKS1_.exit, %_ZN13GrowableArrayIN12Dependencies11DepArgumentEEC2Ei.exit
   %90 = load i32, ptr %31, align 4
   %91 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %91, null
@@ -8158,73 +8158,74 @@ _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChang
 
 _ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread: ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge, %58
   %101 = phi ptr [ %.pre46, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ null, %58 ]
+  %102 = phi ptr [ %.pre45, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ null, %58 ]
   %.not41 = phi ptr [ %100, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit._ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread_crit_edge ], [ null, %58 ]
-  %102 = call noundef ptr @_ZN8Universe26throw_illegal_access_errorEv() #19
-  %103 = icmp eq ptr %101, %102
-  br i1 %103, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %104
+  %103 = call noundef ptr @_ZN8Universe26throw_illegal_access_errorEv() #19
+  %104 = icmp eq ptr %101, %103
+  br i1 %104, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %105
 
-104:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
-  %105 = call noundef ptr @_ZN8Universe26throw_no_such_method_errorEv() #19
-  %106 = icmp eq ptr %101, %105
-  %107 = icmp eq ptr %101, null
-  %or.cond39 = or i1 %107, %106
-  br i1 %or.cond39, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %108
+105:                                              ; preds = %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
+  %106 = call noundef ptr @_ZN8Universe26throw_no_such_method_errorEv() #19
+  %107 = icmp eq ptr %101, %106
+  %108 = icmp eq ptr %101, null
+  %or.cond39 = or i1 %108, %107
+  br i1 %or.cond39, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %101, i64 40
-  %.sroa.0.0.copyload.i.i.i = load i32, ptr %109, align 8
-  %110 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
-  %or.cond12.not.i = icmp eq i32 %110, 0
-  br i1 %or.cond12.not.i, label %111, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds nuw i8, ptr %101, i64 40
+  %.sroa.0.0.copyload.i.i.i = load i32, ptr %110, align 8
+  %111 = and i32 %.sroa.0.0.copyload.i.i.i, 1032
+  %or.cond12.not.i = icmp eq i32 %111, 0
+  br i1 %or.cond12.not.i, label %112, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-111:                                              ; preds = %108
-  %112 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 28
-  %115 = load i32, ptr %114, align 4
-  %116 = and i32 %115, 64
-  %117 = icmp ne i32 %116, 0
-  %118 = icmp ne ptr %.not41, null
-  %or.cond.i = and i1 %118, %117
+112:                                              ; preds = %109
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %114 = load ptr, ptr %113, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 28
+  %116 = load i32, ptr %115, align 4
+  %117 = and i32 %116, 64
+  %118 = icmp ne i32 %117, 0
+  %119 = icmp ne ptr %.not41, null
+  %or.cond.i = and i1 %119, %118
   br i1 %or.cond.i, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %111
-  %119 = getelementptr inbounds nuw i8, ptr %.not41, i64 164
-  %120 = load i32, ptr %119, align 4
-  %121 = and i32 %120, 1024
-  %.not.i = icmp eq i32 %121, 0
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit: ; preds = %112
+  %120 = getelementptr inbounds nuw i8, ptr %102, i64 164
+  %121 = load i32, ptr %120, align 4
+  %122 = and i32 %121, 1024
+  %.not.i = icmp eq i32 %122, 0
   br i1 %.not.i, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %108, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %104, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread: ; preds = %109, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %105, %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread
   br label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36: ; preds = %111, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
-  %.0 = phi ptr [ null, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread ], [ %101, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ], [ %101, %111 ]
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.sroa.0.0.copyload.i.i.i24 = load i32, ptr %122, align 8
-  %123 = and i32 %.sroa.0.0.copyload.i.i.i24, 1032
-  %or.cond12.not.i25 = icmp eq i32 %123, 0
-  br i1 %or.cond12.not.i25, label %124, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36: ; preds = %112, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread
+  %.0 = phi ptr [ null, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread ], [ %101, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit ], [ %101, %112 ]
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %.sroa.0.0.copyload.i.i.i24 = load i32, ptr %123, align 8
+  %124 = and i32 %.sroa.0.0.copyload.i.i.i24, 1032
+  %or.cond12.not.i25 = icmp eq i32 %124, 0
+  br i1 %or.cond12.not.i25, label %125, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29
 
-124:                                              ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %126 = load ptr, ptr %125, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 28
-  %128 = load i32, ptr %127, align 4
-  %129 = and i32 %128, 64
-  %.not42 = icmp eq i32 %129, 0
-  br i1 %.not42, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29, label %130
+125:                                              ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %127 = load ptr, ptr %126, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 28
+  %129 = load i32, ptr %128, align 4
+  %130 = and i32 %129, 64
+  %.not42 = icmp eq i32 %130, 0
+  br i1 %.not42, label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29, label %131
 
-130:                                              ; preds = %124
-  %131 = load i32, ptr %55, align 4
-  %132 = and i32 %131, 1024
-  %.not.i28 = icmp eq i32 %132, 0
+131:                                              ; preds = %125
+  %132 = load i32, ptr %55, align 4
+  %133 = and i32 %132, 1024
+  %.not.i28 = icmp eq i32 %133, 0
   br label %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29
 
-_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29: ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36, %124, %130
-  %.0.i26 = phi i1 [ %.not.i28, %130 ], [ false, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36 ], [ true, %124 ]
-  %133 = icmp eq ptr %.not41, null
-  %or.cond = and i1 %133, %.0.i26
+_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit29: ; preds = %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36, %125, %131
+  %.0.i26 = phi i1 [ %.not.i28, %131 ], [ false, %_ZN12Dependencies18is_concrete_methodEP6MethodP5Klass.exit.thread36 ], [ true, %125 ]
+  %134 = icmp eq ptr %.not41, null
+  %or.cond = and i1 %134, %.0.i26
   %spec.select = select i1 %or.cond, ptr %1, ptr %.0
   br label %_ZN28AbstractClassHierarchyWalker12find_witnessEP13InstanceKlassP14KlassDepChange.exit.thread32
 
@@ -9358,16 +9359,16 @@ select.unfold.preheader:
   %6 = icmp ne ptr %5, null
   %or.cond.not = select i1 %3, i1 %6, i1 false
   %spec.select = select i1 %3, ptr %5, ptr null
-  %spec.select21 = select i1 %or.cond.not, i32 4, i32 0
+  %spec.select22 = select i1 %or.cond.not, i32 4, i32 0
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.preheader, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit
   %.sroa.18.0 = phi i32 [ %.sroa.18.1.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ 0, %select.unfold.preheader ]
   %.sroa.21.0 = phi i32 [ %.sroa.21.2.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ 0, %select.unfold.preheader ]
   %.sroa.8.0 = phi ptr [ %.sroa.8.2.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ %spec.select, %select.unfold.preheader ]
-  %.sroa.2.0 = phi i32 [ %.sroa.2.3.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ %spec.select21, %select.unfold.preheader ]
+  %.sroa.2.0 = phi i32 [ %.sroa.2.3.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ %spec.select22, %select.unfold.preheader ]
   %.sroa.14.0 = phi ptr [ %.sroa.14.1.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ null, %select.unfold.preheader ]
-  switch i32 %.sroa.2.0, label %default.unreachable [
+  switch i32 %.sroa.2.0, label %default.unreachable20 [
     i32 4, label %7
     i32 1, label %10
     i32 2, label %10
@@ -9409,7 +9410,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %25 = load ptr, ptr %24, align 8
   br label %26
 
-default.unreachable:                              ; preds = %select.unfold
+default.unreachable20:                            ; preds = %select.unfold
   unreachable
 
 26:                                               ; preds = %20, %7, %10
@@ -9452,7 +9453,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %.sroa.8.0 = phi ptr [ %.sroa.8.2.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ %2, %select.unfold.preheader ]
   %.sroa.2.0 = phi i32 [ %.sroa.2.3.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ %spec.select27, %select.unfold.preheader ]
   %.sroa.14.0 = phi ptr [ %.sroa.14.1.ph, %_ZN13InstanceKlass23set_is_marked_dependentEb.exit ], [ null, %select.unfold.preheader ]
-  switch i32 %.sroa.2.0, label %default.unreachable24 [
+  switch i32 %.sroa.2.0, label %default.unreachable [
     i32 4, label %3
     i32 1, label %6
     i32 2, label %6
@@ -9494,7 +9495,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %21 = load ptr, ptr %20, align 8
   br label %22
 
-default.unreachable24:                            ; preds = %select.unfold
+default.unreachable:                              ; preds = %select.unfold
   unreachable
 
 22:                                               ; preds = %16, %3, %6

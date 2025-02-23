@@ -1689,8 +1689,8 @@ define internal void @_ZNK12_GLOBAL__N_112NVPTXABIInfo11computeInfoERN5clang7Cod
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16, !noalias !556
   %20 = icmp eq i8 %19, 13
-  %.not.not7.i.i.i = icmp ne ptr %17, null
-  %.not.not.not.i.i.i = and i1 %.not.not7.i.i.i, %20
+  %.not7.i.i.i = icmp ne ptr %17, null
+  %.not.not.not.i.i.i = and i1 %.not7.i.i.i, %20
   br i1 %.not.not.not.i.i.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.i, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread.i
 
 _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %9
@@ -2209,8 +2209,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i8, ptr %18, align 16
   %20 = icmp eq i8 %19, 13
-  %.not.not7.i.i = icmp ne ptr %17, null
-  %.not.not.not.i.i = and i1 %.not.not7.i.i, %20
+  %.not7.i.i = icmp ne ptr %17, null
+  %.not.not.not.i.i = and i1 %.not7.i.i, %20
   br i1 %.not.not.not.i.i, label %_ZNK5clang4Type13isFloat16TypeEv.exit, label %_ZNK5clang4Type13isFloat16TypeEv.exit.thread
 
 _ZNK5clang4Type13isFloat16TypeEv.exit:            ; preds = %10
@@ -2239,8 +2239,8 @@ _ZNK5clang4Type13isFloat16TypeEv.exit.thread:     ; preds = %10, %_ZNK5clang4Typ
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i8, ptr %35, align 16
   %37 = icmp eq i8 %36, 13
-  %.not.not7.i.i63 = icmp ne ptr %34, null
-  %.not.not.not.i.i64 = and i1 %.not.not7.i.i63, %37
+  %.not7.i.i63 = icmp ne ptr %34, null
+  %.not.not.not.i.i64 = and i1 %.not7.i.i63, %37
   br i1 %.not.not.not.i.i64, label %_ZNK5clang4Type14isFloat128TypeEv.exit, label %_ZNK5clang4Type14isFloat128TypeEv.exit.thread
 
 _ZNK5clang4Type14isFloat128TypeEv.exit:           ; preds = %29

@@ -1490,7 +1490,7 @@ _ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i: ; preds = %595
 
 600:                                              ; preds = %_ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %594, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.02646, i64 3, i1 false)
-  %601 = icmp sgt i64 %indvars.iv302.i, 1
+  %601 = icmp samesign ugt i64 %indvars.iv302.i, 1
   br i1 %601, label %.lr.ph254.i, label %.critedge2.i277, !llvm.loop !23
 
 .critedge2.loopexit.split.loop.exit325.i:         ; preds = %_ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i
@@ -1725,7 +1725,7 @@ _ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i: ; preds = %706
 
 711:                                              ; preds = %_ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %705, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.02646, i64 3, i1 false)
-  %712 = icmp sgt i64 %indvars.iv305.i, 1
+  %712 = icmp samesign ugt i64 %indvars.iv305.i, 1
   br i1 %712, label %.lr.ph258.i, label %.critedge4.i285, !llvm.loop !25
 
 .critedge4.loopexit.split.loop.exit327.i:         ; preds = %_ZN2cveqIhLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i
@@ -2988,7 +2988,7 @@ _ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i: ; preds = %1239
 
 1244:                                             ; preds = %_ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1238, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02645, i64 12, i1 false)
-  %1245 = icmp sgt i64 %indvars.iv302.i643, 1
+  %1245 = icmp samesign ugt i64 %indvars.iv302.i643, 1
   br i1 %1245, label %.lr.ph254.i642, label %.critedge2.i542, !llvm.loop !45
 
 .critedge2.loopexit.split.loop.exit325.i650:      ; preds = %_ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit213.i
@@ -3223,7 +3223,7 @@ _ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i: ; preds = %1350
 
 1355:                                             ; preds = %_ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1349, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02645, i64 12, i1 false)
-  %1356 = icmp sgt i64 %indvars.iv305.i627, 1
+  %1356 = icmp samesign ugt i64 %indvars.iv305.i627, 1
   br i1 %1356, label %.lr.ph258.i626, label %.critedge4.i591, !llvm.loop !47
 
 .critedge4.loopexit.split.loop.exit327.i634:      ; preds = %_ZN2cveqIiLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit225.i
@@ -3508,7 +3508,7 @@ _ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit212.i: ; preds = %1450
 
 1456:                                             ; preds = %_ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit212.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1449, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02644, i64 12, i1 false)
-  %1457 = icmp sgt i64 %indvars.iv306.i, 1
+  %1457 = icmp samesign ugt i64 %indvars.iv306.i, 1
   br i1 %1457, label %.lr.ph254.i748, label %.critedge2.i676, !llvm.loop !53
 
 .critedge2.loopexit.split.loop.exit333.i:         ; preds = %_ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit212.i
@@ -3743,7 +3743,7 @@ _ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit222.i: ; preds = %1563
 
 1569:                                             ; preds = %_ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit222.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1562, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.02644, i64 12, i1 false)
-  %1570 = icmp sgt i64 %indvars.iv309.i, 1
+  %1570 = icmp samesign ugt i64 %indvars.iv309.i, 1
   br i1 %1570, label %.lr.ph258.i742, label %.critedge4.i716, !llvm.loop !55
 
 .critedge4.loopexit.split.loop.exit335.i:         ; preds = %_ZN2cveqIfLi3ELi1EEEbRKNS_4MatxIT_XT0_EXT1_EEES5_.exit222.i

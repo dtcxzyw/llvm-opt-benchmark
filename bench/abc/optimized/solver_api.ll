@@ -1202,7 +1202,7 @@ define void @satoko_setnvars(ptr noundef readonly captures(none) %0, i32 noundef
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.04 = phi i32 [ %8, %.lr.ph ], [ %.val.i, %2 ]
-  %7 = tail call i32 @satoko_add_variable(ptr noundef %0, i8 noundef signext 0)
+  %7 = tail call i32 @satoko_add_variable(ptr noundef nonnull %0, i8 noundef signext 0)
   %8 = add i32 %.04, 1
   %exitcond.not = icmp eq i32 %8, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !124
@@ -2858,28 +2858,28 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
 
 82:                                               ; preds = %75, %78
   %83 = phi i32 [ %81, %78 ], [ 1, %75 ]
-  br i1 %27, label %.lr.ph120, label %._crit_edge121.thread
-
-._crit_edge121.thread:                            ; preds = %82
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %85 = load ptr, ptr %84, align 8, !tbaa !78
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  store i32 0, ptr %86, align 4, !tbaa !101
-  br label %.preheader106
+  br i1 %27, label %.lr.ph120, label %._crit_edge121
 
 .lr.ph120:                                        ; preds = %82, %.lr.ph120
-  %.2118 = phi i32 [ %91, %.lr.ph120 ], [ 0, %82 ]
-  %87 = load ptr, ptr %6, align 8, !tbaa !38
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
-  %89 = load i32, ptr %88, align 4, !tbaa !101
-  %90 = add i32 %89, -1
-  store i32 %90, ptr %88, align 4, !tbaa !101
-  tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %90) #30
-  %91 = add nuw nsw i32 %.2118, 1
-  %exitcond144.not = icmp eq i32 %91, %26
-  br i1 %exitcond144.not, label %._crit_edge121, label %.lr.ph120, !llvm.loop !159
+  %.2118 = phi i32 [ %88, %.lr.ph120 ], [ 0, %82 ]
+  %84 = load ptr, ptr %6, align 8, !tbaa !38
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %86 = load i32, ptr %85, align 4, !tbaa !101
+  %87 = add i32 %86, -1
+  store i32 %87, ptr %85, align 4, !tbaa !101
+  tail call void @solver_cancel_until(ptr noundef nonnull %0, i32 noundef %87) #30
+  %88 = add nuw nsw i32 %.2118, 1
+  %exitcond144.not = icmp eq i32 %88, %26
+  br i1 %exitcond144.not, label %.lr.ph124.preheader, label %.lr.ph120, !llvm.loop !159
 
-._crit_edge121:                                   ; preds = %.lr.ph120
+._crit_edge121:                                   ; preds = %82
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %90 = load ptr, ptr %89, align 8, !tbaa !78
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
+  store i32 0, ptr %91, align 4, !tbaa !101
+  br label %.preheader106
+
+.lr.ph124.preheader:                              ; preds = %.lr.ph120
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %93 = load ptr, ptr %92, align 8, !tbaa !78
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -2887,8 +2887,8 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %wide.trip.count150 = zext nneg i32 %26 to i64
   br label %.lr.ph124
 
-.preheader106:                                    ; preds = %vec_uint_push_back.exit, %._crit_edge121.thread
-  %95 = phi ptr [ %84, %._crit_edge121.thread ], [ %92, %vec_uint_push_back.exit ]
+.preheader106:                                    ; preds = %vec_uint_push_back.exit, %._crit_edge121
+  %95 = phi ptr [ %89, %._crit_edge121 ], [ %92, %vec_uint_push_back.exit ]
   %96 = icmp sgt i32 %83, 0
   br i1 %96, label %.lr.ph126.preheader, label %.preheader105
 
@@ -2898,8 +2898,8 @@ satoko_solve_assumptions_limit.exit90:            ; preds = %._crit_edge, %63
   %invariant.gep = getelementptr i32, ptr %1, i64 %97
   br label %.lr.ph126
 
-.lr.ph124:                                        ; preds = %._crit_edge121, %vec_uint_push_back.exit
-  %indvars.iv145 = phi i64 [ 0, %._crit_edge121 ], [ %indvars.iv.next146, %vec_uint_push_back.exit ]
+.lr.ph124:                                        ; preds = %.lr.ph124.preheader, %vec_uint_push_back.exit
+  %indvars.iv145 = phi i64 [ 0, %.lr.ph124.preheader ], [ %indvars.iv.next146, %vec_uint_push_back.exit ]
   %98 = load ptr, ptr %92, align 8, !tbaa !78
   %99 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv145
   %100 = load i32, ptr %99, align 4, !tbaa !103

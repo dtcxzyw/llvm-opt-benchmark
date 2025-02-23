@@ -865,7 +865,7 @@ define i32 @jpeg_skip_scanlines(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 
 .lr.ph.i:                                         ; preds = %105, %.lr.ph.i
   %.036.i = phi i32 [ %111, %.lr.ph.i ], [ 0, %105 ]
-  %110 = call i32 @jpeg_read_scanlines(ptr noundef %0, ptr noundef %.1.i, i32 noundef 1)
+  %110 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.1.i, i32 noundef 1)
   %111 = add nuw i32 %.036.i, 1
   %exitcond.not.i = icmp eq i32 %111, %1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !107
@@ -1154,7 +1154,7 @@ set_wraparound_pointers.exit:                     ; preds = %._crit_edge.i193, %
 
 .lr.ph.i206:                                      ; preds = %248, %.lr.ph.i206
   %.036.i207 = phi i32 [ %254, %.lr.ph.i206 ], [ 0, %248 ]
-  %253 = call i32 @jpeg_read_scanlines(ptr noundef %0, ptr noundef %.1.i204, i32 noundef 1)
+  %253 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.1.i204, i32 noundef 1)
   %254 = add nuw i32 %.036.i207, 1
   %exitcond.not.i208 = icmp eq i32 %254, %208
   br i1 %exitcond.not.i208, label %._crit_edge.i209, label %.lr.ph.i206, !llvm.loop !107
@@ -1430,7 +1430,7 @@ define internal fastcc void @read_and_discard_scanlines(ptr noundef %0, i32 noun
 
 .lr.ph:                                           ; preds = %31, %.lr.ph
   %.036 = phi i32 [ %33, %.lr.ph ], [ 0, %31 ]
-  %32 = call i32 @jpeg_read_scanlines(ptr noundef %0, ptr noundef %.1, i32 noundef 1)
+  %32 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.1, i32 noundef 1)
   %33 = add nuw i32 %.036, 1
   %exitcond.not = icmp eq i32 %33, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
@@ -1519,7 +1519,7 @@ define internal fastcc void @increment_simple_rowgroup_ctr(ptr noundef %0, i32 n
 
 .lr.ph.i:                                         ; preds = %26, %.lr.ph.i
   %.036.i = phi i32 [ %31, %.lr.ph.i ], [ 0, %26 ]
-  %30 = tail call i32 @jpeg_read_scanlines(ptr noundef %0, ptr noundef nonnull %29, i32 noundef 1)
+  %30 = tail call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef nonnull %29, i32 noundef 1)
   %31 = add nuw i32 %.036.i, 1
   %exitcond.not.i = icmp eq i32 %31, %1
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !107
@@ -1614,7 +1614,7 @@ define internal fastcc void @increment_simple_rowgroup_ctr(ptr noundef %0, i32 n
 
 .lr.ph.i25:                                       ; preds = %69, %.lr.ph.i25
   %.036.i26 = phi i32 [ %71, %.lr.ph.i25 ], [ 0, %69 ]
-  %70 = call i32 @jpeg_read_scanlines(ptr noundef %0, ptr noundef %.1.i23, i32 noundef 1)
+  %70 = call i32 @jpeg_read_scanlines(ptr noundef nonnull %0, ptr noundef %.1.i23, i32 noundef 1)
   %71 = add nuw i32 %.036.i26, 1
   %exitcond.not.i27 = icmp eq i32 %71, %45
   br i1 %exitcond.not.i27, label %._crit_edge.i28, label %.lr.ph.i25, !llvm.loop !107

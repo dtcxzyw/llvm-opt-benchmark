@@ -4375,7 +4375,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPre
   %.02633 = phi ptr [ %72, %.lr.ph35 ], [ %46, %.lr.ph35.preheader ]
   %72 = load ptr, ptr %.02633, align 8
   %73 = add nsw i32 %.034, -1
-  %74 = icmp sgt i32 %73, %66
+  %74 = icmp samesign ugt i32 %73, %66
   br i1 %74, label %.lr.ph35, label %._crit_edge36, !llvm.loop !37
 
 ._crit_edge36:                                    ; preds = %.lr.ph35, %.preheader
@@ -9398,9 +9398,7 @@ _ZNSt10unique_ptrIA_PKN32pxrInternal_v0_24__pxrReserved__12Sdf_PathNodeESt14defa
   br i1 %.not, label %96, label %77
 
 77:                                               ; preds = %._crit_edge
-  %.not.i = icmp ne ptr %26, null
-  %or.cond.not = and i1 %.not.i, %4
-  br i1 %or.cond.not, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18ContainsTargetPathEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18ContainsTargetPathEv.exit.thread
+  br i1 %4, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18ContainsTargetPathEv.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18ContainsTargetPathEv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath18ContainsTargetPathEv.exit: ; preds = %77
   %78 = getelementptr inbounds nuw i8, ptr %29, i64 15

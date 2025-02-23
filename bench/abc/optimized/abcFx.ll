@@ -459,7 +459,7 @@ define void @Abc_NtkFxInsert(ptr noundef %0, ptr noundef readonly captures(none)
 
 .preheader:                                       ; preds = %.critedge2, %.preheader
   %.2123200 = phi i32 [ %12, %.preheader ], [ %.val162.val, %.critedge2 ]
-  %11 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #28
+  %11 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %0, i32 noundef 7) #28
   %12 = add i32 %.2123200, 1
   %exitcond230.not = icmp eq i32 %.2123200, %.0.lcssa
   br i1 %exitcond230.not, label %13, label %.preheader, !llvm.loop !48

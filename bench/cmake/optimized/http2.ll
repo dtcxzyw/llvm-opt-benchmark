@@ -4813,7 +4813,7 @@ free_push_headers.exit.i.i:                       ; preds = %435, %424
 446:                                              ; preds = %free_push_headers.exit.i.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %315, ptr %4, align 8, !tbaa !115
-  call fastcc void @http2_data_done(ptr noundef %2, ptr noundef nonnull %315)
+  call fastcc void @http2_data_done(ptr noundef nonnull %2, ptr noundef nonnull %315)
   %447 = call i32 @Curl_close(ptr noundef nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %push_promise.exit.thread145.i

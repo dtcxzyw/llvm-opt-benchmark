@@ -835,9 +835,9 @@ _ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %64
   %84 = load i64, ptr %83, align 8, !tbaa !47, !noalias !113
   %.not.i.i.i.i = icmp eq i64 %84, 0
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  br i1 %.not.i.i.i.i, label %81, label %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, !llvm.loop !48
+  br i1 %.not.i.i.i.i, label %81, label %.lr.ph, !llvm.loop !48
 
-_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %81
+.lr.ph:                                           ; preds = %81
   %85 = shl i32 %79, 7
   %86 = trunc nuw nsw i64 %indvars.iv.i.i.i.i to i32
   %87 = shl nuw nsw i32 %86, 6
@@ -852,7 +852,7 @@ _ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit:  ; preds = %81
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %94
 
-94:                                               ; preds = %_ZNK4llvm15SparseBitVectorILj128EE5beginEv.exit, %108
+94:                                               ; preds = %.lr.ph, %108
   %95 = load i32, ptr %73, align 8, !tbaa !122
   %96 = zext i32 %95 to i64
   %97 = load ptr, ptr %1, align 8, !tbaa !15

@@ -361,18 +361,18 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
 
 91:                                               ; preds = %82
   %92 = icmp slt i32 %84, 0
-  br i1 %92, label %.thread20, label %93, !prof !10
+  br i1 %92, label %.thread18, label %93, !prof !10
 
 93:                                               ; preds = %91
   %94 = zext nneg i32 %84 to i64
   %95 = shl nuw nsw i64 %94, 3
   %96 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %95, i32 noundef 3264) #8
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread20, label %98
+  br i1 %97, label %.thread18, label %98
 
 98:                                               ; preds = %93
   %.not = icmp eq i32 %84, 0
-  br i1 %.not, label %.thread22, label %99
+  br i1 %.not, label %.thread21, label %99
 
 99:                                               ; preds = %98
   %100 = zext i32 %83 to i64
@@ -392,10 +392,10 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %101, label %.preheader, !llvm.loop !16
 
-112:                                              ; preds = %.thread24
+112:                                              ; preds = %.thread23
   %113 = add i32 %118, %116
   %114 = icmp slt i32 %113, %84
-  br i1 %114, label %.preheader, label %.thread22, !llvm.loop !17
+  br i1 %114, label %.preheader, label %.thread21, !llvm.loop !17
 
 .preheader:                                       ; preds = %101, %112
   %115 = phi ptr [ %141, %112 ], [ %76, %101 ]
@@ -409,13 +409,13 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
   %123 = zext i1 %122 to i32
   %124 = tail call ptr @p9_client_walk(ptr noundef %115, i16 noundef zeroext %119, ptr noundef %121, i32 noundef %123) #6
   %125 = icmp eq ptr %124, %115
-  br i1 %125, label %.thread24, label %126
+  br i1 %125, label %.thread23, label %126
 
 126:                                              ; preds = %.preheader
   %127 = icmp eq ptr %115, null
   %128 = icmp ugt ptr %115, inttoptr (i64 -4096 to ptr)
   %129 = or i1 %127, %128
-  br i1 %129, label %.thread24, label %130
+  br i1 %129, label %.thread23, label %130
 
 130:                                              ; preds = %126
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #6
@@ -433,35 +433,35 @@ define dso_local ptr @v9fs_fid_lookup(ptr noundef %0) local_unnamed_addr #0 alig
 
 136:                                              ; preds = %132
   %137 = icmp sgt i32 %134, 0
-  br i1 %137, label %.thread24, label %138, !prof !11
+  br i1 %137, label %.thread23, label %138, !prof !11
 
 138:                                              ; preds = %136
   tail call void @refcount_warn_saturate(ptr noundef nonnull %133, i32 noundef 3) #6
-  br label %.thread24
+  br label %.thread23
 
 139:                                              ; preds = %132
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
   %140 = tail call i32 @p9_client_clunk(ptr noundef nonnull %115) #6
-  br label %.thread24
+  br label %.thread23
 
-.thread24:                                        ; preds = %136, %138, %126, %139, %.preheader
+.thread23:                                        ; preds = %136, %138, %126, %139, %.preheader
   %141 = phi ptr [ %115, %.preheader ], [ %124, %139 ], [ %124, %126 ], [ %124, %138 ], [ %124, %136 ]
   %142 = icmp ugt ptr %124, inttoptr (i64 -4096 to ptr)
   br i1 %142, label %143, label %112
 
-143:                                              ; preds = %.thread24
+143:                                              ; preds = %.thread23
   tail call void @kfree(ptr noundef nonnull %96) #6
-  br label %.thread20
+  br label %.thread18
 
-.thread22:                                        ; preds = %112, %98
-  %.pr34 = phi ptr [ %76, %98 ], [ %124, %112 ]
+.thread21:                                        ; preds = %112, %98
+  %.pr33 = phi ptr [ %76, %98 ], [ %124, %112 ]
   tail call void @kfree(ptr noundef nonnull %96) #6
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %.thread22, %45, %44, %42, %32
-  %144 = phi ptr [ %34, %32 ], [ %34, %42 ], [ %34, %44 ], [ %34, %45 ], [ %.pr34, %.thread22 ]
+thread-pre-split:                                 ; preds = %.thread21, %45, %44, %42, %32
+  %144 = phi ptr [ %34, %32 ], [ %34, %42 ], [ %34, %44 ], [ %34, %45 ], [ %.pr33, %.thread21 ]
   %145 = icmp ugt ptr %144, inttoptr (i64 -4096 to ptr)
-  br i1 %145, label %.thread20, label %146
+  br i1 %145, label %.thread18, label %146
 
 146:                                              ; preds = %thread-pre-split
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -474,7 +474,7 @@ thread-pre-split:                                 ; preds = %.thread22, %45, %44
 151:                                              ; preds = %146
   tail call void @_raw_spin_unlock(ptr noundef nonnull %147) #6
   %152 = icmp eq ptr %144, null
-  br i1 %152, label %.thread20, label %153
+  br i1 %152, label %.thread18, label %153
 
 153:                                              ; preds = %151
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_9p_fid_ref, i64 8), i32 2) #6
@@ -492,16 +492,16 @@ thread-pre-split:                                 ; preds = %.thread22, %45, %44
 
 159:                                              ; preds = %155
   %160 = icmp sgt i32 %157, 0
-  br i1 %160, label %.thread20, label %161, !prof !11
+  br i1 %160, label %.thread18, label %161, !prof !11
 
 161:                                              ; preds = %159
   tail call void @refcount_warn_saturate(ptr noundef nonnull %156, i32 noundef 3) #6
-  br label %.thread20
+  br label %.thread18
 
 162:                                              ; preds = %155
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !14
   %163 = tail call i32 @p9_client_clunk(ptr noundef nonnull %144) #6
-  br label %.thread20
+  br label %.thread18
 
 164:                                              ; preds = %146
   %165 = getelementptr inbounds nuw i8, ptr %144, i64 56
@@ -546,15 +546,15 @@ thread-pre-split:                                 ; preds = %.thread22, %45, %44
 
 184:                                              ; preds = %182, %178
   tail call void @_raw_spin_unlock(ptr noundef nonnull %147) #6
-  br label %.thread20
+  br label %.thread18
 
-.thread20:                                        ; preds = %151, %162, %161, %159, %93, %91, %184, %thread-pre-split, %143
+.thread18:                                        ; preds = %151, %162, %161, %159, %93, %91, %184, %thread-pre-split, %143
   %185 = phi ptr [ %144, %184 ], [ %144, %thread-pre-split ], [ %124, %143 ], [ inttoptr (i64 -12 to ptr), %91 ], [ inttoptr (i64 -12 to ptr), %93 ], [ inttoptr (i64 -2 to ptr), %159 ], [ inttoptr (i64 -2 to ptr), %161 ], [ inttoptr (i64 -2 to ptr), %162 ], [ inttoptr (i64 -2 to ptr), %151 ]
   tail call void @up_read(ptr noundef nonnull %27) #6
   br label %186
 
-186:                                              ; preds = %.thread20, %75, %62, %53, %21
-  %187 = phi ptr [ %185, %.thread20 ], [ %24, %21 ], [ %76, %75 ], [ inttoptr (i64 -1 to ptr), %53 ], [ %68, %62 ]
+186:                                              ; preds = %.thread18, %75, %62, %53, %21
+  %187 = phi ptr [ %185, %.thread18 ], [ %24, %21 ], [ %76, %75 ], [ inttoptr (i64 -1 to ptr), %53 ], [ %68, %62 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #6
   ret ptr %187
 }

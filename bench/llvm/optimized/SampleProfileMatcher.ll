@@ -3513,7 +3513,7 @@ _ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE
   br label %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE12emplace_backIJRKS0_IKS3_S4_EEEERS5_DpOT_.exit
 
 _ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE12emplace_backIJRKS0_IKS3_S4_EEEERS5_DpOT_.exit: ; preds = %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE17_M_realloc_insertIJRKS0_IKS3_S4_EEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i, %27, %16
-  %54 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.031.037) #22
+  %54 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.031.037) #22
   %.not = icmp eq ptr %54, %8
   br i1 %.not, label %._crit_edge, label %16
 
@@ -3599,7 +3599,7 @@ _ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE
 
 _ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE12emplace_backIJRKS0_IKS3_S4_EEEERS5_DpOT_.exit25: ; preds = %59, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE17_M_realloc_insertIJRKS0_IKS3_S4_EEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i24
   %88 = phi ptr [ %64, %59 ], [ %85, %_ZNSt6vectorISt4pairIN4llvm10sampleprof12LineLocationENS2_10FunctionIdEESaIS5_EE17_M_realloc_insertIJRKS0_IKS3_S4_EEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i24 ]
-  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.026.039) #22
+  %89 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.026.039) #22
   %.not34 = icmp eq ptr %89, %13
   br i1 %.not34, label %._crit_edge42, label %55
 }
@@ -4847,7 +4847,7 @@ _ZNK4llvm18PseudoProbeManager7getDescEm.exit:     ; preds = %27, %14, %.loopexit
   br i1 %.not2122, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph27
-  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.017.025) #22
+  %63 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.025) #22
   %.not20 = icmp eq ptr %63, %59
   br i1 %.not20, label %.loopexit, label %.lr.ph27
 
@@ -5164,7 +5164,7 @@ _ZN4llvm20SampleProfileMatcher15isMismatchStateERKNS0_10MatchStateE.exit: ; pred
   br i1 %.not74, label %_ZN4llvm20SampleProfileMatcher15isMismatchStateERKNS0_10MatchStateE.exit.thread, label %.lr.ph94
 
 _ZN4llvm20SampleProfileMatcher15isMismatchStateERKNS0_10MatchStateE.exit.thread: ; preds = %.lr.ph94, %_ZN4llvm20SampleProfileMatcher15isMismatchStateERKNS0_10MatchStateE.exit, %.sink.split.i43, %.sink.split.i43, %.sink.split.i43
-  %150 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.055.096) #22
+  %150 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.055.096) #22
   %.not72 = icmp eq ptr %150, %32
   br i1 %.not72, label %.critedge, label %91
 
@@ -5298,7 +5298,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher30countCallGraphRecoveredSa
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph25
-  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.016.023) #22
+  %21 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.023) #22
   %.not = icmp eq ptr %21, %17
   br i1 %.not, label %.loopexit, label %.lr.ph25
 
@@ -6796,9 +6796,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher28functionMat
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i.i, align 8, !tbaa !53
   %.06.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.idx, 16
   %.not.i.i.i.i.i = icmp eq i64 %.06.i.i.i.i.i.add, 64
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.i.preheader.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !472
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit.thread.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !472
 
-.lr.ph.i.preheader.i:                             ; preds = %.lr.ph.i.i.i.i.i
+_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20, !noalias !473
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20, !noalias !473
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS3_12DenseSetPairIS2_EEEES2_S4_S6_S8_E11try_emplaceIJRS4_EEESt4pairINS_16DenseMapIteratorIS2_S4_S6_S8_Lb0EEEbERKS2_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.579") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 1 dereferenceable(1) %4), !noalias !473
@@ -6812,7 +6812,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher28functionMat
   %.not = icmp ne i32 %31, 0
   br i1 %.not, label %37, label %32
 
-32:                                               ; preds = %.lr.ph.i.preheader.i
+32:                                               ; preds = %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit.thread.i
   %33 = load ptr, ptr %28, align 8, !tbaa !249
   %34 = load ptr, ptr %2, align 8, !tbaa !131
   %.not.i31 = icmp eq ptr %34, null
@@ -6821,8 +6821,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm20SampleProfileMatcher28functionMat
   %36 = call noundef ptr @_ZN4llvm10sampleprof19SampleProfileReader13getSamplesForENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(206) %33, ptr %34, i64 %.sroa.4.0.i32)
   br label %37
 
-37:                                               ; preds = %.lr.ph.i.preheader.i, %32
-  %.123 = phi ptr [ %36, %32 ], [ null, %.lr.ph.i.preheader.i ]
+37:                                               ; preds = %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit.thread.i, %32
+  %.123 = phi ptr [ %36, %32 ], [ null, %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit.thread.i ]
   %38 = load ptr, ptr %7, align 8, !tbaa !462
   %39 = load i32, ptr %24, align 8, !tbaa !465
   %40 = zext i32 %39 to i64
@@ -7977,7 +7977,7 @@ define dso_local void @_ZN4llvm20SampleProfileMatcher32distributeIRToProfileLoca
   br i1 %.not2324, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph29
-  %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.014.027) #22
+  %27 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.014.027) #22
   %.not22 = icmp eq ptr %27, %23
   br i1 %.not22, label %._crit_edge30, label %.lr.ph29
 

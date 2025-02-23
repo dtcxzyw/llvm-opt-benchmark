@@ -17518,36 +17518,31 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 .lr.ph:                                           ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph49
+  br label %12
 
-13:                                               ; preds = %.lr.ph49
-  %14 = icmp eq i64 %30, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph49, !llvm.loop !557
+12:                                               ; preds = %.lr.ph, %29
+  %13 = phi i64 [ %9, %.lr.ph ], [ %37, %29 ]
+  %.029 = phi i64 [ %2, %.lr.ph ], [ %30, %29 ]
+  %storemerge28 = phi ptr [ %1, %.lr.ph ], [ %34, %29 ]
+  %14 = icmp eq i64 %.029, 0
+  br i1 %14, label %15, label %29
 
-._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa45 = phi i64 [ %9, %.lr.ph ], [ %37, %13 ]
-  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %36, %13 ]
-  %storemerge30.lcssa = phi ptr [ %1, %.lr.ph ], [ %34, %13 ]
-  %15 = add nsw i64 %.lcssa45, -2
-  %16 = lshr i64 %15, 1
-  br label %17
+15:                                               ; preds = %12
+  %16 = add nsw i64 %13, -2
+  %17 = lshr i64 %16, 1
+  br label %18
 
-17:                                               ; preds = %17, %._crit_edge
-  %.09.i.i = phi i64 [ %16, %._crit_edge ], [ %20, %17 ]
-  %18 = getelementptr inbounds i32, ptr %0, i64 %.09.i.i
-  %19 = load i32, ptr %18, align 4, !tbaa !98
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %.lcssa45, i32 noundef %19, ptr %3, i32 %4)
+18:                                               ; preds = %18, %15
+  %.09.i.i = phi i64 [ %17, %15 ], [ %21, %18 ]
+  %19 = getelementptr inbounds i32, ptr %0, i64 %.09.i.i
+  %20 = load i32, ptr %19, align 4, !tbaa !98
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_T0_SG_T1_T2_(ptr %0, i64 noundef %.09.i.i, i64 noundef %13, i32 noundef %20, ptr %3, i32 %4)
   %.not.i.i = icmp eq i64 %.09.i.i, 0
-  %20 = add nsw i64 %.09.i.i, -1
-  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, label %17, !llvm.loop !558
+  %21 = add nsw i64 %.09.i.i, -1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %18, !llvm.loop !557
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit: ; preds = %17
-  %21 = icmp sgt i64 %.lcssa, 4
-  br i1 %21, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit
-
-.lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, %.lr.ph.i.i
-  %.sroa.0.05.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %storemerge30.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit ]
+.lr.ph.i.i:                                       ; preds = %18, %.lr.ph.i.i
+  %.sroa.0.05.i.i = phi ptr [ %22, %.lr.ph.i.i ], [ %storemerge28, %18 ]
   %22 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -4
   %23 = load i32, ptr %22, align 4, !tbaa !98
   %24 = load i32, ptr %0, align 4, !tbaa !98
@@ -17557,26 +17552,23 @@ _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__o
   %27 = ashr exact i64 %26, 2
   tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_T0_SG_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %27, i32 noundef %23, ptr %3, i32 %4)
   %28 = icmp sgt i64 %26, 4
-  br i1 %28, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, !llvm.loop !559
+  br i1 %28, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, !llvm.loop !558
 
-.lr.ph49:                                         ; preds = %.lr.ph, %13
-  %storemerge3048 = phi ptr [ %34, %13 ], [ %1, %.lr.ph ]
-  %.03147 = phi i64 [ %30, %13 ], [ %2, %.lr.ph ]
-  %29 = phi i64 [ %37, %13 ], [ %9, %.lr.ph ]
-  %30 = add nsw i64 %.03147, -1
-  %31 = lshr i64 %29, 1
+29:                                               ; preds = %12
+  %30 = add nsw i64 %.029, -1
+  %31 = lshr i64 %13, 1
   %32 = getelementptr inbounds nuw i32, ptr %0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %storemerge3048, i64 -4
+  %33 = getelementptr inbounds i8, ptr %storemerge28, i64 -4
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_SF_T0_(ptr %0, ptr nonnull %11, ptr %32, ptr nonnull %33, ptr %3, i32 %4)
-  %34 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEET_SF_SF_SF_T0_(ptr nonnull %11, ptr %storemerge3048, ptr %0, ptr %3, i32 %4)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_T0_T1_(ptr %34, ptr %storemerge3048, i64 noundef %30, ptr %3, i32 %4)
+  %34 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEET_SF_SF_SF_T0_(ptr nonnull %11, ptr %storemerge28, ptr %0, ptr %3, i32 %4)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElNS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_T0_T1_(ptr %34, ptr %storemerge28, i64 noundef %30, ptr %3, i32 %4)
   %35 = ptrtoint ptr %34 to i64
   %36 = sub i64 %35, %6
   %37 = ashr exact i64 %36, 2
   %38 = icmp sgt i64 %37, 16
-  br i1 %38, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, !llvm.loop !557
+  br i1 %38, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit, !llvm.loop !559
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit: ; preds = %.lr.ph49, %.lr.ph.i.i, %5, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN4cvc58internal6theory11quantifiers21sortSiInstanceIndicesEEEEvT_SF_SF_T0_.exit: ; preds = %29, %.lr.ph.i.i, %5
   ret void
 }
 

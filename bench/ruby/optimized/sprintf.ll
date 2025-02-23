@@ -5322,7 +5322,7 @@ exponent.exit:                                    ; preds = %359, %.lr.ph.prehea
   br label %429
 
 375:                                              ; preds = %343
-  %376 = icmp slt i32 %.6500, 102
+  %376 = icmp samesign ult i32 %.6500, 102
   br i1 %376, label %377, label %410
 
 377:                                              ; preds = %375
@@ -5330,7 +5330,7 @@ exponent.exit:                                    ; preds = %359, %.lr.ph.prehea
   %379 = add i32 %378, -1
   store i32 %379, ptr %9, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #21
-  %380 = trunc nsw i32 %.6500 to i8
+  %380 = trunc nuw nsw i32 %.6500 to i8
   store i8 %380, ptr %10, align 1, !tbaa !21
   %381 = icmp slt i32 %379, 0
   %storemerge.i766 = select i1 %381, i8 45, i8 43
@@ -5433,8 +5433,7 @@ exponent.exit782:                                 ; preds = %389, %.lr.ph.prehea
   br label %429
 
 .thread914:                                       ; preds = %338, %410
-  %423 = phi i32 [ %.pre, %410 ], [ %336, %338 ]
-  %.6500910913916 = phi i32 [ %.6500, %410 ], [ 103, %338 ]
+  %423 = phi i32 [ %336, %338 ], [ %.pre, %410 ]
   %.not651 = icmp slt i32 %423, %333
   br i1 %.not651, label %425, label %424
 
@@ -5454,7 +5453,7 @@ exponent.exit782:                                 ; preds = %389, %.lr.ph.prehea
   %.4530 = phi i32 [ %404, %407 ], [ %.0526.ph, %416 ], [ %.0526.ph, %421 ], [ %.0526.ph, %425 ], [ %404, %exponent.exit782 ], [ %.0526.ph, %414 ], [ %.0526.ph, %420 ], [ %.0526.ph, %424 ], [ %370, %exponent.exit ]
   %.6525 = phi i32 [ %408, %407 ], [ %.4523, %416 ], [ %.4523, %421 ], [ %.4523, %425 ], [ %.4523, %exponent.exit782 ], [ %.4523, %414 ], [ %.4523, %420 ], [ %.4523, %424 ], [ %.4523, %exponent.exit ]
   %.1511 = phi i32 [ %409, %407 ], [ %418, %416 ], [ %422, %421 ], [ %428, %425 ], [ %405, %exponent.exit782 ], [ %.pre, %414 ], [ %spec.select744, %420 ], [ %spec.select745, %424 ], [ %spec.select759, %exponent.exit ]
-  %.7501 = phi i32 [ %.6500, %407 ], [ 102, %416 ], [ 102, %421 ], [ %.6500910913916, %425 ], [ %.6500, %exponent.exit782 ], [ 102, %414 ], [ 102, %420 ], [ %.6500910913916, %424 ], [ %371, %exponent.exit ]
+  %.7501 = phi i32 [ %.6500, %407 ], [ 102, %416 ], [ 102, %421 ], [ 103, %425 ], [ %.6500, %exponent.exit782 ], [ 102, %414 ], [ 102, %420 ], [ 103, %424 ], [ %371, %exponent.exit ]
   br i1 %.sink.i, label %._crit_edge1599, label %430
 
 ._crit_edge1599:                                  ; preds = %429

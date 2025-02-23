@@ -4346,7 +4346,7 @@ if.end12.i35.i.i.i:                               ; preds = %if.else.i50.i.i.i, 
   br i1 %cmp.i5.i39.i.i.i, label %if.then.i81.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i.i.i.i
 
 if.else44.i.i.i:                                  ; preds = %if.else12.i.i.i
-  %cmp.i54.i.i.i = icmp ult i32 %85, %and72.i.i.i.i
+  %cmp.i54.i.i.i = icmp samesign ult i32 %85, %and72.i.i.i.i
   br i1 %cmp.i54.i.i.i, label %if.then50.i.i.i, label %_ZNSt8_Rb_treeIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESt10_Select1stIS9_ESt4lessIjESaIS9_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS9_E.exit.i.i.i.i.i
 
 if.then50.i.i.i:                                  ; preds = %if.else44.i.i.i
@@ -4825,7 +4825,7 @@ for.end55.i.i.i:                                  ; preds = %for.body46.i.i.i, %
   br i1 %cmp60.not.i.i.i, label %for.inc61.i.i.i, label %do.bodythread-pre-split.i.i.i, !llvm.loop !112
 
 for.inc61.i.i.i:                                  ; preds = %for.end55.i.i.i, %for.body36.i.i.i
-  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0115.i.i.i) #27
+  %call.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__begin4.sroa.0.0115.i.i.i) #27
   %cmp.i43.not.i.i.i = icmp eq ptr %call.i.i.i.i, %26
   br i1 %cmp.i43.not.i.i.i, label %cleanup.i.i.i, label %for.body36.i.i.i
 
@@ -4881,7 +4881,7 @@ for.body.i63.i.i.i:                               ; preds = %for.body.i63.i.i.i,
   br i1 %exitcond.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17andMaskEPhPKhS3_j.exit.loopexit.i.i.i, label %for.body.i63.i.i.i, !llvm.loop !115
 
 _ZN3ue212_GLOBAL__N_17andMaskEPhPKhS3_j.exit.loopexit.i.i.i: ; preds = %for.body.i63.i.i.i
-  %inc82.i.i.i = add i32 %i70.0123.i.i.i, 1
+  %inc82.i.i.i = add nuw i32 %i70.0123.i.i.i, 1
   %164 = load ptr, ptr %fc.i, align 8, !noalias !106
   %bits.i56.i.i.i = getelementptr inbounds nuw i8, ptr %164, i64 44
   %165 = load i32, ptr %bits.i56.i.i.i, align 4
@@ -7357,7 +7357,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_.exit": ; preds = %while.body.i
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_"(ptr nonnull %add.ptr.i.i, ptr %__last.coerce)
-  %cmp25 = icmp sgt i64 %sub.ptr.sub.i, 728
+  %cmp25 = icmp samesign ugt i64 %sub.ptr.sub.i, 728
   br i1 %cmp25, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN3ue211hwlmLiteralESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_12_GLOBAL__N_122assignStringsToBucketsERS7_RKNS2_20FDREngineDescriptionEE3$_0EEEvT_SI_T0_T1_.exit"

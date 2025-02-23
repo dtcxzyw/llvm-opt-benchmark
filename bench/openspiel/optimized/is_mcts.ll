@@ -6889,7 +6889,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %73 = mul i64 %7, 24
   %74 = add i64 %72, %73
   %75 = and i64 %74, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %75) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %75) #25
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIlN10open_spiel10algorithms9ChildInfoEEENS0_13hash_internal4HashIlEESt8equal_toIlESaISt4pairIKlS6_EEE16initialize_slotsEv.exit, %._crit_edge
@@ -7796,7 +7796,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %90 = mul i64 %7, 48
   %91 = add i64 %89, %90
   %92 = and i64 %91, -8
-  tail call void @_ZdlPvm(ptr noundef %3, i64 noundef %92) #25
+  tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef %92) #25
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPN10open_spiel10algorithms10ISMCTSNodeEEENS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_SF_EEE16initialize_slotsEv.exit, %._crit_edge

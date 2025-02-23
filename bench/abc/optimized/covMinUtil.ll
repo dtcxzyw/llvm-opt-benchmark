@@ -489,7 +489,7 @@ define void @Min_CoverCreate(ptr noundef captures(none) initializes((4, 8)) %0, 
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.08 = phi ptr [ %5, %.lr.ph ], [ %1, %3 ]
-  tail call void @Min_CubeCreate(ptr noundef %0, ptr noundef nonnull %.08, i8 noundef signext %2)
+  tail call void @Min_CubeCreate(ptr noundef nonnull %0, ptr noundef nonnull %.08, i8 noundef signext %2)
   %5 = load ptr, ptr %.08, align 8, !tbaa !16
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19

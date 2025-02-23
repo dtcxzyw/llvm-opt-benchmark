@@ -851,12 +851,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14S
   br i1 %53, label %54, label %112
 
 54:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E4findEPKS2_.exit
-  %55 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 40
-  %56 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 48
+  %55 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %56 = getelementptr inbounds nuw i8, ptr %20, i64 48
   %57 = load i32, ptr %56, align 8, !tbaa !84
   %58 = icmp eq i32 %57, 0
   %59 = load ptr, ptr %55, align 8, !tbaa !70
-  %60 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 56
+  %60 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %61 = load i32, ptr %60, align 8, !tbaa !71
   %62 = zext i32 %61 to i64
   %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %62

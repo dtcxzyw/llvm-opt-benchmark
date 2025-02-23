@@ -94,7 +94,7 @@ define hidden ptr @_ctypes_alloc_callback(ptr noundef %0, ptr noundef %1, ptr no
   %.05375 = phi i64 [ 0, %.lr.ph ], [ %40, %35 ]
   %36 = getelementptr ptr, ptr %32, i64 %.05375
   %37 = load ptr, ptr %36, align 8, !tbaa !33
-  %38 = tail call ptr @_ctypes_get_ffi_type(ptr noundef %0, ptr noundef %37) #6
+  %38 = tail call ptr @_ctypes_get_ffi_type(ptr noundef nonnull %0, ptr noundef %37) #6
   %39 = getelementptr [1 x ptr], ptr %34, i64 0, i64 %.05375
   store ptr %38, ptr %39, align 8, !tbaa !14
   %40 = add nuw nsw i64 %.05375, 1

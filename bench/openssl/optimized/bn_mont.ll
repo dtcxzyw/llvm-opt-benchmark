@@ -157,11 +157,7 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !11
   %24 = icmp sgt i32 %6, 0
-  br i1 %24, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %14
-  store i32 %11, ptr %22, align 8, !tbaa !11
-  br label %._crit_edge87
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %14
   %smax = tail call i32 @llvm.smax.i32(i32 %11, i32 1)
@@ -179,19 +175,23 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   store i64 %29, ptr %27, align 8, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
+  br i1 %exitcond.not, label %.lr.ph86, label %.lr.ph, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %14
+  store i32 %11, ptr %22, align 8, !tbaa !11
+  br label %._crit_edge87
+
+.lr.ph86:                                         ; preds = %.lr.ph
   store i32 %11, ptr %22, align 8, !tbaa !11
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %31 = load i64, ptr %30, align 8, !tbaa !15
   %32 = zext nneg i32 %6 to i64
   br label %33
 
-33:                                               ; preds = %._crit_edge, %33
-  %.184 = phi i32 [ 0, %._crit_edge ], [ %43, %33 ]
-  %.07783 = phi ptr [ %21, %._crit_edge ], [ %44, %33 ]
-  %.07882 = phi i64 [ 0, %._crit_edge ], [ %42, %33 ]
+33:                                               ; preds = %.lr.ph86, %33
+  %.184 = phi i32 [ 0, %.lr.ph86 ], [ %43, %33 ]
+  %.07783 = phi ptr [ %21, %.lr.ph86 ], [ %44, %33 ]
+  %.07882 = phi i64 [ 0, %.lr.ph86 ], [ %42, %33 ]
   %34 = load i64, ptr %.07783, align 8, !tbaa !15
   %35 = mul i64 %34, %31
   %36 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %.07783, ptr noundef %20, i32 noundef %6, i64 noundef %35) #5
@@ -211,8 +211,8 @@ define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef 
   %exitcond92.not = icmp eq i32 %43, %6
   br i1 %exitcond92.not, label %._crit_edge87, label %33, !llvm.loop !19
 
-._crit_edge87:                                    ; preds = %33, %._crit_edge.thread
-  %.078.lcssa = phi i64 [ 0, %._crit_edge.thread ], [ %42, %33 ]
+._crit_edge87:                                    ; preds = %33, %._crit_edge
+  %.078.lcssa = phi i64 [ 0, %._crit_edge ], [ %42, %33 ]
   %45 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %6) #5
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit, label %47

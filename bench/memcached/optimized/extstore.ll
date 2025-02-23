@@ -914,7 +914,7 @@ _read_from_wbuf.exit:                             ; preds = %90, %70, %83
   %121 = add i64 %120, 1
   store i64 %121, ptr %12, align 8, !tbaa !132
   %122 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #13
-  %123 = tail call i32 @pthread_mutex_unlock(ptr noundef %38) #13
+  %123 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %38) #13
   br i1 %113, label %170, label %124
 
 124:                                              ; preds = %112

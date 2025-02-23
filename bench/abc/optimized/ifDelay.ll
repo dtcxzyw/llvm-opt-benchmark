@@ -588,7 +588,7 @@ If_CutPinDelayMax.exit.i53:                       ; preds = %163
 
 .loopexit.i54:                                    ; preds = %.lr.ph.i56, %If_CutPinDelayMax.exit.i53, %165
   %.2.i55 = phi i32 [ %.175.i51, %165 ], [ %172, %If_CutPinDelayMax.exit.i53 ], [ %172, %.lr.ph.i56 ]
-  %182 = icmp sgt i32 %.06674.i52, 1
+  %182 = icmp samesign ugt i32 %.06674.i52, 1
   br i1 %182, label %.preheader.split.i50, label %If_LogCounterPinDelays.exit76, !llvm.loop !56
 
 If_LogCounterPinDelays.exit76:                    ; preds = %.preheader.split.i50, %.loopexit.i54, %.preheader.split.us.i59, %.loopexit.us.i71, %If_LogPinDelaysMulti.exit
@@ -691,11 +691,7 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %6) #12
   %7 = icmp sgt i32 %2, 0
-  br i1 %7, label %.lr.ph.preheader, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %4
-  %8 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5)
-  br label %If_CutPinDelayTranslate.exit
+  br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %4
   %wide.trip.count = zext nneg i32 %2 to i64
@@ -703,23 +699,27 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = shl i64 %indvars.iv, 2
-  %10 = and i64 %9, 4294967292
-  %11 = shl nuw i64 1, %10
-  %12 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
-  store i64 %11, ptr %12, align 8, !tbaa !52
+  %8 = shl i64 %indvars.iv, 2
+  %9 = and i64 %8, 4294967292
+  %10 = shl nuw i64 1, %9
+  %11 = getelementptr inbounds nuw [15 x i64], ptr %6, i64 0, i64 %indvars.iv
+  store i64 %10, ptr %11, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
+  br i1 %exitcond.not, label %.lr.ph.preheader.i, label %.lr.ph, !llvm.loop !60
 
-._crit_edge:                                      ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %4
+  %12 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5)
+  br label %If_CutPinDelayTranslate.exit
+
+.lr.ph.preheader.i:                               ; preds = %.lr.ph
   %13 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %6, i32 noundef %2, ptr noundef nonnull %5)
   %14 = load i64, ptr %5, align 8, !tbaa !52
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %._crit_edge
-  %indvars.iv.i = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i, %.lr.ph.i ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %15 = shl i64 %indvars.iv.i, 2
   %16 = and i64 %15, 4294967292
   %17 = lshr i64 %14, %16
@@ -732,8 +732,8 @@ define i32 @If_CutSopBalancePinDelaysIntInt(ptr noundef readonly captures(none) 
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %If_CutPinDelayTranslate.exit, label %.lr.ph.i, !llvm.loop !61
 
-If_CutPinDelayTranslate.exit:                     ; preds = %.lr.ph.i, %._crit_edge.thread
-  %22 = phi i32 [ %8, %._crit_edge.thread ], [ %13, %.lr.ph.i ]
+If_CutPinDelayTranslate.exit:                     ; preds = %.lr.ph.i, %._crit_edge
+  %22 = phi i32 [ %12, %._crit_edge ], [ %13, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   ret i32 %22
@@ -831,15 +831,15 @@ define i32 @If_CutSopBalancePinDelays(ptr noundef readonly captures(none) %0, pt
   store i64 %53, ptr %54, align 8, !tbaa !52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !60
+  br i1 %exitcond.not.i, label %.lr.ph.preheader.i.i, label %.lr.ph.i, !llvm.loop !60
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %55 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef readonly %34, ptr noundef nonnull readonly %6, ptr noundef nonnull %5, i32 noundef %37, ptr noundef nonnull %4)
+.lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
+  %55 = call i32 @If_CutSopBalancePinDelaysInt(ptr noundef nonnull readonly %34, ptr noundef nonnull readonly %6, ptr noundef nonnull %5, i32 noundef %37, ptr noundef nonnull %4)
   %56 = load i64, ptr %4, align 8, !tbaa !52
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %._crit_edge.i
-  %indvars.iv.i.i = phi i64 [ 0, %._crit_edge.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+.lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %57 = shl i64 %indvars.iv.i.i, 2
   %58 = and i64 %57, 4294967292
   %59 = lshr i64 %56, %58
@@ -964,7 +964,7 @@ define i32 @If_CutSopBalanceEvalInt(ptr noundef readonly captures(none) %0, ptr 
 
 .loopexit.us.i:                                   ; preds = %.lr.ph.us.i, %45, %41
   %.2.us.i = phi i32 [ %.181.us.i, %45 ], [ %43, %41 ], [ %43, %.lr.ph.us.i ]
-  %46 = icmp sgt i32 %.07180.us.i, 1
+  %46 = icmp samesign ugt i32 %.07180.us.i, 1
   br i1 %46, label %.preheader.split.us.i, label %If_LogCounterAddAig.exit, !llvm.loop !63
 
 .lr.ph.us.i:                                      ; preds = %41, %.lr.ph.us.i
@@ -1145,7 +1145,7 @@ If_LogCreateAndXor.exit:                          ; preds = %Vec_IntPush.exit.i.
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %If_LogCreateAndXor.exit, %75
   %.2.i = phi i32 [ %.181.i, %75 ], [ %125, %If_LogCreateAndXor.exit ], [ %125, %.lr.ph.i ]
-  %135 = icmp sgt i32 %.07180.i, 1
+  %135 = icmp samesign ugt i32 %.07180.i, 1
   br i1 %135, label %.preheader.split.i, label %If_LogCounterAddAig.exit92, !llvm.loop !63
 
 If_LogCounterAddAig.exit92:                       ; preds = %.preheader.split.i, %.loopexit.i, %.thread.i
@@ -1201,7 +1201,7 @@ If_LogCounterAddAig.exit92:                       ; preds = %.preheader.split.i,
 
 .loopexit.us.i98:                                 ; preds = %.lr.ph.us.i100, %161, %157
   %.2.us.i99 = phi i32 [ %.181.us.i96, %161 ], [ %159, %157 ], [ %159, %.lr.ph.us.i100 ]
-  %162 = icmp sgt i32 %.07180.us.i97, 1
+  %162 = icmp samesign ugt i32 %.07180.us.i97, 1
   br i1 %162, label %.preheader.split.us.i95, label %If_LogCounterAddAig.exit103, !llvm.loop !63
 
 .lr.ph.us.i100:                                   ; preds = %157, %.lr.ph.us.i100
@@ -1381,7 +1381,7 @@ If_LogCreateAndXor.exit180:                       ; preds = %Vec_IntPush.exit.i.
 
 .loopexit.i111:                                   ; preds = %.lr.ph.i113, %If_LogCreateAndXor.exit180, %190
   %.2.i112 = phi i32 [ %.181.i109, %190 ], [ %240, %If_LogCreateAndXor.exit180 ], [ %240, %.lr.ph.i113 ]
-  %250 = icmp sgt i32 %.07180.i110, 1
+  %250 = icmp samesign ugt i32 %.07180.i110, 1
   br i1 %250, label %.preheader.split.i108, label %If_LogCounterAddAig.exit124, !llvm.loop !63
 
 If_LogCounterAddAig.exit124:                      ; preds = %.preheader.split.i108, %.loopexit.i111, %.thread.i106
@@ -1561,7 +1561,7 @@ If_LogCreateAndXor.exit193:                       ; preds = %Vec_IntPush.exit.i.
 
 .loopexit.us.i133:                                ; preds = %.lr.ph.us.i135, %326, %322
   %.2.us.i134 = phi i32 [ %.181.us.i131, %326 ], [ %324, %322 ], [ %324, %.lr.ph.us.i135 ]
-  %327 = icmp sgt i32 %.07180.us.i132, 1
+  %327 = icmp samesign ugt i32 %.07180.us.i132, 1
   br i1 %327, label %.preheader.split.us.i130, label %If_LogCounterAddAig.exit138, !llvm.loop !63
 
 .lr.ph.us.i135:                                   ; preds = %322, %.lr.ph.us.i135
@@ -1644,7 +1644,7 @@ If_LogCreateAndXor.exit193:                       ; preds = %Vec_IntPush.exit.i.
 
 .loopexit.i146:                                   ; preds = %.lr.ph.i148, %354, %351
   %.2.i147 = phi i32 [ %.181.i144, %351 ], [ %359, %354 ], [ %359, %.lr.ph.i148 ]
-  %369 = icmp sgt i32 %.07180.i145, 1
+  %369 = icmp samesign ugt i32 %.07180.i145, 1
   br i1 %369, label %.preheader.split.i143, label %If_LogCounterAddAig.exit138, !llvm.loop !63
 
 If_LogCounterAddAig.exit138:                      ; preds = %.loopexit.i146, %.preheader.split.i143, %.loopexit.us.i133, %.preheader.split.us.i130, %.thread.i141, %.split66

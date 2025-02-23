@@ -740,11 +740,11 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %10, label %._crit_edge, label %.lr.ph39
 
 11:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit"
-  %12 = icmp eq i64 %138, 0
+  %12 = icmp eq i64 %136, 0
   br i1 %12, label %._crit_edge, label %.lr.ph39, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %11, %.lr.ph
-  %.fr.i.i25.lcssa = phi i64 [ %6, %.lr.ph ], [ %201, %11 ]
+  %.fr.i.i25.lcssa = phi i64 [ %6, %.lr.ph ], [ %199, %11 ]
   %storemerge23.lcssa = phi ptr [ %.fr30, %.lr.ph ], [ %.sroa.016.1.i.i, %11 ]
   %13 = lshr i64 %.fr.i.i25.lcssa, 3
   %14 = add nsw i64 %13, -2
@@ -873,260 +873,260 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %79 = add nsw i64 %78, -1
   %80 = sdiv i64 %79, 2
   %81 = icmp sgt i64 %78, 2
-  br i1 %81, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i11.i
+  br i1 %81, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i11.i
 
-.lr.ph.i.i.i24.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i24.i
-  %.036.i.i.i25.i = phi i64 [ %spec.select.i.i.i32.i, %.lr.ph.i.i.i24.i ], [ 0, %.lr.ph.i9.i ]
-  %82 = shl i64 %.036.i.i.i25.i, 1
+.lr.ph.i.i.i23.i:                                 ; preds = %.lr.ph.i9.i, %.lr.ph.i.i.i23.i
+  %.036.i.i.i24.i = phi i64 [ %spec.select.i.i.i31.i, %.lr.ph.i.i.i23.i ], [ 0, %.lr.ph.i9.i ]
+  %82 = shl i64 %.036.i.i.i24.i, 1
   %83 = add i64 %82, 2
   %84 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %83
   %85 = or disjoint i64 %82, 1
   %86 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %85
-  %.sroa.01.0.copyload.i.i.i.i26.i = load i64, ptr %84, align 8
-  %.sroa.0.0.copyload.i.i.i.i27.i = load i64, ptr %86, align 8
-  %87 = and i64 %.sroa.01.0.copyload.i.i.i.i26.i, -8
+  %.sroa.01.0.copyload.i.i.i.i25.i = load i64, ptr %84, align 8
+  %.sroa.0.0.copyload.i.i.i.i26.i = load i64, ptr %86, align 8
+  %87 = and i64 %.sroa.01.0.copyload.i.i.i.i25.i, -8
   %88 = inttoptr i64 %87 to ptr
-  %89 = shl i64 %.sroa.01.0.copyload.i.i.i.i26.i, 1
+  %89 = shl i64 %.sroa.01.0.copyload.i.i.i.i25.i, 1
   %90 = and i64 %89, 8
-  %.0.idx.i.i.i.i.i.i.i28.i = xor i64 %90, 8
-  %.0.i.i.i.i.i.i.i29.i = getelementptr inbounds nuw i8, ptr %88, i64 %.0.idx.i.i.i.i.i.i.i28.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i29.i, i64 16
+  %.0.idx.i.i.i.i.i.i.i27.i = xor i64 %90, 8
+  %.0.i.i.i.i.i.i.i28.i = getelementptr inbounds nuw i8, ptr %88, i64 %.0.idx.i.i.i.i.i.i.i27.i
+  %91 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i28.i, i64 16
   %92 = load i32, ptr %91, align 8, !tbaa !8
-  %93 = and i64 %.sroa.0.0.copyload.i.i.i.i27.i, -8
+  %93 = and i64 %.sroa.0.0.copyload.i.i.i.i26.i, -8
   %94 = inttoptr i64 %93 to ptr
-  %95 = shl i64 %.sroa.0.0.copyload.i.i.i.i27.i, 1
+  %95 = shl i64 %.sroa.0.0.copyload.i.i.i.i26.i, 1
   %96 = and i64 %95, 8
-  %.0.idx.i.i2.i.i.i.i.i30.i = xor i64 %96, 8
-  %.0.i.i3.i.i.i.i.i31.i = getelementptr inbounds nuw i8, ptr %94, i64 %.0.idx.i.i2.i.i.i.i.i30.i
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i31.i, i64 16
+  %.0.idx.i.i2.i.i.i.i.i29.i = xor i64 %96, 8
+  %.0.i.i3.i.i.i.i.i30.i = getelementptr inbounds nuw i8, ptr %94, i64 %.0.idx.i.i2.i.i.i.i.i29.i
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i30.i, i64 16
   %98 = load i32, ptr %97, align 8, !tbaa !8
   %99 = icmp ult i32 %92, %98
-  %spec.select.i.i.i32.i = select i1 %99, i64 %85, i64 %83
-  %100 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %spec.select.i.i.i32.i
-  %101 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.036.i.i.i25.i
+  %spec.select.i.i.i31.i = select i1 %99, i64 %85, i64 %83
+  %100 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %spec.select.i.i.i31.i
+  %101 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.036.i.i.i24.i
   %102 = load i64, ptr %100, align 8
   store i64 %102, ptr %101, align 8
-  %103 = icmp slt i64 %spec.select.i.i.i32.i, %80
-  br i1 %103, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i11.i, !llvm.loop !70
+  %103 = icmp slt i64 %spec.select.i.i.i31.i, %80
+  br i1 %103, label %.lr.ph.i.i.i23.i, label %._crit_edge.i.i.i11.i, !llvm.loop !70
 
-._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i24.i, %.lr.ph.i9.i
-  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i32.i, %.lr.ph.i.i.i24.i ]
+._crit_edge.i.i.i11.i:                            ; preds = %.lr.ph.i.i.i23.i, %.lr.ph.i9.i
+  %.0.lcssa.i.i.i12.i = phi i64 [ 0, %.lr.ph.i9.i ], [ %spec.select.i.i.i31.i, %.lr.ph.i.i.i23.i ]
   %104 = and i64 %77, 8
   %105 = icmp eq i64 %104, 0
-  br i1 %105, label %106, label %116
+  br i1 %105, label %106, label %115
 
 106:                                              ; preds = %._crit_edge.i.i.i11.i
   %107 = add nsw i64 %78, -2
   %108 = ashr exact i64 %107, 1
   %109 = icmp eq i64 %.0.lcssa.i.i.i12.i, %108
-  br i1 %109, label %110, label %116
+  br i1 %109, label %.thread.i.i.i, label %115
 
-110:                                              ; preds = %106
-  %111 = shl nsw i64 %.0.lcssa.i.i.i12.i, 1
-  %112 = or disjoint i64 %111, 1
-  %113 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %112
-  %114 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
-  %115 = load i64, ptr %113, align 8
-  store i64 %115, ptr %114, align 8
-  br label %116
+.thread.i.i.i:                                    ; preds = %106
+  %110 = shl nuw nsw i64 %.0.lcssa.i.i.i12.i, 1
+  %111 = or disjoint i64 %110, 1
+  %112 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %111
+  %113 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i12.i
+  %114 = load i64, ptr %112, align 8
+  store i64 %114, ptr %113, align 8
+  br label %.lr.ph.i.i.i.i14.i
 
-116:                                              ; preds = %110, %106, %._crit_edge.i.i.i11.i
-  %.1.i.i.i13.i = phi i64 [ %112, %110 ], [ %.0.lcssa.i.i.i12.i, %106 ], [ %.0.lcssa.i.i.i12.i, %._crit_edge.i.i.i11.i ]
-  %117 = icmp sgt i64 %.1.i.i.i13.i, 0
-  br i1 %117, label %.lr.ph.i.i.i.i15.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
+115:                                              ; preds = %106, %._crit_edge.i.i.i11.i
+  %.not.i.i13.i = icmp eq i64 %.0.lcssa.i.i.i12.i, 0
+  br i1 %.not.i.i13.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %.lr.ph.i.i.i.i14.i
 
-.lr.ph.i.i.i.i15.i:                               ; preds = %116
-  %118 = and i64 %.sroa.03.0.copyload.i.i10.i, -8
-  %119 = inttoptr i64 %118 to ptr
-  %120 = shl i64 %.sroa.03.0.copyload.i.i10.i, 1
-  %121 = and i64 %120, 8
-  %.0.idx.i.i2.i.i.i.i.i.i16.i = xor i64 %121, 8
-  %.0.i.i3.i.i.i.i.i.i17.i = getelementptr inbounds nuw i8, ptr %119, i64 %.0.idx.i.i2.i.i.i.i.i.i16.i
-  %122 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i.i17.i, i64 16
-  br label %123
+.lr.ph.i.i.i.i14.i:                               ; preds = %115, %.thread.i.i.i
+  %.1.i6.i.i.i = phi i64 [ %111, %.thread.i.i.i ], [ %.0.lcssa.i.i.i12.i, %115 ]
+  %116 = and i64 %.sroa.03.0.copyload.i.i10.i, -8
+  %117 = inttoptr i64 %116 to ptr
+  %118 = shl i64 %.sroa.03.0.copyload.i.i10.i, 1
+  %119 = and i64 %118, 8
+  %.0.idx.i.i2.i.i.i.i.i.i15.i = xor i64 %119, 8
+  %.0.i.i3.i.i.i.i.i.i16.i = getelementptr inbounds nuw i8, ptr %117, i64 %.0.idx.i.i2.i.i.i.i.i.i15.i
+  %120 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i.i.i16.i, i64 16
+  br label %121
 
-123:                                              ; preds = %133, %.lr.ph.i.i.i.i15.i
-  %.011.i.i.i.i18.i = phi i64 [ %.1.i.i.i13.i, %.lr.ph.i.i.i.i15.i ], [ %.0912.i.i56.i.i.i, %133 ]
-  %.0912.in.i.i.i.i19.i = add nsw i64 %.011.i.i.i.i18.i, -1
-  %.0912.i.i56.i.i.i = lshr i64 %.0912.in.i.i.i.i19.i, 1
-  %124 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i56.i.i.i
-  %.sroa.01.0.copyload.i.i.i.i.i20.i = load i64, ptr %124, align 8
-  %125 = and i64 %.sroa.01.0.copyload.i.i.i.i.i20.i, -8
-  %126 = inttoptr i64 %125 to ptr
-  %127 = shl i64 %.sroa.01.0.copyload.i.i.i.i.i20.i, 1
-  %128 = and i64 %127, 8
-  %.0.idx.i.i.i.i.i.i.i.i21.i = xor i64 %128, 8
-  %.0.i.i.i.i.i.i.i.i22.i = getelementptr inbounds nuw i8, ptr %126, i64 %.0.idx.i.i.i.i.i.i.i.i21.i
-  %129 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i22.i, i64 16
-  %130 = load i32, ptr %129, align 8, !tbaa !8
-  %131 = load i32, ptr %122, align 8, !tbaa !8
-  %132 = icmp ult i32 %130, %131
-  br i1 %132, label %133, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
+121:                                              ; preds = %131, %.lr.ph.i.i.i.i14.i
+  %.011.i.i.i.i17.i = phi i64 [ %.1.i6.i.i.i, %.lr.ph.i.i.i.i14.i ], [ %.0912.i.i78.i.i.i, %131 ]
+  %.0912.in.i.i.i.i18.i = add nsw i64 %.011.i.i.i.i17.i, -1
+  %.0912.i.i78.i.i.i = lshr i64 %.0912.in.i.i.i.i18.i, 1
+  %122 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0912.i.i78.i.i.i
+  %.sroa.01.0.copyload.i.i.i.i.i19.i = load i64, ptr %122, align 8
+  %123 = and i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, -8
+  %124 = inttoptr i64 %123 to ptr
+  %125 = shl i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, 1
+  %126 = and i64 %125, 8
+  %.0.idx.i.i.i.i.i.i.i.i20.i = xor i64 %126, 8
+  %.0.i.i.i.i.i.i.i.i21.i = getelementptr inbounds nuw i8, ptr %124, i64 %.0.idx.i.i.i.i.i.i.i.i20.i
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i.i21.i, i64 16
+  %128 = load i32, ptr %127, align 8, !tbaa !8
+  %129 = load i32, ptr %120, align 8, !tbaa !8
+  %130 = icmp ult i32 %128, %129
+  br i1 %130, label %131, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i"
 
-133:                                              ; preds = %123
-  %134 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i18.i
-  store i64 %.sroa.01.0.copyload.i.i.i.i.i20.i, ptr %134, align 8
-  %.not.i.i23.i = icmp ult i64 %.0912.in.i.i.i.i19.i, 2
-  br i1 %.not.i.i23.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %123, !llvm.loop !71
+131:                                              ; preds = %121
+  %132 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.011.i.i.i.i17.i
+  store i64 %.sroa.01.0.copyload.i.i.i.i.i19.i, ptr %132, align 8
+  %.not9.i.i.i = icmp ult i64 %.0912.in.i.i.i.i18.i, 2
+  br i1 %.not9.i.i.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", label %121, !llvm.loop !71
 
-"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %133, %123, %116
-  %.0.lcssa.i.i.i.i14.i = phi i64 [ %.1.i.i.i13.i, %116 ], [ %.011.i.i.i.i18.i, %123 ], [ 0, %133 ]
-  %135 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i14.i
-  store i64 %.sroa.03.0.copyload.i.i10.i, ptr %135, align 8
-  %136 = icmp sgt i64 %77, 8
-  br i1 %136, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !73
+"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i": ; preds = %131, %121, %115
+  %.0.lcssa.i.i.i.i22.i = phi i64 [ 0, %115 ], [ %.011.i.i.i.i17.i, %121 ], [ 0, %131 ]
+  %133 = getelementptr inbounds %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %.0.lcssa.i.i.i.i22.i
+  store i64 %.sroa.03.0.copyload.i.i10.i, ptr %133, align 8
+  %134 = icmp sgt i64 %77, 8
+  br i1 %134, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !73
 
 .lr.ph39:                                         ; preds = %.lr.ph, %11
   %storemerge2338 = phi ptr [ %.sroa.016.1.i.i, %11 ], [ %.fr30, %.lr.ph ]
-  %.02437 = phi i64 [ %138, %11 ], [ %2, %.lr.ph ]
-  %137 = phi i64 [ %202, %11 ], [ %7, %.lr.ph ]
-  %138 = add nsw i64 %.02437, -1
-  %139 = lshr i64 %137, 1
-  %140 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %139
-  %141 = getelementptr inbounds i8, ptr %storemerge2338, i64 -8
+  %.02437 = phi i64 [ %136, %11 ], [ %2, %.lr.ph ]
+  %135 = phi i64 [ %200, %11 ], [ %7, %.lr.ph ]
+  %136 = add nsw i64 %.02437, -1
+  %137 = lshr i64 %135, 1
+  %138 = getelementptr inbounds nuw %"class.llvm::DwarfStringPoolEntryRef", ptr %.fr26, i64 %137
+  %139 = getelementptr inbounds i8, ptr %storemerge2338, i64 -8
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %9, align 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %140, align 8
-  %142 = and i64 %.sroa.01.0.copyload.i.i.i, -8
-  %143 = inttoptr i64 %142 to ptr
-  %144 = shl i64 %.sroa.01.0.copyload.i.i.i, 1
-  %145 = and i64 %144, 8
-  %.0.idx.i.i.i.i.i.i = xor i64 %145, 8
-  %.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %143, i64 %.0.idx.i.i.i.i.i.i
-  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
-  %147 = load i32, ptr %146, align 8, !tbaa !8
-  %148 = and i64 %.sroa.0.0.copyload.i.i.i, -8
-  %149 = inttoptr i64 %148 to ptr
-  %150 = shl i64 %.sroa.0.0.copyload.i.i.i, 1
-  %151 = and i64 %150, 8
-  %.0.idx.i.i2.i.i.i.i = xor i64 %151, 8
-  %.0.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %149, i64 %.0.idx.i.i2.i.i.i.i
-  %152 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i, i64 16
-  %153 = load i32, ptr %152, align 8, !tbaa !8
-  %154 = icmp ult i32 %147, %153
-  %.sroa.0.0.copyload.i27.i.i = load i64, ptr %141, align 8
-  %155 = and i64 %.sroa.0.0.copyload.i27.i.i, -8
-  %156 = inttoptr i64 %155 to ptr
-  %157 = shl i64 %.sroa.0.0.copyload.i27.i.i, 1
-  %158 = and i64 %157, 8
-  %.0.idx.i.i2.i.i30.i.i = xor i64 %158, 8
-  %.0.i.i3.i.i31.i.i = getelementptr inbounds nuw i8, ptr %156, i64 %.0.idx.i.i2.i.i30.i.i
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i31.i.i, i64 16
-  %160 = load i32, ptr %159, align 8, !tbaa !8
-  br i1 %154, label %161, label %168
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %138, align 8
+  %140 = and i64 %.sroa.01.0.copyload.i.i.i, -8
+  %141 = inttoptr i64 %140 to ptr
+  %142 = shl i64 %.sroa.01.0.copyload.i.i.i, 1
+  %143 = and i64 %142, 8
+  %.0.idx.i.i.i.i.i.i = xor i64 %143, 8
+  %.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %141, i64 %.0.idx.i.i.i.i.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
+  %145 = load i32, ptr %144, align 8, !tbaa !8
+  %146 = and i64 %.sroa.0.0.copyload.i.i.i, -8
+  %147 = inttoptr i64 %146 to ptr
+  %148 = shl i64 %.sroa.0.0.copyload.i.i.i, 1
+  %149 = and i64 %148, 8
+  %.0.idx.i.i2.i.i.i.i = xor i64 %149, 8
+  %.0.i.i3.i.i.i.i = getelementptr inbounds nuw i8, ptr %147, i64 %.0.idx.i.i2.i.i.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i.i, i64 16
+  %151 = load i32, ptr %150, align 8, !tbaa !8
+  %152 = icmp ult i32 %145, %151
+  %.sroa.0.0.copyload.i27.i.i = load i64, ptr %139, align 8
+  %153 = and i64 %.sroa.0.0.copyload.i27.i.i, -8
+  %154 = inttoptr i64 %153 to ptr
+  %155 = shl i64 %.sroa.0.0.copyload.i27.i.i, 1
+  %156 = and i64 %155, 8
+  %.0.idx.i.i2.i.i30.i.i = xor i64 %156, 8
+  %.0.i.i3.i.i31.i.i = getelementptr inbounds nuw i8, ptr %154, i64 %.0.idx.i.i2.i.i30.i.i
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i31.i.i, i64 16
+  %158 = load i32, ptr %157, align 8, !tbaa !8
+  br i1 %152, label %159, label %166
 
-161:                                              ; preds = %.lr.ph39
-  %162 = icmp ult i32 %153, %160
-  br i1 %162, label %163, label %164
+159:                                              ; preds = %.lr.ph39
+  %160 = icmp ult i32 %151, %158
+  br i1 %160, label %161, label %162
 
-163:                                              ; preds = %161
+161:                                              ; preds = %159
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %.fr26, align 8
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.fr26, align 8
-  store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %140, align 8
+  store i64 %.sroa.0.0.copyload.i.i.i.i, ptr %138, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-164:                                              ; preds = %161
-  %165 = icmp ult i32 %147, %160
+162:                                              ; preds = %159
+  %163 = icmp ult i32 %145, %158
   %.sroa.0.0.copyload.i.i38.i.i = load i64, ptr %.fr26, align 8
-  br i1 %165, label %166, label %167
+  br i1 %163, label %164, label %165
 
-166:                                              ; preds = %164
+164:                                              ; preds = %162
   store i64 %.sroa.0.0.copyload.i27.i.i, ptr %.fr26, align 8
-  store i64 %.sroa.0.0.copyload.i.i38.i.i, ptr %141, align 8
+  store i64 %.sroa.0.0.copyload.i.i38.i.i, ptr %139, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-167:                                              ; preds = %164
+165:                                              ; preds = %162
   store i64 %.sroa.01.0.copyload.i.i.i, ptr %.fr26, align 8
   store i64 %.sroa.0.0.copyload.i.i38.i.i, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-168:                                              ; preds = %.lr.ph39
-  %169 = icmp ult i32 %147, %160
-  br i1 %169, label %170, label %171
+166:                                              ; preds = %.lr.ph39
+  %167 = icmp ult i32 %145, %158
+  br i1 %167, label %168, label %169
 
-170:                                              ; preds = %168
+168:                                              ; preds = %166
   %.sroa.0.0.copyload.i.i46.i.i = load i64, ptr %.fr26, align 8
   store i64 %.sroa.01.0.copyload.i.i.i, ptr %.fr26, align 8
   store i64 %.sroa.0.0.copyload.i.i46.i.i, ptr %9, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-171:                                              ; preds = %168
-  %172 = icmp ult i32 %153, %160
+169:                                              ; preds = %166
+  %170 = icmp ult i32 %151, %158
   %.sroa.0.0.copyload.i.i53.i.i = load i64, ptr %.fr26, align 8
-  br i1 %172, label %173, label %174
+  br i1 %170, label %171, label %172
 
-173:                                              ; preds = %171
+171:                                              ; preds = %169
   store i64 %.sroa.0.0.copyload.i27.i.i, ptr %.fr26, align 8
-  store i64 %.sroa.0.0.copyload.i.i53.i.i, ptr %141, align 8
+  store i64 %.sroa.0.0.copyload.i.i53.i.i, ptr %139, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-174:                                              ; preds = %171
+172:                                              ; preds = %169
   store i64 %.sroa.0.0.copyload.i.i.i, ptr %.fr26, align 8
-  store i64 %.sroa.0.0.copyload.i.i53.i.i, ptr %140, align 8
+  store i64 %.sroa.0.0.copyload.i.i53.i.i, ptr %138, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %174, %173, %170, %167, %166, %163
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader": ; preds = %172, %171, %168, %165, %164, %161
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
 
-"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %199
-  %.sroa.016.0.i.i = phi ptr [ %189, %199 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
-  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %199 ], [ %storemerge2338, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i": ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader", %197
+  %.sroa.016.0.i.i = phi ptr [ %187, %197 ], [ %9, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
+  %.sroa.0.0.i.i = phi ptr [ %.sroa.0.1.i.i, %197 ], [ %storemerge2338, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i.preheader" ]
   %.sroa.0.0.copyload.i.i13.i = load i64, ptr %.fr26, align 8
-  %175 = and i64 %.sroa.0.0.copyload.i.i13.i, -8
-  %176 = inttoptr i64 %175 to ptr
-  %177 = shl i64 %.sroa.0.0.copyload.i.i13.i, 1
-  %178 = and i64 %177, 8
-  %.0.idx.i.i2.i.i.i14.i = xor i64 %178, 8
-  %.0.i.i3.i.i.i15.i = getelementptr inbounds nuw i8, ptr %176, i64 %.0.idx.i.i2.i.i.i14.i
-  %179 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i15.i, i64 16
-  %180 = load i32, ptr %179, align 8, !tbaa !8
-  br label %181
+  %173 = and i64 %.sroa.0.0.copyload.i.i13.i, -8
+  %174 = inttoptr i64 %173 to ptr
+  %175 = shl i64 %.sroa.0.0.copyload.i.i13.i, 1
+  %176 = and i64 %175, 8
+  %.0.idx.i.i2.i.i.i14.i = xor i64 %176, 8
+  %.0.i.i3.i.i.i15.i = getelementptr inbounds nuw i8, ptr %174, i64 %.0.idx.i.i2.i.i.i14.i
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i.i15.i, i64 16
+  %178 = load i32, ptr %177, align 8, !tbaa !8
+  br label %179
 
-181:                                              ; preds = %181, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
-  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %189, %181 ]
+179:                                              ; preds = %179, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i"
+  %.sroa.016.1.i.i = phi ptr [ %.sroa.016.0.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i" ], [ %187, %179 ]
   %.sroa.01.0.copyload.i.i16.i = load i64, ptr %.sroa.016.1.i.i, align 8
-  %182 = and i64 %.sroa.01.0.copyload.i.i16.i, -8
-  %183 = inttoptr i64 %182 to ptr
-  %184 = shl i64 %.sroa.01.0.copyload.i.i16.i, 1
-  %185 = and i64 %184, 8
-  %.0.idx.i.i.i.i.i17.i = xor i64 %185, 8
-  %.0.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %183, i64 %.0.idx.i.i.i.i.i17.i
-  %186 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i18.i, i64 16
-  %187 = load i32, ptr %186, align 8, !tbaa !8
-  %188 = icmp ult i32 %187, %180
-  %189 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 8
-  br i1 %188, label %181, label %.preheader.i.i, !llvm.loop !74
+  %180 = and i64 %.sroa.01.0.copyload.i.i16.i, -8
+  %181 = inttoptr i64 %180 to ptr
+  %182 = shl i64 %.sroa.01.0.copyload.i.i16.i, 1
+  %183 = and i64 %182, 8
+  %.0.idx.i.i.i.i.i17.i = xor i64 %183, 8
+  %.0.i.i.i.i.i18.i = getelementptr inbounds nuw i8, ptr %181, i64 %.0.idx.i.i.i.i.i17.i
+  %184 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i18.i, i64 16
+  %185 = load i32, ptr %184, align 8, !tbaa !8
+  %186 = icmp ult i32 %185, %178
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.016.1.i.i, i64 8
+  br i1 %186, label %179, label %.preheader.i.i, !llvm.loop !74
 
-.preheader.i.i:                                   ; preds = %181, %.preheader.i.i
-  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %181 ]
+.preheader.i.i:                                   ; preds = %179, %.preheader.i.i
+  %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.1.i.i, %.preheader.i.i ], [ %.sroa.0.0.i.i, %179 ]
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.sroa.0.0.pn.i.i, i64 -8
   %.sroa.0.0.copyload.i9.i.i = load i64, ptr %.sroa.0.1.i.i, align 8
-  %190 = and i64 %.sroa.0.0.copyload.i9.i.i, -8
-  %191 = inttoptr i64 %190 to ptr
-  %192 = shl i64 %.sroa.0.0.copyload.i9.i.i, 1
-  %193 = and i64 %192, 8
-  %.0.idx.i.i2.i.i12.i.i = xor i64 %193, 8
-  %.0.i.i3.i.i13.i.i = getelementptr inbounds nuw i8, ptr %191, i64 %.0.idx.i.i2.i.i12.i.i
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i13.i.i, i64 16
-  %195 = load i32, ptr %194, align 8, !tbaa !8
-  %196 = icmp ult i32 %180, %195
-  br i1 %196, label %.preheader.i.i, label %197, !llvm.loop !75
+  %188 = and i64 %.sroa.0.0.copyload.i9.i.i, -8
+  %189 = inttoptr i64 %188 to ptr
+  %190 = shl i64 %.sroa.0.0.copyload.i9.i.i, 1
+  %191 = and i64 %190, 8
+  %.0.idx.i.i2.i.i12.i.i = xor i64 %191, 8
+  %.0.i.i3.i.i13.i.i = getelementptr inbounds nuw i8, ptr %189, i64 %.0.idx.i.i2.i.i12.i.i
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i.i3.i.i13.i.i, i64 16
+  %193 = load i32, ptr %192, align 8, !tbaa !8
+  %194 = icmp ult i32 %178, %193
+  br i1 %194, label %.preheader.i.i, label %195, !llvm.loop !75
 
-197:                                              ; preds = %.preheader.i.i
-  %198 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
-  br i1 %198, label %199, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit"
+195:                                              ; preds = %.preheader.i.i
+  %196 = icmp ult ptr %.sroa.016.1.i.i, %.sroa.0.1.i.i
+  br i1 %196, label %197, label %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit"
 
-199:                                              ; preds = %197
+197:                                              ; preds = %195
   store i64 %.sroa.0.0.copyload.i9.i.i, ptr %.sroa.016.1.i.i, align 8
   store i64 %.sroa.01.0.copyload.i.i16.i, ptr %.sroa.0.1.i.i, align 8
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_SE_T0_.exit.i", !llvm.loop !76
 
-"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %197
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2338, i64 noundef %138)
-  %200 = ptrtoint ptr %.sroa.016.1.i.i to i64
-  %201 = sub i64 %200, %4
-  %202 = ashr exact i64 %201, 3
-  %203 = icmp sgt i64 %202, 16
-  br i1 %203, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !69
+"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit": ; preds = %195
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_T0_T1_"(ptr nonnull %.sroa.016.1.i.i, ptr %storemerge2338, i64 noundef %136)
+  %198 = ptrtoint ptr %.sroa.016.1.i.i to i64
+  %199 = sub i64 %198, %4
+  %200 = ashr exact i64 %199, 3
+  %201 = icmp sgt i64 %200, 16
+  br i1 %201, label %11, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit", !llvm.loop !69
 
 "_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEET_SE_SE_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_SE_RT0_.exit.i.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm23DwarfStringPoolEntryRefESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNKS2_24NonRelocatableStringpool21getEntriesForEmissionEvE3$_0EEEvT_SE_RT0_.exit.i.i"
   ret void

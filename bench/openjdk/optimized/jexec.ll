@@ -82,7 +82,7 @@ getJavaPath.exit52:                               ; preds = %16
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.sink.split, %getJavaPath.exit, %getJavaPath.exit52
-  %23 = icmp ugt i32 %0, 33554429
+  %23 = icmp samesign ugt i32 %0, 33554429
   br i1 %23, label %24, label %31
 
 24:                                               ; preds = %.critedge

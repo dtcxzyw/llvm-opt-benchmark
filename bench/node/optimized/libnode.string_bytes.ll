@@ -1130,7 +1130,14 @@ for.body.i33:                                     ; preds = %if.then6, %for.body
   store i8 %7, ptr %arrayidx2.i36, align 1
   %inc.i37 = add nuw nsw i64 %i.05.i34, 1
   %exitcond.not.i38 = icmp eq i64 %inc.i37, %conv7
-  br i1 %exitcond.not.i38, label %if.end13, label %for.body.i33, !llvm.loop !9
+  br i1 %exitcond.not.i38, label %_ZN4nodeL16force_ascii_slowEPKcPcm.exit39, label %for.body.i33, !llvm.loop !9
+
+_ZN4nodeL16force_ascii_slowEPKcPcm.exit39:        ; preds = %for.body.i33
+  %add.ptr = getelementptr inbounds nuw i8, ptr %src, i64 %conv7
+  %add.ptr9 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv7
+  %conv10 = and i64 %2, 7
+  %sub11 = sub nuw nsw i64 %len, %conv10
+  br label %for.body.preheader
 
 for.body.i41:                                     ; preds = %if.then4, %for.body.i41
   %i.05.i42 = phi i64 [ %inc.i45, %for.body.i41 ], [ 0, %if.then4 ]
@@ -1143,44 +1150,33 @@ for.body.i41:                                     ; preds = %if.then4, %for.body
   %exitcond.not.i46 = icmp eq i64 %inc.i45, %len
   br i1 %exitcond.not.i46, label %if.end26, label %for.body.i41, !llvm.loop !9
 
-if.end13:                                         ; preds = %for.body.i33
-  %add.ptr = getelementptr inbounds nuw i8, ptr %src, i64 %conv7
-  %add.ptr9 = getelementptr inbounds nuw i8, ptr %dst, i64 %conv7
-  %conv10 = and i64 %2, 7
-  %sub11 = sub nuw nsw i64 %len, %conv10
-  %cmp1458.not = icmp samesign ult i64 %sub11, 8
-  br i1 %cmp1458.not, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %if.end, %if.end13
-  %src.addr.071 = phi ptr [ %add.ptr, %if.end13 ], [ %src, %if.end ]
-  %dst.addr.069 = phi ptr [ %add.ptr9, %if.end13 ], [ %dst, %if.end ]
-  %len.addr.067 = phi i64 [ %sub11, %if.end13 ], [ %len, %if.end ]
-  %div3073 = lshr i64 %len.addr.067, 3
+for.body.preheader:                               ; preds = %if.end, %_ZN4nodeL16force_ascii_slowEPKcPcm.exit39
+  %len.addr.0 = phi i64 [ %sub11, %_ZN4nodeL16force_ascii_slowEPKcPcm.exit39 ], [ %len, %if.end ]
+  %dst.addr.0 = phi ptr [ %add.ptr9, %_ZN4nodeL16force_ascii_slowEPKcPcm.exit39 ], [ %dst, %if.end ]
+  %src.addr.0 = phi ptr [ %add.ptr, %_ZN4nodeL16force_ascii_slowEPKcPcm.exit39 ], [ %src, %if.end ]
+  %div30 = lshr i64 %len.addr.0, 3
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.059 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw i64, ptr %src.addr.071, i64 %i.059
+  %arrayidx = getelementptr inbounds nuw i64, ptr %src.addr.0, i64 %i.059
   %10 = load i64, ptr %arrayidx, align 8
   %and15 = and i64 %10, 9187201950435737471
-  %arrayidx16 = getelementptr inbounds nuw i64, ptr %dst.addr.069, i64 %i.059
+  %arrayidx16 = getelementptr inbounds nuw i64, ptr %dst.addr.0, i64 %i.059
   store i64 %and15, ptr %arrayidx16, align 8
   %inc = add nuw nsw i64 %i.059, 1
-  %exitcond.not = icmp eq i64 %inc, %div3073
+  %exitcond.not = icmp eq i64 %inc, %div30
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
-for.end:                                          ; preds = %for.body, %if.end13
-  %src.addr.072 = phi ptr [ %add.ptr, %if.end13 ], [ %src.addr.071, %for.body ]
-  %dst.addr.070 = phi ptr [ %add.ptr9, %if.end13 ], [ %dst.addr.069, %for.body ]
-  %len.addr.068 = phi i64 [ %sub11, %if.end13 ], [ %len.addr.067, %for.body ]
-  %conv1831 = and i64 %len.addr.068, 7
+for.end:                                          ; preds = %for.body
+  %conv1831 = and i64 %len.addr.0, 7
   %cmp19.not = icmp eq i64 %conv1831, 0
   br i1 %cmp19.not, label %if.end26, label %if.then20
 
 if.then20:                                        ; preds = %for.end
-  %sub22 = and i64 %len.addr.068, 8589934584
-  %add.ptr23 = getelementptr inbounds nuw i8, ptr %src.addr.072, i64 %sub22
-  %add.ptr24 = getelementptr inbounds nuw i8, ptr %dst.addr.070, i64 %sub22
+  %sub22 = and i64 %len.addr.0, 8589934584
+  %add.ptr23 = getelementptr inbounds nuw i8, ptr %src.addr.0, i64 %sub22
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %dst.addr.0, i64 %sub22
   br label %for.body.i49
 
 for.body.i49:                                     ; preds = %if.then20, %for.body.i49

@@ -412,7 +412,7 @@ Abc_Clock.exit39:                                 ; preds = %31, %30
   %37 = load i32, ptr %36, align 4
   %38 = and i32 %37, 255
   %.not3542 = icmp eq i32 %38, 7
-  br i1 %.not3542, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not3542, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_Clock.exit39
   %.not37 = icmp eq i32 %3, 0
@@ -443,7 +443,7 @@ Abc_Clock.exit39:                                 ; preds = %31, %30
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 255
   %.not35.us = icmp eq i32 %59, 7
-  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !46
+  br i1 %.not35.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !46
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %60 = phi i32 [ %70, %.lr.ph.split ], [ %37, %.lr.ph ]
@@ -461,17 +461,10 @@ Abc_Clock.exit39:                                 ; preds = %31, %30
   %70 = load i32, ptr %69, align 4
   %71 = and i32 %70, 255
   %.not35 = icmp eq i32 %71, 7
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !46
+  br i1 %.not35, label %.loopexit, label %.lr.ph.split, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.not36 = icmp eq ptr %23, null
-  br i1 %.not36, label %72, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %Abc_Clock.exit39, %._crit_edge
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %Abc_Clock.exit39
   call void @free(ptr noundef nonnull %23) #19
-  br label %72
-
-72:                                               ; preds = %._crit_edge, %._crit_edge.thread
   ret ptr %10
 }
 

@@ -3363,8 +3363,8 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
   %358 = add nsw i64 %355, -12
   %359 = urem i64 %358, 12
   %360 = sub nuw nsw i64 %358, %359
-  %361 = add nsw i64 %360, 12
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %356, i8 0, i64 %361, i1 false)
+  %361 = add nuw nsw i64 %360, 12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %356, i8 0, i64 %361, i1 false)
   %362 = getelementptr inbounds nuw i8, ptr %337, i64 16
   store ptr %356, ptr %362, align 8
   %363 = getelementptr inbounds nuw i8, ptr %337, i64 232
@@ -3379,7 +3379,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
           to label %368 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 368:                                              ; preds = %366
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %367, i8 0, i64 %361, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %367, i8 0, i64 %361, i1 false)
   %369 = getelementptr inbounds nuw i8, ptr %337, i64 24
   store ptr %367, ptr %369, align 8
   %.pre835 = load i32, ptr %296, align 4
@@ -3436,14 +3436,14 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
           to label %377 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 377:                                              ; preds = %375
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %376, i8 0, i64 %361, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %376, i8 0, i64 %361, i1 false)
   %378 = getelementptr inbounds nuw i8, ptr %337, i64 32
   store ptr %376, ptr %378, align 8
   %379 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %355) #26
           to label %380 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 380:                                              ; preds = %377
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %379, i8 0, i64 %361, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %379, i8 0, i64 %361, i1 false)
   %381 = getelementptr inbounds nuw i8, ptr %337, i64 40
   store ptr %379, ptr %381, align 8
   %.pre836 = load i32, ptr %296, align 4
@@ -3466,7 +3466,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
           to label %389 unwind label %.loopexit.split-lp.loopexit
 
 389:                                              ; preds = %387
-  call void @llvm.memset.p0.i64(ptr nonnull align 4 %388, i8 0, i64 %361, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %388, i8 0, i64 %361, i1 false)
   %390 = zext i32 %storemerge613 to i64
   %391 = getelementptr inbounds nuw [8 x ptr], ptr %385, i64 0, i64 %390
   store ptr %388, ptr %391, align 8

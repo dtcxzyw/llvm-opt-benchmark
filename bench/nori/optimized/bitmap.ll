@@ -1038,7 +1038,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i238:                ; preds = %199, %.thread.i235,
   store i8 %201, ptr %206, align 1
   %207 = lshr i32 %.12552, 8
   %208 = add nsw i32 %.12536, -8
-  %209 = icmp sgt i32 %.12536, 15
+  %209 = icmp samesign ugt i32 %.12536, 15
   br i1 %209, label %.lr.ph.i232, label %_ZL17stbi__zlib_flushfPhPjPi.exit240, !llvm.loop !15
 
 210:                                              ; preds = %168
@@ -1121,7 +1121,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i254:                ; preds = %241, %.thread.i251,
   store i8 %243, ptr %248, align 1
   %249 = lshr i32 %.14554, 8
   %250 = add nsw i32 %.14538, -8
-  %251 = icmp sgt i32 %.14538, 15
+  %251 = icmp samesign ugt i32 %.14538, 15
   br i1 %251, label %.lr.ph.i248, label %_ZL17stbi__zlib_flushfPhPjPi.exit240, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit240:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i254, %_ZL13stbi__sbgrowfPPvii.exit.i238, %_ZL17stbi__zlib_bitrevii.exit245, %_ZL17stbi__zlib_bitrevii.exit
@@ -1203,7 +1203,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i265:                ; preds = %284, %.thread.i262,
   store i8 %286, ptr %291, align 1
   %292 = lshr i32 %.16556, 8
   %293 = add nsw i32 %.16, -8
-  %294 = icmp sgt i32 %.16, 15
+  %294 = icmp samesign ugt i32 %.16, 15
   br i1 %294, label %.lr.ph.i259, label %_ZL17stbi__zlib_flushfPhPjPi.exit267, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit267:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i265, %254, %_ZL17stbi__zlib_flushfPhPjPi.exit240
@@ -1300,7 +1300,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i281:                ; preds = %328, %.thread.i278,
   store i8 %330, ptr %335, align 1
   %336 = lshr i32 %.18558, 8
   %337 = add nsw i32 %.18, -8
-  %338 = icmp sgt i32 %.18, 15
+  %338 = icmp samesign ugt i32 %.18, 15
   br i1 %338, label %.lr.ph.i275, label %_ZL17stbi__zlib_flushfPhPjPi.exit283, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit283:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i281, %_ZL17stbi__zlib_bitrevii.exit272
@@ -1381,7 +1381,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i292:                ; preds = %370, %.thread.i289,
   store i8 %372, ptr %377, align 1
   %378 = lshr i32 %.20560, 8
   %379 = add nsw i32 %.20, -8
-  %380 = icmp sgt i32 %.20, 15
+  %380 = icmp samesign ugt i32 %.20, 15
   br i1 %380, label %.lr.ph.i286, label %_ZL17stbi__zlib_flushfPhPjPi.exit294, !llvm.loop !15
 
 .thread579:                                       ; preds = %_ZL17stbi__zlib_countmPhS_i.exit228, %_ZL13stbi__sbgrowfPPvii.exit217
@@ -1469,7 +1469,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i308:                ; preds = %414, %.thread.i305,
   store i8 %416, ptr %421, align 1
   %422 = lshr i32 %.22562, 8
   %423 = add nsw i32 %.22, -8
-  %424 = icmp sgt i32 %.22, 15
+  %424 = icmp samesign ugt i32 %.22, 15
   br i1 %424, label %.lr.ph.i302, label %_ZL17stbi__zlib_flushfPhPjPi.exit294, !llvm.loop !15
 
 425:                                              ; preds = %.thread579
@@ -1551,7 +1551,7 @@ _ZL13stbi__sbgrowfPPvii.exit.i324:                ; preds = %455, %.thread.i321,
   store i8 %457, ptr %462, align 1
   %463 = lshr i32 %.24564, 8
   %464 = add nsw i32 %.24, -8
-  %465 = icmp sgt i32 %.24, 15
+  %465 = icmp samesign ugt i32 %.24, 15
   br i1 %465, label %.lr.ph.i318, label %_ZL17stbi__zlib_flushfPhPjPi.exit294, !llvm.loop !15
 
 _ZL17stbi__zlib_flushfPhPjPi.exit294:             ; preds = %_ZL13stbi__sbgrowfPPvii.exit.i292, %_ZL13stbi__sbgrowfPPvii.exit.i324, %_ZL13stbi__sbgrowfPPvii.exit.i308, %_ZL17stbi__zlib_bitrevii.exit299, %_ZL17stbi__zlib_bitrevii.exit315, %339, %_ZL17stbi__zlib_flushfPhPjPi.exit283

@@ -632,16 +632,16 @@ _ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i: ; preds
   %30 = load ptr, ptr %29, align 8
   tail call void %30(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %.06.i4.i.i.i.i, i64 noundef %.pre-phi3.i.i.i) #7
   %.not.i5.i.i.i.i = icmp eq ptr %27, null
-  br i1 %.not.i5.i.i.i.i, label %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i, label %.lr.ph.i3.i.i.i.i, !llvm.loop !12
+  br i1 %.not.i5.i.i.i.i, label %.loopexit.loopexit.i.i.i.i, label %.lr.ph.i3.i.i.i.i, !llvm.loop !12
 
-_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i: ; preds = %.lr.ph.i3.i.i.i.i
-  %31 = load i64, ptr %10, align 8
+.loopexit.loopexit.i.i.i.i:                       ; preds = %.lr.ph.i3.i.i.i.i
+  %.pre.i.i.i.i = load i64, ptr %10, align 8
   br label %_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit
 
-_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit:      ; preds = %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i
-  %.sink.i.i.i.i = phi i64 [ %31, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit6.i.i.i.i ], [ %21, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i ]
+_ZN6PaddedI14PreservedMarksLm128EED2Ev.exit:      ; preds = %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i, %.loopexit.loopexit.i.i.i.i
+  %31 = phi i64 [ %.pre.i.i.i.i, %.loopexit.loopexit.i.i.i.i ], [ %21, %_ZN5StackI13PreservedMarkL8MEMFLAGS5EE13free_segmentsEPS0_.exit.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %.sink.i.i.i.i, ptr %32, align 8
+  store i64 %31, ptr %32, align 8
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

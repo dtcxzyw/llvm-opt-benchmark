@@ -15611,8 +15611,7 @@ _ZNSt6vectorI19ares_addr_port_nodeSaIS0_EEC2EmRKS1_.exit: ; preds = %for.body.i.
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
   %buf_.i133 = getelementptr inbounds nuw i8, ptr %ip, i64 16
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %ip, i64 24
-  %umax = tail call i32 @llvm.umax.i32(i32 %call42, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %call42 to i64
   br label %do.body53
 
 for.cond:                                         ; preds = %_ZN4node9Utf8ValueD2Ev.exit

@@ -508,7 +508,7 @@ define hidden range(i32 -36, 1) i32 @mbedtls_camellia_setkey_enc(ptr noundef cap
   store i32 %391, ptr %97, align 16, !tbaa !11
   %392 = xor i32 %388, %.val179
   store i32 %392, ptr %99, align 4, !tbaa !11
-  %393 = icmp ugt i32 %2, 128
+  %393 = icmp samesign ugt i32 %2, 128
   br i1 %393, label %.preheader199, label %551
 
 .preheader199:                                    ; preds = %250, %.preheader199

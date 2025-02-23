@@ -6388,7 +6388,7 @@ pmix_bfrops_base_tma_info_destruct.exit:          ; preds = %.lr.ph37, %39
 .lr.ph.i:                                         ; preds = %.lr.ph31, %.lr.ph.i
   %62 = phi ptr [ %64, %.lr.ph.i ], [ %61, %.lr.ph31 ]
   %.07.i = phi ptr [ %63, %.lr.ph.i ], [ %60, %.lr.ph31 ]
-  tail call void %62(ptr noundef %56) #23
+  tail call void %62(ptr noundef nonnull %56) #23
   %63 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %.not.i153 = icmp eq ptr %64, null

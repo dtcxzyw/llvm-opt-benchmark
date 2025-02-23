@@ -6085,16 +6085,16 @@ tailrecurse.i.i.i:                                ; preds = %10, %tailrecurse.i.
   %14 = add nsw i32 %.tr6.i.i.i, -1
   %15 = add nsw i32 %13, %accumulator.tr5.i.i.i
   %16 = icmp eq i32 %14, 0
-  br i1 %16, label %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i, label %tailrecurse.i.i.i
+  br i1 %16, label %tailrecurse.preheader.i.i.i, label %tailrecurse.i.i.i
 
-_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i: ; preds = %tailrecurse.i.i.i
+tailrecurse.preheader.i.i.i:                      ; preds = %tailrecurse.i.i.i
   %17 = sext i32 %11 to i64
   br label %tailrecurse.i.i5.i
 
-tailrecurse.i.i5.i:                               ; preds = %tailrecurse.i.i5.i, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i
-  %indvars.iv.i.i.i = phi i64 [ %17, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %indvars.iv.next.i.i.i, %tailrecurse.i.i5.i ]
-  %.tr1316.i.i.i = phi i32 [ 1, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %21, %tailrecurse.i.i5.i ]
-  %accumulator.tr14.i.i.i = phi i32 [ 0, %_ZN26ZIndexDistributorClaimTree23claim_level_start_indexEi.exit.i ], [ %22, %tailrecurse.i.i5.i ]
+tailrecurse.i.i5.i:                               ; preds = %tailrecurse.i.i5.i, %tailrecurse.preheader.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ %17, %tailrecurse.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %tailrecurse.i.i5.i ]
+  %.tr1316.i.i.i = phi i32 [ 1, %tailrecurse.preheader.i.i.i ], [ %21, %tailrecurse.i.i5.i ]
+  %accumulator.tr14.i.i.i = phi i32 [ 0, %tailrecurse.preheader.i.i.i ], [ %22, %tailrecurse.i.i5.i ]
   %18 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4
   %20 = mul nsw i32 %19, %.tr1316.i.i.i

@@ -133,7 +133,7 @@ define noundef i32 @_Z20gmx_fft_transpose_2dP9t_complexS0_ii(ptr noundef %0, ptr
   %.0200 = phi i32 [ %46, %45 ], [ 2, %.preheader252.preheader ]
   %48 = mul nuw nsw i32 %3, %2
   %49 = add nsw i32 %48, -1
-  %50 = sext i32 %49 to i64
+  %50 = zext nneg i32 %49 to i64
   br label %.loopexit266
 
 .loopexit266.loopexit:                            ; preds = %._crit_edge, %126

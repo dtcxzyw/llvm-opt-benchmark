@@ -987,7 +987,7 @@ define dso_local i64 @bitmap_find_next_zero_area_off(ptr noundef %0, i64 noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #6 align 16 {
   %6 = icmp eq ptr %0, %1
-  br i1 %6, label %.loopexit, label %7
+  br i1 %6, label %.loopexit9, label %7
 
 7:                                                ; preds = %5
   %8 = zext i32 %4 to i64
@@ -996,7 +996,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = and i64 %10, 1073741816
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %11, i1 false)
   %12 = icmp ult i32 %4, 64
-  br i1 %12, label %.loopexit21, label %13
+  br i1 %12, label %.loopexit10, label %13
 
 13:                                               ; preds = %7
   %14 = lshr i32 %4, 6
@@ -1013,16 +1013,16 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %23 = add i32 %18, %22
   %24 = add nuw nsw i64 %17, 1
   %25 = icmp eq i64 %24, %15
-  br i1 %25, label %.loopexit21, label %16, !llvm.loop !22
+  br i1 %25, label %.loopexit10, label %16, !llvm.loop !22
 
-.loopexit21:                                      ; preds = %16, %7
+.loopexit10:                                      ; preds = %16, %7
   %26 = phi i64 [ 0, %7 ], [ %15, %16 ]
   %27 = phi i32 [ 0, %7 ], [ %23, %16 ]
   %28 = and i32 %4, 63
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %41, label %30
 
-30:                                               ; preds = %.loopexit21
+30:                                               ; preds = %.loopexit10
   %31 = getelementptr i64, ptr %3, i64 %26
   %32 = load i64, ptr %31, align 8
   %33 = sub i32 0, %4
@@ -1035,16 +1035,16 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %40 = add i32 %27, %39
   br label %41
 
-41:                                               ; preds = %30, %.loopexit21
-  %42 = phi i32 [ %40, %30 ], [ %27, %.loopexit21 ]
-  %.fr12 = freeze i32 %42
+41:                                               ; preds = %30, %.loopexit10
+  %42 = phi i32 [ %40, %30 ], [ %27, %.loopexit10 ]
+  %.fr14 = freeze i32 %42
   %43 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef 0) #12
   %44 = trunc i64 %43 to i32
   %45 = icmp ugt i32 %4, %44
-  br i1 %45, label %.lr.ph, label %.loopexit
+  br i1 %45, label %.lr.ph, label %.loopexit9
 
 .lr.ph:                                           ; preds = %41
-  %46 = icmp eq i32 %.fr12, 0
+  %46 = icmp eq i32 %.fr14, 0
   br i1 %46, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
@@ -1059,7 +1059,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 53:                                               ; preds = %.lr.ph.split.us
   %54 = icmp ult i32 %47, 64
-  br i1 %54, label %.loopexit18, label %55
+  br i1 %54, label %.loopexit.us, label %55
 
 55:                                               ; preds = %53
   %56 = lshr i64 %48, 6
@@ -1073,15 +1073,15 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %62 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %61) #11, !srcloc !21
   %63 = add nuw nsw i64 %59, 1
   %64 = icmp eq i64 %63, %57
-  br i1 %64, label %.loopexit18, label %58, !llvm.loop !22
+  br i1 %64, label %.loopexit.us, label %58, !llvm.loop !22
 
-.loopexit18:                                      ; preds = %58, %53
+.loopexit.us:                                     ; preds = %58, %53
   %65 = phi i64 [ 0, %53 ], [ %57, %58 ]
   %66 = and i32 %47, 63
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %.thread.us, label %68
 
-68:                                               ; preds = %.loopexit18
+68:                                               ; preds = %.loopexit.us
   %69 = getelementptr i64, ptr %2, i64 %65
   %70 = load i64, ptr %69, align 8
   %71 = sub i64 0, %48
@@ -1091,14 +1091,14 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %75 = tail call i64 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight64\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntq $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %74) #11, !srcloc !21
   br label %.thread.us
 
-.thread.us:                                       ; preds = %.loopexit18, %68, %.lr.ph.split.us
+.thread.us:                                       ; preds = %.loopexit.us, %68, %.lr.ph.split.us
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %0, i64 %49) #12, !srcloc !27
   %76 = add i64 %48, 1
   %77 = and i64 %76, 4294967295
   %78 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %77) #12
   %79 = trunc i64 %78 to i32
   %80 = icmp ugt i32 %4, %79
-  br i1 %80, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !28
+  br i1 %80, label %.lr.ph.split.us, label %.loopexit9, !llvm.loop !28
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
   %81 = phi i32 [ %131, %127 ], [ %44, %.lr.ph ]
@@ -1112,7 +1112,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 87:                                               ; preds = %.lr.ph.split
   %88 = icmp ult i32 %81, 64
-  br i1 %88, label %.loopexit19, label %89
+  br i1 %88, label %.loopexit, label %89
 
 89:                                               ; preds = %87
   %90 = lshr i64 %82, 6
@@ -1129,16 +1129,16 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %99 = add i32 %94, %98
   %100 = add nuw nsw i64 %93, 1
   %101 = icmp eq i64 %100, %91
-  br i1 %101, label %.loopexit19, label %92, !llvm.loop !22
+  br i1 %101, label %.loopexit, label %92, !llvm.loop !22
 
-.loopexit19:                                      ; preds = %92, %87
+.loopexit:                                        ; preds = %92, %87
   %102 = phi i64 [ 0, %87 ], [ %91, %92 ]
   %103 = phi i32 [ 0, %87 ], [ %99, %92 ]
   %104 = and i32 %81, 63
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %116, label %106
 
-106:                                              ; preds = %.loopexit19
+106:                                              ; preds = %.loopexit
   %107 = getelementptr i64, ptr %2, i64 %102
   %108 = load i64, ptr %107, align 8
   %109 = sub i64 0, %82
@@ -1150,8 +1150,8 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %115 = add i32 %103, %114
   br label %116
 
-116:                                              ; preds = %106, %.loopexit19
-  %117 = phi i32 [ %115, %106 ], [ %103, %.loopexit19 ]
+116:                                              ; preds = %106, %.loopexit
+  %117 = phi i32 [ %115, %106 ], [ %103, %.loopexit ]
   %118 = icmp slt i32 %117, 0
   br i1 %118, label %.thread, label %119
 
@@ -1160,7 +1160,7 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %127
 
 119:                                              ; preds = %116
-  %120 = urem i32 %117, %.fr12
+  %120 = urem i32 %117, %.fr14
   %121 = icmp ult i32 %120, %4
   br i1 %121, label %122, label %125
 
@@ -1180,16 +1180,16 @@ define dso_local void @bitmap_remap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %130 = tail call i64 @_find_next_bit(ptr noundef %1, i64 noundef %8, i64 noundef %129) #12
   %131 = trunc i64 %130 to i32
   %132 = icmp ugt i32 %4, %131
-  br i1 %132, label %.lr.ph.split, label %.loopexit, !llvm.loop !28
+  br i1 %132, label %.lr.ph.split, label %.loopexit9, !llvm.loop !28
 
-.loopexit:                                        ; preds = %127, %.thread.us, %41, %5
+.loopexit9:                                       ; preds = %127, %.thread.us, %41, %5
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #6 align 16 {
   %5 = icmp ult i32 %3, 64
-  br i1 %5, label %.loopexit13, label %6
+  br i1 %5, label %.loopexit7, label %6
 
 6:                                                ; preds = %4
   %7 = lshr i32 %3, 6
@@ -1206,16 +1206,16 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %16 = add i32 %11, %15
   %17 = add nuw nsw i64 %10, 1
   %18 = icmp eq i64 %17, %8
-  br i1 %18, label %.loopexit13, label %9, !llvm.loop !22
+  br i1 %18, label %.loopexit7, label %9, !llvm.loop !22
 
-.loopexit13:                                      ; preds = %9, %4
+.loopexit7:                                       ; preds = %9, %4
   %19 = phi i64 [ 0, %4 ], [ %8, %9 ]
   %20 = phi i32 [ 0, %4 ], [ %16, %9 ]
   %21 = and i32 %3, 63
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %34, label %23
 
-23:                                               ; preds = %.loopexit13
+23:                                               ; preds = %.loopexit7
   %24 = getelementptr i64, ptr %2, i64 %19
   %25 = load i64, ptr %24, align 8
   %26 = sub i32 0, %3
@@ -1228,8 +1228,8 @@ define dso_local i32 @bitmap_bitremap(i32 noundef %0, ptr noundef %1, ptr nounde
   %33 = add i32 %20, %32
   br label %34
 
-34:                                               ; preds = %23, %.loopexit13
-  %35 = phi i32 [ %33, %23 ], [ %20, %.loopexit13 ]
+34:                                               ; preds = %23, %.loopexit7
+  %35 = phi i32 [ %33, %23 ], [ %20, %.loopexit7 ]
   %36 = icmp ult i32 %0, %3
   br i1 %36, label %37, label %.thread
 

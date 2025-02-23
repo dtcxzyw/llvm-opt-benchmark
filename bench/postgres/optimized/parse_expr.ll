@@ -2336,7 +2336,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnul
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw %union.ListCell, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
-  %17 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %16)
+  %17 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %16)
   %18 = tail call ptr @lappend(ptr noundef %.04246, ptr noundef %17) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %19 = load i32, ptr %7, align 4
@@ -2368,7 +2368,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnul
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %27, align 8
   store i32 20, ptr %27, align 8
-  %36 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %34)
+  %36 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %34)
   store i32 %35, ptr %27, align 8
   %37 = tail call ptr @lappend(ptr noundef %.25159, ptr noundef %36) #9
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -2383,7 +2383,7 @@ define internal fastcc ptr @transformFuncCall(ptr noundef %0, ptr noundef nonnul
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %44 = load i32, ptr %43, align 8
-  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef %0, ptr noundef %42, ptr noundef %.1, ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef %44) #9
+  %45 = tail call ptr @ParseFuncOrColumn(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %.1, ptr noundef %4, ptr noundef nonnull %1, i1 noundef zeroext false, i32 noundef %44) #9
   ret ptr %45
 }
 
@@ -2978,14 +2978,14 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nounde
   store i32 33, ptr %36, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load ptr, ptr %37, align 8
-  %39 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %38)
+  %39 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %38)
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %39, ptr %40, align 8
-  %41 = tail call ptr @coerce_to_boolean(ptr noundef %0, ptr noundef %39, ptr noundef nonnull @.str.107) #9
+  %41 = tail call ptr @coerce_to_boolean(ptr noundef nonnull %0, ptr noundef %39, ptr noundef nonnull @.str.107) #9
   store ptr %41, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %43)
+  %44 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %43)
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %44, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 24
@@ -3064,15 +3064,15 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nounde
 
 90:                                               ; preds = %86, %._crit_edge
   %.089 = phi ptr [ %87, %86 ], [ %60, %._crit_edge ]
-  %91 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef nonnull %.089)
+  %91 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef nonnull %.089)
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %91, ptr %92, align 8
   %93 = tail call ptr @lcons(ptr noundef %91, ptr noundef %.085.lcssa) #9
-  %94 = tail call i32 @select_common_type(ptr noundef %0, ptr noundef %93, ptr noundef nonnull @.str.106, ptr noundef null) #9
+  %94 = tail call i32 @select_common_type(ptr noundef nonnull %0, ptr noundef %93, ptr noundef nonnull @.str.106, ptr noundef null) #9
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %94, ptr %95, align 4
   %96 = load ptr, ptr %92, align 8
-  %97 = tail call ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %96, i32 noundef %94, ptr noundef nonnull @.str.108) #9
+  %97 = tail call ptr @coerce_to_common_type(ptr noundef nonnull %0, ptr noundef %96, i32 noundef %94, ptr noundef nonnull @.str.108) #9
   store ptr %97, ptr %92, align 8
   %98 = load ptr, ptr %58, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
@@ -3097,7 +3097,7 @@ define internal fastcc noundef ptr @transformCaseExpr(ptr noundef %0, ptr nounde
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
-  %109 = tail call ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %108, i32 noundef %94, ptr noundef nonnull @.str.107) #9
+  %109 = tail call ptr @coerce_to_common_type(ptr noundef nonnull %0, ptr noundef %108, i32 noundef %94, ptr noundef nonnull @.str.107) #9
   store ptr %109, ptr %107, align 8
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %110 = load i32, ptr %99, align 4
@@ -3228,7 +3228,7 @@ define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr no
   br label %._crit_edge63
 
 ._crit_edge:                                      ; preds = %.lr.ph57
-  %14 = tail call i32 @select_common_type(ptr noundef %0, ptr noundef %24, ptr noundef nonnull @.str.113, ptr noundef null) #9
+  %14 = tail call i32 @select_common_type(ptr noundef nonnull %0, ptr noundef %24, ptr noundef nonnull @.str.113, ptr noundef null) #9
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %24, i64 4
@@ -3247,7 +3247,7 @@ define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr no
   %20 = load ptr, ptr %9, align 8
   %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call fastcc ptr @transformExprRecurse(ptr noundef %0, ptr noundef %22)
+  %23 = tail call fastcc ptr @transformExprRecurse(ptr noundef nonnull %0, ptr noundef %22)
   %24 = tail call ptr @lappend(ptr noundef %.05155, ptr noundef %23) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %8, align 4
@@ -3268,7 +3268,7 @@ define internal fastcc noundef ptr @transformCoalesceExpr(ptr noundef %0, ptr no
   %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv75
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %15, align 4
-  %33 = tail call ptr @coerce_to_common_type(ptr noundef %0, ptr noundef %31, i32 noundef %32, ptr noundef nonnull @.str.113) #9
+  %33 = tail call ptr @coerce_to_common_type(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %32, ptr noundef nonnull @.str.113) #9
   %34 = tail call ptr @lappend(ptr noundef %.0376069, ptr noundef %33) #9
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %35 = load i32, ptr %16, align 4

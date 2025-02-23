@@ -1072,7 +1072,7 @@ manifest_files_distance.exit:                     ; preds = %8
   %.155 = select i1 %32, i32 %.05477, i32 %spec.select68
   %35 = add i32 %.16075, 1
   %36 = zext i32 %35 to i64
-  %37 = icmp ugt i64 %25, %36
+  %37 = icmp samesign ugt i64 %25, %36
   br i1 %37, label %.lr.ph78, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph78, %1, %.preheader

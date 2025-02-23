@@ -215,9 +215,9 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
   %98 = icmp eq ptr %97, null
   br i1 %98, label %.critedge, label %getNextGISTSearchItem.exit.i
 
-.loopexit:                                        ; preds = %240
+.loopexit:                                        ; preds = %241
   %99 = load i16, ptr %46, align 2
-  %100 = icmp ult i16 %99, %244
+  %100 = icmp ult i16 %99, %245
   br i1 %100, label %._crit_edge, label %151, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
@@ -306,7 +306,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
   br label %.critedge
 
 151:                                              ; preds = %.lr.ph, %.loopexit
-  %152 = phi i16 [ %49, %.lr.ph ], [ %244, %.loopexit ]
+  %152 = phi i16 [ %49, %.lr.ph ], [ %245, %.loopexit ]
   %153 = phi i16 [ %48, %.lr.ph ], [ %99, %.loopexit ]
   %154 = load i8, ptr %51, align 2, !range !4, !noundef !5
   %155 = trunc nuw i8 %154 to i1
@@ -353,7 +353,7 @@ getNextGISTSearchItem.exit.i:                     ; preds = %63, %94
 .preheader119:                                    ; preds = %165, %169, %151
   br label %178
 
-178:                                              ; preds = %.preheader119, %240
+178:                                              ; preds = %.preheader119, %241
   %179 = load i32, ptr %55, align 4
   %.not78 = icmp eq i32 %179, -1
   br i1 %.not78, label %gistkillitems.exit, label %180
@@ -407,7 +407,7 @@ BufferGetPage.exit.i:                             ; preds = %198, %192
   %207 = getelementptr inbounds nuw i8, ptr %184, i64 56
   %208 = load i32, ptr %207, align 8
   %209 = icmp sgt i32 %208, 0
-  br i1 %209, label %.lr.ph.i, label %._crit_edge.thread.i
+  br i1 %209, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %210 = getelementptr inbounds nuw i8, ptr %184, i64 48
@@ -435,56 +435,56 @@ BufferGetPage.exit.i:                             ; preds = %198, %192
   %223 = load i32, ptr %207, align 8
   %224 = sext i32 %223 to i64
   %225 = icmp slt i64 %indvars.iv.next.i, %224
-  br i1 %225, label %214, label %._crit_edge.i, !llvm.loop !10
+  br i1 %225, label %214, label %226, !llvm.loop !10
 
-._crit_edge.i:                                    ; preds = %214
-  %226 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  %227 = load i16, ptr %226, align 4
-  %228 = zext i16 %227 to i64
-  %229 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %228
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 12
-  %231 = load i16, ptr %230, align 4
-  %232 = or i16 %231, 16
-  store i16 %232, ptr %230, align 4
+226:                                              ; preds = %214
+  %227 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
+  %228 = load i16, ptr %227, align 4
+  %229 = zext i16 %228 to i64
+  %230 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %229
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 12
+  %232 = load i16, ptr %231, align 4
+  %233 = or i16 %232, 16
+  store i16 %233, ptr %231, align 4
   tail call void @MarkBufferDirtyHint(i32 noundef %188, i1 noundef zeroext true) #8
-  br label %._crit_edge.thread.i
+  br label %._crit_edge.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
+._crit_edge.i:                                    ; preds = %226, %.preheader.i
   tail call void @UnlockReleaseBuffer(i32 noundef %188) #8
   store i32 0, ptr %207, align 8
   br label %gistkillitems.exit
 
-gistkillitems.exit:                               ; preds = %._crit_edge.thread.i, %212, %183, %180, %178
+gistkillitems.exit:                               ; preds = %._crit_edge.i, %212, %183, %180, %178
   %.val = load ptr, ptr %57, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  %234 = load ptr, ptr %233, align 8
-  %235 = icmp eq ptr %234, null
-  br i1 %235, label %.critedge, label %getNextGISTSearchItem.exit
+  %234 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  %235 = load ptr, ptr %234, align 8
+  %236 = icmp eq ptr %235, null
+  br i1 %236, label %.critedge, label %getNextGISTSearchItem.exit
 
 getNextGISTSearchItem.exit:                       ; preds = %gistkillitems.exit
-  %236 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #8
-  %.not79.not = icmp eq ptr %236, null
-  br i1 %.not79.not, label %.critedge, label %237
+  %237 = tail call ptr @pairingheap_remove_first(ptr noundef nonnull %.val) #8
+  %.not79.not = icmp eq ptr %237, null
+  br i1 %.not79.not, label %.critedge, label %238
 
-237:                                              ; preds = %getNextGISTSearchItem.exit
-  %238 = load volatile i32, ptr @InterruptPending, align 4
-  %.not80 = icmp eq i32 %238, 0
-  br i1 %.not80, label %240, label %239, !prof !7
+238:                                              ; preds = %getNextGISTSearchItem.exit
+  %239 = load volatile i32, ptr @InterruptPending, align 4
+  %.not80 = icmp eq i32 %239, 0
+  br i1 %.not80, label %241, label %240, !prof !7
 
-239:                                              ; preds = %237
+240:                                              ; preds = %238
   tail call void @ProcessInterrupts() #8
-  br label %240
+  br label %241
 
-240:                                              ; preds = %237, %239
-  %241 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  %242 = load i32, ptr %241, align 8
-  store i32 %242, ptr %55, align 4
-  %243 = getelementptr inbounds nuw i8, ptr %236, i64 56
-  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %236, ptr noundef nonnull %243, ptr noundef null, ptr noundef null)
-  tail call void @pfree(ptr noundef nonnull %236) #8
-  %244 = load i16, ptr %47, align 8
-  %245 = icmp eq i16 %244, 0
-  br i1 %245, label %178, label %.loopexit, !llvm.loop !8
+241:                                              ; preds = %238, %240
+  %242 = getelementptr inbounds nuw i8, ptr %237, i64 24
+  %243 = load i32, ptr %242, align 8
+  store i32 %243, ptr %55, align 4
+  %244 = getelementptr inbounds nuw i8, ptr %237, i64 56
+  tail call fastcc void @gistScanPage(ptr noundef %0, ptr noundef %237, ptr noundef nonnull %244, ptr noundef null, ptr noundef null)
+  tail call void @pfree(ptr noundef nonnull %237) #8
+  %245 = load i16, ptr %47, align 8
+  %246 = icmp eq i16 %245, 0
+  br i1 %246, label %178, label %.loopexit, !llvm.loop !8
 
 .critedge:                                        ; preds = %gistkillitems.exit, %getNextGISTSearchItem.exit, %94, %getNextGISTSearchItem.exit.i, %.thread36.i, %63, %9, %148
   %.0 = phi i1 [ true, %148 ], [ false, %9 ], [ true, %.thread36.i ], [ false, %63 ], [ false, %getNextGISTSearchItem.exit.i ], [ false, %94 ], [ false, %getNextGISTSearchItem.exit ], [ false, %gistkillitems.exit ]

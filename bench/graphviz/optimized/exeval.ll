@@ -1156,7 +1156,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %522 = getelementptr inbounds nuw [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv1129
   %523 = getelementptr inbounds nuw i8, ptr %.21023, i64 32
   %524 = load ptr, ptr %523, align 8, !tbaa !3
-  %525 = tail call fastcc ptr @eval(ptr noundef %0, ptr noundef %524, ptr noundef %2)
+  %525 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef %524, ptr noundef %2)
   store ptr %525, ptr %522, align 8, !tbaa !3
   %.2.in = getelementptr inbounds nuw i8, ptr %.21023, i64 40
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !3
@@ -1179,7 +1179,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %535 = load ptr, ptr %534, align 8, !tbaa !3
   %536 = getelementptr inbounds nuw i8, ptr %529, i64 40
   %537 = load ptr, ptr %536, align 8, !tbaa !3
-  %538 = call ptr %533(ptr noundef %0, ptr noundef %529, ptr noundef %535, ptr noundef %537, ptr noundef nonnull %8, i32 noundef -3, ptr noundef %531) #25
+  %538 = call ptr %533(ptr noundef nonnull %0, ptr noundef %529, ptr noundef %535, ptr noundef %537, ptr noundef nonnull %8, i32 noundef -3, ptr noundef %531) #25
   br label %.loopexit1005
 
 539:                                              ; preds = %13
@@ -1196,7 +1196,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %540 = getelementptr inbounds nuw [65 x %union.EX_STYPE], ptr %8, i64 0, i64 %indvars.iv
   %541 = getelementptr inbounds nuw i8, ptr %.31019, i64 32
   %542 = load ptr, ptr %541, align 8, !tbaa !3
-  %543 = tail call fastcc ptr @eval(ptr noundef %0, ptr noundef %542, ptr noundef %2)
+  %543 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef %542, ptr noundef %2)
   store ptr %543, ptr %540, align 8, !tbaa !3
   %.3.in = getelementptr inbounds nuw i8, ptr %.31019, i64 40
   %.3 = load ptr, ptr %.3.in, align 8, !tbaa !3
@@ -1220,7 +1220,7 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %554 = getelementptr inbounds nuw i8, ptr %547, i64 40
   %555 = load ptr, ptr %554, align 8, !tbaa !3
   %556 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %557 = call ptr %551(ptr noundef %0, ptr noundef %547, ptr noundef %553, ptr noundef %555, ptr noundef nonnull %556, i32 noundef -2, ptr noundef %549) #25
+  %557 = call ptr %551(ptr noundef nonnull %0, ptr noundef %547, ptr noundef %553, ptr noundef %555, ptr noundef nonnull %556, i32 noundef -2, ptr noundef %549) #25
   br label %.loopexit1005
 
 558:                                              ; preds = %13

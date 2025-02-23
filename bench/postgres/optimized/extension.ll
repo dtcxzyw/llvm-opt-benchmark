@@ -4581,7 +4581,7 @@ get_extension_schema.exit:                        ; preds = %35, %37
   %175 = load ptr, ptr %81, align 8
   %176 = call ptr @heap_modify_tuple(ptr noundef nonnull %76, ptr noundef %175, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #15
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %73, ptr noundef nonnull %177, ptr noundef %176) #15
+  call void @CatalogTupleUpdate(ptr noundef nonnull %73, ptr noundef nonnull %177, ptr noundef %176) #15
   br label %extension_config_remove.exit
 
 extension_config_remove.exit:                     ; preds = %112, %80, %107, %174

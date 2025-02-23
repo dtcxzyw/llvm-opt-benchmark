@@ -2460,18 +2460,7 @@ define hidden void @_ZN16BlockListBuilder10mark_loopsEv(ptr noundef nonnull alig
   call void @_ZN14ResourceBitMapC2Emb(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef 0, i1 noundef zeroext true) #19
   %20 = call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %16, i32 noundef 16) #19
   %21 = icmp sgt i32 %16, 0
-  br i1 %21, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread
-
-_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread: ; preds = %1
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %16, ptr %22, align 8
-  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %16, ptr %.sroa.4.0..sroa_idx22, align 4
-  %.sroa.7.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr %20, ptr %.sroa.7.0..sroa_idx23, align 8
-  %.sroa.10.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 0, ptr %.sroa.10.0..sroa_idx24, align 8
-  br label %._crit_edge
+  br i1 %21, label %.lr.ph.preheader.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit
 
 .lr.ph.preheader.i.i:                             ; preds = %1
   %wide.trip.count.i.i = zext nneg i32 %16 to i64
@@ -2479,35 +2468,46 @@ _ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread: ; preds = %1
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %23 = getelementptr inbounds nuw %class.ResourceBitMap, ptr %20, i64 %indvars.iv.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
+  %22 = getelementptr inbounds nuw %class.ResourceBitMap, ptr %20, i64 %indvars.iv.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit, label %.lr.ph.i.i, !llvm.loop !13
+  br i1 %exitcond.not.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i, !llvm.loop !13
 
-_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit:    ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %16, ptr %24, align 8
+_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit:    ; preds = %1
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %16, ptr %23, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %16, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %20, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 0, ptr %.sroa.10.0..sroa_idx, align 8
+  br label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %16, ptr %24, align 8
+  %.sroa.4.0..sroa_idx22 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %16, ptr %.sroa.4.0..sroa_idx22, align 4
+  %.sroa.7.0..sroa_idx23 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr %20, ptr %.sroa.7.0..sroa_idx23, align 8
+  %.sroa.10.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 0, ptr %.sroa.10.0..sroa_idx24, align 8
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit ], [ %indvars.iv.next, %.lr.ph ]
-  %25 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %25 = load ptr, ptr %.sroa.7.0..sroa_idx23, align 8
   %26 = getelementptr inbounds nuw %class.ResourceBitMap, ptr %25, i64 %indvars.iv
   call void @_ZN14GrowableBitMapI14ResourceBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16) %26, i64 noundef %18, i1 noundef zeroext true) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %.lr.ph, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread
-  %27 = phi ptr [ %22, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit.thread ], [ %24, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit
+  %27 = phi ptr [ %23, %_ZN13GrowableArrayI14ResourceBitMapED2Ev.exit ], [ %24, %.lr.ph ]
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 0, ptr %28, align 8
   %29 = load i32, ptr %15, align 8
@@ -17717,8 +17717,7 @@ _ZN12GraphBuilder17profile_argumentsEv.exit:      ; preds = %46
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 88
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef zeroext i1 %87(ptr noundef nonnull align 8 dereferenceable(16) %68) #19
-  %..i = select i1 %88, ptr %68, ptr null
-  %89 = getelementptr inbounds nuw i8, ptr %..i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load i64, ptr %91, align 8
@@ -17730,12 +17729,11 @@ _ZN12GraphBuilder17profile_argumentsEv.exit:      ; preds = %46
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 96
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef zeroext i1 %97(ptr noundef nonnull align 8 dereferenceable(16) %68) #19
-  %..i24 = select i1 %98, ptr %68, ptr null
   %99 = load i64, ptr @TypeProfileWidth, align 8
   %100 = trunc i64 %99 to i32
   %101 = shl i32 %100, 1
   %102 = or disjoint i32 %101, 1
-  %103 = getelementptr inbounds nuw i8, ptr %..i24, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = sext i32 %102 to i64

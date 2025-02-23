@@ -3748,7 +3748,7 @@ for.body138:                                      ; preds = %for.body138.lr.ph, 
   %indvars.iv271 = phi i64 [ 0, %for.body138.lr.ph ], [ %indvars.iv.next272, %for.body138 ]
   %arrayidx140 = getelementptr inbounds nuw i32, ptr %pKey32.0, i64 %indvars.iv271
   %33 = load i32, ptr %arrayidx140, align 4
-  %call141 = tail call i32 @udata_readInt32_75(ptr noundef %ds, i32 noundef %33)
+  %call141 = tail call i32 @udata_readInt32_75(ptr noundef nonnull %ds, i32 noundef %33)
   %34 = load ptr, ptr %rows142, align 8
   %arrayidx144 = getelementptr inbounds nuw %struct.Row, ptr %34, i64 %indvars.iv271
   store i32 %call141, ptr %arrayidx144, align 4
@@ -3770,7 +3770,7 @@ if.end153:                                        ; preds = %for.body121, %for.b
   br i1 %cmp.i239, label %if.end158, label %if.then157
 
 if.then157:                                       ; preds = %if.end153
-  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef %ds, ptr noundef nonnull @.str.17, i32 noundef %res, i32 noundef %count.0)
+  tail call void (ptr, ptr, ...) @udata_printError_75(ptr noundef nonnull %ds, ptr noundef nonnull @.str.17, i32 noundef %res, i32 noundef %count.0)
   br label %sw.epilog276
 
 if.end158:                                        ; preds = %if.end153
@@ -3803,7 +3803,7 @@ for.body167:                                      ; preds = %for.body167.lr.ph, 
   %idx.ext173 = sext i32 %42 to i64
   %add.ptr174 = getelementptr inbounds i16, ptr %pKey16.0, i64 %idx.ext173
   %add.ptr176 = getelementptr inbounds nuw i16, ptr %rKey16.0, i64 %indvars.iv276
-  %call177 = tail call noundef i32 %43(ptr noundef %ds, ptr noundef nonnull %add.ptr174, i32 noundef 2, ptr noundef %add.ptr176, ptr noundef nonnull %pErrorCode)
+  %call177 = tail call noundef i32 %43(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr174, i32 noundef 2, ptr noundef %add.ptr176, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
   %exitcond280.not = icmp eq i64 %indvars.iv.next277, %wide.trip.count279
   br i1 %exitcond280.not, label %for.end180, label %for.body167, !llvm.loop !13
@@ -3845,7 +3845,7 @@ for.body194:                                      ; preds = %for.body194.lr.ph, 
   %idx.ext200 = sext i32 %46 to i64
   %add.ptr201 = getelementptr inbounds i32, ptr %pKey32.0, i64 %idx.ext200
   %add.ptr203 = getelementptr inbounds nuw i32, ptr %rKey32.0, i64 %indvars.iv281
-  %call204 = tail call noundef i32 %47(ptr noundef %ds, ptr noundef %add.ptr201, i32 noundef 4, ptr noundef %add.ptr203, ptr noundef nonnull %pErrorCode)
+  %call204 = tail call noundef i32 %47(ptr noundef nonnull %ds, ptr noundef %add.ptr201, i32 noundef 4, ptr noundef %add.ptr203, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next282 = add nuw nsw i64 %indvars.iv281, 1
   %exitcond285.not = icmp eq i64 %indvars.iv.next282, %wide.trip.count284
   br i1 %exitcond285.not, label %for.end207, label %for.body194, !llvm.loop !14
@@ -3887,7 +3887,7 @@ for.body223:                                      ; preds = %for.body223.lr.ph, 
   %idx.ext229 = sext i32 %50 to i64
   %add.ptr230 = getelementptr inbounds i32, ptr %add.ptr62, i64 %idx.ext229
   %add.ptr232 = getelementptr inbounds nuw i32, ptr %r.0, i64 %indvars.iv286
-  %call233 = tail call noundef i32 %51(ptr noundef %ds, ptr noundef %add.ptr230, i32 noundef 4, ptr noundef %add.ptr232, ptr noundef nonnull %pErrorCode)
+  %call233 = tail call noundef i32 %51(ptr noundef nonnull %ds, ptr noundef %add.ptr230, i32 noundef 4, ptr noundef %add.ptr232, ptr noundef nonnull %pErrorCode)
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond290.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count289
   br i1 %exitcond290.not, label %for.end236, label %for.body223, !llvm.loop !15

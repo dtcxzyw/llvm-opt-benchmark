@@ -1536,7 +1536,7 @@ define void @dlatms_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .loopexit1286:                                    ; preds = %.lr.ph1345, %712
   %.181025.lcssa = phi i32 [ %indvars, %712 ], [ %.51343, %.lr.ph1345 ]
-  %711 = icmp sgt i64 %indvars.iv1628, 2
+  %711 = icmp samesign ugt i64 %indvars.iv1628, 2
   br i1 %711, label %712, label %._crit_edge1352.loopexit, !llvm.loop !30
 
 712:                                              ; preds = %.lr.ph1351, %.loopexit1286

@@ -241,8 +241,7 @@ define dso_local i32 @pnp_add_card(ptr noundef initializes((96, 104), (688, 696)
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit4, %6
-  %38 = phi i32 [ %4, %6 ], [ 0, %.loopexit4 ], [ 0, %.preheader ]
-  ret i32 %38
+  ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

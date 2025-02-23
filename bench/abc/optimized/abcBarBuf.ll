@@ -1421,7 +1421,7 @@ define ptr @Abc_NtkToBarBufs(ptr noundef %0) local_unnamed_addr #0 {
   %.val108.val = load ptr, ptr %22, align 8, !tbaa !29
   %23 = getelementptr inbounds nuw ptr, ptr %.val108.val, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !30
-  %25 = tail call ptr @Abc_NtkDupObj(ptr noundef %7, ptr noundef %24, i32 noundef 1) #10
+  %25 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %7, ptr noundef %24, i32 noundef 1) #10
   %.val105 = load ptr, ptr %24, align 8, !tbaa !41
   %26 = getelementptr i8, ptr %24, i64 48
   %.val106 = load ptr, ptr %26, align 8, !tbaa !54
@@ -1450,7 +1450,7 @@ define ptr @Abc_NtkToBarBufs(ptr noundef %0) local_unnamed_addr #0 {
   %.val110.val = load ptr, ptr %36, align 8, !tbaa !29
   %37 = getelementptr inbounds nuw ptr, ptr %.val110.val, i64 %indvars.iv141
   %38 = load ptr, ptr %37, align 8, !tbaa !30
-  %39 = tail call ptr @Abc_NtkDupObj(ptr noundef %7, ptr noundef %38, i32 noundef 1) #10
+  %39 = tail call ptr @Abc_NtkDupObj(ptr noundef nonnull %7, ptr noundef %38, i32 noundef 1) #10
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %.val109 = load ptr, ptr %19, align 8, !tbaa !63
   %40 = getelementptr i8, ptr %.val109, i64 4
@@ -2098,7 +2098,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %182 = tail call noalias dereferenceable_or_null(8000) ptr @malloc(i64 noundef 8000) #12
   %183 = getelementptr inbounds nuw i8, ptr %180, i64 8
   store ptr %182, ptr %183, align 8, !tbaa !29
-  %184 = tail call i32 @Abc_NtkCollectPiPos_int(ptr noundef null, ptr noundef %0, ptr noundef nonnull %176, ptr noundef nonnull %180)
+  %184 = tail call i32 @Abc_NtkCollectPiPos_int(ptr noundef null, ptr noundef nonnull %0, ptr noundef nonnull %176, ptr noundef nonnull %180)
   %.val = load i32, ptr %177, align 4, !tbaa !27
   %185 = icmp sgt i32 %.val, 0
   %.pre277 = load ptr, ptr %179, align 8, !tbaa !29
@@ -3851,17 +3851,17 @@ define ptr @Abc_NtkBarBufsToBuffers(ptr noundef %0) local_unnamed_addr #0 {
 .critedge2:                                       ; preds = %61, %55, %17, %22, %34, %44, %24
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %17, !llvm.loop !105
+  br i1 %exitcond.not, label %.critedge.thread, label %17, !llvm.loop !105
 
-.critedge:                                        ; preds = %.critedge2, %1
+.critedge:                                        ; preds = %1
   %.not.i = icmp eq ptr %.val46, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %74
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %.critedge.thread
 
-74:                                               ; preds = %.critedge
+.critedge.thread:                                 ; preds = %.critedge2, %.critedge
   tail call void @free(ptr noundef nonnull %.val46) #10
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %74
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %2) #10
   ret ptr %5
 }

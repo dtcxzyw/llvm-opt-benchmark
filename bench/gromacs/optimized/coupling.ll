@@ -2066,7 +2066,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %58 = fdiv float %56, %57
   %59 = getelementptr inbounds nuw [3 x [3 x float]], ptr %33, i64 0, i64 %indvars.iv106.i.i, i64 %indvars.iv106.i.i
   %60 = load float, ptr %59, align 4
-  %61 = fsub float %60, %.1.i
+  %61 = fsub float %60, %.02126.i
   %62 = fmul float %58, %61
   %63 = fdiv float %62, 3.000000e+00
   %64 = fsub float 1.000000e+00, %63
@@ -2182,7 +2182,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %143 = fdiv float %137, %142
   %144 = load float, ptr %128, align 4
   %145 = fadd float %.0.i.i, %144
-  %146 = fsub float %145, %.1.i
+  %146 = fsub float %145, %.02126.i
   %147 = fsub float %143, %146
   %148 = fmul float %135, %147
   %149 = fmul float %148, 5.000000e-01
@@ -2642,7 +2642,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %177 = fneg float %176
   %178 = getelementptr inbounds nuw [3 x [3 x float]], ptr %165, i64 0, i64 %indvars.iv110.i.i, i64 %indvars.iv110.i.i
   %179 = load float, ptr %178, align 4
-  %180 = fsub float %179, %.1.i
+  %180 = fsub float %179, %.02124.i
   %181 = fmul float %180, %177
   %182 = fdiv float %181, 3.000000e+00
   %183 = fpext float %182 to double
@@ -2713,7 +2713,7 @@ define weak_odr void @_Z38pressureCouplingCalculateScalingMatrixIL16PressureCoup
   %239 = load float, ptr %223, align 4
   %240 = fdiv float %238, %239
   %241 = fsub float %236, %240
-  %242 = fsub float %241, %.1.i
+  %242 = fsub float %241, %.02124.i
   %243 = fmul float %242, %235
   %244 = fdiv float %243, 3.000000e+00
   %245 = fpext float %244 to double

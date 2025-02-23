@@ -5247,7 +5247,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %321 = add nuw nsw i64 %.060325, 1
   %322 = zext i32 %320 to i64
   %323 = icmp samesign ult i64 %321, %322
-  br i1 %323, label %311, label %.critedge, !llvm.loop !56
+  br i1 %323, label %311, label %.critedge.thread, !llvm.loop !56
 
 .lr.ph323:                                        ; preds = %311, %.lr.ph323
   %.059321 = phi i64 [ %332, %.lr.ph323 ], [ 0, %311 ]
@@ -5276,15 +5276,15 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   store ptr %.sink, ptr %333, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge324, %112, %.lr.ph346, %.critedge.sink.split, %.loopexit247
-  %.sroa.42.4 = phi ptr [ %.sroa.42.7, %.loopexit247 ], [ %.sroa.42.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.42.3, %112 ], [ %.sroa.42.7, %._crit_edge324 ]
-  %.sroa.0195.4 = phi ptr [ %.sroa.0195.7, %.loopexit247 ], [ %.sroa.0195.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.0195.3, %112 ], [ %.sroa.0195.7, %._crit_edge324 ]
+.critedge:                                        ; preds = %112, %.lr.ph346, %.critedge.sink.split, %.loopexit247
+  %.sroa.42.4 = phi ptr [ %.sroa.42.7, %.loopexit247 ], [ %.sroa.42.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.42.3, %112 ]
+  %.sroa.0195.4 = phi ptr [ %.sroa.0195.7, %.loopexit247 ], [ %.sroa.0195.4.ph, %.critedge.sink.split ], [ null, %.lr.ph346 ], [ %.sroa.0195.3, %112 ]
   %.not.i.i.i150 = icmp eq ptr %.sroa.0180.1.lcssa, null
   br i1 %.not.i.i.i150, label %_ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %196, %.critedge
-  %.sroa.0195.4382 = phi ptr [ %.sroa.0195.4, %.critedge ], [ %.sroa.0195.3, %196 ]
-  %.sroa.42.4380 = phi ptr [ %.sroa.42.4, %.critedge ], [ %.sroa.42.3, %196 ]
+.critedge.thread:                                 ; preds = %._crit_edge324, %196, %.critedge
+  %.sroa.0195.4382 = phi ptr [ %.sroa.0195.4, %.critedge ], [ %.sroa.0195.3, %196 ], [ %.sroa.0195.7, %._crit_edge324 ]
+  %.sroa.42.4380 = phi ptr [ %.sroa.42.4, %.critedge ], [ %.sroa.42.3, %196 ], [ %.sroa.42.7, %._crit_edge324 ]
   %334 = ptrtoint ptr %.sroa.22.1.lcssa to i64
   %335 = ptrtoint ptr %.sroa.0180.1.lcssa to i64
   %336 = sub i64 %334, %335

@@ -2961,7 +2961,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @NCONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @certify_spkac(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef %8, ptr noundef %9, i64 noundef range(i64 4096, 4098) %10, i32 noundef range(i32 0, 2) %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, ptr noundef nonnull %16, i32 noundef range(i32 0, 2) %17, i64 noundef %18, i64 noundef %19, i32 noundef range(i32 0, 2) %20, i32 noundef %21, i64 noundef %22) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify_spkac(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef %8, ptr noundef %9, i64 noundef range(i64 4096, 4098) %10, i32 noundef range(i32 0, 2) %11, ptr noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, ptr noundef nonnull %16, i32 noundef range(i32 0, 2) %17, i64 noundef %18, i64 noundef %19, i32 noundef range(i32 0, 2) %20, i32 noundef %21, i64 noundef %22) unnamed_addr #0 {
   %24 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #12
   %25 = call ptr @CONF_load(ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull %24) #12
@@ -3122,7 +3122,7 @@ declare i64 @get_nameopt() local_unnamed_addr #3
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @certify_cert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull readonly captures(none) %10, ptr noundef %11, ptr noundef %12, i64 noundef range(i64 4096, 4098) %13, i32 noundef range(i32 0, 2) %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef range(i32 0, 2) %18, ptr noundef %19, ptr noundef nonnull %20, i32 noundef range(i32 0, 2) %21, i64 noundef %22, i64 noundef %23, i32 noundef range(i32 0, 2) %24, i32 noundef %25, i64 noundef %26) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify_cert(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull readonly captures(none) %10, ptr noundef %11, ptr noundef %12, i64 noundef range(i64 4096, 4098) %13, i32 noundef range(i32 0, 2) %14, ptr noundef %15, ptr noundef %16, i64 noundef %17, i32 noundef range(i32 0, 2) %18, ptr noundef %19, ptr noundef nonnull %20, i32 noundef range(i32 0, 2) %21, i64 noundef %22, i64 noundef %23, i32 noundef range(i32 0, 2) %24, i32 noundef %25, i64 noundef %26) unnamed_addr #0 {
   %28 = tail call ptr @load_cert_pass(ptr noundef nonnull %1, i32 noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef nonnull @.str.307) #12
   %29 = icmp eq ptr %28, null
   br i1 %29, label %59, label %30
@@ -3186,7 +3186,7 @@ define internal fastcc noundef i32 @certify_cert(ptr noundef nonnull writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @certify(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef %10, ptr noundef %11, i64 noundef range(i64 4096, 4098) %12, i32 noundef range(i32 0, 2) %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef range(i32 0, 2) %17, ptr noundef %18, ptr noundef nonnull %19, i32 noundef range(i32 0, 2) %20, i64 noundef %21, i64 noundef %22, i32 noundef range(i32 0, 2) %23, i32 noundef %24, i32 noundef range(i32 0, 2) %25, i64 noundef %26) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @certify(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull %8, ptr noundef nonnull readonly captures(none) %9, ptr noundef %10, ptr noundef %11, i64 noundef range(i64 4096, 4098) %12, i32 noundef range(i32 0, 2) %13, ptr noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef range(i32 0, 2) %17, ptr noundef %18, ptr noundef nonnull %19, i32 noundef range(i32 0, 2) %20, i64 noundef %21, i64 noundef %22, i32 noundef range(i32 0, 2) %23, i32 noundef %24, i32 noundef range(i32 0, 2) %25, i64 noundef %26) unnamed_addr #0 {
   %28 = tail call ptr @load_csr_autofmt(ptr noundef %1, i32 noundef %2, ptr noundef %7, ptr noundef nonnull @.str.239) #12
   %29 = icmp eq ptr %28, null
   br i1 %29, label %62, label %30
@@ -3911,7 +3911,7 @@ declare i32 @X509_REQ_check_private_key(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @do_X509_REQ_verify(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @do_body(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef %7, ptr noundef %8, i64 noundef range(i64 4096, 4098) %9, i32 noundef range(i32 0, 2) %10, ptr noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef range(i32 0, 2) %14, i32 noundef range(i32 0, 2) %15, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %18, i64 noundef %19, i64 noundef %20, i32 noundef range(i32 0, 2) %21, i32 noundef %22, i32 noundef range(i32 0, 2) %23, i64 noundef %24) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_body(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef %7, ptr noundef %8, i64 noundef range(i64 4096, 4098) %9, i32 noundef range(i32 0, 2) %10, ptr noundef %11, ptr noundef %12, i64 noundef %13, i32 noundef range(i32 0, 2) %14, i32 noundef range(i32 0, 2) %15, ptr noundef nonnull %16, ptr noundef %17, ptr noundef nonnull %18, i64 noundef %19, i64 noundef %20, i32 noundef range(i32 0, 2) %21, i32 noundef %22, i32 noundef range(i32 0, 2) %23, i64 noundef %24) unnamed_addr #0 {
   %26 = alloca [25 x i8], align 16
   %27 = alloca [6 x ptr], align 16
   %28 = alloca [25 x i8], align 16
@@ -4573,13 +4573,13 @@ select.unfold:                                    ; preds = %239, %173
   br i1 %334, label %.lr.ph469, label %._crit_edge470, !llvm.loop !70
 
 ._crit_edge470:                                   ; preds = %.lr.ph469, %.preheader
-  %335 = call i32 @X509_set_subject_name(ptr noundef %254, ptr noundef nonnull %323) #12
+  %335 = call i32 @X509_set_subject_name(ptr noundef nonnull %254, ptr noundef nonnull %323) #12
   %.not340 = icmp eq i32 %335, 0
   call void @X509_NAME_free(ptr noundef nonnull %323) #12
   br i1 %.not340, label %.thread397, label %336
 
 336:                                              ; preds = %._crit_edge470, %321
-  %337 = call ptr @X509_get_subject_name(ptr noundef %254) #12
+  %337 = call ptr @X509_get_subject_name(ptr noundef nonnull %254) #12
   %338 = call ptr @X509_NAME_oneline(ptr noundef %337, ptr noundef null, i32 noundef 0) #12
   %339 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store ptr %338, ptr %339, align 8, !tbaa !9
@@ -4742,14 +4742,14 @@ select.unfold:                                    ; preds = %239, %173
   %431 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %430, ptr noundef nonnull @.str.285) #12
   %432 = or i64 %19, 520
   %433 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %434 = call i32 @X509_print_ex(ptr noundef %433, ptr noundef %254, i64 noundef %20, i64 noundef %432) #12
+  %434 = call i32 @X509_print_ex(ptr noundef %433, ptr noundef nonnull %254, i64 noundef %20, i64 noundef %432) #12
   br label %435
 
 435:                                              ; preds = %429, %428
   %436 = load ptr, ptr @bio_err, align 8, !tbaa !19
   %437 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %436, ptr noundef nonnull @.str.286) #12
   %438 = load ptr, ptr @bio_err, align 8, !tbaa !19
-  %439 = call ptr @X509_get0_notAfter(ptr noundef %254) #12
+  %439 = call ptr @X509_get0_notAfter(ptr noundef nonnull %254) #12
   %440 = call i32 @ASN1_TIME_print_ex(ptr noundef %438, ptr noundef %439, i64 noundef %24) #12
   %.not346 = icmp eq i64 %.0258, 0
   br i1 %.not346, label %444, label %441
@@ -4793,7 +4793,7 @@ select.unfold:                                    ; preds = %239, %173
   br label %.thread397
 
 464:                                              ; preds = %458, %444
-  %465 = call ptr @X509_get0_pubkey(ptr noundef %254) #12
+  %465 = call ptr @X509_get0_pubkey(ptr noundef nonnull %254) #12
   %466 = call i32 @EVP_PKEY_missing_parameters(ptr noundef %465) #12
   %.not348 = icmp eq i32 %466, 0
   br i1 %.not348, label %471, label %467
@@ -4808,14 +4808,14 @@ select.unfold:                                    ; preds = %239, %173
   br label %471
 
 471:                                              ; preds = %469, %467, %464
-  %472 = call i32 @do_X509_sign(ptr noundef %254, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %29) #12
+  %472 = call i32 @do_X509_sign(ptr noundef nonnull %254, i32 noundef 0, ptr noundef nonnull %1, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %29) #12
   %.not350 = icmp eq i32 %472, 0
   br i1 %.not350, label %.thread397, label %473
 
 473:                                              ; preds = %471
   %474 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull @.str.291, ptr noundef nonnull @.str.202, i32 noundef 1906) #12
   store ptr %474, ptr %27, align 16, !tbaa !9
-  %475 = call ptr @X509_get0_notAfter(ptr noundef %254) #12
+  %475 = call ptr @X509_get0_notAfter(ptr noundef nonnull %254) #12
   %476 = load i32, ptr %475, align 8, !tbaa !58
   %477 = add nsw i32 %476, 1
   %478 = sext i32 %477 to i64

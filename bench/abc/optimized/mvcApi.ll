@@ -200,13 +200,13 @@ define void @Mvc_CoverMakeTautology(ptr noundef %0) local_unnamed_addr #7 {
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
   %.018.sink.i = phi ptr [ %4, %.lr.ph.i ], [ %3, %1 ]
   %4 = load ptr, ptr %.018.sink.i, align 8, !tbaa !26
-  tail call void @Mvc_CubeFree(ptr noundef %0, ptr noundef nonnull %.018.sink.i) #10
+  tail call void @Mvc_CubeFree(ptr noundef nonnull %0, ptr noundef nonnull %.018.sink.i) #10
   %.not15.i = icmp eq ptr %4, null
   br i1 %.not15.i, label %Mvc_CoverMakeEmpty.exit, label %.lr.ph.i, !llvm.loop !28
 
 Mvc_CoverMakeEmpty.exit:                          ; preds = %.lr.ph.i, %1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %5 = tail call ptr @Mvc_CubeAlloc(ptr noundef %0) #10
+  %5 = tail call ptr @Mvc_CubeAlloc(ptr noundef nonnull %0) #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 16777215

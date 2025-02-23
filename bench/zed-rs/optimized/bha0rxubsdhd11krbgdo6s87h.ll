@@ -326,8 +326,8 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   br label %.outer
 
 .outer:                                           ; preds = %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33", %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hbda1f04993030f31E.exit"
-  %.sroa.03.0.ph = phi i64 [ %174, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33" ], [ 0, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hbda1f04993030f31E.exit" ]
-  %.sroa.0.0.ph = phi i64 [ %122, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33" ], [ 0, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hbda1f04993030f31E.exit" ]
+  %.sroa.03.0.ph = phi i64 [ %171, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33" ], [ 0, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hbda1f04993030f31E.exit" ]
+  %.sroa.0.0.ph = phi i64 [ %119, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33" ], [ 0, %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$28atomic_load_head_and_len_all17hbda1f04993030f31E.exit" ]
   br label %32
 
 32:                                               ; preds = %.outer, %"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002.exit"
@@ -388,7 +388,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
 65:                                               ; preds = %42
   %66 = load atomic ptr, ptr %11 monotonic, align 8
   %67 = icmp eq ptr %66, null
-  br i1 %67, label %251, label %253
+  br i1 %67, label %252, label %254
 
 68:                                               ; preds = %49, %52
   %69 = load ptr, ptr %27, align 8, !nonnull !5, !align !24, !noundef !5
@@ -398,7 +398,7 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %73 = load ptr, ptr %72, align 8, !noundef !5
   call void %71(ptr noundef %73)
   store i64 2, ptr %0, align 8
-  br label %247
+  br label %244
 
 74:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -473,421 +473,421 @@ define hidden void @"_ZN117_$LT$futures_util..stream..futures_unordered..Futures
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 80
   %105 = atomicrmw xchg ptr %104, i8 0 seq_cst, align 1
   %106 = icmp eq i8 %105, 0
-  br i1 %106, label %107, label %113
+  br i1 %106, label %107, label %110
 
 107:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h8b33afa7df699a89E.exit"
   invoke void @_ZN4core9panicking5panic17hec978767ec2d35ffE(ptr noalias noundef nonnull readonly align 1 @anon.fc89843d0948d33b9eaafbfa649f3a82.3, i64 noundef 22, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fc89843d0948d33b9eaafbfa649f3a82.5) #40
-          to label %111 unwind label %.body31.thread129
+          to label %108 unwind label %247
 
-.body31.thread129:                                ; preds = %107
-  %lpad.loopexit.split-lp70130 = landingpad { ptr, i32 }
-          cleanup
-  call void @llvm.experimental.noalias.scope.decl(metadata !34)
-  call void @llvm.experimental.noalias.scope.decl(metadata !37)
-  %108 = load ptr, ptr %9, align 8, !alias.scope !40, !nonnull !5, !noundef !5
-  %109 = atomicrmw sub ptr %108, i64 1 release, align 8, !noalias !40
-  %110 = icmp eq i64 %109, 1
-  br i1 %110, label %250, label %.thread
-
-111:                                              ; preds = %166, %107
+108:                                              ; preds = %163, %107
   unreachable
 
-112:                                              ; preds = %.loopexit, %.loopexit.split-lp, %167
-  %.pn = phi { ptr, i32 } [ %168, %167 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+109:                                              ; preds = %.loopexit, %.loopexit.split-lp, %164
+  %.pn = phi { ptr, i32 } [ %165, %164 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #41
-          to label %.thread unwind label %248
+          to label %.thread unwind label %245
 
-.loopexit:                                        ; preds = %113
+.loopexit:                                        ; preds = %110
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %109
 
-.loopexit.split-lp:                               ; preds = %166
+.loopexit.split-lp:                               ; preds = %163
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %109
 
-113:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h8b33afa7df699a89E.exit"
+110:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h8b33afa7df699a89E.exit"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
-  %114 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
+  %111 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   store ptr %1, ptr %8, align 8
-  store ptr %114, ptr %28, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 97
-  store atomic i8 0, ptr %115 monotonic, align 1
-  %116 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  store ptr %111, ptr %28, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 97
+  store atomic i8 0, ptr %112 monotonic, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store ptr @anon.fc89843d0948d33b9eaafbfa649f3a82.7, ptr %7, align 8
-  store ptr %116, ptr %29, align 8
+  store ptr %113, ptr %29, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   store ptr %7, ptr %6, align 8
   store ptr %7, ptr %30, align 8
   store ptr null, ptr %31, align 8
-  %117 = load i64, ptr %80, align 8, !noalias !41, !noundef !5
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 16
-  %119 = invoke { i64, ptr } @"_ZN9workspace11persistence11WorkspaceDb22delete_workspace_by_id28_$u7b$$u7b$closure$u7d$$u7d$17h827d49841a9726edE.llvm.2029774997167018338"(ptr noundef nonnull align 8 %118, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
+  %114 = load i64, ptr %80, align 8, !noalias !34, !noundef !5
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 16
+  %116 = invoke { i64, ptr } @"_ZN9workspace11persistence11WorkspaceDb22delete_workspace_by_id28_$u7b$$u7b$closure$u7d$$u7d$17h827d49841a9726edE.llvm.2029774997167018338"(ptr noundef nonnull align 8 %115, ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc unwind label %.loopexit
 
-.noexc:                                           ; preds = %113
-  %120 = extractvalue { i64, ptr } %119, 0
-  %switch.i = icmp eq i64 %120, 0
+.noexc:                                           ; preds = %110
+  %117 = extractvalue { i64, ptr } %116, 0
+  %switch.i = icmp eq i64 %117, 0
   br i1 %switch.i, label %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit.thread", label %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit"
 
 "_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit.thread": ; preds = %.noexc
-  %121 = extractvalue { i64, ptr } %119, 1
+  %118 = extractvalue { i64, ptr } %116, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   store i64 1, ptr %0, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %121, ptr %.sroa.413.0..sroa_idx, align 8
+  store ptr %118, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %117, ptr %.sroa.514.0..sroa_idx, align 8
-  br label %125
+  store i64 %114, ptr %.sroa.514.0..sroa_idx, align 8
+  br label %122
 
 "_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit": ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %122 = add i64 %.sroa.0.0.ph, 1
-  %123 = load ptr, ptr %28, align 8, !noundef !5
+  %119 = add i64 %.sroa.0.0.ph, 1
+  %120 = load ptr, ptr %28, align 8, !noundef !5
   store ptr null, ptr %28, align 8
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %163, label %166
+
+122:                                              ; preds = %243, %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit.thread"
+  call void @llvm.experimental.noalias.scope.decl(metadata !38)
+  %123 = load ptr, ptr %28, align 8, !alias.scope !38, !noundef !5
+  store ptr null, ptr %28, align 8, !alias.scope !38
   %124 = icmp eq ptr %123, null
-  br i1 %124, label %166, label %169
+  br i1 %124, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit", label %125
 
-125:                                              ; preds = %246, %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit.thread"
-  call void @llvm.experimental.noalias.scope.decl(metadata !45)
-  %126 = load ptr, ptr %28, align 8, !alias.scope !45, !noundef !5
-  store ptr null, ptr %28, align 8, !alias.scope !45
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit", label %128
+125:                                              ; preds = %122
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !38
+  store ptr %123, ptr %5, align 8, !noalias !38
+  %126 = getelementptr inbounds nuw i8, ptr %123, i64 96
+  %127 = atomicrmw xchg ptr %126, i8 1 seq_cst, align 1, !noalias !38
+  %128 = load ptr, ptr %5, align 8, !noalias !38, !nonnull !5, !noundef !5
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 56
+  %130 = load i8, ptr %129, align 8, !range !25, !noalias !38, !noundef !5
+  %cond.i.i.i = icmp eq i8 %130, 3
+  br i1 %cond.i.i.i, label %131, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i"
 
-128:                                              ; preds = %125
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !45
-  store ptr %126, ptr %5, align 8, !noalias !45
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 96
-  %130 = atomicrmw xchg ptr %129, i8 1 seq_cst, align 1, !noalias !45
-  %131 = load ptr, ptr %5, align 8, !noalias !45, !nonnull !5, !noundef !5
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 56
-  %133 = load i8, ptr %132, align 8, !range !25, !noalias !45, !noundef !5
-  %cond.i.i.i = icmp eq i8 %133, 3
-  br i1 %cond.i.i.i, label %134, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i"
+131:                                              ; preds = %125
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 48
+  %133 = load ptr, ptr %132, align 8, !alias.scope !41, !noalias !38, !noundef !5
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %133, null
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i", label %134
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 48
-  %136 = load ptr, ptr %135, align 8, !alias.scope !48, !noalias !45, !noundef !5
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %136, null
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i", label %137
+134:                                              ; preds = %131
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6280cdf83c2a2301E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %132)
+          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i" unwind label %135, !noalias !38
 
-137:                                              ; preds = %134
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6280cdf83c2a2301E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %135)
-          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i" unwind label %138, !noalias !45
-
-138:                                              ; preds = %137
-  %139 = landingpad { ptr, i32 }
+135:                                              ; preds = %134
+  %136 = landingpad { ptr, i32 }
           cleanup
-  store i8 4, ptr %132, align 8, !noalias !45
-  call void @llvm.experimental.noalias.scope.decl(metadata !53)
-  call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %140 = load ptr, ptr %5, align 8, !alias.scope !59, !noalias !45, !nonnull !5, !noundef !5
-  %141 = atomicrmw sub ptr %140, i64 1 release, align 8, !noalias !60
-  %142 = icmp eq i64 %141, 1
-  br i1 %142, label %143, label %.body39
+  store i8 4, ptr %129, align 8, !noalias !38
+  call void @llvm.experimental.noalias.scope.decl(metadata !46)
+  call void @llvm.experimental.noalias.scope.decl(metadata !49)
+  %137 = load ptr, ptr %5, align 8, !alias.scope !52, !noalias !38, !nonnull !5, !noundef !5
+  %138 = atomicrmw sub ptr %137, i64 1 release, align 8, !noalias !53
+  %139 = icmp eq i64 %138, 1
+  br i1 %139, label %140, label %.body39
 
-143:                                              ; preds = %138
+140:                                              ; preds = %135
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.body39 unwind label %149, !noalias !45
+          to label %.body39 unwind label %146, !noalias !38
 
-"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i": ; preds = %137, %134, %128
-  %.not.i.i = icmp eq i8 %130, 0
-  store i8 4, ptr %132, align 8, !noalias !45
-  br i1 %.not.i.i, label %144, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
+"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i": ; preds = %134, %131, %125
+  %.not.i.i = icmp eq i8 %127, 0
+  store i8 4, ptr %129, align 8, !noalias !38
+  br i1 %.not.i.i, label %141, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
 
-144:                                              ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i"
-  call void @llvm.experimental.noalias.scope.decl(metadata !61)
-  call void @llvm.experimental.noalias.scope.decl(metadata !64)
-  %145 = load ptr, ptr %5, align 8, !alias.scope !67, !noalias !45, !nonnull !5, !noundef !5
-  %146 = atomicrmw sub ptr %145, i64 1 release, align 8, !noalias !68
-  %147 = icmp eq i64 %146, 1
-  br i1 %147, label %148, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
+141:                                              ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i"
+  call void @llvm.experimental.noalias.scope.decl(metadata !54)
+  call void @llvm.experimental.noalias.scope.decl(metadata !57)
+  %142 = load ptr, ptr %5, align 8, !alias.scope !60, !noalias !38, !nonnull !5, !noundef !5
+  %143 = atomicrmw sub ptr %142, i64 1 release, align 8, !noalias !61
+  %144 = icmp eq i64 %143, 1
+  br i1 %144, label %145, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
 
-148:                                              ; preds = %144
+145:                                              ; preds = %141
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit" unwind label %151
+          to label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit" unwind label %148
 
-149:                                              ; preds = %143
-  %150 = landingpad { ptr, i32 }
+146:                                              ; preds = %140
+  %147 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39, !noalias !45
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39, !noalias !38
   unreachable
 
-151:                                              ; preds = %148
-  %152 = landingpad { ptr, i32 }
+148:                                              ; preds = %145
+  %149 = landingpad { ptr, i32 }
           cleanup
   br label %.body39
 
-.body39:                                          ; preds = %138, %143, %151
-  %eh.lpad-body40 = phi { ptr, i32 } [ %152, %151 ], [ %139, %143 ], [ %139, %138 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !69)
-  %153 = load ptr, ptr %28, align 8, !alias.scope !72, !noundef !5
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread, label %155
+.body39:                                          ; preds = %135, %140, %148
+  %eh.lpad-body40 = phi { ptr, i32 } [ %149, %148 ], [ %136, %140 ], [ %136, %135 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !62)
+  %150 = load ptr, ptr %28, align 8, !alias.scope !65, !noundef !5
+  %151 = icmp eq ptr %150, null
+  br i1 %151, label %.thread, label %152
 
-155:                                              ; preds = %.body39
-  %156 = atomicrmw sub ptr %153, i64 1 release, align 8, !noalias !75
-  %157 = icmp eq i64 %156, 1
-  br i1 %157, label %158, label %.thread
+152:                                              ; preds = %.body39
+  %153 = atomicrmw sub ptr %150, i64 1 release, align 8, !noalias !68
+  %154 = icmp eq i64 %153, 1
+  br i1 %154, label %155, label %.thread
 
-158:                                              ; preds = %155
+155:                                              ; preds = %152
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
-          to label %.thread unwind label %164
+          to label %.thread unwind label %161
 
-"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i", %144, %148
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !45
-  %.pr = load ptr, ptr %28, align 8, !alias.scope !80
-  call void @llvm.experimental.noalias.scope.decl(metadata !83)
-  %159 = icmp eq ptr %.pr, null
-  br i1 %159, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit", label %160
+"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i", %141, %145
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !38
+  %.pr = load ptr, ptr %28, align 8, !alias.scope !73
+  call void @llvm.experimental.noalias.scope.decl(metadata !76)
+  %156 = icmp eq ptr %.pr, null
+  br i1 %156, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit", label %157
 
-160:                                              ; preds = %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
-  %161 = atomicrmw sub ptr %.pr, i64 1 release, align 8, !noalias !84
-  %162 = icmp eq i64 %161, 1
-  br i1 %162, label %163, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit"
+157:                                              ; preds = %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
+  %158 = atomicrmw sub ptr %.pr, i64 1 release, align 8, !noalias !77
+  %159 = icmp eq i64 %158, 1
+  br i1 %159, label %160, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit"
 
-163:                                              ; preds = %160
+160:                                              ; preds = %157
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit"
 
-164:                                              ; preds = %158
-  %165 = landingpad { ptr, i32 }
+161:                                              ; preds = %155
+  %162 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39
   unreachable
 
-166:                                              ; preds = %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit"
+163:                                              ; preds = %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit"
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.fc89843d0948d33b9eaafbfa649f3a82.9) #40
-          to label %111 unwind label %.loopexit.split-lp
+          to label %108 unwind label %.loopexit.split-lp
 
-167:                                              ; preds = %240
-  %168 = landingpad { ptr, i32 }
+164:                                              ; preds = %237
+  %165 = landingpad { ptr, i32 }
           cleanup
-  br label %112
+  br label %109
 
-169:                                              ; preds = %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit"
-  %170 = getelementptr inbounds nuw i8, ptr %123, i64 97
-  %171 = load atomic i8, ptr %170 monotonic, align 1
-  %172 = icmp ne i8 %171, 0
-  %173 = zext i1 %172 to i64
-  %174 = add nuw nsw i64 %.sroa.03.0.ph, %173
-  %175 = load ptr, ptr %8, align 8, !nonnull !5, !align !24, !noundef !5
-  %176 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %177 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %178 = atomicrmw xchg ptr %177, ptr %176 acq_rel, align 8
-  %179 = icmp eq ptr %178, null
-  br i1 %179, label %.critedge.i, label %180
+166:                                              ; preds = %"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE.exit"
+  %167 = getelementptr inbounds nuw i8, ptr %120, i64 97
+  %168 = load atomic i8, ptr %167 monotonic, align 1
+  %169 = icmp ne i8 %168, 0
+  %170 = zext i1 %169 to i64
+  %171 = add nuw nsw i64 %.sroa.03.0.ph, %170
+  %172 = load ptr, ptr %8, align 8, !nonnull !5, !align !24, !noundef !5
+  %173 = getelementptr inbounds nuw i8, ptr %120, i64 16
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = atomicrmw xchg ptr %174, ptr %173 acq_rel, align 8
+  %176 = icmp eq ptr %175, null
+  br i1 %176, label %.critedge.i, label %177
 
-180:                                              ; preds = %169
-  %181 = load ptr, ptr %175, align 8, !nonnull !5, !noundef !5
-  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  %183 = load ptr, ptr %182, align 8, !nonnull !5, !noundef !5
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %185 = getelementptr inbounds nuw i8, ptr %178, i64 48
-  br label %186
+177:                                              ; preds = %166
+  %178 = load ptr, ptr %172, align 8, !nonnull !5, !noundef !5
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  %180 = load ptr, ptr %179, align 8, !nonnull !5, !noundef !5
+  %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
+  %182 = getelementptr inbounds nuw i8, ptr %175, i64 48
+  br label %183
 
-186:                                              ; preds = %186, %180
-  %187 = load atomic ptr, ptr %185 acquire, align 8
-  %.not.i28 = icmp eq ptr %187, %184
-  br i1 %.not.i28, label %186, label %188
+183:                                              ; preds = %183, %177
+  %184 = load atomic ptr, ptr %182 acquire, align 8
+  %.not.i28 = icmp eq ptr %184, %181
+  br i1 %.not.i28, label %183, label %185
 
-188:                                              ; preds = %186
-  %189 = getelementptr inbounds nuw i8, ptr %178, i64 64
-  %190 = load i64, ptr %189, align 8, !noundef !5
-  %191 = add i64 %190, 1
-  %192 = getelementptr inbounds nuw i8, ptr %123, i64 80
-  store i64 %191, ptr %192, align 8
-  %193 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  store atomic ptr %178, ptr %193 release, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %178, i64 56
-  store ptr %176, ptr %194, align 8
+185:                                              ; preds = %183
+  %186 = getelementptr inbounds nuw i8, ptr %175, i64 64
+  %187 = load i64, ptr %186, align 8, !noundef !5
+  %188 = add i64 %187, 1
+  %189 = getelementptr inbounds nuw i8, ptr %120, i64 80
+  store i64 %188, ptr %189, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  store atomic ptr %175, ptr %190 release, align 8
+  %191 = getelementptr inbounds nuw i8, ptr %175, i64 56
+  store ptr %173, ptr %191, align 8
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
 
-.critedge.i:                                      ; preds = %169
-  %195 = getelementptr inbounds nuw i8, ptr %123, i64 80
-  store i64 1, ptr %195, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %123, i64 64
-  store atomic ptr null, ptr %196 release, align 8
+.critedge.i:                                      ; preds = %166
+  %192 = getelementptr inbounds nuw i8, ptr %120, i64 80
+  store i64 1, ptr %192, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  store atomic ptr null, ptr %193 release, align 8
   br label %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
 
-"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit": ; preds = %.critedge.i, %188
-  %197 = icmp samesign ugt i64 %174, 1
-  %198 = icmp eq i64 %122, %.sroa.0.0.i
-  %or.cond = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond, label %240, label %199
+"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit": ; preds = %.critedge.i, %185
+  %194 = icmp samesign ugt i64 %171, 1
+  %195 = icmp eq i64 %119, %.sroa.0.0.i
+  %or.cond = select i1 %194, i1 true, i1 %195
+  br i1 %or.cond, label %237, label %196
 
-199:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
-  call void @llvm.experimental.noalias.scope.decl(metadata !89)
-  %200 = load ptr, ptr %28, align 8, !alias.scope !89, !noundef !5
-  store ptr null, ptr %28, align 8, !alias.scope !89
-  %201 = icmp eq ptr %200, null
-  br i1 %201, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33", label %202
+196:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
+  call void @llvm.experimental.noalias.scope.decl(metadata !82)
+  %197 = load ptr, ptr %28, align 8, !alias.scope !82, !noundef !5
+  store ptr null, ptr %28, align 8, !alias.scope !82
+  %198 = icmp eq ptr %197, null
+  br i1 %198, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33", label %199
 
-202:                                              ; preds = %199
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !89
-  store ptr %200, ptr %4, align 8, !noalias !89
-  %203 = getelementptr inbounds nuw i8, ptr %200, i64 96
-  %204 = atomicrmw xchg ptr %203, i8 1 seq_cst, align 1, !noalias !89
-  %205 = load ptr, ptr %4, align 8, !noalias !89, !nonnull !5, !noundef !5
-  %206 = getelementptr inbounds nuw i8, ptr %205, i64 56
-  %207 = load i8, ptr %206, align 8, !range !25, !noalias !89, !noundef !5
-  %cond.i.i.i41 = icmp eq i8 %207, 3
-  br i1 %cond.i.i.i41, label %208, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42"
+199:                                              ; preds = %196
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !82
+  store ptr %197, ptr %4, align 8, !noalias !82
+  %200 = getelementptr inbounds nuw i8, ptr %197, i64 96
+  %201 = atomicrmw xchg ptr %200, i8 1 seq_cst, align 1, !noalias !82
+  %202 = load ptr, ptr %4, align 8, !noalias !82, !nonnull !5, !noundef !5
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 56
+  %204 = load i8, ptr %203, align 8, !range !25, !noalias !82, !noundef !5
+  %cond.i.i.i41 = icmp eq i8 %204, 3
+  br i1 %cond.i.i.i41, label %205, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42"
 
-208:                                              ; preds = %202
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 48
-  %210 = load ptr, ptr %209, align 8, !alias.scope !92, !noalias !89, !noundef !5
-  %.not.i.i.i.i.i.i.i45 = icmp eq ptr %210, null
-  br i1 %.not.i.i.i.i.i.i.i45, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42", label %211
+205:                                              ; preds = %199
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 48
+  %207 = load ptr, ptr %206, align 8, !alias.scope !85, !noalias !82, !noundef !5
+  %.not.i.i.i.i.i.i.i45 = icmp eq ptr %207, null
+  br i1 %.not.i.i.i.i.i.i.i45, label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42", label %208
 
-211:                                              ; preds = %208
-  invoke void @"_ZN4core3ptr115drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6280cdf83c2a2301E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %209)
-          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42" unwind label %212, !noalias !89
+208:                                              ; preds = %205
+  invoke void @"_ZN4core3ptr115drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h6280cdf83c2a2301E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %206)
+          to label %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42" unwind label %209, !noalias !82
 
-212:                                              ; preds = %211
-  %213 = landingpad { ptr, i32 }
+209:                                              ; preds = %208
+  %210 = landingpad { ptr, i32 }
           cleanup
-  store i8 4, ptr %206, align 8, !noalias !89
-  call void @llvm.experimental.noalias.scope.decl(metadata !97)
-  call void @llvm.experimental.noalias.scope.decl(metadata !100)
-  %214 = load ptr, ptr %4, align 8, !alias.scope !103, !noalias !89, !nonnull !5, !noundef !5
-  %215 = atomicrmw sub ptr %214, i64 1 release, align 8, !noalias !104
-  %216 = icmp eq i64 %215, 1
-  br i1 %216, label %217, label %.body48
+  store i8 4, ptr %203, align 8, !noalias !82
+  call void @llvm.experimental.noalias.scope.decl(metadata !90)
+  call void @llvm.experimental.noalias.scope.decl(metadata !93)
+  %211 = load ptr, ptr %4, align 8, !alias.scope !96, !noalias !82, !nonnull !5, !noundef !5
+  %212 = atomicrmw sub ptr %211, i64 1 release, align 8, !noalias !97
+  %213 = icmp eq i64 %212, 1
+  br i1 %213, label %214, label %.body48
 
-217:                                              ; preds = %212
+214:                                              ; preds = %209
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %.body48 unwind label %223, !noalias !89
+          to label %.body48 unwind label %220, !noalias !82
 
-"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42": ; preds = %211, %208, %202
-  %.not.i.i43 = icmp eq i8 %204, 0
-  store i8 4, ptr %206, align 8, !noalias !89
-  br i1 %.not.i.i43, label %218, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
+"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42": ; preds = %208, %205, %199
+  %.not.i.i43 = icmp eq i8 %201, 0
+  store i8 4, ptr %203, align 8, !noalias !82
+  br i1 %.not.i.i43, label %215, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
 
-218:                                              ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42"
-  call void @llvm.experimental.noalias.scope.decl(metadata !105)
-  call void @llvm.experimental.noalias.scope.decl(metadata !108)
-  %219 = load ptr, ptr %4, align 8, !alias.scope !111, !noalias !89, !nonnull !5, !noundef !5
-  %220 = atomicrmw sub ptr %219, i64 1 release, align 8, !noalias !112
-  %221 = icmp eq i64 %220, 1
-  br i1 %221, label %222, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
+215:                                              ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42"
+  call void @llvm.experimental.noalias.scope.decl(metadata !98)
+  call void @llvm.experimental.noalias.scope.decl(metadata !101)
+  %216 = load ptr, ptr %4, align 8, !alias.scope !104, !noalias !82, !nonnull !5, !noundef !5
+  %217 = atomicrmw sub ptr %216, i64 1 release, align 8, !noalias !105
+  %218 = icmp eq i64 %217, 1
+  br i1 %218, label %219, label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
 
-222:                                              ; preds = %218
+219:                                              ; preds = %215
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
-          to label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50" unwind label %225
+          to label %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50" unwind label %222
 
-223:                                              ; preds = %217
-  %224 = landingpad { ptr, i32 }
+220:                                              ; preds = %214
+  %221 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39, !noalias !89
+  call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39, !noalias !82
   unreachable
 
-225:                                              ; preds = %222
-  %226 = landingpad { ptr, i32 }
+222:                                              ; preds = %219
+  %223 = landingpad { ptr, i32 }
           cleanup
   br label %.body48
 
-.body48:                                          ; preds = %212, %217, %225
-  %eh.lpad-body49 = phi { ptr, i32 } [ %226, %225 ], [ %213, %217 ], [ %213, %212 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !113)
-  %227 = load ptr, ptr %28, align 8, !alias.scope !116, !noundef !5
-  %228 = icmp eq ptr %227, null
-  br i1 %228, label %.thread, label %229
+.body48:                                          ; preds = %209, %214, %222
+  %eh.lpad-body49 = phi { ptr, i32 } [ %223, %222 ], [ %210, %214 ], [ %210, %209 ]
+  call void @llvm.experimental.noalias.scope.decl(metadata !106)
+  %224 = load ptr, ptr %28, align 8, !alias.scope !109, !noundef !5
+  %225 = icmp eq ptr %224, null
+  br i1 %225, label %.thread, label %226
 
-229:                                              ; preds = %.body48
-  %230 = atomicrmw sub ptr %227, i64 1 release, align 8, !noalias !119
-  %231 = icmp eq i64 %230, 1
-  br i1 %231, label %232, label %.thread
+226:                                              ; preds = %.body48
+  %227 = atomicrmw sub ptr %224, i64 1 release, align 8, !noalias !112
+  %228 = icmp eq i64 %227, 1
+  br i1 %228, label %229, label %.thread
 
-232:                                              ; preds = %229
+229:                                              ; preds = %226
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
-          to label %.thread unwind label %238
+          to label %.thread unwind label %235
 
-"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42", %218, %222
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !89
-  %.pr66 = load ptr, ptr %28, align 8, !alias.scope !124
-  call void @llvm.experimental.noalias.scope.decl(metadata !127)
-  %233 = icmp eq ptr %.pr66, null
-  br i1 %233, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33", label %234
+"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50": ; preds = %"_ZN4core3ptr196drop_in_place$LT$core..option..Option$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h73282359be40c691E.llvm.10406448408695911002.exit.i.i42", %215, %219
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !82
+  %.pr72 = load ptr, ptr %28, align 8, !alias.scope !117
+  call void @llvm.experimental.noalias.scope.decl(metadata !120)
+  %230 = icmp eq ptr %.pr72, null
+  br i1 %230, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33", label %231
 
-234:                                              ; preds = %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
-  %235 = atomicrmw sub ptr %.pr66, i64 1 release, align 8, !noalias !128
-  %236 = icmp eq i64 %235, 1
-  br i1 %236, label %237, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33"
+231:                                              ; preds = %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
+  %232 = atomicrmw sub ptr %.pr72, i64 1 release, align 8, !noalias !121
+  %233 = icmp eq i64 %232, 1
+  br i1 %233, label %234, label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33"
 
-237:                                              ; preds = %234
+234:                                              ; preds = %231
   fence acquire
   call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28)
   br label %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33"
 
-238:                                              ; preds = %232
-  %239 = landingpad { ptr, i32 }
+235:                                              ; preds = %229
+  %236 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39
   unreachable
 
-"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33": ; preds = %237, %199, %234, %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
+"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit33": ; preds = %196, %234, %231, %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit50"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   br label %.outer
 
-240:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
-  %241 = load ptr, ptr %27, align 8, !nonnull !5, !align !24, !noundef !5
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %243 = load ptr, ptr %242, align 8, !nonnull !5, !noundef !5
-  %244 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %245 = load ptr, ptr %244, align 8, !noundef !5
-  invoke void %243(ptr noundef %245)
-          to label %246 unwind label %167
+237:                                              ; preds = %"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$4link17hff740541310de93dE.exit"
+  %238 = load ptr, ptr %27, align 8, !nonnull !5, !align !24, !noundef !5
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  %240 = load ptr, ptr %239, align 8, !nonnull !5, !noundef !5
+  %241 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %242 = load ptr, ptr %241, align 8, !noundef !5
+  invoke void %240(ptr noundef %242)
+          to label %243 unwind label %164
 
-246:                                              ; preds = %240
+243:                                              ; preds = %237
   store i64 2, ptr %0, align 8
-  br label %125
+  br label %122
 
-"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit": ; preds = %163, %125, %160, %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
+"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit": ; preds = %122, %160, %157, %"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520.exit"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  br label %247
+  br label %244
 
-247:                                              ; preds = %68, %253, %251, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit"
+244:                                              ; preds = %68, %254, %252, %"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE.exit"
   ret void
 
-248:                                              ; preds = %250, %112
-  %249 = landingpad { ptr, i32 }
+245:                                              ; preds = %251, %109
+  %246 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #39
   unreachable
 
-.thread:                                          ; preds = %.body48, %229, %232, %.body39, %155, %158, %.body31.thread129, %250, %112
-  %.pn2159 = phi { ptr, i32 } [ %.pn, %112 ], [ %lpad.loopexit.split-lp70130, %250 ], [ %lpad.loopexit.split-lp70130, %.body31.thread129 ], [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body49, %229 ], [ %eh.lpad-body49, %232 ], [ %eh.lpad-body40, %.body39 ], [ %eh.lpad-body40, %155 ], [ %eh.lpad-body40, %158 ]
+.thread:                                          ; preds = %247, %251, %229, %226, %.body48, %155, %152, %.body39, %109
+  %.pn2159 = phi { ptr, i32 } [ %.pn, %109 ], [ %eh.lpad-body40, %.body39 ], [ %eh.lpad-body40, %152 ], [ %eh.lpad-body40, %155 ], [ %eh.lpad-body49, %.body48 ], [ %eh.lpad-body49, %226 ], [ %eh.lpad-body49, %229 ], [ %lpad.thr_comm.split-lp, %251 ], [ %lpad.thr_comm.split-lp, %247 ]
   resume { ptr, i32 } %.pn2159
 
-250:                                              ; preds = %.body31.thread129
+247:                                              ; preds = %107
+  %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
+          cleanup
+  call void @llvm.experimental.noalias.scope.decl(metadata !126)
+  call void @llvm.experimental.noalias.scope.decl(metadata !129)
+  %248 = load ptr, ptr %9, align 8, !alias.scope !132, !nonnull !5, !noundef !5
+  %249 = atomicrmw sub ptr %248, i64 1 release, align 8, !noalias !132
+  %250 = icmp eq i64 %249, 1
+  br i1 %250, label %251, label %.thread
+
+251:                                              ; preds = %247
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h0da20c24fd31982bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %.thread unwind label %248
+          to label %.thread unwind label %245
 
-251:                                              ; preds = %65
-  %252 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 1, ptr %252, align 8
+252:                                              ; preds = %65
+  %253 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i8 1, ptr %253, align 8
   store i64 0, ptr %0, align 8
-  br label %247
+  br label %244
 
-253:                                              ; preds = %65
+254:                                              ; preds = %65
   store i64 2, ptr %0, align 8
-  br label %247
+  br label %244
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39808,105 +39808,105 @@ attributes #42 = { noreturn nounwind }
 !31 = !{!32}
 !32 = distinct !{!32, !33, !"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h8b33afa7df699a89E: argument 0"}
 !33 = distinct !{!33, !"_ZN12futures_util6stream17futures_unordered27FuturesUnordered$LT$Fut$GT$6unlink17h8b33afa7df699a89E"}
-!34 = !{!35}
-!35 = distinct !{!35, !36, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
-!36 = distinct !{!36, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
-!37 = !{!38}
-!38 = distinct !{!38, !39, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
-!39 = distinct !{!39, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
-!40 = !{!38, !35}
+!34 = !{!35, !37}
+!35 = distinct !{!35, !36, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE: argument 0"}
+!36 = distinct !{!36, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE"}
+!37 = distinct !{!37, !36, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE: argument 1"}
+!38 = !{!39}
+!39 = distinct !{!39, !40, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520: argument 0"}
+!40 = distinct !{!40, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520"}
 !41 = !{!42, !44}
-!42 = distinct !{!42, !43, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE: argument 0"}
-!43 = distinct !{!43, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE"}
-!44 = distinct !{!44, !43, !"_ZN109_$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hc0f2240d2091fe8fE: argument 1"}
-!45 = !{!46}
-!46 = distinct !{!46, !47, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520: argument 0"}
-!47 = distinct !{!47, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520"}
-!48 = !{!49, !51}
-!49 = distinct !{!49, !50, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520: argument 0"}
-!50 = distinct !{!50, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520"}
-!51 = distinct !{!51, !52, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E: argument 0"}
-!52 = distinct !{!52, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E"}
-!53 = !{!54}
-!54 = distinct !{!54, !55, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
-!55 = distinct !{!55, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
-!56 = !{!57}
-!57 = distinct !{!57, !58, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
-!58 = distinct !{!58, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
-!59 = !{!57, !54}
-!60 = !{!57, !54, !46}
-!61 = !{!62}
-!62 = distinct !{!62, !63, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
-!63 = distinct !{!63, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
-!64 = !{!65}
-!65 = distinct !{!65, !66, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
-!66 = distinct !{!66, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
-!67 = !{!65, !62}
-!68 = !{!65, !62, !46}
-!69 = !{!70}
-!70 = distinct !{!70, !71, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
-!71 = distinct !{!71, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
-!72 = !{!70, !73}
-!73 = distinct !{!73, !74, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE: argument 0"}
-!74 = distinct !{!74, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE"}
-!75 = !{!76, !78, !70}
-!76 = distinct !{!76, !77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
-!77 = distinct !{!77, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
-!78 = distinct !{!78, !79, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
-!79 = distinct !{!79, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
-!80 = !{!81, !73}
-!81 = distinct !{!81, !82, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
-!82 = distinct !{!82, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
-!83 = !{!81}
-!84 = !{!85, !87, !81}
-!85 = distinct !{!85, !86, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
-!86 = distinct !{!86, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
-!87 = distinct !{!87, !88, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
-!88 = distinct !{!88, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
-!89 = !{!90}
-!90 = distinct !{!90, !91, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520: argument 0"}
-!91 = distinct !{!91, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520"}
-!92 = !{!93, !95}
-!93 = distinct !{!93, !94, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520: argument 0"}
-!94 = distinct !{!94, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520"}
-!95 = distinct !{!95, !96, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E: argument 0"}
-!96 = distinct !{!96, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E"}
-!97 = !{!98}
-!98 = distinct !{!98, !99, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
-!99 = distinct !{!99, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
-!100 = !{!101}
-!101 = distinct !{!101, !102, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
-!102 = distinct !{!102, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
-!103 = !{!101, !98}
-!104 = !{!101, !98, !90}
-!105 = !{!106}
-!106 = distinct !{!106, !107, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
-!107 = distinct !{!107, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
-!108 = !{!109}
-!109 = distinct !{!109, !110, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
-!110 = distinct !{!110, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
-!111 = !{!109, !106}
-!112 = !{!109, !106, !90}
-!113 = !{!114}
-!114 = distinct !{!114, !115, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
-!115 = distinct !{!115, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
-!116 = !{!114, !117}
-!117 = distinct !{!117, !118, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE: argument 0"}
-!118 = distinct !{!118, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE"}
-!119 = !{!120, !122, !114}
-!120 = distinct !{!120, !121, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
-!121 = distinct !{!121, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
-!122 = distinct !{!122, !123, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
-!123 = distinct !{!123, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
-!124 = !{!125, !117}
-!125 = distinct !{!125, !126, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
-!126 = distinct !{!126, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
-!127 = !{!125}
-!128 = !{!129, !131, !125}
-!129 = distinct !{!129, !130, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
-!130 = distinct !{!130, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
-!131 = distinct !{!131, !132, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
-!132 = distinct !{!132, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
+!42 = distinct !{!42, !43, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520: argument 0"}
+!43 = distinct !{!43, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520"}
+!44 = distinct !{!44, !45, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E: argument 0"}
+!45 = distinct !{!45, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E"}
+!46 = !{!47}
+!47 = distinct !{!47, !48, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
+!48 = distinct !{!48, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
+!49 = !{!50}
+!50 = distinct !{!50, !51, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
+!51 = distinct !{!51, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
+!52 = !{!50, !47}
+!53 = !{!50, !47, !39}
+!54 = !{!55}
+!55 = distinct !{!55, !56, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
+!56 = distinct !{!56, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
+!57 = !{!58}
+!58 = distinct !{!58, !59, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
+!59 = distinct !{!59, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
+!60 = !{!58, !55}
+!61 = !{!58, !55, !39}
+!62 = !{!63}
+!63 = distinct !{!63, !64, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
+!64 = distinct !{!64, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
+!65 = !{!63, !66}
+!66 = distinct !{!66, !67, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE: argument 0"}
+!67 = distinct !{!67, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE"}
+!68 = !{!69, !71, !63}
+!69 = distinct !{!69, !70, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
+!70 = distinct !{!70, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
+!71 = distinct !{!71, !72, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
+!72 = distinct !{!72, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
+!73 = !{!74, !66}
+!74 = distinct !{!74, !75, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
+!75 = distinct !{!75, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
+!76 = !{!74}
+!77 = !{!78, !80, !74}
+!78 = distinct !{!78, !79, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
+!79 = distinct !{!79, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
+!80 = distinct !{!80, !81, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
+!81 = distinct !{!81, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
+!82 = !{!83}
+!83 = distinct !{!83, !84, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520: argument 0"}
+!84 = distinct !{!84, !"_ZN186_$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$Fut$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd272d1fdb109a32bE.llvm.6844594870300039520"}
+!85 = !{!86, !88}
+!86 = distinct !{!86, !87, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520: argument 0"}
+!87 = distinct !{!87, !"_ZN4core3ptr474drop_in_place$LT$futures_util..future..future..map..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h5e619fe26fa1dbd5E.llvm.6844594870300039520"}
+!88 = distinct !{!88, !89, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E: argument 0"}
+!89 = distinct !{!89, !"_ZN4core3ptr469drop_in_place$LT$futures_util..future..future..Map$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$C$sqlez..thread_safe_connection..ThreadSafeConnection$LT$workspace..persistence..WorkspaceDb$GT$..write$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$C$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h2e3a45e014e51176E"}
+!90 = !{!91}
+!91 = distinct !{!91, !92, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
+!92 = distinct !{!92, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
+!93 = !{!94}
+!94 = distinct !{!94, !95, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
+!95 = distinct !{!95, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
+!96 = !{!94, !91}
+!97 = !{!94, !91, !83}
+!98 = !{!99}
+!99 = distinct !{!99, !100, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
+!100 = distinct !{!100, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
+!101 = !{!102}
+!102 = distinct !{!102, !103, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
+!103 = distinct !{!103, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
+!104 = !{!102, !99}
+!105 = !{!102, !99, !83}
+!106 = !{!107}
+!107 = distinct !{!107, !108, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
+!108 = distinct !{!108, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
+!109 = !{!107, !110}
+!110 = distinct !{!110, !111, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE: argument 0"}
+!111 = distinct !{!111, !"_ZN4core3ptr309drop_in_place$LT$$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$Fut$GT$$u20$as$u20$futures_core..stream..Stream$GT$..poll_next..Bomb$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h142b8ac32cd40caaE"}
+!112 = !{!113, !115, !107}
+!113 = distinct !{!113, !114, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
+!114 = distinct !{!114, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
+!115 = distinct !{!115, !116, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
+!116 = distinct !{!116, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
+!117 = !{!118, !110}
+!118 = distinct !{!118, !119, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520: argument 0"}
+!119 = distinct !{!119, !"_ZN4core3ptr279drop_in_place$LT$core..option..Option$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$$GT$17h5bd8c59440f3e234E.llvm.6844594870300039520"}
+!120 = !{!118}
+!121 = !{!122, !124, !118}
+!122 = distinct !{!122, !123, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520: argument 0"}
+!123 = distinct !{!123, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.6844594870300039520"}
+!124 = distinct !{!124, !125, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520: argument 0"}
+!125 = distinct !{!125, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.6844594870300039520"}
+!126 = !{!127}
+!127 = distinct !{!127, !128, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002: argument 0"}
+!128 = distinct !{!128, !"_ZN4core3ptr251drop_in_place$LT$alloc..sync..Arc$LT$futures_util..stream..futures_unordered..task..Task$LT$futures_util..stream..futures_ordered..OrderWrapper$LT$workspace..persistence..WorkspaceDb..delete_workspace_by_id..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17ha32748d986423cb7E.llvm.10406448408695911002"}
+!129 = !{!130}
+!130 = distinct !{!130, !131, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
+!131 = distinct !{!131, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}
+!132 = !{!130, !127}
 !133 = !{!134, !136}
 !134 = distinct !{!134, !135, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002: argument 0"}
 !135 = distinct !{!135, !"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6b7409057141f3ebE.llvm.10406448408695911002"}

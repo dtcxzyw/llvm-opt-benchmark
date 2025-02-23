@@ -883,8 +883,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8WasmEdge6Loader6Loader17loadModuleInBoundERNS_3AST6ModuleESt8optionalImE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cxx20::expected") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((304, 305)) %1, ptr noundef nonnull align 8 dereferenceable(705) %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-.split:
-  %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
   %7 = alloca %"struct.spdlog::source_loc", align 8
   %8 = alloca %"struct.spdlog::source_loc", align 8
@@ -902,712 +900,713 @@ define void @_ZN8WasmEdge6Loader6Loader17loadModuleInBoundERNS_3AST6ModuleESt8op
   %20 = alloca %"struct.spdlog::source_loc", align 8
   %21 = alloca %"struct.spdlog::source_loc", align 8
   %22 = alloca %"struct.spdlog::source_loc", align 8
-  %23 = alloca %"class.cxx20::expected.33", align 4
-  %24 = alloca %"class.cxx20::unexpected", align 4
-  %25 = alloca %"class.WasmEdge::ErrCode", align 4
-  %26 = alloca %"class.cxx20::unexpected", align 4
-  %27 = alloca %"class.WasmEdge::ErrCode", align 4
-  %28 = alloca %"class.cxx20::expected", align 4
-  %29 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %30 = alloca %"class.cxx20::expected", align 4
-  %31 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %32 = alloca %"class.cxx20::expected", align 4
-  %33 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %34 = alloca %"class.cxx20::expected", align 4
-  %35 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %36 = alloca %"class.cxx20::expected", align 4
-  %37 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %38 = alloca %"class.cxx20::expected", align 4
-  %39 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %40 = alloca %"class.cxx20::expected", align 4
-  %41 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %42 = alloca %"class.cxx20::expected", align 4
-  %43 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %44 = alloca %"class.cxx20::expected", align 4
-  %45 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %46 = alloca %"class.cxx20::expected", align 4
-  %47 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %48 = alloca %"class.cxx20::expected", align 4
-  %49 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %50 = alloca %"class.cxx20::expected", align 4
-  %51 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %52 = alloca %"class.cxx20::unexpected", align 4
-  %53 = alloca %"class.WasmEdge::ErrCode", align 4
-  %54 = alloca %"class.cxx20::expected", align 4
-  %55 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %56 = alloca %"class.cxx20::unexpected", align 4
-  %57 = alloca %"class.WasmEdge::ErrCode", align 4
-  %58 = alloca %"class.cxx20::expected", align 4
-  %59 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %60 = alloca %"class.cxx20::unexpected", align 4
-  %61 = alloca %"class.WasmEdge::ErrCode", align 4
-  %62 = alloca i32, align 4
-  %63 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %64 = alloca i32, align 4
-  %65 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %68 = load i64, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  store i8 0, ptr %69, align 8
-  %70 = trunc i8 %4 to i1
-  %71 = icmp eq i64 %3, 0
-  %or.cond99.not109 = select i1 %70, i1 %71, i1 false
-  br i1 %or.cond99.not109, label %.loopexit, label %.critedge.lr.ph
+  %23 = alloca %"struct.spdlog::source_loc", align 8
+  %24 = alloca %"class.cxx20::expected.33", align 4
+  %25 = alloca %"class.cxx20::unexpected", align 4
+  %26 = alloca %"class.WasmEdge::ErrCode", align 4
+  %27 = alloca %"class.cxx20::unexpected", align 4
+  %28 = alloca %"class.WasmEdge::ErrCode", align 4
+  %29 = alloca %"class.cxx20::expected", align 4
+  %30 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %31 = alloca %"class.cxx20::expected", align 4
+  %32 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %33 = alloca %"class.cxx20::expected", align 4
+  %34 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %35 = alloca %"class.cxx20::expected", align 4
+  %36 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %37 = alloca %"class.cxx20::expected", align 4
+  %38 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %39 = alloca %"class.cxx20::expected", align 4
+  %40 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %41 = alloca %"class.cxx20::expected", align 4
+  %42 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %43 = alloca %"class.cxx20::expected", align 4
+  %44 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %45 = alloca %"class.cxx20::expected", align 4
+  %46 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %47 = alloca %"class.cxx20::expected", align 4
+  %48 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %49 = alloca %"class.cxx20::expected", align 4
+  %50 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %51 = alloca %"class.cxx20::expected", align 4
+  %52 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %53 = alloca %"class.cxx20::unexpected", align 4
+  %54 = alloca %"class.WasmEdge::ErrCode", align 4
+  %55 = alloca %"class.cxx20::expected", align 4
+  %56 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %57 = alloca %"class.cxx20::unexpected", align 4
+  %58 = alloca %"class.WasmEdge::ErrCode", align 4
+  %59 = alloca %"class.cxx20::expected", align 4
+  %60 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %61 = alloca %"class.cxx20::unexpected", align 4
+  %62 = alloca %"class.WasmEdge::ErrCode", align 4
+  %63 = alloca i32, align 4
+  %64 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %65 = alloca i32, align 4
+  %66 = alloca %"struct.WasmEdge::ErrInfo::InfoAST", align 1
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %69 = load i64, ptr %68, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  store i8 0, ptr %70, align 8
+  %71 = trunc i8 %4 to i1
+  %72 = icmp eq i64 %3, 0
+  %or.cond99.not108 = select i1 %71, i1 %72, i1 false
+  br i1 %or.cond99.not108, label %.loopexit, label %.critedge.lr.ph
 
-.critedge.lr.ph:                                  ; preds = %.split
-  %72 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 496
-  %76 = getelementptr inbounds nuw i8, ptr %2, i64 456
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 416
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 376
-  %79 = getelementptr inbounds nuw i8, ptr %2, i64 352
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 312
-  %81 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %82 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %84 = getelementptr inbounds nuw i8, ptr %2, i64 152
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %86 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %87 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %88 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %89 = getelementptr inbounds nuw i8, ptr %2, i64 48
+.critedge.lr.ph:                                  ; preds = %5
+  %73 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 496
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 456
+  %78 = getelementptr inbounds nuw i8, ptr %2, i64 416
+  %79 = getelementptr inbounds nuw i8, ptr %2, i64 376
+  %80 = getelementptr inbounds nuw i8, ptr %2, i64 352
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 312
+  %82 = getelementptr inbounds nuw i8, ptr %2, i64 272
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 192
+  %85 = getelementptr inbounds nuw i8, ptr %2, i64 152
+  %86 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %88 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %90 = getelementptr inbounds nuw i8, ptr %2, i64 48
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %286
-  %.sroa.080.0110 = phi i64 [ 0, %.critedge.lr.ph ], [ %.sroa.080.1, %286 ]
-  call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.33") align 4 %23, ptr noundef nonnull align 8 dereferenceable(88) %66)
-  %90 = load i8, ptr %23, align 4
-  %91 = trunc i8 %90 to i1
-  br i1 %91, label %92, label %95
+.critedge:                                        ; preds = %.critedge.lr.ph, %287
+  %.sroa.080.0109 = phi i64 [ 0, %.critedge.lr.ph ], [ %.sroa.080.1, %287 ]
+  call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.33") align 4 %24, ptr noundef nonnull align 8 dereferenceable(88) %67)
+  %91 = load i8, ptr %24, align 4
+  %92 = trunc i8 %91 to i1
+  br i1 %92, label %93, label %96
 
-92:                                               ; preds = %.critedge
-  %93 = load i8, ptr %72, align 4
-  %94 = add i8 %93, -1
-  %or.cond = icmp ult i8 %94, 12
-  br i1 %or.cond, label %_ZNKSt6bitsetILm14EE4testEm.exit, label %111
+93:                                               ; preds = %.critedge
+  %94 = load i8, ptr %73, align 4
+  %95 = add i8 %94, -1
+  %or.cond = icmp ult i8 %95, 12
+  br i1 %or.cond, label %_ZNKSt6bitsetILm14EE4testEm.exit, label %112
 
-95:                                               ; preds = %.critedge
-  %96 = load i32, ptr %72, align 4
-  %97 = icmp eq i32 %96, 258
-  br i1 %97, label %.loopexit, label %98
+96:                                               ; preds = %.critedge
+  %97 = load i32, ptr %73, align 4
+  %98 = icmp eq i32 %97, 258
+  br i1 %98, label %.loopexit, label %99
 
-98:                                               ; preds = %95
-  store i32 %96, ptr %25, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %100 = load i64, ptr %99, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %24, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %25, i64 noundef %100, i8 noundef zeroext 24) #19
+99:                                               ; preds = %96
+  store i32 %97, ptr %26, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %101 = load i64, ptr %100, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %25, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %26, i64 noundef %101, i8 noundef zeroext 24) #19
   store i8 0, ptr %0, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %102 = load i32, ptr %24, align 4
-  store i32 %102, ptr %101, align 4
-  br label %331
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %103 = load i32, ptr %25, align 4
+  store i32 %103, ptr %102, align 4
+  br label %332
 
-_ZNKSt6bitsetILm14EE4testEm.exit:                 ; preds = %92
-  %103 = zext nneg i8 %93 to i64
-  %104 = shl nuw nsw i64 1, %103
-  %105 = and i64 %104, %.sroa.080.0110
-  %.not102 = icmp eq i64 %105, 0
-  br i1 %.not102, label %111, label %106
+_ZNKSt6bitsetILm14EE4testEm.exit:                 ; preds = %93
+  %104 = zext nneg i8 %94 to i64
+  %105 = shl nuw nsw i64 1, %104
+  %106 = and i64 %105, %.sroa.080.0109
+  %.not102 = icmp eq i64 %106, 0
+  br i1 %.not102, label %112, label %107
 
-106:                                              ; preds = %_ZNKSt6bitsetILm14EE4testEm.exit
-  store i32 264, ptr %27, align 4
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %108 = load i64, ptr %107, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %26, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %27, i64 noundef %108, i8 noundef zeroext 24) #19
+107:                                              ; preds = %_ZNKSt6bitsetILm14EE4testEm.exit
+  store i32 264, ptr %28, align 4
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %109 = load i64, ptr %108, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %27, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %28, i64 noundef %109, i8 noundef zeroext 24) #19
   store i8 0, ptr %0, align 4
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %110 = load i32, ptr %26, align 4
-  store i32 %110, ptr %109, align 4
-  br label %331
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %111 = load i32, ptr %27, align 4
+  store i32 %111, ptr %110, align 4
+  br label %332
 
-111:                                              ; preds = %_ZNKSt6bitsetILm14EE4testEm.exit, %92
-  switch i8 %93, label %281 [
-    i8 0, label %112
-    i8 1, label %130
-    i8 2, label %139
-    i8 3, label %148
-    i8 4, label %157
-    i8 5, label %166
-    i8 6, label %175
-    i8 7, label %184
-    i8 8, label %193
-    i8 9, label %202
-    i8 10, label %211
-    i8 11, label %220
+112:                                              ; preds = %_ZNKSt6bitsetILm14EE4testEm.exit, %93
+  switch i8 %94, label %282 [
+    i8 0, label %113
+    i8 1, label %131
+    i8 2, label %140
+    i8 3, label %149
+    i8 4, label %158
+    i8 5, label %167
+    i8 6, label %176
+    i8 7, label %185
+    i8 8, label %194
+    i8 9, label %203
+    i8 10, label %212
+    i8 11, label %221
     i8 12, label %.preheader106
     i8 13, label %.preheader107
   ]
 
-112:                                              ; preds = %111
-  %113 = load ptr, ptr %87, align 8
+113:                                              ; preds = %112
   %114 = load ptr, ptr %88, align 8
-  %.not.i = icmp eq ptr %113, %114
-  br i1 %.not.i, label %120, label %115
+  %115 = load ptr, ptr %89, align 8
+  %.not.i = icmp eq ptr %114, %115
+  br i1 %.not.i, label %121, label %116
 
-115:                                              ; preds = %112
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %113, i8 0, i64 72, i1 false)
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %116) #19
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 48
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
-  %118 = load ptr, ptr %87, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %118, i64 72
-  store ptr %119, ptr %87, align 8
+116:                                              ; preds = %113
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %114, i8 0, i64 72, i1 false)
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %117) #19
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 48
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %118, i8 0, i64 24, i1 false)
+  %119 = load ptr, ptr %88, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 72
+  store ptr %120, ptr %88, align 8
   br label %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
-120:                                              ; preds = %112
-  call void @_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr %113)
-  %.pre = load ptr, ptr %87, align 8
+121:                                              ; preds = %113
+  call void @_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr %114)
+  %.pre = load ptr, ptr %88, align 8
   br label %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
-_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %115, %120
-  %121 = phi ptr [ %119, %115 ], [ %.pre, %120 ]
-  %122 = getelementptr inbounds i8, ptr %121, i64 -72
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %28, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(72) %122)
-  %123 = load i8, ptr %28, align 4
-  %124 = trunc i8 %123 to i1
-  br i1 %124, label %286, label %125
+_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %116, %121
+  %122 = phi ptr [ %120, %116 ], [ %.pre, %121 ]
+  %123 = getelementptr inbounds i8, ptr %122, i64 -72
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %29, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(72) %123)
+  %124 = load i8, ptr %29, align 4
+  %125 = trunc i8 %124 to i1
+  br i1 %125, label %287, label %126
 
-125:                                              ; preds = %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
-  store i8 24, ptr %29, align 1
-  %126 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+126:                                              ; preds = %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
+  store i8 24, ptr %30, align 1
+  %127 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, i8 0, i64 24, i1 false)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %127, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %23, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %30)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
+  %128 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %129 = load i32, ptr %128, align 4, !noalias !4
+  store i8 0, ptr %0, align 4
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %129, ptr %130, align 4
+  br label %332
+
+131:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11TypeSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %31, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %87)
+  %132 = load i8, ptr %31, align 4
+  %133 = trunc i8 %132 to i1
+  br i1 %133, label %_ZNSt6bitsetILm14EE3setEmb.exit, label %134
+
+134:                                              ; preds = %131
+  store i8 24, ptr %32, align 1
+  %135 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %126, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %22, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %29)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %135, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %22, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %32)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
-  %127 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %128 = load i32, ptr %127, align 4, !noalias !4
+  %136 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %137 = load i32, ptr %136, align 4, !noalias !7
   store i8 0, ptr %0, align 4
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %128, ptr %129, align 4
-  br label %331
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %137, ptr %138, align 4
+  br label %332
 
-130:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11TypeSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %30, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %86)
-  %131 = load i8, ptr %30, align 4
-  %132 = trunc i8 %131 to i1
-  br i1 %132, label %_ZNSt6bitsetILm14EE3setEmb.exit, label %133
+_ZNSt6bitsetILm14EE3setEmb.exit:                  ; preds = %131
+  %139 = or i64 %.sroa.080.0109, 2
+  br label %287
 
-133:                                              ; preds = %130
-  store i8 24, ptr %31, align 1
-  %134 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+140:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ImportSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %33, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %86)
+  %141 = load i8, ptr %33, align 4
+  %142 = trunc i8 %141 to i1
+  br i1 %142, label %_ZNSt6bitsetILm14EE3setEmb.exit45, label %143
+
+143:                                              ; preds = %140
+  store i8 24, ptr %34, align 1
+  %144 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %134, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %21, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %31)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %144, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %21, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %34)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
-  %135 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %136 = load i32, ptr %135, align 4, !noalias !7
+  %145 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %146 = load i32, ptr %145, align 4, !noalias !10
   store i8 0, ptr %0, align 4
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %136, ptr %137, align 4
-  br label %331
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %146, ptr %147, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit:                  ; preds = %130
-  %138 = or i64 %.sroa.080.0110, 2
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit45:                ; preds = %140
+  %148 = or i64 %.sroa.080.0109, 4
+  br label %287
 
-139:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ImportSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %32, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %85)
-  %140 = load i8, ptr %32, align 4
-  %141 = trunc i8 %140 to i1
-  br i1 %141, label %_ZNSt6bitsetILm14EE3setEmb.exit45, label %142
+149:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST15FunctionSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %35, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %85)
+  %150 = load i8, ptr %35, align 4
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %_ZNSt6bitsetILm14EE3setEmb.exit46, label %152
 
-142:                                              ; preds = %139
-  store i8 24, ptr %33, align 1
-  %143 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+152:                                              ; preds = %149
+  store i8 24, ptr %36, align 1
+  %153 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %143, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %20, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %33)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %153, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %20, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %36)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
-  %144 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %145 = load i32, ptr %144, align 4, !noalias !10
+  %154 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  %155 = load i32, ptr %154, align 4, !noalias !13
   store i8 0, ptr %0, align 4
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %145, ptr %146, align 4
-  br label %331
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %155, ptr %156, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit45:                ; preds = %139
-  %147 = or i64 %.sroa.080.0110, 4
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit46:                ; preds = %149
+  %157 = or i64 %.sroa.080.0109, 8
+  br label %287
 
-148:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST15FunctionSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %34, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %84)
-  %149 = load i8, ptr %34, align 4
-  %150 = trunc i8 %149 to i1
-  br i1 %150, label %_ZNSt6bitsetILm14EE3setEmb.exit46, label %151
+158:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12TableSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %37, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %84)
+  %159 = load i8, ptr %37, align 4
+  %160 = trunc i8 %159 to i1
+  br i1 %160, label %_ZNSt6bitsetILm14EE3setEmb.exit47, label %161
 
-151:                                              ; preds = %148
-  store i8 24, ptr %35, align 1
-  %152 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+161:                                              ; preds = %158
+  store i8 24, ptr %38, align 1
+  %162 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %152, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %19, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %35)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %162, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %19, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %38)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  %153 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %154 = load i32, ptr %153, align 4, !noalias !13
+  %163 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  %164 = load i32, ptr %163, align 4, !noalias !16
   store i8 0, ptr %0, align 4
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %154, ptr %155, align 4
-  br label %331
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %164, ptr %165, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit46:                ; preds = %148
-  %156 = or i64 %.sroa.080.0110, 8
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit47:                ; preds = %158
+  %166 = or i64 %.sroa.080.0109, 16
+  br label %287
 
-157:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12TableSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %36, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %83)
-  %158 = load i8, ptr %36, align 4
-  %159 = trunc i8 %158 to i1
-  br i1 %159, label %_ZNSt6bitsetILm14EE3setEmb.exit47, label %160
+167:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13MemorySectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %39, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %83)
+  %168 = load i8, ptr %39, align 4
+  %169 = trunc i8 %168 to i1
+  br i1 %169, label %_ZNSt6bitsetILm14EE3setEmb.exit48, label %170
 
-160:                                              ; preds = %157
-  store i8 24, ptr %37, align 1
-  %161 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+170:                                              ; preds = %167
+  store i8 24, ptr %40, align 1
+  %171 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %161, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %18, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %37)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %171, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %18, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %40)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %162 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  %163 = load i32, ptr %162, align 4, !noalias !16
+  %172 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %173 = load i32, ptr %172, align 4, !noalias !19
   store i8 0, ptr %0, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %163, ptr %164, align 4
-  br label %331
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %173, ptr %174, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit47:                ; preds = %157
-  %165 = or i64 %.sroa.080.0110, 16
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit48:                ; preds = %167
+  %175 = or i64 %.sroa.080.0109, 32
+  br label %287
 
-166:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13MemorySectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %38, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %82)
-  %167 = load i8, ptr %38, align 4
-  %168 = trunc i8 %167 to i1
-  br i1 %168, label %_ZNSt6bitsetILm14EE3setEmb.exit48, label %169
+176:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13GlobalSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %41, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %82)
+  %177 = load i8, ptr %41, align 4
+  %178 = trunc i8 %177 to i1
+  br i1 %178, label %_ZNSt6bitsetILm14EE3setEmb.exit49, label %179
 
-169:                                              ; preds = %166
-  store i8 24, ptr %39, align 1
-  %170 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+179:                                              ; preds = %176
+  store i8 24, ptr %42, align 1
+  %180 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %170, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %17, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %39)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %180, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %17, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %42)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
-  %171 = getelementptr inbounds nuw i8, ptr %38, i64 4
-  %172 = load i32, ptr %171, align 4, !noalias !19
+  %181 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %182 = load i32, ptr %181, align 4, !noalias !22
   store i8 0, ptr %0, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %172, ptr %173, align 4
-  br label %331
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %182, ptr %183, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit48:                ; preds = %166
-  %174 = or i64 %.sroa.080.0110, 32
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit49:                ; preds = %176
+  %184 = or i64 %.sroa.080.0109, 64
+  br label %287
 
-175:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13GlobalSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %40, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %81)
-  %176 = load i8, ptr %40, align 4
-  %177 = trunc i8 %176 to i1
-  br i1 %177, label %_ZNSt6bitsetILm14EE3setEmb.exit49, label %178
+185:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ExportSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %43, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %81)
+  %186 = load i8, ptr %43, align 4
+  %187 = trunc i8 %186 to i1
+  br i1 %187, label %_ZNSt6bitsetILm14EE3setEmb.exit50, label %188
 
-178:                                              ; preds = %175
-  store i8 24, ptr %41, align 1
-  %179 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+188:                                              ; preds = %185
+  store i8 24, ptr %44, align 1
+  %189 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %179, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %16, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %41)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %189, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %16, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %44)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
-  %180 = getelementptr inbounds nuw i8, ptr %40, i64 4
-  %181 = load i32, ptr %180, align 4, !noalias !22
+  %190 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %191 = load i32, ptr %190, align 4, !noalias !25
   store i8 0, ptr %0, align 4
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %181, ptr %182, align 4
-  br label %331
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %191, ptr %192, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit49:                ; preds = %175
-  %183 = or i64 %.sroa.080.0110, 64
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit50:                ; preds = %185
+  %193 = or i64 %.sroa.080.0109, 128
+  br label %287
 
-184:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ExportSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %42, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %80)
-  %185 = load i8, ptr %42, align 4
-  %186 = trunc i8 %185 to i1
-  br i1 %186, label %_ZNSt6bitsetILm14EE3setEmb.exit50, label %187
+194:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12StartSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %45, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %80)
+  %195 = load i8, ptr %45, align 4
+  %196 = trunc i8 %195 to i1
+  br i1 %196, label %_ZNSt6bitsetILm14EE3setEmb.exit51, label %197
 
-187:                                              ; preds = %184
-  store i8 24, ptr %43, align 1
-  %188 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+197:                                              ; preds = %194
+  store i8 24, ptr %46, align 1
+  %198 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %188, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %15, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %43)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %198, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %15, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %46)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
-  %189 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %190 = load i32, ptr %189, align 4, !noalias !25
+  %199 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  %200 = load i32, ptr %199, align 4, !noalias !28
   store i8 0, ptr %0, align 4
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %190, ptr %191, align 4
-  br label %331
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %200, ptr %201, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit50:                ; preds = %184
-  %192 = or i64 %.sroa.080.0110, 128
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit51:                ; preds = %194
+  %202 = or i64 %.sroa.080.0109, 256
+  br label %287
 
-193:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12StartSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %44, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %79)
-  %194 = load i8, ptr %44, align 4
-  %195 = trunc i8 %194 to i1
-  br i1 %195, label %_ZNSt6bitsetILm14EE3setEmb.exit51, label %196
+203:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST14ElementSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %47, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %79)
+  %204 = load i8, ptr %47, align 4
+  %205 = trunc i8 %204 to i1
+  br i1 %205, label %_ZNSt6bitsetILm14EE3setEmb.exit52, label %206
 
-196:                                              ; preds = %193
-  store i8 24, ptr %45, align 1
-  %197 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+206:                                              ; preds = %203
+  store i8 24, ptr %48, align 1
+  %207 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %197, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %14, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %45)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %207, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %14, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %48)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  %198 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %199 = load i32, ptr %198, align 4, !noalias !28
+  %208 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %209 = load i32, ptr %208, align 4, !noalias !31
   store i8 0, ptr %0, align 4
-  %200 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %199, ptr %200, align 4
-  br label %331
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %209, ptr %210, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit51:                ; preds = %193
-  %201 = or i64 %.sroa.080.0110, 256
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit52:                ; preds = %203
+  %211 = or i64 %.sroa.080.0109, 512
+  br label %287
 
-202:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST14ElementSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %46, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %78)
-  %203 = load i8, ptr %46, align 4
-  %204 = trunc i8 %203 to i1
-  br i1 %204, label %_ZNSt6bitsetILm14EE3setEmb.exit52, label %205
+212:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11CodeSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %49, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %78)
+  %213 = load i8, ptr %49, align 4
+  %214 = trunc i8 %213 to i1
+  br i1 %214, label %_ZNSt6bitsetILm14EE3setEmb.exit53, label %215
 
-205:                                              ; preds = %202
-  store i8 24, ptr %47, align 1
-  %206 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+215:                                              ; preds = %212
+  store i8 24, ptr %50, align 1
+  %216 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %206, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %13, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %47)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %216, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %13, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %50)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
-  %207 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %208 = load i32, ptr %207, align 4, !noalias !31
+  %217 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %218 = load i32, ptr %217, align 4, !noalias !34
   store i8 0, ptr %0, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %208, ptr %209, align 4
-  br label %331
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %218, ptr %219, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit52:                ; preds = %202
-  %210 = or i64 %.sroa.080.0110, 512
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit53:                ; preds = %212
+  %220 = or i64 %.sroa.080.0109, 1024
+  br label %287
 
-211:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11CodeSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %48, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %77)
-  %212 = load i8, ptr %48, align 4
-  %213 = trunc i8 %212 to i1
-  br i1 %213, label %_ZNSt6bitsetILm14EE3setEmb.exit53, label %214
+221:                                              ; preds = %112
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11DataSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %51, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %77)
+  %222 = load i8, ptr %51, align 4
+  %223 = trunc i8 %222 to i1
+  br i1 %223, label %_ZNSt6bitsetILm14EE3setEmb.exit54, label %224
 
-214:                                              ; preds = %211
-  store i8 24, ptr %49, align 1
-  %215 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+224:                                              ; preds = %221
+  store i8 24, ptr %52, align 1
+  %225 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %215, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %12, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %49)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %225, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %12, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %52)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
-  %216 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %217 = load i32, ptr %216, align 4, !noalias !34
+  %226 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %227 = load i32, ptr %226, align 4, !noalias !37
   store i8 0, ptr %0, align 4
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %217, ptr %218, align 4
-  br label %331
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %227, ptr %228, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit53:                ; preds = %211
-  %219 = or i64 %.sroa.080.0110, 1024
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit54:                ; preds = %221
+  %229 = or i64 %.sroa.080.0109, 2048
+  br label %287
 
-220:                                              ; preds = %111
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11DataSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %50, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %76)
-  %221 = load i8, ptr %50, align 4
-  %222 = trunc i8 %221 to i1
-  br i1 %222, label %_ZNSt6bitsetILm14EE3setEmb.exit54, label %223
-
-223:                                              ; preds = %220
-  store i8 24, ptr %51, align 1
-  %224 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %224, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %11, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %51)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
-  %225 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  %226 = load i32, ptr %225, align 4, !noalias !37
-  store i8 0, ptr %0, align 4
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %226, ptr %227, align 4
-  br label %331
-
-_ZNSt6bitsetILm14EE3setEmb.exit54:                ; preds = %220
-  %228 = or i64 %.sroa.080.0110, 2048
-  br label %286
-
-.preheader106:                                    ; preds = %111, %.preheader106
-  %229 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  switch i32 %229, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit [
+.preheader106:                                    ; preds = %112, %.preheader106
+  %230 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  switch i32 %230, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit [
     i32 11, label %.preheader106
-    i32 35, label %230
+    i32 35, label %231
   ]
 
-230:                                              ; preds = %.preheader106
+231:                                              ; preds = %.preheader106
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i unwind label %231
+          to label %.noexc.i unwind label %232
 
-.noexc.i:                                         ; preds = %230
+.noexc.i:                                         ; preds = %231
   unreachable
 
-231:                                              ; preds = %230
-  %232 = landingpad { ptr, i32 }
+232:                                              ; preds = %231
+  %233 = landingpad { ptr, i32 }
           catch ptr null
-  %233 = extractvalue { ptr, i32 } %232, 0
-  call void @__clang_call_terminate(ptr %233) #21
+  %234 = extractvalue { ptr, i32 } %233, 0
+  call void @__clang_call_terminate(ptr %234) #21
   unreachable
 
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader106
-  %234 = load i64, ptr %73, align 8
-  %235 = and i64 %234, 16
-  %.not104 = icmp eq i64 %235, 0
-  %236 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  br i1 %.not104, label %.preheader, label %250
+  %235 = load i64, ptr %74, align 8
+  %236 = and i64 %235, 16
+  %.not104 = icmp eq i64 %236, 0
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  br i1 %.not104, label %.preheader, label %251
 
 .preheader:                                       ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %.preheader
-  %237 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  switch i32 %237, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56 [
+  %238 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  switch i32 %238, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56 [
     i32 11, label %.preheader
-    i32 35, label %238
+    i32 35, label %239
   ]
 
-238:                                              ; preds = %.preheader
+239:                                              ; preds = %.preheader
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i55 unwind label %239
+          to label %.noexc.i55 unwind label %240
 
-.noexc.i55:                                       ; preds = %238
+.noexc.i55:                                       ; preds = %239
   unreachable
 
-239:                                              ; preds = %238
-  %240 = landingpad { ptr, i32 }
+240:                                              ; preds = %239
+  %241 = landingpad { ptr, i32 }
           catch ptr null
-  %241 = extractvalue { ptr, i32 } %240, 0
-  call void @__clang_call_terminate(ptr %241) #21
+  %242 = extractvalue { ptr, i32 } %241, 0
+  call void @__clang_call_terminate(ptr %242) #21
   unreachable
 
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56: ; preds = %.preheader
-  %242 = load i64, ptr %73, align 8
-  %243 = and i64 %242, 32
-  %.not105 = icmp eq i64 %243, 0
-  %244 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  br i1 %.not105, label %245, label %250
+  %243 = load i64, ptr %74, align 8
+  %244 = and i64 %243, 32
+  %.not105 = icmp eq i64 %244, 0
+  %245 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  br i1 %.not105, label %246, label %251
 
-245:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56
-  store i32 261, ptr %53, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %247 = load i64, ptr %246, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %52, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %53, i8 noundef zeroext 4, i64 noundef %247, i8 noundef zeroext 24) #19
+246:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56
+  store i32 261, ptr %54, align 4
+  %247 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %248 = load i64, ptr %247, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %53, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %54, i8 noundef zeroext 4, i64 noundef %248, i8 noundef zeroext 24) #19
   store i8 0, ptr %0, align 4
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %249 = load i32, ptr %52, align 4
-  store i32 %249, ptr %248, align 4
-  br label %331
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %250 = load i32, ptr %53, align 4
+  store i32 %250, ptr %249, align 4
+  br label %332
 
-250:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST16DataCountSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %54, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %75)
-  %251 = load i8, ptr %54, align 4
-  %252 = trunc i8 %251 to i1
-  br i1 %252, label %_ZNSt6bitsetILm14EE3setEmb.exit57, label %253
+251:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit56, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST16DataCountSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %55, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(24) %76)
+  %252 = load i8, ptr %55, align 4
+  %253 = trunc i8 %252 to i1
+  br i1 %253, label %_ZNSt6bitsetILm14EE3setEmb.exit57, label %254
 
-253:                                              ; preds = %250
-  store i8 24, ptr %55, align 1
-  %254 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %254, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %10, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %55)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %255 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  %256 = load i32, ptr %255, align 4, !noalias !40
+254:                                              ; preds = %251
+  store i8 24, ptr %56, align 1
+  %255 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %255, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %11, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %56)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
+  %256 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  %257 = load i32, ptr %256, align 4, !noalias !40
   store i8 0, ptr %0, align 4
-  %257 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %256, ptr %257, align 4
-  br label %331
+  %258 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %257, ptr %258, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit57:                ; preds = %250
-  store i8 1, ptr %69, align 8
-  %258 = or i64 %.sroa.080.0110, 4096
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit57:                ; preds = %251
+  store i8 1, ptr %70, align 8
+  %259 = or i64 %.sroa.080.0109, 4096
+  br label %287
 
-.preheader107:                                    ; preds = %111, %.preheader107
-  %259 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  switch i32 %259, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59 [
+.preheader107:                                    ; preds = %112, %.preheader107
+  %260 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  switch i32 %260, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59 [
     i32 11, label %.preheader107
-    i32 35, label %260
+    i32 35, label %261
   ]
 
-260:                                              ; preds = %.preheader107
+261:                                              ; preds = %.preheader107
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #20
-          to label %.noexc.i58 unwind label %261
+          to label %.noexc.i58 unwind label %262
 
-.noexc.i58:                                       ; preds = %260
+.noexc.i58:                                       ; preds = %261
   unreachable
 
-261:                                              ; preds = %260
-  %262 = landingpad { ptr, i32 }
+262:                                              ; preds = %261
+  %263 = landingpad { ptr, i32 }
           catch ptr null
-  %263 = extractvalue { ptr, i32 } %262, 0
-  call void @__clang_call_terminate(ptr %263) #21
+  %264 = extractvalue { ptr, i32 } %263, 0
+  call void @__clang_call_terminate(ptr %264) #21
   unreachable
 
 _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59: ; preds = %.preheader107
-  %264 = load i64, ptr %73, align 8
-  %265 = and i64 %264, 65536
-  %.not103 = icmp eq i64 %265, 0
-  %266 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
-  br i1 %.not103, label %267, label %272
+  %265 = load i64, ptr %74, align 8
+  %266 = and i64 %265, 65536
+  %.not103 = icmp eq i64 %266, 0
+  %267 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #19
+  br i1 %.not103, label %268, label %273
 
-267:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59
-  store i32 261, ptr %57, align 4
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %269 = load i64, ptr %268, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %56, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %57, i8 noundef zeroext 16, i64 noundef %269, i8 noundef zeroext 24) #19
+268:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59
+  store i32 261, ptr %58, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %270 = load i64, ptr %269, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %57, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %58, i8 noundef zeroext 16, i64 noundef %270, i8 noundef zeroext 24) #19
   store i8 0, ptr %0, align 4
-  %270 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %271 = load i32, ptr %56, align 4
-  store i32 %271, ptr %270, align 4
-  br label %331
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %272 = load i32, ptr %57, align 4
+  store i32 %272, ptr %271, align 4
+  br label %332
 
-272:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59
-  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST10TagSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %58, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %74)
-  %273 = load i8, ptr %58, align 4
-  %274 = trunc i8 %273 to i1
-  br i1 %274, label %_ZNSt6bitsetILm14EE3setEmb.exit60, label %275
+273:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit59
+  call void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST10TagSectionE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected") align 4 %59, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %75)
+  %274 = load i8, ptr %59, align 4
+  %275 = trunc i8 %274 to i1
+  br i1 %275, label %_ZNSt6bitsetILm14EE3setEmb.exit60, label %276
 
-275:                                              ; preds = %272
-  store i8 24, ptr %59, align 1
-  %276 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %276, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %9, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %59)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
-  %277 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  %278 = load i32, ptr %277, align 4, !noalias !43
+276:                                              ; preds = %273
+  store i8 24, ptr %60, align 1
+  %277 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %277, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %10, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %60)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
+  %278 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  %279 = load i32, ptr %278, align 4, !noalias !43
   store i8 0, ptr %0, align 4
-  %279 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %278, ptr %279, align 4
-  br label %331
+  %280 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %279, ptr %280, align 4
+  br label %332
 
-_ZNSt6bitsetILm14EE3setEmb.exit60:                ; preds = %272
-  %280 = or i64 %.sroa.080.0110, 8192
-  br label %286
+_ZNSt6bitsetILm14EE3setEmb.exit60:                ; preds = %273
+  %281 = or i64 %.sroa.080.0109, 8192
+  br label %287
 
-281:                                              ; preds = %111
-  store i32 261, ptr %61, align 4
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %283 = load i64, ptr %282, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %60, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %61, i64 noundef %283, i8 noundef zeroext 24) #19
+282:                                              ; preds = %112
+  store i32 261, ptr %62, align 4
+  %283 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %284 = load i64, ptr %283, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %61, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %62, i64 noundef %284, i8 noundef zeroext 24) #19
   store i8 0, ptr %0, align 4
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %285 = load i32, ptr %60, align 4
-  store i32 %285, ptr %284, align 4
-  br label %331
+  %285 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %286 = load i32, ptr %61, align 4
+  store i32 %286, ptr %285, align 4
+  br label %332
 
-286:                                              ; preds = %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit, %_ZNSt6bitsetILm14EE3setEmb.exit60, %_ZNSt6bitsetILm14EE3setEmb.exit57, %_ZNSt6bitsetILm14EE3setEmb.exit54, %_ZNSt6bitsetILm14EE3setEmb.exit53, %_ZNSt6bitsetILm14EE3setEmb.exit52, %_ZNSt6bitsetILm14EE3setEmb.exit51, %_ZNSt6bitsetILm14EE3setEmb.exit50, %_ZNSt6bitsetILm14EE3setEmb.exit49, %_ZNSt6bitsetILm14EE3setEmb.exit48, %_ZNSt6bitsetILm14EE3setEmb.exit47, %_ZNSt6bitsetILm14EE3setEmb.exit46, %_ZNSt6bitsetILm14EE3setEmb.exit45, %_ZNSt6bitsetILm14EE3setEmb.exit
-  %.sroa.080.1 = phi i64 [ %280, %_ZNSt6bitsetILm14EE3setEmb.exit60 ], [ %258, %_ZNSt6bitsetILm14EE3setEmb.exit57 ], [ %228, %_ZNSt6bitsetILm14EE3setEmb.exit54 ], [ %219, %_ZNSt6bitsetILm14EE3setEmb.exit53 ], [ %210, %_ZNSt6bitsetILm14EE3setEmb.exit52 ], [ %201, %_ZNSt6bitsetILm14EE3setEmb.exit51 ], [ %192, %_ZNSt6bitsetILm14EE3setEmb.exit50 ], [ %183, %_ZNSt6bitsetILm14EE3setEmb.exit49 ], [ %174, %_ZNSt6bitsetILm14EE3setEmb.exit48 ], [ %165, %_ZNSt6bitsetILm14EE3setEmb.exit47 ], [ %156, %_ZNSt6bitsetILm14EE3setEmb.exit46 ], [ %147, %_ZNSt6bitsetILm14EE3setEmb.exit45 ], [ %138, %_ZNSt6bitsetILm14EE3setEmb.exit ], [ %.sroa.080.0110, %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
-  %287 = load i64, ptr %67, align 8
-  %288 = sub i64 %287, %68
-  %289 = icmp ule i64 %3, %288
-  %or.cond99.not = select i1 %70, i1 %289, i1 false
+287:                                              ; preds = %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit, %_ZNSt6bitsetILm14EE3setEmb.exit60, %_ZNSt6bitsetILm14EE3setEmb.exit57, %_ZNSt6bitsetILm14EE3setEmb.exit54, %_ZNSt6bitsetILm14EE3setEmb.exit53, %_ZNSt6bitsetILm14EE3setEmb.exit52, %_ZNSt6bitsetILm14EE3setEmb.exit51, %_ZNSt6bitsetILm14EE3setEmb.exit50, %_ZNSt6bitsetILm14EE3setEmb.exit49, %_ZNSt6bitsetILm14EE3setEmb.exit48, %_ZNSt6bitsetILm14EE3setEmb.exit47, %_ZNSt6bitsetILm14EE3setEmb.exit46, %_ZNSt6bitsetILm14EE3setEmb.exit45, %_ZNSt6bitsetILm14EE3setEmb.exit
+  %.sroa.080.1 = phi i64 [ %281, %_ZNSt6bitsetILm14EE3setEmb.exit60 ], [ %259, %_ZNSt6bitsetILm14EE3setEmb.exit57 ], [ %229, %_ZNSt6bitsetILm14EE3setEmb.exit54 ], [ %220, %_ZNSt6bitsetILm14EE3setEmb.exit53 ], [ %211, %_ZNSt6bitsetILm14EE3setEmb.exit52 ], [ %202, %_ZNSt6bitsetILm14EE3setEmb.exit51 ], [ %193, %_ZNSt6bitsetILm14EE3setEmb.exit50 ], [ %184, %_ZNSt6bitsetILm14EE3setEmb.exit49 ], [ %175, %_ZNSt6bitsetILm14EE3setEmb.exit48 ], [ %166, %_ZNSt6bitsetILm14EE3setEmb.exit47 ], [ %157, %_ZNSt6bitsetILm14EE3setEmb.exit46 ], [ %148, %_ZNSt6bitsetILm14EE3setEmb.exit45 ], [ %139, %_ZNSt6bitsetILm14EE3setEmb.exit ], [ %.sroa.080.0109, %_ZNSt6vectorIN8WasmEdge3AST13CustomSectionESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ]
+  %288 = load i64, ptr %68, align 8
+  %289 = sub i64 %288, %69
+  %290 = icmp ule i64 %3, %289
+  %or.cond99.not = select i1 %71, i1 %290, i1 false
   br i1 %or.cond99.not, label %.loopexit, label %.critedge, !llvm.loop !46
 
-.loopexit:                                        ; preds = %286, %.split, %95
-  %290 = getelementptr inbounds nuw i8, ptr %2, i64 520
-  %291 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %292 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  call void @_ZN8WasmEdge6Loader6Loader18setTagFunctionTypeERNS_3AST10TagSectionERNS2_13ImportSectionERNS2_11TypeSectionE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %290, ptr noundef nonnull align 8 dereferenceable(40) %291, ptr noundef nonnull align 8 dereferenceable(40) %292)
-  %293 = getelementptr inbounds nuw i8, ptr %2, i64 168
-  %294 = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %295 = load ptr, ptr %294, align 8
-  %296 = load ptr, ptr %293, align 8
-  %297 = ptrtoint ptr %295 to i64
+.loopexit:                                        ; preds = %287, %5, %96
+  %291 = getelementptr inbounds nuw i8, ptr %2, i64 520
+  %292 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %293 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  call void @_ZN8WasmEdge6Loader6Loader18setTagFunctionTypeERNS_3AST10TagSectionERNS2_13ImportSectionERNS2_11TypeSectionE(ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %291, ptr noundef nonnull align 8 dereferenceable(40) %292, ptr noundef nonnull align 8 dereferenceable(40) %293)
+  %294 = getelementptr inbounds nuw i8, ptr %2, i64 168
+  %295 = getelementptr inbounds nuw i8, ptr %2, i64 176
+  %296 = load ptr, ptr %295, align 8
+  %297 = load ptr, ptr %294, align 8
   %298 = ptrtoint ptr %296 to i64
-  %299 = sub i64 %297, %298
-  %300 = ashr exact i64 %299, 2
-  %301 = getelementptr inbounds nuw i8, ptr %2, i64 432
-  %302 = getelementptr inbounds nuw i8, ptr %2, i64 440
-  %303 = load ptr, ptr %302, align 8
-  %304 = load ptr, ptr %301, align 8
-  %305 = ptrtoint ptr %303 to i64
+  %299 = ptrtoint ptr %297 to i64
+  %300 = sub i64 %298, %299
+  %301 = ashr exact i64 %300, 2
+  %302 = getelementptr inbounds nuw i8, ptr %2, i64 432
+  %303 = getelementptr inbounds nuw i8, ptr %2, i64 440
+  %304 = load ptr, ptr %303, align 8
+  %305 = load ptr, ptr %302, align 8
   %306 = ptrtoint ptr %304 to i64
-  %307 = sub i64 %305, %306
-  %308 = sdiv exact i64 %307, 80
-  %.not = icmp eq i64 %300, %308
-  br i1 %.not, label %313, label %309
+  %307 = ptrtoint ptr %305 to i64
+  %308 = sub i64 %306, %307
+  %309 = sdiv exact i64 %308, 80
+  %.not = icmp eq i64 %301, %309
+  br i1 %.not, label %314, label %310
 
-309:                                              ; preds = %.loopexit
-  store i32 265, ptr %62, align 4
-  %310 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+310:                                              ; preds = %.loopexit
+  store i32 265, ptr %63, align 4
+  %311 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %311, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %9, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %63)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
+  store i8 24, ptr %64, align 1
+  %312 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %310, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %8, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %62)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %312, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %8, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %64)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
-  store i8 24, ptr %63, align 1
-  %311 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  store i8 0, ptr %0, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 265, ptr %313, align 4
+  br label %332
+
+314:                                              ; preds = %.loopexit
+  %315 = getelementptr inbounds nuw i8, ptr %2, i64 512
+  %.sroa.0.0.copyload.i = load i64, ptr %315, align 8
+  %316 = and i64 %.sroa.0.0.copyload.i, 4294967296
+  %.not101 = icmp eq i64 %316, 0
+  br i1 %.not101, label %331, label %317
+
+317:                                              ; preds = %314
+  %318 = getelementptr inbounds nuw i8, ptr %2, i64 472
+  %319 = getelementptr inbounds nuw i8, ptr %2, i64 480
+  %320 = load ptr, ptr %319, align 8
+  %321 = load ptr, ptr %318, align 8
+  %322 = ptrtoint ptr %320 to i64
+  %323 = ptrtoint ptr %321 to i64
+  %324 = sub i64 %322, %323
+  %325 = sdiv exact i64 %324, 56
+  %326 = and i64 %.sroa.0.0.copyload.i, 4294967295
+  %.not44 = icmp eq i64 %325, %326
+  br i1 %.not44, label %331, label %327
+
+327:                                              ; preds = %317
+  store i32 266, ptr %65, align 4
+  %328 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %311, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %7, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %63)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %328, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %7, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %65)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  store i8 0, ptr %0, align 4
-  %312 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 265, ptr %312, align 4
-  br label %331
-
-313:                                              ; preds = %.loopexit
-  %314 = getelementptr inbounds nuw i8, ptr %2, i64 512
-  %.sroa.0.0.copyload.i = load i64, ptr %314, align 8
-  %315 = and i64 %.sroa.0.0.copyload.i, 4294967296
-  %.not101 = icmp eq i64 %315, 0
-  br i1 %.not101, label %330, label %316
-
-316:                                              ; preds = %313
-  %317 = getelementptr inbounds nuw i8, ptr %2, i64 472
-  %318 = getelementptr inbounds nuw i8, ptr %2, i64 480
-  %319 = load ptr, ptr %318, align 8
-  %320 = load ptr, ptr %317, align 8
-  %321 = ptrtoint ptr %319 to i64
-  %322 = ptrtoint ptr %320 to i64
-  %323 = sub i64 %321, %322
-  %324 = sdiv exact i64 %323, 56
-  %325 = and i64 %.sroa.0.0.copyload.i, 4294967295
-  %.not44 = icmp eq i64 %324, %325
-  br i1 %.not44, label %330, label %326
-
-326:                                              ; preds = %316
-  store i32 266, ptr %64, align 4
-  %327 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
+  store i8 24, ptr %66, align 1
+  %329 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %327, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %6, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %64)
+  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %329, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %6, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %66)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  store i8 24, ptr %65, align 1
-  %328 = call noundef ptr @_ZN6spdlog18default_logger_rawEv()
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  call void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo7InfoASTEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %328, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %5, i32 noundef 4, ptr nonnull @.str.9, i64 2, ptr noundef nonnull align 1 dereferenceable(1) %65)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   store i8 0, ptr %0, align 4
-  %329 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 266, ptr %329, align 4
-  br label %331
+  %330 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 266, ptr %330, align 4
+  br label %332
 
-330:                                              ; preds = %316, %313
+331:                                              ; preds = %317, %314
   store i64 1, ptr %0, align 4
-  br label %331
+  br label %332
 
-331:                                              ; preds = %330, %326, %309, %281, %275, %267, %253, %245, %223, %214, %205, %196, %187, %178, %169, %160, %151, %142, %133, %125, %106, %98
+332:                                              ; preds = %331, %327, %310, %282, %276, %268, %254, %246, %224, %215, %206, %197, %188, %179, %170, %161, %152, %143, %134, %126, %107, %99
   ret void
 }
 

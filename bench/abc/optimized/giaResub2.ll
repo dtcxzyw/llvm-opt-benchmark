@@ -2487,7 +2487,7 @@ Vec_IntFill.exit53:                               ; preds = %.lr.ph.i47, %Vec_In
   %65 = getelementptr inbounds i8, ptr %.val40, i64 %.idx
   %66 = load i32, ptr %65, align 4, !tbaa !30
   %67 = ashr i32 %66, 1
-  %68 = tail call i32 @Gia_Rsb2ManInsert_rec(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %67)
+  %68 = tail call i32 @Gia_Rsb2ManInsert_rec(ptr noundef nonnull %11, i32 noundef %0, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6, i32 noundef %67)
   %indvars.iv.next63 = add nsw i64 %indvars.iv62, 1
   %69 = icmp slt i64 %indvars.iv.next63, %56
   br i1 %69, label %64, label %.lr.ph60, !llvm.loop !63

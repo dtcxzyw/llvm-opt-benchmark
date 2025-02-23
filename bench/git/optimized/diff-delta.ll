@@ -753,12 +753,12 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   %229 = lshr i64 %228, 1
   %or.cond303.not = icmp ult i64 %49, %229
   %.3265 = select i1 %or.cond303.not, i64 %11, i64 %229
-  %230 = tail call ptr @realloc(ptr noundef %.0216398, i64 noundef %.3265) #13
+  %230 = tail call ptr @realloc(ptr noundef nonnull %.0216398, i64 noundef %.3265) #13
   %.not299 = icmp eq ptr %230, null
   br i1 %.not299, label %.thread329, label %.thread332
 
 .thread329:                                       ; preds = %227
-  tail call void @free(ptr noundef %.0216398) #12
+  tail call void @free(ptr noundef nonnull %.0216398) #12
   br label %241
 
 .thread332:                                       ; preds = %227, %.loopexit
@@ -792,7 +792,7 @@ define dso_local noalias ptr @create_delta(ptr noundef readonly captures(none) %
   br i1 %or.cond307.not, label %240, label %239
 
 239:                                              ; preds = %237
-  tail call void @free(ptr noundef %.0216.lcssa438) #12
+  tail call void @free(ptr noundef nonnull %.0216.lcssa438) #12
   br label %241
 
 240:                                              ; preds = %237

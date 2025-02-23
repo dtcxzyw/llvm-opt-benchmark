@@ -271,7 +271,7 @@ define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr 
   %31 = sub i16 %29, %30
   store i16 %31, ptr %28, align 2
   %32 = add i32 %5, 1
-  %33 = shl i32 %21, 16
+  %33 = shl nuw i32 %21, 16
   %34 = sub i32 %32, %33
   %35 = shl i32 %34, %27
   %36 = add i32 %35, -1

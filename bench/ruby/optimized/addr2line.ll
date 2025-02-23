@@ -2311,6 +2311,7 @@ uleb128.exit190.i.i:                              ; preds = %._crit_edge.loopexi
 
 read_dw_form_addr.exit.i.i:                       ; preds = %uleb128.exit190.i.i, %779, %775, %uleb128.exit167.i.i
   %.9.i.i = phi ptr [ %.8.i.i, %uleb128.exit190.i.i ], [ %.7.i.i, %uleb128.exit167.i.i ], [ %777, %775 ], [ %780, %779 ]
+  %.280.i.i = phi i1 [ %.078.i.i, %uleb128.exit190.i.i ], [ true, %uleb128.exit167.i.i ], [ %.078.i.i, %775 ], [ %.078.i.i, %779 ]
   %.077.i.i = phi i64 [ %.0.i177.i.i, %uleb128.exit190.i.i ], [ %750, %uleb128.exit167.i.i ], [ %776, %775 ], [ %.val3.i3.i.i.i168.i.i, %779 ]
   %.076.i.i = phi i64 [ %802, %uleb128.exit190.i.i ], [ %767, %uleb128.exit167.i.i ], [ %778, %775 ], [ %.val3.i3.i.i.i172.i.i, %779 ]
   %.not90.i.i = icmp ule i64 %.077.i.i, %673
@@ -2320,7 +2321,7 @@ read_dw_form_addr.exit.i.i:                       ; preds = %uleb128.exit190.i.i
 
 read_dw_form_addr.exit.thread.i.i.backedge:       ; preds = %.lr.ph.i136.i.i, %.lr.ph.i114.i.i, %.lr.ph.i.i104.i, %read_dw_form_addr.exit.i.i, %772, %770, %732, %uleb128.exit134.i.i, %uleb128.exit112.i.i, %694, %read_dw_form_addr.exit.thread.i.i
   %.07.i.i287.be = phi ptr [ %.9.i.i, %read_dw_form_addr.exit.i.i ], [ %769, %772 ], [ %769, %770 ], [ %692, %732 ], [ %692, %read_dw_form_addr.exit.thread.i.i ], [ %695, %694 ], [ %710, %uleb128.exit112.i.i ], [ %725, %uleb128.exit134.i.i ], [ %699, %.lr.ph.i.i104.i ], [ %714, %.lr.ph.i114.i.i ], [ %729, %.lr.ph.i136.i.i ]
-  %.078.i.i.be = phi i1 [ %.078.i.i, %read_dw_form_addr.exit.i.i ], [ true, %772 ], [ true, %770 ], [ false, %732 ], [ %.078.i.i, %read_dw_form_addr.exit.thread.i.i ], [ false, %694 ], [ %.078.i.i, %uleb128.exit112.i.i ], [ %.078.i.i, %uleb128.exit134.i.i ], [ false, %.lr.ph.i.i104.i ], [ %.078.i.i, %.lr.ph.i114.i.i ], [ %.078.i.i, %.lr.ph.i136.i.i ]
+  %.078.i.i.be = phi i1 [ %.280.i.i, %read_dw_form_addr.exit.i.i ], [ true, %772 ], [ true, %770 ], [ false, %732 ], [ %.078.i.i, %read_dw_form_addr.exit.thread.i.i ], [ false, %694 ], [ %.078.i.i, %uleb128.exit112.i.i ], [ %.078.i.i, %uleb128.exit134.i.i ], [ false, %.lr.ph.i.i104.i ], [ %.078.i.i, %.lr.ph.i114.i.i ], [ %.078.i.i, %.lr.ph.i136.i.i ]
   %.067.i.i.be = phi i64 [ %.067.i.i, %read_dw_form_addr.exit.i.i ], [ %.val3.i3.i.i.i.i.i, %772 ], [ %771, %770 ], [ %.067.i.i, %732 ], [ %.067.i.i, %read_dw_form_addr.exit.thread.i.i ], [ %.067.i.i, %694 ], [ %.067.i.i, %uleb128.exit112.i.i ], [ %.067.i.i, %uleb128.exit134.i.i ], [ %.067.i.i, %.lr.ph.i.i104.i ], [ %.067.i.i, %.lr.ph.i114.i.i ], [ %.067.i.i, %.lr.ph.i136.i.i ]
   br label %read_dw_form_addr.exit.thread.i.i
 

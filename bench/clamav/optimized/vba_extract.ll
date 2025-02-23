@@ -4491,7 +4491,7 @@ word_read_fib.exit.thread:                        ; preds = %seekandread.exit.th
   br i1 %.not28.i.i, label %83, label %71
 
 83:                                               ; preds = %71
-  call void @free(ptr noundef %63) #16
+  call void @free(ptr noundef nonnull %63) #16
   br label %word_read_macro_info.exit.thread
 
 84:                                               ; preds = %68, %65

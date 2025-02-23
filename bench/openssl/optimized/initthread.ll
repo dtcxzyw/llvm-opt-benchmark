@@ -167,7 +167,7 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   store ptr %36, ptr %21, align 8, !tbaa !9
   tail call void @CRYPTO_free(ptr noundef nonnull %.03549.us, ptr noundef nonnull @.str, i32 noundef 457) #2
   %.not41.us = icmp eq ptr %36, null
-  br i1 %.not41.us, label %.outer._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !22
+  br i1 %.not41.us, label %.thread44, label %.lr.ph.split.us.split, !llvm.loop !22
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not, label %.lr.ph.split.split.us, label %.lr.ph.split.split
@@ -193,7 +193,7 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   store ptr %43, ptr %29, align 8, !tbaa !14
   tail call void @CRYPTO_free(ptr noundef nonnull %.03549, ptr noundef nonnull @.str, i32 noundef 457) #2
   %.not41 = icmp eq ptr %43, null
-  br i1 %.not41, label %.outer._crit_edge, label %.lr.ph.split.split, !llvm.loop !22
+  br i1 %.not41, label %.thread44, label %.lr.ph.split.split, !llvm.loop !22
 
 .outer:                                           ; preds = %.lr.ph.split.split.us, %.lr.ph.split.us.split.us
   %.us-phi = phi ptr [ %.03549.us.us, %.lr.ph.split.us.split.us ], [ %.03549.us50, %.lr.ph.split.split.us ]
@@ -202,10 +202,10 @@ define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef r
   %.not4148 = icmp eq ptr %45, null
   br i1 %.not4148, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !22
 
-.outer._crit_edge:                                ; preds = %.outer, %.lr.ph.split.split, %.lr.ph.split.us.split, %39, %32, %27
+.outer._crit_edge:                                ; preds = %.outer, %39, %32, %27
   br i1 %.not, label %46, label %.thread44
 
-.thread44:                                        ; preds = %.outer._crit_edge
+.thread44:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us.split, %.outer._crit_edge
   tail call void @CRYPTO_free(ptr noundef nonnull %21, ptr noundef nonnull @.str, i32 noundef 464) #2
   br label %46
 

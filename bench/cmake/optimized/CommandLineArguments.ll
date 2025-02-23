@@ -1112,7 +1112,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   br i1 %71, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.thread.sink.split, label %72
 
 72:                                               ; preds = %61
-  %73 = add i64 %.053176, 1
+  %73 = add nuw i64 %.053176, 1
   %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %65, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !29
   %76 = invoke noundef zeroext i1 @_ZN5cmsys20CommandLineArguments16PopulateVariableEPNS_37CommandLineArgumentsCallbackStructureEPKc(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef nonnull %46, ptr noundef %75)
@@ -1172,7 +1172,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 .preheader:                                       ; preds = %55, %121
   %.356.in = phi i64 [ %.356, %121 ], [ %.053176, %55 ]
-  %.356 = add i64 %.356.in, 1
+  %.356 = add nuw i64 %.356.in, 1
   %103 = load ptr, ptr %0, align 8, !tbaa !22
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8, !tbaa !33

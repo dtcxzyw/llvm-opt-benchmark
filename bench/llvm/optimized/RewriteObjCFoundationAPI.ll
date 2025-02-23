@@ -2605,8 +2605,8 @@ define internal fastcc noundef zeroext i1 @_ZL31rewriteToNumericBoxedExpressionP
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i8, ptr %53, align 16
   %55 = icmp eq i8 %54, 13
-  %.not.not6.i = icmp ne ptr %52, null
-  %.not.not.not.i = and i1 %.not.not6.i, %55
+  %.not6.i = icmp ne ptr %52, null
+  %.not.not.not.i = and i1 %.not6.i, %55
   br i1 %.not.not.not.i, label %_ZNK5clang4Type13isBooleanTypeEv.exit, label %.thread
 
 _ZNK5clang4Type13isBooleanTypeEv.exit:            ; preds = %47

@@ -229,19 +229,19 @@ define void @_ZN6Gluco210SimpSolverC2Ev(ptr noundef nonnull align 8 dereferencea
   %malloc.i = tail call dereferenceable_or_null(8) ptr @malloc(i64 8)
   store ptr %malloc.i, ptr %27, align 8, !tbaa !71
   %29 = icmp eq ptr %malloc.i, null
-  br i1 %29, label %30, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
+  br i1 %29, label %30, label %.lr.ph.i.i
 
 30:                                               ; preds = %1
   %31 = tail call ptr @__errno_location() #25
   %32 = load i32, ptr %31, align 4, !tbaa !6
   %33 = icmp eq i32 %32, 12
-  br i1 %33, label %34, label %_ZN6Gluco23vecINS_3LitEED2Ev.exit
+  br i1 %33, label %34, label %.lr.ph.i.i
 
 34:                                               ; preds = %30
   tail call fastcc void @_ZN6Gluco2L19fatal_out_of_memoryEv()
   unreachable
 
-_ZN6Gluco23vecINS_3LitEED2Ev.exit:                ; preds = %30, %1
+.lr.ph.i.i:                                       ; preds = %30, %1
   store i32 0, ptr %malloc.i, align 4
   store i32 1, ptr %28, align 8, !tbaa !72
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 1632

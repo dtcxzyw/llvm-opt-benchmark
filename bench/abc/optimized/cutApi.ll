@@ -137,7 +137,7 @@ Cut_NodeReadCutsNew.exit.i:                       ; preds = %.split8
   %.sink20.i = phi ptr [ %20, %.preheader ], [ %17, %Cut_NodeReadCutsNew.exit.i ]
   %19 = getelementptr inbounds nuw i8, ptr %.sink20.i, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !26
-  tail call void @Cut_CutRecycle(ptr noundef %0, ptr noundef nonnull %.sink20.i) #4
+  tail call void @Cut_CutRecycle(ptr noundef nonnull %0, ptr noundef nonnull %.sink20.i) #4
   %.not15.i = icmp eq ptr %20, null
   br i1 %.not15.i, label %21, label %.preheader, !llvm.loop !28
 

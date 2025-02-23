@@ -445,7 +445,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 
 222:                                              ; preds = %.preheader521, %222
   store i32 0, ptr %219, align 8, !tbaa !34
-  %223 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.0430559, ptr noundef %41, ptr noundef %43) #8
+  %223 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.0430559, ptr noundef %41, ptr noundef %43) #8
   store ptr %223, ptr %221, align 8, !tbaa !35
   %224 = load i32, ptr %219, align 8, !tbaa !34
   %225 = icmp eq i32 %224, 1
@@ -512,7 +512,7 @@ define range(i32 0, 2) i32 @Cudd_addHarwell(ptr noundef %0, ptr noundef %1, ptr 
 
 257:                                              ; preds = %.preheader519, %257
   store i32 0, ptr %254, align 8, !tbaa !34
-  %258 = call ptr @cuddUniqueInter(ptr noundef %1, i32 noundef %.1431562, ptr noundef %41, ptr noundef %43) #8
+  %258 = call ptr @cuddUniqueInter(ptr noundef nonnull %1, i32 noundef %.1431562, ptr noundef %41, ptr noundef %43) #8
   store ptr %258, ptr %256, align 8, !tbaa !35
   %259 = load i32, ptr %254, align 8, !tbaa !34
   %260 = icmp eq i32 %259, 1

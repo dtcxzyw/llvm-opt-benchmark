@@ -227,10 +227,10 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
   %9 = trunc nuw i8 %8 to i1
   %not. = xor i1 %7, true
-  %.not113 = select i1 %not., i1 %9, i1 false
+  %.not107 = select i1 %not., i1 %9, i1 false
   %.not = icmp eq i64 %1, 0
-  %or.cond = or i1 %.not, %.not113
-  br i1 %or.cond, label %H5T__bit_set.exit.thread, label %10, !prof !15
+  %or.cond = or i1 %.not, %.not107
+  br i1 %or.cond, label %H5T__bit_set.exit, label %10, !prof !15
 
 10:                                               ; preds = %4
   %11 = tail call i64 @llvm.abs.i64(i64 %1, i1 true)
@@ -242,7 +242,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %14 = sdiv i32 %13, 8
   %15 = and i64 %2, 7
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %H5T__bit_set.exit.thread, label %16
+  br i1 %.not.i, label %H5T__bit_set.exit, label %16
 
 16:                                               ; preds = %12
   %.not40.i = icmp eq i64 %15, 0
@@ -290,7 +290,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %.136.lcssa.i = phi i32 [ %.035.i, %32 ], [ %41, %.lr.ph.i ]
   %.1.lcssa.i = phi i64 [ %.0.i, %32 ], [ %38, %.lr.ph.i ]
   %.not41.i = icmp eq i64 %.1.lcssa.i, 0
-  br i1 %.not41.i, label %H5T__bit_set.exit.thread, label %._crit_edge.thread.sink.split.i
+  br i1 %.not41.i, label %H5T__bit_set.exit, label %._crit_edge.thread.sink.split.i
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i
   %42 = trunc nuw i64 %.1.lcssa.i to i8
@@ -300,7 +300,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %45 = load i8, ptr %44, align 1, !tbaa !10
   %46 = and i8 %45, %notmask43.i
   store i8 %46, ptr %44, align 1, !tbaa !10
-  br label %H5T__bit_set.exit.thread
+  br label %H5T__bit_set.exit
 
 47:                                               ; preds = %10
   %48 = call ptr @H5WB_wrap(ptr noundef nonnull %5, i64 noundef 512) #7
@@ -311,7 +311,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %51 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
   %52 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !16
   %53 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 190, i64 noundef %51, i64 noundef %52, ptr noundef nonnull @.str.1) #7
-  br label %H5T__bit_set.exit.thread
+  br label %H5T__bit_set.exit
 
 54:                                               ; preds = %47
   %55 = lshr i64 %3, 3
@@ -324,7 +324,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %60 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
   %61 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !16
   %62 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 194, i64 noundef %60, i64 noundef %61, ptr noundef nonnull @.str.2) #7
-  br label %H5T__bit_set.exit.thread107
+  br label %153
 
 63:                                               ; preds = %54
   %64 = icmp sgt i64 %1, 0
@@ -341,7 +341,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %71 = trunc nuw i8 %70 to i1
   %72 = xor i1 %71, true
   %73 = select i1 %69, i1 true, i1 %72
-  br i1 %73, label %74, label %H5T__bit_set.exit.thread107, !prof !9
+  br i1 %73, label %74, label %153, !prof !9
 
 74:                                               ; preds = %65
   %75 = trunc i64 %2 to i32
@@ -392,7 +392,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %.136.lcssa.i71 = phi i32 [ %.035.i68, %93 ], [ %102, %.lr.ph.i76 ]
   %.1.lcssa.i72 = phi i64 [ %.0.i69, %93 ], [ %99, %.lr.ph.i76 ]
   %.not41.i73 = icmp eq i64 %.1.lcssa.i72, 0
-  br i1 %.not41.i73, label %H5T__bit_set.exit.thread107, label %._crit_edge.thread.sink.split.i74
+  br i1 %.not41.i73, label %153, label %._crit_edge.thread.sink.split.i74
 
 ._crit_edge.thread.sink.split.i74:                ; preds = %._crit_edge.i70
   %103 = trunc nuw i64 %.1.lcssa.i72 to i8
@@ -402,7 +402,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %106 = load i8, ptr %105, align 1, !tbaa !10
   %107 = and i8 %106, %notmask43.i75
   store i8 %107, ptr %105, align 1, !tbaa !10
-  br label %H5T__bit_set.exit.thread107
+  br label %153
 
 108:                                              ; preds = %63
   %109 = add i64 %2, %11
@@ -415,7 +415,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %114 = trunc nuw i8 %113 to i1
   %115 = xor i1 %114, true
   %116 = select i1 %112, i1 true, i1 %115
-  br i1 %116, label %117, label %H5T__bit_set.exit.thread107, !prof !9
+  br i1 %116, label %117, label %153, !prof !9
 
 117:                                              ; preds = %108
   %118 = sub i64 %2, %11
@@ -468,7 +468,7 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %.136.lcssa.i87 = phi i32 [ %.035.i84, %138 ], [ %147, %.lr.ph.i92 ]
   %.1.lcssa.i88 = phi i64 [ %.0.i85, %138 ], [ %144, %.lr.ph.i92 ]
   %.not41.i89 = icmp eq i64 %.1.lcssa.i88, 0
-  br i1 %.not41.i89, label %H5T__bit_set.exit.thread107, label %._crit_edge.thread.sink.split.i90
+  br i1 %.not41.i89, label %153, label %._crit_edge.thread.sink.split.i90
 
 ._crit_edge.thread.sink.split.i90:                ; preds = %._crit_edge.i86
   %148 = trunc nuw i64 %.1.lcssa.i88 to i8
@@ -478,22 +478,22 @@ define range(i32 -1, 1) i32 @H5T__bit_shift(ptr noundef captures(none) %0, i64 n
   %151 = load i8, ptr %150, align 1, !tbaa !10
   %152 = and i8 %151, %notmask43.i91
   store i8 %152, ptr %150, align 1, !tbaa !10
-  br label %H5T__bit_set.exit.thread107
+  br label %153
 
-H5T__bit_set.exit.thread107:                      ; preds = %._crit_edge.i70, %._crit_edge.thread.sink.split.i74, %._crit_edge.i86, %._crit_edge.thread.sink.split.i90, %59, %65, %108
-  %.4111 = phi i32 [ 0, %108 ], [ 0, %65 ], [ -1, %59 ], [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ 0, %._crit_edge.i70 ]
-  %153 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #7
-  %154 = icmp slt i32 %153, 0
-  br i1 %154, label %155, label %H5T__bit_set.exit.thread
+153:                                              ; preds = %._crit_edge.thread.sink.split.i90, %._crit_edge.i86, %108, %._crit_edge.thread.sink.split.i74, %._crit_edge.i70, %65, %59
+  %.4.ph = phi i32 [ 0, %._crit_edge.thread.sink.split.i90 ], [ 0, %._crit_edge.i86 ], [ 0, %108 ], [ 0, %._crit_edge.thread.sink.split.i74 ], [ 0, %._crit_edge.i70 ], [ 0, %65 ], [ -1, %59 ]
+  %154 = call i32 @H5WB_unwrap(ptr noundef nonnull %48) #7
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %156, label %H5T__bit_set.exit
 
-155:                                              ; preds = %H5T__bit_set.exit.thread107
-  %156 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
-  %157 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !16
-  %158 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %156, i64 noundef %157, ptr noundef nonnull @.str.3) #7
-  br label %H5T__bit_set.exit.thread
+156:                                              ; preds = %153
+  %157 = load i64, ptr @H5E_DATATYPE_g, align 8, !tbaa !16
+  %158 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !16
+  %159 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__bit_shift, i32 noundef 218, i64 noundef %157, i64 noundef %158, ptr noundef nonnull @.str.3) #7
+  br label %H5T__bit_set.exit
 
-H5T__bit_set.exit.thread:                         ; preds = %50, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %12, %4, %155, %H5T__bit_set.exit.thread107
-  %.051 = phi i32 [ -1, %155 ], [ %.4111, %H5T__bit_set.exit.thread107 ], [ 0, %4 ], [ -1, %50 ], [ 0, %._crit_edge.thread.sink.split.i ], [ 0, %._crit_edge.i ], [ 0, %12 ]
+H5T__bit_set.exit:                                ; preds = %50, %._crit_edge.thread.sink.split.i, %._crit_edge.i, %12, %4, %156, %153
+  %.051 = phi i32 [ -1, %156 ], [ %.4.ph, %153 ], [ 0, %4 ], [ 0, %12 ], [ 0, %._crit_edge.i ], [ 0, %._crit_edge.thread.sink.split.i ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #7
   ret i32 %.051
 }

@@ -1263,34 +1263,34 @@ entry:
 if.end:                                           ; preds = %entry
   %1 = load i32, ptr %this, align 8, !tbaa !3
   %cmp49 = icmp sgt i32 %1, 0
-  br i1 %cmp49, label %for.body.lr.ph, label %for.cond.cleanup.thread
-
-for.cond.cleanup.thread:                          ; preds = %if.end
-  %excessProbability_72 = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %2 = load ptr, ptr %excessProbability_72, align 8, !tbaa !25
-  store double 1.000000e+00, ptr %2, align 8, !tbaa !27
-  %cumulativeExcessProbability_73 = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %3 = load ptr, ptr %cumulativeExcessProbability_73, align 8, !tbaa !25
-  store double 0.000000e+00, ptr %3, align 8, !tbaa !27
-  br label %for.cond.cleanup9
+  br i1 %cmp49, label %for.body.lr.ph, label %for.cond.cleanup
 
 for.body.lr.ph:                                   ; preds = %if.end
   %overFlow_ = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %4 = load i32, ptr %overFlow_, align 8, !tbaa !48
+  %2 = load i32, ptr %overFlow_, align 8, !tbaa !48
   %underFlow_ = getelementptr inbounds nuw i8, ptr %this, i64 220
-  %5 = load i32, ptr %underFlow_, align 4, !tbaa !46
-  %add = add nsw i32 %4, %5
+  %3 = load i32, ptr %underFlow_, align 4, !tbaa !46
+  %add = add nsw i32 %2, %3
   %count_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %6 = load ptr, ptr %count_, align 8, !tbaa !21
+  %4 = load ptr, ptr %count_, align 8, !tbaa !21
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %for.body
 
-for.cond.cleanup:                                 ; preds = %for.body
+for.cond.cleanup:                                 ; preds = %if.end
   %excessProbability_ = getelementptr inbounds nuw i8, ptr %this, i64 144
-  %7 = load ptr, ptr %excessProbability_, align 8, !tbaa !25
-  store double 1.000000e+00, ptr %7, align 8, !tbaa !27
+  %5 = load ptr, ptr %excessProbability_, align 8, !tbaa !25
+  store double 1.000000e+00, ptr %5, align 8, !tbaa !27
   %cumulativeExcessProbability_ = getelementptr inbounds nuw i8, ptr %this, i64 168
-  %8 = load ptr, ptr %cumulativeExcessProbability_, align 8, !tbaa !25
+  %6 = load ptr, ptr %cumulativeExcessProbability_, align 8, !tbaa !25
+  store double 0.000000e+00, ptr %6, align 8, !tbaa !27
+  br label %for.cond.cleanup9
+
+for.body10.lr.ph:                                 ; preds = %for.body
+  %excessProbability_72 = getelementptr inbounds nuw i8, ptr %this, i64 144
+  %7 = load ptr, ptr %excessProbability_72, align 8, !tbaa !25
+  store double 1.000000e+00, ptr %7, align 8, !tbaa !27
+  %cumulativeExcessProbability_73 = getelementptr inbounds nuw i8, ptr %this, i64 168
+  %8 = load ptr, ptr %cumulativeExcessProbability_73, align 8, !tbaa !25
   store double 0.000000e+00, ptr %8, align 8, !tbaa !27
   %cmp11 = icmp sgt i32 %add2, 0
   %dx_ = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1309,8 +1309,8 @@ for.cond.cleanup:                                 ; preds = %for.body
   %wide.trip.count67 = zext nneg i32 %1 to i64
   br i1 %cmp11, label %for.body10.us, label %for.body10
 
-for.body10.us:                                    ; preds = %for.cond.cleanup, %for.inc96.us
-  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc96.us ], [ 0, %for.cond.cleanup ]
+for.body10.us:                                    ; preds = %for.body10.lr.ph, %for.inc96.us
+  %indvars.iv63 = phi i64 [ %indvars.iv.next64, %for.inc96.us ], [ 0, %for.body10.lr.ph ]
   %add.ptr.i28.us = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv63
   %15 = load double, ptr %add.ptr.i28.us, align 8, !tbaa !27
   %div.us = fdiv double 1.000000e+00, %15
@@ -1385,19 +1385,19 @@ for.inc96.us:                                     ; preds = %if.then63.us, %if.e
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
   %count.050 = phi i32 [ %add, %for.body.lr.ph ], [ %add2, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %29 = load i32, ptr %add.ptr.i, align 4, !tbaa !23
   %add2 = add nsw i32 %29, %count.050
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !52
+  br i1 %exitcond.not, label %for.body10.lr.ph, label %for.body, !llvm.loop !52
 
-for.cond.cleanup9:                                ; preds = %for.inc96, %for.inc96.us, %for.cond.cleanup.thread
+for.cond.cleanup9:                                ; preds = %for.inc96, %for.inc96.us, %for.cond.cleanup
   store i8 1, ptr %isNormalized_, align 8, !tbaa !45
   br label %return
 
-for.body10:                                       ; preds = %for.cond.cleanup, %for.inc96
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.inc96 ], [ 0, %for.cond.cleanup ]
+for.body10:                                       ; preds = %for.body10.lr.ph, %for.inc96
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %for.inc96 ], [ 0, %for.body10.lr.ph ]
   %add.ptr.i34 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv57
   %30 = load double, ptr %add.ptr.i34, align 8, !tbaa !27
   %cmp40 = fcmp oeq double %30, 0.000000e+00

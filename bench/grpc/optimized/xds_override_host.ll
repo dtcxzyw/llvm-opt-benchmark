@@ -1395,34 +1395,30 @@ invoke.contthread-pre-split.i:                    ; preds = %for.body.i.i.i.i
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %cleanup
   %12 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %.pre, %cleanup ]
   %tobool.not.i.i.i = icmp eq ptr %12, null
-  br i1 %tobool.not.i.i.i, label %cleanup21, label %if.then.i.i.i
+  br i1 %tobool.not.i.i.i, label %if.then.i, label %cleanup21
 
-if.then.i.i.i:                                    ; preds = %invoke.cont.i
+cleanup21:                                        ; preds = %invoke.cont.i
   call void @_ZdlPv(ptr noundef nonnull %12) #29
   %.pre13 = load ptr, ptr %error_field, align 8
-  br label %cleanup21
-
-cleanup21:                                        ; preds = %if.then.i.i.i, %invoke.cont.i
-  %13 = phi ptr [ %.pre13, %if.then.i.i.i ], [ %errors, %invoke.cont.i ]
-  %cmp.not.i = icmp eq ptr %13, null
+  %cmp.not.i = icmp eq ptr %.pre13, null
   br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
 
 if.then.i.sink.split:                             ; preds = %invoke.cont6, %invoke.cont.i.thread
   %.sink = phi i8 [ 1, %invoke.cont.i.thread ], [ 0, %invoke.cont6 ]
-  %14 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
-  store i8 %.sink, ptr %14, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
+  store i8 %.sink, ptr %13, align 8
   br label %if.then.i
 
-if.then.i:                                        ; preds = %if.then.i.sink.split, %cleanup21
-  %15 = phi ptr [ %13, %cleanup21 ], [ %errors, %if.then.i.sink.split ]
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %15)
+if.then.i:                                        ; preds = %if.then.i.sink.split, %invoke.cont.i, %cleanup21
+  %14 = phi ptr [ %.pre13, %cleanup21 ], [ %errors, %invoke.cont.i ], [ %errors, %if.then.i.sink.split ]
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %14)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #27
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #27
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup21, %if.then.i

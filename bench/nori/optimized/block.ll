@@ -763,7 +763,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %81 = add i32 %72, 1
+  %81 = add nuw i32 %72, 1
   %82 = sub i32 %81, %70
   %wide.trip.count88 = zext i32 %82 to i64
   br label %107
@@ -801,7 +801,7 @@ _ZNK4nori7Color3f8toStringB5cxx11Ev.exit:         ; preds = %22
   %102 = add nuw i32 %71, 1
   %103 = sub i32 %102, %69
   %104 = zext nneg i32 %70 to i64
-  %105 = add i32 %72, 1
+  %105 = add nuw i32 %72, 1
   %106 = sub i32 %105, %70
   %wide.trip.count106 = zext i32 %106 to i64
   %wide.trip.count97 = zext i32 %103 to i64

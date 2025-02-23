@@ -270,7 +270,7 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
 ._crit_edge114.i.i:                               ; preds = %.lr.ph113.i.i
   %159 = zext i32 %.0101.lcssa.i.i to i64
   %.not.not.i.i = icmp eq i64 %indvars.iv141.i.i, %159
-  br i1 %.not.not.i.i, label %.loopexit108.i.i, label %.lr.ph116.preheader.i.i
+  br i1 %.not.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph116.preheader.i.i
 
 .lr.ph116.preheader.i.i:                          ; preds = %._crit_edge114.i.i
   %invariant.gep151.i.i = getelementptr inbounds nuw double, ptr %4, i64 %141
@@ -299,14 +299,14 @@ gauss_solve.exit.thread:                          ; preds = %._crit_edge.i.i
   store double %163, ptr %gep154.i.i, align 8, !tbaa !13
   %indvars.iv.next130.i.i = add nuw nsw i64 %indvars.iv129.i.i, 1
   %exitcond132.not.i.i = icmp eq i64 %indvars.iv.next130.i.i, 9
-  br i1 %exitcond132.not.i.i, label %.loopexit108.i.i, label %.lr.ph116.i.i
+  br i1 %exitcond132.not.i.i, label %.preheader.us.preheader.i.i, label %.lr.ph116.i.i
 
-.loopexit108.i.i:                                 ; preds = %.lr.ph116.i.i, %._crit_edge114.i.i
+.preheader.us.preheader.i.i:                      ; preds = %.lr.ph116.i.i, %._crit_edge114.i.i
   %invariant.gep155.i.i = getelementptr inbounds nuw double, ptr %4, i64 %145
   br label %.preheader.us.i.i
 
-.preheader.us.i.i:                                ; preds = %._crit_edge119.us.i.i, %.loopexit108.i.i
-  %indvars.iv137.i.i = phi i64 [ %indvars.iv.i.i, %.loopexit108.i.i ], [ %indvars.iv.next138.i.i, %._crit_edge119.us.i.i ]
+.preheader.us.i.i:                                ; preds = %._crit_edge119.us.i.i, %.preheader.us.preheader.i.i
+  %indvars.iv137.i.i = phi i64 [ %indvars.iv.i.i, %.preheader.us.preheader.i.i ], [ %indvars.iv.next138.i.i, %._crit_edge119.us.i.i ]
   %165 = mul nuw nsw i64 %indvars.iv137.i.i, 9
   %gep160.i.i = getelementptr inbounds nuw double, ptr %142, i64 %165
   %invariant.gep157.i.i = getelementptr inbounds nuw double, ptr %4, i64 %165

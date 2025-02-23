@@ -686,7 +686,7 @@ gf_weak_reduce.exit33:                            ; preds = %46
   call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef nonnull %57, ptr noundef nonnull %5) #7
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %58, ptr noundef nonnull %59) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull %59) #7
   br label %60
 
 60:                                               ; preds = %gf_weak_reduce.exit33, %60
@@ -869,7 +869,7 @@ gf_weak_reduce.exit:                              ; preds = %150
   %160 = add nuw nsw i64 %159, %146
   store i64 %160, ptr %4, align 16, !tbaa !3
   call void @ossl_gf_mul(ptr noundef nonnull %109, ptr noundef nonnull %4, ptr noundef nonnull %7) #7
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %161, label %162
@@ -2244,10 +2244,10 @@ gf_weak_reduce.exit:                              ; preds = %47
   %56 = and i64 %55, 72057594037927935
   %57 = add nuw nsw i64 %56, %44
   store i64 %57, ptr %5, align 16, !tbaa !3
-  call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef %1, ptr noundef nonnull %5) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef nonnull %1, ptr noundef nonnull %5) #7
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %58, ptr noundef nonnull %59) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %0, ptr noundef nonnull %58, ptr noundef nonnull %59) #7
   br label %60
 
 60:                                               ; preds = %gf_weak_reduce.exit, %60
@@ -2430,7 +2430,7 @@ gf_sub_nr.exit49:                                 ; preds = %150
   %160 = add nuw nsw i64 %159, %146
   store i64 %160, ptr %4, align 16, !tbaa !3
   call void @ossl_gf_mul(ptr noundef nonnull %109, ptr noundef nonnull %4, ptr noundef nonnull %7) #7
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   call void @ossl_gf_mul(ptr noundef nonnull %7, ptr noundef nonnull %4, ptr noundef nonnull %6) #7
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %161, label %162

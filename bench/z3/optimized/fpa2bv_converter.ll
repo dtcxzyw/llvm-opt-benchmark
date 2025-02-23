@@ -5163,21 +5163,14 @@ invoke.cont54:                                    ; preds = %if.then.i.i.i125, %
   %m_value.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store ptr %call2.i118, ptr %m_value.i.i, align 8
   invoke void @_ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE6insertEOS7_(ptr noundef nonnull align 8 dereferenceable(24) %m_const2bv, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
-          to label %invoke.cont59 unwind label %lpad15
+          to label %invoke.cont61 unwind label %lpad15
 
-invoke.cont59:                                    ; preds = %invoke.cont54
+invoke.cont61:                                    ; preds = %invoke.cont54
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
-  %tobool.not.i134 = icmp eq ptr %f, null
-  br i1 %tobool.not.i134, label %invoke.cont61, label %if.then.i135
-
-if.then.i135:                                     ; preds = %invoke.cont59
   %m_ref_count.i.i = getelementptr inbounds nuw i8, ptr %f, i64 8
   %52 = load i32, ptr %m_ref_count.i.i, align 4
   %inc.i.i = add i32 %52, 1
   store i32 %inc.i.i, ptr %m_ref_count.i.i, align 4
-  br label %invoke.cont61
-
-invoke.cont61:                                    ; preds = %if.then.i135, %invoke.cont59
   %53 = load ptr, ptr %result, align 8
   %tobool.not.i137 = icmp eq ptr %53, null
   br i1 %tobool.not.i137, label %invoke.cont65, label %if.then.i138
@@ -6231,7 +6224,7 @@ _ZN6bufferIP4exprLb0ELj16EE9push_backERKS1_.exit.i: ; preds = %_ZN6bufferIP4expr
   %12 = load i32, ptr %m_pos.i, align 8
   %inc.i.i = add i32 %12, 1
   store i32 %inc.i.i, ptr %m_pos.i, align 8
-  %inc.i = add nuw i32 %i.013.i, 1
+  %inc.i = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %sz
   br i1 %exitcond.not.i, label %_ZN6bufferIP4exprLb0ELj16EE6resizeEjRKS1_.exit, label %for.body.i6, !llvm.loop !20
 

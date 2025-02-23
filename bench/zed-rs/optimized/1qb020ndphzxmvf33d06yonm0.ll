@@ -19299,7 +19299,7 @@ _ZN4core3str7pattern13simd_contains17hc1ca49711af5475fE.exit: ; preds = %237, %1
 
 .preheader.i29:                                   ; preds = %266, %281
   %.sroa.025.0124.i = phi i64 [ %277, %281 ], [ 0, %266 ]
-  %.sroa.011.2123.i = phi i8 [ %.sroa.011.3.i, %281 ], [ %.sroa.011.0125.i, %266 ]
+  %.sroa.011.2123.i = phi i8 [ %.sroa.011.3.i, %281 ], [ 0, %266 ]
   %277 = add nuw nsw i64 %.sroa.025.0124.i, 1
   %278 = getelementptr inbounds nuw [4 x i16], ptr %5, i64 0, i64 %.sroa.025.0124.i
   %279 = load i16, ptr %278, align 2, !noalias !3907, !noundef !5

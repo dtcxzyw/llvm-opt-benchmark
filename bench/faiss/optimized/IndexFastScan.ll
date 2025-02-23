@@ -6573,11 +6573,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
-  %14 = phi i64 [ %9, %.lr.ph ], [ %133, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %76, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
+  %14 = phi i64 [ %9, %.lr.ph ], [ %131, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %74, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
   %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
   %15 = icmp eq i64 %.022, 0
-  br i1 %15, label %.lr.ph.i.i, label %75
+  br i1 %15, label %.lr.ph.i.i, label %73
 
 .lr.ph.i.i:                                       ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -6632,179 +6632,179 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %16 ], [ %spec.select.i.i.i.i, %27 ]
   %46 = and i64 %21, 4
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %58
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %._crit_edge.i.i.i.i
   %49 = add nsw i64 %22, -2
   %50 = ashr exact i64 %49, 1
   %51 = icmp eq i64 %.0.lcssa.i.i.i.i, %50
-  br i1 %51, label %52, label %58
+  br i1 %51, label %.thread.i.i.i, label %57
 
-52:                                               ; preds = %48
-  %53 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds i32, ptr %0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !58
-  %57 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store i32 %56, ptr %57, align 4, !tbaa !58
-  br label %58
+.thread.i.i.i:                                    ; preds = %48
+  %52 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %53 = or disjoint i64 %52, 1
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !58
+  %56 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store i32 %55, ptr %56, align 4, !tbaa !58
+  br label %.lr.ph.i.i.i.i.i
 
-58:                                               ; preds = %52, %48, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %54, %52 ], [ %.0.lcssa.i.i.i.i, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %59 = icmp sgt i64 %.1.i.i.i.i, 0
-  br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
+57:                                               ; preds = %48, %._crit_edge.i.i.i.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %58
-  %60 = load ptr, ptr %12, align 8, !tbaa !151
-  %61 = sext i32 %18 to i64
-  %62 = getelementptr inbounds i16, ptr %60, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !106
-  br label %64
+.lr.ph.i.i.i.i.i:                                 ; preds = %57, %.thread.i.i.i
+  %.1.i7.i.i.i = phi i64 [ %53, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %57 ]
+  %58 = load ptr, ptr %12, align 8, !tbaa !151
+  %59 = sext i32 %18 to i64
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !106
+  br label %62
 
-64:                                               ; preds = %71, %.lr.ph.i.i.i.i.i
-  %.019.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0920.i.i67.i.i.i, %71 ]
+62:                                               ; preds = %69, %.lr.ph.i.i.i.i.i
+  %.019.i.i.i.i.i = phi i64 [ %.1.i7.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0920.i.i89.i.i.i, %69 ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
-  %.0920.i.i67.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i67.i.i.i
-  %66 = load i32, ptr %65, align 4, !tbaa !58
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %60, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !106
-  %70 = icmp ugt i16 %63, %69
-  br i1 %70, label %71, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
+  %.0920.i.i89.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
+  %63 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i89.i.i.i
+  %64 = load i32, ptr %63, align 4, !tbaa !58
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !106
+  %68 = icmp ugt i16 %61, %67
+  br i1 %68, label %69, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.i.i.i
-  store i32 %66, ptr %72, align 4, !tbaa !58
-  %.not.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
-  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %64, !llvm.loop !267
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
+  store i32 %64, ptr %70, align 4, !tbaa !58
+  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %62, !llvm.loop !267
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i: ; preds = %71, %64, %58
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %58 ], [ %.019.i.i.i.i.i, %64 ], [ 0, %71 ]
-  %73 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %18, ptr %73, align 4, !tbaa !58
-  %74 = icmp sgt i64 %21, 4
-  br i1 %74, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !268
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i: ; preds = %69, %62, %57
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %57 ], [ %.019.i.i.i.i.i, %62 ], [ 0, %69 ]
+  %71 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %18, ptr %71, align 4, !tbaa !58
+  %72 = icmp sgt i64 %21, 4
+  br i1 %72, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !268
 
-75:                                               ; preds = %13
-  %76 = add nsw i64 %.022, -1
-  %77 = lshr i64 %14, 1
-  %78 = getelementptr inbounds nuw i32, ptr %0, i64 %77
-  %79 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
-  %80 = load i32, ptr %11, align 4, !tbaa !58
-  %81 = load i32, ptr %78, align 4, !tbaa !58
-  %82 = load ptr, ptr %12, align 8, !tbaa !151
-  %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds i16, ptr %82, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !106
-  %86 = sext i32 %80 to i64
-  %87 = getelementptr inbounds i16, ptr %82, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !106
-  %89 = icmp ugt i16 %85, %88
-  %90 = load i32, ptr %79, align 4, !tbaa !58
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %82, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !106
-  br i1 %89, label %94, label %103
+73:                                               ; preds = %13
+  %74 = add nsw i64 %.022, -1
+  %75 = lshr i64 %14, 1
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %75
+  %77 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
+  %78 = load i32, ptr %11, align 4, !tbaa !58
+  %79 = load i32, ptr %76, align 4, !tbaa !58
+  %80 = load ptr, ptr %12, align 8, !tbaa !151
+  %81 = sext i32 %79 to i64
+  %82 = getelementptr inbounds i16, ptr %80, i64 %81
+  %83 = load i16, ptr %82, align 2, !tbaa !106
+  %84 = sext i32 %78 to i64
+  %85 = getelementptr inbounds i16, ptr %80, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !106
+  %87 = icmp ugt i16 %83, %86
+  %88 = load i32, ptr %77, align 4, !tbaa !58
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i16, ptr %80, i64 %89
+  %91 = load i16, ptr %90, align 2, !tbaa !106
+  br i1 %87, label %92, label %101
 
-94:                                               ; preds = %75
-  %95 = icmp ugt i16 %93, %85
-  br i1 %95, label %96, label %98
+92:                                               ; preds = %73
+  %93 = icmp ugt i16 %91, %83
+  br i1 %93, label %94, label %96
 
-96:                                               ; preds = %94
-  %97 = load i32, ptr %0, align 4, !tbaa !58
-  store i32 %81, ptr %0, align 4, !tbaa !58
-  store i32 %97, ptr %78, align 4, !tbaa !58
+94:                                               ; preds = %92
+  %95 = load i32, ptr %0, align 4, !tbaa !58
+  store i32 %79, ptr %0, align 4, !tbaa !58
+  store i32 %95, ptr %76, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-98:                                               ; preds = %94
-  %99 = icmp ugt i16 %93, %88
-  %100 = load i32, ptr %0, align 4, !tbaa !58
-  br i1 %99, label %101, label %102
+96:                                               ; preds = %92
+  %97 = icmp ugt i16 %91, %86
+  %98 = load i32, ptr %0, align 4, !tbaa !58
+  br i1 %97, label %99, label %100
 
-101:                                              ; preds = %98
-  store i32 %90, ptr %0, align 4, !tbaa !58
-  store i32 %100, ptr %79, align 4, !tbaa !58
+99:                                               ; preds = %96
+  store i32 %88, ptr %0, align 4, !tbaa !58
+  store i32 %98, ptr %77, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-102:                                              ; preds = %98
-  store i32 %80, ptr %0, align 4, !tbaa !58
-  store i32 %100, ptr %11, align 4, !tbaa !58
+100:                                              ; preds = %96
+  store i32 %78, ptr %0, align 4, !tbaa !58
+  store i32 %98, ptr %11, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-103:                                              ; preds = %75
-  %104 = icmp ugt i16 %93, %88
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %73
+  %102 = icmp ugt i16 %91, %86
+  br i1 %102, label %103, label %105
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %0, align 4, !tbaa !58
-  store i32 %80, ptr %0, align 4, !tbaa !58
-  store i32 %106, ptr %11, align 4, !tbaa !58
+103:                                              ; preds = %101
+  %104 = load i32, ptr %0, align 4, !tbaa !58
+  store i32 %78, ptr %0, align 4, !tbaa !58
+  store i32 %104, ptr %11, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-107:                                              ; preds = %103
-  %108 = icmp ugt i16 %93, %85
-  %109 = load i32, ptr %0, align 4, !tbaa !58
-  br i1 %108, label %110, label %111
+105:                                              ; preds = %101
+  %106 = icmp ugt i16 %91, %83
+  %107 = load i32, ptr %0, align 4, !tbaa !58
+  br i1 %106, label %108, label %109
 
-110:                                              ; preds = %107
-  store i32 %90, ptr %0, align 4, !tbaa !58
-  store i32 %109, ptr %79, align 4, !tbaa !58
+108:                                              ; preds = %105
+  store i32 %88, ptr %0, align 4, !tbaa !58
+  store i32 %107, ptr %77, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-111:                                              ; preds = %107
-  store i32 %81, ptr %0, align 4, !tbaa !58
-  store i32 %109, ptr %78, align 4, !tbaa !58
+109:                                              ; preds = %105
+  store i32 %79, ptr %0, align 4, !tbaa !58
+  store i32 %107, ptr %76, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %111, %110, %105, %102, %101, %96
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %109, %108, %103, %100, %99, %94
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader, %130
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %130 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.012.0.i.i = phi ptr [ %122, %130 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %112 = load i32, ptr %0, align 4, !tbaa !58
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i16, ptr %82, i64 %113
-  %115 = load i16, ptr %114, align 2, !tbaa !106
-  br label %116
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader, %128
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %128 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.012.0.i.i = phi ptr [ %120, %128 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %110 = load i32, ptr %0, align 4, !tbaa !58
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i16, ptr %80, i64 %111
+  %113 = load i16, ptr %112, align 2, !tbaa !106
+  br label %114
 
-116:                                              ; preds = %116, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i ], [ %122, %116 ]
-  %117 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr %82, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !106
-  %121 = icmp ugt i16 %115, %120
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 4
-  br i1 %121, label %116, label %.preheader.i.i, !llvm.loop !269
+114:                                              ; preds = %114, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i ], [ %120, %114 ]
+  %115 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i16, ptr %80, i64 %116
+  %118 = load i16, ptr %117, align 2, !tbaa !106
+  %119 = icmp ugt i16 %113, %118
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 4
+  br i1 %119, label %114, label %.preheader.i.i, !llvm.loop !269
 
-.preheader.i.i:                                   ; preds = %116, %.preheader.i.i
-  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %116 ]
+.preheader.i.i:                                   ; preds = %114, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %114 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -4
-  %123 = load i32, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i16, ptr %82, i64 %124
-  %126 = load i16, ptr %125, align 2, !tbaa !106
-  %127 = icmp ugt i16 %126, %115
-  br i1 %127, label %.preheader.i.i, label %128, !llvm.loop !270
+  %121 = load i32, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i16, ptr %80, i64 %122
+  %124 = load i16, ptr %123, align 2, !tbaa !106
+  %125 = icmp ugt i16 %124, %113
+  br i1 %125, label %.preheader.i.i, label %126, !llvm.loop !270
 
-128:                                              ; preds = %.preheader.i.i
-  %129 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
-  br i1 %129, label %130, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
+126:                                              ; preds = %.preheader.i.i
+  %127 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %127, label %128, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
 
-130:                                              ; preds = %128
-  store i32 %123, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
-  store i32 %117, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
+128:                                              ; preds = %126
+  store i32 %121, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
+  store i32 %115, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !271
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit: ; preds = %128
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %76, ptr %3)
-  %131 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %132 = sub i64 %131, %6
-  %133 = ashr exact i64 %132, 2
-  %134 = icmp sgt i64 %133, 16
-  br i1 %134, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !272
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit: ; preds = %126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %74, ptr %3)
+  %129 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %130 = sub i64 %129, %6
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 16
+  br i1 %132, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !272
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMaxItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, %4
   ret void
@@ -11559,11 +11559,11 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
-  %14 = phi i64 [ %9, %.lr.ph ], [ %133, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
-  %.022 = phi i64 [ %2, %.lr.ph ], [ %76, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
+  %14 = phi i64 [ %9, %.lr.ph ], [ %131, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
+  %.022 = phi i64 [ %2, %.lr.ph ], [ %74, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
   %storemerge21 = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit ]
   %15 = icmp eq i64 %.022, 0
-  br i1 %15, label %.lr.ph.i.i, label %75
+  br i1 %15, label %.lr.ph.i.i, label %73
 
 .lr.ph.i.i:                                       ; preds = %13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -11618,179 +11618,179 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %16 ], [ %spec.select.i.i.i.i, %27 ]
   %46 = and i64 %21, 4
   %47 = icmp eq i64 %46, 0
-  br i1 %47, label %48, label %58
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %._crit_edge.i.i.i.i
   %49 = add nsw i64 %22, -2
   %50 = ashr exact i64 %49, 1
   %51 = icmp eq i64 %.0.lcssa.i.i.i.i, %50
-  br i1 %51, label %52, label %58
+  br i1 %51, label %.thread.i.i.i, label %57
 
-52:                                               ; preds = %48
-  %53 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
-  %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds i32, ptr %0, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !58
-  %57 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
-  store i32 %56, ptr %57, align 4, !tbaa !58
-  br label %58
+.thread.i.i.i:                                    ; preds = %48
+  %52 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %53 = or disjoint i64 %52, 1
+  %54 = getelementptr inbounds nuw i32, ptr %0, i64 %53
+  %55 = load i32, ptr %54, align 4, !tbaa !58
+  %56 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
+  store i32 %55, ptr %56, align 4, !tbaa !58
+  br label %.lr.ph.i.i.i.i.i
 
-58:                                               ; preds = %52, %48, %._crit_edge.i.i.i.i
-  %.1.i.i.i.i = phi i64 [ %54, %52 ], [ %.0.lcssa.i.i.i.i, %48 ], [ %.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
-  %59 = icmp sgt i64 %.1.i.i.i.i, 0
-  br i1 %59, label %.lr.ph.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
+57:                                               ; preds = %48, %._crit_edge.i.i.i.i
+  %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %58
-  %60 = load ptr, ptr %12, align 8, !tbaa !312
-  %61 = sext i32 %18 to i64
-  %62 = getelementptr inbounds i16, ptr %60, i64 %61
-  %63 = load i16, ptr %62, align 2, !tbaa !106
-  br label %64
+.lr.ph.i.i.i.i.i:                                 ; preds = %57, %.thread.i.i.i
+  %.1.i7.i.i.i = phi i64 [ %53, %.thread.i.i.i ], [ %.0.lcssa.i.i.i.i, %57 ]
+  %58 = load ptr, ptr %12, align 8, !tbaa !312
+  %59 = sext i32 %18 to i64
+  %60 = getelementptr inbounds i16, ptr %58, i64 %59
+  %61 = load i16, ptr %60, align 2, !tbaa !106
+  br label %62
 
-64:                                               ; preds = %71, %.lr.ph.i.i.i.i.i
-  %.019.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0920.i.i67.i.i.i, %71 ]
+62:                                               ; preds = %69, %.lr.ph.i.i.i.i.i
+  %.019.i.i.i.i.i = phi i64 [ %.1.i7.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0920.i.i89.i.i.i, %69 ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
-  %.0920.i.i67.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i67.i.i.i
-  %66 = load i32, ptr %65, align 4, !tbaa !58
-  %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i16, ptr %60, i64 %67
-  %69 = load i16, ptr %68, align 2, !tbaa !106
-  %70 = icmp ult i16 %63, %69
-  br i1 %70, label %71, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
+  %.0920.i.i89.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
+  %63 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i89.i.i.i
+  %64 = load i32, ptr %63, align 4, !tbaa !58
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %67 = load i16, ptr %66, align 2, !tbaa !106
+  %68 = icmp ult i16 %61, %67
+  br i1 %68, label %69, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i
 
-71:                                               ; preds = %64
-  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.i.i.i
-  store i32 %66, ptr %72, align 4, !tbaa !58
-  %.not.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
-  br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %64, !llvm.loop !422
+69:                                               ; preds = %62
+  %70 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
+  store i32 %64, ptr %70, align 4, !tbaa !58
+  %.not10.i.i.i = icmp ult i64 %.0920.in.i.i.i.i.i, 2
+  br i1 %.not10.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, label %62, !llvm.loop !422
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i: ; preds = %71, %64, %58
-  %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %58 ], [ %.019.i.i.i.i.i, %64 ], [ 0, %71 ]
-  %73 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  store i32 %18, ptr %73, align 4, !tbaa !58
-  %74 = icmp sgt i64 %21, 4
-  br i1 %74, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !423
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i: ; preds = %69, %62, %57
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %57 ], [ %.019.i.i.i.i.i, %62 ], [ 0, %69 ]
+  %71 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  store i32 %18, ptr %71, align 4, !tbaa !58
+  %72 = icmp sgt i64 %21, 4
+  br i1 %72, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !423
 
-75:                                               ; preds = %13
-  %76 = add nsw i64 %.022, -1
-  %77 = lshr i64 %14, 1
-  %78 = getelementptr inbounds nuw i32, ptr %0, i64 %77
-  %79 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
-  %80 = load i32, ptr %11, align 4, !tbaa !58
-  %81 = load i32, ptr %78, align 4, !tbaa !58
-  %82 = load ptr, ptr %12, align 8, !tbaa !312
-  %83 = sext i32 %81 to i64
-  %84 = getelementptr inbounds i16, ptr %82, i64 %83
-  %85 = load i16, ptr %84, align 2, !tbaa !106
-  %86 = sext i32 %80 to i64
-  %87 = getelementptr inbounds i16, ptr %82, i64 %86
-  %88 = load i16, ptr %87, align 2, !tbaa !106
-  %89 = icmp ult i16 %85, %88
-  %90 = load i32, ptr %79, align 4, !tbaa !58
-  %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds i16, ptr %82, i64 %91
-  %93 = load i16, ptr %92, align 2, !tbaa !106
-  br i1 %89, label %94, label %103
+73:                                               ; preds = %13
+  %74 = add nsw i64 %.022, -1
+  %75 = lshr i64 %14, 1
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %75
+  %77 = getelementptr inbounds i8, ptr %storemerge21, i64 -4
+  %78 = load i32, ptr %11, align 4, !tbaa !58
+  %79 = load i32, ptr %76, align 4, !tbaa !58
+  %80 = load ptr, ptr %12, align 8, !tbaa !312
+  %81 = sext i32 %79 to i64
+  %82 = getelementptr inbounds i16, ptr %80, i64 %81
+  %83 = load i16, ptr %82, align 2, !tbaa !106
+  %84 = sext i32 %78 to i64
+  %85 = getelementptr inbounds i16, ptr %80, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !106
+  %87 = icmp ult i16 %83, %86
+  %88 = load i32, ptr %77, align 4, !tbaa !58
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds i16, ptr %80, i64 %89
+  %91 = load i16, ptr %90, align 2, !tbaa !106
+  br i1 %87, label %92, label %101
 
-94:                                               ; preds = %75
-  %95 = icmp ult i16 %93, %85
-  br i1 %95, label %96, label %98
+92:                                               ; preds = %73
+  %93 = icmp ult i16 %91, %83
+  br i1 %93, label %94, label %96
 
-96:                                               ; preds = %94
-  %97 = load i32, ptr %0, align 4, !tbaa !58
-  store i32 %81, ptr %0, align 4, !tbaa !58
-  store i32 %97, ptr %78, align 4, !tbaa !58
+94:                                               ; preds = %92
+  %95 = load i32, ptr %0, align 4, !tbaa !58
+  store i32 %79, ptr %0, align 4, !tbaa !58
+  store i32 %95, ptr %76, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-98:                                               ; preds = %94
-  %99 = icmp ult i16 %93, %88
-  %100 = load i32, ptr %0, align 4, !tbaa !58
-  br i1 %99, label %101, label %102
+96:                                               ; preds = %92
+  %97 = icmp ult i16 %91, %86
+  %98 = load i32, ptr %0, align 4, !tbaa !58
+  br i1 %97, label %99, label %100
 
-101:                                              ; preds = %98
-  store i32 %90, ptr %0, align 4, !tbaa !58
-  store i32 %100, ptr %79, align 4, !tbaa !58
+99:                                               ; preds = %96
+  store i32 %88, ptr %0, align 4, !tbaa !58
+  store i32 %98, ptr %77, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-102:                                              ; preds = %98
-  store i32 %80, ptr %0, align 4, !tbaa !58
-  store i32 %100, ptr %11, align 4, !tbaa !58
+100:                                              ; preds = %96
+  store i32 %78, ptr %0, align 4, !tbaa !58
+  store i32 %98, ptr %11, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-103:                                              ; preds = %75
-  %104 = icmp ult i16 %93, %88
-  br i1 %104, label %105, label %107
+101:                                              ; preds = %73
+  %102 = icmp ult i16 %91, %86
+  br i1 %102, label %103, label %105
 
-105:                                              ; preds = %103
-  %106 = load i32, ptr %0, align 4, !tbaa !58
-  store i32 %80, ptr %0, align 4, !tbaa !58
-  store i32 %106, ptr %11, align 4, !tbaa !58
+103:                                              ; preds = %101
+  %104 = load i32, ptr %0, align 4, !tbaa !58
+  store i32 %78, ptr %0, align 4, !tbaa !58
+  store i32 %104, ptr %11, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-107:                                              ; preds = %103
-  %108 = icmp ult i16 %93, %85
-  %109 = load i32, ptr %0, align 4, !tbaa !58
-  br i1 %108, label %110, label %111
+105:                                              ; preds = %101
+  %106 = icmp ult i16 %91, %83
+  %107 = load i32, ptr %0, align 4, !tbaa !58
+  br i1 %106, label %108, label %109
 
-110:                                              ; preds = %107
-  store i32 %90, ptr %0, align 4, !tbaa !58
-  store i32 %109, ptr %79, align 4, !tbaa !58
+108:                                              ; preds = %105
+  store i32 %88, ptr %0, align 4, !tbaa !58
+  store i32 %107, ptr %77, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-111:                                              ; preds = %107
-  store i32 %81, ptr %0, align 4, !tbaa !58
-  store i32 %109, ptr %78, align 4, !tbaa !58
+109:                                              ; preds = %105
+  store i32 %79, ptr %0, align 4, !tbaa !58
+  store i32 %107, ptr %76, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %111, %110, %105, %102, %101, %96
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader: ; preds = %109, %108, %103, %100, %99, %94
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader, %130
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %130 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %.sroa.012.0.i.i = phi ptr [ %122, %130 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
-  %112 = load i32, ptr %0, align 4, !tbaa !58
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i16, ptr %82, i64 %113
-  %115 = load i16, ptr %114, align 2, !tbaa !106
-  br label %116
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader, %128
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %128 ], [ %storemerge21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %.sroa.012.0.i.i = phi ptr [ %120, %128 ], [ %11, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i.preheader ]
+  %110 = load i32, ptr %0, align 4, !tbaa !58
+  %111 = sext i32 %110 to i64
+  %112 = getelementptr inbounds i16, ptr %80, i64 %111
+  %113 = load i16, ptr %112, align 2, !tbaa !106
+  br label %114
 
-116:                                              ; preds = %116, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i ], [ %122, %116 ]
-  %117 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
-  %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds i16, ptr %82, i64 %118
-  %120 = load i16, ptr %119, align 2, !tbaa !106
-  %121 = icmp ult i16 %115, %120
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 4
-  br i1 %121, label %116, label %.preheader.i.i, !llvm.loop !424
+114:                                              ; preds = %114, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i ], [ %120, %114 ]
+  %115 = load i32, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds i16, ptr %80, i64 %116
+  %118 = load i16, ptr %117, align 2, !tbaa !106
+  %119 = icmp ult i16 %113, %118
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 4
+  br i1 %119, label %114, label %.preheader.i.i, !llvm.loop !424
 
-.preheader.i.i:                                   ; preds = %116, %.preheader.i.i
-  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %116 ]
+.preheader.i.i:                                   ; preds = %114, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %114 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -4
-  %123 = load i32, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i16, ptr %82, i64 %124
-  %126 = load i16, ptr %125, align 2, !tbaa !106
-  %127 = icmp ult i16 %126, %115
-  br i1 %127, label %.preheader.i.i, label %128, !llvm.loop !425
+  %121 = load i32, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i16, ptr %80, i64 %122
+  %124 = load i16, ptr %123, align 2, !tbaa !106
+  %125 = icmp ult i16 %124, %113
+  br i1 %125, label %.preheader.i.i, label %126, !llvm.loop !425
 
-128:                                              ; preds = %.preheader.i.i
-  %129 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
-  br i1 %129, label %130, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
+126:                                              ; preds = %.preheader.i.i
+  %127 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %127, label %128, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit
 
-130:                                              ; preds = %128
-  store i32 %123, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
-  store i32 %117, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
+128:                                              ; preds = %126
+  store i32 %121, ptr %.sroa.012.1.i.i, align 4, !tbaa !58
+  store i32 %115, ptr %.sroa.09.1.i.i, align 4, !tbaa !58
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_SH_T0_.exit.i, !llvm.loop !426
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit: ; preds = %128
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %76, ptr %3)
-  %131 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %132 = sub i64 %131, %6
-  %133 = ashr exact i64 %132, 2
-  %134 = icmp sgt i64 %133, 16
-  br i1 %134, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !427
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit: ; preds = %126
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge21, i64 noundef %74, ptr %3)
+  %129 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %130 = sub i64 %129, %6
+  %131 = ashr exact i64 %130, 2
+  %132 = icmp sgt i64 %131, 16
+  br i1 %132, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit, !llvm.loop !427
 
 _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEET_SH_SH_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops15_Iter_comp_iterIZN5faiss20simd_result_handlers16ReservoirHandlerINS9_4CMinItiEELb0EE3endEvEUliiE_EEEvT_SH_SH_RT0_.exit.i.i, %4
   ret void

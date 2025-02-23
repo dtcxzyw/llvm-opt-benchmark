@@ -3808,7 +3808,7 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
 
 .preheader.i.i:                                   ; preds = %83, %75
   %.sroa.025.047.i.i = phi i64 [ %71, %75 ], [ 0, %83 ]
-  %.sroa.011.246.i.i = phi i8 [ %.sroa.011.3.i.i, %75 ], [ %.sroa.011.048.i.i, %83 ]
+  %.sroa.011.246.i.i = phi i8 [ %.sroa.011.3.i.i, %75 ], [ 0, %83 ]
   %71 = add nuw nsw i64 %.sroa.025.047.i.i, 1
   %72 = getelementptr inbounds nuw [4 x i16], ptr %8, i64 0, i64 %.sroa.025.047.i.i
   %73 = load i16, ptr %72, align 2, !noalias !692, !noundef !4

@@ -3157,20 +3157,20 @@ define dso_local void @_ZN4llvm4yaml5Input15endBitSetScalarEv(ptr noundef nonnul
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
-  %.not1117.not = icmp eq ptr %13, %14
-  br i1 %.not1117.not, label %.critedge, label %.lr.ph
+  %.not1118.not = icmp eq ptr %13, %14
+  br i1 %.not1118.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %20 = load ptr, ptr %19, align 8, !tbaa !63
   %21 = load i64, ptr %20, align 8, !tbaa !128
   %22 = and i64 %21, 1
-  %.not1323 = icmp eq i64 %22, 0
-  br i1 %.not1323, label %._crit_edge, label %.lr.ph25
+  %.not1423 = icmp eq i64 %22, 0
+  br i1 %.not1423, label %._crit_edge, label %.lr.ph25
 
 .lr.ph25:                                         ; preds = %.lr.ph, %25
-  %.01824 = phi i32 [ %23, %25 ], [ 0, %.lr.ph ]
-  %23 = add i32 %.01824, 1
+  %.01924 = phi i32 [ %23, %25 ], [ 0, %.lr.ph ]
+  %23 = add i32 %.01924, 1
   %24 = zext i32 %23 to i64
   %.not11 = icmp ugt i64 %18, %24
   br i1 %.not11, label %25, label %.critedge, !llvm.loop !218
@@ -3184,8 +3184,8 @@ define dso_local void @_ZN4llvm4yaml5Input15endBitSetScalarEv(ptr noundef nonnul
   %31 = zext nneg i32 %29 to i64
   %32 = shl nuw i64 1, %31
   %33 = and i64 %30, %32
-  %.not13 = icmp eq i64 %33, 0
-  br i1 %.not13, label %._crit_edge, label %.lr.ph25, !llvm.loop !218
+  %.not14 = icmp eq i64 %33, 0
+  br i1 %.not14, label %._crit_edge, label %.lr.ph25, !llvm.loop !218
 
 ._crit_edge:                                      ; preds = %25, %.lr.ph
   %.lcssa = phi i64 [ 0, %.lr.ph ], [ %24, %25 ]

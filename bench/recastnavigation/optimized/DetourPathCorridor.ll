@@ -953,7 +953,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS
 
 .lr.ph63.preheader:                               ; preds = %.preheader
   %37 = zext nneg i32 %.043.lcssa to i64
-  %38 = sext i32 %.043.lcssa to i64
+  %38 = zext nneg i32 %.043.lcssa to i64
   br label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %.lr.ph63

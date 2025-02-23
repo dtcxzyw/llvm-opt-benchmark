@@ -2152,7 +2152,7 @@ Wlc_NtkNumPiBits.exit.i:                          ; preds = %20, %Abc_Clock.exit
   %31 = getelementptr i8, ptr %6, i64 4
   %.val41.i = load i32, ptr %31, align 4, !tbaa !11
   %32 = sub nsw i32 %.0.lcssa.i.i, %.val41.i
-  %33 = call ptr @Wlc_NtkBitBlast(ptr noundef %15, ptr noundef null) #24
+  %33 = call ptr @Wlc_NtkBitBlast(ptr noundef nonnull %15, ptr noundef null) #24
   %34 = call ptr @Gia_ManStart(i32 noundef 10000) #24
   %35 = load ptr, ptr %33, align 8, !tbaa !82
   %.not.i.i.i = icmp eq ptr %35, null
@@ -2781,10 +2781,10 @@ Vec_BitStartFull.exit.i:                          ; preds = %330, %Wlc_NtkUnroll
   store i32 %329, ptr %335, align 4, !tbaa !47
   call void @llvm.memset.p0.i64(ptr align 4 %334, i8 -1, i64 %.pre-phi8.i.i, i1 false)
   %337 = call fastcc ptr @Wlc_NtkGetCoreSels(ptr noundef %322, i32 noundef %32, i32 noundef %.val39.i, ptr noundef nonnull %328, i32 noundef %2)
-  call void @Wlc_NtkFree(ptr noundef %15) #24
+  call void @Wlc_NtkFree(ptr noundef nonnull %15) #24
   call void @Gia_ManStop(ptr noundef %322) #24
   %338 = icmp eq ptr %337, null
-  br i1 %338, label %Wlc_NtkProofReduce.exit.thread, label %339
+  br i1 %338, label %373, label %339
 
 339:                                              ; preds = %Vec_BitStartFull.exit.i
   %340 = icmp sgt i32 %327, 0
@@ -2853,115 +2853,115 @@ Abc_Clock.exit53.i:                               ; preds = %360, %.critedge.i
   %370 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %371 = load ptr, ptr %370, align 8, !tbaa !14
   %.not.i54.i = icmp eq ptr %371, null
-  br i1 %.not.i54.i, label %Wlc_NtkProofReduce.exit, label %372
+  br i1 %.not.i54.i, label %379, label %372
 
 372:                                              ; preds = %Abc_Clock.exit53.i
   call void @free(ptr noundef nonnull %371) #24
-  br label %Wlc_NtkProofReduce.exit
+  br label %379
 
-Wlc_NtkProofReduce.exit:                          ; preds = %Abc_Clock.exit53.i, %372
-  call void @free(ptr noundef nonnull %337) #24
-  %373 = call fastcc i32 @Vec_BitCount(i32 %329, ptr %334)
-  %374 = icmp ne i32 %.val39.i, %373
-  %375 = zext i1 %374 to i32
-  %376 = icmp sgt i32 %.val39.i, 0
-  br i1 %376, label %.lr.ph, label %.critedge
+373:                                              ; preds = %Vec_BitStartFull.exit.i
+  %374 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %375 = load ptr, ptr %374, align 8, !tbaa !14
+  %.not.i = icmp eq ptr %375, null
+  br i1 %.not.i, label %Vec_IntFree.exit, label %376
 
-.lr.ph:                                           ; preds = %Wlc_NtkProofReduce.exit
-  %377 = getelementptr i8, ptr %6, i64 8
-  %378 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %wide.trip.count = zext nneg i32 %.val39.i to i64
-  br label %384
-
-Wlc_NtkProofReduce.exit.thread:                   ; preds = %Vec_BitStartFull.exit.i
-  %379 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %380 = load ptr, ptr %379, align 8, !tbaa !14
-  %.not.i = icmp eq ptr %380, null
-  br i1 %.not.i, label %Vec_IntFree.exit, label %381
-
-381:                                              ; preds = %Wlc_NtkProofReduce.exit.thread
-  call void @free(ptr noundef nonnull %380) #24
+376:                                              ; preds = %373
+  call void @free(ptr noundef nonnull %375) #24
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %Wlc_NtkProofReduce.exit.thread, %381
+Vec_IntFree.exit:                                 ; preds = %373, %376
   call void @free(ptr noundef nonnull %6) #24
-  %382 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %383 = load ptr, ptr %382, align 8, !tbaa !14
-  %.not.i33 = icmp eq ptr %383, null
+  %377 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %378 = load ptr, ptr %377, align 8, !tbaa !14
+  %.not.i33 = icmp eq ptr %378, null
   br i1 %.not.i33, label %Vec_IntFree.exit34, label %Vec_IntFree.exit34.sink.split
 
-384:                                              ; preds = %.lr.ph, %407
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %407 ]
-  %385 = trunc nuw nsw i64 %indvars.iv to i32
-  %386 = lshr i64 %indvars.iv, 5
-  %387 = and i64 %386, 134217727
-  %388 = getelementptr inbounds nuw i32, ptr %334, i64 %387
-  %389 = load i32, ptr %388, align 4, !tbaa !15
-  %390 = and i32 %385, 31
-  %391 = shl nuw i32 1, %390
-  %392 = and i32 %389, %391
-  %.not = icmp eq i32 %392, 0
-  br i1 %.not, label %393, label %407
+379:                                              ; preds = %372, %Abc_Clock.exit53.i
+  call void @free(ptr noundef nonnull %337) #24
+  %380 = call fastcc i32 @Vec_BitCount(i32 %329, ptr %334)
+  %381 = icmp ne i32 %.val39.i, %380
+  %382 = zext i1 %381 to i32
+  %383 = icmp sgt i32 %.val39.i, 0
+  br i1 %383, label %.lr.ph, label %.critedge
 
-393:                                              ; preds = %384
-  %.val29 = load ptr, ptr %377, align 8, !tbaa !14
-  %394 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
-  %395 = load i32, ptr %394, align 4, !tbaa !15
-  %396 = load ptr, ptr %378, align 8, !tbaa !76
-  %397 = and i32 %395, 31
-  %398 = shl nuw i32 1, %397
-  %399 = xor i32 %398, -1
-  %400 = getelementptr inbounds nuw i8, ptr %396, i64 8
-  %401 = load ptr, ptr %400, align 8, !tbaa !37
-  %402 = ashr i32 %395, 5
-  %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds i32, ptr %401, i64 %403
-  %405 = load i32, ptr %404, align 4, !tbaa !15
-  %406 = and i32 %405, %399
-  store i32 %406, ptr %404, align 4, !tbaa !15
-  br label %407
+.lr.ph:                                           ; preds = %379
+  %384 = getelementptr i8, ptr %6, i64 8
+  %385 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %wide.trip.count = zext nneg i32 %.val39.i to i64
+  br label %386
 
-407:                                              ; preds = %384, %393
+386:                                              ; preds = %.lr.ph, %409
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %409 ]
+  %387 = trunc nuw nsw i64 %indvars.iv to i32
+  %388 = lshr i64 %indvars.iv, 5
+  %389 = and i64 %388, 134217727
+  %390 = getelementptr inbounds nuw i32, ptr %334, i64 %389
+  %391 = load i32, ptr %390, align 4, !tbaa !15
+  %392 = and i32 %387, 31
+  %393 = shl nuw i32 1, %392
+  %394 = and i32 %391, %393
+  %.not = icmp eq i32 %394, 0
+  br i1 %.not, label %395, label %409
+
+395:                                              ; preds = %386
+  %.val29 = load ptr, ptr %384, align 8, !tbaa !14
+  %396 = getelementptr inbounds nuw i32, ptr %.val29, i64 %indvars.iv
+  %397 = load i32, ptr %396, align 4, !tbaa !15
+  %398 = load ptr, ptr %385, align 8, !tbaa !76
+  %399 = and i32 %397, 31
+  %400 = shl nuw i32 1, %399
+  %401 = xor i32 %400, -1
+  %402 = getelementptr inbounds nuw i8, ptr %398, i64 8
+  %403 = load ptr, ptr %402, align 8, !tbaa !37
+  %404 = ashr i32 %397, 5
+  %405 = sext i32 %404 to i64
+  %406 = getelementptr inbounds i32, ptr %403, i64 %405
+  %407 = load i32, ptr %406, align 4, !tbaa !15
+  %408 = and i32 %407, %401
+  store i32 %408, ptr %406, align 4, !tbaa !15
+  br label %409
+
+409:                                              ; preds = %386, %395
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %384, !llvm.loop !108
+  br i1 %exitcond.not, label %.critedge, label %386, !llvm.loop !108
 
-.critedge:                                        ; preds = %407, %Wlc_NtkProofReduce.exit
-  %408 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %409 = load ptr, ptr %408, align 8, !tbaa !14
-  %.not.i35 = icmp eq ptr %409, null
-  br i1 %.not.i35, label %Vec_IntFree.exit36, label %410
+.critedge:                                        ; preds = %409, %379
+  %410 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %411 = load ptr, ptr %410, align 8, !tbaa !14
+  %.not.i35 = icmp eq ptr %411, null
+  br i1 %.not.i35, label %Vec_IntFree.exit36, label %412
 
-410:                                              ; preds = %.critedge
-  call void @free(ptr noundef nonnull %409) #24
+412:                                              ; preds = %.critedge
+  call void @free(ptr noundef nonnull %411) #24
   br label %Vec_IntFree.exit36
 
-Vec_IntFree.exit36:                               ; preds = %.critedge, %410
+Vec_IntFree.exit36:                               ; preds = %.critedge, %412
   call void @free(ptr noundef nonnull %6) #24
-  %411 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %412 = load ptr, ptr %411, align 8, !tbaa !14
-  %.not.i37 = icmp eq ptr %412, null
-  br i1 %.not.i37, label %Vec_IntFree.exit38, label %413
+  %413 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %414 = load ptr, ptr %413, align 8, !tbaa !14
+  %.not.i37 = icmp eq ptr %414, null
+  br i1 %.not.i37, label %Vec_IntFree.exit38, label %415
 
-413:                                              ; preds = %Vec_IntFree.exit36
-  call void @free(ptr noundef nonnull %412) #24
+415:                                              ; preds = %Vec_IntFree.exit36
+  call void @free(ptr noundef nonnull %414) #24
   br label %Vec_IntFree.exit38
 
-Vec_IntFree.exit38:                               ; preds = %Vec_IntFree.exit36, %413
+Vec_IntFree.exit38:                               ; preds = %Vec_IntFree.exit36, %415
   call void @free(ptr noundef nonnull %7) #24
   %.not.i39 = icmp eq ptr %334, null
   br i1 %.not.i39, label %Vec_IntFree.exit34, label %Vec_IntFree.exit34.sink.split
 
 Vec_IntFree.exit34.sink.split:                    ; preds = %Vec_IntFree.exit38, %Vec_IntFree.exit
-  %.sink46 = phi ptr [ %383, %Vec_IntFree.exit ], [ %334, %Vec_IntFree.exit38 ]
+  %.sink46 = phi ptr [ %378, %Vec_IntFree.exit ], [ %334, %Vec_IntFree.exit38 ]
   %.sink.ph = phi ptr [ %7, %Vec_IntFree.exit ], [ %328, %Vec_IntFree.exit38 ]
-  %.0.ph = phi i32 [ -1, %Vec_IntFree.exit ], [ %375, %Vec_IntFree.exit38 ]
+  %.0.ph = phi i32 [ -1, %Vec_IntFree.exit ], [ %382, %Vec_IntFree.exit38 ]
   call void @free(ptr noundef nonnull %.sink46) #24
   br label %Vec_IntFree.exit34
 
 Vec_IntFree.exit34:                               ; preds = %Vec_IntFree.exit34.sink.split, %Vec_IntFree.exit38, %Vec_IntFree.exit
   %.sink = phi ptr [ %7, %Vec_IntFree.exit ], [ %328, %Vec_IntFree.exit38 ], [ %.sink.ph, %Vec_IntFree.exit34.sink.split ]
-  %.0 = phi i32 [ -1, %Vec_IntFree.exit ], [ %375, %Vec_IntFree.exit38 ], [ %.0.ph, %Vec_IntFree.exit34.sink.split ]
+  %.0 = phi i32 [ -1, %Vec_IntFree.exit ], [ %382, %Vec_IntFree.exit38 ], [ %.0.ph, %Vec_IntFree.exit34.sink.split ]
   call void @free(ptr noundef nonnull %.sink) #24
   ret i32 %.0
 }

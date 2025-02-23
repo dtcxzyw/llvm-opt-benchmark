@@ -232,12 +232,12 @@ define dso_local void @_ZN27btSimulationIslandManagerMtD2Ev(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  br label %21
+  br label %22
 
-._crit_edge:                                      ; preds = %28, %1
-  %.lcssa = phi i32 [ %3, %1 ], [ %29, %28 ]
+._crit_edge:                                      ; preds = %29, %1
+  %.lcssa = phi i32 [ %3, %1 ], [ %30, %29 ]
   %6 = icmp slt i32 %.lcssa, 0
-  br i1 %6, label %7, label %.loopexit47
+  br i1 %6, label %7, label %.loopexit43
 
 7:                                                ; preds = %._crit_edge
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -249,291 +249,273 @@ define dso_local void @_ZN27btSimulationIslandManagerMtD2Ev(ptr noundef nonnull 
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i: ; preds = %7
   %.not.i5.i.i = icmp eq ptr %12, null
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  store i8 1, ptr %13, align 8, !tbaa !7
-  br label %.lr.ph.i.sink.split
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %14 = load i8, ptr %13, align 8, !tbaa !7, !range !57, !noundef !58
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
+  br i1 %15, label %16, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
 16:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %12)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i unwind label %115
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i unwind label %118
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i: ; preds = %16, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-  store i8 1, ptr %13, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %16, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i8 1, ptr %17, align 8, !tbaa !7
   store ptr null, ptr %11, align 8, !tbaa !15
-  br label %.lr.ph.i.sink.split
-
-.lr.ph.i.sink.split:                              ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
   store i32 0, ptr %8, align 8, !tbaa !17
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.sink.split, %7
-  %17 = phi ptr [ %12, %7 ], [ null, %.lr.ph.i.sink.split ]
-  %18 = sext i32 %.lcssa to i64
-  %19 = shl nsw i64 %18, 3
-  %scevgep = getelementptr i8, ptr %17, i64 %19
-  %20 = mul nsw i64 %18, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %20, i1 false), !tbaa !45
-  br label %.loopexit47
+.lr.ph.i:                                         ; preds = %7, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+  %18 = phi ptr [ null, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ], [ %12, %7 ]
+  %19 = sext i32 %.lcssa to i64
+  %20 = shl nsw i64 %19, 3
+  %scevgep = getelementptr i8, ptr %18, i64 %20
+  %21 = mul nsw i64 %19, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %21, i1 false), !tbaa !45
+  br label %.loopexit43
 
-21:                                               ; preds = %.lr.ph, %28
-  %22 = phi i32 [ %3, %.lr.ph ], [ %29, %28 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %23 = load ptr, ptr %5, align 8, !tbaa !15
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !45
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %28, label %27
+22:                                               ; preds = %.lr.ph, %29
+  %23 = phi i32 [ %3, %.lr.ph ], [ %30, %29 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
+  %24 = load ptr, ptr %5, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %26 = load ptr, ptr %25, align 8, !tbaa !45
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %29, label %28
 
-27:                                               ; preds = %21
-  tail call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %25) #14
-  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef 104) #15
+28:                                               ; preds = %22
+  tail call void @_ZN27btSimulationIslandManagerMt6IslandD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %26) #14
+  tail call void @_ZdlPvm(ptr noundef nonnull %26, i64 noundef 104) #15
   %.pre = load i32, ptr %2, align 4, !tbaa !16
-  br label %28
+  br label %29
 
-28:                                               ; preds = %21, %27
-  %29 = phi i32 [ %22, %21 ], [ %.pre, %27 ]
+29:                                               ; preds = %22, %28
+  %30 = phi i32 [ %23, %22 ], [ %.pre, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %21, label %._crit_edge, !llvm.loop !59
+  %31 = sext i32 %30 to i64
+  %32 = icmp slt i64 %indvars.iv.next, %31
+  br i1 %32, label %22, label %._crit_edge, !llvm.loop !59
 
-.loopexit47:                                      ; preds = %.lr.ph.i, %._crit_edge
+.loopexit43:                                      ; preds = %.lr.ph.i, %._crit_edge
   store i32 0, ptr %2, align 4, !tbaa !16
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %33 = load i32, ptr %32, align 4, !tbaa !16
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %.loopexit46
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %34 = load i32, ptr %33, align 4, !tbaa !16
+  %35 = icmp slt i32 %34, 0
+  br i1 %35, label %36, label %.loopexit42
 
-35:                                               ; preds = %.loopexit47
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %37 = load i32, ptr %36, align 8, !tbaa !17
-  %38 = icmp slt i32 %37, 0
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %40 = load ptr, ptr %39, align 8, !tbaa !15
-  br i1 %38, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9, label %.lr.ph.i4
+36:                                               ; preds = %.loopexit43
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %38 = load i32, ptr %37, align 8, !tbaa !17
+  %39 = icmp slt i32 %38, 0
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %41 = load ptr, ptr %40, align 8, !tbaa !15
+  br i1 %39, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9, label %.lr.ph.i4
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9: ; preds = %35
-  %.not.i5.i.i10 = icmp eq ptr %40, null
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %.not.i5.i.i10, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i13, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11
-
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i13: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9
-  store i8 1, ptr %41, align 8, !tbaa !7
-  br label %.lr.ph.i4.sink.split
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9: ; preds = %36
+  %.not.i5.i.i10 = icmp eq ptr %41, null
+  br i1 %.not.i5.i.i10, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9
-  %42 = load i8, ptr %41, align 8, !tbaa !7, !range !57, !noundef !58
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %43 = load i8, ptr %42, align 8, !tbaa !7, !range !57, !noundef !58
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12
 
-44:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %40)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i12 unwind label %115
+45:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %41)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12 unwind label %118
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i12: ; preds = %44, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11
-  store i8 1, ptr %41, align 8, !tbaa !7
-  store ptr null, ptr %39, align 8, !tbaa !15
-  br label %.lr.ph.i4.sink.split
-
-.lr.ph.i4.sink.split:                             ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i13, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i12
-  store i32 0, ptr %36, align 8, !tbaa !17
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12: ; preds = %45, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i11, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i9
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 1, ptr %46, align 8, !tbaa !7
+  store ptr null, ptr %40, align 8, !tbaa !15
+  store i32 0, ptr %37, align 8, !tbaa !17
   br label %.lr.ph.i4
 
-.lr.ph.i4:                                        ; preds = %.lr.ph.i4.sink.split, %35
-  %45 = phi ptr [ %40, %35 ], [ null, %.lr.ph.i4.sink.split ]
-  %46 = sext i32 %33 to i64
-  %47 = shl nsw i64 %46, 3
-  %scevgep52 = getelementptr i8, ptr %45, i64 %47
-  %48 = mul nsw i64 %46, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep52, i8 0, i64 %48, i1 false), !tbaa !45
-  br label %.loopexit46
+.lr.ph.i4:                                        ; preds = %36, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12
+  %47 = phi ptr [ null, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i12 ], [ %41, %36 ]
+  %48 = sext i32 %34 to i64
+  %49 = shl nsw i64 %48, 3
+  %scevgep48 = getelementptr i8, ptr %47, i64 %49
+  %50 = mul nsw i64 %48, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep48, i8 0, i64 %50, i1 false), !tbaa !45
+  br label %.loopexit42
 
-.loopexit46:                                      ; preds = %.lr.ph.i4, %.loopexit47
-  store i32 0, ptr %32, align 4, !tbaa !16
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %50 = load i32, ptr %49, align 4, !tbaa !16
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %.loopexit
+.loopexit42:                                      ; preds = %.lr.ph.i4, %.loopexit43
+  store i32 0, ptr %33, align 4, !tbaa !16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %52 = load i32, ptr %51, align 4, !tbaa !16
+  %53 = icmp slt i32 %52, 0
+  br i1 %53, label %54, label %.loopexit
 
-52:                                               ; preds = %.loopexit46
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %54 = load i32, ptr %53, align 8, !tbaa !17
-  %55 = icmp slt i32 %54, 0
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %57 = load ptr, ptr %56, align 8, !tbaa !15
-  br i1 %55, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i26, label %.lr.ph.i21
+54:                                               ; preds = %.loopexit42
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %56 = load i32, ptr %55, align 8, !tbaa !17
+  %57 = icmp slt i32 %56, 0
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %59 = load ptr, ptr %58, align 8, !tbaa !15
+  br i1 %57, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i25, label %.lr.ph.i20
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i26: ; preds = %52
-  %.not.i5.i.i27 = icmp eq ptr %57, null
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  br i1 %.not.i5.i.i27, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i30, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i28
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i25: ; preds = %54
+  %.not.i5.i.i26 = icmp eq ptr %59, null
+  br i1 %.not.i5.i.i26, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i27
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i30: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i26
-  store i8 1, ptr %58, align 8, !tbaa !7
-  br label %.lr.ph.i21.sink.split
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i27: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i25
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %61 = load i8, ptr %60, align 8, !tbaa !7, !range !57, !noundef !58
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i28: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i26
-  %59 = load i8, ptr %58, align 8, !tbaa !7, !range !57, !noundef !58
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %61, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i29
+63:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i27
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %59)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28 unwind label %118
 
-61:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i28
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %57)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i29 unwind label %115
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28: ; preds = %63, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i27, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i25
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %64, align 8, !tbaa !7
+  store ptr null, ptr %58, align 8, !tbaa !15
+  store i32 0, ptr %55, align 8, !tbaa !17
+  br label %.lr.ph.i20
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i29: ; preds = %61, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i28
-  store i8 1, ptr %58, align 8, !tbaa !7
-  store ptr null, ptr %56, align 8, !tbaa !15
-  br label %.lr.ph.i21.sink.split
-
-.lr.ph.i21.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i30, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i29
-  store i32 0, ptr %53, align 8, !tbaa !17
-  br label %.lr.ph.i21
-
-.lr.ph.i21:                                       ; preds = %.lr.ph.i21.sink.split, %52
-  %62 = phi ptr [ %57, %52 ], [ null, %.lr.ph.i21.sink.split ]
-  %63 = sext i32 %50 to i64
-  %64 = shl nsw i64 %63, 3
-  %scevgep53 = getelementptr i8, ptr %62, i64 %64
-  %65 = mul nsw i64 %63, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep53, i8 0, i64 %65, i1 false), !tbaa !45
+.lr.ph.i20:                                       ; preds = %54, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28
+  %65 = phi ptr [ null, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i28 ], [ %59, %54 ]
+  %66 = sext i32 %52 to i64
+  %67 = shl nsw i64 %66, 3
+  %scevgep49 = getelementptr i8, ptr %65, i64 %67
+  %68 = mul nsw i64 %66, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep49, i8 0, i64 %68, i1 false), !tbaa !45
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i21, %.loopexit46
-  store i32 0, ptr %49, align 4, !tbaa !16
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %67 = load ptr, ptr %66, align 8, !tbaa !15
-  %.not.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit, label %68
+.loopexit:                                        ; preds = %.lr.ph.i20, %.loopexit42
+  store i32 0, ptr %51, align 4, !tbaa !16
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %70 = load ptr, ptr %69, align 8, !tbaa !15
+  %.not.i.i.i = icmp eq ptr %70, null
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit, label %71
 
-68:                                               ; preds = %.loopexit
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %70 = load i8, ptr %69, align 8, !tbaa !7, !range !57, !noundef !58
-  %71 = trunc nuw i8 %70 to i1
-  br i1 %71, label %72, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit
+71:                                               ; preds = %.loopexit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %73 = load i8, ptr %72, align 8, !tbaa !7, !range !57, !noundef !58
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit
 
-72:                                               ; preds = %68
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %67)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit unwind label %73
+75:                                               ; preds = %71
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %70)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit unwind label %76
 
-73:                                               ; preds = %72
-  %74 = landingpad { ptr, i32 }
+76:                                               ; preds = %75
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %75 = extractvalue { ptr, i32 } %74, 0
-  tail call void @__clang_call_terminate(ptr %75) #16
+  %78 = extractvalue { ptr, i32 } %77, 0
+  tail call void @__clang_call_terminate(ptr %78) #16
   unreachable
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit: ; preds = %.loopexit, %68, %72
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 212
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %77, align 8, !tbaa !7
-  store ptr null, ptr %66, align 8, !tbaa !15
-  store i32 0, ptr %76, align 4, !tbaa !16
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store i32 0, ptr %78, align 8, !tbaa !17
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %80 = load ptr, ptr %79, align 8, !tbaa !15
-  %.not.i.i.i38 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i38, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39, label %81
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit: ; preds = %.loopexit, %71, %75
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 212
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i8 1, ptr %80, align 8, !tbaa !7
+  store ptr null, ptr %69, align 8, !tbaa !15
+  store i32 0, ptr %79, align 4, !tbaa !16
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store i32 0, ptr %81, align 8, !tbaa !17
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %83 = load ptr, ptr %82, align 8, !tbaa !15
+  %.not.i.i.i36 = icmp eq ptr %83, null
+  br i1 %.not.i.i.i36, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37, label %84
 
-81:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %83 = load i8, ptr %82, align 8, !tbaa !7, !range !57, !noundef !58
-  %84 = trunc nuw i8 %83 to i1
-  br i1 %84, label %85, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39
+84:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %86 = load i8, ptr %85, align 8, !tbaa !7, !range !57, !noundef !58
+  %87 = trunc nuw i8 %86 to i1
+  br i1 %87, label %88, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37
 
-85:                                               ; preds = %81
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %80)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39 unwind label %86
+88:                                               ; preds = %84
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %83)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37 unwind label %89
 
-86:                                               ; preds = %85
-  %87 = landingpad { ptr, i32 }
+89:                                               ; preds = %88
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  tail call void @__clang_call_terminate(ptr %88) #16
+  %91 = extractvalue { ptr, i32 } %90, 0
+  tail call void @__clang_call_terminate(ptr %91) #16
   unreachable
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit, %81, %85
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  store i8 1, ptr %89, align 8, !tbaa !7
-  store ptr null, ptr %79, align 8, !tbaa !15
-  store i32 0, ptr %49, align 4, !tbaa !16
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store i32 0, ptr %90, align 8, !tbaa !17
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %92 = load ptr, ptr %91, align 8, !tbaa !15
-  %.not.i.i.i40 = icmp eq ptr %92, null
-  br i1 %.not.i.i.i40, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41, label %93
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit, %84, %88
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %92, align 8, !tbaa !7
+  store ptr null, ptr %82, align 8, !tbaa !15
+  store i32 0, ptr %51, align 4, !tbaa !16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store i32 0, ptr %93, align 8, !tbaa !17
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %95 = load ptr, ptr %94, align 8, !tbaa !15
+  %.not.i.i.i38 = icmp eq ptr %95, null
+  br i1 %.not.i.i.i38, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39, label %96
 
-93:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %95 = load i8, ptr %94, align 8, !tbaa !7, !range !57, !noundef !58
-  %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %97, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41
+96:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %98 = load i8, ptr %97, align 8, !tbaa !7, !range !57, !noundef !58
+  %99 = trunc nuw i8 %98 to i1
+  br i1 %99, label %100, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39
 
-97:                                               ; preds = %93
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %92)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41 unwind label %98
+100:                                              ; preds = %96
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %95)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39 unwind label %101
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+101:                                              ; preds = %100
+  %102 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  tail call void @__clang_call_terminate(ptr %100) #16
+  %103 = extractvalue { ptr, i32 } %102, 0
+  tail call void @__clang_call_terminate(ptr %103) #16
   unreachable
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39, %93, %97
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 1, ptr %101, align 8, !tbaa !7
-  store ptr null, ptr %91, align 8, !tbaa !15
-  store i32 0, ptr %32, align 4, !tbaa !16
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i32 0, ptr %102, align 8, !tbaa !17
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %104 = load ptr, ptr %103, align 8, !tbaa !15
-  %.not.i.i.i42 = icmp eq ptr %104, null
-  br i1 %.not.i.i.i42, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit43, label %105
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit37, %96, %100
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 1, ptr %104, align 8, !tbaa !7
+  store ptr null, ptr %94, align 8, !tbaa !15
+  store i32 0, ptr %33, align 4, !tbaa !16
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i32 0, ptr %105, align 8, !tbaa !17
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %107 = load ptr, ptr %106, align 8, !tbaa !15
+  %.not.i.i.i40 = icmp eq ptr %107, null
+  br i1 %.not.i.i.i40, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41, label %108
 
-105:                                              ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41
-  %106 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %107 = load i8, ptr %106, align 8, !tbaa !7, !range !57, !noundef !58
-  %108 = trunc nuw i8 %107 to i1
-  br i1 %108, label %109, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit43
+108:                                              ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %110 = load i8, ptr %109, align 8, !tbaa !7, !range !57, !noundef !58
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41
 
-109:                                              ; preds = %105
-  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %104)
-          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit43 unwind label %110
+112:                                              ; preds = %108
+  invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %107)
+          to label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41 unwind label %113
 
-110:                                              ; preds = %109
-  %111 = landingpad { ptr, i32 }
+113:                                              ; preds = %112
+  %114 = landingpad { ptr, i32 }
           catch ptr null
-  %112 = extractvalue { ptr, i32 } %111, 0
-  tail call void @__clang_call_terminate(ptr %112) #16
+  %115 = extractvalue { ptr, i32 } %114, 0
+  tail call void @__clang_call_terminate(ptr %115) #16
   unreachable
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit43: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41, %105, %109
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i8 1, ptr %113, align 8, !tbaa !7
-  store ptr null, ptr %103, align 8, !tbaa !15
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit41: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEED2Ev.exit39, %108, %112
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i8 1, ptr %116, align 8, !tbaa !7
+  store ptr null, ptr %106, align 8, !tbaa !15
   store i32 0, ptr %2, align 4, !tbaa !16
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i32 0, ptr %114, align 8, !tbaa !17
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i32 0, ptr %117, align 8, !tbaa !17
   tail call void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) #14
   ret void
 
-115:                                              ; preds = %61, %44, %16
-  %116 = landingpad { ptr, i32 }
+118:                                              ; preds = %63, %45, %16
+  %119 = landingpad { ptr, i32 }
           catch ptr null
-  %117 = extractvalue { ptr, i32 } %116, 0
-  tail call void @__clang_call_terminate(ptr %117) #16
+  %120 = extractvalue { ptr, i32 } %119, 0
+  tail call void @__clang_call_terminate(ptr %120) #16
   unreachable
 }
 
@@ -1052,33 +1034,27 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp eq ptr %20, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i8 1, ptr %25, align 8, !tbaa !7
-  store ptr %.0.i.i.i, ptr %19, align 8, !tbaa !15
-  store i32 %4, ptr %9, align 8, !tbaa !17
-  br label %.lr.ph.i
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i: ; preds = %21, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %27 = load i8, ptr %26, align 8, !tbaa !7, !range !57, !noundef !58
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %26 = load i8, ptr %25, align 8, !tbaa !7, !range !57, !noundef !58
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
-29:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
+28:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %20)
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i: ; preds = %29, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-  store i8 1, ptr %26, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %28, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i8 1, ptr %29, align 8, !tbaa !7
   store ptr %.0.i.i.i, ptr %19, align 8, !tbaa !15
   store i32 %4, ptr %9, align 8, !tbaa !17
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i
-  %30 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i ]
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+  %30 = phi ptr [ %.pre, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ]
   %31 = sext i32 %6 to i64
   %wide.trip.count.i = sext i32 %4 to i64
   %32 = shl nsw i64 %31, 3
@@ -1105,7 +1081,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 148
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %43, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit40
+  br i1 %42, label %43, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit39
 
 43:                                               ; preds = %._crit_edge
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1117,399 +1093,369 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i30: ; preds = %43
   %.not.i5.i.i31 = icmp eq ptr %48, null
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %.not.i5.i.i31, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i34, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32
-
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i34: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i30
-  store i8 1, ptr %49, align 8, !tbaa !7
-  br label %.lr.ph.i23.sink.split
+  br i1 %.not.i5.i.i31, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i30
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %50 = load i8, ptr %49, align 8, !tbaa !7, !range !57, !noundef !58
   %51 = trunc nuw i8 %50 to i1
-  br i1 %51, label %52, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i33
+  br i1 %51, label %52, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33
 
 52:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32
   tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %48)
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i33
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i33: ; preds = %52, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32
-  store i8 1, ptr %49, align 8, !tbaa !7
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33: ; preds = %52, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i32, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i30
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 1, ptr %53, align 8, !tbaa !7
   store ptr null, ptr %47, align 8, !tbaa !15
-  br label %.lr.ph.i23.sink.split
-
-.lr.ph.i23.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i34, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i33
   store i32 0, ptr %44, align 8, !tbaa !17
   br label %.lr.ph.i23
 
-.lr.ph.i23:                                       ; preds = %.lr.ph.i23.sink.split, %43
-  %53 = phi ptr [ %48, %43 ], [ null, %.lr.ph.i23.sink.split ]
-  %54 = sext i32 %41 to i64
-  %55 = shl nsw i64 %54, 3
-  %scevgep132 = getelementptr i8, ptr %53, i64 %55
-  %56 = mul nsw i64 %54, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep132, i8 0, i64 %56, i1 false), !tbaa !45
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit40
+.lr.ph.i23:                                       ; preds = %43, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33
+  %54 = phi ptr [ null, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i33 ], [ %48, %43 ]
+  %55 = sext i32 %41 to i64
+  %56 = shl nsw i64 %55, 3
+  %scevgep125 = getelementptr i8, ptr %54, i64 %56
+  %57 = mul nsw i64 %55, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep125, i8 0, i64 %57, i1 false), !tbaa !45
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit39
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit40: ; preds = %.lr.ph.i23, %._crit_edge
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit39: ; preds = %.lr.ph.i23, %._crit_edge
   store i32 0, ptr %40, align 4, !tbaa !16
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %58 = load i32, ptr %57, align 4, !tbaa !16
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %60, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit58
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %59 = load i32, ptr %58, align 4, !tbaa !16
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %61, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit56
 
-60:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit40
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %62 = load i32, ptr %61, align 8, !tbaa !17
-  %63 = icmp slt i32 %62, 0
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %65 = load ptr, ptr %64, align 8, !tbaa !15
-  br i1 %63, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i48, label %.lr.ph.i41
+61:                                               ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit39
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %63 = load i32, ptr %62, align 8, !tbaa !17
+  %64 = icmp slt i32 %63, 0
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %66 = load ptr, ptr %65, align 8, !tbaa !15
+  br i1 %64, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i47, label %.lr.ph.i40
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i48: ; preds = %60
-  %.not.i5.i.i49 = icmp eq ptr %65, null
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  br i1 %.not.i5.i.i49, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i52, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i50
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i47: ; preds = %61
+  %.not.i5.i.i48 = icmp eq ptr %66, null
+  br i1 %.not.i5.i.i48, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i49
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i52: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i48
-  store i8 1, ptr %66, align 8, !tbaa !7
-  br label %.lr.ph.i41.sink.split
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i49: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i47
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %68 = load i8, ptr %67, align 8, !tbaa !7, !range !57, !noundef !58
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i50: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i48
-  %67 = load i8, ptr %66, align 8, !tbaa !7, !range !57, !noundef !58
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i51
+70:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i49
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %66)
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50
 
-69:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i50
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %65)
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i51
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50: ; preds = %70, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i49, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i47
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  store i8 1, ptr %71, align 8, !tbaa !7
+  store ptr null, ptr %65, align 8, !tbaa !15
+  store i32 0, ptr %62, align 8, !tbaa !17
+  br label %.lr.ph.i40
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i51: ; preds = %69, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i50
-  store i8 1, ptr %66, align 8, !tbaa !7
-  store ptr null, ptr %64, align 8, !tbaa !15
-  br label %.lr.ph.i41.sink.split
+.lr.ph.i40:                                       ; preds = %61, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50
+  %72 = phi ptr [ null, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i50 ], [ %66, %61 ]
+  %73 = sext i32 %59 to i64
+  %74 = shl nsw i64 %73, 3
+  %scevgep126 = getelementptr i8, ptr %72, i64 %74
+  %75 = mul nsw i64 %73, -8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep126, i8 0, i64 %75, i1 false), !tbaa !45
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit56
 
-.lr.ph.i41.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i52, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i51
-  store i32 0, ptr %61, align 8, !tbaa !17
-  br label %.lr.ph.i41
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit56: ; preds = %.lr.ph.i40, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit39
+  store i32 0, ptr %58, align 4, !tbaa !16
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %77 = load i32, ptr %76, align 4, !tbaa !16
+  %.not109116 = icmp sgt i32 %77, 0
+  br i1 %.not109116, label %.lr.ph119, label %.critedge.thread
 
-.lr.ph.i41:                                       ; preds = %.lr.ph.i41.sink.split, %60
-  %70 = phi ptr [ %65, %60 ], [ null, %.lr.ph.i41.sink.split ]
-  %71 = sext i32 %58 to i64
-  %72 = shl nsw i64 %71, 3
-  %scevgep133 = getelementptr i8, ptr %70, i64 %72
-  %73 = mul nsw i64 %71, -8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep133, i8 0, i64 %73, i1 false), !tbaa !45
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit58
+.critedge.thread:                                 ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit56
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr null, ptr %78, align 8, !tbaa !34
+  br label %._crit_edge122
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit58: ; preds = %.lr.ph.i41, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit40
-  store i32 0, ptr %57, align 4, !tbaa !16
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %75 = load i32, ptr %74, align 4, !tbaa !16
-  %.not116123 = icmp sgt i32 %75, 0
-  br i1 %.not116123, label %.lr.ph126, label %.critedge.thread
+.lr.ph119:                                        ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit56
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %80 = load ptr, ptr %79, align 8, !tbaa !15
+  %wide.trip.count = zext nneg i32 %77 to i64
+  br label %82
 
-.critedge.thread:                                 ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit58
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr null, ptr %76, align 8, !tbaa !34
-  br label %._crit_edge129
-
-.lr.ph126:                                        ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit58
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %78 = load ptr, ptr %77, align 8, !tbaa !15
-  %wide.trip.count = zext nneg i32 %75 to i64
-  br label %80
-
-79:                                               ; preds = %80
+81:                                               ; preds = %82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph128.sink.split, label %80, !llvm.loop !84
+  br i1 %exitcond.not, label %.lr.ph121.sink.split, label %82, !llvm.loop !84
 
-80:                                               ; preds = %.lr.ph126, %79
-  %indvars.iv = phi i64 [ 0, %.lr.ph126 ], [ %indvars.iv.next, %79 ]
-  %.017125 = phi i32 [ 0, %.lr.ph126 ], [ %84, %79 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv
-  %82 = load ptr, ptr %81, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !68
-  %.not = icmp sgt i32 %84, %.017125
-  br i1 %.not, label %85, label %79
+82:                                               ; preds = %.lr.ph119, %81
+  %indvars.iv = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next, %81 ]
+  %.017118 = phi i32 [ 0, %.lr.ph119 ], [ %86, %81 ]
+  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %84 = load ptr, ptr %83, align 8, !tbaa !45
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  %86 = load i32, ptr %85, align 8, !tbaa !68
+  %.not = icmp sgt i32 %86, %.017118
+  br i1 %.not, label %87, label %81
 
-85:                                               ; preds = %80
+87:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #14
-  %.not130 = icmp eq i32 %75, 1
-  br i1 %.not130, label %.lr.ph128.critedge153, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
+  %.not123 = icmp eq i32 %77, 1
+  br i1 %.not123, label %.lr.ph121.critedge146, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit: ; preds = %85
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %87 = add nsw i32 %75, -1
-  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %86, ptr noundef nonnull align 1 dereferenceable(1) %2, i32 noundef 0, i32 noundef %87)
-  %.pre145.pre = load i32, ptr %74, align 4, !tbaa !16
-  %88 = icmp sgt i32 %.pre145.pre, 0
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit: ; preds = %87
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %89 = add nsw i32 %77, -1
+  call void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE17quickSortInternalI31IslandBodyCapacitySortPredicateEEvRKT_ii(ptr noundef nonnull align 8 dereferenceable(25) %88, ptr noundef nonnull align 1 dereferenceable(1) %2, i32 noundef 0, i32 noundef %89)
+  %.pre138.pre = load i32, ptr %76, align 4, !tbaa !16
+  %90 = icmp sgt i32 %.pre138.pre, 0
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr null, ptr %89, align 8, !tbaa !34
-  br i1 %88, label %.lr.ph128, label %._crit_edge129
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr null, ptr %91, align 8, !tbaa !34
+  br i1 %90, label %.lr.ph121, label %._crit_edge122
 
-.lr.ph128.critedge153:                            ; preds = %85
+.lr.ph121.critedge146:                            ; preds = %87
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
-  br label %.lr.ph128.sink.split
+  br label %.lr.ph121.sink.split
 
-.lr.ph128.sink.split:                             ; preds = %79, %.lr.ph128.critedge153
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr null, ptr %90, align 8, !tbaa !34
-  br label %.lr.ph128
+.lr.ph121.sink.split:                             ; preds = %81, %.lr.ph121.critedge146
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr null, ptr %92, align 8, !tbaa !34
+  br label %.lr.ph121
 
-.lr.ph128:                                        ; preds = %.lr.ph128.sink.split, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  br label %95
+.lr.ph121:                                        ; preds = %.lr.ph121.sink.split, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  br label %97
 
-._crit_edge129:                                   ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit, %.critedge.thread, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
+._crit_edge122:                                   ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit, %.critedge.thread, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI31IslandBodyCapacitySortPredicateEEvRKT_.exit
   ret void
 
-95:                                               ; preds = %.lr.ph128, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next139, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ]
-  %96 = load ptr, ptr %91, align 8, !tbaa !15
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv138
-  %98 = load ptr, ptr %97, align 8, !tbaa !45
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 4
-  %100 = load i32, ptr %99, align 4, !tbaa !53
-  %101 = icmp slt i32 %100, 0
-  br i1 %101, label %102, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
+97:                                               ; preds = %.lr.ph121, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+  %indvars.iv131 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next132, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ]
+  %98 = load ptr, ptr %93, align 8, !tbaa !15
+  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %indvars.iv131
+  %100 = load ptr, ptr %99, align 8, !tbaa !45
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 4
+  %102 = load i32, ptr %101, align 4, !tbaa !53
+  %103 = icmp slt i32 %102, 0
+  br i1 %103, label %104, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
 
-102:                                              ; preds = %95
-  %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !68
-  %105 = icmp slt i32 %104, 0
-  %106 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %107 = load ptr, ptr %106, align 8, !tbaa !52
-  br i1 %105, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i, label %.lr.ph.i59
+104:                                              ; preds = %97
+  %105 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %106 = load i32, ptr %105, align 8, !tbaa !68
+  %107 = icmp slt i32 %106, 0
+  %108 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  %109 = load ptr, ptr %108, align 8, !tbaa !52
+  br i1 %107, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i, label %.lr.ph.i57
 
-_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds = %102
-  %.not.i5.i.i65 = icmp eq ptr %107, null
-  %108 = getelementptr inbounds nuw i8, ptr %98, i64 24
-  br i1 %.not.i5.i.i65, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i
-
-_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
-  store i8 1, ptr %108, align 8, !tbaa !67
-  br label %.lr.ph.i59.sink.split
+_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i: ; preds = %104
+  %.not.i5.i.i63 = icmp eq ptr %109, null
+  br i1 %.not.i5.i.i63, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
-  %109 = load i8, ptr %108, align 8, !tbaa !67, !range !57, !noundef !58
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.i
+  %110 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  %111 = load i8, ptr %110, align 8, !tbaa !67, !range !57, !noundef !58
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %113, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
-111:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %107)
-  br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.i
+113:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %109)
+  br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.i: ; preds = %111, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i
-  store i8 1, ptr %108, align 8, !tbaa !67
-  store ptr null, ptr %106, align 8, !tbaa !52
-  br label %.lr.ph.i59.sink.split
+_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i: ; preds = %113, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i.i
+  %114 = getelementptr inbounds nuw i8, ptr %100, i64 24
+  store i8 1, ptr %114, align 8, !tbaa !67
+  store ptr null, ptr %108, align 8, !tbaa !52
+  store i32 0, ptr %105, align 8, !tbaa !68
+  br label %.lr.ph.i57
 
-.lr.ph.i59.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.thread26.i, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit.i
-  store i32 0, ptr %103, align 8, !tbaa !68
-  br label %.lr.ph.i59
-
-.lr.ph.i59:                                       ; preds = %.lr.ph.i59.sink.split, %102
-  %112 = phi ptr [ %107, %102 ], [ null, %.lr.ph.i59.sink.split ]
-  %113 = sext i32 %100 to i64
-  %114 = shl nsw i64 %113, 3
-  %scevgep135 = getelementptr i8, ptr %112, i64 %114
-  %115 = mul nsw i64 %113, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep135, i8 0, i64 %115, i1 false), !tbaa !69
+.lr.ph.i57:                                       ; preds = %104, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i
+  %115 = phi ptr [ null, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i.i ], [ %109, %104 ]
+  %116 = sext i32 %102 to i64
+  %117 = shl nsw i64 %116, 3
+  %scevgep128 = getelementptr i8, ptr %115, i64 %117
+  %118 = mul nsw i64 %116, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep128, i8 0, i64 %118, i1 false), !tbaa !69
   br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
 
-_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i59, %95
-  store i32 0, ptr %99, align 4, !tbaa !53
-  %116 = getelementptr inbounds nuw i8, ptr %98, i64 36
-  %117 = load i32, ptr %116, align 4, !tbaa !46
-  %118 = icmp slt i32 %117, 0
-  br i1 %118, label %119, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
+_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i57, %97
+  store i32 0, ptr %101, align 4, !tbaa !53
+  %119 = getelementptr inbounds nuw i8, ptr %100, i64 36
+  %120 = load i32, ptr %119, align 4, !tbaa !46
+  %121 = icmp slt i32 %120, 0
+  br i1 %121, label %122, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
 
-119:                                              ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
-  %120 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %121 = load i32, ptr %120, align 8, !tbaa !66
-  %122 = icmp slt i32 %121, 0
-  %123 = getelementptr inbounds nuw i8, ptr %98, i64 48
-  %124 = load ptr, ptr %123, align 8, !tbaa !64
-  br i1 %122, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %.lr.ph.i71
+122:                                              ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
+  %123 = getelementptr inbounds nuw i8, ptr %100, i64 40
+  %124 = load i32, ptr %123, align 8, !tbaa !66
+  %125 = icmp slt i32 %124, 0
+  %126 = getelementptr inbounds nuw i8, ptr %100, i64 48
+  %127 = load ptr, ptr %126, align 8, !tbaa !64
+  br i1 %125, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i, label %.lr.ph.i69
 
-_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %119
-  %.not.i5.i.i77 = icmp eq ptr %124, null
-  %125 = getelementptr inbounds nuw i8, ptr %98, i64 56
-  br i1 %.not.i5.i.i77, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
-
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  store i8 1, ptr %125, align 8, !tbaa !65
-  br label %.lr.ph.i71.sink.split
+_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %122
+  %.not.i5.i.i75 = icmp eq ptr %127, null
+  br i1 %.not.i5.i.i75, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
-  %126 = load i8, ptr %125, align 8, !tbaa !65, !range !57, !noundef !58
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i
+  %128 = getelementptr inbounds nuw i8, ptr %100, i64 56
+  %129 = load i8, ptr %128, align 8, !tbaa !65, !range !57, !noundef !58
+  %130 = trunc nuw i8 %129 to i1
+  br i1 %130, label %131, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-128:                                              ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %124)
-  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i
+131:                                              ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %127)
+  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i: ; preds = %128, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
-  store i8 1, ptr %125, align 8, !tbaa !65
-  store ptr null, ptr %123, align 8, !tbaa !64
-  br label %.lr.ph.i71.sink.split
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %131, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+  %132 = getelementptr inbounds nuw i8, ptr %100, i64 56
+  store i8 1, ptr %132, align 8, !tbaa !65
+  store ptr null, ptr %126, align 8, !tbaa !64
+  store i32 0, ptr %123, align 8, !tbaa !66
+  br label %.lr.ph.i69
 
-.lr.ph.i71.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.thread26.i, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i
-  store i32 0, ptr %120, align 8, !tbaa !66
-  br label %.lr.ph.i71
-
-.lr.ph.i71:                                       ; preds = %.lr.ph.i71.sink.split, %119
-  %129 = phi ptr [ %124, %119 ], [ null, %.lr.ph.i71.sink.split ]
-  %130 = sext i32 %117 to i64
-  %131 = shl nsw i64 %130, 3
-  %scevgep136 = getelementptr i8, ptr %129, i64 %131
-  %132 = mul nsw i64 %130, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep136, i8 0, i64 %132, i1 false), !tbaa !73
+.lr.ph.i69:                                       ; preds = %122, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  %133 = phi ptr [ null, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %127, %122 ]
+  %134 = sext i32 %120 to i64
+  %135 = shl nsw i64 %134, 3
+  %scevgep129 = getelementptr i8, ptr %133, i64 %135
+  %136 = mul nsw i64 %134, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep129, i8 0, i64 %136, i1 false), !tbaa !73
   br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i71, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
-  store i32 0, ptr %116, align 4, !tbaa !46
-  %133 = getelementptr inbounds nuw i8, ptr %98, i64 68
-  %134 = load i32, ptr %133, align 4, !tbaa !48
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %136, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit
-
-136:                                              ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
-  %137 = getelementptr inbounds nuw i8, ptr %98, i64 72
-  %138 = load i32, ptr %137, align 8, !tbaa !63
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i69, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE6resizeEiRKS1_.exit
+  store i32 0, ptr %119, align 4, !tbaa !46
+  %137 = getelementptr inbounds nuw i8, ptr %100, i64 68
+  %138 = load i32, ptr %137, align 4, !tbaa !48
   %139 = icmp slt i32 %138, 0
-  %140 = getelementptr inbounds nuw i8, ptr %98, i64 80
-  %141 = load ptr, ptr %140, align 8, !tbaa !61
-  br i1 %139, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i, label %.lr.ph.i83
+  br i1 %139, label %140, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit
 
-_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i: ; preds = %136
-  %.not.i5.i.i89 = icmp eq ptr %141, null
-  %142 = getelementptr inbounds nuw i8, ptr %98, i64 88
-  br i1 %.not.i5.i.i89, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
+140:                                              ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
+  %141 = getelementptr inbounds nuw i8, ptr %100, i64 72
+  %142 = load i32, ptr %141, align 8, !tbaa !63
+  %143 = icmp slt i32 %142, 0
+  %144 = getelementptr inbounds nuw i8, ptr %100, i64 80
+  %145 = load ptr, ptr %144, align 8, !tbaa !61
+  br i1 %143, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i, label %.lr.ph.i81
 
-_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
-  store i8 1, ptr %142, align 8, !tbaa !62
-  br label %.lr.ph.i83.sink.split
+_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i: ; preds = %140
+  %.not.i5.i.i87 = icmp eq ptr %145, null
+  br i1 %.not.i5.i.i87, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
-  %143 = load i8, ptr %142, align 8, !tbaa !62, !range !57, !noundef !58
-  %144 = trunc nuw i8 %143 to i1
-  br i1 %144, label %145, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.i
+  %146 = getelementptr inbounds nuw i8, ptr %100, i64 88
+  %147 = load i8, ptr %146, align 8, !tbaa !62, !range !57, !noundef !58
+  %148 = trunc nuw i8 %147 to i1
+  br i1 %148, label %149, label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
 
-145:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %141)
-  br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.i
+149:                                              ; preds = %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %145)
+  br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.i: ; preds = %145, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i
-  store i8 1, ptr %142, align 8, !tbaa !62
-  store ptr null, ptr %140, align 8, !tbaa !61
-  br label %.lr.ph.i83.sink.split
+_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i: ; preds = %149, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP17btTypedConstraintE4copyEiiPS1_.exit.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %100, i64 88
+  store i8 1, ptr %150, align 8, !tbaa !62
+  store ptr null, ptr %144, align 8, !tbaa !61
+  store i32 0, ptr %141, align 8, !tbaa !63
+  br label %.lr.ph.i81
 
-.lr.ph.i83.sink.split:                            ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.thread26.i, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit.i
-  store i32 0, ptr %137, align 8, !tbaa !63
-  br label %.lr.ph.i83
-
-.lr.ph.i83:                                       ; preds = %.lr.ph.i83.sink.split, %136
-  %146 = phi ptr [ %141, %136 ], [ null, %.lr.ph.i83.sink.split ]
-  %147 = sext i32 %134 to i64
-  %148 = shl nsw i64 %147, 3
-  %scevgep137 = getelementptr i8, ptr %146, i64 %148
-  %149 = mul nsw i64 %147, -8
-  call void @llvm.memset.p0.i64(ptr align 8 %scevgep137, i8 0, i64 %149, i1 false), !tbaa !77
+.lr.ph.i81:                                       ; preds = %140, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i
+  %151 = phi ptr [ null, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i.i ], [ %145, %140 ]
+  %152 = sext i32 %138 to i64
+  %153 = shl nsw i64 %152, 3
+  %scevgep130 = getelementptr i8, ptr %151, i64 %153
+  %154 = mul nsw i64 %152, -8
+  call void @llvm.memset.p0.i64(ptr align 8 %scevgep130, i8 0, i64 %154, i1 false), !tbaa !77
   br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit
 
-_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i83, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
-  store i32 0, ptr %133, align 4, !tbaa !48
-  %150 = getelementptr inbounds nuw i8, ptr %98, i64 96
-  store i32 -1, ptr %150, align 8, !tbaa !85
-  %151 = getelementptr inbounds nuw i8, ptr %98, i64 100
-  store i8 1, ptr %151, align 4, !tbaa !87
-  %152 = load i32, ptr %57, align 4, !tbaa !16
-  %153 = load i32, ptr %92, align 8, !tbaa !17
-  %154 = icmp eq i32 %152, %153
-  br i1 %154, label %155, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit: ; preds = %.lr.ph.i81, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE6resizeEiRKS1_.exit
+  store i32 0, ptr %137, align 4, !tbaa !48
+  %155 = getelementptr inbounds nuw i8, ptr %100, i64 96
+  store i32 -1, ptr %155, align 8, !tbaa !85
+  %156 = getelementptr inbounds nuw i8, ptr %100, i64 100
+  store i8 1, ptr %156, align 4, !tbaa !87
+  %157 = load i32, ptr %58, align 4, !tbaa !16
+  %158 = load i32, ptr %94, align 8, !tbaa !17
+  %159 = icmp eq i32 %157, %158
+  br i1 %159, label %160, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-155:                                              ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit
-  %.not.i.i = icmp eq i32 %152, 0
-  %156 = shl nsw i32 %152, 1
-  %157 = select i1 %.not.i.i, i32 1, i32 %156
-  %158 = icmp slt i32 %152, %157
-  br i1 %158, label %159, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+160:                                              ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit
+  %.not.i.i = icmp eq i32 %157, 0
+  %161 = shl nsw i32 %157, 1
+  %162 = select i1 %.not.i.i, i32 1, i32 %161
+  %163 = icmp slt i32 %157, %162
+  br i1 %163, label %164, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-159:                                              ; preds = %155
-  %.not.i.i.i96 = icmp eq i32 %157, 0
-  br i1 %.not.i.i.i96, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i98, label %160
+164:                                              ; preds = %160
+  %.not.i.i.i93 = icmp eq i32 %162, 0
+  br i1 %.not.i.i.i93, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i95, label %165
 
-160:                                              ; preds = %159
-  %161 = sext i32 %157 to i64
-  %162 = shl nsw i64 %161, 3
-  %163 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %162, i32 noundef 16)
-  %.pre.i97 = load i32, ptr %57, align 4, !tbaa !16
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i98
+165:                                              ; preds = %164
+  %166 = sext i32 %162 to i64
+  %167 = shl nsw i64 %166, 3
+  %168 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %167, i32 noundef 16)
+  %.pre.i94 = load i32, ptr %58, align 4, !tbaa !16
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i95
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i98: ; preds = %160, %159
-  %164 = phi i32 [ %.pre.i97, %160 ], [ %152, %159 ]
-  %.0.i.i.i99 = phi ptr [ %163, %160 ], [ null, %159 ]
-  %165 = icmp sgt i32 %164, 0
-  %166 = load ptr, ptr %93, align 8, !tbaa !15
-  br i1 %165, label %.lr.ph.i.i.i103, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i100
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i95: ; preds = %165, %164
+  %169 = phi i32 [ %.pre.i94, %165 ], [ %157, %164 ]
+  %.0.i.i.i96 = phi ptr [ %168, %165 ], [ null, %164 ]
+  %170 = icmp sgt i32 %169, 0
+  %171 = load ptr, ptr %95, align 8, !tbaa !15
+  br i1 %170, label %.lr.ph.i.i.i101, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i97
 
-.lr.ph.i.i.i103:                                  ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i98
-  %wide.trip.count.i.i.i104 = zext nneg i32 %164 to i64
-  br label %167
+.lr.ph.i.i.i101:                                  ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i95
+  %wide.trip.count.i.i.i102 = zext nneg i32 %169 to i64
+  br label %172
 
-167:                                              ; preds = %167, %.lr.ph.i.i.i103
-  %indvars.iv.i.i.i105 = phi i64 [ 0, %.lr.ph.i.i.i103 ], [ %indvars.iv.next.i.i.i106, %167 ]
-  %168 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i99, i64 %indvars.iv.i.i.i105
-  %169 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i.i.i105
-  %170 = load ptr, ptr %169, align 8, !tbaa !45
-  store ptr %170, ptr %168, align 8, !tbaa !45
-  %indvars.iv.next.i.i.i106 = add nuw nsw i64 %indvars.iv.i.i.i105, 1
-  %exitcond.not.i.i.i107 = icmp eq i64 %indvars.iv.next.i.i.i106, %wide.trip.count.i.i.i104
-  br i1 %exitcond.not.i.i.i107, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102, label %167, !llvm.loop !83
+172:                                              ; preds = %172, %.lr.ph.i.i.i101
+  %indvars.iv.i.i.i103 = phi i64 [ 0, %.lr.ph.i.i.i101 ], [ %indvars.iv.next.i.i.i104, %172 ]
+  %173 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i96, i64 %indvars.iv.i.i.i103
+  %174 = getelementptr inbounds nuw ptr, ptr %171, i64 %indvars.iv.i.i.i103
+  %175 = load ptr, ptr %174, align 8, !tbaa !45
+  store ptr %175, ptr %173, align 8, !tbaa !45
+  %indvars.iv.next.i.i.i104 = add nuw nsw i64 %indvars.iv.i.i.i103, 1
+  %exitcond.not.i.i.i105 = icmp eq i64 %indvars.iv.next.i.i.i104, %wide.trip.count.i.i.i102
+  br i1 %exitcond.not.i.i.i105, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99, label %172, !llvm.loop !83
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i100: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i98
-  %.not.i5.i.i101 = icmp eq ptr %166, null
-  br i1 %.not.i5.i.i101, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i97: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i95
+  %.not.i5.i.i98 = icmp eq ptr %171, null
+  br i1 %.not.i5.i.i98, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102: ; preds = %167, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i100
-  %171 = load i8, ptr %94, align 8, !tbaa !7, !range !57, !noundef !58
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99: ; preds = %172, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i97
+  %176 = load i8, ptr %96, align 8, !tbaa !7, !range !57, !noundef !58
+  %177 = trunc nuw i8 %176 to i1
+  br i1 %177, label %178, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100
 
-173:                                              ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102
-  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %166)
-  %.pre2.pre.pre.i = load i32, ptr %57, align 4, !tbaa !16
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+178:                                              ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99
+  call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %171)
+  %.pre2.pre.pre.i = load i32, ptr %58, align 4, !tbaa !16
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %173, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i100
-  %.pre2.i = phi i32 [ %164, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i100 ], [ %.pre2.pre.pre.i, %173 ], [ %164, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i102 ]
-  store i8 1, ptr %94, align 8, !tbaa !7
-  store ptr %.0.i.i.i99, ptr %93, align 8, !tbaa !15
-  store i32 %157, ptr %92, align 8, !tbaa !17
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100: ; preds = %178, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i97
+  %.pre2.i = phi i32 [ %169, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i97 ], [ %.pre2.pre.pre.i, %178 ], [ %169, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i99 ]
+  store i8 1, ptr %96, align 8, !tbaa !7
+  store ptr %.0.i.i.i96, ptr %95, align 8, !tbaa !15
+  store i32 %162, ptr %94, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit: ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit, %155, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
-  %174 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ], [ %152, %155 ], [ %152, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit ]
-  %175 = load ptr, ptr %93, align 8, !tbaa !15
-  %176 = sext i32 %174 to i64
-  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
-  store ptr %98, ptr %177, align 8, !tbaa !45
-  %178 = add nsw i32 %174, 1
-  store i32 %178, ptr %57, align 4, !tbaa !16
-  %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
-  %179 = load i32, ptr %74, align 4, !tbaa !16
-  %180 = sext i32 %179 to i64
-  %181 = icmp slt i64 %indvars.iv.next139, %180
-  br i1 %181, label %95, label %._crit_edge129, !llvm.loop !88
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit: ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit, %160, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100
+  %179 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i100 ], [ %157, %160 ], [ %157, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE6resizeEiRKS1_.exit ]
+  %180 = load ptr, ptr %95, align 8, !tbaa !15
+  %181 = sext i32 %179 to i64
+  %182 = getelementptr inbounds ptr, ptr %180, i64 %181
+  store ptr %100, ptr %182, align 8, !tbaa !45
+  %183 = add nsw i32 %179, 1
+  store i32 %183, ptr %58, align 4, !tbaa !16
+  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
+  %184 = load i32, ptr %76, align 4, !tbaa !16
+  %185 = sext i32 %184 to i64
+  %186 = icmp slt i64 %indvars.iv.next132, %185
+  br i1 %186, label %97, label %._crit_edge122, !llvm.loop !88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -1581,11 +1527,11 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEi
   %16 = load i32, ptr %15, align 4, !tbaa !53
   %17 = add nsw i32 %16, %2
   %.not42 = icmp slt i32 %17, %5
-  br i1 %.not42, label %148, label %18
+  br i1 %.not42, label %147, label %18
 
 18:                                               ; preds = %10
   store ptr null, ptr %8, align 8, !tbaa !34
-  br label %148
+  br label %147
 
 19:                                               ; preds = %7
   %20 = shl nsw i32 %5, 1
@@ -1626,11 +1572,7 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEi
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 96
   store i32 %1, ptr %38, align 8, !tbaa !85
   %39 = icmp sgt i32 %23, %37
-  br i1 %39, label %.lr.ph, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %36
-  store i32 %28, ptr %22, align 4, !tbaa !16
-  br label %105
+  br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %36
   %40 = sext i32 %indvars.iv83 to i64
@@ -1649,257 +1591,256 @@ define dso_local noundef ptr @_ZN27btSimulationIslandManagerMt14allocateIslandEi
   %46 = icmp sgt i32 %23, %45
   br i1 %46, label %41, label %._crit_edge, !llvm.loop !91
 
-._crit_edge:                                      ; preds = %41
+._crit_edge:                                      ; preds = %41, %36
   store i32 %28, ptr %22, align 4, !tbaa !16
-  %47 = icmp eq ptr %33, null
-  br i1 %47, label %.thread70, label %105
+  br label %104
 
-.thread70:                                        ; preds = %29, %21, %._crit_edge
-  %48 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %48, i8 0, i64 104, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  store i8 1, ptr %49, align 8, !tbaa !67
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 0, ptr %51, align 4, !tbaa !53
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %53 = getelementptr inbounds nuw i8, ptr %48, i64 56
-  store i8 1, ptr %53, align 8, !tbaa !65
-  %54 = getelementptr inbounds nuw i8, ptr %48, i64 36
-  store i32 0, ptr %54, align 4, !tbaa !46
-  %55 = getelementptr inbounds nuw i8, ptr %48, i64 88
-  store i8 1, ptr %55, align 8, !tbaa !62
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 68
-  store i32 0, ptr %56, align 4, !tbaa !48
-  %57 = getelementptr inbounds nuw i8, ptr %48, i64 96
-  store i32 %1, ptr %57, align 8, !tbaa !85
-  %58 = icmp sgt i32 %.032, 0
-  br i1 %58, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit
+.thread70:                                        ; preds = %29, %21
+  %47 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #17
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %47, i8 0, i64 104, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  store i8 1, ptr %48, align 8, !tbaa !67
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 0, ptr %50, align 4, !tbaa !53
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %47, i64 56
+  store i8 1, ptr %52, align 8, !tbaa !65
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 36
+  store i32 0, ptr %53, align 4, !tbaa !46
+  %54 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  store i8 1, ptr %54, align 8, !tbaa !62
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 68
+  store i32 0, ptr %55, align 4, !tbaa !48
+  %56 = getelementptr inbounds nuw i8, ptr %47, i64 96
+  store i32 %1, ptr %56, align 8, !tbaa !85
+  %57 = icmp sgt i32 %.032, 0
+  br i1 %57, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit
 
 _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i: ; preds = %.thread70
-  %59 = zext nneg i32 %.032 to i64
-  %60 = shl nuw nsw i64 %59, 3
-  %61 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %60, i32 noundef 16)
-  %62 = load i32, ptr %51, align 4, !tbaa !53
-  %63 = icmp sgt i32 %62, 0
-  %64 = load ptr, ptr %50, align 8, !tbaa !52
-  br i1 %63, label %.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
+  %58 = zext nneg i32 %.032 to i64
+  %59 = shl nuw nsw i64 %58, 3
+  %60 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %59, i32 noundef 16)
+  %61 = load i32, ptr %50, align 4, !tbaa !53
+  %62 = icmp sgt i32 %61, 0
+  %63 = load ptr, ptr %49, align 8, !tbaa !52
+  br i1 %62, label %.lr.ph.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i
-  %wide.trip.count.i.i = zext nneg i32 %62 to i64
-  br label %65
+  %wide.trip.count.i.i = zext nneg i32 %61 to i64
+  br label %64
 
-65:                                               ; preds = %65, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i
-  %67 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i.i
-  %68 = load ptr, ptr %67, align 8, !tbaa !69
-  store ptr %68, ptr %66, align 8, !tbaa !69
+64:                                               ; preds = %64, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %64 ]
+  %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i.i
+  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i
+  %67 = load ptr, ptr %66, align 8, !tbaa !69
+  store ptr %67, ptr %65, align 8, !tbaa !69
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i, label %65, !llvm.loop !71
+  br i1 %exitcond.not.i.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i, label %64, !llvm.loop !71
 
 _ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i: ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i
-  %.not.i5.i = icmp eq ptr %64, null
+  %.not.i5.i = icmp eq ptr %63, null
   br i1 %.not.i5.i, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i, label %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i
 
-_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i: ; preds = %65, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
-  %69 = load i8, ptr %49, align 8, !tbaa !67, !range !57, !noundef !58
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i
+_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i: ; preds = %64, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
+  %68 = load i8, ptr %48, align 8, !tbaa !67, !range !57, !noundef !58
+  %69 = trunc nuw i8 %68 to i1
+  br i1 %69, label %70, label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i
 
-71:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %64)
+70:                                               ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %63)
   br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i
 
-_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i, %71, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
-  store i8 1, ptr %49, align 8, !tbaa !67
-  store ptr %61, ptr %50, align 8, !tbaa !52
-  store i32 %.032, ptr %52, align 8, !tbaa !68
+_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i: ; preds = %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.thread.i, %70, %_ZNK20btAlignedObjectArrayIP17btCollisionObjectE4copyEiiPS1_.exit.i
+  store i8 1, ptr %48, align 8, !tbaa !67
+  store ptr %60, ptr %49, align 8, !tbaa !52
+  store i32 %.032, ptr %51, align 8, !tbaa !68
   br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit
 
 _ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit: ; preds = %.thread70, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE10deallocateEv.exit.i
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %73 = load i32, ptr %72, align 4, !tbaa !16
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %75 = load i32, ptr %74, align 8, !tbaa !17
-  %76 = icmp eq i32 %73, %75
-  br i1 %76, label %77, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %72 = load i32, ptr %71, align 4, !tbaa !16
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %74 = load i32, ptr %73, align 8, !tbaa !17
+  %75 = icmp eq i32 %72, %74
+  br i1 %75, label %76, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-77:                                               ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit
-  %.not.i.i43 = icmp eq i32 %73, 0
-  %78 = shl nsw i32 %73, 1
-  %79 = select i1 %.not.i.i43, i32 1, i32 %78
-  %80 = icmp slt i32 %73, %79
-  br i1 %80, label %81, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+76:                                               ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit
+  %.not.i.i43 = icmp eq i32 %72, 0
+  %77 = shl nsw i32 %72, 1
+  %78 = select i1 %.not.i.i43, i32 1, i32 %77
+  %79 = icmp slt i32 %72, %78
+  br i1 %79, label %80, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-81:                                               ; preds = %77
-  %.not.i.i.i = icmp eq i32 %79, 0
-  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i, label %82
+80:                                               ; preds = %76
+  %.not.i.i.i = icmp eq i32 %78, 0
+  br i1 %.not.i.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i, label %81
 
-82:                                               ; preds = %81
-  %83 = sext i32 %79 to i64
-  %84 = shl nsw i64 %83, 3
-  %85 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %84, i32 noundef 16)
-  %.pre.i = load i32, ptr %72, align 4, !tbaa !16
+81:                                               ; preds = %80
+  %82 = sext i32 %78 to i64
+  %83 = shl nsw i64 %82, 3
+  %84 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %83, i32 noundef 16)
+  %.pre.i = load i32, ptr %71, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i: ; preds = %82, %81
-  %86 = phi i32 [ %.pre.i, %82 ], [ %73, %81 ]
-  %.0.i.i.i = phi ptr [ %85, %82 ], [ null, %81 ]
-  %87 = icmp sgt i32 %86, 0
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %89 = load ptr, ptr %88, align 8, !tbaa !15
-  br i1 %87, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i: ; preds = %81, %80
+  %85 = phi i32 [ %.pre.i, %81 ], [ %72, %80 ]
+  %.0.i.i.i = phi ptr [ %84, %81 ], [ null, %80 ]
+  %86 = icmp sgt i32 %85, 0
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %88 = load ptr, ptr %87, align 8, !tbaa !15
+  br i1 %86, label %.lr.ph.i.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i
-  %wide.trip.count.i.i.i = zext nneg i32 %86 to i64
-  br label %90
+  %wide.trip.count.i.i.i = zext nneg i32 %85 to i64
+  br label %89
 
-90:                                               ; preds = %90, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %90 ]
-  %91 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %92 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv.i.i.i
-  %93 = load ptr, ptr %92, align 8, !tbaa !45
-  store ptr %93, ptr %91, align 8, !tbaa !45
+89:                                               ; preds = %89, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %89 ]
+  %90 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.i.i.i
+  %92 = load ptr, ptr %91, align 8, !tbaa !45
+  store ptr %92, ptr %90, align 8, !tbaa !45
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
-  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, label %90, !llvm.loop !83
+  br i1 %exitcond.not.i.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, label %89, !llvm.loop !83
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i
-  %.not.i5.i.i = icmp eq ptr %89, null
+  %.not.i5.i.i = icmp eq ptr %88, null
   br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i: ; preds = %90, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %95 = load i8, ptr %94, align 8, !tbaa !7, !range !57, !noundef !58
-  %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %97, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i: ; preds = %89, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %94 = load i8, ptr %93, align 8, !tbaa !7, !range !57, !noundef !58
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %96, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
-97:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %89)
-  %.pre2.pre.pre.i = load i32, ptr %72, align 4, !tbaa !16
+96:                                               ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %88)
+  %.pre2.pre.pre.i = load i32, ptr %71, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %97, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  %.pre2.i = phi i32 [ %86, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i ], [ %.pre2.pre.pre.i, %97 ], [ %86, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i ]
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i8 1, ptr %98, align 8, !tbaa !7
-  store ptr %.0.i.i.i, ptr %88, align 8, !tbaa !15
-  store i32 %79, ptr %74, align 8, !tbaa !17
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %96, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
+  %.pre2.i = phi i32 [ %85, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i ], [ %.pre2.pre.pre.i, %96 ], [ %85, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i ]
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i8 1, ptr %97, align 8, !tbaa !7
+  store ptr %.0.i.i.i, ptr %87, align 8, !tbaa !15
+  store i32 %78, ptr %73, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit: ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit, %77, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
-  %99 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ], [ %73, %77 ], [ %73, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit ]
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %101 = load ptr, ptr %100, align 8, !tbaa !15
-  %102 = sext i32 %99 to i64
-  %103 = getelementptr inbounds ptr, ptr %101, i64 %102
-  store ptr %48, ptr %103, align 8, !tbaa !45
-  %104 = add nsw i32 %99, 1
-  store i32 %104, ptr %72, align 4, !tbaa !16
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit: ; preds = %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit, %76, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+  %98 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ], [ %72, %76 ], [ %72, %_ZN20btAlignedObjectArrayIP17btCollisionObjectE7reserveEi.exit ]
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %100 = load ptr, ptr %99, align 8, !tbaa !15
+  %101 = sext i32 %98 to i64
+  %102 = getelementptr inbounds ptr, ptr %100, i64 %101
+  store ptr %47, ptr %102, align 8, !tbaa !45
+  %103 = add nsw i32 %98, 1
+  store i32 %103, ptr %71, align 4, !tbaa !16
   %.pre = load i32, ptr %4, align 4, !tbaa !32
-  br label %105
+  br label %104
 
-105:                                              ; preds = %._crit_edge.thread, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit, %._crit_edge
-  %106 = phi i32 [ %.pre, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ], [ %5, %._crit_edge ], [ %5, %._crit_edge.thread ]
-  %.3 = phi ptr [ %48, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ], [ %33, %._crit_edge ], [ %33, %._crit_edge.thread ]
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %108 = load ptr, ptr %107, align 8, !tbaa !15
-  %109 = sext i32 %1 to i64
-  %110 = getelementptr inbounds ptr, ptr %108, i64 %109
-  store ptr %.3, ptr %110, align 8, !tbaa !45
-  %111 = icmp slt i32 %2, %106
-  br i1 %111, label %112, label %114
+104:                                              ; preds = %._crit_edge, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit
+  %105 = phi i32 [ %.pre, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ], [ %5, %._crit_edge ]
+  %.3 = phi ptr [ %47, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit ], [ %33, %._crit_edge ]
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %107 = load ptr, ptr %106, align 8, !tbaa !15
+  %108 = sext i32 %1 to i64
+  %109 = getelementptr inbounds ptr, ptr %107, i64 %108
+  store ptr %.3, ptr %109, align 8, !tbaa !45
+  %110 = icmp slt i32 %2, %105
+  br i1 %110, label %111, label %113
 
-112:                                              ; preds = %105
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %.3, ptr %113, align 8, !tbaa !34
-  br label %114
+111:                                              ; preds = %104
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %.3, ptr %112, align 8, !tbaa !34
+  br label %113
 
-114:                                              ; preds = %112, %105
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  %116 = load i32, ptr %115, align 4, !tbaa !16
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %118 = load i32, ptr %117, align 8, !tbaa !17
-  %119 = icmp eq i32 %116, %118
-  br i1 %119, label %120, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
+113:                                              ; preds = %111, %104
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  %115 = load i32, ptr %114, align 4, !tbaa !16
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %117 = load i32, ptr %116, align 8, !tbaa !17
+  %118 = icmp eq i32 %115, %117
+  br i1 %118, label %119, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
 
-120:                                              ; preds = %114
-  %.not.i.i44 = icmp eq i32 %116, 0
-  %121 = shl nsw i32 %116, 1
-  %122 = select i1 %.not.i.i44, i32 1, i32 %121
-  %123 = icmp slt i32 %116, %122
-  br i1 %123, label %124, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
+119:                                              ; preds = %113
+  %.not.i.i44 = icmp eq i32 %115, 0
+  %120 = shl nsw i32 %115, 1
+  %121 = select i1 %.not.i.i44, i32 1, i32 %120
+  %122 = icmp slt i32 %115, %121
+  br i1 %122, label %123, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
 
-124:                                              ; preds = %120
-  %.not.i.i.i45 = icmp eq i32 %122, 0
-  br i1 %.not.i.i.i45, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47, label %125
+123:                                              ; preds = %119
+  %.not.i.i.i45 = icmp eq i32 %121, 0
+  br i1 %.not.i.i.i45, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47, label %124
 
-125:                                              ; preds = %124
-  %126 = sext i32 %122 to i64
-  %127 = shl nsw i64 %126, 3
-  %128 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %127, i32 noundef 16)
-  %.pre.i46 = load i32, ptr %115, align 4, !tbaa !16
+124:                                              ; preds = %123
+  %125 = sext i32 %121 to i64
+  %126 = shl nsw i64 %125, 3
+  %127 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %126, i32 noundef 16)
+  %.pre.i46 = load i32, ptr %114, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47: ; preds = %125, %124
-  %129 = phi i32 [ %.pre.i46, %125 ], [ %116, %124 ]
-  %.0.i.i.i48 = phi ptr [ %128, %125 ], [ null, %124 ]
-  %130 = icmp sgt i32 %129, 0
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %132 = load ptr, ptr %131, align 8, !tbaa !15
-  br i1 %130, label %.lr.ph.i.i.i55, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47: ; preds = %124, %123
+  %128 = phi i32 [ %.pre.i46, %124 ], [ %115, %123 ]
+  %.0.i.i.i48 = phi ptr [ %127, %124 ], [ null, %123 ]
+  %129 = icmp sgt i32 %128, 0
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %131 = load ptr, ptr %130, align 8, !tbaa !15
+  br i1 %129, label %.lr.ph.i.i.i55, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
 
 .lr.ph.i.i.i55:                                   ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47
-  %wide.trip.count.i.i.i56 = zext nneg i32 %129 to i64
-  br label %133
+  %wide.trip.count.i.i.i56 = zext nneg i32 %128 to i64
+  br label %132
 
-133:                                              ; preds = %133, %.lr.ph.i.i.i55
-  %indvars.iv.i.i.i57 = phi i64 [ 0, %.lr.ph.i.i.i55 ], [ %indvars.iv.next.i.i.i58, %133 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i57
-  %135 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv.i.i.i57
-  %136 = load ptr, ptr %135, align 8, !tbaa !45
-  store ptr %136, ptr %134, align 8, !tbaa !45
+132:                                              ; preds = %132, %.lr.ph.i.i.i55
+  %indvars.iv.i.i.i57 = phi i64 [ 0, %.lr.ph.i.i.i55 ], [ %indvars.iv.next.i.i.i58, %132 ]
+  %133 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i48, i64 %indvars.iv.i.i.i57
+  %134 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i.i57
+  %135 = load ptr, ptr %134, align 8, !tbaa !45
+  store ptr %135, ptr %133, align 8, !tbaa !45
   %indvars.iv.next.i.i.i58 = add nuw nsw i64 %indvars.iv.i.i.i57, 1
   %exitcond.not.i.i.i59 = icmp eq i64 %indvars.iv.next.i.i.i58, %wide.trip.count.i.i.i56
-  br i1 %exitcond.not.i.i.i59, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51, label %133, !llvm.loop !83
+  br i1 %exitcond.not.i.i.i59, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51, label %132, !llvm.loop !83
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i47
-  %.not.i5.i.i50 = icmp eq ptr %132, null
+  %.not.i5.i.i50 = icmp eq ptr %131, null
   br i1 %.not.i5.i.i50, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51
 
-_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51: ; preds = %133, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %138 = load i8, ptr %137, align 8, !tbaa !7, !range !57, !noundef !58
-  %139 = trunc nuw i8 %138 to i1
-  br i1 %139, label %140, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52
+_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51: ; preds = %132, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %137 = load i8, ptr %136, align 8, !tbaa !7, !range !57, !noundef !58
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %139, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52
 
-140:                                              ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51
-  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %132)
-  %.pre2.pre.pre.i54 = load i32, ptr %115, align 4, !tbaa !16
+139:                                              ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51
+  tail call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %131)
+  %.pre2.pre.pre.i54 = load i32, ptr %114, align 4, !tbaa !16
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52: ; preds = %140, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
-  %.pre2.i53 = phi i32 [ %129, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49 ], [ %.pre2.pre.pre.i54, %140 ], [ %129, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51 ]
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i8 1, ptr %141, align 8, !tbaa !7
-  store ptr %.0.i.i.i48, ptr %131, align 8, !tbaa !15
-  store i32 %122, ptr %117, align 8, !tbaa !17
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52: ; preds = %139, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49
+  %.pre2.i53 = phi i32 [ %128, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i49 ], [ %.pre2.pre.pre.i54, %139 ], [ %128, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i51 ]
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i8 1, ptr %140, align 8, !tbaa !7
+  store ptr %.0.i.i.i48, ptr %130, align 8, !tbaa !15
+  store i32 %121, ptr %116, align 8, !tbaa !17
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60: ; preds = %114, %120, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52
-  %142 = phi i32 [ %.pre2.i53, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52 ], [ %116, %120 ], [ %116, %114 ]
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %144 = load ptr, ptr %143, align 8, !tbaa !15
-  %145 = sext i32 %142 to i64
-  %146 = getelementptr inbounds ptr, ptr %144, i64 %145
-  store ptr %.3, ptr %146, align 8, !tbaa !45
-  %147 = add nsw i32 %142, 1
-  store i32 %147, ptr %115, align 4, !tbaa !16
-  br label %148
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60: ; preds = %113, %119, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52
+  %141 = phi i32 [ %.pre2.i53, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i52 ], [ %115, %119 ], [ %115, %113 ]
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %143 = load ptr, ptr %142, align 8, !tbaa !15
+  %144 = sext i32 %141 to i64
+  %145 = getelementptr inbounds ptr, ptr %143, i64 %144
+  store ptr %.3, ptr %145, align 8, !tbaa !45
+  %146 = add nsw i32 %141, 1
+  store i32 %146, ptr %114, align 4, !tbaa !16
+  br label %147
 
-148:                                              ; preds = %10, %18, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
+147:                                              ; preds = %10, %18, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60
   %.0 = phi ptr [ %.3, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9push_backERKS2_.exit60 ], [ %9, %10 ], [ %9, %18 ]
   ret ptr %.0
 }
@@ -2731,7 +2672,7 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %9 = phi i32 [ %4, %1 ], [ %.pre, %6 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #14
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %.lr.ph, label %._crit_edge90
+  br i1 %10, label %.lr.ph, label %._crit_edge89
 
 .lr.ph:                                           ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -2761,15 +2702,15 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
 28:                                               ; preds = %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge90, label %15, !llvm.loop !130
+  br i1 %exitcond.not, label %._crit_edge89, label %15, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %15
   %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %.05384 = add nsw i32 %9, -1
-  %30 = icmp sgt i32 %.05384, %29
-  br i1 %30, label %.lr.ph89, label %._crit_edge90
+  %.05383 = add nsw i32 %9, -1
+  %30 = icmp sgt i32 %.05383, %29
+  br i1 %30, label %.lr.ph88, label %._crit_edge89
 
-.lr.ph89:                                         ; preds = %._crit_edge
+.lr.ph88:                                         ; preds = %._crit_edge
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -2778,12 +2719,12 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %35 = ashr exact i64 %sext, 32
   br label %36
 
-36:                                               ; preds = %.lr.ph89, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit
-  %indvars.iv99 = phi i64 [ %35, %.lr.ph89 ], [ %indvars.iv.next100, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
-  %.05387 = phi i32 [ %.05384, %.lr.ph89 ], [ %.053, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
-  %.053.in85 = phi i32 [ %9, %.lr.ph89 ], [ %.046, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
+36:                                               ; preds = %.lr.ph88, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit
+  %indvars.iv98 = phi i64 [ %35, %.lr.ph88 ], [ %indvars.iv.next99, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
+  %.05386 = phi i32 [ %.05383, %.lr.ph88 ], [ %.053, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
+  %.053.in84 = phi i32 [ %9, %.lr.ph88 ], [ %.046, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit ]
   %37 = load ptr, ptr %31, align 8, !tbaa !15
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv99
+  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv98
   %39 = load ptr, ptr %38, align 8, !tbaa !45
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !53
@@ -2792,14 +2733,14 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 68
   %45 = load i32, ptr %44, align 4, !tbaa !48
   %46 = load i32, ptr %32, align 8, !tbaa !18
-  %47 = trunc nsw i64 %indvars.iv99 to i32
+  %47 = trunc nsw i64 %indvars.iv98 to i32
   br label %48
 
 48:                                               ; preds = %48, %36
   %.050 = phi i32 [ %41, %36 ], [ %54, %48 ]
   %.049 = phi i32 [ %43, %36 ], [ %57, %48 ]
   %.048 = phi i32 [ %45, %36 ], [ %60, %48 ]
-  %.046 = phi i32 [ %.05387, %36 ], [ %65, %48 ]
+  %.046 = phi i32 [ %.05386, %36 ], [ %65, %48 ]
   %49 = sext i32 %.046 to i64
   %50 = getelementptr inbounds ptr, ptr %37, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !45
@@ -2836,11 +2777,11 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28I
   %73 = sext i32 %54 to i64
   %74 = shl nsw i64 %73, 3
   %75 = call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %74, i32 noundef 16)
-  %.pre102 = load i32, ptr %40, align 4, !tbaa !53
+  %.pre101 = load i32, ptr %40, align 4, !tbaa !53
   br label %_ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i
 
 _ZN20btAlignedObjectArrayIP17btCollisionObjectE8allocateEi.exit.i: ; preds = %72, %71
-  %76 = phi i32 [ %.pre102, %72 ], [ %41, %71 ]
+  %76 = phi i32 [ %.pre101, %72 ], [ %41, %71 ]
   %.0.i.i = phi ptr [ %75, %72 ], [ null, %71 ]
   %77 = icmp sgt i32 %76, 0
   %78 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -3001,25 +2942,25 @@ _ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i: ; preds = 
   br label %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit
 
 _ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit: ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE10deallocateEv.exit.i
-  %.not55.not80 = icmp slt i32 %.046, %.053.in85
-  br i1 %.not55.not80, label %.lr.ph82.preheader, label %._crit_edge83
+  %.not55.not79 = icmp slt i32 %.046, %.053.in84
+  br i1 %.not55.not79, label %.lr.ph81.preheader, label %._crit_edge82
 
-.lr.ph82.preheader:                               ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit
+.lr.ph81.preheader:                               ; preds = %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit
   %131 = sext i32 %.046 to i64
-  br label %.lr.ph82
+  br label %.lr.ph81
 
-._crit_edge83:                                    ; preds = %.lr.ph82, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit
+._crit_edge82:                                    ; preds = %.lr.ph81, %_ZN20btAlignedObjectArrayIP17btTypedConstraintE7reserveEi.exit
   %132 = load i32, ptr %3, align 4, !tbaa !16
   %133 = icmp sgt i32 %.046, %132
   br i1 %133, label %134, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit
 
-134:                                              ; preds = %._crit_edge83
+134:                                              ; preds = %._crit_edge82
   %135 = load i32, ptr %33, align 8, !tbaa !17
   %136 = icmp slt i32 %135, %.046
   br i1 %136, label %137, label %..lr.ph.i_crit_edge
 
 ..lr.ph.i_crit_edge:                              ; preds = %134
-  %.pre103 = load ptr, ptr %31, align 8, !tbaa !15
+  %.pre102 = load ptr, ptr %31, align 8, !tbaa !15
   br label %.lr.ph.i
 
 137:                                              ; preds = %134
@@ -3056,31 +2997,25 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.ex
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i: ; preds = %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE8allocateEi.exit.i.i
   %.not.i5.i.i = icmp eq ptr %144, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
-
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i: ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
-  store i8 1, ptr %34, align 8, !tbaa !7
-  store ptr %.0.i.i.i, ptr %31, align 8, !tbaa !15
-  store i32 %.046, ptr %33, align 8, !tbaa !17
-  br label %.lr.ph.i
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i: ; preds = %145, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
   %149 = load i8, ptr %34, align 8, !tbaa !7, !range !57, !noundef !58
   %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %151, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
+  br i1 %150, label %151, label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
 151:                                              ; preds = %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %144)
-  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i
+  br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i: ; preds = %151, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i: ; preds = %151, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE4copyEiiPS2_.exit.i.i
   store i8 1, ptr %34, align 8, !tbaa !7
   store ptr %.0.i.i.i, ptr %31, align 8, !tbaa !15
   store i32 %.046, ptr %33, align 8, !tbaa !17
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i
-  %152 = phi ptr [ %.pre103, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.i ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exit.thread26.i ]
+.lr.ph.i:                                         ; preds = %..lr.ph.i_crit_edge, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i
+  %152 = phi ptr [ %.pre102, %..lr.ph.i_crit_edge ], [ %.0.i.i.i, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE10deallocateEv.exit.i.i ]
   %153 = sext i32 %132 to i64
   %wide.trip.count.i = sext i32 %.046 to i64
   %154 = shl nsw i64 %153, 3
@@ -3090,26 +3025,26 @@ _ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE7reserveEi.exi
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %156, i1 false), !tbaa !45
   br label %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit
 
-_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit: ; preds = %.lr.ph.i, %._crit_edge83
+_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit: ; preds = %.lr.ph.i, %._crit_edge82
   store i32 %.046, ptr %3, align 4, !tbaa !16
-  %indvars.iv.next100 = add nsw i64 %indvars.iv99, 1
+  %indvars.iv.next99 = add nsw i64 %indvars.iv98, 1
   %.053 = add nsw i32 %.046, -1
   %157 = sext i32 %.053 to i64
-  %158 = icmp slt i64 %indvars.iv.next100, %157
-  br i1 %158, label %36, label %._crit_edge90, !llvm.loop !131
+  %158 = icmp slt i64 %indvars.iv.next99, %157
+  br i1 %158, label %36, label %._crit_edge89, !llvm.loop !131
 
-.lr.ph82:                                         ; preds = %.lr.ph82.preheader, %.lr.ph82
-  %indvars.iv95 = phi i64 [ %131, %.lr.ph82.preheader ], [ %indvars.iv.next96, %.lr.ph82 ]
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
+  %indvars.iv94 = phi i64 [ %131, %.lr.ph81.preheader ], [ %indvars.iv.next95, %.lr.ph81 ]
   %159 = load ptr, ptr %31, align 8, !tbaa !15
-  %160 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv95
+  %160 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv94
   %161 = load ptr, ptr %160, align 8, !tbaa !45
   call void @_ZN27btSimulationIslandManagerMt6Island6appendERKS0_(ptr noundef nonnull align 8 dereferenceable(101) %39, ptr noundef nonnull align 8 dereferenceable(101) %161)
-  %indvars.iv.next96 = add nsw i64 %indvars.iv95, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next96 to i32
-  %exitcond98.not = icmp eq i32 %.053.in85, %lftr.wideiv
-  br i1 %exitcond98.not, label %._crit_edge83, label %.lr.ph82, !llvm.loop !132
+  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next95 to i32
+  %exitcond97.not = icmp eq i32 %.053.in84, %lftr.wideiv
+  br i1 %exitcond97.not, label %._crit_edge82, label %.lr.ph81, !llvm.loop !132
 
-._crit_edge90:                                    ; preds = %28, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_.exit, %._crit_edge
+._crit_edge89:                                    ; preds = %28, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE6resizeEiRKS2_.exit, %_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEE9quickSortI28IslandBatchSizeSortPredicateEEvRKT_.exit, %._crit_edge
   ret void
 }
 

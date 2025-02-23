@@ -1679,8 +1679,8 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   %81 = tail call ptr @dtgtk_togglebutton_new(ptr noundef nonnull %80, i32 noundef 0, ptr noundef null) #16
   %82 = tail call ptr @g_type_check_instance_cast(ptr noundef %81, i64 noundef 80) #16
   tail call void @g_object_set_data(ptr noundef %82, ptr noundef nonnull @.str.251, ptr noundef %77) #16
-  %83 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.138, ptr noundef nonnull @_manage_direct_popup, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
-  %84 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.139, ptr noundef nonnull @_lib_modulegroups_toggle, ptr noundef %0, ptr noundef null, i32 noundef 0) #16
+  %83 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.138, ptr noundef nonnull @_manage_direct_popup, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
+  %84 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.139, ptr noundef nonnull @_lib_modulegroups_toggle, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #16
   %85 = load ptr, ptr %77, align 8, !tbaa !74
   %86 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.252, ptr noundef %85) #16
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %81, ptr noundef %86) #16
@@ -1741,7 +1741,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %.not91.i, label %111, label %110
 
 110:                                              ; preds = %.thread95.i
-  tail call fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef %0)
+  tail call fastcc void @_lib_modulegroups_update_iop_visibility(ptr noundef nonnull %0)
   br label %_buttons_update.exit
 
 111:                                              ; preds = %.thread95.i
@@ -2113,7 +2113,7 @@ define internal fastcc void @_preset_from_string(ptr noundef readonly captures(n
 99:                                               ; preds = %98, %.lr.ph105
   %.180 = phi ptr [ %.2, %98 ], [ %.079102, %.lr.ph105 ]
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
-  %100 = tail call i32 @g_strv_length(ptr noundef %7) #16
+  %100 = tail call i32 @g_strv_length(ptr noundef nonnull %7) #16
   %101 = zext i32 %100 to i64
   %102 = icmp samesign ult i64 %indvars.iv.next117, %101
   br i1 %102, label %.lr.ph105, label %._crit_edge106
@@ -5217,7 +5217,7 @@ _basics_free_item.exit:                           ; preds = %24, %31
   br label %36
 
 36:                                               ; preds = %19, %21, %_basics_free_item.exit
-  tail call fastcc void @_manage_direct_save(ptr noundef %0)
+  tail call fastcc void @_manage_direct_save(ptr noundef nonnull %0)
   br label %37
 
 37:                                               ; preds = %36, %10
@@ -7619,11 +7619,11 @@ _presets_get_minimal.exit:                        ; preds = %195, %203
   call void @g_free(ptr noundef nonnull %205) #16
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 1, ptr %212, align 8, !tbaa !282
-  call fastcc void @_manage_preset_update_list(ptr noundef %1)
+  call fastcc void @_manage_preset_update_list(ptr noundef nonnull %1)
   store i32 0, ptr %212, align 8, !tbaa !282
   %213 = call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %98) #16
   %214 = call ptr @gtk_entry_get_text(ptr noundef %213) #16
-  call fastcc void @_manage_editor_load(ptr noundef %214, ptr noundef %1)
+  call fastcc void @_manage_editor_load(ptr noundef %214, ptr noundef nonnull %1)
   br label %230
 
 215:                                              ; preds = %191
@@ -7645,11 +7645,11 @@ _presets_get_minimal.exit:                        ; preds = %195, %203
   call void @g_free(ptr noundef nonnull %220) #16
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 136
   store i32 1, ptr %227, align 8, !tbaa !282
-  call fastcc void @_manage_preset_update_list(ptr noundef %1)
+  call fastcc void @_manage_preset_update_list(ptr noundef nonnull %1)
   store i32 0, ptr %227, align 8, !tbaa !282
   %228 = call ptr @g_type_check_instance_cast(ptr noundef %97, i64 noundef %98) #16
   %229 = call ptr @gtk_entry_get_text(ptr noundef %228) #16
-  call fastcc void @_manage_editor_load(ptr noundef %229, ptr noundef %1)
+  call fastcc void @_manage_editor_load(ptr noundef %229, ptr noundef nonnull %1)
   br label %230
 
 230:                                              ; preds = %175, %215, %219, %_presets_get_minimal.exit, %._crit_edge

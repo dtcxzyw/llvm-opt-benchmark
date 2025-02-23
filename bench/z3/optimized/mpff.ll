@@ -2778,7 +2778,7 @@ if.then.i79:                                      ; preds = %if.then80
 
 if.end81:                                         ; preds = %land.end.thread108, %if.end78.thread, %if.then68, %land.end, %if.then.i79, %if.then80, %if.end78
   %exp_c15.1 = phi i64 [ %sub17, %if.end78 ], [ %exp_c15.099, %if.then80 ], [ %inc.i, %if.then.i79 ], [ %add50, %land.end ], [ %sub73, %if.then68 ], [ %sub17, %if.end78.thread ], [ %add50111, %land.end.thread108 ]
-  %57 = add i64 %exp_c15.1, -2147483648
+  %57 = add nsw i64 %exp_c15.1, -2147483648
   %or.cond.i84 = icmp ult i64 %57, -4294967296
   br i1 %or.cond.i84, label %if.then.i89, label %if.else.i85
 
@@ -7422,13 +7422,9 @@ for.body.i124:                                    ; preds = %call.i109.noexc, %f
   %sub6.i128 = add i32 %46, -1
   %47 = zext i32 %sub6.i128 to i64
   %cmp7.i129 = icmp samesign ult i64 %indvars.iv.next.i127, %47
-  br i1 %cmp7.i129, label %for.body.i124, label %_ZN12mpff_manager3setER4mpffi.exit, !llvm.loop !7
+  br i1 %cmp7.i129, label %for.body.i124, label %while.body64.preheader, !llvm.loop !7
 
-_ZN12mpff_manager3setER4mpffi.exit:               ; preds = %for.body.i124
-  %cmp63.not159 = icmp eq i32 %p, 0
-  br i1 %cmp63.not159, label %while.end77, label %while.body64.preheader
-
-while.body64.preheader:                           ; preds = %call.i109.noexc, %_ZN12mpff_manager3setER4mpffi.exit
+while.body64.preheader:                           ; preds = %for.body.i124, %call.i109.noexc
   br label %while.body64
 
 while.body64:                                     ; preds = %while.body64.preheader, %invoke.cont76
@@ -7465,7 +7461,7 @@ invoke.cont76:                                    ; preds = %if.end69
   %cmp63.not = icmp ugt i32 %shl, %p
   br i1 %cmp63.not, label %while.end77, label %while.body64, !llvm.loop !28
 
-while.end77:                                      ; preds = %invoke.cont76, %_ZN12mpff_manager3setER4mpffi.exit
+while.end77:                                      ; preds = %invoke.cont76
   %48 = load ptr, ptr %pw, align 8
   %bf.load.i.i64 = load i32, ptr %m_num.i, align 8
   %cmp.not.i.i65 = icmp ult i32 %bf.load.i.i64, 2
@@ -9167,7 +9163,7 @@ _ZN6bufferIjLb0ELj1024EE9push_backERKj.exit.i:    ; preds = %_ZN6bufferIjLb0ELj1
   %56 = load i32, ptr %m_pos.i.i320, align 8
   %inc.i.i333 = add i32 %56, 1
   store i32 %inc.i.i333, ptr %m_pos.i.i320, align 8
-  %inc.i334 = add nuw i32 %i.013.i, 1
+  %inc.i334 = add i32 %i.013.i, 1
   %exitcond.not.i = icmp eq i32 %i.013.i, %conv64
   br i1 %exitcond.not.i, label %invoke.cont105, label %for.body.i, !llvm.loop !36
 

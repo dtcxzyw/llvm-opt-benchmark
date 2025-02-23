@@ -242,7 +242,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i: ; preds = %_ZN4llvm9RopePi
 28:                                               ; preds = %_ZN4llvm9RopePieceD2Ev.exit.i, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i
   %.idx.i = phi i64 [ 264, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5clearEv.exit.i ], [ %.add.i, %_ZN4llvm9RopePieceD2Ev.exit.i ]
   %.add.i = add nsw i64 %.idx.i, -16
-  %.ptr2.i = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.add.i
+  %.ptr2.i = getelementptr inbounds i8, ptr %0, i64 %.add.i
   %29 = load ptr, ptr %.ptr2.i, align 8, !tbaa !32
   %.not.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %30
@@ -440,7 +440,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118RopePieceBTreeNode5splitE
   %.val.i = load i32, ptr %0, align 4
   %7 = icmp eq i32 %1, %.val.i
   %or.cond.i = select i1 %6, i1 true, i1 %7
-  br i1 %5, label %8, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread
+  br i1 %5, label %8, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
 
 8:                                                ; preds = %2
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit, label %.preheader.i
@@ -512,10 +512,10 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %38, %35, %_ZN4llvm1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #10
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit
 
-_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread: ; preds = %2
+_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit: ; preds = %2
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit, label %.preheader
 
-.preheader:                                       ; preds = %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread
+.preheader:                                       ; preds = %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %40
 
@@ -545,8 +545,8 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread: ; preds = %2
   %52 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_122RopePieceBTreeInterior16HandleChildPieceEjPNS_18RopePieceBTreeNodeE(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %.019.i, ptr noundef %50)
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit
 
-_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %48, %51, %20, %_ZN4llvm9RopePieceD2Ev.exit.i, %8, %46, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread
-  %.1 = phi ptr [ null, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit.thread ], [ null, %46 ], [ null, %8 ], [ %34, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ null, %20 ], [ %52, %51 ], [ null, %48 ]
+_ZN12_GLOBAL__N_122RopePieceBTreeInterior5splitEj.exit: ; preds = %48, %51, %8, %20, %_ZN4llvm9RopePieceD2Ev.exit.i, %46, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit
+  %.1 = phi ptr [ null, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5splitEj.exit ], [ null, %46 ], [ null, %20 ], [ %34, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ null, %8 ], [ %52, %51 ], [ null, %48 ]
   ret ptr %.1
 }
 

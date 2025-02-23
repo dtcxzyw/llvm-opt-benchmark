@@ -3465,7 +3465,7 @@ Abc_Clock.exit85:                                 ; preds = %131, %134
 Cbs3_ManReset.exit.i:                             ; preds = %139, %Abc_Clock.exit85
   store i32 2, ptr %48, align 4, !tbaa !38
   store i32 1, ptr %50, align 8, !tbaa !41
-  call void @Gia_ManIncrementTravId(ptr noundef %0) #25
+  call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #25
   %.val.i = load ptr, ptr %42, align 8, !tbaa !119
   %141 = ptrtoint ptr %89 to i64
   %142 = ptrtoint ptr %.val.i to i64
@@ -3476,7 +3476,7 @@ Cbs3_ManReset.exit.i:                             ; preds = %139, %Abc_Clock.exi
   %146 = trunc i64 %.val3.i.i to i32
   %147 = and i32 %146, 536870911
   %148 = sub nsw i32 %145, %147
-  %149 = call fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef nonnull %18, ptr noundef %0, i32 noundef %148, i32 noundef 10000)
+  %149 = call fastcc i32 @Cbs3_ManToSolver2_rec(ptr noundef nonnull %18, ptr noundef nonnull %0, i32 noundef %148, i32 noundef 10000)
   %150 = load i32, ptr %51, align 4, !tbaa !42
   %151 = load i32, ptr %50, align 8, !tbaa !41
   %152 = icmp slt i32 %150, %151

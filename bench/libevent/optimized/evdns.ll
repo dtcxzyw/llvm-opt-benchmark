@@ -3432,7 +3432,7 @@ search_request_finished.exit:                     ; preds = %80, %83
 
 91:                                               ; preds = %89, %90, %65
   tail call void @event_mm_free_(ptr noundef nonnull %0) #21
-  tail call fastcc void @evdns_requests_pump_waiting_queue(ptr noundef %5)
+  tail call fastcc void @evdns_requests_pump_waiting_queue(ptr noundef nonnull %5)
   %92 = load ptr, ptr %7, align 8
   %.not45 = icmp eq ptr %92, null
   br i1 %.not45, label %96, label %93
@@ -3994,7 +3994,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   br i1 %.not56, label %24, label %22
 
 22:                                               ; preds = %string_num_dots.exit
-  %23 = tail call fastcc ptr @request_new(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4)
+  %23 = tail call fastcc ptr @request_new(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef %4)
   %.not59 = icmp eq ptr %23, null
   br i1 %.not59, label %request_submit.exit, label %48
 
@@ -4040,7 +4040,7 @@ string_num_dots.exit:                             ; preds = %.lr.ph.i, %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull align 1 %32, i64 %36, i1 false)
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 %37
   store i8 0, ptr %46, align 1
-  %47 = tail call fastcc ptr @request_new(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %39, i32 noundef %4)
+  %47 = tail call fastcc ptr @request_new(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef nonnull %39, i32 noundef %4)
   tail call void @event_mm_free_(ptr noundef nonnull %39) #21
   %.not58 = icmp eq ptr %47, null
   br i1 %.not58, label %request_submit.exit, label %48
@@ -5967,7 +5967,7 @@ define range(i32 0, -2147483648) i32 @evdns_base_resolv_conf_parse(ptr noundef %
   %40 = phi ptr [ %42, %.lr.ph.i ], [ %39, %37 ]
   %.03656.i = phi ptr [ %41, %.lr.ph.i ], [ %38, %37 ]
   store i8 0, ptr %40, align 1
-  call fastcc void @resolv_conf_parse_line(ptr noundef %0, ptr noundef nonnull %.03656.i, i32 noundef %1)
+  call fastcc void @resolv_conf_parse_line(ptr noundef nonnull %0, ptr noundef nonnull %.03656.i, i32 noundef %1)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %42 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %41, i32 noundef 10) #23
   %.not47.i = icmp eq ptr %42, null
@@ -5975,7 +5975,7 @@ define range(i32 0, -2147483648) i32 @evdns_base_resolv_conf_parse(ptr noundef %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %37
   %.036.lcssa.i = phi ptr [ %38, %37 ], [ %41, %.lr.ph.i ]
-  call fastcc void @resolv_conf_parse_line(ptr noundef %0, ptr noundef nonnull %.036.lcssa.i, i32 noundef %1)
+  call fastcc void @resolv_conf_parse_line(ptr noundef nonnull %0, ptr noundef nonnull %.036.lcssa.i, i32 noundef %1)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
@@ -6813,139 +6813,154 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   tail call fastcc void @request_finished(ptr noundef nonnull %5, ptr noundef nonnull %3, i32 noundef 1)
   %6 = load ptr, ptr %3, align 8
   %.not.us = icmp eq ptr %6, null
-  br i1 %.not.us, label %.preheader78, label %.lr.ph.split.us, !llvm.loop !31
+  br i1 %.not.us, label %.preheader78.thread, label %.lr.ph.split.us, !llvm.loop !31
 
-.preheader78:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us, %2
+.preheader78:                                     ; preds = %.lr.ph.split, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.preheader.lr.ph, label %._crit_edge83
 
+.preheader78.thread:                              ; preds = %.lr.ph.split.us
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load i32, ptr %10, align 8
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.preheader.us.preheader, label %._crit_edge83
+
 .preheader.lr.ph:                                 ; preds = %.preheader78
   %.not76 = icmp eq i32 %1, 0
-  %.pre102 = load ptr, ptr %0, align 8
-  br i1 %.not76, label %.preheader.us, label %.preheader
+  br i1 %.not76, label %.preheader.us.preheader, label %.preheader.preheader
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.split.us.us
-  %10 = phi i32 [ %14, %._crit_edge.split.us.us ], [ %8, %.preheader.lr.ph ]
-  %11 = phi ptr [ %15, %._crit_edge.split.us.us ], [ %.pre102, %.preheader.lr.ph ]
-  %indvars.iv98 = phi i64 [ %indvars.iv.next99, %._crit_edge.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv98
-  %13 = load ptr, ptr %12, align 8
-  %.not7580.us = icmp eq ptr %13, null
+.preheader.preheader:                             ; preds = %.preheader.lr.ph
+  %.pre = load ptr, ptr %0, align 8
+  br label %.preheader
+
+.preheader.us.preheader:                          ; preds = %.preheader78.thread, %.preheader.lr.ph
+  %13 = phi ptr [ %7, %.preheader.lr.ph ], [ %10, %.preheader78.thread ]
+  %14 = phi i32 [ %8, %.preheader.lr.ph ], [ %11, %.preheader78.thread ]
+  %.pre102 = load ptr, ptr %0, align 8
+  br label %.preheader.us
+
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.us.us
+  %15 = phi i32 [ %14, %.preheader.us.preheader ], [ %19, %._crit_edge.split.us.us ]
+  %16 = phi ptr [ %.pre102, %.preheader.us.preheader ], [ %20, %._crit_edge.split.us.us ]
+  %indvars.iv98 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next99, %._crit_edge.split.us.us ]
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv98
+  %18 = load ptr, ptr %17, align 8
+  %.not7580.us = icmp eq ptr %18, null
   br i1 %.not7580.us, label %._crit_edge.split.us.us, label %.lr.ph81.us
 
 ._crit_edge.split.us.us.loopexit:                 ; preds = %.lr.ph81.us
-  %.pre103 = load i32, ptr %7, align 8
+  %.pre103 = load i32, ptr %13, align 8
   br label %._crit_edge.split.us.us
 
 ._crit_edge.split.us.us:                          ; preds = %._crit_edge.split.us.us.loopexit, %.preheader.us
-  %14 = phi i32 [ %.pre103, %._crit_edge.split.us.us.loopexit ], [ %10, %.preheader.us ]
-  %15 = phi ptr [ %27, %._crit_edge.split.us.us.loopexit ], [ %11, %.preheader.us ]
+  %19 = phi i32 [ %.pre103, %._crit_edge.split.us.us.loopexit ], [ %15, %.preheader.us ]
+  %20 = phi ptr [ %32, %._crit_edge.split.us.us.loopexit ], [ %16, %.preheader.us ]
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %16 = sext i32 %14 to i64
-  %17 = icmp slt i64 %indvars.iv.next99, %16
-  br i1 %17, label %.preheader.us, label %._crit_edge83, !llvm.loop !32
+  %21 = sext i32 %19 to i64
+  %22 = icmp slt i64 %indvars.iv.next99, %21
+  br i1 %22, label %.preheader.us, label %._crit_edge83, !llvm.loop !32
 
 .lr.ph81.us:                                      ; preds = %.preheader.us, %.lr.ph81.us
-  %18 = phi ptr [ %29, %.lr.ph81.us ], [ %13, %.preheader.us ]
-  %19 = phi ptr [ %27, %.lr.ph81.us ], [ %11, %.preheader.us ]
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 168
-  %21 = load i16, ptr %20, align 8
-  %22 = zext i16 %21 to i32
-  %23 = load i32, ptr %7, align 8
-  %24 = srem i32 %22, %23
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %19, i64 %25
-  tail call fastcc void @request_finished(ptr noundef nonnull %18, ptr noundef %26, i32 noundef 1)
-  %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv98
-  %29 = load ptr, ptr %28, align 8
-  %.not75.us.us = icmp eq ptr %29, null
+  %23 = phi ptr [ %34, %.lr.ph81.us ], [ %18, %.preheader.us ]
+  %24 = phi ptr [ %32, %.lr.ph81.us ], [ %16, %.preheader.us ]
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 168
+  %26 = load i16, ptr %25, align 8
+  %27 = zext i16 %26 to i32
+  %28 = load i32, ptr %13, align 8
+  %29 = srem i32 %27, %28
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %24, i64 %30
+  tail call fastcc void @request_finished(ptr noundef nonnull %23, ptr noundef %31, i32 noundef 1)
+  %32 = load ptr, ptr %0, align 8
+  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv98
+  %34 = load ptr, ptr %33, align 8
+  %.not75.us.us = icmp eq ptr %34, null
   br i1 %.not75.us.us, label %._crit_edge.split.us.us.loopexit, label %.lr.ph81.us, !llvm.loop !33
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %30 = phi ptr [ %51, %.lr.ph.split ], [ %4, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 192
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 10
-  %34 = load i8, ptr %33, align 2
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  store i8 %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %32, i64 84
-  store i32 0, ptr %36, align 4
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  store i32 68, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %30, i64 184
-  %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i32 1, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  %42 = tail call i32 @event_get_priority(ptr noundef nonnull %41) #21
-  %43 = trunc i32 %42 to i8
-  %44 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %45 = load ptr, ptr %44, align 8
-  tail call void @event_deferred_cb_init_(ptr noundef nonnull %40, i8 noundef zeroext %43, ptr noundef nonnull @reply_run_callback, ptr noundef %45) #21
-  %46 = load ptr, ptr %38, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %48, ptr noundef nonnull %40) #21
-  %50 = load ptr, ptr %3, align 8
-  tail call fastcc void @request_finished(ptr noundef %50, ptr noundef nonnull %3, i32 noundef 1)
-  %51 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %51, null
+  %35 = phi ptr [ %56, %.lr.ph.split ], [ %4, %.lr.ph ]
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 192
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 10
+  %39 = load i8, ptr %38, align 2
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 80
+  store i8 %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 84
+  store i32 0, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 88
+  store i32 68, ptr %42, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 184
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 1, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %47 = tail call i32 @event_get_priority(ptr noundef nonnull %46) #21
+  %48 = trunc i32 %47 to i8
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 72
+  %50 = load ptr, ptr %49, align 8
+  tail call void @event_deferred_cb_init_(ptr noundef nonnull %45, i8 noundef zeroext %48, ptr noundef nonnull @reply_run_callback, ptr noundef %50) #21
+  %51 = load ptr, ptr %43, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
+  %53 = load ptr, ptr %52, align 8
+  %54 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %53, ptr noundef nonnull %45) #21
+  %55 = load ptr, ptr %3, align 8
+  tail call fastcc void @request_finished(ptr noundef %55, ptr noundef nonnull %3, i32 noundef 1)
+  %56 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %56, null
   br i1 %.not, label %.preheader78, label %.lr.ph.split, !llvm.loop !31
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
-  %52 = phi i32 [ %89, %._crit_edge.split ], [ %8, %.preheader.lr.ph ]
-  %53 = phi ptr [ %90, %._crit_edge.split ], [ %.pre102, %.preheader.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split ], [ 0, %.preheader.lr.ph ]
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
-  %55 = load ptr, ptr %54, align 8
-  %.not7580 = icmp eq ptr %55, null
+.preheader:                                       ; preds = %.preheader.preheader, %._crit_edge.split
+  %57 = phi i32 [ %8, %.preheader.preheader ], [ %94, %._crit_edge.split ]
+  %58 = phi ptr [ %.pre, %.preheader.preheader ], [ %95, %._crit_edge.split ]
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %._crit_edge.split ]
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv
+  %60 = load ptr, ptr %59, align 8
+  %.not7580 = icmp eq ptr %60, null
   br i1 %.not7580, label %._crit_edge.split, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader, %.lr.ph81
-  %56 = phi ptr [ %88, %.lr.ph81 ], [ %55, %.preheader ]
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 192
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 10
-  %60 = load i8, ptr %59, align 2
-  %61 = getelementptr inbounds nuw i8, ptr %58, i64 80
-  store i8 %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 84
-  store i32 0, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 88
-  store i32 68, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %56, i64 184
-  %65 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i32 1, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %67 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  %68 = tail call i32 @event_get_priority(ptr noundef nonnull %67) #21
-  %69 = trunc i32 %68 to i8
-  %70 = getelementptr inbounds nuw i8, ptr %58, i64 72
-  %71 = load ptr, ptr %70, align 8
-  tail call void @event_deferred_cb_init_(ptr noundef nonnull %66, i8 noundef zeroext %69, ptr noundef nonnull @reply_run_callback, ptr noundef %71) #21
-  %72 = load ptr, ptr %64, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %74, ptr noundef nonnull %66) #21
-  %76 = load ptr, ptr %0, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 168
-  %80 = load i16, ptr %79, align 8
-  %81 = zext i16 %80 to i32
-  %82 = load i32, ptr %7, align 8
-  %83 = srem i32 %81, %82
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %76, i64 %84
-  tail call fastcc void @request_finished(ptr noundef %78, ptr noundef %85, i32 noundef 1)
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv
-  %88 = load ptr, ptr %87, align 8
-  %.not75 = icmp eq ptr %88, null
+  %61 = phi ptr [ %93, %.lr.ph81 ], [ %60, %.preheader ]
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 192
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 10
+  %65 = load i8, ptr %64, align 2
+  %66 = getelementptr inbounds nuw i8, ptr %63, i64 80
+  store i8 %65, ptr %66, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 84
+  store i32 0, ptr %67, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %63, i64 88
+  store i32 68, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 184
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i32 1, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %63, i64 24
+  %72 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %73 = tail call i32 @event_get_priority(ptr noundef nonnull %72) #21
+  %74 = trunc i32 %73 to i8
+  %75 = getelementptr inbounds nuw i8, ptr %63, i64 72
+  %76 = load ptr, ptr %75, align 8
+  tail call void @event_deferred_cb_init_(ptr noundef nonnull %71, i8 noundef zeroext %74, ptr noundef nonnull @reply_run_callback, ptr noundef %76) #21
+  %77 = load ptr, ptr %69, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 32
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call i32 @event_deferred_cb_schedule_(ptr noundef %79, ptr noundef nonnull %71) #21
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 168
+  %85 = load i16, ptr %84, align 8
+  %86 = zext i16 %85 to i32
+  %87 = load i32, ptr %7, align 8
+  %88 = srem i32 %86, %87
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr inbounds nuw ptr, ptr %81, i64 %89
+  tail call fastcc void @request_finished(ptr noundef %83, ptr noundef %90, i32 noundef 1)
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %93 = load ptr, ptr %92, align 8
+  %.not75 = icmp eq ptr %93, null
   br i1 %.not75, label %._crit_edge.split.loopexit, label %.lr.ph81, !llvm.loop !33
 
 ._crit_edge.split.loopexit:                       ; preds = %.lr.ph81
@@ -6953,202 +6968,202 @@ define internal fastcc void @evdns_base_free_and_unlock(ptr noundef %0, i32 noun
   br label %._crit_edge.split
 
 ._crit_edge.split:                                ; preds = %._crit_edge.split.loopexit, %.preheader
-  %89 = phi i32 [ %.pre101, %._crit_edge.split.loopexit ], [ %52, %.preheader ]
-  %90 = phi ptr [ %86, %._crit_edge.split.loopexit ], [ %53, %.preheader ]
+  %94 = phi i32 [ %.pre101, %._crit_edge.split.loopexit ], [ %57, %.preheader ]
+  %95 = phi ptr [ %91, %._crit_edge.split.loopexit ], [ %58, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %91 = sext i32 %89 to i64
-  %92 = icmp slt i64 %indvars.iv.next, %91
-  br i1 %92, label %.preheader, label %._crit_edge83, !llvm.loop !32
+  %96 = sext i32 %94 to i64
+  %97 = icmp slt i64 %indvars.iv.next, %96
+  br i1 %97, label %.preheader, label %._crit_edge83, !llvm.loop !32
 
-._crit_edge83:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader78
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 0, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %96 = load ptr, ptr %95, align 8
-  br label %97
+._crit_edge83:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.us, %.preheader78.thread, %.preheader78
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 0, ptr %98, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %99, align 4
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %101 = load ptr, ptr %100, align 8
+  br label %102
 
-97:                                               ; preds = %evdns_nameserver_free.exit, %._crit_edge83
-  %.0 = phi ptr [ %96, %._crit_edge83 ], [ %100, %evdns_nameserver_free.exit ]
+102:                                              ; preds = %evdns_nameserver_free.exit, %._crit_edge83
+  %.0 = phi ptr [ %101, %._crit_edge83 ], [ %105, %evdns_nameserver_free.exit ]
   %.not68 = icmp eq ptr %.0, null
-  br i1 %.not68, label %131, label %98
+  br i1 %.not68, label %136, label %103
 
-98:                                               ; preds = %97
-  %99 = getelementptr inbounds nuw i8, ptr %.0, i64 280
-  %100 = load ptr, ptr %99, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.0, i64 416
-  store ptr null, ptr %101, align 8
-  %102 = load i32, ptr %.0, align 8
-  %103 = icmp sgt i32 %102, -1
-  br i1 %103, label %104, label %106
+103:                                              ; preds = %102
+  %104 = getelementptr inbounds nuw i8, ptr %.0, i64 280
+  %105 = load ptr, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %.0, i64 416
+  store ptr null, ptr %106, align 8
+  %107 = load i32, ptr %.0, align 8
+  %108 = icmp sgt i32 %107, -1
+  br i1 %108, label %109, label %111
 
-104:                                              ; preds = %98
-  %105 = tail call i32 @evutil_closesocket(i32 noundef %102) #21
-  br label %106
+109:                                              ; preds = %103
+  %110 = tail call i32 @evutil_closesocket(i32 noundef %107) #21
+  br label %111
 
-106:                                              ; preds = %104, %98
-  %107 = getelementptr inbounds nuw i8, ptr %.0, i64 160
-  %108 = tail call i32 @event_del(ptr noundef nonnull %107) #21
-  tail call void @event_debug_unassign(ptr noundef nonnull %107) #21
-  %109 = getelementptr inbounds nuw i8, ptr %.0, i64 424
-  %110 = load i8, ptr %109, align 8
-  %111 = icmp eq i8 %110, 0
-  br i1 %111, label %112, label %115
+111:                                              ; preds = %109, %103
+  %112 = getelementptr inbounds nuw i8, ptr %.0, i64 160
+  %113 = tail call i32 @event_del(ptr noundef nonnull %112) #21
+  tail call void @event_debug_unassign(ptr noundef nonnull %112) #21
+  %114 = getelementptr inbounds nuw i8, ptr %.0, i64 424
+  %115 = load i8, ptr %114, align 8
+  %116 = icmp eq i8 %115, 0
+  br i1 %116, label %117, label %120
 
-112:                                              ; preds = %106
-  %113 = getelementptr inbounds nuw i8, ptr %.0, i64 296
-  %114 = tail call i32 @event_del(ptr noundef nonnull %113) #21
-  br label %115
-
-115:                                              ; preds = %112, %106
-  %116 = load ptr, ptr %101, align 8
-  %.not.i = icmp eq ptr %116, null
-  br i1 %.not.i, label %120, label %117
-
-117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %.0, i64 432
-  %119 = load ptr, ptr %118, align 8
-  tail call void @evdns_cancel_request(ptr noundef %119, ptr noundef nonnull %116)
-  store ptr null, ptr %101, align 8
+117:                                              ; preds = %111
+  %118 = getelementptr inbounds nuw i8, ptr %.0, i64 296
+  %119 = tail call i32 @event_del(ptr noundef nonnull %118) #21
   br label %120
 
-120:                                              ; preds = %117, %115
-  %121 = getelementptr inbounds nuw i8, ptr %.0, i64 296
-  tail call void @event_debug_unassign(ptr noundef nonnull %121) #21
-  %122 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %123 = load ptr, ptr %122, align 8
-  %.not.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i, label %evdns_nameserver_free.exit, label %124
+120:                                              ; preds = %117, %111
+  %121 = load ptr, ptr %106, align 8
+  %.not.i = icmp eq ptr %121, null
+  br i1 %.not.i, label %125, label %122
 
-124:                                              ; preds = %120
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  store i32 0, ptr %125, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 12
-  store i16 0, ptr %126, align 4
-  %127 = load ptr, ptr %123, align 8
-  %.not.i.i.i = icmp eq ptr %127, null
-  br i1 %.not.i.i.i, label %evdns_tcp_disconnect.exit.i.i, label %128
+122:                                              ; preds = %120
+  %123 = getelementptr inbounds nuw i8, ptr %.0, i64 432
+  %124 = load ptr, ptr %123, align 8
+  tail call void @evdns_cancel_request(ptr noundef %124, ptr noundef nonnull %121)
+  store ptr null, ptr %106, align 8
+  br label %125
 
-128:                                              ; preds = %124
-  tail call void @bufferevent_free(ptr noundef nonnull %127) #21
-  store ptr null, ptr %123, align 8
+125:                                              ; preds = %122, %120
+  %126 = getelementptr inbounds nuw i8, ptr %.0, i64 296
+  tail call void @event_debug_unassign(ptr noundef nonnull %126) #21
+  %127 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %128 = load ptr, ptr %127, align 8
+  %.not.i.i = icmp eq ptr %128, null
+  br i1 %.not.i.i, label %evdns_nameserver_free.exit, label %129
+
+129:                                              ; preds = %125
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store i32 0, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  store i16 0, ptr %131, align 4
+  %132 = load ptr, ptr %128, align 8
+  %.not.i.i.i = icmp eq ptr %132, null
+  br i1 %.not.i.i.i, label %evdns_tcp_disconnect.exit.i.i, label %133
+
+133:                                              ; preds = %129
+  tail call void @bufferevent_free(ptr noundef nonnull %132) #21
+  store ptr null, ptr %128, align 8
   br label %evdns_tcp_disconnect.exit.i.i
 
-evdns_tcp_disconnect.exit.i.i:                    ; preds = %128, %124
-  tail call void @event_mm_free_(ptr noundef nonnull %123) #21
+evdns_tcp_disconnect.exit.i.i:                    ; preds = %133, %129
+  tail call void @event_mm_free_(ptr noundef nonnull %128) #21
   br label %evdns_nameserver_free.exit
 
-evdns_nameserver_free.exit:                       ; preds = %120, %evdns_tcp_disconnect.exit.i.i
+evdns_nameserver_free.exit:                       ; preds = %125, %evdns_tcp_disconnect.exit.i.i
   tail call void @event_mm_free_(ptr noundef nonnull %.0) #21
-  %129 = load ptr, ptr %95, align 8
-  %130 = icmp eq ptr %100, %129
-  br i1 %130, label %131, label %97, !llvm.loop !34
+  %134 = load ptr, ptr %100, align 8
+  %135 = icmp eq ptr %105, %134
+  br i1 %135, label %136, label %102, !llvm.loop !34
 
-131:                                              ; preds = %evdns_nameserver_free.exit, %97
-  store ptr null, ptr %95, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %134 = load ptr, ptr %133, align 8
-  %.not69 = icmp eq ptr %134, null
-  br i1 %.not69, label %141, label %135
+136:                                              ; preds = %evdns_nameserver_free.exit, %102
+  store ptr null, ptr %100, align 8
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %139 = load ptr, ptr %138, align 8
+  %.not69 = icmp eq ptr %139, null
+  br i1 %.not69, label %146, label %140
 
-135:                                              ; preds = %131
-  %136 = getelementptr inbounds nuw i8, ptr %134, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %.not7084 = icmp eq ptr %137, null
+140:                                              ; preds = %136
+  %141 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %142 = load ptr, ptr %141, align 8
+  %.not7084 = icmp eq ptr %142, null
   br i1 %.not7084, label %._crit_edge, label %.lr.ph86
 
-.lr.ph86:                                         ; preds = %135, %.lr.ph86
-  %.05785 = phi ptr [ %139, %.lr.ph86 ], [ %137, %135 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.05785, i64 8
-  %139 = load ptr, ptr %138, align 8
+.lr.ph86:                                         ; preds = %140, %.lr.ph86
+  %.05785 = phi ptr [ %144, %.lr.ph86 ], [ %142, %140 ]
+  %143 = getelementptr inbounds nuw i8, ptr %.05785, i64 8
+  %144 = load ptr, ptr %143, align 8
   tail call void @event_mm_free_(ptr noundef nonnull %.05785) #21
-  %.not70 = icmp eq ptr %139, null
+  %.not70 = icmp eq ptr %144, null
   br i1 %.not70, label %._crit_edge.loopexit, label %.lr.ph86, !llvm.loop !35
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph86
-  %.pre104 = load ptr, ptr %133, align 8
+  %.pre104 = load ptr, ptr %138, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %135
-  %140 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %134, %135 ]
-  tail call void @event_mm_free_(ptr noundef %140) #21
-  store ptr null, ptr %133, align 8
-  br label %141
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %140
+  %145 = phi ptr [ %.pre104, %._crit_edge.loopexit ], [ %139, %140 ]
+  tail call void @event_mm_free_(ptr noundef %145) #21
+  store ptr null, ptr %138, align 8
+  br label %146
 
-141:                                              ; preds = %._crit_edge, %131
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %143 = load ptr, ptr %142, align 8
-  %.not7187 = icmp eq ptr %143, null
+146:                                              ; preds = %._crit_edge, %136
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %148 = load ptr, ptr %147, align 8
+  %.not7187 = icmp eq ptr %148, null
   br i1 %.not7187, label %._crit_edge90, label %.lr.ph89
 
-.lr.ph89:                                         ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br label %145
+.lr.ph89:                                         ; preds = %146
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  br label %150
 
-145:                                              ; preds = %.lr.ph89, %153
-  %146 = phi ptr [ %143, %.lr.ph89 ], [ %155, %153 ]
-  %147 = load ptr, ptr %146, align 8
-  %.not74 = icmp eq ptr %147, null
-  %148 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  %149 = load ptr, ptr %148, align 8
-  br i1 %.not74, label %152, label %150
+150:                                              ; preds = %.lr.ph89, %158
+  %151 = phi ptr [ %148, %.lr.ph89 ], [ %160, %158 ]
+  %152 = load ptr, ptr %151, align 8
+  %.not74 = icmp eq ptr %152, null
+  %153 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  %154 = load ptr, ptr %153, align 8
+  br i1 %.not74, label %157, label %155
 
-150:                                              ; preds = %145
-  %151 = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store ptr %149, ptr %151, align 8
-  br label %153
+155:                                              ; preds = %150
+  %156 = getelementptr inbounds nuw i8, ptr %152, i64 8
+  store ptr %154, ptr %156, align 8
+  br label %158
 
-152:                                              ; preds = %145
-  store ptr %149, ptr %144, align 8
-  br label %153
-
-153:                                              ; preds = %152, %150
-  %154 = load ptr, ptr %146, align 8
+157:                                              ; preds = %150
   store ptr %154, ptr %149, align 8
-  tail call void @event_mm_free_(ptr noundef nonnull %146) #21
-  %155 = load ptr, ptr %142, align 8
-  %.not71 = icmp eq ptr %155, null
-  br i1 %.not71, label %._crit_edge90, label %145, !llvm.loop !36
+  br label %158
 
-._crit_edge90:                                    ; preds = %153, %141
-  %156 = load ptr, ptr %0, align 8
-  tail call void @event_mm_free_(ptr noundef %156) #21
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %158 = load ptr, ptr %157, align 8
-  %.not7291 = icmp eq ptr %158, null
+158:                                              ; preds = %157, %155
+  %159 = load ptr, ptr %151, align 8
+  store ptr %159, ptr %154, align 8
+  tail call void @event_mm_free_(ptr noundef nonnull %151) #21
+  %160 = load ptr, ptr %147, align 8
+  %.not71 = icmp eq ptr %160, null
+  br i1 %.not71, label %._crit_edge90, label %150, !llvm.loop !36
+
+._crit_edge90:                                    ; preds = %158, %146
+  %161 = load ptr, ptr %0, align 8
+  tail call void @event_mm_free_(ptr noundef %161) #21
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %163 = load ptr, ptr %162, align 8
+  %.not7291 = icmp eq ptr %163, null
   br i1 %.not7291, label %._crit_edge94, label %.lr.ph93
 
 .lr.ph93:                                         ; preds = %._crit_edge90, %.lr.ph93
-  %159 = phi ptr [ %160, %.lr.ph93 ], [ %158, %._crit_edge90 ]
-  tail call fastcc void @evdns_cache_free(ptr noundef nonnull %159)
-  %160 = load ptr, ptr %157, align 8
-  %.not72 = icmp eq ptr %160, null
+  %164 = phi ptr [ %165, %.lr.ph93 ], [ %163, %._crit_edge90 ]
+  tail call fastcc void @evdns_cache_free(ptr noundef nonnull %164)
+  %165 = load ptr, ptr %162, align 8
+  %.not72 = icmp eq ptr %165, null
   br i1 %.not72, label %._crit_edge94, label %.lr.ph93, !llvm.loop !37
 
 ._crit_edge94:                                    ; preds = %.lr.ph93, %._crit_edge90
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %162 = load ptr, ptr %161, align 8
-  %.not73 = icmp eq ptr %162, null
-  br i1 %.not73, label %.thread, label %163
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %167 = load ptr, ptr %166, align 8
+  %.not73 = icmp eq ptr %167, null
+  br i1 %.not73, label %.thread, label %168
 
-163:                                              ; preds = %._crit_edge94
-  %164 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %165 = tail call i32 %164(i32 noundef 0, ptr noundef nonnull %162) #21
-  %.pre105 = load ptr, ptr %161, align 8
-  %166 = icmp ne ptr %.pre105, null
-  %167 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 16), align 8
-  %168 = icmp ne ptr %167, null
-  %or.cond = select i1 %166, i1 %168, i1 false
-  br i1 %or.cond, label %169, label %.thread
+168:                                              ; preds = %._crit_edge94
+  %169 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %170 = tail call i32 %169(i32 noundef 0, ptr noundef nonnull %167) #21
+  %.pre105 = load ptr, ptr %166, align 8
+  %171 = icmp ne ptr %.pre105, null
+  %172 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 16), align 8
+  %173 = icmp ne ptr %172, null
+  %or.cond = select i1 %171, i1 %173, i1 false
+  br i1 %or.cond, label %174, label %.thread
 
-169:                                              ; preds = %163
-  tail call void %167(ptr noundef nonnull %.pre105, i32 noundef 1) #21
+174:                                              ; preds = %168
+  tail call void %172(ptr noundef nonnull %.pre105, i32 noundef 1) #21
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge94, %169, %163
+.thread:                                          ; preds = %._crit_edge94, %174, %168
   tail call void @event_mm_free_(ptr noundef nonnull %0) #21
   ret void
 }
@@ -7696,7 +7711,7 @@ define range(i32 -1, 1) i32 @evdns_base_load_hosts(ptr noundef %0, ptr noundef %
   %24 = phi ptr [ %26, %.lr.ph.i ], [ %23, %21 ]
   %.01622.i = phi ptr [ %25, %.lr.ph.i ], [ %22, %21 ]
   store i8 0, ptr %24, align 1
-  call fastcc void @evdns_base_parse_hosts_line(ptr noundef %spec.select, ptr noundef nonnull %.01622.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef nonnull %spec.select, ptr noundef nonnull %.01622.i)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %25, i32 noundef 10) #23
   %.not.i = icmp eq ptr %26, null
@@ -7704,7 +7719,7 @@ define range(i32 -1, 1) i32 @evdns_base_load_hosts(ptr noundef %0, ptr noundef %
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %21
   %.016.lcssa.i = phi ptr [ %22, %21 ], [ %25, %.lr.ph.i ]
-  call fastcc void @evdns_base_parse_hosts_line(ptr noundef %spec.select, ptr noundef nonnull %.016.lcssa.i)
+  call fastcc void @evdns_base_parse_hosts_line(ptr noundef nonnull %spec.select, ptr noundef nonnull %.016.lcssa.i)
   %27 = load ptr, ptr %3, align 8
   call void @event_mm_free_(ptr noundef %27) #21
   br label %evdns_base_load_hosts_impl.exit
@@ -12063,7 +12078,7 @@ search_request_finished.exit.thread62.i:          ; preds = %search_request_fini
   %349 = srem i32 %346, %348
   %350 = zext nneg i32 %349 to i64
   %351 = getelementptr inbounds nuw ptr, ptr %343, i64 %350
-  call fastcc void @request_finished(ptr noundef %269, ptr noundef %351, i32 noundef 0)
+  call fastcc void @request_finished(ptr noundef nonnull %269, ptr noundef %351, i32 noundef 0)
   store ptr %.14165.i, ptr %262, align 8
   %352 = getelementptr inbounds nuw i8, ptr %.14165.i, i64 192
   store ptr %262, ptr %352, align 8

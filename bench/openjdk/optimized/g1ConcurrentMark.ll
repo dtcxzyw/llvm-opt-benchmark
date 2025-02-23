@@ -7237,22 +7237,22 @@ _ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9:   ; preds = %78, %82, %84
   %113 = fadd double %.056.i.i, %112
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit, label %110, !llvm.loop !34
+  br i1 %exitcond.not.i.i, label %.lr.ph.i.i11, label %110, !llvm.loop !34
 
-_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit:  ; preds = %110, %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit
-  %indvars.iv.i.i13 = phi i64 [ %indvars.iv.next.i.i15, %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit ], [ 0, %110 ]
-  %.056.i.i14 = phi double [ %116, %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit ], [ 0.000000e+00, %110 ]
+.lr.ph.i.i11:                                     ; preds = %110, %.lr.ph.i.i11
+  %indvars.iv.i.i13 = phi i64 [ %indvars.iv.next.i.i15, %.lr.ph.i.i11 ], [ 0, %110 ]
+  %.056.i.i14 = phi double [ %116, %.lr.ph.i.i11 ], [ 0.000000e+00, %110 ]
   %114 = getelementptr inbounds nuw double, ptr %109, i64 %indvars.iv.i.i13
   %115 = load double, ptr %114, align 8
   %116 = fadd double %.056.i.i14, %115
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i13, 1
   %exitcond.not.i.i16 = icmp eq i64 %indvars.iv.next.i.i15, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i16, label %_ZN22G1ConcurrentMarkThread16vtime_mark_accumEv.exit, label %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit, !llvm.loop !34
+  br i1 %exitcond.not.i.i16, label %_ZN22G1ConcurrentMarkThread16vtime_mark_accumEv.exit, label %.lr.ph.i.i11, !llvm.loop !34
 
-_ZN22G1ConcurrentMarkThread16vtime_mark_accumEv.exit: ; preds = %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9
-  %.lcssa21.sink = phi double [ 0.000000e+00, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9 ], [ %113, %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit ]
-  %.05.lcssa.i.i17 = phi double [ 0.000000e+00, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9 ], [ %116, %_ZN22G1ConcurrentMarkThread11vtime_accumEv.exit ]
-  %117 = fadd double %103, %.lcssa21.sink
+_ZN22G1ConcurrentMarkThread16vtime_mark_accumEv.exit: ; preds = %.lr.ph.i.i11, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9
+  %.pn = phi double [ 0.000000e+00, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9 ], [ %113, %.lr.ph.i.i11 ]
+  %.05.lcssa.i.i17 = phi double [ 0.000000e+00, %_ZL18print_ms_time_infoPKcS0_R9NumberSeq.exit9 ], [ %116, %.lr.ph.i.i11 ]
+  %117 = fadd double %103, %.pn
   %118 = call noundef nonnull align 1 dereferenceable(1) ptr (ptr, ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE5traceEPKcz(ptr noundef nonnull align 1 dereferenceable(1) %2, ptr noundef nonnull @.str.66, double noundef %117, double noundef %.05.lcssa.i.i17)
   br label %119
 

@@ -2139,9 +2139,9 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit:         ; preds = %149
 154:                                              ; preds = %_Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit, %145
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 100848
   call void @_ZN11SecPassword3SetEPKw(ptr noundef nonnull align 8 dereferenceable(25) %155, ptr noundef nonnull %143)
-  %156 = call i64 @wcslen(ptr noundef %1) #17
+  %156 = call i64 @wcslen(ptr noundef nonnull %1) #17
   %157 = shl i64 %156, 2
-  call void @_Z9cleandataPvm(ptr noundef %1, i64 noundef %157)
+  call void @_Z9cleandataPvm(ptr noundef nonnull %1, i64 noundef %157)
   br label %.loopexit
 
 158:                                              ; preds = %141
@@ -2733,9 +2733,9 @@ _Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit209:      ; preds = %407
 412:                                              ; preds = %_Z5uiMsgIJiEEv14UIMESSAGE_CODEDpOT_.exit209, %403
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 100848
   call void @_ZN11SecPassword3SetEPKw(ptr noundef nonnull align 8 dereferenceable(25) %413, ptr noundef nonnull %397)
-  %414 = call i64 @wcslen(ptr noundef %1) #17
+  %414 = call i64 @wcslen(ptr noundef nonnull %1) #17
   %415 = shl i64 %414, 2
-  call void @_Z9cleandataPvm(ptr noundef %1, i64 noundef %415)
+  call void @_Z9cleandataPvm(ptr noundef nonnull %1, i64 noundef %415)
   br label %.loopexit
 
 416:                                              ; preds = %2

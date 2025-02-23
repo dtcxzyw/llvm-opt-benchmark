@@ -6152,9 +6152,9 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %3
 
 .preheader77:                                     ; preds = %.lr.ph91
   %50 = fcmp ogt float %57, 0.000000e+00
-  br i1 %50, label %.preheader.lr.ph, label %.loopexit78
+  br i1 %50, label %.preheader.preheader, label %.loopexit78
 
-.preheader.lr.ph:                                 ; preds = %.preheader77
+.preheader.preheader:                             ; preds = %.preheader77
   %51 = zext nneg i32 %1 to i64
   br label %.preheader
 
@@ -6177,8 +6177,8 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit:                   ; preds = %3
   %58 = fcmp ogt float %.4.lcssa, 0.000000e+00
   br i1 %58, label %.preheader, label %.loopexit78, !llvm.loop !298
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
-  %.396 = phi float [ %.4.lcssa, %.loopexit ], [ %57, %.preheader.lr.ph ]
+.preheader:                                       ; preds = %.preheader.preheader, %.loopexit
+  %.396 = phi float [ %.4.lcssa, %.loopexit ], [ %57, %.preheader.preheader ]
   %59 = fcmp ogt float %.396, 0.000000e+00
   br i1 %59, label %.lr.ph94, label %.loopexit
 
@@ -19527,7 +19527,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11InputTextExEPKcS1_PciRK6ImVec2iP
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 207
   %37 = load i8, ptr %36, align 1, !tbaa !151, !range !152, !noundef !153
   %38 = trunc nuw i8 %37 to i1
-  br i1 %38, label %1716, label %39
+  br i1 %38, label %1717, label %39
 
 39:                                               ; preds = %8
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -21550,7 +21550,7 @@ _ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii.exit.i: ; preds = 
   br i1 %1053, label %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKci.exit1199, label %1054
 
 1054:                                             ; preds = %_ZN5ImStbL24STB_TEXTEDIT_DELETECHARSEP19ImGuiInputTextStateii.exit.i
-  %1055 = call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKci(ptr noundef %.0868, i32 noundef 0, ptr noundef nonnull readonly %1022, i32 noundef range(i32 -2147483648, 2147483647) %1027)
+  %1055 = call fastcc noundef zeroext i1 @_ZN5ImStbL24STB_TEXTEDIT_INSERTCHARSEP19ImGuiInputTextStateiPKci(ptr noundef nonnull %.0868, i32 noundef 0, ptr noundef nonnull readonly %1022, i32 noundef range(i32 -2147483648, 2147483647) %1027)
   br i1 %1055, label %1056, label %_ZN5ImStbL20stb_textedit_replaceEP19ImGuiInputTextStatePNS_17STB_TexteditStateEPKci.exit1199
 
 1056:                                             ; preds = %1054
@@ -22652,7 +22652,7 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1532, %1551
   br label %1573
 
 1573:                                             ; preds = %1564, %1559
-  br i1 %.08811628, label %1574, label %1663
+  br i1 %.08811628, label %1574, label %1664
 
 1574:                                             ; preds = %1573
   %1575 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -22745,10 +22745,10 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1532, %1551
 
 1626:                                             ; preds = %1619, %.critedge
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %29) #43
-  br label %1663
+  br label %1664
 
 1627:                                             ; preds = %1246
-  br i1 %42, label %1628, label %.critedge1109.thread
+  br i1 %42, label %1628, label %1650
 
 .thread1407:                                      ; preds = %.thread1393
   br i1 %42, label %1628, label %.thread1414
@@ -22776,12 +22776,12 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1532, %1551
   %1638 = load i32, ptr %1637, align 4, !tbaa !384
   %1639 = sext i32 %1638 to i64
   %1640 = getelementptr inbounds i8, ptr %1245, i64 %1639
-  br label %.critedge1109.thread
+  br label %1650
 
 1641:                                             ; preds = %.thread1414
   %1642 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1245) #42
   %1643 = getelementptr inbounds nuw i8, ptr %1245, i64 %1642
-  br label %.critedge1109.thread
+  br label %1650
 
 .critedge1109:                                    ; preds = %1629
   %1644 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.011.i) #42
@@ -22790,166 +22790,164 @@ _ZNK6ImRect8OverlapsERKS_.exit.thread:            ; preds = %1532, %1551
   %1647 = getelementptr inbounds nuw i8, ptr %32, i64 4184
   %1648 = load float, ptr %1647, align 8, !tbaa !172
   %1649 = fmul float %1648, %1646
-  br i1 %42, label %1654, label %.critedge1109.thread
+  br label %1655
 
-.critedge1109.thread:                             ; preds = %1627, %1641, %1636, %.critedge1109
-  %.sroa.61329.21429 = phi float [ %1649, %.critedge1109 ], [ 0.000000e+00, %1636 ], [ 0.000000e+00, %1641 ], [ 0.000000e+00, %1627 ]
-  %.sroa.01328.21427 = phi float [ %.sroa.0487.2, %.critedge1109 ], [ 0.000000e+00, %1636 ], [ 0.000000e+00, %1641 ], [ 0.000000e+00, %1627 ]
-  %.313551425 = phi ptr [ %1645, %.critedge1109 ], [ %1640, %1636 ], [ %1643, %1641 ], [ %1248, %1627 ]
-  %.0907140114101423 = phi ptr [ %.090714011412, %.critedge1109 ], [ %1245, %1636 ], [ %1245, %1641 ], [ %1, %1627 ]
-  %1650 = ptrtoint ptr %.313551425 to i64
-  %1651 = ptrtoint ptr %.0907140114101423 to i64
-  %1652 = sub i64 %1650, %1651
-  %1653 = icmp slt i64 %1652, 2097152
-  br i1 %1653, label %1654, label %1663
+1650:                                             ; preds = %1627, %1636, %1641
+  %.090714011410.ph = phi ptr [ %1245, %1641 ], [ %1245, %1636 ], [ %1, %1627 ]
+  %.31355.ph = phi ptr [ %1643, %1641 ], [ %1640, %1636 ], [ %1248, %1627 ]
+  %1651 = ptrtoint ptr %.31355.ph to i64
+  %1652 = ptrtoint ptr %.090714011410.ph to i64
+  %1653 = sub i64 %1651, %1652
+  %1654 = icmp slt i64 %1653, 2097152
+  br i1 %1654, label %1655, label %1664
 
-1654:                                             ; preds = %.critedge1109.thread, %.critedge1109
-  %.sroa.61329.21430 = phi float [ %.sroa.61329.21429, %.critedge1109.thread ], [ %1649, %.critedge1109 ]
-  %.sroa.01328.21428 = phi float [ %.sroa.01328.21427, %.critedge1109.thread ], [ %.sroa.0487.2, %.critedge1109 ]
-  %.313551426 = phi ptr [ %.313551425, %.critedge1109.thread ], [ %1645, %.critedge1109 ]
-  %.0907140114101424 = phi ptr [ %.0907140114101423, %.critedge1109.thread ], [ %.090714011412, %.critedge1109 ]
-  %.8 = phi ptr [ %25, %.critedge1109.thread ], [ null, %.critedge1109 ]
-  %1655 = zext i1 %416 to i32
-  %1656 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %1655, float noundef 1.000000e+00)
-  %1657 = getelementptr inbounds nuw i8, ptr %.2867, i64 688
-  %1658 = load ptr, ptr %1657, align 8, !tbaa !174
-  %1659 = getelementptr inbounds nuw i8, ptr %32, i64 4176
-  %1660 = load ptr, ptr %1659, align 8, !tbaa !274
-  %1661 = getelementptr inbounds nuw i8, ptr %32, i64 4184
-  %1662 = load float, ptr %1661, align 8, !tbaa !172
-  call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(200) %1658, ptr noundef %1660, float noundef %1662, ptr noundef nonnull align 4 dereferenceable(8) %26, i32 noundef %1656, ptr noundef %.0907140114101424, ptr noundef %.313551426, float noundef 0.000000e+00, ptr noundef %.8)
-  br label %1663
+1655:                                             ; preds = %.critedge1109, %1650
+  %.sroa.61329.21430 = phi float [ 0.000000e+00, %1650 ], [ %1649, %.critedge1109 ]
+  %.sroa.01328.21428 = phi float [ 0.000000e+00, %1650 ], [ %.sroa.0487.2, %.critedge1109 ]
+  %.313551426 = phi ptr [ %.31355.ph, %1650 ], [ %1645, %.critedge1109 ]
+  %.0907140114101424 = phi ptr [ %.090714011410.ph, %1650 ], [ %.090714011412, %.critedge1109 ]
+  %.8 = phi ptr [ %25, %1650 ], [ null, %.critedge1109 ]
+  %1656 = zext i1 %416 to i32
+  %1657 = call noundef i32 @_ZN5ImGui11GetColorU32Eif(i32 noundef %1656, float noundef 1.000000e+00)
+  %1658 = getelementptr inbounds nuw i8, ptr %.2867, i64 688
+  %1659 = load ptr, ptr %1658, align 8, !tbaa !174
+  %1660 = getelementptr inbounds nuw i8, ptr %32, i64 4176
+  %1661 = load ptr, ptr %1660, align 8, !tbaa !274
+  %1662 = getelementptr inbounds nuw i8, ptr %32, i64 4184
+  %1663 = load float, ptr %1662, align 8, !tbaa !172
+  call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(200) %1659, ptr noundef %1661, float noundef %1663, ptr noundef nonnull align 4 dereferenceable(8) %26, i32 noundef %1657, ptr noundef %.0907140114101424, ptr noundef %.313551426, float noundef 0.000000e+00, ptr noundef %.8)
+  br label %1664
 
-1663:                                             ; preds = %1573, %1626, %.critedge1109.thread, %1654
-  %.09071400 = phi ptr [ %.0907140114101424, %1654 ], [ %.0907140114101423, %.critedge1109.thread ], [ %.090713991406, %1626 ], [ %.090713991406, %1573 ]
-  %.2 = phi ptr [ %.313551426, %1654 ], [ %.313551425, %.critedge1109.thread ], [ %.1, %1626 ], [ %.1, %1573 ]
-  %.sroa.01328.1 = phi float [ %.sroa.01328.21428, %1654 ], [ %.sroa.01328.21427, %.critedge1109.thread ], [ %.sroa.01328.0, %1626 ], [ %.sroa.01328.0, %1573 ]
-  %.sroa.61329.1 = phi float [ %.sroa.61329.21430, %1654 ], [ %.sroa.61329.21429, %.critedge1109.thread ], [ %.sroa.61329.0, %1626 ], [ %.sroa.61329.0, %1573 ]
-  br i1 %brmerge1015, label %1665, label %1664
+1664:                                             ; preds = %1573, %1626, %1650, %1655
+  %.09071400 = phi ptr [ %.0907140114101424, %1655 ], [ %.090714011410.ph, %1650 ], [ %.090713991406, %1626 ], [ %.090713991406, %1573 ]
+  %.2 = phi ptr [ %.313551426, %1655 ], [ %.31355.ph, %1650 ], [ %.1, %1626 ], [ %.1, %1573 ]
+  %.sroa.01328.1 = phi float [ %.sroa.01328.21428, %1655 ], [ 0.000000e+00, %1650 ], [ %.sroa.01328.0, %1626 ], [ %.sroa.01328.0, %1573 ]
+  %.sroa.61329.1 = phi float [ %.sroa.61329.21430, %1655 ], [ 0.000000e+00, %1650 ], [ %.sroa.61329.0, %1626 ], [ %.sroa.61329.0, %1573 ]
+  br i1 %brmerge1015, label %1666, label %1665
 
-1664:                                             ; preds = %1663
+1665:                                             ; preds = %1664
   call void @_ZN5ImGui7PopFontEv()
-  br label %1665
+  br label %1666
 
-1665:                                             ; preds = %1663, %1664
-  br i1 %42, label %1666, label %1697
+1666:                                             ; preds = %1664, %1665
+  br i1 %42, label %1667, label %1698
 
-1666:                                             ; preds = %1665
+1667:                                             ; preds = %1666
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #43
-  %1667 = load float, ptr %56, align 4, !tbaa !169
-  %1668 = fadd float %.sroa.61329.1, %1667
+  %1668 = load float, ptr %56, align 4, !tbaa !169
+  %1669 = fadd float %.sroa.61329.1, %1668
   store float %.sroa.01328.1, ptr %31, align 4, !tbaa !158
-  %1669 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store float %1668, ptr %1669, align 4, !tbaa !159
-  %1670 = load ptr, ptr @GImGui, align 8, !tbaa !4
-  %1671 = getelementptr inbounds nuw i8, ptr %1670, i64 4928
-  %1672 = load ptr, ptr %1671, align 8, !tbaa !9
-  %1673 = getelementptr inbounds nuw i8, ptr %1672, i64 204
-  store i8 1, ptr %1673, align 4, !tbaa !130
-  %1674 = getelementptr inbounds nuw i8, ptr %1672, i64 207
-  %1675 = load i8, ptr %1674, align 1, !tbaa !151, !range !152, !noundef !153
-  %1676 = trunc nuw i8 %1675 to i1
-  br i1 %1676, label %_ZN5ImGui5DummyERK6ImVec2.exit, label %1677
+  %1670 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store float %1669, ptr %1670, align 4, !tbaa !159
+  %1671 = load ptr, ptr @GImGui, align 8, !tbaa !4
+  %1672 = getelementptr inbounds nuw i8, ptr %1671, i64 4928
+  %1673 = load ptr, ptr %1672, align 8, !tbaa !9
+  %1674 = getelementptr inbounds nuw i8, ptr %1673, i64 204
+  store i8 1, ptr %1674, align 4, !tbaa !130
+  %1675 = getelementptr inbounds nuw i8, ptr %1673, i64 207
+  %1676 = load i8, ptr %1675, align 1, !tbaa !151, !range !152, !noundef !153
+  %1677 = trunc nuw i8 %1676 to i1
+  br i1 %1677, label %_ZN5ImGui5DummyERK6ImVec2.exit, label %1678
 
-1677:                                             ; preds = %1666
+1678:                                             ; preds = %1667
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #43
-  %1678 = getelementptr inbounds nuw i8, ptr %1672, i64 280
-  %.val.i1275 = load float, ptr %1678, align 4, !tbaa !158
-  %1679 = getelementptr i8, ptr %1672, i64 284
-  %.val5.i1276 = load float, ptr %1679, align 4, !tbaa !159
-  %1680 = fadd float %.sroa.01328.1, %.val.i1275
-  %1681 = fadd float %1668, %.val5.i1276
-  %.sroa.0.0.vec.insert.i.i1279 = insertelement <2 x float> poison, float %1680, i64 0
-  %.sroa.0.4.vec.insert.i.i1280 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i1279, float %1681, i64 1
-  %1682 = load i64, ptr %1678, align 4
-  store i64 %1682, ptr %9, align 8
-  %1683 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store <2 x float> %.sroa.0.4.vec.insert.i.i1280, ptr %1683, align 8
+  %1679 = getelementptr inbounds nuw i8, ptr %1673, i64 280
+  %.val.i1275 = load float, ptr %1679, align 4, !tbaa !158
+  %1680 = getelementptr i8, ptr %1673, i64 284
+  %.val5.i1276 = load float, ptr %1680, align 4, !tbaa !159
+  %1681 = fadd float %.sroa.01328.1, %.val.i1275
+  %1682 = fadd float %1669, %.val5.i1276
+  %.sroa.0.0.vec.insert.i.i1279 = insertelement <2 x float> poison, float %1681, i64 0
+  %.sroa.0.4.vec.insert.i.i1280 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i1279, float %1682, i64 1
+  %1683 = load i64, ptr %1679, align 4
+  store i64 %1683, ptr %9, align 8
+  %1684 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store <2 x float> %.sroa.0.4.vec.insert.i.i1280, ptr %1684, align 8
   call void @_ZN5ImGui8ItemSizeERK6ImVec2f(ptr noundef nonnull align 4 dereferenceable(8) %31, float noundef -1.000000e+00)
-  %1684 = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 0, ptr noundef null, i32 noundef 0)
+  %1685 = call noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull align 4 dereferenceable(16) %9, i32 noundef 0, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #43
   br label %_ZN5ImGui5DummyERK6ImVec2.exit
 
-_ZN5ImGui5DummyERK6ImVec2.exit:                   ; preds = %1666, %1677
+_ZN5ImGui5DummyERK6ImVec2.exit:                   ; preds = %1667, %1678
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #43
-  %1685 = getelementptr inbounds nuw i8, ptr %32, i64 7380
-  %1686 = load i32, ptr %1685, align 4, !tbaa !267
-  %1687 = or i32 %1686, 1048577
-  store i32 %1687, ptr %1685, align 4, !tbaa !267
+  %1686 = getelementptr inbounds nuw i8, ptr %32, i64 7380
+  %1687 = load i32, ptr %1686, align 4, !tbaa !267
+  %1688 = or i32 %1687, 1048577
+  store i32 %1688, ptr %1686, align 4, !tbaa !267
   call void @_ZN5ImGui8EndChildEv()
-  %1688 = getelementptr inbounds nuw i8, ptr %32, i64 7440
-  %1689 = load i32, ptr %1688, align 8, !tbaa !252
-  %1690 = and i32 %1689, 128
-  %1691 = or i32 %1690, %.sroa.51337.1
+  %1689 = getelementptr inbounds nuw i8, ptr %32, i64 7440
+  %1690 = load i32, ptr %1689, align 8, !tbaa !252
+  %1691 = and i32 %1690, 128
+  %1692 = or i32 %1691, %.sroa.51337.1
   call void @_ZN5ImGui8EndGroupEv()
-  %1692 = load i32, ptr %145, align 8, !tbaa !175
-  %1693 = icmp eq i32 %1692, 0
-  br i1 %1693, label %1696, label %1694
+  %1693 = load i32, ptr %145, align 8, !tbaa !175
+  %1694 = icmp eq i32 %1693, 0
+  br i1 %1694, label %1697, label %1695
 
-1694:                                             ; preds = %_ZN5ImGui5DummyERK6ImVec2.exit
-  %1695 = call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1029) %.2867, ptr noundef nonnull @.str.4, ptr noundef null)
-  %.not994 = icmp eq i32 %1692, %1695
-  br i1 %.not994, label %1697, label %1696
+1695:                                             ; preds = %_ZN5ImGui5DummyERK6ImVec2.exit
+  %1696 = call noundef i32 @_ZN11ImGuiWindow5GetIDEPKcS1_(ptr noundef nonnull align 8 dereferenceable(1029) %.2867, ptr noundef nonnull @.str.4, ptr noundef null)
+  %.not994 = icmp eq i32 %1693, %1696
+  br i1 %.not994, label %1698, label %1697
 
-1696:                                             ; preds = %1694, %_ZN5ImGui5DummyERK6ImVec2.exit
+1697:                                             ; preds = %1695, %_ZN5ImGui5DummyERK6ImVec2.exit
   store i32 %45, ptr %145, align 8, !tbaa !175
   store i32 %.sroa.41336.1, ptr %146, align 4, !tbaa !232
-  store i32 %1691, ptr %1688, align 8, !tbaa !252
-  br label %1697
+  store i32 %1692, ptr %1689, align 8, !tbaa !252
+  br label %1698
 
-1697:                                             ; preds = %1694, %1696, %1665
-  %1698 = getelementptr inbounds nuw i8, ptr %32, i64 9712
-  %1699 = load i8, ptr %1698, align 8, !tbaa !160, !range !152, !noundef !153
-  %1700 = trunc nuw i8 %1699 to i1
-  %or.cond1115 = and i1 %brmerge1015, %1700
-  br i1 %or.cond1115, label %1701, label %1702
+1698:                                             ; preds = %1695, %1697, %1666
+  %1699 = getelementptr inbounds nuw i8, ptr %32, i64 9712
+  %1700 = load i8, ptr %1699, align 8, !tbaa !160, !range !152, !noundef !153
+  %1701 = trunc nuw i8 %1700 to i1
+  %or.cond1115 = and i1 %brmerge1015, %1701
+  br i1 %or.cond1115, label %1702, label %1703
 
-1701:                                             ; preds = %1697
+1702:                                             ; preds = %1698
   call void @_ZN5ImGui24LogSetNextTextDecorationEPKcS1_(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16)
   call void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef nonnull %26, ptr noundef %.09071400, ptr noundef %.2)
-  br label %1702
+  br label %1703
 
-1702:                                             ; preds = %1701, %1697
-  br i1 %61, label %1703, label %1711
+1703:                                             ; preds = %1702, %1698
+  br i1 %61, label %1704, label %1712
 
-1703:                                             ; preds = %1702
-  %1704 = load float, ptr %74, align 8, !tbaa !171
-  %1705 = getelementptr inbounds nuw i8, ptr %32, i64 3100
-  %1706 = load float, ptr %1705, align 4, !tbaa !170
-  %1707 = fadd float %1704, %1706
-  %1708 = load float, ptr %77, align 4, !tbaa !164
-  %1709 = load float, ptr %56, align 4, !tbaa !169
-  %1710 = fadd float %1708, %1709
-  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %1707, i64 0
-  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %1710, i64 1
+1704:                                             ; preds = %1703
+  %1705 = load float, ptr %74, align 8, !tbaa !171
+  %1706 = getelementptr inbounds nuw i8, ptr %32, i64 3100
+  %1707 = load float, ptr %1706, align 4, !tbaa !170
+  %1708 = fadd float %1705, %1707
+  %1709 = load float, ptr %77, align 4, !tbaa !164
+  %1710 = load float, ptr %56, align 4, !tbaa !169
+  %1711 = fadd float %1709, %1710
+  %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %1708, i64 0
+  %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %1711, i64 1
   call void @_ZN5ImGui10RenderTextE6ImVec2PKcS2_b(<2 x float> %.sroa.0.4.vec.insert, ptr noundef %0, ptr noundef null, i1 noundef zeroext true)
-  br label %1711
+  br label %1712
 
-1711:                                             ; preds = %1703, %1702
-  %1712 = and i32 %5, 134217728
-  %.not995 = icmp eq i32 %1712, 0
+1712:                                             ; preds = %1704, %1703
+  %1713 = and i32 %5, 134217728
+  %.not995 = icmp eq i32 %1713, 0
   %or.cond1112 = and i1 %.not995, %.3891
-  br i1 %or.cond1112, label %1713, label %1714
+  br i1 %or.cond1112, label %1714, label %1715
 
-1713:                                             ; preds = %1711
+1714:                                             ; preds = %1712
   call void @_ZN5ImGui14MarkItemEditedEj(i32 noundef %45)
-  br label %1714
+  br label %1715
 
-1714:                                             ; preds = %1713, %1711
-  %1715 = and i32 %5, 64
-  %.not996 = icmp eq i32 %1715, 0
+1715:                                             ; preds = %1714, %1712
+  %1716 = and i32 %5, 64
+  %.not996 = icmp eq i32 %1716, 0
   %..0893 = select i1 %.not996, i1 %.3891, i1 %.08931625
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25) #43
   br label %.thread
 
-.thread:                                          ; preds = %121, %89, %142, %1714
-  %.3 = phi i1 [ %..0893, %1714 ], [ false, %142 ], [ false, %89 ], [ false, %121 ]
+.thread:                                          ; preds = %121, %89, %142, %1715
+  %.3 = phi i1 [ %..0893, %1715 ], [ false, %142 ], [ false, %89 ], [ false, %121 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16) #43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #43
-  br label %1716
+  br label %1717
 
-1716:                                             ; preds = %8, %.thread
+1717:                                             ; preds = %8, %.thread
   %.0 = phi i1 [ %.3, %.thread ], [ false, %8 ]
   ret i1 %.0
 }
@@ -46850,9 +46848,6 @@ declare i16 @llvm.umax.i16(i16, i16) #39
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #39
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #41
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.uadd.sat.i8(i8, i8) #39
 
@@ -46900,6 +46895,9 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #39
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #39
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #39

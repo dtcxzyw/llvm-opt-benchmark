@@ -2753,7 +2753,7 @@ define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captur
   %98 = zext i32 %.2162258 to i64
   %99 = getelementptr inbounds nuw i32, ptr %0, i64 %98
   %100 = shl nuw nsw i64 %98, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %99, ptr align 4 %0, i64 %100, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %99, ptr nonnull align 4 %0, i64 %100, i1 false)
   %101 = shl i32 %.2162258, 1
   %102 = add nuw nsw i32 %.5179257, 1
   %exitcond301.not = icmp eq i32 %102, %.0143

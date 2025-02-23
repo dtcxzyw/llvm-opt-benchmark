@@ -3705,224 +3705,224 @@ define internal fastcc noundef nonnull ptr @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14Node
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !116
   %.not.i.i.i = icmp eq ptr %6, null
-  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i, label %7
+  br i1 %.not.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !118
   store ptr %9, ptr %5, align 8, !tbaa !116
   %.not9.i.i.i = icmp eq ptr %9, null
-  br i1 %.not9.i.i.i, label %21, label %10
+  br i1 %.not9.i.i.i, label %24, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !93
   %13 = icmp eq ptr %12, %6
-  br i1 %13, label %14, label %19
+  br i1 %13, label %14, label %22
 
 14:                                               ; preds = %10
   store ptr null, ptr %11, align 8, !tbaa !93
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !92
   %.not10.i.i.i = icmp eq ptr %16, null
-  br i1 %.not10.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i, label %.preheader.i.i.i
+  br i1 %.not10.i.i.i, label %25, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %14, %.preheader.i.i.i
   %storemerge.i.i.i = phi ptr [ %18, %.preheader.i.i.i ], [ %16, %14 ]
   %17 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !93
   %.not11.i.i.i = icmp eq ptr %18, null
-  br i1 %.not11.i.i.i, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i, label %.preheader.i.i.i, !llvm.loop !121
+  br i1 %.not11.i.i.i, label %19, label %.preheader.i.i.i, !llvm.loop !121
 
-19:                                               ; preds = %10
-  %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr null, ptr %20, align 8, !tbaa !92
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i
-
-21:                                               ; preds = %7
-  store ptr null, ptr %2, align 8, !tbaa !113
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i
-
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i: ; preds = %.preheader.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !92
-  %.not12.i.i.i = icmp eq ptr %23, null
-  %spec.store.select.i.i.i = select i1 %.not12.i.i.i, ptr %storemerge.i.i.i, ptr %23
+19:                                               ; preds = %.preheader.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !92
+  %.not12.i.i.i = icmp eq ptr %21, null
+  %spec.store.select.i.i.i = select i1 %.not12.i.i.i, ptr %storemerge.i.i.i, ptr %21
   store ptr %spec.store.select.i.i.i, ptr %5, align 8
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i
+  br label %25
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i: ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i, %21, %19, %14
+22:                                               ; preds = %10
+  %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr null, ptr %23, align 8, !tbaa !92
+  br label %25
+
+24:                                               ; preds = %7
+  store ptr null, ptr %2, align 8, !tbaa !113
+  br label %25
+
+25:                                               ; preds = %24, %22, %19, %14
   %.val.i.i = load ptr, ptr %4, align 8, !tbaa !79
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i: ; preds = %3
+_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i: ; preds = %3
   %.val9.i.i = load ptr, ptr %4, align 8
-  %24 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+  %26 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
   br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit: ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i
-  %.sink11.i.i = phi ptr [ %24, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i ], [ %6, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i ]
-  %.val9.sink.i.i = phi ptr [ %.val9.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i ], [ %.val.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 32
-  store ptr %.val9.sink.i.i, ptr %25, align 8, !tbaa !79
-  %26 = load i32, ptr %0, align 8, !tbaa !122
-  store i32 %26, ptr %.sink11.i.i, align 8, !tbaa !122
-  %27 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 8
-  store ptr %1, ptr %28, align 8, !tbaa !118
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load ptr, ptr %29, align 8, !tbaa !93
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %37, label %31
+_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit: ; preds = %25, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i
+  %.sink10.i.i = phi ptr [ %26, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %6, %25 ]
+  %.val9.sink.i.i = phi ptr [ %.val9.i.i, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i ], [ %.val.i.i, %25 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sink10.i.i, i64 32
+  store ptr %.val9.sink.i.i, ptr %27, align 8, !tbaa !79
+  %28 = load i32, ptr %0, align 8, !tbaa !122
+  store i32 %28, ptr %.sink10.i.i, align 8, !tbaa !122
+  %29 = getelementptr inbounds nuw i8, ptr %.sink10.i.i, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
+  %30 = getelementptr inbounds nuw i8, ptr %.sink10.i.i, i64 8
+  store ptr %1, ptr %30, align 8, !tbaa !118
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !93
+  %.not = icmp eq ptr %32, null
+  br i1 %.not, label %39, label %33
 
-31:                                               ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
-  %32 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE7_M_copyILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %30, ptr noundef %.sink11.i.i, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %33 unwind label %35
+33:                                               ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
+  %34 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE7_M_copyILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %32, ptr noundef %.sink10.i.i, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %35 unwind label %37
 
-33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 24
-  store ptr %32, ptr %34, align 8, !tbaa !93
-  br label %37
+35:                                               ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %.sink10.i.i, i64 24
+  store ptr %34, ptr %36, align 8, !tbaa !93
+  br label %39
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %33
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  br label %72
+  br label %76
 
-37:                                               ; preds = %33, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
+39:                                               ; preds = %35, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE13_M_clone_nodeILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_RT0_.exit
   %.0.in2 = getelementptr i8, ptr %0, i64 16
   %.03 = load ptr, ptr %.0.in2, align 8, !tbaa !92
   %.not324 = icmp eq ptr %.03, null
   br i1 %.not324, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %74
-  %.06 = phi ptr [ %.0, %74 ], [ %.03, %37 ]
-  %.0315 = phi ptr [ %.sink11.i.i40, %74 ], [ %.sink11.i.i, %37 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.06, i64 32
-  %39 = load ptr, ptr %5, align 8, !tbaa !116
-  %.not.i.i.i36 = icmp eq ptr %39, null
-  br i1 %.not.i.i.i36, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49, label %40
+.lr.ph:                                           ; preds = %39, %78
+  %.06 = phi ptr [ %.0, %78 ], [ %.03, %39 ]
+  %.0315 = phi ptr [ %.sink10.i.i39, %78 ], [ %.sink10.i.i, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %.06, i64 32
+  %41 = load ptr, ptr %5, align 8, !tbaa !116
+  %.not.i.i.i36 = icmp eq ptr %41, null
+  br i1 %.not.i.i.i36, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47, label %42
 
-40:                                               ; preds = %.lr.ph
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !118
-  store ptr %42, ptr %5, align 8, !tbaa !116
-  %.not9.i.i.i37 = icmp eq ptr %42, null
-  br i1 %.not9.i.i.i37, label %54, label %43
+42:                                               ; preds = %.lr.ph
+  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !118
+  store ptr %44, ptr %5, align 8, !tbaa !116
+  %.not9.i.i.i37 = icmp eq ptr %44, null
+  br i1 %.not9.i.i.i37, label %59, label %45
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %45 = load ptr, ptr %44, align 8, !tbaa !93
-  %46 = icmp eq ptr %45, %39
-  br i1 %46, label %47, label %52
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !93
+  %48 = icmp eq ptr %47, %41
+  br i1 %48, label %49, label %57
 
-47:                                               ; preds = %43
-  store ptr null, ptr %44, align 8, !tbaa !93
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %49 = load ptr, ptr %48, align 8, !tbaa !92
-  %.not10.i.i.i42 = icmp eq ptr %49, null
-  br i1 %.not10.i.i.i42, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38, label %.preheader.i.i.i43
+49:                                               ; preds = %45
+  store ptr null, ptr %46, align 8, !tbaa !93
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %51 = load ptr, ptr %50, align 8, !tbaa !92
+  %.not10.i.i.i41 = icmp eq ptr %51, null
+  br i1 %.not10.i.i.i41, label %60, label %.preheader.i.i.i42
 
-.preheader.i.i.i43:                               ; preds = %47, %.preheader.i.i.i43
-  %storemerge.i.i.i44 = phi ptr [ %51, %.preheader.i.i.i43 ], [ %49, %47 ]
-  %50 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i44, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !93
-  %.not11.i.i.i45 = icmp eq ptr %51, null
-  br i1 %.not11.i.i.i45, label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i46, label %.preheader.i.i.i43, !llvm.loop !121
+.preheader.i.i.i42:                               ; preds = %49, %.preheader.i.i.i42
+  %storemerge.i.i.i43 = phi ptr [ %53, %.preheader.i.i.i42 ], [ %51, %49 ]
+  %52 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i43, i64 24
+  %53 = load ptr, ptr %52, align 8, !tbaa !93
+  %.not11.i.i.i44 = icmp eq ptr %53, null
+  br i1 %.not11.i.i.i44, label %54, label %.preheader.i.i.i42, !llvm.loop !121
 
-52:                                               ; preds = %43
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store ptr null, ptr %53, align 8, !tbaa !92
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38
-
-54:                                               ; preds = %40
-  store ptr null, ptr %2, align 8, !tbaa !113
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38
-
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i46: ; preds = %.preheader.i.i.i43
-  %55 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i44, i64 16
+54:                                               ; preds = %.preheader.i.i.i42
+  %55 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i43, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !92
-  %.not12.i.i.i47 = icmp eq ptr %56, null
-  %spec.store.select.i.i.i48 = select i1 %.not12.i.i.i47, ptr %storemerge.i.i.i44, ptr %56
-  store ptr %spec.store.select.i.i.i48, ptr %5, align 8
-  br label %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38
+  %.not12.i.i.i45 = icmp eq ptr %56, null
+  %spec.store.select.i.i.i46 = select i1 %.not12.i.i.i45, ptr %storemerge.i.i.i43, ptr %56
+  store ptr %spec.store.select.i.i.i46, ptr %5, align 8
+  br label %60
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38: ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i46, %54, %52, %47
-  %.val.i.i39 = load ptr, ptr %38, align 8, !tbaa !79
-  br label %58
+57:                                               ; preds = %45
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store ptr null, ptr %58, align 8, !tbaa !92
+  br label %60
 
-_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49: ; preds = %.lr.ph
-  %.val9.i.i50 = load ptr, ptr %38, align 8
-  %57 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
-          to label %58 unwind label %70
+59:                                               ; preds = %42
+  store ptr null, ptr %2, align 8, !tbaa !113
+  br label %60
 
-58:                                               ; preds = %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49
-  %.sink11.i.i40 = phi ptr [ %39, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38 ], [ %57, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49 ]
-  %.val9.sink.i.i41 = phi ptr [ %.val.i.i39, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread.i.i38 ], [ %.val9.i.i50, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sink11.i.i40, i64 32
-  store ptr %.val9.sink.i.i41, ptr %59, align 8, !tbaa !79
-  %60 = load i32, ptr %.06, align 8, !tbaa !122
-  store i32 %60, ptr %.sink11.i.i40, align 8, !tbaa !122
-  %61 = getelementptr inbounds nuw i8, ptr %.sink11.i.i40, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, i8 0, i64 16, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %.0315, i64 16
-  store ptr %.sink11.i.i40, ptr %62, align 8, !tbaa !92
-  %63 = getelementptr inbounds nuw i8, ptr %.sink11.i.i40, i64 8
-  store ptr %.0315, ptr %63, align 8, !tbaa !118
-  %64 = getelementptr inbounds nuw i8, ptr %.06, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !93
-  %.not33 = icmp eq ptr %65, null
-  br i1 %.not33, label %74, label %66
+60:                                               ; preds = %59, %57, %54, %49
+  %.val.i.i38 = load ptr, ptr %40, align 8, !tbaa !79
+  br label %62
 
-66:                                               ; preds = %58
-  %67 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE7_M_copyILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %65, ptr noundef %.sink11.i.i40, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %68 unwind label %70
+_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47: ; preds = %.lr.ph
+  %.val9.i.i48 = load ptr, ptr %40, align 8
+  %61 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28
+          to label %62 unwind label %74
 
-68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.sink11.i.i40, i64 24
-  store ptr %67, ptr %69, align 8, !tbaa !93
-  br label %74
+62:                                               ; preds = %60, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47
+  %.sink10.i.i39 = phi ptr [ %41, %60 ], [ %61, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47 ]
+  %.val9.sink.i.i40 = phi ptr [ %.val.i.i38, %60 ], [ %.val9.i.i48, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47 ]
+  %63 = getelementptr inbounds nuw i8, ptr %.sink10.i.i39, i64 32
+  store ptr %.val9.sink.i.i40, ptr %63, align 8, !tbaa !79
+  %64 = load i32, ptr %.06, align 8, !tbaa !122
+  store i32 %64, ptr %.sink10.i.i39, align 8, !tbaa !122
+  %65 = getelementptr inbounds nuw i8, ptr %.sink10.i.i39, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, i8 0, i64 16, i1 false)
+  %66 = getelementptr inbounds nuw i8, ptr %.0315, i64 16
+  store ptr %.sink10.i.i39, ptr %66, align 8, !tbaa !92
+  %67 = getelementptr inbounds nuw i8, ptr %.sink10.i.i39, i64 8
+  store ptr %.0315, ptr %67, align 8, !tbaa !118
+  %68 = getelementptr inbounds nuw i8, ptr %.06, i64 24
+  %69 = load ptr, ptr %68, align 8, !tbaa !93
+  %.not33 = icmp eq ptr %69, null
+  br i1 %.not33, label %78, label %70
 
-70:                                               ; preds = %66, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.thread10.i.i49
-  %71 = landingpad { ptr, i32 }
+70:                                               ; preds = %62
+  %71 = invoke fastcc noundef ptr @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE7_M_copyILb0ENS7_20_Reuse_or_alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESC_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull %69, ptr noundef %.sink10.i.i39, ptr noundef nonnull align 8 dereferenceable(24) %2)
+          to label %72 unwind label %74
+
+72:                                               ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %.sink10.i.i39, i64 24
+  store ptr %71, ptr %73, align 8, !tbaa !93
+  br label %78
+
+74:                                               ; preds = %70, %_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE20_Reuse_or_alloc_node10_M_extractEv.exit.i.i47
+  %75 = landingpad { ptr, i32 }
           catch ptr null
-  br label %72
+  br label %76
 
-72:                                               ; preds = %70, %35
-  %.pn = phi { ptr, i32 } [ %71, %70 ], [ %36, %35 ]
+76:                                               ; preds = %74, %37
+  %.pn = phi { ptr, i32 } [ %75, %74 ], [ %38, %37 ]
   %.030 = extractvalue { ptr, i32 } %.pn, 0
-  %73 = tail call ptr @__cxa_begin_catch(ptr %.030) #26
-  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull %.sink11.i.i)
+  %77 = tail call ptr @__cxa_begin_catch(ptr %.030) #26
+  tail call fastcc void @_ZNSt8_Rb_treeIPN12_GLOBAL__N_14NodeES2_St9_IdentityIS2_ENS0_10CmpNodePosESaIS2_EE8_M_eraseEPSt13_Rb_tree_nodeIS2_E(ptr noundef nonnull %.sink10.i.i)
   invoke void @__cxa_rethrow() #27
-          to label %81 unwind label %75
+          to label %85 unwind label %79
 
-74:                                               ; preds = %68, %58
+78:                                               ; preds = %72, %62
   %.0.in = getelementptr i8, ptr %.06, i64 16
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !92
   %.not32 = icmp eq ptr %.0, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !123
 
-75:                                               ; preds = %72
-  %76 = landingpad { ptr, i32 }
+79:                                               ; preds = %76
+  %80 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %77 unwind label %78
+          to label %81 unwind label %82
 
-77:                                               ; preds = %75
-  resume { ptr, i32 } %76
+81:                                               ; preds = %79
+  resume { ptr, i32 } %80
 
-._crit_edge:                                      ; preds = %74, %37
-  ret ptr %.sink11.i.i
+._crit_edge:                                      ; preds = %78, %39
+  ret ptr %.sink10.i.i
 
-78:                                               ; preds = %75
-  %79 = landingpad { ptr, i32 }
+82:                                               ; preds = %79
+  %83 = landingpad { ptr, i32 }
           catch ptr null
-  %80 = extractvalue { ptr, i32 } %79, 0
-  tail call void @__clang_call_terminate(ptr %80) #31
+  %84 = extractvalue { ptr, i32 } %83, 0
+  tail call void @__clang_call_terminate(ptr %84) #31
   unreachable
 
-81:                                               ; preds = %72
+85:                                               ; preds = %76
   unreachable
 }
 

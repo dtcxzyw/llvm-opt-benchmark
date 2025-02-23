@@ -9044,11 +9044,11 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   %24 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 12), align 4
   %25 = icmp eq i32 %24, 65307
   %or.cond = select i1 %23, i1 %25, i1 false
-  br i1 %or.cond, label %26, label %195
+  br i1 %or.cond, label %26, label %192
 
 26:                                               ; preds = %21
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.295) #24
-  br label %195
+  br label %192
 
 27:                                               ; preds = %14, %12
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
@@ -9095,26 +9095,26 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !85
   %.not80.i = icmp eq i8 %49, 0
-  br i1 %.not80.i, label %_shortcut_match.exit.thread, label %50
+  br i1 %.not80.i, label %.loopexit, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 22
   %52 = load i8, ptr %51, align 2, !tbaa !87
   %.not81.i = icmp eq i8 %52, 0
-  br i1 %.not81.i, label %53, label %_shortcut_match.exit.thread
+  br i1 %.not81.i, label %53, label %.loopexit
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !88
   %.not82.i = icmp eq i32 %55, 0
-  br i1 %.not82.i, label %56, label %_shortcut_match.exit.thread
+  br i1 %.not82.i, label %56, label %.loopexit
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 600
   %.072111.i = load ptr, ptr %58, align 8, !tbaa !72
   %.not83112.i = icmp eq ptr %.072111.i, null
-  br i1 %.not83112.i, label %_shortcut_match.exit.thread, label %.lr.ph.i
+  br i1 %.not83112.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %56, %61
   %.072114.i = phi ptr [ %.072.i, %61 ], [ %.072111.i, %56 ]
@@ -9127,7 +9127,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   %62 = getelementptr inbounds nuw i8, ptr %.072114.i, i64 8
   %.072.i = load ptr, ptr %62, align 8, !tbaa !72
   %.not83.i = icmp eq ptr %.072.i, null
-  br i1 %.not83.i, label %_shortcut_match.exit.thread, label %.lr.ph.i
+  br i1 %.not83.i, label %.loopexit, label %.lr.ph.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
   %63 = load ptr, ptr %.072114.i, align 8, !tbaa !73
@@ -9160,7 +9160,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   %79 = load ptr, ptr %28, align 8
   %.not87.i = icmp eq ptr %79, null
   %or.cond32 = select i1 %.not86.i, i1 %.not87.i, i1 false
-  br i1 %or.cond32, label %_shortcut_match.exit.thread, label %80
+  br i1 %or.cond32, label %.loopexit, label %80
 
 80:                                               ; preds = %72
   %81 = load ptr, ptr %4, align 8, !tbaa !255
@@ -9190,7 +9190,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   br i1 %.not90.i, label %93, label %161
 
 93:                                               ; preds = %.thread.i
-  br i1 %.not91.i, label %_shortcut_match.exit.thread, label %94
+  br i1 %.not91.i, label %.loopexit, label %94
 
 94:                                               ; preds = %93
   %95 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
@@ -9321,14 +9321,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
   br label %_shortcut_match.exit
 
 161:                                              ; preds = %.thread.i
-  br i1 %.not91.i, label %_shortcut_match.exit.thread, label %_shortcut_match.exit
-
-_shortcut_match.exit.thread:                      ; preds = %61, %72, %53, %50, %47, %161, %56, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  %.pre = load ptr, ptr %28, align 8
-  br label %183
+  br i1 %.not91.i, label %.loopexit, label %_shortcut_match.exit
 
 _shortcut_match.exit:                             ; preds = %94, %160, %161
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -9337,7 +9330,7 @@ _shortcut_match.exit:                             ; preds = %94, %160, %161
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
-  br i1 %.not104.i.not, label %164, label %183
+  br i1 %.not104.i.not, label %164, label %.thread
 
 164:                                              ; preds = %_shortcut_match.exit
   %165 = getelementptr inbounds nuw i8, ptr %6, i64 48
@@ -9370,41 +9363,44 @@ _shortcut_match.exit:                             ; preds = %94, %160, %161
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 52
   %180 = load i32, ptr %179, align 4, !tbaa !93
   %181 = load i32, ptr %29, align 8, !tbaa !104
-  %182 = call reassoc nsz arcp contract afn fastcc float @_process_action(ptr noundef %92, i32 noundef %180, i32 noundef %181, i32 noundef %178, float noundef %.1, ptr noundef nonnull %7)
-  br label %190
+  %182 = call reassoc nsz arcp contract afn fastcc float @_process_action(ptr noundef nonnull %92, i32 noundef %180, i32 noundef %181, i32 noundef %178, float noundef %.1, ptr noundef nonnull %7)
+  br label %.thread
 
-183:                                              ; preds = %_shortcut_match.exit.thread, %_shortcut_match.exit
-  %184 = phi ptr [ %.pre, %_shortcut_match.exit.thread ], [ %92, %_shortcut_match.exit ]
-  %185 = fcmp reassoc nsz arcp contract afn oeq float %0, 0xC7EFFFFFE0000000
-  %186 = icmp ne ptr %184, null
-  %or.cond8 = select i1 %185, i1 true, i1 %186
-  br i1 %or.cond8, label %190, label %187
+.loopexit:                                        ; preds = %61, %93, %56, %161, %47, %50, %53, %72
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #24
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #24
+  %.pre = load ptr, ptr %28, align 8
+  %183 = fcmp reassoc nsz arcp contract afn oeq float %0, 0xC7EFFFFFE0000000
+  %184 = icmp ne ptr %.pre, null
+  %or.cond8 = select i1 %183, i1 true, i1 %184
+  br i1 %or.cond8, label %.thread, label %185
 
-187:                                              ; preds = %183
-  %188 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.297, i32 noundef 5) #24
-  %189 = call fastcc ptr @_shortcut_description(ptr noundef nonnull @_sc)
-  call void (ptr, ...) @dt_toast_log(ptr noundef %188, ptr noundef nonnull %189) #24
-  br label %190
+185:                                              ; preds = %.loopexit
+  %186 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.297, i32 noundef 5) #24
+  %187 = call fastcc ptr @_shortcut_description(ptr noundef nonnull @_sc)
+  call void (ptr, ...) @dt_toast_log(ptr noundef %186, ptr noundef nonnull %187) #24
+  br label %.thread
 
-190:                                              ; preds = %183, %187, %177
-  %.0 = phi nsz float [ %182, %177 ], [ 0xC7EFFFFFE0000000, %183 ], [ 0xC7EFFFFFE0000000, %187 ]
-  %191 = load ptr, ptr %7, align 8, !tbaa !18
-  %.not28 = icmp eq ptr %191, null
-  br i1 %.not28, label %194, label %192
+.thread:                                          ; preds = %_shortcut_match.exit, %.loopexit, %185, %177
+  %.0 = phi nsz float [ %182, %177 ], [ 0xC7EFFFFFE0000000, %.loopexit ], [ 0xC7EFFFFFE0000000, %185 ], [ 0xC7EFFFFFE0000000, %_shortcut_match.exit ]
+  %188 = load ptr, ptr %7, align 8, !tbaa !18
+  %.not28 = icmp eq ptr %188, null
+  br i1 %.not28, label %191, label %189
 
-192:                                              ; preds = %190
-  call void (ptr, ...) @dt_control_log(ptr noundef nonnull @.str.89, ptr noundef nonnull %191) #24
-  %193 = load ptr, ptr %7, align 8, !tbaa !18
-  call void @g_free(ptr noundef %193) #24
-  br label %194
+189:                                              ; preds = %.thread
+  call void (ptr, ...) @dt_control_log(ptr noundef nonnull @.str.89, ptr noundef nonnull %188) #24
+  %190 = load ptr, ptr %7, align 8, !tbaa !18
+  call void @g_free(ptr noundef %190) #24
+  br label %191
 
-194:                                              ; preds = %192, %190
+191:                                              ; preds = %189, %.thread
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
-  br label %195
+  br label %192
 
-195:                                              ; preds = %21, %26, %194
-  %.021 = phi nsz float [ %.0, %194 ], [ 0xC7EFFFFFE0000000, %26 ], [ 0xC7EFFFFFE0000000, %21 ]
+192:                                              ; preds = %21, %26, %191
+  %.021 = phi nsz float [ %.0, %191 ], [ 0xC7EFFFFFE0000000, %26 ], [ 0xC7EFFFFFE0000000, %21 ]
   ret float %.021
 }
 

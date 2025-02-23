@@ -118,7 +118,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .critedge.loopexit:                               ; preds = %30, %22
   %.1.lcssa = phi i32 [ %.031, %22 ], [ %29, %30 ]
-  %21 = icmp sgt i64 %indvars.iv35, 1
+  %21 = icmp samesign ugt i64 %indvars.iv35, 1
   br i1 %21, label %22, label %.lr.ph.i, !llvm.loop !30
 
 22:                                               ; preds = %.lr.ph33, %.critedge.loopexit

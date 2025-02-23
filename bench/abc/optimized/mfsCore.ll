@@ -1734,7 +1734,7 @@ Abc_Clock.exit205:                                ; preds = %228, %231
   %238 = add i64 %.0.i204, %.0.i.neg
   %239 = getelementptr inbounds nuw i8, ptr %29, i64 896
   store i64 %238, ptr %239, align 8, !tbaa !139
-  call void @Mfs_ManStop(ptr noundef %29) #11
+  call void @Mfs_ManStop(ptr noundef nonnull %29) #11
   br label %240
 
 240:                                              ; preds = %Abc_Clock.exit205, %25

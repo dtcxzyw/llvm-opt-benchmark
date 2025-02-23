@@ -2266,8 +2266,8 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   br label %54
 
 54:                                               ; preds = %.lr.ph, %highbd_upscale_normative_rect.exit
-  %.089 = phi i32 [ %43, %.lr.ph ], [ %162, %highbd_upscale_normative_rect.exit ]
-  %.06988 = phi i32 [ 0, %.lr.ph ], [ %163, %highbd_upscale_normative_rect.exit ]
+  %.089 = phi i32 [ %43, %.lr.ph ], [ %175, %highbd_upscale_normative_rect.exit ]
+  %.06988 = phi i32 [ 0, %.lr.ph ], [ %176, %highbd_upscale_normative_rect.exit ]
   call void @av1_tile_set_col(ptr noundef nonnull %8, ptr noundef nonnull %0, i32 noundef %.06988) #11
   %55 = load i32, ptr %44, align 4
   %56 = shl i32 %55, %45
@@ -2296,7 +2296,7 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   %.not86 = icmp eq i32 %.06988, 0
   %73 = load i8, ptr %47, align 4
   %.not = icmp eq i8 %73, 0
-  br i1 %.not, label %128, label %74
+  br i1 %.not, label %137, label %74
 
 74:                                               ; preds = %67
   %75 = load i32, ptr %48, align 8
@@ -2325,24 +2325,32 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
   %90 = call ptr @aom_memset16(ptr noundef nonnull %86, i32 noundef %89, i64 noundef 5) #11
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit72.i, label %.lr.ph.i, !llvm.loop !66
+  br i1 %exitcond.not.i, label %.loopexit72.i.thread95, label %.lr.ph.i, !llvm.loop !66
 
-.loopexit72.i:                                    ; preds = %.lr.ph.i, %74
-  %.068.i = phi ptr [ null, %74 ], [ %83, %.lr.ph.i ]
-  br i1 %.not87, label %92, label %.loopexit.i
+.loopexit72.i:                                    ; preds = %74
+  br i1 %.not87, label %93, label %.loopexit.i.thread107
+
+.loopexit72.i.thread95:                           ; preds = %.lr.ph.i
+  br i1 %.not87, label %.thread97, label %.preheader71.i
+
+.thread97:                                        ; preds = %.loopexit72.i.thread95
+  %91 = call ptr @aom_malloc(i64 noundef %50) #11
+  br label %.lr.ph75.preheader.i
 
 .loopexit72.i.thread:                             ; preds = %82
-  br i1 %.not87, label %.thread, label %.preheader71.i.thread
+  br i1 %.not87, label %.thread, label %.preheader71.i.thread116
 
 .thread:                                          ; preds = %.loopexit72.i.thread
-  %91 = call ptr @aom_malloc(i64 noundef %50) #11
-  br label %.preheader71.i.thread
+  %92 = call ptr @aom_malloc(i64 noundef %50) #11
+  br label %.preheader71.i.thread116
 
-92:                                               ; preds = %.loopexit72.i
-  %93 = call ptr @aom_malloc(i64 noundef %50) #11
-  br i1 %51, label %.lr.ph75.preheader.i, label %.loopexit.i.thread104
+93:                                               ; preds = %.loopexit72.i
+  %94 = call ptr @aom_malloc(i64 noundef %50) #11
+  br i1 %51, label %.lr.ph75.preheader.i, label %.loopexit.i.thread107
 
-.lr.ph75.preheader.i:                             ; preds = %92
+.lr.ph75.preheader.i:                             ; preds = %.thread97, %93
+  %95 = phi ptr [ %91, %.thread97 ], [ %94, %93 ]
+  %.068.i9399 = phi ptr [ %83, %.thread97 ], [ null, %93 ]
   %invariant.gep.i = getelementptr i8, ptr %78, i64 -2
   %invariant.gep100.i = getelementptr i16, ptr %invariant.gep.i, i64 %80
   br label %.lr.ph75.i
@@ -2350,217 +2358,254 @@ define hidden void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %1, i
 .lr.ph75.i:                                       ; preds = %.lr.ph75.i, %.lr.ph75.preheader.i
   %indvars.iv82.i = phi i64 [ 0, %.lr.ph75.preheader.i ], [ %indvars.iv.next83.i, %.lr.ph75.i ]
   %.idx97.i = mul nuw nsw i64 %indvars.iv82.i, 10
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx97.i
-  %95 = mul nsw i64 %indvars.iv82.i, %52
-  %96 = getelementptr inbounds i16, ptr %81, i64 %95
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %94, ptr noundef nonnull align 2 dereferenceable(10) %96, i64 10, i1 false)
-  %gep101.i = getelementptr i16, ptr %invariant.gep100.i, i64 %95
-  %97 = load i16, ptr %gep101.i, align 2
-  %98 = zext i16 %97 to i32
-  %99 = call ptr @aom_memset16(ptr noundef nonnull %96, i32 noundef %98, i64 noundef 5) #11
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx97.i
+  %97 = mul nsw i64 %indvars.iv82.i, %52
+  %98 = getelementptr inbounds i16, ptr %81, i64 %97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %96, ptr noundef nonnull align 2 dereferenceable(10) %98, i64 10, i1 false)
+  %gep101.i = getelementptr i16, ptr %invariant.gep100.i, i64 %97
+  %99 = load i16, ptr %gep101.i, align 2
+  %100 = zext i16 %99 to i32
+  %101 = call ptr @aom_memset16(ptr noundef nonnull %98, i32 noundef %100, i64 noundef 5) #11
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count.i
   br i1 %exitcond86.not.i, label %.loopexit.i, label %.lr.ph75.i, !llvm.loop !67
 
-.preheader71.i.thread:                            ; preds = %.loopexit72.i.thread, %.thread
-  %.069.i.ph = phi ptr [ %91, %.thread ], [ null, %.loopexit72.i.thread ]
-  %100 = getelementptr inbounds i8, ptr %69, i64 -1
-  %101 = ptrtoint ptr %100 to i64
-  %102 = shl i64 %101, 1
-  %103 = inttoptr i64 %102 to ptr
-  %104 = ptrtoint ptr %71 to i64
-  %105 = shl i64 %104, 1
-  %106 = inttoptr i64 %105 to ptr
-  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %103, i32 noundef %2, ptr noundef %106, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
+.loopexit.i.thread107:                            ; preds = %93, %.loopexit72.i
+  %.069.i.ph106 = phi ptr [ %94, %93 ], [ null, %.loopexit72.i ]
+  %102 = getelementptr inbounds i8, ptr %69, i64 -1
+  %103 = ptrtoint ptr %102 to i64
+  %104 = shl i64 %103, 1
+  %105 = inttoptr i64 %104 to ptr
+  %106 = ptrtoint ptr %71 to i64
+  %107 = shl i64 %106, 1
+  %108 = inttoptr i64 %107 to ptr
+  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %105, i32 noundef %2, ptr noundef %108, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
+  br label %133
+
+.loopexit.i:                                      ; preds = %.lr.ph75.i
+  %109 = getelementptr inbounds i8, ptr %69, i64 -1
+  %110 = ptrtoint ptr %109 to i64
+  %111 = shl i64 %110, 1
+  %112 = inttoptr i64 %111 to ptr
+  %113 = ptrtoint ptr %71 to i64
+  %114 = shl i64 %113, 1
+  %115 = inttoptr i64 %114 to ptr
+  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %112, i32 noundef %2, ptr noundef %115, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
+  br i1 %.not86, label %.lr.ph77.i.preheader, label %.lr.ph79.i.preheader
+
+.preheader71.i.thread116:                         ; preds = %.thread, %.loopexit72.i.thread
+  %.069.i.ph.ph = phi ptr [ null, %.loopexit72.i.thread ], [ %92, %.thread ]
+  %116 = getelementptr inbounds i8, ptr %69, i64 -1
+  %117 = ptrtoint ptr %116 to i64
+  %118 = shl i64 %117, 1
+  %119 = inttoptr i64 %118 to ptr
+  %120 = ptrtoint ptr %71 to i64
+  %121 = shl i64 %120, 1
+  %122 = inttoptr i64 %121 to ptr
+  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %119, i32 noundef %2, ptr noundef %122, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
   br label %._crit_edge.i
 
-.loopexit.i:                                      ; preds = %.lr.ph75.i, %.loopexit72.i
-  %.069.i = phi ptr [ null, %.loopexit72.i ], [ %93, %.lr.ph75.i ]
-  %107 = getelementptr inbounds i8, ptr %69, i64 -1
-  %108 = ptrtoint ptr %107 to i64
-  %109 = shl i64 %108, 1
-  %110 = inttoptr i64 %109 to ptr
-  %111 = ptrtoint ptr %71 to i64
-  %112 = shl i64 %111, 1
-  %113 = inttoptr i64 %112 to ptr
-  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %110, i32 noundef %2, ptr noundef %113, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
-  br i1 %.not86, label %.preheader71.i, label %124
+.preheader71.i:                                   ; preds = %.loopexit72.i.thread95
+  %123 = getelementptr inbounds i8, ptr %69, i64 -1
+  %124 = ptrtoint ptr %123 to i64
+  %125 = shl i64 %124, 1
+  %126 = inttoptr i64 %125 to ptr
+  %127 = ptrtoint ptr %71 to i64
+  %128 = shl i64 %127, 1
+  %129 = inttoptr i64 %128 to ptr
+  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %126, i32 noundef %2, ptr noundef %129, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
+  br label %.lr.ph77.i.preheader
 
-.loopexit.i.thread104:                            ; preds = %92
-  %114 = getelementptr inbounds i8, ptr %69, i64 -1
-  %115 = ptrtoint ptr %114 to i64
-  %116 = shl i64 %115, 1
-  %117 = inttoptr i64 %116 to ptr
-  %118 = ptrtoint ptr %71 to i64
-  %119 = shl i64 %118, 1
-  %120 = inttoptr i64 %119 to ptr
-  call void @av1_highbd_convolve_horiz_rs_c(ptr noundef %117, i32 noundef %2, ptr noundef %120, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33, i32 noundef %75) #11
-  br i1 %.not86, label %._crit_edge.i, label %highbd_upscale_normative_rect.exit.sink.split
+.lr.ph77.i.preheader:                             ; preds = %.loopexit.i, %.preheader71.i
+  %.068.i92102115 = phi ptr [ %83, %.preheader71.i ], [ %.068.i9399, %.loopexit.i ]
+  %.069.i104113 = phi ptr [ null, %.preheader71.i ], [ %95, %.loopexit.i ]
+  br label %.lr.ph77.i
 
-.preheader71.i:                                   ; preds = %.loopexit.i
-  br i1 %51, label %.lr.ph77.i, label %._crit_edge.i
-
-.lr.ph77.i:                                       ; preds = %.preheader71.i, %.lr.ph77.i
-  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph77.i ], [ 0, %.preheader71.i ]
-  %121 = mul nsw i64 %indvars.iv87.i, %52
-  %122 = getelementptr inbounds i16, ptr %79, i64 %121
+.lr.ph77.i:                                       ; preds = %.lr.ph77.i.preheader, %.lr.ph77.i
+  %indvars.iv87.i = phi i64 [ %indvars.iv.next88.i, %.lr.ph77.i ], [ 0, %.lr.ph77.i.preheader ]
+  %130 = mul nsw i64 %indvars.iv87.i, %52
+  %131 = getelementptr inbounds i16, ptr %79, i64 %130
   %.idx98.i = mul nuw nsw i64 %indvars.iv87.i, 10
-  %123 = getelementptr inbounds nuw i8, ptr %.068.i, i64 %.idx98.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %122, ptr noundef nonnull align 2 dereferenceable(10) %123, i64 10, i1 false)
+  %132 = getelementptr inbounds nuw i8, ptr %.068.i92102115, i64 %.idx98.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %131, ptr noundef nonnull align 2 dereferenceable(10) %132, i64 10, i1 false)
   %indvars.iv.next88.i = add nuw nsw i64 %indvars.iv87.i, 1
   %exitcond91.not.i = icmp eq i64 %indvars.iv.next88.i, %wide.trip.count.i
   br i1 %exitcond91.not.i, label %._crit_edge.i, label %.lr.ph77.i, !llvm.loop !68
 
-._crit_edge.i:                                    ; preds = %.lr.ph77.i, %.loopexit.i.thread104, %.preheader71.i.thread, %.preheader71.i
-  %.068.i9297103 = phi ptr [ %83, %.preheader71.i.thread ], [ %.068.i, %.preheader71.i ], [ %.068.i, %.loopexit.i.thread104 ], [ %.068.i, %.lr.ph77.i ]
-  %.069.i99102 = phi ptr [ %.069.i.ph, %.preheader71.i.thread ], [ %.069.i, %.preheader71.i ], [ %93, %.loopexit.i.thread104 ], [ %.069.i, %.lr.ph77.i ]
-  call void @aom_free(ptr noundef %.068.i9297103) #11
-  br label %124
+._crit_edge.i:                                    ; preds = %.lr.ph77.i, %.preheader71.i.thread116
+  %.068.i92102114 = phi ptr [ %83, %.preheader71.i.thread116 ], [ %.068.i92102115, %.lr.ph77.i ]
+  %.069.i104112 = phi ptr [ %.069.i.ph.ph, %.preheader71.i.thread116 ], [ %.069.i104113, %.lr.ph77.i ]
+  call void @aom_free(ptr noundef %.068.i92102114) #11
+  br label %133
 
-124:                                              ; preds = %._crit_edge.i, %.loopexit.i
-  %.069.i98 = phi ptr [ %.069.i99102, %._crit_edge.i ], [ %.069.i, %.loopexit.i ]
+133:                                              ; preds = %.loopexit.i.thread107, %._crit_edge.i
+  %.069.i103 = phi ptr [ %.069.i104112, %._crit_edge.i ], [ %.069.i.ph106, %.loopexit.i.thread107 ]
   br i1 %.not87, label %.preheader.i, label %highbd_upscale_normative_rect.exit
 
-.preheader.i:                                     ; preds = %124
-  br i1 %51, label %.lr.ph79.i, label %highbd_upscale_normative_rect.exit.sink.split
+.preheader.i:                                     ; preds = %133
+  br i1 %51, label %.lr.ph79.i.preheader, label %highbd_upscale_normative_rect.exit.sink.split
 
-.lr.ph79.i:                                       ; preds = %.preheader.i, %.lr.ph79.i
-  %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %.lr.ph79.i ], [ 0, %.preheader.i ]
-  %125 = mul nsw i64 %indvars.iv92.i, %52
-  %126 = getelementptr inbounds i16, ptr %81, i64 %125
+.lr.ph79.i.preheader:                             ; preds = %.loopexit.i, %.preheader.i
+  %.069.i103120123 = phi ptr [ %.069.i103, %.preheader.i ], [ %95, %.loopexit.i ]
+  br label %.lr.ph79.i
+
+.lr.ph79.i:                                       ; preds = %.lr.ph79.i.preheader, %.lr.ph79.i
+  %indvars.iv92.i = phi i64 [ %indvars.iv.next93.i, %.lr.ph79.i ], [ 0, %.lr.ph79.i.preheader ]
+  %134 = mul nsw i64 %indvars.iv92.i, %52
+  %135 = getelementptr inbounds i16, ptr %81, i64 %134
   %.idx99.i = mul nuw nsw i64 %indvars.iv92.i, 10
-  %127 = getelementptr inbounds nuw i8, ptr %.069.i98, i64 %.idx99.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %126, ptr noundef nonnull align 2 dereferenceable(10) %127, i64 10, i1 false)
+  %136 = getelementptr inbounds nuw i8, ptr %.069.i103120123, i64 %.idx99.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(10) %135, ptr noundef nonnull align 2 dereferenceable(10) %136, i64 10, i1 false)
   %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %exitcond96.not.i = icmp eq i64 %indvars.iv.next93.i, %wide.trip.count.i
   br i1 %exitcond96.not.i, label %highbd_upscale_normative_rect.exit.sink.split, label %.lr.ph79.i, !llvm.loop !69
 
-128:                                              ; preds = %67
-  %129 = getelementptr inbounds i8, ptr %69, i64 -5
-  %130 = sext i32 %59 to i64
-  %131 = getelementptr inbounds i8, ptr %69, i64 %130
-  br i1 %.not86, label %132, label %.loopexit70.i
+137:                                              ; preds = %67
+  %138 = getelementptr inbounds i8, ptr %69, i64 -5
+  %139 = sext i32 %59 to i64
+  %140 = getelementptr inbounds i8, ptr %69, i64 %139
+  br i1 %.not86, label %141, label %.loopexit70.i
 
-132:                                              ; preds = %128
-  %133 = call ptr @aom_malloc(i64 noundef %53) #11
+141:                                              ; preds = %137
+  %142 = call ptr @aom_malloc(i64 noundef %53) #11
   br i1 %51, label %.lr.ph.i82, label %.loopexit70.i.thread
 
-.lr.ph.i82:                                       ; preds = %132, %.lr.ph.i82
-  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %132 ]
-  %134 = mul nuw nsw i64 %indvars.iv.i83, 5
-  %135 = getelementptr inbounds nuw i8, ptr %133, i64 %134
-  %136 = mul nsw i64 %indvars.iv.i83, %52
-  %137 = getelementptr inbounds i8, ptr %129, i64 %136
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %135, ptr noundef nonnull align 1 dereferenceable(5) %137, i64 5, i1 false)
-  %138 = getelementptr inbounds i8, ptr %69, i64 %136
-  %139 = load i8, ptr %138, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %137, i8 %139, i64 5, i1 false)
+.lr.ph.i82:                                       ; preds = %141, %.lr.ph.i82
+  %indvars.iv.i83 = phi i64 [ %indvars.iv.next.i84, %.lr.ph.i82 ], [ 0, %141 ]
+  %143 = mul nuw nsw i64 %indvars.iv.i83, 5
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
+  %145 = mul nsw i64 %indvars.iv.i83, %52
+  %146 = getelementptr inbounds i8, ptr %138, i64 %145
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %144, ptr noundef nonnull align 1 dereferenceable(5) %146, i64 5, i1 false)
+  %147 = getelementptr inbounds i8, ptr %69, i64 %145
+  %148 = load i8, ptr %147, align 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %146, i8 %148, i64 5, i1 false)
   %indvars.iv.next.i84 = add nuw nsw i64 %indvars.iv.i83, 1
   %exitcond.not.i85 = icmp eq i64 %indvars.iv.next.i84, %wide.trip.count.i
-  br i1 %exitcond.not.i85, label %.loopexit70.i, label %.lr.ph.i82, !llvm.loop !70
+  br i1 %exitcond.not.i85, label %.loopexit70.i.thread129, label %.lr.ph.i82, !llvm.loop !70
 
-.loopexit70.i:                                    ; preds = %.lr.ph.i82, %128
-  %.066.i = phi ptr [ null, %128 ], [ %133, %.lr.ph.i82 ]
-  br i1 %.not87, label %141, label %.loopexit.i72
+.loopexit70.i:                                    ; preds = %137
+  br i1 %.not87, label %151, label %.loopexit.i72.thread141
 
-.loopexit70.i.thread:                             ; preds = %132
-  br i1 %.not87, label %.thread118, label %.preheader69.i.thread
+.loopexit70.i.thread129:                          ; preds = %.lr.ph.i82
+  br i1 %.not87, label %.thread131, label %.preheader69.i
 
-.thread118:                                       ; preds = %.loopexit70.i.thread
-  %140 = call ptr @aom_malloc(i64 noundef %53) #11
-  br label %.preheader69.i.thread
+.thread131:                                       ; preds = %.loopexit70.i.thread129
+  %149 = call ptr @aom_malloc(i64 noundef %53) #11
+  br label %.lr.ph73.preheader.i
 
-141:                                              ; preds = %.loopexit70.i
-  %142 = call ptr @aom_malloc(i64 noundef %53) #11
+.loopexit70.i.thread:                             ; preds = %141
+  br i1 %.not87, label %.thread127, label %.preheader69.i.thread150
+
+.thread127:                                       ; preds = %.loopexit70.i.thread
+  %150 = call ptr @aom_malloc(i64 noundef %53) #11
+  br label %.preheader69.i.thread150
+
+151:                                              ; preds = %.loopexit70.i
+  %152 = call ptr @aom_malloc(i64 noundef %53) #11
+  br i1 %51, label %.lr.ph73.preheader.i, label %.loopexit.i72.thread141
+
+.lr.ph73.preheader.i:                             ; preds = %.thread131, %151
+  %153 = phi ptr [ %149, %.thread131 ], [ %152, %151 ]
+  %.066.i126133 = phi ptr [ %142, %.thread131 ], [ null, %151 ]
   %invariant.gep.i79 = getelementptr i8, ptr %69, i64 -1
-  br i1 %51, label %.lr.ph73.preheader.i, label %.loopexit.i72.thread129
-
-.lr.ph73.preheader.i:                             ; preds = %141
-  %invariant.gep95.i = getelementptr i8, ptr %invariant.gep.i79, i64 %130
+  %invariant.gep95.i = getelementptr i8, ptr %invariant.gep.i79, i64 %139
   br label %.lr.ph73.i
 
 .lr.ph73.i:                                       ; preds = %.lr.ph73.i, %.lr.ph73.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph73.preheader.i ], [ %indvars.iv.next81.i, %.lr.ph73.i ]
-  %143 = mul nuw nsw i64 %indvars.iv80.i, 5
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
-  %145 = mul nsw i64 %indvars.iv80.i, %52
-  %146 = getelementptr inbounds i8, ptr %131, i64 %145
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %144, ptr noundef nonnull align 1 dereferenceable(5) %146, i64 5, i1 false)
-  %gep96.i = getelementptr i8, ptr %invariant.gep95.i, i64 %145
-  %147 = load i8, ptr %gep96.i, align 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %146, i8 %147, i64 5, i1 false)
+  %154 = mul nuw nsw i64 %indvars.iv80.i, 5
+  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %154
+  %156 = mul nsw i64 %indvars.iv80.i, %52
+  %157 = getelementptr inbounds i8, ptr %140, i64 %156
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %155, ptr noundef nonnull align 1 dereferenceable(5) %157, i64 5, i1 false)
+  %gep96.i = getelementptr i8, ptr %invariant.gep95.i, i64 %156
+  %158 = load i8, ptr %gep96.i, align 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %157, i8 %158, i64 5, i1 false)
   %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
   %exitcond84.not.i = icmp eq i64 %indvars.iv.next81.i, %wide.trip.count.i
   br i1 %exitcond84.not.i, label %.loopexit.i72, label %.lr.ph73.i, !llvm.loop !71
 
-.preheader69.i.thread:                            ; preds = %.loopexit70.i.thread, %.thread118
-  %.067.i.ph = phi ptr [ %140, %.thread118 ], [ null, %.loopexit70.i.thread ]
-  %148 = getelementptr inbounds i8, ptr %69, i64 -1
-  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %148, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
+.loopexit.i72.thread141:                          ; preds = %151, %.loopexit70.i
+  %.067.i.ph140 = phi ptr [ %152, %151 ], [ null, %.loopexit70.i ]
+  %159 = getelementptr inbounds i8, ptr %69, i64 -1
+  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %159, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
+  br label %167
+
+.loopexit.i72:                                    ; preds = %.lr.ph73.i
+  %160 = getelementptr inbounds i8, ptr %69, i64 -1
+  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %160, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
+  br i1 %.not86, label %.lr.ph75.i78.preheader, label %.lr.ph77.i76.preheader
+
+.preheader69.i.thread150:                         ; preds = %.thread127, %.loopexit70.i.thread
+  %.067.i.ph.ph = phi ptr [ null, %.loopexit70.i.thread ], [ %150, %.thread127 ]
+  %161 = getelementptr inbounds i8, ptr %69, i64 -1
+  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %161, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
   br label %._crit_edge.i73
 
-.loopexit.i72:                                    ; preds = %.lr.ph73.i, %.loopexit70.i
-  %.067.i = phi ptr [ null, %.loopexit70.i ], [ %142, %.lr.ph73.i ]
-  %149 = getelementptr inbounds i8, ptr %69, i64 -1
-  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %149, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
-  br i1 %.not86, label %.preheader69.i, label %154
+.preheader69.i:                                   ; preds = %.loopexit70.i.thread129
+  %162 = getelementptr inbounds i8, ptr %69, i64 -1
+  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %162, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
+  br label %.lr.ph75.i78.preheader
 
-.loopexit.i72.thread129:                          ; preds = %141
-  call void @av1_convolve_horiz_rs_c(ptr noundef nonnull %invariant.gep.i79, i32 noundef %2, ptr noundef %71, i32 noundef %4, i32 noundef %72, i32 noundef %6, ptr noundef nonnull @av1_resize_filter_normative, i32 noundef %.089, i32 noundef %33) #11
-  br i1 %.not86, label %._crit_edge.i73, label %highbd_upscale_normative_rect.exit.sink.split
+.lr.ph75.i78.preheader:                           ; preds = %.loopexit.i72, %.preheader69.i
+  %.066.i125136149 = phi ptr [ %142, %.preheader69.i ], [ %.066.i126133, %.loopexit.i72 ]
+  %.067.i138147 = phi ptr [ null, %.preheader69.i ], [ %153, %.loopexit.i72 ]
+  br label %.lr.ph75.i78
 
-.preheader69.i:                                   ; preds = %.loopexit.i72
-  br i1 %51, label %.lr.ph75.i78, label %._crit_edge.i73
-
-.lr.ph75.i78:                                     ; preds = %.preheader69.i, %.lr.ph75.i78
-  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.lr.ph75.i78 ], [ 0, %.preheader69.i ]
-  %150 = mul nsw i64 %indvars.iv85.i, %52
-  %151 = getelementptr inbounds i8, ptr %129, i64 %150
-  %152 = mul nuw nsw i64 %indvars.iv85.i, 5
-  %153 = getelementptr inbounds nuw i8, ptr %.066.i, i64 %152
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %151, ptr noundef nonnull align 1 dereferenceable(5) %153, i64 5, i1 false)
+.lr.ph75.i78:                                     ; preds = %.lr.ph75.i78.preheader, %.lr.ph75.i78
+  %indvars.iv85.i = phi i64 [ %indvars.iv.next86.i, %.lr.ph75.i78 ], [ 0, %.lr.ph75.i78.preheader ]
+  %163 = mul nsw i64 %indvars.iv85.i, %52
+  %164 = getelementptr inbounds i8, ptr %138, i64 %163
+  %165 = mul nuw nsw i64 %indvars.iv85.i, 5
+  %166 = getelementptr inbounds nuw i8, ptr %.066.i125136149, i64 %165
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %164, ptr noundef nonnull align 1 dereferenceable(5) %166, i64 5, i1 false)
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
   %exitcond89.not.i = icmp eq i64 %indvars.iv.next86.i, %wide.trip.count.i
   br i1 %exitcond89.not.i, label %._crit_edge.i73, label %.lr.ph75.i78, !llvm.loop !72
 
-._crit_edge.i73:                                  ; preds = %.lr.ph75.i78, %.loopexit.i72.thread129, %.preheader69.i.thread, %.preheader69.i
-  %.066.i116122128 = phi ptr [ %133, %.preheader69.i.thread ], [ %.066.i, %.preheader69.i ], [ %.066.i, %.loopexit.i72.thread129 ], [ %.066.i, %.lr.ph75.i78 ]
-  %.067.i124127 = phi ptr [ %.067.i.ph, %.preheader69.i.thread ], [ %.067.i, %.preheader69.i ], [ %142, %.loopexit.i72.thread129 ], [ %.067.i, %.lr.ph75.i78 ]
-  call void @aom_free(ptr noundef %.066.i116122128) #11
-  br label %154
+._crit_edge.i73:                                  ; preds = %.lr.ph75.i78, %.preheader69.i.thread150
+  %.066.i125136148 = phi ptr [ %142, %.preheader69.i.thread150 ], [ %.066.i125136149, %.lr.ph75.i78 ]
+  %.067.i138146 = phi ptr [ %.067.i.ph.ph, %.preheader69.i.thread150 ], [ %.067.i138147, %.lr.ph75.i78 ]
+  call void @aom_free(ptr noundef %.066.i125136148) #11
+  br label %167
 
-154:                                              ; preds = %._crit_edge.i73, %.loopexit.i72
-  %.067.i123 = phi ptr [ %.067.i124127, %._crit_edge.i73 ], [ %.067.i, %.loopexit.i72 ]
+167:                                              ; preds = %.loopexit.i72.thread141, %._crit_edge.i73
+  %.067.i137 = phi ptr [ %.067.i138146, %._crit_edge.i73 ], [ %.067.i.ph140, %.loopexit.i72.thread141 ]
   br i1 %.not87, label %.preheader.i74, label %highbd_upscale_normative_rect.exit
 
-.preheader.i74:                                   ; preds = %154
-  br i1 %51, label %.lr.ph77.i76, label %highbd_upscale_normative_rect.exit.sink.split
+.preheader.i74:                                   ; preds = %167
+  br i1 %51, label %.lr.ph77.i76.preheader, label %highbd_upscale_normative_rect.exit.sink.split
 
-.lr.ph77.i76:                                     ; preds = %.preheader.i74, %.lr.ph77.i76
-  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.lr.ph77.i76 ], [ 0, %.preheader.i74 ]
-  %155 = mul nsw i64 %indvars.iv90.i, %52
-  %156 = getelementptr inbounds i8, ptr %131, i64 %155
-  %157 = mul nuw nsw i64 %indvars.iv90.i, 5
-  %158 = getelementptr inbounds nuw i8, ptr %.067.i123, i64 %157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %156, ptr noundef nonnull align 1 dereferenceable(5) %158, i64 5, i1 false)
+.lr.ph77.i76.preheader:                           ; preds = %.loopexit.i72, %.preheader.i74
+  %.067.i137154157 = phi ptr [ %.067.i137, %.preheader.i74 ], [ %153, %.loopexit.i72 ]
+  br label %.lr.ph77.i76
+
+.lr.ph77.i76:                                     ; preds = %.lr.ph77.i76.preheader, %.lr.ph77.i76
+  %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.lr.ph77.i76 ], [ 0, %.lr.ph77.i76.preheader ]
+  %168 = mul nsw i64 %indvars.iv90.i, %52
+  %169 = getelementptr inbounds i8, ptr %140, i64 %168
+  %170 = mul nuw nsw i64 %indvars.iv90.i, 5
+  %171 = getelementptr inbounds nuw i8, ptr %.067.i137154157, i64 %170
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %169, ptr noundef nonnull align 1 dereferenceable(5) %171, i64 5, i1 false)
   %indvars.iv.next91.i = add nuw nsw i64 %indvars.iv90.i, 1
   %exitcond94.not.i = icmp eq i64 %indvars.iv.next91.i, %wide.trip.count.i
   br i1 %exitcond94.not.i, label %highbd_upscale_normative_rect.exit.sink.split, label %.lr.ph77.i76, !llvm.loop !73
 
-highbd_upscale_normative_rect.exit.sink.split:    ; preds = %.lr.ph79.i, %.lr.ph77.i76, %.preheader.i74, %.loopexit.i72.thread129, %.preheader.i, %.loopexit.i.thread104
-  %.067.i123137139.sink = phi ptr [ %.069.i98, %.preheader.i ], [ %93, %.loopexit.i.thread104 ], [ %.067.i123, %.preheader.i74 ], [ %142, %.loopexit.i72.thread129 ], [ %.067.i123, %.lr.ph77.i76 ], [ %.069.i98, %.lr.ph79.i ]
-  call void @aom_free(ptr noundef %.067.i123137139.sink) #11
+highbd_upscale_normative_rect.exit.sink.split:    ; preds = %.lr.ph79.i, %.lr.ph77.i76, %.preheader.i74, %.preheader.i
+  %.067.i137154156.sink = phi ptr [ %.069.i103, %.preheader.i ], [ %.067.i137, %.preheader.i74 ], [ %.067.i137154157, %.lr.ph77.i76 ], [ %.069.i103120123, %.lr.ph79.i ]
+  call void @aom_free(ptr noundef %.067.i137154156.sink) #11
   br label %highbd_upscale_normative_rect.exit
 
-highbd_upscale_normative_rect.exit:               ; preds = %highbd_upscale_normative_rect.exit.sink.split, %154, %124
-  %159 = mul nsw i32 %72, %33
-  %160 = shl i32 %59, 14
-  %161 = sub i32 %.089, %160
-  %162 = add i32 %161, %159
-  %163 = add nuw nsw i32 %.06988, 1
-  %164 = load i32, ptr %34, align 16
-  %165 = icmp slt i32 %163, %164
-  br i1 %165, label %54, label %._crit_edge, !llvm.loop !74
+highbd_upscale_normative_rect.exit:               ; preds = %highbd_upscale_normative_rect.exit.sink.split, %167, %133
+  %172 = mul nsw i32 %72, %33
+  %173 = shl i32 %59, 14
+  %174 = sub i32 %.089, %173
+  %175 = add i32 %174, %172
+  %176 = add nuw nsw i32 %.06988, 1
+  %177 = load i32, ptr %34, align 16
+  %178 = icmp slt i32 %176, %177
+  br i1 %178, label %54, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %highbd_upscale_normative_rect.exit, %15
   ret void
@@ -2597,7 +2642,7 @@ define hidden void @av1_upscale_normative_and_extend_frame(ptr noundef %0, ptr n
   %22 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 0, i64 %15
   %23 = load i32, ptr %22, align 4
   %24 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %14, i32 noundef %17, ptr noundef %19, i32 noundef %21, i32 noundef %24, i32 noundef %23)
+  tail call void @av1_upscale_normative_rows(ptr noundef nonnull %0, ptr noundef %14, i32 noundef %17, ptr noundef %19, i32 noundef %21, i32 noundef %24, i32 noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %25, label %11, !llvm.loop !75
@@ -2956,7 +3001,7 @@ define hidden void @av1_superres_upscale(ptr noundef %0, ptr noundef %1) local_u
   %115 = getelementptr inbounds nuw [2 x i32], ptr %103, i64 0, i64 %108
   %116 = load i32, ptr %115, align 4
   %117 = trunc nuw nsw i64 %indvars.iv.i to i32
-  call void @av1_upscale_normative_rows(ptr noundef %0, ptr noundef %107, i32 noundef %110, ptr noundef %112, i32 noundef %114, i32 noundef %117, i32 noundef %116)
+  call void @av1_upscale_normative_rows(ptr noundef nonnull %0, ptr noundef %107, i32 noundef %110, ptr noundef %112, i32 noundef %114, i32 noundef %117, i32 noundef %116)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %av1_upscale_normative_and_extend_frame.exit, label %104, !llvm.loop !75

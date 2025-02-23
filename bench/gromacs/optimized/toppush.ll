@@ -4574,15 +4574,14 @@ define internal fastcc void @_ZL13push_bondtypeP18InteractionsOfTypeRK17Interact
   %spec.select = select i1 %.not, i1 %.1198, i1 false
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit194, label %.lr.ph, !llvm.loop !53
+  br i1 %exitcond.not, label %.lr.ph209, label %.lr.ph, !llvm.loop !53
 
-.loopexit194:                                     ; preds = %.lr.ph, %7
-  %.0 = phi i1 [ false, %7 ], [ %spec.select, %.lr.ph ]
+.loopexit194:                                     ; preds = %7
   %39 = icmp sgt i32 %20, 0
   br i1 %39, label %.lr.ph209, label %.critedge
 
-.lr.ph209:                                        ; preds = %28, %.loopexit194
-  %.0250 = phi i1 [ %.0, %.loopexit194 ], [ true, %28 ]
+.lr.ph209:                                        ; preds = %.lr.ph, %28, %.loopexit194
+  %.0250 = phi i1 [ false, %.loopexit194 ], [ true, %28 ], [ %spec.select, %.lr.ph ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = sext i32 %.fr to i64
   %.idx = shl nsw i64 %41, 2
@@ -4756,7 +4755,6 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
   br i1 %.not.i.i.i.i, label %_ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !57
 
 118:                                              ; preds = %.lr.ph.i.i.i.i
-  %.176 = select i1 %4, i1 %.075207, i1 false
   br i1 %4, label %119, label %121
 
 119:                                              ; preds = %118
@@ -4828,7 +4826,7 @@ _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit.us: ; preds = 
 _ZL28equalEitherForwardOrBackwardIiEbN3gmx8ArrayRefIKT_EES4_.exit: ; preds = %.lr.ph.i.i.i.i9.i, %115, %.lr.ph203, %141, %119, %120
   %.283 = phi i1 [ true, %120 ], [ %.081.mux, %119 ], [ %.081205, %141 ], [ %.081205, %.lr.ph203 ], [ %.081205, %115 ], [ %.081205, %.lr.ph.i.i.i.i9.i ]
   %.280 = phi i1 [ %.078206, %120 ], [ %.078206, %119 ], [ true, %141 ], [ true, %.lr.ph203 ], [ %.078206, %115 ], [ %.078206, %.lr.ph.i.i.i.i9.i ]
-  %.277 = phi i1 [ %.075207, %120 ], [ %.075207, %119 ], [ %.176, %141 ], [ %.176, %.lr.ph203 ], [ false, %115 ], [ %.075207, %.lr.ph.i.i.i.i9.i ]
+  %.277 = phi i1 [ %.075207, %120 ], [ %.075207, %119 ], [ false, %141 ], [ false, %.lr.ph203 ], [ false, %115 ], [ %.075207, %.lr.ph.i.i.i.i9.i ]
   %indvars.iv.next236 = add nuw nsw i64 %indvars.iv235, 1
   %exitcond238.not = icmp eq i64 %indvars.iv.next236, %wide.trip.count237
   br i1 %exitcond238.not, label %._crit_edge210, label %.lr.ph209.split, !llvm.loop !54
@@ -6135,7 +6133,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit105:       ; preds = %70, %73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %81 = trunc nuw i64 %indvars.iv.next to i32
   %82 = icmp sgt i32 %60, %81
-  br i1 %82, label %.lr.ph, label %.loopexit135, !llvm.loop !87
+  br i1 %82, label %.lr.ph, label %.lr.ph138.preheader, !llvm.loop !87
 
 83:                                               ; preds = %54
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -6270,11 +6268,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit111:       ; preds = %111, %114
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #27
   br label %205
 
-.loopexit135:                                     ; preds = %.lr.ph, %.preheader134, %83
+.loopexit135:                                     ; preds = %.preheader134, %83
   %125 = icmp sgt i32 %60, 0
   br i1 %125, label %.lr.ph138.preheader, label %._crit_edge
 
-.lr.ph138.preheader:                              ; preds = %96, %106, %.loopexit135
+.lr.ph138.preheader:                              ; preds = %.lr.ph, %96, %106, %.loopexit135
   %wide.trip.count = zext nneg i32 %60 to i64
   br label %.lr.ph138
 

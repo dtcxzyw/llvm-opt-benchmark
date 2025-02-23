@@ -321,7 +321,7 @@ graphs_clear.exit:                                ; preds = %52, %edges_free.exi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %47, i8 0, i64 32, i1 false)
   %65 = load ptr, ptr %46, align 8, !tbaa !24
   tail call void @free(ptr noundef %65) #20
-  tail call void @free(ptr noundef %0) #20
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %66
 
 66:                                               ; preds = %1, %graphs_clear.exit

@@ -1028,7 +1028,7 @@ define internal noundef i32 @H5D__btree_new_node(ptr readnone captures(none) %0,
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !40
   %.not30 = icmp eq i32 %25, 0
-  br i1 %.not30, label %._crit_edge.thread, label %.lr.ph
+  br i1 %.not30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1044,45 +1044,45 @@ define internal noundef i32 @H5D__btree_new_node(ptr readnone captures(none) %0,
   store i64 %30, ptr %31, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !63
+  br i1 %exitcond.not, label %._crit_edge.thread, label %28, !llvm.loop !63
 
-._crit_edge:                                      ; preds = %28
+._crit_edge:                                      ; preds = %13
   %.not = icmp eq i32 %1, 1
-  br i1 %.not, label %.loopexit, label %.lr.ph29
+  br i1 %.not, label %.loopexit, label %32
 
-._crit_edge.thread:                               ; preds = %13
+._crit_edge.thread:                               ; preds = %28
   %.not38 = icmp eq i32 %1, 1
-  br i1 %.not38, label %.loopexit, label %.thread
+  br i1 %.not38, label %.loopexit, label %.lr.ph29
 
-.thread:                                          ; preds = %._crit_edge.thread
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store i32 0, ptr %32, align 8, !tbaa !57
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 268
-  store i32 0, ptr %33, align 4, !tbaa !60
+32:                                               ; preds = %._crit_edge
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  store i32 0, ptr %33, align 8, !tbaa !57
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 268
+  store i32 0, ptr %34, align 4, !tbaa !60
   br label %.loopexit
 
-.lr.ph29:                                         ; preds = %._crit_edge
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 264
-  store i32 0, ptr %34, align 8, !tbaa !57
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 268
-  store i32 0, ptr %35, align 4, !tbaa !60
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %37 = load ptr, ptr %36, align 8, !tbaa !62
+.lr.ph29:                                         ; preds = %._crit_edge.thread
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 264
+  store i32 0, ptr %35, align 8, !tbaa !57
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 268
+  store i32 0, ptr %36, align 4, !tbaa !60
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !62
   %wide.trip.count36 = zext i32 %25 to i64
-  br label %38
+  br label %39
 
-38:                                               ; preds = %.lr.ph29, %38
-  %indvars.iv33 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next34, %38 ]
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %indvars.iv33
-  %40 = load i64, ptr %39, align 8, !tbaa !20
-  %41 = add i64 %40, 1
-  %42 = getelementptr inbounds nuw [33 x i64], ptr %4, i64 0, i64 %indvars.iv33
-  store i64 %41, ptr %42, align 8, !tbaa !20
+39:                                               ; preds = %.lr.ph29, %39
+  %indvars.iv33 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next34, %39 ]
+  %40 = getelementptr inbounds nuw i64, ptr %38, i64 %indvars.iv33
+  %41 = load i64, ptr %40, align 8, !tbaa !20
+  %42 = add i64 %41, 1
+  %43 = getelementptr inbounds nuw [33 x i64], ptr %4, i64 0, i64 %indvars.iv33
+  store i64 %42, ptr %43, align 8, !tbaa !20
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next34, %wide.trip.count36
-  br i1 %exitcond37.not, label %.loopexit, label %38, !llvm.loop !65
+  br i1 %exitcond37.not, label %.loopexit, label %39, !llvm.loop !65
 
-.loopexit:                                        ; preds = %38, %.thread, %._crit_edge.thread, %._crit_edge, %6
+.loopexit:                                        ; preds = %39, %32, %._crit_edge.thread, %._crit_edge, %6
   ret i32 0
 }
 

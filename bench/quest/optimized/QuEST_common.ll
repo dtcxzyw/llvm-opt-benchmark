@@ -1034,7 +1034,7 @@ define void @statevec_multiRotatePauli(ptr noundef readonly byval(%struct.Qureg)
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %.05561 = phi i64 [ %13, %.lr.ph.preheader ], [ %.15976, %28 ]
+  %.05561 = phi i64 [ %13, %.lr.ph.preheader ], [ %.15977, %28 ]
   %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %thread-pre-split [
@@ -1069,57 +1069,57 @@ thread-pre-split:                                 ; preds = %20, %.lr.ph
   br label %28
 
 28:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %25
-  %.15976 = phi i64 [ %19, %thread-pre-split.thread ], [ %.05561, %thread-pre-split ], [ %.05561, %25 ]
+  %.15977 = phi i64 [ %19, %thread-pre-split.thread ], [ %.05561, %thread-pre-split ], [ %.05561, %25 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %28
-  %.not57 = icmp eq i64 %.15976, 0
-  br i1 %.not57, label %.lr.ph65.preheader, label %._crit_edge.thread79
+  %.not57 = icmp eq i64 %.15977, 0
+  br i1 %.not57, label %.lr.ph65.preheader, label %29
 
-._crit_edge.thread79:                             ; preds = %._crit_edge
-  %29 = fneg double %4
-  %30 = select i1 %.not, double %4, double %29
-  tail call void @statevec_multiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %.15976, double noundef %30) #22
+29:                                               ; preds = %._crit_edge
+  %30 = fneg double %4
+  %31 = select i1 %.not, double %4, double %30
+  tail call void @statevec_multiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %.15977, double noundef %31) #22
   br label %.lr.ph65.preheader
 
-.lr.ph65.preheader:                               ; preds = %._crit_edge.thread79, %._crit_edge
-  %31 = fneg double %7
+.lr.ph65.preheader:                               ; preds = %29, %._crit_edge
+  %32 = fneg double %7
   %wide.trip.count71 = zext nneg i32 %3 to i64
   br label %.lr.ph65
 
-.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %44
-  %indvars.iv68 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next69, %44 ]
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv68
-  %33 = load i32, ptr %32, align 4
-  %34 = icmp eq i32 %33, 1
-  br i1 %34, label %35, label %38
+.lr.ph65:                                         ; preds = %.lr.ph65.preheader, %45
+  %indvars.iv68 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next69, %45 ]
+  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv68
+  %34 = load i32, ptr %33, align 4
+  %35 = icmp eq i32 %34, 1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %.lr.ph65
-  %36 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
-  %37 = load i32, ptr %36, align 4
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %37, double 0x3FE6A09E667F3BCC, double 0.000000e+00, double 0x3FE6A09E667F3BCC, double 0.000000e+00) #22
-  %.pr60 = load i32, ptr %32, align 4
-  br label %38
+36:                                               ; preds = %.lr.ph65
+  %37 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
+  %38 = load i32, ptr %37, align 4
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %38, double 0x3FE6A09E667F3BCC, double 0.000000e+00, double 0x3FE6A09E667F3BCC, double 0.000000e+00) #22
+  %.pr60 = load i32, ptr %33, align 4
+  br label %39
 
-38:                                               ; preds = %35, %.lr.ph65
-  %39 = phi i32 [ %.pr60, %35 ], [ %33, %.lr.ph65 ]
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %41, label %44
+39:                                               ; preds = %36, %.lr.ph65
+  %40 = phi i32 [ %.pr60, %36 ], [ %34, %.lr.ph65 ]
+  %41 = icmp eq i32 %40, 2
+  br i1 %41, label %42, label %45
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
-  %43 = load i32, ptr %42, align 4
-  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %43, double 0x3FE6A09E667F3BCC, double 0.000000e+00, double 0.000000e+00, double %31) #22
-  br label %44
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
+  %44 = load i32, ptr %43, align 4
+  tail call void @statevec_compactUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %44, double 0x3FE6A09E667F3BCC, double 0.000000e+00, double 0.000000e+00, double %32) #22
+  br label %45
 
-44:                                               ; preds = %38, %41
+45:                                               ; preds = %39, %42
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge66, label %.lr.ph65
 
-._crit_edge66:                                    ; preds = %44, %6
+._crit_edge66:                                    ; preds = %45, %6
   ret void
 }
 
@@ -1180,7 +1180,7 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef readonly byval
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %.05460 = phi i64 [ %28, %.lr.ph.preheader ], [ %.15875, %43 ]
+  %.05460 = phi i64 [ %28, %.lr.ph.preheader ], [ %.15876, %43 ]
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   switch i32 %30, label %thread-pre-split [
@@ -1215,61 +1215,61 @@ thread-pre-split:                                 ; preds = %35, %.lr.ph
   br label %43
 
 43:                                               ; preds = %thread-pre-split.thread, %thread-pre-split, %40
-  %.15875 = phi i64 [ %34, %thread-pre-split.thread ], [ %.05460, %thread-pre-split ], [ %.05460, %40 ]
+  %.15876 = phi i64 [ %34, %thread-pre-split.thread ], [ %.05460, %thread-pre-split ], [ %.05460, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %43
-  %.not56 = icmp eq i64 %.15875, 0
-  br i1 %.not56, label %.lr.ph64.preheader, label %._crit_edge.thread78
+  %.not56 = icmp eq i64 %.15876, 0
+  br i1 %.not56, label %.lr.ph64.preheader, label %44
 
-._crit_edge.thread78:                             ; preds = %._crit_edge
-  %44 = fneg double %5
-  %45 = select i1 %.not, double %5, double %44
-  tail call void @statevec_multiControlledMultiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %.15875, double noundef %45) #22
+44:                                               ; preds = %._crit_edge
+  %45 = fneg double %5
+  %46 = select i1 %.not, double %5, double %45
+  tail call void @statevec_multiControlledMultiRotateZ(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %.15876, double noundef %46) #22
   br label %.lr.ph64.preheader
 
-.lr.ph64.preheader:                               ; preds = %._crit_edge.thread78, %._crit_edge
-  %46 = fneg double %16
-  store double %46, ptr %15, align 8
-  store double %46, ptr %17, align 8
+.lr.ph64.preheader:                               ; preds = %44, %._crit_edge
+  %47 = fneg double %16
+  store double %47, ptr %15, align 8
+  store double %47, ptr %17, align 8
   store double 0xBFE6A09E667F3BCC, ptr %19, align 8
   store double 0x3FE6A09E667F3BCC, ptr %20, align 8
   %wide.trip.count70 = zext nneg i32 %4 to i64
   br label %.lr.ph64
 
-.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %59
-  %indvars.iv67 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next68, %59 ]
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv67
-  %48 = load i32, ptr %47, align 4
-  %49 = icmp eq i32 %48, 1
-  br i1 %49, label %50, label %53
+.lr.ph64:                                         ; preds = %.lr.ph64.preheader, %60
+  %indvars.iv67 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next68, %60 ]
+  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv67
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 1
+  br i1 %50, label %51, label %54
 
-50:                                               ; preds = %.lr.ph64
-  %51 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv67
-  %52 = load i32, ptr %51, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %52, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
-  %.pr59 = load i32, ptr %47, align 4
-  br label %53
+51:                                               ; preds = %.lr.ph64
+  %52 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv67
+  %53 = load i32, ptr %52, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %53, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %9) #22
+  %.pr59 = load i32, ptr %48, align 4
+  br label %54
 
-53:                                               ; preds = %50, %.lr.ph64
-  %54 = phi i32 [ %.pr59, %50 ], [ %48, %.lr.ph64 ]
-  %55 = icmp eq i32 %54, 2
-  br i1 %55, label %56, label %59
+54:                                               ; preds = %51, %.lr.ph64
+  %55 = phi i32 [ %.pr59, %51 ], [ %49, %.lr.ph64 ]
+  %56 = icmp eq i32 %55, 2
+  br i1 %56, label %57, label %60
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv67
-  %58 = load i32, ptr %57, align 4
-  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %58, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
-  br label %59
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv67
+  %59 = load i32, ptr %58, align 4
+  tail call void @statevec_multiControlledUnitary(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef 0, i32 noundef %59, ptr noundef nonnull byval(%struct.ComplexMatrix2) align 8 %8) #22
+  br label %60
 
-59:                                               ; preds = %53, %56
+60:                                               ; preds = %54, %57
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
   br i1 %exitcond71.not, label %._crit_edge65, label %.lr.ph64
 
-._crit_edge65:                                    ; preds = %59, %7
+._crit_edge65:                                    ; preds = %60, %7
   ret void
 }
 

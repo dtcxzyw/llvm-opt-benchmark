@@ -165,7 +165,7 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %27 = load ptr, ptr %26, align 8, !tbaa !30
   %28 = zext nneg i32 %.0.lcssa to i64
-  %wide.trip.count43 = zext i32 %9 to i64
+  %wide.trip.count43 = zext nneg i32 %9 to i64
   br label %29
 
 29:                                               ; preds = %.lr.ph38, %29
@@ -180,11 +180,11 @@ define ptr @Extra_TransferLevelByLevel(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond44.not, label %.loopexit.thread, label %29, !llvm.loop !33
 
 .loopexit.thread:                                 ; preds = %29
-  %34 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %12)
+  %34 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %12)
   br label %36
 
 .loopexit:                                        ; preds = %._crit_edge
-  %35 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %12)
+  %35 = tail call ptr @Extra_TransferPermute(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %12)
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %38, label %36
 
@@ -1326,9 +1326,9 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %27 = zext nneg i32 %26 to i64
   %28 = xor i64 %23, %27
   %.026.us = inttoptr i64 %28 to ptr
-  %29 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031.us, ptr noundef %.026.us) #19
+  %29 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031.us, ptr noundef %.026.us) #19
   tail call void @Cudd_Ref(ptr noundef %29) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031.us) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031.us) #19
   %indvars.iv.next52 = add nuw nsw i64 %indvars.iv51, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count59
   br i1 %exitcond55.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !55
@@ -1372,9 +1372,9 @@ define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noun
   %50 = zext nneg i32 %49 to i64
   %51 = xor i64 %44, %50
   %.026 = inttoptr i64 %51 to ptr
-  %52 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.031, ptr noundef %.026) #19
+  %52 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.031, ptr noundef %.026) #19
   tail call void @Cudd_Ref(ptr noundef %52) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.031) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.031) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !55
@@ -2112,9 +2112,9 @@ define noundef ptr @Extra_bddComputeCube(ptr noundef %0, ptr noundef readonly ca
   %.01314 = phi ptr [ %5, %.lr.ph.preheader ], [ %9, %.lr.ph ]
   %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !25
-  %9 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.01314, ptr noundef %8) #19
+  %9 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314, ptr noundef %8) #19
   tail call void @Cudd_Ref(ptr noundef %9) #19
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %.01314) #19
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.01314) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !67

@@ -4195,24 +4195,27 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
   %sub20.i.i = add nsw i64 %sub.ptr.div.i.i, -2
   %div21.i.i = ashr exact i64 %sub20.i.i, 1
   %cmp22.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, %div21.i.i
-  br i1 %cmp22.i.i, label %if.then23.i.i, label %if.end36.i.i
+  br i1 %cmp22.i.i, label %if.end36.i.thread.i, label %if.end36.i.i
 
-if.then23.i.i:                                    ; preds = %land.lhs.true.i.i
-  %add24.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
+if.end36.i.thread.i:                              ; preds = %land.lhs.true.i.i
+  %add24.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
   %sub27.i.i = or disjoint i64 %add24.i.i, 1
-  %add.ptr.i20.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %sub27.i.i
+  %add.ptr.i20.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %sub27.i.i
   %7 = load ptr, ptr %add.ptr.i20.i.i, align 8
   %add.ptr.i21.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i
   store ptr %7, ptr %add.ptr.i21.i.i, align 8
-  br label %if.end36.i.i
+  br label %land.rhs.i.i.i.preheader
 
-if.end36.i.i:                                     ; preds = %if.then23.i.i, %land.lhs.true.i.i, %while.end.i.i
-  %__holeIndex.addr.1.i.i = phi i64 [ %sub27.i.i, %if.then23.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %land.lhs.true.i.i ], [ %__holeIndex.addr.0.lcssa.i.i, %while.end.i.i ]
-  %cmp16.i.i.i = icmp sgt i64 %__holeIndex.addr.1.i.i, 0
-  br i1 %cmp16.i.i.i, label %land.rhs.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit
+if.end36.i.i:                                     ; preds = %land.lhs.true.i.i, %while.end.i.i
+  %cmp16.i.i.not.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i, 0
+  br i1 %cmp16.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit, label %land.rhs.i.i.i.preheader
 
-land.rhs.i.i.i:                                   ; preds = %if.end36.i.i, %while.body.i.i.i
-  %__holeIndex.addr.017.i.i.i = phi i64 [ %__parent.018.i.i34.i, %while.body.i.i.i ], [ %__holeIndex.addr.1.i.i, %if.end36.i.i ]
+land.rhs.i.i.i.preheader:                         ; preds = %if.end36.i.i, %if.end36.i.thread.i
+  %__holeIndex.addr.017.i.i.i.ph = phi i64 [ %__holeIndex.addr.0.lcssa.i.i, %if.end36.i.i ], [ %sub27.i.i, %if.end36.i.thread.i ]
+  br label %land.rhs.i.i.i
+
+land.rhs.i.i.i:                                   ; preds = %land.rhs.i.i.i.preheader, %while.body.i.i.i
+  %__holeIndex.addr.017.i.i.i = phi i64 [ %__parent.018.i.i34.i, %while.body.i.i.i ], [ %__holeIndex.addr.017.i.i.i.ph, %land.rhs.i.i.i.preheader ]
   %__parent.018.in.i.i.i = add nsw i64 %__holeIndex.addr.017.i.i.i, -1
   %__parent.018.i.i34.i = lshr i64 %__parent.018.in.i.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %__parent.018.i.i34.i
@@ -4226,13 +4229,13 @@ land.rhs.i.i.i:                                   ; preds = %if.end36.i.i, %whil
 
 while.body.i.i.i:                                 ; preds = %land.rhs.i.i.i
   %10 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %add.ptr.i8.i.i.i = getelementptr inbounds nuw ptr, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i
+  %add.ptr.i8.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.017.i.i.i
   store ptr %10, ptr %add.ptr.i8.i.i.i, align 8
   %cmp.i.i.not.i = icmp ult i64 %__parent.018.in.i.i.i, 2
   br i1 %cmp.i.i.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit, label %land.rhs.i.i.i, !llvm.loop !14
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPPKcSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIN7rocksdb12stl_wrappers7CompareEEEEvT_SF_SF_RT0_.exit: ; preds = %land.rhs.i.i.i, %while.body.i.i.i, %if.end36.i.i
-  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i, %if.end36.i.i ], [ %__holeIndex.addr.017.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i ]
+  %__holeIndex.addr.0.lcssa.i.i.i = phi i64 [ 0, %if.end36.i.i ], [ %__holeIndex.addr.017.i.i.i, %land.rhs.i.i.i ], [ 0, %while.body.i.i.i ]
   %add.ptr.i9.i.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i
   store ptr %0, ptr %add.ptr.i9.i.i.i, align 8
   %cmp = icmp sgt i64 %sub.ptr.sub.i.i, 8

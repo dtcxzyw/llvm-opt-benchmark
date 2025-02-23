@@ -224,7 +224,7 @@ Vec_VecStart.exit:                                ; preds = %.lr.ph.i, %Vec_VecA
 
 .lr.ph265:                                        ; preds = %.preheader, %.lr.ph265
   %.0170264 = phi i32 [ %15, %.lr.ph265 ], [ 0, %.preheader ]
-  tail call fastcc void @Vec_VecPushInt(ptr noundef %4, i32 noundef %.0170264, i32 noundef %.0170264)
+  tail call fastcc void @Vec_VecPushInt(ptr noundef nonnull %4, i32 noundef %.0170264, i32 noundef %.0170264)
   %15 = add nuw nsw i32 %.0170264, 1
   %exitcond290.not = icmp eq i32 %15, %1
   br i1 %exitcond290.not, label %._crit_edge, label %.lr.ph265, !llvm.loop !24

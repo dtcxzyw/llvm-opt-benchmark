@@ -954,7 +954,7 @@ hwloc_calc_check_object_filtered.exit.thread:     ; preds = %33, %28, %40, %hwlo
 
 .lr.ph59:                                         ; preds = %90, %.lr.ph59
   %.157 = phi ptr [ %.1, %.lr.ph59 ], [ %.155, %90 ]
-  tail call fastcc void @output_only(ptr noundef %0, ptr noundef nonnull %.157)
+  tail call fastcc void @output_only(ptr noundef nonnull %0, ptr noundef nonnull %.157)
   %92 = getelementptr inbounds nuw i8, ptr %.157, i64 88
   %.1 = load ptr, ptr %92, align 8, !tbaa !51
   %.not43 = icmp eq ptr %.1, null
@@ -987,7 +987,7 @@ thread-pre-split:                                 ; preds = %.lr.ph59, %90
 
 .lr.ph64:                                         ; preds = %101, %.lr.ph64
   %.262 = phi ptr [ %.2, %.lr.ph64 ], [ %.260, %101 ]
-  tail call fastcc void @output_only(ptr noundef %0, ptr noundef nonnull %.262)
+  tail call fastcc void @output_only(ptr noundef nonnull %0, ptr noundef nonnull %.262)
   %103 = getelementptr inbounds nuw i8, ptr %.262, i64 88
   %.2 = load ptr, ptr %103, align 8, !tbaa !51
   %.not45 = icmp eq ptr %.2, null
@@ -1012,7 +1012,7 @@ thread-pre-split49:                               ; preds = %.lr.ph64, %101
 
 .lr.ph69:                                         ; preds = %106, %.lr.ph69
   %.367 = phi ptr [ %.3, %.lr.ph69 ], [ %.365, %106 ]
-  tail call fastcc void @output_only(ptr noundef %0, ptr noundef nonnull %.367)
+  tail call fastcc void @output_only(ptr noundef nonnull %0, ptr noundef nonnull %.367)
   %108 = getelementptr inbounds nuw i8, ptr %.367, i64 88
   %.3 = load ptr, ptr %108, align 8, !tbaa !51
   %.not46 = icmp eq ptr %.3, null

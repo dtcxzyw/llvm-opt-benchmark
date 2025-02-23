@@ -571,7 +571,7 @@ define internal fastcc void @freeTree(ptr noundef captures(none) %0) unnamed_add
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  tail call void @free(ptr noundef %0) #14
+  tail call void @free(ptr noundef nonnull %0) #14
   ret void
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

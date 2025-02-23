@@ -3528,7 +3528,7 @@ define internal fastcc void @AndersenAcc(ptr noundef nonnull readonly captures(n
   %223 = getelementptr inbounds ptr, ptr %219, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !124
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %3, double noundef %218, ptr noundef %224, ptr noundef %3) #14
-  %225 = icmp sgt i64 %indvars.iv277, 1
+  %225 = icmp samesign ugt i64 %indvars.iv277, 1
   br i1 %225, label %.preheader, label %.loopexit, !llvm.loop !134
 
 .loopexit:                                        ; preds = %._crit_edge243, %.loopexit219, %36

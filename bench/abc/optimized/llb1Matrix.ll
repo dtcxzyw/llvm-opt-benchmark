@@ -337,8 +337,8 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
   %12 = sitofp i32 %.161 to double
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4, !tbaa !14
-  %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.preheader.us.us.preheader, label %._crit_edge101
+  %15 = icmp slt i32 %14, 1
+  br i1 %15, label %._crit_edge101, label %.preheader.us.us.preheader
 
 .preheader74.thread:                              ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -383,7 +383,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
   %spec.select72.us.us = tail call i32 @llvm.smax.i32(i32 %.0100.us.us, i32 %spec.select.us.us)
   %27 = add nuw nsw i32 %.06498.us.us, 1
   %exitcond151.not = icmp eq i32 %27, %14
-  br i1 %exitcond151.not, label %._crit_edge101, label %.preheader.us.us, !llvm.loop !31
+  br i1 %exitcond151.not, label %._crit_edge101.thread, label %.preheader.us.us, !llvm.loop !31
 
 28:                                               ; preds = %.lr.ph85, %59
   %indvars.iv133 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next134, %59 ]
@@ -436,7 +436,7 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %47 ], [ %.pre-phi, %._crit_edge ]
   %45 = trunc nuw i64 %indvars.iv130 to i32
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %47, label %.split.loop.exit159
+  br i1 %46, label %47, label %.split.loop.exit169
 
 47:                                               ; preds = %44
   %indvars.iv.next131 = add nsw i64 %indvars.iv130, -1
@@ -451,9 +451,9 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
 
 .split.loop.exit:                                 ; preds = %47
   %indvars.le = trunc i64 %indvars.iv.next131 to i32
-  br label %.split.loop.exit159
+  br label %.split.loop.exit169
 
-.split.loop.exit159:                              ; preds = %44, %.split.loop.exit
+.split.loop.exit169:                              ; preds = %44, %.split.loop.exit
   %.062.lcssa = phi i32 [ %indvars.le, %.split.loop.exit ], [ %43, %44 ]
   %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
   store i32 %.063.lcssa, ptr %55, align 4, !tbaa !15
@@ -463,44 +463,50 @@ define void @Llb_MtrPrintMatrixStats(ptr noundef readonly captures(none) %0) loc
   %58 = add i32 %57, %.062.lcssa
   br label %59
 
-59:                                               ; preds = %28, %.split.loop.exit159
-  %.161 = phi i32 [ %.06083, %28 ], [ %58, %.split.loop.exit159 ]
+59:                                               ; preds = %28, %.split.loop.exit169
+  %.161 = phi i32 [ %.06083, %28 ], [ %58, %.split.loop.exit169 ]
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %exitcond138.not = icmp eq i64 %indvars.iv.next134, %wide.trip.count137
   br i1 %exitcond138.not, label %.preheader74, label %28, !llvm.loop !34
 
-._crit_edge101:                                   ; preds = %._crit_edge96.us.us, %.preheader74.thread, %.preheader74
-  %60 = phi i32 [ %14, %.preheader74 ], [ %17, %.preheader74.thread ], [ %14, %._crit_edge96.us.us ]
-  %.060.lcssa153 = phi double [ %12, %.preheader74 ], [ 0.000000e+00, %.preheader74.thread ], [ %12, %._crit_edge96.us.us ]
-  %.058.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader74.thread ], [ %spec.select73.us.us, %._crit_edge96.us.us ]
-  %.0.lcssa = phi i32 [ 0, %.preheader74 ], [ 0, %.preheader74.thread ], [ %spec.select72.us.us, %._crit_edge96.us.us ]
+._crit_edge101:                                   ; preds = %.preheader74, %.preheader74.thread
+  %60 = phi i32 [ %14, %.preheader74 ], [ %17, %.preheader74.thread ]
+  %.060.lcssa153 = phi double [ %12, %.preheader74 ], [ 0.000000e+00, %.preheader74.thread ]
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %62, label %61
+  br i1 %.not, label %62, label %._crit_edge101.thread
 
-61:                                               ; preds = %._crit_edge101
+._crit_edge101.thread:                            ; preds = %._crit_edge96.us.us, %._crit_edge101
+  %.0.lcssa165 = phi i32 [ 0, %._crit_edge101 ], [ %spec.select72.us.us, %._crit_edge96.us.us ]
+  %.058.lcssa163 = phi i32 [ 0, %._crit_edge101 ], [ %spec.select73.us.us, %._crit_edge96.us.us ]
+  %.060.lcssa153161 = phi double [ %.060.lcssa153, %._crit_edge101 ], [ %12, %._crit_edge96.us.us ]
+  %61 = phi i32 [ %60, %._crit_edge101 ], [ %14, %._crit_edge96.us.us ]
   tail call void @free(ptr noundef nonnull %5) #19
   br label %62
 
-62:                                               ; preds = %._crit_edge101, %61
+62:                                               ; preds = %._crit_edge101, %._crit_edge101.thread
+  %.0.lcssa166 = phi i32 [ 0, %._crit_edge101 ], [ %.0.lcssa165, %._crit_edge101.thread ]
+  %.058.lcssa164 = phi i32 [ 0, %._crit_edge101 ], [ %.058.lcssa163, %._crit_edge101.thread ]
+  %.060.lcssa153162 = phi double [ %.060.lcssa153, %._crit_edge101 ], [ %.060.lcssa153161, %._crit_edge101.thread ]
+  %63 = phi i32 [ %60, %._crit_edge101 ], [ %61, %._crit_edge101.thread ]
   %.not70 = icmp eq ptr %6, null
-  br i1 %.not70, label %64, label %63
+  br i1 %.not70, label %65, label %64
 
-63:                                               ; preds = %62
+64:                                               ; preds = %62
   tail call void @free(ptr noundef nonnull %6) #19
-  br label %64
+  br label %65
 
-64:                                               ; preds = %62, %63
-  %65 = sitofp i32 %3 to double
-  %66 = fdiv double %.060.lcssa153, %65
-  %67 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %60, i32 noundef %3, double noundef %66, i32 noundef %.0.lcssa)
-  %.not71 = icmp eq i32 %.058.lcssa, 0
-  br i1 %.not71, label %69, label %68
+65:                                               ; preds = %62, %64
+  %66 = sitofp i32 %3 to double
+  %67 = fdiv double %.060.lcssa153162, %66
+  %68 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %63, i32 noundef %3, double noundef %67, i32 noundef %.0.lcssa166)
+  %.not71 = icmp eq i32 %.058.lcssa164, 0
+  br i1 %.not71, label %70, label %69
 
-68:                                               ; preds = %64
-  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr nonnull poison, i32 noundef %.058.lcssa)
-  br label %69
+69:                                               ; preds = %65
+  tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr nonnull poison, i32 noundef %.058.lcssa164)
+  br label %70
 
-69:                                               ; preds = %68, %64
+70:                                               ; preds = %69, %65
   ret void
 }
 

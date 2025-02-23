@@ -820,10 +820,10 @@ define hidden ptr @MuxImageDelete(ptr noundef %0) local_unnamed_addr #3 {
 define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
+  %.not19.i.i = icmp eq ptr %.pre.i, null
   br i1 %3, label %4, label %MuxImageCount.exit.i
 
 4:                                                ; preds = %2
-  %.not19.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph24.i.i
 
 .lr.ph24.i.i:                                     ; preds = %4, %.lr.ph24.i.i
@@ -833,25 +833,24 @@ define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) 
   %6 = getelementptr inbounds nuw i8, ptr %.01220.i.i, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %7, null
-  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !42
+  br i1 %.not.i.i, label %.lr.ph.preheader.i, label %.lr.ph24.i.i, !llvm.loop !42
 
-MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %2
-  %.018.i = phi i32 [ %1, %2 ], [ %5, %.lr.ph24.i.i ]
-  %.not25.i = icmp eq ptr %.pre.i, null
-  br i1 %.not25.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
+MuxImageCount.exit.i:                             ; preds = %2
+  br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %.not22.i8 = icmp eq i32 %.018.i, 1
+.lr.ph.preheader.i:                               ; preds = %.lr.ph24.i.i, %MuxImageCount.exit.i
+  %.01832.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %5, %.lr.ph24.i.i ]
+  %.not22.i8 = icmp eq i32 %.01832.i, 1
   br i1 %.not22.i8, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %8 = add i32 %9, 1
-  %.not22.i = icmp eq i32 %8, %.018.i
+  %.not22.i = icmp eq i32 %8, %.01832.i
   br i1 %.not22.i, label %SearchImageToGetOrDelete.exit.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %9 = phi i32 [ %8, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %10 = phi ptr [ %12, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+  %9 = phi i32 [ %8, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
+  %10 = phi ptr [ %12, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   %.not.i = icmp eq ptr %12, null
@@ -861,9 +860,9 @@ SearchImageToGetOrDelete.exit.loopexit:           ; preds = %.lr.ph.i
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 48
   br label %SearchImageToGetOrDelete.exit
 
-SearchImageToGetOrDelete.exit:                    ; preds = %SearchImageToGetOrDelete.exit.loopexit, %.lr.ph.i.preheader
-  %14 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %12, %SearchImageToGetOrDelete.exit.loopexit ]
-  %.03.lcssa = phi ptr [ %0, %.lr.ph.i.preheader ], [ %13, %SearchImageToGetOrDelete.exit.loopexit ]
+SearchImageToGetOrDelete.exit:                    ; preds = %SearchImageToGetOrDelete.exit.loopexit, %.lr.ph.preheader.i
+  %14 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %12, %SearchImageToGetOrDelete.exit.loopexit ]
+  %.03.lcssa = phi ptr [ %0, %.lr.ph.preheader.i ], [ %13, %SearchImageToGetOrDelete.exit.loopexit ]
   %15 = tail call ptr @MuxImageRelease(ptr noundef nonnull %14)
   tail call void @WebPSafeFree(ptr noundef nonnull %14) #13
   store ptr %15, ptr %.03.lcssa, align 8, !tbaa !43
@@ -878,10 +877,10 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #12 {
   %4 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8, !tbaa !43
+  %.not19.i.i = icmp eq ptr %.pre.i, null
   br i1 %4, label %5, label %MuxImageCount.exit.i
 
 5:                                                ; preds = %3
-  %.not19.i.i = icmp eq ptr %.pre.i, null
   br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph24.i.i
 
 .lr.ph24.i.i:                                     ; preds = %5, %.lr.ph24.i.i
@@ -891,32 +890,31 @@ define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(
   %7 = getelementptr inbounds nuw i8, ptr %.01220.i.i, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i, label %MuxImageCount.exit.i, label %.lr.ph24.i.i, !llvm.loop !42
+  br i1 %.not.i.i, label %.lr.ph.preheader.i, label %.lr.ph24.i.i, !llvm.loop !42
 
-MuxImageCount.exit.i:                             ; preds = %.lr.ph24.i.i, %3
-  %.018.i = phi i32 [ %1, %3 ], [ %6, %.lr.ph24.i.i ]
-  %.not25.i = icmp eq ptr %.pre.i, null
-  br i1 %.not25.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i.preheader
+MuxImageCount.exit.i:                             ; preds = %3
+  br i1 %.not19.i.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.preheader.i
 
-.lr.ph.i.preheader:                               ; preds = %MuxImageCount.exit.i
-  %.not22.i7 = icmp eq i32 %.018.i, 1
+.lr.ph.preheader.i:                               ; preds = %.lr.ph24.i.i, %MuxImageCount.exit.i
+  %.01832.i = phi i32 [ %1, %MuxImageCount.exit.i ], [ %6, %.lr.ph24.i.i ]
+  %.not22.i7 = icmp eq i32 %.01832.i, 1
   br i1 %.not22.i7, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
 .lr.ph.i:                                         ; preds = %.lr.ph
   %9 = add i32 %10, 1
-  %.not22.i = icmp eq i32 %9, %.018.i
+  %.not22.i = icmp eq i32 %9, %.01832.i
   br i1 %.not22.i, label %SearchImageToGetOrDelete.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %10 = phi i32 [ %9, %.lr.ph.i ], [ 1, %.lr.ph.i.preheader ]
-  %11 = phi ptr [ %13, %.lr.ph.i ], [ %.pre.i, %.lr.ph.i.preheader ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader.i, %.lr.ph.i
+  %10 = phi i32 [ %9, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
+  %11 = phi ptr [ %13, %.lr.ph.i ], [ %.pre.i, %.lr.ph.preheader.i ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !43
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %SearchImageToGetOrDelete.exit.thread, label %.lr.ph.i
 
-SearchImageToGetOrDelete.exit:                    ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %14 = phi ptr [ %.pre.i, %.lr.ph.i.preheader ], [ %13, %.lr.ph.i ]
+SearchImageToGetOrDelete.exit:                    ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %14 = phi ptr [ %.pre.i, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
   store ptr %14, ptr %2, align 8, !tbaa !43
   br label %SearchImageToGetOrDelete.exit.thread
 

@@ -13140,8 +13140,8 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.011.i9 = phi ptr [ %.0.i10.be, %.lr.ph ], [ %11, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw i8, ptr %.011.i9, i64 56
+  %.0.i10.be.sink = phi ptr [ %.0.i10.be, %.lr.ph ], [ %11, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i10.be.sink, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 7
@@ -13149,8 +13149,8 @@ define linkonce_odr dso_local void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPa
   %16 = and i64 %14, -8
   %17 = inttoptr i64 %16 to ptr
   %.0.i10.be = select i1 %.not.i5, ptr null, ptr %17
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_EraseSubtreeEPNS7_6_EntryE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.011.i9)
-  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_EraseFromTableEPNS7_6_EntryE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.011.i9)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13_EraseSubtreeEPNS7_6_EntryE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.0.i10.be.sink)
+  tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15_EraseFromTableEPNS7_6_EntryE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.0.i10.be.sink)
   %.not14.i = icmp eq ptr %.0.i10.be, null
   br i1 %.not14.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE24_EraseSubtreeAndSiblingsEPNS7_6_EntryE.exit, label %.lr.ph, !llvm.loop !55
 
@@ -13282,7 +13282,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 67:                                               ; preds = %.preheader.i
   %68 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 56
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %68, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6_Entry11RemoveChildEPS8_.exit
@@ -16492,7 +16492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 
 67:                                               ; preds = %.preheader.i
   %68 = getelementptr inbounds nuw i8, ptr %.0.i6, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %70 = load i64, ptr %69, align 8
   store i64 %70, ptr %68, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12SdfPathTableIiE6_Entry11RemoveChildEPS2_.exit

@@ -253,7 +253,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i.i
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %45 = load ptr, ptr %44, align 8
-  %46 = tail call i64 %45(ptr noundef %41, ptr noundef %30, ptr noundef %43) #11
+  %46 = tail call i64 %45(ptr noundef %41, ptr noundef nonnull %30, ptr noundef %43) #11
   %47 = load ptr, ptr %37, align 8
   %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv.i.i
   store i64 %46, ptr %48, align 8
@@ -1419,7 +1419,7 @@ define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv.i
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %72 = load ptr, ptr %71, align 8
-  %73 = tail call i64 %72(ptr noundef %68, ptr noundef %57, ptr noundef %70) #11
+  %73 = tail call i64 %72(ptr noundef %68, ptr noundef nonnull %57, ptr noundef %70) #11
   %74 = load ptr, ptr %64, align 8
   %75 = getelementptr inbounds nuw i64, ptr %74, i64 %indvars.iv.i
   store i64 %73, ptr %75, align 8
@@ -1475,7 +1475,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i8, ptr %108, align 4
   %110 = icmp eq i8 %109, 0
-  br i1 %110, label %.loopexit, label %.lr.ph.i.i
+  br i1 %110, label %.critedge.sink.split, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %prepare_probe_slot.exit, %119
   %111 = phi ptr [ %120, %119 ], [ %105, %prepare_probe_slot.exit ]
@@ -1492,7 +1492,7 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %.val20.i.i = load ptr, ptr %100, align 8
   %.val21.i.i = load ptr, ptr %117, align 8
   %118 = tail call fastcc zeroext i1 @MemoizeHash_equal(ptr %.val20.i.i, ptr %.val21.i.i)
-  br i1 %118, label %.loopexit, label %._crit_edge8.i.i
+  br i1 %118, label %.critedge.sink.split, label %._crit_edge8.i.i
 
 ._crit_edge8.i.i:                                 ; preds = %116
   %.val19.pre.i.i = load i32, ptr %102, align 4
@@ -1509,15 +1509,15 @@ prepare_probe_slot.exit:                          ; preds = %._crit_edge.i, %slo
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 20
   %126 = load i8, ptr %125, align 4
   %127 = icmp eq i8 %126, 0
-  br i1 %127, label %.loopexit, label %.lr.ph.i.i
+  br i1 %127, label %.critedge.sink.split, label %.lr.ph.i.i
 
-.loopexit:                                        ; preds = %119, %116, %prepare_probe_slot.exit
-  %.1.ph.i.i = phi ptr [ null, %prepare_probe_slot.exit ], [ null, %119 ], [ %112, %116 ]
-  store ptr %.1.ph.i.i, ptr %3, align 8
+.critedge.sink.split:                             ; preds = %116, %119, %prepare_probe_slot.exit
+  %.sink = phi ptr [ null, %prepare_probe_slot.exit ], [ %112, %116 ], [ null, %119 ]
+  store ptr %.sink, ptr %3, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %29, %41, %.loopexit, %35
-  %.1 = phi i1 [ false, %35 ], [ true, %.loopexit ], [ true, %41 ], [ true, %29 ]
+.critedge:                                        ; preds = %.critedge.sink.split, %29, %41, %35
+  %.1 = phi i1 [ false, %35 ], [ true, %41 ], [ true, %29 ], [ true, %.critedge.sink.split ]
   ret i1 %.1
 }
 

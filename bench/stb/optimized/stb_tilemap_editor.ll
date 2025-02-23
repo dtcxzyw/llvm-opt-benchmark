@@ -8208,7 +8208,7 @@ stbte__should_copy_properties.exit:               ; preds = %19, %.lr.ph.i, %23,
   br i1 %59, label %.lr.ph45.split, label %.loopexit34
 
 .loopexit:                                        ; preds = %.lr.ph41, %.lr.ph45.split
-  %60 = icmp sgt i32 %.03043.in, 1
+  %60 = icmp samesign ugt i32 %.03043.in, 1
   br i1 %60, label %.lr.ph45.splitthread-pre-split, label %.loopexit34, !llvm.loop !174
 
 .lr.ph45.splitthread-pre-split:                   ; preds = %.loopexit

@@ -2017,7 +2017,7 @@ pmix_obj_update.exit:                             ; preds = %808
 .lr.ph.i756:                                      ; preds = %820, %.lr.ph.i756
   %826 = phi ptr [ %828, %.lr.ph.i756 ], [ %825, %820 ]
   %.07.i757 = phi ptr [ %827, %.lr.ph.i756 ], [ %824, %820 ]
-  call void %826(ptr noundef %810) #23
+  call void %826(ptr noundef nonnull %810) #23
   %827 = getelementptr inbounds nuw i8, ptr %.07.i757, i64 8
   %828 = load ptr, ptr %827, align 8, !tbaa !21
   %.not.i758 = icmp eq ptr %828, null
@@ -3725,7 +3725,7 @@ define internal fastcc range(i32 -6, 1) i32 @prep_singleton(ptr noundef nonnull 
 pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %12, %13
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 168
   tail call void @PMIx_Load_nspace(ptr noundef nonnull %24, ptr noundef nonnull %3) #23
-  tail call void @free(ptr noundef %3) #23
+  tail call void @free(ptr noundef nonnull %3) #23
   %25 = load ptr, ptr @prte_default_session, align 8, !tbaa !21
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 440
   store ptr %25, ptr %26, align 8, !tbaa !151
@@ -4036,7 +4036,7 @@ pmix_obj_update.exit65:                           ; preds = %pmix_obj_new_tma.ex
   %176 = call i32 @pmix_pointer_array_set_item(ptr noundef nonnull %175, i32 noundef %66, ptr noundef nonnull %143) #23
   %177 = getelementptr inbounds nuw i8, ptr %68, i64 316
   store i32 %66, ptr %177, align 4, !tbaa !172
-  %178 = call i32 @pthread_mutex_lock(ptr noundef %.0.i) #23
+  %178 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0.i) #23
   %179 = icmp eq i32 %178, 35
   br i1 %179, label %180, label %pmix_obj_update.exit66
 
@@ -4051,7 +4051,7 @@ pmix_obj_update.exit66:                           ; preds = %pmix_obj_update.exi
   %182 = load i32, ptr %130, align 8, !tbaa !19
   %183 = add nsw i32 %182, 1
   store i32 %183, ptr %130, align 8, !tbaa !19
-  %184 = call i32 @pthread_mutex_unlock(ptr noundef %.0.i) #23
+  %184 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %.0.i) #23
   %185 = getelementptr inbounds nuw i8, ptr %143, i64 440
   store ptr %.0.i, ptr %185, align 8, !tbaa !173
   %186 = getelementptr inbounds nuw i8, ptr %8, i64 472
@@ -4390,7 +4390,7 @@ pmix_obj_update.exit18:                           ; preds = %28
 .lr.ph.i21:                                       ; preds = %42, %.lr.ph.i21
   %48 = phi ptr [ %50, %.lr.ph.i21 ], [ %47, %42 ]
   %.07.i22 = phi ptr [ %49, %.lr.ph.i21 ], [ %46, %42 ]
-  tail call void %48(ptr noundef %32) #23
+  tail call void %48(ptr noundef nonnull %32) #23
   %49 = getelementptr inbounds nuw i8, ptr %.07.i22, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !21
   %.not.i23 = icmp eq ptr %50, null

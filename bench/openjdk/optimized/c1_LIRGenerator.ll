@@ -1063,7 +1063,7 @@ _ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo.exit: ; preds = %._ZN8LIR_List4move
   %157 = sext i32 %155 to i64
   %158 = getelementptr inbounds ptr, ptr %154, i64 %157
   store ptr %.0.i.i.i.i, ptr %158, align 8
-  %159 = icmp sgt i64 %indvars.iv30, 1
+  %159 = icmp samesign ugt i64 %indvars.iv30, 1
   br i1 %159, label %39, label %.loopexit, !llvm.loop !12
 
 ._crit_edge28:                                    ; preds = %.loopexit, %._crit_edge
@@ -24798,8 +24798,7 @@ _ZN11Compilation17profile_argumentsEv.exit:       ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(16) %22) #17
-  %..i = select i1 %32, ptr %22, ptr null
-  %33 = getelementptr inbounds nuw i8, ptr %..i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
@@ -24819,12 +24818,11 @@ _ZN11Compilation17profile_argumentsEv.exit:       ; preds = %12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(16) %22) #17
-  %..i63 = select i1 %48, ptr %22, ptr null
   %49 = load i64, ptr @TypeProfileWidth, align 8
   %50 = trunc i64 %49 to i32
   %51 = shl i32 %50, 1
   %52 = or disjoint i32 %51, 1
-  %53 = getelementptr inbounds nuw i8, ptr %..i63, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = sext i32 %52 to i64

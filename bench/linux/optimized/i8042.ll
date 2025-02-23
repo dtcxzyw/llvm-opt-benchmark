@@ -1242,10 +1242,9 @@ i8042_create_aux_port.exit:                       ; preds = %235, %212, %248, %.
   switch i32 %252, label %.thread32 [
     i32 -16, label %.thread27
     i32 -19, label %.thread27
-    i32 0, label %.thread27
   ]
 
-.thread27:                                        ; preds = %.thread24, %187, %247, %259, %259, %259, %85
+.thread27:                                        ; preds = %.thread24, %187, %247, %259, %259, %85
   %260 = load i8, ptr @i8042_nokbd, align 1, !range !5, !noundef !6
   %261 = icmp eq i8 %260, 0
   br i1 %261, label %262, label %.preheader

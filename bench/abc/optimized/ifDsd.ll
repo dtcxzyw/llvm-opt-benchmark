@@ -2632,7 +2632,7 @@ define void @If_DsdManDumpAll(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   %8 = getelementptr i8, ptr %0, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 6)
+  %11 = tail call i32 @llvm.umax.i32(i32 %1, i32 6)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %15
 
@@ -3639,7 +3639,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %.critedg
   %or.cond.i.i = icmp ult i32 %23, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %22
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
-  br i1 %.not.i.i, label %Vec_IntStart.exit, label %Vec_IntAlloc.exit.i
+  br i1 %.not.i.i, label %.lr.ph103, label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.i:                              ; preds = %2, %Abc_Base10Log.exit
   %spec.store.select.i.i144 = phi i32 [ %spec.store.select.i.i, %Abc_Base10Log.exit ], [ 16, %2 ]
@@ -3658,21 +3658,21 @@ Vec_IntAlloc.exit.i:                              ; preds = %2, %Abc_Base10Log.e
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %27, i8 0, i64 %30, i1 false)
   br label %Vec_IntStart.exit
 
-Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit, %Vec_IntAlloc.exit.i, %28
-  %31 = phi i32 [ %24, %Vec_IntAlloc.exit.i ], [ %24, %28 ], [ %22, %Abc_Base10Log.exit ]
-  %.073.lcssa132142 = phi i32 [ %.073.lcssa132143, %Vec_IntAlloc.exit.i ], [ %.073.lcssa132143, %28 ], [ %15, %Abc_Base10Log.exit ]
-  %.072.lcssa133140 = phi double [ %.072.lcssa133141, %Vec_IntAlloc.exit.i ], [ %.072.lcssa133141, %28 ], [ %16, %Abc_Base10Log.exit ]
-  %32 = phi ptr [ null, %Vec_IntAlloc.exit.i ], [ %27, %28 ], [ null, %Abc_Base10Log.exit ]
+Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i, %28
   br i1 %5, label %.lr.ph103, label %.critedge2
 
-.lr.ph103:                                        ; preds = %Vec_IntStart.exit
+.lr.ph103:                                        ; preds = %Abc_Base10Log.exit, %Vec_IntStart.exit
+  %31 = phi ptr [ %27, %Vec_IntStart.exit ], [ null, %Abc_Base10Log.exit ]
+  %.072.lcssa133140150 = phi double [ %.072.lcssa133141, %Vec_IntStart.exit ], [ %16, %Abc_Base10Log.exit ]
+  %.073.lcssa132142148 = phi i32 [ %.073.lcssa132143, %Vec_IntStart.exit ], [ %15, %Abc_Base10Log.exit ]
+  %32 = phi i32 [ %24, %Vec_IntStart.exit ], [ %22, %Abc_Base10Log.exit ]
   %33 = getelementptr i8, ptr %1, i64 48
   %.val79 = load ptr, ptr %33, align 8, !tbaa !23
-  %invariant.gep = getelementptr inbounds nuw i8, ptr %32, i64 200
-  %invariant.gep148 = getelementptr inbounds nuw i8, ptr %32, i64 160
-  %invariant.gep150 = getelementptr inbounds nuw i8, ptr %32, i64 120
-  %invariant.gep152 = getelementptr inbounds nuw i8, ptr %32, i64 80
-  %invariant.gep154 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %invariant.gep = getelementptr inbounds nuw i8, ptr %31, i64 200
+  %invariant.gep154 = getelementptr inbounds nuw i8, ptr %31, i64 160
+  %invariant.gep156 = getelementptr inbounds nuw i8, ptr %31, i64 120
+  %invariant.gep158 = getelementptr inbounds nuw i8, ptr %31, i64 80
+  %invariant.gep160 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %.val77 = load i32, ptr %4, align 4, !tbaa !20
   %34 = sext i32 %.val77 to i64
   br label %35
@@ -3690,7 +3690,7 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
 
 43:                                               ; preds = %35
   %44 = zext nneg i32 %41 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %32, i64 %44
+  %45 = getelementptr inbounds nuw i32, ptr %31, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !40
   %47 = add nsw i32 %46, 1
   store i32 %47, ptr %45, align 4, !tbaa !40
@@ -3704,10 +3704,10 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
   %.lhs.trunc = trunc i32 %40 to i8
   %51 = udiv i8 %.lhs.trunc, 10
   %52 = zext nneg i8 %51 to i64
-  %gep155 = getelementptr inbounds nuw i32, ptr %invariant.gep154, i64 %52
-  %53 = load i32, ptr %gep155, align 4, !tbaa !40
+  %gep161 = getelementptr inbounds nuw i32, ptr %invariant.gep160, i64 %52
+  %53 = load i32, ptr %gep161, align 4, !tbaa !40
   %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %gep155, align 4, !tbaa !40
+  store i32 %54, ptr %gep161, align 4, !tbaa !40
   br label %81
 
 55:                                               ; preds = %48
@@ -3718,10 +3718,10 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
   %.lhs.trunc92 = trunc i32 %40 to i16
   %58 = udiv i16 %.lhs.trunc92, 100
   %59 = zext nneg i16 %58 to i64
-  %gep153 = getelementptr inbounds nuw i32, ptr %invariant.gep152, i64 %59
-  %60 = load i32, ptr %gep153, align 4, !tbaa !40
+  %gep159 = getelementptr inbounds nuw i32, ptr %invariant.gep158, i64 %59
+  %60 = load i32, ptr %gep159, align 4, !tbaa !40
   %61 = add nsw i32 %60, 1
-  store i32 %61, ptr %gep153, align 4, !tbaa !40
+  store i32 %61, ptr %gep159, align 4, !tbaa !40
   br label %81
 
 62:                                               ; preds = %55
@@ -3732,10 +3732,10 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
   %.lhs.trunc94 = trunc i32 %40 to i16
   %65 = udiv i16 %.lhs.trunc94, 1000
   %66 = zext nneg i16 %65 to i64
-  %gep151 = getelementptr inbounds nuw i32, ptr %invariant.gep150, i64 %66
-  %67 = load i32, ptr %gep151, align 4, !tbaa !40
+  %gep157 = getelementptr inbounds nuw i32, ptr %invariant.gep156, i64 %66
+  %67 = load i32, ptr %gep157, align 4, !tbaa !40
   %68 = add nsw i32 %67, 1
-  store i32 %68, ptr %gep151, align 4, !tbaa !40
+  store i32 %68, ptr %gep157, align 4, !tbaa !40
   br label %81
 
 69:                                               ; preds = %62
@@ -3745,10 +3745,10 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
 71:                                               ; preds = %69
   %72 = udiv i32 %41, 10000
   %73 = zext nneg i32 %72 to i64
-  %gep149 = getelementptr inbounds nuw i32, ptr %invariant.gep148, i64 %73
-  %74 = load i32, ptr %gep149, align 4, !tbaa !40
+  %gep155 = getelementptr inbounds nuw i32, ptr %invariant.gep154, i64 %73
+  %74 = load i32, ptr %gep155, align 4, !tbaa !40
   %75 = add nsw i32 %74, 1
-  store i32 %75, ptr %gep149, align 4, !tbaa !40
+  store i32 %75, ptr %gep155, align 4, !tbaa !40
   br label %81
 
 76:                                               ; preds = %69
@@ -3766,80 +3766,84 @@ Vec_IntStart.exit:                                ; preds = %Abc_Base10Log.exit,
   br i1 %82, label %35, label %.critedge2, !llvm.loop !151
 
 .critedge2:                                       ; preds = %81, %Vec_IntStart.exit
-  %83 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 40, i64 1, ptr %0)
-  %84 = icmp sgt i32 %31, 0
-  br i1 %84, label %.lr.ph107, label %._crit_edge
+  %83 = phi ptr [ %27, %Vec_IntStart.exit ], [ %31, %81 ]
+  %.072.lcssa133140149 = phi double [ %.072.lcssa133141, %Vec_IntStart.exit ], [ %.072.lcssa133140150, %81 ]
+  %.073.lcssa132142147 = phi i32 [ %.073.lcssa132143, %Vec_IntStart.exit ], [ %.073.lcssa132142148, %81 ]
+  %84 = phi i32 [ %24, %Vec_IntStart.exit ], [ %32, %81 ]
+  %85 = tail call i64 @fwrite(ptr nonnull @.str.29, i64 40, i64 1, ptr %0)
+  %86 = icmp sgt i32 %84, 0
+  br i1 %86, label %.lr.ph107, label %._crit_edge
 
 .lr.ph107:                                        ; preds = %.critedge2
-  %wide.trip.count117 = zext nneg i32 %31 to i64
-  br label %85
+  %wide.trip.count117 = zext nneg i32 %84 to i64
+  br label %87
 
-85:                                               ; preds = %.lr.ph107, %118
-  %indvars.iv114 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next115, %118 ]
-  %.0106 = phi i32 [ 0, %.lr.ph107 ], [ %.1, %118 ]
-  %86 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv114
-  %87 = load i32, ptr %86, align 4, !tbaa !40
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %118, label %89
+87:                                               ; preds = %.lr.ph107, %120
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next115, %120 ]
+  %.0106 = phi i32 [ 0, %.lr.ph107 ], [ %.1, %120 ]
+  %88 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv114
+  %89 = load i32, ptr %88, align 4, !tbaa !40
+  %90 = icmp eq i32 %89, 0
+  br i1 %90, label %120, label %91
 
-89:                                               ; preds = %85
-  %90 = icmp samesign ult i64 %indvars.iv114, 10
-  %91 = trunc nuw nsw i64 %indvars.iv114 to i32
-  br i1 %90, label %92, label %94
+91:                                               ; preds = %87
+  %92 = icmp samesign ult i64 %indvars.iv114, 10
+  %93 = trunc nuw nsw i64 %indvars.iv114 to i32
+  br i1 %92, label %94, label %96
 
-92:                                               ; preds = %89
-  %93 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %91) #39
-  br label %108
+94:                                               ; preds = %91
+  %95 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.30, i32 noundef %93) #39
+  br label %110
 
-94:                                               ; preds = %89
-  %95 = udiv i32 %91, 10
-  %96 = uitofp nneg i32 %95 to double
-  %97 = call double @pow(double noundef 1.000000e+01, double noundef %96) #39, !tbaa !40
-  %98 = fptosi double %97 to i32
-  %99 = urem i32 %91, 10
-  %100 = mul nsw i32 %99, %98
-  %101 = call double @pow(double noundef 1.000000e+01, double noundef %96) #39, !tbaa !40
-  %102 = fptosi double %101 to i32
-  %103 = add nuw nsw i32 %99, 1
-  %104 = mul nsw i32 %103, %102
-  %105 = add nsw i32 %104, -1
-  %106 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %100, i32 noundef %105) #39
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #39
-  br label %108
+96:                                               ; preds = %91
+  %97 = udiv i32 %93, 10
+  %98 = uitofp nneg i32 %97 to double
+  %99 = call double @pow(double noundef 1.000000e+01, double noundef %98) #39, !tbaa !40
+  %100 = fptosi double %99 to i32
+  %101 = urem i32 %93, 10
+  %102 = mul nsw i32 %101, %100
+  %103 = call double @pow(double noundef 1.000000e+01, double noundef %98) #39, !tbaa !40
+  %104 = fptosi double %103 to i32
+  %105 = add nuw nsw i32 %101, 1
+  %106 = mul nsw i32 %105, %104
+  %107 = add nsw i32 %106, -1
+  %108 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %102, i32 noundef %107) #39
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.32, ptr noundef nonnull %3) #39
+  br label %110
 
-108:                                              ; preds = %94, %92
-  %109 = load i32, ptr %86, align 4, !tbaa !40
-  %110 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %109) #39
-  %111 = load i32, ptr %86, align 4, !tbaa !40
-  %112 = add nsw i32 %111, %.0106
-  %113 = sitofp i32 %112 to double
-  %114 = fmul double %113, 1.000000e+02
+110:                                              ; preds = %96, %94
+  %111 = load i32, ptr %88, align 4, !tbaa !40
+  %112 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.33, i32 noundef %111) #39
+  %113 = load i32, ptr %88, align 4, !tbaa !40
+  %114 = add nsw i32 %113, %.0106
+  %115 = sitofp i32 %114 to double
+  %116 = fmul double %115, 1.000000e+02
   %.val76 = load i32, ptr %4, align 4, !tbaa !20
-  %115 = sitofp i32 %.val76 to double
-  %116 = fdiv double %114, %115
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, double noundef %116) #39
+  %117 = sitofp i32 %.val76 to double
+  %118 = fdiv double %116, %117
+  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.34, double noundef %118) #39
   %fputc = call i32 @fputc(i32 10, ptr %0)
-  br label %118
+  br label %120
 
-118:                                              ; preds = %85, %108
-  %.1 = phi i32 [ %.0106, %85 ], [ %112, %108 ]
+120:                                              ; preds = %87, %110
+  %.1 = phi i32 [ %.0106, %87 ], [ %114, %110 ]
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
-  br i1 %exitcond118.not, label %._crit_edge.thread, label %85, !llvm.loop !152
+  br i1 %exitcond118.not, label %._crit_edge.thread, label %87, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %.critedge2
-  %.not.i91 = icmp eq ptr %32, null
+  %.not.i91 = icmp eq ptr %83, null
   br i1 %.not.i91, label %Vec_IntFree.exit, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %118, %._crit_edge
-  call void @free(ptr noundef nonnull %32) #39
+._crit_edge.thread:                               ; preds = %120, %._crit_edge
+  call void @free(ptr noundef nonnull %83) #39
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %._crit_edge, %._crit_edge.thread
   %.val = load i32, ptr %4, align 4, !tbaa !20
-  %119 = sitofp i32 %.val to double
-  %120 = fdiv double %.072.lcssa133140, %119
-  %121 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.073.lcssa132142, double noundef %120) #39
+  %121 = sitofp i32 %.val to double
+  %122 = fdiv double %.072.lcssa133140149, %121
+  %123 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %.073.lcssa132142147, double noundef %122) #39
   call void @llvm.lifetime.end.p0(i64 100, ptr nonnull %3) #39
   ret void
 }
@@ -8277,7 +8281,7 @@ Abc_TtConst1.exit:                                ; preds = %.lr.ph.preheader.i1
 .lr.ph186:                                        ; preds = %.lr.ph156, %61
   %64 = phi i32 [ %63, %61 ], [ %60, %.lr.ph156 ]
   %indvars.iv167185 = phi i64 [ %indvars.iv.next168, %61 ], [ 0, %.lr.ph156 ]
-  call void @If_DsdManComputeTruth_rec(ptr noundef %0, i32 noundef %64, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
+  call void @If_DsdManComputeTruth_rec(ptr noundef nonnull %0, i32 noundef %64, ptr noundef nonnull %6, ptr noundef %3, ptr noundef %4)
   %.val91 = load i32, ptr %15, align 4
   %65 = and i32 %.val91, 7
   %66 = icmp eq i32 %65, 3
@@ -8962,8 +8966,8 @@ define i32 @If_DsdManOperation(ptr noundef %0, i32 noundef %1, ptr noundef captu
   %18 = load i32, ptr %17, align 4, !tbaa !40
   %19 = and i32 %18, 1
   %.not240 = icmp ne i32 %19, 0
-  %or.cond485.not = select i1 %12, i1 %.not240, i1 false
-  br i1 %or.cond485.not, label %20, label %._crit_edge454
+  %or.cond486.not = select i1 %12, i1 %.not240, i1 false
+  br i1 %or.cond486.not, label %20, label %._crit_edge454
 
 20:                                               ; preds = %16
   %21 = and i32 %18, -2
@@ -9458,8 +9462,8 @@ If_DsdManPushInv.exit264:                         ; preds = %196, %204, %206
   br label %237
 
 .preheader286:                                    ; preds = %._crit_edge
-  %.not486 = icmp eq i32 %234, 0
-  br i1 %.not486, label %._crit_edge296, label %.lr.ph295.preheader
+  %.not487 = icmp eq i32 %234, 0
+  br i1 %.not487, label %._crit_edge296, label %.lr.ph295.preheader
 
 .lr.ph295.preheader:                              ; preds = %.preheader286
   %236 = zext nneg i32 %234 to i64
@@ -9528,7 +9532,7 @@ If_DsdManPushInv.exit273:                         ; preds = %237, %256, %258
   br i1 %exitcond.not, label %.preheader286, label %237, !llvm.loop !210
 
 ._crit_edge296:                                   ; preds = %216, %.lr.ph295.preheader, %.preheader286
-  %.5.lcssa480 = phi i32 [ %3, %.lr.ph295.preheader ], [ %3, %.preheader286 ], [ 0, %216 ]
+  %.5.lcssa481 = phi i32 [ %3, %.lr.ph295.preheader ], [ %3, %.preheader286 ], [ 0, %216 ]
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %271 = load i32, ptr %270, align 8, !tbaa !19
   %272 = icmp eq i32 %3, %271
@@ -9582,7 +9586,7 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i, %
 
 .loopexit:                                        ; preds = %If_DsdManPushInv.exit264, %.preheader279, %.lr.ph351.preheader, %194, %.preheader, %112, %Abc_TtStretch6.exit
   %.2226 = phi i32 [ %219, %Abc_TtStretch6.exit ], [ 0, %112 ], [ %.1225, %.preheader ], [ %.3227, %194 ], [ %.1225, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %.3227, %If_DsdManPushInv.exit264 ]
-  %.3 = phi i32 [ %.5.lcssa480, %Abc_TtStretch6.exit ], [ 0, %112 ], [ %.2207, %.preheader ], [ 0, %194 ], [ %.2207, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %3, %If_DsdManPushInv.exit264 ]
+  %.3 = phi i32 [ %.5.lcssa481, %Abc_TtStretch6.exit ], [ 0, %112 ], [ %.2207, %.preheader ], [ 0, %194 ], [ %.2207, %.lr.ph351.preheader ], [ 0, %.preheader279 ], [ %3, %If_DsdManPushInv.exit264 ]
   %291 = call i32 @If_DsdObjFindOrAdd(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %8, i32 noundef %.3, ptr noundef %5)
   %292 = shl nsw i32 %291, 1
   %293 = add nuw nsw i32 %292, %.2226
@@ -9677,7 +9681,7 @@ define i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 .lr.ph:                                           ; preds = %40, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %40 ]
-  %42 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %42 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = getelementptr inbounds nuw [12 x i32], ptr %8, i64 0, i64 %indvars.iv
   store i32 %42, ptr %43, align 4, !tbaa !40
@@ -9912,7 +9916,7 @@ Abc_TtReadHex.exit:                               ; preds = %._crit_edge55.i, %.
 
 .lr.ph96:                                         ; preds = %Abc_TtReadHex.exit, %.lr.ph96
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph96 ], [ 0, %Abc_TtReadHex.exit ]
-  %143 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
+  %143 = tail call i32 @If_DsdManAddDsd_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull %6)
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %144 = getelementptr inbounds nuw [12 x i32], ptr %10, i64 0, i64 %indvars.iv101
   store i32 %143, ptr %144, align 4, !tbaa !40
@@ -10352,7 +10356,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %77, %75
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds ptr, ptr %.val.i135.pre, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !24
-  %97 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %96, ptr noundef nonnull %17)
+  %97 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %96, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17)
   %98 = getelementptr inbounds nuw [12 x i32], ptr %19, i64 0, i64 %indvars.iv216
   %99 = load i32, ptr %98, align 4, !tbaa !40
@@ -10366,7 +10370,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %77, %75
   %104 = sext i32 %103 to i64
   %105 = getelementptr inbounds ptr, ptr %.val.i136, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !24
-  %107 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %106, ptr noundef nonnull %16)
+  %107 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %106, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   %108 = or i32 %107, %97
   %109 = and i32 %108, %2
@@ -10552,7 +10556,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %160, %158
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds ptr, ptr %.val.i147.pre, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !24
-  %180 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %179, ptr noundef nonnull %15)
+  %180 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %179, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15)
   %181 = load i32, ptr %145, align 4, !tbaa !40
   %182 = add nsw i32 %181, %1
@@ -10564,7 +10568,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %160, %158
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds ptr, ptr %.val.i148, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !24
-  %188 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %187, ptr noundef nonnull %14)
+  %188 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %187, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14)
   %189 = or i32 %188, %180
   %190 = getelementptr inbounds nuw [12 x i32], ptr %19, i64 0, i64 %indvars.iv241
@@ -10579,7 +10583,7 @@ If_DsdManComputeFirst.exit146:                    ; preds = %160, %158
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds ptr, ptr %.val.i149, i64 %196
   %198 = load ptr, ptr %197, align 8, !tbaa !24
-  %199 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %198, ptr noundef nonnull %13)
+  %199 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %198, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   %200 = or i32 %189, %199
   %201 = and i32 %200, %2
@@ -10812,7 +10816,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds ptr, ptr %.val.i160.pre, i64 %281
   %283 = load ptr, ptr %282, align 8, !tbaa !24
-  %284 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %283, ptr noundef nonnull %12)
+  %284 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %283, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %285 = load i32, ptr %239, align 4, !tbaa !40
   %286 = add nsw i32 %285, %1
@@ -10824,7 +10828,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %289 = sext i32 %288 to i64
   %290 = getelementptr inbounds ptr, ptr %.val.i161, i64 %289
   %291 = load ptr, ptr %290, align 8, !tbaa !24
-  %292 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %291, ptr noundef nonnull %11)
+  %292 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %291, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %293 = or i32 %292, %284
   %294 = load i32, ptr %249, align 4, !tbaa !40
@@ -10837,7 +10841,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds ptr, ptr %.val.i162, i64 %298
   %300 = load ptr, ptr %299, align 8, !tbaa !24
-  %301 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %300, ptr noundef nonnull %10)
+  %301 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %300, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %302 = or i32 %293, %301
   %303 = getelementptr inbounds nuw [12 x i32], ptr %19, i64 0, i64 %indvars.iv285
@@ -10852,7 +10856,7 @@ If_DsdManComputeFirst.exit159:                    ; preds = %264, %262
   %309 = sext i32 %308 to i64
   %310 = getelementptr inbounds ptr, ptr %.val.i163, i64 %309
   %311 = load ptr, ptr %310, align 8, !tbaa !24
-  %312 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %311, ptr noundef nonnull %9)
+  %312 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %311, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %313 = or i32 %302, %312
   %314 = and i32 %313, %2
@@ -10999,7 +11003,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %.If_DsdManComputeFi
   %63 = sext i32 %62 to i64
   %64 = getelementptr inbounds ptr, ptr %.val.i43, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !24
-  %66 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %65, ptr noundef nonnull %12)
+  %66 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %65, ptr noundef nonnull %12)
   %67 = shl i32 %66, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
   %68 = add nsw i32 %57, %1
@@ -11012,7 +11016,7 @@ If_DsdManComputeFirst.exit:                       ; preds = %.If_DsdManComputeFi
   %72 = sext i32 %71 to i64
   %73 = getelementptr inbounds ptr, ptr %.val.i44, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !24
-  %75 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %74, ptr noundef nonnull %11)
+  %75 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %74, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   %76 = or i32 %67, %75
   %77 = or i32 %76, %66
@@ -11085,7 +11089,7 @@ If_DsdManComputeFirst.exit54:                     ; preds = %.If_DsdManComputeFi
   %105 = sext i32 %104 to i64
   %106 = getelementptr inbounds ptr, ptr %.val.i55, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !24
-  %108 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %107, ptr noundef nonnull %10)
+  %108 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %107, ptr noundef nonnull %10)
   %109 = shl i32 %108, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10)
   %110 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -11100,7 +11104,7 @@ If_DsdManComputeFirst.exit54:                     ; preds = %.If_DsdManComputeFi
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds ptr, ptr %.val.i56, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !24
-  %119 = call i32 @If_DsdSign_rec(ptr noundef readonly %0, ptr noundef %118, ptr noundef nonnull %9)
+  %119 = call i32 @If_DsdSign_rec(ptr noundef nonnull readonly %0, ptr noundef %118, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
   %120 = or i32 %109, %119
   %121 = or i32 %120, %108
@@ -12594,7 +12598,7 @@ If_CutPinDelayMax.exit.i:                         ; preds = %207
 
 .loopexit.i:                                      ; preds = %.lr.ph.i113, %If_CutPinDelayMax.exit.i, %209
   %.2.i = phi i32 [ %.175.i, %209 ], [ %216, %If_CutPinDelayMax.exit.i ], [ %216, %.lr.ph.i113 ]
-  %226 = icmp sgt i32 %.06674.i, 1
+  %226 = icmp samesign ugt i32 %.06674.i, 1
   br i1 %226, label %.preheader.split.i, label %If_LogCounterPinDelays.exit, !llvm.loop !244
 
 If_LogCounterPinDelays.exit:                      ; preds = %.preheader.split.i, %.loopexit.i, %.preheader.split.us.i, %.loopexit.us.i, %.lr.ph188
@@ -13187,7 +13191,7 @@ If_DsdObjTruthId.exit:                            ; preds = %82, %89
 
 .loopexit.i:                                      ; preds = %.lr.ph.split.us.i, %164, %163
   %.2.i = phi i32 [ %.181.i, %163 ], [ %166, %164 ], [ %166, %.lr.ph.split.us.i ]
-  %173 = icmp sgt i32 %.07180.i, 1
+  %173 = icmp samesign ugt i32 %.07180.i, 1
   br i1 %173, label %.preheader.i, label %If_LogCounterAddAig.exit, !llvm.loop !269
 
 If_LogCounterAddAig.exit:                         ; preds = %.preheader.i, %.loopexit.i, %.split116
@@ -13402,7 +13406,7 @@ define internal fastcc i32 @If_LogCounterAddAig(ptr noundef nonnull captures(non
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.thread, %50, %26, %27
   %.2 = phi i32 [ %.181, %27 ], [ %.181, %26 ], [ %51, %50 ], [ %54, %.thread ], [ %51, %.lr.ph.split.us ], [ %54, %.lr.ph.split ]
-  %69 = icmp sgt i32 %.07180, 1
+  %69 = icmp samesign ugt i32 %.07180, 1
   br i1 %69, label %15, label %.loopexit78, !llvm.loop !269
 
 .loopexit78:                                      ; preds = %.loopexit, %15, %._crit_edge
@@ -14966,10 +14970,10 @@ Vec_WrdFillExtra.exit:                            ; preds = %._crit_edge.i, %110
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph205
 
-.preheader198:                                    ; preds = %.lr.ph205
+.preheader198.split.us.preheader:                 ; preds = %.lr.ph205
   %156 = getelementptr i8, ptr %0, i64 48
-  %.not.i182 = icmp eq ptr %.fr, null
-  %.not166.not = icmp eq i32 %4, 0
+  %.not.i182306 = icmp eq ptr %.fr, null
+  %.not166.not307 = icmp eq i32 %4, 0
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14977,10 +14981,10 @@ Vec_WrdFillExtra.exit:                            ; preds = %._crit_edge.i, %110
   %wide.trip.count286 = zext nneg i32 %3 to i64
   br label %.preheader198.split.us
 
-.preheader198.split.us:                           ; preds = %.preheader198, %.loopexit197.us
-  %.0149.us = phi i64 [ %.2151.us, %.loopexit197.us ], [ 0, %.preheader198 ]
-  %.0143.us = phi i32 [ %.2145.us, %.loopexit197.us ], [ 1, %.preheader198 ]
-  %.0.us = phi i32 [ %.2.us, %.loopexit197.us ], [ %154, %.preheader198 ]
+.preheader198.split.us:                           ; preds = %.preheader198.split.us.preheader, %.loopexit197.us
+  %.0149.us = phi i64 [ %.2151.us, %.loopexit197.us ], [ 0, %.preheader198.split.us.preheader ]
+  %.0143.us = phi i32 [ %.2145.us, %.loopexit197.us ], [ 1, %.preheader198.split.us.preheader ]
+  %.0.us = phi i32 [ %.2.us, %.loopexit197.us ], [ %154, %.preheader198.split.us.preheader ]
   %.not163.us = icmp eq i32 %.0143.us, 0
   br i1 %.not163.us, label %161, label %.critedge2.us.preheader
 
@@ -15214,11 +15218,11 @@ Abc_Clock.exit187.us:                             ; preds = %244, %If_DsdManComp
   br label %.preheader198.split.us, !llvm.loop !294
 
 .lr.ph208.us:                                     ; preds = %201
-  br i1 %.not166.not, label %.lr.ph208.split.us.us, label %.lr.ph208.split.us239
+  br i1 %.not166.not307, label %.lr.ph208.split.us.us, label %.lr.ph208.split.us239
 
 .lr.ph208.split.us239:                            ; preds = %.lr.ph208.us
   %258 = sext i32 %.1224.us to i64
-  br i1 %.not.i182, label %.lr.ph208.split.split.us.us, label %.lr.ph208.split.split.us240
+  br i1 %.not.i182306, label %.lr.ph208.split.split.us.us, label %.lr.ph208.split.split.us240
 
 .split.us:                                        ; preds = %Extra_ProgressBarUpdate.exit.us233, %Extra_ProgressBarUpdate.exit.us212.us, %Extra_ProgressBarUpdate.exit.us.us
   %.us-phi.us = phi i64 [ %268, %Extra_ProgressBarUpdate.exit.us.us ], [ %indvars.iv280, %Extra_ProgressBarUpdate.exit.us212.us ], [ %indvars.iv277, %Extra_ProgressBarUpdate.exit.us233 ]
@@ -15235,7 +15239,7 @@ Abc_Clock.exit187.us:                             ; preds = %244, %If_DsdManComp
   br i1 %262, label %263, label %Extra_ProgressBarUpdate.exit.us.us
 
 263:                                              ; preds = %.lr.ph208.split.us.us
-  br i1 %.not.i182, label %267, label %264
+  br i1 %.not.i182306, label %267, label %264
 
 264:                                              ; preds = %263
   %265 = load i32, ptr %.fr, align 4, !tbaa !40
@@ -15310,7 +15314,7 @@ Extra_ProgressBarUpdate.exit.us212.us:            ; preds = %277, %.lr.ph208.spl
   %298 = call i32 @pthread_create(ptr noundef nonnull %297, ptr noundef null, ptr noundef nonnull @Ifn_WorkerThread, ptr noundef nonnull %288) #39
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next275, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader198, label %.lr.ph205, !llvm.loop !295
+  br i1 %exitcond.not, label %.preheader198.split.us.preheader, label %.lr.ph205, !llvm.loop !295
 
 .preheader:                                       ; preds = %161
   %299 = sitofp i64 %.0149.us to double
@@ -15339,13 +15343,13 @@ Extra_ProgressBarUpdate.exit.us212.us:            ; preds = %277, %.lr.ph208.spl
   br i1 %exitcond297.not, label %._crit_edge, label %.lr.ph256, !llvm.loop !296
 
 ._crit_edge:                                      ; preds = %305, %Vec_WrdFillExtra.exit
-  %.us-phi241309 = phi double [ 0.000000e+00, %Vec_WrdFillExtra.exit ], [ %299, %305 ]
+  %.us-phi241311 = phi double [ 0.000000e+00, %Vec_WrdFillExtra.exit ], [ %299, %305 ]
   br i1 %.not162, label %.loopexit, label %306
 
 306:                                              ; preds = %._crit_edge
   %307 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.120, ptr noundef nonnull @.str.111)
-  %308 = fdiv double %.us-phi241309, 1.000000e+06
+  %308 = fdiv double %.us-phi241311, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.121, double noundef %308)
   br i1 %155, label %.lr.ph259.preheader, label %.loopexit
 

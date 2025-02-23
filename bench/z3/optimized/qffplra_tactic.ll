@@ -3024,7 +3024,7 @@ while.end.loopexit:                               ; preds = %while.cond14.backed
 while.end:                                        ; preds = %sw.bb11, %while.end.loopexit
   %dec.i172.pre-phi = phi i32 [ %.pre330, %while.end.loopexit ], [ %sub.i, %sw.bb11 ]
   store i32 %dec.i172.pre-phi, ptr %m_pos.i.i25, align 8
-  invoke void @_ZN24is_non_qffplra_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(112) %proc, ptr noundef %14)
+  invoke void @_ZN24is_non_qffplra_predicateclEP3app(ptr noundef nonnull align 8 dereferenceable(112) %proc, ptr noundef nonnull %14)
           to label %sw.epilog85 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
 sw.bb54:                                          ; preds = %start

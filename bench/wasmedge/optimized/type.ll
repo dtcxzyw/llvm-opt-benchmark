@@ -1167,7 +1167,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadRefTypeENS_11ASTNodeAttrE(ptr dead_
   call void @_ZN8WasmEdge7FileMgr8readByteEv(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::expected.38") align 4 %4, ptr noundef nonnull align 8 dereferenceable(88) %15)
   %16 = load i8, ptr %4, align 4
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %.preheader31, label %87
+  br i1 %17, label %.preheader31, label %79
 
 .preheader31:                                     ; preds = %3, %.preheader31
   %18 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
@@ -1199,7 +1199,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader31
   %27 = select i1 %.not, i32 274, i32 275
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %29 = load i8, ptr %28, align 4
-  switch i8 %29, label %82 [
+  switch i8 %29, label %74 [
     i8 111, label %.preheader
     i8 112, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit
     i8 115, label %.preheader32
@@ -1215,10 +1215,10 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader31
   ]
 
 .preheader33:                                     ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
-  br label %67
+  br label %59
 
 .preheader32:                                     ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
-  br label %46
+  br label %44
 
 .preheader:                                       ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %.preheader
   %30 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
@@ -1257,169 +1257,133 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit15: ; preds = %.preheader
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %42 = load i32, ptr %5, align 4
   store i32 %42, ptr %41, align 4
-  br label %94
+  br label %86
 
-_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit:        ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit15
-  %43 = zext i8 %29 to i64
-  %44 = shl nuw nsw i64 %43, 24
+_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit:        ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit15, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   store i8 1, ptr %0, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.225.0.insert.insert = or disjoint i64 %44, 6488064
-  store i64 %.sroa.225.0.insert.insert, ptr %45, align 4
-  br label %94
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.326.0.insert.ext = zext nneg i8 %29 to i64
+  %.sroa.326.0.insert.shift = shl nuw nsw i64 %.sroa.326.0.insert.ext, 24
+  %.sroa.225.0.insert.insert = or disjoint i64 %.sroa.326.0.insert.shift, 6488064
+  store i64 %.sroa.225.0.insert.insert, ptr %43, align 4
+  br label %86
 
-46:                                               ; preds = %.preheader32, %46
-  %47 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  switch i32 %47, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17 [
-    i32 11, label %46
-    i32 35, label %48
+44:                                               ; preds = %.preheader32, %44
+  %45 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  switch i32 %45, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17 [
+    i32 11, label %44
+    i32 35, label %46
   ]
 
-48:                                               ; preds = %46
+46:                                               ; preds = %44
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
-          to label %.noexc.i16 unwind label %49
+          to label %.noexc.i16 unwind label %47
 
-.noexc.i16:                                       ; preds = %48
+.noexc.i16:                                       ; preds = %46
   unreachable
 
-49:                                               ; preds = %48
-  %50 = landingpad { ptr, i32 }
+47:                                               ; preds = %46
+  %48 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  call void @__clang_call_terminate(ptr %51) #20
+  %49 = extractvalue { ptr, i32 } %48, 0
+  call void @__clang_call_terminate(ptr %49) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17: ; preds = %46
-  %52 = load i64, ptr %23, align 8
-  %53 = and i64 %52, 1024
-  %.not29 = icmp eq i64 %53, 0
-  %54 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not29, label %55, label %60
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17: ; preds = %44
+  %50 = load i64, ptr %23, align 8
+  %51 = and i64 %50, 1024
+  %.not29 = icmp eq i64 %51, 0
+  %52 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  br i1 %.not29, label %53, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
 
-55:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17
+53:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17
   store i32 %27, ptr %8, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %57 = load i64, ptr %56, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i8 noundef zeroext 10, i64 noundef %57, i8 noundef zeroext %2) #18
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %55 = load i64, ptr %54, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %7, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %8, i8 noundef zeroext 10, i64 noundef %55, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %59 = load i32, ptr %7, align 4
-  store i32 %59, ptr %58, align 4
-  br label %94
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %57 = load i32, ptr %7, align 4
+  store i32 %57, ptr %56, align 4
+  br label %86
 
-60:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17
-  switch i8 %29, label %65 [
-    i8 127, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 126, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 125, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 124, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 123, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 120, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 119, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-    i8 115, label %61
-    i8 114, label %61
-    i8 113, label %61
-    i8 112, label %61
-    i8 111, label %61
-    i8 110, label %61
-    i8 109, label %61
-    i8 108, label %61
-    i8 107, label %61
-    i8 106, label %61
-    i8 105, label %61
-    i8 -128, label %64
-  ]
-
-61:                                               ; preds = %60, %60, %60, %60, %60, %60, %60, %60, %60, %60, %60
-  %62 = zext nneg i8 %29 to i64
-  %63 = shl nuw nsw i64 %62, 24
-  br label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-
-64:                                               ; preds = %60
-  br label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20
-
-65:                                               ; preds = %60
-  unreachable
-
-_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20:      ; preds = %60, %60, %60, %60, %60, %60, %60, %61, %64
-  %.sink5.i18 = phi i8 [ %29, %64 ], [ 99, %61 ], [ %29, %60 ], [ %29, %60 ], [ %29, %60 ], [ %29, %60 ], [ %29, %60 ], [ %29, %60 ], [ %29, %60 ]
-  %.sink.i19 = phi i64 [ 2147483648, %64 ], [ %63, %61 ], [ 1073741824, %60 ], [ 1073741824, %60 ], [ 1073741824, %60 ], [ 1073741824, %60 ], [ 1073741824, %60 ], [ 1073741824, %60 ], [ 1073741824, %60 ]
+_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20:      ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit17
   store i8 1, ptr %0, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.2.0.insert.ext = zext i8 %.sink5.i18 to i64
-  %.sroa.2.0.insert.shift = shl nuw nsw i64 %.sroa.2.0.insert.ext, 16
-  %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sink.i19
-  store i64 %.sroa.2.0.insert.insert, ptr %66, align 4
-  br label %94
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.3.0.insert.ext = zext nneg i8 %29 to i64
+  %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 24
+  %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, 6488064
+  store i64 %.sroa.2.0.insert.insert, ptr %58, align 4
+  br label %86
 
-67:                                               ; preds = %.preheader33, %67
-  %68 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  switch i32 %68, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22 [
-    i32 11, label %67
-    i32 35, label %69
+59:                                               ; preds = %.preheader33, %59
+  %60 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  switch i32 %60, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22 [
+    i32 11, label %59
+    i32 35, label %61
   ]
 
-69:                                               ; preds = %67
+61:                                               ; preds = %59
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
-          to label %.noexc.i21 unwind label %70
+          to label %.noexc.i21 unwind label %62
 
-.noexc.i21:                                       ; preds = %69
+.noexc.i21:                                       ; preds = %61
   unreachable
 
-70:                                               ; preds = %69
-  %71 = landingpad { ptr, i32 }
+62:                                               ; preds = %61
+  %63 = landingpad { ptr, i32 }
           catch ptr null
-  %72 = extractvalue { ptr, i32 } %71, 0
-  call void @__clang_call_terminate(ptr %72) #20
+  %64 = extractvalue { ptr, i32 } %63, 0
+  call void @__clang_call_terminate(ptr %64) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %67
-  %73 = load i64, ptr %23, align 8
-  %74 = and i64 %73, 512
-  %.not28 = icmp eq i64 %74, 0
-  %75 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not28, label %76, label %81
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %59
+  %65 = load i64, ptr %23, align 8
+  %66 = and i64 %65, 512
+  %.not28 = icmp eq i64 %66, 0
+  %67 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  br i1 %.not28, label %68, label %73
 
-76:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
+68:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
   store i32 %27, ptr %10, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %78 = load i64, ptr %77, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %9, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %10, i8 noundef zeroext 9, i64 noundef %78, i8 noundef zeroext %2) #18
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %70 = load i64, ptr %69, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %9, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %10, i8 noundef zeroext 9, i64 noundef %70, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %80 = load i32, ptr %9, align 4
-  store i32 %80, ptr %79, align 4
-  br label %94
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %72 = load i32, ptr %9, align 4
+  store i32 %72, ptr %71, align 4
+  br label %86
 
-81:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
+73:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
   call void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i8 noundef zeroext %29, i8 noundef zeroext %2)
-  br label %94
+  br label %86
 
-82:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
+74:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   store i32 %27, ptr %12, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %84 = load i64, ptr %83, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %11, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %12, i64 noundef %84, i8 noundef zeroext %2) #18
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %76 = load i64, ptr %75, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %11, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %12, i64 noundef %76, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %86 = load i32, ptr %11, align 4
-  store i32 %86, ptr %85, align 4
-  br label %94
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %78 = load i32, ptr %11, align 4
+  store i32 %78, ptr %77, align 4
+  br label %86
 
-87:                                               ; preds = %3
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %89 = load i32, ptr %88, align 4
-  store i32 %89, ptr %14, align 4
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %91 = load i64, ptr %90, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %13, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %14, i64 noundef %91, i8 noundef zeroext %2) #18
+79:                                               ; preds = %3
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %81 = load i32, ptr %80, align 4
+  store i32 %81, ptr %14, align 4
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %83 = load i64, ptr %82, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %13, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %14, i64 noundef %83, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %93 = load i32, ptr %13, align 4
-  store i32 %93, ptr %92, align 4
-  br label %94
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %85 = load i32, ptr %13, align 4
+  store i32 %85, ptr %84, align 4
+  br label %86
 
-94:                                               ; preds = %87, %82, %81, %76, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20, %55, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit, %38
+86:                                               ; preds = %79, %74, %73, %68, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit20, %53, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit, %38
   ret void
 }
 
@@ -1499,38 +1463,38 @@ define void @_ZN8WasmEdge6Loader6Loader11loadValTypeENS_11ASTNodeAttrEb(ptr dead
   %26 = load i8, ptr %5, align 4
   %27 = trunc i8 %26 to i1
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  br i1 %27, label %29, label %152
+  br i1 %27, label %29, label %146
 
 29:                                               ; preds = %4
   %30 = load i8, ptr %28, align 4
-  switch i8 %30, label %158 [
+  switch i8 %30, label %152 [
     i8 123, label %.preheader
-    i8 99, label %.preheader70
-    i8 100, label %.preheader70
-    i8 105, label %.preheader66
-    i8 106, label %.preheader71
-    i8 120, label %46
-    i8 119, label %46
-    i8 112, label %.preheader68
-    i8 111, label %.preheader69
-    i8 115, label %.preheader71
-    i8 114, label %.preheader71
-    i8 113, label %.preheader71
-    i8 110, label %.preheader71
-    i8 109, label %.preheader71
-    i8 108, label %.preheader71
-    i8 107, label %.preheader71
     i8 127, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit
     i8 126, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit
     i8 125, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit
     i8 124, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit
+    i8 120, label %46
+    i8 119, label %46
+    i8 112, label %.preheader67
+    i8 111, label %.preheader68
+    i8 115, label %.preheader70
+    i8 114, label %.preheader70
+    i8 113, label %.preheader70
+    i8 110, label %.preheader70
+    i8 109, label %.preheader70
+    i8 108, label %.preheader70
+    i8 107, label %.preheader70
+    i8 106, label %.preheader70
+    i8 105, label %.preheader69
+    i8 100, label %.preheader71
+    i8 99, label %.preheader71
   ]
 
-.preheader71:                                     ; preds = %29, %29, %29, %29, %29, %29, %29, %29
-  br label %98
+.preheader71:                                     ; preds = %29, %29
+  br label %130
 
-.preheader70:                                     ; preds = %29, %29
-  br label %136
+.preheader70:                                     ; preds = %29, %29, %29, %29, %29, %29, %29, %29
+  br label %98
 
 .preheader:                                       ; preds = %29, %.preheader
   %31 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
@@ -1570,29 +1534,28 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit: ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = load i32, ptr %6, align 4
   store i32 %44, ptr %43, align 4
-  br label %163
+  br label %157
 
-_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit:        ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %29, %29, %29, %29
-  %.sink5.i = phi i8 [ %30, %29 ], [ %30, %29 ], [ %30, %29 ], [ %30, %29 ], [ 123, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ]
+_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit:        ; preds = %29, %29, %29, %29, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit
   store i8 1, ptr %0, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.257.0.insert.ext = zext nneg i8 %.sink5.i to i64
+  %.sroa.257.0.insert.ext = zext nneg i8 %30 to i64
   %.sroa.257.0.insert.shift = shl nuw nsw i64 %.sroa.257.0.insert.ext, 16
   %.sroa.257.0.insert.insert = or disjoint i64 %.sroa.257.0.insert.shift, 1073741824
   store i64 %.sroa.257.0.insert.insert, ptr %45, align 4
-  br label %163
+  br label %157
 
 46:                                               ; preds = %29, %29
-  br i1 %3, label %.preheader67, label %158
+  br i1 %3, label %.preheader66, label %152
 
-.preheader67:                                     ; preds = %46, %.preheader67
+.preheader66:                                     ; preds = %46, %.preheader66
   %47 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   switch i32 %47, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20 [
-    i32 11, label %.preheader67
+    i32 11, label %.preheader66
     i32 35, label %48
   ]
 
-48:                                               ; preds = %.preheader67
+48:                                               ; preds = %.preheader66
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
           to label %.noexc.i19 unwind label %49
 
@@ -1606,13 +1569,13 @@ _ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit:        ; preds = %_ZNK8WasmEdge9Confi
   call void @__clang_call_terminate(ptr %51) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20: ; preds = %.preheader67
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20: ; preds = %.preheader66
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 1024
-  %.not61 = icmp eq i64 %54, 0
+  %.not64 = icmp eq i64 %54, 0
   %55 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not61, label %56, label %61
+  br i1 %.not64, label %56, label %61
 
 56:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20
   store i32 273, ptr %9, align 4
@@ -1623,7 +1586,7 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20: ; preds = %.preheader
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %60 = load i32, ptr %8, align 4
   store i32 %60, ptr %59, align 4
-  br label %163
+  br label %157
 
 61:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20
   call void @_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE(ptr noundef nonnull align 4 dereferenceable(8) %10, i8 noundef zeroext %30) #18
@@ -1631,16 +1594,16 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20: ; preds = %.preheader
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %63 = load i64, ptr %10, align 8
   store i64 %63, ptr %62, align 4
-  br label %163
+  br label %157
 
-.preheader68:                                     ; preds = %29, %.preheader68
+.preheader67:                                     ; preds = %29, %.preheader67
   %64 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   switch i32 %64, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22 [
-    i32 11, label %.preheader68
+    i32 11, label %.preheader67
     i32 35, label %65
   ]
 
-65:                                               ; preds = %.preheader68
+65:                                               ; preds = %.preheader67
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
           to label %.noexc.i21 unwind label %66
 
@@ -1654,13 +1617,13 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit20: ; preds = %.preheader
   call void @__clang_call_terminate(ptr %68) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %.preheader68
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %.preheader67
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 32
-  %.not60 = icmp eq i64 %71, 0
+  %.not63 = icmp eq i64 %71, 0
   %72 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not60, label %73, label %80
+  br i1 %.not63, label %73, label %80
 
 73:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
   %74 = call noundef zeroext i1 @_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE(ptr noundef nonnull align 8 dereferenceable(160) %1, i8 noundef zeroext 4) #18
@@ -1675,22 +1638,22 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %.preheader
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %79 = load i32, ptr %11, align 4
   store i32 %79, ptr %78, align 4
-  br label %163
+  br label %157
 
 80:                                               ; preds = %73, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22
   store i8 1, ptr %0, align 4
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 1885536256, ptr %81, align 4
-  br label %163
+  br label %157
 
-.preheader69:                                     ; preds = %29, %.preheader69
+.preheader68:                                     ; preds = %29, %.preheader68
   %82 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   switch i32 %82, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26 [
-    i32 11, label %.preheader69
+    i32 11, label %.preheader68
     i32 35, label %83
   ]
 
-83:                                               ; preds = %.preheader69
+83:                                               ; preds = %.preheader68
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
           to label %.noexc.i25 unwind label %84
 
@@ -1704,13 +1667,13 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit22: ; preds = %.preheader
   call void @__clang_call_terminate(ptr %86) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26: ; preds = %.preheader69
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26: ; preds = %.preheader68
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %88 = load i64, ptr %87, align 8
   %89 = and i64 %88, 32
-  %.not = icmp eq i64 %89, 0
+  %.not62 = icmp eq i64 %89, 0
   %90 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not, label %91, label %96
+  br i1 %.not62, label %91, label %96
 
 91:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26
   store i32 274, ptr %14, align 4
@@ -1721,15 +1684,15 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26: ; preds = %.preheader
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %95 = load i32, ptr %13, align 4
   store i32 %95, ptr %94, align 4
-  br label %163
+  br label %157
 
 96:                                               ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit26
   store i8 1, ptr %0, align 4
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i64 1868759040, ptr %97, align 4
-  br label %163
+  br label %157
 
-98:                                               ; preds = %.preheader71, %98
+98:                                               ; preds = %.preheader70, %98
   %99 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   switch i32 %99, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30 [
     i32 11, label %98
@@ -1754,9 +1717,9 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30: ; preds = %98
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %105 = load i64, ptr %104, align 8
   %106 = and i64 %105, 1024
-  %.not62 = icmp eq i64 %106, 0
+  %.not61 = icmp eq i64 %106, 0
   %107 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not62, label %108, label %113
+  br i1 %.not61, label %108, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
 
 108:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30
   store i32 273, ptr %16, align 4
@@ -1767,167 +1730,131 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30: ; preds = %98
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %112 = load i32, ptr %15, align 4
   store i32 %112, ptr %111, align 4
-  br label %163
+  br label %157
 
-113:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30
-  switch i8 %30, label %118 [
-    i8 127, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 126, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 125, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 124, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 123, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 120, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 119, label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-    i8 115, label %114
-    i8 114, label %114
-    i8 113, label %114
-    i8 112, label %114
-    i8 111, label %114
-    i8 110, label %114
-    i8 109, label %114
-    i8 108, label %114
-    i8 107, label %114
-    i8 106, label %114
-    i8 105, label %114
-    i8 -128, label %117
-  ]
-
-114:                                              ; preds = %113, %113, %113, %113, %113, %113, %113, %113, %113, %113, %113
-  %115 = zext nneg i8 %30 to i64
-  %116 = shl nuw nsw i64 %115, 24
-  br label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-
-117:                                              ; preds = %113
-  br label %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33
-
-118:                                              ; preds = %113
-  unreachable
-
-_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33:      ; preds = %113, %113, %113, %113, %113, %113, %113, %114, %117
-  %.sink5.i31 = phi i8 [ %30, %117 ], [ 99, %114 ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ], [ %30, %113 ]
-  %.sink.i32 = phi i64 [ 2147483648, %117 ], [ %116, %114 ], [ 1073741824, %113 ], [ 1073741824, %113 ], [ 1073741824, %113 ], [ 1073741824, %113 ], [ 1073741824, %113 ], [ 1073741824, %113 ], [ 1073741824, %113 ]
+_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33:      ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit30
   store i8 1, ptr %0, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.sroa.242.0.insert.ext = zext i8 %.sink5.i31 to i64
-  %.sroa.242.0.insert.shift = shl nuw nsw i64 %.sroa.242.0.insert.ext, 16
-  %.sroa.242.0.insert.insert = or disjoint i64 %.sroa.242.0.insert.shift, %.sink.i32
-  store i64 %.sroa.242.0.insert.insert, ptr %119, align 4
-  br label %163
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %.sroa.343.0.insert.ext = zext nneg i8 %30 to i64
+  %.sroa.343.0.insert.shift = shl nuw nsw i64 %.sroa.343.0.insert.ext, 24
+  %.sroa.242.0.insert.insert = or disjoint i64 %.sroa.343.0.insert.shift, 6488064
+  store i64 %.sroa.242.0.insert.insert, ptr %113, align 4
+  br label %157
 
-.preheader66:                                     ; preds = %29, %.preheader66
-  %120 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  switch i32 %120, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35 [
-    i32 11, label %.preheader66
-    i32 35, label %121
+.preheader69:                                     ; preds = %29, %.preheader69
+  %114 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  switch i32 %114, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35 [
+    i32 11, label %.preheader69
+    i32 35, label %115
   ]
 
-121:                                              ; preds = %.preheader66
+115:                                              ; preds = %.preheader69
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
-          to label %.noexc.i34 unwind label %122
+          to label %.noexc.i34 unwind label %116
 
-.noexc.i34:                                       ; preds = %121
+.noexc.i34:                                       ; preds = %115
   unreachable
 
-122:                                              ; preds = %121
-  %123 = landingpad { ptr, i32 }
+116:                                              ; preds = %115
+  %117 = landingpad { ptr, i32 }
           catch ptr null
-  %124 = extractvalue { ptr, i32 } %123, 0
-  call void @__clang_call_terminate(ptr %124) #20
+  %118 = extractvalue { ptr, i32 } %117, 0
+  call void @__clang_call_terminate(ptr %118) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35: ; preds = %.preheader66
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %126 = load i64, ptr %125, align 8
-  %127 = and i64 %126, 65536
-  %.not63 = icmp eq i64 %127, 0
-  %128 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not63, label %129, label %134
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35: ; preds = %.preheader69
+  %119 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %120 = load i64, ptr %119, align 8
+  %121 = and i64 %120, 65536
+  %.not60 = icmp eq i64 %121, 0
+  %122 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  br i1 %.not60, label %123, label %128
 
-129:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35
+123:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35
   store i32 273, ptr %18, align 4
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %131 = load i64, ptr %130, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %17, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %18, i8 noundef zeroext 16, i64 noundef %131, i8 noundef zeroext %2) #18
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %125 = load i64, ptr %124, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %17, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %18, i8 noundef zeroext 16, i64 noundef %125, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %133 = load i32, ptr %17, align 4
-  store i32 %133, ptr %132, align 4
-  br label %163
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %127 = load i32, ptr %17, align 4
+  store i32 %127, ptr %126, align 4
+  br label %157
 
-134:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35
+128:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit35
   store i8 1, ptr %0, align 4
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i64 1768095744, ptr %135, align 4
-  br label %163
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i64 1768095744, ptr %129, align 4
+  br label %157
 
-136:                                              ; preds = %.preheader70, %136
-  %137 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  switch i32 %137, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39 [
-    i32 11, label %136
-    i32 35, label %138
+130:                                              ; preds = %.preheader71, %130
+  %131 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  switch i32 %131, label %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39 [
+    i32 11, label %130
+    i32 35, label %132
   ]
 
-138:                                              ; preds = %136
+132:                                              ; preds = %130
   invoke void @_ZSt20__throw_system_errori(i32 noundef 35) #19
-          to label %.noexc.i38 unwind label %139
+          to label %.noexc.i38 unwind label %133
 
-.noexc.i38:                                       ; preds = %138
+.noexc.i38:                                       ; preds = %132
   unreachable
 
-139:                                              ; preds = %138
-  %140 = landingpad { ptr, i32 }
+133:                                              ; preds = %132
+  %134 = landingpad { ptr, i32 }
           catch ptr null
-  %141 = extractvalue { ptr, i32 } %140, 0
-  call void @__clang_call_terminate(ptr %141) #20
+  %135 = extractvalue { ptr, i32 } %134, 0
+  call void @__clang_call_terminate(ptr %135) #20
   unreachable
 
-_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39: ; preds = %136
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %143 = load i64, ptr %142, align 8
-  %144 = and i64 %143, 512
-  %.not64 = icmp eq i64 %144, 0
-  %145 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
-  br i1 %.not64, label %146, label %151
+_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39: ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %137 = load i64, ptr %136, align 8
+  %138 = and i64 %137, 512
+  %.not = icmp eq i64 %138, 0
+  %139 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
+  br i1 %.not, label %140, label %145
 
-146:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39
+140:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39
   store i32 273, ptr %20, align 4
-  %147 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %148 = load i64, ptr %147, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %19, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %20, i8 noundef zeroext 9, i64 noundef %148, i8 noundef zeroext %2) #18
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %142 = load i64, ptr %141, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader15logNeedProposalENS_7ErrCodeENS_8ProposalEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %19, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %20, i8 noundef zeroext 9, i64 noundef %142, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %149 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %150 = load i32, ptr %19, align 4
-  store i32 %150, ptr %149, align 4
-  br label %163
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %144 = load i32, ptr %19, align 4
+  store i32 %144, ptr %143, align 4
+  br label %157
 
-151:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39
+145:                                              ; preds = %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit39
   call void @_ZN8WasmEdge6Loader6Loader12loadHeapTypeENS_8TypeCodeENS_11ASTNodeAttrE(ptr dead_on_unwind writable sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i8 noundef zeroext %30, i8 noundef zeroext %2)
-  br label %163
+  br label %157
 
-152:                                              ; preds = %4
-  %153 = load i32, ptr %28, align 4
-  store i32 %153, ptr %22, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %155 = load i64, ptr %154, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %21, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %22, i64 noundef %155, i8 noundef zeroext %2) #18
+146:                                              ; preds = %4
+  %147 = load i32, ptr %28, align 4
+  store i32 %147, ptr %22, align 4
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %149 = load i64, ptr %148, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %21, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %22, i64 noundef %149, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %157 = load i32, ptr %21, align 4
-  store i32 %157, ptr %156, align 4
-  br label %163
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %151 = load i32, ptr %21, align 4
+  store i32 %151, ptr %150, align 4
+  br label %157
 
-158:                                              ; preds = %29, %46
+152:                                              ; preds = %46, %29
   store i32 273, ptr %24, align 4
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %160 = load i64, ptr %159, align 8
-  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %23, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %24, i64 noundef %160, i8 noundef zeroext %2) #18
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %154 = load i64, ptr %153, align 8
+  call void @_ZNK8WasmEdge6Loader6Loader12logLoadErrorENS_7ErrCodeEmNS_11ASTNodeAttrE(ptr dead_on_unwind nonnull writable sret(%"class.cxx20::unexpected") align 4 %23, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull %24, i64 noundef %154, i8 noundef zeroext %2) #18
   store i8 0, ptr %0, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %162 = load i32, ptr %23, align 4
-  store i32 %162, ptr %161, align 4
-  br label %163
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %156 = load i32, ptr %23, align 4
+  store i32 %156, ptr %155, align 4
+  br label %157
 
-163:                                              ; preds = %158, %152, %151, %146, %134, %129, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33, %108, %96, %91, %80, %75, %61, %56, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit, %40
+157:                                              ; preds = %152, %146, %145, %140, %128, %123, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit33, %108, %96, %91, %80, %75, %61, %56, %_ZN8WasmEdge7ValTypeC2ENS_8TypeCodeE.exit, %40
   ret void
 }
 

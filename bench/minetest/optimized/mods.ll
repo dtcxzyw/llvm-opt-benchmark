@@ -6576,7 +6576,7 @@ lpad25:                                           ; preds = %if.else.i, %if.then
   br label %ehcleanup27
 
 if.end:                                           ; preds = %if.else.i, %.noexc, %_ZNSt6vectorI7ModSpecSaIS0_EED2Ev.exit
-  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.055) #28
+  %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.055) #28
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond.cleanup, label %for.body
 

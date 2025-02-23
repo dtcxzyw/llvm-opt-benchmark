@@ -5440,7 +5440,7 @@ othercase.exit:                                   ; preds = %569, %.sink.split.i
   %.fr48.i = freeze i32 %.val.val
   %626 = sext i32 %.fr48.i to i64
   %.not3.i = icmp eq i32 %.fr48.i, 0
-  br i1 %.not3.i, label %nch.exit.thread.thread, label %.lr.ph.i142
+  br i1 %.not3.i, label %nch.exit.thread, label %.lr.ph.i142
 
 .lr.ph.i142:                                      ; preds = %624
   %627 = load ptr, ptr %144, align 8, !tbaa !68
@@ -5463,7 +5463,7 @@ othercase.exit:                                   ; preds = %569, %.sink.split.i
 
 nch.exit:                                         ; preds = %629
   %636 = icmp eq i32 %spec.select.i, 1
-  br i1 %636, label %.lr.ph.i147, label %nch.exit.thread
+  br i1 %636, label %.lr.ph.i147, label %nch.exit.thread.thread
 
 .lr.ph.i147:                                      ; preds = %nch.exit, %644
   %.082.i = phi i64 [ %645, %644 ], [ 0, %nch.exit ]
@@ -5679,7 +5679,7 @@ ordinary.exit:                                    ; preds = %672, %doemit.exit17
   store i32 %741, ptr %739, align 4, !tbaa !40
   br label %freeset.exit
 
-nch.exit.thread:                                  ; preds = %nch.exit
+nch.exit.thread:                                  ; preds = %624
   %742 = load i8, ptr %153, align 1, !tbaa !72
   %743 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %744 = load ptr, ptr %743, align 8, !tbaa !67
@@ -5688,24 +5688,24 @@ nch.exit.thread:                                  ; preds = %nch.exit
   %747 = zext nneg i32 %746 to i64
   %748 = getelementptr inbounds nuw %struct.cset, ptr %744, i64 %747
   %749 = icmp sgt i32 %746, 0
-  br i1 %749, label %.lr.ph39.split.us.i, label %freezeset.exit
+  br i1 %749, label %.lr.ph39.split.split.us.i, label %freezeset.exit
 
-nch.exit.thread.thread:                           ; preds = %624
+nch.exit.thread.thread:                           ; preds = %nch.exit
   %750 = load i8, ptr %153, align 1, !tbaa !72
   %751 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %752 = load ptr, ptr %751, align 8, !tbaa !67
   %753 = getelementptr inbounds nuw i8, ptr %.val, i64 20
   %754 = load i32, ptr %753, align 4, !tbaa !40
-  %755 = zext nneg i32 %754 to i64
-  %756 = getelementptr inbounds nuw %struct.cset, ptr %752, i64 %755
+  %755 = sext i32 %754 to i64
+  %756 = getelementptr inbounds %struct.cset, ptr %752, i64 %755
   %757 = icmp sgt i32 %754, 0
-  br i1 %757, label %.lr.ph39.split.split.us.i, label %freezeset.exit
+  br i1 %757, label %.lr.ph39.split.us.i, label %freezeset.exit
 
-.lr.ph39.split.us.i:                              ; preds = %nch.exit.thread, %774
-  %.02937.us.i = phi ptr [ %775, %774 ], [ %744, %nch.exit.thread ]
+.lr.ph39.split.us.i:                              ; preds = %nch.exit.thread.thread, %774
+  %.02937.us.i = phi ptr [ %775, %774 ], [ %752, %nch.exit.thread.thread ]
   %758 = getelementptr inbounds nuw i8, ptr %.02937.us.i, i64 9
   %759 = load i8, ptr %758, align 1, !tbaa !72
-  %760 = icmp ne i8 %759, %742
+  %760 = icmp ne i8 %759, %750
   %.not.us.i = icmp eq ptr %.02937.us.i, %144
   %or.cond.us.i = or i1 %.not.us.i, %760
   br i1 %or.cond.us.i, label %774, label %.preheader.us.i
@@ -5735,7 +5735,7 @@ nch.exit.thread.thread:                           ; preds = %624
 
 774:                                              ; preds = %._crit_edge.us.i, %.lr.ph39.split.us.i
   %775 = getelementptr inbounds nuw i8, ptr %.02937.us.i, i64 32
-  %776 = icmp ult ptr %775, %748
+  %776 = icmp ult ptr %775, %756
   br i1 %776, label %.lr.ph39.split.us.i, label %freezeset.exit, !llvm.loop !99
 
 .preheader.us.i:                                  ; preds = %.lr.ph39.split.us.i
@@ -5746,22 +5746,22 @@ nch.exit.thread.thread:                           ; preds = %624
   %781 = load i8, ptr %152, align 8, !tbaa !71
   br label %761
 
-.lr.ph39.split.split.us.i:                        ; preds = %nch.exit.thread.thread, %785
-  %.02937.us40.i = phi ptr [ %786, %785 ], [ %752, %nch.exit.thread.thread ]
+.lr.ph39.split.split.us.i:                        ; preds = %nch.exit.thread, %785
+  %.02937.us40.i = phi ptr [ %786, %785 ], [ %744, %nch.exit.thread ]
   %782 = getelementptr inbounds nuw i8, ptr %.02937.us40.i, i64 9
   %783 = load i8, ptr %782, align 1, !tbaa !72
-  %784 = icmp ne i8 %783, %750
+  %784 = icmp ne i8 %783, %742
   %.not.us41.i = icmp eq ptr %.02937.us40.i, %144
   %or.cond.us42.i = or i1 %.not.us41.i, %784
   br i1 %or.cond.us42.i, label %785, label %.split.us.i
 
 785:                                              ; preds = %.lr.ph39.split.split.us.i
   %786 = getelementptr inbounds nuw i8, ptr %.02937.us40.i, i64 32
-  %787 = icmp ult ptr %786, %756
+  %787 = icmp ult ptr %786, %748
   br i1 %787, label %.lr.ph39.split.split.us.i, label %freezeset.exit, !llvm.loop !99
 
 .split.us.i:                                      ; preds = %._crit_edge.us.i, %772, %.lr.ph39.split.split.us.i
-  %788 = phi ptr [ %756, %.lr.ph39.split.split.us.i ], [ %748, %772 ], [ %748, %._crit_edge.us.i ]
+  %788 = phi ptr [ %748, %.lr.ph39.split.split.us.i ], [ %756, %772 ], [ %756, %._crit_edge.us.i ]
   %.us-phi.i = phi ptr [ %.02937.us40.i, %.lr.ph39.split.split.us.i ], [ %.02937.us.i, %772 ], [ %.02937.us.i, %._crit_edge.us.i ]
   br i1 %.not3.i, label %._crit_edge.i.i161, label %.lr.ph.i.i160
 

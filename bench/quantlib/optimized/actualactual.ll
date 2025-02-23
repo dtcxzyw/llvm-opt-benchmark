@@ -829,7 +829,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i25, label %if.then3, label %if.end5
 
 common.ret170:                                    ; preds = %entry, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, %if.then3
-  %common.ret170.op = phi double [ %fneg, %if.then3 ], [ %yearFractionSum.0.lcssa, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit ], [ 0.000000e+00, %entry ]
+  %common.ret170.op = phi double [ %fneg, %if.then3 ], [ %yearFractionSum.0.lcssa159, %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit ], [ 0.000000e+00, %entry ]
   ret double %common.ret170.op
 
 if.then3:                                         ; preds = %if.else
@@ -1261,18 +1261,18 @@ while.body.i.i:                                   ; preds = %_ZN8QuantLib12_GLOB
   %spec.select.i.i = select i1 %cmp.i.i.i.i26, ptr %incdec.ptr.i10.i.i, ptr %retval.sroa.0.19.i.i
   %incdec.ptr.i.i.i27 = getelementptr inbounds nuw i8, ptr %incdec.ptr.i10.i.i, i64 8
   %cmp.i3.not.i.i = icmp eq ptr %incdec.ptr.i.i.i27, %45
-  br i1 %cmp.i3.not.i.i, label %invoke.cont, label %while.body.i.i, !llvm.loop !75
+  br i1 %cmp.i3.not.i.i, label %while.body.preheader.i.i33, label %while.body.i.i, !llvm.loop !75
 
-invoke.cont:                                      ; preds = %while.body.i.i
+while.body.preheader.i.i33:                       ; preds = %while.body.i.i
   %50 = load i64, ptr %spec.select.i.i, align 8, !tbaa !38
   store i64 %50, ptr %firstDate, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %lastDate) #20
   br label %while.body.i.i35
 
-while.body.i.i35:                                 ; preds = %while.body.i.i35, %invoke.cont
-  %51 = phi i64 [ %53, %while.body.i.i35 ], [ %46, %invoke.cont ]
-  %incdec.ptr.i10.i.i36 = phi ptr [ %incdec.ptr.i.i.i40, %while.body.i.i35 ], [ %incdec.ptr.i7.i.i, %invoke.cont ]
-  %retval.sroa.0.19.i.i37 = phi ptr [ %spec.select.i.i39, %while.body.i.i35 ], [ %44, %invoke.cont ]
+while.body.i.i35:                                 ; preds = %while.body.i.i35, %while.body.preheader.i.i33
+  %51 = phi i64 [ %53, %while.body.i.i35 ], [ %46, %while.body.preheader.i.i33 ]
+  %incdec.ptr.i10.i.i36 = phi ptr [ %incdec.ptr.i.i.i40, %while.body.i.i35 ], [ %incdec.ptr.i7.i.i, %while.body.preheader.i.i33 ]
+  %retval.sroa.0.19.i.i37 = phi ptr [ %spec.select.i.i39, %while.body.i.i35 ], [ %44, %while.body.preheader.i.i33 ]
   %52 = load i64, ptr %incdec.ptr.i10.i.i36, align 8, !tbaa !39
   %cmp.i.i.i.i38 = icmp slt i64 %51, %52
   %53 = call i64 @llvm.smax.i64(i64 %51, i64 %52)
@@ -1301,7 +1301,12 @@ for.cond.preheader:                               ; preds = %invoke.cont25
   %sub.ptr.rhs.cast.i139 = ptrtoint ptr %44 to i64
   %sub.ptr.sub.i140 = sub i64 %sub.ptr.lhs.cast.i138, %sub.ptr.rhs.cast.i139
   %cmp143.not = icmp eq i64 %sub.ptr.sub.i140, 8
-  br i1 %cmp143.not, label %for.cond.cleanup, label %for.body
+  br i1 %cmp143.not, label %for.cond.cleanup.thread, label %for.body
+
+for.cond.cleanup.thread:                          ; preds = %for.cond.preheader
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lastDate) #20
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %firstDate) #20
+  br label %if.then.i.i.i
 
 if.then34:                                        ; preds = %invoke.cont25
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream) #20
@@ -1503,23 +1508,24 @@ ehcleanup79:                                      ; preds = %ehcleanup78, %lpad3
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %_ql_msg_stream) #20
   br label %ehcleanup103
 
-for.cond.cleanup:                                 ; preds = %if.end98, %for.cond.preheader
-  %yearFractionSum.0.lcssa = phi double [ 0.000000e+00, %for.cond.preheader ], [ %yearFractionSum.1, %if.end98 ]
-  %.lcssa = phi ptr [ %44, %for.cond.preheader ], [ %114, %if.end98 ]
-  %sub.ptr.rhs.cast.i.lcssa = phi i64 [ %sub.ptr.rhs.cast.i139, %for.cond.preheader ], [ %sub.ptr.rhs.cast.i, %if.end98 ]
+for.cond.cleanup:                                 ; preds = %if.end98
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %lastDate) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %firstDate) #20
-  %tobool.not.i.i.i = icmp eq ptr %.lcssa, null
+  %tobool.not.i.i.i = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %for.cond.cleanup
+if.then.i.i.i:                                    ; preds = %for.cond.cleanup.thread, %for.cond.cleanup
+  %sub.ptr.rhs.cast.i.lcssa161 = phi i64 [ %sub.ptr.rhs.cast.i139, %for.cond.cleanup.thread ], [ %sub.ptr.rhs.cast.i, %for.cond.cleanup ]
+  %.lcssa160 = phi ptr [ %44, %for.cond.cleanup.thread ], [ %114, %for.cond.cleanup ]
+  %yearFractionSum.0.lcssa158 = phi double [ 0.000000e+00, %for.cond.cleanup.thread ], [ %yearFractionSum.1, %for.cond.cleanup ]
   %80 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %80 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.lcssa
-  call void @_ZdlPvm(ptr noundef nonnull %.lcssa, i64 noundef %sub.ptr.sub.i.i) #22
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.lcssa161
+  call void @_ZdlPvm(ptr noundef nonnull %.lcssa160, i64 noundef %sub.ptr.sub.i.i) #22
   br label %_ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN8QuantLib4DateESaIS1_EED2Ev.exit:   ; preds = %for.cond.cleanup, %if.then.i.i.i
+  %yearFractionSum.0.lcssa159 = phi double [ %yearFractionSum.1, %for.cond.cleanup ], [ %yearFractionSum.0.lcssa158, %if.then.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %couponDates) #20
   br label %common.ret170
 

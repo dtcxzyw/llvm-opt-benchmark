@@ -1543,11 +1543,6 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
   %wide.trip.count.i = zext nneg i32 %.067121.i to i64
   br label %73
 
-.preheader84.i:                                   ; preds = %73
-  %smax.i = call i32 @llvm.smax.i32(i32 %.067121.i, i32 1)
-  %wide.trip.count105.i = zext nneg i32 %smax.i to i64
-  br label %.lr.ph89.i
-
 73:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
   %.07186.i = phi ptr [ %71, %.lr.ph.i ], [ %77, %73 ]
@@ -1557,18 +1552,23 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
   %76 = getelementptr inbounds nuw i8, ptr %.07186.i, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !158
   %78 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %67, i64 %indvars.iv.i
-  call fastcc void @queue_diffs(ptr noundef nonnull %7, ptr noundef nonnull %72, ptr noundef %78, ptr noundef %1, ptr noundef %74)
+  call fastcc void @queue_diffs(ptr noundef nonnull %7, ptr noundef nonnull %72, ptr noundef %78, ptr noundef nonnull %1, ptr noundef %74)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader84.i, label %73, !llvm.loop !160
+  br i1 %exitcond.not.i, label %.lr.ph89.i, label %73, !llvm.loop !160
 
 79:                                               ; preds = %.lr.ph89.i
   %indvars.iv.next103.i = add nuw nsw i64 %indvars.iv102.i, 1
-  %exitcond106.not.i = icmp eq i64 %indvars.iv.next103.i, %wide.trip.count105.i
-  br i1 %exitcond106.not.i, label %.lr.ph91.i, label %.lr.ph89.i, !llvm.loop !161
+  %exitcond106.not.i = icmp eq i64 %indvars.iv.next103.i, %wide.trip.count.i
+  br i1 %exitcond106.not.i, label %.preheader.i31, label %.lr.ph89.i, !llvm.loop !161
 
-.lr.ph89.i:                                       ; preds = %79, %.preheader84.i
-  %indvars.iv102.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next103.i, %79 ]
+.preheader.i31:                                   ; preds = %79
+  %smax110.i = call i32 @llvm.smax.i32(i32 %.067121.i, i32 1)
+  %wide.trip.count111.i = zext nneg i32 %smax110.i to i64
+  br label %.lr.ph91.i
+
+.lr.ph89.i:                                       ; preds = %73, %79
+  %indvars.iv102.i = phi i64 [ %indvars.iv.next103.i, %79 ], [ 0, %73 ]
   %80 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv102.i
   %81 = getelementptr inbounds nuw %struct.diff_queue_struct, ptr %67, i64 %indvars.iv102.i
   %82 = call fastcc i32 @process_all_files(ptr noundef %80, ptr noundef %0, ptr noundef %81, ptr noundef nonnull %7)
@@ -1586,15 +1586,15 @@ st_mult.exit.i:                                   ; preds = %62, %.thread.i
   %89 = call ptr @commit_list_append(ptr noundef %88, ptr noundef nonnull %9) #16
   br label %.loopexit.i
 
-.lr.ph91.i:                                       ; preds = %79, %.lr.ph91.i
-  %indvars.iv107.i = phi i64 [ %indvars.iv.next108.i, %.lr.ph91.i ], [ 0, %79 ]
+.lr.ph91.i:                                       ; preds = %.lr.ph91.i, %.preheader.i31
+  %indvars.iv107.i = phi i64 [ 0, %.preheader.i31 ], [ %indvars.iv.next108.i, %.lr.ph91.i ]
   %90 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv107.i
   %91 = load ptr, ptr %90, align 8, !tbaa !159
   %92 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv107.i
   %93 = load ptr, ptr %92, align 8, !tbaa !122
   call fastcc void @add_line_range(ptr noundef %0, ptr noundef %91, ptr noundef %93)
   %indvars.iv.next108.i = add nuw nsw i64 %indvars.iv107.i, 1
-  %exitcond112.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count105.i
+  %exitcond112.not.i = icmp eq i64 %indvars.iv.next108.i, %wide.trip.count111.i
   br i1 %exitcond112.not.i, label %.loopexit.i, label %.lr.ph91.i, !llvm.loop !162
 
 .loopexit.i:                                      ; preds = %.lr.ph91.i, %83, %st_mult.exit.i

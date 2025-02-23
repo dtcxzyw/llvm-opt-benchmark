@@ -676,7 +676,7 @@ tryfuncTM.exit:                                   ; preds = %._crit_edge.i, %34
   br i1 %.not.i100, label %161, label %118
 
 118:                                              ; preds = %115
-  %119 = sub i32 %.0.lcssa.i, %110
+  %119 = sub nsw i32 %.0.lcssa.i, %110
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !25
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 120

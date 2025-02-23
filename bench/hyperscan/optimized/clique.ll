@@ -448,7 +448,7 @@ while.body.i.i.i.i:                               ; preds = %invoke.cont77, %whi
   br i1 %cmp.not.i.i.i.i, label %invoke.cont78, label %while.body.i.i.i.i, !llvm.loop !19
 
 invoke.cont78:                                    ; preds = %while.body.i.i.i.i, %invoke.cont77
-  call void @_ZdlPv(ptr noundef %33) #17
+  call void @_ZdlPv(ptr noundef nonnull %33) #17
   %incdec.ptr.i151 = getelementptr inbounds nuw i8, ptr %__begin264.sroa.0.0215, i64 8
   %cmp.i147.not = icmp eq ptr %incdec.ptr.i151, %dead.sroa.9.3
   br i1 %cmp.i147.not, label %invoke.cont87, label %for.body73

@@ -3218,7 +3218,7 @@ _ZNK4llvm25OptimizationRemarkEmitter7enabledEv.exit.thread.i.i.i.i: ; preds = %_
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %1038
   %1041 = getelementptr inbounds nuw i8, ptr %1037, i64 24
   %1042 = load ptr, ptr %1041, align 8, !tbaa !117
-  %1043 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i, i64 80
+  %1043 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 80
   %1044 = load ptr, ptr %1043, align 8, !tbaa !122
   %1045 = icmp eq ptr %1042, %1044
   br i1 %1045, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN12_GLOBAL__N_19getMINameEPKN4llvm12MemIntrinsicE.exit.i.i.i.i.i.i

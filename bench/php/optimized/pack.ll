@@ -949,7 +949,7 @@ zval_get_tmp_string.exit476:                      ; preds = %281, %283
 php_pack.exit491:                                 ; preds = %353
   %indvars.iv.next773 = add nsw i64 %indvars.iv772, 1
   %indvars.iv.next775 = add nsw i64 %indvars.iv774, 2
-  %361 = icmp sgt i32 %.3408655, 1
+  %361 = icmp samesign ugt i32 %.3408655, 1
   br i1 %361, label %.lr.ph659, label %zend_tmp_string_release.exit.loopexit701
 
 362:                                              ; preds = %217, %217
@@ -988,7 +988,7 @@ php_pack.exit491:                                 ; preds = %353
 php_pack.exit495:                                 ; preds = %369
   %indvars.iv.next780 = add nsw i64 %indvars.iv779, 1
   %377 = add i32 %.9382663, 4
-  %378 = icmp sgt i32 %.4409662, 1
+  %378 = icmp samesign ugt i32 %.4409662, 1
   br i1 %378, label %.lr.ph666, label %zend_tmp_string_release.exit.loopexit700
 
 379:                                              ; preds = %217
@@ -1034,7 +1034,7 @@ php_pack.exit495:                                 ; preds = %369
 php_pack.exit499:                                 ; preds = %387
   %indvars.iv.next766 = add nsw i64 %indvars.iv765, 1
   %indvars.iv.next768 = add nsw i64 %indvars.iv767, 4
-  %395 = icmp sgt i32 %.5410648, 1
+  %395 = icmp samesign ugt i32 %.5410648, 1
   br i1 %395, label %.lr.ph652, label %zend_tmp_string_release.exit.loopexit702
 
 396:                                              ; preds = %217
@@ -1080,7 +1080,7 @@ php_pack.exit499:                                 ; preds = %387
 php_pack.exit503:                                 ; preds = %404
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars.iv.next746 = add nsw i64 %indvars.iv745, 8
-  %412 = icmp sgt i32 %.6411611, 1
+  %412 = icmp samesign ugt i32 %.6411611, 1
   br i1 %412, label %.lr.ph615, label %zend_tmp_string_release.exit.loopexit708
 
 .lr.ph645:                                        ; preds = %.lr.ph645.preheader, %zval_get_double.exit

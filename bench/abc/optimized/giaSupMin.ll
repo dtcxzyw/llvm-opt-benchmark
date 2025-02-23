@@ -460,7 +460,7 @@ define void @Gia_ManSupExperiment(ptr noundef %0, ptr noundef readonly captures(
   %44 = ptrtoint ptr %41 to i64
   %45 = xor i64 %43, %44
   %46 = inttoptr i64 %45 to ptr
-  tail call void @Gia_ManSupExperimentOne(ptr noundef %3, ptr noundef %37, ptr noundef %46)
+  tail call void @Gia_ManSupExperimentOne(ptr noundef nonnull %3, ptr noundef %37, ptr noundef %46)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %5, align 4, !tbaa !27
   %47 = sdiv i32 %.val, 2
@@ -469,7 +469,7 @@ define void @Gia_ManSupExperiment(ptr noundef %0, ptr noundef readonly captures(
   br i1 %49, label %10, label %._crit_edge, !llvm.loop !60
 
 ._crit_edge:                                      ; preds = %10, %2
-  tail call void @Gia_ManSupStop(ptr noundef %3)
+  tail call void @Gia_ManSupStop(ptr noundef nonnull %3)
   ret void
 }
 

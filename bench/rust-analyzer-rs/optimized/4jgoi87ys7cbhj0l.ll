@@ -122,7 +122,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
   br label %34
 
 19:                                               ; preds = %16
-  %20 = getelementptr i8, ptr %spec.select.i, i64 24
+  %20 = getelementptr i8, ptr %8, i64 24
   %.val56 = load i16, ptr %20, align 8, !noundef !4
   %21 = icmp eq i16 %.val56, 523
   br i1 %21, label %28, label %25
@@ -144,7 +144,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
   br label %34
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %30 = load i16, ptr %29, align 4, !noundef !4
   %31 = zext i16 %30 to i64
   %32 = add nsw i64 %31, -112
@@ -174,7 +174,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf937dd614759f5e2E.exit.thread: ; preds =
   %44 = add i64 %11, %32
   store i64 %44, ptr %3, align 8, !alias.scope !16, !noalias !19
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %45 = getelementptr i8, ptr %spec.select.i, i64 132
+  %45 = getelementptr i8, ptr %8, i64 132
   %.val57 = load i32, ptr %45, align 4, !noundef !4
   call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val57)
   %46 = load i64, ptr %5, align 8, !range !21, !noundef !4
@@ -250,7 +250,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
   br label %34
 
 19:                                               ; preds = %16
-  %20 = getelementptr i8, ptr %spec.select.i, i64 24
+  %20 = getelementptr i8, ptr %8, i64 24
   %.val56 = load i16, ptr %20, align 4, !noundef !4
   %21 = icmp eq i16 %.val56, 267
   br i1 %21, label %28, label %25
@@ -272,7 +272,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
   br label %34
 
 28:                                               ; preds = %19
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 20
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %30 = load i16, ptr %29, align 4, !noundef !4
   %31 = zext i16 %30 to i64
   %32 = add nsw i64 %31, -96
@@ -302,7 +302,7 @@ _ZN6object4read8read_ref7ReadRef4read17hd4f78736b92d3ddeE.llvm.16556925844696330
   %44 = add i64 %11, %32
   store i64 %44, ptr %3, align 8, !alias.scope !32, !noalias !35
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %45 = getelementptr i8, ptr %spec.select.i, i64 116
+  %45 = getelementptr i8, ptr %8, i64 116
   %.val57 = load i32, ptr %45, align 4, !noundef !4
   call void @_ZN6object4read2pe14data_directory15DataDirectories5parse17h1ec60064e8a6c886E(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 %37, i64 noundef %43, i32 noundef %.val57)
   %46 = load i64, ptr %5, align 8, !range !21, !noundef !4
@@ -1719,7 +1719,7 @@ _ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i: ; preds
   br i1 %or.cond, label %_ZN6object4read8read_ref7ReadRef4read17h4375711d2807dc34E.exit.thread, label %15
 
 15:                                               ; preds = %_ZN6object4read8read_ref7ReadRef10read_bytes17h480aa599d9dd1975E.exit.i
-  %16 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %17 = load i16, ptr %16, align 4, !noundef !4
   %18 = zext i16 %17 to i64
   %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %10, i64 %18)
@@ -1785,7 +1785,7 @@ _ZN6object4read8read_ref7ReadRef4read17hf55c8d5ff0a948efE.exit.thread: ; preds =
   br label %33
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %20 = load i16, ptr %19, align 2, !noundef !4
   %21 = icmp eq i16 %20, -1
   br i1 %21, label %24, label %22
@@ -1797,14 +1797,14 @@ _ZN6object4read8read_ref7ReadRef4read17hf55c8d5ff0a948efE.exit.thread: ; preds =
   br label %33
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %26 = load i16, ptr %25, align 4, !noundef !4
   %27 = icmp ult i16 %26, 2
   br i1 %27, label %22, label %28
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 12
-  %30 = load i128, ptr %29, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %30 = load i128, ptr %29, align 1
   %.not6 = icmp eq i128 %30, -94558775597840357164513783596303343161
   br i1 %.not6, label %31, label %22
 

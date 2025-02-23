@@ -372,7 +372,7 @@ declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #6
 define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %4 = load i32, ptr %3, align 8
-  switch i32 %4, label %174 [
+  switch i32 %4, label %176 [
     i32 2, label %76
     i32 1, label %5
   ]
@@ -384,7 +384,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %210, label %12
+  br i1 %11, label %212, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -477,15 +477,15 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %72 = tail call i32 @netlink_has_listeners(ptr noundef nonnull %69, i32 noundef 5) #8
   %73 = icmp eq i32 %72, 0
   tail call void @__rcu_read_unlock() #8
-  br i1 %73, label %210, label %74
+  br i1 %73, label %212, label %74
 
 74:                                               ; preds = %71
   tail call void @xfrm_replay_notify(ptr noundef %0, i32 noundef 16)
-  br label %210
+  br label %212
 
 75:                                               ; preds = %57
   tail call void @__rcu_read_unlock() #8
-  br label %210
+  br label %212
 
 76:                                               ; preds = %2
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 432
@@ -493,7 +493,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = load i32, ptr %79, align 4
   %81 = icmp eq i32 %80, 0
-  br i1 %81, label %210, label %82
+  br i1 %81, label %212, label %82
 
 82:                                               ; preds = %76
   %83 = tail call i32 @llvm.bswap.i32(i32 %1)
@@ -506,7 +506,7 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
   %90 = icmp sgt i8 %89, -1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %78, i64 16
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  br i1 %90, label %100, label %91
+  br i1 %90, label %101, label %91
 
 91:                                               ; preds = %82
   %reass.sub = sub i32 %85, %80
@@ -528,192 +528,193 @@ define dso_local void @xfrm_replay_advance(ptr noundef %0, i32 noundef %1) local
 
 .thread28:                                        ; preds = %97, %96
   %.sink = phi i32 [ 1, %96 ], [ -1, %97 ]
-  %99 = getelementptr inbounds nuw i8, ptr %78, i64 16
+  %99 = add i32 %.pre, %.sink
+  %100 = getelementptr inbounds nuw i8, ptr %78, i64 16
   br label %108
 
-100:                                              ; preds = %82
-  %101 = getelementptr inbounds nuw i8, ptr %78, i64 16
-  %102 = sub i32 0, %.pre
+101:                                              ; preds = %82
+  %102 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %103 = icmp eq i32 %.pre, 0
   br i1 %103, label %104, label %108
 
-104:                                              ; preds = %.thread, %100
-  %105 = phi ptr [ %98, %.thread ], [ %101, %100 ]
-  %106 = phi i32 [ %.pre, %.thread ], [ 0, %100 ]
+104:                                              ; preds = %.thread, %101
+  %105 = phi ptr [ %98, %.thread ], [ %102, %101 ]
+  %106 = phi i32 [ %.pre, %.thread ], [ 0, %101 ]
   %107 = icmp ugt i32 %83, %85
-  br i1 %107, label %112, label %146
+  br i1 %107, label %113, label %148
 
-108:                                              ; preds = %.thread28, %100
-  %109 = phi i32 [ %.sink, %.thread28 ], [ %102, %100 ]
-  %110 = phi ptr [ %99, %.thread28 ], [ %101, %100 ]
-  %111 = icmp sgt i32 %109, 0
-  br i1 %111, label %112, label %146
+108:                                              ; preds = %.thread28, %101
+  %109 = phi ptr [ %100, %.thread28 ], [ %102, %101 ]
+  %110 = phi i32 [ %99, %.thread28 ], [ 0, %101 ]
+  %111 = sub i32 %110, %.pre
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %113, label %148
 
-112:                                              ; preds = %108, %104
-  %.not = phi i1 [ false, %108 ], [ true, %104 ]
-  %113 = phi ptr [ %110, %108 ], [ %105, %104 ]
-  %114 = phi i32 [ %.pre, %108 ], [ %106, %104 ]
-  %115 = sub i32 %83, %85
-  %116 = icmp ult i32 %115, %80
-  br i1 %116, label %117, label %135
+113:                                              ; preds = %108, %104
+  %114 = phi i1 [ false, %108 ], [ true, %104 ]
+  %115 = phi ptr [ %109, %108 ], [ %105, %104 ]
+  %116 = phi i32 [ %.pre, %108 ], [ %106, %104 ]
+  %117 = sub i32 %83, %85
+  %118 = icmp ult i32 %117, %80
+  br i1 %118, label %119, label %137
 
-117:                                              ; preds = %112
-  %118 = icmp ugt i32 %115, 1
-  br i1 %118, label %119, label %.loopexit
+119:                                              ; preds = %113
+  %120 = icmp ugt i32 %117, 1
+  br i1 %120, label %121, label %.loopexit
 
-119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  br label %121
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  br label %123
 
-121:                                              ; preds = %121, %119
-  %122 = phi i32 [ 1, %119 ], [ %133, %121 ]
-  %123 = add i32 %122, %87
-  %124 = urem i32 %123, %80
-  %125 = lshr i32 %124, 5
-  %126 = and i32 %124, 31
-  %127 = shl nuw i32 1, %126
-  %128 = xor i32 %127, -1
-  %129 = zext nneg i32 %125 to i64
-  %130 = getelementptr [0 x i32], ptr %120, i64 0, i64 %129
-  %131 = load i32, ptr %130, align 4
-  %132 = and i32 %131, %128
-  store i32 %132, ptr %130, align 4
-  %133 = add nuw i32 %122, 1
-  %134 = icmp eq i32 %133, %115
-  br i1 %134, label %.loopexit, label %121, !llvm.loop !11
+123:                                              ; preds = %123, %121
+  %124 = phi i32 [ 1, %121 ], [ %135, %123 ]
+  %125 = add i32 %124, %87
+  %126 = urem i32 %125, %80
+  %127 = lshr i32 %126, 5
+  %128 = and i32 %126, 31
+  %129 = shl nuw i32 1, %128
+  %130 = xor i32 %129, -1
+  %131 = zext nneg i32 %127 to i64
+  %132 = getelementptr [0 x i32], ptr %122, i64 0, i64 %131
+  %133 = load i32, ptr %132, align 4
+  %134 = and i32 %133, %130
+  store i32 %134, ptr %132, align 4
+  %135 = add nuw i32 %124, 1
+  %136 = icmp eq i32 %135, %117
+  br i1 %136, label %.loopexit, label %123, !llvm.loop !11
 
-135:                                              ; preds = %112
-  %136 = add i32 %80, -1
-  %137 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %138 = lshr i32 %136, 3
-  %139 = and i32 %138, 536870908
-  %140 = add nuw nsw i32 %139, 4
-  %141 = zext nneg i32 %140 to i64
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %137, i8 0, i64 %141, i1 false)
+137:                                              ; preds = %113
+  %138 = add i32 %80, -1
+  %139 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %140 = lshr i32 %138, 3
+  %141 = and i32 %140, 536870908
+  %142 = add nuw nsw i32 %141, 4
+  %143 = zext nneg i32 %142 to i64
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %139, i8 0, i64 %143, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %121, %135, %117
-  %142 = add i32 %87, %115
-  %143 = urem i32 %142, %80
+.loopexit:                                        ; preds = %123, %137, %119
+  %144 = add i32 %87, %117
+  %145 = urem i32 %144, %80
   store i32 %83, ptr %84, align 4
-  br i1 %.not, label %155, label %144, !prof !6
+  br i1 %114, label %157, label %146, !prof !6
 
-144:                                              ; preds = %.loopexit
-  %145 = add i32 %114, 1
-  store i32 %145, ptr %113, align 4
-  br label %155
+146:                                              ; preds = %.loopexit
+  %147 = add i32 %116, 1
+  store i32 %147, ptr %115, align 4
+  br label %157
 
-146:                                              ; preds = %108, %104
-  %147 = sub i32 %85, %83
-  %148 = icmp ult i32 %87, %147
-  br i1 %148, label %152, label %149
+148:                                              ; preds = %108, %104
+  %149 = sub i32 %85, %83
+  %150 = icmp ult i32 %87, %149
+  br i1 %150, label %154, label %151
 
-149:                                              ; preds = %146
-  %150 = sub nuw i32 %87, %147
-  %151 = urem i32 %150, %80
-  br label %155
+151:                                              ; preds = %148
+  %152 = sub nuw i32 %87, %149
+  %153 = urem i32 %152, %80
+  br label %157
 
-152:                                              ; preds = %146
-  %153 = sub i32 %80, %147
-  %154 = add i32 %153, %87
-  br label %155
+154:                                              ; preds = %148
+  %155 = sub i32 %80, %149
+  %156 = add i32 %155, %87
+  br label %157
 
-155:                                              ; preds = %152, %149, %144, %.loopexit
-  %156 = phi i32 [ %143, %144 ], [ %143, %.loopexit ], [ %151, %149 ], [ %154, %152 ]
-  %157 = lshr i32 %156, 5
-  %158 = and i32 %156, 31
-  %159 = shl nuw i32 1, %158
-  %160 = getelementptr inbounds nuw i8, ptr %78, i64 24
-  %161 = zext nneg i32 %157 to i64
-  %162 = getelementptr [0 x i32], ptr %160, i64 0, i64 %161
-  %163 = load i32, ptr %162, align 4
-  %164 = or i32 %159, %163
-  store i32 %164, ptr %162, align 4
-  %165 = load ptr, ptr %0, align 8
+157:                                              ; preds = %154, %151, %146, %.loopexit
+  %158 = phi i32 [ %145, %146 ], [ %145, %.loopexit ], [ %153, %151 ], [ %156, %154 ]
+  %159 = lshr i32 %158, 5
+  %160 = and i32 %158, 31
+  %161 = shl nuw i32 1, %160
+  %162 = getelementptr inbounds nuw i8, ptr %78, i64 24
+  %163 = zext nneg i32 %159 to i64
+  %164 = getelementptr [0 x i32], ptr %162, i64 0, i64 %163
+  %165 = load i32, ptr %164, align 4
+  %166 = or i32 %161, %165
+  store i32 %166, ptr %164, align 4
+  %167 = load ptr, ptr %0, align 8
   tail call void @__rcu_read_lock() #8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 2936
-  %167 = load volatile ptr, ptr %166, align 8
-  %168 = icmp eq ptr %167, null
-  br i1 %168, label %173, label %169
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 2936
+  %169 = load volatile ptr, ptr %168, align 8
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %175, label %171
 
-169:                                              ; preds = %155
-  %170 = tail call i32 @netlink_has_listeners(ptr noundef nonnull %167, i32 noundef 5) #8
-  %171 = icmp eq i32 %170, 0
+171:                                              ; preds = %157
+  %172 = tail call i32 @netlink_has_listeners(ptr noundef nonnull %169, i32 noundef 5) #8
+  %173 = icmp eq i32 %172, 0
   tail call void @__rcu_read_unlock() #8
-  br i1 %171, label %210, label %172
+  br i1 %173, label %212, label %174
 
-172:                                              ; preds = %169
+174:                                              ; preds = %171
   tail call void @xfrm_replay_notify(ptr noundef %0, i32 noundef 16)
-  br label %210
+  br label %212
 
-173:                                              ; preds = %155
+175:                                              ; preds = %157
   tail call void @__rcu_read_unlock() #8
-  br label %210
+  br label %212
 
-174:                                              ; preds = %2
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 221
-  %176 = load i8, ptr %175, align 1
-  %177 = icmp eq i8 %176, 0
-  br i1 %177, label %210, label %178
+176:                                              ; preds = %2
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 221
+  %178 = load i8, ptr %177, align 1
+  %179 = icmp eq i8 %178, 0
+  br i1 %179, label %212, label %180
 
-178:                                              ; preds = %174
-  %179 = tail call i32 @llvm.bswap.i32(i32 %1)
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %181 = load i32, ptr %180, align 4
-  %182 = icmp ugt i32 %179, %181
-  br i1 %182, label %183, label %194
+180:                                              ; preds = %176
+  %181 = tail call i32 @llvm.bswap.i32(i32 %1)
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %183 = load i32, ptr %182, align 4
+  %184 = icmp ugt i32 %181, %183
+  br i1 %184, label %185, label %196
 
-183:                                              ; preds = %178
-  %184 = sub nuw i32 %179, %181
-  %185 = zext i8 %176 to i32
-  %186 = icmp ult i32 %184, %185
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  br i1 %186, label %188, label %192
+185:                                              ; preds = %180
+  %186 = sub nuw i32 %181, %183
+  %187 = zext i8 %178 to i32
+  %188 = icmp ult i32 %186, %187
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  br i1 %188, label %190, label %194
 
-188:                                              ; preds = %183
-  %189 = load i32, ptr %187, align 4
-  %190 = shl i32 %189, %184
-  %191 = or i32 %190, 1
-  br label %192
+190:                                              ; preds = %185
+  %191 = load i32, ptr %189, align 4
+  %192 = shl i32 %191, %186
+  %193 = or i32 %192, 1
+  br label %194
 
-192:                                              ; preds = %188, %183
-  %193 = phi i32 [ %191, %188 ], [ 1, %183 ]
-  store i32 %193, ptr %187, align 4
-  store i32 %179, ptr %180, align 4
-  br label %200
+194:                                              ; preds = %190, %185
+  %195 = phi i32 [ %193, %190 ], [ 1, %185 ]
+  store i32 %195, ptr %189, align 4
+  store i32 %181, ptr %182, align 4
+  br label %202
 
-194:                                              ; preds = %178
-  %195 = sub nuw i32 %181, %179
-  %196 = shl nuw i32 1, %195
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 428
-  %198 = load i32, ptr %197, align 4
-  %199 = or i32 %198, %196
-  store i32 %199, ptr %197, align 4
-  br label %200
+196:                                              ; preds = %180
+  %197 = sub nuw i32 %183, %181
+  %198 = shl nuw i32 1, %197
+  %199 = getelementptr inbounds nuw i8, ptr %0, i64 428
+  %200 = load i32, ptr %199, align 4
+  %201 = or i32 %200, %198
+  store i32 %201, ptr %199, align 4
+  br label %202
 
-200:                                              ; preds = %194, %192
-  %201 = load ptr, ptr %0, align 8
+202:                                              ; preds = %196, %194
+  %203 = load ptr, ptr %0, align 8
   tail call void @__rcu_read_lock() #8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 2936
-  %203 = load volatile ptr, ptr %202, align 8
-  %204 = icmp eq ptr %203, null
-  br i1 %204, label %209, label %205
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 2936
+  %205 = load volatile ptr, ptr %204, align 8
+  %206 = icmp eq ptr %205, null
+  br i1 %206, label %211, label %207
 
-205:                                              ; preds = %200
-  %206 = tail call i32 @netlink_has_listeners(ptr noundef nonnull %203, i32 noundef 5) #8
-  %207 = icmp eq i32 %206, 0
+207:                                              ; preds = %202
+  %208 = tail call i32 @netlink_has_listeners(ptr noundef nonnull %205, i32 noundef 5) #8
+  %209 = icmp eq i32 %208, 0
   tail call void @__rcu_read_unlock() #8
-  br i1 %207, label %210, label %208
+  br i1 %209, label %212, label %210
 
-208:                                              ; preds = %205
+210:                                              ; preds = %207
   tail call void @xfrm_replay_notify(ptr noundef %0, i32 noundef 16)
-  br label %210
+  br label %212
 
-209:                                              ; preds = %200
+211:                                              ; preds = %202
   tail call void @__rcu_read_unlock() #8
-  br label %210
+  br label %212
 
-210:                                              ; preds = %209, %208, %205, %174, %173, %172, %169, %76, %75, %74, %71, %5
+212:                                              ; preds = %211, %210, %207, %176, %175, %174, %171, %76, %75, %74, %71, %5
   ret void
 }
 

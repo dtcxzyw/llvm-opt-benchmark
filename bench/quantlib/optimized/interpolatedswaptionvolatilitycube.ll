@@ -1984,7 +1984,7 @@ cond.end.thread.i:                                ; preds = %invoke.cont11
   store i64 %sub.ptr.div.i, ptr %rows_6.i, align 8, !tbaa !101
   %columns_7.i = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 16
   store i64 %sub.ptr.div.i43, ptr %columns_7.i, align 8, !tbaa !109
-  br label %invoke.cont16
+  br label %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %invoke.cont11
   %39 = icmp ugt i64 %mul.i, 2305843009213693951
@@ -2000,20 +2000,20 @@ call.i.noexc:                                     ; preds = %for.body.i.i.i.preh
   %columns_.i = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 16
   store i64 %sub.ptr.div.i43, ptr %columns_.i, align 8, !tbaa !109
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i45, i8 0, i64 %40, i1 false), !tbaa !110
-  br label %invoke.cont16
+  br label %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
-invoke.cont16:                                    ; preds = %call.i.noexc, %cond.end.thread.i
+_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %call.i.noexc, %cond.end.thread.i
   %volSpreadsMatrix_ = getelementptr inbounds nuw i8, ptr %this, i64 520
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %volSpreadsMatrix_, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i.i.i33, label %_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i, label %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i
 
-_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %invoke.cont16
+_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i48 = mul nuw nsw i64 %33, 24
   %call5.i.i.i.i2.i.i62 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i48) #31
           to label %_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i unwind label %lpad18
 
-_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont16
-  %cond.i.i.i.i49 = phi ptr [ null, %invoke.cont16 ], [ %call5.i.i.i.i2.i.i62, %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i ]
+_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %cond.i.i.i.i49 = phi ptr [ null, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %call5.i.i.i.i2.i.i62, %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i49, ptr %volSpreadsMatrix_, align 8, !tbaa !111
   %_M_finish.i.i.i50 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store ptr %cond.i.i.i.i49, ptr %_M_finish.i.i.i50, align 8, !tbaa !113
@@ -2755,7 +2755,7 @@ cond.end.thread.i:                                ; preds = %invoke.cont9
   store i64 %sub.ptr.div.i, ptr %rows_6.i, align 8, !tbaa !101
   %columns_7.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   store i64 %sub.ptr.div.i49, ptr %columns_7.i, align 8, !tbaa !109
-  br label %invoke.cont14
+  br label %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %invoke.cont9
   %35 = icmp ugt i64 %mul.i, 2305843009213693951
@@ -2771,20 +2771,20 @@ call.i.noexc:                                     ; preds = %for.body.i.i.i.preh
   %columns_.i = getelementptr inbounds nuw i8, ptr %ref.tmp11, i64 16
   store i64 %sub.ptr.div.i49, ptr %columns_.i, align 8, !tbaa !109
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i51, i8 0, i64 %36, i1 false), !tbaa !110
-  br label %invoke.cont14
+  br label %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
-invoke.cont14:                                    ; preds = %call.i.noexc, %cond.end.thread.i
+_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; preds = %call.i.noexc, %cond.end.thread.i
   %volSpreadsMatrix_ = getelementptr inbounds nuw i8, ptr %this, i64 520
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %volSpreadsMatrix_, i8 0, i64 24, i1 false)
   br i1 %cmp.not.i.i.i.i38, label %_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i, label %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i
 
-_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %invoke.cont14
+_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i: ; preds = %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %mul.i.i.i.i.i.i54 = mul nuw nsw i64 %29, 24
   %call5.i.i.i.i2.i.i68 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i54) #31
           to label %_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i unwind label %lpad16
 
-_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i, %invoke.cont14
-  %cond.i.i.i.i55 = phi ptr [ null, %invoke.cont14 ], [ %call5.i.i.i.i2.i.i68, %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i ]
+_ZNSt12_Vector_baseIN8QuantLib6MatrixESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
+  %cond.i.i.i.i55 = phi ptr [ null, %_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %call5.i.i.i.i2.i.i68, %_ZNSt16allocator_traitsISaIN8QuantLib6MatrixEEE8allocateERS2_m.exit.i.i.i.i ]
   store ptr %cond.i.i.i.i55, ptr %volSpreadsMatrix_, align 8, !tbaa !111
   %_M_finish.i.i.i56 = getelementptr inbounds nuw i8, ptr %this, i64 528
   store ptr %cond.i.i.i.i55, ptr %_M_finish.i.i.i56, align 8, !tbaa !113

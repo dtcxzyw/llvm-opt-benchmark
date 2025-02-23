@@ -2059,7 +2059,7 @@ _ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50: ; preds =
   br i1 %49, label %50, label %.loopexit
 
 50:                                               ; preds = %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50
-  %51 = icmp sgt i64 %10, 7
+  %51 = icmp samesign ugt i64 %10, 7
   br i1 %51, label %52, label %63
 
 52:                                               ; preds = %50
@@ -3256,7 +3256,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIfEENS0_17adjusted_mantissaET_.exit:
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %56, %._crit_edge.i.i.i, %43, %39
-  %.not9.i.i = icmp ult i32 %33, 64
+  %.not9.i.i = icmp samesign ult i32 %33, 64
   br i1 %.not9.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %59
 
 59:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -3330,7 +3330,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %56
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %92, %._crit_edge.i.i.i39, %78, %73
-  %.not9.i.i43 = icmp ult i32 %74, 64
+  %.not9.i.i43 = icmp samesign ult i32 %74, 64
   br i1 %.not9.i.i43, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %95
 
 95:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
@@ -3657,15 +3657,10 @@ _ZN14arrow_vendored10fast_float9small_mulILt62EEEbRNS0_8stackvecIXT_EEEm.exit: ;
   %33 = icmp eq i16 %.496..496., 0
   %34 = shl nuw nsw i16 %.496..496., 3
   %.idx.i.i.i.i = zext nneg i16 %34 to i64
-  br i1 %.not.i35, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
-
-.lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %umax = tail call i64 @llvm.umax.i64(i64 %2, i64 2)
-  br label %.lr.ph.split
+  br i1 %.not.i35, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
   %.promoted = load i16, ptr %6, align 8
-  %umax72 = tail call i64 @llvm.umax.i64(i64 %2, i64 2)
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.critedge.us
@@ -3745,38 +3740,38 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i44.us: ;
 
 69:                                               ; preds = %66
   %70 = icmp samesign ugt i64 %67, %62
-  br i1 %70, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us, label %.sink.split.i.us
+  br i1 %70, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
-_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us: ; preds = %69
+_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us: ; preds = %69
   %71 = getelementptr i64, ptr %0, i64 %62
   %72 = sub nuw nsw i64 %67, %62
   %73 = shl nuw nsw i64 %72, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false), !tbaa !17
-  br label %.sink.split.i.us
+  br label %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
 
-.sink.split.i.us:                                 ; preds = %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us, %69
+_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.loopexit.i.us, %69
   %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8, !tbaa !79
   br label %74
 
-74:                                               ; preds = %.sink.split.i.us, %59
-  %75 = phi i16 [ %35, %59 ], [ %storemerge.i.i.i.us, %.sink.split.i.us ]
+74:                                               ; preds = %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us, %59
+  %75 = phi i16 [ %35, %59 ], [ %storemerge.i.i.i.us, %_ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us ]
   %.not.i46.us = icmp eq i16 %60, 0
   br i1 %.not.i46.us, label %.critedge.us, label %.lr.ph.i47.us
 
 .lr.ph.i47.us:                                    ; preds = %74, %90
-  %.02437.i.us = phi i64 [ %93, %90 ], [ 0, %74 ]
-  %.02536.i.us = phi i1 [ %92, %90 ], [ false, %74 ]
-  %76 = add i64 %.02437.i.us, %.02768.us
+  %.02435.i.us = phi i64 [ %93, %90 ], [ 0, %74 ]
+  %.02534.i.us = phi i1 [ %92, %90 ], [ false, %74 ]
+  %76 = add i64 %.02435.i.us, %.02768.us
   %77 = getelementptr inbounds nuw [62 x i64], ptr %0, i64 0, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !17
-  %79 = getelementptr inbounds nuw i64, ptr %5, i64 %.02437.i.us
+  %79 = getelementptr inbounds nuw i64, ptr %5, i64 %.02435.i.us
   %80 = load i64, ptr %79, align 8, !tbaa !17
   %81 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %78, i64 %80)
   %82 = extractvalue { i64, i1 } %81, 1
   %83 = extractvalue { i64, i1 } %81, 0
   %84 = zext i1 %82 to i8
-  br i1 %.02536.i.us, label %85, label %90
+  br i1 %.02534.i.us, label %85, label %90
 
 85:                                               ; preds = %.lr.ph.i47.us
   %86 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %83, i64 1)
@@ -3791,7 +3786,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_resizeEmm.exit.i.us: ; pred
   store i64 %.023.i.us, ptr %77, align 8, !tbaa !17
   %91 = or i8 %.031.i.us, %84
   %92 = icmp ne i8 %91, 0
-  %93 = add nuw nsw i64 %.02437.i.us, 1
+  %93 = add nuw nsw i64 %.02435.i.us, 1
   %exitcond.not.i48.us = icmp eq i64 %93, %61
   br i1 %exitcond.not.i48.us, label %._crit_edge.i49.us, label %.lr.ph.i47.us, !llvm.loop !95
 
@@ -3833,11 +3828,11 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ;
   %109 = phi i16 [ %75, %74 ], [ %101, %_ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us ], [ %75, %._crit_edge.i49.us ], [ %35, %.lr.ph.split.us ], [ %75, %102 ]
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %5) #21
   %110 = add nuw i64 %.02768.us, 1
-  %exitcond73.not = icmp eq i64 %110, %umax72
+  %exitcond73.not = icmp eq i64 %110, %2
   br i1 %exitcond73.not, label %.critedge34, label %.lr.ph.split.us, !llvm.loop !96
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.critedge
-  %.02768 = phi i64 [ %113, %.critedge ], [ 1, %.lr.ph.split.preheader ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
+  %.02768 = phi i64 [ %113, %.critedge ], [ 1, %.lr.ph ]
   %111 = getelementptr inbounds nuw i64, ptr %1, i64 %.02768
   %112 = load i64, ptr %111, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 504, ptr nonnull %5) #21
@@ -3847,7 +3842,7 @@ _ZN14arrow_vendored10fast_float8stackvecILt62EE8try_pushEm.exit.thread.i.i.us: ;
 .critedge:                                        ; preds = %.lr.ph.split
   call void @llvm.lifetime.end.p0(i64 504, ptr nonnull %5) #21
   %113 = add nuw i64 %.02768, 1
-  %exitcond.not = icmp eq i64 %113, %umax
+  %exitcond.not = icmp eq i64 %113, %2
   br i1 %exitcond.not, label %.critedge34, label %.lr.ph.split, !llvm.loop !96
 
 _ZN14arrow_vendored10fast_float8stackvecILt62EE10try_extendENS0_4spanImEE.exit: ; preds = %.lr.ph.split, %55, %66, %.critedge.i.i.us
@@ -3990,7 +3985,7 @@ _ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50: ; preds =
   br i1 %49, label %50, label %.loopexit
 
 50:                                               ; preds = %_ZN14arrow_vendored10fast_float21fastfloat_strncasecmpEPKcS2_m.exit50
-  %51 = icmp sgt i64 %10, 7
+  %51 = icmp samesign ugt i64 %10, 7
   br i1 %51, label %52, label %63
 
 52:                                               ; preds = %50
@@ -4324,7 +4319,7 @@ _ZN14arrow_vendored10fast_float11to_extendedIdEENS0_17adjusted_mantissaET_.exit:
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %57, %._crit_edge.i.i.i, %44, %40
-  %.not9.i.i = icmp ult i32 %34, 64
+  %.not9.i.i = icmp samesign ult i32 %34, 64
   br i1 %.not9.i.i, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %60
 
 60:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i
@@ -4398,7 +4393,7 @@ _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i: ; preds = %57
   br label %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
 
 _ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42: ; preds = %93, %._crit_edge.i.i.i39, %79, %74
-  %.not9.i.i43 = icmp ult i32 %75, 64
+  %.not9.i.i43 = icmp samesign ult i32 %75, 64
   br i1 %.not9.i.i43, label %_ZN14arrow_vendored10fast_float6bigint4pow2Ej.exit, label %96
 
 96:                                               ; preds = %_ZN14arrow_vendored10fast_float6bigint8shl_bitsEm.exit.thread.i.i42
@@ -5765,9 +5760,6 @@ declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #20

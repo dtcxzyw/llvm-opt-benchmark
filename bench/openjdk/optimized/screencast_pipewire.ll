@@ -4788,7 +4788,7 @@ spa_pod_builder_push_choice.exit.i:               ; preds = %spa_pod_builder_raw
   %214 = phi ptr [ %208, %205 ], [ %211, %210 ]
   %215 = load i32, ptr %214, align 4
   %216 = icmp sgt i32 %215, 0
-  br i1 %216, label %.lr.ph.preheader.i, label %._crit_edge.i
+  br i1 %216, label %.lr.ph.preheader.i, label %._crit_edge.thread.i
 
 .lr.ph.preheader.i:                               ; preds = %213, %167
   %.0206.i = phi ptr [ %spec.select.i, %213 ], [ %165, %167 ]
@@ -5701,17 +5701,17 @@ spa_pod_builder_pad.exit.i.i:                     ; preds = %.lr.ph.i.i.i.i, %.c
   br label %spa_pod_builder_primitive.exit.i
 
 spa_pod_builder_primitive.exit.i:                 ; preds = %spa_pod_builder_pad.exit.i.i, %spa_pod_builder_pad.exit.thread.i.i, %spa_pod_builder_raw.exit.i189.i, %561, %542, %527, %spa_pod_builder_array.exit.i, %425, %408, %spa_pod_builder_bytes.exit.i, %345, %323, %320, %303, %288, %274, %260, %246, %230, %.lr.ph.i
-  %633 = icmp sgt i32 %.in.i, 1
+  %633 = icmp samesign ugt i32 %.in.i, 1
   br i1 %633, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !20
 
-._crit_edge.i:                                    ; preds = %spa_pod_builder_primitive.exit.i, %213
-  br i1 %169, label %634, label %.backedge
+._crit_edge.i:                                    ; preds = %spa_pod_builder_primitive.exit.i
+  br i1 %169, label %._crit_edge.thread.i, label %.backedge
 
-634:                                              ; preds = %._crit_edge.i
-  %635 = call fastcc ptr @spa_pod_builder_pop(ptr noundef nonnull %0, ptr noundef %15)
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %213
+  %634 = call fastcc ptr @spa_pod_builder_pop(ptr noundef nonnull %0, ptr noundef %15)
   br label %.backedge
 
-.backedge:                                        ; preds = %634, %._crit_edge.i
+.backedge:                                        ; preds = %._crit_edge.thread.i, %._crit_edge.i
   br label %63
 
 spa_pod_builder_addv.exit:                        ; preds = %75, %124, %163

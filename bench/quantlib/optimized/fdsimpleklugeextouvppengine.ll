@@ -18727,8 +18727,8 @@ entry:
   %second.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 600
   %second.i.i.i72 = getelementptr inbounds nuw i8, ptr %x, i64 24
   %i_ = getelementptr inbounds nuw i8, ptr %this, i64 576
-  %a_83509517527 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %second.i.i236529 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %a_83507515525 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %second.i.i236527 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %second.i232 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %b_89 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %second.i.i.i239 = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -18745,7 +18745,7 @@ entry:
   %second.i.i.i405 = getelementptr inbounds nuw i8, ptr %this, i64 168
   %ae_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %second.i.i.i279 = getelementptr inbounds nuw i8, ptr %this, i64 48
-  %second.i.i276568 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %second.i.i276566 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %second.i272 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %for.body
 
@@ -18753,22 +18753,22 @@ for.cond.cleanup:                                 ; preds = %if.end121
   ret void
 
 for.body:                                         ; preds = %entry, %if.end121
-  %j.0702 = phi i64 [ 0, %entry ], [ %inc, %if.end121 ]
-  %cmp.not.i = icmp eq i64 %j.0702, 0
+  %j.0700 = phi i64 [ 0, %entry ], [ %inc, %if.end121 ]
+  %cmp.not.i = icmp eq i64 %j.0700, 0
   br i1 %cmp.not.i, label %cond.false.i, label %cond.true.i
 
 cond.true.i:                                      ; preds = %for.body
-  switch i64 %j.0702, label %cond.true.i.i.i71 [
+  switch i64 %j.0700, label %cond.true.i.i.i71 [
     i64 1, label %cond.false.i.i
     i64 2, label %cond.false.i.i.i
   ]
 
 cond.true.i.i.i71:                                ; preds = %cond.true.i
-  %sub.i.i.i = add nsw i64 %j.0702, -3
+  %sub.i.i.i = add nsw i64 %j.0700, -3
   %call.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointImNS0_8EmptyDimEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i, i64 noundef %sub.i.i.i)
   %0 = load ptr, ptr %this, align 8, !tbaa !367
   %1 = load ptr, ptr %0, align 8, !tbaa !265
-  %add.ptr.i411 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %j.0702
+  %add.ptr.i411 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %j.0700
   %_M_finish.i412 = getelementptr inbounds nuw i8, ptr %add.ptr.i411, i64 8
   %2 = load ptr, ptr %_M_finish.i412, align 8, !tbaa !142
   %3 = load ptr, ptr %add.ptr.i411, align 8, !tbaa !144
@@ -18831,7 +18831,7 @@ _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit: ; 
   br i1 %cmp8, label %do.body, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit
-  switch i64 %j.0702, label %lor.lhs.false.unreachabledefault [
+  switch i64 %j.0700, label %lor.lhs.false.unreachabledefault [
     i64 0, label %cond.false.i81
     i64 1, label %cond.false.i.i79
     i64 2, label %cond.false.i.i.i76
@@ -18843,7 +18843,7 @@ lor.lhs.false.unreachabledefault:                 ; preds = %lor.lhs.false
 
 cond.true.i.i.i82:                                ; preds = %lor.lhs.false
   %call.i.i.i85 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i72, i64 noundef 0)
-  %.pre710 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
+  %.pre711 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit86
 
 cond.false.i.i.i76:                               ; preds = %lor.lhs.false
@@ -18859,7 +18859,7 @@ cond.false.i81:                                   ; preds = %lor.lhs.false
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit86
 
 _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit86: ; preds = %cond.true.i.i.i82, %cond.false.i.i.i76, %cond.false.i.i79, %cond.false.i81
-  %24 = phi ptr [ %19, %cond.false.i81 ], [ %19, %cond.false.i.i79 ], [ %.pre710, %cond.true.i.i.i82 ], [ %19, %cond.false.i.i.i76 ]
+  %24 = phi ptr [ %19, %cond.false.i81 ], [ %19, %cond.false.i.i79 ], [ %.pre711, %cond.true.i.i.i82 ], [ %19, %cond.false.i.i.i76 ]
   %cond.i78 = phi double [ %23, %cond.false.i81 ], [ %22, %cond.false.i.i79 ], [ %call.i.i.i85, %cond.true.i.i.i82 ], [ %21, %cond.false.i.i.i76 ]
   %add.ptr.i87 = getelementptr inbounds nuw double, ptr %24, i64 %sub425
   %25 = load double, ptr %add.ptr.i87, align 8, !tbaa !80
@@ -18869,7 +18869,7 @@ _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit86: 
 do.body:                                          ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit86
   %26 = load ptr, ptr %ae_, align 8, !tbaa !377
   %27 = load ptr, ptr %26, align 8, !tbaa !274
-  %shl.i.i.i = shl nuw nsw i64 1, %j.0702
+  %shl.i.i.i = shl nuw nsw i64 1, %j.0700
   %28 = load i64, ptr %27, align 8, !tbaa !8
   %and.i.i.i.i = and i64 %28, %shl.i.i.i
   %tobool.i.i.i.i.not = icmp eq i64 %and.i.i.i.i, 0
@@ -18882,7 +18882,7 @@ if.then13:                                        ; preds = %do.body
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then13
-  %call.i89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, i64 noundef %j.0702)
+  %call.i89 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %_ql_msg_stream, i64 noundef %j.0700)
           to label %invoke.cont15 unwind label %lpad
 
 invoke.cont15:                                    ; preds = %invoke.cont
@@ -18989,20 +18989,20 @@ ehcleanup32.thread:                               ; preds = %invoke.cont21
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp22) #31
   %44 = load ptr, ptr %ref.tmp, align 8, !tbaa !10
   %45 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i100687 = icmp eq ptr %44, %45
-  br i1 %cmp.i.i.i100687, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread, label %ehcleanup36.thread696
+  %cmp.i.i.i100685 = icmp eq ptr %44, %45
+  br i1 %cmp.i.i.i100685, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread, label %ehcleanup36.thread694
 
-ehcleanup36.thread696:                            ; preds = %ehcleanup32.thread
+ehcleanup36.thread694:                            ; preds = %ehcleanup32.thread
   %46 = load i64, ptr %45, align 8, !tbaa !12
-  %add.i.i.i102699 = add i64 %46, 1
-  call void @_ZdlPvm(ptr noundef %44, i64 noundef %add.i.i.i102699) #33
+  %add.i.i.i102697 = add i64 %46, 1
+  call void @_ZdlPvm(ptr noundef %44, i64 noundef %add.i.i.i102697) #33
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread: ; preds = %ehcleanup32.thread
-  %_M_string_length.i.i.i104694 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %47 = load i64, ptr %_M_string_length.i.i.i104694, align 8, !tbaa !13
-  %cmp3.i.i.i105695 = icmp ult i64 %47, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i105695)
+  %_M_string_length.i.i.i104692 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %47 = load i64, ptr %_M_string_length.i.i.i104692, align 8, !tbaa !13
+  %cmp3.i.i.i105693 = icmp ult i64 %47, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i105693)
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103: ; preds = %ehcleanup32
@@ -19022,8 +19022,8 @@ ehcleanup36:                                      ; preds = %ehcleanup32
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #31
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup40
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup36.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread, %ehcleanup36.thread696
-  %.pn.pn.pn455.ph = phi { ptr, i32 } [ %43, %ehcleanup36.thread696 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread ], [ %30, %ehcleanup36.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup36.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread, %ehcleanup36.thread694
+  %.pn.pn.pn455.ph = phi { ptr, i32 } [ %43, %ehcleanup36.thread694 ], [ %43, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103.thread ], [ %30, %ehcleanup36.thread ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp19) #31
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #31
   br label %cleanup.action
@@ -19043,13 +19043,13 @@ do.end:                                           ; preds = %do.body
   br i1 %cmp.not.i, label %cond.false.i167, label %cond.true.i108
 
 cond.true.i108:                                   ; preds = %do.end
-  switch i64 %j.0702, label %cond.true.i.i.i168 [
+  switch i64 %j.0700, label %cond.true.i.i.i168 [
     i64 1, label %cond.false.i.i165
     i64 2, label %cond.false.i.i.i162
   ]
 
 cond.true.i.i.i168:                               ; preds = %cond.true.i108
-  %sub.i.i.i117 = add nsw i64 %j.0702, -3
+  %sub.i.i.i117 = add nsw i64 %j.0700, -3
   %call.i.i.i118 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i239, i64 noundef %sub.i.i.i117)
   store double 1.000000e+00, ptr %call.i.i.i118, align 8, !tbaa !80
   %call.i.i.i131 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i405, i64 noundef %sub.i.i.i117)
@@ -19062,7 +19062,7 @@ cond.true.i.i.i168:                               ; preds = %cond.true.i108
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit172
 
 cond.false.i.i.i162:                              ; preds = %cond.true.i108
-  store double 1.000000e+00, ptr %second.i.i236529, align 8, !tbaa !80
+  store double 1.000000e+00, ptr %second.i.i236527, align 8, !tbaa !80
   store double 0.000000e+00, ptr %second.i.i402, align 8, !tbaa !80
   store double 0.000000e+00, ptr %second.i.i262, align 8, !tbaa !80
   store double 0.000000e+00, ptr %second.i.i332, align 8, !tbaa !80
@@ -19078,7 +19078,7 @@ cond.false.i.i165:                                ; preds = %cond.true.i108
   br label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit172
 
 cond.false.i167:                                  ; preds = %do.end
-  store double 1.000000e+00, ptr %a_83509517527, align 8, !tbaa !80
+  store double 1.000000e+00, ptr %a_83507515525, align 8, !tbaa !80
   store double 0.000000e+00, ptr %b2_119, align 8, !tbaa !80
   store double 0.000000e+00, ptr %b_89, align 8, !tbaa !80
   store double 0.000000e+00, ptr %a2_103, align 8, !tbaa !80
@@ -19098,7 +19098,7 @@ if.else:                                          ; preds = %_ZNK8QuantLib6detai
   %55 = load i64, ptr %cond.i418, align 8, !tbaa !8
   %add.ptr.i174 = getelementptr inbounds nuw double, ptr %24, i64 %55
   %56 = load double, ptr %add.ptr.i174, align 8, !tbaa !80
-  switch i64 %j.0702, label %if.else.unreachabledefault [
+  switch i64 %j.0700, label %if.else.unreachabledefault [
     i64 0, label %cond.false.i180
     i64 1, label %cond.false.i.i178
     i64 2, label %cond.false.i.i.i175
@@ -19130,11 +19130,11 @@ _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185:
   br i1 %cmp51, label %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185.cond.false56_crit_edge, label %land.lhs.true
 
 _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185.cond.false56_crit_edge: ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185
-  %.pre711 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !18
+  %.pre712 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !18
   br label %cond.false56
 
 land.lhs.true:                                    ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185
-  switch i64 %j.0702, label %land.lhs.true.unreachabledefault [
+  switch i64 %j.0700, label %land.lhs.true.unreachabledefault [
     i64 0, label %cond.false.i191
     i64 1, label %cond.false.i.i189
     i64 2, label %cond.false.i.i.i186
@@ -19171,9 +19171,9 @@ _ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196:
   br i1 %cmp54, label %cond.end73, label %cond.false56
 
 cond.false56:                                     ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185.cond.false56_crit_edge, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196
-  %67 = phi ptr [ %.pre711, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185.cond.false56_crit_edge ], [ %64, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
+  %67 = phi ptr [ %.pre712, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit185.cond.false56_crit_edge ], [ %64, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
   %68 = load ptr, ptr %_M_finish.i423, align 8, !tbaa !18
-  switch i64 %j.0702, label %cond.false56.unreachabledefault [
+  switch i64 %j.0700, label %cond.false56.unreachabledefault [
     i64 0, label %cond.false.i204
     i64 1, label %cond.false.i.i202
     i64 2, label %cond.false.i.i.i199
@@ -19224,11 +19224,11 @@ while.body.i.i:                                   ; preds = %_ZNK8QuantLib6detai
   br i1 %cmp.i.i, label %while.body.i.i, label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, !llvm.loop !378
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit: ; preds = %while.body.i.i
-  %.pre715 = ptrtoint ptr %__first.sroa.0.1.i.i to i64
+  %.pre717 = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   br label %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit
 
 _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit: ; preds = %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit209
-  %sub.ptr.lhs.cast.i212.pre-phi = phi i64 [ %.pre715, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit209 ]
+  %sub.ptr.lhs.cast.i212.pre-phi = phi i64 [ %.pre717, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit.loopexit ], [ %sub.ptr.rhs.cast.i.i.i.i.i, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit209 ]
   %74 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !18
   %sub.ptr.rhs.cast.i213 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i214 = sub i64 %sub.ptr.lhs.cast.i212.pre-phi, %sub.ptr.rhs.cast.i213
@@ -19236,20 +19236,20 @@ _ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8
   %sub72 = add nsw i64 %sub.ptr.div.i215, -1
   %.phi.trans.insert = getelementptr double, ptr %74, i64 %sub72
   %add.ptr.i216.phi.trans.insert = getelementptr i8, ptr %.phi.trans.insert, i64 8
-  %.pre712 = load double, ptr %add.ptr.i216.phi.trans.insert, align 8, !tbaa !80
+  %.pre713 = load double, ptr %add.ptr.i216.phi.trans.insert, align 8, !tbaa !80
   br label %cond.end73
 
 cond.end73:                                       ; preds = %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit
-  %75 = phi double [ %.pre712, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit ], [ %66, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
+  %75 = phi double [ %.pre713, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit ], [ %66, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
   %76 = phi ptr [ %74, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit ], [ %64, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
   %77 = phi i64 [ %sub72, %_ZSt11upper_boundIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEdET_S8_S8_RKT0_.exit ], [ %63, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit196 ]
   store i64 %77, ptr %cond.i418, align 8, !tbaa !8
   %78 = getelementptr double, ptr %76, i64 %77
   %79 = load double, ptr %78, align 8, !tbaa !80
   %sub78 = fsub double %75, %79
-  switch i64 %j.0702, label %cond.end73.unreachabledefault [
+  switch i64 %j.0700, label %cond.end73.unreachabledefault [
     i64 0, label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395
-    i64 1, label %cond.true.i397.thread772
+    i64 1, label %cond.true.i397.thread778
     i64 2, label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split
     i64 3, label %cond.true.i.i.i404
   ]
@@ -19257,145 +19257,144 @@ cond.end73:                                       ; preds = %_ZNK8QuantLib6detai
 cond.end73.unreachabledefault:                    ; preds = %cond.end73
   unreachable
 
-cond.true.i397.thread772:                         ; preds = %cond.end73
+cond.true.i397.thread778:                         ; preds = %cond.end73
+  %.pn698 = load double, ptr %second.i70, align 8, !tbaa !80
+  %sub82.pn = fsub double %75, %.pn698
+  %div509 = fdiv double %sub82.pn, %sub78
+  store double %div509, ptr %second.i232, align 8, !tbaa !80
   %80 = load double, ptr %second.i70, align 8, !tbaa !201
-  %sub82507.pn = fsub double %75, %80
-  %div511 = fdiv double %sub82507.pn, %sub78
-  store double %div511, ptr %second.i232, align 8, !tbaa !80
-  %81 = load double, ptr %second.i70, align 8, !tbaa !201
-  %82 = load i64, ptr %cond.i418, align 8, !tbaa !8
-  %83 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
-  %add.ptr.i255543728 = getelementptr inbounds nuw double, ptr %83, i64 %82
-  %84 = load double, ptr %add.ptr.i255543728, align 8, !tbaa !80
-  %sub87544729 = fsub double %81, %84
-  %div88545730 = fdiv double %sub87544729, %sub78
-  store double %div88545730, ptr %second.i258, align 8, !tbaa !80
-  %85 = load double, ptr %second.i272, align 8, !tbaa !80
-  %mul589 = fmul double %85, %85
-  %neg734751 = fneg double %85
-  %86 = tail call double @llvm.fmuladd.f64(double %mul589, double %85, double %neg734751)
-  %mul100735752 = fmul double %sub78, %86
-  %mul101736753 = fmul double %sub78, %mul100735752
-  %div102737754 = fdiv double %mul101736753, 6.000000e+00
-  store double %div102737754, ptr %second.i328, align 8, !tbaa !80
-  %87 = load double, ptr %second.i258, align 8, !tbaa !80
-  %mul109652 = fmul double %87, %87
-  %neg115758776 = fneg double %87
-  %88 = tail call double @llvm.fmuladd.f64(double %mul109652, double %87, double %neg115758776)
+  %81 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
+  %add.ptr.i255541734 = getelementptr inbounds nuw double, ptr %81, i64 %77
+  %82 = load double, ptr %add.ptr.i255541734, align 8, !tbaa !80
+  %sub87542735 = fsub double %80, %82
+  %div88543736 = fdiv double %sub87542735, %sub78
+  store double %div88543736, ptr %second.i258, align 8, !tbaa !80
+  %83 = load double, ptr %second.i272, align 8, !tbaa !80
+  %mul587 = fmul double %83, %83
+  %neg740757 = fneg double %83
+  %84 = tail call double @llvm.fmuladd.f64(double %mul587, double %83, double %neg740757)
+  %mul100741758 = fmul double %sub78, %84
+  %mul101742759 = fmul double %sub78, %mul100741758
+  %div102743760 = fdiv double %mul101742759, 6.000000e+00
+  store double %div102743760, ptr %second.i328, align 8, !tbaa !80
+  %85 = load double, ptr %second.i258, align 8, !tbaa !80
+  %mul109650 = fmul double %85, %85
+  %neg115764782 = fneg double %85
+  %86 = tail call double @llvm.fmuladd.f64(double %mul109650, double %85, double %neg115764782)
   br label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409
 
 _ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395: ; preds = %cond.end73
-  %89 = load double, ptr %x, align 8, !tbaa !195
-  %sub82 = fsub double %75, %89
-  %div = fdiv double %sub82, %sub78
-  store double %div, ptr %a_83509517527, align 8, !tbaa !80
-  %90 = load double, ptr %x, align 8, !tbaa !195
-  %91 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
-  %add.ptr.i255 = getelementptr inbounds nuw double, ptr %91, i64 %77
-  %92 = load double, ptr %add.ptr.i255, align 8, !tbaa !80
-  %sub87 = fsub double %90, %92
+  %.pn698724 = load double, ptr %x, align 8, !tbaa !80
+  %sub82.pn725 = fsub double %75, %.pn698724
+  %div509726 = fdiv double %sub82.pn725, %sub78
+  store double %div509726, ptr %a_83507515525, align 8, !tbaa !80
+  %87 = load double, ptr %x, align 8, !tbaa !195
+  %88 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
+  %add.ptr.i255 = getelementptr inbounds nuw double, ptr %88, i64 %77
+  %89 = load double, ptr %add.ptr.i255, align 8, !tbaa !80
+  %sub87 = fsub double %87, %89
   %div88 = fdiv double %sub87, %sub78
   store double %div88, ptr %b_89, align 8, !tbaa !80
-  %mul = fmul double %div, %div
-  %neg = fneg double %div
-  %93 = tail call double @llvm.fmuladd.f64(double %mul, double %div, double %neg)
-  %mul100 = fmul double %sub78, %93
+  %90 = load double, ptr %a_83507515525, align 8, !tbaa !80
+  %mul = fmul double %90, %90
+  %neg = fneg double %90
+  %91 = tail call double @llvm.fmuladd.f64(double %mul, double %90, double %neg)
+  %mul100 = fmul double %sub78, %91
   %mul101 = fmul double %sub78, %mul100
   %div102 = fdiv double %mul101, 6.000000e+00
   store double %div102, ptr %a2_103, align 8, !tbaa !80
-  %94 = load double, ptr %b_89, align 8, !tbaa !80
-  %mul109 = fmul double %94, %94
-  %neg115 = fneg double %94
-  %95 = tail call double @llvm.fmuladd.f64(double %mul109, double %94, double %neg115)
+  %92 = load double, ptr %b_89, align 8, !tbaa !80
+  %mul109 = fmul double %92, %92
+  %neg115 = fneg double %92
+  %93 = tail call double @llvm.fmuladd.f64(double %mul109, double %92, double %neg115)
   br label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409
 
 cond.true.i.i.i404:                               ; preds = %cond.end73
   %call.i.i.i228 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i72, i64 noundef 0)
+  %sub82505513 = fsub double %75, %call.i.i.i228
+  %div506514 = fdiv double %sub82505513, %sub78
   %call.i.i.i241 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i239, i64 noundef 0)
-  %sub82507.pn719 = fsub double %75, %call.i.i.i228
-  %div511720 = fdiv double %sub82507.pn719, %sub78
-  store double %div511720, ptr %call.i.i.i241, align 8, !tbaa !80
-  %sub.i.i.i252 = add nsw i64 %j.0702, -3
+  store double %div506514, ptr %call.i.i.i241, align 8, !tbaa !80
+  %sub.i.i.i252 = add nsw i64 %j.0700, -3
   %call.i.i.i253 = tail call noundef double @_ZNK8QuantLib6detail5PointIdNS0_8EmptyArgEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i72, i64 noundef %sub.i.i.i252)
-  %96 = load i64, ptr %cond.i418, align 8, !tbaa !8
-  %97 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
-  %add.ptr.i255543722 = getelementptr inbounds nuw double, ptr %97, i64 %96
-  %98 = load double, ptr %add.ptr.i255543722, align 8, !tbaa !80
-  %sub87544723 = fsub double %call.i.i.i253, %98
-  %div88545724 = fdiv double %sub87544723, %sub78
-  %sub.i.i.i266 = add nsw i64 %j.0702, -3
+  %.pre714 = load i64, ptr %cond.i418, align 8, !tbaa !8
+  %94 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
+  %add.ptr.i255541728 = getelementptr inbounds nuw double, ptr %94, i64 %.pre714
+  %95 = load double, ptr %add.ptr.i255541728, align 8, !tbaa !80
+  %sub87542729 = fsub double %call.i.i.i253, %95
+  %div88543730 = fdiv double %sub87542729, %sub78
+  %sub.i.i.i266 = add nsw i64 %j.0700, -3
   %call.i.i.i267 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i265, i64 noundef %sub.i.i.i266)
-  store double %div88545724, ptr %call.i.i.i267, align 8, !tbaa !80
+  store double %div88543730, ptr %call.i.i.i267, align 8, !tbaa !80
   %call.i.i.i281 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i279, i64 noundef %sub.i.i.i266)
-  %99 = load double, ptr %call.i.i.i281, align 8, !tbaa !80
+  %96 = load double, ptr %call.i.i.i281, align 8, !tbaa !80
   %call.i.i.i295 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i279, i64 noundef %sub.i.i.i266)
-  %100 = load double, ptr %call.i.i.i295, align 8, !tbaa !80
-  %mul589598 = fmul double %99, %100
+  %97 = load double, ptr %call.i.i.i295, align 8, !tbaa !80
+  %mul587596 = fmul double %96, %97
   %call.i.i.i309 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i279, i64 noundef %sub.i.i.i266)
-  %101 = load double, ptr %call.i.i.i309, align 8, !tbaa !80
+  %98 = load double, ptr %call.i.i.i309, align 8, !tbaa !80
   %call.i.i.i323 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i279, i64 noundef %sub.i.i.i266)
-  %.pre713 = load double, ptr %call.i.i.i323, align 8, !tbaa !80
-  %neg734742 = fneg double %.pre713
-  %102 = tail call double @llvm.fmuladd.f64(double %mul589598, double %101, double %neg734742)
-  %mul100735743 = fmul double %sub78, %102
-  %mul101736744 = fmul double %sub78, %mul100735743
-  %div102737745 = fdiv double %mul101736744, 6.000000e+00
-  %sub.i.i.i336 = add nsw i64 %j.0702, -3
+  %.pre715 = load double, ptr %call.i.i.i323, align 8, !tbaa !80
+  %neg740748 = fneg double %.pre715
+  %99 = tail call double @llvm.fmuladd.f64(double %mul587596, double %98, double %neg740748)
+  %mul100741749 = fmul double %sub78, %99
+  %mul101742750 = fmul double %sub78, %mul100741749
+  %div102743751 = fdiv double %mul101742750, 6.000000e+00
+  %sub.i.i.i336 = add nsw i64 %j.0700, -3
   %call.i.i.i337 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i335, i64 noundef %sub.i.i.i336)
-  store double %div102737745, ptr %call.i.i.i337, align 8, !tbaa !80
+  store double %div102743751, ptr %call.i.i.i337, align 8, !tbaa !80
   %call.i.i.i351 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i265, i64 noundef %sub.i.i.i336)
-  %103 = load double, ptr %call.i.i.i351, align 8, !tbaa !80
+  %100 = load double, ptr %call.i.i.i351, align 8, !tbaa !80
   %call.i.i.i365 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i265, i64 noundef %sub.i.i.i336)
-  %104 = load double, ptr %call.i.i.i365, align 8, !tbaa !80
-  %mul109652657 = fmul double %103, %104
+  %101 = load double, ptr %call.i.i.i365, align 8, !tbaa !80
+  %mul109650655 = fmul double %100, %101
   %call.i.i.i379 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i265, i64 noundef %sub.i.i.i336)
-  %105 = load double, ptr %call.i.i.i379, align 8, !tbaa !80
+  %102 = load double, ptr %call.i.i.i379, align 8, !tbaa !80
   %call.i.i.i393 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i265, i64 noundef %sub.i.i.i336)
-  %.pre714 = load double, ptr %call.i.i.i393, align 8, !tbaa !80
-  %neg115758767 = fneg double %.pre714
-  %106 = tail call double @llvm.fmuladd.f64(double %mul109652657, double %105, double %neg115758767)
-  %sub.i.i.i406 = add nsw i64 %j.0702, -3
+  %.pre716 = load double, ptr %call.i.i.i393, align 8, !tbaa !80
+  %neg115764773 = fneg double %.pre716
+  %103 = tail call double @llvm.fmuladd.f64(double %mul109650655, double %102, double %neg115764773)
+  %sub.i.i.i406 = add nsw i64 %j.0700, -3
   %call.i.i.i407 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detail5PointIdNS0_8EmptyResEEixEm(ptr noundef nonnull align 8 dereferenceable(9) %second.i.i.i405, i64 noundef %sub.i.i.i406)
   br label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409
 
 _ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split: ; preds = %cond.end73
-  %107 = load double, ptr %second.i.i68, align 8, !tbaa !202
-  %sub82507515525 = fsub double %75, %107
-  %div508516526 = fdiv double %sub82507515525, %sub78
-  store double %div508516526, ptr %second.i.i236529, align 8, !tbaa !80
-  %108 = load double, ptr %second.i.i68, align 8, !tbaa !202
-  %109 = load i64, ptr %cond.i418, align 8, !tbaa !8
-  %110 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
-  %add.ptr.i255543 = getelementptr inbounds nuw double, ptr %110, i64 %109
-  %111 = load double, ptr %add.ptr.i255543, align 8, !tbaa !80
-  %sub87544 = fsub double %108, %111
-  %div88545 = fdiv double %sub87544, %sub78
-  store double %div88545, ptr %second.i.i262, align 8, !tbaa !80
-  %112 = load double, ptr %second.i.i276568, align 8, !tbaa !80
-  %mul589598606 = fmul double %112, %112
-  %neg734 = fneg double %112
-  %113 = tail call double @llvm.fmuladd.f64(double %mul589598606, double %112, double %neg734)
-  %mul100735 = fmul double %sub78, %113
-  %mul101736 = fmul double %sub78, %mul100735
-  %div102737 = fdiv double %mul101736, 6.000000e+00
-  store double %div102737, ptr %second.i.i332, align 8, !tbaa !80
-  %114 = load double, ptr %second.i.i262, align 8, !tbaa !80
-  %mul109652657665 = fmul double %114, %114
-  %neg115758 = fneg double %114
-  %115 = tail call double @llvm.fmuladd.f64(double %mul109652657665, double %114, double %neg115758)
+  %104 = load double, ptr %second.i.i68, align 8, !tbaa !202
+  %sub82505513523 = fsub double %75, %104
+  %div506514524 = fdiv double %sub82505513523, %sub78
+  store double %div506514524, ptr %second.i.i236527, align 8, !tbaa !80
+  %105 = load double, ptr %second.i.i68, align 8, !tbaa !202
+  %106 = load ptr, ptr %add.ptr.i421, align 8, !tbaa !144
+  %add.ptr.i255541 = getelementptr inbounds nuw double, ptr %106, i64 %77
+  %107 = load double, ptr %add.ptr.i255541, align 8, !tbaa !80
+  %sub87542 = fsub double %105, %107
+  %div88543 = fdiv double %sub87542, %sub78
+  store double %div88543, ptr %second.i.i262, align 8, !tbaa !80
+  %108 = load double, ptr %second.i.i276566, align 8, !tbaa !80
+  %mul587596604 = fmul double %108, %108
+  %neg740 = fneg double %108
+  %109 = tail call double @llvm.fmuladd.f64(double %mul587596604, double %108, double %neg740)
+  %mul100741 = fmul double %sub78, %109
+  %mul101742 = fmul double %sub78, %mul100741
+  %div102743 = fdiv double %mul101742, 6.000000e+00
+  store double %div102743, ptr %second.i.i332, align 8, !tbaa !80
+  %110 = load double, ptr %second.i.i262, align 8, !tbaa !80
+  %mul109650655663 = fmul double %110, %110
+  %neg115764 = fneg double %110
+  %111 = tail call double @llvm.fmuladd.f64(double %mul109650655663, double %110, double %neg115764)
   br label %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409
 
-_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409: ; preds = %cond.true.i397.thread772, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split, %cond.true.i.i.i404
-  %.pn786 = phi double [ %95, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395 ], [ %106, %cond.true.i.i.i404 ], [ %115, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split ], [ %88, %cond.true.i397.thread772 ]
-  %cond.i408 = phi ptr [ %b2_119, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395 ], [ %call.i.i.i407, %cond.true.i.i.i404 ], [ %second.i.i402, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split ], [ %second.i398, %cond.true.i397.thread772 ]
-  %mul116.pn = fmul double %sub78, %.pn786
-  %div118763.in = fmul double %sub78, %mul116.pn
-  %div118763 = fdiv double %div118763.in, 6.000000e+00
-  store double %div118763, ptr %cond.i408, align 8, !tbaa !80
+_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409: ; preds = %cond.true.i397.thread778, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split, %cond.true.i.i.i404
+  %.pn792 = phi double [ %93, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395 ], [ %103, %cond.true.i.i.i404 ], [ %111, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split ], [ %86, %cond.true.i397.thread778 ]
+  %cond.i408 = phi ptr [ %b2_119, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit395 ], [ %call.i.i.i407, %cond.true.i.i.i404 ], [ %second.i.i402, %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409.fold.split ], [ %second.i398, %cond.true.i397.thread778 ]
+  %mul116.pn = fmul double %sub78, %.pn792
+  %div118769.in = fmul double %sub78, %mul116.pn
+  %div118769 = fdiv double %div118769.in, 6.000000e+00
+  store double %div118769, ptr %cond.i408, align 8, !tbaa !80
   br label %if.end121
 
 if.end121:                                        ; preds = %_ZN8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyResEEEEEEEEixEm.exit409, %_ZNK8QuantLib6detail5PointIdNS1_IdNS1_IdNS1_IdNS0_8EmptyArgEEEEEEEEixEm.exit172
-  %inc = add nuw nsw i64 %j.0702, 1
+  %inc = add nuw nsw i64 %j.0700, 1
   %exitcond.not = icmp eq i64 %inc, 4
   br i1 %exitcond.not, label %for.cond.cleanup, label %for.body, !llvm.loop !379
 

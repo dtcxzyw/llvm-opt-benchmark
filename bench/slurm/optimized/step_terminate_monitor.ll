@@ -457,7 +457,7 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   br i1 %.not32, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %129, %.preheader
-  %131 = call i32 @stepd_send_pending_exit_msgs(ptr noundef %0) #7
+  %131 = call i32 @stepd_send_pending_exit_msgs(ptr noundef nonnull %0) #7
   %.not33 = icmp eq i32 %131, 0
   br i1 %.not33, label %.loopexit, label %.preheader, !llvm.loop !12
 
@@ -486,11 +486,11 @@ _call_external_program.exit:                      ; preds = %90, %86, %28, %32, 
   br label %143
 
 143:                                              ; preds = %142, %141, %138, %.loopexit
-  call void @stepd_send_step_complete_msgs(ptr noundef %0) #7
+  call void @stepd_send_step_complete_msgs(ptr noundef nonnull %0) #7
   br label %144
 
 144:                                              ; preds = %143, %118
-  %145 = call i32 @stepd_cleanup(ptr noundef null, ptr noundef %0, ptr noundef null, i32 noundef %., i1 noundef zeroext false) #7
+  %145 = call i32 @stepd_cleanup(ptr noundef null, ptr noundef nonnull %0, ptr noundef null, i32 noundef %., i1 noundef zeroext false) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #7
   call void @llvm.lifetime.end.p0(i64 45, ptr nonnull %6) #7

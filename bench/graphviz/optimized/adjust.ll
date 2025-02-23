@@ -869,7 +869,7 @@ define i32 @removeOverlapWith(ptr noundef %0, ptr noundef readonly captures(none
   %7 = alloca %struct.state_t, align 8
   %8 = tail call i32 @agnnodes(ptr noundef %0) #20
   %9 = icmp slt i32 %8, 2
-  br i1 %9, label %485, label %10
+  br i1 %9, label %486, label %10
 
 10:                                               ; preds = %2
   %11 = tail call i32 @normalize(ptr noundef %0)
@@ -951,7 +951,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13,
   %50 = add nuw nsw i32 %.011.i, %11
   %51 = load i32, ptr %1, align 8, !tbaa !56
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %485, label %53
+  br i1 %52, label %486, label %53
 
 53:                                               ; preds = %simpleScale.exit
   %54 = load i8, ptr @Verbose, align 1, !tbaa !48
@@ -988,7 +988,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13,
     i32 10, label %69
     i32 15, label %71
     i32 18, label %73
-    i32 17, label %485
+    i32 17, label %486
     i32 16, label %74
   ]
 
@@ -1025,7 +1025,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %10, %13,
 78:                                               ; preds = %64, %64, %75, %74, %73, %71, %69, %67, %65
   %.0 = phi i32 [ 0, %75 ], [ 0, %74 ], [ 0, %73 ], [ %72, %71 ], [ 0, %69 ], [ %68, %67 ], [ %66, %65 ], [ 0, %64 ], [ 0, %64 ]
   %79 = add nsw i32 %.0, %50
-  br label %485
+  br label %486
 
 80:                                               ; preds = %61
   %81 = call i32 @agnnodes(ptr noundef %0) #20
@@ -1171,7 +1171,7 @@ gv_calloc.exit.i:                                 ; preds = %89, %.thread.i.i
 freeNodes.exit:                                   ; preds = %._crit_edge.i, %142
   %145 = phi ptr [ %.pre.i, %142 ], [ null, %._crit_edge.i ]
   call void @free(ptr noundef %145) #20
-  br label %485
+  br label %486
 
 146:                                              ; preds = %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
@@ -1309,12 +1309,12 @@ rePos.exit.i:                                     ; preds = %202, %199
 213:                                              ; preds = %rePos.exit.i
   %214 = load i8, ptr @Verbose, align 1, !tbaa !48
   %.not.i44 = icmp eq i8 %214, 0
-  br i1 %.not.i44, label %457, label %215
+  br i1 %.not.i44, label %458, label %215
 
 215:                                              ; preds = %213
   %216 = load ptr, ptr @stderr, align 8, !tbaa !7
   %217 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %216, ptr noundef nonnull @.str.51, i32 noundef %210) #22
-  br label %457
+  br label %458
 
 218:                                              ; preds = %chkBoundBox.exit
   br i1 %196, label %sAdjust.exit, label %219
@@ -1624,7 +1624,7 @@ newPos.exit.i:                                    ; preds = %376, %newpos.exit.u
   %378 = add i32 %.035.i, 1
   %379 = call fastcc i32 @countOverlap(i32 noundef %378)
   %.not50.i = icmp eq i32 %379, 0
-  br i1 %.not50.i, label %.thread.i, label %380
+  br i1 %.not50.i, label %414, label %380
 
 380:                                              ; preds = %newPos.exit.i
   %.not.i48 = icmp ult i32 %379, %.040.i
@@ -1700,146 +1700,146 @@ newPos.exit.i:                                    ; preds = %376, %newpos.exit.u
   %413 = getelementptr ptr, ptr %.pre.i58.i, i64 %397
   br label %236
 
-.thread.i:                                        ; preds = %newPos.exit.i
-  %414 = load i8, ptr @Verbose, align 1, !tbaa !48
-  %.not51.i = icmp eq i8 %414, 0
-  br i1 %.not51.i, label %.thread69.i, label %415
+414:                                              ; preds = %newPos.exit.i
+  %415 = load i8, ptr @Verbose, align 1, !tbaa !48
+  %.not51.i = icmp eq i8 %415, 0
+  br i1 %.not51.i, label %.thread69.i, label %416
 
-415:                                              ; preds = %.thread.i
-  %416 = load ptr, ptr @stderr, align 8, !tbaa !7
-  call void @flockfile(ptr noundef %416) #20
+416:                                              ; preds = %414
+  %417 = load ptr, ptr @stderr, align 8, !tbaa !7
+  call void @flockfile(ptr noundef %417) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
-  %417 = call i64 @time(ptr noundef null) #20
-  store i64 %417, ptr %3, align 8, !tbaa !68
-  %418 = call ptr @localtime(ptr noundef nonnull %3) #20
-  %419 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %420 = getelementptr inbounds nuw i8, ptr %418, i64 20
-  %421 = load i32, ptr %420, align 4, !tbaa !116
-  %422 = add nsw i32 %421, 1900
-  %423 = getelementptr inbounds nuw i8, ptr %418, i64 16
-  %424 = load i32, ptr %423, align 8, !tbaa !118
-  %425 = add nsw i32 %424, 1
-  %426 = getelementptr inbounds nuw i8, ptr %418, i64 12
-  %427 = load i32, ptr %426, align 4, !tbaa !119
-  %428 = getelementptr inbounds nuw i8, ptr %418, i64 8
-  %429 = load i32, ptr %428, align 8, !tbaa !120
-  %430 = load i32, ptr %418, align 8, !tbaa !121
-  %431 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %419, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 108), i32 noundef 471, i32 noundef %422, i32 noundef %425, i32 noundef %427, i32 noundef %429, i32 noundef %430) #22
-  %432 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %433 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %432, ptr noundef nonnull @.str.55, i32 noundef %378) #22
-  %434 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %fputc.i = call i32 @fputc(i32 10, ptr %434)
+  %418 = call i64 @time(ptr noundef null) #20
+  store i64 %418, ptr %3, align 8, !tbaa !68
+  %419 = call ptr @localtime(ptr noundef nonnull %3) #20
+  %420 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %421 = getelementptr inbounds nuw i8, ptr %419, i64 20
+  %422 = load i32, ptr %421, align 4, !tbaa !116
+  %423 = add nsw i32 %422, 1900
+  %424 = getelementptr inbounds nuw i8, ptr %419, i64 16
+  %425 = load i32, ptr %424, align 8, !tbaa !118
+  %426 = add nsw i32 %425, 1
+  %427 = getelementptr inbounds nuw i8, ptr %419, i64 12
+  %428 = load i32, ptr %427, align 4, !tbaa !119
+  %429 = getelementptr inbounds nuw i8, ptr %419, i64 8
+  %430 = load i32, ptr %429, align 8, !tbaa !120
+  %431 = load i32, ptr %419, align 8, !tbaa !121
+  %432 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %420, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 108), i32 noundef 471, i32 noundef %423, i32 noundef %426, i32 noundef %428, i32 noundef %430, i32 noundef %431) #22
+  %433 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %434 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.55, i32 noundef %378) #22
   %435 = load ptr, ptr @stderr, align 8, !tbaa !7
-  call void @funlockfile(ptr noundef %435) #20
+  %fputc.i = call i32 @fputc(i32 10, ptr %435)
+  %436 = load ptr, ptr @stderr, align 8, !tbaa !7
+  call void @funlockfile(ptr noundef %436) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   %.pr.i = load i8, ptr @Verbose, align 1, !tbaa !48
   %.not52.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not52.i, label %.thread69.i, label %436
+  br i1 %.not52.i, label %.thread69.i, label %437
 
-436:                                              ; preds = %415
-  %437 = load ptr, ptr @stderr, align 8, !tbaa !7
-  call void @flockfile(ptr noundef %437) #20
+437:                                              ; preds = %416
+  %438 = load ptr, ptr @stderr, align 8, !tbaa !7
+  call void @flockfile(ptr noundef %438) #20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #20
-  %438 = call i64 @time(ptr noundef null) #20
-  store i64 %438, ptr %4, align 8, !tbaa !68
-  %439 = call ptr @localtime(ptr noundef nonnull %4) #20
-  %440 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %441 = getelementptr inbounds nuw i8, ptr %439, i64 20
-  %442 = load i32, ptr %441, align 4, !tbaa !116
-  %443 = add nsw i32 %442, 1900
-  %444 = getelementptr inbounds nuw i8, ptr %439, i64 16
-  %445 = load i32, ptr %444, align 8, !tbaa !118
-  %446 = add nsw i32 %445, 1
-  %447 = getelementptr inbounds nuw i8, ptr %439, i64 12
-  %448 = load i32, ptr %447, align 4, !tbaa !119
-  %449 = getelementptr inbounds nuw i8, ptr %439, i64 8
-  %450 = load i32, ptr %449, align 8, !tbaa !120
-  %451 = load i32, ptr %439, align 8, !tbaa !121
-  %452 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %440, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 108), i32 noundef 472, i32 noundef %443, i32 noundef %446, i32 noundef %448, i32 noundef %450, i32 noundef %451) #22
-  %453 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %454 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %453, ptr noundef nonnull @.str.57, i32 noundef %.037.i) #22
-  %455 = load ptr, ptr @stderr, align 8, !tbaa !7
-  %fputc53.i = call i32 @fputc(i32 10, ptr %455)
+  %439 = call i64 @time(ptr noundef null) #20
+  store i64 %439, ptr %4, align 8, !tbaa !68
+  %440 = call ptr @localtime(ptr noundef nonnull %4) #20
+  %441 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %442 = getelementptr inbounds nuw i8, ptr %440, i64 20
+  %443 = load i32, ptr %442, align 4, !tbaa !116
+  %444 = add nsw i32 %443, 1900
+  %445 = getelementptr inbounds nuw i8, ptr %440, i64 16
+  %446 = load i32, ptr %445, align 8, !tbaa !118
+  %447 = add nsw i32 %446, 1
+  %448 = getelementptr inbounds nuw i8, ptr %440, i64 12
+  %449 = load i32, ptr %448, align 4, !tbaa !119
+  %450 = getelementptr inbounds nuw i8, ptr %440, i64 8
+  %451 = load i32, ptr %450, align 8, !tbaa !120
+  %452 = load i32, ptr %440, align 8, !tbaa !121
+  %453 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %441, ptr noundef nonnull @.str.54, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.53, i64 108), i32 noundef 472, i32 noundef %444, i32 noundef %447, i32 noundef %449, i32 noundef %451, i32 noundef %452) #22
+  %454 = load ptr, ptr @stderr, align 8, !tbaa !7
+  %455 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %454, ptr noundef nonnull @.str.57, i32 noundef %.037.i) #22
   %456 = load ptr, ptr @stderr, align 8, !tbaa !7
-  call void @funlockfile(ptr noundef %456) #20
+  %fputc53.i = call i32 @fputc(i32 10, ptr %456)
+  %457 = load ptr, ptr @stderr, align 8, !tbaa !7
+  call void @funlockfile(ptr noundef %457) #20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #20
   br label %.thread69.i
 
-.thread69.i:                                      ; preds = %436, %415, %.thread.i
+.thread69.i:                                      ; preds = %437, %416, %414
   call void @ELcleanup() #20
   call void @siteinit() #20
   call void @edgeinit() #20
-  br label %457
+  br label %458
 
-457:                                              ; preds = %215, %213, %.thread69.i
-  %458 = load i64, ptr @nsites, align 8, !tbaa !68
-  %.not.i50 = icmp eq i64 %458, 0
+458:                                              ; preds = %215, %213, %.thread69.i
+  %459 = load i64, ptr @nsites, align 8, !tbaa !68
+  %.not.i50 = icmp eq i64 %459, 0
   br i1 %.not.i50, label %._crit_edge.i57, label %.lr.ph.i51
 
-.lr.ph.i51:                                       ; preds = %457
-  %459 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
-  br label %460
+.lr.ph.i51:                                       ; preds = %458
+  %460 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
+  br label %461
 
-460:                                              ; preds = %460, %.lr.ph.i51
-  %.06.i = phi i64 [ 0, %.lr.ph.i51 ], [ %472, %460 ]
-  %461 = getelementptr inbounds nuw %struct.Info_t, ptr %459, i64 %.06.i
-  %462 = getelementptr inbounds nuw i8, ptr %461, i64 8
-  %463 = load double, ptr %462, align 8, !tbaa !76
-  %464 = load ptr, ptr %461, align 8, !tbaa !85
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 16
-  %466 = load ptr, ptr %465, align 8, !tbaa !10
-  %467 = getelementptr inbounds nuw i8, ptr %466, i64 176
-  %468 = load ptr, ptr %467, align 8, !tbaa !52
-  store double %463, ptr %468, align 8, !tbaa !33
-  %469 = getelementptr inbounds nuw i8, ptr %461, i64 16
-  %470 = load double, ptr %469, align 8, !tbaa !81
-  %471 = getelementptr inbounds nuw i8, ptr %468, i64 8
-  store double %470, ptr %471, align 8, !tbaa !33
-  %472 = add nuw i64 %.06.i, 1
-  %exitcond.not.i52 = icmp eq i64 %472, %458
-  br i1 %exitcond.not.i52, label %sAdjust.exit, label %460, !llvm.loop !122
+461:                                              ; preds = %461, %.lr.ph.i51
+  %.06.i = phi i64 [ 0, %.lr.ph.i51 ], [ %473, %461 ]
+  %462 = getelementptr inbounds nuw %struct.Info_t, ptr %460, i64 %.06.i
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %464 = load double, ptr %463, align 8, !tbaa !76
+  %465 = load ptr, ptr %462, align 8, !tbaa !85
+  %466 = getelementptr inbounds nuw i8, ptr %465, i64 16
+  %467 = load ptr, ptr %466, align 8, !tbaa !10
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 176
+  %469 = load ptr, ptr %468, align 8, !tbaa !52
+  store double %464, ptr %469, align 8, !tbaa !33
+  %470 = getelementptr inbounds nuw i8, ptr %462, i64 16
+  %471 = load double, ptr %470, align 8, !tbaa !81
+  %472 = getelementptr inbounds nuw i8, ptr %469, i64 8
+  store double %471, ptr %472, align 8, !tbaa !33
+  %473 = add nuw i64 %.06.i, 1
+  %exitcond.not.i52 = icmp eq i64 %473, %459
+  br i1 %exitcond.not.i52, label %sAdjust.exit, label %461, !llvm.loop !122
 
-sAdjust.exit:                                     ; preds = %460, %197, %218
-  %.167.ph = phi i32 [ 0, %218 ], [ 0, %197 ], [ 1, %460 ]
+sAdjust.exit:                                     ; preds = %461, %197, %218
+  %.167.ph = phi i32 [ 0, %218 ], [ 0, %197 ], [ 1, %461 ]
   %.pr68 = load i64, ptr @nsites, align 8, !tbaa !68
   %.not5.i54 = icmp eq i64 %.pr68, 0
   br i1 %.not5.i54, label %._crit_edge.i57, label %.lr.ph.i55
 
-._crit_edge.i57:                                  ; preds = %.lr.ph.i55, %457, %sAdjust.exit
-  %.16772 = phi i32 [ %.167.ph, %sAdjust.exit ], [ 1, %457 ], [ %.167.ph, %.lr.ph.i55 ]
+._crit_edge.i57:                                  ; preds = %.lr.ph.i55, %458, %sAdjust.exit
+  %.16772 = phi i32 [ %.167.ph, %sAdjust.exit ], [ 1, %458 ], [ %.167.ph, %.lr.ph.i55 ]
   call void @polyFree() #20
-  %473 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
-  %.not.i58 = icmp eq ptr %473, null
-  br i1 %.not.i58, label %freeNodes.exit60, label %479
+  %474 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
+  %.not.i58 = icmp eq ptr %474, null
+  br i1 %.not.i58, label %freeNodes.exit60, label %480
 
 .lr.ph.i55:                                       ; preds = %sAdjust.exit, %.lr.ph.i55
-  %.04.i56 = phi i64 [ %476, %.lr.ph.i55 ], [ 0, %sAdjust.exit ]
-  %474 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
-  %475 = getelementptr inbounds nuw %struct.Info_t, ptr %474, i64 %.04.i56, i32 3
-  call void @breakPoly(ptr noundef nonnull %475) #20
-  %476 = add nuw i64 %.04.i56, 1
-  %477 = load i64, ptr @nsites, align 8, !tbaa !68
-  %478 = icmp ult i64 %476, %477
-  br i1 %478, label %.lr.ph.i55, label %._crit_edge.i57, !llvm.loop !87
+  %.04.i56 = phi i64 [ %477, %.lr.ph.i55 ], [ 0, %sAdjust.exit ]
+  %475 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
+  %476 = getelementptr inbounds nuw %struct.Info_t, ptr %475, i64 %.04.i56, i32 3
+  call void @breakPoly(ptr noundef nonnull %476) #20
+  %477 = add nuw i64 %.04.i56, 1
+  %478 = load i64, ptr @nsites, align 8, !tbaa !68
+  %479 = icmp ult i64 %477, %478
+  br i1 %479, label %.lr.ph.i55, label %._crit_edge.i57, !llvm.loop !87
 
-479:                                              ; preds = %._crit_edge.i57
-  %480 = getelementptr inbounds nuw i8, ptr %473, i64 104
-  %481 = load ptr, ptr %480, align 8, !tbaa !88
-  call void @free(ptr noundef %481) #20
+480:                                              ; preds = %._crit_edge.i57
+  %481 = getelementptr inbounds nuw i8, ptr %474, i64 104
+  %482 = load ptr, ptr %481, align 8, !tbaa !88
+  call void @free(ptr noundef %482) #20
   %.pre.i59 = load ptr, ptr @nodeInfo, align 8, !tbaa !69
   br label %freeNodes.exit60
 
-freeNodes.exit60:                                 ; preds = %._crit_edge.i57, %479
-  %482 = phi ptr [ %.pre.i59, %479 ], [ null, %._crit_edge.i57 ]
-  call void @free(ptr noundef %482) #20
-  %483 = load ptr, ptr %7, align 8, !tbaa !105
+freeNodes.exit60:                                 ; preds = %._crit_edge.i57, %480
+  %483 = phi ptr [ %.pre.i59, %480 ], [ null, %._crit_edge.i57 ]
   call void @free(ptr noundef %483) #20
-  %484 = add nuw nsw i32 %.16772, %50
+  %484 = load ptr, ptr %7, align 8, !tbaa !105
+  call void @free(ptr noundef %484) #20
+  %485 = add nuw nsw i32 %.16772, %50
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %7) #20
-  br label %485
+  br label %486
 
-485:                                              ; preds = %78, %freeNodes.exit, %freeNodes.exit60, %simpleScale.exit, %64, %2
-  %.031 = phi i32 [ 0, %2 ], [ %79, %78 ], [ %50, %freeNodes.exit ], [ %484, %freeNodes.exit60 ], [ %50, %simpleScale.exit ], [ %50, %64 ]
+486:                                              ; preds = %78, %freeNodes.exit, %freeNodes.exit60, %simpleScale.exit, %64, %2
+  %.031 = phi i32 [ 0, %2 ], [ %79, %78 ], [ %50, %freeNodes.exit ], [ %485, %freeNodes.exit60 ], [ %50, %simpleScale.exit ], [ %50, %64 ]
   ret i32 %.031
 }
 

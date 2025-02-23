@@ -2643,26 +2643,26 @@ _ZNK20b3AlignedObjectArrayI8b3RayHitE4copyEiiPS0_.exit.i.i: ; preds = %22, %_ZNK
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !83
   %.not.i16.i.i = icmp eq ptr %27, null
-  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi.exit.i, label %28
+  br i1 %.not.i16.i.i, label %_ZN20b3AlignedObjectArrayI8b3RayHitE10deallocateEv.exit.i.i, label %28
 
 28:                                               ; preds = %_ZNK20b3AlignedObjectArrayI8b3RayHitE4copyEiiPS0_.exit.i.i
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %30 = load i8, ptr %29, align 8, !tbaa !202, !range !119, !noundef !120
   %31 = trunc nuw i8 %30 to i1
-  br i1 %31, label %32, label %_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi.exit.i
+  br i1 %31, label %32, label %_ZN20b3AlignedObjectArrayI8b3RayHitE10deallocateEv.exit.i.i
 
 32:                                               ; preds = %28
   tail call void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %27)
-  br label %_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi.exit.i
+  br label %_ZN20b3AlignedObjectArrayI8b3RayHitE10deallocateEv.exit.i.i
 
-_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi.exit.i: ; preds = %32, %28, %_ZNK20b3AlignedObjectArrayI8b3RayHitE4copyEiiPS0_.exit.i.i
+_ZN20b3AlignedObjectArrayI8b3RayHitE10deallocateEv.exit.i.i: ; preds = %32, %28, %_ZNK20b3AlignedObjectArrayI8b3RayHitE4copyEiiPS0_.exit.i.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 1, ptr %33, align 8, !tbaa !202
   store ptr %.0.i18.i.i, ptr %26, align 8, !tbaa !83
   store i32 %.0.i.i, ptr %11, align 8, !tbaa !199
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI8b3RayHitE7reserveEi.exit.i, %10
+.lr.ph.i:                                         ; preds = %_ZN20b3AlignedObjectArrayI8b3RayHitE10deallocateEv.exit.i.i, %10
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = sext i32 %8 to i64
   %sext3 = shl i64 %5, 32

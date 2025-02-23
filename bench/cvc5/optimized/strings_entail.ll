@@ -10604,7 +10604,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEE11
   br label %.body
 
 290:                                              ; preds = %285
-  %291 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.0550.0595) #27
+  %291 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0550.0595) #27
   %.not559 = icmp eq ptr %291, %123
   br i1 %.not559, label %.critedge, label %264
 

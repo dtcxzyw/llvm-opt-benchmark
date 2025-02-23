@@ -543,8 +543,8 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %16
 
 .lr.ph140:                                        ; preds = %._crit_edge
   %29 = icmp sgt i64 %7, 0
-  %30 = shl i64 %7, 3
-  %31 = add i64 %30, 8
+  %30 = shl nsw i64 %7, 3
+  %31 = add nsw i64 %30, 8
   br i1 %29, label %.lr.ph134.us, label %.preheader
 
 .lr.ph134.us:                                     ; preds = %.lr.ph140, %.loopexit.us

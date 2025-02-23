@@ -1429,9 +1429,9 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc580
   store float %439, ptr %440, align 4
   %441 = add nuw i64 %.03561.i, 1
   %exitcond.not.i = icmp eq i64 %441, %umax.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !16
+  br i1 %exitcond.not.i, label %.lr.ph70.i, label %.lr.ph.i, !llvm.loop !16
 
-.preheader.i:                                     ; preds = %.lr.ph.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+.lr.ph70.i:                                       ; preds = %.lr.ph.i, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
   %.sroa.0678.1 = phi ptr [ %.sroa.0678.2, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
   %.sroa.8.1 = phi ptr [ %.sroa.8.2, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
   %.sroa.14.1 = phi ptr [ %.sroa.14.2, %_ZNSt6vectorImSaImEE9push_backERKm.exit.i ], [ null, %.lr.ph.i ]
@@ -1446,7 +1446,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i: ; preds = %.noexc580
   %449 = icmp sgt i32 %448, 0
   br i1 %449, label %.lr.ph64.i, label %._crit_edge.thread.i
 
-.lr.ph64.i:                                       ; preds = %.preheader.i
+.lr.ph64.i:                                       ; preds = %.lr.ph70.i
   %450 = getelementptr inbounds %"struct.ncnn::BBoxRect", ptr %443, i64 %storemerge69.i
   %451 = load float, ptr %450, align 4
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 8
@@ -1529,7 +1529,7 @@ _ZN4ncnnL17intersection_areaERKNS_8BBoxRectES2_.exit.i: ; preds = %478, %473, %4
   %496 = icmp eq i32 %.1.i, 0
   br i1 %496, label %_ZNSt6vectorImSaImEE9push_backERKm.exit.i, label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.lr.ph70.i
   %.not.i.i578 = icmp eq ptr %442, %.sroa.14.1
   br i1 %.not.i.i578, label %499, label %497
 
@@ -1591,9 +1591,9 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit.i:        ; preds = %_ZNSt6vectorImSaImE
   %514 = phi ptr [ %442, %._crit_edge.i ], [ %511, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i ], [ %498, %497 ]
   %515 = add nuw i64 %storemerge69.i, 1
   %exitcond77.not.i = icmp eq i64 %515, %umax.i
-  br i1 %exitcond77.not.i, label %.loopexit94.i, label %.preheader.i, !llvm.loop !18
+  br i1 %exitcond77.not.i, label %._crit_edge71.i, label %.lr.ph70.i, !llvm.loop !18
 
-.loopexit94.i:                                    ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
+._crit_edge71.i:                                  ; preds = %_ZNSt6vectorImSaImEE9push_backERKm.exit.i
   call void @_ZdlPvm(ptr noundef nonnull %425, i64 noundef %424) #21
   %516 = ptrtoint ptr %.sroa.8.2 to i64
   br label %_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit
@@ -1603,10 +1603,10 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %.loopexit.split-lp.
   call void @_ZdlPvm(ptr noundef nonnull %425, i64 noundef %424) #21
   br label %.body
 
-_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit: ; preds = %3, %._crit_edge1084, %.loopexit94.i
-  %.sroa.0678.4 = phi ptr [ %.sroa.0678.2, %.loopexit94.i ], [ null, %._crit_edge1084 ], [ null, %3 ]
-  %.sroa.8.3 = phi i64 [ %516, %.loopexit94.i ], [ 0, %._crit_edge1084 ], [ 0, %3 ]
-  %.sroa.14.4 = phi ptr [ %.sroa.14.2, %.loopexit94.i ], [ null, %._crit_edge1084 ], [ null, %3 ]
+_ZN4ncnnL17nms_sorted_bboxesERKSt6vectorINS_8BBoxRectESaIS1_EERS0_ImSaImEEf.exit: ; preds = %3, %._crit_edge1084, %._crit_edge71.i
+  %.sroa.0678.4 = phi ptr [ %.sroa.0678.2, %._crit_edge71.i ], [ null, %._crit_edge1084 ], [ null, %3 ]
+  %.sroa.8.3 = phi i64 [ %516, %._crit_edge71.i ], [ 0, %._crit_edge1084 ], [ 0, %3 ]
+  %.sroa.14.4 = phi ptr [ %.sroa.14.2, %._crit_edge71.i ], [ null, %._crit_edge1084 ], [ null, %3 ]
   %517 = ptrtoint ptr %.sroa.0678.4 to i64
   %.not1103 = icmp eq i64 %.sroa.8.3, %517
   br i1 %.not1103, label %._crit_edge1093, label %.lr.ph1092.preheader

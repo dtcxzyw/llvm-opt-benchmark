@@ -901,7 +901,7 @@ define hidden void @luaT_getvarargs(ptr noundef %0, ptr noundef readonly capture
 
 .lr.ph40.preheader:                               ; preds = %.preheader
   %34 = zext nneg i32 %.034.lcssa to i64
-  %wide.trip.count45 = zext i32 %.033 to i64
+  %wide.trip.count45 = zext nneg i32 %.033 to i64
   br label %.lr.ph40
 
 35:                                               ; preds = %.lr.ph, %35

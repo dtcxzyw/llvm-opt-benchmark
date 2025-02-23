@@ -2668,11 +2668,11 @@ _tag_get_attached_export.exit:                    ; preds = %49
 dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i81
   %91 = call ptr @g_list_reverse(ptr noundef %68) #11
   %.not = icmp ne i32 %67, 0
+  %.not66109 = icmp eq ptr %91, null
   br i1 %.not, label %.preheader94, label %.loopexit95
 
 .preheader94:                                     ; preds = %dt_sort_tag.exit
-  %cond = icmp eq ptr %91, null
-  br i1 %cond, label %._crit_edge, label %.lr.ph
+  br i1 %.not66109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader94
   %92 = load ptr, ptr %91, align 8, !tbaa !58
@@ -2685,18 +2685,17 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %95 = getelementptr inbounds nuw i8, ptr %.05998, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !62
   %.not65 = icmp eq ptr %96, null
-  br i1 %.not65, label %..loopexit95_crit_edge, label %94
+  br i1 %.not65, label %.loopexit95.thread, label %94
 
-..loopexit95_crit_edge:                           ; preds = %94
+.loopexit95.thread:                               ; preds = %94
   %97 = and i32 %.promoted, -3
   store i32 %97, ptr %93, align 8, !tbaa !72
-  br label %.loopexit95
+  br label %.lr.ph112
 
-.loopexit95:                                      ; preds = %..loopexit95_crit_edge, %dt_sort_tag.exit
-  %.not66109 = icmp eq ptr %91, null
+.loopexit95:                                      ; preds = %dt_sort_tag.exit
   br i1 %.not66109, label %._crit_edge, label %.lr.ph112
 
-.lr.ph112:                                        ; preds = %.loopexit95
+.lr.ph112:                                        ; preds = %.loopexit95.thread, %.loopexit95
   %.not69 = icmp eq i32 %4, 0
   %.not74 = icmp eq i32 %5, 0
   br label %98
@@ -2712,8 +2711,8 @@ dt_sort_tag.exit:                                 ; preds = %88, %._crit_edge.i8
   %or.cond = select i1 %.not, i1 true, i1 %.not67
   %103 = and i32 %101, 1
   %.not68 = icmp eq i32 %103, 0
-  %or.cond123 = select i1 %or.cond, i1 %.not68, i1 false
-  br i1 %or.cond123, label %104, label %153
+  %or.cond124 = select i1 %or.cond, i1 %.not68, i1 false
+  br i1 %or.cond124, label %104, label %153
 
 104:                                              ; preds = %98
   %105 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -2927,15 +2926,15 @@ define ptr @dt_tag_get_hierarchical_export(i32 noundef %0, i32 noundef %1) local
   %18 = getelementptr inbounds nuw i8, ptr %.01219.us, i64 8
   %.012.us = load ptr, ptr %18, align 8, !tbaa !63
   %.not.us = icmp eq ptr %.012.us, null
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge.thread23, label %.lr.ph.split.us
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %17
-  %.013.lcssa = phi ptr [ %.1.us, %17 ], [ %24, %.lr.ph.split ]
+._crit_edge.thread23:                             ; preds = %.lr.ph.split, %17
+  %.013.lcssa25 = phi ptr [ %.1.us, %17 ], [ %24, %.lr.ph.split ]
   tail call void @g_list_free_full(ptr noundef nonnull %.01216, ptr noundef nonnull @_free_result_item) #11
   br label %dt_tag_free_result.exit
 
-dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge
-  %.013.lcssa22 = phi ptr [ %.013.lcssa, %._crit_edge ], [ null, %6 ]
+dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge.thread23
+  %.013.lcssa22 = phi ptr [ %.013.lcssa25, %._crit_edge.thread23 ], [ null, %6 ]
   %19 = tail call ptr @g_list_reverse(ptr noundef %.013.lcssa22) #11
   br label %26
 
@@ -2950,7 +2949,7 @@ dt_tag_free_result.exit:                          ; preds = %6, %._crit_edge
   %25 = getelementptr inbounds nuw i8, ptr %.01219, i64 8
   %.012 = load ptr, ptr %25, align 8, !tbaa !63
   %.not = icmp eq ptr %.012, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not, label %._crit_edge.thread23, label %.lr.ph.split
 
 26:                                               ; preds = %2, %dt_tag_free_result.exit
   %.0 = phi ptr [ %19, %dt_tag_free_result.exit ], [ null, %2 ]

@@ -216,8 +216,7 @@ if.then.i.i.i.i.i.i.i.i.i31:                      ; preds = %_ZNSt16allocator_tr
 
 invoke.cont:                                      ; preds = %if.end13, %if.then.i.i.i.i.i.i.i.i.i31
   %cond.i.i.i.i23139 = phi ptr [ %call5.i.i.i.i2.i6.i2134, %if.then.i.i.i.i.i.i.i.i.i31 ], [ null, %if.end13 ]
-  %add.ptr.i.i.i25141 = getelementptr inbounds i8, ptr %cond.i.i.i.i23139, i64 %sub.ptr.sub.i.i16
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit73, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i43
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit81, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i43
 
 _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i43: ; preds = %invoke.cont
   %call5.i.i.i.i2.i6.i4458 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i) #8
@@ -240,12 +239,13 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.07.i.i, i64 8
   %incdec.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.08.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i136
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit73, label %for.body.i.i, !llvm.loop !18
+  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit81, label %for.body.i.i, !llvm.loop !18
 
-_ZNSt6vectorImSaImEED2Ev.exit73:                  ; preds = %for.body.i.i, %invoke.cont
+_ZNSt6vectorImSaImEED2Ev.exit81:                  ; preds = %for.body.i.i, %invoke.cont
   %cond.i.i.i.i46145150 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i4458, %for.body.i.i ]
   %__init.addr.0.lcssa.i.i = phi i64 [ 0, %invoke.cont ], [ %add.i.i, %for.body.i.i ]
   %add.ptr.i.i.i48146149 = getelementptr inbounds i8, ptr %cond.i.i.i.i46145150, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i25141 = getelementptr inbounds i8, ptr %cond.i.i.i.i23139, i64 %sub.ptr.sub.i.i16
   store i64 %__init.addr.0.lcssa.i.i, ptr %agg.result, align 8, !tbaa !3
   %dim_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %cond.i.i.i.i23139, ptr %dim_.i, align 8, !tbaa !13
@@ -259,14 +259,7 @@ _ZNSt6vectorImSaImEED2Ev.exit73:                  ; preds = %for.body.i.i, %invo
   store ptr %add.ptr.i.i.i48146149, ptr %_M_finish.i.i.i.i1.i, align 8, !tbaa !15
   %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 48
   store ptr %add.ptr.i.i.i48146149, ptr %_M_end_of_storage.i.i.i.i3.i, align 8, !tbaa !20
-  %tobool.not.i.i.i75 = icmp eq ptr %cond.i.i.i.i131, null
-  br i1 %tobool.not.i.i.i75, label %_ZNSt6vectorImSaImEED2Ev.exit81, label %if.then.i.i.i76
-
-if.then.i.i.i76:                                  ; preds = %_ZNSt6vectorImSaImEED2Ev.exit73
   tail call void @_ZdlPvm(ptr noundef nonnull %cond.i.i.i.i131, i64 noundef %sub.ptr.sub.i.i) #9
-  br label %_ZNSt6vectorImSaImEED2Ev.exit81
-
-_ZNSt6vectorImSaImEED2Ev.exit81:                  ; preds = %_ZNSt6vectorImSaImEED2Ev.exit73, %if.then.i.i.i76
   ret void
 
 lpad:                                             ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i20, %if.then3.i.i.i.i.i.i33

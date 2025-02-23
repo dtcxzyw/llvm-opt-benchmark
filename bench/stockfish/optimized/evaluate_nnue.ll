@@ -525,7 +525,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i, i64 256, i1 false)
   %indvar.next.i.us.i = add nuw nsw i64 %indvar.i.us.i, 1
   %exitcond99.not.i.us.i = icmp eq i64 %indvar.next.i.us.i, 20
-  br i1 %exitcond99.not.i.us.i, label %.critedge.i.i, label %._crit_edge.i.us.i, !llvm.loop !13
+  br i1 %exitcond99.not.i.us.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %._crit_edge.i.us.i, !llvm.loop !13
 
 .lr.ph.i.preheader.i:                             ; preds = %.preheader.i.i, %._crit_edge.i.loopexit.i
   %indvar.i.i = phi i64 [ %indvar.next.i.i, %._crit_edge.i.loopexit.i ], [ 0, %.preheader.i.i ]
@@ -570,7 +570,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK9Stockfish4Eval4NNUE18FeatureTran
   %exitcond99.not.i.i = icmp eq i64 %indvar.next.i.i, 20
   br i1 %exitcond99.not.i.i, label %.critedge.i.i, label %.lr.ph.i.preheader.i, !llvm.loop !13
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.loopexit.i, %._crit_edge.i.us.i, %31
+.critedge.i.i:                                    ; preds = %._crit_edge.i.loopexit.i, %31
   %59 = getelementptr inbounds i32, ptr %10, i64 %.pre100.i.i
   %.not7786.i.i = icmp eq i64 %.pre100.i.i, 0
   br i1 %.not7786.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i
@@ -601,9 +601,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %74 = bitcast <4 x i32> %71 to <2 x i64>
   br label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i
 
-_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i: ; preds = %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i
-  %.sroa.018.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %73, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ]
-  %.sroa.5.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %74, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ]
+_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i: ; preds = %._crit_edge.i.us.i, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i
+  %.sroa.018.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %73, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i ]
+  %.sroa.5.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %74, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i ]
   %75 = getelementptr inbounds nuw i8, ptr %33, i64 10432
   store <2 x i64> %.sroa.018.0.i, ptr %75, align 16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 10448
@@ -681,7 +681,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %gep.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i124, i64 256, i1 false)
   %indvar.next.i.us.i125 = add nuw nsw i64 %indvar.i.us.i123, 1
   %exitcond99.not.i.us.i126 = icmp eq i64 %indvar.next.i.us.i125, 20
-  br i1 %exitcond99.not.i.us.i126, label %.critedge.i.i113, label %._crit_edge.i.us.i122, !llvm.loop !15
+  br i1 %exitcond99.not.i.us.i126, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %._crit_edge.i.us.i122, !llvm.loop !15
 
 .lr.ph.i.preheader.i100:                          ; preds = %.preheader.i.i98, %._crit_edge.i.loopexit.i110
   %indvar.i.i101 = phi i64 [ %indvar.next.i.i111, %._crit_edge.i.loopexit.i110 ], [ 0, %.preheader.i.i98 ]
@@ -725,7 +725,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %exitcond99.not.i.i112 = icmp eq i64 %indvar.next.i.i111, 20
   br i1 %exitcond99.not.i.i112, label %.critedge.i.i113, label %.lr.ph.i.preheader.i100, !llvm.loop !15
 
-.critedge.i.i113:                                 ; preds = %._crit_edge.i.loopexit.i110, %._crit_edge.i.us.i122, %95
+.critedge.i.i113:                                 ; preds = %._crit_edge.i.loopexit.i110, %95
   %121 = getelementptr inbounds i32, ptr %7, i64 %.pre100.i.i97
   %.not7786.i.i114 = icmp eq i64 %.pre100.i.i97, 0
   br i1 %.not7786.i.i114, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i115
@@ -756,9 +756,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %136 = bitcast <4 x i32> %133 to <2 x i64>
   br label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i
 
-_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i: ; preds = %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i113
-  %.sroa.018.0.i119 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i113 ], [ %135, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ]
-  %.sroa.5.0.i120 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i113 ], [ %136, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ]
+_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i: ; preds = %._crit_edge.i.us.i122, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i113
+  %.sroa.018.0.i119 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i113 ], [ %135, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i122 ]
+  %.sroa.5.0.i120 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i113 ], [ %136, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i122 ]
   %137 = getelementptr inbounds nuw i8, ptr %97, i64 10464
   store <2 x i64> %.sroa.018.0.i119, ptr %137, align 16
   %.sroa.5.0..sroa_idx.i121 = getelementptr inbounds nuw i8, ptr %97, i64 10480
@@ -790,12 +790,12 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 
 153:                                              ; preds = %151, %184
   %154 = phi i1 [ true, %151 ], [ false, %184 ]
-  %indvars.iv141.sroa.phi.sroa.speculated = phi i32 [ %139, %151 ], [ %140, %184 ]
-  %indvars.iv141 = phi i64 [ 0, %151 ], [ 1280, %184 ]
-  %155 = zext i32 %indvars.iv141.sroa.phi.sroa.speculated to i64
+  %indvars.iv137.sroa.phi.sroa.speculated = phi i32 [ %139, %151 ], [ %140, %184 ]
+  %indvars.iv137 = phi i64 [ 0, %151 ], [ 1280, %184 ]
+  %155 = zext i32 %indvars.iv137.sroa.phi.sroa.speculated to i64
   %156 = getelementptr inbounds nuw [2 x [2560 x i16]], ptr %152, i64 0, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 2560
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv141
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv137
   br label %159
 
 159:                                              ; preds = %153, %159
@@ -1655,7 +1655,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i32, i64 256, i1 false)
   %indvar.next.i.us.i33 = add nuw nsw i64 %indvar.i.us.i31, 1
   %exitcond99.not.i.us.i34 = icmp eq i64 %indvar.next.i.us.i33, 20
-  br i1 %exitcond99.not.i.us.i34, label %.critedge.i.i21, label %._crit_edge.i.us.i30, !llvm.loop !13
+  br i1 %exitcond99.not.i.us.i34, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %._crit_edge.i.us.i30, !llvm.loop !13
 
 .lr.ph.i.preheader.i8:                            ; preds = %.thread17.i5, %._crit_edge.i.loopexit.i18
   %indvar.i.i9 = phi i64 [ %indvar.next.i.i19, %._crit_edge.i.loopexit.i18 ], [ 0, %.thread17.i5 ]
@@ -1698,12 +1698,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.i, ptr noundef nonnull align 16 dereferenceable(256) %2, i64 256, i1 false)
   %indvar.next.i.i19 = add nuw nsw i64 %indvar.i.i9, 1
   %exitcond99.not.i.i20 = icmp eq i64 %indvar.next.i.i19, 20
-  br i1 %exitcond99.not.i.i20, label %.critedge.i.i21, label %.lr.ph.i.preheader.i8, !llvm.loop !13
+  br i1 %exitcond99.not.i.i20, label %.lr.ph89.i.i23, label %.lr.ph.i.preheader.i8, !llvm.loop !13
 
-.critedge.i.i21:                                  ; preds = %._crit_edge.i.loopexit.i18, %._crit_edge.i.us.i30
-  br i1 %.not80.i.i7, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i23
-
-.lr.ph89.i.i23:                                   ; preds = %.critedge.i.i21
+.lr.ph89.i.i23:                                   ; preds = %._crit_edge.i.loopexit.i18
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 115348480
   br label %.critedge.i24
 
@@ -1729,9 +1726,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %88 = bitcast <4 x i32> %85 to <2 x i64>
   br label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i
 
-_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i: ; preds = %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i21
-  %.sroa.016.0.i27 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i21 ], [ %87, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ]
-  %.sroa.5.0.i28 = phi <2 x i64> [ zeroinitializer, %.critedge.i.i21 ], [ %88, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ]
+_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.i: ; preds = %._crit_edge.i.us.i30, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i
+  %.sroa.016.0.i27 = phi <2 x i64> [ %87, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i30 ]
+  %.sroa.5.0.i28 = phi <2 x i64> [ %88, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE0EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i30 ]
   %89 = getelementptr inbounds nuw i8, ptr %50, i64 10432
   store <2 x i64> %.sroa.016.0.i27, ptr %89, align 16
   %.sroa.5.0..sroa_idx.i29 = getelementptr inbounds nuw i8, ptr %50, i64 10448
@@ -1830,7 +1827,7 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %gep.i.us.i, ptr noundef nonnull align 64 dereferenceable(256) %scevgep.i.us.i, i64 256, i1 false)
   %indvar.next.i.us.i = add nuw nsw i64 %indvar.i.us.i, 1
   %exitcond99.not.i.us.i = icmp eq i64 %indvar.next.i.us.i, 20
-  br i1 %exitcond99.not.i.us.i, label %.critedge.i.i, label %._crit_edge.i.us.i, !llvm.loop !15
+  br i1 %exitcond99.not.i.us.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %._crit_edge.i.us.i, !llvm.loop !15
 
 .lr.ph.i.preheader.i:                             ; preds = %.thread17.i, %._crit_edge.i.loopexit.i
   %indvar.i.i = phi i64 [ %indvar.next.i.i, %._crit_edge.i.loopexit.i ], [ 0, %.thread17.i ]
@@ -1872,12 +1869,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %gep.i.i, ptr noundef nonnull align 16 dereferenceable(256) %5, i64 256, i1 false)
   %indvar.next.i.i = add nuw nsw i64 %indvar.i.i, 1
   %exitcond99.not.i.i = icmp eq i64 %indvar.next.i.i, 20
-  br i1 %exitcond99.not.i.i, label %.critedge.i.i, label %.lr.ph.i.preheader.i, !llvm.loop !15
+  br i1 %exitcond99.not.i.i, label %.lr.ph89.i.i, label %.lr.ph.i.preheader.i, !llvm.loop !15
 
-.critedge.i.i:                                    ; preds = %._crit_edge.i.loopexit.i, %._crit_edge.i.us.i
-  br i1 %.not80.i.i, label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i, label %.lr.ph89.i.i
-
-.lr.ph89.i.i:                                     ; preds = %.critedge.i.i
+.lr.ph89.i.i:                                     ; preds = %._crit_edge.i.loopexit.i
   %143 = getelementptr inbounds nuw i8, ptr %17, i64 115348480
   br label %.critedge.i
 
@@ -1903,9 +1897,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   %157 = bitcast <4 x i32> %154 to <2 x i64>
   br label %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i
 
-_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i: ; preds = %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i, %.critedge.i.i
-  %.sroa.016.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %156, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ]
-  %.sroa.5.0.i = phi <2 x i64> [ zeroinitializer, %.critedge.i.i ], [ %157, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ]
+_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.i: ; preds = %._crit_edge.i.us.i, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i
+  %.sroa.016.0.i = phi <2 x i64> [ %156, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i ]
+  %.sroa.5.0.i = phi <2 x i64> [ %157, %_ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEE26update_accumulator_refreshILNS_5ColorE1EEEvRKNS_8PositionEb.exit.loopexit.i ], [ zeroinitializer, %._crit_edge.i.us.i ]
   %158 = getelementptr inbounds nuw i8, ptr %121, i64 10464
   store <2 x i64> %.sroa.016.0.i, ptr %158, align 16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %121, i64 10480
@@ -3771,11 +3765,11 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 %79
   %81 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %80) #15
-  br i1 %81, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %82
+  br i1 %81, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.thread.i
 
-82:                                               ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i, %63
+82:                                               ; preds = %63
   %83 = icmp eq i32 %1, 1
-  br i1 %83, label %84, label %101
+  br i1 %83, label %84, label %.thread.i
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE23featureTransformerSmallE, align 8
@@ -3817,15 +3811,16 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128E
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 %98
   %100 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %99) #15
-  br i1 %100, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %101
+  br i1 %100, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.thread.i
 
-101:                                              ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, %82
+.thread.i:                                        ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, %82, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i
+  %101 = phi i1 [ true, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i ], [ false, %82 ], [ false, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i ]
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %104
 
-104:                                              ; preds = %128, %101
-  %.046.i = phi i64 [ 0, %101 ], [ %129, %128 ]
+104:                                              ; preds = %128, %.thread.i
+  %.046.i = phi i64 [ 0, %.thread.i ], [ %129, %128 ]
   br i1 %64, label %105, label %116
 
 105:                                              ; preds = %104
@@ -3862,7 +3857,7 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EE
   br i1 %115, label %116, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 116:                                              ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_7NetworkILj2560ELi15ELi32EEEEEbRSoRKT_.exit.i, %104
-  br i1 %83, label %117, label %128
+  br i1 %101, label %117, label %128
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw [8 x %"class.std::unique_ptr.23"], ptr @_ZN9Stockfish4Eval4NNUE12networkSmallE, i64 0, i64 %.046.i

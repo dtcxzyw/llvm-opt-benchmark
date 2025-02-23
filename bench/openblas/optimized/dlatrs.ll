@@ -140,7 +140,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %63 = trunc i64 %indvars.iv to i32
-  %64 = add i32 %63, -1
+  %64 = add nsw i32 %63, -1
   store i32 %64, ptr %13, align 4, !tbaa !3
   %65 = mul nsw i64 %indvars.iv, %61
   %gep = getelementptr double, ptr %invariant.gep, i64 %65
@@ -159,7 +159,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph585.preheader:                              ; preds = %68
   %70 = sext i32 %18 to i64
-  %71 = sext i32 %69 to i64
+  %71 = zext nneg i32 %69 to i64
   br label %.lr.ph585
 
 .lr.ph585:                                        ; preds = %.lr.ph585.preheader, %.lr.ph585
@@ -175,7 +175,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %78 = call double @dasum_(ptr noundef nonnull %13, ptr noundef %77, ptr noundef nonnull @c__1) #6
   %79 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv662
   store double %78, ptr %79, align 8, !tbaa !7
-  %.not534.not = icmp slt i64 %indvars.iv662, %71
+  %.not534.not = icmp samesign ult i64 %indvars.iv662, %71
   br i1 %.not534.not, label %.lr.ph585, label %._crit_edge.loopexit, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph585
@@ -1008,7 +1008,7 @@ thread-pre-split568:                              ; preds = %375, %380
 508:                                              ; preds = %505
   %509 = fdiv double 1.000000e+00, %506
   store double %509, ptr %15, align 8, !tbaa !7
-  call void @dscal_(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef %9, ptr noundef nonnull @c__1) #6
+  call void @dscal_(ptr noundef nonnull %4, ptr noundef nonnull %15, ptr noundef nonnull %9, ptr noundef nonnull @c__1) #6
   br label %510
 
 510:                                              ; preds = %505, %508, %50, %.thread

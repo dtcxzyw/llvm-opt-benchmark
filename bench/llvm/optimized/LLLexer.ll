@@ -7628,7 +7628,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm7APFloatD2E
   store i8 1, ptr %107, align 1, !tbaa !42
   store ptr @.str.1, ptr %6, align 8, !tbaa !32
   store i8 3, ptr %106, align 8, !tbaa !45
-  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr %22, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef 2)
+  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr nonnull %22, ptr noundef nonnull align 8 dereferenceable(34) %6, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #17
   br label %_ZN4llvm7LLLexer16FP80HexToIntPairEPKcS2_Pm.exit
 
@@ -7755,7 +7755,7 @@ _ZN4llvm5APIntD2Ev.exit16:                        ; preds = %_ZN4llvm7APFloatD2E
   store i8 1, ptr %158, align 1, !tbaa !42
   store ptr @.str.1, ptr %5, align 8, !tbaa !32
   store i8 3, ptr %157, align 8, !tbaa !45
-  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr %22, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 2)
+  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr nonnull %22, ptr noundef nonnull align 8 dereferenceable(34) %5, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #17
   br label %_ZN4llvm7LLLexer12HexToIntPairEPKcS2_Pm.exit
 
@@ -7882,7 +7882,7 @@ _ZN4llvm5APIntD2Ev.exit28:                        ; preds = %_ZN4llvm7APFloatD2E
   store i8 1, ptr %209, align 1, !tbaa !42
   store ptr @.str.1, ptr %4, align 8, !tbaa !32
   store i8 3, ptr %208, align 8, !tbaa !45
-  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr %22, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 2)
+  call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr nonnull %22, ptr noundef nonnull align 8 dereferenceable(34) %4, i32 noundef 2)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #17
   br label %_ZN4llvm7APFloatC2ERKNS_12fltSemanticsERKNS_5APIntE.exit42
 

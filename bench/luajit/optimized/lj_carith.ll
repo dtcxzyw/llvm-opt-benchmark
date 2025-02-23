@@ -930,7 +930,7 @@ carith_ptr.exit:                                  ; preds = %293, %306, %319, %3
 
 .thread93.i:                                      ; preds = %429, %406
   %.16896.i = phi ptr [ %432, %429 ], [ %409, %406 ]
-  %487 = call i32 @lj_meta_tailcall(ptr noundef %0, ptr noundef nonnull %.16896.i) #7
+  %487 = call i32 @lj_meta_tailcall(ptr noundef nonnull %0, ptr noundef nonnull %.16896.i) #7
   br label %lj_carith_meta.exit
 
 lj_carith_meta.exit:                              ; preds = %.thread93.i, %434, %383

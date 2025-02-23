@@ -386,21 +386,21 @@ define internal fastcc void @Abc_NtkVerifyReportError(ptr noundef %0, ptr nounde
   %89 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !31
   %.not.i = icmp eq ptr %90, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %91
+  br i1 %.not.i, label %.thread, label %91
 
 91:                                               ; preds = %.critedge2
   call void @free(ptr noundef nonnull %90) #15
-  br label %Vec_PtrFree.exit
+  br label %.thread
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge2, %91
+.thread:                                          ; preds = %91, %.critedge2
   call void @free(ptr noundef nonnull %57) #15
-  br label %92
+  br label %93
 
-92:                                               ; preds = %Vec_PtrFree.exit, %40
+92:                                               ; preds = %40
   %.not73 = icmp eq ptr %5, null
   br i1 %.not73, label %94, label %93
 
-93:                                               ; preds = %92
+93:                                               ; preds = %.thread, %92
   call void @free(ptr noundef nonnull %5) #15
   br label %94
 
@@ -2308,7 +2308,7 @@ define void @Abc_NtkVerifyReportErrorSeq(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not288, label %351, label %350
 
 350:                                              ; preds = %.critedge22
-  tail call void @Abc_NtkDelete(ptr noundef %.0227) #15
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %.0227) #15
   br label %351
 
 351:                                              ; preds = %350, %.critedge22

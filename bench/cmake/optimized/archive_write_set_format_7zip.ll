@@ -941,7 +941,7 @@ define internal i32 @_7z_close(ptr noundef %0) #0 {
   %spec.select = select i1 %60, i32 0, i32 %switch.select151
   %61 = getelementptr inbounds nuw i8, ptr %16, i64 132
   %62 = load i32, ptr %61, align 4, !tbaa !32
-  %63 = tail call fastcc i32 @_7z_compression_init_encoder(ptr noundef %0, i32 noundef %spec.select, i32 noundef %62)
+  %63 = tail call fastcc i32 @_7z_compression_init_encoder(ptr noundef nonnull %0, i32 noundef %spec.select, i32 noundef %62)
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %flush_wbuff.exit, label %65
 
@@ -954,7 +954,7 @@ define internal i32 @_7z_close(ptr noundef %0) #0 {
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %13) #18
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %12) #18
   store i8 1, ptr %12, align 1
-  %69 = call fastcc i64 @compress_out(ptr noundef %0, ptr noundef nonnull %12, i64 noundef 1, i32 noundef 1)
+  %69 = call fastcc i64 @compress_out(ptr noundef nonnull %0, ptr noundef nonnull %12, i64 noundef 1, i32 noundef 1)
   %70 = trunc i64 %69 to i32
   call void @llvm.lifetime.end.p0(i64 9, ptr nonnull %12) #18
   %71 = icmp slt i32 %70, 0
@@ -1802,7 +1802,7 @@ file_free_register.exit:                          ; preds = %.lr.ph.i, %8
   store ptr null, ptr %19, align 8, !tbaa !91
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %22 = load ptr, ptr %21, align 8, !tbaa !92
-  %23 = tail call i32 %22(ptr noundef %0, ptr noundef nonnull %17) #18
+  %23 = tail call i32 %22(ptr noundef nonnull %0, ptr noundef nonnull %17) #18
   br label %compression_end.exit
 
 compression_end.exit:                             ; preds = %file_free_register.exit, %16

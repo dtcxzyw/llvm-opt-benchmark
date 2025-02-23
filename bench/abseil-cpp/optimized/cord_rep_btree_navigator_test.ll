@@ -6097,7 +6097,9 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 19:                                               ; preds = %14
   store i64 %17, ptr %1, align 8, !tbaa !200
-  %20 = udiv i64 %18, %.zext
+  %.lhs.trunc = trunc nsw i64 %18 to i32
+  %20 = udiv i32 %.lhs.trunc, %12
+  %.zext29 = zext nneg i32 %20 to i64
   br label %.loopexit
 
 21:                                               ; preds = %3
@@ -6141,7 +6143,7 @@ define linkonce_odr dso_local noundef i64 @_ZNSt24uniform_int_distributionImEclI
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35, %19
   %40 = phi i64 [ %7, %19 ], [ %7, %35 ], [ %.pre, %.loopexit.loopexit ]
-  %.0 = phi i64 [ %20, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
+  %.0 = phi i64 [ %.zext29, %19 ], [ %39, %35 ], [ %31, %.loopexit.loopexit ]
   %41 = add i64 %40, %.0
   ret i64 %41
 }
@@ -17359,7 +17361,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i: ; preds = %.lr.ph.i23
   %100 = trunc i64 %.0.lcssa.i28.i to i8
   %101 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 0, i64 %indvars.iv.next.i
   store i8 %100, ptr %101, align 1, !tbaa !24
-  %102 = icmp sgt i64 %indvars.iv.i, 1
+  %102 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %102, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !449
 
 ._crit_edge.i:                                    ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i
@@ -17840,7 +17842,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i151: ; preds = %.lr.ph.
   %267 = trunc i64 %.0.lcssa.i28.i153 to i8
   %268 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 0, i64 %indvars.iv.next.i145
   store i8 %267, ptr %268, align 1, !tbaa !24
-  %269 = icmp sgt i64 %indvars.iv.i141, 1
+  %269 = icmp samesign ugt i64 %indvars.iv.i141, 1
   br i1 %269, label %.lr.ph.i140, label %._crit_edge.i135, !llvm.loop !449
 
 ._crit_edge.i135:                                 ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i151, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i132
@@ -18642,7 +18644,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i: ; preds = %.lr.ph.i
   %81 = trunc i64 %.0.lcssa.i28.i.i to i8
   %82 = getelementptr inbounds nuw [12 x i8], ptr %62, i64 0, i64 %indvars.iv.next.i.i
   store i8 %81, ptr %82, align 1, !tbaa !24
-  %83 = icmp sgt i64 %indvars.iv.i.i, 1
+  %83 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %83, label %.lr.ph.i.i, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i.loopexit, !llvm.loop !449
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i.loopexit: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i
@@ -20782,7 +20784,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i: ; preds = %.lr.ph.i
   %276 = trunc i64 %.0.lcssa.i28.i.i to i8
   %277 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 0, i64 %indvars.iv.next.i.i156
   store i8 %276, ptr %277, align 1, !tbaa !24
-  %278 = icmp sgt i64 %indvars.iv.i.i155, 1
+  %278 = icmp samesign ugt i64 %indvars.iv.i.i155, 1
   br i1 %278, label %.lr.ph.i.i154, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i, !llvm.loop !449
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i
@@ -21001,7 +21003,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i196: ; preds = %.lr.p
   %357 = trunc i64 %.0.lcssa.i28.i.i198 to i8
   %358 = getelementptr inbounds nuw [12 x i8], ptr %63, i64 0, i64 %indvars.iv.next.i.i190
   store i8 %357, ptr %358, align 1, !tbaa !24
-  %359 = icmp sgt i64 %indvars.iv.i.i186, 1
+  %359 = icmp samesign ugt i64 %indvars.iv.i.i186, 1
   br i1 %359, label %.lr.ph.i.i185, label %_ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i199, !llvm.loop !449
 
 _ZN4absl13cord_internal21CordRepBtreeNavigator4SeekEm.exit.i199: ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit31.i.i196, %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit.i.i181

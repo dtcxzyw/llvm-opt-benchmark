@@ -1334,7 +1334,7 @@ Saig_SynchSetConstant1.exit:                      ; preds = %Vec_PtrAllocSimInfo
   tail call void @llvm.memset.p0.i64(ptr align 4 %36, i8 85, i64 %38, i1 false), !tbaa !25
   %.val = load i32, ptr %4, align 8, !tbaa !26
   %39 = icmp sgt i32 %.val, 0
-  br i1 %39, label %.lr.ph.us.preheader.i, label %._crit_edge.thread96
+  br i1 %39, label %.lr.ph.us.preheader.i, label %._crit_edge.thread99
 
 .lr.ph.us.preheader.i:                            ; preds = %Saig_SynchSetConstant1.exit
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1360,14 +1360,14 @@ Saig_SynchSetConstant1.exit:                      ; preds = %Vec_PtrAllocSimInfo
   %53 = add nuw nsw i32 %.01218.us.i, 1
   %.val14.us.i = load i32, ptr %4, align 8, !tbaa !26
   %54 = icmp slt i32 %53, %.val14.us.i
-  br i1 %54, label %.lr.ph.us.i, label %Saig_SynchInitRegsTernary.exit, !llvm.loop !29
+  br i1 %54, label %.lr.ph.us.i, label %.preheader.lr.ph, !llvm.loop !29
 
-Saig_SynchInitRegsTernary.exit:                   ; preds = %.lr.ph.us.i, %Vec_PtrAllocSimInfo.exit
-  %.val78 = phi i32 [ %.val52, %Vec_PtrAllocSimInfo.exit ], [ %.val, %.lr.ph.us.i ]
-  %55 = icmp sgt i32 %.val78, 0
-  br i1 %55, label %.preheader.lr.ph, label %._crit_edge.thread96
+Saig_SynchInitRegsTernary.exit:                   ; preds = %Vec_PtrAllocSimInfo.exit
+  %55 = icmp sgt i32 %.val52, 0
+  br i1 %55, label %.preheader.lr.ph, label %._crit_edge.thread99
 
-.preheader.lr.ph:                                 ; preds = %Saig_SynchInitRegsTernary.exit
+.preheader.lr.ph:                                 ; preds = %.lr.ph.us.i, %Saig_SynchInitRegsTernary.exit
+  %.val7891 = phi i32 [ %.val52, %Saig_SynchInitRegsTernary.exit ], [ %.val, %.lr.ph.us.i ]
   %56 = getelementptr i8, ptr %0, i64 108
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %wide.trip.count.i57 = zext nneg i32 %1 to i64
@@ -1380,7 +1380,7 @@ Saig_SynchInitRegsTernary.exit:                   ; preds = %.lr.ph.us.i, %Vec_P
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %118
   %.04684 = phi i32 [ 0, %.preheader.lr.ph ], [ %120, %118 ]
-  %.04883 = phi i32 [ %.val78, %.preheader.lr.ph ], [ %.154.i, %118 ]
+  %.04883 = phi i32 [ %.val7891, %.preheader.lr.ph ], [ %.154.i, %118 ]
   br label %62
 
 62:                                               ; preds = %.preheader, %114
@@ -1556,11 +1556,11 @@ Saig_SynchCountX.exit:                            ; preds = %._crit_edge.i, %.th
   br i1 %123, label %.preheader, label %._crit_edge, !llvm.loop !70
 
 ._crit_edge:                                      ; preds = %118
-  br i1 %122, label %._crit_edge.thread, label %._crit_edge.thread96
+  br i1 %122, label %._crit_edge.thread, label %._crit_edge.thread99
 
 ._crit_edge.thread:                               ; preds = %116, %114, %._crit_edge
-  %.048.lcssa94 = phi i32 [ %.154.i, %._crit_edge ], [ %.04883, %114 ], [ %.04883, %116 ]
-  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.048.lcssa94)
+  %.048.lcssa97 = phi i32 [ %.154.i, %._crit_edge ], [ %.04883, %114 ], [ %.04883, %116 ]
+  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.048.lcssa97)
   %.not.i70 = icmp eq ptr %21, null
   br i1 %.not.i70, label %Vec_PtrFree.exit, label %125
 
@@ -1574,22 +1574,22 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge.thread,
   %.not.i71 = icmp eq ptr %126, null
   br i1 %.not.i71, label %Vec_StrFree.exit, label %Vec_StrFree.exit.sink.split
 
-._crit_edge.thread96:                             ; preds = %Saig_SynchSetConstant1.exit, %Saig_SynchInitRegsTernary.exit, %._crit_edge
-  %127 = tail call i32 @Saig_SynchSequenceRun(ptr noundef %0, ptr noundef nonnull %27, ptr noundef nonnull %6, i32 noundef 1)
-  tail call void @Aig_ManCleanMarkA(ptr noundef %0) #18
+._crit_edge.thread99:                             ; preds = %Saig_SynchSetConstant1.exit, %Saig_SynchInitRegsTernary.exit, %._crit_edge
+  %127 = tail call i32 @Saig_SynchSequenceRun(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %6, i32 noundef 1)
+  tail call void @Aig_ManCleanMarkA(ptr noundef nonnull %0) #18
   %.not.i72 = icmp eq ptr %21, null
   br i1 %.not.i72, label %Vec_StrFree.exit, label %Vec_StrFree.exit.sink.split
 
-Vec_StrFree.exit.sink.split:                      ; preds = %._crit_edge.thread96, %Vec_PtrFree.exit
-  %.sink106 = phi ptr [ %126, %Vec_PtrFree.exit ], [ %21, %._crit_edge.thread96 ]
-  %.sink.ph = phi ptr [ %6, %Vec_PtrFree.exit ], [ %27, %._crit_edge.thread96 ]
-  %.047.ph = phi ptr [ null, %Vec_PtrFree.exit ], [ %6, %._crit_edge.thread96 ]
-  tail call void @free(ptr noundef nonnull %.sink106) #18
+Vec_StrFree.exit.sink.split:                      ; preds = %._crit_edge.thread99, %Vec_PtrFree.exit
+  %.sink109 = phi ptr [ %126, %Vec_PtrFree.exit ], [ %21, %._crit_edge.thread99 ]
+  %.sink.ph = phi ptr [ %6, %Vec_PtrFree.exit ], [ %27, %._crit_edge.thread99 ]
+  %.047.ph = phi ptr [ null, %Vec_PtrFree.exit ], [ %6, %._crit_edge.thread99 ]
+  tail call void @free(ptr noundef nonnull %.sink109) #18
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.sink.split, %._crit_edge.thread96, %Vec_PtrFree.exit
-  %.sink = phi ptr [ %6, %Vec_PtrFree.exit ], [ %27, %._crit_edge.thread96 ], [ %.sink.ph, %Vec_StrFree.exit.sink.split ]
-  %.047 = phi ptr [ null, %Vec_PtrFree.exit ], [ %6, %._crit_edge.thread96 ], [ %.047.ph, %Vec_StrFree.exit.sink.split ]
+Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.sink.split, %._crit_edge.thread99, %Vec_PtrFree.exit
+  %.sink = phi ptr [ %6, %Vec_PtrFree.exit ], [ %27, %._crit_edge.thread99 ], [ %.sink.ph, %Vec_StrFree.exit.sink.split ]
+  %.047 = phi ptr [ null, %Vec_PtrFree.exit ], [ %6, %._crit_edge.thread99 ], [ %.047.ph, %Vec_StrFree.exit.sink.split ]
   tail call void @free(ptr noundef nonnull %.sink) #18
   ret ptr %.047
 }
@@ -1991,8 +1991,8 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %37
   store i32 %.val21.val, ptr %47, align 8, !tbaa !68
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %42, ptr %49, align 8, !tbaa !3
-  %50 = call i32 @Saig_SynchSequenceRun(ptr noundef %0, ptr noundef nonnull %47, ptr noundef nonnull %12, i32 noundef 1)
-  %51 = call ptr @Saig_ManDupInitZero(ptr noundef %0)
+  %50 = call i32 @Saig_SynchSequenceRun(ptr noundef nonnull %0, ptr noundef nonnull %47, ptr noundef nonnull %12, i32 noundef 1)
+  %51 = call ptr @Saig_ManDupInitZero(ptr noundef nonnull %0)
   %.not.i = icmp eq ptr %42, null
   br i1 %.not.i, label %Vec_PtrFree.exit, label %52
 
@@ -2013,7 +2013,7 @@ Vec_PtrFree.exit:                                 ; preds = %Vec_PtrAllocSimInfo
 
 Vec_StrFree.exit:                                 ; preds = %Vec_PtrFree.exit, %55
   call void @free(ptr noundef nonnull %12) #18
-  call void @Aig_ManCleanMarkA(ptr noundef %0) #18
+  call void @Aig_ManCleanMarkA(ptr noundef nonnull %0) #18
   br label %56
 
 56:                                               ; preds = %Vec_StrFree.exit, %36
@@ -2304,11 +2304,11 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i, %Abc_Cloc
   store i32 %94, ptr %102, align 8, !tbaa !68
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %97, ptr %104, align 8, !tbaa !3
-  %105 = call i32 @Saig_SynchSequenceRun(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %21, i32 noundef 1)
-  %106 = call i32 @Saig_SynchSequenceRun(ptr noundef %0, ptr noundef nonnull %102, ptr noundef %50, i32 noundef 0)
-  %107 = call i32 @Saig_SynchSequenceRun(ptr noundef %1, ptr noundef nonnull %102, ptr noundef %50, i32 noundef 1)
-  %108 = call ptr @Saig_ManDupInitZero(ptr noundef %0)
-  %109 = call ptr @Saig_ManDupInitZero(ptr noundef %1)
+  %105 = call i32 @Saig_SynchSequenceRun(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %21, i32 noundef 1)
+  %106 = call i32 @Saig_SynchSequenceRun(ptr noundef nonnull %0, ptr noundef nonnull %102, ptr noundef nonnull %50, i32 noundef 0)
+  %107 = call i32 @Saig_SynchSequenceRun(ptr noundef nonnull %1, ptr noundef nonnull %102, ptr noundef nonnull %50, i32 noundef 1)
+  %108 = call ptr @Saig_ManDupInitZero(ptr noundef nonnull %0)
+  %109 = call ptr @Saig_ManDupInitZero(ptr noundef nonnull %1)
   %110 = call ptr @Saig_ManCreateMiter(ptr noundef %108, ptr noundef %109, i32 noundef 0) #18
   %111 = call i32 @Aig_ManCleanup(ptr noundef %110) #18
   call void @Aig_ManStop(ptr noundef %108) #18
@@ -2344,8 +2344,8 @@ Vec_StrFree.exit78:                               ; preds = %Vec_PtrFree.exit, %
 
 Vec_StrFree.exit80:                               ; preds = %Vec_StrFree.exit78, %118
   call void @free(ptr noundef nonnull %50) #18
-  call void @Aig_ManCleanMarkA(ptr noundef %0) #18
-  call void @Aig_ManCleanMarkA(ptr noundef %1) #18
+  call void @Aig_ManCleanMarkA(ptr noundef nonnull %0) #18
+  call void @Aig_ManCleanMarkA(ptr noundef nonnull %1) #18
   br i1 %.not, label %133, label %119
 
 119:                                              ; preds = %Vec_StrFree.exit80

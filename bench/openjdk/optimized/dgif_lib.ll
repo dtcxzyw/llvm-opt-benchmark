@@ -1298,7 +1298,7 @@ define internal fastcc range(i32 0, 2) i32 @DGifDecompressLine(ptr noundef %0, p
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 28
-  %34 = sext i32 %2 to i64
+  %34 = zext nneg i32 %2 to i64
   br label %35
 
 35:                                               ; preds = %.lr.ph178, %163

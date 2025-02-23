@@ -120,9 +120,9 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
 
 39:                                               ; preds = %34
   %40 = trunc nsw i64 %indvars.iv.next to i32
-  call fastcc void @sort_rec(ptr noundef %0, i32 noundef %40, ptr noundef %2)
+  call fastcc void @sort_rec(ptr noundef nonnull %0, i32 noundef %40, ptr noundef %2)
   %41 = sub nsw i32 %1, %40
-  call fastcc void @sort_rec(ptr noundef %28, i32 noundef %41, ptr noundef %2)
+  call fastcc void @sort_rec(ptr noundef nonnull %28, i32 noundef %41, ptr noundef %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
   br label %selectionsort.exit
 

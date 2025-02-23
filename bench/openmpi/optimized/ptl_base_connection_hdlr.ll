@@ -4117,7 +4117,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %307
   br label %321
 
 321:                                              ; preds = %318, %320, %pmix_obj_update.exit244
-  %322 = call i32 @pthread_mutex_lock(ptr noundef %2) #17
+  %322 = call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
   %323 = icmp eq i32 %322, 35
   br i1 %323, label %324, label %pmix_obj_update.exit243
 
@@ -4133,7 +4133,7 @@ pmix_obj_update.exit243:                          ; preds = %321
   %327 = load i32, ptr %326, align 8, !tbaa !78
   %328 = add nsw i32 %327, -1
   store i32 %328, ptr %326, align 8, !tbaa !78
-  %329 = call i32 @pthread_mutex_unlock(ptr noundef %2) #17
+  %329 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #17
   %330 = icmp eq i32 %328, 0
   br i1 %330, label %331, label %485
 
@@ -4149,7 +4149,7 @@ pmix_obj_update.exit243:                          ; preds = %321
 .lr.ph.i250:                                      ; preds = %331, %.lr.ph.i250
   %337 = phi ptr [ %339, %.lr.ph.i250 ], [ %336, %331 ]
   %.07.i251 = phi ptr [ %338, %.lr.ph.i250 ], [ %335, %331 ]
-  call void %337(ptr noundef %2) #17
+  call void %337(ptr noundef nonnull %2) #17
   %338 = getelementptr inbounds nuw i8, ptr %.07.i251, i64 8
   %339 = load ptr, ptr %338, align 8, !tbaa !129
   %.not.i252 = icmp eq ptr %339, null
@@ -4238,7 +4238,7 @@ pmix_obj_run_destructors.exit259:                 ; preds = %.lr.ph.i256, %362
   br label %376
 
 376:                                              ; preds = %373, %375, %pmix_obj_update.exit242
-  %377 = call i32 @pthread_mutex_lock(ptr noundef %10) #17
+  %377 = call i32 @pthread_mutex_lock(ptr noundef nonnull %10) #17
   %378 = icmp eq i32 %377, 35
   br i1 %378, label %379, label %pmix_obj_update.exit241
 
@@ -4254,7 +4254,7 @@ pmix_obj_update.exit241:                          ; preds = %376
   %382 = load i32, ptr %381, align 8, !tbaa !78
   %383 = add nsw i32 %382, -1
   store i32 %383, ptr %381, align 8, !tbaa !78
-  %384 = call i32 @pthread_mutex_unlock(ptr noundef %10) #17
+  %384 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %10) #17
   %385 = icmp eq i32 %383, 0
   br i1 %385, label %386, label %400
 
@@ -4270,7 +4270,7 @@ pmix_obj_update.exit241:                          ; preds = %376
 .lr.ph.i262:                                      ; preds = %386, %.lr.ph.i262
   %392 = phi ptr [ %394, %.lr.ph.i262 ], [ %391, %386 ]
   %.07.i263 = phi ptr [ %393, %.lr.ph.i262 ], [ %390, %386 ]
-  call void %392(ptr noundef %10) #17
+  call void %392(ptr noundef nonnull %10) #17
   %393 = getelementptr inbounds nuw i8, ptr %.07.i263, i64 8
   %394 = load ptr, ptr %393, align 8, !tbaa !129
   %.not.i264 = icmp eq ptr %394, null
@@ -4357,7 +4357,7 @@ pmix_obj_run_destructors.exit271:                 ; preds = %.lr.ph.i268, %418
   br label %432
 
 432:                                              ; preds = %429, %431, %pmix_obj_update.exit240
-  %433 = call i32 @pthread_mutex_lock(ptr noundef %2) #17
+  %433 = call i32 @pthread_mutex_lock(ptr noundef nonnull %2) #17
   %434 = icmp eq i32 %433, 35
   br i1 %434, label %435, label %pmix_obj_update.exit239
 
@@ -4373,7 +4373,7 @@ pmix_obj_update.exit239:                          ; preds = %432
   %438 = load i32, ptr %437, align 8, !tbaa !78
   %439 = add nsw i32 %438, -1
   store i32 %439, ptr %437, align 8, !tbaa !78
-  %440 = call i32 @pthread_mutex_unlock(ptr noundef %2) #17
+  %440 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %2) #17
   %441 = icmp eq i32 %439, 0
   br i1 %441, label %442, label %456
 
@@ -4389,7 +4389,7 @@ pmix_obj_update.exit239:                          ; preds = %432
 .lr.ph.i274:                                      ; preds = %442, %.lr.ph.i274
   %448 = phi ptr [ %450, %.lr.ph.i274 ], [ %447, %442 ]
   %.07.i275 = phi ptr [ %449, %.lr.ph.i274 ], [ %446, %442 ]
-  call void %448(ptr noundef %2) #17
+  call void %448(ptr noundef nonnull %2) #17
   %449 = getelementptr inbounds nuw i8, ptr %.07.i275, i64 8
   %450 = load ptr, ptr %449, align 8, !tbaa !129
   %.not.i276 = icmp eq ptr %450, null

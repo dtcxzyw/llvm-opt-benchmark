@@ -1008,16 +1008,16 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   %17 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.24, i32 noundef 5) #17
   tail call void @gtk_widget_set_tooltip_text(ptr noundef %16, ptr noundef %17) #17
   %18 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef 5) #17
-  %19 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %18, i32 noundef %5, ptr noundef nonnull @color_mode_changed, ptr noundef %0, ptr noundef nonnull @gui_init.texts) #17
+  %19 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef %18, i32 noundef %5, ptr noundef nonnull @color_mode_changed, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts) #17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %20, align 8, !tbaa !103
   %21 = tail call i32 @dt_confgen_get_bool(ptr noundef nonnull @.str.16, i32 noundef 0) #17
   tail call void @dt_bauhaus_combobox_set_default(ptr noundef %19, i32 noundef %21) #17
   %22 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.33, i32 noundef 5) #17
-  %23 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %22, i32 noundef %13, ptr noundef nonnull @tiling_changed, ptr noundef %0, ptr noundef nonnull @gui_init.texts.29) #17
+  %23 = tail call ptr @dt_bauhaus_combobox_new_full(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %22, i32 noundef %13, ptr noundef nonnull @tiling_changed, ptr noundef nonnull %0, ptr noundef nonnull @gui_init.texts.29) #17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %23, ptr %24, align 8, !tbaa !104
-  %25 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef %0) #17
+  %25 = tail call ptr @dt_bauhaus_combobox_new_action(ptr noundef nonnull %0) #17
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !105
   %27 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %25, ptr noundef null, ptr noundef nonnull @.str.34) #17
@@ -1041,7 +1041,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   %40 = sitofp i32 %39 to float
   %41 = tail call i32 @dt_confgen_get_int(ptr noundef nonnull @.str.18, i32 noundef 0) #17
   %42 = sitofp i32 %41 to float
-  %43 = tail call ptr @dt_bauhaus_slider_new_with_range(ptr noundef %0, float noundef %38, float noundef %40, float noundef 1.000000e+00, float noundef %42, i32 noundef 0) #17
+  %43 = tail call ptr @dt_bauhaus_slider_new_with_range(ptr noundef nonnull %0, float noundef %38, float noundef %40, float noundef 1.000000e+00, float noundef %42, i32 noundef 0) #17
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %43, ptr %44, align 8, !tbaa !106
   %45 = tail call ptr @dt_bauhaus_widget_set_label(ptr noundef %43, ptr noundef null, ptr noundef nonnull @.str.36) #17
@@ -1062,7 +1062,7 @@ define void @gui_init(ptr noundef initializes((352, 360)) %0) local_unnamed_addr
   %56 = tail call i64 @g_signal_connect_data(ptr noundef %55, ptr noundef nonnull @.str.38, ptr noundef nonnull @bit_depth_changed, ptr noundef null, ptr noundef null, i32 noundef 0) #17
   %57 = load ptr, ptr %26, align 8, !tbaa !105
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %57, i64 noundef 80) #17
-  %59 = tail call i64 @g_signal_connect_data(ptr noundef %58, ptr noundef nonnull @.str.38, ptr noundef nonnull @compression_type_changed, ptr noundef %0, ptr noundef null, i32 noundef 0) #17
+  %59 = tail call i64 @g_signal_connect_data(ptr noundef %58, ptr noundef nonnull @.str.38, ptr noundef nonnull @compression_type_changed, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #17
   %60 = load ptr, ptr %44, align 8, !tbaa !106
   %61 = tail call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef 80) #17
   %62 = tail call i64 @g_signal_connect_data(ptr noundef %61, ptr noundef nonnull @.str.38, ptr noundef nonnull @quality_changed, ptr noundef null, ptr noundef null, i32 noundef 0) #17

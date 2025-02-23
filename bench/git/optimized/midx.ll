@@ -2250,9 +2250,9 @@ define dso_local void @clear_incremental_midx_files_ext(ptr noundef %0, ptr noun
   store ptr %14, ptr %15, align 8, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %7
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !103
+  br i1 %exitcond.not, label %.lr.ph18.preheader, label %.lr.ph, !llvm.loop !103
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph18.preheader:                               ; preds = %.lr.ph
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %3, ptr %16, align 8, !tbaa !100
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2260,8 +2260,8 @@ define dso_local void @clear_incremental_midx_files_ext(ptr noundef %0, ptr noun
   call void @for_each_file_in_pack_subdir(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef nonnull @clear_midx_file_ext, ptr noundef nonnull %5) #22
   br label %.lr.ph18
 
-.lr.ph18:                                         ; preds = %._crit_edge, %.lr.ph18
-  %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.lr.ph18 ], [ 0, %._crit_edge ]
+.lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
+  %indvars.iv22 = phi i64 [ 0, %.lr.ph18.preheader ], [ %indvars.iv.next23, %.lr.ph18 ]
   %18 = load ptr, ptr %5, align 8, !tbaa !98
   %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv22
   %20 = load ptr, ptr %19, align 8, !tbaa !4

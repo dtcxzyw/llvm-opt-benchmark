@@ -750,7 +750,7 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   %18 = add i32 %spec.select.i, %17
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.05.014.i, i64 32
   %.not9.i = icmp eq ptr %19, %8
-  br i1 %.not9.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !13
+  br i1 %.not9.i, label %.lr.ph19.i, label %.lr.ph.i, !llvm.loop !13
 
 20:                                               ; preds = %11, %9
   %21 = landingpad { ptr, i32 }
@@ -758,15 +758,15 @@ define void @_ZN6google8protobuf11JoinStringsERKSt6vectorINSt7__cxx1112basic_str
   call void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #29
   resume { ptr, i32 } %21
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i
+.lr.ph19.i:                                       ; preds = %.lr.ph.i
   %22 = sext i32 %18 to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %22)
   %sext.i = shl i64 %13, 32
   %23 = ashr exact i64 %sext.i, 32
   br label %24
 
-24:                                               ; preds = %27, %._crit_edge.i
-  %.sroa.0.017.i = phi ptr [ %6, %._crit_edge.i ], [ %31, %27 ]
+24:                                               ; preds = %27, %.lr.ph19.i
+  %.sroa.0.017.i = phi ptr [ %6, %.lr.ph19.i ], [ %31, %27 ]
   %.not11.i = icmp eq ptr %.sroa.0.017.i, %6
   br i1 %.not11.i, label %27, label %25
 

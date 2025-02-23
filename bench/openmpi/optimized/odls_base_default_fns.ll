@@ -2928,7 +2928,7 @@ define void @prte_odls_base_spawn_proc(i32 %0, i16 signext %1, ptr noundef initi
 200:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #16
   store ptr null, ptr %8, align 8, !tbaa !49
-  call void @prte_app_print(ptr noundef nonnull %8, ptr noundef %12, ptr noundef nonnull %14) #16
+  call void @prte_app_print(ptr noundef nonnull %8, ptr noundef nonnull %12, ptr noundef nonnull %14) #16
   %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_base_framework, i64 76), align 4, !tbaa !84
   %202 = load ptr, ptr %8, align 8, !tbaa !49
   call void (i32, ptr, ...) @pmix_output(i32 noundef %201, ptr noundef nonnull @.str.33, ptr noundef %202) #16
@@ -3134,7 +3134,7 @@ pmix_obj_update.exit:                             ; preds = %291
 .lr.ph.i184:                                      ; preds = %302, %.lr.ph.i184
   %308 = phi ptr [ %310, %.lr.ph.i184 ], [ %307, %302 ]
   %.07.i185 = phi ptr [ %309, %.lr.ph.i184 ], [ %306, %302 ]
-  call void %308(ptr noundef %2) #16
+  call void %308(ptr noundef nonnull %2) #16
   %309 = getelementptr inbounds nuw i8, ptr %.07.i185, i64 8
   %310 = load ptr, ptr %309, align 8, !tbaa !31
   %.not.i186 = icmp eq ptr %310, null
@@ -4902,7 +4902,7 @@ pmix_obj_update.exit:                             ; preds = %953
 .lr.ph.i456:                                      ; preds = %963, %.lr.ph.i456
   %969 = phi ptr [ %971, %.lr.ph.i456 ], [ %968, %963 ]
   %.07.i457 = phi ptr [ %970, %.lr.ph.i456 ], [ %967, %963 ]
-  call void %969(ptr noundef %2) #16
+  call void %969(ptr noundef nonnull %2) #16
   %970 = getelementptr inbounds nuw i8, ptr %.07.i457, i64 8
   %971 = load ptr, ptr %970, align 8, !tbaa !31
   %.not.i458 = icmp eq ptr %971, null
@@ -5517,7 +5517,7 @@ pmix_obj_update.exit:                             ; preds = %232
 .lr.ph.i:                                         ; preds = %243, %.lr.ph.i
   %249 = phi ptr [ %251, %.lr.ph.i ], [ %248, %243 ]
   %.07.i = phi ptr [ %250, %.lr.ph.i ], [ %247, %243 ]
-  tail call void %249(ptr noundef %2) #16
+  tail call void %249(ptr noundef nonnull %2) #16
   %250 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %251 = load ptr, ptr %250, align 8, !tbaa !31
   %.not.i119 = icmp eq ptr %251, null
@@ -7032,7 +7032,7 @@ pmix_obj_run_destructors.exit121:                 ; preds = %.lr.ph.i118, %161
   %204 = sext i32 %spec.store.select to i64
   %205 = getelementptr inbounds ptr, ptr %203, i64 %204
   %206 = load ptr, ptr %205, align 8, !tbaa !178
-  call void @prte_wait_cb(ptr noundef %0, ptr noundef nonnull @prte_odls_base_default_wait_local_proc, ptr noundef null) #16
+  call void @prte_wait_cb(ptr noundef nonnull %0, ptr noundef nonnull @prte_odls_base_default_wait_local_proc, ptr noundef null) #16
   %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_odls_base_framework, i64 76), align 4, !tbaa !84
   %or.cond7 = icmp ult i32 %207, 64
   br i1 %or.cond7, label %208, label %217

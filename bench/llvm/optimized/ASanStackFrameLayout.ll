@@ -64,12 +64,12 @@ define dso_local void @_ZN4llvm27ComputeASanStackFrameLayoutERNS_15SmallVectorIm
   %.pre = load ptr, ptr %1, align 8, !tbaa !11
   br i1 %.not62, label %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw %"struct.llvm::ASanStackVariableDescription", ptr %.pre, i64 %8
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge, %select.unfold.i.i.i.i.i
-  %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %8, %._crit_edge ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %select.unfold.i.i.i.i.i
+  %.010.i.i.in.in.i.i.i = phi i64 [ %.010.i.i.i.i.i, %select.unfold.i.i.i.i.i ], [ %8, %.lr.ph.i.i.i.i.i.preheader ]
   %.010.i.i.in.i.i.i = add nuw nsw i64 %.010.i.i.in.in.i.i.i, 1
   %.010.i.i.i.i.i = lshr i64 %.010.i.i.in.i.i.i, 1
   %10 = mul nuw nsw i64 %.010.i.i.i.i.i, 56
@@ -121,7 +121,7 @@ _ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEE
   store i64 %24, ptr %22, align 8, !tbaa !17
   %25 = add nuw nsw i64 %.057, 1
   %exitcond.not = icmp eq i64 %25, %8
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.lr.ph.i.i.i.i.i.preheader, label %.lr.ph, !llvm.loop !21
 
 ._crit_edge61:                                    ; preds = %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit
   %.033.lcssa = phi i64 [ %19, %_ZN4llvm11stable_sortIRNS_15SmallVectorImplINS_28ASanStackVariableDescriptionEEEPFbRKS2_S6_EEEvOT_T0_.exit ], [ %64, %_ZN4llvmL17VarAndRedzoneSizeEmmm.exit ]

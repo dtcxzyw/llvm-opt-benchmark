@@ -1614,7 +1614,7 @@ define internal noundef i32 @cleanup(ptr noundef readonly captures(none) %0) #0 
   br i1 %.not.i, label %free_options.exit, label %.lr.ph.i, !llvm.loop !53
 
 free_options.exit:                                ; preds = %.lr.ph.i, %.lr.ph
-  tail call void @free(ptr noundef %.016) #19
+  tail call void @free(ptr noundef nonnull %.016) #19
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !96
 

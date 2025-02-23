@@ -825,9 +825,9 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %81
 
 81:                                               ; preds = %.backedge, %79
-  %.0590 = phi ptr [ null, %79 ], [ %.1, %.backedge ]
-  %.0300587 = phi i32 [ 0, %79 ], [ %.2302, %.backedge ]
-  %.0309586 = phi i16 [ 0, %79 ], [ %.3312, %.backedge ]
+  %.0581 = phi ptr [ null, %79 ], [ %.1, %.backedge ]
+  %.0300579 = phi i32 [ 0, %79 ], [ %.2302, %.backedge ]
+  %.0309578 = phi i16 [ 0, %79 ], [ %.3312, %.backedge ]
   %82 = load i8, ptr @sml_reassemble, align 1, !range !6, !noundef !7
   %83 = trunc nuw i8 %82 to i1
   br i1 %83, label %84, label %88
@@ -839,7 +839,7 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %88
 
 88:                                               ; preds = %84, %81
-  %.1 = phi ptr [ %87, %84 ], [ %.0590, %81 ]
+  %.1 = phi ptr [ %87, %84 ], [ %.0581, %81 ]
   %89 = load i32, ptr %2, align 4
   %90 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %89)
   %91 = icmp eq i32 %90, 454761243
@@ -871,11 +871,11 @@ define internal fastcc void @dissect_sml_file(ptr noundef %0, ptr noundef %1, pt
   br label %.loopexit
 
 109:                                              ; preds = %100, %88
-  %.1301 = phi i32 [ %93, %100 ], [ %.0300587, %88 ]
+  %.1301 = phi i32 [ %93, %100 ], [ %.0300579, %88 ]
   br label %.fold.split
 
 .fold.split:                                      ; preds = %1602, %109
-  %.1310581 = phi i16 [ %.0309586, %109 ], [ %.2311, %1602 ]
+  %.1310574 = phi i16 [ %.0309578, %109 ], [ %.2311, %1602 ]
   %110 = load i32, ptr %2, align 4
   %111 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %110)
   %112 = zext i8 %111 to i32
@@ -1198,7 +1198,7 @@ get_length.exit349:                               ; preds = %261, %272, %277
   call fastcc void @field_smlVersion(ptr noundef %0, ptr noundef %287, ptr noundef %2, ptr noundef nonnull %45, ptr noundef nonnull %46)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %46) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %45) #5
-  br label %.thread711
+  br label %.critedge
 
 293:                                              ; preds = %get_length.exit349
   %294 = load ptr, ptr %80, align 8
@@ -1285,7 +1285,7 @@ decode_PublicOpenRes.exit:                        ; preds = %323, %328
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %44) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %43) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #5
-  br label %.thread711
+  br label %.critedge
 
 333:                                              ; preds = %get_length.exit349
   %334 = load ptr, ptr %80, align 8
@@ -1293,7 +1293,7 @@ decode_PublicOpenRes.exit:                        ; preds = %323, %328
   %335 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %335, ptr noundef nonnull @.str.272)
   call fastcc void @field_globalSignature(ptr noundef %0, ptr noundef %287, ptr noundef %2, ptr noundef nonnull %52, ptr noundef nonnull %53)
-  br label %.thread711
+  br label %.critedge
 
 336:                                              ; preds = %get_length.exit349
   %337 = load ptr, ptr %80, align 8
@@ -1301,7 +1301,7 @@ decode_PublicOpenRes.exit:                        ; preds = %323, %328
   %338 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %338, ptr noundef nonnull @.str.274)
   call fastcc void @field_globalSignature(ptr noundef %0, ptr noundef %287, ptr noundef %2, ptr noundef nonnull %52, ptr noundef nonnull %53)
-  br label %.thread711
+  br label %.critedge
 
 339:                                              ; preds = %get_length.exit349
   %340 = load ptr, ptr %80, align 8
@@ -1568,8 +1568,8 @@ get_length.exit203.i:                             ; preds = %get_length.exit203.
 474:                                              ; preds = %.preheader.i205.i
   %475 = and i32 %473, 15
   %476 = add i32 %465, 2
-  %reass.sub594 = sub i32 %475, %465
-  %477 = add i32 %reass.sub594, -2
+  %reass.sub585 = sub i32 %475, %465
+  %477 = add i32 %reass.sub585, -2
   %478 = add i32 %477, %469
   br label %get_length.exit209.i
 
@@ -1987,9 +1987,9 @@ get_length.exit245.i:                             ; preds = %681, %677
   br label %decode_GetProfilePackRes.exit
 
 decode_GetProfilePackRes.exit.thread:             ; preds = %534, %530, %455, %451, %410, %406, %615, %611
-  %.sink836 = phi ptr [ %39, %611 ], [ %39, %615 ], [ %34, %406 ], [ %34, %410 ], [ %37, %451 ], [ %37, %455 ], [ %35, %530 ], [ %35, %534 ]
+  %.sink825 = phi ptr [ %39, %611 ], [ %39, %615 ], [ %34, %406 ], [ %34, %410 ], [ %37, %451 ], [ %37, %455 ], [ %35, %530 ], [ %35, %534 ]
   %.str.313.sink = phi ptr [ @.str.148, %615 ], [ @.str.350, %611 ], [ @.str.313, %406 ], [ @.str.148, %410 ], [ @.str.344, %451 ], [ @.str.148, %455 ], [ @.str.347, %530 ], [ @.str.148, %534 ]
-  %704 = load ptr, ptr %.sink836, align 8
+  %704 = load ptr, ptr %.sink825, align 8
   %705 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %704, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.313.sink)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %41) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %40) #5
@@ -2000,7 +2000,7 @@ decode_GetProfilePackRes.exit.thread:             ; preds = %534, %530, %455, %4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_GetProfilePackRes.exit:                    ; preds = %686, %693
   %.sink351.i = phi i32 [ %692, %693 ], [ 1, %686 ]
@@ -2016,7 +2016,7 @@ decode_GetProfilePackRes.exit:                    ; preds = %686, %693
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #5
-  br label %.thread711
+  br label %.critedge
 
 708:                                              ; preds = %get_length.exit349
   %709 = load ptr, ptr %80, align 8
@@ -2024,7 +2024,7 @@ decode_GetProfilePackRes.exit:                    ; preds = %686, %693
   %710 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %710, ptr noundef nonnull @.str.280)
   %711 = call fastcc zeroext i1 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %287, ptr noundef %2)
-  br i1 %711, label %.loopexit729, label %.thread711
+  br i1 %711, label %.loopexit718, label %.critedge
 
 712:                                              ; preds = %get_length.exit349
   %713 = load ptr, ptr %80, align 8
@@ -2332,9 +2332,9 @@ get_length.exit136.i:                             ; preds = %.preheader.i132.i, 
   br i1 %exitcond191.not.i, label %decode_GetProfileListRes.exit, label %857, !llvm.loop !15
 
 decode_GetProfileListRes.exit.thread:             ; preds = %852, %848, %769, %765
-  %.sink838 = phi ptr [ %28, %765 ], [ %28, %769 ], [ %29, %848 ], [ %29, %852 ]
+  %.sink827 = phi ptr [ %28, %765 ], [ %28, %769 ], [ %29, %848 ], [ %29, %852 ]
   %.str.356.sink = phi ptr [ @.str.356, %765 ], [ @.str.148, %769 ], [ @.str.347, %848 ], [ @.str.148, %852 ]
-  %869 = load ptr, ptr %.sink838, align 8
+  %869 = load ptr, ptr %.sink827, align 8
   %870 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %869, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.356.sink)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %32) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %31) #5
@@ -2342,7 +2342,7 @@ decode_GetProfileListRes.exit.thread:             ; preds = %852, %848, %769, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_GetProfileListRes.exit:                    ; preds = %get_length.exit136.i
   %871 = load ptr, ptr %29, align 8
@@ -2356,7 +2356,7 @@ decode_GetProfileListRes.exit:                    ; preds = %get_length.exit136.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #5
-  br label %.thread711
+  br label %.critedge
 
 873:                                              ; preds = %get_length.exit349
   %874 = load ptr, ptr %80, align 8
@@ -2484,8 +2484,8 @@ get_length.exit55.thread.i:                       ; preds = %918
   %935 = and i32 %933, 15
   %936 = add i32 %925, 2
   store i32 %936, ptr %26, align 4
-  %reass.sub593 = sub i32 %929, %925
-  %937 = add i32 %reass.sub593, -2
+  %reass.sub584 = sub i32 %929, %925
+  %937 = add i32 %reass.sub584, -2
   %938 = add i32 %937, %935
   br label %get_length.exit55.i
 
@@ -2536,7 +2536,7 @@ decode_GetProcParameterReq.exit.thread:           ; preds = %911, %907
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_GetProcParameterReq.exit:                  ; preds = %945, %952
   %.sink83.i = phi i32 [ %951, %952 ], [ 1, %945 ]
@@ -2546,7 +2546,7 @@ decode_GetProcParameterReq.exit:                  ; preds = %945, %952
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #5
-  br label %.thread711
+  br label %.critedge
 
 967:                                              ; preds = %get_length.exit349
   %968 = load ptr, ptr %80, align 8
@@ -2708,15 +2708,15 @@ get_length.exit52.i:                              ; preds = %1034, %1029, %1018
   br i1 %.not45.i, label %decode_GetProcParameterRes.exit, label %decode_GetProcParameterRes.exit.thread
 
 decode_GetProcParameterRes.exit.thread:           ; preds = %1047, %1005, %1001
-  %.sink842 = phi ptr [ %20, %1001 ], [ %20, %1005 ], [ %21, %1047 ]
-  %.str.359.sink841 = phi ptr [ @.str.359, %1001 ], [ @.str.148, %1005 ], [ @.str.362, %1047 ]
-  %1051 = load ptr, ptr %.sink842, align 8
-  %1052 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1051, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.359.sink841)
+  %.sink831 = phi ptr [ %20, %1001 ], [ %20, %1005 ], [ %21, %1047 ]
+  %.str.359.sink830 = phi ptr [ @.str.359, %1001 ], [ @.str.148, %1005 ], [ @.str.362, %1047 ]
+  %1051 = load ptr, ptr %.sink831, align 8
+  %1052 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1051, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.359.sink830)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_GetProcParameterRes.exit:                  ; preds = %get_length.exit52.i, %1047
   %1053 = load i32, ptr %2, align 4
@@ -2730,7 +2730,7 @@ decode_GetProcParameterRes.exit:                  ; preds = %get_length.exit52.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #5
-  br label %.thread711
+  br label %.critedge
 
 1057:                                             ; preds = %get_length.exit349
   %1058 = load ptr, ptr %80, align 8
@@ -2894,15 +2894,15 @@ get_length.exit58.i:                              ; preds = %1124, %1119, %1108
   br i1 %.not51.i, label %decode_SetProcParameterReq.exit, label %decode_SetProcParameterReq.exit.thread
 
 decode_SetProcParameterReq.exit.thread:           ; preds = %1137, %1095, %1091
-  %.sink845 = phi ptr [ %16, %1091 ], [ %16, %1095 ], [ %17, %1137 ]
-  %.str.359.sink844 = phi ptr [ @.str.359, %1091 ], [ @.str.148, %1095 ], [ @.str.362, %1137 ]
-  %1141 = load ptr, ptr %.sink845, align 8
-  %1142 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1141, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.359.sink844)
+  %.sink834 = phi ptr [ %16, %1091 ], [ %16, %1095 ], [ %17, %1137 ]
+  %.str.359.sink833 = phi ptr [ @.str.359, %1091 ], [ @.str.148, %1095 ], [ @.str.362, %1137 ]
+  %1141 = load ptr, ptr %.sink834, align 8
+  %1142 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %1141, ptr noundef nonnull @ei_sml_invalid_count, ptr noundef nonnull %.str.359.sink833)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_SetProcParameterReq.exit:                  ; preds = %get_length.exit58.i, %1137
   %1143 = load i32, ptr %2, align 4
@@ -2916,7 +2916,7 @@ decode_SetProcParameterReq.exit:                  ; preds = %get_length.exit58.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #5
-  br label %.thread711
+  br label %.critedge
 
 1147:                                             ; preds = %get_length.exit349
   %1148 = load ptr, ptr %80, align 8
@@ -2932,7 +2932,7 @@ decode_SetProcParameterReq.exit:                  ; preds = %get_length.exit58.i
   call fastcc void @field_listName(ptr noundef %0, ptr noundef %287, ptr noundef %2, ptr noundef nonnull %14, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #5
-  br label %.thread711
+  br label %.critedge
 
 1150:                                             ; preds = %get_length.exit349
   %1151 = load ptr, ptr %80, align 8
@@ -3234,8 +3234,8 @@ get_length.exit140.thread.i:                      ; preds = %1286
   %1303 = and i32 %1301, 15
   %1304 = add i32 %1293, 2
   store i32 %1304, ptr %13, align 4
-  %reass.sub591 = sub i32 %1297, %1293
-  %1305 = add i32 %reass.sub591, -2
+  %reass.sub582 = sub i32 %1297, %1293
+  %1305 = add i32 %reass.sub582, -2
   %1306 = add i32 %1305, %1303
   br label %get_length.exit140.i
 
@@ -3311,8 +3311,8 @@ get_length.exit140.i:                             ; preds = %1307, %1302
 1347:                                             ; preds = %.preheader.i142.i
   %1348 = and i32 %1346, 15
   %1349 = add i32 %1338, 2
-  %reass.sub592 = sub i32 %1342, %1338
-  %1350 = add i32 %reass.sub592, -2
+  %reass.sub583 = sub i32 %1342, %1338
+  %1350 = add i32 %reass.sub583, -2
   %1351 = add i32 %1350, %1348
   br label %get_length.exit146.i
 
@@ -3359,7 +3359,7 @@ decode_GetListRes.exit.thread:                    ; preds = %1226, %1222
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 decode_GetListRes.exit:                           ; preds = %1361, %1366
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #5
@@ -3367,7 +3367,7 @@ decode_GetListRes.exit:                           ; preds = %1361, %1366
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
-  br label %.thread711
+  br label %.critedge
 
 1373:                                             ; preds = %get_length.exit349
   %1374 = load ptr, ptr %80, align 8
@@ -3635,7 +3635,7 @@ decode_AttentionRes.exit.thread:                  ; preds = %1509, %1469
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  br label %.thread711
+  br label %.critedge
 
 decode_AttentionRes.exit:                         ; preds = %1505
   %1514 = load ptr, ptr %5, align 8
@@ -3644,7 +3644,7 @@ decode_AttentionRes.exit:                         ; preds = %1505
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  br label %.loopexit729
+  br label %.loopexit718
 
 1516:                                             ; preds = %get_length.exit349
   %1517 = load ptr, ptr %51, align 8
@@ -3657,14 +3657,14 @@ decode_AttentionRes.exit:                         ; preds = %1505
   %1521 = load ptr, ptr %47, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1521, ptr noundef nonnull @.str.276)
   %1522 = call fastcc zeroext i1 @decode_GetProfile_List_Pack_Req(ptr noundef %0, ptr noundef %1, ptr noundef %287, ptr noundef %2)
-  br i1 %1522, label %.loopexit729, label %.thread711
+  br i1 %1522, label %.loopexit718, label %.critedge
 
-.loopexit729:                                     ; preds = %708, %1519, %decode_AttentionRes.exit, %decode_GetListRes.exit.thread, %decode_SetProcParameterReq.exit.thread, %decode_GetProcParameterRes.exit.thread, %decode_GetProcParameterReq.exit.thread, %decode_GetProfileListRes.exit.thread, %decode_GetProfilePackRes.exit.thread
+.loopexit718:                                     ; preds = %708, %1519, %decode_AttentionRes.exit, %decode_GetListRes.exit.thread, %decode_SetProcParameterReq.exit.thread, %decode_GetProcParameterRes.exit.thread, %decode_GetProcParameterReq.exit.thread, %decode_GetProfileListRes.exit.thread, %decode_GetProfilePackRes.exit.thread
   %1523 = load ptr, ptr %51, align 8
   %1524 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %1523, ptr noundef nonnull @ei_sml_MessageBody)
   br label %.loopexit
 
-.thread711:                                       ; preds = %290, %decode_PublicOpenRes.exit, %333, %336, %1147, %decode_AttentionRes.exit.thread, %decode_GetListRes.exit, %decode_SetProcParameterReq.exit, %decode_GetProcParameterRes.exit, %decode_GetProcParameterReq.exit, %decode_GetProfileListRes.exit, %decode_GetProfilePackRes.exit, %708, %1519
+.critedge:                                        ; preds = %decode_AttentionRes.exit.thread, %decode_GetListRes.exit, %decode_SetProcParameterReq.exit, %decode_GetProcParameterRes.exit, %decode_GetProcParameterReq.exit, %decode_GetProfileListRes.exit, %decode_GetProfilePackRes.exit, %708, %1147, %336, %333, %decode_PublicOpenRes.exit, %290, %1519
   %1525 = load ptr, ptr %51, align 8
   %1526 = load i32, ptr %2, align 4
   call void @proto_item_set_end(ptr noundef %1525, ptr noundef %0, i32 noundef %1526)
@@ -3678,11 +3678,11 @@ decode_AttentionRes.exit:                         ; preds = %1505
   %1531 = icmp eq i8 %1529, 1
   br i1 %1531, label %1532, label %1533
 
-1532:                                             ; preds = %.thread711
+1532:                                             ; preds = %.critedge
   store i32 1, ptr %53, align 4
   br label %get_length.exit423
 
-1533:                                             ; preds = %.thread711
+1533:                                             ; preds = %.critedge
   %.not.i418 = icmp sgt i8 %1529, -1
   br i1 %.not.i418, label %1548, label %.preheader.i419
 
@@ -3768,7 +3768,7 @@ get_length.exit423:                               ; preds = %1532, %1543, %1548
   br label %1585
 
 1585:                                             ; preds = %1581, %1573
-  %.2311 = phi i16 [ %1575, %1573 ], [ %.1310581, %1581 ]
+  %.2311 = phi i16 [ %1575, %1573 ], [ %.1310574, %1581 ]
   %1586 = load i32, ptr %2, align 4
   %1587 = add i32 %1586, %1552
   store i32 %1587, ptr %2, align 4
@@ -3799,7 +3799,7 @@ get_length.exit423:                               ; preds = %1532, %1543, %1548
   %1604 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %1603)
   switch i8 %1604, label %.fold.split [
     i8 0, label %.preheader
-    i8 27, label %._crit_edge708
+    i8 27, label %._crit_edge699
   ]
 
 1605:                                             ; preds = %1590
@@ -3820,8 +3820,8 @@ get_length.exit423:                               ; preds = %1532, %1543, %1548
   store i32 268435455, ptr %1613, align 8
   br label %.loopexit
 
-._crit_edge708:                                   ; preds = %1602
-  %.pre709 = load i32, ptr %2, align 4
+._crit_edge699:                                   ; preds = %1602
+  %.pre700 = load i32, ptr %2, align 4
   br label %1624
 
 .preheader:                                       ; preds = %1602, %.preheader
@@ -3846,8 +3846,8 @@ get_length.exit423:                               ; preds = %1532, %1543, %1548
   store i32 %1623, ptr %2, align 4
   br label %1624
 
-1624:                                             ; preds = %._crit_edge708, %1617
-  %1625 = phi i32 [ %.pre709, %._crit_edge708 ], [ %1623, %1617 ]
+1624:                                             ; preds = %._crit_edge699, %1617
+  %1625 = phi i32 [ %.pre700, %._crit_edge699 ], [ %1623, %1617 ]
   %1626 = call i64 @tvb_get_ntoh40(ptr noundef %0, i32 noundef %1625)
   %.not322 = icmp eq i64 %1626, 116418878234
   br i1 %.not322, label %1629, label %1627
@@ -3930,7 +3930,7 @@ get_length.exit423:                               ; preds = %1532, %1543, %1548
   %1676 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1674, ptr noundef %0, i32 noundef %1675, i32 noundef 0, i32 noundef 0)
   br label %.backedge
 
-.loopexit:                                        ; preds = %1663, %1605, %1608, %4, %1627, %1611, %1600, %1562, %.loopexit729, %1516, %247, %142, %106, %74, %65
+.loopexit:                                        ; preds = %1663, %1605, %1608, %4, %1627, %1611, %1600, %1562, %.loopexit718, %1516, %247, %142, %106, %74, %65
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %53) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #5

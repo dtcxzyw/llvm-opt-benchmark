@@ -108,7 +108,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   store i16 %40, ptr %41, align 8
   %42 = trunc nuw nsw i64 %indvars.iv74.i.i to i32
   %43 = add i32 %1, %42
-  %44 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %43)
+  %44 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %43)
   %45 = and i8 %44, 15
   %46 = zext nneg i8 %45 to i16
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 2
@@ -117,7 +117,7 @@ define noundef ptr @tvb_uncompress_lz77huff(ptr noundef %0, i32 noundef %1, i32 
   %49 = trunc i64 %48 to i16
   %50 = getelementptr [512 x %struct.prefix_code_symbol], ptr %4, i64 0, i64 %48
   store i16 %49, ptr %50, align 4
-  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %43)
+  %51 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %43)
   %52 = lshr i8 %51, 4
   %53 = zext nneg i8 %52 to i16
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 2
@@ -248,11 +248,11 @@ PrefixCodeTreeRebuild.exit.thread.i:              ; preds = %65, %97, %89, %37
 .loopexit91.i:                                    ; preds = %102, %.critedge.i.i, %.critedge.thread.i.i
   call void @llvm.lifetime.end.p0(i64 2048, ptr nonnull %4) #10
   %109 = add i32 %1, 256
-  %110 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %109)
+  %110 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %109)
   %111 = zext i16 %110 to i32
   %112 = shl nuw i32 %111, 16
   %113 = add i32 %1, 258
-  %114 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %113)
+  %114 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %113)
   %115 = zext i16 %114 to i32
   %116 = or disjoint i32 %112, %115
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 8200
@@ -282,7 +282,7 @@ bitstring_lookup.exit.i.i:                        ; preds = %139, %.loopexit.i
 
 124:                                              ; preds = %bitstring_lookup.exit.i.i
   %125 = add i32 %.sroa.9.3.i, %1
-  %126 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %125)
+  %126 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %125)
   %127 = zext i16 %126 to i32
   %128 = sub i32 17, %119
   %129 = shl i32 %127, %128
@@ -374,7 +374,7 @@ bitstring_lookup.exit.i:                          ; preds = %162, %159, %154
 
 169:                                              ; preds = %167
   %170 = add i32 %.sroa.9.4.i, %1
-  %171 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %170)
+  %171 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %0, i32 noundef %170)
   %172 = zext i8 %171 to i32
   %173 = add nuw nsw i32 %172, 15
   %174 = add i32 %.sroa.9.4.i, 1
@@ -389,7 +389,7 @@ bitstring_lookup.exit.i:                          ; preds = %162, %159, %154
 
 179:                                              ; preds = %176
   %.reass = add i32 %.sroa.9.4.i, %invariant.op
-  %180 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.reass)
+  %180 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %.reass)
   %181 = zext i16 %180 to i32
   %182 = add i32 %.sroa.9.4.i, 3
   br label %bitstring_lookup.exit.thread.i
@@ -406,7 +406,7 @@ bitstring_lookup.exit.thread.i:                   ; preds = %179, %169, %bitstri
 
 187:                                              ; preds = %bitstring_lookup.exit.thread.i
   %188 = add i32 %.sroa.9.2.i, %1
-  %189 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %188)
+  %189 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %0, i32 noundef %188)
   %190 = zext i16 %189 to i32
   %191 = sub i32 16, %185
   %192 = shl i32 %190, %191

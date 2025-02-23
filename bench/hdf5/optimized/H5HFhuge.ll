@@ -861,7 +861,7 @@ H5HF__huge_new_id.exit.thread:                    ; preds = %301, %312, %H5HF__h
   %367 = load i64, ptr %366, align 8, !tbaa !81
   %368 = add i64 %367, 1
   store i64 %368, ptr %366, align 8, !tbaa !81
-  %369 = call i32 @H5HF__hdr_dirty(ptr noundef %0) #6
+  %369 = call i32 @H5HF__hdr_dirty(ptr noundef nonnull %0) #6
   %370 = icmp slt i32 %369, 0
   br i1 %370, label %371, label %375
 

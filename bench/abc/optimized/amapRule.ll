@@ -1632,11 +1632,11 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   %.not.i = icmp eq i16 %50, 0
   %.phi.trans.insert = getelementptr i8, ptr %46, i64 4
   %.val91.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !16
+  %51 = icmp sgt i32 %.val91.pre, 0
   br i1 %.not.i, label %Amap_CreateRulesFromDsd.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %48
-  %51 = icmp sgt i32 %.val91.pre, 0
-  br i1 %51, label %.lr.ph.i, label %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
+  br i1 %51, label %.lr.ph.i, label %.critedge
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %52 = getelementptr i8, ptr %46, i64 8
@@ -1652,182 +1652,178 @@ define void @Amap_CreateRulesForGate(ptr noundef %0, ptr noundef %1) local_unnam
   store i32 %56, ptr %54, align 4, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Amap_CreateRulesFromDsd.exit, label %53, !llvm.loop !53
+  br i1 %exitcond.not.i, label %.lr.ph100, label %53, !llvm.loop !53
 
-Amap_CreateRulesFromDsd.exit:                     ; preds = %53, %48
-  %57 = icmp sgt i32 %.val91.pre, 0
-  br i1 %57, label %.lr.ph100, label %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
+Amap_CreateRulesFromDsd.exit:                     ; preds = %48
+  br i1 %51, label %.lr.ph100, label %.critedge
 
-Amap_CreateRulesFromDsd.exit..critedge_crit_edge: ; preds = %.preheader.i, %Amap_CreateRulesFromDsd.exit
-  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %.pre = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !20
-  br label %.critedge
-
-.lr.ph100:                                        ; preds = %Amap_CreateRulesFromDsd.exit
-  %58 = getelementptr i8, ptr %46, i64 8
-  %.val93 = load ptr, ptr %58, align 8, !tbaa !20
-  %59 = getelementptr i8, ptr %0, i64 88
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %62 = load ptr, ptr %3, align 8
-  %63 = icmp eq ptr %62, null
-  %64 = getelementptr i8, ptr %62, i64 4
-  %65 = getelementptr i8, ptr %62, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
+.lr.ph100:                                        ; preds = %53, %Amap_CreateRulesFromDsd.exit
+  %57 = getelementptr i8, ptr %46, i64 8
+  %.val93 = load ptr, ptr %57, align 8, !tbaa !20
+  %58 = getelementptr i8, ptr %0, i64 88
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %61 = load ptr, ptr %3, align 8
+  %62 = icmp eq ptr %61, null
+  %63 = getelementptr i8, ptr %61, i64 4
+  %64 = getelementptr i8, ptr %61, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %wide.trip.count = zext nneg i32 %.val91.pre to i64
-  br label %67
+  br label %66
 
-67:                                               ; preds = %.lr.ph100, %.critedge2
+66:                                               ; preds = %.lr.ph100, %.critedge2
   %indvars.iv102 = phi i64 [ 0, %.lr.ph100 ], [ %indvars.iv.next103, %.critedge2 ]
-  %68 = getelementptr inbounds nuw i32, ptr %.val93, i64 %indvars.iv102
-  %69 = load i32, ptr %68, align 4, !tbaa !21
-  %70 = ashr i32 %69, 1
-  %.val94 = load ptr, ptr %59, align 8, !tbaa !69
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %.val94, i64 %71
-  %73 = load ptr, ptr %60, align 8, !tbaa !70
-  %74 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %73, i32 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %74, i8 0, i64 32, i1 false)
-  %75 = load i32, ptr %6, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %77 = and i32 %75, 65535
-  %78 = shl i32 %69, 16
-  %79 = and i32 %78, 65536
-  %80 = or disjoint i32 %79, %77
-  store i32 %80, ptr %76, align 8
-  %81 = load i32, ptr %6, align 8
-  %82 = lshr i32 %81, 7
-  %83 = and i32 %82, 33423360
-  %84 = or disjoint i32 %79, %83
-  %85 = or disjoint i32 %84, %77
-  store i32 %85, ptr %76, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  %87 = tail call i32 @Amap_LibDeriveGatePerm(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %25, ptr noundef %72, ptr noundef nonnull %86) #12
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %89, label %95
+  %67 = getelementptr inbounds nuw i32, ptr %.val93, i64 %indvars.iv102
+  %68 = load i32, ptr %67, align 4, !tbaa !21
+  %69 = ashr i32 %68, 1
+  %.val94 = load ptr, ptr %58, align 8, !tbaa !69
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds %struct.Amap_Nod_t_, ptr %.val94, i64 %70
+  %72 = load ptr, ptr %59, align 8, !tbaa !70
+  %73 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %72, i32 noundef 32) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %73, i8 0, i64 32, i1 false)
+  %74 = load i32, ptr %6, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %76 = and i32 %74, 65535
+  %77 = shl i32 %68, 16
+  %78 = and i32 %77, 65536
+  %79 = or disjoint i32 %78, %76
+  store i32 %79, ptr %75, align 8
+  %80 = load i32, ptr %6, align 8
+  %81 = lshr i32 %80, 7
+  %82 = and i32 %81, 33423360
+  %83 = or disjoint i32 %78, %82
+  %84 = or disjoint i32 %83, %76
+  store i32 %84, ptr %75, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  %86 = tail call i32 @Amap_LibDeriveGatePerm(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %25, ptr noundef %71, ptr noundef nonnull %85) #12
+  %87 = icmp eq i32 %86, 0
+  br i1 %87, label %88, label %94
 
-89:                                               ; preds = %67
-  %90 = load i32, ptr %33, align 8, !tbaa !65
-  %.not90 = icmp eq i32 %90, 0
-  br i1 %.not90, label %.critedge2, label %91
+88:                                               ; preds = %66
+  %89 = load i32, ptr %33, align 8, !tbaa !65
+  %.not90 = icmp eq i32 %89, 0
+  br i1 %.not90, label %.critedge2, label %90
 
-91:                                               ; preds = %89
-  %92 = load ptr, ptr %66, align 8, !tbaa !66
-  %93 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %92)
-  %94 = load ptr, ptr @stdout, align 8, !tbaa !67
-  tail call void @Kit_DsdPrint(ptr noundef %94, ptr noundef nonnull %25) #12
+90:                                               ; preds = %88
+  %91 = load ptr, ptr %65, align 8, !tbaa !66
+  %92 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %91)
+  %93 = load ptr, ptr @stdout, align 8, !tbaa !67
+  tail call void @Kit_DsdPrint(ptr noundef %93, ptr noundef nonnull %25) #12
   br label %.critedge2
 
-95:                                               ; preds = %67
-  %96 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %97 = load ptr, ptr %96, align 8, !tbaa !71
-  store ptr %97, ptr %74, align 8, !tbaa !74
-  store ptr %74, ptr %96, align 8, !tbaa !71
-  %98 = load i32, ptr %61, align 8, !tbaa !76
-  %99 = add nsw i32 %98, 1
-  store i32 %99, ptr %61, align 8, !tbaa !76
-  br i1 %63, label %.critedge2, label %.preheader
+94:                                               ; preds = %66
+  %95 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %96 = load ptr, ptr %95, align 8, !tbaa !71
+  store ptr %96, ptr %73, align 8, !tbaa !74
+  store ptr %73, ptr %95, align 8, !tbaa !71
+  %97 = load i32, ptr %60, align 8, !tbaa !76
+  %98 = add nsw i32 %97, 1
+  store i32 %98, ptr %60, align 8, !tbaa !76
+  br i1 %62, label %.critedge2, label %.preheader
 
-.preheader:                                       ; preds = %95
-  %.val97 = load i32, ptr %64, align 4, !tbaa !16
-  %100 = icmp sgt i32 %.val97, 0
-  br i1 %100, label %.lr.ph, label %.critedge2
+.preheader:                                       ; preds = %94
+  %.val97 = load i32, ptr %63, align 4, !tbaa !16
+  %99 = icmp sgt i32 %.val97, 0
+  br i1 %99, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %.val92 = load ptr, ptr %65, align 8, !tbaa !20
-  %101 = getelementptr inbounds nuw i32, ptr %.val92, i64 %indvars.iv
-  %102 = load i32, ptr %101, align 4, !tbaa !21
-  %103 = and i32 %102, 255
-  %104 = ashr i32 %102, 8
-  %105 = load ptr, ptr %60, align 8, !tbaa !70
-  %106 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %105, i32 noundef 32) #12
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %106, i8 0, i64 32, i1 false)
-  %107 = load i32, ptr %6, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %109 = and i32 %107, 65535
-  %110 = or disjoint i32 %79, %109
-  store i32 %110, ptr %108, align 8
-  %111 = load i32, ptr %6, align 8
-  %112 = lshr i32 %111, 7
-  %113 = and i32 %112, 33423360
-  %114 = or disjoint i32 %79, %113
-  %115 = or disjoint i32 %114, %109
-  store i32 %115, ptr %108, align 8
-  %116 = getelementptr inbounds nuw i8, ptr %106, i64 12
-  %117 = load i32, ptr %6, align 8
-  %118 = lshr i32 %117, 24
-  %119 = zext nneg i32 %118 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %116, ptr nonnull align 4 %86, i64 %119, i1 false)
-  %120 = sext i32 %104 to i64
-  %121 = getelementptr inbounds [15 x i8], ptr %86, i64 0, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !77
-  %123 = and i8 %122, -2
-  %124 = zext nneg i32 %103 to i64
-  %125 = getelementptr inbounds nuw [15 x i8], ptr %86, i64 0, i64 %124
-  %126 = load i8, ptr %125, align 1, !tbaa !77
-  %127 = and i8 %126, 1
-  %128 = or disjoint i8 %127, %123
-  %129 = getelementptr inbounds nuw [15 x i8], ptr %116, i64 0, i64 %124
-  store i8 %128, ptr %129, align 1, !tbaa !77
-  %130 = load i8, ptr %125, align 1, !tbaa !77
-  %131 = and i8 %130, -2
-  %132 = load i8, ptr %121, align 1, !tbaa !77
-  %133 = and i8 %132, 1
-  %134 = or disjoint i8 %133, %131
-  %135 = getelementptr inbounds [15 x i8], ptr %116, i64 0, i64 %120
-  store i8 %134, ptr %135, align 1, !tbaa !77
-  %136 = load ptr, ptr %96, align 8, !tbaa !71
-  store ptr %136, ptr %106, align 8, !tbaa !74
-  store ptr %106, ptr %96, align 8, !tbaa !71
-  %137 = load i32, ptr %61, align 8, !tbaa !76
-  %138 = add nsw i32 %137, 1
-  store i32 %138, ptr %61, align 8, !tbaa !76
+  %.val92 = load ptr, ptr %64, align 8, !tbaa !20
+  %100 = getelementptr inbounds nuw i32, ptr %.val92, i64 %indvars.iv
+  %101 = load i32, ptr %100, align 4, !tbaa !21
+  %102 = and i32 %101, 255
+  %103 = ashr i32 %101, 8
+  %104 = load ptr, ptr %59, align 8, !tbaa !70
+  %105 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %104, i32 noundef 32) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 0, i64 32, i1 false)
+  %106 = load i32, ptr %6, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
+  %108 = and i32 %106, 65535
+  %109 = or disjoint i32 %78, %108
+  store i32 %109, ptr %107, align 8
+  %110 = load i32, ptr %6, align 8
+  %111 = lshr i32 %110, 7
+  %112 = and i32 %111, 33423360
+  %113 = or disjoint i32 %78, %112
+  %114 = or disjoint i32 %113, %108
+  store i32 %114, ptr %107, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %105, i64 12
+  %116 = load i32, ptr %6, align 8
+  %117 = lshr i32 %116, 24
+  %118 = zext nneg i32 %117 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %115, ptr nonnull align 4 %85, i64 %118, i1 false)
+  %119 = sext i32 %103 to i64
+  %120 = getelementptr inbounds [15 x i8], ptr %85, i64 0, i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !77
+  %122 = and i8 %121, -2
+  %123 = zext nneg i32 %102 to i64
+  %124 = getelementptr inbounds nuw [15 x i8], ptr %85, i64 0, i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !77
+  %126 = and i8 %125, 1
+  %127 = or disjoint i8 %126, %122
+  %128 = getelementptr inbounds nuw [15 x i8], ptr %115, i64 0, i64 %123
+  store i8 %127, ptr %128, align 1, !tbaa !77
+  %129 = load i8, ptr %124, align 1, !tbaa !77
+  %130 = and i8 %129, -2
+  %131 = load i8, ptr %120, align 1, !tbaa !77
+  %132 = and i8 %131, 1
+  %133 = or disjoint i8 %132, %130
+  %134 = getelementptr inbounds [15 x i8], ptr %115, i64 0, i64 %119
+  store i8 %133, ptr %134, align 1, !tbaa !77
+  %135 = load ptr, ptr %95, align 8, !tbaa !71
+  store ptr %135, ptr %105, align 8, !tbaa !74
+  store ptr %105, ptr %95, align 8, !tbaa !71
+  %136 = load i32, ptr %60, align 8, !tbaa !76
+  %137 = add nsw i32 %136, 1
+  store i32 %137, ptr %60, align 8, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val = load i32, ptr %64, align 4, !tbaa !16
-  %139 = sext i32 %.val to i64
-  %140 = icmp slt i64 %indvars.iv.next, %139
-  br i1 %140, label %.lr.ph, label %.critedge2, !llvm.loop !78
+  %.val = load i32, ptr %63, align 4, !tbaa !16
+  %138 = sext i32 %.val to i64
+  %139 = icmp slt i64 %indvars.iv.next, %138
+  br i1 %139, label %.lr.ph, label %.critedge2, !llvm.loop !78
 
-.critedge2:                                       ; preds = %.lr.ph, %.preheader, %95, %89, %91
+.critedge2:                                       ; preds = %.lr.ph, %.preheader, %94, %88, %90
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %67, !llvm.loop !79
+  br i1 %exitcond.not, label %.critedge.thread, label %66, !llvm.loop !79
 
-.critedge:                                        ; preds = %.critedge2, %Amap_CreateRulesFromDsd.exit..critedge_crit_edge
-  %141 = phi ptr [ %.pre, %Amap_CreateRulesFromDsd.exit..critedge_crit_edge ], [ %.val93, %.critedge2 ]
-  %.not.i95 = icmp eq ptr %141, null
-  br i1 %.not.i95, label %Vec_IntFree.exit, label %142
+.critedge:                                        ; preds = %.preheader.i, %Amap_CreateRulesFromDsd.exit
+  %.phi.trans.insert106 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert106, align 8, !tbaa !20
+  %.not.i95 = icmp eq ptr %.pre, null
+  br i1 %.not.i95, label %Vec_IntFree.exit, label %.critedge.thread
 
-142:                                              ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %141) #12
+.critedge.thread:                                 ; preds = %.critedge2, %.critedge
+  %140 = phi ptr [ %.pre, %.critedge ], [ %.val93, %.critedge2 ]
+  tail call void @free(ptr noundef nonnull %140) #12
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %142
+Vec_IntFree.exit:                                 ; preds = %.critedge, %.critedge.thread
   tail call void @free(ptr noundef nonnull %46) #12
   br label %Amap_CreateRulesFromDsd.exit.thread
 
 Amap_CreateRulesFromDsd.exit.thread:              ; preds = %42, %Vec_IntFree.exit
   tail call void @Kit_DsdNtkFree(ptr noundef nonnull %25) #12
-  %143 = load ptr, ptr %3, align 8, !tbaa !57
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %Vec_IntFreeP.exit, label %145
+  %141 = load ptr, ptr %3, align 8, !tbaa !57
+  %142 = icmp eq ptr %141, null
+  br i1 %142, label %Vec_IntFreeP.exit, label %143
 
-145:                                              ; preds = %Amap_CreateRulesFromDsd.exit.thread
-  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  %147 = load ptr, ptr %146, align 8, !tbaa !20
-  %.not.i96 = icmp eq ptr %147, null
-  br i1 %.not.i96, label %148, label %.thread.i
+143:                                              ; preds = %Amap_CreateRulesFromDsd.exit.thread
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %145 = load ptr, ptr %144, align 8, !tbaa !20
+  %.not.i96 = icmp eq ptr %145, null
+  br i1 %.not.i96, label %146, label %.thread.i
 
-.thread.i:                                        ; preds = %145
-  tail call void @free(ptr noundef nonnull %147) #12
-  br label %148
+.thread.i:                                        ; preds = %143
+  tail call void @free(ptr noundef nonnull %145) #12
+  br label %146
 
-148:                                              ; preds = %.thread.i, %145
-  tail call void @free(ptr noundef nonnull %143) #12
+146:                                              ; preds = %.thread.i, %143
+  tail call void @free(ptr noundef nonnull %141) #12
   br label %Vec_IntFreeP.exit
 
-Vec_IntFreeP.exit:                                ; preds = %Amap_CreateRulesFromDsd.exit.thread, %148
+Vec_IntFreeP.exit:                                ; preds = %Amap_CreateRulesFromDsd.exit.thread, %146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
   ret void
 }

@@ -823,7 +823,7 @@ lha_calcsum.exit.i213:                            ; preds = %.lr.ph.i.i208, %._c
   %322 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %316) #18
   %323 = load i64, ptr %124, align 8, !tbaa !61
   %324 = add nsw i64 %323, 2
-  %325 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef null, i32 noundef 2, i64 noundef %324, ptr noundef %8)
+  %325 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef nonnull %43, ptr noundef null, i32 noundef 2, i64 noundef %324, ptr noundef %8)
   %326 = icmp slt i32 %325, -20
   br i1 %326, label %lha_read_file_header_1.exit, label %327
 
@@ -997,7 +997,7 @@ lha_crc16.exit.i:                                 ; preds = %.lr.ph73.i.i, %.pre
   %427 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 24) #18
   %428 = load i64, ptr %105, align 8, !tbaa !51
   %429 = add i64 %428, -24
-  %430 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %429, ptr noundef %5)
+  %430 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef nonnull %43, ptr noundef nonnull %6, i32 noundef 2, i64 noundef %429, ptr noundef %5)
   %431 = icmp slt i32 %430, -20
   br i1 %431, label %lha_read_file_header_2.exit, label %432
 
@@ -1188,7 +1188,7 @@ lha_crc16.exit.i244:                              ; preds = %.lr.ph73.i.i237, %.
   %544 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef 28) #18
   %545 = load i64, ptr %105, align 8, !tbaa !51
   %546 = add i64 %545, -28
-  %547 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %4, i32 noundef 4, i64 noundef %546, ptr noundef %3)
+  %547 = call fastcc i32 @lha_read_file_extended_header(ptr noundef %0, ptr noundef nonnull %43, ptr noundef nonnull %4, i32 noundef 4, i64 noundef %546, ptr noundef %3)
   %548 = icmp slt i32 %547, -20
   br i1 %548, label %lha_read_file_header_3.exit, label %549
 

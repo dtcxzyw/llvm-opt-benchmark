@@ -1030,7 +1030,7 @@ if.end60.i:                                       ; preds = %for.body5.i72.i, %i
   br i1 %cmp62.i, label %if.then63.i, label %if.end72.i
 
 if.then63.i:                                      ; preds = %if.end60.i
-  %idx.ext65.i = zext i32 %newSize to i64
+  %idx.ext65.i = zext nneg i32 %newSize to i64
   %add.ptr66.idx.i = shl nuw nsw i64 %idx.ext65.i, 3
   %add.ptr66.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66.ptr.i, i64 %add.ptr66.idx.i
   %5 = load atomic i32, ptr %size_.i.i monotonic, align 4
@@ -2522,7 +2522,7 @@ if.end60.i:                                       ; preds = %for.body5.i72.i, %i
   br i1 %cmp62.i, label %if.then63.i, label %if.end72.i
 
 if.then63.i:                                      ; preds = %if.end60.i
-  %idx.ext65.i = zext i32 %newSize to i64
+  %idx.ext65.i = zext nneg i32 %newSize to i64
   %add.ptr66.idx.i = shl nuw nsw i64 %idx.ext65.i, 2
   %add.ptr66.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i66.ptr.i, i64 %add.ptr66.idx.i
   %5 = load atomic i32, ptr %size_.i.i monotonic, align 4

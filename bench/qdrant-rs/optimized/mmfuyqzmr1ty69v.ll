@@ -554,7 +554,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
 92:                                               ; preds = %84, %81
   %.118.i15 = phi i64 [ %90, %84 ], [ %.017.i13, %81 ]
   %.1.i16 = phi i64 [ %91, %84 ], [ %.0.i14, %81 ]
-  %93 = icmp ult i64 %.1.i16, %44
+  %93 = icmp samesign ult i64 %.1.i16, %44
   br i1 %93, label %94, label %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit20
 
 94:                                               ; preds = %92
@@ -566,7 +566,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit: ; preds = %25, %27
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16, 3
   %101 = and i64 %100, 56
-  %102 = shl nuw i64 %99, %101
+  %102 = shl nuw nsw i64 %99, %101
   %103 = or i64 %102, %.118.i15
   br label %_ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit20
 
@@ -1778,7 +1778,6 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   %.not = icmp ult i64 %12, %10
   %13 = load ptr, ptr %8, align 8, !alias.scope !197, !nonnull !5, !align !156
   %14 = getelementptr inbounds { i32, float, float }, ptr %13, i64 %12
-  %.0.i = select i1 %.not, ptr %14, ptr null
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, %45, %55, %44, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
@@ -1839,9 +1838,9 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
   br i1 %switch, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread: ; preds = %16, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %35 = load float, ptr %34, align 4, !noundef !5
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %37 = load float, ptr %36, align 4, !noundef !5
   %38 = tail call float @llvm.maxnum.f32(float %35, float %37)
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 28
@@ -1861,9 +1860,9 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
   br label %15
 
 45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %47 = load float, ptr %46, align 4, !noundef !5
-  %48 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %49 = load float, ptr %48, align 4, !noundef !5
   %50 = tail call float @llvm.maxnum.f32(float %47, float %49)
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 28

@@ -2760,7 +2760,7 @@ _ZN9Stockfish12_GLOBAL__N_110set_groupsINS0_7TBTableILNS0_6TBTypeE1EEEEEvRT_PNS0
 _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.thread.i.i.i: ; preds = %.split41.split.i.i.i.i
   %368 = and i64 %298, 1
   %369 = getelementptr inbounds nuw i8, ptr %293, i64 %368
-  br label %.preheader134.i.thread.i.i
+  br label %.preheader134.i.split.i.i
 
 .split41.split.split.i.i.i.i:                     ; preds = %.split41.split.i.i.i.i
   %370 = and i32 %365, 16
@@ -2832,7 +2832,7 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
   %397 = ptrtoint ptr %.us-phi44.i.i.i.i to i64
   %398 = and i64 %397, 1
   %399 = getelementptr inbounds nuw i8, ptr %.us-phi44.i.i.i.i, i64 %398
-  br i1 %297, label %.preheader135.us.i.i.i, label %.preheader134.i.thread.i.i
+  br i1 %297, label %.preheader135.us.i.i.i, label %.preheader134.i.split.i.i
 
 .preheader135.us.i.i.i:                           ; preds = %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, %.preheader135.us.i.i.i
   %indvars.iv194.i.i.i = phi i64 [ %indvars.iv.next195.i.i.i, %.preheader135.us.i.i.i ], [ 0, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
@@ -2848,50 +2848,50 @@ _ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4Fi
   %exitcond198.not.i.i.i = icmp eq i64 %indvars.iv.next195.i.i.i, %wide.trip.count186.i.i.i
   br i1 %exitcond198.not.i.i.i, label %.preheader133.i.us.i.i, label %.preheader135.us.i.i.i, !llvm.loop !94
 
-.preheader134.i.thread.i.i:                       ; preds = %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.thread.i.i.i
-  %406 = phi ptr [ %369, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.thread.i.i.i ], [ %399, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
-  %407 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 120
-  %.pre209.i.i.i = load i64, ptr %407, align 8
-  %408 = zext nneg i32 %146 to i64
-  %409 = mul nuw nsw i64 %408, 6
-  %410 = mul i64 %.pre209.i.i.i, %409
-  %411 = add nuw nsw i64 %409, 6
-  %412 = mul i64 %.pre209.i.i.i, %411
-  %scevgep.i.i = getelementptr i8, ptr %406, i64 %410
-  %413 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 112
-  store ptr %scevgep.i.i, ptr %413, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 104
-  %.pre.i.i = load i32, ptr %414, align 8
-  %415 = zext i32 %.pre.i.i to i64
-  %416 = shl nuw nsw i64 %408, 1
-  %417 = mul nuw nsw i64 %416, %415
-  %418 = add nuw nsw i64 %416, 2
-  %419 = mul nuw nsw i64 %418, %415
-  %420 = getelementptr i8, ptr %406, i64 %417
-  %scevgep.i = getelementptr i8, ptr %420, i64 %412
-  %421 = getelementptr i8, ptr %406, i64 %412
-  %scevgep95.i = getelementptr i8, ptr %421, i64 %419
-  %422 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 96
-  store ptr %scevgep.i, ptr %422, align 8
-  br label %.preheader.i.i.i.preheader
-
 .preheader133.i.us.i.i:                           ; preds = %.preheader135.us.i.i.i, %.preheader133.i.us.i.i
   %indvars.iv199.i.us.i.i = phi i64 [ %indvars.iv.next200.i.us.i.i, %.preheader133.i.us.i.i ], [ 0, %.preheader135.us.i.i.i ]
-  %.6162.i.us.i.i = phi ptr [ %429, %.preheader133.i.us.i.i ], [ %405, %.preheader135.us.i.i.i ]
-  %423 = getelementptr inbounds nuw [4 x %"struct.Stockfish::(anonymous namespace)::PairsData"], ptr %151, i64 0, i64 %indvars.iv199.i.us.i.i
-  %424 = getelementptr inbounds nuw i8, ptr %423, i64 40
-  %425 = getelementptr inbounds nuw i8, ptr %423, i64 48
-  %426 = load i32, ptr %425, align 8
-  %427 = zext i32 %426 to i64
-  %428 = shl nuw nsw i64 %427, 1
-  %429 = getelementptr inbounds nuw i8, ptr %.6162.i.us.i.i, i64 %428
-  store ptr %.6162.i.us.i.i, ptr %424, align 8
+  %.6162.i.us.i.i = phi ptr [ %412, %.preheader133.i.us.i.i ], [ %405, %.preheader135.us.i.i.i ]
+  %406 = getelementptr inbounds nuw [4 x %"struct.Stockfish::(anonymous namespace)::PairsData"], ptr %151, i64 0, i64 %indvars.iv199.i.us.i.i
+  %407 = getelementptr inbounds nuw i8, ptr %406, i64 40
+  %408 = getelementptr inbounds nuw i8, ptr %406, i64 48
+  %409 = load i32, ptr %408, align 8
+  %410 = zext i32 %409 to i64
+  %411 = shl nuw nsw i64 %410, 1
+  %412 = getelementptr inbounds nuw i8, ptr %.6162.i.us.i.i, i64 %411
+  store ptr %.6162.i.us.i.i, ptr %407, align 8
   %indvars.iv.next200.i.us.i.i = add nuw nsw i64 %indvars.iv199.i.us.i.i, 1
   %exitcond203.not.i.us.i.i = icmp eq i64 %indvars.iv.next200.i.us.i.i, %wide.trip.count186.i.i.i
   br i1 %exitcond203.not.i.us.i.i, label %.preheader.i.i.i.preheader, label %.preheader133.i.us.i.i, !llvm.loop !95
 
-.preheader.i.i.i.preheader:                       ; preds = %.preheader133.i.us.i.i, %.preheader134.i.thread.i.i
-  %.8166.i.i.i.ph = phi ptr [ %scevgep95.i, %.preheader134.i.thread.i.i ], [ %429, %.preheader133.i.us.i.i ]
+.preheader134.i.split.i.i:                        ; preds = %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.thread.i.i.i
+  %413 = phi ptr [ %369, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.thread.i.i.i ], [ %399, %_ZN9Stockfish12_GLOBAL__N_111set_dtz_mapERNS0_7TBTableILNS0_6TBTypeE1EEEPhNS_4FileE.exit.i.i.i ]
+  %414 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 120
+  %.pre209.i.i.i = load i64, ptr %414, align 8
+  %415 = zext nneg i32 %146 to i64
+  %416 = mul nuw nsw i64 %415, 6
+  %417 = mul i64 %.pre209.i.i.i, %416
+  %418 = add nuw nsw i64 %416, 6
+  %419 = mul i64 %.pre209.i.i.i, %418
+  %scevgep.i.i = getelementptr i8, ptr %413, i64 %417
+  %420 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 112
+  store ptr %scevgep.i.i, ptr %420, align 8
+  %421 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 104
+  %.pre.i.i = load i32, ptr %421, align 8
+  %422 = zext i32 %.pre.i.i to i64
+  %423 = shl nuw nsw i64 %415, 1
+  %424 = mul nuw nsw i64 %423, %422
+  %425 = add nuw nsw i64 %423, 2
+  %426 = mul nuw nsw i64 %425, %422
+  %427 = getelementptr i8, ptr %413, i64 %424
+  %scevgep.i = getelementptr i8, ptr %427, i64 %419
+  %428 = getelementptr i8, ptr %413, i64 %419
+  %scevgep95.i = getelementptr i8, ptr %428, i64 %426
+  %429 = getelementptr inbounds nuw i8, ptr %.0.val6.i.i, i64 96
+  store ptr %scevgep.i, ptr %429, align 8
+  br label %.preheader.i.i.i.preheader
+
+.preheader.i.i.i.preheader:                       ; preds = %.preheader133.i.us.i.i, %.preheader134.i.split.i.i
+  %.8166.i.i.i.ph = phi ptr [ %scevgep95.i, %.preheader134.i.split.i.i ], [ %412, %.preheader133.i.us.i.i ]
   br label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.preheader.i.i.i.preheader, %.preheader.i.i.i
@@ -4388,9 +4388,9 @@ select.unfold.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i
 115:                                              ; preds = %.lr.ph.i.i.i.i
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 %113
   %117 = icmp eq i64 %storemerge26.i.i.in.in.i.i, 0
-  br i1 %117, label %.thread44.i.i, label %118
+  br i1 %117, label %.thread29.i.i, label %118
 
-.thread44.i.i:                                    ; preds = %115
+.thread29.i.i:                                    ; preds = %115
   call fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EEEvT_SL_T0_T1_T2_"(ptr %104, ptr %105, ptr noundef nonnull %114, i64 noundef 0)
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i
 
@@ -4475,9 +4475,9 @@ _ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i.i.i: ; preds = %147, 
   %.not.i.i.i10.i.i = icmp eq ptr %148, %144
   br i1 %.not.i.i.i10.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i, label %.lr.ph.i.i.i9.i.i, !llvm.loop !113
 
-_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i.i.i, %.thread.i.i, %.thread44.i.i
-  %.sroa.5.02143.i.i = phi ptr [ null, %.thread.i.i ], [ %114, %.thread44.i.i ], [ %114, %_ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i.i.i ]
-  call void @_ZdlPv(ptr noundef %.sroa.5.02143.i.i) #24
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i: ; preds = %_ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i.i.i, %.thread.i.i, %.thread29.i.i
+  %.sroa.5.02128.i.i = phi ptr [ null, %.thread.i.i ], [ %114, %.thread29.i.i ], [ %114, %_ZSt8_DestroyIN9Stockfish6Search8RootMoveEEvPT_.exit.i.i.i.i.i ]
+  call void @_ZdlPv(ptr noundef %.sroa.5.02128.i.i) #24
   br label %"_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EvT_SI_T0_.exit"
 
 "_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEEZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EvT_SI_T0_.exit": ; preds = %.thread42, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEES4_ED2Ev.exit.i.i
@@ -7034,11 +7034,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   %101 = and i64 %100, 4294967295
   br label %103
 
-.preheader:                                       ; preds = %103, %_ZNSt6vectorImSaImEE6resizeEm.exit
-  %102 = icmp sgt i32 %98, 0
+.preheader:                                       ; preds = %_ZNSt6vectorImSaImEE6resizeEm.exit
+  %102 = icmp eq i32 %98, 1
   br i1 %102, label %.lr.ph119.preheader, label %._crit_edge
 
-.lr.ph119.preheader:                              ; preds = %.preheader
+.lr.ph119.preheader:                              ; preds = %103, %.preheader
   %wide.trip.count = and i64 %97, 2147483647
   br label %.lr.ph119
 
@@ -7074,7 +7074,7 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %87, %89, %91, %93
   store i64 %117, ptr %118, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not146 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not146, label %.preheader, label %103, !llvm.loop !161
+  br i1 %.not146, label %.lr.ph119.preheader, label %103, !llvm.loop !161
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv130 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next131, %.lr.ph119 ]
@@ -10507,7 +10507,7 @@ define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__norm
 
 "_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EEEvT_SL_T0_T1_.exit": ; preds = %.lr.ph.i
   tail call fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EEEvT_SL_T0_"(ptr nonnull %10, ptr %1)
-  %14 = icmp sgt i64 %6, 392
+  %14 = icmp samesign ugt i64 %6, 392
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %"_ZSt22__chunk_insertion_sortIN9__gnu_cxx17__normal_iteratorIPN9Stockfish6Search8RootMoveESt6vectorIS4_SaIS4_EEEElNS0_5__ops15_Iter_comp_iterIZNS2_10Tablebases15rank_root_movesERKNS2_10OptionsMapERNS2_8PositionERS8_E3$_0EEEvT_SL_T0_T1_.exit"

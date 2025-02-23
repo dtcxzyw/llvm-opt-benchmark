@@ -114,7 +114,7 @@ _ZNKSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   %41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #13
           to label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit unwind label %.loopexit.split-lp
 
-.thread:                                          ; preds = %137
+.thread:                                          ; preds = %136
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %189
@@ -255,7 +255,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %74, %77
 103:                                              ; preds = %.lr.ph, %181
   %indvars.iv183 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next184, %181 ]
   %104 = phi i32 [ %82, %.lr.ph ], [ %182, %181 ]
-  %.092154 = phi i32 [ 1, %.lr.ph ], [ %158, %181 ]
+  %.092154 = phi i32 [ 1, %.lr.ph ], [ %157, %181 ]
   %105 = sitofp i32 %104 to float
   %106 = load float, ptr %3, align 4
   %107 = load float, ptr %84, align 4
@@ -293,67 +293,66 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %74, %77
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #14
   br label %188
 
-.preheader125:                                    ; preds = %160
+.preheader125:                                    ; preds = %159
   %126 = shl nsw i64 %indvars.iv183, 3
   %127 = or disjoint i64 %126, 1
-  %128 = trunc nsw i64 %127 to i32
-  %129 = trunc nsw i64 %126 to i32
-  %130 = trunc nsw i64 %127 to i32
+  %128 = trunc nsw i64 %126 to i32
+  %129 = trunc nsw i64 %127 to i32
   br label %.preheader123
 
-.preheader124:                                    ; preds = %.preheader126, %160
-  %131 = phi i1 [ true, %.preheader126 ], [ false, %160 ]
-  %indvars.iv175 = phi i64 [ 0, %.preheader126 ], [ 1, %160 ]
-  %.193141 = phi i32 [ %.092154, %.preheader126 ], [ %158, %160 ]
-  %132 = or disjoint i64 %indvars.iv175, %112
-  %133 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %132, i32 0, i64 2
+.preheader124:                                    ; preds = %.preheader126, %159
+  %130 = phi i1 [ true, %.preheader126 ], [ false, %159 ]
+  %indvars.iv175 = phi i64 [ 0, %.preheader126 ], [ 1, %159 ]
+  %.193141 = phi i32 [ %.092154, %.preheader126 ], [ %157, %159 ]
+  %131 = or disjoint i64 %indvars.iv175, %112
+  %132 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %131, i32 0, i64 2
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader124, %159
-  %134 = phi i1 [ true, %.preheader124 ], [ false, %159 ]
-  %indvars.iv172 = phi i64 [ 0, %.preheader124 ], [ 1, %159 ]
-  %.294139 = phi i32 [ %.193141, %.preheader124 ], [ %158, %159 ]
-  %135 = or disjoint i64 %indvars.iv172, %112
-  %136 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %135, i32 0, i64 1
-  br label %137
+.preheader:                                       ; preds = %.preheader124, %158
+  %133 = phi i1 [ true, %.preheader124 ], [ false, %158 ]
+  %indvars.iv172 = phi i64 [ 0, %.preheader124 ], [ 1, %158 ]
+  %.294139 = phi i32 [ %.193141, %.preheader124 ], [ %157, %158 ]
+  %134 = or disjoint i64 %indvars.iv172, %112
+  %135 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %134, i32 0, i64 1
+  br label %136
 
-137:                                              ; preds = %.preheader, %157
-  %138 = phi i1 [ true, %.preheader ], [ false, %157 ]
-  %indvars.iv169 = phi i64 [ 0, %.preheader ], [ 1, %157 ]
-  %.3137 = phi i32 [ %.294139, %.preheader ], [ %158, %157 ]
-  %139 = or disjoint i64 %indvars.iv169, %112
-  %140 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %139
-  %141 = load float, ptr %140, align 4
-  %142 = load float, ptr %136, align 4
-  %143 = load float, ptr %133, align 4
-  %144 = fmul float %142, %88
-  %145 = call float @llvm.fmuladd.f32(float %86, float %141, float %144)
-  %146 = call float @llvm.fmuladd.f32(float %90, float %143, float %145)
-  %147 = fmul float %142, %94
-  %148 = call float @llvm.fmuladd.f32(float %92, float %141, float %147)
-  %149 = call float @llvm.fmuladd.f32(float %96, float %143, float %148)
-  %150 = fmul float %142, %100
-  %151 = call float @llvm.fmuladd.f32(float %98, float %141, float %150)
-  %152 = call float @llvm.fmuladd.f32(float %102, float %143, float %151)
-  %153 = fmul float %146, 1.000000e+01
-  %154 = fmul float %149, 1.000000e+01
-  %155 = fmul float %152, 1.000000e+01
-  %156 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %73, i32 noundef 0, i32 noundef %.3137, ptr noundef nonnull @.str.2, i8 noundef signext 32, ptr noundef nonnull @.str.3, i8 noundef signext 32, i32 noundef %116, i8 noundef signext 32, float noundef %153, float noundef %154, float noundef %155, float noundef 1.000000e+00, float noundef %123, ptr noundef nonnull @.str.4)
-          to label %157 unwind label %.thread
+136:                                              ; preds = %.preheader, %156
+  %137 = phi i1 [ true, %.preheader ], [ false, %156 ]
+  %indvars.iv169 = phi i64 [ 0, %.preheader ], [ 1, %156 ]
+  %.3137 = phi i32 [ %.294139, %.preheader ], [ %157, %156 ]
+  %138 = or disjoint i64 %indvars.iv169, %112
+  %139 = getelementptr inbounds nuw %"class.gmx::BasicVector.94", ptr %.sroa.0.1, i64 %138
+  %140 = load float, ptr %139, align 4
+  %141 = load float, ptr %135, align 4
+  %142 = load float, ptr %132, align 4
+  %143 = fmul float %141, %88
+  %144 = call float @llvm.fmuladd.f32(float %86, float %140, float %143)
+  %145 = call float @llvm.fmuladd.f32(float %90, float %142, float %144)
+  %146 = fmul float %141, %94
+  %147 = call float @llvm.fmuladd.f32(float %92, float %140, float %146)
+  %148 = call float @llvm.fmuladd.f32(float %96, float %142, float %147)
+  %149 = fmul float %141, %100
+  %150 = call float @llvm.fmuladd.f32(float %98, float %140, float %149)
+  %151 = call float @llvm.fmuladd.f32(float %102, float %142, float %150)
+  %152 = fmul float %145, 1.000000e+01
+  %153 = fmul float %148, 1.000000e+01
+  %154 = fmul float %151, 1.000000e+01
+  %155 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %73, i32 noundef 0, i32 noundef %.3137, ptr noundef nonnull @.str.2, i8 noundef signext 32, ptr noundef nonnull @.str.3, i8 noundef signext 32, i32 noundef %116, i8 noundef signext 32, float noundef %152, float noundef %153, float noundef %154, float noundef 1.000000e+00, float noundef %123, ptr noundef nonnull @.str.4)
+          to label %156 unwind label %.thread
 
-157:                                              ; preds = %137
-  %158 = add nsw i32 %.3137, 1
-  br i1 %138, label %137, label %159, !llvm.loop !9
+156:                                              ; preds = %136
+  %157 = add nsw i32 %.3137, 1
+  br i1 %137, label %136, label %158, !llvm.loop !9
 
-159:                                              ; preds = %157
-  br i1 %134, label %.preheader, label %160, !llvm.loop !10
+158:                                              ; preds = %156
+  br i1 %133, label %.preheader, label %159, !llvm.loop !10
 
-160:                                              ; preds = %159
-  br i1 %131, label %.preheader124, label %.preheader125, !llvm.loop !11
+159:                                              ; preds = %158
+  br i1 %130, label %.preheader124, label %.preheader125, !llvm.loop !11
 
-.preheader123:                                    ; preds = %.preheader125, %.split.us
+.preheader123:                                    ; preds = %.split.us, %.preheader125
   %.2153 = phi i32 [ 0, %.preheader125 ], [ %180, %.split.us ]
-  %161 = shl nuw nsw i32 1, %.2153
+  %160 = shl nuw nsw i32 1, %.2153
   switch i32 %.2153, label %.preheader123.split [
     i32 0, label %.preheader123.split.us
     i32 1, label %.preheader123.split.us144
@@ -361,62 +360,62 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %74, %77
   ]
 
 .preheader123.split.us:                           ; preds = %.preheader123
-  %invariant.op150 = add nuw i32 %161, %130
-  br label %162
+  %invariant.op150 = add nuw i32 %160, %129
+  br label %161
 
-162:                                              ; preds = %162, %.preheader123.split.us
-  %.1143.us = phi i32 [ 0, %.preheader123.split.us ], [ %165, %162 ]
-  %163 = shl nuw nsw i32 %.1143.us, 1
-  %.reass.us = add nuw nsw i32 %163, %130
-  %.reass = add i32 %163, %invariant.op150
-  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.reass.us, i32 noundef %.reass) #14
-  %165 = add nuw nsw i32 %.1143.us, 1
-  %exitcond180.not = icmp eq i32 %165, 4
-  br i1 %exitcond180.not, label %.split.us, label %162, !llvm.loop !12
+161:                                              ; preds = %161, %.preheader123.split.us
+  %.1143.us = phi i32 [ 0, %.preheader123.split.us ], [ %164, %161 ]
+  %162 = shl nuw nsw i32 %.1143.us, 1
+  %.reass.us = add nuw nsw i32 %162, %129
+  %.reass = add i32 %162, %invariant.op150
+  %163 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %.reass.us, i32 noundef %.reass) #14
+  %164 = add nuw nsw i32 %.1143.us, 1
+  %exitcond180.not = icmp eq i32 %164, 4
+  br i1 %exitcond180.not, label %.split.us, label %161, !llvm.loop !12
 
 .preheader123.split.us144:                        ; preds = %.preheader123, %.preheader123.split.us144
-  %.1143.us145 = phi i32 [ %173, %.preheader123.split.us144 ], [ 0, %.preheader123 ]
-  %166 = shl nuw nsw i32 %.1143.us145, 1
-  %167 = add nuw nsw i32 %166, %129
-  %168 = and i32 %.1143.us145, 1
-  %169 = or disjoint i32 %168, %167
-  %170 = xor i32 %169, 1
-  %171 = add nuw nsw i32 %170, %161
-  %172 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %170, i32 noundef %171) #14
-  %173 = add nuw nsw i32 %.1143.us145, 1
-  %exitcond179.not = icmp eq i32 %173, 4
+  %.1143.us145 = phi i32 [ %172, %.preheader123.split.us144 ], [ 0, %.preheader123 ]
+  %165 = shl nuw nsw i32 %.1143.us145, 1
+  %166 = add nuw nsw i32 %165, %128
+  %167 = and i32 %.1143.us145, 1
+  %168 = or disjoint i32 %167, %166
+  %169 = xor i32 %168, 1
+  %170 = add nuw nsw i32 %169, %160
+  %171 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %169, i32 noundef %170) #14
+  %172 = add nuw nsw i32 %.1143.us145, 1
+  %exitcond179.not = icmp eq i32 %172, 4
   br i1 %exitcond179.not, label %.split.us, label %.preheader123.split.us144, !llvm.loop !12
 
 .preheader123.split.us147:                        ; preds = %.preheader123
-  %invariant.op151 = add nuw i32 %161, %128
+  %173 = trunc nsw i64 %127 to i32
+  %invariant.op151 = add nuw i32 %160, %173
   br label %174
 
 174:                                              ; preds = %174, %.preheader123.split.us147
   %.1143.us148 = phi i32 [ 0, %.preheader123.split.us147 ], [ %177, %174 ]
-  %175 = add nuw nsw i32 %.1143.us148, %128
+  %175 = add nuw nsw i32 %.1143.us148, %173
   %.reass152 = add i32 %.1143.us148, %invariant.op151
   %176 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef %175, i32 noundef %.reass152) #14
   %177 = add nuw nsw i32 %.1143.us148, 1
   %exitcond178.not = icmp eq i32 %177, 4
-  br i1 %exitcond178.not, label %.split.us, label %174, !llvm.loop !12
+  br i1 %exitcond178.not, label %181, label %174, !llvm.loop !12
 
 .preheader123.split:                              ; preds = %.preheader123, %.preheader123.split
   %.1143 = phi i32 [ %179, %.preheader123.split ], [ 0, %.preheader123 ]
-  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef %161) #14
+  %178 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %73, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 0, i32 noundef %160) #14
   %179 = add nuw nsw i32 %.1143, 1
   %exitcond181.not = icmp eq i32 %179, 4
   br i1 %exitcond181.not, label %.split.us, label %.preheader123.split, !llvm.loop !12
 
-.split.us:                                        ; preds = %174, %.preheader123.split.us144, %162, %.preheader123.split
+.split.us:                                        ; preds = %.preheader123.split.us144, %161, %.preheader123.split
   %180 = add nuw nsw i32 %.2153, 1
-  %exitcond182.not = icmp eq i32 %180, 3
-  br i1 %exitcond182.not, label %181, label %.preheader123, !llvm.loop !13
+  br label %.preheader123
 
-181:                                              ; preds = %.split.us
+181:                                              ; preds = %174
   %182 = load i32, ptr %2, align 8
   %183 = sext i32 %182 to i64
   %184 = icmp slt i64 %indvars.iv.next184, %183
-  br i1 %184, label %103, label %._crit_edge, !llvm.loop !14
+  br i1 %184, label %103, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %181, %.preheader127
   %185 = invoke noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef %73)
@@ -440,14 +439,14 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit: ; preds = %186, %187
   br i1 %.not.i.i.i104, label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit105, label %189
 
 189:                                              ; preds = %.thread, %188
-  %.pn191 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn, %188 ]
-  %.sroa.0.2190 = phi ptr [ %.sroa.0.1, %.thread ], [ %.sroa.0.2, %188 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2190) #15
+  %.pn192 = phi { ptr, i32 } [ %lpad.loopexit, %.thread ], [ %.pn, %188 ]
+  %.sroa.0.2191 = phi ptr [ %.sroa.0.1, %.thread ], [ %.sroa.0.2, %188 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2191) #15
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit105
 
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit105: ; preds = %188, %189
-  %.pn192 = phi { ptr, i32 } [ %.pn, %188 ], [ %.pn191, %189 ]
-  resume { ptr, i32 } %.pn192
+  %.pn193 = phi { ptr, i32 } [ %.pn, %188 ], [ %.pn192, %189 ]
+  resume { ptr, i32 } %.pn193
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -691,7 +690,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %25, %28
   %64 = add i32 %.127.i.i, 1
   %65 = add i32 %64, %.1.i.i
   %66 = ashr i32 %65, 1
-  br label %54, !llvm.loop !15
+  br label %54, !llvm.loop !14
 
 _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit.i: ; preds = %60
   %67 = sub nsw i32 %45, %58
@@ -768,7 +767,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %86
   %118 = load i32, ptr %117, align 4
   %119 = sext i32 %118 to i64
   %.not = icmp slt i64 %indvars.iv55, %119
-  br i1 %.not, label %122, label %116, !llvm.loop !16
+  br i1 %.not, label %122, label %116, !llvm.loop !15
 
 120:                                              ; preds = %20
   %121 = landingpad { ptr, i32 }
@@ -814,7 +813,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %86
   %148 = call noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %24, i32 noundef 0, i32 noundef %138, ptr noundef %81, i8 noundef signext 32, ptr noundef %109, i8 noundef signext 32, i32 noundef %storemerge.i, i8 noundef signext 32, float noundef %141, float noundef %144, float noundef %147, float noundef 1.000000e+00, float noundef %.0, ptr noundef nonnull @.str.4)
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %42, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %137, %_ZNSt10filesystem7__cxx114pathD2Ev.exit
   %149 = call i64 @fwrite(ptr nonnull @.str.10, i64 4, i64 1, ptr %24)
@@ -867,4 +866,3 @@ attributes #15 = { builtin nounwind }
 !14 = distinct !{!14, !6}
 !15 = distinct !{!15, !6}
 !16 = distinct !{!16, !6}
-!17 = distinct !{!17, !6}

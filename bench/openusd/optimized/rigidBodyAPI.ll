@@ -6119,11 +6119,11 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassP
   %101 = fptrunc double %100 to float
   br label %.lr.ph81
 
-.lr.ph81:                                         ; preds = %._crit_edge, %90
-  %.sroa.060.1 = phi <2 x float> [ %.sroa.060.4.vec.insert71, %90 ], [ %.sroa.060.4.vec.insert, %._crit_edge ]
-  %.sroa.11.1 = phi float [ %101, %90 ], [ %88, %._crit_edge ]
-  %.sroa.0.0.vec.extract.i49 = extractelement <2 x float> %.sroa.060.1, i64 0
-  %.sroa.0.4.vec.extract.i51 = extractelement <2 x float> %.sroa.060.1, i64 1
+.lr.ph81:                                         ; preds = %90, %._crit_edge
+  %.sroa.060.1.ph = phi <2 x float> [ %.sroa.060.4.vec.insert, %._crit_edge ], [ %.sroa.060.4.vec.insert71, %90 ]
+  %.sroa.11.1.ph = phi float [ %88, %._crit_edge ], [ %101, %90 ]
+  %.sroa.0.0.vec.extract.i49 = extractelement <2 x float> %.sroa.060.1.ph, i64 0
+  %.sroa.0.4.vec.extract.i51 = extractelement <2 x float> %.sroa.060.1.ph, i64 1
   %102 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %104 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -6217,7 +6217,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassP
   %175 = load float, ptr %174, align 4
   %176 = fsub float %.sroa.0.0.vec.extract.i49, %169
   %177 = fsub float %.sroa.0.4.vec.extract.i51, %170
-  %178 = fsub float %.sroa.11.1, %171
+  %178 = fsub float %.sroa.11.1.ph, %171
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %8)
@@ -6252,16 +6252,16 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassP
   br i1 %exitcond90.not, label %._crit_edge82, label %110, !llvm.loop !63
 
 ._crit_edge82:                                    ; preds = %110, %4
-  %.sroa.11.1100 = phi float [ 0.000000e+00, %4 ], [ %.sroa.11.1, %110 ]
-  %.sroa.060.199 = phi <2 x float> [ zeroinitializer, %4 ], [ %.sroa.060.1, %110 ]
-  %.0.lcssa9498 = phi float [ 0.000000e+00, %4 ], [ %22, %110 ]
+  %.sroa.11.1103 = phi float [ 0.000000e+00, %4 ], [ %.sroa.11.1.ph, %110 ]
+  %.sroa.060.1101 = phi <2 x float> [ zeroinitializer, %4 ], [ %.sroa.060.1.ph, %110 ]
+  %.0.lcssa9499 = phi float [ 0.000000e+00, %4 ], [ %22, %110 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %0, ptr noundef nonnull align 4 dereferenceable(36) %12, i64 36, i1 false)
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store <2 x float> %.sroa.060.199, ptr %187, align 4
+  store <2 x float> %.sroa.060.1101, ptr %187, align 4
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store float %.sroa.11.1100, ptr %.sroa.11.0..sroa_idx, align 4
+  store float %.sroa.11.1103, ptr %.sroa.11.0..sroa_idx, align 4
   %188 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store float %.0.lcssa9498, ptr %188, align 4
+  store float %.0.lcssa9499, ptr %188, align 4
   ret void
 }
 

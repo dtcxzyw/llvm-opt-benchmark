@@ -962,7 +962,7 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 
 47:                                               ; preds = %.loopexit112
   %48 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  tail call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %48)
+  tail call void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr noundef nonnull %0, ptr noundef nonnull %12, ptr noundef nonnull %48)
   br label %.loopexit
 
 49:                                               ; preds = %22, %16
@@ -989,9 +989,9 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %.085125 = phi i32 [ %57, %.lr.ph126 ], [ 0, %.lr.ph126.preheader ]
   %54 = add nsw i32 %.085125, %2
-  %55 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %54)
+  %55 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %54)
   %56 = add nsw i32 %.085125, %4
-  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %56)
+  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %56)
   %57 = add nuw i32 %.085125, 1
   %exitcond137.not = icmp eq i32 %57, %52
   br i1 %exitcond137.not, label %.loopexit, label %.lr.ph126, !llvm.loop !18
@@ -999,9 +999,9 @@ define internal fastcc void @_ZL12moveelementsP9lua_Stateiiiii(ptr noundef %0, i
 .lr.ph128:                                        ; preds = %.preheader, %.lr.ph128
   %.0127 = phi i32 [ %61, %.lr.ph128 ], [ %17, %.preheader ]
   %58 = add nsw i32 %.0127, %2
-  %59 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef %0, i32 noundef 1, i32 noundef %58)
+  %59 = tail call noundef i32 @_Z11lua_rawgetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %58)
   %60 = add nsw i32 %.0127, %4
-  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef %0, i32 noundef %1, i32 noundef %60)
+  tail call void @_Z11lua_rawsetiP9lua_Stateii(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %60)
   %61 = add nsw i32 %.0127, -1
   %.not148 = icmp eq i32 %.0127, 0
   br i1 %.not148, label %.loopexit, label %.lr.ph128, !llvm.loop !19
@@ -1096,8 +1096,8 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %21 = lshr i32 %20, 1
   br label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %.lr.ph.i
-  %invariant.op.i = add i32 %.096160, -1
+.lr.ph27.i:                                       ; preds = %.lr.ph.i
+  %invariant.op29.i = add i32 %.096160, -1
   %22 = sext i32 %.096160 to i64
   %23 = zext nneg i32 %19 to i64
   br label %25
@@ -1107,10 +1107,10 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   %.024.i = add nsw i32 %.024.in25.i, -1
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.098159, ptr noundef readonly %5, i32 noundef %.024.i)
   %24 = icmp samesign ugt i32 %.024.in25.i, 1
-  br i1 %24, label %.lr.ph.i, label %.preheader.i, !llvm.loop !20
+  br i1 %24, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !20
 
-25:                                               ; preds = %25, %.preheader.i
-  %indvars.iv.i = phi i64 [ %23, %.preheader.i ], [ %indvars.iv.next.i, %25 ]
+25:                                               ; preds = %25, %.lr.ph27.i
+  %indvars.iv.i = phi i64 [ %23, %.lr.ph27.i ], [ %indvars.iv.next.i, %25 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %26 = load ptr, ptr %15, align 8
   %27 = getelementptr inbounds %struct.lua_TValue, ptr %26, i64 %22
@@ -1121,7 +1121,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP5TableiiiPFiS0_PK10lua_TVal
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %.reass.i = add i32 %invariant.op.i, %30
+  %.reass.i = add i32 %invariant.op29.i, %30
   tail call fastcc void @_ZL13sort_siftheapP9lua_StateP5TableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.096160, i32 noundef %.reass.i, ptr noundef readonly %5, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %31 = icmp samesign ugt i64 %indvars.iv.i, 1

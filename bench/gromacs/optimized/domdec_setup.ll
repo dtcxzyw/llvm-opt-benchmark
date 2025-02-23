@@ -2398,7 +2398,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   br label %.preheader90
 
 .preheader90:                                     ; preds = %._crit_edge106, %.preheader90.lr.ph
-  %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %78, %._crit_edge106 ]
+  %.084107 = phi i32 [ %27, %.preheader90.lr.ph ], [ %77, %._crit_edge106 ]
   %.not115 = icmp eq i32 %.084107, 0
   br i1 %.not115, label %._crit_edge, label %.lr.ph.preheader
 
@@ -2422,7 +2422,7 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.preheader88, label %.preheader89
 
-.preheader89:                                     ; preds = %.preheader, %._crit_edge102, %._crit_edge
+.preheader89:                                     ; preds = %.preheader, %._crit_edge
   br i1 %.not115, label %.loopexit, label %.lr.ph105.preheader
 
 .lr.ph105.preheader:                              ; preds = %.preheader89
@@ -2513,21 +2513,20 @@ define internal fastcc void @_ZL14assign_factorsffPA3_KfRK11gmx_ddbox_tiRK10t_in
 
 ._crit_edge102:                                   ; preds = %.lr.ph101
   %72 = add nsw i32 %.082103, -1
-  %73 = icmp sgt i32 %.082103, 0
-  br i1 %73, label %.preheader88, label %.preheader89, !llvm.loop !23
+  br label %.preheader88, !llvm.loop !23
 
 .lr.ph105:                                        ; preds = %.lr.ph105.preheader, %.lr.ph105
-  %74 = phi i32 [ %76, %.lr.ph105 ], [ %.pre114, %.lr.ph105.preheader ]
-  %.0104 = phi i32 [ %77, %.lr.ph105 ], [ 0, %.lr.ph105.preheader ]
-  %75 = load i32, ptr %9, align 4
-  %76 = sdiv i32 %74, %75
-  store i32 %76, ptr %11, align 4
-  %77 = add nuw nsw i32 %.0104, 1
-  %exitcond109.not = icmp eq i32 %77, %.084107
+  %73 = phi i32 [ %75, %.lr.ph105 ], [ %.pre114, %.lr.ph105.preheader ]
+  %.0104 = phi i32 [ %76, %.lr.ph105 ], [ 0, %.lr.ph105.preheader ]
+  %74 = load i32, ptr %9, align 4
+  %75 = sdiv i32 %73, %74
+  store i32 %75, ptr %11, align 4
+  %76 = add nuw nsw i32 %.0104, 1
+  %exitcond109.not = icmp eq i32 %76, %.084107
   br i1 %exitcond109.not, label %._crit_edge106, label %.lr.ph105, !llvm.loop !24
 
 ._crit_edge106:                                   ; preds = %.lr.ph105
-  %78 = add nsw i32 %.084107, -1
+  %77 = add nsw i32 %.084107, -1
   br label %.preheader90, !llvm.loop !25
 
 .loopexit:                                        ; preds = %.preheader89, %26, %15, %22, %25

@@ -1901,16 +1901,20 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
   %809 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %797, ptr noundef nonnull @.str.89, ptr noundef %801, ptr noundef %806, i32 noundef %796, ptr noundef nonnull %spec.select.i) #18
   %indvars.iv.next284.i = add nuw nsw i64 %indvars.iv283.i, 1
   %exitcond287.not.i = icmp eq i64 %indvars.iv.next284.i, %wide.trip.count286.i
-  br i1 %exitcond287.not.i, label %.loopexit.i187, label %790, !llvm.loop !30
+  br i1 %exitcond287.not.i, label %.lr.ph256.i, label %790, !llvm.loop !30
 
-.loopexit.i187:                                   ; preds = %790, %.loopexit238.i
-  br i1 %786, label %.lr.ph256.i, label %._crit_edge.i
+.loopexit.i187:                                   ; preds = %.loopexit238.i
+  br i1 %786, label %.loopexit.i187..lr.ph256.i_crit_edge, label %._crit_edge.i
 
-.lr.ph256.i:                                      ; preds = %.loopexit.i187
+.loopexit.i187..lr.ph256.i_crit_edge:             ; preds = %.loopexit.i187
+  %.pre = zext nneg i32 %545 to i64
+  br label %.lr.ph256.i
+
+.lr.ph256.i:                                      ; preds = %790, %.loopexit.i187..lr.ph256.i_crit_edge
+  %wide.trip.count291.i.pre-phi = phi i64 [ %.pre, %.loopexit.i187..lr.ph256.i_crit_edge ], [ %wide.trip.count286.i, %790 ]
   %810 = getelementptr inbounds nuw i8, ptr %20, i64 2336
   %811 = getelementptr inbounds nuw i8, ptr %20, i64 2328
   %812 = getelementptr inbounds nuw i8, ptr %20, i64 2368
-  %wide.trip.count291.i = zext nneg i32 %545 to i64
   br label %813
 
 813:                                              ; preds = %865, %.lr.ph256.i
@@ -2001,7 +2005,7 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
 
 865:                                              ; preds = %859, %.noexc206, %813
   %indvars.iv.next289.i = add nuw nsw i64 %indvars.iv288.i, 1
-  %exitcond292.not.i = icmp eq i64 %indvars.iv.next289.i, %wide.trip.count291.i
+  %exitcond292.not.i = icmp eq i64 %indvars.iv.next289.i, %wide.trip.count291.i.pre-phi
   br i1 %exitcond292.not.i, label %.lr.ph258.i, label %813, !llvm.loop !31
 
 .lr.ph258.i:                                      ; preds = %865, %.noexc207
@@ -2013,7 +2017,7 @@ _ZL8is_equiviPP7t_equivPPciS2_S2_iS2_S2_.exit.i:  ; preds = %._crit_edge58.i.i
 
 .noexc207:                                        ; preds = %.lr.ph258.i
   %indvars.iv.next294.i = add nuw nsw i64 %indvars.iv293.i, 1
-  %exitcond297.not.i = icmp eq i64 %indvars.iv.next294.i, %wide.trip.count291.i
+  %exitcond297.not.i = icmp eq i64 %indvars.iv.next294.i, %wide.trip.count291.i.pre-phi
   br i1 %exitcond297.not.i, label %._crit_edge.i, label %.lr.ph258.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %.noexc207, %.loopexit.i187, %.loopexit238.thread.i

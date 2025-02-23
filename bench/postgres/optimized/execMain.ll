@@ -1365,7 +1365,7 @@ define dso_local void @standard_ExecutorEnd(ptr noundef captures(none) %0) local
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 200
   %25 = load ptr, ptr %24, align 8
   tail call void @ExecResetTupleTable(ptr noundef %25, i1 noundef zeroext false) #9
-  tail call void @ExecCloseResultRelations(ptr noundef readonly %3)
+  tail call void @ExecCloseResultRelations(ptr noundef nonnull readonly %3)
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %27 = load i32, ptr %26, align 8
   %.not8.i.i = icmp eq i32 %27, 0
@@ -3710,7 +3710,7 @@ EvalPlanQualStart.exit:                           ; preds = %._crit_edge132.i, %
   %160 = phi ptr [ %.pre.i, %._crit_edge139.loopexit.i ], [ %129, %.lr.ph138.i ], [ %129, %._crit_edge132.i ]
   %161 = load ptr, ptr %128, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr align 1 %160, i64 %108, i1 false)
-  %162 = tail call ptr @ExecInitNode(ptr noundef %8, ptr noundef %11, i32 noundef 0) #9
+  %162 = tail call ptr @ExecInitNode(ptr noundef %8, ptr noundef nonnull %11, i32 noundef 0) #9
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %162, ptr %163, align 8
   store ptr %14, ptr @CurrentMemoryContext, align 8

@@ -1276,7 +1276,7 @@ define internal i32 @epoll_do_close(ptr noundef readonly captures(none) %0) #0 {
   br i1 %.not32, label %._crit_edge40, label %.lr.ph39, !llvm.loop !21
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
-  tail call void @free(ptr noundef %3)
+  tail call void @free(ptr noundef nonnull %3)
   br label %28
 
 28:                                               ; preds = %7, %._crit_edge40, %1

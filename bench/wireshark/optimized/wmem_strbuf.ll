@@ -504,7 +504,7 @@ define void @wmem_strbuf_append_c_count(ptr noundef captures(none) %0, i8 nounde
 
 16:                                               ; preds = %13
   %17 = icmp eq i64 %.0.i, %5
-  br i1 %17, label %wmem_strbuf_grow.exit, label %18
+  br i1 %17, label %.lr.ph, label %18
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr %0, align 8
@@ -513,13 +513,13 @@ define void @wmem_strbuf_append_c_count(ptr noundef captures(none) %0, i8 nounde
   %22 = tail call ptr @wmem_realloc(ptr noundef %19, ptr noundef %21, i64 noundef %.0.i) #19
   store ptr %22, ptr %20, align 8
   store i64 %.0.i, ptr %4, align 8
-  br label %wmem_strbuf_grow.exit
+  br label %.lr.ph
 
-wmem_strbuf_grow.exit:                            ; preds = %3, %16, %18
+wmem_strbuf_grow.exit:                            ; preds = %3
   %.not7 = icmp eq i64 %2, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %wmem_strbuf_grow.exit
+.lr.ph:                                           ; preds = %18, %16, %wmem_strbuf_grow.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %24
 

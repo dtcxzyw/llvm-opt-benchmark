@@ -454,7 +454,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly c
   br i1 %.not.i, label %inc_128.exit, label %.preheader, !llvm.loop !38
 
 inc_128.exit:                                     ; preds = %.preheader
-  %22 = tail call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, i64 noundef %6, ptr noundef %3, i64 noundef %4)
+  %22 = tail call fastcc i32 @ctr_update(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %5, i64 noundef %6, ptr noundef %3, i64 noundef %4)
   br label %23
 
 23:                                               ; preds = %inc_128.exit, %9, %7
@@ -506,7 +506,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captur
   br i1 %.not.i, label %inc_128.exit, label %11, !llvm.loop !38
 
 inc_128.exit:                                     ; preds = %11
-  %18 = tail call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0)
+  %18 = tail call fastcc i32 @ctr_update(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef null, i64 noundef 0)
   br label %19
 
 19:                                               ; preds = %inc_128.exit, %5
@@ -544,7 +544,7 @@ define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly capt
   br i1 %.not.i, label %inc_128.exit, label %13, !llvm.loop !38
 
 inc_128.exit:                                     ; preds = %13
-  %20 = tail call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %20 = tail call fastcc i32 @ctr_update(ptr noundef nonnull %0, ptr noundef nonnull %3, i64 noundef %4, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   %.not = icmp eq i32 %20, 0
   br i1 %.not, label %.loopexit, label %21
 
@@ -595,7 +595,7 @@ inc_128.exit82:                                   ; preds = %26
   br i1 %.not.i86, label %inc_128.exit87, label %.preheader, !llvm.loop !38
 
 inc_128.exit87:                                   ; preds = %.preheader
-  %40 = tail call fastcc i32 @ctr_update(ptr noundef %0, ptr noundef %.054, i64 noundef %.058, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
+  %40 = tail call fastcc i32 @ctr_update(ptr noundef nonnull %0, ptr noundef %.054, i64 noundef %.058, ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0)
   br label %.loopexit
 
 41:                                               ; preds = %inc_128.exit82

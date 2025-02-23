@@ -144,7 +144,7 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %34 = load i8, ptr %31, align 1
   switch i8 %34, label %.thread12 [
     i8 44, label %.thread8
-    i8 45, label %38
+    i8 45, label %36
   ]
 
 .thread8:                                         ; preds = %33
@@ -152,49 +152,49 @@ define dso_local ptr @get_options(ptr noundef %0, i32 noundef %1, ptr noundef %2
   store ptr %35, ptr %4, align 8
   br label %.backedge
 
+36:                                               ; preds = %33
+  %37 = sub i32 %1, %9
+  %38 = getelementptr i8, ptr %31, i64 1
+  store ptr %38, ptr %4, align 8
+  %39 = call i64 @simple_strtol(ptr noundef %38, ptr noundef null, i32 noundef 0) #5
+  %40 = trunc i64 %39 to i32
+  %41 = load i32, ptr %12, align 4
+  %42 = icmp ne i32 %37, 0
+  %43 = and i1 %42, %not.
+  %44 = icmp slt i32 %41, %40
+  %45 = select i1 %43, i1 %44, i1 false
+  br i1 %45, label %.preheader, label %.loopexit
+
+.preheader:                                       ; preds = %36, %.preheader
+  %46 = phi i32 [ %50, %.preheader ], [ %41, %36 ]
+  %47 = phi i32 [ %51, %.preheader ], [ %37, %36 ]
+  %48 = phi ptr [ %49, %.preheader ], [ %12, %36 ]
+  %49 = getelementptr i8, ptr %48, i64 4
+  store i32 %46, ptr %48, align 4
+  %50 = add nsw i32 %46, 1
+  %51 = add i32 %47, -1
+  %52 = icmp ne i32 %51, 0
+  %53 = icmp slt i32 %50, %40
+  %54 = select i1 %52, i1 %53, i1 false
+  br i1 %54, label %.preheader, label %.loopexit, !llvm.loop !5
+
+.loopexit:                                        ; preds = %.preheader, %36
+  %55 = sub i32 %40, %41
+  %56 = icmp sgt i32 %55, -1
+  %57 = add nsw i32 %55, -1
+  %58 = select i1 %56, i32 %57, i32 0
+  %59 = add i32 %58, %9
+  br i1 %56, label %.backedge, label %.thread12.loopexit
+
 .backedge:                                        ; preds = %.loopexit, %.thread8
-  %.be.in = phi i32 [ %9, %.thread8 ], [ %61, %.loopexit ]
+  %.be.in = phi i32 [ %9, %.thread8 ], [ %59, %.loopexit ]
   %.be = add i32 %.be.in, 1
-  %36 = icmp slt i32 %.be, %1
-  %37 = or i1 %5, %36
-  br i1 %37, label %8, label %.thread12.loopexit
-
-38:                                               ; preds = %33
-  %39 = sub i32 %1, %9
-  %40 = getelementptr i8, ptr %31, i64 1
-  store ptr %40, ptr %4, align 8
-  %41 = call i64 @simple_strtol(ptr noundef %40, ptr noundef null, i32 noundef 0) #5
-  %42 = trunc i64 %41 to i32
-  %43 = load i32, ptr %12, align 4
-  %44 = icmp ne i32 %39, 0
-  %45 = and i1 %44, %not.
-  %46 = icmp slt i32 %43, %42
-  %47 = select i1 %45, i1 %46, i1 false
-  br i1 %47, label %.preheader, label %.loopexit
-
-.preheader:                                       ; preds = %38, %.preheader
-  %48 = phi i32 [ %52, %.preheader ], [ %43, %38 ]
-  %49 = phi i32 [ %53, %.preheader ], [ %39, %38 ]
-  %50 = phi ptr [ %51, %.preheader ], [ %12, %38 ]
-  %51 = getelementptr i8, ptr %50, i64 4
-  store i32 %48, ptr %50, align 4
-  %52 = add nsw i32 %48, 1
-  %53 = add i32 %49, -1
-  %54 = icmp ne i32 %53, 0
-  %55 = icmp slt i32 %52, %42
-  %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %.preheader, label %.loopexit, !llvm.loop !5
-
-.loopexit:                                        ; preds = %.preheader, %38
-  %57 = sub i32 %42, %43
-  %58 = icmp sgt i32 %57, -1
-  %59 = add nsw i32 %57, -1
-  %60 = select i1 %58, i32 %59, i32 0
-  %61 = add i32 %60, %9
-  br i1 %58, label %.backedge, label %.thread12.loopexit
+  %60 = icmp slt i32 %.be, %1
+  %61 = or i1 %5, %60
+  br i1 %61, label %8, label %.thread12.loopexit
 
 .thread12.loopexit:                               ; preds = %30, %8, %15, %.loopexit, %.backedge
-  %.ph = phi i32 [ %9, %30 ], [ %9, %8 ], [ %9, %15 ], [ %61, %.loopexit ], [ %.be, %.backedge ]
+  %.ph = phi i32 [ %9, %30 ], [ %9, %8 ], [ %9, %15 ], [ %59, %.loopexit ], [ %.be, %.backedge ]
   %.pre = load ptr, ptr %4, align 8
   %62 = add i32 %.ph, -1
   br label %.thread12

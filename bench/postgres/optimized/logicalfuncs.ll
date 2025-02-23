@@ -197,7 +197,7 @@ define internal fastcc void @pg_logical_slot_get_changes_guts(ptr noundef %0, i1
 
 101:                                              ; preds = %._crit_edge, %72
   %.072 = phi ptr [ %.1.lcssa, %._crit_edge ], [ null, %72 ]
-  call void @InitMaterializedSRF(ptr noundef %0, i32 noundef 0) #9
+  call void @InitMaterializedSRF(ptr noundef nonnull %0, i32 noundef 0) #9
   %102 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %52, align 8

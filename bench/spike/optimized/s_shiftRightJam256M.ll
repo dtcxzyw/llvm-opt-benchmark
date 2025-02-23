@@ -59,7 +59,7 @@ softfloat_shortShiftRightJamM.exit.thread:        ; preds = %16
   %23 = sub nuw nsw i64 4, %.0385974
   %24 = getelementptr inbounds nuw i64, ptr %2, i64 %23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false), !tbaa !3
-  br i1 %.0405777, label %51, label %48
+  br i1 %.0405777, label %50, label %47
 
 .lr.ph.i:                                         ; preds = %16
   %25 = sub nsw i64 3, %.0385974
@@ -115,23 +115,22 @@ softfloat_shortShiftRightJamM.exit:               ; preds = %29
   %45 = getelementptr inbounds nuw i64, ptr %2, i64 %44
   %46 = shl nuw nsw i64 %.0385973, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %45, i8 0, i64 %46, i1 false), !tbaa !3
-  br i1 %.0405776, label %51, label %48
+  br i1 %.0405776, label %50, label %47
 
 .loopexit.loopexit:                               ; preds = %11
-  %47 = shl nuw nsw i64 %spec.store.select, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %2, i8 0, i64 %47, i1 false), !tbaa !3
-  br i1 %12, label %51, label %48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false), !tbaa !3
+  br i1 %12, label %50, label %47
 
 .loopexit:                                        ; preds = %softfloat_shortShiftRightJamM.exit
-  br i1 %.0405777, label %51, label %48
+  br i1 %.0405777, label %50, label %47
 
-48:                                               ; preds = %softfloat_shortShiftRightJamM.exit.thread, %.loopexit60, %.loopexit.loopexit, %.loopexit
-  %49 = load i64, ptr %2, align 8, !tbaa !3
-  %50 = or i64 %49, 1
-  store i64 %50, ptr %2, align 8, !tbaa !3
-  br label %51
+47:                                               ; preds = %softfloat_shortShiftRightJamM.exit.thread, %.loopexit60, %.loopexit.loopexit, %.loopexit
+  %48 = load i64, ptr %2, align 8, !tbaa !3
+  %49 = or i64 %48, 1
+  store i64 %49, ptr %2, align 8, !tbaa !3
+  br label %50
 
-51:                                               ; preds = %softfloat_shortShiftRightJamM.exit.thread, %.loopexit60, %.loopexit.loopexit, %48, %.loopexit
+50:                                               ; preds = %softfloat_shortShiftRightJamM.exit.thread, %.loopexit60, %.loopexit.loopexit, %47, %.loopexit
   ret void
 }
 

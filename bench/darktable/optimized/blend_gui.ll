@@ -577,7 +577,7 @@ _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %53,
 
 174:                                              ; preds = %189
   %175 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %172) #18
-  tail call void @_update_gradient_slider_pickers(ptr poison, ptr noundef %0)
+  tail call void @_update_gradient_slider_pickers(ptr poison, ptr noundef nonnull %0)
   %176 = load i32, ptr %22, align 8, !tbaa !72
   %.val = load ptr, ptr %49, align 8, !tbaa !79
   %.val164 = load ptr, ptr %33, align 8, !tbaa !76
@@ -699,8 +699,8 @@ _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %53,
 
 250:                                              ; preds = %247, %243
   %251 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !119
-  call void @dt_dev_add_history_item(ptr noundef %251, ptr noundef %0, i32 noundef 1) #18
-  call fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 noundef %23)
+  call void @dt_dev_add_history_item(ptr noundef %251, ptr noundef nonnull %0, i32 noundef 1) #18
+  call fastcc void @_blendop_blendif_update_tab(ptr noundef nonnull %0, i32 noundef %23)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #18
@@ -2009,7 +2009,7 @@ switch.lookup:                                    ; preds = %40
 69:                                               ; preds = %._crit_edge, %28
   %70 = getelementptr inbounds nuw i8, ptr %3, i64 392
   %71 = load i32, ptr %70, align 8, !tbaa !72
-  tail call fastcc void @_blendop_blendif_update_tab(ptr noundef %0, i32 noundef %71)
+  tail call fastcc void @_blendop_blendif_update_tab(ptr noundef nonnull %0, i32 noundef %71)
   %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !33
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load i32, ptr %73, align 8, !tbaa !66

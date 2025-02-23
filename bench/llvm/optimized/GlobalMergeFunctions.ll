@@ -8141,7 +8141,7 @@ define internal fastcc noundef ptr @_ZL10createCastRN4llvm9IRBuilderINS_14Consta
 ._crit_edge59:                                    ; preds = %24, %17
   %.041.lcssa = phi ptr [ %18, %17 ], [ %32, %24 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  br label %74
+  br label %70
 
 24:                                               ; preds = %.lr.ph58, %24
   %.04156 = phi ptr [ %18, %.lr.ph58 ], [ %32, %24 ]
@@ -8166,96 +8166,91 @@ define internal fastcc noundef ptr @_ZL10createCastRN4llvm9IRBuilderINS_14Consta
   br i1 %35, label %24, label %._crit_edge59, !llvm.loop !429
 
 36:                                               ; preds = %3
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %38 = load i32, ptr %37, align 8
-  %39 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %2) #21
+  %37 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %2) #21
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #21
   store i32 0, ptr %7, align 4, !tbaa !82
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %41 = load i64, ptr %40, align 8, !tbaa !430
-  %42 = trunc i64 %41 to i32
-  %.not61 = icmp eq i32 %42, 0
+  %38 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %39 = load i64, ptr %38, align 8, !tbaa !430
+  %40 = trunc i64 %39 to i32
+  %.not61 = icmp eq i32 %40, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36
-  %43 = and i32 %38, 255
-  %44 = icmp eq i32 %43, 16
-  %spec.select.i.i45 = select i1 %44, ptr %2, ptr null
-  %45 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %46 = getelementptr inbounds nuw i8, ptr %spec.select.i.i45, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  br label %48
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %43 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  br label %44
 
-48:                                               ; preds = %.lr.ph, %48
-  %.04255 = phi ptr [ %39, %.lr.ph ], [ %52, %48 ]
+44:                                               ; preds = %.lr.ph, %44
+  %.04255 = phi ptr [ %37, %.lr.ph ], [ %48, %44 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #21
-  store i16 257, ptr %45, align 8
-  %49 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateExtractValueEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr nonnull %7, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %8)
-  %50 = load ptr, ptr %46, align 8, !tbaa !432
-  %51 = call fastcc noundef ptr @_ZL10createCastRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %49, ptr noundef %50)
+  store i16 257, ptr %41, align 8
+  %45 = call noundef ptr @_ZN4llvm13IRBuilderBase18CreateExtractValueEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr nonnull %7, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %8)
+  %46 = load ptr, ptr %42, align 8, !tbaa !432
+  %47 = call fastcc noundef ptr @_ZL10createCastRN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEEPNS_5ValueEPNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %45, ptr noundef %46)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #21
-  store i16 257, ptr %47, align 8
-  %52 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateInsertValueEPNS_5ValueES2_NS_8ArrayRefIjEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %.04255, ptr noundef %51, ptr nonnull %7, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %9)
+  store i16 257, ptr %43, align 8
+  %48 = call noundef ptr @_ZN4llvm13IRBuilderBase17CreateInsertValueEPNS_5ValueES2_NS_8ArrayRefIjEERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %.04255, ptr noundef %47, ptr nonnull %7, i64 1, ptr noundef nonnull align 8 dereferenceable(34) %9)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #21
-  %53 = load i32, ptr %7, align 4, !tbaa !82
-  %54 = add i32 %53, 1
-  store i32 %54, ptr %7, align 4, !tbaa !82
-  %55 = icmp ult i32 %54, %42
-  br i1 %55, label %48, label %._crit_edge, !llvm.loop !433
+  %49 = load i32, ptr %7, align 4, !tbaa !82
+  %50 = add i32 %49, 1
+  store i32 %50, ptr %7, align 4, !tbaa !82
+  %51 = icmp ult i32 %50, %40
+  br i1 %51, label %44, label %._crit_edge, !llvm.loop !433
 
-._crit_edge:                                      ; preds = %48, %36
-  %.042.lcssa = phi ptr [ %39, %36 ], [ %52, %48 ]
+._crit_edge:                                      ; preds = %44, %36
+  %.042.lcssa = phi ptr [ %37, %36 ], [ %48, %44 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #21
-  br label %74
+  br label %70
 
 .thread:                                          ; preds = %3
   %trunc = trunc i32 %16 to i8
   switch i8 %trunc, label %.thread53 [
-    i8 12, label %56
-    i8 14, label %64
+    i8 12, label %52
+    i8 14, label %60
   ]
 
-56:                                               ; preds = %.thread
-  %57 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %58 = load i32, ptr %57, align 8
-  %59 = and i32 %58, 255
-  %60 = icmp eq i32 %59, 14
-  br i1 %60, label %61, label %.thread53
+52:                                               ; preds = %.thread
+  %53 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %54 = load i32, ptr %53, align 8
+  %55 = and i32 %54, 255
+  %56 = icmp eq i32 %55, 14
+  br i1 %56, label %57, label %.thread53
 
-61:                                               ; preds = %56
+57:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #21
-  %62 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i16 257, ptr %62, align 8
-  %63 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 48, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null, i64 0)
+  %58 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i16 257, ptr %58, align 8
+  %59 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 48, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %10, ptr noundef null, i64 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10) #21
-  br label %74
+  br label %70
 
-64:                                               ; preds = %.thread
-  %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %66 = load i32, ptr %65, align 8
-  %67 = and i32 %66, 255
-  %68 = icmp eq i32 %67, 12
-  br i1 %68, label %69, label %.thread53
+60:                                               ; preds = %.thread
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %62 = load i32, ptr %61, align 8
+  %63 = and i32 %62, 255
+  %64 = icmp eq i32 %63, 12
+  br i1 %64, label %65, label %.thread53
 
-69:                                               ; preds = %64
+65:                                               ; preds = %60
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11) #21
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i16 257, ptr %70, align 8
-  %71 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 47, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef null, i64 0)
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i16 257, ptr %66, align 8
+  %67 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 47, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(34) %11, ptr noundef null, i64 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #21
-  br label %74
+  br label %70
 
-.thread53:                                        ; preds = %.thread, %56, %64
+.thread53:                                        ; preds = %.thread, %52, %60
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %12) #21
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i16 257, ptr %72, align 8
-  %73 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef null, i64 0)
+  %68 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i16 257, ptr %68, align 8
+  %69 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCastENS_11Instruction7CastOpsEPNS_5ValueEPNS_4TypeERKNS_5TwineEPNS_6MDNodeENS_9FMFSourceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef 49, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef null, i64 0)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12) #21
-  br label %74
+  br label %70
 
-74:                                               ; preds = %._crit_edge, %.thread53, %69, %61, %._crit_edge59
-  %.0 = phi ptr [ %.041.lcssa, %._crit_edge59 ], [ %63, %61 ], [ %71, %69 ], [ %73, %.thread53 ], [ %.042.lcssa, %._crit_edge ]
+70:                                               ; preds = %._crit_edge, %.thread53, %65, %57, %._crit_edge59
+  %.0 = phi ptr [ %.041.lcssa, %._crit_edge59 ], [ %59, %57 ], [ %67, %65 ], [ %69, %.thread53 ], [ %.042.lcssa, %._crit_edge ]
   ret ptr %.0
 }
 

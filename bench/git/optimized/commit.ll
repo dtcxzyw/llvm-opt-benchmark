@@ -927,12 +927,7 @@ define dso_local void @set_commit_buffer(ptr noundef readonly captures(none) %0,
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !71
   %.not.i.i = icmp ugt i32 %14, %11
-  br i1 %.not.i.i, label %._crit_edge4.i.i, label %15
-
-._crit_edge4.i.i:                                 ; preds = %4
-  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
-  br label %26
+  br i1 %.not.i.i, label %26, label %15
 
 15:                                               ; preds = %4
   %16 = add i32 %11, 1
@@ -944,7 +939,7 @@ define dso_local void @set_commit_buffer(ptr noundef readonly captures(none) %0,
   store ptr %21, ptr %18, align 8, !tbaa !72
   %22 = load i32, ptr %13, align 8, !tbaa !71
   %.not342.i.i = icmp ugt i32 %22, %11
-  br i1 %.not342.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  br i1 %.not342.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %.lr.ph.i.i
   %.0303.i.i = phi i32 [ %25, %.lr.ph.i.i ], [ %22, %15 ]
@@ -953,44 +948,54 @@ define dso_local void @set_commit_buffer(ptr noundef readonly captures(none) %0,
   store ptr null, ptr %24, align 8, !tbaa !73
   %25 = add i32 %.0303.i.i, 1
   %.not34.i.i = icmp ugt i32 %25, %11
-  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !78
+  br i1 %.not34.i.i, label %.thread.i.i, label %.lr.ph.i.i, !llvm.loop !78
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %15
+26:                                               ; preds = %4
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
+  %27 = zext i32 %11 to i64
+  %28 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %27
+  %29 = load ptr, ptr %28, align 8, !tbaa !73
+  %.not35.i.i = icmp eq ptr %29, null
+  br i1 %.not35.i.i, label %.thread6.i.i, label %buffer_slab_at.exit
+
+.thread.i.i:                                      ; preds = %.lr.ph.i.i, %15
   store i32 %16, ptr %13, align 8, !tbaa !71
-  br label %26
+  %30 = zext i32 %11 to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %21, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !73
+  %.not355.i.i = icmp eq ptr %32, null
+  br i1 %.not355.i.i, label %.thread.i..thread6.i_crit_edge.i, label %buffer_slab_at.exit
 
-26:                                               ; preds = %._crit_edge.i.i, %._crit_edge4.i.i
-  %27 = phi ptr [ %.pre.i.i, %._crit_edge4.i.i ], [ %21, %._crit_edge.i.i ]
-  %28 = zext i32 %11 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !73
-  %.not35.i.i = icmp eq ptr %30, null
-  br i1 %.not35.i.i, label %31, label %buffer_slab_at.exit
+.thread.i..thread6.i_crit_edge.i:                 ; preds = %.thread.i.i
+  %.pre.i = load i32, ptr %8, align 8, !tbaa !70
+  br label %.thread6.i.i
 
-31:                                               ; preds = %26
-  %32 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %33 = load i32, ptr %8, align 8, !tbaa !70
-  %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !67
-  %37 = zext i32 %36 to i64
-  %38 = shl nuw nsw i64 %37, 4
-  %39 = tail call ptr @xcalloc(i64 noundef %34, i64 noundef %38) #24
-  %40 = load ptr, ptr %32, align 8, !tbaa !72
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %28
-  store ptr %39, ptr %41, align 8, !tbaa !73
+.thread6.i.i:                                     ; preds = %.thread.i..thread6.i_crit_edge.i, %26
+  %33 = phi i32 [ %.pre.i, %.thread.i..thread6.i_crit_edge.i ], [ %10, %26 ]
+  %34 = phi i64 [ %30, %.thread.i..thread6.i_crit_edge.i ], [ %27, %26 ]
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %36 = zext i32 %33 to i64
+  %37 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !67
+  %39 = zext i32 %38 to i64
+  %40 = shl nuw nsw i64 %39, 4
+  %41 = tail call ptr @xcalloc(i64 noundef %36, i64 noundef %40) #24
+  %42 = load ptr, ptr %35, align 8, !tbaa !72
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %34
+  store ptr %41, ptr %43, align 8, !tbaa !73
   br label %buffer_slab_at.exit
 
-buffer_slab_at.exit:                              ; preds = %26, %31
-  %42 = phi ptr [ %39, %31 ], [ %30, %26 ]
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %44 = load i32, ptr %43, align 4, !tbaa !67
-  %45 = mul i32 %44, %12
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %struct.commit_buffer, ptr %42, i64 %46
-  store ptr %2, ptr %47, align 8, !tbaa !79
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i64 %3, ptr %48, align 8, !tbaa !81
+buffer_slab_at.exit:                              ; preds = %26, %.thread.i.i, %.thread6.i.i
+  %44 = phi ptr [ %41, %.thread6.i.i ], [ %29, %26 ], [ %32, %.thread.i.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !67
+  %47 = mul i32 %46, %12
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw %struct.commit_buffer, ptr %44, i64 %48
+  store ptr %2, ptr %49, align 8, !tbaa !79
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i64 %3, ptr %50, align 8, !tbaa !81
   ret void
 }
 
@@ -1008,46 +1013,46 @@ define dso_local ptr @get_cached_commit_buffer(ptr noundef readonly captures(non
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !71
   %.not.i.i = icmp ugt i32 %13, %10
-  br i1 %.not.i.i, label %._crit_edge4.i.i, label %buffer_slab_peek.exit.thread
+  br i1 %.not.i.i, label %14, label %buffer_slab_peek.exit.thread
 
-._crit_edge4.i.i:                                 ; preds = %3
+14:                                               ; preds = %3
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
-  %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not35.i.i = icmp eq ptr %16, null
+  %15 = zext i32 %10 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
+  %.not35.i.i = icmp eq ptr %17, null
   br i1 %.not35.i.i, label %buffer_slab_peek.exit.thread, label %buffer_slab_peek.exit
 
-buffer_slab_peek.exit:                            ; preds = %._crit_edge4.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !67
-  %19 = mul i32 %18, %11
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.commit_buffer, ptr %16, i64 %20
+buffer_slab_peek.exit:                            ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !67
+  %20 = mul i32 %19, %11
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %struct.commit_buffer, ptr %17, i64 %21
   %.not13 = icmp eq ptr %2, null
-  br i1 %.not13, label %26, label %23
+  br i1 %.not13, label %27, label %24
 
-buffer_slab_peek.exit.thread:                     ; preds = %._crit_edge4.i.i, %3
+buffer_slab_peek.exit.thread:                     ; preds = %14, %3
   %.not12 = icmp eq ptr %2, null
-  br i1 %.not12, label %28, label %22
+  br i1 %.not12, label %29, label %23
 
-22:                                               ; preds = %buffer_slab_peek.exit.thread
+23:                                               ; preds = %buffer_slab_peek.exit.thread
   store i64 0, ptr %2, align 8, !tbaa !82
-  br label %28
+  br label %29
 
-23:                                               ; preds = %buffer_slab_peek.exit
-  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %25 = load i64, ptr %24, align 8, !tbaa !81
-  store i64 %25, ptr %2, align 8, !tbaa !82
-  br label %26
+24:                                               ; preds = %buffer_slab_peek.exit
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %26 = load i64, ptr %25, align 8, !tbaa !81
+  store i64 %26, ptr %2, align 8, !tbaa !82
+  br label %27
 
-26:                                               ; preds = %23, %buffer_slab_peek.exit
-  %27 = load ptr, ptr %21, align 8, !tbaa !79
-  br label %28
+27:                                               ; preds = %24, %buffer_slab_peek.exit
+  %28 = load ptr, ptr %22, align 8, !tbaa !79
+  br label %29
 
-28:                                               ; preds = %buffer_slab_peek.exit.thread, %22, %26
-  %.0 = phi ptr [ %27, %26 ], [ null, %22 ], [ null, %buffer_slab_peek.exit.thread ]
+29:                                               ; preds = %buffer_slab_peek.exit.thread, %23, %27
+  %.0 = phi ptr [ %28, %27 ], [ null, %23 ], [ null, %buffer_slab_peek.exit.thread ]
   ret ptr %.0
 }
 
@@ -1067,86 +1072,86 @@ define dso_local nonnull ptr @repo_get_commit_buffer(ptr noundef %0, ptr noundef
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %15, %12
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %buffer_slab_peek.exit.thread.i
+  br i1 %.not.i.i.i, label %16, label %buffer_slab_peek.exit.thread.i
 
-._crit_edge4.i.i.i:                               ; preds = %3
+16:                                               ; preds = %3
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %16 = zext i32 %12 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %16
-  %18 = load ptr, ptr %17, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %18, null
+  %17 = zext i32 %12 to i64
+  %18 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %17
+  %19 = load ptr, ptr %18, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %19, null
   br i1 %.not35.i.i.i, label %buffer_slab_peek.exit.thread.i, label %buffer_slab_peek.exit.i
 
-buffer_slab_peek.exit.i:                          ; preds = %._crit_edge4.i.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %20 = load i32, ptr %19, align 4, !tbaa !67
-  %21 = mul i32 %20, %13
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.commit_buffer, ptr %18, i64 %22
+buffer_slab_peek.exit.i:                          ; preds = %16
+  %20 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %21 = load i32, ptr %20, align 4, !tbaa !67
+  %22 = mul i32 %21, %13
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw %struct.commit_buffer, ptr %19, i64 %23
   %.not13.i = icmp eq ptr %2, null
-  br i1 %.not13.i, label %get_cached_commit_buffer.exit, label %25
+  br i1 %.not13.i, label %get_cached_commit_buffer.exit, label %26
 
-buffer_slab_peek.exit.thread.i:                   ; preds = %._crit_edge4.i.i.i, %3
+buffer_slab_peek.exit.thread.i:                   ; preds = %16, %3
   %.not12.i = icmp eq ptr %2, null
-  br i1 %.not12.i, label %get_cached_commit_buffer.exit.thread, label %24
+  br i1 %.not12.i, label %get_cached_commit_buffer.exit.thread, label %25
 
-24:                                               ; preds = %buffer_slab_peek.exit.thread.i
+25:                                               ; preds = %buffer_slab_peek.exit.thread.i
   store i64 0, ptr %2, align 8, !tbaa !82
   br label %get_cached_commit_buffer.exit.thread
 
-25:                                               ; preds = %buffer_slab_peek.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %27 = load i64, ptr %26, align 8, !tbaa !81
-  store i64 %27, ptr %2, align 8, !tbaa !82
+26:                                               ; preds = %buffer_slab_peek.exit.i
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !81
+  store i64 %28, ptr %2, align 8, !tbaa !82
   br label %get_cached_commit_buffer.exit
 
-get_cached_commit_buffer.exit:                    ; preds = %buffer_slab_peek.exit.i, %25
-  %28 = load ptr, ptr %23, align 8, !tbaa !79
-  %.not = icmp eq ptr %28, null
-  br i1 %.not, label %get_cached_commit_buffer.exit.thread, label %43
+get_cached_commit_buffer.exit:                    ; preds = %buffer_slab_peek.exit.i, %26
+  %29 = load ptr, ptr %24, align 8, !tbaa !79
+  %.not = icmp eq ptr %29, null
+  br i1 %.not, label %get_cached_commit_buffer.exit.thread, label %44
 
-get_cached_commit_buffer.exit.thread:             ; preds = %buffer_slab_peek.exit.thread.i, %24, %get_cached_commit_buffer.exit
+get_cached_commit_buffer.exit.thread:             ; preds = %buffer_slab_peek.exit.thread.i, %25, %get_cached_commit_buffer.exit
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = call ptr @repo_read_object_file(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
-  %.not15 = icmp eq ptr %30, null
-  br i1 %.not15, label %31, label %33
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %31 = call ptr @repo_read_object_file(ptr noundef nonnull %0, ptr noundef nonnull %30, ptr noundef nonnull %4, ptr noundef nonnull %5) #24
+  %.not15 = icmp eq ptr %31, null
+  br i1 %.not15, label %32, label %34
 
-31:                                               ; preds = %get_cached_commit_buffer.exit.thread
-  %32 = call ptr @oid_to_hex(ptr noundef nonnull %29) #24
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, ptr noundef %32) #25
+32:                                               ; preds = %get_cached_commit_buffer.exit.thread
+  %33 = call ptr @oid_to_hex(ptr noundef nonnull %30) #24
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.4, ptr noundef %33) #25
   unreachable
 
-33:                                               ; preds = %get_cached_commit_buffer.exit.thread
-  %34 = load i32, ptr %4, align 4, !tbaa !9
-  %.not16 = icmp eq i32 %34, 1
-  br i1 %.not16, label %39, label %35
+34:                                               ; preds = %get_cached_commit_buffer.exit.thread
+  %35 = load i32, ptr %4, align 4, !tbaa !9
+  %.not16 = icmp eq i32 %35, 1
+  br i1 %.not16, label %40, label %36
 
-35:                                               ; preds = %33
-  %36 = call ptr @oid_to_hex(ptr noundef nonnull %29) #24
-  %37 = load i32, ptr %4, align 4, !tbaa !9
-  %38 = call ptr @type_name(i32 noundef %37) #24
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %36, ptr noundef %38) #25
+36:                                               ; preds = %34
+  %37 = call ptr @oid_to_hex(ptr noundef nonnull %30) #24
+  %38 = load i32, ptr %4, align 4, !tbaa !9
+  %39 = call ptr @type_name(i32 noundef %38) #24
+  call void (ptr, ...) @die(ptr noundef nonnull @.str.5, ptr noundef %37, ptr noundef %39) #25
   unreachable
 
-39:                                               ; preds = %33
+40:                                               ; preds = %34
   %.not17 = icmp eq ptr %2, null
-  br i1 %.not17, label %42, label %40
+  br i1 %.not17, label %43, label %41
 
-40:                                               ; preds = %39
-  %41 = load i64, ptr %5, align 8, !tbaa !82
-  store i64 %41, ptr %2, align 8, !tbaa !82
-  br label %42
-
-42:                                               ; preds = %40, %39
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+41:                                               ; preds = %40
+  %42 = load i64, ptr %5, align 8, !tbaa !82
+  store i64 %42, ptr %2, align 8, !tbaa !82
   br label %43
 
-43:                                               ; preds = %42, %get_cached_commit_buffer.exit
-  %.0 = phi ptr [ %28, %get_cached_commit_buffer.exit ], [ %30, %42 ]
+43:                                               ; preds = %41, %40
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #24
+  br label %44
+
+44:                                               ; preds = %43, %get_cached_commit_buffer.exit
+  %.0 = phi ptr [ %29, %get_cached_commit_buffer.exit ], [ %31, %43 ]
   ret ptr %.0
 }
 
@@ -1168,32 +1173,32 @@ define dso_local void @repo_unuse_commit_buffer(ptr noundef readonly captures(no
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !71
   %.not.i.i = icmp ugt i32 %13, %10
-  br i1 %.not.i.i, label %._crit_edge4.i.i, label %buffer_slab_peek.exit.thread
+  br i1 %.not.i.i, label %14, label %buffer_slab_peek.exit.thread
 
-._crit_edge4.i.i:                                 ; preds = %3
+14:                                               ; preds = %3
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
-  %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not35.i.i = icmp eq ptr %16, null
+  %15 = zext i32 %10 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
+  %.not35.i.i = icmp eq ptr %17, null
   br i1 %.not35.i.i, label %buffer_slab_peek.exit.thread, label %buffer_slab_peek.exit
 
-buffer_slab_peek.exit:                            ; preds = %._crit_edge4.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !67
-  %19 = mul i32 %18, %11
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.commit_buffer, ptr %16, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !79
-  %23 = icmp eq ptr %22, %2
-  br i1 %23, label %24, label %buffer_slab_peek.exit.thread
+buffer_slab_peek.exit:                            ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !67
+  %20 = mul i32 %19, %11
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %struct.commit_buffer, ptr %17, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !79
+  %24 = icmp eq ptr %23, %2
+  br i1 %24, label %25, label %buffer_slab_peek.exit.thread
 
-buffer_slab_peek.exit.thread:                     ; preds = %._crit_edge4.i.i, %3, %buffer_slab_peek.exit
+buffer_slab_peek.exit.thread:                     ; preds = %14, %3, %buffer_slab_peek.exit
   tail call void @free(ptr noundef %2) #24
-  br label %24
+  br label %25
 
-24:                                               ; preds = %buffer_slab_peek.exit.thread, %buffer_slab_peek.exit
+25:                                               ; preds = %buffer_slab_peek.exit.thread, %buffer_slab_peek.exit
   ret void
 }
 
@@ -1209,29 +1214,29 @@ define dso_local void @free_commit_buffer(ptr noundef readonly captures(none) %0
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !71
   %.not.i.i = icmp ugt i32 %10, %7
-  br i1 %.not.i.i, label %._crit_edge4.i.i, label %buffer_slab_peek.exit.thread
+  br i1 %.not.i.i, label %11, label %buffer_slab_peek.exit.thread
 
-._crit_edge4.i.i:                                 ; preds = %2
+11:                                               ; preds = %2
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
-  %11 = zext i32 %7 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %11
-  %13 = load ptr, ptr %12, align 8, !tbaa !73
-  %.not35.i.i = icmp eq ptr %13, null
+  %12 = zext i32 %7 to i64
+  %13 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %12
+  %14 = load ptr, ptr %13, align 8, !tbaa !73
+  %.not35.i.i = icmp eq ptr %14, null
   br i1 %.not35.i.i, label %buffer_slab_peek.exit.thread, label %buffer_slab_peek.exit
 
-buffer_slab_peek.exit:                            ; preds = %._crit_edge4.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %15 = load i32, ptr %14, align 4, !tbaa !67
-  %16 = mul i32 %15, %8
-  %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.commit_buffer, ptr %13, i64 %17
-  %19 = load ptr, ptr %18, align 8, !tbaa !79
-  tail call void @free(ptr noundef %19) #24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
+buffer_slab_peek.exit:                            ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %16 = load i32, ptr %15, align 4, !tbaa !67
+  %17 = mul i32 %16, %8
+  %18 = zext i32 %17 to i64
+  %19 = getelementptr inbounds nuw %struct.commit_buffer, ptr %14, i64 %18
+  %20 = load ptr, ptr %19, align 8, !tbaa !79
+  tail call void @free(ptr noundef %20) #24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   br label %buffer_slab_peek.exit.thread
 
-buffer_slab_peek.exit.thread:                     ; preds = %._crit_edge4.i.i, %2, %buffer_slab_peek.exit
+buffer_slab_peek.exit.thread:                     ; preds = %11, %2, %buffer_slab_peek.exit
   ret void
 }
 
@@ -1311,47 +1316,47 @@ define dso_local void @release_commit_memory(ptr noundef readonly captures(none)
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %11, %8
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %free_commit_buffer.exit
+  br i1 %.not.i.i.i, label %12, label %free_commit_buffer.exit
 
-._crit_edge4.i.i.i:                               ; preds = %2
+12:                                               ; preds = %2
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %12 = zext i32 %8 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %12
-  %14 = load ptr, ptr %13, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %14, null
+  %13 = zext i32 %8 to i64
+  %14 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %15, null
   br i1 %.not35.i.i.i, label %free_commit_buffer.exit, label %buffer_slab_peek.exit.i
 
-buffer_slab_peek.exit.i:                          ; preds = %._crit_edge4.i.i.i
-  %15 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %16 = load i32, ptr %15, align 4, !tbaa !67
-  %17 = mul i32 %16, %9
-  %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.commit_buffer, ptr %14, i64 %18
-  %20 = load ptr, ptr %19, align 8, !tbaa !79
-  tail call void @free(ptr noundef %20) #24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
+buffer_slab_peek.exit.i:                          ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !67
+  %18 = mul i32 %17, %9
+  %19 = zext i32 %18 to i64
+  %20 = getelementptr inbounds nuw %struct.commit_buffer, ptr %15, i64 %19
+  %21 = load ptr, ptr %20, align 8, !tbaa !79
+  tail call void @free(ptr noundef %21) #24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   br label %free_commit_buffer.exit
 
-free_commit_buffer.exit:                          ; preds = %2, %._crit_edge4.i.i.i, %buffer_slab_peek.exit.i
+free_commit_buffer.exit:                          ; preds = %2, %12, %buffer_slab_peek.exit.i
   store i32 0, ptr %6, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !42
-  %.not2.i = icmp eq ptr %22, null
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %23 = load ptr, ptr %22, align 8, !tbaa !42
+  %.not2.i = icmp eq ptr %23, null
   br i1 %.not2.i, label %free_commit_list.exit, label %pop_commit.exit.i
 
 pop_commit.exit.i:                                ; preds = %free_commit_buffer.exit, %pop_commit.exit.i
-  %.03.i = phi ptr [ %24, %pop_commit.exit.i ], [ %22, %free_commit_buffer.exit ]
-  %23 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !48
+  %.03.i = phi ptr [ %25, %pop_commit.exit.i ], [ %23, %free_commit_buffer.exit ]
+  %24 = getelementptr inbounds nuw i8, ptr %.03.i, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !48
   tail call void @free(ptr noundef nonnull %.03.i) #24
-  %.not.i = icmp eq ptr %24, null
+  %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %free_commit_list.exit, label %pop_commit.exit.i, !llvm.loop !51
 
 free_commit_list.exit:                            ; preds = %pop_commit.exit.i, %free_commit_buffer.exit
-  %25 = load i32, ptr %1, align 8
-  %26 = and i32 %25, -2
-  store i32 %26, ptr %1, align 8
+  %26 = load i32, ptr %1, align 8
+  %27 = and i32 %26, -2
+  store i32 %27, ptr %1, align 8
   ret void
 }
 
@@ -1370,47 +1375,47 @@ define dso_local ptr @detach_commit_buffer(ptr noundef readonly captures(none) %
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !71
   %.not.i.i = icmp ugt i32 %13, %10
-  br i1 %.not.i.i, label %._crit_edge4.i.i, label %buffer_slab_peek.exit.thread
+  br i1 %.not.i.i, label %14, label %buffer_slab_peek.exit.thread
 
-._crit_edge4.i.i:                                 ; preds = %2
+14:                                               ; preds = %2
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !72
-  %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %14
-  %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not35.i.i = icmp eq ptr %16, null
+  %15 = zext i32 %10 to i64
+  %16 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %15
+  %17 = load ptr, ptr %16, align 8, !tbaa !73
+  %.not35.i.i = icmp eq ptr %17, null
   br i1 %.not35.i.i, label %buffer_slab_peek.exit.thread, label %buffer_slab_peek.exit
 
-buffer_slab_peek.exit:                            ; preds = %._crit_edge4.i.i
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !67
-  %19 = mul i32 %18, %11
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.commit_buffer, ptr %16, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !79
+buffer_slab_peek.exit:                            ; preds = %14
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !67
+  %20 = mul i32 %19, %11
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds nuw %struct.commit_buffer, ptr %17, i64 %21
+  %23 = load ptr, ptr %22, align 8, !tbaa !79
   %.not15 = icmp eq ptr %1, null
-  br i1 %.not15, label %27, label %24
+  br i1 %.not15, label %28, label %25
 
-buffer_slab_peek.exit.thread:                     ; preds = %._crit_edge4.i.i, %2
+buffer_slab_peek.exit.thread:                     ; preds = %14, %2
   %.not14 = icmp eq ptr %1, null
-  br i1 %.not14, label %28, label %23
+  br i1 %.not14, label %29, label %24
 
-23:                                               ; preds = %buffer_slab_peek.exit.thread
+24:                                               ; preds = %buffer_slab_peek.exit.thread
   store i64 0, ptr %1, align 8, !tbaa !82
+  br label %29
+
+25:                                               ; preds = %buffer_slab_peek.exit
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = load i64, ptr %26, align 8, !tbaa !81
+  store i64 %27, ptr %1, align 8, !tbaa !82
   br label %28
 
-24:                                               ; preds = %buffer_slab_peek.exit
-  %25 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %26 = load i64, ptr %25, align 8, !tbaa !81
-  store i64 %26, ptr %1, align 8, !tbaa !82
-  br label %27
+28:                                               ; preds = %25, %buffer_slab_peek.exit
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %22, i8 0, i64 16, i1 false)
+  br label %29
 
-27:                                               ; preds = %24, %buffer_slab_peek.exit
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
-  br label %28
-
-28:                                               ; preds = %buffer_slab_peek.exit.thread, %23, %27
-  %.0 = phi ptr [ %22, %27 ], [ null, %23 ], [ null, %buffer_slab_peek.exit.thread ]
+29:                                               ; preds = %buffer_slab_peek.exit.thread, %24, %28
+  %.0 = phi ptr [ %23, %28 ], [ null, %24 ], [ null, %buffer_slab_peek.exit.thread ]
   ret ptr %.0
 }
 
@@ -1848,13 +1853,13 @@ define dso_local range(i32 -1, 1) i32 @repo_parse_commit_internal(ptr noundef %0
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %.not = icmp eq ptr %1, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 0, i64 32, i1 false)
-  br i1 %.not, label %95, label %13
+  br i1 %.not, label %96, label %13
 
 13:                                               ; preds = %4
   %14 = load i32, ptr %1, align 8
   %15 = and i32 %14, 1
   %.not27 = icmp eq i32 %15, 0
-  br i1 %.not27, label %16, label %95
+  br i1 %.not27, label %16, label %96
 
 16:                                               ; preds = %13
   %.not28 = icmp eq i32 %3, 0
@@ -1878,13 +1883,13 @@ define dso_local range(i32 -1, 1) i32 @repo_parse_commit_internal(ptr noundef %0
 24:                                               ; preds = %22, %19
   %25 = phi i32 [ %23, %22 ], [ %20, %19 ]
   %.not33 = icmp eq i32 %25, 0
-  br i1 %.not33, label %95, label %26
+  br i1 %.not33, label %96, label %26
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %28 = call i32 @has_object(ptr noundef %0, ptr noundef nonnull %27, i32 noundef 0) #24
   %.not34 = icmp eq i32 %28, 0
-  br i1 %.not34, label %29, label %95
+  br i1 %.not34, label %29, label %96
 
 29:                                               ; preds = %26
   %30 = call ptr @lookup_object(ptr noundef %0, ptr noundef nonnull %27) #24
@@ -1934,7 +1939,7 @@ free_commit_list.exit.i:                          ; preds = %free_commit_list.ex
 
 unparse_commit.exit:                              ; preds = %lookup_commit.exit.i, %free_commit_list.exit.i
   %.not35 = icmp eq i32 %2, 0
-  br i1 %.not35, label %45, label %95
+  br i1 %.not35, label %45, label %96
 
 45:                                               ; preds = %unparse_commit.exit
   %46 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !9
@@ -1949,7 +1954,7 @@ _.exit:                                           ; preds = %45, %47
   %.0.i = phi ptr [ %48, %47 ], [ @.str.15, %45 ]
   %49 = call ptr @oid_to_hex(ptr noundef nonnull %27) #24
   %50 = call i32 (ptr, ...) @error(ptr noundef %.0.i, ptr noundef %49) #24
-  br label %95
+  br label %96
 
 51:                                               ; preds = %17, %16
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1959,12 +1964,12 @@ _.exit:                                           ; preds = %45, %47
 
 55:                                               ; preds = %51
   %.not32 = icmp eq i32 %2, 0
-  br i1 %.not32, label %56, label %95
+  br i1 %.not32, label %56, label %96
 
 56:                                               ; preds = %55
   %57 = call ptr @oid_to_hex(ptr noundef nonnull %52) #24
   %58 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef %57) #24
-  br label %95
+  br label %96
 
 59:                                               ; preds = %51
   %60 = load i32, ptr %5, align 4, !tbaa !9
@@ -1976,7 +1981,7 @@ _.exit:                                           ; preds = %45, %47
   call void @free(ptr noundef %61) #24
   %63 = call ptr @oid_to_hex(ptr noundef nonnull %52) #24
   %64 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, ptr noundef %63) #24
-  br label %95
+  br label %96
 
 65:                                               ; preds = %59
   %66 = load i64, ptr %7, align 8, !tbaa !82
@@ -1985,7 +1990,7 @@ _.exit:                                           ; preds = %45, %47
   %69 = icmp eq i32 %68, 0
   %70 = icmp ne i32 %67, 0
   %or.cond = select i1 %69, i1 true, i1 %70
-  br i1 %or.cond, label %93, label %71
+  br i1 %or.cond, label %94, label %71
 
 71:                                               ; preds = %65
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2000,40 +2005,40 @@ _.exit:                                           ; preds = %45, %47
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %81, %78
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %get_cached_commit_buffer.exit.thread
+  br i1 %.not.i.i.i, label %82, label %get_cached_commit_buffer.exit.thread
 
-._crit_edge4.i.i.i:                               ; preds = %71
+82:                                               ; preds = %71
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %75, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %82 = zext i32 %78 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %84, null
+  %83 = zext i32 %78 to i64
+  %84 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %83
+  %85 = load ptr, ptr %84, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %85, null
   br i1 %.not35.i.i.i, label %get_cached_commit_buffer.exit.thread, label %get_cached_commit_buffer.exit
 
-get_cached_commit_buffer.exit:                    ; preds = %._crit_edge4.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %86 = load i32, ptr %85, align 4, !tbaa !67
-  %87 = mul i32 %86, %79
-  %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.commit_buffer, ptr %84, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !79
-  %.not31 = icmp eq ptr %90, null
-  br i1 %.not31, label %get_cached_commit_buffer.exit.thread, label %93
+get_cached_commit_buffer.exit:                    ; preds = %82
+  %86 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %87 = load i32, ptr %86, align 4, !tbaa !67
+  %88 = mul i32 %87, %79
+  %89 = zext i32 %88 to i64
+  %90 = getelementptr inbounds nuw %struct.commit_buffer, ptr %85, i64 %89
+  %91 = load ptr, ptr %90, align 8, !tbaa !79
+  %.not31 = icmp eq ptr %91, null
+  br i1 %.not31, label %get_cached_commit_buffer.exit.thread, label %94
 
-get_cached_commit_buffer.exit.thread:             ; preds = %71, %._crit_edge4.i.i.i, %get_cached_commit_buffer.exit
-  %91 = load ptr, ptr %6, align 8, !tbaa !103
-  %92 = load i64, ptr %7, align 8, !tbaa !82
-  call void @set_commit_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %91, i64 noundef %92)
-  br label %95
+get_cached_commit_buffer.exit.thread:             ; preds = %71, %82, %get_cached_commit_buffer.exit
+  %92 = load ptr, ptr %6, align 8, !tbaa !103
+  %93 = load i64, ptr %7, align 8, !tbaa !82
+  call void @set_commit_buffer(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %92, i64 noundef %93)
+  br label %96
 
-93:                                               ; preds = %get_cached_commit_buffer.exit, %65
-  %94 = load ptr, ptr %6, align 8, !tbaa !103
-  call void @free(ptr noundef %94) #24
-  br label %95
+94:                                               ; preds = %get_cached_commit_buffer.exit, %65
+  %95 = load ptr, ptr %6, align 8, !tbaa !103
+  call void @free(ptr noundef %95) #24
+  br label %96
 
-95:                                               ; preds = %56, %55, %24, %26, %_.exit, %unparse_commit.exit, %13, %4, %93, %get_cached_commit_buffer.exit.thread, %62
-  %.0 = phi i32 [ -1, %62 ], [ %67, %93 ], [ 0, %get_cached_commit_buffer.exit.thread ], [ -1, %4 ], [ 0, %13 ], [ -1, %unparse_commit.exit ], [ -1, %_.exit ], [ 0, %26 ], [ 0, %24 ], [ -1, %55 ], [ -1, %56 ]
+96:                                               ; preds = %56, %55, %24, %26, %_.exit, %unparse_commit.exit, %13, %4, %94, %get_cached_commit_buffer.exit.thread, %62
+  %.0 = phi i32 [ -1, %62 ], [ %67, %94 ], [ 0, %get_cached_commit_buffer.exit.thread ], [ -1, %4 ], [ 0, %13 ], [ -1, %unparse_commit.exit ], [ -1, %_.exit ], [ 0, %26 ], [ 0, %24 ], [ -1, %55 ], [ -1, %56 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #24
@@ -2932,28 +2937,28 @@ find_commit_header.exit.thread:                   ; preds = %select.unfold.i, %7
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %88 = load i32, ptr %87, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %88, %85
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %buffer_slab_peek.exit.thread.i
+  br i1 %.not.i.i.i, label %89, label %buffer_slab_peek.exit.thread.i
 
-._crit_edge4.i.i.i:                               ; preds = %find_commit_header.exit.thread
+89:                                               ; preds = %find_commit_header.exit.thread
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %82, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %89
-  %91 = load ptr, ptr %90, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %91, null
+  %90 = zext i32 %85 to i64
+  %91 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %90
+  %92 = load ptr, ptr %91, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %92, null
   br i1 %.not35.i.i.i, label %buffer_slab_peek.exit.thread.i, label %buffer_slab_peek.exit.i
 
-buffer_slab_peek.exit.i:                          ; preds = %._crit_edge4.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %82, i64 4
-  %93 = load i32, ptr %92, align 4, !tbaa !67
-  %94 = mul i32 %93, %86
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %struct.commit_buffer, ptr %91, i64 %95
-  %97 = load ptr, ptr %96, align 8, !tbaa !79
-  %98 = icmp eq ptr %97, %6
-  br i1 %98, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
+buffer_slab_peek.exit.i:                          ; preds = %89
+  %93 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %94 = load i32, ptr %93, align 4, !tbaa !67
+  %95 = mul i32 %94, %86
+  %96 = zext i32 %95 to i64
+  %97 = getelementptr inbounds nuw %struct.commit_buffer, ptr %92, i64 %96
+  %98 = load ptr, ptr %97, align 8, !tbaa !79
+  %99 = icmp eq ptr %98, %6
+  br i1 %99, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
 
-buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %._crit_edge4.i.i.i, %find_commit_header.exit.thread
+buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %89, %find_commit_header.exit.thread
   call void @free(ptr noundef nonnull %6) #24
   br label %repo_unuse_commit_buffer.exit
 
@@ -3215,7 +3220,7 @@ define dso_local void @sort_in_topological_order(ptr noundef captures(none) %0, 
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #24
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %174, label %6
+  br i1 %.not, label %173, label %6
 
 6:                                                ; preds = %2
   store ptr null, ptr %0, align 8, !tbaa !90
@@ -3598,15 +3603,14 @@ indegree_slab_at.exit108:                         ; preds = %._crit_edge4.i.i105
 .lr.ph.i.preheader:                               ; preds = %indegree_slab_at.exit108, %free_commit_list.exit
   %.sroa.24.4.lcssa = phi i32 [ %.sroa.24.8, %free_commit_list.exit ], [ %.sroa.24.10, %indegree_slab_at.exit108 ]
   %.sroa.43143.4.lcssa = phi ptr [ %.sroa.43143.8, %free_commit_list.exit ], [ %.sroa.43143.10, %indegree_slab_at.exit108 ]
-  %158 = call i32 @llvm.umax.i32(i32 %.sroa.24.4.lcssa, i32 1)
-  %umax = zext i32 %158 to i64
+  %umax = zext i32 %.sroa.24.4.lcssa to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %159 = getelementptr inbounds nuw ptr, ptr %.sroa.43143.4.lcssa, i64 %indvars.iv.i
-  %160 = load ptr, ptr %159, align 8, !tbaa !130
-  call void @free(ptr noundef %160) #24
+  %158 = getelementptr inbounds nuw ptr, ptr %.sroa.43143.4.lcssa, i64 %indvars.iv.i
+  %159 = load ptr, ptr %158, align 8, !tbaa !130
+  call void @free(ptr noundef %159) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %umax
   br i1 %exitcond.not, label %clear_indegree_slab.exit, label %.lr.ph.i, !llvm.loop !138
@@ -3614,38 +3618,38 @@ indegree_slab_at.exit108:                         ; preds = %._crit_edge4.i.i105
 clear_indegree_slab.exit:                         ; preds = %.lr.ph.i
   call void @free(ptr noundef nonnull %.sroa.43143.4.lcssa) #24
   call void @clear_prio_queue(ptr noundef nonnull %3) #24
-  br i1 %14, label %161, label %174
+  br i1 %14, label %160, label %173
 
-161:                                              ; preds = %clear_indegree_slab.exit
-  %162 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %163 = load i32, ptr %162, align 8, !tbaa !121
-  %.not.i110 = icmp eq i32 %163, 0
+160:                                              ; preds = %clear_indegree_slab.exit
+  %161 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %162 = load i32, ptr %161, align 8, !tbaa !121
+  %.not.i110 = icmp eq i32 %162, 0
   br i1 %.not.i110, label %clear_author_date_slab.exit, label %.lr.ph.i111
 
-.lr.ph.i111:                                      ; preds = %161
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  br label %165
+.lr.ph.i111:                                      ; preds = %160
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  br label %164
 
-165:                                              ; preds = %165, %.lr.ph.i111
-  %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.i111 ], [ %indvars.iv.next.i113, %165 ]
-  %166 = load ptr, ptr %164, align 8, !tbaa !122
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i112
-  %168 = load ptr, ptr %167, align 8, !tbaa !123
-  call void @free(ptr noundef %168) #24
+164:                                              ; preds = %164, %.lr.ph.i111
+  %indvars.iv.i112 = phi i64 [ 0, %.lr.ph.i111 ], [ %indvars.iv.next.i113, %164 ]
+  %165 = load ptr, ptr %163, align 8, !tbaa !122
+  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %indvars.iv.i112
+  %167 = load ptr, ptr %166, align 8, !tbaa !123
+  call void @free(ptr noundef %167) #24
   %indvars.iv.next.i113 = add nuw nsw i64 %indvars.iv.i112, 1
-  %169 = load i32, ptr %162, align 8, !tbaa !121
-  %170 = zext i32 %169 to i64
-  %171 = icmp samesign ult i64 %indvars.iv.next.i113, %170
-  br i1 %171, label %165, label %clear_author_date_slab.exit, !llvm.loop !139
+  %168 = load i32, ptr %161, align 8, !tbaa !121
+  %169 = zext i32 %168 to i64
+  %170 = icmp samesign ult i64 %indvars.iv.next.i113, %169
+  br i1 %170, label %164, label %clear_author_date_slab.exit, !llvm.loop !139
 
-clear_author_date_slab.exit:                      ; preds = %165, %161
-  store i32 0, ptr %162, align 8, !tbaa !121
-  %172 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %173 = load ptr, ptr %172, align 8, !tbaa !122
-  call void @free(ptr noundef %173) #24
-  br label %174
+clear_author_date_slab.exit:                      ; preds = %164, %160
+  store i32 0, ptr %161, align 8, !tbaa !121
+  %171 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %172 = load ptr, ptr %171, align 8, !tbaa !122
+  call void @free(ptr noundef %172) #24
+  br label %173
 
-174:                                              ; preds = %clear_indegree_slab.exit, %clear_author_date_slab.exit, %2
+173:                                              ; preds = %clear_indegree_slab.exit, %clear_author_date_slab.exit, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #24
   ret void
@@ -4056,28 +4060,28 @@ define dso_local range(i32 0, 2) i32 @parse_signed_commit(ptr noundef %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %20, %17
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %buffer_slab_peek.exit.thread.i
+  br i1 %.not.i.i.i, label %21, label %buffer_slab_peek.exit.thread.i
 
-._crit_edge4.i.i.i:                               ; preds = %4
+21:                                               ; preds = %4
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %21 = zext i32 %17 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %21
-  %23 = load ptr, ptr %22, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %23, null
+  %22 = zext i32 %17 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %24, null
   br i1 %.not35.i.i.i, label %buffer_slab_peek.exit.thread.i, label %buffer_slab_peek.exit.i
 
-buffer_slab_peek.exit.i:                          ; preds = %._crit_edge4.i.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !67
-  %26 = mul i32 %25, %18
-  %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.commit_buffer, ptr %23, i64 %27
-  %29 = load ptr, ptr %28, align 8, !tbaa !79
-  %30 = icmp eq ptr %29, %7
-  br i1 %30, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
+buffer_slab_peek.exit.i:                          ; preds = %21
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %26 = load i32, ptr %25, align 4, !tbaa !67
+  %27 = mul i32 %26, %18
+  %28 = zext i32 %27 to i64
+  %29 = getelementptr inbounds nuw %struct.commit_buffer, ptr %24, i64 %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !79
+  %31 = icmp eq ptr %30, %7
+  br i1 %31, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
 
-buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %._crit_edge4.i.i.i, %4
+buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %21, %4
   call void @free(ptr noundef nonnull %7) #24
   br label %repo_unuse_commit_buffer.exit
 
@@ -4393,51 +4397,51 @@ define dso_local i32 @check_commit_signature(ptr noundef %0, ptr noundef initial
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !71
   %.not.i.i.i.i = icmp ugt i32 %23, %20
-  br i1 %.not.i.i.i.i, label %._crit_edge4.i.i.i.i, label %buffer_slab_peek.exit.thread.i.i
+  br i1 %.not.i.i.i.i, label %24, label %buffer_slab_peek.exit.thread.i.i
 
-._crit_edge4.i.i.i.i:                             ; preds = %2
+24:                                               ; preds = %2
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.pre.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !72
-  %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !73
-  %.not35.i.i.i.i = icmp eq ptr %26, null
+  %25 = zext i32 %20 to i64
+  %26 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !73
+  %.not35.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not35.i.i.i.i, label %buffer_slab_peek.exit.thread.i.i, label %buffer_slab_peek.exit.i.i
 
-buffer_slab_peek.exit.i.i:                        ; preds = %._crit_edge4.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !67
-  %29 = mul i32 %28, %21
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %struct.commit_buffer, ptr %26, i64 %30
-  %32 = load ptr, ptr %31, align 8, !tbaa !79
-  %33 = icmp eq ptr %32, %10
-  br i1 %33, label %parse_signed_commit.exit, label %buffer_slab_peek.exit.thread.i.i
+buffer_slab_peek.exit.i.i:                        ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !67
+  %30 = mul i32 %29, %21
+  %31 = zext i32 %30 to i64
+  %32 = getelementptr inbounds nuw %struct.commit_buffer, ptr %27, i64 %31
+  %33 = load ptr, ptr %32, align 8, !tbaa !79
+  %34 = icmp eq ptr %33, %10
+  br i1 %34, label %parse_signed_commit.exit, label %buffer_slab_peek.exit.thread.i.i
 
-buffer_slab_peek.exit.thread.i.i:                 ; preds = %buffer_slab_peek.exit.i.i, %._crit_edge4.i.i.i.i, %2
+buffer_slab_peek.exit.thread.i.i:                 ; preds = %buffer_slab_peek.exit.i.i, %24, %2
   call void @free(ptr noundef nonnull %10) #24
   br label %parse_signed_commit.exit
 
 parse_signed_commit.exit:                         ; preds = %buffer_slab_peek.exit.i.i, %buffer_slab_peek.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   %.not.not = icmp eq i32 %12, 0
-  br i1 %.not.not, label %43, label %34
+  br i1 %.not.not, label %44, label %35
 
-34:                                               ; preds = %parse_signed_commit.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 1, ptr %35, align 8, !tbaa !159
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef nonnull %36) #24
-  store ptr %37, ptr %1, align 8, !tbaa !160
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !57
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !55
-  %42 = call i32 @check_signature(ptr noundef nonnull %1, ptr noundef %39, i64 noundef %41) #24
-  br label %43
+35:                                               ; preds = %parse_signed_commit.exit
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 1, ptr %36, align 8, !tbaa !159
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = call ptr @strbuf_detach(ptr noundef nonnull %4, ptr noundef nonnull %37) #24
+  store ptr %38, ptr %1, align 8, !tbaa !160
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !57
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %42 = load i64, ptr %41, align 8, !tbaa !55
+  %43 = call i32 @check_signature(ptr noundef nonnull %1, ptr noundef %40, i64 noundef %42) #24
+  br label %44
 
-43:                                               ; preds = %parse_signed_commit.exit, %34
-  %.0 = phi i32 [ 1, %parse_signed_commit.exit ], [ %42, %34 ]
+44:                                               ; preds = %parse_signed_commit.exit, %35
+  %.0 = phi i32 [ 1, %parse_signed_commit.exit ], [ %43, %35 ]
   call void @strbuf_release(ptr noundef nonnull %4) #24
   call void @strbuf_release(ptr noundef nonnull %5) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
@@ -4866,28 +4870,28 @@ read_commit_extra_header_lines.exit:              ; preds = %2, %.critedge.i, %6
   %74 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %75 = load i32, ptr %74, align 8, !tbaa !71
   %.not.i.i.i = icmp ugt i32 %75, %72
-  br i1 %.not.i.i.i, label %._crit_edge4.i.i.i, label %buffer_slab_peek.exit.thread.i
+  br i1 %.not.i.i.i, label %76, label %buffer_slab_peek.exit.thread.i
 
-._crit_edge4.i.i.i:                               ; preds = %read_commit_extra_header_lines.exit
+76:                                               ; preds = %read_commit_extra_header_lines.exit
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %69, i64 16
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %76 = zext i32 %72 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %76
-  %78 = load ptr, ptr %77, align 8, !tbaa !73
-  %.not35.i.i.i = icmp eq ptr %78, null
+  %77 = zext i32 %72 to i64
+  %78 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !73
+  %.not35.i.i.i = icmp eq ptr %79, null
   br i1 %.not35.i.i.i, label %buffer_slab_peek.exit.thread.i, label %buffer_slab_peek.exit.i
 
-buffer_slab_peek.exit.i:                          ; preds = %._crit_edge4.i.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %80 = load i32, ptr %79, align 4, !tbaa !67
-  %81 = mul i32 %80, %73
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %struct.commit_buffer, ptr %78, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !79
-  %85 = icmp eq ptr %84, %7
-  br i1 %85, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
+buffer_slab_peek.exit.i:                          ; preds = %76
+  %80 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  %81 = load i32, ptr %80, align 4, !tbaa !67
+  %82 = mul i32 %81, %73
+  %83 = zext i32 %82 to i64
+  %84 = getelementptr inbounds nuw %struct.commit_buffer, ptr %79, i64 %83
+  %85 = load ptr, ptr %84, align 8, !tbaa !79
+  %86 = icmp eq ptr %85, %7
+  br i1 %86, label %repo_unuse_commit_buffer.exit, label %buffer_slab_peek.exit.thread.i
 
-buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %._crit_edge4.i.i.i, %read_commit_extra_header_lines.exit
+buffer_slab_peek.exit.thread.i:                   ; preds = %buffer_slab_peek.exit.i, %76, %read_commit_extra_header_lines.exit
   call void @free(ptr noundef nonnull %7) #24
   br label %repo_unuse_commit_buffer.exit
 
@@ -5048,9 +5052,9 @@ commit_list_count.exit.thread:                    ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !48
   %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %commit_list_count.exit, label %.lr.ph.i, !llvm.loop !106
+  br i1 %.not.i, label %.lr.ph.preheader, label %.lr.ph.i, !llvm.loop !106
 
-commit_list_count.exit:                           ; preds = %.lr.ph.i
+.lr.ph.preheader:                                 ; preds = %.lr.ph.i
   %31 = zext i32 %28 to i64
   %32 = tail call ptr @xcalloc(i64 noundef %31, i64 noundef 36) #24
   br label %.lr.ph
@@ -5067,9 +5071,9 @@ commit_list_count.exit:                           ; preds = %.lr.ph.i
   %.not85 = icmp eq ptr %7, null
   br i1 %.not85, label %50, label %45
 
-.lr.ph:                                           ; preds = %commit_list_count.exit, %.lr.ph
-  %.074127 = phi ptr [ %44, %.lr.ph ], [ %3, %commit_list_count.exit ]
-  %.077126 = phi i64 [ %36, %.lr.ph ], [ 0, %commit_list_count.exit ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %.074127 = phi ptr [ %44, %.lr.ph ], [ %3, %.lr.ph.preheader ]
+  %.077126 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %36 = add i64 %.077126, 1
   %37 = getelementptr inbounds nuw %struct.object_id, ptr %32, i64 %.077126
   %38 = load ptr, ptr %.074127, align 8, !tbaa !89
@@ -6171,9 +6175,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

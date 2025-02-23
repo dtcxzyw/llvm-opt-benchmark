@@ -2580,7 +2580,7 @@ _mean_gaussian.exit377.i:                         ; preds = %1099, %_mean_gaussi
   call void @free(ptr noundef %1153) #29, !noalias !179
   call void @free(ptr noundef %1155) #29, !noalias !179
   call void @free(ptr noundef nonnull %1085) #29, !noalias !179
-  call void @free(ptr noundef %1065) #29, !noalias !179
+  call void @free(ptr noundef nonnull %1065) #29, !noalias !179
   br i1 %873, label %_guide_with_chromaticity.exit.sink.split.sink.split, label %_guide_with_chromaticity.exit
 
 ._crit_edge474.i:                                 ; preds = %1251, %.preheader.i297
@@ -2699,7 +2699,7 @@ _mean_gaussian.exit377.i:                         ; preds = %1099, %_mean_gaussi
   call void @free(ptr noundef %.0323.i) #29, !noalias !179
   call void @free(ptr noundef %.0.i289) #29, !noalias !179
   call void @free(ptr noundef %1085) #29, !noalias !179
-  call void @free(ptr noundef %1065) #29, !noalias !179
+  call void @free(ptr noundef nonnull %1065) #29, !noalias !179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #29, !noalias !208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %14, ptr noundef nonnull align 16 dereferenceable(16) @__const._mean_gaussian.max, i64 16, i1 false), !noalias !208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #29, !noalias !208
@@ -2953,7 +2953,7 @@ interpolate_bilinear.exit410.i:                   ; preds = %._crit_edge.us.i408
 
 .critedge.i:                                      ; preds = %._crit_edge474.i
   call void @free(ptr noundef %1085) #29, !noalias !179
-  call void @free(ptr noundef %1065) #29, !noalias !179
+  call void @free(ptr noundef nonnull %1065) #29, !noalias !179
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #29, !noalias !208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 16 dereferenceable(16) @__const._mean_gaussian.max, i64 16, i1 false), !noalias !208
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #29, !noalias !208
@@ -4295,7 +4295,7 @@ _triangular_descent_fast.exit.i.i:                ; preds = %._crit_edge.i45.i.i
   br i1 %134, label %.lr.ph.i49.i.i, label %._crit_edge.i46.i.i
 
 135:                                              ; preds = %._crit_edge.i46.i.i
-  tail call void @free(ptr noundef %66) #29, !noalias !300
+  tail call void @free(ptr noundef nonnull %66) #29, !noalias !300
   tail call void @free(ptr noundef nonnull %67) #29, !noalias !300
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull readonly align 64 dereferenceable(32) %35, i64 32, i1 false), !tbaa !6, !alias.scope !331, !noalias !269
   br label %136
@@ -6015,20 +6015,20 @@ get_minimum_saturation.exit:                      ; preds = %34
   store ptr %48, ptr %49, align 8, !tbaa !415
   %50 = tail call i64 @gtk_widget_get_type() #31
   %51 = tail call ptr @g_type_check_instance_cast(ptr noundef %48, i64 noundef %50) #29
-  %52 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %51, ptr noundef nonnull @gui_init.notebook_def) #29
+  %52 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.32, ptr noundef %51, ptr noundef nonnull @gui_init.notebook_def) #29
   %53 = load ptr, ptr %49, align 8, !tbaa !415
   %54 = tail call ptr @g_type_check_instance_cast(ptr noundef %53, i64 noundef 80) #29
-  %55 = tail call i64 @g_signal_connect_data(ptr noundef %54, ptr noundef nonnull @.str.33, ptr noundef nonnull @_channel_tabs_switch_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %55 = tail call i64 @g_signal_connect_data(ptr noundef %54, ptr noundef nonnull @.str.33, ptr noundef nonnull @_channel_tabs_switch_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %56 = tail call ptr @dt_ui_resize_wrap(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.34) #29
   %57 = tail call i64 @gtk_drawing_area_get_type() #31
   %58 = tail call ptr @g_type_check_instance_cast(ptr noundef %56, i64 noundef %57) #29
   %59 = getelementptr inbounds nuw i8, ptr %8, i64 472
   store ptr %58, ptr %59, align 8, !tbaa !400
   %60 = tail call ptr @g_type_check_instance_cast(ptr noundef %58, i64 noundef 80) #29
-  tail call void @g_object_set_data(ptr noundef %60, ptr noundef nonnull @.str.35, ptr noundef %0) #29
+  tail call void @g_object_set_data(ptr noundef %60, ptr noundef nonnull @.str.35, ptr noundef nonnull %0) #29
   %61 = load ptr, ptr %59, align 8, !tbaa !400
   %62 = tail call ptr @g_type_check_instance_cast(ptr noundef %61, i64 noundef %50) #29
-  %63 = tail call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef %62, ptr noundef nonnull @_action_def_coloreq) #29
+  %63 = tail call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.36, ptr noundef %62, ptr noundef nonnull @_action_def_coloreq) #29
   %64 = load ptr, ptr %59, align 8, !tbaa !400
   %65 = tail call ptr @g_type_check_instance_cast(ptr noundef %64, i64 noundef %50) #29
   %66 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.37, i32 noundef 5) #29
@@ -6041,22 +6041,22 @@ get_minimum_saturation.exit:                      ; preds = %34
   tail call void @gtk_widget_add_events(ptr noundef %70, i32 noundef 10486532) #29
   %71 = load ptr, ptr %59, align 8, !tbaa !400
   %72 = tail call ptr @g_type_check_instance_cast(ptr noundef %71, i64 noundef 80) #29
-  %73 = tail call i64 @g_signal_connect_data(ptr noundef %72, ptr noundef nonnull @.str.38, ptr noundef nonnull @_iop_colorequalizer_draw, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %73 = tail call i64 @g_signal_connect_data(ptr noundef %72, ptr noundef nonnull @.str.38, ptr noundef nonnull @_iop_colorequalizer_draw, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %74 = load ptr, ptr %59, align 8, !tbaa !400
   %75 = tail call ptr @g_type_check_instance_cast(ptr noundef %74, i64 noundef 80) #29
-  %76 = tail call i64 @g_signal_connect_data(ptr noundef %75, ptr noundef nonnull @.str.39, ptr noundef nonnull @_area_button_press_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %76 = tail call i64 @g_signal_connect_data(ptr noundef %75, ptr noundef nonnull @.str.39, ptr noundef nonnull @_area_button_press_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %77 = load ptr, ptr %59, align 8, !tbaa !400
   %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %77, i64 noundef 80) #29
-  %79 = tail call i64 @g_signal_connect_data(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @_area_button_release_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %79 = tail call i64 @g_signal_connect_data(ptr noundef %78, ptr noundef nonnull @.str.40, ptr noundef nonnull @_area_button_release_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %80 = load ptr, ptr %59, align 8, !tbaa !400
   %81 = tail call ptr @g_type_check_instance_cast(ptr noundef %80, i64 noundef 80) #29
-  %82 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.41, ptr noundef nonnull @_area_motion_notify_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %82 = tail call i64 @g_signal_connect_data(ptr noundef %81, ptr noundef nonnull @.str.41, ptr noundef nonnull @_area_motion_notify_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %83 = load ptr, ptr %59, align 8, !tbaa !400
   %84 = tail call ptr @g_type_check_instance_cast(ptr noundef %83, i64 noundef 80) #29
-  %85 = tail call i64 @g_signal_connect_data(ptr noundef %84, ptr noundef nonnull @.str.42, ptr noundef nonnull @_area_scrolled_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %85 = tail call i64 @g_signal_connect_data(ptr noundef %84, ptr noundef nonnull @.str.42, ptr noundef nonnull @_area_scrolled_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %86 = load ptr, ptr %59, align 8, !tbaa !400
   %87 = tail call ptr @g_type_check_instance_cast(ptr noundef %86, i64 noundef 80) #29
-  %88 = tail call i64 @g_signal_connect_data(ptr noundef %87, ptr noundef nonnull @.str.43, ptr noundef nonnull @_area_size_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %88 = tail call i64 @g_signal_connect_data(ptr noundef %87, ptr noundef nonnull @.str.43, ptr noundef nonnull @_area_size_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %89 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #29
   %90 = tail call i64 @gtk_box_get_type() #31
   %91 = tail call ptr @g_type_check_instance_cast(ptr noundef %89, i64 noundef %90) #29
@@ -6070,8 +6070,8 @@ get_minimum_saturation.exit:                      ; preds = %34
   %96 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.44, i32 noundef 3053, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %91, ptr noundef nonnull %3) #29
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 816
   store ptr %96, ptr %97, align 16, !tbaa !437
-  %98 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.45) #29
-  %99 = call ptr @dt_color_picker_new_with_cst(ptr noundef %0, i32 noundef 7, ptr noundef %98, i32 noundef 5) #29
+  %98 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.45) #29
+  %99 = call ptr @dt_color_picker_new_with_cst(ptr noundef nonnull %0, i32 noundef 7, ptr noundef %98, i32 noundef 5) #29
   %100 = getelementptr inbounds nuw i8, ptr %8, i64 248
   store ptr %99, ptr %100, align 8, !tbaa !356
   call void @dt_bauhaus_slider_set_format(ptr noundef %99, ptr noundef nonnull @.str.46) #29
@@ -6085,7 +6085,7 @@ get_minimum_saturation.exit:                      ; preds = %34
   call void @dt_bauhaus_widget_set_quad_tooltip(ptr noundef %104, ptr noundef %105) #29
   %106 = load ptr, ptr %100, align 8, !tbaa !356
   %107 = call ptr @g_type_check_instance_cast(ptr noundef %106, i64 noundef 80) #29
-  %108 = call i64 @g_signal_connect_data(ptr noundef %107, ptr noundef nonnull @.str.49, ptr noundef nonnull @_picker_callback, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %108 = call i64 @g_signal_connect_data(ptr noundef %107, ptr noundef nonnull @.str.49, ptr noundef nonnull @_picker_callback, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %109 = load ptr, ptr %100, align 8, !tbaa !356
   call void @gtk_widget_set_name(ptr noundef %109, ptr noundef nonnull @.str.50) #29
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 256
@@ -6103,7 +6103,7 @@ get_minimum_saturation.exit:                      ; preds = %34
   %118 = call ptr @dt_gui_box_add(ptr noundef nonnull @.str.44, i32 noundef 3068, ptr noundef nonnull @__FUNCTION__.gui_init, ptr noundef %115, ptr noundef nonnull %4) #29
   %119 = load ptr, ptr %114, align 8, !tbaa !435
   %120 = call ptr @g_type_check_instance_cast(ptr noundef %119, i64 noundef %50) #29
-  %121 = call ptr @dt_action_define_iop(ptr noundef %0, ptr noundef null, ptr noundef nonnull @.str.51, ptr noundef %120, ptr noundef null) #29
+  %121 = call ptr @dt_action_define_iop(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.51, ptr noundef %120, ptr noundef null) #29
   %122 = load ptr, ptr %114, align 8, !tbaa !435
   call void @gtk_stack_set_homogeneous(ptr noundef %122, i32 noundef 0) #29
   %123 = load ptr, ptr %49, align 8, !tbaa !415
@@ -6274,13 +6274,13 @@ get_minimum_saturation.exit:                      ; preds = %34
   %221 = getelementptr inbounds nuw i8, ptr %8, i64 488
   %222 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef 5) #29
   %223 = call ptr @g_type_check_instance_cast(ptr noundef %219, i64 noundef %90) #29
-  call void @dt_gui_new_collapsible_section(ptr noundef nonnull %221, ptr noundef nonnull @.str.86, ptr noundef %222, ptr noundef %223, ptr noundef %0) #29
+  call void @dt_gui_new_collapsible_section(ptr noundef nonnull %221, ptr noundef nonnull @.str.86, ptr noundef %222, ptr noundef %223, ptr noundef nonnull %0) #29
   %224 = getelementptr inbounds nuw i8, ptr %8, i64 528
   %225 = load ptr, ptr %224, align 8, !tbaa !420
   %226 = call ptr @g_type_check_instance_cast(ptr noundef %225, i64 noundef %50) #29
   store ptr %226, ptr %97, align 16, !tbaa !437
-  %227 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.87) #29
-  %228 = call ptr @dt_color_picker_new(ptr noundef %0, i32 noundef 2, ptr noundef %227) #29
+  %227 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.87) #29
+  %228 = call ptr @dt_color_picker_new(ptr noundef nonnull %0, i32 noundef 2, ptr noundef %227) #29
   store ptr %228, ptr %8, align 8, !tbaa !358
   call void @dt_bauhaus_slider_set_soft_range(ptr noundef %228, float noundef -2.000000e+00, float noundef 2.000000e+00) #29
   %229 = load ptr, ptr %8, align 8, !tbaa !358
@@ -6289,17 +6289,17 @@ get_minimum_saturation.exit:                      ; preds = %34
   %231 = load ptr, ptr %8, align 8, !tbaa !358
   %232 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.89, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %231, ptr noundef %232) #29
-  %233 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.90) #29
+  %233 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.90) #29
   %234 = getelementptr inbounds nuw i8, ptr %8, i64 200
   store ptr %233, ptr %234, align 8, !tbaa !410
   %235 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.91, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %233, ptr noundef %235) #29
-  %236 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef %0, ptr noundef nonnull @.str.92) #29
+  %236 = call ptr @dt_bauhaus_toggle_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.92) #29
   %237 = getelementptr inbounds nuw i8, ptr %8, i64 240
   store ptr %236, ptr %237, align 8, !tbaa !412
   %238 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.93, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %236, ptr noundef %238) #29
-  %239 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.94) #29
+  %239 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.94) #29
   %240 = getelementptr inbounds nuw i8, ptr %8, i64 224
   store ptr %239, ptr %240, align 8, !tbaa !409
   call void @dt_bauhaus_slider_set_digits(ptr noundef %239, i32 noundef 1) #29
@@ -6310,7 +6310,7 @@ get_minimum_saturation.exit:                      ; preds = %34
   %244 = load ptr, ptr %240, align 8, !tbaa !409
   %245 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.96, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %244, ptr noundef %245) #29
-  %246 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.97) #29
+  %246 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.97) #29
   %247 = getelementptr inbounds nuw i8, ptr %8, i64 208
   store ptr %246, ptr %247, align 8, !tbaa !354
   call void @dt_bauhaus_slider_set_digits(ptr noundef %246, i32 noundef 3) #29
@@ -6324,21 +6324,21 @@ get_minimum_saturation.exit:                      ; preds = %34
   call void @dt_bauhaus_widget_set_quad_active(ptr noundef %251, i32 noundef 0) #29
   %252 = load ptr, ptr %247, align 8, !tbaa !354
   %253 = call ptr @g_type_check_instance_cast(ptr noundef %252, i64 noundef 80) #29
-  %254 = call i64 @g_signal_connect_data(ptr noundef %253, ptr noundef nonnull @.str.49, ptr noundef nonnull @_masking_callback_t, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %254 = call i64 @g_signal_connect_data(ptr noundef %253, ptr noundef nonnull @.str.49, ptr noundef nonnull @_masking_callback_t, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %255 = load ptr, ptr %247, align 8, !tbaa !354
   %256 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.99, i32 noundef 5) #29
   call void @dt_bauhaus_widget_set_quad_tooltip(ptr noundef %255, ptr noundef %256) #29
   %257 = load ptr, ptr %247, align 8, !tbaa !354
   %258 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.100, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %257, ptr noundef %258) #29
-  %259 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.101) #29
+  %259 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.101) #29
   %260 = getelementptr inbounds nuw i8, ptr %8, i64 216
   store ptr %259, ptr %260, align 8, !tbaa !408
   call void @dt_bauhaus_slider_set_digits(ptr noundef %259, i32 noundef 3) #29
   %261 = load ptr, ptr %260, align 8, !tbaa !408
   %262 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.102, i32 noundef 5) #29
   call void @gtk_widget_set_tooltip_text(ptr noundef %261, ptr noundef %262) #29
-  %263 = call ptr @dt_bauhaus_slider_from_params(ptr noundef %0, ptr noundef nonnull @.str.103) #29
+  %263 = call ptr @dt_bauhaus_slider_from_params(ptr noundef nonnull %0, ptr noundef nonnull @.str.103) #29
   %264 = getelementptr inbounds nuw i8, ptr %8, i64 232
   store ptr %263, ptr %264, align 8, !tbaa !353
   call void @dt_bauhaus_slider_set_digits(ptr noundef %263, i32 noundef 1) #29
@@ -6357,7 +6357,7 @@ get_minimum_saturation.exit:                      ; preds = %34
   call void @dt_bauhaus_widget_set_quad_active(ptr noundef %272, i32 noundef 0) #29
   %273 = load ptr, ptr %264, align 8, !tbaa !353
   %274 = call ptr @g_type_check_instance_cast(ptr noundef %273, i64 noundef 80) #29
-  %275 = call i64 @g_signal_connect_data(ptr noundef %274, ptr noundef nonnull @.str.49, ptr noundef nonnull @_masking_callback_p, ptr noundef %0, ptr noundef null, i32 noundef 0) #29
+  %275 = call i64 @g_signal_connect_data(ptr noundef %274, ptr noundef nonnull @.str.49, ptr noundef nonnull @_masking_callback_p, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #29
   %276 = load ptr, ptr %264, align 8, !tbaa !353
   %277 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.105, i32 noundef 5) #29
   call void @dt_bauhaus_widget_set_quad_tooltip(ptr noundef %276, ptr noundef %277) #29

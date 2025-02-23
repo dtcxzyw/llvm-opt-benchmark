@@ -277,21 +277,18 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %5
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %5
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
-  br i1 %cmp8.i13.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8
-
-_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8: ; preds = %if.then4.i.i
-  store ptr %.sroa.speculated12.i, ptr %prefetch_ptr_.i.i, align 8
-  br label %return
+  br i1 %cmp8.i13.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
-  br i1 %cmp8.i.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !llvm.loop !8
+  br i1 %cmp8.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
-_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; preds = %for.body.i.i
-  store ptr %add.ptr9.i.i, ptr %prefetch_ptr_.i.i, align 8
+for.end.i.i:                                      ; preds = %for.body.i.i, %if.then4.i.i
+  %prefetch_ptr.i.0.lcssa.i = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
+  store ptr %prefetch_ptr.i.0.lcssa.i, ptr %prefetch_ptr_.i.i, align 8
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -383,8 +380,8 @@ for.end.i.i.i:                                    ; preds = %for.body.i.i.i, %if
   store ptr %prefetch_ptr.i.0.lcssa.i.i, ptr %prefetch_ptr_.i.i.i, align 8
   br label %return
 
-return:                                           ; preds = %for.end.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, %if.end.i.i, %if.end.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8
-  %retval.0.in = phi i64 [ %0, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit ], [ %0, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread8 ], [ %0, %if.end.i ], [ %0, %if.end.i.i ], [ %19, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i ], [ %19, %for.end.i.i.i ]
+return:                                           ; preds = %for.end.i.i.i, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i, %for.end.i.i, %if.end.i.i, %if.end.i
+  %retval.0.in = phi i64 [ %0, %if.end.i ], [ %0, %if.end.i.i ], [ %0, %for.end.i.i ], [ %19, %_ZN6google8protobuf8internal11SerialArena16AllocateNewBlockEm.exit.i ], [ %19, %for.end.i.i.i ]
   %retval.0 = inttoptr i64 %retval.0.in to ptr
   ret ptr %retval.0
 }
@@ -459,21 +456,18 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %10
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %10
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
-  br i1 %cmp8.i13.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread20
-
-_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread20: ; preds = %if.then4.i.i
-  store ptr %.sroa.speculated12.i, ptr %prefetch_ptr_.i.i, align 8
-  br label %return
+  br i1 %cmp8.i13.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
-  br i1 %cmp8.i.i, label %for.body.i.i, label %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, !llvm.loop !8
+  br i1 %cmp8.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
-_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit: ; preds = %for.body.i.i
-  store ptr %add.ptr9.i.i, ptr %prefetch_ptr_.i.i, align 8
+for.end.i.i:                                      ; preds = %for.body.i.i, %if.then4.i.i
+  %prefetch_ptr.i.0.lcssa.i = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
+  store ptr %prefetch_ptr.i.0.lcssa.i, ptr %prefetch_ptr_.i.i, align 8
   br label %return
 
 if.end5:                                          ; preds = %if.end
@@ -569,8 +563,8 @@ _ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm.exit: ; pre
   %atomic-temp.i.0.i.i.i3.i = inttoptr i64 %24 to ptr
   br label %return
 
-return:                                           ; preds = %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit, %if.end.i.i, %if.end.i11, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread20, %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit, %_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm.exit
-  %retval.0 = phi ptr [ %atomic-temp.i.0.i.i.i3.i, %_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm.exit ], [ %3, %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit ], [ %atomic-temp.i.0.i.i.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit ], [ %atomic-temp.i.0.i.i.i, %_ZN6google8protobuf8internal11SerialArena20MaybeAllocateAlignedEmPPv.exit.thread20 ], [ %atomic-temp.i.0.i.i.i, %if.end.i11 ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ]
+return:                                           ; preds = %for.end.i.i, %if.end.i.i, %if.end.i11, %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit, %_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm.exit
+  %retval.0 = phi ptr [ %atomic-temp.i.0.i.i.i3.i, %_ZN6google8protobuf8internal11SerialArena23AllocateAlignedFallbackEm.exit ], [ %3, %_ZN6google8protobuf8internal11SerialArena26TryAllocateFromCachedBlockEm.exit ], [ %atomic-temp.i.0.i.i.i, %if.end.i11 ], [ %atomic-temp.i.0.i.i.i, %if.end.i.i ], [ %atomic-temp.i.0.i.i.i, %for.end.i.i ]
   ret ptr %retval.0
 }
 
@@ -1033,24 +1027,24 @@ if.end.thread:                                    ; preds = %entry
   %5 = load i32, ptr %next_size_.i.i, align 4
   %conv.i.i = zext i32 %5 to i64
   %6 = load atomic i64, ptr %this monotonic, align 8
-  %add.i1645 = add i64 %6, %conv.i.i
-  %limit_.i46 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %7 = load ptr, ptr %limit_.i46, align 8
+  %add.i1640 = add i64 %6, %conv.i.i
+  %limit_.i41 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %7 = load ptr, ptr %limit_.i41, align 8
   %8 = ptrtoint ptr %7 to i64
-  %cmp.i.not47 = icmp ugt i64 %add.i1645, %8
-  br i1 %cmp.i.not47, label %if.then.i, label %if.end.i
+  %cmp.i42.not = icmp ugt i64 %add.i1640, %8
+  br i1 %cmp.i42.not, label %if.then.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.thread, %if.end
-  %add.i1649 = phi i64 [ %add.i1645, %if.end.thread ], [ %add.i16, %if.end ]
+  %add.i1644 = phi i64 [ %add.i1640, %if.end.thread ], [ %add.i16, %if.end ]
   %9 = phi i64 [ %6, %if.end.thread ], [ %1, %if.end ]
-  %phi.call48 = phi i64 [ %conv.i.i, %if.end.thread ], [ 256, %if.end ]
+  %phi.call43 = phi i64 [ %conv.i.i, %if.end.thread ], [ 256, %if.end ]
   %atomic-temp.i.0.i.i.i = inttoptr i64 %9 to ptr
-  %10 = inttoptr i64 %add.i1649 to ptr
-  store atomic i64 %add.i1649, ptr %this monotonic, align 8
+  %10 = inttoptr i64 %add.i1644 to ptr
+  store atomic i64 %add.i1644, ptr %this monotonic, align 8
   %prefetch_ptr_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %11 = load ptr, ptr %prefetch_ptr_.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %11 to i64
-  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i1649
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %add.i1644
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i, 1024
   br i1 %cmp.i.i, label %if.then6, label %if.end.i.i
 
@@ -1067,26 +1061,26 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %12
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %12
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
-  br i1 %cmp8.i13.i, label %for.body.i.i, label %if.then6.sink.split
+  br i1 %cmp8.i13.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
-  br i1 %cmp8.i.i, label %for.body.i.i, label %if.then6.sink.split, !llvm.loop !8
+  br i1 %cmp8.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
 
-if.then6.sink.split:                              ; preds = %for.body.i.i, %if.then4.i.i
-  %add.ptr9.i.i.lcssa.sink = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
-  store ptr %add.ptr9.i.i.lcssa.sink, ptr %prefetch_ptr_.i.i, align 8
+for.end.i.i:                                      ; preds = %for.body.i.i, %if.then4.i.i
+  %prefetch_ptr.i.0.lcssa.i = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
+  store ptr %prefetch_ptr.i.0.lcssa.i, ptr %prefetch_ptr_.i.i, align 8
   br label %if.then6
 
-if.then6:                                         ; preds = %if.then6.sink.split, %if.end.i.i, %if.end.i
+if.then6:                                         ; preds = %if.end.i, %if.end.i.i, %for.end.i.i
   %space_used_.i17 = getelementptr inbounds nuw i8, ptr %this, i64 56
   %13 = load atomic i64, ptr %space_used_.i17 monotonic, align 8
-  %add.i18 = sub i64 %13, %phi.call48
+  %add.i18 = sub i64 %13, %phi.call43
   store atomic i64 %add.i18, ptr %space_used_.i17 monotonic, align 8
-  %conv.i19 = trunc nuw i64 %phi.call48 to i32
+  %conv.i19 = trunc nuw i64 %phi.call43 to i32
   %mul.i = shl i32 %conv.i19, 1
   %.sroa.speculated.i21 = tail call i32 @llvm.umin.i32(i32 %mul.i, i32 8192)
   %.sroa.speculated.sink.i = select i1 %tobool.not, i32 256, i32 %.sroa.speculated.i21
@@ -1109,13 +1103,11 @@ entry.split.i:                                    ; preds = %if.end
   br label %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit
 
 if.then.i:                                        ; preds = %if.end.thread
-  %next_size_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 12
-  %16 = load i32, ptr %next_size_.i, align 4
-  %mul.i23 = shl i32 %16, 1
+  %mul.i23 = shl i32 %5, 1
   %.sroa.speculated.i24 = tail call i32 @llvm.umin.i32(i32 %mul.i23, i32 8192)
-  %17 = and i32 %16, 31
-  %rem.i.i = xor i32 %17, 16
-  %sub2.i.i = sub i32 %16, %rem.i.i
+  %16 = and i32 %5, 31
+  %rem.i.i = xor i32 %16, 16
+  %sub2.i.i = sub i32 %5, %rem.i.i
   %conv10.i = zext i32 %sub2.i.i to i64
   %call611.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv10.i) #30
   store ptr %atomic-temp.i.0.i, ptr %call611.i, align 8
@@ -1123,26 +1115,26 @@ if.then.i:                                        ; preds = %if.end.thread
   %bf.value.i.i = shl i32 %sub2.i.i, 1
   %bf.set4.i.i = or disjoint i32 %bf.value.i.i, 1
   store i32 %bf.set4.i.i, ptr %heap_allocated_.i12.i, align 8
-  %18 = and i32 %sub2.i.i, 2147483647
-  %19 = zext nneg i32 %18 to i64
+  %17 = and i32 %sub2.i.i, 2147483647
+  %18 = zext nneg i32 %17 to i64
   br label %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit
 
 _ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit: ; preds = %entry.split.i, %if.then.i
-  %bf.load.i28 = phi i64 [ 240, %entry.split.i ], [ %19, %if.then.i ]
+  %bf.load.i28 = phi i64 [ 240, %entry.split.i ], [ %18, %if.then.i ]
   %call68.sink.i = phi ptr [ %call68.i, %entry.split.i ], [ %call611.i, %if.then.i ]
   %.sink.i = phi i32 [ 256, %entry.split.i ], [ %.sroa.speculated.i24, %if.then.i ]
   %next_size_.i.i26 = getelementptr inbounds nuw i8, ptr %call68.sink.i, i64 12
   store i32 %.sink.i, ptr %next_size_.i.i26, align 4
   %space_allocated_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
-  %20 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
-  %add.i31 = add i64 %20, %bf.load.i28
+  %19 = load atomic i64, ptr %space_allocated_.i monotonic, align 8
+  %add.i31 = add i64 %19, %bf.load.i28
   store atomic i64 %add.i31, ptr %space_allocated_.i monotonic, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit, %if.then6
   %new_sb.0 = phi ptr [ %atomic-temp.i.0.i.i.i, %if.then6 ], [ %call68.sink.i, %_ZN6google8protobuf8internal11StringBlock3NewEPS2_.exit ]
-  %21 = ptrtoint ptr %new_sb.0 to i64
-  store atomic i64 %21, ptr %string_block_ release, align 8
+  %20 = ptrtoint ptr %new_sb.0 to i64
+  store atomic i64 %20, ptr %string_block_ release, align 8
   %allocated_size_.i32 = getelementptr inbounds nuw i8, ptr %new_sb.0, i64 8
   %bf.load.i33 = load i32, ptr %allocated_size_.i32, align 8
   %bf.lshr.i34 = lshr i32 %bf.load.i33, 1
@@ -2233,14 +2225,19 @@ if.then4.i.i:                                     ; preds = %if.end.i.i
   %cmp.i9.i = icmp ult ptr %add.ptr.i.i, %13
   %.sroa.speculated.i = select i1 %cmp.i9.i, ptr %add.ptr.i.i, ptr %13
   %cmp8.i13.i = icmp ult ptr %.sroa.speculated12.i, %.sroa.speculated.i
-  br i1 %cmp8.i13.i, label %for.body.i.i, label %if.end9.sink.split
+  br i1 %cmp8.i13.i, label %for.body.i.i, label %for.end.i.i
 
 for.body.i.i:                                     ; preds = %if.then4.i.i, %for.body.i.i
   %prefetch_ptr.i.014.i = phi ptr [ %add.ptr9.i.i, %for.body.i.i ], [ %.sroa.speculated12.i, %if.then4.i.i ]
   tail call void asm sideeffect "prefetchw ($0)", "r,~{dirflag},~{fpsr},~{flags}"(ptr %prefetch_ptr.i.014.i) #27, !srcloc !7
   %add.ptr9.i.i = getelementptr inbounds nuw i8, ptr %prefetch_ptr.i.014.i, i64 64
   %cmp8.i.i = icmp ult ptr %add.ptr9.i.i, %.sroa.speculated.i
-  br i1 %cmp8.i.i, label %for.body.i.i, label %if.end9.sink.split, !llvm.loop !8
+  br i1 %cmp8.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !8
+
+for.end.i.i:                                      ; preds = %for.body.i.i, %if.then4.i.i
+  %prefetch_ptr.i.0.lcssa.i = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
+  store ptr %prefetch_ptr.i.0.lcssa.i, ptr %prefetch_ptr_.i.i, align 8
+  br label %if.end9
 
 if.then3:                                         ; preds = %if.end
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4, ptr noundef nonnull @.str, i32 noundef 567) #28
@@ -2257,12 +2254,7 @@ lpad:                                             ; preds = %if.then3
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp4) #29
   unreachable
 
-if.end9.sink.split:                               ; preds = %for.body.i.i, %if.then4.i.i
-  %add.ptr9.i.i.lcssa.sink = phi ptr [ %.sroa.speculated12.i, %if.then4.i.i ], [ %add.ptr9.i.i, %for.body.i.i ]
-  store ptr %add.ptr9.i.i.lcssa.sink, ptr %prefetch_ptr_.i.i, align 8
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end9.sink.split, %if.end.i.i, %if.end.i
+if.end9:                                          ; preds = %if.end.i, %if.end.i.i, %for.end.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %atomic-temp.i.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %policy, i64 32, i1 false)
   %alloc_policy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %15 = load i64, ptr %alloc_policy_, align 8
@@ -3004,7 +2996,7 @@ while.body.us.i.i.i:                              ; preds = %while.body.lr.ph.i.
   %retval.sroa.4.0.us.i.i.i = load i64, ptr %retval.sroa.4.0.in.us.i.i.i, align 8
   %19 = load ptr, ptr %17, align 8
   %tobool.not.us.i.i.i = icmp eq ptr %19, null
-  br i1 %tobool.not.us.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.us.i.i.i, !llvm.loop !17
+  br i1 %tobool.not.us.i.i.i, label %if.else.i.i.i, label %while.body.us.i.i.i, !llvm.loop !17
 
 while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.i.i, %while.body.i.i.i
   %20 = phi ptr [ %22, %while.body.i.i.i ], [ %16, %while.body.lr.ph.i.i.i ]
@@ -3018,24 +3010,27 @@ while.body.i.i.i:                                 ; preds = %while.body.lr.ph.i.
   %retval.sroa.4.0.i.i.i = load i64, ptr %retval.sroa.4.0.in.i.i.i, align 8
   %22 = load ptr, ptr %20, align 8
   %tobool.not.i.i.i = icmp eq ptr %22, null
-  br i1 %tobool.not.i.i.i, label %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i, label %while.body.i.i.i, !llvm.loop !17
+  br i1 %tobool.not.i.i.i, label %if.then.i.i.i, label %while.body.i.i.i, !llvm.loop !17
 
-_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i: ; preds = %while.body.i.i.i, %while.body.us.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
-  %retval.sroa.0.0.lcssa.i.i.i = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %17, %while.body.us.i.i.i ], [ %20, %while.body.i.i.i ]
-  %retval.sroa.4.0.lcssa.i.i.i = phi i64 [ %retval.sroa.4.08.i.i.i, %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i ], [ %retval.sroa.4.0.us.i.i.i, %while.body.us.i.i.i ], [ %retval.sroa.4.0.i.i.i, %while.body.i.i.i ]
+_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i: ; preds = %_ZN6google8protobuf8internal11SerialArena16FreeStringBlocksEv.exit.i
   br i1 %tobool.not.i.i.i.i, label %if.else.i.i.i, label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i
-  tail call void %cond.i(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i, i64 noundef %retval.sroa.4.0.lcssa.i.i.i)
+if.then.i.i.i:                                    ; preds = %while.body.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i
+  %retval.sroa.4.0.lcssa.i.i.i20 = phi i64 [ %retval.sroa.4.08.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i ], [ %retval.sroa.4.0.i.i.i, %while.body.i.i.i ]
+  %retval.sroa.0.0.lcssa.i.i.i19 = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i ], [ %20, %while.body.i.i.i ]
+  tail call void %cond.i(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i19, i64 noundef %retval.sroa.4.0.lcssa.i.i.i20)
   br label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i
 
-if.else.i.i.i:                                    ; preds = %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i) #27
+if.else.i.i.i:                                    ; preds = %while.body.us.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i
+  %retval.sroa.4.0.lcssa.i.i.i14 = phi i64 [ %retval.sroa.4.08.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i ], [ %retval.sroa.4.0.us.i.i.i, %while.body.us.i.i.i ]
+  %retval.sroa.0.0.lcssa.i.i.i12 = phi ptr [ %atomic-temp.i.0.i.i.i.i.i, %_ZN6google8protobuf8internal11SerialArena4FreeINS1_14GetDeallocatorEEENS1_8SizedPtrET_.exit.i.i ], [ %17, %while.body.us.i.i.i ]
+  tail call void @_ZdlPv(ptr noundef nonnull %retval.sroa.0.0.lcssa.i.i.i12) #27
   br label %_ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i
 
 _ZNK6google8protobuf8internal14GetDeallocatorclENS1_8SizedPtrE.exit.i.i: ; preds = %if.else.i.i.i, %if.then.i.i.i
+  %retval.sroa.4.0.lcssa.i.i.i13 = phi i64 [ %retval.sroa.4.0.lcssa.i.i.i14, %if.else.i.i.i ], [ %retval.sroa.4.0.lcssa.i.i.i20, %if.then.i.i.i ]
   %23 = load i64, ptr %space_allocated, align 8
-  %add.i.i.i = add i64 %23, %retval.sroa.4.0.lcssa.i.i.i
+  %add.i.i.i = add i64 %23, %retval.sroa.4.0.lcssa.i.i.i13
   store i64 %add.i.i.i, ptr %space_allocated, align 8
   %cmp.i.i.not.i.i = icmp eq i64 %it.sroa.0.0.add.i.i, 0
   br i1 %cmp.i.i.not.i.i, label %"_ZZN6google8protobuf8internal15ThreadSafeArena4FreeEPmENK3$_0clEPNS2_16SerialArenaChunkE.exit.i", label %for.body.i.i, !llvm.loop !18
@@ -3312,7 +3307,6 @@ entry:
   %cmp.i15 = icmp eq i64 %1, %2
   %last_serial_arena.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %last_serial_arena.i, align 16
-  %arena.0 = select i1 %cmp.i15, ptr %3, ptr undef
   br i1 %cmp.i15, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -3417,7 +3411,7 @@ sw.default.i73:                                   ; preds = %_ZN6google8protobuf
   br label %_ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit
 
 _ZN6google8protobuf8internal7cleanup10CreateNodeENS2_3TagEPvPKvPFvS4_E.exit: ; preds = %sw.default.i73, %sw.bb2.i74, %sw.bb.i75
-  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %arena.0, i64 16
+  %prefetch_ptr_.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %prefetch_ptr_.i, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %add.i

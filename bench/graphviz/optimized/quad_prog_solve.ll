@@ -9,10 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [20 x i8] c"realloc failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @unpackMatrix(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @unpackMatrix(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %.preheader42.thread63, label %4
+  br i1 %.not.i, label %.preheader42, label %4
 
 4:                                                ; preds = %2
   %mul.ov.i = icmp slt i32 %1, 0
@@ -27,7 +27,7 @@ define noalias ptr @unpackMatrix(ptr noundef readonly captures(none) %0, i32 nou
 8:                                                ; preds = %4
   %9 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %3, i64 noundef 8) #16
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %18
+  br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8, !tbaa !3
@@ -36,38 +36,38 @@ define noalias ptr @unpackMatrix(ptr noundef readonly captures(none) %0, i32 nou
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
-.preheader42.thread63:                            ; preds = %2
-  %15 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #16
+15:                                               ; preds = %8
   %16 = mul nuw nsw i32 %1, %1
-  %17 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #16
-  store ptr %17, ptr %15, align 8, !tbaa !8
-  tail call void @set_vector_valf(i32 noundef %16, float noundef 0.000000e+00, ptr noundef %17) #17
-  br label %._crit_edge
+  %17 = zext nneg i32 %16 to i64
+  %18 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %17, i64 noundef 4) #16
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %20, label %gv_calloc.exit40
 
-18:                                               ; preds = %8
-  %19 = mul nuw nsw i32 %1, %1
-  %20 = zext nneg i32 %19 to i64
-  %21 = tail call noalias ptr @calloc(i64 noundef range(i64 -2147483648, 2147483648) %20, i64 noundef 4) #16
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %gv_calloc.exit40
-
-23:                                               ; preds = %18
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !3
-  %25 = shl nuw nsw i64 %20, 2
-  %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.1, i64 noundef %25) #14
+20:                                               ; preds = %15
+  %21 = load ptr, ptr @stderr, align 8, !tbaa !3
+  %22 = shl nuw nsw i64 %17, 2
+  %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %21, ptr noundef nonnull @.str.1, i64 noundef %22) #14
   tail call fastcc void @graphviz_exit() #15
   unreachable
 
-gv_calloc.exit40:                                 ; preds = %18
-  store ptr %21, ptr %9, align 8, !tbaa !8
-  tail call void @set_vector_valf(i32 noundef %19, float noundef 0.000000e+00, ptr noundef nonnull %21) #17
+gv_calloc.exit40:                                 ; preds = %15
+  store ptr %18, ptr %9, align 8, !tbaa !8
+  tail call void @set_vector_valf(i32 noundef %16, float noundef 0.000000e+00, ptr noundef nonnull %18) #17
   %.not = icmp eq i32 %1, 1
   br i1 %.not, label %.preheader.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %gv_calloc.exit40
-  %27 = zext nneg i32 %1 to i64
+  %24 = zext nneg i32 %1 to i64
   %.pre = load ptr, ptr %9, align 8, !tbaa !8
   br label %.lr.ph
+
+.preheader42:                                     ; preds = %2
+  %25 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 8) #16
+  %26 = mul nuw nsw i32 %1, %1
+  %27 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 4) #16
+  store ptr %27, ptr %25, align 8, !tbaa !8
+  tail call void @set_vector_valf(i32 noundef %26, float noundef 0.000000e+00, ptr noundef %27) #17
+  br label %._crit_edge
 
 .preheader.preheader:                             ; preds = %.lr.ph, %gv_calloc.exit40
   %wide.trip.count61 = zext nneg i32 %1 to i64
@@ -75,12 +75,12 @@ gv_calloc.exit40:                                 ; preds = %18
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = mul nuw nsw i64 %indvars.iv, %27
+  %28 = mul nuw nsw i64 %indvars.iv, %24
   %29 = getelementptr inbounds nuw float, ptr %.pre, i64 %28
   %30 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   store ptr %29, ptr %30, align 8, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %27
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %24
   br i1 %exitcond.not, label %.preheader.preheader, label %.lr.ph, !llvm.loop !10
 
 .preheader:                                       ; preds = %.preheader.preheader, %41
@@ -113,8 +113,8 @@ gv_calloc.exit40:                                 ; preds = %18
   %exitcond62.not = icmp eq i64 %indvars.iv.next52, %wide.trip.count61
   br i1 %exitcond62.not, label %._crit_edge, label %.preheader, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %41, %.preheader42.thread63
-  %42 = phi ptr [ %15, %.preheader42.thread63 ], [ %9, %41 ]
+._crit_edge:                                      ; preds = %41, %.preheader42
+  %42 = phi ptr [ %25, %.preheader42 ], [ %9, %41 ]
   ret ptr %42
 }
 
@@ -1057,7 +1057,7 @@ ints_append.exit.us:                              ; preds = %220, %214, %205
   br label %346
 
 ._crit_edge709.us:                                ; preds = %413
-  tail call void @orthog1f(i32 noundef %11, ptr noundef %9) #17
+  tail call void @orthog1f(i32 noundef %11, ptr noundef nonnull %9) #17
   %485 = add nuw nsw i32 %.0356715.us, 1
   %486 = icmp sge i32 %485, %4
   %.not399.us = select i1 %486, i1 true, i1 %.2360.us

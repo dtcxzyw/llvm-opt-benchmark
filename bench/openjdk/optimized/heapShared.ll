@@ -3598,41 +3598,34 @@ define hidden void @_ZN10HeapShared16get_pointer_infoEP7oopDescRbS2_(ptr noundef
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
   %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
-  %15 = load ptr, ptr %14, align 8
-  %.not11.i.i.i = icmp eq ptr %15, null
-  br i1 %.not11.i.i.i, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %.lr.ph.i.i.i
+  br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %3, %23
-  %16 = phi ptr [ %25, %23 ], [ %15, %3 ]
-  %17 = load i32, ptr %16, align 8
-  %18 = icmp eq i32 %17, %8
-  br i1 %18, label %19, label %23
+.lr.ph.i.i.i:                                     ; preds = %22, %3
+  %.in = phi ptr [ %23, %22 ], [ %14, %3 ]
+  %15 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp eq i32 %16, %8
+  br i1 %17, label %18, label %22
 
-19:                                               ; preds = %.lr.ph.i.i.i
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %0, %21
-  br i1 %22, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %23
+18:                                               ; preds = %.lr.ph.i.i.i
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %0, %20
+  br i1 %21, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %22
 
-23:                                               ; preds = %19, %.lr.ph.i.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %.not.i.i.i = icmp eq ptr %25, null
-  br i1 %.not.i.i.i, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+22:                                               ; preds = %18, %.lr.ph.i.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  br label %.lr.ph.i.i.i
 
-_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit: ; preds = %19, %23, %3
-  %26 = phi ptr [ null, %3 ], [ null, %23 ], [ %16, %19 ]
-  %.not.i = icmp eq ptr %26, null
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %.0.i = select i1 %.not.i, ptr null, ptr %27
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %29 = load i8, ptr %28, align 8
-  %30 = and i8 %29, 1
-  store i8 %30, ptr %1, align 1
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 17
-  %32 = load i8, ptr %31, align 1
-  %33 = and i8 %32, 1
-  store i8 %33, ptr %2, align 1
+_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit: ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %25 = load i8, ptr %24, align 8
+  %26 = and i8 %25, 1
+  store i8 %26, ptr %1, align 1
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 33
+  %28 = load i8, ptr %27, align 1
+  %29 = and i8 %28, 1
+  store i8 %29, ptr %2, align 1
   ret void
 }
 
@@ -3649,35 +3642,28 @@ define hidden void @_ZN10HeapShared23set_has_native_pointersEP7oopDesc(ptr nound
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
-  %13 = load ptr, ptr %12, align 8
-  %.not11.i.i.i = icmp eq ptr %13, null
-  br i1 %.not11.i.i.i, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %.lr.ph.i.i.i
+  br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %1, %21
-  %14 = phi ptr [ %23, %21 ], [ %13, %1 ]
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp eq i32 %15, %6
-  br i1 %16, label %17, label %21
+.lr.ph.i.i.i:                                     ; preds = %20, %1
+  %.in = phi ptr [ %21, %20 ], [ %12, %1 ]
+  %13 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
+  %14 = load i32, ptr %13, align 8
+  %15 = icmp eq i32 %14, %6
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp eq ptr %0, %19
-  br i1 %20, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %21
+16:                                               ; preds = %.lr.ph.i.i.i
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = icmp eq ptr %0, %18
+  br i1 %19, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %20
 
-21:                                               ; preds = %17, %.lr.ph.i.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %23 = load ptr, ptr %22, align 8
-  %.not.i.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i.i, label %_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit, label %.lr.ph.i.i.i, !llvm.loop !9
+20:                                               ; preds = %16, %.lr.ph.i.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %13, i64 40
+  br label %.lr.ph.i.i.i
 
-_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit: ; preds = %17, %21, %1
-  %24 = phi ptr [ null, %1 ], [ null, %21 ], [ %14, %17 ]
-  %.not.i = icmp eq ptr %24, null
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.0.i = select i1 %.not.i, ptr null, ptr %25
-  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 17
-  store i8 1, ptr %26, align 1
+_ZNK21ResourceHashtableBaseI34ResizeableResourceHashtableStorageIP7oopDescN10HeapShared13CachedOopInfoELN6AnyObj15allocation_typeE2EL8MEMFLAGS13EES2_S4_LS6_2ELS7_13EXadL_ZNS3_8oop_hashERKS2_EEXadL_Z16primitive_equalsIS2_EbRKT_SE_EEE3getESA_.exit: ; preds = %16
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %22, align 1
   ret void
 }
 
@@ -6841,45 +6827,38 @@ _Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3: ; preds = %68, %60
   %73 = urem i32 %72, 137
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw ptr, ptr %57, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %.not11.i.i.i.i = icmp eq ptr %76, null
-  br i1 %.not11.i.i.i.i, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %.lr.ph.i.i.i.i
+  br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3, %84
-  %77 = phi ptr [ %86, %84 ], [ %76, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3 ]
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp eq i32 %78, %72
-  br i1 %79, label %80, label %84
+.lr.ph.i.i.i.i:                                   ; preds = %83, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3
+  %.in = phi ptr [ %84, %83 ], [ %75, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3 ]
+  %76 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %77, %72
+  br i1 %78, label %79, label %83
 
-80:                                               ; preds = %.lr.ph.i.i.i.i
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %82 = load ptr, ptr %81, align 8
-  %83 = icmp eq ptr %0, %82
-  br i1 %83, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %84
+79:                                               ; preds = %.lr.ph.i.i.i.i
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %81 = load ptr, ptr %80, align 8
+  %82 = icmp eq ptr %0, %81
+  br i1 %82, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %83
 
-84:                                               ; preds = %80, %.lr.ph.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 48
+83:                                               ; preds = %79, %.lr.ph.i.i.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %76, i64 48
+  br label %.lr.ph.i.i.i.i
+
+_ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %79
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %86 = load ptr, ptr %85, align 8
-  %.not.i.i.i.i = icmp eq ptr %86, null
-  br i1 %.not.i.i.i.i, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  %87 = icmp eq ptr %86, null
+  br i1 %87, label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, label %88
 
-_ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %80, %84, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3
-  %87 = phi ptr [ null, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i3 ], [ %77, %80 ], [ null, %84 ]
-  %.not.i.i = icmp eq ptr %87, null
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
-  %.0.i.i = select i1 %.not.i.i, ptr null, ptr %88
-  %89 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, label %92
-
-92:                                               ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit
-  %93 = load i32, ptr %90, align 4
+88:                                               ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit
+  %89 = load i32, ptr %86, align 4
   br label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit
 
-_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit: ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, %92
-  %94 = phi i32 [ %93, %92 ], [ 0, %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit ]
-  store i32 %94, ptr @_ZN10HeapShared25_num_old_recorded_klassesE, align 4
+_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit: ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, %88
+  %90 = phi i32 [ %89, %88 ], [ 0, %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit ]
+  store i32 %90, ptr @_ZN10HeapShared25_num_old_recorded_klassesE, align 4
   ret void
 }
 
@@ -6912,117 +6891,110 @@ _Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i: ; preds = %14, %6
   %19 = urem i32 %18, 137
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %20
-  %22 = load ptr, ptr %21, align 8
-  %.not11.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not11.i.i.i.i, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %.lr.ph.i.i.i.i
+  br label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i, %30
-  %23 = phi ptr [ %32, %30 ], [ %22, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i ]
-  %24 = load i32, ptr %23, align 8
-  %25 = icmp eq i32 %24, %18
-  br i1 %25, label %26, label %30
+.lr.ph.i.i.i.i:                                   ; preds = %29, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i
+  %.in = phi ptr [ %30, %29 ], [ %21, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i ]
+  %22 = load ptr, ptr %.in, align 8, !nonnull !12, !noundef !12
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, %18
+  br i1 %24, label %25, label %29
 
-26:                                               ; preds = %.lr.ph.i.i.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = icmp eq ptr %0, %28
-  br i1 %29, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %30
+25:                                               ; preds = %.lr.ph.i.i.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = icmp eq ptr %0, %27
+  br i1 %28, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %29
 
-30:                                               ; preds = %26, %.lr.ph.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %23, i64 48
+29:                                               ; preds = %25, %.lr.ph.i.i.i.i
+  %30 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  br label %.lr.ph.i.i.i.i
+
+_ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %25
+  %31 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %32 = load ptr, ptr %31, align 8
-  %.not.i.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i.i, label %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, label %.lr.ph.i.i.i.i, !llvm.loop !25
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, label %34
 
-_ZN10HeapShared17get_subgraph_infoEP5Klass.exit:  ; preds = %26, %30, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i
-  %33 = phi ptr [ null, %_Z29DumpTimeSharedClassTable_hashI5KlassEjRKPT_.exit.i.i ], [ %23, %26 ], [ null, %30 ]
-  %.not.i.i = icmp eq ptr %33, null
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %.0.i.i = select i1 %.not.i.i, ptr null, ptr %34
-  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, label %38
-
-38:                                               ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit
-  %39 = load i32, ptr %36, align 4
+34:                                               ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit
+  %35 = load i32, ptr %32, align 4
   br label %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit
 
-_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit: ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, %38
-  %40 = phi i32 [ %39, %38 ], [ 0, %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit ]
-  %41 = load i32, ptr @_ZN10HeapShared25_num_old_recorded_klassesE, align 4
-  %42 = sub nsw i32 %40, %41
-  %43 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
-  %.not = icmp eq ptr %43, null
-  br i1 %.not, label %47, label %44
+_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit: ; preds = %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit, %34
+  %36 = phi i32 [ %35, %34 ], [ 0, %_ZN10HeapShared17get_subgraph_infoEP5Klass.exit ]
+  %37 = load i32, ptr @_ZN10HeapShared25_num_old_recorded_klassesE, align 4
+  %38 = sub nsw i32 %36, %37
+  %39 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
+  %.not = icmp eq ptr %39, null
+  br i1 %.not, label %43, label %40
 
-44:                                               ; preds = %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit
-  %45 = load i32, ptr @_ZN10HeapShared20_num_new_walked_objsE, align 4
-  %46 = load i32, ptr @_ZN10HeapShared22_num_new_archived_objsE, align 4
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef %45, i32 noundef %46, i32 noundef %42)
-  br label %47
+40:                                               ; preds = %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit
+  %41 = load i32, ptr @_ZN10HeapShared20_num_new_walked_objsE, align 4
+  %42 = load i32, ptr @_ZN10HeapShared22_num_new_archived_objsE, align 4
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.73, ptr noundef %1, i32 noundef %41, i32 noundef %42, i32 noundef %38)
+  br label %43
 
-47:                                               ; preds = %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, %44
-  %48 = load ptr, ptr @_ZN10HeapShared19_seen_objects_tableE, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZN10HeapShared25delete_seen_objects_tableEv.exit, label %50
+43:                                               ; preds = %_ZN17KlassSubGraphInfo27num_subgraph_object_klassesEv.exit, %40
+  %44 = load ptr, ptr @_ZN10HeapShared19_seen_objects_tableE, align 8
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %_ZN10HeapShared25delete_seen_objects_tableEv.exit, label %46
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load i32, ptr %48, align 8
-  %54 = zext i32 %53 to i64
-  %.not15.i.i.i = icmp eq i32 %53, 0
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load i32, ptr %44, align 8
+  %50 = zext i32 %49 to i64
+  %.not15.i.i.i = icmp eq i32 %49, 0
   br i1 %.not15.i.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i, label %.lr.ph13.i.i.i
 
-.lr.ph13.i.i.i:                                   ; preds = %50, %._crit_edge.i.i.i
-  %55 = phi ptr [ %59, %._crit_edge.i.i.i ], [ %52, %50 ]
-  %.011.i.i.i = phi ptr [ %60, %._crit_edge.i.i.i ], [ %52, %50 ]
-  %56 = load ptr, ptr %.011.i.i.i, align 8
-  %.not9.i.i.i = icmp eq ptr %56, null
+.lr.ph13.i.i.i:                                   ; preds = %46, %._crit_edge.i.i.i
+  %51 = phi ptr [ %55, %._crit_edge.i.i.i ], [ %48, %46 ]
+  %.011.i.i.i = phi ptr [ %56, %._crit_edge.i.i.i ], [ %48, %46 ]
+  %52 = load ptr, ptr %.011.i.i.i, align 8
+  %.not9.i.i.i = icmp eq ptr %52, null
   br i1 %.not9.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph13.i.i.i, %.lr.ph.i.i.i
-  %.0810.i.i.i = phi ptr [ %58, %.lr.ph.i.i.i ], [ %56, %.lr.ph13.i.i.i ]
-  %57 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 24
-  %58 = load ptr, ptr %57, align 8
+  %.0810.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i ], [ %52, %.lr.ph13.i.i.i ]
+  %53 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i, i64 24
+  %54 = load ptr, ptr %53, align 8
   tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %.0810.i.i.i) #20
-  %.not.i.i.i = icmp eq ptr %58, null
+  %.not.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !29
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %.lr.ph.i.i.i
-  %.pre.i.i.i = load ptr, ptr %51, align 8
+  %.pre.i.i.i = load ptr, ptr %47, align 8
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.loopexit.i.i.i, %.lr.ph13.i.i.i
-  %59 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %55, %.lr.ph13.i.i.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %54
-  %62 = icmp ult ptr %60, %61
-  br i1 %62, label %.lr.ph13.i.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i, !llvm.loop !30
+  %55 = phi ptr [ %.pre.i.i.i, %._crit_edge.loopexit.i.i.i ], [ %51, %.lr.ph13.i.i.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %.011.i.i.i, i64 8
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %50
+  %58 = icmp ult ptr %56, %57
+  br i1 %58, label %.lr.ph13.i.i.i, label %_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i, !llvm.loop !30
 
-_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i: ; preds = %._crit_edge.i.i.i, %50
-  %.lcssa.i.i.i = phi ptr [ %52, %50 ], [ %59, %._crit_edge.i.i.i ]
+_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i: ; preds = %._crit_edge.i.i.i, %46
+  %.lcssa.i.i.i = phi ptr [ %48, %46 ], [ %55, %._crit_edge.i.i.i ]
   tail call void @_Z8FreeHeapPv(ptr noundef %.lcssa.i.i.i) #20
-  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %48) #20
+  tail call void @_ZN6AnyObjdlEPv(ptr noundef nonnull %44) #20
   br label %_ZN10HeapShared25delete_seen_objects_tableEv.exit
 
-_ZN10HeapShared25delete_seen_objects_tableEv.exit: ; preds = %47, %_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i
+_ZN10HeapShared25delete_seen_objects_tableEv.exit: ; preds = %43, %_ZN27ResizeableResourceHashtableIP7oopDescbLN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_ZN10HeapShared8oop_hashERKS1_EEXadL_Z16primitive_equalsIS1_EbRKT_SB_EEED2Ev.exit.i
   store ptr null, ptr @_ZN10HeapShared19_seen_objects_tableE, align 8
-  %63 = load i32, ptr @_ZN10HeapShared30_num_total_subgraph_recordingsE, align 4
-  %64 = add nsw i32 %63, 1
-  store i32 %64, ptr @_ZN10HeapShared30_num_total_subgraph_recordingsE, align 4
-  %65 = load i32, ptr @_ZN10HeapShared20_num_new_walked_objsE, align 4
-  %66 = load i32, ptr @_ZN10HeapShared22_num_total_walked_objsE, align 4
-  %67 = add nsw i32 %66, %65
-  store i32 %67, ptr @_ZN10HeapShared22_num_total_walked_objsE, align 4
-  %68 = load i32, ptr @_ZN10HeapShared22_num_new_archived_objsE, align 4
-  %69 = load i32, ptr @_ZN10HeapShared24_num_total_archived_objsE, align 4
-  %70 = add nsw i32 %69, %68
-  store i32 %70, ptr @_ZN10HeapShared24_num_total_archived_objsE, align 4
-  %71 = load i32, ptr @_ZN10HeapShared27_num_total_recorded_klassesE, align 4
-  %72 = add nsw i32 %71, %42
-  store i32 %72, ptr @_ZN10HeapShared27_num_total_recorded_klassesE, align 4
+  %59 = load i32, ptr @_ZN10HeapShared30_num_total_subgraph_recordingsE, align 4
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr @_ZN10HeapShared30_num_total_subgraph_recordingsE, align 4
+  %61 = load i32, ptr @_ZN10HeapShared20_num_new_walked_objsE, align 4
+  %62 = load i32, ptr @_ZN10HeapShared22_num_total_walked_objsE, align 4
+  %63 = add nsw i32 %62, %61
+  store i32 %63, ptr @_ZN10HeapShared22_num_total_walked_objsE, align 4
+  %64 = load i32, ptr @_ZN10HeapShared22_num_new_archived_objsE, align 4
+  %65 = load i32, ptr @_ZN10HeapShared24_num_total_archived_objsE, align 4
+  %66 = add nsw i32 %65, %64
+  store i32 %66, ptr @_ZN10HeapShared24_num_total_archived_objsE, align 4
+  %67 = load i32, ptr @_ZN10HeapShared27_num_total_recorded_klassesE, align 4
+  %68 = add nsw i32 %67, %38
+  store i32 %68, ptr @_ZN10HeapShared27_num_total_recorded_klassesE, align 4
   ret void
 }
 

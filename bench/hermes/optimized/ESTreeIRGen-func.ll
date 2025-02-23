@@ -3250,7 +3250,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %18 = load ptr, ptr %_name.i, align 8
   store ptr %18, ptr %paramName, align 8
   %19 = load ptr, ptr %scopeDesc_.i, align 8
-  %call15 = call noundef ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %19, i8 noundef zeroext %cond, ptr %18) #13
+  %call15 = call noundef ptr @_ZN6hermes9IRBuilder14createVariableEPNS_9ScopeDescENS_18JavaScriptDeclKindENS_10IdentifierE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %19, i8 noundef zeroext 2, ptr %18) #13
   store ptr %call15, ptr %ref.tmp, align 8
   %20 = load ptr, ptr %scope_.i, align 8
   call void @_ZN6hermes15ScopedHashTableINS_10IdentifierEPNS_5ValueEE15insertIntoScopeEPNS_20ScopedHashTableScopeIS1_S3_EERKS1_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %nameTable_, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %paramName, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)

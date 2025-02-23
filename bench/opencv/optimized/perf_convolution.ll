@@ -8039,10 +8039,9 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.lr.ph, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !44
 
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.noexc11
-  %.0.i.i.i.i.i39 = phi ptr [ %22, %.noexc11 ], [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i ]
+  %.0.i.i.i.i.i.ph = phi ptr [ %22, %.noexc11 ], [ %21, %.lr.ph.i.i.i.i.i.i.i.i.i ]
   %25 = load ptr, ptr %1, align 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %.026, i32 1)
-  %wide.trip.count = zext nneg i32 %smax to i64
+  %wide.trip.count = zext nneg i32 %.026 to i64
   br label %26
 
 26:                                               ; preds = %.lr.ph, %26
@@ -8055,8 +8054,8 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %26, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
-  %.0.i.i.i.i.i34 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i39, %26 ]
-  %.sroa.0.032 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %26 ]
+  %.0.i.i.i.i.i36 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %.0.i.i.i.i.i.ph, %26 ]
+  %.sroa.0.033 = phi ptr [ null, %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %20, %26 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %29 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #28
@@ -8066,8 +8065,8 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test11ConvParam_tEEE, i64 16), ptr %29, align 8, !noalias !52
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, i8 0, i64 24, i1 false), !noalias !52
-  %31 = ptrtoint ptr %.0.i.i.i.i.i34 to i64
-  %32 = ptrtoint ptr %.sroa.0.032 to i64
+  %31 = ptrtoint ptr %.0.i.i.i.i.i36 to i64
+  %32 = ptrtoint ptr %.sroa.0.033 to i64
   %33 = sub i64 %31, %32
   %34 = sdiv exact i64 %33, 88
   %35 = icmp ugt i64 %34, 104811045873349725
@@ -8081,7 +8080,7 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit
   unreachable
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i: ; preds = %.noexc12
-  %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i34, %.sroa.0.032
+  %.not.i.i.i.i.i.i = icmp eq ptr %.0.i.i.i.i.i36, %.sroa.0.033
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i, label %39
 
 _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thread.i.i.i.i.i: ; preds = %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i.i.i
@@ -8099,7 +8098,7 @@ _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thr
   %41 = getelementptr inbounds i8, ptr %40, i64 %33
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 24
   store ptr %41, ptr %42, align 8, !noalias !52
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %.sroa.0.032, i64 %33, i1 false), !noalias !52
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr align 8 %.sroa.0.033, i64 %33, i1 false), !noalias !52
   br label %47
 
 43:                                               ; preds = %39, %36
@@ -8124,11 +8123,11 @@ _ZNSt12_Vector_baseIN11opencv_test11ConvParam_tESaIS1_EE11_M_allocateEm.exit.thr
   store ptr %29, ptr %0, align 8, !alias.scope !52
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %50, ptr %50, align 8, !alias.scope !52
-  %.not.i.i.i = icmp eq ptr %.sroa.0.032, null
+  %.not.i.i.i = icmp eq ptr %.sroa.0.033, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit, label %51
 
 51:                                               ; preds = %47
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.032) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.033) #31
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %47, %51
@@ -8141,11 +8140,11 @@ _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit: ; preds = %47, %51
 
 .body:                                            ; preds = %.body.i.i, %52
   %eh.lpad-body = phi { ptr, i32 } [ %53, %52 ], [ %44, %.body.i.i ]
-  %.not.i.i.i13 = icmp eq ptr %.sroa.0.032, null
+  %.not.i.i.i13 = icmp eq ptr %.sroa.0.033, null
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit14, label %54
 
 54:                                               ; preds = %.body
-  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.032) #31
+  tail call void @_ZdlPv(ptr noundef nonnull %.sroa.0.033) #31
   br label %_ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit14
 
 _ZNSt6vectorIN11opencv_test11ConvParam_tESaIS1_EED2Ev.exit14: ; preds = %54, %.body, %17
@@ -17523,9 +17522,6 @@ declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #25
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

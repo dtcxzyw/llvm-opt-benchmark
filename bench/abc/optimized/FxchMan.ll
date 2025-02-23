@@ -1760,13 +1760,13 @@ define internal fastcc void @Fxch_ManDivDoubleCube(ptr noundef captures(none) %0
   br i1 %.not.i, label %Fxch_ManSCAddRemove.exit, label %Fxch_ManSCAddRemove.exit.thread
 
 Fxch_ManSCAddRemove.exit:                         ; preds = %.critedge
-  %25 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #21
+  %25 = tail call i32 @Fxch_SCHashTableRemove(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #21
   %.val7187 = load i32, ptr %11, align 4, !tbaa !26
   %26 = icmp sgt i32 %.val7187, 1
   br i1 %26, label %Fxch_ManSCAddRemove.exit75.us.preheader, label %.critedge2
 
 Fxch_ManSCAddRemove.exit.thread:                  ; preds = %.critedge
-  %27 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %24, ptr noundef %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #21
+  %27 = tail call i32 @Fxch_SCHashTableInsert(ptr noundef %24, ptr noundef nonnull %7, i32 noundef %.058.lcssa, i32 noundef %1, i32 noundef 0, i32 noundef 0, i8 noundef signext range(i8 0, 2) %22) #21
   %.val7187126 = load i32, ptr %11, align 4, !tbaa !26
   %28 = icmp sgt i32 %.val7187126, 1
   br i1 %28, label %Fxch_ManSCAddRemove.exit75.preheader, label %.critedge2

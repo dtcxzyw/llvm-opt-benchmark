@@ -9363,18 +9363,11 @@ if.end109:                                        ; preds = %if.end.i.i.i.i.i.i.
   store ptr %runtime, ptr %ref.tmp7.sroa.47.8.index_.i.i.i.i.sroa_idx.i, align 8, !alias.scope !211
   %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %builder, i64 24
   %add.ptr.i52 = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i.i
-  %cmp115.not144 = icmp eq i32 %2, 0
-  br i1 %upperCase, label %if.then111, label %if.else136
-
-if.then111:                                       ; preds = %if.end109
-  br i1 %cmp115.not144, label %cleanup, label %for.body116.lr.ph
-
-for.body116.lr.ph:                                ; preds = %if.then111
   %index_12.i = getelementptr inbounds nuw i8, ptr %builder, i64 8
-  br label %for.body116
+  br i1 %upperCase, label %for.body116, label %for.body144
 
-for.body116:                                      ; preds = %for.body116.lr.ph, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
-  %__begin5.0145 = phi ptr [ %1, %for.body116.lr.ph ], [ %incdec.ptr134, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit ]
+for.body116:                                      ; preds = %if.end109, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
+  %__begin5.0145 = phi ptr [ %incdec.ptr134, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit ], [ %1, %if.end109 ]
   %22 = load i16, ptr %__begin5.0145, align 2
   %23 = add i16 %22, -97
   %24 = icmp ult i16 %23, 26
@@ -9470,15 +9463,8 @@ _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit: ; preds = %_ZN6hermes2vm1
   %cmp115.not = icmp eq ptr %incdec.ptr134, %add.ptr.i52
   br i1 %cmp115.not, label %cleanup, label %for.body116
 
-if.else136:                                       ; preds = %if.end109
-  br i1 %cmp115.not144, label %cleanup, label %for.body144.lr.ph
-
-for.body144.lr.ph:                                ; preds = %if.else136
-  %index_12.i72 = getelementptr inbounds nuw i8, ptr %builder, i64 8
-  br label %for.body144
-
-for.body144:                                      ; preds = %for.body144.lr.ph, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102
-  %__begin5138.0143 = phi ptr [ %1, %for.body144.lr.ph ], [ %incdec.ptr161, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102 ]
+for.body144:                                      ; preds = %if.end109, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102
+  %__begin5138.0143 = phi ptr [ %incdec.ptr161, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102 ], [ %1, %if.end109 ]
   %31 = load i16, ptr %__begin5138.0143, align 2
   %32 = add i16 %31, -65
   %33 = icmp ult i16 %32, 26
@@ -9524,9 +9510,9 @@ if.else8.i.i89:                                   ; preds = %if.else.i.i86
 
 _ZN6hermes2vm15StringPrimitive26castToASCIIPointerForWriteEv.exit.i91: ; preds = %if.else8.i.i89, %if.then5.i.i97, %if.then.i.i99
   %retval.0.i.i92 = phi ptr [ %call.i.i.i101, %if.then.i.i99 ], [ %add.ptr.i.i.i.i.i98, %if.then5.i.i97 ], [ %add.ptr.i.i.i1.i.i90, %if.else8.i.i89 ]
-  %37 = load i32, ptr %index_12.i72, align 8
+  %37 = load i32, ptr %index_12.i, align 8
   %inc.i94 = add i32 %37, 1
-  store i32 %inc.i94, ptr %index_12.i72, align 8
+  store i32 %inc.i94, ptr %index_12.i, align 8
   %idxprom.i95 = zext i32 %37 to i64
   %arrayidx.i96 = getelementptr inbounds nuw i8, ptr %retval.0.i.i92, i64 %idxprom.i95
   store i8 %conv4.i84, ptr %arrayidx.i96, align 1
@@ -9560,9 +9546,9 @@ if.else8.i10.i68:                                 ; preds = %if.else.i7.i65
 
 _ZN6hermes2vm15StringPrimitive26castToUTF16PointerForWriteEv.exit.i70: ; preds = %if.else8.i10.i68, %if.then5.i13.i76, %if.then.i15.i78
   %retval.0.i12.i71 = phi ptr [ %38, %if.then.i15.i78 ], [ %add.ptr.i.i.i.i14.i77, %if.then5.i13.i76 ], [ %add.ptr.i.i.i1.i11.i69, %if.else8.i10.i68 ]
-  %39 = load i32, ptr %index_12.i72, align 8
+  %39 = load i32, ptr %index_12.i, align 8
   %inc13.i73 = add i32 %39, 1
-  store i32 %inc13.i73, ptr %index_12.i72, align 8
+  store i32 %inc13.i73, ptr %index_12.i, align 8
   %idxprom14.i74 = zext i32 %39 to i64
   %arrayidx15.i75 = getelementptr inbounds nuw i16, ptr %retval.0.i12.i71, i64 %idxprom14.i74
   store i16 %or157, ptr %arrayidx15.i75, align 2
@@ -9574,7 +9560,7 @@ _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102: ; preds = %_ZN6hermes2
   %cmp143.not = icmp eq ptr %incdec.ptr161, %add.ptr.i52
   br i1 %cmp143.not, label %cleanup, label %for.body144
 
-cleanup:                                          ; preds = %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit, %if.then111, %if.else136
+cleanup:                                          ; preds = %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
   %40 = load i64, ptr %builder, align 8
   %41 = inttoptr i64 %40 to ptr
   %retval.sroa.0.0.copyload.i.i.i = load i64, ptr %41, align 8

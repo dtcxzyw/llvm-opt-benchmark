@@ -4854,7 +4854,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket4lockEv.
   %96 = shl nuw nsw i64 %95, 3
   %scevgep = getelementptr i8, ptr %91, i64 %96
   %97 = xor i32 %.0.lcssa.i.i.i, -1
-  %98 = add i32 %.0.i.i.i.i, %97
+  %98 = add nsw i32 %.0.i.i.i.i, %97
   %99 = zext i32 %98 to i64
   %100 = shl nuw nsw i64 %99, 3
   %101 = add nuw nsw i64 %100, 8
@@ -4891,7 +4891,7 @@ _ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI25ResolvedMethodTableCon
   %.sroa.0.4 = phi i32 [ %.sroa.0.2, %75 ], [ %83, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4NodeE18GrowableArrayCHeapIS5_LS2_1EEE6appendERKS5_.exit ]
   %.sroa.7.4 = phi i32 [ %.sroa.7.2, %75 ], [ %.sroa.7.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4NodeE18GrowableArrayCHeapIS5_LS2_1EEE6appendERKS5_.exit ]
   %.sroa.13.4 = phi ptr [ %.sroa.13.2, %75 ], [ %.sroa.13.7, %_ZN26GrowableArrayWithAllocatorIPN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4NodeE18GrowableArrayCHeapIS5_LS2_1EEE6appendERKS5_.exit ]
-  %109 = add nuw i64 %.022.i, 1
+  %109 = add nuw nsw i64 %.022.i, 1
   %110 = load volatile ptr, ptr %.064, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !8
   %111 = load volatile ptr, ptr %.01421.i, align 8

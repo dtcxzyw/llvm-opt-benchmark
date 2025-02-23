@@ -16552,7 +16552,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 
 74:                                               ; preds = %.lr.ph, %74
   %.047 = phi i32 [ 0, %.lr.ph ], [ %75, %74 ]
-  call void @_ZN4llvm16DAGTypeLegalizer16SetPromotedFloatENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i32 %.047, ptr %.fca.0.extract, i32 %.047) #16
+  call void @_ZN4llvm16DAGTypeLegalizer16SetPromotedFloatENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %1, i32 %.047, ptr %.fca.0.extract, i32 %.047) #16
   %75 = add nuw nsw i32 %.047, 1
   %exitcond.not = icmp eq i32 %75, %73
   br i1 %exitcond.not, label %._crit_edge, label %74, !llvm.loop !295
@@ -20369,7 +20369,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %._crit_edge, %76
   %79 = call { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(952) %78, i32 noundef %.0.i89, ptr noundef nonnull align 8 dereferenceable(12) %4, i16 6, ptr null, ptr noundef nonnull byval(%"class.llvm::SDValue") align 8 %7) #16
   %.fca.0.extract = extractvalue { ptr, i32 } %79, 0
   %.fca.1.extract = extractvalue { ptr, i32 } %79, 1
-  call void @_ZN4llvm16DAGTypeLegalizer19SetSoftPromotedHalfENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr %1, i32 %.099, ptr %.fca.0.extract, i32 %.fca.1.extract) #16
+  call void @_ZN4llvm16DAGTypeLegalizer19SetSoftPromotedHalfENS_7SDValueES1_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nonnull %1, i32 %.099, ptr %.fca.0.extract, i32 %.fca.1.extract) #16
   %80 = add nuw nsw i32 %.099, 1
   %exitcond.not = icmp eq i32 %80, %74
   br i1 %exitcond.not, label %._crit_edge, label %77, !llvm.loop !299

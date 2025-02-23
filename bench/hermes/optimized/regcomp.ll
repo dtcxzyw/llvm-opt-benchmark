@@ -5248,7 +5248,7 @@ if.end269:                                        ; preds = %for.end245, %if.the
   %.fr.i = freeze i32 %p.val.val
   %conv.i194 = sext i32 %.fr.i to i64
   %cmp1.not.i195 = icmp eq i32 %.fr.i, 0
-  br i1 %cmp1.not.i195, label %if.else275.thread, label %for.body.lr.ph.i196
+  br i1 %cmp1.not.i195, label %if.else275, label %for.body.lr.ph.i196
 
 for.body.lr.ph.i196:                              ; preds = %if.end269
   %186 = load ptr, ptr %arrayidx53.i, align 8
@@ -5271,7 +5271,7 @@ for.body.i198:                                    ; preds = %for.body.i198, %for
 
 nch.exit:                                         ; preds = %for.body.i198
   %cmp271 = icmp eq i32 %spec.select.i, 1
-  br i1 %cmp271, label %for.body.i208, label %if.else275
+  br i1 %cmp271, label %for.body.i208, label %if.else275.thread
 
 for.body.i208:                                    ; preds = %nch.exit, %for.inc.i
   %i.03.i = phi i64 [ %inc.i216, %for.inc.i ], [ 0, %nch.exit ]
@@ -5460,7 +5460,7 @@ if.then.i255:                                     ; preds = %for.end.i251
   store i32 %dec.i257, ptr %ncsets15.i256, align 4
   br label %if.end278
 
-if.else275:                                       ; preds = %nch.exit
+if.else275:                                       ; preds = %if.end269
   %217 = load i8, ptr %hash.i, align 1
   %sets.i261 = getelementptr inbounds nuw i8, ptr %p.val, i64 24
   %218 = load ptr, ptr %sets.i261, align 8
@@ -5469,24 +5469,24 @@ if.else275:                                       ; preds = %nch.exit
   %idxprom.i263 = zext nneg i32 %219 to i64
   %arrayidx.i264 = getelementptr inbounds nuw %struct.cset, ptr %218, i64 %idxprom.i263
   %cmp30.i = icmp sgt i32 %219, 0
-  br i1 %cmp30.i, label %for.body.us.i, label %freezeset.exit
+  br i1 %cmp30.i, label %for.body.us32.i, label %freezeset.exit
 
-if.else275.thread:                                ; preds = %if.end269
+if.else275.thread:                                ; preds = %nch.exit
   %220 = load i8, ptr %hash.i, align 1
   %sets.i261395 = getelementptr inbounds nuw i8, ptr %p.val, i64 24
   %221 = load ptr, ptr %sets.i261395, align 8
   %ncsets.i262396 = getelementptr inbounds nuw i8, ptr %p.val, i64 20
   %222 = load i32, ptr %ncsets.i262396, align 4
-  %idxprom.i263397 = zext nneg i32 %222 to i64
-  %arrayidx.i264398 = getelementptr inbounds nuw %struct.cset, ptr %221, i64 %idxprom.i263397
+  %idxprom.i263397 = sext i32 %222 to i64
+  %arrayidx.i264398 = getelementptr inbounds %struct.cset, ptr %221, i64 %idxprom.i263397
   %cmp30.i399 = icmp sgt i32 %222, 0
-  br i1 %cmp30.i399, label %for.body.us32.i, label %freezeset.exit
+  br i1 %cmp30.i399, label %for.body.us.i, label %freezeset.exit
 
-for.body.us.i:                                    ; preds = %if.else275, %for.inc45.us.i
-  %cs2.031.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc45.us.i ], [ %218, %if.else275 ]
+for.body.us.i:                                    ; preds = %if.else275.thread, %for.inc45.us.i
+  %cs2.031.us.i = phi ptr [ %incdec.ptr.us.i, %for.inc45.us.i ], [ %221, %if.else275.thread ]
   %hash7.us.i = getelementptr inbounds nuw i8, ptr %cs2.031.us.i, i64 9
   %223 = load i8, ptr %hash7.us.i, align 1
-  %cmp10.us.i = icmp ne i8 %223, %217
+  %cmp10.us.i = icmp ne i8 %223, %220
   %cmp12.not.us.i = icmp eq ptr %cs2.031.us.i, %arrayidx53.i
   %or.cond.us.i = or i1 %cmp12.not.us.i, %cmp10.us.i
   br i1 %or.cond.us.i, label %for.inc45.us.i, label %for.cond14.preheader.us.i
@@ -5516,7 +5516,7 @@ for.inc.us.i:                                     ; preds = %for.body17.us.i
 
 for.inc45.us.i:                                   ; preds = %for.end.us.i, %for.body.us.i
   %incdec.ptr.us.i = getelementptr inbounds nuw i8, ptr %cs2.031.us.i, i64 32
-  %cmp.us.i = icmp ult ptr %incdec.ptr.us.i, %arrayidx.i264
+  %cmp.us.i = icmp ult ptr %incdec.ptr.us.i, %arrayidx.i264398
   br i1 %cmp.us.i, label %for.body.us.i, label %freezeset.exit, !llvm.loop !35
 
 for.cond14.preheader.us.i:                        ; preds = %for.body.us.i
@@ -5527,22 +5527,22 @@ for.cond14.preheader.us.i:                        ; preds = %for.body.us.i
   %230 = load i8, ptr %mask.i, align 8
   br label %for.body17.us.i
 
-for.body.us32.i:                                  ; preds = %if.else275.thread, %for.inc45.us38.i
-  %cs2.031.us33.i = phi ptr [ %incdec.ptr.us39.i, %for.inc45.us38.i ], [ %221, %if.else275.thread ]
+for.body.us32.i:                                  ; preds = %if.else275, %for.inc45.us38.i
+  %cs2.031.us33.i = phi ptr [ %incdec.ptr.us39.i, %for.inc45.us38.i ], [ %218, %if.else275 ]
   %hash7.us34.i = getelementptr inbounds nuw i8, ptr %cs2.031.us33.i, i64 9
   %231 = load i8, ptr %hash7.us34.i, align 1
-  %cmp10.us35.i = icmp ne i8 %231, %220
+  %cmp10.us35.i = icmp ne i8 %231, %217
   %cmp12.not.us36.i = icmp eq ptr %cs2.031.us33.i, %arrayidx53.i
   %or.cond.us37.i = or i1 %cmp12.not.us36.i, %cmp10.us35.i
   br i1 %or.cond.us37.i, label %for.inc45.us38.i, label %if.then49.i
 
 for.inc45.us38.i:                                 ; preds = %for.body.us32.i
   %incdec.ptr.us39.i = getelementptr inbounds nuw i8, ptr %cs2.031.us33.i, i64 32
-  %cmp.us40.i = icmp ult ptr %incdec.ptr.us39.i, %arrayidx.i264398
+  %cmp.us40.i = icmp ult ptr %incdec.ptr.us39.i, %arrayidx.i264
   br i1 %cmp.us40.i, label %for.body.us32.i, label %freezeset.exit, !llvm.loop !35
 
 if.then49.i:                                      ; preds = %for.end.us.i, %for.inc.us.i, %for.body.us32.i
-  %arrayidx.i264400402 = phi ptr [ %arrayidx.i264398, %for.body.us32.i ], [ %arrayidx.i264, %for.inc.us.i ], [ %arrayidx.i264, %for.end.us.i ]
+  %arrayidx.i264400403 = phi ptr [ %arrayidx.i264, %for.body.us32.i ], [ %arrayidx.i264398, %for.inc.us.i ], [ %arrayidx.i264398, %for.end.us.i ]
   %.us-phi.i = phi ptr [ %cs2.031.us33.i, %for.body.us32.i ], [ %cs2.031.us.i, %for.inc.us.i ], [ %cs2.031.us.i, %for.end.us.i ]
   br i1 %cmp1.not.i195, label %for.end.i.i, label %for.body.i.i268
 
@@ -5570,7 +5570,7 @@ for.end.i.loopexit.i:                             ; preds = %for.body.i.i268
 
 for.end.i.i:                                      ; preds = %for.end.i.loopexit.i, %if.then49.i
   %.pre50.i = phi ptr [ %.pre50.pre.i, %for.end.i.loopexit.i ], [ %p.val, %if.then49.i ]
-  %add.ptr.i.i270 = getelementptr inbounds i8, ptr %arrayidx.i264400402, i64 -32
+  %add.ptr.i.i270 = getelementptr inbounds i8, ptr %arrayidx.i264400403, i64 -32
   %cmp12.i.i = icmp eq ptr %arrayidx53.i, %add.ptr.i.i270
   br i1 %cmp12.i.i, label %if.then.i.i271, label %freezeset.exit
 

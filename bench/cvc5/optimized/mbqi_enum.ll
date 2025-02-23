@@ -8969,7 +8969,7 @@ _ZNKSt6vectorIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE12_M_check_le
   tail call void @_ZNSt10unique_ptrIN4cvc58internal19SygusTermEnumeratorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #23
   %31 = extractvalue { ptr, i32 } %29, 0
   %32 = tail call ptr @__cxa_begin_catch(ptr %31) #23
-  br label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35
+  br label %.loopexit
 
 33:                                               ; preds = %27, %23, %_ZNKSt6vectorIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE12_M_check_lenEmPKc.exit
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -9019,7 +9019,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_de
   %48 = extractvalue { ptr, i32 } %47, 0
   %49 = tail call ptr @__cxa_begin_catch(ptr %48) #23
   tail call void @_ZN4cvc58internal6theory11quantifiers8MVarInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #23
-  br label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35
+  br label %.loopexit
 
 50:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN4cvc58internal6theory11quantifiers8MVarInfoES5_SaIS4_EET0_T_S8_S7_RT1_.exit
   %51 = landingpad { ptr, i32 }
@@ -9027,22 +9027,22 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_de
   %52 = extractvalue { ptr, i32 } %51, 0
   %53 = tail call ptr @__cxa_begin_catch(ptr %52) #23
   %.not4.i.i.i29 = icmp eq ptr %19, %37
-  br i1 %.not4.i.i.i29, label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35, label %.lr.ph.i.i.i30
+  br i1 %.not4.i.i.i29, label %.loopexit, label %.lr.ph.i.i.i30
 
 .lr.ph.i.i.i30:                                   ; preds = %50, %.lr.ph.i.i.i30
   %.05.i.i.i31 = phi ptr [ %54, %.lr.ph.i.i.i30 ], [ %19, %50 ]
   tail call void @_ZN4cvc58internal6theory11quantifiers8MVarInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.05.i.i.i31) #23
   %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i31, i64 40
   %.not.i.i.i32 = icmp eq ptr %.05.i.i.i31, %36
-  br i1 %.not.i.i.i32, label %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35, label %.lr.ph.i.i.i30, !llvm.loop !408
+  br i1 %.not.i.i.i32, label %.loopexit, label %.lr.ph.i.i.i30, !llvm.loop !408
 
-55:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35
+55:                                               ; preds = %.loopexit
   %56 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %57 unwind label %58
 
-_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35: ; preds = %.lr.ph.i.i.i30, %50, %46, %.thread
+.loopexit:                                        ; preds = %.lr.ph.i.i.i30, %.thread, %46, %50
   tail call void @_ZdlPvm(ptr noundef nonnull %19, i64 noundef %18) #25
   invoke void @__cxa_rethrow() #27
           to label %61 unwind label %55
@@ -9057,7 +9057,7 @@ _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_de
   tail call void @__clang_call_terminate(ptr %60) #24
   unreachable
 
-61:                                               ; preds = %_ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers8MVarInfoESaIS4_EE13_M_deallocateEPS4_m.exit35
+61:                                               ; preds = %.loopexit
   unreachable
 }
 

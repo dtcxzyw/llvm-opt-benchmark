@@ -1406,7 +1406,7 @@ define dso_local ptr @deconstruct_jointree(ptr noundef initializes((88, 104), (6
   %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv.i.i
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %49, align 8
-  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %54, ptr noundef nonnull readonly %33, ptr noundef null, i32 noundef %indvars27.i.i, ptr noundef %55, ptr noundef %55, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @distribute_quals_to_rels(ptr noundef nonnull %0, ptr noundef %54, ptr noundef nonnull readonly %33, ptr noundef null, i32 noundef %indvars27.i.i, ptr noundef %55, ptr noundef %55, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %56 = load i32, ptr %47, align 4
   %57 = sext i32 %56 to i64
@@ -1419,12 +1419,12 @@ define dso_local ptr @deconstruct_jointree(ptr noundef initializes((88, 104), (6
   %62 = load i32, ptr %25, align 8
   %63 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %64 = load ptr, ptr %63, align 8
-  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %61, ptr noundef nonnull %33, ptr noundef null, i32 noundef %62, ptr noundef %64, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @distribute_quals_to_rels(ptr noundef nonnull %0, ptr noundef %61, ptr noundef nonnull %33, ptr noundef null, i32 noundef %62, ptr noundef %64, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   %65 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %66 = load ptr, ptr %65, align 8
   %67 = load i32, ptr %25, align 8
   %68 = load ptr, ptr %63, align 8
-  call fastcc void @distribute_quals_to_rels(ptr noundef %0, ptr noundef %66, ptr noundef nonnull %33, ptr noundef null, i32 noundef %67, ptr noundef %68, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
+  call fastcc void @distribute_quals_to_rels(ptr noundef nonnull %0, ptr noundef %66, ptr noundef nonnull %33, ptr noundef null, i32 noundef %67, ptr noundef %68, ptr noundef null, ptr noundef null, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   br label %deconstruct_distribute.exit
 
 69:                                               ; preds = %.lr.ph103

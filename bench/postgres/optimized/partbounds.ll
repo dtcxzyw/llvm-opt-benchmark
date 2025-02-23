@@ -1367,7 +1367,7 @@ define dso_local noundef ptr @partition_bounds_create(ptr noundef readonly captu
   br i1 %exitcond95.not.i, label %create_hash_bounds.exit, label %.lr.ph83.i, !llvm.loop !19
 
 create_hash_bounds.exit:                          ; preds = %._crit_edge80.i, %._crit_edge76.i
-  tail call void @pfree(ptr noundef %18) #12
+  tail call void @pfree(ptr noundef nonnull %18) #12
   br label %create_list_bounds.exit
 
 85:                                               ; preds = %._crit_edge

@@ -2425,7 +2425,7 @@ define void @_ZN5folly12toLowerAsciiEPcm(ptr noundef %0, i64 noundef %1) local_u
 
 .preheader50:                                     ; preds = %.lr.ph, %33
   %.3.lcssa = phi i64 [ %.2, %33 ], [ %36, %.lr.ph ]
-  %35 = add i64 %.3.lcssa, 4
+  %35 = add nuw i64 %.3.lcssa, 4
   %.not2953 = icmp ugt i64 %35, %1
   br i1 %.not2953, label %.preheader, label %.lr.ph55
 

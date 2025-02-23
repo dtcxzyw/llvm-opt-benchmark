@@ -1182,7 +1182,7 @@ _ZN10aiVector3tIfE9NormalizeEv.exit352:           ; preds = %_ZN10aiVector3tIfE9
   store float %.sroa.14.1, ptr %.sroa.14.0..sroa_idx, align 4
   %528 = add i32 %.0588, 1
   %529 = zext i32 %528 to i64
-  %530 = icmp ugt i64 %478, %529
+  %530 = icmp samesign ugt i64 %478, %529
   br i1 %530, label %.lr.ph589, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %.lr.ph589, %_ZN10aiVector3tIfE9NormalizeEv.exit352, %338

@@ -11931,13 +11931,13 @@ for.body.i:                                       ; preds = %_ZNK11mpz_managerIL
   %dec.i = add i64 %shift.07.i, -1
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
   %cmp.i20 = icmp ugt i64 %dec.i, 64
-  br i1 %cmp.i20, label %for.body.i, label %for.end.i, !llvm.loop !38
+  br i1 %cmp.i20, label %for.body.i, label %for.body6.preheader.i, !llvm.loop !38
 
-for.end.i:                                        ; preds = %for.body.i, %_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit
+for.end.i:                                        ; preds = %_ZNK11mpz_managerILb1EE10get_uint64ERK3mpz.exit
   %cmp5.not9.i = icmp eq i32 %num_bits, 0
   br i1 %cmp5.not9.i, label %if.end29, label %for.body6.preheader.i
 
-for.body6.preheader.i:                            ; preds = %for.end.i
+for.body6.preheader.i:                            ; preds = %for.body.i, %for.end.i
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv, i64 64)
   br label %for.body6.i
 
@@ -26587,13 +26587,13 @@ for.body.i:                                       ; preds = %_ZNK11mpz_managerIL
   %dec.i = add i64 %shift.07.i, -1
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.6)
   %cmp.i20 = icmp ugt i64 %dec.i, 64
-  br i1 %cmp.i20, label %for.body.i, label %for.end.i, !llvm.loop !38
+  br i1 %cmp.i20, label %for.body.i, label %for.body6.preheader.i, !llvm.loop !38
 
-for.end.i:                                        ; preds = %for.body.i, %_ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit
+for.end.i:                                        ; preds = %_ZNK11mpz_managerILb0EE10get_uint64ERK3mpz.exit
   %cmp5.not9.i = icmp eq i32 %num_bits, 0
   br i1 %cmp5.not9.i, label %if.end29, label %for.body6.preheader.i
 
-for.body6.preheader.i:                            ; preds = %for.end.i
+for.body6.preheader.i:                            ; preds = %for.body.i, %for.end.i
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, 4294967296) %conv, i64 64)
   br label %for.body6.i
 

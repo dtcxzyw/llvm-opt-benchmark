@@ -42634,7 +42634,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrI
   br i1 %.not.i.i.i.i8, label %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5eraseENSB_14_Node_iteratorIS9_Lb0ELb1EEE.exit.i, label %50, !llvm.loop !1685
 
 _ZNSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5eraseENSB_14_Node_iteratorIS9_Lb0ELb1EEE.exit.i: ; preds = %50
-  %52 = invoke ptr @_ZNSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.pre-phi, ptr noundef nonnull %.0.i.i.i.i, ptr noundef %.sroa.06.1.i.i)
+  %52 = invoke ptr @_ZNSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %6, i64 noundef %.pre-phi, ptr noundef nonnull %.0.i.i.i.i, ptr noundef nonnull %.sroa.06.1.i.i)
           to label %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb9DataTableEENS1_10shared_ptrINS1_17LocalTableStorageELb1EEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S6_EEE5eraseENSt8__detail14_Node_iteratorISD_Lb0ELb1EEE.exit unwind label %53
 
 53:                                               ; preds = %_ZNSt10_HashtableISt17reference_wrapperIN6duckdb9DataTableEESt4pairIKS3_NS1_10shared_ptrINS1_17LocalTableStorageELb1EEEESaIS9_ENSt8__detail10_Select1stENS1_17ReferenceEqualityIS2_EENS1_21ReferenceHashFunctionIS2_EENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE5eraseENSB_14_Node_iteratorIS9_Lb0ELb1EEE.exit.i
@@ -66481,7 +66481,7 @@ _ZNKSt14default_deleteIN6duckdb12PartialBlockEEclEPS1_.exit.i.i58: ; preds = %12
   br label %_ZNSt4pairImN6duckdb10unique_ptrINS0_12PartialBlockESt14default_deleteIS2_ELb1EEEED2Ev.exit59
 
 127:                                              ; preds = %_ZNSt4pairImN6duckdb10unique_ptrINS0_12PartialBlockESt14default_deleteIS2_ELb1EEEED2Ev.exit, %_ZN6duckdb22PartialBlockAllocationD2Ev.exit48
-  %128 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %.sroa.068.089) #45
+  %128 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.068.089) #45
   %.not = icmp eq ptr %128, %28
   br i1 %.not, label %._crit_edge, label %39
 
@@ -73583,7 +73583,7 @@ _ZNSt8_Rb_treeIllSt9_IdentityIlESt4lessIlESaIlEE10_M_insert_IRKlNS5_11_Alloc_nod
 
 204:                                              ; preds = %.noexc109, %191
   %205 = phi i64 [ %203, %.noexc109 ], [ %182, %191 ]
-  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0148.0249) #45
+  %206 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0148.0249) #45
   %.not193 = icmp eq ptr %206, %36
   br i1 %.not193, label %._crit_edge252, label %.lr.ph251
 
@@ -105876,36 +105876,31 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .lr.ph:                                           ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = icmp eq i64 %2, 0
-  br i1 %18, label %._crit_edge, label %.lr.ph204
+  br label %18
 
-19:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit"
-  %20 = icmp eq i64 %36, 0
-  br i1 %20, label %._crit_edge, label %.lr.ph204, !llvm.loop !2995
+18:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit"
+  %19 = phi i64 [ %14, %.lr.ph ], [ %159, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit" ]
+  %.059 = phi i64 [ %2, %.lr.ph ], [ %36, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit" ]
+  %storemerge58 = phi ptr [ %1, %.lr.ph ], [ %.sroa.051.177.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit" ]
+  %20 = icmp eq i64 %.059, 0
+  br i1 %20, label %21, label %35
 
-._crit_edge:                                      ; preds = %19, %.lr.ph
-  %.lcssa184 = phi i64 [ %14, %.lr.ph ], [ %159, %19 ]
-  %.lcssa177 = phi i64 [ %13, %.lr.ph ], [ %158, %19 ]
-  %storemerge65.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.051.177.i.i, %19 ]
-  %21 = add nsw i64 %.lcssa184, -2
-  %22 = lshr i64 %21, 1
-  br label %23
+21:                                               ; preds = %18
+  %22 = add nsw i64 %19, -2
+  %23 = lshr i64 %22, 1
+  br label %24
 
-23:                                               ; preds = %23, %._crit_edge
-  %.09.i.i.i = phi i64 [ %22, %._crit_edge ], [ %26, %23 ]
-  %24 = getelementptr inbounds i64, ptr %0, i64 %.09.i.i.i
-  %25 = load i64, ptr %24, align 8, !tbaa !62
-  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %.lcssa184, i64 noundef %25, ptr %3)
+24:                                               ; preds = %24, %21
+  %.09.i.i.i = phi i64 [ %23, %21 ], [ %27, %24 ]
+  %25 = getelementptr inbounds i64, ptr %0, i64 %.09.i.i.i
+  %26 = load i64, ptr %25, align 8, !tbaa !62
+  tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_T0_SH_T1_T2_"(ptr %0, i64 noundef %.09.i.i.i, i64 noundef %19, i64 noundef %26, ptr %3)
   %.not.i.i.i = icmp eq i64 %.09.i.i.i, 0
-  %26 = add nsw i64 %.09.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_RT0_.exit.i.i", label %23, !llvm.loop !2996
+  %27 = add nsw i64 %.09.i.i.i, -1
+  br i1 %.not.i.i.i, label %.lr.ph.i9.i, label %24, !llvm.loop !2995
 
-"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_RT0_.exit.i.i": ; preds = %23
-  %27 = icmp sgt i64 %.lcssa177, 8
-  br i1 %27, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit"
-
-.lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_RT0_.exit.i.i", %.lr.ph.i9.i
-  %.sroa.0.03.i.i = phi ptr [ %28, %.lr.ph.i9.i ], [ %storemerge65.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_RT0_.exit.i.i" ]
+.lr.ph.i9.i:                                      ; preds = %24, %.lr.ph.i9.i
+  %.sroa.0.03.i.i = phi ptr [ %28, %.lr.ph.i9.i ], [ %storemerge58, %24 ]
   %28 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   %29 = load i64, ptr %28, align 8, !tbaa !62
   %30 = load i64, ptr %0, align 8, !tbaa !62
@@ -105915,16 +105910,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %33 = ashr exact i64 %32, 3
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElmNS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_T0_SH_T1_T2_"(ptr nonnull %0, i64 noundef 0, i64 noundef %33, i64 noundef %29, ptr %3)
   %34 = icmp sgt i64 %32, 8
-  br i1 %34, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !2997
+  br i1 %34, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !2996
 
-.lr.ph204:                                        ; preds = %.lr.ph, %19
-  %storemerge65203 = phi ptr [ %.sroa.051.177.i.i, %19 ], [ %1, %.lr.ph ]
-  %.066202 = phi i64 [ %36, %19 ], [ %2, %.lr.ph ]
-  %35 = phi i64 [ %159, %19 ], [ %14, %.lr.ph ]
-  %36 = add nsw i64 %.066202, -1
-  %37 = lshr i64 %35, 1
+35:                                               ; preds = %18
+  %36 = add nsw i64 %.059, -1
+  %37 = lshr i64 %19, 1
   %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
-  %39 = getelementptr inbounds i8, ptr %storemerge65203, i64 -8
+  %39 = getelementptr inbounds i8, ptr %storemerge58, i64 -8
   %.val.i.i.i = load i64, ptr %16, align 8, !tbaa !62
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorIdLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %.val.i.i.i)
   %41 = load double, ptr %40, align 8, !tbaa !927
@@ -105934,7 +105926,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %45 = fcmp olt double %41, %44
   br i1 %45, label %46, label %68
 
-46:                                               ; preds = %.lr.ph204
+46:                                               ; preds = %35
   %.val.i26.i.i = load i64, ptr %38, align 8, !tbaa !62
   %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorIdLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %.val.i26.i.i)
   %48 = load double, ptr %47, align 8, !tbaa !927
@@ -105974,7 +105966,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   store i64 %63, ptr %16, align 8, !tbaa !62
   br label %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i"
 
-68:                                               ; preds = %.lr.ph204
+68:                                               ; preds = %35
   %.val.i28.i.i = load i64, ptr %16, align 8, !tbaa !62
   %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorIdLb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %.val.i28.i.i)
   %70 = load double, ptr %69, align 8, !tbaa !927
@@ -106023,12 +106015,12 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %95 = ashr exact i64 %94, 3
   %.val.i7583.i.i = load i64, ptr %16, align 8, !tbaa !62
   %.not.i.i.i97684.i.i = icmp ult i64 %.val.i7583.i.i, %95
-  br i1 %.not.i.i.i97684.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.i.i, label %.noexc.i34.i.i, !prof !2998
+  br i1 %.not.i.i.i97684.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.i.i, label %.noexc.i34.i.i, !prof !2997
 
 _ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.i.i:    ; preds = %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i", %155
   %.val.i7587.i.i = phi i64 [ %.val.i75.i.i, %155 ], [ %.val.i7583.i.i, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ]
   %.sroa.051.086.i.i = phi ptr [ %156, %155 ], [ %16, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ]
-  %.sroa.048.085.i.i = phi ptr [ %.sroa.048.1.i.i, %155 ], [ %storemerge65203, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ]
+  %.sroa.048.085.i.i = phi ptr [ %.sroa.048.1.i.i, %155 ], [ %storemerge58, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_SG_T0_.exit.i" ]
   %96 = load i64, ptr %0, align 8, !tbaa !62
   %.not.i.i.i.i.i = icmp ult i64 %96, %95
   br i1 %.not.i.i.i.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.split.i.i, label %.noexc.i.i.i, !prof !796
@@ -106173,7 +106165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
   %133 = getelementptr inbounds nuw i8, ptr %.sroa.051.177.i.i, i64 8
   %.val.i.i12.i = load i64, ptr %133, align 8, !tbaa !62
   %.not.i.i.i9.i.i = icmp ult i64 %.val.i.i12.i, %95
-  br i1 %.not.i.i.i9.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.i.i, label %.noexc.i34.i.i, !prof !2999, !llvm.loop !3000
+  br i1 %.not.i.i.i9.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.i.i, label %.noexc.i34.i.i, !prof !2998, !llvm.loop !2999
 
 _ZN6duckdb6vectorIdLb1EEixEm.exit32.i.i:          ; preds = %_ZN6duckdb6vectorIdLb1EEixEm.exit16.i.i, %_ZN6duckdb6vectorIdLb1EEixEm.exit24.i.i
   %.sroa.048.0.pn.i.i = phi ptr [ %.sroa.048.1.i.i, %_ZN6duckdb6vectorIdLb1EEixEm.exit24.i.i ], [ %.sroa.048.085.i.i, %_ZN6duckdb6vectorIdLb1EEixEm.exit16.i.i ]
@@ -106242,7 +106234,7 @@ _ZN6duckdb6vectorIdLb1EEixEm.exit24.i.i:          ; preds = %_ZN6duckdb6vectorId
   %150 = getelementptr inbounds nuw double, ptr %91, i64 %134
   %151 = load double, ptr %150, align 8, !tbaa !927
   %152 = fcmp olt double %98, %151
-  br i1 %152, label %_ZN6duckdb6vectorIdLb1EEixEm.exit32.i.i, label %153, !llvm.loop !3001
+  br i1 %152, label %_ZN6duckdb6vectorIdLb1EEixEm.exit32.i.i, label %153, !llvm.loop !3000
 
 153:                                              ; preds = %_ZN6duckdb6vectorIdLb1EEixEm.exit24.i.i
   %154 = icmp ult ptr %.sroa.051.177.i.i, %.sroa.048.1.i.i
@@ -106254,17 +106246,17 @@ _ZN6duckdb6vectorIdLb1EEixEm.exit24.i.i:          ; preds = %_ZN6duckdb6vectorId
   %156 = getelementptr inbounds nuw i8, ptr %.sroa.051.177.i.i, i64 8
   %.val.i75.i.i = load i64, ptr %156, align 8, !tbaa !62
   %.not.i.i.i976.i.i = icmp ult i64 %.val.i75.i.i, %95
-  br i1 %.not.i.i.i976.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.i.i, label %.noexc.i34.i.i, !prof !3002, !llvm.loop !3003
+  br i1 %.not.i.i.i976.i.i, label %_ZN6duckdb6vectorIdLb1EEixEm.exit16.lr.ph.i.i, label %.noexc.i34.i.i, !prof !3001, !llvm.loop !3002
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit": ; preds = %153
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_T0_T1_"(ptr %.sroa.051.177.i.i, ptr %storemerge65203, i64 noundef %36, ptr nonnull %3)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEElNS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_T0_T1_"(ptr %.sroa.051.177.i.i, ptr %storemerge58, i64 noundef %36, ptr nonnull %3)
   %157 = ptrtoint ptr %.sroa.051.177.i.i to i64
   %158 = sub i64 %157, %11
   %159 = ashr exact i64 %158, 3
   %160 = icmp sgt i64 %159, 16
-  br i1 %160, label %19, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !2995
+  br i1 %160, label %18, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit", !llvm.loop !3003
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit", %.lr.ph.i9.i, %4, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEEvT_SG_SG_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS0_5__ops15_Iter_comp_iterIZNK6duckdb22TemporaryMemoryManager18ComputeReservationERKNS9_20TemporaryMemoryStateEE3$_0EEET_SG_SG_T0_.exit", %.lr.ph.i9.i, %4
   ret void
 }
 
@@ -127916,12 +127908,12 @@ attributes #45 = { nounwind willreturn memory(read) }
 !2994 = distinct !{!2994, !24}
 !2995 = distinct !{!2995, !24}
 !2996 = distinct !{!2996, !24}
-!2997 = distinct !{!2997, !24}
-!2998 = !{!"branch_weights", i32 127, i32 1}
-!2999 = !{!"branch_weights", i32 255873, i32 127}
+!2997 = !{!"branch_weights", i32 127, i32 1}
+!2998 = !{!"branch_weights", i32 255873, i32 127}
+!2999 = distinct !{!2999, !24}
 !3000 = distinct !{!3000, !24}
-!3001 = distinct !{!3001, !24}
-!3002 = !{!"branch_weights", i32 16129, i32 127}
+!3001 = !{!"branch_weights", i32 16129, i32 127}
+!3002 = distinct !{!3002, !24}
 !3003 = distinct !{!3003, !24}
 !3004 = distinct !{!3004, !24}
 !3005 = distinct !{!3005, !24}

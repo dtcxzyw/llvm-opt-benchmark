@@ -751,7 +751,7 @@ _ZN24SharedStringDecompressor14decompress_intERPh.exit168: ; preds = %_ZN24Share
   %263 = trunc i64 %262 to i32
   %sext122 = shl i64 %262, 32
   %264 = ashr exact i64 %sext122, 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr nonnull align 1 %261, i64 %264, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.3, ptr nonnull align 1 %261, i64 %264, i1 false)
   %265 = getelementptr inbounds i8, ptr %.3, i64 %264
   %266 = add nsw i32 %.2113, %263
   br label %267

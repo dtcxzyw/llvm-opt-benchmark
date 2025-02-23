@@ -400,7 +400,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %150 = tail call i32 %149() #12
   switch i32 %150, label %151 [
     i32 0, label %153
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 151:                                              ; preds = %.loopexit
@@ -412,7 +412,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %154 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_ras_base_framework, i32 noundef 0) #12
   switch i32 %154, label %155 [
     i32 0, label %157
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 155:                                              ; preds = %153
@@ -424,7 +424,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %158 = tail call i32 @prte_ras_base_select() #12
   switch i32 %158, label %159 [
     i32 0, label %161
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 159:                                              ; preds = %157
@@ -436,7 +436,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %162 = tail call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_rmaps_base_framework, i32 noundef 0) #12
   switch i32 %162, label %163 [
     i32 0, label %165
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 163:                                              ; preds = %161
@@ -448,7 +448,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %166 = tail call i32 @prte_rmaps_base_select() #12
   switch i32 %166, label %167 [
     i32 0, label %169
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 167:                                              ; preds = %165
@@ -499,7 +499,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %193 = call i32 @pmix_mca_base_framework_open(ptr noundef nonnull @prte_odls_base_framework, i32 noundef 0) #12
   switch i32 %193, label %194 [
     i32 0, label %196
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 194:                                              ; preds = %192
@@ -511,7 +511,7 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %197 = call i32 @prte_odls_base_select() #12
   switch i32 %197, label %198 [
     i32 0, label %200
-    i32 -43, label %.thread
+    i32 -43, label %.thread.thread
   ]
 
 198:                                              ; preds = %196
@@ -596,13 +596,13 @@ pmix_obj_update.exit178:                          ; preds = %pmix_obj_update.exi
   %228 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 1, ptr noundef nonnull %.0101192, ptr noundef %227, i32 noundef %.099193) #12
   br label %.thread
 
-.thread:                                          ; preds = %196, %192, %165, %161, %157, %153, %.loopexit, %226, %.thread186, %223
-  %.0102184 = phi ptr [ %.0102191, %226 ], [ %.0102191, %.thread186 ], [ %.0102, %223 ], [ %25, %196 ], [ %25, %192 ], [ %25, %165 ], [ %25, %161 ], [ %25, %157 ], [ %25, %153 ], [ %25, %.loopexit ]
+.thread:                                          ; preds = %226, %.thread186, %223
+  %.0102184 = phi ptr [ %.0102191, %226 ], [ %.0102191, %.thread186 ], [ %.0102, %223 ]
   %.not176 = icmp eq ptr %.0102184, null
   br i1 %.not176, label %.thread.thread197, label %.thread.thread
 
-.thread.thread:                                   ; preds = %31, %113, %115, %119, %123, %127, %131, %200, %211, %215, %219, %.thread
-  %.0102184196 = phi ptr [ %.0102184, %.thread ], [ %25, %219 ], [ %25, %215 ], [ %25, %211 ], [ %25, %200 ], [ %25, %131 ], [ %25, %127 ], [ %25, %123 ], [ %25, %119 ], [ %25, %115 ], [ %25, %113 ], [ %25, %31 ]
+.thread.thread:                                   ; preds = %.loopexit, %153, %157, %161, %165, %192, %196, %31, %113, %115, %119, %123, %127, %131, %200, %211, %215, %219, %.thread
+  %.0102184196 = phi ptr [ %.0102184, %.thread ], [ %25, %219 ], [ %25, %215 ], [ %25, %211 ], [ %25, %200 ], [ %25, %131 ], [ %25, %127 ], [ %25, %123 ], [ %25, %119 ], [ %25, %115 ], [ %25, %113 ], [ %25, %31 ], [ %25, %196 ], [ %25, %192 ], [ %25, %165 ], [ %25, %161 ], [ %25, %157 ], [ %25, %153 ], [ %25, %.loopexit ]
   %229 = call i32 @pthread_mutex_lock(ptr noundef nonnull %.0102184196) #12
   %230 = icmp eq i32 %229, 35
   br i1 %230, label %231, label %pmix_obj_update.exit179

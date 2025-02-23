@@ -3139,7 +3139,7 @@ _ZN6bufferIbLb1ELj16EE9push_backERKb.exit.i:      ; preds = %_ZN6bufferIbLb1ELj1
   %13 = load i32, ptr %m_pos.i, align 8
   %inc.i.i = add i32 %13, 1
   store i32 %inc.i.i, ptr %m_pos.i, align 8
-  %inc.i = add nuw i32 %i.012.i, 1
+  %inc.i = add i32 %i.012.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %shl
   br i1 %exitcond.not.i, label %invoke.cont9, label %for.body.i, !llvm.loop !17
 

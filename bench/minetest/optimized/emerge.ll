@@ -8381,7 +8381,7 @@ _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gn
 
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit: ; preds = %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %if.then.i11
   %10 = phi ptr [ %incdec.ptr.i, %if.then.i11 ], [ %incdec.ptr.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ]
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin1.sroa.0.017) #37
+  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__begin1.sroa.0.017) #37
   %cmp.i10.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i10.not, label %for.cond.cleanup, label %for.body
 }
@@ -8906,7 +8906,7 @@ for.body.i.i.i.i.i.prol.loopexit:                 ; preds = %for.body.i.i.i.i.i.
   %__n.010.i.i.i.i.i.unr = phi i64 [ %sub.ptr.div.i, %for.body.i.i.i.i.i.preheader ], [ %9, %for.body.i.i.i.i.i.prol ]
   %__result.addr.09.i.i.i.i.i.unr = phi ptr [ %3, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr1.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
   %__first.addr.08.i.i.i.i.i.unr = phi ptr [ %1, %for.body.i.i.i.i.i.preheader ], [ %incdec.ptr.i.i.i.i.i.prol, %for.body.i.i.i.i.i.prol ]
-  %11 = icmp ult i64 %sub.ptr.div.i, 8
+  %11 = icmp samesign ult i64 %sub.ptr.div.i, 8
   br i1 %11, label %if.end69, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i.prol.loopexit, %for.body.i.i.i.i.i
@@ -8981,7 +8981,7 @@ for.body.i.i.i.i.i112.prol.loopexit:              ; preds = %for.body.i.i.i.i.i1
   %__n.010.i.i.i.i.i113.unr = phi i64 [ %sub.ptr.div.i.i.i.i.i109, %for.body.i.i.i.i.i112.preheader ], [ %21, %for.body.i.i.i.i.i112.prol ]
   %__result.addr.09.i.i.i.i.i114.unr = phi ptr [ %3, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr1.i.i.i.i.i119.prol, %for.body.i.i.i.i.i112.prol ]
   %__first.addr.08.i.i.i.i.i115.unr = phi ptr [ %1, %for.body.i.i.i.i.i112.preheader ], [ %incdec.ptr.i.i.i.i.i118.prol, %for.body.i.i.i.i.i112.prol ]
-  %23 = icmp ult i64 %sub.ptr.div.i.i.i.i.i109, 8
+  %23 = icmp samesign ult i64 %sub.ptr.div.i.i.i.i.i109, 8
   br i1 %23, label %_ZSt4copyIPSt4pairIPFvN3irr4core8vector3dIsEE12EmergeActionPvES6_ESA_ET0_T_SC_SB_.exit, label %for.body.i.i.i.i.i112
 
 for.body.i.i.i.i.i112:                            ; preds = %for.body.i.i.i.i.i112.prol.loopexit, %for.body.i.i.i.i.i112

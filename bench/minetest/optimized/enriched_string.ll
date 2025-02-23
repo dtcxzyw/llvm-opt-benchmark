@@ -757,7 +757,7 @@ _ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cx
   br label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i145
-  %inc = add i64 %i.0264358, 1
+  %inc = add nuw i64 %i.0264358, 1
   %51 = load i64, ptr %_M_string_length.i139, align 8, !tbaa !21
   %cmp7 = icmp ult i64 %inc, %51
   br i1 %cmp7, label %while.body, label %while.end95, !llvm.loop !43
@@ -2191,11 +2191,6 @@ _ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23: ; preds
   %or.cond = or i1 %min.iters.check, %diff.check
   br i1 %or.cond, label %for.body.i.i.i.i.i37.preheader, label %vector.ph
 
-for.body.i.i.i.i.i37.preheader:                   ; preds = %middle.block, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23
-  %__cur.08.i.i.i.i.i38.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i32, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23 ]
-  %__first.addr.07.i.i.i.i.i39.ph = phi ptr [ %ind.end51, %middle.block ], [ %5, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23 ]
-  br label %for.body.i.i.i.i.i37
-
 vector.ph:                                        ; preds = %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23
   %n.vec = and i64 %19, 9223372036854775800
   %21 = shl i64 %n.vec, 2
@@ -2222,11 +2217,13 @@ vector.body:                                      ; preds = %vector.body, %vecto
 middle.block:                                     ; preds = %vector.body
   %ind.end51 = getelementptr i8, ptr %5, i64 %21
   %cmp.n = icmp eq i64 %19, %n.vec
-  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43.thread, label %for.body.i.i.i.i.i37.preheader
+  %ind.escape = getelementptr i8, ptr %ind.end, i64 -4
+  br i1 %cmp.n, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %for.body.i.i.i.i.i37.preheader
 
-_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43.thread: ; preds = %middle.block
-  %incdec.ptr.i.i453 = getelementptr i8, ptr %ind.end, i64 4
-  br label %if.then.i41.i.i47
+for.body.i.i.i.i.i37.preheader:                   ; preds = %middle.block, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23
+  %__cur.08.i.i.i.i.i38.ph = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i.i32, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23 ]
+  %__first.addr.07.i.i.i.i.i39.ph = phi ptr [ %ind.end51, %middle.block ], [ %5, %_ZNKSt6vectorIN3irr5video6SColorESaIS2_EE12_M_check_lenEmPKc.exit.i.i23 ]
+  br label %for.body.i.i.i.i.i37
 
 for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i37.preheader, %for.body.i.i.i.i.i37
   %__cur.08.i.i.i.i.i38 = phi ptr [ %incdec.ptr1.i.i.i.i.i41, %for.body.i.i.i.i.i37 ], [ %__cur.08.i.i.i.i.i38.ph, %for.body.i.i.i.i.i37.preheader ]
@@ -2238,22 +2235,14 @@ for.body.i.i.i.i.i37:                             ; preds = %for.body.i.i.i.i.i3
   %incdec.ptr.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %__first.addr.07.i.i.i.i.i39, i64 4
   %incdec.ptr1.i.i.i.i.i41 = getelementptr inbounds nuw i8, ptr %__cur.08.i.i.i.i.i38, i64 4
   %cmp.not.i.i.i.i.i42 = icmp eq ptr %incdec.ptr.i.i.i.i.i40, %7
-  br i1 %cmp.not.i.i.i.i.i42, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43, label %for.body.i.i.i.i.i37, !llvm.loop !77
+  br i1 %cmp.not.i.i.i.i.i42, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %for.body.i.i.i.i.i37, !llvm.loop !77
 
-_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43: ; preds = %for.body.i.i.i.i.i37
-  %incdec.ptr.i.i45 = getelementptr i8, ptr %__cur.08.i.i.i.i.i38, i64 8
-  %tobool.not.i.i.i46 = icmp eq ptr %5, null
-  br i1 %tobool.not.i.i.i46, label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %if.then.i41.i.i47
-
-if.then.i41.i.i47:                                ; preds = %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43.thread, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43
-  %incdec.ptr.i.i455 = phi ptr [ %incdec.ptr.i.i453, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43.thread ], [ %incdec.ptr.i.i45, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43 ]
+_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %for.body.i.i.i.i.i37, %middle.block
+  %__cur.08.i.i.i.i.i38.lcssa = phi ptr [ %ind.escape, %middle.block ], [ %__cur.08.i.i.i.i.i38, %for.body.i.i.i.i.i37 ]
+  %incdec.ptr.i.i45 = getelementptr i8, ptr %__cur.08.i.i.i.i.i38.lcssa, i64 8
   tail call void @_ZdlPv(ptr noundef nonnull %5) #24
-  br label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-
-_ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i47, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43
-  %incdec.ptr.i.i456 = phi ptr [ %incdec.ptr.i.i455, %if.then.i41.i.i47 ], [ %incdec.ptr.i.i45, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i43 ]
   store ptr %call5.i.i.i.i.i32, ptr %m_colors, align 8, !tbaa !25
-  store ptr %incdec.ptr.i.i456, ptr %_M_finish.i.i, align 8, !tbaa !26
+  store ptr %incdec.ptr.i.i45, ptr %_M_finish.i.i, align 8, !tbaa !26
   %add.ptr19.i.i48 = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %call5.i.i.i.i.i32, i64 %cond.i.i.i28
   store ptr %add.ptr19.i.i48, ptr %_M_end_of_storage.i14, align 8, !tbaa !29
   br label %if.end

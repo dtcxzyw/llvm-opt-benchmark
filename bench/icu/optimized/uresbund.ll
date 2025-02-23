@@ -3346,12 +3346,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %sink) #21
   %2 = load i32, ptr %status, align 4
   %cmp.i34 = icmp sgt i32 %2, 0
-  br i1 %cmp.i34, label %cleanup.thread, label %if.end.i.i.i
-
-cleanup.thread:                                   ; preds = %invoke.cont4
-  store i32 1, ptr %status, align 4
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonLocaleID) #21
-  br label %return
+  br i1 %cmp.i34, label %cleanup, label %if.end.i.i.i
 
 lpad:                                             ; preds = %call15.i.noexc, %if.end.i, %.noexc, %call.i.i.i.noexc, %if.then4.i.i.i, %land.lhs.true.i.i.i, %if.then2
   %3 = landingpad { ptr, i32 }
@@ -3411,12 +3406,12 @@ if.else.i.i.i:                                    ; preds = %call2.i.i.i.noexc, 
 
 if.then8.i.i.i:                                   ; preds = %if.else.i.i.i
   store i32 %8, ptr %status, align 4
-  br label %if.end13.thread
+  br label %cleanup.thread
 
 _ZL9initCacheP10UErrorCode.exit.i:                ; preds = %.noexc, %if.else.i.i.i
   %.pr97.i = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %.pr97.i, 1
-  br i1 %cmp.i.i, label %if.end.i, label %if.end13.thread
+  br i1 %cmp.i.i, label %if.end.i, label %cleanup.thread
 
 if.end.i:                                         ; preds = %_ZL9initCacheP10UErrorCode.exit.i
   %call1.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %name.i, ptr noundef nonnull readonly dereferenceable(1) %5, i64 noundef 156) #21
@@ -3669,7 +3664,7 @@ cleanup.sink.split.i:                             ; preds = %if.then139.i, %if.e
 cleanup.i:                                        ; preds = %cleanup.sink.split.i, %if.then139.i, %finish.i
   %retval.1.i = phi ptr [ %r.0.ph.i, %if.then139.i ], [ null, %finish.i ], [ %retval.1.ph.i, %cleanup.sink.split.i ]
   invoke void @umtx_unlock_75(ptr noundef nonnull @_ZL9resbMutex)
-          to label %cleanup unwind label %terminate.lpad.i64.i
+          to label %cleanup.thread unwind label %terminate.lpad.i64.i
 
 terminate.lpad.i64.i:                             ; preds = %cleanup.i
   %34 = landingpad { ptr, i32 }
@@ -3678,7 +3673,8 @@ terminate.lpad.i64.i:                             ; preds = %cleanup.i
   call void @__clang_call_terminate(ptr %35) #23
   unreachable
 
-cleanup:                                          ; preds = %cleanup.i
+cleanup.thread:                                   ; preds = %cleanup.i, %_ZL9initCacheP10UErrorCode.exit.i, %if.then8.i.i.i
+  %retval.0.i = phi ptr [ null, %_ZL9initCacheP10UErrorCode.exit.i ], [ %retval.1.i, %cleanup.i ], [ null, %if.then8.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %intStatus.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t1.i)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %isDefault.i)
@@ -3687,6 +3683,11 @@ cleanup:                                          ; preds = %cleanup.i
   call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %name.i)
   call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonLocaleID) #21
   br label %if.end13
+
+cleanup:                                          ; preds = %invoke.cont4
+  store i32 1, ptr %status, align 4
+  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonLocaleID) #21
+  br label %return
 
 common.resume:                                    ; preds = %lpad.i55, %ehcleanup
   %common.resume.op = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %43, %lpad.i55 ]
@@ -3894,29 +3895,17 @@ _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %if.then8.i.i.i70, %
   call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %name.i42)
   br label %if.end13
 
-if.end13:                                         ; preds = %cleanup, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit
-  %entry1.1 = phi ptr [ %retval.1.i, %cleanup ], [ %retval.0.i44, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit ]
+if.end13:                                         ; preds = %cleanup.thread, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit
+  %entry1.1 = phi ptr [ %retval.0.i44, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit ], [ %retval.0.i, %cleanup.thread ]
   %59 = load i32, ptr %status, align 4
   %cmp.i71 = icmp slt i32 %59, 1
   br i1 %cmp.i71, label %if.end17, label %return
-
-if.end13.thread:                                  ; preds = %if.then8.i.i.i, %_ZL9initCacheP10UErrorCode.exit.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %intStatus.i)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %t1.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %isDefault.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %isRoot.i)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %hasChopped.i)
-  call void @llvm.lifetime.end.p0(i64 157, ptr nonnull %name.i)
-  call void @_ZN6icu_7515MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %canonLocaleID) #21
-  %60 = load i32, ptr %status, align 4
-  %cmp.i7184 = icmp slt i32 %60, 1
-  br i1 %cmp.i7184, label %if.then19, label %return
 
 if.end17:                                         ; preds = %if.end13
   %cmp18 = icmp eq ptr %entry1.1, null
   br i1 %cmp18, label %if.then19, label %if.end20
 
-if.then19:                                        ; preds = %if.end13.thread, %if.end17
+if.then19:                                        ; preds = %if.end17
   store i32 2, ptr %status, align 4
   br label %return
 
@@ -3936,73 +3925,73 @@ if.then25:                                        ; preds = %if.then22
 
 if.else27:                                        ; preds = %if.end20
   %fMagic1.i = getelementptr inbounds nuw i8, ptr %r, i64 116
-  %61 = load i32, ptr %fMagic1.i, align 4
-  %cmp.i73 = icmp eq i32 %61, 19700503
-  br i1 %cmp.i73, label %if.end29, label %.thread106
+  %60 = load i32, ptr %fMagic1.i, align 4
+  %cmp.i73 = icmp eq i32 %60, 19700503
+  br i1 %cmp.i73, label %if.end29, label %.thread96
 
-.thread106:                                       ; preds = %if.else27
+.thread96:                                        ; preds = %if.else27
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %r, i8 noundef signext 0)
   br label %.sink.split
 
 if.end29:                                         ; preds = %if.else27
   %fMagic2.i = getelementptr inbounds nuw i8, ptr %r, i64 120
-  %62 = load i32, ptr %fMagic2.i, align 8
-  %.fr = freeze i32 %62
+  %61 = load i32, ptr %fMagic2.i, align 8
+  %.fr = freeze i32 %61
   %cmp1.i.not = icmp eq i32 %.fr, 19641227
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %r, i8 noundef signext 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %r, i8 0, i64 136, i1 false)
   %spec.select = select i1 %cmp1.i.not, i32 19700503, i32 0
-  %spec.select112 = select i1 %cmp1.i.not, i32 19641227, i32 0
-  br label %63
+  %spec.select102 = select i1 %cmp1.i.not, i32 19641227, i32 0
+  br label %62
 
-.sink.split:                                      ; preds = %if.then22, %.thread106
-  %call23.sink = phi ptr [ %r, %.thread106 ], [ %call23, %if.then22 ]
-  %.ph = phi i32 [ 0, %.thread106 ], [ 19700503, %if.then22 ]
-  %.ph111 = phi i32 [ 0, %.thread106 ], [ 19641227, %if.then22 ]
+.sink.split:                                      ; preds = %if.then22, %.thread96
+  %call23.sink = phi ptr [ %r, %.thread96 ], [ %call23, %if.then22 ]
+  %.ph = phi i32 [ 0, %.thread96 ], [ 19700503, %if.then22 ]
+  %.ph101 = phi i32 [ 0, %.thread96 ], [ 19641227, %if.then22 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %call23.sink, i8 0, i64 136, i1 false)
-  br label %63
+  br label %62
 
-63:                                               ; preds = %if.end29, %.sink.split
-  %64 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %if.end29 ]
-  %r.addr.093104 = phi ptr [ %call23.sink, %.sink.split ], [ %r, %if.end29 ]
-  %65 = phi i32 [ %.ph111, %.sink.split ], [ %spec.select112, %if.end29 ]
-  %66 = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 116
-  store i32 %64, ptr %66, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 120
-  store i32 %65, ptr %67, align 8
-  %fData = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 8
+62:                                               ; preds = %if.end29, %.sink.split
+  %63 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %if.end29 ]
+  %r.addr.08394 = phi ptr [ %call23.sink, %.sink.split ], [ %r, %if.end29 ]
+  %64 = phi i32 [ %.ph101, %.sink.split ], [ %spec.select102, %if.end29 ]
+  %65 = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 116
+  store i32 %63, ptr %65, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 120
+  store i32 %64, ptr %66, align 8
+  %fData = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 8
   store ptr %entry1.1, ptr %fData, align 8
-  %fValidLocaleDataEntry = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 24
+  %fValidLocaleDataEntry = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 24
   store ptr %entry1.1, ptr %fValidLocaleDataEntry, align 8
   br i1 %cmp.not, label %land.end, label %land.rhs
 
-land.rhs:                                         ; preds = %63
+land.rhs:                                         ; preds = %62
   %noFallback = getelementptr inbounds nuw i8, ptr %entry1.1, i64 96
-  %68 = load i8, ptr %noFallback, align 8
-  %tobool32.not = icmp eq i8 %68, 0
-  %69 = zext i1 %tobool32.not to i8
+  %67 = load i8, ptr %noFallback, align 8
+  %tobool32.not = icmp eq i8 %67, 0
+  %68 = zext i1 %tobool32.not to i8
   br label %land.end
 
-land.end:                                         ; preds = %land.rhs, %63
-  %conv = phi i8 [ 0, %63 ], [ %69, %land.rhs ]
-  %fHasFallback = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 112
+land.end:                                         ; preds = %land.rhs, %62
+  %conv = phi i8 [ 0, %62 ], [ %68, %land.rhs ]
+  %fHasFallback = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 112
   store i8 %conv, ptr %fHasFallback, align 8
-  %fIsTopLevel = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 113
+  %fIsTopLevel = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 113
   store i8 1, ptr %fIsTopLevel, align 1
   %fData2.i75 = getelementptr inbounds nuw i8, ptr %entry1.1, i64 40
   %rootRes = getelementptr inbounds nuw i8, ptr %entry1.1, i64 72
-  %70 = load i32, ptr %rootRes, align 8
-  %fRes = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 108
-  store i32 %70, ptr %fRes, align 4
-  %call36 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i75, i32 noundef %70)
-  %fSize = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 128
+  %69 = load i32, ptr %rootRes, align 8
+  %fRes = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 108
+  store i32 %69, ptr %fRes, align 4
+  %call36 = call i32 @res_countArrayItems_75(ptr noundef nonnull %fData2.i75, i32 noundef %69)
+  %fSize = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 128
   store i32 %call36, ptr %fSize, align 8
-  %fIndex = getelementptr inbounds nuw i8, ptr %r.addr.093104, i64 124
+  %fIndex = getelementptr inbounds nuw i8, ptr %r.addr.08394, i64 124
   store i32 -1, ptr %fIndex, align 4
   br label %return
 
-return:                                           ; preds = %if.end13.thread, %cleanup.thread, %if.end13, %entry, %land.end, %if.then25, %if.then19
-  %retval.0 = phi ptr [ null, %if.then19 ], [ null, %if.then25 ], [ %r.addr.093104, %land.end ], [ null, %entry ], [ null, %if.end13 ], [ null, %cleanup.thread ], [ null, %if.end13.thread ]
+return:                                           ; preds = %cleanup, %if.end13, %entry, %land.end, %if.then25, %if.then19
+  %retval.0 = phi ptr [ null, %cleanup ], [ null, %if.then19 ], [ null, %if.then25 ], [ %r.addr.08394, %land.end ], [ null, %entry ], [ null, %if.end13 ]
   ret ptr %retval.0
 }
 

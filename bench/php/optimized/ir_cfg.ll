@@ -1976,7 +1976,7 @@ ir_array_set.exit:                                ; preds = %85, %91
   br label %166
 
 .critedge132:                                     ; preds = %._crit_edge174
-  call void @_efree(ptr noundef %99) #15
+  call void @_efree(ptr noundef nonnull %99) #15
   store ptr null, ptr %1, align 8, !tbaa !52
   store i32 0, ptr %8, align 8, !tbaa !54
   store i32 0, ptr %9, align 8, !tbaa !55
